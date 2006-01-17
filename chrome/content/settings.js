@@ -332,8 +332,9 @@ function getPatterns()
 {
   var patterns = [];
   var list = document.getElementById("list");
-  for (var item = list.getItemAtIndex(0); item; item = list.getNextItem(item, 1))
-    patterns.push(item.getAttribute("value"));
+  if (list.getRowCount() > 0)
+    for (var item = list.getItemAtIndex(0); item; item = list.getNextItem(item, 1))
+      patterns.push(item.getAttribute("value"));
   return patterns;
 }
 
