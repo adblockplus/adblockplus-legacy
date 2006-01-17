@@ -30,5 +30,5 @@
 <!ENTITY noitems.label            "No blockable items">
 <!ENTITY notloaded.label          "Adblock Plus hasn't been installed properly">
 
-<!ENTITY adblock.label            "Adblock Plus">
+<!ENTITY adblock.label            "Adblock">
 <!ENTITY adblock.accesskey        "A">
