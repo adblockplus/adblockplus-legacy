@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+
+<!-- ***** BEGIN LICENSE BLOCK *****
+   - Version: MPL 1.1
+   -
+   - The contents of this file are subject to the Mozilla Public License Version
+   - 1.1 (the "License"); you may not use this file except in compliance with
+   - the License. You may obtain a copy of the License at
+   - http://www.mozilla.org/MPL/
+   -
+   - Software distributed under the License is distributed on an "AS IS" basis,
+   - WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+   - for the specific language governing rights and limitations under the
+   - License.
+   -
+   - The Original Code is Adblock Plus.
+   -
+   - The Initial Developer of the Original Code is
+   - Wladimir Palant.
+   - Portions created by the Initial Developer are Copyright (C) 2006
+   - the Initial Developer. All Rights Reserved.
+   -
+   - Contributor(s):
+   -
+   - ***** END LICENSE BLOCK ***** -->
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://adblockplus/skin/sidebar.css" type="text/css"?>
+
+<!DOCTYPE page SYSTEM "chrome://adblockplus/locale/sidebar.dtd">
+
+<page
+  xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+  id="adblock-sidebar"
+  onload="init()"
+  onunload="cleanUp()">
+
+  <script type="application/x-javascript" src="sidebar.js"/>
+  <script type="application/x-javascript" src="security.js"/>
+
+  <popupset id="sidebarPopups">
+    <tooltip id="suggestionsTooltip" label=" " onpopupshowing="return fillInTooltip(event)"/>
+  </popupset>
+
+  <label id="suggestionsListLabel" value="&list.label;:" control="suggestionsList"/>
+  <listbox id="suggestionsList" flex="1" seltype="single" tooltip="suggestionsTooltip" onclick="openInTab(event)" ondblclick="doAdblock()" onkeypress="if (event.keyCode == event.DOM_VK_RETURN || event.keyCode == event.DOM_VK_ENTER) doAdblock();">
+    <listhead>
+      <listheader label="&type.label;"/>
+      <listheader label="&address.label;"/>
+    </listhead>
+    <listcols>
+      <listcol id="typeCol"/>
+      <listcol id="locationCol" flex="1"/>
+    </listcols>
+    <listitem id="noItemsDummy">
+      <listcell disabled="true" label="&noitems.label;"/>
+    </listitem>
+    <listitem id="notLoadedDummy">
+      <listcell disabled="true" label="&notloaded.label;"/>
+    </listitem>
+  </listbox>
+
+  <hbox>
+    <button id="adblockButton" label="&adblock.label;" accesskey="&adblock.accesskey;" oncommand="doAdblock()"/>
+  </hbox>
+</page>

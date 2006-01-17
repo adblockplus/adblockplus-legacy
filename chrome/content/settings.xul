@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+
+<!-- ***** BEGIN LICENSE BLOCK *****
+   - Version: MPL 1.1
+   -
+   - The contents of this file are subject to the Mozilla Public License Version
+   - 1.1 (the "License"); you may not use this file except in compliance with
+   - the License. You may obtain a copy of the License at
+   - http://www.mozilla.org/MPL/
+   -
+   - Software distributed under the License is distributed on an "AS IS" basis,
+   - WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+   - for the specific language governing rights and limitations under the
+   - License.
+   -
+   - The Original Code is Adblock Plus.
+   -
+   - The Initial Developer of the Original Code is
+   - Wladimir Palant.
+   - Portions created by the Initial Developer are Copyright (C) 2006
+   - the Initial Developer. All Rights Reserved.
+   -
+   - Contributor(s):
+   -
+   - ***** END LICENSE BLOCK ***** -->
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://adblockplus/skin/settings.css" type="text/css"?>
+
+<!DOCTYPE window SYSTEM "chrome://adblockplus/locale/settings.dtd">
+
+<window
+  xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+  title="&dialog.title;"
+  id="adblockPreferencesWindow"
+  onload="setTimeout(init, 0)"
+  onunload="flasher.stop()"
+  width="600px"
+  height="450px"
+  persist="screenX screenY width height"
+  windowtype="adblock:settings">
+
+<script type="application/x-javascript" src="settings.js"/>
+<script type="application/x-javascript" src="security.js"/>
+
+<stringbundleset id="adblockStringBundles">
+  <stringbundle id="adblockStrings" src="chrome://adblockplus/locale/global.properties"/>
+</stringbundleset>
+
+<keyset id="adblockKeys">
+  <key keycode="VK_RETURN" command="ok-command"/>
+  <key keycode="VK_ENTER" command="ok-command"/>
+  <key keycode="VK_CANCEL" command="cancel-command"/>
+  <key keycode="VK_ESCAPE" command="cancel-command"/>
+</keyset>
+
+<commandset id="adblockCommands">
+  <command id="ok-command" oncommand="addFilter(); saveSettings(); window.close()"/>
+  <command id="cancel-command" oncommand="window.close()"/>
+</commandset>
+
+<toolbox id="menuToolbox">
+  <menubar id="menu">
+    <menu id="options-menu" label="&options.label;" accesskey="&options.accesskey;">
+      <menupopup id="options-popup">
+        <menuitem label="&browser.group.label;" disabled="true" style="font-style: italic;"/>
+        <menuitem id="enabled" label="&enable.label;" type="checkbox"/>
+        <menuitem id="frameobjects" label="&objecttabs.label;" type="checkbox"/>
+        <menuitem id="slowcollapse" label="&collapse.label;" type="checkbox"/>
+        <menuitem id="linkcheck" label="&linkcheck.label;" type="checkbox"/>
+        <menuseparator/>
+        <menuitem label="&preferences.group.label;" disabled="true" style="font-style: italic;"/>
+        <menuitem id="listsort" label="&listsort.label;" type="checkbox" oncommand="setListSorting(this.getAttribute('checked') == 'true')"/>
+        <menuseparator/>
+        <menuitem id="import" label="&import.label;..." oncommand="importList()"/>
+        <menuitem id="export" label="&export.label;..." oncommand="exportList()"/>
+        <menuitem id="clearall" label="&clearall.label;..." oncommand="clearList()"/>
+      </menupopup>
+    </menu>
+    <menu id="help-menu" label="&help.label;" accesskey="&help.accesskey;">
+      <menupopup id="help-popup">
+        <menuitem id="aboutAdblock" label="&about.label;..." oncommand="openAbout()"/>
+        <menuseparator/>
+        <menuitem id="aboutRegExp" label="&regexp.label;" oncommand="adblock.loadInBrowser('http://developer.mozilla.org/en/docs/Core_JavaScript_1.5_Reference:Global_Objects:RegExp');"/>
+      </menupopup>
+    </menu>
+  </menubar>
+</toolbox>
+
+<vbox id="entryarea">
+  <description>
+    &description;
+  </description>
+  <hbox align="center">
+    <label id="newfilterLabel" value="&newfilter.label;:" accesskey="&newfilter.accesskey;" control="newfilter" />
+    <menulist id="newfilter" flex="1" editable="true" disableautoselect="true" onkeypress="onFilterKeyPress(event)" onpopupshowing="fixColWidth()">
+    <menupopup/>
+    </menulist>
+    <button id="newbutton" label="&add.label;" accesskey="&add.accesskey;" oncommand="addFilter();"/>
+  </hbox>
+</vbox>
+
+<vbox id="listarea" flex="1">
+  <label id="listLabel" value="&list.label;:" accesskey="&list.accesskey;" control="list" />
+  <listbox id="list" flex="1" context="listitem-contextmenu" onkeypress="onListKeyPress(event)">
+    <listitem id="list-editor"><textbox id="list-editorField"/></listitem>
+  </listbox>
+  <popup id="listitem-contextmenu">
+    <menuitem id="listitem-contextmenu-modify" label="&context.edit.label;" oncommand="editor.startEditor(document.popupNode)"/>
+    <menuseparator id="listitem-contextmenu-separator.i"/>
+    <menuitem id="listitem-contextmenu-delete" label="&context.remove.label;" oncommand="removeFilter(document.popupNode);"/>
+  </popup>
+</vbox>
+
+<hbox id="buttons" pack="end">
+  <button class="dialog-button" id="ok-button" label="&ok.label;" command="ok-command"/>
+  <button class="dialog-button" id="cancel-button" label="&cancel.label;" command="cancel-command"/>
+</hbox>
+
+</window>

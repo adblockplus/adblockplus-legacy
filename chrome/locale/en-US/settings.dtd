@@ -1,0 +1,68 @@
+<!-- ***** BEGIN LICENSE BLOCK *****
+   - Version: MPL 1.1
+   -
+   - The contents of this file are subject to the Mozilla Public License Version
+   - 1.1 (the "License"); you may not use this file except in compliance with
+   - the License. You may obtain a copy of the License at
+   - http://www.mozilla.org/MPL/
+   -
+   - Software distributed under the License is distributed on an "AS IS" basis,
+   - WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+   - for the specific language governing rights and limitations under the
+   - License.
+   -
+   - The Original Code is Adblock Plus.
+   -
+   - The Initial Developer of the Original Code is
+   - Wladimir Palant.
+   - Portions created by the Initial Developer are Copyright (C) 2006
+   - the Initial Developer. All Rights Reserved.
+   -
+   - Contributor(s):
+   -
+   - ***** END LICENSE BLOCK ***** -->
+
+<!ENTITY dialog.title             "Adblock Plus Preferences">
+
+<!ENTITY options.label            "Options">
+<!ENTITY options.accesskey        "O">
+
+<!ENTITY browser.group.label      "Browser Window">
+<!ENTITY enable.label             "Enable Adblock Plus">
+<!ENTITY objecttabs.label         "Object Tabs">
+<!ENTITY collapse.label           "Collapse Blocked Elements">
+<!ENTITY linkcheck.label          "Check Parent Links">
+
+<!ENTITY preferences.group.label  "Preferences Window">
+<!ENTITY listsort.label           "Keep List Sorted">
+
+<!ENTITY import.label             "Import filters">
+<!ENTITY export.label             "Export filters">
+<!ENTITY clearall.label           "Remove all filters">
+
+<!ENTITY uninstall.label          "Uninstall">
+
+<!ENTITY help.label               "Help">
+<!ENTITY help.accesskey           "H">
+
+<!ENTITY about.label              "About Adblock Plus">
+<!ENTITY regexp.label             "RegExp Syntax">
+
+<!ENTITY description              "
+    Add the addresses you want to block, for suggestions check the dropdown list.
+    You can use * as a wildcard to create more general filters. Advanced users can
+    use regular expressions like /banner\d+\.gif$/.
+">
+
+<!ENTITY newfilter.label          "New filter">
+<!ENTITY newfilter.accesskey      "N">
+<!ENTITY add.label                "Add filter">
+<!ENTITY add.accesskey            "A">
+<!ENTITY list.label               "Advertisement filters">
+<!ENTITY list.accesskey           "F">
+
+<!ENTITY context.edit.label       "Edit filter">
+<!ENTITY context.remove.label     "Remove filter">
+
+<!ENTITY ok.label                 "OK">
+<!ENTITY cancel.label             "Cancel">
