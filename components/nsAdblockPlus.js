@@ -27,7 +27,6 @@ const ADBLOCK_CID = Components.ID("{79c889f6-f5a2-abba-8b27-852e6fec4d56}");
 
 const loader = Components.classes["@mozilla.org/moz/jssubscript-loader;1"]
                        .getService(Components.interfaces.mozIJSSubScriptLoader);
-loader.loadSubScript('chrome://adblockplus/content/security.js');
 
 /*
  * Module object
@@ -507,6 +506,8 @@ FakeController.prototype = {
 // Initialization and registration
 function init() {
   initialized = true;
+
+  loader.loadSubScript('chrome://adblockplus/content/security.js');
 
   // Preferences observer registration
   try {
