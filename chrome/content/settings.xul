@@ -79,9 +79,10 @@
     </menu>
     <menu id="help-menu" label="&help.label;" accesskey="&help.accesskey;">
       <menupopup id="help-popup">
-        <menuitem id="aboutAdblock" label="&about.label;..." oncommand="openAbout()"/>
+        <menuitem id="faqLink" label="&faq.label;" oncommand="adblock.loadInBrowser('&faq.url;');"/>
+        <menuitem id="tipsLink" label="&tips.label;" oncommand="adblock.loadInBrowser('&tips.url;');"/>
         <menuseparator/>
-        <menuitem id="aboutRegExp" label="&regexp.label;" oncommand="adblock.loadInBrowser('http://developer.mozilla.org/en/docs/Core_JavaScript_1.5_Reference:Global_Objects:RegExp');"/>
+        <menuitem id="aboutAdblock" label="&about.label;..." oncommand="openAbout()"/>
       </menupopup>
     </menu>
   </menubar>

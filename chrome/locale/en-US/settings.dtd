@@ -45,8 +45,11 @@
 <!ENTITY help.label               "Help">
 <!ENTITY help.accesskey           "H">
 
+<!ENTITY faq.label                "Frequently Asked Questions">
+<!ENTITY faq.url                  "http://adblockplus.mozdev.org/faq.html">
+<!ENTITY tips.label               "Tip Of The Day">
+<!ENTITY tips.url                 "http://adblockplus.mozdev.org/tips.html">
 <!ENTITY about.label              "About Adblock Plus">
-<!ENTITY regexp.label             "RegExp Syntax">
 
 <!ENTITY description              "
     Add the addresses you want to block, for suggestions check the dropdown list.
