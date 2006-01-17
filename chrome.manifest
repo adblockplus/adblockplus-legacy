@@ -1,0 +1,4 @@
+overlay   chrome://browser/content/browser.xul  chrome://adblockplus/content/overlay.xul
+content   adblockplus jar:chrome/adblockplus.jar!/content/
+skin      adblockplus classic/1.0 jar:chrome/adblockplus.jar!/skin/classic/
+locale    adblockplus en-US jar:chrome/adblockplus.jar!/locale/en-US/

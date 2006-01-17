@@ -1,0 +1,231 @@
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Adblock Plus.
+ *
+ * The Initial Developer of the Original Code is
+ * Wladimir Palant.
+ * Portions created by the Initial Developer are Copyright (C) 2006
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+var adblock = null;
+try {
+  adblock = Components.classes["@mozilla.org/adblockplus;1"]
+                      .getService(Components.interfaces.nsISupports);
+  while (adblock && !('getPrefs' in adblock))
+    adblock = adblock.wrappedJSObject;    // Unwrap adblock component
+
+  var flasher = adblock.getFlasher();
+} catch (e) {}
+
+// The window handler currently in use
+var wndData = null;
+
+var suggestionItems = [];
+var itemsDummy, loadDummy;
+
+function init() {
+  var filterSuggestions = document.getElementById("suggestionsList");
+  itemsDummy = document.getElementById("noItemsDummy");
+  itemsDummy.parentNode.removeChild(itemsDummy);
+  loadDummy = document.getElementById("notLoadedDummy");
+  loadDummy.parentNode.removeChild(loadDummy);
+
+  var data = [];
+  if (adblock) {
+    // Retrieve data for the window
+    wndData = adblock.getDataForWindow(content);
+    data = wndData.getAllLocations();
+    wndData.addLocationListener(handleLocationsChange);
+
+    // Activate flasher
+    filterSuggestions.addEventListener("select", function() {
+      var item = filterSuggestions.selectedItem;
+      if (item)
+        item = item.firstChild.nextSibling;
+
+      var loc = null;
+      if (item)
+        loc = wndData.getLocation(item.getAttribute("label"));
+      flasher.flash(loc ? loc.inseclNodes : null);
+    }, false);
+
+    // Install a handler for tab changes
+    parent.getBrowser().addEventListener("select", handleTabChange, false);
+  }
+
+  if (data.length) {
+    // Initialize filter suggestions dropdown
+    for (var i = 0; i < data.length; i++)
+      createFilterSuggestion(filterSuggestions, data[i]);
+  }
+  else
+    filterSuggestions.appendChild(adblock ? itemsDummy : loadDummy);
+}
+
+// To be called on unload
+function cleanUp() {
+  if (!adblock)
+    return;
+
+  flasher.stop();
+  if (wndData)
+    wndData.removeLocationListener(handleLocationsChange);
+  parent.getBrowser().removeEventListener("select", handleTabChange, false);
+}
+
+function createListCell(label, crop, disabled) {
+  var result = document.createElement("listcell");
+  result.setAttribute("label", label);
+  if (crop)
+    result.setAttribute("crop", "center");
+  if (disabled)
+    result.setAttribute("disabled", "true");
+  return result;
+}
+
+function createFilterSuggestion(listbox, suggestion) {
+  var listitem = document.createElement("listitem");
+
+  listitem.appendChild(createListCell(suggestion.typeDescr.toLowerCase(), false, suggestion.filter));
+  listitem.appendChild(createListCell(suggestion.location, true, suggestion.filter));
+
+  listbox.appendChild(listitem);
+
+  suggestionItems.push(listitem);
+  suggestionItems[" " + suggestion.location] = listitem;
+}
+
+function handleLocationsChange(loc, added) {
+  var i;
+  var filterSuggestions = document.getElementById("suggestionsList");
+  if (added) {
+    // Remove dummy item first
+    if (itemsDummy.parentNode)
+      itemsDummy.parentNode.removeChild(itemsDummy);
+
+    // Add a new suggestion
+    createFilterSuggestion(filterSuggestions, loc);
+  }
+  else if (loc) {
+    var key = " " + loc.location;
+    if (key in suggestionItems) {
+      filterSuggestions.removeChild(suggestionItems[key]);
+      for (i = 0; i < suggestionItems.length; i++) {
+        if (suggestionItems[i] == suggestionItems[key]) {
+          suggestionItems.splice(i, 1);
+          break;
+        }
+      }
+      delete suggestionItems[key];
+
+      // Insert dummy
+      if (suggestionItems.length == 0)
+        filterSuggestions.appendChild(itemsDummy);
+    }
+  }
+  else {
+    // Check whether there is something to remove
+    if (suggestionItems.length == 0)
+      return;
+
+    // Clear list
+    for (i = 0; i < suggestionItems.length; i++)
+      filterSuggestions.removeChild(suggestionItems[i]);
+
+    suggestionItems = [];
+
+    // Insert dummy
+    filterSuggestions.appendChild(itemsDummy);
+  }
+}
+
+function handleTabChange() {
+  // Accessing controllers.getControllerForCommand in a newly
+  // created tab crashes Firefox 1.5, have to delay this (bug 323641).
+  var initialized = false;
+  try {
+    var requestor = secureLookup(content, "QueryInterface")(Components.interfaces.nsIInterfaceRequestor);
+    var webNav = secureLookup(requestor, "getInterface")(Components.interfaces.nsIWebNavigation);
+    initialized = (webNav.currentURI != null);
+  } catch(e) {}
+
+  if (!initialized) {
+    setTimeout(handleTabChange, 10);
+    return;
+  }
+
+  // Clear list
+  handleLocationsChange(null, false);
+  wndData.removeLocationListener(handleLocationsChange);
+
+  // Re-init with the new window
+  wndData = adblock.getDataForWindow(content);
+  wndData.addLocationListener(handleLocationsChange);
+
+  var data = wndData.getAllLocations();
+  for (var i = 0; i < data.length; i++)
+    handleLocationsChange(data[i], true);
+}
+
+// Shows tooltop with the full uncropped location
+function fillInTooltip(event) {
+  var node = document.tooltipNode;
+  if (node.tagName == "listitem" && node.firstChild && node.firstChild.nextSibling)
+    node = node.firstChild.nextSibling;
+
+  if (node.tagName != "listcell")
+    return false;
+
+  event.target.setAttribute("label", node.getAttribute("label"));
+  return true;
+}
+
+// Handles middle-click on an item
+function openInTab(e) {
+  // Only middle-clicks are handled
+  if (e.button != 1)
+    return;
+
+  // Look for a listitem element in the parents chain
+  var node = e.target;
+  while (node && !(node.nodeType == node.ELEMENT_NODE && node.tagName == "listitem"))
+    node = node.parentNode;
+
+  // Ignore click if user didn't click a list item or clicked one of our dummy items
+  if (!node || node.id == "noItemsDummy" || node.id == "noItemsDummy")
+    return;
+
+  if (!node.firstChild || !node.firstChild.nextSibling)
+    return;
+
+  var url = node.firstChild.nextSibling.getAttribute("label");
+  parent.delayedOpenTab(url);
+}
+
+// Starts up the main Adblock window
+function doAdblock() {
+  if (!adblock)
+    return;
+
+  var listitem = document.getElementById("suggestionsList").selectedItem;
+
+  if (listitem)
+    var url = listitem.firstChild.nextSibling.getAttribute("label");
+
+  adblock.openSettingsDialog(content, url);
+}

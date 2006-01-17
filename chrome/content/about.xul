@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+
+<!-- ***** BEGIN LICENSE BLOCK *****
+   - Version: MPL 1.1
+   -
+   - The contents of this file are subject to the Mozilla Public License Version
+   - 1.1 (the "License"); you may not use this file except in compliance with
+   - the License. You may obtain a copy of the License at
+   - http://www.mozilla.org/MPL/
+   -
+   - Software distributed under the License is distributed on an "AS IS" basis,
+   - WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+   - for the specific language governing rights and limitations under the
+   - License.
+   -
+   - The Original Code is Adblock Plus.
+   -
+   - The Initial Developer of the Original Code is
+   - Wladimir Palant.
+   - Portions created by the Initial Developer are Copyright (C) 2006
+   - the Initial Developer. All Rights Reserved.
+   -
+   - Contributor(s):
+   -
+   - ***** END LICENSE BLOCK ***** -->
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://adblockplus/skin/about.css" type="text/css"?>
+
+<!DOCTYPE dialog SYSTEM "chrome://adblockplus/locale/about.dtd">
+
+<dialog
+  xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+  title="&dialog.title;"
+  id="adblockAboutWindow"
+  onload="fillInVersion()"
+  buttons="accept">
+
+<script type="application/x-javascript" src="about.js"/>
+
+<description id="title" value="&caption.title;"/>
+<description id="version" value="&version.title;"/>
+
+<groupbox id="mainGroup">
+  <description id="description">
+    &description;
+  </description>
+
+  <vbox id="homepageBox">
+    <description id="homepageTitle" value="&homepage.label;:"/>
+    <description id="homepage" value="http://adblockplus.mozdev.org/" onclick="adblock.loadInBrowser(this.getAttribute('value'))"/>
+  </vbox>
+  <vbox id="authorBox">
+    <description id="authorTitle" value="&author.label;:"/>
+    <description id="author" value="Wladimir Palant"/>
+  </vbox>
+  <vbox id="contributorsBox">
+    <description id="contributorsTitle" value="&contributors.label;:"/>
+    <description class="contributor" value="Henrik Aasted Sorensen"/>
+    <description class="contributor" value="Michael McDonald"/>
+    <description class="contributor" value="rue"/>
+    <description class="contributor" value="Ben Karel"/>
+    <description class="contributor" value="Stefan Kinitz"/>
+  </vbox>
+</groupbox>
+
+</dialog>
