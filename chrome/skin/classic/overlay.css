@@ -22,17 +22,17 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-#adblock-status[clickable] *
+#adblockplus-status[clickable] *
 {
   cursor: pointer;
 }
 
-#adblock-status[clickable]:hover
+#adblockplus-status[clickable]:hover
 {
   text-decoration: underline;
 }
 
-#adblock-status[disabled]
+#adblockplus-status[disabled]
 {
   color: #999999;
 }
