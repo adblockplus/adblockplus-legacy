@@ -36,12 +36,17 @@ try {
 var wndData = null;
 
 var suggestionItems = [];
-var itemsDummy, loadDummy;
+var itemsDummy, remoteDummy, whitelistDummy, loadDummy;
+var currentDummy = null;
 
 function init() {
   var filterSuggestions = document.getElementById("suggestionsList");
   itemsDummy = document.getElementById("noItemsDummy");
   itemsDummy.parentNode.removeChild(itemsDummy);
+  remoteDummy = document.getElementById("notRemoteDummy");
+  remoteDummy.parentNode.removeChild(remoteDummy);
+  whitelistDummy = document.getElementById("whitelistedDummy");
+  whitelistDummy.parentNode.removeChild(whitelistDummy);
   loadDummy = document.getElementById("notLoadedDummy");
   loadDummy.parentNode.removeChild(loadDummy);
 
@@ -74,7 +79,32 @@ function init() {
       createFilterSuggestion(filterSuggestions, data[i]);
   }
   else
-    filterSuggestions.appendChild(adblock ? itemsDummy : loadDummy);
+    insertDummy(filterSuggestions);
+}
+
+// Decides which dummy item to insert into the list
+function insertDummy(list) {
+  removeDummy();
+
+  currentDummy = loadDummy;
+  if (adblock) {
+    currentDummy = itemsDummy;
+
+    var insecLocation = secureGet(content, "location");
+    if (!adblock.isBlockableScheme(insecLocation))
+      currentDummy = remoteDummy;
+    else if (adblock.isWhitelisted(secureGet(insecLocation, "href")))
+      currentDummy = whitelistDummy;
+  }
+  list.appendChild(currentDummy);
+}
+
+// Removes the dummy from the list
+function removeDummy() {
+  if (currentDummy && currentDummy.parentNode)
+    currentDummy.parentNode.removeChild(currentDummy);
+
+  currentDummy = null;
 }
 
 // To be called on unload
@@ -114,9 +144,7 @@ function handleLocationsChange(loc, added) {
   var i;
   var filterSuggestions = document.getElementById("suggestionsList");
   if (added) {
-    // Remove dummy item first
-    if (itemsDummy.parentNode)
-      itemsDummy.parentNode.removeChild(itemsDummy);
+    removeDummy();
 
     // Add a new suggestion
     createFilterSuggestion(filterSuggestions, loc);
@@ -135,14 +163,10 @@ function handleLocationsChange(loc, added) {
 
       // Insert dummy
       if (suggestionItems.length == 0)
-        filterSuggestions.appendChild(itemsDummy);
+        insertDummy(filterSuggestions);
     }
   }
   else {
-    // Check whether there is something to remove
-    if (suggestionItems.length == 0)
-      return;
-
     // Clear list
     for (i = 0; i < suggestionItems.length; i++)
       filterSuggestions.removeChild(suggestionItems[i]);
@@ -150,7 +174,7 @@ function handleLocationsChange(loc, added) {
     suggestionItems = [];
 
     // Insert dummy
-    filterSuggestions.appendChild(itemsDummy);
+    insertDummy(filterSuggestions);
   }
 }
 
@@ -207,7 +231,7 @@ function openInTab(e) {
     node = node.parentNode;
 
   // Ignore click if user didn't click a list item or clicked one of our dummy items
-  if (!node || node.id == "noItemsDummy" || node.id == "noItemsDummy")
+  if (!node || /Dummy$/.test(node.id))
     return;
 
   if (!node.firstChild || !node.firstChild.nextSibling)

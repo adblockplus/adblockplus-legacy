@@ -28,6 +28,8 @@
 <!ENTITY address.label            "Address">
 
 <!ENTITY noitems.label            "No blockable items">
+<!ENTITY notremote.label          "Not a remote page">
+<!ENTITY whitelisted.label        "Whitelisted page">
 <!ENTITY notloaded.label          "Adblock Plus hasn't been installed properly">
 
 <!ENTITY adblock.label            "Adblock">

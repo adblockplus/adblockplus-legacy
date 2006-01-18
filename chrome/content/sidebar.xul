@@ -55,6 +55,12 @@
     <listitem id="noItemsDummy">
       <listcell disabled="true" label="&noitems.label;"/>
     </listitem>
+    <listitem id="notRemoteDummy">
+      <listcell disabled="true" label="&notremote.label;"/>
+    </listitem>
+    <listitem id="whitelistedDummy">
+      <listcell disabled="true" label="&whitelisted.label;"/>
+    </listitem>
     <listitem id="notLoadedDummy">
       <listcell disabled="true" label="&notloaded.label;"/>
     </listitem>
