@@ -151,7 +151,7 @@ const ok = ("ACCEPT" in Components.interfaces.nsIContentPolicy ? Components.inte
 const block = ("REJECT_REQUEST" in Components.interfaces.nsIContentPolicy ? Components.interfaces.nsIContentPolicy.REJECT_REQUEST : false);
 const oldStyleAPI = (typeof ok == "boolean");
 
-const boolPrefs = ["enabled", "linkcheck", "fastcollapse", "frameobjects", "listsort", "warnregexp", "checkedadblockprefs"];
+const boolPrefs = ["enabled", "linkcheck", "fastcollapse", "frameobjects", "listsort", "warnregexp", "checkedadblockprefs", "checkedadblockinstalled"];
 const prefs = {}
 const prefListeners = [];
 var disablePrefObserver = false;
