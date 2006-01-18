@@ -588,6 +588,9 @@ function init() {
 
   // Load settings
   loadSettings();
+
+  // Install sidebar in Mozilla Suite if necessary
+  installSidebar();
 }
 
 // Loads the preferences
@@ -666,6 +669,19 @@ function saveSettings()
   disablePrefObserver = false;
   loadSettings();
 }
+
+function installSidebar() {
+  try {
+    var branch = prefService.QueryInterface(Components.interfaces.nsIPrefBranch);
+    var customizeURL = branch.getCharPref("sidebar.customize.all_panels.url");
+    if (/adblockplus/.test(customizeURL))
+      return; // Adblock Plus sidebar is already installed
+
+    customizeURL += " chrome://adblockplus/content/local-panels.rdf";
+    branch.setCharPref("sidebar.customize.all_panels.url", customizeURL);
+  } catch(e) {}
+}
+
 
 // returns the queryInterface to a dom-object or frame / iframe -- for 'shouldload' policy-check
 function elementInterface(contentType, insecNode) {

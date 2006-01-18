@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:nc="http://home.netscape.com/NC-rdf#">
+
+  <rdf:Description about="urn:sidebar:master-panel-list">
+  <nc:panel-list>
+    <rdf:Seq>
+    <rdf:li resource="urn:sidebar:3rdparty-panel:adblockplus"/>
+    </rdf:Seq>
+  </nc:panel-list>
+  </rdf:Description>
+  <rdf:Description about="urn:sidebar:3rdparty-panel:adblockplus">
+  <nc:title>Adblock Plus</nc:title>
+  <nc:content>chrome://adblockplus/content/sidebar.xul</nc:content>
+  </rdf:Description>
+</rdf:RDF>
