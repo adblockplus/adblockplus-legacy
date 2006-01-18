@@ -212,7 +212,7 @@ const adblock = {
   // Checks whether a node should be blocked, hides it if necessary, return value false means that the node is blocked
   processNode: function(insecNode, contentType, location, collapse) {
     var insecWnd = getTopWindow(insecNode);
-    if (!insecWnd || !insecBlockableScheme(secureGet(insecWnd, "location")))
+    if (!insecWnd || !this.isBlockableScheme(secureGet(insecWnd, "location")))
       return true;
 
     if (matchesAny(secureGet(insecWnd, "location", "href"), prefs.whitelist))
@@ -332,6 +332,12 @@ const adblock = {
         currentWindow.loadURI(url);
       }
     }
+  },
+
+  // Checks whether the location object's scheme is blockable
+  isBlockableScheme: function(insecLoc) {
+    var protocol = secureGet(insecLoc, "protocol");
+    return (protocol && protocol.replace(/\W/,"").toLowerCase() in blockSchemes);
   },
 
   getFlasher: function() {
@@ -734,7 +740,7 @@ function hideFrameCallback(insecFrameset, attr, index) {
 
 // Tests if some parent of the node is a link matching a filter
 function checkLinks(contentType, insecNode) {
-  while (insecNode && (secureGet(insecNode, "href") == null || !insecBlockableScheme(insecNode)))
+  while (insecNode && (secureGet(insecNode, "href") == null || !adblock.isBlockableScheme(insecNode)))
     insecNode = secureGet(insecNode, "parentNode");
 
   if (insecNode)
@@ -884,11 +890,6 @@ function translateTypes(hash) {
   for (var key in hash)
     if (!key.match(/[^A-Z]/) && key in type)
       hash[type[key]] = hash[key];
-}
-
-function insecBlockableScheme(insecLoc) {
-  var protocol = secureGet(insecLoc, "protocol");
-  return (protocol && protocol.replace(/\W/,"").toLowerCase() in blockSchemes);
 }
 
 // Sets a timeout, compatible with both nsITimer and nsIScriptableTimer

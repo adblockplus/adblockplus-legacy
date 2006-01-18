@@ -26,7 +26,12 @@
 
 <?xml-stylesheet href="chrome://adblockplus/skin/overlay.css" type="text/css"?>
 
-<!DOCTYPE overlay SYSTEM "chrome://adblockplus/locale/overlay.dtd">
+<!DOCTYPE overlay [
+<!ENTITY % overlayDTD SYSTEM "chrome://adblockplus/locale/overlay.dtd">
+%overlayDTD;
+<!ENTITY % settingsDTD SYSTEM "chrome://adblockplus/locale/settings.dtd">
+%settingsDTD;
+]>
 
 <overlay id="adblockplus-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
   <script type="application/x-javascript" src="overlay.js"/>  
@@ -34,7 +39,23 @@
   
   <!-- statusbar -->
   <statusbar id="status-bar">
-    <statusbarpanel id="adblockplus-status" onclick="if (new Date().getTime()-adblockpLastDrag>100) adblockpSettings()" ondragover="adblockpDragHandler(event)" ondragdrop="adblockpDragHandler(event)" onmousedown="adblockpMouseHandler(event)"/>
+    <popup id="adblockplus-status-popup" onpopupshowing="return adblockpFillPopup()">
+      <menuitem id="adblockplus-settings" label="&settings.label;..." key="key-launch-adblockplus-preferences" oncommand="adblockpSettings()"/>
+      <menuitem id="adblockplus-sidebar" label="&sidebar.label;" key="key-view-adblockplus-sidebar" oncommand="toggleSidebar('viewAdblockPlusSidebar', true)"/>
+      <menuseparator id="adblockplus-whitelist-sep"/>
+      <menuitem id="adblockplus-whitelist-site" labeltempl="&whitelist.site.label;" type="checkbox" oncommand="adblockpTogglePattern(this.pattern, this.hasAttribute('checked'))"/>
+      <menuitem id="adblockplus-whitelist-page" label="&whitelist.page.label;" type="checkbox" oncommand="adblockpTogglePattern(this.pattern, this.hasAttribute('checked'))"/>
+      <menuseparator/>
+      <menu id="adblockplus-options" label="&options.label;">
+        <menupopup id="adblockplus-options-popup">
+          <menuitem id="adblockplus-frameobjects" label="&objecttabs.label;" type="checkbox" oncommand="adblockpTogglePref('frameobjects')"/>
+          <menuitem id="adblockplus-slowcollapse" label="&collapse.label;" type="checkbox" oncommand="adblockpTogglePref('fastcollapse')"/>
+          <menuitem id="adblockplus-linkcheck" label="&linkcheck.label;" type="checkbox" oncommand="adblockpTogglePref('linkcheck')"/> 
+        </menupopup>
+      </menu>
+      <menuitem id="adblockplus-enabled" label="&enable.label;" type="checkbox" oncommand="adblockpTogglePref('enabled')"/>
+    </popup>
+    <statusbarpanel id="adblockplus-status" context="adblockplus-status-popup" onclick="if (event.button == 0 &amp;&amp; new Date().getTime()-adblockpLastDrag>100) adblockpSettings()" ondragover="adblockpDragHandler(event)" ondragdrop="adblockpDragHandler(event)" onmousedown="adblockpMouseHandler(event)"/>
   </statusbar> 
 
   <!-- string bundles -->
@@ -44,12 +65,12 @@
 
   <!-- mozilla keybindings -->
   <keyset id="navKeys">
-    <key id="mozillakey-launch-adblockplus-preferences" modifiers="accel,shift" key="a" oncommand="adblockpSettings()"/>
+    <key id="key-launch-adblockplus-preferences" modifiers="accel,shift" key="a" oncommand="adblockpSettings()"/>
   </keyset>
   <!-- firefox keybindings -->
   <keyset id="mainKeyset">
-    <key id="firefoxkey-launch-adblockplus-preferences" modifiers="accel,shift" key="a" oncommand="adblockpSettings()"/>
-    <key id="firefoxkey-view-adblockplus-sidebar" modifiers="accel,shift" key="b" command="viewAdblockPlusSidebar"/> 
+    <key id="key-launch-adblockplus-preferences" modifiers="accel,shift" key="a" oncommand="adblockpSettings()"/>
+    <key id="key-view-adblockplus-sidebar" modifiers="accel,shift" key="b" command="viewAdblockPlusSidebar"/> 
   </keyset>
 
   <!-- firefox broadcasters -->
@@ -62,16 +83,16 @@
 
   <!-- firefox view sidebar menu -->
   <menupopup id="viewSidebarMenu">
-    <menuitem key="firefoxkey-view-adblockplus-sidebar" observes="viewAdblockPlusSidebar"/> 
+    <menuitem key="key-view-adblockplus-sidebar" observes="viewAdblockPlusSidebar"/> 
   </menupopup>
 
   <!-- mozilla tools menu -->
   <menupopup id="taskPopup">
-    <menuitem label="&menuitem.label;..." accesskey="&menuitem.accesskey;" key="mozillakey-launch-adblockplus-preferences" insertafter="downloadmgr" oncommand="adblockpSettings()"/>
+    <menuitem label="&menuitem.label;..." accesskey="&menuitem.accesskey;" key="key-launch-adblockplus-preferences" insertafter="downloadmgr" oncommand="adblockpSettings()"/>
   </menupopup>
   <!-- firefox tools menu -->
   <menupopup id="menu_ToolsPopup">
-    <menuitem label="&menuitem.label;..." accesskey="&menuitem.accesskey;" key="firefoxkey-launch-adblockplus-preferences" insertbefore="devToolsSeparator" oncommand="adblockpSettings()"/>
+    <menuitem label="&menuitem.label;..." accesskey="&menuitem.accesskey;" key="key-launch-adblockplus-preferences" insertbefore="devToolsSeparator" oncommand="adblockpSettings()"/>
   </menupopup> 
 
   <!-- common context-menu -->
