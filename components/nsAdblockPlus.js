@@ -215,7 +215,7 @@ const adblock = {
     if (!insecWnd || !this.isBlockableScheme(secureGet(insecWnd, "location")))
       return true;
 
-    if (matchesAny(secureGet(insecWnd, "location", "href"), prefs.whitelist))
+    if (this.isWhitelisted(secureGet(insecWnd, "location", "href")))
       return true;
 
     var data = this.getDataForWindow(insecWnd);
@@ -338,6 +338,11 @@ const adblock = {
   isBlockableScheme: function(insecLoc) {
     var protocol = secureGet(insecLoc, "protocol");
     return (protocol && protocol.replace(/\W/,"").toLowerCase() in blockSchemes);
+  },
+
+  // Checks whether a page is whitelisted
+  isWhitelisted: function(url) {
+    return matchesAny(url, prefs.whitelist);
   },
 
   getFlasher: function() {

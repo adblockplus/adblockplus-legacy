@@ -29,7 +29,7 @@ while (adblock && !("getPrefs" in adblock))
 var prefs = adblock.getPrefs();
 var flasher = adblock.getFlasher();
 var suggestionItems = [];
-var wnd = null;   // Window we should apply filters at
+var insecWnd = null;   // Window we should apply filters at
 var strings = null;
 var initialized = false;
 
@@ -42,17 +42,17 @@ function init() {
   var data = [];
 
   if ('arguments' in window && window.arguments.length >= 1)
-    wnd = window.arguments[0];
+    insecWnd = window.arguments[0];
   else {
     var windowMediator = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator);
     var browser = windowMediator.getMostRecentWindow("navigator:browser");
     if (browser)
-      wnd = browser.getBrowser().contentWindow;
+      insecWnd = browser.getBrowser().contentWindow;
   }
 
-  if (wnd) {
+  if (insecWnd) {
     // Retrieve data for the window
-    wndData = adblock.getDataForWindow(wnd);
+    wndData = adblock.getDataForWindow(insecWnd);
     data = wndData.getAllLocations();
 
     // Activate flasher
@@ -67,8 +67,17 @@ function init() {
     // List selection doesn't fire input event, have to register a property watcher
     filterSuggestions.inputField.watch("value", flashHandler);
   }
-  if (!data.length)
-    data.push({location: strings.getString("no_blocking_suggestions"), typeDescr: "", inseclNodes: [], filter: true});
+  if (!data.length) {
+    var reason = strings.getString("no_blocking_suggestions");
+    if (insecWnd) {
+      var insecLocation = secureGet(insecWnd, "location");
+      if (!adblock.isBlockableScheme(insecLocation))
+        reason = strings.getString("not_remote_page");
+      else if (adblock.isWhitelisted(secureGet(insecLocation, "href")))
+        reason = strings.getString("whitelisted_page");
+    }
+    data.push({location: reason, typeDescr: "", inseclNodes: [], filter: true});
+  }
 
   // Initialize filter suggestions dropdown
   for (var i = 0; i < data.length; i++)
@@ -353,16 +362,16 @@ function saveSettings() {
   prefs.patterns = getPatterns();
   adblock.savePrefs();
 
-  if (wnd)
-    refilterWindow(wnd);
+  if (insecWnd)
+    refilterWindow(insecWnd);
 }
 
 // Reapplies filters to all nodes of the current window
-function refilterWindow(wnd) {
-  if (wnd.closed)
+function refilterWindow(insecWnd) {
+  if (secureGet(insecWnd, "closed"))
     return;
 
-  var data = adblock.getDataForWindow(wnd).getAllLocations();
+  var data = adblock.getDataForWindow(insecWnd).getAllLocations();
   for (var i = 0; i < data.length; i++)
     if (!data[i].filter)
       for (var j = 0; j < data[i].inseclNodes.length; j++)

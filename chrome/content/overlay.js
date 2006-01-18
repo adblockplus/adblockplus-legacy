@@ -147,14 +147,14 @@ function adblockpFillPopup() {
 
   document.getElementById("adblockplus-sidebar").hidden = !("toggleSidebar" in window);
 
-  var curLocation = secureGet(content, "location");
-  var showWhitelist = adblockp.isBlockableScheme(curLocation);
+  var insecLocation = secureGet(content, "location");
+  var showWhitelist = adblockp.isBlockableScheme(insecLocation);
   var whitelistItemSite = document.getElementById("adblockplus-whitelist-site");
   var whitelistItemPage = document.getElementById("adblockplus-whitelist-page");
   if (showWhitelist) {
-    var url = secureGet(curLocation, "href").replace(/\?.*/, '');
-    var host = secureGet(curLocation, "host");
-    var site = secureGet(curLocation, "protocol") + "//" + host;
+    var url = secureGet(insecLocation, "href").replace(/\?.*/, '');
+    var host = secureGet(insecLocation, "host");
+    var site = secureGet(insecLocation, "protocol") + "//" + host;
 
     whitelistItemSite.pattern = "@@" + site;
     whitelistItemSite.setAttribute("checked", adblockpHasPattern(whitelistItemSite.pattern));
