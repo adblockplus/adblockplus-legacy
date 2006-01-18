@@ -140,6 +140,79 @@ function adblockpCheckExtensionConflicts() {
   }
 }
 
+// Fills the context menu on the status bar
+function adblockpFillPopup() {
+  if (!adblockp)
+    return false;
+
+  document.getElementById("adblockplus-sidebar").hidden = !("toggleSidebar" in window);
+
+  var curLocation = secureGet(content, "location");
+  var showWhitelist = adblockp.isBlockableScheme(curLocation);
+  var whitelistItemSite = document.getElementById("adblockplus-whitelist-site");
+  var whitelistItemPage = document.getElementById("adblockplus-whitelist-page");
+  if (showWhitelist) {
+    var url = secureGet(curLocation, "href").replace(/\?.*/, '');
+    var host = secureGet(curLocation, "host");
+    var site = secureGet(curLocation, "protocol") + "//" + host;
+
+    whitelistItemSite.pattern = "@@" + site;
+    whitelistItemSite.setAttribute("checked", adblockpHasPattern(whitelistItemSite.pattern));
+    whitelistItemSite.setAttribute("label", whitelistItemSite.getAttribute("labeltempl").replace(/--/, host));
+
+    whitelistItemPage.pattern = "@@" + url;
+    whitelistItemPage.setAttribute("checked", adblockpHasPattern(whitelistItemPage.pattern));
+  }
+  document.getElementById("adblockplus-whitelist-sep").hidden =
+    whitelistItemSite.hidden = whitelistItemPage.hidden = !showWhitelist;
+
+  document.getElementById("adblockplus-enabled").setAttribute("checked", adblockpPrefs.enabled);
+  document.getElementById("adblockplus-frameobjects").setAttribute("checked", adblockpPrefs.frameobjects);
+  document.getElementById("adblockplus-slowcollapse").setAttribute("checked", !adblockpPrefs.fastcollapse);
+  document.getElementById("adblockplus-linkcheck").setAttribute("checked", adblockpPrefs.linkcheck);
+  return true;
+}
+
+// Checks whether the specified pattern exists in the list
+function adblockpHasPattern(pattern) {
+  for (var i = 0; i < adblockpPrefs.patterns.length; i++)
+    if (adblockpPrefs.patterns[i] == pattern)
+      return true;
+
+  return false;
+}
+
+// Toggles the value of a boolean pref
+function adblockpTogglePref(pref) {
+  if (!adblockp)
+    return;
+
+  adblockpPrefs[pref] = !adblockpPrefs[pref];
+  adblockp.savePrefs();
+}
+
+// Inserts or removes the specified pattern into/from the list
+function adblockpTogglePattern(pattern, insert) {
+  if (!adblockp)
+    return;
+
+  var found = false;
+  for (var i = 0; i < adblockpPrefs.patterns.length; i++) {
+    if (adblockpPrefs.patterns[i] == pattern) {
+      if (insert)
+        found = true;
+      else {
+        adblockpPrefs.patterns.splice(i, 1);
+        i--;
+      }
+    }
+  }
+  if (!found && insert)
+    adblockpPrefs.patterns.push(pattern);
+
+  adblockp.savePrefs();
+}
+
 // Handles Drag&Drop of links and images to the Adblock statusbar panel
 function adblockpDragHandler(e) {
   if (!adblockp)
@@ -173,7 +246,7 @@ var adblockpLastDrag = -1;
 
 // Allows activating/deactivating with a drag gesture on the Adblock status bar item
 function adblockpMouseHandler(e) {
-  if (!adblockp)
+  if (!adblockp || e.button != 0)
     return;
 
   if (e.type == "mousedown") {
