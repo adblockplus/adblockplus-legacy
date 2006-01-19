@@ -273,6 +273,12 @@ const adblock = {
     prefListeners.push(handler);
   },
 
+  removePrefListener: function(handler) {
+    for (var i = 0; i < prefListeners.length; i++)
+      if (prefListeners[i] == handler)
+        prefListeners.splice(i--, 1);
+  },
+
   // Loads Adblock data associated with a window object
   getDataForWindow: function(insecWnd) {
     var data = secureLookup(insecWnd, "controllers", "getControllerForCommand")("adblock");
