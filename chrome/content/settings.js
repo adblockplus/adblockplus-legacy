@@ -216,7 +216,18 @@ function importList() {
 
     if (lines[0].match(/\[Adblock\]/i)) {
       lines.shift();
-      if (confirm(adblock.getString("import_filters_warning"))) {
+      var promptService = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
+                                    .getService(Components.interfaces.nsIPromptService);
+      var flags = promptService.BUTTON_TITLE_IS_STRING * promptService.BUTTON_POS_0 +
+                  promptService.BUTTON_TITLE_CANCEL * promptService.BUTTON_POS_1 +
+                  promptService.BUTTON_TITLE_IS_STRING * promptService.BUTTON_POS_2;
+      var result = promptService.confirmEx(window, adblock.getString("import_filters_title"),
+        adblock.getString("import_filters_warning"), flags, adblock.getString("overwrite"),
+        null, adblock.getString("append"), null, {});
+      if (result == 1)
+        return;
+
+      if (result == 0) {
         var list = document.getElementById("list");
         while (list.firstChild)
           list.removeChild(list.firstChild);
@@ -370,9 +381,10 @@ function regexpWarning() {
   if (!prefs.warnregexp)
     return true;
 
-  var prompts = Components.classes["@mozilla.org/embedcomp/prompt-service;1"].getService(Components.interfaces.nsIPromptService);
+  var promptService = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
+                                .getService(Components.interfaces.nsIPromptService);
   var check = {value: false};
-  var result = prompts.confirmCheck(window, adblock.getString("regexp_warning_title"),
+  var result = promptService.confirmCheck(window, adblock.getString("regexp_warning_title"),
     adblock.getString("regexp_warning_text"),
     adblock.getString("regexp_warning_checkbox"), check);
 
