@@ -29,12 +29,12 @@
 
 <!ENTITY browser.group.label      "Browser Window">
 <!ENTITY enable.label             "Enable Adblock Plus">
-<!ENTITY objecttabs.label         "Object Tabs">
-<!ENTITY collapse.label           "Collapse Blocked Elements">
-<!ENTITY linkcheck.label          "Check Parent Links">
+<!ENTITY objecttabs.label         "Show object tabs">
+<!ENTITY collapse.label           "Collapse blocked elements">
+<!ENTITY linkcheck.label          "Check banner links">
 
 <!ENTITY preferences.group.label  "Preferences Window">
-<!ENTITY listsort.label           "Keep List Sorted">
+<!ENTITY listsort.label           "Keep list sorted">
 
 <!ENTITY import.label             "Import filters">
 <!ENTITY export.label             "Export filters">
