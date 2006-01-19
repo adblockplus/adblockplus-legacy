@@ -30,13 +30,11 @@ var prefs = adblock.getPrefs();
 var flasher = adblock.getFlasher();
 var suggestionItems = [];
 var insecWnd = null;   // Window we should apply filters at
-var strings = null;
 var initialized = false;
 
 // Preference window initialization
 function init() {
   initialized = true;
-  strings = document.getElementById("adblockStrings");
   var filterSuggestions = document.getElementById("newfilter");
   var wndData = null;
   var data = [];
@@ -68,13 +66,16 @@ function init() {
     filterSuggestions.inputField.watch("value", flashHandler);
   }
   if (!data.length) {
-    var reason = strings.getString("no_blocking_suggestions");
+    var reason = adblock.getString("no_blocking_suggestions");
     if (insecWnd) {
       var insecLocation = secureGet(insecWnd, "location");
-      if (!adblock.isBlockableScheme(insecLocation))
-        reason = strings.getString("not_remote_page");
-      else if (adblock.isWhitelisted(secureGet(insecLocation, "href")))
-        reason = strings.getString("whitelisted_page");
+      // We want to stick with "no blockable items" for about:blank
+      if (secureGet(insecLocation, "href") != "about:blank") {
+        if (!adblock.isBlockableScheme(insecLocation))
+          reason = adblock.getString("not_remote_page");
+        else if (adblock.isWhitelisted(secureGet(insecLocation, "href")))
+          reason = adblock.getString("whitelisted_page");
+      }
     }
     data.push({location: reason, typeDescr: "", inseclNodes: [], filter: true});
   }
@@ -114,29 +115,10 @@ function createDescription(label, flex) {
 }
 
 function createFilterSuggestion(menulist, suggestion) {
-  var tags = [];
-  var seen = {};
-  for (var i = 0; i < suggestion.inseclNodes.length; i++) {
-    var insecNode = suggestion.inseclNodes[i];
-    var name = null;
-    if (secureGet(insecNode, "nodeType") == Node.ELEMENT_NODE)
-      name = secureGet(insecNode, "tagName");
-
-    // Handle background images separately since the object has no tag name
-    if (secureGet(insecNode, "nodeType") == Node.DOCUMENT_NODE && suggestion.typeDescr == "IMAGE")
-      name = "BGND";
-
-    if (name && !(name in seen)) {
-      tags.push(name);
-      seen[name] = true;
-    }
-  }
-
   var menuitem = menulist.appendItem(suggestion.location, suggestion.location);
 
+  menuitem.appendChild(createDescription(suggestion.localizedDescr, 0));
   menuitem.appendChild(createDescription(suggestion.location, 1));
-  menuitem.appendChild(createDescription(suggestion.typeDescr.toLowerCase(), 0));
-  menuitem.appendChild(createDescription(tags.join(" "), 0));
 
   if (suggestion.filter)
     menuitem.setAttribute("disabled", "true");
@@ -145,23 +127,24 @@ function createFilterSuggestion(menulist, suggestion) {
 }
 
 function fixColWidth() {
-  var width1 = 0;
-  var width2 = 0;
+  var maxWidth = 0;
   for (var i = 0; i < suggestionItems.length; i++) {
-    if (suggestionItems[i].childNodes[1].boxObject.width > width1)
-      width1 = suggestionItems[i].childNodes[1].boxObject.width;
-    if (suggestionItems[i].childNodes[2].boxObject.width > width2)
-      width2 = suggestionItems[i].childNodes[2].boxObject.width;
+    if (suggestionItems[i].childNodes[0].boxObject.width > maxWidth)
+      maxWidth = suggestionItems[i].childNodes[0].boxObject.width;
   }
   for (i = 0; i < suggestionItems.length; i++) {
     // Older versions don't support .style in XUL - have to use style attribute
-    suggestionItems[i].childNodes[1].setAttribute("style", "width: "+width1+"px");
-    suggestionItems[i].childNodes[2].setAttribute("style", "width: "+width2+"px");
+    suggestionItems[i].childNodes[0].setAttribute("style", "width: "+maxWidth+"px");
   }
 }
 
 function fillList(patterns) {
   var list = document.getElementById("list");
+  var selectPattern = null;
+  var selectItem = null;
+
+  if ('arguments' in window && typeof window.arguments[2] != "undefined" && window.arguments[2])
+    selectPattern = window.arguments[2].origPattern;
   
   if (prefs.listsort)
     patterns.sort();  
@@ -170,10 +153,13 @@ function fillList(patterns) {
   for (var i = 0 ; i < patterns.length; i++) {
     var item = list.appendItem(patterns[i], patterns[i]);
     editor.initItem(item);
-    if (i == 0) {
-      list.selectedItem = item;
-      list.ensureElementIsVisible(item);
-    }
+    if (i == 0 || patterns[i] == selectPattern)
+      selectItem = item;
+  }
+
+  if (selectItem) {
+    list.ensureElementIsVisible(selectItem);
+    list.selectedItem = selectItem;
   }
 }
 
@@ -191,14 +177,14 @@ function addFilter() {
     var list = document.getElementById("list");
     var newItem = list.appendItem(filter, filter);
     editor.initItem(newItem);
-    list.selectedItem = newItem;
     list.ensureElementIsVisible(newItem);
+    list.selectedItem = newItem;
   }   
 }
 
 // Asks the user if he really wants to clear the list.
 function clearList() {
-  if (confirm(strings.getString("clearall_warning"))) {
+  if (confirm(adblock.getString("clearall_warning"))) {
     var list = document.getElementById("list");
     while (list.firstChild)
       list.removeChild(list.firstChild);
@@ -212,7 +198,7 @@ function importList() {
 
   var picker = Components.classes["@mozilla.org/filepicker;1"]
                      .createInstance(Components.interfaces.nsIFilePicker);
-  picker.init(window, strings.getString("import_filters_title"), picker.modeOpen);
+  picker.init(window, adblock.getString("import_filters_title"), picker.modeOpen);
   picker.appendFilters(picker.filterText);
   if (picker.show() != picker.returnCancel) {
     var stream = Components.classes["@mozilla.org/network/file-input-stream;1"]
@@ -230,7 +216,7 @@ function importList() {
 
     if (lines[0].match(/\[Adblock\]/i)) {
       lines.shift();
-      if (confirm(strings.getString("import_filters_warning"))) {
+      if (confirm(adblock.getString("import_filters_warning"))) {
         var list = document.getElementById("list");
         while (list.firstChild)
           list.removeChild(list.firstChild);
@@ -238,7 +224,7 @@ function importList() {
       fillList(lines);
     }
     else 
-      alert(strings.getString("invalid_filters_file"));
+      alert(adblock.getString("invalid_filters_file"));
   }
 }
 
@@ -248,7 +234,7 @@ function exportList() {
     return;
 
   var picker = Components.classes["@mozilla.org/filepicker;1"].createInstance(Components.interfaces.nsIFilePicker);
-  picker.init(window, strings.getString("export_filters_title"), picker.modeSave);
+  picker.init(window, adblock.getString("export_filters_title"), picker.modeSave);
   picker.defaultExtension=".txt";
   picker.appendFilters(picker.filterText);
 
@@ -267,7 +253,7 @@ function exportList() {
     }
     catch (e) {
       dump("Adblock: error writing to file: " + e + "\n");
-      alert(strings.getString("filters_write_error"));
+      alert(adblock.getString("filters_write_error"));
     }
   }
 }
@@ -386,9 +372,9 @@ function regexpWarning() {
 
   var prompts = Components.classes["@mozilla.org/embedcomp/prompt-service;1"].getService(Components.interfaces.nsIPromptService);
   var check = {value: false};
-  var result = prompts.confirmCheck(window, strings.getString("regexp_warning_title"),
-    strings.getString("regexp_warning_text"),
-    strings.getString("regexp_warning_checkbox"), check);
+  var result = prompts.confirmCheck(window, adblock.getString("regexp_warning_title"),
+    adblock.getString("regexp_warning_text"),
+    adblock.getString("regexp_warning_checkbox"), check);
 
   if (check.value) {
     prefs.warnregexp = false;

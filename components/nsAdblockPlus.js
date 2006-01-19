@@ -145,7 +145,7 @@ var initialized = false;
 
 const Node = Components.interfaces.nsIDOMNode;
 
-var type, typeDescr, blockTypes, blockSchemes, linkTypes, linkSchemes, baseTypes, baseNames;
+var type, typeDescr, localizedDescr, blockTypes, blockSchemes, linkTypes, linkSchemes, baseTypes, baseNames;
 
 const ok = ("ACCEPT" in Components.interfaces.nsIContentPolicy ? Components.interfaces.nsIContentPolicy.ACCEPT : true);
 const block = ("REJECT_REQUEST" in Components.interfaces.nsIContentPolicy ? Components.interfaces.nsIContentPolicy.REJECT_REQUEST : false);
@@ -155,6 +155,7 @@ const boolPrefs = ["enabled", "linkcheck", "fastcollapse", "frameobjects", "list
 const prefs = {}
 const prefListeners = [];
 var disablePrefObserver = false;
+var strings = null;
 
 const prefService = Components.classes["@mozilla.org/preferences-service;1"]
                         .getService(Components.interfaces.nsIPrefService);
@@ -223,6 +224,7 @@ const adblock = {
       insecNode = elementInterface(contentType, insecNode);
 
     var match = null;
+    var linksOk = true;
     if (prefs.enabled) {
       // Try to use previous results - if there were any
       match = cache.get(location);
@@ -239,7 +241,7 @@ const adblock = {
 
       // Check links in parent nodes
       if (!match && insecNode && prefs.linkcheck && contentType in linkTypes)
-        match = checkLinks(contentType, insecNode);
+        linksOk = checkLinks(insecNode);
 
       // If the node wasn't blocked we still might want to add a frame to it
       if (!match && prefs.frameobjects
@@ -247,6 +249,10 @@ const adblock = {
           && location != secureGet(insecNode, "ownerDocument", "defaultView", "location", "href")) // it's not a standalone object
         secureLookup(insecWnd, "setTimeout")(addObjectTab, 0, insecNode, location, insecWnd);
     }
+
+    // Fix type for background images
+    if (contentType == type.IMAGE && secureGet(insecNode, "nodeType") == Node.DOCUMENT_NODE)
+      contentType = type.BACKGROUND;
 
     // Store node data
     data.addNode(insecNode, contentType, location, match);
@@ -258,7 +264,7 @@ const adblock = {
       hideNode(insecNode, insecWnd, collapse);
     }
 
-    return !match;
+    return !match && linksOk;
   },
 
   getPrefs: function() {
@@ -316,13 +322,13 @@ const adblock = {
   },
 
   // Opens preferences dialog for the supplied window and filter suggestion
-  openSettingsDialog: function(insecWnd, location) {
+  openSettingsDialog: function(insecWnd, location, filter) {
     var dlg = windowMediator.getMostRecentWindow("adblock:settings");
     if (dlg)
       dlg.focus();
     else {
       var browser = windowMediator.getMostRecentWindow("navigator:browser");
-      browser.openDialog("chrome://adblockplus/content/settings.xul", "_blank", "chrome,resizable,centerscreen", insecWnd, location);
+      browser.openDialog("chrome://adblockplus/content/settings.xul", "_blank", "chrome,resizable,centerscreen", insecWnd, location, filter);
     }
   },
 
@@ -349,6 +355,11 @@ const adblock = {
   // Checks whether a page is whitelisted
   isWhitelisted: function(url) {
     return matchesAny(url, prefs.whitelist);
+  },
+
+  // Retrieves a named string from the locale
+  getString: function(name) {
+    return strings.GetStringFromName(name);
   },
 
   getFlasher: function() {
@@ -426,20 +437,13 @@ FakeController.prototype = {
       this.locations[key].inseclNodes.push(insecNode);
     }
     else {
-      // Before adding a new location we have to check existing nodes so the
-      // listener can remove them if necessary
-      if (this.locationListeners.length > 0) {
-        // Need a timeout here - nodes might not be invalidated immediately
-        var me = this;
-        createTimer(function() {me.getAllLocations()}, 0);
-      }
-
       // Add a new location and notify the listeners
       this.locations[key] = {
         inseclNodes: [insecNode],
         location: location,
         type: contentType,
         typeDescr: typeDescr[contentType],
+        localizedDescr: localizedDescr[contentType],
         filter: filter
       };
       this.notifyLocationListeners(this.locations[key], true);
@@ -538,17 +542,31 @@ function init() {
   
   // Variable initialization
 
+  var stringService = Components.classes["@mozilla.org/intl/stringbundle;1"]
+                                .getService(Components.interfaces.nsIStringBundleService);
+  strings = stringService.createBundle("chrome://adblockplus/locale/global.properties");
+
   var types = ["OTHER", "SCRIPT", "IMAGE", "STYLESHEET", "OBJECT", "SUBDOCUMENT", "DOCUMENT"];
 
   // type constant by type description and type description by type constant
   type = {};
   typeDescr = {};
+  localizedDescr = {};
   var iface = Components.interfaces.nsIContentPolicy;
   for (var k = 0; k < types.length; k++) {
     var typeName = types[k];
     type[typeName] = typeName in iface ? iface[typeName] : iface["TYPE_" + typeName];
     typeDescr[type[typeName]] = typeName;
+    localizedDescr[type[typeName]] = adblock.getString("type_label_" + typeName.toLowerCase());
   }
+
+  type.LINK = 0xFFFF;
+  typeDescr[0xFFFF] = "LINK";
+  localizedDescr[0xFFFF] = adblock.getString("type_label_link");
+
+  type.BACKGROUND = 0xFFFE;
+  typeDescr[0xFFFE] = "BACKGROUND";
+  localizedDescr[0xFFFE] = adblock.getString("type_label_background");
 
   // blockable content-policy types
   blockTypes = {
@@ -766,14 +784,14 @@ function hideFrameCallback(insecFrameset, attr, index) {
  */
 
 // Tests if some parent of the node is a link matching a filter
-function checkLinks(contentType, insecNode) {
+function checkLinks(insecNode) {
   while (insecNode && (secureGet(insecNode, "href") == null || !adblock.isBlockableScheme(insecNode)))
     insecNode = secureGet(insecNode, "parentNode");
 
   if (insecNode)
-    return matchesAny(secureGet(insecNode, "href"), prefs.regexps);
+    return adblock.processNode(insecNode, type.LINK, secureGet(insecNode, "href"), false);
   else
-    return null;
+    return true;
 }
 
 // Tests if a given URL matches any of the regexps from the list, returns the matching pattern
@@ -792,6 +810,7 @@ function matchesAny(location, list) {
 // Converts a pattern into RegExp and adds it to the list
 function addPattern(pattern) {
   var regexp;
+  var origPattern = pattern;
 
   var list = prefs.regexps;
   if (pattern.indexOf("@@") == 0) {
@@ -809,7 +828,7 @@ function addPattern(pattern) {
   }
   try {
     regexp = new RegExp(regexp, "i");
-    regexp.origPattern = pattern;
+    regexp.origPattern = origPattern;
     list.push(regexp);
   } catch(e) {}
 }

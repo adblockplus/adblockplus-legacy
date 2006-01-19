@@ -39,11 +39,17 @@
   <script type="application/x-javascript" src="security.js"/>
 
   <popupset id="sidebarPopups">
-    <tooltip id="suggestionsTooltip" label=" " onpopupshowing="return fillInTooltip(event)"/>
+    <tooltip id="tooltip" orient="vertical" onpopupshowing="return fillInTooltip(event)">
+      <description id="tooltipText"/>
+      <hbox id="tooltipFilter">
+        <label value="&effective-filter.label;:" control="tooltipFilterText"/>
+        <description id="tooltipFilterText"/>
+      </hbox>
+    </tooltip>
   </popupset>
 
   <label id="suggestionsListLabel" value="&list.label;:" control="suggestionsList"/>
-  <listbox id="suggestionsList" flex="1" seltype="single" tooltip="suggestionsTooltip" onclick="openInTab(event)" ondblclick="doAdblock()" onkeypress="if (event.keyCode == event.DOM_VK_RETURN || event.keyCode == event.DOM_VK_ENTER) doAdblock();">
+  <listbox id="suggestionsList" flex="1" seltype="single" tooltip="tooltip" onclick="openInTab(event)" ondblclick="doAdblock()" onkeypress="if (event.keyCode == event.DOM_VK_RETURN || event.keyCode == event.DOM_VK_ENTER) doAdblock();">
     <listhead>
       <listheader label="&type.label;"/>
       <listheader label="&address.label;"/>

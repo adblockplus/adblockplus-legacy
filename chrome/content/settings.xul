@@ -43,10 +43,6 @@
 <script type="application/x-javascript" src="settings.js"/>
 <script type="application/x-javascript" src="security.js"/>
 
-<stringbundleset id="adblockStringBundles">
-  <stringbundle id="adblockStrings" src="chrome://adblockplus/locale/global.properties"/>
-</stringbundleset>
-
 <keyset id="adblockKeys">
   <key keycode="VK_RETURN" command="ok-command"/>
   <key keycode="VK_ENTER" command="ok-command"/>
