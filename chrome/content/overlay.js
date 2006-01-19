@@ -31,8 +31,6 @@ try {
 } catch (e) {}
 
 var adblockpPrefs = adblockp ? adblockp.getPrefs() : {enabled: false};
-if (adblockp)
-  adblockp.addPrefListener(adblockpReloadPrefs);
 
 // With older Mozilla versions load event never happens (???), using timeout as a fallback
 var adblockpInitialized = false;
@@ -50,9 +48,11 @@ function adblockpInit() {
   }
 
   adblockpInitialized = true;
+  window.addEventListener("unload", adblockpUnload, false);
 
   // Process preferences
   adblockpReloadPrefs();
+  adblockp.addPrefListener(adblockpReloadPrefs);
 
   // Install context menu handler
   document.getElementById("contentAreaContextMenu").addEventListener("popupshowing", adblockpCheckContext, false);
@@ -60,6 +60,10 @@ function adblockpInit() {
   // Check whether Adblock is installed and uninstall
   if (!adblockpPrefs.checkedadblockinstalled)
     setTimeout(adblockpCheckExtensionConflicts, 0);
+}
+
+function adblockpUnload() {
+  adblockp.removePrefListener(adblockpReloadPrefs);
 }
 
 function adblockpReloadPrefs() {
