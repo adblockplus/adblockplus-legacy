@@ -7,4 +7,4 @@ pref("extensions.adblockplus.warnregexp", true);
 pref("extensions.adblockplus.checkedadblockprefs", false);
 pref("extensions.adblockplus.checkedadblockinstalled", false);
 
-pref("extensions.adblockplus.patterns", "*/banner/* */banners/* http://*.adserver.example.com/*");
+pref("extensions.adblockplus.patterns", "*/ads/* */advertisements/* http://*.adserver.example.com/*");

@@ -55,13 +55,8 @@
       </menu>
       <menuitem id="adblockplus-enabled" label="&enable.label;" type="checkbox" oncommand="adblockpTogglePref('enabled')"/>
     </popup>
-    <statusbarpanel id="adblockplus-status" context="adblockplus-status-popup" onclick="if (event.button == 0 &amp;&amp; new Date().getTime()-adblockpLastDrag>100) adblockpSettings()" ondragover="adblockpDragHandler(event)" ondragdrop="adblockpDragHandler(event)" onmousedown="adblockpMouseHandler(event)"/>
+    <statusbarpanel id="adblockplus-status" label="&notloaded.label;" tooltiptext="&notloaded.tooltip;" context="adblockplus-status-popup" onclick="adblockpClickHandler(event)" ondragover="adblockpDragHandler(event)" ondragdrop="adblockpDragHandler(event)" onmousedown="adblockpMouseHandler(event)"/>
   </statusbar> 
-
-  <!-- string bundles -->
-  <stringbundleset id="stringbundleset">
-    <stringbundle id="adblockplus-strings" src="chrome://adblockplus/locale/global.properties"/>
-  </stringbundleset>
 
   <!-- mozilla keybindings -->
   <keyset id="navKeys">

@@ -22,3 +22,11 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
+#tooltipFilter {
+  margin-top: 5px;
+}
+
+#tooltipFilter label {
+  font-weight: bold;
+  margin-right: 0px;
+}

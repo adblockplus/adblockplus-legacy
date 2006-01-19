@@ -42,7 +42,7 @@ function adblockpInit() {
   if (adblockpInitialized)
     return;
 
-  if (!document.getElementById("contentAreaContextMenu") || !document.getElementById("adblockplus-strings")) {
+  if (!document.getElementById("contentAreaContextMenu")) {
     window.setTimeout(adblockpInit, 1000);
     return;
   }
@@ -77,15 +77,10 @@ function adblockpReloadPrefs() {
         state = "active";
       else
         state = "disabled";
-    }
-    else {
-      status.removeAttribute("clickable");
-      state = "notloaded";
-    }
 
-    var strings = document.getElementById("adblockplus-strings");
-    status.setAttribute("label", strings.getString("status_" + state + "_label"));
-    status.setAttribute("tooltiptext", strings.getString("status_" + state + "_tooltip"));
+      status.setAttribute("label", adblockp.getString("status_" + state + "_label"));
+      status.setAttribute("tooltiptext", adblockp.getString("status_" + state + "_tooltip"));
+    }
 
     if (adblockpPrefs.enabled)
       status.removeAttribute("disabled");
@@ -101,14 +96,13 @@ function adblockpCheckExtensionConflicts() {
   adblockp.savePrefs();
 
   if ("@mozilla.org/adblock;1" in Components.classes) {
-    var strings = document.getElementById("adblockplus-strings");
     var promptService = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
                                   .getService(Components.interfaces.nsIPromptService);
     // Adblock is installed
     if ("@mozilla.org/extensions/manager;1" in Components.classes) {
       // Extension Manager available, ask whether to uninstall
-      var result = promptService.confirm(window, strings.getString("uninstall_adblock_title"),
-                                         strings.getString("uninstall_adblock_text"));
+      var result = promptService.confirm(window, adblockp.getString("uninstall_adblock_title"),
+                                         adblockp.getString("uninstall_adblock_text"));
       if (!result)
         return;
 
@@ -127,19 +121,19 @@ function adblockpCheckExtensionConflicts() {
           // but only if the check isn't done immediately after installation.
           extensionManager.uninstallExtension(id);
         }
-        promptService.alert(window, strings.getString("uninstall_adblock_title"),
-                                    strings.getString("uninstall_adblock_success"));
+        promptService.alert(window, adblockp.getString("uninstall_adblock_title"),
+                                    adblockp.getString("uninstall_adblock_success"));
       }
       catch (e) {
         dump("Adblock Plus: error uninstalling Adblock, " + e + "\n");
-        promptService.alert(window, strings.getString("uninstall_adblock_title"),
-                                    strings.getString("uninstall_adblock_error"));
+        promptService.alert(window, adblockp.getString("uninstall_adblock_title"),
+                                    adblockp.getString("uninstall_adblock_error"));
       }
     }
     else {
       // No extension manager, recomend manual uninstall
-      promptService.alert(window, strings.getString("uninstall_adblock_title"),
-                                  strings.getString("uninstall_adblock_manually"));
+      promptService.alert(window, adblockp.getString("uninstall_adblock_title"),
+                                  adblockp.getString("uninstall_adblock_manually"));
     }
   }
 }
@@ -217,6 +211,17 @@ function adblockpTogglePattern(pattern, insert) {
   adblockp.savePrefs();
 }
 
+// Handle clicks on the Adblock statusbar panel
+function adblockpClickHandler(e) {
+  if (!adblockp)
+    return;
+
+  if (e.button == 0 && new Date().getTime() - adblockpLastDrag > 100)
+    adblockpSettings();
+  else if (e.button == 1)
+    adblockpTogglePref("enabled");
+}
+
 // Handles Drag&Drop of links and images to the Adblock statusbar panel
 function adblockpDragHandler(e) {
   if (!adblockp)
@@ -286,7 +291,7 @@ function adblockpCheckContext() {
   }
 
   gContextMenu.showItem("adblockplus-frame-menuitem", adblockp && insecFrame);
-  gContextMenu.showItem('adblockplus-image-menuitem', nodeType == "IMAGE");
+  gContextMenu.showItem('adblockplus-image-menuitem', nodeType == "IMAGE" || nodeType == "BACKGROUND");
   gContextMenu.showItem('adblockplus-object-menuitem', nodeType == "OBJECT");
 }
 

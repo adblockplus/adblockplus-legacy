@@ -50,6 +50,12 @@ function init() {
   loadDummy = document.getElementById("notLoadedDummy");
   loadDummy.parentNode.removeChild(loadDummy);
 
+  if (adblock) {
+    itemsDummy.location = adblock.getString("no_blocking_suggestions");
+    remoteDummy.location = adblock.getString("not_remote_page");
+    whitelistDummy.location = adblock.getString("whitelisted_page");
+  }
+
   var data = [];
   if (adblock) {
     // Retrieve data for the window
@@ -68,6 +74,12 @@ function init() {
         loc = wndData.getLocation(item.getAttribute("label"));
       flasher.flash(loc ? loc.inseclNodes : null);
     }, false);
+
+    // Revalidate nodes periodically
+    setInterval(function() {
+      if (wndData)
+        wndData.getAllLocations();
+    }, 2000);
 
     // Install a handler for tab changes
     parent.getBrowser().addEventListener("select", handleTabChange, false);
@@ -91,10 +103,18 @@ function insertDummy(list) {
     currentDummy = itemsDummy;
 
     var insecLocation = secureGet(content, "location");
-    if (!adblock.isBlockableScheme(insecLocation))
-      currentDummy = remoteDummy;
-    else if (adblock.isWhitelisted(secureGet(insecLocation, "href")))
-      currentDummy = whitelistDummy;
+    // We want to stick with "no blockable items" for about:blank
+    if (secureGet(insecLocation, "href") != "about:blank") {
+      if (!adblock.isBlockableScheme(insecLocation))
+        currentDummy = remoteDummy;
+      else {
+        var filter = adblock.isWhitelisted(secureGet(insecLocation, "href"));
+        if (filter) {
+          currentDummy = whitelistDummy;
+          currentDummy.filter = filter;
+        }
+      }
+    }
   }
   list.appendChild(currentDummy);
 }
@@ -131,8 +151,10 @@ function createListCell(label, crop, disabled) {
 function createFilterSuggestion(listbox, suggestion) {
   var listitem = document.createElement("listitem");
 
-  listitem.appendChild(createListCell(suggestion.typeDescr.toLowerCase(), false, suggestion.filter));
+  listitem.appendChild(createListCell(suggestion.localizedDescr, false, suggestion.filter));
   listitem.appendChild(createListCell(suggestion.location, true, suggestion.filter));
+  listitem.filter = suggestion.filter;
+  listitem.location = suggestion.location;
 
   listbox.appendChild(listitem);
 
@@ -209,13 +231,16 @@ function handleTabChange() {
 // Shows tooltop with the full uncropped location
 function fillInTooltip(event) {
   var node = document.tooltipNode;
-  if (node.tagName == "listitem" && node.firstChild && node.firstChild.nextSibling)
-    node = node.firstChild.nextSibling;
+  while (node && node.tagName != "listitem")
+    node = node.parentNode;
 
-  if (node.tagName != "listcell")
+  if (!node || !("location" in node))
     return false;
 
-  event.target.setAttribute("label", node.getAttribute("label"));
+  var pattern = ("filter" in node && node.filter ? node.filter.origPattern : null);
+  document.getElementById("tooltipText").setAttribute("value", node.location);
+  document.getElementById("tooltipFilter").hidden = !pattern;
+  document.getElementById("tooltipFilterText").setAttribute("value", pattern);
   return true;
 }
 
@@ -247,9 +272,10 @@ function doAdblock() {
     return;
 
   var listitem = document.getElementById("suggestionsList").selectedItem;
+  if (!("filter" in listitem))
+    return;
 
-  if (listitem)
-    var url = listitem.firstChild.nextSibling.getAttribute("label");
-
-  adblock.openSettingsDialog(content, url);
+  // No location for the dummy item
+  var location = (listitem.id ? undefined : listitem.location);
+  adblock.openSettingsDialog(content, location, listitem.filter);
 }
