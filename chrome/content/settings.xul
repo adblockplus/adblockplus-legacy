@@ -61,6 +61,7 @@
       <menupopup id="options-popup">
         <menuitem label="&browser.group.label;" disabled="true" style="font-style: italic;"/>
         <menuitem id="enabled" label="&enable.label;" type="checkbox"/>
+        <menuitem id="showinstatusbar" label="&showinstatusbar.label;" type="checkbox"/>
         <menuitem id="frameobjects" label="&objecttabs.label;" type="checkbox"/>
         <menuitem id="slowcollapse" label="&collapse.label;" type="checkbox"/>
         <menuitem id="linkcheck" label="&linkcheck.label;" type="checkbox"/>

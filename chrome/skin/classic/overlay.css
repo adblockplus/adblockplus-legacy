@@ -22,17 +22,17 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-#adblockplus-status[clickable] *
+#adblockplus-status:not([disabled="true"]) *
 {
   cursor: pointer;
 }
 
-#adblockplus-status[clickable]:hover
+#adblockplus-status:not([disabled="true"]):hover
 {
   text-decoration: underline;
 }
 
-#adblockplus-status[disabled]
+#adblockplus-status[deactivated]
 {
   color: #999999;
 }
@@ -40,3 +40,24 @@
 #adblockplus-settings {
   font-weight: bold;
 }
+
+#adblockplus-toolbarbutton {
+  list-style-image: url("chrome://adblockplus/skin/abp-enabled.png");
+}
+#adblockplus-toolbarbutton[deactivated] {
+  list-style-image: url("chrome://adblockplus/skin/abp-disabled.png");
+}
+#adblockplus-toolbarbutton[disabled="true"] {
+  list-style-image: url("chrome://adblockplus/skin/abp-defunc.png");
+}
+
+toolbar[iconsize="small"] #adblockplus-toolbarbutton {
+  list-style-image: url("chrome://adblockplus/skin/abp-enabled-16.png");
+}
+toolbar[iconsize="small"]#adblockplus-toolbarbutton[deactivated] {
+  list-style-image: url("chrome://adblockplus/skin/abp-disabled-16.png");
+}
+toolbar[iconsize="small"]#adblockplus-toolbarbutton[disabled="true"] {
+  list-style-image: url("chrome://adblockplus/skin/abp-defunc-16.png");
+}
+

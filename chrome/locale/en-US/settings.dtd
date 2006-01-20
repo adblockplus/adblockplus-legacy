@@ -29,6 +29,7 @@
 
 <!ENTITY browser.group.label      "Browser Window">
 <!ENTITY enable.label             "Enable Adblock Plus">
+<!ENTITY showinstatusbar.label    "Show in status bar">
 <!ENTITY objecttabs.label         "Show object tabs">
 <!ENTITY collapse.label           "Collapse blocked elements">
 <!ENTITY linkcheck.label          "Check banner links">
