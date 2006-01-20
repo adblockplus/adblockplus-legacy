@@ -7,6 +7,8 @@ my $version = <VERSION>;
 $version =~ s/[^\w\.]//gs;
 close(VERSION);
 
+$version .= "+" if $ARGV[1];
+
 my $output_file = $ARGV[0] || "adblockplus.xpi";
 
 rm_rec('tmp');
