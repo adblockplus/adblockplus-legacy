@@ -59,6 +59,7 @@
   <em:homepageURL>http://adblockplus.mozdev.org</em:homepageURL>
   
   <!-- Front End Integration Hooks (used by Extension Manager)-->
+  <em:iconURL>chrome://adblockplus/skin/abp-enabled.png</em:iconURL>
   <em:aboutURL>chrome://adblockplus/content/about.xul</em:aboutURL>
   <em:optionsURL>chrome://adblockplus/content/settings.xul</em:optionsURL>
   
