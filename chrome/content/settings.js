@@ -95,10 +95,11 @@ function init() {
 
   // Init options menu
   document.getElementById("enabled").setAttribute("checked", prefs.enabled);
-  document.getElementById("listsort").setAttribute("checked", prefs.listsort);
+  document.getElementById("showinstatusbar").setAttribute("checked", prefs.showinstatusbar);
   document.getElementById("frameobjects").setAttribute("checked", prefs.frameobjects);
   document.getElementById("slowcollapse").setAttribute("checked", !prefs.fastcollapse); // reverse pref
   document.getElementById("linkcheck").setAttribute("checked", prefs.linkcheck);
+  document.getElementById("listsort").setAttribute("checked", prefs.listsort);
 
   // Set the focus always to the input field
   filterSuggestions.focus();
@@ -351,10 +352,11 @@ function saveSettings() {
     return;
 
   prefs.enabled = (document.getElementById("enabled").getAttribute("checked") == "true");
-  prefs.linkcheck = (document.getElementById("linkcheck").getAttribute("checked") == "true");
-  prefs.fastcollapse = (document.getElementById("slowcollapse").getAttribute("checked") != "true");  // reverse pref
+  prefs.showinstatusbar = (document.getElementById("showinstatusbar").getAttribute("checked") == "true");
   prefs.frameobjects = (document.getElementById("frameobjects").getAttribute("checked") == "true");
+  prefs.fastcollapse = (document.getElementById("slowcollapse").getAttribute("checked") != "true");  // reverse pref
   prefs.listsort = (document.getElementById("listsort").getAttribute("checked") == "true");
+  prefs.linkcheck = (document.getElementById("linkcheck").getAttribute("checked") == "true");
 
   prefs.patterns = getPatterns();
   adblock.savePrefs();

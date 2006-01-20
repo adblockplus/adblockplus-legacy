@@ -59,8 +59,12 @@ function adblockpInit() {
   document.getElementById("contentAreaContextMenu").addEventListener("popupshowing", adblockpCheckContext, false);
 
   // Check whether Adblock is installed and uninstall
-  if (!adblockpPrefs.checkedadblockinstalled)
+  if (adblockp && !adblockpPrefs.checkedadblockinstalled)
     setTimeout(adblockpCheckExtensionConflicts, 0);
+
+  // Install toolbar button in Firefox if necessary
+  if (adblockp && !adblockpPrefs.checkedtoolbar)
+    adblockpInstallInToolbar();
 }
 
 function adblockpUnload() {
@@ -68,25 +72,45 @@ function adblockpUnload() {
 }
 
 function adblockpReloadPrefs() {
-  var status = document.getElementById("adblockplus-status");
-
-  if (status) {
+  var label, tooltip;
+  if (adblockp) {
     var state;
-    if (adblockp) {
-      status.setAttribute("clickable", "true");
-      if (adblockpPrefs.enabled)
-        state = "active";
-      else
-        state = "disabled";
+    if (adblockpPrefs.enabled)
+      state = "active";
+    else
+      state = "disabled";
 
-      status.setAttribute("label", adblockp.getString("status_" + state + "_label"));
-      status.setAttribute("tooltiptext", adblockp.getString("status_" + state + "_tooltip"));
+    label = adblockp.getString("status_" + state + "_label");
+    tooltip = adblockp.getString("status_" + state + "_tooltip");
+  }
+
+  var status = document.getElementById("adblockplus-status");
+  if (status) {
+    if (adblockp) {
+      status.removeAttribute("disabled");
+      status.setAttribute("label", label);
+      status.setAttribute("tooltiptext", tooltip);
     }
 
     if (adblockpPrefs.enabled)
-      status.removeAttribute("disabled");
+      status.removeAttribute("deactivated");
     else
-      status.setAttribute("disabled", "true");
+      status.setAttribute("deactivated", "true");
+
+    status.hidden = !adblockpPrefs.showinstatusbar;
+  }
+
+  var toolbar = document.getElementById("adblockplus-toolbarbutton");
+  if (toolbar) {
+    if (adblockp) {
+      toolbar.removeAttribute("disabled");
+      toolbar.setAttribute("tooltiptext", tooltip);
+    }
+
+    if (adblockpPrefs.enabled)
+      toolbar.removeAttribute("deactivated");
+    else
+      toolbar.setAttribute("deactivated", "true");
   }
 }
 
@@ -139,6 +163,19 @@ function adblockpCheckExtensionConflicts() {
   }
 }
 
+// Check whether we installed the toolbar button already
+function adblockpInstallInToolbar() {
+  if (!document.getElementById("adblockplus-toolbarbutton")) {
+    var toolbar = document.getElementById("nav-bar");
+    if (toolbar && "insertItem" in toolbar)
+      toolbar.insertItem("adblockplus-toolbarbutton", document.getElementById("urlbar-container"), null, false);
+  }
+
+  // Make sure not to run this twice
+  adblockpPrefs.checkedtoolbar = true;
+  adblockp.savePrefs();
+}
+
 // Fills the context menu on the status bar
 function adblockpFillPopup() {
   if (!adblockp)
@@ -166,6 +203,7 @@ function adblockpFillPopup() {
     whitelistItemSite.hidden = whitelistItemPage.hidden = !showWhitelist;
 
   document.getElementById("adblockplus-enabled").setAttribute("checked", adblockpPrefs.enabled);
+  document.getElementById("adblockplus-showinstatusbar").setAttribute("checked", adblockpPrefs.showinstatusbar);
   document.getElementById("adblockplus-frameobjects").setAttribute("checked", adblockpPrefs.frameobjects);
   document.getElementById("adblockplus-slowcollapse").setAttribute("checked", !adblockpPrefs.fastcollapse);
   document.getElementById("adblockplus-linkcheck").setAttribute("checked", adblockpPrefs.linkcheck);
@@ -214,9 +252,6 @@ function adblockpTogglePattern(pattern, insert) {
 
 // Handle clicks on the Adblock statusbar panel
 function adblockpClickHandler(e) {
-  if (!adblockp)
-    return;
-
   if (e.button == 0 && new Date().getTime() - adblockpLastDrag > 100)
     adblockpSettings();
   else if (e.button == 1)
