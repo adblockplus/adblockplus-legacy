@@ -52,7 +52,8 @@ function adblockpInit() {
 
   // Process preferences
   adblockpReloadPrefs();
-  adblockp.addPrefListener(adblockpReloadPrefs);
+  if (adblockp)
+    adblockp.addPrefListener(adblockpReloadPrefs);
 
   // Install context menu handler
   document.getElementById("contentAreaContextMenu").addEventListener("popupshowing", adblockpCheckContext, false);
