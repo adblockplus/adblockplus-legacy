@@ -95,7 +95,7 @@ const factory = {
     if (!initialized)
       init();
 
-    return adblock;
+    return abp;
   },
 
   // nsISupports interface implementation
@@ -169,7 +169,7 @@ var lastWindow  = null;
  * Content policy class definition
  */
 
-const adblock = {
+const abp = {
   // nsIContentPolicy interface implementation
   shouldLoad: function(contentType, contentLocation, requestOrigin, insecRequestingNode, mimeTypeGuess, extra) {
     // if it's not a blockable type or not the HTTP protocol, use the usual policy
@@ -288,7 +288,7 @@ const adblock = {
 
   // Loads Adblock data associated with a window object
   getDataForWindow: function(insecWnd) {
-    var data = secureLookup(insecWnd, "controllers", "getControllerForCommand")("adblock");
+    var data = secureLookup(insecWnd, "controllers", "getControllerForCommand")("abp");
     while (data && !("validate" in data))
       data = data.wrappedJSObject;
   
@@ -324,7 +324,7 @@ const adblock = {
 
   // Opens preferences dialog for the supplied window and filter suggestion
   openSettingsDialog: function(insecWnd, location, filter) {
-    var dlg = windowMediator.getMostRecentWindow("adblock:settings");
+    var dlg = windowMediator.getMostRecentWindow("adblockplus:settings");
     if (dlg)
       dlg.focus();
     else {
@@ -368,7 +368,7 @@ const adblock = {
   }
 };
 
-adblock.wrappedJSObject = adblock;
+abp.wrappedJSObject = abp;
 
 /*
  * Fake nsIController object - data container
@@ -387,7 +387,7 @@ FakeController.prototype = {
     return false;
   },
   supportsCommand: function(command) {
-    return (command == "adblock");
+    return (command == "abp");
   },
 
   // nsISupports interface implementation
@@ -409,7 +409,7 @@ FakeController.prototype = {
   install: function(insecWnd) {
     // Remove any previously installed controllers first
     var controller;
-    while ((controller = secureLookup(insecWnd, "controllers", "getControllerForCommand")("adblock")) != null)
+    while ((controller = secureLookup(insecWnd, "controllers", "getControllerForCommand")("abp")) != null)
       secureLookup(insecWnd, "controllers", "removeController")(controller);
 
     this.insecDoc = secureGet(insecWnd, "document");
@@ -535,7 +535,7 @@ function init() {
   try {
     var prefInternal = Components.classes["@mozilla.org/preferences-service;1"]
                                  .getService(Components.interfaces.nsIPrefBranchInternal);
-    prefInternal.addObserver("extensions.adblockplus.", adblock, false);
+    prefInternal.addObserver("extensions.adblockplus.", abp, false);
   }
   catch (e) {
     dump("Adblock Plus: exception registering pref observer: " + e + "\n");
@@ -558,16 +558,16 @@ function init() {
     var typeName = types[k];
     type[typeName] = typeName in iface ? iface[typeName] : iface["TYPE_" + typeName];
     typeDescr[type[typeName]] = typeName;
-    localizedDescr[type[typeName]] = adblock.getString("type_label_" + typeName.toLowerCase());
+    localizedDescr[type[typeName]] = abp.getString("type_label_" + typeName.toLowerCase());
   }
 
   type.LINK = 0xFFFF;
   typeDescr[0xFFFF] = "LINK";
-  localizedDescr[0xFFFF] = adblock.getString("type_label_link");
+  localizedDescr[0xFFFF] = abp.getString("type_label_link");
 
   type.BACKGROUND = 0xFFFE;
   typeDescr[0xFFFE] = "BACKGROUND";
-  localizedDescr[0xFFFE] = adblock.getString("type_label_background");
+  localizedDescr[0xFFFE] = abp.getString("type_label_background");
 
   // blockable content-policy types
   blockTypes = {
@@ -786,11 +786,11 @@ function hideFrameCallback(insecFrameset, attr, index) {
 
 // Tests if some parent of the node is a link matching a filter
 function checkLinks(insecNode) {
-  while (insecNode && (secureGet(insecNode, "href") == null || !adblock.isBlockableScheme(insecNode)))
+  while (insecNode && (secureGet(insecNode, "href") == null || !abp.isBlockableScheme(insecNode)))
     insecNode = secureGet(insecNode, "parentNode");
 
   if (insecNode)
-    return adblock.processNode(insecNode, type.LINK, secureGet(insecNode, "href"), false);
+    return abp.processNode(insecNode, type.LINK, secureGet(insecNode, "href"), false);
   else
     return true;
 }
@@ -910,7 +910,7 @@ function addObjectTab(insecNode, location, insecWnd) {
   
   // Click event handler
   label.addEventListener("click", function() {
-    adblock.openSettingsDialog(insecWnd, location);
+    abp.openSettingsDialog(insecWnd, location);
   }, false);
 
   // Insert tab into the document

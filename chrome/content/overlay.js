@@ -331,17 +331,30 @@ function abpCheckContext() {
   gContextMenu.insecAdblockFrame = insecFrame;
 
   var nodeType = null;
+  gContextMenu.abpLink = null;
   if (abp) {
+    // Lookup the node in our stored data
     var data = abp.getDataForNode(insecTarget);
     gContextMenu.abpData = data;
     if (data && !data.filter)
       nodeType = data.typeDescr;
+
+    if (abpPrefs.linkcheck && (nodeType == "IMAGE" || nodeType == "OBJECT" /*|| nodeType == "BACKGROUND"*/)) {
+      // Look for a parent link
+      while (insecTarget && (secureGet(insecTarget, "href") == null || !abp.isBlockableScheme(insecTarget)))
+        insecTarget = secureGet(insecTarget, "parentNode");
+
+      if (insecTarget)
+        gContextMenu.abpLink = secureGet(insecTarget, "href");
+    }
   }
+
 
   gContextMenu.showItem("abp-frame-menuitem", abp && insecFrame);
   // XXX: Can't block background images via context menu. Can this be solved?
   gContextMenu.showItem('abp-image-menuitem', nodeType == "IMAGE" /* || nodeType == "BACKGROUND"*/);
   gContextMenu.showItem('abp-object-menuitem', nodeType == "OBJECT");
+  gContextMenu.showItem('abp-link-menuitem', gContextMenu.abpLink != null);
 }
 
 // Bring up the settings dialog for the node the context menu was referring to
@@ -349,6 +362,13 @@ function abpNode() {
   var data = gContextMenu.abpData;
   if (data)
     abpSettings(data.location);
+}
+
+// Bring up the settings dialog for the link the context menu was referring to
+function abpLink() {
+  var link = gContextMenu.abpLink;
+  if (link)
+    abpSettings(link);
 }
 
 // Bring up the settings dialog for the frame the context menu was referring to
