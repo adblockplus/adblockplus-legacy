@@ -79,8 +79,8 @@
     </menu>
     <menu id="help-menu" label="&help.label;" accesskey="&help.accesskey;">
       <menupopup id="help-popup">
-        <menuitem id="faqLink" label="&faq.label;" oncommand="adblock.loadInBrowser('&faq.url;');"/>
-        <menuitem id="tipsLink" label="&tips.label;" oncommand="adblock.loadInBrowser('&tips.url;');"/>
+        <menuitem id="faqLink" label="&faq.label;" oncommand="abp.loadInBrowser('&faq.url;');"/>
+        <menuitem id="tipsLink" label="&tips.label;" oncommand="abp.loadInBrowser('&tips.url;');"/>
         <menuseparator/>
         <menuitem id="aboutAdblock" label="&about.label;..." oncommand="openAbout()"/>
       </menupopup>

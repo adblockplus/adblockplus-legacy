@@ -48,7 +48,7 @@
 
   <vbox id="homepageBox">
     <description id="homepageTitle" value="&homepage.label;:"/>
-    <description id="homepage" value="http://adblockplus.mozdev.org/" onclick="adblock.loadInBrowser(this.getAttribute('value'))"/>
+    <description id="homepage" value="http://adblockplus.mozdev.org/" onclick="abp.loadInBrowser(this.getAttribute('value'))"/>
   </vbox>
   <vbox id="authorBox">
     <description id="authorTitle" value="&author.label;:"/>

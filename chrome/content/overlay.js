@@ -24,8 +24,7 @@
 
 var abp = null;
 try {
-  abp = Components.classes["@mozilla.org/adblockplus;1"]
-                      .getService(Components.interfaces.nsISupports);
+  abp = Components.classes["@mozilla.org/adblockplus;1"].getService();
   while (abp && !('getPrefs' in abp))
     abp = abp.wrappedJSObject;    // Unwrap Adblock Plus component
 } catch (e) {}
@@ -33,21 +32,9 @@ try {
 var abpPrefs = abp ? abp.getPrefs() : {enabled: false};
 
 // With older Mozilla versions load event never happens (???), using timeout as a fallback
-var abpInitialized = false;
 window.addEventListener("load", abpInit, false);
-window.setTimeout(abpInit, 1000);
 
 function abpInit() {
-  // Prevent from initializing twice
-  if (abpInitialized)
-    return;
-
-  if (!document.getElementById("contentAreaContextMenu")) {
-    window.setTimeout(abpInit, 1000);
-    return;
-  }
-
-  abpInitialized = true;
   window.addEventListener("unload", abpUnload, false);
 
   // Process preferences
