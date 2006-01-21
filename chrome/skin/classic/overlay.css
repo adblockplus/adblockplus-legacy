@@ -22,42 +22,42 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-#adblockplus-status:not([disabled="true"]) *
+#abp-status:not([disabled="true"]) *
 {
   cursor: pointer;
 }
 
-#adblockplus-status:not([disabled="true"]):hover
+#abp-status:not([disabled="true"]):hover
 {
   text-decoration: underline;
 }
 
-#adblockplus-status[deactivated]
+#abp-status[deactivated]
 {
   color: #999999;
 }
 
-#adblockplus-status-settings, #adblockplus-toolbar-settings {
+#abp-status-settings, #abp-toolbar-opensidebar, #abp-toolbar-closesidebar {
   font-weight: bold;
 }
 
-#adblockplus-toolbarbutton {
+#abp-toolbarbutton {
   list-style-image: url("chrome://adblockplus/skin/abp-enabled.png");
 }
-#adblockplus-toolbarbutton[deactivated] {
+#abp-toolbarbutton[deactivated] {
   list-style-image: url("chrome://adblockplus/skin/abp-disabled.png");
 }
-#adblockplus-toolbarbutton[disabled="true"] {
+#abp-toolbarbutton[disabled="true"] {
   list-style-image: url("chrome://adblockplus/skin/abp-defunc.png");
 }
 
-toolbar[iconsize="small"] #adblockplus-toolbarbutton {
+toolbar[iconsize="small"] #abp-toolbarbutton {
   list-style-image: url("chrome://adblockplus/skin/abp-enabled-16.png");
 }
-toolbar[iconsize="small"]#adblockplus-toolbarbutton[deactivated] {
+toolbar[iconsize="small"]#abp-toolbarbutton[deactivated] {
   list-style-image: url("chrome://adblockplus/skin/abp-disabled-16.png");
 }
-toolbar[iconsize="small"]#adblockplus-toolbarbutton[disabled="true"] {
+toolbar[iconsize="small"]#abp-toolbarbutton[disabled="true"] {
   list-style-image: url("chrome://adblockplus/skin/abp-defunc-16.png");
 }
 

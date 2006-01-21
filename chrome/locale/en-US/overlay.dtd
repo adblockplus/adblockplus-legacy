@@ -35,6 +35,7 @@
 <!ENTITY sidebar.title          "Adblock Plus">
 
 <!ENTITY settings.label         "Preferences">
-<!ENTITY sidebar.label          "Open sidebar">
+<!ENTITY opensidebar.label      "Open sidebar">
+<!ENTITY closesidebar.label     "Close sidebar">
 <!ENTITY whitelist.site.label   "Disable on --">
-<!ENTITY whitelist.page.label   "Disable on this page only">
+<!ENTITY whitelist.page.label   "Disable on this page and its subpages">

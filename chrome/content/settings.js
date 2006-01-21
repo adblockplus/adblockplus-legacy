@@ -22,12 +22,12 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-var adblock = Components.classes["@mozilla.org/adblockplus;1"]
+var abp = Components.classes["@mozilla.org/adblockplus;1"]
                         .getService(Components.interfaces.nsISupports);
-while (adblock && !("getPrefs" in adblock))
-  adblock = adblock.wrappedJSObject;    // Unwrap adblock component
-var prefs = adblock.getPrefs();
-var flasher = adblock.getFlasher();
+while (abp && !("getPrefs" in abp))
+  abp = abp.wrappedJSObject;    // Unwrap component
+var prefs = abp.getPrefs();
+var flasher = abp.getFlasher();
 var suggestionItems = [];
 var insecWnd = null;   // Window we should apply filters at
 var initialized = false;
@@ -50,7 +50,7 @@ function init() {
 
   if (insecWnd) {
     // Retrieve data for the window
-    wndData = adblock.getDataForWindow(insecWnd);
+    wndData = abp.getDataForWindow(insecWnd);
     data = wndData.getAllLocations();
 
     // Activate flasher
@@ -66,18 +66,18 @@ function init() {
     filterSuggestions.inputField.watch("value", flashHandler);
   }
   if (!data.length) {
-    var reason = adblock.getString("no_blocking_suggestions");
+    var reason = abp.getString("no_blocking_suggestions");
     if (insecWnd) {
       var insecLocation = secureGet(insecWnd, "location");
       // We want to stick with "no blockable items" for about:blank
       if (secureGet(insecLocation, "href") != "about:blank") {
-        if (!adblock.isBlockableScheme(insecLocation))
-          reason = adblock.getString("not_remote_page");
-        else if (adblock.isWhitelisted(secureGet(insecLocation, "href")))
-          reason = adblock.getString("whitelisted_page");
+        if (!abp.isBlockableScheme(insecLocation))
+          reason = abp.getString("not_remote_page");
+        else if (abp.isWhitelisted(secureGet(insecLocation, "href")))
+          reason = abp.getString("whitelisted_page");
       }
     }
-    data.push({location: reason, typeDescr: "", inseclNodes: [], filter: true});
+    data.push({location: reason, typeDescr: "", localizedDescr: "", inseclNodes: [], filter: {isWhite: false}});
   }
 
   // Initialize filter suggestions dropdown
@@ -100,6 +100,7 @@ function init() {
   document.getElementById("slowcollapse").setAttribute("checked", !prefs.fastcollapse); // reverse pref
   document.getElementById("linkcheck").setAttribute("checked", prefs.linkcheck);
   document.getElementById("listsort").setAttribute("checked", prefs.listsort);
+  document.getElementById("context-listsort").setAttribute("checked", prefs.listsort);
 
   // Set the focus always to the input field
   filterSuggestions.focus();
@@ -121,7 +122,9 @@ function createFilterSuggestion(menulist, suggestion) {
   menuitem.appendChild(createDescription(suggestion.localizedDescr, 0));
   menuitem.appendChild(createDescription(suggestion.location, 1));
 
-  if (suggestion.filter)
+  if (suggestion.filter && suggestion.filter.isWhite)
+    menuitem.className = "whitelist";
+  else if (suggestion.filter)
     menuitem.setAttribute("disabled", "true");
 
   suggestionItems.push(menuitem);
@@ -166,26 +169,30 @@ function fillList(patterns) {
 
 // Add a filter to the list
 function addFilter() {
-  var textbox = document.getElementById("newfilter");
-  if (!textbox.value)
+  var filterSuggestions = document.getElementById("newfilter");
+  if (!filterSuggestions.value)
     return;
 
-  // if it's not a regular expression, or it is, BUT we've said 'ok' to the warning
-  if (!textbox.value.match(/^\/.*\/$/) || regexpWarning()) {
-    var filter = textbox.value.replace(/\s/g, ""); // remove all spaces
-    textbox.value = "";
+  var filter = filterSuggestions.value.replace(/\s/g, "");
+  if (!filter)
+    return;
 
-    var list = document.getElementById("list");
-    var newItem = list.appendItem(filter, filter);
-    editor.initItem(newItem);
-    list.ensureElementIsVisible(newItem);
-    list.selectedItem = newItem;
-  }   
+  // Issue a warning if we got a regular expression
+  if (filter.match(/^\/.*\/$/) && !regexpWarning())
+    return;
+
+  filterSuggestions.label = filterSuggestions.value = "";
+
+  var list = document.getElementById("list");
+  var newItem = list.appendItem(filter, filter);
+  editor.initItem(newItem);
+  list.ensureElementIsVisible(newItem);
+  list.selectedItem = newItem;
 }
 
 // Asks the user if he really wants to clear the list.
 function clearList() {
-  if (confirm(adblock.getString("clearall_warning"))) {
+  if (confirm(abp.getString("clearall_warning"))) {
     var list = document.getElementById("list");
     while (list.firstChild)
       list.removeChild(list.firstChild);
@@ -199,7 +206,7 @@ function importList() {
 
   var picker = Components.classes["@mozilla.org/filepicker;1"]
                      .createInstance(Components.interfaces.nsIFilePicker);
-  picker.init(window, adblock.getString("import_filters_title"), picker.modeOpen);
+  picker.init(window, abp.getString("import_filters_title"), picker.modeOpen);
   picker.appendFilters(picker.filterText);
   if (picker.show() != picker.returnCancel) {
     var stream = Components.classes["@mozilla.org/network/file-input-stream;1"]
@@ -222,9 +229,9 @@ function importList() {
       var flags = promptService.BUTTON_TITLE_IS_STRING * promptService.BUTTON_POS_0 +
                   promptService.BUTTON_TITLE_CANCEL * promptService.BUTTON_POS_1 +
                   promptService.BUTTON_TITLE_IS_STRING * promptService.BUTTON_POS_2;
-      var result = promptService.confirmEx(window, adblock.getString("import_filters_title"),
-        adblock.getString("import_filters_warning"), flags, adblock.getString("overwrite"),
-        null, adblock.getString("append"), null, {});
+      var result = promptService.confirmEx(window, abp.getString("import_filters_title"),
+        abp.getString("import_filters_warning"), flags, abp.getString("overwrite"),
+        null, abp.getString("append"), null, {});
       if (result == 1)
         return;
 
@@ -236,7 +243,7 @@ function importList() {
       fillList(lines);
     }
     else 
-      alert(adblock.getString("invalid_filters_file"));
+      alert(abp.getString("invalid_filters_file"));
   }
 }
 
@@ -246,7 +253,7 @@ function exportList() {
     return;
 
   var picker = Components.classes["@mozilla.org/filepicker;1"].createInstance(Components.interfaces.nsIFilePicker);
-  picker.init(window, adblock.getString("export_filters_title"), picker.modeSave);
+  picker.init(window, abp.getString("export_filters_title"), picker.modeSave);
   picker.defaultExtension=".txt";
   picker.appendFilters(picker.filterText);
 
@@ -264,8 +271,8 @@ function exportList() {
       stream.close();
     }
     catch (e) {
-      dump("Adblock: error writing to file: " + e + "\n");
-      alert(adblock.getString("filters_write_error"));
+      dump("Adblock Plus: error writing to file: " + e + "\n");
+      alert(abp.getString("filters_write_error"));
     }
   }
 }
@@ -319,19 +326,54 @@ function removeFilter(listItem) {
     list.selectItem(newSelection);
 }
 
-// Sorts the list if list sorting was enabled
-function setListSorting(sorted) {
-  if (!sorted)
-    return;   // nothing to do
+// Makes sure the right items in the options popup are checked/enabled
+function fillFiltersPopup(prefix) {
+  if (typeof prefix == "undefined")
+    prefix = "";
 
-  var patterns = getPatterns();
-  patterns.sort();
+  var rowCount = document.getElementById("list").getRowCount();
+  document.getElementById(prefix + "export").setAttribute("disabled", rowCount == 0);
+  document.getElementById(prefix + "clearall").setAttribute("disabled", rowCount == 0);
 
-  var list = document.getElementById("list");
-  while (list.firstChild)
-    list.removeChild(list.firstChild);
+  document.getElementById(prefix + "listsort").setAttribute("checked", prefs.listsort);
+}
 
-  fillList(patterns);
+// Makes sure the right items in the options popup are checked
+function fillOptionsPopup() {
+  document.getElementById("enabled").setAttribute("checked", prefs.enabled);
+  document.getElementById("showinstatusbar").setAttribute("checked", prefs.showinstatusbar);
+  document.getElementById("frameobjects").setAttribute("checked", prefs.frameobjects);
+  document.getElementById("slowcollapse").setAttribute("checked", !prefs.fastcollapse);
+  document.getElementById("linkcheck").setAttribute("checked", prefs.linkcheck);
+}
+
+// Makes sure the right items in the context menu are checked/enabled
+function fillContext() {
+  var listItem = document.popupNode;
+  while (listItem && (listItem.nodeType != listItem.ELEMENT_NODE || listItem.tagName != "listitem"))
+    listItem = listItem.parentNode;
+
+  document.getElementById("context-edit").setAttribute("disabled", !listItem);
+  document.getElementById("context-remove").setAttribute("disabled", !listItem);
+
+  fillFiltersPopup("context-");
+}
+
+// Toggles the value of a boolean pref
+function togglePref(pref) {
+  prefs[pref] = !prefs[pref];
+  abp.savePrefs();
+
+  if (pref == "listsort" && prefs.listsort) {
+    var patterns = getPatterns();
+    patterns.sort();
+  
+    var list = document.getElementById("list");
+    while (list.firstChild)
+      list.removeChild(list.firstChild);
+  
+    fillList(patterns);
+  }
 }
 
 // Reads filter patterns from the list
@@ -359,7 +401,7 @@ function saveSettings() {
   prefs.linkcheck = (document.getElementById("linkcheck").getAttribute("checked") == "true");
 
   prefs.patterns = getPatterns();
-  adblock.savePrefs();
+  abp.savePrefs();
 
   if (insecWnd)
     refilterWindow(insecWnd);
@@ -370,11 +412,11 @@ function refilterWindow(insecWnd) {
   if (secureGet(insecWnd, "closed"))
     return;
 
-  var data = adblock.getDataForWindow(insecWnd).getAllLocations();
+  var data = abp.getDataForWindow(insecWnd).getAllLocations();
   for (var i = 0; i < data.length; i++)
-    if (!data[i].filter)
+    if (!data[i].filter || data[i].filter.isWhite)
       for (var j = 0; j < data[i].inseclNodes.length; j++)
-        adblock.processNode(data[i].inseclNodes[j], data[i].type, data[i].location, true);
+        abp.processNode(data[i].inseclNodes[j], data[i].type, data[i].location, true);
 }
 
 // Warns the user that he has entered a regular expression. 
@@ -386,18 +428,18 @@ function regexpWarning() {
   var promptService = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
                                 .getService(Components.interfaces.nsIPromptService);
   var check = {value: false};
-  var result = promptService.confirmCheck(window, adblock.getString("regexp_warning_title"),
-    adblock.getString("regexp_warning_text"),
-    adblock.getString("regexp_warning_checkbox"), check);
+  var result = promptService.confirmCheck(window, abp.getString("regexp_warning_title"),
+    abp.getString("regexp_warning_text"),
+    abp.getString("regexp_warning_checkbox"), check);
 
   if (check.value) {
     prefs.warnregexp = false;
-    adblock.savePrefs();
+    abp.savePrefs();
   }
   return result;
 }
 
-// Opens About Adblock dialog
+// Opens About Adblock Plus dialog
 function openAbout() {
   openDialog("chrome://adblockplus/content/about.xul", "_blank", "chrome,centerscreen,modal");
 }
