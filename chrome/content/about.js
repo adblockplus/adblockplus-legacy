@@ -25,10 +25,9 @@
 const ADBLOCK_EXTENSION_ID = "{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}"; 
 const ADBLOCK_PACKAGE = "/adblockplus.mozdev.org"; 
 
-var adblock = Components.classes["@mozilla.org/adblockplus;1"]
-                        .getService(Components.interfaces.nsISupports);
-while (adblock && !("getPrefs" in adblock))
-  adblock = adblock.wrappedJSObject;    // Unwrap adblock component
+var abp = Components.classes["@mozilla.org/adblockplus;1"].getService();
+while (abp && !("getPrefs" in abp))
+  abp = abp.wrappedJSObject;    // Unwrap component
 
 function fillInVersion() {
   var versionField = document.getElementById("version");

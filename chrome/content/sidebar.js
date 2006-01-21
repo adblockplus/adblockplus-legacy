@@ -22,14 +22,13 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-var adblock = null;
+var abp = null;
 try {
-  adblock = Components.classes["@mozilla.org/adblockplus;1"]
-                      .getService(Components.interfaces.nsISupports);
-  while (adblock && !('getPrefs' in adblock))
-    adblock = adblock.wrappedJSObject;    // Unwrap adblock component
+  abp = Components.classes["@mozilla.org/adblockplus;1"].getService();
+  while (abp && !('getPrefs' in abp))
+    abp = abp.wrappedJSObject;    // Unwrap component
 
-  var flasher = adblock.getFlasher();
+  var flasher = abp.getFlasher();
 } catch (e) {}
 
 // The window handler currently in use
@@ -50,16 +49,16 @@ function init() {
   loadDummy = document.getElementById("notLoadedDummy");
   loadDummy.parentNode.removeChild(loadDummy);
 
-  if (adblock) {
-    itemsDummy.location = adblock.getString("no_blocking_suggestions");
-    remoteDummy.location = adblock.getString("not_remote_page");
-    whitelistDummy.location = adblock.getString("whitelisted_page");
+  if (abp) {
+    itemsDummy.location = abp.getString("no_blocking_suggestions");
+    remoteDummy.location = abp.getString("not_remote_page");
+    whitelistDummy.location = abp.getString("whitelisted_page");
   }
 
   var data = [];
-  if (adblock) {
+  if (abp) {
     // Retrieve data for the window
-    wndData = adblock.getDataForWindow(content);
+    wndData = abp.getDataForWindow(content);
     data = wndData.getAllLocations();
     wndData.addLocationListener(handleLocationsChange);
 
@@ -99,16 +98,16 @@ function insertDummy(list) {
   removeDummy();
 
   currentDummy = loadDummy;
-  if (adblock) {
+  if (abp) {
     currentDummy = itemsDummy;
 
     var insecLocation = secureGet(content, "location");
     // We want to stick with "no blockable items" for about:blank
     if (secureGet(insecLocation, "href") != "about:blank") {
-      if (!adblock.isBlockableScheme(insecLocation))
+      if (!abp.isBlockableScheme(insecLocation))
         currentDummy = remoteDummy;
       else {
-        var filter = adblock.isWhitelisted(secureGet(insecLocation, "href"));
+        var filter = abp.isWhitelisted(secureGet(insecLocation, "href"));
         if (filter) {
           currentDummy = whitelistDummy;
           currentDummy.filter = filter;
@@ -129,7 +128,7 @@ function removeDummy() {
 
 // To be called on unload
 function cleanUp() {
-  if (!adblock)
+  if (!abp)
     return;
 
   flasher.stop();
@@ -222,7 +221,7 @@ function handleTabChange() {
   wndData.removeLocationListener(handleLocationsChange);
 
   // Re-init with the new window
-  wndData = adblock.getDataForWindow(content);
+  wndData = abp.getDataForWindow(content);
   wndData.addLocationListener(handleLocationsChange);
 
   var data = wndData.getAllLocations();
@@ -270,7 +269,7 @@ function openInTab(e) {
 
 // Starts up the main Adblock window
 function doAdblock() {
-  if (!adblock)
+  if (!abp)
     return;
 
   var listitem = document.getElementById("suggestionsList").selectedItem;
@@ -279,5 +278,5 @@ function doAdblock() {
 
   // No location for the dummy item
   var location = (listitem.id ? undefined : listitem.location);
-  adblock.openSettingsDialog(content, location, listitem.filter);
+  abp.openSettingsDialog(content, location, listitem.filter);
 }

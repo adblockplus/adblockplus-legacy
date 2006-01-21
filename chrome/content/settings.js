@@ -22,8 +22,7 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-var abp = Components.classes["@mozilla.org/adblockplus;1"]
-                        .getService(Components.interfaces.nsISupports);
+var abp = Components.classes["@mozilla.org/adblockplus;1"].getService();
 while (abp && !("getPrefs" in abp))
   abp = abp.wrappedJSObject;    // Unwrap component
 var prefs = abp.getPrefs();
