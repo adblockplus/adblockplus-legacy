@@ -38,7 +38,7 @@
   width="600px"
   height="450px"
   persist="screenX screenY width height"
-  windowtype="adblock:settings">
+  windowtype="adblockplus:settings">
 
 <script type="application/x-javascript" src="settings.js"/>
 <script type="application/x-javascript" src="security.js"/>

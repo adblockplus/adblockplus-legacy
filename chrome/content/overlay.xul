@@ -125,6 +125,7 @@
   <popup id="contentAreaContextMenu">
     <menuitem id="abp-image-menuitem" label="&context.image.label;..." oncommand="abpNode()"/>
     <menuitem id="abp-object-menuitem" label="&context.object.label;..." oncommand="abpNode()"/>
+    <menuitem id="abp-link-menuitem" label="&context.link.label;..." oncommand="abpLink()"/>
     <menuitem id="abp-frame-menuitem" label="&context.frame.label;..." oncommand="abpFrame()"/>
   </popup> 
 </overlay>
