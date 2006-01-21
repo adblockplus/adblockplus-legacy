@@ -123,7 +123,7 @@ HashTable.prototype = {
     if (key in this.data)
       return this.data[key];
     else
-      return null;
+      return undefined;
   },
   put: function(key, value)
   {
@@ -229,18 +229,19 @@ const adblock = {
       // Try to use previous results - if there were any
       match = cache.get(location);
 
-      // If we didn't cache the result yet:
-      // check whether we want to block the node and store the result
-      if (match == null) {
-        match = matchesAny(location, prefs.regexps);
-        if (match)
-          cache.put(match);
-        else
-          cache.put(false);
+      if (typeof match == "undefined") {
+        // If we didn't cache the result yet:
+        // check whether we want to block the node and store the result
+        match = matchesAny(location, prefs.whitelist);
+
+        if (match == null)
+          match = matchesAny(location, prefs.regexps);
+
+        cache.put(location, match);
       }
 
       // Check links in parent nodes
-      if (!match && insecNode && prefs.linkcheck && contentType in linkTypes)
+      if (insecNode && prefs.linkcheck && contentType in linkTypes)
         linksOk = checkLinks(insecNode);
 
       // If the node wasn't blocked we still might want to add a frame to it
@@ -257,14 +258,14 @@ const adblock = {
     // Store node data
     data.addNode(insecNode, contentType, location, match);
 
-    if (match && insecNode) {
+    if (match && !match.isWhite && insecNode) {
       // hide immediately if fastcollapse is off but not base types
       collapse = collapse || !prefs.fastcollapse;
       collapse = collapse && !(contentType in baseTypes || secureGet(insecNode, "nodeName").toLowerCase() in baseNames);
       hideNode(insecNode, insecWnd, collapse);
     }
 
-    return !match && linksOk;
+    return (match && match.isWhite) || (!match && linksOk);
   },
 
   getPrefs: function() {
@@ -796,7 +797,7 @@ function checkLinks(insecNode) {
 
 // Tests if a given URL matches any of the regexps from the list, returns the matching pattern
 function matchesAny(location, list) {
-  for (i = 0; i < list.length; i++)
+  for (var i = 0; i < list.length; i++)
     if (list[i].test(location))
       return list[i];
 
@@ -813,10 +814,12 @@ function addPattern(pattern) {
   var origPattern = pattern;
 
   var list = prefs.regexps;
+  var isWhite = false;
   if (pattern.indexOf("@@") == 0) {
     // Adblock Plus compatible whitelisting
     pattern = pattern.substr(2);
     list = prefs.whitelist;
+    isWhite = true;
   }
 
   if (pattern.charAt(0) == "/" && pattern.charAt(pattern.length - 1) == "/")  // pattern is a regexp already
@@ -829,6 +832,7 @@ function addPattern(pattern) {
   try {
     regexp = new RegExp(regexp, "i");
     regexp.origPattern = origPattern;
+    regexp.isWhite = isWhite;
     list.push(regexp);
   } catch(e) {}
 }

@@ -138,12 +138,14 @@ function cleanUp() {
   parent.getBrowser().removeEventListener("select", handleTabChange, false);
 }
 
-function createListCell(label, crop, disabled) {
+function createListCell(label, crop, filter) {
   var result = document.createElement("listcell");
   result.setAttribute("label", label);
   if (crop)
     result.setAttribute("crop", "center");
-  if (disabled)
+  if (filter && filter.isWhite)
+    result.className = "whitelist";
+  else if (filter)
     result.setAttribute("disabled", "true");
   return result;
 }
@@ -272,7 +274,7 @@ function doAdblock() {
     return;
 
   var listitem = document.getElementById("suggestionsList").selectedItem;
-  if (!("filter" in listitem))
+  if (!listitem || !("filter" in listitem))
     return;
 
   // No location for the dummy item

@@ -57,21 +57,23 @@
 
 <toolbox id="menuToolbox">
   <menubar id="menu">
-    <menu id="options-menu" label="&options.label;" accesskey="&options.accesskey;">
-      <menupopup id="options-popup">
-        <menuitem label="&browser.group.label;" disabled="true" style="font-style: italic;"/>
-        <menuitem id="enabled" label="&enable.label;" type="checkbox"/>
-        <menuitem id="showinstatusbar" label="&showinstatusbar.label;" type="checkbox"/>
-        <menuitem id="frameobjects" label="&objecttabs.label;" type="checkbox"/>
-        <menuitem id="slowcollapse" label="&collapse.label;" type="checkbox"/>
-        <menuitem id="linkcheck" label="&linkcheck.label;" type="checkbox"/>
-        <menuseparator/>
-        <menuitem label="&preferences.group.label;" disabled="true" style="font-style: italic;"/>
-        <menuitem id="listsort" label="&listsort.label;" type="checkbox" oncommand="setListSorting(this.getAttribute('checked') == 'true')"/>
-        <menuseparator/>
+    <menu id="filters-menu" label="&filters.label;" accesskey="&filters.accesskey;">
+      <menupopup id="filters-popup" onpopupshowing="fillFiltersPopup()">
         <menuitem id="import" label="&import.label;..." oncommand="importList()"/>
         <menuitem id="export" label="&export.label;..." oncommand="exportList()"/>
         <menuitem id="clearall" label="&clearall.label;..." oncommand="clearList()"/>
+        <menuseparator/>
+        <menuitem id="listsort" label="&listsort.label;" type="checkbox" oncommand="togglePref('listsort')"/>
+      </menupopup>
+    </menu>
+    <menu id="options-menu" label="&options.label;" accesskey="&options.accesskey;">
+      <menupopup id="options-popup" onpopupshowing="fillOptionsPopup()">
+        <menuitem id="enabled" label="&enable.label;" type="checkbox" oncommand="togglePref('enabled')"/>
+        <menuseparator/>
+        <menuitem id="showinstatusbar" label="&showinstatusbar.label;" type="checkbox" oncommand="togglePref('showinstatusbar')"/>
+        <menuitem id="frameobjects" label="&objecttabs.label;" type="checkbox" oncommand="togglePref('frameobjects')"/>
+        <menuitem id="slowcollapse" label="&collapse.label;" type="checkbox" oncommand="togglePref('fastcollapse')"/>
+        <menuitem id="linkcheck" label="&linkcheck.label;" type="checkbox" oncommand="togglePref('linkcheck')"/>
       </menupopup>
     </menu>
     <menu id="help-menu" label="&help.label;" accesskey="&help.accesskey;">
@@ -100,13 +102,18 @@
 
 <vbox id="listarea" flex="1">
   <label id="listLabel" value="&list.label;:" accesskey="&list.accesskey;" control="list" />
-  <listbox id="list" flex="1" context="listitem-contextmenu" onkeypress="onListKeyPress(event)">
+  <listbox id="list" flex="1" context="listitem-context" onkeypress="onListKeyPress(event)">
     <listitem id="list-editor"><textbox id="list-editorField"/></listitem>
   </listbox>
-  <popup id="listitem-contextmenu">
-    <menuitem id="listitem-contextmenu-modify" label="&context.edit.label;" oncommand="editor.startEditor(document.popupNode)"/>
-    <menuseparator id="listitem-contextmenu-separator.i"/>
-    <menuitem id="listitem-contextmenu-delete" label="&context.remove.label;" oncommand="removeFilter(document.popupNode);"/>
+  <popup id="listitem-context" onpopupshowing="fillContext()">
+    <menuitem id="context-edit" label="&context.edit.label;" oncommand="editor.startEditor(document.popupNode)"/>
+    <menuitem id="context-remove" label="&context.remove.label;" oncommand="removeFilter(document.popupNode);"/>
+    <menuseparator/>
+    <menuitem id="context-import" label="&import.label;..." oncommand="importList()"/>
+    <menuitem id="context-export" label="&export.label;..." oncommand="exportList()"/>
+    <menuitem id="context-clearall" label="&clearall.label;..." oncommand="clearList()"/>
+    <menuseparator/>
+    <menuitem id="context-listsort" label="&listsort.label;" type="checkbox" oncommand="togglePref('listsort')"/>
   </popup>
 </vbox>
 

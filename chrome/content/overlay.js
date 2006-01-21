@@ -22,103 +22,107 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-var adblockp = null;
+var abp = null;
 try {
-  adblockp = Components.classes["@mozilla.org/adblockplus;1"]
+  abp = Components.classes["@mozilla.org/adblockplus;1"]
                       .getService(Components.interfaces.nsISupports);
-  while (adblockp && !('getPrefs' in adblockp))
-    adblockp = adblockp.wrappedJSObject;    // Unwrap Adblock Plus component
+  while (abp && !('getPrefs' in abp))
+    abp = abp.wrappedJSObject;    // Unwrap Adblock Plus component
 } catch (e) {}
 
-var adblockpPrefs = adblockp ? adblockp.getPrefs() : {enabled: false};
+var abpPrefs = abp ? abp.getPrefs() : {enabled: false};
 
 // With older Mozilla versions load event never happens (???), using timeout as a fallback
-var adblockpInitialized = false;
-window.addEventListener("load", adblockpInit, false);
-window.setTimeout(adblockpInit, 1000);
+var abpInitialized = false;
+window.addEventListener("load", abpInit, false);
+window.setTimeout(abpInit, 1000);
 
-function adblockpInit() {
+function abpInit() {
   // Prevent from initializing twice
-  if (adblockpInitialized)
+  if (abpInitialized)
     return;
 
   if (!document.getElementById("contentAreaContextMenu")) {
-    window.setTimeout(adblockpInit, 1000);
+    window.setTimeout(abpInit, 1000);
     return;
   }
 
-  adblockpInitialized = true;
-  window.addEventListener("unload", adblockpUnload, false);
+  abpInitialized = true;
+  window.addEventListener("unload", abpUnload, false);
 
   // Process preferences
-  adblockpReloadPrefs();
-  if (adblockp)
-    adblockp.addPrefListener(adblockpReloadPrefs);
+  abpReloadPrefs();
+  if (abp)
+    abp.addPrefListener(abpReloadPrefs);
 
   // Install context menu handler
-  document.getElementById("contentAreaContextMenu").addEventListener("popupshowing", adblockpCheckContext, false);
+  document.getElementById("contentAreaContextMenu").addEventListener("popupshowing", abpCheckContext, false);
 
   // Check whether Adblock is installed and uninstall
-  if (adblockp && !adblockpPrefs.checkedadblockinstalled)
-    setTimeout(adblockpCheckExtensionConflicts, 0);
+  // Delay it so the browser window will be displayed before the warning
+  if (abp && !abpPrefs.checkedadblockinstalled)
+    setTimeout(abpCheckExtensionConflicts, 0);
 
   // Install toolbar button in Firefox if necessary
-  if (adblockp && !adblockpPrefs.checkedtoolbar)
-    adblockpInstallInToolbar();
+  if (abp && !abpPrefs.checkedtoolbar)
+    setTimeout(abpInstallInToolbar, 0);
 }
 
-function adblockpUnload() {
-  adblockp.removePrefListener(adblockpReloadPrefs);
+function abpUnload() {
+  abp.removePrefListener(abpReloadPrefs);
 }
 
-function adblockpReloadPrefs() {
+function abpReloadPrefs() {
   var label;
   var state = null;
-  if (adblockp) {
-    if (adblockpPrefs.enabled)
+  if (abp) {
+    if (abpPrefs.enabled)
       state = "active";
     else
       state = "disabled";
 
-    label = adblockp.getString("status_" + state + "_label");
+    label = abp.getString("status_" + state + "_label");
   }
 
-  var tooltip = document.getElementById("adblockplus-tooltip");
+  var tooltip = document.getElementById("abp-tooltip");
   if (state && tooltip)
-    tooltip.setAttribute("label", adblockp.getString("status_" + state + "_tooltip"));
+    tooltip.setAttribute("label", abp.getString("status_" + state + "_tooltip"));
 
-  var status = document.getElementById("adblockplus-status");
-  if (status) {
-    if (adblockp) {
-      status.removeAttribute("disabled");
-      status.setAttribute("label", label);
+  var updateElement = function(element) {
+    if (!element)
+      return;
+
+    if (abp) {
+      element.removeAttribute("disabled");
+
+      if (element.tagName == "statusbarpanel") {
+        element.setAttribute("label", label);
+        element.hidden = !abpPrefs.showinstatusbar;
+      }
     }
 
-    if (adblockpPrefs.enabled)
-      status.removeAttribute("deactivated");
+    if (abpPrefs.enabled)
+      element.removeAttribute("deactivated");
     else
-      status.setAttribute("deactivated", "true");
-
-    status.hidden = !adblockpPrefs.showinstatusbar;
+      element.setAttribute("deactivated", "true");
   }
 
-  var toolbar = document.getElementById("adblockplus-toolbarbutton");
-  if (toolbar) {
-    if (adblockp)
-      toolbar.removeAttribute("disabled");
+  updateElement(document.getElementById("abp-status"));
+  updateElement(document.getElementById("abp-toolbarbutton"));
 
-    if (adblockpPrefs.enabled)
-      toolbar.removeAttribute("deactivated");
-    else
-      toolbar.setAttribute("deactivated", "true");
-  }
+  // Need to update the button in the palette as well
+  var toolbox = document.getElementById("navigator-toolbox");
+  if (toolbox && "palette" in toolbox && toolbox.palette)
+    for (var child = toolbox.palette.firstChild; child; child = child.nextSibling)
+      if (child.id == "abp-toolbarbutton")
+        updateElement(child);
 }
 
 // Check whether Adblock is installed and uninstall
-function adblockpCheckExtensionConflicts() {
+function abpCheckExtensionConflicts() {
   // Make sure not to run this twice
-  adblockpPrefs.checkedadblockinstalled = true;
-  adblockp.savePrefs();
+  abpPrefs.checkedadblockinstalled = true;
+  abp.savePrefs();
 
   if ("@mozilla.org/adblock;1" in Components.classes) {
     var promptService = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
@@ -126,8 +130,8 @@ function adblockpCheckExtensionConflicts() {
     // Adblock is installed
     if ("@mozilla.org/extensions/manager;1" in Components.classes) {
       // Extension Manager available, ask whether to uninstall
-      var result = promptService.confirm(window, adblockp.getString("uninstall_adblock_title"),
-                                         adblockp.getString("uninstall_adblock_text"));
+      var result = promptService.confirm(window, abp.getString("uninstall_adblock_title"),
+                                         abp.getString("uninstall_adblock_text"));
       if (!result)
         return;
 
@@ -146,121 +150,129 @@ function adblockpCheckExtensionConflicts() {
           // but only if the check isn't done immediately after installation.
           extensionManager.uninstallExtension(id);
         }
-        promptService.alert(window, adblockp.getString("uninstall_adblock_title"),
-                                    adblockp.getString("uninstall_adblock_success"));
+        promptService.alert(window, abp.getString("uninstall_adblock_title"),
+                                    abp.getString("uninstall_adblock_success"));
       }
       catch (e) {
         dump("Adblock Plus: error uninstalling Adblock, " + e + "\n");
-        promptService.alert(window, adblockp.getString("uninstall_adblock_title"),
-                                    adblockp.getString("uninstall_adblock_error"));
+        promptService.alert(window, abp.getString("uninstall_adblock_title"),
+                                    abp.getString("uninstall_adblock_error"));
       }
     }
     else {
       // No extension manager, recomend manual uninstall
-      promptService.alert(window, adblockp.getString("uninstall_adblock_title"),
-                                  adblockp.getString("uninstall_adblock_manually"));
+      promptService.alert(window, abp.getString("uninstall_adblock_title"),
+                                  abp.getString("uninstall_adblock_manually"));
     }
   }
 }
 
 // Check whether we installed the toolbar button already
-function adblockpInstallInToolbar() {
-  if (!document.getElementById("adblockplus-toolbarbutton")) {
+function abpInstallInToolbar() {
+  if (!document.getElementById("abp-toolbarbutton")) {
     var toolbar = document.getElementById("nav-bar");
-    if (toolbar && "insertItem" in toolbar)
-      toolbar.insertItem("adblockplus-toolbarbutton", document.getElementById("urlbar-container"), null, false);
+    if (toolbar && "insertItem" in toolbar) {
+      toolbar.insertItem("abp-toolbarbutton", document.getElementById("urlbar-container"), null, false);
+
+      // Need this to make FF 1.0 persist the new button
+      toolbar.setAttribute("currentset", toolbar.currentSet);
+      document.persist("nav-bar", "currentset");
+    }
   }
 
   // Make sure not to run this twice
-  adblockpPrefs.checkedtoolbar = true;
-  adblockp.savePrefs();
+  abpPrefs.checkedtoolbar = true;
+  abp.savePrefs();
 }
 
 // Fills the context menu on the status bar
-function adblockpFillPopup(prefix) {
-  if (!adblockp)
+function abpFillPopup(prefix) {
+  if (!abp)
     return false;
 
-  document.getElementById(prefix+"-sidebar").hidden = !("toggleSidebar" in window);
+  var hasSidebar = ("toggleSidebar" in window);
+  var sidebarOpen = (hasSidebar && document.getElementById("viewAdblockPlusSidebar").getAttribute("checked") == "true");
+  document.getElementById(prefix+"-opensidebar").hidden = !hasSidebar || sidebarOpen;
+  document.getElementById(prefix+"-closesidebar").hidden = !hasSidebar || !sidebarOpen;
 
   var insecLocation = secureGet(content, "location");
-  var showWhitelist = adblockp.isBlockableScheme(insecLocation);
+  var showWhitelist = abp.isBlockableScheme(insecLocation);
   var whitelistItemSite = document.getElementById(prefix+"-whitelist-site");
   var whitelistItemPage = document.getElementById(prefix+"-whitelist-page");
   if (showWhitelist) {
     var url = secureGet(insecLocation, "href").replace(/\?.*/, '');
     var host = secureGet(insecLocation, "host");
-    var site = secureGet(insecLocation, "protocol") + "//" + host;
+    var site = url.replace(/^([^\/]+\/\/[^\/]+\/).*/, "$1");
 
     whitelistItemSite.pattern = "@@" + site;
-    whitelistItemSite.setAttribute("checked", adblockpHasPattern(whitelistItemSite.pattern));
+    whitelistItemSite.setAttribute("checked", abpHasPattern(whitelistItemSite.pattern));
     whitelistItemSite.setAttribute("label", whitelistItemSite.getAttribute("labeltempl").replace(/--/, host));
 
     whitelistItemPage.pattern = "@@" + url;
-    whitelistItemPage.setAttribute("checked", adblockpHasPattern(whitelistItemPage.pattern));
+    whitelistItemPage.setAttribute("checked", abpHasPattern(whitelistItemPage.pattern));
   }
   document.getElementById(prefix+"-whitelist-sep").hidden =
     whitelistItemSite.hidden = whitelistItemPage.hidden = !showWhitelist;
 
-  document.getElementById(prefix+"-enabled").setAttribute("checked", adblockpPrefs.enabled);
-  document.getElementById(prefix+"-showinstatusbar").setAttribute("checked", adblockpPrefs.showinstatusbar);
-  document.getElementById(prefix+"-frameobjects").setAttribute("checked", adblockpPrefs.frameobjects);
-  document.getElementById(prefix+"-slowcollapse").setAttribute("checked", !adblockpPrefs.fastcollapse);
-  document.getElementById(prefix+"-linkcheck").setAttribute("checked", adblockpPrefs.linkcheck);
+  document.getElementById(prefix+"-enabled").setAttribute("checked", abpPrefs.enabled);
+  document.getElementById(prefix+"-showinstatusbar").setAttribute("checked", abpPrefs.showinstatusbar);
+  document.getElementById(prefix+"-frameobjects").setAttribute("checked", abpPrefs.frameobjects);
+  document.getElementById(prefix+"-slowcollapse").setAttribute("checked", !abpPrefs.fastcollapse);
+  document.getElementById(prefix+"-linkcheck").setAttribute("checked", abpPrefs.linkcheck);
   return true;
 }
 
 // Checks whether the specified pattern exists in the list
-function adblockpHasPattern(pattern) {
-  for (var i = 0; i < adblockpPrefs.patterns.length; i++)
-    if (adblockpPrefs.patterns[i] == pattern)
+function abpHasPattern(pattern) {
+  for (var i = 0; i < abpPrefs.patterns.length; i++)
+    if (abpPrefs.patterns[i] == pattern)
       return true;
 
   return false;
 }
 
 // Toggles the value of a boolean pref
-function adblockpTogglePref(pref) {
-  if (!adblockp)
+function abpTogglePref(pref) {
+  if (!abp)
     return;
 
-  adblockpPrefs[pref] = !adblockpPrefs[pref];
-  adblockp.savePrefs();
+  abpPrefs[pref] = !abpPrefs[pref];
+  abp.savePrefs();
 }
 
 // Inserts or removes the specified pattern into/from the list
-function adblockpTogglePattern(pattern, insert) {
-  if (!adblockp)
+function abpTogglePattern(pattern, insert) {
+  if (!abp)
     return;
 
   var found = false;
-  for (var i = 0; i < adblockpPrefs.patterns.length; i++) {
-    if (adblockpPrefs.patterns[i] == pattern) {
+  for (var i = 0; i < abpPrefs.patterns.length; i++) {
+    if (abpPrefs.patterns[i] == pattern) {
       if (insert)
         found = true;
       else {
-        adblockpPrefs.patterns.splice(i, 1);
+        abpPrefs.patterns.splice(i, 1);
         i--;
       }
     }
   }
   if (!found && insert)
-    adblockpPrefs.patterns.push(pattern);
+    abpPrefs.patterns.push(pattern);
 
-  adblockp.savePrefs();
+  abp.savePrefs();
 }
 
 // Handle clicks on the Adblock statusbar panel
-function adblockpClickHandler(e) {
-  if (e.button == 0 && new Date().getTime() - adblockpLastDrag > 100)
-    adblockpSettings();
+function abpClickHandler(e) {
+  if (e.button == 0 && new Date().getTime() - abpLastDrag > 100)
+    abpSettings();
   else if (e.button == 1)
-    adblockpTogglePref("enabled");
+    abpTogglePref("enabled");
 }
 
 // Handles Drag&Drop of links and images to the Adblock statusbar panel
-function adblockpDragHandler(e) {
-  if (!adblockp)
+function abpDragHandler(e) {
+  if (!abp)
     return;
 
   var dragService = Components.classes['@mozilla.org/widget/dragservice;1']
@@ -280,76 +292,76 @@ function adblockpDragHandler(e) {
   if (e.type == "dragover")
     session.canDrop = (link != null);
   else if (link)
-    adblockpSettings(link);
+    abpSettings(link);
 
   e.preventDefault();
   e.stopPropagation();
 }
 
-var adblockpDraggingX = -1;
-var adblockpLastDrag = -1;
+var abpDraggingX = -1;
+var abpLastDrag = -1;
 
 // Allows activating/deactivating with a drag gesture on the Adblock status bar item
-function adblockpMouseHandler(e) {
-  if (!adblockp || e.button != 0)
+function abpMouseHandler(e) {
+  if (!abp || e.button != 0)
     return;
 
   if (e.type == "mousedown") {
-    adblockpDraggingX = e.clientX;
-    e.target.addEventListener("mouseup", adblockpMouseHandler, false);
-    e.target.addEventListener("mouseout", adblockpMouseHandler, false);
+    abpDraggingX = e.clientX;
+    e.target.addEventListener("mouseup", abpMouseHandler, false);
+    e.target.addEventListener("mouseout", abpMouseHandler, false);
   }
   else if (e.type == "mouseout" || e.type == "mouseup") {
-    e.target.removeEventListener("mouseup", adblockpMouseHandler, false);
-    e.target.removeEventListener("mouseout", adblockpMouseHandler, false);
-    if (e.type == "mouseup" && adblockpDraggingX >= 0 && Math.abs(e.clientX - adblockpDraggingX) > 10) {
-      adblockpPrefs.enabled = !adblockpPrefs.enabled;
-      adblockp.savePrefs();
-      adblockpLastDrag = new Date().getTime();
+    e.target.removeEventListener("mouseup", abpMouseHandler, false);
+    e.target.removeEventListener("mouseout", abpMouseHandler, false);
+    if (e.type == "mouseup" && abpDraggingX >= 0 && Math.abs(e.clientX - abpDraggingX) > 10) {
+      abpPrefs.enabled = !abpPrefs.enabled;
+      abp.savePrefs();
+      abpLastDrag = new Date().getTime();
     }
-    adblockpDraggingX = -1;
+    abpDraggingX = -1;
   }
 }
 
 // Hides the unnecessary context menu items on display
-function adblockpCheckContext() {
+function abpCheckContext() {
   var insecTarget = gContextMenu.target;
 
   var insecFrame = secureGet(insecTarget, "ownerDocument", "defaultView", "frameElement");
   gContextMenu.insecAdblockFrame = insecFrame;
 
   var nodeType = null;
-  if (adblockp) {
-    var data = adblockp.getDataForNode(insecTarget);
-    gContextMenu.adblockpData = data;
+  if (abp) {
+    var data = abp.getDataForNode(insecTarget);
+    gContextMenu.abpData = data;
     if (data && !data.filter)
       nodeType = data.typeDescr;
   }
 
-  gContextMenu.showItem("adblockplus-frame-menuitem", adblockp && insecFrame);
+  gContextMenu.showItem("abp-frame-menuitem", abp && insecFrame);
   // XXX: Can't block background images via context menu. Can this be solved?
-  gContextMenu.showItem('adblockplus-image-menuitem', nodeType == "IMAGE" /* || nodeType == "BACKGROUND"*/);
-  gContextMenu.showItem('adblockplus-object-menuitem', nodeType == "OBJECT");
+  gContextMenu.showItem('abp-image-menuitem', nodeType == "IMAGE" /* || nodeType == "BACKGROUND"*/);
+  gContextMenu.showItem('abp-object-menuitem', nodeType == "OBJECT");
 }
 
 // Bring up the settings dialog for the node the context menu was referring to
-function adblockpNode() {
-  var data = gContextMenu.adblockpData;
+function abpNode() {
+  var data = gContextMenu.abpData;
   if (data)
-    adblockpSettings(data.location);
+    abpSettings(data.location);
 }
 
 // Bring up the settings dialog for the frame the context menu was referring to
-function adblockpFrame() {
+function abpFrame() {
   var insecFrame = gContextMenu.insecAdblockFrame;
   if (insecFrame)
-    adblockpSettings(secureGet(insecFrame, "contentWindow", "location", "href"));
+    abpSettings(secureGet(insecFrame, "contentWindow", "location", "href"));
 }
 
 // Open the settings window.
-function adblockpSettings(url) {
-  if (!adblockp)
+function abpSettings(url) {
+  if (!abp)
     return;
 
-  adblockp.openSettingsDialog(getBrowser().contentWindow, url);
+  abp.openSettingsDialog(getBrowser().contentWindow, url);
 }
