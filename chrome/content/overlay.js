@@ -327,7 +327,8 @@ function adblockpCheckContext() {
   }
 
   gContextMenu.showItem("adblockplus-frame-menuitem", adblockp && insecFrame);
-  gContextMenu.showItem('adblockplus-image-menuitem', nodeType == "IMAGE" || nodeType == "BACKGROUND");
+  // XXX: Can't block background images via context menu. Can this be solved?
+  gContextMenu.showItem('adblockplus-image-menuitem', nodeType == "IMAGE" /* || nodeType == "BACKGROUND"*/);
   gContextMenu.showItem('adblockplus-object-menuitem', nodeType == "OBJECT");
 }
 
