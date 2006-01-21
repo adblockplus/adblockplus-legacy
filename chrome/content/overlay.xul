@@ -39,31 +39,52 @@
   
   <!-- statusbar -->
   <statusbar id="status-bar">
-    <popup id="adblockplus-status-popup" onpopupshowing="return adblockpFillPopup()">
-      <menuitem id="adblockplus-settings" label="&settings.label;..." key="key-launch-adblockplus-preferences" oncommand="adblockpSettings()"/>
-      <menuitem id="adblockplus-sidebar" label="&sidebar.label;" key="key-view-adblockplus-sidebar" oncommand="toggleSidebar('viewAdblockPlusSidebar', true)"/>
-      <menuseparator id="adblockplus-whitelist-sep"/>
-      <menuitem id="adblockplus-whitelist-site" labeltempl="&whitelist.site.label;" type="checkbox" oncommand="adblockpTogglePattern(this.pattern, this.hasAttribute('checked'))"/>
-      <menuitem id="adblockplus-whitelist-page" label="&whitelist.page.label;" type="checkbox" oncommand="adblockpTogglePattern(this.pattern, this.hasAttribute('checked'))"/>
+    <tooltip id="adblockplus-tooltip" label="&notloaded.tooltip;" onpopupshowing="return (document.tooltipNode &amp;&amp; (document.tooltipNode.id == 'adblockplus-status' || document.tooltipNode.id == 'adblockplus-toolbarbutton'))"/>
+    <popup id="adblockplus-status-popup" onpopupshowing="return adblockpFillPopup('adblockplus-status')">
+      <menuitem id="adblockplus-status-settings" label="&settings.label;..." key="key-launch-adblockplus-preferences" oncommand="adblockpSettings()"/>
+      <menuitem id="adblockplus-status-sidebar" label="&sidebar.label;" key="key-view-adblockplus-sidebar" oncommand="toggleSidebar('viewAdblockPlusSidebar', true)"/>
+      <menuseparator id="adblockplus-status-whitelist-sep"/>
+      <menuitem id="adblockplus-status-whitelist-site" labeltempl="&whitelist.site.label;" type="checkbox" oncommand="adblockpTogglePattern(this.pattern, this.hasAttribute('checked'))"/>
+      <menuitem id="adblockplus-status-whitelist-page" label="&whitelist.page.label;" type="checkbox" oncommand="adblockpTogglePattern(this.pattern, this.hasAttribute('checked'))"/>
       <menuseparator/>
-      <menu id="adblockplus-options" label="&options.label;">
-        <menupopup id="adblockplus-options-popup">
-          <menuitem id="adblockplus-showinstatusbar" label="&showinstatusbar.label;" type="checkbox" oncommand="adblockpTogglePref('showinstatusbar')"/>
-          <menuitem id="adblockplus-frameobjects" label="&objecttabs.label;" type="checkbox" oncommand="adblockpTogglePref('frameobjects')"/>
-          <menuitem id="adblockplus-slowcollapse" label="&collapse.label;" type="checkbox" oncommand="adblockpTogglePref('fastcollapse')"/>
-          <menuitem id="adblockplus-linkcheck" label="&linkcheck.label;" type="checkbox" oncommand="adblockpTogglePref('linkcheck')"/> 
+      <menu id="adblockplus-status-options" label="&options.label;">
+        <menupopup id="adblockplus-status-options-popup">
+          <menuitem id="adblockplus-status-showinstatusbar" label="&showinstatusbar.label;" type="checkbox" oncommand="adblockpTogglePref('showinstatusbar')"/>
+          <menuitem id="adblockplus-status-frameobjects" label="&objecttabs.label;" type="checkbox" oncommand="adblockpTogglePref('frameobjects')"/>
+          <menuitem id="adblockplus-status-slowcollapse" label="&collapse.label;" type="checkbox" oncommand="adblockpTogglePref('fastcollapse')"/>
+          <menuitem id="adblockplus-status-linkcheck" label="&linkcheck.label;" type="checkbox" oncommand="adblockpTogglePref('linkcheck')"/> 
         </menupopup>
       </menu>
-      <menuitem id="adblockplus-enabled" label="&enable.label;" type="checkbox" oncommand="adblockpTogglePref('enabled')"/>
+      <menuitem id="adblockplus-status-enabled" label="&enable.label;" type="checkbox" oncommand="adblockpTogglePref('enabled')"/>
     </popup>
-    <statusbarpanel id="adblockplus-status" disabled="true" label="&notloaded.label;" tooltiptext="&notloaded.tooltip;" context="adblockplus-status-popup" onclick="adblockpClickHandler(event)" ondragover="adblockpDragHandler(event)" ondragdrop="adblockpDragHandler(event)" onmousedown="adblockpMouseHandler(event)"/>
+    <statusbarpanel id="adblockplus-status" disabled="true" label="&notloaded.label;" tooltip="adblockplus-tooltip" context="adblockplus-status-popup" onclick="adblockpClickHandler(event)" ondragover="adblockpDragHandler(event)" ondragdrop="adblockpDragHandler(event)" onmousedown="adblockpMouseHandler(event)"/>
   </statusbar> 
 
   <!-- firefox toolbar -->
   <toolbarpalette id="BrowserToolbarPalette">
-    <toolbarbutton id="adblockplus-toolbarbutton" insertbefore="print-button"
+    <toolbarbutton id="adblockplus-toolbarbutton" type="menu-button" insertbefore="print-button"
         class="toolbarbutton-1 chromeclass-toolbar-additional" disabled="true" label="&menuitem.label;"
-        oncommand="adblockpSettings()" onclick="if (event.button == 1) adblockpTogglePref('enabled')" tooltiptext="&notloaded.tooltip;" context="adblockplus-status-popup"/>
+        oncommand="if (event.target == this) adblockpSettings()"
+        onclick="if (event.target == this &amp;&amp; event.button == 1) adblockpTogglePref('enabled')"
+        tooltip="adblockplus-tooltip">
+      <menupopup id="adblockplus-toolbar-popup" onpopupshowing="return adblockpFillPopup('adblockplus-toolbar')">
+        <menuitem id="adblockplus-toolbar-settings" label="&settings.label;..." key="key-launch-adblockplus-preferences" oncommand="adblockpSettings()"/>
+        <menuitem id="adblockplus-toolbar-sidebar" label="&sidebar.label;" key="key-view-adblockplus-sidebar" oncommand="toggleSidebar('viewAdblockPlusSidebar', true)"/>
+        <menuseparator id="adblockplus-toolbar-whitelist-sep"/>
+        <menuitem id="adblockplus-toolbar-whitelist-site" labeltempl="&whitelist.site.label;" type="checkbox" oncommand="adblockpTogglePattern(this.pattern, this.hasAttribute('checked'))"/>
+        <menuitem id="adblockplus-toolbar-whitelist-page" label="&whitelist.page.label;" type="checkbox" oncommand="adblockpTogglePattern(this.pattern, this.hasAttribute('checked'))"/>
+        <menuseparator/>
+        <menu id="adblockplus-options" label="&options.label;">
+          <menupopup id="adblockplus-toolbar-options-popup">
+            <menuitem id="adblockplus-toolbar-showinstatusbar" label="&showinstatusbar.label;" type="checkbox" oncommand="adblockpTogglePref('showinstatusbar')"/>
+            <menuitem id="adblockplus-toolbar-frameobjects" label="&objecttabs.label;" type="checkbox" oncommand="adblockpTogglePref('frameobjects')"/>
+            <menuitem id="adblockplus-toolbar-slowcollapse" label="&collapse.label;" type="checkbox" oncommand="adblockpTogglePref('fastcollapse')"/>
+            <menuitem id="adblockplus-toolbar-linkcheck" label="&linkcheck.label;" type="checkbox" oncommand="adblockpTogglePref('linkcheck')"/> 
+          </menupopup>
+        </menu>
+        <menuitem id="adblockplus-toolbar-enabled" label="&enable.label;" type="checkbox" oncommand="adblockpTogglePref('enabled')"/>
+      </menupopup>
+    </toolbarbutton>
   </toolbarpalette>
 
   <!-- mozilla keybindings -->

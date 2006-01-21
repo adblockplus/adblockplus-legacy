@@ -72,24 +72,26 @@ function adblockpUnload() {
 }
 
 function adblockpReloadPrefs() {
-  var label, tooltip;
+  var label;
+  var state = null;
   if (adblockp) {
-    var state;
     if (adblockpPrefs.enabled)
       state = "active";
     else
       state = "disabled";
 
     label = adblockp.getString("status_" + state + "_label");
-    tooltip = adblockp.getString("status_" + state + "_tooltip");
   }
+
+  var tooltip = document.getElementById("adblockplus-tooltip");
+  if (state && tooltip)
+    tooltip.setAttribute("label", adblockp.getString("status_" + state + "_tooltip"));
 
   var status = document.getElementById("adblockplus-status");
   if (status) {
     if (adblockp) {
       status.removeAttribute("disabled");
       status.setAttribute("label", label);
-      status.setAttribute("tooltiptext", tooltip);
     }
 
     if (adblockpPrefs.enabled)
@@ -102,10 +104,8 @@ function adblockpReloadPrefs() {
 
   var toolbar = document.getElementById("adblockplus-toolbarbutton");
   if (toolbar) {
-    if (adblockp) {
+    if (adblockp)
       toolbar.removeAttribute("disabled");
-      toolbar.setAttribute("tooltiptext", tooltip);
-    }
 
     if (adblockpPrefs.enabled)
       toolbar.removeAttribute("deactivated");
@@ -177,16 +177,16 @@ function adblockpInstallInToolbar() {
 }
 
 // Fills the context menu on the status bar
-function adblockpFillPopup() {
+function adblockpFillPopup(prefix) {
   if (!adblockp)
     return false;
 
-  document.getElementById("adblockplus-sidebar").hidden = !("toggleSidebar" in window);
+  document.getElementById(prefix+"-sidebar").hidden = !("toggleSidebar" in window);
 
   var insecLocation = secureGet(content, "location");
   var showWhitelist = adblockp.isBlockableScheme(insecLocation);
-  var whitelistItemSite = document.getElementById("adblockplus-whitelist-site");
-  var whitelistItemPage = document.getElementById("adblockplus-whitelist-page");
+  var whitelistItemSite = document.getElementById(prefix+"-whitelist-site");
+  var whitelistItemPage = document.getElementById(prefix+"-whitelist-page");
   if (showWhitelist) {
     var url = secureGet(insecLocation, "href").replace(/\?.*/, '');
     var host = secureGet(insecLocation, "host");
@@ -199,14 +199,14 @@ function adblockpFillPopup() {
     whitelistItemPage.pattern = "@@" + url;
     whitelistItemPage.setAttribute("checked", adblockpHasPattern(whitelistItemPage.pattern));
   }
-  document.getElementById("adblockplus-whitelist-sep").hidden =
+  document.getElementById(prefix+"-whitelist-sep").hidden =
     whitelistItemSite.hidden = whitelistItemPage.hidden = !showWhitelist;
 
-  document.getElementById("adblockplus-enabled").setAttribute("checked", adblockpPrefs.enabled);
-  document.getElementById("adblockplus-showinstatusbar").setAttribute("checked", adblockpPrefs.showinstatusbar);
-  document.getElementById("adblockplus-frameobjects").setAttribute("checked", adblockpPrefs.frameobjects);
-  document.getElementById("adblockplus-slowcollapse").setAttribute("checked", !adblockpPrefs.fastcollapse);
-  document.getElementById("adblockplus-linkcheck").setAttribute("checked", adblockpPrefs.linkcheck);
+  document.getElementById(prefix+"-enabled").setAttribute("checked", adblockpPrefs.enabled);
+  document.getElementById(prefix+"-showinstatusbar").setAttribute("checked", adblockpPrefs.showinstatusbar);
+  document.getElementById(prefix+"-frameobjects").setAttribute("checked", adblockpPrefs.frameobjects);
+  document.getElementById(prefix+"-slowcollapse").setAttribute("checked", !adblockpPrefs.fastcollapse);
+  document.getElementById(prefix+"-linkcheck").setAttribute("checked", adblockpPrefs.linkcheck);
   return true;
 }
 

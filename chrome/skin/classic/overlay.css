@@ -37,7 +37,7 @@
   color: #999999;
 }
 
-#adblockplus-settings {
+#adblockplus-status-settings, #adblockplus-toolbar-settings {
   font-weight: bold;
 }
 
