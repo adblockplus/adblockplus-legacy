@@ -5,6 +5,7 @@ pref("extensions.adblockplus.linkcheck", true);
 pref("extensions.adblockplus.listsort", true);
 pref("extensions.adblockplus.warnregexp", true);
 pref("extensions.adblockplus.showinstatusbar", true);
+pref("extensions.adblockplus.blocklocalpages", true);
 pref("extensions.adblockplus.checkedtoolbar", false);
 pref("extensions.adblockplus.checkedadblockprefs", false);
 pref("extensions.adblockplus.checkedadblockinstalled", false);

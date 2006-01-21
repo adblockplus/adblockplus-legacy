@@ -71,6 +71,7 @@
         <menuitem id="enabled" label="&enable.label;" type="checkbox" oncommand="togglePref('enabled')"/>
         <menuseparator/>
         <menuitem id="showinstatusbar" label="&showinstatusbar.label;" type="checkbox" oncommand="togglePref('showinstatusbar')"/>
+        <menuitem id="localpages" label="&localpages.label;" type="checkbox" oncommand="togglePref('blocklocalpages')"/>
         <menuitem id="frameobjects" label="&objecttabs.label;" type="checkbox" oncommand="togglePref('frameobjects')"/>
         <menuitem id="slowcollapse" label="&collapse.label;" type="checkbox" oncommand="togglePref('fastcollapse')"/>
         <menuitem id="linkcheck" label="&linkcheck.label;" type="checkbox" oncommand="togglePref('linkcheck')"/>

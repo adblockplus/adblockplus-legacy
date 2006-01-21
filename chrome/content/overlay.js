@@ -216,6 +216,7 @@ function abpFillPopup(prefix) {
 
   document.getElementById(prefix+"-enabled").setAttribute("checked", abpPrefs.enabled);
   document.getElementById(prefix+"-showinstatusbar").setAttribute("checked", abpPrefs.showinstatusbar);
+  document.getElementById(prefix+"-localpages").setAttribute("checked", abpPrefs.blocklocalpages);
   document.getElementById(prefix+"-frameobjects").setAttribute("checked", abpPrefs.frameobjects);
   document.getElementById(prefix+"-slowcollapse").setAttribute("checked", !abpPrefs.fastcollapse);
   document.getElementById(prefix+"-linkcheck").setAttribute("checked", abpPrefs.linkcheck);

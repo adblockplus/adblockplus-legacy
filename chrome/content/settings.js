@@ -93,15 +93,6 @@ function init() {
   // Fill the list with existing patterns
   fillList(prefs.patterns);
 
-  // Init options menu
-  document.getElementById("enabled").setAttribute("checked", prefs.enabled);
-  document.getElementById("showinstatusbar").setAttribute("checked", prefs.showinstatusbar);
-  document.getElementById("frameobjects").setAttribute("checked", prefs.frameobjects);
-  document.getElementById("slowcollapse").setAttribute("checked", !prefs.fastcollapse); // reverse pref
-  document.getElementById("linkcheck").setAttribute("checked", prefs.linkcheck);
-  document.getElementById("listsort").setAttribute("checked", prefs.listsort);
-  document.getElementById("context-listsort").setAttribute("checked", prefs.listsort);
-
   // Set the focus always to the input field
   filterSuggestions.focus();
 }
@@ -342,6 +333,7 @@ function fillFiltersPopup(prefix) {
 function fillOptionsPopup() {
   document.getElementById("enabled").setAttribute("checked", prefs.enabled);
   document.getElementById("showinstatusbar").setAttribute("checked", prefs.showinstatusbar);
+  document.getElementById("localpages").setAttribute("checked", prefs.blocklocalpages);
   document.getElementById("frameobjects").setAttribute("checked", prefs.frameobjects);
   document.getElementById("slowcollapse").setAttribute("checked", !prefs.fastcollapse);
   document.getElementById("linkcheck").setAttribute("checked", prefs.linkcheck);
@@ -392,13 +384,6 @@ function saveSettings() {
   // Make sure we don't save anything before the window has been initialized
   if (!initialized)
     return;
-
-  prefs.enabled = (document.getElementById("enabled").getAttribute("checked") == "true");
-  prefs.showinstatusbar = (document.getElementById("showinstatusbar").getAttribute("checked") == "true");
-  prefs.frameobjects = (document.getElementById("frameobjects").getAttribute("checked") == "true");
-  prefs.fastcollapse = (document.getElementById("slowcollapse").getAttribute("checked") != "true");  // reverse pref
-  prefs.listsort = (document.getElementById("listsort").getAttribute("checked") == "true");
-  prefs.linkcheck = (document.getElementById("linkcheck").getAttribute("checked") == "true");
 
   prefs.patterns = getPatterns();
   abp.savePrefs();

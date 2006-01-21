@@ -151,7 +151,7 @@ const ok = ("ACCEPT" in Components.interfaces.nsIContentPolicy ? Components.inte
 const block = ("REJECT_REQUEST" in Components.interfaces.nsIContentPolicy ? Components.interfaces.nsIContentPolicy.REJECT_REQUEST : false);
 const oldStyleAPI = (typeof ok == "boolean");
 
-const boolPrefs = ["enabled", "linkcheck", "fastcollapse", "frameobjects", "listsort", "warnregexp", "showinstatusbar", "checkedtoolbar", "checkedadblockprefs", "checkedadblockinstalled"];
+const boolPrefs = ["enabled", "linkcheck", "fastcollapse", "frameobjects", "listsort", "warnregexp", "showinstatusbar", "blocklocalpages", "checkedtoolbar", "checkedadblockprefs", "checkedadblockinstalled"];
 const prefs = {}
 const prefListeners = [];
 var disablePrefObserver = false;
@@ -213,7 +213,7 @@ const abp = {
   // Checks whether a node should be blocked, hides it if necessary, return value false means that the node is blocked
   processNode: function(insecNode, contentType, location, collapse) {
     var insecWnd = getTopWindow(insecNode);
-    if (!insecWnd || !this.isBlockableScheme(secureGet(insecWnd, "location")))
+    if (!insecWnd || (!prefs.blocklocalpages && !this.isBlockableScheme(secureGet(insecWnd, "location"))))
       return true;
 
     if (this.isWhitelisted(secureGet(insecWnd, "location", "href")))
