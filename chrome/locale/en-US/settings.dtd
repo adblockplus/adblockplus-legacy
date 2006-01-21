@@ -38,6 +38,7 @@
 
 <!ENTITY enable.label             "Enable Adblock Plus">
 <!ENTITY showinstatusbar.label    "Show in status bar">
+<!ENTITY localpages.label         "Block remote ads in local pages">
 <!ENTITY objecttabs.label         "Show tabs on Flash and Java">
 <!ENTITY collapse.label           "Collapse blocked elements">
 <!ENTITY linkcheck.label          "Check banner links">
@@ -64,7 +65,7 @@
 <!ENTITY add.label                "Add filter">
 <!ENTITY add.accesskey            "A">
 <!ENTITY list.label               "Advertisement filters">
-<!ENTITY list.accesskey           "F">
+<!ENTITY list.accesskey           "V">
 
 <!ENTITY context.edit.label       "Edit filter">
 <!ENTITY context.remove.label     "Remove filter">
