@@ -54,10 +54,10 @@
 toolbar[iconsize="small"] #abp-toolbarbutton {
   list-style-image: url("chrome://adblockplus/skin/abp-enabled-16.png");
 }
-toolbar[iconsize="small"]#abp-toolbarbutton[deactivated] {
+toolbar[iconsize="small"] #abp-toolbarbutton[deactivated] {
   list-style-image: url("chrome://adblockplus/skin/abp-disabled-16.png");
 }
-toolbar[iconsize="small"]#abp-toolbarbutton[disabled="true"] {
+toolbar[iconsize="small"] #abp-toolbarbutton[disabled="true"] {
   list-style-image: url("chrome://adblockplus/skin/abp-defunc-16.png");
 }
 
