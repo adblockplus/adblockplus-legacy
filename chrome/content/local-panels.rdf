@@ -13,5 +13,6 @@
   <rdf:Description about="urn:sidebar:3rdparty-panel:adblockplus">
   <nc:title>Adblock Plus</nc:title>
   <nc:content>chrome://adblockplus/content/sidebar.xul</nc:content>
+  <nc:exclude>composer:html composer:text</nc:exclude>
   </rdf:Description>
 </rdf:RDF>

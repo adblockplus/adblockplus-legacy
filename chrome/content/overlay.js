@@ -172,13 +172,31 @@ function abpInstallInToolbar() {
   abp.savePrefs();
 }
 
+// Retrieves the location of the sidebar panels file (Mozilla Suite/Seamonkey)
+function abpGetPanelsFile() {
+  var dirService = Components.classes["@mozilla.org/file/directory_service;1"]
+                              .getService(Components.interfaces.nsIProperties);
+  var file = dirService.get("UPnls", Components.interfaces.nsIFile);
+  if (file && !file.exists())
+    return null;
+
+  return file;
+}
+
 // Fills the context menu on the status bar
 function abpFillPopup(prefix) {
   if (!abp)
     return false;
 
-  var hasSidebar = ("toggleSidebar" in window);
-  var sidebarOpen = (hasSidebar && document.getElementById("viewAdblockPlusSidebar").getAttribute("checked") == "true");
+  var hasSidebar = ("toggleSidebar" in window || "SidebarGetLastSelectedPanel" in window);
+  var sidebarOpen = false;
+  if ("toggleSidebar" in window)
+    sidebarOpen = (document.getElementById("viewAdblockPlusSidebar").getAttribute("checked") == "true");
+  else if ("SidebarGetLastSelectedPanel" in window) {
+    const sidebarURI = "urn:sidebar:3rdparty-panel:adblockplus";
+    sidebarOpen = (!sidebar_is_hidden() && SidebarGetLastSelectedPanel() == sidebarURI);
+  }
+
   document.getElementById(prefix+"-opensidebar").hidden = !hasSidebar || sidebarOpen;
   document.getElementById(prefix+"-closesidebar").hidden = !hasSidebar || !sidebarOpen;
 
@@ -208,6 +226,83 @@ function abpFillPopup(prefix) {
   document.getElementById(prefix+"-slowcollapse").setAttribute("checked", !abpPrefs.fastcollapse);
   document.getElementById(prefix+"-linkcheck").setAttribute("checked", abpPrefs.linkcheck);
   return true;
+}
+
+function abpToggleSidebar() {
+  if ("toggleSidebar" in window) {
+    // Firefox - simply call toggleSidebar()
+    toggleSidebar('viewAdblockPlusSidebar');
+  }
+  else {
+    // Mozilla Suite/Seamonkey
+
+    const sidebarURI = "urn:sidebar:3rdparty-panel:adblockplus";
+    const sidebarTitle = document.getElementById("abp-status").getAttribute("sidebartitle");
+    const sidebarURL = "chrome://adblockplus/content/sidebar.xul";
+    const sidebarExclude = "composer:html composer:text";
+    const prefix = "http://home.netscape.com/NC-rdf#";
+    const rootURI = "urn:sidebar:current-panel-list";
+
+    if (!sidebar_is_hidden() && SidebarGetLastSelectedPanel() == sidebarURI) {
+      // Sidebar panel is already open, close it
+      SidebarShowHide();
+    }
+    else {
+      var panelsFile = abpGetPanelsFile();
+      if (!panelsFile)
+        return;
+  
+      var ioService = Components.classes["@mozilla.org/network/io-service;1"]
+                                .getService(Components.interfaces.nsIIOService); 
+      var protHandler = ioService.getProtocolHandler('file')
+                                .QueryInterface(Components.interfaces.nsIFileProtocolHandler);
+      var panelsURL = protHandler.newFileURI(panelsFile).spec;
+  
+      var rdfService = Components.classes["@mozilla.org/rdf/rdf-service;1"]
+                                .getService(Components.interfaces.nsIRDFService);
+      var containerUtils = Components.classes["@mozilla.org/rdf/container-utils;1"]
+                                    .getService(Components.interfaces.nsIRDFContainerUtils);
+      var datasource = rdfService.GetDataSourceBlocking(panelsURL);
+  
+      var resource = function(uri) {
+        return rdfService.GetResource(uri);
+      }
+      var literal = function(str) {
+        return rdfService.GetLiteral(str);
+      }
+  
+      var seqNode = datasource.GetTarget(resource(rootURI), resource(prefix + "panel-list"), true);
+      var sequence = containerUtils.MakeSeq(datasource, seqNode);
+      if (sequence.IndexOf(resource(sidebarURI)) < 0) {
+        // Sidebar isn't installed yet, have to do it
+        datasource.Assert(resource(sidebarURI), resource(prefix + "title"), literal(sidebarTitle), true);
+        datasource.Assert(resource(sidebarURI), resource(prefix + "content"), literal(sidebarURL), true);
+        datasource.Assert(resource(sidebarURI), resource(prefix + "exclude"), literal(sidebarExclude), true);
+        sequence.AppendElement(resource(sidebarURI));
+  
+        // Refresh sidebar
+        datasource.Assert(resource(rootURI), resource(prefix + "refresh"), literal("true"), true);
+        datasource.Unassert(resource(rootURI), resource(prefix + "refresh"), literal("true"));
+  
+        // Save changes
+        datasource.QueryInterface(Components.interfaces.nsIRDFRemoteDataSource).Flush();
+      }
+  
+      // Open sidebar panel
+      var panel = document.getElementById(sidebarURI);
+      if (!panel) {
+        SidebarShowHide();
+        panel = document.getElementById(sidebarURI);
+      }
+      if (!panel)
+        return;
+  
+      if (panel.hidden)
+        SidebarTogglePanel(panel);
+  
+      SidebarSelectPanel(panel, true, true);
+    }
+  }
 }
 
 // Checks whether the specified pattern exists in the list

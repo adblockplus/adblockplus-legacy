@@ -102,7 +102,10 @@ const factory = {
   QueryInterface: function(iid) {
     if (!iid.equals(Components.interfaces.nsISupports) &&
         !iid.equals(Components.interfaces.nsIFactory)) {
-      dump("Adblock Plus: factory.QI to an unknown interface: " + iid + "\n");
+
+      if (!iid.equals(Components.interfaces.nsIClassInfo))
+        dump("Adblock Plus: factory.QI to an unknown interface: " + iid + "\n");
+
       throw Components.results.NS_ERROR_NO_INTERFACE;
     }
 
@@ -201,7 +204,10 @@ const abp = {
     if (!iid.equals(Components.interfaces.nsISupports) &&
         !iid.equals(Components.interfaces.nsIContentPolicy) &&
         !iid.equals(Components.interfaces.nsIObserver)) {
-      dump("Adblock Plus: policy.QI to an unknown interface: " + iid + "\n");
+
+      if (!iid.equals(Components.interfaces.nsIClassInfo))
+        dump("Adblock Plus: policy.QI to an unknown interface: " + iid + "\n");
+
       throw Components.results.NS_ERROR_NO_INTERFACE;
     }
 
@@ -394,7 +400,12 @@ FakeController.prototype = {
   QueryInterface: function(iid) {
     if (!iid.equals(Components.interfaces.nsISupports) &&
         !iid.equals(Components.interfaces.nsIController)) {
-      dump("Adblock Plus: FakeController.QI to an unknown interface: " + iid + "\n");
+
+      if (!iid.equals(Components.interfaces.nsIClassInfo) &&
+          !iid.equals(Components.interfaces.nsIControllerContext) &&
+          !iid.equals(Components.interfaces.nsISecurityCheckedComponent))
+        dump("Adblock Plus: FakeController.QI to an unknown interface: " + iid + "\n");
+
       throw Components.results.NS_ERROR_NO_INTERFACE;
     }
 
