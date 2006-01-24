@@ -154,7 +154,7 @@ const ok = ("ACCEPT" in Components.interfaces.nsIContentPolicy ? Components.inte
 const block = ("REJECT_REQUEST" in Components.interfaces.nsIContentPolicy ? Components.interfaces.nsIContentPolicy.REJECT_REQUEST : false);
 const oldStyleAPI = (typeof ok == "boolean");
 
-const boolPrefs = ["enabled", "linkcheck", "fastcollapse", "frameobjects", "listsort", "warnregexp", "showinstatusbar", "blocklocalpages", "checkedtoolbar", "checkedadblockprefs", "checkedadblockinstalled"];
+const boolPrefs = ["enabled", "linkcheck", "fastcollapse", "frameobjects", "listsort", "warnregexp", "showinstatusbar", "blocklocalpages", "checkedtoolbar", "checkedadblockprefs", "checkedadblockinstalled", "detachsidebar"];
 const prefs = {}
 const prefListeners = [];
 var disablePrefObserver = false;
@@ -335,7 +335,7 @@ const abp = {
       dlg.focus();
     else {
       var browser = windowMediator.getMostRecentWindow("navigator:browser");
-      browser.openDialog("chrome://adblockplus/content/settings.xul", "_blank", "chrome,resizable,centerscreen", insecWnd, location, filter);
+      browser.openDialog("chrome://adblockplus/content/settings.xul", "_blank", "chrome,centerscreen,all", insecWnd, location, filter);
     }
   },
 

@@ -30,6 +30,7 @@ try {
 } catch (e) {}
 
 var abpPrefs = abp ? abp.getPrefs() : {enabled: false};
+var abpDetachedSidebar = null;
 
 // With older Mozilla versions load event never happens (???), using timeout as a fallback
 window.addEventListener("load", abpInit, false);
@@ -188,17 +189,9 @@ function abpFillPopup(prefix) {
   if (!abp)
     return false;
 
-  var hasSidebar = ("toggleSidebar" in window || "SidebarGetLastSelectedPanel" in window);
-  var sidebarOpen = false;
-  if ("toggleSidebar" in window)
-    sidebarOpen = (document.getElementById("viewAdblockPlusSidebar").getAttribute("checked") == "true");
-  else if ("SidebarGetLastSelectedPanel" in window) {
-    const sidebarURI = "urn:sidebar:3rdparty-panel:adblockplus";
-    sidebarOpen = (!sidebar_is_hidden() && SidebarGetLastSelectedPanel() == sidebarURI);
-  }
-
-  document.getElementById(prefix+"-opensidebar").hidden = !hasSidebar || sidebarOpen;
-  document.getElementById(prefix+"-closesidebar").hidden = !hasSidebar || !sidebarOpen;
+  var sidebarOpen = abpIsSidebarOpen();
+  document.getElementById(prefix+"-opensidebar").hidden = sidebarOpen;
+  document.getElementById(prefix+"-closesidebar").hidden = !sidebarOpen;
 
   var insecLocation = secureGet(content, "location");
   var showWhitelist = abp.isBlockableScheme(insecLocation);
@@ -228,26 +221,59 @@ function abpFillPopup(prefix) {
   return true;
 }
 
-function abpToggleSidebar() {
-  if ("toggleSidebar" in window) {
-    // Firefox - simply call toggleSidebar()
-    toggleSidebar('viewAdblockPlusSidebar');
-  }
-  else {
-    // Mozilla Suite/Seamonkey
+function abpIsSidebarOpen() {
+  // Test whether detached sidebar window is open
+  if (abpDetachedSidebar && !abpDetachedSidebar.closed)
+    return true;
 
+  // Test whether sidebar is hidden (pop-up window)
+  if (document.documentElement.hasAttribute("chromehidden") && /extrachrome/.test(document.documentElement.getAttribute("chromehidden")))
+    return false;
+
+  if ("toggleSidebar" in window)
+    return (document.getElementById("viewAdblockPlusSidebar").getAttribute("checked") == "true");
+  else if ("SidebarGetLastSelectedPanel" in window) {
     const sidebarURI = "urn:sidebar:3rdparty-panel:adblockplus";
-    const sidebarTitle = document.getElementById("abp-status").getAttribute("sidebartitle");
-    const sidebarURL = "chrome://adblockplus/content/sidebar.xul";
-    const sidebarExclude = "composer:html composer:text";
-    const prefix = "http://home.netscape.com/NC-rdf#";
-    const rootURI = "urn:sidebar:current-panel-list";
+    return (!sidebar_is_hidden() && SidebarGetLastSelectedPanel() == sidebarURI);
+  }
+  return false;
+}
 
-    if (!sidebar_is_hidden() && SidebarGetLastSelectedPanel() == sidebarURI) {
-      // Sidebar panel is already open, close it
+function abpToggleSidebar() {
+  if (!abp)
+    return;
+
+  if (abpIsSidebarOpen()) {
+    if (abpDetachedSidebar && !abpDetachedSidebar.closed) {
+      // Close detached sidebar
+      abpDetachedSidebar.close();
+    }
+    else if ("toggleSidebar" in window) {
+      // Close Firefox sidebar
+      toggleSidebar('viewAdblockPlusSidebar');
+    }
+    else if ("SidebarGetLastSelectedPanel" in window) {
+      // Close Mozilla Suite/Seamonkey sidebar
       SidebarShowHide();
     }
-    else {
+  }
+  else {
+    var forceDetach = (document.documentElement.hasAttribute("chromehidden") && /extrachrome/.test(document.documentElement.getAttribute("chromehidden")));
+    var mustDetach = forceDetach || abpPrefs.detachsidebar;
+
+    if (!mustDetach && "toggleSidebar" in window) {
+      // Open Firefox sidebar
+      toggleSidebar('viewAdblockPlusSidebar');
+    }
+    else if (!mustDetach && "SidebarGetLastSelectedPanel" in window) {
+      // Open Mozilla Suite/Seamonkey sidebar
+      const sidebarURI = "urn:sidebar:3rdparty-panel:adblockplus";
+      const sidebarTitle = document.getElementById("abp-status").getAttribute("sidebartitle");
+      const sidebarURL = "chrome://adblockplus/content/sidebar.xul";
+      const sidebarExclude = "composer:html composer:text";
+      const prefix = "http://home.netscape.com/NC-rdf#";
+      const rootURI = "urn:sidebar:current-panel-list";
+
       var panelsFile = abpGetPanelsFile();
       if (!panelsFile)
         return;
@@ -301,6 +327,10 @@ function abpToggleSidebar() {
         SidebarTogglePanel(panel);
   
       SidebarSelectPanel(panel, true, true);
+    }
+    else {
+      // Open detached sidebar
+      abpDetachedSidebar = openDialog("chrome://adblockplus/content/sidebarDetached.xul", "_blank", "chrome,all,width=300,height=600", window, forceDetach);
     }
   }
 }
