@@ -121,7 +121,7 @@
   </menupopup>
   <!-- firefox tools menu -->
   <menupopup id="menu_ToolsPopup">
-    <menuitem label="..." accesskey="&menuitem.accesskey;" key="key-launch-abp-preferences" insertbefore="devToolsSeparator" oncommand="abpSettings()"/>
+    <menuitem label="&menuitem.label;..." accesskey="&menuitem.accesskey;" key="key-launch-abp-preferences" insertbefore="devToolsSeparator" oncommand="abpSettings()"/>
   </menupopup> 
 
   <!-- common context-menu -->

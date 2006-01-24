@@ -48,7 +48,12 @@
     </tooltip>
   </popupset>
 
-  <label id="suggestionsListLabel" value="&list.label;:" control="suggestionsList"/>
+  <hbox>
+    <label id="suggestionsListLabel" value="&list.label;:" control="suggestionsList"/>
+    <spacer flex="1"/>
+    <description id="detachButton" value="&detach.label;" onclick="detach()"/>
+    <description id="reattachButton" value="&reattach.label;" onclick="if (this.getAttribute('disabled') != 'true') reattach()" hidden="true"/>
+  </hbox>
   <listbox id="suggestionsList" flex="1" seltype="single" tooltip="tooltip" onclick="openInTab(event)" ondblclick="doAdblock()" onkeypress="if (event.keyCode == event.DOM_VK_RETURN || event.keyCode == event.DOM_VK_ENTER) doAdblock();">
     <listhead>
       <listheader label="&type.label;"/>

@@ -9,5 +9,6 @@ pref("extensions.adblockplus.blocklocalpages", true);
 pref("extensions.adblockplus.checkedtoolbar", false);
 pref("extensions.adblockplus.checkedadblockprefs", false);
 pref("extensions.adblockplus.checkedadblockinstalled", false);
+pref("extensions.adblockplus.detachsidebar", false);
 
 pref("extensions.adblockplus.patterns", "*/ads/* */advertisements/* http://*.adserver.example.com/*");

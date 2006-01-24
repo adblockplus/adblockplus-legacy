@@ -31,6 +31,9 @@ try {
   var flasher = abp.getFlasher();
 } catch (e) {}
 
+// Main browser window
+var mainWin = parent;
+
 // The window handler currently in use
 var wndData = null;
 
@@ -49,6 +52,19 @@ function init() {
   loadDummy = document.getElementById("notLoadedDummy");
   loadDummy.parentNode.removeChild(loadDummy);
 
+  if (/sidebarDetached\.xul$/.test(parent.location.href)) {
+    mainWin = parent.arguments[0];
+    window.__defineGetter__("content", function() {return mainWin.getBrowser().contentWindow});
+    mainWin.addEventListener("unload", mainUnload, false);
+    document.getElementById("detachButton").hidden = true;
+    document.getElementById("reattachButton").hidden = false;
+    if (parent.arguments.length > 1 && parent.arguments[1])
+      document.getElementById("reattachButton").setAttribute("disabled", "true");
+  } else if (abp && abp.getPrefs().detachsidebar) {
+    // Oops, we should've been detached but we aren't
+    detach();
+  }
+
   if (abp) {
     itemsDummy.location = abp.getString("no_blocking_suggestions");
     remoteDummy.location = abp.getString("not_remote_page");
@@ -58,7 +74,7 @@ function init() {
   var data = [];
   if (abp) {
     // Retrieve data for the window
-    wndData = abp.getDataForWindow(content);
+    wndData = abp.getDataForWindow(window.content);
     data = wndData.getAllLocations();
     wndData.addLocationListener(handleLocationsChange);
 
@@ -81,7 +97,7 @@ function init() {
     }, 2000);
 
     // Install a handler for tab changes
-    parent.getBrowser().addEventListener("select", handleTabChange, false);
+    mainWin.getBrowser().addEventListener("select", handleTabChange, false);
   }
 
   if (data.length) {
@@ -93,6 +109,11 @@ function init() {
     insertDummy(filterSuggestions);
 }
 
+// To be called for a detached window when the main window has been closed
+function mainUnload() {
+  parent.close();
+}
+
 // Decides which dummy item to insert into the list
 function insertDummy(list) {
   removeDummy();
@@ -101,7 +122,7 @@ function insertDummy(list) {
   if (abp) {
     currentDummy = itemsDummy;
 
-    var insecLocation = secureGet(content, "location");
+    var insecLocation = secureGet(window.content, "location");
     // We want to stick with "no blockable items" for about:blank
     if (secureGet(insecLocation, "href") != "about:blank") {
       if (!abp.isBlockableScheme(insecLocation))
@@ -134,7 +155,9 @@ function cleanUp() {
   flasher.stop();
   if (wndData)
     wndData.removeLocationListener(handleLocationsChange);
-  parent.getBrowser().removeEventListener("select", handleTabChange, false);
+
+  mainWin.getBrowser().removeEventListener("select", handleTabChange, false);
+  mainWin.removeEventListener("unload", mainUnload, false);
 }
 
 function createListCell(label, crop, filter) {
@@ -206,7 +229,7 @@ function handleTabChange() {
   // created tab crashes Firefox 1.5, have to delay this (bug 323641).
   var initialized = false;
   try {
-    var requestor = secureLookup(content, "QueryInterface")(Components.interfaces.nsIInterfaceRequestor);
+    var requestor = secureLookup(window.content, "QueryInterface")(Components.interfaces.nsIInterfaceRequestor);
     var webNav = secureLookup(requestor, "getInterface")(Components.interfaces.nsIWebNavigation);
     initialized = (webNav.currentURI != null);
   } catch(e) {}
@@ -221,7 +244,7 @@ function handleTabChange() {
   wndData.removeLocationListener(handleLocationsChange);
 
   // Re-init with the new window
-  wndData = abp.getDataForWindow(content);
+  wndData = abp.getDataForWindow(window.content);
   wndData.addLocationListener(handleLocationsChange);
 
   var data = wndData.getAllLocations();
@@ -264,7 +287,7 @@ function openInTab(e) {
     return;
 
   var url = node.firstChild.nextSibling.getAttribute("label");
-  parent.delayedOpenTab(url);
+  mainWin.delayedOpenTab(url);
 }
 
 // Starts up the main Adblock window
@@ -278,5 +301,46 @@ function doAdblock() {
 
   // No location for the dummy item
   var location = (listitem.id ? undefined : listitem.location);
-  abp.openSettingsDialog(content, location, listitem.filter);
+  abp.openSettingsDialog(window.content, location, listitem.filter);
+}
+
+// detaches the sidebar
+function detach() {
+  if (!abp)
+    return;
+
+  // Calculate default position for the detached window
+  var boxObject = document.documentElement.boxObject;
+  var position = ",left="+boxObject.screenX+",top="+boxObject.screenY+",outerWidth="+boxObject.width+",outerHeight="+boxObject.height;
+
+  // Close sidebar and open detached window
+  var wnd = mainWin.abpDetachedSidebar;
+  mainWin.abpDetachedSidebar = null;
+  abp.getPrefs().detachsidebar = false;
+  mainWin.abpToggleSidebar();
+  if (wnd && !wnd.closed) {
+    wnd.focus();
+    mainWin.abpDetachedSidebar = wnd;
+  }
+  else
+    mainWin.abpDetachedSidebar = openDialog("chrome://adblockplus/content/sidebarDetached.xul", "_blank", "chrome,all"+position, parent);
+
+  // Save setting
+  abp.getPrefs().detachsidebar = true;
+  abp.savePrefs();
+}
+
+// reattaches the sidebar
+function reattach() {
+  if (!abp)
+    return;
+
+  // Save setting
+  abp.getPrefs().detachsidebar = false;
+  abp.savePrefs();
+
+  // Open sidebar in window
+  mainWin.abpDetachedSidebar = null;
+  mainWin.abpToggleSidebar();
+  parent.close();
 }
