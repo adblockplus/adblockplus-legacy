@@ -160,7 +160,11 @@ function abpInstallInToolbar() {
   if (!document.getElementById("abp-toolbarbutton")) {
     var toolbar = document.getElementById("nav-bar");
     if (toolbar && "insertItem" in toolbar) {
-      toolbar.insertItem("abp-toolbarbutton", document.getElementById("urlbar-container"), null, false);
+      var insertBefore = document.getElementById("urlbar-container");
+      if (insertBefore && insertBefore.parentNode != toolbar)
+        insertBefore = null;
+
+      toolbar.insertItem("abp-toolbarbutton", insertBefore, null, false);
 
       // Need this to make FF 1.0 persist the new button
       toolbar.setAttribute("currentset", toolbar.currentSet);
