@@ -22,37 +22,51 @@
    -
    - ***** END LICENSE BLOCK ***** -->
 
-<!ENTITY dialog.title             "Adblock Plus Preferences">
+<!ENTITY dialog.title               "Adblock Plus Preferences">
 
-<!ENTITY filters.label            "Filters">
-<!ENTITY filters.accesskey        "F">
+<!ENTITY filters.label              "Filters">
+<!ENTITY filters.accesskey          "F">
 
-<!ENTITY import.label             "Import filters">
-<!ENTITY export.label             "Export filters">
-<!ENTITY clearall.label           "Remove all filters">
+<!ENTITY import.label               "Import filters">
+<!ENTITY import.accesskey           "M">
+<!ENTITY export.label               "Export filters">
+<!ENTITY export.accesskey           "X">
+<!ENTITY clearall.label             "Remove all filters">
+<!ENTITY clearall.accesskey         "L">
 
-<!ENTITY listsort.label           "Sort alphabetically">
+<!ENTITY listsort.label             "Sort alphabetically">
+<!ENTITY listsort.accesskey         "P">
 
-<!ENTITY options.label            "Options">
-<!ENTITY options.accesskey        "O">
+<!ENTITY options.label              "Options">
+<!ENTITY options.accesskey          "O">
 
-<!ENTITY enable.label             "Enable Adblock Plus">
-<!ENTITY showinstatusbar.label    "Show in status bar">
-<!ENTITY localpages.label         "Block remote ads in local pages">
-<!ENTITY objecttabs.label         "Show tabs on Flash and Java">
-<!ENTITY collapse.label           "Collapse blocked elements">
-<!ENTITY linkcheck.label          "Check banner links">
+<!ENTITY enable.label               "Enable Adblock Plus">
+<!ENTITY enable.accesskey           "N">
+<!ENTITY showinstatusbar.label      "Show in status bar">
+<!ENTITY showinstatusbar.accesskey  "S">
+<!ENTITY localpages.label           "Block remote ads in local pages">
+<!ENTITY localpages.accesskey       "R">
+<!ENTITY objecttabs.label           "Show tabs on Flash and Java">
+<!ENTITY objecttabs.accesskey       "T">
+<!ENTITY collapse.label             "Collapse blocked elements">
+<!ENTITY collapse.accesskey         "L">
+<!ENTITY linkcheck.label            "Check banner links">
+<!ENTITY linkcheck.accesskey        "C">
 
-<!ENTITY uninstall.label          "Uninstall">
+<!ENTITY help.label                 "Help">
+<!ENTITY help.accesskey             "H">
 
-<!ENTITY help.label               "Help">
-<!ENTITY help.accesskey           "H">
-
-<!ENTITY faq.label                "Frequently Asked Questions">
-<!ENTITY faq.url                  "http://adblockplus.mozdev.org/faq.html">
-<!ENTITY tips.label               "Tip Of The Day">
-<!ENTITY tips.url                 "http://adblockplus.mozdev.org/tips.html">
-<!ENTITY about.label              "About Adblock Plus">
+<!ENTITY faq.label                  "Frequently Asked Questions">
+<!ENTITY faq.accesskey              "F">
+<!ENTITY faq.url                    "http://adblockplus.mozdev.org/faq.html">
+<!ENTITY tips.label                 "Tip Of The Day">
+<!ENTITY tips.accesskey             "T">
+<!ENTITY tips.url                   "http://adblockplus.mozdev.org/tips.html">
+<!ENTITY regexps.label              "Writing regular expressions">
+<!ENTITY regexps.accesskey          "X">
+<!ENTITY regexps.url                "http://developer.mozilla.org/en/docs/Core_JavaScript_1.5_Guide:Regular_Expressions#Writing_a_Regular_Expression_Pattern">
+<!ENTITY about.label                "About Adblock Plus">
+<!ENTITY about.accesskey            "B">
 
 <!ENTITY description              "
     Add the addresses you want to block, for suggestions check the dropdown list.
