@@ -37,28 +37,34 @@
   <script type="application/x-javascript" src="overlay.js"/>  
   <script type="application/x-javascript" src="security.js"/>  
   
+  <!-- add own popupset -->
+  <window id="main-window">
+    <popupset id="abp-popupset">
+      <tooltip id="abp-tooltip" label="&notloaded.tooltip;" onpopupshowing="return (document.tooltipNode &amp;&amp; (document.tooltipNode.id == 'abp-status' || document.tooltipNode.id == 'abp-toolbarbutton'))"/>
+      <popup id="abp-status-popup" onpopupshowing="return abpFillPopup('abp-status')">
+        <menuitem id="abp-status-opensidebar" label="&opensidebar.label;" accesskey="&opensidebar.accesskey;" key="key-view-abp-sidebar" oncommand="abpToggleSidebar()"/>
+        <menuitem id="abp-status-closesidebar" label="&closesidebar.label;" accesskey="&closesidebar.accesskey;" key="key-view-abp-sidebar" oncommand="abpToggleSidebar()"/>
+        <menuitem id="abp-status-settings" label="&settings.label;..." accesskey="&settings.accesskey;" key="key-launch-abp-preferences" oncommand="abpSettings()"/>
+        <menuseparator id="abp-status-whitelist-sep"/>
+        <menuitem id="abp-status-whitelist-site" labeltempl="&whitelist.site.label;" type="checkbox" oncommand="abpTogglePattern(this.pattern, this.hasAttribute('checked'))"/>
+        <menuitem id="abp-status-whitelist-page" label="&whitelist.page.label;" type="checkbox" oncommand="abpTogglePattern(this.pattern, this.hasAttribute('checked'))"/>
+        <menuseparator/>
+        <menu id="abp-status-options" label="&options.label;" accesskey="&options.accesskey;">
+          <menupopup id="abp-status-options-popup">
+            <menuitem id="abp-status-showinstatusbar" label="&showinstatusbar.label;" accesskey="&showinstatusbar.accesskey;" type="checkbox" oncommand="abpTogglePref('showinstatusbar')"/>
+            <menuitem id="abp-status-localpages" label="&localpages.label;" accesskey="&localpages.accesskey;" type="checkbox" oncommand="abpTogglePref('blocklocalpages')"/>
+            <menuitem id="abp-status-frameobjects" label="&objecttabs.label;" accesskey="&objecttabs.accesskey;" type="checkbox" oncommand="abpTogglePref('frameobjects')"/>
+            <menuitem id="abp-status-slowcollapse" label="&collapse.label;" accesskey="&collapse.accesskey;" type="checkbox" oncommand="abpTogglePref('fastcollapse')"/>
+            <menuitem id="abp-status-linkcheck" label="&linkcheck.label;" accesskey="&linkcheck.accesskey;" type="checkbox" oncommand="abpTogglePref('linkcheck')"/> 
+          </menupopup>
+        </menu>
+        <menuitem id="abp-status-enabled" label="&enable.label;" accesskey="&enable.accesskey;" type="checkbox" oncommand="abpTogglePref('enabled')"/>
+      </popup>
+    </popupset>
+  </window>
+
   <!-- statusbar -->
   <statusbar id="status-bar">
-    <tooltip id="abp-tooltip" label="&notloaded.tooltip;" onpopupshowing="return (document.tooltipNode &amp;&amp; (document.tooltipNode.id == 'abp-status' || document.tooltipNode.id == 'abp-toolbarbutton'))"/>
-    <popup id="abp-status-popup" onpopupshowing="return abpFillPopup('abp-status')">
-      <menuitem id="abp-status-opensidebar" label="&opensidebar.label;" key="key-view-abp-sidebar" oncommand="abpToggleSidebar()"/>
-      <menuitem id="abp-status-closesidebar" label="&closesidebar.label;" key="key-view-abp-sidebar" oncommand="abpToggleSidebar()"/>
-      <menuitem id="abp-status-settings" label="&settings.label;..." key="key-launch-abp-preferences" oncommand="abpSettings()"/>
-      <menuseparator id="abp-status-whitelist-sep"/>
-      <menuitem id="abp-status-whitelist-site" labeltempl="&whitelist.site.label;" type="checkbox" oncommand="abpTogglePattern(this.pattern, this.hasAttribute('checked'))"/>
-      <menuitem id="abp-status-whitelist-page" label="&whitelist.page.label;" type="checkbox" oncommand="abpTogglePattern(this.pattern, this.hasAttribute('checked'))"/>
-      <menuseparator/>
-      <menu id="abp-status-options" label="&options.label;">
-        <menupopup id="abp-status-options-popup">
-          <menuitem id="abp-status-showinstatusbar" label="&showinstatusbar.label;" type="checkbox" oncommand="abpTogglePref('showinstatusbar')"/>
-          <menuitem id="abp-status-localpages" label="&localpages.label;" type="checkbox" oncommand="abpTogglePref('blocklocalpages')"/>
-          <menuitem id="abp-status-frameobjects" label="&objecttabs.label;" type="checkbox" oncommand="abpTogglePref('frameobjects')"/>
-          <menuitem id="abp-status-slowcollapse" label="&collapse.label;" type="checkbox" oncommand="abpTogglePref('fastcollapse')"/>
-          <menuitem id="abp-status-linkcheck" label="&linkcheck.label;" type="checkbox" oncommand="abpTogglePref('linkcheck')"/> 
-        </menupopup>
-      </menu>
-      <menuitem id="abp-status-enabled" label="&enable.label;" type="checkbox" oncommand="abpTogglePref('enabled')"/>
-    </popup>
     <statusbarpanel id="abp-status" disabled="true" label="&notloaded.label;" sidebartitle="&sidebar.title;" tooltip="abp-tooltip" context="abp-status-popup" onclick="abpClickHandler(event)" ondragover="abpDragHandler(event)" ondragdrop="abpDragHandler(event)" onmousedown="abpMouseHandler(event)"/>
   </statusbar> 
 
@@ -69,25 +75,7 @@
         oncommand="if (event.target == this) abpToggleSidebar()"
         onclick="if (event.target == this &amp;&amp; event.button == 1) abpTogglePref('enabled')"
         tooltip="abp-tooltip">
-      <menupopup id="abp-toolbar-popup" onpopupshowing="return abpFillPopup('abp-toolbar')">
-        <menuitem id="abp-toolbar-opensidebar" label="&opensidebar.label;" key="key-view-abp-sidebar" oncommand="abpToggleSidebar()"/>
-        <menuitem id="abp-toolbar-closesidebar" label="&closesidebar.label;" key="key-view-abp-sidebar" oncommand="abpToggleSidebar()"/>
-        <menuitem id="abp-toolbar-settings" label="&settings.label;..." key="key-launch-abp-preferences" oncommand="abpSettings()"/>
-        <menuseparator id="abp-toolbar-whitelist-sep"/>
-        <menuitem id="abp-toolbar-whitelist-site" labeltempl="&whitelist.site.label;" type="checkbox" oncommand="abpTogglePattern(this.pattern, this.hasAttribute('checked'))"/>
-        <menuitem id="abp-toolbar-whitelist-page" label="&whitelist.page.label;" type="checkbox" oncommand="abpTogglePattern(this.pattern, this.hasAttribute('checked'))"/>
-        <menuseparator/>
-        <menu id="abp-options" label="&options.label;">
-          <menupopup id="abp-toolbar-options-popup">
-            <menuitem id="abp-toolbar-showinstatusbar" label="&showinstatusbar.label;" type="checkbox" oncommand="abpTogglePref('showinstatusbar')"/>
-            <menuitem id="abp-toolbar-localpages" label="&localpages.label;" type="checkbox" oncommand="abpTogglePref('blocklocalpages')"/>
-            <menuitem id="abp-toolbar-frameobjects" label="&objecttabs.label;" type="checkbox" oncommand="abpTogglePref('frameobjects')"/>
-            <menuitem id="abp-toolbar-slowcollapse" label="&collapse.label;" type="checkbox" oncommand="abpTogglePref('fastcollapse')"/>
-            <menuitem id="abp-toolbar-linkcheck" label="&linkcheck.label;" type="checkbox" oncommand="abpTogglePref('linkcheck')"/> 
-          </menupopup>
-        </menu>
-        <menuitem id="abp-toolbar-enabled" label="&enable.label;" type="checkbox" oncommand="abpTogglePref('enabled')"/>
-      </menupopup>
+      <menupopup id="abp-toolbar-popup" onpopupshowing="return abpFillPopup('abp-toolbar')"/>
     </toolbarbutton>
   </toolbarpalette>
 
