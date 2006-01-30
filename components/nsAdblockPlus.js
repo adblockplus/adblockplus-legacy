@@ -117,21 +117,28 @@ const factory = {
  * Filter cache
  */
 
-function HashTable() {}
+function HashTable() {
+  this.data = {};
+}
 HashTable.prototype = {
-  data: {},
-  get: function(key)
-  {
+  get: function(key) {
     key = " " + key;
     if (key in this.data)
       return this.data[key];
     else
       return undefined;
   },
-  put: function(key, value)
-  {
+  put: function(key, value) {
     key = " " + key;
     this.data[key] = value;
+  },
+  remove: function(key) {
+    key = " " + key;
+    delete this.data[key];
+  },
+  has: function(key) {
+    key = " " + key;
+    return (key in this.data);
   },
   clear: function()
   {
@@ -155,6 +162,7 @@ const block = ("REJECT_REQUEST" in Components.interfaces.nsIContentPolicy ? Comp
 const oldStyleAPI = (typeof ok == "boolean");
 
 const boolPrefs = ["enabled", "linkcheck", "fastcollapse", "frameobjects", "listsort", "warnregexp", "showinstatusbar", "blocklocalpages", "checkedtoolbar", "checkedadblockprefs", "checkedadblockinstalled", "detachsidebar"];
+const listPrefs = ["patterns", "grouporder"];
 const prefs = {}
 const prefListeners = [];
 var disablePrefObserver = false;
@@ -205,7 +213,8 @@ const abp = {
         !iid.equals(Components.interfaces.nsIContentPolicy) &&
         !iid.equals(Components.interfaces.nsIObserver)) {
 
-      if (!iid.equals(Components.interfaces.nsIClassInfo))
+      if (!iid.equals(Components.interfaces.nsIClassInfo) &&
+          !iid.equals(Components.interfaces.nsISecurityCheckedComponent))
         dump("Adblock Plus: policy.QI to an unknown interface: " + iid + "\n");
 
       throw Components.results.NS_ERROR_NO_INTERFACE;
@@ -371,6 +380,10 @@ const abp = {
 
   getFlasher: function() {
     return flasher;
+  },
+
+  createHashTable: function() {
+    return new HashTable();
   }
 };
 
@@ -630,6 +643,9 @@ function init() {
   // Load settings
   loadSettings();
 
+  // Register synchronization callback
+  createTimer(startSynchronize, 300000);
+
   // Install sidebar in Mozilla Suite if necessary
   installSidebar();
 }
@@ -639,37 +655,94 @@ function loadSettings() {
   cache.clear();
   for (var i = 0; i < boolPrefs.length; i++)
     prefs[boolPrefs[i]] = adblockBranch.getBoolPref(boolPrefs[i]);
+  for (i = 0; i < listPrefs.length; i++) {
+    prefs[listPrefs[i]] = [];
+    var str = adblockBranch.getCharPref(listPrefs[i]);
+    if (str)
+      prefs[listPrefs[i]] = str.split(" ");
+  }
+  prefs.synchronizationinterval = adblockBranch.getIntPref("synchronizationinterval");
 
-  // Load filter list -- on init or pref change
-  prefs.patterns = [];
+  // Convert patterns into regexps
   prefs.regexps = [];
   prefs.whitelist = [];
   var url = Components.classes["@mozilla.org/network/standard-url;1"]
                       .createInstance(Components.interfaces.nsIURI);
 
-  var list = adblockBranch.getCharPref("patterns");
-  if (list) {
-    list = list.split(" ");
-
-    // The list should be sorted here but rue insists on keeping the ordering
-    // Load list into memory and remove duplicate entries at the same time
-    for (i = 0; i < list.length; i++) {
-      if (list[i] != "" && typeof prefs.patterns[" " + list[i]] == "undefined") {
-        prefs.patterns.push(list[i]);
-        prefs.patterns[" " + list[i]] = null;
-        addPattern(list[i]);
-      }
-    }
-
-    if (list.length != prefs.patterns.length) {
-      adblockBranch.setCharPref("patterns", prefs.patterns.join(" "));
-      prefService.savePrefFile(null); // save the prefs to disk 
-    }
+  for (i = 0; i < prefs.patterns.length; i++) {
+    if (prefs.patterns[i] != "")
+      addPattern(prefs.patterns[i]);
   }
 
+  // Load synchronization settings
+  prefs.synch = new HashTable();
+  for (i = 0; i < prefs.grouporder.length; i++) {
+    if (prefs.grouporder[i].indexOf("~") == 0)
+      continue;
+
+    try {
+      var prefix = "synch." + prefs.grouporder[i] + ".";
+      var synchPrefs = {};
+
+      synchPrefs.title = prefs.grouporder[i];
+      synchPrefs.autodownload = true;
+      synchPrefs.disabled = false;
+      synchPrefs.external = false;
+      synchPrefs.lastdownload = 0;
+      synchPrefs.downloadstatus = "";
+      synchPrefs.lastmodified = "";
+
+      try {
+        synchPrefs.title = adblockBranch.getComplexValue(prefix + "title", Components.interfaces.nsISupportsString).data;
+      } catch (e2) {}
+      try {
+        synchPrefs.autodownload = adblockBranch.getBoolPref(prefix + "autodownload");
+      } catch (e2) {}
+      try {
+        synchPrefs.disabled = adblockBranch.getBoolPref(prefix + "disabled");
+      } catch (e2) {}
+      try {
+        synchPrefs.external = adblockBranch.getBoolPref(prefix + "external");
+      } catch (e2) {}
+      try {
+        synchPrefs.lastdownload = adblockBranch.getIntPref(prefix + "lastdownload");
+      } catch (e2) {}
+      try {
+        synchPrefs.downloadstatus = adblockBranch.getCharPref(prefix + "downloadstatus");
+      } catch (e2) {}
+      try {
+        synchPrefs.lastmodified = adblockBranch.getCharPref(prefix + "lastmodified");
+      } catch (e2) {}
+
+      if (synchPrefs.external)
+        synchPrefs.url = null;
+      else {
+        synchPrefs.url = Components.classes["@mozilla.org/network/standard-url;1"]
+                                  .createInstance(Components.interfaces.nsIURL);
+        synchPrefs.url.spec = prefs.grouporder[i];
+      }
+
+      synchPrefs.patterns = [];
+      try {
+        var str = adblockBranch.getCharPref(prefix + "patterns");
+        if (str) {
+          synchPrefs.patterns = str.split(" ");
+          if (!synchPrefs.disabled)
+            for (var j = 0; j < synchPrefs.patterns.length; j++)
+              if (synchPrefs.patterns[j] != "")
+                addPattern(synchPrefs.patterns[j]);
+        }
+      } catch (e2) {}
+
+      prefs.synch.put(prefs.grouporder[i], synchPrefs);
+    } catch (e) {}
+  }
+
+  // Fire pref listeners
   for (i = 0; i < prefListeners.length; i++)
     prefListeners[i](prefs);
 
+  // Import settings from old versions
   if (!prefs.checkedadblockprefs)
     importAdblockSettings();
 }
@@ -702,13 +775,25 @@ function saveSettings()
     for (var i = 0; i < boolPrefs.length; i++)
       adblockBranch.setBoolPref(boolPrefs[i], prefs[boolPrefs[i]]);
   
-    var str = prefs.patterns.join(" ");
-    adblockBranch.setCharPref("patterns", str);
-    prefService.savePrefFile(null); // save the prefs to disk 
+    for (i = 0; i < listPrefs.length; i++) {
+      var str = prefs[listPrefs[i]].join(" ");
+      adblockBranch.setCharPref(listPrefs[i], str);
+    }
+
+    adblockBranch.setIntPref("synchronizationinterval", prefs.synchronizationinterval);
+
+    // Make sure to save the prefs on disk
+    prefService.savePrefFile(null);
   } catch (e) {}
 
   disablePrefObserver = false;
   loadSettings();
+}
+
+// Delayed initialization of filter synchronization
+function startSynchronize() {
+  synchronizeCallback();
+  createTimer(synchronizeCallback, 3600000, true);
 }
 
 function installSidebar() {
@@ -954,7 +1039,9 @@ function translateTypes(hash) {
 }
 
 // Sets a timeout, compatible with both nsITimer and nsIScriptableTimer
-function createTimer(callback, delay) {
+function createTimer(callback, delay, multiple) {
+  var type = (typeof multiple == "undefined" || !multiple ? "TYPE_ONE_SHOT" : "TYPE_REPEATING_SLACK");
+
   var timer = Components.classes["@mozilla.org/timer;1"];
   var handler = {
     observe: callback
@@ -962,14 +1049,31 @@ function createTimer(callback, delay) {
 
   if ('nsITimer' in Components.interfaces) {
     timer = timer.createInstance(Components.interfaces.nsITimer);
-    timer.init(handler, 300, timer.TYPE_ONE_SHOT);
+    timer.init(handler, 300, timer[type]);
   }
   else
   {
     timer = timer.createInstance(Components.interfaces.nsIScriptableTimer);
-    timer.init(handler, 300, timer.PRIORITY_LOWEST, timer.TYPE_ONE_SHOT);
+    timer.init(handler, 300, timer.PRIORITY_LOWEST, timer[type]);
   }
   return timer;
+}
+
+// To be called in regular intervals - filter synchronization
+function synchronizeCallback() {
+  for (var i = 0; i < prefs.grouporder.length; i++) {
+    if (prefs.grouporder[i].indexOf("~") == 0)
+      continue;
+
+    var synchPrefs = prefs.synch.get(prefs.grouporder[i]);
+    if (typeof synchPrefs == "undefined" || !synchPrefs.autodownload || synchPrefs.disabled || synchPrefs.external)
+      continue;
+
+    // Get the number of hours since last download
+    var interval = (new Date().getTime() - synchPrefs.lastdownload) / 3600000;
+    if (interval > prefs.synchronizationinterval)
+      abp.doSynchronize(synchPrefs);
+  }
 }
 
 // Makes a blinking border for a list of matching nodes

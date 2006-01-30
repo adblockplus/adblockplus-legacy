@@ -63,17 +63,17 @@
       <listcol id="typeCol"/>
       <listcol id="locationCol" flex="1"/>
     </listcols>
-    <listitem id="noItemsDummy">
-      <listcell disabled="true" label="&noitems.label;"/>
+    <listitem id="noItemsDummy" filtered="true">
+      <listcell label="&noitems.label;"/>
     </listitem>
-    <listitem id="notRemoteDummy">
-      <listcell disabled="true" label="&notremote.label;"/>
+    <listitem id="notRemoteDummy" filtered="true">
+      <listcell label="&notremote.label;"/>
     </listitem>
-    <listitem id="whitelistedDummy">
-      <listcell disabled="true" label="&whitelisted.label;"/>
+    <listitem id="whitelistedDummy" filtered="true">
+      <listcell label="&whitelisted.label;"/>
     </listitem>
-    <listitem id="notLoadedDummy">
-      <listcell disabled="true" label="&notloaded.label;"/>
+    <listitem id="notLoadedDummy" filtered="true">
+      <listcell label="&notloaded.label;"/>
     </listitem>
   </listbox>
 

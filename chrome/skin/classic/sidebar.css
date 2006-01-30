@@ -28,7 +28,7 @@
 }
 
 #reattachButton[disabled="true"] {
-  color: #808080;
+  color: GrayText;
 }
 
 #tooltipFilter {
@@ -40,8 +40,14 @@
   margin-right: 0px;
 }
 
-.whitelist {
+.filtered:not([selected="true"]) {
+  color: GrayText;
+}
+
+.whitelisted:not([selected="true"]) {
   color: #00C000;
 }
 
-
+tooltip {
+  max-width: none;
+}

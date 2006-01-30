@@ -31,6 +31,38 @@
   padding: 1px;
 }
 
-.whitelist {
+.groupTitle {
+  font-size: 90%;
+}
+.groupTitle:not([selected="true"]) {
+  color: GrayText;
+}
+
+.groupTitle.first:not([current="true"]) {
+  border: 0px solid GrayText;
+  border-top-width: 1px;
+}
+.groupTitle.first:first-child:not([current="true"]) {
+  border-top-width: 0px;
+}
+
+listitem:not(.groupTitle) listcell,
+listitem #list-editorField {
+  margin-left: 10px;
+}
+
+.whitelist:not([selected="true"]) {
   color: #00C000;
+}
+
+.subscription:not([selected="true"]) {
+  background-color: #C0C0C0;
+}
+
+.whitelisted:not([_moz-menuactive="true"]) {
+  color: #00C000;
+}
+
+.filtered:not([_moz-menuactive="true"]) {
+  color: GrayText;
 }

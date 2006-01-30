@@ -27,6 +27,8 @@
 <!ENTITY filters.label              "Filters">
 <!ENTITY filters.accesskey          "F">
 
+<!ENTITY addsubscription.label      "Add filter subscription">
+<!ENTITY addsubscription.accesskey  "S">
 <!ENTITY import.label               "Import filters">
 <!ENTITY import.accesskey           "M">
 <!ENTITY export.label               "Export filters">
@@ -68,21 +70,28 @@
 <!ENTITY about.label                "About Adblock Plus">
 <!ENTITY about.accesskey            "B">
 
-<!ENTITY description              "
+<!ENTITY description                "
     Add the addresses you want to block, for suggestions check the dropdown list.
     You can use * as a wildcard to create more general filters. Advanced users can
     use regular expressions like /banner\d+\.gif$/.
 ">
 
-<!ENTITY newfilter.label          "New filter">
-<!ENTITY newfilter.accesskey      "N">
-<!ENTITY add.label                "Add filter">
-<!ENTITY add.accesskey            "A">
-<!ENTITY list.label               "Advertisement filters">
-<!ENTITY list.accesskey           "V">
+<!ENTITY newfilter.label            "New filter">
+<!ENTITY newfilter.accesskey        "N">
+<!ENTITY add.label                  "Add filter">
+<!ENTITY add.accesskey              "A">
+<!ENTITY list.label                 "Filter rules">
+<!ENTITY list.accesskey             "R">
 
-<!ENTITY context.edit.label       "Edit filter">
-<!ENTITY context.remove.label     "Remove filter">
+<!ENTITY context.edit.label         "Edit filter">
+<!ENTITY context.remove.label       "Remove filter(s)">
+<!ENTITY context.synchsubscription.label  "Update subscription now">
+<!ENTITY context.editsubscription.label   "Edit subscription">
+<!ENTITY context.removesubscription.label "Remove subscription">
+<!ENTITY context.moveup.label       "Move up">
+<!ENTITY context.movedown.label     "Move down">
+<!ENTITY context.movegroupup.label        "Move group up">
+<!ENTITY context.movegroupdown.label      "Move group down">
 
 <!ENTITY ok.label                 "OK">
 <!ENTITY cancel.label             "Cancel">

@@ -56,12 +56,13 @@
   </vbox>
   <vbox id="contributorsBox">
     <description id="contributorsTitle" value="&contributors.label;:"/>
-    <description class="contributor" value="Henrik Aasted Sorensen"/>
-    <description class="contributor" value="Michael McDonald"/>
-    <description class="contributor" value="rue"/>
-    <description class="contributor" value="Ben Karel"/>
-    <description class="contributor" value="Stefan Kinitz"/>
-    <description class="contributor" value="Kevin Keller (icons)"/>
+    <description class="contributor" value="Kevin Keller - icons"/>
+    <spacer height="10"/>
+    <description class="contributor" value="Henrik Aasted Sorensen - original Adblock"/>
+    <description class="contributor" value="Michael McDonald - Adblock Plus 0.5"/>
+    <description class="contributor" value="rue - Adblock 0.4/0.5"/>
+    <description class="contributor" value="Ben Karel - Adblock 0.4/0.5"/>
+    <description class="contributor" value="Stefan Kinitz - Adblock 0.4/0.5"/>
   </vbox>
 </groupbox>
 
