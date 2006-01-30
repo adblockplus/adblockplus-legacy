@@ -34,7 +34,7 @@
   title="&dialog.title;"
   id="adblockPreferencesWindow"
   onload="setTimeout(init, 0)"
-  onunload="flasher.stop()"
+  onunload="cleanUp()"
   width="600px"
   height="450px"
   persist="screenX screenY width height"
@@ -44,25 +44,41 @@
 <script type="application/x-javascript" src="security.js"/>
 
 <keyset id="adblockKeys">
-  <key keycode="VK_RETURN" command="ok-command"/>
+  <key keycode="VK_RETURN" command="ok-command" disabled="true"/>
   <key keycode="VK_ENTER" command="ok-command"/>
   <key keycode="VK_CANCEL" command="cancel-command"/>
   <key keycode="VK_ESCAPE" command="cancel-command"/>
   <key id="import-key" key="i" modifiers="accel" command="import-command"/>
   <key id="export-key" key="e" modifiers="accel" command="export-command"/>
+  <key id="selectall-key" key="a" modifiers="accel" oncommand="document.getElementById('list').selectAll()"/>
+  <key id="edit-key" keycode="VK_RETURN"/>
+  <key id="remove-key" keycode="VK_DELETE"/>
+  <key id="moveup-key" keycode="VK_UP" modifiers="accel"/>
+  <key id="movedown-key" keycode="VK_DOWN" modifiers="accel"/>
+  <key id="movegroupup-key" keycode="VK_UP" modifiers="accel,shift"/>
+  <key id="movegroupdown-key" keycode="VK_DOWN" modifiers="accel,shift"/>
 </keyset>
 
 <commandset id="abpCommands">
-  <command id="ok-command" oncommand="addFilter(); saveSettings(); window.close()"/>
+  <command id="ok-command" oncommand="saveSettings(); window.close()" disabled="true"/>
   <command id="cancel-command" oncommand="window.close()"/>
+  <command id="addsubscription-command" oncommand="editSubscription(null)"/>
   <command id="import-command" oncommand="importList()"/>
   <command id="export-command" oncommand="exportList()"/>
 </commandset>
 
 <popupset id="abpPopups">
   <popup id="listitem-context" onpopupshowing="fillContext()">
-    <menuitem id="context-edit" label="&context.edit.label;" oncommand="editor.startEditor(document.popupNode)"/>
-    <menuitem id="context-remove" label="&context.remove.label;" oncommand="removeFilter(document.popupNode);"/>
+    <menuitem id="context-edit" label="&context.edit.label;" oncommand="editor.startEditor()" key="edit-key"/>
+    <menuitem id="context-remove" label="&context.remove.label;" oncommand="removeFilter()" key="remove-key"/>
+    <menuitem id="context-synchsubscription" label="&context.synchsubscription.label;" oncommand="synchSubscription(groupManager.getSelectedGroup())"/>
+    <menuitem id="context-editsubscription" label="&context.editsubscription.label;..." oncommand="editSubscription(groupManager.getSelectedGroup())" key="edit-key"/>
+    <menuitem id="context-removesubscription" label="&context.removesubscription.label;..." oncommand="removeSubscription(groupManager.getSelectedGroup())" key="remove-key"/>
+    <menuseparator/>
+    <menuitem id="context-moveup" label="&context.moveup.label;" oncommand="moveFilter(true)" key="moveup-key"/>
+    <menuitem id="context-movedown" label="&context.movedown.label;" oncommand="moveFilter(false)" key="movedown-key"/>
+    <menuitem id="context-movegroupup" label="&context.movegroupup.label;" oncommand="moveGroup(true)" key="movegroupup-key"/>
+    <menuitem id="context-movegroupdown" label="&context.movegroupdown.label;" oncommand="moveGroup(false)" key="movegroupdown-key"/>
     <menuseparator/>
     <menuitem id="context-listsort" label="&listsort.label;" type="checkbox" oncommand="togglePref('listsort')"/>
   </popup>
@@ -72,6 +88,8 @@
   <menubar id="menu">
     <menu id="filters-menu" label="&filters.label;" accesskey="&filters.accesskey;">
       <menupopup id="filters-popup" onpopupshowing="fillFiltersPopup()">
+        <menuitem id="addsubscription" label="&addsubscription.label;..." accesskey="&addsubscription.accesskey;" command="addsubscription-command"/>
+        <menuseparator/>
         <menuitem id="import" label="&import.label;..." accesskey="&import.accesskey;" key="import-key" command="import-command"/>
         <menuitem id="export" label="&export.label;..." accesskey="&export.accesskey;" key="export-key" command="export-command"/>
         <menuitem id="clearall" label="&clearall.label;..." accesskey="&clearall.accesskey;" oncommand="clearList()"/>
@@ -117,13 +135,13 @@
 
 <vbox id="listarea" flex="1">
   <label id="listLabel" value="&list.label;:" accesskey="&list.accesskey;" control="list" />
-  <listbox id="list" flex="1" context="listitem-context" onkeypress="onListKeyPress(event)">
+  <listbox id="list" seltype="multiple" flex="1" context="listitem-context" onkeypress="onListKeyPress(event)">
     <listitem id="list-editor"><textbox id="list-editorField"/></listitem>
   </listbox>
 </vbox>
 
 <hbox id="buttons" pack="end">
-  <button class="dialog-button" id="ok-button" label="&ok.label;" command="ok-command"/>
+  <button class="dialog-button" id="ok-button" label="&ok.label;" command="ok-command" disabled="true"/>
   <button class="dialog-button" id="cancel-button" label="&cancel.label;" command="cancel-command"/>
 </hbox>
 

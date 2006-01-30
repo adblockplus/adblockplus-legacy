@@ -160,25 +160,25 @@ function cleanUp() {
   mainWin.removeEventListener("unload", mainUnload, false);
 }
 
-function createListCell(label, crop, filter) {
+function createListCell(label, crop) {
   var result = document.createElement("listcell");
   result.setAttribute("label", label);
   if (crop)
     result.setAttribute("crop", "center");
-  if (filter && filter.isWhite)
-    result.className = "whitelist";
-  else if (filter)
-    result.setAttribute("disabled", "true");
   return result;
 }
 
 function createFilterSuggestion(listbox, suggestion) {
   var listitem = document.createElement("listitem");
 
-  listitem.appendChild(createListCell(suggestion.localizedDescr, false, suggestion.filter));
-  listitem.appendChild(createListCell(suggestion.location, true, suggestion.filter));
+  listitem.appendChild(createListCell(suggestion.localizedDescr, false));
+  listitem.appendChild(createListCell(suggestion.location, true));
   listitem.filter = suggestion.filter;
   listitem.location = suggestion.location;
+  if (listitem.filter && listitem.filter.isWhite)
+    listitem.className = "whitelisted";
+  else if (listitem.filter)
+    listitem.className = "filtered";
 
   listbox.appendChild(listitem);
 
@@ -323,7 +323,7 @@ function detach() {
     mainWin.abpDetachedSidebar = wnd;
   }
   else
-    mainWin.abpDetachedSidebar = openDialog("chrome://adblockplus/content/sidebarDetached.xul", "_blank", "chrome,all"+position, parent);
+    mainWin.abpDetachedSidebar = openDialog("chrome://adblockplus/content/sidebarDetached.xul", "_blank", "chrome,all,dependent"+position, parent);
 
   // Save setting
   abp.getPrefs().detachsidebar = true;
