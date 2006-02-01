@@ -163,7 +163,7 @@ const oldStyleAPI = (typeof ok == "boolean");
 
 const boolPrefs = ["enabled", "linkcheck", "fastcollapse", "frameobjects", "listsort", "warnregexp", "showinstatusbar", "blocklocalpages", "checkedtoolbar", "checkedadblockprefs", "checkedadblockinstalled", "detachsidebar"];
 const listPrefs = ["patterns", "grouporder"];
-const groupPrefs = ["title", "autodownload", "disabled", "external", "lastdownload", "downloadstatus", "lastmodified", "patterns"];
+const groupPrefs = ["title", "autodownload", "disabled", "external", "lastdownload", "lastsuccess", "downloadstatus", "lastmodified", "patterns"];
 const prefs = {}
 const prefListeners = [];
 var disablePrefObserver = false;
@@ -421,9 +421,12 @@ abp.wrappedJSObject = abp;
 var synchronizer = {
   executing: new HashTable(),
   listeners: [],
+  timer: null,
 
   init: function() {
     var callback = function() {
+      synchronizer.timer.delay = 3600000;
+
       for (var i = 0; i < prefs.grouporder.length; i++) {
         if (prefs.grouporder[i].indexOf("~") == 0)
           continue;
@@ -433,16 +436,14 @@ var synchronizer = {
           continue;
     
         // Get the number of hours since last download
-        var interval = (new Date().getTime() - synchPrefs.lastdownload) / 3600;
+        var interval = (new Date().getTime()/1000 - synchPrefs.lastsuccess) / 3600;
         if (interval > prefs.synchronizationinterval)
           synchronizer.execute(synchPrefs);
       }
     }
 
-    createTimer(function() {
-      callback();
-      createTimer(callback, 3600000, true);
-    }, 300000);
+    this.timer = createTimer(callback, 300000);
+    this.timer.type = this.timer.TYPE_REPEATING_SLACK;
   },
 
   // Adds a new handler to be notified whenever synchronization status changes
@@ -480,6 +481,7 @@ var synchronizer = {
     }
 
     lines.shift(0);
+    synchPrefs.lastdownload = synchPrefs.lastsuccess = new Date().getTime() / 1000;
     synchPrefs.downloadstatus = "synchronize_ok";
     synchPrefs.patterns = lines;
     saveSettings();
@@ -487,21 +489,25 @@ var synchronizer = {
   },
 
   setError: function(synchPrefs, error) {
+    this.executing.remove(synchPrefs.url);
+    synchPrefs.lastdownload = new Date().getTime() / 1000;
     synchPrefs.downloadstatus = error;
     saveSettings();
     this.notifyListeners(synchPrefs, "error");
   },
 
   execute: function(synchPrefs) {
-    synchPrefs.lastdownload = new Date().getTime() / 1000;
-
-    if (this.executing.has(synchPrefs.url))
+    var url = synchPrefs.url;
+    if (this.executing.has(url))
       return;
 
     try {
       var request = Components.classes["@mozilla.org/xmlextras/xmlhttprequest;1"]
                               .createInstance(Components.interfaces.nsIJSXMLHttpRequest);
-      request.open("GET", synchPrefs.url);
+      request.open("GET", url);
+      request.channel.loadFlags = request.channel.loadFlags |
+                                  request.channel.INHIBIT_CACHING |
+                                  request.channel.LOAD_BYPASS_CACHE;
     }
     catch (e) {
       this.setError(synchPrefs, "synchronize_invalid_url");
@@ -509,15 +515,20 @@ var synchronizer = {
     }
 
     request.onerror = function() {
-      synchronizer.executing.remove(synchPrefs.url);
-      synchronizer.setError(synchPrefs, "synchronize_connection_error");
+      if (!prefs.synch.has(url))
+        return;
+
+      synchronizer.setError(prefs.synch.get(url), "synchronize_connection_error");
     };
 
     request.onload = function() {
-      synchronizer.executing.remove(synchPrefs.url);
-      if (prefs.synch.has(synchPrefs.url))
-        synchronizer.readPatterns(synchPrefs, request.responseText);
+      synchronizer.executing.remove(url);
+      if (prefs.synch.has(url))
+        synchronizer.readPatterns(prefs.synch.get(url), request.responseText);
     };
+
+    this.executing.put(url, request);
+    this.notifyListeners(synchPrefs, "executing");
 
     try {
       request.send(null);
@@ -526,9 +537,6 @@ var synchronizer = {
       this.setError(synchPrefs, "synchronize_connection_error");
       return;
     }
-
-    this.executing.put(synchPrefs.url, request);
-    this.notifyListeners(synchPrefs, "executing");
   }
 };
 
@@ -826,6 +834,7 @@ function loadSettings() {
       synchPrefs.disabled = false;
       synchPrefs.external = false;
       synchPrefs.lastdownload = 0;
+      synchPrefs.lastsuccess = 0;
       synchPrefs.downloadstatus = "";
       synchPrefs.lastmodified = "";
 
@@ -843,6 +852,9 @@ function loadSettings() {
       } catch (e2) {}
       try {
         synchPrefs.lastdownload = adblockBranch.getIntPref(prefix + "lastdownload");
+      } catch (e2) {}
+      try {
+        synchPrefs.lastsuccess = adblockBranch.getIntPref(prefix + "lastsuccess");
       } catch (e2) {}
       try {
         synchPrefs.downloadstatus = adblockBranch.getCharPref(prefix + "downloadstatus");
@@ -934,10 +946,11 @@ function saveSettings() {
         adblockBranch.setBoolPref(prefix + "disabled", synchPrefs.disabled);
         adblockBranch.setBoolPref(prefix + "external", synchPrefs.external);
         adblockBranch.setIntPref(prefix + "lastdownload", synchPrefs.lastdownload);
+        adblockBranch.setIntPref(prefix + "lastsuccess", synchPrefs.lastsuccess);
         adblockBranch.setCharPref(prefix + "downloadstatus", synchPrefs.downloadstatus);
         adblockBranch.setCharPref(prefix + "lastmodified", synchPrefs.lastmodified);
         adblockBranch.setCharPref(prefix + "patterns", synchPrefs.patterns.join(" "));
-      } catch (e2) {dump(e2 + "\n")}
+      } catch (e2) {}
     }
 
     // Make sure to save the prefs on disk
@@ -1191,23 +1204,10 @@ function translateTypes(hash) {
 }
 
 // Sets a timeout, compatible with both nsITimer and nsIScriptableTimer
-function createTimer(callback, delay, multiple) {
-  var type = (typeof multiple == "undefined" || !multiple ? "TYPE_ONE_SHOT" : "TYPE_REPEATING_SLACK");
-
+function createTimer(callback, delay) {
   var timer = Components.classes["@mozilla.org/timer;1"];
-  var handler = {
-    observe: callback
-  };
-
-  if ('nsITimer' in Components.interfaces) {
-    timer = timer.createInstance(Components.interfaces.nsITimer);
-    timer.init(handler, 300, timer[type]);
-  }
-  else
-  {
-    timer = timer.createInstance(Components.interfaces.nsIScriptableTimer);
-    timer.init(handler, 300, timer.PRIORITY_LOWEST, timer[type]);
-  }
+  timer = timer.createInstance(Components.interfaces.nsITimer);
+  timer.init({observe: callback}, delay, timer.TYPE_ONE_SHOT);
   return timer;
 }
 
