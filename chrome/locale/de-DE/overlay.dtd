@@ -1,0 +1,45 @@
+<!-- ***** BEGIN LICENSE BLOCK *****
+   - Version: MPL 1.1
+   -
+   - The contents of this file are subject to the Mozilla Public License Version
+   - 1.1 (the "License"); you may not use this file except in compliance with
+   - the License. You may obtain a copy of the License at
+   - http://www.mozilla.org/MPL/
+   -
+   - Software distributed under the License is distributed on an "AS IS" basis,
+   - WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+   - for the specific language governing rights and limitations under the
+   - License.
+   -
+   - The Original Code is Adblock Plus.
+   -
+   - The Initial Developer of the Original Code is
+   - Wladimir Palant.
+   - Portions created by the Initial Developer are Copyright (C) 2006
+   - the Initial Developer. All Rights Reserved.
+   -
+   - Contributor(s):
+   -
+   - ***** END LICENSE BLOCK ***** -->
+
+<!ENTITY notloaded.label        "Fehler">
+<!ENTITY notloaded.tooltip      "Adblock Plus konnte nicht korrekt geladen werden, vielleicht ist die Installation fehlerhaft">
+
+<!ENTITY menuitem.label         "Adblock Plus">
+<!ENTITY menuitem.accesskey     "A">
+
+<!ENTITY context.image.label    "Adblock Grafik">
+<!ENTITY context.object.label   "Adblock Objekt">
+<!ENTITY context.link.label     "Adblock Link">
+<!ENTITY context.frame.label    "Adblock Frame">
+
+<!ENTITY sidebar.title          "Adblock Plus">
+
+<!ENTITY settings.label         "Einstellungen">
+<!ENTITY settings.accesskey     "Т">
+<!ENTITY opensidebar.label      "Sidebar öffnen">
+<!ENTITY opensidebar.accesskey  "S">
+<!ENTITY closesidebar.label     "Sidebar schließen">
+<!ENTITY closesidebar.accesskey "S">
+<!ENTITY whitelist.site.label   "Deaktivieren auf --">
+<!ENTITY whitelist.page.label   "Deaktivieren auf dieser Seite und dessen Unterseiten">
