@@ -66,6 +66,10 @@ if (confirm(WARNING)) {
     if (err != SUCCESS)
       throw "Chrome registration for en-US locale failed (error code " + err + ").";
 
+    err = registerChrome(LOCALE | DELAYED_CHROME, jar, "locale/de-DE/");
+    if (err != SUCCESS)
+      throw "Chrome registration for de-DE locale failed (error code " + err + ").";
+
     var err = performInstall();
     if (err != SUCCESS && err != 999)
       throw "Committing installation failed (error code " + err + ").";

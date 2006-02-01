@@ -1,0 +1,57 @@
+<!-- ***** BEGIN LICENSE BLOCK *****
+   - Version: MPL 1.1
+   -
+   - The contents of this file are subject to the Mozilla Public License Version
+   - 1.1 (the "License"); you may not use this file except in compliance with
+   - the License. You may obtain a copy of the License at
+   - http://www.mozilla.org/MPL/
+   -
+   - Software distributed under the License is distributed on an "AS IS" basis,
+   - WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+   - for the specific language governing rights and limitations under the
+   - License.
+   -
+   - The Original Code is Adblock Plus.
+   -
+   - The Initial Developer of the Original Code is
+   - Wladimir Palant.
+   - Portions created by the Initial Developer are Copyright (C) 2006
+   - the Initial Developer. All Rights Reserved.
+   -
+   - Contributor(s):
+   -
+   - ***** END LICENSE BLOCK ***** -->
+
+<!ENTITY dialog.title               "Filter-Abonnement bearbeiten">
+<!ENTITY dialog.newtitle            "Filter-Abonnement hinzufügen">
+
+<!ENTITY new.description            "
+  Geben Sie bitte die Web-Adresse oder den Dateinamen der Liste mit Filtern für
+  Adblock Plus.
+">
+
+<!ENTITY edit.description           "
+  Die Filter-Liste für dieses Abonnement wird von der angegebenen Adresse
+  'runtergeladen (kann nicht mehr geändert werden).
+">
+
+<!ENTITY external.description       "
+  Das ist ein externes Filter-Abonnement, es wird von der
+  Erwerterung verwaltet, die es erstellt hat.
+">
+
+<!ENTITY autodownload.description   "
+  Falls sie 'Automatisch aktualisieren' auswählen, wird diese
+  Adresse täglich auf Änderungen überprüft. Ohne diese Option
+  können sie die Aktualisierung immer noch manuell aus dem
+  Kontext-Menu des Abonnements starten.
+">
+
+<!ENTITY location.label             "Adresse der Filter-Liste">
+<!ENTITY location.accesskey         "D">
+<!ENTITY title.label                "Bezeichnung des Abonnements">
+<!ENTITY title.accesskey            "Z">
+<!ENTITY autodownload.label         "Automatisch aktualisieren">
+<!ENTITY autodownload.accesskey     "T">
+<!ENTITY enabled.label              "Filter aktivieren">
+<!ENTITY enabled.accesskey          "K">
