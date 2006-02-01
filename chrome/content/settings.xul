@@ -50,7 +50,6 @@
   <key keycode="VK_ESCAPE" command="cancel-command"/>
   <key id="import-key" key="i" modifiers="accel" command="import-command"/>
   <key id="export-key" key="e" modifiers="accel" command="export-command"/>
-  <key id="selectall-key" key="a" modifiers="accel" oncommand="document.getElementById('list').selectAll()"/>
   <key id="edit-key" keycode="VK_RETURN"/>
   <key id="remove-key" keycode="VK_DELETE"/>
   <key id="moveup-key" keycode="VK_UP" modifiers="accel"/>
