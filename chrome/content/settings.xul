@@ -32,13 +32,13 @@
 <window
   xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
   title="&dialog.title;"
-  id="adblockPreferencesWindow"
+  id="abpPreferencesWindow"
   onload="setTimeout(init, 0)"
   onunload="cleanUp()"
   width="600px"
   height="450px"
   persist="screenX screenY width height"
-  windowtype="adblockplus:settings">
+  windowtype="abp:settings">
 
 <script type="application/x-javascript" src="settings.js"/>
 <script type="application/x-javascript" src="security.js"/>
