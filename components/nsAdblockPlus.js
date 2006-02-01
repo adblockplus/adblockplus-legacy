@@ -163,6 +163,7 @@ const oldStyleAPI = (typeof ok == "boolean");
 
 const boolPrefs = ["enabled", "linkcheck", "fastcollapse", "frameobjects", "listsort", "warnregexp", "showinstatusbar", "blocklocalpages", "checkedtoolbar", "checkedadblockprefs", "checkedadblockinstalled", "detachsidebar"];
 const listPrefs = ["patterns", "grouporder"];
+const groupPrefs = ["title", "autodownload", "disabled", "external", "lastdownload", "downloadstatus", "lastmodified", "patterns"];
 const prefs = {}
 const prefListeners = [];
 var disablePrefObserver = false;
@@ -339,7 +340,7 @@ const abp = {
 
   // Opens preferences dialog for the supplied window and filter suggestion
   openSettingsDialog: function(insecWnd, location, filter) {
-    var dlg = windowMediator.getMostRecentWindow("adblockplus:settings");
+    var dlg = windowMediator.getMostRecentWindow("abp:settings");
     if (dlg)
       dlg.focus();
     else {
@@ -382,12 +383,154 @@ const abp = {
     return flasher;
   },
 
+  getSynchronizer: function() {
+    return synchronizer;
+  },
+
   createHashTable: function() {
     return new HashTable();
+  },
+
+  removeSubscription: function(name) {
+    disablePrefObserver = true;
+
+    for (var i = 0; i < prefs.grouporder.length; i++)
+      if (prefs.grouporder[i] == name)
+        prefs.grouporder.splice(i--, 1);
+
+    var prefix = "synch." + name + ".";
+    for (i = 0; i < groupPrefs.length; i++) {
+      try {
+        adblockBranch.clearUserPref(prefix + groupPrefs[i]);
+      } catch (e) {}
+    }
+    prefs.synch.remove(name);
+
+    disablePrefObserver = false;
+
+    saveSettings();
   }
 };
 
 abp.wrappedJSObject = abp;
+
+/*
+ * Synchronizer - filter subscriptions
+ */
+
+var synchronizer = {
+  executing: new HashTable(),
+  listeners: [],
+
+  init: function() {
+    var callback = function() {
+      for (var i = 0; i < prefs.grouporder.length; i++) {
+        if (prefs.grouporder[i].indexOf("~") == 0)
+          continue;
+    
+        var synchPrefs = prefs.synch.get(prefs.grouporder[i]);
+        if (typeof synchPrefs == "undefined" || !synchPrefs.autodownload || synchPrefs.external)
+          continue;
+    
+        // Get the number of hours since last download
+        var interval = (new Date().getTime() - synchPrefs.lastdownload) / 3600;
+        if (interval > prefs.synchronizationinterval)
+          synchronizer.execute(synchPrefs);
+      }
+    }
+
+    createTimer(function() {
+      callback();
+      createTimer(callback, 3600000, true);
+    }, 300000);
+  },
+
+  // Adds a new handler to be notified whenever synchronization status changes
+  addListener: function(handler) {
+    this.listeners.push(handler);
+  },
+  
+  // Removes a handler
+  removeListener: function(handler) {
+    for (var i = 0; i < this.listeners.length; i++)
+      if (this.listeners[i] == handler)
+        this.listeners.splice(i--, 1);
+  },
+
+  // Calls all listeners
+  notifyListeners: function(synchPrefs, status) {
+    for (var i = 0; i < this.listeners.length; i++)
+      this.listeners[i](synchPrefs, status);
+  },
+
+  isExecuting: function(url) {
+    return this.executing.has(url);
+  },
+
+  readPatterns: function(synchPrefs, text) {
+    var lines = text.split(/[\r\n]+/);
+    for (var i = 0; i < lines.length; i++) {
+      lines[i] = lines[i].replace(/\s/g, "");
+      if (!lines[i])
+        lines.splice(i--, 1);
+    }
+    if (!/\[Adblock\]/i.test(lines[0])) {
+      this.setError(synchPrefs, "synchronize_invalid_data");
+      return;
+    }
+
+    lines.shift(0);
+    synchPrefs.downloadstatus = "synchronize_ok";
+    synchPrefs.patterns = lines;
+    saveSettings();
+    this.notifyListeners(synchPrefs, "ok");
+  },
+
+  setError: function(synchPrefs, error) {
+    synchPrefs.downloadstatus = error;
+    saveSettings();
+    this.notifyListeners(synchPrefs, "error");
+  },
+
+  execute: function(synchPrefs) {
+    synchPrefs.lastdownload = new Date().getTime() / 1000;
+
+    if (this.executing.has(synchPrefs.url))
+      return;
+
+    try {
+      var request = Components.classes["@mozilla.org/xmlextras/xmlhttprequest;1"]
+                              .createInstance(Components.interfaces.nsIJSXMLHttpRequest);
+      request.open("GET", synchPrefs.url);
+    }
+    catch (e) {
+      this.setError(synchPrefs, "synchronize_invalid_url");
+      return;
+    }
+
+    request.onerror = function() {
+      synchronizer.executing.remove(synchPrefs.url);
+      synchronizer.setError(synchPrefs, "synchronize_connection_error");
+    };
+
+    request.onload = function() {
+      synchronizer.executing.remove(synchPrefs.url);
+      if (prefs.synch.has(synchPrefs.url))
+        synchronizer.readPatterns(synchPrefs, request.responseText);
+    };
+
+    try {
+      request.send(null);
+    }
+    catch (e) {
+      this.setError(synchPrefs, "synchronize_connection_error");
+      return;
+    }
+
+    this.executing.put(synchPrefs.url, request);
+    this.notifyListeners(synchPrefs, "executing");
+  }
+};
 
 /*
  * Fake nsIController object - data container
@@ -499,9 +642,7 @@ FakeController.prototype = {
   removeLocationListener: function(handler) {
     for (var i = 0; i < this.locationListeners.length; i++)
       if (this.locationListeners[i] == handler)
-        return this.locationListeners.splice(i, 1);
-
-    return null;
+        this.locationListeners.splice(i--, 1);
   },
 
   // Calls all location listeners
@@ -529,10 +670,8 @@ FakeController.prototype = {
       else if (secureGet(insecNode, "nodeType") == Node.DOCUMENT_NODE)
         valid = secureGet(insecNode, "defaultView");
 
-      if (!valid) {
-        data.inseclNodes.splice(i, 1);
-        i--;
-      }
+      if (!valid)
+        data.inseclNodes.splice(i--, 1);
     }
 
     if (data.inseclNodes.length > 0)
@@ -644,7 +783,7 @@ function init() {
   loadSettings();
 
   // Register synchronization callback
-  createTimer(startSynchronize, 300000);
+  synchronizer.init();
 
   // Install sidebar in Mozilla Suite if necessary
   installSidebar();
@@ -666,8 +805,6 @@ function loadSettings() {
   // Convert patterns into regexps
   prefs.regexps = [];
   prefs.whitelist = [];
-  var url = Components.classes["@mozilla.org/network/standard-url;1"]
-                      .createInstance(Components.interfaces.nsIURI);
 
   for (i = 0; i < prefs.patterns.length; i++) {
     if (prefs.patterns[i] != "")
@@ -714,12 +851,12 @@ function loadSettings() {
         synchPrefs.lastmodified = adblockBranch.getCharPref(prefix + "lastmodified");
       } catch (e2) {}
 
-      if (synchPrefs.external)
-        synchPrefs.url = null;
-      else {
-        synchPrefs.url = Components.classes["@mozilla.org/network/standard-url;1"]
-                                  .createInstance(Components.interfaces.nsIURL);
-        synchPrefs.url.spec = prefs.grouporder[i];
+      synchPrefs.url = prefs.grouporder[i];
+      if (!synchPrefs.external) {
+        // Test URL for validity, this will throw an exception for invalid URLs
+        var uri = Components.classes["@mozilla.org/network/simple-uri;1"]
+                            .createInstance(Components.interfaces.nsIURI);
+        uri.spec = synchPrefs.url;
       }
 
       synchPrefs.patterns = [];
@@ -767,8 +904,7 @@ function importAdblockSettings() {
 }
 
 // Saves the preferences
-function saveSettings()
-{
+function saveSettings() {
   disablePrefObserver = true;
 
   try {
@@ -782,18 +918,34 @@ function saveSettings()
 
     adblockBranch.setIntPref("synchronizationinterval", prefs.synchronizationinterval);
 
+    for (i = 0; i < prefs.grouporder.length; i++) {
+      if (!prefs.synch.has(prefs.grouporder[i]))
+        continue;
+
+      try {
+        var synchPrefs = prefs.synch.get(prefs.grouporder[i]);
+        var prefix = "synch." + prefs.grouporder[i] + ".";
+
+        var title = Components.classes["@mozilla.org/supports-string;1"]
+                              .createInstance(Components.interfaces.nsISupportsString);
+        title.data = synchPrefs.title;
+        adblockBranch.setComplexValue(prefix + "title", Components.interfaces.nsISupportsString, title);
+        adblockBranch.setBoolPref(prefix + "autodownload", synchPrefs.autodownload);
+        adblockBranch.setBoolPref(prefix + "disabled", synchPrefs.disabled);
+        adblockBranch.setBoolPref(prefix + "external", synchPrefs.external);
+        adblockBranch.setIntPref(prefix + "lastdownload", synchPrefs.lastdownload);
+        adblockBranch.setCharPref(prefix + "downloadstatus", synchPrefs.downloadstatus);
+        adblockBranch.setCharPref(prefix + "lastmodified", synchPrefs.lastmodified);
+        adblockBranch.setCharPref(prefix + "patterns", synchPrefs.patterns.join(" "));
+      } catch (e2) {dump(e2 + "\n")}
+    }
+
     // Make sure to save the prefs on disk
     prefService.savePrefFile(null);
   } catch (e) {}
 
   disablePrefObserver = false;
   loadSettings();
-}
-
-// Delayed initialization of filter synchronization
-function startSynchronize() {
-  synchronizeCallback();
-  createTimer(synchronizeCallback, 3600000, true);
 }
 
 function installSidebar() {
@@ -1057,23 +1209,6 @@ function createTimer(callback, delay, multiple) {
     timer.init(handler, 300, timer.PRIORITY_LOWEST, timer[type]);
   }
   return timer;
-}
-
-// To be called in regular intervals - filter synchronization
-function synchronizeCallback() {
-  for (var i = 0; i < prefs.grouporder.length; i++) {
-    if (prefs.grouporder[i].indexOf("~") == 0)
-      continue;
-
-    var synchPrefs = prefs.synch.get(prefs.grouporder[i]);
-    if (typeof synchPrefs == "undefined" || !synchPrefs.autodownload || synchPrefs.disabled || synchPrefs.external)
-      continue;
-
-    // Get the number of hours since last download
-    var interval = (new Date().getTime() - synchPrefs.lastdownload) / 3600000;
-    if (interval > prefs.synchronizationinterval)
-      abp.doSynchronize(synchPrefs);
-  }
 }
 
 // Makes a blinking border for a list of matching nodes

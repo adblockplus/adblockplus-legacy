@@ -28,6 +28,7 @@ while (abp && !("getPrefs" in abp))
 var prefs = abp.getPrefs();
 var shouldSort = prefs.listsort;
 var flasher = abp.getFlasher();
+var synchronizer = abp.getSynchronizer();
 var suggestionItems = [];
 var insecWnd = null;   // Window we should apply filters at
 var initialized = false;
@@ -41,8 +42,9 @@ function init() {
   var wndData = null;
   var data = [];
 
-  // Install a pref listener
+  // Install listenerñ
   abp.addPrefListener(onPrefChange);
+  synchronizer.addListener(synchCallback);
 
   if ('arguments' in window && window.arguments.length >= 1)
     insecWnd = window.arguments[0];
@@ -105,6 +107,7 @@ function init() {
 // To be called when the window is closed
 function cleanUp() {
   abp.removePrefListener(onPrefChange);
+  synchronizer.removeListener(synchCallback);
   flasher.stop();
 }
 
@@ -173,23 +176,7 @@ function fillList() {
     if (typeof synchPrefs == "undefined")
       continue;
 
-    var descr = [abp.getString("subscription_description") + ": " + synchPrefs.title];
-    if (!synchPrefs.external)
-      descr.push(abp.getString("subscription_source") + ": " + synchPrefs.url.spec);
-
-    var status = (synchPrefs.disabled ? abp.getString("subscription_status_disabled") : abp.getString("subscription_status_enabled"));
-    if (!synchPrefs.external) {
-      status += "; " + (synchPrefs.autodownload ? abp.getString("subscription_status_autodownload") : abp.getString("subscription_status_manualdownload"));
-      status += "; " + abp.getString("subscription_status_lastdownload") + ": ";
-      status += (synchPrefs.lastdownload > 0 ? new Date(synchPrefs.lastdownload).toLocaleString() : abp.getString("subscription_status_lastdownload_unknown"));
-      if (synchPrefs.lastdownload > 0 && synchPrefs.downloadstatus)
-        status + " (" + synchPrefs.downloadstatus + ")";
-    }
-    else
-      status += "; " + abp.getString("subscription_status_externaldownload");
-    descr.push(abp.getString("subscription_status") + ": " + status);
-
-    groupManager.addGroup(prefs.grouporder[i], descr, synchPrefs.patterns.slice(), "subscription");
+    addSubscriptionGroup(prefs.grouporder[i], synchPrefs, true);
   }
 
   // Select a row
@@ -197,6 +184,56 @@ function fillList() {
     groupManager.selectPattern(window.arguments[2].origPattern);
 
   groupManager.ensureSelection();
+}
+
+// Returns an array containing description for a subscription group
+function getSubscriptionDescription(synchPrefs) {
+  var descr = [abp.getString("subscription_description") + ": " + synchPrefs.title];
+  if (!synchPrefs.external)
+    descr.push(abp.getString("subscription_source") + ": " + synchPrefs.url);
+
+  var status = (synchPrefs.disabled ? abp.getString("subscription_status_disabled") : abp.getString("subscription_status_enabled"));
+  if (!synchPrefs.external) {
+    status += "; " + (synchPrefs.autodownload ? abp.getString("subscription_status_autodownload") : abp.getString("subscription_status_manualdownload"));
+    status += "; " + abp.getString("subscription_status_lastdownload") + ": ";
+    if (synchronizer.isExecuting(synchPrefs.url))
+      status += abp.getString("subscription_status_lastdownload_inprogress");
+    else {
+      status += (synchPrefs.lastdownload > 0 ? new Date(synchPrefs.lastdownload * 1000).toLocaleString() : abp.getString("subscription_status_lastdownload_unknown"));
+      if (synchPrefs.lastdownload > 0 && synchPrefs.downloadstatus) {
+        try {
+          status += " (" + abp.getString(synchPrefs.downloadstatus) + ")";
+        } catch (e) {}
+      }
+    }
+  }
+  else
+    status += "; " + abp.getString("subscription_status_externaldownload");
+  descr.push(abp.getString("subscription_status") + ": " + status);
+  return descr;
+}
+
+// Adds a new group for the subscription to the list
+function addSubscriptionGroup(groupName, synchPrefs, noChange) {
+  var descr = getSubscriptionDescription(synchPrefs);
+  groupManager.addGroup(groupName, descr, synchPrefs.patterns.slice(), "subscription");
+
+  if (typeof noChange == "undefined" || !noChange)
+    onChange();
+}
+
+// Updates description for a subscription group in the list
+function updateSubscriptionDescription(group, synchPrefs, noChange) {
+  if (typeof group == "string")
+    group = groupManager.getGroupByName(group);
+  if (!group)
+    return;
+
+  var descr = getSubscriptionDescription(synchPrefs);
+  groupManager.setGroupDescription(group, descr);
+
+  if (typeof noChange == "undefined" || !noChange)
+    onChange();
 }
 
 // Adds the filter entered into the input field to the list
@@ -210,7 +247,7 @@ function addFilter() {
     return false;
 
   // Issue a warning if we got a regular expression
-  if (!/^\/.*\/$/.test(filter) || regexpWarning()) {
+  if (!/^(@@)?\/.*\/$/.test(filter) || regexpWarning()) {
     filterSuggestions.label = filterSuggestions.value = "";
     addFilterInternal(filter);
   }
@@ -263,6 +300,7 @@ function clearList() {
   if (confirm(abp.getString("clearall_warning"))) {
     groupManager.removeGroup("~wl~");
     groupManager.removeGroup("~fl~");
+    onChange();
   }
 }
 
@@ -275,6 +313,7 @@ function importList() {
                      .createInstance(Components.interfaces.nsIFilePicker);
   picker.init(window, abp.getString("import_filters_title"), picker.modeOpen);
   picker.appendFilters(picker.filterText);
+  picker.appendFilters(picker.filterAll);
   if (picker.show() != picker.returnCancel) {
     var stream = Components.classes["@mozilla.org/network/file-input-stream;1"]
                            .createInstance(Components.interfaces.nsIFileInputStream);
@@ -289,7 +328,7 @@ function importList() {
       lines.push(line.value.replace(/\s/g, ""));
     stream.close();
 
-    if (lines[0].match(/\[Adblock\]/i)) {
+    if (/\[Adblock\]/i.test(lines[0])) {
       var promptService = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
                                     .getService(Components.interfaces.nsIPromptService);
       var flags = promptService.BUTTON_TITLE_IS_STRING * promptService.BUTTON_POS_0 +
@@ -319,6 +358,7 @@ function importList() {
       }
 
       groupManager.ensureSelection();
+      onChange();
     }
     else 
       alert(abp.getString("invalid_filters_file"));
@@ -334,6 +374,7 @@ function exportList() {
   picker.init(window, abp.getString("export_filters_title"), picker.modeSave);
   picker.defaultExtension=".txt";
   picker.appendFilters(picker.filterText);
+  picker.appendFilters(picker.filterAll);
 
   if (picker.show() != picker.returnCancel) {
     try {
@@ -384,6 +425,31 @@ function onListKeyPress(e) {
   }
 }
 
+// To be called whenever synchronization status changes
+function synchCallback(synchPrefs, status) {
+  var group = groupManager.getGroupByName(synchPrefs.url);
+  if (!group)
+    return;
+
+  if (status == "ok") {
+    var select = (groupManager.getSelectedGroup() == group);
+
+    groupManager.removeGroup(group.name);
+    addSubscriptionGroup(group.name, synchPrefs, true);
+
+    if (select)
+      groupManager.selectGroup(group.name);
+  }
+  else
+    updateSubscriptionDescription(group, synchPrefs, true);
+}
+
+// Edits a subscription or adds a new one
+function editSubscription(group) {
+  var name = (group ? group.name : null);
+  openDialog("chrome://adblockplus/content/subscription.xul", "_blank", "chrome,centerscreen,modal", abp, prefs, name);
+}
+
 // Removes the selected entries from the list and sets selection to the next item
 function removeFilter() {
   // Create a list of removable items
@@ -408,6 +474,66 @@ function removeFilter() {
     list.ensureElementIsVisible(newSelection);
     list.selectedItem = newSelection;
   }
+}
+
+// Starts synchronization for a subscription
+function synchSubscription(group) {
+  if (!group || group.name.indexOf("~") == 0 || !prefs.synch.has(group.name))
+    return;
+
+  var synchPrefs = prefs.synch.get(group.name);
+  synchronizer.execute(synchPrefs);
+}
+
+// Removes a subscription
+function removeSubscription(group) {
+  if (!group || !confirm(abp.getString("remove_subscription_warning")))
+    return;
+
+  abp.removeSubscription(group.name);
+
+  groupManager.removeGroup(group);
+  groupManager.ensureSelection();
+
+  onChange();
+}
+
+// Moves a group up and down in the list
+function moveGroup(up) {
+  var list = document.getElementById("list");
+  var item = list.currentItem;
+  if (!item || !("abpGroup" in item))
+    return;
+
+  var group = item.abpGroup;
+  var groupIndex = -1;
+  var prevIndex = -1;
+  var nextIndex = -1;
+  for (var i = 0; i < prefs.grouporder.length; i++) {
+    if (!groupManager.hasGroupName(prefs.grouporder[i]))
+      continue;
+
+    if (prefs.grouporder[i] == group.name)
+      groupIndex = i;
+    else if (groupIndex < 0)
+      prevIndex = i;
+    else if (nextIndex < 0)
+      nextIndex = i;
+  }
+
+  var switchWith = (up ? prevIndex : nextIndex);
+  if (groupIndex < 0 || switchWith < 0)
+    return;
+
+  var tmp = prefs.grouporder[groupIndex];
+  prefs.grouporder[groupIndex] = prefs.grouporder[switchWith];
+  prefs.grouporder[switchWith] = tmp;
+  abp.savePrefs();
+
+  groupManager.readdGroup(group);
+  groupManager.selectGroup(group.name);
+
+  onChange();
 }
 
 // Moves a filter up and down in the list
@@ -488,7 +614,7 @@ function fillContext() {
         lastGroup = curGroup;
     }
 
-    document.getElementById("context-synchsubscription").setAttribute("disabled", !isSubscription);
+    document.getElementById("context-synchsubscription").setAttribute("disabled", !isSubscription || prefs.synch.get(group.name).external);
     document.getElementById("context-editsubscription").setAttribute("disabled", !isSubscription);
     document.getElementById("context-removesubscription").setAttribute("disabled", !isSubscription);
     document.getElementById("context-movegroupup").setAttribute("disabled", group == firstGroup);
@@ -738,8 +864,10 @@ var groupManager = {
     }
   },
 
-  selectGroup: function(groupName) {
-    var group = this.getGroupByName(groupName);
+  selectGroup: function(group) {
+    if (typeof group == "string")
+      group = this.getGroupByName(group);
+
     if (group && group.firstItem) {
       this.list.ensureElementIsVisible(group.firstItem);
       this.list.selectedItem = group.firstItem;
@@ -836,6 +964,53 @@ var groupManager = {
     onChange();
   },
 
+  readdGroup: function(group) {
+    var select = (this.getSelectedGroup() == group);
+
+    group.filters.sort(compareUnsorted);
+    var filters = [];
+    for (var i = 0; i < group.filters.length; i++)
+      filters.push(group.filters[i].value);
+
+    this.removeGroup(group);
+    group = this.addGroup(group.name, group.descr, filters, group.filterClass);
+
+    if (select)
+      this.selectGroup(group);
+  },
+
+  setGroupDescription: function(group, descr) {
+    var select = (this.getSelectedGroup() == group);
+
+    // Add new group description
+    var firstItem = null;
+    var beforeLine = this.list.getIndexOfItem(group.firstItem);
+    for (var i = 0; i < descr.length; i++) {
+      var value = descr[i];
+      var item = this.list.insertItemAt(beforeLine++, value, value);
+      editor.initItem(item);
+      item.abpGroup = group;
+      item.className = (i == 0 ? "groupTitle first" : "groupTitle");
+      if (!firstItem)
+        firstItem = item;
+    }
+
+    // Remove old group description
+    var item = group.firstItem;
+    for (var i = 0; i < group.descr.length; i++) {
+      var remove = item;
+      item = this.list.getNextItem(item, 1);
+      this.list.removeChild(remove);
+    }
+
+    // Update group info
+    group.firstItem = firstItem;
+    group.descr = descr;
+
+    if (select)
+      this.selectGroup(group);
+  },
+
   resort: function() {
     // Store selected filter
     var currentPattern = null;
@@ -846,19 +1021,9 @@ var groupManager = {
       currentGroup = this.list.currentItem.abpGroup.name;
 
     // Readd all groups
-    for (var i = 0; i < prefs.grouporder.length; i++) {
-      if (this.groups.has(prefs.grouporder[i])) {
-        var group = this.groups.get(prefs.grouporder[i]);
-
-        group.filters.sort(compareUnsorted);
-        var filters = [];
-        for (var j = 0; j < group.filters.length; j++)
-          filters.push(group.filters[j].value);
-
-        this.removeGroup(group);
-        this.addGroup(group.name, group.descr, filters, group.filterClass);
-      }
-    }
+    for (var i = 0; i < prefs.grouporder.length; i++)
+      if (this.groups.has(prefs.grouporder[i]))
+        this.readdGroup(this.groups.get(prefs.grouporder[i]));
 
     // Restore selected filter
     if (currentPattern)
