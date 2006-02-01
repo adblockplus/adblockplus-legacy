@@ -1,0 +1,58 @@
+<!-- ***** BEGIN LICENSE BLOCK *****
+   - Version: MPL 1.1
+   -
+   - The contents of this file are subject to the Mozilla Public License Version
+   - 1.1 (the "License"); you may not use this file except in compliance with
+   - the License. You may obtain a copy of the License at
+   - http://www.mozilla.org/MPL/
+   -
+   - Software distributed under the License is distributed on an "AS IS" basis,
+   - WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+   - for the specific language governing rights and limitations under the
+   - License.
+   -
+   - The Original Code is Adblock Plus.
+   -
+   - The Initial Developer of the Original Code is
+   - Wladimir Palant.
+   - Portions created by the Initial Developer are Copyright (C) 2006
+   - the Initial Developer. All Rights Reserved.
+   -
+   - Contributor(s):
+   -
+   - ***** END LICENSE BLOCK ***** -->
+
+<!ENTITY dialog.title               "Edit filter subscription">
+<!ENTITY dialog.newtitle            "Add filter subscription">
+
+<!ENTITY new.description            "
+  Please enter the web address or file containing a list of
+  Adblock Plus filters.
+">
+
+<!ENTITY edit.description           "
+  The filter list for this subscription will be downloaded
+  from the location given (can't be changed any more).
+">
+
+<!ENTITY external.description       "
+  This is an external filter subscription, its filter list
+  will be kept up-to-date by the extension that created this
+  subscription.
+">
+
+<!ENTITY autodownload.description   "
+  If you choose 'Update automatically' this location will be
+  checked for updates daily. With this option disabled you still
+  can trigger an update manually from the subscription's context
+  menu.
+">
+
+<!ENTITY location.label             "Filter list location">
+<!ENTITY location.accesskey         "L">
+<!ENTITY title.label                "Subscription title">
+<!ENTITY title.accesskey            "T">
+<!ENTITY autodownload.label         "Update automatically">
+<!ENTITY autodownload.accesskey     "P">
+<!ENTITY enabled.label              "Enable filters">
+<!ENTITY enabled.accesskey          "N">
