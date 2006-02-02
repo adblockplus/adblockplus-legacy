@@ -70,6 +70,8 @@
 <!ENTITY about.label                "About Adblock Plus">
 <!ENTITY about.accesskey            "B">
 
+<!ENTITY disabled.warning           "Adblock Plus is disabled. You can edit any filters in the list, but those won't be applied until you reenable.">
+
 <!ENTITY description                "
     Add the addresses you wish to block, for suggestions check the dropdown list.
     You can use * as a wildcard to create more general filters. Advanced users can

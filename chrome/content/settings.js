@@ -42,7 +42,9 @@ function init() {
   var wndData = null;
   var data = [];
 
-  // Install listenerñ
+  document.getElementById("disabledWarning").setAttribute("hide", prefs.enabled);
+
+  // Install listeners
   prefs.addListener(onPrefChange);
   synchronizer.addListener(synchCallback);
 
@@ -656,6 +658,8 @@ function togglePref(pref) {
 function onPrefChange() {
   if (prefs.listsort != shouldSort)
     groupManager.resort();
+
+  document.getElementById("disabledWarning").setAttribute("hide", prefs.enabled);
 
   shouldSort = prefs.listsort;
 }

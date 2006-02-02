@@ -37,6 +37,13 @@ const prefList = ["Bool enabled true", "Bool linkcheck false", "Bool fastcollaps
 const synchList = ["String title", "Bool autodownload true", "Bool disabled false", "Bool external false",
                    "Int lastdownload 0", "Int lastsuccess 0", "Char downloadstatus", "Char lastmodified", "List patterns"];
 
+var styleService = null;
+if ("nsIStyleSheetService" in Components.interfaces) {
+  styleService = Components.classes["@mozilla.org/content/style-sheet-service;1"]
+                           .getService(Components.interfaces.nsIStyleSheetService);
+}
+var divblockURL = null;
+
 var prefs = {
   disableObserver: false,
   branch: prefService.getBranch("extensions.adblockplus."),
@@ -113,13 +120,21 @@ var prefs = {
 
   // Reloads the preferences
   reload: function() {
+    if (styleService && divblockURL) {
+      try {
+        styleService.unregisterSheet(divblockURL, styleService.USER_SHEET);
+      } catch (e) {}
+      divblockURL = null;
+    }
+
     for (var i = 0; i < prefList.length; i++)
       this.loadPref(this, prefList[i]);
 
     // Convert patterns into regexps
     this.regexps = [];
     this.whitelist = [];
-  
+    this.divblock = "";
+
     for (i = 0; i < this.patterns.length; i++)
       if (this.patterns[i] != "")
         this.addPattern(this.patterns[i]);
@@ -157,6 +172,16 @@ var prefs = {
       this.synch.put(synchPrefs.url, synchPrefs);
     }
   
+    // Insert divblock stylesheet
+    if (styleService && this.divblock) {
+      try {
+        divblockURL = Components.classes["@mozilla.org/network/simple-uri;1"]
+                                .createInstance(Components.interfaces.nsIURI);
+        divblockURL.spec = "data:text/css,/*** Adblock Plus ***/" + this.divblock;
+        styleService.loadAndRegisterSheet(divblockURL, styleService.USER_SHEET);
+      } catch(e) {}
+    }
+
     // Fire pref listeners
     for (i = 0; i < this.listeners.length; i++)
       this.listeners[i](this);
@@ -223,6 +248,23 @@ var prefs = {
 
   // Converts a pattern into RegExp and adds it to the list
   addPattern: function(pattern) {
+    if (/^#([\w\-]+|\*)(?:\(([\w\-]+)\))?$/.test(pattern)) {
+      // A divblock filter
+      var tagname = RegExp.$1;
+      var id = RegExp.$2;
+      if (tagname == "*")
+        tagname = "";
+
+      if (id) {
+        this.divblock += tagname + "." + id + "{display:none}";
+        this.divblock += tagname + "#" + id + "{display:none}";
+      }
+      else if (tagname)
+        this.divblock += tagname + "{display:none}";
+
+      return;
+    }
+
     var regexp;
     var origPattern = pattern;
   
