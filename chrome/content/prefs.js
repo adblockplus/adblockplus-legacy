@@ -260,7 +260,7 @@ var prefs = {
         this.divblock += tagname + "#" + id + "{display:none !important}";
       }
       else if (tagname)
-        this.divblock += tagname + "{display:none}";
+        this.divblock += tagname + "{display:none !important}";
 
       return;
     }
