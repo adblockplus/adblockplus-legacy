@@ -57,6 +57,7 @@
   <vbox id="contributorsBox">
     <description id="contributorsTitle" value="&contributors.label;:"/>
     <description class="contributor" value="Kevin Keller - icons"/>
+    <description class="contributor" value="Leszek (teo) Życzkowski - Polish translation"/>
     <spacer height="10"/>
     <description class="contributor" value="Henrik Aasted Sorensen - original Adblock"/>
     <description class="contributor" value="Michael McDonald - Adblock Plus 0.5"/>

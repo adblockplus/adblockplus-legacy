@@ -1,0 +1,13 @@
+<!ENTITY detached.title "Panel boczny Adblock Plus">
+<!ENTITY detach.label "Odłącz">
+<!ENTITY reattach.label "Przyłącz">
+<!ENTITY list.label "Elementy na aktywnej stronie">
+<!ENTITY type.label "Typ">
+<!ENTITY address.label "Adres">
+<!ENTITY noitems.label "Elementy nieblokowalne">
+<!ENTITY notremote.label "Nie wyodrębniona strona">
+<!ENTITY whitelisted.label "Nie blokowana strona">
+<!ENTITY notloaded.label "Adblock Plus nie został zainstalowany prawidłowo">
+<!ENTITY effective-filter.label "Filtr skuteczny">
+<!ENTITY adblock.label "Adblock">
+<!ENTITY adblock.accesskey "A">
