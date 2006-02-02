@@ -41,7 +41,7 @@
 }
 
 .filtered:not([selected="true"]) {
-  color: GrayText;
+  color: #C00000;
 }
 
 .whitelisted:not([selected="true"]) {
