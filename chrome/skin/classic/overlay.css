@@ -26,15 +26,26 @@
 {
   cursor: pointer;
 }
-
 #abp-status:not([disabled="true"]):hover
 {
   text-decoration: underline;
 }
-
 #abp-status[deactivated]
 {
   color: #999999;
+}
+#abp-status label {
+  display: none;
+}
+
+#abp-status image {
+  list-style-image: url("chrome://adblockplus/skin/abp-enabled-16.png");
+}
+#abp-status[deactivated] image {
+  list-style-image: url("chrome://adblockplus/skin/abp-disabled-16.png");
+}
+#abp-status[disabled="true"] image {
+  list-style-image: url("chrome://adblockplus/skin/abp-defunc-16.png");
 }
 
 #abp-status-settings, #abp-toolbar-opensidebar, #abp-toolbar-closesidebar {
@@ -60,4 +71,3 @@ toolbar[iconsize="small"] #abp-toolbarbutton[deactivated] {
 toolbar[iconsize="small"] #abp-toolbarbutton[disabled="true"] {
   list-style-image: url("chrome://adblockplus/skin/abp-defunc-16.png");
 }
-

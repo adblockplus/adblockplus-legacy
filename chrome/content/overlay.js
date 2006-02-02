@@ -102,8 +102,10 @@ function abpReloadPrefs() {
       element.removeAttribute("disabled");
 
       if (element.tagName == "statusbarpanel") {
-        element.setAttribute("label", label);
         element.hidden = !abpPrefs.showinstatusbar;
+
+        var labelElement = element.getElementsByTagName("label")[0];
+        labelElement.setAttribute("value", label);
       }
     }
 
