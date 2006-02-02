@@ -256,8 +256,8 @@ var prefs = {
         tagname = "";
 
       if (id) {
-        this.divblock += tagname + "." + id + "{display:none}";
-        this.divblock += tagname + "#" + id + "{display:none}";
+        this.divblock += tagname + "." + id + "{display:none !important}";
+        this.divblock += tagname + "#" + id + "{display:none !important}";
       }
       else if (tagname)
         this.divblock += tagname + "{display:none}";
