@@ -161,17 +161,7 @@ const ok = ("ACCEPT" in Components.interfaces.nsIContentPolicy ? Components.inte
 const block = ("REJECT_REQUEST" in Components.interfaces.nsIContentPolicy ? Components.interfaces.nsIContentPolicy.REJECT_REQUEST : false);
 const oldStyleAPI = (typeof ok == "boolean");
 
-const boolPrefs = ["enabled", "linkcheck", "fastcollapse", "frameobjects", "listsort", "warnregexp", "showinstatusbar", "blocklocalpages", "checkedtoolbar", "checkedadblockprefs", "checkedadblockinstalled", "detachsidebar"];
-const listPrefs = ["patterns", "grouporder"];
-const groupPrefs = ["title", "autodownload", "disabled", "external", "lastdownload", "lastsuccess", "downloadstatus", "lastmodified", "patterns"];
-const prefs = {}
-const prefListeners = [];
-var disablePrefObserver = false;
 var strings = null;
-
-const prefService = Components.classes["@mozilla.org/preferences-service;1"]
-                        .getService(Components.interfaces.nsIPrefService);
-const adblockBranch = prefService.getBranch("extensions.adblockplus.");
 
 const windowMediator = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator);
 var lastBrowser = null;
@@ -202,17 +192,10 @@ const abp = {
     return ok;
   },
 
-  // nsIObserver implementation
-  observe: function(subject, topic, prefName) { 
-    if (!disablePrefObserver)
-      loadSettings();
-  },
-
   // nsISupports interface implementation
   QueryInterface: function(iid) {
     if (!iid.equals(Components.interfaces.nsISupports) &&
-        !iid.equals(Components.interfaces.nsIContentPolicy) &&
-        !iid.equals(Components.interfaces.nsIObserver)) {
+        !iid.equals(Components.interfaces.nsIContentPolicy)) {
 
       if (!iid.equals(Components.interfaces.nsIClassInfo) &&
           !iid.equals(Components.interfaces.nsISecurityCheckedComponent))
@@ -282,24 +265,6 @@ const abp = {
     }
 
     return (match && match.isWhite) || (!match && linksOk);
-  },
-
-  getPrefs: function() {
-    return prefs;
-  },
-
-  savePrefs: function() {
-    saveSettings();
-  },
-
-  addPrefListener: function(handler) {
-    prefListeners.push(handler);
-  },
-
-  removePrefListener: function(handler) {
-    for (var i = 0; i < prefListeners.length; i++)
-      if (prefListeners[i] == handler)
-        prefListeners.splice(i--, 1);
   },
 
   // Loads Adblock data associated with a window object
@@ -379,166 +344,12 @@ const abp = {
     return strings.GetStringFromName(name);
   },
 
-  getFlasher: function() {
-    return flasher;
-  },
-
-  getSynchronizer: function() {
-    return synchronizer;
-  },
-
   createHashTable: function() {
     return new HashTable();
-  },
-
-  removeSubscription: function(name) {
-    disablePrefObserver = true;
-
-    for (var i = 0; i < prefs.grouporder.length; i++)
-      if (prefs.grouporder[i] == name)
-        prefs.grouporder.splice(i--, 1);
-
-    var prefix = "synch." + name + ".";
-    for (i = 0; i < groupPrefs.length; i++) {
-      try {
-        adblockBranch.clearUserPref(prefix + groupPrefs[i]);
-      } catch (e) {}
-    }
-    prefs.synch.remove(name);
-
-    disablePrefObserver = false;
-
-    saveSettings();
   }
 };
 
 abp.wrappedJSObject = abp;
-
-/*
- * Synchronizer - filter subscriptions
- */
-
-var synchronizer = {
-  executing: new HashTable(),
-  listeners: [],
-  timer: null,
-
-  init: function() {
-    var callback = function() {
-      synchronizer.timer.delay = 3600000;
-
-      for (var i = 0; i < prefs.grouporder.length; i++) {
-        if (prefs.grouporder[i].indexOf("~") == 0)
-          continue;
-    
-        var synchPrefs = prefs.synch.get(prefs.grouporder[i]);
-        if (typeof synchPrefs == "undefined" || !synchPrefs.autodownload || synchPrefs.external)
-          continue;
-    
-        // Get the number of hours since last download
-        var interval = (new Date().getTime()/1000 - synchPrefs.lastsuccess) / 3600;
-        if (interval > prefs.synchronizationinterval)
-          synchronizer.execute(synchPrefs);
-      }
-    }
-
-    this.timer = createTimer(callback, 300000);
-    this.timer.type = this.timer.TYPE_REPEATING_SLACK;
-  },
-
-  // Adds a new handler to be notified whenever synchronization status changes
-  addListener: function(handler) {
-    this.listeners.push(handler);
-  },
-  
-  // Removes a handler
-  removeListener: function(handler) {
-    for (var i = 0; i < this.listeners.length; i++)
-      if (this.listeners[i] == handler)
-        this.listeners.splice(i--, 1);
-  },
-
-  // Calls all listeners
-  notifyListeners: function(synchPrefs, status) {
-    for (var i = 0; i < this.listeners.length; i++)
-      this.listeners[i](synchPrefs, status);
-  },
-
-  isExecuting: function(url) {
-    return this.executing.has(url);
-  },
-
-  readPatterns: function(synchPrefs, text) {
-    var lines = text.split(/[\r\n]+/);
-    for (var i = 0; i < lines.length; i++) {
-      lines[i] = lines[i].replace(/\s/g, "");
-      if (!lines[i])
-        lines.splice(i--, 1);
-    }
-    if (!/\[Adblock\]/i.test(lines[0])) {
-      this.setError(synchPrefs, "synchronize_invalid_data");
-      return;
-    }
-
-    lines.shift(0);
-    synchPrefs.lastdownload = synchPrefs.lastsuccess = new Date().getTime() / 1000;
-    synchPrefs.downloadstatus = "synchronize_ok";
-    synchPrefs.patterns = lines;
-    saveSettings();
-    this.notifyListeners(synchPrefs, "ok");
-  },
-
-  setError: function(synchPrefs, error) {
-    this.executing.remove(synchPrefs.url);
-    synchPrefs.lastdownload = new Date().getTime() / 1000;
-    synchPrefs.downloadstatus = error;
-    saveSettings();
-    this.notifyListeners(synchPrefs, "error");
-  },
-
-  execute: function(synchPrefs) {
-    var url = synchPrefs.url;
-    if (this.executing.has(url))
-      return;
-
-    try {
-      var request = Components.classes["@mozilla.org/xmlextras/xmlhttprequest;1"]
-                              .createInstance(Components.interfaces.nsIJSXMLHttpRequest);
-      request.open("GET", url);
-      request.channel.loadFlags = request.channel.loadFlags |
-                                  request.channel.INHIBIT_CACHING |
-                                  request.channel.LOAD_BYPASS_CACHE;
-    }
-    catch (e) {
-      this.setError(synchPrefs, "synchronize_invalid_url");
-      return;
-    }
-
-    request.onerror = function() {
-      if (!prefs.synch.has(url))
-        return;
-
-      synchronizer.setError(prefs.synch.get(url), "synchronize_connection_error");
-    };
-
-    request.onload = function() {
-      synchronizer.executing.remove(url);
-      if (prefs.synch.has(url))
-        synchronizer.readPatterns(prefs.synch.get(url), request.responseText);
-    };
-
-    this.executing.put(url, request);
-    this.notifyListeners(synchPrefs, "executing");
-
-    try {
-      request.send(null);
-    }
-    catch (e) {
-      this.setError(synchPrefs, "synchronize_connection_error");
-      return;
-    }
-  }
-};
 
 /*
  * Fake nsIController object - data container
@@ -701,17 +512,12 @@ function init() {
   initialized = true;
 
   loader.loadSubScript('chrome://adblockplus/content/security.js');
+  loader.loadSubScript('chrome://adblockplus/content/prefs.js');
+  loader.loadSubScript('chrome://adblockplus/content/synchronizer.js');
+  loader.loadSubScript('chrome://adblockplus/content/flasher.js');
 
-  // Preferences observer registration
-  try {
-    var prefInternal = Components.classes["@mozilla.org/preferences-service;1"]
-                                 .getService(Components.interfaces.nsIPrefBranchInternal);
-    prefInternal.addObserver("extensions.adblockplus.", abp, false);
-  }
-  catch (e) {
-    dump("Adblock Plus: exception registering pref observer: " + e + "\n");
-  }
-  
+  prefs.addListener(function() {cache.clear()});
+
   // Variable initialization
 
   var stringService = Components.classes["@mozilla.org/intl/stringbundle;1"]
@@ -787,178 +593,8 @@ function init() {
     } catch(e) {}
   }
 
-  // Load settings
-  loadSettings();
-
-  // Register synchronization callback
-  synchronizer.init();
-
   // Install sidebar in Mozilla Suite if necessary
   installSidebar();
-}
-
-// Loads the preferences
-function loadSettings() {
-  cache.clear();
-  for (var i = 0; i < boolPrefs.length; i++)
-    prefs[boolPrefs[i]] = adblockBranch.getBoolPref(boolPrefs[i]);
-  for (i = 0; i < listPrefs.length; i++) {
-    prefs[listPrefs[i]] = [];
-    var str = adblockBranch.getCharPref(listPrefs[i]);
-    if (str)
-      prefs[listPrefs[i]] = str.split(" ");
-  }
-  prefs.synchronizationinterval = adblockBranch.getIntPref("synchronizationinterval");
-
-  // Convert patterns into regexps
-  prefs.regexps = [];
-  prefs.whitelist = [];
-
-  for (i = 0; i < prefs.patterns.length; i++) {
-    if (prefs.patterns[i] != "")
-      addPattern(prefs.patterns[i]);
-  }
-
-  // Load synchronization settings
-  prefs.synch = new HashTable();
-  for (i = 0; i < prefs.grouporder.length; i++) {
-    if (prefs.grouporder[i].indexOf("~") == 0)
-      continue;
-
-    try {
-      var prefix = "synch." + prefs.grouporder[i] + ".";
-      var synchPrefs = {};
-
-      synchPrefs.title = prefs.grouporder[i];
-      synchPrefs.autodownload = true;
-      synchPrefs.disabled = false;
-      synchPrefs.external = false;
-      synchPrefs.lastdownload = 0;
-      synchPrefs.lastsuccess = 0;
-      synchPrefs.downloadstatus = "";
-      synchPrefs.lastmodified = "";
-
-      try {
-        synchPrefs.title = adblockBranch.getComplexValue(prefix + "title", Components.interfaces.nsISupportsString).data;
-      } catch (e2) {}
-      try {
-        synchPrefs.autodownload = adblockBranch.getBoolPref(prefix + "autodownload");
-      } catch (e2) {}
-      try {
-        synchPrefs.disabled = adblockBranch.getBoolPref(prefix + "disabled");
-      } catch (e2) {}
-      try {
-        synchPrefs.external = adblockBranch.getBoolPref(prefix + "external");
-      } catch (e2) {}
-      try {
-        synchPrefs.lastdownload = adblockBranch.getIntPref(prefix + "lastdownload");
-      } catch (e2) {}
-      try {
-        synchPrefs.lastsuccess = adblockBranch.getIntPref(prefix + "lastsuccess");
-      } catch (e2) {}
-      try {
-        synchPrefs.downloadstatus = adblockBranch.getCharPref(prefix + "downloadstatus");
-      } catch (e2) {}
-      try {
-        synchPrefs.lastmodified = adblockBranch.getCharPref(prefix + "lastmodified");
-      } catch (e2) {}
-
-      synchPrefs.url = prefs.grouporder[i];
-      if (!synchPrefs.external) {
-        // Test URL for validity, this will throw an exception for invalid URLs
-        var uri = Components.classes["@mozilla.org/network/simple-uri;1"]
-                            .createInstance(Components.interfaces.nsIURI);
-        uri.spec = synchPrefs.url;
-      }
-
-      synchPrefs.patterns = [];
-      try {
-        var str = adblockBranch.getCharPref(prefix + "patterns");
-        if (str) {
-          synchPrefs.patterns = str.split(" ");
-          if (!synchPrefs.disabled)
-            for (var j = 0; j < synchPrefs.patterns.length; j++)
-              if (synchPrefs.patterns[j] != "")
-                addPattern(synchPrefs.patterns[j]);
-        }
-      } catch (e2) {}
-
-      prefs.synch.put(prefs.grouporder[i], synchPrefs);
-    } catch (e) {}
-  }
-
-  // Fire pref listeners
-  for (i = 0; i < prefListeners.length; i++)
-    prefListeners[i](prefs);
-
-  // Import settings from old versions
-  if (!prefs.checkedadblockprefs)
-    importAdblockSettings();
-}
-
-// Imports preferences from classic Adblock
-function importAdblockSettings() {
-  var importBranch = prefService.getBranch("adblock.");
-  for (var i = 0; i < boolPrefs.length; i++) {
-    try {
-      if (importBranch.prefHasUserValue(boolPrefs[i]) && !adblockBranch.prefHasUserValue(boolPrefs[i]))
-        prefs[boolPrefs[i]] = importBranch.getBoolPref(boolPrefs[i])
-    } catch (e) {}
-  }
-
-  try {
-    if (importBranch.prefHasUserValue("patterns") && !adblockBranch.prefHasUserValue("patterns"))
-      prefs.patterns = importBranch.getCharPref("patterns").split(" ");
-  } catch (e) {}
-
-  prefs.checkedadblockprefs = true;
-  saveSettings();
-}
-
-// Saves the preferences
-function saveSettings() {
-  disablePrefObserver = true;
-
-  try {
-    for (var i = 0; i < boolPrefs.length; i++)
-      adblockBranch.setBoolPref(boolPrefs[i], prefs[boolPrefs[i]]);
-  
-    for (i = 0; i < listPrefs.length; i++) {
-      var str = prefs[listPrefs[i]].join(" ");
-      adblockBranch.setCharPref(listPrefs[i], str);
-    }
-
-    adblockBranch.setIntPref("synchronizationinterval", prefs.synchronizationinterval);
-
-    for (i = 0; i < prefs.grouporder.length; i++) {
-      if (!prefs.synch.has(prefs.grouporder[i]))
-        continue;
-
-      try {
-        var synchPrefs = prefs.synch.get(prefs.grouporder[i]);
-        var prefix = "synch." + prefs.grouporder[i] + ".";
-
-        var title = Components.classes["@mozilla.org/supports-string;1"]
-                              .createInstance(Components.interfaces.nsISupportsString);
-        title.data = synchPrefs.title;
-        adblockBranch.setComplexValue(prefix + "title", Components.interfaces.nsISupportsString, title);
-        adblockBranch.setBoolPref(prefix + "autodownload", synchPrefs.autodownload);
-        adblockBranch.setBoolPref(prefix + "disabled", synchPrefs.disabled);
-        adblockBranch.setBoolPref(prefix + "external", synchPrefs.external);
-        adblockBranch.setIntPref(prefix + "lastdownload", synchPrefs.lastdownload);
-        adblockBranch.setIntPref(prefix + "lastsuccess", synchPrefs.lastsuccess);
-        adblockBranch.setCharPref(prefix + "downloadstatus", synchPrefs.downloadstatus);
-        adblockBranch.setCharPref(prefix + "lastmodified", synchPrefs.lastmodified);
-        adblockBranch.setCharPref(prefix + "patterns", synchPrefs.patterns.join(" "));
-      } catch (e2) {}
-    }
-
-    // Make sure to save the prefs on disk
-    prefService.savePrefFile(null);
-  } catch (e) {}
-
-  disablePrefObserver = false;
-  loadSettings();
 }
 
 function installSidebar() {
@@ -1063,39 +699,6 @@ function matchesAny(location, list) {
       return list[i];
 
   return null; // if no matches, return null
-}
-
-/*
- * Filter management
- */
-
-// Converts a pattern into RegExp and adds it to the list
-function addPattern(pattern) {
-  var regexp;
-  var origPattern = pattern;
-
-  var list = prefs.regexps;
-  var isWhite = false;
-  if (pattern.indexOf("@@") == 0) {
-    // Adblock Plus compatible whitelisting
-    pattern = pattern.substr(2);
-    list = prefs.whitelist;
-    isWhite = true;
-  }
-
-  if (pattern.charAt(0) == "/" && pattern.charAt(pattern.length - 1) == "/")  // pattern is a regexp already
-    regexp = pattern.substr(1, pattern.length - 2);
-  else {
-    regexp = pattern.replace(/^\*+/,"").replace(/\*+$/,"").replace(/\*+/, "*").replace(/([^\w\*])/g, "\\$1").replace(/\*/g, ".*");
-    if (pattern.match(/^https?:\/\//))
-      regexp = "^" + regexp;
-  }
-  try {
-    regexp = new RegExp(regexp, "i");
-    regexp.origPattern = origPattern;
-    regexp.isWhite = isWhite;
-    list.push(regexp);
-  } catch(e) {}
 }
 
 /*
@@ -1210,73 +813,3 @@ function createTimer(callback, delay) {
   timer.init({observe: callback}, delay, timer.TYPE_ONE_SHOT);
   return timer;
 }
-
-// Makes a blinking border for a list of matching nodes
-var flasher = {
-  inseclNodes: null,
-  count: 0,
-  timer: null,
-
-  flash: function(inseclNodes)
-  {
-    this.stop();
-    if (!inseclNodes)
-      return;
-
-    this.inseclNodes = inseclNodes;
-    this.count = 0;
-
-    this.doFlash();
-  },
-
-  doFlash: function()
-  {
-    if (this.count >= 6)
-    {
-      this.switchOff();
-      this.inseclNodes = null;
-      return;
-    }
-
-    if (this.count % 2)
-      this.switchOff();
-    else
-      this.switchOn();
-
-    this.count++;
-
-    this.timer = createTimer(function() {flasher.doFlash()}, 300);
-  },
-
-  stop: function()
-  {
-    if (this.inseclNodes != null)
-    {
-      if (this.timer)
-        this.timer.cancel();
-      this.switchOff();
-      this.inseclNodes = null;
-    }
-  },
-
-  setOutline: function(value)
-  {
-    for (var i = 0; i < this.inseclNodes.length; i++) {
-      var insecNode = this.inseclNodes[i];
-      var insecContentBody = secureGet(insecNode, "contentDocument", "body");
-      if (insecContentBody)
-        insecNode = insecContentBody;   // for frames
-
-      secureSet(insecNode, "style", "MozOutline", value);
-    }
-  },
-
-  switchOn: function()
-  {
-    this.setOutline("#CC0000 dotted 2px");
-  },
-
-  switchOff: function() {
-    this.setOutline("none");
-  }
-};

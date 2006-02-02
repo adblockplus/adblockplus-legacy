@@ -25,11 +25,11 @@
 var abp = null;
 try {
   abp = Components.classes["@mozilla.org/adblockplus;1"].getService();
-  while (abp && !('getPrefs' in abp))
+  while (abp && !("getString" in abp))
     abp = abp.wrappedJSObject;    // Unwrap Adblock Plus component
 } catch (e) {}
 
-var abpPrefs = abp ? abp.getPrefs() : {enabled: false};
+var abpPrefs = abp ? abp.prefs : {enabled: false};
 var abpDetachedSidebar = null;
 
 // With older Mozilla versions load event never happens (???), using timeout as a fallback
@@ -41,7 +41,7 @@ function abpInit() {
   // Process preferences
   abpReloadPrefs();
   if (abp)
-    abp.addPrefListener(abpReloadPrefs);
+    abpPrefs.addListener(abpReloadPrefs);
 
   // Install context menu handler
   document.getElementById("contentAreaContextMenu").addEventListener("popupshowing", abpCheckContext, false);
@@ -75,7 +75,7 @@ function abpInit() {
 }
 
 function abpUnload() {
-  abp.removePrefListener(abpReloadPrefs);
+  abpPrefs.removeListener(abpReloadPrefs);
 }
 
 function abpReloadPrefs() {
@@ -128,7 +128,7 @@ function abpReloadPrefs() {
 function abpCheckExtensionConflicts() {
   // Make sure not to run this twice
   abpPrefs.checkedadblockinstalled = true;
-  abp.savePrefs();
+  abpPrefs.save();
 
   if ("@mozilla.org/adblock;1" in Components.classes) {
     var promptService = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
@@ -192,7 +192,7 @@ function abpInstallInToolbar() {
 
   // Make sure not to run this twice
   abpPrefs.checkedtoolbar = true;
-  abp.savePrefs();
+  abpPrefs.save();
 }
 
 // Retrieves the location of the sidebar panels file (Mozilla Suite/Seamonkey)
@@ -372,7 +372,7 @@ function abpTogglePref(pref) {
     return;
 
   abpPrefs[pref] = !abpPrefs[pref];
-  abp.savePrefs();
+  abpPrefs.save();
 }
 
 // Inserts or removes the specified pattern into/from the list
@@ -394,7 +394,7 @@ function abpTogglePattern(pattern, insert) {
   if (!found && insert)
     abpPrefs.patterns.push(pattern);
 
-  abp.savePrefs();
+  abpPrefs.save();
 }
 
 // Handle clicks on the Adblock statusbar panel
@@ -451,7 +451,7 @@ function abpMouseHandler(e) {
     e.target.removeEventListener("mouseout", abpMouseHandler, false);
     if (e.type == "mouseup" && abpDraggingX >= 0 && Math.abs(e.clientX - abpDraggingX) > 10) {
       abpPrefs.enabled = !abpPrefs.enabled;
-      abp.savePrefs();
+      abpPrefs.save();
       abpLastDrag = new Date().getTime();
     }
     abpDraggingX = -1;
