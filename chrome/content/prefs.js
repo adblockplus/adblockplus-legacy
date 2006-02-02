@@ -173,7 +173,7 @@ var prefs = {
     }
   
     // Insert divblock stylesheet
-    if (styleService && this.divblock) {
+    if (this.enabled && styleService && this.divblock) {
       try {
         divblockURL = Components.classes["@mozilla.org/network/simple-uri;1"]
                                 .createInstance(Components.interfaces.nsIURI);
