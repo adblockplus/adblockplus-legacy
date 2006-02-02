@@ -25,10 +25,11 @@
 var abp = null;
 try {
   abp = Components.classes["@mozilla.org/adblockplus;1"].getService();
-  while (abp && !('getPrefs' in abp))
+  while (abp && !('getString' in abp))
     abp = abp.wrappedJSObject;    // Unwrap component
 
-  var flasher = abp.getFlasher();
+  var prefs = abp.prefs;
+  var flasher = abp.flasher;
 } catch (e) {}
 
 // Main browser window
@@ -60,7 +61,7 @@ function init() {
     document.getElementById("reattachButton").hidden = false;
     if (parent.arguments.length > 1 && parent.arguments[1])
       document.getElementById("reattachButton").setAttribute("disabled", "true");
-  } else if (abp && abp.getPrefs().detachsidebar) {
+  } else if (abp && prefs.detachsidebar) {
     // Oops, we should've been detached but we aren't
     detach();
   }
@@ -316,7 +317,7 @@ function detach() {
   // Close sidebar and open detached window
   var wnd = mainWin.abpDetachedSidebar;
   mainWin.abpDetachedSidebar = null;
-  abp.getPrefs().detachsidebar = false;
+  prefs.detachsidebar = false;
   mainWin.abpToggleSidebar();
   if (wnd && !wnd.closed) {
     wnd.focus();
@@ -326,8 +327,8 @@ function detach() {
     mainWin.abpDetachedSidebar = openDialog("chrome://adblockplus/content/sidebarDetached.xul", "_blank", "chrome,all,dependent"+position, parent);
 
   // Save setting
-  abp.getPrefs().detachsidebar = true;
-  abp.savePrefs();
+  prefs.detachsidebar = true;
+  prefs.save();
 }
 
 // reattaches the sidebar
@@ -336,8 +337,8 @@ function reattach() {
     return;
 
   // Save setting
-  abp.getPrefs().detachsidebar = false;
-  abp.savePrefs();
+  prefs.detachsidebar = false;
+  prefs.save();
 
   // Open sidebar in window
   mainWin.abpDetachedSidebar = null;

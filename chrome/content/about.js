@@ -26,7 +26,7 @@ const ADBLOCK_EXTENSION_ID = "{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}";
 const ADBLOCK_PACKAGE = "/adblockplus.mozdev.org"; 
 
 var abp = Components.classes["@mozilla.org/adblockplus;1"].getService();
-while (abp && !("getPrefs" in abp))
+while (abp && !("getString" in abp))
   abp = abp.wrappedJSObject;    // Unwrap component
 
 function fillInVersion() {

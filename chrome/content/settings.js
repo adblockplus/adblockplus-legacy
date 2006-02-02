@@ -23,12 +23,12 @@
  * ***** END LICENSE BLOCK ***** */
 
 var abp = Components.classes["@mozilla.org/adblockplus;1"].getService();
-while (abp && !("getPrefs" in abp))
+while (abp && !("getString" in abp))
   abp = abp.wrappedJSObject;    // Unwrap component
-var prefs = abp.getPrefs();
+var prefs = abp.prefs;
+var flasher = abp.flasher;
+var synchronizer = abp.synchronizer;
 var shouldSort = prefs.listsort;
-var flasher = abp.getFlasher();
-var synchronizer = abp.getSynchronizer();
 var suggestionItems = [];
 var insecWnd = null;   // Window we should apply filters at
 var initialized = false;
@@ -43,7 +43,7 @@ function init() {
   var data = [];
 
   // Install listenerñ
-  abp.addPrefListener(onPrefChange);
+  prefs.addListener(onPrefChange);
   synchronizer.addListener(synchCallback);
 
   if ('arguments' in window && window.arguments.length >= 1)
@@ -106,7 +106,7 @@ function init() {
 
 // To be called when the window is closed
 function cleanUp() {
-  abp.removePrefListener(onPrefChange);
+  prefs.removeListener(onPrefChange);
   synchronizer.removeListener(synchCallback);
   flasher.stop();
 }
@@ -490,7 +490,7 @@ function removeSubscription(group) {
   if (!group || !confirm(abp.getString("remove_subscription_warning")))
     return;
 
-  abp.removeSubscription(group.name);
+  prefs.removeSubscription(group.name);
 
   groupManager.removeGroup(group);
   groupManager.ensureSelection();
@@ -528,7 +528,7 @@ function moveGroup(up) {
   var tmp = prefs.grouporder[groupIndex];
   prefs.grouporder[groupIndex] = prefs.grouporder[switchWith];
   prefs.grouporder[switchWith] = tmp;
-  abp.savePrefs();
+  prefs.save();
 
   groupManager.readdGroup(group);
   groupManager.selectGroup(group.name);
@@ -650,7 +650,7 @@ function fillContext() {
 // Toggles the value of a boolean pref
 function togglePref(pref) {
   prefs[pref] = !prefs[pref];
-  abp.savePrefs();
+  prefs.save();
 }
 
 function onPrefChange() {
@@ -682,7 +682,7 @@ function saveSettings() {
     return;
 
   prefs.patterns = getPatterns();
-  abp.savePrefs();
+  prefs.save();
 
   if (insecWnd)
     refilterWindow(insecWnd);
@@ -715,7 +715,7 @@ function regexpWarning() {
 
   if (check.value) {
     prefs.warnregexp = false;
-    abp.savePrefs();
+    prefs.save();
   }
   return result;
 }
@@ -780,7 +780,7 @@ var groupManager = {
 
     if (!found) {
       prefs.grouporder.push(name);
-      abp.savePrefs();
+      prefs.save();
     }
 
     for (i = 0; i < filters.length; i++)

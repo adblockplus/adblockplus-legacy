@@ -113,11 +113,11 @@ function saveSubscription() {
     opener.groupManager.selectGroup(groupName);
 
     // Need delayed execution here for some reason, XMLHttpRequest will fail otherwise
-    var synchronizer = abp.getSynchronizer();
+    var synchronizer = abp.synchronizer;
     opener.setTimeout(function() {synchronizer.execute(synchPrefs)}, 0);
   }
   else
     opener.updateSubscriptionDescription(groupName, synchPrefs);
 
-  abp.savePrefs();
+  prefs.save();
 }
