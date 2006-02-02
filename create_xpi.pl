@@ -9,6 +9,10 @@ close(VERSION);
 
 $version .= "+" if $ARGV[1];
 
+opendir(LOCALES, "chrome/locale");
+my @locales = grep {!/[^\w\-]/ && !/CVS/} readdir(LOCALES);
+closedir(LOCALES);
+
 my $output_file = $ARGV[0] || "adblockplus.xpi";
 
 rm_rec('tmp');
@@ -56,7 +60,7 @@ sub cp
 {
   my ($fromfile, $tofile, $replace_version) = @_;
 
-  my $text = ($fromfile =~ /\.(xul|js|xml|xhtml|rdf|dtd|properties|css)$/);
+  my $text = ($fromfile =~ /\.(manifest|xul|js|xml|xhtml|rdf|dtd|properties|css)$/);
   open(local *FROM, $fromfile) or return;
   open(local *TO, ">$tofile") or return;
   binmode(TO);
@@ -66,6 +70,15 @@ sub cp
       s/\r//g;
       s/^((?:  )+)/"\t" x (length($1)\/2)/e;
       s/\{\{VERSION\}\}/$version/g if $replace_version;
+      if ($replace_version && /\{\{LOCALE\}\}/) {
+        my $loc = "";
+        for my $locale (@locales) {
+          my $tmp = $_;
+          $tmp =~ s/\{\{LOCALE\}\}/$locale/g;
+          $loc .= $tmp;
+        }
+        $_ = $loc;
+      }
       $_;
     } <FROM>;
   }

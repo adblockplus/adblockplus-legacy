@@ -2,5 +2,5 @@ overlay   chrome://browser/content/browser.xul  chrome://adblockplus/content/ove
 content   adblockplus jar:chrome/adblockplus.jar!/content/
 skin      adblockplus classic/1.0 jar:chrome/adblockplus.jar!/skin/classic/
 style     chrome://global/content/customizeToolbar.xul  chrome://adblockplus/skin/overlay.css
-locale    adblockplus en-US jar:chrome/adblockplus.jar!/locale/en-US/
-locale    adblockplus de-DE jar:chrome/adblockplus.jar!/locale/de-DE/
+locale    adblockplus {{LOCALE}} jar:chrome/adblockplus.jar!/locale/{{LOCALE}}/
+

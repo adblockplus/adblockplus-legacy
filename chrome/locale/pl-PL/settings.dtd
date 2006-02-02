@@ -1,0 +1,61 @@
+<!ENTITY dialog.title "Adblock Plus - ustawienia">
+<!ENTITY filters.label "Filtry">
+<!ENTITY filters.accesskey "F">
+<!ENTITY addsubscription.label "Dodaj subskrypcję filtrów">
+<!ENTITY addsubscription.accesskey "S">
+<!ENTITY import.label "Importuj filtry">
+<!ENTITY import.accesskey "M">
+<!ENTITY export.label "Eksportuj filtry">
+<!ENTITY export.accesskey "E">
+<!ENTITY clearall.label "Usuń wszystkie filtry">
+<!ENTITY clearall.accesskey "U">
+<!ENTITY listsort.label "Sortuj alfabetycznie">
+<!ENTITY listsort.accesskey "A">
+<!ENTITY options.label "Opcje">
+<!ENTITY options.accesskey "O">
+<!ENTITY enable.label "Włącz Adblock Plus">
+<!ENTITY enable.accesskey "W">
+<!ENTITY showinstatusbar.label "Wyświetl na pasku stanu">
+<!ENTITY showinstatusbar.accesskey "S">
+<!ENTITY localpages.label "Blokuj wyodrębnione reklamy na lokalnych stronach">
+<!ENTITY localpages.accesskey "B">
+<!ENTITY objecttabs.label "Pokaż przyciski blokowania">
+<!ENTITY objecttabs.accesskey "B">
+<!ENTITY collapse.label "Ukryj zablokowane elementy">
+<!ENTITY collapse.accesskey "U">
+<!ENTITY linkcheck.label "Sprawdź pokrewne odnośniki">
+<!ENTITY linkcheck.accesskey "S">
+<!ENTITY help.label "Pomoc">
+<!ENTITY help.accesskey "P">
+<!ENTITY faq.label "Często zadawane pytania">
+<!ENTITY faq.accesskey "P">
+<!ENTITY faq.url "http://adblockplus.mozdev.org/faq.html">
+<!ENTITY tips.label "Podpowiedź dnia">
+<!ENTITY tips.accesskey "P">
+<!ENTITY tips.url "http://adblockplus.mozdev.org/tips.html">
+<!ENTITY regexps.label "Wyrażenia regularne">
+<!ENTITY regexps.accesskey "R">
+<!ENTITY regexps.url "http://developer.mozilla.org/en/docs/Core_JavaScript_1.5_Guide:Regular_Expressions#Writing_a_Regular_Expression_Pattern">
+<!ENTITY about.label "O Adblock Plus">
+<!ENTITY about.accesskey "O">
+<!ENTITY disabled.warning "Adblock Plus jest wyłączony. Można edytować dowolny filtr, ale do czasu ponownego włączenia zmiany te nie będą działąły">
+<!ENTITY description "Dodaj adres, który chcesz zablokować. Aby zobaczyć podpowiedzi przejdź do menu "Pomoc".
+		Można używać * jako wieloznacznika przy tworzeniu większej ilości filtrów. Zaawansowani użytkownicy
+		mogą używać wyrażeń regularnych takich jak: /banner\d+\.gif$/.">
+<!ENTITY newfilter.label "Nowy filtr">
+<!ENTITY newfilter.accesskey "N">
+<!ENTITY add.label "Dodaj filtr">
+<!ENTITY add.accesskey "D">
+<!ENTITY list.label "Lista filtrów">
+<!ENTITY list.accesskey "F">
+<!ENTITY context.edit.label "Edytuj filtr">
+<!ENTITY context.remove.label "Usun filtr">
+<!ENTITY context.synchsubscription.label "Uaktualnij subskrypcję teraz">
+<!ENTITY context.editsubscription.label "Edytuj subskrypcję">
+<!ENTITY context.removesubscription.label "Usuń subskrypcję">
+<!ENTITY context.moveup.label "Przesuń w górę">
+<!ENTITY context.movedown.label "Przesuń w dół">
+<!ENTITY context.movegroupup.label "Przesuń grupę w górę">
+<!ENTITY context.movegroupdown.label "Przesuń grupę w górę">
+<!ENTITY ok.label "OK">
+<!ENTITY cancel.label "Anuluj">

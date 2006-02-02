@@ -4,6 +4,10 @@ const APP_NAME = "adblockplus";
 const APP_PACKAGE = "/adblockplus.mozdev.org";
 const APP_VERSION = "{{VERSION}}";
 const WARNING = "WARNING: You need administrator priviledges to install Adblock Plus. It will be installed in the application directory for all users. Installing Adblock Plus in your profile is only supported for Firefox 0.9+. Proceed with the installation?";
+const locales = [
+  "{{LOCALE}}",
+  null
+];
 
 if (confirm(WARNING)) {
   /* Pre-Install Cleanup (for prior versions) */
@@ -62,13 +66,14 @@ if (confirm(WARNING)) {
     if (err != SUCCESS)
       throw "Chrome registration for skin failed (error code " + err + ").";
 
-    err = registerChrome(LOCALE | DELAYED_CHROME, jar, "locale/en-US/");
-    if (err != SUCCESS)
-      throw "Chrome registration for en-US locale failed (error code " + err + ").";
+    for (i = 0; i < locales.length; i++) {
+      if (!locales[i])
+        continue;
 
-    err = registerChrome(LOCALE | DELAYED_CHROME, jar, "locale/de-DE/");
-    if (err != SUCCESS)
-      throw "Chrome registration for de-DE locale failed (error code " + err + ").";
+      err = registerChrome(LOCALE | DELAYED_CHROME, jar, "locale/" + locales[i] + "/");
+      if (err != SUCCESS)
+        throw "Chrome registration for " + locales[i] + " locale failed (error code " + err + ").";
+    }
 
     var err = performInstall();
     if (err != SUCCESS && err != 999)
