@@ -65,7 +65,10 @@
 
   <!-- statusbar -->
   <statusbar id="status-bar">
-    <statusbarpanel id="abp-status" disabled="true" label="&notloaded.label;" sidebartitle="&sidebar.title;" tooltip="abp-tooltip" context="abp-status-popup" onclick="abpClickHandler(event)" ondragover="abpDragHandler(event)" ondragdrop="abpDragHandler(event)" onmousedown="abpMouseHandler(event)"/>
+    <statusbarpanel id="abp-status" disabled="true" sidebartitle="&sidebar.title;" tooltip="abp-tooltip" context="abp-status-popup" onclick="abpClickHandler(event)" ondragover="abpDragHandler(event)" ondragdrop="abpDragHandler(event)" onmousedown="abpMouseHandler(event)">
+      <image/>
+      <label value="&notloaded.label;"/>
+    </statusbarpanel>
   </statusbar> 
 
   <!-- firefox toolbar -->
