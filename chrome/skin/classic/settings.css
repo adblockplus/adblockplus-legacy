@@ -64,5 +64,5 @@ listitem #list-editorField {
 }
 
 .filtered:not([_moz-menuactive="true"]) {
-  color: GrayText;
+  color: #C00000;
 }

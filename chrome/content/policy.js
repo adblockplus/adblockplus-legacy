@@ -111,10 +111,10 @@ var policy = {
       if (typeof match == "undefined") {
         // If we didn't cache the result yet:
         // check whether we want to block the node and store the result
-        match = matchesAny(location, prefs.whitelist);
+        match = this.matchesAny(location, prefs.whitelist);
 
         if (match == null)
-          match = matchesAny(location, prefs.regexps);
+          match = this.matchesAny(location, prefs.regexps);
 
         cache.put(location, match);
       }
@@ -166,7 +166,16 @@ var policy = {
 
   // Checks whether a page is whitelisted
   isWhitelisted: function(url) {
-    return matchesAny(url, prefs.whitelist);
+    return this.matchesAny(url, prefs.whitelist);
+  },
+
+  // Tests whether a given URL matches any of the regexps from the list, returns the matching pattern
+  matchesAny: function(location, list) {
+    for (var i = 0; i < list.length; i++)
+      if (list[i].test(location))
+        return list[i];
+  
+    return null; // if no matches, return null
   },
 
   translateTypes: function(hash) {
@@ -198,12 +207,3 @@ var policy = {
 
 policy.init();
 abp.policy = policy;
-
-// Tests if a given URL matches any of the regexps from the list, returns the matching pattern
-function matchesAny(location, list) {
-  for (var i = 0; i < list.length; i++)
-    if (list[i].test(location))
-      return list[i];
-
-  return null; // if no matches, return null
-}
