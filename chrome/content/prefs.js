@@ -66,8 +66,13 @@ var prefs = {
     try {
       if (parts[0] == "String")
         obj[parts[1]] = this.branch.getComplexValue(prefName, Components.interfaces.nsISupportsString).data;
-      else if (parts[0] == "List")
-        obj[parts[1]] = this.branch.getCharPref(prefName).split(" ");
+      else if (parts[0] == "List") {
+        var str = this.branch.getCharPref(prefName);
+        if (str)
+          obj[parts[1]] = str.split(" ");
+        else
+          obj[parts[1]] = [];
+      }
       else
         obj[parts[1]] = this.branch["get" + parts[0] + "Pref"](prefName);
     }

@@ -764,7 +764,7 @@ var groupManager = {
   groups: null,
 
   bind: function(list) {
-    this.groups = abp.createHashTable();
+    this.groups = new abp.HashTable();
     this.list = list;
   },
 
