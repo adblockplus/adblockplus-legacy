@@ -77,12 +77,6 @@ function getTopWindow(insecNode) {
   return secureGet(insecNode, "defaultView", "top");
 }
 
-function translateTypes(hash) {
-  for (var key in hash)
-    if (!key.match(/[^A-Z]/) && key in type)
-      hash[type[key]] = hash[key];
-}
-
 // Sets a timeout, compatible with both nsITimer and nsIScriptableTimer
 function createTimer(callback, delay) {
   var timer = Components.classes["@mozilla.org/timer;1"];

@@ -22,7 +22,7 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-var abp = Components.classes["@mozilla.org/adblockplus;1"].getService();
+var abp = Components.classes["@mozilla.org/adblockplus;1"].createInstance();
 while (abp && !("getString" in abp))
   abp = abp.wrappedJSObject;    // Unwrap component
 var prefs = abp.prefs;
@@ -78,9 +78,9 @@ function init() {
       var insecLocation = secureGet(insecWnd, "location");
       // We want to stick with "no blockable items" for about:blank
       if (secureGet(insecLocation, "href") != "about:blank") {
-        if (!abp.isBlockableScheme(insecLocation))
+        if (!abp.policy.isBlockableScheme(insecLocation))
           reason = abp.getString("not_remote_page");
-        else if (abp.isWhitelisted(secureGet(insecLocation, "href")))
+        else if (abp.policy.isWhitelisted(secureGet(insecLocation, "href")))
           reason = abp.getString("whitelisted_page");
       }
     }
@@ -694,10 +694,11 @@ function refilterWindow(insecWnd) {
     return;
 
   var data = abp.getDataForWindow(insecWnd).getAllLocations();
+  var policy = abp.policy;
   for (var i = 0; i < data.length; i++)
     if (!data[i].filter || data[i].filter.isWhite)
       for (var j = 0; j < data[i].inseclNodes.length; j++)
-        abp.processNode(data[i].inseclNodes[j], data[i].type, data[i].location, true);
+        policy.processNode(data[i].inseclNodes[j], data[i].type, data[i].location, true);
 }
 
 // Warns the user that he has entered a regular expression. 

@@ -24,7 +24,7 @@
 
 var abp = null;
 try {
-  abp = Components.classes["@mozilla.org/adblockplus;1"].getService();
+  abp = Components.classes["@mozilla.org/adblockplus;1"].createInstance();
   while (abp && !('getString' in abp))
     abp = abp.wrappedJSObject;    // Unwrap component
 
@@ -126,10 +126,10 @@ function insertDummy(list) {
     var insecLocation = secureGet(window.content, "location");
     // We want to stick with "no blockable items" for about:blank
     if (secureGet(insecLocation, "href") != "about:blank") {
-      if (!abp.isBlockableScheme(insecLocation))
+      if (!abp.policy.isBlockableScheme(insecLocation))
         currentDummy = remoteDummy;
       else {
-        var filter = abp.isWhitelisted(secureGet(insecLocation, "href"));
+        var filter = abp.policy.isWhitelisted(secureGet(insecLocation, "href"));
         if (filter) {
           currentDummy = whitelistDummy;
           currentDummy.filter = filter;

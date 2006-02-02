@@ -24,7 +24,7 @@
 
 var abp = null;
 try {
-  abp = Components.classes["@mozilla.org/adblockplus;1"].getService();
+  abp = Components.classes["@mozilla.org/adblockplus;1"].createInstance();
   while (abp && !("getString" in abp))
     abp = abp.wrappedJSObject;    // Unwrap Adblock Plus component
 } catch (e) {}
@@ -216,7 +216,7 @@ function abpFillPopup(prefix) {
   document.getElementById(prefix+"-closesidebar").hidden = !sidebarOpen;
 
   var insecLocation = secureGet(content, "location");
-  var showWhitelist = abp.isBlockableScheme(insecLocation);
+  var showWhitelist = abp.policy.isBlockableScheme(insecLocation);
   var whitelistItemSite = document.getElementById(prefix+"-whitelist-site");
   var whitelistItemPage = document.getElementById(prefix+"-whitelist-page");
   if (showWhitelist) {
@@ -476,7 +476,7 @@ function abpCheckContext() {
 
     if (abpPrefs.linkcheck && (nodeType == "IMAGE" || nodeType == "OBJECT" /*|| nodeType == "BACKGROUND"*/)) {
       // Look for a parent link
-      while (insecTarget && (secureGet(insecTarget, "href") == null || !abp.isBlockableScheme(insecTarget)))
+      while (insecTarget && (secureGet(insecTarget, "href") == null || !abp.policy.isBlockableScheme(insecTarget)))
         insecTarget = secureGet(insecTarget, "parentNode");
 
       if (insecTarget)
