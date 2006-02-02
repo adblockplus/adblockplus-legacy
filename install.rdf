@@ -69,6 +69,7 @@
       <em:package>content/</em:package>
       <em:skin>skin/classic/</em:skin>
       <em:locale>locale/en-US/</em:locale>
+      <em:locale>locale/de-DE/</em:locale>
     </Description>
   </em:file>
   </Description>  
