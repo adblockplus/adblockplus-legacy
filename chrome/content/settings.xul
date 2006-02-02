@@ -120,7 +120,7 @@
 </toolbox>
 
 <vbox id="entryarea">
-  <description>
+  <description id="introduction">
     &description;
   </description>
   <hbox align="center">
@@ -139,7 +139,10 @@
   </listbox>
 </vbox>
 
-<hbox id="buttons" pack="end">
+<hbox id="buttons">
+  <description id="disabledWarning" hide="true" flex="1">
+    &disabled.warning;
+  </description>
   <button class="dialog-button" id="ok-button" label="&ok.label;" command="ok-command" disabled="true"/>
   <button class="dialog-button" id="cancel-button" label="&cancel.label;" command="cancel-command"/>
 </hbox>
