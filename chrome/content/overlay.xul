@@ -40,7 +40,7 @@
   <!-- add own popupset -->
   <window id="main-window">
     <popupset id="abp-popupset">
-      <tooltip id="abp-tooltip" label="&notloaded.tooltip;" onpopupshowing="return (document.tooltipNode &amp;&amp; (document.tooltipNode.id == 'abp-status' || document.tooltipNode.id == 'abp-toolbarbutton'))"/>
+      <tooltip id="abp-tooltip" label="&notloaded.tooltip;" onpopupshowing="return (document.tooltipNode &amp;&amp; document.tooltipNode.tooltip == 'abp-tooltip')"/>
       <popup id="abp-status-popup" onpopupshowing="return abpFillPopup('abp-status')">
         <menuitem id="abp-status-opensidebar" label="&opensidebar.label;" accesskey="&opensidebar.accesskey;" key="key-view-abp-sidebar" oncommand="abpToggleSidebar()"/>
         <menuitem id="abp-status-closesidebar" label="&closesidebar.label;" accesskey="&closesidebar.accesskey;" key="key-view-abp-sidebar" oncommand="abpToggleSidebar()"/>
@@ -65,9 +65,9 @@
 
   <!-- statusbar -->
   <statusbar id="status-bar">
-    <statusbarpanel id="abp-status" disabled="true" sidebartitle="&sidebar.title;" tooltip="abp-tooltip" context="abp-status-popup" onclick="abpClickHandler(event)" ondragover="abpDragHandler(event)" ondragdrop="abpDragHandler(event)" onmousedown="abpMouseHandler(event)">
-      <image/>
-      <label value="&notloaded.label;"/>
+    <statusbarpanel id="abp-status" disabled="true" sidebartitle="&sidebar.title;" context="abp-status-popup" onclick="abpClickHandler(event)" ondragover="abpDragHandler(event)" ondragdrop="abpDragHandler(event)" onmousedown="abpMouseHandler(event)">
+      <image tooltip="abp-tooltip"/>
+      <label value="&notloaded.label;" tooltip="abp-tooltip"/>
     </statusbarpanel>
   </statusbar> 
 
