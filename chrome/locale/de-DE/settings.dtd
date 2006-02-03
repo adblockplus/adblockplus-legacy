@@ -64,7 +64,7 @@
 <!ENTITY tips.label                 "Tipp des Tages (Englisch)">
 <!ENTITY tips.accesskey             "T">
 <!ENTITY tips.url                   "http://adblockplus.mozdev.org/tips.html">
-<!ENTITY regexps.label              "Reguläre Ausdrucke erstellen (Englisch)">
+<!ENTITY regexps.label              "Reguläre Ausdrücke erstellen (Englisch)">
 <!ENTITY regexps.accesskey          "G">
 <!ENTITY regexps.url                "http://developer.mozilla.org/en/docs/Core_JavaScript_1.5_Guide:Regular_Expressions#Writing_a_Regular_Expression_Pattern">
 <!ENTITY about.label                "Über Adblock Plus">
@@ -75,7 +75,7 @@
 <!ENTITY description                "
   Fügen Sie Adressen hinzu, die Sie blockieren möchten, Vorschläge gibt es in der
   Dropdown-Liste. Für allgemeinere Filter können Sie Sternchen (*) als Joker-Zeichen
-  verwenden. Fortgeschrittene Benutzer können auch reguläre Ausdrücke benutzen
+  verwenden. Fortgeschrittene Benutzer können auch reguläre Ausdrücke benutzen,
   wie z.B. /banner\d+\.gif$/.
 ">
 
