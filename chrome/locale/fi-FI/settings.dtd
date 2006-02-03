@@ -38,7 +38,7 @@
 <!ENTITY regexps.url "http://developer.mozilla.org/en/docs/Core_JavaScript_1.5_Guide:Regular_Expressions#Writing_a_Regular_Expression_Pattern">
 <!ENTITY about.label "Tietoja Adblock Plussasta">
 <!ENTITY about.accesskey "T">
-<!ENTITY disabled.warning "Adblock Plus on poissa käytöstä. Voit muokata listan suodattimia mutta niitä käytetä ennen kuin otat Adblockin käyttöön.">
+<!ENTITY disabled.warning "Adblock Plus on poissa käytöstä. Voit muokata listan suodattimia mutta niitä ei käytetä ennen kuin otat Adblockin käyttöön.">
 <!ENTITY description "
 		Lisää osoitteet, jotka haluat estää, katso ehdotuksia pudotusvalikosta.
 		Voit käyttää * jokerimerkkinä luodaksesi yleisimpiä suodattimia. Edistyneet käyttäjät voivat
@@ -48,8 +48,8 @@
 <!ENTITY newfilter.accesskey "U">
 <!ENTITY add.label "Lisää suodatin">
 <!ENTITY add.accesskey "L">
-<!ENTITY list.label "Suodattimen säännöt">
-<!ENTITY list.accesskey "s">
+<!ENTITY list.label "Suodatinsäännöt">
+<!ENTITY list.accesskey "ä">
 <!ENTITY context.edit.label "Muokkaa suodatinta">
 <!ENTITY context.remove.label "Poista suodatin">
 <!ENTITY context.synchsubscription.label "Päivitä tilaus nyt">
