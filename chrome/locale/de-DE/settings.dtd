@@ -88,7 +88,7 @@
 
 <!ENTITY context.edit.label         "Filter bearbeiten">
 <!ENTITY context.remove.label       "Filter entfernen">
-<!ENTITY context.synchsubscription.label  "Filter jetzt neu 'runterladen">
+<!ENTITY context.synchsubscription.label  "Filter jetzt neu herunterladen">
 <!ENTITY context.editsubscription.label   "Abonnement bearbeiten">
 <!ENTITY context.removesubscription.label "Abonnement entfernen">
 <!ENTITY context.moveup.label       "Nach oben verschieben">
