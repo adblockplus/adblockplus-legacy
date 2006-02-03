@@ -22,6 +22,8 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
 #disabledWarning {
   color: #E00000;
 }
@@ -31,6 +33,10 @@
 
 #buttons, #entryarea, #listarea {
   margin: 8px;
+}
+
+#newfilter menupopup description {
+  margin: 1px 3px;
 }
 
 #list-editorField {

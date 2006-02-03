@@ -51,11 +51,6 @@
   <em:name>Adblock Plus</em:name>
   <em:description>Filters ads from web pages</em:description>
   <em:creator>Wladimir Palant</em:creator>
-  <em:contributor>Henrik Aasted Sorensen</em:contributor>
-  <em:contributor>Michael McDonald</em:contributor>
-  <em:contributor>rue</em:contributor>
-  <em:contributor>Ben Karel</em:contributor>
-  <em:contributor>Stefan Kinitz</em:contributor>
   <em:homepageURL>http://adblockplus.mozdev.org</em:homepageURL>
   
   <!-- Front End Integration Hooks (used by Extension Manager)-->

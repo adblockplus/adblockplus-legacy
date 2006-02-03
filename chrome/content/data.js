@@ -27,59 +27,87 @@
  * This file is included from nsAdblockPlus.js.
  */
 
-function DataContainer() {
+var queryResult;
+
+function DataContainer(insecWnd) {
   this.locations = {};
-  this.locationListeners = [];
-  this.wrappedJSObject = this;
+  this.subdocs = [];
+  this.install(insecWnd);
 }
+abp.DataContainer = DataContainer;
+
 DataContainer.prototype = {
-  insecDoc: null,
+  topContainer: null,
+  insecWnd: null,
 
-  // nsIController interface implementation
-  insecCommandEnabled: function(command) {
-    return false;
-  },
-  supportsCommand: function(command) {
-    return (command == "abp");
-  },
-
-  // nsISupports interface implementation
-  QueryInterface: function(iid) {
-    if (!iid.equals(Components.interfaces.nsISupports) &&
-        !iid.equals(Components.interfaces.nsIController)) {
-
-      if (!iid.equals(Components.interfaces.nsIClassInfo) &&
-          !iid.equals(Components.interfaces.nsIControllerContext) &&
-          !iid.equals(Components.interfaces.nsISecurityCheckedComponent))
-        dump("Adblock Plus: FakeController.QI to an unknown interface: " + iid + "\n");
-
-      throw Components.results.NS_ERROR_NO_INTERFACE;
-    }
-
-    return this;
-  },
-
-  // Custom methods
-  clear: function() {
-    this.notifyLocationListeners(null, false);
-    this.locations = {};
-  },
+  // Attaches the data to a window
   install: function(insecWnd) {
-    // Remove any previously installed controllers first
-    var controller;
-    while ((controller = secureLookup(insecWnd, "controllers", "getControllerForCommand")("abp")) != null)
-      secureLookup(insecWnd, "controllers", "removeController")(controller);
+    this.insecWnd = insecWnd;
 
-    this.insecDoc = secureGet(insecWnd, "document");
-    secureLookup(insecWnd, "controllers", "appendController")(this);
-  },
-  validate: function(insecWnd) {
-    var insecDoc = secureGet(insecWnd, "document");
-    if (this.insecDoc != insecDoc) {
-      // We have data for the wrong document
-      this.clear();
-      this.insecDoc = insecDoc;
+    var insecTop = secureGet(insecWnd, "top");
+    if (insecTop != insecWnd) {
+      this.topContainer = DataContainer.getDataForWindow(insecTop);
+      this.topContainer.registerSubdocument(this);
+      if (policy.isBlockableScheme(secureGet(insecWnd, "location")))
+        this.addNode(insecWnd, type.SUBDOCUMENT, secureGet(insecWnd, "location", "href"), null);
     }
+    else
+      this.topContainer = this;
+
+    var me = this;
+    var queryHandler = function(ev) {
+      if (ev.isTrusted && ev.eventPhase == ev.AT_TARGET)
+        queryResult = me;
+    }
+    var showHandler = function(ev) {
+      if (ev.isTrusted && ev.eventPhase == ev.AT_TARGET)
+        DataContainer.notifyListeners("select", me.topContainer);
+    }
+    var hideHandler = function(ev) {
+      if (ev.isTrusted && ev.eventPhase == ev.AT_TARGET)
+        DataContainer.notifyListeners(me == me.topContainer ? "clear" : "refresh", me.topContainer);
+    }
+    var unloadHandler = function(ev) {
+      // unload events aren't trusted in 1.7.5, need to find out when this was fixed
+      if (/*ev.isTrusted && */ev.eventPhase == ev.AT_TARGET) {
+        if (me != me.topContainer)
+          me.topContainer.unregisterSubdocument(me);
+
+        DataContainer.notifyListeners(me == me.topContainer ? "clear" : "refresh", me.topContainer);
+
+        // Make sure we don't leak memory
+        var removeListener = secureLookup(this, "removeEventListener");
+        removeListener("abpQuery", queryHandler, true);
+        removeListener("pageshow", showHandler, false);
+        removeListener("pagehide", hideHandler, false);
+        removeListener("unload", unloadHandler, false);
+        me.insecWnd = null;
+
+        if (secureGet(this, "location", "href") == "about:blank") {
+          // Make sure to re-add the frame - we are not really going away
+          var insecWnd = this;
+          var timer = createTimer(function() {
+            if (policy.isBlockableScheme(secureGet(insecWnd, "location"))) {
+              var data = DataContainer.getDataForWindow(insecWnd);
+              data.addNode(insecWnd, type.SUBDOCUMENT, secureGet(insecWnd, "location", "href"), null);
+            }
+          }, 0);
+        }
+      }
+    }
+    var addListener = secureLookup(insecWnd, "addEventListener");
+    addListener("abpQuery", queryHandler, true);
+    addListener("pageshow", showHandler, false);
+    addListener("pagehide", hideHandler, false);
+    addListener("unload", unloadHandler, false);
+  },
+  registerSubdocument: function(data) {
+    this.subdocs.push(data);
+  },
+  unregisterSubdocument: function(data) {
+    for (var i = 0; i < this.subdocs.length; i++)
+      if (this.subdocs[i] == data)
+        this.subdocs.splice(i--, 1);
   },
   addNode: function(insecNode, contentType, location, filter) {
     // for images repeated on page store node for each repeated image
@@ -105,91 +133,58 @@ DataContainer.prototype = {
         localizedDescr: localizedDescr[contentType],
         filter: filter
       };
-      this.notifyLocationListeners(this.locations[key], true);
+      DataContainer.notifyListeners("add", this.topContainer, this.locations[key]);
     }
   },
   getLocation: function(location) {
     var key = " " + location;
-    return this.checkNodes(key);
+    if (key in this.locations)
+      return this.locations[key];
+
+    for (var i = 0; i < this.subdocs.length; i++) {
+      var result = this.subdocs[i].getLocation(location);
+      if (result)
+        return result;
+    }
+
+    return null;
   },
   getAllLocations: function() {
     var results = [];
-    for (var key in this.locations) {
-      if (key.match(/^ /)) {
-        var data = this.checkNodes(key);
-        if (data)
-          results.push(data);
-      }
-    }
+    for (var key in this.locations)
+      if (key.match(/^ /))
+          results.push(this.locations[key]);
+
+    for (var i = 0; i < this.subdocs.length; i++)
+      results = results.concat(this.subdocs[i].getAllLocations());
+
     return results;
-  },
-
-  // Adds a new handler to be notified whenever the location list is added
-  addLocationListener: function(handler) {
-    this.locationListeners.push(handler);
-  },
-  
-  // Removes a handler
-  removeLocationListener: function(handler) {
-    for (var i = 0; i < this.locationListeners.length; i++)
-      if (this.locationListeners[i] == handler)
-        this.locationListeners.splice(i--, 1);
-  },
-
-  // Calls all location listeners
-  notifyLocationListeners: function(location, added) {
-    for (var i = 0; i < this.locationListeners.length; i++)
-      this.locationListeners[i](location, added);
-  },
-
-  // Makes sure that all nodes still valid (have a view associated with them)
-  checkNodes: function(key) {
-    if (!(key in this.locations))
-      return null;
-
-    var data = this.locations[key];
-    for (var i = 0; i < data.inseclNodes.length; i++) {
-      var insecNode = data.inseclNodes[i];
-      var valid = true;
-      
-      // Special handling for subdocuments - those nodes might be still valid,
-      // but the have been readded for another URL
-      if (data.type == type.SUBDOCUMENT)
-        valid = (secureGet(insecNode, "contentWindow", "location", "href") == data.location);
-      else if (secureGet(insecNode, "nodeType") == Node.ELEMENT_NODE)
-        valid = secureGet(insecNode, "ownerDocument", "defaultView");
-      else if (secureGet(insecNode, "nodeType") == Node.DOCUMENT_NODE)
-        valid = secureGet(insecNode, "defaultView");
-
-      if (!valid)
-        data.inseclNodes.splice(i--, 1);
-    }
-
-    if (data.inseclNodes.length > 0)
-      return data;
-    else {
-      this.notifyLocationListeners(data, false);
-      delete this.locations[key];
-      return null;
-    }
   }
 };
 
 // Loads Adblock data associated with a window object
+var insecLastQuery = null;
+var lastQueryResult = null;
 DataContainer.getDataForWindow = function(insecWnd) {
-  var data = secureLookup(insecWnd, "controllers", "getControllerForCommand")("abp");
-  while (data && !("validate" in data))
-    data = data.wrappedJSObject;
+  var insecDoc = secureGet(insecWnd, "document");
+  if (insecLastQuery == insecDoc)
+    return lastQueryResult;
 
-  if (!data) {
-    data = new DataContainer();
-    data.install(insecWnd);
-  }
-  else
-    data.validate(insecWnd);
+  queryResult = null;
+  var ev = secureLookup(insecDoc, "createEvent")("Events");
+  ev.initEvent("abpQuery", false, false);
+  secureLookup(insecWnd, "dispatchEvent")(ev);
+
+  var data = queryResult;
+  if (!data)
+    data = new DataContainer(insecWnd);
+
+  insecLastQuery = insecDoc;
+  lastQueryResult = data;
 
   return data;
 };
+abp.getDataForWindow = DataContainer.getDataForWindow;
 
 // Loads Adblock data associated with a node object
 DataContainer.getDataForNode = function(insecNode) {
@@ -210,6 +205,23 @@ DataContainer.getDataForNode = function(insecNode) {
 
   return null;
 };
-
-abp.getDataForWindow = DataContainer.getDataForWindow;
 abp.getDataForNode = DataContainer.getDataForNode;
+
+// Adds a new handler to be notified whenever the location list is added
+DataContainer.listeners = [];
+DataContainer.addListener = function(handler) {
+  DataContainer.listeners.push(handler);
+};
+  
+// Removes a handler
+DataContainer.removeListener = function(handler) {
+  for (var i = 0; i < DataContainer.listeners.length; i++)
+    if (DataContainer.listeners[i] == handler)
+      DataContainer.listeners.splice(i--, 1);
+};
+
+// Calls all location listeners
+DataContainer.notifyListeners = function(type, data, location) {
+  for (var i = 0; i < DataContainer.listeners.length; i++)
+    DataContainer.listeners[i](type, data, location);
+};

@@ -78,7 +78,7 @@ var flasher = {
   {
     for (var i = 0; i < this.inseclNodes.length; i++) {
       var insecNode = this.inseclNodes[i];
-      var insecContentBody = secureGet(insecNode, "contentDocument", "body");
+      var insecContentBody = secureGet(insecNode, "document", "body");
       if (insecContentBody)
         insecNode = insecContentBody;   // for frames
 

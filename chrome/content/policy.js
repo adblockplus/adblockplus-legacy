@@ -82,7 +82,8 @@ var policy = {
     // unalterable content-policy types + nodeNames -- root-elements
     baseTypes = {
       SCRIPT: true,
-      STYLESHEET: true
+      STYLESHEET: true,
+      BACKGROUND: true
     };
     this.translateTypes(baseTypes);
   
@@ -91,16 +92,23 @@ var policy = {
 
   // Checks whether a node should be blocked, hides it if necessary, return value false means that the node is blocked
   processNode: function(insecNode, contentType, location, collapse) {
-    var insecWnd = getTopWindow(insecNode);
-    if (!insecWnd || (!prefs.blocklocalpages && !this.isBlockableScheme(secureGet(insecWnd, "location"))))
+    var insecWnd;
+    if (insecNode instanceof Window)
+      insecWnd = insecNode;
+    else
+      insecWnd = getWindow(insecNode);
+
+    if (!insecWnd)
       return true;
 
-    if (this.isWhitelisted(secureGet(insecWnd, "location", "href")))
+    var insecTop = secureGet(insecWnd, "top");
+    if (!insecTop || (!prefs.blocklocalpages && !this.isBlockableScheme(secureGet(insecTop, "location"))))
+      return true;
+
+    if (this.isWhitelisted(secureGet(insecTop, "location", "href")))
       return true;
 
     var data = DataContainer.getDataForWindow(insecWnd);
-    if (!collapse)
-      insecNode = elementInterface(contentType, insecNode);
 
     var match = null;
     var linksOk = true;
@@ -119,20 +127,25 @@ var policy = {
         cache.put(location, match);
       }
 
-      // Check links in parent nodes
-      if (insecNode && prefs.linkcheck && contentType in linkTypes)
-        linksOk = this.checkLinks(insecNode);
-
-      // If the node wasn't blocked we still might want to add a frame to it
-      if (!match && prefs.frameobjects
-          && (contentType == type.OBJECT || secureGet(insecNode, "nodeName").toLowerCase() == "embed") // objects and raw-embeds
-          && location != secureGet(insecNode, "ownerDocument", "defaultView", "location", "href")) // it's not a standalone object
-        secureLookup(insecWnd, "setTimeout")(addObjectTab, 0, insecNode, location, insecWnd);
+      if (!(insecNode instanceof Window)) {
+        // Check links in parent nodes
+        if (insecNode && prefs.linkcheck && contentType in linkTypes)
+          linksOk = this.checkLinks(insecNode);
+  
+        // If the node wasn't blocked we still might want to add a frame to it
+        if (!match && prefs.frameobjects
+            && (contentType == type.OBJECT || secureGet(insecNode, "nodeName").toLowerCase() == "embed") // objects and raw-embeds
+            && location != secureGet(insecNode, "ownerDocument", "defaultView", "location", "href")) // it's not a standalone object
+          secureLookup(insecWnd, "setTimeout")(addObjectTab, 0, insecNode, location, insecTop);
+      }
     }
 
     // Fix type for background images
-    if (contentType == type.IMAGE && secureGet(insecNode, "nodeType") == Node.DOCUMENT_NODE)
+    if (contentType == type.IMAGE && (insecNode instanceof Window || secureGet(insecNode, "nodeType") == Node.DOCUMENT_NODE)) {
       contentType = type.BACKGROUND;
+      if (insecNode instanceof Window)
+        insecNode = secureGet(insecNode, "document");
+    }
 
     // Store node data
     data.addNode(insecNode, contentType, location, match);
@@ -140,7 +153,9 @@ var policy = {
     if (match && !match.isWhite && insecNode) {
       // hide immediately if fastcollapse is off but not base types
       collapse = collapse || !prefs.fastcollapse;
-      collapse = collapse && !(contentType in baseTypes || secureGet(insecNode, "nodeName").toLowerCase() in baseNames);
+      collapse = collapse && !(contentType in baseTypes);
+      if (!(insecNode instanceof Window))
+         collapse = collapse && !(secureGet(insecNode, "nodeName").toLowerCase() in baseNames);
       hideNode(insecNode, insecWnd, collapse);
     }
 
@@ -185,25 +200,52 @@ var policy = {
   },
 
   // nsIContentPolicy interface implementation
-  shouldLoad: function(contentType, contentLocation, requestOrigin, insecRequestingNode, mimeTypeGuess, extra) {
+  shouldLoad: function(contentType, contentLocation, requestOrigin, insecNode, mimeTypeGuess, extra) {
     // if it's not a blockable type or not the HTTP protocol, use the usual policy
     if (!(contentType in blockTypes && contentLocation.scheme in blockSchemes))
       return ok;
 
     // handle old api
-    if (oldStyleAPI)
-      insecRequestingNode = requestOrigin;  // oldStyleAPI @params: function(contentType, contentLocation, context, wnd)
+    if (oldStyleAPI && requestOrigin)
+      insecNode = requestOrigin;  // oldStyleAPI @params: function(contentType, contentLocation, context, wnd)
 
-    if (!insecRequestingNode)
+    if (!insecNode)
       return ok;
 
-    return (this.processNode(insecRequestingNode, contentType, contentLocation.spec, false) ? ok : block);
+    // New API will return the frame element, make it a window
+    if (contentType == type.SUBDOCUMENT && secureGet(insecNode, "contentWindow"))
+      insecNode = secureGet(insecNode, "contentWindow");
+
+    // Old API requires us to QI the node
+    if (oldStyleAPI) {
+      try {
+        insecNode = secureLookup(insecNode, "QueryInterface")(Components.interfaces.nsIDOMElement);
+      } catch(e) {}
+    }
+
+    return (this.processNode(insecNode, contentType, contentLocation.spec, false) ? ok : block);
   },
 
-  shouldProcess: function(contentType, contentLocation, requestOrigin, insecRequestingNode, mimeType, extra) {
+  shouldProcess: function(contentType, contentLocation, requestOrigin, insecNode, mimeType, extra) {
     return ok;
   }
 };
 
 policy.init();
 abp.policy = policy;
+
+// returns the queryInterface to a dom-object or frame / iframe -- for 'shouldload' policy-check
+function elementInterface(contentType, insecNode) {
+  try {
+    var insecWnd = secureGet(insecNode, "contentWindow");
+    if (insecWnd)
+      return insecWnd;
+    else if (!oldStyleAPI)
+      return insecNode;
+    else
+      return secureLookup(insecNode, "QueryInterface")(Components.interfaces.nsIDOMElement);
+  }
+  catch(e) {
+    return insecNode;
+  }
+}
