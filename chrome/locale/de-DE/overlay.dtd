@@ -36,10 +36,10 @@
 <!ENTITY sidebar.title          "Adblock Plus">
 
 <!ENTITY settings.label         "Einstellungen">
-<!ENTITY settings.accesskey     "Т">
+<!ENTITY settings.accesskey     "T">
 <!ENTITY opensidebar.label      "Sidebar öffnen">
 <!ENTITY opensidebar.accesskey  "S">
 <!ENTITY closesidebar.label     "Sidebar schließen">
 <!ENTITY closesidebar.accesskey "S">
 <!ENTITY whitelist.site.label   "Deaktivieren auf --">
-<!ENTITY whitelist.page.label   "Deaktivieren auf dieser Seite und dessen Unterseiten">
+<!ENTITY whitelist.page.label   "Deaktivieren auf dieser Seite und deren Unterseiten">
