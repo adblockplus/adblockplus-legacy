@@ -123,27 +123,31 @@ function mainUnload() {
 
 // Decides which dummy item to insert into the list
 function insertDummy(list) {
-  removeDummy();
-
-  currentDummy = loadDummy;
+  var newDummy = loadDummy;
   if (abp) {
-    currentDummy = itemsDummy;
+    newDummy = itemsDummy;
 
     var insecLocation = secureGet(window.content, "location");
     // We want to stick with "no blockable items" for about:blank
     if (secureGet(insecLocation, "href") != "about:blank") {
       if (!abp.policy.isBlockableScheme(insecLocation))
-        currentDummy = remoteDummy;
+        newDummy = remoteDummy;
       else {
         var filter = abp.policy.isWhitelisted(secureGet(insecLocation, "href"));
         if (filter) {
-          currentDummy = whitelistDummy;
-          currentDummy.filter = filter;
+          newDummy = whitelistDummy;
+          newDummy.filter = filter;
         }
       }
     }
   }
-  list.appendChild(currentDummy);
+
+  if (newDummy == currentDummy)
+    return;         // Dummy already in the list
+
+  removeDummy();  // Make sure other dummied aren't there
+  list.appendChild(newDummy);
+  currentDummy = newDummy;
 }
 
 // Removes the dummy from the list
