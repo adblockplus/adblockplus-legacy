@@ -26,7 +26,7 @@
 
 <!ENTITY detach.label             "Abkoppeln">
 <!ENTITY reattach.label           "Ankoppeln">
-<!ENTITY list.label               "Elemente auf geöffneter Seite">
+<!ENTITY list.label               "Elemente der geöffneten Seite">
 
 <!ENTITY type.label               "Typ">
 <!ENTITY address.label            "Adresse">

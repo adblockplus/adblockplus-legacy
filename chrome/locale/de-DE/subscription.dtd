@@ -44,7 +44,7 @@
   Falls 'Automatisch aktualisieren' auswählt ist, wird diese
   Adresse täglich auf Änderungen überprüft. Ohne diese Option
   kann die Aktualisierung immer noch manuell aus dem
-  Kontext-Menu des Abonnements gestartet werden.
+  Kontext-Menü des Abonnements gestartet werden.
 ">
 
 <!ENTITY location.label             "Adresse der Filter-Liste">
