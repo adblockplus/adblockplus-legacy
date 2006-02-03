@@ -1,0 +1,17 @@
+<!ENTITY notloaded.label "Neįkelta">
+<!ENTITY notloaded.tooltip "„Adblock Plus“ priedas negali būti įkeltas. Greičiausiai jis nebuvo sėkmingai įdiegtas">
+<!ENTITY menuitem.label "„Adblock Plus“">
+<!ENTITY menuitem.accesskey "A">
+<!ENTITY context.image.label "Blokuoti paveikslėlį">
+<!ENTITY context.object.label "Blokuoti objektą">
+<!ENTITY context.link.label "Blokuoti nuorodą">
+<!ENTITY context.frame.label "Blokuoti kadrą">
+<!ENTITY sidebar.title "„Adblock Plus“">
+<!ENTITY settings.label "Nustatymai">
+<!ENTITY settings.accesskey "s">
+<!ENTITY opensidebar.label "Atverti parankinę">
+<!ENTITY opensidebar.accesskey "p">
+<!ENTITY closesidebar.label "Užverti parankinę">
+<!ENTITY closesidebar.accesskey "u">
+<!ENTITY whitelist.site.label "Išjungti --">
+<!ENTITY whitelist.page.label "Išjungti šiam tinklalapiui ir kitiems tinklalapiams iš to paties domeno">

@@ -1,0 +1,59 @@
+<!ENTITY dialog.title "Adblock Plus nustatymai">
+<!ENTITY filters.label "Filtrai">
+<!ENTITY filters.accesskey "F">
+<!ENTITY addsubscription.label "Pridėti filtro prenumeratą">
+<!ENTITY addsubscription.accesskey "p">
+<!ENTITY import.label "Importuoti filtrus">
+<!ENTITY import.accesskey "m">
+<!ENTITY export.label "Eksportuoti filtrus">
+<!ENTITY export.accesskey "k">
+<!ENTITY clearall.label "Pašalinti visus filtrus">
+<!ENTITY clearall.accesskey "l">
+<!ENTITY listsort.label "Rūšiuoti abėcėlės tvarka">
+<!ENTITY listsort.accesskey "a">
+<!ENTITY options.label "Pasirinktys">
+<!ENTITY options.accesskey "s">
+<!ENTITY enable.label "Įjungti „Adblock Plus“">
+<!ENTITY enable.accesskey "j">
+<!ENTITY showinstatusbar.label "Rodyti būsenos juostoje">
+<!ENTITY showinstatusbar.accesskey "b">
+<!ENTITY localpages.label "Blokuoti nutolusias reklamas vietiniuose tinklalapiuose">
+<!ENTITY localpages.accesskey "n">
+<!ENTITY objecttabs.label "Rodyti korteles Flash ir Java elementams">
+<!ENTITY objecttabs.accesskey "k">
+<!ENTITY collapse.label "Suskleisti užblokuotus elementus">
+<!ENTITY collapse.accesskey "k">
+<!ENTITY linkcheck.label "Patikrinti reklaminių antraščių nuorodas">
+<!ENTITY linkcheck.accesskey "a">
+<!ENTITY help.label "Pagalba">
+<!ENTITY help.accesskey "P">
+<!ENTITY faq.label "Dažnai užduodami klausimai">
+<!ENTITY faq.accesskey "D">
+<!ENTITY faq.url "http://adblockplus.mozdev.org/faq.html">
+<!ENTITY tips.label "Dienos patarimas">
+<!ENTITY tips.accesskey "p">
+<!ENTITY tips.url "http://adblockplus.mozdev.org/tips.html">
+<!ENTITY regexps.label "Kaip rašyti reguliariuosius reiškinius">
+<!ENTITY regexps.accesskey "r">
+<!ENTITY regexps.url "http://developer.mozilla.org/en/docs/Core_JavaScript_1.5_Guide:Regular_Expressions#Writing_a_Regular_Expression_Pattern">
+<!ENTITY about.label "Apie „Adblock Plus“">
+<!ENTITY about.accesskey "A">
+<!ENTITY disabled.warning "„Adblock Plus“ yra išjungtas. Jūs galite redaguoti filtrus sąraše, bet jie nebus pritaikomi, kol neįjungsite „Adblock Plus“.">
+<!ENTITY description "Pridėkite adresus, kuriuos norite blokuoti. Norėdami gauti pasiūlymus, peržiūrėkite išskleidžiamąjį sąrašą. Galite pridėti „*“ kaip pakaitos simbolį norėdami sukurti bendresnius filtrus. Patyrę naudotojai gali naudoti reguliariuosius reiškinius, tokius kaip „/banner\d+\.gif$/“.">
+<!ENTITY newfilter.label "Naujas filtras">
+<!ENTITY newfilter.accesskey "N">
+<!ENTITY add.label "Pridėti filtrą">
+<!ENTITY add.accesskey "P">
+<!ENTITY list.label "Filtrų taisyklės">
+<!ENTITY list.accesskey "t">
+<!ENTITY context.edit.label "Redaguoti filtrą">
+<!ENTITY context.remove.label "Pašalinti filtrą(us)">
+<!ENTITY context.synchsubscription.label "Atnaujinti prenumeratą">
+<!ENTITY context.editsubscription.label "Redaguoti prenumeratą">
+<!ENTITY context.removesubscription.label "Pašalinti prenumeratą">
+<!ENTITY context.moveup.label "Perkelti aukščiau">
+<!ENTITY context.movedown.label "Perkelti žemiau">
+<!ENTITY context.movegroupup.label "Perkelti grupę aukščiau">
+<!ENTITY context.movegroupdown.label "Perkelti grupę žemiau">
+<!ENTITY ok.label "Gerai">
+<!ENTITY cancel.label "Atsisakyti">
