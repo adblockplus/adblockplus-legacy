@@ -73,3 +73,7 @@ toolbar[iconsize="small"] #abp-toolbarbutton[deactivated] {
 toolbar[iconsize="small"] #abp-toolbarbutton[disabled="true"] {
   list-style-image: url("chrome://adblockplus/skin/abp-defunc-16.png");
 }
+
+#abp-tooltip {
+  max-width: none;
+}
