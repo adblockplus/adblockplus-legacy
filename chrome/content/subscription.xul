@@ -50,11 +50,11 @@
     <column flex="1"/> 
   </columns>
   <rows>
-    <row id="locationRow">
+    <row id="locationRow" align="center">
       <label value="&location.label;:" accesskey="&location.accesskey;" control="location"/>
       <textbox id="location"/>
     </row>
-    <row id="titleRow">
+    <row id="titleRow" align="center">
       <label value="&title.label;:" accesskey="&title.accesskey;" control="title"/>
       <textbox id="title"/>
     </row>
