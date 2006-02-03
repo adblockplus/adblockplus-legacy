@@ -1,0 +1,17 @@
+<!ENTITY notloaded.label "Ei ladattu">
+<!ENTITY notloaded.tooltip "Adblock Plussan komponenttia ei voitu ladata, ehkä se ei asentunut oikein">
+<!ENTITY menuitem.label "Adblock Plus">
+<!ENTITY menuitem.accesskey "A">
+<!ENTITY context.image.label "Estä kuva Adblockilla">
+<!ENTITY context.object.label "Estä kohde Adblockilla">
+<!ENTITY context.link.label "Estä linkki Adblockilla">
+<!ENTITY context.frame.label "Estä kehys Adblockilla">
+<!ENTITY sidebar.title "Adblock Plus">
+<!ENTITY settings.label "Asetukset">
+<!ENTITY settings.accesskey "A">
+<!ENTITY opensidebar.label "Avaa sivupaneeli">
+<!ENTITY opensidebar.accesskey "S">
+<!ENTITY closesidebar.label "Sulje sivupaneeli">
+<!ENTITY closesidebar.accesskey "S">
+<!ENTITY whitelist.site.label "Poista käytöstä osoiteelle --">
+<!ENTITY whitelist.page.label "Poista käytöstä tällä sivulla ja tämän alisivuilla">

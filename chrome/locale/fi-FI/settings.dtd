@@ -1,0 +1,63 @@
+<!ENTITY dialog.title "Adblock Plus - Asetukset">
+<!ENTITY filters.label "Suodattimet">
+<!ENTITY filters.accesskey "S">
+<!ENTITY addsubscription.label "Lisää suodatintilaus">
+<!ENTITY addsubscription.accesskey "L">
+<!ENTITY import.label "Tuo suodattimia">
+<!ENTITY import.accesskey "T">
+<!ENTITY export.label "Vie suodattimia">
+<!ENTITY export.accesskey "V">
+<!ENTITY clearall.label "Poista kaikki suodattimet">
+<!ENTITY clearall.accesskey "k">
+<!ENTITY listsort.label "Järjestä aakkosjärjestyksessä">
+<!ENTITY listsort.accesskey "J">
+<!ENTITY options.label "Asetukset">
+<!ENTITY options.accesskey "A">
+<!ENTITY enable.label "Ota Adblock Plus käyttöön">
+<!ENTITY enable.accesskey "k">
+<!ENTITY showinstatusbar.label "Näytä tilarivillä">
+<!ENTITY showinstatusbar.accesskey "N">
+<!ENTITY localpages.label "Estä etämainokset paikallisella sivulla">
+<!ENTITY localpages.accesskey "p">
+<!ENTITY objecttabs.label "Näytä painike Flashin ja Javan yhteydessä">
+<!ENTITY objecttabs.accesskey "F">
+<!ENTITY collapse.label "Romahduta estetyt elementit">
+<!ENTITY collapse.accesskey "R">
+<!ENTITY linkcheck.label "Tarkista kuvien linkit">
+<!ENTITY linkcheck.accesskey "l">
+<!ENTITY help.label "Ohje">
+<!ENTITY help.accesskey "O">
+<!ENTITY faq.label "Usein kysytyt kysymykset (FAQ)">
+<!ENTITY faq.accesskey "F">
+<!ENTITY faq.url "http://adblockplus.mozdev.org/faq.html">
+<!ENTITY tips.label "Päivän vinkki">
+<!ENTITY tips.accesskey "v">
+<!ENTITY tips.url "http://adblockplus.mozdev.org/tips.html">
+<!ENTITY regexps.label "Säännöllisten lausekkeiden kirjoittaminen">
+<!ENTITY regexps.accesskey "l">
+<!ENTITY regexps.url "http://developer.mozilla.org/en/docs/Core_JavaScript_1.5_Guide:Regular_Expressions#Writing_a_Regular_Expression_Pattern">
+<!ENTITY about.label "Tietoja Adblock Plussasta">
+<!ENTITY about.accesskey "T">
+<!ENTITY disabled.warning "Adblock Plus on poissa käytöstä. Voit muokata listan suodattimia mutta niitä käytetä ennen kuin otat Adblockin käyttöön.">
+<!ENTITY description "
+		Lisää osoitteet, jotka haluat estää, katso ehdotuksia pudotusvalikosta.
+		Voit käyttää * jokerimerkkinä luodaksesi yleisimpiä suodattimia. Edistyneet käyttäjät voivat
+		käyttää säännöllisiä lausekkeita kuten /banner\d+\.gif$/.
+">
+<!ENTITY newfilter.label "Uusi suodatin">
+<!ENTITY newfilter.accesskey "U">
+<!ENTITY add.label "Lisää suodatin">
+<!ENTITY add.accesskey "L">
+<!ENTITY list.label "Suodattimen säännöt">
+<!ENTITY list.accesskey "s">
+<!ENTITY context.edit.label "Muokkaa suodatinta">
+<!ENTITY context.remove.label "Poista suodatin">
+<!ENTITY context.synchsubscription.label "Päivitä tilaus nyt">
+<!ENTITY context.editsubscription.label "Muokkaa tilausta">
+<!ENTITY context.removesubscription.label "Poista tilaus">
+<!ENTITY context.moveup.label "Siirrä ylös">
+<!ENTITY context.movedown.label "Siirrä alas">
+<!ENTITY context.movegroupup.label "Siirrä ryhmä ylös">
+<!ENTITY context.movegroupdown.label "Siirrä ryhmä alas">
+<!ENTITY ok.label "OK">
+<!ENTITY cancel.label "Peruuta">
