@@ -8,7 +8,7 @@
 
   <RDF:Description about="urn:mozilla:locale:fi-FI"
       chrome:displayName="Finnish(FI)"
-      chrome:author="Akilles"
+      chrome:author="Joni Heinonen aka Akilles"
       chrome:name="fi-FI">
     <chrome:packages>
       <RDF:Seq about="urn:mozilla:locale:fi-FI:packages">
