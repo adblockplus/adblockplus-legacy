@@ -13,6 +13,8 @@ opendir(LOCALES, "chrome/locale");
 my @locales = grep {!/[^\w\-]/ && !/CVS/} readdir(LOCALES);
 closedir(LOCALES);
 
+@locales = sort {$a eq "en-US" ? -1 : ($b eq "en-US" ? 1 : $a cmp $b)} @locales;
+
 my $output_file = $ARGV[0] || "adblockplus.xpi";
 
 rm_rec('tmp');
