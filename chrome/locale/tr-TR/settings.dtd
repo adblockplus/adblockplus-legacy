@@ -1,0 +1,59 @@
+<!ENTITY dialog.title "Adblock Plus Tercihleri">
+<!ENTITY filters.label "Süzgeçler">
+<!ENTITY filters.accesskey "S">
+<!ENTITY addsubscription.label "Süzgeç aboneliği ekle">
+<!ENTITY addsubscription.accesskey "E">
+<!ENTITY import.label "Süzgeçleri içe aktar">
+<!ENTITY import.accesskey "Z">
+<!ENTITY export.label "Süzgeçleri dışa aktar">
+<!ENTITY export.accesskey "D">
+<!ENTITY clearall.label "Tüm süzgeçleri kaldır">
+<!ENTITY clearall.accesskey "L">
+<!ENTITY listsort.label "Harf sırasına sok">
+<!ENTITY listsort.accesskey "H">
+<!ENTITY options.label "Seçenekler">
+<!ENTITY options.accesskey "S">
+<!ENTITY enable.label "Adblock Plus'ı etkinleştir">
+<!ENTITY enable.accesskey "A">
+<!ENTITY showinstatusbar.label "Durum çubuğunda göster">
+<!ENTITY showinstatusbar.accesskey "D">
+<!ENTITY localpages.label "Yerel sayfaların dış kaynaklı reklamlarını engelle">
+<!ENTITY localpages.accesskey "Y">
+<!ENTITY objecttabs.label "Flash ve Java'yı kulakçıklarlar belirt">
+<!ENTITY objecttabs.accesskey "J">
+<!ENTITY collapse.label "Öğeler kapat">
+<!ENTITY collapse.accesskey "T">
+<!ENTITY linkcheck.label "Tanıtım bağlarına bak">
+<!ENTITY linkcheck.accesskey "B">
+<!ENTITY help.label "Yardım">
+<!ENTITY help.accesskey "A">
+<!ENTITY faq.label "Sıkça Sorulan Sorular">
+<!ENTITY faq.accesskey "S">
+<!ENTITY faq.url "http://adblockplus.mozdev.org/faq.html">
+<!ENTITY tips.label "Bugünün İpucu">
+<!ENTITY tips.accesskey "B">
+<!ENTITY tips.url "http://adblockplus.mozdev.org/tips.html">
+<!ENTITY regexps.label "Düzenli ifade yazımı">
+<!ENTITY regexps.accesskey "Z">
+<!ENTITY regexps.url "http://developer.mozilla.org/en/docs/Core_JavaScript_1.5_Guide:Regular_Expressions#Writing_a_Regular_Expression_Pattern">
+<!ENTITY about.label "Adblock Plus Hakkında">
+<!ENTITY about.accesskey "O">
+<!ENTITY disabled.warning "Adblock Plus şu an devre dışı. Listedeki süzgeçleri değiştirebilirsiniz. Ancak bunlar eklenti devreye girene kadar kullanılamayacak.">
+<!ENTITY description "Engellemek istediğiniz adresleri yazın. Öneriler için açılır menüye bakın. Daha genel süzgeçler tanımlamak için * işaretini kullanabilirsiniz. İleri düzeyde bilgiye sahip kullanıcılar düzenli ifadelere (ör. /reklam\d+\.gif$/) de başvurabilir.">
+<!ENTITY newfilter.label "Yeni süzgeç">
+<!ENTITY newfilter.accesskey "Y">
+<!ENTITY add.label "Süzgeç ekle">
+<!ENTITY add.accesskey "E">
+<!ENTITY list.label "Süzme kuralları">
+<!ENTITY list.accesskey "U">
+<!ENTITY context.edit.label "Süzgeci düzenle">
+<!ENTITY context.remove.label "Süzgeci sil">
+<!ENTITY context.synchsubscription.label "Aboneliği eşle">
+<!ENTITY context.editsubscription.label "Aboneliği düzenle">
+<!ENTITY context.removesubscription.label "Abonelikten çık">
+<!ENTITY context.moveup.label "Yukarıya taşı">
+<!ENTITY context.movedown.label "Aşağıya taşı">
+<!ENTITY context.movegroupup.label "Öbeği yukarıya taşı">
+<!ENTITY context.movegroupdown.label "Öbeği aşağıya taşı">
+<!ENTITY ok.label "Tamam">
+<!ENTITY cancel.label "Vazgeç">

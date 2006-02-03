@@ -1,0 +1,13 @@
+<!ENTITY detached.title "Adblock Plus kenar çubuğu">
+<!ENTITY detach.label "Ayır">
+<!ENTITY reattach.label "Birleştir">
+<!ENTITY list.label "Bakılan sayfadaki öğeler">
+<!ENTITY type.label "Tür">
+<!ENTITY address.label "Adres">
+<!ENTITY noitems.label "Engellenebilecek öğe yok">
+<!ENTITY notremote.label "Uzaktaki bir sayfa değil">
+<!ENTITY whitelisted.label "Ak listeye dahil bir sayfa">
+<!ENTITY notloaded.label "Adblock Plus düzgün kurulmamış">
+<!ENTITY effective-filter.label "Yürürlükteki süzgeç">
+<!ENTITY adblock.label "Adblock">
+<!ENTITY adblock.accesskey "A">

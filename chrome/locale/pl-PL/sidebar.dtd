@@ -5,9 +5,9 @@
 <!ENTITY type.label "Typ">
 <!ENTITY address.label "Adres">
 <!ENTITY noitems.label "Elementy nieblokowalne">
-<!ENTITY notremote.label "Nie wyodrębniona strona">
+<!ENTITY notremote.label "Strona lokalna">
 <!ENTITY whitelisted.label "Nie blokowana strona">
 <!ENTITY notloaded.label "Adblock Plus nie został zainstalowany prawidłowo">
-<!ENTITY effective-filter.label "Filtr skuteczny">
+<!ENTITY effective-filter.label "Działające filtry">
 <!ENTITY adblock.label "Adblock">
 <!ENTITY adblock.accesskey "A">

@@ -1,0 +1,13 @@
+<!ENTITY detached.title "Barra laterale di Adblock Plus (separata)">
+<!ENTITY detach.label "Separa">
+<!ENTITY reattach.label "Riunisci">
+<!ENTITY list.label "Elementi di questa pagina">
+<!ENTITY type.label "Tipo">
+<!ENTITY address.label "Indirizzo">
+<!ENTITY noitems.label "Nessun elemento bloccabile">
+<!ENTITY notremote.label "Non è una pagina remota">
+<!ENTITY whitelisted.label "Pagina in whitelist">
+<!ENTITY notloaded.label "Adblock Plus non è stata installata correttamente">
+<!ENTITY effective-filter.label "Filtro effettivo">
+<!ENTITY adblock.label "Adblock Plus">
+<!ENTITY adblock.accesskey "A">

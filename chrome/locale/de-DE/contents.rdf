@@ -8,6 +8,7 @@
 
   <RDF:Description about="urn:mozilla:locale:de-DE"
       chrome:displayName="Deutsch(DE)"
+      chrome:author="Wladimir Palant"
       chrome:name="de-DE">
     <chrome:packages>
       <RDF:Seq about="urn:mozilla:locale:de-DE:packages">

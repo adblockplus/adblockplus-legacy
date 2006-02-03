@@ -14,4 +14,4 @@
 <!ENTITY closesidebar.label "Zamknij panel boczny">
 <!ENTITY closesidebar.accesskey "P">
 <!ENTITY whitelist.site.label "Wyłącz blokowanie na --">
-<!ENTITY whitelist.page.label "Wyłącz blokowanie tylko na tej stronie ">
+<!ENTITY whitelist.page.label "Wyłącz blokowanie na tej stronie i jej podstronach ">
