@@ -69,7 +69,7 @@
     <listitem id="notRemoteDummy" class="filtered">
       <listcell label="&notremote.label;"/>
     </listitem>
-    <listitem id="whitelistedDummy" class="filtered">
+    <listitem id="whitelistedDummy" class="whitelisted">
       <listcell label="&whitelisted.label;"/>
     </listitem>
     <listitem id="notLoadedDummy" class="filtered">
