@@ -26,8 +26,8 @@
 <!ENTITY dialog.newtitle            "Filter-Abonnement hinzufügen">
 
 <!ENTITY new.description            "
-  Geben Sie bitte die Web-Adresse oder den Dateinamen der Liste mit Filtern für
-  Adblock Plus.
+  Tragen Sie bitte die Web-Adresse oder den Dateinamen ein, wo die Liste mit Filtern
+  für Adblock Plus gefunden werden kann.
 ">
 
 <!ENTITY edit.description           "
@@ -41,10 +41,10 @@
 ">
 
 <!ENTITY autodownload.description   "
-  Falls sie 'Automatisch aktualisieren' auswählen, wird diese
+  Falls 'Automatisch aktualisieren' auswählt ist, wird diese
   Adresse täglich auf Änderungen überprüft. Ohne diese Option
-  können sie die Aktualisierung immer noch manuell aus dem
-  Kontext-Menu des Abonnements starten.
+  kann die Aktualisierung immer noch manuell aus dem
+  Kontext-Menu des Abonnements gestartet werden.
 ">
 
 <!ENTITY location.label             "Adresse der Filter-Liste">

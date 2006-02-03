@@ -73,7 +73,7 @@
 <!ENTITY disabled.warning           "Adblock Plus ist deaktiviert. Sie können weiterhin die Filter in der Liste bearbeiten, jedoch Sie müssen Adblock Plus wieder aktivieren, damit diese angewandt werden.">
 
 <!ENTITY description                "
-  Fügen Sie Adressen hinzu, die Sie blocken möchten, Vorschläge gibt es in der
+  Fügen Sie Adressen hinzu, die Sie blockieren möchten, Vorschläge gibt es in der
   Dropdown-Liste. Für allgemeinere Filter können Sie Sternchen (*) als Joker-Zeichen
   verwenden. Fortgeschrittene Benutzer können auch reguläre Ausdrücke benutzen
   wie z.B. /banner\d+\.gif$/.

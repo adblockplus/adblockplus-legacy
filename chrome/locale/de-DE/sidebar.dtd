@@ -31,7 +31,7 @@
 <!ENTITY type.label               "Typ">
 <!ENTITY address.label            "Adresse">
 
-<!ENTITY noitems.label            "Keine Elemente zu blocken">
+<!ENTITY noitems.label            "Keine Elemente zu blockieren">
 <!ENTITY notremote.label          "Seite is lokal">
 <!ENTITY whitelisted.label        "Deaktiviert auf dieser Seite">
 <!ENTITY notloaded.label          "Adblock Plus wurde nicht korrekt installiert">
