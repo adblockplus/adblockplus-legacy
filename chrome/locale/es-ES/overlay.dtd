@@ -1,0 +1,17 @@
+<!ENTITY notloaded.label "No cargado">
+<!ENTITY notloaded.tooltip "El componente de Adblock Plus no se pudo cargar, quizás no se instaló correctamente">
+<!ENTITY menuitem.label "Adblock Plus">
+<!ENTITY menuitem.accesskey "A">
+<!ENTITY context.image.label "Bloquear imagen">
+<!ENTITY context.object.label "Bloquear objeto">
+<!ENTITY context.link.label "Bloquear enlace">
+<!ENTITY context.frame.label "Bloquear marco">
+<!ENTITY sidebar.title "Adblock Plus">
+<!ENTITY settings.label "Preferencias">
+<!ENTITY settings.accesskey "P">
+<!ENTITY opensidebar.label "Abrir barra lateral">
+<!ENTITY opensidebar.accesskey "b">
+<!ENTITY closesidebar.label "Cerrar barra lateral">
+<!ENTITY closesidebar.accesskey "C">
+<!ENTITY whitelist.site.label "Desactivar --">
+<!ENTITY whitelist.page.label "Desactivar en esta página y sus subpáginas">

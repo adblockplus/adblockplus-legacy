@@ -1,0 +1,29 @@
+<!ENTITY dialog.title "Muokkaa tilattua suodatinlistaa">
+<!ENTITY dialog.newtitle "Lisää suodatintilaus">
+<!ENTITY new.description "
+	Syötä verkko-osoite tai tiedosto, joka sisältää listan 
+	Adblock Plus -suodattimia.
+">
+<!ENTITY edit.description "
+	Tämän tilauksen suodatinlista ladataan annetusta
+	sijainnista (ei voi vaihtaa enään).
+">
+<!ENTITY external.description "
+	Tämä on ulkoinen suodatintilaus, sen suodatinlista
+	pidetään ajan tasalla laajennuksella, joka on luotu tätä 
+	tilausta varten.
+">
+<!ENTITY autodownload.description "
+	Jos valitset &quot;Päivitä automaattisesti&quot;, tämä sijainti
+	tarkistetaan päivittäin päivitysten varalta. Vaikka tämä asetus on poissa 
+	käytöstä voit silti suorittaa päivittämisen käsin  valitsemalla
+	&quot;Päivitä tilaus nyt&quot; tilauksen ponnahdusvalikosta.
+">
+<!ENTITY location.label "Suodatinlistan sijainti">
+<!ENTITY location.accesskey "s">
+<!ENTITY title.label "Tilauksen otsikko">
+<!ENTITY title.accesskey "o">
+<!ENTITY autodownload.label "Päivitä automaattisesti">
+<!ENTITY autodownload.accesskey "a">
+<!ENTITY enabled.label "Käytä suodattimia">
+<!ENTITY enabled.accesskey "K">

@@ -1,0 +1,59 @@
+<!ENTITY dialog.title "Preferencias de Adblock Plus">
+<!ENTITY filters.label "Filtros">
+<!ENTITY filters.accesskey "F">
+<!ENTITY addsubscription.label "Añadir subscripción de filtro">
+<!ENTITY addsubscription.accesskey "s">
+<!ENTITY import.label "Importar filtros">
+<!ENTITY import.accesskey "m">
+<!ENTITY export.label "Exportar filtros">
+<!ENTITY export.accesskey "x">
+<!ENTITY clearall.label "Eliminar todos los filtros">
+<!ENTITY clearall.accesskey "l">
+<!ENTITY listsort.label "Ordenar alfabéticamente">
+<!ENTITY listsort.accesskey "e">
+<!ENTITY options.label "Opciones">
+<!ENTITY options.accesskey "O">
+<!ENTITY enable.label "Activar Adblock Plus">
+<!ENTITY enable.accesskey "v">
+<!ENTITY showinstatusbar.label "Mostrar en la barra de estado">
+<!ENTITY showinstatusbar.accesskey "b">
+<!ENTITY localpages.label "Bloquear publicidad remota en las páginas locales">
+<!ENTITY localpages.accesskey "r">
+<!ENTITY objecttabs.label "Mostrar pestañas en Flash y Java">
+<!ENTITY objecttabs.accesskey "t">
+<!ENTITY collapse.label "Contraer elementos bloqueados">
+<!ENTITY collapse.accesskey "m">
+<!ENTITY linkcheck.label "Comprobar enlaces de anuncios">
+<!ENTITY linkcheck.accesskey "C">
+<!ENTITY help.label "Ayuda">
+<!ENTITY help.accesskey "y">
+<!ENTITY faq.label "Preguntas frecuentes">
+<!ENTITY faq.accesskey "f">
+<!ENTITY faq.url "http://adblockplus.mozdev.org/faq.html">
+<!ENTITY tips.label "Consejo del día">
+<!ENTITY tips.accesskey "j">
+<!ENTITY tips.url "http://adblockplus.mozdev.org/tips.html">
+<!ENTITY regexps.label "Escribiendo expresiones regulares">
+<!ENTITY regexps.accesskey "x">
+<!ENTITY regexps.url "http://developer.mozilla.org/en/docs/Core_JavaScript_1.5_Guide:Regular_Expressions#Writing_a_Regular_Expression_Pattern">
+<!ENTITY about.label "Acerca de Adblock Plus">
+<!ENTITY about.accesskey "b">
+<!ENTITY disabled.warning "Adblock Plus está desactivado. Puedes editar cualquier filtro en la lista, pero estos no se aplicarán hasta que lo reactives.">
+<!ENTITY description "Añadir las direcciones que quieres bloquear, para sugerencias comprueba la lista de abajo. Puedes usar un * como un comodín para crear filtros más específicos. Los usuarios avanzados pueden usar expresiones regulares como /banner\d+\.gif$/.">
+<!ENTITY newfilter.label "Nuevo filtro">
+<!ENTITY newfilter.accesskey "N">
+<!ENTITY add.label "Añadir filtro">
+<!ENTITY add.accesskey "A">
+<!ENTITY list.label "Reglas de filtro">
+<!ENTITY list.accesskey "R">
+<!ENTITY context.edit.label "Editar filtro">
+<!ENTITY context.remove.label "Eliminar filtro(s)">
+<!ENTITY context.synchsubscription.label "Actualizar subscripción ahora">
+<!ENTITY context.editsubscription.label "Editar subscripción">
+<!ENTITY context.removesubscription.label "Eliminar subscripción">
+<!ENTITY context.moveup.label "Subir">
+<!ENTITY context.movedown.label "Bajar">
+<!ENTITY context.movegroupup.label "Subir grupo">
+<!ENTITY context.movegroupdown.label "Bajar grupo">
+<!ENTITY ok.label "Aceptar">
+<!ENTITY cancel.label "Cancelar">
