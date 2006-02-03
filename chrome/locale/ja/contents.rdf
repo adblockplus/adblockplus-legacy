@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<RDF:RDF xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+xmlns:chrome="http://www.mozilla.org/rdf/chrome#">
+
+<!-- list all the packages being supplied by this jar -->
+<RDF:Seq about="urn:mozilla:locale:root">
+<RDF:li resource="urn:mozilla:locale:ja"/>
+</RDF:Seq>
+
+<!-- locale information -->
+<RDF:Description about="urn:mozilla:locale:ja"
+	chrome:displayName="Japanese(JP)"
+	chrome:author="Premier"
+	chrome:name="ja">
+<chrome:packages>
+<RDF:Seq about="urn:mozilla:locale:ja:packages">
+<RDF:li resource="urn:mozilla:locale:ja:adblockplus"/>
+</RDF:Seq>
+</chrome:packages>
+</RDF:Description>
+<RDF:Description about="urn:mozilla:locale:ja" chrome:name="ja-JP-mac">
+<chrome:packages>
+	<RDF:Seq about="urn:mozilla:locale:ja-JP-mac:packages">
+	<RDF:li resource="urn:mozilla:locale:ja-JP-mac:adblockplus"/>
+</RDF:Seq>
+</chrome:packages>
+</RDF:Description>
+<RDF:Description about="urn:mozilla:locale:ja" chrome:name="ja-JP">
+<chrome:packages>
+	<RDF:Seq about="urn:mozilla:locale:ja-JP:packages">
+	<RDF:li resource="urn:mozilla:locale:ja-JP:adblockplus"/>
+</RDF:Seq>
+</chrome:packages>
+</RDF:Description>
+<RDF:Description about="urn:mozilla:locale:ja" chrome:name="ja-JPM">
+<chrome:packages>
+	<RDF:Seq about="urn:mozilla:locale:ja-JPM:packages">
+	<RDF:li resource="urn:mozilla:locale:ja-JPM:adblockplus"/>
+</RDF:Seq>
+</chrome:packages>
+</RDF:Description>
+</RDF:RDF>

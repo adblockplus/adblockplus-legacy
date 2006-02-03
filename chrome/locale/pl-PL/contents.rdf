@@ -3,16 +3,16 @@
      xmlns:chrome="http://www.mozilla.org/rdf/chrome#">
 
   <RDF:Seq about="urn:mozilla:locale:root">
-    <RDF:li resource="urn:mozilla:locale:pl-PL"/>
+    <RDF:li resource="urn:mozilla:locale:pl"/>
   </RDF:Seq>
 
-  <RDF:Description about="urn:mozilla:locale:pl-PL"
-            chrome:displayName="Polski(PL)"
-            chrome:author="Leszek (teo) Życzkowski"
-            chrome:name="pl-PL">
+  <RDF:Description about="urn:mozilla:locale:pl"
+      chrome:displayName="Polski(PL)"
+      chrome:author="Leszek (teo) Życzkowski"
+      chrome:name="pl">
     <chrome:packages>
-      <RDF:Seq about="urn:mozilla:locale:pl-PL:packages">
-        <RDF:li resource="urn:mozilla:locale:pl-PL:adblockplus"/>
+      <RDF:Seq about="urn:mozilla:locale:pl:packages">
+        <RDF:li resource="urn:mozilla:locale:pl:adblockplus"/>
       </RDF:Seq>
     </chrome:packages>
   </RDF:Description>

@@ -1,14 +1,14 @@
 <!ENTITY dialog.title "Adblock Plus - ustawienia">
 <!ENTITY filters.label "Filtry">
 <!ENTITY filters.accesskey "F">
-<!ENTITY addsubscription.label "Dodaj subskrypcję filtrów">
+<!ENTITY addsubscription.label "Dodaj subskrypcję filtrów ">
 <!ENTITY addsubscription.accesskey "S">
 <!ENTITY import.label "Importuj filtry">
 <!ENTITY import.accesskey "M">
 <!ENTITY export.label "Eksportuj filtry">
 <!ENTITY export.accesskey "E">
 <!ENTITY clearall.label "Usuń wszystkie filtry">
-<!ENTITY clearall.accesskey "U">
+<!ENTITY clearall.accesskey "L">
 <!ENTITY listsort.label "Sortuj alfabetycznie">
 <!ENTITY listsort.accesskey "A">
 <!ENTITY options.label "Opcje">
@@ -17,13 +17,13 @@
 <!ENTITY enable.accesskey "W">
 <!ENTITY showinstatusbar.label "Wyświetl na pasku stanu">
 <!ENTITY showinstatusbar.accesskey "S">
-<!ENTITY localpages.label "Blokuj wyodrębnione reklamy na lokalnych stronach">
+<!ENTITY localpages.label "Blokuj reklamy na lokalnych stronach">
 <!ENTITY localpages.accesskey "B">
-<!ENTITY objecttabs.label "Pokaż przyciski blokowania">
+<!ENTITY objecttabs.label "Pokaż przyciski blokowania na elementach Flasha i Javy">
 <!ENTITY objecttabs.accesskey "B">
 <!ENTITY collapse.label "Ukryj zablokowane elementy">
 <!ENTITY collapse.accesskey "U">
-<!ENTITY linkcheck.label "Sprawdź pokrewne odnośniki">
+<!ENTITY linkcheck.label "Sprawdź odnośniki banerów">
 <!ENTITY linkcheck.accesskey "S">
 <!ENTITY help.label "Pomoc">
 <!ENTITY help.accesskey "P">
@@ -38,10 +38,12 @@
 <!ENTITY regexps.url "http://developer.mozilla.org/en/docs/Core_JavaScript_1.5_Guide:Regular_Expressions#Writing_a_Regular_Expression_Pattern">
 <!ENTITY about.label "O Adblock Plus">
 <!ENTITY about.accesskey "O">
-<!ENTITY disabled.warning "Adblock Plus jest wyłączony. Można edytować dowolny filtr, ale do czasu ponownego włączenia zmiany te nie będą działąły">
-<!ENTITY description "Dodaj adres, który chcesz zablokować. Aby zobaczyć podpowiedzi przejdź do menu "Pomoc".
+<!ENTITY disabled.warning "Adblock Plus jest wyłączony. Można edytować dowolny filtr, ale do czasu ponownego włączenia Adblocka zmiany te nie będą działały.">
+<!ENTITY description "
+		Dodaj adres, który chcesz zablokować. Aby zobaczyć podpowiedzi przejdź do menu &quot;Pomoc&quot;.
 		Można używać * jako wieloznacznika przy tworzeniu większej ilości filtrów. Zaawansowani użytkownicy
-		mogą używać wyrażeń regularnych takich jak: /banner\d+\.gif$/.">
+		mogą używać wyrażeń regularnych takich jak: /banner\d+\.gif$/.
+">
 <!ENTITY newfilter.label "Nowy filtr">
 <!ENTITY newfilter.accesskey "N">
 <!ENTITY add.label "Dodaj filtr">
@@ -49,13 +51,13 @@
 <!ENTITY list.label "Lista filtrów">
 <!ENTITY list.accesskey "F">
 <!ENTITY context.edit.label "Edytuj filtr">
-<!ENTITY context.remove.label "Usun filtr">
+<!ENTITY context.remove.label "Usuń filtr">
 <!ENTITY context.synchsubscription.label "Uaktualnij subskrypcję teraz">
 <!ENTITY context.editsubscription.label "Edytuj subskrypcję">
 <!ENTITY context.removesubscription.label "Usuń subskrypcję">
 <!ENTITY context.moveup.label "Przesuń w górę">
 <!ENTITY context.movedown.label "Przesuń w dół">
 <!ENTITY context.movegroupup.label "Przesuń grupę w górę">
-<!ENTITY context.movegroupdown.label "Przesuń grupę w górę">
+<!ENTITY context.movegroupdown.label "Przesuń grupę w dól">
 <!ENTITY ok.label "OK">
 <!ENTITY cancel.label "Anuluj">

@@ -1,0 +1,17 @@
+<!ENTITY notloaded.label "Yüklenmiş değil">
+<!ENTITY notloaded.tooltip "Adblock Plus eklentisinin bir bileşeni yüklenemedi. Belki de düzgün kurulu değil.">
+<!ENTITY menuitem.label "Adblock Plus">
+<!ENTITY menuitem.accesskey "A">
+<!ENTITY context.image.label "Resmi engelle">
+<!ENTITY context.object.label "Nesneyi engelle">
+<!ENTITY context.link.label "Bağlantıyı engelle">
+<!ENTITY context.frame.label "Çerçeveyi engelle">
+<!ENTITY sidebar.title "Adblock Plus">
+<!ENTITY settings.label "Tercihler">
+<!ENTITY settings.accesskey "T">
+<!ENTITY opensidebar.label "Kenar çubuğunu aç">
+<!ENTITY opensidebar.accesskey "K">
+<!ENTITY closesidebar.label "Kenar çubuğunu kapat">
+<!ENTITY closesidebar.accesskey "E">
+<!ENTITY whitelist.site.label "Buradayken devre dışı kal:">
+<!ENTITY whitelist.page.label "Bu sayfa ve alt sayfalarında devre dışı kal">

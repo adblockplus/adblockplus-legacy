@@ -1,0 +1,61 @@
+<!ENTITY dialog.title "Impostazioni di Adblock Plus">
+<!ENTITY filters.label "Filtri">
+<!ENTITY filters.accesskey "F">
+<!ENTITY addsubscription.label "Aggiungi sottoscrizione">
+<!ENTITY addsubscription.accesskey "S">
+<!ENTITY import.label "Importa lista dei filtri">
+<!ENTITY import.accesskey "M">
+<!ENTITY export.label "Esporta lista dei filtri">
+<!ENTITY export.accesskey "d">
+<!ENTITY clearall.label "Elimina tutti i filtri">
+<!ENTITY clearall.accesskey "L">
+<!ENTITY listsort.label "Lista in ordine alfabetico">
+<!ENTITY listsort.accesskey "b">
+<!ENTITY options.label "Opzioni">
+<!ENTITY options.accesskey "O">
+<!ENTITY enable.label "Attiva Adblock Plus">
+<!ENTITY enable.accesskey "P">
+<!ENTITY showinstatusbar.label "Visualizza nella barra di stato">
+<!ENTITY showinstatusbar.accesskey "S">
+<!ENTITY localpages.label "Blocca pubblicità remota">
+<!ENTITY localpages.accesskey "R">
+<!ENTITY objecttabs.label "Mostra linguetta per elementi Flash e Java">
+<!ENTITY objecttabs.accesskey "T">
+<!ENTITY collapse.label "Nascondi elementi bloccati">
+<!ENTITY collapse.accesskey "e">
+<!ENTITY linkcheck.label "Controlla link attinenti">
+<!ENTITY linkcheck.accesskey "C">
+<!ENTITY help.label "Aiuto">
+<!ENTITY help.accesskey "A">
+<!ENTITY faq.label "FAQ di Adblock Plus">
+<!ENTITY faq.accesskey "F">
+<!ENTITY faq.url "http://adblockplus.mozdev.org/faq.html">
+<!ENTITY tips.label "Suggerimento del giorno">
+<!ENTITY tips.accesskey "u">
+<!ENTITY tips.url "http://adblockplus.mozdev.org/tips.html">
+<!ENTITY regexps.label "Informazioni sulle espressioni regolari">
+<!ENTITY regexps.accesskey "r">
+<!ENTITY regexps.url "http://it.wikibooks.org/wiki/Espressioni_regolari">
+<!ENTITY about.label "Informazioni su Adblock Plus">
+<!ENTITY about.accesskey "z">
+<!ENTITY disabled.warning "Adblock Plus è inattiva. Si possono modificare i filtri nella lista, ma tali modifiche verranno applicate solo quando Adblock Plus verrà riattivata">
+<!ENTITY description "Aggiungere gli indirizzi web da bloccare, e per i suggerimenti controllare l'elenco 
+		a discesa. Usare * come carattere jolly per creare filtri generici. Gli utenti esperti
+		possono usare le espressioni regolari come /banner\d+\.gif$/.">
+<!ENTITY newfilter.label "Nuovo filtro">
+<!ENTITY newfilter.accesskey "N">
+<!ENTITY add.label "Aggiungi filtro">
+<!ENTITY add.accesskey "A">
+<!ENTITY list.label "Elementi (da escludere e da filtrare)">
+<!ENTITY list.accesskey "F">
+<!ENTITY context.edit.label "Modifica filtro">
+<!ENTITY context.remove.label "Elimina filtro">
+<!ENTITY context.synchsubscription.label "Aggiorna la sottoscrizione ora">
+<!ENTITY context.editsubscription.label "Modifica la sottoscrizione">
+<!ENTITY context.removesubscription.label "Elimina la sottoscrizione">
+<!ENTITY context.moveup.label "Sposta su">
+<!ENTITY context.movedown.label "Sposta giù">
+<!ENTITY context.movegroupup.label "Sposta il gruppo su">
+<!ENTITY context.movegroupdown.label "Sposta il gruppo giù">
+<!ENTITY ok.label "OK">
+<!ENTITY cancel.label "Annulla">
