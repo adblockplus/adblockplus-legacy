@@ -1001,8 +1001,8 @@ var groupManager = {
     }
 
     // Remove old group description
-    var item = group.firstItem;
-    for (var i = 0; i < group.descr.length; i++) {
+    item = group.firstItem;
+    for (i = 0; i < group.descr.length; i++) {
       var remove = item;
       item = this.list.getNextItem(item, 1);
       this.list.removeChild(remove);

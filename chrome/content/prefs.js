@@ -132,7 +132,9 @@ var prefs = {
 
     // Convert patterns into regexps
     this.regexps = [];
+    this.regexpsAdded = new HashTable();
     this.whitelist = [];
+    this.whitelistAdded = new HashTable();
     this.divblock = "";
 
     for (i = 0; i < this.patterns.length; i++)
@@ -269,11 +271,13 @@ var prefs = {
     var origPattern = pattern;
   
     var list = this.regexps;
+    var hash = this.regexpsAdded;
     var isWhite = false;
     if (pattern.indexOf("@@") == 0) {
-      // Adblock Plus compatible whitelisting
+      // This is a whitelisting filter
       pattern = pattern.substr(2);
       list = this.whitelist;
+      hash = this.whitelistAdded;
       isWhite = true;
     }
   
@@ -284,11 +288,16 @@ var prefs = {
       if (pattern.match(/^https?:\/\//))
         regexp = "^" + regexp;
     }
+
     try {
       regexp = new RegExp(regexp, "i");
+      if (hash.has(regexp))
+        return;
+
       regexp.origPattern = origPattern;
       regexp.isWhite = isWhite;
       list.push(regexp);
+      hash.put(regexp, true);
     } catch(e) {}
   },
 

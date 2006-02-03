@@ -30,6 +30,7 @@ try {
 
   var prefs = abp.prefs;
   var flasher = abp.flasher;
+  var DataContainer = abp.DataContainer;
 } catch (e) {}
 
 // Main browser window
@@ -74,13 +75,18 @@ function init() {
 
   var data = [];
   if (abp) {
+    // Install location listener
+    DataContainer.addListener(handleLocationsChange);
+
     // Retrieve data for the window
-    wndData = abp.getDataForWindow(window.content);
+    wndData = DataContainer.getDataForWindow(window.content);
     data = wndData.getAllLocations();
-    wndData.addLocationListener(handleLocationsChange);
 
     // Activate flasher
     filterSuggestions.addEventListener("select", function() {
+      if (!wndData)
+        return;
+
       var item = filterSuggestions.selectedItem;
       if (item)
         item = item.firstChild.nextSibling;
@@ -91,10 +97,10 @@ function init() {
       flasher.flash(loc ? loc.inseclNodes : null);
     }, false);
 
-    // Revalidate nodes periodically
+    // Update dummy whenever necessary
     setInterval(function() {
-      if (wndData)
-        wndData.getAllLocations();
+      if (suggestionItems.length == 0)
+        insertDummy(filterSuggestions);
     }, 2000);
 
     // Install a handler for tab changes
@@ -154,8 +160,7 @@ function cleanUp() {
     return;
 
   flasher.stop();
-  if (wndData)
-    wndData.removeLocationListener(handleLocationsChange);
+  DataContainer.removeListener(handleLocationsChange);
 
   mainWin.getBrowser().removeEventListener("select", handleTabChange, false);
   mainWin.removeEventListener("unload", mainUnload, false);
@@ -184,44 +189,46 @@ function createFilterSuggestion(listbox, suggestion) {
   listbox.appendChild(listitem);
 
   suggestionItems.push(listitem);
-  suggestionItems[" " + suggestion.location] = listitem;
 }
 
-function handleLocationsChange(loc, added) {
+function handleLocationsChange(type, data, loc) {
+  // Check whether this applies to us
+  if (data.insecWnd != window.content)
+    return;
+
+  // Maybe we got called twice
+  if (type == "select" && data == wndData)
+    return;
+
+  // If adding something from a new data container - select it
+  if (type == "add" && data != wndData)
+    type = "select";
+
   var i;
   var filterSuggestions = document.getElementById("suggestionsList");
-  if (added) {
-    removeDummy();
-
-    // Add a new suggestion
-    createFilterSuggestion(filterSuggestions, loc);
-  }
-  else if (loc) {
-    var key = " " + loc.location;
-    if (key in suggestionItems) {
-      filterSuggestions.removeChild(suggestionItems[key]);
-      for (i = 0; i < suggestionItems.length; i++) {
-        if (suggestionItems[i] == suggestionItems[key]) {
-          suggestionItems.splice(i, 1);
-          break;
-        }
-      }
-      delete suggestionItems[key];
-
-      // Insert dummy
-      if (suggestionItems.length == 0)
-        insertDummy(filterSuggestions);
-    }
-  }
-  else {
-    // Clear list
+  if (type == "select" || type == "refresh" || type == "clear") {
+    // We moved to a different document, clear list
+    filterSuggestions.selectedItem = filterSuggestions.currentItem = null;
     for (i = 0; i < suggestionItems.length; i++)
       filterSuggestions.removeChild(suggestionItems[i]);
 
     suggestionItems = [];
 
-    // Insert dummy
-    insertDummy(filterSuggestions);
+    if (type == "clear")
+      wndData = null;
+    else {
+      wndData = data;
+
+      // Add new items
+      var locations = wndData.getAllLocations();
+      for (i = 0; i < locations.length; i++)
+        handleLocationsChange("add", wndData, locations[i]);
+    }
+  } else if (type == "add") {
+    removeDummy();
+
+    // Add a new suggestion
+    createFilterSuggestion(filterSuggestions, loc);
   }
 }
 
@@ -240,23 +247,14 @@ function handleTabChange() {
     return;
   }
 
-  // Clear list
-  handleLocationsChange(null, false);
-  wndData.removeLocationListener(handleLocationsChange);
-
-  // Re-init with the new window
-  wndData = abp.getDataForWindow(window.content);
-  wndData.addLocationListener(handleLocationsChange);
-
-  var data = wndData.getAllLocations();
-  for (var i = 0; i < data.length; i++)
-    handleLocationsChange(data[i], true);
+  // Use new data
+  handleLocationsChange("select", DataContainer.getDataForWindow(window.content));
 }
 
 // Shows tooltop with the full uncropped location
 function fillInTooltip(event) {
   var node = document.tooltipNode;
-  while (node && node.tagName != "listitem")
+  while (node && (node.nodeType != node.ELEMENT_NODE || node.tagName != "listitem"))
     node = node.parentNode;
 
   if (!node || !("location" in node))

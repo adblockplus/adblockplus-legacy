@@ -55,23 +55,25 @@ function abpInit() {
   if (abp && !abpPrefs.checkedtoolbar)
     setTimeout(abpInstallInToolbar, 0);
 
-  // Clone statusbar popup for the toolbar button
-  var fixId = function(node) {
-    if (node.nodeType != Node.ELEMENT_NODE)
+  if (document.getElementById("abp-toolbar-popup")) {
+    // Clone statusbar popup for the toolbar button
+    var fixId = function(node) {
+      if (node.nodeType != Node.ELEMENT_NODE)
+        return node;
+  
+      if ("id" in node && node.id)
+        node.id = node.id.replace(/abp-status/, "abp-toolbar");
+  
+      for (var child = node.firstChild; child; child = child.nextSibling)
+        fixId(child);
+  
       return node;
-
-    if ("id" in node && node.id)
-      node.id = node.id.replace(/abp-status/, "abp-toolbar");
-
-    for (var child = node.firstChild; child; child = child.nextSibling)
-      fixId(child);
-
-    return node;
+    }
+    var from = document.getElementById("abp-status-popup");
+    var to = document.getElementById("abp-toolbar-popup");
+    for (var node = from.firstChild; node; node = node.nextSibling)
+      to.appendChild(fixId(node.cloneNode(true)));
   }
-  var from = document.getElementById("abp-status-popup");
-  var to = document.getElementById("abp-toolbar-popup");
-  for (var node = from.firstChild; node; node = node.nextSibling)
-    to.appendChild(fixId(node.cloneNode(true)));
 }
 
 function abpUnload() {
