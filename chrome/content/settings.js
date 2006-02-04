@@ -85,17 +85,20 @@ function init() {
   }
   if (!data.length) {
     var reason = abp.getString("no_blocking_suggestions");
+    var isWhite = false;
     if (insecWnd) {
       var insecLocation = secureGet(insecWnd, "location");
       // We want to stick with "no blockable items" for about:blank
       if (secureGet(insecLocation, "href") != "about:blank") {
         if (!abp.policy.isBlockableScheme(insecLocation))
           reason = abp.getString("not_remote_page");
-        else if (abp.policy.isWhitelisted(secureGet(insecLocation, "href")))
+        else if (abp.policy.isWhitelisted(secureGet(insecLocation, "href"))) {
           reason = abp.getString("whitelisted_page");
+          isWhite = true;
+        }
       }
     }
-    data.push({location: reason, typeDescr: "", localizedDescr: "", inseclNodes: [], filter: {isWhite: false}});
+    data.push({location: reason, typeDescr: "", localizedDescr: "", inseclNodes: [], filter: {isWhite: isWhite}});
   }
 
   // Initialize filter suggestions dropdown
