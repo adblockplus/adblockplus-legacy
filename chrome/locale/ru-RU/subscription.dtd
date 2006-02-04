@@ -1,0 +1,56 @@
+<!-- ***** BEGIN LICENSE BLOCK *****
+   - Version: MPL 1.1
+   -
+   - The contents of this file are subject to the Mozilla Public License Version
+   - 1.1 (the "License"); you may not use this file except in compliance with
+   - the License. You may obtain a copy of the License at
+   - http://www.mozilla.org/MPL/
+   -
+   - Software distributed under the License is distributed on an "AS IS" basis,
+   - WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+   - for the specific language governing rights and limitations under the
+   - License.
+   -
+   - The Original Code is Adblock Plus.
+   -
+   - The Initial Developer of the Original Code is
+   - Wladimir Palant.
+   - Portions created by the Initial Developer are Copyright (C) 2006
+   - the Initial Developer. All Rights Reserved.
+   -
+   - Contributor(s):
+   -
+   - ***** END LICENSE BLOCK ***** -->
+
+<!ENTITY dialog.title               "Редактировать подписку">
+<!ENTITY dialog.newtitle            "Добавить подписку">
+
+<!ENTITY new.description            "
+  Пожалуйста введите адрес в интернете или путь к файлу, где расположен
+  список фильтров для Adblock Plus.
+">
+
+<!ENTITY edit.description           "
+  Список фильтров для этой подписки будет скачиваться с заданного адреса
+  (изменить больше нельзя).
+">
+
+<!ENTITY external.description       "
+  Это внешняя подписка, она будет актуализироваться расширением, которое
+  ее добавило.
+">
+
+<!ENTITY autodownload.description   "
+  Если выбрано 'Обновлять автоматически', то обновления будут скачиваться
+  с этого адреса ежедневно.  Без этой опции скачивание нужно запускать
+  вручную из контекстного меню подписки.
+">
+
+<!ENTITY location.label             "Адрес списка фильтров">
+<!ENTITY location.accesskey         "д">
+<!ENTITY title.label                "Название подписки">
+<!ENTITY title.accesskey            "з">
+<!ENTITY autodownload.label         "Обновлять автоматически">
+<!ENTITY autodownload.accesskey     "т">
+<!ENTITY enabled.label              "Включить фильтры">
+<!ENTITY enabled.accesskey          "к">

@@ -1,0 +1,100 @@
+<!-- ***** BEGIN LICENSE BLOCK *****
+   - Version: MPL 1.1
+   -
+   - The contents of this file are subject to the Mozilla Public License Version
+   - 1.1 (the "License"); you may not use this file except in compliance with
+   - the License. You may obtain a copy of the License at
+   - http://www.mozilla.org/MPL/
+   -
+   - Software distributed under the License is distributed on an "AS IS" basis,
+   - WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+   - for the specific language governing rights and limitations under the
+   - License.
+   -
+   - The Original Code is Adblock Plus.
+   -
+   - The Initial Developer of the Original Code is
+   - Wladimir Palant.
+   - Portions created by the Initial Developer are Copyright (C) 2006
+   - the Initial Developer. All Rights Reserved.
+   -
+   - Contributor(s):
+   -
+   - ***** END LICENSE BLOCK ***** -->
+
+<!ENTITY dialog.title               "Adblock Plus - Установки">
+
+<!ENTITY filters.label              "Фильтры">
+<!ENTITY filters.accesskey          "Ф">
+
+<!ENTITY addsubscription.label      "Добавить подписку">
+<!ENTITY addsubscription.accesskey  "п">
+<!ENTITY import.label               "Импорт фильтров">
+<!ENTITY import.accesskey           "м">
+<!ENTITY export.label               "Экспорт фильтров">
+<!ENTITY export.accesskey           "к">
+<!ENTITY clearall.label             "Удалить все фильтры">
+<!ENTITY clearall.accesskey         "д">
+
+<!ENTITY listsort.label             "Сортировать по алфавиту">
+<!ENTITY listsort.accesskey         "р">
+
+<!ENTITY options.label              "Настройки">
+<!ENTITY options.accesskey          "Н">
+
+<!ENTITY enable.label               "Включить Adblock Plus">
+<!ENTITY enable.accesskey           "к">
+<!ENTITY showinstatusbar.label      "Показывать в строке состояния">
+<!ENTITY showinstatusbar.accesskey  "с">
+<!ENTITY localpages.label           "Блокировать рекламу в локальных страницах">
+<!ENTITY localpages.accesskey       "л">
+<!ENTITY objecttabs.label           "Ставить ярлык на Flash и Java">
+<!ENTITY objecttabs.accesskey       "я">
+<!ENTITY collapse.label             "Сворачивать заблокированные элементы">
+<!ENTITY collapse.accesskey         "в">
+<!ENTITY linkcheck.label            "Проверять ссылки на баннерах">
+<!ENTITY linkcheck.accesskey        "р">
+
+<!ENTITY help.label                 "Помощь">
+<!ENTITY help.accesskey             "П">
+
+<!ENTITY faq.label                  "Часто задаваемые вопросы (английский)">
+<!ENTITY faq.accesskey              "Ч">
+<!ENTITY faq.url                    "http://adblockplus.mozdev.org/faq.html">
+<!ENTITY tips.label                 "Подсказки (английский)">
+<!ENTITY tips.accesskey             "П">
+<!ENTITY tips.url                   "http://adblockplus.mozdev.org/tips.html">
+<!ENTITY regexps.label              "Составлять регулярные выражения (английский)">
+<!ENTITY regexps.accesskey          "р">
+<!ENTITY regexps.url                "http://developer.mozilla.org/en/docs/Core_JavaScript_1.5_Guide:Regular_Expressions#Writing_a_Regular_Expression_Pattern">
+<!ENTITY about.label                "О Adblock Plus">
+<!ENTITY about.accesskey            "О">
+
+<!ENTITY disabled.warning           "Adblock Plus отключен. Вы можете менять правила блокирования в списке, но Adblock Plus нужно включить, чтобы эти правила применились.">
+
+<!ENTITY description                "
+  Добавьте адреса, которые вы хотите заблокировать. Для подсказок посмотрите выпадающий
+  список. Вы можете создать и более общие фильтры, для этого замените часть адреса
+  звездочкой (*). Продвинутые пользователи могут также использовать регулярные
+  выражения, к примеру /banner\d+\.gif$/.
+">
+
+<!ENTITY newfilter.label            "Новый фильтр">
+<!ENTITY newfilter.accesskey        "Н">
+<!ENTITY add.label                  "Добавить фильтр">
+<!ENTITY add.accesskey              "б">
+<!ENTITY list.label                 "Правила блокирования">
+<!ENTITY list.accesskey             "р">
+
+<!ENTITY context.edit.label         "Редактировать фильтр">
+<!ENTITY context.remove.label       "Удалить фильтр">
+<!ENTITY context.synchsubscription.label  "Скачать фильтры заново">
+<!ENTITY context.editsubscription.label   "Редактировать подписку">
+<!ENTITY context.removesubscription.label "Удалить подписку">
+<!ENTITY context.moveup.label       "Сдвинуть вверх">
+<!ENTITY context.movedown.label     "Сдвинуть вниз">
+<!ENTITY context.movegroupup.label        "Сдвинуть группу вверх">
+<!ENTITY context.movegroupdown.label      "Сдвинуть группу вниз">
+
+<!ENTITY ok.label                 "OK">
+<!ENTITY cancel.label             "Отмена">

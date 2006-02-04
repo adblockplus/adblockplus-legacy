@@ -7,13 +7,21 @@ my $version = <VERSION>;
 $version =~ s/[^\w\.]//gs;
 close(VERSION);
 
-$version .= "+" if $ARGV[1];
+$version .= "+" if $ARGV[2];
 
-opendir(LOCALES, "chrome/locale");
-my @locales = grep {!/[^\w\-]/ && !/CVS/} readdir(LOCALES);
-closedir(LOCALES);
-
-@locales = sort {$a eq "en-US" ? -1 : ($b eq "en-US" ? 1 : $a cmp $b)} @locales;
+my @locales;
+if ($ARGV[1] && $ARGV[1] ne "*")
+{
+  @locales = $ARGV[1];
+}
+else
+{
+  opendir(LOCALES, "chrome/locale");
+  @locales = grep {!/[^\w\-]/ && !/CVS/} readdir(LOCALES);
+  closedir(LOCALES);
+  
+  @locales = sort {$a eq "en-US" ? -1 : ($b eq "en-US" ? 1 : $a cmp $b)} @locales;
+}
 
 my $output_file = $ARGV[0] || "adblockplus.xpi";
 
@@ -98,9 +106,20 @@ sub cp_rec
 {
   my ($fromdir, $todir) = @_;
 
-  opendir(local *DIR, $fromdir) or return;
+  my @files;
+  if ($fromdir eq "chrome/locale")
+  {
+    @files = @locales;
+  }
+  else
+  {
+    opendir(local *DIR, $fromdir) or return;
+    @files = readdir(DIR);
+    closedir(DIR);
+  }
+
   mkdir($todir);
-  foreach my $file (readdir(DIR))
+  foreach my $file (@files)
   {
     if ($file =~ /[^.]/ && $file ne 'CVS')
     {
@@ -114,5 +133,4 @@ sub cp_rec
       }
     }
   }
-  closedir(DIR);
 }

@@ -299,12 +299,12 @@ function doAdblock() {
     return;
 
   var listitem = document.getElementById("suggestionsList").selectedItem;
-  if (!listitem || !("filter" in listitem))
-    return;
 
-  // No location for the dummy item
-  var location = (listitem.id ? undefined : listitem.location);
-  abp.openSettingsDialog(window.content, location, listitem.filter);
+  // No location for the dummy items
+  var location = (listitem && !listitem.id ? listitem.location : undefined);
+  var filter = (listitem && "filter" in listitem ? listitem.filter : undefined);
+
+  abp.openSettingsDialog(window.content, location, filter);
 }
 
 // detaches the sidebar
@@ -312,6 +312,7 @@ function detach() {
   if (!abp)
     return;
 
+  var mainWin = window.mainWin;
   // Calculate default position for the detached window
   var boxObject = document.documentElement.boxObject;
   var position = ",left="+boxObject.screenX+",top="+boxObject.screenY+",outerWidth="+boxObject.width+",outerHeight="+boxObject.height;
@@ -320,13 +321,18 @@ function detach() {
   var wnd = mainWin.abpDetachedSidebar;
   mainWin.abpDetachedSidebar = null;
   prefs.detachsidebar = false;
-  mainWin.abpToggleSidebar();
+
+  if ("SidebarGetRelativePanel" in mainWin)
+    mainWin.SidebarGetRelativePanel(-1);
+  else
+    mainWin.abpToggleSidebar();
+
   if (wnd && !wnd.closed) {
     wnd.focus();
     mainWin.abpDetachedSidebar = wnd;
   }
   else
-    mainWin.abpDetachedSidebar = openDialog("chrome://adblockplus/content/sidebarDetached.xul", "_blank", "chrome,all,dependent"+position, parent);
+    mainWin.abpDetachedSidebar = openDialog("chrome://adblockplus/content/sidebarDetached.xul", "_blank", "chrome,all,dependent"+position, mainWin);
 
   // Save setting
   prefs.detachsidebar = true;

@@ -34,6 +34,10 @@ var insecWnd = null;   // Window we should apply filters at
 var initialized = false;
 var whitelistDescr = abp.getString("whitelist_description");
 var filterlistDescr = abp.getString("filterlist_description");
+var origGrouporder = null;
+var origSynch = null;
+var saved = false;
+var lineBreak = null;   // Plattform dependent line break
 
 // Preference window initialization
 function init() {
@@ -47,6 +51,11 @@ function init() {
   // Install listeners
   prefs.addListener(onPrefChange);
   synchronizer.addListener(synchCallback);
+
+  // Save subscriptions to restore them if we are cancelled
+  origGrouporder = [];
+  origSynch = new abp.HashTable();
+  prefs.cloneSubscriptions(origGrouporder, origSynch);
 
   if ('arguments' in window && window.arguments.length >= 1)
     insecWnd = window.arguments[0];
@@ -86,7 +95,7 @@ function init() {
           reason = abp.getString("whitelisted_page");
       }
     }
-    data.push({location: "", typeDescr: "", localizedDescr: reason, inseclNodes: [], filter: {isWhite: false}});
+    data.push({location: reason, typeDescr: "", localizedDescr: "", inseclNodes: [], filter: {isWhite: false}});
   }
 
   // Initialize filter suggestions dropdown
@@ -111,6 +120,9 @@ function cleanUp() {
   prefs.removeListener(onPrefChange);
   synchronizer.removeListener(synchCallback);
   flasher.stop();
+
+  if (!saved && origSynch)
+    prefs.restoreSubscriptions(origGrouporder, origSynch);
 }
 
 function createDescription(label, flex) {
@@ -379,6 +391,29 @@ function exportList() {
   picker.appendFilters(picker.filterAll);
 
   if (picker.show() != picker.returnCancel) {
+    if (lineBreak == null) {
+      // HACKHACK: Gecko doesn't expose NS_LINEBREAK, try to determine
+      // plattform's line breaks by reading prefs.js
+      lineBreak = "\n";
+      try {
+        var dirService = Components.classes["@mozilla.org/file/directory_service;1"]
+                                   .createInstance(Components.interfaces.nsIProperties);
+        var prefFile = dirService.get("PrefF", Components.interfaces.nsIFile);
+        var inputStream = Components.classes["@mozilla.org/network/file-input-stream;1"]
+                                    .createInstance(Components.interfaces.nsIFileInputStream);
+        inputStream.init(prefFile, 0x01, 0444, 0);
+
+        var stream = Components.classes["@mozilla.org/scriptableinputstream;1"]
+                               .createInstance(Components.interfaces.nsIScriptableInputStream);
+        stream.init(inputStream);
+        var data = stream.read(1024);
+        stream.close();
+
+        if (/(\r\n?|\n\r?)/.test(data))
+          lineBreak = RegExp.$1;
+      } catch (e) {alert(e)}
+    }
+
     try {
       var stream = Components.classes["@mozilla.org/network/file-output-stream;1"]
                             .createInstance(Components.interfaces.nsIFileOutputStream);
@@ -386,7 +421,7 @@ function exportList() {
   
       var patterns = getPatterns();
       patterns.unshift("[Adblock]");
-      var output = patterns.join("\n") + "\n";
+      var output = patterns.join(lineBreak) + lineBreak;
       stream.write(output, output.length);
   
       stream.close();
@@ -687,6 +722,7 @@ function saveSettings() {
 
   prefs.patterns = getPatterns();
   prefs.save();
+  saved = true;
 
   if (insecWnd)
     refilterWindow(insecWnd);

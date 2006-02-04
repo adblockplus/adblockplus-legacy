@@ -8,6 +8,7 @@ pref("extensions.adblockplus.showinstatusbar", true);
 pref("extensions.adblockplus.blocklocalpages", true);
 pref("extensions.adblockplus.checkedtoolbar", false);
 pref("extensions.adblockplus.checkedadblockprefs", false);
+pref("extensions.adblockplus.checkedadblocksync", false);
 pref("extensions.adblockplus.checkedadblockinstalled", false);
 pref("extensions.adblockplus.detachsidebar", false);
 

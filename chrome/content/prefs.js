@@ -32,8 +32,9 @@ var prefService = Components.classes["@mozilla.org/preferences-service;1"]
 
 const prefList = ["Bool enabled true", "Bool linkcheck false", "Bool fastcollapse false", "Bool frameobjects true",
                   "Bool listsort true", "Bool warnregexp true", "Bool showinstatusbar true", "Bool blocklocalpages true",
-                  "Bool checkedtoolbar false", "Bool checkedadblockprefs false", "Bool checkedadblockinstalled false",
-                  "Bool detachsidebar false", "List patterns", "List grouporder", "Int synchronizationinterval 24"];
+                  "Bool checkedtoolbar false", "Bool checkedadblockprefs false", "Bool checkedadblocksync false",
+                  "Bool checkedadblockinstalled false", "Bool detachsidebar false", "List patterns",
+                  "List grouporder", "Int synchronizationinterval 24"];
 const synchList = ["String title", "Bool autodownload true", "Bool disabled false", "Bool external false",
                    "Int lastdownload 0", "Int lastsuccess 0", "Char downloadstatus", "Char lastmodified", "List patterns"];
 
@@ -42,7 +43,7 @@ if ("nsIStyleSheetService" in Components.interfaces) {
   styleService = Components.classes["@mozilla.org/content/style-sheet-service;1"]
                            .getService(Components.interfaces.nsIStyleSheetService);
 }
-var divblockURL = null;
+var elemhideURL = null;
 
 var prefs = {
   disableObserver: false,
@@ -120,11 +121,11 @@ var prefs = {
 
   // Reloads the preferences
   reload: function() {
-    if (styleService && divblockURL) {
+    if (styleService && elemhideURL) {
       try {
-        styleService.unregisterSheet(divblockURL, styleService.USER_SHEET);
+        styleService.unregisterSheet(elemhideURL, styleService.USER_SHEET);
       } catch (e) {}
-      divblockURL = null;
+      elemhideURL = null;
     }
 
     for (var i = 0; i < prefList.length; i++)
@@ -135,7 +136,7 @@ var prefs = {
     this.regexpsAdded = new HashTable();
     this.whitelist = [];
     this.whitelistAdded = new HashTable();
-    this.divblock = "";
+    this.elemhide = "";
 
     for (i = 0; i < this.patterns.length; i++)
       if (this.patterns[i] != "")
@@ -174,13 +175,13 @@ var prefs = {
       this.synch.put(synchPrefs.url, synchPrefs);
     }
   
-    // Insert divblock stylesheet
-    if (this.enabled && styleService && this.divblock) {
+    // Insert elemhide stylesheet
+    if (this.enabled && styleService && this.elemhide) {
       try {
-        divblockURL = Components.classes["@mozilla.org/network/simple-uri;1"]
+        elemhideURL = Components.classes["@mozilla.org/network/simple-uri;1"]
                                 .createInstance(Components.interfaces.nsIURI);
-        divblockURL.spec = "data:text/css,/*** Adblock Plus ***/" + this.divblock;
-        styleService.loadAndRegisterSheet(divblockURL, styleService.USER_SHEET);
+        elemhideURL.spec = "data:text/css,/*** Adblock Plus ***/" + this.elemhide;
+        styleService.loadAndRegisterSheet(elemhideURL, styleService.USER_SHEET);
       } catch(e) {}
     }
 
@@ -191,6 +192,8 @@ var prefs = {
     // Import settings from old versions
     if (!this.checkedadblockprefs)
       this.importOldPrefs();
+    else if (!this.checkedadblocksync)
+      this.importOldSubscriptions();
   },
 
   // Saves the changes back into the prefs
@@ -238,6 +241,67 @@ var prefs = {
     this.save();
   },
 
+  importOldSubscriptions: function() {
+    var importBranch = prefService.getBranch("adblock.");
+    var paths = [];
+    try {
+      paths = importBranch.getCharPref("syncpath").split("|");
+    } catch (e) {}
+
+    for (var i = 0; i < paths.length; i++) {
+      var found = false;
+      for (var j = 0; j < this.grouporder.length; j++)
+        if (paths[i] == this.grouporder[j])
+          found = true;
+
+      if (!found)
+        this.grouporder.push(paths[i]);
+    }
+
+    this.checkedadblocksync = true;
+    this.save();
+  },
+
+  cloneSubscriptions: function(grouporder, synch) {
+    for (var i = 0; i < this.grouporder.length; i++) {
+      grouporder.push(this.grouporder[i]);
+      if (this.synch.has(this.grouporder[i])) {
+        var group = this.synch.get(this.grouporder[i]);
+        var clone = {};
+        for (var j = 0; j < synchList.length; j++) {
+          var key = synchList[j].split(" ")[1];
+          if (group[key] instanceof Array)
+            clone[key] = group[key].slice();
+          else
+            clone[key] = group[key];
+        }
+        synch.put(this.grouporder[i], clone);
+      }
+    }
+  },
+
+  restoreSubscriptions: function(grouporder, synch) {
+    // Subscription properties that shouldn't be restored
+    var keep = ["lastdownload", "lastsuccess", "downloadstatus", "lastmodified", "patterns"];
+
+    // Remove any old subscriptions and restore download properties of the ones still there
+    for (var i = 0; i < this.grouporder.length; i++) {
+      if (this.synch.has(this.grouporder[i])) {
+        if (synch.has(this.grouporder[i])) {
+          var group = this.synch.get(this.grouporder[i]);
+          var clone = synch.get(this.grouporder[i]);
+          for (var j = 0; j < keep.length; j++)
+            clone[keep[j]] = group[keep[j]];
+        }
+        else
+          this.removeSubscription(this.grouporder[i]);
+      }
+    }
+    this.grouporder = grouporder;
+    this.synch = synch;
+    this.save();
+  },
+
   addListener: function(handler) {
     this.listeners.push(handler);
   },
@@ -251,18 +315,18 @@ var prefs = {
   // Converts a pattern into RegExp and adds it to the list
   addPattern: function(pattern) {
     if (/^#([\w\-]+|\*)(?:\(([\w\-]+)\))?$/.test(pattern)) {
-      // A divblock filter
+      // An elemhide filter
       var tagname = RegExp.$1;
       var id = RegExp.$2;
       if (tagname == "*")
         tagname = "";
 
       if (id) {
-        this.divblock += tagname + "." + id + "{display:none !important}";
-        this.divblock += tagname + "#" + id + "{display:none !important}";
+        this.elemhide += tagname + "." + id + "{display:none !important}";
+        this.elemhide += tagname + "#" + id + "{display:none !important}";
       }
       else if (tagname)
-        this.divblock += tagname + "{display:none !important}";
+        this.elemhide += tagname + "{display:none !important}";
 
       return;
     }
@@ -302,12 +366,13 @@ var prefs = {
   },
 
   // Removes all preferences of a subscription
-  removeSubscription: function(name) {
+  removeSubscription: function(name, prefsOnly) {
     this.disableObserver = true;
 
-    for (var i = 0; i < this.grouporder.length; i++)
-      if (this.grouporder[i] == name)
-        this.grouporder.splice(i--, 1);
+    if (typeof prefsOnly == "undefined" || !prefsOnly)
+      for (var i = 0; i < this.grouporder.length; i++)
+        if (this.grouporder[i] == name)
+          this.grouporder.splice(i--, 1);
 
     var prefix = "synch." + name + ".";
     for (i = 0; i < synchList.length; i++) {
@@ -319,7 +384,8 @@ var prefs = {
 
     this.disableObserver = false;
 
-    this.save();
+    if (typeof prefsOnly == "undefined" || !prefsOnly)
+      this.save();
   },
 
   // nsIObserver implementation
