@@ -1,0 +1,63 @@
+<!ENTITY dialog.title "Nastavenia Adblock Plus">
+<!ENTITY filters.label "Filtre">
+<!ENTITY filters.accesskey "F">
+<!ENTITY addsubscription.label "Pridať povolený filter">
+<!ENTITY addsubscription.accesskey "S">
+<!ENTITY import.label "Importovať filtre">
+<!ENTITY import.accesskey "M">
+<!ENTITY export.label "Exportovať filtre">
+<!ENTITY export.accesskey "X">
+<!ENTITY clearall.label "Odstrániť všetky filtre">
+<!ENTITY clearall.accesskey "L">
+<!ENTITY listsort.label "Triediť abecedne">
+<!ENTITY listsort.accesskey "P">
+<!ENTITY options.label "Možnosti">
+<!ENTITY options.accesskey "O">
+<!ENTITY enable.label "Zapnúť Adblock Plus">
+<!ENTITY enable.accesskey "N">
+<!ENTITY showinstatusbar.label "Zobraziť v stavom riadku">
+<!ENTITY showinstatusbar.accesskey "S">
+<!ENTITY localpages.label "Blokovať vzdialené reklamy v lokálnych stránkach">
+<!ENTITY localpages.accesskey "R">
+<!ENTITY objecttabs.label "Zobraziť karty pre Flash a Java">
+<!ENTITY objecttabs.accesskey "T">
+<!ENTITY collapse.label "Usporiadať blokované prvky">
+<!ENTITY collapse.accesskey "L">
+<!ENTITY linkcheck.label "Kontrolovať odkazy titulkov">
+<!ENTITY linkcheck.accesskey "C">
+<!ENTITY help.label "Pomoc">
+<!ENTITY help.accesskey "H">
+<!ENTITY faq.label "Často kladené otázky">
+<!ENTITY faq.accesskey "F">
+<!ENTITY faq.url "http://adblockplus.mozdev.org/faq.html">
+<!ENTITY tips.label "Tip dňa">
+<!ENTITY tips.accesskey "T">
+<!ENTITY tips.url "http://adblockplus.mozdev.org/tips.html">
+<!ENTITY regexps.label "Písanie regulárnych výrazov">
+<!ENTITY regexps.accesskey "X">
+<!ENTITY regexps.url "http://developer.mozilla.org/en/docs/Core_JavaScript_1.5_Guide:Regular_Expressions#Writing_a_Regular_Expression_Pattern">
+<!ENTITY about.label "O rozšírení Adblock Plus">
+<!ENTITY about.accesskey "B">
+<!ENTITY disabled.warning "Adblock Plus je vypnutý. Môžete upraviť filtre v zozname, ale tie nebudú potvrdené po znovuzapnutí.">
+<!ENTITY description "
+		Pridať adresu,ktorú chcete blokovať, návrhy skontrolujte v rozbaľovacej ponuke.
+		Môžete použiť * ako divokú kartu na vytvorenie všeobecných filtrov. Pokročilý užívatelia môžu
+		použiť regulárne výrazy ako /banner\d+\.gif$/.
+">
+<!ENTITY newfilter.label "Nový filter">
+<!ENTITY newfilter.accesskey "N">
+<!ENTITY add.label "Pridať filter">
+<!ENTITY add.accesskey "A">
+<!ENTITY list.label "Pravidlá filtra">
+<!ENTITY list.accesskey "R">
+<!ENTITY context.edit.label "Upraviť filter">
+<!ENTITY context.remove.label "Odstrániť filter(e)">
+<!ENTITY context.synchsubscription.label "Aktualizovať povolené teraz">
+<!ENTITY context.editsubscription.label "Upraviť povolené">
+<!ENTITY context.removesubscription.label "Odstrániť povolené">
+<!ENTITY context.moveup.label "Posunúť hore">
+<!ENTITY context.movedown.label "Posunúť dole">
+<!ENTITY context.movegroupup.label "Posunúť skupinu hore">
+<!ENTITY context.movegroupdown.label "Posunúť skupinu dole">
+<!ENTITY ok.label "OK">
+<!ENTITY cancel.label "Opustiť">
