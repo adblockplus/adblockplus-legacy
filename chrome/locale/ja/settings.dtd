@@ -70,7 +70,7 @@
 <!ENTITY about.label "Adblock Plus について">
 <!ENTITY about.accesskey "B">
 
-<!ENTITY disabled.warning "Adblock Plus は無効です。 リスト内のフィルタを編集することができますが、それが有効になるまでは適用されません。">
+<!ENTITY disabled.warning "Adblock Plus は現在停止中です。 リスト内のフィルタを編集することができますが、Adblock Plus を有効にするまでは適用されません。">
 
 <!ENTITY description                "
 		ドロップダウンリストの中からブロックしたいアドレスを追加してください。
