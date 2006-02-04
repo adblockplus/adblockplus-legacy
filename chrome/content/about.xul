@@ -46,31 +46,29 @@
     &description;
   </description>
 
-  <vbox id="homepageBox">
-    <description id="homepageTitle" value="&homepage.label;:"/>
-    <description id="homepage" value="http://adblockplus.mozdev.org/" onclick="abp.loadInBrowser(this.getAttribute('value'))"/>
-  </vbox>
-  <vbox id="authorBox">
-    <description id="authorTitle" value="&author.label;:"/>
-    <description id="author" value="Wladimir Palant"/>
-  </vbox>
+  <description id="homepageTitle" value="&homepage.label;:"/>
+  <description id="homepage" value="http://adblockplus.mozdev.org/" onclick="abp.loadInBrowser(this.getAttribute('value'))"/>
+
+  <description id="authorTitle" value="&author.label;:"/>
+  <description id="author" value="Wladimir Palant"/>
+
+  <description id="contributorsTitle" value="&contributors.label;:"/>
   <vbox id="contributorsBox">
-    <description id="contributorsTitle" value="&contributors.label;:"/>
-    <description class="contributor" value="Kevin Keller - icons"/>
-    <description class="contributor" value="Leszek (teo) Życzkowski - Polish translation"/>
-    <description class="contributor" value="MatrixIsAllOver - Italian translation"/>
-    <description class="contributor" value="Ahmet Serkan Tıratacı - Turkish translation"/>
-    <description class="contributor" value="Premier - Japanese translation"/>
-    <description class="contributor" value="Jonas Slivka - Lithuanian translation"/>
-    <description class="contributor" value="Joni Heinonen aka Akilles - Finnish translation"/>
-    <description class="contributor" value="Fenix-TX, srxo1978 - Spanish translation"/>
-    <description class="contributor" value="Jacen - Slovak translation"/>
-    <spacer height="10"/>
-    <description class="contributor" value="Henrik Aasted Sorensen - original Adblock"/>
-    <description class="contributor" value="Michael McDonald - Adblock Plus 0.5"/>
-    <description class="contributor" value="rue - Adblock 0.4/0.5"/>
-    <description class="contributor" value="Ben Karel - Adblock 0.4/0.5"/>
-    <description class="contributor" value="Stefan Kinitz - Adblock 0.4/0.5"/>
+    <description value="Kevin Keller - icons"/>
+    <description value="Leszek (teo) Życzkowski - Polish translation"/>
+    <description value="MatrixIsAllOver - Italian translation"/>
+    <description value="Ahmet Serkan Tıratacı - Turkish translation"/>
+    <description value="Premier - Japanese translation"/>
+    <description value="Jonas Slivka - Lithuanian translation"/>
+    <description value="Joni Heinonen aka Akilles - Finnish translation"/>
+    <description value="Fenix-TX, srxo1978 - Spanish translation"/>
+    <description value="Jacen - Slovak translation"/>
+    <spacer height="5"/>
+    <description value="Henrik Aasted Sorensen - original Adblock"/>
+    <description value="Michael McDonald - Adblock Plus 0.5"/>
+    <description value="rue - Adblock 0.4/0.5"/>
+    <description value="Ben Karel - Adblock 0.4/0.5"/>
+    <description value="Stefan Kinitz - Adblock 0.4/0.5"/>
   </vbox>
 </groupbox>
 

@@ -33,12 +33,16 @@
   margin-top: 15px;
 }
 
-#description {
-  width: 450px;
+#homepageTitle, #authorTitle, #contributorsTitle {
+  font-weight: bold;
 }
 
-#description, #homepageBox, #authorBox {
+#description, #homepage, #author {
   margin-bottom: 10px;
+}
+
+#description {
+  width: 450px;
 }
 
 #homepage {
@@ -47,6 +51,7 @@
   cursor: pointer;
 }
 
-#homepageTitle, #authorTitle, #contributorsTitle {
-  font-weight: bold;
+#contributorsBox {
+  height: 200px;
+  overflow: auto;
 }

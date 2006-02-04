@@ -51,9 +51,24 @@ HashTable.prototype = {
     key = " " + key;
     return (key in this.data);
   },
-  clear: function()
-  {
+  clear: function() {
     this.data = {};
+  },
+  keys: function() {
+    var result = [];
+    for (var key in this.data)
+      if (key.indexOf(" ") == 0)
+        result.push(key.substr(1));
+
+    return result;
+  },
+  values: function() {
+    var result = [];
+    for (var key in this.data)
+      if (key.indexOf(" ") == 0)
+        result.push(this.data[key]);
+
+    return result;
   }
 }
 abp.HashTable = HashTable;

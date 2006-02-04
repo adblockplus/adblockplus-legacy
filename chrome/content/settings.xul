@@ -139,12 +139,16 @@
   </listbox>
 </vbox>
 
-<hbox id="buttons">
+<hbox id="buttonarea">
   <description id="disabledWarning" hide="true" flex="1">
     &disabled.warning;
   </description>
-  <button class="dialog-button" id="ok-button" label="&ok.label;" command="ok-command" disabled="true"/>
-  <button class="dialog-button" id="cancel-button" label="&cancel.label;" command="cancel-command"/>
+  <vbox id="buttons" pack="end">
+    <hbox>
+      <button class="dialog-button" id="ok-button" label="&ok.label;" command="ok-command" disabled="true"/>
+      <button class="dialog-button" id="cancel-button" label="&cancel.label;" command="cancel-command"/>
+    </hbox>
+  </vbox>
 </hbox>
 
 </window>

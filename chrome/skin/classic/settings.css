@@ -31,7 +31,7 @@
   visibility: hidden;
 }
 
-#buttons, #entryarea, #listarea {
+#buttonarea, #entryarea, #listarea {
   margin: 8px;
 }
 

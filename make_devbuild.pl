@@ -7,5 +7,7 @@ my $version = <VERSION>;
 $version =~ s/[^\w\.]//gs;
 close(VERSION);
 
-@ARGV = ("adblockplus-$version+.xpi", 1);
+$ARGV[0] ||= "*";
+my $locale = ($ARGV[0] eq "*" ? "" : "-$ARGV[0]");
+@ARGV = ("adblockplus-$version+$locale.xpi", $ARGV[0], 1);
 do 'create_xpi.pl';
