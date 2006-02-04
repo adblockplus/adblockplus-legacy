@@ -1,0 +1,28 @@
+<!ENTITY dialog.title "Upraviť povolený filter">
+<!ENTITY dialog.newtitle "Pridať povolený filter">
+<!ENTITY new.description "
+	Zadajte prosím webovú adresu alebo súbor obsahujúci zoznam
+	Adblock Plus filtrov.
+">
+<!ENTITY edit.description "
+	Zoznam filtrov pre toto povolenie bude stiahnutý
+	z daného umiestnenia (nemôže byť nikdy zmenený).
+">
+<!ENTITY external.description "
+	Toto je externý filter povolenia, jeho zoznam
+	bude zahrnutý v najnovšom rozšírení ktoré vytvorilo toto
+	povolenie.
+">
+<!ENTITY autodownload.description "
+	Ak zvolíte 'Automatická aktualizácia' toto umiestnenie bude
+	zahrnuté do dennej aktualizácie. Ak túto možnosť vypnete, stále môžete
+	aktualizovať ručne z kontextovej ponuky povolení.
+">
+<!ENTITY location.label "Umiestnenie zoznamu filtrov">
+<!ENTITY location.accesskey "L">
+<!ENTITY title.label "Názov povolenia">
+<!ENTITY title.accesskey "T">
+<!ENTITY autodownload.label "Automatická aktualizácia">
+<!ENTITY autodownload.accesskey "P">
+<!ENTITY enabled.label "Zapnúť filtre">
+<!ENTITY enabled.accesskey "N">

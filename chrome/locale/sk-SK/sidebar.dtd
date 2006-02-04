@@ -1,0 +1,13 @@
+<!ENTITY detached.title "Bočný panel Adblock Plus (oddelený)">
+<!ENTITY detach.label "Oddeliť">
+<!ENTITY reattach.label "Znovu pripojiť">
+<!ENTITY list.label "Položky na aktuálnej stránke">
+<!ENTITY type.label "Typ">
+<!ENTITY address.label "Adresa">
+<!ENTITY noitems.label "Neblokovateľné položky">
+<!ENTITY notremote.label "Nie vzdialená stránka">
+<!ENTITY whitelisted.label "Povolené stránky">
+<!ENTITY notloaded.label "Adblock Plus nebol nainštalovaný správne">
+<!ENTITY effective-filter.label "Filter v skutočnosti">
+<!ENTITY adblock.label "Adblock">
+<!ENTITY adblock.accesskey "A">
