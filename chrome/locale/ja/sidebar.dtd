@@ -24,8 +24,8 @@
 
 <!ENTITY detached.title "Adblock Plus サイドバー (別窓表示)">
 
-<!ENTITY detach.label "別窓表示">
-<!ENTITY reattach.label "サイドバー表示">
+<!ENTITY detach.label "別窓表示にする">
+<!ENTITY reattach.label "サイドバー表示にする">
 <!ENTITY list.label "このページの要素一覧">
 
 <!ENTITY type.label "種別">
