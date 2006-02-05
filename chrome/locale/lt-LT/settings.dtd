@@ -22,7 +22,7 @@
 <!ENTITY objecttabs.label "Rodyti korteles Flash ir Java elementams">
 <!ENTITY objecttabs.accesskey "k">
 <!ENTITY collapse.label "Suskleisti užblokuotus elementus">
-<!ENTITY collapse.accesskey "k">
+<!ENTITY collapse.accesskey "S">
 <!ENTITY linkcheck.label "Patikrinti reklaminių antraščių nuorodas">
 <!ENTITY linkcheck.accesskey "a">
 <!ENTITY help.label "Pagalba">
@@ -43,7 +43,7 @@
 <!ENTITY newfilter.label "Naujas filtras">
 <!ENTITY newfilter.accesskey "N">
 <!ENTITY add.label "Pridėti filtrą">
-<!ENTITY add.accesskey "P">
+<!ENTITY add.accesskey "d">
 <!ENTITY list.label "Filtrų taisyklės">
 <!ENTITY list.accesskey "t">
 <!ENTITY context.edit.label "Redaguoti filtrą">

@@ -1,0 +1,13 @@
+<!ENTITY detached.title "Bară laterală Adblock plus (desprinsă)">
+<!ENTITY detach.label "Desprinde">
+<!ENTITY reattach.label "Prinde la loc">
+<!ENTITY list.label "Obiecte în pagina curentă">
+<!ENTITY type.label "Tip">
+<!ENTITY address.label "Adresă">
+<!ENTITY noitems.label "Nici un element blocabil">
+<!ENTITY notremote.label "Pagina locală">
+<!ENTITY whitelisted.label "Pagini sigure">
+<!ENTITY notloaded.label "Adblock Plus nu este instalat corespunzător">
+<!ENTITY effective-filter.label "Filtru în acţiune">
+<!ENTITY adblock.label "Adblock">
+<!ENTITY adblock.accesskey "A">

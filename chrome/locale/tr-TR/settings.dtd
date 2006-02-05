@@ -1,6 +1,6 @@
 <!ENTITY dialog.title "Adblock Plus Tercihleri">
 <!ENTITY filters.label "Süzgeçler">
-<!ENTITY filters.accesskey "S">
+<!ENTITY filters.accesskey "Z">
 <!ENTITY addsubscription.label "Süzgeç aboneliği ekle">
 <!ENTITY addsubscription.accesskey "E">
 <!ENTITY import.label "Süzgeçleri içe aktar">

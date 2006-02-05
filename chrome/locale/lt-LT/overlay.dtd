@@ -8,7 +8,7 @@
 <!ENTITY context.frame.label "Blokuoti kadrą">
 <!ENTITY sidebar.title "„Adblock Plus“">
 <!ENTITY settings.label "Nustatymai">
-<!ENTITY settings.accesskey "s">
+<!ENTITY settings.accesskey "N">
 <!ENTITY opensidebar.label "Atverti parankinę">
 <!ENTITY opensidebar.accesskey "p">
 <!ENTITY closesidebar.label "Užverti parankinę">

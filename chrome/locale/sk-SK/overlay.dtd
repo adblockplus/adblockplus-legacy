@@ -8,10 +8,10 @@
 <!ENTITY context.frame.label "Adblock rámec">
 <!ENTITY sidebar.title "Adblock Plus">
 <!ENTITY settings.label "Nastavenia">
-<!ENTITY settings.accesskey "F">
+<!ENTITY settings.accesskey "N">
 <!ENTITY opensidebar.label "Otvoriť bočný panel">
-<!ENTITY opensidebar.accesskey "S">
+<!ENTITY opensidebar.accesskey "V">
 <!ENTITY closesidebar.label "Zatvoriť bočný panel">
-<!ENTITY closesidebar.accesskey "S">
+<!ENTITY closesidebar.accesskey "V">
 <!ENTITY whitelist.site.label "Vypnúť na --">
 <!ENTITY whitelist.page.label "Vypnúť na tejto stránke a jej podstránkach">

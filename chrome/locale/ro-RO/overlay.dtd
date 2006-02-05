@@ -1,0 +1,17 @@
+<!ENTITY notloaded.label "Inactiv">
+<!ENTITY notloaded.tooltip "Adblock Plus nu poate fi încărcat, probabil că nu a fost instalat corect">
+<!ENTITY menuitem.label "Adblock Plus">
+<!ENTITY menuitem.accesskey "A">
+<!ENTITY context.image.label "Adblock: blochează imagine">
+<!ENTITY context.object.label "Adblock: blochează obiect">
+<!ENTITY context.link.label "Adblock: blochează legătură">
+<!ENTITY context.frame.label "Adblock: blochează frame">
+<!ENTITY sidebar.title "Adblock Plus">
+<!ENTITY settings.label "Particularizare">
+<!ENTITY settings.accesskey "P">
+<!ENTITY opensidebar.label "Deschide bara laterală">
+<!ENTITY opensidebar.accesskey "D">
+<!ENTITY closesidebar.label "Închide bara laterală">
+<!ENTITY closesidebar.accesskey "n">
+<!ENTITY whitelist.site.label "Dezactivează Adblock Plus pe --">
+<!ENTITY whitelist.page.label "Dezactivează Adblock Plus doar pe pagina curentă">

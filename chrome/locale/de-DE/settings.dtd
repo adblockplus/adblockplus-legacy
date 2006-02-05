@@ -48,7 +48,7 @@
 <!ENTITY showinstatusbar.accesskey  "S">
 <!ENTITY localpages.label           "Werbung in lokalen Seiten blockieren">
 <!ENTITY localpages.accesskey       "L">
-<!ENTITY objecttabs.label           "Flash and Java beschildern">
+<!ENTITY objecttabs.label           "Flash und Java beschildern">
 <!ENTITY objecttabs.accesskey       "B">
 <!ENTITY collapse.label             "Platz von blockierten Elementen freigeben">
 <!ENTITY collapse.accesskey         "F">
