@@ -54,52 +54,54 @@ DataContainer.prototype = {
     else
       this.topContainer = this;
 
+    var addListener = secureLookup(insecWnd, "addEventListener");
     var me = this;
     var queryHandler = function(ev) {
       if (ev.isTrusted && ev.eventPhase == ev.AT_TARGET)
         queryResult = me;
     }
-    var showHandler = function(ev) {
-      if (ev.isTrusted && ev.eventPhase == ev.AT_TARGET)
-        DataContainer.notifyListeners("select", me.topContainer);
-    }
+    addListener("abpQuery", queryHandler, true);
+
     var hideHandler = function(ev) {
-      if (ev.isTrusted && ev.eventPhase == ev.AT_TARGET)
-        DataContainer.notifyListeners(me == me.topContainer ? "clear" : "refresh", me.topContainer);
-    }
-    var unloadHandler = function(ev) {
       // unload events aren't trusted in 1.7.5, need to find out when this was fixed
-      if (/*ev.isTrusted && */ev.eventPhase == ev.AT_TARGET) {
-        if (me != me.topContainer)
-          me.topContainer.unregisterSubdocument(me);
+      if ((!ev.isTrusted && ev.type != "unload") || ev.eventPhase != ev.AT_TARGET)
+        return;
 
-        DataContainer.notifyListeners(me == me.topContainer ? "clear" : "refresh", me.topContainer);
+      if (me != me.topContainer)
+        me.topContainer.unregisterSubdocument(me);
 
-        // Make sure we don't leak memory
-        var removeListener = secureLookup(this, "removeEventListener");
-        removeListener("abpQuery", queryHandler, true);
-        removeListener("pageshow", showHandler, false);
-        removeListener("pagehide", hideHandler, false);
-        removeListener("unload", unloadHandler, false);
-        me.insecWnd = null;
+      DataContainer.notifyListeners(me == me.topContainer ? "clear" : "refresh", me.topContainer);
 
-        if (secureGet(this, "location", "href") == "about:blank") {
-          // Make sure to re-add the frame - we are not really going away
-          var insecWnd = this;
-          var timer = createTimer(function() {
-            if (policy.isBlockableScheme(secureGet(insecWnd, "location"))) {
-              var data = DataContainer.getDataForWindow(insecWnd);
-              data.addNode(insecWnd, type.SUBDOCUMENT, secureGet(insecWnd, "location", "href"), null);
-            }
-          }, 0);
-        }
+      if (secureGet(this, "location", "href") == "about:blank") {
+        // Make sure to re-add the frame - we are not really going away
+        var insecWnd = this;
+        var timer = createTimer(function() {
+          if (policy.isBlockableScheme(secureGet(insecWnd, "location"))) {
+            var data = DataContainer.getDataForWindow(insecWnd);
+            data.addNode(insecWnd, type.SUBDOCUMENT, secureGet(insecWnd, "location", "href"), null);
+          }
+        }, 0);
       }
     }
-    var addListener = secureLookup(insecWnd, "addEventListener");
-    addListener("abpQuery", queryHandler, true);
-    addListener("pageshow", showHandler, false);
-    addListener("pagehide", hideHandler, false);
-    addListener("unload", unloadHandler, false);
+
+    if ("nsIDOMPageTransitionEvent" in Components.interfaces) {
+      // This is Gecko 1.8 - use pagehide/pageshow events
+      var showHandler = function(ev) {
+        if (!ev.isTrusted || ev.eventPhase != ev.AT_TARGET)
+          return;
+
+        if (me != me.topContainer)
+          me.topContainer.registerSubdocument(me);
+
+        DataContainer.notifyListeners("select", me.topContainer);
+      }
+      addListener("pagehide", hideHandler, false);
+      addListener("pageshow", showHandler, false);
+    }
+    else {
+      // This is Gecko 1.7 - fall back to unload
+      addListener("unload", hideHandler, false);
+    }
   },
   registerSubdocument: function(data) {
     this.subdocs.push(data);
