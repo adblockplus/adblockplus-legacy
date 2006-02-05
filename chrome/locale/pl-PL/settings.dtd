@@ -1,7 +1,7 @@
 <!ENTITY dialog.title "Adblock Plus - ustawienia">
 <!ENTITY filters.label "Filtry">
 <!ENTITY filters.accesskey "F">
-<!ENTITY addsubscription.label "Dodaj subskrypcję filtrów ">
+<!ENTITY addsubscription.label "Dodaj subskrypcję filtrów">
 <!ENTITY addsubscription.accesskey "S">
 <!ENTITY import.label "Importuj filtry">
 <!ENTITY import.accesskey "M">
