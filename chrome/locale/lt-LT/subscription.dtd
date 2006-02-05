@@ -9,6 +9,6 @@
 <!ENTITY title.label "Prenumeratos pavadinimas">
 <!ENTITY title.accesskey "T">
 <!ENTITY autodownload.label "Automatiškai atnaujinti">
-<!ENTITY autodownload.accesskey "P">
+<!ENTITY autodownload.accesskey "A">
 <!ENTITY enabled.label "Įjungti filtrus">
 <!ENTITY enabled.accesskey "N">

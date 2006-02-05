@@ -1,0 +1,59 @@
+<!ENTITY dialog.title "Particularizare Adblock Plus">
+<!ENTITY filters.label "Filtre">
+<!ENTITY filters.accesskey "F">
+<!ENTITY addsubscription.label "Adaugă subscriere filtre">
+<!ENTITY addsubscription.accesskey "d">
+<!ENTITY import.label "Importă filtre">
+<!ENTITY import.accesskey "m">
+<!ENTITY export.label "Exportă filtre">
+<!ENTITY export.accesskey "x">
+<!ENTITY clearall.label "Şterge toate filtrele">
+<!ENTITY clearall.accesskey "t">
+<!ENTITY listsort.label "Păstrează lista sortată">
+<!ENTITY listsort.accesskey "P">
+<!ENTITY options.label "Opţiuni">
+<!ENTITY options.accesskey "O">
+<!ENTITY enable.label "Activează Adblock Plus">
+<!ENTITY enable.accesskey "A">
+<!ENTITY showinstatusbar.label "Arată în bara de stare">
+<!ENTITY showinstatusbar.accesskey "s">
+<!ENTITY localpages.label "Blochează reclamele în paginile locale">
+<!ENTITY localpages.accesskey "l">
+<!ENTITY objecttabs.label "Activează panourile obiectelor">
+<!ENTITY objecttabs.accesskey "p">
+<!ENTITY collapse.label "Ascunde elementele blocate">
+<!ENTITY collapse.accesskey "b">
+<!ENTITY linkcheck.label "Verifică legăturile bannerelor">
+<!ENTITY linkcheck.accesskey "V">
+<!ENTITY help.label "Ajutor">
+<!ENTITY help.accesskey "j">
+<!ENTITY faq.label "Întrebări frecvente (FAQ)">
+<!ENTITY faq.accesskey "Q">
+<!ENTITY faq.url "http://adblockplus.mozdev.org/faq.html">
+<!ENTITY tips.label "Sfatul zilei">
+<!ENTITY tips.accesskey "z">
+<!ENTITY tips.url "http://adblockplus.mozdev.org/tips.html">
+<!ENTITY regexps.label "Ajutor expresii">
+<!ENTITY regexps.accesskey "u">
+<!ENTITY regexps.url "http://developer.mozilla.org/en/docs/Core_JavaScript_1.5_Guide:Regular_Expressions#Writing_a_Regular_Expression_Pattern">
+<!ENTITY about.label "Despre Adblock Plus">
+<!ENTITY about.accesskey "D">
+<!ENTITY disabled.warning "Adblock Plus este inactiv. Filtrele nu vor avea efect până nu reactivaţi extensia.">
+<!ENTITY description "Adăugaţi adresele pe care doriţi să le blocaţi; puteţi alege din lista derulantă. Pentru a crea filtre generice, folosiţi caracterul * ca joker. Utilizatorii avansaţi pot folosi expresii, ca de exemplu /banner\d+\.gif$/.">
+<!ENTITY newfilter.label "Filtru nou">
+<!ENTITY newfilter.accesskey "n">
+<!ENTITY add.label "Adaugă filtru">
+<!ENTITY add.accesskey "A">
+<!ENTITY list.label "Filtrele existente">
+<!ENTITY list.accesskey "x">
+<!ENTITY context.edit.label "Modifică filtru">
+<!ENTITY context.remove.label "Şterge filtru">
+<!ENTITY context.synchsubscription.label "Actualizează subscrieri">
+<!ENTITY context.editsubscription.label "Editează subscrieri">
+<!ENTITY context.removesubscription.label "Şterge subscrieri">
+<!ENTITY context.moveup.label "Mută în sus">
+<!ENTITY context.movedown.label "Mută în jos">
+<!ENTITY context.movegroupup.label "Mută grupul în sus">
+<!ENTITY context.movegroupdown.label "Mută grupul în jos">
+<!ENTITY ok.label "OK">
+<!ENTITY cancel.label "Renunţă">
