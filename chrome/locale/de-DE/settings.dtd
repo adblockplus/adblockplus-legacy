@@ -44,11 +44,11 @@
 
 <!ENTITY enable.label               "Adblock Plus aktivieren">
 <!ENTITY enable.accesskey           "N">
-<!ENTITY showinstatusbar.label      "In Status-Leiste anzeigen">
+<!ENTITY showinstatusbar.label      "In Statusleiste anzeigen">
 <!ENTITY showinstatusbar.accesskey  "S">
 <!ENTITY localpages.label           "Werbung in lokalen Seiten blockieren">
 <!ENTITY localpages.accesskey       "L">
-<!ENTITY objecttabs.label           "Blockierungsknopf über Flash und Java anzeigen">
+<!ENTITY objecttabs.label           "Tab zum Blockieren von Flash und Java anzeigen">
 <!ENTITY objecttabs.accesskey       "B">
 <!ENTITY collapse.label             "Platz von blockierten Elementen freigeben">
 <!ENTITY collapse.accesskey         "F">
