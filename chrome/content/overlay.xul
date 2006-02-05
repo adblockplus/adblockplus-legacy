@@ -41,13 +41,13 @@
   <window id="main-window">
     <popupset id="abp-popupset">
       <tooltip id="abp-tooltip" label="&notloaded.tooltip;" onpopupshowing="return (document.tooltipNode &amp;&amp; document.tooltipNode.tooltip == 'abp-tooltip')"/>
-      <popup id="abp-status-popup" onpopupshowing="return abpFillPopup('abp-status')">
+      <popup id="abp-status-popup" onpopupshowing="return abpFillPopup(event.target)">
         <menuitem id="abp-status-opensidebar" label="&opensidebar.label;" accesskey="&opensidebar.accesskey;" key="key-view-abp-sidebar" oncommand="abpToggleSidebar()"/>
         <menuitem id="abp-status-closesidebar" label="&closesidebar.label;" accesskey="&closesidebar.accesskey;" key="key-view-abp-sidebar" oncommand="abpToggleSidebar()"/>
         <menuitem id="abp-status-settings" label="&settings.label;..." accesskey="&settings.accesskey;" key="key-launch-abp-preferences" oncommand="abpSettings()"/>
         <menuseparator id="abp-status-whitelist-sep"/>
-        <menuitem id="abp-status-whitelist-site" labeltempl="&whitelist.site.label;" type="checkbox" oncommand="abpTogglePattern(this.pattern, this.hasAttribute('checked'))"/>
-        <menuitem id="abp-status-whitelist-page" label="&whitelist.page.label;" type="checkbox" oncommand="abpTogglePattern(this.pattern, this.hasAttribute('checked'))"/>
+        <menuitem id="abp-status-whitelistsite" labeltempl="&whitelist.site.label;" type="checkbox" oncommand="abpTogglePattern(this.pattern, this.hasAttribute('checked'))"/>
+        <menuitem id="abp-status-whitelistpage" label="&whitelist.page.label;" type="checkbox" oncommand="abpTogglePattern(this.pattern, this.hasAttribute('checked'))"/>
         <menuseparator/>
         <menu id="abp-status-options" label="&options.label;" accesskey="&options.accesskey;">
           <menupopup id="abp-status-options-popup">
@@ -78,7 +78,7 @@
         oncommand="if (event.target == this) abpToggleSidebar()"
         onclick="if (event.target == this &amp;&amp; event.button == 1) abpTogglePref('enabled')"
         tooltip="abp-tooltip">
-      <menupopup id="abp-toolbar-popup" onpopupshowing="return abpFillPopup('abp-toolbar')"/>
+      <menupopup id="abp-toolbar-popup" onpopupshowing="return abpFillPopup(event.target)"/>
     </toolbarbutton>
   </toolbarpalette>
 
