@@ -55,25 +55,30 @@ function abpInit() {
   if (abp && !abpPrefs.checkedtoolbar)
     setTimeout(abpInstallInToolbar, 0);
 
-  if (document.getElementById("abp-toolbar-popup")) {
-    // Clone statusbar popup for the toolbar button
-    var fixId = function(node) {
-      if (node.nodeType != Node.ELEMENT_NODE)
-        return node;
-  
-      if ("id" in node && node.id)
-        node.id = node.id.replace(/abp-status/, "abp-toolbar");
-  
-      for (var child = node.firstChild; child; child = child.nextSibling)
-        fixId(child);
-  
+  // Copy the menu from status bar icon to the toolbar
+  var fixId = function(node) {
+    if (node.nodeType != Node.ELEMENT_NODE)
       return node;
-    }
+
+    if ("id" in node && node.id)
+      node.id = node.id.replace(/abp-status/, "abp-toolbar");
+
+    for (var child = node.firstChild; child; child = child.nextSibling)
+      fixId(child);
+
+    return node;
+  }
+  var copyMenu = function(to) {
+    if (!to || !to.firstChild)
+      return;
+
+    to = to.firstChild;
     var from = document.getElementById("abp-status-popup");
-    var to = document.getElementById("abp-toolbar-popup");
     for (var node = from.firstChild; node; node = node.nextSibling)
       to.appendChild(fixId(node.cloneNode(true)));
   }
+  copyMenu(document.getElementById("abp-toolbarbutton"));
+  copyMenu(abpGetPaletteButton());
 }
 
 function abpUnload() {
@@ -119,13 +124,20 @@ function abpReloadPrefs() {
 
   updateElement(document.getElementById("abp-status"));
   updateElement(document.getElementById("abp-toolbarbutton"));
+  updateElement(abpGetPaletteButton());
+}
 
-  // Need to update the button in the palette as well
+// Finds the toolbar button in the toolbar palette
+function abpGetPaletteButton() {
   var toolbox = document.getElementById("navigator-toolbox");
-  if (toolbox && "palette" in toolbox && toolbox.palette)
-    for (var child = toolbox.palette.firstChild; child; child = child.nextSibling)
-      if (child.id == "abp-toolbarbutton")
-        updateElement(child);
+  if (!toolbox || !("palette" in toolbox) || !toolbox.palette)
+    return null;
+
+  for (var child = toolbox.palette.firstChild; child; child = child.nextSibling)
+    if (child.id == "abp-toolbarbutton")
+      return child;
+
+  return null;
 }
 
 // Check whether Adblock is installed and uninstall
@@ -211,18 +223,29 @@ function abpGetPanelsFile() {
 }
 
 // Fills the context menu on the status bar
-function abpFillPopup(prefix) {
+function abpFillPopup(popup) {
   if (!abp)
     return false;
 
+  // Not at-target call, ignore
+  if (popup.id.indexOf("options") >= 0)
+    return true;
+
+  // Need to do it this way to prevent a Gecko bug from striking
+  var elements = {};
+  var list = popup.getElementsByTagName("menuitem");
+  for (var i = 0; i < list.length; i++)
+    if (list[i].id && /\-(\w+)$/.test(list[i].id))
+      elements[RegExp.$1] = list[i];
+
   var sidebarOpen = abpIsSidebarOpen();
-  document.getElementById(prefix+"-opensidebar").hidden = sidebarOpen;
-  document.getElementById(prefix+"-closesidebar").hidden = !sidebarOpen;
+  elements.opensidebar.hidden = sidebarOpen;
+  elements.closesidebar.hidden = !sidebarOpen;
 
   var insecLocation = secureGet(content, "location");
   var showWhitelist = abp.policy.isBlockableScheme(insecLocation);
-  var whitelistItemSite = document.getElementById(prefix+"-whitelist-site");
-  var whitelistItemPage = document.getElementById(prefix+"-whitelist-page");
+  var whitelistItemSite = elements.whitelistsite;
+  var whitelistItemPage = elements.whitelistpage;
   if (showWhitelist) {
     var url = secureGet(insecLocation, "href").replace(/\?.*/, '');
     var host = secureGet(insecLocation, "host");
@@ -235,15 +258,15 @@ function abpFillPopup(prefix) {
     whitelistItemPage.pattern = "@@" + url;
     whitelistItemPage.setAttribute("checked", abpHasPattern(whitelistItemPage.pattern));
   }
-  document.getElementById(prefix+"-whitelist-sep").hidden =
-    whitelistItemSite.hidden = whitelistItemPage.hidden = !showWhitelist;
+  whitelistItemSite.hidden = whitelistItemPage.hidden =
+    whitelistItemPage.nextSibling.hidden = !showWhitelist;
 
-  document.getElementById(prefix+"-enabled").setAttribute("checked", abpPrefs.enabled);
-  document.getElementById(prefix+"-showinstatusbar").setAttribute("checked", abpPrefs.showinstatusbar);
-  document.getElementById(prefix+"-localpages").setAttribute("checked", abpPrefs.blocklocalpages);
-  document.getElementById(prefix+"-frameobjects").setAttribute("checked", abpPrefs.frameobjects);
-  document.getElementById(prefix+"-slowcollapse").setAttribute("checked", !abpPrefs.fastcollapse);
-  document.getElementById(prefix+"-linkcheck").setAttribute("checked", abpPrefs.linkcheck);
+  elements.enabled.setAttribute("checked", abpPrefs.enabled);
+  elements.showinstatusbar.setAttribute("checked", abpPrefs.showinstatusbar);
+  elements.localpages.setAttribute("checked", abpPrefs.blocklocalpages);
+  elements.frameobjects.setAttribute("checked", abpPrefs.frameobjects);
+  elements.slowcollapse.setAttribute("checked", !abpPrefs.fastcollapse);
+  elements.linkcheck.setAttribute("checked", abpPrefs.linkcheck);
   return true;
 }
 
