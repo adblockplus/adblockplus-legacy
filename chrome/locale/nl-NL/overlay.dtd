@@ -1,0 +1,17 @@
+<!ENTITY notloaded.label "Niet geladen">
+<!ENTITY notloaded.tooltip "Adblock Plus onderdelen konden niet worden geladen, waarschijnlijk is het niet goed geïnstalleerd">
+<!ENTITY menuitem.label "Adblock Plus">
+<!ENTITY menuitem.accesskey "A">
+<!ENTITY context.image.label "Adblock Afbeelding">
+<!ENTITY context.object.label "Adblock Object">
+<!ENTITY context.link.label "Adblock Link">
+<!ENTITY context.frame.label "Adblock Frame">
+<!ENTITY sidebar.title "Adblock Plus">
+<!ENTITY settings.label "Voorkeuren">
+<!ENTITY settings.accesskey "K">
+<!ENTITY opensidebar.label "Open zijbalk">
+<!ENTITY opensidebar.accesskey "Z">
+<!ENTITY closesidebar.label "Sluit zijbalk">
+<!ENTITY closesidebar.accesskey "Z">
+<!ENTITY whitelist.site.label "Uitschakelen op --">
+<!ENTITY whitelist.page.label "Uitschakelen op deze pagina en al zijn subpagina's">
