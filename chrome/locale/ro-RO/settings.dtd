@@ -43,7 +43,7 @@
 <!ENTITY newfilter.label "Filtru nou">
 <!ENTITY newfilter.accesskey "n">
 <!ENTITY add.label "Adaugă filtru">
-<!ENTITY add.accesskey "A">
+<!ENTITY add.accesskey "d">
 <!ENTITY list.label "Filtrele existente">
 <!ENTITY list.accesskey "x">
 <!ENTITY context.edit.label "Modifică filtru">
