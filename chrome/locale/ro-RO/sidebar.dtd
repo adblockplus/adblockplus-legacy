@@ -9,5 +9,5 @@
 <!ENTITY whitelisted.label "Pagini sigure">
 <!ENTITY notloaded.label "Adblock Plus nu este instalat corespunzător">
 <!ENTITY effective-filter.label "Filtru în acţiune">
-<!ENTITY adblock.label "Adblock">
-<!ENTITY adblock.accesskey "A">
+<!ENTITY adblock.label "Blochează obiect">
+<!ENTITY adblock.accesskey "B">

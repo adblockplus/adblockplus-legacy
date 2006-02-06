@@ -2,7 +2,7 @@
 <!ENTITY filters.label "Filtre">
 <!ENTITY filters.accesskey "F">
 <!ENTITY addsubscription.label "Adaugă subscriere filtre">
-<!ENTITY addsubscription.accesskey "d">
+<!ENTITY addsubscription.accesskey "A">
 <!ENTITY import.label "Importă filtre">
 <!ENTITY import.accesskey "m">
 <!ENTITY export.label "Exportă filtre">
@@ -18,23 +18,23 @@
 <!ENTITY showinstatusbar.label "Arată în bara de stare">
 <!ENTITY showinstatusbar.accesskey "s">
 <!ENTITY localpages.label "Blochează reclamele în paginile locale">
-<!ENTITY localpages.accesskey "l">
+<!ENTITY localpages.accesskey "B">
 <!ENTITY objecttabs.label "Activează panourile obiectelor">
 <!ENTITY objecttabs.accesskey "p">
 <!ENTITY collapse.label "Ascunde elementele blocate">
-<!ENTITY collapse.accesskey "b">
+<!ENTITY collapse.accesskey "s">
 <!ENTITY linkcheck.label "Verifică legăturile bannerelor">
 <!ENTITY linkcheck.accesskey "V">
 <!ENTITY help.label "Ajutor">
-<!ENTITY help.accesskey "j">
+<!ENTITY help.accesskey "A">
 <!ENTITY faq.label "Întrebări frecvente (FAQ)">
 <!ENTITY faq.accesskey "Q">
 <!ENTITY faq.url "http://adblockplus.mozdev.org/faq.html">
 <!ENTITY tips.label "Sfatul zilei">
-<!ENTITY tips.accesskey "z">
+<!ENTITY tips.accesskey "S">
 <!ENTITY tips.url "http://adblockplus.mozdev.org/tips.html">
 <!ENTITY regexps.label "Ajutor expresii">
-<!ENTITY regexps.accesskey "u">
+<!ENTITY regexps.accesskey "x">
 <!ENTITY regexps.url "http://developer.mozilla.org/en/docs/Core_JavaScript_1.5_Guide:Regular_Expressions#Writing_a_Regular_Expression_Pattern">
 <!ENTITY about.label "Despre Adblock Plus">
 <!ENTITY about.accesskey "D">
