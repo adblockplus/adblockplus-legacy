@@ -11,7 +11,7 @@
 ">
 <!ENTITY autodownload.description "
 	Jeżeli zostanie wybrana opcja &quot;Uaktualniaj automatycznie&quot; Adblock Plus będzie
-    codziennie przeprowadzał sprawdzenie uaktualnień filtrów w tej lokalizacji.
+		codziennie przeprowadzał sprawdzenie uaktualnień filtrów w tej lokalizacji.
 	Jeżeli ta opcja pozostanie wyłaczona, można przeprowadzać sprawdzanie uaktualnień filtrów ręcznie
 	wybierając odpowienią opcję z menu kontekstowego subskrypcji.
 ">
