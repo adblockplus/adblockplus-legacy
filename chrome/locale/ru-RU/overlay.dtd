@@ -28,10 +28,10 @@
 <!ENTITY menuitem.label         "Adblock Plus">
 <!ENTITY menuitem.accesskey     "A">
 
-<!ENTITY context.image.label    "Adblock: изображение">
-<!ENTITY context.object.label   "Adblock: объект">
-<!ENTITY context.link.label     "Adblock: ссылка">
-<!ENTITY context.frame.label    "Adblock: фрейм">
+<!ENTITY context.image.label    "Adblock: заблокировать изображение">
+<!ENTITY context.object.label   "Adblock: заблокировать объект">
+<!ENTITY context.link.label     "Adblock: заблокировать ссылку">
+<!ENTITY context.frame.label    "Adblock: заблокировать фрейм">
 
 <!ENTITY sidebar.title          "Adblock Plus">
 
