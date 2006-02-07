@@ -32,8 +32,7 @@ var flasher = {
   count: 0,
   timer: null,
 
-  flash: function(inseclNodes)
-  {
+  flash: function(inseclNodes) {
     this.stop();
     if (!inseclNodes)
       return;
@@ -44,12 +43,9 @@ var flasher = {
     this.doFlash();
   },
 
-  doFlash: function()
-  {
-    if (this.count >= 6)
-    {
-      this.switchOff();
-      this.inseclNodes = null;
+  doFlash: function() {
+    if (this.count >= 6) {
+      this.stop();
       return;
     }
 
@@ -63,19 +59,19 @@ var flasher = {
     this.timer = createTimer(function() {flasher.doFlash()}, 300);
   },
 
-  stop: function()
-  {
-    if (this.inseclNodes != null)
-    {
-      if (this.timer)
-        this.timer.cancel();
+  stop: function() {
+    if (this.timer) {
+      this.timer.cancel();
+      this.timer = null;
+    }
+
+    if (this.inseclNodes) {
       this.switchOff();
       this.inseclNodes = null;
     }
   },
 
-  setOutline: function(value)
-  {
+  setOutline: function(value) {
     for (var i = 0; i < this.inseclNodes.length; i++) {
       var insecNode = this.inseclNodes[i];
       var insecContentBody = secureGet(insecNode, "document", "body");
@@ -86,8 +82,7 @@ var flasher = {
     }
   },
 
-  switchOn: function()
-  {
+  switchOn: function() {
     this.setOutline("#CC0000 dotted 2px");
   },
 
