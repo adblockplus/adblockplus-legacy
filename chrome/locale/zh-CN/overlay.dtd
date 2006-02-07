@@ -1,0 +1,17 @@
+<!ENTITY notloaded.label "未加载">
+<!ENTITY notloaded.tooltip "Adblock Plus组件不能加载，可能是因为未完全安装">
+<!ENTITY menuitem.label "Adblock Plus">
+<!ENTITY menuitem.accesskey "A">
+<!ENTITY context.image.label "过滤图片(Adblock)">
+<!ENTITY context.object.label "过滤对象(Adblock)">
+<!ENTITY context.link.label "过滤链接(Adblock)">
+<!ENTITY context.frame.label "过滤框架(Adblock)">
+<!ENTITY sidebar.title "Adblock Plus">
+<!ENTITY settings.label "首选项">
+<!ENTITY settings.accesskey "F">
+<!ENTITY opensidebar.label "打开侧栏">
+<!ENTITY opensidebar.accesskey "S">
+<!ENTITY closesidebar.label "关闭侧栏">
+<!ENTITY closesidebar.accesskey "S">
+<!ENTITY whitelist.site.label "在 -- 禁用Adblock Plus">
+<!ENTITY whitelist.page.label "仅在本页及其子页面禁用Adblock Plus">
