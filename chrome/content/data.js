@@ -75,7 +75,7 @@ DataContainer.prototype = {
       if (secureGet(this, "location", "href") == "about:blank") {
         // Make sure to re-add the frame - we are not really going away
         var insecWnd = this;
-        var timer = createTimer(function() {
+        createTimer(function() {
           if (policy.isBlockableScheme(secureGet(insecWnd, "location"))) {
             var data = DataContainer.getDataForWindow(insecWnd);
             data.addNode(insecWnd, type.SUBDOCUMENT, secureGet(insecWnd, "location", "href"), null);
