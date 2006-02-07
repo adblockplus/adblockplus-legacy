@@ -7,8 +7,8 @@
 <!ENTITY location.label "Filterlijst locatie">
 <!ENTITY location.accesskey "L">
 <!ENTITY title.label "Abonnementnaam">
-<!ENTITY title.accesskey "N">
+<!ENTITY title.accesskey "B">
 <!ENTITY autodownload.label "Automatisch bijwerken">
-<!ENTITY autodownload.accesskey "B">
+<!ENTITY autodownload.accesskey "T">
 <!ENTITY enabled.label "Filters inschakelen">
-<!ENTITY enabled.accesskey "S">
+<!ENTITY enabled.accesskey "N">
