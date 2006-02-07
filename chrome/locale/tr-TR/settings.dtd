@@ -19,9 +19,9 @@
 <!ENTITY showinstatusbar.accesskey "D">
 <!ENTITY localpages.label "Yerel sayfaların dış kaynaklı reklamlarını engelle">
 <!ENTITY localpages.accesskey "Y">
-<!ENTITY objecttabs.label "Flash ve Java'yı kulakçıklarlar belirt">
+<!ENTITY objecttabs.label "Flash ve Java'yı kulakçıklarla belirt">
 <!ENTITY objecttabs.accesskey "J">
-<!ENTITY collapse.label "Öğeler kapat">
+<!ENTITY collapse.label "Öğeleri kapat">
 <!ENTITY collapse.accesskey "T">
 <!ENTITY linkcheck.label "Tanıtım bağlarına bak">
 <!ENTITY linkcheck.accesskey "B">
@@ -39,7 +39,7 @@
 <!ENTITY about.label "Adblock Plus Hakkında">
 <!ENTITY about.accesskey "O">
 <!ENTITY disabled.warning "Adblock Plus şu an devre dışı. Listedeki süzgeçleri değiştirebilirsiniz. Ancak bunlar eklenti devreye girene kadar kullanılamayacak.">
-<!ENTITY description "Engellemek istediğiniz adresleri yazın. Öneriler için açılır menüye bakın. Daha genel süzgeçler tanımlamak için * işaretini kullanabilirsiniz. İleri düzeyde bilgiye sahip kullanıcılar düzenli ifadelere (ör. /reklam\d+\.gif$/) de başvurabilir.">
+<!ENTITY description "Engellemek istediğiniz adresleri yazın. Öneriler için açılır menüye bakın. Daha genel süzgeçler tanımlamak için * işaretini kullanabilirsiniz. İleri düzeyde bilgiye sahip kullanıcılar düzenli ifadelere (ör. /reklam\d+\.gif$/) de başvurabilirler.">
 <!ENTITY newfilter.label "Yeni süzgeç">
 <!ENTITY newfilter.accesskey "Y">
 <!ENTITY add.label "Süzgeç ekle">

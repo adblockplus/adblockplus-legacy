@@ -1,4 +1,4 @@
-<!ENTITY notloaded.label "Yüklenmiş değil">
+<!ENTITY notloaded.label "Yüklenmedi">
 <!ENTITY notloaded.tooltip "Adblock Plus eklentisinin bir bileşeni yüklenemedi. Belki de düzgün kurulu değil.">
 <!ENTITY menuitem.label "Adblock Plus">
 <!ENTITY menuitem.accesskey "A">
@@ -13,5 +13,5 @@
 <!ENTITY opensidebar.accesskey "K">
 <!ENTITY closesidebar.label "Kenar çubuğunu kapat">
 <!ENTITY closesidebar.accesskey "E">
-<!ENTITY whitelist.site.label "Buradayken devre dışı kal:">
+<!ENTITY whitelist.site.label "Bu sitedeyken devre dışı kal">
 <!ENTITY whitelist.page.label "Bu sayfa ve alt sayfalarında devre dışı kal">
