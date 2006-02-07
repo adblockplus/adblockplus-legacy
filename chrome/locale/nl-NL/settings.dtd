@@ -1,7 +1,7 @@
-<!ENTITY dialog.title "Adblock Plus voorkeuren">
+<!ENTITY dialog.title "Adblock Plus Voorkeuren">
 <!ENTITY filters.label "Filters">
 <!ENTITY filters.accesskey "F">
-<!ENTITY addsubscription.label "Filter abbonnement toevoegen">
+<!ENTITY addsubscription.label "Filter abonnement toevoegen">
 <!ENTITY addsubscription.accesskey "A">
 <!ENTITY import.label "Importeer filters">
 <!ENTITY import.accesskey "M">
@@ -11,20 +11,20 @@
 <!ENTITY clearall.accesskey "W">
 <!ENTITY listsort.label "Sorteer alfabetisch">
 <!ENTITY listsort.accesskey "S">
-<!ENTITY options.label "Voorkeuren">
-<!ENTITY options.accesskey "V">
+<!ENTITY options.label "Opties">
+<!ENTITY options.accesskey "O">
 <!ENTITY enable.label "Adblock Plus inschakelen">
 <!ENTITY enable.accesskey "N">
 <!ENTITY showinstatusbar.label "Laat zien in statusbalk">
 <!ENTITY showinstatusbar.accesskey "S">
-<!ENTITY localpages.label "Blokkeer remote reclames in locale pagina's">
+<!ENTITY localpages.label "Remote reclames blokkeren in locale pagina's">
 <!ENTITY localpages.accesskey "R">
-<!ENTITY objecttabs.label "Laat tabs zien op Flash en Java">
+<!ENTITY objecttabs.label "Tabs laten zien op Flash en Java">
 <!ENTITY objecttabs.accesskey "T">
 <!ENTITY collapse.label "Geblokkeerde elementen inklappen">
 <!ENTITY collapse.accesskey "I">
-<!ENTITY linkcheck.label "Controleer reclame links">
-<!ENTITY linkcheck.accesskey "L">
+<!ENTITY linkcheck.label "Controleer reclame verwijzingen">
+<!ENTITY linkcheck.accesskey "C">
 <!ENTITY help.label "Help">
 <!ENTITY help.accesskey "H">
 <!ENTITY faq.label "Veelgestelde vragen">
@@ -48,9 +48,9 @@
 <!ENTITY list.accesskey "R">
 <!ENTITY context.edit.label "Wijzig filter">
 <!ENTITY context.remove.label "Verwijder filter(s)">
-<!ENTITY context.synchsubscription.label "Abbonnement nu bijwerken">
-<!ENTITY context.editsubscription.label "Wijzig abbonnement">
-<!ENTITY context.removesubscription.label "Verwijder abbonnement">
+<!ENTITY context.synchsubscription.label "Abonnement nu bijwerken">
+<!ENTITY context.editsubscription.label "Wijzig abonnement">
+<!ENTITY context.removesubscription.label "Verwijder abonnement">
 <!ENTITY context.moveup.label "Omhoog verplaatsen">
 <!ENTITY context.movedown.label "Omlaag verplaatsen">
 <!ENTITY context.movegroupup.label "Groep omhoog verplaatsen">
