@@ -56,4 +56,4 @@
 <!ENTITY context.movegroupup.label "Groep omhoog verplaatsen">
 <!ENTITY context.movegroupdown.label "Groep omlaag verplaatsen">
 <!ENTITY ok.label "OK">
-<!ENTITY cancel.label "Annuleer">
+<!ENTITY cancel.label "Annuleren">
