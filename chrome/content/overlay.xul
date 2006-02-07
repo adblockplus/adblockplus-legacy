@@ -77,6 +77,7 @@
         class="toolbarbutton-1 chromeclass-toolbar-additional" disabled="true" label="&menuitem.label;"
         oncommand="if (event.target == this) abpToggleSidebar()"
         onclick="if (event.target == this &amp;&amp; event.button == 1) abpTogglePref('enabled')"
+        ondragover="abpDragHandler(event)" ondragdrop="abpDragHandler(event)"
         tooltip="abp-tooltip">
       <menupopup id="abp-toolbar-popup" onpopupshowing="return abpFillPopup(event.target)"/>
     </toolbarbutton>
