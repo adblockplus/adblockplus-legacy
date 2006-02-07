@@ -1,19 +1,18 @@
 <?xml version="1.0"?>
 <RDF:RDF xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:chrome="http://www.mozilla.org/rdf/chrome#">
+		 xmlns:chrome="http://www.mozilla.org/rdf/chrome#">
 
-  <RDF:Seq about="urn:mozilla:locale:root">
-    <RDF:li resource="urn:mozilla:locale:nl-NL"/>
-  </RDF:Seq>
+	<RDF:Seq about="urn:mozilla:locale:root">
+		<RDF:li resource="urn:mozilla:locale:nl-NL"/>
+	</RDF:Seq>
 
-  <RDF:Description about="urn:mozilla:locale:nl-NL"
-      chrome:displayName="Dutch(NL)"
-      chrome:author="Paul Dicker"
-      chrome:name="nl-NL">
-    <chrome:packages>
-      <RDF:Seq about="urn:mozilla:locale:nl-NL:packages">
-        <RDF:li resource="urn:mozilla:locale:nl-NL:adblockplus"/>
-      </RDF:Seq>
-    </chrome:packages>
-  </RDF:Description>
-</RDF:RDF>
+	<RDF:Description about="urn:mozilla:locale:nl-NL"
+			chrome:displayName="Dutch(NL)"
+			chrome:author="Paul Dicker"
+			chrome:name="nl-NL">
+		<chrome:packages>
+			<RDF:Seq about="urn:mozilla:locale:nl-NL:packages">
+				<RDF:li resource="urn:mozilla:locale:nl-NL:adblockplus"/>
+			</RDF:Seq>
+		</chrome:packages>
+	</RDF:Description>

@@ -1,12 +1,12 @@
-<!ENTITY dialog.title "Filter abbonnement wijzigen">
-<!ENTITY dialog.newtitle "Filter abbonnement toevoegen">
+<!ENTITY dialog.title "Filter abonnement wijzigen">
+<!ENTITY dialog.newtitle "Filter abonnement toevoegen">
 <!ENTITY new.description "Geef alstublieft het internetadres op van het bestand met Adblock Plus filters.">
-<!ENTITY edit.description "De filterlijst van dit abbonnement zal worden gedownload van de opgegeven locatie (kan niet meer worden veranderd).">
-<!ENTITY external.description "Dit is een extern filter abbonnement, de filters zullen up-to-date worden gehouden door de extentie die is gemaakt voor dit abbonnement.">
-<!ENTITY autodownload.description "Als u kiest voor 'Automatisch bijwerken' zal deze locatie dagelijks worden gecontroleerd op nieuwe versies. Als u deze optie uitschakeld kunt u nog steeds een hadnmatige update uitvoeren vanuit het abbonnementen context menu.">
+<!ENTITY edit.description "De filterlijst van dit abonnement zal worden gedownload van de opgegeven locatie (kan niet meer worden veranderd).">
+<!ENTITY external.description "Dit is een extern filter abonnement, de filters zullen up-to-date worden gehouden door de extentie die is gemaakt voor dit abonnement.">
+<!ENTITY autodownload.description "Als u kiest voor 'Automatisch bijwerken' zal deze locatie dagelijks worden gecontroleerd op nieuwe versies. Als u deze optie uitschakeld kunt u nog steeds een handmatige update uitvoeren vanuit het context menu bij Filter abonnement.">
 <!ENTITY location.label "Filterlijst locatie">
 <!ENTITY location.accesskey "L">
-<!ENTITY title.label "Abbonnementnaam">
+<!ENTITY title.label "Abonnementnaam">
 <!ENTITY title.accesskey "N">
 <!ENTITY autodownload.label "Automatisch bijwerken">
 <!ENTITY autodownload.accesskey "B">
