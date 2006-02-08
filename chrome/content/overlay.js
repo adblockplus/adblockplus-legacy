@@ -521,6 +521,8 @@ function abpCheckContext() {
       nodeType = data.typeDescr;
 
     var insecWnd = secureGet(insecTarget, "ownerDocument", "defaultView");
+    var wndData = abp.getDataForWindow(insecWnd);
+
     gContextMenu.abpFrameData = abp.getDataForNode(insecWnd);
     if (gContextMenu.abpFrameData && gContextMenu.abpFrameData.filter)
       gContextMenu.abpFrameData = null;
