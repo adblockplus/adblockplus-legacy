@@ -15,7 +15,7 @@
 <!ENTITY options.accesskey "M">
 <!ENTITY enable.label "Zapnúť Adblock Plus">
 <!ENTITY enable.accesskey "Z">
-<!ENTITY showinstatusbar.label "Zobraziť v stavom riadku">
+<!ENTITY showinstatusbar.label "Zobraziť v stavovom riadku">
 <!ENTITY showinstatusbar.accesskey "S">
 <!ENTITY localpages.label "Blokovať vzdialené reklamy v lokálnych stránkach">
 <!ENTITY localpages.accesskey "L">
@@ -39,11 +39,9 @@
 <!ENTITY about.label "O rozšírení Adblock Plus">
 <!ENTITY about.accesskey "O">
 <!ENTITY disabled.warning "Adblock Plus je vypnutý. Môžete upraviť filtre v zozname, ale tie nebudú potvrdené po znovuzapnutí.">
-<!ENTITY description "
-    Pridať adresu,ktorú chcete blokovať, návrhy skontrolujte v rozbaľovacej ponuke.
-    Môžete použiť * ako divokú kartu na vytvorenie všeobecných filtrov. Pokročilý užívatelia môžu
-    použiť regulárne výrazy ako /banner\d+\.gif$/.
-">
+<!ENTITY description "Pridať adresu,ktorú chcete blokovať, návrhy skontrolujte v rozbaľovacej ponuke.
+		Môžete použiť * ako divokú kartu na vytvorenie všeobecných filtrov. Pokročilý užívatelia môžu
+		použiť regulárne výrazy ako /banner\d+\.gif$/.">
 <!ENTITY newfilter.label "Nový filter">
 <!ENTITY newfilter.accesskey "N">
 <!ENTITY add.label "Pridať filter">

@@ -7,12 +7,17 @@ my $version = <VERSION>;
 $version =~ s/[^\w\.]//gs;
 close(VERSION);
 
-$version .= "+" if $ARGV[2];
+my $output_file = shift @ARGV || "adblockplus.xpi";
+
+if ($ARGV[0] eq "-dev") {
+  $version .= "+";
+  shift @ARGV;
+}
 
 my @locales;
-if ($ARGV[1] && $ARGV[1] ne "*")
+if (@ARGV)
 {
-  @locales = $ARGV[1];
+  @locales = @ARGV;
 }
 else
 {
@@ -22,8 +27,6 @@ else
   
   @locales = sort {$a eq "en-US" ? -1 : ($b eq "en-US" ? 1 : $a cmp $b)} @locales;
 }
-
-my $output_file = $ARGV[0] || "adblockplus.xpi";
 
 rm_rec('tmp');
 mkdir('tmp');

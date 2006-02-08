@@ -99,7 +99,7 @@ function abpReloadPrefs() {
 
   var tooltip = document.getElementById("abp-tooltip");
   if (state && tooltip)
-    tooltip.setAttribute("label", abp.getString("status_" + state + "_tooltip"));
+    tooltip.setAttribute("labeltmpl", state + "_tooltip");
 
   var updateElement = function(element) {
     if (!element)
@@ -220,6 +220,17 @@ function abpGetPanelsFile() {
     return null;
 
   return file;
+}
+
+function abpFillTooltip(ev) {
+  if (ev.eventPhase != ev.AT_TARGET)
+    return false;
+
+  if (abp) {
+    var prefix = (document.tooltipNode && document.tooltipNode.id == "abp-toolbarbutton" ? "toolbar_" : "status_");
+    ev.target.setAttribute("label", abp.getString(prefix + ev.target.getAttribute("labeltmpl")));
+  }
+  return true;
 }
 
 // Fills the context menu on the status bar
@@ -485,15 +496,23 @@ function abpMouseHandler(e) {
   }
 }
 
+// Retrieves the image URL for the specified style property
+function abpImageStyle(computedStyle, property) {
+  var value = computedStyle.getPropertyCSSValue(property);
+  if (value.primitiveType == CSSPrimitiveValue.CSS_URI)
+    return value.getStringValue();
+
+  return null;
+}
+
 // Hides the unnecessary context menu items on display
 function abpCheckContext() {
   var insecTarget = gContextMenu.target;
 
-  var insecFrame = secureGet(insecTarget, "ownerDocument", "defaultView", "frameElement");
-  gContextMenu.insecAdblockFrame = insecFrame;
-
   var nodeType = null;
-  gContextMenu.abpLink = null;
+  gContextMenu.abpLinkData = null;
+  gContextMenu.abpBgData = null;
+  gContextMenu.abpFrameData = null;
   if (abp) {
     // Lookup the node in our stored data
     var data = abp.getDataForNode(insecTarget);
@@ -501,43 +520,61 @@ function abpCheckContext() {
     if (data && !data.filter)
       nodeType = data.typeDescr;
 
-    if (abpPrefs.linkcheck && (nodeType == "IMAGE" || nodeType == "OBJECT" /*|| nodeType == "BACKGROUND"*/)) {
-      // Look for a parent link
-      while (insecTarget && (secureGet(insecTarget, "href") == null || !abp.policy.isBlockableScheme(insecTarget)))
-        insecTarget = secureGet(insecTarget, "parentNode");
+    var insecWnd = secureGet(insecTarget, "ownerDocument", "defaultView");
+    var wndData = abp.getDataForWindow(insecWnd);
+    gContextMenu.abpFrameData = wndData.getLocation(secureGet(insecWnd, "location", "href"));
+    if (gContextMenu.abpFrameData && gContextMenu.abpFrameData.filter)
+      gContextMenu.abpFrameData = null;
 
-      if (insecTarget)
-        gContextMenu.abpLink = secureGet(insecTarget, "href");
+    if (abpPrefs.linkcheck && (nodeType == "IMAGE" || nodeType == "OBJECT")) {
+      // Look for a parent link
+      var insecLink = insecTarget;
+      while (insecLink && !gContextMenu.abpLinkData) {
+        var link = secureGet(insecLink, "href");
+        if (link) {
+          gContextMenu.abpLinkData = wndData.getLocation(link);
+          if (gContextMenu.abpLinkData && gContextMenu.abpLinkData.filter)
+            gContextMenu.abpLinkData = null;
+        }
+
+        insecLink = secureGet(insecLink, "parentNode");
+      }
+
+      if (insecLink)
+        gContextMenu.abpLink = secureGet(insecLink, "href");
+    }
+
+    if (nodeType != "IMAGE") {
+      // Look for a background image
+      var insecImage = insecTarget;
+      var getComputedStyle = secureLookup(insecWnd, "getComputedStyle");
+      while (insecImage && !gContextMenu.abpBgData) {
+        if (secureGet(insecImage, "nodeType") == Node.ELEMENT_NODE) {
+          var bgImage = null;
+          var style = getComputedStyle(insecImage, "");
+          bgImage = abpImageStyle(style, "background-image") || abpImageStyle(style, "list-style-image");
+          if (bgImage) {
+            gContextMenu.abpBgData = wndData.getLocation(bgImage);
+            if (gContextMenu.abpBgData && gContextMenu.abpBgData.filter)
+              gContextMenu.abpBgData = null;
+          }
+        }
+
+        insecImage = secureGet(insecImage, "parentNode");
+      }
     }
   }
 
-
-  gContextMenu.showItem("abp-frame-menuitem", abp && insecFrame);
-  // XXX: Can't block background images via context menu. Can this be solved?
-  gContextMenu.showItem('abp-image-menuitem', nodeType == "IMAGE" /* || nodeType == "BACKGROUND"*/);
+  gContextMenu.showItem('abp-image-menuitem', nodeType == "IMAGE" || gContextMenu.abpBgData != null);
   gContextMenu.showItem('abp-object-menuitem', nodeType == "OBJECT");
-  gContextMenu.showItem('abp-link-menuitem', gContextMenu.abpLink != null);
+  gContextMenu.showItem('abp-link-menuitem', gContextMenu.abpLinkData != null);
+  gContextMenu.showItem("abp-frame-menuitem", gContextMenu.abpFrameData != null);
 }
 
 // Bring up the settings dialog for the node the context menu was referring to
-function abpNode() {
-  var data = gContextMenu.abpData;
+function abpNode(data) {
   if (data)
     abpSettings(data.location);
-}
-
-// Bring up the settings dialog for the link the context menu was referring to
-function abpLink() {
-  var link = gContextMenu.abpLink;
-  if (link)
-    abpSettings(link);
-}
-
-// Bring up the settings dialog for the frame the context menu was referring to
-function abpFrame() {
-  var insecFrame = gContextMenu.insecAdblockFrame;
-  if (insecFrame)
-    abpSettings(secureGet(insecFrame, "contentWindow", "location", "href"));
 }
 
 // Open the settings window.

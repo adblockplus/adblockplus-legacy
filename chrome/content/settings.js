@@ -31,6 +31,7 @@ var synchronizer = abp.synchronizer;
 var shouldSort = prefs.listsort;
 var suggestionItems = [];
 var insecWnd = null;   // Window we should apply filters at
+var wndData = null;    // Data for this window
 var initialized = false;
 var whitelistDescr = abp.getString("whitelist_description");
 var filterlistDescr = abp.getString("filterlist_description");
@@ -43,7 +44,6 @@ var lineBreak = null;   // Plattform dependent line break
 function init() {
   initialized = true;
   var filterSuggestions = document.getElementById("newfilter");
-  var wndData = null;
   var data = [];
 
   document.getElementById("disabledWarning").setAttribute("hide", prefs.enabled);
@@ -72,16 +72,10 @@ function init() {
     data = wndData.getAllLocations();
 
     // Activate flasher
-    var flashHandler = function(prop, oldval, newval) {
-      var value = (typeof newval == "string" ? newval : filterSuggestions.inputField.value);
-      var loc = wndData.getLocation(value);
-      flasher.flash(loc ? loc.inseclNodes : null);
-      return newval;
-    };
-    filterSuggestions.inputField.addEventListener("input", flashHandler, false);
+    filterSuggestions.inputField.addEventListener("input", onInputChange, false);
 
     // List selection doesn't fire input event, have to register a property watcher
-    filterSuggestions.inputField.watch("value", flashHandler);
+    filterSuggestions.inputField.watch("value", onInputChange);
   }
   if (!data.length) {
     var reason = abp.getString("no_blocking_suggestions");
@@ -163,6 +157,13 @@ function fixColWidth() {
     suggestionItems[i].childNodes[0].setAttribute("style", "width: "+maxWidth+"px");
   }
 }
+
+function onInputChange(prop, oldval, newval) {
+  var value = (typeof newval == "string" ? newval : document.getElementById("newfilter").inputField.value);
+  var loc = wndData.getLocation(value);
+  flasher.flash(loc ? loc.inseclNodes : null);
+  return newval;
+};
 
 function fillList() {
   // Initialize editor
@@ -406,11 +407,11 @@ function exportList() {
                                     .createInstance(Components.interfaces.nsIFileInputStream);
         inputStream.init(prefFile, 0x01, 0444, 0);
 
-        var stream = Components.classes["@mozilla.org/scriptableinputstream;1"]
-                               .createInstance(Components.interfaces.nsIScriptableInputStream);
-        stream.init(inputStream);
-        var data = stream.read(1024);
-        stream.close();
+        var scriptableStream = Components.classes["@mozilla.org/scriptableinputstream;1"]
+                                         .createInstance(Components.interfaces.nsIScriptableInputStream);
+        scriptableStream.init(inputStream);
+        var data = scriptableStream.read(1024);
+        scriptableStream.close();
 
         if (/(\r\n?|\n\r?)/.test(data))
           lineBreak = RegExp.$1;
@@ -1117,6 +1118,9 @@ var editor = {
     this.fieldBlurHandler = function(e) {
       me.stopEditor(true, true);
     };
+
+    // prevent cyclic references through closures
+    list = null;
   },
 
   initItem: function(item) {

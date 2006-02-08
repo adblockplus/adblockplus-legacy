@@ -148,7 +148,7 @@ var policy = {
     }
 
     // Store node data
-    data.addNode(insecNode, contentType, location, match);
+    data.addNode(insecTop, insecNode, contentType, location, match);
 
     if (match && !match.isWhite && insecNode) {
       // hide immediately if fastcollapse is off but not base types

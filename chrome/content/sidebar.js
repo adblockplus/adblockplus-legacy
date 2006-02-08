@@ -83,19 +83,7 @@ function init() {
     data = wndData.getAllLocations();
 
     // Activate flasher
-    filterSuggestions.addEventListener("select", function() {
-      if (!wndData)
-        return;
-
-      var item = filterSuggestions.selectedItem;
-      if (item)
-        item = item.firstChild.nextSibling;
-
-      var loc = null;
-      if (item)
-        loc = wndData.getLocation(item.getAttribute("label"));
-      flasher.flash(loc ? loc.inseclNodes : null);
-    }, false);
+    filterSuggestions.addEventListener("select", onSelectionChange, false);
 
     // Update dummy whenever necessary
     setInterval(function() {
@@ -170,6 +158,21 @@ function cleanUp() {
   mainWin.removeEventListener("unload", mainUnload, false);
 }
 
+// Called whenever list selection changes - triggers flasher
+function onSelectionChange() {
+  if (!wndData)
+    return;
+
+  var item = document.getElementById("suggestionsList").selectedItem;
+  if (item)
+    item = item.firstChild.nextSibling;
+
+  var loc = null;
+  if (item)
+    loc = wndData.getLocation(item.getAttribute("label"));
+  flasher.flash(loc ? loc.inseclNodes : null);
+}
+
 function createListCell(label, crop) {
   var result = document.createElement("listcell");
   result.setAttribute("label", label);
@@ -195,9 +198,9 @@ function createFilterSuggestion(listbox, suggestion) {
   suggestionItems.push(listitem);
 }
 
-function handleLocationsChange(type, data, loc) {
+function handleLocationsChange(insecWnd, type, data, loc) {
   // Check whether this applies to us
-  if (data.insecWnd != window.content)
+  if (insecWnd != window.content)
     return;
 
   // Maybe we got called twice
@@ -226,7 +229,7 @@ function handleLocationsChange(type, data, loc) {
       // Add new items
       var locations = wndData.getAllLocations();
       for (i = 0; i < locations.length; i++)
-        handleLocationsChange("add", wndData, locations[i]);
+        handleLocationsChange(insecWnd, "add", wndData, locations[i]);
     }
   } else if (type == "add") {
     removeDummy();
@@ -252,7 +255,7 @@ function handleTabChange() {
   }
 
   // Use new data
-  handleLocationsChange("select", DataContainer.getDataForWindow(window.content));
+  handleLocationsChange(window.content, "select", DataContainer.getDataForWindow(window.content));
 }
 
 // Shows tooltop with the full uncropped location
