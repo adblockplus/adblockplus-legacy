@@ -83,6 +83,9 @@ abp.getString = function(name) {
 
 // Retrieves the window object for a node or returns null if it isn't possible
 function getWindow(insecNode) {
+  if (insecNode instanceof Window)
+    return insecNode;
+
   if (secureGet(insecNode, "nodeType") != Node.DOCUMENT_NODE)
     insecNode = secureGet(insecNode, "ownerDocument");
 
@@ -90,17 +93,6 @@ function getWindow(insecNode) {
     return null;
 
   return secureGet(insecNode, "defaultView");
-}
-
-// Retrieves the main window object for a node or returns null if it isn't possible
-function getTopWindow(insecNode) {
-  if (secureGet(insecNode, "nodeType") != Node.DOCUMENT_NODE)
-    insecNode = secureGet(insecNode, "ownerDocument");
-
-  if (!insecNode || secureGet(insecNode, "nodeType") != Node.DOCUMENT_NODE)
-    return null;
-
-  return secureGet(insecNode, "defaultView", "top");
 }
 
 // hides a blocked element and collapses it if necessary
