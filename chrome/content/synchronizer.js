@@ -33,26 +33,26 @@ var synchronizer = {
   timer: null,
 
   init: function() {
-    var callback = function() {
-      synchronizer.timer.delay = 3600000;
-
-      for (var i = 0; i < prefs.grouporder.length; i++) {
-        if (prefs.grouporder[i].indexOf("~") == 0)
-          continue;
-    
-        var synchPrefs = prefs.synch.get(prefs.grouporder[i]);
-        if (typeof synchPrefs == "undefined" || !synchPrefs.autodownload || synchPrefs.external)
-          continue;
-    
-        // Get the number of hours since last download
-        var interval = (new Date().getTime()/1000 - synchPrefs.lastsuccess) / 3600;
-        if (interval > prefs.synchronizationinterval)
-          synchronizer.execute(synchPrefs);
-      }
-    }
-
-    this.timer = createTimer(callback, 300000);
+    this.timer = createTimer(this.synchronizeCallback, 300000);
     this.timer.type = this.timer.TYPE_REPEATING_SLACK;
+  },
+
+  synchronizeCallback: function() {
+    synchronizer.timer.delay = 3600000;
+
+    for (var i = 0; i < prefs.grouporder.length; i++) {
+      if (prefs.grouporder[i].indexOf("~") == 0)
+        continue;
+  
+      var synchPrefs = prefs.synch.get(prefs.grouporder[i]);
+      if (typeof synchPrefs == "undefined" || !synchPrefs.autodownload || synchPrefs.external)
+        continue;
+  
+      // Get the number of hours since last download
+      var interval = (new Date().getTime()/1000 - synchPrefs.lastsuccess) / 3600;
+      if (interval > prefs.synchronizationinterval)
+        synchronizer.execute(synchPrefs);
+    }
   },
 
   // Adds a new handler to be notified whenever synchronization status changes
@@ -123,17 +123,17 @@ var synchronizer = {
       return;
     }
 
-    request.onerror = function() {
+    request.onerror = function(ev) {
       if (!prefs.synch.has(url))
         return;
 
       synchronizer.setError(prefs.synch.get(url), "synchronize_connection_error");
     };
 
-    request.onload = function() {
+    request.onload = function(ev) {
       synchronizer.executing.remove(url);
       if (prefs.synch.has(url))
-        synchronizer.readPatterns(prefs.synch.get(url), request.responseText);
+        synchronizer.readPatterns(prefs.synch.get(url), ev.target.responseText);
     };
 
     this.executing.put(url, request);
@@ -144,8 +144,10 @@ var synchronizer = {
     }
     catch (e) {
       this.setError(synchPrefs, "synchronize_connection_error");
-      return;
     }
+
+    // prevent cyclic references through closures
+    request = null;
   }
 };
 

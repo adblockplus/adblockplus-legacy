@@ -42,19 +42,22 @@ DataContainer.prototype = {
 
   // Attaches the data to a window
   install: function(insecWnd) {
-    this.insecWnd = insecWnd;
-
     var insecTop = secureGet(insecWnd, "top");
     if (insecTop != insecWnd) {
       this.topContainer = DataContainer.getDataForWindow(insecTop);
       this.topContainer.registerSubdocument(this);
-      if (policy.isBlockableScheme(secureGet(insecWnd, "location")))
-        this.addNode(insecWnd, type.SUBDOCUMENT, secureGet(insecWnd, "location", "href"), null);
+      if (policy.isBlockableScheme(secureGet(insecWnd, "location"))) {
+        var location = secureGet(insecWnd, "location", "href");
+        this.addNode(insecTop, insecWnd, type.SUBDOCUMENT, location, policy.isWhitelisted(location));
+      }
     }
     else
       this.topContainer = this;
 
-    var addListener = secureLookup(insecWnd, "addEventListener");
+    this.installListeners(secureLookup(insecWnd, "addEventListener"));
+  },
+
+  installListeners: function(addListener) {
     var me = this;
     var queryHandler = function(ev) {
       if (ev.isTrusted && ev.eventPhase == ev.AT_TARGET)
@@ -70,15 +73,17 @@ DataContainer.prototype = {
       if (me != me.topContainer)
         me.topContainer.unregisterSubdocument(me);
 
-      DataContainer.notifyListeners(me == me.topContainer ? "clear" : "refresh", me.topContainer);
+      DataContainer.notifyListeners(secureGet(this, "top"), me == me.topContainer ? "clear" : "refresh", me.topContainer);
 
       if (secureGet(this, "location", "href") == "about:blank") {
         // Make sure to re-add the frame - we are not really going away
         var insecWnd = this;
         createTimer(function() {
+          var insecTop = secureGet(this, "top");
           if (policy.isBlockableScheme(secureGet(insecWnd, "location"))) {
             var data = DataContainer.getDataForWindow(insecWnd);
-            data.addNode(insecWnd, type.SUBDOCUMENT, secureGet(insecWnd, "location", "href"), null);
+            var location = secureGet(insecWnd, "location", "href");
+            data.addNode(insecTop, insecWnd, type.SUBDOCUMENT, location, policy.isWhitelisted(location));
           }
         }, 0);
       }
@@ -93,7 +98,7 @@ DataContainer.prototype = {
         if (me != me.topContainer)
           me.topContainer.registerSubdocument(me);
 
-        DataContainer.notifyListeners("select", me.topContainer);
+        DataContainer.notifyListeners(secureGet(this, "top"), "select", me.topContainer);
       }
       addListener("pagehide", hideHandler, false);
       addListener("pageshow", showHandler, false);
@@ -102,7 +107,10 @@ DataContainer.prototype = {
       // This is Gecko 1.7 - fall back to unload
       addListener("unload", hideHandler, false);
     }
+
+    addListener = null;
   },
+
   registerSubdocument: function(data) {
     this.subdocs.push(data);
   },
@@ -111,7 +119,7 @@ DataContainer.prototype = {
       if (this.subdocs[i] == data)
         this.subdocs.splice(i--, 1);
   },
-  addNode: function(insecNode, contentType, location, filter) {
+  addNode: function(insecTop, insecNode, contentType, location, filter) {
     // for images repeated on page store node for each repeated image
     var key = " " + location;
     if (key in this.locations) {
@@ -135,7 +143,7 @@ DataContainer.prototype = {
         localizedDescr: localizedDescr[contentType],
         filter: filter
       };
-      DataContainer.notifyListeners("add", this.topContainer, this.locations[key]);
+      DataContainer.notifyListeners(insecTop, "add", this.topContainer, this.locations[key]);
     }
   },
   getLocation: function(location) {
@@ -151,14 +159,15 @@ DataContainer.prototype = {
 
     return null;
   },
-  getAllLocations: function() {
-    var results = [];
+  getAllLocations: function(results) {
+    if (typeof results == "undefined")
+      results = [];
     for (var key in this.locations)
       if (key.match(/^ /))
           results.push(this.locations[key]);
 
     for (var i = 0; i < this.subdocs.length; i++)
-      results = results.concat(this.subdocs[i].getAllLocations());
+      this.subdocs[i].getAllLocations(results);
 
     return results;
   }
@@ -223,7 +232,7 @@ DataContainer.removeListener = function(handler) {
 };
 
 // Calls all location listeners
-DataContainer.notifyListeners = function(type, data, location) {
+DataContainer.notifyListeners = function(insecWnd, type, data, location) {
   for (var i = 0; i < DataContainer.listeners.length; i++)
-    DataContainer.listeners[i](type, data, location);
+    DataContainer.listeners[i](insecWnd, type, data, location);
 };
