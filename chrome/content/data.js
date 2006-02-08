@@ -38,7 +38,7 @@ abp.DataContainer = DataContainer;
 
 DataContainer.prototype = {
   topContainer: null,
-  insecWnd: null,
+  newLocation: null,
 
   // Attaches the data to a window
   install: function(insecWnd) {
@@ -46,10 +46,6 @@ DataContainer.prototype = {
     if (insecTop != insecWnd) {
       this.topContainer = DataContainer.getDataForWindow(insecTop);
       this.topContainer.registerSubdocument(this);
-      if (policy.isBlockableScheme(secureGet(insecWnd, "location"))) {
-        var location = secureGet(insecWnd, "location", "href");
-        this.addNode(insecTop, insecWnd, type.SUBDOCUMENT, location, policy.isWhitelisted(location));
-      }
     }
     else
       this.topContainer = this;
@@ -75,17 +71,16 @@ DataContainer.prototype = {
 
       DataContainer.notifyListeners(secureGet(this, "top"), me == me.topContainer ? "clear" : "refresh", me.topContainer);
 
-      if (secureGet(this, "location", "href") == "about:blank") {
+      if (me.newLocation) {
         // Make sure to re-add the frame - we are not really going away
-        var insecWnd = this;
+        var location = me.newLocation;
         createTimer(function() {
-          var insecTop = secureGet(this, "top");
-          if (policy.isBlockableScheme(secureGet(insecWnd, "location"))) {
-            var data = DataContainer.getDataForWindow(insecWnd);
-            var location = secureGet(insecWnd, "location", "href");
-            data.addNode(insecTop, insecWnd, type.SUBDOCUMENT, location, policy.isWhitelisted(location));
-          }
+          var insecWnd = location.inseclNodes[0];
+          var insecTop = secureGet(insecWnd, "top");
+          var data = DataContainer.getDataForWindow(insecWnd);
+          data.addNode(insecTop, insecWnd, location.type, location.location, location.filter, true);
         }, 0);
+        me.newLocation = null;
       }
     }
 
@@ -112,6 +107,10 @@ DataContainer.prototype = {
   },
 
   registerSubdocument: function(data) {
+    for (var i = 0; i < this.subdocs.length; i++)
+      if (this.subdocs[i] == data)
+        return;
+
     this.subdocs.push(data);
   },
   unregisterSubdocument: function(data) {
@@ -119,7 +118,13 @@ DataContainer.prototype = {
       if (this.subdocs[i] == data)
         this.subdocs.splice(i--, 1);
   },
-  addNode: function(insecTop, insecNode, contentType, location, filter) {
+  addNode: function(insecTop, insecNode, contentType, location, filter, storedLoc) {
+    if (contentType == type.SUBDOCUMENT && typeof storedLoc == "undefined" && (!filter || filter.isWhite)) {
+      // New document is about to load
+      this.newLocation = {inseclNodes: [insecNode], type: contentType, location: location, filter: filter};
+      return;
+    }
+
     // for images repeated on page store node for each repeated image
     var key = " " + location;
     if (key in this.locations) {
@@ -143,6 +148,7 @@ DataContainer.prototype = {
         localizedDescr: localizedDescr[contentType],
         filter: filter
       };
+
       DataContainer.notifyListeners(insecTop, "add", this.topContainer, this.locations[key]);
     }
   },
@@ -199,7 +205,7 @@ abp.getDataForWindow = DataContainer.getDataForWindow;
 
 // Loads Adblock data associated with a node object
 DataContainer.getDataForNode = function(insecNode) {
-  var insecWnd = getTopWindow(insecNode);
+  var insecWnd = getWindow(insecNode);
   if (!insecWnd)
     return null;
 
