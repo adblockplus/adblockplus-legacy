@@ -39,13 +39,14 @@ abp.DataContainer = DataContainer;
 DataContainer.prototype = {
   topContainer: null,
   newLocation: null,
+  detached: false,
 
   // Attaches the data to a window
   install: function(insecWnd) {
     var insecTop = secureGet(insecWnd, "top");
     if (insecTop != insecWnd) {
       this.topContainer = DataContainer.getDataForWindow(insecTop);
-      this.topContainer.registerSubdocument(this);
+      this.topContainer.registerSubdocument(insecTop, this);
     }
     else
       this.topContainer = this;
@@ -67,9 +68,12 @@ DataContainer.prototype = {
         return;
 
       if (me != me.topContainer)
-        me.topContainer.unregisterSubdocument(me);
+        me.topContainer.unregisterSubdocument(secureGet(this, "top"), me);
+      else
+        DataContainer.notifyListeners(this, "clear", me);
 
-      DataContainer.notifyListeners(secureGet(this, "top"), me == me.topContainer ? "clear" : "refresh", me.topContainer);
+      // We shouldn't send further notifications
+      me.detached = true;
 
       if (me.newLocation) {
         // Make sure to re-add the frame - we are not really going away
@@ -90,10 +94,13 @@ DataContainer.prototype = {
         if (!ev.isTrusted || ev.eventPhase != ev.AT_TARGET)
           return;
 
-        if (me != me.topContainer)
-          me.topContainer.registerSubdocument(me);
+        // Allow notifications again
+        me.detached = false;
 
-        DataContainer.notifyListeners(secureGet(this, "top"), "select", me.topContainer);
+        if (me != me.topContainer)
+          me.topContainer.registerSubdocument(secureGet(this, "top"), me);
+        else
+          DataContainer.notifyListeners(this, "select", me);
       }
       addListener("pagehide", hideHandler, false);
       addListener("pageshow", showHandler, false);
@@ -106,17 +113,22 @@ DataContainer.prototype = {
     addListener = null;
   },
 
-  registerSubdocument: function(data) {
+  registerSubdocument: function(insecTop, data) {
     for (var i = 0; i < this.subdocs.length; i++)
       if (this.subdocs[i] == data)
         return;
 
     this.subdocs.push(data);
+    if (!this.detached)
+      DataContainer.notifyListeners(insecTop, "refresh", this);
   },
-  unregisterSubdocument: function(data) {
+  unregisterSubdocument: function(insecTop, data) {
     for (var i = 0; i < this.subdocs.length; i++)
       if (this.subdocs[i] == data)
         this.subdocs.splice(i--, 1);
+
+    if (!this.detached)
+      DataContainer.notifyListeners(insecTop, "refresh", this);
   },
   addNode: function(insecTop, insecNode, contentType, location, filter, storedLoc) {
     if (contentType == type.SUBDOCUMENT && typeof storedLoc == "undefined" && (!filter || filter.isWhite)) {
@@ -149,7 +161,8 @@ DataContainer.prototype = {
         filter: filter
       };
 
-      DataContainer.notifyListeners(insecTop, "add", this.topContainer, this.locations[key]);
+      if (!this.topContainer.detached)
+        DataContainer.notifyListeners(insecTop, "add", this.topContainer, this.locations[key]);
     }
   },
   getLocation: function(location) {
