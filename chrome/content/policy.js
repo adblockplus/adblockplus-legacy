@@ -202,6 +202,7 @@ var policy = {
   // nsIContentPolicy interface implementation
   shouldLoad: function(contentType, contentLocation, requestOrigin, insecNode, mimeTypeGuess, extra) {
     // if it's not a blockable type or not the HTTP protocol, use the usual policy
+    var location = contentLocation.spec;
     if (!(contentType in blockTypes && contentLocation.scheme in blockSchemes))
       return ok;
 
