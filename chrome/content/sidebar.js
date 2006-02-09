@@ -66,6 +66,10 @@ function init() {
     // Oops, we should've been detached but we aren't
     detach();
   }
+  else {
+    // Just for EzSidebar's sake :-(
+    mainWin = mainWin.getBrowser().ownerDocument.defaultView;
+  }
 
   if (abp) {
     itemsDummy.location = abp.getString("no_blocking_suggestions");
@@ -335,7 +339,7 @@ function detach() {
     mainWin.abpDetachedSidebar = wnd;
   }
   else
-    mainWin.abpDetachedSidebar = openDialog("chrome://adblockplus/content/sidebarDetached.xul", "_blank", "chrome,all,dependent"+position, mainWin);
+    mainWin.abpDetachedSidebar = mainWin.openDialog("chrome://adblockplus/content/sidebarDetached.xul", "_blank", "chrome,all,dependent"+position, mainWin);
 
   // Save setting
   prefs.detachsidebar = true;
