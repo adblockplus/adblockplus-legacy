@@ -27,14 +27,16 @@
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
 <?xml-stylesheet href="chrome://adblockplus/skin/settings.css" type="text/css"?>
 
-<!DOCTYPE window SYSTEM "chrome://adblockplus/locale/settings.dtd">
+<!DOCTYPE dialog SYSTEM "chrome://adblockplus/locale/settings.dtd">
 
-<window
+<dialog
   xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
   title="&dialog.title;"
   id="abpPreferencesWindow"
   onload="setTimeout(init, 0)"
   onunload="cleanUp()"
+  ondialogaccept="saveSettings()"
+  buttons="accept,cancel"
   width="600px"
   height="450px"
   persist="screenX screenY width height"
@@ -44,10 +46,6 @@
 <script type="application/x-javascript" src="security.js"/>
 
 <keyset id="adblockKeys">
-  <key keycode="VK_RETURN" command="ok-command" disabled="true"/>
-  <key keycode="VK_ENTER" command="ok-command"/>
-  <key keycode="VK_CANCEL" command="cancel-command"/>
-  <key keycode="VK_ESCAPE" command="cancel-command"/>
   <key id="import-key" key="i" modifiers="accel" command="import-command"/>
   <key id="export-key" key="e" modifiers="accel" command="export-command"/>
   <key id="edit-key" keycode="VK_ENTER"/>
@@ -59,8 +57,6 @@
 </keyset>
 
 <commandset id="abpCommands">
-  <command id="ok-command" oncommand="saveSettings(); window.close()" disabled="true"/>
-  <command id="cancel-command" oncommand="window.close()"/>
   <command id="addsubscription-command" oncommand="editSubscription(null)"/>
   <command id="import-command" oncommand="importList()"/>
   <command id="export-command" oncommand="exportList()"/>
@@ -139,16 +135,16 @@
   </listbox>
 </vbox>
 
-<hbox id="buttonarea">
+<hbox id="buttonarea" class="dialog-button-box">
   <description id="disabledWarning" hide="true" flex="1">
     &disabled.warning;
   </description>
   <vbox id="buttons" pack="end">
     <hbox>
-      <button class="dialog-button" id="ok-button" label="&ok.label;" command="ok-command" disabled="true"/>
-      <button class="dialog-button" id="cancel-button" label="&cancel.label;" command="cancel-command"/>
+      <button class="dialog-button" dlgtype="accept" id="ok-button" label="&ok.label;" disabled="true"/>
+      <button class="dialog-button" dlgtype="cancel" id="cancel-button" label="&cancel.label;"/>
     </hbox>
   </vbox>
 </hbox>
 
-</window>
+</dialog>

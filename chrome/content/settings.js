@@ -799,7 +799,6 @@ function compareUnsorted(a, b) {
 
 // To be called whenever the filter list has been changed and needs saving
 function onChange() {
-  document.getElementById("ok-command").removeAttribute("disabled");
   document.getElementById("ok-button").removeAttribute("disabled");
 }
 
