@@ -48,7 +48,12 @@ function secureLookup() {
 // This is a secure version of object.property1.property2
 function secureGet() {
   var method = secureLookup.apply(null, arguments);
-  return (method && method.arity == 0 ? method() : null);
+  try {
+    return (method && method.arity == 0 ? method() : null);
+  }
+  catch (e) {
+    return null;
+  }
 }
 
 // Sets the value of a property but ignores any redefined properties
