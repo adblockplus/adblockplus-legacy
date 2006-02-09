@@ -28,6 +28,7 @@
  */
 
 var queryResult;
+var querySeed = Math.random();    // Make sure our queries can't be detected
 
 function DataContainer(insecWnd) {
   this.locations = {};
@@ -60,7 +61,7 @@ DataContainer.prototype = {
       if (ev.isTrusted && ev.eventPhase == ev.AT_TARGET)
         queryResult = me;
     }
-    addListener("abpQuery", queryHandler, true);
+    addListener("abpQuery" + querySeed, queryHandler, true);
 
     var hideHandler = function(ev) {
       // unload events aren't trusted in 1.7.5, need to find out when this was fixed
@@ -202,7 +203,7 @@ DataContainer.getDataForWindow = function(insecWnd) {
 
   queryResult = null;
   var ev = secureLookup(insecDoc, "createEvent")("Events");
-  ev.initEvent("abpQuery", false, false);
+  ev.initEvent("abpQuery" + querySeed, false, false);
   secureLookup(insecWnd, "dispatchEvent")(ev);
 
   var data = queryResult;
