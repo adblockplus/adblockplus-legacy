@@ -65,7 +65,7 @@
 
   <!-- statusbar -->
   <statusbar id="status-bar">
-    <statusbarpanel id="abp-status" disabled="true" sidebartitle="&sidebar.title;" context="abp-status-popup" position="1000" onclick="abpClickHandler(event)" ondragover="abpDragHandler(event)" ondragdrop="abpDragHandler(event)" onmousedown="abpMouseHandler(event)">
+    <statusbarpanel id="abp-status" disabled="true" sidebartitle="&sidebar.title;" context="abp-status-popup" onclick="abpClickHandler(event)" ondragover="abpDragHandler(event)" ondragdrop="abpDragHandler(event)" onmousedown="abpMouseHandler(event)">
       <image tooltip="abp-tooltip"/>
       <label value="&notloaded.label;" tooltip="abp-tooltip"/>
     </statusbarpanel>
