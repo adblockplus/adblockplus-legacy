@@ -47,7 +47,7 @@
 }
 
 .whitelisted:not([selected="true"]) {
-  color: #00C000;
+  color: #008000;
 }
 
 tooltip {
