@@ -3,7 +3,7 @@ const APP_DISPLAY_NAME = "Adblock Plus";
 const APP_NAME = "adblockplus";
 const APP_PACKAGE = "/adblockplus.mozdev.org";
 const APP_VERSION = "{{VERSION}}";
-const WARNING = "WARNING: You need administrator priviledges to install Adblock Plus. It will be installed in the application directory for all users. Installing Adblock Plus in your profile is only supported for Firefox 0.9+. Proceed with the installation?";
+const WARNING = "WARNING: You need administrator priviledges to install Adblock Plus. It will be installed in the application directory for all users. Installing Adblock Plus in your profile is currently not supported in Mozilla Suite and SeaMonkey. Proceed with the installation?";
 const locales = [
   "{{LOCALE}}",
   null
