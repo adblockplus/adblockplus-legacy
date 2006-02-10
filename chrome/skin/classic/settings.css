@@ -69,7 +69,7 @@ listitem #list-editorField {
 }
 
 .whitelist:not([selected="true"]) {
-  color: #00C000;
+  color: #008000;
 }
 
 .subscription:not([selected="true"]) {
@@ -77,7 +77,7 @@ listitem #list-editorField {
 }
 
 .whitelisted:not([_moz-menuactive="true"]) {
-  color: #00C000;
+  color: #008000;
 }
 
 .filtered:not([_moz-menuactive="true"]) {
