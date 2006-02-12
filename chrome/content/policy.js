@@ -121,7 +121,6 @@ var policy = {
         // check whether we want to block the node and store the result
         match = this.matchesAny(location, prefs.whitelist);
 
-        dump("'" + location + "',\n");
         if (match == null)
           match = this.matchesAny(location, prefs.regexps);
 
