@@ -8,6 +8,6 @@
 <!ENTITY notremote.label "Nie vzdialená stránka">
 <!ENTITY whitelisted.label "Povolené stránky">
 <!ENTITY notloaded.label "Adblock Plus nebol nainštalovaný správne">
-<!ENTITY effective-filter.label "Filter v skutočnosti">
+<!ENTITY effective-filter.label "Platný filter">
 <!ENTITY adblock.label "Adblock">
 <!ENTITY adblock.accesskey "A">
