@@ -1146,6 +1146,7 @@ var editor = {
     // Replace item by our editor item and initialize it
     var value = item.abpFilter.value;
     item.parentNode.replaceChild(this.fieldParent, item);
+    this.list.ensureElementIsVisible(this.fieldParent);
     this.editedItem = item;
     this.field.value = value;
     this.field.setSelectionRange(value.length, value.length);
@@ -1164,6 +1165,10 @@ var editor = {
     var item = this.editedItem;
     var value = this.field.value.replace(/\s/g, "");
     this.editedItem = null;
+
+    // We don't want to save an empty value
+    if (!value)
+      save = false;
 
     // Move focus back to the list
     if (typeof blur == "undefined" || !blur)
