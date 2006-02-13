@@ -61,7 +61,7 @@
 <!ENTITY faq.label                  "Frequently Asked Questions">
 <!ENTITY faq.accesskey              "F">
 <!ENTITY faq.url                    "http://adblockplus.mozdev.org/faq.html">
-<!ENTITY tips.label                 "Tip Of The Day">
+<!ENTITY tips.label                 "Tip of the Day">
 <!ENTITY tips.accesskey             "T">
 <!ENTITY tips.url                   "http://adblockplus.mozdev.org/tips.html">
 <!ENTITY regexps.label              "Writing regular expressions">
