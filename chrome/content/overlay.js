@@ -31,6 +31,7 @@ try {
 
 var abpPrefs = abp ? abp.prefs : {enabled: false};
 var abpDetachedSidebar = null;
+var abpForceDetach = false;
 
 // With older Mozilla versions load event never happens (???), using timeout as a fallback
 window.addEventListener("load", abpInit, false);
@@ -318,8 +319,8 @@ function abpToggleSidebar() {
     }
   }
   else {
-    var forceDetach = (document.documentElement.hasAttribute("chromehidden") && /extrachrome/.test(document.documentElement.getAttribute("chromehidden")));
-    var mustDetach = forceDetach || abpPrefs.detachsidebar;
+    abpForceDetach = (document.documentElement.hasAttribute("chromehidden") && /extrachrome/.test(document.documentElement.getAttribute("chromehidden")));
+    var mustDetach = abpForceDetach || abpPrefs.detachsidebar;
 
     if (!mustDetach && "toggleSidebar" in window) {
       // Open Firefox sidebar
@@ -390,7 +391,7 @@ function abpToggleSidebar() {
     }
     else {
       // Open detached sidebar
-      abpDetachedSidebar = openDialog("chrome://adblockplus/content/sidebarDetached.xul", "_blank", "chrome,all,dependent,width=300,height=600", window, forceDetach);
+      abpDetachedSidebar = window.open("chrome://adblockplus/content/sidebarDetached.xul", "_blank", "chrome,resizable,dependent,width=300,height=600");
     }
   }
 }

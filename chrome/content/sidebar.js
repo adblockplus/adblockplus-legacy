@@ -55,12 +55,12 @@ function init() {
   loadDummy.parentNode.removeChild(loadDummy);
 
   if (/sidebarDetached\.xul$/.test(parent.location.href)) {
-    mainWin = parent.arguments[0];
+    mainWin = parent.opener;
     window.__defineGetter__("content", function() {return mainWin.getBrowser().contentWindow});
     mainWin.addEventListener("unload", mainUnload, false);
     document.getElementById("detachButton").hidden = true;
     document.getElementById("reattachButton").hidden = false;
-    if (parent.arguments.length > 1 && parent.arguments[1])
+    if ("abpForceDetach" in mainWin && mainWin.abpForceDetach)
       document.getElementById("reattachButton").setAttribute("disabled", "true");
   } else if (abp && prefs.detachsidebar) {
     // Oops, we should've been detached but we aren't
@@ -338,8 +338,10 @@ function detach() {
     wnd.focus();
     mainWin.abpDetachedSidebar = wnd;
   }
-  else
-    mainWin.abpDetachedSidebar = mainWin.openDialog("chrome://adblockplus/content/sidebarDetached.xul", "_blank", "chrome,all,dependent"+position, mainWin);
+  else {
+    mainWin.abpForceDetach = false;
+    mainWin.abpDetachedSidebar = mainWin.open("chrome://adblockplus/content/sidebarDetached.xul", "_blank", "chrome,resizable,dependent"+position);
+  }
 
   // Save setting
   prefs.detachsidebar = true;

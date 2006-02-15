@@ -36,6 +36,7 @@
 
   <keyset id="detached-keyset">
     <key keycode="VK_ESCAPE" oncommand="window.close()"/> 
+    <key modifiers="accel" key="w" oncommand="window.close()"/> 
     <key modifiers="accel,shift" key="b" oncommand="window.close()"/>
   </keyset>
 
