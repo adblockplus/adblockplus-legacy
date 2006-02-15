@@ -34,7 +34,7 @@
     <Description>
     <em:id>{3db10fab-e461-4c80-8b97-957ad5f8ea47}</em:id>
     <em:minVersion>8.0</em:minVersion>
-    <em:maxVersion>8.0.4</em:maxVersion>
+    <em:maxVersion>8.1</em:maxVersion>
     </Description>
   </em:targetApplication>
   
