@@ -213,8 +213,11 @@ var prefs = {
         this.savePref(synchPrefs, synchList[j], prefix);
     }
 
-    // Make sure to save the this on disk
-    prefService.savePrefFile(null);
+    // Make sure to save the this on disk (and if we don't - at least reload the prefs)
+    try {
+      prefService.savePrefFile(null);
+    }
+    catch() {}
   
     this.disableObserver = false;
     this.reload();
