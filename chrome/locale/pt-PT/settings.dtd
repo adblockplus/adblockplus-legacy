@@ -1,0 +1,59 @@
+<!ENTITY dialog.title "Opções do Adblock Plus">
+<!ENTITY filters.label "Filtros">
+<!ENTITY filters.accesskey "F">
+<!ENTITY addsubscription.label "Adicionar subscripção de filtros">
+<!ENTITY addsubscription.accesskey "S">
+<!ENTITY import.label "Importar filtros">
+<!ENTITY import.accesskey "M">
+<!ENTITY export.label "Exportar filtros">
+<!ENTITY export.accesskey "X">
+<!ENTITY clearall.label "Remover todos os filtros">
+<!ENTITY clearall.accesskey "L">
+<!ENTITY listsort.label "Organizar alfabeticamente">
+<!ENTITY listsort.accesskey "P">
+<!ENTITY options.label "Opções">
+<!ENTITY options.accesskey "O">
+<!ENTITY enable.label "Activar Adblock Plus">
+<!ENTITY enable.accesskey "N">
+<!ENTITY showinstatusbar.label "Mostrar barra de status">
+<!ENTITY showinstatusbar.accesskey "S">
+<!ENTITY localpages.label "Bloquear publicidade remota em páginas locais">
+<!ENTITY localpages.accesskey "R">
+<!ENTITY objecttabs.label "Mostrar abas em Flash e Java">
+<!ENTITY objecttabs.accesskey "T">
+<!ENTITY collapse.label "Colapsar elementos bloqueados">
+<!ENTITY collapse.accesskey "L">
+<!ENTITY linkcheck.label "Verificar links de banners">
+<!ENTITY linkcheck.accesskey "C">
+<!ENTITY help.label "Ajuda">
+<!ENTITY help.accesskey "H">
+<!ENTITY faq.label "Questões Frequentemente Colocadas">
+<!ENTITY faq.accesskey "F">
+<!ENTITY faq.url "http://adblockplus.mozdev.org/faq.html">
+<!ENTITY tips.label "Dica do Dia">
+<!ENTITY tips.accesskey "T">
+<!ENTITY tips.url "http://adblockplus.mozdev.org/tips.html">
+<!ENTITY regexps.label "Escrevendo expressões regulares">
+<!ENTITY regexps.accesskey "X">
+<!ENTITY regexps.url "http://developer.mozilla.org/en/docs/Core_JavaScript_1.5_Guide:Regular_Expressions#Writing_a_Regular_Expression_Pattern">
+<!ENTITY about.label "Acerca do Adblock Plus">
+<!ENTITY about.accesskey "B">
+<!ENTITY disabled.warning "O Adblock Plus está desactivado. Pode editar os filtros da lista mas estes só eterão efeito depois de reactivar o Adblock Plus.">
+<!ENTITY description "Adicione os endereços que pretende bloquear, para sugestões verifique a lista. Pode usar * para criar filtros mais genéricos. Utilizadores avançados podem usar expressões regulares como /banner\d+\.gif$/.">
+<!ENTITY newfilter.label "Novo filtro">
+<!ENTITY newfilter.accesskey "N">
+<!ENTITY add.label "Adicionar filtro">
+<!ENTITY add.accesskey "A">
+<!ENTITY list.label "Regras de filtro">
+<!ENTITY list.accesskey "R">
+<!ENTITY context.edit.label "Editar filtro">
+<!ENTITY context.remove.label "Remover filtro(s)">
+<!ENTITY context.synchsubscription.label "Actualizar subscripção agora">
+<!ENTITY context.editsubscription.label "Editar subscripção">
+<!ENTITY context.removesubscription.label "Remover subscripção">
+<!ENTITY context.moveup.label "Mover para cima">
+<!ENTITY context.movedown.label "Mover para baixo">
+<!ENTITY context.movegroupup.label "Mover grupo para cima">
+<!ENTITY context.movegroupdown.label "Mover grupo para baixo">
+<!ENTITY ok.label "OK">
+<!ENTITY cancel.label "Cancelar">

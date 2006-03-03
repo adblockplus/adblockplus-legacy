@@ -10,7 +10,7 @@
 <!ENTITY clearall.label "Supprimer tous les filtres">
 <!ENTITY clearall.accesskey "S">
 <!ENTITY listsort.label "Mettre dans l'ordre alphabétique">
-<!ENTITY listsort.accesskey "C">
+<!ENTITY listsort.accesskey "p">
 <!ENTITY options.label "Options">
 <!ENTITY options.accesskey "O">
 <!ENTITY enable.label "Activer Adblock Plus">

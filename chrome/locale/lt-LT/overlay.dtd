@@ -10,8 +10,8 @@
 <!ENTITY settings.label "Nustatymai">
 <!ENTITY settings.accesskey "N">
 <!ENTITY opensidebar.label "Atverti parankinę">
-<!ENTITY opensidebar.accesskey "p">
+<!ENTITY opensidebar.accesskey "P">
 <!ENTITY closesidebar.label "Užverti parankinę">
-<!ENTITY closesidebar.accesskey "u">
+<!ENTITY closesidebar.accesskey "U">
 <!ENTITY whitelist.site.label "Išjungti --">
 <!ENTITY whitelist.page.label "Išjungti šiam tinklalapiui ir kitiems tinklalapiams iš to paties domeno">

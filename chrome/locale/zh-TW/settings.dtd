@@ -1,0 +1,63 @@
+<!ENTITY dialog.title "Adblock Plus 偏好設定">
+<!ENTITY filters.label "過濾條件">
+<!ENTITY filters.accesskey "F">
+<!ENTITY addsubscription.label "訂閱過濾條件集">
+<!ENTITY addsubscription.accesskey "S">
+<!ENTITY import.label "匯入過濾條件">
+<!ENTITY import.accesskey "M">
+<!ENTITY export.label "匯出過濾條件">
+<!ENTITY export.accesskey "X">
+<!ENTITY clearall.label "刪除所有過濾條件">
+<!ENTITY clearall.accesskey "L">
+<!ENTITY listsort.label "排序條件清單">
+<!ENTITY listsort.accesskey "P">
+<!ENTITY options.label "選項">
+<!ENTITY options.accesskey "O">
+<!ENTITY enable.label "啟用 Adblock Plus">
+<!ENTITY enable.accesskey "N">
+<!ENTITY showinstatusbar.label "顯示狀態列圖示">
+<!ENTITY showinstatusbar.accesskey "S">
+<!ENTITY localpages.label "阻擋本機網頁中的外部廣告">
+<!ENTITY localpages.accesskey "R">
+<!ENTITY objecttabs.label "於 Flash 和 Java 物件上顯示頁籤">
+<!ENTITY objecttabs.accesskey "T">
+<!ENTITY collapse.label "釋放物件所佔用的空間">
+<!ENTITY collapse.accesskey "L">
+<!ENTITY linkcheck.label "檢查來源連結">
+<!ENTITY linkcheck.accesskey "C">
+<!ENTITY help.label "說明">
+<!ENTITY help.accesskey "H">
+<!ENTITY faq.label "常見問題集（英文網頁）">
+<!ENTITY faq.accesskey "F">
+<!ENTITY faq.url "http://adblockplus.mozdev.org/faq.html">
+<!ENTITY tips.label "今日小秘訣（英文網頁）">
+<!ENTITY tips.accesskey "T">
+<!ENTITY tips.url "http://adblockplus.mozdev.org/tips.html">
+<!ENTITY regexps.label "正規表示式教學">
+<!ENTITY regexps.accesskey "X">
+<!ENTITY regexps.url "http://developer.mozilla.org/en/docs/Core_JavaScript_1.5_Guide:Regular_Expressions#Writing_a_Regular_Expression_Pattern">
+<!ENTITY about.label "關於 Adblock Plus">
+<!ENTITY about.accesskey "B">
+<!ENTITY disabled.warning "Adblock Plus 已停用。您仍然可以編輯過濾條件，但直到您啟用前都不會有作用。">
+<!ENTITY description "
+		請輸入您想阻擋的物件位址，或從下拉清單中選擇現正瀏覽頁面的物件來阻擋。
+		您可以使用萬用字元「*」建立可適用多個網站的過濾條件。
+		進階使用者則可以輸入像 /banner\d+\.gif$/ 這類的「正規表示式」。
+">
+<!ENTITY newfilter.label "新的過濾條件">
+<!ENTITY newfilter.accesskey "N">
+<!ENTITY add.label "新增過濾條件">
+<!ENTITY add.accesskey "A">
+<!ENTITY list.label "過濾條件清單">
+<!ENTITY list.accesskey "R">
+<!ENTITY context.edit.label "編輯過濾條件">
+<!ENTITY context.remove.label "移除過濾條件">
+<!ENTITY context.synchsubscription.label "立即更新已訂閱條件集">
+<!ENTITY context.editsubscription.label "編輯訂閱清單">
+<!ENTITY context.removesubscription.label "移除訂閱清單">
+<!ENTITY context.moveup.label "向上移">
+<!ENTITY context.movedown.label "向下移">
+<!ENTITY context.movegroupup.label "整組向上移">
+<!ENTITY context.movegroupdown.label "整組向下移">
+<!ENTITY ok.label "確定">
+<!ENTITY cancel.label "取消">

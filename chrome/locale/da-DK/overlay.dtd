@@ -1,0 +1,17 @@
+<!ENTITY notloaded.label "Ikke indlæst">
+<!ENTITY notloaded.tooltip "Adblock Plus-komponenten kunne ikke indlæses, måske er den ikke installeret ordentligt">
+<!ENTITY menuitem.label "Adblock Plus">
+<!ENTITY menuitem.accesskey "A">
+<!ENTITY context.image.label "Adblock Billede">
+<!ENTITY context.object.label "Adblock Objekt">
+<!ENTITY context.link.label "Adblock Link">
+<!ENTITY context.frame.label "Adblock Ramme">
+<!ENTITY sidebar.title "Adblock Plus">
+<!ENTITY settings.label "Præferencer">
+<!ENTITY settings.accesskey "F">
+<!ENTITY opensidebar.label "Åbn sidebar">
+<!ENTITY opensidebar.accesskey "S">
+<!ENTITY closesidebar.label "Luk sidebar">
+<!ENTITY closesidebar.accesskey "S">
+<!ENTITY whitelist.site.label "Slå fra på --">
+<!ENTITY whitelist.page.label "Slå fra på denne side og undersider">

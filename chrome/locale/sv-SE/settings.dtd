@@ -1,0 +1,59 @@
+<!ENTITY dialog.title "Adblock Plus inställningar">
+<!ENTITY filters.label "Filter">
+<!ENTITY filters.accesskey "F">
+<!ENTITY addsubscription.label "Lägg till filterprenumeration">
+<!ENTITY addsubscription.accesskey "p">
+<!ENTITY import.label "Importera filter">
+<!ENTITY import.accesskey "I">
+<!ENTITY export.label "Exportera filter">
+<!ENTITY export.accesskey "E">
+<!ENTITY clearall.label "Ta bort alla filter">
+<!ENTITY clearall.accesskey "T">
+<!ENTITY listsort.label "Sortera i bokstavsordning">
+<!ENTITY listsort.accesskey "b">
+<!ENTITY options.label "Optioner">
+<!ENTITY options.accesskey "n">
+<!ENTITY enable.label "Adblock Plus på">
+<!ENTITY enable.accesskey "å">
+<!ENTITY showinstatusbar.label "Visa i statusfält">
+<!ENTITY showinstatusbar.accesskey "s">
+<!ENTITY localpages.label "Blockera extern reklam i lokala sidor">
+<!ENTITY localpages.accesskey "r">
+<!ENTITY objecttabs.label "Visa flik vid Flash- och Java-reklam">
+<!ENTITY objecttabs.accesskey "V">
+<!ENTITY collapse.label "Dölj blockerade element">
+<!ENTITY collapse.accesskey "l">
+<!ENTITY linkcheck.label "Kontrollera länkar från banners">
+<!ENTITY linkcheck.accesskey "K">
+<!ENTITY help.label "Hjälp">
+<!ENTITY help.accesskey "H">
+<!ENTITY faq.label "FAQ">
+<!ENTITY faq.accesskey "Q">
+<!ENTITY faq.url "http://adblockplus.mozdev.org/faq.html">
+<!ENTITY tips.label "Dagens tips">
+<!ENTITY tips.accesskey "i">
+<!ENTITY tips.url "http://adblockplus.mozdev.org/tips.html">
+<!ENTITY regexps.label "Skriva reguljära uttryck">
+<!ENTITY regexps.accesskey "u">
+<!ENTITY regexps.url "http://developer.mozilla.org/en/docs/Core_JavaScript_1.5_Guide:Regular_Expressions#Writing_a_Regular_Expression_Pattern">
+<!ENTITY about.label "Om Adblock Plus">
+<!ENTITY about.accesskey "O">
+<!ENTITY disabled.warning "Adblock Plus är av. Du kan ändra filter i listan men tas inte i bruk förrän du slår på Adblock Plus.">
+<!ENTITY description "Lägg till adresser du vill blockera (ex. finns listrutan). Du kan använda * som flagga för att skapa mer generella filter. Avancerade användare an använda reguljära uttryck som /banner/d+/.gif$/.">
+<!ENTITY newfilter.label "Nytt filter">
+<!ENTITY newfilter.accesskey "y">
+<!ENTITY add.label "Lägg till filter">
+<!ENTITY add.accesskey "ä">
+<!ENTITY list.label "Filterregler">
+<!ENTITY list.accesskey "g">
+<!ENTITY context.edit.label "Ändra filter">
+<!ENTITY context.remove.label "Ta bort filter">
+<!ENTITY context.synchsubscription.label "Uppdatera prenumeration nu">
+<!ENTITY context.editsubscription.label "Ändra prenumeration">
+<!ENTITY context.removesubscription.label "Ta bort prenumeration">
+<!ENTITY context.moveup.label "Flytta upp">
+<!ENTITY context.movedown.label "Flytta ner">
+<!ENTITY context.movegroupup.label "Flytta upp grupp">
+<!ENTITY context.movegroupdown.label "Flytta ner grupp">
+<!ENTITY ok.label "OK">
+<!ENTITY cancel.label "Avbryt">
