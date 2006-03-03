@@ -12,6 +12,6 @@
 <!ENTITY opensidebar.label "Abrir panel lateral">
 <!ENTITY opensidebar.accesskey "l">
 <!ENTITY closesidebar.label "Cerrar panel lateral">
-<!ENTITY closesidebar.accesskey "C">
+<!ENTITY closesidebar.accesskey "l">
 <!ENTITY whitelist.site.label "Desactivar --">
 <!ENTITY whitelist.page.label "Desactivar en esta página y sus subpáginas">
