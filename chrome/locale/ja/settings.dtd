@@ -52,7 +52,7 @@
 <!ENTITY objecttabs.accesskey "T">
 <!ENTITY collapse.label "ブロック要素を隠す">
 <!ENTITY collapse.accesskey "L">
-<!ENTITY linkcheck.label "親リンクをチェックする">
+<!ENTITY linkcheck.label "バナーのリンク先をチェックする">
 <!ENTITY linkcheck.accesskey "C">
 
 <!ENTITY help.label "ヘルプ">
