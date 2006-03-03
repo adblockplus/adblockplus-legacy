@@ -1,0 +1,13 @@
+<!ENTITY detached.title "Adblock Plus sidebar (detached)">
+<!ENTITY detach.label "Detach">
+<!ENTITY reattach.label "Reattach">
+<!ENTITY list.label "Items on current page">
+<!ENTITY type.label "Type">
+<!ENTITY address.label "Address">
+<!ENTITY noitems.label "No blockable items">
+<!ENTITY notremote.label "Not a remote page">
+<!ENTITY whitelisted.label "Whitelisted page">
+<!ENTITY notloaded.label "Adblock Plus hasn't been installed properly">
+<!ENTITY effective-filter.label "Filter in effect">
+<!ENTITY adblock.label "Adblock">
+<!ENTITY adblock.accesskey "A">
