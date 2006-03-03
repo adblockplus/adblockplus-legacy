@@ -2,39 +2,39 @@
 <!ENTITY filters.label "Filtrai">
 <!ENTITY filters.accesskey "F">
 <!ENTITY addsubscription.label "Pridėti filtro prenumeratą">
-<!ENTITY addsubscription.accesskey "p">
+<!ENTITY addsubscription.accesskey "P">
 <!ENTITY import.label "Importuoti filtrus">
-<!ENTITY import.accesskey "m">
+<!ENTITY import.accesskey "M">
 <!ENTITY export.label "Eksportuoti filtrus">
-<!ENTITY export.accesskey "k">
+<!ENTITY export.accesskey "K">
 <!ENTITY clearall.label "Pašalinti visus filtrus">
-<!ENTITY clearall.accesskey "l">
+<!ENTITY clearall.accesskey "L">
 <!ENTITY listsort.label "Rūšiuoti abėcėlės tvarka">
-<!ENTITY listsort.accesskey "a">
+<!ENTITY listsort.accesskey "A">
 <!ENTITY options.label "Pasirinktys">
-<!ENTITY options.accesskey "s">
+<!ENTITY options.accesskey "P">
 <!ENTITY enable.label "Įjungti „Adblock Plus“">
-<!ENTITY enable.accesskey "j">
+<!ENTITY enable.accesskey "J">
 <!ENTITY showinstatusbar.label "Rodyti būsenos juostoje">
-<!ENTITY showinstatusbar.accesskey "b">
+<!ENTITY showinstatusbar.accesskey "B">
 <!ENTITY localpages.label "Blokuoti nutolusias reklamas vietiniuose tinklalapiuose">
-<!ENTITY localpages.accesskey "n">
+<!ENTITY localpages.accesskey "N">
 <!ENTITY objecttabs.label "Rodyti korteles Flash ir Java elementams">
-<!ENTITY objecttabs.accesskey "k">
+<!ENTITY objecttabs.accesskey "F">
 <!ENTITY collapse.label "Suskleisti užblokuotus elementus">
 <!ENTITY collapse.accesskey "S">
 <!ENTITY linkcheck.label "Patikrinti reklaminių antraščių nuorodas">
-<!ENTITY linkcheck.accesskey "a">
+<!ENTITY linkcheck.accesskey "T">
 <!ENTITY help.label "Pagalba">
 <!ENTITY help.accesskey "P">
 <!ENTITY faq.label "Dažnai užduodami klausimai">
 <!ENTITY faq.accesskey "D">
 <!ENTITY faq.url "http://adblockplus.mozdev.org/faq.html">
 <!ENTITY tips.label "Dienos patarimas">
-<!ENTITY tips.accesskey "p">
+<!ENTITY tips.accesskey "P">
 <!ENTITY tips.url "http://adblockplus.mozdev.org/tips.html">
 <!ENTITY regexps.label "Kaip rašyti reguliariuosius reiškinius">
-<!ENTITY regexps.accesskey "r">
+<!ENTITY regexps.accesskey "R">
 <!ENTITY regexps.url "http://developer.mozilla.org/en/docs/Core_JavaScript_1.5_Guide:Regular_Expressions#Writing_a_Regular_Expression_Pattern">
 <!ENTITY about.label "Apie „Adblock Plus“">
 <!ENTITY about.accesskey "A">
@@ -43,9 +43,9 @@
 <!ENTITY newfilter.label "Naujas filtras">
 <!ENTITY newfilter.accesskey "N">
 <!ENTITY add.label "Pridėti filtrą">
-<!ENTITY add.accesskey "d">
+<!ENTITY add.accesskey "D">
 <!ENTITY list.label "Filtrų taisyklės">
-<!ENTITY list.accesskey "t">
+<!ENTITY list.accesskey "T">
 <!ENTITY context.edit.label "Redaguoti filtrą">
 <!ENTITY context.remove.label "Pašalinti filtrą(us)">
 <!ENTITY context.synchsubscription.label "Atnaujinti prenumeratą">

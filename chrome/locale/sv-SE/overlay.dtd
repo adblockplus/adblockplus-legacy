@@ -1,0 +1,17 @@
+<!ENTITY notloaded.label "Ej laddad">
+<!ENTITY notloaded.tooltip "En Adblock Plus-komponent kunde inte laddades. Kontrollera installationen.">
+<!ENTITY menuitem.label "Adblock Plus">
+<!ENTITY menuitem.accesskey "A">
+<!ENTITY context.image.label "Adblock Bild">
+<!ENTITY context.object.label "Adblock Objekt">
+<!ENTITY context.link.label "Adblock Länk">
+<!ENTITY context.frame.label "Adblock Ram">
+<!ENTITY sidebar.title "Adblock Plus">
+<!ENTITY settings.label "Inställningar">
+<!ENTITY settings.accesskey "I">
+<!ENTITY opensidebar.label "Öppna sidofält">
+<!ENTITY opensidebar.accesskey "Ö">
+<!ENTITY closesidebar.label "Stäng sidofält">
+<!ENTITY closesidebar.accesskey "S">
+<!ENTITY whitelist.site.label "Använd inte på --">
+<!ENTITY whitelist.page.label "Använd inte på denna sida och dess undersidor">

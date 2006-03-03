@@ -8,7 +8,7 @@
 <!ENTITY context.frame.label "Estä kehys Adblockilla">
 <!ENTITY sidebar.title "Adblock Plus">
 <!ENTITY settings.label "Asetukset">
-<!ENTITY settings.accesskey "e">
+<!ENTITY settings.accesskey "A">
 <!ENTITY opensidebar.label "Avaa sivupaneeli">
 <!ENTITY opensidebar.accesskey "S">
 <!ENTITY closesidebar.label "Sulje sivupaneeli">
