@@ -217,7 +217,7 @@ var prefs = {
     try {
       prefService.savePrefFile(null);
     }
-    catch() {}
+    catch(e) {}
   
     this.disableObserver = false;
     this.reload();
@@ -351,9 +351,13 @@ var prefs = {
     if (pattern.charAt(0) == "/" && pattern.charAt(pattern.length - 1) == "/")  // pattern is a regexp already
       regexp = pattern.substr(1, pattern.length - 2);
     else {
-      regexp = pattern.replace(/^\*+/,"").replace(/\*+$/,"").replace(/\*+/, "*").replace(/([^\w\*])/g, "\\$1").replace(/\*/g, ".*");
-      if (pattern.match(/^https?:\/\//))
-        regexp = "^" + regexp;
+      regexp = pattern.replace(/\*+/g, "*")          // remove multiple wildcards
+                      .replace(/(\W)/g, "\\$1")     // escape special symbols
+                      .replace(/\\\*/g, ".*")       // replace wildcards by .*
+                      .replace(/^\\\|/, "^")        // process anchor at expression start
+                      .replace(/\\\|$/, "$")        // process anchor at expression end
+                      .replace(/^(\.\*)/,"")        // remove leading wildcards
+                      .replace(/(\.\*)$/,"");       // remove trailing wildcards
     }
 
     try {
