@@ -35,12 +35,12 @@ cp($_, "tmp/$_", 1) foreach ('install.js', 'install.rdf', 'chrome.manifest');
 chdir('tmp');
 
 chdir('chrome');
-print `zip -0 -X -r adblockplus.jar content skin locale`;
+print `jar cv0Mf adblockplus.jar content skin locale`;
 rm_rec($_) foreach ('content', 'skin', 'locale');
 chdir('..');
 
 unlink('../$output_file');
-print `zip -9 -X -r ../$output_file chrome components defaults install.js install.rdf chrome.manifest`;
+print `jar cvMf ../$output_file chrome components defaults install.js install.rdf chrome.manifest`;
 
 chdir('..');
 rm_rec('tmp');
