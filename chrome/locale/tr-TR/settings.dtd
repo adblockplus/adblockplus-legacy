@@ -40,11 +40,11 @@
 <!ENTITY about.accesskey "O">
 <!ENTITY disabled.warning "Adblock Plus şu an devre dışı. Listedeki süzgeçleri değiştirebilirsiniz. Ancak bunlar eklenti devreye girene kadar kullanılamayacak.">
 <!ENTITY description "Engellemek istediğiniz adresleri yazın. Öneriler için açılır menüye bakın. Daha genel süzgeçler tanımlamak için * işaretini kullanabilirsiniz. İleri düzeyde bilgiye sahip kullanıcılar düzenli ifadelere (ör. /reklam\d+\.gif$/) de başvurabilirler.">
-<!ENTITY newfilter.label "Yeni süzgeç">
+<!ENTITY newfilter.label "Yeni süzgeç:">
 <!ENTITY newfilter.accesskey "Y">
 <!ENTITY add.label "Süzgeç ekle">
 <!ENTITY add.accesskey "E">
-<!ENTITY list.label "Süzme kuralları">
+<!ENTITY list.label "Süzme kuralları:">
 <!ENTITY list.accesskey "U">
 <!ENTITY context.edit.label "Süzgeci düzenle">
 <!ENTITY context.remove.label "Süzgeci sil">

@@ -1,7 +1,7 @@
 <!ENTITY detached.title "Adblock Plus panel (avskiljd)">
 <!ENTITY detach.label "Avskilj">
 <!ENTITY reattach.label "Sätt ihop">
-<!ENTITY list.label "Poster på nuvarande sida">
+<!ENTITY list.label "Poster på nuvarande sida:">
 <!ENTITY type.label "Typ">
 <!ENTITY address.label "Adress">
 <!ENTITY noitems.label "Inget att blockera">

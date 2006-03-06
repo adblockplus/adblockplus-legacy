@@ -1,7 +1,7 @@
 <!ENTITY detached.title "Panneau latéral d'Adblock Plus (détaché)">
 <!ENTITY detach.label "Détacher">
 <!ENTITY reattach.label "Rattacher">
-<!ENTITY list.label "Éléments de la page&#160;">
+<!ENTITY list.label "Éléments de la page&#160; :">
 <!ENTITY type.label "Type">
 <!ENTITY address.label "Adresse">
 <!ENTITY noitems.label "Aucun élément filtrable">

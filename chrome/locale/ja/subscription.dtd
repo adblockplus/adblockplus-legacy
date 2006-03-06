@@ -45,9 +45,9 @@
 	この設定が無効の場合は読み込みのコンテキストメニューから手動アップデートで制御することができます。
 ">
 
-<!ENTITY location.label "フィルタリスト場所">
+<!ENTITY location.label "フィルタリスト場所:">
 <!ENTITY location.accesskey "L">
-<!ENTITY title.label "読み込みタイトル">
+<!ENTITY title.label "読み込みタイトル:">
 <!ENTITY title.accesskey "T">
 <!ENTITY autodownload.label "自動アップデートにする">
 <!ENTITY autodownload.accesskey "P">

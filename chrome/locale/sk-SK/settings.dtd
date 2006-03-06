@@ -42,11 +42,11 @@
 <!ENTITY description "Pridať adresu,ktorú chcete blokovať, návrhy skontrolujte v rozbaľovacej ponuke.
 		Môžete použiť * ako divokú kartu na vytvorenie všeobecných filtrov. Pokročilí užívatelia môžu
 		použiť regulárne výrazy ako /banner\d+\.gif$/.">
-<!ENTITY newfilter.label "Nový filter">
+<!ENTITY newfilter.label "Nový filter:">
 <!ENTITY newfilter.accesskey "N">
 <!ENTITY add.label "Pridať filter">
 <!ENTITY add.accesskey "D">
-<!ENTITY list.label "Pravidlá filtra">
+<!ENTITY list.label "Pravidlá filtra:">
 <!ENTITY list.accesskey "R">
 <!ENTITY context.edit.label "Upraviť filter">
 <!ENTITY context.remove.label "Odstrániť filter(e)">

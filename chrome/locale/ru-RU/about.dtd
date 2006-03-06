@@ -32,6 +32,6 @@
   баннеров, если Вы не хотите их видеть - Adblock Plus Вам поможет!
 ">
 
-<!ENTITY homepage.label     "Домашняя страница проекта">
-<!ENTITY author.label       "Разработчик">
-<!ENTITY contributors.label "Другие участники">
+<!ENTITY homepage.label     "Домашняя страница проекта:">
+<!ENTITY author.label       "Разработчик:">
+<!ENTITY contributors.label "Другие участники:">

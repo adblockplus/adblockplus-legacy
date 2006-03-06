@@ -4,9 +4,9 @@
 <!ENTITY edit.description "Lista de filtre va fi descărcată de la locaţia de mai sus (nu mai poate fi schimbată)">
 <!ENTITY external.description "Lista de filtre va fi actualizată de către extensia care a creat acestă subscriere.">
 <!ENTITY autodownload.description "Dacă alegeţi Actualizare automată, lista de filtre va fi verficată zilnic. Dacă nu, atunci încă mai puteţi actualiza lista folosind Actualizare manuală din meniul contextual.">
-<!ENTITY location.label "Locaţia listei de filtre">
+<!ENTITY location.label "Locaţia listei de filtre:">
 <!ENTITY location.accesskey "L">
-<!ENTITY title.label "Titlul subscrierii">
+<!ENTITY title.label "Titlul subscrierii:">
 <!ENTITY title.accesskey "T">
 <!ENTITY autodownload.label "Actualizare automată">
 <!ENTITY autodownload.accesskey "c">

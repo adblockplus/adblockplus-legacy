@@ -1,7 +1,7 @@
 <!ENTITY detached.title "Adblock Plus侧栏(分体式)">
 <!ENTITY detach.label "分体">
 <!ENTITY reattach.label "合体">
-<!ENTITY list.label "当前页面的项目">
+<!ENTITY list.label "当前页面的项目:">
 <!ENTITY type.label "类型">
 <!ENTITY address.label "地址">
 <!ENTITY noitems.label "无可过滤项目">

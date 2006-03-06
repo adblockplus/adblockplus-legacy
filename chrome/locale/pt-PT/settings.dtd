@@ -1,4 +1,4 @@
-<!ENTITY dialog.title "Opções do Adblock Plus">
+<!ENTITY dialog.title "Preferências do Adblock Plus">
 <!ENTITY filters.label "Filtros">
 <!ENTITY filters.accesskey "F">
 <!ENTITY addsubscription.label "Adicionar subscripção de filtros">
@@ -10,11 +10,11 @@
 <!ENTITY clearall.label "Remover todos os filtros">
 <!ENTITY clearall.accesskey "L">
 <!ENTITY listsort.label "Organizar alfabeticamente">
-<!ENTITY listsort.accesskey "P">
+<!ENTITY listsort.accesskey "F">
 <!ENTITY options.label "Opções">
 <!ENTITY options.accesskey "O">
 <!ENTITY enable.label "Activar Adblock Plus">
-<!ENTITY enable.accesskey "N">
+<!ENTITY enable.accesskey "V">
 <!ENTITY showinstatusbar.label "Mostrar barra de status">
 <!ENTITY showinstatusbar.accesskey "S">
 <!ENTITY localpages.label "Bloquear publicidade remota em páginas locais">
@@ -26,12 +26,12 @@
 <!ENTITY linkcheck.label "Verificar links de banners">
 <!ENTITY linkcheck.accesskey "C">
 <!ENTITY help.label "Ajuda">
-<!ENTITY help.accesskey "H">
+<!ENTITY help.accesskey "J">
 <!ENTITY faq.label "Questões Frequentemente Colocadas">
 <!ENTITY faq.accesskey "F">
 <!ENTITY faq.url "http://adblockplus.mozdev.org/faq.html">
 <!ENTITY tips.label "Dica do Dia">
-<!ENTITY tips.accesskey "T">
+<!ENTITY tips.accesskey "D">
 <!ENTITY tips.url "http://adblockplus.mozdev.org/tips.html">
 <!ENTITY regexps.label "Escrevendo expressões regulares">
 <!ENTITY regexps.accesskey "X">
@@ -40,11 +40,11 @@
 <!ENTITY about.accesskey "B">
 <!ENTITY disabled.warning "O Adblock Plus está desactivado. Pode editar os filtros da lista mas estes só eterão efeito depois de reactivar o Adblock Plus.">
 <!ENTITY description "Adicione os endereços que pretende bloquear, para sugestões verifique a lista. Pode usar * para criar filtros mais genéricos. Utilizadores avançados podem usar expressões regulares como /banner\d+\.gif$/.">
-<!ENTITY newfilter.label "Novo filtro">
+<!ENTITY newfilter.label "Novo filtro:">
 <!ENTITY newfilter.accesskey "N">
 <!ENTITY add.label "Adicionar filtro">
 <!ENTITY add.accesskey "A">
-<!ENTITY list.label "Regras de filtro">
+<!ENTITY list.label "Regras de filtro:">
 <!ENTITY list.accesskey "R">
 <!ENTITY context.edit.label "Editar filtro">
 <!ENTITY context.remove.label "Remover filtro(s)">

@@ -1,7 +1,7 @@
 <!ENTITY detached.title "Barra laterale di Adblock Plus (separata)">
 <!ENTITY detach.label "Separa">
 <!ENTITY reattach.label "Riunisci">
-<!ENTITY list.label "Elementi di questa pagina">
+<!ENTITY list.label "Elementi di questa pagina:">
 <!ENTITY type.label "Tipo">
 <!ENTITY address.label "Indirizzo">
 <!ENTITY noitems.label "Nessun elemento bloccabile">

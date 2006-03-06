@@ -32,6 +32,6 @@
   wenn Sie sie nicht sehen möchten - Adblock Plus regelt dies für Sie!
 ">
 
-<!ENTITY homepage.label     "Adblock Plus im Internet">
-<!ENTITY author.label       "Entwickler">
-<!ENTITY contributors.label "Beteiligte">
+<!ENTITY homepage.label     "Adblock Plus im Internet:">
+<!ENTITY author.label       "Entwickler:">
+<!ENTITY contributors.label "Beteiligte:">

@@ -44,11 +44,11 @@
 		您可以使用萬用字元「*」建立可適用多個網站的過濾條件。
 		進階使用者則可以輸入像 /banner\d+\.gif$/ 這類的「正規表示式」。
 ">
-<!ENTITY newfilter.label "新的過濾條件">
+<!ENTITY newfilter.label "新的過濾條件:">
 <!ENTITY newfilter.accesskey "N">
 <!ENTITY add.label "新增過濾條件">
 <!ENTITY add.accesskey "A">
-<!ENTITY list.label "過濾條件清單">
+<!ENTITY list.label "過濾條件清單:">
 <!ENTITY list.accesskey "R">
 <!ENTITY context.edit.label "編輯過濾條件">
 <!ENTITY context.remove.label "移除過濾條件">

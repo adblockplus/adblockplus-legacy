@@ -4,9 +4,9 @@
 <!ENTITY edit.description "The filter list for this subscription will be downloaded from the location given (can't be changed any more).">
 <!ENTITY external.description "This is an external filter subscription; its filter list will be kept up-to-date by the extension that created this subscription.">
 <!ENTITY autodownload.description "If you choose 'Update automatically' this location will be checked for updates daily. With this option disabled you still can trigger an update manually from the subscription's context menu.">
-<!ENTITY location.label "Filter list location">
+<!ENTITY location.label "Filter list location:">
 <!ENTITY location.accesskey "l">
-<!ENTITY title.label "Subscription title">
+<!ENTITY title.label "Subscription title:">
 <!ENTITY title.accesskey "t">
 <!ENTITY autodownload.label "Update automatically">
 <!ENTITY autodownload.accesskey "p">

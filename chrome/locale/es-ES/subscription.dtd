@@ -4,9 +4,9 @@
 <!ENTITY edit.description "La lista de filtro para esta subscripción se descargará desde una ruta dada (no se puede cambiar más).">
 <!ENTITY external.description "Esta es una subscripción de filtro externa, su lista de filtro se mantendrá actualizada por la extensión que ha creado esta subscripción.">
 <!ENTITY autodownload.description "Si eliges 'Actualizar automáticamente' esta ruta será comprobada para actualizaciones a diario. Con esta opción desactivada, puedes lanzar una actualización manual desde el menú contextual de subscripciones.">
-<!ENTITY location.label "Ruta de lista de filtro">
+<!ENTITY location.label "Ruta de lista de filtro:">
 <!ENTITY location.accesskey "l">
-<!ENTITY title.label "Título de subscripción">
+<!ENTITY title.label "Título de subscripción:">
 <!ENTITY title.accesskey "T">
 <!ENTITY autodownload.label "Actualizar automáticamente">
 <!ENTITY autodownload.accesskey "z">

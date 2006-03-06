@@ -44,11 +44,11 @@
 		a discesa. Usare * come carattere jolly per creare filtri generici. Gli utenti esperti
 		possono usare le espressioni regolari come /banner\d+\.gif$/.
 ">
-<!ENTITY newfilter.label "Nuovo filtro">
+<!ENTITY newfilter.label "Nuovo filtro:">
 <!ENTITY newfilter.accesskey "N">
 <!ENTITY add.label "Aggiungi filtro">
 <!ENTITY add.accesskey "G">
-<!ENTITY list.label "Elementi (da escludere e da filtrare)">
+<!ENTITY list.label "Elementi (da escludere e da filtrare):">
 <!ENTITY list.accesskey "L">
 <!ENTITY context.edit.label "Modifica filtro">
 <!ENTITY context.remove.label "Elimina filtro">

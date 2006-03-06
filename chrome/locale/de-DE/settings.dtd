@@ -79,11 +79,11 @@
   wie z.B. /banner\d+\.gif$/.
 ">
 
-<!ENTITY newfilter.label            "Neuer Filter">
+<!ENTITY newfilter.label            "Neuer Filter:">
 <!ENTITY newfilter.accesskey        "N">
 <!ENTITY add.label                  "Filter hinzufügen">
 <!ENTITY add.accesskey              "Z">
-<!ENTITY list.label                 "Filter-Regel">
+<!ENTITY list.label                 "Filter-Regel:">
 <!ENTITY list.accesskey             "R">
 
 <!ENTITY context.edit.label         "Filter bearbeiten">

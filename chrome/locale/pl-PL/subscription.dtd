@@ -15,9 +15,9 @@
 	Jeżeli ta opcja pozostanie wyłaczona, można przeprowadzać sprawdzanie uaktualnień filtrów ręcznie
 	wybierając odpowienią opcję z menu kontekstowego subskrypcji.
 ">
-<!ENTITY location.label "Lokalizacja listy filtrów">
+<!ENTITY location.label "Lokalizacja listy filtrów:">
 <!ENTITY location.accesskey "L">
-<!ENTITY title.label "Nazwa subskrypcji">
+<!ENTITY title.label "Nazwa subskrypcji:">
 <!ENTITY title.accesskey "N">
 <!ENTITY autodownload.label "Uaktualniaj automatycznie">
 <!ENTITY autodownload.accesskey "A">

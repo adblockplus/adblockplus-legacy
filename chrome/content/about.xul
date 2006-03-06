@@ -46,28 +46,36 @@
     &description;
   </description>
 
-  <description id="homepageTitle" value="&homepage.label;:"/>
+  <description id="homepageTitle" value="&homepage.label;"/>
   <description id="homepage" value="http://adblockplus.mozdev.org/" onclick="abp.loadInBrowser(this.getAttribute('value'))"/>
 
-  <description id="authorTitle" value="&author.label;:"/>
+  <description id="authorTitle" value="&author.label;"/>
   <description id="author" value="Wladimir Palant"/>
 
-  <description id="contributorsTitle" value="&contributors.label;:"/>
+  <description id="contributorsTitle" value="&contributors.label;"/>
   <vbox id="contributorsBox">
-    <description value="Kevin Keller - icons"/>
-    <description value="Leszek (teo) Życzkowski - Polish translation"/>
-    <description value="MatrixIsAllOver - Italian translation"/>
     <description value="Ahmet Serkan Tıratacı - Turkish translation"/>
-    <description value="Premier - Japanese translation"/>
+    <description value="Blackdire - Chinese Simplified translation"/>
+    <description value="Claudio Périco - Brazilian Portuguese translation"/>
+    <description value="Dagobert_78 - French translation"/>
+    <description value="Fenix-TX - Spanish translation"/>
+    <description value="Finn Sørensen - Danish translation"/>
+    <description value="Jacen - Slovak translation"/>
+    <description value="jojaba - French translation"/>
     <description value="Jonas Slivka - Lithuanian translation"/>
     <description value="Joni Heinonen aka Akilles - Finnish translation"/>
-    <description value="Fenix-TX, srxo1978 - Spanish translation"/>
-    <description value="Jacen - Slovak translation"/>
-    <description value="ultravioletu - Romanian translation"/>
-    <description value="Claudio Périco - Brazilian Portuguese translation"/>
+    <description value="Jose Sun - Chinese Traditional translation"/>
+    <description value="Kevin Keller - icons"/>
+    <description value="Leszek (teo) Życzkowski - Polish translation"/>
+    <description value="Mark Tyndall - British English translation"/>
+    <description value="MatrixIsAllOver - Italian translation"/>
     <description value="Paul Dicker - Dutch translation"/>
-    <description value="Blackdire - Chinese Simplified translation"/>
-    <description value="jojaba, Dagobert_78, pirlouy - French translation"/>
+    <description value="pirlouy - French translation"/>
+    <description value="Premier - Japanese translation"/>
+    <description value="srxo1978 - Spanish translation"/>
+    <description value="Stefan Ekroth - Swedish translation"/>
+    <description value="ultravioletu - Romanian translation"/>
+    <description value="znaya - Portuguese translation"/>
     <spacer height="5"/>
     <description value="Henrik Aasted Sorensen - original Adblock"/>
     <description value="Michael McDonald - Adblock Plus 0.5"/>

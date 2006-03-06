@@ -40,11 +40,11 @@
 <!ENTITY about.accesskey "b">
 <!ENTITY disabled.warning "Adblock Plus está desactivado. Puedes editar cualquier filtro en la lista, pero estos no se aplicarán hasta que lo reactives.">
 <!ENTITY description "Añadir las direcciones que quieres bloquear, para sugerencias comprueba la lista de abajo. Puedes usar un * como un comodín para crear filtros más específicos. Los usuarios avanzados pueden usar expresiones regulares como /banner\d+\.gif$/.">
-<!ENTITY newfilter.label "Nuevo filtro">
+<!ENTITY newfilter.label "Nuevo filtro:">
 <!ENTITY newfilter.accesskey "N">
 <!ENTITY add.label "Añadir filtro">
 <!ENTITY add.accesskey "A">
-<!ENTITY list.label "Reglas de filtro">
+<!ENTITY list.label "Reglas de filtro:">
 <!ENTITY list.accesskey "R">
 <!ENTITY context.edit.label "Editar filtro">
 <!ENTITY context.remove.label "Eliminar filtro(s)">

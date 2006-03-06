@@ -224,7 +224,7 @@ function abpGetPanelsFile() {
 }
 
 function abpFillTooltip(ev) {
-  if (ev.eventPhase != ev.AT_TARGET)
+  if (!document.tooltipNode || !document.tooltipNode.hasAttribute("tooltip"))
     return false;
 
   if (abp) {

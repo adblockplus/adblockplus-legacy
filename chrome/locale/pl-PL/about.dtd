@@ -6,6 +6,6 @@
 	Nie będzie już konieczności wczytywania wszystkich reklam i banerów. Jeżeli
 	nie będziesz chciał ich oglądać - zleć to Adblock Plus!
 ">
-<!ENTITY homepage.label "Strona domowa Adblock Plus">
-<!ENTITY author.label "Autor">
-<!ENTITY contributors.label "Współtwórcy">
+<!ENTITY homepage.label "Strona domowa Adblock Plus:">
+<!ENTITY author.label "Autor:">
+<!ENTITY contributors.label "Współtwórcy:">

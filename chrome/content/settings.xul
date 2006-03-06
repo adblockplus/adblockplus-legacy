@@ -120,7 +120,7 @@
     &description;
   </description>
   <hbox align="center">
-    <label id="newfilterLabel" value="&newfilter.label;:" accesskey="&newfilter.accesskey;" control="newfilter" />
+    <label id="newfilterLabel" value="&newfilter.label;" accesskey="&newfilter.accesskey;" control="newfilter" />
     <menulist id="newfilter" flex="1" editable="true" disableautoselect="true" onkeypress="onFilterKeyPress(event)" onpopupshowing="fixColWidth()">
     <menupopup/>
     </menulist>
@@ -129,7 +129,7 @@
 </vbox>
 
 <vbox id="listarea" flex="1">
-  <label id="listLabel" value="&list.label;:" accesskey="&list.accesskey;" control="list" />
+  <label id="listLabel" value="&list.label;" accesskey="&list.accesskey;" control="list" />
   <listbox id="list" seltype="multiple" flex="1" context="listitem-context" onkeypress="onListKeyPress(event)">
     <listitem id="list-editor"><textbox id="list-editorField"/></listitem>
   </listbox>

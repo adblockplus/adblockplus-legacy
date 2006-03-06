@@ -79,11 +79,11 @@
   выражения, к примеру /banner\d+\.gif$/.
 ">
 
-<!ENTITY newfilter.label            "Новый фильтр">
+<!ENTITY newfilter.label            "Новый фильтр:">
 <!ENTITY newfilter.accesskey        "в">
 <!ENTITY add.label                  "Добавить фильтр">
 <!ENTITY add.accesskey              "б">
-<!ENTITY list.label                 "Правила блокирования">
+<!ENTITY list.label                 "Правила блокирования:">
 <!ENTITY list.accesskey             "р">
 
 <!ENTITY context.edit.label         "Редактировать фильтр">

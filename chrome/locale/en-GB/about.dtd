@@ -6,6 +6,6 @@
 	You don't need to download all the ads and banners any more, if you
 	don't want them - tell Adblock Plus!
 ">
-<!ENTITY homepage.label "Adblock Plus homepage">
-<!ENTITY author.label "Author">
-<!ENTITY contributors.label "Contributors">
+<!ENTITY homepage.label "Adblock Plus homepage:">
+<!ENTITY author.label "Author:">
+<!ENTITY contributors.label "Contributors:">

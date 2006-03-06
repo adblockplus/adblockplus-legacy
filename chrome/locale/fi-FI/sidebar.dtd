@@ -1,7 +1,7 @@
 <!ENTITY detached.title "Adblock Plus sivupaneeli (irrotettu)">
 <!ENTITY detach.label "Irrota">
 <!ENTITY reattach.label "Kiinnitä">
-<!ENTITY list.label "Elementit tämänhetkisellä sivulla">
+<!ENTITY list.label "Elementit tämänhetkisellä sivulla:">
 <!ENTITY type.label "Tyyppi">
 <!ENTITY address.label "Osoite">
 <!ENTITY noitems.label "Ei estettäviä elementtejä">

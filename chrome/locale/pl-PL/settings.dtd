@@ -44,11 +44,11 @@
 		Można używać * jako wieloznacznika przy tworzeniu większej ilości filtrów. Zaawansowani użytkownicy
 		mogą używać wyrażeń regularnych takich jak: /banner\d+\.gif$/.
 ">
-<!ENTITY newfilter.label "Nowy filtr">
+<!ENTITY newfilter.label "Nowy filtr:">
 <!ENTITY newfilter.accesskey "N">
 <!ENTITY add.label "Dodaj filtr">
 <!ENTITY add.accesskey "D">
-<!ENTITY list.label "Lista filtrów">
+<!ENTITY list.label "Lista filtrów:">
 <!ENTITY list.accesskey "L">
 <!ENTITY context.edit.label "Edytuj filtr">
 <!ENTITY context.remove.label "Usuń filtr">

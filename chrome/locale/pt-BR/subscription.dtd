@@ -19,9 +19,9 @@
 	pode fazer uma atualização manualmente do menu de contexto da
 	inscrição.
 ">
-<!ENTITY location.label "Localização da lista de filtros">
+<!ENTITY location.label "Localização da lista de filtros:">
 <!ENTITY location.accesskey "L">
-<!ENTITY title.label "Título da inscrição">
+<!ENTITY title.label "Título da inscrição:">
 <!ENTITY title.accesskey "T">
 <!ENTITY autodownload.label "Atualizar automaticamente">
 <!ENTITY autodownload.accesskey "A">
