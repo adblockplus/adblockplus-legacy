@@ -1,7 +1,7 @@
 <!ENTITY detached.title "Panel lateral de Adblock Plus (separado)">
 <!ENTITY detach.label "Separar">
 <!ENTITY reattach.label "Unir">
-<!ENTITY list.label "Elementos en la página actual">
+<!ENTITY list.label "Elementos en la página actual:">
 <!ENTITY type.label "Tipo">
 <!ENTITY address.label "Dirección">
 <!ENTITY noitems.label "Ningún elemento para bloquear">

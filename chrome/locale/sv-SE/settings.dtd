@@ -40,11 +40,11 @@
 <!ENTITY about.accesskey "O">
 <!ENTITY disabled.warning "Adblock Plus är av. Du kan ändra filter i listan men tas inte i bruk förrän du slår på Adblock Plus.">
 <!ENTITY description "Lägg till adresser du vill blockera (ex. finns listrutan). Du kan använda * som flagga för att skapa mer generella filter. Avancerade användare an använda reguljära uttryck som /banner/d+/.gif$/.">
-<!ENTITY newfilter.label "Nytt filter">
+<!ENTITY newfilter.label "Nytt filter:">
 <!ENTITY newfilter.accesskey "y">
 <!ENTITY add.label "Lägg till filter">
 <!ENTITY add.accesskey "ä">
-<!ENTITY list.label "Filterregler">
+<!ENTITY list.label "Filterregler:">
 <!ENTITY list.accesskey "g">
 <!ENTITY context.edit.label "Ändra filter">
 <!ENTITY context.remove.label "Ta bort filter">

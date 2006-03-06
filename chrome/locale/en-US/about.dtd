@@ -32,6 +32,6 @@
   don't want them - tell Adblock Plus!
 ">
 
-<!ENTITY homepage.label     "Adblock Plus homepage">
-<!ENTITY author.label       "Author">
-<!ENTITY contributors.label "Contributors">
+<!ENTITY homepage.label     "Adblock Plus homepage:">
+<!ENTITY author.label       "Author:">
+<!ENTITY contributors.label "Contributors:">

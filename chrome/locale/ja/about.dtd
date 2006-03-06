@@ -32,6 +32,6 @@
 	-- Adblock Plus にアドレスを追加するだけです！
 ">
 
-<!ENTITY homepage.label "Adblock Plus ホームページ">
-<!ENTITY author.label "製作者">
-<!ENTITY contributors.label "貢献者">
+<!ENTITY homepage.label "Adblock Plus ホームページ:">
+<!ENTITY author.label "製作者:">
+<!ENTITY contributors.label "貢献者:">

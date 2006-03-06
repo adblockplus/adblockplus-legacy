@@ -1,7 +1,7 @@
 <!ENTITY detached.title "Adblock Plus 側邊欄（已分離）">
 <!ENTITY detach.label "分離">
 <!ENTITY reattach.label "固定">
-<!ENTITY list.label "此頁面可阻擋的項目">
+<!ENTITY list.label "此頁面可阻擋的項目:">
 <!ENTITY type.label "類型">
 <!ENTITY address.label "位址">
 <!ENTITY noitems.label "無可阻擋項目">

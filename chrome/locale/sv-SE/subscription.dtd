@@ -4,9 +4,9 @@
 <!ENTITY edit.description "Filter för denna prenumeration laddas ner från angiven adress (kan inte ändras).">
 <!ENTITY external.description "Denna prenumeration kommer uppdateras av det tillägg som skapade den (externt filter).">
 <!ENTITY autodownload.description "Välj 'Uppdatera automatiskt' om daglig uppdatering önskas. Om funktionen är avstängd kan du, via menyn, uppdatera manuellt.">
-<!ENTITY location.label "Plats för filter">
+<!ENTITY location.label "Plats för filter:">
 <!ENTITY location.accesskey "F">
-<!ENTITY title.label "Titel för prenumeration">
+<!ENTITY title.label "Titel för prenumeration:">
 <!ENTITY title.accesskey "T">
 <!ENTITY autodownload.label "Uppdatera automatiskt">
 <!ENTITY autodownload.accesskey "a">

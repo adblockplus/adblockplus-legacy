@@ -46,9 +46,9 @@
   вручную из контекстного меню подписки.
 ">
 
-<!ENTITY location.label             "Адрес списка фильтров">
+<!ENTITY location.label             "Адрес списка фильтров:">
 <!ENTITY location.accesskey         "д">
-<!ENTITY title.label                "Название подписки">
+<!ENTITY title.label                "Название подписки:">
 <!ENTITY title.accesskey            "з">
 <!ENTITY autodownload.label         "Обновлять автоматически">
 <!ENTITY autodownload.accesskey     "т">

@@ -44,11 +44,11 @@
 		Você pode usar * para substituir qualquer caractere e criar filtros mais gerais.
 		Usuários avançados podem usar expressões regulares como /banner\d+\.gif$/.
 ">
-<!ENTITY newfilter.label "Novo filtro">
+<!ENTITY newfilter.label "Novo filtro:">
 <!ENTITY newfilter.accesskey "N">
 <!ENTITY add.label "Adicionar filtro">
 <!ENTITY add.accesskey "A">
-<!ENTITY list.label "Regras de filtro">
+<!ENTITY list.label "Regras de filtro:">
 <!ENTITY list.accesskey "R">
 <!ENTITY context.edit.label "Editar filtro">
 <!ENTITY context.remove.label "Remover filtro(s)">

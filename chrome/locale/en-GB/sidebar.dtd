@@ -1,7 +1,7 @@
 <!ENTITY detached.title "Adblock Plus sidebar (detached)">
 <!ENTITY detach.label "Detach">
 <!ENTITY reattach.label "Reattach">
-<!ENTITY list.label "Items on current page">
+<!ENTITY list.label "Items on current page:">
 <!ENTITY type.label "Type">
 <!ENTITY address.label "Address">
 <!ENTITY noitems.label "No blockable items">

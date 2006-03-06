@@ -13,9 +13,9 @@
 	如果你选择“自动更新”，会检查每日更新该位置。
 	禁用该选项，你仍可以在订阅的上下文菜单中进行手动更新。
 ">
-<!ENTITY location.label "过滤规则列表位置">
+<!ENTITY location.label "过滤规则列表位置:">
 <!ENTITY location.accesskey "L">
-<!ENTITY title.label "订阅标题">
+<!ENTITY title.label "订阅标题:">
 <!ENTITY title.accesskey "T">
 <!ENTITY autodownload.label "自动更新">
 <!ENTITY autodownload.accesskey "P">

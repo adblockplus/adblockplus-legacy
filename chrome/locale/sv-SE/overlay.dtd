@@ -10,7 +10,7 @@
 <!ENTITY settings.label "Inställningar">
 <!ENTITY settings.accesskey "I">
 <!ENTITY opensidebar.label "Öppna sidofält">
-<!ENTITY opensidebar.accesskey "Ö">
+<!ENTITY opensidebar.accesskey "S">
 <!ENTITY closesidebar.label "Stäng sidofält">
 <!ENTITY closesidebar.accesskey "S">
 <!ENTITY whitelist.site.label "Använd inte på --">

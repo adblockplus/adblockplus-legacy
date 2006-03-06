@@ -1,7 +1,7 @@
 <!ENTITY detached.title "„Adblock Plus“ parankinė (iškelta)">
 <!ENTITY detach.label "Iškelti">
 <!ENTITY reattach.label "Iš naujo įkelti">
-<!ENTITY list.label "Dabartinio tinklalapio elementai">
+<!ENTITY list.label "Dabartinio tinklalapio elementai:">
 <!ENTITY type.label "Tipas">
 <!ENTITY address.label "Adresas">
 <!ENTITY noitems.label "Nėra blokuojamų elementų">

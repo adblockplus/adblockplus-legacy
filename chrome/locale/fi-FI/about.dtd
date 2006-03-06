@@ -6,6 +6,6 @@
 	Sinun ei tarvitse enään ladata kaikkia mainoksia, jos et halua
 	 - sano vain Adblock Plussalle!
 ">
-<!ENTITY homepage.label "Adblock Plussan kotisivu">
-<!ENTITY author.label "Tekijä">
-<!ENTITY contributors.label "Avustajat">
+<!ENTITY homepage.label "Adblock Plussan kotisivu:">
+<!ENTITY author.label "Tekijä:">
+<!ENTITY contributors.label "Avustajat:">

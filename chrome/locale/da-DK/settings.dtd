@@ -2,7 +2,7 @@
 <!ENTITY filters.label "Filtre">
 <!ENTITY filters.accesskey "F">
 <!ENTITY addsubscription.label "Tilføj filter-abonnement">
-<!ENTITY addsubscription.accesskey "S">
+<!ENTITY addsubscription.accesskey "B">
 <!ENTITY import.label "Importer filtre">
 <!ENTITY import.accesskey "M">
 <!ENTITY export.label "Eksporter filtre">
@@ -12,7 +12,7 @@
 <!ENTITY listsort.label "Sortér alfabetisk">
 <!ENTITY listsort.accesskey "b">
 <!ENTITY options.label "Indstillinger">
-<!ENTITY options.accesskey "n">
+<!ENTITY options.accesskey "d">
 <!ENTITY enable.label "Slå Adblock Plus til">
 <!ENTITY enable.accesskey "I">
 <!ENTITY showinstatusbar.label "Vis i statuslinie">
@@ -40,11 +40,11 @@
 <!ENTITY about.accesskey "B">
 <!ENTITY disabled.warning "Adblock Plus er slået fra. Du kan redigere alle filtre i listen, men de vil ikke være aktive før du slår Adblock Plus til igen.">
 <!ENTITY description "Tilføj adressen du ønsker at blokere, for forslag check rullegardin-listen. Du kan bruge * som jokertegn for at skabe mere generelle filtre. Avancerede brugere kan bruge regulære udtryk som /banner\d+\.gif$/.">
-<!ENTITY newfilter.label "Nyt filter">
+<!ENTITY newfilter.label "Nyt filter:">
 <!ENTITY newfilter.accesskey "N">
 <!ENTITY add.label "Tilføj filter">
 <!ENTITY add.accesskey "T">
-<!ENTITY list.label "Filterregler">
+<!ENTITY list.label "Filterregler:">
 <!ENTITY list.accesskey "R">
 <!ENTITY context.edit.label "Redigér filter">
 <!ENTITY context.remove.label "Fjern filter/filtre">

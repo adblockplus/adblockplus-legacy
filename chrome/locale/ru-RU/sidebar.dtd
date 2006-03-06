@@ -26,7 +26,7 @@
 
 <!ENTITY detach.label             "Отсоединить">
 <!ENTITY reattach.label           "Присоединить">
-<!ENTITY list.label               "Элементы открытой страницы">
+<!ENTITY list.label               "Элементы открытой страницы:">
 
 <!ENTITY type.label               "Тип">
 <!ENTITY address.label            "Адрес">

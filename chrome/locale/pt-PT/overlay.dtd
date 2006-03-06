@@ -7,11 +7,11 @@
 <!ENTITY context.link.label "Bloquear Link">
 <!ENTITY context.frame.label "Bloquear Frame">
 <!ENTITY sidebar.title "Adblock Plus">
-<!ENTITY settings.label "Opções">
+<!ENTITY settings.label "Preferências">
 <!ENTITY settings.accesskey "F">
 <!ENTITY opensidebar.label "Abrir barra lateral">
-<!ENTITY opensidebar.accesskey "S">
+<!ENTITY opensidebar.accesskey "L">
 <!ENTITY closesidebar.label "Fechar barra lateral">
-<!ENTITY closesidebar.accesskey "S">
+<!ENTITY closesidebar.accesskey "L">
 <!ENTITY whitelist.site.label "Desactivar em --">
 <!ENTITY whitelist.page.label "Desactivar para esta página e páginas subsequentes">

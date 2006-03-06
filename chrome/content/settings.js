@@ -206,14 +206,14 @@ function fillList() {
 
 // Returns an array containing description for a subscription group
 function getSubscriptionDescription(synchPrefs) {
-  var descr = [abp.getString("subscription_description") + ": " + synchPrefs.title];
+  var descr = [abp.getString("subscription_description") + " " + synchPrefs.title];
   if (!synchPrefs.external)
-    descr.push(abp.getString("subscription_source") + ": " + synchPrefs.url);
+    descr.push(abp.getString("subscription_source") + " " + synchPrefs.url);
 
   var status = (synchPrefs.disabled ? abp.getString("subscription_status_disabled") : abp.getString("subscription_status_enabled"));
   if (!synchPrefs.external) {
     status += "; " + (synchPrefs.autodownload ? abp.getString("subscription_status_autodownload") : abp.getString("subscription_status_manualdownload"));
-    status += "; " + abp.getString("subscription_status_lastdownload") + ": ";
+    status += "; " + abp.getString("subscription_status_lastdownload") + " ";
     if (synchronizer.isExecuting(synchPrefs.url))
       status += abp.getString("subscription_status_lastdownload_inprogress");
     else {
@@ -227,7 +227,7 @@ function getSubscriptionDescription(synchPrefs) {
   }
   else
     status += "; " + abp.getString("subscription_status_externaldownload");
-  descr.push(abp.getString("subscription_status") + ": " + status);
+  descr.push(abp.getString("subscription_status") + " " + status);
   return descr;
 }
 

@@ -1,7 +1,7 @@
 <!ENTITY detached.title "Adblock Plus barra lateral (desancorada)">
 <!ENTITY detach.label "Desancorar">
 <!ENTITY reattach.label "Reancorar">
-<!ENTITY list.label "Items da página actual">
+<!ENTITY list.label "Items da página actual:">
 <!ENTITY type.label "Tipo">
 <!ENTITY address.label "Endereço">
 <!ENTITY noitems.label "Sem items bloqueáveis">

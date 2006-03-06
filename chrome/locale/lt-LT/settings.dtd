@@ -40,11 +40,11 @@
 <!ENTITY about.accesskey "A">
 <!ENTITY disabled.warning "„Adblock Plus“ yra išjungtas. Jūs galite redaguoti filtrus sąraše, bet jie nebus pritaikomi, kol neįjungsite „Adblock Plus“.">
 <!ENTITY description "Pridėkite adresus, kuriuos norite blokuoti. Norėdami gauti pasiūlymus, peržiūrėkite išskleidžiamąjį sąrašą. Galite pridėti „*“ kaip pakaitos simbolį norėdami sukurti bendresnius filtrus. Patyrę naudotojai gali naudoti reguliariuosius reiškinius, tokius kaip „/banner\d+\.gif$/“.">
-<!ENTITY newfilter.label "Naujas filtras">
+<!ENTITY newfilter.label "Naujas filtras:">
 <!ENTITY newfilter.accesskey "N">
 <!ENTITY add.label "Pridėti filtrą">
 <!ENTITY add.accesskey "D">
-<!ENTITY list.label "Filtrų taisyklės">
+<!ENTITY list.label "Filtrų taisyklės:">
 <!ENTITY list.accesskey "T">
 <!ENTITY context.edit.label "Redaguoti filtrą">
 <!ENTITY context.remove.label "Pašalinti filtrą(us)">

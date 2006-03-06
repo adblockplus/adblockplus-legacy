@@ -26,7 +26,7 @@
 
 <!ENTITY detach.label "別窓表示にする">
 <!ENTITY reattach.label "サイドバー表示にする">
-<!ENTITY list.label "このページの要素一覧">
+<!ENTITY list.label "このページの要素一覧:">
 
 <!ENTITY type.label "種別">
 <!ENTITY address.label "アドレス">

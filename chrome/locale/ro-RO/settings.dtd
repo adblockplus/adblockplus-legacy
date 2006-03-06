@@ -40,11 +40,11 @@
 <!ENTITY about.accesskey "D">
 <!ENTITY disabled.warning "Adblock Plus este inactiv. Filtrele nu vor avea efect până nu reactivaţi extensia.">
 <!ENTITY description "Adăugaţi adresele pe care doriţi să le blocaţi; puteţi alege din lista derulantă. Pentru a crea filtre generice, folosiţi caracterul * ca joker. Utilizatorii avansaţi pot folosi expresii, ca de exemplu /banner\d+\.gif$/.">
-<!ENTITY newfilter.label "Filtru nou">
+<!ENTITY newfilter.label "Filtru nou:">
 <!ENTITY newfilter.accesskey "n">
 <!ENTITY add.label "Adaugă filtru">
 <!ENTITY add.accesskey "d">
-<!ENTITY list.label "Filtrele existente">
+<!ENTITY list.label "Filtrele existente:">
 <!ENTITY list.accesskey "x">
 <!ENTITY context.edit.label "Modifică filtru">
 <!ENTITY context.remove.label "Şterge filtru">

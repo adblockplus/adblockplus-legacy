@@ -1,7 +1,7 @@
 <!ENTITY detached.title "Bară laterală Adblock plus (desprinsă)">
 <!ENTITY detach.label "Desprinde">
 <!ENTITY reattach.label "Prinde la loc">
-<!ENTITY list.label "Obiecte în pagina curentă">
+<!ENTITY list.label "Obiecte în pagina curentă:">
 <!ENTITY type.label "Tip">
 <!ENTITY address.label "Adresă">
 <!ENTITY noitems.label "Nici un element blocabil">

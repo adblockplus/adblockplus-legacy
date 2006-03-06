@@ -4,9 +4,9 @@
 <!ENTITY edit.description "La liste de filtre souscrite sera téléchargée à partir de l'emplacement indiqué (ne peut être modifié)">
 <!ENTITY external.description "Ceci est un abonnement externe à une liste de filtres qui sera maintenu à jour par l'extension s'étant chargée de l'abonnement.">
 <!ENTITY autodownload.description "Si vous choisissez la 'Mise à jour automatique' elle sera recherchée et vérifiée quotidiennement à cet emplacement. Si vous désactivez cette option, vous pouvez tout de même effectuer une mise à jour manuelle à partir du menu contextuel.">
-<!ENTITY location.label "Emplacement de la liste de filtres">
+<!ENTITY location.label "Emplacement de la liste de filtres :">
 <!ENTITY location.accesskey "l">
-<!ENTITY title.label "Titre">
+<!ENTITY title.label "Titre :">
 <!ENTITY title.accesskey "T">
 <!ENTITY autodownload.label "Mise à jour automatique">
 <!ENTITY autodownload.accesskey "M">

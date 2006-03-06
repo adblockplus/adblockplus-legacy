@@ -1,7 +1,7 @@
 <!ENTITY detached.title "Bočný panel Adblock Plus (oddelený)">
 <!ENTITY detach.label "Oddeliť">
 <!ENTITY reattach.label "Znovu pripojiť">
-<!ENTITY list.label "Položky na aktuálnej stránke">
+<!ENTITY list.label "Položky na aktuálnej stránke:">
 <!ENTITY type.label "Typ">
 <!ENTITY address.label "Adresa">
 <!ENTITY noitems.label "Neblokovateľné položky">

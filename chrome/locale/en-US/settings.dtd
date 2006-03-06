@@ -78,11 +78,11 @@
     use regular expressions like /banner\d+\.gif$/.
 ">
 
-<!ENTITY newfilter.label            "New filter">
+<!ENTITY newfilter.label            "New filter:">
 <!ENTITY newfilter.accesskey        "N">
 <!ENTITY add.label                  "Add filter">
 <!ENTITY add.accesskey              "A">
-<!ENTITY list.label                 "Filter rules">
+<!ENTITY list.label                 "Filter rules:">
 <!ENTITY list.accesskey             "R">
 
 <!ENTITY context.edit.label         "Edit filter">

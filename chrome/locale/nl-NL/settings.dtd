@@ -40,11 +40,11 @@
 <!ENTITY about.accesskey "A">
 <!ENTITY disabled.warning "Adblock Plus is uitgeschakeld. U kunt de filters in de lijst aanpassen, maar wijzigingen zullen niet worden toegepast voordat u Adblock weer inschakeld.">
 <!ENTITY description "Voeg het adres toe dat u wilt blokkeren, zie de keuzelijst voor suggesties. U kunt een * als jokerteken gebruiken voor meer algemene filters. Ervaren gebruikers kunnen reguliere expressies gebruiken, zoals /banner\d+\.gif$/.">
-<!ENTITY newfilter.label "Nieuw filter">
+<!ENTITY newfilter.label "Nieuw filter:">
 <!ENTITY newfilter.accesskey "N">
 <!ENTITY add.label "Toevoegen">
 <!ENTITY add.accesskey "T">
-<!ENTITY list.label "Filters Regels">
+<!ENTITY list.label "Filters Regels:">
 <!ENTITY list.accesskey "R">
 <!ENTITY context.edit.label "Filter wijzigen">
 <!ENTITY context.remove.label "Filter(s) verwijderen">

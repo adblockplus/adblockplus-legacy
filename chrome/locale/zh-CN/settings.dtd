@@ -44,11 +44,11 @@
 		你可以使用*作为通配符来创建更通用的过滤规则。
 		高级用户可以使用象 /banner\d+\.gif$/ 这样的正则表达式。
 ">
-<!ENTITY newfilter.label "新过滤规则">
+<!ENTITY newfilter.label "新过滤规则:">
 <!ENTITY newfilter.accesskey "N">
 <!ENTITY add.label "添加过滤规则">
 <!ENTITY add.accesskey "A">
-<!ENTITY list.label "过滤规则">
+<!ENTITY list.label "过滤规则:">
 <!ENTITY list.accesskey "R">
 <!ENTITY context.edit.label "编辑过滤规则">
 <!ENTITY context.remove.label "移除过滤规则">

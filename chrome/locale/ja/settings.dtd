@@ -78,11 +78,11 @@
 		上級ユーザは /banner\d+\.gif$/ のような正規表現を使用することができます。
 ">
 
-<!ENTITY newfilter.label "新規フィルタ">
+<!ENTITY newfilter.label "新規フィルタ:">
 <!ENTITY newfilter.accesskey "N">
 <!ENTITY add.label "追加">
 <!ENTITY add.accesskey "A">
-<!ENTITY list.label "フィルタリスト">
+<!ENTITY list.label "フィルタリスト:">
 <!ENTITY list.accesskey "R">
 
 <!ENTITY context.edit.label "フィルタ編集">

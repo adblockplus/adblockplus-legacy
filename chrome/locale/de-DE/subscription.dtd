@@ -47,9 +47,9 @@
   Kontext-Menü des Abonnements gestartet werden.
 ">
 
-<!ENTITY location.label             "Adresse der Filter-Liste">
+<!ENTITY location.label             "Adresse der Filter-Liste:">
 <!ENTITY location.accesskey         "D">
-<!ENTITY title.label                "Bezeichnung des Abonnements">
+<!ENTITY title.label                "Bezeichnung des Abonnements:">
 <!ENTITY title.accesskey            "Z">
 <!ENTITY autodownload.label         "Automatisch aktualisieren">
 <!ENTITY autodownload.accesskey     "T">

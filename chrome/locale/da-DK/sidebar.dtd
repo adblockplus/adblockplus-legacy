@@ -1,7 +1,7 @@
 <!ENTITY detached.title "Adblock Plus sidebar (frakoblet)">
 <!ENTITY detach.label "Frakobl">
 <!ENTITY reattach.label "Gentilkobl">
-<!ENTITY list.label "Emner på nuværende side">
+<!ENTITY list.label "Emner på nuværende side:">
 <!ENTITY type.label "Type">
 <!ENTITY address.label "Adresse">
 <!ENTITY noitems.label "Ingen blokérbare emner">

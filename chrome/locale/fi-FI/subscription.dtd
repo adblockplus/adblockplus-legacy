@@ -19,9 +19,9 @@
 	käytöstä voit silti suorittaa päivittämisen käsin  valitsemalla
 	&quot;Päivitä tilaus nyt&quot; tilauksen ponnahdusvalikosta.
 ">
-<!ENTITY location.label "Suodatinlistan sijainti">
+<!ENTITY location.label "Suodatinlistan sijainti:">
 <!ENTITY location.accesskey "s">
-<!ENTITY title.label "Tilauksen otsikko">
+<!ENTITY title.label "Tilauksen otsikko:">
 <!ENTITY title.accesskey "o">
 <!ENTITY autodownload.label "Päivitä automaattisesti">
 <!ENTITY autodownload.accesskey "a">

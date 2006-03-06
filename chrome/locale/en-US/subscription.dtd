@@ -48,9 +48,9 @@
   menu.
 ">
 
-<!ENTITY location.label             "Filter list location">
+<!ENTITY location.label             "Filter list location:">
 <!ENTITY location.accesskey         "L">
-<!ENTITY title.label                "Subscription title">
+<!ENTITY title.label                "Subscription title:">
 <!ENTITY title.accesskey            "T">
 <!ENTITY autodownload.label         "Update automatically">
 <!ENTITY autodownload.accesskey     "P">

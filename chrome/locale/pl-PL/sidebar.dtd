@@ -1,7 +1,7 @@
 <!ENTITY detached.title "Panel boczny Adblock Plus">
 <!ENTITY detach.label "Odłącz">
 <!ENTITY reattach.label "Przyłącz">
-<!ENTITY list.label "Elementy na aktywnej stronie">
+<!ENTITY list.label "Elementy na aktywnej stronie:">
 <!ENTITY type.label "Typ">
 <!ENTITY address.label "Adres">
 <!ENTITY noitems.label "Elementy nieblokowalne">

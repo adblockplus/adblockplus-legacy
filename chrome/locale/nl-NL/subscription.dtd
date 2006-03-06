@@ -4,9 +4,9 @@
 <!ENTITY edit.description "De filterlijst van dit abonnement zal worden gedownload van de opgegeven locatie (kan niet meer worden veranderd).">
 <!ENTITY external.description "Dit is een extern filter abonnement, de filterlijst zal worden bijgewerkt door de extentie die is gemaakt voor dit abonnement.">
 <!ENTITY autodownload.description "Als u kiest voor ‘Automatisch bijwerken’ zal deze locatie dagelijks worden gecontroleerd op nieuwe versies. Als u deze optie uitschakeld kunt u nog steeds een handmatige update uitvoeren vanuit het context menu bij Filter abonnement.">
-<!ENTITY location.label "Filterlijst locatie">
+<!ENTITY location.label "Filterlijst locatie:">
 <!ENTITY location.accesskey "L">
-<!ENTITY title.label "Abonnementnaam">
+<!ENTITY title.label "Abonnementnaam:">
 <!ENTITY title.accesskey "B">
 <!ENTITY autodownload.label "Automatisch bijwerken">
 <!ENTITY autodownload.accesskey "T">
