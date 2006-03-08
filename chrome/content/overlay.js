@@ -33,7 +33,6 @@ var abpPrefs = abp ? abp.prefs : {enabled: false};
 var abpDetachedSidebar = null;
 var abpForceDetach = false;
 
-// With older Mozilla versions load event never happens (???), using timeout as a fallback
 window.addEventListener("load", abpInit, false);
 
 function abpInit() {
@@ -263,15 +262,23 @@ function abpFillPopup(popup) {
     var host = secureGet(insecLocation, "host");
     var site = url.replace(/^([^\/]+\/\/[^\/]+\/).*/, "$1");
 
-    whitelistItemSite.pattern = "@@" + site;
+    whitelistItemSite.pattern = "@@|" + site;
     whitelistItemSite.setAttribute("checked", abpHasPattern(whitelistItemSite.pattern));
     whitelistItemSite.setAttribute("label", whitelistItemSite.getAttribute("labeltempl").replace(/--/, host));
 
-    whitelistItemPage.pattern = "@@" + url;
+    whitelistItemPage.pattern = "@@|" + url + "|";
     whitelistItemPage.setAttribute("checked", abpHasPattern(whitelistItemPage.pattern));
   }
   whitelistItemSite.hidden = whitelistItemPage.hidden =
     whitelistItemPage.nextSibling.hidden = !showWhitelist;
+  if (abp.getSettingsDialog()) {
+    whitelistItemSite.setAttribute("disabled", "true");
+    whitelistItemPage.setAttribute("disabled", "true");
+  }
+  else {
+    whitelistItemSite.removeAttribute("disabled");
+    whitelistItemPage.removeAttribute("disabled");
+  }
 
   elements.enabled.setAttribute("checked", abpPrefs.enabled);
   elements.showinstatusbar.setAttribute("checked", abpPrefs.showinstatusbar);
@@ -398,8 +405,8 @@ function abpToggleSidebar() {
 
 // Checks whether the specified pattern exists in the list
 function abpHasPattern(pattern) {
-  for (var i = 0; i < abpPrefs.patterns.length; i++)
-    if (abpPrefs.patterns[i] == pattern)
+  for (var i = 0; i < abpPrefs.userPatterns.length; i++)
+    if (abpPrefs.userPatterns[i].text == pattern)
       return true;
 
   return false;
@@ -415,25 +422,26 @@ function abpTogglePref(pref) {
 }
 
 // Inserts or removes the specified pattern into/from the list
-function abpTogglePattern(pattern, insert) {
+function abpTogglePattern(text, insert) {
   if (!abp)
     return;
 
   var found = false;
-  for (var i = 0; i < abpPrefs.patterns.length; i++) {
-    if (abpPrefs.patterns[i] == pattern) {
+  for (var i = 0; i < abpPrefs.userPatterns.length; i++) {
+    if (abpPrefs.userPatterns[i].text == text) {
       if (insert)
         found = true;
-      else {
-        abpPrefs.patterns.splice(i, 1);
-        i--;
-      }
+      else
+        abpPrefs.userPatterns.splice(i--, 1);
     }
   }
-  if (!found && insert)
-    abpPrefs.patterns.push(pattern);
+  if (!found && insert) {
+    var pattern = abpPrefs.patternFromText(text);
+    if (pattern)
+      abpPrefs.userPatterns.push(pattern);
+  }
 
-  abpPrefs.save();
+  abpPrefs.savePatterns();
 }
 
 // Handle clicks on the Adblock statusbar panel

@@ -22,60 +22,76 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
+var dragService = Components.classes["@mozilla.org/widget/dragservice;1"]
+                            .getService(Components.interfaces.nsIDragService);
 var abp = Components.classes["@mozilla.org/adblockplus;1"].createInstance();
 while (abp && !("getString" in abp))
   abp = abp.wrappedJSObject;    // Unwrap component
 var prefs = abp.prefs;
 var flasher = abp.flasher;
 var synchronizer = abp.synchronizer;
-var shouldSort = prefs.listsort;
-var suggestionItems = [];
+var suggestionItems = null;
 var insecWnd = null;   // Window we should apply filters at
 var wndData = null;    // Data for this window
-var initialized = false;
-var whitelistDescr = abp.getString("whitelist_description");
-var filterlistDescr = abp.getString("filterlist_description");
-var origGrouporder = null;
-var origSynch = null;
-var saved = false;
 var lineBreak = null;   // Plattform dependent line break
 
 // Preference window initialization
 function init() {
-  initialized = true;
-  var filterSuggestions = document.getElementById("newfilter");
-  var data = [];
-
-  document.getElementById("disabledWarning").setAttribute("hide", prefs.enabled);
+  document.getElementById("disabledWarning").hidden = prefs.enabled;
+  document.documentElement.getButton("accept").setAttribute("disabled", "true");
 
   // Install listeners
   prefs.addListener(onPrefChange);
+  prefs.addHitCountListener(onHitCountChange);
   synchronizer.addListener(synchCallback);
 
-  // Save subscriptions to restore them if we are cancelled
-  origGrouporder = [];
-  origSynch = new abp.HashTable();
-  prefs.cloneSubscriptions(origGrouporder, origSynch);
+  var filterSuggestions = document.getElementById("newfilter");
+  filterSuggestions.inputField.addEventListener("input", onInputChange, false);
 
-  if ('arguments' in window && window.arguments.length >= 1)
-    insecWnd = window.arguments[0];
-  else {
-    var windowMediator = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator);
-    var browser = windowMediator.getMostRecentWindow("navigator:browser");
-    if (browser)
-      insecWnd = browser.getBrowser().contentWindow;
-  }
+  // List selection doesn't fire input event, have to register a property watcher
+  filterSuggestions.inputField.watch("value", onInputChange);
 
+  // Initialize content window data
+  var windowMediator = Components.classes["@mozilla.org/appshell/window-mediator;1"]
+                                  .getService(Components.interfaces.nsIWindowMediator);
+  var browser = windowMediator.getMostRecentWindow("navigator:browser");
+  if (browser)
+    setContentWindow(browser.getBrowser().contentWindow);
+  else
+    setContentWindow(null);
+
+  // Initialize tree view
+  document.getElementById("list").view = treeView;
+
+  var editor = document.getElementById("listEditor");
+  editor.field = editor.contentDocument.getElementById("editor");
+  treeView.setEditor(editor);
+
+  treeView.ensureSelection(0);
+
+  // Capture keypress events - need to get them before the tree does
+  document.getElementById("listStack").addEventListener("keypress", onListKeyPress, true);
+
+  // Set the focus to the input field by default
+  filterSuggestions.focus();
+
+  // Fire post-load handlers
+  var e = document.createEvent("Events");
+  e.initEvent("post-load", false, false);
+  window.dispatchEvent(e);
+}
+
+function setContentWindow(insecContentWnd) {
+  var filterSuggestions = document.getElementById("newfilter");
+
+  insecWnd = insecContentWnd;
+  wndData = null;
+
+  var data = [];
   if (insecWnd) {
     // Retrieve data for the window
     wndData = abp.getDataForWindow(insecWnd);
     data = wndData.getAllLocations();
-
-    // Activate flasher
-    filterSuggestions.inputField.addEventListener("input", onInputChange, false);
-
-    // List selection doesn't fire input event, have to register a property watcher
-    filterSuggestions.inputField.watch("value", onInputChange);
   }
   if (!data.length) {
     var reason = abp.getString("no_blocking_suggestions");
@@ -96,30 +112,29 @@ function init() {
   }
 
   // Initialize filter suggestions dropdown
+  filterSuggestions.removeAllItems();
+  suggestionItems = [];
   for (var i = 0; i < data.length; i++)
     createFilterSuggestion(filterSuggestions, data[i]);
+}
 
-  if ('arguments' in window && typeof window.arguments[1] != "undefined")
-    filterSuggestions.label = filterSuggestions.value = window.arguments[1];
+function setLocation(location) {
+  var filterSuggestions = document.getElementById("newfilter");
+  filterSuggestions.label = filterSuggestions.value = location;
+  filterSuggestions.focus();
+}
 
-  // Fill the filter list
-  fillList();
-
-  // Set the focus to the list if a filter was selected, otherwise to the input field
-  if ('arguments' in window && typeof window.arguments[2] != "undefined" && window.arguments[2])
-    document.getElementById("list").focus();
-  else
-    filterSuggestions.focus();
+function selectPattern(pattern) {
+  treeView.selectPattern(pattern.text);
+  document.getElementById("list").focus();
 }
 
 // To be called when the window is closed
 function cleanUp() {
   prefs.removeListener(onPrefChange);
+  prefs.removeHitCountListener(onHitCountChange);
   synchronizer.removeListener(synchCallback);
   flasher.stop();
-
-  if (!saved && origSynch)
-    prefs.restoreSubscriptions(origGrouporder, origSynch);
 }
 
 function createDescription(label, flex) {
@@ -138,7 +153,7 @@ function createFilterSuggestion(menulist, suggestion) {
   menuitem.appendChild(createDescription(suggestion.localizedDescr, 0));
   menuitem.appendChild(createDescription(suggestion.location, 1));
 
-  if (suggestion.filter && suggestion.filter.isWhite)
+  if (suggestion.filter && suggestion.filter.type == "whitelisted")
     menuitem.className = "whitelisted";
   else if (suggestion.filter)
     menuitem.className = "filtered";
@@ -165,95 +180,6 @@ function onInputChange(prop, oldval, newval) {
   return newval;
 };
 
-function fillList() {
-  // Initialize editor
-  editor.bind(document.getElementById("list"));
-
-  // Initialize group manager
-  var list = document.getElementById("list");
-  groupManager.bind(list);
-
-  // Split up patterns list into whitelist and filterlist
-  var whitelist = [];
-  var filterlist = [];
-  for (var i = 0; i < prefs.patterns.length; i++)
-    (prefs.patterns[i].indexOf("@@") == 0 ? whitelist : filterlist).push(prefs.patterns[i]);
-
-  // Add groups
-  if (whitelist.length)
-    addToGroup("~wl~", whitelist);
-  if (filterlist.length)
-    addToGroup("~fl~", filterlist);
-
-  // Add filter subscriptions
-  for (i = 0; i < prefs.grouporder.length; i++) {
-    if (prefs.grouporder[i].indexOf("~") == 0 || groupManager.hasGroupName(prefs.grouporder[i]))
-      continue;
-
-    var synchPrefs = prefs.synch.get(prefs.grouporder[i]);
-    if (typeof synchPrefs == "undefined")
-      continue;
-
-    addSubscriptionGroup(prefs.grouporder[i], synchPrefs, true);
-  }
-
-  // Select a row
-  if ('arguments' in window && typeof window.arguments[2] != "undefined" && window.arguments[2])
-    groupManager.selectPattern(window.arguments[2].origPattern);
-
-  groupManager.ensureSelection();
-}
-
-// Returns an array containing description for a subscription group
-function getSubscriptionDescription(synchPrefs) {
-  var descr = [abp.getString("subscription_description") + " " + synchPrefs.title];
-  if (!synchPrefs.external)
-    descr.push(abp.getString("subscription_source") + " " + synchPrefs.url);
-
-  var status = (synchPrefs.disabled ? abp.getString("subscription_status_disabled") : abp.getString("subscription_status_enabled"));
-  if (!synchPrefs.external) {
-    status += "; " + (synchPrefs.autodownload ? abp.getString("subscription_status_autodownload") : abp.getString("subscription_status_manualdownload"));
-    status += "; " + abp.getString("subscription_status_lastdownload") + " ";
-    if (synchronizer.isExecuting(synchPrefs.url))
-      status += abp.getString("subscription_status_lastdownload_inprogress");
-    else {
-      status += (synchPrefs.lastdownload > 0 ? new Date(synchPrefs.lastdownload * 1000).toLocaleString() : abp.getString("subscription_status_lastdownload_unknown"));
-      if (synchPrefs.lastdownload > 0 && synchPrefs.downloadstatus) {
-        try {
-          status += " (" + abp.getString(synchPrefs.downloadstatus) + ")";
-        } catch (e) {}
-      }
-    }
-  }
-  else
-    status += "; " + abp.getString("subscription_status_externaldownload");
-  descr.push(abp.getString("subscription_status") + " " + status);
-  return descr;
-}
-
-// Adds a new group for the subscription to the list
-function addSubscriptionGroup(groupName, synchPrefs, noChange) {
-  var descr = getSubscriptionDescription(synchPrefs);
-  groupManager.addGroup(groupName, descr, synchPrefs.patterns.slice(), "subscription");
-
-  if (typeof noChange == "undefined" || !noChange)
-    onChange();
-}
-
-// Updates description for a subscription group in the list
-function updateSubscriptionDescription(group, synchPrefs, noChange) {
-  if (typeof group == "string")
-    group = groupManager.getGroupByName(group);
-  if (!group)
-    return;
-
-  var descr = getSubscriptionDescription(synchPrefs);
-  groupManager.setGroupDescription(group, descr);
-
-  if (typeof noChange == "undefined" || !noChange)
-    onChange();
-}
-
 // Adds the filter entered into the input field to the list
 function addFilter() {
   var filterSuggestions = document.getElementById("newfilter");
@@ -267,66 +193,19 @@ function addFilter() {
   // Issue a warning if we got a regular expression
   if (!/^(@@)?\/.*\/$/.test(filter) || regexpWarning()) {
     filterSuggestions.label = filterSuggestions.value = "";
-    addFilterInternal(filter);
+    treeView.addPattern(filter);
   }
   return true;
 }
 
-// Adds a given filter or a filters list to a group
-function addToGroup(group, filters) {
-  if (typeof filters == "string")
-    filters = [filters];
-
-  // Check whether we got a group name instead of a group
-  if (typeof group == "string") {
-    if (!groupManager.hasGroupName(group)) {
-      // Group doesn't exist yet, create it
-      if (group == "~fl~")
-        return groupManager.addGroup(group, [filterlistDescr], filters, "filterlist");
-      else if (group == "~wl~")
-        return groupManager.addGroup(group, [whitelistDescr], filters, "whitelist");
-      else
-        return null;
-    }
-    group = groupManager.getGroupByName(group);
-  }
-
-  for (var i = 0; i < filters.length; i++)
-    groupManager.addPattern(group, filters[i], false);
-
-  return group;
-}
-
-// Adds a given filter
-function addFilterInternal(filter, origGroup, origPos) {
-  var groupName = (filter.indexOf("@@") == 0 ? "~wl~" : "~fl~");
-  if (!groupManager.hasGroupName(groupName)) {
-    if (groupName == "~fl~")
-      groupManager.addGroup(groupName, [filterlistDescr], [], "filterlist");
-    else
-      groupManager.addGroup(groupName, [whitelistDescr], [], "whitelist");
-  }
-  var group = groupManager.getGroupByName(groupName);
-  if (origGroup != "undefined" && group == origGroup)
-    groupManager.addPattern(group, filter, true, origPos);
-  else
-    groupManager.addPattern(group, filter, true);
-}
-
 // Asks the user if he really wants to clear the list.
 function clearList() {
-  if (confirm(abp.getString("clearall_warning"))) {
-    groupManager.removeGroup("~wl~");
-    groupManager.removeGroup("~fl~");
-    onChange();
-  }
+  if (confirm(abp.getString("clearall_warning")))
+    treeView.removeUserPatterns();
 }
 
 // Imports filters from disc.
 function importList() {
-  if (!initialized)
-    return;
-
   var picker = Components.classes["@mozilla.org/filepicker;1"]
                      .createInstance(Components.interfaces.nsIFilePicker);
   picker.init(window, abp.getString("import_filters_title"), picker.modeOpen);
@@ -358,25 +237,17 @@ function importList() {
       if (result == 1)
         return;
 
-      if (result == 0) {
-        groupManager.removeGroup("~wl~");
-        groupManager.removeGroup("~fl~");
-      }
+      if (result == 0)
+        treeView.removeUserPatterns();
 
-      var group1 = "~wl~";
-      var group2 = "~fl~";
       for (var i = 1; i < lines.length; i++) {
         if (!lines[i])
           continue;
 
-        if (lines[i].indexOf("@@") == 0)
-          group1 = addToGroup(group1, lines[i]);
-        else
-          group2 = addToGroup(group2, lines[i]);
+        treeView.addPattern(lines[i], undefined, undefined, true);
       }
 
-      groupManager.ensureSelection();
-      onChange();
+      treeView.ensureSelection(0);
     }
     else 
       alert(abp.getString("invalid_filters_file"));
@@ -385,7 +256,7 @@ function importList() {
 
 // Exports the current list of filters to a file on disc.
 function exportList() {
-  if (!initialized || document.getElementById("list").getRowCount() == 0)
+  if (!treeView.hasUserPatterns())
     return;
 
   var picker = Components.classes["@mozilla.org/filepicker;1"].createInstance(Components.interfaces.nsIFilePicker);
@@ -423,9 +294,17 @@ function exportList() {
                             .createInstance(Components.interfaces.nsIFileOutputStream);
       stream.init(picker.file, 0x02 | 0x08 | 0x20, 0644, 0);
   
-      var patterns = getPatterns();
-      patterns.unshift("[Adblock]");
-      var output = patterns.join(lineBreak) + lineBreak;
+      var list = ["[Adblock]"];
+      for (var i = 0; i < treeView.data.length; i++) {
+        if (treeView.data[i].special) {
+          var patterns = treeView.data[i].patterns.slice();
+          patterns.sort(sortNatural);
+          for (var j = 0; j < patterns.length; j++)
+            list.push(patterns[j].text);
+        }
+      }
+
+      var output = list.join(lineBreak) + lineBreak;
       stream.write(output, output.length);
   
       stream.close();
@@ -446,181 +325,183 @@ function onFilterKeyPress(e) {
 // Handles keypress event on the patterns list
 function onListKeyPress(e) {
   // Ignore any keys directed to the editor
-  if (editor.isEditing())
+  if (treeView.isEditing())
     return;
 
-  if (e.keyCode == e.DOM_VK_BACK_SPACE || e.keyCode == e.DOM_VK_DELETE) {
-    var group = groupManager.getSelectedGroup();
-    if (group && group.name.indexOf("~") != 0)
-      removeSubscription(group);
-    else
-      removeFilter();
+  if ((e.keyCode == e.DOM_VK_RETURN || e.keyCode == e.DOM_VK_ENTER) && editFilter('')) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+  else if (e.keyCode == e.DOM_VK_BACK_SPACE || e.keyCode == e.DOM_VK_DELETE)
+    removeFilters('');
+  else if (e.charCode == 32 && !document.getElementById("enabled").hidden) {
+    var forceValue = undefined;
+    for (var i = 0; i < treeView.selection.getRangeCount(); i++) {
+      var min = {};
+      var max = {};
+      treeView.selection.getRangeAt(i, min, max);
+      for (var j = min.value; j <= max.value; j++)
+        forceValue = treeView.toggleDisabled(j, forceValue);
+    }
   }
   else if ((e.keyCode == e.DOM_VK_UP || e.keyCode == e.DOM_VK_DOWN) && e.ctrlKey && !e.altKey && !e.metaKey) {
-    if (e.shiftKey)
-      moveGroup(e.keyCode == e.DOM_VK_UP);
-    else
-      moveFilter(e.keyCode == e.DOM_VK_UP);
-    e.preventDefault();
-    try{e.cancelBubble()} catch(error) {};  // For some strange reason this works, preventDefault() does nothing
+    moveFilter(e.shiftKey ? 'subscription' : 'filter', e.keyCode == e.DOM_VK_UP);
+    e.stopPropagation();
   }
+}
+
+function onListClick(e) {
+  var row = {};
+  var col = {};
+  treeView.boxObject.getCellAt(e.clientX, e.clientY, row, col, {});
+
+  if (!col.value)
+    return;
+
+  col = (typeof col.value == "string" ? col.value : col.value.id);
+  if (col != "enabled")
+    return;
+
+  treeView.toggleDisabled(row.value);
+}
+
+function onListDragGesture(e) {
+  treeView.startDrag(treeView.boxObject.getRowAt(e.clientX, e.clientY));
 }
 
 // To be called whenever synchronization status changes
-function synchCallback(synchPrefs, status) {
-  var group = groupManager.getGroupByName(synchPrefs.url);
-  if (!group)
-    return;
+function synchCallback(orig, status) {
+  var subscription = null;
+  for (var i = 0; i < treeView.data.length; i++)
+    if (treeView.data[i].url == orig.url)
+      subscription = treeView.data[i];
 
-  if (status == "ok") {
-    var select = (groupManager.getSelectedGroup() == group);
+  var row = treeView.getSubscriptionRow(subscription);
+  var rowCount = treeView.getSubscriptionRowCount(subscription);
 
-    groupManager.removeGroup(group.name);
-    addSubscriptionGroup(group.name, synchPrefs, true);
-
-    if (select)
-      groupManager.selectGroup(group.name);
-  }
-  else
-    updateSubscriptionDescription(group, synchPrefs, true);
+  subscription.extra = treeView.getSubscriptionDescription(subscription);
+  treeView.initSubscriptionPatterns(subscription, orig.patterns);
+  treeView.invalidateSubscription(subscription, row, rowCount);
 }
 
-// Edits a subscription or adds a new one
-function editSubscription(group) {
-  var name = (group ? group.name : null);
-  openDialog("chrome://adblockplus/content/subscription.xul", "_blank", "chrome,centerscreen,modal", abp, prefs, name);
+function editFilter(type) {
+  var info = treeView.getRowInfo(treeView.selection.currentIndex);
+  if (info && type!= "filter" && !info[0].special && (info[1] || type == "subscription"))
+    return editSubscription(info[0]);
+  else
+    return treeView.startEditor();
+}
+
+// Starts editor for a given subscription
+function editSubscription(subscription) {
+  result = {};
+  openDialog("subscription.xul", "_blank", "chrome,centerscreen,modal", abp, prefs, subscription, result);
+
+  if (!("url" in result))
+    return true;
+
+  var newSubscription = null;
+  for (var i = 0; i < treeView.data.length; i++)
+    if (treeView.data[i].url == result.url)
+      newSubscription = treeView.data[i];
+
+  if (subscription && newSubscription && subscription != newSubscription)
+    treeView.removeRow([subscription, null]);
+
+  var orig = prefs.knownSubscriptions.has(result.url) ? prefs.knownSubscriptions.get(result.url) : prefs.subscriptionFromURL(result.url);
+
+  if (subscription && !newSubscription)
+    newSubscription = subscription;
+
+  var row = (newSubscription ? treeView.getSubscriptionRow(newSubscription) : -1);
+  var rowCount = (newSubscription ? treeView.getSubscriptionRowCount(newSubscription) : 0);
+
+  if (!newSubscription) {
+    newSubscription = cloneObject(orig);
+    treeView.data.push(newSubscription);
+  }
+  
+  newSubscription.url = result.url;
+  newSubscription.title = result.title;
+  newSubscription.disabled = result.disabled;
+  newSubscription.autoDownload = result.autoDownload;
+  newSubscription.extra = treeView.getSubscriptionDescription(newSubscription);
+  treeView.initSubscriptionPatterns(newSubscription, orig.patterns);
+
+  treeView.invalidateSubscription(newSubscription, row, rowCount);
+  treeView.selectSubscription(newSubscription);
+
+  onChange();
+
+  if (!orig.lastDownload)
+    synchronizer.execute(orig);
+
+  return true;
 }
 
 // Removes the selected entries from the list and sets selection to the next item
-function removeFilter() {
-  // Create a list of removable items
-  var list = document.getElementById("list");
-  var selected = list.selectedItems;
-  var items = [];
-  for (var i = 0; i < selected.length; i++)
-    if ("abpFilter" in selected[i] && selected[i].className != "subscription")
-      items.push(selected[i]);
-  if (items.length == 0)
-    return;
+function removeFilters(type) {
+  var i, j, subscription;
 
-  // Choose another list item to select when the current are removed
-  var newSelection = list.getNextItem(selected[selected.length - 1], 1);
-  if (!newSelection)
-    newSelection = list.getPreviousItem(selected[0], 1);
+  // Retrieve selected items
+  var selected = treeView.getSelectedInfo();
 
-  // Remove items and adjust selection
-  for (i = 0; i < items.length; i++)
-    groupManager.removePattern(items[i].abpGroup, items[i].abpFilter);
-  if (newSelection && newSelection.parentNode) {
-    list.ensureElementIsVisible(newSelection);
-    list.selectedItem = newSelection;
+  var removable = [];
+  if (type != "subscription")
+    for (i = 0; i < selected.length; i++)
+      if (selected[i][0].special && selected[i][1] && typeof selected[i][1] != "string")
+        removable.push(selected[i]);
+
+  if (removable.length) {
+    for (i = 0; i < removable.length; i++)
+      treeView.removeRow(removable[i]);
+  }
+  else if (type != "filter") {
+    // No removable patterns found, maybe we should remove the subscription?
+    subscription = null;
+    for (i = 0; i < selected.length; i++) {
+      if (!subscription)
+        subscription = selected[i][0];
+      else if (subscription != selected[i][0])
+        return;
+    }
+
+    if (subscription && !subscription.special && confirm(abp.getString("remove_subscription_warning")))
+      treeView.removeRow([subscription, null]);
   }
 }
 
 // Starts synchronization for a subscription
-function synchSubscription(group) {
-  if (!group || group.name.indexOf("~") == 0 || !prefs.synch.has(group.name))
+function synchSubscription() {
+  var info = treeView.getRowInfo(treeView.selection.currentIndex);
+  if (!info || info[0].special)
     return;
 
-  var synchPrefs = prefs.synch.get(group.name);
-  synchronizer.execute(synchPrefs);
+  var orig = prefs.knownSubscriptions.get(info[0].url);
+  synchronizer.execute(orig);
 }
 
-// Removes a subscription
-function removeSubscription(group) {
-  if (!group || !confirm(abp.getString("remove_subscription_warning")))
+// Moves a pattern or subscription up and down in the list
+function moveFilter(type, up) {
+  var info = treeView.getRowInfo(treeView.selection.currentIndex);
+  if (!info)
     return;
 
-  prefs.removeSubscription(group.name);
-
-  groupManager.removeGroup(group);
-  groupManager.ensureSelection();
-
-  onChange();
-}
-
-// Moves a group up and down in the list
-function moveGroup(up) {
-  var list = document.getElementById("list");
-  var item = list.currentItem;
-  if (!item || !("abpGroup" in item))
-    return;
-
-  var group = item.abpGroup;
-  var groupIndex = -1;
-  var prevIndex = -1;
-  var nextIndex = -1;
-  for (var i = 0; i < prefs.grouporder.length; i++) {
-    if (!groupManager.hasGroupName(prefs.grouporder[i]))
-      continue;
-
-    if (prefs.grouporder[i] == group.name)
-      groupIndex = i;
-    else if (groupIndex < 0)
-      prevIndex = i;
-    else if (nextIndex < 0)
-      nextIndex = i;
-  }
-
-  var switchWith = (up ? prevIndex : nextIndex);
-  if (groupIndex < 0 || switchWith < 0)
-    return;
-
-  var tmp = prefs.grouporder[groupIndex];
-  prefs.grouporder[groupIndex] = prefs.grouporder[switchWith];
-  prefs.grouporder[switchWith] = tmp;
-  prefs.save();
-
-  groupManager.readdGroup(group);
-  groupManager.selectGroup(group.name);
-
-  onChange();
-}
-
-// Moves a filter up and down in the list
-function moveFilter(up) {
-  if (prefs.listsort)
-    return;
-
-  var list = document.getElementById("list");
-  var item = list.currentItem;
-  if (!item || !("abpFilter" in item) || item.className == "subscription")
-    return;
-
-  var switchWith = (up ? list.getPreviousItem(item, 1) : list.getNextItem(item, 1));
-  if (!switchWith || !("abpFilter" in switchWith) || item.abpGroup != item.abpGroup)
-    return;
-
-  // Switching stored position
-  var tmp = item.abpFilter.origPos;
-  item.abpFilter.origPos = switchWith.abpFilter.origPos;
-  switchWith.abpFilter.origPos = tmp;
-
-  // Moving in the list
-  if (up)
-    switchWith.parentNode.insertBefore(item, switchWith);
-  else
-    item.parentNode.insertBefore(switchWith, item);
-
-  // Restoring selection
-  list.ensureElementIsVisible(item);
-  list.selectedItem = item;
-
-  onChange();
+  if (type == "subscription")
+    info[1] = null;
+  treeView.moveRow(info, up ? -1 : 1);
 }
 
 // Makes sure the right items in the options popup are checked/enabled
 function fillFiltersPopup(prefix) {
-  var empty = !groupManager.hasGroupName("~wl~") && !groupManager.hasGroupName("~fl~");
+  var empty = !treeView.hasUserPatterns();
   document.getElementById("export-command").setAttribute("disabled", empty);
   document.getElementById("clearall").setAttribute("disabled", empty);
-
-  document.getElementById("listsort").setAttribute("checked", prefs.listsort);
 }
 
 // Makes sure the right items in the options popup are checked
 function fillOptionsPopup() {
-  document.getElementById("enabled").setAttribute("checked", prefs.enabled);
+  document.getElementById("abp-enabled").setAttribute("checked", prefs.enabled);
   document.getElementById("showinstatusbar").setAttribute("checked", prefs.showinstatusbar);
   document.getElementById("localpages").setAttribute("checked", prefs.blocklocalpages);
   document.getElementById("frameobjects").setAttribute("checked", prefs.frameobjects);
@@ -630,62 +511,84 @@ function fillOptionsPopup() {
 
 // Makes sure the right items in the context menu are checked/enabled
 function fillContext() {
-  var list = document.getElementById("list");
+  // Retrieve selected items
+  var selected = treeView.getSelectedInfo();
+  var current = (selected.length ? selected[0] : null);
 
-  var group = groupManager.getSelectedGroup();
-  document.getElementById("context-synchsubscription").hidden = !group;
-  document.getElementById("context-edit").hidden = group;
-  document.getElementById("context-editsubscription").hidden = !group;
-  document.getElementById("context-remove").hidden = group;
-  document.getElementById("context-removesubscription").hidden = !group;
-  document.getElementById("context-moveup").hidden = group;
-  document.getElementById("context-movegroupup").hidden = !group;
-  document.getElementById("context-movedown").hidden = group;
-  document.getElementById("context-movegroupdown").hidden = !group;
-
-  if (group) {
-    var isSubscription = (group.name.indexOf("~") != 0);
-    var firstGroup = null;
-    var lastGroup = null;
-    for (var i = 0; i < prefs.grouporder.length; i++) {
-      var curGroup = groupManager.getGroupByName(prefs.grouporder[i]);
-      if (curGroup && !firstGroup)
-        firstGroup = curGroup;
-      if (curGroup)
-        lastGroup = curGroup;
+  // Check whether all selected items belong to the same subscription
+  var subscription = null;
+  for (i = 0; i < selected.length; i++) {
+    if (!subscription)
+      subscription = selected[i][0];
+    else if (selected[i][0] != subscription) {
+      // More than one subscription selected, ignoring it
+      subscription = null;
+      break;
     }
-
-    document.getElementById("context-synchsubscription").setAttribute("disabled", !isSubscription || prefs.synch.get(group.name).external);
-    document.getElementById("context-editsubscription").setAttribute("disabled", !isSubscription);
-    document.getElementById("context-removesubscription").setAttribute("disabled", !isSubscription);
-    document.getElementById("context-movegroupup").setAttribute("disabled", group == firstGroup);
-    document.getElementById("context-movegroupdown").setAttribute("disabled", group == lastGroup);
   }
-  else {
-    var current = list.currentItem;
-    var editable =  (current && "abpFilter" in current && current.className != "subscription");
-  
-    var prevEditable = false;
-    var nextEditable = false;
-    if (editable && !prefs.listsort) {
-      var prev = list.getPreviousItem(current, 1);
-      prevEditable = (prev && "abpFilter" in prev && prev.abpGroup == current.abpGroup);
-      var next = list.getNextItem(current, 1);
-      nextEditable = (next && "abpFilter" in next && next.abpGroup == current.abpGroup);
+
+  // Check whether any patterns have been selected and whether any of them can be removed
+  var hasPatterns = false;
+  var hasRemovable = false;
+  for (i = 0; i < selected.length; i++) {
+    if (selected[i][1] && typeof selected[i][1] != "string") {
+      hasPatterns = true;
+      if (selected[i][0].special)
+        hasRemovable = true;
     }
-  
-    var removable = false;
-    for (i = 0; !removable && i < list.selectedItems.length; i++)
-      if ("abpFilter" in list.selectedItems[i] && list.selectedItems[i].className != "subscription")
-        removable = true;
-  
+  }
+
+  // Nothing relevant selected
+  if (!subscription && !hasPatterns)
+    return false;
+
+  if (subscription && hasPatterns && !subscription.special)
+    hasPatterns = false;
+
+  document.getElementById("content-subscription-sep").hidden = !hasPatterns || !subscription;
+
+  document.getElementById("context-edit").hidden =
+    document.getElementById("context-remove").hidden =
+    document.getElementById("context-moveup").hidden =
+    document.getElementById("context-movedown").hidden =
+    !hasPatterns;
+
+  document.getElementById("context-synchsubscription").hidden =
+    document.getElementById("context-editsubscription").hidden =
+    document.getElementById("context-removesubscription").hidden =
+    !subscription || subscription.special;
+  document.getElementById("context-movegroupup").hidden =
+    document.getElementById("context-movegroupdown").hidden =
+    !subscription;
+
+  if (subscription) {
+    document.getElementById("context-synchsubscription").setAttribute("disabled", subscription.special || subscription.external);
+    document.getElementById("context-editsubscription").setAttribute("disabled", subscription.special);
+    document.getElementById("context-removesubscription").setAttribute("disabled", subscription.special);
+    document.getElementById("context-movegroupup").setAttribute("disabled", treeView.isFirstSubscription(subscription));
+    document.getElementById("context-movegroupdown").setAttribute("disabled", treeView.isLastSubscription(subscription));
+  }
+
+  if (hasPatterns) {
+    var editable = (current && current[0].special && current[1] && typeof current[1] != "string");
+
+    var isFirst = true;
+    var isLast = true;
+    if (editable && !treeView.isSorted()) {
+      for (i = 0; i < current[0].patterns.length; i++) {
+        if (current[0].patterns[i] == current[1]) {
+          isFirst = (i == 0);
+          isLast = (i == current[0].patterns.length - 1);
+          break;
+        }
+      }
+    }
+
     document.getElementById("context-edit").setAttribute("disabled", !editable);
-    document.getElementById("context-remove").setAttribute("disabled", !removable);
-    document.getElementById("context-moveup").setAttribute("disabled", !prevEditable);
-    document.getElementById("context-movedown").setAttribute("disabled", !nextEditable);
+    document.getElementById("context-remove").setAttribute("disabled", !hasRemovable);
+    document.getElementById("context-moveup").setAttribute("disabled", isFirst);
+    document.getElementById("context-movedown").setAttribute("disabled", isLast);
   }
-
-  document.getElementById("context-listsort").setAttribute("checked", prefs.listsort);
 }
 
 // Toggles the value of a boolean pref
@@ -694,39 +597,20 @@ function togglePref(pref) {
   prefs.save();
 }
 
+// Show warning if Adblock Plus is disabled
 function onPrefChange() {
-  if (prefs.listsort != shouldSort)
-    groupManager.resort();
-
-  document.getElementById("disabledWarning").setAttribute("hide", prefs.enabled);
-
-  shouldSort = prefs.listsort;
+  document.getElementById("disabledWarning").hidden = prefs.enabled;
 }
 
-// Reads filter patterns from the list
-function getPatterns() {
-  var patterns = [];
-  var groupNames = ["~wl~", "~fl~"];
-  for (var i = 0; i < groupNames.length; i++) {
-    var group = groupManager.getGroupByName(groupNames[i]);
-    if (group) {
-      group.filters.sort(compareUnsorted);
-      for (var j = 0; j < group.filters.length; j++)
-        patterns.push(group.filters[j].value);
-    }
-  }
-  return patterns;
+// Updates hit count column whenever a value changes
+function onHitCountChange(pattern) {
+  if (!document.getElementById("hitcount").hidden)
+    treeView.invalidatePattern(pattern);
 }
 
-// Save the settings and close the window.
-function saveSettings() {
-  // Make sure we don't save anything before the window has been initialized
-  if (!initialized)
-    return;
-
-  prefs.patterns = getPatterns();
-  prefs.save();
-  saved = true;
+// Saves the filter list
+function applyChanges() {
+  treeView.applyChanges();
 
   if (insecWnd)
     refilterWindow(insecWnd);
@@ -740,7 +624,7 @@ function refilterWindow(insecWnd) {
   var data = abp.getDataForWindow(insecWnd).getAllLocations();
   var policy = abp.policy;
   for (var i = 0; i < data.length; i++)
-    if (!data[i].filter || data[i].filter.isWhite)
+    if (!data[i].filter || data[i].filter.type == "whitelist")
       for (var j = 0; j < data[i].inseclNodes.length; j++)
         policy.processNode(data[i].inseclNodes[j], data[i].type, data[i].location, true);
 }
@@ -767,344 +651,1075 @@ function regexpWarning() {
 
 // Opens About Adblock Plus dialog
 function openAbout() {
-  openDialog("chrome://adblockplus/content/about.xul", "_blank", "chrome,centerscreen,modal");
-}
-
-// Removes all non-alphanumerical characters from a pattern (for sorting)
-function normalizePattern(pattern) {
-  return pattern.replace(/[^0-9a-zA-Z]/g, "").toLowerCase();
-}
-
-// Compares patterns by textual contents (ignore special chars)
-function compareSorted(a, b) {
-  if (a.normalizedValue < b.normalizedValue)
-    return -1;
-  else if (a.normalizedValue > b.normalizedValue)
-    return 1;
-  else if (a.value < b.value)
-    return -1;
-  else if (a.value > b.value)
-    return 1;
-  else
-    return 0;
-}
-
-// Compares patterns by original positions (unsorted view)
-function compareUnsorted(a, b) {
-  if (a.value == b.value)
-    return 0;
-  else
-    return a.origPos - b.origPos;
+  openDialog("about.xul", "_blank", "chrome,centerscreen,modal");
 }
 
 // To be called whenever the filter list has been changed and needs saving
 function onChange() {
-  document.getElementById("ok-button").removeAttribute("disabled");
+  document.documentElement.getButton("accept").removeAttribute("disabled");
 }
 
-// Filter group manager
-var groupManager = {
-  list: null,
-  groups: null,
+// Creates a copy of an object by copying all its properties
+function cloneObject(obj) {
+  var ret = {};
+  for (var key in obj)
+    ret[key] = obj[key];
 
-  bind: function(list) {
-    this.groups = new abp.HashTable();
-    this.list = list;
+  return ret;
+}
+
+// Sort functions for the filter list
+function sortByText(pattern1, pattern2) {
+  if (pattern1.text < pattern2.text)
+    return -1;
+  else if (pattern1.text > pattern2.text)
+    return 1;
+  else
+    return 0;
+}
+
+function sortByTextDesc(pattern1, pattern2) {
+  return sortByText(pattern2, pattern1);
+}
+
+function compareEnabled(pattern1, pattern2) {
+  var hasEnabled1 = (pattern1.type != "comment" && pattern1.type != "invalid" ? 1 : 0);
+  var hasEnabled2 = (pattern2.type != "comment" && pattern2.type != "invalid" ? 1 : 0);
+  if (hasEnabled1 != hasEnabled2)
+    return hasEnabled1 - hasEnabled2;
+  else if (hasEnabled1 && treeView.disabled.has(pattern1.text) != treeView.disabled.has(pattern2.text))
+    return (treeView.disabled.has(pattern1.text) ? -1 : 1);
+  else
+    return 0;
+}
+
+function sortByEnabled(pattern1, pattern2) {
+  var ret = compareEnabled(pattern1, pattern2);
+  if (ret == 0)
+    return sortByText(pattern1, pattern2);
+  else
+    return ret;
+}
+
+function sortByEnabledDesc(pattern1, pattern2) {
+  var ret = compareEnabled(pattern1, pattern2);
+  if (ret == 0)
+    return sortByText(pattern1, pattern2);
+  else
+    return -ret;
+}
+
+function compareHitCount(pattern1, pattern2) {
+  var hasHitCount1 = (pattern1.type == "whitelist" || pattern1.type == "filterlist" ? 1 : 0);
+  var hasHitCount2 = (pattern2.type == "whitelist" || pattern2.type == "filterlist" ? 1 : 0);
+  if (hasHitCount1 != hasHitCount2)
+    return hasHitCount1 - hasHitCount2;
+  else if (hasHitCount1)
+    return pattern1.orig.hitCount - pattern2.orig.hitCount;
+  else
+    return 0;
+}
+
+function sortByHitCount(pattern1, pattern2) {
+  var ret = compareHitCount(pattern1, pattern2);
+  if (ret == 0)
+    return sortByText(pattern1, pattern2);
+  else
+    return ret;
+}
+
+function sortByHitCountDesc(pattern1, pattern2) {
+  var ret = compareHitCount(pattern1, pattern2);
+  if (ret == 0)
+    return sortByText(pattern1, pattern2);
+  else
+    return -ret;
+}
+
+function sortNatural(pattern1, pattern2) {
+  return pattern1.origPos - pattern2.origPos;
+}
+
+// Filter list's tree view object
+const nsITreeView = Components.interfaces.nsITreeView;
+var treeView = {
+  //
+  // nsISupports implementation
+  //
+
+  QueryInterface: function(uuid) {
+    if (!uuid.equals(Components.interfaces.nsISupports) &&
+        !uuid.equals(Components.interfaces.nsITreeView))
+    {
+      throw Components.results.NS_ERROR_NO_INTERFACE;
+    }
+  
+    return this;
   },
 
-  addGroup: function(name, descr, filters, filterClass) {
-    var beforeLine = -1;
-    var found = false;
-    for (var i = 0; beforeLine == -1 && i < prefs.grouporder.length; i++) {
-      if (prefs.grouporder[i] == name)
-        found = true;
-      else if (found && this.groups.has(prefs.grouporder[i]))
-        beforeLine = this.list.getIndexOfItem(this.groups.get(prefs.grouporder[i]).firstItem);
-    }
+  //
+  // nsITreeView implementation
+  //
 
-    if (!found) {
-      prefs.grouporder.push(name);
-      prefs.save();
-    }
-
-    for (i = 0; i < filters.length; i++)
-      filters[i] = {origPos: i, value: filters[i], normalizedValue: normalizePattern(filters[i])};
-
-    if (prefs.listsort)
-      filters.sort(compareSorted);
-
-    var group = {name: name, filterClass: filterClass, descr: descr, filters: filters, firstItem: null, nextPos: filters.length};
-    this.groups.put(name, group);
-
-    for (i = 0; i < descr.length; i++) {
-      var value = descr[i];
-      var item = (beforeLine < 0 ? this.list.appendItem(value, value) : this.list.insertItemAt(beforeLine++, value, value));
-      editor.initItem(item);
-      item.abpGroup = group;
-      item.className = (i == 0 ? "groupTitle first" : "groupTitle");
-      if (!group.firstItem)
-        group.firstItem = item;
-    }
-
-    for (i = 0; i < filters.length; i++) {
-      value = filters[i].value;
-      item = (beforeLine < 0 ? this.list.appendItem(value, value) : this.list.insertItemAt(beforeLine++, value, value));
-      editor.initItem(item);
-      item.abpGroup = group;
-      item.abpFilter = filters[i];
-      item.className = filterClass;
-      filters[i].listItem = item;
-    }
-
-    return group;
-  },
-
-  removeGroup: function(group) {
-    if (typeof group == "string")
-      group = this.getGroupByName(group);
-
-    if (!group)
+  setTree: function(boxObject) {
+    if (!boxObject)
       return;
 
-    this.groups.remove(group.name);
+    this.boxObject = boxObject;
 
-    // Remove group description
-    var item = group.firstItem;
-    for (var i = 0; i < group.descr.length; i++) {
-      var remove = item;
-      item = this.list.getNextItem(item, 1);
-      this.list.removeChild(remove);
+    var i, j;
+
+    var stringAtoms = ["col-pattern", "col-hitcount", "col-enabled", "type-comment", "type-filterlist", "type-whitelist", "type-elemhide", "type-invalid"];
+    var boolAtoms = ["selected", "subscription", "description", "pattern", "subscription-special", "subscription-external", "subscription-autoDownload", "subscription-disabled", "pattern-disabled"];
+    var atomService = Components.classes["@mozilla.org/atom-service;1"]
+                                .getService(Components.interfaces.nsIAtomService);
+
+    this.atoms = {};
+    for (i = 0; i < stringAtoms.length; i++)
+      this.atoms[stringAtoms[i]] = atomService.getAtom(stringAtoms[i]);
+    for (i = 0; i < boolAtoms.length; i++) {
+      this.atoms[boolAtoms[i] + "-true"] = atomService.getAtom(boolAtoms[i] + "-true");
+      this.atoms[boolAtoms[i] + "-false"] = atomService.getAtom(boolAtoms[i] + "-false");
     }
 
-    // Remove filters
-    for (i = 0; i < group.filters.length; i++)
-      this.list.removeChild(group.filters[i].listItem);
-  },
+    this.typemap = new abp.HashTable();
+    this.disabled = new abp.HashTable();
+    this.data = [];
+    for (i = 0; i < prefs.subscriptions.length; i++) {
+      this.data.push(cloneObject(prefs.subscriptions[i]));
+      var subscription = this.data[this.data.length - 1];
+      subscription.extra = this.getSubscriptionDescription(subscription);
 
-  getGroupByName: function(name) {
-    var group = this.groups.get(name);
-    if (typeof group == "undefined")
-      return null;
-    else
-      return group;
-  },
+      this.initSubscriptionPatterns(subscription, subscription.patterns);
+      for (j = 0; j < subscription.patterns.length; j++)
+        if (subscription.patterns[j].disabled)
+          this.disabled.put(subscription.patterns[j].text, true);
 
-  hasGroupName: function(name) {
-    return this.groups.has(name);
-  },
+      if (subscription.special)
+        for (j = 0; j < subscription.types.length; j++)
+          this.typemap.put(subscription.types[j], subscription);
+    }
 
-  selectPattern: function(pattern) {
-    for (var i = 0; i < prefs.grouporder.length; i++) {
-      var group = this.groups.get(prefs.grouporder[i]);
-      if (typeof group == "undefined")
+    for (i = 0; i < prefs.userPatterns.length; i++) {
+      if (!this.typemap.has(prefs.userPatterns[i].type))
         continue;
 
-      for (var j = 0; j < group.filters.length; j++) {
-        if (group.filters[j].value == pattern) {
-          this.list.ensureElementIsVisible(group.filters[j].listItem);
-          this.list.selectedItem = group.filters[j].listItem;
+      var subscription = this.typemap.get(prefs.userPatterns[i].type);
+      var pattern = cloneObject(prefs.userPatterns[i]);
+      pattern.orig = prefs.userPatterns[i];
+      pattern.origPos = subscription.nextPos++;
+      subscription.patterns.push(pattern);
+
+      if (pattern.disabled)
+        this.disabled.put(pattern.text, true);
+    }
+
+    this.closed = new abp.HashTable();
+    var closed = this.boxObject.treeBody.parentNode.getAttribute("closedSubscriptions");
+    if (closed) {
+      closed = closed.split(" ");
+      for (i = 0; i < closed.length; i++)
+        this.closed.put(closed[i], true);
+    }
+
+    // Check current sort direction
+    var cols = ["pattern", "enabled", "hitcount"];
+    var sortDir = null;
+    for (i = 0; i < cols.length; i++) {
+      var col = document.getElementById(cols[i]);
+      var dir = col.getAttribute("sortDirection");
+      if (dir && dir != "natural") {
+        this.sortColumn = col;
+        sortDir = dir;
+      }
+    }
+
+    if (!this.sortColumn && prefs.branch.prefHasUserValue("listsort")) {
+      try {
+        if (prefs.branch.getBoolPref("listsort")) {
+          this.sortColumn = document.getElementById("pattern");
+          sortDir = "ascending";
+          this.sortColumn.setAttribute("sortDirection", sortDir);
+        }
+        prefs.branch.clearUserPref("listsort");
+        prefs.save();
+      } catch(e) {}
+    }
+
+    if (this.sortColumn)
+      this.resort(this.sortColumn.id, sortDir);
+  },
+
+  get rowCount() {
+    var count = 0;
+    for (var i = 0; i < this.data.length; i++) {
+      var subscription = this.data[i];
+
+      // Special groups are only shown if they aren't empty
+      if (subscription.special && subscription.patterns.length == 0)
+        continue;
+
+      count++;
+      if (!this.closed.has(subscription.url))
+        count += subscription.extra.length + subscription.patterns.length;
+    }
+
+    return count;
+  },
+
+  getCellText: function(row, col) {
+    if (typeof col != 'string')
+      col = col.id;
+
+    // Only two columns have text
+    if (col != "pattern" && col != "hitcount")
+      return "";
+
+    // Don't show text in the edited row
+    if (col == "pattern" && this.editedRow == row)
+      return "";
+
+    var info = this.getRowInfo(row);
+    if (!info)
+      return "";
+
+    if (info[1] && typeof info[1] != "string") {
+      if (col == "pattern")
+        return info[1].text;
+      else
+        return (info[1].type == "whitelist" || info[1].type == "filterlist" ? info[1].orig.hitCount : null)
+    }
+    else if (col == "hitcount")
+      return null;
+    else if (!info[1])
+      return (info[0].special ? "" : this.titlePrefix) + info[0].title;
+    else
+      return info[1];
+  },
+
+  getColumnProperties: function(col, properties) {
+    if (typeof col != 'string')
+      col = col.id;
+
+    if (arguments.length == 3)
+      properties = arguments[2];
+
+    if ("col-" + col in this.atoms)
+      properties.AppendElement(this.atoms["col-" + col]);
+  },
+
+  getRowProperties: function(row, properties) {
+    var info = this.getRowInfo(row);
+    if (!info)
+      return;
+
+    properties.AppendElement(this.atoms["selected-" + this.selection.isSelected(row)]);
+    properties.AppendElement(this.atoms["subscription-" + !info[1]]);
+    properties.AppendElement(this.atoms["pattern-" + !!(info[1] && typeof info[1] != "string")]);
+    properties.AppendElement(this.atoms["description-" + !!(info[1] && typeof info[1] == "string")]);
+    properties.AppendElement(this.atoms["subscription-special-" + info[0].special]);
+    properties.AppendElement(this.atoms["subscription-external-" + (!info[0].special && info[0].external)]);
+    properties.AppendElement(this.atoms["subscription-autoDownload-" + (info[0].special || info[0].autoDownload)]);
+    properties.AppendElement(this.atoms["subscription-disabled-" + (!info[0].special && info[0].disabled)]);
+    if (info[1] && typeof info[1] != "string") {
+      if (info[1].type != "comment" && info[1].type != "invalid")
+        properties.AppendElement(this.atoms["pattern-disabled-" + this.disabled.has(info[1].text)]);
+      if ("type-" + info[1].type in this.atoms)
+        properties.AppendElement(this.atoms["type-" + info[1].type]);
+    }
+  },
+
+  getCellProperties: function(row, col, properties)
+  {
+    this.getColumnProperties(col, properties);
+    this.getRowProperties(row, properties);
+  },
+
+  isContainer: function(row) {
+    var info = this.getRowInfo(row);
+    return info && !info[1];
+  },
+
+  isContainerOpen: function(row) {
+    var info = this.getRowInfo(row);
+    return info && !info[1] && !this.closed.has(info[0].url);
+  },
+
+  isContainerEmpty: function(row) {
+    var info = this.getRowInfo(row);
+    return info && !info[1] && info[0].extra.length + info[0].patterns.length == 0;
+  },
+
+  getLevel: function(row) {
+    var info = this.getRowInfo(row);
+    return (info && info[1] ? 1 : 0);
+  },
+
+  getParentIndex: function(row) {
+    var info = this.getRowInfo(row);
+    if (!info || !info[1])
+      return -1;
+
+    return this.getSubscriptionRow(info[0]);
+  },
+
+  hasNextSibling: function(row, afterRow) {
+    var info = this.getRowInfo(row);
+    if (!info || !info[1])
+      return false;
+
+    var infoIndex = this.getSubscriptionRow(info[0]);
+    if (infoIndex < 0)
+      return false;
+
+    return (infoIndex + info[0].extra.length + info[0].patterns.length > afterRow);
+  },
+
+  toggleOpenState: function(row) {
+    var info = this.getRowInfo(row);
+    if (!info || info[1])
+      return;
+
+    var count = info[0].extra.length + info[0].patterns.length;
+    if (this.closed.has(info[0].url)) {
+      this.closed.remove(info[0].url);
+      this.boxObject.rowCountChanged(row + 1, count);
+    }
+    else {
+      this.closed.put(info[0].url, true);
+      this.boxObject.rowCountChanged(row + 1, -count);
+    }
+    this.boxObject.invalidateRow(row);
+
+    this.boxObject.treeBody.parentNode.setAttribute("closedSubscriptions", this.closed.keys().join(" "));
+  },
+
+  cycleHeader: function(col) {
+    if (typeof col != 'string')
+      col = col.id;
+
+    col = document.getElementById(col);
+    if (!col)
+      return;
+
+    var cycle = {
+      natural: 'ascending',
+      ascending: 'descending',
+      descending: 'natural'
+    };
+
+    var curDirection = "natural";
+    if (this.sortColumn == col)
+      curDirection = col.getAttribute("sortDirection");
+    else if (this.sortColumn)
+      this.sortColumn.removeAttribute("sortDirection");
+
+    curDirection = cycle[curDirection];
+
+    this.resort(col.id, curDirection);
+
+    col.setAttribute("sortDirection", curDirection);
+    this.sortColumn = col;
+
+    this.boxObject.invalidate();
+  },
+
+  isSorted: function() {
+    return (this.sortProc != sortNatural);
+  },
+
+  DROP_ON: ('DROP_ON' in nsITreeView ? nsITreeView.DROP_ON : nsITreeView.inDropOn),
+  DROP_BEFORE: ('DROP_BEFORE' in nsITreeView ? nsITreeView.DROP_BEFORE : nsITreeView.inDropBefore),
+  DROP_AFTER: ('DROP_AFTER' in nsITreeView ? nsITreeView.DROP_AFTER : nsITreeView.inDropAfter),
+  canDrop: function(row, orientation) {
+    var session = dragService.getCurrentSession();
+    if (!session || session.sourceNode != this.boxObject.treeBody || !this.dragData || orientation == this.DROP_ON)
+      return false;
+
+    var info = this.getRowInfo(row);
+    if (!info)
+      return;
+
+    if (this.dragData[1]) {
+      // Dragging a pattern
+      return info[1] && info[0] == this.dragData[0];
+    }
+    else {
+      // Dragging a subscription
+      return true;
+    }
+  },
+  canDropOn: function() {
+    return this.canDrop(row, this.DROP_ON);
+  },
+  canDropBeforeAfter: function(row, before) {
+    return this.canDrop(row, before ? this.DROP_BEFORE : this.DROP_AFTER);
+  },
+  drop: function(row, orientation) {
+    var session = dragService.getCurrentSession();
+    if (!session || session.sourceNode != this.boxObject.treeBody || !this.dragData || orientation == this.DROP_ON)
+      return;
+
+    var info = this.getRowInfo(row);
+    if (!info)
+      return;
+
+    if (this.dragData[1]) {
+      // Dragging a pattern
+      if (!info[1] || info[0] != this.dragData[0])
+        return;
+
+      var index1 = -1;
+      var index2 = -1;
+      for (var i = 0; i < info[0].patterns.length; i++) {
+        if (info[0].patterns[i] == this.dragData[1])
+          index1 = i;
+        if (info[0].patterns[i] == info[1])
+          index2 = i;
+      }
+      if (index1 < 0 || index2 < 0)
+        return;
+
+      if (orientation == this.DROP_AFTER)
+        index2++;
+      if (index2 > index1)
+        index2--;
+
+      this.moveRow(this.dragData, index2 - index1);
+    }
+    else {
+      // Dragging a subscription
+      var index1 = -1;
+      var index2 = -1;
+      for (var index = 0, i = 0; i < this.data.length; i++) {
+        // Ignore invisible groups
+        if (this.data[i].special && this.data[i].patterns.length == 0)
+          continue;
+
+        if (this.data[i] == this.dragData[0])
+          index1 = index;
+        if (this.data[i] == info[0])
+          index2 = index;
+
+        index++;
+      }
+      if (index1 < 0 || index2 < 0)
+        return;
+      if (this.closed.has(info[0].url) && orientation == this.DROP_AFTER)
+        index2++;
+      if (!this.closed.has(info[0].url) && index2 > index1 && (info[1] || orientation == this.DROP_AFTER))
+        index2++;
+      if (index2 > index1)
+        index2--;
+
+      this.moveRow(this.dragData, index2 - index1);
+    }
+  },
+
+  getCellValue: function() {return null},
+  getProgressMode: function() {return null},
+  getImageSrc: function() {return null},
+  isSeparator: function() {return false},
+  isEditable: function() {return false},
+  cycleCell: function() {},
+  performAction: function() {},
+  performActionOnRow: function() {},
+  performActionOnCell: function() {},
+  selection: null,
+  selectionChanged: function() {},
+
+  //
+  // Custom properties and methods
+  //
+
+  typemap: null,
+  data: null,
+  boxObject: null,
+  closed: null,
+  disabled: null,
+  titlePrefix: abp.getString("subscription_description") + " ",
+  atoms: null,
+  sortColumn: null,
+  sortProc: sortNatural,
+
+  // Returns an array containing description for a subscription group
+  getSubscriptionDescription: function(subscription) {
+    var descr = [];
+
+    if (subscription.special || !prefs.knownSubscriptions.has(subscription.url))
+      return descr;
+
+    var orig = prefs.knownSubscriptions.get(subscription.url);
+
+    if (!orig.external)
+      descr.push(abp.getString("subscription_source") + " " + subscription.url);
+
+    var status = "";
+    if (!orig.external) {
+      status += (orig.autoDownload ? abp.getString("subscription_status_autodownload") : abp.getString("subscription_status_manualdownload"));
+      status += "; " + abp.getString("subscription_status_lastdownload") + " ";
+      if (synchronizer.isExecuting(subscription.url))
+        status += abp.getString("subscription_status_lastdownload_inprogress");
+      else {
+        status += (orig.lastDownload > 0 ? new Date(orig.lastDownload * 1000).toLocaleString() : abp.getString("subscription_status_lastdownload_unknown"));
+        if (orig.lastDownload > 0 && orig.downloadStatus) {
+          try {
+            status += " (" + abp.getString(orig.downloadStatus) + ")";
+          } catch (e) {}
+        }
+      }
+    }
+    else
+      status += abp.getString("subscription_status_externaldownload");
+
+    descr.push(abp.getString("subscription_status") + " " + status);
+    return descr;
+  },
+
+  initSubscriptionPatterns: function(subscription, patterns) {
+    subscription.patterns = [];
+    subscription.nextPos = 0;
+    for (var i = 0; i < patterns.length; i++) {
+      var pattern = cloneObject(patterns[i]);
+      pattern.orig = patterns[i];
+      pattern.origPos = subscription.nextPos++;
+      subscription.patterns.push(pattern);
+    }
+  },
+
+  getSubscriptionRow: function(subscription) {
+    var index = 0;
+    for (var i = 0; i < this.data.length; i++) {
+      // Special groups are only shown if they aren't empty
+      if (this.data[i].special && this.data[i].patterns.length == 0)
+        continue;
+
+      if (this.data[i] == subscription)
+        return index;
+
+      index++;
+      if (!this.closed.has(this.data[i].url))
+        index += this.data[i].extra.length + this.data[i].patterns.length;
+    }
+    return -1;
+  },
+
+  getSubscriptionRowCount: function(subscription) {
+    if (subscription.special && subscription.patterns.length == 0)
+      return 0;
+
+    var ret = 1;
+    if (!this.closed.has(subscription.url))
+      ret += subscription.extra.length + subscription.patterns.length;
+
+    return ret;
+  },
+
+  getRowInfo: function(row) {
+    for (var i = 0; i < this.data.length; i++) {
+      var subscription = this.data[i];
+
+      // Special groups are only shown if they aren't empty
+      if (subscription.special && subscription.patterns.length == 0)
+        continue;
+
+      // Check whether the group row has been requested
+      row--;
+      if (row < 0)
+        return [subscription, null];
+
+      if (!this.closed.has(subscription.url)) {
+        // Check whether the subscription description row has been requested
+        if (row < subscription.extra.length)
+          return [subscription, subscription.extra[row]];
+
+        row -= subscription.extra.length;
+
+        // Check whether one of the patterns has been requested
+        if (row < subscription.patterns.length)
+          return [subscription, subscription.patterns[row]];
+
+        row -= subscription.patterns.length;
+      }
+    }
+
+    return null;
+  },
+
+  // Returns the info for all selected rows, starting with the current row
+  getSelectedInfo: function() {
+    var selected = [];
+    for (var i = 0; i < this.selection.getRangeCount(); i++) {
+      var min = {};
+      var max = {};
+      this.selection.getRangeAt(i, min, max);
+      for (var j = min.value; j <= max.value; j++) {
+        var info = this.getRowInfo(j);
+        if (info) {
+          if (j == treeView.selection.currentIndex)
+            selected.unshift(info);
+          else
+            selected.push(info);
+        }
+      }
+    }
+    return selected;
+  },
+
+  sortProcs: {
+    pattern: sortByText,
+    patternDesc: sortByTextDesc,
+    hitcount: sortByHitCount,
+    hitcountDesc: sortByHitCountDesc,
+    enabled: sortByEnabled,
+    enabledDesc: sortByEnabledDesc,
+    natural: sortNatural
+  },
+
+  resort: function(col, direction) {
+    this.sortProc = this.sortProcs[col];
+    if (direction == "natural")
+      this.sortProc = this.sortProcs.natural;
+    else if (direction == "descending")
+      this.sortProc = this.sortProcs[col + "Desc"];
+
+    for (var i = 0; i < this.data.length; i++)
+      this.data[i].patterns.sort(this.sortProc);
+  },
+
+  selectPattern: function(text) {
+    for (var i = 0; i < this.data.length; i++) {
+      for (var j = 0; j < this.data[i].patterns.length; j++) {
+        if (this.data[i].patterns[j].text == text) {
+          var parentRow = this.getSubscriptionRow(this.data[i]);
+          if (this.closed.has(this.data[i].url))
+            this.toggleOpenState(parentRow);
+          this.selection.select(parentRow + 1 + this.data[i].extra.length + j);
+          this.boxObject.ensureRowIsVisible(parentRow + 1 + this.data[i].extra.length + j);
         }
       }
     }
   },
 
-  selectGroup: function(group) {
-    if (typeof group == "string")
-      group = this.getGroupByName(group);
+  selectSubscription: function(subscription) {
+    var row = this.getSubscriptionRow(subscription);
+    if (row < 0)
+      return;
 
-    if (group && group.firstItem) {
-      this.list.ensureElementIsVisible(group.firstItem);
-      this.list.selectedItem = group.firstItem;
-    }
+    this.selection.select(row);
+    this.boxObject.ensureRowIsVisible(row);
   },
 
-  // Make sure something is selected
-  ensureSelection: function() {
-    if (this.list.selectedItems.length == 0 && this.list.getRowCount() > 0) {
-      this.list.ensureIndexIsVisible(0);
-      this.list.selectedIndex = 0;
-    }
-  },
-
-  getSelectedGroup: function() {
-    var items = this.list.selectedItems;
-    if (items.length == 0 && this.list.currentItem)
-      items = [this.list.currentItem];
-
-    var group = null;
-    for (var i = 0; i < items.length; i++) {
-      var item = items[i];
-      if ("abpFilter" in item || !("abpGroup" in item))
-        return null;
-
-      if (group && item.abpGroup != group)
-        return null;
-
-      group = item.abpGroup;
-    }
-    return group;
-  },
-
-  addPattern: function(group, pattern, select, origPos) {
-    if (typeof origPos == "undefined")
-      origPos = group.nextPos++;
-
-    var filter = {origPos: origPos, value: pattern, normalizedValue: normalizePattern(pattern)};
-    var compare = (prefs.listsort ? compareSorted : compareUnsorted);
-    var insertBefore = null;
-    var item = null;
-    for (var i = 0; !item && i < group.filters.length; i++) {
-      var cmp = compare(filter, group.filters[i]);
-      if (cmp == 0)
-        item = group.filters[i].listItem;
-      else if (cmp < 0 && (insertBefore == null || compare(group.filters[i], insertBefore) < 0))
-        insertBefore = group.filters[i];
-    }
-
-    if (!item) {
-      if (insertBefore)
-        insertBefore = insertBefore.listItem;
-  
-      if (!insertBefore) {
-        var found = false;
-        for (i = 0; !insertBefore && i < prefs.grouporder.length; i++) {
-          if (prefs.grouporder[i] == group.name)
-            found = true;
-          else if (found && this.groups.has(prefs.grouporder[i]))
-            insertBefore = this.groups.get(prefs.grouporder[i]).firstItem;
-        }
+  ensureSelection: function(row) {
+    if (this.selection.count == 0) {
+      var rowCount = this.rowCount;
+      if (row >= rowCount)
+        row = rowCount - 1;
+      if (row >= 0) {
+        this.selection.select(row);
+        this.boxObject.ensureRowIsVisible(row);
       }
-  
-      group.filters.push(filter);
-  
-      var beforeLine = (insertBefore ? this.list.getIndexOfItem(insertBefore) : -1);
-      item = (beforeLine < 0 ? this.list.appendItem(pattern, pattern) : this.list.insertItemAt(beforeLine, pattern, pattern));
-      editor.initItem(item);
-      item.abpGroup = group;
-      item.abpFilter = filter;
-      item.className = group.filterClass;
-      filter.listItem = item;
-
-      onChange();
     }
-
-    if (select) {
-      this.list.ensureElementIsVisible(item);
-      this.list.selectedItem = item;
+    else if (this.selection.currentIndex < 0) {
+      var min = {};
+      this.selection.getRangeAt(0, min, {});
+      this.selection.currentIndex = min.value;
     }
   },
 
-  removePattern: function(group, filter) {
-    for (var i = 0; i < group.filters.length; i++)
-      if (group.filters[i] == filter)
-        group.filters.splice(i--, 1);
+  hasUserPatterns: function() {
+    for (var i = 0; i < this.data.length; i++)
+      if (this.data[i].special && this.data[i].patterns.length)
+        return true;
 
-    if (filter.listItem.parentNode)
-      this.list.removeChild(filter.listItem);
+    return false;
+  },
 
-    if (group.filters.length == 0)
-      this.removeGroup(group);
+  isFirstSubscription: function(subscription) {
+    for (var i = 0; i < this.data.length; i++) {
+      if (this.data[i].special && this.data[i].patterns.length == 0)
+        continue;
+
+      return (this.data[i] == subscription);
+    }
+    return false;
+  },
+
+  isLastSubscription: function(subscription) {
+    for (var i = this.data.length - 1; i >= 0; i--) {
+      if (this.data[i].special && this.data[i].patterns.length == 0)
+        continue;
+
+      return (this.data[i] == subscription);
+    }
+    return false;
+  },
+
+  // Adds a pattern to a subscription
+  addPattern: function(text, origSubscription, origPos, noSelect) {
+    var i, parentRow
+
+    var pattern = prefs.patternFromText(text, true);
+    if (!pattern || !treeView.typemap.has(pattern.type))
+      return;
+  
+    var subscription = treeView.typemap.get(pattern.type);
+    if (typeof origSubscription == "undefined" || typeof origPos == "undefined" || origSubscription != subscription)
+      origPos = -1;
+  
+    // Maybe we have this pattern already, check this
+    for (i = 0; i < subscription.patterns.length; i++) {
+      if (subscription.patterns[i].text == pattern.text) {
+        parentRow = this.getSubscriptionRow(subscription);
+        if (this.closed.has(subscription.url))
+          this.toggleOpenState(parentRow);
+
+        this.selection.select(parentRow + 1 + subscription.extra.length + i);
+        this.boxObject.ensureRowIsVisible(parentRow + 1 + subscription.extra.length + i);
+        return;
+      }
+    }
+
+    var orig = pattern;
+    pattern = cloneObject(pattern);
+    pattern.orig = orig;
+    pattern.origPos = (origPos >= 0 ? origPos : subscription.nextPos++);
+
+    var pos = -1;
+    if (this.sortProc != sortNatural)
+      for (i = 0; pos < 0 && i < subscription.patterns.length; i++)
+        if (this.sortProc(pattern, subscription.patterns[i]) < 0)
+          pos = i;
+
+    if (pos < 0) {
+      subscription.patterns.push(pattern);
+      pos = subscription.patterns.length - 1;
+    }
+    else
+      subscription.patterns.splice(pos, 0, pattern);
+
+    parentRow = this.getSubscriptionRow(subscription);
+
+    if (subscription.special && subscription.patterns.length == 1) {
+      // Show previously invisible subscription
+      var count = 1;
+      if (!this.closed.has(subscription.url))
+        count += subscription.extra.length;
+      this.boxObject.rowCountChanged(parentRow, count);
+    }
+
+    if (!this.closed.has(subscription.url))
+      this.boxObject.rowCountChanged(parentRow + 1 + subscription.extra.length + pos, 1);
+
+    if (typeof noSelect == "undefined" || !noSelect) {
+      if (this.closed.has(subscription.url))
+        this.toggleOpenState(parentRow);
+      this.selection.select(parentRow + 1 + subscription.extra.length + pos);
+      this.boxObject.ensureRowIsVisible(parentRow + 1 + subscription.extra.length + pos);
+    }
 
     onChange();
   },
 
-  readdGroup: function(group) {
-    var select = (this.getSelectedGroup() == group);
+  // Removes a pattern or a complete subscription by its info
+  removeRow: function(info) {
+    if (info[1]) {
+      // Not removing description rows or patterns from subscriptions
+      if (typeof info[1] == "string" || !info[0].special)
+        return;
 
-    group.filters.sort(compareUnsorted);
-    var filters = [];
-    for (var i = 0; i < group.filters.length; i++)
-      filters.push(group.filters[i].value);
+      // Remove a single pattern
+      for (var i = 0; i < info[0].patterns.length; i++) {
+        if (info[0].patterns[i] == info[1]) {
+          var parentRow = this.getSubscriptionRow(info[0]);
+          info[0].patterns.splice(i, 1);
 
-    this.removeGroup(group);
-    group = this.addGroup(group.name, group.descr, filters, group.filterClass);
+          var newSelection = parentRow;
+          if (!this.closed.has(info[0].url)) {
+            this.boxObject.rowCountChanged(parentRow + 1 + info[0].extra.length + i, -1);
+            newSelection = parentRow + 1 + info[0].extra.length + i;
+          }
 
-    if (select)
-      this.selectGroup(group);
+          if (info[0].special && !info[0].patterns.length) {
+            // Don't show empty special subscriptions
+            var count = 1;
+            if (!this.closed.has(info[0].url))
+              count += info[0].extra.length;
+            this.boxObject.rowCountChanged(parentRow, -count);
+            newSelection -= count;
+          }
+
+          this.ensureSelection(newSelection);
+          onChange();
+          return;
+        }
+      }
+    }
+    else {
+      // Not removing special groups
+      if (info[0].special)
+        return;
+
+      // Remove a complete subscription
+      for (i = 0; i < this.data.length; i++) {
+        if (this.data[i] == info[0]) {
+          var firstRow = this.getSubscriptionRow(info[0]);
+          count = 1;
+          if (!this.closed.has(info[0].url))
+            count += info[0].extra.length + info[0].patterns.length;
+
+          this.data.splice(i, 1);
+          this.boxObject.rowCountChanged(firstRow, -count);
+
+          this.ensureSelection(firstRow);
+          onChange();
+          return;
+        }
+      }
+    }
   },
 
-  setGroupDescription: function(group, descr) {
-    var select = (this.getSelectedGroup() == group);
+  moveRow: function(info, offset) {
+    if (info[1] && typeof info[1] != "string") {
+      if (this.isSorted() || !info[0].special)
+        return;
 
-    // Add new group description
-    var firstItem = null;
-    var beforeLine = this.list.getIndexOfItem(group.firstItem);
-    for (var i = 0; i < descr.length; i++) {
-      var value = descr[i];
-      var item = this.list.insertItemAt(beforeLine++, value, value);
-      editor.initItem(item);
-      item.abpGroup = group;
-      item.className = (i == 0 ? "groupTitle first" : "groupTitle");
-      if (!firstItem)
-        firstItem = item;
+      // Swapping two patterns within a subscription
+      var subscription = info[0];
+      var index = -1;
+      for (var i = 0; i < subscription.patterns.length; i++)
+        if (subscription.patterns[i] == info[1])
+          index = i;
+
+      if (index < 0)
+        return;
+
+      if (index + offset < 0)
+        offset = -index;
+      if (index + offset > subscription.patterns.length - 1)
+        offset = subscription.patterns.length - 1 - index;
+
+      if (offset == 0)
+        return;
+
+      var step = (offset < 0 ? -1 : 1);
+      for (i = index + step; i != index + offset + step; i += step) {
+        var tmp = subscription.patterns[i].origPos;
+        subscription.patterns[i].origPos = subscription.patterns[i - step].origPos;
+        subscription.patterns[i - step].origPos = tmp;
+  
+        tmp = subscription.patterns[i];
+        subscription.patterns[i] = subscription.patterns[i - step];
+        subscription.patterns[i - step] = tmp;
+      }
+
+      var parentRow = this.getSubscriptionRow(subscription);
+      var row, row1, row2;
+      row1 = row2 = parentRow + 1 + subscription.extra.length + index;
+      if (offset < 0)
+        row = row1 += offset;
+      else
+        row = row2 += offset;
+      this.boxObject.invalidateRange(row1, row2);
+
+      this.selection.select(row);
+      this.boxObject.ensureRowIsVisible(row);
     }
+    else {
+      // Moving a subscription
+      var index = -1;
+      for (i = 0; i < this.data.length; i++)
+        if (this.data[i] == info[0])
+          index = i;
 
-    // Remove old group description
-    item = group.firstItem;
-    for (i = 0; i < group.descr.length; i++) {
-      var remove = item;
-      item = this.list.getNextItem(item, 1);
-      this.list.removeChild(remove);
+      if (index < 0)
+        return;
+
+      var step = (offset < 0 ? -1 : 1);
+      var current = index;
+      for (i = index + step; i >= 0 && i < this.data.length && offset != 0; i += step) {
+        // Ignore invisible groups
+        if (this.data[i].special && this.data[i].patterns.length == 0)
+          continue;
+
+        tmp = this.data[i];
+        this.data[i] = this.data[current];
+        this.data[current] = tmp;
+
+        current = i;
+        offset -= step;
+      }
+
+      // No movement - can return here
+      if (current == index)
+        return;
+
+      var startIndex = Math.min(current, index);
+      var endIndex = Math.max(current, index)
+      var startRow = this.getSubscriptionRow(this.data[startIndex]);
+      var endRow = this.getSubscriptionRow(this.data[endIndex]) + 1;
+      if (!this.closed.has(this.data[endIndex].url))
+        endRow += this.data[endIndex].extra.length + this.data[endIndex].patterns.length;
+
+      this.boxObject.invalidateRange(startRow, endRow);
+      this.selection.select(this.getSubscriptionRow(info[0]));
+      this.boxObject.ensureRowIsVisible(this.getSubscriptionRow(info[0]));
     }
-
-    // Update group info
-    group.firstItem = firstItem;
-    group.descr = descr;
-
-    if (select)
-      this.selectGroup(group);
+    onChange();
   },
 
-  resort: function() {
-    // Store selected filter
-    var currentPattern = null;
-    var currentGroup = null;
-    if (this.list.currentItem && "abpFilter" in this.list.currentItem)
-      currentPattern = this.list.currentItem.abpFilter.value;
-    else if (this.list.currentItem && "abpGroup" in this.list.currentItem)
-      currentGroup = this.list.currentItem.abpGroup.name;
+  dragData: null,
+  startDrag: function(row) {
+    var info = this.getRowInfo(row);
+    if (!info)
+      return;
 
-    // Readd all groups
-    for (var i = 0; i < prefs.grouporder.length; i++)
-      if (this.groups.has(prefs.grouporder[i]))
-        this.readdGroup(this.groups.get(prefs.grouporder[i]));
+    var array = Components.classes["@mozilla.org/supports-array;1"]
+                          .createInstance(Components.interfaces.nsISupportsArray);
+    var transferable = Components.classes["@mozilla.org/widget/transferable;1"]
+                                 .createInstance(Components.interfaces.nsITransferable);
+    array.AppendElement(transferable);
 
-    // Restore selected filter
-    if (currentPattern)
-      this.selectPattern(currentPattern);
-    else if (currentGroup)
-      this.selectGroup(currentGroup);
-  }
-};
+    var region = Components.classes["@mozilla.org/gfx/region;1"]
+                           .createInstance(Components.interfaces.nsIScriptableRegion);
+    region.init();
+    var x = {};
+    var y = {};
+    var width = {};
+    var height = {};
+    var col = ("columns" in this.boxObject ? this.boxObject.columns.getPrimaryColumn() : "pattern");
+    this.boxObject.getCoordsForCellItem(row, col, "text", x, y, width, height);
+    region.setToRect(x.value, y.value, width.value, height.value);
 
-// Inline list editor manager
-var editor = {
-  list: null,
-  field: null,
-  fieldParent: null,
-  fieldHeight: 0,
-  fieldKeypressHandler: null,
-  fieldBlurHandler: null,
-  editedItem: null,
+    if (info[1] && typeof info[1] != "string") {
+      if (!info[0].special || this.isSorted())
+        return;
+    }
+    else
+      info[1] = null;
 
-  bind: function(list) {
-    this.list = list;
-    this.fieldParent = list.getItemAtIndex(0);
-    this.field = this.fieldParent.firstChild;
-    this.fieldHeight = this.field.boxObject.height;
-    list.removeItemAt(0);
+    this.dragData = info;
+    dragService.invokeDragSession(this.boxObject.treeBody, array, region, dragService.DRAGDROP_ACTION_MOVE);
+  },
+
+  toggleDisabled: function(row, forceValue) {
+    var info = treeView.getRowInfo(row);
+    if (!info || typeof info[1] == "string" || (!info[1] && info[0].special))
+      return forceValue;
+    if (info[1] && (info[1].type == "comment" || info[1].type == "invalid"))
+      return forceValue;
+    if (info[1] && !info[0].special && info[0].disabled)
+      return forceValue;
+
+    if (info[1]) {
+      if (typeof forceValue == "undefined")
+        forceValue = !this.disabled.has(info[1].text);
+
+      if (forceValue)
+        this.disabled.put(info[1].text, true);
+      else
+        this.disabled.remove(info[1].text);
+
+      this.invalidatePattern(info[1]);
+    }
+    else {
+      if (typeof forceValue == "undefined")
+        forceValue = !info[0].disabled;
+
+      info[0].disabled = forceValue;
+
+      var min = this.boxObject.getFirstVisibleRow();
+      var max = this.boxObject.getLastVisibleRow();
+      for (var i = min; i <= max; i++) {
+        var rowInfo = this.getRowInfo(i);
+        if (rowInfo && rowInfo[0] == info[0])
+          this.boxObject.invalidateRow(i);
+      }
+    }
+    onChange();
+    return forceValue;
+  },
+
+  invalidatePattern: function(pattern) {
+    var min = this.boxObject.getFirstVisibleRow();
+    var max = this.boxObject.getLastVisibleRow();
+    for (var i = min; i <= max; i++) {
+      var rowInfo = this.getRowInfo(i);
+      if (rowInfo && rowInfo[1] && typeof rowInfo[1] != "string" && rowInfo[1].text == pattern.text)
+        this.boxObject.invalidateRow(i);
+    }
+  },
+
+  invalidateSubscription: function(subscription, origRow, origRowCount) {
+    var row = this.getSubscriptionRow(subscription);
+    if (row < 0)
+      row = origRow;
+
+    var rowCount = this.getSubscriptionRowCount(subscription);
+
+    if (rowCount != origRowCount)
+      this.boxObject.rowCountChanged(row + Math.min(rowCount, origRowCount), rowCount - origRowCount);
+
+    this.boxObject.invalidateRange(row, row + Math.min(rowCount, origRowCount) - 1);
+  },
+
+  removeUserPatterns: function() {
+    for (var i = 0; i < this.data.length; i++) {
+      var subscription = this.data[i];
+      if (subscription.special && subscription.patterns.length) {
+        var row = this.getSubscriptionRow(subscription);
+        var count = 1;
+        if (!this.closed.has(subscription.url))
+          count += subscription.extra.length + subscription.patterns.length;
+
+        subscription.patterns = [];
+        this.boxObject.rowCountChanged(row, -count);
+
+        onChange();
+      }
+    }
+    this.ensureSelection(0);
+  },
+
+  applyChanges: function() {
+    prefs.userPatterns = [];
+    prefs.subscriptions = [];
+    for (var i = 0; i < this.data.length; i++) {
+      var list = prefs.userPatterns;
+      var subscription = prefs.knownSubscriptions.get(this.data[i].url);
+      if (!subscription.special) {
+        subscription.title = this.data[i].title;
+        subscription.autoDownload = this.data[i].autoDownload;
+        subscription.disabled = this.data[i].disabled;
+        list = subscription.patterns = [];
+      }
+      prefs.subscriptions.push(subscription);
+
+      var patterns = this.data[i].patterns.slice();
+      patterns.sort(sortNatural);
+      for (var j = 0; j < patterns.length; j++) {
+        var pattern = patterns[j].orig;
+        pattern.disabled = this.disabled.has(pattern.text);
+        list.push(pattern);
+      }
+    }
+    prefs.savePatterns();
+  },
+
+  //
+  // Inline pattern editor
+  //
+
+  editor: null,
+  editedRow: -1,
+  editorKeyPressHandler: null,
+  editorBlurHandler: null,
+
+  setEditor: function(editor) {
+    this.editor = editor;
 
     var me = this;
-    this.list.addEventListener("dblclick", function(e) {
-      me.startEditor();
-    }, false);
-    this.list.addEventListener("keypress", function(e) {
-      if (e.keyCode == e.DOM_VK_RETURN || e.keyCode == e.DOM_VK_ENTER) {
-        me.startEditor();
-        e.preventDefault();
-      }
-    }, false);
-    this.fieldKeypressHandler = function(e) {
+    this.editorKeyPressHandler = function(e) {
       if (e.keyCode == e.DOM_VK_RETURN || e.keyCode == e.DOM_VK_ENTER) {
         me.stopEditor(true);
         e.preventDefault();
@@ -1114,77 +1729,88 @@ var editor = {
         e.preventDefault();
       }
     };
-    this.fieldBlurHandler = function(e) {
+    this.editorBlurHandler = function(e) {
       me.stopEditor(true, true);
     };
 
-    // prevent cyclic references through closures
-    list = null;
-  },
-
-  initItem: function(item) {
-    item.minHeight = this.fieldHeight + "px";
+    // Prevent cyclic references through closures
+    editor = null;
   },
 
   isEditing: function() {
-    return this.editedItem != null;
+    return (this.editedRow >= 0);
   },
 
   startEditor: function() {
     this.stopEditor(false);
 
-    var group = groupManager.getSelectedGroup();
-    if (group && group.name.indexOf("~") != 0) {
-      editSubscription(group);
-      return;
-    }
+    var row = this.selection.currentIndex;
+    var info = this.getRowInfo(row);
+    if (!info || !info[0].special || !info[1] || typeof info[1] == "string")
+      return false;
 
-    var item = this.list.currentItem;
-    if (!item || !("abpFilter" in item) || item.className == "subscription")
-      return;
+    var col = ("columns" in this.boxObject ? this.boxObject.columns.getPrimaryColumn() : "pattern");
+    var cellX = {};
+    var cellY = {};
+    var cellWidth = {};
+    var cellHeight = {};
+    this.boxObject.ensureRowIsVisible(row);
+    this.boxObject.getCoordsForCellItem(row, col, "cell", cellX, cellY, cellWidth, cellHeight);
 
-    // Replace item by our editor item and initialize it
-    var value = item.abpFilter.value;
-    item.parentNode.replaceChild(this.fieldParent, item);
-    this.list.ensureElementIsVisible(this.fieldParent);
-    this.editedItem = item;
-    this.field.value = value;
-    this.field.setSelectionRange(value.length, value.length);
-    this.field.focus();
+    var textX = {};
+    this.boxObject.getCoordsForCellItem(row, col, "text", textX, {}, {}, {});
+    cellWidth.value -= textX.value - cellX.value;
+    cellX.value = textX.value;
 
-    // textbox gives focus to the embedded <INPUT>, need to attach handlers to it
-    document.commandDispatcher.focusedElement.addEventListener("keypress", this.fieldKeypressHandler, false);
-    document.commandDispatcher.focusedElement.addEventListener("blur", this.fieldBlurHandler, false);
+    // Need to translate coordinates so that they are relative to <stack>, not <treechildren>
+    var treeBody = this.boxObject.treeBody;
+    cellX.value += treeBody.boxObject.x - this.editor.parentNode.boxObject.x;
+    cellY.value += treeBody.boxObject.y - this.editor.parentNode.boxObject.y;
+
+    this.selection.clearSelection();
+
+    this.editedRow = row;
+    this.editor.width = cellWidth.value;
+    this.editor.height = this.editor.field.boxObject.height;
+    this.editor.left = cellX.value;
+    this.editor.top = cellY.value + (cellHeight.value - this.editor.height)/2;
+
+    this.editor.field.value = info[1].text;
+    this.editor.field.setSelectionRange(this.editor.field.value.length, this.editor.field.value.length);
+    this.editor.field.focus();
+
+    this.editor.contentWindow.addEventListener("keypress", this.editorKeyPressHandler, false);
+    this.editor.contentWindow.addEventListener("blur", this.editorBlurHandler, false);
+
+    return true;
   },
 
   stopEditor: function(save, blur) {
-    if (!this.editedItem)
+    if (this.editedRow < 0)
       return;
 
-    // Prevent recursive calls
-    var item = this.editedItem;
-    var value = this.field.value.replace(/\s/g, "");
-    this.editedItem = null;
+    this.editor.contentWindow.removeEventListener("keypress", this.editorKeyPressHandler, false);
+    this.editor.contentWindow.removeEventListener("blur", this.editorBlurHandler, false);
 
-    // We don't want to save an empty value
-    if (!value)
-      save = false;
-
-    // Move focus back to the list
     if (typeof blur == "undefined" || !blur)
-      this.list.focus();
+      this.boxObject.treeBody.focus();
 
-    if (save && value != item.abpFilter.value) {
-      // Remove the editor and readd the pattern
-      this.fieldParent.parentNode.removeChild(this.fieldParent);
-      groupManager.removePattern(item.abpGroup, item.abpFilter);
-      addFilterInternal(value, item.abpGroup, item.abpFilter.origPos);
+    if (save) {
+      var info = this.getRowInfo(this.editedRow);
+      var text = this.editor.field.value.replace(/\s/g, "");
+      if (text && text != info[1].text) {
+        this.removeRow(info);
+        this.addPattern(text, info[0], info[1].origPos);
+      }
+      else
+        save = false;
     }
-    else {
-      // Put the item back into the list
-      this.fieldParent.parentNode.replaceChild(item, this.fieldParent);
-      this.list.ensureElementIsVisible(item);
-      this.list.selectedItem = item;
-    }
+
+    if (!save)
+      this.selection.select(this.editedRow);
+
+    this.editor.left = this.editor.top = this.editor.width = this.editor.height = 0;
+    this.editedRow = -1;
   }
 };
+

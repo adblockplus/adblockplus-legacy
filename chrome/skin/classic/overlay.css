@@ -41,13 +41,13 @@
 }
 
 #abp-status image {
-  list-style-image: url("chrome://adblockplus/skin/abp-enabled-16.png");
+  list-style-image: url("abp-enabled-16.png");
 }
 #abp-status[deactivated] image {
-  list-style-image: url("chrome://adblockplus/skin/abp-disabled-16.png");
+  list-style-image: url("abp-disabled-16.png");
 }
 #abp-status[disabled="true"] image {
-  list-style-image: url("chrome://adblockplus/skin/abp-defunc-16.png");
+  list-style-image: url("abp-defunc-16.png");
 }
 
 #abp-status-settings, #abp-toolbar-opensidebar, #abp-toolbar-closesidebar {
@@ -55,23 +55,23 @@
 }
 
 #abp-toolbarbutton {
-  list-style-image: url("chrome://adblockplus/skin/abp-enabled.png");
+  list-style-image: url("abp-enabled.png");
 }
 #abp-toolbarbutton[deactivated] {
-  list-style-image: url("chrome://adblockplus/skin/abp-disabled.png");
+  list-style-image: url("abp-disabled.png");
 }
 #abp-toolbarbutton[disabled="true"] {
-  list-style-image: url("chrome://adblockplus/skin/abp-defunc.png");
+  list-style-image: url("abp-defunc.png");
 }
 
 toolbar[iconsize="small"] #abp-toolbarbutton {
-  list-style-image: url("chrome://adblockplus/skin/abp-enabled-16.png");
+  list-style-image: url("abp-enabled-16.png");
 }
 toolbar[iconsize="small"] #abp-toolbarbutton[deactivated] {
-  list-style-image: url("chrome://adblockplus/skin/abp-disabled-16.png");
+  list-style-image: url("abp-disabled-16.png");
 }
 toolbar[iconsize="small"] #abp-toolbarbutton[disabled="true"] {
-  list-style-image: url("chrome://adblockplus/skin/abp-defunc-16.png");
+  list-style-image: url("abp-defunc-16.png");
 }
 
 #abp-tooltip {

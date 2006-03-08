@@ -24,27 +24,28 @@
 
 var abp;
 var prefs;
-var groupName;
+var subscription;
+var result;
 
 function init() {
   abp = window.arguments[0];
   prefs = window.arguments[1];
-  groupName = window.arguments[2];
-  if (groupName && prefs.synch.has(groupName)) {
-    var synchPrefs = prefs.synch.get(groupName);
-    document.getElementById("location").value = groupName;
-    document.getElementById("location").setAttribute("readonly", "true");
-    document.getElementById("title").value = synchPrefs.title;
-    document.getElementById("enabled").setAttribute("checked", !synchPrefs.disabled);
-  
-    if (synchPrefs.external) {
+  subscription = window.arguments[2];
+  result = window.arguments[3];
+  if (subscription) {
+    document.getElementById("location").value = subscription.url;
+    document.getElementById("title").value = subscription.title;
+    document.getElementById("enabled").setAttribute("checked", !subscription.disabled);
+
+    if (subscription.external) {
+      document.getElementById("location").setAttribute("disabled", "true");
       document.getElementById("external-description").hidden = false;
       document.getElementById("autodownload").setAttribute("checked", "true");
       document.getElementById("autodownload").setAttribute("disabled", "true");
     }
     else {
       document.getElementById("edit-description").hidden = false;
-      document.getElementById("autodownload").setAttribute("checked", synchPrefs.autodownload);
+      document.getElementById("autodownload").setAttribute("checked", subscription.autoDownload);
     }
   }
   else {
@@ -56,68 +57,46 @@ function init() {
 }
 
 function saveSubscription() {
-  var group;
-  var synchPrefs;
-  var add = !groupName;
-  if (add) {
-    var name = document.getElementById("location").value.replace(/\s/g, "").replace(/^~+/, "");
-    if (!name) {
-      alert(abp.getString("subscription_no_location"));
-      document.getElementById("location").focus();
-      return false;
-    }
+  var add = !subscription;
+  var url = (add || !subscription.external ? document.getElementById("location").value.replace(/\s/g, "").replace(/^~+/, "") : subscription.url);
+  if (!url) {
+    alert(abp.getString("subscription_no_location"));
+    document.getElementById("location").focus();
+    return false;
+  }
 
+  if (add || subscription.url != url) {
     var file = Components.classes["@mozilla.org/file/local;1"]
                           .createInstance(Components.interfaces.nsILocalFile);
     try {
-      file.initWithPath(name);
+      file.initWithPath(url);
       var ioService = Components.classes["@mozilla.org/network/io-service;1"]
                                 .getService(Components.interfaces.nsIIOService); 
       var protHandler = ioService.getProtocolHandler('file')
                                 .QueryInterface(Components.interfaces.nsIFileProtocolHandler);
-      var url = protHandler.newFileURI(file);
+      url = protHandler.newFileURI(file).spec;
     } catch (e2) {
       try {
-        var url = Components.classes["@mozilla.org/network/simple-uri;1"]
+        var uri = Components.classes["@mozilla.org/network/simple-uri;1"]
                             .createInstance(Components.interfaces.nsIURI);
-        url.spec = name;
+        uri.spec = url;
+        url = uri.spec;
       } catch (e) {
         alert(abp.getString("subscription_invalid_location"));
         document.getElementById("location").focus();
         return false;
       }
     }
-
-    groupName = url.spec;
-    if (prefs.synch.has(groupName)) {
-      alert(abp.getString("subscription_location_exists"));
-      document.getElementById("location").focus();
-      return false;
-    }
-
-    synchPrefs = {url: groupName, external: false, lastdownload: 0, lastsuccess: 0, downloadstatus: "", lastmodified: "", patterns: []};
-    prefs.synch.put(groupName, synchPrefs);
   }
-  else
-    synchPrefs = prefs.synch.get(groupName);
 
-  synchPrefs.title = document.getElementById("title").value.replace(/^\s+/, "").replace(/\s+$/, "");
-  if (!synchPrefs.title)
-    synchPrefs.title = groupName;
+  result.url = url;
 
-  synchPrefs.autodownload = document.getElementById("autodownload").checked;
-  synchPrefs.disabled = !document.getElementById("enabled").checked;
+  result.title = document.getElementById("title").value.replace(/^\s+/, "").replace(/\s+$/, "");
+  if (!result.title)
+    result.title = result.url;
 
-  if (add) {
-    opener.addSubscriptionGroup(groupName, synchPrefs);
-    opener.groupManager.selectGroup(groupName);
+  result.autoDownload = document.getElementById("autodownload").checked;
+  result.disabled = !document.getElementById("enabled").checked;
 
-    // Need delayed execution here for some reason, XMLHttpRequest will fail otherwise
-    var synchronizer = abp.synchronizer;
-    opener.setTimeout(function() {synchronizer.execute(synchPrefs)}, 0);
-  }
-  else
-    opener.updateSubscriptionDescription(groupName, synchPrefs);
-
-  prefs.save();
+  return true;
 }

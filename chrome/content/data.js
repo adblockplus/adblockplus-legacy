@@ -132,7 +132,7 @@ DataContainer.prototype = {
       DataContainer.notifyListeners(insecTop, "refresh", this);
   },
   addNode: function(insecTop, insecNode, contentType, location, filter, storedLoc) {
-    if (contentType == type.SUBDOCUMENT && typeof storedLoc == "undefined" && (!filter || filter.isWhite)) {
+    if (contentType == type.SUBDOCUMENT && typeof storedLoc == "undefined" && (!filter || filter.type == "whitelist")) {
       // New document is about to load
       this.newLocation = {inseclNodes: [insecNode], type: contentType, location: location, filter: filter};
       return;

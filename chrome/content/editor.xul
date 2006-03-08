@@ -1,3 +1,5 @@
+<?xml version="1.0"?>
+
 <!-- ***** BEGIN LICENSE BLOCK *****
    - Version: MPL 1.1
    -
@@ -22,24 +24,9 @@
    -
    - ***** END LICENSE BLOCK ***** -->
 
-<!ENTITY notloaded.label        "Not loaded">
-<!ENTITY notloaded.tooltip      "Adblock Plus component couldn't be loaded, maybe it didn't install properly">
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="data:text/css,page,textbox{margin:0px;}" type="text/css"?>
 
-<!ENTITY menuitem.label         "Adblock Plus">
-<!ENTITY menuitem.accesskey     "A">
-
-<!ENTITY context.image.label    "Adblock Image">
-<!ENTITY context.object.label   "Adblock Object">
-<!ENTITY context.link.label     "Adblock Link">
-<!ENTITY context.frame.label    "Adblock Frame">
-
-<!ENTITY sidebar.title          "Adblock Plus">
-
-<!ENTITY settings.label         "Preferences">
-<!ENTITY settings.accesskey     "F">
-<!ENTITY opensidebar.label      "Open sidebar">
-<!ENTITY opensidebar.accesskey  "S">
-<!ENTITY closesidebar.label     "Close sidebar">
-<!ENTITY closesidebar.accesskey "S">
-<!ENTITY whitelist.site.label   "Disable on --">
-<!ENTITY whitelist.page.label   "Disable on this page only">
+<page xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <textbox id="editor"/>
+</page>

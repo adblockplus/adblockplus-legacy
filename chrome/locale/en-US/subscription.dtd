@@ -32,7 +32,7 @@
 
 <!ENTITY edit.description           "
   The filter list for this subscription will be downloaded
-  from the location given (can't be changed any more).
+  from the location given.
 ">
 
 <!ENTITY external.description       "

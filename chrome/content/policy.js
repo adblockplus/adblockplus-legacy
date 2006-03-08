@@ -105,8 +105,11 @@ var policy = {
     if (!insecTop || (!prefs.blocklocalpages && !this.isBlockableScheme(secureGet(insecTop, "location"))))
       return true;
 
-    if (this.isWhitelisted(secureGet(insecTop, "location", "href")))
+    var pageMatch = this.isWhitelisted(secureGet(insecTop, "location", "href"));
+    if (pageMatch) {
+      prefs.increaseHitCount(pageMatch);
       return true;
+    }
 
     var data = DataContainer.getDataForWindow(insecWnd);
 
@@ -119,13 +122,16 @@ var policy = {
       if (typeof match == "undefined") {
         // If we didn't cache the result yet:
         // check whether we want to block the node and store the result
-        match = this.matchesAny(location, prefs.whitelist);
+        match = prefs.whitePatterns.matchesAny(location);
 
         if (match == null)
-          match = this.matchesAny(location, prefs.regexps);
+          match = prefs.filterPatterns.matchesAny(location);
 
         cache.put(location, match);
       }
+
+      if (match)
+        prefs.increaseHitCount(match);
 
       if (!(insecNode instanceof Window)) {
         // Check links in parent nodes
@@ -150,7 +156,7 @@ var policy = {
     // Store node data
     data.addNode(insecTop, insecNode, contentType, location, match);
 
-    if (match && !match.isWhite && insecNode) {
+    if (match && match.type != "whitelist" && insecNode) {
       // hide immediately if fastcollapse is off but not base types
       collapse = collapse || !prefs.fastcollapse;
       collapse = collapse && !(contentType in baseTypes);
@@ -159,7 +165,7 @@ var policy = {
       hideNode(insecNode, insecWnd, collapse);
     }
 
-    return (match && match.isWhite) || (!match && linksOk);
+    return (match && match.type == "whitelist") || (!match && linksOk);
   },
 
   // Tests if some parent of the node is a link matching a filter
@@ -181,16 +187,7 @@ var policy = {
 
   // Checks whether a page is whitelisted
   isWhitelisted: function(url) {
-    return this.matchesAny(url, prefs.whitelist);
-  },
-
-  // Tests whether a given URL matches any of the regexps from the list, returns the matching pattern
-  matchesAny: function(location, list) {
-    for (var i = 0; i < list.length; i++)
-      if (list[i].test(location))
-        return list[i];
-  
-    return null; // if no matches, return null
+    return prefs.whitePatternsPage.matchesAny(url);
   },
 
   translateTypes: function(hash) {

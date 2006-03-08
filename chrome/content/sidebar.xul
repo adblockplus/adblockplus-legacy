@@ -40,7 +40,7 @@
 
   <popupset id="sidebarPopups">
     <tooltip id="tooltip" orient="vertical" onpopupshowing="return fillInTooltip(event)">
-      <description id="tooltipText"/>
+      <vbox id="tooltipText"/>
       <hbox id="tooltipFilter">
         <label value="&effective-filter.label;" control="tooltipFilterText"/>
         <description id="tooltipFilterText"/>

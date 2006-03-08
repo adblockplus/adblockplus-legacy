@@ -36,9 +36,6 @@
 <!ENTITY clearall.label             "Remove all filters">
 <!ENTITY clearall.accesskey         "L">
 
-<!ENTITY listsort.label             "Sort alphabetically">
-<!ENTITY listsort.accesskey         "P">
-
 <!ENTITY options.label              "Options">
 <!ENTITY options.accesskey          "O">
 
@@ -82,8 +79,10 @@
 <!ENTITY newfilter.accesskey        "N">
 <!ENTITY add.label                  "Add filter">
 <!ENTITY add.accesskey              "A">
-<!ENTITY list.label                 "Filter rules:">
-<!ENTITY list.accesskey             "R">
+
+<!ENTITY pattern.column             "Filter rule">
+<!ENTITY hitcount.column            "Hit count">
+<!ENTITY enabled.column             "Enabled">
 
 <!ENTITY context.edit.label         "Edit filter">
 <!ENTITY context.remove.label       "Remove filter(s)">
@@ -95,5 +94,5 @@
 <!ENTITY context.movegroupup.label        "Move group up">
 <!ENTITY context.movegroupdown.label      "Move group down">
 
-<!ENTITY ok.label                 "OK">
-<!ENTITY cancel.label             "Cancel">
+<!ENTITY ok.label                   "OK">
+<!ENTITY cancel.label               "Cancel">

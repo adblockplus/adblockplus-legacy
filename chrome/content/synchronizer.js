@@ -33,25 +33,22 @@ var synchronizer = {
   timer: null,
 
   init: function() {
-    this.timer = createTimer(this.synchronizeCallback, 300000);
+    this.timer = createTimer(this.synchronizeCallback, 10000/*300000*/);
     this.timer.type = this.timer.TYPE_REPEATING_SLACK;
   },
 
   synchronizeCallback: function() {
-    synchronizer.timer.delay = 3600000;
+    synchronizer.timer.delay = 36000/*3600000*/;
 
-    for (var i = 0; i < prefs.grouporder.length; i++) {
-      if (prefs.grouporder[i].indexOf("~") == 0)
-        continue;
-  
-      var synchPrefs = prefs.synch.get(prefs.grouporder[i]);
-      if (typeof synchPrefs == "undefined" || !synchPrefs.autodownload || synchPrefs.external)
+    for (var i = 0; i < prefs.subscriptions.length; i++) {
+      var subscription = prefs.subscriptions[i];
+      if (subscription.special || !subscription.autoDownload || subscription.external)
         continue;
   
       // Get the number of hours since last download
-      var interval = (new Date().getTime()/1000 - synchPrefs.lastsuccess) / 3600;
-      if (interval > prefs.synchronizationinterval)
-        synchronizer.execute(synchPrefs);
+      var interval = (new Date().getTime()/1000 - subscription.lastSuccess) / 3600;
+      /*if (interval > prefs.synchronizationinterval)*/
+        synchronizer.execute(subscription);
     }
   },
 
@@ -68,16 +65,16 @@ var synchronizer = {
   },
 
   // Calls all listeners
-  notifyListeners: function(synchPrefs, status) {
+  notifyListeners: function(subscription, status) {
     for (var i = 0; i < this.listeners.length; i++)
-      this.listeners[i](synchPrefs, status);
+      this.listeners[i](subscription, status);
   },
 
   isExecuting: function(url) {
     return this.executing.has(url);
   },
 
-  readPatterns: function(synchPrefs, text) {
+  readPatterns: function(subscription, text) {
     var lines = text.split(/[\r\n]+/);
     for (var i = 0; i < lines.length; i++) {
       lines[i] = lines[i].replace(/\s/g, "");
@@ -85,28 +82,32 @@ var synchronizer = {
         lines.splice(i--, 1);
     }
     if (!/\[Adblock\]/i.test(lines[0])) {
-      this.setError(synchPrefs, "synchronize_invalid_data");
+      this.setError(subscription, "synchronize_invalid_data");
       return;
     }
 
-    lines.shift(0);
-    synchPrefs.lastdownload = synchPrefs.lastsuccess = new Date().getTime() / 1000;
-    synchPrefs.downloadstatus = "synchronize_ok";
-    synchPrefs.patterns = lines;
-    prefs.save();
-    this.notifyListeners(synchPrefs, "ok");
+    subscription.lastDownload = subscription.lastSuccess = new Date().getTime() / 1000;
+    subscription.downloadStatus = "synchronize_ok";
+    subscription.patterns = [];
+    for (var i = 1; i < lines.length; i++) {
+      var pattern = prefs.patternFromText(lines[i]);
+      if (pattern)
+        subscription.patterns.push(pattern);
+    }
+    prefs.savePatterns();
+    this.notifyListeners(subscription, "ok");
   },
 
-  setError: function(synchPrefs, error) {
-    this.executing.remove(synchPrefs.url);
-    synchPrefs.lastdownload = new Date().getTime() / 1000;
-    synchPrefs.downloadstatus = error;
-    prefs.save();
-    this.notifyListeners(synchPrefs, "error");
+  setError: function(subscription, error) {
+    this.executing.remove(subscription.url);
+    subscription.lastDownload = new Date().getTime() / 1000;
+    subscription.downloadStatus = error;
+    prefs.savePatterns();
+    this.notifyListeners(subscription, "error");
   },
 
-  execute: function(synchPrefs) {
-    var url = synchPrefs.url;
+  execute: function(subscription) {
+    var url = subscription.url;
     if (this.executing.has(url))
       return;
 
@@ -119,31 +120,31 @@ var synchronizer = {
                                   request.channel.LOAD_BYPASS_CACHE;
     }
     catch (e) {
-      this.setError(synchPrefs, "synchronize_invalid_url");
+      this.setError(subscription, "synchronize_invalid_url");
       return;
     }
 
     request.onerror = function(ev) {
-      if (!prefs.synch.has(url))
+      if (!prefs.knownSubscriptions.has(url))
         return;
 
-      synchronizer.setError(prefs.synch.get(url), "synchronize_connection_error");
+      synchronizer.setError(prefs.knownSubscriptions.get(url), "synchronize_connection_error");
     };
 
     request.onload = function(ev) {
       synchronizer.executing.remove(url);
-      if (prefs.synch.has(url))
-        synchronizer.readPatterns(prefs.synch.get(url), ev.target.responseText);
+      if (prefs.knownSubscriptions.has(url))
+        synchronizer.readPatterns(prefs.knownSubscriptions.get(url), ev.target.responseText);
     };
 
     this.executing.put(url, request);
-    this.notifyListeners(synchPrefs, "executing");
+    this.notifyListeners(subscription, "executing");
 
     try {
       request.send(null);
     }
     catch (e) {
-      this.setError(synchPrefs, "synchronize_connection_error");
+      this.setError(subscription, "synchronize_connection_error");
     }
 
     // prevent cyclic references through closures
