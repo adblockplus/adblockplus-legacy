@@ -328,9 +328,10 @@ function onListKeyPress(e) {
   if (treeView.isEditing())
     return;
 
-  if ((e.keyCode == e.DOM_VK_RETURN || e.keyCode == e.DOM_VK_ENTER) && editFilter('')) {
+  if ((e.keyCode == e.DOM_VK_RETURN || e.keyCode == e.DOM_VK_ENTER)) {
     e.preventDefault();
-    e.stopPropagation();
+    if (editFilter(''))
+      e.stopPropagation();
   }
   else if (e.keyCode == e.DOM_VK_BACK_SPACE || e.keyCode == e.DOM_VK_DELETE)
     removeFilters('');
