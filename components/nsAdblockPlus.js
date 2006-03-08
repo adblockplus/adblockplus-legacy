@@ -145,14 +145,42 @@ const abp = {
     throw Components.results.NS_ERROR_NO_INTERFACE;
   },
 
+  // Retrieves settings dialog if it is currently open
+  getSettingsDialog: function() {
+    return windowMediator.getMostRecentWindow("abp:settings");
+  },
+
   // Opens preferences dialog for the supplied window and filter suggestion
   openSettingsDialog: function(insecWnd, location, filter) {
-    var dlg = windowMediator.getMostRecentWindow("abp:settings");
-    if (dlg)
-      dlg.focus();
+    var dlg = this.getSettingsDialog();
+    var func = function() {
+      dlg.setContentWindow(insecWnd);
+      if (typeof location != "undefined" && location)
+        dlg.setLocation(location);
+      if (typeof filter != "undefined" && filter)
+        dlg.selectPattern(filter);
+    }
+
+    if (dlg) {
+      func();
+
+      try {
+        dlg.focus();
+      }
+      catch (e) {
+        // There must be some modal dialog open
+        dlg = windowMediator.getMostRecentWindow("abp:subscription");
+        if (!dlg)
+          dlg = windowMediator.getMostRecentWindow("abp:about");
+
+        if (dlg)
+          dlg.focus();
+      }
+    }
     else {
       var browser = windowMediator.getMostRecentWindow("navigator:browser");
-      browser.openDialog("chrome://adblockplus/content/settings.xul", "_blank", "chrome,centerscreen,all", insecWnd, location, filter);
+      dlg = browser.open("chrome://adblockplus/content/settings.xul", "_blank", "chrome,centerscreen,resizable");
+      dlg.addEventListener("post-load", func, false);
     }
   },
 
@@ -190,7 +218,6 @@ function init() {
 
   // Filter cache initialization
   cache = new HashTable();
-  prefs.addListener(function() {cache.clear()});
 
   // Clean up uninstalled files
   var dirService = Components.classes["@mozilla.org/file/directory_service;1"]

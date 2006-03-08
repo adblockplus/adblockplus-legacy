@@ -31,11 +31,8 @@ dialog {
 #disabledWarning {
   color: #E00000;
 }
-#disabledWarning[hide="true"] {
-  visibility: hidden;
-}
 
-#buttonarea, #entryarea, #listarea {
+.dialog-button-box, #entryarea, #listarea {
   margin: 8px;
 }
 
@@ -48,32 +45,51 @@ dialog {
   padding: 1px;
 }
 
-.groupTitle {
-  font-size: 90%;
+#hitcount {
+  text-align: right;
 }
-.groupTitle:not([selected="true"]) {
+
+iframe {
+  -moz-user-focus: ignore;
+}
+
+treechildren::-moz-tree-cell-text(col-pattern, description-true, selected-false) {
+  font-size: 80%;
   color: GrayText;
 }
 
-.groupTitle.first:not([current="true"]) {
-  border: 0px solid GrayText;
-  border-top-width: 1px;
-}
-.groupTitle.first:first-child:not([current="true"]) {
-  border-top-width: 0px;
-}
-
-listitem:not(.groupTitle) listcell,
-listitem #list-editorField {
-  margin-left: 10px;
-}
-
-.whitelist:not([selected="true"]) {
+treechildren::-moz-tree-cell-text(col-pattern, pattern-true, type-whitelist, selected-false) {
   color: #008000;
 }
 
-.subscription:not([selected="true"]) {
-  background-color: #C0C0C0;
+treechildren::-moz-tree-cell-text(col-pattern, pattern-true, type-elemhide, selected-false) {
+  color: #000080;
+}
+
+treechildren::-moz-tree-cell-text(col-pattern, pattern-true, type-comment, selected-false) {
+  color: GrayText;
+}
+
+treechildren::-moz-tree-cell-text(col-pattern, pattern-true, type-invalid, selected-false) {
+  color: #C00000;
+}
+
+treechildren::-moz-tree-cell-text(col-pattern, pattern-true, subscription-special-false, selected-false) {
+  background-color: #E0E0E0;
+}
+
+treechildren::-moz-tree-image(col-enabled, pattern-true, subscription-disabled-false, pattern-disabled-true),
+treechildren::-moz-tree-image(col-enabled, subscription-true, subscription-special-false, subscription-disabled-true) {
+  list-style-image: url(checkbox.gif);
+}
+
+treechildren::-moz-tree-image(col-enabled, pattern-true, subscription-disabled-false, pattern-disabled-false),
+treechildren::-moz-tree-image(col-enabled, subscription-true, subscription-special-false, subscription-disabled-false) {
+  list-style-image: url(checkbox-checked.gif);
+}
+
+treechildren::-moz-tree-image(col-enabled, pattern-true) {
+  margin-left: 16px;
 }
 
 .whitelisted:not([_moz-menuactive="true"]) {

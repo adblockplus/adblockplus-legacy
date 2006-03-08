@@ -192,7 +192,7 @@ function createFilterSuggestion(listbox, suggestion) {
   listitem.appendChild(createListCell(suggestion.location, true));
   listitem.filter = suggestion.filter;
   listitem.location = suggestion.location;
-  if (listitem.filter && listitem.filter.isWhite)
+  if (listitem.filter && listitem.filter.type == "whitelist")
     listitem.className = "whitelisted";
   else if (listitem.filter)
     listitem.className = "filtered";
@@ -262,7 +262,7 @@ function handleTabChange() {
   handleLocationsChange(window.content, "select", DataContainer.getDataForWindow(window.content));
 }
 
-// Shows tooltop with the full uncropped location
+// Shows tooltip with the full uncropped location
 function fillInTooltip(event) {
   var node = document.tooltipNode;
   while (node && (node.nodeType != node.ELEMENT_NODE || node.tagName != "listitem"))
@@ -271,8 +271,18 @@ function fillInTooltip(event) {
   if (!node || !("location" in node))
     return false;
 
-  var pattern = ("filter" in node && node.filter ? node.filter.origPattern : null);
-  document.getElementById("tooltipText").setAttribute("value", node.location);
+  var pattern = ("filter" in node && node.filter ? node.filter.text : null);
+
+  var text = document.getElementById("tooltipText");
+  while (text.firstChild)
+    text.removeChild(text.firstChild);
+
+  for (var i = 0; i < node.location.length; i += 80) {
+    var description = document.createElement("description");
+    description.setAttribute("value", node.location.substr(i, 80));
+    text.appendChild(description);
+  }
+
   document.getElementById("tooltipFilter").hidden = !pattern;
   document.getElementById("tooltipFilterText").setAttribute("value", pattern);
   return true;
@@ -340,7 +350,7 @@ function detach() {
   }
   else {
     mainWin.abpForceDetach = false;
-    mainWin.abpDetachedSidebar = mainWin.open("chrome://adblockplus/content/sidebarDetached.xul", "_blank", "chrome,resizable,dependent"+position);
+    mainWin.abpDetachedSidebar = mainWin.open("sidebarDetached.xul", "_blank", "chrome,resizable,dependent"+position);
   }
 
   // Save setting

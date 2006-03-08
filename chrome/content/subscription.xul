@@ -35,6 +35,7 @@
   title="&dialog.title;"
   newtitle="&dialog.newtitle;"
   id="abpEditSubscription"
+  windowtype="abp:subscription"
   onload="init()"
   ondialogaccept="return saveSubscription()">
 

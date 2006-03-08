@@ -33,10 +33,14 @@
   xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
   title="&dialog.title;"
   id="abpPreferencesWindow"
-  onload="setTimeout(init, 0)"
+  onload="init()"
   onunload="cleanUp()"
-  ondialogaccept="saveSettings()"
-  buttons="accept,cancel"
+  ondialogaccept="applyChanges()"
+  ondialoghelp="abp.loadInBrowser('&faq.url;')"
+  buttons="accept,cancel,help"
+  buttonlabelaccept="&ok.label;"
+  buttonlabelcancel="&cancel.label;"
+  buttonlabelhelp="&help.label;"
   width="600px"
   height="450px"
   persist="screenX screenY width height"
@@ -48,6 +52,7 @@
 <keyset id="adblockKeys">
   <key id="import-key" key="i" modifiers="accel" command="import-command"/>
   <key id="export-key" key="e" modifiers="accel" command="export-command"/>
+  <key id="selectall-key" key="a" modifiers="accel" command="selectall-command"/>
   <key id="edit-key" keycode="VK_ENTER"/>
   <key id="remove-key" keycode="VK_DELETE"/>
   <key id="moveup-key" keycode="VK_UP" modifiers="accel"/>
@@ -60,22 +65,21 @@
   <command id="addsubscription-command" oncommand="editSubscription(null)"/>
   <command id="import-command" oncommand="importList()"/>
   <command id="export-command" oncommand="exportList()"/>
+  <command id="selectall-command" oncommand="treeView.selection.selectAll()"/>
 </commandset>
 
 <popupset id="abpPopups">
-  <popup id="listitem-context" onpopupshowing="fillContext()">
-    <menuitem id="context-edit" label="&context.edit.label;" oncommand="editor.startEditor()" key="edit-key"/>
-    <menuitem id="context-remove" label="&context.remove.label;" oncommand="removeFilter()" key="remove-key"/>
-    <menuitem id="context-synchsubscription" label="&context.synchsubscription.label;" oncommand="synchSubscription(groupManager.getSelectedGroup())"/>
-    <menuitem id="context-editsubscription" label="&context.editsubscription.label;..." oncommand="editSubscription(groupManager.getSelectedGroup())" key="edit-key"/>
-    <menuitem id="context-removesubscription" label="&context.removesubscription.label;..." oncommand="removeSubscription(groupManager.getSelectedGroup())" key="remove-key"/>
-    <menuseparator/>
-    <menuitem id="context-moveup" label="&context.moveup.label;" oncommand="moveFilter(true)" key="moveup-key"/>
-    <menuitem id="context-movedown" label="&context.movedown.label;" oncommand="moveFilter(false)" key="movedown-key"/>
-    <menuitem id="context-movegroupup" label="&context.movegroupup.label;" oncommand="moveGroup(true)" key="movegroupup-key"/>
-    <menuitem id="context-movegroupdown" label="&context.movegroupdown.label;" oncommand="moveGroup(false)" key="movegroupdown-key"/>
-    <menuseparator/>
-    <menuitem id="context-listsort" label="&listsort.label;" type="checkbox" oncommand="togglePref('listsort')"/>
+  <popup id="listitem-context" onpopupshowing="return fillContext()">
+    <menuitem id="context-edit" label="&context.edit.label;" oncommand="editFilter('filter')" key="edit-key"/>
+    <menuitem id="context-remove" label="&context.remove.label;" oncommand="removeFilters('filter')" key="remove-key"/>
+    <menuitem id="context-moveup" label="&context.moveup.label;" oncommand="moveFilter('filter', true)" key="moveup-key"/>
+    <menuitem id="context-movedown" label="&context.movedown.label;" oncommand="moveFilter('filter', false)" key="movedown-key"/>
+    <menuseparator id="content-subscription-sep"/>
+    <menuitem id="context-synchsubscription" label="&context.synchsubscription.label;" oncommand="synchSubscription()"/>
+    <menuitem id="context-editsubscription" label="&context.editsubscription.label;..." oncommand="editFilter('subscription')" key="edit-key"/>
+    <menuitem id="context-removesubscription" label="&context.removesubscription.label;..." oncommand="removeFilters('subscription')" key="remove-key"/>
+    <menuitem id="context-movegroupup" label="&context.movegroupup.label;" oncommand="moveFilter('subscription', true)" key="movegroupup-key"/>
+    <menuitem id="context-movegroupdown" label="&context.movegroupdown.label;" oncommand="moveFilter('subscription', false)" key="movegroupdown-key"/>
   </popup>
 </popupset>
 
@@ -88,13 +92,11 @@
         <menuitem id="import" label="&import.label;..." accesskey="&import.accesskey;" key="import-key" command="import-command"/>
         <menuitem id="export" label="&export.label;..." accesskey="&export.accesskey;" key="export-key" command="export-command"/>
         <menuitem id="clearall" label="&clearall.label;..." accesskey="&clearall.accesskey;" oncommand="clearList()"/>
-        <menuseparator/>
-        <menuitem id="listsort" label="&listsort.label;" accesskey="&listsort.accesskey;" type="checkbox" oncommand="togglePref('listsort')"/>
       </menupopup>
     </menu>
     <menu id="options-menu" label="&options.label;" accesskey="&options.accesskey;">
       <menupopup id="options-popup" onpopupshowing="fillOptionsPopup()">
-        <menuitem id="enabled" label="&enable.label;" accesskey="&enable.accesskey;" type="checkbox" oncommand="togglePref('enabled')"/>
+        <menuitem id="abp-enabled" label="&enable.label;" accesskey="&enable.accesskey;" type="checkbox" oncommand="togglePref('enabled')"/>
         <menuseparator/>
         <menuitem id="showinstatusbar" label="&showinstatusbar.label;" accesskey="&showinstatusbar.accesskey;" type="checkbox" oncommand="togglePref('showinstatusbar')"/>
         <menuitem id="localpages" label="&localpages.label;" accesskey="&localpages.accesskey;" type="checkbox" oncommand="togglePref('blocklocalpages')"/>
@@ -105,9 +107,9 @@
     </menu>
     <menu id="help-menu" label="&help.label;" accesskey="&help.accesskey;">
       <menupopup id="help-popup">
-        <menuitem id="faqLink" label="&faq.label;" accesskey="&faq.accesskey;" oncommand="abp.loadInBrowser('&faq.url;');"/>
-        <menuitem id="tipsLink" label="&tips.label;" accesskey="&tips.accesskey;" oncommand="abp.loadInBrowser('&tips.url;');"/>
-        <menuitem id="regexpsLink" label="&regexps.label;" accesskey="&regexps.accesskey;" oncommand="abp.loadInBrowser('&regexps.url;');"/>
+        <menuitem id="faqLink" label="&faq.label;" accesskey="&faq.accesskey;" oncommand="abp.loadInBrowser('&faq.url;')"/>
+        <menuitem id="tipsLink" label="&tips.label;" accesskey="&tips.accesskey;" oncommand="abp.loadInBrowser('&tips.url;')"/>
+        <menuitem id="regexpsLink" label="&regexps.label;" accesskey="&regexps.accesskey;" oncommand="abp.loadInBrowser('&regexps.url;')"/>
         <menuseparator/>
         <menuitem id="aboutAbp" label="&about.label;..." accesskey="&about.accesskey;" oncommand="openAbout()"/>
       </menupopup>
@@ -119,6 +121,9 @@
   <description id="introduction">
     &description;
   </description>
+  <description id="disabledWarning" hidden="true">
+    &disabled.warning;
+  </description>
   <hbox align="center">
     <label id="newfilterLabel" value="&newfilter.label;" accesskey="&newfilter.accesskey;" control="newfilter" />
     <menulist id="newfilter" flex="1" editable="true" disableautoselect="true" onkeypress="onFilterKeyPress(event)" onpopupshowing="fixColWidth()">
@@ -129,22 +134,20 @@
 </vbox>
 
 <vbox id="listarea" flex="1">
-  <label id="listLabel" value="&list.label;" accesskey="&list.accesskey;" control="list" />
-  <listbox id="list" seltype="multiple" flex="1" context="listitem-context" onkeypress="onListKeyPress(event)">
-    <listitem id="list-editor"><textbox id="list-editorField"/></listitem>
-  </listbox>
+  <stack id="listStack" flex="1">
+    <tree id="list" persist="closedSubscriptions" flex="1" seltype="multiple" enableColumnDrag="true" context="listitem-context">
+      <treecols>
+        <treecol id="pattern" label="&pattern.column;" primary="true" flex="10" persist="width ordinal sortDirection hidden"/>
+        <splitter class="tree-splitter"/>
+        <treecol id="enabled" label="&enabled.column;" persist="width ordinal sortDirection hidden"/>
+        <splitter class="tree-splitter"/>
+        <treecol id="hitcount" label="&hitcount.column;" persist="width ordinal sortDirection hidden"/>
+      </treecols>
+  
+      <treechildren onclick="onListClick(event)" ondraggesture="onListDragGesture(event)" ondblclick="editFilter('')"/>
+    </tree>
+    <iframe id="listEditor" src="editor.xul" left="0" top="0" height="0" width="0"/>
+  </stack>
 </vbox>
-
-<hbox id="buttonarea" class="dialog-button-box">
-  <description id="disabledWarning" hide="true" flex="1">
-    &disabled.warning;
-  </description>
-  <vbox id="buttons" pack="end">
-    <hbox>
-      <button class="dialog-button" dlgtype="accept" id="ok-button" label="&ok.label;" disabled="true"/>
-      <button class="dialog-button" dlgtype="cancel" id="cancel-button" label="&cancel.label;"/>
-    </hbox>
-  </vbox>
-</hbox>
 
 </dialog>

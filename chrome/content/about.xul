@@ -33,6 +33,7 @@
   xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
   title="&dialog.title;"
   id="adblockAboutWindow"
+  windowtype="abp:about"
   onload="fillInVersion()"
   buttons="accept">
 
@@ -58,9 +59,9 @@
     <description value="Blackdire - Chinese Simplified translation"/>
     <description value="Claudio Périco - Brazilian Portuguese translation"/>
     <description value="Dagobert_78 - French translation"/>
-    <description value="Fenix-TX - Spanish translation"/>
     <description value="Finn Sørensen - Danish translation"/>
     <description value="Jacen - Slovak translation"/>
+    <description value="Jesús Vidal Panalés - Spanish translation"/>
     <description value="jojaba - French translation"/>
     <description value="Jonas Slivka - Lithuanian translation"/>
     <description value="Joni Heinonen aka Akilles - Finnish translation"/>
