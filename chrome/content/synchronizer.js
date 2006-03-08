@@ -33,12 +33,12 @@ var synchronizer = {
   timer: null,
 
   init: function() {
-    this.timer = createTimer(this.synchronizeCallback, 10000/*300000*/);
+    this.timer = createTimer(this.synchronizeCallback, 300000);
     this.timer.type = this.timer.TYPE_REPEATING_SLACK;
   },
 
   synchronizeCallback: function() {
-    synchronizer.timer.delay = 36000/*3600000*/;
+    synchronizer.timer.delay = 3600000;
 
     for (var i = 0; i < prefs.subscriptions.length; i++) {
       var subscription = prefs.subscriptions[i];
@@ -47,7 +47,7 @@ var synchronizer = {
   
       // Get the number of hours since last download
       var interval = (new Date().getTime()/1000 - subscription.lastSuccess) / 3600;
-      /*if (interval > prefs.synchronizationinterval)*/
+      if (interval > prefs.synchronizationinterval)
         synchronizer.execute(subscription);
     }
   },
