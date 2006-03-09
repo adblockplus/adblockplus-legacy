@@ -54,13 +54,23 @@ if ("nsIStyleSheetService" in Components.interfaces) {
 // Matcher class constructor
 function Matcher() {
   this.patterns = [];
+  this.shortcutHash = new HashTable();
+  this.shortcuts = 0;
+  this.regexps = [];
   this.known = new HashTable();
 }
+
+const shortcutLength = 8;
+const shortcutRegexp = new RegExp('[^*|@]{' + shortcutLength + '}', 'g');
+const minShortcutNumber = 100;
 
 Matcher.prototype = {
   // Clears the list
   clear: function() {
     this.patterns = [];
+    this.shortcutHash = new HashTable();
+    this.shortcuts = 0;
+    this.regexps = [];
     this.known.clear();
   },
 
@@ -69,16 +79,52 @@ Matcher.prototype = {
     if (this.known.has(pattern.regexp))
       return;
 
+    // Look for a suitable shortcut if the current can't be used
+    if (!("shortcut" in pattern) || this.shortcutHash.has(pattern.shortcut)) {
+      delete pattern.shortcut;
+      if (!/^(@@)?\/.*\/$/.test(pattern.text)) {
+        var candidates = pattern.text.match(shortcutRegexp);
+        if (candidates) {
+          for (var i = 0; i < candidates.length; i++) {
+            if (!this.shortcutHash.has(candidates[i])) {
+              pattern.shortcut = candidates[i];
+              break;
+            }
+          }
+        }
+      }
+    }
+
+    if ("shortcut" in pattern) {
+      this.shortcutHash.put(pattern.shortcut, pattern);
+      this.shortcuts++;
+    }
+    else 
+      this.regexps.push(pattern);
+
     this.patterns.push(pattern);
     this.known.put(pattern.regexp, true);
   },
 
   // Tests whether URL matches any of the patterns in the list, returns the matching pattern
   matchesAny: function(location) {
-    for (var i = 0; i < this.patterns.length; i++)
-      if (this.patterns[i].regexp.test(location))
-        return this.patterns[i];
-  
+    var list = this.patterns;
+    if (this.shortcuts > minShortcutNumber) {
+      // Optimize matching using shortcuts
+      var endPos = location.length - shortcutLength + 1;
+      for (var i = 0; i <= endPos; i++) {
+        var substr = location.substr(i, shortcutLength);
+        if (this.shortcutHash.has(substr) && this.shortcutHash.get(substr).regexp.test(location))
+          return this.shortcutHash.get(substr);
+      }
+
+      list = this.regexps;
+    }
+
+    for (i = 0; i < list.length; i++)
+      if (list[i].regexp.test(location))
+        return list[i];
+
     return null;
   }
 };
@@ -544,6 +590,8 @@ var prefs = {
     else
       this.initRegexp(ret);
 
+    if ("shortcut" in obj)
+      ret.shortcut = obj.shortcut;
     ret.disabled = ("disabled" in obj && obj.disabled == "true");
     ret.hitCount = ("hitCount" in obj ? parseInt(obj.hitCount) : 0) || 0;
 
@@ -643,6 +691,8 @@ var prefs = {
       buf.push('regexp=' + pattern.regexpText);
     if ("pageWhitelist" in pattern && pattern.pageWhitelist != null)
       buf.push('pageWhitelist=' + pattern.pageWhitelist);
+    if ("shortcut" in pattern)
+      buf.push('shortcut=' + pattern.shortcut);
     buf.push('disabled=' + pattern.disabled);
     buf.push('hitCount=' + pattern.hitCount);
 
