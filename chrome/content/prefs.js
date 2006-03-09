@@ -42,7 +42,7 @@ var serializer = Components.classes["@mozilla.org/xmlextras/xmlserializer;1"]
                            .createInstance(Components.interfaces.nsIDOMSerializer);
 
 var unicodeConverter = Components.classes["@mozilla.org/intl/scriptableunicodeconverter"]
-                                 .getService(Components.interfaces.nsIScriptableUnicodeConverter);
+                                 .createInstance(Components.interfaces.nsIScriptableUnicodeConverter);
 unicodeConverter.charset = "UTF-8";
 
 var styleService = null;
@@ -349,7 +349,12 @@ var prefs = {
       var wantProp = false;
       var line = {value: null};
       while (stream.readLine(line) || (line = {value: '[end]'})) {
-        var val = unicodeConverter.ConvertToUnicode(line.value);
+        var val = line.value;
+
+        try {
+          val = unicodeConverter.ConvertToUnicode(val);
+        } catch(e) {}
+
         if (wantObj && /^(\w+)=(.*)$/.test(val))
           curObj[RegExp.$1] = RegExp.$2;
         else if (/^\s*\[(.+)\]\s*$/.test(val)) {
