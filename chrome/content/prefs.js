@@ -262,7 +262,7 @@ var prefs = {
 
   // Reloads pattern data from the patterns file
   reloadPatterns: function() {
-    var start = new Date().getTime();
+//    var start = new Date().getTime();
 
     if (cache)
       cache.clear();
@@ -422,7 +422,7 @@ var prefs = {
     if (this.enabled)
       this.elemhidePatterns.apply();
 
-    dump("Time to load patterns: " + (new Date().getTime() - start) + "\n");
+//    dump("Time to load patterns: " + (new Date().getTime() - start) + "\n");
   },
 
   getFileByPath: function(path) {
@@ -447,7 +447,7 @@ var prefs = {
 
   // Saves pattern data back to the patterns file
   savePatterns: function(noReload) {
-    var start = new Date().getTime();
+//    var start = new Date().getTime();
 
     var file = this.getFileByPath(/*this.patternsfile*/"adblockplus/patterns.ini");
     if (!file && " patternsfile" in this.prefList)
@@ -515,7 +515,7 @@ var prefs = {
       stream.close();
     }
 
-    dump("Time to save patterns: " + (new Date().getTime() - start) + "\n");
+//    dump("Time to save patterns: " + (new Date().getTime() - start) + "\n");
 
     // Reinit data now
     if (typeof noReload == "undefined" || !noReload)
