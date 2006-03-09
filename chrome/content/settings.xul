@@ -53,6 +53,9 @@
   <key id="import-key" key="i" modifiers="accel" command="import-command"/>
   <key id="export-key" key="e" modifiers="accel" command="export-command"/>
   <key id="selectall-key" key="a" modifiers="accel" command="selectall-command"/>
+  <key id="copy-key" key="c" modifiers="accel" command="copy-command"/>
+  <key id="cut-key" key="x" modifiers="accel" command="cut-command"/>
+  <key id="paste-key" key="v" modifiers="accel" command="paste-command"/>
   <key id="edit-key" keycode="VK_ENTER"/>
   <key id="remove-key" keycode="VK_DELETE"/>
   <key id="moveup-key" keycode="VK_UP" modifiers="accel"/>
@@ -66,18 +69,25 @@
   <command id="import-command" oncommand="importList()"/>
   <command id="export-command" oncommand="exportList()"/>
   <command id="selectall-command" oncommand="treeView.selection.selectAll()"/>
+  <command id="copy-command" oncommand="copyToClipboard()"/>
+  <command id="cut-command" oncommand="copyToClipboard(); removeFilters('filter')"/>
+  <command id="paste-command" oncommand="pasteFromClipboard()"/>
 </commandset>
 
 <popupset id="abpPopups">
   <popup id="listitem-context" onpopupshowing="return fillContext()">
-    <menuitem id="context-edit" label="&context.edit.label;" oncommand="editFilter('filter')" key="edit-key"/>
-    <menuitem id="context-remove" label="&context.remove.label;" oncommand="removeFilters('filter')" key="remove-key"/>
-    <menuitem id="context-moveup" label="&context.moveup.label;" oncommand="moveFilter('filter', true)" key="moveup-key"/>
-    <menuitem id="context-movedown" label="&context.movedown.label;" oncommand="moveFilter('filter', false)" key="movedown-key"/>
     <menuitem id="context-synchsubscription" label="&context.synchsubscription.label;" oncommand="synchSubscription()"/>
     <menuitem id="context-editsubscription" label="&context.editsubscription.label;..." oncommand="editFilter('subscription')" key="edit-key"/>
     <menuitem id="context-removesubscription" label="&context.removesubscription.label;..." oncommand="removeFilters('subscription')" key="remove-key"/>
-    <menuseparator id="content-group-sep"/>
+    <menuitem id="context-edit" label="&context.edit.label;" oncommand="editFilter('filter')" key="edit-key"/>
+    <menuitem id="context-moveup" label="&context.moveup.label;" oncommand="moveFilter('filter', true)" key="moveup-key"/>
+    <menuitem id="context-movedown" label="&context.movedown.label;" oncommand="moveFilter('filter', false)" key="movedown-key"/>
+    <menuseparator id="context-filters-sep"/>
+    <menuitem id="context-cut" label="&context.cut.label;" command="cut-command" key="cut-key"/>
+    <menuitem id="context-copy" label="&context.copy.label;" command="copy-command" key="copy-key"/>
+    <menuitem id="context-paste" label="&context.paste.label;" command="paste-command" key="paste-key"/>
+    <menuitem id="context-remove" label="&context.remove.label;" oncommand="removeFilters('filter')" key="remove-key"/>
+    <menuseparator id="context-group-sep"/>
     <menuitem id="context-movegroupup" label="&context.movegroupup.label;" oncommand="moveFilter('subscription', true)" key="movegroupup-key"/>
     <menuitem id="context-movegroupdown" label="&context.movegroupdown.label;" oncommand="moveFilter('subscription', false)" key="movegroupdown-key"/>
   </popup>
