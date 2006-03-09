@@ -502,6 +502,23 @@ var prefs = {
     if (!file)
       return;
 
+    // Try to create the file's directory recursively
+    try {
+      file.normalize();
+
+      var parents = [];
+      try {
+        for (var parent = file.parent; parent; parent = parent.parent)
+          parents.push(parent);
+      } catch (e) {}
+      for (var i = parents.length - 1; i >= 0; i--) {
+        try {
+          parents[i].create(parents[i].DIRECTORY_TYPE, 0644);
+        } catch (e) {}
+      }
+    }
+    catch (e) {}
+
     if (file.exists()) {
       // Try to remove existing file
       try {
