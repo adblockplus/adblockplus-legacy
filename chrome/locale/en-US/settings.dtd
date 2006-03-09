@@ -85,7 +85,10 @@
 <!ENTITY enabled.column             "Enabled">
 
 <!ENTITY context.edit.label         "Edit filter">
-<!ENTITY context.remove.label       "Remove filter(s)">
+<!ENTITY context.cut.label          "Cut">
+<!ENTITY context.copy.label         "Copy">
+<!ENTITY context.paste.label        "Paste">
+<!ENTITY context.remove.label       "Delete">
 <!ENTITY context.synchsubscription.label  "Update subscription now">
 <!ENTITY context.editsubscription.label   "Edit subscription">
 <!ENTITY context.removesubscription.label "Remove subscription">

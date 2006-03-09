@@ -449,6 +449,59 @@ function removeFilters(type) {
   }
 }
 
+// Copies selected filters to clipboard
+function copyToClipboard() {
+  // Retrieve selected items
+  var selected = treeView.getSelectedInfo();
+
+  var lines = [];
+  for (var i = 0; i < selected.length; i++)
+    if (selected[i][1] && typeof selected[i][1] != "string")
+      lines.push(selected[i][1].text);
+
+  if (!lines.length)
+    return;
+
+  var clipboardHelper = Components.classes["@mozilla.org/widget/clipboardhelper;1"]
+                                  .getService(Components.interfaces.nsIClipboardHelper);
+  var lineBreak = abp.getLineBreak();
+  clipboardHelper.copyString(lines.join(lineBreak) + lineBreak);
+}
+
+// Pastes text as filter list from clipboard
+function pasteFromClipboard() {
+  var clipboard = Components.classes["@mozilla.org/widget/clipboard;1"]
+                            .getService(Components.interfaces.nsIClipboard);
+  var transferable = Components.classes["@mozilla.org/widget/transferable;1"]
+                               .createInstance(Components.interfaces.nsITransferable);
+  transferable.addDataFlavor("text/unicode");
+
+  try {
+    clipboard.getData(transferable, clipboard.kGlobalClipboard);
+  }
+  catch (e) {
+    return;
+  }
+
+  var data = {};
+  transferable.getTransferData("text/unicode", data, {});
+
+  try {
+    data = data.value.QueryInterface(Components.interfaces.nsISupportsString).data;
+  }
+  catch (e) {
+    return;
+  }
+
+  var lines = data.split(/\s+/);
+  for (var i = 0; i < lines.length; i++) {
+    if (!lines[i])
+      continue;
+
+    treeView.addPattern(lines[i]);
+  }
+}
+
 // Starts synchronization for a subscription
 function synchSubscription() {
   var info = treeView.getRowInfo(treeView.selection.currentIndex);
@@ -523,12 +576,16 @@ function fillContext() {
   if (subscription && hasPatterns && !subscription.special)
     hasPatterns = false;
 
-  document.getElementById("content-group-sep").hidden = !subscription || (!hasPatterns && subscription.special);
+  document.getElementById("context-group-sep").hidden = !subscription || (!hasPatterns && subscription.special);
 
   document.getElementById("context-edit").hidden =
-    document.getElementById("context-remove").hidden =
     document.getElementById("context-moveup").hidden =
     document.getElementById("context-movedown").hidden =
+    document.getElementById("context-filters-sep").hidden =
+    document.getElementById("context-cut").hidden =
+    document.getElementById("context-copy").hidden =
+    document.getElementById("context-paste").hidden =
+    document.getElementById("context-remove").hidden =
     !hasPatterns;
 
   document.getElementById("context-synchsubscription").hidden =
@@ -561,11 +618,25 @@ function fillContext() {
       }
     }
 
+    var hasFlavour = true;
+    var clipboard = Components.classes["@mozilla.org/widget/clipboard;1"]
+                              .getService(Components.interfaces.nsIClipboard);
+    var flavours = Components.classes["@mozilla.org/supports-array;1"]
+                             .createInstance(Components.interfaces.nsISupportsArray);
+    var flavourString = Components.classes["@mozilla.org/supports-cstring;1"]
+                                  .createInstance(Components.interfaces.nsISupportsCString);
+    flavourString.data = "text/unicode";
+    flavours.AppendElement(flavourString);
+
     document.getElementById("context-edit").setAttribute("disabled", !editable);
-    document.getElementById("context-remove").setAttribute("disabled", !hasRemovable);
     document.getElementById("context-moveup").setAttribute("disabled", isFirst);
     document.getElementById("context-movedown").setAttribute("disabled", isLast);
+    document.getElementById("context-cut").setAttribute("disabled", !hasRemovable);
+    document.getElementById("context-paste").setAttribute("disabled", !clipboard.hasDataMatchingFlavors(flavours, clipboard.kGlobalClipboard));
+    document.getElementById("context-remove").setAttribute("disabled", !hasRemovable);
   }
+
+  return true;
 }
 
 // Toggles the value of a boolean pref
@@ -744,7 +815,7 @@ var treeView = {
 
     this.boxObject = boxObject;
 
-    var i, j;
+    var i, j, subscription;
 
     var stringAtoms = ["col-pattern", "col-hitcount", "col-enabled", "type-comment", "type-filterlist", "type-whitelist", "type-elemhide", "type-invalid"];
     var boolAtoms = ["selected", "subscription", "description", "pattern", "subscription-special", "subscription-external", "subscription-autoDownload", "subscription-disabled", "pattern-disabled"];
@@ -764,7 +835,7 @@ var treeView = {
     this.data = [];
     for (i = 0; i < prefs.subscriptions.length; i++) {
       this.data.push(cloneObject(prefs.subscriptions[i]));
-      var subscription = this.data[this.data.length - 1];
+      subscription = this.data[this.data.length - 1];
       subscription.extra = this.getSubscriptionDescription(subscription);
 
       this.initSubscriptionPatterns(subscription, subscription.patterns);
@@ -781,7 +852,7 @@ var treeView = {
       if (!this.typemap.has(prefs.userPatterns[i].type))
         continue;
 
-      var subscription = this.typemap.get(prefs.userPatterns[i].type);
+      subscription = this.typemap.get(prefs.userPatterns[i].type);
       var pattern = cloneObject(prefs.userPatterns[i]);
       pattern.orig = prefs.userPatterns[i];
       pattern.origPos = subscription.nextPos++;
@@ -1015,7 +1086,7 @@ var treeView = {
 
     var info = this.getRowInfo(row);
     if (!info)
-      return;
+      return false;
 
     if (this.dragData[1]) {
       // Dragging a pattern
@@ -1041,13 +1112,14 @@ var treeView = {
     if (!info)
       return;
 
+    var index1, index2;
     if (this.dragData[1]) {
       // Dragging a pattern
       if (!info[1] || info[0] != this.dragData[0])
         return;
 
-      var index1 = -1;
-      var index2 = -1;
+      index1 = -1;
+      index2 = -1;
       for (var i = 0; i < info[0].patterns.length; i++) {
         if (info[0].patterns[i] == this.dragData[1])
           index1 = i;
@@ -1066,9 +1138,10 @@ var treeView = {
     }
     else {
       // Dragging a subscription
-      var index1 = -1;
-      var index2 = -1;
-      for (var index = 0, i = 0; i < this.data.length; i++) {
+      index1 = -1;
+      index2 = -1;
+      var index = 0;
+      for (i = 0; i < this.data.length; i++) {
         // Ignore invisible groups
         if (this.data[i].special && this.data[i].patterns.length == 0)
           continue;
@@ -1457,13 +1530,14 @@ var treeView = {
   },
 
   moveRow: function(info, offset) {
+    var index, step;
     if (info[1] && typeof info[1] != "string") {
       if (this.isSorted() || !info[0].special)
         return;
 
       // Swapping two patterns within a subscription
       var subscription = info[0];
-      var index = -1;
+      index = -1;
       for (var i = 0; i < subscription.patterns.length; i++)
         if (subscription.patterns[i] == info[1])
           index = i;
@@ -1479,7 +1553,7 @@ var treeView = {
       if (offset == 0)
         return;
 
-      var step = (offset < 0 ? -1 : 1);
+      step = (offset < 0 ? -1 : 1);
       for (i = index + step; i != index + offset + step; i += step) {
         var tmp = subscription.patterns[i].origPos;
         subscription.patterns[i].origPos = subscription.patterns[i - step].origPos;
@@ -1504,7 +1578,7 @@ var treeView = {
     }
     else {
       // Moving a subscription
-      var index = -1;
+      index = -1;
       for (i = 0; i < this.data.length; i++)
         if (this.data[i] == info[0])
           index = i;
@@ -1512,7 +1586,7 @@ var treeView = {
       if (index < 0)
         return;
 
-      var step = (offset < 0 ? -1 : 1);
+      step = (offset < 0 ? -1 : 1);
       var current = index;
       for (i = index + step; i >= 0 && i < this.data.length && offset != 0; i += step) {
         // Ignore invisible groups
