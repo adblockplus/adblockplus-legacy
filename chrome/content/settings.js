@@ -33,7 +33,6 @@ var synchronizer = abp.synchronizer;
 var suggestionItems = null;
 var insecWnd = null;   // Window we should apply filters at
 var wndData = null;    // Data for this window
-var lineBreak = null;   // Plattform dependent line break
 
 // Preference window initialization
 function init() {
@@ -266,29 +265,7 @@ function exportList() {
   picker.appendFilters(picker.filterAll);
 
   if (picker.show() != picker.returnCancel) {
-    if (lineBreak == null) {
-      // HACKHACK: Gecko doesn't expose NS_LINEBREAK, try to determine
-      // plattform's line breaks by reading prefs.js
-      lineBreak = "\n";
-      try {
-        var dirService = Components.classes["@mozilla.org/file/directory_service;1"]
-                                   .createInstance(Components.interfaces.nsIProperties);
-        var prefFile = dirService.get("PrefF", Components.interfaces.nsIFile);
-        var inputStream = Components.classes["@mozilla.org/network/file-input-stream;1"]
-                                    .createInstance(Components.interfaces.nsIFileInputStream);
-        inputStream.init(prefFile, 0x01, 0444, 0);
-
-        var scriptableStream = Components.classes["@mozilla.org/scriptableinputstream;1"]
-                                         .createInstance(Components.interfaces.nsIScriptableInputStream);
-        scriptableStream.init(inputStream);
-        var data = scriptableStream.read(1024);
-        scriptableStream.close();
-
-        if (/(\r\n?|\n\r?)/.test(data))
-          lineBreak = RegExp.$1;
-      } catch (e) {alert(e)}
-    }
-
+    var lineBreak = abp.getLineBreak();
     try {
       var stream = Components.classes["@mozilla.org/network/file-output-stream;1"]
                             .createInstance(Components.interfaces.nsIFileOutputStream);
@@ -546,7 +523,7 @@ function fillContext() {
   if (subscription && hasPatterns && !subscription.special)
     hasPatterns = false;
 
-  document.getElementById("content-subscription-sep").hidden = !hasPatterns || !subscription;
+  document.getElementById("content-group-sep").hidden = !subscription || (!hasPatterns && subscription.special);
 
   document.getElementById("context-edit").hidden =
     document.getElementById("context-remove").hidden =
@@ -558,14 +535,13 @@ function fillContext() {
     document.getElementById("context-editsubscription").hidden =
     document.getElementById("context-removesubscription").hidden =
     !subscription || subscription.special;
+
   document.getElementById("context-movegroupup").hidden =
     document.getElementById("context-movegroupdown").hidden =
     !subscription;
 
   if (subscription) {
-    document.getElementById("context-synchsubscription").setAttribute("disabled", subscription.special || subscription.external);
-    document.getElementById("context-editsubscription").setAttribute("disabled", subscription.special);
-    document.getElementById("context-removesubscription").setAttribute("disabled", subscription.special);
+    document.getElementById("context-synchsubscription").setAttribute("disabled", subscription.external);
     document.getElementById("context-movegroupup").setAttribute("disabled", treeView.isFirstSubscription(subscription));
     document.getElementById("context-movegroupdown").setAttribute("disabled", treeView.isLastSubscription(subscription));
   }

@@ -74,10 +74,10 @@
     <menuitem id="context-remove" label="&context.remove.label;" oncommand="removeFilters('filter')" key="remove-key"/>
     <menuitem id="context-moveup" label="&context.moveup.label;" oncommand="moveFilter('filter', true)" key="moveup-key"/>
     <menuitem id="context-movedown" label="&context.movedown.label;" oncommand="moveFilter('filter', false)" key="movedown-key"/>
-    <menuseparator id="content-subscription-sep"/>
     <menuitem id="context-synchsubscription" label="&context.synchsubscription.label;" oncommand="synchSubscription()"/>
     <menuitem id="context-editsubscription" label="&context.editsubscription.label;..." oncommand="editFilter('subscription')" key="edit-key"/>
     <menuitem id="context-removesubscription" label="&context.removesubscription.label;..." oncommand="removeFilters('subscription')" key="remove-key"/>
+    <menuseparator id="content-group-sep"/>
     <menuitem id="context-movegroupup" label="&context.movegroupup.label;" oncommand="moveFilter('subscription', true)" key="movegroupup-key"/>
     <menuitem id="context-movegroupdown" label="&context.movegroupdown.label;" oncommand="moveFilter('subscription', false)" key="movegroupdown-key"/>
   </popup>
