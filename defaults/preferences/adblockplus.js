@@ -11,7 +11,7 @@ pref("extensions.adblockplus.checkedadblocksync", false);
 pref("extensions.adblockplus.checkedadblockinstalled", false);
 pref("extensions.adblockplus.detachsidebar", false);
 pref("extensions.adblockplus.synchronizationinterval", 24);
-pref("extensions.adblockplus.patternsfile", "adblockplus/patterns.rdf");
+pref("extensions.adblockplus.patternsfile", "adblockplus/patterns.ini");
 
 // Default filter list
 pref("extensions.adblockplus.patterns", "@@|https:// */ads/* */advertisements/* http://*.adserver.example.com/*");

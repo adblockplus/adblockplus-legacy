@@ -36,6 +36,14 @@ var dirService = Components.classes["@mozilla.org/file/directory_service;1"]
 var profileDir = dirService.get("ProfD", Components.interfaces.nsIFile);
 var ioService = Components.classes["@mozilla.org/network/io-service;1"]
                           .getService(Components.interfaces.nsIIOService);
+var parser = Components.classes["@mozilla.org/xmlextras/domparser;1"]
+                       .createInstance(Components.interfaces.nsIDOMParser);
+var serializer = Components.classes["@mozilla.org/xmlextras/xmlserializer;1"]
+                           .createInstance(Components.interfaces.nsIDOMSerializer);
+
+var unicodeConverter = Components.classes["@mozilla.org/intl/scriptableunicodeconverter"]
+                                 .getService(Components.interfaces.nsIScriptableUnicodeConverter);
+unicodeConverter.charset = "UTF-8";
 
 var styleService = null;
 if ("nsIStyleSheetService" in Components.interfaces) {
@@ -141,7 +149,6 @@ var prefs = {
   disableObserver: false,
   branch: prefService.getBranch(prefRoot),
   prefList: [],
-  rdf: null,
   knownPatterns: new HashTable(),
   userPatterns: [],
   knownSubscriptions: new HashTable(),
@@ -195,6 +202,7 @@ var prefs = {
 
     // Initial prefs loading
     this.reload();
+    this.reloadPatterns();
   },
 
   // Loads a pref and stores it as a property of the object
@@ -221,14 +229,6 @@ var prefs = {
     // Load data from prefs.js
     for (var i = 0; i < this.prefList.length; i++)
       this.loadPref(this.prefList[i]);
-
-    // Make sure we have an RDF datasource
-    var oldRDF = this.rdf;
-    this.initDataSource();
-
-    // Only reload data from RDF if we have a new datasource
-    if (this.rdf != oldRDF)
-      this.reloadPatterns()
 
     if (this.enabled)
       this.elemhidePatterns.apply();
@@ -260,101 +260,9 @@ var prefs = {
     this.reload();
   },
 
-  initDataSource: function() {
-    var rdfFile = null;
-    if (!rdfFile) {
-      // Try using patternsfile as absolute path first
-      try {
-        rdfFile = Components.classes["@mozilla.org/file/local;1"]
-                            .createInstance(Components.interfaces.nsILocalFile);
-        rdfFile.initWithPath(this.patternsfile);
-      }
-      catch (e) {
-        rdfFile = null;
-      }
-    }
-
-    if (!rdfFile) {
-      // Try relative path now
-      try {
-        rdfFile = Components.classes["@mozilla.org/file/local;1"]
-                            .createInstance(Components.interfaces.nsILocalFile);
-        rdfFile.setRelativeDescriptor(profileDir, this.patternsfile);
-      }
-      catch (e) {
-        rdfFile = null;
-      }
-    }
-
-    if (!rdfFile && " patternsfile" in this.prefList) {
-      // Use default
-      try {
-        rdfFile = Components.classes["@mozilla.org/file/local;1"]
-                            .createInstance(Components.interfaces.nsILocalFile);
-        rdfFile.setRelativeDescriptor(profileDir, this.prefList[" patternsfile"][2]);
-      }
-      catch (e) {
-        rdfFile = null;
-      }
-    }
-
-    if (rdfFile) {
-      // Try to initialize the datasource from file
-      try {
-        rdfFile.normalize();
-        var rdfURI = ioService.newFileURI(rdfFile);
-
-        // If we have the datasource for this file already - nothing to do
-        if (this.rdf && this.rdf.URI == rdfURI.spec)
-          return;
-
-        // Try to create the file's directory recursively
-        var parents = [];
-        try {
-          for (var parent = rdfFile.parent; parent; parent = parent.parent)
-            parents.push(parent);
-        } catch (e) {}
-        for (var i = parents.length - 1; i >= 0; i--) {
-          try {
-            parents[i].create(parents[i].DIRECTORY_TYPE, 0644);
-          } catch (e) {}
-        }
-
-        this.rdf = rdfService.GetDataSourceBlocking(rdfURI.spec);
-        return;
-      }
-      catch (e) {}
-    }
-
-    if (!this.rdf || this.rdf.URI) {
-      // Use in-memory datasource if everything else fails and we don't have an in-memory datasource already
-      this.rdf = Components.classes["@mozilla.org/rdf/datasource;1?name=in-memory-datasource"]
-                           .createInstance(Components.interfaces.nsIRDFDataSource);
-      return;
-    }
-  },
-
-  resourcePatterns: resource("patterns"),
-  resourceInitialized: resource("initialized"),
-  resourceText: resource("text"),
-  resourceType: resource("type"),
-  resourceRegExp: resource("regexp"),
-  resourcePageWhitelist: resource("pageWhitelist"),
-  resourceDisabled: resource("disabled"),
-  resourceHitCount: resource("hitCount"),
-  resourceSubscriptions: resource("subscriptions"),
-  resourceURL: resource("url"),
-  resourceTitle: resource("title"),
-  resourceAutoDownload: resource("autoDownload"),
-  resourceExternal: resource("external"),
-  resourceLastDownload: resource("lastDownload"),
-  resourceLastSuccess: resource("lastSuccess"),
-  resourceDownloadStatus: resource("downloadStatus"),
-  resourceLastModified: resource("lastModified"),
-
-  // Reloads pattern data from the RDF file
+  // Reloads pattern data from the patterns file
   reloadPatterns: function() {
-//    var start = new Date().getTime();
+    var start = new Date().getTime();
 
     if (cache)
       cache.clear();
@@ -364,14 +272,86 @@ var prefs = {
     this.whitePatterns.clear();
     this.whitePatternsPage.clear();
     this.elemhidePatterns.clear();
-
-    var patterns = sequence(this.rdf, this.resourcePatterns);
-    var enum = patterns.GetElements();
     this.userPatterns = [];
-    while (enum.hasMoreElements()) {
-      var pattern = this.patternFromResource(enum.getNext());
-      if (pattern)
-        this.userPatterns.push(pattern);
+    this.subscriptions = [];
+
+    var file = this.getFileByPath(this.patternsfile);
+    if (!file && " patternsfile" in this.prefList)
+      file = getFileByPath(this.prefList[" patternsfile"][2]);  // Try default
+
+    var stream = null;
+    if (file) {
+      stream = Components.classes["@mozilla.org/network/file-input-stream;1"]
+                         .createInstance(Components.interfaces.nsIFileInputStream);
+      try {
+        stream.init(file, 0x01, 0444, 0);
+      }
+      catch (e) {
+        stream = null;
+      }
+    }
+
+    if (stream) {
+      stream = stream.QueryInterface(Components.interfaces.nsILineInputStream);
+
+      var makeList = {"user patterns": true, "subscription patterns": true};
+      var wantList = false;
+      var makeObj = {"pattern": true, "subscription": true};
+      var wantObj = false;
+      var curObj = null;
+      var curSection = null;
+      var wantProp = false;
+      var line = {value: null};
+      while (stream.readLine(line) || (line = {value: '[end]'})) {
+        var val = unicodeConverter.ConvertToUnicode(line.value);
+        if (wantObj && /^(\w+)=(.*)$/.test(val))
+          curObj[RegExp.$1] = RegExp.$2;
+        else if (/^\s*\[(.+)\]\s*$/.test(val)) {
+          var newSection = RegExp.$1.toLowerCase();
+          if (curObj) {
+            // Process current object before going to next section
+            if (curSection == "pattern")
+              prefs.patternFromObject(curObj);
+            else if (curSection == "subscription") {
+              var subscription = prefs.subscriptionFromObject(curObj);
+              if (subscription) {
+                prefs.subscriptions.push(subscription);
+                prefs.listedSubscriptions.put(subscription.url, subscription);
+              }
+            }
+            else if (curSection == "user patterns") {
+              for (var i = 0; i < curObj.length; i++) {
+                var pattern = prefs.patternFromText(curObj[i]);
+                if (pattern)
+                  prefs.userPatterns.push(pattern);
+              }
+            }
+            else if (curSection == "subscription patterns" && prefs.subscriptions.length) {
+              subscription = prefs.subscriptions[prefs.subscriptions.length - 1];
+              for (var i = 0; i < curObj.length; i++) {
+                var pattern = prefs.patternFromText(curObj[i]);
+                if (pattern)
+                  subscription.patterns.push(pattern);
+              }
+            }
+          }
+  
+          if (newSection == 'end')
+            break;
+
+          curSection = newSection;
+          wantList = curSection in makeList;
+          wantObj = curSection in makeObj;
+          if (wantObj)
+            curObj = {};
+          else if (wantList)
+            curObj = [];
+          else
+            curObj = null;
+        }
+        else if (wantList && val)
+          curObj.push(val);
+      }
     }
 
     if (this.branch.prefHasUserValue("patterns")) {
@@ -391,17 +371,6 @@ var prefs = {
         prefService.savePrefFile(null);
       } catch(e) {}
       this.disableObserver = false;
-    }
-
-    var subscriptions = sequence(this.rdf, this.resourceSubscriptions);
-    var enum = subscriptions.GetElements();
-    this.subscriptions = [];
-    while (enum.hasMoreElements()) {
-      var subscription = this.subscriptionFromResource(enum.getNext());
-      if (subscription) {
-        this.subscriptions.push(subscription);
-        this.listedSubscriptions.put(subscription.url, subscription);
-      }
     }
 
     if (this.branch.prefHasUserValue("grouporder")) {
@@ -427,9 +396,7 @@ var prefs = {
     if (!this.checkedadblocksync)
       this.importOldPatterns();
 
-    if (this.userPatterns.length == 0 &&
-        " patterns" in this.prefList &&
-        !manipulator(this.rdf, this.resourcePatterns).getBoolean(this.resourceInitialized, false)) {
+    if (this.userPatterns.length == 0 && " patterns" in this.prefList && !stream) {
       // Fill patterns list with default values
       var list = this.prefList[" patterns"][2].split(" ");
       for (var i = 0; i < list.length; i++) {
@@ -455,59 +422,110 @@ var prefs = {
     if (this.enabled)
       this.elemhidePatterns.apply();
 
-//    dump("Time to load patterns: " + (new Date().getTime() - start) + "\n");
+    dump("Time to load patterns: " + (new Date().getTime() - start) + "\n");
   },
 
-  // Saves pattern data back to the RDF file
-  savePatterns: function(noReload) {
-//    var start = new Date().getTime();
-
-    // Remove everything from the datasource first
-    var enum = this.rdf.GetAllResources();
-    while (enum.hasMoreElements())
-      manipulator(this.rdf, enum.getNext()).removeOutArcs();
-
-    manipulator(this.rdf, this.resourcePatterns).setBoolean(this.resourceInitialized, true);
-
-    // Store user patterns
-    var patterns = sequence(this.rdf, this.resourcePatterns);
-    for (var i = 0; i < this.userPatterns.length; i++) {
-      var node = resource("pattern " + this.userPatterns[i].text);
-      this.patternToResource(node, this.userPatterns[i]);
-      patterns.AppendElement(node);
-    }
-
-    // Store subscriptions
-    var subscriptions = sequence(this.rdf, this.resourceSubscriptions);
-    for (i = 0; i < this.subscriptions.length; i++) {
-      var node = resource("subscription " + this.subscriptions[i].url);
-      this.subscriptionToResource(node, this.subscriptions[i]);
-      subscriptions.AppendElement(node);
-    }
-
-    // Make sure everything is written on disk
+  getFileByPath: function(path) {
     try {
-      this.rdf.QueryInterface(Components.interfaces.nsIRDFRemoteDataSource).Flush();
-    } catch(e) {}
+      // Assume a relative path first
+      var file = Components.classes["@mozilla.org/file/local;1"]
+                           .createInstance(Components.interfaces.nsILocalFile);
+      file.initWithPath(path);
+      return file;
+    } catch (e) {}
 
-//    dump("Time to save patterns: " + (new Date().getTime() - start) + "\n");
+    try {
+      // Try relative path now
+      file = Components.classes["@mozilla.org/file/local;1"]
+                       .createInstance(Components.interfaces.nsILocalFile);
+      file.setRelativeDescriptor(profileDir, path);
+      return file;
+    } catch (e) {}
+
+    return null;
+  },
+
+  // Saves pattern data back to the patterns file
+  savePatterns: function(noReload) {
+    var start = new Date().getTime();
+
+    var file = this.getFileByPath(/*this.patternsfile*/"adblockplus/patterns.ini");
+    if (!file && " patternsfile" in this.prefList)
+      file = getFileByPath(this.prefList[" patternsfile"][2]);  // Try default
+
+    if (!file)
+      return;
+
+    if (file.exists()) {
+      // Try to remove existing file
+      try {
+        file.remove(false);
+      } catch (e) {}
+    }
+
+    var stream = Components.classes["@mozilla.org/network/file-output-stream;1"]
+                           .createInstance(Components.interfaces.nsIFileOutputStream);
+    try {
+      stream.init(file, 0x02 | 0x08 | 0x20 | 0x80, 0644, 0)
+    }
+    catch (e) {
+      return;
+    }
+
+    var lineBreak = abp.getLineBreak();
+    var buf = ['# Adblock Plus preferences', ''];
+
+    var saved = new HashTable();
+
+    // Save pattern data
+    for (var i = 0; i < this.userPatterns.length; i++) {
+      var pattern = this.userPatterns[i];
+      if (!saved.has(pattern.text)) {
+        this.serializePattern(buf, pattern);
+        saved.put(pattern.text, pattern);
+      }
+    }
+
+    for (i = 0; i < this.subscriptions.length; i++) {
+      var subscription = this.subscriptions[i];
+      for (var j = 0; j < subscription.patterns.length; j++) {
+        var pattern = subscription.patterns[j];
+        if (!saved.has(pattern.text)) {
+          this.serializePattern(buf, pattern);
+          saved.put(pattern.text, pattern);
+        }
+      }
+    }
+
+    // Save user patterns list
+    buf.push('[User patterns]');
+    for (i = 0; i < this.userPatterns.length; i++)
+      buf.push(this.userPatterns[i].text);
+    buf.push('');
+
+    // Save subscriptions list
+    for (i = 0; i < this.subscriptions.length; i++)
+      this.serializeSubscription(buf, this.subscriptions[i]);
+
+    buf = unicodeConverter.ConvertFromUnicode(buf.join(lineBreak) + lineBreak);
+    try {
+      stream.write(buf, buf.length);
+    }
+    finally {
+      stream.close();
+    }
+
+    dump("Time to save patterns: " + (new Date().getTime() - start) + "\n");
 
     // Reinit data now
     if (typeof noReload == "undefined" || !noReload)
       this.reloadPatterns();
   },
 
-  // Creates a pattern from a resource in the RDF datasource
-  patternFromResource: function(node, forceDisabled) {
-    try {
-      node = manipulator(this.rdf, node);
-    }
-    catch (e) {
-      return null;
-    }
-
-    var text = node.getLiteral(this.resourceText, null);
-    if (text == null)
+  // Creates a pattern from a data object
+  patternFromObject: function(obj, forceDisabled) {
+    var text = ("text" in obj ? obj.text : null);
+    if (!text)
       return null;
 
     if (this.knownPatterns.has(text))
@@ -515,10 +533,9 @@ var prefs = {
 
     var ret = {text: text};
 
-    ret.type = node.getLiteral(this.resourceType, null);
-    ret.regexpText = node.getLiteral(this.resourceRegExp, null);
-    if (ret.type == "whitelist")
-      ret.pageWhitelist = node.getBoolean(this.resourcePageWhitelist, null);
+    ret.type = ("type" in obj ? obj.type : null);
+    ret.regexpText = ("regexp" in obj ? obj.regexp : null);
+    ret.pageWhitelist = ("pageWhitelist" in obj ? obj.pageWhitelist == "true" : null);
     if (ret.type == null || ret.type == "elemhide" || ret.type == "invalid" ||
         ((ret.type == "whitelist" || ret.type == "filterlist") && ret.regexpText == null) ||
         (ret.type == "whitelist" && ret.pageWhitelist == null)
@@ -527,8 +544,8 @@ var prefs = {
     else
       this.initRegexp(ret);
 
-    ret.disabled = node.getBoolean(this.resourceDisabled, false);
-    ret.hitCount = node.getInteger(this.resourceHitCount, 0);
+    ret.disabled = ("disabled" in obj && obj.disabled == "true");
+    ret.hitCount = ("hitCount" in obj ? parseInt(obj.hitCount) : 0) || 0;
 
     if (typeof forceDisabled == "undefined" || !forceDisabled)
       this.addPattern(ret);
@@ -617,18 +634,19 @@ var prefs = {
     }
   },
 
-  patternToResource: function(node, pattern) {
-    node = manipulator(this.rdf, node);
+  serializePattern: function(buf, pattern) {
+    buf.push('[Pattern]');
 
-    // Store pattern data
-    node.setLiteral(this.resourceText, pattern.text);
-    node.setLiteral(this.resourceType, pattern.type);
+    buf.push('text=' + pattern.text);
+    buf.push('type=' + pattern.type);
     if ("regexpText" in pattern && pattern.regexpText)
-      node.setLiteral(this.resourceRegExp, pattern.regexpText);
+      buf.push('regexp=' + pattern.regexpText);
     if ("pageWhitelist" in pattern && pattern.pageWhitelist != null)
-      node.setBoolean(this.resourcePageWhitelist, pattern.pageWhitelist);
-    node.setBoolean(this.resourceDisabled, pattern.disabled);
-    node.setInteger(this.resourceHitCount, pattern.hitCount);
+      buf.push('pageWhitelist=' + pattern.pageWhitelist);
+    buf.push('disabled=' + pattern.disabled);
+    buf.push('hitCount=' + pattern.hitCount);
+
+    buf.push('');
   },
 
   addPattern: function(pattern) {
@@ -660,17 +678,10 @@ var prefs = {
     ' ~eh~': ["elemhide_description", "elemhide"],
   },
 
-  // Creates a subscription from a resource in the RDF datasource
-  subscriptionFromResource: function(node) {
-    try {
-      node = manipulator(this.rdf, node);
-    }
-    catch (e) {
-      return null;
-    }
-
-    var url = node.getLiteral(this.resourceURL, null);
-    if (url == null)
+  // Creates a subscription from a data object
+  subscriptionFromObject: function(obj) {
+    var url = ("url" in obj ? obj.url : null);
+    if (!url)
       return null;
 
     if (this.listedSubscriptions.has(url))
@@ -681,14 +692,14 @@ var prefs = {
     else {
       var ret = {url: url};
       ret.special = false;
-      ret.title = node.getLiteral(this.resourceTitle, url);
-      ret.autoDownload = node.getBoolean(this.resourceAutoDownload, true);
-      ret.disabled = node.getBoolean(this.resourceDisabled, false);
-      ret.external = node.getBoolean(this.resourceExternal, false);
-      ret.lastDownload = node.getInteger(this.resourceLastDownload, 0);
-      ret.lastSuccess = node.getInteger(this.resourceLastSuccess, 0);
-      ret.downloadStatus = node.getLiteral(this.resourceDownloadStatus, null);
-      ret.lastModified = node.getLiteral(this.resourceLastModified, null);
+      ret.title = ("title" in obj && obj.title ? obj.title : url);
+      ret.autoDownload = !("autoDownload" in obj && obj.autoDownload == "false");
+      ret.disabled = ("disabled" in obj && obj.disabled == "true");
+      ret.external = ("external" in obj && obj.external == "true");
+      ret.lastDownload = parseInt("lastDownload" in obj ? obj.lastDownload : 0) || 0;
+      ret.lastSuccess = parseInt("lastSuccess" in obj ? obj.lastSuccess : 0) || 0;
+      ret.downloadStatus = ("downloadStatus" in obj ? obj.downloadStatus : "");
+      ret.lastModified = ("lastModified" in obj ? obj.lastModified : "");
 
       if (!ret.external) {
         try {
@@ -702,14 +713,7 @@ var prefs = {
         }
       }
 
-      var patterns = node.getSequence();
-      var enum = patterns.GetElements();
       ret.patterns = [];
-      while (enum.hasMoreElements()) {
-        var pattern = this.patternFromResource(enum.getNext(), ret.disabled);
-        if (pattern)
-          ret.patterns.push(pattern);
-      }
     }
 
     this.knownSubscriptions.put(url, ret);
@@ -801,34 +805,33 @@ var prefs = {
     return ret;
   },
 
-  subscriptionToResource: function(node, subscription) {
-    node = manipulator(this.rdf, node);
+  serializeSubscription: function(buf, subscription) {
+    buf.push('[Subscription]');
 
-    // Store pattern data
-    node.setLiteral(this.resourceURL, subscription.url);
-    if (subscription.special)
-      return;
+    buf.push('url=' + subscription.url);
 
-    if (subscription.title)
-      node.setLiteral(this.resourceTitle, subscription.title);
-    node.setBoolean(this.resourceAutoDownload, subscription.autoDownload);
-    node.setBoolean(this.resourceDisabled, subscription.disabled);
-    node.setBoolean(this.resourceExternal, subscription.external);
-    if (subscription.lastDownload)
-      node.setInteger(this.resourceLastDownload, subscription.lastDownload);
-    if (subscription.lastSuccess)
-      node.setInteger(this.resourceLastSuccess, subscription.lastSuccess);
-    if (subscription.downloadStatus)
-      node.setLiteral(this.resourceDownloadStatus, subscription.downloadStatus);
-    if (subscription.lastModified)
-      node.setLiteral(this.resourceLastModified, subscription.lastModified);
-
-    var patterns = node.getSequence();
-    for (var i = 0; i < subscription.patterns.length; i++) {
-      var patternNode = resource("pattern " + subscription.patterns[i].text);
-      this.patternToResource(patternNode, subscription.patterns[i]);
-      patterns.AppendElement(patternNode);
+    if (!subscription.special) {
+      buf.push('title=' + subscription.title);
+      buf.push('autoDownload=' + subscription.autoDownload);
+      buf.push('disabled=' + subscription.disabled);
+      buf.push('external=' + subscription.external);
+      if (subscription.lastDownload)
+        buf.push('lastDownload=' + subscription.lastDownload);
+      if (subscription.lastSuccess)
+        buf.push('lastSuccess=' + subscription.lastSuccess);
+      if (subscription.downloadStatus)
+        buf.push('downloadStatus=' + subscription.downloadStatus);
+      if (subscription.lastModified)
+        buf.push('lastModified=' + subscription.lastModified);
+  
+      if (subscription.patterns.length) {
+        buf.push('', '[Subscription patterns]');
+        for (var i = 0; i < subscription.patterns.length; i++)
+          buf.push(subscription.patterns[i].text);
+      }
     }
+
+    buf.push('');
   },
 
   importOldPrefs: function() {

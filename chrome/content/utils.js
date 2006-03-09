@@ -73,76 +73,6 @@ HashTable.prototype = {
 }
 abp.HashTable = HashTable;
 
-// RDF helper class
-function ResourceManipulator(data, node) {
-  this.data = data;
-  this.node = node.QueryInterface(Components.interfaces.nsIRDFResource);
-}
-ResourceManipulator.prototype = {
-  getLiteral: function(property, defValue) {
-    var target = this.data.GetTarget(this.node, property, true);
-    if (target) {
-      try {
-        return target.QueryInterface(Components.interfaces.nsIRDFLiteral).Value;
-      } catch (e) {}
-    }
-    return defValue;
-  },
-  getInteger: function(property, defValue) {
-    var ret = parseInt(this.getLiteral(property));
-    return (isNaN(ret) ? defValue : ret);
-  },
-  getBoolean: function(property, defValue) {
-    var target = this.data.GetTarget(this.node, property, true);
-    if (target)
-      return target.EqualsNode(literalTrue);
-    else
-      return defValue;
-  },
-  getSequence: function() {
-    return sequence(this.data, this.node);
-  },
-  setLiteral: function(property, value) {
-    this.data.Assert(this.node, property, literal(value), true);
-  },
-  setInteger: function(property, value) {
-    this.setLiteral(property, value);
-  },
-  setBoolean: function(property, value) {
-    this.data.Assert(this.node, property, value ? literalTrue : literalFalse, true);
-  },
-  removeOutArcs: function() {
-    var enum = this.data.ArcLabelsOut(this.node);
-    while (enum.hasMoreElements()) {
-      var property = enum.getNext();
-      var enum2 = this.data.GetTargets(this.node, property, true);
-      while (enum2.hasMoreElements())
-        this.data.Unassert(this.node, property, enum2.getNext());
-    }
-  }
-}
-
-// RDF helper functions
-const rdfPrefix = "http://adblockplus.mozdev.org/#";
-var rdfService = Components.classes["@mozilla.org/rdf/rdf-service;1"]
-                           .getService(Components.interfaces.nsIRDFService);
-var containerUtils = Components.classes["@mozilla.org/rdf/container-utils;1"]
-                               .getService(Components.interfaces.nsIRDFContainerUtils);
-var literalTrue = literal("true");
-var literalFalse = literal("false");
-function resource(uri) {
-  return rdfService.GetResource(rdfPrefix + uri);
-}
-function sequence(data, node) {
-  return containerUtils.MakeSeq(data, node);
-}
-function manipulator(data, node) {
-  return new ResourceManipulator(data, node);
-}
-function literal(value) {
-  return rdfService.GetLiteral(value);
-}
-
 // String service
 var stringService = Components.classes["@mozilla.org/intl/stringbundle;1"]
                               .getService(Components.interfaces.nsIStringBundleService);
@@ -307,3 +237,32 @@ function createTimer(callback, delay) {
   timer.init({observe: callback}, delay, timer.TYPE_ONE_SHOT);
   return timer;
 }
+
+// Returns plattform dependent line break string
+var lineBreak = null;
+function getLineBreak() {
+  if (lineBreak == null) {
+    // HACKHACK: Gecko doesn't expose NS_LINEBREAK, try to determine
+    // plattform's line breaks by reading prefs.js
+    lineBreak = "\n";
+    try {
+      var dirService = Components.classes["@mozilla.org/file/directory_service;1"]
+                                  .createInstance(Components.interfaces.nsIProperties);
+      var prefFile = dirService.get("PrefF", Components.interfaces.nsIFile);
+      var inputStream = Components.classes["@mozilla.org/network/file-input-stream;1"]
+                                  .createInstance(Components.interfaces.nsIFileInputStream);
+      inputStream.init(prefFile, 0x01, 0444, 0);
+
+      var scriptableStream = Components.classes["@mozilla.org/scriptableinputstream;1"]
+                                        .createInstance(Components.interfaces.nsIScriptableInputStream);
+      scriptableStream.init(inputStream);
+      var data = scriptableStream.read(1024);
+      scriptableStream.close();
+
+      if (/(\r\n?|\n\r?)/.test(data))
+        lineBreak = RegExp.$1;
+    } catch (e) {}
+  }
+  return lineBreak;
+}
+abp.getLineBreak = getLineBreak;
