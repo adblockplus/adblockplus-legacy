@@ -33,7 +33,6 @@ var prefService = Components.classes["@mozilla.org/preferences-service;1"]
                             .getService(Components.interfaces.nsIPrefService);
 var dirService = Components.classes["@mozilla.org/file/directory_service;1"]
                            .getService(Components.interfaces.nsIProperties);
-var profileDir = dirService.get("ProfD", Components.interfaces.nsIFile);
 var ioService = Components.classes["@mozilla.org/network/io-service;1"]
                           .getService(Components.interfaces.nsIIOService);
 var parser = Components.classes["@mozilla.org/xmlextras/domparser;1"]
@@ -192,6 +191,7 @@ var elemhide = {
 };
 
 var prefs = {
+  initialized: false,
   disableObserver: false,
   branch: prefService.getBranch(prefRoot),
   prefList: [],
@@ -207,7 +207,7 @@ var prefs = {
   listeners: [],
   hitListeners: [],
 
-  init: function() {
+  addObservers: function() {
     // Preferences observer registration
     try {
       var branchInternal = this.branch.QueryInterface(Components.interfaces.nsIPrefBranchInternal);
@@ -221,15 +221,29 @@ var prefs = {
     try {
       var observerService = Components.classes["@mozilla.org/observer-service;1"]
                                       .getService(Components.interfaces.nsIObserverService);
-      observerService.addObserver(this, "xpcom-shutdown", false);
+      observerService.addObserver(this, "profile-before-change", false);
+      observerService.addObserver(this, "profile-after-change", false);
     }
     catch (e) {
-      dump("Adblock Plus: exception registering shutdown observer: " + e + "\n");
+      dump("Adblock Plus: exception registering profile observer: " + e + "\n");
     }
 
+    var doInit = true;
+    if ("@mozilla.org/profile/manager;1" in Components.classes) {
+      var profileManager = Components.classes["@mozilla.org/profile/manager;1"]
+                                    .getService(Components.interfaces.nsIProfile);
+      doInit = profileManager.currentProfile;
+    }
+    if (doInit)
+      this.observe(null, "profile-after-change", null);
+  },
+
+  init: function() {
     // Initialize prefs list
     var defaultBranch = prefService.getDefaultBranch(prefRoot);
     var defaultPrefs = defaultBranch.getChildList("", {});
+
+    this.prefList = [];
     for (var i = 0; i < defaultPrefs.length; i++) {
       var name = defaultPrefs[i];
       var type = defaultBranch.getPrefType(name);
@@ -323,7 +337,7 @@ var prefs = {
 
     var file = this.getFileByPath(this.patternsfile);
     if (!file && " patternsfile" in this.prefList)
-      file = getFileByPath(this.prefList[" patternsfile"][2]);  // Try default
+      file = this.getFileByPath(this.prefList[" patternsfile"][2]);  // Try default
 
     var stream = null;
     if (file) {
@@ -487,6 +501,7 @@ var prefs = {
 
     try {
       // Try relative path now
+      var profileDir = dirService.get("ProfD", Components.interfaces.nsIFile);
       file = Components.classes["@mozilla.org/file/local;1"]
                        .createInstance(Components.interfaces.nsILocalFile);
       file.setRelativeDescriptor(profileDir, path);
@@ -500,29 +515,29 @@ var prefs = {
   savePatterns: function(noReload) {
 //    var start = new Date().getTime();
 
-    var file = this.getFileByPath(/*this.patternsfile*/"adblockplus/patterns.ini");
+    var file = this.getFileByPath(this.patternsfile);
     if (!file && " patternsfile" in this.prefList)
-      file = getFileByPath(this.prefList[" patternsfile"][2]);  // Try default
+      file = this.getFileByPath(this.prefList[" patternsfile"][2]);  // Try default
 
     if (!file)
       return;
 
-    // Try to create the file's directory recursively
     try {
       file.normalize();
-
-      var parents = [];
-      try {
-        for (var parent = file.parent; parent; parent = parent.parent)
-          parents.push(parent);
-      } catch (e) {}
-      for (var i = parents.length - 1; i >= 0; i--) {
-        try {
-          parents[i].create(parents[i].DIRECTORY_TYPE, 0644);
-        } catch (e) {}
-      }
     }
     catch (e) {}
+
+    // Try to create the file's directory recursively
+    var parents = [];
+    try {
+      for (var parent = file.parent; parent; parent = parent.parent)
+        parents.push(parent);
+    } catch (e) {}
+    for (var i = parents.length - 1; i >= 0; i--) {
+      try {
+        parents[i].create(parents[i].DIRECTORY_TYPE, 0755);
+      } catch (e) {}
+    }
 
     if (file.exists()) {
       // Try to remove existing file
@@ -534,9 +549,10 @@ var prefs = {
     var stream = Components.classes["@mozilla.org/network/file-output-stream;1"]
                            .createInstance(Components.interfaces.nsIFileOutputStream);
     try {
-      stream.init(file, 0x02 | 0x08 | 0x20 | 0x80, 0644, 0)
+      stream.init(file, 0x02 | 0x08 | 0x20, 0644, 0)
     }
     catch (e) {
+      dump("Adblock plus: failed write pattern to file " + file.path + ": " + e + "\n");
       return;
     }
 
@@ -739,7 +755,7 @@ var prefs = {
     pattern.hitCount++;
 
     // Fire hit count listeners
-    for (i = 0; i < this.hitListeners.length; i++)
+    for (var i = 0; i < this.hitListeners.length; i++)
       this.hitListeners[i](pattern);
   },
 
@@ -919,6 +935,7 @@ var prefs = {
     }
   
     this.checkedadblockprefs = true;
+    this.save();
   },
 
   importOldPatterns: function() {
@@ -974,9 +991,15 @@ var prefs = {
 
   // nsIObserver implementation
   observe: function(subject, topic, prefName) {
-    if (topic == "xpcom-shutdown")
+    if (topic == "profile-after-change") {
+      this.init();
+      this.initialized = true;
+    }
+    else if (topic == "profile-before-change") {
       this.savePatterns(true);
-    else if (!this.disableObserver)
+      this.initialized = false;
+    }
+    else if (this.initialized && !this.disableObserver)
       this.reload();
   },
 
@@ -990,5 +1013,5 @@ var prefs = {
   }
 };
 
-prefs.init();
+prefs.addObservers();
 abp.prefs = prefs;
