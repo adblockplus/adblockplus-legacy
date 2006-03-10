@@ -49,8 +49,8 @@ dialog {
   text-align: right;
 }
 
-iframe {
-  -moz-user-focus: ignore;
+deck, textbox#listEditor {
+  margin: 0px;
 }
 
 treechildren::-moz-tree-cell-text(col-pattern, description-true, selected-false) {

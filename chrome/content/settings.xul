@@ -144,6 +144,7 @@
 </vbox>
 
 <vbox id="listarea" flex="1">
+  <deck><textbox id="listEditor"/></deck>
   <stack id="listStack" flex="1">
     <tree id="list" persist="closedSubscriptions" flex="1" seltype="multiple" enableColumnDrag="true" context="listitem-context">
       <treecols>
@@ -153,10 +154,9 @@
         <splitter class="tree-splitter"/>
         <treecol id="hitcount" label="&hitcount.column;" persist="width ordinal sortDirection hidden"/>
       </treecols>
-  
+
       <treechildren onclick="onListClick(event)" ondraggesture="onListDragGesture(event)" ondblclick="editFilter('')"/>
     </tree>
-    <iframe id="listEditor" src="editor.xul" left="0" top="0" height="0" width="0"/>
   </stack>
 </vbox>
 
