@@ -63,13 +63,20 @@ function init() {
   document.getElementById("list").view = treeView;
 
   var editor = document.getElementById("listEditor");
-  editor.field = editor.contentDocument.getElementById("editor");
+  editor.height = editor.boxObject.height;
+  editor.parentNode.hidden = true;
+  document.getElementById("listStack").appendChild(editor.parentNode);
   treeView.setEditor(editor);
 
   treeView.ensureSelection(0);
 
   // Capture keypress events - need to get them before the tree does
   document.getElementById("listStack").addEventListener("keypress", onListKeyPress, true);
+  document.getElementById("list").addEventListener("keypress", function(e) {
+    // Prevent propagation of the Enter key - preventDefault() isn't enough in Gecko 1.7
+    if (e.keyCode == e.DOM_VK_RETURN || e.keyCode == e.DOM_VK_ENTER)
+      e.stopPropagation()
+  }, false);
 
   // Set the focus to the input field by default
   filterSuggestions.focus();
@@ -94,7 +101,7 @@ function setContentWindow(insecContentWnd) {
   }
   if (!data.length) {
     var reason = abp.getString("no_blocking_suggestions");
-    var isWhite = false;
+    var type = "filterlist";
     if (insecWnd) {
       var insecLocation = secureGet(insecWnd, "location");
       // We want to stick with "no blockable items" for about:blank
@@ -103,11 +110,11 @@ function setContentWindow(insecContentWnd) {
           reason = abp.getString("not_remote_page");
         else if (abp.policy.isWhitelisted(secureGet(insecLocation, "href"))) {
           reason = abp.getString("whitelisted_page");
-          isWhite = true;
+          type = "whitelist";
         }
       }
     }
-    data.push({location: reason, typeDescr: "", localizedDescr: "", inseclNodes: [], filter: {isWhite: isWhite}});
+    data.push({location: reason, typeDescr: "", localizedDescr: "", inseclNodes: [], filter: {type: type}});
   }
 
   // Initialize filter suggestions dropdown
@@ -152,7 +159,7 @@ function createFilterSuggestion(menulist, suggestion) {
   menuitem.appendChild(createDescription(suggestion.localizedDescr, 0));
   menuitem.appendChild(createDescription(suggestion.location, 1));
 
-  if (suggestion.filter && suggestion.filter.type == "whitelisted")
+  if (suggestion.filter && suggestion.filter.type == "whitelist")
     menuitem.className = "whitelisted";
   else if (suggestion.filter)
     menuitem.className = "filtered";
@@ -295,8 +302,10 @@ function exportList() {
 
 // Handles keypress event on the new filter input field
 function onFilterKeyPress(e) {
-  if ((e.keyCode == e.DOM_VK_RETURN || e.keyCode == e.DOM_VK_ENTER) && addFilter())
+  if ((e.keyCode == e.DOM_VK_RETURN || e.keyCode == e.DOM_VK_ENTER) && addFilter()) {
     e.preventDefault();
+    e.stopPropagation();
+  }
 }
 
 // Handles keypress event on the patterns list
@@ -305,7 +314,7 @@ function onListKeyPress(e) {
   if (treeView.isEditing())
     return;
 
-  if ((e.keyCode == e.DOM_VK_RETURN || e.keyCode == e.DOM_VK_ENTER)) {
+  if (e.keyCode == e.DOM_VK_RETURN || e.keyCode == e.DOM_VK_ENTER) {
     e.preventDefault();
     if (editFilter(''))
       e.stopPropagation();
@@ -1436,7 +1445,7 @@ var treeView = {
     pattern.origPos = (origPos >= 0 ? origPos : subscription.nextPos++);
 
     var pos = -1;
-    if (this.sortProc != sortNatural)
+    if (origPos >= 0 || this.sortProc != sortNatural)
       for (i = 0; pos < 0 && i < subscription.patterns.length; i++)
         if (this.sortProc(pattern, subscription.patterns[i]) < 0)
           pos = i;
@@ -1774,10 +1783,12 @@ var treeView = {
       if (e.keyCode == e.DOM_VK_RETURN || e.keyCode == e.DOM_VK_ENTER) {
         me.stopEditor(true);
         e.preventDefault();
+        e.stopPropagation();
       }
       else if (e.keyCode == e.DOM_VK_CANCEL || e.keyCode == e.DOM_VK_ESCAPE) {
         me.stopEditor(false);
         e.preventDefault();
+        e.stopPropagation();
       }
     };
     this.editorBlurHandler = function(e) {
@@ -1815,23 +1826,30 @@ var treeView = {
 
     // Need to translate coordinates so that they are relative to <stack>, not <treechildren>
     var treeBody = this.boxObject.treeBody;
-    cellX.value += treeBody.boxObject.x - this.editor.parentNode.boxObject.x;
-    cellY.value += treeBody.boxObject.y - this.editor.parentNode.boxObject.y;
+    var editorParent = this.editor.parentNode.parentNode;
+    cellX.value += treeBody.boxObject.x - editorParent.boxObject.x;
+    cellY.value += treeBody.boxObject.y - editorParent.boxObject.y;
 
     this.selection.clearSelection();
 
     this.editedRow = row;
-    this.editor.width = cellWidth.value;
-    this.editor.height = this.editor.field.boxObject.height;
-    this.editor.left = cellX.value;
-    this.editor.top = cellY.value + (cellHeight.value - this.editor.height)/2;
+    this.editor.parentNode.hidden = false;
+    this.editor.parentNode.width = cellWidth.value;
+    this.editor.parentNode.height = this.editor.height;
+    this.editor.parentNode.left = cellX.value;
+    this.editor.parentNode.top = cellY.value + (cellHeight.value - this.editor.height)/2;
 
-    this.editor.field.value = info[1].text;
-    this.editor.field.setSelectionRange(this.editor.field.value.length, this.editor.field.value.length);
-    this.editor.field.focus();
+    // Need a timeout here - Firefox 1.5 needs to initialize html:input
+    setTimeout(function(editor, handler1, handler2) {
+      editor.value = info[1].text;
+      editor.setSelectionRange(editor.value.length, editor.value.length);
+      editor.focus();
 
-    this.editor.contentWindow.addEventListener("keypress", this.editorKeyPressHandler, false);
-    this.editor.contentWindow.addEventListener("blur", this.editorBlurHandler, false);
+      // Need to attach handlers to the embedded html:input instead of textbox - won't catch blur otherwise
+      editor.field = document.commandDispatcher.focusedElement;
+      editor.field.addEventListener("keypress", handler1, false);
+      editor.field.addEventListener("blur", handler2, false);
+    }, 0, this.editor, this.editorKeyPressHandler, this.editorBlurHandler);
 
     return true;
   },
@@ -1840,15 +1858,18 @@ var treeView = {
     if (this.editedRow < 0)
       return;
 
-    this.editor.contentWindow.removeEventListener("keypress", this.editorKeyPressHandler, false);
-    this.editor.contentWindow.removeEventListener("blur", this.editorBlurHandler, false);
+    this.editor.field.removeEventListener("keypress", this.editorKeyPressHandler, false);
+    this.editor.field.removeEventListener("blur", this.editorBlurHandler, false);
+
+    var text = this.editor.value;
+    this.editor.value = "";
 
     if (typeof blur == "undefined" || !blur)
       this.boxObject.treeBody.focus();
 
     if (save) {
       var info = this.getRowInfo(this.editedRow);
-      var text = this.editor.field.value.replace(/\s/g, "");
+      text = text.replace(/\s/g, "");
       if (text && text != info[1].text) {
         this.removeRow(info);
         this.addPattern(text, info[0], info[1].origPos);
@@ -1860,7 +1881,7 @@ var treeView = {
     if (!save)
       this.selection.select(this.editedRow);
 
-    this.editor.left = this.editor.top = this.editor.width = this.editor.height = 0;
+    this.editor.parentNode.hidden = true;
     this.editedRow = -1;
   }
 };
