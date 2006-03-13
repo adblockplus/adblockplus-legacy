@@ -28,9 +28,13 @@ try {
   while (abp && !('getString' in abp))
     abp = abp.wrappedJSObject;    // Unwrap component
 
-  var prefs = abp.prefs;
-  var flasher = abp.flasher;
-  var DataContainer = abp.DataContainer;
+  if (abp.prefs.initialized) {
+    var prefs = abp.prefs;
+    var flasher = abp.flasher;
+    var DataContainer = abp.DataContainer;
+  }
+  else
+    abp = null;
 } catch (e) {}
 
 // Main browser window

@@ -22,17 +22,37 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-var dragService = Components.classes["@mozilla.org/widget/dragservice;1"]
-                            .getService(Components.interfaces.nsIDragService);
-var abp = Components.classes["@mozilla.org/adblockplus;1"].createInstance();
-while (abp && !("getString" in abp))
-  abp = abp.wrappedJSObject;    // Unwrap component
-var prefs = abp.prefs;
-var flasher = abp.flasher;
-var synchronizer = abp.synchronizer;
-var suggestionItems = null;
-var insecWnd = null;   // Window we should apply filters at
-var wndData = null;    // Data for this window
+var abp = null;
+try {
+  abp = Components.classes["@mozilla.org/adblockplus;1"].createInstance();
+  while (abp && !("getString" in abp))
+    abp = abp.wrappedJSObject;    // Unwrap component
+
+  if (!abp.prefs.initialized)
+    abp = null;
+} catch(e) {}
+
+if (abp) {
+  var prefs = abp.prefs;
+  var flasher = abp.flasher;
+  var synchronizer = abp.synchronizer;
+  var suggestionItems = null;
+  var insecWnd = null;   // Window we should apply filters at
+  var wndData = null;    // Data for this window
+  var dragService = Components.classes["@mozilla.org/widget/dragservice;1"]
+                              .getService(Components.interfaces.nsIDragService);
+}
+else
+  window.close();   // Extension manager opened us without checking whether we are installed properly
+
+var useTypeAheadFind = false;
+var useTypeAheadTimeout = 5000;
+try {
+  var prefService = Components.classes["@mozilla.org/preferences-service;1"]
+                              .getService(Components.interfaces.nsIPrefBranch);
+  useTypeAheadFind = prefService.getBoolPref("accessibility.typeaheadfind");
+  useTypeAheadTimeout = prefService.getIntPref("accessibility.typeaheadfind.timeout");
+} catch(e) {}
 
 // Preference window initialization
 function init() {
@@ -50,9 +70,20 @@ function init() {
   // List selection doesn't fire input event, have to register a property watcher
   filterSuggestions.inputField.watch("value", onInputChange);
 
+  // Capture keypress events - need to get them before the tree does
+  document.getElementById("listStack").addEventListener("keypress", onListKeyPress, true);
+  document.getElementById("list").addEventListener("keypress", function(e) {
+    // Prevent propagation of the Enter key - preventDefault() isn't enough in Gecko 1.7
+    if (e.keyCode == e.DOM_VK_RETURN || e.keyCode == e.DOM_VK_ENTER)
+      e.stopPropagation()
+  }, false);
+
+  // Capture keypress events - need to get them before the text field does
+  document.getElementById("abp-find-toolbar").addEventListener("keypress", onFindBarKeyPress, true);
+
   // Initialize content window data
   var windowMediator = Components.classes["@mozilla.org/appshell/window-mediator;1"]
-                                  .getService(Components.interfaces.nsIWindowMediator);
+                                 .getService(Components.interfaces.nsIWindowMediator);
   var browser = windowMediator.getMostRecentWindow("navigator:browser");
   if (browser)
     setContentWindow(browser.getBrowser().contentWindow);
@@ -69,14 +100,6 @@ function init() {
   treeView.setEditor(editor);
 
   treeView.ensureSelection(0);
-
-  // Capture keypress events - need to get them before the tree does
-  document.getElementById("listStack").addEventListener("keypress", onListKeyPress, true);
-  document.getElementById("list").addEventListener("keypress", function(e) {
-    // Prevent propagation of the Enter key - preventDefault() isn't enough in Gecko 1.7
-    if (e.keyCode == e.DOM_VK_RETURN || e.keyCode == e.DOM_VK_ENTER)
-      e.stopPropagation()
-  }, false);
 
   // Set the focus to the input field by default
   filterSuggestions.focus();
@@ -204,10 +227,16 @@ function addFilter() {
   return true;
 }
 
-// Asks the user if he really wants to clear the list.
+// Removes all filters from the list (after a warning).
 function clearList() {
   if (confirm(abp.getString("clearall_warning")))
     treeView.removeUserPatterns();
+}
+
+// Resets hit statistics (after a warning).
+function resetHitCounts() {
+  if (confirm(abp.getString("resethitcounts_warning")))
+    prefs.resetHitCounts();
 }
 
 // Imports filters from disc.
@@ -333,6 +362,10 @@ function onListKeyPress(e) {
   }
   else if ((e.keyCode == e.DOM_VK_UP || e.keyCode == e.DOM_VK_DOWN) && e.ctrlKey && !e.altKey && !e.metaKey) {
     moveFilter(e.shiftKey ? 'subscription' : 'filter', e.keyCode == e.DOM_VK_UP);
+    e.stopPropagation();
+  }
+  else if (useTypeAheadFind && e.charCode && !e.ctrlKey && !e.altKey && !e.metaKey && e.charCode != 32) {
+    openFindBar(String.fromCharCode(e.charCode));
     e.stopPropagation();
   }
 }
@@ -585,21 +618,15 @@ function fillContext() {
   if (subscription && hasPatterns && !subscription.special)
     hasPatterns = false;
 
-  document.getElementById("context-group-sep").hidden = !subscription || (!hasPatterns && subscription.special);
+  document.getElementById("context-filters-sep").hidden = !hasPatterns && (!subscription || subscription.special);
 
   document.getElementById("context-edit").hidden =
     document.getElementById("context-moveup").hidden =
     document.getElementById("context-movedown").hidden =
-    document.getElementById("context-filters-sep").hidden =
-    document.getElementById("context-cut").hidden =
-    document.getElementById("context-copy").hidden =
-    document.getElementById("context-paste").hidden =
-    document.getElementById("context-remove").hidden =
     !hasPatterns;
 
   document.getElementById("context-synchsubscription").hidden =
     document.getElementById("context-editsubscription").hidden =
-    document.getElementById("context-removesubscription").hidden =
     !subscription || subscription.special;
 
   document.getElementById("context-movegroupup").hidden =
@@ -627,23 +654,25 @@ function fillContext() {
       }
     }
 
-    var hasFlavour = true;
-    var clipboard = Components.classes["@mozilla.org/widget/clipboard;1"]
-                              .getService(Components.interfaces.nsIClipboard);
-    var flavours = Components.classes["@mozilla.org/supports-array;1"]
-                             .createInstance(Components.interfaces.nsISupportsArray);
-    var flavourString = Components.classes["@mozilla.org/supports-cstring;1"]
-                                  .createInstance(Components.interfaces.nsISupportsCString);
-    flavourString.data = "text/unicode";
-    flavours.AppendElement(flavourString);
-
     document.getElementById("context-edit").setAttribute("disabled", !editable);
     document.getElementById("context-moveup").setAttribute("disabled", isFirst);
     document.getElementById("context-movedown").setAttribute("disabled", isLast);
-    document.getElementById("context-cut").setAttribute("disabled", !hasRemovable);
-    document.getElementById("context-paste").setAttribute("disabled", !clipboard.hasDataMatchingFlavors(flavours, clipboard.kGlobalClipboard));
-    document.getElementById("context-remove").setAttribute("disabled", !hasRemovable);
   }
+
+  var hasFlavour = true;
+  var clipboard = Components.classes["@mozilla.org/widget/clipboard;1"]
+                            .getService(Components.interfaces.nsIClipboard);
+  var flavours = Components.classes["@mozilla.org/supports-array;1"]
+                            .createInstance(Components.interfaces.nsISupportsArray);
+  var flavourString = Components.classes["@mozilla.org/supports-cstring;1"]
+                                .createInstance(Components.interfaces.nsISupportsCString);
+  flavourString.data = "text/unicode";
+  flavours.AppendElement(flavourString);
+
+  document.getElementById("copy-command").setAttribute("disabled", !hasPatterns);
+  document.getElementById("cut-command").setAttribute("disabled", !hasRemovable);
+  document.getElementById("paste-command").setAttribute("disabled", !clipboard.hasDataMatchingFlavors(flavours, clipboard.kGlobalClipboard));
+  document.getElementById("remove-command").setAttribute("disabled", !hasRemovable || (subscription && !subscription.special));
 
   return true;
 }
@@ -661,8 +690,12 @@ function onPrefChange() {
 
 // Updates hit count column whenever a value changes
 function onHitCountChange(pattern) {
-  if (!document.getElementById("hitcount").hidden)
-    treeView.invalidatePattern(pattern);
+  if (pattern) {
+    if (!document.getElementById("hitcount").hidden)
+      treeView.invalidatePattern(pattern);
+  }
+  else
+    treeView.boxObject.invalidate();
 }
 
 // Saves the filter list
@@ -1764,6 +1797,92 @@ var treeView = {
       }
     }
     prefs.savePatterns();
+  },
+
+  find: function(text, direction, highlightAll) {
+    text = text.toLowerCase();
+
+    var match = [null, null, null, null, null];
+    var current = this.getRowInfo(this.selection.currentIndex);
+    var isCurrent = false;
+    var foundCurrent = !current;
+    if (highlightAll) {
+      this.selection.clearSelection();
+      var rowCache = new abp.HashTable();
+    }
+
+    var selectMatch = function(subscription, offset) {
+      if (highlightAll) {
+        var row = (rowCache.has(subscription.url) ? rowCache.get(subscription.url) : treeView.getSubscriptionRow(subscription));
+        rowCache.put(subscription.url, row);
+        if (offset && treeView.closed.has(subscription.url))
+          treeView.toggleOpenState(row);
+        treeView.selection.rangedSelect(row + offset, row + offset, true);
+      }
+
+      var index = (isCurrent ? 2 : (foundCurrent ?  4 : 1));
+      match[index] = [subscription, offset];
+      if (index != 2 && !match[index - 1])
+        match[index - 1] = match[index];
+    };
+
+    for (var i = 0; i < this.data.length; i++) {
+      var subscription = this.data[i];
+      if (subscription.special && subscription.patterns.length == 0)
+        continue;
+
+      isCurrent = (current && subscription == current[0] && !current[1]);
+      if (subscription.title.toLowerCase().indexOf(text) >= 0)
+        selectMatch(subscription, 0);
+      if (isCurrent)
+        foundCurrent = true;
+
+      for (var j = 0; j < subscription.extra.length; j++) {
+        var descr = subscription.extra[j];
+        isCurrent = (current && subscription == current[0] && current[1] == descr);
+        if (descr.toLowerCase().indexOf(text) >= 0)
+          selectMatch(subscription, 1 + j);
+        if (isCurrent)
+          foundCurrent = true;
+      }
+
+      for (j = 0; j < subscription.patterns.length; j++) {
+        var pattern = subscription.patterns[j];
+        isCurrent = (current && subscription == current[0] && current[1] == pattern);
+        if (pattern.text.toLowerCase().indexOf(text) >= 0)
+          selectMatch(subscription, 1 + subscription.extra.length + j);
+        if (isCurrent)
+          foundCurrent = true;
+      }
+    }
+
+    var found = null;
+    var status = "";
+    if (direction == 0)
+      found = match[2] || match[3] || match[0];
+    else if (direction > 0)
+      found = match[3] || match[0] || match[2];
+    else
+      found = match[1] || match[4] || match[2];
+
+    if (!found)
+      return "NotFound";
+
+    var row = this.getSubscriptionRow(found[0]);
+    if (found[1] && this.closed.has(found[0].url))
+      this.toggleOpenState(row);
+    if (highlightAll)
+      this.selection.currentIndex = row + found[1];
+    else
+      this.selection.select(row + found[1]);
+    this.boxObject.ensureRowIsVisible(row + found[1]);
+
+    if (direction == -1 && found != match[1])
+      return "WrappedToBottom";
+    if ((direction == 1 && found != match[3]) || (direction == 0 && match == match[0]))
+      return "WrappedToTop";
+
+    return null;
   },
 
   //

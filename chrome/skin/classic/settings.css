@@ -55,7 +55,7 @@ deck, textbox#listEditor {
 
 treechildren::-moz-tree-cell-text(col-pattern, description-true, selected-false) {
   font-size: 80%;
-  color: GrayText;
+  color: #808080;
 }
 
 treechildren::-moz-tree-cell-text(col-pattern, pattern-true, type-whitelist, selected-false) {
@@ -66,16 +66,17 @@ treechildren::-moz-tree-cell-text(col-pattern, pattern-true, type-elemhide, sele
   color: #000080;
 }
 
+treechildren::-moz-tree-row(pattern-true, pattern-disabled-true, selected-false),
+treechildren::-moz-tree-row(subscription-special-false, subscription-disabled-true, selected-false) {
+  background-color: #E0E0E0;
+}
+
 treechildren::-moz-tree-cell-text(col-pattern, pattern-true, type-comment, selected-false) {
-  color: GrayText;
+  color: #808080;
 }
 
 treechildren::-moz-tree-cell-text(col-pattern, pattern-true, type-invalid, selected-false) {
   color: #C00000;
-}
-
-treechildren::-moz-tree-cell-text(col-pattern, pattern-true, subscription-special-false, selected-false) {
-  background-color: #E0E0E0;
 }
 
 treechildren::-moz-tree-image(col-enabled, pattern-true, subscription-disabled-false, pattern-disabled-true),
