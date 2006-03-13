@@ -60,7 +60,6 @@ function Matcher() {
 }
 
 const shortcutLength = 8;
-const shortcutRegexp = new RegExp('[^*|@]{' + shortcutLength + '}', 'g');
 const minShortcutNumber = 100;
 
 Matcher.prototype = {
@@ -82,13 +81,11 @@ Matcher.prototype = {
     if (!("shortcut" in pattern) || this.shortcutHash.has(pattern.shortcut)) {
       delete pattern.shortcut;
       if (!/^(@@)?\/.*\/$/.test(pattern.text)) {
-        var candidates = pattern.text.match(shortcutRegexp);
-        if (candidates) {
-          for (var i = 0; i < candidates.length; i++) {
-            if (!this.shortcutHash.has(candidates[i])) {
-              pattern.shortcut = candidates[i];
-              break;
-            }
+        for (var i = 0; i < pattern.text.length - shortcutLength + 1; i++) {
+          var candidate = pattern.text.substr(i, shortcutLength);
+          if (!/[*|@]/.test(candidate) && !this.shortcutHash.has(candidate)) {
+            pattern.shortcut = candidate;
+            break;
           }
         }
       }
@@ -759,6 +756,16 @@ var prefs = {
       this.hitListeners[i](pattern);
   },
 
+  resetHitCounts: function() {
+    var patterns = this.knownPatterns.values();
+    for (var i = 0; i < patterns.length; i++)
+      patterns[i].hitCount = 0;
+
+    // Fire hit count listeners
+    for (i = 0; i < this.hitListeners.length; i++)
+      this.hitListeners[i](null);
+  },
+
   specialSubscriptions: {
     ' ~il~': ["invalid_description", "invalid"],
     ' ~wl~': ["whitelist_description", "whitelist"],
@@ -995,7 +1002,7 @@ var prefs = {
       this.init();
       this.initialized = true;
     }
-    else if (topic == "profile-before-change") {
+    else if (this.initialized && topic == "profile-before-change") {
       this.savePatterns(true);
       this.initialized = false;
     }

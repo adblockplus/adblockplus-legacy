@@ -26,8 +26,14 @@
 
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
 <?xml-stylesheet href="chrome://adblockplus/skin/settings.css" type="text/css"?>
+<?xml-stylesheet href="chrome://adblockplus/skin/findbar/findBar.css" type="text/css"?>
 
-<!DOCTYPE dialog SYSTEM "chrome://adblockplus/locale/settings.dtd">
+<!DOCTYPE dialog [
+<!ENTITY % settingsDTD SYSTEM "chrome://adblockplus/locale/settings.dtd">
+%settingsDTD;
+<!ENTITY % findbarDTD SYSTEM "chrome://adblockplus/locale/findbar.dtd">
+%findbarDTD;
+]>
 
 <dialog
   xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
@@ -47,6 +53,7 @@
   windowtype="abp:settings">
 
 <script type="application/x-javascript" src="settings.js"/>
+<script type="application/x-javascript" src="findbar.js"/>
 <script type="application/x-javascript" src="security.js"/>
 
 <keyset id="adblockKeys">
@@ -56,6 +63,9 @@
   <key id="copy-key" key="c" modifiers="accel" command="copy-command"/>
   <key id="cut-key" key="x" modifiers="accel" command="cut-command"/>
   <key id="paste-key" key="v" modifiers="accel" command="paste-command"/>
+  <key id="find-key" key="f" modifiers="accel" command="find-command"/>
+  <key id="find-again-key" key="g" modifiers="accel" command="find-again-command"/>
+  <key id="find-again-key" key="g" modifiers="accel,shift" command="find-previous-command"/>
   <key id="edit-key" keycode="VK_ENTER"/>
   <key id="remove-key" keycode="VK_DELETE"/>
   <key id="moveup-key" keycode="VK_UP" modifiers="accel"/>
@@ -72,21 +82,24 @@
   <command id="copy-command" oncommand="copyToClipboard()"/>
   <command id="cut-command" oncommand="copyToClipboard(); removeFilters('filter')"/>
   <command id="paste-command" oncommand="pasteFromClipboard()"/>
+  <command id="remove-command" oncommand="removeFilters('')"/>
+  <command id="find-command" oncommand="openFindBar()"/>
+  <command id="find-again-command" oncommand="findAgain()"/>
+  <command id="find-previous-command" oncommand="findPrevious()"/>
 </commandset>
 
 <popupset id="abpPopups">
   <popup id="listitem-context" onpopupshowing="return fillContext()">
     <menuitem id="context-synchsubscription" label="&context.synchsubscription.label;" oncommand="synchSubscription()"/>
     <menuitem id="context-editsubscription" label="&context.editsubscription.label;..." oncommand="editFilter('subscription')" key="edit-key"/>
-    <menuitem id="context-removesubscription" label="&context.removesubscription.label;..." oncommand="removeFilters('subscription')" key="remove-key"/>
     <menuitem id="context-edit" label="&context.edit.label;" oncommand="editFilter('filter')" key="edit-key"/>
     <menuitem id="context-moveup" label="&context.moveup.label;" oncommand="moveFilter('filter', true)" key="moveup-key"/>
     <menuitem id="context-movedown" label="&context.movedown.label;" oncommand="moveFilter('filter', false)" key="movedown-key"/>
     <menuseparator id="context-filters-sep"/>
-    <menuitem id="context-cut" label="&context.cut.label;" command="cut-command" key="cut-key"/>
-    <menuitem id="context-copy" label="&context.copy.label;" command="copy-command" key="copy-key"/>
-    <menuitem id="context-paste" label="&context.paste.label;" command="paste-command" key="paste-key"/>
-    <menuitem id="context-remove" label="&context.remove.label;" oncommand="removeFilters('filter')" key="remove-key"/>
+    <menuitem id="context-cut" label="&cut.label;" accesskey="&cut.accesskey;" command="cut-command"/>
+    <menuitem id="context-copy" label="&copy.label;" accesskey="&copy.accesskey;" command="copy-command"/>
+    <menuitem id="context-paste" label="&paste.label;" accesskey="&paste.accesskey;" command="paste-command"/>
+    <menuitem id="context-remove" label="&remove.label;" accesskey="&remove.accesskey;" command="remove-command"/>
     <menuseparator id="context-group-sep"/>
     <menuitem id="context-movegroupup" label="&context.movegroupup.label;" oncommand="moveFilter('subscription', true)" key="movegroupup-key"/>
     <menuitem id="context-movegroupdown" label="&context.movegroupdown.label;" oncommand="moveFilter('subscription', false)" key="movegroupdown-key"/>
@@ -102,6 +115,19 @@
         <menuitem id="import" label="&import.label;..." accesskey="&import.accesskey;" key="import-key" command="import-command"/>
         <menuitem id="export" label="&export.label;..." accesskey="&export.accesskey;" key="export-key" command="export-command"/>
         <menuitem id="clearall" label="&clearall.label;..." accesskey="&clearall.accesskey;" oncommand="clearList()"/>
+        <menuseparator/>
+        <menuitem id="resethitcounts" label="&resethitcounts.label;..." accesskey="&resethitcounts.accesskey;" oncommand="resetHitCounts()"/>
+      </menupopup>
+    </menu>
+    <menu id="edit-menu" label="&edit.label;" accesskey="&edit.accesskey;">
+      <menupopup id="edit-popup" onpopupshowing="fillContext()">
+        <menuitem id="cut" label="&cut.label;" accesskey="&cut.accesskey;" command="cut-command" key="cut-key"/>
+        <menuitem id="copy" label="&copy.label;" accesskey="&copy.accesskey;" command="copy-command" key="copy-key"/>
+        <menuitem id="paste" label="&paste.label;" accesskey="&paste.accesskey;" command="paste-command" key="paste-key"/>
+        <menuitem id="remove" label="&remove.label;" accesskey="&remove.accesskey;" command="remove-command" key="remove-key"/>
+        <menuseparator/>
+        <menuitem id="find" label="&find.label;..." accesskey="&find.accesskey;" command="find-command" key="find-key"/>
+        <menuitem id="find-again" label="&findagain.label;" accesskey="&findagain.accesskey;" command="find-again-command" key="find-again-key"/>
       </menupopup>
     </menu>
     <menu id="options-menu" label="&options.label;" accesskey="&options.accesskey;">
@@ -158,6 +184,29 @@
       <treechildren onclick="onListClick(event)" ondraggesture="onListDragGesture(event)" ondblclick="editFilter('')"/>
     </tree>
   </stack>
+
+  <toolbar id="abp-find-toolbar" hidden="true" align="center">
+    <toolbarbutton id="abp-find-closebutton" tooltiptext="&findCloseButton.tooltip;"
+                    oncommand="closeFindBar()"/>
+
+    <label control="find-field" value="&find.label;"/>
+    <hbox id="abp-find-field-container">
+      <textbox id="abp-find-field" oninput="find(this.value)"
+              onblur="onFindBarBlur()"
+              oncompositionstart="onFindBarCompositionStart()"
+              oncompositionend="onFindBarCompositionEnd()"/>
+    </hbox>
+    <toolbarbutton id="abp-find-next" label="&findNext.label;" tooltiptext="&findNext.tooltip;"
+                    command="find-again-command" disabled="true" accesskey="&findNext.accesskey;"/>
+    <toolbarbutton id="abp-find-previous" label="&findPrevious.label;" tooltiptext="&findPrevious.tooltip;"
+                    command="find-previous-command" disabled="true" accesskey="&findPrevious.accesskey;"/>
+    <toolbarbutton id="abp-highlight" label="&highlight.label;" tooltiptext="&highlight.tooltip;"
+                    oncommand="toggleHighlight()" type="checkbox" accesskey="&highlight.accesskey;"/>
+    <hbox id="abp-find-status">
+      <image id="abp-find-status-icon"/>
+      <label id="abp-find-status-label"/>
+    </hbox>
+  </toolbar>
 </vbox>
 
 </dialog>

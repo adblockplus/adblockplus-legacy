@@ -35,6 +35,24 @@
 <!ENTITY export.accesskey           "X">
 <!ENTITY clearall.label             "Remove all filters">
 <!ENTITY clearall.accesskey         "L">
+<!ENTITY resethitcounts.label       "Reset hit statistics">
+<!ENTITY resethitcounts.accesskey   "R">
+
+<!ENTITY edit.label                 "Edit">
+<!ENTITY edit.accesskey             "E">
+
+<!ENTITY cut.label                  "Cut">
+<!ENTITY cut.accesskey              "T">
+<!ENTITY copy.label                 "Copy">
+<!ENTITY copy.accesskey             "C">
+<!ENTITY paste.label                "Paste">
+<!ENTITY paste.accesskey            "P">
+<!ENTITY remove.label               "Delete">
+<!ENTITY remove.accesskey           "D">
+<!ENTITY find.label                 "Find">
+<!ENTITY find.accesskey             "F">
+<!ENTITY findagain.label            "Find Again">
+<!ENTITY findagain.accesskey        "G">
 
 <!ENTITY options.label              "Options">
 <!ENTITY options.accesskey          "O">
@@ -81,17 +99,12 @@
 <!ENTITY add.accesskey              "A">
 
 <!ENTITY pattern.column             "Filter rule">
-<!ENTITY hitcount.column            "Hit count">
+<!ENTITY hitcount.column            "Hits">
 <!ENTITY enabled.column             "Enabled">
 
 <!ENTITY context.edit.label         "Edit filter">
-<!ENTITY context.cut.label          "Cut">
-<!ENTITY context.copy.label         "Copy">
-<!ENTITY context.paste.label        "Paste">
-<!ENTITY context.remove.label       "Delete">
 <!ENTITY context.synchsubscription.label  "Update subscription now">
 <!ENTITY context.editsubscription.label   "Edit subscription">
-<!ENTITY context.removesubscription.label "Remove subscription">
 <!ENTITY context.moveup.label       "Move up">
 <!ENTITY context.movedown.label     "Move down">
 <!ENTITY context.movegroupup.label        "Move group up">

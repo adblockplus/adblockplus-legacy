@@ -58,7 +58,7 @@ function init() {
 
 function saveSubscription() {
   var add = !subscription;
-  var url = (add || !subscription.external ? document.getElementById("location").value.replace(/\s/g, "").replace(/^~+/, "") : subscription.url);
+  var url = (add || !subscription.external ? document.getElementById("location").value.replace(/^\s+/, "").replace(/\s+$/, "").replace(/^~+/, "") : subscription.url);
   if (!url) {
     alert(abp.getString("subscription_no_location"));
     document.getElementById("location").focus();

@@ -27,6 +27,9 @@ try {
   abp = Components.classes["@mozilla.org/adblockplus;1"].createInstance();
   while (abp && !("getString" in abp))
     abp = abp.wrappedJSObject;    // Unwrap Adblock Plus component
+
+  if (!abp.prefs.initialized)
+    abp = null;
 } catch (e) {}
 
 var abpPrefs = abp ? abp.prefs : {enabled: false};
