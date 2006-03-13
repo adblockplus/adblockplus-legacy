@@ -143,12 +143,6 @@ DataContainer.prototype = {
     if (key in this.locations) {
       // Always override the filter just in case a known node has been blocked
       this.locations[key].filter = filter;
-
-      // Do not add the same node twice
-      for (var i = 0; i < this.locations[key].inseclNodes.length; i++)
-        if (this.locations[key].inseclNodes[i] == insecNode)
-          return;
-
       this.locations[key].inseclNodes.push(insecNode);
     }
     else {
