@@ -615,6 +615,7 @@ function fillContext() {
   if (!subscription && !hasPatterns)
     return false;
 
+  var origHasPatterns = hasPatterns;
   if (subscription && hasPatterns && !subscription.special)
     hasPatterns = false;
 
@@ -669,7 +670,7 @@ function fillContext() {
   flavourString.data = "text/unicode";
   flavours.AppendElement(flavourString);
 
-  document.getElementById("copy-command").setAttribute("disabled", !hasPatterns);
+  document.getElementById("copy-command").setAttribute("disabled", !origHasPatterns);
   document.getElementById("cut-command").setAttribute("disabled", !hasRemovable);
   document.getElementById("paste-command").setAttribute("disabled", !clipboard.hasDataMatchingFlavors(flavours, clipboard.kGlobalClipboard));
   document.getElementById("remove-command").setAttribute("disabled", !hasRemovable || (subscription && !subscription.special));
