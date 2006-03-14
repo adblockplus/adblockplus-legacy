@@ -48,9 +48,7 @@
     </tooltip>
   </popupset>
 
-  <hbox>
-    <label id="suggestionsListLabel" value="&list.label;" control="suggestionsList"/>
-    <spacer flex="1"/>
+  <hbox pack="end">
     <description id="detachButton" value="&detach.label;" onclick="detach()"/>
     <description id="reattachButton" value="&reattach.label;" onclick="if (this.getAttribute('disabled') != 'true') reattach()" hidden="true"/>
   </hbox>

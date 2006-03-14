@@ -33,13 +33,14 @@
 <!ENTITY context.link.label     "Adblock Link">
 <!ENTITY context.frame.label    "Adblock Frame">
 
-<!ENTITY sidebar.title          "Adblock Plus">
+<!ENTITY menuitem.sidebar.title "Adblock Plus: Blockable items">
+<!ENTITY sidebar.title          "Blockable items on current page">
 
 <!ENTITY settings.label         "Preferences">
 <!ENTITY settings.accesskey     "F">
-<!ENTITY opensidebar.label      "Open sidebar">
-<!ENTITY opensidebar.accesskey  "S">
-<!ENTITY closesidebar.label     "Close sidebar">
-<!ENTITY closesidebar.accesskey "S">
+<!ENTITY opensidebar.label      "Open blockable items">
+<!ENTITY opensidebar.accesskey  "B">
+<!ENTITY closesidebar.label     "Close blockable items">
+<!ENTITY closesidebar.accesskey "B">
 <!ENTITY whitelist.site.label   "Disable on --">
 <!ENTITY whitelist.page.label   "Disable on this page only">

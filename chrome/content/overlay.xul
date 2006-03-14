@@ -96,7 +96,7 @@
 
   <!-- firefox broadcasters -->
   <broadcasterset id="mainBroadcasterSet">
-    <broadcaster id="viewAdblockPlusSidebar" autoCheck="false" label="&sidebar.title;"
+    <broadcaster id="viewAdblockPlusSidebar" autoCheck="false" label="&menuitem.sidebar.title;"
       type="checkbox" group="sidebar" sidebarurl="chrome://adblockplus/content/sidebar.xul"
       sidebartitle="&sidebar.title;"
       oncommand="abpToggleSidebar()"/>
