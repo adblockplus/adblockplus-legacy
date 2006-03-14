@@ -36,9 +36,6 @@
 <!ENTITY clearall.label "すべてのフィルタを削除">
 <!ENTITY clearall.accesskey "L">
 
-<!ENTITY listsort.label "フィルタリストのソート">
-<!ENTITY listsort.accesskey "P">
-
 <!ENTITY options.label "オプション">
 <!ENTITY options.accesskey "O">
 
@@ -82,10 +79,15 @@
 <!ENTITY newfilter.accesskey "N">
 <!ENTITY add.label "追加">
 <!ENTITY add.accesskey "A">
-<!ENTITY list.label "フィルタリスト:">
-<!ENTITY list.accesskey "R">
+
+<!ENTITY pattern.column "フィルタルール">
+<!ENTITY hitcount.column "ヒット数">
+<!ENTITY enabled.column "有効">
 
 <!ENTITY context.edit.label "フィルタ編集">
+<!ENTITY context.cut.label "カット">
+<!ENTITY context.copy.label "コピー">
+<!ENTITY context.paste.label "貼り付け">
 <!ENTITY context.remove.label "フィルタ削除">
 <!ENTITY context.synchsubscription.label "今すぐフィルタ読み込みをアップデート">
 <!ENTITY context.editsubscription.label "読み込み編集">
