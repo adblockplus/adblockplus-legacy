@@ -22,11 +22,10 @@
    -
    - ***** END LICENSE BLOCK ***** -->
 
-<!ENTITY detached.title           "Adblock Plus sidebar (detached)">
+<!ENTITY detached.title           "Adblock Plus: Blockable items (detached)">
 
 <!ENTITY detach.label             "Detach">
 <!ENTITY reattach.label           "Reattach">
-<!ENTITY list.label               "Items on current page:">
 
 <!ENTITY type.label               "Type">
 <!ENTITY address.label            "Address">
