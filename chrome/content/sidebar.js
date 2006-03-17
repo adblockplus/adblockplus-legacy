@@ -43,21 +43,11 @@ var mainWin = parent;
 // The window handler currently in use
 var wndData = null;
 
-var suggestionItems = [];
-var itemsDummy, remoteDummy, whitelistDummy, loadDummy;
-var currentDummy = null;
-
 function init() {
-  var filterSuggestions = document.getElementById("suggestionsList");
-  itemsDummy = document.getElementById("noItemsDummy");
-  itemsDummy.parentNode.removeChild(itemsDummy);
-  remoteDummy = document.getElementById("notRemoteDummy");
-  remoteDummy.parentNode.removeChild(remoteDummy);
-  whitelistDummy = document.getElementById("whitelistedDummy");
-  whitelistDummy.parentNode.removeChild(whitelistDummy);
-  loadDummy = document.getElementById("notLoadedDummy");
-  loadDummy.parentNode.removeChild(loadDummy);
+  var list = document.getElementById("list");
+  list.view = treeView;
 
+  var selected = null;
   if (/sidebarDetached\.xul$/.test(parent.location.href)) {
     mainWin = parent.opener;
     window.__defineGetter__("content", function() {return mainWin.getBrowser().contentWindow});
@@ -76,82 +66,35 @@ function init() {
   }
 
   if (abp) {
-    itemsDummy.location = abp.getString("no_blocking_suggestions");
-    remoteDummy.location = abp.getString("not_remote_page");
-    whitelistDummy.location = abp.getString("whitelisted_page");
-  }
+    // Install item listener
+    DataContainer.addListener(handleItemChange);
 
-  var data = [];
-  if (abp) {
-    // Install location listener
-    DataContainer.addListener(handleLocationsChange);
+    // Restore previous state
+    var params = abp.getParams();
+    if (params && params.filter) {
+      document.getElementById("searchField").value = params.filter;
+      treeView.setFilter(params.filter);
+    }
+    if (params && params.focus && document.getElementById(params.focus))
+      document.getElementById(params.focus).focus();
 
     // Retrieve data for the window
     wndData = DataContainer.getDataForWindow(window.content);
-    data = wndData.getAllLocations();
+    treeView.setData(wndData.getAllLocations());
+    if (params && params.selected)
+      treeView.selectItem(params.selected);
 
     // Activate flasher
-    filterSuggestions.addEventListener("select", onSelectionChange, false);
-
-    // Update dummy whenever necessary
-    setInterval(function() {
-      if (suggestionItems.length == 0)
-        insertDummy(filterSuggestions);
-    }, 2000);
+    list.addEventListener("select", onSelectionChange, false);
 
     // Install a handler for tab changes
     mainWin.getBrowser().addEventListener("select", handleTabChange, false);
   }
-
-  if (data.length) {
-    // Initialize filter suggestions dropdown
-    for (var i = 0; i < data.length; i++)
-      createFilterSuggestion(filterSuggestions, data[i]);
-  }
-  else
-    insertDummy(filterSuggestions);
 }
 
 // To be called for a detached window when the main window has been closed
 function mainUnload() {
   parent.close();
-}
-
-// Decides which dummy item to insert into the list
-function insertDummy(list) {
-  var newDummy = loadDummy;
-  if (abp) {
-    newDummy = itemsDummy;
-
-    var insecLocation = secureGet(window.content, "location");
-    // We want to stick with "no blockable items" for about:blank
-    if (secureGet(insecLocation, "href") != "about:blank") {
-      if (!abp.policy.isBlockableScheme(insecLocation))
-        newDummy = remoteDummy;
-      else {
-        var filter = abp.policy.isWhitelisted(secureGet(insecLocation, "href"));
-        if (filter) {
-          newDummy = whitelistDummy;
-          newDummy.filter = filter;
-        }
-      }
-    }
-  }
-
-  if (newDummy == currentDummy)
-    return;         // Dummy already in the list
-
-  removeDummy();  // Make sure other dummied aren't there
-  list.appendChild(newDummy);
-  currentDummy = newDummy;
-}
-
-// Removes the dummy from the list
-function removeDummy() {
-  if (currentDummy && currentDummy.parentNode)
-    currentDummy.parentNode.removeChild(currentDummy);
-
-  currentDummy = null;
 }
 
 // To be called on unload
@@ -160,7 +103,7 @@ function cleanUp() {
     return;
 
   flasher.stop();
-  DataContainer.removeListener(handleLocationsChange);
+  DataContainer.removeListener(handleItemChange);
 
   mainWin.getBrowser().removeEventListener("select", handleTabChange, false);
   mainWin.removeEventListener("unload", mainUnload, false);
@@ -168,45 +111,11 @@ function cleanUp() {
 
 // Called whenever list selection changes - triggers flasher
 function onSelectionChange() {
-  if (!wndData)
-    return;
-
-  var item = document.getElementById("suggestionsList").selectedItem;
-  if (item)
-    item = item.firstChild.nextSibling;
-
-  var loc = null;
-  if (item)
-    loc = wndData.getLocation(item.getAttribute("label"));
-  flasher.flash(loc ? loc.inseclNodes : null);
+  var item = treeView.getSelectedItem();
+  flasher.flash(item ? item.inseclNodes : null);
 }
 
-function createListCell(label, crop) {
-  var result = document.createElement("listcell");
-  result.setAttribute("label", label);
-  if (crop)
-    result.setAttribute("crop", "center");
-  return result;
-}
-
-function createFilterSuggestion(listbox, suggestion) {
-  var listitem = document.createElement("listitem");
-
-  listitem.appendChild(createListCell(suggestion.localizedDescr, false));
-  listitem.appendChild(createListCell(suggestion.location, true));
-  listitem.filter = suggestion.filter;
-  listitem.location = suggestion.location;
-  if (listitem.filter && listitem.filter.type == "whitelist")
-    listitem.className = "whitelisted";
-  else if (listitem.filter)
-    listitem.className = "filtered";
-
-  listbox.appendChild(listitem);
-
-  suggestionItems.push(listitem);
-}
-
-function handleLocationsChange(insecWnd, type, data, loc) {
+function handleItemChange(insecWnd, type, data, item) {
   // Check whether this applies to us
   if (insecWnd != window.content)
     return;
@@ -221,117 +130,118 @@ function handleLocationsChange(insecWnd, type, data, loc) {
 
   var i;
   var filterSuggestions = document.getElementById("suggestionsList");
-  if (type == "select" || type == "refresh" || type == "clear") {
-    // We moved to a different document, clear list
-    filterSuggestions.selectedItem = filterSuggestions.currentItem = null;
-    for (i = 0; i < suggestionItems.length; i++)
-      filterSuggestions.removeChild(suggestionItems[i]);
-
-    suggestionItems = [];
-
-    if (type == "clear")
-      wndData = null;
-    else {
-      wndData = data;
-
-      // Add new items
-      var locations = wndData.getAllLocations();
-      for (i = 0; i < locations.length; i++)
-        handleLocationsChange(insecWnd, "add", wndData, locations[i]);
-    }
-  } else if (type == "add") {
-    removeDummy();
-
-    // Add a new suggestion
-    createFilterSuggestion(filterSuggestions, loc);
+  if (type == "clear") {
+    // Current document has been unloaded, clear list
+    wndData = null;
+    treeView.setData([]);
   }
+  else if (type == "select" || type == "refresh") {
+    // We moved to a different document, reload list
+    wndData = data;
+    treeView.setData(wndData.getAllLocations());
+  }
+  else if (type == "invalidate")
+    treeView.boxObject.invalidate();
+  else if (type == "add")
+    treeView.addItem(item);
 }
 
 function handleTabChange() {
-  // Accessing controllers.getControllerForCommand in a newly
-  // created tab crashes Firefox 1.5, have to delay this (bug 323641).
-  var initialized = false;
-  try {
-    var requestor = secureLookup(window.content, "QueryInterface")(Components.interfaces.nsIInterfaceRequestor);
-    var webNav = secureLookup(requestor, "getInterface")(Components.interfaces.nsIWebNavigation);
-    initialized = (webNav.currentURI != null);
-  } catch(e) {}
-
-  if (!initialized) {
-    setTimeout(handleTabChange, 10);
-    return;
-  }
-
-  // Use new data
-  handleLocationsChange(window.content, "select", DataContainer.getDataForWindow(window.content));
+  wndData = DataContainer.getDataForWindow(window.content);
+  treeView.setData(wndData.getAllLocations());
 }
 
-// Shows tooltip with the full uncropped location
-function fillInTooltip(event) {
-  var node = document.tooltipNode;
-  while (node && (node.nodeType != node.ELEMENT_NODE || node.tagName != "listitem"))
-    node = node.parentNode;
+// Fills a box with text splitting it up into multiple lines if necessary
+function setMultilineContent(box, text) {
+  while (box.firstChild)
+    box.removeChild(box.firstChild);
 
-  if (!node || !("location" in node))
+  for (var i = 0; i < text.length; i += 80) {
+    var description = document.createElement("description");
+    description.setAttribute("value", text.substr(i, 80));
+    box.appendChild(description);
+  }
+}
+
+// Shows tooltip with the full uncropped address
+function fillInTooltip(e) {
+  var item;
+  if (treeView.data && !treeView.data.length)
+    item = treeView.getDummyTooltip();
+  else
+    item = treeView.getItemAt(e.clientX, e.clientY);
+
+  if (!item)
     return false;
 
-  var pattern = ("filter" in node && node.filter ? node.filter.text : null);
+  var filter = ("filter" in item ? item.filter : null);
 
-  var text = document.getElementById("tooltipText");
-  while (text.firstChild)
-    text.removeChild(text.firstChild);
+  document.getElementById("tooltipDummy").hidden = !("tooltip" in item);
+  document.getElementById("tooltipAddressRow").hidden = ("tooltip" in item);
+  document.getElementById("tooltipTypeRow").hidden = ("tooltip" in item);
+  document.getElementById("tooltipFilterRow").hidden = !filter;
 
-  for (var i = 0; i < node.location.length; i += 80) {
-    var description = document.createElement("description");
-    description.setAttribute("value", node.location.substr(i, 80));
-    text.appendChild(description);
+  if ("tooltip" in item)
+    document.getElementById("tooltipDummy").setAttribute("value", item.tooltip);
+  else {
+    setMultilineContent(document.getElementById("tooltipAddress"), item.location);
+  
+    var type = item.localizedDescr;
+    if (filter && filter.type == "whitelist")
+      type += " " + document.getElementById("tooltipType").getAttribute("whitelisted");
+    else if (filter)
+      type += " " + document.getElementById("tooltipType").getAttribute("filtered");
+    document.getElementById("tooltipType").setAttribute("value", type);
   }
 
-  document.getElementById("tooltipFilter").hidden = !pattern;
-  document.getElementById("tooltipFilterText").setAttribute("value", pattern);
+  if (filter)
+    setMultilineContent(document.getElementById("tooltipFilter"), filter.text);
+
   return true;
 }
 
 // Handles middle-click on an item
 function openInTab(e) {
-  // Only middle-clicks are handled
-  if (e.button != 1)
+  var item = (typeof e == "undefined" ? treeView.getSelectedItem() : treeView.getItemAt(e.clientX, e.clientY));
+  if (!item)
     return;
 
-  // Look for a listitem element in the parents chain
-  var node = e.target;
-  while (node && !(node.nodeType == node.ELEMENT_NODE && node.tagName == "listitem"))
-    node = node.parentNode;
-
-  // Ignore click if user didn't click a list item or clicked one of our dummy items
-  if (!node || /Dummy$/.test(node.id))
-    return;
-
-  if (!node.firstChild || !node.firstChild.nextSibling)
-    return;
-
-  var url = node.firstChild.nextSibling.getAttribute("label");
-  mainWin.delayedOpenTab(url);
+  mainWin.delayedOpenTab(item.location);
 }
 
 // Starts up the main Adblock window
-function doAdblock() {
+function doBlock() {
   if (!abp)
     return;
 
-  var listitem = document.getElementById("suggestionsList").selectedItem;
+  var item = treeView.getSelectedItem();
 
-  // No location for the dummy items
-  var location = (listitem && !listitem.id ? listitem.location : undefined);
-  var filter = (listitem && "filter" in listitem ? listitem.filter : undefined);
+  var location = (item ? item.location : undefined);
+  var filter = (item && item.filter ? item.filter : undefined);
 
   abp.openSettingsDialog(window.content, location, filter);
+}
+
+// Saves sidebar's state before detaching/reattaching
+function saveState() {
+  var focused = document.commandDispatcher.focusedElement;
+  while (focused && (!focused.id || !("focus" in focused)))
+    focused = focused.parentNode;
+
+  var params = {
+    selected: treeView.getSelectedItem(),
+    filter: treeView.filter,
+    focus: (focused ? focused.id : null)
+  };
+  abp.setParams(params);
 }
 
 // detaches the sidebar
 function detach() {
   if (!abp)
     return;
+
+  saveState();
 
   var mainWin = window.mainWin;
   // Calculate default position for the detached window
@@ -367,6 +277,8 @@ function reattach() {
   if (!abp)
     return;
 
+  saveState();
+
   // Save setting
   prefs.detachsidebar = false;
   prefs.save();
@@ -375,4 +287,430 @@ function reattach() {
   mainWin.abpDetachedSidebar = null;
   mainWin.abpToggleSidebar();
   parent.close();
+}
+
+// Sort functions for the item list
+function sortByAddress(item1, item2) {
+  if (item1.location < item2.location)
+    return -1;
+  else if (item1.location > item2.location)
+    return 1;
+  else
+    return 0;
+}
+
+function sortByAddressDesc(item1, item2) {
+  return -sortByAddress(item1, item2);
+}
+
+function compareType(item1, item2) {
+  if (item1.localizedDescr < item2.localizedDescr)
+    return -1;
+  else if (item1.localizedDescr > item2.localizedDescr)
+    return 1;
+  else
+    return 0;
+}
+
+function compareFilter(item1, item2) {
+  var hasFilter1 = (item1.filter ? 1 : 0);
+  var hasFilter2 = (item2.filter ? 1 : 0);
+  if (hasFilter1 != hasFilter2)
+    return hasFilter1 - hasFilter2;
+  else if (hasFilter1 && item1.filter.text < item2.filter.text)
+    return -1;
+  else if (hasFilter1 && item1.filter.text > item2.filter.text)
+    return 1;
+  else
+    return 0;
+}
+
+function compareState(item1, item2) {
+  var state1 = (!item1.filter ? 0 : (item1.filter.type == "whitelist" ? 1 : 2));
+  var state2 = (!item2.filter ? 0 : (item2.filter.type == "whitelist" ? 1 : 2));
+  return state1 - state2;
+}
+
+function createSortWithFallback(cmpFunc, fallbackFunc, desc) {
+  var factor = (desc ? -1 : 1);
+
+  return function(item1, item2) {
+    var ret = cmpFunc(item1, item2);
+    if (ret == 0)
+      return fallbackFunc(item1, item2);
+    else
+      return factor * ret;
+  }
+}
+
+// Item list's tree view object
+var treeView = {
+  //
+  // nsISupports implementation
+  //
+
+  QueryInterface: function(uuid) {
+    if (!uuid.equals(Components.interfaces.nsISupports) &&
+        !uuid.equals(Components.interfaces.nsITreeView))
+    {
+      throw Components.results.NS_ERROR_NO_INTERFACE;
+    }
+  
+    return this;
+  },
+
+  //
+  // nsITreeView implementation
+  //
+
+  selection: null,
+
+  setTree: function(boxObject) {
+    if (!boxObject)
+      return;
+
+    var i;
+
+    this.boxObject = boxObject;
+    this.itemsDummy = boxObject.treeBody.getAttribute("noitemslabel");
+    this.remoteDummy = boxObject.treeBody.getAttribute("notremotelabel");
+    this.whitelistDummy = boxObject.treeBody.getAttribute("whitelistedlabel");
+    this.loadDummy = boxObject.treeBody.getAttribute("notloadedlabel");
+
+    var stringAtoms = ["col-address", "col-type", "col-filter", "col-state", "state-regular", "state-filtered", "state-whitelisted"];
+    var boolAtoms = ["selected", "dummy"];
+    var atomService = Components.classes["@mozilla.org/atom-service;1"]
+                                .getService(Components.interfaces.nsIAtomService);
+
+    this.atoms = {};
+    for (i = 0; i < stringAtoms.length; i++)
+      this.atoms[stringAtoms[i]] = atomService.getAtom(stringAtoms[i]);
+    for (i = 0; i < boolAtoms.length; i++) {
+      this.atoms[boolAtoms[i] + "-true"] = atomService.getAtom(boolAtoms[i] + "-true");
+      this.atoms[boolAtoms[i] + "-false"] = atomService.getAtom(boolAtoms[i] + "-false");
+    }
+
+    if (abp) {
+      this.itemsDummyTooltip = abp.getString("no_blocking_suggestions");
+      this.remoteDummyTooltip = abp.getString("not_remote_page");
+      this.whitelistDummyTooltip = abp.getString("whitelisted_page");
+    }
+
+    // Check current sort direction
+    var cols = document.getElementsByTagName("treecol");
+    var sortDir = null;
+    for (i = 0; i < cols.length; i++) {
+      var col = cols[i];
+      var dir = col.getAttribute("sortDirection");
+      if (dir && dir != "natural") {
+        this.sortColumn = col;
+        sortDir = dir;
+      }
+    }
+
+    if (sortDir)
+      this.sortProc = this.sortProcs[this.sortColumn.id + (sortDir == "descending" ? "Desc" : "")];
+
+    // Make sure to update the dummy row every two seconds
+    setInterval(function(view) {
+      if (!view.data || !view.data.length)
+        view.boxObject.invalidateRow(0);
+    }, 2000, this);
+
+    // Prevent a reference through closures
+    boxObject = null;
+  },
+
+  get rowCount() {
+    return (this.data && this.data.length ? this.data.length : 1);
+  },
+
+  getCellText: function(row, col) {
+    if (typeof col != 'string')
+      col = col.id;
+
+    // Only two columns have text
+    if (col != "type" && col != "address" && col != "filter")
+      return "";
+
+    if (this.data && this.data.length) {
+      if (row >= this.data.length)
+        return "";
+
+      if (col == "type")
+        return this.data[row].localizedDescr;
+      else if (col == "filter")
+        return (this.data[row].filter ? this.data[row].filter.text : "");
+      else
+        return this.data[row].location;
+    }
+    else {
+      // Empty list, show dummy
+      if (row > 0 || (col != "address" && col != "filter"))
+        return "";
+
+      if (!this.data)
+        return (col == "address" ? this.loadDummy : "");
+
+      var insecLocation = secureGet(window.content, "location");
+      if (col == "filter") {
+        var filter = abp.policy.isWhitelisted(secureGet(insecLocation, "href"));
+        return filter ? filter.text : "";
+      }
+
+      // We want to stick with "no blockable items" for about:blank
+      if (secureGet(insecLocation, "href") != "about:blank") {
+        if (!abp.policy.isBlockableScheme(insecLocation))
+          return this.remoteDummy;
+
+        if (abp.policy.isWhitelisted(secureGet(insecLocation, "href")))
+          return this.whitelistDummy;
+      }
+
+      return this.itemsDummy;
+    }
+  },
+
+  getColumnProperties: function(col, properties) {
+    if (typeof col != 'string')
+      col = col.id;
+
+    if (arguments.length == 3)
+      properties = arguments[2];
+
+    if ("col-" + col in this.atoms)
+      properties.AppendElement(this.atoms["col-" + col]);
+  },
+
+  getRowProperties: function(row, properties) {
+    if (row >= this.rowCount)
+      return;
+
+    properties.AppendElement(this.atoms["selected-" + this.selection.isSelected(row)]);
+
+    var state;
+    if (this.data && this.data.length) {
+      properties.AppendElement(this.atoms["dummy-false"]);
+
+      state = "state-regular";
+      if (this.data[row].filter)
+        state = (this.data[row].filter.type == "whitelist" ? "state-whitelisted" : "state-filtered");
+    }
+    else {
+      properties.AppendElement(this.atoms["dummy-true"]);
+
+      state = "state-filtered";
+      if (this.data) {
+        var insecLocation = secureGet(window.content, "location");
+        if (abp.policy.isWhitelisted(secureGet(insecLocation, "href")))
+          state = "state-whitelisted";
+      }
+    }
+    properties.AppendElement(this.atoms[state]);
+  },
+
+  getCellProperties: function(row, col, properties)
+  {
+    this.getColumnProperties(col, properties);
+    this.getRowProperties(row, properties);
+  },
+
+  cycleHeader: function(col) {
+    if (typeof col != 'string')
+      col = col.id;
+
+    col = document.getElementById(col);
+    if (!col)
+      return;
+
+    var cycle = {
+      natural: 'ascending',
+      ascending: 'descending',
+      descending: 'natural'
+    };
+
+    var curDirection = "natural";
+    if (this.sortColumn == col)
+      curDirection = col.getAttribute("sortDirection");
+    else if (this.sortColumn)
+      this.sortColumn.removeAttribute("sortDirection");
+
+    curDirection = cycle[curDirection];
+
+    if (curDirection == "natural")
+      this.sortProc = null;
+    else
+      this.sortProc = this.sortProcs[col.id + (curDirection == "descending" ? "Desc" : "")];
+
+    if (this.data)
+      this.refilter();
+
+    col.setAttribute("sortDirection", curDirection);
+    this.sortColumn = col;
+
+    this.boxObject.invalidate();
+  },
+
+  isSorted: function() {
+    return this.sortProc;
+  },
+
+  isContainer: function() {return false},
+  isContainerOpen: function() {return false},
+  isContainerEmpty: function() {return false},
+  getLevel: function() {return 0},
+  getParentIndex: function() {return -1},
+  hasNextSibling: function() {return false},
+  toggleOpenState: function() {},
+  canDrop: function() {return false},
+  canDropOn: function() {return false},
+  canDropAfter: function() {return false},
+  drop: function() {},
+  getCellValue: function() {return null},
+  getProgressMode: function() {return null},
+  getImageSrc: function() {return null},
+  isSeparator: function() {return false},
+  isEditable: function() {return false},
+  cycleCell: function() {},
+  performAction: function() {},
+  performActionOnRow: function() {},
+  performActionOnCell: function() {},
+  selection: null,
+  selectionChanged: function() {},
+
+  //
+  // Custom properties and methods
+  //
+
+  boxObject: null,
+  atoms: null,
+  filter: "",
+  data: null,
+  allData: [],
+  sortColumn: null,
+  sortProc: null,
+  itemsDummy: null,
+  remoteDummy: null,
+  whitelistDummy: null,
+  itemsDummyTooltip: null,
+  remoteDummyTooltip: null,
+  whitelistDummyTooltip: null,
+  loadDummy: null,
+
+  sortProcs: {
+    address: sortByAddress,
+    addressDesc: sortByAddressDesc,
+    type: createSortWithFallback(compareType, sortByAddress, false),
+    typeDesc: createSortWithFallback(compareType, sortByAddress, true),
+    filter: createSortWithFallback(compareFilter, sortByAddress, false),
+    filterDesc: createSortWithFallback(compareFilter, sortByAddress, true),
+    state: createSortWithFallback(compareState, sortByAddress, false),
+    stateDesc: createSortWithFallback(compareState, sortByAddress, true),
+  },
+
+  setData: function(data) {
+    var oldRows = this.rowCount;
+
+    this.allData = data;
+    this.refilter();
+
+    this.boxObject.rowCountChanged(0, -oldRows);
+    this.boxObject.rowCountChanged(0, this.rowCount);
+  },
+
+  addItem: function(item) {
+    this.allData.push(item);
+    if (this.filter && item.location.toLowerCase().indexOf(this.filter) < 0)
+      return;
+
+    var index = -1;
+    if (this.sortProc)
+      for (var i = 0; index < 0 && i < this.data.length; i++)
+        if (this.sortProc(item, this.data[i]) < 0)
+          index = i;
+
+    if (index >= 0)
+      this.data.splice(index, 0, item);
+    else {
+      this.data.push(item);
+      index = this.data.length - 1;
+    }
+
+    if (this.data.length == 1)
+      this.boxObject.invalidateRow(0);
+    else
+      this.boxObject.rowCountChanged(index, 1);
+  },
+
+  refilter: function() {
+    this.data = [];
+    for (var i = 0; i < this.allData.length; i++)
+      if (!this.filter || this.allData[i].location.toLowerCase().indexOf(this.filter) >= 0)
+        this.data.push(this.allData[i]);
+
+    if (this.sortProc)
+      this.data.sort(this.sortProc);
+  },
+
+  setFilter: function(filter) {
+    var oldRows = this.rowCount;
+
+    this.filter = filter.toLowerCase();
+    this.refilter();
+
+    var newRows = this.rowCount;
+    if (oldRows != newRows)
+      this.boxObject.rowCountChanged(oldRows < newRows ? oldRows : newRows, this.rowCount - oldRows);
+    this.boxObject.invalidate();
+  },
+
+  getSelectedItem: function() {
+    if (!this.data || this.selection.currentIndex < 0 || this.selection.currentIndex >= this.data.length)
+      return null;
+
+    return this.data[this.selection.currentIndex];
+  },
+
+  getItemAt: function(x, y) {
+    if (!this.data)
+      return null;
+
+    var row = this.boxObject.getRowAt(x, y);
+    if (row < 0 || row >= this.data.length)
+      return null;
+
+    return this.data[row];
+  },
+
+  getDummyTooltip: function() {
+    if (!this.data || this.data.length)
+      return null;
+
+    var insecLocation = secureGet(window.content, "location");
+
+    // We want to stick with "no blockable items" for about:blank
+    if (secureGet(insecLocation, "href") != "about:blank") {
+      if (!abp.policy.isBlockableScheme(insecLocation))
+        return {tooltip: this.remoteDummyTooltip};
+
+      var filter = abp.policy.isWhitelisted(secureGet(insecLocation, "href"));
+      if (filter)
+        return {tooltip: this.whitelistDummyTooltip, filter: filter};
+    }
+
+    return {tooltip: this.itemsDummyTooltip};
+  },
+
+  selectItem: function(item) {
+    var row = -1;
+    for (var i = 0; row < 0 && i < this.data.length; i++)
+      if (this.data[i] == item)
+        row = i;
+
+    if (row < 0 )
+      return;
+
+    this.selection.select(row);
+    this.boxObject.ensureRowIsVisible(row);
+  }
 }

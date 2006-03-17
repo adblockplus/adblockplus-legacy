@@ -45,15 +45,6 @@ if (abp) {
 else
   window.close();   // Extension manager opened us without checking whether we are installed properly
 
-var useTypeAheadFind = false;
-var useTypeAheadTimeout = 5000;
-try {
-  var prefService = Components.classes["@mozilla.org/preferences-service;1"]
-                              .getService(Components.interfaces.nsIPrefBranch);
-  useTypeAheadFind = prefService.getBoolPref("accessibility.typeaheadfind");
-  useTypeAheadTimeout = prefService.getIntPref("accessibility.typeaheadfind.timeout");
-} catch(e) {}
-
 // Preference window initialization
 function init() {
   document.getElementById("disabledWarning").hidden = prefs.enabled;
@@ -712,12 +703,19 @@ function refilterWindow(insecWnd) {
   if (secureGet(insecWnd, "closed"))
     return;
 
-  var data = abp.getDataForWindow(insecWnd).getAllLocations();
+  var wndData = abp.getDataForWindow(insecWnd);
+  var data = wndData.getAllLocations();
   var policy = abp.policy;
-  for (var i = 0; i < data.length; i++)
-    if (!data[i].filter || data[i].filter.type == "whitelist")
-      for (var j = 0; j < data[i].inseclNodes.length; j++)
-        policy.processNode(data[i].inseclNodes[j], data[i].type, data[i].location, true);
+  for (var i = 0; i < data.length; i++) {
+    if (!data[i].filter || data[i].filter.type == "whitelist") {
+      var inseclNodes = data[i].inseclNodes;
+      data[i].inseclNodes = [];
+      for (var j = 0; j < inseclNodes.length; j++)
+        policy.processNode(inseclNodes[j], data[i].type, data[i].location, true);
+    }
+  }
+
+  abp.DataContainer.notifyListeners(insecWnd, "invalidate", data);
 }
 
 // Warns the user that he has entered a regular expression. 
@@ -770,7 +768,7 @@ function sortByText(pattern1, pattern2) {
 }
 
 function sortByTextDesc(pattern1, pattern2) {
-  return sortByText(pattern2, pattern1);
+  return -sortByText(pattern1, pattern2);
 }
 
 function compareEnabled(pattern1, pattern2) {
@@ -784,22 +782,6 @@ function compareEnabled(pattern1, pattern2) {
     return 0;
 }
 
-function sortByEnabled(pattern1, pattern2) {
-  var ret = compareEnabled(pattern1, pattern2);
-  if (ret == 0)
-    return sortByText(pattern1, pattern2);
-  else
-    return ret;
-}
-
-function sortByEnabledDesc(pattern1, pattern2) {
-  var ret = compareEnabled(pattern1, pattern2);
-  if (ret == 0)
-    return sortByText(pattern1, pattern2);
-  else
-    return -ret;
-}
-
 function compareHitCount(pattern1, pattern2) {
   var hasHitCount1 = (pattern1.type == "whitelist" || pattern1.type == "filterlist" ? 1 : 0);
   var hasHitCount2 = (pattern2.type == "whitelist" || pattern2.type == "filterlist" ? 1 : 0);
@@ -811,24 +793,20 @@ function compareHitCount(pattern1, pattern2) {
     return 0;
 }
 
-function sortByHitCount(pattern1, pattern2) {
-  var ret = compareHitCount(pattern1, pattern2);
-  if (ret == 0)
-    return sortByText(pattern1, pattern2);
-  else
-    return ret;
-}
-
-function sortByHitCountDesc(pattern1, pattern2) {
-  var ret = compareHitCount(pattern1, pattern2);
-  if (ret == 0)
-    return sortByText(pattern1, pattern2);
-  else
-    return -ret;
-}
-
 function sortNatural(pattern1, pattern2) {
   return pattern1.origPos - pattern2.origPos;
+}
+
+function createSortWithFallback(cmpFunc, fallbackFunc, desc) {
+  var factor = (desc ? -1 : 1);
+
+  return function(pattern1, pattern2) {
+    var ret = cmpFunc(pattern1, pattern2);
+    if (ret == 0)
+      return fallbackFunc(pattern1, pattern2);
+    else
+      return factor * ret;
+  }
 }
 
 // Filter list's tree view object
@@ -914,10 +892,10 @@ var treeView = {
     }
 
     // Check current sort direction
-    var cols = ["pattern", "enabled", "hitcount"];
+    var cols = document.getElementsByTagName("treecol");
     var sortDir = null;
     for (i = 0; i < cols.length; i++) {
-      var col = document.getElementById(cols[i]);
+      var col = cols[i];
       var dir = col.getAttribute("sortDirection");
       if (dir && dir != "natural") {
         this.sortColumn = col;
@@ -1362,10 +1340,10 @@ var treeView = {
   sortProcs: {
     pattern: sortByText,
     patternDesc: sortByTextDesc,
-    hitcount: sortByHitCount,
-    hitcountDesc: sortByHitCountDesc,
-    enabled: sortByEnabled,
-    enabledDesc: sortByEnabledDesc,
+    hitcount: createSortWithFallback(compareHitCount, sortByText, false),
+    hitcountDesc: createSortWithFallback(compareHitCount, sortByText, true),
+    enabled: createSortWithFallback(compareEnabled, sortByText, false),
+    enabledDesc: createSortWithFallback(compareEnabled, sortByText, true),
     natural: sortNatural
   },
 

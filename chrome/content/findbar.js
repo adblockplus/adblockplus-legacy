@@ -25,7 +25,21 @@
 var findBar = null;
 var findComposing = false;
 var lastSearch = null;
+var prevSearchLength = 0;
 var findBarTimeout = null;
+var sound = null;
+var typeAheadSoundURL = null;
+
+var useTypeAheadFind = false;
+var useTypeAheadTimeout = 5000;
+var useTypeAheadSound = null;
+try {
+  var prefService = Components.classes["@mozilla.org/preferences-service;1"]
+                              .getService(Components.interfaces.nsIPrefBranch);
+  useTypeAheadFind = prefService.getBoolPref("accessibility.typeaheadfind");
+  useTypeAheadTimeout = prefService.getIntPref("accessibility.typeaheadfind.timeout");
+  useTypeAheadSound = prefService.getCharPref("accessibility.typeaheadfind.soundURL");
+} catch(e) {}
 
 function openFindBar(typeAheadStr) {
   if (typeof typeAheadStr == "undefined")
@@ -121,9 +135,40 @@ function setFindBarStatus(status) {
   }
 }
 
+function playNotFoundSound() {
+  if (!useTypeAheadSound)
+    return;
+
+  if (!sound) {
+    sound = Components.classes["@mozilla.org/sound;1"]
+                          .createInstance(Components.interfaces.nsISound);
+
+    if (useTypeAheadSound == "default")
+      useTypeAheadSound = "chrome://global/content/notfound.wav";
+
+    if (useTypeAheadSound != "beep") {
+      try {
+        typeAheadSoundURL = Components.classes["@mozilla.org/network/standard-url;1"]
+                                      .createInstance(Components.interfaces.nsIURL);
+        typeAheadSoundURL.spec = useTypeAheadSound;
+      } catch(e) {}
+    }
+  }
+
+  try {
+    if (useTypeAheadSound == "beep")
+      sound.beep();
+    else
+      sound.play(typeAheadSoundURL);
+  } catch(e) {}
+}
+
 function doFind(direction) {
   if (findBarTimeout)
     resetFindBarTimeout();
+
+  var playSound = (lastSearch && lastSearch.length > prevSearchLength);
+  prevSearchLength = (lastSearch ? lastSearch.length : 0);
 
   document.getElementById("abp-find-previous").setAttribute("disabled", !lastSearch);
   document.getElementById("abp-find-next").setAttribute("disabled", !lastSearch);
@@ -133,6 +178,9 @@ function doFind(direction) {
 
   var status = treeView.find(lastSearch, direction, document.getElementById("abp-highlight").checked);
   setFindBarStatus(status);
+
+  if (status == "NotFound" && playSound)
+    playNotFoundSound();
 }
 
 function find(text) {

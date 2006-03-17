@@ -24,6 +24,10 @@
 
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
+#suggestionsList {
+  margin: 0px;
+}
+
 #detachButton, #reattachButton:not([disabled="true"]) {
   text-decoration: underline;
   cursor: pointer;
@@ -33,23 +37,38 @@
   color: GrayText;
 }
 
-#tooltipFilter {
-  margin-top: 5px;
-}
-
-#tooltipFilter label {
-  font-weight: bold;
-  margin-right: 0px;
-}
-
-.filtered:not([selected="true"]) {
-  color: #C00000;
-}
-
-.whitelisted:not([selected="true"]) {
-  color: #008000;
+#detachButton, #reattachButton {
+  font-size: 80%;
 }
 
 tooltip {
   max-width: none;
+}
+
+#tooltip label {
+  font-weight: bold;
+  margin-right: 0px;
+}
+
+#state {
+  min-width: 16px;
+}
+
+treechildren::-moz-tree-cell-text(state-filtered, selected-false) {
+  color: #C00000;
+}
+treechildren::-moz-tree-cell-text(state-whitelisted, selected-false) {
+  color: #008000;
+}
+
+treechildren::-moz-tree-image(col-state, state-regular, dummy-false) {
+  list-style-image: url(unchecked.gif);
+}
+
+treechildren::-moz-tree-image(col-state, state-filtered, dummy-false) {
+  list-style-image: url(checked-red.png);
+}
+
+treechildren::-moz-tree-image(col-state, state-whitelisted, dummy-false) {
+  list-style-image: url(checked-green.png);
 }
