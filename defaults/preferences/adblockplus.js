@@ -3,6 +3,7 @@ pref("extensions.adblockplus.frameobjects", true);
 pref("extensions.adblockplus.fastcollapse", false);
 pref("extensions.adblockplus.linkcheck", true);
 pref("extensions.adblockplus.warnregexp", true);
+pref("extensions.adblockplus.showintoolbar", true);
 pref("extensions.adblockplus.showinstatusbar", true);
 pref("extensions.adblockplus.blocklocalpages", true);
 pref("extensions.adblockplus.checkedtoolbar", false);

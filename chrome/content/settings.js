@@ -564,11 +564,12 @@ function fillFiltersPopup(prefix) {
 // Makes sure the right items in the options popup are checked
 function fillOptionsPopup() {
   document.getElementById("abp-enabled").setAttribute("checked", prefs.enabled);
-  document.getElementById("showinstatusbar").setAttribute("checked", prefs.showinstatusbar);
   document.getElementById("localpages").setAttribute("checked", prefs.blocklocalpages);
   document.getElementById("frameobjects").setAttribute("checked", prefs.frameobjects);
   document.getElementById("slowcollapse").setAttribute("checked", !prefs.fastcollapse);
   document.getElementById("linkcheck").setAttribute("checked", prefs.linkcheck);
+  document.getElementById("showintoolbar").setAttribute("checked", prefs.showintoolbar);
+  document.getElementById("showinstatusbar").setAttribute("checked", prefs.showinstatusbar);
 }
 
 // Makes sure the right items in the context menu are checked/enabled

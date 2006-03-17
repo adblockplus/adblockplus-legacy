@@ -59,6 +59,8 @@
 
 <!ENTITY enable.label               "Enable Adblock Plus">
 <!ENTITY enable.accesskey           "N">
+<!ENTITY showintoolbar.label        "Show in toolbar">
+<!ENTITY showintoolbar.accesskey    "B">
 <!ENTITY showinstatusbar.label      "Show in status bar">
 <!ENTITY showinstatusbar.accesskey  "S">
 <!ENTITY localpages.label           "Block remote ads in local pages">
