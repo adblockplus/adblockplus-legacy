@@ -187,10 +187,8 @@ function fixColWidth() {
     if (suggestionItems[i].childNodes[1].boxObject.width > maxWidth)
       maxWidth = suggestionItems[i].childNodes[1].boxObject.width;
   }
-  for (i = 0; i < suggestionItems.length; i++) {
-    // Older versions don't support .style in XUL - have to use style attribute
-    suggestionItems[i].childNodes[1].setAttribute("style", "width: "+maxWidth+"px");
-  }
+  for (i = 0; i < suggestionItems.length; i++)
+    suggestionItems[i].childNodes[1].style.width = maxWidth+"px";
 }
 
 function onInputChange(prop, oldval, newval) {
