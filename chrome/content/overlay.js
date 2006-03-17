@@ -444,6 +444,7 @@ function abpTogglePattern(text, insert) {
       abpPrefs.userPatterns.push(pattern);
   }
 
+  abpPrefs.initMatching();
   abpPrefs.savePatterns();
 }
 

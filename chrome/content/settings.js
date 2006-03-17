@@ -1428,7 +1428,7 @@ var treeView = {
   addPattern: function(text, origSubscription, origPos, noSelect) {
     var i, parentRow
 
-    var pattern = prefs.patternFromText(text, true);
+    var pattern = prefs.patternFromText(text);
     if (!pattern || !treeView.typemap.has(pattern.type))
       return;
   
@@ -1780,6 +1780,7 @@ var treeView = {
         list.push(pattern);
       }
     }
+    prefs.initMatching();
     prefs.savePatterns();
   },
 

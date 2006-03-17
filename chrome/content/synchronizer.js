@@ -94,6 +94,7 @@ var synchronizer = {
       if (pattern)
         subscription.patterns.push(pattern);
     }
+    prefs.initMatching();
     prefs.savePatterns();
     this.notifyListeners(subscription, "ok");
   },
