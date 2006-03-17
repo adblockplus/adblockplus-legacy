@@ -117,6 +117,8 @@ function abpReloadPrefs() {
         var labelElement = element.getElementsByTagName("label")[0];
         labelElement.setAttribute("value", label);
       }
+      else
+        element.hidden = !abpPrefs.showintoolbar;
     }
 
     if (abpPrefs.enabled)
@@ -284,11 +286,12 @@ function abpFillPopup(popup) {
   }
 
   elements.enabled.setAttribute("checked", abpPrefs.enabled);
-  elements.showinstatusbar.setAttribute("checked", abpPrefs.showinstatusbar);
   elements.localpages.setAttribute("checked", abpPrefs.blocklocalpages);
   elements.frameobjects.setAttribute("checked", abpPrefs.frameobjects);
   elements.slowcollapse.setAttribute("checked", !abpPrefs.fastcollapse);
   elements.linkcheck.setAttribute("checked", abpPrefs.linkcheck);
+  elements.showintoolbar.setAttribute("checked", abpPrefs.showintoolbar);
+  elements.showinstatusbar.setAttribute("checked", abpPrefs.showinstatusbar);
   return true;
 }
 

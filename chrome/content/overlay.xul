@@ -51,11 +51,13 @@
         <menuseparator/>
         <menu id="abp-status-options" label="&options.label;" accesskey="&options.accesskey;">
           <menupopup id="abp-status-options-popup">
-            <menuitem id="abp-status-showinstatusbar" label="&showinstatusbar.label;" accesskey="&showinstatusbar.accesskey;" type="checkbox" oncommand="abpTogglePref('showinstatusbar')"/>
             <menuitem id="abp-status-localpages" label="&localpages.label;" accesskey="&localpages.accesskey;" type="checkbox" oncommand="abpTogglePref('blocklocalpages')"/>
             <menuitem id="abp-status-frameobjects" label="&objecttabs.label;" accesskey="&objecttabs.accesskey;" type="checkbox" oncommand="abpTogglePref('frameobjects')"/>
             <menuitem id="abp-status-slowcollapse" label="&collapse.label;" accesskey="&collapse.accesskey;" type="checkbox" oncommand="abpTogglePref('fastcollapse')"/>
             <menuitem id="abp-status-linkcheck" label="&linkcheck.label;" accesskey="&linkcheck.accesskey;" type="checkbox" oncommand="abpTogglePref('linkcheck')"/> 
+            <menuseparator/>
+            <menuitem id="abp-status-showintoolbar" label="&showintoolbar.label;" accesskey="&showintoolbar.accesskey;" type="checkbox" oncommand="abpTogglePref('showintoolbar')"/>
+            <menuitem id="abp-status-showinstatusbar" label="&showinstatusbar.label;" accesskey="&showinstatusbar.accesskey;" type="checkbox" oncommand="abpTogglePref('showinstatusbar')"/>
           </menupopup>
         </menu>
         <menuitem id="abp-status-enabled" label="&enable.label;" accesskey="&enable.accesskey;" type="checkbox" oncommand="abpTogglePref('enabled')"/>
