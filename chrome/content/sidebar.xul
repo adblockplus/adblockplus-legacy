@@ -38,6 +38,15 @@
   <script type="application/x-javascript" src="sidebar.js"/>
   <script type="application/x-javascript" src="security.js"/>
 
+  <keyset id="sidebarKeys">
+    <key id="block-key" keycode="VK_ENTER"/>
+    <key id="copy-key" modifiers="accel" key="C" command="copy-command"/>
+  </keyset>
+
+  <commandset id="sidebarCommands">
+    <command id="copy-command" oncommand="copyToClipboard()" disabled="true"/>
+  </commandset>
+
   <popupset id="sidebarPopups">
     <tooltip id="tooltip" orient="vertical" onpopupshowing="return fillInTooltip(event)">
       <description id="tooltipDummy"/>
@@ -62,6 +71,15 @@
         </rows>
       </grid>
     </tooltip>
+
+    <popup id="context" onpopupshowing="return fillInContext(event)">
+      <menuitem id="contextBlock" label="&context.block.label;..." oncommand="doBlock()" key="block-key"/>
+      <menuitem id="contextEditFilter" label="&context.editfilter.label;..." oncommand="doBlock()" key="block-key"/>
+      <menuitem id="contextWhitelist" label="&context.whitelist.label;" oncommand="doWhitelist()"/>
+      <menuseparator id="contextCopySep"/>
+      <menuitem id="contextOpen" label="&context.open.label;" oncommand="openInTab()"/>
+      <menuitem id="contextCopy" label="&context.copy.label;" command="copy-command" key="copy-key"/>
+    </popup>
   </popupset>
 
   <hbox>

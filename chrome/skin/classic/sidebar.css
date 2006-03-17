@@ -47,7 +47,11 @@ tooltip {
 
 #tooltip label {
   font-weight: bold;
-  margin-right: 0px;
+}
+
+#contextBlock,
+#contextEditFilter {
+  font-weight: bold;
 }
 
 #state {

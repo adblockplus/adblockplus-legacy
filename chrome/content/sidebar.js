@@ -81,8 +81,10 @@ function init() {
     // Retrieve data for the window
     wndData = DataContainer.getDataForWindow(window.content);
     treeView.setData(wndData.getAllLocations());
-    if (params && params.selected)
+    if (params && params.selected) {
       treeView.selectItem(params.selected);
+      onSelectionChange();
+    }
 
     // Activate flasher
     list.addEventListener("select", onSelectionChange, false);
@@ -112,6 +114,10 @@ function cleanUp() {
 // Called whenever list selection changes - triggers flasher
 function onSelectionChange() {
   var item = treeView.getSelectedItem();
+  if (item)
+    document.getElementById("copy-command").removeAttribute("disabled");
+  else
+    document.getElementById("copy-command").setAttribute("disabled", "true");
   flasher.flash(item ? item.inseclNodes : null);
 }
 
@@ -163,7 +169,7 @@ function setMultilineContent(box, text) {
   }
 }
 
-// Shows tooltip with the full uncropped address
+// Fill in tooltip data before showing it
 function fillInTooltip(e) {
   var item;
   if (treeView.data && !treeView.data.length)
@@ -200,6 +206,24 @@ function fillInTooltip(e) {
   return true;
 }
 
+// Fill in tooltip data before showing it
+function fillInContext(e) {
+  var item;
+  if (treeView.data && !treeView.data.length)
+    item = treeView.getDummyTooltip();
+  else
+    item = treeView.getItemAt(e.clientX, e.clientY);
+
+  if (!item || ("tooltip" in item && !("filter" in item)))
+    return false;
+
+  document.getElementById("contextBlock").hidden = ("filter" in item && item.filter != null);
+  document.getElementById("contextEditFilter").hidden = !("filter" in item && item.filter != null);
+  document.getElementById("contextWhitelist").setAttribute("disabled", !!("tooltip" in item || (item.filter && item.filter.type == "whitelist")));
+
+  return true;
+}
+
 // Handles middle-click on an item
 function openInTab(e) {
   var item = (typeof e == "undefined" ? treeView.getSelectedItem() : treeView.getItemAt(e.clientX, e.clientY));
@@ -215,11 +239,41 @@ function doBlock() {
     return;
 
   var item = treeView.getSelectedItem();
+  if (treeView.data && !treeView.data.length) {
+    item = treeView.getDummyTooltip();
+    item.location = undefined;
+    if (!("filter" in item))
+      item.filter = null;
+  }
 
   var location = (item ? item.location : undefined);
   var filter = (item && item.filter ? item.filter : undefined);
 
   abp.openSettingsDialog(window.content, location, filter);
+}
+
+function doWhitelist() {
+  if (!abp)
+    return;
+
+  var item = treeView.getSelectedItem();
+  if (!item)
+    return;
+
+  abp.openSettingsDialog(window.content, "@@" + item.location);
+}
+
+function copyToClipboard() {
+  if (!abp)
+    return;
+
+  var item = treeView.getSelectedItem();
+  if (!item)
+    return;
+
+  var clipboardHelper = Components.classes["@mozilla.org/widget/clipboardhelper;1"]
+                                  .getService(Components.interfaces.nsIClipboardHelper);
+  clipboardHelper.copyString(item.location);
 }
 
 // Saves sidebar's state before detaching/reattaching
@@ -605,7 +659,7 @@ var treeView = {
     filter: createSortWithFallback(compareFilter, sortByAddress, false),
     filterDesc: createSortWithFallback(compareFilter, sortByAddress, true),
     state: createSortWithFallback(compareState, sortByAddress, false),
-    stateDesc: createSortWithFallback(compareState, sortByAddress, true),
+    stateDesc: createSortWithFallback(compareState, sortByAddress, true)
   },
 
   setData: function(data) {
