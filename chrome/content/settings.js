@@ -1650,6 +1650,13 @@ var treeView = {
                           .createInstance(Components.interfaces.nsISupportsArray);
     var transferable = Components.classes["@mozilla.org/widget/transferable;1"]
                                  .createInstance(Components.interfaces.nsITransferable);
+    var data = Components.classes["@mozilla.org/supports-string;1"]
+                         .createInstance(Components.interfaces.nsISupportsString);
+    if (info[1] && typeof info[1] != "string")
+      data.data = info[1].text;
+    else
+      data.data = info[0].title;
+    transferable.setTransferData("text/unicode", data, data.data.length * 2);
     array.AppendElement(transferable);
 
     var region = Components.classes["@mozilla.org/gfx/region;1"]
