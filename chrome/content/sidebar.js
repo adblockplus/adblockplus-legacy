@@ -77,6 +77,8 @@ function init() {
     }
     if (params && params.focus && document.getElementById(params.focus))
       document.getElementById(params.focus).focus();
+    else
+      document.getElementById("searchField").focus();
 
     // Retrieve data for the window
     wndData = DataContainer.getDataForWindow(window.content);

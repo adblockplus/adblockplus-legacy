@@ -321,14 +321,8 @@ var prefs = {
   reloadPatterns: function() {
 //    var start = new Date().getTime();
 
-    if (cache)
-      cache.clear();
     this.knownPatterns.clear();
     this.listedSubscriptions.clear();
-    this.filterPatterns.clear();
-    this.whitePatterns.clear();
-    this.whitePatternsPage.clear();
-    this.elemhidePatterns.clear();
     this.userPatterns = [];
     this.subscriptions = [];
 
@@ -481,10 +475,32 @@ var prefs = {
       }
     }
 
-    if (this.enabled)
-      this.elemhidePatterns.apply();
+    this.initMatching();
 
 //    dump("Time to load patterns: " + (new Date().getTime() - start) + "\n");
+  },
+
+  initMatching: function() {
+    if (cache)
+      cache.clear();
+
+    this.filterPatterns.clear();
+    this.whitePatterns.clear();
+    this.whitePatternsPage.clear();
+    this.elemhidePatterns.clear();
+
+    for (var i = 0; i < this.userPatterns.length; i++)
+      this.addPattern(this.userPatterns[i]);
+
+    for (i = 0; i < this.subscriptions.length; i++) {
+      var subscription = this.subscriptions[i];
+      if (!subscription.disabled)
+        for (var j = 0; j < subscription.patterns.length; j++)
+          this.addPattern(subscription.patterns[j]);
+    }
+
+    if (this.enabled)
+      this.elemhidePatterns.apply();
   },
 
   getFileByPath: function(path) {
@@ -509,7 +525,7 @@ var prefs = {
   },
 
   // Saves pattern data back to the patterns file
-  savePatterns: function(noReload) {
+  savePatterns: function() {
 //    var start = new Date().getTime();
 
     var file = this.getFileByPath(this.patternsfile);
@@ -597,14 +613,10 @@ var prefs = {
     }
 
 //    dump("Time to save patterns: " + (new Date().getTime() - start) + "\n");
-
-    // Reinit data now
-    if (typeof noReload == "undefined" || !noReload)
-      this.reloadPatterns();
   },
 
   // Creates a pattern from a data object
-  patternFromObject: function(obj, forceDisabled) {
+  patternFromObject: function(obj) {
     var text = ("text" in obj ? obj.text : null);
     if (!text)
       return null;
@@ -630,14 +642,12 @@ var prefs = {
     ret.disabled = ("disabled" in obj && obj.disabled == "true");
     ret.hitCount = ("hitCount" in obj ? parseInt(obj.hitCount) : 0) || 0;
 
-    if (typeof forceDisabled == "undefined" || !forceDisabled)
-      this.addPattern(ret);
     this.knownPatterns.put(text, ret);
     return ret;
   },
 
   // Creates a pattern from pattern text
-  patternFromText: function(text, forceDisabled) {
+  patternFromText: function(text) {
     if (!/\S/.test(text))
       return null;
 
@@ -650,8 +660,6 @@ var prefs = {
     ret.disabled = false;
     ret.hitCount = 0;
 
-    if (typeof forceDisabled == "undefined" || !forceDisabled)
-      this.addPattern(ret);
     this.knownPatterns.put(text, ret);
     return ret;
   },
@@ -887,7 +895,7 @@ var prefs = {
         try {
           var list = this.branch.getCharPref(prefix + "patterns").split(" ");
           for (var i = 0; i < list.length; i++) {
-            var pattern = this.patternFromText(list[i], ret.disabled);
+            var pattern = this.patternFromText(list[i]);
             if (pattern)
               ret.patterns.push(pattern);
           }
@@ -1003,7 +1011,7 @@ var prefs = {
       this.initialized = true;
     }
     else if (this.initialized && topic == "profile-before-change") {
-      this.savePatterns(true);
+      this.savePatterns();
       this.initialized = false;
     }
     else if (this.initialized && !this.disableObserver)
