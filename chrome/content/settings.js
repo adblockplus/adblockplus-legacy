@@ -170,8 +170,8 @@ function createDescription(label, flex) {
 function createFilterSuggestion(menulist, suggestion) {
   var menuitem = menulist.appendItem(suggestion.location, suggestion.location);
 
-  menuitem.appendChild(createDescription(suggestion.localizedDescr, 0));
   menuitem.appendChild(createDescription(suggestion.location, 1));
+  menuitem.appendChild(createDescription(suggestion.localizedDescr, 0));
 
   if (suggestion.filter && suggestion.filter.type == "whitelist")
     menuitem.className = "whitelisted";
@@ -184,12 +184,12 @@ function createFilterSuggestion(menulist, suggestion) {
 function fixColWidth() {
   var maxWidth = 0;
   for (var i = 0; i < suggestionItems.length; i++) {
-    if (suggestionItems[i].childNodes[0].boxObject.width > maxWidth)
-      maxWidth = suggestionItems[i].childNodes[0].boxObject.width;
+    if (suggestionItems[i].childNodes[1].boxObject.width > maxWidth)
+      maxWidth = suggestionItems[i].childNodes[1].boxObject.width;
   }
   for (i = 0; i < suggestionItems.length; i++) {
     // Older versions don't support .style in XUL - have to use style attribute
-    suggestionItems[i].childNodes[0].setAttribute("style", "width: "+maxWidth+"px");
+    suggestionItems[i].childNodes[1].setAttribute("style", "width: "+maxWidth+"px");
   }
 }
 

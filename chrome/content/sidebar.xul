@@ -94,9 +94,9 @@
   <tree id="list" flex="1" seltype="single" enableColumnDrag="true"
         onkeypress="if (event.keyCode == event.DOM_VK_RETURN || event.keyCode == event.DOM_VK_ENTER) doBlock()">
     <treecols>
-      <treecol id="type" label="&type.label;" persist="width ordinal sortDirection hidden"/>
-      <splitter class="tree-splitter"/>
       <treecol id="address" label="&address.label;" flex="2" crop="center" persist="width ordinal sortDirection hidden"/>
+      <splitter class="tree-splitter"/>
+      <treecol id="type" label="&type.label;" persist="width ordinal sortDirection hidden"/>
       <splitter class="tree-splitter"/>
       <treecol id="filter" label="&filter.label;" hidden="true" flex="1" persist="width ordinal sortDirection hidden"/>
       <splitter class="tree-splitter"/>
