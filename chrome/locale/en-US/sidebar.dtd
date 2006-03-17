@@ -27,14 +27,24 @@
 <!ENTITY detach.label             "Detach">
 <!ENTITY reattach.label           "Reattach">
 
+<!ENTITY search.label             "Search:">
+<!ENTITY search.accesskey         "S">
+
 <!ENTITY type.label               "Type">
 <!ENTITY address.label            "Address">
+<!ENTITY filter.label             "Filter">
+<!ENTITY state.label              "State">
 
 <!ENTITY noitems.label            "No blockable items">
 <!ENTITY notremote.label          "Not a remote page">
 <!ENTITY whitelisted.label        "Whitelisted page">
 <!ENTITY notloaded.label          "Adblock Plus hasn't been installed properly">
-<!ENTITY effective-filter.label   "Filter in effect">
+
+<!ENTITY tooltip.address.label    "Address:">
+<!ENTITY tooltip.type.label       "Type:">
+<!ENTITY tooltip.type.blocked     "(blocked)">
+<!ENTITY tooltip.type.whitelisted "(whitelisted)">
+<!ENTITY tooltip.filter.label     "Filter in effect:">
 
 <!ENTITY adblock.label            "Adblock">
 <!ENTITY adblock.accesskey        "A">

@@ -40,42 +40,55 @@
 
   <popupset id="sidebarPopups">
     <tooltip id="tooltip" orient="vertical" onpopupshowing="return fillInTooltip(event)">
-      <vbox id="tooltipText"/>
-      <hbox id="tooltipFilter">
-        <label value="&effective-filter.label;" control="tooltipFilterText"/>
-        <description id="tooltipFilterText"/>
-      </hbox>
+      <description id="tooltipDummy"/>
+      <grid>
+        <columns>
+          <column/>
+          <column flex="1"/>
+        </columns>
+        <rows>
+          <row id="tooltipAddressRow" align="top">
+            <label value="&tooltip.address.label;"/>
+            <vbox id="tooltipAddress"/>
+          </row>
+          <row id="tooltipTypeRow">
+            <label value="&tooltip.type.label;"/>
+            <description id="tooltipType" filtered="&tooltip.type.blocked;" whitelisted="&tooltip.type.whitelisted;"/>
+          </row>
+          <row id="tooltipFilterRow" align="top">
+            <label value="&tooltip.filter.label;"/>
+            <vbox id="tooltipFilter"/>
+          </row>
+        </rows>
+      </grid>
     </tooltip>
   </popupset>
 
-  <hbox pack="end">
+  <hbox>
+    <hbox align="center" flex="1">
+      <label value="&search.label;" accesskey="&search.accesskey;" control="searchField"/>
+      <textbox id="searchField" flex="1" type="timed" timeout="500" oncommand="treeView.setFilter(this.value)"/>
+    </hbox>
     <description id="detachButton" value="&detach.label;" onclick="detach()"/>
     <description id="reattachButton" value="&reattach.label;" onclick="if (this.getAttribute('disabled') != 'true') reattach()" hidden="true"/>
   </hbox>
-  <listbox id="suggestionsList" flex="1" seltype="single" tooltip="tooltip" onclick="openInTab(event)" ondblclick="doAdblock()" onkeypress="if (event.keyCode == event.DOM_VK_RETURN || event.keyCode == event.DOM_VK_ENTER) doAdblock();">
-    <listhead>
-      <listheader label="&type.label;"/>
-      <listheader label="&address.label;"/>
-    </listhead>
-    <listcols>
-      <listcol id="typeCol"/>
-      <listcol id="locationCol" flex="1"/>
-    </listcols>
-    <listitem id="noItemsDummy" class="filtered">
-      <listcell label="&noitems.label;"/>
-    </listitem>
-    <listitem id="notRemoteDummy" class="filtered">
-      <listcell label="&notremote.label;"/>
-    </listitem>
-    <listitem id="whitelistedDummy" class="whitelisted">
-      <listcell label="&whitelisted.label;"/>
-    </listitem>
-    <listitem id="notLoadedDummy" class="filtered">
-      <listcell label="&notloaded.label;"/>
-    </listitem>
-  </listbox>
 
-  <hbox>
-    <button id="adblockButton" label="&adblock.label;" accesskey="&adblock.accesskey;" oncommand="doAdblock()"/>
-  </hbox>
+  <tree id="list" flex="1" seltype="single" enableColumnDrag="true"
+        onkeypress="if (event.keyCode == event.DOM_VK_RETURN || event.keyCode == event.DOM_VK_ENTER) doBlock()">
+    <treecols>
+      <treecol id="type" label="&type.label;" persist="width ordinal sortDirection hidden"/>
+      <splitter class="tree-splitter"/>
+      <treecol id="address" label="&address.label;" flex="2" crop="center" persist="width ordinal sortDirection hidden"/>
+      <splitter class="tree-splitter"/>
+      <treecol id="filter" label="&filter.label;" hidden="true" flex="1" persist="width ordinal sortDirection hidden"/>
+      <splitter class="tree-splitter"/>
+      <treecol id="state" label="&state.label;" hidden="true" width="16" persist="width ordinal sortDirection hidden"/>
+    </treecols>
+
+    <treechildren tooltip="tooltip" context="context"
+                  onclick="if (event.button == 1) openInTab(event)"
+                  ondblclick="if (event.button == 0) doBlock()"
+                  noitemslabel="&noitems.label;" notremotelabel="&notremote.label;"
+                  whitelistedlabel="&whitelisted.label;" notloadedlabel="&notloaded.label;"/>
+  </tree>
 </page>

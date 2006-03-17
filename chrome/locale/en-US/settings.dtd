@@ -49,10 +49,10 @@
 <!ENTITY paste.accesskey            "P">
 <!ENTITY remove.label               "Delete">
 <!ENTITY remove.accesskey           "D">
-<!ENTITY find.label                 "Find">
-<!ENTITY find.accesskey             "F">
-<!ENTITY findagain.label            "Find Again">
-<!ENTITY findagain.accesskey        "G">
+<!ENTITY menu.find.label            "Find">
+<!ENTITY menu.find.accesskey        "F">
+<!ENTITY menu.findagain.label       "Find Again">
+<!ENTITY menu.findagain.accesskey   "G">
 
 <!ENTITY options.label              "Options">
 <!ENTITY options.accesskey          "O">

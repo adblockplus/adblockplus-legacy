@@ -196,6 +196,20 @@ const abp = {
         currentWindow.loadURI(url);
       }
     }
+  },
+
+  params: null,
+
+  // Saves sidebar state before detaching/reattaching
+  setParams: function(params) {
+    this.params = params;
+  },
+
+  // Retrieves sidebar state
+  getParams: function() {
+    var ret = this.params;
+    this.params = null;
+    return ret;
   }
 };
 abp.wrappedJSObject = abp;

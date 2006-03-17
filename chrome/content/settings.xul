@@ -21,6 +21,12 @@
    - the Initial Developer. All Rights Reserved.
    -
    - Contributor(s):
+   -   Netscape Communications Corporation
+   -   Blake Ross <blake@cs.stanford.edu>
+   -   David Hyatt <hyatt@mozilla.org>
+   -   Joe Hewitt <hewitt@netscape.com>
+   -   Pierre Chanial <chanial@noos.fr>
+   -   Dean Tessman <dean_tessman@hotmail.com>
    -
    - ***** END LICENSE BLOCK ***** -->
 
@@ -65,7 +71,9 @@
   <key id="paste-key" key="v" modifiers="accel" command="paste-command"/>
   <key id="find-key" key="f" modifiers="accel" command="find-command"/>
   <key id="find-again-key" key="g" modifiers="accel" command="find-again-command"/>
-  <key id="find-again-key" key="g" modifiers="accel,shift" command="find-previous-command"/>
+  <key id="find-previous-key" key="g" modifiers="accel,shift" command="find-previous-command"/>
+  <key id="find-again-key2" keycode="VK_F3" command="find-again-command"/>
+  <key id="find-previous-key2" keycode="VK_F3" modifiers="shift" command="find-previous-command"/>
   <key id="edit-key" keycode="VK_ENTER"/>
   <key id="remove-key" keycode="VK_DELETE"/>
   <key id="moveup-key" keycode="VK_UP" modifiers="accel"/>
@@ -126,8 +134,8 @@
         <menuitem id="paste" label="&paste.label;" accesskey="&paste.accesskey;" command="paste-command" key="paste-key"/>
         <menuitem id="remove" label="&remove.label;" accesskey="&remove.accesskey;" command="remove-command" key="remove-key"/>
         <menuseparator/>
-        <menuitem id="find" label="&find.label;..." accesskey="&find.accesskey;" command="find-command" key="find-key"/>
-        <menuitem id="find-again" label="&findagain.label;" accesskey="&findagain.accesskey;" command="find-again-command" key="find-again-key"/>
+        <menuitem id="find" label="&menu.find.label;..." accesskey="&menu.find.accesskey;" command="find-command" key="find-key"/>
+        <menuitem id="find-again" label="&menu.findagain.label;" accesskey="&menu.findagain.accesskey;" command="find-again-command" key="find-again-key"/>
       </menupopup>
     </menu>
     <menu id="options-menu" label="&options.label;" accesskey="&options.accesskey;">
@@ -185,7 +193,7 @@
     </tree>
   </stack>
 
-  <toolbar id="abp-find-toolbar" hidden="true" align="center">
+  <toolbar id="abp-find-toolbar" grippyhidden="true" hidden="true" align="center">
     <toolbarbutton id="abp-find-closebutton" tooltiptext="&findCloseButton.tooltip;"
                     oncommand="closeFindBar()"/>
 
