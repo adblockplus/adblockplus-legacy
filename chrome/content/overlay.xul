@@ -88,7 +88,7 @@
   <!-- mozilla toolbar -->
   <hbox id="nav-bar-buttons">
     <toolbarbutton id="abp-toolbarbutton"
-        class="bookmark-item" disabled="true" label="&menuitem.label;"
+        class="bookmark-item" disabled="true" hidden="true" label="&menuitem.label;"
         oncommand="if (event.target == this) abpExecuteAction(abpPrefs.defaulttoolbaraction)"
         onclick="if (event.target == this &amp;&amp; event.button == 1) abpTogglePref('enabled')"
         ondragover="abpDragHandler(event)" ondragdrop="abpDragHandler(event)"
