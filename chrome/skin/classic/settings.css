@@ -100,3 +100,7 @@ treechildren::-moz-tree-image(col-enabled, pattern-true) {
 .filtered:not([_moz-menuactive="true"]) {
   color: #C00000;
 }
+
+#FindToolbar, #FindToolbar > .toolbar-holder {
+  border: none !important;
+}

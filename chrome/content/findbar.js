@@ -45,7 +45,7 @@ function openFindBar(typeAheadStr) {
   if (typeof typeAheadStr == "undefined")
     typeAheadStr = "";
 
-  findBar = document.getElementById("abp-find-toolbar");
+  findBar = document.getElementById("FindToolbar");
 
   if (findBar.hidden) {
     findBar.hidden = false;
@@ -54,7 +54,7 @@ function openFindBar(typeAheadStr) {
   else if (typeAheadStr)
     return;
 
-  var field = document.getElementById("abp-find-field");
+  var field = document.getElementById("find-field");
   field.select();
   field.focus();
 
@@ -94,7 +94,7 @@ function onFindBarBlur() {
 function onFindBarKeyPress(e) {
   if (e.keyCode == e.DOM_VK_RETURN || e.keyCode == e.DOM_VK_ENTER) {
     if (e.ctrlKey)
-      document.getElementById("abp-highlight").checked = true;
+      document.getElementById("highlight").checked = true;
 
     doFind(e.shiftKey ? -1 : 1);
     e.preventDefault();
@@ -126,12 +126,15 @@ function onFindBarCompositionEnd() {
 
 function setFindBarStatus(status) {
   if (status) {
-    findBar.setAttribute("status", status);
-    document.getElementById("abp-find-status-label").setAttribute("value", abp.getString(status));
+    var statusCode = (status == "NotFound" ? "notfound" : "wrapped");
+    document.getElementById("find-field").setAttribute("status", statusCode);
+    document.getElementById("find-status-icon").setAttribute("status", statusCode);
+    document.getElementById("find-status").setAttribute("value", abp.getString(status));
   }
   else {
-    findBar.removeAttribute("status");
-    document.getElementById("abp-find-status-label").removeAttribute("value");
+    document.getElementById("find-field").removeAttribute("status");
+    document.getElementById("find-status-icon").removeAttribute("status");
+    document.getElementById("find-status").removeAttribute("value");
   }
 }
 
@@ -170,13 +173,15 @@ function doFind(direction) {
   var playSound = (lastSearch && lastSearch.length > prevSearchLength);
   prevSearchLength = (lastSearch ? lastSearch.length : 0);
 
-  document.getElementById("abp-find-previous").setAttribute("disabled", !lastSearch);
-  document.getElementById("abp-find-next").setAttribute("disabled", !lastSearch);
+  document.getElementById("find-previous").setAttribute("disabled", !lastSearch);
+  document.getElementById("find-next").setAttribute("disabled", !lastSearch);
 
-  if (!lastSearch)
+  if (!lastSearch) {
+    setFindBarStatus(null);
     return;
+  }
 
-  var status = treeView.find(lastSearch, direction, document.getElementById("abp-highlight").checked);
+  var status = treeView.find(lastSearch, direction, document.getElementById("highlight").checked);
   setFindBarStatus(status);
 
   if (status == "NotFound" && playSound)

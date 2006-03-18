@@ -31,6 +31,7 @@
    - ***** END LICENSE BLOCK ***** -->
 
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://global/skin/findBar.css" type="text/css"?>
 <?xml-stylesheet href="chrome://adblockplus/skin/settings.css" type="text/css"?>
 <?xml-stylesheet href="chrome://adblockplus/skin/findbar/findBar.css" type="text/css"?>
 
@@ -195,27 +196,25 @@
     </tree>
   </stack>
 
-  <toolbar id="abp-find-toolbar" grippyhidden="true" hidden="true" align="center">
-    <toolbarbutton id="abp-find-closebutton" tooltiptext="&findCloseButton.tooltip;"
+  <toolbar id="FindToolbar" grippyhidden="true" hidden="true" align="center">
+    <toolbarbutton id="find-closebutton" tooltiptext="&findCloseButton.tooltip;"
                     oncommand="closeFindBar()"/>
 
     <label control="find-field" value="&find.label;"/>
-    <hbox id="abp-find-field-container">
-      <textbox id="abp-find-field" oninput="find(this.value)"
+    <hbox id="find-field-container">
+      <textbox id="find-field" oninput="find(this.value)"
               onblur="onFindBarBlur()"
               oncompositionstart="onFindBarCompositionStart()"
               oncompositionend="onFindBarCompositionEnd()"/>
     </hbox>
-    <toolbarbutton id="abp-find-next" label="&findNext.label;" tooltiptext="&findNext.tooltip;"
+    <toolbarbutton id="find-next" label="&findNext.label;" tooltiptext="&findNext.tooltip;"
                     command="find-again-command" disabled="true" accesskey="&findNext.accesskey;"/>
-    <toolbarbutton id="abp-find-previous" label="&findPrevious.label;" tooltiptext="&findPrevious.tooltip;"
+    <toolbarbutton id="find-previous" label="&findPrevious.label;" tooltiptext="&findPrevious.tooltip;"
                     command="find-previous-command" disabled="true" accesskey="&findPrevious.accesskey;"/>
-    <toolbarbutton id="abp-highlight" label="&highlight.label;" tooltiptext="&highlight.tooltip;"
+    <toolbarbutton id="highlight" label="&highlight.label;" tooltiptext="&highlight.tooltip;"
                     oncommand="toggleHighlight()" type="checkbox" accesskey="&highlight.accesskey;"/>
-    <hbox id="abp-find-status">
-      <image id="abp-find-status-icon"/>
-      <label id="abp-find-status-label"/>
-    </hbox>
+    <image id="find-status-icon"/>
+    <label id="find-status"/>
   </toolbar>
 </vbox>
 
