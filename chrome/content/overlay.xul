@@ -85,6 +85,16 @@
     </toolbarbutton>
   </toolbarpalette>
 
+  <!-- mozilla toolbar -->
+  <hbox id="nav-bar-buttons">
+    <toolbarbutton id="abp-toolbarbutton"
+        class="bookmark-item" disabled="true" label="&menuitem.label;"
+        oncommand="if (event.target == this) abpToggleSidebar()"
+        onclick="if (event.target == this &amp;&amp; event.button == 1) abpTogglePref('enabled')"
+        ondragover="abpDragHandler(event)" ondragdrop="abpDragHandler(event)"
+        tooltip="abp-tooltip" context="abp-status-popup"/>
+  </hbox>
+
   <!-- mozilla keybindings -->
   <keyset id="navKeys">
     <key id="key-launch-abp-preferences" modifiers="accel,shift" key="a" oncommand="abpSettings()"/>

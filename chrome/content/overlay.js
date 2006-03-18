@@ -58,6 +58,13 @@ function abpInit() {
   if (abp && !abpPrefs.checkedtoolbar)
     setTimeout(abpInstallInToolbar, 0);
 
+  // Move toolbar button to a correct location in Mozilla/SeaMonkey
+  var button = document.getElementById("abp-toolbarbutton");
+  if (button && button.parentNode.id == "nav-bar-buttons") {
+    var ptf = document.getElementById("bookmarks-ptf");
+    ptf.parentNode.insertBefore(button, ptf);
+  }
+
   // Copy the menu from status bar icon to the toolbar
   var fixId = function(node) {
     if (node.nodeType != Node.ELEMENT_NODE)
