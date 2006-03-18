@@ -56,6 +56,7 @@
 
 #abp-toolbarbutton {
   list-style-image: url("abp-enabled.png");
+  width: auto;
 }
 #abp-toolbarbutton[deactivated] {
   list-style-image: url("abp-disabled.png");
@@ -64,13 +65,16 @@
   list-style-image: url("abp-defunc.png");
 }
 
-toolbar[iconsize="small"] #abp-toolbarbutton {
+toolbar[iconsize="small"] #abp-toolbarbutton,
+#PersonalToolbar #abp-toolbarbutton {
   list-style-image: url("abp-enabled-16.png");
 }
-toolbar[iconsize="small"] #abp-toolbarbutton[deactivated] {
+toolbar[iconsize="small"] #abp-toolbarbutton[deactivated],
+#PersonalToolbar #abp-toolbarbutton[deactivated] {
   list-style-image: url("abp-disabled-16.png");
 }
-toolbar[iconsize="small"] #abp-toolbarbutton[disabled="true"] {
+toolbar[iconsize="small"] #abp-toolbarbutton[disabled="true"],
+#PersonalToolbar #abp-toolbarbutton[disabled="true"] {
   list-style-image: url("abp-defunc-16.png");
 }
 
