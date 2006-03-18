@@ -12,6 +12,8 @@ pref("extensions.adblockplus.checkedadblocksync", false);
 pref("extensions.adblockplus.checkedadblockinstalled", false);
 pref("extensions.adblockplus.detachsidebar", false);
 pref("extensions.adblockplus.synchronizationinterval", 24);
+pref("extensions.adblockplus.defaulttoolbaraction", 1);
+pref("extensions.adblockplus.defaultstatusbaraction", 2);
 pref("extensions.adblockplus.patternsfile", "adblockplus/patterns.ini");
 
 // Default filter list
