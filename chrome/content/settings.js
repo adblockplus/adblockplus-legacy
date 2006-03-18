@@ -50,6 +50,17 @@ function init() {
   document.getElementById("disabledWarning").hidden = prefs.enabled;
   document.documentElement.getButton("accept").setAttribute("disabled", "true");
 
+  // Use our own findBar.css only if the default isn't there
+  var findBarOk = false;
+  for (var i = 0; i < document.styleSheets.length; i++)
+    if (document.styleSheets[i].href == "chrome://global/skin/findBar.css" && document.styleSheets[i].cssRules.length)
+      findBarOk = true;
+
+  if (findBarOk)
+    for (i = 0; i < document.styleSheets.length; i++)
+      if (document.styleSheets[i].href == "chrome://adblockplus/skin/findbar/findBar.css")
+        document.styleSheets[i].disabled = true;
+
   // Install listeners
   prefs.addListener(onPrefChange);
   prefs.addHitCountListener(onHitCountChange);
@@ -70,7 +81,7 @@ function init() {
   }, false);
 
   // Capture keypress events - need to get them before the text field does
-  document.getElementById("abp-find-toolbar").addEventListener("keypress", onFindBarKeyPress, true);
+  document.getElementById("FindToolbar").addEventListener("keypress", onFindBarKeyPress, true);
 
   // Initialize content window data
   var windowMediator = Components.classes["@mozilla.org/appshell/window-mediator;1"]
