@@ -50,7 +50,7 @@
   list-style-image: url("abp-defunc-16.png");
 }
 
-#abp-status-settings, #abp-toolbar-opensidebar, #abp-toolbar-closesidebar {
+menuitem[default="true"] {
   font-weight: bold;
 }
 

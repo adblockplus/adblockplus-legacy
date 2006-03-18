@@ -299,6 +299,13 @@ function abpFillPopup(popup) {
   elements.linkcheck.setAttribute("checked", abpPrefs.linkcheck);
   elements.showintoolbar.setAttribute("checked", abpPrefs.showintoolbar);
   elements.showinstatusbar.setAttribute("checked", abpPrefs.showinstatusbar);
+
+  var defAction = (!document.popupNode || document.popupNode.id == "abp-toolbarbutton" ? abpPrefs.defaulttoolbaraction : abpPrefs.defaultstatusbaraction);
+  elements.opensidebar.setAttribute("default", defAction == 1);
+  elements.closesidebar.setAttribute("default", defAction == 1);
+  elements.settings.setAttribute("default", defAction == 2);
+  elements.enabled.setAttribute("default", defAction == 3);
+
   return true;
 }
 
@@ -461,8 +468,18 @@ function abpTogglePattern(text, insert) {
 // Handle clicks on the Adblock statusbar panel
 function abpClickHandler(e) {
   if (e.button == 0 && new Date().getTime() - abpLastDrag > 100)
-    abpSettings();
+    abpExecuteAction(abpPrefs.defaultstatusbaraction);
   else if (e.button == 1)
+    abpTogglePref("enabled");
+}
+
+// Executes default action for statusbar/toolbar by its number
+function abpExecuteAction(action) {
+  if (action == 1)
+    abpToggleSidebar();
+  else if (action == 2)
+    abpSettings();
+  else if (action == 3)
     abpTogglePref("enabled");
 }
 
