@@ -35,6 +35,7 @@ try {
 var abpPrefs = abp ? abp.prefs : {enabled: false};
 var abpDetachedSidebar = null;
 var abpForceDetach = false;
+var abpOldShowInToolbar = abpPrefs.showintoolbar;
 
 window.addEventListener("load", abpInit, false);
 
@@ -126,6 +127,11 @@ function abpReloadPrefs() {
       }
       else
         element.hidden = !abpPrefs.showintoolbar;
+
+      if (abpOldShowInToolbar != abpPrefs.showintoolbar)
+        abpInstallInToolbar();
+
+      abpOldShowInToolbar = abpPrefs.showintoolbar;
     }
 
     if (abpPrefs.enabled)
@@ -219,8 +225,10 @@ function abpInstallInToolbar() {
   }
 
   // Make sure not to run this twice
-  abpPrefs.checkedtoolbar = true;
-  abpPrefs.save();
+  if (!abpPrefs.checkedtoolbar) {
+    abpPrefs.checkedtoolbar = true;
+    abpPrefs.save();
+  }
 }
 
 // Retrieves the location of the sidebar panels file (Mozilla Suite/Seamonkey)
