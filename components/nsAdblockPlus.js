@@ -222,6 +222,8 @@ abp.wrappedJSObject = abp;
 function init() {
   initialized = true;
 
+  fixPackageLocale();
+
   loader.loadSubScript('chrome://adblockplus/content/security.js');
   loader.loadSubScript('chrome://adblockplus/content/utils.js');
   loader.loadSubScript('chrome://adblockplus/content/policy.js');
@@ -252,6 +254,29 @@ function init() {
   // Install sidebar in Mozilla Suite if necessary
   installSidebar();
 }
+
+// Try to fix selected language (Mozilla and SeaMonkey don't do it correctly)
+/*function fixPackageLocale() {
+  try {
+    var locale = "en-US";
+    try {
+      var branch = Components.classes["@mozilla.org/preferences-service;1"]
+                             .getService(Components.interfaces.nsIPrefBranch);
+      locale = branch.getCharPref("general.useragent.locale");
+    } catch (e) {}
+
+    var iface = ("nsIChromeRegistrySea" in Components.interfaces ? Components.interfaces.nsIChromeRegistrySea : Components.interfaces.nsIXULChromeRegistry);
+    var registry = Components.classes["@mozilla.org/chrome/chrome-registry;1"]
+                             .getService(iface);
+    try {
+      registry.selectLocaleForPackage(locale, "adblockplus", true);
+    }
+    catch (e) {
+      dump(e + "\n");
+      registry.selectLocaleForPackage("en-US", "adblockplus", true);
+    }
+  } catch(e) {dump(e + "\n")}
+}*/
 
 // Adds the sidebar to the Customize tabs dialog in Mozilla Suite/Seamonkey
 function installSidebar() {
