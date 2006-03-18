@@ -192,6 +192,7 @@ var prefs = {
   disableObserver: false,
   branch: prefService.getBranch(prefRoot),
   prefList: [],
+  patternsFile: null,
   knownPatterns: new HashTable(),
   userPatterns: [],
   knownSubscriptions: new HashTable(),
@@ -326,16 +327,16 @@ var prefs = {
     this.userPatterns = [];
     this.subscriptions = [];
 
-    var file = this.getFileByPath(this.patternsfile);
-    if (!file && " patternsfile" in this.prefList)
-      file = this.getFileByPath(this.prefList[" patternsfile"][2]);  // Try default
+    this.patternsFile = this.getFileByPath(this.patternsfile);
+    if (!this.patternsFile && " patternsfile" in this.prefList)
+      this.patternsFile = this.getFileByPath(this.prefList[" patternsfile"][2]);  // Try default
 
     var stream = null;
-    if (file) {
+    if (this.patternsFile) {
       stream = Components.classes["@mozilla.org/network/file-input-stream;1"]
                          .createInstance(Components.interfaces.nsIFileInputStream);
       try {
-        stream.init(file, 0x01, 0444, 0);
+        stream.init(this.patternsFile, 0x01, 0444, 0);
       }
       catch (e) {
         stream = null;
@@ -528,22 +529,18 @@ var prefs = {
   savePatterns: function() {
 //    var start = new Date().getTime();
 
-    var file = this.getFileByPath(this.patternsfile);
-    if (!file && " patternsfile" in this.prefList)
-      file = this.getFileByPath(this.prefList[" patternsfile"][2]);  // Try default
-
-    if (!file)
+    if (!this.patternsFile)
       return;
 
     try {
-      file.normalize();
+      this.patternsFile.normalize();
     }
     catch (e) {}
 
     // Try to create the file's directory recursively
     var parents = [];
     try {
-      for (var parent = file.parent; parent; parent = parent.parent)
+      for (var parent = this.patternsFile.parent; parent; parent = parent.parent)
         parents.push(parent);
     } catch (e) {}
     for (var i = parents.length - 1; i >= 0; i--) {
@@ -552,20 +549,20 @@ var prefs = {
       } catch (e) {}
     }
 
-    if (file.exists()) {
+    if (this.patternsFile.exists()) {
       // Try to remove existing file
       try {
-        file.remove(false);
+        this.patternsFile.remove(false);
       } catch (e) {}
     }
 
     var stream = Components.classes["@mozilla.org/network/file-output-stream;1"]
                            .createInstance(Components.interfaces.nsIFileOutputStream);
     try {
-      stream.init(file, 0x02 | 0x08 | 0x20, 0644, 0)
+      stream.init(this.patternsFile, 0x02 | 0x08 | 0x20, 0644, 0)
     }
     catch (e) {
-      dump("Adblock plus: failed write pattern to file " + file.path + ": " + e + "\n");
+      dump("Adblock plus: failed write pattern to file " + this.patternsFile.path + ": " + e + "\n");
       return;
     }
 
