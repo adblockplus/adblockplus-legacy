@@ -676,7 +676,7 @@ var treeView = {
 
   addItem: function(item) {
     this.allData.push(item);
-    if (this.filter && item.location.toLowerCase().indexOf(this.filter) < 0)
+    if (this.filter && item.location.toLowerCase().indexOf(this.filter) < 0 && item.localizedDescr.toLowerCase().indexOf(this.filter) < 0)
       return;
 
     var index = -1;
@@ -701,7 +701,7 @@ var treeView = {
   refilter: function() {
     this.data = [];
     for (var i = 0; i < this.allData.length; i++)
-      if (!this.filter || this.allData[i].location.toLowerCase().indexOf(this.filter) >= 0)
+      if (!this.filter || this.allData[i].location.toLowerCase().indexOf(this.filter) >= 0 || this.allData[i].localizedDescr.toLowerCase().indexOf(this.filter) >= 0)
         this.data.push(this.allData[i]);
 
     if (this.sortProc)
