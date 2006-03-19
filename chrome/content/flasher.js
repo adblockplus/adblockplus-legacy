@@ -33,7 +33,11 @@ var flasher = {
   timer: null,
 
   getCoords: function(insecNode) {
-    var insecBox = secureLookup(insecNode, "ownerDocument", "getBoxObjectFor")(insecNode);
+    var boxFunc = secureLookup(insecNode, "ownerDocument", "getBoxObjectFor");
+    if (!boxFunc)
+      return null;
+
+    var insecBox = boxFunc(insecNode);
     if (!insecBox)
       return null;
 
@@ -63,7 +67,7 @@ var flasher = {
       return;
 
     inseclNodes = inseclNodes.slice();
-    if (inseclNodes.length) {
+    if (inseclNodes.length && prefs.flash_scrolltoitem) {
       // Ensure that at least one node is visible when flashing
       var minCoords = null;
       var insecShowWnd = null;
@@ -79,7 +83,7 @@ var flasher = {
         var insecWnd = secureGet(inseclNodes[0], "ownerDocument", "defaultView");
         if (!insecWnd)
           continue;
-  
+
         // Check whether node's top left corner is already visible
         if (this.visibleCoords(insecWnd, coords)) {
           minCoords = null;
