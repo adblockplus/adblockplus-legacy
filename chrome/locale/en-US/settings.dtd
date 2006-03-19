@@ -111,6 +111,3 @@
 <!ENTITY context.movedown.label     "Move down">
 <!ENTITY context.movegroupup.label        "Move group up">
 <!ENTITY context.movegroupdown.label      "Move group down">
-
-<!ENTITY ok.label                   "OK">
-<!ENTITY cancel.label               "Cancel">
