@@ -308,7 +308,7 @@ function abpFillPopup(popup) {
   elements.showintoolbar.setAttribute("checked", abpPrefs.showintoolbar);
   elements.showinstatusbar.setAttribute("checked", abpPrefs.showinstatusbar);
 
-  var defAction = (!document.popupNode || document.popupNode.id == "abp-toolbarbutton" ? abpPrefs.defaulttoolbaraction : abpPrefs.defaultstatusbaraction);
+  var defAction = (popup.tagName == "menupopup" || document.popupNode.id == "abp-toolbarbutton" ? abpPrefs.defaulttoolbaraction : abpPrefs.defaultstatusbaraction);
   elements.opensidebar.setAttribute("default", defAction == 1);
   elements.closesidebar.setAttribute("default", defAction == 1);
   elements.settings.setAttribute("default", defAction == 2);
