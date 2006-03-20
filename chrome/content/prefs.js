@@ -35,10 +35,6 @@ var dirService = Components.classes["@mozilla.org/file/directory_service;1"]
                            .getService(Components.interfaces.nsIProperties);
 var ioService = Components.classes["@mozilla.org/network/io-service;1"]
                           .getService(Components.interfaces.nsIIOService);
-var parser = Components.classes["@mozilla.org/xmlextras/domparser;1"]
-                       .createInstance(Components.interfaces.nsIDOMParser);
-var serializer = Components.classes["@mozilla.org/xmlextras/xmlserializer;1"]
-                           .createInstance(Components.interfaces.nsIDOMSerializer);
 
 var unicodeConverter = Components.classes["@mozilla.org/intl/scriptableunicodeconverter"]
                                  .createInstance(Components.interfaces.nsIScriptableUnicodeConverter);
