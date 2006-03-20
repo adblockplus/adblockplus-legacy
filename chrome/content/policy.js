@@ -138,11 +138,17 @@ var policy = {
         if (insecNode && prefs.linkcheck && contentType in linkTypes)
           linksOk = this.checkLinks(insecNode);
   
-        // If the node wasn't blocked we still might want to add a frame to it
-        if (!match && prefs.frameobjects
-            && (contentType == type.OBJECT || secureGet(insecNode, "nodeName").toLowerCase() == "embed") // objects and raw-embeds
-            && location != secureGet(insecNode, "ownerDocument", "defaultView", "location", "href")) // it's not a standalone object
-          secureLookup(insecWnd, "setTimeout")(addObjectTab, 0, insecNode, location, insecTop);
+        // Show object tabs unless this is a standalone object
+        if (!match && contentType == type.OBJECT && location != secureGet(insecWnd, "location", "href")) {
+          secureLookup(insecWnd, "addEventListener")("mousemove", checkObjectTabs, false);
+
+          // Make sure our parent window also checks whether objects tabs need to be displayed
+          var insecParent = insecWnd;
+          while (secureGet(insecParent, "parent") != insecParent) {
+            insecParent = secureGet(insecParent, "parent");
+            secureLookup(insecParent, "addEventListener")("mousemove", checkObjectTabs, false);
+          }
+        }
       }
     }
 
@@ -162,6 +168,7 @@ var policy = {
       collapse = collapse && !(contentType in baseTypes);
       if (!(insecNode instanceof Window))
          collapse = collapse && !(secureGet(insecNode, "nodeName").toLowerCase() in baseNames);
+
       hideNode(insecNode, insecWnd, collapse);
     }
 

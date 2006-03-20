@@ -173,15 +173,16 @@ DataContainer.prototype = {
 
     return null;
   },
-  getAllLocations: function(results) {
+  getAllLocations: function(results, noRecurse) {
     if (typeof results == "undefined")
       results = [];
     for (var key in this.locations)
       if (key.match(/^ /))
           results.push(this.locations[key]);
 
-    for (var i = 0; i < this.subdocs.length; i++)
-      this.subdocs[i].getAllLocations(results);
+    if (typeof noRecurse == "undefined" || !noRecurse)
+      for (var i = 0; i < this.subdocs.length; i++)
+        this.subdocs[i].getAllLocations(results);
 
     return results;
   }

@@ -302,7 +302,6 @@ function abpFillPopup(popup) {
 
   elements.enabled.setAttribute("checked", abpPrefs.enabled);
   elements.localpages.setAttribute("checked", abpPrefs.blocklocalpages);
-  elements.frameobjects.setAttribute("checked", abpPrefs.frameobjects);
   elements.slowcollapse.setAttribute("checked", !abpPrefs.fastcollapse);
   elements.linkcheck.setAttribute("checked", abpPrefs.linkcheck);
   elements.showintoolbar.setAttribute("checked", abpPrefs.showintoolbar);
