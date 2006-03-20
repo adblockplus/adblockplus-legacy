@@ -1,5 +1,4 @@
 pref("extensions.adblockplus.enabled", true);
-pref("extensions.adblockplus.frameobjects", true);
 pref("extensions.adblockplus.fastcollapse", false);
 pref("extensions.adblockplus.linkcheck", true);
 pref("extensions.adblockplus.warnregexp", true);
@@ -14,6 +13,9 @@ pref("extensions.adblockplus.detachsidebar", false);
 pref("extensions.adblockplus.synchronizationinterval", 24);
 pref("extensions.adblockplus.defaulttoolbaraction", 1);
 pref("extensions.adblockplus.defaultstatusbaraction", 2);
+pref("extensions.adblockplus.flash_scrolltoitem", true);
+pref("extensions.adblockplus.objtabs_threshold", 10);
+pref("extensions.adblockplus.objtabs_timeout", 5000);
 pref("extensions.adblockplus.patternsfile", "adblockplus/patterns.ini");
 
 // Default filter list
