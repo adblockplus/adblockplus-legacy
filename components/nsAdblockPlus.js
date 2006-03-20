@@ -34,8 +34,6 @@ const loader = Components.classes["@mozilla.org/moz/jssubscript-loader;1"]
 
 const module =
 {
-  factoryLoaded: false,
-
   registerSelf: function(compMgr, fileSpec, location, type)
   {
     compMgr = compMgr.QueryInterface(Components.interfaces.nsIComponentRegistrar);
