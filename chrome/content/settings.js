@@ -234,9 +234,17 @@ function clearList() {
 }
 
 // Resets hit statistics (after a warning).
-function resetHitCounts() {
-  if (confirm(abp.getString("resethitcounts_warning")))
+function resetHitCounts(resetAll) {
+  if (resetAll && confirm(abp.getString("resethitcounts_warning")))
     prefs.resetHitCounts();
+  else if (!resetAll && confirm(abp.getString("resethitcounts_selected_warning"))) {
+    var selected = treeView.getSelectedInfo();
+    var list = [];
+    for (var i = 0; i < selected.length; i++)
+      if (selected[i][1] && typeof selected[i][1] != "string")
+        list.push(selected[i][1].orig);
+    prefs.resetHitCounts(list);
+  }
 }
 
 // Imports filters from disc.
@@ -590,7 +598,7 @@ function fillContext() {
 
   // Check whether all selected items belong to the same subscription
   var subscription = null;
-  for (i = 0; i < selected.length; i++) {
+  for (var i = 0; i < selected.length; i++) {
     if (!subscription)
       subscription = selected[i][0];
     else if (selected[i][0] != subscription) {
@@ -621,6 +629,8 @@ function fillContext() {
 
   document.getElementById("context-filters-sep").hidden = !hasPatterns && (!subscription || subscription.special);
 
+  document.getElementById("context-resethitcount").hidden = !origHasPatterns;
+
   document.getElementById("context-edit").hidden =
     document.getElementById("context-moveup").hidden =
     document.getElementById("context-movedown").hidden =
@@ -632,10 +642,11 @@ function fillContext() {
 
   document.getElementById("context-movegroupup").hidden =
     document.getElementById("context-movegroupdown").hidden =
+    document.getElementById("context-group-sep").hidden =
     !subscription;
 
   if (subscription) {
-    document.getElementById("context-synchsubscription").setAttribute("disabled", subscription.external);
+    document.getElementById("context-synchsubscription").setAttribute("disabled", subscription.special || subscription.external);
     document.getElementById("context-movegroupup").setAttribute("disabled", treeView.isFirstSubscription(subscription));
     document.getElementById("context-movegroupdown").setAttribute("disabled", treeView.isLastSubscription(subscription));
   }
@@ -1689,7 +1700,11 @@ var treeView = {
       info[1] = null;
 
     this.dragData = info;
-    dragService.invokeDragSession(this.boxObject.treeBody, array, region, dragService.DRAGDROP_ACTION_MOVE);
+
+    // This will through an exception if the user cancels D&D
+    try {
+      dragService.invokeDragSession(this.boxObject.treeBody, array, region, dragService.DRAGDROP_ACTION_MOVE);
+    } catch(e) {}
   },
 
   toggleDisabled: function(row, forceValue) {

@@ -208,6 +208,13 @@ function fillInTooltip(e) {
   return true;
 }
 
+const flashable = {
+  OTHER: true,
+  IMAGE: true,
+  LINK: true,
+  SUBDOCUMENT: true
+}
+
 // Fill in tooltip data before showing it
 function fillInContext(e) {
   var item;
@@ -222,6 +229,8 @@ function fillInContext(e) {
   document.getElementById("contextBlock").hidden = ("filter" in item && item.filter != null);
   document.getElementById("contextEditFilter").hidden = !("filter" in item && item.filter != null);
   document.getElementById("contextWhitelist").setAttribute("disabled", !!("tooltip" in item || (item.filter && item.filter.type == "whitelist")));
+  document.getElementById("contextOpen").setAttribute("disabled", "tooltip" in item);
+  document.getElementById("contextFlash").setAttribute("disabled", !!("tooltip" in item || !(item.typeDescr in flashable) || (item.filter && item.filter.type != "whitelist")));
 
   return true;
 }

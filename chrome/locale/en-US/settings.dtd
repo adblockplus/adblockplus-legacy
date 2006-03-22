@@ -103,6 +103,7 @@
 <!ENTITY enabled.column             "Enabled">
 
 <!ENTITY context.edit.label         "Edit filter">
+<!ENTITY context.resethitcount.label      "Reset hit statistics for filter">
 <!ENTITY context.synchsubscription.label  "Update subscription now">
 <!ENTITY context.editsubscription.label   "Edit subscription">
 <!ENTITY context.moveup.label       "Move up">

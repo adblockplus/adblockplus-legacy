@@ -757,8 +757,9 @@ var prefs = {
       this.hitListeners[i](pattern);
   },
 
-  resetHitCounts: function() {
-    var patterns = this.knownPatterns.values();
+  resetHitCounts: function(patterns) {
+    if (typeof patterns == "undefined" || !patterns)
+      patterns = this.knownPatterns.values();
     for (var i = 0; i < patterns.length; i++)
       patterns[i].hitCount = 0;
 
