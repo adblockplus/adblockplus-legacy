@@ -99,6 +99,7 @@
     <menuitem id="context-synchsubscription" label="&context.synchsubscription.label;" oncommand="synchSubscription()"/>
     <menuitem id="context-editsubscription" label="&context.editsubscription.label;..." oncommand="editFilter('subscription')" key="edit-key"/>
     <menuitem id="context-edit" label="&context.edit.label;" oncommand="editFilter('filter')" key="edit-key"/>
+    <menuitem id="context-resethitcount" label="&context.resethitcount.label;..." oncommand="resetHitCounts(false)"/>
     <menuitem id="context-moveup" label="&context.moveup.label;" oncommand="moveFilter('filter', true)" key="moveup-key"/>
     <menuitem id="context-movedown" label="&context.movedown.label;" oncommand="moveFilter('filter', false)" key="movedown-key"/>
     <menuseparator id="context-filters-sep"/>
@@ -122,7 +123,7 @@
         <menuitem id="export" label="&export.label;..." accesskey="&export.accesskey;" key="export-key" command="export-command"/>
         <menuitem id="clearall" label="&clearall.label;..." accesskey="&clearall.accesskey;" oncommand="clearList()"/>
         <menuseparator/>
-        <menuitem id="resethitcounts" label="&resethitcounts.label;..." accesskey="&resethitcounts.accesskey;" oncommand="resetHitCounts()"/>
+        <menuitem id="resethitcounts" label="&resethitcounts.label;..." accesskey="&resethitcounts.accesskey;" oncommand="resetHitCounts(true)"/>
       </menupopup>
     </menu>
     <menu id="edit-menu" label="&edit.label;" accesskey="&edit.accesskey;">

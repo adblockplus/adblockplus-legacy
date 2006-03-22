@@ -50,4 +50,5 @@
 <!ENTITY context.editfilter.label "Edit filter in effect">
 <!ENTITY context.whitelist.label  "Add exception rule for item">
 <!ENTITY context.open.label       "Open in New Tab">
+<!ENTITY context.flash.label      "Flash item's borders">
 <!ENTITY context.copy.label       "Copy item's address">
