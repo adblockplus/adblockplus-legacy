@@ -112,10 +112,13 @@ var synchronizer = {
     if (this.executing.has(url))
       return;
 
+    var curVersion = abp.getInstalledVersion();
+    var loadFrom = url.replace(/%VERSION%/, curVersion ? "ABP" + curVersion : "");
+
     try {
       var request = Components.classes["@mozilla.org/xmlextras/xmlhttprequest;1"]
                               .createInstance(Components.interfaces.nsIJSXMLHttpRequest);
-      request.open("GET", url);
+      request.open("GET", loadFrom);
       request.channel.loadFlags = request.channel.loadFlags |
                                   request.channel.INHIBIT_CACHING |
                                   request.channel.LOAD_BYPASS_CACHE;
