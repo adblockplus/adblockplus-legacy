@@ -22,57 +22,15 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-const ADBLOCK_EXTENSION_ID = "{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}"; 
-const ADBLOCK_PACKAGE = "/adblockplus.mozdev.org"; 
-
 var abp = Components.classes["@mozilla.org/adblockplus;1"].createInstance();
 while (abp && !("getString" in abp))
   abp = abp.wrappedJSObject;    // Unwrap component
 
 function fillInVersion() {
   var versionField = document.getElementById("version");
-  var version = getInstalledVersion();
+  var version = abp.getInstalledVersion();
   if (version)
     versionField.setAttribute("value", versionField.getAttribute("value") + " " + version);
   else
     versionField.parentNode.removeChild(versionField);
-}
-
-function getInstalledVersion() {
-  var version = null;
-
-  // Try Firefox Extension Manager
-  try
-  {
-    var item = getUpdateItem()
-    if (item)
-      version = item.version;
-  } catch (e) {}
-
-  if (!version)
-  {
-    // Try InstallTrigger
-    try
-    {
-      version = InstallTrigger.getVersion(ADBLOCK_PACKAGE);
-    } catch (e) {}
-  }
-
-  return version;
-}
-
-function getUpdateItem() {
-  var extensionManager = Components.classes["@mozilla.org/extensions/manager;1"]
-                                   .getService(Components.interfaces.nsIExtensionManager);
-
-  // FF 1.1+
-  if ('getItemForID' in extensionManager)
-    return extensionManager.getItemForID(ADBLOCK_EXTENSION_ID);
-
-  // FF 1.0
-  var itemList = extensionManager.getItemList(ADBLOCK_EXTENSION_ID, Components.interfaces.nsIUpdateItem.TYPE_EXTENSION, {});
-  if (itemList && itemList.length > 0)
-    return itemList[0];
-
-  return null;
 }

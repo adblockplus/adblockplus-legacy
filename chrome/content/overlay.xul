@@ -42,9 +42,9 @@
     <popupset id="abp-popupset">
       <tooltip id="abp-tooltip" label="&notloaded.tooltip;" onpopupshowing="return abpFillTooltip(event)"/>
       <popup id="abp-status-popup" onpopupshowing="return abpFillPopup(event.target)">
-        <menuitem id="abp-status-opensidebar" label="&opensidebar.label;" accesskey="&opensidebar.accesskey;" key="key-view-abp-sidebar" oncommand="abpToggleSidebar()"/>
-        <menuitem id="abp-status-closesidebar" label="&closesidebar.label;" accesskey="&closesidebar.accesskey;" key="key-view-abp-sidebar" oncommand="abpToggleSidebar()"/>
-        <menuitem id="abp-status-settings" label="&settings.label;..." accesskey="&settings.accesskey;" key="key-launch-abp-preferences" oncommand="abpSettings()"/>
+        <menuitem id="abp-status-opensidebar" label="&opensidebar.label;" accesskey="&opensidebar.accesskey;" key="abp-key-sidebar" oncommand="abpToggleSidebar()"/>
+        <menuitem id="abp-status-closesidebar" label="&closesidebar.label;" accesskey="&closesidebar.accesskey;" key="abp-key-sidebar" oncommand="abpToggleSidebar()"/>
+        <menuitem id="abp-status-settings" label="&settings.label;..." accesskey="&settings.accesskey;" key="abp-key-settings" oncommand="abpSettings()"/>
         <menuseparator id="abp-status-whitelist-sep"/>
         <menuitem id="abp-status-whitelistsite" labeltempl="&whitelist.site.label;" type="checkbox" oncommand="abpTogglePattern(this.pattern, this.hasAttribute('checked'))"/>
         <menuitem id="abp-status-whitelistpage" label="&whitelist.page.label;" type="checkbox" oncommand="abpTogglePattern(this.pattern, this.hasAttribute('checked'))"/>
@@ -59,9 +59,14 @@
             <menuitem id="abp-status-showinstatusbar" label="&showinstatusbar.label;" accesskey="&showinstatusbar.accesskey;" type="checkbox" oncommand="abpTogglePref('showinstatusbar')"/>
           </menupopup>
         </menu>
-        <menuitem id="abp-status-enabled" label="&enable.label;" accesskey="&enable.accesskey;" type="checkbox" oncommand="abpTogglePref('enabled')"/>
+        <menuitem id="abp-status-enabled" label="&enable.label;" accesskey="&enable.accesskey;" type="checkbox" key="abp-key-enable" oncommand="abpTogglePref('enabled')"/>
       </popup>
     </popupset>
+    <keyset id="abp-keyset">
+      <key id="abp-key-settings" oncommand="abpSettings()"/>
+      <key id="abp-key-sidebar" command="viewAdblockPlusSidebar" oncommand="abpToggleSidebar()"/> 
+      <key id="abp-key-enable" oncommand="abpTogglePref('enabled')"/>
+    </keyset>
   </window>
 
   <!-- statusbar -->
@@ -94,17 +99,6 @@
         tooltip="abp-tooltip" context="abp-status-popup"/>
   </hbox>
 
-  <!-- mozilla keybindings -->
-  <keyset id="navKeys">
-    <key id="key-launch-abp-preferences" modifiers="accel,shift" key="a" oncommand="abpSettings()"/>
-    <key id="key-view-abp-sidebar" modifiers="accel,shift" key="b" oncommand="abpToggleSidebar()"/>
-  </keyset>
-  <!-- firefox keybindings -->
-  <keyset id="mainKeyset">
-    <key id="key-launch-abp-preferences" modifiers="accel,shift" key="a" oncommand="abpSettings()"/>
-    <key id="key-view-abp-sidebar" modifiers="accel,shift" key="b" command="viewAdblockPlusSidebar"/> 
-  </keyset>
-
   <!-- firefox broadcasters -->
   <broadcasterset id="mainBroadcasterSet">
     <broadcaster id="viewAdblockPlusSidebar" autoCheck="false" label="&menuitem.sidebar.title;"
@@ -115,16 +109,16 @@
 
   <!-- firefox view sidebar menu -->
   <menupopup id="viewSidebarMenu">
-    <menuitem key="key-view-abp-sidebar" observes="viewAdblockPlusSidebar"/> 
+    <menuitem key="abp-key-sidebar" observes="viewAdblockPlusSidebar"/> 
   </menupopup>
 
   <!-- mozilla tools menu -->
   <menupopup id="taskPopup">
-    <menuitem label="&menuitem.label;..." accesskey="&menuitem.accesskey;" key="key-launch-abp-preferences" insertafter="downloadmgr" oncommand="abpSettings()"/>
+    <menuitem label="&menuitem.label;..." accesskey="&menuitem.accesskey;" key="abp-key-settings" insertafter="downloadmgr" oncommand="abpSettings()"/>
   </menupopup>
   <!-- firefox tools menu -->
   <menupopup id="menu_ToolsPopup">
-    <menuitem label="&menuitem.label;..." accesskey="&menuitem.accesskey;" key="key-launch-abp-preferences" insertbefore="devToolsSeparator" oncommand="abpSettings()"/>
+    <menuitem label="&menuitem.label;..." accesskey="&menuitem.accesskey;" key="abp-key-settings" insertbefore="devToolsSeparator" oncommand="abpSettings()"/>
   </menupopup> 
 
   <!-- common context-menu -->
