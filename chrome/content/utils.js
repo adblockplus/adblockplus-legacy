@@ -97,6 +97,12 @@ function getWindow(insecNode) {
 
 // hides a blocked element and collapses it if necessary
 function hideNode(insecNode, insecWnd, collapse) {
+  // hide object tab
+  var insecTab = secureGet(insecNode, "nextSibling");
+  if (insecTab && secureGet(insecTab, "nodeType") == Node.ELEMENT_NODE &&
+      secureLookup(insecTab, "hasAttribute")("AdblockTab"))
+    secureSet(insecTab, "style", "display", "none");
+
   // special handling for applets -- disable by specifying the Applet base class
   var nodeName = secureGet(insecNode, "nodeName");
   if (nodeName && nodeName.toLowerCase() == "applet")
@@ -199,73 +205,41 @@ function getElementRect(insecNode) {
   return rect;
 }
 
-// Called on mousemove - checks whether any object tabs should be shown
-function checkObjectTabs(e) {
-  doCheckObjectTabs(this, e.clientX, e.clientY);
-}
-
-function doCheckObjectTabs(insecWnd, x, y) {
-  if (prefs.objtabs_timeout <= 0)
+// Creates a tab above/below the new object node
+function addObjectTab(insecNode, location, insecWnd) {
+  // Prevent readding tabs to elements that already have one
+  if (secureGet(insecNode, "nextSibling", "nodeType") == Node.ELEMENT_NODE &&
+      secureLookup(insecNode, "nextSibling", "hasAttribute")("AdblockTab"))
     return;
 
-  var data = DataContainer.getDataForWindow(insecWnd).getAllLocations(undefined, true);
-  for (var i = 0; i < data.length; i++) {
-    if (data[i].type != type.OBJECT || data[i].filter)
-      continue;
+  // Tab dimensions
+  var tabWidth = 70;
+  var tabHeight = 18;
 
-    for (var j = 0; j < data[i].inseclNodes.length; j++) {
-      var rect = getElementRect(data[i].inseclNodes[j]);
-      if (rect && x >= rect[0] - prefs.objtabs_threshold && y >= rect[1] - prefs.objtabs_threshold &&
-          x < rect[0] + rect[2] + prefs.objtabs_threshold && y < rect[1] + rect[3] + prefs.objtabs_threshold)
-        showObjectTab(insecWnd, data[i].inseclNodes[j], data[i].location, rect);
-    }
-  }
+  // Decide whether to display the tab on top or the bottom of the object
+  var offsetTop = 0;
+  for (var insecOffsetNode = insecNode; insecOffsetNode; insecOffsetNode = secureGet(insecOffsetNode, "offsetParent"))
+    offsetTop += secureGet(insecOffsetNode, "offsetTop");
 
-  // Check child frames recursively
-  var numFrames = secureGet(insecWnd, "frames", "length");
-  for (i = 0; i < numFrames; i++) {
-    var insecFrame = secureGet(insecWnd, "frames")[i];
-    var insecFrameElement = secureGet(insecFrame, "frameElement");
+  var onTop = (offsetTop > 40);
 
-    rect = getElementRect(insecFrameElement);
-    if (rect && x >= rect[0] - prefs.objtabs_threshold && y >= rect[1] - prefs.objtabs_threshold &&
-        x < rect[0] + rect[2] + prefs.objtabs_threshold && y < rect[1] + rect[3] + prefs.objtabs_threshold)
-      doCheckObjectTabs(insecFrame, x - rect[0], y - rect[1]);
-  }
-}
-
-// Shows object tab at an object
-var showingObjectTabs = [];
-function showObjectTab(insecWnd, insecNode, location, rect) {
+  // Compose tab
   var insecDoc = secureGet(insecNode, "ownerDocument");
   if (!insecDoc)
     return;
 
-  // Make sure we don't show an object tab if we are already showing one
-  var timestamp = new Date().getTime();
-  for (var i = 0; i < showingObjectTabs.length; i++) {
-    if (timestamp - showingObjectTabs[i][1] > prefs.objtabs_timeout)
-      showingObjectTabs.splice(i--, 1);
-    else if (showingObjectTabs[i][0] == insecNode)
-      return;
-  }
-
-  var x = (rect[0] < 0 ? 0 : rect[0]) + 5;
-  var y = (rect[1] < 0 ? 0 : rect[1]) + 5;
-
-  var label = secureLookup(insecDoc, "createElementNS")("http://www.w3.org/1999/xhtml", "div");
+  var label = secureLookup(insecDoc, "createElement")("div");
   label.appendChild(secureLookup(insecDoc, "createTextNode")("Adblock"));
   label.style.display = "block";
-  label.style.position = "fixed";
-  label.style.left = x + "px";
-  label.style.top = y + "px";
-  label.style.width = "auto";
-  label.style.height = "auto";
-  label.style.overflow = "visible";
+  label.style.position = "relative";
+  label.style.left = -tabWidth + "px";
+  label.style.top = (onTop ? -tabHeight + "px" :  "0px");
+  label.style.width = (tabWidth - 4) + "px";
+  label.style.height = (tabHeight - 2) + "px";
   label.style.borderStyle = "ridge";
-  label.style.borderWidth = "2px";
-  label.style.padding = "2px";
-  label.style.margin = "0px";
+  label.style.borderWidth = (onTop ? "2px 2px 0px 2px" : "0px 2px 2px 2px");
+  label.style.MozBorderRadiusTopleft = label.style.MozBorderRadiusTopright = (onTop ? "10px" : "0px");
+  label.style.MozBorderRadiusBottomleft = label.style.MozBorderRadiusBottomright = (onTop ? "0px" : "10px");
   label.style.backgroundColor = "white";
   label.style.color = "black";
   label.style.cursor = "pointer";
@@ -281,35 +255,35 @@ function showObjectTab(insecWnd, insecNode, location, rect) {
   label.style.textIndent = "0px";
   label.style.textTransform = "none";
   label.style.direction = "ltr";
-  label.style.zIndex = 2147483647;
-  label.style.MozOpacity = "1";
 
+  var tab = secureLookup(insecDoc, "createElement")("div");
+  tab.appendChild(label);
+  tab.style.display = "block";
+  tab.style.position = "relative"
+  tab.style.overflow = "visible";
+  tab.style.width = "0px";
+  tab.style.height = "0px";
+  tab.style.left = "0px";
+  tab.style.paddingLeft = secureGet(insecNode, "offsetWidth") + "px";
+  tab.style.top = (onTop ? -secureGet(insecNode, "offsetHeight") + "px" : "0px");
+  tab.style.zIndex = 65535;
+  tab.style.MozOpacity = "0.5";
+
+  // Prevent object tab from being added multiple times
+  tab.setAttribute("AdblockTab", "true");
+  
+  // Click event handler
   label.addEventListener("click", function() {
     abp.openSettingsDialog(insecWnd, location);
   }, false);
 
-  secureLookup(insecDoc, "documentElement", "appendChild")(label);
-
-  secureLookup(insecWnd, "setTimeout")(hideObjectTab, prefs.objtabs_timeout, label);
-
-  showingObjectTabs.push([insecNode, timestamp, label]);
+  // Insert tab into the document
+  var nextSibling = secureGet(insecNode, "nextSibling");
+  if (nextSibling)
+    secureLookup(insecNode, "parentNode", "insertBefore")(tab, nextSibling);
+  else
+    secureLookup(insecNode, "parentNode", "appendChild")(tab);
 }
-
-// Hides object tab
-function hideObjectTab(insecNode) {
-  var insecParent = secureGet(insecNode, "parentNode");
-  if (insecParent)
-    secureLookup(insecParent, "removeChild")(insecNode);
-}
-
-// Hides all object tabs that are displayed at the moment
-function hideAllObjectTabs() {
-  for (var i = 0; i < showingObjectTabs.length; i++)
-    hideObjectTab(showingObjectTabs[i][2]);
-
-  showingObjectTabs = [];
-}
-abp.hideAllObjectTabs = hideAllObjectTabs;
 
 // Sets a timeout, compatible with both nsITimer and nsIScriptableTimer
 function createTimer(callback, delay) {
