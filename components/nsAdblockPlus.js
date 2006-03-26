@@ -22,8 +22,10 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-const ADBLOCK_CONTRACTID = "@mozilla.org/adblockplus;1";
-const ADBLOCK_CID = Components.ID("{79c889f6-f5a2-abba-8b27-852e6fec4d56}");
+const ABP_PACKAGE = "/adblockplus.mozdev.org"; 
+const ABP_EXTENSION_ID = "{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}";
+const ABP_CONTRACTID = "@mozilla.org/adblockplus;1";
+const ABP_CID = Components.ID("{79c889f6-f5a2-abba-8b27-852e6fec4d56}");
 
 const loader = Components.classes["@mozilla.org/moz/jssubscript-loader;1"]
                          .getService(Components.interfaces.mozIJSSubScriptLoader);
@@ -37,30 +39,30 @@ const module =
   registerSelf: function(compMgr, fileSpec, location, type)
   {
     compMgr = compMgr.QueryInterface(Components.interfaces.nsIComponentRegistrar);
-    compMgr.registerFactoryLocation(ADBLOCK_CID, 
+    compMgr.registerFactoryLocation(ABP_CID, 
                     "Adblock content policy",
-                    ADBLOCK_CONTRACTID,
+                    ABP_CONTRACTID,
                     fileSpec, location, type);
 
     var catman = Components.classes["@mozilla.org/categorymanager;1"]
                            .getService(Components.interfaces.nsICategoryManager);
-    catman.addCategoryEntry("content-policy", ADBLOCK_CONTRACTID,
-              ADBLOCK_CONTRACTID, true, true);
+    catman.addCategoryEntry("content-policy", ABP_CONTRACTID,
+              ABP_CONTRACTID, true, true);
   },
 
   unregisterSelf: function(compMgr, fileSpec, location)
   {
     compMgr = compMgr.QueryInterface(Components.interfaces.nsIComponentRegistrar);
 
-    compMgr.unregisterFactoryLocation(ADBLOCK_CID, fileSpec);
+    compMgr.unregisterFactoryLocation(ABP_CID, fileSpec);
     var catman = Components.classes["@mozilla.org/categorymanager;1"]
                            .getService(Components.interfaces.nsICategoryManager);
-    catman.deleteCategoryEntry("content-policy", ADBLOCK_CONTRACTID, true);
+    catman.deleteCategoryEntry("content-policy", ABP_CONTRACTID, true);
   },
 
   getClassObject: function(compMgr, cid, iid)
   {
-    if (!cid.equals(ADBLOCK_CID))
+    if (!cid.equals(ABP_CID))
       throw Components.results.NS_ERROR_NO_INTERFACE;
 
     if (!iid.equals(Components.interfaces.nsIFactory))
@@ -141,6 +143,45 @@ const abp = {
       dump("Adblock Plus: abp.QI to an unknown interface: " + iid + "\n");
 
     throw Components.results.NS_ERROR_NO_INTERFACE;
+  },
+
+  // Returns installed Adblock Plus version
+  getInstalledVersion: function() {
+    // Try Firefox Extension Manager
+    try {
+      var item = this.getUpdateItem();
+      if (item)
+        return item.version;
+    } catch (e) {}
+
+    // Try InstallTrigger
+    try {
+      var browser = windowMediator.getMostRecentWindow("navigator:browser");
+      if (browser)
+        return browser.InstallTrigger.getVersion(ABP_PACKAGE);
+    } catch (e) {}
+  
+    return null;
+  },
+
+  // Returns update item for Adblock Plus (only when extension manager is available)
+  getUpdateItem: function() {
+    if (!("@mozilla.org/extensions/manager;1" in Components.classes))
+      return null;
+
+    var extensionManager = Components.classes["@mozilla.org/extensions/manager;1"]
+                                    .getService(Components.interfaces.nsIExtensionManager);
+
+    // FF 1.1+
+    if ('getItemForID' in extensionManager)
+      return extensionManager.getItemForID(ABP_EXTENSION_ID);
+
+    // FF 1.0
+    var itemList = extensionManager.getItemList(ABP_EXTENSION_ID, Components.interfaces.nsIUpdateItem.TYPE_EXTENSION, {});
+    if (itemList && itemList.length > 0)
+      return itemList[0];
+
+    return null;
   },
 
   // Retrieves settings dialog if it is currently open

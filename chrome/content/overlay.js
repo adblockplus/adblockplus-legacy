@@ -66,6 +66,11 @@ function abpInit() {
     ptf.parentNode.insertBefore(button, ptf);
   }
 
+  // Fix sidebar key for Mozilla/SeaMonkey
+  var sidebarKey = document.getElementById("abp-key-sidebar");
+  if (!document.getElementById(sidebarKey.getAttribute("command")))
+    sidebarKey.removeAttribute("command");
+
   // Copy the menu from status bar icon to the toolbar
   var fixId = function(node) {
     if (node.nodeType != Node.ELEMENT_NODE)
@@ -143,6 +148,41 @@ function abpReloadPrefs() {
   updateElement(document.getElementById("abp-status"));
   updateElement(document.getElementById("abp-toolbarbutton"));
   updateElement(abpGetPaletteButton());
+
+  // Configure keys
+  for (var key in abpPrefs)
+    if (key.match(/(.*)_key$/))
+      abpConfigureKey(RegExp.$1, abpPrefs[key]);
+}
+
+function abpConfigureKey(key, value) {
+  var valid = {
+    accel: "accel",
+    ctrl: "control",
+    control: "control",
+    shift: "shift",
+    alt: "alt",
+    meta: "meta"
+  };
+
+  var element = document.getElementById("abp-key-" + key);
+  if (!element)
+    return;
+
+  var parts = value.split(/\s+/);
+  element.removeAttribute("key");
+  element.removeAttribute("keycode");
+  var modifiers = [];
+  for (var i = 0; i < parts.length; i++) {
+    if (parts[i].toLowerCase() in valid)
+      modifiers.push(parts[i].toLowerCase());
+    else if (parts[i].length == 1)
+      element.setAttribute("key", parts[i]);
+    else if ("DOM_VK_" + parts[i].toUpperCase() in Components.interfaces.nsIDOMKeyEvent)
+      element.setAttribute("keycode", "VK_" + parts[i].toUpperCase());
+  }
+  element.setAttribute("modifiers", modifiers.join(","));
+  element.setAttribute("disabled", !element.hasAttribute("key") && !element.hasAttribute("keycode"));
 }
 
 // Finds the toolbar button in the toolbar palette

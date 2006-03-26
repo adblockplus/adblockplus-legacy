@@ -48,6 +48,18 @@ pref("extensions.adblockplus.synchronizationinterval", 24);
 pref("extensions.adblockplus.defaulttoolbaraction", 1);
 pref("extensions.adblockplus.defaultstatusbaraction", 2);
 
+/*
+  Keyboard shortcuts for sidebar, preferences and enabling/disabling
+
+  Must be: modifier1 modifier2 ... letter|special key
+  Possible modifiers: Shift, Accel (default accelerator key, e.g. Ctrl on Windows, Command on Mac OS X),
+                      Ctrl or Control, Alt, Meta
+  Special keys: F7, RIGHT etc, see http://www.xulplanet.com/references/xpcomref/ifaces/nsIDOMKeyEvent.html for full list
+*/
+pref("extensions.adblockplus.sidebar_key", "Accel Shift B");
+pref("extensions.adblockplus.settings_key", "Accel Shift A");
+pref("extensions.adblockplus.enable_key", "");
+
 // Defines whether "Flash item's borders" should try to scroll the item into view
 pref("extensions.adblockplus.flash_scrolltoitem", true);
 
