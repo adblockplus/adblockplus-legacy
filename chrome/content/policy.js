@@ -139,16 +139,9 @@ var policy = {
           linksOk = this.checkLinks(insecNode);
   
         // Show object tabs unless this is a standalone object
-        if (!match && contentType == type.OBJECT && location != secureGet(insecWnd, "location", "href")) {
-          secureLookup(insecWnd, "addEventListener")("mousemove", checkObjectTabs, false);
-
-          // Make sure our parent window also checks whether objects tabs need to be displayed
-          var insecParent = insecWnd;
-          while (secureGet(insecParent, "parent") != insecParent) {
-            insecParent = secureGet(insecParent, "parent");
-            secureLookup(insecParent, "addEventListener")("mousemove", checkObjectTabs, false);
-          }
-        }
+        if (!match && prefs.frameobjects &&
+            contentType == type.OBJECT && location != secureGet(insecWnd, "location", "href"))
+          secureLookup(insecWnd, "setTimeout")(addObjectTab, 0, insecNode, location, insecTop);
       }
     }
 

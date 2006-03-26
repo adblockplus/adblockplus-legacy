@@ -1,6 +1,9 @@
 // Defines whether Adblock Plus is enabled
 pref("extensions.adblockplus.enabled", true);
 
+// Value of the "Show tabs on Flash and Java" option */
+pref("extensions.adblockplus.frameobjects", true);
+
 // Reverse of the "Collapse blocked elements" option
 pref("extensions.adblockplus.fastcollapse", false);
 
@@ -62,10 +65,6 @@ pref("extensions.adblockplus.enable_key", "");
 
 // Defines whether "Flash item's borders" should try to scroll the item into view
 pref("extensions.adblockplus.flash_scrolltoitem", true);
-
-// XXX: these prefs are subject to change
-pref("extensions.adblockplus.objtabs_threshold", 10);
-pref("extensions.adblockplus.objtabs_timeout", 5000);
 
 /*
   Location of the file containing filters and subscriptions

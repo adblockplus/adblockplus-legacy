@@ -584,6 +584,7 @@ function fillFiltersPopup(prefix) {
 function fillOptionsPopup() {
   document.getElementById("abp-enabled").setAttribute("checked", prefs.enabled);
   document.getElementById("localpages").setAttribute("checked", prefs.blocklocalpages);
+  document.getElementById("frameobjects").setAttribute("checked", prefs.frameobjects);
   document.getElementById("slowcollapse").setAttribute("checked", !prefs.fastcollapse);
   document.getElementById("linkcheck").setAttribute("checked", prefs.linkcheck);
   document.getElementById("showintoolbar").setAttribute("checked", prefs.showintoolbar);
@@ -722,8 +723,6 @@ function applyChanges() {
 function refilterWindow(insecWnd) {
   if (secureGet(insecWnd, "closed"))
     return;
-
-  abp.hideAllObjectTabs();
 
   var wndData = abp.getDataForWindow(insecWnd);
   var data = wndData.getAllLocations();
