@@ -205,10 +205,18 @@ function fillInTooltip(e) {
   if (filter)
     setMultilineContent(document.getElementById("tooltipFilter"), filter.text);
 
+  if (!("tooltip" in item) && (item.typeDescr == "IMAGE" || item.typeDescr == "BACKGROUND")) {
+    document.getElementById("tooltipPreviewBox").hidden = false;
+    document.getElementById("tooltipPreview").setAttribute("src", "");
+    document.getElementById("tooltipPreview").setAttribute("src", item.location);
+  }
+  else
+    document.getElementById("tooltipPreviewBox").hidden = true;
+
   return true;
 }
 
-const flashable = {
+const visual = {
   OTHER: true,
   IMAGE: true,
   LINK: true,
@@ -230,7 +238,7 @@ function fillInContext(e) {
   document.getElementById("contextEditFilter").hidden = !("filter" in item && item.filter != null);
   document.getElementById("contextWhitelist").setAttribute("disabled", !!("tooltip" in item || (item.filter && item.filter.type == "whitelist")));
   document.getElementById("contextOpen").setAttribute("disabled", "tooltip" in item);
-  document.getElementById("contextFlash").setAttribute("disabled", !!("tooltip" in item || !(item.typeDescr in flashable) || (item.filter && item.filter.type != "whitelist")));
+  document.getElementById("contextFlash").setAttribute("disabled", !!("tooltip" in item || !(item.typeDescr in visual) || (item.filter && item.filter.type != "whitelist")));
 
   return true;
 }

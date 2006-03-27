@@ -45,6 +45,12 @@ tooltip {
   max-width: none;
 }
 
+#tooltipPreview {
+  margin:10px;
+  max-width: 300px;
+  max-height: 300px;
+}
+
 #tooltip label {
   font-weight: bold;
 }

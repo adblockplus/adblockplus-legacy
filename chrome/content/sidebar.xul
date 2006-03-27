@@ -31,6 +31,7 @@
 
 <page
   xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+  xmlns:html="http://www.w3.org/1999/xhtml"
   id="abp-sidebar"
   onload="init()"
   onunload="cleanUp()">
@@ -50,6 +51,9 @@
   <popupset id="sidebarPopups">
     <tooltip id="tooltip" orient="vertical" onpopupshowing="return fillInTooltip(event)">
       <description id="tooltipDummy"/>
+      <hbox id="tooltipPreviewBox" pack="start">
+        <image id="tooltipPreview"/>
+      </hbox>
       <grid>
         <columns>
           <column/>
