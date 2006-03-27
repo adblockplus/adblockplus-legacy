@@ -52,7 +52,7 @@
     <tooltip id="tooltip" orient="vertical" onpopupshowing="return fillInTooltip(event)">
       <description id="tooltipDummy"/>
       <hbox id="tooltipPreviewBox" pack="start">
-        <image id="tooltipPreview"/>
+        <image id="tooltipPreview" validate="never"/>
       </hbox>
       <grid>
         <columns>
