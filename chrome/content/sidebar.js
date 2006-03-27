@@ -205,7 +205,7 @@ function fillInTooltip(e) {
   if (filter)
     setMultilineContent(document.getElementById("tooltipFilter"), filter.text);
 
-  if (!("tooltip" in item) && (item.typeDescr == "IMAGE" || item.typeDescr == "BACKGROUND")) {
+  if (!("tooltip" in item) && (item.typeDescr == "IMAGE" || item.typeDescr == "BACKGROUND") && (!item.filter || item.filter.type == "whitelist")) {
     document.getElementById("tooltipPreviewBox").hidden = false;
     document.getElementById("tooltipPreview").setAttribute("src", "");
     document.getElementById("tooltipPreview").setAttribute("src", item.location);
