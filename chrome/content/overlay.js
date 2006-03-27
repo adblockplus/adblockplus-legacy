@@ -466,7 +466,7 @@ function abpToggleSidebar() {
     }
     else {
       // Open detached sidebar
-      abpDetachedSidebar = window.open("chrome://adblockplus/content/sidebarDetached.xul", "_blank", "chrome,resizable,dependent,width=300,height=600");
+      abpDetachedSidebar = window.openDialog("chrome://adblockplus/content/sidebarDetached.xul", "_blank", "chrome,resizable,dependent,dialog=no,width=300,height=600");
     }
   }
 }

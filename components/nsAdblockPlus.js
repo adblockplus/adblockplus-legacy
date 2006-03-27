@@ -218,7 +218,7 @@ const abp = {
     }
     else {
       var browser = windowMediator.getMostRecentWindow("navigator:browser");
-      dlg = browser.open("chrome://adblockplus/content/settings.xul", "_blank", "chrome,centerscreen,resizable");
+      dlg = browser.openDialog("chrome://adblockplus/content/settings.xul", "_blank", "chrome,centerscreen,resizable,dialog=no");
       dlg.addEventListener("post-load", func, false);
     }
   },

@@ -329,7 +329,7 @@ function detach() {
   }
   else {
     mainWin.abpForceDetach = false;
-    mainWin.abpDetachedSidebar = mainWin.open("sidebarDetached.xul", "_blank", "chrome,resizable,dependent"+position);
+    mainWin.abpDetachedSidebar = mainWin.openDialog("sidebarDetached.xul", "_blank", "chrome,resizable,dependent,dialog=no"+position);
   }
 
   // Save setting
