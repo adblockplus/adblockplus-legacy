@@ -130,12 +130,16 @@ var cache = null;
  */
 
 const abp = {
+  //
   // nsISupports interface implementation
+  //
+
   QueryInterface: function(iid) {
     if (iid.equals(Components.interfaces.nsIContentPolicy))
       return policy;
 
-    if (iid.equals(Components.interfaces.nsISupports))
+    if (iid.equals(Components.interfaces.nsISupports) ||
+        iid.equals(Components.interfaces.nsIAdblockPlus))
       return this;
 
     if (!iid.equals(Components.interfaces.nsIClassInfo) &&
@@ -143,6 +147,41 @@ const abp = {
       dump("Adblock Plus: abp.QI to an unknown interface: " + iid + "\n");
 
     throw Components.results.NS_ERROR_NO_INTERFACE;
+  },
+
+  //
+  // nsIAdblockPlus interface implementation
+  //
+
+  // Updates an external subscription and creates it if necessary
+  updateExternalSubscription: function(id, title, patterns, length) {
+    var subscription;
+    if (prefs.knownSubscriptions.has(id))
+      subscription = prefs.knownSubscriptions.get(id);
+    else
+      subscription = prefs.createExternalSubscription(id, title);
+
+    subscription.external = true;
+    subscription.lastDownload = subscription.lastSuccess = new Date().getTime() / 1000;
+    subscription.downloadStatus = "synchronize_ok";
+    subscription.patterns = [];
+    for (var i = 0; i < patterns.length; i++) {
+      var pattern = prefs.patternFromText(patterns[i]);
+      if (pattern)
+        subscription.patterns.push(pattern);
+    }
+
+    var found = false;
+    for (i = 0; i < prefs.subscriptions.length; i++)
+      if (prefs.subscriptions[i] == subscription)
+        found = true;
+
+    if (!found)
+      prefs.subscriptions.push(subscription);
+
+    prefs.initMatching();
+    prefs.savePatterns();
+    synchronizer.notifyListeners(subscription, "add");
   },
 
   // Returns installed Adblock Plus version
@@ -163,6 +202,10 @@ const abp = {
   
     return null;
   },
+
+  //
+  // Custom methods
+  //
 
   // Returns update item for Adblock Plus (only when extension manager is available)
   getUpdateItem: function() {

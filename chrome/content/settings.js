@@ -404,8 +404,20 @@ function synchCallback(orig, status) {
     if (treeView.data[i].url == orig.url)
       subscription = treeView.data[i];
 
-  var row = treeView.getSubscriptionRow(subscription);
-  var rowCount = treeView.getSubscriptionRowCount(subscription);
+  var row, rowCount;
+  if (!subscription && status == "add") {
+    subscription = cloneObject(orig);
+    row = treeView.rowCount;
+    rowCount = 0;
+    treeView.data.push(subscription);
+  }
+  else if (subscription) {
+    row = treeView.getSubscriptionRow(subscription);
+    rowCount = treeView.getSubscriptionRowCount(subscription);
+  }
+
+  if (!subscription)
+    return;
 
   subscription.extra = treeView.getSubscriptionDescription(subscription);
   treeView.initSubscriptionPatterns(subscription, orig.patterns);
@@ -1247,22 +1259,22 @@ var treeView = {
       descr.push(abp.getString("subscription_source") + " " + subscription.url);
 
     var status = "";
-    if (!orig.external) {
+    if (orig.external)
+      status += abp.getString("subscription_status_externaldownload");
+    else
       status += (orig.autoDownload ? abp.getString("subscription_status_autodownload") : abp.getString("subscription_status_manualdownload"));
-      status += "; " + abp.getString("subscription_status_lastdownload") + " ";
-      if (synchronizer.isExecuting(subscription.url))
-        status += abp.getString("subscription_status_lastdownload_inprogress");
-      else {
-        status += (orig.lastDownload > 0 ? new Date(orig.lastDownload * 1000).toLocaleString() : abp.getString("subscription_status_lastdownload_unknown"));
-        if (orig.lastDownload > 0 && orig.downloadStatus) {
-          try {
-            status += " (" + abp.getString(orig.downloadStatus) + ")";
-          } catch (e) {}
-        }
+
+    status += "; " + abp.getString("subscription_status_lastdownload") + " ";
+    if (synchronizer.isExecuting(subscription.url))
+      status += abp.getString("subscription_status_lastdownload_inprogress");
+    else {
+      status += (orig.lastDownload > 0 ? new Date(orig.lastDownload * 1000).toLocaleString() : abp.getString("subscription_status_lastdownload_unknown"));
+      if (orig.lastDownload > 0 && orig.downloadStatus) {
+        try {
+          status += " (" + abp.getString(orig.downloadStatus) + ")";
+        } catch (e) {}
       }
     }
-    else
-      status += abp.getString("subscription_status_externaldownload");
 
     descr.push(abp.getString("subscription_status") + " " + status);
     return descr;
