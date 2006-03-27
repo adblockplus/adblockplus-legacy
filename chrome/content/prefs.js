@@ -902,6 +902,25 @@ var prefs = {
     return ret;
   },
 
+  createExternalSubscription: function(id, title) {
+    var ret = {
+      url: id,
+      special: false,
+      title: title,
+      autoDownload: true,
+      disabled: false,
+      external: true,
+      lastDownload: 0,
+      lastSuccess: 0,
+      downloadStatus: "",
+      lastModified: "",
+      patterns: []
+    };
+
+    this.knownSubscriptions.put(id, ret);
+    return ret;
+  },
+
   serializeSubscription: function(buf, subscription) {
     buf.push('[Subscription]');
 

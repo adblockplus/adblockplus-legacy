@@ -17,6 +17,7 @@ if (confirm(WARNING)) {
     [getFolder("Profile", "chrome"), "adblockplus.jar"],      // Profile jar
     [getFolder("Chrome"), "adblockplus.jar"],                 // Root jar
     [getFolder("Components"), "nsAdblockPlus.js"],            // Root component
+    [getFolder("Components"), "nsAdblockPlus.xpt"],           // Component interface
     [getFolder("Profile", "components"), "nsAdblockPlus.js"], // Profile component
     [getFolder("Profile"), "XUL FastLoad File"],              // XUL cache Mac Classic
     [getFolder("Profile"), "XUL.mfast"],                      // XUL cache MacOS X
@@ -46,6 +47,7 @@ if (confirm(WARNING)) {
   var files = [
     ["chrome/adblockplus.jar", getFolder("Chrome")],
     ["components/nsAdblockPlus.js", getFolder("Components")],
+    ["components/nsAdblockPlus.xpt", getFolder("Components")],
     ["defaults/preferences/adblockplus.js", getFolder(getFolder("Program", "defaults"), "pref")],
   ];
   
