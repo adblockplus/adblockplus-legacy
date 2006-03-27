@@ -697,7 +697,7 @@ function fillContext() {
   document.getElementById("copy-command").setAttribute("disabled", !origHasPatterns);
   document.getElementById("cut-command").setAttribute("disabled", !hasRemovable);
   document.getElementById("paste-command").setAttribute("disabled", !clipboard.hasDataMatchingFlavors(flavours, clipboard.kGlobalClipboard));
-  document.getElementById("remove-command").setAttribute("disabled", !hasRemovable || (subscription && !subscription.special));
+  document.getElementById("remove-command").setAttribute("disabled", !hasRemovable && (!subscription || subscription.special));
 
   return true;
 }
