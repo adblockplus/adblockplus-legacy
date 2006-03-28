@@ -525,6 +525,7 @@ var prefs = {
 
   // Saves pattern data back to the patterns file
   savePatterns: function() {
+    var i;
 //    var start = new Date().getTime();
 
     if (!this.patternsFile)
@@ -541,17 +542,52 @@ var prefs = {
       for (var parent = this.patternsFile.parent; parent; parent = parent.parent)
         parents.push(parent);
     } catch (e) {}
-    for (var i = parents.length - 1; i >= 0; i--) {
+    for (i = parents.length - 1; i >= 0; i--) {
       try {
         parents[i].create(parents[i].DIRECTORY_TYPE, 0755);
       } catch (e) {}
     }
 
     if (this.patternsFile.exists()) {
-      // Try to remove existing file
-      try {
-        this.patternsFile.remove(false);
-      } catch (e) {}
+      // Check whether we need to backup the file
+      var part1 = this.patternsFile.leafName;
+      var part2 = "";
+      if (/^(.*)(\.\w+)$/.test(part1)) {
+        part1 = RegExp.$1;
+        part2 = RegExp.$2;
+      }
+
+      var doBackup = (this.patternsbackups > 0);
+      if (doBackup) {
+        var lastBackup = this.patternsFile.clone();
+        lastBackup.leafName = part1 + "-backup1" + part2;
+        if (lastBackup.exists() && (new Date().getTime() - lastBackup.lastModifiedTime) / 3600000 < this.patternsbackupinterval)
+          doBackup = false;
+      }
+
+      if (doBackup) {
+        var backupFile = this.patternsFile.clone();
+        backupFile.leafName = part1 + "-backup" + this.patternsbackups + part2;
+
+        // Remove oldest backup
+        try {
+          backupFile.remove(false);
+        } catch (e) {}
+
+        // Rename backup files
+        for (i = this.patternsbackups - 1; i >= 0; i--) {
+          backupFile.leafName = part1 + (i > 0 ? "-backup" + i : "") + part2;
+          try {
+            backupFile.moveTo(backupFile.parent, part1 + "-backup" + (i+1) + part2);
+          } catch (e) {}
+        }
+      }
+      else {
+        // Remove existing file
+        try {
+          this.patternsFile.remove(false);
+        } catch (e) {}
+      }
     }
 
     var stream = Components.classes["@mozilla.org/network/file-output-stream;1"]
@@ -570,7 +606,7 @@ var prefs = {
     var saved = new HashTable();
 
     // Save pattern data
-    for (var i = 0; i < this.userPatterns.length; i++) {
+    for (i = 0; i < this.userPatterns.length; i++) {
       var pattern = this.userPatterns[i];
       if (!saved.has(pattern.text)) {
         this.serializePattern(buf, pattern);

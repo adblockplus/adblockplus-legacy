@@ -74,6 +74,12 @@ pref("extensions.adblockplus.flash_scrolltoitem", true);
 */
 pref("extensions.adblockplus.patternsfile", "adblockplus/patterns.ini");
 
+// Maximum number of backups of the patterns file to be stored
+pref("extensions.adblockplus.patternsbackups", 5);
+
+// Minimum time interval (in hours) between two backups of the patterns file
+pref("extensions.adblockplus.patternsbackupinterval", 24);
+
 // Default filter list (will only be used if patterns file isn't existing and there is nothing to import from Adblock)
 pref("extensions.adblockplus.patterns", "@@|https:// */ads/* */advertisements/* http://*.adserver.example.com/*");
 
