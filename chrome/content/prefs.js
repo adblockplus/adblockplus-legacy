@@ -286,6 +286,8 @@ var prefs = {
 
     if (this.enabled)
       this.elemhidePatterns.apply();
+    else
+      this.elemhidePatterns.unapply();
 
     // Fire pref listeners
     for (i = 0; i < this.listeners.length; i++)
