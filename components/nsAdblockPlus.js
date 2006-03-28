@@ -153,6 +153,27 @@ const abp = {
   // nsIAdblockPlus interface implementation
   //
 
+  // Return current subscription count
+  get subscriptionCount() {
+    return prefs.subscriptions.length;
+  },
+
+  // Retrieves a subscription
+  getSubscription: function(id) {
+    if (!prefs.knownSubscriptions.has(id))
+      return null;
+
+    return prefs.knownSubscriptions.get(id);
+  },
+
+  // Retrieves a subscription by list index
+  getSubscriptionAt: function(index) {
+    if (index < 0 || index >= prefs.subscriptions.length)
+      return null;
+
+    return prefs.subscriptions[index];
+  },
+
   // Updates an external subscription and creates it if necessary
   updateExternalSubscription: function(id, title, patterns, length) {
     var subscription;
@@ -186,14 +207,6 @@ const abp = {
     synchronizer.notifyListeners(subscription, "add");
 
     return true;
-  },
-
-  // Retrieves a subscription
-  getSubscription: function(id) {
-    if (!prefs.knownSubscriptions.has(id))
-      return null;
-
-    return prefs.knownSubscriptions.get(id);
   },
 
   // Returns installed Adblock Plus version
