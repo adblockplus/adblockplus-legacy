@@ -697,20 +697,44 @@ var prefs = {
 
   initPattern: function(pattern) {
     var text = pattern.text;
-    if (/^([^\/\*\|\@]*)#([\w\-]+|\*)(?:\(([\w\-]+)\))?$/.test(text)) {
+    if (/^([^\/\*\|\@]*)#([\w\-]+|\*)((?:\([\w\-]+(?:[$^*]?=[^\(\)\[\]"]*)?\))*)$/.test(text)) {
       pattern.type = "elemhide";
 
       pattern.domain = RegExp.$1;
       var tagname = RegExp.$2;
-      var id = RegExp.$3;
+      var attrRules = RegExp.$3;
 
       if (tagname == "*")
         tagname = "";
 
+      var id = null;
+      var additional = "";
+      if (attrRules) {
+        attrRules = attrRules.match(/\([\w\-]+(?:[$^*]?=[^\(\)\[\]"]*)?\)/g);
+        for (var i = 0; i < attrRules.length; i++) {
+          var rule = attrRules[i].substr(1, attrRules[i].length - 2);
+          var separator = rule.indexOf("=");
+          if (separator > 0) {
+            rule = rule.replace(/=/, '="') + '"';
+            additional += "[" + rule + "]";
+          }
+          else {
+            if (id) {
+              // Duplicate id - invalid rule
+              id = null;
+              tagname = null;
+              break;
+            }
+            else
+              id = rule;
+          }
+        }
+      }
+
       if (id)
-        pattern.selector = tagname + "." + id + "," + tagname + "#" + id;
-      else if (tagname)
-        pattern.selector = tagname;
+        pattern.selector = tagname + "." + id + additional + "," + tagname + "#" + id + additional;
+      else if (tagname || additional)
+        pattern.selector = tagname + additional;
       else
         pattern.type = "invalid";
 
