@@ -161,7 +161,9 @@ const abp = {
     else
       subscription = prefs.createExternalSubscription(id, title);
 
-    subscription.external = true;
+    if (!subscription.external)
+      return false;
+
     subscription.lastDownload = subscription.lastSuccess = new Date().getTime() / 1000;
     subscription.downloadStatus = "synchronize_ok";
     subscription.patterns = [];
@@ -182,6 +184,16 @@ const abp = {
     prefs.initMatching();
     prefs.savePatterns();
     synchronizer.notifyListeners(subscription, "add");
+
+    return true;
+  },
+
+  // Retrieves a subscription
+  getSubscription: function(id) {
+    if (!prefs.knownSubscriptions.has(id))
+      return null;
+
+    return prefs.knownSubscriptions.get(id);
   },
 
   // Returns installed Adblock Plus version

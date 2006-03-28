@@ -24,21 +24,94 @@
 
 #include "nsISupports.idl"
 
+[scriptable, uuid(9da1fb9e-61bc-79e4-dd9a-8af0ec671b08)]
+interface nsIAdblockPlusSubscription: nsISupports
+{
+  /**
+    Subscription identifier, this is its URL unless the attribute external is set
+  */
+  readonly attribute AString url;
+
+  /**
+    true for special "subscriptions" representing segments of the user patterns
+    list (e.g. ~wl~ contains whitelisting patterns)
+  */
+  readonly attribute boolean special;
+
+  /**
+    Subscription's title
+  */
+  readonly attribute AUTF8String title;
+
+  /**
+    Defines whether the subscription is downloaded automatically
+  */
+  readonly attribute boolean autoDownload;
+
+  /**
+    Defines whether the subscription's patterns are disabled
+  */
+  readonly attribute boolean disabled;
+
+  /**
+    Defines whether the subscription is managed externally rather than
+    downloaded by the built-in synchronizer
+  */
+  readonly attribute boolean external;
+
+  /**
+    Time of the last download attempt in seconds since 1 January 1970 00:00:00
+  */
+  readonly attribute unsigned long lastDownload;
+
+  /**
+    Time of the last successful download in seconds since 1 January 1970 00:00:00
+  */
+  readonly attribute unsigned long lastSuccess;
+
+  /**
+    Code for the result of the last download attempt (one of "synchronize_ok",
+    "synchronize_invalid_url", "synchronize_connection_error", "synchronize_invalid_data")
+  */
+  readonly attribute AString downloadStatus;
+
+  /**
+    Value of the Last-Modified header for the last download (currently unused)
+  */
+  readonly attribute AString lastModified;
+
+  /**
+    Retrieves a list of subscription's patterns
+  */
+  void getPatterns(out unsigned long length,
+                   [retval, array, size_is(length)] out wstring patterns);
+};
+
 [scriptable, uuid(6e70a4b4-bef8-b0b3-25a2-62146012352b)]
 interface nsIAdblockPlus : nsISupports
 {
   /**
-   * Adds an external subscription or updates subscription's
-   * patterns if it already exists.
+   * Adds an external subscription or updates subscription's patterns if it
+   * already exists. It will fail to update the subscription if it exists
+   * but doesn't have the external attribute set.
    *
-   * @param id subscription identifier
-   * @param title subscription title
-   * @param patterns array containing subscription's patterns
-   * @param length length of patterns array
+   * @param id        subscription identifier
+   * @param title     subscription title
+   * @param patterns  array containing subscription's patterns
+   * @param length    length of patterns array
+   * @return          true if the subscription was updated or false if the
+   *                  update failed
   */
-  void updateExternalSubscription(in AString id, in AUTF8String title,
-                                  [array, size_is(length), const] in wstring patterns,
-                                  in unsigned long length);
+  boolean updateExternalSubscription(in AString id, in AUTF8String title,
+                                     [array, size_is(length), const] in wstring patterns,
+                                     in unsigned long length);
+
+  /**
+   * Retrieves a subscription.
+   *
+   * @param id        subscription identifier
+  */
+  nsIAdblockPlusSubscription getSubscription(in AString id);
 
   /**
    * Returns the installed version of Adblock Plus.
