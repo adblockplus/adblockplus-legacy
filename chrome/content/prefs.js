@@ -813,6 +813,7 @@ var prefs = {
       ret.patterns = [];
     }
 
+    ret.getPatterns = this.getSubscriptionPatterns;
     this.knownSubscriptions.put(url, ret);
     return ret;
   },
@@ -898,6 +899,7 @@ var prefs = {
       }
     }
 
+    ret.getPatterns = this.getSubscriptionPatterns;
     this.knownSubscriptions.put(url, ret);
     return ret;
   },
@@ -917,7 +919,17 @@ var prefs = {
       patterns: []
     };
 
+    ret.getPatterns = this.getSubscriptionPatterns;
     this.knownSubscriptions.put(id, ret);
+    return ret;
+  },
+
+  // nsIAdblockPlusSubscription.getPatterns implementation
+  getSubscriptionPatterns: function(length) {
+    var ret = [];
+    for (var i = 0; i < this.patterns.length; i++)
+      ret.push(this.patterns[i].text);
+    length.value = ret.length;
     return ret;
   },
 
