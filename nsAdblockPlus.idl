@@ -28,60 +28,60 @@
 interface nsIAdblockPlusSubscription: nsISupports
 {
   /**
-    Subscription identifier, this is its URL unless the attribute external is set
+   * Subscription identifier, this is its URL unless the attribute external is set
   */
   readonly attribute AString url;
 
   /**
-    true for special "subscriptions" representing segments of the user patterns
-    list (e.g. ~wl~ contains whitelisting patterns)
+   * true for special "subscriptions" representing segments of the user patterns
+   * list (e.g. ~wl~ contains whitelisting patterns)
   */
   readonly attribute boolean special;
 
   /**
-    Subscription's title
+   * Subscription's title
   */
   readonly attribute AUTF8String title;
 
   /**
-    Defines whether the subscription is downloaded automatically
+   * Defines whether the subscription is downloaded automatically
   */
   readonly attribute boolean autoDownload;
 
   /**
-    Defines whether the subscription's patterns are disabled
+   * Defines whether the subscription's patterns are disabled
   */
   readonly attribute boolean disabled;
 
   /**
-    Defines whether the subscription is managed externally rather than
-    downloaded by the built-in synchronizer
+   * Defines whether the subscription is managed externally rather than
+   * downloaded by the built-in synchronizer
   */
   readonly attribute boolean external;
 
   /**
-    Time of the last download attempt in seconds since 1 January 1970 00:00:00
+   * Time of the last download attempt in seconds since 1 January 1970 00:00:00
   */
   readonly attribute unsigned long lastDownload;
 
   /**
-    Time of the last successful download in seconds since 1 January 1970 00:00:00
+   * Time of the last successful download in seconds since 1 January 1970 00:00:00
   */
   readonly attribute unsigned long lastSuccess;
 
   /**
-    Code for the result of the last download attempt (one of "synchronize_ok",
-    "synchronize_invalid_url", "synchronize_connection_error", "synchronize_invalid_data")
+   * Code for the result of the last download attempt (one of "synchronize_ok",
+   * "synchronize_invalid_url", "synchronize_connection_error", "synchronize_invalid_data")
   */
   readonly attribute AString downloadStatus;
 
   /**
-    Value of the Last-Modified header for the last download (currently unused)
+   * Value of the Last-Modified header for the last download (currently unused)
   */
   readonly attribute AString lastModified;
 
   /**
-    Retrieves a list of subscription's patterns
+   * Retrieves a list of subscription's patterns
   */
   void getPatterns(out unsigned long length,
                    [retval, array, size_is(length)] out wstring patterns);
@@ -90,6 +90,25 @@ interface nsIAdblockPlusSubscription: nsISupports
 [scriptable, uuid(6e70a4b4-bef8-b0b3-25a2-62146012352b)]
 interface nsIAdblockPlus : nsISupports
 {
+  /**
+   * Number of subscriptions in the list
+  */
+  readonly attribute PRInt32 subscriptionCount;
+
+  /**
+   * Retrieves a subscription by its identifier.
+   *
+   * @param id        subscription identifier
+  */
+  nsIAdblockPlusSubscription getSubscription(in AString id);
+
+  /**
+   * Retrieves a subscription by its position in the list.
+   *
+   * @param index     index of the subscription in the list
+  */
+  nsIAdblockPlusSubscription getSubscriptionAt(in PRInt32 index);
+
   /**
    * Adds an external subscription or updates subscription's patterns if it
    * already exists. It will fail to update the subscription if it exists
@@ -105,13 +124,6 @@ interface nsIAdblockPlus : nsISupports
   boolean updateExternalSubscription(in AString id, in AUTF8String title,
                                      [array, size_is(length), const] in wstring patterns,
                                      in unsigned long length);
-
-  /**
-   * Retrieves a subscription.
-   *
-   * @param id        subscription identifier
-  */
-  nsIAdblockPlusSubscription getSubscription(in AString id);
 
   /**
    * Returns the installed version of Adblock Plus.
