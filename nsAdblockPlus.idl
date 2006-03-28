@@ -126,6 +126,15 @@ interface nsIAdblockPlus : nsISupports
                                      in unsigned long length);
 
   /**
+   * Removes an external subscription.
+   *
+   * @param id        subscription identifier
+   * @return          true if the subscription was removed or false if no
+   *                  external subscription with the given identifier was found
+  */
+  boolean removeExternalSubscription(in AString id);
+
+  /**
    * Returns the installed version of Adblock Plus.
   */
   AString getInstalledVersion();

@@ -411,6 +411,10 @@ function synchCallback(orig, status) {
     rowCount = 0;
     treeView.data.push(subscription);
   }
+  else if (subscription && status == "remove") {
+    treeView.removeRow([subscription, null]);
+    return;
+  }
   else if (subscription) {
     row = treeView.getSubscriptionRow(subscription);
     rowCount = treeView.getSubscriptionRowCount(subscription);

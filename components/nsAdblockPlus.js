@@ -209,6 +209,23 @@ const abp = {
     return true;
   },
 
+  removeExternalSubscription: function(id) {
+    var index = -1;
+    for (var i = 0; index < 0 && i < prefs.subscriptions.length; i++)
+      if (prefs.subscriptions[i].url == id)
+        index = i;
+
+    if (index < 0 || !prefs.subscriptions[index].external)
+      return false;
+    
+    synchronizer.notifyListeners(prefs.subscriptions[index], "remove");
+    prefs.subscriptions.splice(index, 1);
+    prefs.initMatching();
+    prefs.savePatterns();
+
+    return true;
+  },
+
   // Returns installed Adblock Plus version
   getInstalledVersion: function() {
     // Try Firefox Extension Manager
