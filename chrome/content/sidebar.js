@@ -316,7 +316,10 @@ function detach() {
 
   saveState();
 
+  // In Firefox 1.0 variables disappear immediately, get local copies
   var mainWin = window.mainWin;
+  var prefs = window.prefs;
+
   // Calculate default position for the detached window
   var boxObject = document.documentElement.boxObject;
   var position = ",left="+boxObject.screenX+",top="+boxObject.screenY+",outerWidth="+boxObject.width+",outerHeight="+boxObject.height;
@@ -337,7 +340,7 @@ function detach() {
   }
   else {
     mainWin.abpForceDetach = false;
-    mainWin.abpDetachedSidebar = mainWin.openDialog("sidebarDetached.xul", "_blank", "chrome,resizable,dependent,dialog=no"+position);
+    mainWin.abpDetachedSidebar = mainWin.openDialog("chrome://adblockplus/content/sidebarDetached.xul", "_blank", "chrome,resizable,dependent,dialog=no"+position);
   }
 
   // Save setting
