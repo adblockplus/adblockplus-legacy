@@ -185,7 +185,7 @@ const abp = {
     if (!subscription.external)
       return false;
 
-    subscription.lastDownload = subscription.lastSuccess = new Date().getTime() / 1000;
+    subscription.lastDownload = subscription.lastSuccess = (new Date().getTime() / 1000).toFixed(0);
     subscription.downloadStatus = "synchronize_ok";
     subscription.patterns = [];
     for (var i = 0; i < patterns.length; i++) {

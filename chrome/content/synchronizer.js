@@ -86,7 +86,7 @@ var synchronizer = {
       return;
     }
 
-    subscription.lastDownload = subscription.lastSuccess = new Date().getTime() / 1000;
+    subscription.lastDownload = subscription.lastSuccess = (new Date().getTime() / 1000).toFixed(0);
     subscription.downloadStatus = "synchronize_ok";
     subscription.patterns = [];
     for (var i = 1; i < lines.length; i++) {
@@ -101,7 +101,7 @@ var synchronizer = {
 
   setError: function(subscription, error) {
     this.executing.remove(subscription.url);
-    subscription.lastDownload = new Date().getTime() / 1000;
+    subscription.lastDownload = (new Date().getTime() / 1000).toFixed(0);
     subscription.downloadStatus = error;
     prefs.savePatterns();
     this.notifyListeners(subscription, "error");
