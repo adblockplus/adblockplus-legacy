@@ -791,8 +791,13 @@ var prefs = {
       buf.push('pageWhitelist=' + pattern.pageWhitelist);
     if ("shortcut" in pattern)
       buf.push('shortcut=' + pattern.shortcut);
+    if ("domain" in pattern)
+      buf.push('domain=' + pattern.domain);
+    if ("selector" in pattern)
+      buf.push('selector=' + pattern.selector);
     buf.push('disabled=' + pattern.disabled);
-    buf.push('hitCount=' + pattern.hitCount);
+    if (pattern.hitCount)
+      buf.push('hitCount=' + pattern.hitCount);
 
     buf.push('');
   },
