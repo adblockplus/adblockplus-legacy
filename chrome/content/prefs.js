@@ -697,7 +697,7 @@ var prefs = {
 
   initPattern: function(pattern) {
     var text = pattern.text;
-    if (/^([^\/\*\|\@]*)#([\w\-]+|\*)((?:\([\w\-]+(?:[$^*]?=[^\(\)\[\]"]*)?\))*)$/.test(text)) {
+    if (/^([^\/\*\|\@]*)#([\w\-]+|\*)((?:\([\w\-]+(?:[$^*]?=[^\(\)"]*)?\))*)$/.test(text)) {
       pattern.type = "elemhide";
 
       pattern.domain = RegExp.$1;
@@ -710,7 +710,7 @@ var prefs = {
       var id = null;
       var additional = "";
       if (attrRules) {
-        attrRules = attrRules.match(/\([\w\-]+(?:[$^*]?=[^\(\)\[\]"]*)?\)/g);
+        attrRules = attrRules.match(/\([\w\-]+(?:[$^*]?=[^\(\)"]*)?\)/g);
         for (var i = 0; i < attrRules.length; i++) {
           var rule = attrRules[i].substr(1, attrRules[i].length - 2);
           var separator = rule.indexOf("=");
