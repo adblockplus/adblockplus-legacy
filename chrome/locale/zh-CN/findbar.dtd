@@ -1,0 +1,14 @@
+<!ENTITY caseSensitiveCheckbox.accesskey "c">
+<!ENTITY caseSensitiveCheckbox.label "区分大小写">
+<!ENTITY find.label "查找：">
+<!ENTITY findCloseButton.tooltip "关闭查找栏">
+<!ENTITY findNext.accesskey "N">
+<!ENTITY findNext.label "查找下一个">
+<!ENTITY findNext.tooltip "查找该短语的下一个位置">
+<!ENTITY findPrevious.accesskey "P">
+<!ENTITY findPrevious.label "查找上一个">
+<!ENTITY findPrevious.tooltip "查找该短语的上一个位置">
+<!ENTITY highlight.accesskey "a">
+<!ENTITY highlight.label "全部高亮显示">
+<!ENTITY highlight.macTooltip "高亮显示此短语（Cmd+Return）">
+<!ENTITY highlight.tooltip "高亮显示此短语（Ctrl+Enter）">

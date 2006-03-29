@@ -1,0 +1,19 @@
+<!-- LOCALIZATION NOTE : FILE This file contains the entities needed to -->
+<!-- LOCALIZATION NOTE : FILE use the Find Bar. --> 
+
+<!-- entities split out from browser.dtd -->
+<!ENTITY find.label "Sök:">
+<!ENTITY findNext.label "Sök nästa">
+<!ENTITY findNext.accesskey "n">
+<!ENTITY findNext.tooltip "Hitta nästa förekomst av frasen">
+<!ENTITY findPrevious.label "Sök föregående">
+<!ENTITY findPrevious.accesskey "ö">
+<!ENTITY findPrevious.tooltip "Hitta föregående förekomst av frasen">
+<!ENTITY findCloseButton.tooltip "Stäng Sökfältet">
+<!ENTITY highlight.label "Markera alla">
+<!ENTITY highlight.accesskey "M">
+<!ENTITY highlight.tooltip "Markera alla förekomster av frasen (Ctrl+Enter)">
+<!ENTITY highlight.macTooltip "Markera alla förekomster av frasen (Cmd+Retur)">
+<!ENTITY caseSensitiveCheckbox.label "Matcha VERSALER/gemener">
+<!ENTITY caseSensitiveCheckbox.accesskey "c">
+

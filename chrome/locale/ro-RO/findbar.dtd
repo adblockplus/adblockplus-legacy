@@ -1,0 +1,19 @@
+<!-- LOCALIZATION NOTE : FILE This file contains the entities needed to -->
+<!-- LOCALIZATION NOTE : FILE use the Find Bar. --> 
+
+<!-- entities split out from browser.dtd -->
+<!ENTITY find.label "Caută:">
+<!ENTITY findNext.label "Caută">
+<!ENTITY findNext.accesskey "C">
+<!ENTITY findNext.tooltip "Caută următoarea apariţie a frazei">
+<!ENTITY findPrevious.label "Caută înapoi">
+<!ENTITY findPrevious.accesskey "a">
+<!ENTITY findPrevious.tooltip "Caută precedenta apariţie a frazei">
+<!ENTITY findCloseButton.tooltip "Închide bara de căutare">
+<!ENTITY highlight.label "Evidenţiază">
+<!ENTITY highlight.accesskey "E">
+<!ENTITY highlight.tooltip "Evidenţiază toate apariţiile frazei (Ctrl-Enter)">
+<!ENTITY highlight.macTooltip "Evidenţiază toate apariţiile frazei (Cmd+Return)">
+<!ENTITY caseSensitiveCheckbox.label "Dif. majuscule/minuscule">
+<!ENTITY caseSensitiveCheckbox.accesskey "D">
+

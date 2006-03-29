@@ -1,0 +1,19 @@
+<!-- LOCALIZATION NOTE : FILE This file contains the entities needed to -->
+<!-- LOCALIZATION NOTE : FILE use the Find Bar. --> 
+
+<!-- entities split out from browser.dtd -->
+<!ENTITY find.label "Find:">
+<!ENTITY findNext.label "Find Next">
+<!ENTITY findNext.accesskey "N">
+<!ENTITY findNext.tooltip "Find the next occurrence of the phrase">
+<!ENTITY findPrevious.label "Find Previous">
+<!ENTITY findPrevious.accesskey "P">
+<!ENTITY findPrevious.tooltip "Find the previous occurrence of the phrase">
+<!ENTITY findCloseButton.tooltip "Close Find bar">
+<!ENTITY highlight.label "Highlight all">
+<!ENTITY highlight.accesskey "a">
+<!ENTITY highlight.tooltip "Highlight all occurrences of the phrase (Ctrl+Enter)">
+<!ENTITY highlight.macTooltip "Highlight all occurrences of the phrase (Cmd+Return)">
+<!ENTITY caseSensitiveCheckbox.label "Match case">
+<!ENTITY caseSensitiveCheckbox.accesskey "c">
+

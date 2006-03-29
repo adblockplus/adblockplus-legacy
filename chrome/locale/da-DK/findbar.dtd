@@ -1,0 +1,19 @@
+<!-- LOCALIZATION NOTE : FILE This file contains the entities needed to -->
+<!-- LOCALIZATION NOTE : FILE use the Find Bar. --> 
+
+<!-- entities split out from browser.dtd -->
+<!ENTITY find.label "Find:">
+<!ENTITY findNext.label "Find Næste">
+<!ENTITY findNext.accesskey "N">
+<!ENTITY findNext.tooltip "Find næste forekomst af sætning">
+<!ENTITY findPrevious.label "Find forrige">
+<!ENTITY findPrevious.accesskey "f">
+<!ENTITY findPrevious.tooltip "Find forrige forekomst af sætning">
+<!ENTITY findCloseButton.tooltip "Luk søgebar">
+<!ENTITY highlight.label "Fremhæv alt">
+<!ENTITY highlight.accesskey "a">
+<!ENTITY highlight.tooltip "Fremhæv alle forekomster af sætningen (Ctrl+Enter)">
+<!ENTITY highlight.macTooltip "Fremhæv alle forekomster af sætningen (Cmd+Return)">
+<!ENTITY caseSensitiveCheckbox.label "Forskel på store og små bogstaver">
+<!ENTITY caseSensitiveCheckbox.accesskey "b">
+
