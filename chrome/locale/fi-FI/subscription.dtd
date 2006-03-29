@@ -1,4 +1,4 @@
-<!ENTITY dialog.title "Muokkaa tilattua suodatinlistaa">
+<!ENTITY dialog.title "Muokkaa suodatintilausta">
 <!ENTITY dialog.newtitle "Lisää suodatintilaus">
 <!ENTITY new.description "
 	Syötä verkko-osoite tai tiedosto, joka sisältää listan 
@@ -6,7 +6,7 @@
 ">
 <!ENTITY edit.description "
 	Tämän tilauksen suodatinlista ladataan annetusta
-	sijainnista (ei voi vaihtaa enään).
+	sijainnista.
 ">
 <!ENTITY external.description "
 	Tämä on ulkoinen suodatintilaus, sen suodatinlista

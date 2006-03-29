@@ -8,7 +8,9 @@
 <!ENTITY export.label "Vie suodattimia">
 <!ENTITY export.accesskey "V">
 <!ENTITY clearall.label "Poista kaikki suodattimet">
-<!ENTITY clearall.accesskey "k">
+<!ENTITY clearall.accesskey "P">
+<!ENTITY resethitcounts.label "Nollaa osumatilastot">
+<!ENTITY resethitcounts.accesskey "N">
 <!ENTITY edit.label "Muokkaa">
 <!ENTITY edit.accesskey "M">
 <!ENTITY cut.label "Leikkaa">
@@ -18,49 +20,58 @@
 <!ENTITY paste.label "Liitä">
 <!ENTITY paste.accesskey "i">
 <!ENTITY remove.label "Poista">
-<!ENTITY remove.accesskey "o">
+<!ENTITY remove.accesskey "P">
+<!ENTITY menu.find.label "Etsi">
+<!ENTITY menu.find.accesskey "E">
+<!ENTITY menu.findagain.label "Etsi uudelleen">
+<!ENTITY menu.findagain.accesskey "t">
 <!ENTITY options.label "Valinnat">
 <!ENTITY options.accesskey "V">
-<!ENTITY enable.label "Ota Adblock Plus käyttöön">
-<!ENTITY enable.accesskey "k">
+<!ENTITY enable.label "Adblock Plus käytössä">
+<!ENTITY enable.accesskey "d">
+<!ENTITY showintoolbar.label "Näytä työkalupalkilla">
+<!ENTITY showintoolbar.accesskey "y">
 <!ENTITY showinstatusbar.label "Näytä tilarivillä">
 <!ENTITY showinstatusbar.accesskey "N">
 <!ENTITY localpages.label "Estä etämainokset paikallisella sivulla">
-<!ENTITY localpages.accesskey "p">
+<!ENTITY localpages.accesskey "E">
 <!ENTITY objecttabs.label "Näytä painike Flashin ja Javan yhteydessä">
-<!ENTITY objecttabs.accesskey "F">
+<!ENTITY objecttabs.accesskey "p">
 <!ENTITY collapse.label "Romahduta estetyt elementit">
 <!ENTITY collapse.accesskey "R">
 <!ENTITY linkcheck.label "Tarkista kuvien linkit">
-<!ENTITY linkcheck.accesskey "l">
+<!ENTITY linkcheck.accesskey "T">
 <!ENTITY help.label "Ohje">
 <!ENTITY help.accesskey "O">
 <!ENTITY faq.label "Usein kysytyt kysymykset (FAQ)">
-<!ENTITY faq.accesskey "F">
+<!ENTITY faq.accesskey "U">
 <!ENTITY faq.url "http://adblockplus.mozdev.org/faq.html">
 <!ENTITY tips.label "Päivän vinkki">
-<!ENTITY tips.accesskey "v">
+<!ENTITY tips.accesskey "P">
 <!ENTITY tips.url "http://adblockplus.mozdev.org/tips.html">
 <!ENTITY regexps.label "Säännöllisten lausekkeiden kirjoittaminen">
-<!ENTITY regexps.accesskey "l">
+<!ENTITY regexps.accesskey "S">
 <!ENTITY regexps.url "http://developer.mozilla.org/en/docs/Core_JavaScript_1.5_Guide:Regular_Expressions#Writing_a_Regular_Expression_Pattern">
 <!ENTITY about.label "Tietoja Adblock Plussasta">
 <!ENTITY about.accesskey "T">
 <!ENTITY disabled.warning "Adblock Plus on poissa käytöstä. Voit muokata listan suodattimia mutta niitä ei käytetä ennen kuin otat Adblockin käyttöön.">
-<!ENTITY description "Lisää osoitteet, jotka haluat estää, katso ehdotuksia pudotusvalikosta.
-    Voit käyttää * jokerimerkkinä luodaksesi yleisimpiä suodattimia. Edistyneet käyttäjät voivat
-    käyttää säännöllisiä lausekkeita kuten /banner\d+\.gif$/.">
+<!ENTITY description "
+                        Lisää osoitteet, jotka haluat estää, katso ehdotuksia pudotusvalikosta.
+                        Voit käyttää * jokerimerkkinä luodaksesi yleisimpiä suodattimia. Edistyneet käyttäjät voivat
+		                käyttää säännöllisiä lausekkeita kuten /banner\d+\.gif$/.
+">
 <!ENTITY newfilter.label "Uusi suodatin:">
 <!ENTITY newfilter.accesskey "U">
 <!ENTITY add.label "Lisää suodatin">
 <!ENTITY add.accesskey "L">
-<!ENTITY list.label "Suodatinsäännöt:">
-<!ENTITY list.accesskey "ä">
+<!ENTITY pattern.column "Suodatusehdot">
+<!ENTITY hitcount.column "Osumat">
+<!ENTITY enabled.column "Käytössä">
 <!ENTITY context.edit.label "Muokkaa suodatinta">
+<!ENTITY context.resethitcount.label "Nollaa suodattimen osumatilastot">
 <!ENTITY context.synchsubscription.label "Päivitä tilaus nyt">
 <!ENTITY context.editsubscription.label "Muokkaa tilausta">
 <!ENTITY context.moveup.label "Siirrä ylös">
 <!ENTITY context.movedown.label "Siirrä alas">
 <!ENTITY context.movegroupup.label "Siirrä ryhmä ylös">
 <!ENTITY context.movegroupdown.label "Siirrä ryhmä alas">
-
