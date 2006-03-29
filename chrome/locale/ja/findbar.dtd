@@ -1,0 +1,18 @@
+<!-- LOCALIZATION NOTE : FILE This file contains the entities needed to -->
+<!-- LOCALIZATION NOTE : FILE use the Find Bar. --> 
+
+<!-- entities split out from browser.dtd -->
+<!ENTITY find.label			"検索:">
+<!ENTITY findNext.label			"次を検索">
+<!ENTITY findNext.accesskey		"N">
+<!ENTITY findNext.tooltip		"指定に一致する次の部分を検索します">
+<!ENTITY findPrevious.label		"前を検索">
+<!ENTITY findPrevious.accesskey		"P">
+<!ENTITY findPrevious.tooltip		"指定に一致する一つ前の部分を検索します">
+<!ENTITY findCloseButton.tooltip	"検索バーを閉じます">
+<!ENTITY highlight.label		"すべて強調表示">
+<!ENTITY highlight.accesskey		"a">
+<!ENTITY highlight.tooltip		"指定に一致するすべての部分を強調表示します (Ctrl+Enter)">
+<!ENTITY highlight.macTooltip		"指定に一致するすべての部分を強調表示します (Cmd+Return)">
+<!ENTITY caseSensitiveCheckbox.label	"大文字/小文字を区別">
+<!ENTITY caseSensitiveCheckbox.accesskey "c">

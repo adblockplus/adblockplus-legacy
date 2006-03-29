@@ -1,0 +1,19 @@
+<!-- LOCALIZATION NOTE : FILE This file contains the entities needed to -->
+<!-- LOCALIZATION NOTE : FILE use the Find Bar. --> 
+
+<!-- entities split out from browser.dtd -->
+<!ENTITY find.label "Bul:">
+<!ENTITY findNext.label "Sonrakini bul">
+<!ENTITY findNext.accesskey "N">
+<!ENTITY findNext.tooltip "Bir sonraki eşleşen kelimeyi bulur">
+<!ENTITY findPrevious.label "Öncekini bul">
+<!ENTITY findPrevious.accesskey "b">
+<!ENTITY findPrevious.tooltip "Bir önceki eşleşen kelimeyi bulur">
+<!ENTITY findCloseButton.tooltip "Arama çubuğunu kapatır">
+<!ENTITY highlight.label "Vurgula">
+<!ENTITY highlight.accesskey "a">
+<!ENTITY highlight.tooltip "Eşleşen kelimeleri vurgular (Ctrl+Enter)">
+<!ENTITY highlight.macTooltip "Eşleşen kelimeleri vurgular (Ctrl+Enter">
+<!ENTITY caseSensitiveCheckbox.label "Bire bir eşleme">
+<!ENTITY caseSensitiveCheckbox.accesskey "e">
+
