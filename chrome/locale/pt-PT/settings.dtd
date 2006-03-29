@@ -9,8 +9,16 @@
 <!ENTITY export.accesskey "X">
 <!ENTITY clearall.label "Remover todos os filtros">
 <!ENTITY clearall.accesskey "L">
-<!ENTITY listsort.label "Organizar alfabeticamente">
-<!ENTITY listsort.accesskey "F">
+<!ENTITY edit.label "Editar"> 
+<!ENTITY edit.accesskey "e"> 
+<!ENTITY cut.label "Recortar">
+<!ENTITY cut.accesskey "T">
+<!ENTITY copy.label "Copiar">  
+<!ENTITY copy.accesskey "c"> 
+<!ENTITY paste.label "Colar">  
+<!ENTITY paste.accesskey "o"> 
+<!ENTITY remove.label "Excluir">  
+<!ENTITY remove.accesskey "x"> 
 <!ENTITY options.label "Opções">
 <!ENTITY options.accesskey "O">
 <!ENTITY enable.label "Activar Adblock Plus">
@@ -47,13 +55,10 @@
 <!ENTITY list.label "Regras de filtro:">
 <!ENTITY list.accesskey "R">
 <!ENTITY context.edit.label "Editar filtro">
-<!ENTITY context.remove.label "Remover filtro(s)">
 <!ENTITY context.synchsubscription.label "Actualizar subscripção agora">
 <!ENTITY context.editsubscription.label "Editar subscripção">
-<!ENTITY context.removesubscription.label "Remover subscripção">
 <!ENTITY context.moveup.label "Mover para cima">
 <!ENTITY context.movedown.label "Mover para baixo">
 <!ENTITY context.movegroupup.label "Mover grupo para cima">
 <!ENTITY context.movegroupdown.label "Mover grupo para baixo">
-<!ENTITY ok.label "OK">
-<!ENTITY cancel.label "Cancelar">
+

@@ -1,6 +1,8 @@
 <!ENTITY detached.title "„Adblock Plus“ parankinė (iškelta)">
 <!ENTITY detach.label "Iškelti">
 <!ENTITY reattach.label "Iš naujo įkelti">
+<!ENTITY search.label "Ieškoti:">
+<!ENTITY search.accesskey "I">
 <!ENTITY list.label "Dabartinio tinklalapio elementai:">
 <!ENTITY type.label "Tipas">
 <!ENTITY address.label "Adresas">
@@ -8,6 +10,5 @@
 <!ENTITY notremote.label "Nėra nuotolinis tinklalapis">
 <!ENTITY whitelisted.label "Tinklalapis, įtrauktas į išimtis">
 <!ENTITY notloaded.label "„Adblock Plus“ nėra tinkamai įdiegtas">
-<!ENTITY effective-filter.label "Galiojantys filtrai">
-<!ENTITY adblock.label "Adblock">
-<!ENTITY adblock.accesskey "A">
+<!ENTITY tooltip.filter.label "Galiojantys filtrai:">
+

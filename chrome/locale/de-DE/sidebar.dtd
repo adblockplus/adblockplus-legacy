@@ -22,20 +22,33 @@
    -
    - ***** END LICENSE BLOCK ***** -->
 
-<!ENTITY detached.title           "Adblock Plus Sidebar (abgekoppelt)">
+<!ENTITY detached.title           "Adblock Plus: Elemente der geöffneten Seite (abgekoppelt)">
 
 <!ENTITY detach.label             "Abkoppeln">
 <!ENTITY reattach.label           "Ankoppeln">
-<!ENTITY list.label               "Elemente der geöffneten Seite:">
+
+<!ENTITY search.label             "Suchen:">
+<!ENTITY search.accesskey         "S">
 
 <!ENTITY type.label               "Typ">
 <!ENTITY address.label            "Adresse">
+<!ENTITY filter.label             "Filter">
+<!ENTITY state.label              "Status">
 
 <!ENTITY noitems.label            "Keine Elemente zu blockieren">
 <!ENTITY notremote.label          "Seite is lokal">
 <!ENTITY whitelisted.label        "Deaktiviert auf dieser Seite">
 <!ENTITY notloaded.label          "Adblock Plus wurde nicht korrekt installiert">
-<!ENTITY effective-filter.label   "Angewandter Filter">
 
-<!ENTITY adblock.label            "Adblock">
-<!ENTITY adblock.accesskey        "A">
+<!ENTITY tooltip.address.label    "Addresse:">
+<!ENTITY tooltip.type.label       "Typ:">
+<!ENTITY tooltip.type.blocked     "(blockiert)">
+<!ENTITY tooltip.type.whitelisted "(Ausnahmeregel aktiv)">
+<!ENTITY tooltip.filter.label     "Angewandter Filter:">
+
+<!ENTITY context.block.label      "Dieses Element blockieren">
+<!ENTITY context.editfilter.label "Angewandten Filter bearbeiten">
+<!ENTITY context.whitelist.label  "Ausnahmeregel für das Element hinzufügen">
+<!ENTITY context.open.label       "Adresse in neuem Tab öffnen">
+<!ENTITY context.flash.label      "Position des Elements aufzeigen">
+<!ENTITY context.copy.label       "Adresse des Elements kopieren">

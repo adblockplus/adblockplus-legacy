@@ -61,6 +61,9 @@ function init() {
       if (document.styleSheets[i].href == "chrome://adblockplus/skin/findbar/findBar.css")
         document.styleSheets[i].disabled = true;
 
+  // Remove access key from Help button - conflicts with the menu
+  document.documentElement.getButton("help").removeAttribute("accesskey");
+
   // Install listeners
   prefs.addListener(onPrefChange);
   prefs.addHitCountListener(onHitCountChange);

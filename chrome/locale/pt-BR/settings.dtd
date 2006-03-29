@@ -9,8 +9,16 @@
 <!ENTITY export.accesskey "E">
 <!ENTITY clearall.label "Remover todos os filtros">
 <!ENTITY clearall.accesskey "R">
-<!ENTITY listsort.label "Ordenar Alfabeticamente">
-<!ENTITY listsort.accesskey "L">
+<!ENTITY edit.label "Editar"> 
+<!ENTITY edit.accesskey "e"> 
+<!ENTITY cut.label "Recortar">
+<!ENTITY cut.accesskey "T">
+<!ENTITY copy.label "Copiar">  
+<!ENTITY copy.accesskey "c"> 
+<!ENTITY paste.label "Colar">  
+<!ENTITY paste.accesskey "o"> 
+<!ENTITY remove.label "Excluir">  
+<!ENTITY remove.accesskey "x"> 
 <!ENTITY options.label "Opções">
 <!ENTITY options.accesskey "O">
 <!ENTITY enable.label "Ativar o Adblock Plus">
@@ -40,9 +48,9 @@
 <!ENTITY about.accesskey "S">
 <!ENTITY disabled.warning "O Adblock Plus está desativado. Você pode editar qualquer filtro da lista, mas eles não serão aplicados até que você reative.">
 <!ENTITY description "
-		Adicione o endereço que você deseja que seja bloqueado, para sugestões veja a lista.
-		Você pode usar * para substituir qualquer caractere e criar filtros mais gerais.
-		Usuários avançados podem usar expressões regulares como /banner\d+\.gif$/.
+    Adicione o endereço que você deseja que seja bloqueado, para sugestões veja a lista.
+    Você pode usar * para substituir qualquer caractere e criar filtros mais gerais.
+    Usuários avançados podem usar expressões regulares como /banner\d+\.gif$/.
 ">
 <!ENTITY newfilter.label "Novo filtro:">
 <!ENTITY newfilter.accesskey "N">
@@ -51,13 +59,10 @@
 <!ENTITY list.label "Regras de filtro:">
 <!ENTITY list.accesskey "R">
 <!ENTITY context.edit.label "Editar filtro">
-<!ENTITY context.remove.label "Remover filtro(s)">
 <!ENTITY context.synchsubscription.label "Atualizar inscrição agora">
 <!ENTITY context.editsubscription.label "Editar inscrição">
-<!ENTITY context.removesubscription.label "Remover inscrição">
 <!ENTITY context.moveup.label "Para cima">
 <!ENTITY context.movedown.label "Para baixo">
 <!ENTITY context.movegroupup.label "Grupo para cima">
 <!ENTITY context.movegroupdown.label "Grupo para baixo">
-<!ENTITY ok.label "OK">
-<!ENTITY cancel.label "Cancelar">
+

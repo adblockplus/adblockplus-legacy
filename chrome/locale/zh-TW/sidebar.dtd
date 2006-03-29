@@ -1,6 +1,8 @@
 <!ENTITY detached.title "Adblock Plus 側邊欄（已分離）">
 <!ENTITY detach.label "分離">
 <!ENTITY reattach.label "固定">
+<!ENTITY search.label "搜尋:">
+<!ENTITY search.accesskey "S">
 <!ENTITY list.label "此頁面可阻擋的項目:">
 <!ENTITY type.label "類型">
 <!ENTITY address.label "位址">
@@ -8,6 +10,5 @@
 <!ENTITY notremote.label "不是網路上的網頁">
 <!ENTITY whitelisted.label "此頁面已加入白名單">
 <!ENTITY notloaded.label "Adblock Plus 未正確安裝">
-<!ENTITY effective-filter.label "使用中的條件">
-<!ENTITY adblock.label "Adblock">
-<!ENTITY adblock.accesskey "A">
+<!ENTITY tooltip.filter.label "使用中的條件:">
+

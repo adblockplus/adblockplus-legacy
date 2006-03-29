@@ -9,8 +9,16 @@
 <!ENTITY export.accesskey "K">
 <!ENTITY clearall.label "Pašalinti visus filtrus">
 <!ENTITY clearall.accesskey "L">
-<!ENTITY listsort.label "Rūšiuoti abėcėlės tvarka">
-<!ENTITY listsort.accesskey "A">
+<!ENTITY edit.label "Taisa"> 
+<!ENTITY edit.accesskey "T"> 
+<!ENTITY cut.label "Iškirpti">  
+<!ENTITY cut.accesskey "r"> 
+<!ENTITY copy.label "Kopijuoti">  
+<!ENTITY copy.accesskey "K"> 
+<!ENTITY paste.label "Įdėti">  
+<!ENTITY paste.accesskey "d"> 
+<!ENTITY remove.label "Pašalinti">  
+<!ENTITY remove.accesskey "š"> 
 <!ENTITY options.label "Pasirinktys">
 <!ENTITY options.accesskey "P">
 <!ENTITY enable.label "Įjungti „Adblock Plus“">
@@ -47,13 +55,10 @@
 <!ENTITY list.label "Filtrų taisyklės:">
 <!ENTITY list.accesskey "T">
 <!ENTITY context.edit.label "Redaguoti filtrą">
-<!ENTITY context.remove.label "Pašalinti filtrą(us)">
 <!ENTITY context.synchsubscription.label "Atnaujinti prenumeratą">
 <!ENTITY context.editsubscription.label "Redaguoti prenumeratą">
-<!ENTITY context.removesubscription.label "Pašalinti prenumeratą">
 <!ENTITY context.moveup.label "Perkelti aukščiau">
 <!ENTITY context.movedown.label "Perkelti žemiau">
 <!ENTITY context.movegroupup.label "Perkelti grupę aukščiau">
 <!ENTITY context.movegroupdown.label "Perkelti grupę žemiau">
-<!ENTITY ok.label "Gerai">
-<!ENTITY cancel.label "Atsisakyti">
+

@@ -1,6 +1,8 @@
 <!ENTITY detached.title "Adblock Plus sidebar (frakoblet)">
 <!ENTITY detach.label "Frakobl">
 <!ENTITY reattach.label "Gentilkobl">
+<!ENTITY search.label "Søg:">
+<!ENTITY search.accesskey "ø">
 <!ENTITY list.label "Emner på nuværende side:">
 <!ENTITY type.label "Type">
 <!ENTITY address.label "Adresse">
@@ -8,6 +10,5 @@
 <!ENTITY notremote.label "Ikke en ekstern side">
 <!ENTITY whitelisted.label "Hvidlistet side">
 <!ENTITY notloaded.label "Adblock Plus er ikke installeret korrekt">
-<!ENTITY effective-filter.label "Fungerende filter">
-<!ENTITY adblock.label "Adblock">
-<!ENTITY adblock.accesskey "A">
+<!ENTITY tooltip.filter.label "Fungerende filter:">
+

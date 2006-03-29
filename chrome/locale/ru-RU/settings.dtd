@@ -1,4 +1,4 @@
-﻿<!-- ***** BEGIN LICENSE BLOCK *****
+<!-- ***** BEGIN LICENSE BLOCK *****
    - Version: MPL 1.1
    -
    - The contents of this file are subject to the Mozilla Public License Version
@@ -35,15 +35,32 @@
 <!ENTITY export.accesskey           "к">
 <!ENTITY clearall.label             "Удалить все фильтры">
 <!ENTITY clearall.accesskey         "д">
+<!ENTITY resethitcounts.label       "Обнулить статистику попаданий">
+<!ENTITY resethitcounts.accesskey   "н">
 
-<!ENTITY listsort.label             "Сортировать по алфавиту">
-<!ENTITY listsort.accesskey         "р">
+<!ENTITY edit.label                 "Правка">
+<!ENTITY edit.accesskey             "П">
+
+<!ENTITY cut.label                  "Вырезать">
+<!ENTITY cut.accesskey              "В">
+<!ENTITY copy.label                 "Копировать">
+<!ENTITY copy.accesskey             "К">
+<!ENTITY paste.label                "Вставить">
+<!ENTITY paste.accesskey            "с">
+<!ENTITY remove.label               "Удалить">
+<!ENTITY remove.accesskey           "У">
+<!ENTITY menu.find.label            "Найти фильтр">
+<!ENTITY menu.find.accesskey        "Н">
+<!ENTITY menu.findagain.label       "Найти следующий">
+<!ENTITY menu.findagain.accesskey   "й">
 
 <!ENTITY options.label              "Настройки">
 <!ENTITY options.accesskey          "Н">
 
 <!ENTITY enable.label               "Включить Adblock Plus">
 <!ENTITY enable.accesskey           "к">
+<!ENTITY showintoolbar.label        "Показывать в панели инструментов">
+<!ENTITY showintoolbar.accesskey    "п">
 <!ENTITY showinstatusbar.label      "Показывать в строке состояния">
 <!ENTITY showinstatusbar.accesskey  "с">
 <!ENTITY localpages.label           "Блокировать рекламу в локальных страницах">
@@ -55,8 +72,8 @@
 <!ENTITY linkcheck.label            "Проверять ссылки на баннерах">
 <!ENTITY linkcheck.accesskey        "р">
 
-<!ENTITY help.label                 "Помощь">
-<!ENTITY help.accesskey             "П">
+<!ENTITY help.label                 "Справка">
+<!ENTITY help.accesskey             "С">
 
 <!ENTITY faq.label                  "Часто задаваемые вопросы (английский)">
 <!ENTITY faq.accesskey              "Ч">
@@ -83,18 +100,16 @@
 <!ENTITY newfilter.accesskey        "в">
 <!ENTITY add.label                  "Добавить фильтр">
 <!ENTITY add.accesskey              "б">
-<!ENTITY list.label                 "Правила блокирования:">
-<!ENTITY list.accesskey             "р">
+
+<!ENTITY pattern.column             "Правило">
+<!ENTITY hitcount.column            "Попаданий">
+<!ENTITY enabled.column             "Включено">
 
 <!ENTITY context.edit.label         "Редактировать фильтр">
-<!ENTITY context.remove.label       "Удалить фильтр">
+<!ENTITY context.resethitcount.label      "Обнулить статистику попаданий для фильтра">
 <!ENTITY context.synchsubscription.label  "Скачать фильтры заново">
 <!ENTITY context.editsubscription.label   "Редактировать подписку">
-<!ENTITY context.removesubscription.label "Удалить подписку">
 <!ENTITY context.moveup.label       "Сдвинуть вверх">
 <!ENTITY context.movedown.label     "Сдвинуть вниз">
 <!ENTITY context.movegroupup.label        "Сдвинуть группу вверх">
 <!ENTITY context.movegroupdown.label      "Сдвинуть группу вниз">
-
-<!ENTITY ok.label                 "OK">
-<!ENTITY cancel.label             "Отмена">

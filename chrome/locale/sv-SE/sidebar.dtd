@@ -1,6 +1,8 @@
 <!ENTITY detached.title "Adblock Plus panel (avskiljd)">
 <!ENTITY detach.label "Avskilj">
 <!ENTITY reattach.label "Sätt ihop">
+<!ENTITY search.label "Sök:">
+<!ENTITY search.accesskey "ö">
 <!ENTITY list.label "Poster på nuvarande sida:">
 <!ENTITY type.label "Typ">
 <!ENTITY address.label "Adress">
@@ -8,6 +10,5 @@
 <!ENTITY notremote.label "Ingen fjärrsida">
 <!ENTITY whitelisted.label "Vitlistad sida">
 <!ENTITY notloaded.label "Adblock Plus är inte fullständigt installerat">
-<!ENTITY effective-filter.label "Filter som används">
-<!ENTITY adblock.label "Adblock">
-<!ENTITY adblock.accesskey "A">
+<!ENTITY tooltip.filter.label "Filter som används:">
+

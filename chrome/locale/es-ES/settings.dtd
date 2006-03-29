@@ -1,45 +1,53 @@
 <!ENTITY dialog.title "Preferencias de Adblock Plus">
 <!ENTITY filters.label "Filtros">
 <!ENTITY filters.accesskey "F">
-<!ENTITY addsubscription.label "Añadir subscripción de filtro">
-<!ENTITY addsubscription.accesskey "s">
+<!ENTITY addsubscription.label "Añadir suscripción de filtro">
+<!ENTITY addsubscription.accesskey "S">
 <!ENTITY import.label "Importar filtros">
-<!ENTITY import.accesskey "m">
+<!ENTITY import.accesskey "M">
 <!ENTITY export.label "Exportar filtros">
-<!ENTITY export.accesskey "x">
+<!ENTITY export.accesskey "X">
 <!ENTITY clearall.label "Eliminar todos los filtros">
-<!ENTITY clearall.accesskey "l">
-<!ENTITY listsort.label "Ordenar alfabéticamente">
-<!ENTITY listsort.accesskey "e">
+<!ENTITY clearall.accesskey "L">
+<!ENTITY edit.label "Editar">
+<!ENTITY edit.accesskey "E">
+<!ENTITY cut.label "Cortar">
+<!ENTITY cut.accesskey "t">
+<!ENTITY copy.label "Copiar">
+<!ENTITY copy.accesskey "C">
+<!ENTITY paste.label "Pegar">
+<!ENTITY paste.accesskey "P">
+<!ENTITY remove.label "Eliminar">
+<!ENTITY remove.accesskey "l">
 <!ENTITY options.label "Opciones">
 <!ENTITY options.accesskey "O">
 <!ENTITY enable.label "Activar Adblock Plus">
-<!ENTITY enable.accesskey "v">
+<!ENTITY enable.accesskey "V">
 <!ENTITY showinstatusbar.label "Mostrar en la barra de estado">
-<!ENTITY showinstatusbar.accesskey "b">
+<!ENTITY showinstatusbar.accesskey "B">
 <!ENTITY localpages.label "Bloquear publicidad remota en las páginas locales">
-<!ENTITY localpages.accesskey "r">
+<!ENTITY localpages.accesskey "R">
 <!ENTITY objecttabs.label "Mostrar pestañas en Flash y Java">
-<!ENTITY objecttabs.accesskey "t">
+<!ENTITY objecttabs.accesskey "T">
 <!ENTITY collapse.label "Contraer elementos bloqueados">
-<!ENTITY collapse.accesskey "m">
+<!ENTITY collapse.accesskey "M">
 <!ENTITY linkcheck.label "Comprobar enlaces de anuncios">
 <!ENTITY linkcheck.accesskey "C">
 <!ENTITY help.label "Ayuda">
-<!ENTITY help.accesskey "y">
+<!ENTITY help.accesskey "Y">
 <!ENTITY faq.label "Preguntas frecuentes">
-<!ENTITY faq.accesskey "f">
+<!ENTITY faq.accesskey "F">
 <!ENTITY faq.url "http://adblockplus.mozdev.org/faq.html">
 <!ENTITY tips.label "Consejo del día">
-<!ENTITY tips.accesskey "j">
+<!ENTITY tips.accesskey "J">
 <!ENTITY tips.url "http://adblockplus.mozdev.org/tips.html">
 <!ENTITY regexps.label "Escribiendo expresiones regulares">
-<!ENTITY regexps.accesskey "x">
+<!ENTITY regexps.accesskey "X">
 <!ENTITY regexps.url "http://developer.mozilla.org/en/docs/Core_JavaScript_1.5_Guide:Regular_Expressions#Writing_a_Regular_Expression_Pattern">
 <!ENTITY about.label "Acerca de Adblock Plus">
-<!ENTITY about.accesskey "b">
-<!ENTITY disabled.warning "Adblock Plus está desactivado. Puedes editar cualquier filtro en la lista, pero estos no se aplicarán hasta que lo reactives.">
-<!ENTITY description "Añadir las direcciones que quieres bloquear, para sugerencias comprueba la lista de abajo. Puedes usar un * como un comodín para crear filtros más específicos. Los usuarios avanzados pueden usar expresiones regulares como /banner\d+\.gif$/.">
+<!ENTITY about.accesskey "B">
+<!ENTITY disabled.warning "Adblock Plus está desactivado. Puede editar cualquier filtro de la lista, pero no se aplicarán hasta que se reactive.">
+<!ENTITY description "Añada las direcciones que desee bloquear. Para sugerencias compruebe la lista desplegable. Puede usar un * como comodín para crear filtros más generales. Los usuarios avanzados pueden usar expresiones regulares como /banner\d+\.gif$/.">
 <!ENTITY newfilter.label "Nuevo filtro:">
 <!ENTITY newfilter.accesskey "N">
 <!ENTITY add.label "Añadir filtro">
@@ -47,13 +55,10 @@
 <!ENTITY list.label "Reglas de filtro:">
 <!ENTITY list.accesskey "R">
 <!ENTITY context.edit.label "Editar filtro">
-<!ENTITY context.remove.label "Eliminar filtro(s)">
-<!ENTITY context.synchsubscription.label "Actualizar subscripción ahora">
-<!ENTITY context.editsubscription.label "Editar subscripción">
-<!ENTITY context.removesubscription.label "Eliminar subscripción">
+<!ENTITY context.synchsubscription.label "Actualizar suscripción ahora">
+<!ENTITY context.editsubscription.label "Editar suscripción">
 <!ENTITY context.moveup.label "Subir">
 <!ENTITY context.movedown.label "Bajar">
 <!ENTITY context.movegroupup.label "Subir grupo">
 <!ENTITY context.movegroupdown.label "Bajar grupo">
-<!ENTITY ok.label "Aceptar">
-<!ENTITY cancel.label "Cancelar">
+

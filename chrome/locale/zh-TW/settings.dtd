@@ -9,8 +9,16 @@
 <!ENTITY export.accesskey "X">
 <!ENTITY clearall.label "刪除所有過濾條件">
 <!ENTITY clearall.accesskey "L">
-<!ENTITY listsort.label "排序條件清單">
-<!ENTITY listsort.accesskey "P">
+<!ENTITY edit.label "編輯">
+<!ENTITY edit.accesskey "E">
+<!ENTITY cut.label "剪下">
+<!ENTITY cut.accesskey "t">
+<!ENTITY copy.label "複製">
+<!ENTITY copy.accesskey "C">
+<!ENTITY paste.label "貼上">
+<!ENTITY paste.accesskey "P">
+<!ENTITY remove.label "刪除">
+<!ENTITY remove.accesskey "D">
 <!ENTITY options.label "選項">
 <!ENTITY options.accesskey "O">
 <!ENTITY enable.label "啟用 Adblock Plus">
@@ -40,9 +48,9 @@
 <!ENTITY about.accesskey "B">
 <!ENTITY disabled.warning "Adblock Plus 已停用。您仍然可以編輯過濾條件，但直到您啟用前都不會有作用。">
 <!ENTITY description "
-		請輸入您想阻擋的物件位址，或從下拉清單中選擇現正瀏覽頁面的物件來阻擋。
-		您可以使用萬用字元「*」建立可適用多個網站的過濾條件。
-		進階使用者則可以輸入像 /banner\d+\.gif$/ 這類的「正規表示式」。
+    請輸入您想阻擋的物件位址，或從下拉清單中選擇現正瀏覽頁面的物件來阻擋。
+    您可以使用萬用字元「*」建立可適用多個網站的過濾條件。
+    進階使用者則可以輸入像 /banner\d+\.gif$/ 這類的「正規表示式」。
 ">
 <!ENTITY newfilter.label "新的過濾條件:">
 <!ENTITY newfilter.accesskey "N">
@@ -51,13 +59,10 @@
 <!ENTITY list.label "過濾條件清單:">
 <!ENTITY list.accesskey "R">
 <!ENTITY context.edit.label "編輯過濾條件">
-<!ENTITY context.remove.label "移除過濾條件">
 <!ENTITY context.synchsubscription.label "立即更新已訂閱條件集">
 <!ENTITY context.editsubscription.label "編輯訂閱清單">
-<!ENTITY context.removesubscription.label "移除訂閱清單">
 <!ENTITY context.moveup.label "向上移">
 <!ENTITY context.movedown.label "向下移">
 <!ENTITY context.movegroupup.label "整組向上移">
 <!ENTITY context.movegroupdown.label "整組向下移">
-<!ENTITY ok.label "確定">
-<!ENTITY cancel.label "取消">
+
