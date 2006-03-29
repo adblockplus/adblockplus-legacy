@@ -1,26 +1,26 @@
 <!-- ***** BEGIN LICENSE BLOCK *****
-   - Version: MPL 1.1
-   -
-   - The contents of this file are subject to the Mozilla Public License Version
-   - 1.1 (the "License"); you may not use this file except in compliance with
-   - the License. You may obtain a copy of the License at
-   - http://www.mozilla.org/MPL/
-   -
-   - Software distributed under the License is distributed on an "AS IS" basis,
-   - WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
-   - for the specific language governing rights and limitations under the
-   - License.
-   -
-   - The Original Code is Adblock Plus.
-   -
-   - The Initial Developer of the Original Code is
-   - Wladimir Palant.
-   - Portions created by the Initial Developer are Copyright (C) 2006
-   - the Initial Developer. All Rights Reserved.
-   -
-   - Contributor(s):
-   -
-   - ***** END LICENSE BLOCK ***** -->
+	 - Version: MPL 1.1
+	 -
+	 - The contents of this file are subject to the Mozilla Public License Version
+	 - 1.1 (the "License"); you may not use this file except in compliance with
+	 - the License. You may obtain a copy of the License at
+	 - http://www.mozilla.org/MPL/
+	 -
+	 - Software distributed under the License is distributed on an "AS IS" basis,
+	 - WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+	 - for the specific language governing rights and limitations under the
+	 - License.
+	 -
+	 - The Original Code is Adblock Plus.
+	 -
+	 - The Initial Developer of the Original Code is
+	 - Wladimir Palant.
+	 - Portions created by the Initial Developer are Copyright (C) 2006
+	 - the Initial Developer. All Rights Reserved.
+	 -
+	 - Contributor(s):
+	 -
+	 - ***** END LICENSE BLOCK ***** -->
 
 <!ENTITY dialog.title "Adblock Plus 設定">
 
@@ -35,27 +35,35 @@
 <!ENTITY export.accesskey "X">
 <!ENTITY clearall.label "すべてのフィルタを削除">
 <!ENTITY clearall.accesskey "L">
+<!ENTITY resethitcounts.label "ヒット数をリセット">
+<!ENTITY resethitcounts.accesskey "R">
 
 <!ENTITY edit.label "編集">
 <!ENTITY edit.accesskey "E">
 
 <!ENTITY cut.label "切り取り">
-<!ENTITY cut.accesskey "t">
+<!ENTITY cut.accesskey "T">
 <!ENTITY copy.label "コピー">
 <!ENTITY copy.accesskey "C">
 <!ENTITY paste.label "貼り付け">
 <!ENTITY paste.accesskey "P">
 <!ENTITY remove.label "削除">
 <!ENTITY remove.accesskey "D">
+<!ENTITY menu.find.label "検索">
+<!ENTITY menu.find.accesskey "F">
+<!ENTITY menu.findagain.label "再検索">
+<!ENTITY menu.findagain.accesskey "G">
 
 <!ENTITY options.label "オプション">
 <!ENTITY options.accesskey "O">
 
 <!ENTITY enable.label "Adblock Plus を有効にする">
 <!ENTITY enable.accesskey "N">
+<!ENTITY showintoolbar.label "ツールバー表示">
+<!ENTITY showintoolbar.accesskey "B">
 <!ENTITY showinstatusbar.label "ステータスバー表示">
 <!ENTITY showinstatusbar.accesskey "S">
-<!ENTITY localpages.label "ローカルディスクページのリンク先をブロック">
+<!ENTITY localpages.label "ローカルディスクページのリンク先をブロックする">
 <!ENTITY localpages.accesskey "R">
 <!ENTITY objecttabs.label "オブジェクト(Flashなど)にタブを付ける">
 <!ENTITY objecttabs.accesskey "T">
@@ -79,12 +87,12 @@
 <!ENTITY about.label "Adblock Plus について">
 <!ENTITY about.accesskey "B">
 
-<!ENTITY disabled.warning "Adblock Plus は現在停止中です。 リスト内のフィルタを編集することはできますが Adblock Plus を有効にするまでは適用されません。">
+<!ENTITY disabled.warning "Adblock Plus は現在停止中です。 リスト内のフィルタ編集はできますが Adblock Plus を有効にするまでは適用されません。">
 
 <!ENTITY description                "
-    ドロップダウンリストの中からブロックしたいアドレスを追加してください。
-    汎用的なフィルタを作成する場合はワイルドカードとして * (アスタリスク)が使用できます。
-    上級ユーザは /banner\d+\.gif$/ のような正規表現を使用することができます。
+		ドロップダウンリストの中からブロックしたいアドレスを追加してください。
+		汎用的なフィルタを作成する場合はワイルドカードとして * (アスタリスク)が使用できます。
+		上級ユーザは /banner\d+\.gif$/ のような正規表現を使用することができます。
 ">
 
 <!ENTITY newfilter.label "新規フィルタ:">
@@ -97,13 +105,10 @@
 <!ENTITY enabled.column "有効">
 
 <!ENTITY context.edit.label "フィルタ編集">
-<!ENTITY context.cut.label "カット">
-<!ENTITY context.copy.label "コピー">
-<!ENTITY context.paste.label "貼り付け">
+<!ENTITY context.resethitcount.label "フィルタヒット数をリセット">
 <!ENTITY context.synchsubscription.label "今すぐフィルタ読み込みをアップデート">
 <!ENTITY context.editsubscription.label "読み込み編集">
 <!ENTITY context.moveup.label "上へ">
 <!ENTITY context.movedown.label "下へ">
 <!ENTITY context.movegroupup.label "上のグループへ">
 <!ENTITY context.movegroupdown.label "下のグループへ">
-
