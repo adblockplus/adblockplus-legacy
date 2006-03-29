@@ -1,13 +1,14 @@
 <!ENTITY detached.title "Panneau latéral d'Adblock Plus (détaché)">
 <!ENTITY detach.label "Détacher">
 <!ENTITY reattach.label "Rattacher">
-<!ENTITY list.label "Éléments de la page&#160; :">
+<!ENTITY search.label "Chercher :">
+<!ENTITY search.accesskey "h">
+<!ENTITY list.label "Éléments de la page :">
 <!ENTITY type.label "Type">
 <!ENTITY address.label "Adresse">
 <!ENTITY noitems.label "Aucun élément filtrable">
 <!ENTITY notremote.label "N'est pas une page distante">
 <!ENTITY whitelisted.label "Page dans la liste blanche">
 <!ENTITY notloaded.label "Adblock Plus ne semble pas avoir été installée correctement">
-<!ENTITY effective-filter.label "Filtre actif">
-<!ENTITY adblock.label "Adblock">
-<!ENTITY adblock.accesskey "A">
+<!ENTITY tooltip.filter.label "Filtre actif :">
+

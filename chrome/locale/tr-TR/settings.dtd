@@ -9,8 +9,16 @@
 <!ENTITY export.accesskey "D">
 <!ENTITY clearall.label "Tüm süzgeçleri kaldır">
 <!ENTITY clearall.accesskey "L">
-<!ENTITY listsort.label "Harf sırasına sok">
-<!ENTITY listsort.accesskey "H">
+<!ENTITY edit.label "Düzen">
+<!ENTITY edit.accesskey "z">
+<!ENTITY cut.label "Kes">
+<!ENTITY cut.accesskey "k">
+<!ENTITY copy.label "Kopyala">
+<!ENTITY copy.accesskey "K">
+<!ENTITY paste.label "Yapıştır">
+<!ENTITY paste.accesskey "Y">
+<!ENTITY remove.label "Sil">
+<!ENTITY remove.accesskey "S">
 <!ENTITY options.label "Seçenekler">
 <!ENTITY options.accesskey "S">
 <!ENTITY enable.label "Adblock Plus'ı etkinleştir">
@@ -47,13 +55,10 @@
 <!ENTITY list.label "Süzme kuralları:">
 <!ENTITY list.accesskey "U">
 <!ENTITY context.edit.label "Süzgeci düzenle">
-<!ENTITY context.remove.label "Süzgeci sil">
 <!ENTITY context.synchsubscription.label "Aboneliği eşle">
 <!ENTITY context.editsubscription.label "Aboneliği düzenle">
-<!ENTITY context.removesubscription.label "Abonelikten çık">
 <!ENTITY context.moveup.label "Yukarıya taşı">
 <!ENTITY context.movedown.label "Aşağıya taşı">
 <!ENTITY context.movegroupup.label "Öbeği yukarıya taşı">
 <!ENTITY context.movegroupdown.label "Öbeği aşağıya taşı">
-<!ENTITY ok.label "Tamam">
-<!ENTITY cancel.label "Vazgeç">
+

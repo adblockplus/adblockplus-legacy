@@ -9,8 +9,16 @@
 <!ENTITY export.accesskey "E">
 <!ENTITY clearall.label "Usuń wszystkie filtry">
 <!ENTITY clearall.accesskey "L">
-<!ENTITY listsort.label "Sortuj alfabetycznie">
-<!ENTITY listsort.accesskey "A">
+<!ENTITY edit.label "Edycja" >
+<!ENTITY edit.accesskey "E" >
+<!ENTITY cut.label "Wytnij" >
+<!ENTITY cut.accesskey "t" >
+<!ENTITY copy.label "Kopiuj" >
+<!ENTITY copy.accesskey "K" >
+<!ENTITY paste.label "Wklej" >
+<!ENTITY paste.accesskey "e" >
+<!ENTITY remove.label "Usuń" >
+<!ENTITY remove.accesskey "U" >
 <!ENTITY options.label "Opcje">
 <!ENTITY options.accesskey "O">
 <!ENTITY enable.label "Włącz Adblock Plus">
@@ -40,9 +48,9 @@
 <!ENTITY about.accesskey "O">
 <!ENTITY disabled.warning "Adblock Plus jest wyłączony. Można edytować dowolny filtr, ale do czasu ponownego włączenia Adblocka zmiany te nie będą działały.">
 <!ENTITY description "
-		Dodaj adres, który chcesz zablokować. Aby zobaczyć podpowiedzi przejdź do menu &quot;Pomoc&quot;.
-		Można używać * jako wieloznacznika przy tworzeniu większej ilości filtrów. Zaawansowani użytkownicy
-		mogą używać wyrażeń regularnych takich jak: /banner\d+\.gif$/.
+    Dodaj adres, który chcesz zablokować. Aby zobaczyć podpowiedzi przejdź do menu &quot;Pomoc&quot;.
+    Można używać * jako wieloznacznika przy tworzeniu większej ilości filtrów. Zaawansowani użytkownicy
+    mogą używać wyrażeń regularnych takich jak: /banner\d+\.gif$/.
 ">
 <!ENTITY newfilter.label "Nowy filtr:">
 <!ENTITY newfilter.accesskey "N">
@@ -51,13 +59,10 @@
 <!ENTITY list.label "Lista filtrów:">
 <!ENTITY list.accesskey "L">
 <!ENTITY context.edit.label "Edytuj filtr">
-<!ENTITY context.remove.label "Usuń filtr">
 <!ENTITY context.synchsubscription.label "Uaktualnij subskrypcję teraz">
 <!ENTITY context.editsubscription.label "Edytuj subskrypcję">
-<!ENTITY context.removesubscription.label "Usuń subskrypcję">
 <!ENTITY context.moveup.label "Przesuń w górę">
 <!ENTITY context.movedown.label "Przesuń w dół">
 <!ENTITY context.movegroupup.label "Przesuń grupę w górę">
 <!ENTITY context.movegroupdown.label "Przesuń grupę w dól">
-<!ENTITY ok.label "OK">
-<!ENTITY cancel.label "Anuluj">
+

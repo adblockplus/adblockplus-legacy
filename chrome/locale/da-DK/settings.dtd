@@ -9,8 +9,16 @@
 <!ENTITY export.accesskey "P">
 <!ENTITY clearall.label "Fjern alle filtre">
 <!ENTITY clearall.accesskey "L">
-<!ENTITY listsort.label "Sortér alfabetisk">
-<!ENTITY listsort.accesskey "b">
+<!ENTITY edit.label "Rediger">
+<!ENTITY edit.accesskey "R">
+<!ENTITY cut.label "Klip">
+<!ENTITY cut.accesskey "K">
+<!ENTITY copy.label "Kopier">
+<!ENTITY copy.accesskey "o">
+<!ENTITY paste.label "Sæt ind">
+<!ENTITY paste.accesskey "i">
+<!ENTITY remove.label "Slet">
+<!ENTITY remove.accesskey "S">
 <!ENTITY options.label "Indstillinger">
 <!ENTITY options.accesskey "d">
 <!ENTITY enable.label "Slå Adblock Plus til">
@@ -47,13 +55,10 @@
 <!ENTITY list.label "Filterregler:">
 <!ENTITY list.accesskey "R">
 <!ENTITY context.edit.label "Redigér filter">
-<!ENTITY context.remove.label "Fjern filter/filtre">
 <!ENTITY context.synchsubscription.label "Opdatér abonnement nu">
 <!ENTITY context.editsubscription.label "Redigér abonnement">
-<!ENTITY context.removesubscription.label "Fjern abonnement">
 <!ENTITY context.moveup.label "Flyt op">
 <!ENTITY context.movedown.label "Flyt ned">
 <!ENTITY context.movegroupup.label "Flyt gruppe op">
 <!ENTITY context.movegroupdown.label "Flyt gruppe ned">
-<!ENTITY ok.label "OK">
-<!ENTITY cancel.label "Annuller">
+

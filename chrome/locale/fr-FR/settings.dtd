@@ -9,8 +9,16 @@
 <!ENTITY export.accesskey "E">
 <!ENTITY clearall.label "Supprimer tous les filtres">
 <!ENTITY clearall.accesskey "S">
-<!ENTITY listsort.label "Mettre dans l'ordre alphabétique">
-<!ENTITY listsort.accesskey "p">
+<!ENTITY edit.label "Edition">
+<!ENTITY edit.accesskey "E">
+<!ENTITY cut.label "Couper">
+<!ENTITY cut.accesskey "e">
+<!ENTITY copy.label "Copier">
+<!ENTITY copy.accesskey "p">
+<!ENTITY paste.label "Coller">
+<!ENTITY paste.accesskey "o">
+<!ENTITY remove.label "Supprimer">
+<!ENTITY remove.accesskey "s">
 <!ENTITY options.label "Options">
 <!ENTITY options.accesskey "O">
 <!ENTITY enable.label "Activer Adblock Plus">
@@ -23,8 +31,8 @@
 <!ENTITY objecttabs.accesskey "F">
 <!ENTITY collapse.label "Utiliser l'espace libéré par les éléments bloqués">
 <!ENTITY collapse.accesskey "M">
-<!ENTITY linkcheck.label "Vérifier les liens de bannières">
-<!ENTITY linkcheck.accesskey "V">
+<!ENTITY linkcheck.label "Bloquer en utilisant l'adresse cible des publicités">
+<!ENTITY linkcheck.accesskey "b">
 <!ENTITY help.label "Aide">
 <!ENTITY help.accesskey "A">
 <!ENTITY faq.label "FAQ [en]">
@@ -39,7 +47,7 @@
 <!ENTITY about.label "À propos d'Adblock Plus">
 <!ENTITY about.accesskey "A">
 <!ENTITY disabled.warning "Adblock Plus est désactivée. Vous pouvez éditer vos filtres, mais ils ne seront appliqués qu'une fois Adblock Plus réactivée.">
-<!ENTITY description "Ajoutez les adresses que vous souhaitez bloquer, voyez le menu déroulant pour des suggestions. Vous pouvez utiliser * comme joker pour créer des filtres plus généraux. Les utilisateurs plus expérimentés peuvent également utiliser des expressions régulières telles que /banner\d+\.gif$/">
+<!ENTITY description "Ajoutez les adresses que vous souhaitez bloquer, voyez le menu déroulant pour des suggestions d'adresse contenues dans cette page. Vous pouvez utiliser * comme joker pour créer des filtres plus généraux. Les utilisateurs plus expérimentés peuvent également utiliser des expressions régulières telles que /banner\d+\.gif$/">
 <!ENTITY newfilter.label "Nouveau filtre :">
 <!ENTITY newfilter.accesskey "N">
 <!ENTITY add.label "Ajouter le filtre">
@@ -47,13 +55,10 @@
 <!ENTITY list.label "Filtres :">
 <!ENTITY list.accesskey "t">
 <!ENTITY context.edit.label "Modifier le filtre">
-<!ENTITY context.remove.label "Supprimer le(s) filtre(s)">
 <!ENTITY context.synchsubscription.label "Mettre à jour maintenant">
 <!ENTITY context.editsubscription.label "Modifier l'abonnement">
-<!ENTITY context.removesubscription.label "Se désabonner">
 <!ENTITY context.moveup.label "Monter">
 <!ENTITY context.movedown.label "Descendre">
 <!ENTITY context.movegroupup.label "Monter la sélection">
 <!ENTITY context.movegroupdown.label "Descendre la sélection">
-<!ENTITY ok.label "OK">
-<!ENTITY cancel.label "Annuler">
+

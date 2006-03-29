@@ -1,6 +1,8 @@
 <!ENTITY detached.title "Barra lateral do Adblock Plus (destacada)">
 <!ENTITY detach.label "Destacar">
 <!ENTITY reattach.label "Ancorar">
+<!ENTITY search.label "Localizar nome:">
+<!ENTITY search.accesskey "z">
 <!ENTITY list.label "Itens na página atual:">
 <!ENTITY type.label "Tipo">
 <!ENTITY address.label "Endereço">
@@ -8,6 +10,5 @@
 <!ENTITY notremote.label "Não é uma página remota">
 <!ENTITY whitelisted.label "Página na lista branca">
 <!ENTITY notloaded.label "O Adblock Plus não foi instalado corretamente">
-<!ENTITY effective-filter.label "Fitro em ação">
-<!ENTITY adblock.label "Adblock">
-<!ENTITY adblock.accesskey "A">
+<!ENTITY tooltip.filter.label "Fitro em ação:">
+

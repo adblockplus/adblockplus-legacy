@@ -1,6 +1,8 @@
 <!ENTITY detached.title "Adblock Plus侧栏(分体式)">
 <!ENTITY detach.label "分体">
 <!ENTITY reattach.label "合体">
+<!ENTITY search.label "搜索：">
+<!ENTITY search.accesskey "S">
 <!ENTITY list.label "当前页面的项目:">
 <!ENTITY type.label "类型">
 <!ENTITY address.label "地址">
@@ -8,6 +10,4 @@
 <!ENTITY notremote.label "非远程页面">
 <!ENTITY whitelisted.label "列入白名单的页面">
 <!ENTITY notloaded.label "Adblock Plus没有完全安装">
-<!ENTITY effective-filter.label "过滤规则生效">
-<!ENTITY adblock.label "Adblock">
-<!ENTITY adblock.accesskey "A">
+<!ENTITY tooltip.filter.label "已生效的过滤规则:">

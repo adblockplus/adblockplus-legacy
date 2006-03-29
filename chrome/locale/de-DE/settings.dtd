@@ -35,15 +35,32 @@
 <!ENTITY export.accesskey           "X">
 <!ENTITY clearall.label             "Alle Filter entfernen">
 <!ENTITY clearall.accesskey         "L">
+<!ENTITY resethitcounts.label       "Trefferstatistik zurücksetzen">
+<!ENTITY resethitcounts.accesskey   "R">
 
-<!ENTITY listsort.label             "Alphabetisch sortieren">
-<!ENTITY listsort.accesskey         "P">
+<!ENTITY edit.label                 "Bearbeiten">
+<!ENTITY edit.accesskey             "B">
+
+<!ENTITY cut.label                  "Ausschneiden">
+<!ENTITY cut.accesskey              "A">
+<!ENTITY copy.label                 "Kopieren">
+<!ENTITY copy.accesskey             "K">
+<!ENTITY paste.label                "Einfügen">
+<!ENTITY paste.accesskey            "E">
+<!ENTITY remove.label               "Löschen">
+<!ENTITY remove.accesskey           "L">
+<!ENTITY menu.find.label            "Filter durchsuchen">
+<!ENTITY menu.find.accesskey        "S">
+<!ENTITY menu.findagain.label       "Weitersuchen">
+<!ENTITY menu.findagain.accesskey   "N">
 
 <!ENTITY options.label              "Optionen">
 <!ENTITY options.accesskey          "O">
 
 <!ENTITY enable.label               "Adblock Plus aktivieren">
 <!ENTITY enable.accesskey           "N">
+<!ENTITY showintoolbar.label        "In Symbolleiste anzeigen">
+<!ENTITY showintoolbar.accesskey    "M">
 <!ENTITY showinstatusbar.label      "In Statusleiste anzeigen">
 <!ENTITY showinstatusbar.accesskey  "S">
 <!ENTITY localpages.label           "Werbung in lokalen Seiten blockieren">
@@ -83,18 +100,16 @@
 <!ENTITY newfilter.accesskey        "N">
 <!ENTITY add.label                  "Filter hinzufügen">
 <!ENTITY add.accesskey              "Z">
-<!ENTITY list.label                 "Filter-Regel:">
-<!ENTITY list.accesskey             "R">
+
+<!ENTITY pattern.column             "Filterregel">
+<!ENTITY hitcount.column            "Treffer">
+<!ENTITY enabled.column             "Aktiv">
 
 <!ENTITY context.edit.label         "Filter bearbeiten">
-<!ENTITY context.remove.label       "Filter entfernen">
+<!ENTITY context.resethitcount.label      "Trefferstatistik für Filter zurücksetzen">
 <!ENTITY context.synchsubscription.label  "Filter jetzt neu herunterladen">
 <!ENTITY context.editsubscription.label   "Abonnement bearbeiten">
-<!ENTITY context.removesubscription.label "Abonnement entfernen">
 <!ENTITY context.moveup.label       "Nach oben verschieben">
 <!ENTITY context.movedown.label     "Nach unten verschieben">
 <!ENTITY context.movegroupup.label        "Gruppe nach oben verschieben">
 <!ENTITY context.movegroupdown.label      "Gruppe nach unten verschieben">
-
-<!ENTITY ok.label                 "OK">
-<!ENTITY cancel.label             "Abbrechen">

@@ -22,20 +22,33 @@
    -
    - ***** END LICENSE BLOCK ***** -->
 
-<!ENTITY detached.title           "Adblock Plus - боковая панель (отсоединена)">
+<!ENTITY detached.title           "Adblock Plus: элементы открытой страницы (отсоединены)">
 
 <!ENTITY detach.label             "Отсоединить">
 <!ENTITY reattach.label           "Присоединить">
-<!ENTITY list.label               "Элементы открытой страницы:">
+
+<!ENTITY search.label             "Поиск:">
+<!ENTITY search.accesskey         "о">
 
 <!ENTITY type.label               "Тип">
 <!ENTITY address.label            "Адрес">
+<!ENTITY filter.label             "Фильтр">
+<!ENTITY state.label              "Статус">
 
 <!ENTITY noitems.label            "Блокировать нечего">
 <!ENTITY notremote.label          "Страница не из интернета">
 <!ENTITY whitelisted.label        "Отключен на этой странице">
 <!ENTITY notloaded.label          "Adblock Plus не загрузился нормально">
-<!ENTITY effective-filter.label   "Применен фильтр">
 
-<!ENTITY adblock.label            "Adblock">
-<!ENTITY adblock.accesskey        "A">
+<!ENTITY tooltip.address.label    "Адрес:">
+<!ENTITY tooltip.type.label       "Тип:">
+<!ENTITY tooltip.type.blocked     "(заблокирован)">
+<!ENTITY tooltip.type.whitelisted "(исключение)">
+<!ENTITY tooltip.filter.label     "Применен фильтр:">
+
+<!ENTITY context.block.label      "Заблокировать элемент">
+<!ENTITY context.editfilter.label "Отредактировать примененный фильтр">
+<!ENTITY context.whitelist.label  "Добавить исключение для элемента">
+<!ENTITY context.open.label       "Открыть в новой вкладке">
+<!ENTITY context.flash.label      "Показать расположение элемента">
+<!ENTITY context.copy.label       "Копировать адрес">

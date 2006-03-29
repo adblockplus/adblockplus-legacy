@@ -28,18 +28,19 @@
 <!ENTITY menuitem.label         "Adblock Plus">
 <!ENTITY menuitem.accesskey     "A">
 
-<!ENTITY context.image.label    "Adblock: Grafik blockieren">
-<!ENTITY context.object.label   "Adblock: Objekt blockieren">
-<!ENTITY context.link.label     "Adblock: Link blockieren">
-<!ENTITY context.frame.label    "Adblock: Frame blockieren">
+<!ENTITY context.image.label    "Adblock Plus: Grafik blockieren">
+<!ENTITY context.object.label   "Adblock Plus: Objekt blockieren">
+<!ENTITY context.link.label     "Adblock Plus: Link blockieren">
+<!ENTITY context.frame.label    "Adblock Plus: Frame blockieren">
 
-<!ENTITY sidebar.title          "Adblock Plus">
+<!ENTITY menuitem.sidebar.title "Adblock Plus: Blockierbare Elemente">
+<!ENTITY sidebar.title          "Elemente der geöffneten Seite">
 
 <!ENTITY settings.label         "Einstellungen">
 <!ENTITY settings.accesskey     "T">
-<!ENTITY opensidebar.label      "Sidebar öffnen">
-<!ENTITY opensidebar.accesskey  "S">
-<!ENTITY closesidebar.label     "Sidebar schließen">
-<!ENTITY closesidebar.accesskey "S">
-<!ENTITY whitelist.site.label   "Deaktivieren auf --">
-<!ENTITY whitelist.page.label   "Deaktivieren auf dieser Seite und deren Unterseiten">
+<!ENTITY opensidebar.label      "Blockierbare Elemente öffnen">
+<!ENTITY opensidebar.accesskey  "B">
+<!ENTITY closesidebar.label     "Blockierbare Elemente schließen">
+<!ENTITY closesidebar.accesskey "B">
+<!ENTITY whitelist.site.label   "Deaktivieren: auf --">
+<!ENTITY whitelist.page.label   "Deaktivieren: nur auf dieser Seite">

@@ -9,8 +9,16 @@
 <!ENTITY export.accesskey "X">
 <!ENTITY clearall.label "Remove all filters">
 <!ENTITY clearall.accesskey "L">
-<!ENTITY listsort.label "Sort alphabetically">
-<!ENTITY listsort.accesskey "P">
+<!ENTITY edit.label "Edit"> 
+<!ENTITY edit.accesskey "E"> 
+<!ENTITY cut.label "Cut">  
+<!ENTITY cut.accesskey "t"> 
+<!ENTITY copy.label "Copy">  
+<!ENTITY copy.accesskey "C"> 
+<!ENTITY paste.label "Paste">  
+<!ENTITY paste.accesskey "P"> 
+<!ENTITY remove.label "Delete">  
+<!ENTITY remove.accesskey "D"> 
 <!ENTITY options.label "Options">
 <!ENTITY options.accesskey "O">
 <!ENTITY enable.label "Enable Adblock Plus">
@@ -39,11 +47,7 @@
 <!ENTITY about.label "About Adblock Plus">
 <!ENTITY about.accesskey "B">
 <!ENTITY disabled.warning "Adblock Plus is disabled. You can edit filters in the list, but they won't be applied until you reenable.">
-<!ENTITY description "
-		Add the addresses you wish to block; for suggestions check the dropdown list.
-		You can use * as a wildcard to create more general filters. Advanced users can
-		use regular expressions like /banner\d+\.gif$/.
-">
+<!ENTITY description "Add the addresses you wish to block; for suggestions check the dropdown list. You can use * as a wildcard to create more general filters. Advanced users can use regular expressions like /banner\d+\.gif$/.">
 <!ENTITY newfilter.label "New filter:">
 <!ENTITY newfilter.accesskey "N">
 <!ENTITY add.label "Add filter">
@@ -51,13 +55,10 @@
 <!ENTITY list.label "Filter rules:">
 <!ENTITY list.accesskey "R">
 <!ENTITY context.edit.label "Edit filter">
-<!ENTITY context.remove.label "Remove filter(s)">
 <!ENTITY context.synchsubscription.label "Update subscription now">
 <!ENTITY context.editsubscription.label "Edit subscription">
-<!ENTITY context.removesubscription.label "Remove subscription">
 <!ENTITY context.moveup.label "Move up">
 <!ENTITY context.movedown.label "Move down">
 <!ENTITY context.movegroupup.label "Move group up">
 <!ENTITY context.movegroupdown.label "Move group down">
-<!ENTITY ok.label "OK">
-<!ENTITY cancel.label "Cancel">
+

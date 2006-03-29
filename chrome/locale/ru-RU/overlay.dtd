@@ -28,18 +28,19 @@
 <!ENTITY menuitem.label         "Adblock Plus">
 <!ENTITY menuitem.accesskey     "A">
 
-<!ENTITY context.image.label    "Adblock: заблокировать изображение">
-<!ENTITY context.object.label   "Adblock: заблокировать объект">
-<!ENTITY context.link.label     "Adblock: заблокировать ссылку">
-<!ENTITY context.frame.label    "Adblock: заблокировать фрейм">
+<!ENTITY context.image.label    "Adblock Plus: заблокировать изображение">
+<!ENTITY context.object.label   "Adblock Plus: заблокировать объект">
+<!ENTITY context.link.label     "Adblock Plus: заблокировать ссылку">
+<!ENTITY context.frame.label    "Adblock Plus: заблокировать фрейм">
 
-<!ENTITY sidebar.title          "Adblock Plus">
+<!ENTITY menuitem.sidebar.title "Adblock Plus: Элементы открытой страницы">
+<!ENTITY sidebar.title          "Элементы открытой страницы">
 
 <!ENTITY settings.label         "Установки">
 <!ENTITY settings.accesskey     "т">
-<!ENTITY opensidebar.label      "Открыть боковую панель">
-<!ENTITY opensidebar.accesskey  "б">
-<!ENTITY closesidebar.label     "Закрыть боковую панель">
-<!ENTITY closesidebar.accesskey "б">
-<!ENTITY whitelist.site.label   "Отключить на --">
-<!ENTITY whitelist.page.label   "Отключить на этой странице и ее подстраницах">
+<!ENTITY opensidebar.label      "Открыть список элементов">
+<!ENTITY opensidebar.accesskey  "п">
+<!ENTITY closesidebar.label     "Закрыть список элементов">
+<!ENTITY closesidebar.accesskey "п">
+<!ENTITY whitelist.site.label   "Отключить: на --">
+<!ENTITY whitelist.page.label   "Отключить: только на этой странице">

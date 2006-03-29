@@ -1,6 +1,8 @@
 <!ENTITY detached.title "Adblock Plus sivupaneeli (irrotettu)">
 <!ENTITY detach.label "Irrota">
 <!ENTITY reattach.label "Kiinnitä">
+<!ENTITY search.label "Etsi:">
+<!ENTITY search.accesskey "E">
 <!ENTITY list.label "Elementit tämänhetkisellä sivulla:">
 <!ENTITY type.label "Tyyppi">
 <!ENTITY address.label "Osoite">
@@ -8,6 +10,5 @@
 <!ENTITY notremote.label "Ei etäsivu">
 <!ENTITY whitelisted.label "Sallittu sivu">
 <!ENTITY notloaded.label "Adblock Plussaa ei ole asennettu oikein">
-<!ENTITY effective-filter.label "Vaikuttava suodatin">
-<!ENTITY adblock.label "Estä">
-<!ENTITY adblock.accesskey "E">
+<!ENTITY tooltip.filter.label "Vaikuttava suodatin:">
+

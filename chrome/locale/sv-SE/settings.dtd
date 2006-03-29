@@ -9,8 +9,16 @@
 <!ENTITY export.accesskey "E">
 <!ENTITY clearall.label "Ta bort alla filter">
 <!ENTITY clearall.accesskey "T">
-<!ENTITY listsort.label "Sortera i bokstavsordning">
-<!ENTITY listsort.accesskey "b">
+<!ENTITY edit.label "Redigera"> 
+<!ENTITY edit.accesskey "R"> 
+<!ENTITY cut.label "Klipp ut">  
+<!ENTITY cut.accesskey "k"> 
+<!ENTITY copy.label "Kopiera">  
+<!ENTITY copy.accesskey "o"> 
+<!ENTITY paste.label "Klistra in">  
+<!ENTITY paste.accesskey "l"> 
+<!ENTITY remove.label "Ta bort">  
+<!ENTITY remove.accesskey "T"> 
 <!ENTITY options.label "Optioner">
 <!ENTITY options.accesskey "n">
 <!ENTITY enable.label "Adblock Plus på">
@@ -47,13 +55,10 @@
 <!ENTITY list.label "Filterregler:">
 <!ENTITY list.accesskey "g">
 <!ENTITY context.edit.label "Ändra filter">
-<!ENTITY context.remove.label "Ta bort filter">
 <!ENTITY context.synchsubscription.label "Uppdatera prenumeration nu">
 <!ENTITY context.editsubscription.label "Ändra prenumeration">
-<!ENTITY context.removesubscription.label "Ta bort prenumeration">
 <!ENTITY context.moveup.label "Flytta upp">
 <!ENTITY context.movedown.label "Flytta ner">
 <!ENTITY context.movegroupup.label "Flytta upp grupp">
 <!ENTITY context.movegroupdown.label "Flytta ner grupp">
-<!ENTITY ok.label "OK">
-<!ENTITY cancel.label "Avbryt">
+

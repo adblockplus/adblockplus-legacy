@@ -9,8 +9,16 @@
 <!ENTITY export.accesskey "E">
 <!ENTITY clearall.label "Alle filters verwijderen">
 <!ENTITY clearall.accesskey "v">
-<!ENTITY listsort.label "Alfabetisch Sorteren">
-<!ENTITY listsort.accesskey "S">
+<!ENTITY edit.label "Bewerken"> 
+<!ENTITY edit.accesskey "W"> 
+<!ENTITY cut.label "Knippen">  
+<!ENTITY cut.accesskey "N"> 
+<!ENTITY copy.label "Kopiëren">  
+<!ENTITY copy.accesskey "K"> 
+<!ENTITY paste.label "Plakken">  
+<!ENTITY paste.accesskey "P"> 
+<!ENTITY remove.label "Verwijderen">  
+<!ENTITY remove.accesskey "V"> 
 <!ENTITY options.label "Opties">
 <!ENTITY options.accesskey "O">
 <!ENTITY enable.label "Adblock Plus inschakelen">
@@ -47,13 +55,10 @@
 <!ENTITY list.label "Filters Regels:">
 <!ENTITY list.accesskey "R">
 <!ENTITY context.edit.label "Filter wijzigen">
-<!ENTITY context.remove.label "Filter(s) verwijderen">
 <!ENTITY context.synchsubscription.label "Abonnement nu bijwerken">
 <!ENTITY context.editsubscription.label "Abonnement wijzigen">
-<!ENTITY context.removesubscription.label "Abonnement verwijderen">
 <!ENTITY context.moveup.label "Omhoog verplaatsen">
 <!ENTITY context.movedown.label "Omlaag verplaatsen">
 <!ENTITY context.movegroupup.label "Groep omhoog verplaatsen">
 <!ENTITY context.movegroupdown.label "Groep omlaag verplaatsen">
-<!ENTITY ok.label "OK">
-<!ENTITY cancel.label "Annuleren">
+

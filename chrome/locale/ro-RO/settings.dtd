@@ -9,8 +9,16 @@
 <!ENTITY export.accesskey "x">
 <!ENTITY clearall.label "Şterge toate filtrele">
 <!ENTITY clearall.accesskey "t">
-<!ENTITY listsort.label "Păstrează lista sortată">
-<!ENTITY listsort.accesskey "P">
+<!ENTITY edit.label "Editare"> 
+<!ENTITY edit.accesskey "E"> 
+<!ENTITY cut.label "Taie">  
+<!ENTITY cut.accesskey "T"> 
+<!ENTITY copy.label "Copiază">  
+<!ENTITY copy.accesskey "C"> 
+<!ENTITY paste.label "Lipeşte">  
+<!ENTITY paste.accesskey "L"> 
+<!ENTITY remove.label "Şterge">  
+<!ENTITY remove.accesskey "g"> 
 <!ENTITY options.label "Opţiuni">
 <!ENTITY options.accesskey "O">
 <!ENTITY enable.label "Activează Adblock Plus">
@@ -47,13 +55,10 @@
 <!ENTITY list.label "Filtrele existente:">
 <!ENTITY list.accesskey "x">
 <!ENTITY context.edit.label "Modifică filtru">
-<!ENTITY context.remove.label "Şterge filtru">
 <!ENTITY context.synchsubscription.label "Actualizează subscrieri">
 <!ENTITY context.editsubscription.label "Editează subscrieri">
-<!ENTITY context.removesubscription.label "Şterge subscrieri">
 <!ENTITY context.moveup.label "Mută în sus">
 <!ENTITY context.movedown.label "Mută în jos">
 <!ENTITY context.movegroupup.label "Mută grupul în sus">
 <!ENTITY context.movegroupdown.label "Mută grupul în jos">
-<!ENTITY ok.label "OK">
-<!ENTITY cancel.label "Renunţă">
+

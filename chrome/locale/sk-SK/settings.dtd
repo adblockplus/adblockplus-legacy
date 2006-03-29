@@ -9,8 +9,16 @@
 <!ENTITY export.accesskey "X">
 <!ENTITY clearall.label "Odstrániť všetky filtre">
 <!ENTITY clearall.accesskey "V">
-<!ENTITY listsort.label "Triediť abecedne">
-<!ENTITY listsort.accesskey "T">
+<!ENTITY edit.label "Upraviť">
+<!ENTITY edit.accesskey "U">
+<!ENTITY cut.label "Vystrihnúť">
+<!ENTITY cut.accesskey "V">
+<!ENTITY copy.label "Kopírovať">
+<!ENTITY copy.accesskey "K">
+<!ENTITY paste.label "Prilepiť">
+<!ENTITY paste.accesskey "P">
+<!ENTITY remove.label "Odstrániť">
+<!ENTITY remove.accesskey "O">
 <!ENTITY options.label "Možnosti">
 <!ENTITY options.accesskey "M">
 <!ENTITY enable.label "Zapnúť Adblock Plus">
@@ -40,8 +48,8 @@
 <!ENTITY about.accesskey "O">
 <!ENTITY disabled.warning "Adblock Plus je vypnutý. Môžete upraviť filtre v zozname, ale tie nebudú potvrdené po znovuzapnutí.">
 <!ENTITY description "Pridať adresu,ktorú chcete blokovať, návrhy skontrolujte v rozbaľovacej ponuke.
-		Môžete použiť * ako divokú kartu na vytvorenie všeobecných filtrov. Pokročilí užívatelia môžu
-		použiť regulárne výrazy ako /banner\d+\.gif$/.">
+    Môžete použiť * ako divokú kartu na vytvorenie všeobecných filtrov. Pokročilí užívatelia môžu
+    použiť regulárne výrazy ako /banner\d+\.gif$/.">
 <!ENTITY newfilter.label "Nový filter:">
 <!ENTITY newfilter.accesskey "N">
 <!ENTITY add.label "Pridať filter">
@@ -49,13 +57,10 @@
 <!ENTITY list.label "Pravidlá filtra:">
 <!ENTITY list.accesskey "R">
 <!ENTITY context.edit.label "Upraviť filter">
-<!ENTITY context.remove.label "Odstrániť filter(e)">
 <!ENTITY context.synchsubscription.label "Aktualizovať povolené teraz">
 <!ENTITY context.editsubscription.label "Upraviť povolené">
-<!ENTITY context.removesubscription.label "Odstrániť povolené">
 <!ENTITY context.moveup.label "Posunúť hore">
 <!ENTITY context.movedown.label "Posunúť dole">
 <!ENTITY context.movegroupup.label "Posunúť skupinu hore">
 <!ENTITY context.movegroupdown.label "Posunúť skupinu dole">
-<!ENTITY ok.label "OK">
-<!ENTITY cancel.label "Zrušiť">
+

@@ -9,8 +9,16 @@
 <!ENTITY export.accesskey "V">
 <!ENTITY clearall.label "Poista kaikki suodattimet">
 <!ENTITY clearall.accesskey "k">
-<!ENTITY listsort.label "Järjestä aakkosjärjestyksessä">
-<!ENTITY listsort.accesskey "J">
+<!ENTITY edit.label "Muokkaa">
+<!ENTITY edit.accesskey "M">
+<!ENTITY cut.label "Leikkaa">
+<!ENTITY cut.accesskey "L">
+<!ENTITY copy.label "Kopioi">
+<!ENTITY copy.accesskey "K">
+<!ENTITY paste.label "Liitä">
+<!ENTITY paste.accesskey "i">
+<!ENTITY remove.label "Poista">
+<!ENTITY remove.accesskey "o">
 <!ENTITY options.label "Valinnat">
 <!ENTITY options.accesskey "V">
 <!ENTITY enable.label "Ota Adblock Plus käyttöön">
@@ -40,8 +48,8 @@
 <!ENTITY about.accesskey "T">
 <!ENTITY disabled.warning "Adblock Plus on poissa käytöstä. Voit muokata listan suodattimia mutta niitä ei käytetä ennen kuin otat Adblockin käyttöön.">
 <!ENTITY description "Lisää osoitteet, jotka haluat estää, katso ehdotuksia pudotusvalikosta.
-		Voit käyttää * jokerimerkkinä luodaksesi yleisimpiä suodattimia. Edistyneet käyttäjät voivat
-		käyttää säännöllisiä lausekkeita kuten /banner\d+\.gif$/.">
+    Voit käyttää * jokerimerkkinä luodaksesi yleisimpiä suodattimia. Edistyneet käyttäjät voivat
+    käyttää säännöllisiä lausekkeita kuten /banner\d+\.gif$/.">
 <!ENTITY newfilter.label "Uusi suodatin:">
 <!ENTITY newfilter.accesskey "U">
 <!ENTITY add.label "Lisää suodatin">
@@ -49,13 +57,10 @@
 <!ENTITY list.label "Suodatinsäännöt:">
 <!ENTITY list.accesskey "ä">
 <!ENTITY context.edit.label "Muokkaa suodatinta">
-<!ENTITY context.remove.label "Poista suodatin">
 <!ENTITY context.synchsubscription.label "Päivitä tilaus nyt">
 <!ENTITY context.editsubscription.label "Muokkaa tilausta">
-<!ENTITY context.removesubscription.label "Poista tilaus">
 <!ENTITY context.moveup.label "Siirrä ylös">
 <!ENTITY context.movedown.label "Siirrä alas">
 <!ENTITY context.movegroupup.label "Siirrä ryhmä ylös">
 <!ENTITY context.movegroupdown.label "Siirrä ryhmä alas">
-<!ENTITY ok.label "OK">
-<!ENTITY cancel.label "Peruuta">
+
