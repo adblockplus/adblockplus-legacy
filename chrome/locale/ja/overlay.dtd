@@ -33,13 +33,14 @@
 <!ENTITY context.link.label "Adblock リンクをブロック">
 <!ENTITY context.frame.label "Adblock フレームをブロック">
 
+<!ENTITY menuitem.sidebar.title "Adblock Plus: ブロック要素">
 <!ENTITY sidebar.title "Adblock Plus">
 
 <!ENTITY settings.label "設定">
 <!ENTITY settings.accesskey "F">
 <!ENTITY opensidebar.label "サイドバーを開く">
-<!ENTITY opensidebar.accesskey "S">
+<!ENTITY opensidebar.accesskey "B">
 <!ENTITY closesidebar.label "サイドバーを閉じる">
-<!ENTITY closesidebar.accesskey "S">
+<!ENTITY closesidebar.accesskey "B">
 <!ENTITY whitelist.site.label "-- をホワイトリストに追加">
 <!ENTITY whitelist.page.label "現在のページをホワイトリストに追加">
