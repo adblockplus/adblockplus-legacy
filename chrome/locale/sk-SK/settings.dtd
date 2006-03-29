@@ -9,6 +9,8 @@
 <!ENTITY export.accesskey "X">
 <!ENTITY clearall.label "Odstrániť všetky filtre">
 <!ENTITY clearall.accesskey "V">
+<!ENTITY resethitcounts.label "Resetovať štatistiku počítadla">
+<!ENTITY resethitcounts.accesskey "R">
 <!ENTITY edit.label "Upraviť">
 <!ENTITY edit.accesskey "U">
 <!ENTITY cut.label "Vystrihnúť">
@@ -19,10 +21,16 @@
 <!ENTITY paste.accesskey "P">
 <!ENTITY remove.label "Odstrániť">
 <!ENTITY remove.accesskey "O">
+<!ENTITY menu.find.label "Nájsť">
+<!ENTITY menu.find.accesskey "N">
+<!ENTITY menu.findagain.label "Nájsť znova">
+<!ENTITY menu.findagain.accesskey "Z">
 <!ENTITY options.label "Možnosti">
 <!ENTITY options.accesskey "M">
 <!ENTITY enable.label "Zapnúť Adblock Plus">
 <!ENTITY enable.accesskey "Z">
+<!ENTITY showintoolbar.label "Zobraziť v paneli nástrojov">
+<!ENTITY showintoolbar.accesskey "B">
 <!ENTITY showinstatusbar.label "Zobraziť v stavovom riadku">
 <!ENTITY showinstatusbar.accesskey "S">
 <!ENTITY localpages.label "Blokovať vzdialené reklamy v lokálnych stránkach">
@@ -48,19 +56,20 @@
 <!ENTITY about.accesskey "O">
 <!ENTITY disabled.warning "Adblock Plus je vypnutý. Môžete upraviť filtre v zozname, ale tie nebudú potvrdené po znovuzapnutí.">
 <!ENTITY description "Pridať adresu,ktorú chcete blokovať, návrhy skontrolujte v rozbaľovacej ponuke.
-    Môžete použiť * ako divokú kartu na vytvorenie všeobecných filtrov. Pokročilí užívatelia môžu
-    použiť regulárne výrazy ako /banner\d+\.gif$/.">
+		Môžete použiť * ako divokú kartu na vytvorenie všeobecných filtrov. Pokročilí užívatelia môžu
+		použiť regulárne výrazy ako /banner\d+\.gif$/.">
 <!ENTITY newfilter.label "Nový filter:">
 <!ENTITY newfilter.accesskey "N">
 <!ENTITY add.label "Pridať filter">
 <!ENTITY add.accesskey "D">
-<!ENTITY list.label "Pravidlá filtra:">
-<!ENTITY list.accesskey "R">
+<!ENTITY pattern.column "Pravidlo filtra">
+<!ENTITY hitcount.column "Počítadlá">
+<!ENTITY enabled.column "Zapnuté">
 <!ENTITY context.edit.label "Upraviť filter">
+<!ENTITY context.resethitcount.label "Resetovať štatistiku počítadla pre filter">
 <!ENTITY context.synchsubscription.label "Aktualizovať povolené teraz">
 <!ENTITY context.editsubscription.label "Upraviť povolené">
 <!ENTITY context.moveup.label "Posunúť hore">
 <!ENTITY context.movedown.label "Posunúť dole">
 <!ENTITY context.movegroupup.label "Posunúť skupinu hore">
 <!ENTITY context.movegroupdown.label "Posunúť skupinu dole">
-

@@ -1,17 +1,12 @@
 <!ENTITY dialog.title "Editar suscripción de filtro">
 <!ENTITY dialog.newtitle "Añadir suscripción al filtro">
-<!ENTITY new.description "
-	Por favor, introduzca la dirección web o el archivo que 
+<!ENTITY new.description "Por favor, introduzca la dirección web o el archivo que 
 	contenga la lista de filtros de Adblock.">
-<!ENTITY edit.description "
-	La lista de filtros para esta suscripción se descargará 
-	desde una ruta dada (no se puede cambiar más).">
-<!ENTITY external.description "
-	Esta es una suscripción de filtro externa. Su lista de filtros 
+<!ENTITY edit.description "La lista de filtros para esta suscripción se descargará desde una ruta dada.">
+<!ENTITY external.description "Esta es una suscripción de filtro externa. Su lista de filtros 
 	se mantendrá actualizada por la extensión que creó esta 
 	suscripción.">
-<!ENTITY autodownload.description "
-	Si elige 'Actualizar automáticamente' esta ruta será comprobada 
+<!ENTITY autodownload.description "Si elige 'Actualizar automáticamente' esta ruta será comprobada 
 	para actualizaciones a diario. Con esta opción desactivada, 
 	todavía se puede lanzar una actualización manual desde el menú 
 	contextual de suscripciones.">

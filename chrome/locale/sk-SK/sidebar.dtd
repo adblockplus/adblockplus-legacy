@@ -1,14 +1,24 @@
-<!ENTITY detached.title "Bočný panel Adblock Plus (oddelený)">
+<!ENTITY detached.title "Adblock Plus: Blokovateľné položky (oddelený)">
 <!ENTITY detach.label "Oddeliť">
 <!ENTITY reattach.label "Znovu pripojiť">
 <!ENTITY search.label "Hľadať:">
 <!ENTITY search.accesskey "H">
-<!ENTITY list.label "Položky na aktuálnej stránke:">
 <!ENTITY type.label "Typ">
 <!ENTITY address.label "Adresa">
+<!ENTITY filter.label "Filter">
+<!ENTITY state.label "Stav">
 <!ENTITY noitems.label "Neblokovateľné položky">
 <!ENTITY notremote.label "Nie vzdialená stránka">
 <!ENTITY whitelisted.label "Povolené stránky">
 <!ENTITY notloaded.label "Adblock Plus nebol nainštalovaný správne">
+<!ENTITY tooltip.address.label "Adresa:">
+<!ENTITY tooltip.type.label "Typ:">
+<!ENTITY tooltip.type.blocked "(blokovaný)">
+<!ENTITY tooltip.type.whitelisted "(povolený)">
 <!ENTITY tooltip.filter.label "Platný filter:">
-
+<!ENTITY context.block.label "Blokovať túto položku">
+<!ENTITY context.editfilter.label "Upraviť Platný filter">
+<!ENTITY context.whitelist.label "Pridať výnimku pre položku">
+<!ENTITY context.open.label "Otvoriť na novej karte">
+<!ENTITY context.flash.label "Ohraničenie flashových položiek">
+<!ENTITY context.copy.label "Kopírovať adresu položiek">
