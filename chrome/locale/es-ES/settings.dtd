@@ -30,7 +30,7 @@
 <!ENTITY enable.label "Activar Adblock Plus">
 <!ENTITY enable.accesskey "V">
 <!ENTITY showintoolbar.label "Mostrar en la barra de herramientas">
-<!ENTITY showintoolbar.accesskey "b">
+<!ENTITY showintoolbar.accesskey "h">
 <!ENTITY showinstatusbar.label "Mostrar en la barra de estado">
 <!ENTITY showinstatusbar.accesskey "B">
 <!ENTITY localpages.label "Bloquear publicidad remota en las páginas locales">
