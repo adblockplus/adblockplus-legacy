@@ -1,17 +1,21 @@
 <!ENTITY dialog.title "Edycja subskrypcji filtrów">
 <!ENTITY dialog.newtitle "Dodawanie subskrypcji filtrów">
 <!ENTITY new.description "
-	Proszę wprowadzić adres strony sieciowej lub pliku zawierającego filtry.
+	Proszę wprowadzić adres strony sieciowej lub pliku zawierającego
+        filtry Adblock Plusa.
 ">
 <!ENTITY edit.description "
-	Lista filtrów będzie pobierana z tej lokalizacji (adres może być zmieniany w dowolnym czasie).
+	Lista filtrów będzie pobierana
+	z podanej lokalizacji.
 ">
 <!ENTITY external.description "
-	To jest subskrypcja filtrów zewnętrznych. Lista filtrów będzie uaktualniana przez rozszerzenie, które utworzyło tę subskrypcję.
+	To jest subskrypcja filtrów zewnętrznych. Lista filtrów
+	będzie uaktualniana przez rozszerzenie, które utworzyło tę
+	subskrypcję.
 ">
 <!ENTITY autodownload.description "
 	Jeżeli zostanie wybrana opcja &quot;Uaktualniaj automatycznie&quot; Adblock Plus będzie
-		codziennie przeprowadzał sprawdzenie uaktualnień filtrów w tej lokalizacji.
+	codziennie przeprowadzał sprawdzenie uaktualnień filtrów w tej lokalizacji.
 	Jeżeli ta opcja pozostanie wyłaczona, można przeprowadzać sprawdzanie uaktualnień filtrów ręcznie
 	wybierając odpowienią opcję z menu kontekstowego subskrypcji.
 ">
