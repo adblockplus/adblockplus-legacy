@@ -6,12 +6,13 @@
 <!ENTITY context.object.label "Adblock: blochează obiect">
 <!ENTITY context.link.label "Adblock: blochează legătură">
 <!ENTITY context.frame.label "Adblock: blochează frame">
-<!ENTITY sidebar.title "Adblock Plus">
+<!ENTITY menuitem.sidebar.title "Adblock Plus: elemente blocabile în pagina curentă">
+<!ENTITY sidebar.title "Adblock Plus: elemente blocabile în pagină">
 <!ENTITY settings.label "Particularizare">
 <!ENTITY settings.accesskey "P">
-<!ENTITY opensidebar.label "Deschide bara laterală">
-<!ENTITY opensidebar.accesskey "D">
-<!ENTITY closesidebar.label "Închide bara laterală">
-<!ENTITY closesidebar.accesskey "n">
+<!ENTITY opensidebar.label "Deschide lista elementelor blocabile">
+<!ENTITY opensidebar.accesskey "l">
+<!ENTITY closesidebar.label "Închide lista elementelor blocabile">
+<!ENTITY closesidebar.accesskey "l">
 <!ENTITY whitelist.site.label "Dezactivează Adblock Plus pe --">
 <!ENTITY whitelist.page.label "Dezactivează Adblock Plus doar pe pagina curentă">

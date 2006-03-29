@@ -1,7 +1,7 @@
 <!ENTITY dialog.title "Editare subscriere filtre">
 <!ENTITY dialog.newtitle "Adăugare subscriere filtre">
 <!ENTITY new.description "Introduceţi adresa web sau calea către lista cu filtre Adblock Plus.">
-<!ENTITY edit.description "Lista de filtre va fi descărcată de la locaţia de mai sus (nu mai poate fi schimbată)">
+<!ENTITY edit.description "Lista de filtre va fi descărcată de la locaţia de mai sus.">
 <!ENTITY external.description "Lista de filtre va fi actualizată de către extensia care a creat acestă subscriere.">
 <!ENTITY autodownload.description "Dacă alegeţi Actualizare automată, lista de filtre va fi verficată zilnic. Dacă nu, atunci încă mai puteţi actualiza lista folosind Actualizare manuală din meniul contextual.">
 <!ENTITY location.label "Locaţia listei de filtre:">

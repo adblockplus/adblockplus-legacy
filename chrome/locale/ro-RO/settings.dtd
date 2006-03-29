@@ -9,20 +9,28 @@
 <!ENTITY export.accesskey "x">
 <!ENTITY clearall.label "Şterge toate filtrele">
 <!ENTITY clearall.accesskey "t">
-<!ENTITY edit.label "Editare"> 
-<!ENTITY edit.accesskey "E"> 
-<!ENTITY cut.label "Taie">  
-<!ENTITY cut.accesskey "T"> 
-<!ENTITY copy.label "Copiază">  
-<!ENTITY copy.accesskey "C"> 
-<!ENTITY paste.label "Lipeşte">  
-<!ENTITY paste.accesskey "L"> 
-<!ENTITY remove.label "Şterge">  
-<!ENTITY remove.accesskey "g"> 
+<!ENTITY resethitcounts.label "Reiniţializează contor">
+<!ENTITY resethitcounts.accesskey "R">
+<!ENTITY edit.label "Editare">
+<!ENTITY edit.accesskey "E">
+<!ENTITY cut.label "Taie">
+<!ENTITY cut.accesskey "T">
+<!ENTITY copy.label "Copiază">
+<!ENTITY copy.accesskey "C">
+<!ENTITY paste.label "Lipeşte">
+<!ENTITY paste.accesskey "L">
+<!ENTITY remove.label "Şterge">
+<!ENTITY remove.accesskey "g">
+<!ENTITY menu.find.label "Caută">
+<!ENTITY menu.find.accesskey "C">
+<!ENTITY menu.findagain.label "Caută următorul">
+<!ENTITY menu.findagain.accesskey "u">
 <!ENTITY options.label "Opţiuni">
 <!ENTITY options.accesskey "O">
 <!ENTITY enable.label "Activează Adblock Plus">
 <!ENTITY enable.accesskey "A">
+<!ENTITY showintoolbar.label "Arată în bara de unelte">
+<!ENTITY showintoolbar.accesskey "u">
 <!ENTITY showinstatusbar.label "Arată în bara de stare">
 <!ENTITY showinstatusbar.accesskey "s">
 <!ENTITY localpages.label "Blochează reclamele în paginile locale">
@@ -30,7 +38,7 @@
 <!ENTITY objecttabs.label "Activează panourile obiectelor">
 <!ENTITY objecttabs.accesskey "p">
 <!ENTITY collapse.label "Ascunde elementele blocate">
-<!ENTITY collapse.accesskey "s">
+<!ENTITY collapse.accesskey "c">
 <!ENTITY linkcheck.label "Verifică legăturile bannerelor">
 <!ENTITY linkcheck.accesskey "V">
 <!ENTITY help.label "Ajutor">
@@ -52,13 +60,14 @@
 <!ENTITY newfilter.accesskey "n">
 <!ENTITY add.label "Adaugă filtru">
 <!ENTITY add.accesskey "d">
-<!ENTITY list.label "Filtrele existente:">
-<!ENTITY list.accesskey "x">
+<!ENTITY pattern.column "Regulă filtru">
+<!ENTITY hitcount.column "Contor">
+<!ENTITY enabled.column "Stare">
 <!ENTITY context.edit.label "Modifică filtru">
+<!ENTITY context.resethitcount.label "Reiniţializează contorul filtrului">
 <!ENTITY context.synchsubscription.label "Actualizează subscrieri">
 <!ENTITY context.editsubscription.label "Editează subscrieri">
 <!ENTITY context.moveup.label "Mută în sus">
 <!ENTITY context.movedown.label "Mută în jos">
 <!ENTITY context.movegroupup.label "Mută grupul în sus">
 <!ENTITY context.movegroupdown.label "Mută grupul în jos">
-
