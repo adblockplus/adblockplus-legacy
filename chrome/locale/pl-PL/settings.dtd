@@ -9,22 +9,30 @@
 <!ENTITY export.accesskey "E">
 <!ENTITY clearall.label "Usuń wszystkie filtry">
 <!ENTITY clearall.accesskey "L">
-<!ENTITY edit.label "Edycja" >
-<!ENTITY edit.accesskey "E" >
-<!ENTITY cut.label "Wytnij" >
-<!ENTITY cut.accesskey "t" >
-<!ENTITY copy.label "Kopiuj" >
-<!ENTITY copy.accesskey "K" >
-<!ENTITY paste.label "Wklej" >
-<!ENTITY paste.accesskey "e" >
-<!ENTITY remove.label "Usuń" >
-<!ENTITY remove.accesskey "U" >
+<!ENTITY resethitcounts.label "Wyzeruj licznik użycia filtra">
+<!ENTITY resethitcounts.accesskey "W">
+<!ENTITY edit.label "Edycja">
+<!ENTITY edit.accesskey "E">
+<!ENTITY cut.label "Wytnij">
+<!ENTITY cut.accesskey "T">
+<!ENTITY copy.label "Kopiuj">
+<!ENTITY copy.accesskey "K">
+<!ENTITY paste.label "Wklej">
+<!ENTITY paste.accesskey "E">
+<!ENTITY remove.label "Usuń">
+<!ENTITY remove.accesskey "U">
+<!ENTITY menu.find.label "Znajdź">
+<!ENTITY menu.find.accesskey "Z">
+<!ENTITY menu.findagain.label "Znajdź następne">
+<!ENTITY menu.findagain.accesskey "N">
 <!ENTITY options.label "Opcje">
 <!ENTITY options.accesskey "O">
 <!ENTITY enable.label "Włącz Adblock Plus">
 <!ENTITY enable.accesskey "W">
+<!ENTITY showintoolbar.label "Wyświetl na pasku narzędziowym">
+<!ENTITY showintoolbar.accesskey "D">
 <!ENTITY showinstatusbar.label "Wyświetl na pasku stanu">
-<!ENTITY showinstatusbar.accesskey "S">
+<!ENTITY showinstatusbar.accesskey "N">
 <!ENTITY localpages.label "Blokuj reklamy na lokalnych stronach">
 <!ENTITY localpages.accesskey "B">
 <!ENTITY objecttabs.label "Pokaż przyciski blokowania na elementach Flasha i Javy">
@@ -48,21 +56,22 @@
 <!ENTITY about.accesskey "O">
 <!ENTITY disabled.warning "Adblock Plus jest wyłączony. Można edytować dowolny filtr, ale do czasu ponownego włączenia Adblocka zmiany te nie będą działały.">
 <!ENTITY description "
-    Dodaj adres, który chcesz zablokować. Aby zobaczyć podpowiedzi przejdź do menu &quot;Pomoc&quot;.
-    Można używać * jako wieloznacznika przy tworzeniu większej ilości filtrów. Zaawansowani użytkownicy
-    mogą używać wyrażeń regularnych takich jak: /banner\d+\.gif$/.
+		Dodaj adres, który chcesz zablokować. Aby zobaczyć podpowiedzi przejdź do menu &quot;Pomoc&quot;.
+		Można używać * jako wieloznacznika przy tworzeniu większej ilości filtrów. Zaawansowani użytkownicy
+		mogą używać wyrażeń regularnych takich jak: /banner\d+\.gif$/.
 ">
 <!ENTITY newfilter.label "Nowy filtr:">
 <!ENTITY newfilter.accesskey "N">
 <!ENTITY add.label "Dodaj filtr">
 <!ENTITY add.accesskey "D">
-<!ENTITY list.label "Lista filtrów:">
-<!ENTITY list.accesskey "L">
+<!ENTITY pattern.column "Reguła filtru">
+<!ENTITY hitcount.column "Użycie">
+<!ENTITY enabled.column "Aktywny">
 <!ENTITY context.edit.label "Edytuj filtr">
+<!ENTITY context.resethitcount.label "Wyzeruj licznik użycia dla filtru">
 <!ENTITY context.synchsubscription.label "Uaktualnij subskrypcję teraz">
 <!ENTITY context.editsubscription.label "Edytuj subskrypcję">
 <!ENTITY context.moveup.label "Przesuń w górę">
 <!ENTITY context.movedown.label "Przesuń w dół">
 <!ENTITY context.movegroupup.label "Przesuń grupę w górę">
 <!ENTITY context.movegroupdown.label "Przesuń grupę w dól">
-

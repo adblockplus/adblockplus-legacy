@@ -1,14 +1,24 @@
-<!ENTITY detached.title "Panel boczny Adblock Plus">
+<!ENTITY detached.title "Adblock Plus - elementy blokowalne (odłączony)">
 <!ENTITY detach.label "Odłącz">
 <!ENTITY reattach.label "Przyłącz">
-<!ENTITY search.label "Szukaj:" >
-<!ENTITY search.accesskey "S" >
-<!ENTITY list.label "Elementy na aktywnej stronie:">
+<!ENTITY search.label "Szukaj:">
+<!ENTITY search.accesskey "S">
 <!ENTITY type.label "Typ">
 <!ENTITY address.label "Adres">
+<!ENTITY filter.label "Filtr">
+<!ENTITY state.label "Stan">
 <!ENTITY noitems.label "Elementy nieblokowalne">
 <!ENTITY notremote.label "Strona lokalna">
 <!ENTITY whitelisted.label "Nie blokowana strona">
 <!ENTITY notloaded.label "Adblock Plus nie został zainstalowany prawidłowo">
+<!ENTITY tooltip.address.label "Adres:">
+<!ENTITY tooltip.type.label "Typ:">
+<!ENTITY tooltip.type.blocked "(zablokowany)">
+<!ENTITY tooltip.type.whitelisted "(nieblokowane)">
 <!ENTITY tooltip.filter.label "Działające filtry:">
-
+<!ENTITY context.block.label "Zablokuj ten element">
+<!ENTITY context.editfilter.label "Edytuj filtr w rzeczywistości">
+<!ENTITY context.whitelist.label "Dodaj regułę wyjątku dla elementu">
+<!ENTITY context.open.label "Otwórz w nowej karcie">
+<!ENTITY context.flash.label "Pokaż element w mrugającej ramce">
+<!ENTITY context.copy.label "Kopiuj adres elementu">

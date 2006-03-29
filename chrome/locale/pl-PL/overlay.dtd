@@ -3,15 +3,16 @@
 <!ENTITY menuitem.label "Adblock Plus">
 <!ENTITY menuitem.accesskey "A">
 <!ENTITY context.image.label "Adblokuj obrazek">
-<!ENTITY context.object.label "Adblokuj objekt">
+<!ENTITY context.object.label "Adblokuj obiekt">
 <!ENTITY context.link.label "Adblokuj odnośnik">
 <!ENTITY context.frame.label "Adblokuj ramkę">
-<!ENTITY sidebar.title "Adblock Plus">
+<!ENTITY menuitem.sidebar.title "Adblock Plus: Elementy blokowalne ">
+<!ENTITY sidebar.title "Blokowalne elementy na aktywnej stronie">
 <!ENTITY settings.label "Ustawienia">
 <!ENTITY settings.accesskey "U">
-<!ENTITY opensidebar.label "Otwórz panel boczny">
-<!ENTITY opensidebar.accesskey "P">
-<!ENTITY closesidebar.label "Zamknij panel boczny">
-<!ENTITY closesidebar.accesskey "P">
+<!ENTITY opensidebar.label "Otwórz listę blokowalnych elementów">
+<!ENTITY opensidebar.accesskey "B">
+<!ENTITY closesidebar.label "Zamknij listę blokowalnych elementów">
+<!ENTITY closesidebar.accesskey "B">
 <!ENTITY whitelist.site.label "Wyłącz blokowanie na --">
-<!ENTITY whitelist.page.label "Wyłącz blokowanie na tej stronie i jej podstronach ">
+<!ENTITY whitelist.page.label "Wyłącz blokowanie na tej stronie">
