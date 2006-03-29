@@ -9,6 +9,8 @@
 <!ENTITY export.accesskey "X">
 <!ENTITY clearall.label "Eliminar todos los filtros">
 <!ENTITY clearall.accesskey "L">
+<!ENTITY resethitcounts.label "Reiniciar estadísticas de éxito">
+<!ENTITY resethitcounts.accesskey "R">
 <!ENTITY edit.label "Editar">
 <!ENTITY edit.accesskey "E">
 <!ENTITY cut.label "Cortar">
@@ -19,10 +21,16 @@
 <!ENTITY paste.accesskey "P">
 <!ENTITY remove.label "Eliminar">
 <!ENTITY remove.accesskey "l">
+<!ENTITY menu.find.label "Buscar">
+<!ENTITY menu.find.accesskey "B">
+<!ENTITY menu.findagain.label "Buscar de nuevo">
+<!ENTITY menu.findagain.accesskey "u">
 <!ENTITY options.label "Opciones">
 <!ENTITY options.accesskey "O">
 <!ENTITY enable.label "Activar Adblock Plus">
 <!ENTITY enable.accesskey "V">
+<!ENTITY showintoolbar.label "Mostrar en la barra de herramientas">
+<!ENTITY showintoolbar.accesskey "b">
 <!ENTITY showinstatusbar.label "Mostrar en la barra de estado">
 <!ENTITY showinstatusbar.accesskey "B">
 <!ENTITY localpages.label "Bloquear publicidad remota en las páginas locales">
@@ -52,13 +60,14 @@
 <!ENTITY newfilter.accesskey "N">
 <!ENTITY add.label "Añadir filtro">
 <!ENTITY add.accesskey "A">
-<!ENTITY list.label "Reglas de filtro:">
-<!ENTITY list.accesskey "R">
+<!ENTITY pattern.column "Regla de filtro">
+<!ENTITY hitcount.column "Éxitos">
+<!ENTITY enabled.column "Activado">
 <!ENTITY context.edit.label "Editar filtro">
+<!ENTITY context.resethitcount.label "Reiniciar estadísticas de éxitos para filtro">
 <!ENTITY context.synchsubscription.label "Actualizar suscripción ahora">
 <!ENTITY context.editsubscription.label "Editar suscripción">
 <!ENTITY context.moveup.label "Subir">
 <!ENTITY context.movedown.label "Bajar">
 <!ENTITY context.movegroupup.label "Subir grupo">
 <!ENTITY context.movegroupdown.label "Bajar grupo">
-
