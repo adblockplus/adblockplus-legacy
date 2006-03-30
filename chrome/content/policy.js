@@ -36,7 +36,7 @@ const oldStyleAPI = (typeof ok == "boolean");
 var policy = {
   init: function() {
     var types = ["OTHER", "SCRIPT", "IMAGE", "STYLESHEET", "OBJECT", "SUBDOCUMENT", "DOCUMENT"];
-  
+
     // type constant by type description and type description by type constant
     type = {};
     typeDescr = {};
@@ -235,21 +235,4 @@ var policy = {
   }
 };
 
-policy.init();
 abp.policy = policy;
-
-// returns the queryInterface to a dom-object or frame / iframe -- for 'shouldload' policy-check
-function elementInterface(contentType, insecNode) {
-  try {
-    var insecWnd = secureGet(insecNode, "contentWindow");
-    if (insecWnd)
-      return insecWnd;
-    else if (!oldStyleAPI)
-      return insecNode;
-    else
-      return secureLookup(insecNode, "QueryInterface")(Components.interfaces.nsIDOMElement);
-  }
-  catch(e) {
-    return insecNode;
-  }
-}

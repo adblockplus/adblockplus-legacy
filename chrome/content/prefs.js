@@ -260,6 +260,9 @@ var prefs = {
     // Initial prefs loading
     this.reload();
     this.reloadPatterns();
+
+    // Initialize content policy constants
+    policy.init();
   },
 
   // Loads a pref and stores it as a property of the object
