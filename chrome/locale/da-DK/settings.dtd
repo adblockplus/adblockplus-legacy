@@ -9,6 +9,8 @@
 <!ENTITY export.accesskey "P">
 <!ENTITY clearall.label "Fjern alle filtre">
 <!ENTITY clearall.accesskey "L">
+<!ENTITY resethitcounts.label "Nulstil hit-statistikker">
+<!ENTITY resethitcounts.accesskey "N">
 <!ENTITY edit.label "Rediger">
 <!ENTITY edit.accesskey "R">
 <!ENTITY cut.label "Klip">
@@ -19,10 +21,16 @@
 <!ENTITY paste.accesskey "i">
 <!ENTITY remove.label "Slet">
 <!ENTITY remove.accesskey "S">
+<!ENTITY menu.find.label "Find">
+<!ENTITY menu.find.accesskey "F">
+<!ENTITY menu.findagain.label "Find igen">
+<!ENTITY menu.findagain.accesskey "g">
 <!ENTITY options.label "Indstillinger">
 <!ENTITY options.accesskey "d">
 <!ENTITY enable.label "Slå Adblock Plus til">
 <!ENTITY enable.accesskey "I">
+<!ENTITY showintoolbar.label "Vis i værktøjslinie">
+<!ENTITY showintoolbar.accesskey "V">
 <!ENTITY showinstatusbar.label "Vis i statuslinie">
 <!ENTITY showinstatusbar.accesskey "s">
 <!ENTITY localpages.label "Blokér eksterne reklamer i lokale sider">
@@ -52,13 +60,14 @@
 <!ENTITY newfilter.accesskey "N">
 <!ENTITY add.label "Tilføj filter">
 <!ENTITY add.accesskey "T">
-<!ENTITY list.label "Filterregler:">
-<!ENTITY list.accesskey "R">
+<!ENTITY pattern.column "Filterregel">
+<!ENTITY hitcount.column "Hits">
+<!ENTITY enabled.column "Slået til">
 <!ENTITY context.edit.label "Redigér filter">
+<!ENTITY context.resethitcount.label "Nulstil hitsstatistik for filter">
 <!ENTITY context.synchsubscription.label "Opdatér abonnement nu">
 <!ENTITY context.editsubscription.label "Redigér abonnement">
 <!ENTITY context.moveup.label "Flyt op">
 <!ENTITY context.movedown.label "Flyt ned">
 <!ENTITY context.movegroupup.label "Flyt gruppe op">
 <!ENTITY context.movegroupdown.label "Flyt gruppe ned">
-

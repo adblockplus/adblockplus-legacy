@@ -6,12 +6,13 @@
 <!ENTITY context.object.label "Adblock Objekt">
 <!ENTITY context.link.label "Adblock Link">
 <!ENTITY context.frame.label "Adblock Ramme">
-<!ENTITY sidebar.title "Adblock Plus">
+<!ENTITY menuitem.sidebar.title "Adblock Plus: Blokérbare elementer">
+<!ENTITY sidebar.title "Blokérbare elementer på nuværende side">
 <!ENTITY settings.label "Præferencer">
 <!ENTITY settings.accesskey "F">
-<!ENTITY opensidebar.label "Åbn sidebar">
-<!ENTITY opensidebar.accesskey "S">
-<!ENTITY closesidebar.label "Luk sidebar">
-<!ENTITY closesidebar.accesskey "S">
+<!ENTITY opensidebar.label "Åbn blokérbare elementer">
+<!ENTITY opensidebar.accesskey "b">
+<!ENTITY closesidebar.label "Luk blokérbare elementer">
+<!ENTITY closesidebar.accesskey "b">
 <!ENTITY whitelist.site.label "Slå fra på --">
-<!ENTITY whitelist.page.label "Slå fra på denne side og undersider">
+<!ENTITY whitelist.page.label "Slå fra på denne ene side">
