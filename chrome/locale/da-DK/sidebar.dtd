@@ -1,14 +1,24 @@
-<!ENTITY detached.title "Adblock Plus sidebar (frakoblet)">
+<!ENTITY detached.title "Adblock Plus blokérbare elementer (frakoblet)">
 <!ENTITY detach.label "Frakobl">
 <!ENTITY reattach.label "Gentilkobl">
 <!ENTITY search.label "Søg:">
 <!ENTITY search.accesskey "ø">
-<!ENTITY list.label "Emner på nuværende side:">
 <!ENTITY type.label "Type">
 <!ENTITY address.label "Adresse">
+<!ENTITY filter.label "Filter">
+<!ENTITY state.label "Tilstand">
 <!ENTITY noitems.label "Ingen blokérbare emner">
 <!ENTITY notremote.label "Ikke en ekstern side">
 <!ENTITY whitelisted.label "Hvidlistet side">
 <!ENTITY notloaded.label "Adblock Plus er ikke installeret korrekt">
+<!ENTITY tooltip.address.label "Adresse:">
+<!ENTITY tooltip.type.label "Type:">
+<!ENTITY tooltip.type.blocked "(blokeret)">
+<!ENTITY tooltip.type.whitelisted "(hvidlistet)">
 <!ENTITY tooltip.filter.label "Fungerende filter:">
-
+<!ENTITY context.block.label "Blokér dette element">
+<!ENTITY context.editfilter.label "Redigér nuværende filter">
+<!ENTITY context.whitelist.label "Tilføj undtagelsesregel for element">
+<!ENTITY context.open.label "Åbn i nyt faneblad">
+<!ENTITY context.flash.label "Blink med elementets kanter">
+<!ENTITY context.copy.label "Kopier elementets adresse">
