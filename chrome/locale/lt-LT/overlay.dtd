@@ -6,12 +6,13 @@
 <!ENTITY context.object.label "Blokuoti objektą">
 <!ENTITY context.link.label "Blokuoti nuorodą">
 <!ENTITY context.frame.label "Blokuoti kadrą">
-<!ENTITY sidebar.title "„Adblock Plus“">
+<!ENTITY menuitem.sidebar.title "„Adblock Plus“: blokuojami elementai">
+<!ENTITY sidebar.title "Blokuojami elementai dabartiniame tinklalapyje">
 <!ENTITY settings.label "Nustatymai">
 <!ENTITY settings.accesskey "N">
-<!ENTITY opensidebar.label "Atverti parankinę">
-<!ENTITY opensidebar.accesskey "P">
-<!ENTITY closesidebar.label "Užverti parankinę">
-<!ENTITY closesidebar.accesskey "U">
+<!ENTITY opensidebar.label "Atverti blokuojamus elementus">
+<!ENTITY opensidebar.accesskey "B">
+<!ENTITY closesidebar.label "Užverti blokuojamus elementus">
+<!ENTITY closesidebar.accesskey "B">
 <!ENTITY whitelist.site.label "Išjungti --">
-<!ENTITY whitelist.page.label "Išjungti šiam tinklalapiui ir kitiems tinklalapiams iš to paties domeno">
+<!ENTITY whitelist.page.label "Išjungti šiam tinklalapiui">

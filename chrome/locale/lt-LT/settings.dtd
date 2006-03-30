@@ -9,20 +9,28 @@
 <!ENTITY export.accesskey "K">
 <!ENTITY clearall.label "Pašalinti visus filtrus">
 <!ENTITY clearall.accesskey "L">
-<!ENTITY edit.label "Taisa"> 
-<!ENTITY edit.accesskey "T"> 
-<!ENTITY cut.label "Iškirpti">  
-<!ENTITY cut.accesskey "r"> 
-<!ENTITY copy.label "Kopijuoti">  
-<!ENTITY copy.accesskey "K"> 
-<!ENTITY paste.label "Įdėti">  
-<!ENTITY paste.accesskey "d"> 
-<!ENTITY remove.label "Pašalinti">  
-<!ENTITY remove.accesskey "š"> 
+<!ENTITY resethitcounts.label "Atstatyti aplankymų statistiką">
+<!ENTITY resethitcounts.accesskey "S">
+<!ENTITY edit.label "Taisa">
+<!ENTITY edit.accesskey "T">
+<!ENTITY cut.label "Iškirpti">
+<!ENTITY cut.accesskey "r">
+<!ENTITY copy.label "Kopijuoti">
+<!ENTITY copy.accesskey "K">
+<!ENTITY paste.label "Įdėti">
+<!ENTITY paste.accesskey "d">
+<!ENTITY remove.label "Pašalinti">
+<!ENTITY remove.accesskey "š">
+<!ENTITY menu.find.label "Rasti">
+<!ENTITY menu.find.accesskey "R">
+<!ENTITY menu.findagain.label "Rasti vėl">
+<!ENTITY menu.findagain.accesskey "V">
 <!ENTITY options.label "Pasirinktys">
 <!ENTITY options.accesskey "P">
 <!ENTITY enable.label "Įjungti „Adblock Plus“">
 <!ENTITY enable.accesskey "J">
+<!ENTITY showintoolbar.label "Rodyti priemonių juostoje">
+<!ENTITY showintoolbar.accesskey "J">
 <!ENTITY showinstatusbar.label "Rodyti būsenos juostoje">
 <!ENTITY showinstatusbar.accesskey "B">
 <!ENTITY localpages.label "Blokuoti nutolusias reklamas vietiniuose tinklalapiuose">
@@ -52,13 +60,14 @@
 <!ENTITY newfilter.accesskey "N">
 <!ENTITY add.label "Pridėti filtrą">
 <!ENTITY add.accesskey "D">
-<!ENTITY list.label "Filtrų taisyklės:">
-<!ENTITY list.accesskey "T">
+<!ENTITY pattern.column "Filtro taisyklė">
+<!ENTITY hitcount.column "Aplankymai">
+<!ENTITY enabled.column "Įjungta">
 <!ENTITY context.edit.label "Redaguoti filtrą">
+<!ENTITY context.resethitcount.label "Atstatyti aplankymų statistiką filtrui">
 <!ENTITY context.synchsubscription.label "Atnaujinti prenumeratą">
 <!ENTITY context.editsubscription.label "Redaguoti prenumeratą">
 <!ENTITY context.moveup.label "Perkelti aukščiau">
 <!ENTITY context.movedown.label "Perkelti žemiau">
 <!ENTITY context.movegroupup.label "Perkelti grupę aukščiau">
 <!ENTITY context.movegroupdown.label "Perkelti grupę žemiau">
-
