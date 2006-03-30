@@ -22,7 +22,7 @@
 	 -
 	 - ***** END LICENSE BLOCK ***** -->
 
-<!ENTITY detached.title "Adblock Plus サイドバー (別窓表示)">
+<!ENTITY detached.title "Adblock Plus ブロック要素 (別窓表示)">
 
 <!ENTITY detach.label "別窓表示にする">
 <!ENTITY reattach.label "サイドバー表示にする">
