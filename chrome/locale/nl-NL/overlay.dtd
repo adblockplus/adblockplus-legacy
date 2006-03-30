@@ -13,6 +13,6 @@
 <!ENTITY opensidebar.label "Blokkeerbare onderdelen open">
 <!ENTITY opensidebar.accesskey "B">
 <!ENTITY closesidebar.label "Blokkeerbare onderdelem sluiten">
-<!ENTITY closesidebar.accesskey "l">
+<!ENTITY closesidebar.accesskey "B">
 <!ENTITY whitelist.site.label "Uitschakelen op --">
 <!ENTITY whitelist.page.label "Alleen op deze pagina uitschakelen">
