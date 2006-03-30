@@ -66,6 +66,9 @@ pref("extensions.adblockplus.enable_key", "");
 // Defines whether "Flash item's borders" should try to scroll the item into view
 pref("extensions.adblockplus.flash_scrolltoitem", true);
 
+// Defines whether images should show up in sidebar's tooltip
+pref("extensions.adblockplus.previewimages", true);
+
 /*
   Location of the file containing filters and subscriptions
 
