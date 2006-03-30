@@ -54,6 +54,21 @@ function init() {
     document.getElementById("enabled").setAttribute("checked", "true");
     document.getElementById("autodownload").setAttribute("checked", "true");
   }
+
+  // List selection doesn't fire input event, have to register a property watcher
+  document.getElementById("location").inputField.watch("value", onLocationChange);
+}
+
+function onLocationChange(prop, oldval, newval) {
+  // Check whether the user selected something from the list
+  var list = document.getElementById("location").menupopup.getElementsByTagName("menuitem");
+  for (var i = 0; i < list.length; i++) {
+    if (list[i].getAttribute("label") == newval) {
+      document.getElementById("title").value = newval;
+      return list[i].getAttribute("value");
+    }
+  }
+  return newval;
 }
 
 function saveSubscription() {
