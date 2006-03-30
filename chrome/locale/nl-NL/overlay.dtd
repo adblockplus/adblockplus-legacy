@@ -6,12 +6,13 @@
 <!ENTITY context.object.label "Objekt blokkeren">
 <!ENTITY context.link.label "Koppeling blokkeren">
 <!ENTITY context.frame.label "Frame blokkeren">
-<!ENTITY sidebar.title "Adblock Plus">
+<!ENTITY menuitem.sidebar.title "Adblock Plus: Blokkeerbare onderdelen">
+<!ENTITY sidebar.title "Blokkeerbare onderdelen op deze pagina">
 <!ENTITY settings.label "Voorkeuren">
 <!ENTITY settings.accesskey "V">
-<!ENTITY opensidebar.label "Zijbalk openen">
-<!ENTITY opensidebar.accesskey "Z">
-<!ENTITY closesidebar.label "Zijbalk sluiten">
-<!ENTITY closesidebar.accesskey "Z">
+<!ENTITY opensidebar.label "Blokkeerbare onderdelen open">
+<!ENTITY opensidebar.accesskey "B">
+<!ENTITY closesidebar.label "Blokkeerbare onderdelem sluiten">
+<!ENTITY closesidebar.accesskey "l">
 <!ENTITY whitelist.site.label "Uitschakelen op --">
-<!ENTITY whitelist.page.label "Uitschakelen op deze pagina en alle subpagina's">
+<!ENTITY whitelist.page.label "Alleen op deze pagina uitschakelen">
