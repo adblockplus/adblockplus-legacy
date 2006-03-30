@@ -92,12 +92,7 @@ var policy = {
 
   // Checks whether a node should be blocked, hides it if necessary, return value false means that the node is blocked
   processNode: function(insecNode, contentType, location, collapse) {
-    var insecWnd;
-    if (insecNode instanceof Window)
-      insecWnd = insecNode;
-    else
-      insecWnd = getWindow(insecNode);
-
+    var insecWnd = getWindow(insecNode);
     if (!insecWnd)
       return true;
 
