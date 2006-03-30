@@ -10,7 +10,7 @@
 <!ENTITY sidebar.title "Blockable items on current page">
 <!ENTITY settings.label "Preferences">
 <!ENTITY settings.accesskey "F">
-<!ENTITY opensidebar.label "Open sidebar">
+<!ENTITY opensidebar.label "Open blockable items">
 <!ENTITY opensidebar.accesskey "b">
 <!ENTITY closesidebar.label "Close blockable items">
 <!ENTITY closesidebar.accesskey "b">
