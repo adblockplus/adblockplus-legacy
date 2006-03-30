@@ -9,20 +9,28 @@
 <!ENTITY export.accesskey "E">
 <!ENTITY clearall.label "Ta bort alla filter">
 <!ENTITY clearall.accesskey "T">
-<!ENTITY edit.label "Redigera"> 
-<!ENTITY edit.accesskey "R"> 
-<!ENTITY cut.label "Klipp ut">  
-<!ENTITY cut.accesskey "k"> 
-<!ENTITY copy.label "Kopiera">  
-<!ENTITY copy.accesskey "o"> 
-<!ENTITY paste.label "Klistra in">  
-<!ENTITY paste.accesskey "l"> 
-<!ENTITY remove.label "Ta bort">  
-<!ENTITY remove.accesskey "T"> 
+<!ENTITY resethitcounts.label "Nollställ statistik - Antal träffar">
+<!ENTITY resethitcounts.accesskey "r">
+<!ENTITY edit.label "Redigera">
+<!ENTITY edit.accesskey "R">
+<!ENTITY cut.label "Klipp ut">
+<!ENTITY cut.accesskey "k">
+<!ENTITY copy.label "Kopiera">
+<!ENTITY copy.accesskey "o">
+<!ENTITY paste.label "Klistra in">
+<!ENTITY paste.accesskey "l">
+<!ENTITY remove.label "Ta bort">
+<!ENTITY remove.accesskey "T">
+<!ENTITY menu.find.label "Sök">
+<!ENTITY menu.find.accesskey "S">
+<!ENTITY menu.findagain.label "Sök igen">
+<!ENTITY menu.findagain.accesskey "g">
 <!ENTITY options.label "Optioner">
 <!ENTITY options.accesskey "n">
 <!ENTITY enable.label "Adblock Plus på">
 <!ENTITY enable.accesskey "å">
+<!ENTITY showintoolbar.label "Visa i verktygsfält">
+<!ENTITY showintoolbar.accesskey "y">
 <!ENTITY showinstatusbar.label "Visa i statusfält">
 <!ENTITY showinstatusbar.accesskey "s">
 <!ENTITY localpages.label "Blockera extern reklam i lokala sidor">
@@ -52,13 +60,14 @@
 <!ENTITY newfilter.accesskey "y">
 <!ENTITY add.label "Lägg till filter">
 <!ENTITY add.accesskey "ä">
-<!ENTITY list.label "Filterregler:">
-<!ENTITY list.accesskey "g">
+<!ENTITY pattern.column "Filterregler">
+<!ENTITY hitcount.column "Träffar">
+<!ENTITY enabled.column "På">
 <!ENTITY context.edit.label "Ändra filter">
+<!ENTITY context.resethitcount.label "Nollställ statistik - Antal träffar med filter">
 <!ENTITY context.synchsubscription.label "Uppdatera prenumeration nu">
 <!ENTITY context.editsubscription.label "Ändra prenumeration">
 <!ENTITY context.moveup.label "Flytta upp">
 <!ENTITY context.movedown.label "Flytta ner">
 <!ENTITY context.movegroupup.label "Flytta upp grupp">
 <!ENTITY context.movegroupdown.label "Flytta ner grupp">
-
