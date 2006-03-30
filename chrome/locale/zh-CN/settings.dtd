@@ -9,20 +9,28 @@
 <!ENTITY export.accesskey "X">
 <!ENTITY clearall.label "移除所有过滤规则">
 <!ENTITY clearall.accesskey "L">
+<!ENTITY resethitcounts.label "重置规则计数">
+<!ENTITY resethitcounts.accesskey "R">
 <!ENTITY edit.label "编辑">
 <!ENTITY edit.accesskey "E">
 <!ENTITY cut.label "剪切">
 <!ENTITY cut.accesskey "t">
 <!ENTITY copy.label "复制">
 <!ENTITY copy.accesskey "C">
-<!ENTITY paste.accesskey "P">
 <!ENTITY paste.label "粘贴">
+<!ENTITY paste.accesskey "P">
 <!ENTITY remove.label "删除">
 <!ENTITY remove.accesskey "D">
+<!ENTITY menu.find.label "查找">
+<!ENTITY menu.find.accesskey "F">
+<!ENTITY menu.findagain.label "再次查找">
+<!ENTITY menu.findagain.accesskey "G">
 <!ENTITY options.label "选项">
 <!ENTITY options.accesskey "O">
 <!ENTITY enable.label "启用Adblock Plus">
 <!ENTITY enable.accesskey "N">
+<!ENTITY showintoolbar.label "在工具栏显示">
+<!ENTITY showintoolbar.accesskey "B">
 <!ENTITY showinstatusbar.label "在状态栏显示图标">
 <!ENTITY showinstatusbar.accesskey "S">
 <!ENTITY localpages.label "在本地页面过滤远程广告">
@@ -48,19 +56,20 @@
 <!ENTITY about.accesskey "B">
 <!ENTITY disabled.warning "Adblock Plus已被禁用。你可以编辑列表中的任何过滤规则，但是这些规则在重新启用前不会生效。">
 <!ENTITY description "添加你想过滤的地址，建议检查下拉列表。
-    你可以使用*作为通配符来创建更通用的过滤规则。
-    高级用户可以使用象 /banner\d+\.gif$/ 这样的正则表达式。">
+		你可以使用*作为通配符来创建更通用的过滤规则。
+		高级用户可以使用象 /banner\d+\.gif$/ 这样的正则表达式。">
 <!ENTITY newfilter.label "新过滤规则:">
 <!ENTITY newfilter.accesskey "N">
 <!ENTITY add.label "添加">
 <!ENTITY add.accesskey "A">
-<!ENTITY list.label "过滤规则:">
-<!ENTITY list.accesskey "R">
+<!ENTITY pattern.column "过滤规则">
+<!ENTITY hitcount.column "计数">
+<!ENTITY enabled.column "启用">
 <!ENTITY context.edit.label "编辑过滤规则">
+<!ENTITY context.resethitcount.label "重置该过滤规则的计数">
 <!ENTITY context.synchsubscription.label "现在更新订阅">
 <!ENTITY context.editsubscription.label "编辑订阅">
 <!ENTITY context.moveup.label "上移">
 <!ENTITY context.movedown.label "下移">
 <!ENTITY context.movegroupup.label "上移组">
 <!ENTITY context.movegroupdown.label "下移组">
-
