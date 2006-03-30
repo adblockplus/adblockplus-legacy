@@ -9,6 +9,8 @@
 <!ENTITY export.accesskey "X">
 <!ENTITY clearall.label "刪除所有過濾條件">
 <!ENTITY clearall.accesskey "L">
+<!ENTITY resethitcounts.label "重設點擊統計資料">
+<!ENTITY resethitcounts.accesskey "R">
 <!ENTITY edit.label "編輯">
 <!ENTITY edit.accesskey "E">
 <!ENTITY cut.label "剪下">
@@ -19,15 +21,21 @@
 <!ENTITY paste.accesskey "P">
 <!ENTITY remove.label "刪除">
 <!ENTITY remove.accesskey "D">
+<!ENTITY menu.find.label "尋找">
+<!ENTITY menu.find.accesskey "F">
+<!ENTITY menu.findagain.label "重新尋找">
+<!ENTITY menu.findagain.accesskey "G">
 <!ENTITY options.label "選項">
 <!ENTITY options.accesskey "O">
 <!ENTITY enable.label "啟用 Adblock Plus">
 <!ENTITY enable.accesskey "N">
+<!ENTITY showintoolbar.label "顯示工具列按鈕">
+<!ENTITY showintoolbar.accesskey "B">
 <!ENTITY showinstatusbar.label "顯示狀態列圖示">
 <!ENTITY showinstatusbar.accesskey "S">
 <!ENTITY localpages.label "阻擋本機網頁中的外部廣告">
 <!ENTITY localpages.accesskey "R">
-<!ENTITY objecttabs.label "於 Flash 和 Java 物件上顯示頁籤">
+<!ENTITY objecttabs.label "Flash 和 Java 物件上顯示頁籤">
 <!ENTITY objecttabs.accesskey "T">
 <!ENTITY collapse.label "釋放物件所佔用的空間">
 <!ENTITY collapse.accesskey "L">
@@ -47,22 +55,21 @@
 <!ENTITY about.label "關於 Adblock Plus">
 <!ENTITY about.accesskey "B">
 <!ENTITY disabled.warning "Adblock Plus 已停用。您仍然可以編輯過濾條件，但直到您啟用前都不會有作用。">
-<!ENTITY description "
-    請輸入您想阻擋的物件位址，或從下拉清單中選擇現正瀏覽頁面的物件來阻擋。
-    您可以使用萬用字元「*」建立可適用多個網站的過濾條件。
-    進階使用者則可以輸入像 /banner\d+\.gif$/ 這類的「正規表示式」。
-">
+<!ENTITY description "請輸入您想阻擋的物件位址，或從下拉清單中選擇現正瀏覽頁面的物件來阻擋。
+		您可以使用萬用字元「*」建立可適用多個網站的過濾條件。
+		進階使用者則可以輸入像 /banner\d+\.gif$/ 這類的「正規表示式」。">
 <!ENTITY newfilter.label "新的過濾條件:">
 <!ENTITY newfilter.accesskey "N">
 <!ENTITY add.label "新增過濾條件">
 <!ENTITY add.accesskey "A">
-<!ENTITY list.label "過濾條件清單:">
-<!ENTITY list.accesskey "R">
+<!ENTITY pattern.column "過濾條件">
+<!ENTITY hitcount.column "次數">
+<!ENTITY enabled.column "已啟用">
 <!ENTITY context.edit.label "編輯過濾條件">
+<!ENTITY context.resethitcount.label "重設此條件統計資料">
 <!ENTITY context.synchsubscription.label "立即更新已訂閱條件集">
 <!ENTITY context.editsubscription.label "編輯訂閱清單">
 <!ENTITY context.moveup.label "向上移">
 <!ENTITY context.movedown.label "向下移">
 <!ENTITY context.movegroupup.label "整組向上移">
 <!ENTITY context.movegroupdown.label "整組向下移">
-

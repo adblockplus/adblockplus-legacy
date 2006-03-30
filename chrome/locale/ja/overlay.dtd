@@ -34,7 +34,7 @@
 <!ENTITY context.frame.label "Adblock フレームをブロック">
 
 <!ENTITY menuitem.sidebar.title "Adblock Plus: ブロック要素">
-<!ENTITY sidebar.title "Adblock Plus">
+<!ENTITY sidebar.title "Adblock Plus 現在のページのブロック要素">
 
 <!ENTITY settings.label "設定">
 <!ENTITY settings.accesskey "F">

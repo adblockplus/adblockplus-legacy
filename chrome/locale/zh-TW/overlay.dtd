@@ -6,12 +6,13 @@
 <!ENTITY context.object.label "阻擋物件">
 <!ENTITY context.link.label "阻擋連結">
 <!ENTITY context.frame.label "阻擋頁框">
-<!ENTITY sidebar.title "Adblock Plus">
+<!ENTITY menuitem.sidebar.title "Adblock Plus: 可阻擋項目">
+<!ENTITY sidebar.title "本頁可阻擋項目">
 <!ENTITY settings.label "偏好設定">
 <!ENTITY settings.accesskey "F">
-<!ENTITY opensidebar.label "開啟側邊欄">
-<!ENTITY opensidebar.accesskey "S">
-<!ENTITY closesidebar.label "關閉側邊欄">
-<!ENTITY closesidebar.accesskey "S">
+<!ENTITY opensidebar.label "開啟可阻擋項目">
+<!ENTITY opensidebar.accesskey "B">
+<!ENTITY closesidebar.label "關閉可阻擋項目">
+<!ENTITY closesidebar.accesskey "B">
 <!ENTITY whitelist.site.label "設為白名單: --">
-<!ENTITY whitelist.page.label "將此頁及其子頁面設為白名單">
+<!ENTITY whitelist.page.label "將此頁及其子頁設為白名單">
