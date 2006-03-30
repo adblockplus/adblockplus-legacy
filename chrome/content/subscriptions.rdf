@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+
+<RDF:RDF xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:abp="http://adblockplus.mozdev.org/#">
+
+  <RDF:Seq about="abp:subscriptions">
+    <RDF:li>
+      <RDF:Description>
+        <abp:title>EasyList (USA)</abp:title>
+        <abp:url>http://mysite.verizon.net/rick752/firefox/adblock_rick752.txt</abp:url>
+      </RDF:Description>
+    </RDF:li>
+    <RDF:li>
+      <RDF:Description>
+        <abp:title>Cédrics Liste (Deutschland)</abp:title>
+        <abp:url>http://chewey.de/mozilla/data/adblock.txt</abp:url>
+      </RDF:Description>
+    </RDF:li>
+    <RDF:li>
+      <RDF:Description>
+        <abp:title>adblock.free.fr (France)</abp:title>
+        <abp:url>http://adblock.free.fr/adblock.txt</abp:url>
+      </RDF:Description>
+    </RDF:li>
+    <RDF:li>
+      <RDF:Description>
+        <abp:title>Filter von Dr.Evil (Deutschland)</abp:title>
+        <abp:url>http://maltekraus.de/Firefox/adblock.txt</abp:url>
+      </RDF:Description>
+    </RDF:li>
+  </RDF:Seq>
+</RDF:RDF>

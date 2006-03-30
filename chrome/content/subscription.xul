@@ -53,7 +53,13 @@
   <rows>
     <row id="locationRow" align="center">
       <label value="&location.label;" accesskey="&location.accesskey;" control="location"/>
-      <textbox id="location"/>
+      <menulist id="location" editable="true" datasources="subscriptions.rdf" ref="abp:subscriptions">
+        <template>
+          <menupopup>
+              <menuitem uri="rdf:*" label="rdf:http://adblockplus.mozdev.org/#title" value="rdf:http://adblockplus.mozdev.org/#url"/>
+          </menupopup>
+        </template>
+      </menulist>
     </row>
     <row id="titleRow" align="center">
       <label value="&title.label;" accesskey="&title.accesskey;" control="title"/>
