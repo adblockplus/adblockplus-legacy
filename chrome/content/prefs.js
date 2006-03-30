@@ -146,10 +146,10 @@ var elemhide = {
       if (domains.has(domain))
         list = domains.get(domain);
       else {
-        list = [];
+        list = new HashTable();
         domains.put(domain, list);
       }
-      list.push(this.patterns[i].selector);
+      list.put(this.patterns[i].selector, true);
     }
 
     // Joining domains list
@@ -157,9 +157,11 @@ var elemhide = {
     var keys = domains.keys();
     for (var i = 0; i < keys.length; i++) {
       var domain = keys[i];
-      var rule = domains.get(domain).join(",") + "{display:none !important}";
-      if (domain)
-        rule = "@-moz-document domain(" + domain + "){" + rule + "}";
+      var rule = domains.get(domain).keys().join(",") + "{display:none !important}\n";
+      if (domain) {
+        var parts = domain.split(",");
+        rule = '@-moz-document domain("' + domain.split(",").join('"),domain("') + '"){\n' + rule + '}\n';
+      }
       cssData += rule;
     }
 
@@ -168,9 +170,9 @@ var elemhide = {
       try {
         this.url = Components.classes["@mozilla.org/network/simple-uri;1"]
                              .createInstance(Components.interfaces.nsIURI);
-        this.url.spec = "data:text/css,/*** Adblock Plus ***/" + cssData;
+        this.url.spec = "data:text/css;charset=utf8,/*** Adblock Plus ***/" + encodeURIComponent("\n" + cssData);
         styleService.loadAndRegisterSheet(this.url, styleService.USER_SHEET);
-      } catch(e) {}
+      } catch(e) {dump(e)};
     }
   },
   unapply: function() {
@@ -182,6 +184,7 @@ var elemhide = {
     }
   }
 };
+abp.elemhideRegExp = /^([^\/\*\|\@"]*?)#(?:([\w\-]+|\*)((?:\([\w\-]+(?:[$^*]?=[^\(\)"]*)?\))*)|#([^{}]+))$/;
 
 var prefs = {
   initialized: false,
@@ -697,46 +700,53 @@ var prefs = {
 
   initPattern: function(pattern) {
     var text = pattern.text;
-    if (/^([^\/\*\|\@]*)#([\w\-]+|\*)((?:\([\w\-]+(?:[$^*]?=[^\(\)"]*)?\))*)$/.test(text)) {
+    if (abp.elemhideRegExp.test(text)) {
       pattern.type = "elemhide";
 
-      pattern.domain = RegExp.$1;
+      var domain = RegExp.$1;
       var tagname = RegExp.$2;
       var attrRules = RegExp.$3;
+      var selector = RegExp.$4;
+
+      pattern.domain = domain.replace(/^,+/, "").replace(/,+$/, "").replace(/,+/g, ",");
 
       if (tagname == "*")
         tagname = "";
 
-      var id = null;
-      var additional = "";
-      if (attrRules) {
-        attrRules = attrRules.match(/\([\w\-]+(?:[$^*]?=[^\(\)"]*)?\)/g);
-        for (var i = 0; i < attrRules.length; i++) {
-          var rule = attrRules[i].substr(1, attrRules[i].length - 2);
-          var separator = rule.indexOf("=");
-          if (separator > 0) {
-            rule = rule.replace(/=/, '="') + '"';
-            additional += "[" + rule + "]";
-          }
-          else {
-            if (id) {
-              // Duplicate id - invalid rule
-              id = null;
-              tagname = null;
-              break;
+      if (selector)
+        pattern.selector = selector;
+      else {
+        var id = null;
+        var additional = "";
+        if (attrRules) {
+          attrRules = attrRules.match(/\([\w\-]+(?:[$^*]?=[^\(\)"]*)?\)/g);
+          for (var i = 0; i < attrRules.length; i++) {
+            var rule = attrRules[i].substr(1, attrRules[i].length - 2);
+            var separator = rule.indexOf("=");
+            if (separator > 0) {
+              rule = rule.replace(/=/, '="') + '"';
+              additional += "[" + rule + "]";
             }
-            else
-              id = rule;
+            else {
+              if (id) {
+                // Duplicate id - invalid rule
+                id = null;
+                tagname = null;
+                break;
+              }
+              else
+                id = rule;
+            }
           }
         }
+  
+        if (id)
+          pattern.selector = tagname + "." + id + additional + "," + tagname + "#" + id + additional;
+        else if (tagname || additional)
+          pattern.selector = tagname + additional;
+        else
+          pattern.type = "invalid";
       }
-
-      if (id)
-        pattern.selector = tagname + "." + id + additional + "," + tagname + "#" + id + additional;
-      else if (tagname || additional)
-        pattern.selector = tagname + additional;
-      else
-        pattern.type = "invalid";
 
       if (!styleService)
         pattern.type = "invalid";

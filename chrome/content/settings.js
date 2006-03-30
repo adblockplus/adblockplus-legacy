@@ -2019,7 +2019,15 @@ var treeView = {
 
     if (save) {
       var info = this.getRowInfo(this.editedRow);
-      text = text.replace(/\s/g, "");
+      if (abp.elemhideRegExp.test(text) && RegExp.$4) {
+        // Special treatment for element hiding with CSS selector
+        /^(.*?)##(.*)$/.test(text);   // .split(..., 2) will cut off the end of the string
+        var domain = RegExp.$1;
+        var selector = RegExp.$2;
+        text = domain.replace(/\s/g, "") + "##" + selector.replace(/^\s+/, "").replace(/\s+$/, "");
+      }
+      else
+        text = text.replace(/\s/g, "");
       if (text && text != info[1].text) {
         this.removeRow(info);
         this.addPattern(text, info[0], info[1].origPos);
