@@ -30,7 +30,7 @@
 <!ENTITY enable.label "Įjungti „Adblock Plus“">
 <!ENTITY enable.accesskey "J">
 <!ENTITY showintoolbar.label "Rodyti priemonių juostoje">
-<!ENTITY showintoolbar.accesskey "J">
+<!ENTITY showintoolbar.accesskey "P">
 <!ENTITY showinstatusbar.label "Rodyti būsenos juostoje">
 <!ENTITY showinstatusbar.accesskey "B">
 <!ENTITY localpages.label "Blokuoti nutolusias reklamas vietiniuose tinklalapiuose">
