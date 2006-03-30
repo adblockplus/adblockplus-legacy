@@ -81,6 +81,9 @@ DataContainer.prototype = {
         var location = me.newLocation;
         createTimer(function() {
           var insecWnd = location.inseclNodes[0];
+          if (!secureGet(insecWnd, "document"))
+            return;
+
           var insecTop = secureGet(insecWnd, "top");
           var data = DataContainer.getDataForWindow(insecWnd);
           data.addNode(insecTop, insecWnd, location.type, location.location, location.filter, true);

@@ -102,7 +102,13 @@ var policy = {
       return true;
 
     var insecTop = secureGet(insecWnd, "top");
-    if (!insecTop || (!prefs.blocklocalpages && !this.isBlockableScheme(secureGet(insecTop, "location"))))
+    if (!insecTop)
+      return true;
+
+    var blockable = this.isBlockableScheme(secureGet(insecTop, "location"));
+    if (!blockable && prefs.blocklocalpages && secureGet(insecTop, "location", "protocol") == "file:")
+      blockable = true;
+    if (!blockable)
       return true;
 
     var pageMatch = this.isWhitelisted(secureGet(insecTop, "location", "href"));
