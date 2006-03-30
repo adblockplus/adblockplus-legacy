@@ -1,7 +1,7 @@
 <!ENTITY dialog.title "Süzgeç aboneliklerini düzenle">
 <!ENTITY dialog.newtitle "Süzgeç aboneliği ekle">
 <!ENTITY new.description "Adblock Plus süzgeç listesi barındıran sitenin ya da dosyanın adresini girin.">
-<!ENTITY edit.description "Abone olunan süzgeç listesi verilen adresten indirilecek ve bu adres artık değiştirilemez.">
+<!ENTITY edit.description "Abone olunan süzgeç listesi verilen adresten indirilecek.">
 <!ENTITY external.description "Bu dışsal bir abonelik. Süzgeçler abone olunan liste sayesinde güncel kalacak.">
 <!ENTITY autodownload.description "Eğer 'Otomatik olarak güncelle' seçeneğini tercih ederseniz güncelleme olup olmadığına her gün bakılacak. Bunu seçmeseniz de içerik menüsü aracılığıyla güncellemeyi elle yapabilirsiniz.">
 <!ENTITY location.label "Süzgeç listesi konumu:">

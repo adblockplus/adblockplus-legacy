@@ -1,6 +1,6 @@
 <!ENTITY dialog.title "Adblock Plus Tercihleri">
 <!ENTITY filters.label "Süzgeçler">
-<!ENTITY filters.accesskey "Z">
+<!ENTITY filters.accesskey "G">
 <!ENTITY addsubscription.label "Süzgeç aboneliği ekle">
 <!ENTITY addsubscription.accesskey "E">
 <!ENTITY import.label "Süzgeçleri içe aktar">
@@ -9,6 +9,8 @@
 <!ENTITY export.accesskey "D">
 <!ENTITY clearall.label "Tüm süzgeçleri kaldır">
 <!ENTITY clearall.accesskey "L">
+<!ENTITY resethitcounts.label "İstatistikleri sıfırla">
+<!ENTITY resethitcounts.accesskey "R">
 <!ENTITY edit.label "Düzen">
 <!ENTITY edit.accesskey "z">
 <!ENTITY cut.label "Kes">
@@ -19,10 +21,16 @@
 <!ENTITY paste.accesskey "Y">
 <!ENTITY remove.label "Sil">
 <!ENTITY remove.accesskey "S">
+<!ENTITY menu.find.label "Bul">
+<!ENTITY menu.find.accesskey "B">
+<!ENTITY menu.findagain.label "Sonrakini bul">
+<!ENTITY menu.findagain.accesskey "S">
 <!ENTITY options.label "Seçenekler">
 <!ENTITY options.accesskey "S">
 <!ENTITY enable.label "Adblock Plus'ı etkinleştir">
 <!ENTITY enable.accesskey "A">
+<!ENTITY showintoolbar.label "Araç çubuğunda göster">
+<!ENTITY showintoolbar.accesskey "R">
 <!ENTITY showinstatusbar.label "Durum çubuğunda göster">
 <!ENTITY showinstatusbar.accesskey "D">
 <!ENTITY localpages.label "Yerel sayfaların dış kaynaklı reklamlarını engelle">
@@ -52,13 +60,14 @@
 <!ENTITY newfilter.accesskey "Y">
 <!ENTITY add.label "Süzgeç ekle">
 <!ENTITY add.accesskey "E">
-<!ENTITY list.label "Süzme kuralları:">
-<!ENTITY list.accesskey "U">
+<!ENTITY pattern.column "Kural">
+<!ENTITY hitcount.column "İsabet">
+<!ENTITY enabled.column "Etkinlik">
 <!ENTITY context.edit.label "Süzgeci düzenle">
+<!ENTITY context.resethitcount.label "İstabet istatistiği sıfırlanacak olan süzgeç:">
 <!ENTITY context.synchsubscription.label "Aboneliği eşle">
 <!ENTITY context.editsubscription.label "Aboneliği düzenle">
 <!ENTITY context.moveup.label "Yukarıya taşı">
 <!ENTITY context.movedown.label "Aşağıya taşı">
 <!ENTITY context.movegroupup.label "Öbeği yukarıya taşı">
 <!ENTITY context.movegroupdown.label "Öbeği aşağıya taşı">
-
