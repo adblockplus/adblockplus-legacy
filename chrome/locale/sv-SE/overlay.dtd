@@ -6,12 +6,13 @@
 <!ENTITY context.object.label "Adblock Objekt">
 <!ENTITY context.link.label "Adblock Länk">
 <!ENTITY context.frame.label "Adblock Ram">
-<!ENTITY sidebar.title "Adblock Plus">
+<!ENTITY menuitem.sidebar.title "Adblock Plus: Blockeringsbar reklam">
+<!ENTITY sidebar.title "Objekt att blockera på denna sida">
 <!ENTITY settings.label "Inställningar">
 <!ENTITY settings.accesskey "I">
-<!ENTITY opensidebar.label "Öppna sidofält">
-<!ENTITY opensidebar.accesskey "S">
-<!ENTITY closesidebar.label "Stäng sidofält">
-<!ENTITY closesidebar.accesskey "S">
+<!ENTITY opensidebar.label "Öppna objekt att blockera">
+<!ENTITY opensidebar.accesskey "B">
+<!ENTITY closesidebar.label "Stäng objekt att blockera">
+<!ENTITY closesidebar.accesskey "B">
 <!ENTITY whitelist.site.label "Använd inte på --">
-<!ENTITY whitelist.page.label "Använd inte på denna sida och dess undersidor">
+<!ENTITY whitelist.page.label "Använd inte på denna sida">
