@@ -1296,6 +1296,9 @@ var treeView = {
       pattern.origPos = subscription.nextPos++;
       subscription.patterns.push(pattern);
     }
+
+    if (this.sortProc != sortNatural)
+      subscription.patterns.sort(this.sortProc);
   },
 
   getSubscriptionRow: function(subscription) {
