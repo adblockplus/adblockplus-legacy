@@ -11,8 +11,8 @@
 <!ENTITY settings.label "Préférences">
 <!ENTITY settings.accesskey "P">
 <!ENTITY opensidebar.label "Afficher la liste des éléments filtrables">
-<!ENTITY opensidebar.accesskey "t">
+<!ENTITY opensidebar.accesskey "m">
 <!ENTITY closesidebar.label "Fermer la liste des éléments filtrables">
-<!ENTITY closesidebar.accesskey "F">
+<!ENTITY closesidebar.accesskey "m">
 <!ENTITY whitelist.site.label "Désactiver pour --">
 <!ENTITY whitelist.page.label "Désactiver pour cette page uniquement">
