@@ -32,7 +32,7 @@
   xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
   id="abpDetachedSidebar"
   title="&detached.title;"
-  persist="screenX screenY width height">
+  persist="screenX screenY width height sizemode">
 
   <keyset id="detached-keyset">
     <key keycode="VK_ESCAPE" oncommand="window.close()"/> 
