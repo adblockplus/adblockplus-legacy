@@ -545,8 +545,13 @@ var prefs = {
     // Try to create the file's directory recursively
     var parents = [];
     try {
-      for (var parent = this.patternsFile.parent; parent; parent = parent.parent)
+      for (var parent = this.patternsFile.parent; parent; parent = parent.parent) {
         parents.push(parent);
+
+        // Hack for MacOS: parent for / is /../ :-/
+        if (parent.path == "/")
+          break;
+      }
     } catch (e) {}
     for (i = parents.length - 1; i >= 0; i--) {
       try {
