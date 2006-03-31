@@ -27,7 +27,7 @@
  * This file is included from nsAdblockPlus.js.
  */
 
-var type, typeDescr, localizedDescr, blockTypes, blockSchemes, linkTypes, linkSchemes, baseTypes, baseNames;
+var type, typeDescr, localizedDescr, blockTypes, blockSchemes, linkTypes, nonCollapsableTypes;
 
 const ok = ("ACCEPT" in Components.interfaces.nsIContentPolicy ? Components.interfaces.nsIContentPolicy.ACCEPT : true);
 const block = ("REJECT_REQUEST" in Components.interfaces.nsIContentPolicy ? Components.interfaces.nsIContentPolicy.REJECT_REQUEST : false);
@@ -57,37 +57,15 @@ var policy = {
     typeDescr[0xFFFE] = "BACKGROUND";
     localizedDescr[0xFFFE] = abp.getString("type_label_background");
   
-    // blockable content-policy types
-    blockTypes = {
-      SCRIPT: true,
-      STYLESHEET: true,
-      IMAGE: true,
-      OBJECT: true,
-      SUBDOCUMENT: true
-    };
-    this.translateTypes(blockTypes);
-  
-    // blockable schemes
+    // blockable content policy types and schemes
+    blockTypes = this.translateTypeList(prefs.blocktypes);
     blockSchemes = {http: true, https: true};
-  
-    // link-searchable types + href-protocols
-    linkTypes = {
-      IMAGE: true,
-      OBJECT: true
-    };
-    this.translateTypes(linkTypes);
-  
-    linkSchemes = {http: true, https: true, javascript: true};
-  
-    // unalterable content-policy types + nodeNames -- root-elements
-    baseTypes = {
-      SCRIPT: true,
-      STYLESHEET: true,
-      BACKGROUND: true
-    };
-    this.translateTypes(baseTypes);
-  
-    baseNames = {html: true, body: true, script: true};
+
+    // types that should be searched for links
+    linkTypes = this.translateTypeList(prefs.linktypes);
+
+    // types that shouldn't be collapsed
+    nonCollapsableTypes = this.translateTypeList(prefs.noncollapsabletypes);
   },
 
   // Checks whether a node should be blocked, hides it if necessary, return value false means that the node is blocked
@@ -159,10 +137,7 @@ var policy = {
     if (match && match.type != "whitelist" && insecNode) {
       // hide immediately if fastcollapse is off but not base types
       collapse = collapse || !prefs.fastcollapse;
-      collapse = collapse && !(contentType in baseTypes);
-      if (!(insecNode instanceof Window))
-         collapse = collapse && !(secureGet(insecNode, "nodeName").toLowerCase() in baseNames);
-
+      collapse = collapse && !(contentType in nonCollapsableTypes);
       hideNode(insecNode, insecWnd, collapse);
     }
 
@@ -171,7 +146,7 @@ var policy = {
 
   // Tests if some parent of the node is a link matching a filter
   checkLinks: function(insecNode) {
-    while (insecNode && (secureGet(insecNode, "href") == null || !this.isBlockableScheme(insecNode)))
+    while (insecNode && (!secureGet(insecNode, "href") || !this.isBlockableScheme(insecNode)))
       insecNode = secureGet(insecNode, "parentNode");
   
     if (insecNode)
@@ -195,6 +170,17 @@ var policy = {
     for (var key in hash)
       if (!key.match(/[^A-Z]/) && key in type)
         hash[type[key]] = hash[key];
+  },
+
+  // Translates a space separated list of types into an object where properties corresponding
+  // to the types listed are set to true
+  translateTypeList: function(str) {
+    var ret = {};
+    var types = str.toUpperCase().split(" ");
+    for (var i = 0; i < types.length; i++)
+      if (types[i] in type)
+        ret[type[types[i]]] = true;
+    return ret;
   },
 
   // nsIContentPolicy interface implementation
