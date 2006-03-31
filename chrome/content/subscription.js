@@ -49,6 +49,8 @@ function init() {
     }
   }
   else {
+    document.getElementById("location").value = "";
+
     document.title = document.documentElement.getAttribute("newtitle");
     document.getElementById("new-description").hidden = false;
     document.getElementById("enabled").setAttribute("checked", "true");
