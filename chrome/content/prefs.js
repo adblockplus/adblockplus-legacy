@@ -172,7 +172,7 @@ var elemhide = {
                              .createInstance(Components.interfaces.nsIURI);
         this.url.spec = "data:text/css;charset=utf8,/*** Adblock Plus ***/" + encodeURIComponent("\n" + cssData);
         styleService.loadAndRegisterSheet(this.url, styleService.USER_SHEET);
-      } catch(e) {dump(e)};
+      } catch(e) {};
     }
   },
   unapply: function() {
