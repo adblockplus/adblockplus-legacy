@@ -6,33 +6,41 @@
 <!ENTITY import.label "Importer des filtres">
 <!ENTITY import.accesskey "I">
 <!ENTITY export.label "Exporter les filtres">
-<!ENTITY export.accesskey "E">
+<!ENTITY export.accesskey "x">
 <!ENTITY clearall.label "Supprimer tous les filtres">
 <!ENTITY clearall.accesskey "S">
+<!ENTITY resethitcounts.label "Remettre le compteur à zéro">
+<!ENTITY resethitcounts.accesskey "z">
 <!ENTITY edit.label "Edition">
 <!ENTITY edit.accesskey "E">
 <!ENTITY cut.label "Couper">
-<!ENTITY cut.accesskey "e">
+<!ENTITY cut.accesskey "u">
 <!ENTITY copy.label "Copier">
 <!ENTITY copy.accesskey "p">
 <!ENTITY paste.label "Coller">
 <!ENTITY paste.accesskey "o">
 <!ENTITY remove.label "Supprimer">
-<!ENTITY remove.accesskey "s">
+<!ENTITY remove.accesskey "m">
+<!ENTITY menu.find.label "Rechercher">
+<!ENTITY menu.find.accesskey "h">
+<!ENTITY menu.findagain.label "Rechercher à nouveau">
+<!ENTITY menu.findagain.accesskey "v">
 <!ENTITY options.label "Options">
-<!ENTITY options.accesskey "O">
+<!ENTITY options.accesskey "t">
 <!ENTITY enable.label "Activer Adblock Plus">
-<!ENTITY enable.accesskey "A">
+<!ENTITY enable.accesskey "k">
+<!ENTITY showintoolbar.label "Afficher dans la barre d'outils">
+<!ENTITY showintoolbar.accesskey "b">
 <!ENTITY showinstatusbar.label "Afficher dans la barre d'état">
 <!ENTITY showinstatusbar.accesskey "n">
 <!ENTITY localpages.label "Bloquer les publicités dans les pages locales">
-<!ENTITY localpages.accesskey "l">
+<!ENTITY localpages.accesskey "q">
 <!ENTITY objecttabs.label "Afficher une étiquette pour Flash et Java">
-<!ENTITY objecttabs.accesskey "F">
+<!ENTITY objecttabs.accesskey "J">
 <!ENTITY collapse.label "Utiliser l'espace libéré par les éléments bloqués">
-<!ENTITY collapse.accesskey "M">
+<!ENTITY collapse.accesskey "c">
 <!ENTITY linkcheck.label "Bloquer en utilisant l'adresse cible des publicités">
-<!ENTITY linkcheck.accesskey "b">
+<!ENTITY linkcheck.accesskey "d">
 <!ENTITY help.label "Aide">
 <!ENTITY help.accesskey "A">
 <!ENTITY faq.label "FAQ">
@@ -52,13 +60,14 @@
 <!ENTITY newfilter.accesskey "N">
 <!ENTITY add.label "Ajouter le filtre">
 <!ENTITY add.accesskey "j">
-<!ENTITY list.label "Filtres :">
-<!ENTITY list.accesskey "t">
+<!ENTITY pattern.column "Filtre">
+<!ENTITY hitcount.column "Compteur">
+<!ENTITY enabled.column "Activé">
 <!ENTITY context.edit.label "Modifier le filtre">
+<!ENTITY context.resethitcount.label "Remettre le compteur à zéro">
 <!ENTITY context.synchsubscription.label "Mettre à jour maintenant">
 <!ENTITY context.editsubscription.label "Modifier l'abonnement">
 <!ENTITY context.moveup.label "Monter">
 <!ENTITY context.movedown.label "Descendre">
 <!ENTITY context.movegroupup.label "Monter la sélection">
 <!ENTITY context.movegroupdown.label "Descendre la sélection">
-
