@@ -100,3 +100,16 @@ pref("extensions.adblockplus.grouporder", "~il~ ~wl~ ~fl~ ~eh~");
   Localized description for the extension
 */
 pref("extensions.{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}.description", "chrome://adblockplus/locale/global.properties");
+
+/*
+  Content policy types to block. Supported types are: other, script, image,
+  stylesheet, object, subdocument, document. Pseudo-types background and link
+  will be ignored here.
+*/
+pref("extensions.adblockplus.blocktypes", "script image stylesheet object subdocument");
+
+// Content policy types that should be checked for links when "check banner links" is activated.
+pref("extensions.adblockplus.linktypes", "image");
+
+// Content policy types that shouldn't be collapsed.
+pref("extensions.adblockplus.noncollapsabletypes", "script stylesheet background");
