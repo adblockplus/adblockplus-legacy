@@ -153,8 +153,8 @@ var policy = {
         insecNode = secureGet(insecNode, "document");
     }
 
-    // Store node data
-    data.addNode(insecTop, insecNode, contentType, location, match);
+    // Store node data (must set storedLoc parameter so that frames are added immediately when refiltering)
+    data.addNode(insecTop, insecNode, contentType, location, match, collapse ? true : undefined);
 
     if (match && match.type != "whitelist" && insecNode) {
       // hide immediately if fastcollapse is off but not base types
