@@ -95,6 +95,11 @@ function abpInit() {
   }
   copyMenu(document.getElementById("abp-toolbarbutton"));
   copyMenu(abpGetPaletteButton());
+
+  // Configure keys
+  for (var key in abpPrefs)
+    if (key.match(/(.*)_key$/))
+      abpConfigureKey(RegExp.$1, abpPrefs[key]);
 }
 
 function abpUnload() {
@@ -148,11 +153,6 @@ function abpReloadPrefs() {
   updateElement(document.getElementById("abp-status"));
   updateElement(document.getElementById("abp-toolbarbutton"));
   updateElement(abpGetPaletteButton());
-
-  // Configure keys
-  for (var key in abpPrefs)
-    if (key.match(/(.*)_key$/))
-      abpConfigureKey(RegExp.$1, abpPrefs[key]);
 }
 
 function abpConfigureKey(key, value) {
