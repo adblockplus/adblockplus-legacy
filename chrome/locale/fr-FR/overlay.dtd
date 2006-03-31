@@ -6,12 +6,13 @@
 <!ENTITY context.object.label "Bloquer l'objet avec Adblock">
 <!ENTITY context.link.label "Bloquer le lien avec Adblock">
 <!ENTITY context.frame.label "Bloquer le cadre avec Adblock">
-<!ENTITY sidebar.title "Adblock Plus">
+<!ENTITY menuitem.sidebar.title "AdblockPlus : éléments filtrables">
+<!ENTITY sidebar.title "Éléments filtrables dans la page courante">
 <!ENTITY settings.label "Préférences">
 <!ENTITY settings.accesskey "P">
-<!ENTITY opensidebar.label "Ouvrir le panneau latéral">
+<!ENTITY opensidebar.label "Afficher la liste des éléments filtrables">
 <!ENTITY opensidebar.accesskey "t">
-<!ENTITY closesidebar.label "Fermer le panneau latéral">
+<!ENTITY closesidebar.label "Fermer la liste des éléments filtrables">
 <!ENTITY closesidebar.accesskey "F">
 <!ENTITY whitelist.site.label "Désactiver pour --">
-<!ENTITY whitelist.page.label "Désactiver pour cette page et les pages associées">
+<!ENTITY whitelist.page.label "Désactiver pour cette page uniquement">
