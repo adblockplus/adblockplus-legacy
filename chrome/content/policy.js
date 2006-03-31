@@ -166,12 +166,6 @@ var policy = {
     return prefs.whitePatternsPage.matchesAny(url);
   },
 
-  translateTypes: function(hash) {
-    for (var key in hash)
-      if (!key.match(/[^A-Z]/) && key in type)
-        hash[type[key]] = hash[key];
-  },
-
   // Translates a space separated list of types into an object where properties corresponding
   // to the types listed are set to true
   translateTypeList: function(str) {
