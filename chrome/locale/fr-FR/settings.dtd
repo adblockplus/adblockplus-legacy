@@ -35,9 +35,9 @@
 <!ENTITY linkcheck.accesskey "b">
 <!ENTITY help.label "Aide">
 <!ENTITY help.accesskey "A">
-<!ENTITY faq.label "FAQ [en]">
+<!ENTITY faq.label "FAQ">
 <!ENTITY faq.accesskey "F">
-<!ENTITY faq.url "http://adblockplus.mozdev.org/faq.html">
+<!ENTITY faq.url "http://adblockplus.mozdev.org/fr/faq.html">
 <!ENTITY tips.label "Astuce du jour [en]">
 <!ENTITY tips.accesskey "j">
 <!ENTITY tips.url "http://adblockplus.mozdev.org/tips.html">
