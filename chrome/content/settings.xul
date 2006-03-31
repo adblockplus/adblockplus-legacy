@@ -53,7 +53,7 @@
   buttons="accept,cancel,help"
   width="600px"
   height="450px"
-  persist="screenX screenY width height"
+  persist="screenX screenY width height sizemode"
   windowtype="abp:settings">
 
 <script type="application/x-javascript" src="settings.js"/>
