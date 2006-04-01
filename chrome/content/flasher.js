@@ -37,7 +37,10 @@ var flasher = {
     if (!boxFunc)
       return null;
 
-    var insecBox = boxFunc(insecNode);
+    var insecBox;
+    try {
+      insecBox = boxFunc(insecNode);
+    } catch(e) {}
     if (!insecBox)
       return null;
 
