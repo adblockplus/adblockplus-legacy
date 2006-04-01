@@ -82,7 +82,7 @@
   <toolbarpalette id="BrowserToolbarPalette">
     <toolbarbutton id="abp-toolbarbutton" type="menu-button" insertbefore="print-button"
         class="toolbarbutton-1 chromeclass-toolbar-additional" disabled="true" label="&menuitem.label;"
-        oncommand="if (event.target == this) abpExecuteAction(abpPrefs.defaulttoolbaraction)"
+        oncommand="if (event.target == this) abpCommandHandler(event)"
         onclick="if (event.target == this &amp;&amp; event.button == 1) abpTogglePref('enabled')"
         ondragover="abpDragHandler(event)" ondragdrop="abpDragHandler(event)"
         tooltip="abp-tooltip">
