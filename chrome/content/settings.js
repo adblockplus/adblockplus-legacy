@@ -960,6 +960,12 @@ var treeView = {
 
     if (this.sortColumn)
       this.resort(this.sortColumn.id, sortDir);
+
+    // Make sure we stop the editor when scrolling
+    var me = this;
+    this.boxObject.treeBody.addEventListener("DOMMouseScroll", function() {
+      me.stopEditor(true);
+    }, false);
   },
 
   get rowCount() {
