@@ -34,7 +34,7 @@ function init() {
   result = window.arguments[3];
   if (subscription) {
     document.getElementById("location").value = subscription.url;
-    document.getElementById("title").value = subscription.title;
+    document.getElementById("title").label = subscription.title;
     document.getElementById("enabled").setAttribute("checked", !subscription.disabled);
 
     if (subscription.external) {
@@ -49,7 +49,7 @@ function init() {
     }
   }
   else {
-    document.getElementById("location").value = "";
+    document.getElementById("title").label = document.getElementById("title").value = "";
 
     document.title = document.documentElement.getAttribute("newtitle");
     document.getElementById("new-description").hidden = false;
@@ -58,18 +58,16 @@ function init() {
   }
 
   // List selection doesn't fire input event, have to register a property watcher
-  document.getElementById("location").inputField.watch("value", onLocationChange);
+  document.getElementById("title").inputField.watch("value", onTitleChange);
 }
 
-function onLocationChange(prop, oldval, newval) {
+function onTitleChange(prop, oldval, newval) {
   // Check whether the user selected something from the list
-  var list = document.getElementById("location").menupopup.getElementsByTagName("menuitem");
-  for (var i = 0; i < list.length; i++) {
-    if (list[i].getAttribute("label") == newval) {
-      document.getElementById("title").value = newval;
-      return list[i].getAttribute("value");
-    }
-  }
+  var list = document.getElementById("title").menupopup.getElementsByTagName("menuitem");
+  for (var i = 0; i < list.length; i++)
+    if (list[i].getAttribute("label") == newval)
+      document.getElementById("location").value = list[i].getAttribute("value");
+
   return newval;
 }
 
@@ -108,7 +106,7 @@ function saveSubscription() {
 
   result.url = url;
 
-  result.title = document.getElementById("title").value.replace(/^\s+/, "").replace(/\s+$/, "");
+  result.title = document.getElementById("title").label.replace(/^\s+/, "").replace(/\s+$/, "");
   if (!result.title)
     result.title = result.url;
 

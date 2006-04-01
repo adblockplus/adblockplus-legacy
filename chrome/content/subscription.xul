@@ -51,9 +51,9 @@
     <column flex="1"/> 
   </columns>
   <rows>
-    <row id="locationRow" align="center">
-      <label value="&location.label;" accesskey="&location.accesskey;" control="location"/>
-      <menulist id="location" editable="true" datasources="subscriptions.rdf" ref="abp:subscriptions">
+    <row id="titleRow" align="center">
+      <label value="&title.label;" accesskey="&title.accesskey;" control="title"/>
+      <menulist id="title" editable="true" datasources="subscriptions.rdf" ref="abp:subscriptions">
         <template>
           <menupopup>
               <menuitem uri="rdf:*" label="rdf:http://adblockplus.mozdev.org/#title" value="rdf:http://adblockplus.mozdev.org/#url"/>
@@ -61,9 +61,9 @@
         </template>
       </menulist>
     </row>
-    <row id="titleRow" align="center">
-      <label value="&title.label;" accesskey="&title.accesskey;" control="title"/>
-      <textbox id="title"/>
+    <row id="locationRow" align="center">
+      <label value="&location.label;" accesskey="&location.accesskey;" control="location"/>
+      <textbox id="location"/>
     </row>
     <row id="autodownloadRow">
       <spacer/>
