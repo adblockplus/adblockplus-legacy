@@ -43,10 +43,11 @@ pref("extensions.adblockplus.synchronizationinterval", 24);
 /*
   Action for left-click on toolbar and status bar icons
 
-  0 - None
-  1 - Open/close blockable items
-  2 - Preferences
-  3 - Enable/disable Adblock Plus
+  -1 - None
+  0  - Show context menu
+  1  - Open/close blockable items
+  2  - Preferences
+  3  - Enable/disable Adblock Plus
 */
 pref("extensions.adblockplus.defaulttoolbaraction", 1);
 pref("extensions.adblockplus.defaultstatusbaraction", 2);
