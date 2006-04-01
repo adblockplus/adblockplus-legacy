@@ -150,9 +150,15 @@ function abpReloadPrefs() {
       element.setAttribute("deactivated", "true");
   }
 
-  updateElement(document.getElementById("abp-status"));
+  var status = document.getElementById("abp-status");
+  updateElement(status);
   updateElement(document.getElementById("abp-toolbarbutton"));
   updateElement(abpGetPaletteButton());
+
+  if (abpPrefs.defaultstatusbaraction == 0)
+    status.setAttribute("popup", status.getAttribute("context"));
+  else
+    status.removeAttribute("popup");
 }
 
 function abpConfigureKey(key, value) {
@@ -521,6 +527,13 @@ function abpClickHandler(e) {
     abpExecuteAction(abpPrefs.defaultstatusbaraction);
   else if (e.button == 1)
     abpTogglePref("enabled");
+}
+
+function abpCommandHandler(e) {
+  if (abpPrefs.defaulttoolbaraction == 0)
+    e.target.open = true;
+  else
+    abpExecuteAction(abpPrefs.defaulttoolbaraction);
 }
 
 // Executes default action for statusbar/toolbar by its number
