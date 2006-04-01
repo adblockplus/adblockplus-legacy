@@ -116,6 +116,9 @@ function init() {
 }
 
 function setContentWindow(insecContentWnd) {
+  if (!abp)
+    return;
+
   var filterSuggestions = document.getElementById("newfilter");
 
   insecWnd = insecContentWnd;
@@ -131,12 +134,12 @@ function setContentWindow(insecContentWnd) {
     var reason = abp.getString("no_blocking_suggestions");
     var type = "filterlist";
     if (insecWnd) {
-      var insecLocation = secureGet(insecWnd, "location");
+      var location = abp.unwrapURL(secureGet(insecWnd, "location", "href"));
       // We want to stick with "no blockable items" for about:blank
-      if (secureGet(insecLocation, "href") != "about:blank") {
-        if (!abp.policy.isBlockableScheme(insecLocation))
+      if (location != "about:blank") {
+        if (!abp.policy.isBlockableScheme(location))
           reason = abp.getString("not_remote_page");
-        else if (abp.policy.isWhitelisted(secureGet(insecLocation, "href"))) {
+        else if (abp.policy.isWhitelisted(location)) {
           reason = abp.getString("whitelisted_page");
           type = "whitelist";
         }

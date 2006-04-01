@@ -528,18 +528,18 @@ var treeView = {
       if (!this.data)
         return (col == "address" ? this.loadDummy : "");
 
-      var insecLocation = secureGet(window.content, "location");
+      var location = abp.unwrapURL(secureGet(window.content, "location", "href"));
       if (col == "filter") {
-        var filter = abp.policy.isWhitelisted(secureGet(insecLocation, "href"));
+        var filter = abp.policy.isWhitelisted(location);
         return filter ? filter.text : "";
       }
 
       // We want to stick with "no blockable items" for about:blank
-      if (secureGet(insecLocation, "href") != "about:blank") {
-        if (!abp.policy.isBlockableScheme(insecLocation))
+      if (location != "about:blank") {
+        if (!abp.policy.isBlockableScheme(location))
           return this.remoteDummy;
 
-        if (abp.policy.isWhitelisted(secureGet(insecLocation, "href")))
+        if (abp.policy.isWhitelisted(location))
           return this.whitelistDummy;
       }
 
@@ -577,8 +577,8 @@ var treeView = {
 
       state = "state-filtered";
       if (this.data) {
-        var insecLocation = secureGet(window.content, "location");
-        if (abp.policy.isWhitelisted(secureGet(insecLocation, "href")))
+        var location = abp.unwrapURL(secureGet(window.content, "location", "href"));
+        if (abp.policy.isWhitelisted(location))
           state = "state-whitelisted";
       }
     }
@@ -762,14 +762,14 @@ var treeView = {
     if (!this.data || this.data.length)
       return null;
 
-    var insecLocation = secureGet(window.content, "location");
+    var location = abp.unwrapURL(secureGet(window.content, "location", "href"));
 
     // We want to stick with "no blockable items" for about:blank
-    if (secureGet(insecLocation, "href") != "about:blank") {
-      if (!abp.policy.isBlockableScheme(insecLocation))
+    if (location != "about:blank") {
+      if (!abp.policy.isBlockableScheme(location))
         return {tooltip: this.remoteDummyTooltip};
 
-      var filter = abp.policy.isWhitelisted(secureGet(insecLocation, "href"));
+      var filter = abp.policy.isWhitelisted(location);
       if (filter)
         return {tooltip: this.whitelistDummyTooltip, filter: filter};
     }

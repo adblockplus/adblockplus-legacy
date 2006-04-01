@@ -113,3 +113,9 @@ pref("extensions.adblockplus.linktypes", "image");
 
 // Content policy types that shouldn't be collapsed.
 pref("extensions.adblockplus.noncollapsabletypes", "script stylesheet background");
+
+// List of URL schemes that shouldn't be blocked (applies both to whole documents and to item locations).
+pref("extensions.adblockplus.whitelistschemes", "about chrome file irc keyword mailto news resource snews x-jsd addbook cid imap mailbox nntp pop data javascript");
+
+// Exceptions from whitelisted schemes for documents, items in those still should be blocked when "block remote ads in local pages" is checked.
+pref("extensions.adblockplus.localschemes", "file");

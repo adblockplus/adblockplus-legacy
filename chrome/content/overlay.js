@@ -313,13 +313,15 @@ function abpFillPopup(popup) {
   elements.opensidebar.hidden = sidebarOpen;
   elements.closesidebar.hidden = !sidebarOpen;
 
-  var insecLocation = secureGet(content, "location");
-  var showWhitelist = abp.policy.isBlockableScheme(insecLocation);
+  var location = abp.unwrapURL(secureGet(content, "location", "href"));
+  var showWhitelist = abp.policy.isBlockableScheme(location);
   var whitelistItemSite = elements.whitelistsite;
   var whitelistItemPage = elements.whitelistpage;
   if (showWhitelist) {
-    var url = secureGet(insecLocation, "href").replace(/\?.*/, '');
-    var host = secureGet(insecLocation, "host");
+    var url = location.replace(/\?.*/, '');
+    var host = abp.makeURL(location);
+    if (host)
+      host = host.host;
     var site = url.replace(/^([^\/]+\/\/[^\/]+\/).*/, "$1");
 
     whitelistItemSite.pattern = "@@|" + site;
@@ -545,9 +547,9 @@ function abpDragHandler(e) {
   var link = null;
   for (var insecNode = session.sourceNode; insecNode && !link; insecNode = secureGet(insecNode, "parentNode")) {
     if (insecNode instanceof HTMLAnchorElement)
-      link = secureGet(insecNode, "href");
+      link = abp.unwrapURL(secureGet(insecNode, "href"));
     else if (insecNode instanceof HTMLImageElement)
-      link = secureGet(insecNode, "src");
+      link = abp.unwrapURL(secureGet(insecNode, "src"));
   }
 
   if (e.type == "dragover")
@@ -588,7 +590,7 @@ function abpMouseHandler(e) {
 function abpImageStyle(computedStyle, property) {
   var value = computedStyle.getPropertyCSSValue(property);
   if (value.primitiveType == CSSPrimitiveValue.CSS_URI)
-    return value.getStringValue();
+    return abp.unwrapURL(value.getStringValue());
 
   return null;
 }
@@ -615,11 +617,11 @@ function abpCheckContext() {
     if (gContextMenu.abpFrameData && gContextMenu.abpFrameData.filter)
       gContextMenu.abpFrameData = null;
 
-    if (abpPrefs.linkcheck && (nodeType == "IMAGE" || nodeType == "OBJECT")) {
+    if (abpPrefs.linkcheck && nodeType && abp.policy.shouldCheckLinks(data.type)) {
       // Look for a parent link
       var insecLink = insecTarget;
       while (insecLink && !gContextMenu.abpLinkData) {
-        var link = secureGet(insecLink, "href");
+        var link = abp.unwrapURL(secureGet(insecLink, "href"));
         if (link) {
           gContextMenu.abpLinkData = wndData.getLocation(link);
           if (gContextMenu.abpLinkData && gContextMenu.abpLinkData.filter)
@@ -630,7 +632,7 @@ function abpCheckContext() {
       }
 
       if (insecLink)
-        gContextMenu.abpLink = secureGet(insecLink, "href");
+        gContextMenu.abpLink = abp.unwrapURL(secureGet(insecLink, "href"));
     }
 
     if (nodeType != "IMAGE") {

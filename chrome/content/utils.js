@@ -95,6 +95,36 @@ function getWindow(insecNode) {
   return secureGet(insecNode, "defaultView");
 }
 
+// Unwraps jar:, view-source: and wyciwyg: URLs, returns the contained URL
+function unwrapURL(url) {
+  if (!url)
+    return url;
+
+  var ret = url.replace(/^view-source:/).replace(/^wyciwyg:\/\/\d+\//);
+  if (/^jar:(.*?)!/.test(ret))
+    ret = RegExp.$1;
+
+  if (ret == url)
+    return url;
+  else
+    return unwrapURL(ret);
+}
+abp.unwrapURL = unwrapURL;
+
+// Creates a nsISimpleURI with given url
+function makeURL(url) {
+  var ret = Components.classes["@mozilla.org/network/standard-url;1"]
+                      .createInstance(Components.interfaces.nsIURL);
+  try {
+    ret.spec = url;
+    return ret;
+  }
+  catch (e) {
+    return null;
+  }
+}
+abp.makeURL = makeURL;
+
 // hides a blocked element and collapses it if necessary
 function hideNode(insecNode, insecWnd, collapse) {
   // hide object tab
