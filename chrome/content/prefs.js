@@ -766,7 +766,7 @@ var prefs = {
       if (text.indexOf("@@") == 0) {
         pattern.type = "whitelist";
         text = text.substr(2);
-        pattern.pageWhitelist = /^\|?https?:\/\//.test(text);
+        pattern.pageWhitelist = /^\|?[\w\-]+:\/\//.test(text);
       }
 
       if (/^\/.*\/$/.test(text))  // pattern is a regexp already
