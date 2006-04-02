@@ -44,8 +44,12 @@ if (confirm(WARNING)) {
 
   /* Main part of the installation */
 
+  var profileInstall = new String(Install.url).match(/profile[^\/]*$/);
+  var jarFolder = (profileInstall ? getFolder("Profile", "chrome") : getFolder("Chrome"));
+  var chromeType = (profileInstall ? PROFILE_CHROME : DELAYED_CHROME);
+
   var files = [
-    ["chrome/adblockplus.jar", getFolder("Chrome")],
+    ["chrome/adblockplus.jar", jarFolder],
     ["components/nsAdblockPlus.js", getFolder("Components")],
     ["components/nsAdblockPlus.xpt", getFolder("Components")],
     ["defaults/preferences/adblockplus.js", getFolder(getFolder("Program", "defaults"), "pref")],
@@ -58,13 +62,13 @@ if (confirm(WARNING)) {
   for (var i = 0; i < files.length; i++)
     addFile(APP_NAME, APP_VERSION, files[i][0], files[i][1], null);
 
-  var jar = getFolder(getFolder("Chrome"), "adblockplus.jar");
+  var jar = getFolder(jarFolder, "adblockplus.jar");
   try {
-    var err = registerChrome(CONTENT | DELAYED_CHROME, jar, "content/");
+    var err = registerChrome(CONTENT | chromeType, jar, "content/");
     if (err != SUCCESS)
       throw "Chrome registration for content failed (error code " + err + ").";
 
-    err = registerChrome(SKIN | DELAYED_CHROME, jar, "skin/classic/");
+    err = registerChrome(SKIN | chromeType, jar, "skin/classic/");
     if (err != SUCCESS)
       throw "Chrome registration for skin failed (error code " + err + ").";
 
@@ -72,7 +76,7 @@ if (confirm(WARNING)) {
       if (!locales[i])
         continue;
 
-      err = registerChrome(LOCALE | DELAYED_CHROME, jar, "locale/" + locales[i] + "/");
+      err = registerChrome(LOCALE | chromeType, jar, "locale/" + locales[i] + "/");
       if (err != SUCCESS)
         throw "Chrome registration for " + locales[i] + " locale failed (error code " + err + ").";
     }
