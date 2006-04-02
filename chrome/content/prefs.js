@@ -54,10 +54,12 @@ function Matcher() {
   this.regexps = [];
   this.known = new HashTable();
   this.resultCache = new HashTable();
+  this.cacheEntries = 0;
 }
 
 const shortcutLength = 8;
 const minShortcutNumber = 100;
+const maxCacheEntries = 10000;
 
 Matcher.prototype = {
   // Clears the list
@@ -68,6 +70,7 @@ Matcher.prototype = {
     this.regexps = [];
     this.known.clear();
     this.resultCache.clear();
+    this.cacheEntries = 0;
   },
 
   // Adds a pattern to the list
@@ -124,10 +127,18 @@ Matcher.prototype = {
   // Tests whether URL matches any of the patterns in the list, returns the matching pattern
   matchesAny: function(location) {
     var result = this.resultCache.get(location);
-    if (typeof result == "undefined")
+    if (typeof result == "undefined") {
       result = this.matchesAnyInternal(location);
 
-    this.resultCache.put(location, result);
+      if (this.cacheEntries >= maxCacheEntries) {
+        this.resultCache.clear();
+        this.cacheEntries = 0;
+      }
+  
+      this.resultCache.put(location, result);
+      this.cacheEntries++;
+    }
+
     return result;
   }
 };
