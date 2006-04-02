@@ -102,19 +102,9 @@ var policy = {
     var match = null;
     var linksOk = true;
     if (prefs.enabled) {
-      // Try to use previous results - if there were any
-      match = cache.get(location);
-
-      if (typeof match == "undefined") {
-        // If we didn't cache the result yet:
-        // check whether we want to block the node and store the result
-        match = prefs.whitePatterns.matchesAny(location);
-
-        if (match == null)
-          match = prefs.filterPatterns.matchesAny(location);
-
-        cache.put(location, match);
-      }
+      match = prefs.whitePatterns.matchesAny(location);
+      if (match == null)
+        match = prefs.filterPatterns.matchesAny(location);
 
       if (match)
         prefs.increaseHitCount(match);
