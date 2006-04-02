@@ -26,6 +26,10 @@ const ABP_PACKAGE = "/adblockplus.mozdev.org";
 const ABP_EXTENSION_ID = "{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}";
 const ABP_CONTRACTID = "@mozilla.org/adblockplus;1";
 const ABP_CID = Components.ID("{79c889f6-f5a2-abba-8b27-852e6fec4d56}");
+const locales = [
+  "{{LOCALE}}",
+  null
+];
 
 const loader = Components.classes["@mozilla.org/moz/jssubscript-loader;1"]
                          .getService(Components.interfaces.mozIJSSubScriptLoader);
@@ -378,27 +382,45 @@ function init() {
 }
 
 // Try to fix selected language (Mozilla and SeaMonkey don't do it correctly)
-/*function fixPackageLocale() {
+function fixPackageLocale() {
   try {
     var locale = "en-US";
     try {
       var branch = Components.classes["@mozilla.org/preferences-service;1"]
                              .getService(Components.interfaces.nsIPrefBranch);
-      locale = branch.getCharPref("general.useragent.locale");
+      try {
+        var complex = branch.getComplexValue("general.useragent.locale", Components.interfaces.nsIPrefLocalizedString);
+        locale = complex.data;
+      }
+      catch (e) {
+        locale = branch.getCharPref("general.useragent.locale");
+      }
     } catch (e) {}
+
+    var select = null;
+    for (var i = 0; i < locales.length; i++) {
+      if (!locales[i])
+        continue;
+
+      if (locales[i] == locale) {
+        select = locales[i];
+        break;
+      }
+
+      if (locales[i].substr(0, 2) == locale.substr(0, 2))
+        select = locales[i];
+    }
+    if (!select)
+      select = locales[0];
 
     var iface = ("nsIChromeRegistrySea" in Components.interfaces ? Components.interfaces.nsIChromeRegistrySea : Components.interfaces.nsIXULChromeRegistry);
     var registry = Components.classes["@mozilla.org/chrome/chrome-registry;1"]
                              .getService(iface);
     try {
-      registry.selectLocaleForPackage(locale, "adblockplus", true);
-    }
-    catch (e) {
-      dump(e + "\n");
-      registry.selectLocaleForPackage("en-US", "adblockplus", true);
-    }
-  } catch(e) {dump(e + "\n")}
-}*/
+      registry.selectLocaleForPackage(select, "adblockplus", true);
+    } catch (e) {}
+  } catch(e) {}
+}
 
 // Adds the sidebar to the Customize tabs dialog in Mozilla Suite/Seamonkey
 function installSidebar() {

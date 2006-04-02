@@ -132,7 +132,7 @@ sub cp_rec
       }
       else
       {
-        cp("$fromdir/$file", "$todir/$file");
+        cp("$fromdir/$file", "$todir/$file", $file eq "nsAdblockPlus.js");
       }
     }
   }

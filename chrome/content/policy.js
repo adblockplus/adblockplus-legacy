@@ -27,7 +27,8 @@
  * This file is included from nsAdblockPlus.js.
  */
 
-var type, typeDescr, localizedDescr, blockTypes, whitelistSchemes, linkTypes, nonCollapsableTypes;
+var type, typeDescr, localizedDescr, whitelistSchemes, linkTypes, nonCollapsableTypes;
+var blockTypes = null;
 
 const ok = ("ACCEPT" in Components.interfaces.nsIContentPolicy ? Components.interfaces.nsIContentPolicy.ACCEPT : true);
 const block = ("REJECT_REQUEST" in Components.interfaces.nsIContentPolicy ? Components.interfaces.nsIContentPolicy.REJECT_REQUEST : false);
@@ -212,6 +213,10 @@ var policy = {
 
   // nsIContentPolicy interface implementation
   shouldLoad: function(contentType, contentLocation, requestOrigin, insecNode, mimeTypeGuess, extra) {
+    // return unless we are initialized
+    if (!blockTypes)
+      return ok;
+
     // if it's not a blockable type or a whitelisted scheme, use the usual policy
     var location = unwrapURL(contentLocation.spec);
     if (!(contentType in blockTypes && this.isBlockableScheme(location)))
