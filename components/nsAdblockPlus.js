@@ -127,8 +127,6 @@ const windowMediator = Components.classes["@mozilla.org/appshell/window-mediator
 var lastBrowser = null;
 var lastWindow  = null;
 
-var cache = null;
-
 /*
  * Content policy class definition
  */
@@ -357,9 +355,6 @@ function init() {
   loader.loadSubScript('chrome://adblockplus/content/prefs.js');
   loader.loadSubScript('chrome://adblockplus/content/synchronizer.js');
   loader.loadSubScript('chrome://adblockplus/content/flasher.js');
-
-  // Filter cache initialization
-  cache = new HashTable();
 
   // Clean up uninstalled files
   var dirService = Components.classes["@mozilla.org/file/directory_service;1"]

@@ -53,6 +53,7 @@ function Matcher() {
   this.shortcuts = 0;
   this.regexps = [];
   this.known = new HashTable();
+  this.resultCache = new HashTable();
 }
 
 const shortcutLength = 8;
@@ -66,6 +67,7 @@ Matcher.prototype = {
     this.shortcuts = 0;
     this.regexps = [];
     this.known.clear();
+    this.resultCache.clear();
   },
 
   // Adds a pattern to the list
@@ -98,8 +100,7 @@ Matcher.prototype = {
     this.known.put(pattern.regexp, true);
   },
 
-  // Tests whether URL matches any of the patterns in the list, returns the matching pattern
-  matchesAny: function(location) {
+  matchesAnyInternal: function(location) {
     var list = this.patterns;
     if (this.shortcuts > minShortcutNumber) {
       // Optimize matching using shortcuts
@@ -118,6 +119,16 @@ Matcher.prototype = {
         return list[i];
 
     return null;
+  },
+
+  // Tests whether URL matches any of the patterns in the list, returns the matching pattern
+  matchesAny: function(location) {
+    var result = this.resultCache.get(location);
+    if (typeof result == "undefined")
+      result = this.matchesAnyInternal(location);
+
+    this.resultCache.put(location, result);
+    return result;
   }
 };
 
@@ -491,8 +502,8 @@ var prefs = {
   },
 
   initMatching: function() {
-    if (cache)
-      cache.clear();
+/*    if (cache)
+      cache.clear();*/
 
     this.filterPatterns.clear();
     this.whitePatterns.clear();
