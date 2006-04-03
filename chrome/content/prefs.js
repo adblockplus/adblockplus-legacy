@@ -82,8 +82,9 @@ Matcher.prototype = {
     if (!("shortcut" in pattern) || this.shortcutHash.has(pattern.shortcut)) {
       delete pattern.shortcut;
       if (!/^(@@)?\/.*\/$/.test(pattern.text)) {
-        for (var i = 0; i < pattern.text.length - shortcutLength + 1; i++) {
-          var candidate = pattern.text.substr(i, shortcutLength);
+        var text = pattern.text.toLowerCase();
+        for (var i = 0; i < text.length - shortcutLength + 1; i++) {
+          var candidate = text.substr(i, shortcutLength);
           if (!/[*|@]/.test(candidate) && !this.shortcutHash.has(candidate)) {
             pattern.shortcut = candidate;
             break;
@@ -107,9 +108,10 @@ Matcher.prototype = {
     var list = this.patterns;
     if (this.shortcuts > minShortcutNumber) {
       // Optimize matching using shortcuts
-      var endPos = location.length - shortcutLength + 1;
+      var text = location.toLowerCase();
+      var endPos = text.length - shortcutLength + 1;
       for (var i = 0; i <= endPos; i++) {
-        var substr = location.substr(i, shortcutLength);
+        var substr = text.substr(i, shortcutLength);
         if (this.shortcutHash.has(substr) && this.shortcutHash.get(substr).regexp.test(location))
           return this.shortcutHash.get(substr);
       }
