@@ -151,14 +151,20 @@ function abpReloadPrefs() {
   }
 
   var status = document.getElementById("abp-status");
+  var button = document.getElementById("abp-toolbarbutton");
   updateElement(status);
-  updateElement(document.getElementById("abp-toolbarbutton"));
+  updateElement(button);
   updateElement(abpGetPaletteButton());
 
   if (abpPrefs.defaultstatusbaraction == 0)
     status.setAttribute("popup", status.getAttribute("context"));
   else
     status.removeAttribute("popup");
+
+  if (button.hasAttribute("context") && abpPrefs.defaulttoolbaraction == 0)
+    button.setAttribute("popup", button.getAttribute("context"));
+  else
+    button.removeAttribute("popup");
 }
 
 function abpConfigureKey(key, value) {
