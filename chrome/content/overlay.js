@@ -161,10 +161,12 @@ function abpReloadPrefs() {
   else
     status.removeAttribute("popup");
 
-  if (button.hasAttribute("context") && abpPrefs.defaulttoolbaraction == 0)
-    button.setAttribute("popup", button.getAttribute("context"));
-  else
-    button.removeAttribute("popup");
+  if (button) {
+    if (button.hasAttribute("context") && abpPrefs.defaulttoolbaraction == 0)
+      button.setAttribute("popup", button.getAttribute("context"));
+    else
+      button.removeAttribute("popup");
+  }
 }
 
 function abpConfigureKey(key, value) {
