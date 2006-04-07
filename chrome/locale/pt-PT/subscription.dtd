@@ -9,6 +9,6 @@
 <!ENTITY title.label "Título da subscripção:">
 <!ENTITY title.accesskey "T">
 <!ENTITY autodownload.label "Actualizar automaticamente">
-<!ENTITY autodownload.accesskey "T">
+<!ENTITY autodownload.accesskey "Z">
 <!ENTITY enabled.label "Activar filtros">
 <!ENTITY enabled.accesskey "V">
