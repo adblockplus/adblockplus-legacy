@@ -30,7 +30,7 @@
 <!ENTITY enable.label "Ativar o Adblock Plus">
 <!ENTITY enable.accesskey "P">
 <!ENTITY showintoolbar.label "Mostrar na Barra de Ferramentas">
-<!ENTITY showintoolbar.accesskey "M">
+<!ENTITY showintoolbar.accesskey "F">
 <!ENTITY showinstatusbar.label "Mostrar na barra de status">
 <!ENTITY showinstatusbar.accesskey "M">
 <!ENTITY localpages.label "Bloquear imagens remotas em páginas locais">
@@ -56,8 +56,8 @@
 <!ENTITY about.accesskey "S">
 <!ENTITY disabled.warning "O Adblock Plus está desativado. Você pode editar qualquer filtro da lista, mas eles não serão aplicados até que você reative.">
 <!ENTITY description "Adicione o endereço que você deseja que seja bloqueado, para sugestões veja a lista.
-		Você pode usar * para substituir qualquer caractere e criar filtros mais gerais.
-		Usuários avançados podem usar expressões regulares como /banner\d+\.gif$/.">
+    Você pode usar * para substituir qualquer caractere e criar filtros mais gerais.
+    Usuários avançados podem usar expressões regulares como /banner\d+\.gif$/.">
 <!ENTITY newfilter.label "Novo filtro:">
 <!ENTITY newfilter.accesskey "N">
 <!ENTITY add.label "Adicionar filtro">
