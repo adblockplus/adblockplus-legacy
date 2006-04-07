@@ -13,6 +13,6 @@
 <!ENTITY opensidebar.label "Abrir lista de elementos bloqueáveis">
 <!ENTITY opensidebar.accesskey "B">
 <!ENTITY closesidebar.label "Fechar lista de elementos bloqueáveis">
-<!ENTITY closesidebar.accesskey "F">
+<!ENTITY closesidebar.accesskey "B">
 <!ENTITY whitelist.site.label "Desactivar em --">
 <!ENTITY whitelist.page.label "Desactivar apenas nesta página">
