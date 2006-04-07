@@ -3,12 +3,22 @@
 <!ENTITY reattach.label "Ancorar">
 <!ENTITY search.label "Localizar nome:">
 <!ENTITY search.accesskey "z">
-<!ENTITY list.label "Itens na página atual:">
 <!ENTITY type.label "Tipo">
 <!ENTITY address.label "Endereço">
+<!ENTITY filter.label "Filtro">
+<!ENTITY state.label "Estado">
 <!ENTITY noitems.label "Nenhum item bloqueável">
 <!ENTITY notremote.label "Não é uma página remota">
 <!ENTITY whitelisted.label "Página na lista branca">
 <!ENTITY notloaded.label "O Adblock Plus não foi instalado corretamente">
+<!ENTITY tooltip.address.label "Endereço:">
+<!ENTITY tooltip.type.label "Tipo:">
+<!ENTITY tooltip.type.blocked "(bloqueado)">
+<!ENTITY tooltip.type.whitelisted "(na lista branca)">
 <!ENTITY tooltip.filter.label "Fitro em ação:">
-
+<!ENTITY context.block.label "Bloquear este item">
+<!ENTITY context.editfilter.label "Editar filtro em efeito">
+<!ENTITY context.whitelist.label "Adicionar">
+<!ENTITY context.open.label "Abrir em nova aba">
+<!ENTITY context.flash.label "Realçar bordas do item">
+<!ENTITY context.copy.label "Copiar endereço do item">
