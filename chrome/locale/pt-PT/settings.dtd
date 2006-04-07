@@ -9,20 +9,28 @@
 <!ENTITY export.accesskey "X">
 <!ENTITY clearall.label "Remover todos os filtros">
 <!ENTITY clearall.accesskey "L">
-<!ENTITY edit.label "Editar"> 
-<!ENTITY edit.accesskey "e"> 
+<!ENTITY resethitcounts.label "Apagar estatísticas">
+<!ENTITY resethitcounts.accesskey "A">
+<!ENTITY edit.label "Editar">
+<!ENTITY edit.accesskey "e">
 <!ENTITY cut.label "Recortar">
 <!ENTITY cut.accesskey "T">
-<!ENTITY copy.label "Copiar">  
-<!ENTITY copy.accesskey "c"> 
-<!ENTITY paste.label "Colar">  
-<!ENTITY paste.accesskey "o"> 
-<!ENTITY remove.label "Excluir">  
-<!ENTITY remove.accesskey "x"> 
+<!ENTITY copy.label "Copiar">
+<!ENTITY copy.accesskey "c">
+<!ENTITY paste.label "Colar">
+<!ENTITY paste.accesskey "o">
+<!ENTITY remove.label "Excluir">
+<!ENTITY remove.accesskey "x">
+<!ENTITY menu.find.label "Localizar">
+<!ENTITY menu.find.accesskey "L">
+<!ENTITY menu.findagain.label "Localizar seguinte">
+<!ENTITY menu.findagain.accesskey "S">
 <!ENTITY options.label "Opções">
 <!ENTITY options.accesskey "O">
 <!ENTITY enable.label "Activar Adblock Plus">
 <!ENTITY enable.accesskey "V">
+<!ENTITY showintoolbar.label "Mostrar na barra de ferramentas">
+<!ENTITY showintoolbar.accesskey "M">
 <!ENTITY showinstatusbar.label "Mostrar barra de status">
 <!ENTITY showinstatusbar.accesskey "S">
 <!ENTITY localpages.label "Bloquear publicidade remota em páginas locais">
@@ -52,13 +60,14 @@
 <!ENTITY newfilter.accesskey "N">
 <!ENTITY add.label "Adicionar filtro">
 <!ENTITY add.accesskey "A">
-<!ENTITY list.label "Regras de filtro:">
-<!ENTITY list.accesskey "R">
+<!ENTITY pattern.column "Regra de filtros">
+<!ENTITY hitcount.column "Contagem">
+<!ENTITY enabled.column "Activado">
 <!ENTITY context.edit.label "Editar filtro">
+<!ENTITY context.resethitcount.label "Apagar estatísticas por filtro">
 <!ENTITY context.synchsubscription.label "Actualizar subscripção agora">
 <!ENTITY context.editsubscription.label "Editar subscripção">
 <!ENTITY context.moveup.label "Mover para cima">
 <!ENTITY context.movedown.label "Mover para baixo">
 <!ENTITY context.movegroupup.label "Mover grupo para cima">
 <!ENTITY context.movegroupdown.label "Mover grupo para baixo">
-
