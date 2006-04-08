@@ -77,7 +77,7 @@ var synchronizer = {
   readPatterns: function(subscription, text) {
     var lines = text.split(/[\r\n]+/);
     for (var i = 0; i < lines.length; i++) {
-      lines[i] = lines[i].replace(/\s/g, "");
+      lines[i] = normalizeFilter(lines[i]);
       if (!lines[i])
         lines.splice(i--, 1);
     }

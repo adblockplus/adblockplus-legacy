@@ -356,3 +356,27 @@ function getLineBreak() {
   return lineBreak;
 }
 abp.getLineBreak = getLineBreak;
+
+// Removes unnecessary whitespaces from filter
+function normalizeFilter(text) {
+  if (!text)
+    return text;
+
+  // Remove line breaks and such
+  text = text.replace(/[^\S ]/g, "");
+
+  if (/^\s*!/.test(text)) {
+    // Don't remove spaces inside comments
+    return text.replace(/^\s+/, "").replace(/\s+$/, "");
+  }
+  else if (abp.elemhideRegExp.test(text) && RegExp.$4) {
+    // Special treatment for element hiding with CSS selector
+    /^(.*?)##(.*)$/.test(text);   // .split(..., 2) will cut off the end of the string
+    var domain = RegExp.$1;
+    var selector = RegExp.$2;
+    return domain.replace(/\s/g, "") + "##" + selector.replace(/^\s+/, "").replace(/\s+$/, "");
+  }
+  else
+    return text.replace(/\s/g, "");
+}
+abp.normalizeFilter = normalizeFilter;
