@@ -235,6 +235,13 @@ function getElementRect(insecNode) {
   return rect;
 }
 
+// Generates a click handler for object tabs
+function generateClickHandler(insecWnd, location) {
+  return function() {
+    abp.openSettingsDialog(insecWnd, location);
+  }
+}
+
 // Creates a tab above/below the new object node
 function addObjectTab(insecNode, location, insecWnd) {
   // Prevent readding tabs to elements that already have one
@@ -303,9 +310,7 @@ function addObjectTab(insecNode, location, insecWnd) {
   tab.setAttribute("AdblockTab", "true");
   
   // Click event handler
-  label.addEventListener("click", function() {
-    abp.openSettingsDialog(insecWnd, location);
-  }, false);
+  label.addEventListener("click", generateClickHandler(insecWnd, location), false);
 
   // Insert tab into the document
   var nextSibling = secureGet(insecNode, "nextSibling");
