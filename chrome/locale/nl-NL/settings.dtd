@@ -9,12 +9,12 @@
 <!ENTITY export.accesskey "E">
 <!ENTITY clearall.label "Alle filters verwijderen">
 <!ENTITY clearall.accesskey "v">
-<!ENTITY resethitcounts.label "Reset treffer statistieken">
+<!ENTITY resethitcounts.label "Reset trefstatistieken">
 <!ENTITY resethitcounts.accesskey "R">
 <!ENTITY edit.label "Bewerken">
 <!ENTITY edit.accesskey "W">
 <!ENTITY cut.label "Knippen">
-<!ENTITY cut.accesskey "N">
+<!ENTITY cut.accesskey "n">
 <!ENTITY copy.label "Kopiëren">
 <!ENTITY copy.accesskey "K">
 <!ENTITY paste.label "Plakken">
@@ -51,7 +51,7 @@
 <!ENTITY tips.url "http://adblockplus.mozdev.org/tips.html">
 <!ENTITY regexps.label "Reguliere Expressies schrijven">
 <!ENTITY regexps.accesskey "R">
-<!ENTITY regexps.url "http://developer.mozilla.org/en/docs/Core_JavaScript_1.5_Guide:Regular_Expressions#Writing_a_Regular_Expression_Pattern">
+<!ENTITY regexps.url "http://tjaard.nl/firefox-thunderbird/reguliere-expressies-gebruiken-in-adblock/">
 <!ENTITY about.label "Over Adblock Plus">
 <!ENTITY about.accesskey "A">
 <!ENTITY disabled.warning "Adblock Plus is uitgeschakeld. U kunt de filters in de lijst aanpassen, maar wijzigingen zullen niet worden toegepast voordat u Adblock weer inschakeld.">
@@ -64,7 +64,7 @@
 <!ENTITY hitcount.column "Treffers">
 <!ENTITY enabled.column "Ingeschakeld">
 <!ENTITY context.edit.label "Filter wijzigen">
-<!ENTITY context.resethitcount.label "Reset tref statistieken voor filter">
+<!ENTITY context.resethitcount.label "Reset trefstatistieken voor filter">
 <!ENTITY context.synchsubscription.label "Abonnement nu bijwerken">
 <!ENTITY context.editsubscription.label "Abonnement wijzigen">
 <!ENTITY context.moveup.label "Omhoog verplaatsen">

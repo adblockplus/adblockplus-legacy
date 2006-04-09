@@ -48,14 +48,14 @@
 <!ENTITY faq.url "http://adblockplus.mozdev.org/fr/faq.html">
 <!ENTITY tips.label "Astuce du jour [en]">
 <!ENTITY tips.accesskey "j">
-<!ENTITY tips.url "http://adblockplus.mozdev.org/tips.html">
+<!ENTITY tips.url "http://adblockplus.mozdev.org/fr/tips.html">
 <!ENTITY regexps.label "Créer des expressions régulières">
 <!ENTITY regexps.accesskey "C">
 <!ENTITY regexps.url "http://www.aidejavascript.com/rubrique23.html">
 <!ENTITY about.label "À propos d'Adblock Plus">
 <!ENTITY about.accesskey "A">
 <!ENTITY disabled.warning "Adblock Plus est désactivée. Vous pouvez éditer vos filtres, mais ils ne seront appliqués qu'une fois Adblock Plus réactivée.">
-<!ENTITY description "Ajoutez les adresses que vous souhaitez bloquer, voyez le menu déroulant pour des suggestions d'adresse contenues dans cette page. Vous pouvez utiliser * comme joker pour créer des filtres plus généraux. Les utilisateurs plus expérimentés peuvent également utiliser des expressions régulières telles que /banner\d+\.gif$/">
+<!ENTITY description "Ajoutez les adresses que vous souhaitez bloquer, voyez le menu déroulant pour des suggestions d'adresses contenues dans cette page. Vous pouvez utiliser * comme joker pour créer des filtres plus généraux. Les utilisateurs plus expérimentés peuvent également utiliser des expressions régulières telles que /banner\d+\.gif$/">
 <!ENTITY newfilter.label "Nouveau filtre :">
 <!ENTITY newfilter.accesskey "N">
 <!ENTITY add.label "Ajouter le filtre">

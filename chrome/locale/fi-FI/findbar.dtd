@@ -1,19 +1,14 @@
-<!-- LOCALIZATION NOTE : FILE This file contains the entities needed to -->
-<!-- LOCALIZATION NOTE : FILE use the Find Bar. --> 
-
-<!-- entities split out from browser.dtd -->
-<!ENTITY find.label  "Etsi:">
-<!ENTITY findNext.label  "Etsi seuraava">
-<!ENTITY findNext.accesskey  "s">
-<!ENTITY findNext.tooltip  "Etsi seuraava osuma">
-<!ENTITY findPrevious.label  "Etsi edellinen">
-<!ENTITY findPrevious.accesskey  "d">
-<!ENTITY findPrevious.tooltip  "Etsi edellinen osuma">
-<!ENTITY findCloseButton.tooltip  "Sulje etsintäpalkki">
-<!ENTITY highlight.label  "Korosta kaikki">
-<!ENTITY highlight.accesskey  "K">
-<!ENTITY highlight.tooltip  "Korosta kaikki osumat (Ctrl+Enter)">
-<!ENTITY highlight.macTooltip "Korosta kaikki osumat (Komento+Return)">
-<!ENTITY caseSensitiveCheckbox.label  "Huomioi kirjainkoko">
-<!ENTITY caseSensitiveCheckbox.accesskey  "H">
-
+<!ENTITY find.label "Etsi:">
+<!ENTITY findNext.label "Etsi seuraava">
+<!ENTITY findNext.accesskey "s">
+<!ENTITY findNext.tooltip "Etsi seuraava">
+<!ENTITY findPrevious.label "Etsi edellinen">
+<!ENTITY findPrevious.accesskey "d">
+<!ENTITY findPrevious.tooltip "Etsi edellinen osuma">
+<!ENTITY findCloseButton.tooltip "Sulje etsintäpalkki">
+<!ENTITY highlight.label "Korosta kaikki">
+<!ENTITY highlight.accesskey "K">
+<!ENTITY highlight.tooltip "Korosta kaikki osumat (Ctrl+Enter)">
+<!ENTITY highlight.macTooltip "Korosta kaikki osumat (Cmd+Return)">
+<!ENTITY caseSensitiveCheckbox.label "Huomio kirjainkoko">
+<!ENTITY caseSensitiveCheckbox.accesskey "H">
