@@ -35,11 +35,11 @@
 <!ENTITY showinstatusbar.accesskey "s">
 <!ENTITY localpages.label "Blochează reclamele în paginile locale">
 <!ENTITY localpages.accesskey "B">
-<!ENTITY objecttabs.label "Activează panourile obiectelor">
+<!ENTITY objecttabs.label "Arată panouri lângă Flash şi Java">
 <!ENTITY objecttabs.accesskey "p">
 <!ENTITY collapse.label "Ascunde elementele blocate">
 <!ENTITY collapse.accesskey "c">
-<!ENTITY linkcheck.label "Verifică legăturile bannerelor">
+<!ENTITY linkcheck.label "Verifică legăturile banerelor">
 <!ENTITY linkcheck.accesskey "V">
 <!ENTITY help.label "Ajutor">
 <!ENTITY help.accesskey "A">

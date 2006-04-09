@@ -23,7 +23,7 @@
 <!ENTITY remove.accesskey "P">
 <!ENTITY menu.find.label "Etsi">
 <!ENTITY menu.find.accesskey "E">
-<!ENTITY menu.findagain.label "Etsi uudelleen">
+<!ENTITY menu.findagain.label "Etsi seuraava">
 <!ENTITY menu.findagain.accesskey "t">
 <!ENTITY options.label "Valinnat">
 <!ENTITY options.accesskey "V">
