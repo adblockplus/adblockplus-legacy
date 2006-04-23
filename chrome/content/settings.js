@@ -357,7 +357,7 @@ function onListKeyPress(e) {
   if (treeView.isEditing())
     return;
 
-  if (e.keyCode == e.DOM_VK_RETURN || e.keyCode == e.DOM_VK_ENTER) {
+  if (e.keyCode == e.DOM_VK_RETURN || e.keyCode == e.DOM_VK_ENTER || e.keyCode == e.DOM_VK_F2) {
     e.preventDefault();
     if (editFilter(''))
       e.stopPropagation();
