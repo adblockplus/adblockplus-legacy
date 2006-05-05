@@ -64,7 +64,7 @@
 <!ENTITY add.accesskey "G">
 <!ENTITY pattern.column "Ruolo del filtro">
 <!ENTITY hitcount.column "Accessi">
-<!ENTITY enabled.column "Attivata">
+<!ENTITY enabled.column "Attivato">
 <!ENTITY context.edit.label "Modifica filtro">
 <!ENTITY context.resethitcount.label "Ripristina le statistiche di accesso per il filtro">
 <!ENTITY context.synchsubscription.label "Aggiorna la sottoscrizione ora">
