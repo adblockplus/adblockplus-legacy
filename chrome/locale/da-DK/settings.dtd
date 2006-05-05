@@ -49,7 +49,7 @@
 <!ENTITY tips.label "Dagens Tip">
 <!ENTITY tips.accesskey "T">
 <!ENTITY tips.url "http://adblockplus.mozdev.org/tips.html">
-<!ENTITY regexps.label "Skrive reulære udtryk (RegExp)">
+<!ENTITY regexps.label "Skrive regulære udtryk (RegExp)">
 <!ENTITY regexps.accesskey "X">
 <!ENTITY regexps.url "http://developer.mozilla.org/en/docs/Core_JavaScript_1.5_Guide:Regular_Expressions#Writing_a_Regular_Expression_Pattern">
 <!ENTITY about.label "Om Adblock Plus">
