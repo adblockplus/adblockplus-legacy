@@ -26,7 +26,7 @@
 <!ENTITY notloaded.tooltip      "Adblock Plus component couldn't be loaded, maybe it didn't install properly">
 
 <!ENTITY menuitem.label         "Adblock Plus">
-<!ENTITY menuitem.accesskey     "A">
+<!ENTITY menuitem.accesskey     "B">
 
 <!ENTITY context.image.label    "Adblock Image">
 <!ENTITY context.object.label   "Adblock Object">
