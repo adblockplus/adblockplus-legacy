@@ -1,0 +1,22 @@
+<!ENTITY notloaded.label        "로드되지 않음">
+<!ENTITY notloaded.tooltip      "설치가 올바르지 않아 Adblock Plus 요소를 로드할 수 없습니다.">
+
+<!ENTITY menuitem.label         "Adblock Plus">
+<!ENTITY menuitem.accesskey     "B">
+
+<!ENTITY context.image.label    "Adblock 이미지">
+<!ENTITY context.object.label   "Adblock 객체">
+<!ENTITY context.link.label     "Adblock 링크">
+<!ENTITY context.frame.label    "Adblock 프레임">
+
+<!ENTITY menuitem.sidebar.title "Adblock Plus: 차단 가능한 항목">
+<!ENTITY sidebar.title          "현재 페이지에서 차단 가능한 항목">
+
+<!ENTITY settings.label         "설정">
+<!ENTITY settings.accesskey     "F">
+<!ENTITY opensidebar.label      "차단 가능한 항목 열기">
+<!ENTITY opensidebar.accesskey  "B">
+<!ENTITY closesidebar.label     "차단 가능한 항목 닫기">
+<!ENTITY closesidebar.accesskey "B">
+<!ENTITY whitelist.site.label   "사이트에서 차단하기 --">
+<!ENTITY whitelist.page.label   "이 페이지에서만 차단하기">

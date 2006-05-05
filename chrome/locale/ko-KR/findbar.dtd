@@ -1,0 +1,19 @@
+<!-- LOCALIZATION NOTE : FILE This file contains the entities needed to -->
+<!-- LOCALIZATION NOTE : FILE use the Find Bar. --> 
+
+<!-- entities split out from browser.dtd -->
+<!ENTITY find.label "찾기:">
+<!ENTITY findNext.label "다음 찾기">
+<!ENTITY findNext.accesskey "N">
+<!ENTITY findNext.tooltip "다음 문장에서 검색어를 찾습니다.">
+<!ENTITY findPrevious.label "이전 찾기">
+<!ENTITY findPrevious.accesskey "P">
+<!ENTITY findPrevious.tooltip "이전 문장에서 검색어를 찾습니다.">
+<!ENTITY findCloseButton.tooltip "검색창을 닫습니다.">
+<!ENTITY highlight.label "모두 강조하기">
+<!ENTITY highlight.accesskey "a">
+<!ENTITY highlight.tooltip "찾은 검색어를 모두 강조합니다. (Ctrl+Enter)">
+<!ENTITY highlight.macTooltip "찾은 검색어를 모두 강조합니다. (Cmd+Return)">
+<!ENTITY caseSensitiveCheckbox.label "일치하기">
+<!ENTITY caseSensitiveCheckbox.accesskey "c">
+
