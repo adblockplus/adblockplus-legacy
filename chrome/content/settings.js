@@ -172,6 +172,10 @@ function cleanUp() {
   prefs.removeHitCountListener(onHitCountChange);
   synchronizer.removeListener(synchCallback);
   flasher.stop();
+
+  var filterSuggestions = document.getElementById("newfilter");
+  filterSuggestions.inputField.removeEventListener("input", onInputChange, false);
+  filterSuggestions.inputField.unwatch("value");
 }
 
 function createDescription(label, flex) {
