@@ -119,7 +119,7 @@
   </menupopup>
   <!-- firefox tools menu -->
   <menupopup id="menu_ToolsPopup">
-    <menuitem label="&menuitem.label;..." accesskey="&menuitem.accesskey;" key="abp-key-settings" insertbefore="devToolsSeparator" oncommand="abpSettings()"/>
+    <menuitem label="&menuitem.label;..." accesskey="&menuitem.accesskey;" key="abp-key-settings" insertafter="javascriptConsole" oncommand="abpSettings()"/>
   </menupopup> 
 
   <!-- common context-menu -->
