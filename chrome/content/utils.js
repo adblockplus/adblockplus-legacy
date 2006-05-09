@@ -320,7 +320,7 @@ function addObjectTab(insecNode, location, insecWnd) {
     secureLookup(insecNode, "parentNode", "appendChild")(tab);
 }
 
-// Sets a timeout, compatible with both nsITimer and nsIScriptableTimer
+// Sets a timeout, comparable to the usual setTimeout function
 function createTimer(callback, delay) {
   var timer = Components.classes["@mozilla.org/timer;1"];
   timer = timer.createInstance(Components.interfaces.nsITimer);
