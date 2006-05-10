@@ -28,5 +28,11 @@
         <abp:url>http://maltekraus.de/Firefox/adblock.txt</abp:url>
       </RDF:Description>
     </RDF:li>
+    <RDF:li>
+      <RDF:Description>
+        <abp:title>RU AdList (Россия)</abp:title>
+        <abp:url>http://denis-ovs.narod.ru/adblock.txt</abp:url>
+      </RDF:Description>
+    </RDF:li>
   </RDF:Seq>
 </RDF:RDF>
