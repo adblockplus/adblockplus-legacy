@@ -186,6 +186,10 @@ var elemhide = {
         var parts = domain.split(",");
         rule = '@-moz-document domain("' + domain.split(",").join('"),domain("') + '"){\n' + rule + '}\n';
       }
+      else {
+        // Only allow unqualified rules on HTTP and HTTPS to prevent them from blocking chrome
+        rule = '@-moz-document url-prefix("http://"),url-prefix("https://"){\n' + rule + '}\n';
+      }
       cssData += rule;
     }
 
