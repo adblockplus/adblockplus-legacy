@@ -44,8 +44,17 @@ function abpInit() {
 
   // Process preferences
   abpReloadPrefs();
-  if (abp)
+  if (abp) {
     abpPrefs.addListener(abpReloadPrefs);
+
+    // Make sure we always configure keys but don't let them break anything
+    try {
+      // Configure keys
+      for (var key in abpPrefs)
+        if (key.match(/(.*)_key$/))
+          abpConfigureKey(RegExp.$1, abpPrefs[key]);
+    } catch(e) {}
+  }
 
   // Install context menu handler
   document.getElementById("contentAreaContextMenu").addEventListener("popupshowing", abpCheckContext, false);
@@ -95,11 +104,6 @@ function abpInit() {
   }
   copyMenu(document.getElementById("abp-toolbarbutton"));
   copyMenu(abpGetPaletteButton());
-
-  // Configure keys
-  for (var key in abpPrefs)
-    if (key.match(/(.*)_key$/))
-      abpConfigureKey(RegExp.$1, abpPrefs[key]);
 }
 
 function abpUnload() {
@@ -196,7 +200,8 @@ function abpConfigureKey(key, value) {
       element.setAttribute("keycode", "VK_" + parts[i].toUpperCase());
   }
   element.setAttribute("modifiers", modifiers.join(","));
-  element.setAttribute("disabled", !element.hasAttribute("key") && !element.hasAttribute("keycode"));
+  if (!element.hasAttribute("key") && !element.hasAttribute("keycode"))
+    element.setAttribute("keycode", "none");
 }
 
 // Finds the toolbar button in the toolbar palette
