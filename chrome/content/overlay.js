@@ -77,7 +77,7 @@ function abpInit() {
 
   // Fix sidebar key for Mozilla/SeaMonkey
   var sidebarKey = document.getElementById("abp-key-sidebar");
-  if (!document.getElementById(sidebarKey.getAttribute("command")))
+  if (sidebarKey && !document.getElementById(sidebarKey.getAttribute("command")))
     sidebarKey.removeAttribute("command");
 
   // Copy the menu from status bar icon to the toolbar
@@ -201,7 +201,7 @@ function abpConfigureKey(key, value) {
   }
   element.setAttribute("modifiers", modifiers.join(","));
   if (!element.hasAttribute("key") && !element.hasAttribute("keycode"))
-    element.setAttribute("keycode", "none");
+    element.parentNode.removeChild(element);
 }
 
 // Finds the toolbar button in the toolbar palette

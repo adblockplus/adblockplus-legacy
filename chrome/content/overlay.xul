@@ -64,9 +64,9 @@
       </popup>
     </popupset>
     <keyset id="abp-keyset">
-      <key id="abp-key-settings" oncommand="abpSettings()" keycode="none"/>
-      <key id="abp-key-sidebar" command="viewAdblockPlusSidebar" oncommand="abpToggleSidebar()" keycode="none"/>
-      <key id="abp-key-enable" oncommand="abpTogglePref('enabled')" keycode="none"/>
+      <key id="abp-key-settings" oncommand="abpSettings()"/>
+      <key id="abp-key-sidebar" command="viewAdblockPlusSidebar" oncommand="abpToggleSidebar()"/>
+      <key id="abp-key-enable" oncommand="abpTogglePref('enabled')"/>
     </keyset>
   </window>
 
