@@ -75,15 +75,15 @@
 <!ENTITY help.label                 "Hilfe">
 <!ENTITY help.accesskey             "H">
 
-<!ENTITY faq.label                  "Häufig gestellte Fragen (Englisch)">
+<!ENTITY faq.label                  "Häufig gestellte Fragen">
 <!ENTITY faq.accesskey              "F">
-<!ENTITY faq.url                    "http://adblockplus.mozdev.org/faq.html">
-<!ENTITY tips.label                 "Tipp des Tages (Englisch)">
+<!ENTITY faq.url                    "http://adblockplus.mozdev.org/de/faq.html">
+<!ENTITY tips.label                 "Tipp des Tages">
 <!ENTITY tips.accesskey             "T">
-<!ENTITY tips.url                   "http://adblockplus.mozdev.org/tips.html">
-<!ENTITY regexps.label              "Reguläre Ausdrücke erstellen (Englisch)">
+<!ENTITY tips.url                   "http://adblockplus.mozdev.org/de/tips.html">
+<!ENTITY regexps.label              "Reguläre Ausdrücke erstellen">
 <!ENTITY regexps.accesskey          "G">
-<!ENTITY regexps.url                "http://developer.mozilla.org/en/docs/Core_JavaScript_1.5_Guide:Regular_Expressions#Writing_a_Regular_Expression_Pattern">
+<!ENTITY regexps.url                "http://de.wikipedia.org/wiki/Regex#Anwendung_regul.C3.A4rer_Ausdr.C3.BCcke">
 <!ENTITY about.label                "Über Adblock Plus">
 <!ENTITY about.accesskey            "B">
 
