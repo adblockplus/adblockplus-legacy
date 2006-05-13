@@ -2,7 +2,7 @@
 <!ENTITY dialog.newtitle "Dodawanie subskrypcji filtrów">
 <!ENTITY new.description "
 	Proszę wprowadzić adres strony sieciowej lub pliku zawierającego
-        filtry Adblock Plusa.
+				filtry Adblock Plusa.
 ">
 <!ENTITY edit.description "
 	Lista filtrów będzie pobierana

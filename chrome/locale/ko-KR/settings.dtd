@@ -1,90 +1,77 @@
-<!ENTITY dialog.title               "Adblock Plus 설정">
-
-<!ENTITY filters.label              "필터">
-<!ENTITY filters.accesskey          "F">
-
-<!ENTITY addsubscription.label      "서명 추가">
-<!ENTITY addsubscription.accesskey  "S">
-<!ENTITY import.label               "필터 가져오기">
-<!ENTITY import.accesskey           "M">
-<!ENTITY export.label               "필터 내보내기">
-<!ENTITY export.accesskey           "X">
-<!ENTITY clearall.label             "모든 필터 제거">
-<!ENTITY clearall.accesskey         "L">
-<!ENTITY resethitcounts.label       "통계 초기화">
-<!ENTITY resethitcounts.accesskey   "R">
-
-<!ENTITY edit.label                 "편집">
-<!ENTITY edit.accesskey             "E">
-
-<!ENTITY cut.label                  "잘라내기">
-<!ENTITY cut.accesskey              "T">
-<!ENTITY copy.label                 "복사">
-<!ENTITY copy.accesskey             "C">
-<!ENTITY paste.label                "붙여넣기">
-<!ENTITY paste.accesskey            "P">
-<!ENTITY remove.label               "삭제">
-<!ENTITY remove.accesskey           "D">
-<!ENTITY menu.find.label            "찾기">
-<!ENTITY menu.find.accesskey        "F">
-<!ENTITY menu.findagain.label       "다시 찾기">
-<!ENTITY menu.findagain.accesskey   "G">
-
-<!ENTITY options.label              "옵션">
-<!ENTITY options.accesskey          "O">
-
-<!ENTITY enable.label               "Adblock Plus 사용하기">
-<!ENTITY enable.accesskey           "N">
-<!ENTITY showintoolbar.label        "도구 모음에 보이기">
-<!ENTITY showintoolbar.accesskey    "B">
-<!ENTITY showinstatusbar.label      "상태바에 보이기">
-<!ENTITY showinstatusbar.accesskey  "S">
-<!ENTITY localpages.label           "로컬 페이지에서 원격 광고 차단하기">
-<!ENTITY localpages.accesskey       "R">
-<!ENTITY objecttabs.label           "플래쉬와 자바를 탭으로 보이기">
-<!ENTITY objecttabs.accesskey       "T">
-<!ENTITY collapse.label             "차단된 항목 감추기">
-<!ENTITY collapse.accesskey         "L">
-<!ENTITY linkcheck.label            "배너 링크 확인하기">
-<!ENTITY linkcheck.accesskey        "C">
-
-<!ENTITY help.label                 "도움말">
-<!ENTITY help.accesskey             "H">
-
-<!ENTITY faq.label                  "자주 묻는 질문">
-<!ENTITY faq.accesskey              "F">
-<!ENTITY faq.url                    "http://adblockplus.mozdev.org/faq.html">
-<!ENTITY tips.label                 "오늘의 팁">
-<!ENTITY tips.accesskey             "T">
-<!ENTITY tips.url                   "http://adblockplus.mozdev.org/tips.html">
-<!ENTITY regexps.label              "정규표현식 쓰기">
-<!ENTITY regexps.accesskey          "X">
-<!ENTITY regexps.url                "http://developer.mozilla.org/en/docs/Core_JavaScript_1.5_Guide:Regular_Expressions#Writing_a_Regular_Expression_Pattern">
-<!ENTITY about.label                "Adblock Plus에 대하여">
-<!ENTITY about.accesskey            "B">
-
-<!ENTITY disabled.warning           "Adblock Plus 사용이 해제되었습니다. 편집된 필터는 Adblock Plus가 사용 가능한 상태로 될 때 적용됩니다.">
-
-<!ENTITY description                "
-    차단하고자 하는 주소를 추가하십시오.
-    일반적인 필터는 '*'을 사용할 수 있습니다.
-    고급 사용자는 정규표현식을 사용할 수 있습니다.(예: /banner\d+\.gif$/)
+<!ENTITY dialog.title "Adblock Plus 설정">
+<!ENTITY filters.label "필터">
+<!ENTITY filters.accesskey "F">
+<!ENTITY addsubscription.label "서명 추가">
+<!ENTITY addsubscription.accesskey "S">
+<!ENTITY import.label "필터 가져오기">
+<!ENTITY import.accesskey "M">
+<!ENTITY export.label "필터 내보내기">
+<!ENTITY export.accesskey "X">
+<!ENTITY clearall.label "모든 필터 제거">
+<!ENTITY clearall.accesskey "L">
+<!ENTITY resethitcounts.label "통계 초기화">
+<!ENTITY resethitcounts.accesskey "R">
+<!ENTITY edit.label "편집">
+<!ENTITY edit.accesskey "E">
+<!ENTITY cut.label "잘라내기">
+<!ENTITY cut.accesskey "T">
+<!ENTITY copy.label "복사">
+<!ENTITY copy.accesskey "C">
+<!ENTITY paste.label "붙여넣기">
+<!ENTITY paste.accesskey "P">
+<!ENTITY remove.label "삭제">
+<!ENTITY remove.accesskey "D">
+<!ENTITY menu.find.label "찾기">
+<!ENTITY menu.find.accesskey "F">
+<!ENTITY menu.findagain.label "다시 찾기">
+<!ENTITY menu.findagain.accesskey "G">
+<!ENTITY options.label "옵션">
+<!ENTITY options.accesskey "O">
+<!ENTITY enable.label "Adblock Plus 사용하기">
+<!ENTITY enable.accesskey "N">
+<!ENTITY showintoolbar.label "도구 모음에 보이기">
+<!ENTITY showintoolbar.accesskey "B">
+<!ENTITY showinstatusbar.label "상태바에 보이기">
+<!ENTITY showinstatusbar.accesskey "S">
+<!ENTITY localpages.label "로컬 페이지에서 원격 광고 차단하기">
+<!ENTITY localpages.accesskey "R">
+<!ENTITY objecttabs.label "플래쉬와 자바를 탭으로 보이기">
+<!ENTITY objecttabs.accesskey "T">
+<!ENTITY collapse.label "차단된 항목 감추기">
+<!ENTITY collapse.accesskey "L">
+<!ENTITY linkcheck.label "배너 링크 확인하기">
+<!ENTITY linkcheck.accesskey "C">
+<!ENTITY help.label "도움말">
+<!ENTITY help.accesskey "H">
+<!ENTITY faq.label "자주 묻는 질문">
+<!ENTITY faq.accesskey "F">
+<!ENTITY faq.url "http://adblockplus.mozdev.org/faq.html">
+<!ENTITY tips.label "오늘의 팁">
+<!ENTITY tips.accesskey "T">
+<!ENTITY tips.url "http://adblockplus.mozdev.org/tips.html">
+<!ENTITY regexps.label "정규표현식 쓰기">
+<!ENTITY regexps.accesskey "X">
+<!ENTITY regexps.url "http://developer.mozilla.org/en/docs/Core_JavaScript_1.5_Guide:Regular_Expressions#Writing_a_Regular_Expression_Pattern">
+<!ENTITY about.label "Adblock Plus에 대하여">
+<!ENTITY about.accesskey "B">
+<!ENTITY disabled.warning "Adblock Plus 사용이 해제되었습니다. 편집된 필터는 Adblock Plus가 사용 가능한 상태로 될 때 적용됩니다.">
+<!ENTITY description "
+		차단하고자 하는 주소를 추가하십시오.
+		일반적인 필터는 '*'을 사용할 수 있습니다.
+		고급 사용자는 정규표현식을 사용할 수 있습니다.(예: /banner\d+\.gif$/)
 ">
-
-<!ENTITY newfilter.label            "새 필터:">
-<!ENTITY newfilter.accesskey        "N">
-<!ENTITY add.label                  "추가">
-<!ENTITY add.accesskey              "A">
-
-<!ENTITY pattern.column             "필터 규칙">
-<!ENTITY hitcount.column            "히트">
-<!ENTITY enabled.column             "사용">
-
-<!ENTITY context.edit.label         "필터 편집">
-<!ENTITY context.resethitcount.label      "히트 통계 초기화">
-<!ENTITY context.synchsubscription.label  "지금 필터 업데이트">
-<!ENTITY context.editsubscription.label   "서명 편집">
-<!ENTITY context.moveup.label       "위로">
-<!ENTITY context.movedown.label     "아래로">
-<!ENTITY context.movegroupup.label        "그룹 위로">
-<!ENTITY context.movegroupdown.label      "그룹 아래로">
+<!ENTITY newfilter.label "새 필터:">
+<!ENTITY newfilter.accesskey "N">
+<!ENTITY add.label "추가">
+<!ENTITY add.accesskey "A">
+<!ENTITY pattern.column "필터 규칙">
+<!ENTITY hitcount.column "히트">
+<!ENTITY enabled.column "사용">
+<!ENTITY context.edit.label "필터 편집">
+<!ENTITY context.resethitcount.label "히트 통계 초기화">
+<!ENTITY context.synchsubscription.label "지금 필터 업데이트">
+<!ENTITY context.editsubscription.label "서명 편집">
+<!ENTITY context.moveup.label "위로">
+<!ENTITY context.movedown.label "아래로">
+<!ENTITY context.movegroupup.label "그룹 위로">
+<!ENTITY context.movegroupdown.label "그룹 아래로">
