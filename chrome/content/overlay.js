@@ -680,6 +680,27 @@ function abpCheckContext() {
         insecImage = secureGet(insecImage, "parentNode");
       }
     }
+
+    // Hide "Block Images from ..." if hideimagemanager pref is true and the image manager isn't already blocking something
+    var imgManagerContext = document.getElementById("context-blockimage");
+    if (imgManagerContext) {
+      var hasEntries = false;
+      if (abpPrefs.hideimagemanager) {
+        try {
+          var permissionManager = Components.classes["@mozilla.org/permissionmanager;1"]
+                                            .getService(Components.interfaces.nsIPermissionManager);
+          var enumerator = permissionManager.enumerator;
+          while (!hasEntries && enumerator.hasMoreElements()) {
+            var item = enumerator.getNext().QueryInterface(Components.interfaces.nsIPermission);
+            if (item.type == "image" && item.capability == Components.interfaces.nsIPermissionManager.DENY_ACTION)
+              hasEntries = true;
+          }
+        } catch(e) {}
+      }
+
+      // Don't use "hidden" attribute - it might be overridden by the default popupshowing handler
+      imgManagerContext.style.display = (abpPrefs.hideimagemanager && !hasEntries ? "none" : "");
+    }
   }
 
   gContextMenu.showItem('abp-image-menuitem', nodeType == "IMAGE" || gContextMenu.abpBgData != null);
