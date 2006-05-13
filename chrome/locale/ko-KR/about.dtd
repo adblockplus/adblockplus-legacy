@@ -1,13 +1,11 @@
-<!ENTITY dialog.title       "Adblock Plus에 대하여">
-
-<!ENTITY caption.title      "Adblock Plus">
-<!ENTITY version.title      "버전">
-<!ENTITY description        "
-  Adblock Plus는 원치않는 광고를 제거합니다.
-  더 이상 광고 또는 배너를 다운로드할 필요가 없습니다.
-  이제 Adblock Plus에게 알려주십시오!
+<!ENTITY dialog.title "Adblock Plus에 대하여">
+<!ENTITY caption.title "Adblock Plus">
+<!ENTITY version.title "버전">
+<!ENTITY description "
+	Adblock Plus는 원치않는 광고를 제거합니다.
+	더 이상 광고 또는 배너를 다운로드할 필요가 없습니다.
+	이제 Adblock Plus에게 알려주십시오!
 ">
-
-<!ENTITY homepage.label     "Adblock Plus 홈페이지:">
-<!ENTITY author.label       "제작자:">
+<!ENTITY homepage.label "Adblock Plus 홈페이지:">
+<!ENTITY author.label "제작자:">
 <!ENTITY contributors.label "배포자:">

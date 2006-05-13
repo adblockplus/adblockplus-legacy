@@ -1,7 +1,7 @@
 <!ENTITY notloaded.label "Non chargée">
 <!ENTITY notloaded.tooltip "Échec du chargement d'un composant d'Adblock Plus, il a peut-être été mal installé.">
 <!ENTITY menuitem.label "Adblock Plus">
-<!ENTITY menuitem.accesskey "A">
+<!ENTITY menuitem.accesskey "b">
 <!ENTITY context.image.label "Bloquer l'image avec Adblock">
 <!ENTITY context.object.label "Bloquer l'objet avec Adblock">
 <!ENTITY context.link.label "Bloquer le lien avec Adblock">

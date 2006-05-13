@@ -1,0 +1,24 @@
+<!ENTITY detached.title "Adblock Plus: รายการที่บล็อกได้ (ถูกแยกออก)">
+<!ENTITY detach.label "แยกออก">
+<!ENTITY reattach.label "แนบซ้ำ">
+<!ENTITY search.label "ค้นหา:">
+<!ENTITY search.accesskey "S">
+<!ENTITY type.label "ชนิด">
+<!ENTITY address.label "ที่อยู่">
+<!ENTITY filter.label "ตัวกรอง">
+<!ENTITY state.label "สถานะ">
+<!ENTITY noitems.label "ไม่มีรายการที่บล็อกได้">
+<!ENTITY notremote.label "ไม่ใช่หน้ารีโมต">
+<!ENTITY whitelisted.label "หน้ารายชื่อโปร่งใส">
+<!ENTITY notloaded.label "Adblock Plus ไม่ถูกติดตั้งอย่างถูกต้อง">
+<!ENTITY tooltip.address.label "ที่อยู่:">
+<!ENTITY tooltip.type.label "ชนิด:">
+<!ENTITY tooltip.type.blocked "(ถูกบล็อก)">
+<!ENTITY tooltip.type.whitelisted "(รายชื่อโปร่งใส)">
+<!ENTITY tooltip.filter.label "ตัวกรองในผลกระทบ:">
+<!ENTITY context.block.label "บล็อกรายการนี้">
+<!ENTITY context.editfilter.label "แก้ไขตัวกรองในผลกระทบ">
+<!ENTITY context.whitelist.label "เพิ่มข้อยกเว้นสำหรับรายการ">
+<!ENTITY context.open.label "เปิดในแท็บใหม่">
+<!ENTITY context.flash.label "ขอบของรายการแฟลช">
+<!ENTITY context.copy.label "คัดลอกที่อยู่รายการ">

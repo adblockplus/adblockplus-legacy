@@ -1,0 +1,14 @@
+<!ENTITY find.label "ค้นหา:">
+<!ENTITY findNext.label "ค้นหาถัดไป">
+<!ENTITY findNext.accesskey "N">
+<!ENTITY findNext.tooltip "ค้นหาหาสิ่งที่เกิดขึ้นถัดไปของวลี">
+<!ENTITY findPrevious.label "ค้นหาก่อนหน้า">
+<!ENTITY findPrevious.accesskey "P">
+<!ENTITY findPrevious.tooltip "ค้นหาหาสิ่งที่เกิดขึ้นก่อนหน้าของวลี">
+<!ENTITY findCloseButton.tooltip "ปิดแถบค้นหา">
+<!ENTITY highlight.label "เน้นข้อความทั้งหมด">
+<!ENTITY highlight.accesskey "a">
+<!ENTITY highlight.tooltip "เ้น้นข้อความที่เกิดขึ้นทั้งหมดของวลี (Ctrl+Enter)">
+<!ENTITY highlight.macTooltip "เน้นข้อความที่เกิดขึ้นทั้งหมดของวลี (Cmd+Return)">
+<!ENTITY caseSensitiveCheckbox.label "ตรงตามตัวใหญ่เล็ก">
+<!ENTITY caseSensitiveCheckbox.accesskey "c">

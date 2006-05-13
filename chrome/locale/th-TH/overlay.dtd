@@ -1,0 +1,18 @@
+<!ENTITY notloaded.label "ไม่โหลด">
+<!ENTITY notloaded.tooltip "ส่วนประกอบ Adblock Plus ไม่ถูกโหลด อาจจะไม่ถูกติดตั้งอย่างถูกต้อง">
+<!ENTITY menuitem.label "Adblock Plus">
+<!ENTITY menuitem.accesskey "B">
+<!ENTITY context.image.label "Adblock รูปภาพ">
+<!ENTITY context.object.label "Adblock สิ่งของ">
+<!ENTITY context.link.label "Adblock ลิงก์">
+<!ENTITY context.frame.label "Adblock กรอบความ">
+<!ENTITY menuitem.sidebar.title "Adblock Plus: รายการที่บล็อกได้">
+<!ENTITY sidebar.title "รายการที่บล็อกได้ในหน้าล่าสุด">
+<!ENTITY settings.label "ปรับแต่ง">
+<!ENTITY settings.accesskey "F">
+<!ENTITY opensidebar.label "เปิดรายการที่บล็อกได้">
+<!ENTITY opensidebar.accesskey "B">
+<!ENTITY closesidebar.label "ปิดรายการที่บล็อกได้">
+<!ENTITY closesidebar.accesskey "B">
+<!ENTITY whitelist.site.label "ปิดการใช้งาน --">
+<!ENTITY whitelist.page.label "ปิดการใช้งานเฉพาะหน้านี้">
