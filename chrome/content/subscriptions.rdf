@@ -25,7 +25,7 @@
     <RDF:li>
       <RDF:Description>
         <abp:title>Filter von Dr.Evil (Deutschland)</abp:title>
-        <abp:url>http://maltekraus.de/Firefox/adblock.txt</abp:url>
+        <abp:url>http://maltekraus.de/Firefox/adblock.php</abp:url>
       </RDF:Description>
     </RDF:li>
     <RDF:li>
