@@ -36,6 +36,7 @@ var abpPrefs = abp ? abp.prefs : {enabled: false};
 var abpDetachedSidebar = null;
 var abpForceDetach = false;
 var abpOldShowInToolbar = abpPrefs.showintoolbar;
+var abpHideImageManager;
 
 window.addEventListener("load", abpInit, false);
 
@@ -104,6 +105,8 @@ function abpInit() {
   }
   copyMenu(document.getElementById("abp-toolbarbutton"));
   copyMenu(abpGetPaletteButton());
+
+  setTimeout(abpInitImageManagerHiding, 0);
 }
 
 function abpUnload() {
@@ -170,6 +173,26 @@ function abpReloadPrefs() {
       button.setAttribute("popup", button.getAttribute("context"));
     else
       button.removeAttribute("popup");
+  }
+}
+
+function abpInitImageManagerHiding() {
+  if (!abp || typeof abpHideImageManager != "undefined")
+    return;
+
+  abpHideImageManager = false;
+  if (abpPrefs.hideimagemanager) {
+    try {
+      abpHideImageManager = true;
+      var permissionManager = Components.classes["@mozilla.org/permissionmanager;1"]
+                                        .getService(Components.interfaces.nsIPermissionManager);
+      var enumerator = permissionManager.enumerator;
+      while (abpHideImageManager && enumerator.hasMoreElements()) {
+        var item = enumerator.getNext().QueryInterface(Components.interfaces.nsIPermission);
+        if (item.type == "image" && item.capability == Components.interfaces.nsIPermissionManager.DENY_ACTION)
+          abpHideImageManager = false;
+      }
+    } catch(e) {}
   }
 }
 
@@ -684,22 +707,11 @@ function abpCheckContext() {
     // Hide "Block Images from ..." if hideimagemanager pref is true and the image manager isn't already blocking something
     var imgManagerContext = document.getElementById("context-blockimage");
     if (imgManagerContext) {
-      var hasEntries = false;
-      if (abpPrefs.hideimagemanager) {
-        try {
-          var permissionManager = Components.classes["@mozilla.org/permissionmanager;1"]
-                                            .getService(Components.interfaces.nsIPermissionManager);
-          var enumerator = permissionManager.enumerator;
-          while (!hasEntries && enumerator.hasMoreElements()) {
-            var item = enumerator.getNext().QueryInterface(Components.interfaces.nsIPermission);
-            if (item.type == "image" && item.capability == Components.interfaces.nsIPermissionManager.DENY_ACTION)
-              hasEntries = true;
-          }
-        } catch(e) {}
-      }
+      if (typeof abpHideImageManager == "undefined")
+        abpInitImageManagerHiding();
 
       // Don't use "hidden" attribute - it might be overridden by the default popupshowing handler
-      imgManagerContext.style.display = (abpPrefs.hideimagemanager && !hasEntries ? "none" : "");
+      imgManagerContext.style.display = (abpHideImageManager ? "none" : "");
     }
   }
 
