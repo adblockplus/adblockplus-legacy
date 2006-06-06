@@ -1,0 +1,73 @@
+<!ENTITY dialog.title "Preferències d&apos;Adblock Plus">
+<!ENTITY filters.label "Filtres">
+<!ENTITY filters.accesskey "F">
+<!ENTITY addsubscription.label "Afegir subscripció al filtre">
+<!ENTITY addsubscription.accesskey "S">
+<!ENTITY import.label "Importar filtres">
+<!ENTITY import.accesskey "M">
+<!ENTITY export.label "Exportar Filtres">
+<!ENTITY export.accesskey "X">
+<!ENTITY clearall.label "Eliminar tots els filtres">
+<!ENTITY clearall.accesskey "L">
+<!ENTITY resethitcounts.label "Reinicia les estadístiques d&apos;encerts">
+<!ENTITY resethitcounts.accesskey "R">
+<!ENTITY edit.label "Edita">
+<!ENTITY edit.accesskey "E">
+<!ENTITY cut.label "Retalla">
+<!ENTITY cut.accesskey "X">
+<!ENTITY copy.label "Copia">
+<!ENTITY copy.accesskey "C">
+<!ENTITY paste.label "Enganxa">
+<!ENTITY paste.accesskey "x">
+<!ENTITY remove.label "Suprimeix">
+<!ENTITY remove.accesskey "u">
+<!ENTITY menu.find.label "Cerca">
+<!ENTITY menu.find.accesskey "R">
+<!ENTITY menu.findagain.label "Torna a cercar">
+<!ENTITY menu.findagain.accesskey "T">
+<!ENTITY options.label "Opcions">
+<!ENTITY options.accesskey "O">
+<!ENTITY enable.label "Habilita Adblock Plus">
+<!ENTITY enable.accesskey "H">
+<!ENTITY showintoolbar.label "Mostra a la barra d&apos;eines">
+<!ENTITY showintoolbar.accesskey "B">
+<!ENTITY showinstatusbar.label "Mostra a la barra d&apos;estat">
+<!ENTITY showinstatusbar.accesskey "S">
+<!ENTITY localpages.label "Bloqueja anuncis remots a pàgines locals">
+<!ENTITY localpages.accesskey "R">
+<!ENTITY objecttabs.label "Mostra les pestanyes a Flash i Java">
+<!ENTITY objecttabs.accesskey "T">
+<!ENTITY collapse.label "Plega els elements bloquejats">
+<!ENTITY collapse.accesskey "L">
+<!ENTITY linkcheck.label "Comprova els enllaços de les pancartes">
+<!ENTITY linkcheck.accesskey "C">
+<!ENTITY help.label "Ajuda">
+<!ENTITY help.accesskey "u">
+<!ENTITY faq.label "Preguntes més demanades (FAQ)">
+<!ENTITY faq.accesskey "F">
+<!ENTITY faq.url "http://adblockplus.mozdev.org/faq.html">
+<!ENTITY tips.label "Pista del dia">
+<!ENTITY tips.accesskey "T">
+<!ENTITY tips.url "http://adblockplus.mozdev.org/tips.html">
+<!ENTITY regexps.label "Escrivint expressions regulars">
+<!ENTITY regexps.accesskey "X">
+<!ENTITY regexps.url "http://developer.mozilla.org/en/docs/Core_JavaScript_1.5_Guide:Regular_Expressions#Writing_a_Regular_Expression_Pattern">
+<!ENTITY about.label "Sobre Adblock Plus">
+<!ENTITY about.accesskey "B">
+<!ENTITY disabled.warning "Adblock Plus està deshabilitat. Pots editar qualsevol filtre de la llista, però no s&apos;aplicaran fins que l&apos;habilitis">
+<!ENTITY description "Afegeix les adreces que desitgis bloquejar, per suggerències comprova la llista desplegable. Pots utilitzar * com a comodí per crear filtres més generals. Usuaris avançats poden utilitzar expressions regulars com /banner\d+\.gif$/.">
+<!ENTITY newfilter.label "Nou filtre">
+<!ENTITY newfilter.accesskey "N">
+<!ENTITY add.label "Afegir filtre">
+<!ENTITY add.accesskey "A">
+<!ENTITY pattern.column "Regla de filtre">
+<!ENTITY hitcount.column "Encerts">
+<!ENTITY enabled.column "Habilitat">
+<!ENTITY context.edit.label "Edita filtre">
+<!ENTITY context.resethitcount.label "Reinicia estadístiques del filtre">
+<!ENTITY context.synchsubscription.label "Actualitza la subscripció ara">
+<!ENTITY context.editsubscription.label "Edita la subscripció">
+<!ENTITY context.moveup.label "Mou amunt">
+<!ENTITY context.movedown.label "Mou avall">
+<!ENTITY context.movegroupup.label "Mou grup amunt">
+<!ENTITY context.movegroupdown.label "Mou grup avall">

@@ -1,0 +1,24 @@
+<!ENTITY detached.title "Adblock Plus: Stavke koje se mogu blokirati (odvojene)">
+<!ENTITY detach.label "Odvoji">
+<!ENTITY reattach.label "Ponovno spoji">
+<!ENTITY search.label "Traži:">
+<!ENTITY search.accesskey "S">
+<!ENTITY type.label "Tip">
+<!ENTITY address.label "Adresa">
+<!ENTITY filter.label "Filter">
+<!ENTITY state.label "Status">
+<!ENTITY noitems.label "Nema stavki koje se mogu blokirati">
+<!ENTITY notremote.label "Nije udaljena stranica">
+<!ENTITY whitelisted.label "Stranica koja je na bijelom popisu">
+<!ENTITY notloaded.label "Adblock Plus nije pravilno instaliran">
+<!ENTITY tooltip.address.label "Adresa:">
+<!ENTITY tooltip.type.label "Tip:">
+<!ENTITY tooltip.type.blocked "(blokiran)">
+<!ENTITY tooltip.type.whitelisted "(na bijelom popisu)">
+<!ENTITY tooltip.filter.label "Filter u upotrebi:">
+<!ENTITY context.block.label "Blokiraj ovu stavku">
+<!ENTITY context.editfilter.label "Uredi filter u upotrebi">
+<!ENTITY context.whitelist.label "Dodaj pravilo izuzimanja za stavku">
+<!ENTITY context.open.label "Otvori u novoj kartici">
+<!ENTITY context.flash.label "Osvijetli granice stavke">
+<!ENTITY context.copy.label "Kopiraj adresu stavke">
