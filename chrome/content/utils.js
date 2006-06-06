@@ -244,6 +244,14 @@ function generateClickHandler(insecWnd, location) {
 
 // Creates a tab above/below the new object node
 function addObjectTab(insecNode, location, insecWnd) {
+  var insecOffsetNode = insecNode;
+
+  var parentTag = secureGet(insecNode, "parentNode", "tagName");
+  if (parentTag && parentTag.toLowerCase() == "object") {
+    // Don't insert object tabs inside an outer object, causes ActiveX Plugin to do stupid things
+    insecNode = secureGet(insecNode, "parentNode");
+  }
+
   // Prevent readding tabs to elements that already have one
   if (secureGet(insecNode, "nextSibling", "nodeType") == Node.ELEMENT_NODE &&
       secureLookup(insecNode, "nextSibling", "hasAttribute")("AdblockTab"))
@@ -255,7 +263,7 @@ function addObjectTab(insecNode, location, insecWnd) {
 
   // Decide whether to display the tab on top or the bottom of the object
   var offsetTop = 0;
-  for (var insecOffsetNode = insecNode; insecOffsetNode; insecOffsetNode = secureGet(insecOffsetNode, "offsetParent"))
+  for (; insecOffsetNode; insecOffsetNode = secureGet(insecOffsetNode, "offsetParent"))
     offsetTop += secureGet(insecOffsetNode, "offsetTop");
 
   var onTop = (offsetTop > 40);
@@ -302,7 +310,7 @@ function addObjectTab(insecNode, location, insecWnd) {
   tab.style.height = "0px";
   tab.style.left = "0px";
   tab.style.paddingLeft = secureGet(insecNode, "offsetWidth") + "px";
-  tab.style.top = (onTop ? -secureGet(insecNode, "offsetHeight") + "px" : "0px");
+  tab.style.top = "0px";
   tab.style.zIndex = 65535;
   tab.style.MozOpacity = "0.5";
 
@@ -313,11 +321,15 @@ function addObjectTab(insecNode, location, insecWnd) {
   label.addEventListener("click", generateClickHandler(insecWnd, location), false);
 
   // Insert tab into the document
-  var nextSibling = secureGet(insecNode, "nextSibling");
-  if (nextSibling)
-    secureLookup(insecNode, "parentNode", "insertBefore")(tab, nextSibling);
-  else
-    secureLookup(insecNode, "parentNode", "appendChild")(tab);
+  if (onTop)
+    secureLookup(insecNode, "parentNode", "insertBefore")(tab, insecNode);
+  else {
+    var nextSibling = secureGet(insecNode, "nextSibling");
+    if (nextSibling)
+      secureLookup(insecNode, "parentNode", "insertBefore")(tab, nextSibling);
+    else
+      secureLookup(insecNode, "parentNode", "appendChild")(tab);
+  }
 }
 
 // Sets a timeout, comparable to the usual setTimeout function
