@@ -1,0 +1,18 @@
+<!ENTITY notloaded.label "No carregat">
+<!ENTITY notloaded.tooltip "El component Adblock Plus no s&apos;ha pogut carregar, potser no s&apos;ha instal.lat correctament">
+<!ENTITY menuitem.label "Adblock Plus">
+<!ENTITY menuitem.accesskey "B">
+<!ENTITY context.image.label "Adblock imatge">
+<!ENTITY context.object.label "Adblock Objecte">
+<!ENTITY context.link.label "Adblock enllaç">
+<!ENTITY context.frame.label "Adblock Marc">
+<!ENTITY menuitem.sidebar.title "Adblock Plus: Elements bloquejables">
+<!ENTITY sidebar.title "Elements bloquejable a la pàgina actual">
+<!ENTITY settings.label "Preferècies">
+<!ENTITY settings.accesskey "F">
+<!ENTITY opensidebar.label "Obre elements bloquejables">
+<!ENTITY opensidebar.accesskey "B">
+<!ENTITY closesidebar.label "Tanca elements bloquejables">
+<!ENTITY closesidebar.accesskey "B">
+<!ENTITY whitelist.site.label "Deshabilita a --">
+<!ENTITY whitelist.page.label "Deshabilita només en aquesta pàgina">

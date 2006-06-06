@@ -1,0 +1,24 @@
+<!ENTITY detached.title "AdBlock Plus: Elements Bloquejables (Separat)">
+<!ENTITY detach.label "Separar">
+<!ENTITY reattach.label "Reenganxar">
+<!ENTITY search.label "Cercar">
+<!ENTITY search.accesskey "r">
+<!ENTITY type.label "Tipus">
+<!ENTITY address.label "Adreça">
+<!ENTITY filter.label "Filtre">
+<!ENTITY state.label "Estat">
+<!ENTITY noitems.label "Elements no bloquejables">
+<!ENTITY notremote.label "No és una pàgina remota">
+<!ENTITY whitelisted.label "Pàgina a la llista de permesos">
+<!ENTITY notloaded.label "AdBlock Plus no ha estat instal.lat correctament">
+<!ENTITY tooltip.address.label "Adreça">
+<!ENTITY tooltip.type.label "Tipus">
+<!ENTITY tooltip.type.blocked "(bloquejat)">
+<!ENTITY tooltip.type.whitelisted "(a la llista de permesos)">
+<!ENTITY tooltip.filter.label "Filtre actiu">
+<!ENTITY context.block.label "Bloqueja aquest element">
+<!ENTITY context.editfilter.label "Editar filtre actiu">
+<!ENTITY context.whitelist.label "Afegeix regla d&apos;excepció per l&apos;element">
+<!ENTITY context.open.label "Obrir en una nova pestanya">
+<!ENTITY context.flash.label "Pampalluguejar vores de l&apos;element">
+<!ENTITY context.copy.label "Copia l&apos;adreça de l&apos;element">
