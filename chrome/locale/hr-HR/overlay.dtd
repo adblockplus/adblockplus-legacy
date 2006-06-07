@@ -9,7 +9,7 @@
 <!ENTITY menuitem.sidebar.title "Adblock Plus: Stavke koje se mogu blokirati">
 <!ENTITY sidebar.title "Stavke koje se mogu blokirati na trenutnoj stranici">
 <!ENTITY settings.label "Postavke">
-<!ENTITY settings.accesskey "F">
+<!ENTITY settings.accesskey "T">
 <!ENTITY opensidebar.label "Otvori stavke koje se mogu blokirati">
 <!ENTITY opensidebar.accesskey "B">
 <!ENTITY closesidebar.label "Zatvori stavke koje se mogu blokirati">

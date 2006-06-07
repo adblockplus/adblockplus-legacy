@@ -2,7 +2,7 @@
 <!ENTITY detach.label "Odvoji">
 <!ENTITY reattach.label "Ponovno spoji">
 <!ENTITY search.label "Traži:">
-<!ENTITY search.accesskey "S">
+<!ENTITY search.accesskey "T">
 <!ENTITY type.label "Tip">
 <!ENTITY address.label "Adresa">
 <!ENTITY filter.label "Filter">
