@@ -34,7 +34,7 @@
 <!ENTITY showinstatusbar.label "Prikaži u statusnoj traci">
 <!ENTITY showinstatusbar.accesskey "s">
 <!ENTITY localpages.label "Blokiraj udaljene oglase na lokalnim stranicama">
-<!ENTITY localpages.accesskey "b">
+<!ENTITY localpages.accesskey "d">
 <!ENTITY objecttabs.label "Prikaži kartice na Flashu i Javi">
 <!ENTITY objecttabs.accesskey "k">
 <!ENTITY collapse.label "Sažmi blokirane elemente">
