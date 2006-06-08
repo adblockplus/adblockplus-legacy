@@ -33,6 +33,7 @@ var querySeed = Math.random();    // Make sure our queries can't be detected
 function DataContainer(insecWnd) {
   this.locations = {};
   this.subdocs = [];
+  this.lastSelection = null;
   this.install(insecWnd);
 }
 abp.DataContainer = DataContainer;
