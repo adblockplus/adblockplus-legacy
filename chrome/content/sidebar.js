@@ -83,8 +83,8 @@ function init() {
     // Retrieve data for the window
     wndData = DataContainer.getDataForWindow(window.content);
     treeView.setData(wndData.getAllLocations());
-    if (params && params.selected) {
-      treeView.selectItem(params.selected);
+    if (wndData.lastSelection) {
+      treeView.selectItem(wndData.lastSelection);
       onSelectionChange();
     }
 
@@ -120,6 +120,10 @@ function onSelectionChange() {
     document.getElementById("copy-command").removeAttribute("disabled");
   else
     document.getElementById("copy-command").setAttribute("disabled", "true");
+  if (item && wndData) {
+    wndData.lastSelection = item;
+    dump("selection: " + wndData.lastSelection.location + "\n");
+  }
   flasher.flash(item ? item.inseclNodes : null);
 }
 
@@ -157,6 +161,10 @@ function handleItemChange(insecWnd, type, data, item) {
 function handleTabChange() {
   wndData = DataContainer.getDataForWindow(window.content);
   treeView.setData(wndData.getAllLocations());
+  if (wndData.lastSelection) {
+    treeView.selectItem(wndData.lastSelection);
+    onSelectionChange();
+  }
 }
 
 // Fills a box with text splitting it up into multiple lines if necessary
@@ -302,7 +310,6 @@ function saveState() {
     focused = focused.parentNode;
 
   var params = {
-    selected: treeView.getSelectedItem(),
     filter: treeView.filter,
     focus: (focused ? focused.id : null)
   };
