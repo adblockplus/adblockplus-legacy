@@ -1940,6 +1940,7 @@ var treeView = {
   editedRow: -1,
   editorKeyPressHandler: null,
   editorBlurHandler: null,
+  prevChangedStatus: null,
 
   setEditor: function(editor) {
     this.editor = editor;
@@ -1976,6 +1977,9 @@ var treeView = {
     var info = this.getRowInfo(row);
     if (!info || !info[0].special || !info[1] || typeof info[1] == "string")
       return false;
+
+    // Store status of OK button
+    this.prevChangedStatus = document.documentElement.getButton("accept").hasAttribute("disabled");
 
     var col = ("columns" in this.boxObject ? this.boxObject.columns.getPrimaryColumn() : "pattern");
     var cellX = {};
@@ -2015,6 +2019,7 @@ var treeView = {
       editor.field = document.commandDispatcher.focusedElement;
       editor.field.addEventListener("keypress", handler1, false);
       editor.field.addEventListener("blur", handler2, false);
+      editor.field.addEventListener("input", onChange, false);
     }, 0, this.editor, this.editorKeyPressHandler, this.editorBlurHandler);
 
     return true;
@@ -2024,8 +2029,13 @@ var treeView = {
     if (this.editedRow < 0)
       return;
 
+    // Restore status of OK button
+    if (!save && this.prevChangedStatus)
+      document.documentElement.getButton("accept").setAttribute("disabled", "true");
+
     this.editor.field.removeEventListener("keypress", this.editorKeyPressHandler, false);
     this.editor.field.removeEventListener("blur", this.editorBlurHandler, false);
+    this.editor.field.removeEventListener("input", onChange, false);
 
     var text = abp.normalizeFilter(this.editor.value);
     this.editor.value = "";
