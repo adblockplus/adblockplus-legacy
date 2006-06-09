@@ -1,7 +1,7 @@
 <!ENTITY notloaded.label "Ei ladattu">
 <!ENTITY notloaded.tooltip "Adblock Plussan komponenttia ei voitu ladata, ehkä se ei asentunut oikein">
 <!ENTITY menuitem.label "Adblock Plus">
-<!ENTITY menuitem.accesskey "A">
+<!ENTITY menuitem.accesskey "d">
 <!ENTITY context.image.label "Estä kuva Adblockilla">
 <!ENTITY context.object.label "Estä kohde Adblockilla">
 <!ENTITY context.link.label "Estä linkki Adblockilla">
