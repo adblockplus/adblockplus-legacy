@@ -56,7 +56,7 @@
 <!ENTITY about.accesskey "O">
 <!ENTITY disabled.warning "Adblock Plus je vypnutý. Môžete upraviť filtre v zozname, ale tie nebudú potvrdené po znovuzapnutí.">
 <!ENTITY description "Pridať adresu,ktorú chcete blokovať, návrhy skontrolujte v rozbaľovacej ponuke.
-		Môžete použiť * ako divokú kartu na vytvorenie všeobecných filtrov. Pokročilí užívatelia môžu
+		Môžete použiť * ako divokú kartu na vytvorenie všeobecných filtrov. Pokročilí používatelia môžu
 		použiť regulárne výrazy ako /banner\d+\.gif$/.">
 <!ENTITY newfilter.label "Nový filter:">
 <!ENTITY newfilter.accesskey "N">
