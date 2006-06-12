@@ -27,6 +27,8 @@
 <!ENTITY filters.label              "Filters">
 <!ENTITY filters.accesskey          "F">
 
+<!ENTITY add.label                  "Add filter">
+<!ENTITY add.accesskey              "A">
 <!ENTITY addsubscription.label      "Add filter subscription">
 <!ENTITY addsubscription.accesskey  "S">
 <!ENTITY import.label               "Import filters">
@@ -94,11 +96,6 @@
     You can use * as a wildcard to create more general filters. Advanced users can
     use regular expressions like /banner\d+\.gif$/.
 ">
-
-<!ENTITY newfilter.label            "New filter:">
-<!ENTITY newfilter.accesskey        "N">
-<!ENTITY add.label                  "Add filter">
-<!ENTITY add.accesskey              "A">
 
 <!ENTITY pattern.column             "Filter rule">
 <!ENTITY hitcount.column            "Hits">

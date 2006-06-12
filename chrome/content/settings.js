@@ -45,10 +45,14 @@ if (abp) {
 else
   window.close();   // Extension manager opened us without checking whether we are installed properly
 
+var newFilterLabel = null;
+var editorTimeout = null;
+
 // Preference window initialization
 function init() {
   document.getElementById("disabledWarning").hidden = prefs.enabled;
-  document.documentElement.getButton("accept").setAttribute("disabled", "true");
+
+  newFilterLabel = document.documentElement.getAttribute("buttonlabelextra2")
 
   // Use our own findBar.css only if the default isn't there
   var findBarOk = false;
@@ -69,11 +73,11 @@ function init() {
   prefs.addHitCountListener(onHitCountChange);
   synchronizer.addListener(synchCallback);
 
-  var filterSuggestions = document.getElementById("newfilter");
-  filterSuggestions.inputField.addEventListener("input", onInputChange, false);
+  var editor = document.getElementById("listEditor");
+  editor.inputField.addEventListener("input", onInputChange, false);
 
   // List selection doesn't fire input event, have to register a property watcher
-  filterSuggestions.inputField.watch("value", onInputChange);
+  editor.inputField.watch("value", onInputChange);
 
   // Capture keypress events - need to get them before the tree does
   document.getElementById("listStack").addEventListener("keypress", onListKeyPress, true);
@@ -98,7 +102,6 @@ function init() {
   // Initialize tree view
   document.getElementById("list").view = treeView;
 
-  var editor = document.getElementById("listEditor");
   editor.height = editor.boxObject.height;
   editor.parentNode.hidden = true;
   document.getElementById("listStack").appendChild(editor.parentNode);
@@ -107,7 +110,7 @@ function init() {
   treeView.ensureSelection(0);
 
   // Set the focus to the input field by default
-  filterSuggestions.focus();
+  document.getElementById("list").focus();
 
   // Fire post-load handlers
   var e = document.createEvent("Events");
@@ -119,7 +122,7 @@ function setContentWindow(insecContentWnd) {
   if (!abp)
     return;
 
-  var filterSuggestions = document.getElementById("newfilter");
+  var editor = document.getElementById("listEditor");
 
   insecWnd = insecContentWnd;
   wndData = null;
@@ -149,19 +152,25 @@ function setContentWindow(insecContentWnd) {
   }
 
   // Initialize filter suggestions dropdown
-  filterSuggestions.removeAllItems();
+  editor.removeAllItems();
   suggestionItems = [];
   for (var i = 0; i < data.length; i++)
-    createFilterSuggestion(filterSuggestions, data[i]);
+    createFilterSuggestion(editor, data[i]);
 }
 
 function setLocation(location) {
-  var filterSuggestions = document.getElementById("newfilter");
-  filterSuggestions.label = filterSuggestions.value = location;
-  filterSuggestions.focus();
+  treeView.stopEditor(true);
+  treeView.editorDummyInit = location;
+  treeView.selectRow(0);
+  editorTimeout = setTimeout(function() {
+    treeView.startEditor();
+  }, 0);
 }
 
 function selectPattern(pattern) {
+  if (editorTimeout != null)
+    clearTimeout(editorTimeout);
+
   treeView.selectPattern(pattern.text);
   document.getElementById("list").focus();
 }
@@ -173,9 +182,9 @@ function cleanUp() {
   synchronizer.removeListener(synchCallback);
   flasher.stop();
 
-  var filterSuggestions = document.getElementById("newfilter");
-  filterSuggestions.inputField.removeEventListener("input", onInputChange, false);
-  filterSuggestions.inputField.unwatch("value");
+  var editor = document.getElementById("listEditor");
+  editor.inputField.removeEventListener("input", onInputChange, false);
+  editor.inputField.unwatch("value");
 }
 
 function createDescription(label, flex) {
@@ -213,7 +222,7 @@ function fixColWidth() {
 }
 
 function onInputChange(prop, oldval, newval) {
-  var value = (typeof newval == "string" ? newval : document.getElementById("newfilter").inputField.value);
+  var value = (typeof newval == "string" ? newval : document.getElementById("editor").inputField.value);
   var loc = wndData.getLocation(value);
   flasher.flash(loc ? loc.inseclNodes : null);
   return newval;
@@ -221,20 +230,23 @@ function onInputChange(prop, oldval, newval) {
 
 // Adds the filter entered into the input field to the list
 function addFilter() {
-  var filterSuggestions = document.getElementById("newfilter");
-  if (!filterSuggestions.value)
-    return false;
-
-  var filter = abp.normalizeFilter(filterSuggestions.value);
-  if (!filter)
-    return false;
-
-  // Issue a warning if we got a regular expression
-  if (!/^(@@)?\/.*\/$/.test(filter) || regexpWarning()) {
-    filterSuggestions.label = filterSuggestions.value = "";
-    treeView.addPattern(filter);
+  var info = treeView.getRowInfo(treeView.selection.currentIndex);
+  if (info && info[0].special) {
+    // Insert editor dummy before an editable pattern
+    var pos = (info[1] ? info[1].origPos : 0);
+    for (var i = 0; i < info[0].patterns.length; i++) {
+      var pattern = info[0].patterns[i];
+      if (pattern.origPos >= pos)
+        pattern.origPos++;
+    }
+    info[0].nextPos++;
+    treeView.addPattern(null, info[0], info[1] ? pos : -1);
   }
-  return true;
+  else {
+    // Use default editor dummy
+    treeView.selectRow(0);
+  }
+  treeView.startEditor();
 }
 
 // Removes all filters from the list (after a warning).
@@ -347,14 +359,6 @@ function exportList() {
   }
 }
 
-// Handles keypress event on the new filter input field
-function onFilterKeyPress(e) {
-  if ((e.keyCode == e.DOM_VK_RETURN || e.keyCode == e.DOM_VK_ENTER) && addFilter()) {
-    e.preventDefault();
-    e.stopPropagation();
-  }
-}
-
 // Handles keypress event on the patterns list
 function onListKeyPress(e) {
   // Ignore any keys directed to the editor
@@ -368,6 +372,8 @@ function onListKeyPress(e) {
   }
   else if (e.keyCode == e.DOM_VK_BACK_SPACE || e.keyCode == e.DOM_VK_DELETE)
     removeFilters('');
+  else if (e.keyCode == e.DOM_VK_INSERT)
+    addFilter();
   else if (e.charCode == 32 && !document.getElementById("enabled").hidden) {
     var forceValue = undefined;
     for (var i = 0; i < treeView.selection.getRangeCount(); i++) {
@@ -417,6 +423,7 @@ function synchCallback(orig, status) {
   var row, rowCount;
   if (!subscription && status == "add") {
     subscription = cloneObject(orig);
+    subscription.dummy = false;
     row = treeView.rowCount;
     rowCount = 0;
     treeView.data.push(subscription);
@@ -472,6 +479,7 @@ function editSubscription(subscription) {
 
   if (!newSubscription) {
     newSubscription = cloneObject(orig);
+    newSubscription.dummy = false;
     treeView.data.push(newSubscription);
   }
   
@@ -484,8 +492,6 @@ function editSubscription(subscription) {
 
   treeView.invalidateSubscription(newSubscription, row, rowCount);
   treeView.selectSubscription(newSubscription);
-
-  onChange();
 
   if (!orig.lastDownload)
     synchronizer.execute(orig);
@@ -790,11 +796,6 @@ function openAbout() {
   openDialog("about.xul", "_blank", "chrome,centerscreen,modal");
 }
 
-// To be called whenever the filter list has been changed and needs saving
-function onChange() {
-  document.documentElement.getButton("accept").removeAttribute("disabled");
-}
-
 // Creates a copy of an object by copying all its properties
 function cloneObject(obj) {
   var ret = {};
@@ -886,7 +887,7 @@ var treeView = {
     var i, j, subscription;
 
     var stringAtoms = ["col-pattern", "col-hitcount", "col-enabled", "type-comment", "type-filterlist", "type-whitelist", "type-elemhide", "type-invalid"];
-    var boolAtoms = ["selected", "subscription", "description", "pattern", "subscription-special", "subscription-external", "subscription-autoDownload", "subscription-disabled", "pattern-disabled"];
+    var boolAtoms = ["selected", "dummy", "subscription", "description", "pattern", "subscription-special", "subscription-external", "subscription-autoDownload", "subscription-disabled", "pattern-disabled"];
     var atomService = Components.classes["@mozilla.org/atom-service;1"]
                                 .getService(Components.interfaces.nsIAtomService);
 
@@ -901,10 +902,23 @@ var treeView = {
     this.typemap = new abp.HashTable();
     this.disabled = new abp.HashTable();
     this.data = [];
+
+    // Push new filter dummy
+    this.data.push({
+      url: "",
+      title: newFilterLabel,
+      dummy: true,
+      special: false,
+      disabled: false,
+      extra: [],
+      patterns: []
+    });
+
     for (i = 0; i < prefs.subscriptions.length; i++) {
       this.data.push(cloneObject(prefs.subscriptions[i]));
       subscription = this.data[this.data.length - 1];
       subscription.extra = this.getSubscriptionDescription(subscription);
+      subscription.dummy = false;
 
       this.initSubscriptionPatterns(subscription, subscription.patterns);
       for (j = 0; j < subscription.patterns.length; j++)
@@ -924,6 +938,7 @@ var treeView = {
       var pattern = cloneObject(prefs.userPatterns[i]);
       pattern.orig = prefs.userPatterns[i];
       pattern.origPos = subscription.nextPos++;
+      pattern.dummy = false;
       subscription.patterns.push(pattern);
 
       if (pattern.disabled)
@@ -1014,7 +1029,7 @@ var treeView = {
     else if (col == "hitcount")
       return null;
     else if (!info[1])
-      return (info[0].special ? "" : this.titlePrefix) + info[0].title;
+      return (info[0].special || info[0].dummy ? "" : this.titlePrefix) + info[0].title;
     else
       return info[1];
   },
@@ -1043,12 +1058,15 @@ var treeView = {
     properties.AppendElement(this.atoms["subscription-external-" + (!info[0].special && info[0].external)]);
     properties.AppendElement(this.atoms["subscription-autoDownload-" + (info[0].special || info[0].autoDownload)]);
     properties.AppendElement(this.atoms["subscription-disabled-" + (!info[0].special && info[0].disabled)]);
+    var dummy = info[0].dummy;
     if (info[1] && typeof info[1] != "string") {
+      dummy = info[1].dummy;
       if (info[1].type != "comment" && info[1].type != "invalid")
         properties.AppendElement(this.atoms["pattern-disabled-" + this.disabled.has(info[1].text)]);
       if ("type-" + info[1].type in this.atoms)
         properties.AppendElement(this.atoms["type-" + info[1].type]);
     }
+    properties.AppendElement(this.atoms["dummy-" + dummy]);
   },
 
   getCellProperties: function(row, col, properties)
@@ -1168,7 +1186,7 @@ var treeView = {
     }
     else {
       // Dragging a subscription
-      return true;
+      return (!info[0].dummy || orientation == this.DROP_AFTER);
     }
   },
   canDropOn: function() {
@@ -1307,6 +1325,7 @@ var treeView = {
       var pattern = cloneObject(patterns[i]);
       pattern.orig = patterns[i];
       pattern.origPos = subscription.nextPos++;
+      pattern.dummy = false;
       subscription.patterns.push(pattern);
     }
 
@@ -1414,6 +1433,11 @@ var treeView = {
       this.data[i].patterns.sort(this.sortProc);
   },
 
+  selectRow: function(row) {
+    treeView.selection.select(row);
+    treeView.boxObject.ensureRowIsVisible(row);
+  },
+
   selectPattern: function(text) {
     for (var i = 0; i < this.data.length; i++) {
       for (var j = 0; j < this.data[i].patterns.length; j++) {
@@ -1464,7 +1488,7 @@ var treeView = {
 
   isFirstSubscription: function(subscription) {
     for (var i = 0; i < this.data.length; i++) {
-      if (this.data[i].special && this.data[i].patterns.length == 0)
+      if (this.data[i].dummy || (this.data[i].special && this.data[i].patterns.length == 0))
         continue;
 
       return (this.data[i] == subscription);
@@ -1474,7 +1498,7 @@ var treeView = {
 
   isLastSubscription: function(subscription) {
     for (var i = this.data.length - 1; i >= 0; i--) {
-      if (this.data[i].special && this.data[i].patterns.length == 0)
+      if (this.data[i].dummy || (this.data[i].special && this.data[i].patterns.length == 0))
         continue;
 
       return (this.data[i] == subscription);
@@ -1486,37 +1510,71 @@ var treeView = {
   addPattern: function(text, origSubscription, origPos, noSelect) {
     var i, parentRow
 
-    var pattern = prefs.patternFromText(text);
-    if (!pattern || !treeView.typemap.has(pattern.type))
-      return;
-  
-    var subscription = treeView.typemap.get(pattern.type);
-    if (typeof origSubscription == "undefined" || typeof origPos == "undefined" || origSubscription != subscription)
-      origPos = -1;
-  
-    // Maybe we have this pattern already, check this
-    for (i = 0; i < subscription.patterns.length; i++) {
-      if (subscription.patterns[i].text == pattern.text) {
-        parentRow = this.getSubscriptionRow(subscription);
-        if (this.closed.has(subscription.url))
-          this.toggleOpenState(parentRow);
-
-        this.selection.select(parentRow + 1 + subscription.extra.length + i);
-        this.boxObject.ensureRowIsVisible(parentRow + 1 + subscription.extra.length + i);
+    if (text) {
+      // Real pattern being added, not a dummy
+      var pattern = prefs.patternFromText(text);
+      if (!pattern || !treeView.typemap.has(pattern.type))
         return;
+    
+      var subscription = treeView.typemap.get(pattern.type);
+      if (typeof origSubscription == "undefined" || typeof origPos == "undefined" || origSubscription != subscription)
+        origPos = -1;
+    
+      // Maybe we have this pattern already, check this
+      for (i = 0; i < subscription.patterns.length; i++) {
+        if (subscription.patterns[i].text == pattern.text) {
+          parentRow = this.getSubscriptionRow(subscription);
+          if (this.closed.has(subscription.url))
+            this.toggleOpenState(parentRow);
+  
+          this.selection.select(parentRow + 1 + subscription.extra.length + i);
+          this.boxObject.ensureRowIsVisible(parentRow + 1 + subscription.extra.length + i);
+          return;
+        }
+      }
+
+      var orig = pattern;
+      pattern = cloneObject(pattern);
+      pattern.orig = orig;
+      pattern.dummy = false;
+    }
+    else {
+      // Adding a dummy
+      pattern = {
+        text: "",
+        type: "dummy",
+        disabled: false,
+        dummy: true
+      };
+      subscription = origSubscription;
+
+      var topMost = false;
+      if (origPos < 0) {
+        // Inserting at list top
+        origPos = 0;
+        topMost = true;
       }
     }
 
-    var orig = pattern;
-    pattern = cloneObject(pattern);
-    pattern.orig = orig;
     pattern.origPos = (origPos >= 0 ? origPos : subscription.nextPos++);
 
     var pos = -1;
-    if (origPos >= 0 || this.sortProc != sortNatural)
-      for (i = 0; pos < 0 && i < subscription.patterns.length; i++)
-        if (this.sortProc(pattern, subscription.patterns[i]) < 0)
-          pos = i;
+    if (pattern.dummy) {
+      // Insert dummies at the exact position
+      if (topMost)
+        pos = 0;
+      else
+        for (i = 0; i < subscription.patterns.length; i++)
+          if (pattern.origPos < subscription.patterns[i].origPos && (pos < 0 || subscription.patterns[i].origPos < subscription.patterns[pos].origPos))
+            pos = i;
+    }
+    else {
+      // Insert patterns with respect to sorting
+      if (origPos >= 0 || this.sortProc != sortNatural)
+        for (i = 0; pos < 0 && i < subscription.patterns.length; i++)
+          if (this.sortProc(pattern, subscription.patterns[i]) < 0)
+            pos = i;
+    }
 
     if (pos < 0) {
       subscription.patterns.push(pattern);
@@ -1544,8 +1602,6 @@ var treeView = {
       this.selection.select(parentRow + 1 + subscription.extra.length + pos);
       this.boxObject.ensureRowIsVisible(parentRow + 1 + subscription.extra.length + pos);
     }
-
-    onChange();
   },
 
   // Removes a pattern or a complete subscription by its info
@@ -1577,7 +1633,6 @@ var treeView = {
           }
 
           this.ensureSelection(newSelection);
-          onChange();
           return;
         }
       }
@@ -1599,7 +1654,6 @@ var treeView = {
           this.boxObject.rowCountChanged(firstRow, -count);
 
           this.ensureSelection(firstRow);
-          onChange();
           return;
         }
       }
@@ -1667,7 +1721,7 @@ var treeView = {
       var current = index;
       for (i = index + step; i >= 0 && i < this.data.length && offset != 0; i += step) {
         // Ignore invisible groups
-        if (this.data[i].special && this.data[i].patterns.length == 0)
+        if (this.data[i].dummy || (this.data[i].special && this.data[i].patterns.length == 0))
           continue;
 
         tmp = this.data[i];
@@ -1693,13 +1747,12 @@ var treeView = {
       this.selection.select(this.getSubscriptionRow(info[0]));
       this.boxObject.ensureRowIsVisible(this.getSubscriptionRow(info[0]));
     }
-    onChange();
   },
 
   dragData: null,
   startDrag: function(row) {
     var info = this.getRowInfo(row);
-    if (!info)
+    if (!info || info[0].dummy || (info[1] && info[1].dummy))
       return;
 
     var array = Components.classes["@mozilla.org/supports-array;1"]
@@ -1743,9 +1796,9 @@ var treeView = {
 
   toggleDisabled: function(row, forceValue) {
     var info = treeView.getRowInfo(row);
-    if (!info || typeof info[1] == "string" || (!info[1] && info[0].special))
+    if (!info || typeof info[1] == "string" || (!info[1] && info[0].special) || info[0].dummy)
       return forceValue;
-    if (info[1] && (info[1].type == "comment" || info[1].type == "invalid"))
+    if (info[1] && (info[1].type == "comment" || info[1].type == "invalid") || info[1].dummy)
       return forceValue;
     if (info[1] && !info[0].special && info[0].disabled)
       return forceValue;
@@ -1775,7 +1828,6 @@ var treeView = {
           this.boxObject.invalidateRow(i);
       }
     }
-    onChange();
     return forceValue;
   },
 
@@ -1813,8 +1865,6 @@ var treeView = {
 
         subscription.patterns = [];
         this.boxObject.rowCountChanged(row, -count);
-
-        onChange();
       }
     }
     this.ensureSelection(0);
@@ -1824,6 +1874,9 @@ var treeView = {
     prefs.userPatterns = [];
     prefs.subscriptions = [];
     for (var i = 0; i < this.data.length; i++) {
+      if (this.data[i].dummy)
+        continue;
+
       var list = prefs.userPatterns;
       var subscription = prefs.knownSubscriptions.get(this.data[i].url);
       if (!subscription.special) {
@@ -1940,7 +1993,7 @@ var treeView = {
   editedRow: -1,
   editorKeyPressHandler: null,
   editorBlurHandler: null,
-  prevChangedStatus: null,
+  editorDummyInit: "",
 
   setEditor: function(editor) {
     this.editor = editor;
@@ -1975,11 +2028,9 @@ var treeView = {
 
     var row = this.selection.currentIndex;
     var info = this.getRowInfo(row);
-    if (!info || !info[0].special || !info[1] || typeof info[1] == "string")
+    var isDummy = info && (info[0].dummy || (info[1] && info[1].dummy));
+    if (!isDummy && (!info || !info[0].special || !info[1] || typeof info[1] == "string"))
       return false;
-
-    // Store status of OK button
-    this.prevChangedStatus = document.documentElement.getButton("accept").hasAttribute("disabled");
 
     var col = ("columns" in this.boxObject ? this.boxObject.columns.getPrimaryColumn() : "pattern");
     var cellX = {};
@@ -2009,17 +2060,18 @@ var treeView = {
     this.editor.parentNode.left = cellX.value;
     this.editor.parentNode.top = cellY.value + (cellHeight.value - this.editor.height)/2;
 
+    var text = (isDummy ? this.editorDummyInit : info[1].text);
+
     // Need a timeout here - Firefox 1.5 needs to initialize html:input
     setTimeout(function(editor, handler1, handler2) {
-      editor.value = info[1].text;
-      editor.setSelectionRange(editor.value.length, editor.value.length);
       editor.focus();
+      editor.field = document.commandDispatcher.focusedElement;
+      editor.field.value = text;
+      editor.field.setSelectionRange(editor.value.length, editor.value.length);
 
       // Need to attach handlers to the embedded html:input instead of textbox - won't catch blur otherwise
-      editor.field = document.commandDispatcher.focusedElement;
       editor.field.addEventListener("keypress", handler1, false);
       editor.field.addEventListener("blur", handler2, false);
-      editor.field.addEventListener("input", onChange, false);
     }, 0, this.editor, this.editorKeyPressHandler, this.editorBlurHandler);
 
     return true;
@@ -2029,35 +2081,47 @@ var treeView = {
     if (this.editedRow < 0)
       return;
 
-    // Restore status of OK button
-    if (!save && this.prevChangedStatus)
-      document.documentElement.getButton("accept").setAttribute("disabled", "true");
-
     this.editor.field.removeEventListener("keypress", this.editorKeyPressHandler, false);
     this.editor.field.removeEventListener("blur", this.editorBlurHandler, false);
-    this.editor.field.removeEventListener("input", onChange, false);
 
     var text = abp.normalizeFilter(this.editor.value);
-    this.editor.value = "";
-
     if (typeof blur == "undefined" || !blur)
       this.boxObject.treeBody.focus();
 
+    var info = this.getRowInfo(this.editedRow);
+    var isDummy = info && (info[0].dummy || (info[1] && info[1].dummy));
+
     if (save) {
-      var info = this.getRowInfo(this.editedRow);
-      if (text && text != info[1].text) {
-        this.removeRow(info);
-        this.addPattern(text, info[0], info[1].origPos);
+      if (text && (isDummy || text != info[1].text)) {
+        // Issue a warning if we got a regular expression
+        if (/^(@@)?\/.*\/$/.test(text) && !regexpWarning())
+          save = false;
+        else {
+          if (!isDummy || this.editedRow != 0)
+            this.removeRow(info);
+
+          if (info[1])
+            this.addPattern(text, info[0], info[1].origPos);
+          else
+            this.addPattern(text);
+        }
       }
       else
         save = false;
     }
 
-    if (!save)
-      this.selection.select(this.editedRow);
+    if (!save) {
+      if (isDummy && this.editedRow != 0)
+        this.removeRow(info);
+      else
+        this.selection.select(this.editedRow);
+    }
 
+    this.editor.field.value = "";
     this.editor.parentNode.hidden = true;
+
     this.editedRow = -1;
+    this.editorDummyInit = (save ? "" : text);
   }
 };
 

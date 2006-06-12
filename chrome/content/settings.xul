@@ -49,8 +49,11 @@
   onload="init()"
   onunload="cleanUp()"
   ondialogaccept="applyChanges()"
+  ondialogextra2="addFilter()"
   ondialoghelp="abp.loadInBrowser('&faq.url;')"
-  buttons="accept,cancel,help"
+  buttons="accept,cancel,help,extra2"
+  buttonlabelextra2="&add.label;..."
+  buttonaccesskeyextra2="&add.accesskey;"
   width="600px"
   height="450px"
   persist="screenX screenY width height sizemode"
@@ -74,6 +77,7 @@
   <key id="find-previous-key2" keycode="VK_F3" modifiers="shift" command="find-previous-command"/>
   <key id="edit-key" keycode="VK_ENTER"/>
   <key id="remove-key" keycode="VK_DELETE"/>
+  <key id="addfilter-key" keycode="VK_INSERT"/>
   <key id="moveup-key" keycode="VK_UP" modifiers="accel"/>
   <key id="movedown-key" keycode="VK_DOWN" modifiers="accel"/>
   <key id="movegroupup-key" keycode="VK_UP" modifiers="accel,shift"/>
@@ -117,6 +121,7 @@
   <menubar id="menu">
     <menu id="filters-menu" label="&filters.label;" accesskey="&filters.accesskey;">
       <menupopup id="filters-popup" onpopupshowing="fillFiltersPopup()">
+        <menuitem id="addfilter" label="&add.label;..." accesskey="&add.accesskey;" key="addfilter-key" oncommand="addFilter()"/>
         <menuitem id="addsubscription" label="&addsubscription.label;..." accesskey="&addsubscription.accesskey;" command="addsubscription-command"/>
         <menuseparator/>
         <menuitem id="import" label="&import.label;..." accesskey="&import.accesskey;" key="import-key" command="import-command"/>
@@ -169,17 +174,10 @@
   <description id="disabledWarning" hidden="true">
     &disabled.warning;
   </description>
-  <hbox align="center">
-    <label id="newfilterLabel" value="&newfilter.label;" accesskey="&newfilter.accesskey;" control="newfilter" />
-    <menulist id="newfilter" flex="1" editable="true" disableautoselect="true" onkeypress="onFilterKeyPress(event)" onpopupshowing="fixColWidth()">
-    <menupopup/>
-    </menulist>
-    <button id="newbutton" label="&add.label;" accesskey="&add.accesskey;" oncommand="addFilter();"/>
-  </hbox>
 </vbox>
 
 <vbox id="listarea" flex="1">
-  <deck><textbox id="listEditor"/></deck>
+  <deck><menulist id="listEditor" flex="1" editable="true" disableautoselect="true" onpopupshowing="fixColWidth()"><menupopup/></menulist></deck>
   <stack id="listStack" flex="1">
     <tree id="list" persist="closedSubscriptions" flex="1" seltype="multiple" enableColumnDrag="true" context="listitem-context">
       <treecols>
