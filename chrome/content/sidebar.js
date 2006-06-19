@@ -43,6 +43,8 @@ var mainWin = parent;
 // The window handler currently in use
 var wndData = null;
 
+var cacheSession = null;
+
 function init() {
   var list = document.getElementById("list");
   list.view = treeView;
@@ -211,7 +213,27 @@ function fillInTooltip(e) {
   if (filter)
     setMultilineContent(document.getElementById("tooltipFilter"), filter.text);
 
-  if (prefs.previewimages && !("tooltip" in item) && (item.typeDescr == "IMAGE" || item.typeDescr == "BACKGROUND") && (!item.filter || item.filter.type == "whitelist")) {
+  var showPreview = prefs.previewimages && !("tooltip" in item);
+  showPreview = showPreview && (item.typeDescr == "IMAGE" || item.typeDescr == "BACKGROUND");
+  showPreview = showPreview && (!item.filter || item.filter.type == "whitelist");
+  if (showPreview) {
+    // Check whether image is in cache (stolen from ImgLikeOpera)
+    if (!cacheSession) {
+      var cacheService = Components.classes["@mozilla.org/network/cache-service;1"]
+                                   .getService(Components.interfaces.nsICacheService);
+      cacheSession = cacheService.createSession("HTTP", Components.interfaces.nsICache.STORE_ANYWHERE, true);
+    }
+
+    try {
+      var descriptor = cacheSession.openCacheEntry(item.location, Components.interfaces.nsICache.ACCESS_READ, false);
+      descriptor.close();
+    }
+    catch (e) {
+      showPreview = false;
+    }
+  }
+
+  if (showPreview) {
     document.getElementById("tooltipPreviewBox").hidden = false;
     document.getElementById("tooltipPreview").setAttribute("src", "");
     document.getElementById("tooltipPreview").setAttribute("src", item.location);
