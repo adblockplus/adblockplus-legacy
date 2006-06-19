@@ -594,11 +594,11 @@ function abpDragHandler(e) {
     return;
 
   var link = null;
-  for (var insecNode = session.sourceNode; insecNode && !link; insecNode = secureGet(insecNode, "parentNode")) {
-    if (insecNode instanceof HTMLAnchorElement)
-      link = abp.unwrapURL(secureGet(insecNode, "href"));
-    else if (insecNode instanceof HTMLImageElement)
-      link = abp.unwrapURL(secureGet(insecNode, "src"));
+  for (var node = new XPCNativeWrapper(session.sourceNode); node && !link; node = node.parentNode) {
+    if (node instanceof HTMLAnchorElement)
+      link = abp.unwrapURL(node.href);
+    else if (node instanceof HTMLImageElement)
+      link = abp.unwrapURL(node.src);
   }
 
   if (e.type == "dragover")
@@ -646,7 +646,7 @@ function abpImageStyle(computedStyle, property) {
 
 // Hides the unnecessary context menu items on display
 function abpCheckContext() {
-  var insecTarget = gContextMenu.target;
+  var target = new XPCNativeWrapper(gContextMenu.target);
 
   var nodeType = null;
   gContextMenu.abpLinkData = null;
@@ -654,44 +654,45 @@ function abpCheckContext() {
   gContextMenu.abpFrameData = null;
   if (abp) {
     // Lookup the node in our stored data
-    var data = abp.getDataForNode(insecTarget);
+    var data = abp.getDataForNode(target);
     gContextMenu.abpData = data;
     if (data && !data.filter)
       nodeType = data.typeDescr;
 
-    var insecWnd = secureGet(insecTarget, "ownerDocument", "defaultView");
-    var wndData = abp.getDataForWindow(insecWnd);
+    var wnd = target.ownerDocument.defaultView;
+    var wndData = abp.getDataForWindow(wnd);
 
-    gContextMenu.abpFrameData = abp.getDataForNode(insecWnd);
+    gContextMenu.abpFrameData = abp.getDataForNode(wnd);
     if (gContextMenu.abpFrameData && gContextMenu.abpFrameData.filter)
       gContextMenu.abpFrameData = null;
 
     if (abpPrefs.linkcheck && nodeType && abp.policy.shouldCheckLinks(data.type)) {
       // Look for a parent link
-      var insecLink = insecTarget;
-      while (insecLink && !gContextMenu.abpLinkData) {
-        var link = abp.unwrapURL(secureGet(insecLink, "href"));
-        if (link) {
-          gContextMenu.abpLinkData = wndData.getLocation(link);
-          if (gContextMenu.abpLinkData && gContextMenu.abpLinkData.filter)
-            gContextMenu.abpLinkData = null;
+      var linkNode = target;
+      while (linkNode && !gContextMenu.abpLinkData) {
+        if ("href" in linkNode) {
+          var link = abp.unwrapURL(linkNode.href);
+          if (link) {
+            gContextMenu.abpLinkData = wndData.getLocation(link);
+            if (gContextMenu.abpLinkData && gContextMenu.abpLinkData.filter)
+              gContextMenu.abpLinkData = null;
+          }
         }
 
-        insecLink = secureGet(insecLink, "parentNode");
+        linkNode = linkNode.parentNode;
       }
 
-      if (insecLink)
-        gContextMenu.abpLink = abp.unwrapURL(secureGet(insecLink, "href"));
+      if (linkNode)
+        gContextMenu.abpLink = abp.unwrapURL(linkNode.href);
     }
 
     if (nodeType != "IMAGE") {
       // Look for a background image
-      var insecImage = insecTarget;
-      var getComputedStyle = secureLookup(insecWnd, "getComputedStyle");
-      while (insecImage && !gContextMenu.abpBgData) {
-        if (secureGet(insecImage, "nodeType") == Node.ELEMENT_NODE) {
+      var imageNode = target;
+      while (imageNode && !gContextMenu.abpBgData) {
+        if (imageNode.nodeType == Node.ELEMENT_NODE) {
           var bgImage = null;
-          var style = getComputedStyle(insecImage, "");
+          var style = wnd.getComputedStyle(imageNode, "");
           bgImage = abpImageStyle(style, "background-image") || abpImageStyle(style, "list-style-image");
           if (bgImage) {
             gContextMenu.abpBgData = wndData.getLocation(bgImage);
@@ -700,7 +701,7 @@ function abpCheckContext() {
           }
         }
 
-        insecImage = secureGet(insecImage, "parentNode");
+        imageNode = imageNode.parentNode;
       }
     }
 

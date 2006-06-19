@@ -124,7 +124,7 @@ function onSelectionChange() {
     wndData.lastSelection = item;
     dump("selection: " + wndData.lastSelection.location + "\n");
   }
-  flasher.flash(item ? item.inseclNodes : null);
+  flasher.flash(item ? item.nodes : null);
 }
 
 function handleItemChange(insecWnd, type, data, item) {
