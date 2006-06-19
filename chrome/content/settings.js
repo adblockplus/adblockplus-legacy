@@ -2120,8 +2120,8 @@ var treeView = {
 
     if (save) {
       if (text && (isDummy || text != info[1].text)) {
-        // Issue a warning if we got a regular expression
-        if (/^(@@)?\/.*\/$/.test(text) && !regexpWarning())
+        // Issue a warning if we got a regular expression - unless we were editing a regular expression
+        if (abp.regexpRegExp.test(text) && (isDummy || !abp.regexpRegExp.test(info[1].text)) && !regexpWarning())
           save = false;
         else {
           if (!isDummy || this.editedRow != 0)
