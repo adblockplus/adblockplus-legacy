@@ -230,7 +230,6 @@ function onInputChange(e) {
   var value = e.target.value;
   var loc = wndData.getLocation(value);
   flasher.flash(loc ? loc.nodes : null);
-  return newval;
 };
 
 // Adds the filter entered into the input field to the list
