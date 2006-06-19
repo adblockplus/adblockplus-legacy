@@ -138,15 +138,6 @@ function hideNode(insecNode, insecWnd, collapse) {
   if (nodeName && nodeName.toLowerCase() == "applet")
     secureLookup(insecNode, "setAttribute")("code", "java.applet.Applet");
 
-  // Empty frames to avoid a graphics glitch -- old api only
-  if (oldStyleAPI && insecNode instanceof Window) {
-    var insecRoot = secureGet(insecNode, "document", "documentElement");
-    var removeFunc = secureLookup(insecRoot, "removeChild");
-    var insecChild;
-    while ((insecChild = secureGet(insecRoot, "firstChild")) != null)
-      removeFunc(insecChild);
-  }
-
   if (collapse) {
     if (insecNode instanceof Window)
       insecNode = secureGet(insecNode, "frameElement");
