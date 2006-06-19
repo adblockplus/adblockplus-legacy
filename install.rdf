@@ -15,7 +15,7 @@
   <em:targetApplication>
     <Description>
     <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
-    <em:minVersion>0.9</em:minVersion>
+    <em:minVersion>1.5</em:minVersion>
     <em:maxVersion>3.0</em:maxVersion>
     </Description>
   </em:targetApplication>
@@ -24,12 +24,14 @@
   <em:targetApplication>
     <Description>
     <em:id>{86c18b42-e466-45a9-ae7a-9b95ba6f5640}</em:id>
-    <em:minVersion>1.7</em:minVersion>
+    <em:minVersion>1.8</em:minVersion>
     <em:maxVersion>1.8</em:maxVersion>
     </Description>
   </em:targetApplication>
   
   <!-- Netscape -->
+<!--
+  Netscape not supported until there is a version based on Gecko 1.8
   <em:targetApplication>
     <Description>
     <em:id>{3db10fab-e461-4c80-8b97-957ad5f8ea47}</em:id>
@@ -37,12 +39,13 @@
     <em:maxVersion>8.1</em:maxVersion>
     </Description>
   </em:targetApplication>
+-->
   
   <!-- Flock -->
   <em:targetApplication>
     <Description>
     <em:id>{a463f10c-3994-11da-9945-000d60ca027b}</em:id>
-    <em:minVersion>0.4</em:minVersion>
+    <em:minVersion>0.5</em:minVersion>
     <em:maxVersion>1.0+</em:maxVersion>
     </Description>
   </em:targetApplication>

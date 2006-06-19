@@ -40,22 +40,23 @@ dialog {
   margin: 1px 3px;
 }
 
-#listEditorClose {
-  border: 0px;
-  padding: 0px;
-  min-width: 16px;
-  min-height: 16px;
-  list-style-image: url("findbar/close.png");
-  -moz-appearance: none;
-  -moz-image-region: rect(0px, 16px, 16px, 0px);
+#listEditor {
+  -moz-binding: url("chrome://adblockplus/content/menulist.xml#menulist-editable-image");
 }
-#listEditorClose:hover {
-  -moz-image-region: rect(0px, 32px, 16px, 16px);
+
+#listEditor .menulist-icon {
+  list-style-image: url("findbar/close.png");
+  -moz-image-region: rect(1px, 16px, 15px, 0px);
+  margin-right: 3px;
+}
+
+#listEditor menuitem {
+  padding-left: 16px;
 }
 
 .menulist-editable-box {
   padding-top: 1px;
-  padding-bottom: 2px;
+  padding-bottom: 1px;
 }
 
 #hitcount {

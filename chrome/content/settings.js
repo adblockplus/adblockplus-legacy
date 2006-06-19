@@ -48,6 +48,8 @@ else
 var newFilterLabel = null;
 var editorTimeout = null;
 
+function dummyFunction() {}
+
 // Preference window initialization
 function init() {
   document.getElementById("disabledWarning").hidden = prefs.enabled;
@@ -79,13 +81,11 @@ function init() {
   // List selection doesn't fire input event, have to register a property watcher
   editor.inputField.watch("value", onInputChange);
 
+  // HACK: Prevent editor from selecting first list item by default
+  editor.setInitialSelection = dummyFunction;
+
   // Capture keypress events - need to get them before the tree does
   document.getElementById("listStack").addEventListener("keypress", onListKeyPress, true);
-  document.getElementById("list").addEventListener("keypress", function(e) {
-    // Prevent propagation of the Enter key - preventDefault() isn't enough in Gecko 1.7
-    if (e.keyCode == e.DOM_VK_RETURN || e.keyCode == e.DOM_VK_ENTER)
-      e.stopPropagation()
-  }, false);
 
   // Capture keypress events - need to get them before the text field does
   document.getElementById("FindToolbar").addEventListener("keypress", onFindBarKeyPress, true);
@@ -1993,6 +1993,7 @@ var treeView = {
   editedRow: -1,
   editorKeyPressHandler: null,
   editorBlurHandler: null,
+  editorCancelHandler: null,
   editorDummyInit: "",
 
   setEditor: function(editor) {
@@ -2013,6 +2014,10 @@ var treeView = {
     };
     this.editorBlurHandler = function(e) {
       me.stopEditor(true, true);
+    };
+    this.editorCancelHandler = function(e) {
+      if (e.button == 0)
+        me.stopEditor(false);
     };
 
     // Prevent cyclic references through closures
@@ -2062,17 +2067,18 @@ var treeView = {
 
     var text = (isDummy ? this.editorDummyInit : info[1].text);
 
-    // Need a timeout here - Firefox 1.5 needs to initialize html:input
-    setTimeout(function(editor, handler1, handler2) {
+    // Need a timeout here - Firefox 1.5 has to initialize html:input
+    setTimeout(function(editor, handler1, handler2, handler3) {
       editor.focus();
       editor.field = document.commandDispatcher.focusedElement;
       editor.field.value = text;
       editor.field.setSelectionRange(editor.value.length, editor.value.length);
 
-      // Need to attach handlers to the embedded html:input instead of textbox - won't catch blur otherwise
+      // Need to attach handlers to the embedded html:input instead of menulist - won't catch blur otherwise
       editor.field.addEventListener("keypress", handler1, false);
       editor.field.addEventListener("blur", handler2, false);
-    }, 0, this.editor, this.editorKeyPressHandler, this.editorBlurHandler);
+      editor.addEventListener("iconmousedown", handler3, false);
+    }, 0, this.editor, this.editorKeyPressHandler, this.editorBlurHandler, this.editorCancelHandler);
 
     return true;
   },
@@ -2083,6 +2089,7 @@ var treeView = {
 
     this.editor.field.removeEventListener("keypress", this.editorKeyPressHandler, false);
     this.editor.field.removeEventListener("blur", this.editorBlurHandler, false);
+    this.editor.removeEventListener("iconmousedown", this.editorCancelHandler, false);
 
     var text = abp.normalizeFilter(this.editor.value);
     if (typeof blur == "undefined" || !blur)
