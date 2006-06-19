@@ -120,10 +120,8 @@ function onSelectionChange() {
     document.getElementById("copy-command").removeAttribute("disabled");
   else
     document.getElementById("copy-command").setAttribute("disabled", "true");
-  if (item && wndData) {
+  if (item && wndData)
     wndData.lastSelection = item;
-    dump("selection: " + wndData.lastSelection.location + "\n");
-  }
   flasher.flash(item ? item.nodes : null);
 }
 
