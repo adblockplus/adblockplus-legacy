@@ -30,9 +30,8 @@
 var type, typeDescr, localizedDescr, whitelistSchemes, linkTypes, nonCollapsableTypes;
 var blockTypes = null;
 
-const ok = ("ACCEPT" in Components.interfaces.nsIContentPolicy ? Components.interfaces.nsIContentPolicy.ACCEPT : true);
-const block = ("REJECT_REQUEST" in Components.interfaces.nsIContentPolicy ? Components.interfaces.nsIContentPolicy.REJECT_REQUEST : false);
-const oldStyleAPI = (typeof ok == "boolean");
+const ok = Components.interfaces.nsIContentPolicy.ACCEPT;
+const block = Components.interfaces.nsIContentPolicy.REJECT_REQUEST;
 
 var policy = {
   init: function() {
@@ -212,23 +211,12 @@ var policy = {
     if (!(contentType in blockTypes && this.isBlockableScheme(location)))
       return ok;
 
-    // handle old api
-    if (oldStyleAPI && requestOrigin)
-      insecNode = requestOrigin;  // Old API params: function(contentType, contentLocation, context, wnd)
-
     if (!insecNode)
       return ok;
 
     // New API will return the frame element, make it a window
     if (contentType == type.SUBDOCUMENT && secureGet(insecNode, "contentWindow"))
       insecNode = secureGet(insecNode, "contentWindow");
-
-    // Old API requires us to QI the node
-    if (oldStyleAPI) {
-      try {
-        insecNode = secureLookup(insecNode, "QueryInterface")(Components.interfaces.nsIDOMElement);
-      } catch(e) {}
-    }
 
     return (this.processNode(insecNode, contentType, location, false) ? ok : block);
   },
