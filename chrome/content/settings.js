@@ -47,6 +47,8 @@ else
 
 var newFilterLabel = null;
 var editorTimeout = null;
+var showingWarning = false;
+var delayedAction = null;
 
 function dummyFunction() {}
 
@@ -777,6 +779,8 @@ function regexpWarning() {
   if (!prefs.warnregexp)
     return true;
 
+  showingWarning = true;
+
   var promptService = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
                                 .getService(Components.interfaces.nsIPromptService);
   var check = {value: false};
@@ -788,6 +792,9 @@ function regexpWarning() {
     prefs.warnregexp = false;
     prefs.save();
   }
+
+  showingWarning = false;
+
   return result;
 }
 
@@ -2113,6 +2120,11 @@ var treeView = {
 
     this.editedRow = -1;
     this.editorDummyInit = (save ? "" : text);
+
+    if (delayedAction) {
+      document.documentElement[delayedAction]();
+      delayedAction = null;
+    }
   }
 };
 
