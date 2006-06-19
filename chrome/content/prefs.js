@@ -81,7 +81,7 @@ Matcher.prototype = {
     // Look for a suitable shortcut if the current can't be used
     if (!("shortcut" in pattern) || this.shortcutHash.has(pattern.shortcut)) {
       delete pattern.shortcut;
-      if (!/^(@@)?\/.*\/$/.test(pattern.text)) {
+      if (!abp.regexpRegExp.test(pattern.text)) {
         var text = pattern.text.toLowerCase();
         for (var i = 0; i < text.length - shortcutLength + 1; i++) {
           var candidate = text.substr(i, shortcutLength);
@@ -213,6 +213,7 @@ var elemhide = {
   }
 };
 abp.elemhideRegExp = /^([^\/\*\|\@"]*?)#(?:([\w\-]+|\*)((?:\([\w\-]+(?:[$^*]?=[^\(\)"]*)?\))*)|#([^{}]+))$/;
+abp.regexpRegExp = /^(@@)?\/.*\/$/;
 
 var prefs = {
   initialized: false,
