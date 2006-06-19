@@ -20,12 +20,12 @@
     </Description>
   </em:targetApplication>
   
-  <!-- Mozilla -->
+  <!-- SeaMonkey -->
   <em:targetApplication>
     <Description>
-    <em:id>{86c18b42-e466-45a9-ae7a-9b95ba6f5640}</em:id>
-    <em:minVersion>1.8</em:minVersion>
-    <em:maxVersion>1.8</em:maxVersion>
+    <em:id>{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}</em:id>
+    <em:minVersion>1.0</em:minVersion>
+    <em:maxVersion>1.5a</em:maxVersion>
     </Description>
   </em:targetApplication>
   

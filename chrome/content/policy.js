@@ -74,16 +74,16 @@ var policy = {
   },
 
   // Checks whether a node should be blocked, hides it if necessary, return value false means that the node is blocked
-  processNode: function(insecNode, contentType, location, collapse) {
-    var insecWnd = getWindow(insecNode);
-    if (!insecWnd)
+  processNode: function(node, contentType, location, collapse) {
+    var wnd = getWindow(node);
+    if (!wnd)
       return true;
 
-    var insecTop = secureGet(insecWnd, "top");
-    if (!insecTop)
+    var topWnd = wnd.top;
+    if (!topWnd || !topWnd.location || !topWnd.location.href)
       return true;
 
-    var topLocation = unwrapURL(secureGet(insecTop, "location", "href"));
+    var topLocation = unwrapURL(topWnd.location.href);
     var blockable = this.isBlockableScheme(topLocation);
     if (!blockable && prefs.blocklocalpages && this.isLocalScheme(topLocation))
       blockable = true;
@@ -96,7 +96,7 @@ var policy = {
       return true;
     }
 
-    var data = DataContainer.getDataForWindow(insecWnd);
+    var data = DataContainer.getDataForWindow(wnd);
 
     var match = null;
     var linksOk = true;
@@ -108,51 +108,53 @@ var policy = {
       if (match)
         prefs.increaseHitCount(match);
 
-      if (!(insecNode instanceof Window)) {
+      if (!(node instanceof Window)) {
         // Check links in parent nodes
-        if (insecNode && prefs.linkcheck && this.shouldCheckLinks(contentType))
-          linksOk = this.checkLinks(insecNode);
+        if (node && prefs.linkcheck && this.shouldCheckLinks(contentType))
+          linksOk = this.checkLinks(node);
   
         // Show object tabs unless this is a standalone object
         // XXX: We will never recognize objects loading from jar: as standalone!
         if (!match && prefs.frameobjects &&
-            contentType == type.OBJECT && location != secureGet(insecWnd, "location", "href"))
-          secureLookup(insecWnd, "setTimeout")(addObjectTab, 0, insecNode, location, insecTop);
+            contentType == type.OBJECT && wnd.location && location != wnd.location.href)
+          wnd.setTimeout(addObjectTab, 0, node, location, topWnd);
       }
     }
 
     // Fix type for background images
-    if (contentType == type.IMAGE && (insecNode instanceof Window || secureGet(insecNode, "nodeType") == Node.DOCUMENT_NODE)) {
+    if (contentType == type.IMAGE && (node instanceof Window || node.nodeType == Node.DOCUMENT_NODE)) {
       contentType = type.BACKGROUND;
-      if (insecNode instanceof Window)
-        insecNode = secureGet(insecNode, "document");
+      if (node instanceof Window)
+        node = node.document;
     }
 
     // Store node data (must set storedLoc parameter so that frames are added immediately when refiltering)
-    data.addNode(insecTop, insecNode, contentType, location, match, collapse ? true : undefined);
+    data.addNode(topWnd, node, contentType, location, match, collapse ? true : undefined);
 
-    if (match && match.type != "whitelist" && insecNode) {
+    if (match && match.type != "whitelist" && node) {
       // hide immediately if fastcollapse is off but not base types
       collapse = collapse || !prefs.fastcollapse;
       collapse = collapse && !(contentType in nonCollapsableTypes);
-      hideNode(insecNode, insecWnd, collapse);
+      hideNode(node, wnd, collapse);
     }
 
     return (match && match.type == "whitelist") || (!match && linksOk);
   },
 
   // Tests whether some parent of the node is a link matching a filter
-  checkLinks: function(insecNode) {
-    while (insecNode) {
-      var nodeLocation = unwrapURL(secureGet(insecNode, "href"));
-      if (nodeLocation && this.isBlockableScheme(nodeLocation))
-        break;
-
-      insecNode = secureGet(insecNode, "parentNode");
+  checkLinks: function(node) {
+    while (node) {
+      if ("href" in node) {
+        var nodeLocation = unwrapURL(node.href);
+        if (nodeLocation && this.isBlockableScheme(nodeLocation))
+          break;
+      }
+  
+      node = node.parentNode;
     }
 
-    if (insecNode)
-      return this.processNode(insecNode, type.LINK, nodeLocation, false);
+    if (node)
+      return this.processNode(node, type.LINK, nodeLocation, false);
     else
       return true;
   },
@@ -214,11 +216,14 @@ var policy = {
     if (!insecNode)
       return ok;
 
-    // New API will return the frame element, make it a window
-    if (contentType == type.SUBDOCUMENT && secureGet(insecNode, "contentWindow"))
-      insecNode = secureGet(insecNode, "contentWindow");
+    // This shouldn't be necessary starting with Gecko 1.8.0.5 (bug 337095)
+    var node = new XPCNativeWrapper(insecNode);
 
-    return (this.processNode(insecNode, contentType, location, false) ? ok : block);
+    // New API will return the frame element, make it a window
+    if (contentType == type.SUBDOCUMENT && node.contentWindow)
+      node = node.contentWindow;
+
+    return (this.processNode(node, contentType, location, false) ? ok : block);
   },
 
   shouldProcess: function(contentType, contentLocation, requestOrigin, insecNode, mimeType, extra) {
