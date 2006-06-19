@@ -509,8 +509,7 @@ var treeView = {
   },
 
   getCellText: function(row, col) {
-    if (typeof col != 'string')
-      col = col.id;
+    col = col.id;
 
     // Only two columns have text
     if (col != "type" && col != "address" && col != "filter")
@@ -555,11 +554,7 @@ var treeView = {
   },
 
   getColumnProperties: function(col, properties) {
-    if (typeof col != 'string')
-      col = col.id;
-
-    if (arguments.length == 3)
-      properties = arguments[2];
+    col = col.id;
 
     if ("col-" + col in this.atoms)
       properties.AppendElement(this.atoms["col-" + col]);
@@ -599,8 +594,7 @@ var treeView = {
   },
 
   cycleHeader: function(col) {
-    if (typeof col != 'string')
-      col = col.id;
+    col = col.id;
 
     col = document.getElementById(col);
     if (!col)
@@ -646,8 +640,6 @@ var treeView = {
   hasNextSibling: function() {return false},
   toggleOpenState: function() {},
   canDrop: function() {return false},
-  canDropOn: function() {return false},
-  canDropAfter: function() {return false},
   drop: function() {},
   getCellValue: function() {return null},
   getProgressMode: function() {return null},
