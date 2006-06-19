@@ -223,8 +223,11 @@ function fixColWidth() {
     suggestionItems[i].childNodes[1].style.width = maxWidth+"px";
 }
 
-function onInputChange(prop, oldval, newval) {
-  var value = (typeof newval == "string" ? newval : prop.target.value);
+function onInputChange(e) {
+  if (e.type == "DOMAttrModified" && e.attrName != "value")
+    return;
+
+  var value = e.target.value;
   var loc = wndData.getLocation(value);
   flasher.flash(loc ? loc.nodes : null);
   return newval;
@@ -1805,7 +1808,7 @@ var treeView = {
     var info = treeView.getRowInfo(row);
     if (!info || typeof info[1] == "string" || (!info[1] && info[0].special) || info[0].dummy)
       return forceValue;
-    if (info[1] && (info[1].type == "comment" || info[1].type == "invalid") || info[1].dummy)
+    if (info[1] && (info[1].type == "comment" || info[1].type == "invalid" || info[1].dummy))
       return forceValue;
     if (info[1] && !info[0].special && info[0].disabled)
       return forceValue;
@@ -2023,7 +2026,11 @@ var treeView = {
       }
     };
     this.editorBlurHandler = function(e) {
-      me.stopEditor(true, true);
+      setTimeout(function() {
+        var focused = document.commandDispatcher.focusedElement;
+        if (!focused || focused != me.editor.field)
+          me.stopEditor(true, true);
+      }, 0);
     };
     this.editorCancelHandler = function(e) {
       if (e.button == 0)
@@ -2088,7 +2095,7 @@ var treeView = {
       editor.field.addEventListener("keypress", handler1, false);
       editor.field.addEventListener("blur", handler2, false);
       editor.field.addEventListener("input", onInputChange, false);
-      editor.field.watch("value", onInputChange);
+      editor.addEventListener("DOMAttrModified", onInputChange, false);
       editor.addEventListener("iconmousedown", handler3, false);
     }, 0, this.editor, this.editorKeyPressHandler, this.editorBlurHandler, this.editorCancelHandler);
 
@@ -2102,7 +2109,7 @@ var treeView = {
     this.editor.field.removeEventListener("keypress", this.editorKeyPressHandler, false);
     this.editor.field.removeEventListener("blur", this.editorBlurHandler, false);
     this.editor.field.removeEventListener("input", onInputChange, false);
-    this.editor.field.unwatch("value");
+    this.editor.removeEventListener("DOMAttrModified", onInputChange, false);
     this.editor.removeEventListener("iconmousedown", this.editorCancelHandler, false);
 
     var text = abp.normalizeFilter(this.editor.value);
