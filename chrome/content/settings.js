@@ -78,6 +78,7 @@ function init() {
     if (sibling == okBtn)
       insertBefore = okBtn;
   insertBefore.parentNode.insertBefore(applyBtn, insertBefore);
+  applyBtn.setAttribute("disabled", "true");
   applyBtn.hidden = false;
 
   // Install listeners
@@ -503,6 +504,8 @@ function editSubscription(subscription) {
   treeView.invalidateSubscription(newSubscription, row, rowCount);
   treeView.selectSubscription(newSubscription);
 
+  onChange();
+
   if (!orig.lastDownload)
     synchronizer.execute(orig);
 
@@ -756,6 +759,7 @@ function onHitCountChange(pattern) {
 // Saves the filter list
 function applyChanges() {
   treeView.applyChanges();
+  document.getElementById("applyButton").setAttribute("disabled", "true");
 
   if (insecWnd)
     refilterWindow(insecWnd);
@@ -809,6 +813,11 @@ function regexpWarning() {
 // Opens About Adblock Plus dialog
 function openAbout() {
   openDialog("about.xul", "_blank", "chrome,centerscreen,modal");
+}
+
+// To be called whenever the filter list has been changed and changes can be applied
+function onChange() {
+  document.getElementById("applyButton").removeAttribute("disabled");
 }
 
 // Creates a copy of an object by copying all its properties
@@ -1601,6 +1610,8 @@ var treeView = {
       this.selection.select(parentRow + 1 + subscription.extra.length + pos);
       this.boxObject.ensureRowIsVisible(parentRow + 1 + subscription.extra.length + pos);
     }
+
+    onChange();
   },
 
   // Removes a pattern or a complete subscription by its info
@@ -1632,6 +1643,7 @@ var treeView = {
           }
 
           this.ensureSelection(newSelection);
+          onChange();
           return;
         }
       }
@@ -1653,6 +1665,7 @@ var treeView = {
           this.boxObject.rowCountChanged(firstRow, -count);
 
           this.ensureSelection(firstRow);
+          onChange();
           return;
         }
       }
@@ -1746,6 +1759,7 @@ var treeView = {
       this.selection.select(this.getSubscriptionRow(info[0]));
       this.boxObject.ensureRowIsVisible(this.getSubscriptionRow(info[0]));
     }
+    onChange();
   },
 
   dragData: null,
@@ -1827,6 +1841,7 @@ var treeView = {
           this.boxObject.invalidateRow(i);
       }
     }
+    onChange();
     return forceValue;
   },
 
@@ -1864,6 +1879,8 @@ var treeView = {
 
         subscription.patterns = [];
         this.boxObject.rowCountChanged(row, -count);
+
+        onChange();
       }
     }
     this.ensureSelection(0);
@@ -2122,6 +2139,9 @@ var treeView = {
       else
         this.selection.select(this.editedRow);
     }
+
+    if (save)
+      onChange();
 
     this.editor.field.value = "";
     this.editor.parentNode.hidden = true;
