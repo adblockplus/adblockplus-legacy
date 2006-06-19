@@ -37,8 +37,8 @@ if (abp) {
   var flasher = abp.flasher;
   var synchronizer = abp.synchronizer;
   var suggestionItems = null;
-  var insecWnd = null;   // Window we should apply filters at
-  var wndData = null;    // Data for this window
+  var wnd = null;       // Window we should apply filters at
+  var wndData = null;   // Data for this window
   var dragService = Components.classes["@mozilla.org/widget/dragservice;1"]
                               .getService(Components.interfaces.nsIDragService);
 }
@@ -86,13 +86,8 @@ function init() {
   prefs.addHitCountListener(onHitCountChange);
   synchronizer.addListener(synchCallback);
 
-  var editor = document.getElementById("listEditor");
-  editor.inputField.addEventListener("input", onInputChange, false);
-
-  // List selection doesn't fire input event, have to register a property watcher
-  editor.inputField.watch("value", onInputChange);
-
   // HACK: Prevent editor from selecting first list item by default
+  var editor = document.getElementById("listEditor");
   editor.setInitialSelection = dummyFunction;
 
   // Capture keypress events - need to get them before the tree does
@@ -129,26 +124,26 @@ function init() {
   window.dispatchEvent(e);
 }
 
-function setContentWindow(insecContentWnd) {
+function setContentWindow(contentWnd) {
   if (!abp)
     return;
 
   var editor = document.getElementById("listEditor");
 
-  insecWnd = insecContentWnd;
+  wnd = contentWnd;
   wndData = null;
 
   var data = [];
-  if (insecWnd) {
+  if (wnd) {
     // Retrieve data for the window
-    wndData = abp.getDataForWindow(insecWnd);
+    wndData = abp.getDataForWindow(wnd);
     data = wndData.getAllLocations();
   }
   if (!data.length) {
     var reason = abp.getString("no_blocking_suggestions");
     var type = "filterlist";
-    if (insecWnd) {
-      var location = abp.unwrapURL(secureGet(insecWnd, "location", "href"));
+    if (wnd && wnd.location) {
+      var location = abp.unwrapURL(wnd.location.href);
       // We want to stick with "no blockable items" for about:blank
       if (location != "about:blank") {
         if (!abp.policy.isBlockableScheme(location))
@@ -159,7 +154,7 @@ function setContentWindow(insecContentWnd) {
         }
       }
     }
-    data.push({location: reason, typeDescr: "", localizedDescr: "", inseclNodes: [], filter: {type: type}});
+    data.push({location: reason, typeDescr: "", localizedDescr: "", nodes: [], filter: {type: type}});
   }
 
   // Initialize filter suggestions dropdown
@@ -192,10 +187,6 @@ function cleanUp() {
   prefs.removeHitCountListener(onHitCountChange);
   synchronizer.removeListener(synchCallback);
   flasher.stop();
-
-  var editor = document.getElementById("listEditor");
-  editor.inputField.removeEventListener("input", onInputChange, false);
-  editor.inputField.unwatch("value");
 }
 
 function createDescription(label, flex) {
@@ -233,9 +224,9 @@ function fixColWidth() {
 }
 
 function onInputChange(prop, oldval, newval) {
-  var value = (typeof newval == "string" ? newval : document.getElementById("editor").inputField.value);
+  var value = (typeof newval == "string" ? newval : prop.target.value);
   var loc = wndData.getLocation(value);
-  flasher.flash(loc ? loc.inseclNodes : null);
+  flasher.flash(loc ? loc.nodes : null);
   return newval;
 };
 
@@ -764,28 +755,28 @@ function applyChanges() {
   treeView.applyChanges();
   document.getElementById("applyButton").setAttribute("disabled", "true");
 
-  if (insecWnd)
-    refilterWindow(insecWnd);
+  if (wnd)
+    refilterWindow(wnd);
 }
 
 // Reapplies filters to all nodes of the current window
-function refilterWindow(insecWnd) {
-  if (secureGet(insecWnd, "closed"))
+function refilterWindow(wnd) {
+  if (wnd.closed)
     return;
 
-  var wndData = abp.getDataForWindow(insecWnd);
+  var wndData = abp.getDataForWindow(wnd);
   var data = wndData.getAllLocations();
   var policy = abp.policy;
   for (var i = 0; i < data.length; i++) {
     if (!data[i].filter || data[i].filter.type == "whitelist") {
-      var inseclNodes = data[i].inseclNodes;
-      data[i].inseclNodes = [];
-      for (var j = 0; j < inseclNodes.length; j++)
-        policy.processNode(inseclNodes[j], data[i].type, data[i].location, true);
+      var nodes = data[i].nodes;
+      data[i].nodes = [];
+      for (var j = 0; j < nodes.length; j++)
+        policy.processNode(nodes[j], data[i].type, data[i].location, true);
     }
   }
 
-  abp.DataContainer.notifyListeners(insecWnd, "invalidate", data);
+  abp.DataContainer.notifyListeners(wnd, "invalidate", data);
 }
 
 // Warns the user that he has entered a regular expression. 
@@ -2096,6 +2087,8 @@ var treeView = {
       // Need to attach handlers to the embedded html:input instead of menulist - won't catch blur otherwise
       editor.field.addEventListener("keypress", handler1, false);
       editor.field.addEventListener("blur", handler2, false);
+      editor.field.addEventListener("input", onInputChange, false);
+      editor.field.watch("value", onInputChange);
       editor.addEventListener("iconmousedown", handler3, false);
     }, 0, this.editor, this.editorKeyPressHandler, this.editorBlurHandler, this.editorCancelHandler);
 
@@ -2108,6 +2101,8 @@ var treeView = {
 
     this.editor.field.removeEventListener("keypress", this.editorKeyPressHandler, false);
     this.editor.field.removeEventListener("blur", this.editorBlurHandler, false);
+    this.editor.field.removeEventListener("input", onInputChange, false);
+    this.editor.field.unwatch("value");
     this.editor.removeEventListener("iconmousedown", this.editorCancelHandler, false);
 
     var text = abp.normalizeFilter(this.editor.value);

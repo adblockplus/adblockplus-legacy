@@ -30,11 +30,11 @@
 var queryResult;
 var querySeed = Math.random();    // Make sure our queries can't be detected
 
-function DataContainer(insecWnd) {
+function DataContainer(wnd) {
   this.locations = {};
   this.subdocs = [];
   this.lastSelection = null;
-  this.install(insecWnd);
+  this.install(wnd);
 }
 abp.DataContainer = DataContainer;
 
@@ -44,25 +44,25 @@ DataContainer.prototype = {
   detached: false,
 
   // Attaches the data to a window
-  install: function(insecWnd) {
-    var insecTop = secureGet(insecWnd, "top");
-    if (insecTop != insecWnd) {
-      this.topContainer = DataContainer.getDataForWindow(insecTop);
-      this.topContainer.registerSubdocument(insecTop, this);
+  install: function(wnd) {
+    var topWnd = wnd.top;
+    if (topWnd != wnd) {
+      this.topContainer = DataContainer.getDataForWindow(topWnd);
+      this.topContainer.registerSubdocument(topWnd, this);
     }
     else
       this.topContainer = this;
 
-    this.installListeners(secureLookup(insecWnd, "addEventListener"));
+    this.installListeners(wnd);
   },
 
-  installListeners: function(addListener) {
+  installListeners: function(wnd) {
     var me = this;
     var queryHandler = function(ev) {
       if (ev.isTrusted && ev.eventPhase == ev.AT_TARGET)
         queryResult = me;
     }
-    addListener("abpQuery" + querySeed, queryHandler, true);
+    wnd.addEventListener("abpQuery" + querySeed, queryHandler, true);
 
     var hideHandler = function(ev) {
       // unload events aren't trusted in 1.7.5, need to find out when this was fixed
@@ -81,13 +81,13 @@ DataContainer.prototype = {
         // Make sure to re-add the frame - we are not really going away
         var location = me.newLocation;
         createTimer(function() {
-          var insecWnd = location.inseclNodes[0];
-          if (!secureGet(insecWnd, "document"))
+          var wnd = location.nodes[0];
+          if (!wnd.document)
             return;
 
-          var insecTop = secureGet(insecWnd, "top");
-          var data = DataContainer.getDataForWindow(insecWnd);
-          data.addNode(insecTop, insecWnd, location.type, location.location, location.filter, true);
+          var topWnd = wnd.top;
+          var data = DataContainer.getDataForWindow(wnd);
+          data.addNode(topWnd, wnd, location.type, location.location, location.filter, true);
         }, 0);
         me.newLocation = null;
       }
@@ -107,38 +107,38 @@ DataContainer.prototype = {
         else
           DataContainer.notifyListeners(this, "select", me);
       }
-      addListener("pagehide", hideHandler, false);
-      addListener("pageshow", showHandler, false);
+      wnd.addEventListener("pagehide", hideHandler, false);
+      wnd.addEventListener("pageshow", showHandler, false);
     }
     else {
       // This is Gecko 1.7 - fall back to unload
-      addListener("unload", hideHandler, false);
+      wnd.addEventListener("unload", hideHandler, false);
     }
 
-    addListener = null;
+    wnd = null;
   },
 
-  registerSubdocument: function(insecTop, data) {
+  registerSubdocument: function(topWnd, data) {
     for (var i = 0; i < this.subdocs.length; i++)
       if (this.subdocs[i] == data)
         return;
 
     this.subdocs.push(data);
     if (!this.detached)
-      DataContainer.notifyListeners(insecTop, "refresh", this);
+      DataContainer.notifyListeners(topWnd, "refresh", this);
   },
-  unregisterSubdocument: function(insecTop, data) {
+  unregisterSubdocument: function(topWnd, data) {
     for (var i = 0; i < this.subdocs.length; i++)
       if (this.subdocs[i] == data)
         this.subdocs.splice(i--, 1);
 
     if (!this.detached)
-      DataContainer.notifyListeners(insecTop, "refresh", this);
+      DataContainer.notifyListeners(topWnd, "refresh", this);
   },
-  addNode: function(insecTop, insecNode, contentType, location, filter, storedLoc) {
+  addNode: function(topWnd, node, contentType, location, filter, storedLoc) {
     if (contentType == type.SUBDOCUMENT && typeof storedLoc == "undefined" && (!filter || filter.type == "whitelist")) {
       // New document is about to load
-      this.newLocation = {inseclNodes: [insecNode], type: contentType, location: location, filter: filter};
+      this.newLocation = {nodes: [node], type: contentType, location: location, filter: filter};
       return;
     }
 
@@ -147,12 +147,12 @@ DataContainer.prototype = {
     if (key in this.locations) {
       // Always override the filter just in case a known node has been blocked
       this.locations[key].filter = filter;
-      this.locations[key].inseclNodes.push(insecNode);
+      this.locations[key].nodes.push(node);
     }
     else {
       // Add a new location and notify the listeners
       this.locations[key] = {
-        inseclNodes: [insecNode],
+        nodes: [node],
         location: location,
         type: contentType,
         typeDescr: typeDescr[contentType],
@@ -161,7 +161,7 @@ DataContainer.prototype = {
       };
 
       if (!this.topContainer.detached)
-        DataContainer.notifyListeners(insecTop, "add", this.topContainer, this.locations[key]);
+        DataContainer.notifyListeners(topWnd, "add", this.topContainer, this.locations[key]);
     }
   },
   getLocation: function(location) {
@@ -192,23 +192,23 @@ DataContainer.prototype = {
 };
 
 // Loads Adblock data associated with a window object
-var insecLastQuery = null;
+var lastQuery = null;
 var lastQueryResult = null;
-DataContainer.getDataForWindow = function(insecWnd) {
-  var insecDoc = secureGet(insecWnd, "document");
-  if (insecLastQuery == insecDoc)
+DataContainer.getDataForWindow = function(wnd) {
+  var doc = wnd.document;
+  if (lastQuery == doc)
     return lastQueryResult;
 
   queryResult = null;
-  var ev = secureLookup(insecDoc, "createEvent")("Events");
+  var ev = doc.createEvent("Events");
   ev.initEvent("abpQuery" + querySeed, false, false);
-  secureLookup(insecWnd, "dispatchEvent")(ev);
+  wnd.dispatchEvent(ev);
 
   var data = queryResult;
   if (!data)
-    data = new DataContainer(insecWnd);
+    data = new DataContainer(wnd);
 
-  insecLastQuery = insecDoc;
+  lastQuery = doc;
   lastQueryResult = data;
 
   return data;
@@ -216,20 +216,20 @@ DataContainer.getDataForWindow = function(insecWnd) {
 abp.getDataForWindow = DataContainer.getDataForWindow;
 
 // Loads Adblock data associated with a node object
-DataContainer.getDataForNode = function(insecNode) {
-  var insecWnd = getWindow(insecNode);
-  if (!insecWnd)
+DataContainer.getDataForNode = function(node) {
+  var wnd = getWindow(node);
+  if (!wnd)
     return null;
 
-  var data = DataContainer.getDataForWindow(insecWnd).getAllLocations();
-  while (insecNode) {
+  var data = DataContainer.getDataForWindow(wnd).getAllLocations();
+  while (node) {
     for (var i = 0; i < data.length; i++)
-      for (var j = 0; j < data[i].inseclNodes.length; j++)
-        if (data[i].inseclNodes[j] == insecNode)
+      for (var j = 0; j < data[i].nodes.length; j++)
+        if (data[i].nodes[j] == node)
           return data[i];
 
     // If we don't have any information on the node, then maybe on its parent
-    insecNode = secureGet(insecNode, "parentNode");
+    node = node.parentNode;
   }
 
   return null;
@@ -250,7 +250,7 @@ DataContainer.removeListener = function(handler) {
 };
 
 // Calls all location listeners
-DataContainer.notifyListeners = function(insecWnd, type, data, location) {
+DataContainer.notifyListeners = function(wnd, type, data, location) {
   for (var i = 0; i < DataContainer.listeners.length; i++)
-    DataContainer.listeners[i](insecWnd, type, data, location);
+    DataContainer.listeners[i](wnd, type, data, location);
 };
