@@ -82,17 +82,17 @@ abp.getString = function(name) {
 };
 
 // Retrieves the window object for a node or returns null if it isn't possible
-function getWindow(insecNode) {
-  if (insecNode instanceof Window)
-    return insecNode;
+function getWindow(node) {
+  if (node instanceof Window)
+    return node;
 
-  if (secureGet(insecNode, "nodeType") != Node.DOCUMENT_NODE)
-    insecNode = secureGet(insecNode, "ownerDocument");
+  if (node && node.nodeType != Node.DOCUMENT_NODE)
+    node = node.ownerDocument;
 
-  if (!insecNode || secureGet(insecNode, "nodeType") != Node.DOCUMENT_NODE)
+  if (!node || node.nodeType != Node.DOCUMENT_NODE)
     return null;
 
-  return secureGet(insecNode, "defaultView");
+  return node.defaultView;
 }
 
 // Unwraps jar:, view-source: and wyciwyg: URLs, returns the contained URL
@@ -126,85 +126,81 @@ function makeURL(url) {
 abp.makeURL = makeURL;
 
 // hides a blocked element and collapses it if necessary
-function hideNode(insecNode, insecWnd, collapse) {
+function hideNode(node, wnd, collapse) {
   // hide object tab
-  var insecTab = secureGet(insecNode, "nextSibling");
-  if (insecTab && secureGet(insecTab, "nodeType") == Node.ELEMENT_NODE &&
-      secureLookup(insecTab, "hasAttribute")("AdblockTab"))
-    secureSet(insecTab, "style", "display", "none");
+  var tab = node.nextSibling;
+  if (tab && tab.nodeType == Node.ELEMENT_NODE &&
+      tab.hasAttribute("AdblockTab"))
+    tab.style.display = "none";
 
   // special handling for applets -- disable by specifying the Applet base class
-  var nodeName = secureGet(insecNode, "nodeName");
+  var nodeName = node.nodeName;
   if (nodeName && nodeName.toLowerCase() == "applet")
-    secureLookup(insecNode, "setAttribute")("code", "java.applet.Applet");
+    node.setAttribute("code", "java.applet.Applet");
 
   if (collapse) {
-    if (insecNode instanceof Window)
-      insecNode = secureGet(insecNode, "frameElement");
+    if (node instanceof Window)
+      node = node.frameElement;
 
     // adjust frameset's cols/rows for frames
-    var attrFunc = secureLookup(insecNode, "parentNode", "hasAttribute");
-    var parentNode = secureGet(insecNode, "parentNode");
-    if (attrFunc && secureGet(parentNode, "nodeName").toLowerCase() == "frameset" &&
-        (attrFunc("cols") ^ attrFunc("rows"))) {
+    var parentNode = node.parentNode;
+    if (parentNode && parentNode.nodeName.toLowerCase() == "frameset" &&
+        (parentNode.hasAttribute("cols") ^ parentNode.hasAttribute("rows"))) {
       var frameTags = {FRAME: true, FRAMESET: true};
       var index = -1;
-      for (var insecFrame = insecNode; insecFrame; insecFrame = secureGet(insecFrame, "previousSibling"))
-        if (secureGet(insecFrame, "nodeName").toUpperCase() in frameTags)
+      for (var frame = node; frame; frame = frame.previousSibling)
+        if (frame.nodeName.toUpperCase() in frameTags)
           index++;
   
       var attr = (attrFunc("rows") ? "rows" : "cols");
-      secureLookup(insecWnd, "setTimeout")(hideFrameCallback, 0, parentNode, attr, index);
+      wnd.setTimeout(hideFrameCallback, 0, parentNode, attr, index);
     }
     else
-      secureLookup(insecWnd, "setTimeout")(hideCallback, 0, insecNode);
+      wnd.setTimeout(hideCallback, 0, node);
   }
 }
 
-function hideCallback(insecNode) {
-  secureSet(insecNode, "style", "display", "none");
+function hideCallback(node) {
+  node.style.display = "none";
 }
 
-function hideFrameCallback(insecFrameset, attr, index) {
-  var weights = secureLookup(insecFrameset, "getAttribute")(attr).split(",");
+function hideFrameCallback(frameset, attr, index) {
+  var weights = frameset.getAttribute(attr).split(",");
   weights[index] = "0";
-  secureLookup(insecFrameset, "setAttribute")(attr, weights.join(","));
+  frameset.setAttribute(attr, weights.join(","));
 }
 
 // Returns the visible area of an element, coordinates relative to the upper-left corner of the page
-function getElementRect(insecNode) {
-  var insecWnd = secureGet(insecNode, "ownerDocument", "defaultView");
-  var boxFunc = secureLookup(insecNode, "ownerDocument", "getBoxObjectFor");
-  if (!insecWnd || !boxFunc)
+function getElementRect(node) {
+  if (!node.ownerDocument || !node.ownerDocument.defaultView)
     return null;
 
-  var styleFunc = secureLookup(insecWnd, "getComputedStyle");
-  if (!styleFunc)
-    return null;
+  var doc = node.ownerDocument;
+  var wnd = doc.defaultView;
 
-  var insecBox = boxFunc(insecNode);
+  var box = doc.getBoxObjectFor(node);
   var rect = [
-    secureGet(insecBox, "x"),
-    secureGet(insecBox, "y"),
-    secureGet(insecNode, "clientWidth") || secureGet(insecBox, "width"),
-    secureGet(insecNode, "clientHeight") || secureGet(insecBox, "height")
+    box.x,
+    box.y,
+    node.clientWidth || box.width,
+    node.clientHeight || box.height
   ];
 
-  while (insecNode != secureGet(insecBox, "parentBox")) {
-    insecNode = secureGet(insecBox, "parentBox");
-    if (!insecNode)
+  while (node != box.parentBox) {
+    node = box.parentBox;
+    if (!node)
       break;
 
-    insecBox = boxFunc(insecNode);
+    box = doc.getBoxObjectFor(node);
 
     // Account for parent's scrolling
-    rect[0] -= secureGet(insecNode, "scrollLeft");
-    rect[1] -= secureGet(insecNode, "scrollTop");
+    rect[0] -= node.scrollLeft;
+    rect[1] -= node.scrollTop;
 
-    if (styleFunc(insecNode, "").overflow != "visible") {
+    if (wnd.getComputedStyle(node, "").overflow != "visible") {
       // Adjust coordinates to the visible area of the parent
-      var px = secureGet(insecBox, "x");
-      var py = secureGet(insecBox, "y");
+      var px = box.x;
+      var py = box.y;
       if (rect[0] < px) {
         rect[2] -= px - rect[0];
         rect[0] = px;
@@ -213,10 +209,10 @@ function getElementRect(insecNode) {
         rect[3] -= py - rect[1];
         rect[1] = py;
       }
-      if (rect[0] + rect[2] > px + secureGet(insecNode, "clientWidth"))
-        rect[2] = px + secureGet(insecNode, "clientWidth") - rect[0];
-      if (rect[1] + rect[3] > py + secureGet(insecNode, "clientHeight"))
-        rect[3] = py + secureGet(insecNode, "clientHeight") - rect[1];
+      if (rect[0] + rect[2] > px + node.clientWidth)
+        rect[2] = px + node.clientWidth - rect[0];
+      if (rect[1] + rect[3] > py + node.clientHeight)
+        rect[3] = py + node.clientHeight - rect[1];
 
       if (rect[2] <= 0 || rect[3] <= 0)
         return null;
@@ -227,25 +223,27 @@ function getElementRect(insecNode) {
 }
 
 // Generates a click handler for object tabs
-function generateClickHandler(insecWnd, location) {
+function generateClickHandler(wnd, location) {
   return function() {
-    abp.openSettingsDialog(insecWnd, location);
+    abp.openSettingsDialog(wnd, location);
   }
 }
 
 // Creates a tab above/below the new object node
-function addObjectTab(insecNode, location, insecWnd) {
-  var insecOffsetNode = insecNode;
+function addObjectTab(node, location, wnd) {
+  var offsetNode = node;
 
-  var parentTag = secureGet(insecNode, "parentNode", "tagName");
-  if (parentTag && parentTag.toLowerCase() == "object") {
+  if (node.parentNode && node.parentNode.tagName.toLowerCase() == "object") {
     // Don't insert object tabs inside an outer object, causes ActiveX Plugin to do stupid things
-    insecNode = secureGet(insecNode, "parentNode");
+    node = node.parentNode;
   }
 
+  if (!node.parentNode)
+    return;
+
   // Prevent readding tabs to elements that already have one
-  if (secureGet(insecNode, "nextSibling", "nodeType") == Node.ELEMENT_NODE &&
-      secureLookup(insecNode, "nextSibling", "hasAttribute")("AdblockTab"))
+  if (node.nextSibling && node.nextSibling.nodeType == Node.ELEMENT_NODE &&
+      node.nextSibling.hasAttribute("AdblockTab"))
     return;
 
   // Tab dimensions
@@ -254,18 +252,18 @@ function addObjectTab(insecNode, location, insecWnd) {
 
   // Decide whether to display the tab on top or the bottom of the object
   var offsetTop = 0;
-  for (; insecOffsetNode; insecOffsetNode = secureGet(insecOffsetNode, "offsetParent"))
-    offsetTop += secureGet(insecOffsetNode, "offsetTop");
+  for (; offsetNode; offsetNode = offsetNode.offsetParent)
+    offsetTop += offsetNode.offsetTop;
 
   var onTop = (offsetTop > 40);
 
   // Compose tab
-  var insecDoc = secureGet(insecNode, "ownerDocument");
-  if (!insecDoc)
+  var doc = node.ownerDocument;
+  if (!doc)
     return;
 
-  var label = secureLookup(insecDoc, "createElement")("div");
-  label.appendChild(secureLookup(insecDoc, "createTextNode")("Adblock"));
+  var label = doc.createElement("div");
+  label.appendChild(doc.createTextNode("Adblock"));
   label.style.display = "block";
   label.style.position = "relative";
   label.style.left = -tabWidth + "px";
@@ -292,7 +290,7 @@ function addObjectTab(insecNode, location, insecWnd) {
   label.style.textTransform = "none";
   label.style.direction = "ltr";
 
-  var tab = secureLookup(insecDoc, "createElement")("div");
+  var tab = doc.createElement("div");
   tab.appendChild(label);
   tab.style.display = "block";
   tab.style.position = "relative"
@@ -300,7 +298,7 @@ function addObjectTab(insecNode, location, insecWnd) {
   tab.style.width = "0px";
   tab.style.height = "0px";
   tab.style.left = "0px";
-  tab.style.paddingLeft = secureGet(insecNode, "offsetWidth") + "px";
+  tab.style.paddingLeft = node.offsetWidth + "px";
   tab.style.top = "0px";
   tab.style.zIndex = 65535;
   tab.style.MozOpacity = "0.5";
@@ -309,17 +307,17 @@ function addObjectTab(insecNode, location, insecWnd) {
   tab.setAttribute("AdblockTab", "true");
   
   // Click event handler
-  label.addEventListener("click", generateClickHandler(insecWnd, location), false);
+  label.addEventListener("click", generateClickHandler(wnd, location), false);
 
   // Insert tab into the document
   if (onTop)
-    secureLookup(insecNode, "parentNode", "insertBefore")(tab, insecNode);
+    node.parentNode.insertBefore(tab, node);
   else {
-    var nextSibling = secureGet(insecNode, "nextSibling");
+    var nextSibling = node.nextSibling;
     if (nextSibling)
-      secureLookup(insecNode, "parentNode", "insertBefore")(tab, nextSibling);
+      node.parentNode.insertBefore(tab, node.nextSibling);
     else
-      secureLookup(insecNode, "parentNode", "appendChild")(tab);
+      node.parentNode.appendChild(tab);
   }
 }
 

@@ -37,7 +37,6 @@
   onunload="cleanUp()">
 
   <script type="application/x-javascript" src="sidebar.js"/>
-  <script type="application/x-javascript" src="security.js"/>
 
   <keyset id="sidebarKeys">
     <key id="block-key" keycode="VK_ENTER"/>

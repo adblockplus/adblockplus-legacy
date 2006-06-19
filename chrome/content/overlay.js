@@ -355,7 +355,7 @@ function abpFillPopup(popup) {
   elements.opensidebar.hidden = sidebarOpen;
   elements.closesidebar.hidden = !sidebarOpen;
 
-  var location = abp.unwrapURL(secureGet(content, "location", "href"));
+  var location = abp.unwrapURL(content.location.href);
   var showWhitelist = abp.policy.isBlockableScheme(location);
   var whitelistItemSite = elements.whitelistsite;
   var whitelistItemPage = elements.whitelistpage;

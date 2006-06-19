@@ -125,9 +125,9 @@ function onSelectionChange() {
   flasher.flash(item ? item.nodes : null);
 }
 
-function handleItemChange(insecWnd, type, data, item) {
+function handleItemChange(wnd, type, data, item) {
   // Check whether this applies to us
-  if (insecWnd != window.content)
+  if (wnd != window.content)
     return;
 
   // Maybe we got called twice
@@ -532,7 +532,7 @@ var treeView = {
       if (!this.data)
         return (col == "address" ? this.loadDummy : "");
 
-      var location = abp.unwrapURL(secureGet(window.content, "location", "href"));
+      var location = abp.unwrapURL(window.content.location.href);
       if (col == "filter") {
         var filter = abp.policy.isWhitelisted(location);
         return filter ? filter.text : "";
@@ -577,7 +577,7 @@ var treeView = {
 
       state = "state-filtered";
       if (this.data) {
-        var location = abp.unwrapURL(secureGet(window.content, "location", "href"));
+        var location = abp.unwrapURL(window.content.location.href);
         if (abp.policy.isWhitelisted(location))
           state = "state-whitelisted";
       }
@@ -759,7 +759,7 @@ var treeView = {
     if (!this.data || this.data.length)
       return null;
 
-    var location = abp.unwrapURL(secureGet(window.content, "location", "href"));
+    var location = abp.unwrapURL(window.content.location.href);
 
     // We want to stick with "no blockable items" for about:blank
     if (location != "about:blank") {

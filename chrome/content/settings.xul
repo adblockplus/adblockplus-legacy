@@ -61,7 +61,6 @@
 
 <script type="application/x-javascript" src="settings.js"/>
 <script type="application/x-javascript" src="findbar.js"/>
-<script type="application/x-javascript" src="security.js"/>
 
 <keyset id="adblockKeys">
   <key id="import-key" key="i" modifiers="accel" command="import-command"/>
