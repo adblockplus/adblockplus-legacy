@@ -414,6 +414,9 @@ function onListClick(e) {
     return;
 
   col = col.value.id;
+  if (col == "pattern" && row.value == 0)
+    editFilter('');
+
   if (col != "enabled")
     return;
 
