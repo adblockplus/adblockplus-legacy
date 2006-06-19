@@ -70,7 +70,7 @@ DataContainer.prototype = {
         return;
 
       if (me != me.topContainer)
-        me.topContainer.unregisterSubdocument(secureGet(this, "top"), me);
+        me.topContainer.unregisterSubdocument(this.top, me);
       else
         DataContainer.notifyListeners(this, "clear", me);
 
@@ -103,7 +103,7 @@ DataContainer.prototype = {
         me.detached = false;
 
         if (me != me.topContainer)
-          me.topContainer.registerSubdocument(secureGet(this, "top"), me);
+          me.topContainer.registerSubdocument(this.top, me);
         else
           DataContainer.notifyListeners(this, "select", me);
       }

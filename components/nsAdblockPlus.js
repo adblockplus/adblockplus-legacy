@@ -348,7 +348,6 @@ abp.wrappedJSObject = abp;
 function init() {
   initialized = true;
 
-  loader.loadSubScript('chrome://adblockplus/content/security.js');
   loader.loadSubScript('chrome://adblockplus/content/utils.js');
   loader.loadSubScript('chrome://adblockplus/content/policy.js');
   loader.loadSubScript('chrome://adblockplus/content/data.js');
