@@ -28,97 +28,104 @@
  */
 
 var flasher = {
-  inseclNodes: null,
+  nodes: null,
   count: 0,
   timer: null,
 
-  getCoords: function(insecNode) {
-    var boxFunc = secureLookup(insecNode, "ownerDocument", "getBoxObjectFor");
-    if (!boxFunc)
+  getCoords: function(node) {
+    if (!node.ownerDocument)
       return null;
 
-    var insecBox;
+    var box = null;
     try {
-      insecBox = boxFunc(insecNode);
+      box = node.ownerDocument.getBoxObjectFor(node);
     } catch(e) {}
-    if (!insecBox)
+    if (!box)
       return null;
 
-    var ret = [0, 0, secureGet(insecBox, "screenX"), secureGet(insecBox, "screenY")];
-    while (insecBox) {
-      ret[0] += secureGet(insecBox, "x");
-      ret[1] += secureGet(insecBox, "y");
-      insecBox = secureGet(insecBox, "parentBox");
+    var ret = [0, 0, box.screenX, box.screenY];
+    while (box) {
+      ret[0] += box.x;
+      ret[1] += box.y;
+
+      var newBox = null;
+      try {
+        newBox = node.ownerDocument.getBoxObjectFor(box.parentBox);
+      } catch(e) {}
+      if (newBox && newBox != box)
+        box = newBox;
+      else
+        box = null;
     }
 
     return ret;
   },
 
-  visibleCoords: function(insecWnd, coords) {
-    var minX = secureGet(insecWnd, "scrollX");
-    var maxX = minX + secureGet(insecWnd, "innerWidth");
-    var minY = secureGet(insecWnd, "scrollY");
-    var maxY = minY + secureGet(insecWnd, "innerHeight");
+  visibleCoords: function(wnd, coords) {
+    var minX = wnd.scrollX;
+    var maxX = minX + wnd.innerWidth;
+    var minY = wnd.scrollY;
+    var maxY = minY + wnd.innerHeight;
 
     return (coords[0] >= minX && coords[0] < maxX &&
             coords[1] >= minY && coords[1] < maxY);
   },
 
-  flash: function(inseclNodes) {
+  flash: function(nodes) {
     this.stop();
-    if (!inseclNodes)
+    if (!nodes)
       return;
 
-    inseclNodes = inseclNodes.slice();
-    if (inseclNodes.length && prefs.flash_scrolltoitem) {
+    nodes = nodes.slice();
+    if (nodes.length && prefs.flash_scrolltoitem) {
       // Ensure that at least one node is visible when flashing
       var minCoords = null;
-      var insecShowWnd = null;
-      for (var i = 0; i < inseclNodes.length; i++) {
-        var insecContentBody = secureGet(inseclNodes[i], "document", "body");
-        if (insecContentBody)
-          inseclNodes[i] = insecContentBody;   // for frames
+      var showWnd = null;
+      for (var i = 0; i < nodes.length; i++) {
+        if ("document" in nodes[i] && nodes[i].document && nodes[i].document.body)
+          nodes[i] = nodes[i].document.body;   // for frames
 
-        var coords = this.getCoords(inseclNodes[i]);
+        var coords = this.getCoords(nodes[i]);
         if (!coords)
           continue;
 
-        var insecWnd = secureGet(inseclNodes[0], "ownerDocument", "defaultView");
-        if (!insecWnd)
+        if (!nodes[i].ownerDocument || !nodes[i].ownerDocument.defaultView)
           continue;
 
+        var wnd = nodes[i].ownerDocument.defaultView;
+
         // Check whether node's top left corner is already visible
-        if (this.visibleCoords(insecWnd, coords)) {
+        if (this.visibleCoords(wnd, coords)) {
           minCoords = null;
-          insecShowWnd = insecWnd;
+          showWnd = wnd;
           break;
         }
 
         // Check whether this node's coordinates are smaller than the ones we found
         if (!minCoords || coords[1] < minCoords[1] || (coords[1] == minCoords[1] && coords[0] < minCoords[0])) {
           minCoords = coords;
-          insecShowWnd = insecWnd;
+          showWnd = wnd;
         }
       }
 
       if (minCoords)
-        secureLookup(insecShowWnd, "scrollTo")(minCoords[0], minCoords[1]);
+        showWnd.scrollTo(minCoords[0], minCoords[1]);
 
-      if (insecShowWnd) {
-        while (insecShowWnd) {
-          var insecParentNode = secureGet(insecShowWnd, "frameElement");
-          var insecShowWnd = secureGet(insecShowWnd, "parent");
-          if (!insecParentNode || !insecShowWnd)
+      if (showWnd) {
+        while (showWnd) {
+          var parentNode = showWnd.frameElement;
+          showWnd = showWnd.parent;
+          if (!parentNode || !showWnd)
             break;
 
-          coords = this.getCoords(insecParentNode);
-          if (coords && !this.visibleCoords(insecShowWnd, coords))
-            secureLookup(insecShowWnd, "scrollTo")(coords[0], coords[1]);
+          coords = this.getCoords(parentNode);
+          if (coords && !this.visibleCoords(showWnd, coords))
+            showWnd.scrollTo(coords[0], coords[1]);
         }
       }
     }
 
-    this.inseclNodes = inseclNodes;
+    this.nodes = nodes;
     this.count = 0;
 
     this.doFlash();
@@ -146,15 +153,16 @@ var flasher = {
       this.timer = null;
     }
 
-    if (this.inseclNodes) {
+    if (this.nodes) {
       this.switchOff();
-      this.inseclNodes = null;
+      this.nodes = null;
     }
   },
 
   setOutline: function(value) {
-    for (var i = 0; i < this.inseclNodes.length; i++)
-      secureSet(this.inseclNodes[i], "style", "MozOutline", value);
+    for (var i = 0; i < this.nodes.length; i++)
+      if ("style" in this.nodes[i])
+        this.nodes[i].style.MozOutline = value;
   },
 
   switchOn: function() {
