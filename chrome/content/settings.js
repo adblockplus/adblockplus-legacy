@@ -402,7 +402,7 @@ function onListClick(e) {
   if (!col.value)
     return;
 
-  col = (typeof col.value == "string" ? col.value : col.value.id);
+  col = col.value.id;
   if (col != "enabled")
     return;
 
@@ -1005,8 +1005,7 @@ var treeView = {
   },
 
   getCellText: function(row, col) {
-    if (typeof col != 'string')
-      col = col.id;
+    col = col.id;
 
     // Only two columns have text
     if (col != "pattern" && col != "hitcount")
@@ -1035,11 +1034,7 @@ var treeView = {
   },
 
   getColumnProperties: function(col, properties) {
-    if (typeof col != 'string')
-      col = col.id;
-
-    if (arguments.length == 3)
-      properties = arguments[2];
+    col = col.id;
 
     if ("col-" + col in this.atoms)
       properties.AppendElement(this.atoms["col-" + col]);
@@ -1135,12 +1130,7 @@ var treeView = {
   },
 
   cycleHeader: function(col) {
-    if (typeof col != 'string')
-      col = col.id;
-
-    col = document.getElementById(col);
-    if (!col)
-      return;
+    col = col.element;
 
     var cycle = {
       natural: 'ascending',
@@ -1168,9 +1158,9 @@ var treeView = {
     return (this.sortProc != sortNatural);
   },
 
-  DROP_ON: ('DROP_ON' in nsITreeView ? nsITreeView.DROP_ON : nsITreeView.inDropOn),
-  DROP_BEFORE: ('DROP_BEFORE' in nsITreeView ? nsITreeView.DROP_BEFORE : nsITreeView.inDropBefore),
-  DROP_AFTER: ('DROP_AFTER' in nsITreeView ? nsITreeView.DROP_AFTER : nsITreeView.inDropAfter),
+  DROP_ON: nsITreeView.DROP_ON,
+  DROP_BEFORE: nsITreeView.DROP_BEFORE,
+  DROP_AFTER: nsITreeView.DROP_AFTER,
   canDrop: function(row, orientation) {
     var session = dragService.getCurrentSession();
     if (!session || session.sourceNode != this.boxObject.treeBody || !this.dragData || orientation == this.DROP_ON)
@@ -1188,12 +1178,6 @@ var treeView = {
       // Dragging a subscription
       return (!info[0].dummy || orientation == this.DROP_AFTER);
     }
-  },
-  canDropOn: function() {
-    return this.canDrop(row, this.DROP_ON);
-  },
-  canDropBeforeAfter: function(row, before) {
-    return this.canDrop(row, before ? this.DROP_BEFORE : this.DROP_AFTER);
   },
   drop: function(row, orientation) {
     var session = dragService.getCurrentSession();
@@ -1775,7 +1759,7 @@ var treeView = {
     var y = {};
     var width = {};
     var height = {};
-    var col = ("columns" in this.boxObject ? this.boxObject.columns.getPrimaryColumn() : "pattern");
+    var col = this.boxObject.columns.getPrimaryColumn();
     this.boxObject.getCoordsForCellItem(row, col, "text", x, y, width, height);
     region.setToRect(x.value, y.value, width.value, height.value);
 
@@ -2037,7 +2021,7 @@ var treeView = {
     if (!isDummy && (!info || !info[0].special || !info[1] || typeof info[1] == "string"))
       return false;
 
-    var col = ("columns" in this.boxObject ? this.boxObject.columns.getPrimaryColumn() : "pattern");
+    var col = this.boxObject.columns.getPrimaryColumn();
     var cellX = {};
     var cellY = {};
     var cellWidth = {};
