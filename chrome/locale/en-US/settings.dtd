@@ -109,3 +109,6 @@
 <!ENTITY context.movedown.label     "Move down">
 <!ENTITY context.movegroupup.label        "Move group up">
 <!ENTITY context.movegroupdown.label      "Move group down">
+
+<!ENTITY apply.label                "Apply">
+<!ENTITY apply.accesskey            "P">

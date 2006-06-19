@@ -69,8 +69,16 @@ function init() {
       if (document.styleSheets[i].href == "chrome://adblockplus/skin/findbar/findBar.css")
         document.styleSheets[i].disabled = true;
 
-  // Remove access key from Help button - conflicts with the menu
-  document.documentElement.getButton("help").removeAttribute("accesskey");
+  // Insert Apply button between OK and Cancel
+  var okBtn = document.documentElement.getButton("accept");
+  var cancelBtn = document.documentElement.getButton("cancel");
+  var applyBtn = document.getElementById("applyButton");
+  var insertBefore = cancelBtn;
+  for (var sibling = cancelBtn; sibling; sibling = sibling.nextSibling)
+    if (sibling == okBtn)
+      insertBefore = okBtn;
+  insertBefore.parentNode.insertBefore(applyBtn, insertBefore);
+  applyBtn.hidden = false;
 
   // Install listeners
   prefs.addListener(onPrefChange);
