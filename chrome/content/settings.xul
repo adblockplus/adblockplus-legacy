@@ -118,7 +118,7 @@
 </popupset>
 
 <toolbox id="menuToolbox">
-  <menubar id="menu">
+  <menubar id="menu" onpopupshowing="treeView.stopEditor(true, true);">
     <menu id="filters-menu" label="&filters.label;" accesskey="&filters.accesskey;">
       <menupopup id="filters-popup" onpopupshowing="fillFiltersPopup()">
         <menuitem id="addfilter" label="&add.label;..." accesskey="&add.accesskey;" key="addfilter-key" oncommand="addFilter()"/>
