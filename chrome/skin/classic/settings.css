@@ -59,7 +59,7 @@ dialog {
   padding-bottom: 1px;
 }
 
-#hitcount {
+#hitcount, #lasthit {
   text-align: right;
 }
 

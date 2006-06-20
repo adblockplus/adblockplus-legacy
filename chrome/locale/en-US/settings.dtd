@@ -100,8 +100,9 @@
 ">
 
 <!ENTITY pattern.column             "Filter rule">
-<!ENTITY hitcount.column            "Hits">
 <!ENTITY enabled.column             "Enabled">
+<!ENTITY hitcount.column            "Hits">
+<!ENTITY lasthit.column             "Last hit">
 
 <!ENTITY context.edit.label         "Edit filter">
 <!ENTITY context.resethitcount.label      "Reset hit statistics for filter">

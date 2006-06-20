@@ -756,7 +756,7 @@ function onPrefChange() {
 // Updates hit count column whenever a value changes
 function onHitCountChange(pattern) {
   if (pattern) {
-    if (!document.getElementById("hitcount").hidden)
+    if (!document.getElementById("hitcount").hidden || !document.getElementById("lasthit").hidden)
       treeView.invalidatePattern(pattern);
   }
   else
@@ -872,6 +872,17 @@ function compareHitCount(pattern1, pattern2) {
     return 0;
 }
 
+function compareLastHit(pattern1, pattern2) {
+  var hasLastHit1 = (pattern1.type == "whitelist" || pattern1.type == "filterlist" ? 1 : 0);
+  var hasLastHit2 = (pattern2.type == "whitelist" || pattern2.type == "filterlist" ? 1 : 0);
+  if (hasLastHit1 != hasLastHit2)
+    return hasLastHit1 - hasLastHit2;
+  else if (hasLastHit1)
+    return pattern1.orig.lastHit - pattern2.orig.lastHit;
+  else
+    return 0;
+}
+
 function sortNatural(pattern1, pattern2) {
   return pattern1.origPos - pattern2.origPos;
 }
@@ -917,7 +928,7 @@ var treeView = {
 
     var i, j, subscription;
 
-    var stringAtoms = ["col-pattern", "col-hitcount", "col-enabled", "type-comment", "type-filterlist", "type-whitelist", "type-elemhide", "type-invalid"];
+    var stringAtoms = ["col-pattern", "col-enabled", "col-hitcount", "col-lasthit", "type-comment", "type-filterlist", "type-whitelist", "type-elemhide", "type-invalid"];
     var boolAtoms = ["selected", "dummy", "subscription", "description", "pattern", "subscription-special", "subscription-external", "subscription-autoDownload", "subscription-disabled", "pattern-disabled"];
     var atomService = Components.classes["@mozilla.org/atom-service;1"]
                                 .getService(Components.interfaces.nsIAtomService);
@@ -1039,8 +1050,8 @@ var treeView = {
   getCellText: function(row, col) {
     col = col.id;
 
-    // Only two columns have text
-    if (col != "pattern" && col != "hitcount")
+    // Only three columns have text
+    if (col != "pattern" && col != "hitcount" && col != "lasthit")
       return "";
 
     // Don't show text in the edited row
@@ -1054,10 +1065,16 @@ var treeView = {
     if (info[1] && typeof info[1] != "string") {
       if (col == "pattern")
         return info[1].text;
+      else if (info[1].type == "whitelist" || info[1].type == "filterlist") {
+        if (col == "hitcount")
+          return info[1].orig.hitCount;
+        else
+          return (info[1].orig.lastHit ? new Date(info[1].orig.lastHit).toLocaleString() : null);
+      }
       else
-        return (info[1].type == "whitelist" || info[1].type == "filterlist" ? info[1].orig.hitCount : null)
+        return null;
     }
-    else if (col == "hitcount")
+    else if (col != "pattern")
       return null;
     else if (!info[1])
       return (info[0].special || info[0].dummy ? "" : this.titlePrefix) + info[0].title;
@@ -1431,10 +1448,12 @@ var treeView = {
   sortProcs: {
     pattern: sortByText,
     patternDesc: sortByTextDesc,
-    hitcount: createSortWithFallback(compareHitCount, sortByText, false),
-    hitcountDesc: createSortWithFallback(compareHitCount, sortByText, true),
     enabled: createSortWithFallback(compareEnabled, sortByText, false),
     enabledDesc: createSortWithFallback(compareEnabled, sortByText, true),
+    hitcount: createSortWithFallback(compareHitCount, sortByText, false),
+    hitcountDesc: createSortWithFallback(compareHitCount, sortByText, true),
+    lasthit: createSortWithFallback(compareLastHit, sortByText, false),
+    lasthitDesc: createSortWithFallback(compareLastHit, sortByText, true),
     natural: sortNatural
   },
 

@@ -719,6 +719,7 @@ var prefs = {
       ret.shortcut = obj.shortcut;
     ret.disabled = ("disabled" in obj && obj.disabled == "true");
     ret.hitCount = ("hitCount" in obj ? parseInt(obj.hitCount) : 0) || 0;
+    ret.lastHit = ("lastHit" in obj ? parseInt(obj.lastHit) : 0) || 0;
 
     this.knownPatterns.put(text, ret);
     return ret;
@@ -737,6 +738,7 @@ var prefs = {
 
     ret.disabled = false;
     ret.hitCount = 0;
+    ret.lastHit = 0;
 
     this.knownPatterns.put(text, ret);
     return ret;
@@ -849,6 +851,8 @@ var prefs = {
     buf.push('disabled=' + pattern.disabled);
     if (pattern.hitCount)
       buf.push('hitCount=' + pattern.hitCount);
+    if (pattern.lastHit)
+      buf.push('lastHit=' + pattern.lastHit);
 
     buf.push('');
   },
@@ -869,6 +873,7 @@ var prefs = {
 
   increaseHitCount: function(pattern) {
     pattern.hitCount++;
+    pattern.lastHit = new Date().getTime();
 
     // Fire hit count listeners
     for (var i = 0; i < this.hitListeners.length; i++)
