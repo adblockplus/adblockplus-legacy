@@ -63,6 +63,7 @@
 <script type="application/x-javascript" src="findbar.js"/>
 
 <keyset id="adblockKeys">
+  <key id="synchsubscription-key" key="t" modifiers="accel"/>
   <key id="synchsubscriptions-key" key="t" modifiers="accel,shift" command="synchsubscriptions-command"/>
   <key id="import-key" key="i" modifiers="accel" command="import-command"/>
   <key id="export-key" key="e" modifiers="accel" command="export-command"/>
@@ -101,7 +102,7 @@
 
 <popupset id="abpPopups">
   <popup id="listitem-context" onpopupshowing="return fillContext()">
-    <menuitem id="context-synchsubscription" label="&context.synchsubscription.label;" oncommand="synchSubscription()"/>
+    <menuitem id="context-synchsubscription" label="&context.synchsubscription.label;" oncommand="synchSubscription()" key="synchsubscription-key" />
     <menuitem id="context-editsubscription" label="&context.editsubscription.label;..." oncommand="editFilter('subscription')" key="edit-key"/>
     <menuitem id="context-edit" label="&context.edit.label;" oncommand="editFilter('filter')" key="edit-key"/>
     <menuitem id="context-resethitcount" label="&context.resethitcount.label;..." oncommand="resetHitCounts(false)"/>
