@@ -40,11 +40,8 @@ var unicodeConverter = Components.classes["@mozilla.org/intl/scriptableunicodeco
                                  .createInstance(Components.interfaces.nsIScriptableUnicodeConverter);
 unicodeConverter.charset = "UTF-8";
 
-var styleService = null;
-if ("nsIStyleSheetService" in Components.interfaces) {
-  styleService = Components.classes["@mozilla.org/content/style-sheet-service;1"]
-                           .getService(Components.interfaces.nsIStyleSheetService);
-}
+var styleService = Components.classes["@mozilla.org/content/style-sheet-service;1"]
+                             .getService(Components.interfaces.nsIStyleSheetService);
 
 // Matcher class constructor
 function Matcher() {
@@ -194,7 +191,7 @@ var elemhide = {
     }
 
     // Creating new stylesheet
-    if (styleService && cssData) {
+    if (cssData) {
       try {
         this.url = Components.classes["@mozilla.org/network/simple-uri;1"]
                              .createInstance(Components.interfaces.nsIURI);
@@ -204,7 +201,7 @@ var elemhide = {
     }
   },
   unapply: function() {
-    if (styleService && this.url) {
+    if (this.url) {
       try {
         styleService.unregisterSheet(this.url, styleService.USER_SHEET);
       } catch (e) {}
@@ -705,12 +702,17 @@ var prefs = {
     ret.type = ("type" in obj ? obj.type : null);
     ret.regexpText = ("regexp" in obj ? obj.regexp : null);
     ret.pageWhitelist = ("pageWhitelist" in obj ? obj.pageWhitelist == "true" : null);
-    if (ret.type == null || ret.type == "elemhide" || ret.type == "invalid" ||
+    if (ret.type == "elemhide") {
+      ret.domain = ("domain" in obj ? obj.domain : null);
+      ret.selector = ("selector" in obj ? obj.selector : null);
+    }
+    if (ret.type == null || ret.type == "invalid" ||
         ((ret.type == "whitelist" || ret.type == "filterlist") && ret.regexpText == null) ||
-        (ret.type == "whitelist" && ret.pageWhitelist == null)
+        (ret.type == "whitelist" && ret.pageWhitelist == null) ||
+        (ret.type == "elemhide" && (ret.domain == null || ret.selector == null))
        )
       this.initPattern(ret);
-    else
+    else if (ret.type == "whitelist" || ret.type == "filterlist")
       this.initRegexp(ret);
 
     if ("shortcut" in obj)
@@ -789,9 +791,6 @@ var prefs = {
         else
           pattern.type = "invalid";
       }
-
-      if (!styleService)
-        pattern.type = "invalid";
     }
     else if (text.indexOf("!") == 0)
       pattern.type = "comment";
