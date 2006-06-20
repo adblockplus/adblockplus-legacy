@@ -396,6 +396,8 @@ function onListKeyPress(e) {
     openFindBar(String.fromCharCode(e.charCode));
     e.stopPropagation();
   }
+  else if (String.fromCharCode(e.charCode).toLowerCase() == "t" && e.ctrlKey && !e.altKey && !e.metaKey)
+    synchSubscription();
 }
 
 function onListClick(e) {
@@ -596,7 +598,7 @@ function pasteFromClipboard() {
 // Starts synchronization for a subscription
 function synchSubscription() {
   var info = treeView.getRowInfo(treeView.selection.currentIndex);
-  if (!info || info[0].special || subscription.external)
+  if (!info || info[0].special || info[0].external)
     return;
 
   var orig = prefs.knownSubscriptions.get(info[0].url);
