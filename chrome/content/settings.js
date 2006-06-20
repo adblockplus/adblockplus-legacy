@@ -929,7 +929,7 @@ var treeView = {
     var i, j, subscription;
 
     var stringAtoms = ["col-pattern", "col-enabled", "col-hitcount", "col-lasthit", "type-comment", "type-filterlist", "type-whitelist", "type-elemhide", "type-invalid"];
-    var boolAtoms = ["selected", "dummy", "subscription", "description", "pattern", "subscription-special", "subscription-external", "subscription-autoDownload", "subscription-disabled", "pattern-disabled"];
+    var boolAtoms = ["selected", "dummy", "subscription", "description", "pattern", "pattern-regexp", "subscription-special", "subscription-external", "subscription-autoDownload", "subscription-disabled", "pattern-disabled"];
     var atomService = Components.classes["@mozilla.org/atom-service;1"]
                                 .getService(Components.interfaces.nsIAtomService);
 
@@ -1097,6 +1097,7 @@ var treeView = {
     properties.AppendElement(this.atoms["selected-" + this.selection.isSelected(row)]);
     properties.AppendElement(this.atoms["subscription-" + !info[1]]);
     properties.AppendElement(this.atoms["pattern-" + !!(info[1] && typeof info[1] != "string")]);
+    properties.AppendElement(this.atoms["pattern-regexp-" + !!(info[1] && typeof info[1] != "string" && (info[1].type == "filterlist" || info[1].type == "whitelist") && abp.regexpRegExp.test(info[1].text))]);
     properties.AppendElement(this.atoms["description-" + !!(info[1] && typeof info[1] == "string")]);
     properties.AppendElement(this.atoms["subscription-special-" + info[0].special]);
     properties.AppendElement(this.atoms["subscription-external-" + (!info[0].special && info[0].external)]);
