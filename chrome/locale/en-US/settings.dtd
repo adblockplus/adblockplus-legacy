@@ -31,6 +31,8 @@
 <!ENTITY add.accesskey              "A">
 <!ENTITY addsubscription.label      "Add filter subscription">
 <!ENTITY addsubscription.accesskey  "S">
+<!ENTITY synchsubscriptions.label       "Update all subscriptions">
+<!ENTITY synchsubscriptions.accesskey   "D">
 <!ENTITY import.label               "Import filters">
 <!ENTITY import.accesskey           "M">
 <!ENTITY export.label               "Export filters">

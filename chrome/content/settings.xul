@@ -63,6 +63,7 @@
 <script type="application/x-javascript" src="findbar.js"/>
 
 <keyset id="adblockKeys">
+  <key id="synchsubscriptions-key" key="t" modifiers="accel,shift" command="synchsubscriptions-command"/>
   <key id="import-key" key="i" modifiers="accel" command="import-command"/>
   <key id="export-key" key="e" modifiers="accel" command="export-command"/>
   <key id="selectall-key" key="a" modifiers="accel" command="selectall-command"/>
@@ -85,6 +86,7 @@
 
 <commandset id="abpCommands">
   <command id="addsubscription-command" oncommand="editSubscription(null)"/>
+  <command id="synchsubscriptions-command" oncommand="synchAllSubscriptions()"/>
   <command id="import-command" oncommand="importList()"/>
   <command id="export-command" oncommand="exportList()"/>
   <command id="selectall-command" oncommand="treeView.selection.selectAll()"/>
@@ -121,7 +123,9 @@
     <menu id="filters-menu" label="&filters.label;" accesskey="&filters.accesskey;">
       <menupopup id="filters-popup" onpopupshowing="fillFiltersPopup()">
         <menuitem id="addfilter" label="&add.label;..." accesskey="&add.accesskey;" key="addfilter-key" oncommand="addFilter()"/>
+        <menuseparator/>
         <menuitem id="addsubscription" label="&addsubscription.label;..." accesskey="&addsubscription.accesskey;" command="addsubscription-command"/>
+        <menuitem id="synchsubscriptions" label="&synchsubscriptions.label;" accesskey="&synchsubscriptions.accesskey;" key="synchsubscriptions-key" command="synchsubscriptions-command"/>
         <menuseparator/>
         <menuitem id="import" label="&import.label;..." accesskey="&import.accesskey;" key="import-key" command="import-command"/>
         <menuitem id="export" label="&export.label;..." accesskey="&export.accesskey;" key="export-key" command="export-command"/>

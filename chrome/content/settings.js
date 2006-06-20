@@ -596,11 +596,22 @@ function pasteFromClipboard() {
 // Starts synchronization for a subscription
 function synchSubscription() {
   var info = treeView.getRowInfo(treeView.selection.currentIndex);
-  if (!info || info[0].special)
+  if (!info || info[0].special || subscription.external)
     return;
 
   var orig = prefs.knownSubscriptions.get(info[0].url);
   synchronizer.execute(orig);
+}
+
+// Starts synchronization for all subscriptions
+function synchAllSubscriptions() {
+  for (var i = 0; i < treeView.data.length; i++) {
+    var subscription = treeView.data[i];
+    if (!subscription.dummy && !subscription.special && !subscription.external) {
+      var orig = prefs.knownSubscriptions.get(subscription.url);
+      synchronizer.execute(orig);
+    }
+  }
 }
 
 // Moves a pattern or subscription up and down in the list
@@ -669,7 +680,7 @@ function fillContext() {
   if (subscription && hasPatterns && !subscription.special)
     hasPatterns = false;
 
-  document.getElementById("context-filters-sep").hidden = !hasPatterns && (!subscription || subscription.special);
+  document.getElementById("context-filters-sep").hidden = !hasPatterns && (!subscription || subscription.special || subscription.dummy);
 
   document.getElementById("context-resethitcount").hidden = !origHasPatterns;
 
@@ -680,7 +691,7 @@ function fillContext() {
 
   document.getElementById("context-synchsubscription").hidden =
     document.getElementById("context-editsubscription").hidden =
-    !subscription || subscription.special;
+    !subscription || subscription.special || subscription.dummy;
 
   document.getElementById("context-movegroupup").hidden =
     document.getElementById("context-movegroupdown").hidden =
@@ -689,8 +700,8 @@ function fillContext() {
 
   if (subscription) {
     document.getElementById("context-synchsubscription").setAttribute("disabled", subscription.special || subscription.external);
-    document.getElementById("context-movegroupup").setAttribute("disabled", treeView.isFirstSubscription(subscription));
-    document.getElementById("context-movegroupdown").setAttribute("disabled", treeView.isLastSubscription(subscription));
+    document.getElementById("context-movegroupup").setAttribute("disabled", subscription.dummy || treeView.isFirstSubscription(subscription));
+    document.getElementById("context-movegroupdown").setAttribute("disabled", subscription.dummy || treeView.isLastSubscription(subscription));
   }
 
   if (hasPatterns) {
@@ -726,7 +737,7 @@ function fillContext() {
   document.getElementById("copy-command").setAttribute("disabled", !origHasPatterns);
   document.getElementById("cut-command").setAttribute("disabled", !hasRemovable);
   document.getElementById("paste-command").setAttribute("disabled", !clipboard.hasDataMatchingFlavors(flavours, clipboard.kGlobalClipboard));
-  document.getElementById("remove-command").setAttribute("disabled", !hasRemovable && (!subscription || subscription.special));
+  document.getElementById("remove-command").setAttribute("disabled", !hasRemovable && (!subscription || subscription.special || subscription.dummy));
 
   return true;
 }
@@ -930,6 +941,7 @@ var treeView = {
       dummy: true,
       special: false,
       disabled: false,
+      external: false,
       extra: [],
       patterns: []
     });
