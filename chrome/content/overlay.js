@@ -48,6 +48,10 @@ function abpInit() {
   if (abp) {
     abpPrefs.addListener(abpReloadPrefs);
 
+    // Make sure whitelisting gets displayed after at most 2 seconds
+    setInterval(abpReloadPrefs, 2000);
+    getBrowser().addEventListener("select", abpReloadPrefs, false); 
+
     // Make sure we always configure keys but don't let them break anything
     try {
       // Configure keys
@@ -111,6 +115,7 @@ function abpInit() {
 
 function abpUnload() {
   abpPrefs.removeListener(abpReloadPrefs);
+  getBrowser().removeEventListener("select", abpReloadPrefs, false); 
 }
 
 function abpReloadPrefs() {
@@ -123,11 +128,17 @@ function abpReloadPrefs() {
       state = "disabled";
 
     label = abp.getString("status_" + state + "_label");
+
+    if (state == "active") {
+      var location = abp.unwrapURL(window.content.location.href);
+      if (abp.policy.isWhitelisted(location))
+        state = "whitelisted";
+    }
   }
 
   var tooltip = document.getElementById("abp-tooltip");
   if (state && tooltip)
-    tooltip.setAttribute("labeltmpl", state + "_tooltip");
+    tooltip.setAttribute("curstate", state);
 
   var updateElement = function(element) {
     if (!element)
@@ -151,9 +162,11 @@ function abpReloadPrefs() {
       abpOldShowInToolbar = abpPrefs.showintoolbar;
     }
 
-    if (abpPrefs.enabled)
-      element.removeAttribute("deactivated");
-    else
+    element.removeAttribute("deactivated");
+    element.removeAttribute("whitelisted");
+    if (state == "whitelisted")
+      element.setAttribute("whitelisted", "true");
+    else if (state == "disabled")
       element.setAttribute("deactivated", "true");
   }
 
@@ -329,8 +342,70 @@ function abpFillTooltip(ev) {
     return false;
 
   if (abp) {
-    var prefix = (document.tooltipNode && document.tooltipNode.id == "abp-toolbarbutton" ? "toolbar_" : "status_");
-    ev.target.setAttribute("label", abp.getString(prefix + ev.target.getAttribute("labeltmpl")));
+    abpReloadPrefs();
+
+    var type = (document.tooltipNode && document.tooltipNode.id == "abp-toolbarbutton" ? "toolbar" : "statusbar");
+    var action = parseInt(abpPrefs["default" + type + "action"]);
+    if (isNaN(action))
+      action = -1;
+
+    var actionDescr = document.getElementById("abp-tooltip-action");
+    actionDescr.hidden = (action < 0 || action > 3);
+    if (!actionDescr.hidden)
+      actionDescr.setAttribute("value", abp.getString("action" + action + "_tooltip"));
+
+    var state = ev.target.getAttribute("curstate");
+    var statusDescr = document.getElementById("abp-tooltip-status");
+    statusDescr.setAttribute("value", abp.getString(state + "_tooltip"));
+
+    var activeFilters = [];
+    document.getElementById("abp-tooltip-blocked-label").hidden = (state != "active");
+    document.getElementById("abp-tooltip-blocked").hidden = (state != "active");
+    if (state == "active") {
+      var data = abp.getDataForWindow(window.content);
+      var locations = data.getAllLocations();
+
+      var blocked = 0;
+      var filters = new abp.HashTable();
+      for (i = 0; i < locations.length; i++) {
+        if (locations[i].filter && locations[i].filter.type != "whitelist")
+          blocked++;
+        if (locations[i].filter) {
+          if (filters.has(locations[i].filter.text))
+            filters.get(locations[i].filter.text).value++;
+          else
+            filters.put(locations[i].filter.text, {value:1});
+        }
+      }
+
+      var blockedStr = abp.getString("blocked_count_tooltip");
+      blockedStr = blockedStr.replace(/--/, blocked).replace(/--/, locations.length);
+      document.getElementById("abp-tooltip-blocked").setAttribute("value", blockedStr);
+
+      var filterSort = function(a, b) {
+        return filters.get(b).value - filters.get(a).value;
+      };
+      activeFilters = filters.keys().sort(filterSort);
+    }
+
+    document.getElementById("abp-tooltip-filters-label").hidden = (activeFilters.length == 0);
+    document.getElementById("abp-tooltip-filters").hidden = (activeFilters.length == 0);
+    if (activeFilters.length > 0) {
+      var filtersContainer = document.getElementById("abp-tooltip-filters");
+      while (filtersContainer.firstChild)
+        filtersContainer.removeChild(filtersContainer.firstChild);
+
+      for (var i = 0; i < activeFilters.length && i < 3; i++) {
+        var descr = document.createElement("description");
+        descr.setAttribute("value", activeFilters[i] + " (" + filters.get(activeFilters[i]).value + ")");
+        filtersContainer.appendChild(descr);
+      }
+      if (activeFilters.length > 3) {
+        var descr = document.createElement("description");
+        descr.setAttribute("value", "...");
+        filtersContainer.appendChild(descr);
+      }
+    }
   }
   return true;
 }
@@ -555,6 +630,9 @@ function abpTogglePattern(text, insert) {
 
   abpPrefs.initMatching();
   abpPrefs.savePatterns();
+
+  // Make sure to display whitelisting immediately
+  abpReloadPrefs();
 }
 
 // Handle clicks on the Adblock statusbar panel
