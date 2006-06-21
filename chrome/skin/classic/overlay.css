@@ -36,16 +36,31 @@
 {
   color: #999999;
 }
+#abp-status[whitelisted]
+{
+  color: #008000;
+}
 #abp-status label {
   display: none;
 }
 
+toolbar[iconsize="small"] #abp-toolbarbutton,
+#PersonalToolbar #abp-toolbarbutton,
 #abp-status image {
   list-style-image: url("abp-enabled-16.png");
 }
+toolbar[iconsize="small"] #abp-toolbarbutton[deactivated],
+#PersonalToolbar #abp-toolbarbutton[deactivated],
 #abp-status[deactivated] image {
   list-style-image: url("abp-disabled-16.png");
 }
+toolbar[iconsize="small"] #abp-toolbarbutton[whitelisted],
+#PersonalToolbar #abp-toolbarbutton[whitelisted],
+#abp-status[whitelisted] image {
+  list-style-image: url("abp-whitelisted-16.png");
+}
+toolbar[iconsize="small"] #abp-toolbarbutton[disabled="true"],
+#PersonalToolbar #abp-toolbarbutton[disabled="true"],
 #abp-status[disabled="true"] image {
   list-style-image: url("abp-defunc-16.png");
 }
@@ -61,23 +76,22 @@ menuitem[default="true"] {
 #abp-toolbarbutton[deactivated] {
   list-style-image: url("abp-disabled.png");
 }
+#abp-toolbarbutton[whitelisted] {
+  list-style-image: url("abp-whitelisted.png");
+}
 #abp-toolbarbutton[disabled="true"] {
   list-style-image: url("abp-defunc.png");
 }
 
-toolbar[iconsize="small"] #abp-toolbarbutton,
-#PersonalToolbar #abp-toolbarbutton {
-  list-style-image: url("abp-enabled-16.png");
-}
-toolbar[iconsize="small"] #abp-toolbarbutton[deactivated],
-#PersonalToolbar #abp-toolbarbutton[deactivated] {
-  list-style-image: url("abp-disabled-16.png");
-}
-toolbar[iconsize="small"] #abp-toolbarbutton[disabled="true"],
-#PersonalToolbar #abp-toolbarbutton[disabled="true"] {
-  list-style-image: url("abp-defunc-16.png");
-}
-
 #abp-tooltip {
   max-width: none;
+}
+
+#abp-tooltip label {
+  font-weight: bold;
+  margin-bottom: 0px;
+}
+
+#abp-tooltip description:not([hidden="true"])+label {
+  margin-top: 10px;
 }
