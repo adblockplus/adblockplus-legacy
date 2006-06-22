@@ -73,6 +73,10 @@ function abpInit() {
   if (abp && !abpPrefs.checkedtoolbar)
     setTimeout(abpInstallInToolbar, 0);
 
+  // Let user choose subscriptions on first start
+  if (abp && abpPrefs.showsubscriptions)
+    setTimeout(abpShowSubscriptions, 0);
+
   // Move toolbar button to a correct location in Mozilla/SeaMonkey
   var button = document.getElementById("abp-toolbarbutton");
   if (button && button.parentNode.id == "nav-bar-buttons") {
@@ -324,6 +328,20 @@ function abpInstallInToolbar() {
     abpPrefs.checkedtoolbar = true;
     abpPrefs.save();
   }
+}
+
+// Let user choose subscriptions on first start unless he has some already
+function abpShowSubscriptions() {
+  // Make sure not to run this twice
+  abpPrefs.showsubscriptions = false;
+  abpPrefs.save();
+
+  // Look for existing subscriptions
+  for (var i = 0; i < abpPrefs.subscriptions.length; i++)
+    if (!abpPrefs.subscriptions[i].special)
+      return;
+
+  window.openDialog("chrome://adblockplus/content/tip_subscriptions.xul", "_blank", "chrome,centerscreen,resizable=no,dialog=no");
 }
 
 // Retrieves the location of the sidebar panels file (Mozilla Suite/Seamonkey)

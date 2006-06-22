@@ -28,6 +28,11 @@ dialog {
   padding: 0px;
 }
 
+/* Preload regexp.gif (work around XUL cache issue)*/
+#dummy {
+  background-image: url(regexp.gif);
+}
+
 #disabledWarning {
   color: #E00000;
 }

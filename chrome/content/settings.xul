@@ -222,4 +222,6 @@
   </toolbar>
 </vbox>
 
+<hbox id="dummy" height="0"/>
+
 </dialog>

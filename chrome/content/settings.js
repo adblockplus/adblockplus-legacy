@@ -45,6 +45,21 @@ if (abp) {
 else
   window.close();   // Extension manager opened us without checking whether we are installed properly
 
+const altMask = 2;
+const ctrlMask = 4;
+const metaMask = 8;
+
+var accelMask = ctrlMask;
+try {
+  var prefService = Components.classes["@mozilla.org/preferences-service;1"]
+                              .getService(Components.interfaces.nsIPrefBranch);
+  var accelKey = prefService.getIntPref("ui.key.accelKey");
+  if (accelKey == Components.interfaces.nsIDOMKeyEvent.DOM_VK_META)
+    accelMask = metaMask;
+  else if (accelKey == Components.interfaces.nsIDOMKeyEvent.DOM_VK_ALT)
+    accelMask = altMask;
+} catch(e) {}
+
 var newFilterLabel = null;
 var editorTimeout = null;
 var showingWarning = false;
@@ -369,6 +384,14 @@ function onListKeyPress(e) {
   if (treeView.isEditing())
     return;
 
+  var modifiers = 0;
+  if (e.altKey)
+    modifiers |= altMask;
+  if (e.ctrlKey)
+    modifiers |= ctrlMask;
+  if (e.metaKey)
+    modifiers |= metaMask;
+
   if (e.keyCode == e.DOM_VK_RETURN || e.keyCode == e.DOM_VK_ENTER || e.keyCode == e.DOM_VK_F2) {
     e.preventDefault();
     if (editFilter(''))
@@ -388,15 +411,15 @@ function onListKeyPress(e) {
         forceValue = treeView.toggleDisabled(j, forceValue);
     }
   }
-  else if ((e.keyCode == e.DOM_VK_UP || e.keyCode == e.DOM_VK_DOWN) && e.ctrlKey && !e.altKey && !e.metaKey) {
+  else if ((e.keyCode == e.DOM_VK_UP || e.keyCode == e.DOM_VK_DOWN) && modifiers == accelMask) {
     moveFilter(e.shiftKey ? 'subscription' : 'filter', e.keyCode == e.DOM_VK_UP);
     e.stopPropagation();
   }
-  else if (useTypeAheadFind && e.charCode && !e.ctrlKey && !e.altKey && !e.metaKey && e.charCode != 32) {
+  else if (useTypeAheadFind && e.charCode && modifiers == 0 && String.fromCharCode(e.charCode) != " ") {
     openFindBar(String.fromCharCode(e.charCode));
     e.stopPropagation();
   }
-  else if (String.fromCharCode(e.charCode).toLowerCase() == "t" && e.ctrlKey && !e.altKey && !e.metaKey)
+  else if (String.fromCharCode(e.charCode).toLowerCase() == "t" && modifiers == accelMask)
     synchSubscription();
 }
 
@@ -537,7 +560,7 @@ function removeFilters(type) {
         return;
     }
 
-    if (subscription && !subscription.special && confirm(abp.getString("remove_subscription_warning")))
+    if (subscription && !subscription.special && !subscription.dummy && confirm(abp.getString("remove_subscription_warning")))
       treeView.removeRow([subscription, null]);
   }
 }
@@ -598,7 +621,7 @@ function pasteFromClipboard() {
 // Starts synchronization for a subscription
 function synchSubscription() {
   var info = treeView.getRowInfo(treeView.selection.currentIndex);
-  if (!info || info[0].special || info[0].external)
+  if (!info || info[0].special || info[0].external || info[0].dummy)
     return;
 
   var orig = prefs.knownSubscriptions.get(info[0].url);
@@ -609,7 +632,7 @@ function synchSubscription() {
 function synchAllSubscriptions() {
   for (var i = 0; i < treeView.data.length; i++) {
     var subscription = treeView.data[i];
-    if (!subscription.dummy && !subscription.special && !subscription.external) {
+    if (!subscription.special && !subscription.external && !subscription.dummy) {
       var orig = prefs.knownSubscriptions.get(subscription.url);
       synchronizer.execute(orig);
     }
