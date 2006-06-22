@@ -8,12 +8,14 @@
       <RDF:Description>
         <abp:title>EasyList (USA)</abp:title>
         <abp:url>http://mysite.verizon.net/rick752/firefox/adblock_rick752.txt</abp:url>
+        <abp:homepage>http://mysite.verizon.net/vzeoa83f/firefox/adblock_filter_list.htm</abp:homepage>
       </RDF:Description>
     </RDF:li>
     <RDF:li>
       <RDF:Description>
         <abp:title>Cédrics Liste (Deutschland)</abp:title>
         <abp:url>http://chewey.de/mozilla/data/adblock.txt</abp:url>
+        <abp:homepage>http://chewey.de/mozilla/adblock-filterliste.html</abp:homepage>
       </RDF:Description>
     </RDF:li>
     <RDF:li>
@@ -27,6 +29,7 @@
       <RDF:Description>
         <abp:title>Filter von Dr.Evil (Deutschland)</abp:title>
         <abp:url>http://maltekraus.de/Firefox/adblock.php</abp:url>
+        <abp:homepage>http://www.firefox-browser.de/forum/viewtopic.php?t=28904</abp:homepage>
       </RDF:Description>
     </RDF:li>
     <RDF:li>
