@@ -24,9 +24,6 @@
 
 <!ENTITY notloaded.label "ロードエラー">
 <!ENTITY notloaded.tooltip "Adblock Plus をロードできませんでした。初期の読み込みに失敗した可能性があります。">
-<!ENTITY status.tooltip         "Status:">
-<!ENTITY blocked.tooltip        "Blocked items on this page:">
-<!ENTITY filters.tooltip        "Active filters:">
 
 <!ENTITY menuitem.label "Adblock Plus">
 <!ENTITY menuitem.accesskey "B">
