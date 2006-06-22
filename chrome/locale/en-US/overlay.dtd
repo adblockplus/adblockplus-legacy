@@ -26,7 +26,7 @@
 <!ENTITY notloaded.tooltip      "Adblock Plus component couldn't be loaded, maybe it didn't install properly.">
 <!ENTITY status.tooltip         "Status:">
 <!ENTITY blocked.tooltip        "Blocked items on this page:">
-<!ENTITY filters.tooltip        "Active filters:">
+<!ENTITY filters.tooltip        "Most active filters:">
 
 <!ENTITY menuitem.label         "Adblock Plus">
 <!ENTITY menuitem.accesskey     "B">
