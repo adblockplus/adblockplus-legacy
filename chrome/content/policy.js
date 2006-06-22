@@ -44,7 +44,7 @@ var policy = {
     var iface = Components.interfaces.nsIContentPolicy;
     for (var k = 0; k < types.length; k++) {
       var typeName = types[k];
-      type[typeName] = typeName in iface ? iface[typeName] : iface["TYPE_" + typeName];
+      type[typeName] = iface["TYPE_" + typeName];
       typeDescr[type[typeName]] = typeName;
       localizedDescr[type[typeName]] = abp.getString("type_label_" + typeName.toLowerCase());
     }

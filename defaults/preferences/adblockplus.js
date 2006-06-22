@@ -12,6 +12,7 @@ pref("extensions.adblockplus.checkedtoolbar", false);
 pref("extensions.adblockplus.checkedadblockprefs", false);
 pref("extensions.adblockplus.checkedadblocksync", false);
 pref("extensions.adblockplus.checkedadblockinstalled", false);
+pref("extensions.adblockplus.showsubscriptions", true);
 pref("extensions.adblockplus.detachsidebar", false);
 pref("extensions.adblockplus.synchronizationinterval", 24);
 pref("extensions.adblockplus.defaulttoolbaraction", 1);

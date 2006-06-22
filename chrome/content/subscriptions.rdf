@@ -20,6 +20,7 @@
       <RDF:Description>
         <abp:title>adblock.free.fr (France)</abp:title>
         <abp:url>http://adblock.free.fr/adblock.txt</abp:url>
+        <abp:homepage>http://adblock.free.fr/</abp:homepage>
       </RDF:Description>
     </RDF:li>
     <RDF:li>
@@ -32,6 +33,7 @@
       <RDF:Description>
         <abp:title>RU AdList (Россия)</abp:title>
         <abp:url>http://denis-ovs.narod.ru/adblock.txt</abp:url>
+        <abp:homepage>http://denis-ovs.narod.ru/</abp:homepage>
       </RDF:Description>
     </RDF:li>
   </RDF:Seq>

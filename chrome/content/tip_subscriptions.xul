@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+
+<!-- ***** BEGIN LICENSE BLOCK *****
+   - Version: MPL 1.1
+   -
+   - The contents of this file are subject to the Mozilla Public License Version
+   - 1.1 (the "License"); you may not use this file except in compliance with
+   - the License. You may obtain a copy of the License at
+   - http://www.mozilla.org/MPL/
+   -
+   - Software distributed under the License is distributed on an "AS IS" basis,
+   - WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+   - for the specific language governing rights and limitations under the
+   - License.
+   -
+   - The Original Code is Adblock Plus.
+   -
+   - The Initial Developer of the Original Code is
+   - Wladimir Palant.
+   - Portions created by the Initial Developer are Copyright (C) 2006
+   - the Initial Developer. All Rights Reserved.
+   -
+   - Contributor(s):
+   -
+   - ***** END LICENSE BLOCK ***** -->
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://adblockplus/skin/tip_subscriptions.css" type="text/css"?>
+
+<!DOCTYPE dialog SYSTEM "chrome://adblockplus/locale/tip_subscriptions.dtd">
+
+<dialog
+  xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+  buttons="accept,cancel"
+  buttonlabelaccept="&subscribe.label;"
+  buttonaccesskeyaccept="&subscribe.accesskey;"
+  title="&dialog.title;"
+  id="abpTipSubscriptions"
+  windowtype="abp:tip:subscriptions"
+  onload="setTimeout('sizeToContent();document.documentElement.centerWindowOnScreen()', 0)"
+  ondialogaccept="addSubscriptions()">
+
+<script type="application/x-javascript" src="tip_subscriptions.js"/>
+
+<hbox align="center">
+  <description flex="1" id="description">&description;</description>
+  <image id="icon"/>
+</hbox>
+
+<vbox id="subscriptions" datasources="subscriptions.rdf" ref="abp:subscriptions">
+  <template>
+    <hbox uri="rdf:*" class="container" align="center">
+      <checkbox _title="rdf:http://adblockplus.mozdev.org/#title" _url="rdf:http://adblockplus.mozdev.org/#url"/>
+      <vbox flex="1">
+        <hbox>
+          <description class="title" value="rdf:http://adblockplus.mozdev.org/#title"/>
+          <spacer flex="1"/>
+          <description class="homepage" _url="rdf:http://adblockplus.mozdev.org/#homepage" value="&homepage.label;" onclick="abp.loadInBrowser(this.getAttribute('_url'))"/>
+        </hbox>
+        <description class="location" value="rdf:http://adblockplus.mozdev.org/#url" onclick="abp.loadInBrowser(this.getAttribute('value'))"/>
+      </vbox>
+    </hbox>
+  </template>
+</vbox>
+
+<hbox align="center">
+  <description flex="1" id="note">&note;</description>
+</hbox>
+
+</dialog>
