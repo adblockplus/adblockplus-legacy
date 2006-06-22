@@ -9,8 +9,8 @@ close(VERSION);
 
 my $output_file = shift @ARGV || "adblockplus.xpi";
 
-if ($ARGV[0] eq "-dev") {
-  $version .= "+";
+if ($ARGV[0] =~ /^\+/) {
+  $version .= $ARGV[0];
   shift @ARGV;
 }
 
