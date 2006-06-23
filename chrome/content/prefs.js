@@ -58,6 +58,18 @@ const shortcutLength = 8;
 const minShortcutNumber = 100;
 const maxCacheEntries = 10000;
 
+var typeMap = {
+  OTHER: 1,
+  SCRIPT: 2,
+  IMAGE: 4,
+  STYLESHEET: 8,
+  OBJECT: 16,
+  SUBDOCUMENT: 32,
+  DOCUMENT: 64,
+  LINK: 128,
+  BACKGROUND: 256
+};
+
 Matcher.prototype = {
   // Clears the list
   clear: function() {
@@ -79,7 +91,7 @@ Matcher.prototype = {
     if (!("shortcut" in pattern) || this.shortcutHash.has(pattern.shortcut)) {
       delete pattern.shortcut;
       if (!abp.regexpRegExp.test(pattern.text)) {
-        var text = pattern.text.toLowerCase();
+        var text = pattern.text.replace(abp.optionsRegExp,'').toLowerCase();
         for (var i = 0; i < text.length - shortcutLength + 1; i++) {
           var candidate = text.substr(i, shortcutLength);
           if (!/[*|@]/.test(candidate) && !this.shortcutHash.has(candidate)) {
@@ -101,7 +113,7 @@ Matcher.prototype = {
     this.known.put(pattern.regexp, true);
   },
 
-  matchesAnyInternal: function(location) {
+  matchesAnyInternal: function(location, contentType) {
     var list = this.patterns;
     if (this.shortcuts > minShortcutNumber) {
       // Optimize matching using shortcuts
@@ -109,32 +121,35 @@ Matcher.prototype = {
       var endPos = text.length - shortcutLength + 1;
       for (var i = 0; i <= endPos; i++) {
         var substr = text.substr(i, shortcutLength);
-        if (this.shortcutHash.has(substr) && this.shortcutHash.get(substr).regexp.test(location))
-          return this.shortcutHash.get(substr);
+        var pattern = this.shortcutHash.get(substr);
+        if (typeof pattern != "undefined" && pattern.regexp.test(location) &&
+            (!("contentType" in pattern) || typeMap[contentType] & pattern.contentType))
+          return pattern;
       }
 
       list = this.regexps;
     }
 
     for (i = 0; i < list.length; i++)
-      if (list[i].regexp.test(location))
+      if (list[i].regexp.test(location) && (!("contentType" in list[i]) || typeMap[contentType] & list[i].contentType))
         return list[i];
 
     return null;
   },
 
   // Tests whether URL matches any of the patterns in the list, returns the matching pattern
-  matchesAny: function(location) {
-    var result = this.resultCache.get(location);
+  matchesAny: function(location, contentType) {
+    var key = location + " " + contentType;
+    var result = this.resultCache.get(key);
     if (typeof result == "undefined") {
-      result = this.matchesAnyInternal(location);
+      result = this.matchesAnyInternal(location, contentType);
 
       if (this.cacheEntries >= maxCacheEntries) {
         this.resultCache.clear();
         this.cacheEntries = 0;
       }
   
-      this.resultCache.put(location, result);
+      this.resultCache.put(key, result);
       this.cacheEntries++;
     }
 
@@ -210,7 +225,8 @@ var elemhide = {
   }
 };
 abp.elemhideRegExp = /^([^\/\*\|\@"]*?)#(?:([\w\-]+|\*)((?:\([\w\-]+(?:[$^*]?=[^\(\)"]*)?\))*)|#([^{}]+))$/;
-abp.regexpRegExp = /^(@@)?\/.*\/$/;
+abp.regexpRegExp = /^(@@)?\/.*\/(?:\$~?[\w\-]+(?:,~?[\w\-]+)*)?$/;
+abp.optionsRegExp = /\$(~?[\w\-]+(?:,~?[\w\-]+)*)$/;
 
 var prefs = {
   initialized: false,
@@ -706,6 +722,10 @@ var prefs = {
       ret.domain = ("domain" in obj ? obj.domain : null);
       ret.selector = ("selector" in obj ? obj.selector : null);
     }
+    if ("contentType" in obj)
+      ret.contentType = parseInt(obj.contentType) || 0;
+    if ("matchCase" in obj && obj.matchCase == "true")
+      ret.matchCase = true;
     if (ret.type == null || ret.type == "invalid" ||
         ((ret.type == "whitelist" || ret.type == "filterlist") && ret.regexpText == null) ||
         (ret.type == "whitelist" && ret.pageWhitelist == null) ||
@@ -804,6 +824,27 @@ var prefs = {
         pattern.pageWhitelist = /^\|?[\w\-]+:\/\//.test(text);
       }
 
+      if (abp.optionsRegExp.test(text)) {
+        // Pattern has options
+        var options = RegExp.$1.toUpperCase().split(",");
+        text = text.replace(abp.optionsRegExp, '');
+
+        for (i = 0; i < options.length; i++) {
+          if (options[i] in typeMap) {
+            if (!("contentType" in pattern))
+              pattern.contentType = 0;
+            pattern.contentType |= typeMap[options[i]];
+          }
+          else if (/^~(.*)/.test(options[i]) && RegExp.$1 in typeMap) {
+            if (!("contentType" in pattern))
+              pattern.contentType = 0xFFFFFFFF;
+            pattern.contentType &= ~typeMap[RegExp.$1];
+          }
+          else if (options[i] == "MATCH-CASE")
+            pattern.matchCase = true;
+        }
+      }
+
       if (/^\/.*\/$/.test(text))  // pattern is a regexp already
         pattern.regexpText = text.substr(1, text.length - 2);
       else {
@@ -825,7 +866,7 @@ var prefs = {
   initRegexp: function(pattern) {
     if ((pattern.type == "whitelist" || pattern.type == "filterlist") && !("regexp" in pattern)) {
       try {
-        pattern.regexp = new RegExp(pattern.regexpText, "i");
+        pattern.regexp = new RegExp(pattern.regexpText, "matchCase" in pattern ? "" : "i");
       }
       catch (e) {
         pattern.type = "invalid";
@@ -848,6 +889,10 @@ var prefs = {
       buf.push('domain=' + pattern.domain);
     if ("selector" in pattern)
       buf.push('selector=' + pattern.selector);
+    if ("contentType" in pattern)
+      buf.push('contentType=' + pattern.contentType);
+    if ("matchCase" in pattern)
+      buf.push('matchCase=true');
     buf.push('disabled=' + pattern.disabled);
     if (pattern.hitCount)
       buf.push('hitCount=' + pattern.hitCount);
@@ -920,6 +965,11 @@ var prefs = {
       ret.lastSuccess = parseInt("lastSuccess" in obj ? obj.lastSuccess : 0) || 0;
       ret.downloadStatus = ("downloadStatus" in obj ? obj.downloadStatus : "");
       ret.lastModified = ("lastModified" in obj ? obj.lastModified : "");
+      if ("requiredVersion" in obj) {
+        ret.requiredVersion = obj.requiredVersion;
+        if (abp.versionComparator.compare(ret.requiredVersion, abp.getInstalledVersion()) > 0)
+          ret.upgradeRequired = true;
+      }
 
       if (!ret.external) {
         try {
@@ -1074,6 +1124,8 @@ var prefs = {
         buf.push('downloadStatus=' + subscription.downloadStatus);
       if (subscription.lastModified)
         buf.push('lastModified=' + subscription.lastModified);
+      if (subscription.requiredVersion)
+        buf.push('requiredVersion=' + subscription.requiredVersion);
   
       if (subscription.patterns.length) {
         buf.push('', '[Subscription patterns]');

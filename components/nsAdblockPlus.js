@@ -348,6 +348,9 @@ abp.wrappedJSObject = abp;
 function init() {
   initialized = true;
 
+  abp.versionComparator = Components.classes["@mozilla.org/xpcom/version-comparator;1"]
+                                    .createInstance(Components.interfaces.nsIVersionComparator);
+
   loader.loadSubScript('chrome://adblockplus/content/utils.js');
   loader.loadSubScript('chrome://adblockplus/content/policy.js');
   loader.loadSubScript('chrome://adblockplus/content/data.js');

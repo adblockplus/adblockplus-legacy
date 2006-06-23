@@ -41,14 +41,17 @@ dialog {
   overflow: auto;
 }
 
-template+.container {
+template+.container, .containerAdded {
   border-top: 1px solid black;
 }
 
-.container {
+.container, .containerAdded {
   padding-top: 5px;
   padding-bottom: 5px;
   margin: 0px;
+}
+
+.container {
   border-bottom: 1px solid black;
 }
 

@@ -309,14 +309,19 @@ function importList() {
       lines.push(abp.normalizeFilter(line.value));
     stream.close();
 
-    if (/\[Adblock\]/i.test(lines[0])) {
+    if (/\[Adblock(?:\s*Plus\s*([\d\.]+)?)?\]/i.test(lines[0])) {
+      var minVersion = RegExp.$1;
+      var warning = "";
+      if (minVersion && abp.versionComparator.compare(minVersion, abp.getInstalledVersion()) > 0)
+        warning = abp.getString("import_filters_wrong_version").replace(/--/, minVersion) + "\n\n";
+
       var promptService = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
                                     .getService(Components.interfaces.nsIPromptService);
       var flags = promptService.BUTTON_TITLE_IS_STRING * promptService.BUTTON_POS_0 +
                   promptService.BUTTON_TITLE_CANCEL * promptService.BUTTON_POS_1 +
                   promptService.BUTTON_TITLE_IS_STRING * promptService.BUTTON_POS_2;
       var result = promptService.confirmEx(window, abp.getString("import_filters_title"),
-        abp.getString("import_filters_warning"), flags, abp.getString("overwrite"),
+        warning + abp.getString("import_filters_warning"), flags, abp.getString("overwrite"),
         null, abp.getString("append"), null, {});
       if (result == 1)
         return;
@@ -357,13 +362,46 @@ function exportList() {
       stream.init(picker.file, 0x02 | 0x08 | 0x20, 0644, 0);
   
       var list = ["[Adblock]"];
+      var minVersion = "0";
       for (var i = 0; i < treeView.data.length; i++) {
         if (treeView.data[i].special) {
           var patterns = treeView.data[i].patterns.slice();
           patterns.sort(sortNatural);
-          for (var j = 0; j < patterns.length; j++)
-            list.push(patterns[j].text);
+          for (var j = 0; j < patterns.length; j++) {
+            var pattern = patterns[j];
+            list.push(pattern.text);
+
+            // Find version requirements of this pattern
+            var patternVersion;
+            if (pattern.type == "filterlist" || pattern.type == "whitelist") {
+              if (abp.optionsRegExp.test(pattern.text))
+                patternVersion = "0.7.1";
+              else if (/^(?:@@)?\|/.test(pattern.text) || /\|$/.test(pattern.text))
+                patternVersion = "0.6.1.2";
+              else
+                patternVersion = "0";
+            }
+            else if (pattern.type == "elemhide") {
+              if (/^#([\w\-]+|\*)(?:\(([\w\-]+)\))?$/.test(pattern.text))
+                patternVersion = "0.6.1";
+              else
+                patternVersion = "0.7";
+            }
+            else
+              patternVersion = "0";
+            
+            // Adjust version requirements of the complete filter set
+            if (patternVersion != "0" && abp.versionComparator.compare(minVersion, patternVersion) < 0)
+              minVersion = patternVersion;
+          }
         }
+      }
+
+      if (minVersion != "0") {
+        if (abp.versionComparator.compare(minVersion, "0.7.1") >= 0)
+          list[0] = "[Adblock Plus " + minVersion + "]";
+        else
+          list[0] = "(Adblock Plus " + minVersion + " or higher required) " + list[0];
       }
 
       var output = list.join(lineBreak) + lineBreak;
@@ -954,7 +992,7 @@ var treeView = {
     var i, j, subscription;
 
     var stringAtoms = ["col-pattern", "col-enabled", "col-hitcount", "col-lasthit", "type-comment", "type-filterlist", "type-whitelist", "type-elemhide", "type-invalid"];
-    var boolAtoms = ["selected", "dummy", "subscription", "description", "pattern", "pattern-regexp", "subscription-special", "subscription-external", "subscription-autoDownload", "subscription-disabled", "pattern-disabled"];
+    var boolAtoms = ["selected", "dummy", "subscription", "description", "pattern", "pattern-regexp", "subscription-special", "subscription-external", "subscription-autoDownload", "subscription-disabled", "subscription-upgradeRequired", "pattern-disabled"];
     var atomService = Components.classes["@mozilla.org/atom-service;1"]
                                 .getService(Components.interfaces.nsIAtomService);
 
@@ -1119,6 +1157,10 @@ var treeView = {
     if (!info)
       return;
 
+    var origSubscription = prefs.knownSubscriptions.get(info[0].url);
+    if (typeof origSubscription == "undefined")
+      origSubscription = null;
+
     properties.AppendElement(this.atoms["selected-" + this.selection.isSelected(row)]);
     properties.AppendElement(this.atoms["subscription-" + !info[1]]);
     properties.AppendElement(this.atoms["pattern-" + !!(info[1] && typeof info[1] != "string")]);
@@ -1128,6 +1170,7 @@ var treeView = {
     properties.AppendElement(this.atoms["subscription-external-" + (!info[0].special && info[0].external)]);
     properties.AppendElement(this.atoms["subscription-autoDownload-" + (info[0].special || info[0].autoDownload)]);
     properties.AppendElement(this.atoms["subscription-disabled-" + (!info[0].special && info[0].disabled)]);
+    properties.AppendElement(this.atoms["subscription-upgradeRequired-" + (origSubscription && "upgradeRequired" in origSubscription)]);
     var dummy = info[0].dummy;
     if (info[1] && typeof info[1] != "string") {
       dummy = info[1].dummy;
@@ -1351,6 +1394,9 @@ var treeView = {
       return descr;
 
     var orig = prefs.knownSubscriptions.get(subscription.url);
+
+    if ("upgradeRequired" in orig)
+      descr.push(abp.getString("subscription_wrong_version").replace(/--/, orig.requiredVersion));
 
     if (!orig.external)
       descr.push(abp.getString("subscription_source") + " " + subscription.url);

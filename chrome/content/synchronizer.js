@@ -81,9 +81,19 @@ var synchronizer = {
       if (!lines[i])
         lines.splice(i--, 1);
     }
-    if (!/\[Adblock\]/i.test(lines[0])) {
+    if (!/\[Adblock(?:\s*Plus\s*([\d\.]+)?)?\]/i.test(lines[0])) {
       this.setError(subscription, "synchronize_invalid_data");
       return;
+    }
+
+    delete subscription.requiredVersion;
+    delete subscription.upgradeRequired;
+
+    var minVersion = RegExp.$1;
+    if (minVersion) {
+      subscription.requiredVersion = minVersion;
+      if (abp.versionComparator.compare(minVersion, abp.getInstalledVersion()) > 0)
+        subscription.upgradeRequired = true;
     }
 
     subscription.lastDownload = subscription.lastSuccess = (new Date().getTime() / 1000).toFixed(0);
