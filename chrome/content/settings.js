@@ -430,7 +430,9 @@ function onListKeyPress(e) {
   if (e.metaKey)
     modifiers |= metaMask;
 
-  if (e.keyCode == e.DOM_VK_RETURN || e.keyCode == e.DOM_VK_ENTER || e.keyCode == e.DOM_VK_F2) {
+  if ((e.keyCode == e.DOM_VK_RETURN || e.keyCode == e.DOM_VK_ENTER) && modifiers)
+    document.documentElement.acceptDialog();
+  else if (e.keyCode == e.DOM_VK_RETURN || e.keyCode == e.DOM_VK_ENTER || e.keyCode == e.DOM_VK_F2) {
     e.preventDefault();
     if (editFilter(''))
       e.stopPropagation();
@@ -2118,8 +2120,12 @@ var treeView = {
     this.editorKeyPressHandler = function(e) {
       if (e.keyCode == e.DOM_VK_RETURN || e.keyCode == e.DOM_VK_ENTER) {
         me.stopEditor(true);
-        e.preventDefault();
-        e.stopPropagation();
+        if (e.ctrlKey || e.altKey || e.metaKey)
+          document.documentElement.acceptDialog();
+        else {
+          e.preventDefault();
+          e.stopPropagation();
+        }
       }
       else if (e.keyCode == e.DOM_VK_CANCEL || e.keyCode == e.DOM_VK_ESCAPE) {
         me.stopEditor(false);

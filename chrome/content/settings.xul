@@ -163,7 +163,7 @@
       <menupopup id="help-popup">
         <menuitem id="faqLink" label="&faq.label;" accesskey="&faq.accesskey;" oncommand="abp.loadInBrowser('&faq.url;')"/>
         <menuitem id="tipsLink" label="&tips.label;" accesskey="&tips.accesskey;" oncommand="abp.loadInBrowser('&tips.url;')"/>
-        <menuitem id="regexpsLink" label="&regexps.label;" accesskey="&regexps.accesskey;" oncommand="abp.loadInBrowser('&regexps.url;')"/>
+        <menuitem id="filtersLink" label="&filterdoc.label;" accesskey="&filterdoc.accesskey;" oncommand="abp.loadInBrowser('&filterdoc.url;')"/>
         <menuseparator/>
         <menuitem id="aboutAbp" label="&about.label;..." accesskey="&about.accesskey;" oncommand="openAbout()"/>
       </menupopup>
