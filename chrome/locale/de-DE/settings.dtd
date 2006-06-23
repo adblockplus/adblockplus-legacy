@@ -27,8 +27,12 @@
 <!ENTITY filters.label              "Filter">
 <!ENTITY filters.accesskey          "F">
 
+<!ENTITY add.label                  "Filter hinzufügen">
+<!ENTITY add.accesskey              "Z">
 <!ENTITY addsubscription.label      "Filter-Abonnement hinzufügen">
 <!ENTITY addsubscription.accesskey  "B">
+<!ENTITY synchsubscriptions.label       "Filter für alle Abonnements herunterladen">
+<!ENTITY synchsubscriptions.accesskey   "N">
 <!ENTITY import.label               "Filter importieren">
 <!ENTITY import.accesskey           "M">
 <!ENTITY export.label               "Filter exportieren">
@@ -81,9 +85,9 @@
 <!ENTITY tips.label                 "Tipp des Tages">
 <!ENTITY tips.accesskey             "T">
 <!ENTITY tips.url                   "http://adblockplus.mozdev.org/de/tips.html">
-<!ENTITY regexps.label              "Reguläre Ausdrücke erstellen">
-<!ENTITY regexps.accesskey          "G">
-<!ENTITY regexps.url                "http://de.wikipedia.org/wiki/Regex#Anwendung_regul.C3.A4rer_Ausdr.C3.BCcke">
+<!ENTITY filterdoc.label            "Filter für Adblock Plus erstellen">
+<!ENTITY filterdoc.accesskey        "L">
+<!ENTITY filterdoc.url              "http://adblockplus.mozdev.org/de/filters.html">
 <!ENTITY about.label                "Über Adblock Plus">
 <!ENTITY about.accesskey            "B">
 
@@ -98,12 +102,11 @@
 
 <!ENTITY newfilter.label            "Neuer Filter:">
 <!ENTITY newfilter.accesskey        "N">
-<!ENTITY add.label                  "Filter hinzufügen">
-<!ENTITY add.accesskey              "Z">
 
 <!ENTITY pattern.column             "Filterregel">
-<!ENTITY hitcount.column            "Treffer">
 <!ENTITY enabled.column             "Aktiv">
+<!ENTITY hitcount.column            "Treffer">
+<!ENTITY lasthit.column             "Letzter Treffer">
 
 <!ENTITY context.edit.label         "Filter bearbeiten">
 <!ENTITY context.resethitcount.label      "Trefferstatistik für Filter zurücksetzen">
@@ -113,3 +116,6 @@
 <!ENTITY context.movedown.label     "Nach unten verschieben">
 <!ENTITY context.movegroupup.label        "Gruppe nach oben verschieben">
 <!ENTITY context.movegroupdown.label      "Gruppe nach unten verschieben">
+
+<!ENTITY apply.label                "Anwenden">
+<!ENTITY apply.accesskey            "W">

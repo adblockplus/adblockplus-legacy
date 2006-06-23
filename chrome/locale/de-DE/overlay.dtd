@@ -23,7 +23,10 @@
    - ***** END LICENSE BLOCK ***** -->
 
 <!ENTITY notloaded.label        "Fehler">
-<!ENTITY notloaded.tooltip      "Adblock Plus konnte nicht korrekt geladen werden, vielleicht ist die Installation fehlerhaft">
+<!ENTITY notloaded.tooltip      "Adblock Plus konnte nicht korrekt geladen werden, vielleicht ist die Installation fehlerhaft.">
+<!ENTITY status.tooltip         "Status:">
+<!ENTITY blocked.tooltip        "Blockierte Elemente auf dieser Seite:">
+<!ENTITY filters.tooltip        "Am meisten angewandte Filter:">
 
 <!ENTITY menuitem.label         "Adblock Plus">
 <!ENTITY menuitem.accesskey     "A">
