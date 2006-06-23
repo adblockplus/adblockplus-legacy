@@ -35,7 +35,9 @@ function addSubscriptions() {
     if (checkboxes[i].checked) {
       var title = checkboxes[i].getAttribute("_title");
       var url = checkboxes[i].getAttribute("_url");
-  
+      var disabled = (checkboxes[i].hasAttribute("_disabled") ? checkboxes[i].getAttribute("_disabled") == "true" : false);
+      var autoDownload = (checkboxes[i].hasAttribute("_autoDownload") ? checkboxes[i].getAttribute("_autoDownload") == "true" : true);
+
       var subscription = (prefs.knownSubscriptions.has(url) ? prefs.knownSubscriptions.get(url) : prefs.subscriptionFromURL(url));
       if (!subscription)
         continue;
@@ -49,6 +51,8 @@ function addSubscriptions() {
         continue;
   
       subscription.title = title;
+      subscription.disabled = disabled;
+      subscription.autoDownload = autoDownload;
       prefs.subscriptions.push(subscription);
   
       abp.synchronizer.notifyListeners(subscription, "add");
@@ -59,4 +63,39 @@ function addSubscriptions() {
   }
   if (added)
     prefs.savePatterns();
+}
+
+function addOther() {
+  var result = {};
+  openDialog("subscription.xul", "_blank", "chrome,centerscreen,modal", abp, prefs, null, result);
+
+  if (!("url" in result))
+    return;
+
+  var template = document.getElementsByTagName("template")[0];
+  var container = template.firstChild.cloneNode(true);
+  container.className = "containerAdded"
+
+  var descriptions = container.getElementsByTagName("description");
+  var remove = null;
+  for (var i = 0; i < descriptions.length; i++) {
+    if (descriptions[i].className == "title")
+      descriptions[i].setAttribute("value", result.title);
+    else if (descriptions[i].className == "homepage")
+      remove = descriptions[i];
+    else if (descriptions[i].className == "location")
+      descriptions[i].setAttribute("value", result.url);
+  }
+  if (remove)
+    remove.parentNode.removeChild(remove);
+
+  var checkbox = container.getElementsByTagName("checkbox")[0];
+  checkbox.setAttribute("_title", result.title);
+  checkbox.setAttribute("_url", result.url);
+  checkbox.setAttribute("_disabled", result.disabled);
+  checkbox.setAttribute("_autoDownload", result.autoDownload);
+  checkbox.checked = true;
+
+  template.parentNode.height = template.parentNode.boxObject.height;
+  template.parentNode.insertBefore(container, template);
 }

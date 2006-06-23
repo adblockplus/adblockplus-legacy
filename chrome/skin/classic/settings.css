@@ -93,6 +93,10 @@ treechildren::-moz-tree-image(col-pattern, pattern-true, pattern-regexp-true) {
   list-style-image: url(regexp.gif);
 }
 
+treechildren::-moz-tree-cell-text(col-pattern, pattern-false, subscription-upgradeRequired-true, selected-false) {
+  color: #FF0000;
+}
+
 treechildren::-moz-tree-row(pattern-true, pattern-disabled-true, selected-false),
 treechildren::-moz-tree-row(subscription-special-false, subscription-disabled-true, selected-false) {
   background-color: #E0E0E0;

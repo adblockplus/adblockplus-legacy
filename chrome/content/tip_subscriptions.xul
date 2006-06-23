@@ -31,14 +31,17 @@
 
 <dialog
   xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
-  buttons="accept,cancel"
+  buttons="accept,cancel,extra2"
   buttonlabelaccept="&subscribe.label;"
   buttonaccesskeyaccept="&subscribe.accesskey;"
+  buttonlabelextra2="&other.label;"
+  buttonaccesskeyextra2="&other.accesskey;"
   title="&dialog.title;"
   id="abpTipSubscriptions"
   windowtype="abp:tip:subscriptions"
   onload="setTimeout('sizeToContent();document.documentElement.centerWindowOnScreen()', 0)"
-  ondialogaccept="addSubscriptions()">
+  ondialogaccept="addSubscriptions()"
+  ondialogextra2="addOther()">
 
 <script type="application/x-javascript" src="tip_subscriptions.js"/>
 

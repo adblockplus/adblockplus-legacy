@@ -96,14 +96,18 @@ var policy = {
       return true;
     }
 
+    // Fix type for background images
+    if (contentType == type.IMAGE && node.nodeType == Node.DOCUMENT_NODE)
+      contentType = type.BACKGROUND;
+
     var data = DataContainer.getDataForWindow(wnd);
 
     var match = null;
     var linksOk = true;
     if (prefs.enabled) {
-      match = prefs.whitePatterns.matchesAny(location);
+      match = prefs.whitePatterns.matchesAny(location, typeDescr[contentType] || "");
       if (match == null)
-        match = prefs.filterPatterns.matchesAny(location);
+        match = prefs.filterPatterns.matchesAny(location, typeDescr[contentType] || "");
 
       if (match)
         prefs.increaseHitCount(match);
@@ -119,13 +123,6 @@ var policy = {
             contentType == type.OBJECT && wnd.location && location != wnd.location.href)
           wnd.setTimeout(addObjectTab, 0, node, location, topWnd);
       }
-    }
-
-    // Fix type for background images
-    if (contentType == type.IMAGE && (node instanceof Window || node.nodeType == Node.DOCUMENT_NODE)) {
-      contentType = type.BACKGROUND;
-      if (node instanceof Window)
-        node = node.document;
     }
 
     // Store node data (must set storedLoc parameter so that frames are added immediately when refiltering)
@@ -178,7 +175,7 @@ var policy = {
 
   // Checks whether a page is whitelisted
   isWhitelisted: function(url) {
-    return prefs.whitePatternsPage.matchesAny(url);
+    return prefs.whitePatternsPage.matchesAny(url, "DOCUMENT");
   },
 
   // Translates a space separated list of types into an object where properties corresponding
