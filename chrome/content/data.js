@@ -33,7 +33,6 @@ var querySeed = Math.random();    // Make sure our queries can't be detected
 function DataContainer(wnd) {
   this.locations = {};
   this.subdocs = [];
-  this.lastSelection = null;
   this.install(wnd);
 }
 abp.DataContainer = DataContainer;
@@ -41,6 +40,7 @@ abp.DataContainer = DataContainer;
 DataContainer.prototype = {
   topContainer: null,
   newLocation: null,
+  lastSelection: null,
   detached: false,
 
   // Attaches the data to a window
