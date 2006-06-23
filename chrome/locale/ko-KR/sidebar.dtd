@@ -1,6 +1,6 @@
 <!ENTITY detached.title "Adblock Plus: 차단 가능한 항목 (제거됨)">
-<!ENTITY detach.label "따로 떼기">
-<!ENTITY reattach.label "다시 붙이기">
+<!ENTITY detach.label "창 분리">
+<!ENTITY reattach.label "창 통합">
 <!ENTITY search.label "검색:">
 <!ENTITY search.accesskey "S">
 <!ENTITY type.label "형식">
