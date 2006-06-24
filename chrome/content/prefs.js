@@ -84,7 +84,11 @@ Matcher.prototype = {
 
   // Adds a pattern to the list
   add: function(pattern) {
-    if (this.known.has(pattern.regexp))
+    var key = pattern.regexp;
+    if ("contentType" in pattern)
+      key += pattern.contentType;
+
+    if (this.known.has(key))
       return;
 
     // Look for a suitable shortcut if the current can't be used
@@ -110,7 +114,7 @@ Matcher.prototype = {
       this.regexps.push(pattern);
 
     this.patterns.push(pattern);
-    this.known.put(pattern.regexp, true);
+    this.known.put(key, true);
   },
 
   matchesAnyInternal: function(location, contentType) {
