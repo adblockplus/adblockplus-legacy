@@ -44,6 +44,7 @@ var mainWin = parent;
 var wndData = null;
 
 var cacheSession = null;
+var noFlash = false;
 
 function init() {
   var list = document.getElementById("list");
@@ -82,16 +83,17 @@ function init() {
     else
       document.getElementById("searchField").focus();
 
+    // Activate flasher
+    list.addEventListener("select", onSelectionChange, false);
+
     // Retrieve data for the window
     wndData = DataContainer.getDataForWindow(window.content);
     treeView.setData(wndData.getAllLocations());
     if (wndData.lastSelection) {
+      noFlash = true;
       treeView.selectItem(wndData.lastSelection);
-      onSelectionChange();
+      noFlash = false;
     }
-
-    // Activate flasher
-    list.addEventListener("select", onSelectionChange, false);
 
     // Install a handler for tab changes
     mainWin.getBrowser().addEventListener("select", handleTabChange, false);
@@ -124,7 +126,9 @@ function onSelectionChange() {
     document.getElementById("copy-command").setAttribute("disabled", "true");
   if (item && wndData)
     wndData.lastSelection = item;
-  flasher.flash(item ? item.nodes : null);
+
+  if (!noFlash)
+    flasher.flash(item ? item.nodes : null);
 }
 
 function handleItemChange(wnd, type, data, item) {
@@ -162,8 +166,9 @@ function handleTabChange() {
   wndData = DataContainer.getDataForWindow(window.content);
   treeView.setData(wndData.getAllLocations());
   if (wndData.lastSelection) {
+    noFlash = true;
     treeView.selectItem(wndData.lastSelection);
-    onSelectionChange();
+    noFlash = false;
   }
 }
 
