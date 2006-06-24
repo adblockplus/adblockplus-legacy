@@ -100,9 +100,6 @@
   wie z.B. /banner\d+\.gif$/.
 ">
 
-<!ENTITY newfilter.label            "Neuer Filter:">
-<!ENTITY newfilter.accesskey        "N">
-
 <!ENTITY pattern.column             "Filterregel">
 <!ENTITY enabled.column             "Aktiv">
 <!ENTITY hitcount.column            "Treffer">
