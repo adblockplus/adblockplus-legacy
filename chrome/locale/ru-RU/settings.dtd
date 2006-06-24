@@ -1,4 +1,4 @@
-<!-- ***** BEGIN LICENSE BLOCK *****
+﻿<!-- ***** BEGIN LICENSE BLOCK *****
    - Version: MPL 1.1
    -
    - The contents of this file are subject to the Mozilla Public License Version
@@ -27,8 +27,12 @@
 <!ENTITY filters.label              "Фильтры">
 <!ENTITY filters.accesskey          "Ф">
 
+<!ENTITY add.label                  "Добавить фильтр">
+<!ENTITY add.accesskey              "б">
 <!ENTITY addsubscription.label      "Добавить подписку">
 <!ENTITY addsubscription.accesskey  "п">
+<!ENTITY synchsubscriptions.label      "Скачать все подписки">
+<!ENTITY synchsubscriptions.accesskey  "ч">
 <!ENTITY import.label               "Импорт фильтров">
 <!ENTITY import.accesskey           "м">
 <!ENTITY export.label               "Экспорт фильтров">
@@ -81,9 +85,9 @@
 <!ENTITY tips.label                 "Подсказки (английский)">
 <!ENTITY tips.accesskey             "П">
 <!ENTITY tips.url                   "http://adblockplus.mozdev.org/tips.html">
-<!ENTITY regexps.label              "Написание регулярных выражений (английский)">
-<!ENTITY regexps.accesskey          "р">
-<!ENTITY regexps.url                "http://developer.mozilla.org/en/docs/Core_JavaScript_1.5_Guide:Regular_Expressions#Writing_a_Regular_Expression_Pattern">
+<!ENTITY filterdoc.label            "Составление фильтров для Adblock Plus (английский)">
+<!ENTITY filterdoc.accesskey        "т">
+<!ENTITY filterdoc.url              "http://adblockplus.mozdev.org/filters.html">
 <!ENTITY about.label                "О Adblock Plus">
 <!ENTITY about.accesskey            "О">
 
@@ -96,14 +100,10 @@
   выражения, к примеру /banner\d+\.gif$/.
 ">
 
-<!ENTITY newfilter.label            "Новый фильтр:">
-<!ENTITY newfilter.accesskey        "в">
-<!ENTITY add.label                  "Добавить фильтр">
-<!ENTITY add.accesskey              "б">
-
 <!ENTITY pattern.column             "Правило">
-<!ENTITY hitcount.column            "Попаданий">
 <!ENTITY enabled.column             "Включено">
+<!ENTITY hitcount.column            "Попаданий">
+<!ENTITY lasthit.column             "Последнее попадание">
 
 <!ENTITY context.edit.label         "Редактировать фильтр">
 <!ENTITY context.resethitcount.label      "Обнулить статистику попаданий для фильтра">
@@ -113,3 +113,6 @@
 <!ENTITY context.movedown.label     "Сдвинуть вниз">
 <!ENTITY context.movegroupup.label        "Сдвинуть группу вверх">
 <!ENTITY context.movegroupdown.label      "Сдвинуть группу вниз">
+
+<!ENTITY apply.label                "Применить">
+<!ENTITY apply.accesskey            "р">
