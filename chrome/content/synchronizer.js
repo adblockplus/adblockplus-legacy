@@ -117,7 +117,7 @@ var synchronizer = {
     this.notifyListeners(subscription, "error");
   },
 
-  execute: function(subscription) {
+  executeInternal: function(subscription) {
     var url = subscription.url;
     if (this.executing.has(url))
       return;
@@ -163,6 +163,13 @@ var synchronizer = {
 
     // prevent cyclic references through closures
     request = null;
+  },
+
+  execute: function(subscription) {
+    // Execute delayed so XMLHttpRequest isn't attached to the
+    // load group of the calling window
+    me = this;
+    createTimer(function() {me.executeInternal(subscription)}, 0);
   }
 };
 
