@@ -1,5 +1,8 @@
 <!ENTITY notloaded.label "Nije učitan">
-<!ENTITY notloaded.tooltip "Adblock Plus komponente ne mogu biti učitane, možda nisu pravilno instalirane">
+<!ENTITY notloaded.tooltip "Adblock Plus komponente ne mogu biti učitane, možda se nisu pravilno instalirale.">
+<!ENTITY status.tooltip "Status:">
+<!ENTITY blocked.tooltip "Blokirane stavke na ovoj stranici:">
+<!ENTITY filters.tooltip "Najaktivniji filteri:">
 <!ENTITY menuitem.label "Adblock Plus">
 <!ENTITY menuitem.accesskey "B">
 <!ENTITY context.image.label "Blokiraj sliku s Adblock">
@@ -9,7 +12,7 @@
 <!ENTITY menuitem.sidebar.title "Adblock Plus: Stavke koje se mogu blokirati">
 <!ENTITY sidebar.title "Stavke koje se mogu blokirati na trenutnoj stranici">
 <!ENTITY settings.label "Postavke">
-<!ENTITY settings.accesskey "T">
+<!ENTITY settings.accesskey "t">
 <!ENTITY opensidebar.label "Otvori stavke koje se mogu blokirati">
 <!ENTITY opensidebar.accesskey "B">
 <!ENTITY closesidebar.label "Zatvori stavke koje se mogu blokirati">

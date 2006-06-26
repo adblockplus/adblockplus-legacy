@@ -1,5 +1,8 @@
 <!ENTITY notloaded.label "No carregat">
 <!ENTITY notloaded.tooltip "El component Adblock Plus no s&apos;ha pogut carregar, potser no s&apos;ha instal.lat correctament">
+<!ENTITY status.tooltip "Estat:">
+<!ENTITY blocked.tooltip "Elements bloquejats en aquesta pàgina:">
+<!ENTITY filters.tooltip "Filtres més actius:">
 <!ENTITY menuitem.label "Adblock Plus">
 <!ENTITY menuitem.accesskey "B">
 <!ENTITY context.image.label "Adblock imatge">

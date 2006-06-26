@@ -1,8 +1,12 @@
 <!ENTITY dialog.title "Adblock Plus Postavke">
 <!ENTITY filters.label "Filteri">
 <!ENTITY filters.accesskey "F">
+<!ENTITY add.label "Dodaj filter">
+<!ENTITY add.accesskey "j">
 <!ENTITY addsubscription.label "Dodaj pretplatu na filter">
 <!ENTITY addsubscription.accesskey "D">
+<!ENTITY synchsubscriptions.label "Ažuriraj sve pretplate">
+<!ENTITY synchsubscriptions.accesskey "ž">
 <!ENTITY import.label "Uvezi filtere">
 <!ENTITY import.accesskey "v">
 <!ENTITY export.label "Izvezi filtere">
@@ -19,7 +23,7 @@
 <!ENTITY copy.accesskey "o">
 <!ENTITY paste.label "Zalijepi">
 <!ENTITY paste.accesskey "l">
-<!ENTITY remove.label "Izbriši">
+<!ENTITY remove.label "Obriši">
 <!ENTITY remove.accesskey "b">
 <!ENTITY menu.find.label "Traži">
 <!ENTITY menu.find.accesskey "T">
@@ -34,7 +38,7 @@
 <!ENTITY showinstatusbar.label "Prikaži u statusnoj traci">
 <!ENTITY showinstatusbar.accesskey "s">
 <!ENTITY localpages.label "Blokiraj udaljene oglase na lokalnim stranicama">
-<!ENTITY localpages.accesskey "d">
+<!ENTITY localpages.accesskey "b">
 <!ENTITY objecttabs.label "Prikaži kartice na Flashu i Javi">
 <!ENTITY objecttabs.accesskey "k">
 <!ENTITY collapse.label "Sažmi blokirane elemente">
@@ -49,22 +53,20 @@
 <!ENTITY tips.label "Savjet dana">
 <!ENTITY tips.accesskey "S">
 <!ENTITY tips.url "http://adblockplus.mozdev.org/tips.html">
-<!ENTITY regexps.label "Pisanje valjanog izraza">
-<!ENTITY regexps.accesskey "i">
-<!ENTITY regexps.url "http://developer.mozilla.org/en/docs/Core_JavaScript_1.5_Guide:Regular_Expressions#Writing_a_Regular_Expression_Pattern">
+<!ENTITY filterdoc.label "Pisanje Adblock Plus filtera">
+<!ENTITY filterdoc.accesskey "i">
+<!ENTITY filterdoc.url "http://adblockplus.mozdev.org/filters.html">
 <!ENTITY about.label "O Adblock Plus">
 <!ENTITY about.accesskey "O">
 <!ENTITY disabled.warning "Adblock Plus je onemogućen. Možete urediti bilo koji filter u popisu, ali oni neće biti primijenjeni dok ga ponovno ne omogućite.">
-<!ENTITY description "Dodajte adrese koje želite blokirati, za prijedloge provjerite padajući popis.
+<!ENTITY description "
+		Dodajte adrese koje želite blokirati, za prijedloge provjerite padajući popis.
 		Možete koristiti * kao joker da bi kreirali još općenitije filtere. Napredni korisnici mogu
 		koristiti valjanje izraze kao /banner\d+\.gif$/.">
-<!ENTITY newfilter.label "Novi filter:">
-<!ENTITY newfilter.accesskey "N">
-<!ENTITY add.label "Dodaj filter">
-<!ENTITY add.accesskey "D">
 <!ENTITY pattern.column "Pravilo filtera">
-<!ENTITY hitcount.column "Pogoci">
 <!ENTITY enabled.column "Omogućeno">
+<!ENTITY hitcount.column "Pogoci">
+<!ENTITY lasthit.column "Posljednji pogodak">
 <!ENTITY context.edit.label "Uredi filter">
 <!ENTITY context.resethitcount.label "Vrati izvornu statistiku pogodaka za filter">
 <!ENTITY context.synchsubscription.label "Sad ažuriraj pretplatu">
@@ -73,3 +75,5 @@
 <!ENTITY context.movedown.label "Pomakni prema dolje">
 <!ENTITY context.movegroupup.label "Pomakni grupu prema gore">
 <!ENTITY context.movegroupdown.label "Pomakni grupu prema dolje">
+<!ENTITY apply.label "Primijeni">
+<!ENTITY apply.accesskey "P">

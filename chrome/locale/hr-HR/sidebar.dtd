@@ -9,12 +9,12 @@
 <!ENTITY state.label "Status">
 <!ENTITY noitems.label "Nema stavki koje se mogu blokirati">
 <!ENTITY notremote.label "Nije udaljena stranica">
-<!ENTITY whitelisted.label "Stranica koja je na bijelom popisu">
+<!ENTITY whitelisted.label "Stranica koja je na dopuštenom popisu">
 <!ENTITY notloaded.label "Adblock Plus nije pravilno instaliran">
 <!ENTITY tooltip.address.label "Adresa:">
 <!ENTITY tooltip.type.label "Tip:">
 <!ENTITY tooltip.type.blocked "(blokiran)">
-<!ENTITY tooltip.type.whitelisted "(na bijelom popisu)">
+<!ENTITY tooltip.type.whitelisted "(na dozvoljenom popisu)">
 <!ENTITY tooltip.filter.label "Filter u upotrebi:">
 <!ENTITY context.block.label "Blokiraj ovu stavku">
 <!ENTITY context.editfilter.label "Uredi filter u upotrebi">
