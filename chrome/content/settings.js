@@ -288,6 +288,27 @@ function resetHitCounts(resetAll) {
   }
 }
 
+function getDefaultDir() {
+  // Copied from Firefox: getTargetFile() in contentAreaUtils.js
+  try {
+    return prefService.getComplexValue("browser.download.lastDir", Components.interfaces.nsILocalFile);
+  }
+  catch (e) {
+    // No default download location. Default to desktop. 
+    var fileLocator = Components.classes["@mozilla.org/file/directory_service;1"]
+                                .getService(Components.interfaces.nsIProperties);
+  
+    return fileLocator.get("Desk", Components.interfaces.nsILocalFile);
+  }
+}
+
+function saveDefaultDir(dir) {
+  // Copied from Firefox: getTargetFile() in contentAreaUtils.js
+  try {
+    prefService.setComplexValue("browser.download.lastDir", Components.interfaces.nsILocalFile, dir);
+  } catch(e) {};
+}
+
 // Imports filters from disc.
 function importList() {
   var picker = Components.classes["@mozilla.org/filepicker;1"]
@@ -295,7 +316,13 @@ function importList() {
   picker.init(window, abp.getString("import_filters_title"), picker.modeOpen);
   picker.appendFilters(picker.filterText);
   picker.appendFilters(picker.filterAll);
+
+  var dir = getDefaultDir();
+  if (dir)
+    picker.displayDirectory = dir;
+
   if (picker.show() != picker.returnCancel) {
+    saveDefaultDir(picker.file.parent.QueryInterface(Components.interfaces.nsILocalFile));
     var stream = Components.classes["@mozilla.org/network/file-input-stream;1"]
                            .createInstance(Components.interfaces.nsIFileInputStream);
     stream.init(picker.file, 0x01, 0444, 0);
@@ -354,7 +381,12 @@ function exportList() {
   picker.appendFilters(picker.filterText);
   picker.appendFilters(picker.filterAll);
 
+  var dir = getDefaultDir();
+  if (dir)
+    picker.displayDirectory = dir;
+
   if (picker.show() != picker.returnCancel) {
+    saveDefaultDir(picker.file.parent.QueryInterface(Components.interfaces.nsILocalFile));
     var lineBreak = abp.getLineBreak();
     try {
       var stream = Components.classes["@mozilla.org/network/file-output-stream;1"]
