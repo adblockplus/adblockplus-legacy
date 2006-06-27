@@ -1,0 +1,8 @@
+<!ENTITY dialog.title "欢迎使用Adblock Plus">
+<!ENTITY description "感谢您安装Adblock Plus。本扩展可以滤除您在网页上看到的 99&#37; 的广告。但是，有效地过滤还需要您定义一组好的过滤规则。您可以自己定义过滤规则，或者简单地订阅过滤规则列表，让其他人来为您维护列表。您仍然可以添加您自己的过滤规则，也可以随时禁用/移除订阅。这里是推荐您订阅的列表:">
+<!ENTITY note "注意：对于某地区的网站，应用专门为之创建的过滤规则列表，会有非常好的效果。">
+<!ENTITY homepage.label "主页">
+<!ENTITY subscribe.label "订阅">
+<!ENTITY subscribe.accesskey "R">
+<!ENTITY other.label "添加订阅">
+<!ENTITY other.accesskey "T">

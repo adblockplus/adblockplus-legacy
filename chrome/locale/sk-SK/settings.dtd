@@ -1,8 +1,12 @@
 <!ENTITY dialog.title "Nastavenia Adblock Plus">
 <!ENTITY filters.label "Filtre">
 <!ENTITY filters.accesskey "F">
+<!ENTITY add.label "Pridať filter">
+<!ENTITY add.accesskey "D">
 <!ENTITY addsubscription.label "Pridať povolený filter">
 <!ENTITY addsubscription.accesskey "P">
+<!ENTITY synchsubscriptions.label "Update all subscriptions">
+<!ENTITY synchsubscriptions.accesskey "D">
 <!ENTITY import.label "Importovať filtre">
 <!ENTITY import.accesskey "M">
 <!ENTITY export.label "Exportovať filtre">
@@ -18,7 +22,7 @@
 <!ENTITY copy.label "Kopírovať">
 <!ENTITY copy.accesskey "K">
 <!ENTITY paste.label "Prilepiť">
-<!ENTITY paste.accesskey "P">
+<!ENTITY paste.accesskey "E">
 <!ENTITY remove.label "Odstrániť">
 <!ENTITY remove.accesskey "O">
 <!ENTITY menu.find.label "Nájsť">
@@ -36,7 +40,7 @@
 <!ENTITY localpages.label "Blokovať vzdialené reklamy v lokálnych stránkach">
 <!ENTITY localpages.accesskey "L">
 <!ENTITY objecttabs.label "Zobraziť karty pre Flash a Java">
-<!ENTITY objecttabs.accesskey "K">
+<!ENTITY objecttabs.accesskey "F">
 <!ENTITY collapse.label "Usporiadať blokované prvky">
 <!ENTITY collapse.accesskey "U">
 <!ENTITY linkcheck.label "Kontrolovať odkazy titulkov">
@@ -49,22 +53,19 @@
 <!ENTITY tips.label "Tip dňa">
 <!ENTITY tips.accesskey "T">
 <!ENTITY tips.url "http://adblockplus.mozdev.org/tips.html">
-<!ENTITY regexps.label "Písanie regulárnych výrazov">
-<!ENTITY regexps.accesskey "R">
-<!ENTITY regexps.url "http://developer.mozilla.org/en/docs/Core_JavaScript_1.5_Guide:Regular_Expressions#Writing_a_Regular_Expression_Pattern">
+<!ENTITY filterdoc.label "Písanie filtrov Adblock Plus">
+<!ENTITY filterdoc.accesskey "F">
+<!ENTITY filterdoc.url "http://adblockplus.mozdev.org/filters.html">
 <!ENTITY about.label "O rozšírení Adblock Plus">
 <!ENTITY about.accesskey "O">
 <!ENTITY disabled.warning "Adblock Plus je vypnutý. Môžete upraviť filtre v zozname, ale tie nebudú potvrdené po znovuzapnutí.">
 <!ENTITY description "Pridať adresu,ktorú chcete blokovať, návrhy skontrolujte v rozbaľovacej ponuke.
 		Môžete použiť * ako divokú kartu na vytvorenie všeobecných filtrov. Pokročilí používatelia môžu
 		použiť regulárne výrazy ako /banner\d+\.gif$/.">
-<!ENTITY newfilter.label "Nový filter:">
-<!ENTITY newfilter.accesskey "N">
-<!ENTITY add.label "Pridať filter">
-<!ENTITY add.accesskey "D">
 <!ENTITY pattern.column "Pravidlo filtra">
-<!ENTITY hitcount.column "Počítadlá">
 <!ENTITY enabled.column "Zapnuté">
+<!ENTITY hitcount.column "Počítadlá">
+<!ENTITY lasthit.column "Posledný zápis">
 <!ENTITY context.edit.label "Upraviť filter">
 <!ENTITY context.resethitcount.label "Resetovať štatistiku počítadla pre filter">
 <!ENTITY context.synchsubscription.label "Aktualizovať povolené teraz">
@@ -73,3 +74,5 @@
 <!ENTITY context.movedown.label "Posunúť dole">
 <!ENTITY context.movegroupup.label "Posunúť skupinu hore">
 <!ENTITY context.movegroupdown.label "Posunúť skupinu dole">
+<!ENTITY apply.label "Potvrdiť">
+<!ENTITY apply.accesskey "V">

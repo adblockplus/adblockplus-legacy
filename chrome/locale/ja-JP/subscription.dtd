@@ -22,25 +22,25 @@
 	 -
 	 - ***** END LICENSE BLOCK ***** -->
 
-<!ENTITY dialog.title "フィルタ読み込みを編集">
-<!ENTITY dialog.newtitle "フィルタ読み込みを追加">
+<!ENTITY dialog.title "同期フィルタを編集">
+<!ENTITY dialog.newtitle "同期フィルタを追加">
 
-<!ENTITY new.description "
+<!ENTITY new.description            "
 	Adblock Plus のフィルタリストを含むファイルか
 	ウェブアドレスを入力してください
 ">
 
-<!ENTITY edit.description "
+<!ENTITY edit.description           "
 	指定した場所からこの読み込みのためのフィルタリストを
 	ダウンロードします
 ">
 
-<!ENTITY external.description "
+<!ENTITY external.description       "
 	他の拡張機能（Filterset.G Updater）を経由してフィルタリストを読み込みます。
 	リストの更新はその拡張機能によって行われます。
 ">
 
-<!ENTITY autodownload.description "
+<!ENTITY autodownload.description   "
 	「自動アップデート」を選ぶとアップデートがないかどうかこの場所を毎日チェックします。
 	この設定を無効にしても読み込みのコンテキストメニューから手動でアップデートできます。
 ">

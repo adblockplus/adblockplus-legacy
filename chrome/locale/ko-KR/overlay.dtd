@@ -1,5 +1,8 @@
 <!ENTITY notloaded.label "로드되지 않음">
 <!ENTITY notloaded.tooltip "설치가 올바르지 않아 Adblock Plus 요소를 로드할 수 없습니다.">
+<!ENTITY status.tooltip "상태:">
+<!ENTITY blocked.tooltip "이 페이지에서 차단된 항목:">
+<!ENTITY filters.tooltip "최상위 활성 필터:">
 <!ENTITY menuitem.label "Adblock Plus">
 <!ENTITY menuitem.accesskey "B">
 <!ENTITY context.image.label "Adblock 이미지">

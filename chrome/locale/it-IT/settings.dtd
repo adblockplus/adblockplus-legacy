@@ -1,8 +1,12 @@
 <!ENTITY dialog.title "Impostazioni di Adblock Plus">
 <!ENTITY filters.label "Filtri">
 <!ENTITY filters.accesskey "F">
+<!ENTITY add.label "Aggiungi filtro">
+<!ENTITY add.accesskey "G">
 <!ENTITY addsubscription.label "Aggiungi sottoscrizione">
 <!ENTITY addsubscription.accesskey "S">
+<!ENTITY synchsubscriptions.label "Aggiorna tutte le sottoscrizioni">
+<!ENTITY synchsubscriptions.accesskey "N">
 <!ENTITY import.label "Importa lista dei filtri">
 <!ENTITY import.accesskey "M">
 <!ENTITY export.label "Esporta lista dei filtri">
@@ -49,22 +53,19 @@
 <!ENTITY tips.label "Suggerimento del giorno">
 <!ENTITY tips.accesskey "u">
 <!ENTITY tips.url "http://adblockplus.mozdev.org/tips.html">
-<!ENTITY regexps.label "Informazioni sulle espressioni regolari">
-<!ENTITY regexps.accesskey "r">
-<!ENTITY regexps.url "http://it.wikibooks.org/wiki/Espressioni_regolari">
+<!ENTITY filterdoc.label "Scrittura dei filtri di Adblock Plus">
+<!ENTITY filterdoc.accesskey "K">
+<!ENTITY filterdoc.url "http://adblockplus.mozdev.org/filters.html">
 <!ENTITY about.label "Informazioni su Adblock Plus">
 <!ENTITY about.accesskey "z">
 <!ENTITY disabled.warning "Adblock Plus è inattiva. Si possono modificare i filtri nella lista, ma tali modifiche verranno applicate solo quando Adblock Plus verrà riattivata">
-<!ENTITY description "Aggiungere gli indirizzi web da bloccare, e per i suggerimenti controllare l'elenco 
+<!ENTITY description "Aggiungere gli indirizzi web da bloccare, e per i suggerimenti controllare l&apos;elenco 
 		a discesa. Usare * come carattere jolly per creare filtri generici. Gli utenti esperti
 		possono usare le espressioni regolari come /banner\d+\.gif$/.">
-<!ENTITY newfilter.label "Nuovo filtro:">
-<!ENTITY newfilter.accesskey "N">
-<!ENTITY add.label "Aggiungi filtro">
-<!ENTITY add.accesskey "G">
 <!ENTITY pattern.column "Ruolo del filtro">
-<!ENTITY hitcount.column "Accessi">
 <!ENTITY enabled.column "Attivato">
+<!ENTITY hitcount.column "Accessi">
+<!ENTITY lasthit.column "Ultimo accesso">
 <!ENTITY context.edit.label "Modifica filtro">
 <!ENTITY context.resethitcount.label "Ripristina le statistiche di accesso per il filtro">
 <!ENTITY context.synchsubscription.label "Aggiorna la sottoscrizione ora">
@@ -73,3 +74,5 @@
 <!ENTITY context.movedown.label "Sposta giù">
 <!ENTITY context.movegroupup.label "Sposta il gruppo su">
 <!ENTITY context.movegroupdown.label "Sposta il gruppo giù">
+<!ENTITY apply.label "Applica">
+<!ENTITY apply.accesskey "P">

@@ -1,8 +1,12 @@
 <!ENTITY dialog.title "Particularizare Adblock Plus">
 <!ENTITY filters.label "Filtre">
 <!ENTITY filters.accesskey "F">
+<!ENTITY add.label "Adaugă filtru">
+<!ENTITY add.accesskey "d">
 <!ENTITY addsubscription.label "Adaugă subscriere filtre">
-<!ENTITY addsubscription.accesskey "A">
+<!ENTITY addsubscription.accesskey "s">
+<!ENTITY synchsubscriptions.label "Actualizează toate subscrierile">
+<!ENTITY synchsubscriptions.accesskey "c">
 <!ENTITY import.label "Importă filtre">
 <!ENTITY import.accesskey "m">
 <!ENTITY export.label "Exportă filtre">
@@ -49,20 +53,17 @@
 <!ENTITY tips.label "Sfatul zilei">
 <!ENTITY tips.accesskey "S">
 <!ENTITY tips.url "http://adblockplus.mozdev.org/tips.html">
-<!ENTITY regexps.label "Ajutor expresii">
-<!ENTITY regexps.accesskey "x">
-<!ENTITY regexps.url "http://developer.mozilla.org/en/docs/Core_JavaScript_1.5_Guide:Regular_Expressions#Writing_a_Regular_Expression_Pattern">
+<!ENTITY filterdoc.label "Sfaturi scriere filtre Adblock Plus">
+<!ENTITY filterdoc.accesskey "f">
+<!ENTITY filterdoc.url "http://adblockplus.mozdev.org/filters.html">
 <!ENTITY about.label "Despre Adblock Plus">
 <!ENTITY about.accesskey "D">
 <!ENTITY disabled.warning "Adblock Plus este inactiv. Filtrele nu vor avea efect până nu reactivaţi extensia.">
 <!ENTITY description "Adăugaţi adresele pe care doriţi să le blocaţi; puteţi alege din lista derulantă. Pentru a crea filtre generice, folosiţi caracterul * ca joker. Utilizatorii avansaţi pot folosi expresii, ca de exemplu /banner\d+\.gif$/.">
-<!ENTITY newfilter.label "Filtru nou:">
-<!ENTITY newfilter.accesskey "n">
-<!ENTITY add.label "Adaugă filtru">
-<!ENTITY add.accesskey "d">
 <!ENTITY pattern.column "Regulă filtru">
-<!ENTITY hitcount.column "Contor">
 <!ENTITY enabled.column "Stare">
+<!ENTITY hitcount.column "Contor">
+<!ENTITY lasthit.column "Ultima aplicare">
 <!ENTITY context.edit.label "Modifică filtru">
 <!ENTITY context.resethitcount.label "Reiniţializează contorul filtrului">
 <!ENTITY context.synchsubscription.label "Actualizează subscrieri">
@@ -71,3 +72,5 @@
 <!ENTITY context.movedown.label "Mută în jos">
 <!ENTITY context.movegroupup.label "Mută grupul în sus">
 <!ENTITY context.movegroupdown.label "Mută grupul în jos">
+<!ENTITY apply.label "Aplică">
+<!ENTITY apply.accesskey "p">

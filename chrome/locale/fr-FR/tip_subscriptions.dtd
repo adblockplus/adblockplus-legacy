@@ -1,0 +1,8 @@
+<!ENTITY dialog.title "Bienvenue sur Adblock Plus">
+<!ENTITY description "Merci d&apos;avoir installé Adblock Plus. Cette extension peut éliminer 99&#37; des publicités que vous voyez sur le Web. Cependant, pour un filtrage des publicités efficace, il est important de définir une bonne liste de filtres. Vous pouvez faire cela vous-même ou simplement vous abonner à une liste de filtres mise à disposition et à jour par d&apos;autres utilisateurs à votre intention. Si vous vous êtes abonné(e), vous pouvez tout de même ajouter vos propres filtres et désactiver/supprimer vos abonnements en cas de besoin. Voici une liste d&apos;abonnements recommandés dans laquelle vous pouvez faire votre choix :">
+<!ENTITY note "Remarque : Une liste de filtre sera d&apos;autant plus efficace qu&apos;elle aura été créée pour la région des pages Web consultées.">
+<!ENTITY homepage.label "Page Web">
+<!ENTITY subscribe.label "S&apos;abonner">
+<!ENTITY subscribe.accesskey "b">
+<!ENTITY other.label "Ajouter un autre abonnement">
+<!ENTITY other.accesskey "t">

@@ -1,0 +1,8 @@
+<!ENTITY dialog.title "Bine aţi venit la Adblock Plus">
+<!ENTITY description "Mulţumim pentru că aţi instalat Adblock Plus. Această extensie poate elimina 99&#37; din publicitatea pe care o vedeţi în paginile web. Pentru a fi eficientă, ea are nevoie de un set de filtre bun, pe care îl puteţi crea singur, sau importa dintr-o subscripţie externă - seturi de filtre pe care alţi utilizatori le menţin şi le pun la dispoziţia tuturor. Aici este o listă recomandată de subscripţii:">
+<!ENTITY note "Notă: un set de filtre este de regulă efectiv atunci când este aplicat paginilor web din regiunea pentru care a fost creat setul.">
+<!ENTITY homepage.label "Pagina de start">
+<!ENTITY subscribe.label "Subscrie">
+<!ENTITY subscribe.accesskey "S">
+<!ENTITY other.label "Adaugă altă subscripţie">
+<!ENTITY other.accesskey "A">

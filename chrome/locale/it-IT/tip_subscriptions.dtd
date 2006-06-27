@@ -1,0 +1,20 @@
+<!ENTITY dialog.title "Benvenuti in Adblock Plus">
+<!ENTITY description "
+	Grazie per aver installato Adblock Plus. Questa estensione può
+	eliminare il 99&#x25; della pubblicità in internet. Tuttavia, per
+	filtrare efficacemente la pubblicità si deve definire una buona
+	serie di filtri. Lo si può fare da soli o si può semplicemente
+	sottoscrivere le liste dei filtri mantenute da terzi. È possibile
+	aggiungere i propri filtri così come disattivare/eliminare le
+	sottoscrizioni quando necessario. Qui c&apos;è una lista di sottoscrizioni
+	consigliate fra le quali scegliere:
+">
+<!ENTITY note "
+	Nota: una lista di filtri è in genere più efficace quando la si applica
+	ai siti web della zona per la quale viene creata la lista dei filtri
+">
+<!ENTITY homepage.label "Sito web">
+<!ENTITY subscribe.label "Sottoscrivi">
+<!ENTITY subscribe.accesskey "R">
+<!ENTITY other.label "Aggiungi un&apos;altra sottoscrizione">
+<!ENTITY other.accesskey "T">

@@ -1,8 +1,12 @@
 <!ENTITY dialog.title "Adblock Plus - Asetukset">
 <!ENTITY filters.label "Suodattimet">
 <!ENTITY filters.accesskey "S">
+<!ENTITY add.label "Lisää suodatin">
+<!ENTITY add.accesskey "L">
 <!ENTITY addsubscription.label "Lisää suodatintilaus">
-<!ENTITY addsubscription.accesskey "L">
+<!ENTITY addsubscription.accesskey "i">
+<!ENTITY synchsubscriptions.label "Päivitä kaikki tilaukset">
+<!ENTITY synchsubscriptions.accesskey "k">
 <!ENTITY import.label "Tuo suodattimia">
 <!ENTITY import.accesskey "T">
 <!ENTITY export.label "Vie suodattimia">
@@ -49,9 +53,9 @@
 <!ENTITY tips.label "Päivän vinkki">
 <!ENTITY tips.accesskey "P">
 <!ENTITY tips.url "http://adblockplus.mozdev.org/tips.html">
-<!ENTITY regexps.label "Säännöllisten lausekkeiden kirjoittaminen">
-<!ENTITY regexps.accesskey "S">
-<!ENTITY regexps.url "http://developer.mozilla.org/en/docs/Core_JavaScript_1.5_Guide:Regular_Expressions#Writing_a_Regular_Expression_Pattern">
+<!ENTITY filterdoc.label "Adblock Plus -suodattimien kirjoittamisesta">
+<!ENTITY filterdoc.accesskey "A">
+<!ENTITY filterdoc.url "http://adblockplus.mozdev.org/filters.html">
 <!ENTITY about.label "Tietoja Adblock Plussasta">
 <!ENTITY about.accesskey "T">
 <!ENTITY disabled.warning "Adblock Plus on poissa käytöstä. Voit muokata listan suodattimia mutta niitä ei käytetä ennen kuin otat Adblockin käyttöön.">
@@ -60,13 +64,10 @@
                         Voit käyttää * jokerimerkkinä luodaksesi yleisimpiä suodattimia. Edistyneet käyttäjät voivat
 		                käyttää säännöllisiä lausekkeita kuten /banner\d+\.gif$/.
 ">
-<!ENTITY newfilter.label "Uusi suodatin:">
-<!ENTITY newfilter.accesskey "U">
-<!ENTITY add.label "Lisää suodatin">
-<!ENTITY add.accesskey "L">
 <!ENTITY pattern.column "Suodatusehdot">
-<!ENTITY hitcount.column "Osumat">
 <!ENTITY enabled.column "Käytössä">
+<!ENTITY hitcount.column "Osumat">
+<!ENTITY lasthit.column "Viimeisin osuma">
 <!ENTITY context.edit.label "Muokkaa suodatinta">
 <!ENTITY context.resethitcount.label "Nollaa suodattimen osumatilastot">
 <!ENTITY context.synchsubscription.label "Päivitä tilaus nyt">
@@ -75,3 +76,5 @@
 <!ENTITY context.movedown.label "Siirrä alas">
 <!ENTITY context.movegroupup.label "Siirrä ryhmä ylös">
 <!ENTITY context.movegroupdown.label "Siirrä ryhmä alas">
+<!ENTITY apply.label "Käytä">
+<!ENTITY apply.accesskey "K">

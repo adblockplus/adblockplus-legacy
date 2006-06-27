@@ -1,8 +1,12 @@
 <!ENTITY dialog.title "Adblock Plus 설정">
 <!ENTITY filters.label "필터">
 <!ENTITY filters.accesskey "F">
+<!ENTITY add.label "추가">
+<!ENTITY add.accesskey "A">
 <!ENTITY addsubscription.label "서명 추가">
 <!ENTITY addsubscription.accesskey "S">
+<!ENTITY synchsubscriptions.label "모든 표현식 업데이트">
+<!ENTITY synchsubscriptions.accesskey "D">
 <!ENTITY import.label "필터 가져오기">
 <!ENTITY import.accesskey "M">
 <!ENTITY export.label "필터 내보내기">
@@ -49,24 +53,19 @@
 <!ENTITY tips.label "오늘의 팁">
 <!ENTITY tips.accesskey "T">
 <!ENTITY tips.url "http://adblockplus.mozdev.org/tips.html">
-<!ENTITY regexps.label "정규표현식 쓰기">
-<!ENTITY regexps.accesskey "X">
-<!ENTITY regexps.url "http://developer.mozilla.org/en/docs/Core_JavaScript_1.5_Guide:Regular_Expressions#Writing_a_Regular_Expression_Pattern">
+<!ENTITY filterdoc.label "Adblock Plus 필터 기록">
+<!ENTITY filterdoc.accesskey "R">
+<!ENTITY filterdoc.url "http://adblockplus.mozdev.org/filters.html">
 <!ENTITY about.label "Adblock Plus에 대하여">
 <!ENTITY about.accesskey "B">
 <!ENTITY disabled.warning "Adblock Plus 사용이 해제되었습니다. 편집된 필터는 Adblock Plus가 사용 가능한 상태로 될 때 적용됩니다.">
-<!ENTITY description "
-		차단하고자 하는 주소를 추가하십시오.
-		일반적인 필터는 '*'을 사용할 수 있습니다.
-		고급 사용자는 정규표현식을 사용할 수 있습니다.(예: /banner\d+\.gif$/)
-">
-<!ENTITY newfilter.label "새 필터:">
-<!ENTITY newfilter.accesskey "N">
-<!ENTITY add.label "추가">
-<!ENTITY add.accesskey "A">
+<!ENTITY description "차단하고자 하는 주소를 추가하십시오.
+		일반적인 필터는 &apos;*&apos;을 사용할 수 있습니다.
+		고급 사용자는 정규표현식을 사용할 수 있습니다.(예: /banner\d+\.gif$/)">
 <!ENTITY pattern.column "필터 규칙">
-<!ENTITY hitcount.column "히트">
 <!ENTITY enabled.column "사용">
+<!ENTITY hitcount.column "히트">
+<!ENTITY lasthit.column "마지막 적용">
 <!ENTITY context.edit.label "필터 편집">
 <!ENTITY context.resethitcount.label "히트 통계 초기화">
 <!ENTITY context.synchsubscription.label "지금 필터 업데이트">
@@ -75,3 +74,5 @@
 <!ENTITY context.movedown.label "아래로">
 <!ENTITY context.movegroupup.label "그룹 위로">
 <!ENTITY context.movegroupdown.label "그룹 아래로">
+<!ENTITY apply.label "적용">
+<!ENTITY apply.accesskey "P">

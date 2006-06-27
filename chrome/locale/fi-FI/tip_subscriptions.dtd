@@ -1,0 +1,20 @@
+<!ENTITY dialog.title "Tervetuloa käyttämään Adblock Plussaa">
+<!ENTITY description "
+	Kiitos, että asensit Adblock Plussan. Tämä laajennus voi
+	vähentää 99&#x25; mainoksista, joita näet verkossa. Tarvitset silti
+	hyvän setin suodattimia, jotta mainosten suodattaminen olisi 
+	tehokasta. Voit tehdä sen itse tai voit yksinkertaisesti tilata
+	toisten ylläpitämiä suodatinlistoja. Voit silti lisätä suodattimia itse
+	kuten myös poistaa tilauksia kokonaan tai vain pois käytöstä
+	milloin hyvänsä. Tässä on lista suositelluista suodatintilauksista, joista
+	voita valita:
+">
+<!ENTITY note "
+	Huomio: Suodatinlista on yleensä tehokkain, kun sitä käytetään
+	sivustoilla, joita varten se on alueellisesti luotu.
+">
+<!ENTITY homepage.label "Kotisivu">
+<!ENTITY subscribe.label "Tilaa">
+<!ENTITY subscribe.accesskey "T">
+<!ENTITY other.label "Lisää toinen tilaus">
+<!ENTITY other.accesskey "L">
