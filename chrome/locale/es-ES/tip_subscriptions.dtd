@@ -1,0 +1,8 @@
+<!ENTITY dialog.title "Bienvenido a Adblock Plus">
+<!ENTITY description "Gracias por instalar Adblock Plus. Esta extensión puede eliminar 99&#x25; de las publicidades que se muestran en la web. Sin embargo, un filtrado de publicidad efectivo requiere que defina un conjunto de filtros. Puede hacerlo usted mismo, o puede simplemente suscribirse a una lista de filtros que los actualiza por usted. También puede añadir sus propios filtros como también desactivar y/o eliminar suscripciones cuando sea necesiario. Aquí hay una lista de subscripciones recomendadas de las que puede elegir:">
+<!ENTITY note "Nota: Un listado de filtros es típicamente más efectiva cuando se aplica a sitios web de la región por la cuál fue creado el listado de filtros.">
+<!ENTITY homepage.label "Página de inicio">
+<!ENTITY subscribe.label "Suscribir">
+<!ENTITY subscribe.accesskey "r">
+<!ENTITY other.label "Añadir otra suscripción">
+<!ENTITY other.accesskey "t">

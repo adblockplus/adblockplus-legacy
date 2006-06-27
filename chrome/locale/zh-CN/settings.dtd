@@ -1,8 +1,12 @@
 <!ENTITY dialog.title "Adblock Plus首选项">
 <!ENTITY filters.label "过滤规则">
 <!ENTITY filters.accesskey "F">
+<!ENTITY add.label "添加">
+<!ENTITY add.accesskey "A">
 <!ENTITY addsubscription.label "添加过滤规则订阅">
 <!ENTITY addsubscription.accesskey "S">
+<!ENTITY synchsubscriptions.label "更新所有订阅">
+<!ENTITY synchsubscriptions.accesskey "D">
 <!ENTITY import.label "导入过滤规则">
 <!ENTITY import.accesskey "M">
 <!ENTITY export.label "导出过滤规则">
@@ -49,22 +53,19 @@
 <!ENTITY tips.label "每日一帖">
 <!ENTITY tips.accesskey "T">
 <!ENTITY tips.url "http://adblockplus.mozdev.org/tips.html">
-<!ENTITY regexps.label "正则表达式写法">
-<!ENTITY regexps.accesskey "X">
-<!ENTITY regexps.url "http://developer.mozilla.org/en/docs/Core_JavaScript_1.5_Guide:Regular_Expressions#Writing_a_Regular_Expression_Pattern">
+<!ENTITY filterdoc.label "Adblock Plus 过滤规则写法">
+<!ENTITY filterdoc.accesskey "R">
+<!ENTITY filterdoc.url "http://adblockplus.mozdev.org/filters.html">
 <!ENTITY about.label "关于Adblock Plus">
 <!ENTITY about.accesskey "B">
 <!ENTITY disabled.warning "Adblock Plus已被禁用。你可以编辑列表中的任何过滤规则，但是这些规则在重新启用前不会生效。">
 <!ENTITY description "添加你想过滤的地址，建议检查下拉列表。
 		你可以使用*作为通配符来创建更通用的过滤规则。
 		高级用户可以使用象 /banner\d+\.gif$/ 这样的正则表达式。">
-<!ENTITY newfilter.label "新过滤规则:">
-<!ENTITY newfilter.accesskey "N">
-<!ENTITY add.label "添加">
-<!ENTITY add.accesskey "A">
 <!ENTITY pattern.column "过滤规则">
-<!ENTITY hitcount.column "计数">
 <!ENTITY enabled.column "启用">
+<!ENTITY hitcount.column "计数">
+<!ENTITY lasthit.column "最后匹配时间">
 <!ENTITY context.edit.label "编辑过滤规则">
 <!ENTITY context.resethitcount.label "重置该过滤规则的计数">
 <!ENTITY context.synchsubscription.label "现在更新订阅">
@@ -73,3 +74,5 @@
 <!ENTITY context.movedown.label "下移">
 <!ENTITY context.movegroupup.label "上移组">
 <!ENTITY context.movegroupdown.label "下移组">
+<!ENTITY apply.label "应用">
+<!ENTITY apply.accesskey "P">

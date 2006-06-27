@@ -1,8 +1,12 @@
 <!ENTITY dialog.title "Adblock Plus - ustawienia">
 <!ENTITY filters.label "Filtry">
 <!ENTITY filters.accesskey "F">
+<!ENTITY add.label "Dodaj filtr">
+<!ENTITY add.accesskey "D">
 <!ENTITY addsubscription.label "Dodaj subskrypcję filtrów">
 <!ENTITY addsubscription.accesskey "S">
+<!ENTITY synchsubscriptions.label "Aktualizuj wszystkie subskrypcje">
+<!ENTITY synchsubscriptions.accesskey "U">
 <!ENTITY import.label "Importuj filtry">
 <!ENTITY import.accesskey "M">
 <!ENTITY export.label "Eksportuj filtry">
@@ -44,29 +48,24 @@
 <!ENTITY help.label "Pomoc">
 <!ENTITY help.accesskey "P">
 <!ENTITY faq.label "Często zadawane pytania">
-<!ENTITY faq.accesskey "P">
+<!ENTITY faq.accesskey "T">
 <!ENTITY faq.url "http://adblockplus.mozdev.org/faq.html">
 <!ENTITY tips.label "Podpowiedź dnia">
 <!ENTITY tips.accesskey "D">
 <!ENTITY tips.url "http://adblockplus.mozdev.org/tips.html">
-<!ENTITY regexps.label "Wyrażenia regularne">
-<!ENTITY regexps.accesskey "R">
-<!ENTITY regexps.url "http://developer.mozilla.org/en/docs/Core_JavaScript_1.5_Guide:Regular_Expressions#Writing_a_Regular_Expression_Pattern">
+<!ENTITY filterdoc.label "Zapisuję filtry Adblock Plus">
+<!ENTITY filterdoc.accesskey "R">
+<!ENTITY filterdoc.url "http://adblockplus.mozdev.org/filters.html">
 <!ENTITY about.label "O Adblock Plus">
 <!ENTITY about.accesskey "O">
 <!ENTITY disabled.warning "Adblock Plus jest wyłączony. Można edytować dowolny filtr, ale do czasu ponownego włączenia Adblocka zmiany te nie będą działały.">
-<!ENTITY description "
-		Dodaj adres, który chcesz zablokować. Aby zobaczyć podpowiedzi przejdź do menu &quot;Pomoc&quot;.
+<!ENTITY description "Dodaj adres, który chcesz zablokować. Aby zobaczyć podpowiedzi przejdź do menu &quot;Pomoc&quot;.
 		Można używać * jako wieloznacznika przy tworzeniu większej ilości filtrów. Zaawansowani użytkownicy
-		mogą używać wyrażeń regularnych takich jak: /banner\d+\.gif$/.
-">
-<!ENTITY newfilter.label "Nowy filtr:">
-<!ENTITY newfilter.accesskey "N">
-<!ENTITY add.label "Dodaj filtr">
-<!ENTITY add.accesskey "D">
+		mogą używać wyrażeń regularnych takich jak: /banner\d+\.gif$/.">
 <!ENTITY pattern.column "Reguła filtru">
-<!ENTITY hitcount.column "Użycie">
 <!ENTITY enabled.column "Aktywny">
+<!ENTITY hitcount.column "Użycie">
+<!ENTITY lasthit.column "Ostatnie uderzenie(trafienie)">
 <!ENTITY context.edit.label "Edytuj filtr">
 <!ENTITY context.resethitcount.label "Wyzeruj licznik użycia dla filtru">
 <!ENTITY context.synchsubscription.label "Uaktualnij subskrypcję teraz">
@@ -75,3 +74,5 @@
 <!ENTITY context.movedown.label "Przesuń w dół">
 <!ENTITY context.movegroupup.label "Przesuń grupę w górę">
 <!ENTITY context.movegroupdown.label "Przesuń grupę w dól">
+<!ENTITY apply.label "Zastosuj">
+<!ENTITY apply.accesskey "S">

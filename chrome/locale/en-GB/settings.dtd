@@ -1,8 +1,12 @@
 <!ENTITY dialog.title "Adblock Plus Preferences">
 <!ENTITY filters.label "Filters">
 <!ENTITY filters.accesskey "F">
+<!ENTITY add.label "Add filter">
+<!ENTITY add.accesskey "A">
 <!ENTITY addsubscription.label "Add filter subscription">
 <!ENTITY addsubscription.accesskey "S">
+<!ENTITY synchsubscriptions.label "Update all subscriptions">
+<!ENTITY synchsubscriptions.accesskey "D">
 <!ENTITY import.label "Import filters">
 <!ENTITY import.accesskey "M">
 <!ENTITY export.label "Export filters">
@@ -49,24 +53,17 @@
 <!ENTITY tips.label "Tip of the day">
 <!ENTITY tips.accesskey "T">
 <!ENTITY tips.url "http://adblockplus.mozdev.org/tips.html">
-<!ENTITY regexps.label "Writing regular expressions">
-<!ENTITY regexps.accesskey "X">
-<!ENTITY regexps.url "http://developer.mozilla.org/en/docs/Core_JavaScript_1.5_Guide:Regular_Expressions#Writing_a_Regular_Expression_Pattern">
+<!ENTITY filterdoc.label "Writing Adblock Plus filters">
+<!ENTITY filterdoc.accesskey "R">
+<!ENTITY filterdoc.url "http://adblockplus.mozdev.org/filters.html">
 <!ENTITY about.label "About Adblock Plus">
 <!ENTITY about.accesskey "B">
-<!ENTITY disabled.warning "Adblock Plus is disabled. You can edit filters in the list, but they won't be applied until you reenable.">
-<!ENTITY description "
-		Add the addresses you wish to block; for suggestions check the dropdown list.
-		You can use * as a wildcard to create more general filters. Advanced users can
-		use regular expressions like /banner\d+\.gif$/.
-">
-<!ENTITY newfilter.label "New filter:">
-<!ENTITY newfilter.accesskey "N">
-<!ENTITY add.label "Add filter">
-<!ENTITY add.accesskey "A">
+<!ENTITY disabled.warning "Adblock Plus is disabled. You can edit filters in the list, but they won&apos;t be applied until you reenable.">
+<!ENTITY description "Add the addresses you wish to block; for suggestions check the dropdown list.  You can use * as a wildcard to create more general filters. Advanced users can use regular expressions like /banner\d+\.gif$/.">
 <!ENTITY pattern.column "Filter rule">
-<!ENTITY hitcount.column "Hits">
 <!ENTITY enabled.column "Enabled">
+<!ENTITY hitcount.column "Hits">
+<!ENTITY lasthit.column "Last hit">
 <!ENTITY context.edit.label "Edit filter">
 <!ENTITY context.resethitcount.label "Reset statistics for filter">
 <!ENTITY context.synchsubscription.label "Update subscription now">
@@ -75,3 +72,5 @@
 <!ENTITY context.movedown.label "Move down">
 <!ENTITY context.movegroupup.label "Move group up">
 <!ENTITY context.movegroupdown.label "Move group down">
+<!ENTITY apply.label "Apply">
+<!ENTITY apply.accesskey "p">

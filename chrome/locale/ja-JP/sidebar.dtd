@@ -24,7 +24,7 @@
 
 <!ENTITY detached.title "Adblock Plus このページのブロック要素">
 
-<!ENTITY detach.label "別窓表示にする">
+<!ENTITY detach.label "ウィンドウ表示にする">
 <!ENTITY reattach.label "サイドバー表示にする">
 
 <!ENTITY search.label "検索：">

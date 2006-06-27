@@ -1,5 +1,8 @@
 <!ENTITY notloaded.label "Ei ladattu">
 <!ENTITY notloaded.tooltip "Adblock Plussan komponenttia ei voitu ladata, ehkä se ei asentunut oikein">
+<!ENTITY status.tooltip "Tila:">
+<!ENTITY blocked.tooltip "Estettyjä elementtejä tällä sivulla:">
+<!ENTITY filters.tooltip "Aktiivisimmat suodattimet:">
 <!ENTITY menuitem.label "Adblock Plus">
 <!ENTITY menuitem.accesskey "d">
 <!ENTITY context.image.label "Estä kuva Adblockilla">

@@ -1,12 +1,15 @@
 <!ENTITY notloaded.label "Nie wczytano">
 <!ENTITY notloaded.tooltip "Nie można wczytać komponentów Adblock Plusa, być może został on nieprawidłowo zainstalowany">
+<!ENTITY status.tooltip "Status:">
+<!ENTITY blocked.tooltip "Zablokowane elementy na tej stronie:">
+<!ENTITY filters.tooltip "Najbardziej aktywne filtry:">
 <!ENTITY menuitem.label "Adblock Plus">
 <!ENTITY menuitem.accesskey "A">
 <!ENTITY context.image.label "Adblokuj obrazek">
 <!ENTITY context.object.label "Adblokuj obiekt">
 <!ENTITY context.link.label "Adblokuj odnośnik">
 <!ENTITY context.frame.label "Adblokuj ramkę">
-<!ENTITY menuitem.sidebar.title "Adblock Plus: Elementy blokowalne ">
+<!ENTITY menuitem.sidebar.title "Adblock Plus: Elementy blokowalne">
 <!ENTITY sidebar.title "Blokowalne elementy na aktywnej stronie">
 <!ENTITY settings.label "Ustawienia">
 <!ENTITY settings.accesskey "U">

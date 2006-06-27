@@ -1,8 +1,12 @@
 <!ENTITY dialog.title "ปรับแต่ง Adblock Plus">
 <!ENTITY filters.label "ตัวกรอง">
 <!ENTITY filters.accesskey "F">
+<!ENTITY add.label "เพิ่มตัวกรอง">
+<!ENTITY add.accesskey "Z">
 <!ENTITY addsubscription.label "เพิ่มนามข้างท้ายตัวกรอง">
 <!ENTITY addsubscription.accesskey "S">
+<!ENTITY synchsubscriptions.label "อัปเดตนามข้างท้ายทั้งหมด">
+<!ENTITY synchsubscriptions.accesskey "D">
 <!ENTITY import.label "นำเข้าตัวกรอง">
 <!ENTITY import.accesskey "M">
 <!ENTITY export.label "ส่งออกตัวกรอง">
@@ -49,20 +53,17 @@
 <!ENTITY tips.label "เคล็ดลับประจำวัน">
 <!ENTITY tips.accesskey "T">
 <!ENTITY tips.url "http://adblockplus.mozdev.org/tips.html">
-<!ENTITY regexps.label "การเขียนการแสดงออกทั่วไป">
-<!ENTITY regexps.accesskey "X">
-<!ENTITY regexps.url "http://developer.mozilla.org/en/docs/Core_JavaScript_1.5_Guide:Regular_Expressions#Writing_a_Regular_Expression_Pattern">
+<!ENTITY filterdoc.label "กำลังเขียนตัวกรอง Adblock Plus">
+<!ENTITY filterdoc.accesskey "R">
+<!ENTITY filterdoc.url "http://adblockplus.mozdev.org/filters.html">
 <!ENTITY about.label "เกี่ยวกับ Adblock Plus">
 <!ENTITY about.accesskey "B">
 <!ENTITY disabled.warning "Adblock Plus ถูกปิดการทำงาน คุณสามารถแก้ไขตัวกรองในรายชื่อ แต่จะใช้ไม่ได้จนกว่าคุณจะเปิดการทำงานอีกครั้ง">
 <!ENTITY description "เพิ่มที่อยู่ที่คุณต้องการบล็อก สำหรับข้อเสนอแนะดูที่รายชื่อแบบเลื่อนลง คุณสามารถใช้ * เป็นเสมือนสิ่งใดๆเพื่อสร้างตัวกรองที่ำไม่เจาะจง ผู้ใช้ขั้นสูงสามารถใช้การแสดงออกทั่วไปเช่น banner\d+\.gif$/">
-<!ENTITY newfilter.label "ตัวกรองใหม่:">
-<!ENTITY newfilter.accesskey "N">
-<!ENTITY add.label "เพิ่มตัวกรอง">
-<!ENTITY add.accesskey "Z">
 <!ENTITY pattern.column "กฎตัวกรอง">
-<!ENTITY hitcount.column "นับ">
 <!ENTITY enabled.column "เปิดการใช้งาน">
+<!ENTITY hitcount.column "นับ">
+<!ENTITY lasthit.column "กดล่าสุด">
 <!ENTITY context.edit.label "แก้ไขตัวกรอง">
 <!ENTITY context.resethitcount.label "เริ่มนับสถิติสำหรับตัวกรองใหม่">
 <!ENTITY context.synchsubscription.label "อัปเดตนามข้างท้าย">
@@ -71,3 +72,5 @@
 <!ENTITY context.movedown.label "เลื่อนลง">
 <!ENTITY context.movegroupup.label "เลื่อนกลุ่มขึ้น">
 <!ENTITY context.movegroupdown.label "เลื่อนกลุ่มลง">
+<!ENTITY apply.label "ใช้งาน">
+<!ENTITY apply.accesskey "P">

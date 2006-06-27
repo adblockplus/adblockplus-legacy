@@ -27,8 +27,12 @@
 <!ENTITY filters.label "フィルタ">
 <!ENTITY filters.accesskey "F">
 
-<!ENTITY addsubscription.label "フィルタ読み込みを追加">
+<!ENTITY add.label "追加">
+<!ENTITY add.accesskey "A">
+<!ENTITY addsubscription.label "同期フィルタの読み込み追加">
 <!ENTITY addsubscription.accesskey "S">
+<!ENTITY synchsubscriptions.label "すべての同期フィルタをアップデート">
+<!ENTITY synchsubscriptions.accesskey "D">
 <!ENTITY import.label "フィルタのインポート">
 <!ENTITY import.accesskey "M">
 <!ENTITY export.label "フィルタのエクスポート">
@@ -81,9 +85,9 @@
 <!ENTITY tips.label "今日のヒント">
 <!ENTITY tips.accesskey "T">
 <!ENTITY tips.url "http://adblockplus.mozdev.org/tips.html">
-<!ENTITY regexps.label "正規表現について">
-<!ENTITY regexps.accesskey "X">
-<!ENTITY regexps.url "http://developer.mozilla.org/en/docs/Core_JavaScript_1.5_Guide:Regular_Expressions#Writing_a_Regular_Expression_Pattern">
+<!ENTITY filterdoc.label "Adblock Plus フィルタ記述ガイド">
+<!ENTITY filterdoc.accesskey "R">
+<!ENTITY filterdoc.url "http://adblockplus.mozdev.org/filters.html">
 <!ENTITY about.label "Adblock Plus について">
 <!ENTITY about.accesskey "B">
 
@@ -95,20 +99,19 @@
 		上級ユーザは /banner\d+\.gif$/ のような正規表現を使用することができます。
 ">
 
-<!ENTITY newfilter.label "新規フィルタ:">
-<!ENTITY newfilter.accesskey "N">
-<!ENTITY add.label "追加">
-<!ENTITY add.accesskey "A">
-
 <!ENTITY pattern.column "フィルタルール">
-<!ENTITY hitcount.column "ヒット数">
 <!ENTITY enabled.column "有効">
+<!ENTITY hitcount.column "ヒット数">
+<!ENTITY lasthit.column "最終ヒット日時">
 
 <!ENTITY context.edit.label "フィルタ編集">
 <!ENTITY context.resethitcount.label "フィルタヒット数をリセット">
-<!ENTITY context.synchsubscription.label "今すぐフィルタ読み込みをアップデート">
+<!ENTITY context.synchsubscription.label "今すぐ同期フィルタをアップデート">
 <!ENTITY context.editsubscription.label "読み込み編集">
 <!ENTITY context.moveup.label "上へ">
 <!ENTITY context.movedown.label "下へ">
 <!ENTITY context.movegroupup.label "上のグループへ">
 <!ENTITY context.movegroupdown.label "下のグループへ">
+
+<!ENTITY apply.label "適 用">
+<!ENTITY apply.accesskey "P">

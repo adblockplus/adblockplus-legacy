@@ -1,8 +1,12 @@
 <!ENTITY dialog.title "Adblock Plus inställningar">
 <!ENTITY filters.label "Filter">
 <!ENTITY filters.accesskey "F">
+<!ENTITY add.label "Lägg till filter">
+<!ENTITY add.accesskey "ä">
 <!ENTITY addsubscription.label "Lägg till filterprenumeration">
 <!ENTITY addsubscription.accesskey "p">
+<!ENTITY synchsubscriptions.label "Uppdatera alla filter">
+<!ENTITY synchsubscriptions.accesskey "d">
 <!ENTITY import.label "Importera filter">
 <!ENTITY import.accesskey "I">
 <!ENTITY export.label "Exportera filter">
@@ -14,7 +18,7 @@
 <!ENTITY edit.label "Redigera">
 <!ENTITY edit.accesskey "R">
 <!ENTITY cut.label "Klipp ut">
-<!ENTITY cut.accesskey "k">
+<!ENTITY cut.accesskey "K">
 <!ENTITY copy.label "Kopiera">
 <!ENTITY copy.accesskey "o">
 <!ENTITY paste.label "Klistra in">
@@ -49,20 +53,17 @@
 <!ENTITY tips.label "Dagens tips">
 <!ENTITY tips.accesskey "i">
 <!ENTITY tips.url "http://adblockplus.mozdev.org/tips.html">
-<!ENTITY regexps.label "Skriva reguljära uttryck">
-<!ENTITY regexps.accesskey "u">
-<!ENTITY regexps.url "http://developer.mozilla.org/en/docs/Core_JavaScript_1.5_Guide:Regular_Expressions#Writing_a_Regular_Expression_Pattern">
+<!ENTITY filterdoc.label "Sparar Adblock Plus-filter">
+<!ENTITY filterdoc.accesskey "r">
+<!ENTITY filterdoc.url "http://adblockplus.mozdev.org/filters.html">
 <!ENTITY about.label "Om Adblock Plus">
 <!ENTITY about.accesskey "O">
 <!ENTITY disabled.warning "Adblock Plus är av. Du kan ändra filter i listan men tas inte i bruk förrän du slår på Adblock Plus.">
 <!ENTITY description "Lägg till adresser du vill blockera (ex. finns listrutan). Du kan använda * som flagga för att skapa mer generella filter. Avancerade användare an använda reguljära uttryck som /banner/d+/.gif$/.">
-<!ENTITY newfilter.label "Nytt filter:">
-<!ENTITY newfilter.accesskey "y">
-<!ENTITY add.label "Lägg till filter">
-<!ENTITY add.accesskey "ä">
 <!ENTITY pattern.column "Filterregler">
-<!ENTITY hitcount.column "Träffar">
 <!ENTITY enabled.column "På">
+<!ENTITY hitcount.column "Träffar">
+<!ENTITY lasthit.column "Senaste träff">
 <!ENTITY context.edit.label "Ändra filter">
 <!ENTITY context.resethitcount.label "Nollställ statistik - Antal träffar med filter">
 <!ENTITY context.synchsubscription.label "Uppdatera prenumeration nu">
@@ -71,3 +72,5 @@
 <!ENTITY context.movedown.label "Flytta ner">
 <!ENTITY context.movegroupup.label "Flytta upp grupp">
 <!ENTITY context.movegroupdown.label "Flytta ner grupp">
+<!ENTITY apply.label "Verkställ">
+<!ENTITY apply.accesskey "V">

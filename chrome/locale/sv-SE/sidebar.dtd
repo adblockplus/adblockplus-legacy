@@ -16,8 +16,8 @@
 <!ENTITY tooltip.type.blocked "(blockerad)">
 <!ENTITY tooltip.type.whitelisted "(vitlistad)">
 <!ENTITY tooltip.filter.label "Filter som används:">
-<!ENTITY context.block.label "Blockera denna objekt">
-<!ENTITY context.editfilter.label "Blockerings filter är på">
+<!ENTITY context.block.label "Blockera detta objekt">
+<!ENTITY context.editfilter.label "Blockeringsfilter är på">
 <!ENTITY context.whitelist.label "Lägg till undantag för objekt">
 <!ENTITY context.open.label "Öppna i ny flik">
 <!ENTITY context.flash.label "Markera objektets ram">
