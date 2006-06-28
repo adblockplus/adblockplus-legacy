@@ -152,7 +152,7 @@ function hideNode(node, wnd, collapse) {
         if (frame.nodeName.toUpperCase() in frameTags)
           index++;
   
-      var attr = (attrFunc("rows") ? "rows" : "cols");
+      var attr = (parentNode.hasAttribute("rows") ? "rows" : "cols");
       wnd.setTimeout(hideFrameCallback, 0, parentNode, attr, index);
     }
     else
