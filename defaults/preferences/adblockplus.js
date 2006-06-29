@@ -1,4 +1,4 @@
-// For description of these values see http://adblockplus.mozdev.org/preferences.html
+// For description of these values see http://adblockplus.org/en/preferences
 
 pref("extensions.adblockplus.enabled", true);
 pref("extensions.adblockplus.frameobjects", true);

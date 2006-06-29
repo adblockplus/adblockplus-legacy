@@ -54,7 +54,7 @@
   <em:name>Adblock Plus</em:name>
   <em:description>Ads were yesterday!</em:description>
   <em:creator>Wladimir Palant</em:creator>
-  <em:homepageURL>http://adblockplus.mozdev.org</em:homepageURL>
+  <em:homepageURL>http://adblockplus.org/</em:homepageURL>
   
   <!-- Front End Integration Hooks (used by Extension Manager)-->
   <em:iconURL>chrome://adblockplus/skin/adblockplus.png</em:iconURL>

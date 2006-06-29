@@ -81,13 +81,13 @@
 
 <!ENTITY faq.label                  "Häufig gestellte Fragen">
 <!ENTITY faq.accesskey              "F">
-<!ENTITY faq.url                    "http://adblockplus.mozdev.org/de/faq.html">
+<!ENTITY faq.url                    "http://adblockplus.org/de/faq">
 <!ENTITY tips.label                 "Tipp des Tages">
 <!ENTITY tips.accesskey             "T">
-<!ENTITY tips.url                   "http://adblockplus.mozdev.org/de/tips.html">
+<!ENTITY tips.url                   "http://adblockplus.org/de/tips">
 <!ENTITY filterdoc.label            "Filter für Adblock Plus erstellen">
 <!ENTITY filterdoc.accesskey        "L">
-<!ENTITY filterdoc.url              "http://adblockplus.mozdev.org/de/filters.html">
+<!ENTITY filterdoc.url              "http://adblockplus.org/de/filters">
 <!ENTITY about.label                "Über Adblock Plus">
 <!ENTITY about.accesskey            "B">
 

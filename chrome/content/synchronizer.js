@@ -40,13 +40,17 @@ var synchronizer = {
   synchronizeCallback: function() {
     synchronizer.timer.delay = 3600000;
 
+    var time = new Date().getTime()/1000;
     for (var i = 0; i < prefs.subscriptions.length; i++) {
       var subscription = prefs.subscriptions[i];
       if (subscription.special || !subscription.autoDownload || subscription.external)
         continue;
   
+      if (subscription.expires > time)
+        continue;
+
       // Get the number of hours since last download
-      var interval = (new Date().getTime()/1000 - subscription.lastSuccess) / 3600;
+      var interval = (time - subscription.lastSuccess) / 3600;
       if (interval > prefs.synchronizationinterval)
         synchronizer.execute(subscription);
     }
@@ -83,7 +87,7 @@ var synchronizer = {
     }
     if (!/\[Adblock(?:\s*Plus\s*([\d\.]+)?)?\]/i.test(lines[0])) {
       this.setError(subscription, "synchronize_invalid_data");
-      return;
+      return false;
     }
 
     delete subscription.requiredVersion;
@@ -96,8 +100,6 @@ var synchronizer = {
         subscription.upgradeRequired = true;
     }
 
-    subscription.lastDownload = subscription.lastSuccess = (new Date().getTime() / 1000).toFixed(0);
-    subscription.downloadStatus = "synchronize_ok";
     subscription.patterns = [];
     for (var i = 1; i < lines.length; i++) {
       var pattern = prefs.patternFromText(lines[i]);
@@ -105,19 +107,19 @@ var synchronizer = {
         subscription.patterns.push(pattern);
     }
     prefs.initMatching();
-    prefs.savePatterns();
-    this.notifyListeners(subscription, "ok");
+
+    return true;
   },
 
   setError: function(subscription, error) {
     this.executing.remove(subscription.url);
-    subscription.lastDownload = (new Date().getTime() / 1000).toFixed(0);
+    subscription.lastDownload = parseInt(new Date().getTime() / 1000);
     subscription.downloadStatus = error;
     prefs.savePatterns();
     this.notifyListeners(subscription, "error");
   },
 
-  executeInternal: function(subscription) {
+  executeInternal: function(subscription, forceDownload) {
     var url = subscription.url;
     if (this.executing.has(url))
       return;
@@ -138,6 +140,9 @@ var synchronizer = {
       return;
     }
 
+    if (subscription.lastModified && !forceDownload)
+      request.setRequestHeader("If-Modified-Since", subscription.lastModified);
+
     request.onerror = function(ev) {
       if (!prefs.knownSubscriptions.has(url))
         return;
@@ -147,8 +152,30 @@ var synchronizer = {
 
     request.onload = function(ev) {
       synchronizer.executing.remove(url);
-      if (prefs.knownSubscriptions.has(url))
-        synchronizer.readPatterns(prefs.knownSubscriptions.get(url), ev.target.responseText);
+      if (prefs.knownSubscriptions.has(url)) {
+        var subscription = prefs.knownSubscriptions.get(url);
+        var request = ev.target;
+
+        if (request.status != 304) {
+          if (!synchronizer.readPatterns(subscription, request.responseText))
+            return;
+
+          subscription.lastModified = request.getResponseHeader("Last-Modified");
+        }
+
+        subscription.lastDownload = subscription.lastSuccess = parseInt(new Date().getTime() / 1000);
+        subscription.downloadStatus = "synchronize_ok";
+
+        var expires = parseInt(new Date(request.getResponseHeader("Expires")).getTime() / 1000);
+        subscription.expires = (expires > subscription.lastDownload ? expires : 0);
+
+        // Expiration date shouldn't be more that two weeks in the future
+        if (subscription.expires - subscription.lastDownload > 14*24*3600)
+          subscription.expires = subscription.lastDownload + 14*24*3600;
+
+        prefs.savePatterns();
+        synchronizer.notifyListeners(subscription, "ok");
+      }
     };
 
     this.executing.put(url, request);
@@ -165,11 +192,13 @@ var synchronizer = {
     request = null;
   },
 
-  execute: function(subscription) {
+  execute: function(subscription, forceDownload) {
     // Execute delayed so XMLHttpRequest isn't attached to the
     // load group of the calling window
     me = this;
-    createTimer(function() {me.executeInternal(subscription)}, 0);
+    if (typeof forceDownload == "undefined")
+      forceDownload = false;
+    createTimer(function() {me.executeInternal(subscription, forceDownload)}, 0);
   }
 };
 

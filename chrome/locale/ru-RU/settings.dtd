@@ -81,13 +81,13 @@
 
 <!ENTITY faq.label                  "Часто задаваемые вопросы (английский)">
 <!ENTITY faq.accesskey              "Ч">
-<!ENTITY faq.url                    "http://adblockplus.mozdev.org/faq.html">
+<!ENTITY faq.url                    "http://adblockplus.org/en/faq">
 <!ENTITY tips.label                 "Подсказки (английский)">
 <!ENTITY tips.accesskey             "П">
-<!ENTITY tips.url                   "http://adblockplus.mozdev.org/tips.html">
+<!ENTITY tips.url                   "http://adblockplus.org/en/tips">
 <!ENTITY filterdoc.label            "Составление фильтров для Adblock Plus (английский)">
 <!ENTITY filterdoc.accesskey        "т">
-<!ENTITY filterdoc.url              "http://adblockplus.mozdev.org/filters.html">
+<!ENTITY filterdoc.url              "http://adblockplus.org/en/filters">
 <!ENTITY about.label                "О Adblock Plus">
 <!ENTITY about.accesskey            "О">
 

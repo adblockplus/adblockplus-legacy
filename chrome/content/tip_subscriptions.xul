@@ -53,14 +53,14 @@
 <vbox id="subscriptions" datasources="subscriptions.rdf" ref="abp:subscriptions">
   <template>
     <hbox uri="rdf:*" class="container" align="center">
-      <checkbox _title="rdf:http://adblockplus.mozdev.org/#title" _url="rdf:http://adblockplus.mozdev.org/#url"/>
+      <checkbox _title="rdf:http://adblockplus.org/#title" _url="rdf:http://adblockplus.org/#url"/>
       <vbox flex="1">
         <hbox>
-          <description class="title" value="rdf:http://adblockplus.mozdev.org/#title"/>
+          <description class="title" value="rdf:http://adblockplus.org/#title"/>
           <spacer flex="1"/>
-          <description class="homepage" _url="rdf:http://adblockplus.mozdev.org/#homepage" value="&homepage.label;" onclick="abp.loadInBrowser(this.getAttribute('_url'))"/>
+          <description class="homepage" _url="rdf:http://adblockplus.org/#homepage" value="&homepage.label;" onclick="abp.loadInBrowser(this.getAttribute('_url'))"/>
         </hbox>
-        <description class="location" value="rdf:http://adblockplus.mozdev.org/#url" onclick="abp.loadInBrowser(this.getAttribute('value'))"/>
+        <description class="location" value="rdf:http://adblockplus.org/#url" onclick="abp.loadInBrowser(this.getAttribute('value'))"/>
       </vbox>
     </hbox>
   </template>

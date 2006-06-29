@@ -492,7 +492,7 @@ function onListKeyPress(e) {
     e.stopPropagation();
   }
   else if (String.fromCharCode(e.charCode).toLowerCase() == "t" && modifiers == accelMask)
-    synchSubscription();
+    synchSubscription(false);
 }
 
 function onListClick(e) {
@@ -691,22 +691,22 @@ function pasteFromClipboard() {
 }
 
 // Starts synchronization for a subscription
-function synchSubscription() {
+function synchSubscription(forceDownload) {
   var info = treeView.getRowInfo(treeView.selection.currentIndex);
   if (!info || info[0].special || info[0].external || info[0].dummy)
     return;
 
   var orig = prefs.knownSubscriptions.get(info[0].url);
-  synchronizer.execute(orig);
+  synchronizer.execute(orig, forceDownload);
 }
 
 // Starts synchronization for all subscriptions
-function synchAllSubscriptions() {
+function synchAllSubscriptions(forceDownload) {
   for (var i = 0; i < treeView.data.length; i++) {
     var subscription = treeView.data[i];
     if (!subscription.special && !subscription.external && !subscription.dummy) {
       var orig = prefs.knownSubscriptions.get(subscription.url);
-      synchronizer.execute(orig);
+      synchronizer.execute(orig, forceDownload);
     }
   }
 }
