@@ -56,7 +56,7 @@
       <menulist id="title" editable="true" datasources="subscriptions.rdf" ref="abp:subscriptions">
         <template>
           <menupopup>
-              <menuitem uri="rdf:*" label="rdf:http://adblockplus.mozdev.org/#title" value="rdf:http://adblockplus.mozdev.org/#url"/>
+              <menuitem uri="rdf:*" label="rdf:http://adblockplus.org/#title" value="rdf:http://adblockplus.org/#url"/>
           </menupopup>
         </template>
       </menulist>

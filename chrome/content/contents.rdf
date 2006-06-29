@@ -13,7 +13,7 @@
     chrome:displayName="Adblock Plus"
     chrome:author="Wladimir Palant"
     chrome:name="adblockplus"
-      chrome:authorURL="http://adblockplus.mozdev.org/"
+      chrome:authorURL="http://adblockplus.org/"
     chrome:extension="true"
     chrome:description="Filters ads from web pages"
     chrome:settingsURL="chrome://adblockplus/content/settings.xul">

@@ -969,6 +969,7 @@ var prefs = {
       ret.lastSuccess = parseInt("lastSuccess" in obj ? obj.lastSuccess : 0) || 0;
       ret.downloadStatus = ("downloadStatus" in obj ? obj.downloadStatus : "");
       ret.lastModified = ("lastModified" in obj ? obj.lastModified : "");
+      ret.expires = parseInt("expires" in obj ? obj.expires : 0) || 0;
       if ("requiredVersion" in obj) {
         ret.requiredVersion = obj.requiredVersion;
         if (abp.versionComparator.compare(ret.requiredVersion, abp.getInstalledVersion()) > 0)
@@ -1022,6 +1023,7 @@ var prefs = {
         lastSuccess: 0,
         downloadStatus: "",
         lastModified: "",
+        expires: 0,
         patterns: []
       };
 
@@ -1093,6 +1095,7 @@ var prefs = {
       lastSuccess: 0,
       downloadStatus: "",
       lastModified: "",
+      expires: 0,
       patterns: []
     };
 
@@ -1128,6 +1131,8 @@ var prefs = {
         buf.push('downloadStatus=' + subscription.downloadStatus);
       if (subscription.lastModified)
         buf.push('lastModified=' + subscription.lastModified);
+      if (subscription.expires)
+        buf.push('expires=' + subscription.expires);
       if (subscription.requiredVersion)
         buf.push('requiredVersion=' + subscription.requiredVersion);
   
