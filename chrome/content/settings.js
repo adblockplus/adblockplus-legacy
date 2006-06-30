@@ -866,27 +866,7 @@ function applyChanges() {
   document.getElementById("applyButton").setAttribute("disabled", "true");
 
   if (wnd)
-    refilterWindow(wnd);
-}
-
-// Reapplies filters to all nodes of the current window
-function refilterWindow(wnd) {
-  if (wnd.closed)
-    return;
-
-  var wndData = abp.getDataForWindow(wnd);
-  var data = wndData.getAllLocations();
-  var policy = abp.policy;
-  for (var i = 0; i < data.length; i++) {
-    if (!data[i].filter || data[i].filter.type == "whitelist") {
-      var nodes = data[i].nodes;
-      data[i].nodes = [];
-      for (var j = 0; j < nodes.length; j++)
-        policy.processNode(nodes[j], data[i].type, data[i].location, true);
-    }
-  }
-
-  abp.DataContainer.notifyListeners(wnd, "invalidate", data);
+    abp.policy.refilterWindow(wnd);
 }
 
 // Warns the user that he has entered a regular expression. 

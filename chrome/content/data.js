@@ -135,7 +135,7 @@ DataContainer.prototype = {
     if (!this.detached)
       DataContainer.notifyListeners(topWnd, "refresh", this);
   },
-  addNode: function(topWnd, node, contentType, location, filter, storedLoc) {
+  addNode: function(topWnd, node, contentType, location, filter, storedLoc, objTab) {
     if (contentType == type.SUBDOCUMENT && typeof storedLoc == "undefined" && (!filter || filter.type == "whitelist")) {
       // New document is about to load
       this.newLocation = {nodes: [node], type: contentType, location: location, filter: filter};
@@ -163,6 +163,9 @@ DataContainer.prototype = {
       if (!this.topContainer.detached)
         DataContainer.notifyListeners(topWnd, "add", this.topContainer, this.locations[key]);
     }
+
+    if (typeof objTab != "undefined" && objTab)
+      this.locations[key].nodes.push(objTab);
   },
   getLocation: function(location) {
     var key = " " + location;

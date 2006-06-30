@@ -103,6 +103,7 @@ var policy = {
     var data = DataContainer.getDataForWindow(wnd);
 
     var match = null;
+    var objTab = null;
     var linksOk = true;
     if (prefs.enabled) {
       match = prefs.whitePatterns.matchesAny(location, typeDescr[contentType] || "");
@@ -112,28 +113,30 @@ var policy = {
       if (match)
         prefs.increaseHitCount(match);
 
-      if (!(node instanceof Window)) {
-        // Check links in parent nodes
-        if (node && prefs.linkcheck && this.shouldCheckLinks(contentType))
+      // Check links in parent nodes
+      if (node && !(node instanceof Window) && prefs.linkcheck && this.shouldCheckLinks(contentType))
           linksOk = this.checkLinks(node);
   
-        // Show object tabs unless this is a standalone object
-        // XXX: We will never recognize objects loading from jar: as standalone!
-        if (!match && prefs.frameobjects &&
-            contentType == type.OBJECT && wnd.location && location != wnd.location.href)
-          wnd.setTimeout(addObjectTab, 0, node, location, topWnd);
+      if (match && match.type != "whitelist" && node) {
+        // hide immediately if fastcollapse is off but not base types
+        collapse = collapse || !prefs.fastcollapse;
+        collapse = collapse && !(contentType in nonCollapsableTypes);
+        if (collapse)
+          wnd.setTimeout(hideNode, 0, node);
+      }
+
+      // Show object tabs unless this is a standalone object
+      // XXX: We will never recognize objects loading from jar: as standalone!
+      if (!match && prefs.frameobjects && contentType == type.OBJECT &&
+          node.ownerDocument && wnd.location && location != wnd.location.href) {
+        objTab = node.ownerDocument.createElementNS("http://www.w3.org/1999/xhtml", "div");
+        objTab.abpObjTab = true;
+        wnd.setTimeout(addObjectTab, 0, node, location, objTab, topWnd);
       }
     }
 
     // Store node data (must set storedLoc parameter so that frames are added immediately when refiltering)
-    data.addNode(topWnd, node, contentType, location, match, collapse ? true : undefined);
-
-    if (match && match.type != "whitelist" && node) {
-      // hide immediately if fastcollapse is off but not base types
-      collapse = collapse || !prefs.fastcollapse;
-      collapse = collapse && !(contentType in nonCollapsableTypes);
-      hideNode(node, wnd, collapse);
-    }
+    data.addNode(topWnd, node, contentType, location, match, collapse ? true : undefined, objTab);
 
     return (match && match.type == "whitelist") || (!match && linksOk);
   },
@@ -225,6 +228,43 @@ var policy = {
 
   shouldProcess: function(contentType, contentLocation, requestOrigin, insecNode, mimeType, extra) {
     return ok;
+  },
+
+  // Reapplies filters to all nodes of the window
+  refilterWindowInternal: function(wnd, start) {
+    if (wnd.closed)
+      return;
+
+    var wndData = abp.getDataForWindow(wnd);
+    var data = wndData.getAllLocations();
+    for (var i = start; i < data.length; i++) {
+      if (i - start >= 20) {
+        // Allow events to process
+        createTimer(function() {policy.refilterWindowInternal(wnd, i)}, 0);
+        return;
+      }
+
+      if (!data[i].filter || data[i].filter.type == "whitelist") {
+        var nodes = data[i].nodes;
+        data[i].nodes = [];
+        for (var j = 0; j < nodes.length; j++) {
+          if ("abpObjTab" in nodes[j]) {
+            // Remove object tabs
+            if (nodes[j].parentNode)
+              nodes[j].parentNode.removeChild(nodes[j]);
+          }
+          else
+            this.processNode(nodes[j], data[i].type, data[i].location, true);
+        }
+      }
+    }
+
+    abp.DataContainer.notifyListeners(wnd, "invalidate", data);
+  },
+
+  // Calls refilterWindowInternal delayed to allow events to process
+  refilterWindow: function(wnd) {
+    createTimer(function() {policy.refilterWindowInternal(wnd, 0)}, 0);
   }
 };
 
