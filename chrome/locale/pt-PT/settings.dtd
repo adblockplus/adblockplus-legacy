@@ -2,7 +2,7 @@
 <!ENTITY filters.label "Filtros">
 <!ENTITY filters.accesskey "F">
 <!ENTITY add.label "Adicionar filtro">
-<!ENTITY add.accesskey "A">
+<!ENTITY add.accesskey "D">
 <!ENTITY addsubscription.label "Adicionar subscripção de filtros">
 <!ENTITY addsubscription.accesskey "S">
 <!ENTITY synchsubscriptions.label "Actualizar todas as subscrições">

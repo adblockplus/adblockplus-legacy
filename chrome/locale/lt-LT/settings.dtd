@@ -1,8 +1,12 @@
-<!ENTITY dialog.title "Adblock Plus nustatymai">
+<!ENTITY dialog.title "„Adblock Plus“ nustatymai">
 <!ENTITY filters.label "Filtrai">
 <!ENTITY filters.accesskey "F">
+<!ENTITY add.label "Pridėti filtrą">
+<!ENTITY add.accesskey "D">
 <!ENTITY addsubscription.label "Pridėti filtro prenumeratą">
 <!ENTITY addsubscription.accesskey "P">
+<!ENTITY synchsubscriptions.label "Atnaujinti visas prenumeratas">
+<!ENTITY synchsubscriptions.accesskey "u">
 <!ENTITY import.label "Importuoti filtrus">
 <!ENTITY import.accesskey "M">
 <!ENTITY export.label "Eksportuoti filtrus">
@@ -49,20 +53,17 @@
 <!ENTITY tips.label "Dienos patarimas">
 <!ENTITY tips.accesskey "P">
 <!ENTITY tips.url "http://adblockplus.mozdev.org/tips.html">
-<!ENTITY regexps.label "Kaip rašyti reguliariuosius reiškinius">
-<!ENTITY regexps.accesskey "R">
-<!ENTITY regexps.url "http://developer.mozilla.org/en/docs/Core_JavaScript_1.5_Guide:Regular_Expressions#Writing_a_Regular_Expression_Pattern">
+<!ENTITY filterdoc.label "Kaip rašyti „Adblock Plus“ filtrus">
+<!ENTITY filterdoc.accesskey "f">
+<!ENTITY filterdoc.url "http://adblockplus.mozdev.org/filters.html">
 <!ENTITY about.label "Apie „Adblock Plus“">
 <!ENTITY about.accesskey "A">
 <!ENTITY disabled.warning "„Adblock Plus“ yra išjungtas. Jūs galite redaguoti filtrus sąraše, bet jie nebus pritaikomi, kol neįjungsite „Adblock Plus“.">
 <!ENTITY description "Pridėkite adresus, kuriuos norite blokuoti. Norėdami gauti pasiūlymus, peržiūrėkite išskleidžiamąjį sąrašą. Galite pridėti „*“ kaip pakaitos simbolį norėdami sukurti bendresnius filtrus. Patyrę naudotojai gali naudoti reguliariuosius reiškinius, tokius kaip „/banner\d+\.gif$/“.">
-<!ENTITY newfilter.label "Naujas filtras:">
-<!ENTITY newfilter.accesskey "N">
-<!ENTITY add.label "Pridėti filtrą">
-<!ENTITY add.accesskey "D">
 <!ENTITY pattern.column "Filtro taisyklė">
-<!ENTITY hitcount.column "Aplankymai">
 <!ENTITY enabled.column "Įjungta">
+<!ENTITY hitcount.column "Aplankymai">
+<!ENTITY lasthit.column "Paskutinis blokavimas">
 <!ENTITY context.edit.label "Redaguoti filtrą">
 <!ENTITY context.resethitcount.label "Atstatyti aplankymų statistiką filtrui">
 <!ENTITY context.synchsubscription.label "Atnaujinti prenumeratą">
@@ -71,3 +72,5 @@
 <!ENTITY context.movedown.label "Perkelti žemiau">
 <!ENTITY context.movegroupup.label "Perkelti grupę aukščiau">
 <!ENTITY context.movegroupdown.label "Perkelti grupę žemiau">
+<!ENTITY apply.label "Pritaikyti">
+<!ENTITY apply.accesskey "P">

@@ -1,0 +1,8 @@
+<!ENTITY dialog.title "Welkom bij Adblock Plus">
+<!ENTITY description "Bedankt voor het installeren van Adblock Plus. Deze extensie kan 99&#37; van de reclames die je op het web ziet verwijderen. Maar om de reclames er goed uit te filteren moet je een goede set filters maken. Je kunt dit zelf doen, of simpel een abonnement nemen op filterlijsten die anderen voor je onderhouden. Je kunt nog steeds je eigen filters toevoegen en abonnementen uitschakelen/verwijderen wanneer dat maar nodig is. Hier is een lijst van aangerade abonnementen waar je uit kunt kiezen:">
+<!ENTITY note "Tip: een filterlijst werk meestal het beste wanneer die wordt toegepast op websites uit de regio waar de lijst voor gemaakt is.">
+<!ENTITY homepage.label "Website">
+<!ENTITY subscribe.label "Abonneer">
+<!ENTITY subscribe.accesskey "A">
+<!ENTITY other.label "Een ander abonnement toevoegen">
+<!ENTITY other.accesskey "E">

@@ -6,7 +6,7 @@
 <!ENTITY addsubscription.label "S&apos;abonner à une liste de filtres">
 <!ENTITY addsubscription.accesskey "l">
 <!ENTITY synchsubscriptions.label "Mettre à jour tous les abonnements">
-<!ENTITY synchsubscriptions.accesskey "j">
+<!ENTITY synchsubscriptions.accesskey "t">
 <!ENTITY import.label "Importer des filtres">
 <!ENTITY import.accesskey "I">
 <!ENTITY export.label "Exporter les filtres">

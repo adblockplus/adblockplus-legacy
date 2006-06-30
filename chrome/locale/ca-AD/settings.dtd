@@ -2,7 +2,7 @@
 <!ENTITY filters.label "Filtres">
 <!ENTITY filters.accesskey "F">
 <!ENTITY add.label "Afegir filtre">
-<!ENTITY add.accesskey "A">
+<!ENTITY add.accesskey "F">
 <!ENTITY addsubscription.label "Afegir subscripció al filtre">
 <!ENTITY addsubscription.accesskey "S">
 <!ENTITY synchsubscriptions.label "Actualitza totes les subscripcions">
@@ -18,7 +18,7 @@
 <!ENTITY edit.label "Edita">
 <!ENTITY edit.accesskey "E">
 <!ENTITY cut.label "Retalla">
-<!ENTITY cut.accesskey "X">
+<!ENTITY cut.accesskey "T">
 <!ENTITY copy.label "Copia">
 <!ENTITY copy.accesskey "C">
 <!ENTITY paste.label "Enganxa">
