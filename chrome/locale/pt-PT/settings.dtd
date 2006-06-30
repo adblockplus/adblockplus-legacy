@@ -6,7 +6,7 @@
 <!ENTITY addsubscription.label "Adicionar subscripção de filtros">
 <!ENTITY addsubscription.accesskey "S">
 <!ENTITY synchsubscriptions.label "Actualizar todas as subscrições">
-<!ENTITY synchsubscriptions.accesskey "L">
+<!ENTITY synchsubscriptions.accesskey "Z">
 <!ENTITY import.label "Importar filtros">
 <!ENTITY import.accesskey "M">
 <!ENTITY export.label "Exportar filtros">
