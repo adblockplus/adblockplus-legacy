@@ -76,9 +76,15 @@ interface nsIAdblockPlusSubscription: nsISupports
   readonly attribute AString downloadStatus;
 
   /**
-   * Value of the Last-Modified header for the last download (currently unused)
+   * Value of the Last-Modified header for the last download
   */
   readonly attribute AString lastModified;
+
+  /**
+   * Expiration time of the subscription (value of the Expires header but no more than two weeks
+   * after the download) for the last download in seconds since 1 January 1970 00:00:00
+  */
+  readonly attribute unsigned long expires;
 
   /**
    * Retrieves a list of subscription's patterns
