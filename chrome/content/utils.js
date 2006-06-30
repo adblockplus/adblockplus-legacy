@@ -126,48 +126,27 @@ function makeURL(url) {
 abp.makeURL = makeURL;
 
 // hides a blocked element and collapses it if necessary
-function hideNode(node, wnd, collapse) {
-  // hide object tab
-  var tab = node.nextSibling;
-  if (tab && tab.nodeType == Node.ELEMENT_NODE &&
-      tab.hasAttribute("AdblockTab"))
-    tab.style.display = "none";
+function hideNode(node) {
+  if (node instanceof Window)
+    node = node.frameElement;
 
-  // special handling for applets -- disable by specifying the Applet base class
-  var nodeName = node.nodeName;
-  if (nodeName && nodeName.toLowerCase() == "applet")
-    node.setAttribute("code", "java.applet.Applet");
+  // adjust frameset's cols/rows for frames
+  var parentNode = node.parentNode;
+  if (parentNode && parentNode.nodeName.toLowerCase() == "frameset" &&
+      (parentNode.hasAttribute("cols") ^ parentNode.hasAttribute("rows"))) {
+    var frameTags = {FRAME: true, FRAMESET: true};
+    var index = -1;
+    for (var frame = node; frame; frame = frame.previousSibling)
+      if (frame.nodeName.toUpperCase() in frameTags)
+        index++;
 
-  if (collapse) {
-    if (node instanceof Window)
-      node = node.frameElement;
-
-    // adjust frameset's cols/rows for frames
-    var parentNode = node.parentNode;
-    if (parentNode && parentNode.nodeName.toLowerCase() == "frameset" &&
-        (parentNode.hasAttribute("cols") ^ parentNode.hasAttribute("rows"))) {
-      var frameTags = {FRAME: true, FRAMESET: true};
-      var index = -1;
-      for (var frame = node; frame; frame = frame.previousSibling)
-        if (frame.nodeName.toUpperCase() in frameTags)
-          index++;
-  
-      var attr = (parentNode.hasAttribute("rows") ? "rows" : "cols");
-      wnd.setTimeout(hideFrameCallback, 0, parentNode, attr, index);
-    }
-    else
-      wnd.setTimeout(hideCallback, 0, node);
+    var attr = (parentNode.hasAttribute("rows") ? "rows" : "cols");
+    var weights = frameset.getAttribute(attr).split(",");
+    weights[index] = "0";
+    parentNode.setAttribute(attr, weights.join(","));
   }
-}
-
-function hideCallback(node) {
-  node.style.display = "none";
-}
-
-function hideFrameCallback(frameset, attr, index) {
-  var weights = frameset.getAttribute(attr).split(",");
-  weights[index] = "0";
-  frameset.setAttribute(attr, weights.join(","));
+  else
+    node.style.display = "none";
 }
 
 // Returns the visible area of an element, coordinates relative to the upper-left corner of the page
@@ -230,20 +209,15 @@ function generateClickHandler(wnd, location) {
 }
 
 // Creates a tab above/below the new object node
-function addObjectTab(node, location, wnd) {
+function addObjectTab(node, location, tab, wnd) {
   var offsetNode = node;
 
   if (node.parentNode && node.parentNode.tagName.toLowerCase() == "object") {
-    // Don't insert object tabs inside an outer object, causes ActiveX Plugin to do stupid things
+    // Don't insert object tabs inside an outer object, causes ActiveX Plugin to do bad things
     node = node.parentNode;
   }
 
   if (!node.parentNode)
-    return;
-
-  // Prevent readding tabs to elements that already have one
-  if (node.nextSibling && node.nextSibling.nodeType == Node.ELEMENT_NODE &&
-      node.nextSibling.hasAttribute("AdblockTab"))
     return;
 
   // Tab dimensions
@@ -259,10 +233,8 @@ function addObjectTab(node, location, wnd) {
 
   // Compose tab
   var doc = node.ownerDocument;
-  if (!doc)
-    return;
 
-  var label = doc.createElement("div");
+  var label = doc.createElementNS("http://www.w3.org/1999/xhtml", "div");
   label.appendChild(doc.createTextNode("Adblock"));
   label.style.display = "block";
   label.style.position = "relative";
@@ -290,7 +262,6 @@ function addObjectTab(node, location, wnd) {
   label.style.textTransform = "none";
   label.style.direction = "ltr";
 
-  var tab = doc.createElement("div");
   tab.appendChild(label);
   tab.style.display = "block";
   tab.style.position = "relative"
@@ -303,9 +274,6 @@ function addObjectTab(node, location, wnd) {
   tab.style.zIndex = 65535;
   tab.style.MozOpacity = "0.5";
 
-  // Prevent object tab from being added multiple times
-  tab.setAttribute("AdblockTab", "true");
-  
   // Click event handler
   label.addEventListener("click", generateClickHandler(wnd, location), false);
 
