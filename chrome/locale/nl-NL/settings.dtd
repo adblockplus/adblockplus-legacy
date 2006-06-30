@@ -2,7 +2,7 @@
 <!ENTITY filters.label "Filters">
 <!ENTITY filters.accesskey "F">
 <!ENTITY add.label "Toevoegen">
-<!ENTITY add.accesskey "o">
+<!ENTITY add.accesskey "g">
 <!ENTITY addsubscription.label "Filter Abonnement toevoegen">
 <!ENTITY addsubscription.accesskey "A">
 <!ENTITY synchsubscriptions.label "Alle abonnementen bijwerken">
