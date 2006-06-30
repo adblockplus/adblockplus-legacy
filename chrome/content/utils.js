@@ -141,7 +141,7 @@ function hideNode(node) {
         index++;
 
     var attr = (parentNode.hasAttribute("rows") ? "rows" : "cols");
-    var weights = frameset.getAttribute(attr).split(",");
+    var weights = parentNode.getAttribute(attr).split(",");
     weights[index] = "0";
     parentNode.setAttribute(attr, weights.join(","));
   }
