@@ -2,7 +2,7 @@
 <!ENTITY filters.label "Süzgeçler">
 <!ENTITY filters.accesskey "G">
 <!ENTITY add.label "Süzgeç ekle">
-<!ENTITY add.accesskey "E">
+<!ENTITY add.accesskey "K">
 <!ENTITY addsubscription.label "Süzgeç aboneliği ekle">
 <!ENTITY addsubscription.accesskey "E">
 <!ENTITY synchsubscriptions.label "Update all subscriptions">

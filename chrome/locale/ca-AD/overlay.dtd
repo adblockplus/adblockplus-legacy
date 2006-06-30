@@ -14,8 +14,8 @@
 <!ENTITY settings.label "Preferències">
 <!ENTITY settings.accesskey "P">
 <!ENTITY opensidebar.label "Obre elements bloquejables">
-<!ENTITY opensidebar.accesskey "O">
+<!ENTITY opensidebar.accesskey "B">
 <!ENTITY closesidebar.label "Tanca elements bloquejables">
-<!ENTITY closesidebar.accesskey "T">
+<!ENTITY closesidebar.accesskey "B">
 <!ENTITY whitelist.site.label "Deshabilita a --">
 <!ENTITY whitelist.page.label "Deshabilita només en aquesta pàgina">
