@@ -49,13 +49,13 @@
 <!ENTITY help.accesskey "H">
 <!ENTITY faq.label "Veelgestelde vragen">
 <!ENTITY faq.accesskey "V">
-<!ENTITY faq.url "http://adblockplus.mozdev.org/faq.html">
+<!ENTITY faq.url "http://adblockplus.org/en/faq">
 <!ENTITY tips.label "Tip Van De Dag">
 <!ENTITY tips.accesskey "T">
-<!ENTITY tips.url "http://adblockplus.mozdev.org/tips.html">
+<!ENTITY tips.url "http://adblockplus.org/en/tips">
 <!ENTITY filterdoc.label "Het schrijven van Adblock Plus filters">
 <!ENTITY filterdoc.accesskey "H">
-<!ENTITY filterdoc.url "http://adblockplus.mozdev.org/filters.html">
+<!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Over Adblock Plus">
 <!ENTITY about.accesskey "A">
 <!ENTITY disabled.warning "Adblock Plus is uitgeschakeld. U kunt de filters in de lijst aanpassen, maar wijzigingen zullen niet worden toegepast voordat u Adblock weer inschakeld.">

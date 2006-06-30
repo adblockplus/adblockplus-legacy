@@ -49,19 +49,19 @@
 <!ENTITY help.accesskey "A">
 <!ENTITY faq.label "FAQ di Adblock Plus">
 <!ENTITY faq.accesskey "F">
-<!ENTITY faq.url "http://adblockplus.mozdev.org/faq.html">
+<!ENTITY faq.url "http://adblockplus.org/en/faq">
 <!ENTITY tips.label "Suggerimento del giorno">
 <!ENTITY tips.accesskey "u">
-<!ENTITY tips.url "http://adblockplus.mozdev.org/tips.html">
+<!ENTITY tips.url "http://adblockplus.org/en/tips">
 <!ENTITY filterdoc.label "Scrittura dei filtri di Adblock Plus">
 <!ENTITY filterdoc.accesskey "K">
-<!ENTITY filterdoc.url "http://adblockplus.mozdev.org/filters.html">
+<!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Informazioni su Adblock Plus">
 <!ENTITY about.accesskey "z">
 <!ENTITY disabled.warning "Adblock Plus è inattiva. Si possono modificare i filtri nella lista, ma tali modifiche verranno applicate solo quando Adblock Plus verrà riattivata">
 <!ENTITY description "Aggiungere gli indirizzi web da bloccare, e per i suggerimenti controllare l&apos;elenco 
-		a discesa. Usare * come carattere jolly per creare filtri generici. Gli utenti esperti
-		possono usare le espressioni regolari come /banner\d+\.gif$/">
+    a discesa. Usare * come carattere jolly per creare filtri generici. Gli utenti esperti
+    possono usare le espressioni regolari come /banner\d+\.gif$/">
 <!ENTITY pattern.column "Ruolo del filtro">
 <!ENTITY enabled.column "Attivato">
 <!ENTITY hitcount.column "Accessi">

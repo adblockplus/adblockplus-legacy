@@ -49,13 +49,13 @@
 <!ENTITY help.accesskey "A">
 <!ENTITY faq.label "Întrebări frecvente (FAQ)">
 <!ENTITY faq.accesskey "Q">
-<!ENTITY faq.url "http://adblockplus.mozdev.org/faq.html">
+<!ENTITY faq.url "http://adblockplus.org/en/faq">
 <!ENTITY tips.label "Sfatul zilei">
 <!ENTITY tips.accesskey "S">
-<!ENTITY tips.url "http://adblockplus.mozdev.org/tips.html">
+<!ENTITY tips.url "http://adblockplus.org/en/tips">
 <!ENTITY filterdoc.label "Sfaturi scriere filtre Adblock Plus">
 <!ENTITY filterdoc.accesskey "f">
-<!ENTITY filterdoc.url "http://adblockplus.mozdev.org/filters.html">
+<!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Despre Adblock Plus">
 <!ENTITY about.accesskey "D">
 <!ENTITY disabled.warning "Adblock Plus este inactiv. Filtrele nu vor avea efect până nu reactivaţi extensia.">

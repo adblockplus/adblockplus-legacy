@@ -49,13 +49,13 @@
 <!ENTITY help.accesskey "A">
 <!ENTITY faq.label "Sıkça Sorulan Sorular">
 <!ENTITY faq.accesskey "S">
-<!ENTITY faq.url "http://adblockplus.mozdev.org/faq.html">
+<!ENTITY faq.url "http://adblockplus.org/en/faq">
 <!ENTITY tips.label "Bugünün İpucu">
 <!ENTITY tips.accesskey "B">
-<!ENTITY tips.url "http://adblockplus.mozdev.org/tips.html">
+<!ENTITY tips.url "http://adblockplus.org/en/tips">
 <!ENTITY filterdoc.label "Writing Adblock Plus filters">
 <!ENTITY filterdoc.accesskey "R">
-<!ENTITY filterdoc.url "http://adblockplus.mozdev.org/filters.html">
+<!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Adblock Plus Hakkında">
 <!ENTITY about.accesskey "O">
 <!ENTITY disabled.warning "Adblock Plus şu an devre dışı. Listedeki süzgeçleri değiştirebilirsiniz. Ancak bunlar eklenti devreye girene kadar kullanılamayacak.">

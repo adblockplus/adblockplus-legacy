@@ -49,20 +49,20 @@
 <!ENTITY help.accesskey "O">
 <!ENTITY faq.label "Usein kysytyt kysymykset (FAQ)">
 <!ENTITY faq.accesskey "U">
-<!ENTITY faq.url "http://adblockplus.mozdev.org/faq.html">
+<!ENTITY faq.url "http://adblockplus.org/en/faq">
 <!ENTITY tips.label "Päivän vinkki">
 <!ENTITY tips.accesskey "P">
-<!ENTITY tips.url "http://adblockplus.mozdev.org/tips.html">
+<!ENTITY tips.url "http://adblockplus.org/en/tips">
 <!ENTITY filterdoc.label "Adblock Plus -suodattimien kirjoittamisesta">
 <!ENTITY filterdoc.accesskey "A">
-<!ENTITY filterdoc.url "http://adblockplus.mozdev.org/filters.html">
+<!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Tietoja Adblock Plussasta">
 <!ENTITY about.accesskey "T">
 <!ENTITY disabled.warning "Adblock Plus on poissa käytöstä. Voit muokata listan suodattimia mutta niitä ei käytetä ennen kuin otat Adblockin käyttöön.">
 <!ENTITY description "
                         Lisää osoitteet, jotka haluat estää, katso ehdotuksia pudotusvalikosta.
                         Voit käyttää * jokerimerkkinä luodaksesi yleisimpiä suodattimia. Edistyneet käyttäjät voivat
-		                käyttää säännöllisiä lausekkeita kuten /banner\d+\.gif$/.
+                    käyttää säännöllisiä lausekkeita kuten /banner\d+\.gif$/.
 ">
 <!ENTITY pattern.column "Suodatusehdot">
 <!ENTITY enabled.column "Käytössä">

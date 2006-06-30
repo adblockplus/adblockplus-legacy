@@ -49,13 +49,13 @@
 <!ENTITY help.accesskey "H">
 <!ENTITY faq.label "FAQ">
 <!ENTITY faq.accesskey "Q">
-<!ENTITY faq.url "http://adblockplus.mozdev.org/faq.html">
+<!ENTITY faq.url "http://adblockplus.org/en/faq">
 <!ENTITY tips.label "Dagens tips">
 <!ENTITY tips.accesskey "i">
-<!ENTITY tips.url "http://adblockplus.mozdev.org/tips.html">
+<!ENTITY tips.url "http://adblockplus.org/en/tips">
 <!ENTITY filterdoc.label "Sparar Adblock Plus-filter">
 <!ENTITY filterdoc.accesskey "r">
-<!ENTITY filterdoc.url "http://adblockplus.mozdev.org/filters.html">
+<!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Om Adblock Plus">
 <!ENTITY about.accesskey "O">
 <!ENTITY disabled.warning "Adblock Plus är av. Du kan ändra filter i listan men tas inte i bruk förrän du slår på Adblock Plus.">
