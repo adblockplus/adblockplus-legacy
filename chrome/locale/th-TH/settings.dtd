@@ -49,13 +49,13 @@
 <!ENTITY help.accesskey "H">
 <!ENTITY faq.label "คำถามพบบ่อย">
 <!ENTITY faq.accesskey "F">
-<!ENTITY faq.url "http://adblockplus.mozdev.org/faq.html">
+<!ENTITY faq.url "http://adblockplus.org/en/faq">
 <!ENTITY tips.label "เคล็ดลับประจำวัน">
 <!ENTITY tips.accesskey "T">
-<!ENTITY tips.url "http://adblockplus.mozdev.org/tips.html">
+<!ENTITY tips.url "http://adblockplus.org/en/tips">
 <!ENTITY filterdoc.label "กำลังเขียนตัวกรอง Adblock Plus">
 <!ENTITY filterdoc.accesskey "R">
-<!ENTITY filterdoc.url "http://adblockplus.mozdev.org/filters.html">
+<!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "เกี่ยวกับ Adblock Plus">
 <!ENTITY about.accesskey "B">
 <!ENTITY disabled.warning "Adblock Plus ถูกปิดการทำงาน คุณสามารถแก้ไขตัวกรองในรายชื่อ แต่จะใช้ไม่ได้จนกว่าคุณจะเปิดการทำงานอีกครั้ง">

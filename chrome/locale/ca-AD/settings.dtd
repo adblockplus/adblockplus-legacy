@@ -49,13 +49,13 @@
 <!ENTITY help.accesskey "u">
 <!ENTITY faq.label "Preguntes més demanades (FAQ)">
 <!ENTITY faq.accesskey "F">
-<!ENTITY faq.url "http://adblockplus.mozdev.org/faq.html">
+<!ENTITY faq.url "http://adblockplus.org/en/faq">
 <!ENTITY tips.label "Pista del dia">
 <!ENTITY tips.accesskey "T">
-<!ENTITY tips.url "http://adblockplus.mozdev.org/tips.html">
+<!ENTITY tips.url "http://http://adblockplus.org/en/tips">
 <!ENTITY filterdoc.label "Escrivint filtres de Adblock Plus">
 <!ENTITY filterdoc.accesskey "E">
-<!ENTITY filterdoc.url "http://adblockplus.mozdev.org/filters.html">
+<!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Sobre Adblock Plus">
 <!ENTITY about.accesskey "B">
 <!ENTITY disabled.warning "Adblock Plus està deshabilitat. Pots editar qualsevol filtre de la llista, però no s&apos;aplicaran fins que l&apos;habilitis">

@@ -49,19 +49,19 @@
 <!ENTITY help.accesskey "ć">
 <!ENTITY faq.label "Često postavljana pitanja">
 <!ENTITY faq.accesskey "t">
-<!ENTITY faq.url "http://adblockplus.mozdev.org/faq.html">
+<!ENTITY faq.url "http://adblockplus.org/en/faq">
 <!ENTITY tips.label "Savjet dana">
 <!ENTITY tips.accesskey "S">
-<!ENTITY tips.url "http://adblockplus.mozdev.org/tips.html">
+<!ENTITY tips.url "http://adblockplus.org/en/tips">
 <!ENTITY filterdoc.label "Pisanje Adblock Plus filtera">
 <!ENTITY filterdoc.accesskey "i">
-<!ENTITY filterdoc.url "http://adblockplus.mozdev.org/filters.html">
+<!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "O Adblock Plus">
 <!ENTITY about.accesskey "O">
 <!ENTITY disabled.warning "Adblock Plus je onemogućen. Možete urediti bilo koji filter u popisu, ali oni neće biti primijenjeni dok ga ponovno ne omogućite.">
 <!ENTITY description "Dodajte adrese koje želite blokirati, za prijedloge provjerite padajući popis.
-		Možete koristiti * kao joker da bi kreirali još općenitije filtere. Napredni korisnici mogu
-		koristiti valjanje izraze kao /banner\d+\.gif$/.">
+    Možete koristiti * kao joker da bi kreirali još općenitije filtere. Napredni korisnici mogu
+    koristiti valjanje izraze kao /banner\d+\.gif$/.">
 <!ENTITY pattern.column "Pravilo filtera">
 <!ENTITY enabled.column "Omogućeno">
 <!ENTITY hitcount.column "Pogoci">

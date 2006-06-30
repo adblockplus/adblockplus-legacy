@@ -49,19 +49,19 @@
 <!ENTITY help.accesskey "H">
 <!ENTITY faq.label "常见问题">
 <!ENTITY faq.accesskey "F">
-<!ENTITY faq.url "http://adblockplus.mozdev.org/faq.html">
+<!ENTITY faq.url "http://adblockplus.org/en/faq">
 <!ENTITY tips.label "每日一帖">
 <!ENTITY tips.accesskey "T">
-<!ENTITY tips.url "http://adblockplus.mozdev.org/tips.html">
+<!ENTITY tips.url "http://adblockplus.org/en/tips">
 <!ENTITY filterdoc.label "Adblock Plus 过滤规则写法">
 <!ENTITY filterdoc.accesskey "R">
-<!ENTITY filterdoc.url "http://adblockplus.mozdev.org/filters.html">
+<!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "关于Adblock Plus">
 <!ENTITY about.accesskey "B">
 <!ENTITY disabled.warning "Adblock Plus已被禁用。你可以编辑列表中的任何过滤规则，但是这些规则在重新启用前不会生效。">
 <!ENTITY description "添加你想过滤的地址，建议检查下拉列表。
-		你可以使用*作为通配符来创建更通用的过滤规则。
-		高级用户可以使用象 /banner\d+\.gif$/ 这样的正则表达式。">
+    你可以使用*作为通配符来创建更通用的过滤规则。
+    高级用户可以使用象 /banner\d+\.gif$/ 这样的正则表达式。">
 <!ENTITY pattern.column "过滤规则">
 <!ENTITY enabled.column "启用">
 <!ENTITY hitcount.column "计数">
