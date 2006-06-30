@@ -46,7 +46,7 @@
 <!ENTITY linkcheck.label "Patikrinti reklaminių antraščių nuorodas">
 <!ENTITY linkcheck.accesskey "T">
 <!ENTITY help.label "Pagalba">
-<!ENTITY help.accesskey "P">
+<!ENTITY help.accesskey "G">
 <!ENTITY faq.label "Dažnai užduodami klausimai">
 <!ENTITY faq.accesskey "D">
 <!ENTITY faq.url "http://adblockplus.mozdev.org/faq.html">
@@ -73,4 +73,4 @@
 <!ENTITY context.movegroupup.label "Perkelti grupę aukščiau">
 <!ENTITY context.movegroupdown.label "Perkelti grupę žemiau">
 <!ENTITY apply.label "Pritaikyti">
-<!ENTITY apply.accesskey "P">
+<!ENTITY apply.accesskey "R">
