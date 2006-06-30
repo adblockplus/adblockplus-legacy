@@ -1724,7 +1724,8 @@ var treeView = {
       this.boxObject.ensureRowIsVisible(parentRow + 1 + subscription.extra.length + pos);
     }
 
-    onChange();
+    if (text)
+      onChange();
   },
 
   // Removes a pattern or a complete subscription by its info
@@ -1756,7 +1757,8 @@ var treeView = {
           }
 
           this.ensureSelection(newSelection);
-          onChange();
+          if (!info[1].dummy)
+            onChange();
           return;
         }
       }
