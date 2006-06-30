@@ -43,5 +43,5 @@ for my $locale (@locales)
 
 chdir('..');
 system("cvs remove @remove") if @remove;
-system("cvs add @add") if @add;
+#system("cvs add @add") if @add;
 system(qq(cvs commit -m "Releasing Adblock Plus $version"));
