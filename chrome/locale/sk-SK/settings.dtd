@@ -5,7 +5,7 @@
 <!ENTITY add.accesskey "D">
 <!ENTITY addsubscription.label "Pridať povolený filter">
 <!ENTITY addsubscription.accesskey "P">
-<!ENTITY synchsubscriptions.label "Update all subscriptions">
+<!ENTITY synchsubscriptions.label "Aktualizovať všetky povolenia">
 <!ENTITY synchsubscriptions.accesskey "D">
 <!ENTITY import.label "Importovať filtre">
 <!ENTITY import.accesskey "M">

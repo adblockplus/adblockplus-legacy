@@ -1,8 +1,12 @@
 <!ENTITY dialog.title "Preferências do Adblock Plus">
 <!ENTITY filters.label "Filtros">
 <!ENTITY filters.accesskey "F">
+<!ENTITY add.label "Adicionar filtro">
+<!ENTITY add.accesskey "A">
 <!ENTITY addsubscription.label "Adicionar inscrição de filtro">
 <!ENTITY addsubscription.accesskey "A">
+<!ENTITY synchsubscriptions.label "Atualizar todas as inscrições">
+<!ENTITY synchsubscriptions.accesskey "T">
 <!ENTITY import.label "Importar filtros">
 <!ENTITY import.accesskey "I">
 <!ENTITY export.label "Exportar filtros">
@@ -49,22 +53,19 @@
 <!ENTITY tips.label "Dica do dia">
 <!ENTITY tips.accesskey "D">
 <!ENTITY tips.url "http://adblockplus.mozdev.org/tips.html">
-<!ENTITY regexps.label "Escrevendo expressões regulares">
-<!ENTITY regexps.accesskey "X">
-<!ENTITY regexps.url "http://developer.mozilla.org/en/docs/Core_JavaScript_1.5_Guide:Regular_Expressions#Writing_a_Regular_Expression_Pattern">
+<!ENTITY filterdoc.label "Criando filtros para o Adblock Plus">
+<!ENTITY filterdoc.accesskey "C">
+<!ENTITY filterdoc.url "http://adblockplus.mozdev.org/filters.html">
 <!ENTITY about.label "Sobre o Adblock Plus">
 <!ENTITY about.accesskey "S">
 <!ENTITY disabled.warning "O Adblock Plus está desativado. Você pode editar qualquer filtro da lista, mas eles não serão aplicados até que você reative.">
 <!ENTITY description "Adicione o endereço que você deseja que seja bloqueado, para sugestões veja a lista.
 		Você pode usar * para substituir qualquer caractere e criar filtros mais gerais.
 		Usuários avançados podem usar expressões regulares como /banner\d+\.gif$/.">
-<!ENTITY newfilter.label "Novo filtro:">
-<!ENTITY newfilter.accesskey "N">
-<!ENTITY add.label "Adicionar filtro">
-<!ENTITY add.accesskey "A">
 <!ENTITY pattern.column "Regra de Filtragem">
-<!ENTITY hitcount.column "Acertos">
 <!ENTITY enabled.column "Ativado">
+<!ENTITY hitcount.column "Acertos">
+<!ENTITY lasthit.column "Último acerto">
 <!ENTITY context.edit.label "Editar filtro">
 <!ENTITY context.resethitcount.label "Limpar estatísticas de acerto para o filtro">
 <!ENTITY context.synchsubscription.label "Atualizar inscrição agora">
@@ -73,3 +74,5 @@
 <!ENTITY context.movedown.label "Para baixo">
 <!ENTITY context.movegroupup.label "Grupo para cima">
 <!ENTITY context.movegroupdown.label "Grupo para baixo">
+<!ENTITY apply.label "Aplicar">
+<!ENTITY apply.accesskey "A">

@@ -1,8 +1,12 @@
 <!ENTITY dialog.title "Adblock Plus Voorkeuren">
 <!ENTITY filters.label "Filters">
 <!ENTITY filters.accesskey "F">
+<!ENTITY add.label "Toevoegen">
+<!ENTITY add.accesskey "o">
 <!ENTITY addsubscription.label "Filter Abonnement toevoegen">
 <!ENTITY addsubscription.accesskey "A">
+<!ENTITY synchsubscriptions.label "Alle abonnementen bijwerken">
+<!ENTITY synchsubscriptions.accesskey "l">
 <!ENTITY import.label "Filters Importeren">
 <!ENTITY import.accesskey "I">
 <!ENTITY export.label "Filters Exporteren">
@@ -49,20 +53,17 @@
 <!ENTITY tips.label "Tip Van De Dag">
 <!ENTITY tips.accesskey "T">
 <!ENTITY tips.url "http://adblockplus.mozdev.org/tips.html">
-<!ENTITY regexps.label "Reguliere Expressies schrijven">
-<!ENTITY regexps.accesskey "R">
-<!ENTITY regexps.url "http://tjaard.nl/firefox-thunderbird/reguliere-expressies-gebruiken-in-adblock/">
+<!ENTITY filterdoc.label "Het schrijven van Adblock Plus filters">
+<!ENTITY filterdoc.accesskey "H">
+<!ENTITY filterdoc.url "http://adblockplus.mozdev.org/filters.html">
 <!ENTITY about.label "Over Adblock Plus">
 <!ENTITY about.accesskey "A">
 <!ENTITY disabled.warning "Adblock Plus is uitgeschakeld. U kunt de filters in de lijst aanpassen, maar wijzigingen zullen niet worden toegepast voordat u Adblock weer inschakeld.">
 <!ENTITY description "Voeg het adres toe dat u wilt blokkeren, zie de keuzelijst voor suggesties. U kunt een * als jokerteken gebruiken voor meer algemene filters. Ervaren gebruikers kunnen reguliere expressies gebruiken, zoals /banner\d+\.gif$/.">
-<!ENTITY newfilter.label "Nieuw filter:">
-<!ENTITY newfilter.accesskey "N">
-<!ENTITY add.label "Toevoegen">
-<!ENTITY add.accesskey "T">
 <!ENTITY pattern.column "Filter regel">
-<!ENTITY hitcount.column "Treffers">
 <!ENTITY enabled.column "Ingeschakeld">
+<!ENTITY hitcount.column "Treffers">
+<!ENTITY lasthit.column "Laatste treffer">
 <!ENTITY context.edit.label "Filter wijzigen">
 <!ENTITY context.resethitcount.label "Reset trefstatistieken voor filter">
 <!ENTITY context.synchsubscription.label "Abonnement nu bijwerken">
@@ -71,3 +72,5 @@
 <!ENTITY context.movedown.label "Omlaag verplaatsen">
 <!ENTITY context.movegroupup.label "Groep omhoog verplaatsen">
 <!ENTITY context.movegroupdown.label "Groep omlaag verplaatsen">
+<!ENTITY apply.label "Toepassen">
+<!ENTITY apply.accesskey "T">

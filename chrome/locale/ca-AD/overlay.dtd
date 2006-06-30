@@ -12,10 +12,10 @@
 <!ENTITY menuitem.sidebar.title "Adblock Plus: Elements bloquejables">
 <!ENTITY sidebar.title "Elements bloquejables a la pàgina actual">
 <!ENTITY settings.label "Preferències">
-<!ENTITY settings.accesskey "F">
+<!ENTITY settings.accesskey "P">
 <!ENTITY opensidebar.label "Obre elements bloquejables">
-<!ENTITY opensidebar.accesskey "B">
+<!ENTITY opensidebar.accesskey "O">
 <!ENTITY closesidebar.label "Tanca elements bloquejables">
-<!ENTITY closesidebar.accesskey "B">
+<!ENTITY closesidebar.accesskey "T">
 <!ENTITY whitelist.site.label "Deshabilita a --">
 <!ENTITY whitelist.page.label "Deshabilita només en aquesta pàgina">
