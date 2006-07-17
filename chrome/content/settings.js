@@ -496,6 +496,9 @@ function onListKeyPress(e) {
 }
 
 function onListClick(e) {
+  if (e.button != 0)
+    return;
+
   var row = {};
   var col = {};
   treeView.boxObject.getCellAt(e.clientX, e.clientY, row, col, {});
