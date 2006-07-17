@@ -10,20 +10,20 @@
 ">
 <!ENTITY external.description "
 	To jest subskrypcja filtrów zewnętrznych. Lista filtrów
-	będzie uaktualniana przez rozszerzenie, które utworzyło tę
+	będzie aktualizowana przez rozszerzenie, które utworzyło tę
 	subskrypcję.
 ">
 <!ENTITY autodownload.description "
-	Jeżeli zostanie wybrana opcja &quot;Uaktualniaj automatycznie&quot; Adblock Plus będzie
-	codziennie przeprowadzał sprawdzenie uaktualnień filtrów w tej lokalizacji.
-	Jeżeli ta opcja pozostanie wyłaczona, można przeprowadzać sprawdzanie uaktualnień filtrów ręcznie
+	Jeżeli zostanie wybrana opcja &quot;Aktualizuj automatycznie&quot; Adblock Plus będzie
+	codziennie przeprowadzał aktualizację filtrów z tej lokalizacji.
+	Jeżeli opcja ta pozostanie wyłaczona, można przeprowadzać aktualizację filtrów ręcznie
 	wybierając odpowienią opcję z menu kontekstowego subskrypcji.
 ">
 <!ENTITY location.label "Lokalizacja listy filtrów:">
 <!ENTITY location.accesskey "L">
 <!ENTITY title.label "Nazwa subskrypcji:">
 <!ENTITY title.accesskey "N">
-<!ENTITY autodownload.label "Uaktualniaj automatycznie">
+<!ENTITY autodownload.label "Aktualizuj automatycznie">
 <!ENTITY autodownload.accesskey "A">
 <!ENTITY enabled.label "Włącz filtry">
 <!ENTITY enabled.accesskey "W">

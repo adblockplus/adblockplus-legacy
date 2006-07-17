@@ -52,7 +52,7 @@
 <!ENTITY faq.url "http://adblockplus.org/en/faq">
 <!ENTITY tips.label "Pista del dia">
 <!ENTITY tips.accesskey "T">
-<!ENTITY tips.url "http://http://adblockplus.org/en/tips">
+<!ENTITY tips.url "http://adblockplus.org/en/tips">
 <!ENTITY filterdoc.label "Escrivint filtres de Adblock Plus">
 <!ENTITY filterdoc.accesskey "E">
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">

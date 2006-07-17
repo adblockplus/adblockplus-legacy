@@ -5,8 +5,8 @@
 <!ENTITY add.accesskey "K">
 <!ENTITY addsubscription.label "Süzgeç aboneliği ekle">
 <!ENTITY addsubscription.accesskey "E">
-<!ENTITY synchsubscriptions.label "Update all subscriptions">
-<!ENTITY synchsubscriptions.accesskey "D">
+<!ENTITY synchsubscriptions.label "Tüm abonelikleri güncelle">
+<!ENTITY synchsubscriptions.accesskey "C">
 <!ENTITY import.label "Süzgeçleri içe aktar">
 <!ENTITY import.accesskey "Z">
 <!ENTITY export.label "Süzgeçleri dışa aktar">
@@ -63,7 +63,7 @@
 <!ENTITY pattern.column "Kural">
 <!ENTITY enabled.column "Etkinlik">
 <!ENTITY hitcount.column "İsabet">
-<!ENTITY lasthit.column "Last hit">
+<!ENTITY lasthit.column "Son isabet">
 <!ENTITY context.edit.label "Süzgeci düzenle">
 <!ENTITY context.resethitcount.label "İstabet istatistiği sıfırlanacak olan süzgeç:">
 <!ENTITY context.synchsubscription.label "Aboneliği eşle">
@@ -72,5 +72,5 @@
 <!ENTITY context.movedown.label "Aşağıya taşı">
 <!ENTITY context.movegroupup.label "Öbeği yukarıya taşı">
 <!ENTITY context.movegroupdown.label "Öbeği aşağıya taşı">
-<!ENTITY apply.label "Apply">
-<!ENTITY apply.accesskey "P">
+<!ENTITY apply.label "Uygula">
+<!ENTITY apply.accesskey "A">
