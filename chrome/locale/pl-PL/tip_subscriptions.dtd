@@ -1,8 +1,8 @@
 <!ENTITY dialog.title "Witaj w Adblock Plus">
-<!ENTITY description "Dziękuję za zainstalowanie Adblock Plus. To rozszerzenie może wyeliminować 99&#x25; reklam jakie pojawiają sie podczas przeglądania witryn internetowych. Jednakże, aby efektywnie filtrować reklamy trzeba zdefiniować dobry zestaw filtrów. Możesz stworzyć go sam lub możesz subskrybować listy filtrów tworzone przez innych. Nadal będziesz mógł dodawać swoje filtry, a także deaktywować/usunąć subskrypcję. Poniżej znajduje się lista rekomendowanych subskrypcji.">
-<!ENTITY note "Uwaga! Filtry stworzone w danym regionie będą działały najbardziej efektywnie na stronach z tego regionu.">
+<!ENTITY description "Dziękuję za zainstalowanie Adblock Plus. To rozszerzenie może wyeliminować 99&#x25; reklam jakie pojawiają się podczas przeglądania witryn internetowych. Jednakże, aby efektywnie filtrować reklamy trzeba zdefiniować dobry zestaw filtrów. Możesz stworzyć go sam lub subskrybować listy filtrów tworzone przez innych. Jeśli zdecydujesz się na subskrypcję filtrów, nadal będziesz mógł dodawać swoje filtry, a także deaktywować lub usunąć subskrypcję. Poniżej znajduje się lista rekomendowanych subskrypcji.">
+<!ENTITY note "Uwaga! Filtry stworzone w danym regionie będą działały najbardziej efektywnie na stronach pochodzących z tego samego regionu.">
 <!ENTITY homepage.label "Strona domowa">
 <!ENTITY subscribe.label "Subskrybuj">
 <!ENTITY subscribe.accesskey "R">
-<!ENTITY other.label "Dodaj kolejną subskrypcję">
+<!ENTITY other.label "Dodaj inną subskrypcję">
 <!ENTITY other.accesskey "K">

@@ -33,9 +33,9 @@
 <!ENTITY options.accesskey "O">
 <!ENTITY enable.label "Włącz Adblock Plus">
 <!ENTITY enable.accesskey "W">
-<!ENTITY showintoolbar.label "Wyświetl na pasku narzędziowym">
+<!ENTITY showintoolbar.label "Wyświetl ikonę Adblock Plusa na pasku narzędziowym">
 <!ENTITY showintoolbar.accesskey "D">
-<!ENTITY showinstatusbar.label "Wyświetl na pasku stanu">
+<!ENTITY showinstatusbar.label "Wyświetl ikonę Adblock Plusa na pasku stanu">
 <!ENTITY showinstatusbar.accesskey "N">
 <!ENTITY localpages.label "Blokuj reklamy na lokalnych stronach">
 <!ENTITY localpages.accesskey "B">
@@ -53,15 +53,15 @@
 <!ENTITY tips.label "Podpowiedź dnia">
 <!ENTITY tips.accesskey "D">
 <!ENTITY tips.url "http://adblockplus.org/en/tips">
-<!ENTITY filterdoc.label "Zapisuję filtry Adblock Plus">
+<!ENTITY filterdoc.label "Tworzenie filtrów">
 <!ENTITY filterdoc.accesskey "R">
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "O Adblock Plus">
 <!ENTITY about.accesskey "O">
 <!ENTITY disabled.warning "Adblock Plus jest wyłączony. Można edytować dowolny filtr, ale do czasu ponownego włączenia Adblocka zmiany te nie będą działały.">
 <!ENTITY description "Dodaj adres, który chcesz zablokować. Aby zobaczyć podpowiedzi przejdź do menu &quot;Pomoc&quot;.
-    Można używać * jako wieloznacznika przy tworzeniu większej ilości filtrów. Zaawansowani użytkownicy
-    mogą używać wyrażeń regularnych takich jak: /banner\d+\.gif$/.">
+		Można używać * jako wieloznacznika przy tworzeniu większej ilości filtrów. Zaawansowani użytkownicy
+		mogą używać wyrażeń regularnych takich jak: /banner\d+\.gif$/.">
 <!ENTITY pattern.column "Reguła filtru">
 <!ENTITY enabled.column "Aktywny">
 <!ENTITY hitcount.column "Użycie">

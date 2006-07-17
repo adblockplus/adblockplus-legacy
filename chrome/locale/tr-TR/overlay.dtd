@@ -1,8 +1,8 @@
 <!ENTITY notloaded.label "Yüklenmedi">
 <!ENTITY notloaded.tooltip "Adblock Plus eklentisinin bir bileşeni yüklenemedi. Belki de düzgün kurulu değil.">
-<!ENTITY status.tooltip "Status:">
-<!ENTITY blocked.tooltip "Blocked items on this page:">
-<!ENTITY filters.tooltip "Most active filters:">
+<!ENTITY status.tooltip "Durum:">
+<!ENTITY blocked.tooltip "Bu sayfada engellenen öğeler:">
+<!ENTITY filters.tooltip "En etkin süzgeçler:">
 <!ENTITY menuitem.label "Adblock Plus">
 <!ENTITY menuitem.accesskey "A">
 <!ENTITY context.image.label "Resmi engelle">
