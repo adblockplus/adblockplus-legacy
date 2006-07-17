@@ -129,9 +129,19 @@ var policy = {
       // XXX: We will never recognize objects loading from jar: as standalone!
       if (!match && prefs.frameobjects && contentType == type.OBJECT &&
           node.ownerDocument && wnd.location && location != wnd.location.href) {
-        objTab = node.ownerDocument.createElementNS("http://www.w3.org/1999/xhtml", "div");
-        objTab.abpObjTab = true;
-        wnd.setTimeout(addObjectTab, 0, node, location, objTab, topWnd);
+        // Before adding object tabs always check whether one exist already
+        var hasObjectTab = false;
+        var loc = data.getLocation(location);
+        if (loc)
+          for (var i = 0; i < loc.nodes.length; i++)
+            if (loc.nodes[i] == node && i < loc.nodes.length - 1 && "abpObjTab" in loc.nodes[i+1])
+              hasObjectTab = true;
+
+        if (!hasObjectTab) {
+          objTab = node.ownerDocument.createElementNS("http://www.w3.org/1999/xhtml", "div");
+          objTab.abpObjTab = true;
+          wnd.setTimeout(addObjectTab, 0, node, location, objTab, topWnd);
+        }
       }
     }
 
