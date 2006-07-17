@@ -196,7 +196,7 @@
         <treecol id="lasthit" label="&lasthit.column;" hidden="true" flex="4" persist="width ordinal sortDirection hidden"/>
       </treecols>
 
-      <treechildren onclick="onListClick(event)" ondraggesture="onListDragGesture(event)" ondblclick="editFilter('')"/>
+      <treechildren onclick="onListClick(event)" ondraggesture="onListDragGesture(event)" ondblclick="if (event.button == 0) editFilter('')"/>
     </tree>
   </stack>
 
