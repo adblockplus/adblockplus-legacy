@@ -34,7 +34,7 @@
     </RDF:li>
     <RDF:li>
       <RDF:Description>
-        <abp:title>ChinaList (China)</abp:title>
+        <abp:title>ChinaList (中國)</abp:title>
         <abp:url>http://www.anetcity.com/adblock.txt</abp:url>
         <abp:homepage>http://www.anetcity.com/bbs/index.php?topic=9799.0</abp:homepage>
       </RDF:Description>
