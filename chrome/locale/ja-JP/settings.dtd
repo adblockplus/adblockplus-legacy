@@ -100,7 +100,7 @@
 ">
 
 <!ENTITY pattern.column "フィルタルール">
-<!ENTITY enabled.column "有効">
+<!ENTITY enabled.column "有効/無効">
 <!ENTITY hitcount.column "ヒット数">
 <!ENTITY lasthit.column "最終ヒット日時">
 
