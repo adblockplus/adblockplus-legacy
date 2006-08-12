@@ -9,7 +9,8 @@ close(VERSION);
 
 my $output_file = shift @ARGV || "adblockplus.xpi";
 
-if ($ARGV[0] =~ /^\+/) {
+if ($ARGV[0] =~ /^\+/)
+{
   $version .= $ARGV[0];
   shift @ARGV;
 }
@@ -35,15 +36,17 @@ cp($_, "tmp/$_", 1) foreach ('install.js', 'install.rdf', 'chrome.manifest');
 chdir('tmp');
 
 chdir('chrome');
-print `jar cv0Mf adblockplus.jar content skin locale`;
+print `zip -rX0 adblockplus.jar content skin locale`;
 rm_rec($_) foreach ('content', 'skin', 'locale');
 chdir('..');
 
 unlink('../$output_file');
-print `jar cvMf ../$output_file chrome components defaults install.js install.rdf chrome.manifest`;
+print `zip -rX9 ../$output_file chrome components defaults install.js install.rdf chrome.manifest`;
 
 chdir('..');
 rm_rec('tmp');
+
+fixup_permissions($output_file);
 
 sub rm_rec
 {
@@ -83,9 +86,11 @@ sub cp
       s/\r//g;
       s/^((?:  )+)/"\t" x (length($1)\/2)/e;
       s/\{\{VERSION\}\}/$version/g if $replace_version;
-      if ($replace_version && /\{\{LOCALE\}\}/) {
+      if ($replace_version && /\{\{LOCALE\}\}/)
+      {
         my $loc = "";
-        for my $locale (@locales) {
+        for my $locale (@locales)
+        {
           my $tmp = $_;
           $tmp =~ s/\{\{LOCALE\}\}/$locale/g;
           $loc .= $tmp;
@@ -136,4 +141,48 @@ sub cp_rec
       }
     }
   }
+}
+
+sub fixup_permissions
+{
+  my $filename = shift;
+  my $invalid = 0;
+  my($buf, $entries, $dirlength);
+
+  open(local *FILE, "+<", $filename) or ($invalid = 1);
+  unless ($invalid)
+  {
+    seek(FILE, -22, 2);
+    sysread(FILE, $buf, 22);
+    (my $signature, $entries, $dirlength) = unpack("Vx6vVx6", $buf);
+    if ($signature != 0x06054b50)
+    {
+      print STDERR "Wrong end of central dir signature!\n";
+      $invalid = 1;
+    }
+  }
+  unless ($invalid)
+  {
+    seek(FILE, -22-$dirlength, 2);
+    for (my $i = 0; $i < $entries; $i++)
+    {
+      sysread(FILE, $buf, 46);
+      my ($signature, $namelen, $attributes) = unpack("Vx24vx8V", $buf);
+      if ($signature != 0x02014b50)
+      {
+        print STDERR "Wrong central file header signature!\n";
+        $invalid = 1;
+        last;
+      }
+      my $attr_high = $attributes >> 16;
+      $attr_high = ($attr_high & ~0777) | ($attr_high & 040000 ? 0755 : 0644);
+      $attributes = ($attributes & 0xFFFF) | ($attr_high << 16);
+      seek(FILE, -8, 1);
+      syswrite(FILE, pack("V", $attributes));
+      seek(FILE, 4 + $namelen, 1);
+    }
+  }
+  close(FILE);
+
+  unlink $filename if $invalid;
 }
