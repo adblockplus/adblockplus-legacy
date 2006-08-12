@@ -3,13 +3,19 @@ const APP_DISPLAY_NAME = "Adblock Plus";
 const APP_NAME = "adblockplus";
 const APP_PACKAGE = "/adblockplus.mozdev.org";
 const APP_VERSION = "{{VERSION}}";
-const WARNING = "WARNING: You need administrator priviledges to install Adblock Plus. It will be installed in the application directory for all users. Installing Adblock Plus in your profile is currently not supported in Mozilla Suite and SeaMonkey. Proceed with the installation?";
+const WARNING = "WARNING: You need administrator priviledges to install Adblock Plus. It will be installed in the application directory for all users. Installing Adblock Plus in your profile is currently not supported in SeaMonkey. Proceed with the installation?";
+const VERSION_ERROR = "This extension can only be installed in a browser based on Gecko 1.8 or higher, please upgrade your browser. Compatible browsers include Firefox 1.5, SeaMonkey 1.0 and Flock 0.5.";
 const locales = [
   "{{LOCALE}}",
   null
 ];
 
-if (confirm(WARNING)) {
+// Gecko 1.7 doesn't support custom button labels
+var incompatible = (typeof Install.BUTTON_POS_0 == "undefined");
+if (incompatible)
+  alert(VERSION_ERROR);
+
+if (!incompatible && confirm(WARNING, APP_DISPLAY_NAME)) {
   /* Pre-Install Cleanup (for prior versions) */
   
   // file-check array
