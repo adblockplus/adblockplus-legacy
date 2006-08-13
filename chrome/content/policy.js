@@ -83,9 +83,10 @@ var policy = {
     if (!topWnd || !topWnd.location || !topWnd.location.href)
       return true;
 
+    var wndLocation = unwrapURL(wnd.location.href);
     var topLocation = unwrapURL(topWnd.location.href);
-    var blockable = this.isBlockableScheme(topLocation);
-    if (!blockable && prefs.blocklocalpages && this.isLocalScheme(topLocation))
+    var blockable = this.isBlockableScheme(wndLocation);
+    if (!blockable && prefs.blocklocalpages && this.isLocalScheme(wndLocation))
       blockable = true;
     if (!blockable)
       return true;
