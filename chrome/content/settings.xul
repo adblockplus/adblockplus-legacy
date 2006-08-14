@@ -188,9 +188,11 @@
       <vbox pack="center">
         <image id="listEditorIcon" onclick="if (event.button == 0) treeView.stopEditor(false);" />
       </vbox>
-      <menulist id="listEditor" flex="1" editable="true" disableautoselect="true" onpopupshowing="fixColWidth()">
-        <menupopup/>
-      </menulist>
+      <vbox flex="1" pack="center">
+        <menulist id="listEditor" flex="1" editable="true" disableautoselect="true" onpopupshowing="fixColWidth()">
+          <menupopup/>
+        </menulist>
+      </vbox>
     </hbox>
   </deck>
   <stack id="listStack" flex="1">
