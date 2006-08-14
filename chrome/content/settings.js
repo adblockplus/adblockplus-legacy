@@ -2205,7 +2205,7 @@ var treeView = {
     this.editorParent.width = cellWidth.value;
     this.editorParent.height = this.editor.height;
     this.editorParent.left = cellX.value;
-    this.editorParent.top = cellY.value + (cellHeight.value - this.editor.height)/2;
+    this.editorParent.top = Math.round(cellY.value + (cellHeight.value - this.editor.height)/2);
 
     var text = (isDummy ? this.editorDummyInit : info[1].text);
 
