@@ -2210,7 +2210,7 @@ var treeView = {
     var text = (isDummy ? this.editorDummyInit : info[1].text);
 
     // Need a timeout here - Firefox 1.5 has to initialize html:input
-    setTimeout(function(editor, handler1, handler2) {
+    setTimeout(function(boxObject, editor, handler1, handler2) {
       editor.focus();
       editor.field = document.commandDispatcher.focusedElement;
       editor.field.value = text;
@@ -2221,7 +2221,9 @@ var treeView = {
       editor.field.addEventListener("blur", handler2, false);
       editor.field.addEventListener("input", onInputChange, false);
       editor.addEventListener("DOMAttrModified", onInputChange, false);
-    }, 0, this.editor, this.editorKeyPressHandler, this.editorBlurHandler);
+
+      boxObject.invalidateRow(row);
+    }, 0, this.boxObject, this.editor, this.editorKeyPressHandler, this.editorBlurHandler);
 
     return true;
   },
