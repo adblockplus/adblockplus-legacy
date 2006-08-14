@@ -1,0 +1,18 @@
+<!-- LOCALIZATION NOTE : FILE This file contains the entities needed to -->
+<!-- LOCALIZATION NOTE : FILE use the Find Bar. --> 
+
+<!-- entities split out from browser.dtd -->
+<!ENTITY find.label "Finn:">
+<!ENTITY findNext.label "Neste">
+<!ENTITY findNext.accesskey "N">
+<!ENTITY findNext.tooltip "Søker etter den neste forekomsten av teksten">
+<!ENTITY findPrevious.label "Forrige">
+<!ENTITY findPrevious.accesskey "F">
+<!ENTITY findPrevious.tooltip "Søker etter den forrige forekomsten av teksten">
+<!ENTITY findCloseButton.tooltip "Lukk søkeverktøylinje">
+<!ENTITY highlight.label "Marker tekst">
+<!ENTITY highlight.accesskey "M">
+<!ENTITY highlight.tooltip "Markerer alle forekomster av teksten (Ctrl+Enter)">
+<!ENTITY highlight.macTooltip "Markerer alle forekomster av teksten (Cmd+Return)">
+<!ENTITY caseSensitiveCheckbox.label "Adskill store/små bokstaver">
+<!ENTITY caseSensitiveCheckbox.accesskey "A">
