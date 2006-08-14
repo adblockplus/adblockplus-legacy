@@ -1,0 +1,24 @@
+<!ENTITY detached.title "Adblock Plus: Elementer som kan blokkeres (frittstående)">
+<!ENTITY detach.label "Kople fra">
+<!ENTITY reattach.label "Kople til">
+<!ENTITY search.label "Søk:">
+<!ENTITY search.accesskey "S">
+<!ENTITY type.label "Type">
+<!ENTITY address.label "Adresse">
+<!ENTITY filter.label "Filter">
+<!ENTITY state.label "status">
+<!ENTITY noitems.label "Ingen elementer som kan blokkeres">
+<!ENTITY notremote.label "Ikke en ekstern side">
+<!ENTITY whitelisted.label "Hvitlistet side">
+<!ENTITY notloaded.label "Adblock Plus har ikke blitt installert riktig">
+<!ENTITY tooltip.address.label "Adresse:">
+<!ENTITY tooltip.type.label "Type:">
+<!ENTITY tooltip.type.blocked "(blokkert)">
+<!ENTITY tooltip.type.whitelisted "(hvitlistet)">
+<!ENTITY tooltip.filter.label "Filtre i bruk">
+<!ENTITY context.block.label "Blokker dette elementet">
+<!ENTITY context.editfilter.label "Endre filtre i bruk">
+<!ENTITY context.whitelist.label "Legg til unntak for elementer">
+<!ENTITY context.open.label "Åpne i ny flik">
+<!ENTITY context.flash.label "La kantene på elementer blinke">
+<!ENTITY context.copy.label "Kopier elementets adresse">
