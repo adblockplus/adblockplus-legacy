@@ -52,7 +52,7 @@ deck, deck * {
 
 #listEditorIcon {
   list-style-image: url("findbar/close.png");
-  -moz-image-region: rect(1px, 16px, 15px, 0px);
+  -moz-image-region: rect(0px, 16px, 16px, 0px);
   margin-right: 2px;
 }
 #listEditorIcon:hover {
