@@ -1,0 +1,24 @@
+<!ENTITY detached.title "Adblock Plus: Blokovatelné prvky (odděleno)">
+<!ENTITY detach.label "Oddělit">
+<!ENTITY reattach.label "Připojit">
+<!ENTITY search.label "Hledat:">
+<!ENTITY search.accesskey "H">
+<!ENTITY type.label "Typ">
+<!ENTITY address.label "Adresa">
+<!ENTITY filter.label "Filtr">
+<!ENTITY state.label "Stav">
+<!ENTITY noitems.label "Nic nebylo zablokováno">
+<!ENTITY notremote.label "Není vzdálenou stránkou">
+<!ENTITY whitelisted.label "Adresa je na bílé listině">
+<!ENTITY notloaded.label "Adblock Plus nebyl korektně nainstalován">
+<!ENTITY tooltip.address.label "Adresa:">
+<!ENTITY tooltip.type.label "Typ:">
+<!ENTITY tooltip.type.blocked "(blokováno)">
+<!ENTITY tooltip.type.whitelisted "(na bílé listině)">
+<!ENTITY tooltip.filter.label "Použité filtry:">
+<!ENTITY context.block.label "Blokovat tento objekt">
+<!ENTITY context.editfilter.label "Upravit příslušný filtr">
+<!ENTITY context.whitelist.label "Přidat výjimku pro tento objekt">
+<!ENTITY context.open.label "Otevřít v novém panelu">
+<!ENTITY context.flash.label "Blikání obrysu objektu">
+<!ENTITY context.copy.label "Kopírovat adresu objektu">
