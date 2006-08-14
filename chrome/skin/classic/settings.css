@@ -23,6 +23,7 @@
  * ***** END LICENSE BLOCK ***** */
 
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+@namespace html url("http://www.w3.org/1999/xhtml");
 
 dialog {
   padding: 0px;
@@ -41,35 +42,27 @@ dialog {
   margin: 8px;
 }
 
+deck, deck * {
+  margin: 0px;
+}
+
 #listEditor menupopup description {
   margin: 1px 3px;
 }
 
-#listEditor {
-  -moz-binding: url("chrome://adblockplus/content/menulist.xml#menulist-editable-image");
-}
-
-#listEditor .menulist-icon {
+#listEditorIcon {
   list-style-image: url("findbar/close.png");
   -moz-image-region: rect(1px, 16px, 15px, 0px);
-  margin-right: 3px;
 }
-
-#listEditor menuitem {
-  padding-left: 16px;
+#listEditorIcon:hover {
+  -moz-image-region: rect(0px, 32px, 16px, 16px);
 }
-
-.menulist-editable-box {
-  padding-top: 1px;
-  padding-bottom: 1px;
+#listEditorIcon:hover:active {
+  -moz-image-region: rect(0px, 48px, 16px, 32px);
 }
 
 #hitcount, #lasthit {
   text-align: right;
-}
-
-deck, menulist#listEditor {
-  margin: 0px;
 }
 
 treechildren::-moz-tree-cell-text(col-pattern, dummy-true) {
