@@ -1,0 +1,77 @@
+<!ENTITY dialog.title "Předvolby Adblock Plus">
+<!ENTITY filters.label "Filtry">
+<!ENTITY filters.accesskey "F">
+<!ENTITY add.label "Přidat filtr">
+<!ENTITY add.accesskey "P">
+<!ENTITY addsubscription.label "Přidat cizí filtry">
+<!ENTITY addsubscription.accesskey "c">
+<!ENTITY synchsubscriptions.label "Aktualizovat všechny cizí sady filtrů">
+<!ENTITY synchsubscriptions.accesskey "A">
+<!ENTITY import.label "Importovat filtry ze souboru">
+<!ENTITY import.accesskey "I">
+<!ENTITY export.label "Exportovat filtry do souboru">
+<!ENTITY export.accesskey "x">
+<!ENTITY clearall.label "Odstranit všechny filtry">
+<!ENTITY clearall.accesskey "O">
+<!ENTITY resethitcounts.label "Vynulovat počítadla zásahů">
+<!ENTITY resethitcounts.accesskey "V">
+<!ENTITY edit.label "Úpravy">
+<!ENTITY edit.accesskey "r">
+<!ENTITY cut.label "Vyjmout">
+<!ENTITY cut.accesskey "j">
+<!ENTITY copy.label "Kopírovat">
+<!ENTITY copy.accesskey "K">
+<!ENTITY paste.label "Vložit">
+<!ENTITY paste.accesskey "l">
+<!ENTITY remove.label "Smazat">
+<!ENTITY remove.accesskey "z">
+<!ENTITY menu.find.label "Najít">
+<!ENTITY menu.find.accesskey "N">
+<!ENTITY menu.findagain.label "Najít další">
+<!ENTITY menu.findagain.accesskey "d">
+<!ENTITY options.label "Možnosti">
+<!ENTITY options.accesskey "M">
+<!ENTITY enable.label "Aktivovat Adblock Plus">
+<!ENTITY enable.accesskey "k">
+<!ENTITY showintoolbar.label "Zobrazit v nástrojové liště">
+<!ENTITY showintoolbar.accesskey "b">
+<!ENTITY showinstatusbar.label "Zobrazit ve stavovém řádku">
+<!ENTITY showinstatusbar.accesskey "r">
+<!ENTITY localpages.label "Blokovat vzdálené reklamy na místních stránkách">
+<!ENTITY localpages.accesskey "m">
+<!ENTITY objecttabs.label "Zobrazovat ouška u objektů Java a Flash">
+<!ENTITY objecttabs.accesskey "o">
+<!ENTITY collapse.label "Minimalizovat blokované objekty">
+<!ENTITY collapse.accesskey "i">
+<!ENTITY linkcheck.label "Kontrolovat odkazy reklamních pruhů">
+<!ENTITY linkcheck.accesskey "p">
+<!ENTITY help.label "Nápověda">
+<!ENTITY help.accesskey "v">
+<!ENTITY faq.label "Často kladené dotazy (FAQ)">
+<!ENTITY faq.accesskey "q">
+<!ENTITY faq.url "http://adblockplus.org/en/faq">
+<!ENTITY tips.label "Tip dne">
+<!ENTITY tips.accesskey "t">
+<!ENTITY tips.url "http://adblockplus.org/en/tips">
+<!ENTITY filterdoc.label "Psaní Adblock Plus filtrů">
+<!ENTITY filterdoc.accesskey "f">
+<!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
+<!ENTITY about.label "O doplňku Adblock Plus">
+<!ENTITY about.accesskey "o">
+<!ENTITY disabled.warning "Adblock Plus není aktivní. Můžete upravovat filtry v seznamu, nicméně žádný z nich nebude aplikován, dokud Adblock neaktivujete.">
+<!ENTITY description "Přidejte adresy, jež chcete blokovat. V rozbalovací nabídce jsou návrhy filtrů.
+Můžete použít * jako &quot;divokou kartu&quot; pro vytváření obecnějších filtrů. Pokročilí uživatelé mohou využít i regulárních výrazů jako /banner\d+\.gif$/.">
+<!ENTITY pattern.column "Zápis filtru">
+<!ENTITY enabled.column "Aktivní">
+<!ENTITY hitcount.column "Zásahů">
+<!ENTITY lasthit.column "Poslední zásah">
+<!ENTITY context.edit.label "Přidat filtr">
+<!ENTITY context.resethitcount.label "Vynulovat počítadlo zásahů tohoto filtru">
+<!ENTITY context.synchsubscription.label "Aktualizovat seznam cizích filtrů">
+<!ENTITY context.editsubscription.label "Upravit cizí filtry">
+<!ENTITY context.moveup.label "Posunout nahoru">
+<!ENTITY context.movedown.label "Posunout dolů">
+<!ENTITY context.movegroupup.label "Posunout skupinu nahoru">
+<!ENTITY context.movegroupdown.label "Posunout skupinu dolů">
+<!ENTITY apply.label "Použít">
+<!ENTITY apply.accesskey "o">

@@ -1,0 +1,21 @@
+<!ENTITY notloaded.label "Nenačteno">
+<!ENTITY notloaded.tooltip "Komponentu Adblock Plus se nepodařilo načíst, pravděpodobně nebyla korektně nainstalována.">
+<!ENTITY status.tooltip "Stav:">
+<!ENTITY blocked.tooltip "Blokované prvky na této stránce:">
+<!ENTITY filters.tooltip "Nejúčinnější filtry:">
+<!ENTITY menuitem.label "Adblock Plus">
+<!ENTITY menuitem.accesskey "B">
+<!ENTITY context.image.label "Blokovat obrázek">
+<!ENTITY context.object.label "Blokovat objekt">
+<!ENTITY context.link.label "Blokovat odkaz">
+<!ENTITY context.frame.label "Blokovat rámec">
+<!ENTITY menuitem.sidebar.title "Adblock Plus: Blokovatelné objekty">
+<!ENTITY sidebar.title "Adblock Plus: Blokovatelné objekty na zobrazené stránce">
+<!ENTITY settings.label "Předvolby">
+<!ENTITY settings.accesskey "d">
+<!ENTITY opensidebar.label "Zobrazit blokovatelné objekty">
+<!ENTITY opensidebar.accesskey "B">
+<!ENTITY closesidebar.label "Skrýt seznam blokovatelných objektů">
+<!ENTITY closesidebar.accesskey "B">
+<!ENTITY whitelist.site.label "Vypnout na --">
+<!ENTITY whitelist.page.label "Vypnout pouze na této stránce">
