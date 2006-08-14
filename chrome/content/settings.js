@@ -103,6 +103,7 @@ function init() {
 
   // HACK: Prevent editor from selecting first list item by default
   var editor = document.getElementById("listEditor");
+  var editorParent = document.getElementById("listEditorParent");
   editor.setInitialSelection = dummyFunction;
 
   // Capture keypress events - need to get them before the tree does
@@ -124,9 +125,9 @@ function init() {
   document.getElementById("list").view = treeView;
 
   editor.height = editor.boxObject.height;
-  editor.parentNode.hidden = true;
-  document.getElementById("listStack").appendChild(editor.parentNode);
-  treeView.setEditor(editor);
+  editorParent.hidden = true;
+  document.getElementById("listStack").appendChild(editorParent);
+  treeView.setEditor(editor, editorParent);
 
   treeView.ensureSelection(0);
 
@@ -2124,14 +2125,16 @@ var treeView = {
   //
 
   editor: null,
+  editorParent: null,
   editedRow: -1,
   editorKeyPressHandler: null,
   editorBlurHandler: null,
   editorCancelHandler: null,
   editorDummyInit: "",
 
-  setEditor: function(editor) {
+  setEditor: function(editor, editorParent) {
     this.editor = editor;
+    this.editorParent = editorParent;
 
     var me = this;
     this.editorKeyPressHandler = function(e) {
@@ -2157,13 +2160,10 @@ var treeView = {
           me.stopEditor(true, true);
       }, 0);
     };
-    this.editorCancelHandler = function(e) {
-      if (e.button == 0)
-        me.stopEditor(false);
-    };
 
     // Prevent cyclic references through closures
     editor = null;
+    editorParent = null;
   },
 
   isEditing: function() {
@@ -2194,23 +2194,23 @@ var treeView = {
 
     // Need to translate coordinates so that they are relative to <stack>, not <treechildren>
     var treeBody = this.boxObject.treeBody;
-    var editorParent = this.editor.parentNode.parentNode;
-    cellX.value += treeBody.boxObject.x - editorParent.boxObject.x;
-    cellY.value += treeBody.boxObject.y - editorParent.boxObject.y;
+    var editorStack = this.editorParent.parentNode;
+    cellX.value += treeBody.boxObject.x - editorStack.boxObject.x;
+    cellY.value += treeBody.boxObject.y - editorStack.boxObject.y;
 
     this.selection.clearSelection();
 
     this.editedRow = row;
-    this.editor.parentNode.hidden = false;
-    this.editor.parentNode.width = cellWidth.value;
-    this.editor.parentNode.height = this.editor.height;
-    this.editor.parentNode.left = cellX.value;
-    this.editor.parentNode.top = cellY.value + (cellHeight.value - this.editor.height)/2;
+    this.editorParent.hidden = false;
+    this.editorParent.width = cellWidth.value;
+    this.editorParent.height = this.editor.height;
+    this.editorParent.left = cellX.value;
+    this.editorParent.top = cellY.value + (cellHeight.value - this.editor.height)/2;
 
     var text = (isDummy ? this.editorDummyInit : info[1].text);
 
     // Need a timeout here - Firefox 1.5 has to initialize html:input
-    setTimeout(function(editor, handler1, handler2, handler3) {
+    setTimeout(function(editor, handler1, handler2) {
       editor.focus();
       editor.field = document.commandDispatcher.focusedElement;
       editor.field.value = text;
@@ -2221,8 +2221,7 @@ var treeView = {
       editor.field.addEventListener("blur", handler2, false);
       editor.field.addEventListener("input", onInputChange, false);
       editor.addEventListener("DOMAttrModified", onInputChange, false);
-      editor.addEventListener("iconmousedown", handler3, false);
-    }, 0, this.editor, this.editorKeyPressHandler, this.editorBlurHandler, this.editorCancelHandler);
+    }, 0, this.editor, this.editorKeyPressHandler, this.editorBlurHandler);
 
     return true;
   },
@@ -2235,7 +2234,6 @@ var treeView = {
     this.editor.field.removeEventListener("blur", this.editorBlurHandler, false);
     this.editor.field.removeEventListener("input", onInputChange, false);
     this.editor.removeEventListener("DOMAttrModified", onInputChange, false);
-    this.editor.removeEventListener("iconmousedown", this.editorCancelHandler, false);
 
     var text = abp.normalizeFilter(this.editor.value);
     if (typeof blur == "undefined" || !blur)
@@ -2274,7 +2272,7 @@ var treeView = {
       onChange();
 
     this.editor.field.value = "";
-    this.editor.parentNode.hidden = true;
+    this.editorParent.hidden = true;
 
     this.editedRow = -1;
     this.editorDummyInit = (save ? "" : text);
