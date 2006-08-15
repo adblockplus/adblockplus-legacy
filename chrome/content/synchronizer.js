@@ -168,12 +168,10 @@ var synchronizer = {
 
         var expires = parseInt(new Date(request.getResponseHeader("Expires")).getTime() / 1000) || 0;
         for (var i = 0; i < subscription.patterns.length; i++) {
-          if (subscription.patterns[i].type == "comment" && /\bExpires\s*:\s*(\d+)([dhDH])?\b/.test(subscription.patterns[i].text)) {
+          if (subscription.patterns[i].type == "comment" && /\bExpires\s*(?::|after)\s*(\d+)\s*(h)?/i.test(subscription.patterns[i].text)) {
             var hours = parseInt(RegExp.$1);
-            if (RegExp.$2 != 'h' && RegExp.$2 != 'H')
+            if (!RegExp.$2)
               hours *= 24;
-            if (hours > 14*24)
-              hours = 14*24;
             if (hours > 0) {
               var time = subscription.lastDownload + hours * 3600;
               if (time > expires)
@@ -181,7 +179,6 @@ var synchronizer = {
             }
           }
         }
-        dump(expires + "\n");
         subscription.expires = (expires > subscription.lastDownload ? expires : 0);
 
         // Expiration date shouldn't be more that two weeks in the future

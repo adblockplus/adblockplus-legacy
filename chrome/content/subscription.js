@@ -36,7 +36,11 @@ function init() {
     document.getElementById("location").value = subscription.url;
     document.getElementById("title").label = subscription.title;
     document.getElementById("enabled").setAttribute("checked", !subscription.disabled);
+  }
+  else
+    document.getElementById("title").label = document.getElementById("title").value = "";
 
+  if (subscription && "patterns" in subscription) {
     if (subscription.external) {
       document.getElementById("location").setAttribute("disabled", "true");
       document.getElementById("external-description").hidden = false;
@@ -49,8 +53,6 @@ function init() {
     }
   }
   else {
-    document.getElementById("title").label = document.getElementById("title").value = "";
-
     document.title = document.documentElement.getAttribute("newtitle");
     document.getElementById("new-description").hidden = false;
     document.getElementById("enabled").setAttribute("checked", "true");
@@ -72,7 +74,7 @@ function onTitleChange(prop, oldval, newval) {
 }
 
 function saveSubscription() {
-  var add = !subscription;
+  var add = !(subscription && "patterns" in subscription);
   var url = (add || !subscription.external ? document.getElementById("location").value.replace(/^\s+/, "").replace(/\s+$/, "").replace(/^~+/, "") : subscription.url);
   if (!url) {
     alert(abp.getString("subscription_no_location"));

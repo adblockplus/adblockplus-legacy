@@ -26,6 +26,8 @@ const ABP_PACKAGE = "/adblockplus.mozdev.org";
 const ABP_EXTENSION_ID = "{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}";
 const ABP_CONTRACTID = "@mozilla.org/adblockplus;1";
 const ABP_CID = Components.ID("{79c889f6-f5a2-abba-8b27-852e6fec4d56}");
+const ABP_PROT_CONTRACTID = "@mozilla.org/network/protocol;1?name=abp";
+const ABP_PROT_CID = Components.ID("{6a5987fd-93d8-049c-19ac-b9bfe88718fe}");
 const locales = [
   "{{LOCALE}}",
   null
@@ -47,6 +49,10 @@ const module =
                     "Adblock content policy",
                     ABP_CONTRACTID,
                     fileSpec, location, type);
+    compMgr.registerFactoryLocation(ABP_PROT_CID,
+                    "ABP protocol handler",
+                    ABP_PROT_CONTRACTID,
+                    fileSpec, location, type);
 
     var catman = Components.classes["@mozilla.org/categorymanager;1"]
                            .getService(Components.interfaces.nsICategoryManager);
@@ -59,6 +65,7 @@ const module =
     compMgr = compMgr.QueryInterface(Components.interfaces.nsIComponentRegistrar);
 
     compMgr.unregisterFactoryLocation(ABP_CID, fileSpec);
+    compMgr.unregisterFactoryLocation(ABP_PROT_CID, fileSpec);
     var catman = Components.classes["@mozilla.org/categorymanager;1"]
                            .getService(Components.interfaces.nsICategoryManager);
     catman.deleteCategoryEntry("content-policy", ABP_CONTRACTID, true);
@@ -66,7 +73,7 @@ const module =
 
   getClassObject: function(compMgr, cid, iid)
   {
-    if (!cid.equals(ABP_CID))
+    if (!cid.equals(ABP_CID) && !cid.equals(ABP_PROT_CID))
       throw Components.results.NS_ERROR_NO_INTERFACE;
 
     if (!iid.equals(Components.interfaces.nsIFactory))
@@ -139,6 +146,9 @@ const abp = {
   QueryInterface: function(iid) {
     if (iid.equals(Components.interfaces.nsIContentPolicy))
       return policy;
+
+    if (iid.equals(Components.interfaces.nsIProtocolHandler))
+      return protocol;
 
     if (iid.equals(Components.interfaces.nsISupports) ||
         iid.equals(Components.interfaces.nsIAdblockPlus))
@@ -358,6 +368,7 @@ function init() {
   loader.loadSubScript('chrome://adblockplus/content/prefs.js');
   loader.loadSubScript('chrome://adblockplus/content/synchronizer.js');
   loader.loadSubScript('chrome://adblockplus/content/flasher.js');
+  loader.loadSubScript('chrome://adblockplus/content/protocol.js');
 
   // Clean up uninstalled files
   var dirService = Components.classes["@mozilla.org/file/directory_service;1"]
