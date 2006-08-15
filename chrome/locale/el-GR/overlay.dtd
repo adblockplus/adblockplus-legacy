@@ -1,0 +1,25 @@
+<!ENTITY notloaded.label        "Δεν φορτώθηκε">
+<!ENTITY notloaded.tooltip      "Ο μηχανισμός του Adblock Plus δεν φορτώθηκε, ίσως η εγκατάσταση να μην ήταν επιτυχής.">
+<!ENTITY status.tooltip         "Κατάσταση:">
+<!ENTITY blocked.tooltip        "Φιλτραρισμένα στοιχεία σε αυτή τη σελίδα:">
+<!ENTITY filters.tooltip        "Φίλτρα με τις περισσότερες επιτυχίες:">
+
+<!ENTITY menuitem.label         "Adblock Plus">
+<!ENTITY menuitem.accesskey     "B">
+
+<!ENTITY context.image.label    "Adblock: εικόνα">
+<!ENTITY context.object.label   "Adblock: αντικείμενο">
+<!ENTITY context.link.label     "Adblock: δεσμός">
+<!ENTITY context.frame.label    "Adblock: πλαίσιο">
+
+<!ENTITY menuitem.sidebar.title "Adblock Plus: Φιλτραρισμένα στοιχεία">
+<!ENTITY sidebar.title          "Στοιχεία προς φιλτράρισμα στην τρέχουσα σελίδα">
+
+<!ENTITY settings.label         "Προτιμήσεις">
+<!ENTITY settings.accesskey     "Π">
+<!ENTITY opensidebar.label      "Άνοιγμα των φιλτραρισμένων στοιχείων">
+<!ENTITY opensidebar.accesskey  "Α">
+<!ENTITY closesidebar.label     "Κλείσιμο των φιλτραρισμένων στοιχείων">
+<!ENTITY closesidebar.accesskey "Κ">
+<!ENTITY whitelist.site.label   "Απενεργοποίηση στο --">
+<!ENTITY whitelist.page.label   "Απενεργοποίηση σε αυτή τη σελίδα μόνο">
