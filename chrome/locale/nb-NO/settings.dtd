@@ -53,7 +53,7 @@
 <!ENTITY tips.label "Dagens tips">
 <!ENTITY tips.accesskey "T">
 <!ENTITY tips.url "http://adblockplus.org/en/tips">
-<!ENTITY filterdoc.label "Skrive Adblock Plus filtre">
+<!ENTITY filterdoc.label "Opprett Adblock Plus filtre">
 <!ENTITY filterdoc.accesskey "R">
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Om Adblock Plus">
