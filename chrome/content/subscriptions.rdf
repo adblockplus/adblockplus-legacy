@@ -21,7 +21,7 @@
     <RDF:li>
       <RDF:Description>
         <abp:title>adblock.free.fr (France)</abp:title>
-        <abp:url>http://adblock.free.fr/adblock.txt</abp:url>
+        <abp:url>http://adblock.free.fr/adblock_basic.txt</abp:url>
         <abp:homepage>http://adblock.free.fr/</abp:homepage>
       </RDF:Description>
     </RDF:li>
