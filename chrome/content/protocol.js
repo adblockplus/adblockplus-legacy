@@ -81,15 +81,18 @@ ABPChannel.prototype = {
 
   open: function() {
     if (/^abp:\/*subscribe\/*\?(.*)/i.test(this.URI.spec)) {
+      var unescape = Components.classes["@mozilla.org/intl/texttosuburi;1"]
+                               .getService(Components.interfaces.nsITextToSubURI);
+
       var params = RegExp.$1.split('&');
       var title = null;
       var url = null;
       for (var i = 0; i < params.length; i++) {
         var parts = params[i].split('=', 2);
         if (parts.length == 2 && parts[0] == 'title')
-          title = decodeURIComponent(parts[1]);
+          title = unescape.unEscapeNonAsciiURI(this.URI.originCharset, parts[1]);
         if (parts.length == 2 && parts[0] == 'location')
-          url = decodeURIComponent(parts[1]);
+          url = unescape.unEscapeNonAsciiURI(this.URI.originCharset, parts[1]);
       }
 
       if (url && /\S/.test(url)) {
