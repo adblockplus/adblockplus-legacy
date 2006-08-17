@@ -1,0 +1,14 @@
+<!ENTITY caseSensitiveCheckbox.accesskey "а">
+<!ENTITY caseSensitiveCheckbox.label "З урахуванням регістра">
+<!ENTITY find.label "Знайти:">
+<!ENTITY findCloseButton.tooltip "Закрити панель пошуку">
+<!ENTITY findNext.accesskey "а">
+<!ENTITY findNext.label "Наступне">
+<!ENTITY findNext.tooltip "Знайти наступне входження фрази в текст">
+<!ENTITY findPrevious.accesskey "о">
+<!ENTITY findPrevious.label "Попереднє">
+<!ENTITY findPrevious.tooltip "Знайти попереднє входження фрази в текст">
+<!ENTITY highlight.accesskey "і">
+<!ENTITY highlight.label "Підсвітити все">
+<!ENTITY highlight.macTooltip "Підсвітити всі входження фрази в текст (Cmd+Return)">
+<!ENTITY highlight.tooltip "Підсвітити всі входження фрази в текст (Ctrl+Enter)">
