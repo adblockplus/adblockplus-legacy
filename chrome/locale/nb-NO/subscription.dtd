@@ -10,5 +10,5 @@
 <!ENTITY title.accesskey "v">
 <!ENTITY autodownload.label "Automatisk oppdatering">
 <!ENTITY autodownload.accesskey "t">
-<!ENTITY enabled.label "Slå på filtre">
-<!ENTITY enabled.accesskey "p">
+<!ENTITY enabled.label "Aktivere filtre">
+<!ENTITY enabled.accesskey "k">

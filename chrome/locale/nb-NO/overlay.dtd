@@ -1,5 +1,5 @@
 <!ENTITY notloaded.label "Ikke lastet">
-<!ENTITY notloaded.tooltip "Adblock Plus komponent kunne ikke bli lastet, kanskje den ikke er installert rett.">
+<!ENTITY notloaded.tooltip "Adblock Plus komponent kunne ikke bli lastet inn, kanskje den ikke er installert rett.">
 <!ENTITY status.tooltip "Status:">
 <!ENTITY blocked.tooltip "Blokkerte elementer på denne siden:">
 <!ENTITY filters.tooltip "Mest aktive filtre:">
@@ -9,13 +9,13 @@
 <!ENTITY context.object.label "Adblock Objekt">
 <!ENTITY context.link.label "Adblock Lenke">
 <!ENTITY context.frame.label "Adblock Ramme">
-<!ENTITY menuitem.sidebar.title "Adblock Plus: Elemeter som kan blokkeres">
+<!ENTITY menuitem.sidebar.title "Adblock Plus: Elementer som kan blokkeres">
 <!ENTITY sidebar.title "Elementer som kan blokkeres på denne siden">
 <!ENTITY settings.label "Innstillinger">
 <!ENTITY settings.accesskey "t">
-<!ENTITY opensidebar.label "Åpne elemter som kan blokkeres">
+<!ENTITY opensidebar.label "Ãpne elementer som kan blokkeres">
 <!ENTITY opensidebar.accesskey "B">
 <!ENTITY closesidebar.label "Lukk elementer som kan blokkeres">
 <!ENTITY closesidebar.accesskey "B">
-<!ENTITY whitelist.site.label "Slå av på --">
-<!ENTITY whitelist.page.label "Slå av på denne siden">
+<!ENTITY whitelist.site.label "Deaktiver på --">
+<!ENTITY whitelist.page.label "Deaktiver på denne siden">

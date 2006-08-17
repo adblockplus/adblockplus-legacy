@@ -31,13 +31,13 @@
 <!ENTITY menu.findagain.accesskey "ø">
 <!ENTITY options.label "Valg">
 <!ENTITY options.accesskey "V">
-<!ENTITY enable.label "Slå på Adblock Plus">
+<!ENTITY enable.label "Aktiver Adblock Plus">
 <!ENTITY enable.accesskey "l">
-<!ENTITY showintoolbar.label "Vis på verkøylinje">
+<!ENTITY showintoolbar.label "Vis i verkøylinje">
 <!ENTITY showintoolbar.accesskey "V">
-<!ENTITY showinstatusbar.label "Vis på statuslinje">
+<!ENTITY showinstatusbar.label "Vis i statuslinje">
 <!ENTITY showinstatusbar.accesskey "t">
-<!ENTITY localpages.label "Stopp ekstern reklame i lokale sider">
+<!ENTITY localpages.label "Stopp ekstern reklame på lokale sider">
 <!ENTITY localpages.accesskey "k">
 <!ENTITY objecttabs.label "Vis fliker på Flash og Java">
 <!ENTITY objecttabs.accesskey "f">
@@ -58,8 +58,8 @@
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Om Adblock Plus">
 <!ENTITY about.accesskey "O">
-<!ENTITY disabled.warning "Adblock Plus er avslått. Du kan endre filtrene i listen, men endringene vil ikke tre i kraft før Adblock Plus aktiveres igjen.">
-<!ENTITY description "Legg til adressene du vil blokkere. For forlag, se rullegardinlisten. Du kan bruke * som jokertegn for å lage mer dekkende filtre. Avanserte brukere kan bruke uttrykk som /banner\d+\.gif$/.">
+<!ENTITY disabled.warning "Adblock Plus er deaktivert. Du kan endre filtrene i listen, men endringene vil ikke tre i kraft før Adblock Plus aktiveres igjen.">
+<!ENTITY description "Legg til adressene du vil blokkere. For forslag, se rullegardinlisten. Du kan bruke * som jokertegn for å lage mer dekkende filtre. Avanserte brukere kan bruke uttrykk som /banner\d+\.gif$/.">
 <!ENTITY pattern.column "Regler for filtre">
 <!ENTITY enabled.column "Aktivert">
 <!ENTITY hitcount.column "Treff">
