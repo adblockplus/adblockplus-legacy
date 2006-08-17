@@ -35,7 +35,7 @@
 <!ENTITY enable.accesskey "N">
 <!ENTITY showintoolbar.label "도구 모음에 보이기">
 <!ENTITY showintoolbar.accesskey "B">
-<!ENTITY showinstatusbar.label "상태바에 보이기">
+<!ENTITY showinstatusbar.label "상태 표시줄에 보이기">
 <!ENTITY showinstatusbar.accesskey "S">
 <!ENTITY localpages.label "로컬 페이지에서 원격 광고 차단하기">
 <!ENTITY localpages.accesskey "R">
