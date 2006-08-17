@@ -1,6 +1,5 @@
-<!ENTITY dialog.title               "Καλώς ήρθατε στο Adblock Plus">
-
-<!ENTITY description                "
+<!ENTITY dialog.title "Καλώς ήρθατε στο Adblock Plus">
+<!ENTITY description "
   Σας ευχαριστούμε που εγκαταστήσατε το Adblock Plus. Αυτή η επέκταση μπορεί να
   εξαφανίσει 99&#x25; των διαφημίσεων που εμφανίζονται στις ιστοσελίδες. Όμως,
   για αποτελεσματική φραγή των διαφημίσεων απαιτείται από εσάς ο ορισμός καλών
@@ -10,15 +9,12 @@
   χρειαστεί. Παρακάτω παρουσιάζεται μια λίστα με συνδρομές από τις
   οποίες μπορείτε να διαλέξετε:
 ">
-
-<!ENTITY note                       "
+<!ENTITY note "
   Σημείωση: Τυπικά, μια λίστα φίλτρων είναι αποτελεσματικότερη όταν εφαρμόζεται
   σε ιστοσελίδες που προέρχονται από την ίδια περιοχή για την οποία δημιουργήθηκε η λίστα.
 ">
-
-<!ENTITY homepage.label             "Ιστοσελίδα">
-
-<!ENTITY subscribe.label            "Εγγραφή">
-<!ENTITY subscribe.accesskey        "Ε">
-<!ENTITY other.label                "Προσθήκη άλλης συνδρομής">
-<!ENTITY other.accesskey            "Π">
+<!ENTITY homepage.label "Ιστοσελίδα">
+<!ENTITY subscribe.label "Εγγραφή">
+<!ENTITY subscribe.accesskey "Ε">
+<!ENTITY other.label "Προσθήκη άλλης συνδρομής">
+<!ENTITY other.accesskey "Π">

@@ -1,93 +1,80 @@
-<!ENTITY dialog.title               "Ρυθμίσεις Adblock Plus">
-
-<!ENTITY filters.label              "Φίλτρα">
-<!ENTITY filters.accesskey          "Φ">
-
-<!ENTITY add.label                  "Προσθήκη φίλτρου">
-<!ENTITY add.accesskey              "Π">
-<!ENTITY addsubscription.label      "Προσθήκη συνδρομής">
-<!ENTITY addsubscription.accesskey  "σ">
-<!ENTITY synchsubscriptions.label       "Ενημέρωση όλων των συνδρομών">
-<!ENTITY synchsubscriptions.accesskey   "Ε">
-<!ENTITY import.label               "Εισαγωγή φίλτρων">
-<!ENTITY import.accesskey           "ι">
-<!ENTITY export.label               "Εξαγωγή φίλτρων">
-<!ENTITY export.accesskey           "ξ">
-<!ENTITY clearall.label             "Απομάκρυνση όλων των φίλτρων">
-<!ENTITY clearall.accesskey         "Α">
-<!ENTITY resethitcounts.label       "Μηδενισμός στατιστικών">
-<!ENTITY resethitcounts.accesskey   "Μ">
-
-<!ENTITY edit.label                 "Επεξεργασία">
-<!ENTITY edit.accesskey             "Ε">
-
-<!ENTITY cut.label                  "Αποκοπή">
-<!ENTITY cut.accesskey              "κ">
-<!ENTITY copy.label                 "Αντιγραφή">
-<!ENTITY copy.accesskey             "Α">
-<!ENTITY paste.label                "Επικόλληση">
-<!ENTITY paste.accesskey            "π">
-<!ENTITY remove.label               "Διαγραφή">
-<!ENTITY remove.accesskey           "Δ">
-<!ENTITY menu.find.label            "Αναζήτηση">
-<!ENTITY menu.find.accesskey        "ζ">
-<!ENTITY menu.findagain.label       "Εύρεση ξανά">
-<!ENTITY menu.findagain.accesskey   "ξ">
-
-<!ENTITY options.label              "Επιλογές">
-<!ENTITY options.accesskey          "λ">
-
-<!ENTITY enable.label               "Ενεργοποίηση του Adblock Plus">
-<!ENTITY enable.accesskey           "Ε">
-<!ENTITY showintoolbar.label        "Εμφάνιση στην εργαλειοθήκη">
-<!ENTITY showintoolbar.accesskey    "θ">
-<!ENTITY showinstatusbar.label      "Εμφάνιση στην γραμμή κατάστασης">
-<!ENTITY showinstatusbar.accesskey  "κ">
-<!ENTITY localpages.label           "Φραγή απομακρυσμένων διαφημίσεων σε τοπικές σελίδες">
-<!ENTITY localpages.accesskey       "Φ">
-<!ENTITY objecttabs.label           "Εμφάνιση ετικέτας σε αντικείμενα Flash και Java">
-<!ENTITY objecttabs.accesskey       "α">
-<!ENTITY collapse.label             "Σύμπτυξη φιλτραρισμένων στοιχείων">
-<!ENTITY collapse.accesskey         "Σ">
-<!ENTITY linkcheck.label            "Έλεγχος δεσμών διαφημίσεων">
-<!ENTITY linkcheck.accesskey        "δ">
-
-<!ENTITY help.label                 "Βοήθεια">
-<!ENTITY help.accesskey             "Β">
-
-<!ENTITY faq.label                  "Συχνές ερωτήσεις">
-<!ENTITY faq.accesskey              "ε">
-<!ENTITY faq.url                    "http://adblockplus.org/en/faq">
-<!ENTITY tips.label                 "Συμβουλή της ημέρας">
-<!ENTITY tips.accesskey             "η">
-<!ENTITY tips.url                   "http://adblockplus.org/en/tips">
-<!ENTITY filterdoc.label            "Συγγραφή φίλτρων">
-<!ENTITY filterdoc.accesskey        "Σ">
-<!ENTITY filterdoc.url              "http://adblockplus.org/en/filters">
-<!ENTITY about.label                "Περί">
-<!ENTITY about.accesskey            "Π">
-
-<!ENTITY disabled.warning           "Το Adblock Plus είναι απενεργοποιημένο. Οι όποιες αλλαγές στην λίστα δεν θα εμφανιστούν μέχρι να το ενεργοποιήσετε.">
-
-<!ENTITY description                "
+<!ENTITY dialog.title "Ρυθμίσεις Adblock Plus">
+<!ENTITY filters.label "Φίλτρα">
+<!ENTITY filters.accesskey "Φ">
+<!ENTITY add.label "Προσθήκη φίλτρου">
+<!ENTITY add.accesskey "Π">
+<!ENTITY addsubscription.label "Προσθήκη συνδρομής">
+<!ENTITY addsubscription.accesskey "σ">
+<!ENTITY synchsubscriptions.label "Ενημέρωση όλων των συνδρομών">
+<!ENTITY synchsubscriptions.accesskey "Ε">
+<!ENTITY import.label "Εισαγωγή φίλτρων">
+<!ENTITY import.accesskey "ι">
+<!ENTITY export.label "Εξαγωγή φίλτρων">
+<!ENTITY export.accesskey "ξ">
+<!ENTITY clearall.label "Απομάκρυνση όλων των φίλτρων">
+<!ENTITY clearall.accesskey "Α">
+<!ENTITY resethitcounts.label "Μηδενισμός στατιστικών">
+<!ENTITY resethitcounts.accesskey "Μ">
+<!ENTITY edit.label "Επεξεργασία">
+<!ENTITY edit.accesskey "Ε">
+<!ENTITY cut.label "Αποκοπή">
+<!ENTITY cut.accesskey "κ">
+<!ENTITY copy.label "Αντιγραφή">
+<!ENTITY copy.accesskey "Α">
+<!ENTITY paste.label "Επικόλληση">
+<!ENTITY paste.accesskey "π">
+<!ENTITY remove.label "Διαγραφή">
+<!ENTITY remove.accesskey "Δ">
+<!ENTITY menu.find.label "Αναζήτηση">
+<!ENTITY menu.find.accesskey "ζ">
+<!ENTITY menu.findagain.label "Εύρεση ξανά">
+<!ENTITY menu.findagain.accesskey "ξ">
+<!ENTITY options.label "Επιλογές">
+<!ENTITY options.accesskey "λ">
+<!ENTITY enable.label "Ενεργοποίηση του Adblock Plus">
+<!ENTITY enable.accesskey "Ε">
+<!ENTITY showintoolbar.label "Εμφάνιση στην εργαλειοθήκη">
+<!ENTITY showintoolbar.accesskey "θ">
+<!ENTITY showinstatusbar.label "Εμφάνιση στην γραμμή κατάστασης">
+<!ENTITY showinstatusbar.accesskey "κ">
+<!ENTITY localpages.label "Φραγή απομακρυσμένων διαφημίσεων σε τοπικές σελίδες">
+<!ENTITY localpages.accesskey "Φ">
+<!ENTITY objecttabs.label "Εμφάνιση ετικέτας σε αντικείμενα Flash και Java">
+<!ENTITY objecttabs.accesskey "α">
+<!ENTITY collapse.label "Σύμπτυξη φιλτραρισμένων στοιχείων">
+<!ENTITY collapse.accesskey "Σ">
+<!ENTITY linkcheck.label "Έλεγχος δεσμών διαφημίσεων">
+<!ENTITY linkcheck.accesskey "δ">
+<!ENTITY help.label "Βοήθεια">
+<!ENTITY help.accesskey "Β">
+<!ENTITY faq.label "Συχνές ερωτήσεις">
+<!ENTITY faq.accesskey "ε">
+<!ENTITY faq.url "http://adblockplus.org/en/faq">
+<!ENTITY tips.label "Συμβουλή της ημέρας">
+<!ENTITY tips.accesskey "η">
+<!ENTITY tips.url "http://adblockplus.org/en/tips">
+<!ENTITY filterdoc.label "Συγγραφή φίλτρων">
+<!ENTITY filterdoc.accesskey "Σ">
+<!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
+<!ENTITY about.label "Περί">
+<!ENTITY about.accesskey "Π">
+<!ENTITY disabled.warning "Το Adblock Plus είναι απενεργοποιημένο. Οι όποιες αλλαγές στην λίστα δεν θα εμφανιστούν μέχρι να το ενεργοποιήσετε.">
+<!ENTITY description "
     Προσθέστε τις διευθύνσεις που θέλετε να φιλτράρετε. Για προτάσεις συμβουλευτείτε την αναδυόμενη λίστα.
     Μπορείτε να χρησιμοποιήσετε το * ως μπαλαντέρ για να δημιουργήσετε κάποια γενικά φίλτρα. Οι προχωρημένοι χρήστες
     μπορούν να εισάγουν κάποιους γενικούς κανόνες όπως /banner\d+\.gif$/.
 ">
-
-<!ENTITY pattern.column             "Φίλτρο">
-<!ENTITY enabled.column             "Ενεργοποιημένο">
-<!ENTITY hitcount.column            "Επιτυχίες">
-<!ENTITY lasthit.column             "Τελευταία επιτυχία">
-
-<!ENTITY context.edit.label         "Επεξεργασία φίλτρου">
-<!ENTITY context.resethitcount.label      "Μηδενισμός στατιστικών επιτυχιών για το φίλτρο">
-<!ENTITY context.synchsubscription.label  "Ενημέρωση συνδρομής τώρα">
-<!ENTITY context.editsubscription.label   "Επεξεργασία συνδρομής">
-<!ENTITY context.moveup.label       "Μετακίνηση επάνω">
-<!ENTITY context.movedown.label     "Μετακίνηση κάτω">
-<!ENTITY context.movegroupup.label        "Μετακίνηση ομάδας επάνω">
-<!ENTITY context.movegroupdown.label      "Μετακίνηση ομάδας κάτω">
-
-<!ENTITY apply.label                "Εφαρμογή">
-<!ENTITY apply.accesskey            "ρ">
+<!ENTITY pattern.column "Φίλτρο">
+<!ENTITY enabled.column "Ενεργοποιημένο">
+<!ENTITY hitcount.column "Επιτυχίες">
+<!ENTITY lasthit.column "Τελευταία επιτυχία">
+<!ENTITY context.edit.label "Επεξεργασία φίλτρου">
+<!ENTITY context.resethitcount.label "Μηδενισμός στατιστικών επιτυχιών για το φίλτρο">
+<!ENTITY context.synchsubscription.label "Ενημέρωση συνδρομής τώρα">
+<!ENTITY context.editsubscription.label "Επεξεργασία συνδρομής">
+<!ENTITY context.moveup.label "Μετακίνηση επάνω">
+<!ENTITY context.movedown.label "Μετακίνηση κάτω">
+<!ENTITY context.movegroupup.label "Μετακίνηση ομάδας επάνω">
+<!ENTITY context.movegroupdown.label "Μετακίνηση ομάδας κάτω">
+<!ENTITY apply.label "Εφαρμογή">
+<!ENTITY apply.accesskey "ρ">

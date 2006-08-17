@@ -1,30 +1,24 @@
-<!ENTITY detached.title           "Adblock Plus: Στοιχεία προς φραγή">
-
-<!ENTITY detach.label             "Αποκόλληση">
-<!ENTITY reattach.label           "Προσάρτηση">
-
-<!ENTITY search.label             "Αναζήτηση:">
-<!ENTITY search.accesskey         "Α">
-
-<!ENTITY type.label               "Τύπος">
-<!ENTITY address.label            "Διεύθυνση">
-<!ENTITY filter.label             "Φίλτρο">
-<!ENTITY state.label              "Κατάσταση">
-
-<!ENTITY noitems.label            "Δεν υπάρχουν στοιχεία προς φιλτράρισμα">
-<!ENTITY notremote.label          "Η σελίδα δεν είναι απομακρυσμένη">
-<!ENTITY whitelisted.label        "Η σελίδα ανήκει στην άσπρη λίστα">
-<!ENTITY notloaded.label          "Η εγκατάσταση του Adblock Plus είναι ημιτελής">
-
-<!ENTITY tooltip.address.label    "Διεύθυνση:">
-<!ENTITY tooltip.type.label       "Τύπος:">
-<!ENTITY tooltip.type.blocked     "(φιλτραρισμένο)">
+<!ENTITY detached.title "Adblock Plus: Στοιχεία προς φραγή">
+<!ENTITY detach.label "Αποκόλληση">
+<!ENTITY reattach.label "Προσάρτηση">
+<!ENTITY search.label "Αναζήτηση:">
+<!ENTITY search.accesskey "Α">
+<!ENTITY type.label "Τύπος">
+<!ENTITY address.label "Διεύθυνση">
+<!ENTITY filter.label "Φίλτρο">
+<!ENTITY state.label "Κατάσταση">
+<!ENTITY noitems.label "Δεν υπάρχουν στοιχεία προς φιλτράρισμα">
+<!ENTITY notremote.label "Η σελίδα δεν είναι απομακρυσμένη">
+<!ENTITY whitelisted.label "Η σελίδα ανήκει στην άσπρη λίστα">
+<!ENTITY notloaded.label "Η εγκατάσταση του Adblock Plus είναι ημιτελής">
+<!ENTITY tooltip.address.label "Διεύθυνση:">
+<!ENTITY tooltip.type.label "Τύπος:">
+<!ENTITY tooltip.type.blocked "(φιλτραρισμένο)">
 <!ENTITY tooltip.type.whitelisted "(στην άσπρη λίστα)">
-<!ENTITY tooltip.filter.label     "Φίλτρο εν δράση:">
-
-<!ENTITY context.block.label      "Φραγή του στοιχείου">
+<!ENTITY tooltip.filter.label "Φίλτρο εν δράση:">
+<!ENTITY context.block.label "Φραγή του στοιχείου">
 <!ENTITY context.editfilter.label "Επεξεργασία του φίλτρου εν δράση">
-<!ENTITY context.whitelist.label  "Προσθήκη κανόνα εξαίρεσης για το στοιχείο">
-<!ENTITY context.open.label       "Άνοιγμα σε νέα καρτέλα">
-<!ENTITY context.flash.label      "Πλαίσιο στοιχείου Flash">
-<!ENTITY context.copy.label       "Αντιγραφή τοποθεσίας του στοιχείου">
+<!ENTITY context.whitelist.label "Προσθήκη κανόνα εξαίρεσης για το στοιχείο">
+<!ENTITY context.open.label "Άνοιγμα σε νέα καρτέλα">
+<!ENTITY context.flash.label "Πλαίσιο στοιχείου Flash">
+<!ENTITY context.copy.label "Αντιγραφή τοποθεσίας του στοιχείου">
