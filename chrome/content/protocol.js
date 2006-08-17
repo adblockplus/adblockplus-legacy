@@ -90,9 +90,9 @@ ABPChannel.prototype = {
       for (var i = 0; i < params.length; i++) {
         var parts = params[i].split('=', 2);
         if (parts.length == 2 && parts[0] == 'title')
-          title = unescape.unEscapeNonAsciiURI(this.URI.originCharset, parts[1]);
+          title = decodeURIComponent(unescape.unEscapeNonAsciiURI(this.URI.originCharset, parts[1]));
         if (parts.length == 2 && parts[0] == 'location')
-          url = unescape.unEscapeNonAsciiURI(this.URI.originCharset, parts[1]);
+          url = decodeURIComponent(unescape.unEscapeNonAsciiURI(this.URI.originCharset, parts[1]));
       }
 
       if (url && /\S/.test(url)) {
