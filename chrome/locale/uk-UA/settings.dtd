@@ -37,7 +37,7 @@
 <!ENTITY options.label              "Налаштування">
 <!ENTITY options.accesskey          "а">
 
-<!ENTITY enable.label               "Вкcючити Adblock Plus">
+<!ENTITY enable.label               "Включити Adblock Plus">
 <!ENTITY enable.accesskey           "ю">
 <!ENTITY showintoolbar.label        "Показувати в панелі інструментів">
 <!ENTITY showintoolbar.accesskey    "к">
