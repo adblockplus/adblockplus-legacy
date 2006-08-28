@@ -42,8 +42,8 @@
     <RDF:li>
       <RDF:Description>
         <abp:title>RU AdList (Россия)</abp:title>
-        <abp:url>http://denis.freead.googlepages.com/adblock.txt</abp:url>
-        <abp:homepage>http://denis.freead.googlepages.com/</abp:homepage>
+        <abp:url>http://denis-ovs.narod.ru/adblock.txt</abp:url>
+        <abp:homepage>http://denis-ovs.narod.ru/</abp:homepage>
       </RDF:Description>
     </RDF:li>
   </RDF:Seq>
