@@ -160,14 +160,11 @@ function setContentWindow(contentWnd) {
     var type = "filterlist";
     if (wnd && wnd.location) {
       var location = abp.unwrapURL(wnd.location.href);
-      // We want to stick with "no blockable items" for about:blank
-      if (location != "about:blank") {
-        if (!abp.policy.isBlockableScheme(location))
-          reason = abp.getString("not_remote_page");
-        else if (abp.policy.isWhitelisted(location)) {
-          reason = abp.getString("whitelisted_page");
-          type = "whitelist";
-        }
+      if (!abp.policy.isBlockableScheme(location))
+        reason = abp.getString("not_remote_page");
+      else if (abp.policy.isWhitelisted(location)) {
+        reason = abp.getString("whitelisted_page");
+        type = "whitelist";
       }
     }
     data.push({location: reason, typeDescr: "", localizedDescr: "", nodes: [], filter: {type: type}});
