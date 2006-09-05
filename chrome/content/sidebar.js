@@ -565,14 +565,11 @@ var treeView = {
         return filter ? filter.text : "";
       }
 
-      // We want to stick with "no blockable items" for about:blank
-      if (location != "about:blank") {
-        if (!abp.policy.isBlockableScheme(location))
-          return this.remoteDummy;
+      if (!abp.policy.isBlockableScheme(location))
+        return this.remoteDummy;
 
-        if (abp.policy.isWhitelisted(location))
-          return this.whitelistDummy;
-      }
+      if (abp.policy.isWhitelisted(location))
+        return this.whitelistDummy;
 
       return this.itemsDummy;
     }

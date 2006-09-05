@@ -172,14 +172,20 @@ var policy = {
 
   // Checks whether the location's scheme is blockable
   isBlockableScheme: function(location) {
-    var url = makeURL(location);
-    return (url && !(url.scheme.replace(/[^\w\-]/,"").toUpperCase() in whitelistSchemes));
+    if (location.indexOf(":") < 0)
+      return true;
+
+    var scheme = location.replace(/:.*/, "").toUpperCase();
+    return !(scheme in whitelistSchemes) || location == "about:blank";
   },
 
   // Checks whether the location's scheme is local
   isLocalScheme: function(location) {
-    var url = makeURL(location);
-    return (url && url.scheme.replace(/[^\w\-]/,"").toUpperCase() in localSchemes);
+    if (location.indexOf(":") < 0)
+      return false;
+
+    var scheme = location.replace(/:.*/, "").toUpperCase();
+    return (scheme in localSchemes);
   },
 
   // Checks whether links should be checked for the specified type
