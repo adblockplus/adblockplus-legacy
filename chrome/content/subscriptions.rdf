@@ -20,9 +20,9 @@
     </RDF:li>
     <RDF:li>
       <RDF:Description>
-        <abp:title>adblock.free.fr (France)</abp:title>
-        <abp:url>http://adblock.free.fr/adblock_basic.txt</abp:url>
-        <abp:homepage>http://adblock.free.fr/</abp:homepage>
+        <abp:title>DutchBlock (Nederland)</abp:title>
+        <abp:url>http://dutchmega.nl/dutchblock/adblockplus.txt</abp:url>
+        <abp:homepage>http://www.dutchmega.nl/dutchblock/</abp:homepage>
       </RDF:Description>
     </RDF:li>
     <RDF:li>
@@ -30,6 +30,13 @@
         <abp:title>Filter von Dr.Evil (Deutschland)</abp:title>
         <abp:url>http://maltekraus.de/Firefox/adblock.php</abp:url>
         <abp:homepage>http://www.firefox-browser.de/forum/viewtopic.php?t=28904</abp:homepage>
+      </RDF:Description>
+    </RDF:li>
+    <RDF:li>
+      <RDF:Description>
+        <abp:title>adblock.free.fr (France)</abp:title>
+        <abp:url>http://adblock.free.fr/adblock_basic.txt</abp:url>
+        <abp:homepage>http://adblock.free.fr/</abp:homepage>
       </RDF:Description>
     </RDF:li>
     <RDF:li>
