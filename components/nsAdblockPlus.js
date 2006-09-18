@@ -323,8 +323,7 @@ const abp = {
 
   // Loads a URL in the browser window
   loadInBrowser: function(url) {
-    var windowService = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator);
-    var currentWindow = windowService.getMostRecentWindow("navigator:browser");
+    var currentWindow = windowMediator.getMostRecentWindow("navigator:browser");
     if (currentWindow) {
       try {
         currentWindow.delayedOpenTab(url);
