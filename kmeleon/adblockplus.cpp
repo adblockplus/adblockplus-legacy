@@ -1394,6 +1394,7 @@ TCHAR* menus[] = {_T("DocumentPopup"), _T("DocumentImagePopup"), _T("TextPopup")
 
 void abpWrapper::AddContextMenuItem(WORD command, char* entity) {
   MENUITEMINFO info;
+  memset(&info, 0, sizeof info);
   info.cbSize = sizeof info;
   info.fMask = MIIM_TYPE;
 
@@ -1416,17 +1417,21 @@ void abpWrapper::AddContextMenuItem(WORD command, char* entity) {
   if (label == nsnull)
     return;
 
-  // Only use MF_OWNERDRAW flag if bmpmenu plugin is installed
-  UINT drawFlag = (kFuncs->SendMessage("bmpmenu", PLUGIN_NAME, "DoMenu", 0, 0) ? MF_OWNERDRAW : 0);
-
+  UINT drawFlag;
   for (int i = 0; menus[i]; i++) {
     HMENU hMenu = kFuncs->GetMenu(menus[i]);
     if (hMenu) {
+      drawFlag = MF_OWNERDRAW;
+
       int count = GetMenuItemCount(hMenu);
       if (count > 0) {
         WORD id = GetMenuItemID(hMenu, count - 1) - cmdBase;
         if (id >= CMD_NULL)
           AppendMenuA(hMenu, MF_SEPARATOR, cmdBase + CMD_SEPARATOR, NULL);
+
+        // Only use MF_OWNERDRAW flag if other menu items have it as well
+        if (GetMenuItemInfo(hMenu, 0, TRUE, &info) && !(info.fType & MFT_OWNERDRAW))
+          drawFlag = 0;
       }
       AppendMenuA(hMenu, MF_STRING | drawFlag, cmdBase + command, label);
     }
