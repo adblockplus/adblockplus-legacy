@@ -28,24 +28,24 @@
 abpWrapper wrapper;
 
 JSFunctionSpec component_methods[] = {
-  {"getMostRecentWindow", ::FakeGetMostRecentWindow, 1, 0, 0},
+  {"getMostRecentWindow", FakeGetMostRecentWindow, 1, 0, 0},
   {NULL},
 };
 
 JSFunctionSpec browser_methods[] = {
-  {"openDialog", ::JSOpenDialog, 3, 0, 0},
-  {"addEventListener", ::FakeAddEventListener, 3, 0, 0},
-  {"removeEventListener", ::FakeRemoveEventListener, 3, 0, 0},
-  {"getBrowser", ::JSDummyFunction, 0, 0, 0},
-  {"getElementById", ::JSDummyFunction, 0, 0, 0},
-  {"setAttribute", ::JSDummyFunction, 0, 0, 0},
-  {"removeAttribute", ::JSDummyFunction, 0, 0, 0},
-  {"hasAttribute", ::FakeHasAttribute, 0, 0, 0},
-  {"getAttribute", ::FakeGetAttribute, 0, 0, 0},
-  {"setInterval", ::JSDummyFunction, 0, 0, 0},
-  {"setTimeout", ::JSDummyFunction, 0, 0, 0},
-  {"delayedOpenTab", ::FakeOpenTab, 1, 0, 0},
-  {"showItem", ::FakeShowItem, 2, 0, 0},
+  {"openDialog", JSOpenDialog, 3, 0, 0},
+  {"addEventListener", FakeAddEventListener, 3, 0, 0},
+  {"removeEventListener", FakeRemoveEventListener, 3, 0, 0},
+  {"getBrowser", JSDummyFunction, 0, 0, 0},
+  {"getElementById", JSDummyFunction, 0, 0, 0},
+  {"setAttribute", JSDummyFunction, 0, 0, 0},
+  {"removeAttribute", JSDummyFunction, 0, 0, 0},
+  {"hasAttribute", FakeHasAttribute, 0, 0, 0},
+  {"getAttribute", FakeGetAttribute, 0, 0, 0},
+  {"setTimeout", FakeSetTimeout, 0, 0, 0},
+  {"setInterval", JSDummyFunction, 0, 0, 0},
+  {"delayedOpenTab", FakeOpenTab, 1, 0, 0},
+  {"showItem", FakeShowItem, 2, 0, 0},
   {NULL},
 };
 JSPropertySpec browser_properties[] = {
@@ -243,6 +243,18 @@ JSBool JS_DLL_CALLBACK FakeGetAttribute(JSContext* cx, JSObject* obj, uintN argc
   return JS_TRUE;
 }
 
+JSBool JS_DLL_CALLBACK FakeSetTimeout(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
+  *rval = JSVAL_VOID;
+
+  JSFunction* function;
+  PRInt32 timeout;
+  if (!JS_ConvertArguments(cx, argc, argv, "fi", &function, &timeout))
+    return JS_FALSE;
+
+  jsval retval;
+  return JS_CallFunction(cx, obj, function, 0, nsnull, &retval);
+}
+
 JSBool JS_DLL_CALLBACK FakeOpenTab(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
   *rval = JSVAL_VOID;
   if (argc != 1)
@@ -427,6 +439,18 @@ void abpWrapper::Quit() {
 }
 
 void abpWrapper::Create(HWND parent) {
+  static PRBool initialized = PR_FALSE;
+  if (!initialized) {
+    initialized = PR_TRUE;
+
+    abpJSContextHolder holder;
+    JSObject* overlay = UnwrapNative(fakeBrowserWindow);
+    jsval retval;
+    if (holder.get() != nsnull)
+      if (overlay == nsnull || !JS_CallFunctionName(holder.get(), overlay, "abpInit", 0, nsnull, &retval))
+        JS_ReportError(holder.get(), "Adblock Plus: Failed to initialize overlay.js");
+  }
+
   if (IsWindowUnicode(parent)) {
     origWndProc = (WNDPROC)GetWindowLongW(parent, GWL_WNDPROC);
     SetWindowLongW(parent, GWL_WNDPROC, (LONG)&WndProc);
@@ -1144,11 +1168,6 @@ PRBool abpWrapper::CreateFakeBrowserWindow(JSContext* cx, JSObject* parent) {
     return PR_FALSE;
   }
 
-  if (!JS_CallFunctionName(cx, obj, "abpInit", 0, nsnull, &value)) {
-    JS_ReportError(cx, "Adblock Plus: Failed to initialize overlay.js");
-    return PR_FALSE;
-  }
-
   return PR_TRUE;
 }
 
@@ -1295,7 +1314,7 @@ JSObject* abpWrapper::OpenDialog(char* url, char* target, char* features) {
   nsCOMPtr<nsIDOMWindow> wnd;
 
   rv = watcher->OpenWindow(fakeBrowserWindow, url, target, features, nsnull, getter_AddRefs(wnd));
-  if (NS_FAILED(rv))
+  if (NS_FAILED(rv) || wnd == nsnull)
     return nsnull;
 
   if (strstr(url, "sidebarDetached.xul")) {
