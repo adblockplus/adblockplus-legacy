@@ -55,47 +55,27 @@ JSPropertySpec browser_properties[] = {
   {NULL},
 };
 
+kmeleonFunctions* abpWrapper::kFuncs = NULL;
+WORD abpWrapper::cmdBase = 0;
+void* abpWrapper::origWndProc = NULL;
+HWND abpWrapper::hMostRecent = NULL;
+nsCOMPtr<nsIDOMWindowInternal> abpWrapper::fakeBrowserWindow;
+HWND abpWrapper::hCurrentBrowser = NULL;
+nsCOMPtr<nsIWindowWatcher> abpWrapper::watcher;
+nsCOMPtr<nsIIOService> abpWrapper::ioService;
+nsCOMPtr<nsIPrincipal> abpWrapper::systemPrincipal;
+abpListenerList abpWrapper::selectListeners;
+int abpWrapper::setNextWidth = 0;
+int abpWrapper::setNextHeight = 0;
+HHOOK abpWrapper::hook = NULL;
+
 BOOL APIENTRY DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpvReserved) {
   return TRUE;
 }
 
-LONG DoMessage(LPCSTR to, LPCSTR from, LPCSTR subject, LONG data1, LONG data2)
-{
-  if (to[0] != '*' && _stricmp(to, kPlugin.dllname) != 0)
-    return 0;
-
-  LONG ret = 1;
-  if (_stricmp(subject, "Load") == 0)
-    ret = (wrapper.Load() ? 1 : -1);
-  else if (_stricmp(subject, "Setup") == 0)
-    wrapper.Setup();
-  else if (_stricmp(subject, "Create") == 0)
-    wrapper.Create((HWND)data1);
-  else if (_stricmp(subject, "Quit") == 0)
-    wrapper.Quit();
-  else if (_stricmp(subject, "DoMenu") == 0) {
-    LPSTR action = (LPSTR)data2;
-    if (*action == 0)
-      ret = 0;
-    else {
-      LPSTR string = strchr(action, ',');
-      if (string) {
-        *string = 0;
-        string++;
-      }
-      else
-        string = action;
-  
-      wrapper.DoMenu((HMENU)data1, action, string);
-    }
-  }
-  else if (_stricmp(subject, "DoAccel") == 0)
-    *(PINT)data2 = wrapper.DoAccel((LPSTR)data1);
-  else
-    ret = 0;
-
-  return ret;
-}
+/************************
+ * JavaScript callbacks *
+ ************************/
 
 JS_STATIC_DLL_CALLBACK(void) Reporter(JSContext *cx, const char *message, JSErrorReport *rep) {
   nsresult rv;
@@ -336,17 +316,47 @@ JSBool JS_DLL_CALLBACK JSGetWrapper(JSContext *cx, JSObject *obj, jsval id, jsva
   return JS_TRUE;
 }
 
-LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
-  return wrapper.WndProc(hWnd, message, wParam, lParam);
-}
+/**********************
+ * K-Meleon callbacks *
+ **********************/
 
-LRESULT CALLBACK HookProc(int nCode, WPARAM wParam, LPARAM lParam) {
-  return wrapper.HookProc(nCode, wParam, lParam);
-}
+LONG abpWrapper::DoMessage(LPCSTR to, LPCSTR from, LPCSTR subject, LONG data1, LONG data2)
+{
+  if (to[0] != '*' && _stricmp(to, kPlugin.dllname) != 0)
+    return 0;
 
-/**************************
- * User interface methods *
- **************************/
+  LONG ret = 1;
+  if (_stricmp(subject, "Load") == 0)
+    ret = (Load() ? 1 : -1);
+  else if (_stricmp(subject, "Setup") == 0)
+    Setup();
+  else if (_stricmp(subject, "Create") == 0)
+    Create((HWND)data1);
+  else if (_stricmp(subject, "Quit") == 0)
+    Quit();
+  else if (_stricmp(subject, "DoMenu") == 0) {
+    LPSTR action = (LPSTR)data2;
+    if (*action == 0)
+      ret = 0;
+    else {
+      LPSTR string = strchr(action, ',');
+      if (string) {
+        *string = 0;
+        string++;
+      }
+      else
+        string = action;
+  
+      DoMenu((HMENU)data1, action, string);
+    }
+  }
+  else if (_stricmp(subject, "DoAccel") == 0)
+    *(PINT)data2 = DoAccel((LPSTR)data1);
+  else
+    ret = 0;
+
+  return ret;
+}
 
 PRBool abpWrapper::Load() {
   nsresult rv;
@@ -397,7 +407,7 @@ PRBool abpWrapper::Load() {
 }
 
 void abpWrapper::Setup() {
-  hook = SetWindowsHookEx(WH_CALLWNDPROCRET, ::HookProc, NULL, GetCurrentThreadId());
+  hook = SetWindowsHookEx(WH_CALLWNDPROCRET, &HookProc, NULL, GetCurrentThreadId());
 
   nsCOMPtr<nsIPrefBranch> branch(do_GetService(NS_PREFSERVICE_CONTRACTID));
   if (branch != nsnull) {
@@ -406,7 +416,7 @@ void abpWrapper::Setup() {
     ReadAccelerator(branch, "extensions.adblockplus.enable_key", "adblockplus(ToggleEnabled)");
   }
 
-  LoadImage(0);
+  wrapper.LoadImage(0);
 }
 
 void abpWrapper::Quit() {
@@ -417,11 +427,11 @@ void abpWrapper::Quit() {
 void abpWrapper::Create(HWND parent) {
   if (IsWindowUnicode(parent)) {
     origWndProc = (WNDPROC)GetWindowLongW(parent, GWL_WNDPROC);
-    SetWindowLongW(parent, GWL_WNDPROC, (LONG)::WndProc);
+    SetWindowLongW(parent, GWL_WNDPROC, (LONG)&WndProc);
   }
   else {
     origWndProc = (WNDPROC)GetWindowLongA(parent, GWL_WNDPROC);
-    SetWindowLongA(parent, GWL_WNDPROC, (LONG)::WndProc);
+    SetWindowLongA(parent, GWL_WNDPROC, (LONG)&WndProc);
   }
 
   hMostRecent = parent;
@@ -455,7 +465,7 @@ void abpWrapper::Create(HWND parent) {
       return;
 
     nsString event(NS_ConvertASCIItoUTF16("contextmenu"));
-    target->AddEventListener(event, this, true);
+    target->AddEventListener(event, &wrapper, true);
   }
 }
 
@@ -583,14 +593,14 @@ LRESULT abpWrapper::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPara
     return CallWindowProcA((WNDPROC)origWndProc, hWnd, message, wParam, lParam);
 }
 
-LRESULT abpWrapper::HookProc(int nCode, WPARAM wParam, LPARAM lParam) {
+LRESULT CALLBACK abpWrapper::HookProc(int nCode, WPARAM wParam, LPARAM lParam) {
   if (nCode == HC_ACTION) {
     CWPRETSTRUCT* params = (CWPRETSTRUCT*)lParam;
     if (params->message == WM_DRAWITEM) {
       DRAWITEMSTRUCT* dis = (DRAWITEMSTRUCT*)params->lParam;
       WORD id = dis->itemID - cmdBase;
       if (dis->CtlType == ODT_MENU && id < CMD_NULL)
-        ImageList_Draw(hImages, 0, dis->hDC, dis->rcItem.left, dis->rcItem.top, ILD_TRANSPARENT);
+        ImageList_Draw(wrapper.hImages, 0, dis->hDC, dis->rcItem.left, dis->rcItem.top, ILD_TRANSPARENT);
     }
   }
 
@@ -601,7 +611,154 @@ LRESULT abpWrapper::HookProc(int nCode, WPARAM wParam, LPARAM lParam) {
  * nsISupports implementation *
  ******************************/
 
-NS_IMPL_ISUPPORTS4(abpWrapper, nsIDOMEventListener, nsIClassInfo, nsIXPCScriptable, imgIDecoderObserver)
+NS_IMPL_ISUPPORTS4(abpWrapper, nsIDOMEventListener, imgIDecoderObserver, nsIClassInfo, nsIXPCScriptable)
+
+/**************************************
+ * nsIDOMEventListener implementation *
+ **************************************/
+
+nsresult abpWrapper::HandleEvent(nsIDOMEvent* event) {
+  nsresult rv;
+  abpJSContextHolder holder;
+  JSObject* overlay = UnwrapNative(fakeBrowserWindow);
+  JSContext* cx = holder.get();
+  if (cx == nsnull || overlay == nsnull)
+    return NS_ERROR_FAILURE;
+
+  nsCOMPtr<nsIDOMEventTarget> target;
+  rv = event->GetTarget(getter_AddRefs(target));
+  if (NS_FAILED(rv) || target == nsnull)
+    return NS_ERROR_FAILURE;
+
+  nsCOMPtr<nsIXPConnect> xpc = do_GetService(nsIXPConnect::GetCID());
+  if (xpc == nsnull)
+    return NS_ERROR_FAILURE;
+
+  nsCOMPtr<nsIXPConnectJSObjectHolder> wrapperHolder;
+  rv = xpc->WrapNative(cx, JS_GetParent(cx, overlay), target, NS_GET_IID(nsIDOMEventTarget), getter_AddRefs(wrapperHolder));
+  if (NS_FAILED(rv))
+    return rv;
+
+  JSObject* jsObj;
+  rv = wrapperHolder->GetJSObject(&jsObj);
+  if (NS_FAILED(rv))
+    return rv;
+
+  jsval value = OBJECT_TO_JSVAL(jsObj);
+  if (!JS_SetProperty(cx, overlay, "target", &value))
+    return NS_ERROR_FAILURE;
+
+  ResetContextMenu();
+  JS_CallFunctionName(cx, overlay, "abpCheckContext", 0, nsnull, &value);
+
+  return NS_OK;
+}
+
+/**************************************
+ * imgIDecoderObserver implementation *
+ **************************************/
+
+nsresult abpWrapper::OnStopFrame(imgIRequest* aRequest, gfxIImageFrame *aFrame) {
+  nsresult rv;
+
+  gfx_format format;
+  rv = aFrame->GetFormat(&format);
+  if (NS_FAILED(rv))
+    return rv;
+  if (format != gfxIFormats::BGR_A8)
+    return NS_ERROR_FAILURE;
+
+  PRInt32 width;
+  rv = aFrame->GetWidth(&width);
+  if (NS_FAILED(rv))
+    return rv;
+
+  PRInt32 height;
+  rv = aFrame->GetHeight(&height);
+  if (NS_FAILED(rv))
+    return rv;
+
+  PRUint32 imageBytesPerRow;
+  rv = aFrame->GetImageBytesPerRow(&imageBytesPerRow);
+  if (NS_FAILED(rv))
+    return rv;
+
+  PRUint8* imageBits;
+  PRUint32 imageSize;
+  rv = aFrame->GetImageData(&imageBits, &imageSize);
+  if (NS_FAILED(rv))
+    return rv;
+
+  PRUint32 alphaBytesPerRow;
+  rv = aFrame->GetAlphaBytesPerRow(&alphaBytesPerRow);
+  if (NS_FAILED(rv))
+    return rv;
+
+  PRUint8* alphaBits;
+  PRUint32 alphaSize;
+  rv = aFrame->GetAlphaData(&alphaBits, &alphaSize);
+  if (NS_FAILED(rv))
+    return rv;
+
+  HDC hDC = ::GetDC(NULL);
+
+  PRUint8* bits = new PRUint8[imageSize + alphaSize];
+
+  for (PRUint32 i = 0, j = 0, n = 0; i < imageSize && j < alphaSize && n < imageSize + alphaSize;) {
+    bits[n++] = imageBits[i++];
+    bits[n++] = imageBits[i++];
+    bits[n++] = imageBits[i++];
+    bits[n++] = alphaBits[j++];
+  }
+
+  BITMAPINFOHEADER head;
+  head.biSize = sizeof(head);
+  head.biWidth = width;
+  head.biHeight = height;
+  head.biPlanes = 1;
+  head.biBitCount = 32;
+  head.biCompression = BI_RGB;
+  head.biSizeImage = imageSize + alphaSize;
+  head.biXPelsPerMeter = 0;
+  head.biYPelsPerMeter = 0;
+  head.biClrUsed = 0;
+  head.biClrImportant = 0;
+
+  HBITMAP image = ::CreateDIBitmap(hDC, NS_REINTERPRET_CAST(CONST BITMAPINFOHEADER*, &head),
+                                   CBM_INIT, bits, NS_REINTERPRET_CAST(CONST BITMAPINFO*, &head),
+                                   DIB_RGB_COLORS);
+  delete bits;
+
+  ImageList_Add(hImages, image, NULL);
+  DeleteObject(image);
+
+  ReleaseDC(NULL, hDC);
+
+  return NS_OK;
+}
+
+nsresult abpWrapper::OnStartDecode(imgIRequest* aRequest) {
+  return NS_OK;
+}
+nsresult abpWrapper::OnStartContainer(imgIRequest* aRequest, imgIContainer *aContainer) {
+  return NS_OK;
+}
+nsresult abpWrapper::OnStartFrame(imgIRequest* aRequest, gfxIImageFrame *aFrame) {
+  return NS_OK;
+}
+nsresult abpWrapper::OnDataAvailable(imgIRequest *aRequest, gfxIImageFrame *aFrame, const nsIntRect * aRect) {
+  return NS_OK;
+}
+nsresult abpWrapper::OnStopContainer(imgIRequest* aRequest, imgIContainer *aContainer) {
+  return NS_OK;
+}
+nsresult abpWrapper::OnStopDecode(imgIRequest* aRequest, nsresult status, const PRUnichar *statusArg) {
+  LoadImage(currentImage + 1);
+  return NS_OK;
+}
+nsresult abpWrapper::FrameChanged(imgIContainer *aContainer, gfxIImageFrame *aFrame, nsIntRect * aDirtyRect) {
+  return NS_OK;
+}
 
 /*******************************
  * nsIClassInfo implementation *
@@ -649,6 +806,16 @@ NS_METHOD abpWrapper::GetHelperForLanguage(PRUint32 language, nsISupports** retv
 
   *retval = NS_STATIC_CAST(nsIClassInfo*, this);
   NS_ADDREF(this);
+
+  return NS_OK;
+}
+
+NS_METHOD abpWrapper::GetInterfaces(PRUint32* count, nsIID*** array) {
+  NS_ENSURE_ARG_POINTER(count);
+  NS_ENSURE_ARG_POINTER(array);
+
+  *count = 0;
+  *array = nsnull;
 
   return NS_OK;
 }
@@ -772,16 +939,6 @@ NS_METHOD abpWrapper::InnerObject(nsIXPConnectWrappedNative* wrapper, JSContext*
 /**************************
  * JS object manupulation *
  **************************/
-
-NS_METHOD abpWrapper::GetInterfaces(PRUint32* count, nsIID*** array) {
-  NS_ENSURE_ARG_POINTER(count);
-  NS_ENSURE_ARG_POINTER(array);
-
-  *count = 0;
-  *array = nsnull;
-
-  return NS_OK;
-}
 
 PRBool abpWrapper::PatchComponent() {
   nsresult rv;
@@ -990,6 +1147,11 @@ JSObject* abpWrapper::UnwrapNative(nsISupports* native) {
   return innerObj;
 }
 
+
+/********************
+ * Helper functions *
+ ********************/
+
 PRBool abpWrapper::IsBrowserWindow(HWND wnd) {
   nsresult rv;
 
@@ -1179,43 +1341,6 @@ void abpWrapper::Focus(nsIDOMWindow* wnd) {
   BringWindowToTop(hWnd);
 }
 
-nsresult abpWrapper::HandleEvent(nsIDOMEvent* event) {
-  nsresult rv;
-  abpJSContextHolder holder;
-  JSObject* overlay = UnwrapNative(fakeBrowserWindow);
-  JSContext* cx = holder.get();
-  if (cx == nsnull || overlay == nsnull)
-    return NS_ERROR_FAILURE;
-
-  nsCOMPtr<nsIDOMEventTarget> target;
-  rv = event->GetTarget(getter_AddRefs(target));
-  if (NS_FAILED(rv) || target == nsnull)
-    return NS_ERROR_FAILURE;
-
-  nsCOMPtr<nsIXPConnect> xpc = do_GetService(nsIXPConnect::GetCID());
-  if (xpc == nsnull)
-    return NS_ERROR_FAILURE;
-
-  nsCOMPtr<nsIXPConnectJSObjectHolder> wrapperHolder;
-  rv = xpc->WrapNative(cx, JS_GetParent(cx, overlay), target, NS_GET_IID(nsIDOMEventTarget), getter_AddRefs(wrapperHolder));
-  if (NS_FAILED(rv))
-    return rv;
-
-  JSObject* jsObj;
-  rv = wrapperHolder->GetJSObject(&jsObj);
-  if (NS_FAILED(rv))
-    return rv;
-
-  jsval value = OBJECT_TO_JSVAL(jsObj);
-  if (!JS_SetProperty(cx, overlay, "target", &value))
-    return NS_ERROR_FAILURE;
-
-  ResetContextMenu();
-  JS_CallFunctionName(cx, overlay, "abpCheckContext", 0, nsnull, &value);
-
-  return NS_OK;
-}
-
 TCHAR* menus[] = {_T("DocumentPopup"), _T("DocumentImagePopup"), _T("TextPopup"),
                   _T("LinkPopup"), _T("ImageLinkPopup"), _T("ImagePopup"),
                   _T("FrameDocumentPopup"), _T("FrameDocumentImagePopup"), _T("FrameTextPopup"),
@@ -1301,110 +1426,4 @@ void abpWrapper::LoadImage(int index) {
     return;
 
   return;
-}
-
-/************************************
- * nsIDecodeObserver implementation *
- ************************************/
-
-nsresult abpWrapper::OnStopFrame(imgIRequest* aRequest, gfxIImageFrame *aFrame) {
-  nsresult rv;
-
-  gfx_format format;
-  rv = aFrame->GetFormat(&format);
-  if (NS_FAILED(rv))
-    return rv;
-  if (format != gfxIFormats::BGR_A8)
-    return NS_ERROR_FAILURE;
-
-  PRInt32 width;
-  rv = aFrame->GetWidth(&width);
-  if (NS_FAILED(rv))
-    return rv;
-
-  PRInt32 height;
-  rv = aFrame->GetHeight(&height);
-  if (NS_FAILED(rv))
-    return rv;
-
-  PRUint32 imageBytesPerRow;
-  rv = aFrame->GetImageBytesPerRow(&imageBytesPerRow);
-  if (NS_FAILED(rv))
-    return rv;
-
-  PRUint8* imageBits;
-  PRUint32 imageSize;
-  rv = aFrame->GetImageData(&imageBits, &imageSize);
-  if (NS_FAILED(rv))
-    return rv;
-
-  PRUint32 alphaBytesPerRow;
-  rv = aFrame->GetAlphaBytesPerRow(&alphaBytesPerRow);
-  if (NS_FAILED(rv))
-    return rv;
-
-  PRUint8* alphaBits;
-  PRUint32 alphaSize;
-  rv = aFrame->GetAlphaData(&alphaBits, &alphaSize);
-  if (NS_FAILED(rv))
-    return rv;
-
-  HDC hDC = ::GetDC(NULL);
-
-  PRUint8* bits = new PRUint8[imageSize + alphaSize];
-
-  for (PRUint32 i = 0, j = 0, n = 0; i < imageSize && j < alphaSize && n < imageSize + alphaSize;) {
-    bits[n++] = imageBits[i++];
-    bits[n++] = imageBits[i++];
-    bits[n++] = imageBits[i++];
-    bits[n++] = alphaBits[j++];
-  }
-
-  BITMAPINFOHEADER head;
-  head.biSize = sizeof(head);
-  head.biWidth = width;
-  head.biHeight = height;
-  head.biPlanes = 1;
-  head.biBitCount = 32;
-  head.biCompression = BI_RGB;
-  head.biSizeImage = imageSize + alphaSize;
-  head.biXPelsPerMeter = 0;
-  head.biYPelsPerMeter = 0;
-  head.biClrUsed = 0;
-  head.biClrImportant = 0;
-
-  HBITMAP image = ::CreateDIBitmap(hDC, NS_REINTERPRET_CAST(CONST BITMAPINFOHEADER*, &head),
-                                   CBM_INIT, bits, NS_REINTERPRET_CAST(CONST BITMAPINFO*, &head),
-                                   DIB_RGB_COLORS);
-  delete bits;
-
-  ImageList_Add(hImages, image, NULL);
-  DeleteObject(image);
-
-  ReleaseDC(NULL, hDC);
-
-  return NS_OK;
-}
-
-nsresult abpWrapper::OnStartDecode(imgIRequest* aRequest) {
-  return NS_OK;
-}
-nsresult abpWrapper::OnStartContainer(imgIRequest* aRequest, imgIContainer *aContainer) {
-  return NS_OK;
-}
-nsresult abpWrapper::OnStartFrame(imgIRequest* aRequest, gfxIImageFrame *aFrame) {
-  return NS_OK;
-}
-nsresult abpWrapper::OnDataAvailable(imgIRequest *aRequest, gfxIImageFrame *aFrame, const nsIntRect * aRect) {
-  return NS_OK;
-}
-nsresult abpWrapper::OnStopContainer(imgIRequest* aRequest, imgIContainer *aContainer) {
-  return NS_OK;
-}
-nsresult abpWrapper::OnStopDecode(imgIRequest* aRequest, nsresult status, const PRUnichar *statusArg) {
-  LoadImage(currentImage + 1);
-  return NS_OK;
-}
-nsresult abpWrapper::FrameChanged(imgIContainer *aContainer, gfxIImageFrame *aFrame, nsIntRect * aDirtyRect) {
-  return NS_OK;
 }
