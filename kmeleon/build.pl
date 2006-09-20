@@ -17,6 +17,7 @@ close(VERSION);
 
 my $output_file = shift @ARGV || "adblockplus.zip";
 my $locale = shift @ARGV || "en-US";
+my $charset = ($locale eq "ru-RU" ? "windows-1251" : "iso-8859-1");
 my @locales = ($locale);
 
 rm_rec('tmp');
@@ -93,6 +94,7 @@ sub cp
       s/^((?:  )+)/"\t" x (length($1)\/2)/e;
       s/(\#define\s+ABP_VERSION\s+)"[^"]*"/$1"$version"/ if $replace_version;
       s/(\#define\s+ABP_LANGUAGE\s+)"[^"]*"/$1"$locale"/ if $replace_version;
+      s/(\#define\s+ABP_CHARSET\s+)"[^"]*"/$1"$charset"/ if $replace_version;
       s/\{\{VERSION\}\}/$version/g if $replace_version;
       if ($replace_version && /\{\{LOCALE\}\}/)
       {

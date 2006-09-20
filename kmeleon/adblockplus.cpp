@@ -1126,6 +1126,8 @@ PRBool abpWrapper::CreateFakeBrowserWindow(JSContext* cx, JSObject* parent) {
   }
 
   char parseDTD[] = " \
+    var unicodeConverter = Components.classes['@mozilla.org/intl/scriptableunicodeconverter'].createInstance(Components.interfaces.nsIScriptableUnicodeConverter); \
+    unicodeConverter.charset = '" ABP_CHARSET "'; \
     var overlayDTD = function() { \
       var request = Components.classes['@mozilla.org/xmlextras/xmlhttprequest;1'].createInstance(Components.interfaces.nsIXMLHttpRequest); \
       request.open('GET', 'chrome://adblockplus/locale/overlay.dtd', false); \
@@ -1148,7 +1150,8 @@ PRBool abpWrapper::CreateFakeBrowserWindow(JSContext* cx, JSObject* parent) {
       return ret; \
     }(); \
     function getOverlayEntity(name, ellipsis) { \
-      return (name in overlayDTD ? overlayDTD[name] : name) + (ellipsis ? '...' : ''); \
+      var ret = (name in overlayDTD ? overlayDTD[name] : name) + (ellipsis ? '...' : ''); \
+      return unicodeConverter.ConvertFromUnicode(ret); \
     } \
 ";
   JSScript* parseDTDScript = JS_CompileScriptForPrincipals(cx, obj, principals, parseDTD, strlen(parseDTD), "adblockplus.dll inline script", 0);
