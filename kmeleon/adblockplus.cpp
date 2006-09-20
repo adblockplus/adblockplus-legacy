@@ -606,7 +606,7 @@ LRESULT CALLBACK abpWrapper::HookProc(int nCode, WPARAM wParam, LPARAM lParam) {
       DRAWITEMSTRUCT* dis = (DRAWITEMSTRUCT*)params->lParam;
       WORD id = dis->itemID - cmdBase;
       if (dis->CtlType == ODT_MENU && id < CMD_NULL)
-        ImageList_Draw(wrapper.hImages, 0, dis->hDC, dis->rcItem.left, dis->rcItem.top, ILD_TRANSPARENT);
+        ImageList_Draw(wrapper.hImages, 0, dis->hDC, dis->rcItem.left + 1, dis->rcItem.top + 1, ILD_TRANSPARENT);
     }
   }
 
