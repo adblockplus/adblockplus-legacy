@@ -1308,12 +1308,10 @@ JSObject* abpWrapper::OpenDialog(char* url, char* target, char* features) {
   else if (strstr(url, "settings.xul"))
     settingsDlg = do_QueryInterface(wnd);
 
-  if (strstr(url, "chrome://adblockplus/") == url) {
-    nsCOMPtr<nsIDOMEventTarget> target = do_QueryInterface(wnd);
-    nsString event(NS_ConvertASCIItoUTF16("contextmenu"));
-    if (target != nsnull)
-      target->AddEventListener(event, this, false);
-  }
+  nsCOMPtr<nsIDOMEventTarget> evtTarget = do_QueryInterface(wnd);
+  nsString event(NS_ConvertASCIItoUTF16("contextmenu"));
+  if (evtTarget != nsnull)
+    evtTarget->AddEventListener(event, this, false);
 
   return wrapper.GetGlobalObject(wnd);
 }
