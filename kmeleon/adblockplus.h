@@ -103,22 +103,6 @@ JSBool JS_DLL_CALLBACK JSDummyFunction(JSContext* cx, JSObject* obj, uintN argc,
 JSBool JS_DLL_CALLBACK JSGetContentWindow(JSContext *cx, JSObject *obj, jsval id, jsval *vp);
 JSBool JS_DLL_CALLBACK JSGetWrapper(JSContext *cx, JSObject *obj, jsval id, jsval *vp);
 
-LONG DoMessage(LPCSTR to, LPCSTR from, LPCSTR subject, LONG data1, LONG data2);
-LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
-LRESULT CALLBACK HookProc(int nCode, WPARAM wParam, LPARAM lParam);
-
-kmeleonPlugin kPlugin = {
-  KMEL_PLUGIN_VER,
-  PLUGIN_NAME,
-  DoMessage
-};
-
-extern "C" {
-  KMELEON_PLUGIN kmeleonPlugin *GetKmeleonPlugin() {
-    return &kPlugin;
-  }
-}
-
 class abpJSContextHolder {
 public:
   abpJSContextHolder() {
@@ -223,21 +207,22 @@ public:
   NS_DECL_IMGIDECODEROBSERVER
   NS_DECL_IMGICONTAINEROBSERVER
 
-  abpWrapper() : hCurrentBrowser(NULL), setNextWidth(0), setNextHeight(0) {
+  abpWrapper() {
     hImages = ImageList_Create(16, 16, ILC_COLOR32, sizeof(images)/sizeof(images[0]), 0);
   };
   virtual ~abpWrapper() {
     ImageList_Destroy(hImages);
   };
 
-  virtual PRBool Load();
-  virtual void Setup();
-  virtual void Create(HWND parent);
-  virtual void Quit();
-  virtual void DoMenu(HMENU menu, LPSTR action, LPSTR string);
-  virtual INT DoAccel(LPSTR action);
-  virtual LRESULT WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
-  virtual LRESULT HookProc(int nCode, WPARAM wParam, LPARAM lParam);
+  static LONG DoMessage(LPCSTR to, LPCSTR from, LPCSTR subject, LONG data1, LONG data2);
+  static PRBool Load();
+  static void Setup();
+  static void Create(HWND parent);
+  static void Quit();
+  static void DoMenu(HMENU menu, LPSTR action, LPSTR string);
+  static INT DoAccel(LPSTR action);
+  static LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
+  static LRESULT CALLBACK HookProc(int nCode, WPARAM wParam, LPARAM lParam);
   virtual JSObject* OpenDialog(char* url, char* target, char* features);
   virtual nsresult OpenTab(const char* url);
   virtual nsresult AddSelectListener(JSContext* cx, JSFunction* func);
@@ -246,34 +231,46 @@ public:
   virtual nsIDOMWindowInternal* GetSettingsWindow() {return settingsDlg;}
   virtual nsIDOMWindow* GetCurrentWindow();
   virtual JSObject* GetGlobalObject(nsIDOMWindow* wnd);
-  virtual JSObject* UnwrapNative(nsISupports* native);
+  static JSObject* UnwrapNative(nsISupports* native);
   virtual void Focus(nsIDOMWindow* wnd);
   virtual void AddContextMenuItem(WORD command, char* label);
   virtual void ResetContextMenu();
 protected:
-  kmeleonFunctions* kFuncs;
-  WORD cmdBase;
-  void* origWndProc;
-  HWND hMostRecent;
-  HWND hCurrentBrowser;
-  nsCOMPtr<nsIWindowWatcher> watcher;
-  nsCOMPtr<nsIIOService> ioService;
+  static kmeleonFunctions* kFuncs;
+  static WORD cmdBase;
+  static void* origWndProc;
+  static HWND hMostRecent;
+  static HWND hCurrentBrowser;
+  static nsCOMPtr<nsIWindowWatcher> watcher;
+  static nsCOMPtr<nsIIOService> ioService;
   nsCOMPtr<nsIDOMWindowInternal> settingsDlg;
-  nsCOMPtr<nsIDOMWindowInternal> fakeBrowserWindow;
-  nsCOMPtr<nsIPrincipal> systemPrincipal;
-  abpListenerList selectListeners;
-  int setNextWidth;
-  int setNextHeight;
+  static nsCOMPtr<nsIDOMWindowInternal> fakeBrowserWindow;
+  static nsCOMPtr<nsIPrincipal> systemPrincipal;
+  static abpListenerList selectListeners;
+  static int setNextWidth;
+  static int setNextHeight;
 
   nsCOMPtr<imgIRequest> imageRequest;
   int currentImage;
   HIMAGELIST hImages;
-  HHOOK hook;
+  static HHOOK hook;
 
-  virtual PRBool PatchComponent();
-  virtual PRBool CreateFakeBrowserWindow(JSContext* cx, JSObject* parent);
-  virtual PRBool IsBrowserWindow(HWND wnd);
-  virtual INT CommandByName(LPSTR action);
-  virtual void ReadAccelerator(nsIPrefBranch* branch, const char* pref, const char* command);
+  static PRBool PatchComponent();
+  static PRBool CreateFakeBrowserWindow(JSContext* cx, JSObject* parent);
+  static PRBool IsBrowserWindow(HWND wnd);
+  static INT CommandByName(LPSTR action);
+  static void ReadAccelerator(nsIPrefBranch* branch, const char* pref, const char* command);
   virtual void LoadImage(int index);
 };
+
+kmeleonPlugin kPlugin = {
+  KMEL_PLUGIN_VER,
+  PLUGIN_NAME,
+  &abpWrapper::DoMessage
+};
+
+extern "C" {
+  KMELEON_PLUGIN kmeleonPlugin *GetKmeleonPlugin() {
+    return &kPlugin;
+  }
+}
