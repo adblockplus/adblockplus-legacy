@@ -600,7 +600,8 @@ LRESULT abpWrapper::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPara
   }
   else if (message == WM_CLOSE) {
     // Avoid window size glitch when closing background windows
-    BringWindowToTop(hWnd);
+    if (!IsBrowserWindow(hWnd))
+      BringWindowToTop(hWnd);
   }
   else if (message == WM_SIZE && setNextWidth > 0) {
     // Fix up window size
