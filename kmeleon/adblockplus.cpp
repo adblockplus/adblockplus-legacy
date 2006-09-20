@@ -247,8 +247,8 @@ JSBool JS_DLL_CALLBACK FakeSetTimeout(JSContext* cx, JSObject* obj, uintN argc, 
   *rval = JSVAL_VOID;
 
   JSFunction* function;
-  PRInt32 timeout;
-  if (!JS_ConvertArguments(cx, argc, argv, "fi", &function, &timeout))
+  int32 timeout;
+  if (!JS_ConvertArguments(cx, argc, argv, "fj", &function, &timeout))
     return JS_FALSE;
 
   jsval retval;
