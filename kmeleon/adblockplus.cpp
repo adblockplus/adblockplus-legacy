@@ -619,6 +619,18 @@ NS_IMPL_ISUPPORTS4(abpWrapper, nsIDOMEventListener, imgIDecoderObserver, nsIClas
 
 nsresult abpWrapper::HandleEvent(nsIDOMEvent* event) {
   nsresult rv;
+
+  PRUint16 phase;
+  rv = event->GetEventPhase(&phase);
+  if (NS_FAILED(rv))
+    return rv;
+
+  if (phase != nsIDOMEvent::CAPTURING_PHASE) {
+    // We are here to prevent the default menu from appearing
+    rv = event->PreventDefault();
+    return rv;
+  }
+
   abpJSContextHolder holder;
   JSObject* overlay = UnwrapNative(fakeBrowserWindow);
   JSContext* cx = holder.get();
@@ -1289,6 +1301,13 @@ JSObject* abpWrapper::OpenDialog(char* url, char* target, char* features) {
   }
   else if (strstr(url, "settings.xul"))
     settingsDlg = do_QueryInterface(wnd);
+
+  if (strstr(url, "chrome://adblockplus/") == url) {
+    nsCOMPtr<nsIDOMEventTarget> target = do_QueryInterface(wnd);
+    nsString event(NS_ConvertASCIItoUTF16("contextmenu"));
+    if (target != nsnull)
+      target->AddEventListener(event, this, false);
+  }
 
   return wrapper.GetGlobalObject(wnd);
 }
