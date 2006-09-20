@@ -332,6 +332,8 @@ LONG abpWrapper::DoMessage(LPCSTR to, LPCSTR from, LPCSTR subject, LONG data1, L
     Setup();
   else if (_stricmp(subject, "Create") == 0)
     Create((HWND)data1);
+  else if (_stricmp(subject, "Config") == 0)
+    Config((HWND)data1);
   else if (_stricmp(subject, "Quit") == 0)
     Quit();
   else if (_stricmp(subject, "DoMenu") == 0) {
@@ -467,6 +469,10 @@ void abpWrapper::Create(HWND parent) {
     nsString event(NS_ConvertASCIItoUTF16("contextmenu"));
     target->AddEventListener(event, &wrapper, true);
   }
+}
+
+void abpWrapper::Config(HWND parent) {
+  WndProc(parent, WM_COMMAND, cmdBase + CMD_PREFERENCES, 0);
 }
 
 void abpWrapper::DoMenu(HMENU menu, LPSTR action, LPSTR string) {

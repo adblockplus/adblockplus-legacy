@@ -218,6 +218,7 @@ public:
   static PRBool Load();
   static void Setup();
   static void Create(HWND parent);
+  static void Config(HWND parent);
   static void Quit();
   static void DoMenu(HMENU menu, LPSTR action, LPSTR string);
   static INT DoAccel(LPSTR action);
