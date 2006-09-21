@@ -61,6 +61,6 @@ template+.container, .containerAdded {
   cursor: pointer;
 }
 
-checkbox hbox {
+checkbox .checkbox-label-box {
   display: none;
 }
