@@ -80,8 +80,15 @@
 #define ADBLOCKPLUS_CONTRACTID "@mozilla.org/adblockplus;1"
 
 WORD cmdBase;
-enum {CMD_PREFERENCES, CMD_LISTALL, CMD_TOGGLEENABLED, CMD_IMAGE, CMD_OBJECT, CMD_LINK, CMD_FRAME, CMD_SEPARATOR, CMD_NULL};
-#define NUM_COMMANDS (CMD_NULL)
+enum {CMD_PREFERENCES, CMD_LISTALL, CMD_TOGGLEENABLED, CMD_IMAGE, CMD_OBJECT, CMD_LINK, CMD_FRAME, CMD_SEPARATOR, NUM_COMMANDS};
+enum {LABEL_CONTEXT_IMAGE, LABEL_CONTEXT_OBJECT, LABEL_CONTEXT_LINK, LABEL_CONTEXT_FRAME, NUM_LABELS};
+
+char* labels[] = {
+  "context.image",
+  "context.object",
+  "context.link",
+  "context.frame",
+};
 
 char* images[] = {
   "chrome://adblockplus/skin/abp-enabled-16.png",
