@@ -26,6 +26,7 @@
 #include "adblockplus.h"
 
 abpWrapper wrapper;
+char labelValues[NUM_LABELS][100];
 
 JSFunctionSpec component_methods[] = {
   {"getMostRecentWindow", FakeGetMostRecentWindow, 1, 0, 0},
@@ -280,13 +281,13 @@ JSBool JS_DLL_CALLBACK FakeShowItem(JSContext* cx, JSObject* obj, uintN argc, js
     return JS_TRUE;
 
   if (strcmp(item, "abp-image-menuitem") == 0)
-    wrapper.AddContextMenuItem(CMD_IMAGE, "context.image");
+    wrapper.AddContextMenuItem(CMD_IMAGE, labelValues[LABEL_CONTEXT_IMAGE]);
   else if (strcmp(item, "abp-object-menuitem") == 0)
-    wrapper.AddContextMenuItem(CMD_OBJECT, "context.object");
+    wrapper.AddContextMenuItem(CMD_OBJECT, labelValues[LABEL_CONTEXT_OBJECT]);
   else if (strcmp(item, "abp-link-menuitem") == 0)
-    wrapper.AddContextMenuItem(CMD_LINK, "context.link");
+    wrapper.AddContextMenuItem(CMD_LINK, labelValues[LABEL_CONTEXT_LINK]);
   else if (strcmp(item, "abp-frame-menuitem") == 0)
-    wrapper.AddContextMenuItem(CMD_FRAME, "context.frame");
+    wrapper.AddContextMenuItem(CMD_FRAME, labelValues[LABEL_CONTEXT_FRAME]);
 
   return JS_TRUE;
 }
@@ -630,7 +631,7 @@ LRESULT CALLBACK abpWrapper::HookProc(int nCode, WPARAM wParam, LPARAM lParam) {
     if (params->message == WM_DRAWITEM) {
       DRAWITEMSTRUCT* dis = (DRAWITEMSTRUCT*)params->lParam;
       WORD id = dis->itemID - cmdBase;
-      if (dis->CtlType == ODT_MENU && id < CMD_NULL)
+      if (dis->CtlType == ODT_MENU && id < NUM_COMMANDS)
         ImageList_Draw(wrapper.hImages, 0, dis->hDC, dis->rcItem.left + 1, dis->rcItem.top + 1, ILD_TRANSPARENT);
     }
   }
@@ -1172,6 +1173,32 @@ PRBool abpWrapper::CreateFakeBrowserWindow(JSContext* cx, JSObject* parent) {
     return PR_FALSE;
   }
 
+  JS_DestroyScript(cx, overlayLoadScript);
+  JS_DestroyScript(cx, parseDTDScript);
+
+  for (int i = 0; i < NUM_LABELS; i++) {
+    JSString* str = JS_NewStringCopyZ(cx, labels[i]);
+    if (str == nsnull) {
+      JS_ReportError(cx, "Adblock Plus: Could not create JavaScript string for '%s' - out of memory?", labels[i]);
+      return PR_FALSE;
+    }
+  
+    jsval args[] = {STRING_TO_JSVAL(str), JSVAL_TRUE};
+    jsval retval;
+    if (!JS_CallFunctionName(cx, obj, "getOverlayEntity", 2, args, &retval)) {
+      JS_ReportError(cx, "Adblock Plus: Failed to retrieve entity '%s' from overlay.dtd", labels[i]);
+      return PR_FALSE;
+    }
+
+    str = JS_ValueToString(cx, retval);
+    if (str == nsnull) {
+      JS_ReportError(cx, "Adblock Plus: Could not convert return value of getOverlayEntity() to string");
+      return PR_FALSE;
+    }
+
+    strcpy_s(labelValues[i], sizeof(labelValues[i]), JS_GetStringBytes(str));
+  }
+
   return PR_TRUE;
 }
 
@@ -1393,30 +1420,11 @@ TCHAR* menus[] = {_T("DocumentPopup"), _T("DocumentImagePopup"), _T("TextPopup")
                   _T("FrameLinkPopup"), _T("FrameImageLinkPopup"), _T("FrameImagePopup"),
                   NULL};
 
-void abpWrapper::AddContextMenuItem(WORD command, char* entity) {
+void abpWrapper::AddContextMenuItem(WORD command, char* label) {
   MENUITEMINFO info;
   memset(&info, 0, sizeof info);
   info.cbSize = sizeof info;
   info.fMask = MIIM_TYPE;
-
-  abpJSContextHolder holder;
-  JSContext* cx = holder.get();
-  JSObject* overlay = UnwrapNative(fakeBrowserWindow);
-  if (cx == nsnull || overlay == nsnull)
-    return;
-
-  JSString* str = JS_NewStringCopyZ(cx, entity);
-  if (str == nsnull)
-    return;
-
-  jsval args[] = {STRING_TO_JSVAL(str), JSVAL_TRUE};
-  jsval retval;
-  if (!JS_CallFunctionName(cx, overlay, "getOverlayEntity", 2, args, &retval))
-    return;
-
-  char* label = JS_GetStringBytes(JS_ValueToString(cx, retval));
-  if (label == nsnull)
-    return;
 
   UINT drawFlag;
   for (int i = 0; menus[i]; i++) {
@@ -1427,14 +1435,14 @@ void abpWrapper::AddContextMenuItem(WORD command, char* entity) {
       int count = GetMenuItemCount(hMenu);
       if (count > 0) {
         WORD id = GetMenuItemID(hMenu, count - 1) - cmdBase;
-        if (id >= CMD_NULL)
+        if (id >= NUM_COMMANDS)
           AppendMenuA(hMenu, MF_SEPARATOR, cmdBase + CMD_SEPARATOR, NULL);
 
         // Only use MF_OWNERDRAW flag if other menu items have it as well
         if (GetMenuItemInfo(hMenu, 0, TRUE, &info) && !(info.fType & MFT_OWNERDRAW))
-          drawFlag = 0;
+          drawFlag = MF_STRING;
       }
-      AppendMenuA(hMenu, MF_STRING | drawFlag, cmdBase + command, label);
+      AppendMenuA(hMenu, drawFlag, cmdBase + command, label);
     }
   }
 }
@@ -1446,7 +1454,7 @@ void abpWrapper::ResetContextMenu() {
       int count = GetMenuItemCount(hMenu);
       for (int j = 0; j < count; j++) {
         WORD id = GetMenuItemID(hMenu, j) - cmdBase;
-        if (id < CMD_NULL)
+        if (id < NUM_COMMANDS)
           RemoveMenu(hMenu, j--, MF_BYPOSITION);
       }
     }
