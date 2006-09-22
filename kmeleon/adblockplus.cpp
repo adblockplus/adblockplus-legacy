@@ -367,6 +367,8 @@ LONG abpWrapper::DoMessage(LPCSTR to, LPCSTR from, LPCSTR subject, LONG data1, L
   }
   else if (_stricmp(subject, "DoAccel") == 0)
     *(PINT)data2 = DoAccel((LPSTR)data1);
+  else if (_stricmp(subject, "DoRebar") == 0)
+    DoRebar((HWND)data1);
   else
     ret = 0;
 
@@ -512,6 +514,53 @@ INT abpWrapper::DoAccel(LPSTR action) {
     return cmdBase + command;
 
   return 0;
+}
+
+void abpWrapper::DoRebar(HWND hRebar) {
+  DWORD dwStyle = CCS_NODIVIDER | CCS_NOPARENTALIGN | CCS_NORESIZE |
+    TBSTYLE_FLAT | TBSTYLE_TRANSPARENT | TBSTYLE_TOOLTIPS;
+
+  HWND toolbar = CreateWindowEx(0, TOOLBARCLASSNAME, _T(""),
+    WS_CHILD | dwStyle, 0, 0, 0, 0, hRebar, (HMENU)'ABPP',
+    kPlugin.hDllInstance, NULL
+  );
+  if (!toolbar)
+    return;
+
+  TBBUTTON button = {0};
+  button.iBitmap = 0;
+  button.idCommand = cmdBase + CMD_LISTALL;
+  button.fsState = TBSTATE_ENABLED;
+  button.fsStyle = TBSTYLE_BUTTON;
+  button.dwData = 0;
+  button.iString = -1;
+
+  SendMessage(toolbar, TB_BUTTONSTRUCTSIZE, (WPARAM)sizeof(button), 0);
+  SendMessage(toolbar, TB_ADDBUTTONS, 1, (LPARAM)&button);
+
+  int width, height;
+  ImageList_GetIconSize(wrapper.hImages, &width, &height);
+  SendMessage(toolbar, TB_SETBUTTONSIZE, 0, (LPARAM)MAKELONG(width, height));
+  SendMessage(toolbar, TB_SETIMAGELIST, 0, (LPARAM)wrapper.hImages);
+
+  DWORD dwBtnSize = SendMessage(toolbar, TB_GETBUTTONSIZE, 0, 0); 
+  width = LOWORD(dwBtnSize);
+  height = HIWORD(dwBtnSize);
+
+  kFuncs->RegisterBand(toolbar, "Adblock Plus", TRUE);
+
+  REBARBANDINFO rebar = {0};
+  rebar.cbSize = sizeof(rebar);
+  rebar.fMask  = RBBIM_ID | RBBIM_STYLE | RBBIM_CHILD | RBBIM_CHILDSIZE | RBBIM_SIZE | RBBIM_IDEALSIZE;
+  rebar.wID = 'ABPP';
+  rebar.fStyle = RBBS_CHILDEDGE;
+  rebar.hwndChild  = toolbar;
+  rebar.cxMinChild = width;
+  rebar.cyMinChild = height;
+  rebar.cyMaxChild = height;
+  rebar.cxIdeal    = width;
+  rebar.cx         = width;
+  SendMessage(hRebar, RB_INSERTBAND, (WPARAM)-1, (LPARAM)&rebar);
 }
 
 LRESULT abpWrapper::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
@@ -1151,7 +1200,12 @@ PRBool abpWrapper::CreateFakeBrowserWindow(JSContext* cx, JSObject* parent) {
 \
       return ret; \
     }(); \
-    function getOverlayEntity(name, ellipsis) { \
+    function getOverlayEntity(name) { \
+      var ellipsis = false; \
+      if (/\\.\\.\\.$/.test(name)) { \
+        ellipsis = true; \
+        name = name.replace(/\\.\\.\\.$/, ''); \
+      } \
       var ret = (name in overlayDTD ? overlayDTD[name] : name) + (ellipsis ? '...' : ''); \
       return unicodeConverter.ConvertFromUnicode(ret); \
     } \
@@ -1183,9 +1237,9 @@ PRBool abpWrapper::CreateFakeBrowserWindow(JSContext* cx, JSObject* parent) {
       return PR_FALSE;
     }
   
-    jsval args[] = {STRING_TO_JSVAL(str), JSVAL_TRUE};
+    jsval args[] = {STRING_TO_JSVAL(str)};
     jsval retval;
-    if (!JS_CallFunctionName(cx, obj, "getOverlayEntity", 2, args, &retval)) {
+    if (!JS_CallFunctionName(cx, obj, "getOverlayEntity", 1, args, &retval)) {
       JS_ReportError(cx, "Adblock Plus: Failed to retrieve entity '%s' from overlay.dtd", labels[i]);
       return PR_FALSE;
     }
@@ -1421,8 +1475,7 @@ TCHAR* menus[] = {_T("DocumentPopup"), _T("DocumentImagePopup"), _T("TextPopup")
                   NULL};
 
 void abpWrapper::AddContextMenuItem(WORD command, char* label) {
-  MENUITEMINFO info;
-  memset(&info, 0, sizeof info);
+  MENUITEMINFO info = {0};
   info.cbSize = sizeof info;
   info.fMask = MIIM_TYPE;
 

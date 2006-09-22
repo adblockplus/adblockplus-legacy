@@ -84,10 +84,10 @@ enum {CMD_PREFERENCES, CMD_LISTALL, CMD_TOGGLEENABLED, CMD_IMAGE, CMD_OBJECT, CM
 enum {LABEL_CONTEXT_IMAGE, LABEL_CONTEXT_OBJECT, LABEL_CONTEXT_LINK, LABEL_CONTEXT_FRAME, NUM_LABELS};
 
 char* labels[] = {
-  "context.image",
-  "context.object",
-  "context.link",
-  "context.frame",
+  "context.image...",
+  "context.object...",
+  "context.link...",
+  "context.frame...",
 };
 
 char* images[] = {
@@ -231,6 +231,7 @@ public:
   static void Quit();
   static void DoMenu(HMENU menu, LPSTR action, LPSTR string);
   static INT DoAccel(LPSTR action);
+  static void DoRebar(HWND hRebar);
   static LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
   static LRESULT CALLBACK HookProc(int nCode, WPARAM wParam, LPARAM lParam);
   virtual JSObject* OpenDialog(char* url, char* target, char* features);
