@@ -227,7 +227,7 @@ var policy = {
 
     // if it's not a blockable type or a whitelisted scheme, use the usual policy
     var location = unwrapURL(contentLocation.spec);
-    if (!(contentType in blockTypes && this.isBlockableScheme(location)))
+    if (!(contentType in blockTypes && this.isBlockableScheme(location)) || location == 'about:blank')
       return ok;
 
     if (!insecNode)
