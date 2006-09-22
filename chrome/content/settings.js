@@ -239,6 +239,8 @@ function fixColWidth() {
 function onInputChange(e) {
   if (e.type == "DOMAttrModified" && e.attrName != "value")
     return;
+  if (!wndData)
+    return;
 
   var value = e.target.value;
   var loc = wndData.getLocation(value);
