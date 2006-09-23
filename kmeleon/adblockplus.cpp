@@ -465,38 +465,6 @@ void abpWrapper::Create(HWND parent) {
   }
 
   hMostRecent = parent;
-
-  {
-    nsresult rv;
-
-    nsCOMPtr<nsIWebBrowser> browser;
-    if (!kFuncs->GetMozillaWebBrowser(parent, getter_AddRefs(browser)))
-      return;
-  
-    nsCOMPtr<nsIDOMWindow> contentWnd;
-    rv = browser->GetContentDOMWindow(getter_AddRefs(contentWnd));
-    if (NS_FAILED(rv))
-      return;
-
-    nsCOMPtr<nsPIDOMWindow> privateWnd = do_QueryInterface(contentWnd);
-    if (privateWnd == nsnull)
-      return;
-
-    nsPIDOMWindow* rootWnd = privateWnd->GetPrivateRoot();
-    if (rootWnd == nsnull)
-      return;
-
-    nsIChromeEventHandler* chromeHandler = rootWnd->GetChromeEventHandler();
-    if (chromeHandler == nsnull)
-      return;
-
-    nsCOMPtr<nsIDOMEventTarget> target = do_QueryInterface(chromeHandler);
-    if (target == nsnull)
-      return;
-
-    nsString event(NS_ConvertASCIItoUTF16("contextmenu"));
-    target->AddEventListener(event, &wrapper, true);
-  }
 }
 
 void abpWrapper::Config(HWND parent) {
@@ -648,11 +616,6 @@ LRESULT abpWrapper::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPara
       hCurrentBrowser = hWnd;
       selectListeners.notifyListeners();
     }
-  }
-  else if (message == WM_CLOSE) {
-    // Avoid window size glitch when closing background windows
-    if (!IsBrowserWindow(hWnd))
-      BringWindowToTop(hWnd);
   }
   else if (message == WM_SIZE && setNextWidth > 0) {
     // Fix up window size
