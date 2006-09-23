@@ -41,6 +41,7 @@ JSFunctionSpec browser_methods[] = {
   {"getElementById", JSDummyFunction, 0, 0, 0},
   {"setAttribute", JSDummyFunction, 0, 0, 0},
   {"removeAttribute", JSDummyFunction, 0, 0, 0},
+  {"appendChild", JSDummyFunction, 0, 0, 0},
   {"hasAttribute", FakeHasAttribute, 0, 0, 0},
   {"getAttribute", FakeGetAttribute, 0, 0, 0},
   {"setTimeout", FakeSetTimeout, 0, 0, 0},
