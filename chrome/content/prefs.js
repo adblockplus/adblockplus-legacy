@@ -203,8 +203,12 @@ var elemhide = {
         rule = '@-moz-document domain("' + domain.split(",").join('"),domain("') + '"){\n' + rule + '}\n';
       }
       else {
-        // Only allow unqualified rules on HTTP and HTTPS to prevent them from blocking chrome
-        rule = '@-moz-document url-prefix("http://"),url-prefix("https://"){\n' + rule + '}\n';
+        // Only allow unqualified rules on a few protocols to prevent them from blocking chrome
+        rule = '@-moz-document url-prefix("http://"),url-prefix("https://"),'
+             + 'url-prefix("mailbox://"),url-prefix("imap://"),'
+             + 'url-prefix("news://"),url-prefix("snews://"){\n'
+               + rule
+             + '}\n';
       }
       cssData += rule;
     }
@@ -825,7 +829,7 @@ var prefs = {
       if (text.indexOf("@@") == 0) {
         pattern.type = "whitelist";
         text = text.substr(2);
-        pattern.pageWhitelist = /^\|?[\w\-]+:\/\//.test(text);
+        pattern.pageWhitelist = /^\|?[\w\-]+:/.test(text);
       }
 
       if (abp.optionsRegExp.test(text)) {
