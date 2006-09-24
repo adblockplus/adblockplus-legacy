@@ -41,6 +41,9 @@ var abpHideImageManager;
 window.addEventListener("load", abpInit, false);
 
 function abpInit() {
+  if (!("getBrowser" in window) && "messageContent" in window)
+    window.getBrowser = function() {return window.messageContent};
+
   window.addEventListener("unload", abpUnload, false);
 
   // Process preferences
@@ -62,7 +65,18 @@ function abpInit() {
   }
 
   // Install context menu handler
-  document.getElementById("contentAreaContextMenu").addEventListener("popupshowing", abpCheckContext, false);
+  var contextMenu = document.getElementById("contentAreaContextMenu") || document.getElementById("messagePaneContext");
+  contextMenu.addEventListener("popupshowing", abpCheckContext, false);
+
+  // Make sure our context menu items are at the bottom
+  contextMenu.appendChild(document.getElementById("abp-frame-menuitem"));
+  contextMenu.appendChild(document.getElementById("abp-link-menuitem"));
+  contextMenu.appendChild(document.getElementById("abp-object-menuitem"));
+  contextMenu.appendChild(document.getElementById("abp-image-menuitem"));
+
+  // Make sure our status panel is the last on the status bar
+  var statusPanel= document.getElementById("abp-status");
+  statusPanel.parentNode.appendChild(statusPanel);
 
   // Check whether Adblock is installed and uninstall
   // Delay it so the browser window will be displayed before the warning
@@ -134,9 +148,30 @@ function abpReloadPrefs() {
     label = abp.getString("status_" + state + "_label");
 
     if (state == "active") {
-      var location = abp.unwrapURL(window.content.location.href);
-      if (abp.policy.isWhitelisted(location))
-        state = "whitelisted";
+      var contentWnd = window.content;
+      if ("gDBView" in window) {
+        // Thunderbird branch
+
+        try {
+          var msgHdr = gDBView.hdrForFirstSelectedMessage;
+          var headerParser = Components.classes["@mozilla.org/messenger/headerparser;1"]
+                                      .getService(Components.interfaces.nsIMsgHeaderParser);
+          var emailAddress = headerParser.extractHeaderAddressMailboxes(null, msgHdr.author);
+          if (emailAddress) {
+            emailAddress = 'mailto:' + emailAddress.replace(/^[\s"]+/, "").replace(/[\s"]+$/, "").replace(' ', '%20');
+            if (abp.policy.isWhitelisted(emailAddress))
+              state = "whitelisted";
+          }
+        }
+        catch(e) {}
+      }
+      else {
+        // Firefox branch
+
+        var location = abp.unwrapURL(window.content.location.href);
+        if (abp.policy.isWhitelisted(location))
+          state = "whitelisted";
+      }
     }
   }
 
@@ -246,7 +281,7 @@ function abpConfigureKey(key, value) {
 
 // Finds the toolbar button in the toolbar palette
 function abpGetPaletteButton() {
-  var toolbox = document.getElementById("navigator-toolbox");
+  var toolbox = document.getElementById("navigator-toolbox") || document.getElementById("mail-toolbox");
   if (!toolbox || !("palette" in toolbox) || !toolbox.palette)
     return null;
 
@@ -309,17 +344,22 @@ function abpCheckExtensionConflicts() {
 // Check whether we installed the toolbar button already
 function abpInstallInToolbar() {
   if (!document.getElementById("abp-toolbarbutton")) {
+    var insertBeforeBtn = "urlbar-container";
     var toolbar = document.getElementById("nav-bar");
+    if (!toolbar) {
+      insertBeforeBtn = "button-junk";
+      toolbar = document.getElementById("mail-bar");
+    }
+
     if (toolbar && "insertItem" in toolbar) {
-      var insertBefore = document.getElementById("urlbar-container");
+      var insertBefore = document.getElementById(insertBeforeBtn);
       if (insertBefore && insertBefore.parentNode != toolbar)
         insertBefore = null;
 
       toolbar.insertItem("abp-toolbarbutton", insertBefore, null, false);
 
-      // Need this to make FF 1.0 persist the new button
       toolbar.setAttribute("currentset", toolbar.currentSet);
-      document.persist("nav-bar", "currentset");
+      document.persist(toolbar.id, "currentset");
     }
   }
 
@@ -448,33 +488,69 @@ function abpFillPopup(popup) {
   elements.opensidebar.hidden = sidebarOpen;
   elements.closesidebar.hidden = !sidebarOpen;
 
-  var location = abp.unwrapURL(content.location.href);
-  var showWhitelist = abp.policy.isBlockableScheme(location);
-  var whitelistItemSite = elements.whitelistsite;
-  var whitelistItemPage = elements.whitelistpage;
-  if (showWhitelist) {
-    var url = location.replace(/\?.*/, '');
-    var host = abp.makeURL(location);
-    if (host)
-      host = host.host;
-    var site = url.replace(/^([^\/]+\/\/[^\/]+\/).*/, "$1");
+  var whitelistItemSite;
+  var whitelistItemPage;
+  if ("gDBView" in window) {
+    // Thunderbird branch
 
-    whitelistItemSite.pattern = "@@|" + site;
-    whitelistItemSite.setAttribute("checked", abpHasPattern(whitelistItemSite.pattern));
-    whitelistItemSite.setAttribute("label", whitelistItemSite.getAttribute("labeltempl").replace(/--/, host));
+    try {
+      var msgHdr = gDBView.hdrForFirstSelectedMessage;
+      var headerParser = Components.classes["@mozilla.org/messenger/headerparser;1"]
+                                  .getService(Components.interfaces.nsIMsgHeaderParser);
+      var emailAddress = headerParser.extractHeaderAddressMailboxes(null, msgHdr.author);
+      if (emailAddress)
+        emailAddress = emailAddress.replace(/^[\s"]+/, "").replace(/[\s"]+$/, "");
+    }
+    catch(e) {
+      emailAddress = null;
+    }
 
-    whitelistItemPage.pattern = "@@|" + url + "|";
-    whitelistItemPage.setAttribute("checked", abpHasPattern(whitelistItemPage.pattern));
-  }
-  whitelistItemSite.hidden = whitelistItemPage.hidden =
-    whitelistItemPage.nextSibling.hidden = !showWhitelist;
-  if (abp.getSettingsDialog()) {
-    whitelistItemSite.setAttribute("disabled", "true");
-    whitelistItemPage.setAttribute("disabled", "true");
+    whitelistItemSite = elements.whitelistsite;
+    if (emailAddress) {
+      whitelistItemSite.pattern = "@@|mailto:" + emailAddress.replace(' ', '%20') + "|";
+      whitelistItemSite.setAttribute("checked", abpHasPattern(whitelistItemSite.pattern));
+      whitelistItemSite.setAttribute("label", whitelistItemSite.getAttribute("labeltempl").replace(/--/, emailAddress));
+    }
+
+    whitelistItemSite.hidden = whitelistItemSite.nextSibling.hidden = !emailAddress;
+
+    if (abp.getSettingsDialog())
+      whitelistItemSite.setAttribute("disabled", "true");
+    else
+      whitelistItemSite.removeAttribute("disabled");
   }
   else {
-    whitelistItemSite.removeAttribute("disabled");
-    whitelistItemPage.removeAttribute("disabled");
+    // Firefox branch
+
+    var location = abp.unwrapURL(content.location.href);
+    var showWhitelist = abp.policy.isBlockableScheme(location);
+
+    whitelistItemSite = elements.whitelistsite;
+    whitelistItemPage = elements.whitelistpage;
+    if (showWhitelist) {
+      var url = location.replace(/\?.*/, '');
+      var host = abp.makeURL(location);
+      if (host)
+        host = host.host;
+      var site = url.replace(/^([^\/]+\/\/[^\/]+\/).*/, "$1");
+  
+      whitelistItemSite.pattern = "@@|" + site;
+      whitelistItemSite.setAttribute("checked", abpHasPattern(whitelistItemSite.pattern));
+      whitelistItemSite.setAttribute("label", whitelistItemSite.getAttribute("labeltempl").replace(/--/, host));
+  
+      whitelistItemPage.pattern = "@@|" + url + "|";
+      whitelistItemPage.setAttribute("checked", abpHasPattern(whitelistItemPage.pattern));
+    }
+    whitelistItemSite.hidden = whitelistItemPage.hidden
+      = whitelistItemSite.nextSibling.hidden = !showWhitelist;
+    if (abp.getSettingsDialog()) {
+      whitelistItemSite.setAttribute("disabled", "true");
+      whitelistItemPage.setAttribute("disabled", "true");
+    }
+    else {
+      whitelistItemSite.removeAttribute("disabled");
+      whitelistItemPage.removeAttribute("disabled");
+    }
   }
 
   elements.enabled.setAttribute("checked", abpPrefs.enabled);
@@ -602,6 +678,9 @@ function abpToggleSidebar() {
       SidebarSelectPanel(panel, true, true);
     }
     else {
+      if (!mustDetach)
+        abpForceDetach = true;
+
       // Open detached sidebar
       abpDetachedSidebar = window.openDialog("chrome://adblockplus/content/sidebarDetached.xul", "_blank", "chrome,resizable,dependent,dialog=no,width=300,height=600");
     }

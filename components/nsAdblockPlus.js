@@ -130,9 +130,17 @@ const factory = {
 const Node = Components.interfaces.nsIDOMNode;
 const Window = Components.interfaces.nsIDOMWindow;
 
-const windowMediator = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator);
-var lastBrowser = null;
-var lastWindow  = null;
+var windowMediator = Components.classes["@mozilla.org/appshell/window-mediator;1"]
+                               .getService(Components.interfaces.nsIWindowMediator);
+var windowWatcher= Components.classes["@mozilla.org/embedcomp/window-watcher;1"]
+                             .getService(Components.interfaces.nsIWindowWatcher);
+try {
+  var headerParser = Components.classes["@mozilla.org/messenger/headerparser;1"]
+                               .getService(Components.interfaces.nsIMsgHeaderParser);
+}
+catch(e) {
+  headerParser = null;
+}
 
 /*
  * Content policy class definition
@@ -250,6 +258,7 @@ const abp = {
 
     // Try InstallTrigger
     try {
+      // FIXME: This shouldn't depend on the browser
       var browser = windowMediator.getMostRecentWindow("navigator:browser");
       if (browser)
         return browser.InstallTrigger.getVersion(ABP_PACKAGE);
@@ -315,8 +324,7 @@ const abp = {
       }
     }
     else {
-      var browser = windowMediator.getMostRecentWindow("navigator:browser");
-      dlg = browser.openDialog("chrome://adblockplus/content/settings.xul", "_blank", "chrome,centerscreen,resizable,dialog=no");
+      dlg = windowWatcher.openWindow(null, "chrome://adblockplus/content/settings.xul", "_blank", "chrome,centerscreen,resizable,dialog=no", null);
       dlg.addEventListener("post-load", func, false);
     }
   },
@@ -332,6 +340,11 @@ const abp = {
         currentWindow.loadURI(url);
       }
     }
+    else {
+      var protocolService = Components.classes["@mozilla.org/uriloader/external-protocol-service;1"]
+                                      .getService(Components.interfaces.nsIExternalProtocolService);
+      protocolService.loadUrl(url);
+    }
   },
 
   params: null,
@@ -346,7 +359,9 @@ const abp = {
     var ret = this.params;
     this.params = null;
     return ret;
-  }
+  },
+
+  headerParser: headerParser
 };
 abp.wrappedJSObject = abp;
 

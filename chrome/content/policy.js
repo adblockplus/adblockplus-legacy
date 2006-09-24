@@ -84,14 +84,46 @@ var policy = {
       return true;
 
     var wndLocation = (contentType == type.SUBDOCUMENT ? location : unwrapURL(wnd.location.href));
-    var topLocation = unwrapURL(topWnd.location.href);
     var blockable = this.isBlockableScheme(wndLocation);
     if (!blockable && prefs.blocklocalpages && this.isLocalScheme(wndLocation))
       blockable = true;
     if (!blockable)
       return true;
 
-    var pageMatch = this.isWhitelisted(topLocation);
+    var pageMatch = false;
+    if ("name" in topWnd && topWnd.name == "messagepane") {
+      // Thunderbird branch
+
+      try {
+        var mailWnd = topWnd.QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+                            .getInterface(Components.interfaces.nsIWebNavigation)
+                            .QueryInterface(Components.interfaces.nsIDocShellTreeItem)
+                            .rootTreeItem
+                            .QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+                            .getInterface(Components.interfaces.nsIDOMWindow);
+
+        // Typically we get a wrapped mail window here, need to unwrap
+        try {
+          mailWnd = mailWnd.wrappedJSObject;
+        } catch(e) {}
+  
+        if ("gDBView" in mailWnd) {
+          var msgHdr = mailWnd.gDBView.hdrForFirstSelectedMessage;
+          var emailAddress = headerParser.extractHeaderAddressMailboxes(null, msgHdr.author);
+          if (emailAddress) {
+            emailAddress = 'mailto:' + emailAddress.replace(/^[\s"]+/, "").replace(/[\s"]+$/, "").replace(' ', '%20');
+            pageMatch = policy.isWhitelisted(emailAddress);
+          }
+        }
+      }
+      catch(e) {dump(e + "\n")}
+    }
+    else {
+      // Firefox branch
+
+      var topLocation = unwrapURL(topWnd.location.href);
+      pageMatch = this.isWhitelisted(topLocation);
+    }
     if (pageMatch) {
       prefs.increaseHitCount(pageMatch);
       return true;
