@@ -483,6 +483,38 @@ void abpWrapper::Create(HWND parent) {
   }
 
   hMostRecent = parent;
+
+  {
+    nsresult rv;
+
+    nsCOMPtr<nsIWebBrowser> browser;
+    if (!kFuncs->GetMozillaWebBrowser(parent, getter_AddRefs(browser)))
+      return;
+
+    nsCOMPtr<nsIDOMWindow> contentWnd;
+    rv = browser->GetContentDOMWindow(getter_AddRefs(contentWnd));
+    if (NS_FAILED(rv))
+      return;
+
+    nsCOMPtr<nsPIDOMWindow> privateWnd = do_QueryInterface(contentWnd);
+    if (privateWnd == nsnull)
+      return;
+
+    nsPIDOMWindow* rootWnd = privateWnd->GetPrivateRoot();
+    if (rootWnd == nsnull)
+      return;
+
+    nsIChromeEventHandler* chromeHandler = rootWnd->GetChromeEventHandler();
+    if (chromeHandler == nsnull)
+      return;
+
+    nsCOMPtr<nsIDOMEventTarget> target = do_QueryInterface(chromeHandler);
+    if (target == nsnull)
+      return;
+
+    nsString event(NS_ConvertASCIItoUTF16("contextmenu"));
+    target->AddEventListener(event, &wrapper, true);
+  }
 }
 
 void abpWrapper::Config(HWND parent) {
@@ -683,17 +715,6 @@ NS_IMPL_ISUPPORTS4(abpWrapper, nsIDOMEventListener, imgIDecoderObserver, nsIClas
 nsresult abpWrapper::HandleEvent(nsIDOMEvent* event) {
   nsresult rv;
 
-  PRUint16 phase;
-  rv = event->GetEventPhase(&phase);
-  if (NS_FAILED(rv))
-    return rv;
-
-  if (phase != nsIDOMEvent::CAPTURING_PHASE) {
-    // We are here to prevent the default menu from appearing
-    rv = event->PreventDefault();
-    return rv;
-  }
-
   abpJSContextHolder holder;
   JSObject* overlay = UnwrapNative(fakeBrowserWindow);
   JSContext* cx = holder.get();
@@ -740,6 +761,10 @@ nsresult abpWrapper::OnStopFrame(imgIRequest* aRequest, gfxIImageFrame *aFrame) 
   rv = aFrame->GetFormat(&format);
   if (NS_FAILED(rv))
     return rv;
+
+  char buf[256];
+  sprintf(buf, "%i", format);
+  MessageBox(NULL, buf, buf, 0);
 
   if (format != gfxIFormats::BGR_A8)
     return NS_ERROR_FAILURE;
@@ -820,6 +845,7 @@ nsresult abpWrapper::OnStartContainer(imgIRequest* aRequest, imgIContainer *aCon
   return NS_OK;
 }
 nsresult abpWrapper::OnStartFrame(imgIRequest* aRequest, gfxIImageFrame *aFrame) {
+  MessageBox(NULL, "OK", "OK", 0);
   return NS_OK;
 }
 nsresult abpWrapper::OnDataAvailable(imgIRequest *aRequest, gfxIImageFrame *aFrame, const nsIntRect * aRect) {
@@ -829,6 +855,7 @@ nsresult abpWrapper::OnStopContainer(imgIRequest* aRequest, imgIContainer *aCont
   return NS_OK;
 }
 nsresult abpWrapper::OnStopDecode(imgIRequest* aRequest, nsresult status, const PRUnichar *statusArg) {
+  MessageBox(NULL, "OK", "OK", 0);
   LoadImage(currentImage + 1);
   return NS_OK;
 }
@@ -1418,10 +1445,6 @@ JSObject* abpWrapper::OpenDialog(char* url, char* target, char* features) {
   }
   else if (strstr(url, "settings.xul"))
     settingsDlg = do_QueryInterface(wnd);
-
-  nsCOMPtr<nsIDOMEventTarget> evtTarget = do_QueryInterface(wnd);
-  if (evtTarget != nsnull)
-    evtTarget->AddEventListener(NS_LITERAL_STRING("contextmenu"), this, false);
 
   return wrapper.GetGlobalObject(wnd);
 }
