@@ -1035,6 +1035,37 @@ PRBool abpWrapper::PatchComponent(JSContext* cx) {
 
   nsCOMPtr<nsISupports> abp = do_CreateInstance(ADBLOCKPLUS_CONTRACTID);
   if (abp == nsnull) {
+    // Maybe the component isn't registered yet? Try registering it.
+    nsCOMPtr<nsIComponentRegistrar> compReg;
+    rv = NS_GetComponentRegistrar(getter_AddRefs(compReg));
+    if (NS_FAILED(rv) || compReg == nsnull) {
+      JS_ReportError(cx, "Adblock Plus: Failed to retrieve component registrar - wrong Gecko version?");
+      return PR_FALSE;
+    }
+
+    nsCOMPtr<nsIProperties> dirService = do_GetService("@mozilla.org/file/directory_service;1");
+    if (dirService == nsnull) {
+      JS_ReportError(cx, "Adblock Plus: Failed to retrieve directory service - wrong Gecko version?");
+      return PR_FALSE;
+    }
+
+    nsCOMPtr<nsILocalFile> compFile;
+    rv = dirService->Get(NS_XPCOM_COMPONENT_DIR, NS_GET_IID(nsILocalFile), getter_AddRefs(compFile));
+    if (NS_FAILED(rv)) {
+      JS_ReportError(cx, "Adblock Plus: Failed to retrieve components directory");
+      return PR_FALSE;
+    }
+
+    compFile->AppendRelativePath(NS_LITERAL_STRING("nsAdblockPlus.js"));
+    rv = compReg->AutoRegister(compFile);
+    if (NS_FAILED(rv)) {
+      JS_ReportError(cx, "Adblock Plus: Failed to register nsAdblockPlus.js");
+      return PR_FALSE;
+    }
+
+    abp = do_CreateInstance(ADBLOCKPLUS_CONTRACTID);
+  }
+  if (abp == nsnull) {
     JS_ReportError(cx, "Adblock Plus: Failed to retrieve Adblock Plus component");
     return PR_FALSE;
   }
