@@ -40,8 +40,6 @@ cp_rec("../$_", "tmp/$_") foreach ('chrome', 'components', 'defaults');
 system("mv tmp/defaults/preferences tmp/defaults/pref") && exit;
 mkdir("tmp/kplugins", 0755) or die "Failed to created directory tmp/kplugins: $!";
 system("mv adblockplus.dll tmp/kplugins/adblockplus.dll");
-open(local *FILE, ">tmp/.autoreg");
-close(FILE);
 chdir('tmp');
 
 chdir('chrome');
@@ -50,7 +48,7 @@ rm_rec($_) foreach ('content', 'skin', 'locale');
 chdir('..');
 
 unlink('../$output_file');
-print `zip -rX9 ../$output_file kplugins chrome components defaults .autoreg`;
+print `zip -rX9 ../$output_file kplugins chrome components defaults`;
 
 chdir('..');
 rm_rec('tmp');
