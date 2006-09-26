@@ -381,42 +381,63 @@ PRBool abpWrapper::Load() {
 
   kFuncs = kPlugin.kFuncs;
 
-  nsCOMPtr<nsIChromeRegistrySea> registry = do_GetService("@mozilla.org/chrome/chrome-registry;1", &rv);
-  if (NS_FAILED(rv))
+  abpJSContextHolder contextHolder;
+  JSContext* cx = contextHolder.get();
+  if (cx == nsnull)
     return PR_FALSE;
+
+  nsCOMPtr<nsIChromeRegistrySea> registry = do_GetService("@mozilla.org/chrome/chrome-registry;1", &rv);
+  if (NS_FAILED(rv)) {
+    JS_ReportError(cx, "Adblock Plus: Failed to chrome registry - wrong Gecko version?");
+    return PR_FALSE;
+  }
 
   rv = registry->InstallPackage("jar:resource:/chrome/adblockplus.jar!/content/", PR_FALSE);
-  if (NS_FAILED(rv))
+  if (NS_FAILED(rv)) {
+    JS_ReportError(cx, "Adblock Plus: Failed to register Adblock Plus chrome content");
     return PR_FALSE;
+  }
 
   rv = registry->InstallLocale("jar:resource:/chrome/adblockplus.jar!/locale/" ABP_LANGUAGE "/", PR_FALSE);
-  if (NS_FAILED(rv))
+  if (NS_FAILED(rv)) {
+    JS_ReportError(cx, "Adblock Plus: Failed to register Adblock Plus locale");
     return PR_FALSE;
+  }
 
   rv = registry->InstallSkin("jar:resource:/chrome/adblockplus.jar!/skin/classic/", PR_FALSE, PR_TRUE);
-  if (NS_FAILED(rv))
+  if (NS_FAILED(rv)) {
+    JS_ReportError(cx, "Adblock Plus: Failed to register Adblock Plus skin");
     return PR_FALSE;
+  }
 
   nsString pkg(NS_ConvertASCIItoUTF16("adblockplus"));
   nsCString locale(ABP_LANGUAGE);
   rv = registry->SelectLocaleForPackage(locale, pkg.get(), PR_FALSE);
-  if (NS_FAILED(rv))
+  if (NS_FAILED(rv)) {
+    JS_ReportError(cx, "Adblock Plus: Failed to select Adblock Plus locale");
     return PR_FALSE;
+  }
 
   nsCString skin("classic/1.0");
   rv = registry->SelectSkinForPackage(skin, pkg.get(), PR_FALSE);
-  if (NS_FAILED(rv))
+  if (NS_FAILED(rv)) {
+    JS_ReportError(cx, "Adblock Plus: Failed to select Adblock Plus skin");
     return PR_FALSE;
+  }
 
   watcher = do_GetService(NS_WINDOWWATCHER_CONTRACTID);
-  if (watcher == nsnull)
+  if (watcher == nsnull) {
+    JS_ReportError(cx, "Adblock Plus: Failed to retrieve window watcher - wrong Gecko version?");
     return PR_FALSE;
+  }
 
   ioService = do_GetService("@mozilla.org/network/io-service;1");
-  if (ioService == nsnull)
+  if (ioService == nsnull) {
+    JS_ReportError(cx, "Adblock Plus: Failed to retrieve IO service - wrong Gecko version?");
     return PR_FALSE;
+  }
 
-  if (!PatchComponent())
+  if (!PatchComponent(cx))
     return PR_FALSE;
 
   cmdBase = kFuncs->GetCommandIDs(NUM_COMMANDS);
@@ -997,15 +1018,8 @@ NS_METHOD abpWrapper::InnerObject(nsIXPConnectWrappedNative* wrapper, JSContext*
  * JS object manupulation *
  **************************/
 
-PRBool abpWrapper::PatchComponent() {
+PRBool abpWrapper::PatchComponent(JSContext* cx) {
   nsresult rv;
-  abpJSContextHolder contextHolder;
-
-  JSContext* cx = contextHolder.get();
-  if (cx == nsnull) {
-    JS_ReportError(cx, "Adblock Plus: Failed to retrieve JavaScript context");
-    return PR_FALSE;
-  }
 
   nsCOMPtr<nsIScriptSecurityManager> secman = do_GetService(NS_SCRIPTSECURITYMANAGER_CONTRACTID);
   if (secman == nsnull) {
