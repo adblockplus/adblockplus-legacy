@@ -410,16 +410,13 @@ PRBool abpWrapper::Load() {
     return PR_FALSE;
   }
 
-  nsString pkg(NS_ConvertASCIItoUTF16("adblockplus"));
-  nsCString locale(ABP_LANGUAGE);
-  rv = registry->SelectLocaleForPackage(locale, pkg.get(), PR_FALSE);
+  rv = registry->SelectLocaleForPackage(NS_LITERAL_CSTRING(ABP_LANGUAGE), NS_LL("adblockplus"), PR_FALSE);
   if (NS_FAILED(rv)) {
     JS_ReportError(cx, "Adblock Plus: Failed to select Adblock Plus locale");
     return PR_FALSE;
   }
 
-  nsCString skin("classic/1.0");
-  rv = registry->SelectSkinForPackage(skin, pkg.get(), PR_FALSE);
+  rv = registry->SelectSkinForPackage(NS_LITERAL_CSTRING("classic/1.0"), NS_LL("adblockplus"), PR_FALSE);
   if (NS_FAILED(rv)) {
     JS_ReportError(cx, "Adblock Plus: Failed to select Adblock Plus skin");
     return PR_FALSE;
@@ -743,6 +740,7 @@ nsresult abpWrapper::OnStopFrame(imgIRequest* aRequest, gfxIImageFrame *aFrame) 
   rv = aFrame->GetFormat(&format);
   if (NS_FAILED(rv))
     return rv;
+
   if (format != gfxIFormats::BGR_A8)
     return NS_ERROR_FAILURE;
 
@@ -1422,9 +1420,8 @@ JSObject* abpWrapper::OpenDialog(char* url, char* target, char* features) {
     settingsDlg = do_QueryInterface(wnd);
 
   nsCOMPtr<nsIDOMEventTarget> evtTarget = do_QueryInterface(wnd);
-  nsString event(NS_ConvertASCIItoUTF16("contextmenu"));
   if (evtTarget != nsnull)
-    evtTarget->AddEventListener(event, this, false);
+    evtTarget->AddEventListener(NS_LITERAL_STRING("contextmenu"), this, false);
 
   return wrapper.GetGlobalObject(wnd);
 }
