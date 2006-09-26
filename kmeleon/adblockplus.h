@@ -266,7 +266,7 @@ protected:
   HIMAGELIST hImages;
   static HHOOK hook;
 
-  static PRBool PatchComponent();
+  static PRBool PatchComponent(JSContext* cx);
   static PRBool CreateFakeBrowserWindow(JSContext* cx, JSObject* parent);
   static PRBool IsBrowserWindow(HWND wnd);
   static INT CommandByName(LPSTR action);
