@@ -609,6 +609,23 @@ LRESULT abpWrapper::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPara
         JS_CallFunctionName(cx, overlay, "abpCommandHandler", 0, nsnull, &retval);
       }
     }
+    else if (command == CMD_STATUSBAR) {
+      abpJSContextHolder holder;
+      JSObject* overlay = UnwrapNative(fakeBrowserWindow);
+      JSContext* cx = holder.get();
+      JSObject* event = nsnull;
+      if (cx != nsnull && overlay != nsnull) {
+        event = JS_NewObject(cx, nsnull, nsnull, overlay);
+        jsval button = JSVAL_ZERO;
+        if (event != nsnull)
+          JS_SetProperty(cx, event, "button", &button);
+      }
+      if (cx != nsnull && overlay != nsnull && event != nsnull) {
+        jsval arg = OBJECT_TO_JSVAL(event);
+        jsval retval;
+        JS_CallFunctionName(cx, overlay, "abpClickHandler", 1, &arg, &retval);
+      }
+    }
   }
   else if ((message == TB_MBUTTONDOWN || message == TB_MBUTTONDBLCLK) && (wParam == cmdBase + CMD_TOOLBAR || wParam == cmdBase + CMD_STATUSBAR)) {
     abpJSContextHolder holder;
