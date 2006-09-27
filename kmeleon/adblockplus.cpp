@@ -520,16 +520,13 @@ void abpWrapper::DoRebar(HWND hRebar) {
   DWORD dwStyle = CCS_NODIVIDER | CCS_NOPARENTALIGN | CCS_NORESIZE |
     TBSTYLE_FLAT | TBSTYLE_TRANSPARENT | TBSTYLE_TOOLTIPS;
 
-  HWND toolbar = CreateWindowEx(0, TOOLBARCLASSNAME, _T(""),
-    WS_CHILD | dwStyle, 0, 0, 0, 0, hRebar, (HMENU)'ABPP',
-    kPlugin.hDllInstance, NULL
-  );
+  HWND toolbar = kFuncs->CreateToolbar(GetParent(hRebar), dwStyle);
   if (!toolbar)
     return;
 
   TBBUTTON button = {0};
   button.iBitmap = 0;
-  button.idCommand = cmdBase + CMD_LISTALL;
+  button.idCommand = cmdBase + CMD_TOOLBAR;
   button.fsState = TBSTATE_ENABLED;
   button.fsStyle = TBSTYLE_BUTTON;
   button.dwData = 0;
@@ -642,6 +639,30 @@ LRESULT abpWrapper::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPara
         if (JS_GetProperty(cx, overlay, "abpFrameData", &arg) && !JSVAL_IS_NULL(arg))
           JS_CallFunctionName(cx, overlay, "abpNode", 1, &arg, &retval);
       }
+    }
+    else if (command == CMD_TOOLBAR) {
+      abpJSContextHolder holder;
+      JSObject* overlay = UnwrapNative(fakeBrowserWindow);
+      JSContext* cx = holder.get();
+      if (cx != nsnull && overlay != nsnull) {
+        jsval retval;
+        // FIXME: Need to pass event parameter to allow opening context menu
+        JS_CallFunctionName(cx, overlay, "abpCommandHandler", 0, nsnull, &retval);
+      }
+    }
+  }
+  else if (message == TB_MBUTTONDOWN && (wParam == cmdBase + CMD_TOOLBAR || wParam == cmdBase + CMD_STATUSBAR)) {
+    abpJSContextHolder holder;
+    char param[] = "enabled";
+    JSObject* overlay = UnwrapNative(fakeBrowserWindow);
+    JSContext* cx = holder.get();
+    JSString* str = nsnull;
+    if (cx)
+      str = JS_NewString(cx, param, strlen(param));
+    if (cx != nsnull && overlay != nsnull && str != nsnull) {
+      jsval arg = STRING_TO_JSVAL(str);
+      jsval retval;
+      JS_CallFunctionName(cx, overlay, "abpTogglePref", 1, &arg, &retval);
     }
   }
   else if (message == WM_SETFOCUS) {
