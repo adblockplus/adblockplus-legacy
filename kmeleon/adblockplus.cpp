@@ -30,6 +30,7 @@ char labelValues[NUM_LABELS][100];
 
 JSFunctionSpec component_methods[] = {
   {"getMostRecentWindow", FakeGetMostRecentWindow, 1, 0, 0},
+  {"openWindow", JSOpenDialog, 3, 0, 0},
   {NULL},
 };
 
@@ -164,11 +165,20 @@ JSBool JS_DLL_CALLBACK FakeGetMostRecentWindow(JSContext* cx, JSObject* obj, uin
 JSBool JS_DLL_CALLBACK JSOpenDialog(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
   *rval = JSVAL_NULL;
 
+  JSBool dummy;
   char* url;
   char* target = nsnull;
   char* features = nsnull;
-  if (!JS_ConvertArguments(cx, argc, argv, "s/ss", &url, &target, &features))
-    return JS_FALSE;
+  if (argc == 5) {
+    // nsIWindowWatcher.openWindow
+    if (!JS_ConvertArguments(cx, argc, argv, "bsssb", &dummy, &url, &target, &features, &dummy))
+      return JS_FALSE;
+  }
+  else {
+    // window.openDialog
+    if (!JS_ConvertArguments(cx, argc, argv, "s/ss", &url, &target, &features))
+      return JS_FALSE;
+  }
 
   JSObject* ret = wrapper.OpenDialog(url, target, features);
   if (ret == nsnull)
@@ -706,37 +716,54 @@ NS_IMPL_ISUPPORTS5(abpWrapper, nsIDOMEventListener, nsIObserver, imgIDecoderObse
 nsresult abpWrapper::HandleEvent(nsIDOMEvent* event) {
   nsresult rv;
 
-  abpJSContextHolder holder;
-  JSObject* overlay = UnwrapNative(fakeBrowserWindow);
-  JSContext* cx = holder.get();
-  if (cx == nsnull || overlay == nsnull)
-    return NS_ERROR_FAILURE;
-
-  nsCOMPtr<nsIDOMEventTarget> target;
-  rv = event->GetTarget(getter_AddRefs(target));
-  if (NS_FAILED(rv) || target == nsnull)
-    return NS_ERROR_FAILURE;
-
-  nsCOMPtr<nsIXPConnect> xpc = do_GetService(nsIXPConnect::GetCID());
-  if (xpc == nsnull)
-    return NS_ERROR_FAILURE;
-
-  nsCOMPtr<nsIXPConnectJSObjectHolder> wrapperHolder;
-  rv = xpc->WrapNative(cx, JS_GetParent(cx, overlay), target, NS_GET_IID(nsIDOMEventTarget), getter_AddRefs(wrapperHolder));
+  nsString type;
+  rv = event->GetType(type);
   if (NS_FAILED(rv))
     return rv;
 
-  JSObject* jsObj;
-  rv = wrapperHolder->GetJSObject(&jsObj);
-  if (NS_FAILED(rv))
-    return rv;
-
-  jsval value = OBJECT_TO_JSVAL(jsObj);
-  if (!JS_SetProperty(cx, overlay, "target", &value))
-    return NS_ERROR_FAILURE;
-
-  ResetContextMenu();
-  JS_CallFunctionName(cx, overlay, "abpCheckContext", 0, nsnull, &value);
+  if (type.Equals(NS_LITERAL_STRING("load"))) {
+    nsCOMPtr<nsIDOMDocument> doc;
+    rv = settingsDlg->GetDocument(getter_AddRefs(doc));
+    if (NS_SUCCEEDED(rv)) {
+      nsCOMPtr<nsIDOMElement> menuItem;
+      rv = doc->GetElementById(NS_LITERAL_STRING("showintoolbar"), getter_AddRefs(menuItem));
+      if (SUCCEEDED(rv))
+        menuItem->SetAttribute(NS_LITERAL_STRING("hidden"), NS_LITERAL_STRING("true"));
+    }
+  }
+  else if (type.Equals(NS_LITERAL_STRING("contextmenu"))) {
+    abpJSContextHolder holder;
+    JSObject* overlay = UnwrapNative(fakeBrowserWindow);
+    JSContext* cx = holder.get();
+    if (cx == nsnull || overlay == nsnull)
+      return NS_ERROR_FAILURE;
+  
+    nsCOMPtr<nsIDOMEventTarget> target;
+    rv = event->GetTarget(getter_AddRefs(target));
+    if (NS_FAILED(rv) || target == nsnull)
+      return NS_ERROR_FAILURE;
+  
+    nsCOMPtr<nsIXPConnect> xpc = do_GetService(nsIXPConnect::GetCID());
+    if (xpc == nsnull)
+      return NS_ERROR_FAILURE;
+  
+    nsCOMPtr<nsIXPConnectJSObjectHolder> wrapperHolder;
+    rv = xpc->WrapNative(cx, JS_GetParent(cx, overlay), target, NS_GET_IID(nsIDOMEventTarget), getter_AddRefs(wrapperHolder));
+    if (NS_FAILED(rv))
+      return rv;
+  
+    JSObject* jsObj;
+    rv = wrapperHolder->GetJSObject(&jsObj);
+    if (NS_FAILED(rv))
+      return rv;
+  
+    jsval value = OBJECT_TO_JSVAL(jsObj);
+    if (!JS_SetProperty(cx, overlay, "target", &value))
+      return NS_ERROR_FAILURE;
+  
+    ResetContextMenu();
+    JS_CallFunctionName(cx, overlay, "abpCheckContext", 0, nsnull, &value);
+  }
 
   return NS_OK;
 }
@@ -1133,10 +1160,17 @@ PRBool abpWrapper::PatchComponent(JSContext* cx) {
 
   JSBool found;
   JS_SetPropertyAttributes(cx, JS_GetParent(cx, jsObject), "windowMediator", JSPROP_ENUMERATE | JSPROP_PERMANENT, &found);
+  JS_SetPropertyAttributes(cx, JS_GetParent(cx, jsObject), "windowWatcher", JSPROP_ENUMERATE | JSPROP_PERMANENT, &found);
 
   jsval value = OBJECT_TO_JSVAL(jsObject);
   if (!JS_SetProperty(cx, JS_GetParent(cx, jsObject), "windowMediator", &value)) {
     JS_ReportError(cx, "Adblock Plus: Failed to replace window mediator in Adblock Plus component");
+    return PR_FALSE;
+  }
+
+  value = OBJECT_TO_JSVAL(jsObject);
+  if (!JS_SetProperty(cx, JS_GetParent(cx, jsObject), "windowWatcher", &value)) {
+    JS_ReportError(cx, "Adblock Plus: Failed to replace window watcher in Adblock Plus component");
     return PR_FALSE;
   }
 
@@ -1380,8 +1414,13 @@ JSObject* abpWrapper::OpenDialog(char* url, char* target, char* features) {
     setNextWidth = 300;
     setNextHeight = 600;
   }
-  else if (strstr(url, "settings.xul"))
+  else if (strstr(url, "settings.xul")) {
     settingsDlg = do_QueryInterface(wnd);
+
+    nsCOMPtr<nsIDOMEventTarget> target = do_QueryInterface(settingsDlg);
+    if (target != nsnull)
+      target->AddEventListener(NS_LITERAL_STRING("load"), this, PR_FALSE);
+  }
 
   return wrapper.GetGlobalObject(wnd);
 }
