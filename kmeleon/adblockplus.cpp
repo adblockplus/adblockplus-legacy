@@ -62,10 +62,11 @@ WORD abpWrapper::cmdBase = 0;
 void* abpWrapper::origWndProc = NULL;
 HWND abpWrapper::hMostRecent = NULL;
 nsCOMPtr<nsIDOMWindowInternal> abpWrapper::fakeBrowserWindow;
-HWND abpWrapper::hCurrentBrowser = NULL;
+nsIDOMWindow* abpWrapper::currentWindow = nsnull;
 nsCOMPtr<nsIWindowWatcher> abpWrapper::watcher;
 nsCOMPtr<nsIIOService> abpWrapper::ioService;
 nsCOMPtr<nsIPrincipal> abpWrapper::systemPrincipal;
+abpWindowList abpWrapper::activeWindows;
 abpListenerList abpWrapper::selectListeners;
 int abpWrapper::setNextWidth = 0;
 int abpWrapper::setNextHeight = 0;
@@ -299,8 +300,7 @@ JSBool JS_DLL_CALLBACK JSDummyFunction(JSContext* cx, JSObject* obj, uintN argc,
 }
 
 JSBool JS_DLL_CALLBACK JSGetContentWindow(JSContext *cx, JSObject *obj, jsval id, jsval *vp) {
-  nsCOMPtr<nsIDOMWindow> wnd = wrapper.GetCurrentWindow();
-  JSObject* wndObj = wrapper.GetGlobalObject(wnd);
+  JSObject* wndObj = wrapper.GetGlobalObject(wrapper.GetCurrentWindow());
   if (wndObj != nsnull)
     *vp = OBJECT_TO_JSVAL(wndObj);
   else
@@ -428,6 +428,12 @@ PRBool abpWrapper::Load() {
     return PR_FALSE;
   }
 
+  rv = watcher->RegisterNotification(&wrapper);
+  if (NS_FAILED(rv)) {
+    JS_ReportError(cx, "Adblock Plus: Failed to register for window watcher notifications");
+    return PR_FALSE;
+  }
+
   ioService = do_GetService("@mozilla.org/network/io-service;1");
   if (ioService == nsnull) {
     JS_ReportError(cx, "Adblock Plus: Failed to retrieve IO service - wrong Gecko version?");
@@ -483,38 +489,6 @@ void abpWrapper::Create(HWND parent) {
   }
 
   hMostRecent = parent;
-
-  {
-    nsresult rv;
-
-    nsCOMPtr<nsIWebBrowser> browser;
-    if (!kFuncs->GetMozillaWebBrowser(parent, getter_AddRefs(browser)))
-      return;
-
-    nsCOMPtr<nsIDOMWindow> contentWnd;
-    rv = browser->GetContentDOMWindow(getter_AddRefs(contentWnd));
-    if (NS_FAILED(rv))
-      return;
-
-    nsCOMPtr<nsPIDOMWindow> privateWnd = do_QueryInterface(contentWnd);
-    if (privateWnd == nsnull)
-      return;
-
-    nsPIDOMWindow* rootWnd = privateWnd->GetPrivateRoot();
-    if (rootWnd == nsnull)
-      return;
-
-    nsIChromeEventHandler* chromeHandler = rootWnd->GetChromeEventHandler();
-    if (chromeHandler == nsnull)
-      return;
-
-    nsCOMPtr<nsIDOMEventTarget> target = do_QueryInterface(chromeHandler);
-    if (target == nsnull)
-      return;
-
-    nsString event(NS_ConvertASCIItoUTF16("contextmenu"));
-    target->AddEventListener(event, &wrapper, true);
-  }
 }
 
 void abpWrapper::Config(HWND parent) {
@@ -662,8 +636,9 @@ LRESULT abpWrapper::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPara
     }
   }
   else if (message == WM_SETFOCUS) {
-    if (hWnd != hCurrentBrowser && IsBrowserWindow(hWnd)) {
-      hCurrentBrowser = hWnd;
+    nsIDOMWindow* wnd = activeWindows.getWindow(hWnd);
+    if (wnd && wnd != currentWindow) {
+      currentWindow = wnd;
       selectListeners.notifyListeners();
     }
   }
@@ -706,7 +681,7 @@ LRESULT CALLBACK abpWrapper::HookProc(int nCode, WPARAM wParam, LPARAM lParam) {
  * nsISupports implementation *
  ******************************/
 
-NS_IMPL_ISUPPORTS4(abpWrapper, nsIDOMEventListener, imgIDecoderObserver, nsIClassInfo, nsIXPCScriptable)
+NS_IMPL_ISUPPORTS5(abpWrapper, nsIDOMEventListener, nsIObserver, imgIDecoderObserver, nsIClassInfo, nsIXPCScriptable)
 
 /**************************************
  * nsIDOMEventListener implementation *
@@ -750,6 +725,46 @@ nsresult abpWrapper::HandleEvent(nsIDOMEvent* event) {
   return NS_OK;
 }
 
+/******************************
+ * nsIObserver implementation *
+ ******************************/
+
+nsresult abpWrapper::Observe(nsISupports* subject, const char* topic, const PRUnichar* data) {
+  nsCOMPtr<nsIDOMWindow> contentWnd = do_QueryInterface(subject);
+  if (contentWnd == nsnull)
+    return NS_ERROR_FAILURE;
+
+  if (!IsBrowserWindow(contentWnd))
+    return NS_OK;
+
+  if (strcmp(topic, "domwindowopened") == 0) {
+    HWND hWnd = GetHWND(contentWnd);
+    activeWindows.addWindow(hWnd, contentWnd);
+
+    nsCOMPtr<nsPIDOMWindow> privateWnd = do_QueryInterface(contentWnd);
+    if (privateWnd == nsnull)
+      return NS_ERROR_FAILURE;
+
+    nsPIDOMWindow* rootWnd = privateWnd->GetPrivateRoot();
+    if (rootWnd == nsnull)
+      return NS_ERROR_FAILURE;
+
+    nsIChromeEventHandler* chromeHandler = rootWnd->GetChromeEventHandler();
+    if (chromeHandler == nsnull)
+      return NS_ERROR_FAILURE;
+
+    nsCOMPtr<nsIDOMEventTarget> target = do_QueryInterface(chromeHandler);
+    if (target == nsnull)
+      return NS_ERROR_FAILURE;
+
+    target->AddEventListener(NS_LITERAL_STRING("contextmenu"), this, true);
+  }
+  else if (strcmp(topic, "domwindowclosed") == 0)
+    activeWindows.removeWindow(contentWnd);
+
+  return NS_OK;
+}
+
 /**************************************
  * imgIDecoderObserver implementation *
  **************************************/
@@ -761,10 +776,6 @@ nsresult abpWrapper::OnStopFrame(imgIRequest* aRequest, gfxIImageFrame *aFrame) 
   rv = aFrame->GetFormat(&format);
   if (NS_FAILED(rv))
     return rv;
-
-  char buf[256];
-  sprintf(buf, "%i", format);
-  MessageBox(NULL, buf, buf, 0);
 
   if (format != gfxIFormats::BGR_A8)
     return NS_ERROR_FAILURE;
@@ -845,7 +856,6 @@ nsresult abpWrapper::OnStartContainer(imgIRequest* aRequest, imgIContainer *aCon
   return NS_OK;
 }
 nsresult abpWrapper::OnStartFrame(imgIRequest* aRequest, gfxIImageFrame *aFrame) {
-  MessageBox(NULL, "OK", "OK", 0);
   return NS_OK;
 }
 nsresult abpWrapper::OnDataAvailable(imgIRequest *aRequest, gfxIImageFrame *aFrame, const nsIntRect * aRect) {
@@ -855,7 +865,6 @@ nsresult abpWrapper::OnStopContainer(imgIRequest* aRequest, imgIContainer *aCont
   return NS_OK;
 }
 nsresult abpWrapper::OnStopDecode(imgIRequest* aRequest, nsresult status, const PRUnichar *statusArg) {
-  MessageBox(NULL, "OK", "OK", 0);
   LoadImage(currentImage + 1);
   return NS_OK;
 }
@@ -1308,17 +1317,8 @@ JSObject* abpWrapper::UnwrapNative(nsISupports* native) {
  * Helper functions *
  ********************/
 
-PRBool abpWrapper::IsBrowserWindow(HWND wnd) {
+PRBool abpWrapper::IsBrowserWindow(nsIDOMWindow* contentWnd) {
   nsresult rv;
-
-  nsCOMPtr<nsIWebBrowser> browser;
-  if (!kFuncs->GetMozillaWebBrowser(wnd, getter_AddRefs(browser)))
-    return PR_FALSE;
-
-  nsCOMPtr<nsIDOMWindow> contentWnd;
-  rv = browser->GetContentDOMWindow(getter_AddRefs(contentWnd));
-  if (NS_FAILED(rv))
-    return PR_FALSE;
 
   nsCOMPtr<nsIClassInfo> classInfo = do_QueryInterface(contentWnd);
   if (classInfo == nsnull)
@@ -1332,19 +1332,22 @@ PRBool abpWrapper::IsBrowserWindow(HWND wnd) {
   return (strcmp(descr, "Window") == 0 ? PR_TRUE : PR_FALSE);
 }
 
-nsIDOMWindow* abpWrapper::GetCurrentWindow() {
-  if (!hCurrentBrowser)
-    return nsnull;
-
-  nsCOMPtr<nsIWebBrowser> browser;
-  if (!kFuncs->GetMozillaWebBrowser(hCurrentBrowser, getter_AddRefs(browser)))
-    return nsnull;
-
+HWND abpWrapper::GetHWND(nsIDOMWindow* wnd) {
   nsresult rv;
-  nsIDOMWindow* ret;
-  rv = browser->GetContentDOMWindow(&ret);
+
+  nsCOMPtr<nsIWebBrowserChrome> chrome;
+  rv = watcher->GetChromeForWindow(wnd, getter_AddRefs(chrome));
+  if (NS_FAILED(rv) || chrome == nsnull)
+    return NULL;
+
+  nsCOMPtr<nsIEmbeddingSiteWindow> site = do_QueryInterface(chrome);
+  if (site == nsnull)
+    return NULL;
+
+  HWND ret;
+  rv = site->GetSiteWindow((void**)&ret);
   if (NS_FAILED(rv))
-    return nsnull;
+    return NULL;
 
   return ret;
 }
@@ -1478,23 +1481,9 @@ nsresult abpWrapper::RemoveSelectListener(JSFunction* func) {
 }
 
 void abpWrapper::Focus(nsIDOMWindow* wnd) {
-  nsresult rv;
-
-  nsCOMPtr<nsIWebBrowserChrome> chrome;
-  rv = watcher->GetChromeForWindow(wnd, getter_AddRefs(chrome));
-  if (NS_FAILED(rv) || chrome == nsnull)
-    return;
-
-  nsCOMPtr<nsIEmbeddingSiteWindow> site = do_QueryInterface(chrome);
-  if (site == nsnull)
-    return;
-
-  HWND hWnd;
-  rv = site->GetSiteWindow((void**)&hWnd);
-  if (NS_FAILED(rv) || !hWnd)
-    return;
-
-  BringWindowToTop(hWnd);
+  HWND hWnd = GetHWND(wnd);
+  if (hWnd)
+    BringWindowToTop(hWnd);
 }
 
 TCHAR* menus[] = {_T("DocumentPopup"), _T("DocumentImagePopup"), _T("TextPopup"),

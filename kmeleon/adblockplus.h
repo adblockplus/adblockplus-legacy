@@ -212,10 +212,69 @@ private:
   JSFunction** functions;
 };
 
-class abpWrapper : public nsIDOMEventListener, public nsIClassInfo, public nsIXPCScriptable, imgIDecoderObserver {
+class abpWindowList {
+public:
+  abpWindowList() : buffer(nsnull), windows(0), bufSize(0) {}
+  virtual ~abpWindowList() {
+    if (buffer != nsnull)
+      PR_Free(buffer);
+  }
+
+  void addWindow(HWND hWnd, nsIDOMWindow* window) {
+    for (int i = 0; i < windows; i++) {
+      if (buffer[i].window == nsnull) {
+        buffer[i].hWnd = hWnd;
+        buffer[i].window = window;
+        return;
+      }
+    }
+
+    if (windows + 1 > bufSize) {
+      bufSize += 8;
+      if (buffer == nsnull)
+        buffer = NS_STATIC_CAST(entry*, PR_Malloc(bufSize * sizeof(entry)));
+      else
+        buffer = NS_STATIC_CAST(entry*, PR_Realloc(buffer, bufSize * sizeof(entry)));
+    }
+
+    buffer[windows].hWnd = hWnd;
+    buffer[windows].window = window;
+    windows++;
+  }
+
+  void removeWindow(nsIDOMWindow* window) {
+    for (int i = 0; i < windows; i++)
+      if (buffer[i].window == window)
+        buffer[i].window = nsnull;
+  }
+
+  nsIDOMWindow* getWindow(HWND hWnd) {
+    for (int i = 0; i < windows; i++)
+      if (buffer[i].hWnd == hWnd)
+        return buffer[i].window;
+
+    return nsnull;
+  }
+private:
+  typedef struct {
+    HWND hWnd;
+    nsIDOMWindow* window;
+  } entry;
+
+  int windows;
+  int bufSize;
+  entry* buffer;
+};
+
+class abpWrapper : public nsIDOMEventListener,
+                   public nsIObserver,
+                   public nsIClassInfo,
+                   public nsIXPCScriptable,
+                   imgIDecoderObserver {
 public:
   NS_DECL_ISUPPORTS
   NS_DECL_NSIDOMEVENTLISTENER
+  NS_DECL_NSIOBSERVER
   NS_DECL_NSICLASSINFO
   NS_DECL_NSIXPCSCRIPTABLE
   NS_DECL_IMGIDECODEROBSERVER
@@ -245,7 +304,7 @@ public:
   virtual nsresult RemoveSelectListener(JSFunction* func);
   virtual nsIDOMWindowInternal* GetBrowserWindow() {return fakeBrowserWindow;}
   virtual nsIDOMWindowInternal* GetSettingsWindow() {return settingsDlg;}
-  virtual nsIDOMWindow* GetCurrentWindow();
+  virtual nsIDOMWindow* GetCurrentWindow() {return currentWindow;}
   virtual JSObject* GetGlobalObject(nsIDOMWindow* wnd);
   static JSObject* UnwrapNative(nsISupports* native);
   virtual void Focus(nsIDOMWindow* wnd);
@@ -256,12 +315,13 @@ protected:
   static WORD cmdBase;
   static void* origWndProc;
   static HWND hMostRecent;
-  static HWND hCurrentBrowser;
+  static nsIDOMWindow* currentWindow;
   static nsCOMPtr<nsIWindowWatcher> watcher;
   static nsCOMPtr<nsIIOService> ioService;
   nsCOMPtr<nsIDOMWindowInternal> settingsDlg;
   static nsCOMPtr<nsIDOMWindowInternal> fakeBrowserWindow;
   static nsCOMPtr<nsIPrincipal> systemPrincipal;
+  static abpWindowList activeWindows;
   static abpListenerList selectListeners;
   static int setNextWidth;
   static int setNextHeight;
@@ -273,7 +333,8 @@ protected:
 
   static PRBool PatchComponent(JSContext* cx);
   static PRBool CreateFakeBrowserWindow(JSContext* cx, JSObject* parent);
-  static PRBool IsBrowserWindow(HWND wnd);
+  static PRBool IsBrowserWindow(nsIDOMWindow* contentWnd);
+  static HWND GetHWND(nsIDOMWindow* wnd);
   static INT CommandByName(LPSTR action);
   static void ReadAccelerator(nsIPrefBranch* branch, const char* pref, const char* command);
   virtual void LoadImage(int index);
