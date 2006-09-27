@@ -31,11 +31,13 @@ var parentNode = this;
 var style = this;
 var gContextMenu = this;
 
-var unicodeConverter = Components.classes['@mozilla.org/intl/scriptableunicodeconverter'].createInstance(Components.interfaces.nsIScriptableUnicodeConverter);
-unicodeConverter.charset = '{{CHARSET}}';
+var unicodeConverter = Components.classes["@mozilla.org/intl/scriptableunicodeconverter"]
+                                 .createInstance(Components.interfaces.nsIScriptableUnicodeConverter);
+unicodeConverter.charset = "{{CHARSET}}";
 var overlayDTD = function() {
-  var request = Components.classes['@mozilla.org/xmlextras/xmlhttprequest;1'].createInstance(Components.interfaces.nsIXMLHttpRequest);
-  request.open('GET', 'chrome://adblockplus/locale/overlay.dtd', false);
+  var request = Components.classes["@mozilla.org/xmlextras/xmlhttprequest;1"]
+                          .createInstance(Components.interfaces.nsIXMLHttpRequest);
+  request.open("GET", "chrome://adblockplus/locale/overlay.dtd", false);
   request.send(null);
 
   var ret = {};
@@ -46,8 +48,8 @@ var overlayDTD = function() {
     if (/(.*)\.label$/.test(key)) {
       var base = RegExp.$1;
       var value = ret[key];
-      if (base + '.accesskey' in ret)
-        value = value.replace(new RegExp(ret[base + '.accesskey'], 'i'), '&$&');
+      if (base + ".accesskey" in ret)
+        value = value.replace(new RegExp(ret[base + ".accesskey"], "i"), "&$&");
       ret[base] = value;
     }
   }
@@ -59,9 +61,9 @@ function getOverlayEntity(name) {
   var ellipsis = false;
   if (/\.{3}$/.test(name)) {
     ellipsis = true;
-    name = name.replace(/\.{3}$/, '');
+    name = name.replace(/\.{3}$/, "");
   }
-  var ret = (name in overlayDTD ? overlayDTD[name] : name) + (ellipsis ? '...' : '');
+  var ret = (name in overlayDTD ? overlayDTD[name] : name) + (ellipsis ? "..." : "");
   return unicodeConverter.ConvertFromUnicode(ret);
 }
 
@@ -77,4 +79,14 @@ function QueryInterface(iid) {
   throw Components.results.NS_ERROR_NO_INTERFACE;
 }
 
-Components.classes['@mozilla.org/moz/jssubscript-loader;1'].getService(Components.interfaces.mozIJSSubScriptLoader).loadSubScript('chrome://adblockplus/content/overlay.js', this);
+var timers = [];
+function setInterval(callback, delay) {
+  var timer = Components.classes["@mozilla.org/timer;1"]
+                        .createInstance(Components.interfaces.nsITimer);
+  timer.init({observe: callback}, delay, Components.interfaces.nsITimer.TYPE_REPEATING_SLACK);
+  timers.push(timer);
+}
+
+Components.classes["@mozilla.org/moz/jssubscript-loader;1"]
+          .getService(Components.interfaces.mozIJSSubScriptLoader)
+          .loadSubScript("chrome://adblockplus/content/overlay.js", this);
