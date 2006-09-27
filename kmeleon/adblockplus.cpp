@@ -36,6 +36,7 @@ JSFunctionSpec component_methods[] = {
 JSFunctionSpec browser_methods[] = {
   {"openDialog", JSOpenDialog, 3, 0, 0},
   {"setIcon", JSSetIcon, 1, 0, 0},
+  {"hideStatusBar", JSHideStatusBar, 1, 0, 0},
   {"addEventListener", FakeAddEventListener, 3, 0, 0},
   {"removeEventListener", FakeRemoveEventListener, 3, 0, 0},
   {"delayedOpenTab", FakeOpenTab, 1, 0, 0},
@@ -182,6 +183,15 @@ JSBool JS_DLL_CALLBACK JSSetIcon(JSContext* cx, JSObject* obj, uintN argc, jsval
 
   if (argc == 1)
     wrapper.SetCurrentIcon(JSVAL_TO_INT(argv[0]));
+
+  return JS_TRUE;
+}
+
+JSBool JS_DLL_CALLBACK JSHideStatusBar(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
+  *rval = JSVAL_VOID;
+
+  if (argc == 1)
+    wrapper.HideStatusBar(JSVAL_TO_BOOLEAN(argv[0]));
 
   return JS_TRUE;
 }
@@ -508,7 +518,7 @@ void abpWrapper::DoRebar(HWND hRebar) {
   REBARBANDINFO rebar = {0};
   rebar.cbSize = sizeof(rebar);
   rebar.fMask  = RBBIM_ID | RBBIM_STYLE | RBBIM_CHILD | RBBIM_CHILDSIZE | RBBIM_SIZE | RBBIM_IDEALSIZE;
-  rebar.wID = 'ABPP';
+  rebar.wID = 'AB';
   rebar.fStyle = RBBS_CHILDEDGE;
   rebar.hwndChild  = toolbar;
   rebar.cxMinChild = width;

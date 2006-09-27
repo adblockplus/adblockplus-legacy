@@ -106,6 +106,7 @@ JSBool JS_DLL_CALLBACK JSFocusDialog(JSContext* cx, JSObject* obj, uintN argc, j
 JSBool JS_DLL_CALLBACK FakeGetMostRecentWindow(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
 JSBool JS_DLL_CALLBACK JSOpenDialog(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
 JSBool JS_DLL_CALLBACK JSSetIcon(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
+JSBool JS_DLL_CALLBACK JSHideStatusBar(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
 JSBool JS_DLL_CALLBACK FakeAddEventListener(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
 JSBool JS_DLL_CALLBACK FakeRemoveEventListener(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
 JSBool JS_DLL_CALLBACK FakeOpenTab(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
@@ -292,8 +293,6 @@ public:
   void addToolbar(HWND hToolbar, HWND hRebar) {
     ToolbarDataEntry entry = {GetTopWindow(hRebar), hRebar, hToolbar};
     addEntry(entry);
-
-    SendMessage(hToolbar, TB_CHANGEBITMAP, command, MAKELPARAM(currentIcon, 0));
   }
 
   void removeWindow(HWND hWnd) {
@@ -316,6 +315,7 @@ public:
 private:
   int currentIcon;
   WORD command;
+  REBARINFO info;
 };
 
 typedef void(*addStatusIconFunc)(HWND hWnd, int id, HICON hIcon, char* tpText);
@@ -323,7 +323,7 @@ typedef void(*removeStatusIconFunc)(HWND hWnd, int id);
 
 class abpStatusBarList : public abpList<HWND> {
 public:
-  abpStatusBarList() : currentIcon(3) {}
+  abpStatusBarList() : currentIcon(3), hidden(JS_FALSE) {}
   void init(HIMAGELIST hImages, WORD command, addStatusIconFunc addFunc, removeStatusIconFunc removeFunc) {
     this->hImages = hImages;
     this->command = command;
@@ -333,7 +333,8 @@ public:
   
   void addStatusBar(HWND hWnd) {
     addEntry(hWnd);
-    addFunc(hWnd, command, ImageList_GetIcon(hImages, currentIcon, ILD_TRANSPARENT), NULL);
+    if (!hidden)
+      addFunc(hWnd, command, ImageList_GetIcon(hImages, currentIcon, ILD_TRANSPARENT), NULL);
   }
 
   void removeStatusBar(HWND hWnd) {
@@ -341,7 +342,12 @@ public:
       if (getEntry(i) == hWnd)
         removeEntry(i);
 
-    removeFunc(hWnd, command);
+    if (!hidden)
+      removeFunc(hWnd, command);
+  }
+
+  void invalidateStatusBars() {
+    setStatusIcon(-1);
   }
 
   void setStatusIcon(int icon) {
@@ -351,6 +357,9 @@ public:
     if (icon >= 0)
       currentIcon = icon;
 
+    if (hidden)
+      return;
+
     for (int i = getFirstIndex(); i >= 0; i = getNextIndex(i)) {
       HWND hWnd = getEntry(i);
       removeFunc(hWnd, command);
@@ -358,8 +367,19 @@ public:
     }
   }
 
-  void invalidateStatusBars() {
-    setStatusIcon(-1);
+  void setHidden(JSBool hide) {
+    if (hide == hidden)
+      return;
+
+    hidden = hide;
+    if (hidden) {
+      for (int i = getFirstIndex(); i >= 0; i = getNextIndex(i))
+        removeFunc(getEntry(i), command);
+    }
+    else {
+      for (int i = getFirstIndex(); i >= 0; i = getNextIndex(i))
+        addFunc(getEntry(i), command, ImageList_GetIcon(hImages, currentIcon, ILD_TRANSPARENT), NULL);
+    }
   }
 private:
   HIMAGELIST hImages;
@@ -367,6 +387,7 @@ private:
   addStatusIconFunc addFunc;
   removeStatusIconFunc removeFunc;
   int currentIcon;
+  JSBool hidden;
 };
 
 class abpWrapper : public nsIDOMEventListener,
@@ -410,6 +431,7 @@ public:
   virtual nsIDOMWindowInternal* GetSettingsWindow() {return settingsDlg;}
   virtual nsIDOMWindow* GetCurrentWindow() {return currentWindow;}
   virtual void SetCurrentIcon(int icon) {toolbarList.setToolbarIcon(icon);statusbarList.setStatusIcon(icon);}
+  virtual void HideStatusBar(JSBool hide) {statusbarList.setHidden(hide);}
   virtual JSObject* GetGlobalObject(nsIDOMWindow* wnd);
   static JSObject* UnwrapNative(nsISupports* native);
   virtual void Focus(nsIDOMWindow* wnd);
