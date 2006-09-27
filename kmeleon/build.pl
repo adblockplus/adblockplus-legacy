@@ -20,6 +20,21 @@ my $locale = shift @ARGV || "en-US";
 my $charset = ($locale eq "ru-RU" ? "windows-1251" : "iso-8859-1");
 my @locales = ($locale);
 
+my $inline_script = "";
+open(FILE, "adblockplus.js");
+while(<FILE>) {
+  s/\r//g;
+  s/\\/\\\\/g;
+  s/"/\\"/g;
+  s/\n/\\n/g;
+  s/\{\{CHARSET\}\}/$charset/g;
+  $inline_script .= $_;
+}
+close(FILE);
+
+# Remove license block
+$inline_script =~ s/^\/\*.*?\*\/(?:\\n)+//;
+
 rm_rec('tmp');
 mkdir('tmp', 0755) or die "Failed to create directory tmp: $!";
 system('') && exit;
@@ -92,7 +107,7 @@ sub cp
       s/^((?:  )+)/"\t" x (length($1)\/2)/e;
       s/(\#define\s+ABP_VERSION\s+)"[^"]*"/$1"$version"/ if $replace_version;
       s/(\#define\s+ABP_LANGUAGE\s+)"[^"]*"/$1"$locale"/ if $replace_version;
-      s/(\#define\s+ABP_CHARSET\s+)"[^"]*"/$1"$charset"/ if $replace_version;
+      s/(\#define\s+ABP_INLINE_SCRIPT\s+)"[^"]*"/$1"$inline_script"/ if $replace_version;
       s/\{\{VERSION\}\}/$version/g if $replace_version;
       if ($replace_version && /\{\{LOCALE\}\}/)
       {

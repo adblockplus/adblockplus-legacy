@@ -58,6 +58,7 @@ JSPropertySpec browser_properties[] = {
 };
 
 kmeleonFunctions* abpWrapper::kFuncs = NULL;
+PRBool abpWrapper::loaded = PR_FALSE;
 WORD abpWrapper::cmdBase = 0;
 void* abpWrapper::origWndProc = NULL;
 HWND abpWrapper::hMostRecent = NULL;
@@ -374,9 +375,14 @@ LONG abpWrapper::DoMessage(LPCSTR to, LPCSTR from, LPCSTR subject, LONG data1, L
   if (to[0] != '*' && _stricmp(to, kPlugin.dllname) != 0)
     return 0;
 
+  if (!loaded && _stricmp(subject, "Load") != 0) {
+    // K-Meleon crashes when trying to unload, have to do it ourselves
+    return 0;
+  }
+
   LONG ret = 1;
   if (_stricmp(subject, "Load") == 0)
-    ret = (Load() ? 1 : -1);
+    loaded = Load();
   else if (_stricmp(subject, "Setup") == 0)
     Setup();
   else if (_stricmp(subject, "Create") == 0)
@@ -1215,33 +1221,30 @@ PRBool abpWrapper::CreateFakeBrowserWindow(JSContext* cx, JSObject* parent) {
     return PR_FALSE;
   }
 
+  JSPrincipals* principals;
+  rv = systemPrincipal->GetJSPrincipals(cx, &principals);
+  if (NS_FAILED(rv)) {
+    JS_ReportError(cx, "Adblock Plus: Could not convert system principal into JavaScript principals");
+    return PR_FALSE;
+  }
+
+  char inlineScriptBody[] = ABP_INLINE_SCRIPT;
+  JSScript* inlineScript = JS_CompileScriptForPrincipals(cx, obj, principals, inlineScriptBody, strlen(inlineScriptBody), "adblockplus.dll inline script", 1);
+  JSPRINCIPALS_DROP(cx, principals);
+  if (inlineScript == nsnull) {
+    JS_ReportError(cx, "Adblock Plus: Failed to compile inline JavaScript code");
+    return PR_FALSE;
+  }
+
+  if (!JS_ExecuteScript(cx, obj, inlineScript, &value)) {
+    JS_ReportError(cx, "Adblock Plus: Failed to execute inline JavaScript code");
+    return PR_FALSE;
+  }
+  JS_DestroyScript(cx, inlineScript);
+
   nsCOMPtr<nsIXPConnect> xpc = do_GetService(nsIXPConnect::GetCID());
   if (xpc == nsnull) {
     JS_ReportError(cx, "Adblock Plus: Coult not retrieve nsIXPConnect - wrong Gecko version?");
-    return PR_FALSE;
-  }
-
-  const char* qiArgNames[] = {"iid"};
-  char qiBody[] = " \
-    if (iid.equals(Components.interfaces.nsISupports) || \
-        iid.equals(Components.interfaces.nsIDOMWindow) || \
-        iid.equals(Components.interfaces.nsIDOMWindowInternal)) \
-      return this; \
-\
-    if (iid.equals(Components.interfaces.nsIClassInfo)) \
-      return this.wrapper; \
-\
-    throw Components.results.NS_ERROR_NO_INTERFACE; \
-";
-  JSFunction* qiFunc = JS_CompileFunction(cx, obj, "QueryInterface", 1, qiArgNames, qiBody, strlen(qiBody), "adblockplus.dll inline script", 0);
-  if (qiFunc == nsnull) {
-    JS_ReportError(cx, "Adblock Plus: Failed to compile QueryInterface method for fake browser window");
-    return PR_FALSE;
-  }
-
-  value = OBJECT_TO_JSVAL(JS_GetFunctionObject(qiFunc));
-  if (!JS_SetProperty(cx, obj, "QueryInterface", &value)) {
-    JS_ReportError(cx, "Adblock Plus: Failed to attach QueryInterface method to fake browser window");
     return PR_FALSE;
   }
 
@@ -1257,85 +1260,6 @@ PRBool abpWrapper::CreateFakeBrowserWindow(JSContext* cx, JSObject* parent) {
     JS_ReportError(cx, "Adblock Plus: Failed to QI fake browser window");
     return PR_FALSE;
   }
-
-  JSPrincipals* principals;
-  rv = systemPrincipal->GetJSPrincipals(cx, &principals);
-  if (NS_FAILED(rv)) {
-    JS_ReportError(cx, "Adblock Plus: Could not convert system principal into JavaScript principals");
-    return PR_FALSE;
-  }
-
-  const char* overlayLoadBody = " \
-    var CSSPrimitiveValue = Components.interfaces.nsIDOMCSSPrimitiveValue; \
-    var window = this; \
-    var document = this; \
-    var location = this; \
-    var documentElement = this; \
-    var parentNode = this; \
-    var style = this; \
-    var gContextMenu = this; \
-    Components.classes['@mozilla.org/moz/jssubscript-loader;1'].getService(Components.interfaces.mozIJSSubScriptLoader).loadSubScript('chrome://adblockplus/content/overlay.js', this); \
-  ";
-  JSScript* overlayLoadScript = JS_CompileScriptForPrincipals(cx, obj, principals, overlayLoadBody, strlen(overlayLoadBody), "adblockplus.dll inline script", 0);
-  if (overlayLoadScript == nsnull) {
-    JSPRINCIPALS_DROP(cx, principals);
-    JS_ReportError(cx, "Adblock Plus: Failed to compile overlay.js loading script");
-    return PR_FALSE;
-  }
-
-  char parseDTD[] = " \
-    var unicodeConverter = Components.classes['@mozilla.org/intl/scriptableunicodeconverter'].createInstance(Components.interfaces.nsIScriptableUnicodeConverter); \
-    unicodeConverter.charset = '" ABP_CHARSET "'; \
-    var overlayDTD = function() { \
-      var request = Components.classes['@mozilla.org/xmlextras/xmlhttprequest;1'].createInstance(Components.interfaces.nsIXMLHttpRequest); \
-      request.open('GET', 'chrome://adblockplus/locale/overlay.dtd', false); \
-      request.send(null); \
-\
-      var ret = {}; \
-      ret.__proto__ = null; \
-      request.responseText.replace(/<!ENTITY\\s+([\\w.]+)\\s+\"([^\"]+?)\">/ig, function(match, key, value) {ret[key] = value}); \
-\
-      for (var key in ret) { \
-        if (/(.*)\\.label$/.test(key)) { \
-          var base = RegExp.$1; \
-          var value = ret[key]; \
-          if (base + '.accesskey' in ret) \
-            value = value.replace(new RegExp(ret[base + '.accesskey'], 'i'), '&$&'); \
-          ret[base] = value; \
-        } \
-      } \
-\
-      return ret; \
-    }(); \
-    function getOverlayEntity(name) { \
-      var ellipsis = false; \
-      if (/\\.\\.\\.$/.test(name)) { \
-        ellipsis = true; \
-        name = name.replace(/\\.\\.\\.$/, ''); \
-      } \
-      var ret = (name in overlayDTD ? overlayDTD[name] : name) + (ellipsis ? '...' : ''); \
-      return unicodeConverter.ConvertFromUnicode(ret); \
-    } \
-";
-  JSScript* parseDTDScript = JS_CompileScriptForPrincipals(cx, obj, principals, parseDTD, strlen(parseDTD), "adblockplus.dll inline script", 0);
-  JSPRINCIPALS_DROP(cx, principals);
-  if (parseDTDScript == nsnull) {
-    JS_ReportError(cx, "Adblock Plus: Failed to compile overlay.dtd parsing script");
-    return PR_FALSE;
-  }
-
-  if (!JS_ExecuteScript(cx, obj, overlayLoadScript, &value)) {
-    JS_ReportError(cx, "Adblock Plus: Failed to load overlay.js");
-    return PR_FALSE;
-  }
-
-  if (!JS_ExecuteScript(cx, obj, parseDTDScript, &value)) {
-    JS_ReportError(cx, "Adblock Plus: Failed to load overlay.dtd");
-    return PR_FALSE;
-  }
-
-  JS_DestroyScript(cx, overlayLoadScript);
-  JS_DestroyScript(cx, parseDTDScript);
 
   for (int i = 0; i < NUM_LABELS; i++) {
     JSString* str = JS_NewStringCopyZ(cx, labels[i]);
