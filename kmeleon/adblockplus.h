@@ -160,110 +160,149 @@ private:
   JSErrorReporter mOldReporter;
 };
 
-class abpListenerList {
+template<class T>
+class abpList {
 public:
-  abpListenerList() : functions(nsnull), listeners(0), bufSize(0) {}
-  virtual ~abpListenerList() {
-    if (functions != nsnull)
-      PR_Free(functions);
+  abpList() : buffer(nsnull), entries(0), bufSize(0) {}
+  virtual ~abpList() {
+    if (buffer != nsnull)
+      PR_Free(buffer);
   }
-  void addListener(JSContext* cx, JSFunction* listener) {
-    JS_SetParent(cx, JS_GetFunctionObject(listener), JS_GetGlobalObject(cx));
-    for (int i = 0; i < listeners; i++) {
-      if (functions[i] == listener)
-        return;
-      if (functions[i] == nsnull) {
-        functions[i] = listener;
+
+protected:
+  void addEntry(T& entry) {
+    for (int i = 0; i < entries; i++) {
+      if (!buffer[i].used) {
+        buffer[i].used = PR_TRUE;
+        buffer[i].data = entry;
         return;
       }
     }
-    if (listeners + 1 > bufSize) {
+
+    if (entries + 1 > bufSize) {
       bufSize += 8;
-      if (functions == nsnull)
-        functions = NS_STATIC_CAST(JSFunction**, PR_Malloc(bufSize * sizeof(JSFunction*)));
+      if (buffer == nsnull)
+        buffer = NS_STATIC_CAST(entryType*, PR_Malloc(bufSize * sizeof(entryType)));
       else
-        functions = NS_STATIC_CAST(JSFunction**, PR_Realloc(functions, bufSize * sizeof(JSFunction*)));
+        buffer = NS_STATIC_CAST(entryType*, PR_Realloc(buffer, bufSize * sizeof(entryType)));
     }
-    functions[listeners++] = listener;
+
+    buffer[entries].used = PR_TRUE;
+    buffer[entries].data = entry;
+    entries++;
   }
+
+  void removeEntry(int index) {
+    buffer[index].used = PR_FALSE;
+  }
+
+  int getFirstIndex() {
+    return getNextIndex(-1);
+  }
+
+  int getNextIndex(int index) {
+    for (index++; index < entries; index++)
+      if (buffer[index].used)
+        return index;
+
+    return -1;
+  }
+
+  T& getEntry(int index) {
+    return buffer[index].data;
+  }
+private:
+  typedef struct {
+    PRBool used;
+    T data;
+  } entryType;
+
+  int entries;
+  int bufSize;
+  entryType* buffer;
+};
+
+class abpListenerList : public abpList<JSFunction*> {
+public:
+  void addListener(JSContext* cx, JSFunction* listener) {
+    JS_SetParent(cx, JS_GetFunctionObject(listener), JS_GetGlobalObject(cx));
+    addEntry(listener);
+  }
+
   void removeListener(JSFunction* listener) {
-    for (int i = 0; i < listeners; i++)
-      if (functions[i] == listener)
-        functions[i] = nsnull;
+    for (int i = getFirstIndex(); i >= 0; i = getNextIndex(i))
+      if (getEntry(i) == listener)
+        removeEntry(i);
   }
+
   void notifyListeners() {
     abpJSContextHolder holder;
     JSContext* cx = holder.get();
     if (cx == nsnull)
       return;
 
-    for (int i = 0; i < listeners; i++) {
-      if (functions[i] == nsnull)
-        continue;
+    for (int i = getFirstIndex(); i >= 0; i = getNextIndex(i)) {
+      JSFunction* function = getEntry(i);
 
       jsval retval;
       jsval args[] = {JSVAL_VOID};
-      JS_CallFunction(cx, JS_GetParent(cx, JS_GetFunctionObject(functions[i])), functions[i], 1, args, &retval);
+      JS_CallFunction(cx, JS_GetParent(cx, JS_GetFunctionObject(function)), function, 1, args, &retval);
     }
   }
-private:
-  int listeners;
-  int bufSize;
-  JSFunction** functions;
 };
 
-class abpWindowList {
+typedef struct {
+  HWND hWnd;
+  nsIDOMWindow* window;
+} WindowDataEntry;
+
+class abpWindowList : public abpList<WindowDataEntry> {
 public:
-  abpWindowList() : buffer(nsnull), windows(0), bufSize(0) {}
-  virtual ~abpWindowList() {
-    if (buffer != nsnull)
-      PR_Free(buffer);
-  }
-
   void addWindow(HWND hWnd, nsIDOMWindow* window) {
-    for (int i = 0; i < windows; i++) {
-      if (buffer[i].window == nsnull) {
-        buffer[i].hWnd = hWnd;
-        buffer[i].window = window;
-        return;
-      }
-    }
-
-    if (windows + 1 > bufSize) {
-      bufSize += 8;
-      if (buffer == nsnull)
-        buffer = NS_STATIC_CAST(entry*, PR_Malloc(bufSize * sizeof(entry)));
-      else
-        buffer = NS_STATIC_CAST(entry*, PR_Realloc(buffer, bufSize * sizeof(entry)));
-    }
-
-    buffer[windows].hWnd = hWnd;
-    buffer[windows].window = window;
-    windows++;
+    WindowDataEntry entry = {hWnd, window};
+    addEntry(entry);
   }
 
   void removeWindow(nsIDOMWindow* window) {
-    for (int i = 0; i < windows; i++)
-      if (buffer[i].window == window)
-        buffer[i].window = nsnull;
+    for (int i = getFirstIndex(); i >= 0; i = getNextIndex(i))
+      if (getEntry(i).window == window)
+        removeEntry(i);
   }
 
   nsIDOMWindow* getWindow(HWND hWnd) {
-    for (int i = 0; i < windows; i++)
-      if (buffer[i].hWnd == hWnd)
-        return buffer[i].window;
+    for (int i = getFirstIndex(); i >= 0; i = getNextIndex(i)) {
+      WindowDataEntry& entry = getEntry(i);
+      if (entry.hWnd == hWnd)
+        return entry.window;
+    }
 
     return nsnull;
   }
-private:
-  typedef struct {
-    HWND hWnd;
-    nsIDOMWindow* window;
-  } entry;
+};
 
-  int windows;
-  int bufSize;
-  entry* buffer;
+typedef struct {
+  HWND hWnd;
+  HWND hRebar;
+  HWND hToolbar;
+} ToolbarDataEntry;
+
+class abpToolbarDataList : public abpList<ToolbarDataEntry> {
+public:
+  void addToolbar(HWND hToolbar, HWND hRebar) {
+    ToolbarDataEntry entry = {GetTopWindow(hRebar), hToolbar, hRebar};
+    addEntry(entry);
+  }
+
+  void removeWindow(HWND hWnd) {
+    for (int i = getFirstIndex(); i >= 0; i = getNextIndex(i))
+      if (getEntry(i).hWnd == hWnd)
+        removeEntry(i);
+  }
+
+  void invalidateToolbars() {
+    for (int i = getFirstIndex(); i >= 0; i = getNextIndex(i))
+      InvalidateRect(getEntry(i).hRebar, NULL, TRUE);
+  }
 };
 
 class abpWrapper : public nsIDOMEventListener,
@@ -291,6 +330,7 @@ public:
   static PRBool Load();
   static void Setup();
   static void Create(HWND parent);
+  static void Close(HWND parent);
   static void Config(HWND parent);
   static void Quit();
   static void DoMenu(HMENU menu, LPSTR action, LPSTR string);
@@ -323,6 +363,7 @@ protected:
   static nsCOMPtr<nsIPrincipal> systemPrincipal;
   static abpWindowList activeWindows;
   static abpListenerList selectListeners;
+  static abpToolbarDataList toolbarList;
   static int setNextWidth;
   static int setNextHeight;
 

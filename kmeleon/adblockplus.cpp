@@ -68,6 +68,7 @@ nsCOMPtr<nsIIOService> abpWrapper::ioService;
 nsCOMPtr<nsIPrincipal> abpWrapper::systemPrincipal;
 abpWindowList abpWrapper::activeWindows;
 abpListenerList abpWrapper::selectListeners;
+abpToolbarDataList abpWrapper::toolbarList;
 int abpWrapper::setNextWidth = 0;
 int abpWrapper::setNextHeight = 0;
 HHOOK abpWrapper::hook = NULL;
@@ -346,6 +347,8 @@ LONG abpWrapper::DoMessage(LPCSTR to, LPCSTR from, LPCSTR subject, LONG data1, L
     Setup();
   else if (_stricmp(subject, "Create") == 0)
     Create((HWND)data1);
+  else if (_stricmp(subject, "Close") == 0)
+    Close((HWND)data1);
   else if (_stricmp(subject, "Config") == 0)
     Config((HWND)data1);
   else if (_stricmp(subject, "Quit") == 0)
@@ -491,6 +494,10 @@ void abpWrapper::Create(HWND parent) {
   hMostRecent = parent;
 }
 
+void abpWrapper::Close(HWND parent) {
+  toolbarList.removeWindow(parent);
+}
+
 void abpWrapper::Config(HWND parent) {
   WndProc(parent, WM_COMMAND, cmdBase + CMD_PREFERENCES, 0);
 }
@@ -554,6 +561,8 @@ void abpWrapper::DoRebar(HWND hRebar) {
   rebar.cxIdeal    = width;
   rebar.cx         = width;
   SendMessage(hRebar, RB_INSERTBAND, (WPARAM)-1, (LPARAM)&rebar);
+
+  toolbarList.addToolbar(toolbar, hRebar);
 }
 
 LRESULT abpWrapper::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
@@ -1536,8 +1545,10 @@ void abpWrapper::LoadImage(int index) {
   nsresult rv;
 
   currentImage = index;
-  if (currentImage >= sizeof(images)/sizeof(images[0]))
+  if (currentImage >= sizeof(images)/sizeof(images[0])) {
+    toolbarList.invalidateToolbars();
     return;
+  }
 
   nsCOMPtr<imgILoader> loader = do_GetService("@mozilla.org/image/loader;1");
   if (loader == nsnull)
