@@ -107,16 +107,25 @@ function getAttribute(attr) {
   return null;
 }
 
+var iconDelayed;
+function setIconDelayed(icon) {
+  iconDelayed = icon;
+
+  var timer = Components.classes["@mozilla.org/timer;1"]
+                        .createInstance(Components.interfaces.nsITimer);
+  timer.init({observe: function() {setIcon(iconDelayed)}}, 0, Components.interfaces.nsITimer.TYPE_ONE_SHOT);
+}
+
 function setAttribute(attr, value) {
   if (attr == "deactivated")
-    setIcon(1);
+    setIconDelayed(1);
   else if (attr == "whitelisted")
-    setIcon(2);
+    setIconDelayed(2);
 }
 
 function removeAttribute(attr) {
   if (attr == "deactivated" || attr == "whitelisted")
-    setIcon(0);
+    setIconDelayed(0);
 }
 
 Components.classes["@mozilla.org/moz/jssubscript-loader;1"]

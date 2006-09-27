@@ -61,6 +61,7 @@ nsCOMPtr<nsIPrincipal> abpWrapper::systemPrincipal;
 abpWindowList abpWrapper::activeWindows;
 abpListenerList abpWrapper::selectListeners;
 abpToolbarDataList abpWrapper::toolbarList;
+abpStatusBarList abpWrapper::statusbarList;
 int abpWrapper::setNextWidth = 0;
 int abpWrapper::setNextHeight = 0;
 HHOOK abpWrapper::hook = NULL;
@@ -180,7 +181,7 @@ JSBool JS_DLL_CALLBACK JSSetIcon(JSContext* cx, JSObject* obj, uintN argc, jsval
   *rval = JSVAL_VOID;
 
   if (argc == 1)
-    wrapper.SetToolbarIcon(JSVAL_TO_INT(argv[0]));
+    wrapper.SetCurrentIcon(JSVAL_TO_INT(argv[0]));
 
   return JS_TRUE;
 }
@@ -399,6 +400,8 @@ PRBool abpWrapper::Load() {
     return PR_FALSE;
 
   cmdBase = kFuncs->GetCommandIDs(NUM_COMMANDS);
+  toolbarList.init(cmdBase + CMD_TOOLBAR);
+  statusbarList.init(wrapper.hImages, cmdBase + CMD_STATUSBAR, kFuncs->AddStatusBarIcon, kFuncs->RemoveStatusBarIcon);
 
   return PR_TRUE;
 }
@@ -427,12 +430,15 @@ void abpWrapper::Create(HWND parent) {
     initialized = PR_TRUE;
 
     abpJSContextHolder holder;
+    JSContext* cx = holder.get();
     JSObject* overlay = UnwrapNative(fakeBrowserWindow);
     jsval retval;
-    if (holder.get() != nsnull)
-      if (overlay == nsnull || !JS_CallFunctionName(holder.get(), overlay, "abpInit", 0, nsnull, &retval))
-        JS_ReportError(holder.get(), "Adblock Plus: Failed to initialize overlay.js");
+    if (cx != nsnull)
+      if (overlay == nsnull || !JS_CallFunctionName(cx, overlay, "abpInit", 0, nsnull, &retval))
+        JS_ReportError(cx, "Adblock Plus: Failed to initialize overlay.js");
   }
+
+  statusbarList.addStatusBar(parent);
 
   if (IsWindowUnicode(parent)) {
     origWndProc = (WNDPROC)GetWindowLongW(parent, GWL_WNDPROC);
@@ -448,6 +454,7 @@ void abpWrapper::Create(HWND parent) {
 
 void abpWrapper::Close(HWND parent) {
   toolbarList.removeWindow(parent);
+  statusbarList.removeStatusBar(parent);
 }
 
 void abpWrapper::Config(HWND parent) {
@@ -511,7 +518,7 @@ void abpWrapper::DoRebar(HWND hRebar) {
   rebar.cx         = width;
   SendMessage(hRebar, RB_INSERTBAND, (WPARAM)-1, (LPARAM)&rebar);
 
-  toolbarList.addToolbar(toolbar, hRebar, cmdBase + CMD_TOOLBAR);
+  toolbarList.addToolbar(toolbar, hRebar);
 }
 
 LRESULT abpWrapper::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
@@ -1438,6 +1445,7 @@ void abpWrapper::LoadImage(int index) {
   currentImage = index;
   if (currentImage >= sizeof(images)/sizeof(images[0])) {
     toolbarList.invalidateToolbars();
+    statusbarList.invalidateStatusBars();
     return;
   }
 
