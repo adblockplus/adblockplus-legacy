@@ -35,13 +35,9 @@ JSFunctionSpec component_methods[] = {
 
 JSFunctionSpec browser_methods[] = {
   {"openDialog", JSOpenDialog, 3, 0, 0},
+  {"setIcon", JSSetIcon, 1, 0, 0},
   {"addEventListener", FakeAddEventListener, 3, 0, 0},
   {"removeEventListener", FakeRemoveEventListener, 3, 0, 0},
-  {"getBrowser", JSDummyFunction, 0, 0, 0},
-  {"getElementById", JSDummyFunction, 0, 0, 0},
-  {"setAttribute", FakeSetAttribute, 0, 0, 0},
-  {"removeAttribute", FakeRemoveAttribute, 0, 0, 0},
-  {"appendChild", JSDummyFunction, 0, 0, 0},
   {"delayedOpenTab", FakeOpenTab, 1, 0, 0},
   {"showItem", FakeShowItem, 2, 0, 0},
   {NULL},
@@ -180,6 +176,15 @@ JSBool JS_DLL_CALLBACK JSOpenDialog(JSContext* cx, JSObject* obj, uintN argc, js
   return JS_TRUE;  
 }
 
+JSBool JS_DLL_CALLBACK JSSetIcon(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
+  *rval = JSVAL_VOID;
+
+  if (argc == 1)
+    wrapper.SetToolbarIcon(JSVAL_TO_INT(argv[0]));
+
+  return JS_TRUE;
+}
+
 JSBool JS_DLL_CALLBACK FakeAddEventListener(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
   *rval = JSVAL_VOID;
   if (argc != 3)
@@ -205,40 +210,6 @@ JSBool JS_DLL_CALLBACK FakeRemoveEventListener(JSContext* cx, JSObject* obj, uin
     return JS_TRUE;
 
   wrapper.RemoveSelectListener(handler);
-  return JS_TRUE;
-}
-
-JSBool JS_DLL_CALLBACK FakeSetAttribute(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
-  *rval = JSVAL_NULL;
-
-  if (argc != 2)
-    return JS_TRUE;
-
-  JSString* attr = JS_ValueToString(cx, argv[0]);
-  if (attr == nsnull)
-    return JS_TRUE;
-
-  if (strcmp(JS_GetStringBytes(attr), "deactivated") == 0)
-    wrapper.SetToolbarIcon(1);
-  else if (strcmp(JS_GetStringBytes(attr), "whitelisted") == 0)
-    wrapper.SetToolbarIcon(2);
-
-  return JS_TRUE;
-}
-
-JSBool JS_DLL_CALLBACK FakeRemoveAttribute(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
-  *rval = JSVAL_NULL;
-
-  if (argc != 1)
-    return JS_TRUE;
-
-  JSString* attr = JS_ValueToString(cx, argv[0]);
-  if (attr == nsnull)
-    return JS_TRUE;
-
-  if (strcmp(JS_GetStringBytes(attr), "deactivated") == 0 || strcmp(JS_GetStringBytes(attr), "whitelisted") == 0)
-    wrapper.SetToolbarIcon(0);
-
   return JS_TRUE;
 }
 
@@ -275,11 +246,6 @@ JSBool JS_DLL_CALLBACK FakeShowItem(JSContext* cx, JSObject* obj, uintN argc, js
   else if (strcmp(item, "abp-frame-menuitem") == 0)
     wrapper.AddContextMenuItem(CMD_FRAME, labelValues[LABEL_CONTEXT_FRAME]);
 
-  return JS_TRUE;
-}
-
-JSBool JS_DLL_CALLBACK JSDummyFunction(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
-  *rval = OBJECT_TO_JSVAL(obj);
   return JS_TRUE;
 }
 
