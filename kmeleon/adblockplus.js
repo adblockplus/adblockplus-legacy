@@ -79,6 +79,8 @@ function QueryInterface(iid) {
   throw Components.results.NS_ERROR_NO_INTERFACE;
 }
 
+this.getBrowser = this.getElementById = this.appendChild = function() {return this};
+
 var timers = [];
 function setInterval(callback, delay) {
   var timer = Components.classes["@mozilla.org/timer;1"]
@@ -103,6 +105,18 @@ function getAttribute(attr) {
     return "extrachrome";
 
   return null;
+}
+
+function setAttribute(attr, value) {
+  if (attr == "deactivated")
+    setIcon(1);
+  else if (attr == "whitelisted")
+    setIcon(2);
+}
+
+function removeAttribute(attr) {
+  if (attr == "deactivated" || attr == "whitelisted")
+    setIcon(0);
 }
 
 Components.classes["@mozilla.org/moz/jssubscript-loader;1"]
