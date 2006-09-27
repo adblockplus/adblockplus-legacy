@@ -42,9 +42,6 @@ JSFunctionSpec browser_methods[] = {
   {"setAttribute", FakeSetAttribute, 0, 0, 0},
   {"removeAttribute", FakeRemoveAttribute, 0, 0, 0},
   {"appendChild", JSDummyFunction, 0, 0, 0},
-  {"hasAttribute", FakeHasAttribute, 0, 0, 0},
-  {"getAttribute", FakeGetAttribute, 0, 0, 0},
-  {"setTimeout", FakeSetTimeout, 0, 0, 0},
   {"delayedOpenTab", FakeOpenTab, 1, 0, 0},
   {"showItem", FakeShowItem, 2, 0, 0},
   {NULL},
@@ -211,41 +208,6 @@ JSBool JS_DLL_CALLBACK FakeRemoveEventListener(JSContext* cx, JSObject* obj, uin
   return JS_TRUE;
 }
 
-JSBool JS_DLL_CALLBACK FakeHasAttribute(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
-  *rval = JSVAL_FALSE;
-  if (argc != 1)
-    return JS_TRUE;
-
-  JSString* attr = JS_ValueToString(cx, argv[0]);
-  if (attr == nsnull)
-    return JS_TRUE;
-
-  if (strcmp(JS_GetStringBytes(attr), "chromehidden") == 0)
-    *rval = JSVAL_TRUE;
-
-  return JS_TRUE;
-}
-
-JSBool JS_DLL_CALLBACK FakeGetAttribute(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
-  *rval = JSVAL_NULL;
-
-  if (argc != 1)
-    return JS_TRUE;
-
-  JSString* attr = JS_ValueToString(cx, argv[0]);
-  if (attr == nsnull)
-    return JS_TRUE;
-
-  if (strcmp(JS_GetStringBytes(attr), "chromehidden") == 0) {
-    char value[] = "extrachrome";
-    JSString* str = JS_NewStringCopyZ(cx, value);
-    if (str != nsnull)
-      *rval = STRING_TO_JSVAL(str);
-  }
-
-  return JS_TRUE;
-}
-
 JSBool JS_DLL_CALLBACK FakeSetAttribute(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
   *rval = JSVAL_NULL;
 
@@ -278,18 +240,6 @@ JSBool JS_DLL_CALLBACK FakeRemoveAttribute(JSContext* cx, JSObject* obj, uintN a
     wrapper.SetToolbarIcon(0);
 
   return JS_TRUE;
-}
-
-JSBool JS_DLL_CALLBACK FakeSetTimeout(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
-  *rval = JSVAL_VOID;
-
-  JSFunction* function;
-  int32 timeout;
-  if (!JS_ConvertArguments(cx, argc, argv, "fj", &function, &timeout))
-    return JS_FALSE;
-
-  jsval retval;
-  return JS_CallFunction(cx, obj, function, 0, nsnull, &retval);
 }
 
 JSBool JS_DLL_CALLBACK FakeOpenTab(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {

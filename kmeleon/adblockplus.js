@@ -87,6 +87,24 @@ function setInterval(callback, delay) {
   timers.push(timer);
 }
 
+function setTimeout(callback, delay) {
+  callback();
+}
+
+function hasAttribute(attr) {
+  if (attr == "chromehidden")
+    return true;
+
+  return false;
+}
+
+function getAttribute(attr) {
+  if (attr == "chromehidden")
+    return "extrachrome";
+
+  return null;
+}
+
 Components.classes["@mozilla.org/moz/jssubscript-loader;1"]
           .getService(Components.interfaces.mozIJSSubScriptLoader)
           .loadSubScript("chrome://adblockplus/content/overlay.js", this);
