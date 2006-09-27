@@ -280,15 +280,17 @@ typedef struct {
   HWND hWnd;
   HWND hRebar;
   HWND hToolbar;
-  WORD command;
 } ToolbarDataEntry;
 
 class abpToolbarDataList : public abpList<ToolbarDataEntry> {
 public:
   abpToolbarDataList() : currentIcon(3) {}
+  void init(WORD command) {
+    this->command = command;
+  }
 
-  void addToolbar(HWND hToolbar, HWND hRebar, WORD command) {
-    ToolbarDataEntry entry = {GetTopWindow(hRebar), hRebar, hToolbar, command};
+  void addToolbar(HWND hToolbar, HWND hRebar) {
+    ToolbarDataEntry entry = {GetTopWindow(hRebar), hRebar, hToolbar};
     addEntry(entry);
 
     SendMessage(hToolbar, TB_CHANGEBITMAP, command, MAKELPARAM(currentIcon, 0));
@@ -308,12 +310,62 @@ public:
   void setToolbarIcon(int icon) {
     currentIcon = icon;
 
-    for (int i = getFirstIndex(); i >= 0; i = getNextIndex(i)) {
-      ToolbarDataEntry& entry = getEntry(i);
-      SendMessage(entry.hToolbar, TB_CHANGEBITMAP, entry.command, MAKELPARAM(currentIcon, 0));
-    }
+    for (int i = getFirstIndex(); i >= 0; i = getNextIndex(i))
+      SendMessage(getEntry(i).hToolbar, TB_CHANGEBITMAP, command, MAKELPARAM(currentIcon, 0));
   }
 private:
+  int currentIcon;
+  WORD command;
+};
+
+typedef void(*addStatusIconFunc)(HWND hWnd, int id, HICON hIcon, char* tpText);
+typedef void(*removeStatusIconFunc)(HWND hWnd, int id);
+
+class abpStatusBarList : public abpList<HWND> {
+public:
+  abpStatusBarList() : currentIcon(3) {}
+  void init(HIMAGELIST hImages, WORD command, addStatusIconFunc addFunc, removeStatusIconFunc removeFunc) {
+    this->hImages = hImages;
+    this->command = command;
+    this->addFunc = addFunc;
+    this->removeFunc = removeFunc;
+  }
+  
+  void addStatusBar(HWND hWnd) {
+    addEntry(hWnd);
+    addFunc(hWnd, command, ImageList_GetIcon(hImages, currentIcon, ILD_TRANSPARENT), NULL);
+  }
+
+  void removeStatusBar(HWND hWnd) {
+    for (int i = getFirstIndex(); i >= 0; i = getNextIndex(i))
+      if (getEntry(i) == hWnd)
+        removeEntry(i);
+
+    removeFunc(hWnd, command);
+  }
+
+  void setStatusIcon(int icon) {
+    if (icon == currentIcon)
+      return;
+
+    if (icon >= 0)
+      currentIcon = icon;
+
+    for (int i = getFirstIndex(); i >= 0; i = getNextIndex(i)) {
+      HWND hWnd = getEntry(i);
+      removeFunc(hWnd, command);
+      addFunc(hWnd, command, ImageList_GetIcon(hImages, currentIcon, ILD_TRANSPARENT), NULL);
+    }
+  }
+
+  void invalidateStatusBars() {
+    setStatusIcon(-1);
+  }
+private:
+  HIMAGELIST hImages;
+  WORD command;
+  addStatusIconFunc addFunc;
+  removeStatusIconFunc removeFunc;
   int currentIcon;
 };
 
@@ -357,7 +409,7 @@ public:
   virtual nsIDOMWindowInternal* GetBrowserWindow() {return fakeBrowserWindow;}
   virtual nsIDOMWindowInternal* GetSettingsWindow() {return settingsDlg;}
   virtual nsIDOMWindow* GetCurrentWindow() {return currentWindow;}
-  virtual void SetToolbarIcon(int icon) {toolbarList.setToolbarIcon(icon);}
+  virtual void SetCurrentIcon(int icon) {toolbarList.setToolbarIcon(icon);statusbarList.setStatusIcon(icon);}
   virtual JSObject* GetGlobalObject(nsIDOMWindow* wnd);
   static JSObject* UnwrapNative(nsISupports* native);
   virtual void Focus(nsIDOMWindow* wnd);
@@ -377,6 +429,7 @@ protected:
   static abpWindowList activeWindows;
   static abpListenerList selectListeners;
   static abpToolbarDataList toolbarList;
+  static abpStatusBarList statusbarList;
   static int setNextWidth;
   static int setNextHeight;
 
