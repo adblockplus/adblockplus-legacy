@@ -79,7 +79,7 @@
 
 #define ABP_VERSION   "0.0"
 #define ABP_LANGUAGE  "en-US"
-#define ABP_CHARSET   "iso-8859-1"
+#define ABP_INLINE_SCRIPT     ""
 
 #define PLUGIN_NAME "Adblock Plus " ABP_VERSION
 #define ADBLOCKPLUS_CONTRACTID "@mozilla.org/adblockplus;1"
@@ -370,6 +370,7 @@ public:
   virtual void ResetContextMenu();
 protected:
   static kmeleonFunctions* kFuncs;
+  static PRBool loaded;
   static WORD cmdBase;
   static void* origWndProc;
   static HWND hMostRecent;
