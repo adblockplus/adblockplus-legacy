@@ -79,7 +79,17 @@ function QueryInterface(iid) {
   throw Components.results.NS_ERROR_NO_INTERFACE;
 }
 
-this.getBrowser = this.getElementById = this.appendChild = function() {return this};
+this.getBrowser = this.appendChild = function() {return this};
+
+function getElementsByTagName(name) {
+  return [this];
+}
+
+var lastRequested = null;
+function getElementById(id) {
+  lastRequested = id;
+  return this;
+}
 
 var timers = [];
 function setInterval(callback, delay) {
@@ -92,6 +102,23 @@ function setInterval(callback, delay) {
 function setTimeout(callback, delay) {
   callback();
 }
+
+this.__defineGetter__("tagName", function() {
+  if (lastRequested == "abp-status")
+    return "statusbarpanel";
+  if (lastRequested == "abp-toolbarbutton")
+    return "toolbarbutton";
+
+  return null;
+});
+
+this.__defineGetter__("hidden", function() {
+  return false;
+});
+this.__defineSetter__("hidden", function(val) {
+  if (lastRequested == "abp-status")
+    hideStatusBar(val);
+});
 
 function hasAttribute(attr) {
   if (attr == "chromehidden")
