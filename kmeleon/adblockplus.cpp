@@ -39,8 +39,8 @@ JSFunctionSpec browser_methods[] = {
   {"removeEventListener", FakeRemoveEventListener, 3, 0, 0},
   {"getBrowser", JSDummyFunction, 0, 0, 0},
   {"getElementById", JSDummyFunction, 0, 0, 0},
-  {"setAttribute", JSDummyFunction, 0, 0, 0},
-  {"removeAttribute", JSDummyFunction, 0, 0, 0},
+  {"setAttribute", FakeSetAttribute, 0, 0, 0},
+  {"removeAttribute", FakeRemoveAttribute, 0, 0, 0},
   {"appendChild", JSDummyFunction, 0, 0, 0},
   {"hasAttribute", FakeHasAttribute, 0, 0, 0},
   {"getAttribute", FakeGetAttribute, 0, 0, 0},
@@ -243,6 +243,40 @@ JSBool JS_DLL_CALLBACK FakeGetAttribute(JSContext* cx, JSObject* obj, uintN argc
     if (str != nsnull)
       *rval = STRING_TO_JSVAL(str);
   }
+
+  return JS_TRUE;
+}
+
+JSBool JS_DLL_CALLBACK FakeSetAttribute(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
+  *rval = JSVAL_NULL;
+
+  if (argc != 2)
+    return JS_TRUE;
+
+  JSString* attr = JS_ValueToString(cx, argv[0]);
+  if (attr == nsnull)
+    return JS_TRUE;
+
+  if (strcmp(JS_GetStringBytes(attr), "deactivated") == 0)
+    wrapper.SetToolbarIcon(1);
+  else if (strcmp(JS_GetStringBytes(attr), "whitelisted") == 0)
+    wrapper.SetToolbarIcon(2);
+
+  return JS_TRUE;
+}
+
+JSBool JS_DLL_CALLBACK FakeRemoveAttribute(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
+  *rval = JSVAL_NULL;
+
+  if (argc != 1)
+    return JS_TRUE;
+
+  JSString* attr = JS_ValueToString(cx, argv[0]);
+  if (attr == nsnull)
+    return JS_TRUE;
+
+  if (strcmp(JS_GetStringBytes(attr), "deactivated") == 0 || strcmp(JS_GetStringBytes(attr), "whitelisted") == 0)
+    wrapper.SetToolbarIcon(0);
 
   return JS_TRUE;
 }
@@ -559,7 +593,7 @@ void abpWrapper::DoRebar(HWND hRebar) {
   rebar.cx         = width;
   SendMessage(hRebar, RB_INSERTBAND, (WPARAM)-1, (LPARAM)&rebar);
 
-  toolbarList.addToolbar(toolbar, hRebar);
+  toolbarList.addToolbar(toolbar, hRebar, cmdBase + CMD_TOOLBAR);
 }
 
 LRESULT abpWrapper::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
@@ -651,7 +685,7 @@ LRESULT abpWrapper::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPara
       }
     }
   }
-  else if (message == TB_MBUTTONDOWN && (wParam == cmdBase + CMD_TOOLBAR || wParam == cmdBase + CMD_STATUSBAR)) {
+  else if ((message == TB_MBUTTONDOWN || message == TB_MBUTTONDBLCLK) && (wParam == cmdBase + CMD_TOOLBAR || wParam == cmdBase + CMD_STATUSBAR)) {
     abpJSContextHolder holder;
     char param[] = "enabled";
     JSObject* overlay = UnwrapNative(fakeBrowserWindow);

@@ -84,7 +84,6 @@
 #define PLUGIN_NAME "Adblock Plus " ABP_VERSION
 #define ADBLOCKPLUS_CONTRACTID "@mozilla.org/adblockplus;1"
 
-WORD cmdBase;
 enum {CMD_PREFERENCES, CMD_LISTALL, CMD_TOGGLEENABLED, CMD_IMAGE, CMD_OBJECT, CMD_LINK, CMD_FRAME, CMD_SEPARATOR, CMD_TOOLBAR, CMD_STATUSBAR, NUM_COMMANDS};
 enum {LABEL_CONTEXT_IMAGE, LABEL_CONTEXT_OBJECT, LABEL_CONTEXT_LINK, LABEL_CONTEXT_FRAME, NUM_LABELS};
 
@@ -110,6 +109,8 @@ JSBool JS_DLL_CALLBACK FakeAddEventListener(JSContext* cx, JSObject* obj, uintN 
 JSBool JS_DLL_CALLBACK FakeRemoveEventListener(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
 JSBool JS_DLL_CALLBACK FakeHasAttribute(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
 JSBool JS_DLL_CALLBACK FakeGetAttribute(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
+JSBool JS_DLL_CALLBACK FakeSetAttribute(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
+JSBool JS_DLL_CALLBACK FakeRemoveAttribute(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
 JSBool JS_DLL_CALLBACK FakeSetTimeout(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
 JSBool JS_DLL_CALLBACK FakeOpenTab(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
 JSBool JS_DLL_CALLBACK FakeShowItem(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
@@ -284,13 +285,18 @@ typedef struct {
   HWND hWnd;
   HWND hRebar;
   HWND hToolbar;
+  WORD command;
 } ToolbarDataEntry;
 
 class abpToolbarDataList : public abpList<ToolbarDataEntry> {
 public:
-  void addToolbar(HWND hToolbar, HWND hRebar) {
-    ToolbarDataEntry entry = {GetTopWindow(hRebar), hToolbar, hRebar};
+  abpToolbarDataList() : currentIcon(3) {}
+
+  void addToolbar(HWND hToolbar, HWND hRebar, WORD command) {
+    ToolbarDataEntry entry = {GetTopWindow(hRebar), hRebar, hToolbar, command};
     addEntry(entry);
+
+    SendMessage(hToolbar, TB_CHANGEBITMAP, command, MAKELPARAM(currentIcon, 0));
   }
 
   void removeWindow(HWND hWnd) {
@@ -301,8 +307,19 @@ public:
 
   void invalidateToolbars() {
     for (int i = getFirstIndex(); i >= 0; i = getNextIndex(i))
-      InvalidateRect(getEntry(i).hRebar, NULL, TRUE);
+      InvalidateRect(getEntry(i).hToolbar, NULL, TRUE);
   }
+
+  void setToolbarIcon(int icon) {
+    currentIcon = icon;
+
+    for (int i = getFirstIndex(); i >= 0; i = getNextIndex(i)) {
+      ToolbarDataEntry& entry = getEntry(i);
+      SendMessage(entry.hToolbar, TB_CHANGEBITMAP, entry.command, MAKELPARAM(currentIcon, 0));
+    }
+  }
+private:
+  int currentIcon;
 };
 
 class abpWrapper : public nsIDOMEventListener,
@@ -345,6 +362,7 @@ public:
   virtual nsIDOMWindowInternal* GetBrowserWindow() {return fakeBrowserWindow;}
   virtual nsIDOMWindowInternal* GetSettingsWindow() {return settingsDlg;}
   virtual nsIDOMWindow* GetCurrentWindow() {return currentWindow;}
+  virtual void SetToolbarIcon(int icon) {toolbarList.setToolbarIcon(icon);}
   virtual JSObject* GetGlobalObject(nsIDOMWindow* wnd);
   static JSObject* UnwrapNative(nsISupports* native);
   virtual void Focus(nsIDOMWindow* wnd);
