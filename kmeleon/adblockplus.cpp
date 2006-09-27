@@ -45,7 +45,6 @@ JSFunctionSpec browser_methods[] = {
   {"hasAttribute", FakeHasAttribute, 0, 0, 0},
   {"getAttribute", FakeGetAttribute, 0, 0, 0},
   {"setTimeout", FakeSetTimeout, 0, 0, 0},
-  {"setInterval", JSDummyFunction, 0, 0, 0},
   {"delayedOpenTab", FakeOpenTab, 1, 0, 0},
   {"showItem", FakeShowItem, 2, 0, 0},
   {NULL},
