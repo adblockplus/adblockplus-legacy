@@ -370,7 +370,6 @@ public:
   virtual void ResetContextMenu();
 protected:
   static kmeleonFunctions* kFuncs;
-  static PRBool loaded;
   static WORD cmdBase;
   static void* origWndProc;
   static HWND hMostRecent;
