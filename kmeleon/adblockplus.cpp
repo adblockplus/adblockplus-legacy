@@ -377,7 +377,7 @@ LONG abpWrapper::DoMessage(LPCSTR to, LPCSTR from, LPCSTR subject, LONG data1, L
   LONG ret = 1;
   if (_stricmp(subject, "Load") == 0) {
     ret = (Load() ? 1 : -1);
-    if (ret && watcher)
+    if (ret == -1 && watcher)
       watcher->UnregisterNotification(&wrapper);
   }
   else if (_stricmp(subject, "Setup") == 0)
