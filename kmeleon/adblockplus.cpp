@@ -58,7 +58,6 @@ JSPropertySpec browser_properties[] = {
 };
 
 kmeleonFunctions* abpWrapper::kFuncs = NULL;
-PRBool abpWrapper::loaded = PR_FALSE;
 WORD abpWrapper::cmdBase = 0;
 void* abpWrapper::origWndProc = NULL;
 HWND abpWrapper::hMostRecent = NULL;
@@ -375,14 +374,12 @@ LONG abpWrapper::DoMessage(LPCSTR to, LPCSTR from, LPCSTR subject, LONG data1, L
   if (to[0] != '*' && _stricmp(to, kPlugin.dllname) != 0)
     return 0;
 
-  if (!loaded && _stricmp(subject, "Load") != 0) {
-    // K-Meleon crashes when trying to unload, have to do it ourselves
-    return 0;
-  }
-
   LONG ret = 1;
-  if (_stricmp(subject, "Load") == 0)
-    loaded = Load();
+  if (_stricmp(subject, "Load") == 0) {
+    ret = (Load() ? 1 : -1);
+    if (ret && watcher)
+      watcher->UnregisterNotification(&wrapper);
+  }
   else if (_stricmp(subject, "Setup") == 0)
     Setup();
   else if (_stricmp(subject, "Create") == 0)
