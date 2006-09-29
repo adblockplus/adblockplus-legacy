@@ -53,6 +53,7 @@ rm_rec('tmp');
 mkdir('tmp', 0755) or die "Failed to create directory tmp: $!";
 cp_rec("../$_", "tmp/$_") foreach ('chrome', 'components', 'defaults');
 system("mv tmp/defaults/preferences tmp/defaults/pref") && exit;
+cp("adblockplus_extra.js", "tmp/defaults/pref/adblockplus_extra.js");
 mkdir("tmp/kplugins", 0755) or die "Failed to created directory tmp/kplugins: $!";
 system("mv adblockplus.dll tmp/kplugins/adblockplus.dll");
 chdir('tmp');
