@@ -28,7 +28,7 @@
     <RDF:li>
       <RDF:Description>
         <abp:title>Filter von Dr.Evil (Deutschland)</abp:title>
-        <abp:url>http://maltekraus.de/Firefox/adblock.php</abp:url>
+        <abp:url>http://maltekraus.de/Firefox/adblock.php?elemhiding=sitespecific</abp:url>
         <abp:homepage>http://www.firefox-browser.de/forum/viewtopic.php?t=28904</abp:homepage>
       </RDF:Description>
     </RDF:li>
