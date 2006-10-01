@@ -42,7 +42,7 @@ window.addEventListener("load", abpInit, false);
 
 function abpInit() {
   if (!("getBrowser" in window) && "messageContent" in window)
-    window.getBrowser = function() {return window.messageContent};
+    window.getBrowser = function() {return window.messageContent;};
 
   window.addEventListener("unload", abpUnload, false);
 
@@ -210,22 +210,22 @@ function abpReloadPrefs() {
   }
 
   var status = document.getElementById("abp-status");
-  var button = document.getElementById("abp-toolbarbutton");
   updateElement(status);
-  updateElement(button);
-  updateElement(abpGetPaletteButton());
-
   if (abpPrefs.defaultstatusbaraction == 0)
     status.setAttribute("popup", status.getAttribute("context"));
   else
     status.removeAttribute("popup");
 
+  var button = document.getElementById("abp-toolbarbutton");
+  updateElement(button);
   if (button) {
     if (button.hasAttribute("context") && abpPrefs.defaulttoolbaraction == 0)
       button.setAttribute("popup", button.getAttribute("context"));
     else
       button.removeAttribute("popup");
   }
+
+  updateElement(abpGetPaletteButton());
 }
 
 function abpInitImageManagerHiding() {
