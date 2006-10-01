@@ -100,7 +100,9 @@ function setInterval(callback, delay) {
 }
 
 function setTimeout(callback, delay) {
-  callback();
+  var timer = Components.classes["@mozilla.org/timer;1"]
+                        .createInstance(Components.interfaces.nsITimer);
+  timer.init({observe: callback}, 0, Components.interfaces.nsITimer.TYPE_ONE_SHOT);
 }
 
 this.__defineGetter__("tagName", function() {
