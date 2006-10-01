@@ -40,10 +40,8 @@ const loader = Components.classes["@mozilla.org/moz/jssubscript-loader;1"]
  * Module object
  */
 
-const module =
-{
-  registerSelf: function(compMgr, fileSpec, location, type)
-  {
+const module = {
+  registerSelf: function(compMgr, fileSpec, location, type) {
     compMgr = compMgr.QueryInterface(Components.interfaces.nsIComponentRegistrar);
     compMgr.registerFactoryLocation(ABP_CID, 
                     "Adblock content policy",
@@ -60,8 +58,7 @@ const module =
               ABP_CONTRACTID, true, true);
   },
 
-  unregisterSelf: function(compMgr, fileSpec, location)
-  {
+  unregisterSelf: function(compMgr, fileSpec, location) {
     compMgr = compMgr.QueryInterface(Components.interfaces.nsIComponentRegistrar);
 
     compMgr.unregisterFactoryLocation(ABP_CID, fileSpec);
@@ -71,8 +68,7 @@ const module =
     catman.deleteCategoryEntry("content-policy", ABP_CONTRACTID, true);
   },
 
-  getClassObject: function(compMgr, cid, iid)
-  {
+  getClassObject: function(compMgr, cid, iid) {
     if (!cid.equals(ABP_CID) && !cid.equals(ABP_PROT_CID))
       throw Components.results.NS_ERROR_NO_INTERFACE;
 
@@ -82,14 +78,12 @@ const module =
     return factory;
   },
 
-  canUnload: function(compMgr)
-  {
+  canUnload: function(compMgr) {
     return true;
   }
 };
 
-function NSGetModule(comMgr, fileSpec)
-{
+function NSGetModule(comMgr, fileSpec) {
   return module;
 }
 
