@@ -53,7 +53,7 @@ function init() {
   var selected = null;
   if (/sidebarDetached\.xul$/.test(parent.location.href)) {
     mainWin = parent.opener;
-    window.__defineGetter__("content", function() {return mainWin.getBrowser().contentWindow});
+    window.__defineGetter__("content", function() {return mainWin.getBrowser().contentWindow;});
     mainWin.addEventListener("unload", mainUnload, false);
     document.getElementById("detachButton").hidden = true;
     document.getElementById("reattachButton").hidden = false;
