@@ -4,7 +4,7 @@ use strict;
 
 my $GECKO_DIR = 'c:\gecko_sdk';
 my $GECKO2_DIR = 'c:\FFTree1\mozilla\dist';
-my $CCFLAGS = '/O1 /W3 /LD /MT /DXP_WIN';
+my $CCFLAGS = '/O1 /W3 /LD /MT /Zi /DXP_WIN';
 my $LDFLAGS = '/DLL /NODEFAULTLIB /NOLOGO /PDB:..\adblockplus.pdb';
 my @INCLUDE_DIRS = ('c:\kmeleon_src', "$GECKO_DIR\\include");
 my @LIB_DIRS = ("$GECKO_DIR\\lib");

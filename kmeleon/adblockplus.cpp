@@ -25,7 +25,7 @@
 #include <windows.h>
 #include "adblockplus.h"
 
-abpWrapper wrapper;
+abpWrapper* wrapper = new abpWrapper();
 char labelValues[NUM_LABELS][100];
 
 JSFunctionSpec component_methods[] = {
@@ -122,7 +122,7 @@ JSBool JS_DLL_CALLBACK JSFocusDialog(JSContext* cx, JSObject* obj, uintN argc, j
   if (wnd == nsnull)
     return JS_TRUE;
 
-  wrapper.Focus(wnd);
+  wrapper->Focus(wnd);
   return JS_TRUE;
 }
 
@@ -135,9 +135,9 @@ JSBool JS_DLL_CALLBACK FakeGetMostRecentWindow(JSContext* cx, JSObject* obj, uin
 
   nsIDOMWindowInternal* wnd = nsnull;
   if (strcmp(type, "navigator:browser") == 0)
-    wnd = wrapper.GetBrowserWindow();
+    wnd = wrapper->GetBrowserWindow();
   else if (strcmp(type, "abp:settings") == 0)
-    wnd = wrapper.GetSettingsWindow();
+    wnd = wrapper->GetSettingsWindow();
 
   if (wnd != nsnull) {
     PRBool closed;
@@ -149,9 +149,9 @@ JSBool JS_DLL_CALLBACK FakeGetMostRecentWindow(JSContext* cx, JSObject* obj, uin
   if (wnd == nsnull)
     return JS_TRUE;
 
-  JSObject* ret = wrapper.GetGlobalObject(wnd);
+  JSObject* ret = wrapper->GetGlobalObject(wnd);
   if (ret == nsnull)
-    ret = wrapper.UnwrapNative(wnd);
+    ret = wrapper->UnwrapNative(wnd);
   if (ret == nsnull)
     return JS_TRUE;
 
@@ -180,7 +180,7 @@ JSBool JS_DLL_CALLBACK JSOpenDialog(JSContext* cx, JSObject* obj, uintN argc, js
       return JS_FALSE;
   }
 
-  JSObject* ret = wrapper.OpenDialog(url, target, features);
+  JSObject* ret = wrapper->OpenDialog(url, target, features);
   if (ret == nsnull)
     return JS_TRUE;
 
@@ -192,7 +192,7 @@ JSBool JS_DLL_CALLBACK JSSetIcon(JSContext* cx, JSObject* obj, uintN argc, jsval
   *rval = JSVAL_VOID;
 
   if (argc == 1)
-    wrapper.SetCurrentIcon(JSVAL_TO_INT(argv[0]));
+    wrapper->SetCurrentIcon(JSVAL_TO_INT(argv[0]));
 
   return JS_TRUE;
 }
@@ -201,7 +201,7 @@ JSBool JS_DLL_CALLBACK JSHideStatusBar(JSContext* cx, JSObject* obj, uintN argc,
   *rval = JSVAL_VOID;
 
   if (argc == 1)
-    wrapper.HideStatusBar(JSVAL_TO_BOOLEAN(argv[0]));
+    wrapper->HideStatusBar(JSVAL_TO_BOOLEAN(argv[0]));
 
   return JS_TRUE;
 }
@@ -216,7 +216,7 @@ JSBool JS_DLL_CALLBACK FakeAddEventListener(JSContext* cx, JSObject* obj, uintN 
   if (event == nsnull || handler == nsnull || strcmp(JS_GetStringBytes(event), "select") != 0)
     return JS_TRUE;
 
-  wrapper.AddSelectListener(cx, handler);
+  wrapper->AddSelectListener(cx, handler);
   return JS_TRUE;
 }
 
@@ -230,7 +230,7 @@ JSBool JS_DLL_CALLBACK FakeRemoveEventListener(JSContext* cx, JSObject* obj, uin
   if (event == nsnull || handler == nsnull || strcmp(JS_GetStringBytes(event), "select") != 0)
     return JS_TRUE;
 
-  wrapper.RemoveSelectListener(handler);
+  wrapper->RemoveSelectListener(handler);
   return JS_TRUE;
 }
 
@@ -243,7 +243,7 @@ JSBool JS_DLL_CALLBACK FakeOpenTab(JSContext* cx, JSObject* obj, uintN argc, jsv
   if (url == nsnull)
     return JS_TRUE;
 
-  wrapper.OpenTab(JS_GetStringBytes(url));
+  wrapper->OpenTab(JS_GetStringBytes(url));
   return JS_TRUE;
 }
 
@@ -259,19 +259,19 @@ JSBool JS_DLL_CALLBACK FakeShowItem(JSContext* cx, JSObject* obj, uintN argc, js
     return JS_TRUE;
 
   if (strcmp(item, "abp-image-menuitem") == 0)
-    wrapper.AddContextMenuItem(CMD_IMAGE, labelValues[LABEL_CONTEXT_IMAGE]);
+    wrapper->AddContextMenuItem(CMD_IMAGE, labelValues[LABEL_CONTEXT_IMAGE]);
   else if (strcmp(item, "abp-object-menuitem") == 0)
-    wrapper.AddContextMenuItem(CMD_OBJECT, labelValues[LABEL_CONTEXT_OBJECT]);
+    wrapper->AddContextMenuItem(CMD_OBJECT, labelValues[LABEL_CONTEXT_OBJECT]);
   else if (strcmp(item, "abp-link-menuitem") == 0)
-    wrapper.AddContextMenuItem(CMD_LINK, labelValues[LABEL_CONTEXT_LINK]);
+    wrapper->AddContextMenuItem(CMD_LINK, labelValues[LABEL_CONTEXT_LINK]);
   else if (strcmp(item, "abp-frame-menuitem") == 0)
-    wrapper.AddContextMenuItem(CMD_FRAME, labelValues[LABEL_CONTEXT_FRAME]);
+    wrapper->AddContextMenuItem(CMD_FRAME, labelValues[LABEL_CONTEXT_FRAME]);
 
   return JS_TRUE;
 }
 
 JSBool JS_DLL_CALLBACK JSGetContentWindow(JSContext *cx, JSObject *obj, jsval id, jsval *vp) {
-  JSObject* wndObj = wrapper.GetGlobalObject(wrapper.GetCurrentWindow());
+  JSObject* wndObj = wrapper->GetGlobalObject(wrapper->GetCurrentWindow());
   if (wndObj != nsnull)
     *vp = OBJECT_TO_JSVAL(wndObj);
   else
@@ -288,7 +288,7 @@ JSBool JS_DLL_CALLBACK JSGetWrapper(JSContext *cx, JSObject *obj, jsval id, jsva
     return JS_FALSE;
 
   nsCOMPtr<nsIXPConnectJSObjectHolder> wrapperHolder;
-  rv = xpc->WrapNative(cx, JS_GetParent(cx, obj), NS_STATIC_CAST(nsIClassInfo*, &wrapper), NS_GET_IID(nsIClassInfo), getter_AddRefs(wrapperHolder));
+  rv = xpc->WrapNative(cx, JS_GetParent(cx, obj), NS_STATIC_CAST(nsIClassInfo*, wrapper), NS_GET_IID(nsIClassInfo), getter_AddRefs(wrapperHolder));
   if (NS_FAILED(rv))
     return JS_FALSE;
 
@@ -314,7 +314,7 @@ LONG abpWrapper::DoMessage(LPCSTR to, LPCSTR from, LPCSTR subject, LONG data1, L
   if (_stricmp(subject, "Load") == 0) {
     ret = (Load() ? 1 : -1);
     if (ret == -1 && watcher)
-      watcher->UnregisterNotification(&wrapper);
+      watcher->UnregisterNotification(wrapper);
   }
   else if (_stricmp(subject, "Setup") == 0)
     Setup();
@@ -404,7 +404,7 @@ PRBool abpWrapper::Load() {
     return PR_FALSE;
   }
 
-  rv = watcher->RegisterNotification(&wrapper);
+  rv = watcher->RegisterNotification(wrapper);
   if (NS_FAILED(rv)) {
     JS_ReportError(cx, "Adblock Plus: Failed to register for window watcher notifications");
     return PR_FALSE;
@@ -421,7 +421,7 @@ PRBool abpWrapper::Load() {
 
   cmdBase = kFuncs->GetCommandIDs(NUM_COMMANDS);
   toolbarList.init(cmdBase + CMD_TOOLBAR);
-  statusbarList.init(wrapper.hImages, cmdBase + CMD_STATUSBAR, kFuncs->AddStatusBarIcon, kFuncs->RemoveStatusBarIcon);
+  statusbarList.init(wrapper->hImages, cmdBase + CMD_STATUSBAR, kFuncs->AddStatusBarIcon, kFuncs->RemoveStatusBarIcon);
 
   return PR_TRUE;
 }
@@ -436,7 +436,7 @@ void abpWrapper::Setup() {
     ReadAccelerator(branch, "extensions.adblockplus.enable_key", "adblockplus(ToggleEnabled)");
   }
 
-  wrapper.LoadImage(0);
+  wrapper->LoadImage(0);
 }
 
 void abpWrapper::Quit() {
@@ -515,9 +515,9 @@ void abpWrapper::DoRebar(HWND hRebar) {
   SendMessage(toolbar, TB_ADDBUTTONS, 1, (LPARAM)&button);
 
   int width, height;
-  ImageList_GetIconSize(wrapper.hImages, &width, &height);
+  ImageList_GetIconSize(wrapper->hImages, &width, &height);
   SendMessage(toolbar, TB_SETBUTTONSIZE, 0, (LPARAM)MAKELONG(width, height));
-  SendMessage(toolbar, TB_SETIMAGELIST, 0, (LPARAM)wrapper.hImages);
+  SendMessage(toolbar, TB_SETIMAGELIST, 0, (LPARAM)wrapper->hImages);
 
   DWORD dwBtnSize = SendMessage(toolbar, TB_GETBUTTONSIZE, 0, 0); 
   width = LOWORD(dwBtnSize);
@@ -696,7 +696,7 @@ LRESULT CALLBACK abpWrapper::HookProc(int nCode, WPARAM wParam, LPARAM lParam) {
       DRAWITEMSTRUCT* dis = (DRAWITEMSTRUCT*)params->lParam;
       WORD id = dis->itemID - cmdBase;
       if (dis->CtlType == ODT_MENU && id < NUM_COMMANDS)
-        ImageList_Draw(wrapper.hImages, 0, dis->hDC, dis->rcItem.left + 1, dis->rcItem.top + 1, ILD_TRANSPARENT);
+        ImageList_Draw(wrapper->hImages, 0, dis->hDC, dis->rcItem.left + 1, dis->rcItem.top + 1, ILD_TRANSPARENT);
     }
   }
 
@@ -1422,7 +1422,7 @@ JSObject* abpWrapper::OpenDialog(char* url, char* target, char* features) {
       target->AddEventListener(NS_LITERAL_STRING("load"), this, PR_FALSE);
   }
 
-  return wrapper.GetGlobalObject(wnd);
+  return wrapper->GetGlobalObject(wnd);
 }
 
 JSObject* abpWrapper::GetGlobalObject(nsIDOMWindow* wnd) {
