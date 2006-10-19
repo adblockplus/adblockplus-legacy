@@ -36,11 +36,6 @@ dialog {
 #subscriptions {
   margin-top: 10px;
   margin-bottom: 10px;
-  overflow: auto;
-}
-
-#subscriptions > radiogroup {
-  max-height: 300px;
 }
 
 template+.container, .containerAdded {

@@ -50,34 +50,34 @@
 
 <script type="application/x-javascript" src="tip_subscriptions.js"/>
 
-<hbox align="center">
+<hbox>
   <description flex="1" id="description">&description;</description>
   <vbox>
-    <hbox pack="center">
-      <image id="icon"/>
-    </hbox>
+    <vbox flex="1" pack="center">
+      <hbox pack="center">
+        <image id="icon"/>
+      </hbox>
+    </vbox>
     <description class="fulllist" _url="&full-list.url;" tooltiptext="&full-list.url;" value="&full-list.label;" onclick="abp.loadInBrowser(this.getAttribute('_url'))"/>
   </vbox>
 </hbox>
 
 
-<scrollbox id="subscriptions" orient="vertical" flex="1">
-  <radiogroup id="subscriptionsGroup" flex="1" datasources="subscriptions.rdf" ref="abp:subscriptions" onkeypress="return handleKeyPress(event)" onselect="handleSelect(this)">
-    <template>
-      <hbox uri="rdf:*" class="container" align="center">
-        <radio _title="rdf:http://adblockplus.org/#title" _url="rdf:http://adblockplus.org/#url"/>
-        <vbox flex="1">
-          <hbox>
-            <description class="title" value="rdf:http://adblockplus.org/#title"/>
-            <spacer flex="1"/>
-            <description class="homepage" _url="rdf:http://adblockplus.org/#homepage" tooltiptext="rdf:http://adblockplus.org/#homepage" value="&homepage.label;" onclick="abp.loadInBrowser(this.getAttribute('_url'))"/>
-          </hbox>
-          <description class="location" value="rdf:http://adblockplus.org/#url" onclick="abp.loadInBrowser(this.getAttribute('value'))"/>
-        </vbox>
-      </hbox>
-    </template>
-  </radiogroup>
-</scrollbox>
+<radiogroup id="subscriptions" flex="1" datasources="subscriptions.rdf" ref="abp:subscriptions" onkeypress="return handleKeyPress(event)">
+  <template>
+    <hbox uri="rdf:*" class="container" align="center">
+      <radio _title="rdf:http://adblockplus.org/#title" _url="rdf:http://adblockplus.org/#url"/>
+      <vbox flex="1">
+        <hbox>
+          <description class="title" value="rdf:http://adblockplus.org/#title"/>
+          <spacer flex="1"/>
+          <description class="homepage" _url="rdf:http://adblockplus.org/#homepage" tooltiptext="rdf:http://adblockplus.org/#homepage" value="&homepage.label;" onclick="abp.loadInBrowser(this.getAttribute('_url'))"/>
+        </hbox>
+        <description class="location" value="rdf:http://adblockplus.org/#url" onclick="abp.loadInBrowser(this.getAttribute('value'))"/>
+      </vbox>
+    </hbox>
+  </template>
+</radiogroup>
 
 <description flex="1" id="note">&note;</description>
 

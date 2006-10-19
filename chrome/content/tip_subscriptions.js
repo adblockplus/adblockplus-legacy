@@ -29,7 +29,7 @@ while (abp && !("getString" in abp))
 var prefs = abp.prefs;
 
 function addSubscriptions() {
-  var group = document.getElementById("subscriptionsGroup");
+  var group = document.getElementById("subscriptions");
   var selected = group.selectedItem;
   if (!selected)
     return;
@@ -57,12 +57,3 @@ function handleKeyPress(e) {
   return true;
 }
 
-function handleSelect(group) {
-  var selected = group.selectedItem;
-  if (!selected)
-    return;
-
-  group.parentNode.boxObject
-       .QueryInterface(Components.interfaces.nsIScrollBoxObject)
-       .ensureElementIsVisible(selected.parentNode);
-}
