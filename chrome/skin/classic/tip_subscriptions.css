@@ -30,15 +30,17 @@ dialog {
 
 #icon {
   list-style-image: url(adblockplus.png);
-  margin-left: 15px;
-  margin-right: 15px;
+  margin: 15px;
 }
 
 #subscriptions {
   margin-top: 10px;
   margin-bottom: 10px;
-  max-height: 300px;
   overflow: auto;
+}
+
+#subscriptions > radiogroup {
+  max-height: 300px;
 }
 
 template+.container, .containerAdded {
@@ -55,12 +57,20 @@ template+.container, .containerAdded {
   border-bottom: 1px solid black;
 }
 
-.location, .homepage {
+.fulllist, .location, .homepage {
   color: #0000E0;
   text-decoration: underline;
   cursor: pointer;
 }
 
-checkbox .checkbox-label-box {
+radio .radio-label-box {
   display: none;
 }
+
+radio + vbox {
+  border: 1px solid transparent;
+}
+radio[focused="true"] + vbox {
+  border: 1px dotted ThreeDDarkShadow;
+}
+

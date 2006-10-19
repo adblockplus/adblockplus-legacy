@@ -61,6 +61,12 @@
         </template>
       </menulist>
     </row>
+    <row id="listRow">
+      <spacer/>
+      <hbox pack="end">
+        <description class="fulllist" _url="&full-list.url;" tooltiptext="&full-list.url;" value="&full-list.label;" onclick="abp.loadInBrowser(this.getAttribute('_url'))"/>
+      </hbox>
+    </row>
     <row id="locationRow" align="center">
       <label value="&location.label;" accesskey="&location.accesskey;" control="location"/>
       <textbox id="location"/>
