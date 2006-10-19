@@ -32,26 +32,5 @@
         <abp:homepage>http://www.firefox-browser.de/forum/viewtopic.php?t=28904</abp:homepage>
       </RDF:Description>
     </RDF:li>
-    <RDF:li>
-      <RDF:Description>
-        <abp:title>adblock.free.fr (France)</abp:title>
-        <abp:url>http://adblock.free.fr/adblock_basic.txt</abp:url>
-        <abp:homepage>http://adblock.free.fr/</abp:homepage>
-      </RDF:Description>
-    </RDF:li>
-    <RDF:li>
-      <RDF:Description>
-        <abp:title>ChinaList (中國)</abp:title>
-        <abp:url>http://www.anetcity.com/adblock.txt</abp:url>
-        <abp:homepage>http://www.anetcity.com/bbs/index.php?topic=9799.0</abp:homepage>
-      </RDF:Description>
-    </RDF:li>
-    <RDF:li>
-      <RDF:Description>
-        <abp:title>RU AdList (Россия)</abp:title>
-        <abp:url>http://denis-ovs.narod.ru/adblock.txt</abp:url>
-        <abp:homepage>http://denis-ovs.narod.ru/</abp:homepage>
-      </RDF:Description>
-    </RDF:li>
   </RDF:Seq>
 </RDF:RDF>
