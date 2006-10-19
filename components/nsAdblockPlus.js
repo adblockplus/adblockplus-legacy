@@ -265,6 +265,36 @@ const abp = {
   // Custom methods
   //
 
+  // Adds a new subscription to the list
+  addSubscription: function(url, title, autoDownload, disabled) {
+    if (typeof autoDownload == "undefined")
+      autoDownload = true;
+    if (typeof disabled == "undefined")
+      disabled = false;
+
+    var subscription = (prefs.knownSubscriptions.has(url) ? prefs.knownSubscriptions.get(url) : prefs.subscriptionFromURL(url));
+    if (!subscription)
+      return;
+
+    var found = false;
+    for (var j = 0; j < prefs.subscriptions.length; j++)
+      if (prefs.subscriptions[j] == subscription)
+        found = true;
+
+    if (found)
+      return;
+
+    subscription.title = title;
+    subscription.disabled = disabled;
+    subscription.autoDownload = autoDownload;
+    prefs.subscriptions.push(subscription);
+
+    synchronizer.notifyListeners(subscription, "add");
+    synchronizer.execute(subscription);
+
+    prefs.savePatterns();
+  },
+
   // Returns update item for Adblock Plus (only when extension manager is available)
   getUpdateItem: function() {
     if (!("@mozilla.org/extensions/manager;1" in Components.classes))

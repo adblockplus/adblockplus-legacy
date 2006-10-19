@@ -32,3 +32,12 @@ description {
   width: 400px;
   margin-bottom: 20px;
 }
+
+.fulllist {
+  color: #0000E0;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  width: auto;
+}

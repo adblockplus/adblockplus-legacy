@@ -29,73 +29,40 @@ while (abp && !("getString" in abp))
 var prefs = abp.prefs;
 
 function addSubscriptions() {
-  var added = false;
-  var checkboxes = document.getElementsByTagName("checkbox");
-  for (var i = 0; i < checkboxes.length; i++) {
-    if (checkboxes[i].checked) {
-      var title = checkboxes[i].getAttribute("_title");
-      var url = checkboxes[i].getAttribute("_url");
-      var disabled = (checkboxes[i].hasAttribute("_disabled") ? checkboxes[i].getAttribute("_disabled") == "true" : false);
-      var autoDownload = (checkboxes[i].hasAttribute("_autoDownload") ? checkboxes[i].getAttribute("_autoDownload") == "true" : true);
+  var group = document.getElementById("subscriptionsGroup");
+  var selected = group.selectedItem;
+  if (!selected)
+    return;
 
-      var subscription = (prefs.knownSubscriptions.has(url) ? prefs.knownSubscriptions.get(url) : prefs.subscriptionFromURL(url));
-      if (!subscription)
-        continue;
-  
-      var found = false;
-      for (var j = 0; j < prefs.subscriptions.length; j++)
-        if (prefs.subscriptions[j] == subscription)
-          found = true;
-  
-      if (found)
-        continue;
-  
-      subscription.title = title;
-      subscription.disabled = disabled;
-      subscription.autoDownload = autoDownload;
-      prefs.subscriptions.push(subscription);
-  
-      abp.synchronizer.notifyListeners(subscription, "add");
-      abp.synchronizer.execute(subscription);
-  
-      added = true;
-    }
-  }
-  if (added)
-    prefs.savePatterns();
+  abp.addSubscription(selected.getAttribute("_url"), selected.getAttribute("_title"));
 }
 
 function addOther() {
-  var result = {};
-  openDialog("subscription.xul", "_blank", "chrome,centerscreen,modal", abp, prefs, null, result);
+  openDialog("subscription.xul", "_blank", "chrome,centerscreen", abp, prefs, null, null);
+  window.close();
+}
 
-  if (!("url" in result))
+function handleKeyPress(e) {
+  switch (e.keyCode) {
+    case e.DOM_VK_PAGE_UP:
+    case e.DOM_VK_PAGE_DOWN:
+    case e.DOM_VK_END:
+    case e.DOM_VK_HOME:
+    case e.DOM_VK_LEFT:
+    case e.DOM_VK_RIGHT:
+    case e.DOM_VK_UP:
+    case e.DOM_VK_DOWN:
+      return false;
+  }
+  return true;
+}
+
+function handleSelect(group) {
+  var selected = group.selectedItem;
+  if (!selected)
     return;
 
-  var template = document.getElementsByTagName("template")[0];
-  var container = template.firstChild.cloneNode(true);
-  container.className = "containerAdded"
-
-  var descriptions = container.getElementsByTagName("description");
-  var remove = null;
-  for (var i = 0; i < descriptions.length; i++) {
-    if (descriptions[i].className == "title")
-      descriptions[i].setAttribute("value", result.title);
-    else if (descriptions[i].className == "homepage")
-      remove = descriptions[i];
-    else if (descriptions[i].className == "location")
-      descriptions[i].setAttribute("value", result.url);
-  }
-  if (remove)
-    remove.parentNode.removeChild(remove);
-
-  var checkbox = container.getElementsByTagName("checkbox")[0];
-  checkbox.setAttribute("_title", result.title);
-  checkbox.setAttribute("_url", result.url);
-  checkbox.setAttribute("_disabled", result.disabled);
-  checkbox.setAttribute("_autoDownload", result.autoDownload);
-  checkbox.checked = true;
-
-  template.parentNode.height = template.parentNode.boxObject.height;
-  template.parentNode.insertBefore(container, template);
+  group.parentNode.boxObject
+       .QueryInterface(Components.interfaces.nsIScrollBoxObject)
+       .ensureElementIsVisible(selected.parentNode);
 }

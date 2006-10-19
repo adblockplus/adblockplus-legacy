@@ -207,7 +207,7 @@ var synchronizer = {
   execute: function(subscription, forceDownload) {
     // Execute delayed so XMLHttpRequest isn't attached to the
     // load group of the calling window
-    me = this;
+    var me = this;
     if (typeof forceDownload == "undefined")
       forceDownload = false;
     createTimer(function() {me.executeInternal(subscription, forceDownload)}, 0);

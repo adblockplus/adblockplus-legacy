@@ -106,6 +106,9 @@ function saveSubscription() {
     }
   }
 
+  if (!window.arguments[3])
+    result = {};
+
   result.url = url;
 
   result.title = document.getElementById("title").label.replace(/^\s+/, "").replace(/\s+$/, "");
@@ -114,6 +117,9 @@ function saveSubscription() {
 
   result.autoDownload = document.getElementById("autodownload").checked;
   result.disabled = !document.getElementById("enabled").checked;
+
+  if (!window.arguments[3])
+    abp.addSubscription(result.url, result.title, result.autoDownload, result.disabled);
 
   return true;
 }
