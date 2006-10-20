@@ -37,7 +37,7 @@
 <!ENTITY showintoolbar.accesskey "V">
 <!ENTITY showinstatusbar.label "Vis i statuslinje">
 <!ENTITY showinstatusbar.accesskey "t">
-<!ENTITY localpages.label "Stopp ekstern reklame på lokale sider">
+<!ENTITY localpages.label "Stopp ekstern reklame på websider">
 <!ENTITY localpages.accesskey "k">
 <!ENTITY objecttabs.label "Vis fliker på Flash og Java">
 <!ENTITY objecttabs.accesskey "f">

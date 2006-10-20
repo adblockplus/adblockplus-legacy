@@ -16,7 +16,7 @@
 <!ENTITY resethitcounts.label "Vynulovat počítadla zásahů">
 <!ENTITY resethitcounts.accesskey "V">
 <!ENTITY edit.label "Úpravy">
-<!ENTITY edit.accesskey "r">
+<!ENTITY edit.accesskey "A">
 <!ENTITY cut.label "Vyjmout">
 <!ENTITY cut.accesskey "j">
 <!ENTITY copy.label "Kopírovat">
@@ -74,4 +74,4 @@ Můžete použít * jako &quot;divokou kartu&quot; pro vytváření obecnější
 <!ENTITY context.movegroupup.label "Posunout skupinu nahoru">
 <!ENTITY context.movegroupdown.label "Posunout skupinu dolů">
 <!ENTITY apply.label "Použít">
-<!ENTITY apply.accesskey "o">
+<!ENTITY apply.accesskey "U">

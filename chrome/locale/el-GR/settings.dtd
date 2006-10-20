@@ -1,4 +1,4 @@
-<!ENTITY dialog.title "Ρυθμίσεις Adblock Plus">
+<!ENTITY dialog.title "Προτιμήσεις του Adblock Plus">
 <!ENTITY filters.label "Φίλτρα">
 <!ENTITY filters.accesskey "Φ">
 <!ENTITY add.label "Προσθήκη φίλτρου">
@@ -59,11 +59,9 @@
 <!ENTITY about.label "Περί">
 <!ENTITY about.accesskey "Π">
 <!ENTITY disabled.warning "Το Adblock Plus είναι απενεργοποιημένο. Οι όποιες αλλαγές στην λίστα δεν θα εμφανιστούν μέχρι να το ενεργοποιήσετε.">
-<!ENTITY description "
-    Προσθέστε τις διευθύνσεις που θέλετε να φιλτράρετε. Για προτάσεις συμβουλευτείτε την αναδυόμενη λίστα.
+<!ENTITY description "Προσθέστε τις διευθύνσεις που θέλετε να φιλτράρετε. Για προτάσεις συμβουλευτείτε την αναδυόμενη λίστα.
     Μπορείτε να χρησιμοποιήσετε το * ως μπαλαντέρ για να δημιουργήσετε κάποια γενικά φίλτρα. Οι προχωρημένοι χρήστες
-    μπορούν να εισάγουν κάποιους γενικούς κανόνες όπως /banner\d+\.gif$/.
-">
+    μπορούν να εισάγουν κάποιους γενικούς κανόνες όπως /banner\d+\.gif$/.">
 <!ENTITY pattern.column "Φίλτρο">
 <!ENTITY enabled.column "Ενεργοποιημένο">
 <!ENTITY hitcount.column "Επιτυχίες">
