@@ -1,0 +1,76 @@
+<!ENTITY dialog.title "Adblock Plus beállítások">
+<!ENTITY filters.label "Szűrők">
+<!ENTITY filters.accesskey "S">
+<!ENTITY add.label "Szűrő hozzáadása">
+<!ENTITY add.accesskey "h">
+<!ENTITY addsubscription.label "Előfizetés új szűrőre">
+<!ENTITY addsubscription.accesskey "E">
+<!ENTITY synchsubscriptions.label "Az összes előfizetés frissítése">
+<!ENTITY synchsubscriptions.accesskey "f">
+<!ENTITY import.label "Szűrők importálása">
+<!ENTITY import.accesskey "i">
+<!ENTITY export.label "Szűrők exportálása">
+<!ENTITY export.accesskey "x">
+<!ENTITY clearall.label "Az összes szűrő eltávolítása">
+<!ENTITY clearall.accesskey "l">
+<!ENTITY resethitcounts.label "Találati statisztikák nullázása">
+<!ENTITY resethitcounts.accesskey "n">
+<!ENTITY edit.label "Szerkesztés">
+<!ENTITY edit.accesskey "z">
+<!ENTITY cut.label "Kivágás">
+<!ENTITY cut.accesskey "K">
+<!ENTITY copy.label "Másolás">
+<!ENTITY copy.accesskey "M">
+<!ENTITY paste.label "Beillesztés">
+<!ENTITY paste.accesskey "B">
+<!ENTITY remove.label "Törlés">
+<!ENTITY remove.accesskey "s">
+<!ENTITY menu.find.label "Keresés">
+<!ENTITY menu.find.accesskey "K">
+<!ENTITY menu.findagain.label "Következő keresése">
+<!ENTITY menu.findagain.accesskey "z">
+<!ENTITY options.label "Beállítások">
+<!ENTITY options.accesskey "B">
+<!ENTITY enable.label "Adblock Plus bekapcsolása">
+<!ENTITY enable.accesskey "e">
+<!ENTITY showintoolbar.label "Megjelenítés az eszköztáron">
+<!ENTITY showintoolbar.accesskey "M">
+<!ENTITY showinstatusbar.label "Megjelenítés az állapotsoron">
+<!ENTITY showinstatusbar.accesskey "a">
+<!ENTITY localpages.label "Távoli reklámok szűrése helyi lapokon">
+<!ENTITY localpages.accesskey "h">
+<!ENTITY objecttabs.label "Fülek megjelenítése Flash és Java objektumokon">
+<!ENTITY objecttabs.accesskey "F">
+<!ENTITY collapse.label "Blokk elemek összecsukása">
+<!ENTITY collapse.accesskey "c">
+<!ENTITY linkcheck.label "Banner linkek ellenőrzése">
+<!ENTITY linkcheck.accesskey "B">
+<!ENTITY help.label "Súgó">
+<!ENTITY help.accesskey "S">
+<!ENTITY faq.label "Gyakran Ismételt Kérdések">
+<!ENTITY faq.accesskey "G">
+<!ENTITY faq.url "http://adblockplus.org/en/faq">
+<!ENTITY tips.label "A nap tippje">
+<!ENTITY tips.accesskey "t">
+<!ENTITY tips.url "http://adblockplus.org/en/tips">
+<!ENTITY filterdoc.label "Adblock Plus szűrők írása">
+<!ENTITY filterdoc.accesskey "s">
+<!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
+<!ENTITY about.label "Az Adblock Plus névjegye">
+<!ENTITY about.accesskey "n">
+<!ENTITY disabled.warning "Az Adblock Plus ki van kapcsolva. A szűrőkön való módosítás csak akkor fog érvénybe lépni, ha újra bekapcsolja.">
+<!ENTITY description "Adja meg a címeket, amiket blokkolni szeretne, javaslatokhoz gördítse le a legördülőmenüt. Használhatja a * helyettesítő jelet általános szűrők létrehozásához. A haladó felhasználók használhatnak reguláris kifejezéseket, mint pl. /banner\d+\.gif$/.">
+<!ENTITY pattern.column "Szűrő szabály">
+<!ENTITY enabled.column "Engedélyezve">
+<!ENTITY hitcount.column "Találatok">
+<!ENTITY lasthit.column "Utolsó találat">
+<!ENTITY context.edit.label "Szűrő szerkesztése">
+<!ENTITY context.resethitcount.label "Szűrő találati statisztikájának nullázása">
+<!ENTITY context.synchsubscription.label "Előfizetés frissítése most">
+<!ENTITY context.editsubscription.label "Előfizetés szerkesztése">
+<!ENTITY context.moveup.label "Mozgatás fel">
+<!ENTITY context.movedown.label "Mozgatás le">
+<!ENTITY context.movegroupup.label "Csoport mozgatása fel">
+<!ENTITY context.movegroupdown.label "Csoport mozgatása le">
+<!ENTITY apply.label "Alkalmaz">
+<!ENTITY apply.accesskey "A">

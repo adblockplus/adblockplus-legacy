@@ -1,0 +1,14 @@
+<!ENTITY dialog.title "Uredi naročnino filtra">
+<!ENTITY dialog.newtitle "Dodaj naročnino filtra">
+<!ENTITY new.description "Vnesite spletni naslov ali datoteko, ki vsebuje seznam filtrov Adblock Plus.">
+<!ENTITY edit.description "Seznam filtrov za to naročnino bo prenesen z danega mesta.">
+<!ENTITY external.description "To je naročnina na zunanji filter, ta seznam filtrov bo posodobljen z razširitvijo, ki je to naročnino ustvarila.">
+<!ENTITY autodownload.description "Če izberete &apos;Samodejno posodobi&apos;, bo to mesto vsakodnevno preverjeno za posodobitve. Z izključeno možnostjo še vedno lahko sprožite ročno posodobitev iz pojavnega menija naročnine.">
+<!ENTITY location.label "Mesto seznama filtriranja:">
+<!ENTITY location.accesskey "M">
+<!ENTITY title.label "Naslov naročnine:">
+<!ENTITY title.accesskey "N">
+<!ENTITY autodownload.label "Samodejno posodobi">
+<!ENTITY autodownload.accesskey "S">
+<!ENTITY enabled.label "Omogoči filtre">
+<!ENTITY enabled.accesskey "O">

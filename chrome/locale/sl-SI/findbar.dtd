@@ -1,0 +1,14 @@
+<!ENTITY find.label "Najdi:">
+<!ENTITY findNext.label "Najdi naslednjo">
+<!ENTITY findNext.accesskey "N">
+<!ENTITY findNext.tooltip "Najdi naslednjo pojavitev fraze">
+<!ENTITY findPrevious.label "Najdi prejšnjo">
+<!ENTITY findPrevious.accesskey "P">
+<!ENTITY findPrevious.tooltip "Najdi prejšnjo pojavitev fraze">
+<!ENTITY findCloseButton.tooltip "Zapri iskalno vrstico">
+<!ENTITY highlight.label "Osvetli vse">
+<!ENTITY highlight.accesskey "v">
+<!ENTITY highlight.tooltip "Osvetli vse pojavitve fraze (Ctrl+Enter)">
+<!ENTITY highlight.macTooltip "Osvetli vse pojavitve fraze (Cmd+Return)">
+<!ENTITY caseSensitiveCheckbox.label "Ujemanje malih/velikih črk">
+<!ENTITY caseSensitiveCheckbox.accesskey "č">
