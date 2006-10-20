@@ -24,15 +24,20 @@
 
 <!ENTITY dialog.title               "Willkommen">
 
-<!ENTITY description                "
+<!ENTITY description.par1           "
   Danke, dass Sie Adblock Plus installiert haben. Diese Erweiterung erlaubt
   es Ihnen, 99&#x25; der Werbung im Internet einfach zu blockieren. Allerdings
   benötigt man wohldefinierte Filter, damit es optimal funktioniert.
   Diese können Sie selber erstellen, oder Sie benutzen einfach Filterlisten,
   die andere Ihnen zur Verfügung stellen. Falls Sie sich fürs letztere
-  entscheiden, können Sie natürlich weiterhin eigene Filter hinzufügen.
-  Die Filter-Abonnements kann man auch jederzeit deaktivieren bzw. komplett
-  löschen. Hier ist eine Auswahl guter Filterlisten:
+  entscheiden, können Sie natürlich weiterhin eigene Filter hinzufügen. Die
+  Filter-Abonnements können auch jederzeit deaktiviert oder ganz entfernt werden.
+">
+
+<!ENTITY description.par2           "
+  Unten finden Sie eine Auswahl empfohlener Filterlisten, von denen
+  Sie jetzt eine auswählen können (mehr Abonnements können später in den Adblock Plus
+  Einstellungen hinzugefügt werden, in der Regel ist das aber nicht nötig):
 ">
 
 <!ENTITY note                       "
