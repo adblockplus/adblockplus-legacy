@@ -13,7 +13,7 @@
 <!ENTITY export.accesskey "X">
 <!ENTITY clearall.label "刪除所有過濾條件">
 <!ENTITY clearall.accesskey "L">
-<!ENTITY resethitcounts.label "重設點擊統計資料">
+<!ENTITY resethitcounts.label "重設命中統計資料">
 <!ENTITY resethitcounts.accesskey "R">
 <!ENTITY edit.label "編輯">
 <!ENTITY edit.accesskey "E">
@@ -64,7 +64,7 @@
     進階使用者則可以輸入像 /banner\d+\.gif$/ 這類的「正規表示式」。">
 <!ENTITY pattern.column "過濾條件">
 <!ENTITY enabled.column "已啟用">
-<!ENTITY hitcount.column "次數">
+<!ENTITY hitcount.column "命中數">
 <!ENTITY lasthit.column "最後使用">
 <!ENTITY context.edit.label "編輯過濾條件">
 <!ENTITY context.resethitcount.label "重設此條件統計資料">

@@ -13,9 +13,9 @@
 <!ENTITY sidebar.title "Estettävät elementit tämänhetkisellä sivulla">
 <!ENTITY settings.label "Asetukset">
 <!ENTITY settings.accesskey "e">
-<!ENTITY opensidebar.label "Avaa estettävät elementit">
-<!ENTITY opensidebar.accesskey "A">
-<!ENTITY closesidebar.label "Sulje estettävät elementit">
-<!ENTITY closesidebar.accesskey "S">
-<!ENTITY whitelist.site.label "Poista käytöstä osoitteelle --">
-<!ENTITY whitelist.page.label "Poista käytöstä vain tällä sivulla">
+<!ENTITY opensidebar.label "Näytä elementit">
+<!ENTITY opensidebar.accesskey "m">
+<!ENTITY closesidebar.label "Sulje elementit">
+<!ENTITY closesidebar.accesskey "m">
+<!ENTITY whitelist.site.label "Ei käytössä osoitteessa --">
+<!ENTITY whitelist.page.label "Ei käytössä tällä sivulla">
