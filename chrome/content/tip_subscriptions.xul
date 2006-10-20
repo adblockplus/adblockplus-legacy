@@ -51,7 +51,10 @@
 <script type="application/x-javascript" src="tip_subscriptions.js"/>
 
 <hbox>
-  <description flex="1" id="description">&description;</description>
+  <vbox flex="1">
+    <description id="description-par1">&description.par1;</description>
+    <description id="description-par2">&description.par2;</description>
+  </vbox>
   <vbox>
     <vbox flex="1" pack="center">
       <hbox pack="center">
