@@ -1,0 +1,21 @@
+<!ENTITY notloaded.label "Ni naložen">
+<!ENTITY notloaded.tooltip "Komponente Adblock Plus ni mogoče naložiti, morda ni bila pravilno nameščena.">
+<!ENTITY status.tooltip "Stanje:">
+<!ENTITY blocked.tooltip "Blokirani elementi na tej strani:">
+<!ENTITY filters.tooltip "Najbolj aktivni filtri:">
+<!ENTITY menuitem.label "Adblock Plus">
+<!ENTITY menuitem.accesskey "B">
+<!ENTITY context.image.label "Adblock - slike">
+<!ENTITY context.object.label "Adblock - predmeti">
+<!ENTITY context.link.label "Adblock - povezave">
+<!ENTITY context.frame.label "Adblock - okviri">
+<!ENTITY menuitem.sidebar.title "Adblock Plus: elementi blokad">
+<!ENTITY sidebar.title "Elementi blokad na trenutni strani">
+<!ENTITY settings.label "Nastavitve">
+<!ENTITY settings.accesskey "N">
+<!ENTITY opensidebar.label "Odpri elemente blokad">
+<!ENTITY opensidebar.accesskey "O">
+<!ENTITY closesidebar.label "Zapri elemente blokad">
+<!ENTITY closesidebar.accesskey "Z">
+<!ENTITY whitelist.site.label "Onemogoči na --">
+<!ENTITY whitelist.page.label "Onemogoči samo na tej strani">

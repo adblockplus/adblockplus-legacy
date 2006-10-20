@@ -1,0 +1,24 @@
+<!ENTITY detached.title "Adblock Plus: Blokkolható elemek (leválasztva)">
+<!ENTITY detach.label "Leválasztás">
+<!ENTITY reattach.label "Oldalsávba">
+<!ENTITY search.label "Keresés:">
+<!ENTITY search.accesskey "K">
+<!ENTITY type.label "Típus">
+<!ENTITY address.label "Cím">
+<!ENTITY filter.label "Szűrő">
+<!ENTITY state.label "Állapot">
+<!ENTITY noitems.label "Nincsenek blokkolható elemek">
+<!ENTITY notremote.label "Helyi lap">
+<!ENTITY whitelisted.label "Fehérlistás lap">
+<!ENTITY notloaded.label "Az Adblock Plus nincs rendesen telepítve">
+<!ENTITY tooltip.address.label "Cím:">
+<!ENTITY tooltip.type.label "Típus:">
+<!ENTITY tooltip.type.blocked "(blokkolva)">
+<!ENTITY tooltip.type.whitelisted "(fehérlistás)">
+<!ENTITY tooltip.filter.label "Érvényes szűrő:">
+<!ENTITY context.block.label "Elem blokkolása">
+<!ENTITY context.editfilter.label "Érvényes szűrő szerkesztése">
+<!ENTITY context.whitelist.label "Kivétel megadása">
+<!ENTITY context.open.label "Megnyitás új fülön">
+<!ENTITY context.flash.label "Elem határainak villogtatása">
+<!ENTITY context.copy.label "Elem címének másolása">

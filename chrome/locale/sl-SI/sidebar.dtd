@@ -1,0 +1,24 @@
+<!ENTITY detached.title "Adblock Plus: elementi blokad (odpeti)">
+<!ENTITY detach.label "Odpni">
+<!ENTITY reattach.label "Pripni">
+<!ENTITY search.label "Najdi:">
+<!ENTITY search.accesskey "N">
+<!ENTITY type.label "Vrsta">
+<!ENTITY address.label "Naslov">
+<!ENTITY filter.label "Filter">
+<!ENTITY state.label "Stanje">
+<!ENTITY noitems.label "Ni elementov blokiranja">
+<!ENTITY notremote.label "Ni oddaljena stran">
+<!ENTITY whitelisted.label "Dovoljena stran">
+<!ENTITY notloaded.label "Adblock Plus ni bil pravilno nameščen">
+<!ENTITY tooltip.address.label "Naslov:">
+<!ENTITY tooltip.type.label "Vrsta:">
+<!ENTITY tooltip.type.blocked "(blokirano)">
+<!ENTITY tooltip.type.whitelisted "(dovoljeno)">
+<!ENTITY tooltip.filter.label "Trenutni filter:">
+<!ENTITY context.block.label "Blokiraj ta element">
+<!ENTITY context.editfilter.label "Uredi trenutni filter">
+<!ENTITY context.whitelist.label "Dodaj pravilo izjem za element">
+<!ENTITY context.open.label "Odpri v novem zavihku">
+<!ENTITY context.flash.label "Obrobe elementa naj utripajo">
+<!ENTITY context.copy.label "Kopiraj naslov elementa">

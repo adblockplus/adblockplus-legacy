@@ -1,0 +1,14 @@
+<!ENTITY dialog.title "Előfizetés szerkesztése">
+<!ENTITY dialog.newtitle "Előfizetés új listára">
+<!ENTITY new.description "Kérem adjon meg egy webcímet vagy fájlt, amely egy Adblock Plus szűrőlistára mutat.">
+<!ENTITY edit.description "Az előfizetéshez tartozó szűrő lista a megadott címről lesz letöltve.">
+<!ENTITY external.description "Ez egy külső szűrő előfizetés, a szűrő listát az előfizetés készítője fogja naprakészen tartani.">
+<!ENTITY autodownload.description "Ha bekapcsolja az &apos;Automatikus frissítést&apos;, akkor naponta letöltődnek a frissítések a megadott címről. Ha ki van kapcsolva, akkor bármikor ellenőrízheti, hogy van-e frissítés az előfizetés környezeti menüjéből.">
+<!ENTITY location.label "Szűrő lista címe:">
+<!ENTITY location.accesskey "c">
+<!ENTITY title.label "Előfizetés címe:">
+<!ENTITY title.accesskey "E">
+<!ENTITY autodownload.label "Automatikus frissítés">
+<!ENTITY autodownload.accesskey "A">
+<!ENTITY enabled.label "Szűrők engedélyezése">
+<!ENTITY enabled.accesskey "e">
