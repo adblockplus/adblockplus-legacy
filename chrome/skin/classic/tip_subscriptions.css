@@ -58,6 +58,10 @@ template+.container, .containerAdded {
   cursor: pointer;
 }
 
+radiogroup {
+  -moz-box-align: stretch;
+}
+
 radio .radio-label-box {
   display: none;
 }
