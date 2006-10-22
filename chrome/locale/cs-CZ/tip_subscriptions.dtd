@@ -1,5 +1,6 @@
 <!ENTITY dialog.title "Zdraví vás Adblock Plus">
-<!ENTITY description "Děkujeme, že jste zvolili Adblock Plus pro blokování reklamy či jiného nežádoucího obsahu na webových stránkách. Nyní zbývá už jen poslední krok. Je třeba zvolit filtry, podle kterých bude nežádoucí obsah blokován. Můžete to udělat sami, pokud vám regulární výrazy či alespoň zástupný znak * nejsou cizí, nabízí se ovšem i snažší způsob. Můžete nyní přidat už připravené cizí sady filtrů, které jejich správci pravidelně aktualizují. I poté však budete mít možnost přidávat v případě potřeby filtry vlastní nebo přidat (či odebrat) jakékoliv další sady cizích filtrů. Zde je seznam doporučených sad cizích filtrů, které můžete ihned použít:">
+<!ENTITY description.par1 "Děkujeme, že jste nainstalovali Adblock Plus. Toto rozšíření Vám umožní odstranit 99&#37; reklam na webu. Efektivní blokování reklam ovšem vyžaduje dobře vytvořenou sadu filtrů. Ty můžete přidat sami, nebo si jednoduše můžete objednat příjem sad filtrů, které spravuje někdo jiný. I tak bude možné přidávat vlastní filtry i vypnout nebo odstranit používané cizí filtry.">
+<!ENTITY description.par2 "Níže si můžete vybrat ze seznamu doporučených sad cizích filtrů (další cizí filtry můžete přidat v Předvolbách Adblock Plus později, i když to většinou není nutné):">
 <!ENTITY note "Poznámka: Nejúčinnější sada filtrů bude pochopitelně právě ta, jejíž správce má nejblíže vašemu regionu či jazyku.">
 <!ENTITY homepage.label "Domovská stránka">
 <!ENTITY subscribe.label "Přidat">

@@ -18,7 +18,7 @@
 <!ENTITY tooltip.filter.label "Filtro effettivo:">
 <!ENTITY context.block.label "Blocca questo elemento">
 <!ENTITY context.editfilter.label "Modifica il filtro in effetto">
-<!ENTITY context.whitelist.label "Aggiungi un'eccezione per l'elemento">
+<!ENTITY context.whitelist.label "Aggiungi un&apos;eccezione per l&apos;elemento">
 <!ENTITY context.open.label "Apri in una nuova scheda">
-<!ENTITY context.flash.label "Fai lampeggiare il contorno dell'elemento selezionato">
-<!ENTITY context.copy.label "Copia l'indirizzo web dell'elemento">
+<!ENTITY context.flash.label "Fai lampeggiare il contorno dell&apos;elemento selezionato">
+<!ENTITY context.copy.label "Copia l&apos;indirizzo web dell&apos;elemento">

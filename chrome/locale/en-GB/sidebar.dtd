@@ -10,7 +10,7 @@
 <!ENTITY noitems.label "No blockable items">
 <!ENTITY notremote.label "Not a remote page">
 <!ENTITY whitelisted.label "Whitelisted page">
-<!ENTITY notloaded.label "Adblock Plus hasn't been installed properly">
+<!ENTITY notloaded.label "Adblock Plus hasn&apos;t been installed properly">
 <!ENTITY tooltip.address.label "Address:">
 <!ENTITY tooltip.type.label "Type:">
 <!ENTITY tooltip.type.blocked "(blocked)">
@@ -20,5 +20,5 @@
 <!ENTITY context.editfilter.label "Edit filter in effect">
 <!ENTITY context.whitelist.label "Add exception rule for item">
 <!ENTITY context.open.label "Open in New Tab">
-<!ENTITY context.flash.label "Flash item's borders">
-<!ENTITY context.copy.label "Copy item's address">
+<!ENTITY context.flash.label "Flash item&apos;s borders">
+<!ENTITY context.copy.label "Copy item&apos;s address">

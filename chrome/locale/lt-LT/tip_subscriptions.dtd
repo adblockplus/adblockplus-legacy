@@ -1,5 +1,6 @@
 <!ENTITY dialog.title "Sveiki">
-<!ENTITY description "Ačiū, kad įdiegėte „Adblock Plus“. Šis priedas gali pašalinti 99 procentus reklamų, kurias matote naršydami Internete. Kaip bebūtų, efektyviam reklamų filtravimui reikia nustatyti gerą filtrų rinkinį. Jūs tai galite padaryti patys arba užsiprenumeruoti sąrašus, kuriuos už jus atnaujins kiti. Taip pat galite pridėti savo filtrus arba esant reikalui išjungti ar pašalinti prenumeratas. Čia yra rekomenduojamų prenumeratų, kurias galite pasirinkti, sąrašas:">
+<!ENTITY description.par1 "Ačiū, kad įdiegėte „Adblock Plus“. Šis priedas gali pašalinti 99 procentus reklamų, matomų Internete. Kaip bebūtų, efektyviam reklamų blokavimui reikia nustatyti gerą filtrų rinkinį. Jūs tai galite padaryti patys arba paprasčiausiai užsiprenumeruoti filtrų sąrašus, kuriuos už Jus tvarkys kiti. Taip pat bus įmanoma pridėti savo filtrus, kai, esant reikalui, norėsite išjungti/pašalinti prenumeratas.">
+<!ENTITY description.par2 "Jūs galite pasirinkti vieną prenumeratą iš žemiau esančio rekomenduojamų prenumeratų sąrašo (daugiau prenumeratų galima pridėti „Adblock Plus“ nustatymų lange, nors paprastai tai nėra būtina):">
 <!ENTITY note "Dėmesio: Filtrų sąrašas paprastai būna efektyviausias tada, kai jis specialiai pritaikytas Jūsų regionui.">
 <!ENTITY homepage.label "Pradžios tinklalapis">
 <!ENTITY subscribe.label "Prenumeruoti">

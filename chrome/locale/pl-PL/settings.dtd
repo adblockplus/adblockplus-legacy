@@ -68,7 +68,7 @@
 <!ENTITY lasthit.column "Ostatnie uderzenie(trafienie)">
 <!ENTITY context.edit.label "Edytuj filtr">
 <!ENTITY context.resethitcount.label "Wyzeruj licznik użycia dla filtru">
-<!ENTITY context.synchsubscription.label "Uaktualnij subskrypcję teraz">
+<!ENTITY context.synchsubscription.label "Aktualizuj subskrypcję teraz">
 <!ENTITY context.editsubscription.label "Edytuj subskrypcję">
 <!ENTITY context.moveup.label "Przesuń w górę">
 <!ENTITY context.movedown.label "Przesuń w dół">

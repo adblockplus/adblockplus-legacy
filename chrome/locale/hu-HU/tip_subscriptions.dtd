@@ -1,8 +1,9 @@
 <!ENTITY dialog.title "Üdvözli az Adblock Plus">
-<!ENTITY description "Köszönjük, hogy telepítette az Adblock Plus-t. Ez a kiegészítés a weben látható reklámok 99&#37;-tól megszabadíthatja Önt. Mindenesetre a hatékony reklámszűréshez kellő mennyiségű szűrőt kell biztosítania. Ezt összegyűjtheti saját maga, vagy feliratkozhat egy szűrőlistára, melyet mások tartanak karban. Ezekhez hozzáfűzheti a saját szűrőit, valamint kikapcsolhatja/eltávolíthatja a feliratkozásait, ahogy tetszik. Itt van néhány lista melyre érdemes lehet feliratkoznia:">
-<!ENTITY note "Megjegyzés: Egy szűrőlista általában akkor a leghatékonyabb, ha olyan régiójú oldalakra alkalmazzák, ahonnan a lista is származik.">
+<!ENTITY description.par1 "Köszönjük, hogy az Adblock Plus kiterjesztést választotta a weboldalakon található reklámok és más nemkívánatos elemek blokkolására. Már csak az utolsó lépés van hátra. Szűrőket kell választania, amelyek szerint lesz a nemkívánatos tartalom blokkolva. Megteheti ezt egyedül, de lehetősége van választani egyszerűbb megoldást is. Külső szűrőket (egyedi szűrőkészlet) is felhasználhat, amelyeket készítőik folyamatosan frissítenek. Természetesen mindezek közben lehetősége van hozzáadni ill. törölni úgy saját mint külső szűrőket.">
+<!ENTITY description.par2 "Itt talál néhány ajánlott külső szűrőt, amelyeket azonnal felhasználhat (később további szűrőket is felvehet a Beállításokban, bár erre általában nincs szükség):">
+<!ENTITY note "Megjegyzés: A leghatásosabb külső szűrő az, amely régiójához közel áll.">
 <!ENTITY homepage.label "Honlap">
-<!ENTITY subscribe.label "Feliratkozás">
-<!ENTITY subscribe.accesskey "F">
-<!ENTITY other.label "Újabb feliratkozás">
-<!ENTITY other.accesskey "Ú">
+<!ENTITY subscribe.label "Hozzáad">
+<!ENTITY subscribe.accesskey "H">
+<!ENTITY other.label "Külső szűrő hozzáadása">
+<!ENTITY other.accesskey "h">

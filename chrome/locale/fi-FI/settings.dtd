@@ -60,9 +60,9 @@
 <!ENTITY about.accesskey "T">
 <!ENTITY disabled.warning "Adblock Plus on poissa käytöstä. Voit muokata listan suodattimia mutta niitä ei käytetä ennen kuin otat Adblockin käyttöön.">
 <!ENTITY description "
-                        Lisää osoitteet, jotka haluat estää. Katso ehdotuksia pudotusvalikosta.
-                        Voit käyttää * jokerimerkkinä luodaksesi yleisluntoisempia suodattimia. Kokeneet käyttäjät voivat
-                    käyttää säännöllisiä lausekkeita kuten /banner\d+\.gif$/.
+												Lisää osoitteet, jotka haluat estää. Katso ehdotuksia pudotusvalikosta.
+												Voit käyttää * jokerimerkkinä luodaksesi yleisluntoisempia suodattimia. Kokeneet käyttäjät voivat
+										käyttää säännöllisiä lausekkeita kuten /banner\d+\.gif$/.
 ">
 <!ENTITY pattern.column "Suodatusehdot">
 <!ENTITY enabled.column "Käytössä">

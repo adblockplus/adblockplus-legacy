@@ -12,3 +12,5 @@
 <!ENTITY autodownload.accesskey "T">
 <!ENTITY enabled.label "Filters inschakelen">
 <!ENTITY enabled.accesskey "N">
+<!ENTITY full-list.url "http://adblockplus.org/en/subscriptions">
+<!ENTITY full-list.label "Bekijk alle abonnementen">

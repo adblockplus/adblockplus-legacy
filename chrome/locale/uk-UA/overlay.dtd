@@ -1,25 +1,21 @@
-<!ENTITY notloaded.label        "Не завантажений">
-<!ENTITY notloaded.tooltip      "Adblock Plus не завантажився нормально, можливо він був неправильно встановлений">
-<!ENTITY status.tooltip         "Статус:">
-<!ENTITY blocked.tooltip        "Заблоковані елементи на цій сторінці:">
-<!ENTITY filters.tooltip        "Найбільш часто застосовані фільтри:">
-
-<!ENTITY menuitem.label         "Adblock Plus">
-<!ENTITY menuitem.accesskey     "A">
-
-<!ENTITY context.image.label    "Adblock Plus: заблокувати зображення">
-<!ENTITY context.object.label   "Adblock Plus: заблокувати об'єкт">
-<!ENTITY context.link.label     "Adblock Plus: заблокувати посилання">
-<!ENTITY context.frame.label    "Adblock Plus: заблокувати фрейм">
-
+<!ENTITY notloaded.label "Не завантажений">
+<!ENTITY notloaded.tooltip "Adblock Plus не завантажився нормально, можливо він був неправильно встановлений">
+<!ENTITY status.tooltip "Статус:">
+<!ENTITY blocked.tooltip "Заблоковані елементи на цій сторінці:">
+<!ENTITY filters.tooltip "Найбільш часто застосовані фільтри:">
+<!ENTITY menuitem.label "Adblock Plus">
+<!ENTITY menuitem.accesskey "A">
+<!ENTITY context.image.label "Adblock Plus: заблокувати зображення">
+<!ENTITY context.object.label "Adblock Plus: заблокувати об&apos;єкт">
+<!ENTITY context.link.label "Adblock Plus: заблокувати посилання">
+<!ENTITY context.frame.label "Adblock Plus: заблокувати фрейм">
 <!ENTITY menuitem.sidebar.title "Adblock Plus: Елементи відкритої сторінки">
-<!ENTITY sidebar.title          "Елементи відкритої сторінки">
-
-<!ENTITY settings.label         "Установки">
-<!ENTITY settings.accesskey     "т">
-<!ENTITY opensidebar.label      "Відкрити список елементів">
-<!ENTITY opensidebar.accesskey  "п">
-<!ENTITY closesidebar.label     "Закрити список елементів">
+<!ENTITY sidebar.title "Елементи відкритої сторінки">
+<!ENTITY settings.label "Налаштування">
+<!ENTITY settings.accesskey "ш">
+<!ENTITY opensidebar.label "Відкрити список елементів">
+<!ENTITY opensidebar.accesskey "п">
+<!ENTITY closesidebar.label "Закрити список елементів">
 <!ENTITY closesidebar.accesskey "п">
-<!ENTITY whitelist.site.label   "Відключити: на --">
-<!ENTITY whitelist.page.label   "Відключити: тільки на цій сторінці">
+<!ENTITY whitelist.site.label "Відключити: на --">
+<!ENTITY whitelist.page.label "Відключити: тільки на цій сторінці">

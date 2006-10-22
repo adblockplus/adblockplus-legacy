@@ -1,48 +1,48 @@
 <!-- ***** BEGIN LICENSE BLOCK *****
-	 - Version: MPL 1.1
-	 -
-	 - The contents of this file are subject to the Mozilla Public License Version
-	 - 1.1 (the "License"); you may not use this file except in compliance with
-	 - the License. You may obtain a copy of the License at
-	 - http://www.mozilla.org/MPL/
-	 -
-	 - Software distributed under the License is distributed on an "AS IS" basis,
-	 - WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
-	 - for the specific language governing rights and limitations under the
-	 - License.
-	 -
-	 - The Original Code is Adblock Plus.
-	 -
-	 - The Initial Developer of the Original Code is
-	 - Wladimir Palant.
-	 - Portions created by the Initial Developer are Copyright (C) 2006
-	 - the Initial Developer. All Rights Reserved.
-	 -
-	 - Contributor(s):
-	 -
-	 - ***** END LICENSE BLOCK ***** -->
+   - Version: MPL 1.1
+   -
+   - The contents of this file are subject to the Mozilla Public License Version
+   - 1.1 (the "License"); you may not use this file except in compliance with
+   - the License. You may obtain a copy of the License at
+   - http://www.mozilla.org/MPL/
+   -
+   - Software distributed under the License is distributed on an "AS IS" basis,
+   - WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+   - for the specific language governing rights and limitations under the
+   - License.
+   -
+   - The Original Code is Adblock Plus.
+   -
+   - The Initial Developer of the Original Code is
+   - Wladimir Palant.
+   - Portions created by the Initial Developer are Copyright (C) 2006
+   - the Initial Developer. All Rights Reserved.
+   -
+   - Contributor(s):
+   -
+   - ***** END LICENSE BLOCK ***** -->
 
 <!ENTITY dialog.title "同期フィルタを編集">
 <!ENTITY dialog.newtitle "同期フィルタを追加">
 
 <!ENTITY new.description            "
-	Adblock Plus のフィルタリストを含むファイルか
-	ウェブアドレスを入力してください
+  Adblock Plus のフィルタリストを含むファイルか
+  ウェブアドレスを入力してください
 ">
 
 <!ENTITY edit.description           "
-	指定した場所からこの読み込みのためのフィルタリストを
-	ダウンロードします
+  指定した場所からこの読み込みのためのフィルタリストを
+  ダウンロードします
 ">
 
 <!ENTITY external.description       "
-	他の拡張機能（Filterset.G Updater）を経由してフィルタリストを読み込みます。
-	リストの更新はその拡張機能によって行われます。
+  他の拡張機能（Filterset.G Updater）を経由してフィルタリストを読み込みます。
+  リストの更新はその拡張機能によって行われます。
 ">
 
 <!ENTITY autodownload.description   "
-	「自動アップデート」を選ぶとアップデートがないかどうかこの場所を毎日チェックします。
-	この設定を無効にしても読み込みのコンテキストメニューから手動でアップデートできます。
+  「自動アップデート」を選ぶとアップデートがないかどうかこの場所を毎日チェックします。
+  この設定を無効にしても読み込みのコンテキストメニューから手動でアップデートできます。
 ">
 
 <!ENTITY location.label "フィルタリスト場所:">
@@ -53,3 +53,6 @@
 <!ENTITY autodownload.accesskey "P">
 <!ENTITY enabled.label "フィルタを有効にする">
 <!ENTITY enabled.accesskey "N">
+
+<!ENTITY full-list.url "http://adblockplus.org/en/subscriptions">
+<!ENTITY full-list.label "すべての購読を表示する">

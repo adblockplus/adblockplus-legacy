@@ -1,5 +1,6 @@
 <!ENTITY dialog.title "Välkommen till Adblock Plus">
-<!ENTITY description "Tack för att du installerade Adblock Plus. Detta tillägg kan eliminiera upp till 99&#x25; av all reklam på Internet. Dock måste du själv lägga till filter för att uppnå fullgott skydd. Du kan göra det själv eller, ännu enklare, prenumerera på filter som andra underhåller åt dig. Även om du gör en prenumeration kan du i efterhand lägga till eller ta bort filter och/eller prenumerationer. Här är en lista på rekommenderade prenumerationer att välja från:">
+<!ENTITY description.par1 "Tack för att du installerade Adblock Plus. Detta tillägg kan eliminera 99&#x25; av all reklam du ser på Internet. I kombination med filterprenumerationer tillsammans med egna filter, får du absolut bästa resultat. Även om du prenumererar på filter, kan du alltid lägga till eller ta bort dina egna filter.">
+<!ENTITY description.par2 "Du kan välja en av den rekommenderade prenumerationerna nedan (fler prenumerationer kan läggas till i Adblock Plus Inställningar vid ett senare tillfälle):">
 <!ENTITY note "Notera att en filterlista är mest effektiv om det är skapat för en sida i det land filtret var skapat.">
 <!ENTITY homepage.label "Hemsida">
 <!ENTITY subscribe.label "Prenumerera">

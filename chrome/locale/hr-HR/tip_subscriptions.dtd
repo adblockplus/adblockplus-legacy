@@ -1,18 +1,8 @@
 <!ENTITY dialog.title "Dobrodošli u Adblock Plus">
-<!ENTITY description "
-	Hvala Vam što ste instalirali Adblock Plus. Ovo proširenje može
-	ukloniti 99&#x25; oglasa koje vidite na webu. Međutim,
-	uspješno filtriranje oglasa zahtijeva od Vas da odredite dobar set 
-	filtera. To možete napraviti sami, ili se jednostavno možete pretplatiti
-	na popis filtera koje drugi održavaju za Vas. Još uvijek Vi možete dodati
-	Vaše filtere kao i deaktivirati/ukloniti pretplate kad god je to
-	potrebno. Ovdje je popis preporučenih pretplata
-	iz kojih možete izabrati:
-">
-<!ENTITY note "
-	Napomena: Popis filtera je obično najučinkovitiji kada se primjenjuje
-	na web stranice iz regije za koju je kreiran taj popis filtera.
-">
+<!ENTITY description.par1 "Hvala Vam na istalaciji Adblock Plus. Ovo proširenje može ukloniti 99&#x25; oglašavanja koje vidite na webu. Ipak, efikasno filtriranje oglasa zahtijeva da definirate dobar skup filtera. To možete napraviti sami ili se jednostavno možete pretplatiti na listu filtera koje drugi održavaju za Vas. Još uvijek će biti moguće da dodate Vaše vlastite filtere ili da deaktivirate/uklonite pretplate, kad god to bude potrebno.">
+<!ENTITY description.par2 "Možete odabrati pretplatu iz donjeg popisa preporučenih pretplata  (više pretplata može kasnije biti dodano u postavkama Adblock Plus iako to obično nije potrebno):">
+<!ENTITY note "Napomena: Popis filtera je obično najučinkovitiji kada se primjenjuje
+	na web stranice iz regije za koju je kreiran taj popis filtera.">
 <!ENTITY homepage.label "Početna stranica">
 <!ENTITY subscribe.label "Pretplatite se">
 <!ENTITY subscribe.accesskey "r">

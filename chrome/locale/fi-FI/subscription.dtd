@@ -27,3 +27,5 @@
 <!ENTITY autodownload.accesskey "a">
 <!ENTITY enabled.label "Käytä suodattimia">
 <!ENTITY enabled.accesskey "K">
+<!ENTITY full-list.url "http://adblockplus.org/en/subscriptions">
+<!ENTITY full-list.label "Näytä kaikki tilaukset">

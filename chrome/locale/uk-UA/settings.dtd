@@ -1,94 +1,81 @@
-<!ENTITY dialog.title               "Adblock Plus - Установки">
-
-<!ENTITY filters.label              "Фільтри">
-<!ENTITY filters.accesskey          "і">
-
-<!ENTITY add.label                  "Додати фільтр">
-<!ENTITY add.accesskey              "д">
-<!ENTITY addsubscription.label      "Додати підписку">
-<!ENTITY addsubscription.accesskey  "о">
-<!ENTITY synchsubscriptions.label      "Викачати всі підписки">
-<!ENTITY synchsubscriptions.accesskey  "п">
-<!ENTITY import.label               "Імпорт фільтрів">
-<!ENTITY import.accesskey           "м">
-<!ENTITY export.label               "Експорт фільтрів">
-<!ENTITY export.accesskey           "к">
-<!ENTITY clearall.label             "Видалити всі фільтри">
-<!ENTITY clearall.accesskey         "и">
-<!ENTITY resethitcounts.label       "Обнулити статистику попадань">
-<!ENTITY resethitcounts.accesskey   "у">
-
-<!ENTITY edit.label                 "Правка">
-<!ENTITY edit.accesskey             "р">
-
-<!ENTITY cut.label                  "Вирізати">
-<!ENTITY cut.accesskey              "р">
-<!ENTITY copy.label                 "Копіювати">
-<!ENTITY copy.accesskey             "о">
-<!ENTITY paste.label                "Вставити">
-<!ENTITY paste.accesskey            "а">
-<!ENTITY remove.label               "Видалити">
-<!ENTITY remove.accesskey           "и">
-<!ENTITY menu.find.label            "Знайти фільтр">
-<!ENTITY menu.find.accesskey        "н">
-<!ENTITY menu.findagain.label       "Знайти наступний">
-<!ENTITY menu.findagain.accesskey   "т">
-
-<!ENTITY options.label              "Налаштування">
-<!ENTITY options.accesskey          "а">
-
-<!ENTITY enable.label               "Включити Adblock Plus">
-<!ENTITY enable.accesskey           "ю">
-<!ENTITY showintoolbar.label        "Показувати в панелі інструментів">
-<!ENTITY showintoolbar.accesskey    "к">
-<!ENTITY showinstatusbar.label      "Показувати в рядку стану">
-<!ENTITY showinstatusbar.accesskey  "с">
-<!ENTITY localpages.label           "Блокувати рекламу в локальних сторінках">
-<!ENTITY localpages.accesskey       "л">
-<!ENTITY objecttabs.label           "Показувати ярлик на Flash і Java">
-<!ENTITY objecttabs.accesskey       "я">
-<!ENTITY collapse.label             "Згортати заблоковані елементи">
-<!ENTITY collapse.accesskey         "о">
-<!ENTITY linkcheck.label            "Перевіряти посилання на банерах">
-<!ENTITY linkcheck.accesskey        "е">
-
-<!ENTITY help.label                 "Довідка">
-<!ENTITY help.accesskey             "о">
-
-<!ENTITY faq.label                  "Питання, що часто ставляться (англійською)">
-<!ENTITY faq.accesskey              "и">
-<!ENTITY faq.url                    "http://adblockplus.org/en/faq">
-<!ENTITY tips.label                 "Підказки (англійською)">
-<!ENTITY tips.accesskey             "і">
-<!ENTITY tips.url                   "http://adblockplus.org/en/tips">
-<!ENTITY filterdoc.label            "Складання фільтрів для Adblock Plus (англійською)">
-<!ENTITY filterdoc.accesskey        "а">
-<!ENTITY filterdoc.url              "http://adblockplus.org/en/filters">
-<!ENTITY about.label                "Про Adblock Plus">
-<!ENTITY about.accesskey            "о">
-
-<!ENTITY disabled.warning           "Adblock Plus відключений. Ви можете міняти правила блокування в списку, але Adblock Plus потрібно включити, щоб ці правила застосувалися.">
-
-<!ENTITY description                "
-  Додайте адреси, які ви хочете заблокувати. Для підказок подивіться випадний
-  список. Ви можете створити і більш загальні фільтри, для цього замініть частину адреси
-  зірочкою (*). Досвідчені користувачі можуть також використовувати регулярні
-  вирази, наприклад /banner\d+\.gif$/.
+<!ENTITY dialog.title "Adblock Plus - Налаштування">
+<!ENTITY filters.label "Фільтри">
+<!ENTITY filters.accesskey "і">
+<!ENTITY add.label "Додати фільтр">
+<!ENTITY add.accesskey "д">
+<!ENTITY addsubscription.label "Додати підписку">
+<!ENTITY addsubscription.accesskey "о">
+<!ENTITY synchsubscriptions.label "Викачати всі підписки">
+<!ENTITY synchsubscriptions.accesskey "п">
+<!ENTITY import.label "Імпорт фільтрів">
+<!ENTITY import.accesskey "м">
+<!ENTITY export.label "Експорт фільтрів">
+<!ENTITY export.accesskey "к">
+<!ENTITY clearall.label "Видалити всі фільтри">
+<!ENTITY clearall.accesskey "и">
+<!ENTITY resethitcounts.label "Обнулити статистику попадань">
+<!ENTITY resethitcounts.accesskey "у">
+<!ENTITY edit.label "Правка">
+<!ENTITY edit.accesskey "р">
+<!ENTITY cut.label "Вирізати">
+<!ENTITY cut.accesskey "р">
+<!ENTITY copy.label "Копіювати">
+<!ENTITY copy.accesskey "о">
+<!ENTITY paste.label "Вставити">
+<!ENTITY paste.accesskey "а">
+<!ENTITY remove.label "Видалити">
+<!ENTITY remove.accesskey "и">
+<!ENTITY menu.find.label "Знайти фільтр">
+<!ENTITY menu.find.accesskey "н">
+<!ENTITY menu.findagain.label "Знайти наступний">
+<!ENTITY menu.findagain.accesskey "т">
+<!ENTITY options.label "Налаштування">
+<!ENTITY options.accesskey "а">
+<!ENTITY enable.label "Включити Adblock Plus">
+<!ENTITY enable.accesskey "ю">
+<!ENTITY showintoolbar.label "Показувати в панелі інструментів">
+<!ENTITY showintoolbar.accesskey "к">
+<!ENTITY showinstatusbar.label "Показувати в рядку стану">
+<!ENTITY showinstatusbar.accesskey "с">
+<!ENTITY localpages.label "Блокувати рекламу в локальних сторінках">
+<!ENTITY localpages.accesskey "л">
+<!ENTITY objecttabs.label "Показувати ярлик на Flash і Java">
+<!ENTITY objecttabs.accesskey "я">
+<!ENTITY collapse.label "Згортати заблоковані елементи">
+<!ENTITY collapse.accesskey "о">
+<!ENTITY linkcheck.label "Перевіряти посилання на банерах">
+<!ENTITY linkcheck.accesskey "е">
+<!ENTITY help.label "Довідка">
+<!ENTITY help.accesskey "о">
+<!ENTITY faq.label "Питання, що часто ставляться (англійською)">
+<!ENTITY faq.accesskey "и">
+<!ENTITY faq.url "http://adblockplus.org/en/faq">
+<!ENTITY tips.label "Підказки (англійською)">
+<!ENTITY tips.accesskey "і">
+<!ENTITY tips.url "http://adblockplus.org/en/tips">
+<!ENTITY filterdoc.label "Складання фільтрів для Adblock Plus (англійською)">
+<!ENTITY filterdoc.accesskey "а">
+<!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
+<!ENTITY about.label "Про Adblock Plus">
+<!ENTITY about.accesskey "о">
+<!ENTITY disabled.warning "Adblock Plus відключений. Ви можете міняти правила блокування в списку, але Adblock Plus потрібно включити, щоб ці правила застосувалися.">
+<!ENTITY description "
+	Додайте адреси, які ви хочете заблокувати. Для підказок подивіться випадний
+	список. Ви можете створити і більш загальні фільтри, для цього замініть частину адреси
+	зірочкою (*). Досвідчені користувачі можуть також використовувати регулярні
+	вирази, наприклад /banner\d+\.gif$/.
 ">
-
-<!ENTITY pattern.column             "Правило">
-<!ENTITY enabled.column             "Включено">
-<!ENTITY hitcount.column            "Попадань">
-<!ENTITY lasthit.column             "Останнє попадання">
-
-<!ENTITY context.edit.label         "Редагувати фільтр">
-<!ENTITY context.resethitcount.label      "Обнулити статистику попадань для фільтру">
-<!ENTITY context.synchsubscription.label  "Викачати фільтри наново">
-<!ENTITY context.editsubscription.label   "Редагувати підписку">
-<!ENTITY context.moveup.label       "Зрушити вгору">
-<!ENTITY context.movedown.label     "Зрушити вниз">
-<!ENTITY context.movegroupup.label        "Зрушити групу вгору">
-<!ENTITY context.movegroupdown.label      "Зрушити групу вниз">
-
-<!ENTITY apply.label                "Застосувати">
-<!ENTITY apply.accesskey            "т">
+<!ENTITY pattern.column "Правило">
+<!ENTITY enabled.column "Включено">
+<!ENTITY hitcount.column "Попадань">
+<!ENTITY lasthit.column "Останнє попадання">
+<!ENTITY context.edit.label "Редагувати фільтр">
+<!ENTITY context.resethitcount.label "Обнулити статистику попадань для фільтру">
+<!ENTITY context.synchsubscription.label "Викачати фільтри наново">
+<!ENTITY context.editsubscription.label "Редагувати підписку">
+<!ENTITY context.moveup.label "Зрушити вгору">
+<!ENTITY context.movedown.label "Зрушити вниз">
+<!ENTITY context.movegroupup.label "Зрушити групу вгору">
+<!ENTITY context.movegroupdown.label "Зрушити групу вниз">
+<!ENTITY apply.label "Застосувати">
+<!ENTITY apply.accesskey "т">

@@ -1,5 +1,6 @@
 <!ENTITY dialog.title "Velkommen til Adblock Plus">
-<!ENTITY description "Takk for at du installerer Adblock Plus. Denne utvidelsen kan eliminere 99&#37; av all reklamen du ser på nett. Men	effektiv reklamefiltrering krever at man definerer et bra sett med filtere. Du kan gjøre det selv, eller du kan enkelt abonnere på filterlister som andre vedlikeholder for deg. Du kan legge til dine egne filtre eller deaktivere/fjerne abonnementer når du måtte trenge det. Her er en liste over anbefalte abonnementer du kan velge mellom:">
+<!ENTITY description.par1 "Takk for at du installerer Adblock Plus. Dette tilleggsprogrammet kan eliminere 99&#37; av all reklame du ser på nett. Effektiv reklamefiltrering krever likevel at man har et sett med bra filtre. Du kan lage dem selv, eller enklere: Abonnere på filterlister som andre har laget. Det vil fortsatt være mulig å legg til egne filtre eller deaktivere/fjerne abonnementer når du måtte trenge det.">
+<!ENTITY description.par2 "Du kan velge ett abonnement fra listen med anbefalte abonnementer under (flere abonnementer kan legges til i Adblock Plus Innstillinger senere, men dette er som oftest ikke nødvendig):">
 <!ENTITY note "Verdt å vite: En filterliste er som regel mest effektiv når den blir brukt på websider i regionen den var laget for.">
 <!ENTITY homepage.label "Hjemmeside">
 <!ENTITY subscribe.label "Abonnere">

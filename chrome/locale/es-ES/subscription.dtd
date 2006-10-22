@@ -6,7 +6,7 @@
 <!ENTITY external.description "Esta es una suscripción de filtro externa. Su lista de filtros 
 	se mantendrá actualizada por la extensión que creó esta 
 	suscripción.">
-<!ENTITY autodownload.description "Si elige 'Actualizar automáticamente' esta ruta será comprobada 
+<!ENTITY autodownload.description "Si elige &apos;Actualizar automáticamente&apos; esta ruta será comprobada 
 	para actualizaciones a diario. Con esta opción desactivada, 
 	todavía se puede lanzar una actualización manual desde el menú 
 	contextual de suscripciones.">
@@ -18,3 +18,5 @@
 <!ENTITY autodownload.accesskey "Z">
 <!ENTITY enabled.label "Activar filtros">
 <!ENTITY enabled.accesskey "V">
+<!ENTITY full-list.url "http://adblockplus.org/en/subscriptions">
+<!ENTITY full-list.label "Ver todas las suscripciones">

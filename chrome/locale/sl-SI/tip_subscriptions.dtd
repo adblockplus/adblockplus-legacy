@@ -1,5 +1,6 @@
 <!ENTITY dialog.title "Dobrodošli v Adblock Plus">
-<!ENTITY description "Hvala, ker ste namestili Adblock Plus. Ta razširitev lahko odstrani 99&#x25; oglasov, ki jih vidite na spletu. Vendar učinkovito filtriranje oglasov zahteva, da določite lepo množico filtrov. To lahko naredite sami ali pa preprosto naročite seznam filtrov, ki ga drugi vzdržujejo za vas. Še vedno lahko dodate lastne filtre kot tudi odaktivirate/odstranite naročnine, ko je to potrebno. Tukaj je seznam priporočenih naročnin, med katerimi lahko izbirate:">
+<!ENTITY description.par1 "Hvala, ker ste namestili Adblock Plus. Ta razširitev lahko odstrani 99&#x25; oglasov, ki jih vidite na spletu. Vendar pa učinkovito filtriranje oglasov zahteva nastavitev kar velikega števila filtrov. To lahko storite sami ali pa se enostavno naročite na sezname filtrov, ki jih vzdržujejo drugi. Še vedno boste lahko dodali svoje lastne filtre ali deaktivirali/odstranili naročnine, če boste to želeli.">
+<!ENTITY description.par2 "S spodnjega seznama priporočenih naročnin lahko izberete eno naročnino (dodatne naročnine lahko dodate v nastavitvah Adblock Plus kasneje, čeprav to ponavadi ni potrebno):">
 <!ENTITY note "Opomba: seznam filtrov je ponavadi najbolj učinkovit, če je uporabljen
 za spletišča iz področja, za katere je bil seznam filtriranja narejen.">
 <!ENTITY homepage.label "Domača stran">
