@@ -13,3 +13,5 @@
 <!ENTITY autodownload.accesskey "P">
 <!ENTITY enabled.label "启用过滤规则">
 <!ENTITY enabled.accesskey "N">
+<!ENTITY full-list.url "http://adblockplus.org/en/subscriptions">
+<!ENTITY full-list.label "查看全部订阅">

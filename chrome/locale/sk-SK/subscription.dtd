@@ -7,7 +7,7 @@
 <!ENTITY external.description "Toto je externý filter povolenia, jeho zoznam
 	bude zahrnutý v najnovšom rozšírení ktoré vytvorilo toto
 	povolenie.">
-<!ENTITY autodownload.description "Ak zvolíte 'Automatická aktualizácia' toto umiestnenie bude
+<!ENTITY autodownload.description "Ak zvolíte &apos;Automatická aktualizácia&apos; toto umiestnenie bude
 	zahrnuté do dennej aktualizácie. Ak túto možnosť vypnete, stále môžete
 	aktualizovať ručne z kontextovej ponuky povolení.">
 <!ENTITY location.label "Umiestnenie zoznamu filtrov:">
@@ -18,3 +18,5 @@
 <!ENTITY autodownload.accesskey "T">
 <!ENTITY enabled.label "Zapnúť filtre">
 <!ENTITY enabled.accesskey "N">
+<!ENTITY full-list.url "http://adblockplus.org/en/subscriptions">
+<!ENTITY full-list.label "Zobraziť všetky povolenia">

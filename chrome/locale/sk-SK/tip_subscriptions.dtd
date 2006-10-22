@@ -1,16 +1,8 @@
 <!ENTITY dialog.title "Vitajte na Adblock Plus">
-<!ENTITY description "
-	Ďakujem za nainštalovanie Adblock Plus. Toto rozšírenie môže
-	eliminovať 99&#x25; z reklám,ktoré vidíte na webe. Avšak,
-	efektívne filtrovanie reklamy vyžaduje, aby bol nadefinovaný dobrý súbor
-	filtrov. Môžete to urobiť sám, alebo jednoducho predplatiť zoznam filtrov, ktoré za vás vytvárajú iný. Tiež môžete pridať
-	svoje vlastné  filtre rovnako ako kedykoľvek ukončiť/odstrániť predplatné. 
-	Tu je zoznam doporučených predplatných filtrov,ktoré si môžete vybrať z:
-">
-<!ENTITY note "
-	Note: Zoznam filtrov je najefektívnejší keď je na stránke použitý
-	zoznam filtrov z regiónu v ktorom bol vytvorený.
-">
+<!ENTITY description.par1 "Ďakujeme za nainštalovanie Adblock Plus.Toto rozšírenie môže eliminovať 99&#x25; reklám,ktoré sa zobrazujú na webe.Pravdupovediac, efektívne blokovanie reklám vyžaduje,aby ste nadefinovali dodrý filter reklám.Môžete to urobiť sám alebo si  môžete jednoducho objednať zoznamy filtrov od tých,ktorí ich robia za vás.Stále si však budete môcť filtre pridávať sami alebo ukončiť objednávanie kedykoľvek budete chcieť.">
+<!ENTITY description.par2 "Môžete si vybrať jednu z možností zo zoznamu dole(viac možností môže byť pridaných do Nastavení Adblock Plus neskôr aj keď to nie je potrebné):">
+<!ENTITY note "Note: Zoznam filtrov je najefektívnejší keď je na stránke použitý
+	zoznam filtrov z regiónu v ktorom bol vytvorený.">
 <!ENTITY homepage.label "Domovská stránka">
 <!ENTITY subscribe.label "Predplatiť">
 <!ENTITY subscribe.accesskey "R">

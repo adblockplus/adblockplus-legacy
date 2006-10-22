@@ -1,5 +1,6 @@
 <!ENTITY dialog.title "Welcome to Adblock Plus">
-<!ENTITY description "Thank you for installing Adblock Plus. This extension can eliminate 99&#x25; of the advertisements you see on the web. However, effective ad filtering requires you to define a good set of filters. You can do it yourself, or you can simply subscribe to filter lists others maintain for you. You can still add your own filters as well as deactivate/remove subscriptions whenever necessary. Here is a list of recommended subscriptions you can choose from:">
+<!ENTITY description.par1 "Thank you for installing Adblock Plus. This extension can eliminate 99&#x25; of the advertisements you see on the web. However, effective ad filtering requires you to define a good set of filters. You can do it yourself, or you can simply subscribe to filter lists others maintain for you. It will still be possible to add your own filters or deactivate/remove subscriptions whenever necessary.">
+<!ENTITY description.par2 "You can choose one subscription from the list of recommended subscriptions below (more subscriptions can be added in Adblock Plus Preferences later though usually this is not necessary):">
 <!ENTITY note "Note: A filter list is typically most effective when applied to web sites from the region the filter list was created for.">
 <!ENTITY homepage.label "Home page">
 <!ENTITY subscribe.label "Subscribe">

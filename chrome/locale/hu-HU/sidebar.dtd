@@ -1,5 +1,5 @@
 <!ENTITY detached.title "Adblock Plus: Blokkolható elemek (leválasztva)">
-<!ENTITY detach.label "Leválasztás">
+<!ENTITY detach.label "Leválaszt">
 <!ENTITY reattach.label "Oldalsávba">
 <!ENTITY search.label "Keresés:">
 <!ENTITY search.accesskey "K">
@@ -7,18 +7,18 @@
 <!ENTITY address.label "Cím">
 <!ENTITY filter.label "Szűrő">
 <!ENTITY state.label "Állapot">
-<!ENTITY noitems.label "Nincsenek blokkolható elemek">
-<!ENTITY notremote.label "Helyi lap">
-<!ENTITY whitelisted.label "Fehérlistás lap">
-<!ENTITY notloaded.label "Az Adblock Plus nincs rendesen telepítve">
+<!ENTITY noitems.label "Nincs blokkolható objektum">
+<!ENTITY notremote.label "Nem távoli oldal">
+<!ENTITY whitelisted.label "A cím &apos;fehér listán&apos; van">
+<!ENTITY notloaded.label "Az Adblock Plus nem lett megfelelően telepítve">
 <!ENTITY tooltip.address.label "Cím:">
 <!ENTITY tooltip.type.label "Típus:">
 <!ENTITY tooltip.type.blocked "(blokkolva)">
-<!ENTITY tooltip.type.whitelisted "(fehérlistás)">
-<!ENTITY tooltip.filter.label "Érvényes szűrő:">
-<!ENTITY context.block.label "Elem blokkolása">
-<!ENTITY context.editfilter.label "Érvényes szűrő szerkesztése">
-<!ENTITY context.whitelist.label "Kivétel megadása">
+<!ENTITY tooltip.type.whitelisted "(fehér listán)">
+<!ENTITY tooltip.filter.label "Alkalmazott szűrők:">
+<!ENTITY context.block.label "Objektum blokkolása">
+<!ENTITY context.editfilter.label "Alkalmazott szűrő szerkesztése">
+<!ENTITY context.whitelist.label "Kivétel megadása objektumhoz">
 <!ENTITY context.open.label "Megnyitás új fülön">
-<!ENTITY context.flash.label "Elem határainak villogtatása">
-<!ENTITY context.copy.label "Elem címének másolása">
+<!ENTITY context.flash.label "Objektum széleinek villogtatása">
+<!ENTITY context.copy.label "Objektum címének másolása">

@@ -1,21 +1,21 @@
-<!ENTITY notloaded.label "Nincs betöltve">
-<!ENTITY notloaded.tooltip "Az Adblock Plus nem tudott betöltődni, talán nincs rendesen telepítve.">
+<!ENTITY notloaded.label "Nincs beolvasva">
+<!ENTITY notloaded.tooltip "Az Adblock Plust nem sikerült betölteni. Valószínűleg nem volt megfelelően telepítve.">
 <!ENTITY status.tooltip "Állapot:">
-<!ENTITY blocked.tooltip "Blokkolt elemek az oldalon:">
+<!ENTITY blocked.tooltip "Blokkolt objektumok ezen az oldalon:">
 <!ENTITY filters.tooltip "Legaktívabb szűrők:">
 <!ENTITY menuitem.label "Adblock Plus">
-<!ENTITY menuitem.accesskey "A">
+<!ENTITY menuitem.accesskey "b">
 <!ENTITY context.image.label "Kép blokkolása">
 <!ENTITY context.object.label "Objektum blokkolása">
 <!ENTITY context.link.label "Hivatkozás blokkolása">
 <!ENTITY context.frame.label "Keret blokkolása">
-<!ENTITY menuitem.sidebar.title "Adblock Plus: Blokkolható elemek">
-<!ENTITY sidebar.title "Blokkolható elemek ezen az oldalon">
+<!ENTITY menuitem.sidebar.title "Adblock Plus: Blokkolható objektumok">
+<!ENTITY sidebar.title "Blokkolható objektumok">
 <!ENTITY settings.label "Beállítások">
 <!ENTITY settings.accesskey "B">
-<!ENTITY opensidebar.label "Blokkolható elemek megnyitása">
-<!ENTITY opensidebar.accesskey "B">
-<!ENTITY closesidebar.label "Blokkolható elemek bezárása">
-<!ENTITY closesidebar.accesskey "B">
+<!ENTITY opensidebar.label "Blokkolható objektumok megjelenítése">
+<!ENTITY opensidebar.accesskey "o">
+<!ENTITY closesidebar.label "Blokkolható objektumok elrejtése">
+<!ENTITY closesidebar.accesskey "o">
 <!ENTITY whitelist.site.label "Szűrés tiltása itt: --">
 <!ENTITY whitelist.page.label "Szűrés tiltása csak ezen az oldalon">

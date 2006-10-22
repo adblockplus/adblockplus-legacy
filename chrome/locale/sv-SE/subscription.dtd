@@ -12,3 +12,5 @@
 <!ENTITY autodownload.accesskey "a">
 <!ENTITY enabled.label "Filter på">
 <!ENTITY enabled.accesskey "p">
+<!ENTITY full-list.url "http://adblockplus.org/en/subscriptions">
+<!ENTITY full-list.label "Visa alla prenumerationer">

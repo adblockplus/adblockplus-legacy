@@ -9,7 +9,7 @@
 <!ENTITY state.label "Stan">
 <!ENTITY noitems.label "Elementy nieblokowalne">
 <!ENTITY notremote.label "Strona lokalna">
-<!ENTITY whitelisted.label "Nie blokowana strona">
+<!ENTITY whitelisted.label "Nieblokowana strona">
 <!ENTITY notloaded.label "Adblock Plus nie został zainstalowany prawidłowo">
 <!ENTITY tooltip.address.label "Adres:">
 <!ENTITY tooltip.type.label "Typ:">

@@ -12,10 +12,10 @@
 <!ENTITY menuitem.sidebar.title "Adblock Plus: Estettävät elementit">
 <!ENTITY sidebar.title "Estettävät elementit tämänhetkisellä sivulla">
 <!ENTITY settings.label "Asetukset">
-<!ENTITY settings.accesskey "e">
+<!ENTITY settings.accesskey "A">
 <!ENTITY opensidebar.label "Näytä elementit">
-<!ENTITY opensidebar.accesskey "m">
+<!ENTITY opensidebar.accesskey "e">
 <!ENTITY closesidebar.label "Sulje elementit">
-<!ENTITY closesidebar.accesskey "m">
+<!ENTITY closesidebar.accesskey "e">
 <!ENTITY whitelist.site.label "Ei käytössä osoitteessa --">
 <!ENTITY whitelist.page.label "Ei käytössä tällä sivulla">

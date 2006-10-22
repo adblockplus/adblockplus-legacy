@@ -60,8 +60,8 @@
 <!ENTITY about.accesskey "z">
 <!ENTITY disabled.warning "Adblock Plus è inattiva. Si possono modificare i filtri nella lista, ma tali modifiche verranno applicate solo quando Adblock Plus verrà riattivata">
 <!ENTITY description "Aggiungere gli indirizzi web da bloccare, e per i suggerimenti controllare l&apos;elenco 
-    a discesa. Usare * come carattere jolly per creare filtri generici. Gli utenti esperti
-    possono usare le espressioni regolari come /banner\d+\.gif$/">
+		a discesa. Usare * come carattere jolly per creare filtri generici. Gli utenti esperti
+		possono usare le espressioni regolari come /banner\d+\.gif$/">
 <!ENTITY pattern.column "Ruolo del filtro">
 <!ENTITY enabled.column "Attivato">
 <!ENTITY hitcount.column "Accessi">

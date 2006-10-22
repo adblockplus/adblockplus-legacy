@@ -1,13 +1,13 @@
 <!ENTITY dialog.title "Modifica sottoscrizione">
 <!ENTITY dialog.newtitle "Aggiungi sottoscrizione">
-<!ENTITY new.description "Inserire l'indirizzo web oppure il percorso del file contenente la
+<!ENTITY new.description "Inserire l&apos;indirizzo web oppure il percorso del file contenente la
 	lista dei filtri per Adblock Plus.">
 <!ENTITY edit.description "Il download della lista dei filtri per questa sottoscrizione verrà
-	avviato dall'indirizzo dato">
+	avviato dall&apos;indirizzo dato">
 <!ENTITY external.description "Questa è una sottoscrizione esterna, la relativa lista dei filtri
-	sarà mantenuta aggiornata dall'estensione che ha creato questa
+	sarà mantenuta aggiornata dall&apos;estensione che ha creato questa
 	sottoscrizione">
-<!ENTITY autodownload.description "Selezionando 'Aggiorna automaticamente' l'indirizzo verrà
+<!ENTITY autodownload.description "Selezionando &apos;Aggiorna automaticamente&apos; l&apos;indirizzo verrà
 	controllato quotidianamente, mentre disattivando questa opzione
 	sarà possibile aggiornare manualmente tramite il menu contestuale
 	delle sottoscrizioni">
@@ -19,3 +19,5 @@
 <!ENTITY autodownload.accesskey "A">
 <!ENTITY enabled.label "Attiva i filtri">
 <!ENTITY enabled.accesskey "f">
+<!ENTITY full-list.url "http://adblockplus.org/en/subscriptions">
+<!ENTITY full-list.label "Visualizza tutte le sottoscrizioni">

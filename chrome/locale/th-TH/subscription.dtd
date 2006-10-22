@@ -12,3 +12,5 @@
 <!ENTITY autodownload.accesskey "P">
 <!ENTITY enabled.label "เปิดการใช้งานตัวกรอง">
 <!ENTITY enabled.accesskey "N">
+<!ENTITY full-list.url "http://adblockplus.org/en/subscriptions">
+<!ENTITY full-list.label "ดูนามข้างท้ายทั้งหมด">
