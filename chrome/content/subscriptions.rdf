@@ -20,8 +20,8 @@
     </RDF:li>
     <RDF:li>
       <RDF:Description>
-        <abp:title>DutchBlock (Nederland)</abp:title>
-        <abp:url>http://dutchmega.nl/dutchblock/adblockplus.txt</abp:url>
+        <abp:title>dutchblock (Nederland)</abp:title>
+        <abp:url>http://dutchmega.nl/dutchblock/subscription</abp:url>
         <abp:homepage>http://www.dutchmega.nl/dutchblock/</abp:homepage>
       </RDF:Description>
     </RDF:li>
