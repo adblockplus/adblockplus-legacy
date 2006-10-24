@@ -559,17 +559,17 @@ var treeView = {
       if (!this.data)
         return (col == "address" ? this.loadDummy : "");
 
-      var location = abp.unwrapURL(window.content.location.href);
       if (col == "filter") {
-        var filter = abp.policy.isWhitelisted(location);
+        var filter = abp.policy.isWindowWhitelisted(window.content);
         return filter ? filter.text : "";
       }
 
+      if (abp.policy.isWindowWhitelisted(window.content))
+        return this.whitelistDummy;
+
+      var location = abp.unwrapURL(window.content.location.href);
       if (!abp.policy.isBlockableScheme(location))
         return this.remoteDummy;
-
-      if (abp.policy.isWhitelisted(location))
-        return this.whitelistDummy;
 
       return this.itemsDummy;
     }
@@ -600,11 +600,8 @@ var treeView = {
       properties.AppendElement(this.atoms["dummy-true"]);
 
       state = "state-filtered";
-      if (this.data) {
-        var location = abp.unwrapURL(window.content.location.href);
-        if (abp.policy.isWhitelisted(location))
-          state = "state-whitelisted";
-      }
+      if (this.data && abp.policy.isWindowWhitelisted(window.content))
+        state = "state-whitelisted";
     }
     properties.AppendElement(this.atoms[state]);
   },
@@ -787,12 +784,12 @@ var treeView = {
 
     // We want to stick with "no blockable items" for about:blank
     if (location != "about:blank") {
-      if (!abp.policy.isBlockableScheme(location))
-        return {tooltip: this.remoteDummyTooltip};
-
-      var filter = abp.policy.isWhitelisted(location);
+      var filter = abp.policy.isWindowWhitelisted(window.content);
       if (filter)
         return {tooltip: this.whitelistDummyTooltip, filter: filter};
+
+      if (!abp.policy.isBlockableScheme(location))
+        return {tooltip: this.remoteDummyTooltip};
     }
 
     return {tooltip: this.itemsDummyTooltip};

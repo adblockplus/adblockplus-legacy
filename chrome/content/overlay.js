@@ -149,8 +149,14 @@ function abpReloadPrefs() {
 
     if (state == "active") {
       var contentWnd = window.content;
-      if ("gDBView" in window) {
-        // Thunderbird branch
+      var location = null;
+      if ("currentHeaderData" in window && "content-base" in currentHeaderData) {
+        // Thunderbird blog entry
+    
+        location = abp.unwrapURL(currentHeaderData["content-base"].headerValue);
+      }
+      else if ("gDBView" in window) {
+        // Thunderbird mail/newsgroup entry
 
         try {
           var msgHdr = gDBView.hdrForFirstSelectedMessage;
@@ -158,20 +164,19 @@ function abpReloadPrefs() {
                                       .getService(Components.interfaces.nsIMsgHeaderParser);
           var emailAddress = headerParser.extractHeaderAddressMailboxes(null, msgHdr.author);
           if (emailAddress) {
-            emailAddress = 'mailto:' + emailAddress.replace(/^[\s"]+/, "").replace(/[\s"]+$/, "").replace(' ', '%20');
-            if (abp.policy.isWhitelisted(emailAddress))
-              state = "whitelisted";
+            location = 'mailto:' + emailAddress.replace(/^[\s"]+/, "").replace(/[\s"]+$/, "").replace(' ', '%20');
           }
         }
         catch(e) {}
       }
       else {
-        // Firefox branch
+        // Firefox web page
 
-        var location = abp.unwrapURL(window.content.location.href);
-        if (abp.policy.isWhitelisted(location))
-          state = "whitelisted";
+        location = abp.unwrapURL(window.content.location.href);
       }
+
+      if (location && abp.policy.isWhitelisted(location))
+        state = "whitelisted";
     }
   }
 
@@ -488,51 +493,49 @@ function abpFillPopup(popup) {
   elements.opensidebar.hidden = sidebarOpen;
   elements.closesidebar.hidden = !sidebarOpen;
 
-  var whitelistItemSite;
-  var whitelistItemPage;
-  if ("gDBView" in window) {
-    // Thunderbird branch
+  var whitelistItemSite = elements.whitelistsite;
+  var whitelistItemPage = elements.whitelistpage;
+  var location = null;
+  var site = null;
+  if ("currentHeaderData" in window && "content-base" in currentHeaderData) {
+    // Thunderbird blog entry
+
+    location = abp.unwrapURL(currentHeaderData["content-base"].headerValue);
+  }
+  else if ("gDBView" in window) {
+    // Thunderbird mail/newsgroup entry
 
     try {
       var msgHdr = gDBView.hdrForFirstSelectedMessage;
       var headerParser = Components.classes["@mozilla.org/messenger/headerparser;1"]
                                   .getService(Components.interfaces.nsIMsgHeaderParser);
-      var emailAddress = headerParser.extractHeaderAddressMailboxes(null, msgHdr.author);
-      if (emailAddress)
-        emailAddress = emailAddress.replace(/^[\s"]+/, "").replace(/[\s"]+$/, "");
+      var site = headerParser.extractHeaderAddressMailboxes(null, msgHdr.author);
+      if (site)
+        site = site.replace(/^[\s"]+/, "").replace(/[\s"]+$/, "");
     }
     catch(e) {
-      emailAddress = null;
+      site = null;
     }
 
-    whitelistItemSite = elements.whitelistsite;
-    if (emailAddress) {
-      whitelistItemSite.pattern = "@@|mailto:" + emailAddress.replace(' ', '%20') + "|";
+    if (site) {
+      whitelistItemSite.pattern = "@@|mailto:" + site.replace(' ', '%20') + "|";
       whitelistItemSite.setAttribute("checked", abpHasPattern(whitelistItemSite.pattern));
-      whitelistItemSite.setAttribute("label", whitelistItemSite.getAttribute("labeltempl").replace(/--/, emailAddress));
+      whitelistItemSite.setAttribute("label", whitelistItemSite.getAttribute("labeltempl").replace(/--/, site));
     }
-
-    whitelistItemSite.hidden = whitelistItemSite.nextSibling.hidden = !emailAddress;
-
-    if (abp.getSettingsDialog())
-      whitelistItemSite.setAttribute("disabled", "true");
-    else
-      whitelistItemSite.removeAttribute("disabled");
   }
   else {
-    // Firefox branch
+    // Firefox web page
 
-    var location = abp.unwrapURL(content.location.href);
-    var showWhitelist = abp.policy.isBlockableScheme(location);
+    location = abp.unwrapURL(content.location.href);
+  }
 
-    whitelistItemSite = elements.whitelistsite;
-    whitelistItemPage = elements.whitelistpage;
-    if (showWhitelist) {
+  if (!site && location) {
+    if (abp.policy.isBlockableScheme(location)) {
       var url = location.replace(/\?.*/, '');
       var host = abp.makeURL(location);
       if (host)
         host = host.host;
-      var site = url.replace(/^([^\/]+\/\/[^\/]+\/).*/, "$1");
+      site = url.replace(/^([^\/]+\/\/[^\/]+\/).*/, "$1");
   
       whitelistItemSite.pattern = "@@|" + site;
       whitelistItemSite.setAttribute("checked", abpHasPattern(whitelistItemSite.pattern));
@@ -541,16 +544,21 @@ function abpFillPopup(popup) {
       whitelistItemPage.pattern = "@@|" + url + "|";
       whitelistItemPage.setAttribute("checked", abpHasPattern(whitelistItemPage.pattern));
     }
-    whitelistItemSite.hidden = whitelistItemPage.hidden
-      = whitelistItemPage.nextSibling.hidden = !showWhitelist;
-    if (abp.getSettingsDialog()) {
-      whitelistItemSite.setAttribute("disabled", "true");
-      whitelistItemPage.setAttribute("disabled", "true");
-    }
-    else {
-      whitelistItemSite.removeAttribute("disabled");
-      whitelistItemPage.removeAttribute("disabled");
-    }
+    else
+      location = null;
+  }
+
+  whitelistItemSite.hidden = !site;
+  whitelistItemPage.hidden = !location;
+  whitelistItemPage.nextSibling.hidden = !site && !location;
+
+  if (abp.getSettingsDialog()) {
+    whitelistItemSite.setAttribute("disabled", "true");
+    whitelistItemPage.setAttribute("disabled", "true");
+  }
+  else {
+    whitelistItemSite.removeAttribute("disabled");
+    whitelistItemPage.removeAttribute("disabled");
   }
 
   elements.enabled.setAttribute("checked", abpPrefs.enabled);

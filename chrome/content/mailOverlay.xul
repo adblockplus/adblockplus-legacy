@@ -54,6 +54,7 @@
         <menuitem id="abp-status-settings" label="&settings.label;..." accesskey="&settings.accesskey;" key="abp-key-settings" oncommand="abpSettings()"/>
         <menuseparator id="abp-status-whitelist-sep"/>
         <menuitem id="abp-status-whitelistsite" labeltempl="&whitelist.site.label;" type="checkbox" oncommand="abpTogglePattern(this.pattern, this.hasAttribute('checked'))"/>
+        <menuitem id="abp-status-whitelistpage" label="&whitelist.page.label;" type="checkbox" oncommand="abpTogglePattern(this.pattern, this.hasAttribute('checked'))"/>
         <menuseparator/>
         <menu id="abp-status-options" label="&options.label;" accesskey="&options.accesskey;">
           <menupopup id="abp-status-options-popup">
