@@ -38,7 +38,7 @@
 <!ENTITY showinstatusbar.label "Megjelenés az állapotsoron">
 <!ENTITY showinstatusbar.accesskey "l">
 <!ENTITY localpages.label "Távoli reklámok blokkolása helyi oldalakon">
-<!ENTITY localpages.accesskey "h">
+<!ENTITY localpages.accesskey "T">
 <!ENTITY objecttabs.label "Fülek megjelenítése Java és Flash objektumoknál">
 <!ENTITY objecttabs.accesskey "F">
 <!ENTITY collapse.label "Blokkolt objektumok összecsukása">
