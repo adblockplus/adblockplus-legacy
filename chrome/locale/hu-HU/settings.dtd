@@ -29,8 +29,8 @@
 <!ENTITY menu.find.accesskey "e">
 <!ENTITY menu.findagain.label "Következő keresése">
 <!ENTITY menu.findagain.accesskey "z">
-<!ENTITY options.label "Beállítások">
-<!ENTITY options.accesskey "B">
+<!ENTITY options.label "Opciók">
+<!ENTITY options.accesskey "O">
 <!ENTITY enable.label "Adblock Plus aktiválása">
 <!ENTITY enable.accesskey "a">
 <!ENTITY showintoolbar.label "Megjelenés az eszköztáron">
@@ -44,9 +44,9 @@
 <!ENTITY collapse.label "Blokkolt objektumok összecsukása">
 <!ENTITY collapse.accesskey "m">
 <!ENTITY linkcheck.label "Banner hivatkozások ellenőrzése">
-<!ENTITY linkcheck.accesskey "e">
+<!ENTITY linkcheck.accesskey "h">
 <!ENTITY help.label "Súgó">
-<!ENTITY help.accesskey "S">
+<!ENTITY help.accesskey "g">
 <!ENTITY faq.label "Gyakran Ismételt Kérdések (FAQ)">
 <!ENTITY faq.accesskey "G">
 <!ENTITY faq.url "http://adblockplus.org/en/faq">
