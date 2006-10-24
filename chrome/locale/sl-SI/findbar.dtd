@@ -1,14 +1,19 @@
+<!-- LOCALIZATION NOTE : FILE This file contains the entities needed to -->
+<!-- LOCALIZATION NOTE : FILE use the Find Bar. --> 
+
+<!-- entities split out from browser.dtd -->
 <!ENTITY find.label "Najdi:">
-<!ENTITY findNext.label "Najdi naslednjo">
-<!ENTITY findNext.accesskey "N">
-<!ENTITY findNext.tooltip "Najdi naslednjo pojavitev fraze">
-<!ENTITY findPrevious.label "Najdi prejšnjo">
-<!ENTITY findPrevious.accesskey "P">
-<!ENTITY findPrevious.tooltip "Najdi prejšnjo pojavitev fraze">
-<!ENTITY findCloseButton.tooltip "Zapri iskalno vrstico">
-<!ENTITY highlight.label "Osvetli vse">
+<!ENTITY findNext.label "Najdi naprej">
+<!ENTITY findNext.accesskey "p">
+<!ENTITY findNext.tooltip "Najde naslednji pojav iskanega">
+<!ENTITY findPrevious.label "Najdi nazaj">
+<!ENTITY findPrevious.accesskey "z">
+<!ENTITY findPrevious.tooltip "Najde prejšnji pojav iskanega">
+<!ENTITY findCloseButton.tooltip "Zapre vrstico iskanja">
+<!ENTITY highlight.label "Označi vse">
 <!ENTITY highlight.accesskey "v">
-<!ENTITY highlight.tooltip "Osvetli vse pojavitve fraze (Ctrl+Enter)">
-<!ENTITY highlight.macTooltip "Osvetli vse pojavitve fraze (Cmd+Return)">
-<!ENTITY caseSensitiveCheckbox.label "Ujemanje malih/velikih črk">
-<!ENTITY caseSensitiveCheckbox.accesskey "č">
+<!ENTITY highlight.tooltip "Označi vse pojave iskanega (Ctrl+Enter)">
+<!ENTITY highlight.macTooltip "Označi vse pojave iskanega (Cmd+Return)">
+<!ENTITY caseSensitiveCheckbox.label "Razlikuj velike in male črke">
+<!ENTITY caseSensitiveCheckbox.accesskey "R">
+
