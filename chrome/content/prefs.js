@@ -47,6 +47,7 @@ var styleService = Components.classes["@mozilla.org/content/style-sheet-service;
 function Matcher() {
   this.patterns = [];
   this.shortcutHash = new HashTable();
+  this.jumpTable = new HashTable();
   this.shortcuts = 0;
   this.regexps = [];
   this.known = new HashTable();
@@ -55,7 +56,7 @@ function Matcher() {
 }
 
 const shortcutLength = 8;
-const minShortcutNumber = 100;
+const jumpLength = shortcutLength / 2;
 const maxCacheEntries = 10000;
 
 var typeMap = {
@@ -75,10 +76,11 @@ Matcher.prototype = {
   clear: function() {
     this.patterns = [];
     this.shortcutHash = new HashTable();
+    this.jumpTable = new HashTable();
     this.shortcuts = 0;
     this.regexps = [];
-    this.known.clear();
-    this.resultCache.clear();
+    this.known = new HashTable();
+    this.resultCache = new HashTable();
     this.cacheEntries = 0;
   },
 
@@ -88,17 +90,17 @@ Matcher.prototype = {
     if ("contentType" in pattern)
       key += pattern.contentType;
 
-    if (this.known.has(key))
+    if (key in this.known)
       return;
 
     // Look for a suitable shortcut if the current can't be used
-    if (!("shortcut" in pattern) || this.shortcutHash.has(pattern.shortcut)) {
+    if (!("shortcut" in pattern) || pattern.shortcut in this.shortcutHash) {
       delete pattern.shortcut;
       if (!abp.regexpRegExp.test(pattern.text)) {
         var text = pattern.text.replace(abp.optionsRegExp,'').toLowerCase();
         for (var i = 0; i < text.length - shortcutLength + 1; i++) {
           var candidate = text.substr(i, shortcutLength);
-          if (!/[*|@]/.test(candidate) && !this.shortcutHash.has(candidate)) {
+          if (!/[*|@]/.test(candidate) && !(candidate in this.shortcutHash)) {
             pattern.shortcut = candidate;
             break;
           }
@@ -107,33 +109,39 @@ Matcher.prototype = {
     }
 
     if ("shortcut" in pattern) {
-      this.shortcutHash.put(pattern.shortcut, pattern);
+      var shortcut = pattern.shortcut;
+      this.shortcutHash[shortcut] = pattern;
       this.shortcuts++;
+
+      for (i = 0; i <= shortcutLength - jumpLength; i++) {
+        var jumpKey = shortcut.substr(i, jumpLength);
+        var jump = jumpLength - i;
+        if (!(jumpKey in this.jumpTable) || this.jumpTable[jumpKey] > jump)
+          this.jumpTable[jumpKey] = jump;
+      }
     }
     else 
       this.regexps.push(pattern);
 
     this.patterns.push(pattern);
-    this.known.put(key, true);
+    this.known[key] = true;
   },
 
   matchesAnyInternal: function(location, contentType) {
-    var list = this.patterns;
-    if (this.shortcuts > minShortcutNumber) {
-      // Optimize matching using shortcuts
+    if (this.shortcuts > 0) {
+      // Optimized matching using shortcuts
       var text = location.toLowerCase();
       var endPos = text.length - shortcutLength + 1;
       for (var i = 0; i <= endPos; i++) {
         var substr = text.substr(i, shortcutLength);
-        var pattern = this.shortcutHash.get(substr);
+        var pattern = this.shortcutHash[substr];
         if (typeof pattern != "undefined" && pattern.regexp.test(location) &&
             (!("contentType" in pattern) || typeMap[contentType] & pattern.contentType))
           return pattern;
       }
-
-      list = this.regexps;
     }
 
+    var list = this.regexps;
     for (i = 0; i < list.length; i++)
       if (list[i].regexp.test(location) && (!("contentType" in list[i]) || typeMap[contentType] & list[i].contentType))
         return list[i];
@@ -144,16 +152,16 @@ Matcher.prototype = {
   // Tests whether URL matches any of the patterns in the list, returns the matching pattern
   matchesAny: function(location, contentType) {
     var key = location + " " + contentType;
-    var result = this.resultCache.get(key);
+    var result = this.resultCache[key];
     if (typeof result == "undefined") {
       result = this.matchesAnyInternal(location, contentType);
 
       if (this.cacheEntries >= maxCacheEntries) {
-        this.resultCache.clear();
+        this.resultCache = new HashTable();
         this.cacheEntries = 0;
       }
   
-      this.resultCache.put(key, result);
+      this.resultCache[key] = result;
       this.cacheEntries++;
     }
 
@@ -183,21 +191,22 @@ var elemhide = {
         domain = "";
 
       var list;
-      if (domains.has(domain))
-        list = domains.get(domain);
+      if (domain in domains)
+        list = domains[domain];
       else {
         list = new HashTable();
-        domains.put(domain, list);
+        domains[domain] = list;
       }
-      list.put(this.patterns[i].selector, true);
+      list[this.patterns[i].selector] = true;
     }
 
     // Joining domains list
     var cssData = "";
-    var keys = domains.keys();
-    for (var i = 0; i < keys.length; i++) {
-      var domain = keys[i];
-      var rule = domains.get(domain).keys().join(",") + "{display:none !important}\n";
+    for (var domain in domains) {
+      var selectors = [];
+      for (var selector in domains[domain])
+        selectors.push(selector);
+      var rule = selectors.join(",") + "{display:none !important}\n";
       if (domain) {
         var parts = domain.split(",");
         rule = '@-moz-document domain("' + domain.split(",").join('"),domain("') + '"){\n' + rule + '}\n';
@@ -381,8 +390,8 @@ var prefs = {
   reloadPatterns: function() {
 //    var start = new Date().getTime();
 
-    this.knownPatterns.clear();
-    this.listedSubscriptions.clear();
+    this.knownPatterns = new HashTable();
+    this.listedSubscriptions = new HashTable();
     this.userPatterns = [];
     this.subscriptions = [];
 
@@ -432,7 +441,7 @@ var prefs = {
               var subscription = prefs.subscriptionFromObject(curObj);
               if (subscription) {
                 prefs.subscriptions.push(subscription);
-                prefs.listedSubscriptions.put(subscription.url, subscription);
+                prefs.listedSubscriptions[subscription.url] = subscription;
               }
             }
             else if (curSection == "user patterns") {
@@ -475,7 +484,7 @@ var prefs = {
       this.disableObserver = true;
       var list = this.patterns.split(" ");
       for (var i = 0; i < list.length; i++) {
-        if (!this.knownPatterns.has(list[i])) {
+        if (!(list[i] in this.knownPatterns)) {
           var pattern = this.patternFromText(list[i]);
           if (pattern)
             this.userPatterns.push(pattern);
@@ -494,11 +503,11 @@ var prefs = {
       this.disableObserver = true;
       var list = this.grouporder.split(" ");
       for (var i = 0; i < list.length; i++) {
-        if (!this.listedSubscriptions.has(list[i])) {
+        if (!(list[i] in this.listedSubscriptions)) {
           var subscription = this.subscriptionFromURL(list[i]);
           if (subscription) {
             this.subscriptions.push(subscription);
-            this.listedSubscriptions.put(subscription.url, subscription);
+            this.listedSubscriptions[subscription.url] = subscription;
           }
         }
       }
@@ -525,11 +534,11 @@ var prefs = {
     if (" grouporder" in this.prefList) {
       var special = this.prefList[" grouporder"][2].split(" ");
       for (i = 0; i < special.length; i++) {
-        if (!this.listedSubscriptions.has(special[i])) {
+        if (!(special[i] in this.listedSubscriptions)) {
           var subscription = this.subscriptionFromURL(special[i]);
           if (subscription) {
             this.subscriptions.push(subscription);
-            this.listedSubscriptions.put(subscription.url, subscription);
+            this.listedSubscriptions[subscription.url] = subscription;
           }
         }
       }
@@ -541,9 +550,6 @@ var prefs = {
   },
 
   initMatching: function() {
-/*    if (cache)
-      cache.clear();*/
-
     this.filterPatterns.clear();
     this.whitePatterns.clear();
     this.whitePatternsPage.clear();
@@ -674,9 +680,9 @@ var prefs = {
     // Save pattern data
     for (i = 0; i < this.userPatterns.length; i++) {
       var pattern = this.userPatterns[i];
-      if (!saved.has(pattern.text)) {
+      if (!(pattern.text in saved)) {
         this.serializePattern(buf, pattern);
-        saved.put(pattern.text, pattern);
+        saved[pattern.text] = pattern;
       }
     }
 
@@ -684,9 +690,9 @@ var prefs = {
       var subscription = this.subscriptions[i];
       for (var j = 0; j < subscription.patterns.length; j++) {
         var pattern = subscription.patterns[j];
-        if (!saved.has(pattern.text)) {
+        if (!(pattern.text in saved)) {
           this.serializePattern(buf, pattern);
-          saved.put(pattern.text, pattern);
+          saved[pattern.text] = pattern;
         }
       }
     }
@@ -718,8 +724,8 @@ var prefs = {
     if (!text)
       return null;
 
-    if (this.knownPatterns.has(text))
-      return this.knownPatterns.get(text);
+    if (text in this.knownPatterns)
+      return this.knownPatterns[text];
 
     var ret = {text: text};
 
@@ -749,7 +755,7 @@ var prefs = {
     ret.hitCount = ("hitCount" in obj ? parseInt(obj.hitCount) : 0) || 0;
     ret.lastHit = ("lastHit" in obj ? parseInt(obj.lastHit) : 0) || 0;
 
-    this.knownPatterns.put(text, ret);
+    this.knownPatterns[text] = ret;
     return ret;
   },
 
@@ -758,8 +764,8 @@ var prefs = {
     if (!/\S/.test(text))
       return null;
 
-    if (this.knownPatterns.has(text))
-      return this.knownPatterns.get(text);
+    if (text in this.knownPatterns)
+      return this.knownPatterns[text];
 
     var ret = {text: text};
     this.initPattern(ret);
@@ -768,7 +774,7 @@ var prefs = {
     ret.hitCount = 0;
     ret.lastHit = 0;
 
-    this.knownPatterns.put(text, ret);
+    this.knownPatterns[text] = ret;
     return ret;
   },
 
@@ -934,10 +940,14 @@ var prefs = {
   },
 
   resetHitCounts: function(patterns) {
-    if (typeof patterns == "undefined" || !patterns)
-      patterns = this.knownPatterns.values();
-    for (var i = 0; i < patterns.length; i++)
-      patterns[i].hitCount = 0;
+    if (typeof patterns == "undefined" || !patterns) {
+      for (var key in this.knownPatterns)
+        this.knownPatterns[key].hitCount = 0;
+    }
+    else {
+      for (var i = 0; i < patterns.length; i++)
+        patterns[i].hitCount = 0;
+    }
 
     // Fire hit count listeners
     for (i = 0; i < this.hitListeners.length; i++)
@@ -957,7 +967,7 @@ var prefs = {
     if (!url)
       return null;
 
-    if (this.listedSubscriptions.has(url))
+    if (url in this.listedSubscriptions)
       return null;
 
     if (" " + url in this.specialSubscriptions)
@@ -996,12 +1006,12 @@ var prefs = {
     }
 
     ret.getPatterns = this.getSubscriptionPatterns;
-    this.knownSubscriptions.put(url, ret);
+    this.knownSubscriptions[url] = ret;
     return ret;
   },
 
   subscriptionFromURL: function(url) {
-    if (this.listedSubscriptions.has(url))
+    if (url in this.listedSubscriptions)
       return null;
 
     var ret;
@@ -1083,7 +1093,7 @@ var prefs = {
     }
 
     ret.getPatterns = this.getSubscriptionPatterns;
-    this.knownSubscriptions.put(url, ret);
+    this.knownSubscriptions[url] = ret;
     return ret;
   },
 
@@ -1104,7 +1114,7 @@ var prefs = {
     };
 
     ret.getPatterns = this.getSubscriptionPatterns;
-    this.knownSubscriptions.put(id, ret);
+    this.knownSubscriptions[id] = ret;
     return ret;
   },
 
