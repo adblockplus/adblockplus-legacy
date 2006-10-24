@@ -5,17 +5,17 @@
 <!ENTITY filters.tooltip "Các mục linh hoạt nhất:">
 <!ENTITY menuitem.label "Adblock Plus">
 <!ENTITY menuitem.accesskey "P">
-<!ENTITY context.image.label "Adblock Image">
-<!ENTITY context.object.label "Adblock Object">
-<!ENTITY context.link.label "Adblock Link">
-<!ENTITY context.frame.label "Adblock Frame">
+<!ENTITY context.image.label "Adblock Plus: Chặn Ảnh">
+<!ENTITY context.object.label "Adblock Plus: Chặn Object">
+<!ENTITY context.link.label "Adblock Plus: Chặn Liên kết">
+<!ENTITY context.frame.label "Adblock Plus: Chặn Frame">
 <!ENTITY menuitem.sidebar.title "Adblock Plus: Các mục có thể chặn được">
 <!ENTITY sidebar.title "Các mục bị chặn trong trang hiện tại">
 <!ENTITY settings.label "Tùy thích">
 <!ENTITY settings.accesskey "T">
 <!ENTITY opensidebar.label "Mở các mục có thể chặn được">
-<!ENTITY opensidebar.accesskey "C">
+<!ENTITY opensidebar.accesskey "c">
 <!ENTITY closesidebar.label "Đóng các mục có thể chặn được">
-<!ENTITY closesidebar.accesskey "C">
+<!ENTITY closesidebar.accesskey "c">
 <!ENTITY whitelist.site.label "Vô hiệu trong --">
 <!ENTITY whitelist.page.label "Vô hiệu chỉ trong trang này">

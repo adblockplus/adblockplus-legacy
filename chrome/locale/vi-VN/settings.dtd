@@ -30,7 +30,7 @@
 <!ENTITY menu.findagain.label "Tìm lại">
 <!ENTITY menu.findagain.accesskey "l">
 <!ENTITY options.label "Tùy chọn">
-<!ENTITY options.accesskey "H">
+<!ENTITY options.accesskey "h">
 <!ENTITY enable.label "Bật Adblock Plus">
 <!ENTITY enable.accesskey "B">
 <!ENTITY showintoolbar.label "Hiện trong thanh công cụ">
