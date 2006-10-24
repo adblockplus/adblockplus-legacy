@@ -85,7 +85,7 @@
     </statusbarpanel>
   </statusbar> 
 
-  <!-- firefox toolbar -->
+  <!-- Firefox toolbar -->
   <toolbarpalette id="BrowserToolbarPalette">
     <toolbarbutton id="abp-toolbarbutton" type="menu-button" insertbefore="print-button"
         class="toolbarbutton-1 chromeclass-toolbar-additional" disabled="true" label="&menuitem.label;"
@@ -97,7 +97,7 @@
     </toolbarbutton>
   </toolbarpalette>
 
-  <!-- mozilla toolbar -->
+  <!-- SeaMonkey toolbar -->
   <hbox id="nav-bar-buttons">
     <toolbarbutton id="abp-toolbarbutton"
         class="bookmark-item" disabled="true" hidden="true" label="&menuitem.label;"
@@ -107,7 +107,7 @@
         tooltip="abp-tooltip" context="abp-status-popup"/>
   </hbox>
 
-  <!-- firefox broadcasters -->
+  <!-- Firefox broadcasters -->
   <broadcasterset id="mainBroadcasterSet">
     <broadcaster id="viewAdblockPlusSidebar" autoCheck="false" label="&menuitem.sidebar.title;"
       type="checkbox" group="sidebar" sidebarurl="chrome://adblockplus/content/sidebar.xul"
@@ -115,16 +115,16 @@
       oncommand="abpToggleSidebar()"/>
   </broadcasterset>
 
-  <!-- firefox view sidebar menu -->
+  <!-- Firefox view sidebar menu -->
   <menupopup id="viewSidebarMenu">
     <menuitem key="abp-key-sidebar" observes="viewAdblockPlusSidebar"/> 
   </menupopup>
 
-  <!-- mozilla tools menu -->
+  <!-- SeaMonkey tools menu -->
   <menupopup id="taskPopup">
     <menuitem label="&menuitem.label;..." accesskey="&menuitem.accesskey;" key="abp-key-settings" insertafter="downloadmgr" oncommand="abpSettings()"/>
   </menupopup>
-  <!-- firefox tools menu -->
+  <!-- Firefox tools menu -->
   <menupopup id="menu_ToolsPopup">
     <menuitem label="&menuitem.label;..." accesskey="&menuitem.accesskey;" key="abp-key-settings" insertafter="javascriptConsole" oncommand="abpSettings()"/>
   </menupopup> 

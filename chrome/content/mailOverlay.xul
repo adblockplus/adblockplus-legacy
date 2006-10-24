@@ -97,12 +97,12 @@
     </toolbarbutton>
   </toolbarpalette>
 
-  <!-- Thunderbird tools menu -->
+  <!-- Thunderbird/SeaMonkey Mail tools menu -->
   <menupopup id="taskPopup">
-    <menuitem label="&menuitem.label;..." accesskey="&menuitem.accesskey;" key="abp-key-settings" insertafter="javaScriptConsole" oncommand="abpSettings()"/>
+    <menuitem label="&menuitem.label;..." accesskey="&menuitem.accesskey;" key="abp-key-settings" insertafter="javaScriptConsole,downloadmgr" oncommand="abpSettings()"/>
   </menupopup>
 
-  <!-- Thunderbird context-menu -->
+  <!-- common context-menu -->
   <popup id="messagePaneContext">
     <menuitem id="abp-image-menuitem" label="&context.image.label;..." oncommand="abpNode(gContextMenu.abpBgData || gContextMenu.abpData)"/>
     <menuitem id="abp-object-menuitem" label="&context.object.label;..." oncommand="abpNode(gContextMenu.abpData)"/>

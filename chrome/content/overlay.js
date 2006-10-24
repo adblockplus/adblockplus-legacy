@@ -200,6 +200,10 @@ function abpReloadPrefs() {
       else
         element.hidden = !abpPrefs.showintoolbar;
 
+      // HACKHACK: Show status bar icon in SeaMonkey Mail instead of toolbar icon
+      if (element.hidden && element.tagName == "statusbarpanel" && document.getElementById("msgToolbar"))
+        element.hidden = !abpPrefs.showintoolbar;
+
       if (abpOldShowInToolbar != abpPrefs.showintoolbar)
         abpInstallInToolbar();
 
