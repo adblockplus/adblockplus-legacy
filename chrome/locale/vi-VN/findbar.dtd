@@ -1,0 +1,14 @@
+<!ENTITY find.label "Tìm kiếm:">
+<!ENTITY findNext.label "Tìm Tiếp">
+<!ENTITY findNext.accesskey "T">
+<!ENTITY findNext.tooltip "Tìm nhóm từ kế tiếp">
+<!ENTITY findPrevious.label "Tìm Trước Đó">
+<!ENTITY findPrevious.accesskey "c">
+<!ENTITY findPrevious.tooltip "Tìm nhóm từ trước đó">
+<!ENTITY findCloseButton.tooltip "Đóng thanh Tìm Kiếm">
+<!ENTITY highlight.label "Tô sáng tất cả">
+<!ENTITY highlight.accesskey "s">
+<!ENTITY highlight.tooltip "Tô sáng tất cả các nhóm từ tìm thấy (Cntrl+Enter)">
+<!ENTITY highlight.macTooltip "Tô sáng tất cả các nhóm từ tìm thấy (Cmd+Return)">
+<!ENTITY caseSensitiveCheckbox.label "Phân biệt HOA/thường">
+<!ENTITY caseSensitiveCheckbox.accesskey "H">

@@ -1,0 +1,22 @@
+<!ENTITY dialog.title "Chào bạn đến với Adblock Plus">
+<!ENTITY description.par1 "
+    Cám ơn bạn đã gắn Adblock Plus. Phần mở rộng này có thể
+    triệt 99&#x25; các mục quảng cáo mà bạn thấy trên mạng.
+    Tuy nhiên, quá trình lọc quảng cáo một cách hiệu quả cần
+    bạn phải định nghĩa một tập hợp lọc tốt. Bạn có thể tự tạo,
+    hay bạn chỉ cần đăng ký theo danh sách bộ lọc mà những
+    người khác đang bảo quản cho bạn.  Bạn vẫn có thể thêm mục lọc
+    của chính bạn cũng như vô hiệu hóa/xóa các đăng ký khi cần thiết.
+">
+<!ENTITY description.par2 "Bạn có thể chọn một trong những đăng ký trong danh sách dưới đây
+    (nhiều mục đăng ký nữa có thể được thêm vào Tùy Thích Adblock Plus sau này,
+    nhưng thường thường không cần thiết phải làm vậy).
+">
+<!ENTITY note "Chú ý: Một danh sách mục lọc thường thường có hiệu quả nhất khi áp dụng
+    đến các trang web từ vùng danh sách mục lọc được tạo ra cho chúng.
+">
+<!ENTITY homepage.label "Trang nhà">
+<!ENTITY subscribe.label "Đăng ký">
+<!ENTITY subscribe.accesskey "k">
+<!ENTITY other.label "Thêm đăng ký khác">
+<!ENTITY other.accesskey "T">
