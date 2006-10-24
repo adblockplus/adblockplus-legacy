@@ -90,40 +90,7 @@ var policy = {
     if (!blockable)
       return true;
 
-    var pageMatch = false;
-    if ("name" in topWnd && topWnd.name == "messagepane") {
-      // Thunderbird branch
-
-      try {
-        var mailWnd = topWnd.QueryInterface(Components.interfaces.nsIInterfaceRequestor)
-                            .getInterface(Components.interfaces.nsIWebNavigation)
-                            .QueryInterface(Components.interfaces.nsIDocShellTreeItem)
-                            .rootTreeItem
-                            .QueryInterface(Components.interfaces.nsIInterfaceRequestor)
-                            .getInterface(Components.interfaces.nsIDOMWindow);
-
-        // Typically we get a wrapped mail window here, need to unwrap
-        try {
-          mailWnd = mailWnd.wrappedJSObject;
-        } catch(e) {}
-  
-        if ("gDBView" in mailWnd) {
-          var msgHdr = mailWnd.gDBView.hdrForFirstSelectedMessage;
-          var emailAddress = headerParser.extractHeaderAddressMailboxes(null, msgHdr.author);
-          if (emailAddress) {
-            emailAddress = 'mailto:' + emailAddress.replace(/^[\s"]+/, "").replace(/[\s"]+$/, "").replace(' ', '%20');
-            pageMatch = policy.isWhitelisted(emailAddress);
-          }
-        }
-      }
-      catch(e) {dump(e + "\n")}
-    }
-    else {
-      // Firefox branch
-
-      var topLocation = unwrapURL(topWnd.location.href);
-      pageMatch = this.isWhitelisted(topLocation);
-    }
+    var pageMatch = this.isWindowWhitelisted(topWnd);
     if (pageMatch) {
       prefs.increaseHitCount(pageMatch);
       return true;
@@ -228,6 +195,52 @@ var policy = {
   // Checks whether a page is whitelisted
   isWhitelisted: function(url) {
     return prefs.whitePatternsPage.matchesAny(url, "DOCUMENT");
+  },
+
+  // Checks whether the page loaded in a window is whitelisted
+  isWindowWhitelisted: function(wnd) {
+    if ("name" in wnd && wnd.name == "messagepane") {
+      // Thunderbird branch
+
+      try {
+        var mailWnd = wnd.QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+                         .getInterface(Components.interfaces.nsIWebNavigation)
+                         .QueryInterface(Components.interfaces.nsIDocShellTreeItem)
+                         .rootTreeItem
+                         .QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+                         .getInterface(Components.interfaces.nsIDOMWindow);
+
+        // Typically we get a wrapped mail window here, need to unwrap
+        try {
+          mailWnd = mailWnd.wrappedJSObject;
+        } catch(e) {}
+  
+        var str = "" + mailWnd.currentHeaderData["content-base"];
+        createTimer(function() {throw str}, 0);
+
+        if ("currentHeaderData" in mailWnd && "content-base" in mailWnd.currentHeaderData) {
+          var location = unwrapURL(mailWnd.currentHeaderData["content-base"].headerValue);
+          return this.isWhitelisted(location);
+        }
+        else if ("gDBView" in mailWnd) {
+          var msgHdr = mailWnd.gDBView.hdrForFirstSelectedMessage;
+          var emailAddress = headerParser.extractHeaderAddressMailboxes(null, msgHdr.author);
+          if (emailAddress) {
+            emailAddress = 'mailto:' + emailAddress.replace(/^[\s"]+/, "").replace(/[\s"]+$/, "").replace(' ', '%20');
+            return this.isWhitelisted(emailAddress);
+          }
+        }
+      }
+      catch(e) {
+      }
+    }
+    else {
+      // Firefox branch
+
+      var topLocation = unwrapURL(wnd.location.href);
+      return this.isWhitelisted(topLocation);
+    }
+    return null;
   },
 
   // Translates a space separated list of types into an object where properties corresponding
