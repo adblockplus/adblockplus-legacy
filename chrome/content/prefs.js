@@ -98,11 +98,22 @@ Matcher.prototype = {
       delete pattern.shortcut;
       if (!abp.regexpRegExp.test(pattern.text)) {
         var text = pattern.text.replace(abp.optionsRegExp,'').toLowerCase();
-        for (var i = 0; i < text.length - shortcutLength + 1; i++) {
-          var candidate = text.substr(i, shortcutLength);
-          if (!/[*|@]/.test(candidate) && !(candidate in this.shortcutHash)) {
-            pattern.shortcut = candidate;
-            break;
+        var i = parseInt((text.length - shortcutLength) / 2);
+        for (var j = i - 1; i <= text.length - shortcutLength || j >= 0; i++, j--) {
+          var candidate;
+          if (i <= text.length - shortcutLength) {
+            candidate = text.substr(i, shortcutLength);
+            if (!/[*|@]/.test(candidate) && !(candidate in this.shortcutHash)) {
+              pattern.shortcut = candidate;
+              break;
+            }
+          }
+          if (j >= 0) {
+            candidate = text.substr(j, shortcutLength);
+            if (!/[*|@]/.test(candidate) && !(candidate in this.shortcutHash)) {
+              pattern.shortcut = candidate;
+              break;
+            }
           }
         }
       }
