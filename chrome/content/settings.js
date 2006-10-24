@@ -575,7 +575,7 @@ function editSubscription(subscription) {
   if (subscription && newSubscription && subscription != newSubscription)
     treeView.removeRow([subscription, null]);
 
-  var orig = prefs.knownSubscriptions.has(result.url) ? prefs.knownSubscriptions.get(result.url) : prefs.subscriptionFromURL(result.url);
+  var orig = (result.url in prefs.knownSubscriptions ? prefs.knownSubscriptions[result.url] : prefs.subscriptionFromURL(result.url));
 
   if (subscription && !newSubscription)
     newSubscription = subscription;
@@ -698,7 +698,7 @@ function synchSubscription(forceDownload) {
   if (!info || info[0].special || info[0].external || info[0].dummy)
     return;
 
-  var orig = prefs.knownSubscriptions.get(info[0].url);
+  var orig = prefs.knownSubscriptions[info[0].url];
   synchronizer.execute(orig, forceDownload);
 }
 
@@ -707,7 +707,7 @@ function synchAllSubscriptions(forceDownload) {
   for (var i = 0; i < treeView.data.length; i++) {
     var subscription = treeView.data[i];
     if (!subscription.special && !subscription.external && !subscription.dummy) {
-      var orig = prefs.knownSubscriptions.get(subscription.url);
+      var orig = prefs.knownSubscriptions[subscription.url];
       synchronizer.execute(orig, forceDownload);
     }
   }
@@ -934,8 +934,8 @@ function compareEnabled(pattern1, pattern2) {
   var hasEnabled2 = (pattern2.type != "comment" && pattern2.type != "invalid" ? 1 : 0);
   if (hasEnabled1 != hasEnabled2)
     return hasEnabled1 - hasEnabled2;
-  else if (hasEnabled1 && treeView.disabled.has(pattern1.text) != treeView.disabled.has(pattern2.text))
-    return (treeView.disabled.has(pattern1.text) ? -1 : 1);
+  else if (hasEnabled1 && (pattern1.text in treeView.disabled) != (pattern2.text in treeView.disabled))
+    return (pattern1.text in treeView.disabled ? -1 : 1);
   else
     return 0;
 }
@@ -1045,18 +1045,18 @@ var treeView = {
       this.initSubscriptionPatterns(subscription, subscription.patterns);
       for (j = 0; j < subscription.patterns.length; j++)
         if (subscription.patterns[j].disabled)
-          this.disabled.put(subscription.patterns[j].text, true);
+          this.disabled[subscription.patterns[j].text] = true;
 
       if (subscription.special)
         for (j = 0; j < subscription.types.length; j++)
-          this.typemap.put(subscription.types[j], subscription);
+          this.typemap[subscription.types[j]] = subscription;
     }
 
     for (i = 0; i < prefs.userPatterns.length; i++) {
-      if (!this.typemap.has(prefs.userPatterns[i].type))
+      if (!(prefs.userPatterns[i].type in this.typemap))
         continue;
 
-      subscription = this.typemap.get(prefs.userPatterns[i].type);
+      subscription = this.typemap[prefs.userPatterns[i].type];
       var pattern = cloneObject(prefs.userPatterns[i]);
       pattern.orig = prefs.userPatterns[i];
       pattern.origPos = subscription.nextPos++;
@@ -1064,7 +1064,7 @@ var treeView = {
       subscription.patterns.push(pattern);
 
       if (pattern.disabled)
-        this.disabled.put(pattern.text, true);
+        this.disabled[pattern.text] = true;
     }
 
     this.closed = new abp.HashTable();
@@ -1072,7 +1072,7 @@ var treeView = {
     if (closed) {
       closed = closed.split(" ");
       for (i = 0; i < closed.length; i++)
-        this.closed.put(closed[i], true);
+        this.closed[closed[i]] = true;
     }
 
     // Check current sort direction
@@ -1119,7 +1119,7 @@ var treeView = {
         continue;
 
       count++;
-      if (!this.closed.has(subscription.url))
+      if (!(subscription.url in this.closed))
         count += subscription.extra.length + subscription.patterns.length;
     }
 
@@ -1173,7 +1173,7 @@ var treeView = {
     if (!info)
       return;
 
-    var origSubscription = prefs.knownSubscriptions.get(info[0].url);
+    var origSubscription = prefs.knownSubscriptions[info[0].url];
     if (typeof origSubscription == "undefined")
       origSubscription = null;
 
@@ -1191,7 +1191,7 @@ var treeView = {
     if (info[1] && typeof info[1] != "string") {
       dummy = info[1].dummy;
       if (info[1].type != "comment" && info[1].type != "invalid")
-        properties.AppendElement(this.atoms["pattern-disabled-" + this.disabled.has(info[1].text)]);
+        properties.AppendElement(this.atoms["pattern-disabled-" + (info[1].text in this.disabled)]);
       if ("type-" + info[1].type in this.atoms)
         properties.AppendElement(this.atoms["type-" + info[1].type]);
     }
@@ -1211,7 +1211,7 @@ var treeView = {
 
   isContainerOpen: function(row) {
     var info = this.getRowInfo(row);
-    return info && !info[1] && !this.closed.has(info[0].url);
+    return info && !info[1] && !(info[0].url in this.closed);
   },
 
   isContainerEmpty: function(row) {
@@ -1250,17 +1250,20 @@ var treeView = {
       return;
 
     var count = info[0].extra.length + info[0].patterns.length;
-    if (this.closed.has(info[0].url)) {
-      this.closed.remove(info[0].url);
+    if (info[0].url in this.closed) {
+      delete this.closed[info[0].url];
       this.boxObject.rowCountChanged(row + 1, count);
     }
     else {
-      this.closed.put(info[0].url, true);
+      this.closed[info[0].url] = true;
       this.boxObject.rowCountChanged(row + 1, -count);
     }
     this.boxObject.invalidateRow(row);
 
-    this.boxObject.treeBody.parentNode.setAttribute("closedSubscriptions", this.closed.keys().join(" "));
+    var closed = [];
+    for (var id in this.closed)
+      closed.push(id);
+    this.boxObject.treeBody.parentNode.setAttribute("closedSubscriptions", closed.join(" "));
   },
 
   cycleHeader: function(col) {
@@ -1365,9 +1368,9 @@ var treeView = {
       }
       if (index1 < 0 || index2 < 0)
         return;
-      if (this.closed.has(info[0].url) && orientation == this.DROP_AFTER)
+      if ((info[0].url in this.closed) && orientation == this.DROP_AFTER)
         index2++;
-      if (!this.closed.has(info[0].url) && index2 > index1 && (info[1] || orientation == this.DROP_AFTER))
+      if (!(info[0].url in this.closed) && index2 > index1 && (info[1] || orientation == this.DROP_AFTER))
         index2++;
       if (index2 > index1)
         index2--;
@@ -1406,10 +1409,10 @@ var treeView = {
   getSubscriptionDescription: function(subscription) {
     var descr = [];
 
-    if (subscription.special || !prefs.knownSubscriptions.has(subscription.url))
+    if (subscription.special || !(subscription.url in prefs.knownSubscriptions))
       return descr;
 
-    var orig = prefs.knownSubscriptions.get(subscription.url);
+    var orig = prefs.knownSubscriptions[subscription.url];
 
     if ("upgradeRequired" in orig)
       descr.push(abp.getString("subscription_wrong_version").replace(/--/, orig.requiredVersion));
@@ -1465,7 +1468,7 @@ var treeView = {
         return index;
 
       index++;
-      if (!this.closed.has(this.data[i].url))
+      if (!(this.data[i].url in this.closed))
         index += this.data[i].extra.length + this.data[i].patterns.length;
     }
     return -1;
@@ -1476,7 +1479,7 @@ var treeView = {
       return 0;
 
     var ret = 1;
-    if (!this.closed.has(subscription.url))
+    if (!(subscription.url in this.closed))
       ret += subscription.extra.length + subscription.patterns.length;
 
     return ret;
@@ -1495,7 +1498,7 @@ var treeView = {
       if (row < 0)
         return [subscription, null];
 
-      if (!this.closed.has(subscription.url)) {
+      if (!(subscription.url in this.closed)) {
         // Check whether the subscription description row has been requested
         if (row < subscription.extra.length)
           return [subscription, subscription.extra[row]];
@@ -1566,7 +1569,7 @@ var treeView = {
       for (var j = 0; j < this.data[i].patterns.length; j++) {
         if (this.data[i].patterns[j].text == text) {
           var parentRow = this.getSubscriptionRow(this.data[i]);
-          if (this.closed.has(this.data[i].url))
+          if (this.data[i].url in this.closed)
             this.toggleOpenState(parentRow);
           this.selection.select(parentRow + 1 + this.data[i].extra.length + j);
           this.boxObject.ensureRowIsVisible(parentRow + 1 + this.data[i].extra.length + j);
@@ -1636,10 +1639,10 @@ var treeView = {
     if (text) {
       // Real pattern being added, not a dummy
       var pattern = prefs.patternFromText(text);
-      if (!pattern || !treeView.typemap.has(pattern.type))
+      if (!pattern || !(pattern.type in treeView.typemap))
         return;
     
-      var subscription = treeView.typemap.get(pattern.type);
+      var subscription = treeView.typemap[pattern.type];
       if (typeof origSubscription == "undefined" || typeof origPos == "undefined" || origSubscription != subscription)
         origPos = -1;
     
@@ -1647,7 +1650,7 @@ var treeView = {
       for (i = 0; i < subscription.patterns.length; i++) {
         if (subscription.patterns[i].text == pattern.text) {
           parentRow = this.getSubscriptionRow(subscription);
-          if (this.closed.has(subscription.url))
+          if (subscription.url in this.closed)
             this.toggleOpenState(parentRow);
   
           this.selection.select(parentRow + 1 + subscription.extra.length + i);
@@ -1711,16 +1714,16 @@ var treeView = {
     if (subscription.special && subscription.patterns.length == 1) {
       // Show previously invisible subscription
       var count = 1;
-      if (!this.closed.has(subscription.url))
+      if (!(subscription.url in this.closed))
         count += subscription.extra.length;
       this.boxObject.rowCountChanged(parentRow, count);
     }
 
-    if (!this.closed.has(subscription.url))
+    if (!(subscription.url in this.closed))
       this.boxObject.rowCountChanged(parentRow + 1 + subscription.extra.length + pos, 1);
 
     if (typeof noSelect == "undefined" || !noSelect) {
-      if (this.closed.has(subscription.url))
+      if (subscription.url in this.closed)
         this.toggleOpenState(parentRow);
       this.selection.select(parentRow + 1 + subscription.extra.length + pos);
       this.boxObject.ensureRowIsVisible(parentRow + 1 + subscription.extra.length + pos);
@@ -1744,7 +1747,7 @@ var treeView = {
           info[0].patterns.splice(i, 1);
 
           var newSelection = parentRow;
-          if (!this.closed.has(info[0].url)) {
+          if (!(info[0].url in this.closed)) {
             this.boxObject.rowCountChanged(parentRow + 1 + info[0].extra.length + i, -1);
             newSelection = parentRow + 1 + info[0].extra.length + i;
           }
@@ -1752,7 +1755,7 @@ var treeView = {
           if (info[0].special && !info[0].patterns.length) {
             // Don't show empty special subscriptions
             var count = 1;
-            if (!this.closed.has(info[0].url))
+            if (!(info[0].url in this.closed))
               count += info[0].extra.length;
             this.boxObject.rowCountChanged(parentRow, -count);
             newSelection -= count;
@@ -1775,7 +1778,7 @@ var treeView = {
         if (this.data[i] == info[0]) {
           var firstRow = this.getSubscriptionRow(info[0]);
           count = 1;
-          if (!this.closed.has(info[0].url))
+          if (!(info[0].url in this.closed))
             count += info[0].extra.length + info[0].patterns.length;
 
           this.data.splice(i, 1);
@@ -1869,7 +1872,7 @@ var treeView = {
       var endIndex = Math.max(current, index)
       var startRow = this.getSubscriptionRow(this.data[startIndex]);
       var endRow = this.getSubscriptionRow(this.data[endIndex]) + 1;
-      if (!this.closed.has(this.data[endIndex].url))
+      if (!(this.data[endIndex].url in this.closed))
         endRow += this.data[endIndex].extra.length + this.data[endIndex].patterns.length;
 
       this.boxObject.invalidateRange(startRow, endRow);
@@ -1935,12 +1938,12 @@ var treeView = {
 
     if (info[1]) {
       if (typeof forceValue == "undefined")
-        forceValue = !this.disabled.has(info[1].text);
+        forceValue = !(info[1].text in this.disabled);
 
       if (forceValue)
-        this.disabled.put(info[1].text, true);
+        this.disabled[info[1].text] = true;
       else
-        this.disabled.remove(info[1].text);
+        delete this.disabled[info[1].text];
 
       this.invalidatePattern(info[1]);
     }
@@ -1991,7 +1994,7 @@ var treeView = {
       if (subscription.special && subscription.patterns.length) {
         var row = this.getSubscriptionRow(subscription);
         var count = 1;
-        if (!this.closed.has(subscription.url))
+        if (!(subscription.url in this.closed))
           count += subscription.extra.length + subscription.patterns.length;
 
         subscription.patterns = [];
@@ -2011,7 +2014,7 @@ var treeView = {
         continue;
 
       var list = prefs.userPatterns;
-      var subscription = prefs.knownSubscriptions.get(this.data[i].url);
+      var subscription = prefs.knownSubscriptions[this.data[i].url];
       if (!subscription.special) {
         subscription.title = this.data[i].title;
         subscription.autoDownload = this.data[i].autoDownload;
@@ -2024,7 +2027,7 @@ var treeView = {
       patterns.sort(sortNatural);
       for (var j = 0; j < patterns.length; j++) {
         var pattern = patterns[j].orig;
-        pattern.disabled = this.disabled.has(pattern.text);
+        pattern.disabled = pattern.text in this.disabled;
         list.push(pattern);
       }
     }
@@ -2046,9 +2049,9 @@ var treeView = {
 
     var selectMatch = function(subscription, offset) {
       if (highlightAll) {
-        var row = (rowCache.has(subscription.url) ? rowCache.get(subscription.url) : treeView.getSubscriptionRow(subscription));
-        rowCache.put(subscription.url, row);
-        if (offset && treeView.closed.has(subscription.url))
+        var row = (subscription.url in rowCache ? rowCache[subscription.url] : treeView.getSubscriptionRow(subscription));
+        rowCache[subscription.url] = row;
+        if (offset && subscription.url in treeView.closed)
           treeView.toggleOpenState(row);
         treeView.selection.rangedSelect(row + offset, row + offset, true);
       }
@@ -2102,7 +2105,7 @@ var treeView = {
       return "NotFound";
 
     var row = this.getSubscriptionRow(found[0]);
-    if (found[1] && this.closed.has(found[0].url))
+    if (found[1] && found[0].url in this.closed)
       this.toggleOpenState(row);
     if (highlightAll)
       this.selection.currentIndex = row + found[1];

@@ -29,47 +29,7 @@
 
 // A hash table class - sort of
 function HashTable() {
-  this.data = {};
-}
-HashTable.prototype = {
-  get: function(key) {
-    key = " " + key;
-    if (key in this.data)
-      return this.data[key];
-    else
-      return undefined;
-  },
-  put: function(key, value) {
-    key = " " + key;
-    this.data[key] = value;
-  },
-  remove: function(key) {
-    key = " " + key;
-    delete this.data[key];
-  },
-  has: function(key) {
-    key = " " + key;
-    return (key in this.data);
-  },
-  clear: function() {
-    this.data = {};
-  },
-  keys: function() {
-    var result = [];
-    for (var key in this.data)
-      if (key.indexOf(" ") == 0)
-        result.push(key.substr(1));
-
-    return result;
-  },
-  values: function() {
-    var result = [];
-    for (var key in this.data)
-      if (key.indexOf(" ") == 0)
-        result.push(this.data[key]);
-
-    return result;
-  }
+  this.__proto__ = null;
 }
 abp.HashTable = HashTable;
 

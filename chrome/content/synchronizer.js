@@ -75,7 +75,7 @@ var synchronizer = {
   },
 
   isExecuting: function(url) {
-    return this.executing.has(url);
+    return url in this.executing;
   },
 
   readPatterns: function(subscription, text) {
@@ -112,7 +112,7 @@ var synchronizer = {
   },
 
   setError: function(subscription, error) {
-    this.executing.remove(subscription.url);
+    delete this.executing[subscription.url];
     subscription.lastDownload = parseInt(new Date().getTime() / 1000);
     subscription.downloadStatus = error;
     prefs.savePatterns();
@@ -121,7 +121,7 @@ var synchronizer = {
 
   executeInternal: function(subscription, forceDownload) {
     var url = subscription.url;
-    if (this.executing.has(url))
+    if (url in this.executing)
       return;
 
     var curVersion = abp.getInstalledVersion();
@@ -144,16 +144,16 @@ var synchronizer = {
       request.setRequestHeader("If-Modified-Since", subscription.lastModified);
 
     request.onerror = function(ev) {
-      if (!prefs.knownSubscriptions.has(url))
+      if (!(url in prefs.knownSubscriptions))
         return;
 
-      synchronizer.setError(prefs.knownSubscriptions.get(url), "synchronize_connection_error");
+      synchronizer.setError(prefs.knownSubscriptions[url], "synchronize_connection_error");
     };
 
     request.onload = function(ev) {
-      synchronizer.executing.remove(url);
-      if (prefs.knownSubscriptions.has(url)) {
-        var subscription = prefs.knownSubscriptions.get(url);
+      delete synchronizer.executing[url];
+      if (url in prefs.knownSubscriptions) {
+        var subscription = prefs.knownSubscriptions[url];
         var request = ev.target;
 
         if (request.status != 304) {
@@ -190,7 +190,7 @@ var synchronizer = {
       }
     };
 
-    this.executing.put(url, request);
+    this.executing[url] = request;
     this.notifyListeners(subscription, "executing");
 
     try {
