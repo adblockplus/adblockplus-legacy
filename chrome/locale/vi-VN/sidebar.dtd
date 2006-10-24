@@ -1,0 +1,24 @@
+<!ENTITY detached.title "Adblock Plus: các mục có thể lọc được (tách rời)">
+<!ENTITY detach.label "Tách rời">
+<!ENTITY reattach.label "Gắn lại">
+<!ENTITY search.label "Truy tìm:">
+<!ENTITY search.accesskey "T">
+<!ENTITY type.label "Dạng">
+<!ENTITY address.label "Địa chỉ">
+<!ENTITY filter.label "Mục lọc">
+<!ENTITY state.label "Trạng thái">
+<!ENTITY noitems.label "Không có mục có thể chặn được">
+<!ENTITY notremote.label "Không phải là trang trực tuyến">
+<!ENTITY whitelisted.label "Trang nằm trong sổ trắng">
+<!ENTITY notloaded.label "Adblock Plus chưa được gắn đúng">
+<!ENTITY tooltip.address.label "Địa chỉ:">
+<!ENTITY tooltip.type.label "Dạng:">
+<!ENTITY tooltip.type.blocked "(chặn)">
+<!ENTITY tooltip.type.whitelisted "(sổ trắng)">
+<!ENTITY tooltip.filter.label "Mục lọc đang có hiệu lực:">
+<!ENTITY context.block.label "Chặn mục này">
+<!ENTITY context.editfilter.label "Sửa mục lọc đang có hiệu lực">
+<!ENTITY context.whitelist.label "Thêm luật ngoại lệ cho mục">
+<!ENTITY context.open.label "Mở trong Thẻ mới">
+<!ENTITY context.flash.label "Đường viền cho mục Flash">
+<!ENTITY context.copy.label "Chép địa chỉ của mục">

@@ -1,0 +1,11 @@
+<!ENTITY dialog.title "About Adblock Plus">
+<!ENTITY caption.title "Adblock Plus">
+<!ENTITY version.title "Phiên Bản">
+<!ENTITY description "
+    Adblock Plus cho phép bạn chọn những gì bạn không muốn xem trên mạng.
+    Bạn không cần phải luôn luôn tải các mục quảng cáo nữa, nếu bạn không muốn
+    chúng - chỉ cần nói với Adblock Plus!
+">
+<!ENTITY homepage.label "Trang nhà Adblock Plus:">
+<!ENTITY author.label "Tác giả:">
+<!ENTITY contributors.label "Người đóng góp:">

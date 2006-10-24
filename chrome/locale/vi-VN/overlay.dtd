@@ -1,0 +1,21 @@
+<!ENTITY notloaded.label "Chưa nạp">
+<!ENTITY notloaded.tooltip "Adblock Plus component không thể nạp được, có thể nó chưa được gắn đúng.">
+<!ENTITY status.tooltip "Trạng thái:">
+<!ENTITY blocked.tooltip "Số mục bị chặn trong trang này:">
+<!ENTITY filters.tooltip "Các mục linh hoạt nhất:">
+<!ENTITY menuitem.label "Adblock Plus">
+<!ENTITY menuitem.accesskey "P">
+<!ENTITY context.image.label "Adblock Image">
+<!ENTITY context.object.label "Adblock Object">
+<!ENTITY context.link.label "Adblock Link">
+<!ENTITY context.frame.label "Adblock Frame">
+<!ENTITY menuitem.sidebar.title "Adblock Plus: Các mục có thể chặn được">
+<!ENTITY sidebar.title "Các mục bị chặn trong trang hiện tại">
+<!ENTITY settings.label "Tùy thích">
+<!ENTITY settings.accesskey "T">
+<!ENTITY opensidebar.label "Mở các mục có thể chặn được">
+<!ENTITY opensidebar.accesskey "C">
+<!ENTITY closesidebar.label "Đóng các mục có thể chặn được">
+<!ENTITY closesidebar.accesskey "C">
+<!ENTITY whitelist.site.label "Vô hiệu trong --">
+<!ENTITY whitelist.page.label "Vô hiệu chỉ trong trang này">
