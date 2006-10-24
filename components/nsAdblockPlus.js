@@ -175,10 +175,10 @@ const abp = {
 
   // Retrieves a subscription
   getSubscription: function(id) {
-    if (!prefs.knownSubscriptions.has(id))
+    if (!(id in prefs.knownSubscriptions))
       return null;
 
-    return prefs.knownSubscriptions.get(id);
+    return prefs.knownSubscriptions[id];
   },
 
   // Retrieves a subscription by list index
@@ -192,8 +192,8 @@ const abp = {
   // Updates an external subscription and creates it if necessary
   updateExternalSubscription: function(id, title, patterns, length) {
     var subscription;
-    if (prefs.knownSubscriptions.has(id))
-      subscription = prefs.knownSubscriptions.get(id);
+    if (id in prefs.knownSubscriptions)
+      subscription = prefs.knownSubscriptions[id];
     else
       subscription = prefs.createExternalSubscription(id, title);
 
@@ -272,7 +272,7 @@ const abp = {
     if (typeof disabled == "undefined")
       disabled = false;
 
-    var subscription = (prefs.knownSubscriptions.has(url) ? prefs.knownSubscriptions.get(url) : prefs.subscriptionFromURL(url));
+    var subscription = (url in prefs.knownSubscriptions ? prefs.knownSubscriptions[url] : prefs.subscriptionFromURL(url));
     if (!subscription)
       return;
 
