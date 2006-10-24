@@ -542,7 +542,7 @@ function abpFillPopup(popup) {
       whitelistItemPage.setAttribute("checked", abpHasPattern(whitelistItemPage.pattern));
     }
     whitelistItemSite.hidden = whitelistItemPage.hidden
-      = whitelistItemSite.nextSibling.hidden = !showWhitelist;
+      = whitelistItemPage.nextSibling.hidden = !showWhitelist;
     if (abp.getSettingsDialog()) {
       whitelistItemSite.setAttribute("disabled", "true");
       whitelistItemPage.setAttribute("disabled", "true");
