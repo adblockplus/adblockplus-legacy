@@ -242,7 +242,7 @@ function abpInitImageManagerHiding() {
     return;
 
   abpHideImageManager = false;
-  if (abpPrefs.hideimagemanager) {
+  if (abpPrefs.hideimagemanager && "@mozilla.org/permissionmanager;1" in Components.classes) {
     try {
       abpHideImageManager = true;
       var permissionManager = Components.classes["@mozilla.org/permissionmanager;1"]
@@ -369,6 +369,34 @@ function abpInstallInToolbar() {
 
       toolbar.setAttribute("currentset", toolbar.currentSet);
       document.persist(toolbar.id, "currentset");
+
+      // HACKHACK: Make sure icon is added to both main window and message window in Thunderbird
+      var override = null;
+      if (window.location.href == "chrome://messenger/content/messenger.xul")
+        override = "chrome://messenger/content/messageWindow.xul#mail-bar";
+      else if (window.location.href == "chrome://messenger/content/messageWindow.xul")
+        override = "chrome://messenger/content/messenger.xul#mail-bar";
+
+      if (override) {
+        try {
+          var rdf = Components.classes["@mozilla.org/rdf/rdf-service;1"]
+                              .getService(Components.interfaces.nsIRDFService);
+          var localstore = rdf.GetDataSource("rdf:local-store");
+          var resource = rdf.GetResource(override);
+          var arc = rdf.GetResource("currentset");
+          var target = localstore.GetTarget(resource, arc, true);
+          var currentSet = (target ? target.QueryInterface(Components.interfaces.nsIRDFLiteral).Value : document.getElementById('mail-bar').getAttribute("defaultset"));
+
+          if (/\bbutton-junk\b/.test(currentSet))
+            currentSet = currentSet.replace(/\bbutton-junk\b/, "abp-toolbarbutton,button-junk");
+          else
+            currentSet = currentSet + ",abp-toolbarbutton";
+
+          if (target)
+            localstore.Unassert(resource, arc, target, true);
+          localstore.Assert(resource, arc, rdf.GetLiteral(currentSet), true);
+        } catch (e) {}
+      }
     }
   }
 
