@@ -3,7 +3,7 @@
 <!ENTITY new.description "Indtast venligst webadressen eller filen der indeholder en liste over Adblock Plus-filtre.">
 <!ENTITY edit.description "Filterlisten for dette abonnement vil blive downloadet fra det angivne sted.">
 <!ENTITY external.description "Dette er et eksternt filter-abonnement, filterlisten vil blive holdt opdateret af den udvidelse der har oprettet dette abonnement.">
-<!ENTITY autodownload.description "Hvis du vælger 'Opdater automatisk' vil denne placering blive checket for opdateringer dagligt. Med denne indstilling slået fra kan du stadig udløse en manuel opdatering fra abonnementets kontekstmenu.">
+<!ENTITY autodownload.description "Hvis du vælger &apos;Opdater automatisk&apos; vil denne placering blive checket for opdateringer dagligt. Med denne indstilling slået fra kan du stadig udløse en manuel opdatering fra abonnementets kontekstmenu.">
 <!ENTITY location.label "Filterliste-placering:">
 <!ENTITY location.accesskey "l">
 <!ENTITY title.label "Abonnement-titel:">
@@ -12,3 +12,5 @@
 <!ENTITY autodownload.accesskey "P">
 <!ENTITY enabled.label "Slå filtre til">
 <!ENTITY enabled.accesskey "I">
+<!ENTITY full-list.url "http://adblockplus.org/en/subscriptions">
+<!ENTITY full-list.label "View all subscriptions">

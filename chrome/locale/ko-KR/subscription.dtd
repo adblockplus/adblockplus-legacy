@@ -10,7 +10,7 @@
 		이것은 외부 필터입니다. 이 필터 목록은 확장 기능에 의해 업데이트할 수 있습니다.
 ">
 <!ENTITY autodownload.description "
-	'자동 업데이트'를 선택하면 매일 매일 업데이트를 확인합니다.
+	&apos;자동 업데이트&apos;를 선택하면 매일 매일 업데이트를 확인합니다.
 	이 기능이 선택되면 컨텍스트 메뉴에서 수동 업데이트 기능은 사용할 수 없습니다.
 ">
 <!ENTITY location.label "필터 목록 위치:">
@@ -21,3 +21,5 @@
 <!ENTITY autodownload.accesskey "P">
 <!ENTITY enabled.label "필터 사용하기">
 <!ENTITY enabled.accesskey "N">
+<!ENTITY full-list.url "http://adblockplus.org/en/subscriptions">
+<!ENTITY full-list.label "View all subscriptions">
