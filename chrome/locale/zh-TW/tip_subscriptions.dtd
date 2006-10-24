@@ -1,9 +1,19 @@
 <!ENTITY dialog.title "歡迎使用 Adblock Plus">
-<!ENTITY description "感謝您安裝 Adblock Plus。本套件能消滅 99&#37; 以上的擾人廣告，
-不過您需要一份好的過濾條件集才能完全發揮本套件的效果。
-您可以自己動手做、或是訂閱其他人維護的條件集。別擔心，
-您還是可以新增自己的過濾條件甚至停用或移除您不需要的條件。
-下面是我們推薦您訂閱的過濾條件集:">
+<!ENTITY description.par1 "
+	Thank you for installing Adblock Plus. This extension can
+	eliminate 99&#x25; of the advertisements you see on the web. However,
+	effective ad filtering requires you to define a good set of
+	filters. You can do it yourself, or you can simply subscribe
+	to filter lists others maintain for you. It will still be possible
+	to add your own filters or deactivate/remove subscriptions
+	whenever necessary.
+">
+<!ENTITY description.par2 "
+	You can choose one subscription from the
+	list of recommended subscriptions below (more subscriptions can be
+	added in Adblock Plus Preferences later though usually this is not
+	necessary):
+">
 <!ENTITY note "註: 請依照您所在的地區選擇過濾條件集，因為過濾條件集通常對當地的網站最有效。">
 <!ENTITY homepage.label "首頁">
 <!ENTITY subscribe.label "訂閱">

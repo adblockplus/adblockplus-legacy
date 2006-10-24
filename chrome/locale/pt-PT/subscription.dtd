@@ -3,7 +3,7 @@
 <!ENTITY new.description "Por favor adicione endereço web ou de ficheiro contendo lista de filtros para o Adblock Plus.">
 <!ENTITY edit.description "A lista de filtros para esta subscrição será copiada da localização">
 <!ENTITY external.description "Isto é uma subscripção externa de filtros, a sua lista de filtros será actualizada pela extensão que criou esta subscripção.">
-<!ENTITY autodownload.description "Se escolher 'Actualização automática' esta localização verificará diariamente por actualizações. Com esta opção desactivada pode actualizar manualmente a subscripção no menu de contexto.">
+<!ENTITY autodownload.description "Se escolher &apos;Actualização automática&apos; esta localização verificará diariamente por actualizações. Com esta opção desactivada pode actualizar manualmente a subscripção no menu de contexto.">
 <!ENTITY location.label "Localização de lista de filtros:">
 <!ENTITY location.accesskey "L">
 <!ENTITY title.label "Título da subscripção:">
@@ -12,3 +12,5 @@
 <!ENTITY autodownload.accesskey "Z">
 <!ENTITY enabled.label "Activar filtros">
 <!ENTITY enabled.accesskey "V">
+<!ENTITY full-list.url "http://adblockplus.org/en/subscriptions">
+<!ENTITY full-list.label "Ver todas as subscrições">
