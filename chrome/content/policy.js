@@ -215,9 +215,6 @@ var policy = {
           mailWnd = mailWnd.wrappedJSObject;
         } catch(e) {}
   
-        var str = "" + mailWnd.currentHeaderData["content-base"];
-        createTimer(function() {throw str}, 0);
-
         if ("currentHeaderData" in mailWnd && "content-base" in mailWnd.currentHeaderData) {
           var location = unwrapURL(mailWnd.currentHeaderData["content-base"].headerValue);
           return this.isWhitelisted(location);
