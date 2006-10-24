@@ -180,64 +180,21 @@ function addObjectTab(node, location, tab, wnd) {
   if (!node.parentNode)
     return;
 
-  // Tab dimensions
-  var tabWidth = 70;
-  var tabHeight = 18;
-
   // Decide whether to display the tab on top or the bottom of the object
   var offsetTop = 0;
   for (; offsetNode; offsetNode = offsetNode.offsetParent)
     offsetTop += offsetNode.offsetTop;
 
   var onTop = (offsetTop > 40);
-
-  // Compose tab
-  var doc = node.ownerDocument;
-
-  var label = doc.createElementNS("http://www.w3.org/1999/xhtml", "div");
-  label.appendChild(doc.createTextNode("Adblock"));
-  label.style.display = "block";
-  label.style.position = "relative";
-  label.style.left = -tabWidth + "px";
-  label.style.top = (onTop ? -tabHeight + "px" :  "0px");
-  label.style.width = (tabWidth - 4) + "px";
-  label.style.height = (tabHeight - 2) + "px";
-  label.style.borderStyle = "ridge";
-  label.style.borderWidth = (onTop ? "2px 2px 0px 2px" : "0px 2px 2px 2px");
-  label.style.MozBorderRadiusTopleft = label.style.MozBorderRadiusTopright = (onTop ? "10px" : "0px");
-  label.style.MozBorderRadiusBottomleft = label.style.MozBorderRadiusBottomright = (onTop ? "0px" : "10px");
-  label.style.backgroundColor = "white";
-  label.style.color = "black";
-  label.style.cursor = "pointer";
-  label.style.fontFamily = "Arial,Helvetica,Sans-serif";
-  label.style.fontSize = "12px";
-  label.style.fontStyle = "normal";
-  label.style.fontVariant = "normal";
-  label.style.fontWeight = "normal";
-  label.style.letterSpacing = "normal";
-  label.style.lineHeight = "normal";
-  label.style.textAlign = "center";
-  label.style.textDecoration = "none";
-  label.style.textIndent = "0px";
-  label.style.textTransform = "none";
-  label.style.direction = "ltr";
-
-  tab.appendChild(label);
-  tab.style.display = "block";
-  tab.style.position = "relative"
-  tab.style.overflow = "visible";
-  tab.style.width = "0px";
-  tab.style.height = "0px";
-  tab.style.left = "0px";
+  if (onTop)
+    tab.setAttribute("ontop", "true");
   tab.style.paddingLeft = node.offsetWidth + "px";
-  tab.style.top = "0px";
-  tab.style.zIndex = 65535;
-  tab.style.MozOpacity = "0.5";
 
   // Click event handler
-  label.addEventListener("click", generateClickHandler(wnd, location), false);
+  tab.addEventListener("click", generateClickHandler(wnd, location), false);
 
   // Insert tab into the document
+  tab.style.display = "none";
   if (onTop)
     node.parentNode.insertBefore(tab, node);
   else {
@@ -247,6 +204,12 @@ function addObjectTab(node, location, tab, wnd) {
     else
       node.parentNode.appendChild(tab);
   }
+
+  // Attach binding
+  var doc = node.ownerDocument;
+  doc.loadBindingDocument("chrome://adblockplus/content/objecttab.xml");
+  doc.addBinding(tab, "chrome://adblockplus/content/objecttab.xml#objectTab");
+//  createTimer(function() {tab.style.display = "block"}, 0);
 }
 
 // Sets a timeout, comparable to the usual setTimeout function
