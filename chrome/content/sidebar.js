@@ -53,7 +53,7 @@ function init() {
   var selected = null;
   if (/sidebarDetached\.xul$/.test(parent.location.href)) {
     mainWin = parent.opener;
-    window.__defineGetter__("content", function() {return mainWin.getBrowser().contentWindow;});
+    window.__defineGetter__("content", function() {return mainWin.abpGetBrowser().contentWindow;});
     mainWin.addEventListener("unload", mainUnload, false);
     document.getElementById("detachButton").hidden = true;
     document.getElementById("reattachButton").hidden = false;
@@ -65,7 +65,7 @@ function init() {
   }
   else {
     // Just for EzSidebar's sake :-(
-    mainWin = mainWin.getBrowser().ownerDocument.defaultView;
+    mainWin = mainWin.abpGetBrowser().ownerDocument.defaultView;
   }
 
   if (abp) {
@@ -96,7 +96,7 @@ function init() {
     }
 
     // Install a handler for tab changes
-    mainWin.getBrowser().addEventListener("select", handleTabChange, false);
+    mainWin.abpGetBrowser().addEventListener("select", handleTabChange, false);
   }
 }
 
@@ -113,7 +113,7 @@ function cleanUp() {
   flasher.stop();
   DataContainer.removeListener(handleItemChange);
 
-  mainWin.getBrowser().removeEventListener("select", handleTabChange, false);
+  mainWin.abpGetBrowser().removeEventListener("select", handleTabChange, false);
   mainWin.removeEventListener("unload", mainUnload, false);
 }
 
