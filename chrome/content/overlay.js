@@ -41,9 +41,6 @@ var abpHideImageManager;
 window.addEventListener("load", abpInit, false);
 
 function abpInit() {
-  if (!("getBrowser" in window) && "messageContent" in window)
-    window.getBrowser = function() {return window.messageContent;};
-
   window.addEventListener("unload", abpUnload, false);
 
   // Process preferences
@@ -53,7 +50,7 @@ function abpInit() {
 
     // Make sure whitelisting gets displayed after at most 2 seconds
     setInterval(abpReloadPrefs, 2000);
-    getBrowser().addEventListener("select", abpReloadPrefs, false); 
+    abpGetBrowser().addEventListener("select", abpReloadPrefs, false); 
 
     // Make sure we always configure keys but don't let them break anything
     try {
@@ -133,7 +130,16 @@ function abpInit() {
 
 function abpUnload() {
   abpPrefs.removeListener(abpReloadPrefs);
-  getBrowser().removeEventListener("select", abpReloadPrefs, false); 
+  abpGetBrowser().removeEventListener("select", abpReloadPrefs, false); 
+}
+
+function abpGetBrowser() {
+  if ("getBrowser" in window)
+    return getBrowser();
+  else if ("messageContent" in window)
+    return window.messageContent;
+  else
+    return null;
 }
 
 function abpReloadPrefs() {
@@ -950,5 +956,5 @@ function abpSettings(url) {
   if (!abp)
     return;
 
-  abp.openSettingsDialog(getBrowser().contentWindow, url);
+  abp.openSettingsDialog(abpGetBrowser().contentWindow, url);
 }
