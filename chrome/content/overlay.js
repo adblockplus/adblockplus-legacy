@@ -95,11 +95,6 @@ function abpInit() {
     ptf.parentNode.insertBefore(button, ptf);
   }
 
-  // Fix sidebar key for Mozilla/SeaMonkey
-  var sidebarKey = document.getElementById("abp-key-sidebar");
-  if (sidebarKey && !document.getElementById(sidebarKey.getAttribute("command")))
-    sidebarKey.removeAttribute("command");
-
   // Copy the menu from status bar icon to the toolbar
   var fixId = function(node) {
     if (node.nodeType != Node.ELEMENT_NODE)
@@ -273,25 +268,35 @@ function abpConfigureKey(key, value) {
     meta: "meta"
   };
 
-  var element = document.getElementById("abp-key-" + key);
-  if (!element)
+  var command = document.getElementById("abp-command-" + key);
+  if (!command)
     return;
 
   var parts = value.split(/\s+/);
-  element.removeAttribute("key");
-  element.removeAttribute("keycode");
   var modifiers = [];
+  var keychar = null;
+  var keycode = null;
   for (var i = 0; i < parts.length; i++) {
     if (parts[i].toLowerCase() in valid)
       modifiers.push(parts[i].toLowerCase());
     else if (parts[i].length == 1)
-      element.setAttribute("key", parts[i]);
+      keychar = parts[i];
     else if ("DOM_VK_" + parts[i].toUpperCase() in Components.interfaces.nsIDOMKeyEvent)
-      element.setAttribute("keycode", "VK_" + parts[i].toUpperCase());
+      keycode = "VK_" + parts[i].toUpperCase();
   }
-  element.setAttribute("modifiers", modifiers.join(","));
-  if (!element.hasAttribute("key") && !element.hasAttribute("keycode"))
-    element.parentNode.removeChild(element);
+
+  if (keychar || keycode) {
+    var element = document.createElement("key");
+    element.setAttribute("id", "abp-key-" + key);
+    element.setAttribute("command", "abp-command-" + key);
+    if (keychar)
+      element.setAttribute("key", keychar);
+    else
+      element.setAttribute("keycode", keycode);
+    element.setAttribute("modifiers", modifiers.join(","));
+
+    document.getElementById("abp-keyset").appendChild(element);
+  }
 }
 
 // Finds the toolbar button in the toolbar palette
@@ -637,6 +642,14 @@ function abpIsSidebarOpen() {
 }
 
 function abpToggleSidebar() {
+  var broadcaster = document.getElementById("viewAdblockPlusSidebar");
+  if (broadcaster)
+    broadcaster.doCommand();
+  else
+    abpToggleSidebarInternal();
+}
+
+function abpToggleSidebarInternal() {
   if (!abp)
     return;
 

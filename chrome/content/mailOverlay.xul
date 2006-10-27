@@ -70,11 +70,12 @@
         <menuitem id="abp-status-enabled" label="&enable.label;" accesskey="&enable.accesskey;" type="checkbox" key="abp-key-enable" oncommand="abpTogglePref('enabled')"/>
       </popup>
     </popupset>
-    <keyset id="abp-keyset">
-      <key id="abp-key-settings" oncommand="abpSettings()"/>
-      <key id="abp-key-sidebar" oncommand="abpToggleSidebar()"/>
-      <key id="abp-key-enable" oncommand="abpTogglePref('enabled')"/>
-    </keyset>
+    <keyset id="abp-keyset"/>
+    <commandset id="abp-commandset">
+      <command id="abp-command-settings" oncommand="abpSettings()"/>
+      <command id="abp-command-sidebar" oncommand="abpToggleSidebar()"/>
+      <command id="abp-command-enable" oncommand="abpTogglePref('enabled')"/>
+    </commandset>
   </window>
 
   <!-- statusbar -->

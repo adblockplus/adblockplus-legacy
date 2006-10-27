@@ -49,8 +49,8 @@
         <vbox id="abp-tooltip-filters" hidden="true"/>
       </tooltip>
       <popup id="abp-status-popup" onpopupshowing="return abpFillPopup(event.target)">
-        <menuitem id="abp-status-opensidebar" label="&opensidebar.label;" accesskey="&opensidebar.accesskey;" key="abp-key-sidebar" oncommand="abpToggleSidebar()"/>
-        <menuitem id="abp-status-closesidebar" label="&closesidebar.label;" accesskey="&closesidebar.accesskey;" key="abp-key-sidebar" oncommand="abpToggleSidebar()"/>
+        <menuitem id="abp-status-opensidebar" label="&opensidebar.label;" accesskey="&opensidebar.accesskey;" key="abp-key-sidebar" oncommand="abpToggleSidebarInternal()"/>
+        <menuitem id="abp-status-closesidebar" label="&closesidebar.label;" accesskey="&closesidebar.accesskey;" key="abp-key-sidebar" oncommand="abpToggleSidebarInternal()"/>
         <menuitem id="abp-status-settings" label="&settings.label;..." accesskey="&settings.accesskey;" key="abp-key-settings" oncommand="abpSettings()"/>
         <menuseparator id="abp-status-whitelist-sep"/>
         <menuitem id="abp-status-whitelistsite" labeltempl="&whitelist.site.label;" type="checkbox" oncommand="abpTogglePattern(this.pattern, this.hasAttribute('checked'))"/>
@@ -70,11 +70,12 @@
         <menuitem id="abp-status-enabled" label="&enable.label;" accesskey="&enable.accesskey;" type="checkbox" key="abp-key-enable" oncommand="abpTogglePref('enabled')"/>
       </popup>
     </popupset>
-    <keyset id="abp-keyset">
-      <key id="abp-key-settings" oncommand="abpSettings()"/>
-      <key id="abp-key-sidebar" command="viewAdblockPlusSidebar" oncommand="abpToggleSidebar()"/>
-      <key id="abp-key-enable" oncommand="abpTogglePref('enabled')"/>
-    </keyset>
+    <keyset id="abp-keyset"/>
+    <commandset id="abp-commandset">
+      <command id="abp-command-settings" oncommand="abpSettings()"/>
+      <command id="abp-command-sidebar" oncommand="abpToggleSidebar()"/>
+      <command id="abp-command-enable" oncommand="abpTogglePref('enabled')"/>
+    </commandset>
   </window>
 
   <!-- statusbar -->
@@ -112,7 +113,7 @@
     <broadcaster id="viewAdblockPlusSidebar" autoCheck="false" label="&menuitem.sidebar.title;"
       type="checkbox" group="sidebar" sidebarurl="chrome://adblockplus/content/sidebar.xul"
       sidebartitle="&sidebar.title;"
-      oncommand="abpToggleSidebar()"/>
+      oncommand="abpToggleSidebarInternal()"/>
   </broadcasterset>
 
   <!-- Firefox view sidebar menu -->
