@@ -43,6 +43,10 @@ window.addEventListener("load", abpInit, false);
 function abpInit() {
   window.addEventListener("unload", abpUnload, false);
 
+  if (!("content" in window)) {
+    window.__defineGetter__("content", function() {return abpGetBrowser().contentWindow});
+  }
+
   // Process preferences
   abpReloadPrefs();
   if (abp) {
@@ -63,13 +67,15 @@ function abpInit() {
 
   // Install context menu handler
   var contextMenu = document.getElementById("contentAreaContextMenu") || document.getElementById("messagePaneContext");
-  contextMenu.addEventListener("popupshowing", abpCheckContext, false);
-
-  // Make sure our context menu items are at the bottom
-  contextMenu.appendChild(document.getElementById("abp-frame-menuitem"));
-  contextMenu.appendChild(document.getElementById("abp-link-menuitem"));
-  contextMenu.appendChild(document.getElementById("abp-object-menuitem"));
-  contextMenu.appendChild(document.getElementById("abp-image-menuitem"));
+  if (contextMenu) {
+    contextMenu.addEventListener("popupshowing", abpCheckContext, false);
+  
+    // Make sure our context menu items are at the bottom
+    contextMenu.appendChild(document.getElementById("abp-frame-menuitem"));
+    contextMenu.appendChild(document.getElementById("abp-link-menuitem"));
+    contextMenu.appendChild(document.getElementById("abp-object-menuitem"));
+    contextMenu.appendChild(document.getElementById("abp-image-menuitem"));
+  }
 
   // Check whether Adblock is installed and uninstall
   // Delay it so the browser window will be displayed before the warning
@@ -129,6 +135,8 @@ function abpGetBrowser() {
     return getBrowser();
   else if ("messageContent" in window)
     return window.messageContent;
+  else if (document.getElementById("frame_main_pane"))
+    return document.getElementById("frame_main_pane");
   else
     return null;
 }
@@ -169,7 +177,8 @@ function abpReloadPrefs() {
       else {
         // Firefox web page
 
-        location = abp.unwrapURL(window.content.location.href);
+        if (window.content)
+          location = abp.unwrapURL(window.content.location.href);
       }
 
       if (location && abp.policy.isWhitelisted(location))
@@ -188,7 +197,7 @@ function abpReloadPrefs() {
     if (abp) {
       element.removeAttribute("disabled");
 
-      if (element.tagName == "statusbarpanel") {
+      if (element.tagName == "statusbarpanel" || element.tagName == "vbox") {
         element.hidden = !abpPrefs.showinstatusbar;
 
         var labelElement = element.getElementsByTagName("label")[0];
@@ -197,8 +206,8 @@ function abpReloadPrefs() {
       else
         element.hidden = !abpPrefs.showintoolbar;
 
-      // HACKHACK: Show status bar icon in SeaMonkey Mail instead of toolbar icon
-      if (element.hidden && element.tagName == "statusbarpanel" && document.getElementById("msgToolbar"))
+      // HACKHACK: Show status bar icon in SeaMonkey Mail and Songbird instead of toolbar icon
+      if (element.hidden && (element.tagName == "statusbarpanel" || element.tagName == "vbox") && (document.getElementById("msgToolbar") || document.getElementById("frame_main_pane_html")))
         element.hidden = !abpPrefs.showintoolbar;
 
       if (abpOldShowInToolbar != abpPrefs.showintoolbar)
@@ -516,6 +525,7 @@ function abpFillTooltip(ev) {
 
 // Fills the context menu on the status bar
 function abpFillPopup(popup) {
+alert('ok');
   if (!abp)
     return false;
 
