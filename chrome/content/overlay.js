@@ -71,10 +71,6 @@ function abpInit() {
   contextMenu.appendChild(document.getElementById("abp-object-menuitem"));
   contextMenu.appendChild(document.getElementById("abp-image-menuitem"));
 
-  // Make sure our status panel is the last on the status bar
-  var statusPanel= document.getElementById("abp-status");
-  statusPanel.parentNode.appendChild(statusPanel);
-
   // Check whether Adblock is installed and uninstall
   // Delay it so the browser window will be displayed before the warning
   if (abp && !abpPrefs.checkedadblockinstalled)
