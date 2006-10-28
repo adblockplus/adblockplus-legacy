@@ -1,7 +1,7 @@
-overlay   chrome://browser/content/browser.xul  chrome://adblockplus/content/overlay.xul
-overlay   chrome://navigator/content/navigator.xul  chrome://adblockplus/content/overlay.xul
-overlay   chrome://messenger/content/messenger.xul  chrome://adblockplus/content/mailOverlay.xul
-overlay   chrome://messenger/content/messageWindow.xul  chrome://adblockplus/content/mailOverlay.xul
+overlay   chrome://browser/content/browser.xul chrome://adblockplus/content/overlay.xul
+overlay   chrome://navigator/content/navigator.xul chrome://adblockplus/content/overlay.xul
+overlay   chrome://messenger/content/mailWindowOverlay.xul chrome://adblockplus/content/mailOverlay.xul
+overlay   chrome://rubberducky/content/xul/mainwin.xul chrome://adblockplus/content/songbirdOverlay.xul
 content   adblockplus jar:chrome/adblockplus.jar!/content/
 skin      adblockplus classic/1.0 jar:chrome/adblockplus.jar!/skin/classic/
 style     chrome://global/content/customizeToolbar.xul  chrome://adblockplus/skin/overlay.css
