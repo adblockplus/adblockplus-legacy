@@ -42,6 +42,9 @@ JSFunctionSpec browser_methods[] = {
   {"removeEventListener", FakeRemoveEventListener, 3, 0, 0},
   {"delayedOpenTab", FakeOpenTab, 1, 0, 0},
   {"showItem", FakeShowItem, 2, 0, 0},
+  {"createCommandID", JSCreateCommandID, 0, 0, 0},
+  {"createPopupMenu", JSCreatePopupMenu, 0, 0, 0},
+  {"addMenuItem", JSAddMenuItem, 7, 0, 0},
   {NULL},
 };
 JSPropertySpec browser_properties[] = {
@@ -266,6 +269,54 @@ JSBool JS_DLL_CALLBACK FakeShowItem(JSContext* cx, JSObject* obj, uintN argc, js
     wrapper->AddContextMenuItem(CMD_LINK, labelValues[LABEL_CONTEXT_LINK]);
   else if (strcmp(item, "abp-frame-menuitem") == 0)
     wrapper->AddContextMenuItem(CMD_FRAME, labelValues[LABEL_CONTEXT_FRAME]);
+
+  return JS_TRUE;
+}
+
+JSBool JS_DLL_CALLBACK JSCreateCommandID(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
+  *rval = INT_TO_JSVAL(wrapper->CreateCommandID());
+
+  return JS_TRUE;
+}
+
+JSBool JS_DLL_CALLBACK JSCreatePopupMenu(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
+  HMENU ret = CreatePopupMenu();
+  *rval = INT_TO_JSVAL(ret);
+
+  return JS_TRUE;
+}
+
+JSBool JS_DLL_CALLBACK JSAddMenuItem(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
+  *rval = JSVAL_VOID;
+
+  int32 menu;
+  int32 type;
+  int32 menuID;
+  char* label;
+  JSBool default;
+  JSBool disabled;
+  JSBool checked;
+  if (!JS_ConvertArguments(cx, argc, argv, "jjjsbbb", &menu, &type, &menuID, &label, &default, &disabled, &checked))
+    return JS_FALSE;
+  
+  HMENU hMenu = (HMENU)menu;
+
+  MENUITEMINFO info = {0};
+  info.cbSize = sizeof info;
+  info.fMask = MIIM_STATE | MIIM_SUBMENU | MIIM_TYPE;
+  if (menuID >= 0 && !disabled)
+    info.fMask |= MIIM_ID;
+  info.fType = (type < 0 ? MFT_SEPARATOR : MFT_STRING);
+  info.fState = (disabled ? MFS_GRAYED : MFS_ENABLED);
+  if (checked)
+    info.fState |= MFS_CHECKED;
+  if (default)
+    info.fState |= MFS_DEFAULT;
+  info.wID = (UINT)menuID;
+  info.hSubMenu = type > 0 ? (HMENU)type : NULL;
+  info.dwTypeData = label;
+
+  InsertMenuItem(hMenu, -1, TRUE, &info);
 
   return JS_TRUE;
 }
@@ -646,6 +697,16 @@ LRESULT abpWrapper::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPara
         JS_CallFunctionName(cx, overlay, "abpClickHandler", 1, &arg, &retval);
       }
     }
+    else {
+      abpJSContextHolder holder;
+      JSObject* overlay = UnwrapNative(fakeBrowserWindow);
+      JSContext* cx = holder.get();
+      if (cx != nsnull && overlay != nsnull) {
+        jsval arg = INT_TO_JSVAL(LOWORD(wParam));
+        jsval retval;
+        JS_CallFunctionName(cx, overlay, "triggerMenuItem", 1, &arg, &retval);
+      }
+    }
   }
   else if ((message == TB_MBUTTONDOWN || message == TB_MBUTTONDBLCLK) && (wParam == cmdBase + CMD_TOOLBAR || wParam == cmdBase + CMD_STATUSBAR)) {
     abpJSContextHolder holder;
@@ -659,6 +720,22 @@ LRESULT abpWrapper::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPara
       jsval arg = STRING_TO_JSVAL(str);
       jsval retval;
       JS_CallFunctionName(cx, overlay, "abpTogglePref", 1, &arg, &retval);
+    }
+  }
+  else if (message == TB_RBUTTONDOWN && wParam == cmdBase + CMD_TOOLBAR) {
+    abpJSContextHolder holder;
+    JSObject* overlay = UnwrapNative(fakeBrowserWindow);
+    JSContext* cx = holder.get();
+    if (cx != nsnull && overlay != nsnull) {
+      jsval arg = JSVAL_FALSE;
+      jsval retval;
+      if (JS_CallFunctionName(cx, overlay, "buildContextMenu", 1, &arg, &retval)) {
+        HMENU hMenu = NS_REINTERPRET_CAST(HMENU, JSVAL_TO_INT(retval));
+
+        POINT pt;
+        GetCursorPos(&pt);
+        TrackPopupMenu(hMenu, TPM_LEFTALIGN, pt.x, pt.y, 0, hWnd, NULL);
+      }
     }
   }
   else if (message == WM_SETFOCUS) {
