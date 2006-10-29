@@ -22,6 +22,7 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
+var Node = Components.interfaces.nsIDOMNode;
 var CSSPrimitiveValue = Components.interfaces.nsIDOMCSSPrimitiveValue;
 var window = this;
 var document = this;
@@ -87,6 +88,9 @@ function getElementsByTagName(name) {
 
 var lastRequested = null;
 function getElementById(id) {
+  if (id == "viewAdblockPlusSidebar")
+    return null;
+
   lastRequested = id;
   return this;
 }
@@ -155,6 +159,92 @@ function setAttribute(attr, value) {
 function removeAttribute(attr) {
   if (attr == "deactivated" || attr == "whitelisted")
     setIconDelayed(0);
+}
+
+/*function removeWhitespace(element) {
+  element.QueryInterface(Components.interfaces.nsIDOMXULElement);
+  for (var child = element.firstChild; child; child = child.nextSibling) {
+    if (child.nodeType != Node.ELEMENT_NODE) {
+      var newChild = child.nextSibling;
+      child.parentNode.removeChild(child);
+      child = {nextSibling: newChild};
+    }
+    else
+      removeWhitespace(child);
+  }
+}*/
+
+var overlayContextMenu = function() {
+  var request = Components.classes["@mozilla.org/xmlextras/xmlhttprequest;1"]
+                          .createInstance(Components.interfaces.nsIXMLHttpRequest);
+  request.open("GET", "chrome://adblockplus/content/overlay.xul", false);
+  request.send(null);
+
+  var ret = request.responseXML
+                .getElementsByTagNameNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", "popup")
+                .item(0).QueryInterface(Components.interfaces.nsIDOMXULElement);
+//  removeWhitespace(ret);
+  return ret;
+}();
+var overlayContextMenuItems = {};
+
+function buildContextMenu(status) {
+  document.popupNode = {id: status ? "abp-status" : "abp-toolbarbutton"};
+  abpFillPopup(overlayContextMenu);
+
+  return addMenuItems(overlayContextMenu);
+}
+
+function addMenuItems(popup) {
+  var menu = createPopupMenu();
+
+  for (var child = popup.firstChild; child; child = child.nextSibling) {
+    if (child.nodeType != Node.ELEMENT_NODE || child.hidden)
+      continue;
+
+    var type = 0;
+    if (child.tagName == "menuseparator")
+      type = -1;
+    else if (child.tagName == "menu")
+      type = addMenuItems(child.getElementsByTagName("menupopup")[0]);
+
+    if (!("menuID" in child)) {
+      if (child.tagName == "menuitem") {
+        child.menuID = createCommandID();
+        overlayContextMenuItems[child.menuID] = child;
+      }
+      else
+        child.menuID = -1;
+    }
+
+    addMenuItem(menu, type, child.menuID,
+                    unicodeConverter.ConvertFromUnicode(child.getAttribute("label")),
+                    child.getAttribute("default") == "true",
+                    child.getAttribute("disabled") == "true",
+                    child.getAttribute("checked") == "true");
+
+    // Toggle checkbox selection so if it is clicked we get the right value
+    if (child.getAttribute("type") == "checkbox") {
+      if (child.getAttribute("checked") == "true")
+        child.removeAttribute("checked");
+      else
+        child.setAttribute("checked", "true");
+    }
+  }
+
+  return menu;
+}
+
+function triggerMenuItem(id) {
+  if (!(id in overlayContextMenuItems))
+    return;
+
+  var menuItem = overlayContextMenuItems[id];
+  if (!menuItem.hasAttribute("oncommand"))
+    return;
+
+  var func = function() {eval(this.getAttribute("oncommand"))};
+  func.apply(menuItem);
 }
 
 Components.classes["@mozilla.org/moz/jssubscript-loader;1"]

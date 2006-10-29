@@ -43,10 +43,6 @@ window.addEventListener("load", abpInit, false);
 function abpInit() {
   window.addEventListener("unload", abpUnload, false);
 
-  if (!("content" in window)) {
-    window.__defineGetter__("content", function() {return abpGetBrowser().contentWindow});
-  }
-
   // Process preferences
   abpReloadPrefs();
   if (abp) {
@@ -153,7 +149,6 @@ function abpReloadPrefs() {
     label = abp.getString("status_" + state + "_label");
 
     if (state == "active") {
-      var contentWnd = window.content;
       var location = null;
       if ("currentHeaderData" in window && "content-base" in currentHeaderData) {
         // Thunderbird blog entry
@@ -177,8 +172,7 @@ function abpReloadPrefs() {
       else {
         // Firefox web page
 
-        if (window.content)
-          location = abp.unwrapURL(window.content.location.href);
+        location = abp.unwrapURL(abpGetBrowser().contentWindow.location.href);
       }
 
       if (location && abp.policy.isWhitelisted(location))
@@ -473,7 +467,7 @@ function abpFillTooltip(ev) {
     document.getElementById("abp-tooltip-blocked-label").hidden = (state != "active");
     document.getElementById("abp-tooltip-blocked").hidden = (state != "active");
     if (state == "active") {
-      var data = abp.getDataForWindow(window.content);
+      var data = abp.getDataForWindow(abpGetBrowser().contentWindow);
       var locations = data.getAllLocations();
 
       var blocked = 0;
@@ -525,12 +519,11 @@ function abpFillTooltip(ev) {
 
 // Fills the context menu on the status bar
 function abpFillPopup(popup) {
-alert('ok');
   if (!abp)
     return false;
 
   // Not at-target call, ignore
-  if (popup.id.indexOf("options") >= 0)
+  if (popup.getAttribute("id").indexOf("options") >= 0)
     return true;
 
   // Need to do it this way to prevent a Gecko bug from striking
@@ -546,6 +539,10 @@ alert('ok');
 
   var whitelistItemSite = elements.whitelistsite;
   var whitelistItemPage = elements.whitelistpage;
+  var whitelistSeparator = whitelistItemPage.nextSibling;
+  while (whitelistSeparator.nodeType != Node.ELEMENT_NODE)
+    whitelistSeparator = whitelistSeparator.nextSibling;
+
   var location = null;
   var site = null;
   if ("currentHeaderData" in window && "content-base" in currentHeaderData) {
@@ -577,21 +574,21 @@ alert('ok');
   else {
     // Firefox web page
 
-    location = abp.unwrapURL(content.location.href);
+    location = abp.unwrapURL(abpGetBrowser().contentWindow.location.href);
   }
 
   if (!site && location) {
-    if (abp.policy.isBlockableScheme(location)) {
+    if (abp.policy.isBlockableScheme(location) && location != "about:blank") {
       var url = location.replace(/\?.*/, '');
       var host = abp.makeURL(location);
       if (host)
         host = host.host;
       site = url.replace(/^([^\/]+\/\/[^\/]+\/).*/, "$1");
-  
+
       whitelistItemSite.pattern = "@@|" + site;
       whitelistItemSite.setAttribute("checked", abpHasPattern(whitelistItemSite.pattern));
       whitelistItemSite.setAttribute("label", whitelistItemSite.getAttribute("labeltempl").replace(/--/, host));
-  
+
       whitelistItemPage.pattern = "@@|" + url + "|";
       whitelistItemPage.setAttribute("checked", abpHasPattern(whitelistItemPage.pattern));
     }
@@ -601,7 +598,7 @@ alert('ok');
 
   whitelistItemSite.hidden = !site;
   whitelistItemPage.hidden = !location;
-  whitelistItemPage.nextSibling.hidden = !site && !location;
+  whitelistSeparator.hidden = !site && !location;
 
   if (abp.getSettingsDialog()) {
     whitelistItemSite.setAttribute("disabled", "true");

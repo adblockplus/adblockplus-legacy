@@ -16,6 +16,12 @@ $version =~ s/[^\w\.]//gs;
 close(VERSION);
 
 my $output_file = shift @ARGV || "adblockplus.zip";
+if ($ARGV[0] =~ /^\+/)
+{
+  $version .= $ARGV[0];
+  shift @ARGV;
+}
+
 my $locale = shift @ARGV || "en-US";
 my $charset = ($locale eq "ru-RU" ? "windows-1251" : "iso-8859-1");
 my @locales = ($locale);
