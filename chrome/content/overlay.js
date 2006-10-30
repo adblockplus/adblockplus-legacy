@@ -885,7 +885,7 @@ function abpImageStyle(computedStyle, property) {
 
 // Hides the unnecessary context menu items on display
 function abpCheckContext() {
-  var target = new XPCNativeWrapper(gContextMenu.target);
+  var target = (gContextMenu.target ? new XPCNativeWrapper(gContextMenu.target) : null);
 
   var nodeType = null;
   gContextMenu.abpLinkData = null;
@@ -898,8 +898,8 @@ function abpCheckContext() {
     if (data && !data.filter)
       nodeType = data.typeDescr;
 
-    var wnd = target.ownerDocument.defaultView;
-    var wndData = abp.getDataForWindow(wnd);
+    var wnd = (target ? target.ownerDocument.defaultView : null);
+    var wndData = (wnd ? abp.getDataForWindow(wnd) : null);
 
     gContextMenu.abpFrameData = abp.getDataForNode(wnd);
     if (gContextMenu.abpFrameData && gContextMenu.abpFrameData.filter)
