@@ -18,8 +18,7 @@ if (incompatible)
 
 if (!incompatible) {
   // Check whether all directories can be accessed
-  var profileInstall = new String(Install.url).match(/profile[^\/]*$/);
-  var jarFolder = (profileInstall ? getFolder("Profile", "chrome") : getFolder("Chrome"));
+  var jarFolder = getFolder("Chrome");
   var dirList = [
     jarFolder,
     getFolder("Components"),
@@ -68,7 +67,7 @@ if (!incompatible && confirm(WARNING, APP_DISPLAY_NAME)) {
 
   /* Main part of the installation */
 
-  var chromeType = (profileInstall ? PROFILE_CHROME : DELAYED_CHROME);
+  var chromeType = DELAYED_CHROME;
 
   var files = [
     ["chrome/adblockplus.jar", jarFolder],
