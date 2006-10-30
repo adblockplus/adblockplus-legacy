@@ -397,6 +397,29 @@ abp.wrappedJSObject = abp;
 function init() {
   initialized = true;
 
+  if ("nsIChromeRegistrySea" in Components.interfaces) {
+    // Autoregister chrome in SeaMonkey
+    var registry = Components.classes["@mozilla.org/chrome/chrome-registry;1"]
+                             .getService(Components.interfaces.nsIChromeRegistrySea);
+
+    try {
+      registry.installPackage("jar:resource:/chrome/adblockplus.jar!/content/", false);
+    } catch(e) {}
+
+    try {
+      registry.installSkin("jar:resource:/chrome/adblockplus.jar!/skin/classic/", false, true);
+    } catch(e) {}
+
+    for (var i = 0; i < locales.length; i++) {
+      if (!locales[i])
+        continue;
+
+      try {
+        registry.installLocale("jar:resource:/chrome/adblockplus.jar!/locale/" + locales[i] + "/", false);
+      } catch(e) {}
+    }
+  }
+
   abp.versionComparator = Components.classes["@mozilla.org/xpcom/version-comparator;1"]
                                     .createInstance(Components.interfaces.nsIVersionComparator);
 
