@@ -163,7 +163,8 @@ function getElementRect(node) {
 
 // Generates a click handler for object tabs
 function generateClickHandler(wnd, location) {
-  return function() {
+  return function(event) {
+    event.preventDefault();
     abp.openSettingsDialog(wnd, location);
   }
 }
@@ -191,6 +192,7 @@ function addObjectTab(node, location, tab, wnd) {
   tab.style.paddingLeft = node.offsetWidth + "px";
 
   // Click event handler
+  tab.setAttribute("href", location);
   tab.addEventListener("click", generateClickHandler(wnd, location), false);
 
   // Insert tab into the document
