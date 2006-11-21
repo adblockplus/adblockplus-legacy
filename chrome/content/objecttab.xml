@@ -9,40 +9,5 @@
     <content>
       <html:div style="display:block;position:relative;border-style:ridge;background-color:white;color:black;cursor:pointer;font-family:Arial,Helvetica,Sans-Serif;font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:normal;text-align:center;text-decoration:none;text-indent:0px;text-transform:none;direction:ltr;">Adblock</html:div>
     </content>
-
-    <implementation>
-      <constructor>
-      <![CDATA[
-        // Tab dimensions
-        var tabWidth = 70;
-        var tabHeight = 18;
-
-        // Initialization
-        var label = document.getAnonymousNodes(this)[0];
-        var onTop = this.hasAttribute("ontop");
-        this.removeAttribute("ontop");
-
-        // Label positioning
-        label.style.left = -tabWidth + "px";
-        label.style.top = (onTop ? -tabHeight + "px" :  "0px");
-        label.style.width = (tabWidth - 4) + "px";
-        label.style.height = (tabHeight - 2) + "px";
-        label.style.borderWidth = (onTop ? "2px 2px 0px 2px" : "0px 2px 2px 2px");
-        label.style.MozBorderRadiusTopleft = label.style.MozBorderRadiusTopright = (onTop ? "10px" : "0px");
-        label.style.MozBorderRadiusBottomleft = label.style.MozBorderRadiusBottomright = (onTop ? "0px" : "10px");
-
-        // Container styles
-        this.style.display = "block";
-        this.style.position = "relative"
-        this.style.overflow = "visible";
-        this.style.width = "0px";
-        this.style.height = "0px";
-        this.style.left = "0px";
-        this.style.top = "0px";
-        this.style.zIndex = 65535;
-        this.style.MozOpacity = "0.5";
-      ]]>
-      </constructor>
-    </implementation>
   </binding>
 </bindings>

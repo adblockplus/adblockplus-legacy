@@ -187,8 +187,6 @@ function addObjectTab(node, location, tab, wnd) {
     offsetTop += offsetNode.offsetTop;
 
   var onTop = (offsetTop > 40);
-  if (onTop)
-    tab.setAttribute("ontop", "true");
   tab.style.paddingLeft = node.offsetWidth + "px";
 
   // Click event handler
@@ -211,7 +209,36 @@ function addObjectTab(node, location, tab, wnd) {
   var doc = node.ownerDocument;
   doc.loadBindingDocument("chrome://adblockplus/content/objecttab.xml");
   doc.addBinding(tab, "chrome://adblockplus/content/objecttab.xml#objectTab");
-//  createTimer(function() {tab.style.display = "block"}, 0);
+
+  var initHandler = function() {
+    // Tab dimensions
+    var tabWidth = 70;
+    var tabHeight = 18;
+
+    // Initialization
+    var label = doc.getAnonymousNodes(tab)[0];
+
+    // Label positioning
+    label.style.left = -tabWidth + "px";
+    label.style.top = (onTop ? -tabHeight + "px" :  "0px");
+    label.style.width = (tabWidth - 4) + "px";
+    label.style.height = (tabHeight - 2) + "px";
+    label.style.borderWidth = (onTop ? "2px 2px 0px 2px" : "0px 2px 2px 2px");
+    label.style.MozBorderRadiusTopleft = label.style.MozBorderRadiusTopright = (onTop ? "10px" : "0px");
+    label.style.MozBorderRadiusBottomleft = label.style.MozBorderRadiusBottomright = (onTop ? "0px" : "10px");
+
+    // Container styles
+    tab.style.display = "block";
+    tab.style.position = "relative"
+    tab.style.overflow = "visible";
+    tab.style.width = "0px";
+    tab.style.height = "0px";
+    tab.style.left = "0px";
+    tab.style.top = "0px";
+    tab.style.zIndex = 65535;
+    tab.style.MozOpacity = "0.5";
+  }
+  createTimer(initHandler, 0);
 }
 
 // Sets a timeout, comparable to the usual setTimeout function
