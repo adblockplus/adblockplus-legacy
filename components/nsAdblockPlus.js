@@ -243,22 +243,7 @@ const abp = {
 
   // Returns installed Adblock Plus version
   getInstalledVersion: function() {
-    // Try Firefox Extension Manager
-    try {
-      var item = this.getUpdateItem();
-      if (item)
-        return item.version;
-    } catch (e) {}
-
-    // Try InstallTrigger
-    try {
-      // FIXME: This shouldn't depend on the browser
-      var browser = windowMediator.getMostRecentWindow("navigator:browser");
-      if (browser)
-        return browser.InstallTrigger.getVersion(ABP_PACKAGE);
-    } catch (e) {}
-  
-    return null;
+    return "{{VERSION}}";
   },
 
   //
