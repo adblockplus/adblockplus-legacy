@@ -237,6 +237,7 @@ function addObjectTab(node, location, tab, wnd) {
     tab.style.top = "0px";
     tab.style.zIndex = 65535;
     tab.style.MozOpacity = "0.5";
+    tab.style.textDecoration = "none";
   }
   createTimer(initHandler, 0);
 }
