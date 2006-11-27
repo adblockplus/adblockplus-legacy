@@ -56,7 +56,9 @@
   <description id="contributorsTitle" value="&contributors.label;"/>
   <vbox id="contributorsBox">
     <description value="Ahmet Serkan Tıratacı - Turkish translation"/>
+    <description value="Bahram Maravandi - Persian translation"/>
     <description value="Blackdire - Chinese Simplified translation"/>
+    <description value="Cédric Menge - "Cédrics Liste" filter subscription and many suggestions"/>
     <description value="Claude Lespagnol aka Efdur - icons"/>
     <description value="Claudio Périco - Brazilian Portuguese translation"/>
     <description value="Dagobert_78 - French translation"/>
@@ -73,13 +75,17 @@
     <description value="Kevin Keller - icons"/>
     <description value="Leszek (teo) Życzkowski - Polish translation"/>
     <description value="Luana Di Muzio - Italian translation"/>
+    <description value="Malte Kraus - "Filter von Dr.Evil" filter subscription"/>
     <description value="Mark Tyndall - British English translation"/>
     <description value="Martin Srebotnjak - Slovenian translation"/>
     <description value="Mikes Kaszmán István - Hungarian translation"/>
+    <description value="Navid Kashani - Persian translation"/>
     <description value="Olexander Kasyanyuk - Ukrainian translation"/>
     <description value="Paul Dicker - Dutch translation"/>
     <description value="pirlouy - French translation"/>
     <description value="Premier - Japanese translation"/>
+    <description value="rick752 - EasyList filter subscription and many suggestions"/>
+    <description value="Robbie Groenewoudt - dutchblock filter subscription"/>
     <description value="srxo1978 - Spanish translation"/>
     <description value="Stefan Ekroth - Swedish translation"/>
     <description value="Stian Domben Bårdsen - Norwegian translation"/>
