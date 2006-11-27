@@ -17,7 +17,7 @@
 <!ENTITY tooltip.type.whitelisted "(차단 목록)">
 <!ENTITY tooltip.filter.label "필터:">
 <!ENTITY context.block.label "이 항목 차단">
-<!ENTITY context.editfilter.label "필터 편집">
+<!ENTITY context.editfilter.label "유효한 필터 편집">
 <!ENTITY context.whitelist.label "예외 규칙 추가">
 <!ENTITY context.open.label "새 탭으로 열기">
 <!ENTITY context.flash.label "플래쉬 항목의 테두리">

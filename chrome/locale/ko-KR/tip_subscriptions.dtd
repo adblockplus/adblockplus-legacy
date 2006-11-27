@@ -1,20 +1,7 @@
 <!ENTITY dialog.title "Adblock Plus에 오신 것을 환영합니다.">
-<!ENTITY description.par1 "
-	Thank you for installing Adblock Plus. This extension can
-	eliminate 99&#x25; of the advertisements you see on the web. However,
-	effective ad filtering requires you to define a good set of
-	filters. You can do it yourself, or you can simply subscribe
-	to filter lists others maintain for you. It will still be possible
-	to add your own filters or deactivate/remove subscriptions
-	whenever necessary.
-">
-<!ENTITY description.par2 "
-	You can choose one subscription from the
-	list of recommended subscriptions below (more subscriptions can be
-	added in Adblock Plus Preferences later though usually this is not
-	necessary):
-">
-<!ENTITY note "주: 필터 목록은 이 필터가 생성된 웹사이트에서 가장 효율적으로 동작합니다.">
+<!ENTITY description.par1 "Adblock Plus를 설치해 주셔서 감사합니다.">
+<!ENTITY description.par2 "아래 목록에서 추천되는 표현식을 선택할 수 있습니다.">
+<!ENTITY note "주: 필터 목록은 그 필터가 생성된 웹사이트에서 가장 효율적으로 동작합니다.">
 <!ENTITY homepage.label "홈페이지">
 <!ENTITY subscribe.label "표현식">
 <!ENTITY subscribe.accesskey "R">
