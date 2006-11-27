@@ -17,5 +17,5 @@
 <!ENTITY opensidebar.accesskey "B">
 <!ENTITY closesidebar.label "차단 가능한 항목 닫기">
 <!ENTITY closesidebar.accesskey "B">
-<!ENTITY whitelist.site.label "사이트에서 차단하기 --">
+<!ENTITY whitelist.site.label "다음 사이트에서 차단하기 --">
 <!ENTITY whitelist.page.label "이 페이지에서만 차단하기">

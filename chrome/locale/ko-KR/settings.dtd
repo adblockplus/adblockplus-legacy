@@ -1,9 +1,9 @@
 <!ENTITY dialog.title "Adblock Plus 설정">
 <!ENTITY filters.label "필터">
 <!ENTITY filters.accesskey "F">
-<!ENTITY add.label "추가">
+<!ENTITY add.label "필터 추가">
 <!ENTITY add.accesskey "A">
-<!ENTITY addsubscription.label "서명 추가">
+<!ENTITY addsubscription.label "필터 표현식 추가">
 <!ENTITY addsubscription.accesskey "S">
 <!ENTITY synchsubscriptions.label "모든 표현식 업데이트">
 <!ENTITY synchsubscriptions.accesskey "D">
@@ -69,7 +69,7 @@
 <!ENTITY context.edit.label "필터 편집">
 <!ENTITY context.resethitcount.label "히트 통계 초기화">
 <!ENTITY context.synchsubscription.label "지금 필터 업데이트">
-<!ENTITY context.editsubscription.label "서명 편집">
+<!ENTITY context.editsubscription.label "표현식 편집">
 <!ENTITY context.moveup.label "위로">
 <!ENTITY context.movedown.label "아래로">
 <!ENTITY context.movegroupup.label "그룹 위로">
