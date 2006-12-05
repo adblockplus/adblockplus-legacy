@@ -85,14 +85,6 @@
   <em:iconURL>chrome://adblockplus/skin/adblockplus.png</em:iconURL>
   <em:aboutURL>chrome://adblockplus/content/about.xul</em:aboutURL>
   <em:optionsURL>chrome://adblockplus/content/settings.xul</em:optionsURL>
-  
-  <!-- Packages, Skins and Locales that this extension registers -->
-  <em:file>
-    <Description about="urn:mozilla:extension:file:adblockplus.jar">
-      <em:package>content/</em:package>
-      <em:skin>skin/classic/</em:skin>
-      <em:locale>locale/{{LOCALE}}/</em:locale>
-    </Description>
-  </em:file>
+
   </Description>  
 </RDF>
