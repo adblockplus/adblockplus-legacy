@@ -27,8 +27,7 @@
  * This file is included from nsAdblockPlus.js.
  */
 
-var queryResult;
-var querySeed = Math.random();    // Make sure our queries can't be detected
+var dataSeed = Math.random();    // Make sure our properties have randomized names
 
 function DataContainer(wnd) {
   this.locations = {};
@@ -53,20 +52,15 @@ DataContainer.prototype = {
     else
       this.topContainer = this;
 
+    wnd.document["abpData" + dataSeed] = this;
+
     this.installListeners(wnd);
   },
 
   installListeners: function(wnd) {
     var me = this;
-    var queryHandler = function(ev) {
-      if (ev.isTrusted && ev.eventPhase == ev.AT_TARGET)
-        queryResult = me;
-    }
-    wnd.addEventListener("abpQuery" + querySeed, queryHandler, true);
-
     var hideHandler = function(ev) {
-      // unload events aren't trusted in 1.7.5, need to find out when this was fixed
-      if ((!ev.isTrusted && ev.type != "unload") || ev.eventPhase != ev.AT_TARGET)
+      if (!ev.isTrusted || ev.eventPhase != ev.AT_TARGET)
         return;
 
       if (me != me.topContainer)
@@ -93,29 +87,20 @@ DataContainer.prototype = {
       }
     }
 
-    if ("nsIDOMPageTransitionEvent" in Components.interfaces) {
-      // This is Gecko 1.8 - use pagehide/pageshow events
-      var showHandler = function(ev) {
-        if (!ev.isTrusted || ev.eventPhase != ev.AT_TARGET)
-          return;
+    var showHandler = function(ev) {
+      if (!ev.isTrusted || ev.eventPhase != ev.AT_TARGET)
+        return;
 
-        // Allow notifications again
-        me.detached = false;
+      // Allow notifications again
+      me.detached = false;
 
-        if (me != me.topContainer)
-          me.topContainer.registerSubdocument(this.top, me);
-        else
-          DataContainer.notifyListeners(this, "select", me);
-      }
-      wnd.addEventListener("pagehide", hideHandler, false);
-      wnd.addEventListener("pageshow", showHandler, false);
+      if (me != me.topContainer)
+        me.topContainer.registerSubdocument(this.top, me);
+      else
+        DataContainer.notifyListeners(this, "select", me);
     }
-    else {
-      // This is Gecko 1.7 - fall back to unload
-      wnd.addEventListener("unload", hideHandler, false);
-    }
-
-    wnd = null;
+    wnd.addEventListener("pagehide", hideHandler, false);
+    wnd.addEventListener("pageshow", showHandler, false);
   },
 
   registerSubdocument: function(topWnd, data) {
@@ -195,26 +180,12 @@ DataContainer.prototype = {
 };
 
 // Loads Adblock data associated with a window object
-var lastQuery = null;
-var lastQueryResult = null;
 DataContainer.getDataForWindow = function(wnd) {
   var doc = wnd.document;
-  if (lastQuery == doc)
-    return lastQueryResult;
-
-  queryResult = null;
-  var ev = doc.createEvent("Events");
-  ev.initEvent("abpQuery" + querySeed, false, false);
-  wnd.dispatchEvent(ev);
-
-  var data = queryResult;
-  if (!data)
-    data = new DataContainer(wnd);
-
-  lastQuery = doc;
-  lastQueryResult = data;
-
-  return data;
+  if ("abpData" + dataSeed in doc)
+    return doc["abpData" + dataSeed];
+  else
+    return new DataContainer(wnd);
 };
 abp.getDataForWindow = DataContainer.getDataForWindow;
 

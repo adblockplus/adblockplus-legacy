@@ -33,6 +33,27 @@ var blockTypes = null;
 const ok = Components.interfaces.nsIContentPolicy.ACCEPT;
 const block = Components.interfaces.nsIContentPolicy.REJECT_REQUEST;
 
+//*** <HACKHACK reason="Need fake XPCOM object"> ***/
+var fakeFactory = {
+  createInstance: function(outer, iid) {
+    return outer;
+  },
+
+  QueryInterface: function(iid) {
+    if (iid.equals(Components.interfaces.nsISupports) ||
+        iid.equals(Components.interfaces.nsIFactory))
+      return this;
+
+    throw Components.results.NS_ERROR_NO_INTERFACE;
+  }
+};
+
+var array = Components.classes['@mozilla.org/supports-array;1'].createInstance(Components.interfaces.nsISupportsArray);
+array.AppendElement(fakeFactory);
+fakeFactory = array.GetElementAt(0).QueryInterface(Components.interfaces.nsIFactory);
+array = null;
+//*** </HACKHACK> ***/
+
 var policy = {
   init: function() {
     var types = ["OTHER", "SCRIPT", "IMAGE", "STYLESHEET", "OBJECT", "SUBDOCUMENT", "DOCUMENT"];
@@ -275,8 +296,8 @@ var policy = {
     if (!insecNode)
       return ok;
 
-    // This shouldn't be necessary starting with Gecko 1.8.0.5 (bug 337095)
-    var node = new XPCNativeWrapper(insecNode);
+    // HACKHACK: Pass the node though XPCOM to work around bug 337095
+    var node = fakeFactory.createInstance(insecNode, Components.interfaces.nsIDOMNode);
 
     // New API will return the frame element, make it a window
     if (contentType == type.SUBDOCUMENT && node.contentWindow)
