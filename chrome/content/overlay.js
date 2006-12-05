@@ -363,7 +363,7 @@ function abpCheckExtensionConflicts() {
 // Check whether we installed the toolbar button already
 function abpInstallInToolbar() {
   if (!document.getElementById("abp-toolbarbutton")) {
-    var insertBeforeBtn = "urlbar-container";
+    var insertBeforeBtn = null;
     var toolbar = document.getElementById("nav-bar");
     if (!toolbar) {
       insertBeforeBtn = "button-junk";
@@ -371,7 +371,7 @@ function abpInstallInToolbar() {
     }
 
     if (toolbar && "insertItem" in toolbar) {
-      var insertBefore = document.getElementById(insertBeforeBtn);
+      var insertBefore = (insertBeforeBtn ? document.getElementById(insertBeforeBtn) : null);
       if (insertBefore && insertBefore.parentNode != toolbar)
         insertBefore = null;
 
