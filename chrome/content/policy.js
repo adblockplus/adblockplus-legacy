@@ -149,7 +149,7 @@ var policy = {
       // Show object tabs unless this is a standalone object
       // XXX: We will never recognize objects loading from jar: as standalone!
       if (!match && prefs.frameobjects && contentType == type.OBJECT &&
-          node.ownerDocument && wnd.location && location != wnd.location.href) {
+          node.ownerDocument && /^text\/|[+\/]xml$/.test(node.ownerDocument.contentType)) {
         // Before adding object tabs always check whether one exist already
         var hasObjectTab = false;
         var loc = data.getLocation(location);
