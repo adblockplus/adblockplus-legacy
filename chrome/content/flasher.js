@@ -32,97 +32,27 @@ var flasher = {
   count: 0,
   timer: null,
 
-  getCoords: function(node) {
-    if (!node.ownerDocument)
-      return null;
-
-    var box = null;
-    try {
-      box = node.ownerDocument.getBoxObjectFor(node);
-    } catch(e) {}
-    if (!box)
-      return null;
-
-    var ret = [0, 0, box.screenX, box.screenY];
-    while (box) {
-      ret[0] += box.x;
-      ret[1] += box.y;
-
-      var newBox = null;
-      try {
-        newBox = node.ownerDocument.getBoxObjectFor(box.parentBox);
-      } catch(e) {}
-      if (newBox && newBox != box)
-        box = newBox;
-      else
-        box = null;
-    }
-
-    return ret;
-  },
-
-  visibleCoords: function(wnd, coords) {
-    var minX = wnd.scrollX;
-    var maxX = minX + wnd.innerWidth;
-    var minY = wnd.scrollY;
-    var maxY = minY + wnd.innerHeight;
-
-    return (coords[0] >= minX && coords[0] < maxX &&
-            coords[1] >= minY && coords[1] < maxY);
-  },
-
   flash: function(nodes) {
     this.stop();
     if (!nodes)
       return;
 
     nodes = nodes.slice();
-    if (nodes.length && prefs.flash_scrolltoitem) {
+    if (nodes.length && prefs.flash_scrolltoitem && ("document" in nodes[0] || nodes[0].ownerDocument)) {
       // Ensure that at least one node is visible when flashing
-      var minCoords = null;
-      var showWnd = null;
-      for (var i = 0; i < nodes.length; i++) {
-        if ("document" in nodes[i] && nodes[i].document && nodes[i].document.body)
-          nodes[i] = nodes[i].document.body;   // for frames
-
-        var coords = this.getCoords(nodes[i]);
-        if (!coords)
-          continue;
-
-        if (!nodes[i].ownerDocument || !nodes[i].ownerDocument.defaultView)
-          continue;
-
-        var wnd = nodes[i].ownerDocument.defaultView;
-
-        // Check whether node's top left corner is already visible
-        if (this.visibleCoords(wnd, coords)) {
-          minCoords = null;
-          showWnd = wnd;
-          break;
-        }
-
-        // Check whether this node's coordinates are smaller than the ones we found
-        if (!minCoords || coords[1] < minCoords[1] || (coords[1] == minCoords[1] && coords[0] < minCoords[0])) {
-          minCoords = coords;
-          showWnd = wnd;
-        }
-      }
-
-      if (minCoords)
-        showWnd.scrollTo(minCoords[0], minCoords[1]);
-
-      if (showWnd) {
-        while (showWnd) {
-          var parentNode = showWnd.frameElement;
-          showWnd = showWnd.parent;
-          if (!parentNode || !showWnd)
-            break;
-
-          coords = this.getCoords(parentNode);
-          if (coords && !this.visibleCoords(showWnd, coords))
-            showWnd.scrollTo(coords[0], coords[1]);
-        }
-      }
+      var wnd = ("document" in nodes[0] ? nodes[0] : nodes[0].ownerDocument.defaultView);
+      var viewer = wnd.QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+                      .getInterface(Components.interfaces.nsIWebNavigation)
+                      .QueryInterface(Components.interfaces.nsIDocShellTreeItem)
+                      .rootTreeItem
+                      .QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+                      .getInterface(Components.interfaces.nsIDOMWindow)
+                      .wrappedJSObject
+                      .getBrowser()
+                      .markupDocumentViewer;
+      try {
+        viewer.scrollToNode(nodes[0]);
+      } catch(e) {}
     }
 
     this.nodes = nodes;
