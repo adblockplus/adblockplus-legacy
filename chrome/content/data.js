@@ -127,6 +127,14 @@ DataContainer.prototype = {
       return;
     }
 
+    // If we had this node already, remove it from the list first
+    if ("abpLocation" + dataSeed in node) {
+      var oldNodes = node["abpLocation" + dataSeed].nodes;
+      for (var i = 0; i < oldNodes.length; i++)
+        if (oldNodes[i] == node)
+          oldNodes.splice(i--, 1);
+    }
+
     // for images repeated on page store node for each repeated image
     var key = " " + location;
     if (key in this.locations) {
@@ -148,9 +156,12 @@ DataContainer.prototype = {
       if (!this.topContainer.detached)
         DataContainer.notifyListeners(topWnd, "add", this.topContainer, this.locations[key]);
     }
+    node["abpLocation" + dataSeed] = this.locations[key];
 
-    if (typeof objTab != "undefined" && objTab)
+    if (typeof objTab != "undefined" && objTab) {
       this.locations[key].nodes.push(objTab);
+      objTab["abpLocation" + dataSeed] = this.locations[key];
+    }
   },
   getLocation: function(location) {
     var key = " " + location;
@@ -194,17 +205,12 @@ abp.getDataForWindow = DataContainer.getDataForWindow;
 
 // Loads Adblock data associated with a node object
 DataContainer.getDataForNode = function(node) {
-  var wnd = getWindow(node);
-  if (!wnd)
-    return null;
+  // Make sure we get the same wrapper as in shouldLoad()
+  node = wrapNode(node.wrappedJSObject);
 
-  var data = DataContainer.getDataForWindow(wnd).getAllLocations();
   while (node) {
-    for (var i = 0; i < data.length; i++)
-      for (var j = 0; j < data[i].nodes.length; j++) {
-        if (data[i].nodes[j] == node)
-          return data[i];
-      }
+    if ("abpLocation" + dataSeed in node)
+      return node["abpLocation" + dataSeed];
 
     // If we don't have any information on the node, then maybe on its parent
     node = node.parentNode;
