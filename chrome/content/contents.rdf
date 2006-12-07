@@ -13,10 +13,11 @@
     chrome:displayName="Adblock Plus"
     chrome:author="Wladimir Palant"
     chrome:name="adblockplus"
-      chrome:authorURL="http://adblockplus.org/"
+    chrome:authorURL="http://adblockplus.org/"
     chrome:extension="true"
     chrome:description="Filters ads from web pages"
-    chrome:settingsURL="chrome://adblockplus/content/settings.xul">
+    chrome:settingsURL="chrome://adblockplus/content/settings.xul"
+    chrome:xpcNativeWrappers="true">
   </RDF:Description>
 
   <!-- overlay parentnodes -->
