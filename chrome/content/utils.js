@@ -194,7 +194,6 @@ function addObjectTab(node, location, tab, wnd) {
   tab.addEventListener("click", generateClickHandler(wnd, location), false);
 
   // Insert tab into the document
-  tab.style.display = "none";
   if (onTop)
     node.parentNode.insertBefore(tab, node);
   else {
@@ -227,17 +226,8 @@ function addObjectTab(node, location, tab, wnd) {
     label.style.MozBorderRadiusTopleft = label.style.MozBorderRadiusTopright = (onTop ? "10px" : "0px");
     label.style.MozBorderRadiusBottomleft = label.style.MozBorderRadiusBottomright = (onTop ? "0px" : "10px");
 
-    // Container styles
-    tab.style.display = "block";
-    tab.style.position = "relative"
-    tab.style.overflow = "visible";
-    tab.style.width = "0px";
-    tab.style.height = "0px";
-    tab.style.left = "0px";
-    tab.style.top = "0px";
-    tab.style.zIndex = 65535;
-    tab.style.MozOpacity = "0.5";
-    tab.style.textDecoration = "none";
+    // Show tab
+    tab.className = "abp-objtab";
   }
   createTimer(initHandler, 0);
 }

@@ -7,7 +7,7 @@
 
   <binding id="objectTab">
     <content>
-      <html:div style="display:block;position:relative;border-style:ridge;background-color:white;color:black;cursor:pointer;font-family:Arial,Helvetica,Sans-Serif;font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:normal;text-align:center;text-decoration:none;text-indent:0px;text-transform:none;direction:ltr;">Adblock</html:div>
+      <html:div>Adblock</html:div>
     </content>
   </binding>
 </bindings>

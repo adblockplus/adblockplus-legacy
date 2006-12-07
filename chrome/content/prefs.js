@@ -42,6 +42,11 @@ unicodeConverter.charset = "UTF-8";
 
 var styleService = Components.classes["@mozilla.org/content/style-sheet-service;1"]
                              .getService(Components.interfaces.nsIStyleSheetService);
+var objtabsCSS = Components.classes["@mozilla.org/network/standard-url;1"]
+                           .createInstance(Components.interfaces.nsIURI);
+objtabsCSS.spec = "chrome://adblockplus/content/objtabs.css";
+styleService.loadAndRegisterSheet(objtabsCSS, styleService.USER_SHEET);
+
 
 // Matcher class constructor
 function Matcher() {
