@@ -1,0 +1,24 @@
+<!ENTITY detached.title "Adblock Plus: موارد قابل ردکردن (قطع)">
+<!ENTITY detach.label "قطع کردن">
+<!ENTITY reattach.label "وصل کردن">
+<!ENTITY search.label "يافتن:">
+<!ENTITY search.accesskey "ف">
+<!ENTITY type.label "نوع">
+<!ENTITY address.label "نشانی">
+<!ENTITY filter.label "فيلتر">
+<!ENTITY state.label "وصعيت">
+<!ENTITY noitems.label "موارد قابل ردکردن پيدا نشد">
+<!ENTITY notremote.label "صفحه دور نمي‌باشد">
+<!ENTITY whitelisted.label "صفحه در فهرست سفيد">
+<!ENTITY notloaded.label "Adblock Plus صحيح نصب نشده">
+<!ENTITY tooltip.address.label "نشاني:">
+<!ENTITY tooltip.type.label "نوع:">
+<!ENTITY tooltip.type.blocked "(ردشده)">
+<!ENTITY tooltip.type.whitelisted "(در فهرست سفيد)">
+<!ENTITY tooltip.filter.label "فيلتر فعال:">
+<!ENTITY context.block.label "ردکردن اين مورد">
+<!ENTITY context.editfilter.label "ويرايش فيلتر فعال">
+<!ENTITY context.whitelist.label "افزودن قانون استثناء برای اين مورد">
+<!ENTITY context.open.label "گشودن در برگه نو">
+<!ENTITY context.flash.label "قاب مورد فلاش">
+<!ENTITY context.copy.label "رونوشت نشانی مورد">

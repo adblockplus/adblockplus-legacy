@@ -1,0 +1,14 @@
+<!ENTITY find.label "يافتن:">
+<!ENTITY findNext.label "يافتن بعدی">
+<!ENTITY findNext.accesskey "ی">
+<!ENTITY findNext.tooltip "یافتن عبارت مورد نظر بعدی">
+<!ENTITY findPrevious.label "يافتن قبلی">
+<!ENTITY findPrevious.accesskey "ق">
+<!ENTITY findPrevious.tooltip "یافتن عبارت مورد نظر قبلی">
+<!ENTITY findCloseButton.tooltip "بستن نوار جستجو">
+<!ENTITY highlight.label "پررنگ کردن همه">
+<!ENTITY highlight.accesskey "ک">
+<!ENTITY highlight.tooltip "پررنگ کردن هر عبارت یافته شده (Ctrl+Enter)">
+<!ENTITY highlight.macTooltip "پررنگ کردن هر عبارت یافته شده (Cmd+Return)">
+<!ENTITY caseSensitiveCheckbox.label "حساسيت درباره حروف کوچک و بزرگ">
+<!ENTITY caseSensitiveCheckbox.accesskey "س">
