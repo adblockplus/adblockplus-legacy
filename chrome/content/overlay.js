@@ -600,15 +600,6 @@ function abpFillPopup(popup) {
   whitelistItemPage.hidden = !location;
   whitelistSeparator.hidden = !site && !location;
 
-  if (abp.getSettingsDialog()) {
-    whitelistItemSite.setAttribute("disabled", "true");
-    whitelistItemPage.setAttribute("disabled", "true");
-  }
-  else {
-    whitelistItemSite.removeAttribute("disabled");
-    whitelistItemPage.removeAttribute("disabled");
-  }
-
   elements.enabled.setAttribute("checked", abpPrefs.enabled);
   elements.localpages.setAttribute("checked", abpPrefs.blocklocalpages);
   elements.frameobjects.setAttribute("checked", abpPrefs.frameobjects);
@@ -791,6 +782,8 @@ function abpTogglePattern(text, insert) {
 
   abpPrefs.initMatching();
   abpPrefs.savePatterns();
+
+  abp.synchronizer.notifyListeners([text], insert ? "add" : "remove");
 
   // Make sure to display whitelisting immediately
   abpReloadPrefs();

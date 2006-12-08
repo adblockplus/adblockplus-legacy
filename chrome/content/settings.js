@@ -521,34 +521,53 @@ function onListDragGesture(e) {
 
 // To be called whenever synchronization status changes
 function synchCallback(orig, status) {
-  var subscription = null;
-  for (var i = 0; i < treeView.data.length; i++)
-    if (treeView.data[i].url == orig.url)
-      subscription = treeView.data[i];
+  var i;
 
-  var row, rowCount;
-  if (!subscription && status == "add") {
-    subscription = cloneObject(orig);
-    subscription.dummy = false;
-    row = treeView.rowCount;
-    rowCount = 0;
-    treeView.data.push(subscription);
-  }
-  else if (subscription && status == "remove") {
-    treeView.removeRow([subscription, null]);
-    return;
-  }
-  else if (subscription) {
-    row = treeView.getSubscriptionRow(subscription);
-    rowCount = treeView.getSubscriptionRowCount(subscription);
-  }
+  // Checking orig instanceof Array won't work (array created in different context)
+  if ("url" in orig) {
+    // Subscription changed
 
-  if (!subscription)
-    return;
+    var subscription = null;
+    for (i = 0; i < treeView.data.length; i++)
+      if (treeView.data[i].url == orig.url)
+        subscription = treeView.data[i];
+  
+    var row, rowCount;
+    if (!subscription && status == "add") {
+      subscription = cloneObject(orig);
+      subscription.dummy = false;
+      row = treeView.rowCount;
+      rowCount = 0;
+      treeView.data.push(subscription);
+    }
+    else if (subscription && status == "remove") {
+      treeView.removeRow([subscription, null]);
+      return;
+    }
+    else if (subscription) {
+      row = treeView.getSubscriptionRow(subscription);
+      rowCount = treeView.getSubscriptionRowCount(subscription);
+    }
+  
+    if (!subscription)
+      return;
+  
+    subscription.extra = treeView.getSubscriptionDescription(subscription);
+    treeView.initSubscriptionPatterns(subscription, orig.patterns);
+    treeView.invalidateSubscription(subscription, row, rowCount);
+  }
+  else {
+    // Filters added
 
-  subscription.extra = treeView.getSubscriptionDescription(subscription);
-  treeView.initSubscriptionPatterns(subscription, orig.patterns);
-  treeView.invalidateSubscription(subscription, row, rowCount);
+    if (status == "add") {
+      for (i = 0; i < orig.length; i++)
+        treeView.addPattern(orig[i], undefined, undefined, true);
+    }
+    else if (status == "remove") {
+      for (i = 0; i < orig.length; i++)
+        treeView.removePattern(orig[i]);
+    }
+  }
 }
 
 function editFilter(type) {
@@ -1649,12 +1668,14 @@ var treeView = {
       // Maybe we have this pattern already, check this
       for (i = 0; i < subscription.patterns.length; i++) {
         if (subscription.patterns[i].text == pattern.text) {
-          parentRow = this.getSubscriptionRow(subscription);
-          if (subscription.url in this.closed)
-            this.toggleOpenState(parentRow);
+          if (typeof noSelect == "undefined" || !noSelect) {
+            parentRow = this.getSubscriptionRow(subscription);
+            if (subscription.url in this.closed)
+              this.toggleOpenState(parentRow);
   
-          this.selection.select(parentRow + 1 + subscription.extra.length + i);
-          this.boxObject.ensureRowIsVisible(parentRow + 1 + subscription.extra.length + i);
+            this.selection.select(parentRow + 1 + subscription.extra.length + i);
+            this.boxObject.ensureRowIsVisible(parentRow + 1 + subscription.extra.length + i);
+          }
           return;
         }
       }
@@ -1731,6 +1752,18 @@ var treeView = {
 
     if (text)
       onChange();
+  },
+
+  // Removes a pattern by its text
+  removePattern: function(text) {
+    for (var i = 0; i < this.data.length; i++) {
+      if (!this.data[i].special)
+        continue;
+
+      for (var j = 0; j < this.data[i].patterns.length; j++)
+        if (this.data[i].patterns[j].text == text)
+          this.removeRow([this.data[i], this.data[i].patterns[j]]);
+    }
   },
 
   // Removes a pattern or a complete subscription by its info
