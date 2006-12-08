@@ -24,7 +24,7 @@
 
 #include "nsISupports.idl"
 
-[scriptable, uuid(9da1fb9e-61bc-79e4-dd9a-8af0ec671b08)]
+[scriptable, uuid(2a311a4f-f32b-472a-9fc9-f1b1529924ad)]
 interface nsIAdblockPlusSubscription: nsISupports
 {
   /**
