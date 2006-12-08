@@ -234,11 +234,47 @@ const abp = {
       return false;
     
     synchronizer.notifyListeners(prefs.subscriptions[index], "remove");
+
     prefs.subscriptions.splice(index, 1);
     prefs.initMatching();
     prefs.savePatterns();
 
     return true;
+  },
+
+  addPatterns: function(patterns, length) {
+    for (var i = 0; i < patterns.length; i++) {
+      var text = patterns[i];
+      var found = false;
+      for (var j = 0; j < prefs.userPatterns.length; j++)
+        if (prefs.userPatterns[j].text == text)
+          found = true;
+
+      if (!found) {
+        var pattern = prefs.patternFromText(text);
+        if (pattern)
+          prefs.userPatterns.push(pattern);
+      }
+    }
+  
+    synchronizer.notifyListeners(patterns, "add");
+
+    prefs.initMatching();
+    prefs.savePatterns();
+  },
+
+  removePatterns: function(patterns, length) {
+    for (var i = 0; i < patterns.length; i++) {
+      var text = patterns[i];
+      for (var j = 0; j < prefs.userPatterns.length; j++)
+        if (prefs.userPatterns[j].text == text)
+          prefs.userPatterns.splice(j--, 1);
+    }
+  
+    synchronizer.notifyListeners(patterns, "remove");
+
+    prefs.initMatching();
+    prefs.savePatterns();
   },
 
   // Returns installed Adblock Plus version
