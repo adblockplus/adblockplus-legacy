@@ -1,0 +1,21 @@
+<!ENTITY notloaded.label "بازگذاری نشده">
+<!ENTITY notloaded.tooltip "بخشی از Adblock Plus بارگذاری نشد. احتمالا صحیح نصب نشده است">
+<!ENTITY status.tooltip "وضعيت:">
+<!ENTITY blocked.tooltip "موارد ردشده در اين صفحه:">
+<!ENTITY filters.tooltip "فعالترين فيلترها:">
+<!ENTITY menuitem.label "Adblock Plus">
+<!ENTITY menuitem.accesskey "B">
+<!ENTITY context.image.label "Adblock تصوير">
+<!ENTITY context.object.label "Adblock Object">
+<!ENTITY context.link.label "Adblock پيوند">
+<!ENTITY context.frame.label "Adblock قابک">
+<!ENTITY menuitem.sidebar.title "Adblock Plus: موارد قابل ردکردن">
+<!ENTITY sidebar.title "موارد قابل ردکردن در صفحه جاری">
+<!ENTITY settings.label "تنظيمات">
+<!ENTITY settings.accesskey "ن">
+<!ENTITY opensidebar.label "بازکردن موارد قابل ردکردن">
+<!ENTITY opensidebar.accesskey "ق">
+<!ENTITY closesidebar.label "بستن موارد قابل ردکردن">
+<!ENTITY closesidebar.accesskey "ق">
+<!ENTITY whitelist.site.label "غيرفعال در --">
+<!ENTITY whitelist.page.label "غيرفعال فقط در اين صفحه">

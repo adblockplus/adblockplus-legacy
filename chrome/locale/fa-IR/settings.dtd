@@ -1,0 +1,79 @@
+<!ENTITY dialog.title "تنظيمات Adblock Plus">
+<!ENTITY filters.label "فيلترها">
+<!ENTITY filters.accesskey "ه">
+<!ENTITY add.label "افزودن فيلتر">
+<!ENTITY add.accesskey "ز">
+<!ENTITY addsubscription.label "اشتراک فيلتر">
+<!ENTITY addsubscription.accesskey "ش">
+<!ENTITY synchsubscriptions.label "به‌روزرساني اشتراک‌ها">
+<!ENTITY synchsubscriptions.accesskey "س">
+<!ENTITY import.label "واردات فيلترها">
+<!ENTITY import.accesskey "د">
+<!ENTITY export.label "صادرات فيلترها">
+<!ENTITY export.accesskey "ف">
+<!ENTITY clearall.label "حذف فيلترها">
+<!ENTITY clearall.accesskey "ح">
+<!ENTITY resethitcounts.label "بازگشت آمار استفاده">
+<!ENTITY resethitcounts.accesskey "س">
+<!ENTITY edit.label "ويرايش">
+<!ENTITY edit.accesskey "ی">
+<!ENTITY cut.label "برش">
+<!ENTITY cut.accesskey "ر">
+<!ENTITY copy.label "رونوشت">
+<!ENTITY copy.accesskey "ش">
+<!ENTITY paste.label "جای گذاری">
+<!ENTITY paste.accesskey "گ">
+<!ENTITY remove.label "حذف">
+<!ENTITY remove.accesskey "ذ">
+<!ENTITY menu.find.label "يافتن">
+<!ENTITY menu.find.accesskey "ف">
+<!ENTITY menu.findagain.label "يافتن مجدد">
+<!ENTITY menu.findagain.accesskey "م">
+<!ENTITY options.label "تنظيمات">
+<!ENTITY options.accesskey "ظ">
+<!ENTITY enable.label "فعال‌کردن Adblock Plus">
+<!ENTITY enable.accesskey "ع">
+<!ENTITY showintoolbar.label "نمايش در نوارابزار">
+<!ENTITY showintoolbar.accesskey "ب">
+<!ENTITY showinstatusbar.label "نمايش در نواروضعيت">
+<!ENTITY showinstatusbar.accesskey "و">
+<!ENTITY localpages.label "ردکردن تبلیغات دور در این صفحه">
+<!ENTITY localpages.accesskey "ص">
+<!ENTITY objecttabs.label "نمایش برگه در موارد Flash و Java">
+<!ENTITY objecttabs.accesskey "J">
+<!ENTITY collapse.label "نمایش موارد ردشده">
+<!ENTITY collapse.accesskey "م">
+<!ENTITY linkcheck.label "بررسی پیوندهای تصاویر تبلیغاتی">
+<!ENTITY linkcheck.accesskey "غ">
+<!ENTITY help.label "راهنما">
+<!ENTITY help.accesskey "ن">
+<!ENTITY faq.label "سوالات طرح شده">
+<!ENTITY faq.accesskey "ش">
+<!ENTITY faq.url "http://adblockplus.org/en/faq">
+<!ENTITY tips.label "نکته روز">
+<!ENTITY tips.accesskey "ز">
+<!ENTITY tips.url "http://adblockplus.org/en/tips">
+<!ENTITY filterdoc.label "نوشتن فیلترهای Adblock Plus">
+<!ENTITY filterdoc.accesskey "P">
+<!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
+<!ENTITY about.label "درباره Adblock Plus">
+<!ENTITY about.accesskey "د">
+<!ENTITY disabled.warning "Adblock Plus در حال حاضر غیرفعال است. شما می‌توانید فیلترهای زیر را تغییر دهید٬ ولی آنها تا موقعی که شما Adblock Plus را دوباره فعال نکرده‌اید٬ استفاده نخواهند شد.">
+<!ENTITY description "برای رد کردن نشانی‌ها٬ آنها را به این فهرست اضافه کنید.
+		برای استفاده از لیست‌های عمومی از ستاره استفاده کنید.
+کاربران پیشرفته می‌توانند از عبارات مرتب استفاده کنند٬ مانند:
+		/banner\d+\.gif$/">
+<!ENTITY pattern.column "دستور فيلتر">
+<!ENTITY enabled.column "فعال‌کردن">
+<!ENTITY hitcount.column "استفاده شده">
+<!ENTITY lasthit.column "آخرين استفاده">
+<!ENTITY context.edit.label "ويرايش فيلتر">
+<!ENTITY context.resethitcount.label "برگشت آمار استفاده">
+<!ENTITY context.synchsubscription.label "به‌روزرساني اشتراک">
+<!ENTITY context.editsubscription.label "ويريش اشتراک">
+<!ENTITY context.moveup.label "بالا‌بردن">
+<!ENTITY context.movedown.label "پائين‌بردن">
+<!ENTITY context.movegroupup.label "بالا‌بردن گروه">
+<!ENTITY context.movegroupdown.label "پائين‌بردن گروه">
+<!ENTITY apply.label "انجام دادن">
+<!ENTITY apply.accesskey "ج">
