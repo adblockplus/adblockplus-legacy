@@ -765,25 +765,10 @@ function abpTogglePattern(text, insert) {
   if (!abp)
     return;
 
-  var found = false;
-  for (var i = 0; i < abpPrefs.userPatterns.length; i++) {
-    if (abpPrefs.userPatterns[i].text == text) {
-      if (insert)
-        found = true;
-      else
-        abpPrefs.userPatterns.splice(i--, 1);
-    }
-  }
-  if (!found && insert) {
-    var pattern = abpPrefs.patternFromText(text);
-    if (pattern)
-      abpPrefs.userPatterns.push(pattern);
-  }
-
-  abpPrefs.initMatching();
-  abpPrefs.savePatterns();
-
-  abp.synchronizer.notifyListeners([text], insert ? "add" : "remove");
+  if (insert)
+    abp.addPatterns([text], 1);
+  else
+    abp.removePatterns([text], 1);
 
   // Make sure to display whitelisting immediately
   abpReloadPrefs();

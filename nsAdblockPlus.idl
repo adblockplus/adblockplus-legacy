@@ -141,6 +141,22 @@ interface nsIAdblockPlus : nsISupports
   boolean removeExternalSubscription(in AString id);
 
   /**
+   * Adds user-defined patterns to the filter list.
+   *
+   * @param patterns  array of patterns to be added
+   * @param length    length of the patterns array
+  */
+  void addPatterns([array, size_is(length)] in wstring patterns, in unsigned long length);
+
+  /**
+   * Removes user-defined patterns from the filter list.
+   *
+   * @param patterns  array of patterns to be removed
+   * @param length    length of the patterns array
+  */
+  void removePatterns([array, size_is(length)] in wstring patterns, in unsigned long length);
+
+  /**
    * Returns the installed version of Adblock Plus.
   */
   AString getInstalledVersion();
