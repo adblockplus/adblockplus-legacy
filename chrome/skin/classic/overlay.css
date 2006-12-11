@@ -65,6 +65,10 @@ toolbar[iconsize="small"] #abp-toolbarbutton[disabled="true"],
   list-style-image: url("abp-defunc-16.png");
 }
 
+toolbox[vertical="true"] toolbar #abp-toolbarbutton dropmarker {
+  display: none !important;
+}
+
 menuitem[default="true"] {
   font-weight: bold;
 }
