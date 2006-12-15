@@ -108,7 +108,7 @@
     </treecols>
 
     <treechildren tooltip="tooltip" context="context"
-                  onclick="if (event.button == 1) openInTab(event)"
+                  onclick="if (event.button == 1) openInTab(event);event.preventDefault();"
                   ondblclick="if (event.button == 0) doBlock()"
                   noitemslabel="&noitems.label;" notremotelabel="&notremote.label;"
                   whitelistedlabel="&whitelisted.label;" notloadedlabel="&notloaded.label;"/>

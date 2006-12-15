@@ -282,7 +282,10 @@ function openInTab(e) {
   if (!item)
     return;
 
-  mainWin.delayedOpenTab(item.location);
+  if ('delayedOpenTab' in mainWin)
+    mainWin.delayedOpenTab(item.location);
+  else
+    mainWin.getBrowser().addTab(item.location);
 }
 
 // Starts up the main Adblock window
