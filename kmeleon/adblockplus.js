@@ -247,6 +247,10 @@ function triggerMenuItem(id) {
   func.apply(menuItem);
 }
 
+function wrapNode(node) {
+  return abp.__parent__.wrapNode(node);
+}
+
 Components.classes["@mozilla.org/moz/jssubscript-loader;1"]
           .getService(Components.interfaces.mozIJSSubScriptLoader)
           .loadSubScript("chrome://adblockplus/content/overlay.js", this);
