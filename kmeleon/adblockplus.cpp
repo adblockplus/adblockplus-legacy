@@ -322,13 +322,20 @@ JSBool JS_DLL_CALLBACK JSAddMenuItem(JSContext* cx, JSObject* obj, uintN argc, j
 }
 
 JSBool JS_DLL_CALLBACK JSGetContentWindow(JSContext *cx, JSObject *obj, jsval id, jsval *vp) {
+  abpJSContextHolder holder;
+  JSObject* overlay = wrapper->UnwrapNative(wrapper->GetBrowserWindow());
+  if (!holder.get() || !overlay)
+    return PR_FALSE;
+
+  jsval args[1];
   JSObject* wndObj = wrapper->GetGlobalObject(wrapper->GetCurrentWindow());
   if (wndObj != nsnull)
-    *vp = OBJECT_TO_JSVAL(wndObj);
+    args[0] = OBJECT_TO_JSVAL(wndObj);
   else
-    *vp = OBJECT_TO_JSVAL(obj);
+    args[0] = OBJECT_TO_JSVAL(obj);
 
-  return JS_TRUE;
+  // HACKHACK: There is probably a better way to wrap the object
+  return JS_CallFunctionName(holder.get(), overlay, "wrapNode", 1, args, vp);
 }
 
 JSBool JS_DLL_CALLBACK JSGetWrapper(JSContext *cx, JSObject *obj, jsval id, jsval *vp) {
