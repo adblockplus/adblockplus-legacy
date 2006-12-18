@@ -587,7 +587,7 @@ void abpWrapper::DoRebar(HWND hRebar) {
   rebar.cbSize = sizeof(rebar);
   rebar.fMask  = RBBIM_ID | RBBIM_STYLE | RBBIM_CHILD | RBBIM_CHILDSIZE | RBBIM_SIZE | RBBIM_IDEALSIZE;
   rebar.wID = 'AB';
-  rebar.fStyle = RBBS_CHILDEDGE;
+  rebar.fStyle = RBBS_CHILDEDGE | RBBS_FIXEDBMP;
   rebar.hwndChild  = toolbar;
   rebar.cxMinChild = width;
   rebar.cyMinChild = height;
