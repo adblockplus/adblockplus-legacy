@@ -219,14 +219,14 @@ function addObjectTab(node, location, tab, wnd) {
     var tabHeight = label.offsetHeight;
 
     // Label positioning
-    label.style.left = -tabWidth + "px";
-    label.style.top = (onTop ? -tabHeight + "px" :  "0px");
+    label.style.setProperty("left", -tabWidth + "px", "important");
+    label.style.setProperty("top", onTop ? -tabHeight + "px" :  "0px", "important");
 
     // Tab positioning
     var box1 = doc.getBoxObjectFor(origNode);
     var box2 = doc.getBoxObjectFor(tab);
-    tab.style.left = (box1.screenX + box1.width - box2.screenX) + "px";
-    tab.style.top = (box1.screenY + (onTop ? 0 : box1.height) - box2.screenY) + "px";
+    tab.style.setProperty("left", (box1.screenX + box1.width - box2.screenX) + "px", "important");
+    tab.style.setProperty("top", (box1.screenY + (onTop ? 0 : box1.height) - box2.screenY) + "px", "important");
 
     // Show tab
     tab.className = "abp-objtab visible" + (onTop ? " ontop" : "");
