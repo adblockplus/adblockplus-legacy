@@ -74,11 +74,7 @@ var policy = {
   },
 
   // Checks whether a node should be blocked, hides it if necessary, return value false means that the node is blocked
-  processNode: function(node, contentType, location, collapse) {
-    var wnd = getWindow(node);
-    if (!wnd)
-      return true;
-
+  processNode: function(wnd, node, contentType, location, collapse) {
     var topWnd = wnd.top;
     if (!topWnd || !topWnd.location || !topWnd.location.href)
       return true;
@@ -114,8 +110,8 @@ var policy = {
         prefs.increaseHitCount(match);
 
       // Check links in parent nodes
-      if (node && !(node instanceof Window) && prefs.linkcheck && this.shouldCheckLinks(contentType))
-          linksOk = this.checkLinks(node);
+      if (node && !(node instanceof Window) && prefs.linkcheck && contentType in linkTypes)
+          linksOk = this.checkLinks(wnd, node);
   
       if (match && match.type != "whitelist" && node) {
         // hide immediately if fastcollapse is off but not base types
@@ -152,7 +148,7 @@ var policy = {
   },
 
   // Tests whether some parent of the node is a link matching a filter
-  checkLinks: function(node) {
+  checkLinks: function(wnd, node) {
     while (node) {
       if ("href" in node) {
         var nodeLocation = unwrapURL(node.href);
@@ -164,7 +160,7 @@ var policy = {
     }
 
     if (node)
-      return this.processNode(node, type.LINK, nodeLocation, false);
+      return this.processNode(wnd, node, type.LINK, nodeLocation, false);
     else
       return true;
   },
@@ -185,11 +181,6 @@ var policy = {
 
     var scheme = location.replace(/:.*/, "").toUpperCase();
     return (scheme in localSchemes);
-  },
-
-  // Checks whether links should be checked for the specified type
-  shouldCheckLinks: function(type) {
-    return (type in linkTypes);
   },
 
   // Checks whether a page is whitelisted
@@ -267,22 +258,43 @@ var policy = {
     if (!blockTypes)
       return ok;
 
-    // if it's not a blockable type or a whitelisted scheme, use the usual policy
-    var location = unwrapURL(contentLocation.spec);
-    if (!(contentType in blockTypes && this.isBlockableScheme(location)) || location == 'about:blank')
-      return ok;
-
     if (!insecNode)
       return ok;
 
     // HACKHACK: Pass the node though XPCOM to work around bug 337095
     var node = wrapNode(insecNode);
+    var wnd = getWindow(node);
+    if (!wnd)
+      return ok;
 
-    // New API will return the frame element, make it a window
-    if (contentType == type.SUBDOCUMENT && node.contentWindow)
+    // Only block in content windows
+    var wndType = wnd.QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+                     .getInterface(Components.interfaces.nsIWebNavigation)
+                     .QueryInterface(Components.interfaces.nsIDocShellTreeItem)
+                     .itemType;
+    if (wndType != Components.interfaces.nsIDocShellTreeItem.typeContent)
+      return ok;
+
+    var location = unwrapURL(contentLocation.spec);
+    if (/^chrome:\/\/([^\/]+)/.test(location) && "protectchrome" in prefs) {
+      // Disallow chrome requests for protected namespaces
+      var name = RegExp.$1;
+      for (var n = 0; n < prefs.protectchrome.length; n++)
+        if (prefs.protectchrome[n] == name)
+          return block;
+    }
+
+    // if it's not a blockable type or a whitelisted scheme, use the usual policy
+    if (!(contentType in blockTypes && this.isBlockableScheme(location)) || location == 'about:blank')
+      return ok;
+
+    // For frame elements go to their window
+    if (contentType == type.SUBDOCUMENT && node.contentWindow) {
       node = node.contentWindow;
+      wnd = node;
+    }
 
-    return (this.processNode(node, contentType, location, false) ? ok : block);
+    return (this.processNode(wnd, node, contentType, location, false) ? ok : block);
   },
 
   shouldProcess: function(contentType, contentLocation, requestOrigin, insecNode, mimeType, extra) {
@@ -313,7 +325,7 @@ var policy = {
               nodes[j].parentNode.removeChild(nodes[j]);
           }
           else
-            this.processNode(nodes[j], data[i].type, data[i].location, true);
+            this.processNode(wnd, nodes[j], data[i].type, data[i].location, true);
         }
       }
     }

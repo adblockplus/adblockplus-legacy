@@ -43,9 +43,6 @@ abp.getString = function(name) {
 
 // Retrieves the window object for a node or returns null if it isn't possible
 function getWindow(node) {
-  if (node instanceof Window)
-    return node;
-
   if (node && node.nodeType != Node.DOCUMENT_NODE)
     node = node.ownerDocument;
 

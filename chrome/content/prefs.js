@@ -330,11 +330,22 @@ var prefs = {
       else if (type == defaultBranch.PREF_BOOL)
         typeName = "Bool";
 
-      try {
-        var pref = [name, typeName, defaultBranch["get" + typeName + "Pref"](name)];
-        this.prefList.push(pref);
-        this.prefList[" " + name] = pref;
-      } catch(e) {}
+      if (/^(\w+)\./.test(name)) {
+        try {
+          var listName = RegExp.$1;
+          var value = defaultBranch["get" + typeName + "Pref"](name);
+          if (!(listName in this))
+            this[listName] = [];
+          this[listName].push(value);
+        } catch(e) {}
+      }
+      else {
+        try {
+          var pref = [name, typeName, defaultBranch["get" + typeName + "Pref"](name)];
+          this.prefList.push(pref);
+          this.prefList[" " + name] = pref;
+        } catch(e) {}
+      }
     }
 
     // Initial prefs loading
