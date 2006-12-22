@@ -25,22 +25,26 @@
 @namespace url("http://www.w3.org/1999/xhtml");
 
 a.abp-objtab {
-  display: block !important;
-  visibility: visible !important;
+  display: inline !important;
+  visibility: hidden !important;
+  float: left !important;
   position: relative !important;
   overflow: visible !important;
   width: 0px !important;
   height: 0px !important;
-  left: 0px !important;
-  top: 0px !important;
   z-index: 65535 !important;
   -moz-opacity: 0.5 !important;
   text-decoration: none !important;
 }
 
-a.abp-objtab div {
-  display: block !important;
+a.abp-objtab.visible {
   visibility: visible !important;
+}
+
+a.abp-objtab div {
+  display: inline !important;
+  visibility: visible !important;
+  float: none !important;
   position: relative !important;
   border-style: ridge !important;
   background-color: white !important;
@@ -58,4 +62,18 @@ a.abp-objtab div {
   text-indent: 0px !important;
   text-transform: none !important;
   direction: ltr !important;
+  padding: 0px 10px !important;
+  border-width: 0px 2px 2px 2px !important;
+  -moz-border-radius-topleft: 0px !important;
+  -moz-border-radius-topright: 0px !important;
+  -moz-border-radius-bottomleft: 10px !important;
+  -moz-border-radius-bottomright: 10px !important;
+}
+
+a.abp-objtab.ontop div {
+  border-width: 2px 2px 0px 2px !important;
+  -moz-border-radius-topleft: 10px !important;
+  -moz-border-radius-topright: 10px !important;
+  -moz-border-radius-bottomleft: 0px !important;
+  -moz-border-radius-bottomright: 0px !important;
 }
