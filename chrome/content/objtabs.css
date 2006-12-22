@@ -44,7 +44,7 @@ a.abp-objtab.visible {
 a.abp-objtab div {
   display: inline !important;
   visibility: visible !important;
-  float: none !important;
+  float: left !important;
   position: relative !important;
   border-style: ridge !important;
   background-color: white !important;
