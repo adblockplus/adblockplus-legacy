@@ -34,6 +34,8 @@ const ok = Components.interfaces.nsIContentPolicy.ACCEPT;
 const block = Components.interfaces.nsIContentPolicy.REJECT_REQUEST;
 
 var policy = {
+  allowOnce: null,
+
   init: function() {
     var types = ["OTHER", "SCRIPT", "IMAGE", "STYLESHEET", "OBJECT", "SUBDOCUMENT", "DOCUMENT"];
 
@@ -276,6 +278,11 @@ var policy = {
       return ok;
 
     var location = unwrapURL(contentLocation.spec);
+    if (location == this.allowOnce) {
+      this.allowOnce = null;
+      return ok;
+    }
+
     if (/^chrome:\/\/([^\/]+)/.test(location) && "protectchrome" in prefs) {
       // Disallow chrome requests for protected namespaces
       var name = RegExp.$1;
