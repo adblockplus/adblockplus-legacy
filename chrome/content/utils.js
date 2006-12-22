@@ -166,6 +166,8 @@ function generateClickHandler(wnd, location) {
   }
 }
 
+var objTabBinding = null;
+
 // Creates a tab above/below the new object node
 function addObjectTab(node, location, tab, wnd) {
   var origNode = node;
@@ -194,6 +196,7 @@ function addObjectTab(node, location, tab, wnd) {
 
   // Attach binding
   var doc = node.ownerDocument;
+  abp.allowOnce("chrome://adblockplus/content/objecttab.xml#objectTab");
   doc.loadBindingDocument("chrome://adblockplus/content/objecttab.xml");
   doc.addBinding(tab, "chrome://adblockplus/content/objecttab.xml#objectTab");
 

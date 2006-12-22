@@ -157,6 +157,10 @@ interface nsIAdblockPlus : nsISupports
   void removePatterns([array, size_is(length)] in wstring patterns, in unsigned long length);
 
   /**
+  */
+  void allowOnce(in wstring address);
+
+  /**
    * Returns the installed version of Adblock Plus.
   */
   AString getInstalledVersion();
