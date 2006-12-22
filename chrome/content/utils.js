@@ -171,7 +171,7 @@ function generateClickHandler(wnd, location) {
 
 // Creates a tab above/below the new object node
 function addObjectTab(node, location, tab, wnd) {
-  var offsetNode = node;
+  var origNode = node;
 
   if (node.parentNode && node.parentNode.tagName.toLowerCase() == "object") {
     // Don't insert object tabs inside an outer object, causes ActiveX Plugin to do bad things
@@ -183,26 +183,21 @@ function addObjectTab(node, location, tab, wnd) {
 
   // Decide whether to display the tab on top or the bottom of the object
   var offsetTop = 0;
-  for (; offsetNode; offsetNode = offsetNode.offsetParent)
+  for (var offsetNode = origNode; offsetNode; offsetNode = offsetNode.offsetParent)
     offsetTop += offsetNode.offsetTop;
 
   var onTop = (offsetTop > 40);
-  tab.style.paddingLeft = node.offsetWidth + "px";
 
   // Click event handler
   tab.setAttribute("href", location);
   tab.addEventListener("click", generateClickHandler(wnd, location), false);
 
   // Insert tab into the document
-  if (onTop)
-    node.parentNode.insertBefore(tab, node);
-  else {
-    var nextSibling = node.nextSibling;
-    if (nextSibling)
-      node.parentNode.insertBefore(tab, node.nextSibling);
-    else
-      node.parentNode.appendChild(tab);
-  }
+  var nextSibling = node.nextSibling;
+  if (nextSibling)
+    node.parentNode.insertBefore(tab, nextSibling);
+  else
+    node.parentNode.appendChild(tab);
 
   // Attach binding
   var doc = node.ownerDocument;
@@ -210,24 +205,31 @@ function addObjectTab(node, location, tab, wnd) {
   doc.addBinding(tab, "chrome://adblockplus/content/objecttab.xml#objectTab");
 
   var initHandler = function() {
-    // Tab dimensions
-    var tabWidth = 70;
-    var tabHeight = 18;
+    // Make binding apply properly
+    tab.className = "abp-objtab";
 
+    createTimer(initHandler2, 0);
+  }
+  var initHandler2 = function() {
     // Initialization
     var label = doc.getAnonymousNodes(tab)[0];
+
+    // Tab dimensions
+    var tabWidth = label.offsetWidth;
+    var tabHeight = label.offsetHeight;
 
     // Label positioning
     label.style.left = -tabWidth + "px";
     label.style.top = (onTop ? -tabHeight + "px" :  "0px");
-    label.style.width = (tabWidth - 4) + "px";
-    label.style.height = (tabHeight - 2) + "px";
-    label.style.borderWidth = (onTop ? "2px 2px 0px 2px" : "0px 2px 2px 2px");
-    label.style.MozBorderRadiusTopleft = label.style.MozBorderRadiusTopright = (onTop ? "10px" : "0px");
-    label.style.MozBorderRadiusBottomleft = label.style.MozBorderRadiusBottomright = (onTop ? "0px" : "10px");
+
+    // Tab positioning
+    var box1 = doc.getBoxObjectFor(origNode);
+    var box2 = doc.getBoxObjectFor(tab);
+    tab.style.left = (box1.screenX + box1.width - box2.screenX) + "px";
+    tab.style.top = (box1.screenY + (onTop ? 0 : box1.height) - box2.screenY) + "px";
 
     // Show tab
-    tab.className = "abp-objtab";
+    tab.className = "abp-objtab visible" + (onTop ? " ontop" : "");
   }
   createTimer(initHandler, 0);
 }
