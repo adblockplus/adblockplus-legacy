@@ -193,11 +193,7 @@ function addObjectTab(node, location, tab, wnd) {
   tab.addEventListener("click", generateClickHandler(wnd, location), false);
 
   // Insert tab into the document
-  var nextSibling = node.nextSibling;
-  if (nextSibling)
-    node.parentNode.insertBefore(tab, nextSibling);
-  else
-    node.parentNode.appendChild(tab);
+  node.parentNode.insertBefore(tab, node);
 
   // Attach binding
   var doc = node.ownerDocument;
