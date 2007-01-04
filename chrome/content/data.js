@@ -99,8 +99,18 @@ DataContainer.prototype = {
       else
         DataContainer.notifyListeners(this, "select", me);
     }
+
+    var removeHandler = function(ev) {
+      if (!ev.isTrusted)
+        return;
+
+      me.removeNode(ev.target);
+    }
+
     wnd.addEventListener("pagehide", hideHandler, false);
     wnd.addEventListener("pageshow", showHandler, false);
+
+    wnd.addEventListener("DOMNodeRemoved", removeHandler, true);
   },
 
   registerSubdocument: function(topWnd, data) {
@@ -128,12 +138,7 @@ DataContainer.prototype = {
     }
 
     // If we had this node already, remove it from the list first
-    if ("abpLocation" + dataSeed in node) {
-      var oldNodes = node["abpLocation" + dataSeed].nodes;
-      for (var i = 0; i < oldNodes.length; i++)
-        if (oldNodes[i] == node)
-          oldNodes.splice(i--, 1);
-    }
+    this.removeNode(node);
 
     // for images repeated on page store node for each repeated image
     var key = " " + location;
@@ -163,6 +168,16 @@ DataContainer.prototype = {
       objTab["abpLocation" + dataSeed] = this.locations[key];
     }
   },
+
+  removeNode: function(node) {
+    if ("abpLocation" + dataSeed in node) {
+      var nodes = node["abpLocation" + dataSeed].nodes;
+      for (var i = 0; i < nodes.length; i++)
+        if (nodes[i] == node)
+          nodes.splice(i--, 1);
+    }
+  },
+
   getLocation: function(location) {
     var key = " " + location;
     if (key in this.locations)
