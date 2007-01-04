@@ -70,6 +70,7 @@ var policy = {
 
     // types that should be searched for links
     linkTypes = this.translateTypeList(prefs.linktypes);
+    this.linkTypes = linkTypes;
 
     // types that shouldn't be collapsed
     nonCollapsableTypes = this.translateTypeList(prefs.noncollapsabletypes);

@@ -896,7 +896,7 @@ function abpCheckContext() {
     if (gContextMenu.abpFrameData && gContextMenu.abpFrameData.filter)
       gContextMenu.abpFrameData = null;
 
-    if (abpPrefs.linkcheck && nodeType && abp.policy.shouldCheckLinks(data.type)) {
+    if (abpPrefs.linkcheck && nodeType && data.type in abp.policy.linkTypes) {
       // Look for a parent link
       var linkNode = target;
       while (linkNode && !gContextMenu.abpLinkData) {
