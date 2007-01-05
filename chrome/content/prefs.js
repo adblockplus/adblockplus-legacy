@@ -319,31 +319,37 @@ var prefs = {
     // Initialize prefs list
     var defaultBranch = prefService.getDefaultBranch(prefRoot);
     var defaultPrefs = defaultBranch.getChildList("", {});
+    var types = {};
+    types[defaultBranch.PREF_INT] = "Int";
+    types[defaultBranch.PREF_BOOL] = "Bool";
 
     this.prefList = [];
     for (var i = 0; i < defaultPrefs.length; i++) {
       var name = defaultPrefs[i];
       var type = defaultBranch.getPrefType(name);
-      var typeName = "Char";
-      if (type == defaultBranch.PREF_INT)
-        typeName = "Int";
-      else if (type == defaultBranch.PREF_BOOL)
-        typeName = "Bool";
+      var typeName = (type in types ? types[type] : "Char");
 
+      try {
+        var pref = [name, typeName, defaultBranch["get" + typeName + "Pref"](name)];
+        this.prefList.push(pref);
+        this.prefList[" " + name] = pref;
+      } catch(e) {}
+    }
+
+    // Load lists from runtime prefs
+    var runtimePrefs = this.branch.getChildList("", {});
+    for (var i = 0; i < runtimePrefs.length; i++) {
+      var name = runtimePrefs[i];
       if (/^(\w+)\./.test(name)) {
+        var listName = RegExp.$1;
+        var type = this.branch.getPrefType(name);
+        var typeName = (type in types ? types[type] : "Char");
+
         try {
-          var listName = RegExp.$1;
-          var value = defaultBranch["get" + typeName + "Pref"](name);
-          if (!(listName in this))
+          var value = this.branch["get" + typeName + "Pref"](name);
+          if (!(listName in this && this[listName] instanceof Array))
             this[listName] = [];
           this[listName].push(value);
-        } catch(e) {}
-      }
-      else {
-        try {
-          var pref = [name, typeName, defaultBranch["get" + typeName + "Pref"](name)];
-          this.prefList.push(pref);
-          this.prefList[" " + name] = pref;
         } catch(e) {}
       }
     }
