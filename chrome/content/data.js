@@ -131,7 +131,7 @@ DataContainer.prototype = {
       DataContainer.notifyListeners(topWnd, "refresh", this);
   },
   addNode: function(topWnd, node, contentType, location, filter, storedLoc, objTab) {
-    if (contentType == type.SUBDOCUMENT && typeof storedLoc == "undefined" && (!filter || filter.type == "whitelist")) {
+    if (contentType == type.SUBDOCUMENT && typeof storedLoc == "undefined" && node instanceof Window && (!filter || filter.type == "whitelist")) {
       // New document is about to load
       this.newLocation = {nodes: [node], type: contentType, location: location, filter: filter};
       return;
