@@ -99,6 +99,10 @@ var policy = {
     if (contentType == type.IMAGE && node.nodeType == Node.DOCUMENT_NODE)
       contentType = type.BACKGROUND;
 
+    // Fix type for objects misrepresented as frames or images
+    if (contentType != type.OBJECT && node instanceof Components.interfaces.nsIDOMHTMLObjectElement)
+      contentType = type.OBJECT;
+
     var data = DataContainer.getDataForWindow(wnd);
 
     var match = null;
