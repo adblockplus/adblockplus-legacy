@@ -7,16 +7,16 @@
 <!ENTITY addsubscription.accesskey "ش">
 <!ENTITY synchsubscriptions.label "به‌روزرساني اشتراک‌ها">
 <!ENTITY synchsubscriptions.accesskey "س">
-<!ENTITY import.label "واردات فيلترها">
+<!ENTITY import.label "واردکردن فيلترها">
 <!ENTITY import.accesskey "د">
-<!ENTITY export.label "صادرات فيلترها">
+<!ENTITY export.label "خروجی فيلترها">
 <!ENTITY export.accesskey "ف">
 <!ENTITY clearall.label "حذف فيلترها">
 <!ENTITY clearall.accesskey "ح">
 <!ENTITY resethitcounts.label "بازگشت آمار استفاده">
 <!ENTITY resethitcounts.accesskey "س">
 <!ENTITY edit.label "ويرايش">
-<!ENTITY edit.accesskey "ی">
+<!ENTITY edit.accesskey "ش">
 <!ENTITY cut.label "برش">
 <!ENTITY cut.accesskey "ر">
 <!ENTITY copy.label "رونوشت">
@@ -64,7 +64,7 @@
 کاربران پیشرفته می‌توانند از عبارات مرتب استفاده کنند٬ مانند:
 		/banner\d+\.gif$/">
 <!ENTITY pattern.column "دستور فيلتر">
-<!ENTITY enabled.column "فعال‌کردن">
+<!ENTITY enabled.column "فعال‌">
 <!ENTITY hitcount.column "استفاده شده">
 <!ENTITY lasthit.column "آخرين استفاده">
 <!ENTITY context.edit.label "ويرايش فيلتر">
