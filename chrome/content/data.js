@@ -223,6 +223,7 @@ DataContainer.getDataForNode = function(node) {
   // Make sure we get the same wrapper as in shouldLoad()
   node = wrapNode(node.wrappedJSObject);
 
+  var origNode = node;
   while (node) {
     if ("abpLocation" + dataSeed in node)
       return node["abpLocation" + dataSeed];
@@ -230,6 +231,11 @@ DataContainer.getDataForNode = function(node) {
     // If we don't have any information on the node, then maybe on its parent
     node = node.parentNode;
   }
+
+  // Try frame element for those object frames
+  var wnd = getWindow(origNode);
+  if (wnd && wnd.frameElement && "abpLocation" + dataSeed in wnd.frameElement)
+    return wnd.frameElement["abpLocation" + dataSeed];
 
   return null;
 };
