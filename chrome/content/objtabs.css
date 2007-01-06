@@ -46,8 +46,10 @@ a.abp-objtab div {
   visibility: visible !important;
   float: left !important;
   position: relative !important;
+  width: auto !important;
+  height: auto !important;
   border-style: ridge !important;
-  background-color: white !important;
+  background: white !important;
   color: black !important;
   cursor: pointer !important;
   font-family: Arial,Helvetica,Sans-Serif !important;
@@ -64,6 +66,7 @@ a.abp-objtab div {
   direction: ltr !important;
   padding: 0px 10px !important;
   border-width: 0px 2px 2px 2px !important;
+  border-color: black !important;
   -moz-border-radius-topleft: 0px !important;
   -moz-border-radius-topright: 0px !important;
   -moz-border-radius-bottomleft: 10px !important;
