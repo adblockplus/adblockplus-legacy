@@ -27,7 +27,7 @@ pref("extensions.adblockplus.patternsbackups", 5);
 pref("extensions.adblockplus.patternsbackupinterval", 24);
 pref("extensions.adblockplus.patterns", "@@|http://www.mozilla.org/ */adbanner/* */advertisements/* http://*.adserver.example.com/*");
 pref("extensions.adblockplus.grouporder", "~il~ ~wl~ ~fl~ ~eh~");
-pref("extensions.adblockplus.blocktypes", "script image stylesheet object subdocument");
+pref("extensions.adblockplus.blocktypes", "other script image stylesheet object subdocument");
 pref("extensions.adblockplus.linktypes", "image object");
 pref("extensions.adblockplus.noncollapsabletypes", "script stylesheet background");
 pref("extensions.adblockplus.whitelistschemes", "about chrome file irc mailto news resource snews x-jsd addbook cid imap mailbox nntp pop data javascript");
