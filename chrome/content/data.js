@@ -85,7 +85,7 @@ DataContainer.prototype = {
         }, 0);
         me.newLocation = null;
       }
-    }
+    };
 
     var showHandler = function(ev) {
       if (!ev.isTrusted || ev.eventPhase != ev.AT_TARGET)
@@ -98,14 +98,14 @@ DataContainer.prototype = {
         me.topContainer.registerSubdocument(this.top, me);
       else
         DataContainer.notifyListeners(this, "select", me);
-    }
+    };
 
     var removeHandler = function(ev) {
       if (!ev.isTrusted)
         return;
 
       me.removeNode(ev.target);
-    }
+    };
 
     wnd.addEventListener("pagehide", hideHandler, false);
     wnd.addEventListener("pageshow", showHandler, false);
