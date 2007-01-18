@@ -105,7 +105,7 @@ function abpInit() {
       fixId(child);
 
     return node;
-  }
+  };
   var copyMenu = function(to) {
     if (!to || !to.firstChild)
       return;
@@ -114,7 +114,7 @@ function abpInit() {
     var from = document.getElementById("abp-status-popup");
     for (var node = from.firstChild; node; node = node.nextSibling)
       to.appendChild(fixId(node.cloneNode(true)));
-  }
+  };
   copyMenu(document.getElementById("abp-toolbarbutton"));
   copyMenu(abpGetPaletteButton());
 
@@ -216,7 +216,7 @@ function abpReloadPrefs() {
       element.setAttribute("whitelisted", "true");
     else if (state == "disabled")
       element.setAttribute("deactivated", "true");
-  }
+  };
 
   var status = document.getElementById("abp-status");
   updateElement(status);
@@ -557,7 +557,7 @@ function abpFillPopup(popup) {
       var msgHdr = gDBView.hdrForFirstSelectedMessage;
       var headerParser = Components.classes["@mozilla.org/messenger/headerparser;1"]
                                   .getService(Components.interfaces.nsIMsgHeaderParser);
-      var site = headerParser.extractHeaderAddressMailboxes(null, msgHdr.author);
+      site = headerParser.extractHeaderAddressMailboxes(null, msgHdr.author);
       if (site)
         site = site.replace(/^[\s"]+/, "").replace(/[\s"]+$/, "");
     }
@@ -642,7 +642,7 @@ function abpIsSidebarOpen() {
   if ("toggleSidebar" in window)
     return (document.getElementById("viewAdblockPlusSidebar").getAttribute("checked") == "true");
   else if ("SidebarGetLastSelectedPanel" in window) {
-    const sidebarURI = "urn:sidebar:3rdparty-panel:adblockplus";
+    var sidebarURI = "urn:sidebar:3rdparty-panel:adblockplus";
     return (!sidebar_is_hidden() && SidebarGetLastSelectedPanel() == sidebarURI);
   }
   return false;
@@ -684,12 +684,12 @@ function abpToggleSidebarInternal() {
     }
     else if (!mustDetach && "SidebarGetLastSelectedPanel" in window) {
       // Open Mozilla Suite/Seamonkey sidebar
-      const sidebarURI = "urn:sidebar:3rdparty-panel:adblockplus";
-      const sidebarTitle = document.getElementById("abp-status").getAttribute("sidebartitle");
-      const sidebarURL = "chrome://adblockplus/content/sidebar.xul";
-      const sidebarExclude = "composer:html composer:text";
-      const prefix = "http://home.netscape.com/NC-rdf#";
-      const rootURI = "urn:sidebar:current-panel-list";
+      var sidebarURI = "urn:sidebar:3rdparty-panel:adblockplus";
+      var sidebarTitle = document.getElementById("abp-status").getAttribute("sidebartitle");
+      var sidebarURL = "chrome://adblockplus/content/sidebar.xul";
+      var sidebarExclude = "composer:html composer:text";
+      var prefix = "http://home.netscape.com/NC-rdf#";
+      var rootURI = "urn:sidebar:current-panel-list";
 
       var panelsFile = abpGetPanelsFile();
       if (!panelsFile)
@@ -709,10 +709,10 @@ function abpToggleSidebarInternal() {
   
       var resource = function(uri) {
         return rdfService.GetResource(uri);
-      }
+      };
       var literal = function(str) {
         return rdfService.GetLiteral(str);
-      }
+      };
   
       var seqNode = datasource.GetTarget(resource(rootURI), resource(prefix + "panel-list"), true);
       var sequence = containerUtils.MakeSeq(datasource, seqNode);
