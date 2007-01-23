@@ -56,6 +56,7 @@
   <description id="contributorsTitle" value="&contributors.label;"/>
   <vbox id="contributorsBox">
     <description value="Ahmet Serkan Tıratacı - Turkish translation"/>
+    <description value="Antonio Urquia - Spanish translation of the Element Hiding Helper extension"/>
     <description value="Bahram Maravandi - Persian translation"/>
     <description value="Blackdire - Chinese Simplified translation"/>
     <description value="Cédric Menge - &quot;Cédrics Liste&quot; filter subscription and many suggestions"/>
@@ -67,6 +68,7 @@
     <description value="Hrvoje Majer - Croatian translation"/>
     <description value="Jacen - Slovak translation"/>
     <description value="Jakub Tománek - Czech translation"/>
+    <description value="Jari Huttunen - Finnish translation of the Element Hiding Helper extension"/>
     <description value="Jesús Vidal Panalés - Spanish translation"/>
     <description value="jojaba - French translation"/>
     <description value="Jonas Slivka - Lithuanian translation"/>
