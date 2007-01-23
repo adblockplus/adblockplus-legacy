@@ -12,7 +12,7 @@ print VERSION $ARGV[0];
 close(VERSION);
 
 @ARGV = ("../downloads/adblockplus-$version.xpi");
-do 'create_xpi.pl';
+do './create_xpi.pl';
 
 opendir(LOCALES, "chrome/locale");
 my @locales = grep {!/[^\w\-]/ && !/CVS/} readdir(LOCALES);
@@ -22,7 +22,7 @@ closedir(LOCALES);
 for my $locale (@locales)
 {
   @ARGV = ("../downloads/adblockplus-$version-$locale.xpi", $locale);
-  do 'create_xpi.pl';
+  do './create_xpi.pl';
 }
 
 chdir('..');
