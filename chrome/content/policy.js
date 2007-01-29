@@ -65,9 +65,6 @@ var policy = {
     // whitelisted URL schemes
     whitelistSchemes = this.translateList(prefs.whitelistschemes);
 
-    // whitelisted URL schemes
-    localSchemes = this.translateList(prefs.localschemes);
-
     // types that should be searched for links
     linkTypes = this.translateTypeList(prefs.linktypes);
     this.linkTypes = linkTypes;
@@ -80,13 +77,6 @@ var policy = {
   processNode: function(wnd, node, contentType, location, collapse) {
     var topWnd = wnd.top;
     if (!topWnd || !topWnd.location || !topWnd.location.href)
-      return true;
-
-    var wndLocation = (contentType == type.SUBDOCUMENT ? location : unwrapURL(wnd.location.href));
-    var blockable = this.isBlockableScheme(wndLocation);
-    if (!blockable && this.isLocalScheme(wndLocation))
-      blockable = true;
-    if (!blockable)
       return true;
 
     var pageMatch = this.isWindowWhitelisted(topWnd);
@@ -179,15 +169,6 @@ var policy = {
 
     var scheme = location.replace(/:.*/, "").toUpperCase();
     return !(scheme in whitelistSchemes) || location == "about:blank";
-  },
-
-  // Checks whether the location's scheme is local
-  isLocalScheme: function(location) {
-    if (location.indexOf(":") < 0)
-      return false;
-
-    var scheme = location.replace(/:.*/, "").toUpperCase();
-    return (scheme in localSchemes);
   },
 
   // Checks whether a page is whitelisted

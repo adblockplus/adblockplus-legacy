@@ -30,7 +30,6 @@ pref("extensions.adblockplus.blocktypes", "other script image stylesheet object 
 pref("extensions.adblockplus.linktypes", "image object");
 pref("extensions.adblockplus.noncollapsabletypes", "script stylesheet background");
 pref("extensions.adblockplus.whitelistschemes", "about chrome file irc mailto news resource snews x-jsd addbook cid imap mailbox nntp pop data javascript");
-pref("extensions.adblockplus.localschemes", "file imap mailbox nntp news pop data javascript");
 pref("extensions.adblockplus.hideimagemanager", true);
 pref("extensions.adblockplus.protectchrome.abp", "adblockplus");
 pref("extensions.{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}.description", "chrome://adblockplus/locale/global.properties");
