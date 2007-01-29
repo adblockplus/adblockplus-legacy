@@ -515,16 +515,16 @@ var prefs = {
     if (this.branch.prefHasUserValue("patterns")) {
       // Import old patterns
       this.disableObserver = true;
-      var list = this.patterns.split(" ");
-      for (var i = 0; i < list.length; i++) {
-        if (!(list[i] in this.knownPatterns)) {
-          var pattern = this.patternFromText(list[i]);
-          if (pattern)
-            this.userPatterns.push(pattern);
-        }
-      }
-
       try {
+        var list = this.branch.getCharPref("patterns").split(" ");
+        for (var i = 0; i < list.length; i++) {
+          if (!(list[i] in this.knownPatterns)) {
+            var pattern = this.patternFromText(list[i]);
+            if (pattern)
+              this.userPatterns.push(pattern);
+          }
+        }
+
         this.branch.clearUserPref("patterns");
         prefService.savePrefFile(null);
       } catch(e) {}
@@ -553,16 +553,6 @@ var prefs = {
 
     if (!this.checkedadblocksync)
       this.importOldPatterns();
-
-    if (this.userPatterns.length == 0 && " patterns" in this.prefList && !stream) {
-      // Fill patterns list with default values
-      var list = this.prefList[" patterns"][2].split(" ");
-      for (var i = 0; i < list.length; i++) {
-        var pattern = this.patternFromText(list[i]);
-        if (pattern)
-          this.userPatterns.push(pattern);
-      }
-    }
 
     if (" grouporder" in this.prefList) {
       var special = this.prefList[" grouporder"][2].split(" ");
