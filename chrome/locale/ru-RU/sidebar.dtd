@@ -36,7 +36,6 @@
 <!ENTITY state.label              "Статус">
 
 <!ENTITY noitems.label            "Блокировать нечего">
-<!ENTITY notremote.label          "Страница не из интернета">
 <!ENTITY whitelisted.label        "Отключен на этой странице">
 <!ENTITY notloaded.label          "Adblock Plus не загрузился нормально">
 

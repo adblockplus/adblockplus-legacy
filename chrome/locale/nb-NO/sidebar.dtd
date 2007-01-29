@@ -8,7 +8,6 @@
 <!ENTITY filter.label "Filter">
 <!ENTITY state.label "status">
 <!ENTITY noitems.label "Ingen elementer som kan blokkeres">
-<!ENTITY notremote.label "Ikke en ekstern side">
 <!ENTITY whitelisted.label "Hvitlistet side">
 <!ENTITY notloaded.label "Adblock Plus har ikke blitt installert riktig">
 <!ENTITY tooltip.address.label "Adresse:">

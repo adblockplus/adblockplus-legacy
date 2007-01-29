@@ -8,7 +8,6 @@
 <!ENTITY filter.label "Фільтр">
 <!ENTITY state.label "Статус">
 <!ENTITY noitems.label "Блокувати нічого">
-<!ENTITY notremote.label "Сторінка не з інтернету">
 <!ENTITY whitelisted.label "Відключений на цій сторінці">
 <!ENTITY notloaded.label "Adblock Plus не завантажився нормально">
 <!ENTITY tooltip.address.label "Адреса:">

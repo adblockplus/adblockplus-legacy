@@ -8,7 +8,6 @@
 <!ENTITY filter.label "Filter">
 <!ENTITY state.label "Stav">
 <!ENTITY noitems.label "Neblokovateľné položky">
-<!ENTITY notremote.label "Nie vzdialená stránka">
 <!ENTITY whitelisted.label "Povolené stránky">
 <!ENTITY notloaded.label "Adblock Plus nebol nainštalovaný správne">
 <!ENTITY tooltip.address.label "Adresa:">

@@ -8,7 +8,6 @@
 <!ENTITY filter.label "필터">
 <!ENTITY state.label "상태">
 <!ENTITY noitems.label "차단 가능한 항목 없음">
-<!ENTITY notremote.label "원격 페이지 아님">
 <!ENTITY whitelisted.label "차단 목록 페이지">
 <!ENTITY notloaded.label "Adblock Plus가 올바르게 설치되지 않았습니다.">
 <!ENTITY tooltip.address.label "주소:">

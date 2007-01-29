@@ -8,7 +8,6 @@
 <!ENTITY filter.label "Filtras">
 <!ENTITY state.label "Būsena">
 <!ENTITY noitems.label "Nėra blokuojamų elementų">
-<!ENTITY notremote.label "Nėra nuotolinis tinklalapis">
 <!ENTITY whitelisted.label "Tinklalapis, įtrauktas į išimtis">
 <!ENTITY notloaded.label "„Adblock Plus“ nėra tinkamai įdiegtas">
 <!ENTITY tooltip.address.label "Adresas:">

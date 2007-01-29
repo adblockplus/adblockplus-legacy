@@ -8,7 +8,6 @@
 <!ENTITY filter.label "过滤规则">
 <!ENTITY state.label "状态">
 <!ENTITY noitems.label "无可过滤项目">
-<!ENTITY notremote.label "非远程页面">
 <!ENTITY whitelisted.label "列入白名单的页面">
 <!ENTITY notloaded.label "Adblock Plus没有完全安装">
 <!ENTITY tooltip.address.label "地址:">

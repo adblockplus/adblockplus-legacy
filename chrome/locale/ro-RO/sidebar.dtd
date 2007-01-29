@@ -8,7 +8,6 @@
 <!ENTITY filter.label "Filtru">
 <!ENTITY state.label "Stare">
 <!ENTITY noitems.label "Nici un element blocabil">
-<!ENTITY notremote.label "Pagina locală">
 <!ENTITY whitelisted.label "Pagini sigure">
 <!ENTITY notloaded.label "Adblock Plus nu este instalat corespunzător">
 <!ENTITY tooltip.address.label "Adresă:">

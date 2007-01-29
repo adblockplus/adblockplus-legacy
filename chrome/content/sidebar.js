@@ -484,7 +484,6 @@ var treeView = {
 
     this.boxObject = boxObject;
     this.itemsDummy = boxObject.treeBody.getAttribute("noitemslabel");
-    this.remoteDummy = boxObject.treeBody.getAttribute("notremotelabel");
     this.whitelistDummy = boxObject.treeBody.getAttribute("whitelistedlabel");
     this.loadDummy = boxObject.treeBody.getAttribute("notloadedlabel");
 
@@ -503,7 +502,6 @@ var treeView = {
 
     if (abp) {
       this.itemsDummyTooltip = abp.getString("no_blocking_suggestions");
-      this.remoteDummyTooltip = abp.getString("not_remote_page");
       this.whitelistDummyTooltip = abp.getString("whitelisted_page");
     }
 
@@ -567,14 +565,7 @@ var treeView = {
         return filter ? filter.text : "";
       }
 
-      if (abp.policy.isWindowWhitelisted(window.content))
-        return this.whitelistDummy;
-
-      var location = abp.unwrapURL(window.content.location.href);
-      if (!abp.policy.isBlockableScheme(location))
-        return this.remoteDummy;
-
-      return this.itemsDummy;
+      return (abp.policy.isWindowWhitelisted(window.content) ? this.whitelistDummy : this.itemsDummy);
     }
   },
 
@@ -687,10 +678,8 @@ var treeView = {
   sortColumn: null,
   sortProc: null,
   itemsDummy: null,
-  remoteDummy: null,
   whitelistDummy: null,
   itemsDummyTooltip: null,
-  remoteDummyTooltip: null,
   whitelistDummyTooltip: null,
   loadDummy: null,
 
@@ -783,19 +772,11 @@ var treeView = {
     if (!this.data || this.data.length)
       return null;
 
-    var location = abp.unwrapURL(window.content.location.href);
-
-    // We want to stick with "no blockable items" for about:blank
-    if (location != "about:blank") {
-      var filter = abp.policy.isWindowWhitelisted(window.content);
-      if (filter)
-        return {tooltip: this.whitelistDummyTooltip, filter: filter};
-
-      if (!abp.policy.isBlockableScheme(location))
-        return {tooltip: this.remoteDummyTooltip};
-    }
-
-    return {tooltip: this.itemsDummyTooltip};
+    var filter = abp.policy.isWindowWhitelisted(window.content);
+    if (filter)
+      return {tooltip: this.whitelistDummyTooltip, filter: filter};
+    else
+      return {tooltip: this.itemsDummyTooltip};
   },
 
   selectItem: function(item) {

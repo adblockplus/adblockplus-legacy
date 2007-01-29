@@ -8,7 +8,6 @@
 <!ENTITY filter.label "Szűrő">
 <!ENTITY state.label "Állapot">
 <!ENTITY noitems.label "Nincs blokkolható objektum">
-<!ENTITY notremote.label "Nem távoli oldal">
 <!ENTITY whitelisted.label "A cím &apos;fehér listán&apos; van">
 <!ENTITY notloaded.label "Az Adblock Plus nem lett megfelelően telepítve">
 <!ENTITY tooltip.address.label "Cím:">

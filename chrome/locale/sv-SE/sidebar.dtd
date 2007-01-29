@@ -8,7 +8,6 @@
 <!ENTITY filter.label "Filter">
 <!ENTITY state.label "Tillstånd">
 <!ENTITY noitems.label "Inget att blockera">
-<!ENTITY notremote.label "Ingen fjärrsida">
 <!ENTITY whitelisted.label "Vitlistad sida">
 <!ENTITY notloaded.label "Adblock Plus är inte fullständigt installerat">
 <!ENTITY tooltip.address.label "Adress:">

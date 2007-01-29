@@ -8,7 +8,6 @@
 <!ENTITY filter.label "Suodatin">
 <!ENTITY state.label "Tila">
 <!ENTITY noitems.label "Ei estettäviä elementtejä">
-<!ENTITY notremote.label "Ei etäsivu">
 <!ENTITY whitelisted.label "Sallittu sivu">
 <!ENTITY notloaded.label "Adblock Plussaa ei ole asennettu oikein">
 <!ENTITY tooltip.address.label "Osoite:">

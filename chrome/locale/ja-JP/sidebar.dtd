@@ -36,7 +36,6 @@
 <!ENTITY state.label "状態">
 
 <!ENTITY noitems.label "ブロック可能な要素はありません">
-<!ENTITY notremote.label "ローカルディスク上のページです">
 <!ENTITY whitelisted.label "ホワイトリストに登録されたページです">
 <!ENTITY notloaded.label "適切にインストールされていません">
 

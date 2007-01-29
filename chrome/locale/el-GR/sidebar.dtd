@@ -8,7 +8,6 @@
 <!ENTITY filter.label "Φίλτρο">
 <!ENTITY state.label "Κατάσταση">
 <!ENTITY noitems.label "Δεν υπάρχουν στοιχεία προς φιλτράρισμα">
-<!ENTITY notremote.label "Η σελίδα δεν είναι απομακρυσμένη">
 <!ENTITY whitelisted.label "Η σελίδα ανήκει στην άσπρη λίστα">
 <!ENTITY notloaded.label "Η εγκατάσταση του Adblock Plus είναι ημιτελής">
 <!ENTITY tooltip.address.label "Διεύθυνση:">

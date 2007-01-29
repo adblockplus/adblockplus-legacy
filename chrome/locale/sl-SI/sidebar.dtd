@@ -8,7 +8,6 @@
 <!ENTITY filter.label "Filter">
 <!ENTITY state.label "Stanje">
 <!ENTITY noitems.label "Ni elementov blokiranja">
-<!ENTITY notremote.label "Ni oddaljena stran">
 <!ENTITY whitelisted.label "Dovoljena stran">
 <!ENTITY notloaded.label "Adblock Plus ni bil pravilno nameščen">
 <!ENTITY tooltip.address.label "Naslov:">

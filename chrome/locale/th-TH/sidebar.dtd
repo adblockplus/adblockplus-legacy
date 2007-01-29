@@ -8,7 +8,6 @@
 <!ENTITY filter.label "ตัวกรอง">
 <!ENTITY state.label "สถานะ">
 <!ENTITY noitems.label "ไม่มีรายการที่บล็อกได้">
-<!ENTITY notremote.label "ไม่ใช่หน้ารีโมต">
 <!ENTITY whitelisted.label "หน้ารายชื่อโปร่งใส">
 <!ENTITY notloaded.label "Adblock Plus ไม่ถูกติดตั้งอย่างถูกต้อง">
 <!ENTITY tooltip.address.label "ที่อยู่:">
