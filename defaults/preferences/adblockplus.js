@@ -24,7 +24,6 @@ pref("extensions.adblockplus.previewimages", true);
 pref("extensions.adblockplus.patternsfile", "adblockplus/patterns.ini");
 pref("extensions.adblockplus.patternsbackups", 5);
 pref("extensions.adblockplus.patternsbackupinterval", 24);
-pref("extensions.adblockplus.patterns", "@@|http://www.mozilla.org/ */adbanner/* */advertisements/* http://*.adserver.example.com/*");
 pref("extensions.adblockplus.grouporder", "~il~ ~wl~ ~fl~ ~eh~");
 pref("extensions.adblockplus.blocktypes", "other script image stylesheet object subdocument");
 pref("extensions.adblockplus.linktypes", "image object");
