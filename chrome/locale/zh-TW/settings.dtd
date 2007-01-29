@@ -37,8 +37,6 @@
 <!ENTITY showintoolbar.accesskey "B">
 <!ENTITY showinstatusbar.label "顯示狀態列圖示">
 <!ENTITY showinstatusbar.accesskey "S">
-<!ENTITY localpages.label "阻擋本機網頁中的外部廣告">
-<!ENTITY localpages.accesskey "R">
 <!ENTITY objecttabs.label "Flash 和 Java 物件上顯示頁籤">
 <!ENTITY objecttabs.accesskey "T">
 <!ENTITY collapse.label "釋放物件所佔用的空間">
@@ -60,8 +58,8 @@
 <!ENTITY about.accesskey "B">
 <!ENTITY disabled.warning "Adblock Plus 已停用。您仍然可以編輯過濾條件，但直到您啟用前都不會有作用。">
 <!ENTITY description "請輸入您想阻擋的物件位址，或從下拉清單中選擇現正瀏覽頁面的物件來阻擋。
-		您可以使用萬用字元「*」建立可適用多個網站的過濾條件。
-		進階使用者則可以輸入像 /banner\d+\.gif$/ 這類的「正規表示式」。">
+    您可以使用萬用字元「*」建立可適用多個網站的過濾條件。
+    進階使用者則可以輸入像 /banner\d+\.gif$/ 這類的「正規表示式」。">
 <!ENTITY pattern.column "過濾條件">
 <!ENTITY enabled.column "已啟用">
 <!ENTITY hitcount.column "命中數">

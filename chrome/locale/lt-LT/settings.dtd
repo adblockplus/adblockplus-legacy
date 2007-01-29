@@ -37,8 +37,6 @@
 <!ENTITY showintoolbar.accesskey "P">
 <!ENTITY showinstatusbar.label "Rodyti būsenos juostoje">
 <!ENTITY showinstatusbar.accesskey "B">
-<!ENTITY localpages.label "Blokuoti nutolusias reklamas vietiniuose tinklalapiuose">
-<!ENTITY localpages.accesskey "N">
 <!ENTITY objecttabs.label "Rodyti korteles Flash ir Java elementams">
 <!ENTITY objecttabs.accesskey "F">
 <!ENTITY collapse.label "Suskleisti užblokuotus elementus">

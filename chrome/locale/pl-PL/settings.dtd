@@ -37,8 +37,6 @@
 <!ENTITY showintoolbar.accesskey "D">
 <!ENTITY showinstatusbar.label "Wyświetl ikonę Adblock Plusa na pasku stanu">
 <!ENTITY showinstatusbar.accesskey "N">
-<!ENTITY localpages.label "Blokuj reklamy na lokalnych stronach">
-<!ENTITY localpages.accesskey "B">
 <!ENTITY objecttabs.label "Pokaż przyciski blokowania na elementach Flasha i Javy">
 <!ENTITY objecttabs.accesskey "K">
 <!ENTITY collapse.label "Ukryj zablokowane elementy">
@@ -60,8 +58,8 @@
 <!ENTITY about.accesskey "O">
 <!ENTITY disabled.warning "Adblock Plus jest wyłączony. Można edytować dowolny filtr, ale do czasu ponownego włączenia Adblocka zmiany te nie będą działały.">
 <!ENTITY description "Dodaj adres, który chcesz zablokować. Aby zobaczyć podpowiedzi przejdź do menu &quot;Pomoc&quot;.
-		Można używać * jako wieloznacznika przy tworzeniu większej ilości filtrów. Zaawansowani użytkownicy
-		mogą używać wyrażeń regularnych takich jak: /banner\d+\.gif$/.">
+    Można używać * jako wieloznacznika przy tworzeniu większej ilości filtrów. Zaawansowani użytkownicy
+    mogą używać wyrażeń regularnych takich jak: /banner\d+\.gif$/.">
 <!ENTITY pattern.column "Reguła filtru">
 <!ENTITY enabled.column "Aktywny">
 <!ENTITY hitcount.column "Użycie">

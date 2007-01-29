@@ -37,8 +37,6 @@
 <!ENTITY showintoolbar.accesskey "k">
 <!ENTITY showinstatusbar.label "Pokaži v vrstici stanja">
 <!ENTITY showinstatusbar.accesskey "v">
-<!ENTITY localpages.label "Blokiraj oddaljene oglase na krajevnih straneh">
-<!ENTITY localpages.accesskey "o">
 <!ENTITY objecttabs.label "Pokaži zavihke za Flash in Javo">
 <!ENTITY objecttabs.accesskey "z">
 <!ENTITY collapse.label "Zloži blokirane elemente">

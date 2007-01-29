@@ -1,4 +1,4 @@
-﻿<!-- ***** BEGIN LICENSE BLOCK *****
+<!-- ***** BEGIN LICENSE BLOCK *****
    - Version: MPL 1.1
    -
    - The contents of this file are subject to the Mozilla Public License Version
@@ -67,8 +67,6 @@
 <!ENTITY showintoolbar.accesskey    "п">
 <!ENTITY showinstatusbar.label      "Показывать в строке состояния">
 <!ENTITY showinstatusbar.accesskey  "с">
-<!ENTITY localpages.label           "Блокировать рекламу в локальных страницах">
-<!ENTITY localpages.accesskey       "л">
 <!ENTITY objecttabs.label           "Показывать ярлык на Flash и Java">
 <!ENTITY objecttabs.accesskey       "я">
 <!ENTITY collapse.label             "Сворачивать заблокированные элементы">

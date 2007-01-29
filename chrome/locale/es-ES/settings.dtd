@@ -37,8 +37,6 @@
 <!ENTITY showintoolbar.accesskey "h">
 <!ENTITY showinstatusbar.label "Mostrar en la barra de estado">
 <!ENTITY showinstatusbar.accesskey "B">
-<!ENTITY localpages.label "Bloquear publicidad remota en las páginas locales">
-<!ENTITY localpages.accesskey "R">
 <!ENTITY objecttabs.label "Mostrar pestañas en Flash y Java">
 <!ENTITY objecttabs.accesskey "T">
 <!ENTITY collapse.label "Contraer elementos bloqueados">

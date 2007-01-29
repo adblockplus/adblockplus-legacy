@@ -7,7 +7,6 @@ pref("extensions.adblockplus.linkcheck", false);
 pref("extensions.adblockplus.warnregexp", true);
 pref("extensions.adblockplus.showintoolbar", true);
 pref("extensions.adblockplus.showinstatusbar", false);
-pref("extensions.adblockplus.blocklocalpages", true);
 pref("extensions.adblockplus.checkedtoolbar", false);
 pref("extensions.adblockplus.checkedadblockprefs", false);
 pref("extensions.adblockplus.checkedadblocksync", false);

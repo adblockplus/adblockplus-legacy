@@ -67,8 +67,6 @@
 <!ENTITY showintoolbar.accesskey    "B">
 <!ENTITY showinstatusbar.label      "Show in status bar">
 <!ENTITY showinstatusbar.accesskey  "S">
-<!ENTITY localpages.label           "Block remote ads in local pages">
-<!ENTITY localpages.accesskey       "R">
 <!ENTITY objecttabs.label           "Show tabs on Flash and Java">
 <!ENTITY objecttabs.accesskey       "T">
 <!ENTITY collapse.label             "Collapse blocked elements">

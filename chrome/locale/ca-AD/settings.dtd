@@ -37,8 +37,6 @@
 <!ENTITY showintoolbar.accesskey "B">
 <!ENTITY showinstatusbar.label "Mostra a la barra d&apos;estat">
 <!ENTITY showinstatusbar.accesskey "S">
-<!ENTITY localpages.label "Bloqueja anuncis remots a pàgines locals">
-<!ENTITY localpages.accesskey "R">
 <!ENTITY objecttabs.label "Mostra les pestanyes a Flash i Java">
 <!ENTITY objecttabs.accesskey "T">
 <!ENTITY collapse.label "Plega els elements bloquejats">

@@ -37,8 +37,6 @@
 <!ENTITY showintoolbar.accesskey "u">
 <!ENTITY showinstatusbar.label "Arată în bara de stare">
 <!ENTITY showinstatusbar.accesskey "s">
-<!ENTITY localpages.label "Blochează reclamele în paginile locale">
-<!ENTITY localpages.accesskey "B">
 <!ENTITY objecttabs.label "Arată panouri lângă Flash şi Java">
 <!ENTITY objecttabs.accesskey "p">
 <!ENTITY collapse.label "Ascunde elementele blocate">
