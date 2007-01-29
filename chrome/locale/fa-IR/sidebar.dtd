@@ -8,7 +8,6 @@
 <!ENTITY filter.label "فيلتر">
 <!ENTITY state.label "وصعيت">
 <!ENTITY noitems.label "موارد قابل ردکردن پيدا نشد">
-<!ENTITY notremote.label "صفحه دور نمي‌باشد">
 <!ENTITY whitelisted.label "صفحه در فهرست سفيد">
 <!ENTITY notloaded.label "Adblock Plus صحيح نصب نشده">
 <!ENTITY tooltip.address.label "نشاني:">

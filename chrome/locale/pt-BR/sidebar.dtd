@@ -8,7 +8,6 @@
 <!ENTITY filter.label "Filtro">
 <!ENTITY state.label "Estado">
 <!ENTITY noitems.label "Nenhum item bloqueável">
-<!ENTITY notremote.label "Não é uma página remota">
 <!ENTITY whitelisted.label "Página na lista branca">
 <!ENTITY notloaded.label "O Adblock Plus não foi instalado corretamente">
 <!ENTITY tooltip.address.label "Endereço:">

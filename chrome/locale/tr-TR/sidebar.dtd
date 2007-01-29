@@ -8,7 +8,6 @@
 <!ENTITY filter.label "Süzgeç">
 <!ENTITY state.label "Durum">
 <!ENTITY noitems.label "Engellenebilecek öğe yok">
-<!ENTITY notremote.label "Uzaktaki bir sayfa değil">
 <!ENTITY whitelisted.label "Ak listeye dahil bir sayfa">
 <!ENTITY notloaded.label "Adblock Plus düzgün kurulmamış">
 <!ENTITY tooltip.address.label "Konum:">

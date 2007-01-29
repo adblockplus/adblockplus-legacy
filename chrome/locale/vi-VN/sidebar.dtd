@@ -8,7 +8,6 @@
 <!ENTITY filter.label "Mục lọc">
 <!ENTITY state.label "Trạng thái">
 <!ENTITY noitems.label "Không có mục có thể chặn được">
-<!ENTITY notremote.label "Không phải là trang trực tuyến">
 <!ENTITY whitelisted.label "Trang nằm trong sổ trắng">
 <!ENTITY notloaded.label "Adblock Plus chưa được gắn đúng">
 <!ENTITY tooltip.address.label "Địa chỉ:">

@@ -8,7 +8,6 @@
 <!ENTITY filter.label "過濾條件">
 <!ENTITY state.label "狀態">
 <!ENTITY noitems.label "無可阻擋項目">
-<!ENTITY notremote.label "不是網路上的網頁">
 <!ENTITY whitelisted.label "此頁面已加入白名單">
 <!ENTITY notloaded.label "Adblock Plus 未正確安裝">
 <!ENTITY tooltip.address.label "位址:">

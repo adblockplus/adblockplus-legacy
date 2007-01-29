@@ -36,7 +36,6 @@
 <!ENTITY state.label              "Status">
 
 <!ENTITY noitems.label            "Keine Elemente zu blockieren">
-<!ENTITY notremote.label          "Seite is lokal">
 <!ENTITY whitelisted.label        "Deaktiviert auf dieser Seite">
 <!ENTITY notloaded.label          "Adblock Plus wurde nicht korrekt installiert">
 

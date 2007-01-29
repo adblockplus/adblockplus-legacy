@@ -158,13 +158,9 @@ function setContentWindow(contentWnd) {
   if (!data.length) {
     var reason = abp.getString("no_blocking_suggestions");
     var type = "filterlist";
-    if (wnd && wnd.location) {
-      var location = abp.unwrapURL(wnd.location.href);
-      if (abp.policy.isWindowWhitelisted(wnd)) {
-        reason = abp.getString("whitelisted_page");
-        type = "whitelist";
-      } else if (!abp.policy.isBlockableScheme(location))
-        reason = abp.getString("not_remote_page");
+    if (wnd && abp.policy.isWindowWhitelisted(wnd)) {
+      reason = abp.getString("whitelisted_page");
+      type = "whitelist";
     }
     data.push({location: reason, typeDescr: "", localizedDescr: "", nodes: [], filter: {type: type}});
   }

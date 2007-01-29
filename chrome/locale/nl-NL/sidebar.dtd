@@ -8,7 +8,6 @@
 <!ENTITY filter.label "Filter">
 <!ENTITY state.label "Status">
 <!ENTITY noitems.label "Geen blokkeerbare voorwerpen">
-<!ENTITY notremote.label "Geen remote pagina">
 <!ENTITY whitelisted.label "Toegestane pagina">
 <!ENTITY notloaded.label "Adblock Plus is niet goed geïnstalleerd">
 <!ENTITY tooltip.address.label "Adres:">
