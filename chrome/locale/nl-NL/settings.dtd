@@ -37,8 +37,6 @@
 <!ENTITY showintoolbar.accesskey "w">
 <!ENTITY showinstatusbar.label "Laat zien in statusbalk">
 <!ENTITY showinstatusbar.accesskey "s">
-<!ENTITY localpages.label "Reclames vanaf het internet blokkeren in locale pagina’s">
-<!ENTITY localpages.accesskey "R">
 <!ENTITY objecttabs.label "Tabs laten zien op Flash en Java">
 <!ENTITY objecttabs.accesskey "T">
 <!ENTITY collapse.label "Geblokkeerde elementen inklappen">

@@ -37,8 +37,6 @@
 <!ENTITY showintoolbar.accesskey "b">
 <!ENTITY showinstatusbar.label "Zobrazit ve stavovém řádku">
 <!ENTITY showinstatusbar.accesskey "r">
-<!ENTITY localpages.label "Blokovat vzdálené reklamy na místních stránkách">
-<!ENTITY localpages.accesskey "m">
 <!ENTITY objecttabs.label "Zobrazovat ouška u objektů Java a Flash">
 <!ENTITY objecttabs.accesskey "o">
 <!ENTITY collapse.label "Minimalizovat blokované objekty">

@@ -37,8 +37,6 @@
 <!ENTITY showintoolbar.accesskey "R">
 <!ENTITY showinstatusbar.label "Durum çubuğunda göster">
 <!ENTITY showinstatusbar.accesskey "D">
-<!ENTITY localpages.label "Yerel sayfaların dış kaynaklı reklamlarını engelle">
-<!ENTITY localpages.accesskey "Y">
 <!ENTITY objecttabs.label "Flash ve Java&apos;yı kulakçıklarla belirt">
 <!ENTITY objecttabs.accesskey "J">
 <!ENTITY collapse.label "Öğeleri kapat">

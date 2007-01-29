@@ -84,7 +84,7 @@ var policy = {
 
     var wndLocation = (contentType == type.SUBDOCUMENT ? location : unwrapURL(wnd.location.href));
     var blockable = this.isBlockableScheme(wndLocation);
-    if (!blockable && prefs.blocklocalpages && this.isLocalScheme(wndLocation))
+    if (!blockable && this.isLocalScheme(wndLocation))
       blockable = true;
     if (!blockable)
       return true;

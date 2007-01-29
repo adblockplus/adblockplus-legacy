@@ -37,8 +37,6 @@
 <!ENTITY showintoolbar.accesskey "B">
 <!ENTITY showinstatusbar.label "แสดงในแถบสถานะ">
 <!ENTITY showinstatusbar.accesskey "S">
-<!ENTITY localpages.label "บล็อกโฆษณาทางไกลในหน้าเครือข่าย">
-<!ENTITY localpages.accesskey "R">
 <!ENTITY objecttabs.label "แสดงแท็บบนแฟลชและจาวา">
 <!ENTITY objecttabs.accesskey "T">
 <!ENTITY collapse.label "ย่อเก็บส่วนย่อยที่ถูกบล็อก">

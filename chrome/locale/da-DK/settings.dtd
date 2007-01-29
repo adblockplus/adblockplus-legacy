@@ -37,8 +37,6 @@
 <!ENTITY showintoolbar.accesskey "V">
 <!ENTITY showinstatusbar.label "Vis i statuslinie">
 <!ENTITY showinstatusbar.accesskey "s">
-<!ENTITY localpages.label "Blokér eksterne reklamer i lokale sider">
-<!ENTITY localpages.accesskey "r">
 <!ENTITY objecttabs.label "Vis faner på Flash og Java">
 <!ENTITY objecttabs.accesskey "J">
 <!ENTITY collapse.label "Sammenklap blokerede elementer">

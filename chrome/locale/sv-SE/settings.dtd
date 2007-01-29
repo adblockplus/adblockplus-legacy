@@ -37,8 +37,6 @@
 <!ENTITY showintoolbar.accesskey "y">
 <!ENTITY showinstatusbar.label "Visa i statusfält">
 <!ENTITY showinstatusbar.accesskey "s">
-<!ENTITY localpages.label "Blockera extern reklam i lokala sidor">
-<!ENTITY localpages.accesskey "r">
 <!ENTITY objecttabs.label "Visa flik vid Flash- och Java-reklam">
 <!ENTITY objecttabs.accesskey "V">
 <!ENTITY collapse.label "Dölj blockerade element">

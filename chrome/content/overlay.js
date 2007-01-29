@@ -601,7 +601,6 @@ function abpFillPopup(popup) {
   whitelistSeparator.hidden = !site && !location;
 
   elements.enabled.setAttribute("checked", abpPrefs.enabled);
-  elements.localpages.setAttribute("checked", abpPrefs.blocklocalpages);
   elements.frameobjects.setAttribute("checked", abpPrefs.frameobjects);
   elements.slowcollapse.setAttribute("checked", !abpPrefs.fastcollapse);
   elements.linkcheck.setAttribute("checked", abpPrefs.linkcheck);

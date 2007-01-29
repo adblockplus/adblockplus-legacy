@@ -150,7 +150,6 @@
       <menupopup id="options-popup" onpopupshowing="fillOptionsPopup()">
         <menuitem id="abp-enabled" label="&enable.label;" accesskey="&enable.accesskey;" type="checkbox" oncommand="togglePref('enabled')"/>
         <menuseparator/>
-        <menuitem id="localpages" label="&localpages.label;" accesskey="&localpages.accesskey;" type="checkbox" oncommand="togglePref('blocklocalpages')"/>
         <menuitem id="frameobjects" label="&objecttabs.label;" accesskey="&objecttabs.accesskey;" type="checkbox" oncommand="togglePref('frameobjects')"/>
         <menuitem id="slowcollapse" label="&collapse.label;" accesskey="&collapse.accesskey;" type="checkbox" oncommand="togglePref('fastcollapse')"/>
         <menuitem id="linkcheck" label="&linkcheck.label;" accesskey="&linkcheck.accesskey;" type="checkbox" oncommand="togglePref('linkcheck')"/>

@@ -37,8 +37,6 @@
 <!ENTITY showintoolbar.accesskey "H">
 <!ENTITY showinstatusbar.label "Hiện trong thanh trạng thái">
 <!ENTITY showinstatusbar.accesskey "t">
-<!ENTITY localpages.label "Chặn các mục quảng cáo trực tuyến trong các trang nội tại">
-<!ENTITY localpages.accesskey "C">
 <!ENTITY objecttabs.label "Hiện thẻ Adblock trên Flash và Java">
 <!ENTITY objecttabs.accesskey "A">
 <!ENTITY collapse.label "Dồn nhóm các phần tử bị chặn">
