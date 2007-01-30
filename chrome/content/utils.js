@@ -86,21 +86,27 @@ abp.makeURL = makeURL;
 function hideNode(node) {
   if (node instanceof Window)
     node = node.frameElement;
+  if (!(node instanceof Element))
+    return;
 
   // adjust frameset's cols/rows for frames
   var parentNode = node.parentNode;
-  if (parentNode && parentNode.nodeName.toLowerCase() == "frameset" &&
-      (parentNode.hasAttribute("cols") ^ parentNode.hasAttribute("rows"))) {
-    var frameTags = {FRAME: true, FRAMESET: true};
-    var index = -1;
-    for (var frame = node; frame; frame = frame.previousSibling)
-      if (frame.nodeName.toUpperCase() in frameTags)
-        index++;
-
-    var attr = (parentNode.hasAttribute("rows") ? "rows" : "cols");
-    var weights = parentNode.getAttribute(attr).split(",");
-    weights[index] = "0";
-    parentNode.setAttribute(attr, weights.join(","));
+  if (parentNode && parentNode.nodeName.toLowerCase() == "frameset") {
+    var nonEmptyRE = /,/;
+    var hasCols = parentNode.hasAttribute("cols") && nonEmptyRE.test(parentNode.getAttribute("cols"));
+    var hasRows = parentNode.hasAttribute("rows") && nonEmptyRE.test(parentNode.getAttribute("rows"));
+    if (hasCols ^ hasRows) {
+      var frameTags = {FRAME: true, FRAMESET: true};
+      var index = -1;
+      for (var frame = node; frame; frame = frame.previousSibling)
+        if (frame.nodeName.toUpperCase() in frameTags)
+          index++;
+  
+      var attr = (hasRows ? "rows" : "cols");
+      var weights = parentNode.getAttribute(attr).split(",");
+      weights[index] = "0";
+      parentNode.setAttribute(attr, weights.join(","));
+    }
   }
   else
     node.style.display = "none";

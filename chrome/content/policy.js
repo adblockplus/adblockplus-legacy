@@ -27,7 +27,7 @@
  * This file is included from nsAdblockPlus.js.
  */
 
-var type, typeDescr, localizedDescr, whitelistSchemes, linkTypes, nonCollapsableTypes;
+var type, typeDescr, localizedDescr, whitelistSchemes;
 var blockTypes = null;
 
 const ok = Components.interfaces.nsIContentPolicy.ACCEPT;
@@ -40,15 +40,19 @@ var policy = {
     var types = ["OTHER", "SCRIPT", "IMAGE", "STYLESHEET", "OBJECT", "SUBDOCUMENT", "DOCUMENT"];
 
     // type constant by type description and type description by type constant
-    type = {};
+    this.type = type = {};
     typeDescr = {};
     localizedDescr = {};
+    blockTypes = {};
     var iface = Components.interfaces.nsIContentPolicy;
     for (var k = 0; k < types.length; k++) {
       var typeName = types[k];
       type[typeName] = iface["TYPE_" + typeName];
       typeDescr[type[typeName]] = typeName;
       localizedDescr[type[typeName]] = abp.getString("type_label_" + typeName.toLowerCase());
+
+      if (types[k] != "DOCUMENT")
+        blockTypes[type[typeName]] = 1;
     }
   
     type.LINK = 0xFFFF;
@@ -59,18 +63,8 @@ var policy = {
     typeDescr[0xFFFE] = "BACKGROUND";
     localizedDescr[0xFFFE] = abp.getString("type_label_background");
   
-    // blockable content policy types
-    blockTypes = this.translateTypeList(prefs.blocktypes);
-
     // whitelisted URL schemes
     whitelistSchemes = this.translateList(prefs.whitelistschemes);
-
-    // types that should be searched for links
-    linkTypes = this.translateTypeList(prefs.linktypes);
-    this.linkTypes = linkTypes;
-
-    // types that shouldn't be collapsed
-    nonCollapsableTypes = this.translateTypeList(prefs.noncollapsabletypes);
   },
 
   // Checks whether a node should be blocked, hides it if necessary, return value false means that the node is blocked
@@ -107,24 +101,18 @@ var policy = {
         prefs.increaseHitCount(match);
 
       // Check links in parent nodes
-      if (node && !(node instanceof Window) && prefs.linkcheck && contentType in linkTypes)
-          linksOk = this.checkLinks(wnd, node);
+      if (node && prefs.linkcheck && node instanceof Components.interfaces.nsIImageLoadingContent)
+        linksOk = this.checkLinks(wnd, node);
   
-      if (match && match.type != "whitelist" && node) {
-        // hide immediately if fastcollapse is off but not base types
-        collapse = collapse || !prefs.fastcollapse;
-        collapse = collapse && !(contentType in nonCollapsableTypes);
-        if (collapse)
-          wnd.setTimeout(hideNode, 0, node);
-      }
+      if (match && match.type != "whitelist" && node && (collapse || !prefs.fastcollapse))
+        wnd.setTimeout(hideNode, 0, node);
 
       // Show object tabs unless this is a standalone object
-      // XXX: We will never recognize objects loading from jar: as standalone!
       if (!match && prefs.frameobjects && contentType == type.OBJECT &&
           node.ownerDocument && /^text\/|[+\/]xml$/.test(node.ownerDocument.contentType)) {
         // Before adding object tabs always check whether one exist already
         var hasObjectTab = false;
-        var loc = data.getLocation(location);
+        var loc = data.getLocation(type.OBJECT, location);
         if (loc)
           for (var i = 0; i < loc.nodes.length; i++)
             if (loc.nodes[i] == node && i < loc.nodes.length - 1 && "abpObjTab" in loc.nodes[i+1])
@@ -168,7 +156,7 @@ var policy = {
       return true;
 
     var scheme = location.replace(/:.*/, "").toUpperCase();
-    return !(scheme in whitelistSchemes) || location == "about:blank";
+    return !(scheme in whitelistSchemes);
   },
 
   // Checks whether a page is whitelisted
@@ -219,17 +207,6 @@ var policy = {
     return null;
   },
 
-  // Translates a space separated list of types into an object where properties corresponding
-  // to the types listed are set to true
-  translateTypeList: function(str) {
-    var ret = {};
-    var types = str.toUpperCase().split(" ");
-    for (var i = 0; i < types.length; i++)
-      if (types[i] in type)
-        ret[type[types[i]]] = true;
-    return ret;
-  },
-
   // Translates a space separated list into an object where properties corresponding
   // to list entries are set to true
   translateList: function(str) {
@@ -278,7 +255,7 @@ var policy = {
     }
 
     // if it's not a blockable type or a whitelisted scheme, use the usual policy
-    if (!(contentType in blockTypes && this.isBlockableScheme(location)) || location == 'about:blank')
+    if (!(contentType in blockTypes && this.isBlockableScheme(location)))
       return ok;
 
     // For frame elements go to their window

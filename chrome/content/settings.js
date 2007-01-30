@@ -218,6 +218,7 @@ function createFilterSuggestion(menulist, suggestion) {
   else if (suggestion.filter)
     menuitem.className = "filtered";
 
+  menuitem.data = suggestion;
   suggestionItems.push(menuitem);
 }
 
@@ -231,14 +232,11 @@ function fixColWidth() {
     suggestionItems[i].childNodes[1].style.width = maxWidth+"px";
 }
 
-function onInputChange(e) {
-  if (e.type == "DOMAttrModified" && e.attrName != "value")
-    return;
-  if (!wndData)
+function onEditorSelectionChange(e) {
+  if (e.attrName != "value" || !wndData)
     return;
 
-  var value = e.target.value;
-  var loc = wndData.getLocation(value);
+  var loc =  (e.target.selectedItem && "data" in e.target.selectedItem ? e.target.selectedItem.data : null);
   flasher.flash(loc ? loc.nodes : null);
 };
 
@@ -2248,8 +2246,7 @@ var treeView = {
       // Need to attach handlers to the embedded html:input instead of menulist - won't catch blur otherwise
       editor.field.addEventListener("keypress", handler1, false);
       editor.field.addEventListener("blur", handler2, false);
-      editor.field.addEventListener("input", onInputChange, false);
-      editor.addEventListener("DOMAttrModified", onInputChange, false);
+      editor.addEventListener("DOMAttrModified", onEditorSelectionChange, false);
 
       boxObject.invalidateRow(row);
     }, 0, this.boxObject, this.editor, this.editorKeyPressHandler, this.editorBlurHandler);
@@ -2263,8 +2260,7 @@ var treeView = {
 
     this.editor.field.removeEventListener("keypress", this.editorKeyPressHandler, false);
     this.editor.field.removeEventListener("blur", this.editorBlurHandler, false);
-    this.editor.field.removeEventListener("input", onInputChange, false);
-    this.editor.removeEventListener("DOMAttrModified", onInputChange, false);
+    this.editor.removeEventListener("DOMAttrModified", onEditorSelectionChange, false);
 
     var text = abp.normalizeFilter(this.editor.value);
     if (typeof blur == "undefined" || !blur)

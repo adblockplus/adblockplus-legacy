@@ -122,6 +122,7 @@ const factory = {
  */
 
 const Node = Components.interfaces.nsIDOMNode;
+const Element = Components.interfaces.nsIDOMElement;
 const Window = Components.interfaces.nsIDOMWindow;
 
 var windowMediator = Components.classes["@mozilla.org/appshell/window-mediator;1"]

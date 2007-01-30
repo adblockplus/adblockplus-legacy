@@ -32,6 +32,7 @@ var dataSeed = Math.random();    // Make sure our properties have randomized nam
 function DataContainer(wnd) {
   this.locations = {};
   this.subdocs = [];
+  this.url = unwrapURL(wnd.location.href);
   this.install(wnd);
 }
 abp.DataContainer = DataContainer;
@@ -141,7 +142,7 @@ DataContainer.prototype = {
     this.removeNode(node);
 
     // for images repeated on page store node for each repeated image
-    var key = " " + location;
+    var key = " " + contentType + " " + location;
     if (key in this.locations) {
       // Always override the filter just in case a known node has been blocked
       this.locations[key].filter = filter;
@@ -178,13 +179,13 @@ DataContainer.prototype = {
     }
   },
 
-  getLocation: function(location) {
-    var key = " " + location;
+  getLocation: function(type, location) {
+    var key = " " + type + " " + location;
     if (key in this.locations)
       return this.locations[key];
 
     for (var i = 0; i < this.subdocs.length; i++) {
-      var result = this.subdocs[i].getLocation(location);
+      var result = this.subdocs[i].getLocation(type, location);
       if (result)
         return result;
     }
@@ -226,7 +227,7 @@ DataContainer.getDataForNode = function(node) {
   var origNode = node;
   while (node) {
     if ("abpLocation" + dataSeed in node)
-      return node["abpLocation" + dataSeed];
+      return [node, node["abpLocation" + dataSeed]];
 
     // If we don't have any information on the node, then maybe on its parent
     node = node.parentNode;
@@ -235,7 +236,7 @@ DataContainer.getDataForNode = function(node) {
   // Try frame element for those object frames
   var wnd = getWindow(origNode);
   if (wnd && wnd.frameElement && "abpLocation" + dataSeed in wnd.frameElement)
-    return wnd.frameElement["abpLocation" + dataSeed];
+    return [wnd, wnd.frameElement["abpLocation" + dataSeed]];
 
   return null;
 };
