@@ -578,7 +578,7 @@ function abpFillPopup(popup) {
   }
 
   if (!site && location) {
-    if (abp.policy.isBlockableScheme(location) && location != "about:blank") {
+    if (abp.policy.isBlockableScheme(location)) {
       var url = location.replace(/\?.*/, '');
       var host = abp.makeURL(location);
       if (host)
@@ -884,6 +884,11 @@ function abpCheckContext() {
   if (abp) {
     // Lookup the node in our stored data
     var data = abp.getDataForNode(target);
+    var targetNode = null;
+    if (data) {
+      targetNode = data[0];
+      data = data[1];
+    }
     gContextMenu.abpData = data;
     if (data && !data.filter)
       nodeType = data.typeDescr;
@@ -892,17 +897,19 @@ function abpCheckContext() {
     var wndData = (wnd ? abp.getDataForWindow(wnd) : null);
 
     gContextMenu.abpFrameData = abp.getDataForNode(wnd);
+    if (gContextMenu.abpFrameData)
+      gContextMenu.abpFrameData = gContextMenu.abpFrameData[1];
     if (gContextMenu.abpFrameData && gContextMenu.abpFrameData.filter)
       gContextMenu.abpFrameData = null;
 
-    if (abpPrefs.linkcheck && nodeType && data.type in abp.policy.linkTypes) {
+    if (abpPrefs.linkcheck && targetNode instanceof Components.interfaces.nsIImageLoadingContent) {
       // Look for a parent link
       var linkNode = target;
       while (linkNode && !gContextMenu.abpLinkData) {
         if ("href" in linkNode) {
           var link = abp.unwrapURL(linkNode.href);
           if (link) {
-            gContextMenu.abpLinkData = wndData.getLocation(link);
+            gContextMenu.abpLinkData = wndData.getLocation(abp.policy.type.LINK, link);
             if (gContextMenu.abpLinkData && gContextMenu.abpLinkData.filter)
               gContextMenu.abpLinkData = null;
           }
@@ -924,7 +931,7 @@ function abpCheckContext() {
           var style = wnd.getComputedStyle(imageNode, "");
           bgImage = abpImageStyle(style, "background-image") || abpImageStyle(style, "list-style-image");
           if (bgImage) {
-            gContextMenu.abpBgData = wndData.getLocation(bgImage);
+            gContextMenu.abpBgData = wndData.getLocation(abp.policy.type.BACKGROUND, bgImage);
             if (gContextMenu.abpBgData && gContextMenu.abpBgData.filter)
               gContextMenu.abpBgData = null;
           }

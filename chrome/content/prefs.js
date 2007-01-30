@@ -395,10 +395,6 @@ var prefs = {
     // Fire pref listeners
     for (i = 0; i < this.listeners.length; i++)
       this.listeners[i](this);
-
-    // Import settings from old versions
-    if (!this.checkedadblockprefs)
-      this.importOldPrefs();
   },
 
   // Saves the changes back into the prefs
@@ -534,35 +530,35 @@ var prefs = {
     if (this.branch.prefHasUserValue("grouporder")) {
       // Import old subscriptions
       this.disableObserver = true;
-      var list = this.grouporder.split(" ");
-      for (var i = 0; i < list.length; i++) {
-        if (!(list[i] in this.listedSubscriptions)) {
-          var subscription = this.subscriptionFromURL(list[i]);
-          if (subscription) {
-            this.subscriptions.push(subscription);
-            this.listedSubscriptions[subscription.url] = subscription;
+      try {
+        var list = this.branch.getCharPref("grouporder").split(" ");
+        for (var i = 0; i < list.length; i++) {
+          if (!(list[i] in this.listedSubscriptions)) {
+            var subscription = this.subscriptionFromURL(list[i]);
+            if (subscription) {
+              this.subscriptions.push(subscription);
+              this.listedSubscriptions[subscription.url] = subscription;
+            }
           }
         }
-      }
-      try {
+
         this.branch.clearUserPref("grouporder");
         prefService.savePrefFile(null);
       } catch(e) {}
       this.disableObserver = false;
     }
 
-    if (!this.checkedadblocksync)
-      this.importOldPatterns();
+    // Import settings and patterns from old versions
+    if (!stream)
+      this.importOldPrefs();
 
-    if (" grouporder" in this.prefList) {
-      var special = this.prefList[" grouporder"][2].split(" ");
-      for (i = 0; i < special.length; i++) {
-        if (!(special[i] in this.listedSubscriptions)) {
-          var subscription = this.subscriptionFromURL(special[i]);
-          if (subscription) {
-            this.subscriptions.push(subscription);
-            this.listedSubscriptions[subscription.url] = subscription;
-          }
+    var specialGroups = ["~il~", "~wl~", "~fl~", "~eh~"];
+    for (i = 0; i < specialGroups.length; i++) {
+      if (!(specialGroups[i] in this.listedSubscriptions)) {
+        var subscription = this.subscriptionFromURL(specialGroups[i]);
+        if (subscription) {
+          this.subscriptions.push(subscription);
+          this.listedSubscriptions[subscription.url] = subscription;
         }
       }
     }
@@ -1185,7 +1181,9 @@ var prefs = {
 
   importOldPrefs: function() {
     var importBranch = prefService.getBranch("adblock.");
-    for (var i = 0; i < this.prefList.length; i++) {
+    var i, j, list;
+
+    for (i = 0; i < this.prefList.length; i++) {
       if (this.prefList[i][1] == "Bool") {
         var prefName = this.prefList[i][0];
         try {
@@ -1194,14 +1192,7 @@ var prefs = {
         } catch (e) {}
       }
     }
-  
-    this.checkedadblockprefs = true;
     this.save();
-  },
-
-  importOldPatterns: function() {
-    var importBranch = prefService.getBranch("adblock.");
-    var i, j, list;
 
     list = [];
     try {
@@ -1225,9 +1216,6 @@ var prefs = {
       if (subscription)
         this.subscriptions.push(subscription);
     }
-
-    this.checkedadblocksync = true;
-    this.save();
   },
 
   addListener: function(handler) {
