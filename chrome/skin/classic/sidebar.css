@@ -76,9 +76,11 @@ treechildren::-moz-tree-image(col-state, state-regular, dummy-false) {
 }
 
 treechildren::-moz-tree-image(col-state, state-filtered, dummy-false) {
-  list-style-image: url(checked-red.png);
+  list-style-image: url(item-blocked.png);
+  margin-left: 3px;
 }
 
 treechildren::-moz-tree-image(col-state, state-whitelisted, dummy-false) {
-  list-style-image: url(checked-green.png);
+  list-style-image: url(item-whitelisted.png);
+  margin-left: 3px;
 }
