@@ -62,7 +62,11 @@ var policy = {
     type.BACKGROUND = 0xFFFE;
     typeDescr[0xFFFE] = "BACKGROUND";
     localizedDescr[0xFFFE] = abp.getString("type_label_background");
-  
+
+    type.ELEMHIDE = 0xFFFD;
+    typeDescr[0xFFFD] = "ELEMHIDE";
+    localizedDescr[0xFFFD] = abp.getString("type_label_elemhide");
+
     // whitelisted URL schemes
     whitelistSchemes = this.translateList(prefs.whitelistschemes);
   },
@@ -73,10 +77,20 @@ var policy = {
     if (!topWnd || !topWnd.location || !topWnd.location.href)
       return true;
 
-    var pageMatch = this.isWindowWhitelisted(topWnd);
-    if (pageMatch) {
-      prefs.increaseHitCount(pageMatch);
-      return true;
+    var match = null;
+    if (/^abp:\/*registerhit\/*\?(\d+)$/.test(location) && RegExp.$1 in prefs.elemhidePatterns.keys) {
+      match = prefs.elemhidePatterns.keys[RegExp.$1];
+      prefs.increaseHitCount(match);
+      contentType = type.ELEMHIDE;
+      location = match.text.replace(/^.*?#/, '#');
+    }
+
+    if (!match) {
+      var pageMatch = this.isWindowWhitelisted(topWnd);
+      if (pageMatch) {
+        prefs.increaseHitCount(pageMatch);
+        return true;
+      }
     }
 
     // Fix type for background images
@@ -89,10 +103,10 @@ var policy = {
 
     var data = DataContainer.getDataForWindow(wnd);
 
-    var match = null;
     var objTab = null;
     var linksOk = true;
-    if (prefs.enabled) {
+
+    if (!match && prefs.enabled) {
       match = prefs.whitePatterns.matchesAny(location, typeDescr[contentType] || "");
       if (match == null)
         match = prefs.filterPatterns.matchesAny(location, typeDescr[contentType] || "");
@@ -104,8 +118,11 @@ var policy = {
       if (node && prefs.linkcheck && node instanceof Components.interfaces.nsIImageLoadingContent)
         linksOk = this.checkLinks(wnd, node);
   
-      if (match && match.type != "whitelist" && node && (collapse || !prefs.fastcollapse))
-        wnd.setTimeout(hideNode, 0, node);
+      if (match && match.type != "whitelist" && node) {
+        var prefCollapse = ("collapse" in match ? match.collapse : !prefs.fastcollapse);
+        if (collapse || prefCollapse)
+          wnd.setTimeout(hideNode, 0, node);
+      }
 
       // Show object tabs unless this is a standalone object
       if (!match && prefs.frameobjects && contentType == type.OBJECT &&

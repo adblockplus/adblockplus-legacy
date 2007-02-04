@@ -953,8 +953,8 @@ function compareEnabled(pattern1, pattern2) {
 }
 
 function compareHitCount(pattern1, pattern2) {
-  var hasHitCount1 = (pattern1.type == "whitelist" || pattern1.type == "filterlist" ? 1 : 0);
-  var hasHitCount2 = (pattern2.type == "whitelist" || pattern2.type == "filterlist" ? 1 : 0);
+  var hasHitCount1 = (pattern1.type != "comment" && pattern1.type != "invalid" ? 1 : 0);
+  var hasHitCount2 = (pattern2.type != "comment" || pattern2.type != "invalid" ? 1 : 0);
   if (hasHitCount1 != hasHitCount2)
     return hasHitCount1 - hasHitCount2;
   else if (hasHitCount1)
@@ -964,8 +964,8 @@ function compareHitCount(pattern1, pattern2) {
 }
 
 function compareLastHit(pattern1, pattern2) {
-  var hasLastHit1 = (pattern1.type == "whitelist" || pattern1.type == "filterlist" ? 1 : 0);
-  var hasLastHit2 = (pattern2.type == "whitelist" || pattern2.type == "filterlist" ? 1 : 0);
+  var hasLastHit1 = (pattern1.type != "comment" && pattern1.type != "invalid" ? 1 : 0);
+  var hasLastHit2 = (pattern2.type != "comment" && pattern2.type != "invalid" ? 1 : 0);
   if (hasLastHit1 != hasLastHit2)
     return hasLastHit1 - hasLastHit2;
   else if (hasLastHit1)
@@ -1156,7 +1156,7 @@ var treeView = {
     if (info[1] && typeof info[1] != "string") {
       if (col == "pattern")
         return info[1].text;
-      else if (info[1].type == "whitelist" || info[1].type == "filterlist") {
+      else if (info[1].type != "comment" && info[1].type != "invalid") {
         if (col == "hitcount")
           return info[1].orig.hitCount;
         else

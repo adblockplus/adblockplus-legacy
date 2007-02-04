@@ -453,10 +453,10 @@ function init() {
   loader.loadSubScript('chrome://adblockplus/content/utils.js');
   loader.loadSubScript('chrome://adblockplus/content/policy.js');
   loader.loadSubScript('chrome://adblockplus/content/data.js');
+  loader.loadSubScript('chrome://adblockplus/content/protocol.js');
   loader.loadSubScript('chrome://adblockplus/content/prefs.js');
   loader.loadSubScript('chrome://adblockplus/content/synchronizer.js');
   loader.loadSubScript('chrome://adblockplus/content/flasher.js');
-  loader.loadSubScript('chrome://adblockplus/content/protocol.js');
 
   // Clean up uninstalled files
   var dirService = Components.classes["@mozilla.org/file/directory_service;1"]

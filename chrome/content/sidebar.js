@@ -210,7 +210,7 @@ function fillInTooltip(e) {
     var type = item.localizedDescr;
     if (filter && filter.type == "whitelist")
       type += " " + document.getElementById("tooltipType").getAttribute("whitelisted");
-    else if (filter)
+    else if (filter && item.typeDescr != "ELEMHIDE")
       type += " " + document.getElementById("tooltipType").getAttribute("filtered");
     document.getElementById("tooltipType").setAttribute("value", type);
   }

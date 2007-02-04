@@ -29,7 +29,10 @@
 
 var protocol = {
   defaultPort: 0,
-  protocolFlags: Components.interfaces.nsIProtocolHandler.URI_NORELATIVE || Components.interfaces.nsIProtocolHandler.ALLOWS_PROXY,
+  protocolFlags: Components.interfaces.nsIProtocolHandler.URI_NORELATIVE |
+                 Components.interfaces.nsIProtocolHandler.URI_NOAUTH |
+                 Components.interfaces.nsIProtocolHandler.URI_INHERITS_SECURITY_CONTEXT |
+                 Components.interfaces.nsIProtocolHandler.URI_LOADABLE_BY_ANYONE,
   scheme: "abp",
   allowPort: function() {return false},
 
