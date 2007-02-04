@@ -188,6 +188,7 @@ Matcher.prototype = {
 // Element hiding component
 var elemhide = {
   patterns: [],
+  keys: {},
   url: null,
   clear: function() {
     this.patterns = [];
@@ -195,6 +196,12 @@ var elemhide = {
   },
   add: function(pattern) {
     this.patterns.push(pattern);
+    var key;
+    do {
+      key = Math.random().toFixed(15).substr(5);
+    } while (key in this.keys);
+    pattern.key = key;
+    this.keys[key] = pattern;
   },
   apply: function() {
     this.unapply();
@@ -202,10 +209,12 @@ var elemhide = {
     // Grouping selectors by domains
     var domains = new HashTable();
     for (var i = 0; i < this.patterns.length; i++) {
-      var domain = this.patterns[i].domain;
+      var pattern = this.patterns[i]
+      var domain = pattern.domain;
       if (!domain)
         domain = "";
 
+      var rule = pattern.selector + "{display:none !important}\n";
       var list;
       if (domain in domains)
         list = domains[domain];
@@ -213,29 +222,27 @@ var elemhide = {
         list = new HashTable();
         domains[domain] = list;
       }
-      list[this.patterns[i].selector] = true;
+      list[pattern.selector] = pattern.key;
     }
 
     // Joining domains list
     var cssData = "";
     for (var domain in domains) {
-      var selectors = [];
-      for (var selector in domains[domain])
-        selectors.push(selector);
-      var rule = selectors.join(",") + "{display:none !important}\n";
-      if (domain) {
-        var parts = domain.split(",");
-        rule = '@-moz-document domain("' + domain.split(",").join('"),domain("') + '"){\n' + rule + '}\n';
-      }
+      var rules = [];
+      var list = domains[domain];
+      for (var selector in list)
+        rules.push(selector + "{display:none !important;-moz-binding:url(abp:registerhit?" + list[selector] + ") !important;}\n");
+
+      if (domain)
+        cssData += '@-moz-document domain("' + domain.split(",").join('"),domain("') + '"){\n' + rules.join('') + '}\n';
       else {
         // Only allow unqualified rules on a few protocols to prevent them from blocking chrome
-        rule = '@-moz-document url-prefix("http://"),url-prefix("https://"),'
-             + 'url-prefix("mailbox://"),url-prefix("imap://"),'
-             + 'url-prefix("news://"),url-prefix("snews://"){\n'
-               + rule
-             + '}\n';
+        cssData += '@-moz-document url-prefix("http://"),url-prefix("https://"),'
+                  + 'url-prefix("mailbox://"),url-prefix("imap://"),'
+                  + 'url-prefix("news://"),url-prefix("snews://"){\n'
+                    + rules.join('')
+                  + '}\n';
       }
-      cssData += rule;
     }
 
     // Creating new stylesheet
@@ -875,6 +882,10 @@ var prefs = {
           }
           else if (options[i] == "MATCH-CASE")
             pattern.matchCase = true;
+          else if (options[i] == "COLLAPSE")
+            pattern.collapse = true;
+          else if (options[i] == "~COLLAPSE")
+            pattern.collapse = false;
         }
       }
 
