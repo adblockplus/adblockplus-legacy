@@ -99,3 +99,24 @@ menuitem[default="true"] {
 #abp-tooltip description:not([hidden="true"])+label {
   margin-top: 10px;
 }
+
+#abp-sidebar-title {
+  padding-left: 4px;
+}
+
+#abp-sidebar-close {
+  padding: 4px 2px;
+  border-style: none !important;
+  -moz-user-focus: normal;
+  list-style-image: url("findbar/close.png");
+  -moz-appearance: none;
+  -moz-image-region: rect(0px, 16px, 16px, 0px);
+}
+
+#abp-sidebar-close:hover {
+  -moz-image-region: rect(0px, 32px, 16px, 16px);
+}
+
+#abp-sidebar-close:hover:active {
+  -moz-image-region: rect(0px, 48px, 16px, 32px);
+}

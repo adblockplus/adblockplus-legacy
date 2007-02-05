@@ -53,20 +53,14 @@ function init() {
   var selected = null;
   if (/sidebarDetached\.xul$/.test(parent.location.href)) {
     mainWin = parent.opener;
-    window.__defineGetter__("content", function() {return mainWin.abpGetBrowser().contentWindow;});
     mainWin.addEventListener("unload", mainUnload, false);
     document.getElementById("detachButton").hidden = true;
     document.getElementById("reattachButton").hidden = false;
-    if ("abpForceDetach" in mainWin && mainWin.abpForceDetach)
+    if (!mainWin.document.getElementById('abp-sidebar'))
       document.getElementById("reattachButton").setAttribute("disabled", "true");
-  } else if (abp && prefs.detachsidebar) {
-    // Oops, we should've been detached but we aren't
-    detach();
   }
-  else {
-    // Just for EzSidebar's sake :-(
-    mainWin = mainWin.abpGetBrowser().ownerDocument.defaultView;
-  }
+  if (!("content" in window && window.content))
+    window.__defineGetter__("content", function() {return mainWin.abpGetBrowser().contentWindow;});
 
   if (abp) {
     // Install item listener
@@ -361,32 +355,13 @@ function detach() {
 
   saveState();
 
-  // In Firefox 1.0 variables disappear immediately, get local copies
-  var mainWin = window.mainWin;
-  var prefs = window.prefs;
-
   // Calculate default position for the detached window
   var boxObject = document.documentElement.boxObject;
   var position = ",left="+boxObject.screenX+",top="+boxObject.screenY+",outerWidth="+boxObject.width+",outerHeight="+boxObject.height;
 
   // Close sidebar and open detached window
-  var wnd = mainWin.abpDetachedSidebar;
-  mainWin.abpDetachedSidebar = null;
-  prefs.detachsidebar = false;
-
-  if ("SidebarGetRelativePanel" in mainWin)
-    mainWin.SidebarGetRelativePanel(-1);
-  else
-    mainWin.abpToggleSidebar();
-
-  if (wnd && !wnd.closed) {
-    wnd.focus();
-    mainWin.abpDetachedSidebar = wnd;
-  }
-  else {
-    mainWin.abpForceDetach = false;
-    mainWin.abpDetachedSidebar = mainWin.openDialog("chrome://adblockplus/content/sidebarDetached.xul", "_blank", "chrome,resizable,dependent,dialog=no"+position);
-  }
+  mainWin.abpToggleSidebar();
+  mainWin.abpDetachedSidebar = mainWin.openDialog("chrome://adblockplus/content/sidebarDetached.xul", "_blank", "chrome,resizable,dependent,dialog=no"+position);
 
   // Save setting
   prefs.detachsidebar = true;

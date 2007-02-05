@@ -36,7 +36,6 @@
 <!ENTITY context.link.label     "Adblock Plus: заблокировать ссылку">
 <!ENTITY context.frame.label    "Adblock Plus: заблокировать фрейм">
 
-<!ENTITY menuitem.sidebar.title "Adblock Plus: Элементы открытой страницы">
 <!ENTITY sidebar.title          "Элементы открытой страницы">
 
 <!ENTITY settings.label         "Установки">

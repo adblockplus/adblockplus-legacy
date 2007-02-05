@@ -9,7 +9,6 @@
 <!ENTITY context.object.label "Adblock Plus: заблокувати об&apos;єкт">
 <!ENTITY context.link.label "Adblock Plus: заблокувати посилання">
 <!ENTITY context.frame.label "Adblock Plus: заблокувати фрейм">
-<!ENTITY menuitem.sidebar.title "Adblock Plus: Елементи відкритої сторінки">
 <!ENTITY sidebar.title "Елементи відкритої сторінки">
 <!ENTITY settings.label "Налаштування">
 <!ENTITY settings.accesskey "ш">

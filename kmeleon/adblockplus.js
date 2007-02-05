@@ -88,7 +88,7 @@ function getElementsByTagName(name) {
 
 var lastRequested = null;
 function getElementById(id) {
-  if (id == "viewAdblockPlusSidebar")
+  if (id == "abp-sidebar")
     return null;
 
   lastRequested = id;

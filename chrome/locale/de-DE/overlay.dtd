@@ -36,7 +36,6 @@
 <!ENTITY context.link.label     "Adblock Plus: Link blockieren">
 <!ENTITY context.frame.label    "Adblock Plus: Frame blockieren">
 
-<!ENTITY menuitem.sidebar.title "Adblock Plus: Blockierbare Elemente">
 <!ENTITY sidebar.title          "Elemente der geöffneten Seite">
 
 <!ENTITY settings.label         "Einstellungen">

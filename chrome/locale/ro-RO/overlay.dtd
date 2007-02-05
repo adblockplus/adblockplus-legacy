@@ -9,7 +9,6 @@
 <!ENTITY context.object.label "Adblock: blochează obiect">
 <!ENTITY context.link.label "Adblock: blochează legătură">
 <!ENTITY context.frame.label "Adblock: blochează frame">
-<!ENTITY menuitem.sidebar.title "Adblock Plus: elemente blocabile">
 <!ENTITY sidebar.title "Adblock Plus: elemente blocabile în pagină">
 <!ENTITY settings.label "Particularizare">
 <!ENTITY settings.accesskey "P">

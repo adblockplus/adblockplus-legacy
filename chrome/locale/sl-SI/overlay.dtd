@@ -9,7 +9,6 @@
 <!ENTITY context.object.label "Adblock - predmeti">
 <!ENTITY context.link.label "Adblock - povezave">
 <!ENTITY context.frame.label "Adblock - okviri">
-<!ENTITY menuitem.sidebar.title "Adblock Plus: elementi blokad">
 <!ENTITY sidebar.title "Elementi blokad na trenutni strani">
 <!ENTITY settings.label "Nastavitve">
 <!ENTITY settings.accesskey "N">

@@ -9,7 +9,6 @@
 <!ENTITY context.object.label "Blokovat objekt">
 <!ENTITY context.link.label "Blokovat odkaz">
 <!ENTITY context.frame.label "Blokovat rámec">
-<!ENTITY menuitem.sidebar.title "Adblock Plus: Blokovatelné objekty">
 <!ENTITY sidebar.title "Adblock Plus: Blokovatelné objekty na zobrazené stránce">
 <!ENTITY settings.label "Předvolby">
 <!ENTITY settings.accesskey "d">

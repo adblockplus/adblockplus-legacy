@@ -9,7 +9,6 @@
 <!ENTITY context.object.label "Objekt blokkeren">
 <!ENTITY context.link.label "Koppeling blokkeren">
 <!ENTITY context.frame.label "Deelvenster blokkeren">
-<!ENTITY menuitem.sidebar.title "Adblock Plus: Blokkeerbare onderdelen">
 <!ENTITY sidebar.title "Blokkeerbare onderdelen op deze pagina">
 <!ENTITY settings.label "Voorkeuren">
 <!ENTITY settings.accesskey "V">

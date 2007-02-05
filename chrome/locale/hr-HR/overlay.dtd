@@ -9,7 +9,6 @@
 <!ENTITY context.object.label "Blokiraj objekt s Adblock">
 <!ENTITY context.link.label "Blokiraj poveznicu s Adblock">
 <!ENTITY context.frame.label "Blokiraj okvir s Adblock">
-<!ENTITY menuitem.sidebar.title "Adblock Plus: Stavke koje se mogu blokirati">
 <!ENTITY sidebar.title "Stavke koje se mogu blokirati na trenutnoj stranici">
 <!ENTITY settings.label "Postavke">
 <!ENTITY settings.accesskey "t">

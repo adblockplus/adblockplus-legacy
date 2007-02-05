@@ -9,7 +9,6 @@
 <!ENTITY context.object.label "Adblock objekt">
 <!ENTITY context.link.label "Adblock odkaz">
 <!ENTITY context.frame.label "Adblock rámec">
-<!ENTITY menuitem.sidebar.title "Adblock Plus: Blokovateľné položky">
 <!ENTITY sidebar.title "Blokovateľné položky na aktuálnej stránke">
 <!ENTITY settings.label "Nastavenia">
 <!ENTITY settings.accesskey "N">
