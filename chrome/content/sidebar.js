@@ -205,6 +205,7 @@ function fillInTooltip(e) {
   if ("tooltip" in item)
     document.getElementById("tooltipDummy").setAttribute("value", item.tooltip);
   else {
+    document.getElementById("tooltipAddress").parentNode.hidden = (item.typeDescr == "ELEMHIDE");
     setMultilineContent(document.getElementById("tooltipAddress"), item.location);
   
     var type = item.localizedDescr;
@@ -269,8 +270,8 @@ function fillInContext(e) {
 
   document.getElementById("contextBlock").hidden = ("filter" in item && item.filter != null);
   document.getElementById("contextEditFilter").hidden = !("filter" in item && item.filter != null);
-  document.getElementById("contextWhitelist").setAttribute("disabled", !!("tooltip" in item || (item.filter && item.filter.type == "whitelist")));
-  document.getElementById("contextOpen").setAttribute("disabled", "tooltip" in item);
+  document.getElementById("contextWhitelist").setAttribute("disabled", !!("tooltip" in item || item.typeDescr == "ELEMHIDE" || (item.filter && item.filter.type == "whitelist")));
+  document.getElementById("contextOpen").setAttribute("disabled", "tooltip" in item || item.typeDescr == "ELEMHIDE");
   document.getElementById("contextFlash").setAttribute("disabled", !!("tooltip" in item || !(item.typeDescr in visual) || (item.filter && item.filter.type != "whitelist")));
 
   return true;
@@ -279,7 +280,7 @@ function fillInContext(e) {
 // Handles middle-click on an item
 function openInTab(e) {
   var item = (typeof e == "undefined" ? treeView.getSelectedItem() : treeView.getItemAt(e.clientX, e.clientY));
-  if (!item)
+  if (!item || item.typeDescr == "ELEMHIDE")
     return;
 
   if ('delayedOpenTab' in mainWin)
