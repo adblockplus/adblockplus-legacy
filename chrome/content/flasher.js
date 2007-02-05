@@ -48,7 +48,7 @@ var flasher = {
                       .QueryInterface(Components.interfaces.nsIInterfaceRequestor)
                       .getInterface(Components.interfaces.nsIDOMWindow)
                       .wrappedJSObject
-                      .getBrowser()
+                      .abpGetBrowser()
                       .markupDocumentViewer;
       try {
         viewer.scrollToNode(nodes[0]);
