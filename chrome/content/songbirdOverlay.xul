@@ -79,7 +79,7 @@
 
   <!-- statusbar -->
   <hbox id="frame_status_pane">
-    <vbox id="abp-status" disabled="true" style="margin-left: 3px;" sidebartitle="&sidebar.title;" context="abp-status-popup" onclick="abpClickHandler(event)" ondragover="abpDragHandler(event)" ondragdrop="abpDragHandler(event)" onmousedown="abpMouseHandler(event)">
+    <vbox id="abp-status" disabled="true" style="margin-left: 3px;" context="abp-status-popup" onclick="abpClickHandler(event)" ondragover="abpDragHandler(event)" ondragdrop="abpDragHandler(event)" onmousedown="abpMouseHandler(event)">
       <image tooltip="abp-tooltip"/>
       <label value="&notloaded.label;" tooltip="abp-tooltip"/>
     </vbox>
