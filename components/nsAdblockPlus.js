@@ -473,9 +473,6 @@ function init() {
       }
     } catch(e) {}
   }
-
-  // Install sidebar in Mozilla Suite if necessary
-  installSidebar();
 }
 
 // Try to fix selected language (Mozilla and SeaMonkey don't do it correctly)
@@ -516,18 +513,5 @@ function fixPackageLocale() {
     try {
       registry.selectLocaleForPackage(select, "adblockplus", true);
     } catch (e) {}
-  } catch(e) {}
-}
-
-// Adds the sidebar to the Customize tabs dialog in Mozilla Suite/Seamonkey
-function installSidebar() {
-  try {
-    var branch = prefService.QueryInterface(Components.interfaces.nsIPrefBranch);
-    var customizeURL = branch.getCharPref("sidebar.customize.all_panels.url");
-    if (/adblockplus/.test(customizeURL))
-      return; // Adblock Plus sidebar is already installed
-
-    customizeURL += " chrome://adblockplus/content/local-panels.rdf";
-    branch.setCharPref("sidebar.customize.all_panels.url", customizeURL);
   } catch(e) {}
 }
