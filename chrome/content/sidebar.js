@@ -285,8 +285,20 @@ function openInTab(e) {
 
   if ('delayedOpenTab' in mainWin)
     mainWin.delayedOpenTab(item.location);
-  else
+  else if ('getBrowser' in mainWin)
     mainWin.getBrowser().addTab(item.location);
+  else {
+    var uri = Components.classes["@mozilla.org/network/io-service;1"]
+                        .getService(Components.interfaces.nsIIOService)
+                        .newURI(item.location, null, null);
+
+    var protocolSvc = Components.classes["@mozilla.org/uriloader/external-protocol-service;1"]
+                                .getService(Components.interfaces.nsIExternalProtocolService);
+    // if the scheme is not an exposed protocol, then opening this link should 
+    // be deferred to the system's external protocol handler
+    if (!protocolSvc.isExposedProtocol(uri.scheme))
+      protocolSvc.loadUrl(uri);
+  }
 }
 
 // Starts up the main Adblock window
