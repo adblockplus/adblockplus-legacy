@@ -9,7 +9,6 @@
 <!ENTITY context.object.label "Nesneyi engelle">
 <!ENTITY context.link.label "Bağlantıyı engelle">
 <!ENTITY context.frame.label "Çerçeveyi engelle">
-<!ENTITY menuitem.sidebar.title "Adblock Plus: Engellenebilecek öğeler">
 <!ENTITY sidebar.title "Bu sayfadaki engellenebilecek öğeler">
 <!ENTITY settings.label "Tercihler">
 <!ENTITY settings.accesskey "T">

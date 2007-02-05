@@ -9,7 +9,6 @@
 <!ENTITY context.object.label "Adblock Objecte">
 <!ENTITY context.link.label "Adblock enllaç">
 <!ENTITY context.frame.label "Adblock Marc">
-<!ENTITY menuitem.sidebar.title "Adblock Plus: Elements bloquejables">
 <!ENTITY sidebar.title "Elements bloquejables a la pàgina actual">
 <!ENTITY settings.label "Preferències">
 <!ENTITY settings.accesskey "P">

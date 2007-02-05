@@ -79,7 +79,7 @@
 
   <!-- statusbar -->
   <statusbar id="status-bar">
-    <statusbarpanel id="abp-status" disabled="true" sidebartitle="&sidebar.title;" context="abp-status-popup" onclick="abpClickHandler(event)" ondragover="abpDragHandler(event)" ondragdrop="abpDragHandler(event)" onmousedown="abpMouseHandler(event)">
+    <statusbarpanel id="abp-status" disabled="true" context="abp-status-popup" onclick="abpClickHandler(event)" ondragover="abpDragHandler(event)" ondragdrop="abpDragHandler(event)" onmousedown="abpMouseHandler(event)">
       <image tooltip="abp-tooltip"/>
       <label value="&notloaded.label;" tooltip="abp-tooltip"/>
     </statusbarpanel>
@@ -109,4 +109,18 @@
     <menuitem id="abp-link-menuitem" label="&context.link.label;..." oncommand="abpNode(gContextMenu.abpLinkData)"/>
     <menuitem id="abp-frame-menuitem" label="&context.frame.label;..." oncommand="abpNode(gContextMenu.abpFrameData)"/>
   </popup>
+
+  <!-- fake sidebar -->
+  <vbox id="messagepanebox">
+    <splitter id="abp-sidebar-splitter" hidden="true"/>
+    <vbox id="abp-sidebar" height="200" hidden="true" persist="height">
+      <toolbox id="abp-sidebar-header">
+        <toolbar align="center" grippyhidden="true">
+          <label id="abp-sidebar-title" control="abp-sidebar-browser" value="&sidebar.title;" flex="1" crop="end"/>
+          <toolbarbutton id="abp-sidebar-close" oncommand="abpToggleSidebar()" tooltiptext="&closesidebar.label;"/>
+        </toolbar>
+      </toolbox>
+      <browser id="abp-sidebar-browser" src="chrome://adblockplus/content/sidebar.xul" flex="1" autoscroll="false"/>
+    </vbox>
+  </vbox>
 </overlay>

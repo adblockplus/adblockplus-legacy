@@ -9,7 +9,6 @@
 <!ENTITY context.object.label "Objektum blokkolása">
 <!ENTITY context.link.label "Hivatkozás blokkolása">
 <!ENTITY context.frame.label "Keret blokkolása">
-<!ENTITY menuitem.sidebar.title "Adblock Plus: Blokkolható objektumok">
 <!ENTITY sidebar.title "Blokkolható objektumok">
 <!ENTITY settings.label "Beállítások">
 <!ENTITY settings.accesskey "B">

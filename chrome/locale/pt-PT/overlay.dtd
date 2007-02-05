@@ -9,7 +9,6 @@
 <!ENTITY context.object.label "Bloquear Objecto">
 <!ENTITY context.link.label "Bloquear Link">
 <!ENTITY context.frame.label "Bloquear Moldura">
-<!ENTITY menuitem.sidebar.title "Adblock Plus: Elementos bloqueáveis">
 <!ENTITY sidebar.title "Elementos bloqueáveis na página actual">
 <!ENTITY settings.label "Preferências">
 <!ENTITY settings.accesskey "F">

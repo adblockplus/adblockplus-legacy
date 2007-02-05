@@ -9,7 +9,6 @@
 <!ENTITY context.object.label "Adblock Object">
 <!ENTITY context.link.label "Adblock Link">
 <!ENTITY context.frame.label "Adblock Frame">
-<!ENTITY menuitem.sidebar.title "Adblock Plus: Blockable items">
 <!ENTITY sidebar.title "Blockable items on current page">
 <!ENTITY settings.label "Preferences">
 <!ENTITY settings.accesskey "F">

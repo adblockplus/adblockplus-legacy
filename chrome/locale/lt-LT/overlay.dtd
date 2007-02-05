@@ -9,7 +9,6 @@
 <!ENTITY context.object.label "Blokuoti objektą">
 <!ENTITY context.link.label "Blokuoti nuorodą">
 <!ENTITY context.frame.label "Blokuoti kadrą">
-<!ENTITY menuitem.sidebar.title "„Adblock Plus“: blokuojami elementai">
 <!ENTITY sidebar.title "Blokuojami elementai dabartiniame tinklalapyje">
 <!ENTITY settings.label "Nustatymai">
 <!ENTITY settings.accesskey "N">

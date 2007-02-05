@@ -49,8 +49,8 @@
         <vbox id="abp-tooltip-filters" hidden="true"/>
       </tooltip>
       <popup id="abp-status-popup" onpopupshowing="return abpFillPopup(event.target)">
-        <menuitem id="abp-status-opensidebar" label="&opensidebar.label;" accesskey="&opensidebar.accesskey;" key="abp-key-sidebar" oncommand="abpToggleSidebarInternal()"/>
-        <menuitem id="abp-status-closesidebar" label="&closesidebar.label;" accesskey="&closesidebar.accesskey;" key="abp-key-sidebar" oncommand="abpToggleSidebarInternal()"/>
+        <menuitem id="abp-status-opensidebar" label="&opensidebar.label;" accesskey="&opensidebar.accesskey;" key="abp-key-sidebar" oncommand="abpToggleSidebar()"/>
+        <menuitem id="abp-status-closesidebar" label="&closesidebar.label;" accesskey="&closesidebar.accesskey;" key="abp-key-sidebar" oncommand="abpToggleSidebar()"/>
         <menuitem id="abp-status-settings" label="&settings.label;..." accesskey="&settings.accesskey;" key="abp-key-settings" oncommand="abpSettings()"/>
         <menuseparator id="abp-status-whitelist-sep"/>
         <menuitem id="abp-status-whitelistsite" labeltempl="&whitelist.site.label;" type="checkbox" oncommand="abpTogglePattern(this.pattern, this.hasAttribute('checked'))"/>
@@ -79,7 +79,7 @@
 
   <!-- statusbar -->
   <statusbar id="status-bar">
-    <statusbarpanel id="abp-status" disabled="true" sidebartitle="&sidebar.title;" context="abp-status-popup" onclick="abpClickHandler(event)" ondragover="abpDragHandler(event)" ondragdrop="abpDragHandler(event)" onmousedown="abpMouseHandler(event)">
+    <statusbarpanel id="abp-status" disabled="true" context="abp-status-popup" onclick="abpClickHandler(event)" ondragover="abpDragHandler(event)" ondragdrop="abpDragHandler(event)" onmousedown="abpMouseHandler(event)">
       <image tooltip="abp-tooltip"/>
       <label value="&notloaded.label;" tooltip="abp-tooltip"/>
     </statusbarpanel>
@@ -107,19 +107,6 @@
         tooltip="abp-tooltip" context="abp-status-popup"/>
   </hbox>
 
-  <!-- Firefox broadcasters -->
-  <broadcasterset id="mainBroadcasterSet">
-    <broadcaster id="viewAdblockPlusSidebar" autoCheck="false" label="&menuitem.sidebar.title;"
-      type="checkbox" group="sidebar" sidebarurl="chrome://adblockplus/content/sidebar.xul"
-      sidebartitle="&sidebar.title;"
-      oncommand="abpToggleSidebarInternal()"/>
-  </broadcasterset>
-
-  <!-- Firefox view sidebar menu -->
-  <menupopup id="viewSidebarMenu">
-    <menuitem key="abp-key-sidebar" observes="viewAdblockPlusSidebar"/> 
-  </menupopup>
-
   <!-- SeaMonkey tools menu -->
   <menupopup id="taskPopup">
     <menuitem label="&menuitem.label;..." accesskey="&menuitem.accesskey;" key="abp-key-settings" insertafter="downloadmgr" oncommand="abpSettings()"/>
@@ -136,4 +123,18 @@
     <menuitem id="abp-link-menuitem" label="&context.link.label;..." oncommand="abpNode(gContextMenu.abpLinkData)"/>
     <menuitem id="abp-frame-menuitem" label="&context.frame.label;..." oncommand="abpNode(gContextMenu.abpFrameData)"/>
   </popup>
+
+  <!-- fake sidebar -->
+  <vbox id="appcontent">
+    <splitter id="abp-sidebar-splitter" hidden="true"/>
+    <vbox id="abp-sidebar" height="200" hidden="true" persist="height">
+      <toolbox id="abp-sidebar-header">
+        <toolbar align="center" grippyhidden="true">
+          <label id="abp-sidebar-title" control="abp-sidebar-browser" value="&sidebar.title;" flex="1" crop="end"/>
+          <toolbarbutton id="abp-sidebar-close" oncommand="abpToggleSidebar()" tooltiptext="&closesidebar.label;"/>
+        </toolbar>
+      </toolbox>
+      <browser id="abp-sidebar-browser" src="chrome://adblockplus/content/sidebar.xul" flex="1" autoscroll="false"/>
+    </vbox>
+  </vbox>
 </overlay>

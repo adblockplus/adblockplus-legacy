@@ -9,7 +9,6 @@
 <!ENTITY context.object.label "Adblock Objekt">
 <!ENTITY context.link.label "Adblock Länk">
 <!ENTITY context.frame.label "Adblock Ram">
-<!ENTITY menuitem.sidebar.title "Adblock Plus: Blockeringsbar reklam">
 <!ENTITY sidebar.title "Objekt att blockera på denna sida">
 <!ENTITY settings.label "Inställningar">
 <!ENTITY settings.accesskey "I">

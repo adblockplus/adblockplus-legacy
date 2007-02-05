@@ -9,7 +9,6 @@
 <!ENTITY context.object.label "Adblock Objekt">
 <!ENTITY context.link.label "Adblock Link">
 <!ENTITY context.frame.label "Adblock Ramme">
-<!ENTITY menuitem.sidebar.title "Adblock Plus: Blokérbare elementer">
 <!ENTITY sidebar.title "Blokérbare elementer på nuværende side">
 <!ENTITY settings.label "Præferencer">
 <!ENTITY settings.accesskey "F">

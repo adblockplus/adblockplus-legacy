@@ -9,7 +9,6 @@
 <!ENTITY context.object.label "Adblock สิ่งของ">
 <!ENTITY context.link.label "Adblock ลิงก์">
 <!ENTITY context.frame.label "Adblock กรอบความ">
-<!ENTITY menuitem.sidebar.title "Adblock Plus: รายการที่บล็อกได้">
 <!ENTITY sidebar.title "รายการที่บล็อกได้ในหน้าล่าสุด">
 <!ENTITY settings.label "ปรับแต่ง">
 <!ENTITY settings.accesskey "F">

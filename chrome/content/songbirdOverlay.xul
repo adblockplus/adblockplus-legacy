@@ -89,4 +89,18 @@
   <menupopup id="file-popup">
     <menuitem class="menuitem-iconic" label="&menuitem.label;..." accesskey="&menuitem.accesskey;" key="abp-key-settings" insertafter="menu.dominspector" oncommand="abpSettings()"/>
   </menupopup>
+
+  <!-- fake sidebar -->
+  <vbox id="main_pane_border">
+    <splitter id="abp-sidebar-splitter" hidden="true"/>
+    <vbox id="abp-sidebar" height="200" hidden="true" persist="height">
+      <toolbox id="abp-sidebar-header">
+        <toolbar align="center" grippyhidden="true">
+          <label id="abp-sidebar-title" control="abp-sidebar-browser" value="&sidebar.title;" flex="1" crop="end"/>
+          <toolbarbutton id="abp-sidebar-close" oncommand="abpToggleSidebar()" tooltiptext="&closesidebar.label;"/>
+        </toolbar>
+      </toolbox>
+      <browser id="abp-sidebar-browser" src="chrome://adblockplus/content/sidebar.xul" flex="1" autoscroll="false"/>
+    </vbox>
+  </vbox>
 </overlay>
