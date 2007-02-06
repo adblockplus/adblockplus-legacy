@@ -24,83 +24,29 @@
    -
    - ***** END LICENSE BLOCK ***** -->
 
-<?xml-stylesheet href="chrome://adblockplus/skin/overlay.css" type="text/css"?>
-
-<!DOCTYPE overlay [
-<!ENTITY % overlayDTD SYSTEM "chrome://adblockplus/locale/overlay.dtd">
-%overlayDTD;
-<!ENTITY % settingsDTD SYSTEM "chrome://adblockplus/locale/settings.dtd">
-%settingsDTD;
-]>
+<?xul-overlay href="chrome://adblockplus/content/overlayGeneral.xul"?>
 
 <overlay id="abp-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
-  <script type="application/x-javascript" src="overlay.js"/>  
-  
-  <!-- add own popupset -->
+  <!-- Window extensions -->
   <window id="frame_outer">
-    <popupset id="abp-popupset">
-      <tooltip id="abp-tooltip" onpopupshowing="return abpFillTooltip(event)" orient="vertical">
-        <description id="abp-tooltip-action" hidden="true"/>
-        <label id="abp-tooltip-status-label" value="&status.tooltip;"/>
-        <description id="abp-tooltip-status" value="&notloaded.tooltip;"/>
-        <label id="abp-tooltip-blocked-label" value="&blocked.tooltip;" hidden="true"/>
-        <description id="abp-tooltip-blocked" hidden="true"/>
-        <label id="abp-tooltip-filters-label" value="&filters.tooltip;" hidden="true"/>
-        <vbox id="abp-tooltip-filters" hidden="true"/>
-      </tooltip>
-      <popup id="abp-status-popup" onpopupshowing="return abpFillPopup(event.target)">
-        <menuitem id="abp-status-opensidebar" label="&opensidebar.label;" accesskey="&opensidebar.accesskey;" key="abp-key-sidebar" oncommand="abpToggleSidebar()"/>
-        <menuitem id="abp-status-closesidebar" label="&closesidebar.label;" accesskey="&closesidebar.accesskey;" key="abp-key-sidebar" oncommand="abpToggleSidebar()"/>
-        <menuitem id="abp-status-settings" label="&settings.label;..." accesskey="&settings.accesskey;" key="abp-key-settings" oncommand="abpSettings()"/>
-        <menuseparator id="abp-status-whitelist-sep"/>
-        <menuitem id="abp-status-whitelistsite" labeltempl="&whitelist.site.label;" type="checkbox" oncommand="abpTogglePattern(this.pattern, this.hasAttribute('checked'))"/>
-        <menuitem id="abp-status-whitelistpage" label="&whitelist.page.label;" type="checkbox" oncommand="abpTogglePattern(this.pattern, this.hasAttribute('checked'))"/>
-        <menuseparator/>
-        <menu id="abp-status-options" label="&options.label;" accesskey="&options.accesskey;">
-          <menupopup id="abp-status-options-popup">
-            <menuitem id="abp-status-frameobjects" label="&objecttabs.label;" accesskey="&objecttabs.accesskey;" type="checkbox" oncommand="abpTogglePref('frameobjects')"/>
-            <menuitem id="abp-status-slowcollapse" label="&collapse.label;" accesskey="&collapse.accesskey;" type="checkbox" oncommand="abpTogglePref('fastcollapse')"/>
-            <menuitem id="abp-status-linkcheck" label="&linkcheck.label;" accesskey="&linkcheck.accesskey;" type="checkbox" oncommand="abpTogglePref('linkcheck')"/> 
-            <menuseparator/>
-            <menuitem id="abp-status-showintoolbar" label="&showintoolbar.label;" accesskey="&showintoolbar.accesskey;" type="checkbox" oncommand="abpTogglePref('showintoolbar')"/>
-            <menuitem id="abp-status-showinstatusbar" label="&showinstatusbar.label;" accesskey="&showinstatusbar.accesskey;" type="checkbox" oncommand="abpTogglePref('showinstatusbar')"/>
-          </menupopup>
-        </menu>
-        <menuitem id="abp-status-enabled" label="&enable.label;" accesskey="&enable.accesskey;" type="checkbox" key="abp-key-enable" oncommand="abpTogglePref('enabled')"/>
-      </popup>
-    </popupset>
+    <popupset id="abp-popupset"/>
     <keyset id="abp-keyset"/>
-    <commandset id="abp-commandset">
-      <command id="abp-command-settings" oncommand="abpSettings()"/>
-      <command id="abp-command-sidebar" oncommand="abpToggleSidebar()"/>
-      <command id="abp-command-enable" oncommand="abpTogglePref('enabled')"/>
-    </commandset>
+    <commandset id="abp-commandset"/>
   </window>
 
-  <!-- statusbar -->
+  <!-- Status bar -->
   <hbox id="frame_status_pane">
-    <vbox id="abp-status" disabled="true" style="margin-left: 3px;" context="abp-status-popup" onclick="abpClickHandler(event)" ondragover="abpDragHandler(event)" ondragdrop="abpDragHandler(event)" onmousedown="abpMouseHandler(event)">
-      <image tooltip="abp-tooltip"/>
-      <label value="&notloaded.label;" tooltip="abp-tooltip"/>
-    </vbox>
+    <vbox id="abp-status" style="margin-left: 3px;"/>
   </hbox>
 
   <!-- Songbird file menu -->
   <menupopup id="file-popup">
-    <menuitem class="menuitem-iconic" label="&menuitem.label;..." accesskey="&menuitem.accesskey;" key="abp-key-settings" insertafter="menu.dominspector" oncommand="abpSettings()"/>
+    <menuitem id="abp-menuitem" class="menuitem-iconic" insertafter="menu.dominspector"/>
   </menupopup>
 
-  <!-- fake sidebar -->
+  <!-- Fake sidebar -->
   <vbox id="main_pane_border">
-    <splitter id="abp-sidebar-splitter" hidden="true"/>
-    <vbox id="abp-sidebar" height="200" hidden="true" persist="height">
-      <toolbox id="abp-sidebar-header">
-        <toolbar align="center" grippyhidden="true">
-          <label id="abp-sidebar-title" control="abp-sidebar-browser" value="&sidebar.title;" flex="1" crop="end"/>
-          <toolbarbutton id="abp-sidebar-close" oncommand="abpToggleSidebar()" tooltiptext="&closesidebar.label;"/>
-        </toolbar>
-      </toolbox>
-      <browser id="abp-sidebar-browser" src="chrome://adblockplus/content/sidebar.xul" flex="1" autoscroll="false"/>
-    </vbox>
+    <splitter id="abp-sidebar-splitter"/>
+    <vbox id="abp-sidebar"/>
   </vbox>
 </overlay>
