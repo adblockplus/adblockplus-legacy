@@ -59,8 +59,7 @@ function init() {
     if (!mainWin.document.getElementById('abp-sidebar'))
       document.getElementById("reattachButton").setAttribute("disabled", "true");
   }
-  if (!("content" in window && window.content))
-    window.__defineGetter__("content", function() {return mainWin.abpGetBrowser().contentWindow;});
+  window.__defineGetter__("content", function() {return mainWin.abpGetBrowser().contentWindow;});
 
   if (abp) {
     // Install item listener

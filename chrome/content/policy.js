@@ -302,17 +302,37 @@ var policy = {
         return;
       }
 
-      if (!data[i].filter || data[i].filter.type == "whitelist") {
-        var nodes = data[i].nodes;
-        data[i].nodes = [];
-        for (var j = 0; j < nodes.length; j++) {
-          if ("abpObjTab" in nodes[j]) {
-            // Remove object tabs
-            if (nodes[j].parentNode)
-              nodes[j].parentNode.removeChild(nodes[j]);
+      var nodes = data[i].nodes;
+      data[i].nodes = [];
+
+      // Clear filter for now
+      var origFilter = data[i].filter;
+      if (origFilter && origFilter.type == "whitelist")
+        origFilter = null;
+      else
+        data[i].filter = null;
+
+      for (var j = 0; j < nodes.length; j++) {
+        if ("abpObjTab" in nodes[j]) {
+          // Remove object tabs
+          if (nodes[j].parentNode)
+            nodes[j].parentNode.removeChild(nodes[j]);
+        }
+        else {
+          if (nodes[j] instanceof Element) {
+            if (nodes[j].parentNode) {
+              // Reinsert the node to make sure it runs through the filters again
+              nodes[j].style.display = '';    // XXX: this might cause problems if we weren't the ones settings display in the first place
+              if (nodes[j].nextSibling)
+                nodes[j].parentNode.insertBefore(nodes[j], nodes[j].nextSibling);
+              else
+                nodes[j].parentNode.appendChild(nodes[j]);
+            }
           }
-          else
-            this.processNode(wnd, nodes[j], data[i].type, data[i].location, true);
+          else {
+            data[i].nodes.push(nodes[j]);
+            data[i].filter = origFilter
+          }
         }
       }
     }
