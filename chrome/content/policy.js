@@ -120,8 +120,7 @@ var policy = {
   
       if (match && match.type != "whitelist" && node) {
         var prefCollapse = ("collapse" in match ? match.collapse : !prefs.fastcollapse);
-        if (collapse || prefCollapse)
-          wnd.setTimeout(hideNode, 0, node);
+        wnd.setTimeout(postProcessNode, 0, node, collapse || prefCollapse);
       }
 
       // Show object tabs unless this is a standalone object
@@ -319,10 +318,13 @@ var policy = {
             nodes[j].parentNode.removeChild(nodes[j]);
         }
         else {
-          if (nodes[j] instanceof Element) {
+          if (nodes[j] instanceof ImageLoadingContent) {
             if (nodes[j].parentNode) {
+              if ("abpHidden" in nodes[j])
+                nodes[j].style.display = '';
+
               // Reinsert the node to make sure it runs through the filters again
-              nodes[j].style.display = '';    // XXX: this might cause problems if we weren't the ones settings display in the first place
+              loadBlockedImage(nodes[j]);
               if (nodes[j].nextSibling)
                 nodes[j].parentNode.insertBefore(nodes[j], nodes[j].nextSibling);
               else
@@ -331,7 +333,7 @@ var policy = {
           }
           else {
             data[i].nodes.push(nodes[j]);
-            data[i].filter = origFilter
+            data[i].filter = origFilter;
           }
         }
       }

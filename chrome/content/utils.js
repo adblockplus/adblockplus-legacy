@@ -82,11 +82,15 @@ function makeURL(url) {
 }
 abp.makeURL = makeURL;
 
-// hides a blocked element and collapses it if necessary
-function hideNode(node) {
+// replaces the blocked image with our dummy and hides it if necessary
+function postProcessNode(node, collapse) {
   if (node instanceof Window)
     node = node.frameElement;
-  if (!(node instanceof Element))
+
+  if (node instanceof ImageLoadingContent)
+    loadBlockedImage(node);
+
+  if (!collapse || !(node instanceof Element))
     return;
 
   // adjust frameset's cols/rows for frames
@@ -108,8 +112,20 @@ function hideNode(node) {
       parentNode.setAttribute(attr, weights.join(","));
     }
   }
-  else
+  else {
     node.style.display = "none";
+    node.abpHidden = true;
+  }
+}
+
+var blockedImageChannel = null;
+function loadBlockedImage(node) {
+  if (!blockedImageChannel)
+    blockedImageChannel = ioService.newChannel("chrome://adblockplus/skin/blocked.png", null, null);
+
+  var listener = node.loadImageWithChannel(blockedImageChannel);
+  if (listener)
+    blockedImageChannel.asyncOpen(listener, null);
 }
 
 // Returns the visible area of an element, coordinates relative to the upper-left corner of the page
