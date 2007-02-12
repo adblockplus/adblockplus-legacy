@@ -770,7 +770,7 @@ function abpCheckContext() {
   gContextMenu.abpLinkData = null;
   gContextMenu.abpBgData = null;
   gContextMenu.abpFrameData = null;
-  if (abp) {
+  if (abp && target) {
     // Lookup the node in our stored data
     var data = abp.getDataForNode(target);
     var targetNode = null;
