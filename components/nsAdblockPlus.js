@@ -124,6 +124,7 @@ const factory = {
 const Node = Components.interfaces.nsIDOMNode;
 const Element = Components.interfaces.nsIDOMElement;
 const Window = Components.interfaces.nsIDOMWindow;
+const ImageLoadingContent = Components.interfaces.nsIImageLoadingContent;
 
 var windowMediator = Components.classes["@mozilla.org/appshell/window-mediator;1"]
                                .getService(Components.interfaces.nsIWindowMediator);
