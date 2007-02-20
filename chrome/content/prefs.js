@@ -231,7 +231,7 @@ var elemhide = {
       var rules = [];
       var list = domains[domain];
       for (var selector in list)
-        rules.push(selector + "{display:none !important;-moz-binding:url(abp:registerhit?" + list[selector] + ") !important;}\n");
+        rules.push(selector + "{display:none !important;cursor:url(abp:registerhit?" + list[selector] + "),auto !important;}\n");
 
       if (domain)
         cssData += '@-moz-document domain("' + domain.split(",").join('"),domain("') + '"){\n' + rules.join('') + '}\n';
