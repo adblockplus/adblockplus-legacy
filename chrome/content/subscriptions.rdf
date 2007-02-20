@@ -20,13 +20,6 @@
     </RDF:li>
     <RDF:li>
       <RDF:Description>
-        <abp:title>dutchblock (Nederland)</abp:title>
-        <abp:url>http://dutchmega.nl/dutchblock/subscription</abp:url>
-        <abp:homepage>http://www.dutchmega.nl/dutchblock/</abp:homepage>
-      </RDF:Description>
-    </RDF:li>
-    <RDF:li>
-      <RDF:Description>
         <abp:title>Filter von Dr.Evil (Deutschland)</abp:title>
         <abp:url>http://maltekraus.de/Firefox/adblock.php?elemhiding=sitespecific</abp:url>
         <abp:homepage>http://www.firefox-browser.de/forum/viewtopic.php?t=28904</abp:homepage>
