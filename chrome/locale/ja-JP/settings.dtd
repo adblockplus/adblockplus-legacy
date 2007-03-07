@@ -67,7 +67,7 @@
 <!ENTITY showintoolbar.accesskey "B">
 <!ENTITY showinstatusbar.label "ステータスバー表示">
 <!ENTITY showinstatusbar.accesskey "S">
-<!ENTITY objecttabs.label "オブジェクト(Flashなど)にタブを付ける">
+<!ENTITY objecttabs.label "オブジェクト（Flashなど）にタブを付ける">
 <!ENTITY objecttabs.accesskey "T">
 <!ENTITY collapse.label "ブロック要素を隠す">
 <!ENTITY collapse.accesskey "L">
@@ -98,7 +98,7 @@
 ">
 
 <!ENTITY pattern.column "フィルタルール">
-<!ENTITY enabled.column "有効/無効">
+<!ENTITY enabled.column "有効／無効">
 <!ENTITY hitcount.column "ヒット数">
 <!ENTITY lasthit.column "最終ヒット日時">
 
