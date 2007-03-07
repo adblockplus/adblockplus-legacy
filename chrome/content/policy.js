@@ -35,8 +35,11 @@ const block = Components.interfaces.nsIContentPolicy.REJECT_REQUEST;
 
 var policy = {
   allowOnce: null,
+  dummyChannel: null,
 
   init: function() {
+    this.dummyChannel = ioService.newChannel("abp:dummy", null, null);
+
     var types = ["OTHER", "SCRIPT", "IMAGE", "STYLESHEET", "OBJECT", "SUBDOCUMENT", "DOCUMENT"];
 
     // type constant by type description and type description by type constant
@@ -98,7 +101,7 @@ var policy = {
       contentType = type.BACKGROUND;
 
     // Fix type for objects misrepresented as frames or images
-    if (contentType != type.OBJECT && node instanceof Components.interfaces.nsIDOMHTMLObjectElement)
+    if (contentType != type.OBJECT && (node instanceof Components.interfaces.nsIDOMHTMLObjectElement || node instanceof Components.interfaces.nsIDOMHTMLEmbedElement))
       contentType = type.OBJECT;
 
     var data = DataContainer.getDataForWindow(wnd);
@@ -301,15 +304,21 @@ var policy = {
         return;
       }
 
-      var nodes = data[i].nodes;
-      data[i].nodes = [];
+      var entry = data[i];
+      var match = prefs.whitePatterns.matchesAny(entry.location, typeDescr[entry.type] || "");
+      if (match == null)
+        match = prefs.filterPatterns.matchesAny(entry.location, typeDescr[entry.type] || "");
 
-      // Clear filter for now
-      var origFilter = data[i].filter;
-      if (origFilter && origFilter.type == "whitelist")
-        origFilter = null;
+      if (match == entry.filter)
+        continue;
       else
-        data[i].filter = null;
+        entry.filter = match;
+
+      if (match)
+        prefs.increaseHitCount(match);
+
+      var nodes = entry.nodes;
+      entry.nodes = [];
 
       for (var j = 0; j < nodes.length; j++) {
         if ("abpObjTab" in nodes[j]) {
@@ -318,23 +327,30 @@ var policy = {
             nodes[j].parentNode.removeChild(nodes[j]);
         }
         else {
-          if (nodes[j] instanceof ImageLoadingContent) {
+          if (nodes[j] instanceof ImageLoadingContent || nodes[j] instanceof Window || entry.type == type.STYLESHEET) {
+            if (nodes[j] instanceof Window)
+              nodes[j] = nodes[j].frameElement;
+
             if (nodes[j].parentNode) {
               if ("abpHidden" in nodes[j])
                 nodes[j].style.display = '';
 
+              if (nodes[j] instanceof ImageLoadingContent) {
+                // HACKHACK: Fake loading a different image to make sure reinsertion will reload
+                var listener = nodes[j].loadImageWithChannel(this.dummyChannel);
+                listener.onStartRequest(this.dummyChannel, null);
+                listener.onStopRequest(this.dummyChannel, null, Components.results.NS_ERROR_NO_CONTENT);
+              }
+
               // Reinsert the node to make sure it runs through the filters again
-              loadBlockedImage(nodes[j]);
               if (nodes[j].nextSibling)
                 nodes[j].parentNode.insertBefore(nodes[j], nodes[j].nextSibling);
               else
                 nodes[j].parentNode.appendChild(nodes[j]);
             }
           }
-          else {
+          else
             data[i].nodes.push(nodes[j]);
-            data[i].filter = origFilter;
-          }
         }
       }
     }
