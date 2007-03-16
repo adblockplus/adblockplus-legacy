@@ -58,6 +58,7 @@ chdir('..');
 rm_rec('tmp');
 mkdir('tmp', 0755) or die "Failed to create directory tmp: $!";
 cp_rec("../$_", "tmp/$_") foreach ('chrome', 'components', 'defaults');
+copy_manifest("../chrome.manifest", "tmp/chrome/adblockplus.manifest");
 system("mv tmp/defaults/preferences tmp/defaults/pref") && exit;
 cp("adblockplus_extra.js", "tmp/defaults/pref/adblockplus_extra.js");
 mkdir("tmp/kplugins", 0755) or die "Failed to created directory tmp/kplugins: $!";
@@ -171,4 +172,22 @@ sub cp_rec
       }
     }
   }
+}
+
+sub copy_manifest
+{
+  my ($from, $to) = @_;
+
+  open(local *FROM, $from) or die "Could not open file $from";
+  open(local *TO, ">$to") or die "Could not create file $to";
+
+  while (<FROM>)
+  {
+    s/\{\{LOCALE\}\}/$locale/g;
+    s/jar:chrome\//jar:/g;
+    print TO $_;
+  }
+
+  close(FROM);
+  close(TO);
 }
