@@ -177,7 +177,7 @@ function removeAttribute(attr) {
 var overlayContextMenu = function() {
   var request = Components.classes["@mozilla.org/xmlextras/xmlhttprequest;1"]
                           .createInstance(Components.interfaces.nsIXMLHttpRequest);
-  request.open("GET", "chrome://adblockplus/content/overlay.xul", false);
+  request.open("GET", "chrome://adblockplus/content/overlayGeneral.xul", false);
   request.send(null);
 
   var ret = request.responseXML

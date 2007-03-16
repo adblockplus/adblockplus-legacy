@@ -420,40 +420,39 @@ PRBool abpWrapper::Load() {
   if (cx == nsnull)
     return PR_FALSE;
 
-  nsCOMPtr<nsIChromeRegistrySea> registry = do_GetService("@mozilla.org/chrome/chrome-registry;1", &rv);
-  if (NS_FAILED(rv)) {
-    JS_ReportError(cx, "Adblock Plus: Failed to retrieve chrome registry - wrong Gecko version?");
-    return PR_FALSE;
-  }
+  nsCOMPtr<nsIChromeRegistrySea> registry = do_GetService("@mozilla.org/chrome/chrome-registry;1");
+  if (registry) {
+    // If we got the SeaMonkey registry this is probably K-Meleon 1.0, skip registration for K-Meleon 1.1
 
-  rv = registry->InstallPackage("jar:resource:/chrome/adblockplus.jar!/content/", PR_FALSE);
-  if (NS_FAILED(rv)) {
-    JS_ReportError(cx, "Adblock Plus: Failed to register Adblock Plus chrome content");
-    return PR_FALSE;
-  }
+    rv = registry->InstallPackage("jar:resource:/chrome/adblockplus.jar!/content/", PR_FALSE);
+    if (NS_FAILED(rv)) {
+      JS_ReportError(cx, "Adblock Plus: Failed to register Adblock Plus chrome content");
+      return PR_FALSE;
+    }
 
-  rv = registry->InstallLocale("jar:resource:/chrome/adblockplus.jar!/locale/" ABP_LANGUAGE "/", PR_FALSE);
-  if (NS_FAILED(rv)) {
-    JS_ReportError(cx, "Adblock Plus: Failed to register Adblock Plus locale");
-    return PR_FALSE;
-  }
+    rv = registry->InstallLocale("jar:resource:/chrome/adblockplus.jar!/locale/" ABP_LANGUAGE "/", PR_FALSE);
+    if (NS_FAILED(rv)) {
+      JS_ReportError(cx, "Adblock Plus: Failed to register Adblock Plus locale");
+      return PR_FALSE;
+    }
 
-  rv = registry->InstallSkin("jar:resource:/chrome/adblockplus.jar!/skin/classic/", PR_FALSE, PR_TRUE);
-  if (NS_FAILED(rv)) {
-    JS_ReportError(cx, "Adblock Plus: Failed to register Adblock Plus skin");
-    return PR_FALSE;
-  }
+    rv = registry->InstallSkin("jar:resource:/chrome/adblockplus.jar!/skin/classic/", PR_FALSE, PR_TRUE);
+    if (NS_FAILED(rv)) {
+      JS_ReportError(cx, "Adblock Plus: Failed to register Adblock Plus skin");
+      return PR_FALSE;
+    }
 
-  rv = registry->SelectLocaleForPackage(NS_LITERAL_CSTRING(ABP_LANGUAGE), NS_LL("adblockplus"), PR_FALSE);
-  if (NS_FAILED(rv)) {
-    JS_ReportError(cx, "Adblock Plus: Failed to select Adblock Plus locale");
-    return PR_FALSE;
-  }
+    rv = registry->SelectLocaleForPackage(NS_LITERAL_CSTRING(ABP_LANGUAGE), NS_LL("adblockplus"), PR_FALSE);
+    if (NS_FAILED(rv)) {
+      JS_ReportError(cx, "Adblock Plus: Failed to select Adblock Plus locale");
+      return PR_FALSE;
+    }
 
-  rv = registry->SelectSkinForPackage(NS_LITERAL_CSTRING("classic/1.0"), NS_LL("adblockplus"), PR_FALSE);
-  if (NS_FAILED(rv)) {
-    JS_ReportError(cx, "Adblock Plus: Failed to select Adblock Plus skin");
-    return PR_FALSE;
+    rv = registry->SelectSkinForPackage(NS_LITERAL_CSTRING("classic/1.0"), NS_LL("adblockplus"), PR_FALSE);
+    if (NS_FAILED(rv)) {
+      JS_ReportError(cx, "Adblock Plus: Failed to select Adblock Plus skin");
+      return PR_FALSE;
+    }
   }
 
   watcher = do_GetService(NS_WINDOWWATCHER_CONTRACTID);
