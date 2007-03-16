@@ -422,7 +422,7 @@ PRBool abpWrapper::Load() {
 
   nsCOMPtr<nsIChromeRegistrySea> registry = do_GetService("@mozilla.org/chrome/chrome-registry;1", &rv);
   if (NS_FAILED(rv)) {
-    JS_ReportError(cx, "Adblock Plus: Failed to chrome registry - wrong Gecko version?");
+    JS_ReportError(cx, "Adblock Plus: Failed to retrieve chrome registry - wrong Gecko version?");
     return PR_FALSE;
   }
 
