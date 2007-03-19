@@ -39,6 +39,7 @@ abp.DataContainer = DataContainer;
 
 DataContainer.prototype = {
   topContainer: null,
+  newLocation: null,
   lastSelection: null,
   detached: false,
 
@@ -70,6 +71,21 @@ DataContainer.prototype = {
 
       // We shouldn't send further notifications
       me.detached = true;
+
+      if (me.newLocation) {
+        // Make sure to re-add the frame - we are not really going away
+        var location = me.newLocation;
+        createTimer(function() {
+          var wnd = location.nodes[0];
+          if (!wnd.document)
+            return;
+
+          var topWnd = wnd.top;
+          var data = DataContainer.getDataForWindow(wnd);
+          data.addNode(topWnd, wnd, location.type, location.location, location.filter, true);
+        }, 0);
+        me.newLocation = null;
+      }
     };
 
     var showHandler = function(ev) {
@@ -118,10 +134,7 @@ DataContainer.prototype = {
   addNode: function(topWnd, node, contentType, location, filter, storedLoc, objTab) {
     if (contentType == type.SUBDOCUMENT && typeof storedLoc == "undefined" && node instanceof Window && (!filter || filter.type == "whitelist")) {
       // New document is about to load
-      createTimer(function() {
-        var data = DataContainer.getDataForWindow(node);
-        data.addNode(topWnd, node, contentType, location, filter, true);
-      }, 0);
+      this.newLocation = {nodes: [node], type: contentType, location: location, filter: filter};
       return;
     }
 
