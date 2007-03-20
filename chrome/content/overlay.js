@@ -785,7 +785,8 @@ function abpCheckContext() {
     var wnd = (target ? target.ownerDocument.defaultView : null);
     var wndData = (wnd ? abp.getDataForWindow(wnd) : null);
 
-    gContextMenu.abpFrameData = abp.getDataForNode(wnd);
+    if (wnd.frameElement)
+      gContextMenu.abpFrameData = abp.getDataForNode(wnd.frameElement, true);
     if (gContextMenu.abpFrameData)
       gContextMenu.abpFrameData = gContextMenu.abpFrameData[1];
     if (gContextMenu.abpFrameData && gContextMenu.abpFrameData.filter)

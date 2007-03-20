@@ -84,9 +84,6 @@ abp.makeURL = makeURL;
 
 // replaces the blocked image with our dummy and hides it if necessary
 function postProcessNode(node, collapse) {
-  if (node instanceof Window)
-    node = node.frameElement;
-
   if (node instanceof ImageLoadingContent)
     loadBlockedImage(node);
 
