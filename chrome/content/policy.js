@@ -145,8 +145,8 @@ var policy = {
       }
     }
 
-    // Store node data (must set storedLoc parameter so that frames are added immediately when refiltering)
-    data.addNode(topWnd, node, contentType, location, match, collapse ? true : undefined, objTab);
+    // Store node data
+    data.addNode(topWnd, node, contentType, location, match, objTab);
 
     return (match && match.type == "whitelist") || (!match && linksOk);
   },
@@ -277,12 +277,6 @@ var policy = {
     if (!(contentType in blockTypes && this.isBlockableScheme(location)))
       return ok;
 
-    // For frame elements go to their window
-    if (contentType == type.SUBDOCUMENT && node.contentWindow) {
-      node = node.contentWindow;
-      wnd = node;
-    }
-
     return (this.processNode(wnd, node, contentType, location, false) ? ok : block);
   },
 
@@ -328,9 +322,6 @@ var policy = {
         }
         else {
           if (nodes[j] instanceof ImageLoadingContent || nodes[j] instanceof Window || entry.type == type.STYLESHEET) {
-            if (nodes[j] instanceof Window)
-              nodes[j] = nodes[j].frameElement;
-
             if (nodes[j].parentNode) {
               if ("abpHidden" in nodes[j])
                 nodes[j].style.display = '';

@@ -32,14 +32,12 @@ var dataSeed = Math.random();    // Make sure our properties have randomized nam
 function DataContainer(wnd) {
   this.locations = {};
   this.subdocs = [];
-  this.url = unwrapURL(wnd.location.href);
   this.install(wnd);
 }
 abp.DataContainer = DataContainer;
 
 DataContainer.prototype = {
   topContainer: null,
-  newLocation: null,
   lastSelection: null,
   detached: false,
 
@@ -71,21 +69,6 @@ DataContainer.prototype = {
 
       // We shouldn't send further notifications
       me.detached = true;
-
-      if (me.newLocation) {
-        // Make sure to re-add the frame - we are not really going away
-        var location = me.newLocation;
-        createTimer(function() {
-          var wnd = location.nodes[0];
-          if (!wnd.document)
-            return;
-
-          var topWnd = wnd.top;
-          var data = DataContainer.getDataForWindow(wnd);
-          data.addNode(topWnd, wnd, location.type, location.location, location.filter, true);
-        }, 0);
-        me.newLocation = null;
-      }
     };
 
     var showHandler = function(ev) {
@@ -131,13 +114,7 @@ DataContainer.prototype = {
     if (!this.detached)
       DataContainer.notifyListeners(topWnd, "refresh", this);
   },
-  addNode: function(topWnd, node, contentType, location, filter, storedLoc, objTab) {
-    if (contentType == type.SUBDOCUMENT && typeof storedLoc == "undefined" && node instanceof Window && (!filter || filter.type == "whitelist")) {
-      // New document is about to load
-      this.newLocation = {nodes: [node], type: contentType, location: location, filter: filter};
-      return;
-    }
-
+  addNode: function(topWnd, node, contentType, location, filter, objTab) {
     // If we had this node already, remove it from the list first
     this.removeNode(node);
 
@@ -219,23 +196,20 @@ DataContainer.getDataForWindow = function(wnd) {
 abp.getDataForWindow = DataContainer.getDataForWindow;
 
 // Loads Adblock data associated with a node object
-DataContainer.getDataForNode = function(node) {
+DataContainer.getDataForNode = function(node, noParent) {
   // Make sure we get the same wrapper as in shouldLoad()
   node = wrapNode(node.wrappedJSObject);
 
-  var origNode = node;
   while (node) {
     if ("abpLocation" + dataSeed in node)
       return [node, node["abpLocation" + dataSeed]];
 
+    if (typeof noParent == "boolean" && noParent)
+      return null;
+
     // If we don't have any information on the node, then maybe on its parent
     node = node.parentNode;
   }
-
-  // Try frame element for those object frames
-  var wnd = getWindow(origNode);
-  if (wnd && wnd.frameElement && "abpLocation" + dataSeed in wnd.frameElement)
-    return [wnd, wnd.frameElement["abpLocation" + dataSeed]];
 
   return null;
 };
