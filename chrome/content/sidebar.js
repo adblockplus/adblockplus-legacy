@@ -647,7 +647,6 @@ var treeView = {
   performAction: function() {},
   performActionOnRow: function() {},
   performActionOnCell: function() {},
-  selection: null,
   selectionChanged: function() {},
 
   //
