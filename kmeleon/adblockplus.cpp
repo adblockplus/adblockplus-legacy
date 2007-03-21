@@ -420,6 +420,7 @@ PRBool abpWrapper::Load() {
   if (cx == nsnull)
     return PR_FALSE;
 
+#ifndef TOOLKIT_ONLY
   nsCOMPtr<nsIChromeRegistrySea> registry = do_GetService("@mozilla.org/chrome/chrome-registry;1");
   if (registry) {
     // If we got the SeaMonkey registry this is probably K-Meleon 1.0, skip registration for K-Meleon 1.1
@@ -454,6 +455,7 @@ PRBool abpWrapper::Load() {
       return PR_FALSE;
     }
   }
+#endif
 
   watcher = do_GetService(NS_WINDOWWATCHER_CONTRACTID);
   if (watcher == nsnull) {
