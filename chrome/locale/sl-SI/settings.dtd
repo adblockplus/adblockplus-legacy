@@ -16,23 +16,23 @@
 <!ENTITY resethitcounts.label "Ponastavi statistiko zadetkov">
 <!ENTITY resethitcounts.accesskey "z">
 <!ENTITY edit.label "Uredi">
-<!ENTITY edit.accesskey "U">
+<!ENTITY edit.accesskey "e">
 <!ENTITY cut.label "Izreži">
-<!ENTITY cut.accesskey "z">
+<!ENTITY cut.accesskey "i">
 <!ENTITY copy.label "Kopiraj">
 <!ENTITY copy.accesskey "K">
 <!ENTITY paste.label "Prilepi">
 <!ENTITY paste.accesskey "P">
 <!ENTITY remove.label "Izbriši">
-<!ENTITY remove.accesskey "I">
+<!ENTITY remove.accesskey "b">
 <!ENTITY menu.find.label "Najdi">
-<!ENTITY menu.find.accesskey "N">
-<!ENTITY menu.findagain.label "Najdi znova">
-<!ENTITY menu.findagain.accesskey "z">
+<!ENTITY menu.find.accesskey "d">
+<!ENTITY menu.findagain.label "Ponovno najdi">
+<!ENTITY menu.findagain.accesskey "j">
 <!ENTITY options.label "Možnosti">
-<!ENTITY options.accesskey "M">
+<!ENTITY options.accesskey "ž">
 <!ENTITY enable.label "Omogoči Adblock Plus">
-<!ENTITY enable.accesskey "m">
+<!ENTITY enable.accesskey "O">
 <!ENTITY showintoolbar.label "Pokaži v orodni vrstici">
 <!ENTITY showintoolbar.accesskey "k">
 <!ENTITY showinstatusbar.label "Pokaži v vrstici stanja">

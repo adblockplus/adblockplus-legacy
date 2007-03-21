@@ -13,8 +13,8 @@
 <!ENTITY settings.label "Προτιμήσεις">
 <!ENTITY settings.accesskey "Π">
 <!ENTITY opensidebar.label "Άνοιγμα των φιλτραρισμένων στοιχείων">
-<!ENTITY opensidebar.accesskey "Α">
+<!ENTITY opensidebar.accesskey "φ">
 <!ENTITY closesidebar.label "Κλείσιμο των φιλτραρισμένων στοιχείων">
-<!ENTITY closesidebar.accesskey "Κ">
+<!ENTITY closesidebar.accesskey "φ">
 <!ENTITY whitelist.site.label "Απενεργοποίηση στο --">
 <!ENTITY whitelist.page.label "Απενεργοποίηση σε αυτή τη σελίδα μόνο">

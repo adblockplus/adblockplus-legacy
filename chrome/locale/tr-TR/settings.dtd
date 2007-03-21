@@ -18,7 +18,7 @@
 <!ENTITY edit.label "Düzen">
 <!ENTITY edit.accesskey "z">
 <!ENTITY cut.label "Kes">
-<!ENTITY cut.accesskey "k">
+<!ENTITY cut.accesskey "e">
 <!ENTITY copy.label "Kopyala">
 <!ENTITY copy.accesskey "K">
 <!ENTITY paste.label "Yapıştır">
@@ -71,4 +71,4 @@
 <!ENTITY context.movegroupup.label "Öbeği yukarıya taşı">
 <!ENTITY context.movegroupdown.label "Öbeği aşağıya taşı">
 <!ENTITY apply.label "Uygula">
-<!ENTITY apply.accesskey "A">
+<!ENTITY apply.accesskey "u">

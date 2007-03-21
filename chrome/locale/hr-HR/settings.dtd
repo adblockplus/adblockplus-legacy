@@ -42,7 +42,7 @@
 <!ENTITY collapse.label "Sažmi blokirane elemente">
 <!ENTITY collapse.accesskey "e">
 <!ENTITY linkcheck.label "Provjeri veze banera">
-<!ENTITY linkcheck.accesskey "b">
+<!ENTITY linkcheck.accesskey "n">
 <!ENTITY help.label "Pomoć">
 <!ENTITY help.accesskey "ć">
 <!ENTITY faq.label "Često postavljana pitanja">

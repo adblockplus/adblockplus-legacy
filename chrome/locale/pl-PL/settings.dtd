@@ -13,7 +13,7 @@
 <!ENTITY export.accesskey "E">
 <!ENTITY clearall.label "Usuń wszystkie filtry">
 <!ENTITY clearall.accesskey "L">
-<!ENTITY resethitcounts.label "Wyzeruj licznik użycia filtra">
+<!ENTITY resethitcounts.label "Wyzeruj licznik użycia filtru">
 <!ENTITY resethitcounts.accesskey "W">
 <!ENTITY edit.label "Edycja">
 <!ENTITY edit.accesskey "E">
