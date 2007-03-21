@@ -52,8 +52,11 @@ const module = {
                     ABP_PROT_CONTRACTID,
                     fileSpec, location, type);
 
+    // Need to delete category before removing, nsIContentPolicies in Gecko 1.9 listens to
+    // category changes
     var catman = Components.classes["@mozilla.org/categorymanager;1"]
                            .getService(Components.interfaces.nsICategoryManager);
+    catman.deleteCategoryEntry("content-policy", ABP_CONTRACTID, true);
     catman.addCategoryEntry("content-policy", ABP_CONTRACTID,
               ABP_CONTRACTID, true, true);
   },
