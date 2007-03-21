@@ -100,7 +100,7 @@
   <splitter id="abp-sidebar-splitter" hidden="true"/>
   <vbox id="abp-sidebar" height="200" hidden="true" persist="height">
     <toolbox id="abp-sidebar-header">
-      <toolbar align="center" grippyhidden="true">
+      <toolbar align="center" grippyhidden="true" fullscreentoolbar="true">
         <label id="abp-sidebar-title" control="abp-sidebar-browser" value="&sidebar.title;" flex="1" crop="end"/>
         <toolbarbutton id="abp-sidebar-close" oncommand="abpToggleSidebar()" tooltiptext="&closesidebar.label;"/>
       </toolbar>
