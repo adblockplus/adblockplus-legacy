@@ -35,11 +35,8 @@ const block = Components.interfaces.nsIContentPolicy.REJECT_REQUEST;
 
 var policy = {
   allowOnce: null,
-  dummyChannel: null,
 
   init: function() {
-    this.dummyChannel = ioService.newChannel("abp:dummy", null, null);
-
     var types = ["OTHER", "SCRIPT", "IMAGE", "STYLESHEET", "OBJECT", "SUBDOCUMENT", "DOCUMENT"];
 
     // type constant by type description and type description by type constant
@@ -123,7 +120,8 @@ var policy = {
   
       if (match && match.type != "whitelist" && node) {
         var prefCollapse = ("collapse" in match ? match.collapse : !prefs.fastcollapse);
-        wnd.setTimeout(postProcessNode, 0, node, collapse || prefCollapse);
+        if (collapse || prefCollapse)
+          wnd.setTimeout(postProcessNode, 0, node);
       }
 
       // Show object tabs unless this is a standalone object
@@ -298,50 +296,17 @@ var policy = {
         return;
       }
 
-      var entry = data[i];
-      var match = prefs.whitePatterns.matchesAny(entry.location, typeDescr[entry.type] || "");
-      if (match == null)
-        match = prefs.filterPatterns.matchesAny(entry.location, typeDescr[entry.type] || "");
-
-      if (match == entry.filter)
-        continue;
-      else
-        entry.filter = match;
-
-      if (match)
-        prefs.increaseHitCount(match);
-
-      var nodes = entry.nodes;
-      entry.nodes = [];
-
-      for (var j = 0; j < nodes.length; j++) {
-        if ("abpObjTab" in nodes[j]) {
-          // Remove object tabs
-          if (nodes[j].parentNode)
-            nodes[j].parentNode.removeChild(nodes[j]);
-        }
-        else {
-          if (nodes[j] instanceof ImageLoadingContent || nodes[j] instanceof Window || entry.type == type.STYLESHEET) {
-            if (nodes[j].parentNode) {
-              if ("abpHidden" in nodes[j])
-                nodes[j].style.display = '';
-
-              if (nodes[j] instanceof ImageLoadingContent) {
-                // HACKHACK: Fake loading a different image to make sure reinsertion will reload
-                var listener = nodes[j].loadImageWithChannel(this.dummyChannel);
-                listener.onStartRequest(this.dummyChannel, null);
-                listener.onStopRequest(this.dummyChannel, null, Components.results.NS_ERROR_NO_CONTENT);
-              }
-
-              // Reinsert the node to make sure it runs through the filters again
-              if (nodes[j].nextSibling)
-                nodes[j].parentNode.insertBefore(nodes[j], nodes[j].nextSibling);
-              else
-                nodes[j].parentNode.appendChild(nodes[j]);
-            }
+      if (!data[i].filter || data[i].filter.type == "whitelist") {
+        var nodes = data[i].nodes;
+        data[i].nodes = [];
+        for (var j = 0; j < nodes.length; j++) {
+          if ("abpObjTab" in nodes[j]) {
+            // Remove object tabs
+            if (nodes[j].parentNode)
+              nodes[j].parentNode.removeChild(nodes[j]);
           }
           else
-            data[i].nodes.push(nodes[j]);
+            this.processNode(wnd, nodes[j], data[i].type, data[i].location, true);
         }
       }
     }
