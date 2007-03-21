@@ -231,6 +231,9 @@ function addObjectTab(node, location, tab, wnd) {
     // Initialization
     var label = doc.getAnonymousNodes(tab)[0];
 
+    // Tooltip
+    tab.setAttribute("title", label.getAttribute("title"));
+
     // Tab dimensions
     var tabWidth = label.offsetWidth;
     var tabHeight = label.offsetHeight;
