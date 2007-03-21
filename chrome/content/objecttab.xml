@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!DOCTYPE bindings SYSTEM "chrome://adblockplus/locale/overlay.dtd">
+
 <bindings id="objectTabBindings"
     xmlns="http://www.mozilla.org/xbl"
     xmlns:html="http://www.w3.org/1999/xhtml"
@@ -7,7 +9,7 @@
 
   <binding id="objectTab">
     <content>
-      <html:div>Adblock</html:div>
+      <html:div title="&objecttab.tooltip;">&objecttab.title;</html:div>
     </content>
   </binding>
 </bindings>
