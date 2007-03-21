@@ -22,9 +22,10 @@ if ($ARGV[0] =~ /^\+/)
   shift @ARGV;
 }
 
-my $locale = shift @ARGV || "en-US";
-my $charset = ($locale eq "ru-RU" ? "windows-1251" : "iso-8859-1");
-my @locales = ($locale);
+my @locales = @ARGV;
+push @locales, "en-US" unless @locales;
+my $charset = ($locales[0] eq "ru-RU" ? "windows-1251" : "iso-8859-1");
+$CCFLAGS .= " /DTOOLKIT_ONLY" if $#locales > 0;
 
 my $inline_script = "";
 open(FILE, "adblockplus.js");
@@ -58,8 +59,8 @@ chdir('..');
 rm_rec('tmp');
 mkdir('tmp', 0755) or die "Failed to create directory tmp: $!";
 cp_rec("../$_", "tmp/$_") foreach ('chrome', 'components', 'defaults');
-copy_manifest("../chrome.manifest", "tmp/chrome/adblockplus.manifest");
 system("mv tmp/defaults/preferences tmp/defaults/pref") && exit;
+cp("../chrome.manifest", "tmp/chrome/adblockplus.manifest", 1);
 cp("adblockplus_extra.js", "tmp/defaults/pref/adblockplus_extra.js");
 mkdir("tmp/kplugins", 0755) or die "Failed to created directory tmp/kplugins: $!";
 system("mv adblockplus.dll tmp/kplugins/adblockplus.dll");
@@ -114,9 +115,10 @@ sub cp
       s/\r//g;
       s/^((?:  )+)/"\t" x (length($1)\/2)/e;
       s/(\#define\s+ABP_VERSION\s+)"[^"]*"/$1"$version"/ if $replace_version;
-      s/(\#define\s+ABP_LANGUAGE\s+)"[^"]*"/$1"$locale"/ if $replace_version;
+      s/(\#define\s+ABP_LANGUAGE\s+)"[^"]*"/$1"$locales[0]"/ if $replace_version;
       s/(\#define\s+ABP_INLINE_SCRIPT\s+)"[^"]*"/$1"$inline_script"/ if $replace_version;
       s/\{\{VERSION\}\}/$version/g if $replace_version;
+      s/jar:chrome\//jar:/g if $fromfile =~ /\.manifest$/;
       if ($replace_version && /\{\{LOCALE\}\}/)
       {
         my $loc = "";
@@ -172,22 +174,4 @@ sub cp_rec
       }
     }
   }
-}
-
-sub copy_manifest
-{
-  my ($from, $to) = @_;
-
-  open(local *FROM, $from) or die "Could not open file $from";
-  open(local *TO, ">$to") or die "Could not create file $to";
-
-  while (<FROM>)
-  {
-    s/\{\{LOCALE\}\}/$locale/g;
-    s/jar:chrome\//jar:/g;
-    print TO $_;
-  }
-
-  close(FROM);
-  close(TO);
 }

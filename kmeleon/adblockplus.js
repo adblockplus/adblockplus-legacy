@@ -32,9 +32,21 @@ var parentNode = this;
 var style = this;
 var gContextMenu = this;
 
+var currentLocale = null;
+if ("@mozilla.org/chrome/chrome-registry;1" in Components.classes) {
+  try {
+    var xulRegistry = Components.classes["@mozilla.org/chrome/chrome-registry;1"]
+                                .getService(Components.interfaces.nsIXULChromeRegistry);
+    currentLocale = xulRegistry.getSelectedLocale("adblockplus");
+  } catch(e) {}
+}
+
 var unicodeConverter = Components.classes["@mozilla.org/intl/scriptableunicodeconverter"]
                                  .createInstance(Components.interfaces.nsIScriptableUnicodeConverter);
-unicodeConverter.charset = "{{CHARSET}}";
+if (currentLocale)
+  unicodeConverter.charset = (currentLocale == "ru-RU" ? "windows-1251" : "iso-8859-1");
+else
+  unicodeConverter.charset = "{{CHARSET}}";
 var overlayDTD = function() {
   var request = Components.classes["@mozilla.org/xmlextras/xmlhttprequest;1"]
                           .createInstance(Components.interfaces.nsIXMLHttpRequest);
