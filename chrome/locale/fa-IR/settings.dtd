@@ -6,10 +6,10 @@
 <!ENTITY addsubscription.label "اشتراک فيلتر">
 <!ENTITY addsubscription.accesskey "ش">
 <!ENTITY synchsubscriptions.label "به‌روزرساني اشتراک‌ها">
-<!ENTITY synchsubscriptions.accesskey "س">
+<!ENTITY synchsubscriptions.accesskey "ک">
 <!ENTITY import.label "واردکردن فيلترها">
 <!ENTITY import.accesskey "د">
-<!ENTITY export.label "خروجی فيلترها">
+<!ENTITY export.label "صادرکردن فيلترها">
 <!ENTITY export.accesskey "ف">
 <!ENTITY clearall.label "حذف فيلترها">
 <!ENTITY clearall.accesskey "ح">

@@ -3,7 +3,7 @@
 <!ENTITY filters.accesskey "F">
 <!ENTITY add.label "Toevoegen">
 <!ENTITY add.accesskey "g">
-<!ENTITY addsubscription.label "Filter Abonnement toevoegen">
+<!ENTITY addsubscription.label "Filterabonnement toevoegen">
 <!ENTITY addsubscription.accesskey "A">
 <!ENTITY synchsubscriptions.label "Alle abonnementen bijwerken">
 <!ENTITY synchsubscriptions.accesskey "l">
@@ -58,7 +58,7 @@
 <!ENTITY about.accesskey "A">
 <!ENTITY disabled.warning "Adblock Plus is uitgeschakeld. U kunt de filters in de lijst aanpassen, maar wijzigingen zullen niet worden toegepast voordat u Adblock weer inschakeld.">
 <!ENTITY description "Voeg het adres toe dat u wilt blokkeren, zie de keuzelijst voor suggesties. U kunt een * als jokerteken gebruiken voor meer algemene filters. Ervaren gebruikers kunnen reguliere expressies gebruiken, zoals /banner\d+\.gif$/.">
-<!ENTITY pattern.column "Filter regel">
+<!ENTITY pattern.column "Filterregel">
 <!ENTITY enabled.column "Ingeschakeld">
 <!ENTITY hitcount.column "Treffers">
 <!ENTITY lasthit.column "Laatste treffer">

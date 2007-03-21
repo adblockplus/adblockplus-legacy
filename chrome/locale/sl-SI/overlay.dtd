@@ -13,8 +13,8 @@
 <!ENTITY settings.label "Nastavitve">
 <!ENTITY settings.accesskey "N">
 <!ENTITY opensidebar.label "Odpri elemente blokad">
-<!ENTITY opensidebar.accesskey "O">
+<!ENTITY opensidebar.accesskey "e">
 <!ENTITY closesidebar.label "Zapri elemente blokad">
-<!ENTITY closesidebar.accesskey "Z">
+<!ENTITY closesidebar.accesskey "e">
 <!ENTITY whitelist.site.label "Onemogoči na --">
 <!ENTITY whitelist.page.label "Onemogoči samo na tej strani">
