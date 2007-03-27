@@ -479,7 +479,7 @@ function init() {
   }
 }
 
-// Try to fix selected language (Mozilla and SeaMonkey don't do it correctly)
+// Try to fix selected locale (SeaMonkey doesn't do it correctly)
 function fixPackageLocale() {
   try {
     var locale = "en-US";
@@ -511,11 +511,8 @@ function fixPackageLocale() {
     if (!select)
       select = locales[0];
 
-    var iface = ("nsIChromeRegistrySea" in Components.interfaces ? Components.interfaces.nsIChromeRegistrySea : Components.interfaces.nsIXULChromeRegistry);
     var registry = Components.classes["@mozilla.org/chrome/chrome-registry;1"]
-                             .getService(iface);
-    try {
-      registry.selectLocaleForPackage(select, "adblockplus", true);
-    } catch (e) {}
+                             .getService(Components.interfaces.nsIChromeRegistrySea);
+    registry.selectLocaleForPackage(select, "adblockplus", true);
   } catch(e) {}
 }
