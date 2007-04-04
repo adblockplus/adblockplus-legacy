@@ -98,7 +98,7 @@ var policy = {
       contentType = type.BACKGROUND;
 
     // Fix type for objects misrepresented as frames or images
-    if (contentType != type.OBJECT && (node instanceof Components.interfaces.nsIDOMHTMLObjectElement || node instanceof Components.interfaces.nsIDOMHTMLEmbedElement))
+    if (contentType != type.OBJECT && contentType != type.OTHER && (node instanceof Components.interfaces.nsIDOMHTMLObjectElement || node instanceof Components.interfaces.nsIDOMHTMLEmbedElement))
       contentType = type.OBJECT;
 
     var data = DataContainer.getDataForWindow(wnd);
