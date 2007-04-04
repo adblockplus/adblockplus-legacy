@@ -93,12 +93,16 @@ var policy = {
       }
     }
 
+    // Data loaded by plugins should be attached to the document
+    if (contentType == type.OTHER && node instanceof Element)
+      node = node.ownerDocument;
+
     // Fix type for background images
     if (contentType == type.IMAGE && node.nodeType == Node.DOCUMENT_NODE)
       contentType = type.BACKGROUND;
 
     // Fix type for objects misrepresented as frames or images
-    if (contentType != type.OBJECT && contentType != type.OTHER && (node instanceof Components.interfaces.nsIDOMHTMLObjectElement || node instanceof Components.interfaces.nsIDOMHTMLEmbedElement))
+    if (contentType != type.OBJECT && (node instanceof Components.interfaces.nsIDOMHTMLObjectElement || node instanceof Components.interfaces.nsIDOMHTMLEmbedElement))
       contentType = type.OBJECT;
 
     var data = DataContainer.getDataForWindow(wnd);
