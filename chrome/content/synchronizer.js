@@ -140,10 +140,51 @@ var synchronizer = {
       return;
     }
 
+    var newURL = null;
+    try {
+      var oldNotifications = request.channel.notificationCallbacks;
+      var oldEventSink = null;
+      request.channel.notificationCallbacks = {
+        QueryInterface: function(iid) {
+          if (iid.equals(Components.interfaces.nsISupports) ||
+              iid.equals(Components.interfaces.nsIChannelEventSink))
+            return this;
+      
+          throw Components.results.NS_ERROR_NO_INTERFACE;
+        },
+
+        getInterface: function(iid) {
+          if (iid.equals(Components.interfaces.nsIChannelEventSink)) {
+            try {
+              oldEventSink = oldNotifications.QueryInterface(iid);
+            } catch(e) {}
+            return this;
+          }
+    
+          return oldNotifications.QueryInterface(iid);
+        },
+
+        onChannelRedirect: function(oldChannel, newChannel, flags) {
+          if (flags & Components.interfaces.nsIChannelEventSink.REDIRECT_TEMPORARY)
+            newURL = "";
+          else if (newURL != "")
+            newURL = newChannel.URI.spec;
+
+          if (oldEventSink)
+            oldEventSink.onChannelRedirect(oldChannel, newChannel, flags);
+        }
+      }
+    } catch (e) {}
+
     if (subscription.lastModified && !forceDownload)
       request.setRequestHeader("If-Modified-Since", subscription.lastModified);
 
     request.onerror = function(ev) {
+      var request = ev.target;
+      try {
+        request.channel.notificationCallbacks = null;
+      } catch (e) {}
+
       if (!(url in prefs.knownSubscriptions))
         return;
 
@@ -151,10 +192,14 @@ var synchronizer = {
     };
 
     request.onload = function(ev) {
+      var request = ev.target;
+      try {
+        request.channel.notificationCallbacks = null;
+      } catch (e) {}
+
       delete synchronizer.executing[url];
       if (url in prefs.knownSubscriptions) {
         var subscription = prefs.knownSubscriptions[url];
-        var request = ev.target;
 
         if (request.status != 304) {
           if (!synchronizer.readPatterns(subscription, request.responseText))
@@ -181,12 +226,47 @@ var synchronizer = {
         }
         subscription.expires = (expires > subscription.lastDownload ? expires : 0);
 
-        // Expiration date shouldn't be more that two weeks in the future
+        // Expiration date shouldn't be more than two weeks in the future
         if (subscription.expires - subscription.lastDownload > 14*24*3600)
           subscription.expires = subscription.lastDownload + 14*24*3600;
 
+        if (newURL) {
+          synchronizer.notifyListeners(subscription, "remove");
+          var inlist = false;
+          for (i = 0; i < prefs.subscriptions.length; i++) {
+            if (prefs.subscriptions[i].url == url) {
+              prefs.subscriptions.splice(i--, 1);
+              inlist = true;
+            }
+          }
+
+          delete prefs.knownSubscriptions[url];
+          delete prefs.listedSubscriptions[url];
+
+          url = newURL;
+          subscription.url = url;
+
+          var found = false;
+          for (i = 0; i < prefs.subscriptions.length; i++) {
+            if (prefs.subscriptions[i].url == url) {
+              prefs.subscriptions[i] = subscription;
+              found = true;
+            }
+          }
+          if (!found && inlist)
+            prefs.subscriptions.push(subscription);
+
+          prefs.knownSubscriptions[url] = subscription;
+          if (found || inlist)
+            prefs.listedSubscriptions[url] = subscription;
+
+          synchronizer.notifyListeners(subscription, "replace");
+        }
+        else
+          synchronizer.notifyListeners(subscription, "ok");
+
         prefs.savePatterns();
-        synchronizer.notifyListeners(subscription, "ok");
+
       }
     };
 
