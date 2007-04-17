@@ -522,12 +522,15 @@ function synchCallback(orig, status) {
     // Subscription changed
 
     var subscription = null;
-    for (i = 0; i < treeView.data.length; i++)
-      if (treeView.data[i].url == orig.url)
+    for (i = 0; i < treeView.data.length; i++) {
+      if (treeView.data[i].url == orig.url) {
         subscription = treeView.data[i];
+        break;
+      }
+    }
   
     var row, rowCount;
-    if (!subscription && status == "add") {
+    if (!subscription && (status == "add" || status == "replace")) {
       subscription = cloneObject(orig);
       subscription.dummy = false;
       row = treeView.rowCount;
@@ -541,6 +544,11 @@ function synchCallback(orig, status) {
     else if (subscription) {
       row = treeView.getSubscriptionRow(subscription);
       rowCount = treeView.getSubscriptionRowCount(subscription);
+      if (status == "replace") {
+        subscription = cloneObject(orig);
+        subscription.dummy = false;
+        treeView.data[i] = subscription;
+      }
     }
   
     if (!subscription)
