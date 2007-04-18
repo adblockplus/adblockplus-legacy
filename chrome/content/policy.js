@@ -27,8 +27,8 @@
  * This file is included from nsAdblockPlus.js.
  */
 
-var type, typeDescr, localizedDescr, whitelistSchemes;
-var blockTypes = null;
+var type, typeDescr, localizedDescr
+var whitelistSchemes = null;
 
 const ok = Components.interfaces.nsIContentPolicy.ACCEPT;
 const block = Components.interfaces.nsIContentPolicy.REJECT_REQUEST;
@@ -43,16 +43,12 @@ var policy = {
     this.type = type = {};
     typeDescr = {};
     localizedDescr = {};
-    blockTypes = {};
     var iface = Components.interfaces.nsIContentPolicy;
     for (var k = 0; k < types.length; k++) {
       var typeName = types[k];
       type[typeName] = iface["TYPE_" + typeName];
       typeDescr[type[typeName]] = typeName;
       localizedDescr[type[typeName]] = abp.getString("type_label_" + typeName.toLowerCase());
-
-      if (types[k] != "DOCUMENT")
-        blockTypes[type[typeName]] = 1;
     }
   
     type.LINK = 0xFFFF;
@@ -241,7 +237,7 @@ var policy = {
   // nsIContentPolicy interface implementation
   shouldLoad: function(contentType, contentLocation, requestOrigin, insecNode, mimeTypeGuess, extra) {
     // return unless we are initialized
-    if (!blockTypes)
+    if (!whitelistSchemes)
       return ok;
 
     if (!insecNode)
@@ -275,8 +271,12 @@ var policy = {
           return block;
     }
 
+    // Interpret unknown types as "other"
+    if (!(contentType in typeDescr))
+      contentType = type.OTHER;
+
     // if it's not a blockable type or a whitelisted scheme, use the usual policy
-    if (!(contentType in blockTypes && this.isBlockableScheme(location)))
+    if (contentType == type.DOCUMENT || !this.isBlockableScheme(location))
       return ok;
 
     return (this.processNode(wnd, node, contentType, location, false) ? ok : block);
