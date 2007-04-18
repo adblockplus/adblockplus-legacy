@@ -125,7 +125,7 @@ var synchronizer = {
       return;
 
     var curVersion = abp.getInstalledVersion();
-    var loadFrom = url.replace(/%VERSION%/, curVersion ? "ABP" + curVersion : "");
+    var loadFrom = (subscription.nextURL ? subscription.nextURL : url).replace(/%VERSION%/, curVersion ? "ABP" + curVersion : "");
 
     try {
       var request = Components.classes["@mozilla.org/xmlextras/xmlhttprequest;1"]
@@ -140,7 +140,8 @@ var synchronizer = {
       return;
     }
 
-    var newURL = null;
+    var newURL = subscription.nextURL;
+    subscription.nextURL = null;
     try {
       var oldNotifications = request.channel.notificationCallbacks;
       var oldEventSink = null;
@@ -208,7 +209,7 @@ var synchronizer = {
           subscription.lastModified = request.getResponseHeader("Last-Modified");
         }
 
-        subscription.lastDownload = subscription.lastSuccess = parseInt(new Date().getTime() / 1000);
+        subscription.lastDownload = parseInt(new Date().getTime() / 1000);
         subscription.downloadStatus = "synchronize_ok";
 
         var expires = parseInt(new Date(request.getResponseHeader("Expires")).getTime() / 1000) || 0;
@@ -223,8 +224,13 @@ var synchronizer = {
                 expires = time;
             }
           }
+          if (subscription.patterns[i].type == "comment" && /\bRedirect(?:\s*:\s*|\s+to\s+|\s+)(\S+)/.test(subscription.patterns[i].text))
+            subscription.nextURL = RegExp.$1;
         }
         subscription.expires = (expires > subscription.lastDownload ? expires : 0);
+
+        if (!subscription.nextURL)
+          subscription.lastSuccess = subscription.lastDownload;
 
         // Expiration date shouldn't be more than two weeks in the future
         if (subscription.expires - subscription.lastDownload > 14*24*3600)

@@ -1005,6 +1005,7 @@ var prefs = {
     else {
       var ret = {url: url};
       ret.special = false;
+      ret.nextURL = ("nextURL" in obj && obj.nextURL ? obj.nextURL : null);
       ret.title = ("title" in obj && obj.title ? obj.title : url);
       ret.autoDownload = !("autoDownload" in obj && obj.autoDownload == "false");
       ret.disabled = ("disabled" in obj && obj.disabled == "true");
@@ -1059,6 +1060,7 @@ var prefs = {
       ret = {
         url: url,
         special: false,
+        nextURL: null,
         title: url,
         autoDownload: true,
         disabled: false,
@@ -1131,6 +1133,7 @@ var prefs = {
     var ret = {
       url: id,
       special: false,
+      nextURL: null,
       title: title,
       autoDownload: true,
       disabled: false,
@@ -1163,6 +1166,8 @@ var prefs = {
     buf.push('url=' + subscription.url);
 
     if (!subscription.special) {
+      if (subscription.nextURL)
+        buf.push('nextURL=' + subscription.nextURL);
       buf.push('title=' + subscription.title);
       buf.push('autoDownload=' + subscription.autoDownload);
       buf.push('disabled=' + subscription.disabled);
