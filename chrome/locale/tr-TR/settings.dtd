@@ -28,7 +28,7 @@
 <!ENTITY menu.find.label "Bul">
 <!ENTITY menu.find.accesskey "B">
 <!ENTITY menu.findagain.label "Sonrakini bul">
-<!ENTITY menu.findagain.accesskey "S">
+<!ENTITY menu.findagain.accesskey "A">
 <!ENTITY options.label "Seçenekler">
 <!ENTITY options.accesskey "S">
 <!ENTITY enable.label "Adblock Plus&apos;ı etkinleştir">
