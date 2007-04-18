@@ -115,8 +115,28 @@ var synchronizer = {
     delete this.executing[subscription.url];
     subscription.lastDownload = parseInt(new Date().getTime() / 1000);
     subscription.downloadStatus = error;
+    subscription.errors++;
     prefs.savePatterns();
     this.notifyListeners(subscription, "error");
+
+    if (subscription.errors >= prefs.subscriptions_fallbackerrors && /^https?:\/\//i.test(subscription.url)) {
+      var request = Components.classes["@mozilla.org/xmlextras/xmlhttprequest;1"]
+                              .createInstance(Components.interfaces.nsIJSXMLHttpRequest);
+      request.open("GET", prefs.subscriptions_fallbackurl.replace(/%s/g, escape(subscription.url)));
+      request.channel.loadFlags = request.channel.loadFlags |
+                                  request.channel.INHIBIT_CACHING |
+                                  request.channel.LOAD_BYPASS_CACHE;
+      request.onload = function(ev) {
+        if (subscription.errors >= prefs.subscriptions_fallbackerrors) {
+          subscription.errors = 0;
+          if (/^301\s+(\S+)/.test(ev.target.responseText))
+            subscription.nextURL = RegExp.$1;
+          prefs.savePatterns();
+        }
+      }
+      request.send(null);
+      request = null;
+    }
   },
 
   executeInternal: function(subscription, forceDownload) {
@@ -162,7 +182,7 @@ var synchronizer = {
             return this;
           }
     
-          return oldNotifications.QueryInterface(iid);
+          return (oldNotifications ? oldNotifications.QueryInterface(iid) : null);
         },
 
         onChannelRedirect: function(oldChannel, newChannel, flags) {
@@ -211,6 +231,7 @@ var synchronizer = {
 
         subscription.lastDownload = parseInt(new Date().getTime() / 1000);
         subscription.downloadStatus = "synchronize_ok";
+        subscription.errors = 0;
 
         var expires = parseInt(new Date(request.getResponseHeader("Expires")).getTime() / 1000) || 0;
         for (var i = 0; i < subscription.patterns.length; i++) {
@@ -224,7 +245,7 @@ var synchronizer = {
                 expires = time;
             }
           }
-          if (subscription.patterns[i].type == "comment" && /\bRedirect(?:\s*:\s*|\s+to\s+|\s+)(\S+)/.test(subscription.patterns[i].text))
+          if (subscription.patterns[i].type == "comment" && /\bRedirect(?:\s*:\s*|\s+to\s+|\s+)(\S+)/i.test(subscription.patterns[i].text))
             subscription.nextURL = RegExp.$1;
         }
         subscription.expires = (expires > subscription.lastDownload ? expires : 0);
