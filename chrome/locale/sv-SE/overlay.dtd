@@ -18,3 +18,5 @@
 <!ENTITY closesidebar.accesskey "B">
 <!ENTITY whitelist.site.label "Använd inte på --">
 <!ENTITY whitelist.page.label "Använd inte på denna sida">
+<!ENTITY objecttab.title "Blockera">
+<!ENTITY objecttab.tooltip "Klicka här för att blockera detta objekt med Adblock Plus">

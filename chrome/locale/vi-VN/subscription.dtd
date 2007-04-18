@@ -1,27 +1,27 @@
 <!ENTITY dialog.title "Sửa bộ lọc đăng ký">
 <!ENTITY dialog.newtitle "Thêm bộ lọc đăng ký">
 <!ENTITY new.description "
-      Vui lòng nhập địa chỉ hay file chứa danh sách mục lọc dạng Adblock Plus
+			Vui lòng nhập địa chỉ hay file chứa danh sách quy luật lọc dạng Adblock Plus
 ">
 <!ENTITY edit.description "
-      Danh sách mục lọc cho bộ lọc đăng ký này sẽ được tải từ địa điểm đã cho.
+			Danh sách quy luật lọc cho bộ lọc đăng ký này sẽ được tải từ địa điểm đã cho.
 ">
 <!ENTITY external.description "
-     Đây là một bộ lọc đăng ký từ bên ngoài, danh sách mục lọc của nó sẽ được
-     cập nhật bởi phần mở rộng đã tạo ra bộ lọc đăng ký này.
+		 Đây là một bộ lọc đăng ký từ bên ngoài, danh sách quy luật lọc của nó sẽ được
+		 cập nhật bởi phần mở rộng đã tạo ra bộ lọc đăng ký này.
 ">
 <!ENTITY autodownload.description "
-     Nếu bạn chọn &apos;Cập nhật tự động&apos; địa điểm này sẽ được kiểm tra
-     cho sự cập nhật hàng ngày. Nếu tùy chọn này vô hiệu, bạn vẫn có thể kích
-     hoạt cập nhật từ menu ngữ cảnh của bộ lọc đăng ký.
+		 Nếu bạn chọn &apos;Cập nhật tự động&apos; địa điểm này sẽ được kiểm tra
+		 cho sự cập nhật hàng ngày. Nếu tùy chọn này vô hiệu, bạn vẫn có thể kích
+		 hoạt cập nhật từ menu ngữ cảnh của bộ lọc đăng ký.
 ">
-<!ENTITY location.label "Địa điểm của danh sách mục lọc:">
+<!ENTITY location.label "Địa điểm của danh sách quy luật lọc:">
 <!ENTITY location.accesskey "l">
 <!ENTITY title.label "Tiêu đề của bộ lọc đăng ký:">
 <!ENTITY title.accesskey "T">
 <!ENTITY autodownload.label "Cập nhật tự động">
 <!ENTITY autodownload.accesskey "N">
-<!ENTITY enabled.label "Bật các mục lọc">
+<!ENTITY enabled.label "Bật các quy luật lọc">
 <!ENTITY enabled.accesskey "B">
 <!ENTITY full-list.url "http://adblockplus.org/en/subscriptions">
 <!ENTITY full-list.label "Xem toàn bộ đăng ký">

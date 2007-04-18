@@ -58,8 +58,8 @@
 <!ENTITY about.accesskey "B">
 <!ENTITY disabled.warning "Adblock Plus已被禁用。你可以编辑列表中的任何过滤规则，但是这些规则在重新启用前不会生效。">
 <!ENTITY description "添加你想过滤的地址，建议检查下拉列表。
-    你可以使用*作为通配符来创建更通用的过滤规则。
-    高级用户可以使用象 /banner\d+\.gif$/ 这样的正则表达式。">
+		你可以使用*作为通配符来创建更通用的过滤规则。
+		高级用户可以使用象 /banner\d+\.gif$/ 这样的正则表达式。">
 <!ENTITY pattern.column "过滤规则">
 <!ENTITY enabled.column "启用">
 <!ENTITY hitcount.column "计数">

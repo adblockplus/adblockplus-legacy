@@ -14,10 +14,10 @@
 <!ENTITY tooltip.type.label "Dạng:">
 <!ENTITY tooltip.type.blocked "(chặn)">
 <!ENTITY tooltip.type.whitelisted "(sổ trắng)">
-<!ENTITY tooltip.filter.label "Mục lọc đang có hiệu lực:">
+<!ENTITY tooltip.filter.label "Quy luật lọc hiệu lực:">
 <!ENTITY context.block.label "Chặn mục này">
-<!ENTITY context.editfilter.label "Sửa mục lọc đang có hiệu lực">
-<!ENTITY context.whitelist.label "Thêm luật ngoại lệ cho mục">
+<!ENTITY context.editfilter.label "Sửa quy luật lọc đang có hiệu lực">
+<!ENTITY context.whitelist.label "Thêm quy luật ngoại lệ cho mục">
 <!ENTITY context.open.label "Mở trong Thẻ mới">
 <!ENTITY context.flash.label "Đường viền cho mục Flash">
 <!ENTITY context.copy.label "Chép địa chỉ của mục">

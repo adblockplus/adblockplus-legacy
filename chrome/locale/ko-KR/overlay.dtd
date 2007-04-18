@@ -18,3 +18,5 @@
 <!ENTITY closesidebar.accesskey "B">
 <!ENTITY whitelist.site.label "다음 사이트에서 차단하기 --">
 <!ENTITY whitelist.page.label "이 페이지에서만 차단하기">
+<!ENTITY objecttab.title "차단">
+<!ENTITY objecttab.tooltip "Adblock Plus로 이 객체를 차단하려면 여기를 누르십시오.">

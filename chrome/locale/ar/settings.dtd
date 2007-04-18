@@ -1,0 +1,75 @@
+<!ENTITY dialog.title "إعدادات آدبلوك بلاس">
+<!ENTITY filters.label "فلاتر">
+<!ENTITY filters.accesskey "F">
+<!ENTITY add.label "إضافة فلتر">
+<!ENTITY add.accesskey "A">
+<!ENTITY addsubscription.label "إضافة اشتراك إلى فلتر">
+<!ENTITY addsubscription.accesskey "S">
+<!ENTITY synchsubscriptions.label "تحديث كل الاشتراكات">
+<!ENTITY synchsubscriptions.accesskey "D">
+<!ENTITY import.label "استيراد فلاتر">
+<!ENTITY import.accesskey "M">
+<!ENTITY export.label "تصدير فلاتر">
+<!ENTITY export.accesskey "X">
+<!ENTITY clearall.label "إزالة كل الفلاتر">
+<!ENTITY clearall.accesskey "L">
+<!ENTITY resethitcounts.label "إعادة ضبط إحصائيات الضغطات">
+<!ENTITY resethitcounts.accesskey "R">
+<!ENTITY edit.label "تعديل">
+<!ENTITY edit.accesskey "E">
+<!ENTITY cut.label "قص">
+<!ENTITY cut.accesskey "T">
+<!ENTITY copy.label "نسخ">
+<!ENTITY copy.accesskey "C">
+<!ENTITY paste.label "لصق">
+<!ENTITY paste.accesskey "P">
+<!ENTITY remove.label "حذف">
+<!ENTITY remove.accesskey "D">
+<!ENTITY menu.find.label "بحث">
+<!ENTITY menu.find.accesskey "F">
+<!ENTITY menu.findagain.label "بحث من جديد">
+<!ENTITY menu.findagain.accesskey "G">
+<!ENTITY options.label "خيارات">
+<!ENTITY options.accesskey "O">
+<!ENTITY enable.label "تفعيل آدبلوك بلاس">
+<!ENTITY enable.accesskey "N">
+<!ENTITY showintoolbar.label "عرض في شريط الأدوات">
+<!ENTITY showintoolbar.accesskey "B">
+<!ENTITY showinstatusbar.label "عرض في شريط الحالة">
+<!ENTITY showinstatusbar.accesskey "S">
+<!ENTITY objecttabs.label "عرض تبويبات لفلاش و جافا">
+<!ENTITY objecttabs.accesskey "T">
+<!ENTITY collapse.label "بسط العناصر المحجوبة">
+<!ENTITY collapse.accesskey "L">
+<!ENTITY linkcheck.label "التأكد من روابط الأشرطة الإعلانية">
+<!ENTITY linkcheck.accesskey "C">
+<!ENTITY help.label "مساعدة">
+<!ENTITY help.accesskey "H">
+<!ENTITY faq.label "الأسئلة الشائعة">
+<!ENTITY faq.accesskey "F">
+<!ENTITY faq.url "http://adblockplus.org/en/faq">
+<!ENTITY tips.label "تلميح اليوم">
+<!ENTITY tips.accesskey "T">
+<!ENTITY tips.url "http://adblockplus.org/en/tips">
+<!ENTITY filterdoc.label "كتابة فلاتر لآدبلوك بلاس">
+<!ENTITY filterdoc.accesskey "R">
+<!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
+<!ENTITY about.label "عن آدبلوك بلاس">
+<!ENTITY about.accesskey "B">
+<!ENTITY disabled.warning "آدبلوك بلاس معطل. يمكنك تعديل أي من الفلاتر في القائمة، و لكن لن يتم تطبيقهم إلا بعد أن تعيد التفعيل.">
+<!ENTITY description "أضف العناوين التي ترغب بحجبها، و للاقتراحات انظر القائمة المنسدلة.
+يمكنك أن تستعمل الرمز * لإنشاء فلاتر عامة. المستخدمين المتقدمين يمكنهم استخدام بعض التعبيرات النظامية مثل /banner\d+\.gif$/">
+<!ENTITY pattern.column "قانون الفلتر">
+<!ENTITY enabled.column "مشغل">
+<!ENTITY hitcount.column "الضغطات">
+<!ENTITY lasthit.column "آخر ضغطة">
+<!ENTITY context.edit.label "تعديل فلتر">
+<!ENTITY context.resethitcount.label "إعادة إحصائيات الضغط للفلتر">
+<!ENTITY context.synchsubscription.label "تحديث الاشتراك الآن">
+<!ENTITY context.editsubscription.label "تعديل اشتراك">
+<!ENTITY context.moveup.label "رفع">
+<!ENTITY context.movedown.label "خفض">
+<!ENTITY context.movegroupup.label "رفع المجموعة">
+<!ENTITY context.movegroupdown.label "خفض المجموعة">
+<!ENTITY apply.label "تطبيق">
+<!ENTITY apply.accesskey "P">

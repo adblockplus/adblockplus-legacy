@@ -18,3 +18,5 @@
 <!ENTITY closesidebar.accesskey "o">
 <!ENTITY whitelist.site.label "Szűrés tiltása itt: --">
 <!ENTITY whitelist.page.label "Szűrés tiltása csak ezen az oldalon">
+<!ENTITY objecttab.title "Blokkolás">
+<!ENTITY objecttab.tooltip "Klikkeljen ide a blokkoláshoz (Adblock Plus segítségével)">

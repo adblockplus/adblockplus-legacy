@@ -1,17 +1,17 @@
 <!ENTITY dialog.title "Tùy Thích cho Adblock Plus">
 <!ENTITY filters.label "Lọc">
 <!ENTITY filters.accesskey "L">
-<!ENTITY add.label "Thêm mục lọc">
+<!ENTITY add.label "Thêm quy luật lọc">
 <!ENTITY add.accesskey "T">
 <!ENTITY addsubscription.label "Đăng ký thêm bộ lọc">
 <!ENTITY addsubscription.accesskey "k">
 <!ENTITY synchsubscriptions.label "Cập nhật tất cả bộ lọc đăng ký">
 <!ENTITY synchsubscriptions.accesskey "C">
-<!ENTITY import.label "Nhập các mục lọc">
+<!ENTITY import.label "Nhập các quy luật lọc">
 <!ENTITY import.accesskey "N">
-<!ENTITY export.label "Xuất các mục lọc">
+<!ENTITY export.label "Xuất các quy luật lọc">
 <!ENTITY export.accesskey "X">
-<!ENTITY clearall.label "Xóa toàn bộ các mục lọc">
+<!ENTITY clearall.label "Xóa toàn bộ các quy luật">
 <!ENTITY clearall.accesskey "a">
 <!ENTITY resethitcounts.label "Zero số lần hit">
 <!ENTITY resethitcounts.accesskey "Z">
@@ -51,23 +51,23 @@
 <!ENTITY tips.label "Mẹo vặt của Hôm nay">
 <!ENTITY tips.accesskey "M">
 <!ENTITY tips.url "http://adblockplus.org/en/tips">
-<!ENTITY filterdoc.label "Cách tạo mục lọc cho Adblock Plus">
+<!ENTITY filterdoc.label "Cách tạo quy luật lọc cho Adblock Plus">
 <!ENTITY filterdoc.accesskey "t">
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Thông tin về Adblock Plus">
 <!ENTITY about.accesskey "v">
-<!ENTITY disabled.warning "Adblock Plus đã vô hiệu. Bạn có thể sửa bất kỳ các mục quảng cáo nào trong danh sách, nhưng các mục quảng cáo đó sẽ không có hiệu quả đến khi bạn bật lại Adblock Plus.">
+<!ENTITY disabled.warning "Adblock Plus đã vô hiệu. Bạn có thể sửa bất kỳ quy luật lọc quảng cáo nào trong danh sách, nhưng các quy luật lọc quảng cáo đó sẽ không có hiệu quả đến khi bạn bật lại Adblock Plus.">
 <!ENTITY description "
-        Thêm những địa chỉ bạn muốn chặn, kiểm tra các gợi ý trong danh sách dropdown.
-        Bạn có thể dùng * như là mặc nạ để tạo thêm các mục quảng cáo tổng quát.
-        Người sử dụng sành điệu có thể sử dụng regular expressions như /bannerd+.gif$/.
+				Thêm những địa chỉ bạn muốn chặn, kiểm tra các gợi ý trong danh sách dropdown.
+				Bạn có thể dùng * như là mặc nạ để tạo thêm các quy luật quảng cáo tổng quát.
+				Người sử dụng sành điệu có thể sử dụng regular expressions như /bannerd+.gif$/.
 ">
-<!ENTITY pattern.column "Luật cho mục lọc">
+<!ENTITY pattern.column "Quy Luật">
 <!ENTITY enabled.column "Có hiệu lực">
 <!ENTITY hitcount.column "Hits">
 <!ENTITY lasthit.column "Lần hit cuối">
-<!ENTITY context.edit.label "Sửa mục lọc">
-<!ENTITY context.resethitcount.label "Zero số lần hit cho mục lọc">
+<!ENTITY context.edit.label "Sửa quy luật">
+<!ENTITY context.resethitcount.label "Zero số lần hit cho quy luật">
 <!ENTITY context.synchsubscription.label "Cập nhật đăng ký ngay bây giờ">
 <!ENTITY context.editsubscription.label "Sửa đăng ký">
 <!ENTITY context.moveup.label "Di chuyển lên">

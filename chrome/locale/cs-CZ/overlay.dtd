@@ -18,3 +18,5 @@
 <!ENTITY closesidebar.accesskey "B">
 <!ENTITY whitelist.site.label "Vypnout na --">
 <!ENTITY whitelist.page.label "Vypnout pouze na této stránce">
+<!ENTITY objecttab.title "Blockovat">
+<!ENTITY objecttab.tooltip "Klepněte zde pro blokování tohoto objektu pomocí Adblock Plus">

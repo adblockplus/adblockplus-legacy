@@ -1,0 +1,14 @@
+<!ENTITY find.label "بحث">
+<!ENTITY findNext.label "البحث عن التالي">
+<!ENTITY findNext.accesskey "N">
+<!ENTITY findNext.tooltip "البحث عن الظهور التالي لهذه العبارة">
+<!ENTITY findPrevious.label "البحث عن السابق">
+<!ENTITY findPrevious.accesskey "P">
+<!ENTITY findPrevious.tooltip "البحث عن الظهور السابق لهذه العبارة">
+<!ENTITY findCloseButton.tooltip "إغلاق شريط البحث">
+<!ENTITY highlight.label "تعليم الكل">
+<!ENTITY highlight.accesskey "a">
+<!ENTITY highlight.tooltip "تعليم كل مواقع الظهور لهذه العبارة (Ctrl+Enter)">
+<!ENTITY highlight.macTooltip "تعليم كل مواقع الظهور لهذه العبارة (Cmd+Return)">
+<!ENTITY caseSensitiveCheckbox.label "مطابقة حالة الأحرف">
+<!ENTITY caseSensitiveCheckbox.accesskey "c">

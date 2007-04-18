@@ -1,0 +1,16 @@
+<!ENTITY dialog.title "تعديل اشتراك فلتر">
+<!ENTITY dialog.newtitle "إضافة اشتراك إلى فلتر">
+<!ENTITY new.description "الرجاء إدخال عنوان الويب أو عنوان الملف الذي يحوي قائمة بالفلاتر لاستخدامها ضمن آدبلوك بلاس.">
+<!ENTITY edit.description "سيتم تحميل قائمة الفلتر هذا من الموقع الذي تم تحديده.">
+<!ENTITY external.description "هذا الاشتراك هو اشتراك إضافي إلى هذا الفلتر، و سيبقى هذا الاشتراك محدثاً باستمرار من خلال الإضافة التي أنشأت هذا الاشتراك.">
+<!ENTITY autodownload.description "إذا اخترت &quot;تحديث أوتوماتيكي&quot; سيتم التأكد من هذا الموقع كل يوم. بتعطيل هذا الخيار ستبقى قادراً على التحديث يدوياً من قائمة المقرونة باسم الفلتر.">
+<!ENTITY location.label "موقع قائمة الفلاتر">
+<!ENTITY location.accesskey "L">
+<!ENTITY title.label "عنوان الاشتراك">
+<!ENTITY title.accesskey "T">
+<!ENTITY autodownload.label "تحديث أوتوماتيكي">
+<!ENTITY autodownload.accesskey "P">
+<!ENTITY enabled.label "تفعيل الفلاتر">
+<!ENTITY enabled.accesskey "N">
+<!ENTITY full-list.url "http://adblockplus.org/en/subscriptions">
+<!ENTITY full-list.label "عرض كل الاشتراكات">

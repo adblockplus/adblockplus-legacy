@@ -58,8 +58,8 @@
 <!ENTITY about.accesskey "O">
 <!ENTITY disabled.warning "Adblock Plus jest wyłączony. Można edytować dowolny filtr, ale do czasu ponownego włączenia Adblocka zmiany te nie będą działały.">
 <!ENTITY description "Dodaj adres, który chcesz zablokować. Aby zobaczyć podpowiedzi przejdź do menu &quot;Pomoc&quot;.
-    Można używać * jako wieloznacznika przy tworzeniu większej ilości filtrów. Zaawansowani użytkownicy
-    mogą używać wyrażeń regularnych takich jak: /banner\d+\.gif$/.">
+		Można używać * jako wieloznacznika przy tworzeniu większej ilości filtrów. Zaawansowani użytkownicy
+		mogą używać wyrażeń regularnych takich jak: /banner\d+\.gif$/.">
 <!ENTITY pattern.column "Reguła filtru">
 <!ENTITY enabled.column "Aktywny">
 <!ENTITY hitcount.column "Użycie">

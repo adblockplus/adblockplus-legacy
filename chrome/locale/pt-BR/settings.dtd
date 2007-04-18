@@ -58,8 +58,8 @@
 <!ENTITY about.accesskey "S">
 <!ENTITY disabled.warning "O Adblock Plus está desativado. Você pode editar qualquer filtro da lista, mas eles não serão aplicados até que você reative.">
 <!ENTITY description "Adicione o endereço que você deseja que seja bloqueado, para sugestões veja a lista.
-    Você pode usar * para substituir qualquer caractere e criar filtros mais gerais.
-    Usuários avançados podem usar expressões regulares como /banner\d+\.gif$/.">
+		Você pode usar * para substituir qualquer caractere e criar filtros mais gerais.
+		Usuários avançados podem usar expressões regulares como /banner\d+\.gif$/.">
 <!ENTITY pattern.column "Regra de Filtragem">
 <!ENTITY enabled.column "Ativado">
 <!ENTITY hitcount.column "Acertos">

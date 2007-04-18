@@ -58,8 +58,7 @@
 <!ENTITY about.accesskey "O">
 <!ENTITY disabled.warning "Adblock Plus je onemogućen. Možete urediti bilo koji filter u popisu, ali oni neće biti primijenjeni dok ga ponovno ne omogućite.">
 <!ENTITY description "Dodajte adrese koje želite blokirati, za prijedloge provjerite padajući popis.
-    Možete koristiti * kao joker da bi kreirali još općenitije filtere. Napredni korisnici mogu
-    koristiti regularne izraze kao /banner\d+\.gif$/.">
+Možete koristiti * kao joker da bi kreirali još općenitije filtere. Napredni korisnici mogu koristiti regularne izraze kao /banner\d+\.gif$/.">
 <!ENTITY pattern.column "Pravilo filtera">
 <!ENTITY enabled.column "Omogućeno">
 <!ENTITY hitcount.column "Pogoci">

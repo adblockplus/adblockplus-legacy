@@ -18,3 +18,5 @@
 <!ENTITY closesidebar.accesskey "ق">
 <!ENTITY whitelist.site.label "غيرفعال در --">
 <!ENTITY whitelist.page.label "غيرفعال فقط در اين صفحه">
+<!ENTITY objecttab.title "Block">
+<!ENTITY objecttab.tooltip "Click here to block this object with Adblock Plus">

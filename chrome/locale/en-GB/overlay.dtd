@@ -18,3 +18,5 @@
 <!ENTITY closesidebar.accesskey "b">
 <!ENTITY whitelist.site.label "Disable on --">
 <!ENTITY whitelist.page.label "Disable on this page only">
+<!ENTITY objecttab.title "Block">
+<!ENTITY objecttab.tooltip "Block this object with Adblock Plus">

@@ -58,8 +58,8 @@
 <!ENTITY about.accesskey "B">
 <!ENTITY disabled.warning "Adblock Plus 사용이 해제되었습니다. 편집된 필터는 Adblock Plus가 사용 가능한 상태로 될 때 적용됩니다.">
 <!ENTITY description "차단하고자 하는 주소를 추가하십시오.
-    일반적인 필터는 &apos;*&apos;을 사용할 수 있습니다.
-    고급 사용자는 정규표현식을 사용할 수 있습니다.(예: /banner\d+\.gif$/)">
+		일반적인 필터는 &apos;*&apos;을 사용할 수 있습니다.
+		고급 사용자는 정규표현식을 사용할 수 있습니다.(예: /banner\d+\.gif$/)">
 <!ENTITY pattern.column "필터 규칙">
 <!ENTITY enabled.column "사용">
 <!ENTITY hitcount.column "히트">
