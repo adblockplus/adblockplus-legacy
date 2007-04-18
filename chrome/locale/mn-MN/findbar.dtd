@@ -1,0 +1,14 @@
+<!ENTITY caseSensitiveCheckbox.accesskey "Т">
+<!ENTITY caseSensitiveCheckbox.label "Том/жижиг бичлэгт тохирсон">
+<!ENTITY find.label "Ол:">
+<!ENTITY findCloseButton.tooltip "Олох самбарыг хаа">
+<!ENTITY findNext.accesskey "Д">
+<!ENTITY findNext.label "Дараах хайлт">
+<!ENTITY findNext.tooltip "Өгүүлбэрийн дараагийн харагдацыг ол">
+<!ENTITY findPrevious.accesskey "Ө">
+<!ENTITY findPrevious.label "Өмнөхийг ол">
+<!ENTITY findPrevious.tooltip "Өгүүлбэрийн өмнөх харагдацыг ол">
+<!ENTITY highlight.accesskey "Б">
+<!ENTITY highlight.label "Бүгдийг гэрэлтүүл">
+<!ENTITY highlight.tooltip "Өгүүлбэрийн олдоцыг гэрэлтүүлж харуул">
+<!ENTITY highlight.macTooltip "Өгүүлбэрийн бүх хэсгийг гэрэлтүүл (Cmd+Return)">

@@ -1,0 +1,52 @@
+<!-- ***** BEGIN LICENSE BLOCK *****
+   - Version: MPL 1.1
+   -
+   - The contents of this file are subject to the Mozilla Public License Version
+   - 1.1 (the "License"); you may not use this file except in compliance with
+   - the License. You may obtain a copy of the License at
+   - http://www.mozilla.org/MPL/
+   -
+   - Software distributed under the License is distributed on an "AS IS" basis,
+   - WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+   - for the specific language governing rights and limitations under the
+   - License.
+   -
+   - The Original Code is Adblock Plus.
+   -
+   - The Initial Developer of the Original Code is
+   - Wladimir Palant.
+   - Portions created by the Initial Developer are Copyright (C) 2006
+   - the Initial Developer. All Rights Reserved.
+   -
+   - Contributor(s):
+   -
+   - ***** END LICENSE BLOCK ***** -->
+
+<!ENTITY notloaded.label        "Дуудагдсангүй">
+<!ENTITY notloaded.tooltip      "Adblock Plus нэгдэл дуудагдсангүй, магадгүй зөв суугдаагүй байх.">
+<!ENTITY status.tooltip         "Төлөв:">
+<!ENTITY blocked.tooltip        "Уг хуудас дахь хашигдсан зүйлс:">
+<!ENTITY filters.tooltip        "Хамгийн идэвхтэй шүүлтүүрүүд:">
+
+<!ENTITY menuitem.label         "Adblock Plus">
+<!ENTITY menuitem.accesskey     "B">
+
+<!ENTITY context.image.label    "Adblock Зураг">
+<!ENTITY context.object.label   "Adblock Объект">
+<!ENTITY context.link.label     "Adblock Холбоос">
+<!ENTITY context.frame.label    "Adblock Хүрээ">
+
+<!ENTITY menuitem.sidebar.title "Adblock Plus: Хашигдах зүйлс">
+<!ENTITY sidebar.title          "Тухайн хуудас дахь хашигдаж болох зүйлс">
+
+<!ENTITY settings.label         "Тохиргоонууд">
+<!ENTITY settings.accesskey     "Т">
+<!ENTITY opensidebar.label      "Хашигдах зүйлсийг нээх">
+<!ENTITY opensidebar.accesskey  "Х">
+<!ENTITY closesidebar.label     "Хашигдах зүйлсийг хаах">
+<!ENTITY closesidebar.accesskey "Х">
+<!ENTITY whitelist.site.label   "Хаах нь --">
+<!ENTITY whitelist.page.label   "Зөвхөн уг хуудсанд хаах">
+
+<!ENTITY objecttab.title        "Block">
+<!ENTITY objecttab.tooltip      "Click here to block this object with Adblock Plus">
