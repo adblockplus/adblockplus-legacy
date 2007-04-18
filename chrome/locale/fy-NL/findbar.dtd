@@ -1,14 +1,18 @@
-<!ENTITY find.label "Zoeken:">
-<!ENTITY findNext.label "Volgende zoeken">
-<!ENTITY findNext.accesskey "V">
-<!ENTITY findNext.tooltip "Het volgende voorkomen van de tekst zoeken">
-<!ENTITY findPrevious.label "Vorige zoeken">
+<!-- LOCALIZATION NOTE : FILE This file contains the entities needed to -->
+<!-- LOCALIZATION NOTE : FILE use the Find Bar. --> 
+
+<!-- entities split out from browser.dtd -->
+<!ENTITY find.label "Sykje:">
+<!ENTITY findNext.label "Folgjende sykje">
+<!ENTITY findNext.accesskey "F">
+<!ENTITY findNext.tooltip "It folgjende foarkommen fan de tekst sykje">
+<!ENTITY findPrevious.label "Foargeande sykje">
 <!ENTITY findPrevious.accesskey "r">
-<!ENTITY findPrevious.tooltip "Het vorige voorkomen van de tekst zoeken">
-<!ENTITY findCloseButton.tooltip "Zoekbalk sluiten">
-<!ENTITY highlight.label "Alles markeren">
+<!ENTITY findPrevious.tooltip "It foargeande foarkommen fan de tekst sykje">
+<!ENTITY findCloseButton.tooltip "Sykbalke slute">
+<!ENTITY highlight.label "Alles markearje">
 <!ENTITY highlight.accesskey "A">
-<!ENTITY highlight.tooltip "Alle voorkomens van de tekst markeren (Ctrl+Enter)">
-<!ENTITY highlight.macTooltip "Alle voorkomens van de tekst markeren (Cmd+Return)">
-<!ENTITY caseSensitiveCheckbox.label "Hoofdlettergevoelig">
+<!ENTITY highlight.tooltip "Markearje alle foarkommens fan de tekst (Ctrl+Enter)">
+<!ENTITY highlight.macTooltip "Markearje alle foarkommens fan de tekst (Cmd+Return)">
+<!ENTITY caseSensitiveCheckbox.label "Haadlettergefoelich">
 <!ENTITY caseSensitiveCheckbox.accesskey "H">
