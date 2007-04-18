@@ -58,8 +58,8 @@
 <!ENTITY about.accesskey "B">
 <!ENTITY disabled.warning "Adblock Plus 已停用。您仍然可以編輯過濾條件，但直到您啟用前都不會有作用。">
 <!ENTITY description "請輸入您想阻擋的物件位址，或從下拉清單中選擇現正瀏覽頁面的物件來阻擋。
-    您可以使用萬用字元「*」建立可適用多個網站的過濾條件。
-    進階使用者則可以輸入像 /banner\d+\.gif$/ 這類的「正規表示式」。">
+		您可以使用萬用字元「*」建立可適用多個網站的過濾條件。
+		進階使用者則可以輸入像 /banner\d+\.gif$/ 這類的「正規表示式」。">
 <!ENTITY pattern.column "過濾條件">
 <!ENTITY enabled.column "已啟用">
 <!ENTITY hitcount.column "命中數">

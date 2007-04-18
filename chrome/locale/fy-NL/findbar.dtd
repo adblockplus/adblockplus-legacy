@@ -1,0 +1,14 @@
+<!ENTITY find.label "Zoeken:">
+<!ENTITY findNext.label "Volgende zoeken">
+<!ENTITY findNext.accesskey "V">
+<!ENTITY findNext.tooltip "Het volgende voorkomen van de tekst zoeken">
+<!ENTITY findPrevious.label "Vorige zoeken">
+<!ENTITY findPrevious.accesskey "r">
+<!ENTITY findPrevious.tooltip "Het vorige voorkomen van de tekst zoeken">
+<!ENTITY findCloseButton.tooltip "Zoekbalk sluiten">
+<!ENTITY highlight.label "Alles markeren">
+<!ENTITY highlight.accesskey "A">
+<!ENTITY highlight.tooltip "Alle voorkomens van de tekst markeren (Ctrl+Enter)">
+<!ENTITY highlight.macTooltip "Alle voorkomens van de tekst markeren (Cmd+Return)">
+<!ENTITY caseSensitiveCheckbox.label "Hoofdlettergevoelig">
+<!ENTITY caseSensitiveCheckbox.accesskey "H">

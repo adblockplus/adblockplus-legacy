@@ -18,3 +18,5 @@
 <!ENTITY closesidebar.accesskey "S">
 <!ENTITY whitelist.site.label "在 -- 禁用Adblock Plus">
 <!ENTITY whitelist.page.label "仅在本页禁用Adblock Plus">
+<!ENTITY objecttab.title "过滤">
+<!ENTITY objecttab.tooltip "点击这里使 Adblock Plus 过滤该对象">

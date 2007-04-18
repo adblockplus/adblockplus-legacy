@@ -18,3 +18,5 @@
 <!ENTITY closesidebar.accesskey "e">
 <!ENTITY whitelist.site.label "Ei käytössä osoitteessa --">
 <!ENTITY whitelist.page.label "Ei käytössä tällä sivulla">
+<!ENTITY objecttab.title "Estä">
+<!ENTITY objecttab.tooltip "Estä tämä objekti Adblock Plussalla">

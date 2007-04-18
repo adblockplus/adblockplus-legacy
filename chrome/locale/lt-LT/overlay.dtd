@@ -18,3 +18,5 @@
 <!ENTITY closesidebar.accesskey "B">
 <!ENTITY whitelist.site.label "Išjungti --">
 <!ENTITY whitelist.page.label "Išjungti šiam tinklalapiui">
+<!ENTITY objecttab.title "Blokuoti">
+<!ENTITY objecttab.tooltip "Spragtelkite čia norėdami užblokuoti šį objektą su „Adblock Plus“">
