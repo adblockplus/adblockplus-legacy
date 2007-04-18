@@ -1,14 +1,16 @@
-<!ENTITY find.label "بحث">
-<!ENTITY findNext.label "البحث عن التالي">
+<!-- LOCALIZATION NOTE : FILE This file contains the entities needed to -->
+<!-- LOCALIZATION NOTE : FILE use the Find Bar. -->
+<!-- entities split out from browser.dtd -->
+<!ENTITY find.label "إيجاد:">
+<!ENTITY findNext.label "إيجاد التّالي">
 <!ENTITY findNext.accesskey "N">
-<!ENTITY findNext.tooltip "البحث عن الظهور التالي لهذه العبارة">
-<!ENTITY findPrevious.label "البحث عن السابق">
+<!ENTITY findNext.tooltip "إيجاد التّواجد التّالي للعبارة">
+<!ENTITY findPrevious.label "إيجاد السّابق">
 <!ENTITY findPrevious.accesskey "P">
-<!ENTITY findPrevious.tooltip "البحث عن الظهور السابق لهذه العبارة">
+<!ENTITY findPrevious.tooltip "إيجاد التّواجد السّابق للعبارة">
 <!ENTITY findCloseButton.tooltip "إغلاق شريط البحث">
-<!ENTITY highlight.label "تعليم الكل">
+<!ENTITY highlight.label "إبراز">
 <!ENTITY highlight.accesskey "a">
-<!ENTITY highlight.tooltip "تعليم كل مواقع الظهور لهذه العبارة (Ctrl+Enter)">
-<!ENTITY highlight.macTooltip "تعليم كل مواقع الظهور لهذه العبارة (Cmd+Return)">
-<!ENTITY caseSensitiveCheckbox.label "مطابقة حالة الأحرف">
-<!ENTITY caseSensitiveCheckbox.accesskey "c">
+<!ENTITY highlight.tooltip "إبراز كلّ تواجدات العبارة (Ctrl + Enter)">
+<!ENTITY caseSensitiveCheckbox.label "مطابقة حجم الأحرف">
+<!ENTITY caseSensitiveCheckbox.accesskey "ح">
