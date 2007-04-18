@@ -1,0 +1,54 @@
+<!-- ***** BEGIN LICENSE BLOCK *****
+	 - Version: MPL 1.1
+	 -
+	 - The contents of this file are subject to the Mozilla Public License Version
+	 - 1.1 (the "License"); you may not use this file except in compliance with
+	 - the License. You may obtain a copy of the License at
+	 - http://www.mozilla.org/MPL/
+	 -
+	 - Software distributed under the License is distributed on an "AS IS" basis,
+	 - WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+	 - for the specific language governing rights and limitations under the
+	 - License.
+	 -
+	 - The Original Code is Adblock Plus.
+	 -
+	 - The Initial Developer of the Original Code is
+	 - Wladimir Palant.
+	 - Portions created by the Initial Developer are Copyright (C) 2006
+	 - the Initial Developer. All Rights Reserved.
+	 -
+	 - Contributor(s):
+	 -
+	 - ***** END LICENSE BLOCK ***** -->
+
+<!ENTITY detached.title           "Adblock Plus: Хашигдахуйц зүйлс (салгагдсан)">
+
+<!ENTITY detach.label             "Салгах">
+<!ENTITY reattach.label           "Залгах">
+
+<!ENTITY search.label             "Хайх:">
+<!ENTITY search.accesskey         "Х">
+
+<!ENTITY type.label               "Төрөл">
+<!ENTITY address.label            "Хаяг">
+<!ENTITY filter.label             "Шүүлтүүр">
+<!ENTITY state.label              "Нөхцөл">
+
+<!ENTITY noitems.label            "Хашигдах зүйлс алга">
+<!ENTITY notremote.label          "Алсын хуудас биш">
+<!ENTITY whitelisted.label        "Цагаанжагсаалтын хуудас">
+<!ENTITY notloaded.label          "Adblock Plus нь зөв суугдаагүй байна">
+
+<!ENTITY tooltip.address.label    "Хаяг:">
+<!ENTITY tooltip.type.label       "Төрөл:">
+<!ENTITY tooltip.type.blocked     "(хашигдсан)">
+<!ENTITY tooltip.type.whitelisted "(цагаандсан)">
+<!ENTITY tooltip.filter.label     "Эффектийн шүүлтүүр:">
+
+<!ENTITY context.block.label      "Уг зүйлийг хаших">
+<!ENTITY context.editfilter.label "Эффектийн шүүлтүүрийг засах">
+<!ENTITY context.whitelist.label  "Зүйлд онцгой дүрэм нэмэх">
+<!ENTITY context.open.label       "Шинэ хуудсанд нээх">
+<!ENTITY context.flash.label      "Flash зүйлийн хүрээнүүд">
+<!ENTITY context.copy.label       "Зүйлийн хаягийг сануулах">
