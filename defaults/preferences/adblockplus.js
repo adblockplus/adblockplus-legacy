@@ -26,5 +26,5 @@ pref("extensions.adblockplus.whitelistschemes", "about chrome file irc mailto ne
 pref("extensions.adblockplus.hideimagemanager", true);
 pref("extensions.adblockplus.protectchrome.abp", "adblockplus");
 pref("extensions.adblockplus.subscriptions_fallbackurl", "http://adblockplus.org/getSubscription?url=%s");
-pref("extensions.adblockplus.subscriptions_fallbackerrors", 20);
+pref("extensions.adblockplus.subscriptions_fallbackerrors", 30);
 pref("extensions.{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}.description", "chrome://adblockplus/locale/global.properties");
