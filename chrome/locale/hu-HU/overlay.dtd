@@ -13,9 +13,9 @@
 <!ENTITY settings.label "Beállítások">
 <!ENTITY settings.accesskey "B">
 <!ENTITY opensidebar.label "Blokkolható objektumok megjelenítése">
-<!ENTITY opensidebar.accesskey "o">
+<!ENTITY opensidebar.accesskey "l">
 <!ENTITY closesidebar.label "Blokkolható objektumok elrejtése">
-<!ENTITY closesidebar.accesskey "o">
+<!ENTITY closesidebar.accesskey "l">
 <!ENTITY whitelist.site.label "Szűrés tiltása itt: --">
 <!ENTITY whitelist.page.label "Szűrés tiltása csak ezen az oldalon">
 <!ENTITY objecttab.title "Blokkolás">

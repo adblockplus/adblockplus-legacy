@@ -26,9 +26,9 @@
 <!ENTITY remove.label "Şterge">
 <!ENTITY remove.accesskey "g">
 <!ENTITY menu.find.label "Caută">
-<!ENTITY menu.find.accesskey "C">
+<!ENTITY menu.find.accesskey "u">
 <!ENTITY menu.findagain.label "Caută următorul">
-<!ENTITY menu.findagain.accesskey "u">
+<!ENTITY menu.findagain.accesskey "m">
 <!ENTITY options.label "Opţiuni">
 <!ENTITY options.accesskey "O">
 <!ENTITY enable.label "Activează Adblock Plus">
