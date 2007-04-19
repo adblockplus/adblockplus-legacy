@@ -22,7 +22,7 @@
       <RDF:Description>
         <abp:title>Liste FR (France) + EasyList</abp:title>
         <abp:url>http://easylist.adblockplus.org/liste_fr+easylist.txt</abp:url>
-        <abp:homepage></abp:homepage>
+        <abp:homepage>http://adblockplus.org/forum/viewtopic.php?t=1314</abp:homepage>
       </RDF:Description>
     </RDF:li>
     <RDF:li>
