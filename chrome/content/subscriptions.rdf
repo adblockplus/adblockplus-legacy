@@ -20,9 +20,23 @@
     </RDF:li>
     <RDF:li>
       <RDF:Description>
+        <abp:title>Liste FR (France) + EasyList</abp:title>
+        <abp:url>http://easylist.adblockplus.org/liste_fr+easylist.txt</abp:url>
+        <abp:homepage></abp:homepage>
+      </RDF:Description>
+    </RDF:li>
+    <RDF:li>
+      <RDF:Description>
         <abp:title>Filter von Dr.Evil (Deutschland)</abp:title>
         <abp:url>http://maltekraus.de/Firefox/adblock.php?elemhiding=sitespecific</abp:url>
         <abp:homepage>http://www.firefox-browser.de/forum/viewtopic.php?t=28904</abp:homepage>
+      </RDF:Description>
+    </RDF:li>
+    <RDF:li>
+      <RDF:Description>
+        <abp:title>Corset (Korea) + EasyList</abp:title>
+        <abp:url>http://easylist.adblockplus.org/corset+easylist.txt</abp:url>
+        <abp:homepage>http://www.brianyi.org/corset/</abp:homepage>
       </RDF:Description>
     </RDF:li>
   </RDF:Seq>
