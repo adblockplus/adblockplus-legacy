@@ -83,6 +83,10 @@ ABPChannel.prototype = {
   },
 
   open: function() {
+    throw Components.results.NS_ERROR_NOT_IMPLEMENTED;
+  },
+
+  asyncOpen: function(listener, context) {
     if (/^abp:\/*subscribe\/*\?(.*)/i.test(this.URI.spec)) {
       var unescape = Components.classes["@mozilla.org/intl/texttosuburi;1"]
                                .getService(Components.interfaces.nsITextToSubURI);
@@ -114,14 +118,22 @@ ABPChannel.prototype = {
             this.addSubscription(result);
       }
     }
-    return Components.results.NS_ERROR_NO_CONTENT;
-  },
 
-  asyncOpen: function() {
-    return this.open();
+    // Cannot create NS_ERROR_NO_CONTENT due to bug 287107
+    createTimer(function() {
+      try {
+        listener.onStartRequest(this, context);
+      } catch(e) {}
+
+      this.status = Components.results.NS_ERROR_ABORT;
+
+      try {
+        listener.onStopRequest(this, context, this.status);
+      } catch(e) {}
+    }, 0);
   },  
   isPending: function() {
-    return false
+    return false;
   },
   cancel: function(status) {
     this.status = status;
