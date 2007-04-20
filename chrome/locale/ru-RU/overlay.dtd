@@ -47,5 +47,5 @@
 <!ENTITY whitelist.site.label   "Отключить: на --">
 <!ENTITY whitelist.page.label   "Отключить: только на этой странице">
 
-<!ENTITY objecttab.title        "Заблокировать">
+<!ENTITY objecttab.title        "Блокировать">
 <!ENTITY objecttab.tooltip      "Нажмите здесь, чтобы Adblock Plus заблокировал этот объект">
