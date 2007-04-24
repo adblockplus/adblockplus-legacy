@@ -99,11 +99,11 @@
     <treecols>
       <treecol id="address" label="&address.label;" flex="2" crop="center" persist="width ordinal sortDirection hidden"/>
       <splitter class="tree-splitter"/>
+      <treecol id="filter" label="&filter.label;" flex="1" persist="width ordinal sortDirection hidden"/>
+      <splitter class="tree-splitter"/>
       <treecol id="type" label="&type.label;" persist="width ordinal sortDirection hidden"/>
       <splitter class="tree-splitter"/>
-      <treecol id="filter" label="&filter.label;" hidden="true" flex="1" persist="width ordinal sortDirection hidden"/>
-      <splitter class="tree-splitter"/>
-      <treecol id="state" label="&state.label;" hidden="true" width="16" persist="width ordinal sortDirection hidden"/>
+      <treecol id="state" label="&state.label;" width="16" persist="width ordinal sortDirection hidden"/>
     </treecols>
 
     <treechildren tooltip="tooltip" context="context"
