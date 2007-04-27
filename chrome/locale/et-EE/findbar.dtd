@@ -1,0 +1,14 @@
+<!ENTITY find.label "Otsi:">
+<!ENTITY findNext.label "Otsi järgmist">
+<!ENTITY findNext.accesskey "O">
+<!ENTITY findNext.tooltip "Otsi järgmist juhtumit fraasis">
+<!ENTITY findPrevious.label "Otsi eelmist">
+<!ENTITY findPrevious.accesskey "l">
+<!ENTITY findPrevious.tooltip "Otsi eelmist juhtumit fraasis">
+<!ENTITY findCloseButton.tooltip "Sulge otsimisriba">
+<!ENTITY highlight.label "Tõsta kõik esile">
+<!ENTITY highlight.accesskey "e">
+<!ENTITY highlight.tooltip "Tõsta esile kõik juhtumid fraasis (Ctrl+Enter)">
+<!ENTITY highlight.macTooltip "Tõsta eilse kõik fraasi juhtumid (Cmd+Return)">
+<!ENTITY caseSensitiveCheckbox.label "Sobita juhtum">
+<!ENTITY caseSensitiveCheckbox.accesskey "h">

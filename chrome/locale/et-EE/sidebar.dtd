@@ -1,0 +1,23 @@
+<!ENTITY detached.title "Adblock Plus: Blokeeritavad objektid (lahtised)">
+<!ENTITY detach.label "Tee lahti">
+<!ENTITY reattach.label "Jäta külge">
+<!ENTITY search.label "Otsi:">
+<!ENTITY search.accesskey "S">
+<!ENTITY type.label "Tüüp">
+<!ENTITY address.label "Address">
+<!ENTITY filter.label "Filter">
+<!ENTITY state.label "Seisukord">
+<!ENTITY noitems.label "Blokeeritavaid objekte pole">
+<!ENTITY whitelisted.label "Hea nimekiri">
+<!ENTITY notloaded.label "Adblock Plus pole paigaldatud korralikult">
+<!ENTITY tooltip.address.label "Address:">
+<!ENTITY tooltip.type.label "Tüüp:">
+<!ENTITY tooltip.type.blocked "(blokeeritud)">
+<!ENTITY tooltip.type.whitelisted "(heas nimekirjas)">
+<!ENTITY tooltip.filter.label "Filtreid effektis:">
+<!ENTITY context.block.label "Blokeeri selle objekti">
+<!ENTITY context.editfilter.label "Muuda filtrit efektis">
+<!ENTITY context.whitelist.label "Lisa erandliku reegli selle objekti jaoks">
+<!ENTITY context.open.label "Ava uues tabis">
+<!ENTITY context.flash.label "Flashi objekti ääred">
+<!ENTITY context.copy.label "Kopeeri objekti aadress">

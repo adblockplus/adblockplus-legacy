@@ -1,0 +1,22 @@
+<!ENTITY notloaded.label "Pole laetud">
+<!ENTITY notloaded.tooltip "Adblock Plusi komponenti ei saa laadida, võib-olla see ei ole korrapäraselt paigaldatud.">
+<!ENTITY status.tooltip "Olek:">
+<!ENTITY blocked.tooltip "Blokeeritud objektid sellel lehel:">
+<!ENTITY filters.tooltip "Kõige aktiivsemad filtrid:">
+<!ENTITY menuitem.label "Adblock Plus">
+<!ENTITY menuitem.accesskey "c">
+<!ENTITY context.image.label "Adblocki Pilt">
+<!ENTITY context.object.label "Adblocki Objekt">
+<!ENTITY context.link.label "Adblocki Link">
+<!ENTITY context.frame.label "Adblocki Kaader">
+<!ENTITY sidebar.title "Blokeeritavad objektid sellel lehel">
+<!ENTITY settings.label "Seaded">
+<!ENTITY settings.accesskey "S">
+<!ENTITY opensidebar.label "Ava blokeeritavad objektid">
+<!ENTITY opensidebar.accesskey "o">
+<!ENTITY closesidebar.label "Sulge blokeeritavad objektid">
+<!ENTITY closesidebar.accesskey "o">
+<!ENTITY whitelist.site.label "Sulge --">
+<!ENTITY whitelist.page.label "Sulge ainult sellel lehel">
+<!ENTITY objecttab.title "Blokeeri">
+<!ENTITY objecttab.tooltip "Vajuta siia, et blokeerida selle objekti Adblock Plusiga">
