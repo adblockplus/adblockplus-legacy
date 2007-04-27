@@ -646,6 +646,43 @@ var prefs = {
       } catch (e) {}
     }
 
+    var lineBreak = abp.getLineBreak();
+    var buf = ['# Adblock Plus preferences', ''];
+
+    var saved = new HashTable();
+
+    // Save pattern data
+    for (i = 0; i < this.userPatterns.length; i++) {
+      var pattern = this.userPatterns[i];
+      if (!(pattern.text in saved)) {
+        this.serializePattern(buf, pattern);
+        saved[pattern.text] = pattern;
+      }
+    }
+
+    for (i = 0; i < this.subscriptions.length; i++) {
+      var subscription = this.subscriptions[i];
+      for (var j = 0; j < subscription.patterns.length; j++) {
+        var pattern = subscription.patterns[j];
+        if (!(pattern.text in saved)) {
+          this.serializePattern(buf, pattern);
+          saved[pattern.text] = pattern;
+        }
+      }
+    }
+
+    // Save user patterns list
+    buf.push('[User patterns]');
+    for (i = 0; i < this.userPatterns.length; i++)
+      buf.push(this.userPatterns[i].text);
+    buf.push('');
+
+    // Save subscriptions list
+    for (i = 0; i < this.subscriptions.length; i++)
+      this.serializeSubscription(buf, this.subscriptions[i]);
+
+    buf = unicodeConverter.ConvertFromUnicode(buf.join(lineBreak) + lineBreak);
+
     if (this.patternsFile.exists()) {
       // Check whether we need to backup the file
       var part1 = this.patternsFile.leafName;
@@ -698,42 +735,6 @@ var prefs = {
       return;
     }
 
-    var lineBreak = abp.getLineBreak();
-    var buf = ['# Adblock Plus preferences', ''];
-
-    var saved = new HashTable();
-
-    // Save pattern data
-    for (i = 0; i < this.userPatterns.length; i++) {
-      var pattern = this.userPatterns[i];
-      if (!(pattern.text in saved)) {
-        this.serializePattern(buf, pattern);
-        saved[pattern.text] = pattern;
-      }
-    }
-
-    for (i = 0; i < this.subscriptions.length; i++) {
-      var subscription = this.subscriptions[i];
-      for (var j = 0; j < subscription.patterns.length; j++) {
-        var pattern = subscription.patterns[j];
-        if (!(pattern.text in saved)) {
-          this.serializePattern(buf, pattern);
-          saved[pattern.text] = pattern;
-        }
-      }
-    }
-
-    // Save user patterns list
-    buf.push('[User patterns]');
-    for (i = 0; i < this.userPatterns.length; i++)
-      buf.push(this.userPatterns[i].text);
-    buf.push('');
-
-    // Save subscriptions list
-    for (i = 0; i < this.subscriptions.length; i++)
-      this.serializeSubscription(buf, this.subscriptions[i]);
-
-    buf = unicodeConverter.ConvertFromUnicode(buf.join(lineBreak) + lineBreak);
     try {
       stream.write(buf, buf.length);
     }
