@@ -1,0 +1,18 @@
+<!ENTITY dialog.title "Tere tulemast Adblock Plusi">
+<!ENTITY description.par1 "Täname teid, et installeerisite Adblock Plusi. See laiendus võimaldab 
+elimineerida enamiku reklaamidest, mida te internetis näete. Kuid
+efektiivne reklaami filtreerimine nõuab sul defineerida head komplekti
+filtreid. Sa võid seda teha ise, või sa võid lihtsalt võtta
+filtrite nimekirju mida teised sinu jaoks teevad. 
+Ja isegi siis on võimalik lisada enda filtreid või 
+vajadusel deaktiveerida/eemaldada tellimusi.">
+<!ENTITY description.par2 "Sa võid valida ühe tellimuse
+eelistatud tellimuste nimekirjast alt (rohkem tellimusi on võimaldatud
+isada Adblock Plusi Seadetest hiljem kuid tavaliselt pole see vajalik):">
+<!ENTITY note "Märge: Filtrite nimekiri on tavaliselt kõige efektiivsem, kui see on rakendatud
+interneti saitidele, mille regiooni jaoks see filter oli loodud.">
+<!ENTITY homepage.label "Koduleht">
+<!ENTITY subscribe.label "Telli">
+<!ENTITY subscribe.accesskey "T">
+<!ENTITY other.label "Lisa uus tellimus">
+<!ENTITY other.accesskey "L">
