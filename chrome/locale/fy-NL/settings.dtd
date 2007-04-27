@@ -1,0 +1,74 @@
+<!ENTITY dialog.title "Adblock Plus Foarkarren">
+<!ENTITY filters.label "Filters">
+<!ENTITY filters.accesskey "F">
+<!ENTITY add.label "Tafoegje">
+<!ENTITY add.accesskey "g">
+<!ENTITY addsubscription.label "Filterabonnemint tafoegje">
+<!ENTITY addsubscription.accesskey "A">
+<!ENTITY synchsubscriptions.label "Alle abonneminten bywerkje">
+<!ENTITY synchsubscriptions.accesskey "l">
+<!ENTITY import.label "Filters Ymportearje">
+<!ENTITY import.accesskey "Y">
+<!ENTITY export.label "Filters Eksportearje">
+<!ENTITY export.accesskey "E">
+<!ENTITY clearall.label "Alle filters fuortsmite">
+<!ENTITY clearall.accesskey "f">
+<!ENTITY resethitcounts.label "Tebeksette trefstatistieken">
+<!ENTITY resethitcounts.accesskey "T">
+<!ENTITY edit.label "Bewurkje">
+<!ENTITY edit.accesskey "W">
+<!ENTITY cut.label "Knippe">
+<!ENTITY cut.accesskey "n">
+<!ENTITY copy.label "Kopieare">
+<!ENTITY copy.accesskey "K">
+<!ENTITY paste.label "Plakke">
+<!ENTITY paste.accesskey "P">
+<!ENTITY remove.label "Fuortsmite">
+<!ENTITY remove.accesskey "F">
+<!ENTITY menu.find.label "Sykje">
+<!ENTITY menu.find.accesskey "S">
+<!ENTITY menu.findagain.label "Sykje Op &apos;e nij">
+<!ENTITY menu.findagain.accesskey "O">
+<!ENTITY options.label "Opsjes">
+<!ENTITY options.accesskey "O">
+<!ENTITY enable.label "Adblock Plus ynskeakelje">
+<!ENTITY enable.accesskey "y">
+<!ENTITY showintoolbar.label "Lit sjen yn arkbalke">
+<!ENTITY showintoolbar.accesskey "a">
+<!ENTITY showinstatusbar.label "Lit sjen yn steatbalke">
+<!ENTITY showinstatusbar.accesskey "s">
+<!ENTITY objecttabs.label "Tabs sjen litte op Flash en Java">
+<!ENTITY objecttabs.accesskey "T">
+<!ENTITY collapse.label "Blokkearre eleminten ynklappe">
+<!ENTITY collapse.accesskey "B">
+<!ENTITY linkcheck.label "Keppelings fan reklames kontrolearje">
+<!ENTITY linkcheck.accesskey "K">
+<!ENTITY help.label "Help">
+<!ENTITY help.accesskey "H">
+<!ENTITY faq.label "Meaststelde fragen">
+<!ENTITY faq.accesskey "f">
+<!ENTITY faq.url "http://adblockplus.org/en/faq">
+<!ENTITY tips.label "Tip Fan De Dei">
+<!ENTITY tips.accesskey "T">
+<!ENTITY tips.url "http://adblockplus.org/en/tips">
+<!ENTITY filterdoc.label "It skriuwen fan Adblock Plus filters">
+<!ENTITY filterdoc.accesskey "I">
+<!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
+<!ENTITY about.label "Oer Adblock Plus">
+<!ENTITY about.accesskey "A">
+<!ENTITY disabled.warning "Adblock Plus is útskeakele. Jo kinne de filters yn de list oanpasse, mar wizigings sille net tapast wurde eardat jo Adblock wer ynskeakelje.">
+<!ENTITY description "Foech it adres ta dat jo blokkearje wolle, sjoch de karlist foar foarstellen. Jo kinne in * as jokerteken brûke foar mear algemiene filters. Erfaren brûkers kinne reguliere ekspresjes brûke, lykas /banner\d+\.gif$/.">
+<!ENTITY pattern.column "Filterrigel">
+<!ENTITY enabled.column "Yngeskeakele">
+<!ENTITY hitcount.column "Treffers">
+<!ENTITY lasthit.column "Lêste treffer">
+<!ENTITY context.edit.label "Filter wizigje">
+<!ENTITY context.resethitcount.label "Trefstatistieken tebeksette foar filter">
+<!ENTITY context.synchsubscription.label "Abonnemint no bywurkje">
+<!ENTITY context.editsubscription.label "Abonnemint wizigje">
+<!ENTITY context.moveup.label "Omheech ferpleatse">
+<!ENTITY context.movedown.label "Omleech ferpleatse">
+<!ENTITY context.movegroupup.label "Groep omheech ferpleatse">
+<!ENTITY context.movegroupdown.label "Groep omleech ferpleatse">
+<!ENTITY apply.label "Tapasse">
+<!ENTITY apply.accesskey "T">
