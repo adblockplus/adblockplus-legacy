@@ -1,0 +1,23 @@
+<!ENTITY detached.title "Adblock Plus: Blokkearbere ûnderdielen (los)">
+<!ENTITY detach.label "Losmeitsje">
+<!ENTITY reattach.label "Fêstmeitsje">
+<!ENTITY search.label "Sykje:">
+<!ENTITY search.accesskey "S">
+<!ENTITY type.label "Type">
+<!ENTITY address.label "Adres">
+<!ENTITY filter.label "Filter">
+<!ENTITY state.label "Steat">
+<!ENTITY noitems.label "Gjin blokkearbere foarwerpen">
+<!ENTITY whitelisted.label "Tastiene side">
+<!ENTITY notloaded.label "Adblock Plus is net goed ynstallearre">
+<!ENTITY tooltip.address.label "Adres:">
+<!ENTITY tooltip.type.label "Type:">
+<!ENTITY tooltip.type.blocked "(blokkearre)">
+<!ENTITY tooltip.type.whitelisted "(tastien)">
+<!ENTITY tooltip.filter.label "Tapast filter:">
+<!ENTITY context.block.label "Blokkearje dit ûnderdiel">
+<!ENTITY context.editfilter.label "Wizig tapast filter">
+<!ENTITY context.whitelist.label "Meitsje in útsûnderingsrigel foar dit ûnderdiel">
+<!ENTITY context.open.label "Iepen yn in Nij Ljepblêd">
+<!ENTITY context.flash.label "Lit rannen knipperje">
+<!ENTITY context.copy.label "Kopiearje">
