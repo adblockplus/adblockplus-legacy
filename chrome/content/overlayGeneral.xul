@@ -98,7 +98,7 @@
 
   <!-- Fake sidebar -->
   <splitter id="abp-sidebar-splitter" hidden="true"/>
-  <vbox id="abp-sidebar" height="200" hidden="true" persist="height">
+  <vbox id="abp-sidebar" height="200" width="200" hidden="true" persist="height width">
     <toolbox id="abp-sidebar-header">
       <toolbar align="center" grippyhidden="true" fullscreentoolbar="true">
         <label id="abp-sidebar-title" control="abp-sidebar-browser" value="&sidebar.title;" flex="1" crop="end"/>
