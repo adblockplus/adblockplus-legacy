@@ -51,7 +51,7 @@ DataContainer.prototype = {
     else
       this.topContainer = this;
 
-    wnd["abpData" + dataSeed] = this;
+    wnd.document["abpData" + dataSeed] = this;
 
     this.installListeners(wnd);
   },
@@ -188,8 +188,8 @@ DataContainer.getDataForWindow = function(wnd) {
   // Make sure we get the same wrapper as in shouldLoad()
   wnd = wrapNode(wnd.wrappedJSObject);
 
-  if ("abpData" + dataSeed in wnd)
-    return wnd["abpData" + dataSeed];
+  if ("abpData" + dataSeed in wnd.document)
+    return wnd.document["abpData" + dataSeed];
   else
     return new DataContainer(wnd);
 };
