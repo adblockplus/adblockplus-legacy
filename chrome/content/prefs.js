@@ -309,9 +309,12 @@ var prefs = {
 
     var doInit = true;
     if ("@mozilla.org/profile/manager;1" in Components.classes) {
-      var profileManager = Components.classes["@mozilla.org/profile/manager;1"]
-                                    .getService(Components.interfaces.nsIProfileInternal);
-      doInit = profileManager.isCurrentProfileAvailable();
+      try {
+        // Need to catch errors here because of kprofile.dll (Pocket K-Meleon)
+        var profileManager = Components.classes["@mozilla.org/profile/manager;1"]
+                                      .getService(Components.interfaces.nsIProfileInternal);
+        doInit = profileManager.isCurrentProfileAvailable();
+      } catch(e) {}
     }
     if (doInit)
       this.observe(null, "profile-after-change", null);
