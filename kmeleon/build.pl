@@ -1,6 +1,11 @@
 #!/usr/bin/perl
 
 use strict;
+use warnings;
+use lib qw(..);
+use Packager;
+
+my %params = ();
 
 my $GECKO_DIR = 'c:\gecko_sdk';
 my $CCFLAGS = '/O1 /W3 /LD /MT /DXP_WIN';
@@ -9,168 +14,112 @@ my @INCLUDE_DIRS = ('c:\kmeleon_src', "$GECKO_DIR\\include");
 my @LIB_DIRS = ("$GECKO_DIR\\lib");
 my @LIBS = qw(libcmt.lib kernel32.lib user32.lib gdi32.lib comctl32.lib nspr4.lib plds4.lib plc4.lib xpcom.lib xpcomglue_s.lib embed_base_s.lib js3250.lib);
 
-open(VERSION, "../version");
-my $version = <VERSION>;
-$version =~ s/[^\w\.]//gs;
-close(VERSION);
-
 my $output_file = shift @ARGV || "adblockplus.zip";
-if ($ARGV[0] =~ /^\+/)
+if (@ARGV && $ARGV[0] =~ /^\+/)
 {
-  $version .= $ARGV[0];
+  $params{devbuild} = $ARGV[0];
   shift @ARGV;
 }
 
-my @locales = @ARGV;
-push @locales, "en-US" unless @locales;
-my $charset = ($locales[0] eq "ru-RU" ? "windows-1251" : "iso-8859-1");
-$CCFLAGS .= " /DTOOLKIT_ONLY" if $#locales > 0;
+$params{locales} = \@ARGV if @ARGV;
+$params{locales} = ["en-US"] unless exists $params{locales};
 
-my $inline_script = "";
-open(FILE, "adblockplus.js");
-while(<FILE>) {
-  s/\r//g;
-  s/\\/\\\\/g;
-  s/"/\\"/g;
-  s/\n/\\n/g;
-  s/\{\{CHARSET\}\}/$charset/g;
-  $inline_script .= $_;
-}
-close(FILE);
+my $pkg = Packager->new(\%params);
+$pkg->readVersion('../version');
 
-# Remove license block
-$inline_script =~ s/^\/\*.*?\*\/(?:\\n)+//;
+$CCFLAGS .= " /DTOOLKIT_ONLY" if $#{$params{locales}} > 0;
+$CCFLAGS .= " /DABP_VERSION=" . escapeMacro($params{version});
+$CCFLAGS .= " /DABP_LANGUAGE=" . escapeMacro($params{locales}[0]);
+$CCFLAGS .= " /FIinline_script.h";
 
-rm_rec('tmp');
-mkdir('tmp', 0755) or die "Failed to create directory tmp: $!";
-system('') && exit;
-
-cp('adblockplus.cpp', 'tmp/adblockplus.cpp', 1);
-cp('adblockplus.h', 'tmp/adblockplus.h', 1);
-
-chdir('tmp');
 my $includes = join(' ', map {"/I$_"} @INCLUDE_DIRS);
 my $libs = join(' ', map {"/LIBPATH:$_"} @LIB_DIRS);
+
+$pkg->rm_rec('tmp');
+mkdir('tmp', 0755) or die "Failed to create directory tmp: $!";
+
+$pkg->cp('adblockplus.cpp', 'tmp/adblockplus.cpp');
+$pkg->cp('adblockplus.h', 'tmp/adblockplus.h');
+
+{
+  local $/;
+
+  open(FILE, "adblockplus.js");
+  my $inline_script = <FILE>;
+  close(FILE);
+
+  # Format string for macro definition
+  $inline_script =~ s/([\\"])/\\$1/g;
+  $inline_script =~ s/\r//g;
+  $inline_script =~ s/\n/\\n/g;
+  $inline_script =~ s/\t/\\t/g;
+
+  # Replace charset mark
+  my $charset = ($params{locales}[0] eq "ru-RU" ? "windows-1251" : "iso-8859-1");
+  $inline_script =~ s/\{\{CHARSET\}\}/$charset/g;
+
+  # Remove license block
+  $inline_script =~ s/^\/\*.*?\*\/(?:\\n)+//;
+
+  open(FILE, ">tmp/inline_script.h");
+  print FILE  "#define ABP_INLINE_SCRIPT \"$inline_script\"";
+  close(FILE);
+}
+
+chdir('tmp');
 system("cl $CCFLAGS $includes adblockplus.cpp @LIBS /link $LDFLAGS $libs") && exit;
 system("mv adblockplus.dll ..") && exit;
 chdir('..');
 
-rm_rec('tmp');
+chdir('../chrome');
+$pkg->makeJAR('adblockplus.jar', 'content', 'skin', 'locale');
+chdir('../kmeleon');
+
+$pkg->rm_rec('tmp');
 mkdir('tmp', 0755) or die "Failed to create directory tmp: $!";
-cp_rec("../$_", "tmp/$_") foreach ('chrome', 'components', 'defaults');
+
+$pkg->cp_rec("../$_", "tmp/$_") foreach ('components', 'defaults');
+
+mkdir('tmp/chrome', 0755) or die "Failed to create directory tmp/chrome: $!";
+system("mv adblockplus.jar tmp/chrome/adblockplus.jar");
+
+{
+  local $/;
+
+  open(FILE, "../chrome.manifest");
+  my $manifest = <FILE>;
+  close(FILE);
+
+  $manifest =~ s/jar:chrome\//jar:/g;
+
+  open(FILE, ">tmp/adblockplus.manifest");
+  print FILE $manifest;
+  close(FILE);
+
+  $pkg->cp("tmp/adblockplus.manifest", "tmp/chrome/adblockplus.manifest");
+}
+
 system("mv tmp/defaults/preferences tmp/defaults/pref") && exit;
-cp("../chrome.manifest", "tmp/chrome/adblockplus.manifest", 1);
-cp("adblockplus_extra.js", "tmp/defaults/pref/adblockplus_extra.js");
+$pkg->cp("adblockplus_extra.js", "tmp/defaults/pref/adblockplus_extra.js");
+
 mkdir("tmp/kplugins", 0755) or die "Failed to created directory tmp/kplugins: $!";
 system("mv adblockplus.dll tmp/kplugins/adblockplus.dll");
-chdir('tmp');
 
-chdir('chrome');
-print `zip -rX0 adblockplus.jar content skin locale`;
-rm_rec($_) foreach ('content', 'skin', 'locale');
-chdir('..');
+chdir('tmp');
 
 unlink('../$output_file');
 print `zip -rX9 ../$output_file kplugins chrome components defaults`;
 
 chdir('..');
-rm_rec('tmp');
+$pkg->rm_rec('tmp');
 
-sub rm_rec
+sub escapeMacro
 {
-  my $dir = shift;
+  my $value = shift;
 
-  opendir(local *DIR, $dir) or return;
-  foreach my $file (readdir(DIR))
-  {
-    if ($file =~ /[^.]/)
-    {
-      if (-d "$dir/$file")
-      {
-        rm_rec("$dir/$file");
-      }
-      else
-      {
-        unlink("$dir/$file");
-      }
-    }
-  }
-  closedir(DIR);
+  $value =~ s/([\\"])/\\$1/g;
+  $value = '"'.$value.'"';
+  $value =~ s/([\\"])/\\$1/g;
 
-  rmdir($dir);
-}
-
-sub cp
-{
-  my ($fromfile, $tofile, $replace_version) = @_;
-
-  my $text = ($fromfile =~ /\.(manifest|xul|js|xml|xhtml|rdf|dtd|properties|css|h|cpp)$/);
-  open(local *FROM, $fromfile) or return;
-  open(local *TO, ">$tofile") or return;
-  binmode(TO);
-  if ($text)
-  {
-    print TO map {
-      s/\r//g;
-      s/^((?:  )+)/"\t" x (length($1)\/2)/e;
-      s/(\#define\s+ABP_VERSION\s+)"[^"]*"/$1"$version"/ if $replace_version;
-      s/(\#define\s+ABP_LANGUAGE\s+)"[^"]*"/$1"$locales[0]"/ if $replace_version;
-      s/(\#define\s+ABP_INLINE_SCRIPT\s+)"[^"]*"/$1"$inline_script"/ if $replace_version;
-      s/\{\{VERSION\}\}/$version/g if $replace_version;
-      s/jar:chrome\//jar:/g if $fromfile =~ /\.manifest$/;
-      if ($replace_version && /\{\{LOCALE\}\}/)
-      {
-        my $loc = "";
-        for my $locale (@locales)
-        {
-          my $tmp = $_;
-          $tmp =~ s/\{\{LOCALE\}\}/$locale/g;
-          $loc .= $tmp;
-        }
-        $_ = $loc;
-      }
-      $_;
-    } <FROM>;
-  }
-  else
-  {
-    local $/;
-    binmode(FROM) unless $text;
-    print TO <FROM>;
-  }
-  close(TO);
-  close(FROM);
-}
-
-sub cp_rec
-{
-  my ($fromdir, $todir) = @_;
-
-  my @files;
-  if ($fromdir eq "../chrome/locale")
-  {
-    @files = @locales;
-  }
-  else
-  {
-    opendir(local *DIR, $fromdir) or return;
-    @files = readdir(DIR);
-    closedir(DIR);
-  }
-
-  mkdir($todir);
-  foreach my $file (@files)
-  {
-    if ($file =~ /[^.]/ && $file ne 'CVS')
-    {
-      if (-d "$fromdir/$file")
-      {
-        cp_rec("$fromdir/$file", "$todir/$file");
-      }
-      else
-      {
-        cp("$fromdir/$file", "$todir/$file", $file eq "nsAdblockPlus.js");
-      }
-    }
-  }
+  return $value;
 }
