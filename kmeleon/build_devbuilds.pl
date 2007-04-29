@@ -7,4 +7,4 @@ foreach my $locale (@locales) {
   system("$^X build_devbuild.pl $locale");
 }
 
-system("$^X build_devbuild.pl @locales");
+system("$^X build_devbuild.pl");

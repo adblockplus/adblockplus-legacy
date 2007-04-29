@@ -6,6 +6,8 @@ use lib qw(..);
 use Packager;
 
 my %params = ();
+my $pkg = Packager->new(\%params);
+$pkg->readVersion('../version');
 
 my $GECKO_DIR = 'c:\gecko_sdk';
 my $CCFLAGS = '/O1 /W3 /LD /MT /DXP_WIN';
@@ -23,9 +25,6 @@ if (@ARGV && $ARGV[0] =~ /^\+/)
 
 $params{locales} = \@ARGV if @ARGV;
 $params{locales} = ["en-US"] unless exists $params{locales};
-
-my $pkg = Packager->new(\%params);
-$pkg->readVersion('../version');
 
 $CCFLAGS .= " /DTOOLKIT_ONLY" if $#{$params{locales}} > 0;
 $CCFLAGS .= " /DABP_VERSION=" . escapeMacro($params{version});
@@ -95,9 +94,8 @@ system("mv -f ../chrome/adblockplus.jar tmp/chrome/adblockplus.jar");
   open(FILE, ">tmp/adblockplus.manifest");
   print FILE $manifest;
   close(FILE);
-
-  $pkg->cp("tmp/adblockplus.manifest", "tmp/chrome/adblockplus.manifest");
 }
+$pkg->cp("tmp/adblockplus.manifest", "tmp/chrome/adblockplus.manifest");
 
 system("mv -f tmp/defaults/preferences tmp/defaults/pref") && exit;
 $pkg->cp("adblockplus_extra.js", "tmp/defaults/pref/adblockplus_extra.js");
