@@ -58,15 +58,21 @@ kmeleonFunctions* abpWrapper::kFuncs = NULL;
 WORD abpWrapper::cmdBase = 0;
 void* abpWrapper::origWndProc = NULL;
 HWND abpWrapper::hMostRecent = NULL;
+HWND abpWrapper::hSidebarDlg = NULL;
+HWND abpWrapper::hSettingsDlg = NULL;
 nsCOMPtr<nsIDOMWindowInternal> abpWrapper::fakeBrowserWindow;
 nsIDOMWindow* abpWrapper::currentWindow = nsnull;
 nsCOMPtr<nsIWindowWatcher> abpWrapper::watcher;
 nsCOMPtr<nsIIOService> abpWrapper::ioService;
+nsCOMPtr<nsIRDFService> abpWrapper::rdfService;
+nsCOMPtr<nsIRDFDataSource> abpWrapper::localStore;
 nsCOMPtr<nsIPrincipal> abpWrapper::systemPrincipal;
 abpWindowList abpWrapper::activeWindows;
 abpListenerList abpWrapper::selectListeners;
 abpToolbarDataList abpWrapper::toolbarList;
 abpStatusBarList abpWrapper::statusbarList;
+int abpWrapper::setNextLeft = 0;
+int abpWrapper::setNextTop = 0;
 int abpWrapper::setNextWidth = 0;
 int abpWrapper::setNextHeight = 0;
 HHOOK abpWrapper::hook = NULL;
@@ -475,6 +481,11 @@ PRBool abpWrapper::Load() {
     return PR_FALSE;
   }
 
+  // Do not error out if we cannot get localstore, can work without it
+  rdfService = do_GetService("@mozilla.org/rdf/rdf-service;1");
+  if (rdfService)
+    rdfService->GetDataSourceBlocking("rdf:local-store", getter_AddRefs(localStore));
+
   if (!PatchComponent(cx))
     return PR_FALSE;
 
@@ -753,19 +764,25 @@ LRESULT abpWrapper::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPara
       selectListeners.notifyListeners();
     }
   }
-  else if (message == WM_SIZE && setNextWidth > 0) {
-    // Fix up window size
-    RECT screen;
-    SystemParametersInfo(SPI_GETWORKAREA, NULL, &screen, 0);
-  
-    int width = setNextWidth;
-    int height = setNextHeight;
-    int left = (screen.left + screen.right - width) / 2;
-    int top = (screen.top + screen.bottom - height) / 2;
-
-    setNextWidth = 0;
-    setNextHeight = 0;
-    MoveWindow(hWnd, left, top, width, height, true);
+  else if (message == WM_SIZE) {
+    if (setNextWidth > 0 && setNextHeight > 0) {
+      // Fix up window size
+      SetWindowPos(hWnd, NULL, 0, 0, setNextWidth, setNextHeight, SWP_NOACTIVATE|SWP_NOMOVE|SWP_NOZORDER);
+      setNextWidth = 0;
+      setNextHeight = 0;
+    }
+    else
+      SaveWindowPlacement(hWnd);
+  }
+  else if (message == WM_MOVE) {
+    if (setNextLeft > 0 && setNextTop > 0) {
+      // Fix up window position
+      SetWindowPos(hWnd, NULL, setNextLeft, setNextTop, 0, 0, SWP_NOACTIVATE|SWP_NOSIZE|SWP_NOZORDER);
+      setNextLeft = 0;
+      setNextTop = 0;
+    }
+    else
+      SaveWindowPlacement(hWnd);
   }
 
   if (IsWindowUnicode(hWnd))
@@ -1493,18 +1510,31 @@ JSObject* abpWrapper::OpenDialog(char* url, char* target, char* features) {
     return nsnull;
 
   if (strstr(url, "sidebarDetached.xul")) {
+    hSidebarDlg = hMostRecent;
+
     SetWindowPos(hMostRecent, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOACTIVATE | SWP_NOOWNERZORDER | SWP_NOMOVE | SWP_NOSIZE);
 
-    // Fix up sidebar dialog height
+    // Set default sidebar dialog height
     setNextWidth = 600;
     setNextHeight = 400;
   }
   else if (strstr(url, "settings.xul")) {
+    hSettingsDlg = hMostRecent;
+
     settingsDlg = do_QueryInterface(wnd);
 
     nsCOMPtr<nsIDOMEventTarget> target = do_QueryInterface(settingsDlg);
     if (target != nsnull)
       target->AddEventListener(NS_LITERAL_STRING("load"), this, PR_FALSE);
+  }
+
+  // Restore previous width/height settings for the dialog
+  nsCOMPtr<nsIRDFResource> persist = GetPersistResource(hMostRecent);
+  if (persist) {
+    GetLocalStoreInt(persist, "left", &setNextLeft);
+    GetLocalStoreInt(persist, "top", &setNextTop);
+    GetLocalStoreInt(persist, "width", &setNextWidth);
+    GetLocalStoreInt(persist, "height", &setNextHeight);
   }
 
   return wrapper->GetGlobalObject(wnd);
@@ -1617,4 +1647,83 @@ void abpWrapper::LoadImage(int index) {
     return;
 
   return;
+}
+
+void abpWrapper::SaveWindowPlacement(HWND hWnd) {
+  nsCOMPtr<nsIRDFResource> persist = GetPersistResource(hWnd);
+  if (persist) {
+    WINDOWPLACEMENT placement;
+    if (GetWindowPlacement(hWnd, &placement)) {
+      SetLocalStoreInt(persist, "left", placement.rcNormalPosition.left);
+      SetLocalStoreInt(persist, "top", placement.rcNormalPosition.top);
+      SetLocalStoreInt(persist, "width", placement.rcNormalPosition.right - placement.rcNormalPosition.left);
+      SetLocalStoreInt(persist, "height", placement.rcNormalPosition.bottom - placement.rcNormalPosition.top);
+    }
+  }
+}
+
+already_AddRefed<nsIRDFResource> abpWrapper::GetPersistResource(HWND hWnd) {
+  if (!localStore)
+    return nsnull;
+
+  nsCString name;
+  if (hWnd == hSidebarDlg)
+    name = "chrome://adblockplus/content/sidebarDetached.xul#abpDetachedSidebar";
+  else if (hWnd == hSettingsDlg)
+    name = "chrome://adblockplus/content/settings.xul#abpPreferencesWindow";
+
+  if (!name.Length())
+    return nsnull;
+
+  nsIRDFResource* result;
+  nsresult rv = rdfService->GetResource(name, &result);
+  if (NS_FAILED(rv))
+    return nsnull;
+
+  return result;
+}
+
+void abpWrapper::GetLocalStoreInt(nsIRDFResource* source, char* property, int* value) {
+  nsCString name(property);
+  nsresult rv;
+
+  nsCOMPtr<nsIRDFResource> link;
+  rv = rdfService->GetResource(name, getter_AddRefs(link));
+  if (NS_FAILED(rv))
+    return;
+
+  nsCOMPtr<nsIRDFNode> target;
+  rv = localStore->GetTarget(source, link, PR_TRUE, getter_AddRefs(target));
+  if (NS_FAILED(rv))
+    return;
+
+  nsCOMPtr<nsIRDFInt> intTarget = do_QueryInterface(target);
+  if (!intTarget)
+    return;
+
+  PRInt32 result;
+  rv = intTarget->GetValue(&result);
+  if (NS_FAILED(rv))
+    return;
+
+  *value = result;
+}
+
+void abpWrapper::SetLocalStoreInt(nsIRDFResource* source, char* property, int value) {
+  nsCString name(property);
+
+  nsCOMPtr<nsIRDFResource> link;
+  nsCOMPtr<nsIRDFNode> oldTarget;
+  nsCOMPtr<nsIRDFInt> newTarget;
+
+  rdfService->GetResource(name, getter_AddRefs(link));
+
+  if (link)
+    localStore->GetTarget(source, link, PR_TRUE, getter_AddRefs(oldTarget));
+  if (oldTarget)
+    localStore->Unassert(source, link, oldTarget);
+
+  rdfService->GetIntLiteral(value, getter_AddRefs(newTarget));
+  if (link && newTarget)
+    localStore->Assert(source, link, newTarget, PR_TRUE);
 }

@@ -72,6 +72,10 @@
 #include "nsIProperties.h"
 #include "nsDirectoryServiceDefs.h"
 #include "nsILocalFile.h"
+#include "nsIRDFService.h"
+#include "nsIRDFDataSource.h"
+#include "nsIRDFResource.h"
+#include "nsIRDFNode.h"
 #include "nsXPCOM.h"
 #include "nsEmbedString.h"
 #include "jsapi.h"
@@ -437,14 +441,22 @@ public:
   virtual void AddContextMenuItem(WORD command, char* label);
   virtual void ResetContextMenu();
   virtual UINT CreateCommandID() {return kFuncs->GetCommandIDs(1);}
+  static void SaveWindowPlacement(HWND hWnd);
+  static already_AddRefed<nsIRDFResource> GetPersistResource(HWND hWnd);
+  static void GetLocalStoreInt(nsIRDFResource* source, char* property, int* value);
+  static void SetLocalStoreInt(nsIRDFResource* source, char* property, int value);
 protected:
   static kmeleonFunctions* kFuncs;
   static WORD cmdBase;
   static void* origWndProc;
   static HWND hMostRecent;
+  static HWND hSidebarDlg;
+  static HWND hSettingsDlg;
   static nsIDOMWindow* currentWindow;
   static nsCOMPtr<nsIWindowWatcher> watcher;
   static nsCOMPtr<nsIIOService> ioService;
+  static nsCOMPtr<nsIRDFService> rdfService;
+  static nsCOMPtr<nsIRDFDataSource> localStore;
   nsCOMPtr<nsIDOMWindowInternal> settingsDlg;
   static nsCOMPtr<nsIDOMWindowInternal> fakeBrowserWindow;
   static nsCOMPtr<nsIPrincipal> systemPrincipal;
@@ -452,6 +464,8 @@ protected:
   static abpListenerList selectListeners;
   static abpToolbarDataList toolbarList;
   static abpStatusBarList statusbarList;
+  static int setNextLeft;
+  static int setNextTop;
   static int setNextWidth;
   static int setNextHeight;
 
