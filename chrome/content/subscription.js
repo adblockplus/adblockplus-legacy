@@ -28,6 +28,11 @@ var subscription;
 var result;
 
 function init() {
+  // In K-Meleon we might get the arguments wrapped
+  for (var i = 0; i < window.arguments.length; i++)
+    if ("wrappedJSObject" in window.arguments[i])
+      window.arguments[i] = window.arguments[i].wrappedJSObject;
+
   abp = window.arguments[0];
   prefs = window.arguments[1];
   subscription = window.arguments[2];

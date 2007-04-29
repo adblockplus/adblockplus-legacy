@@ -80,6 +80,7 @@
 #include "nsEmbedString.h"
 #include "jsapi.h"
 #include "prmem.h"
+#include "nsISupportsArray.h"
 
 #define PLUGIN_NAME "Adblock Plus " ABP_VERSION
 #define ADBLOCKPLUS_CONTRACTID "@mozilla.org/adblockplus;1"
@@ -426,7 +427,7 @@ public:
   static void DoRebar(HWND hRebar);
   static LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
   static LRESULT CALLBACK HookProc(int nCode, WPARAM wParam, LPARAM lParam);
-  virtual JSObject* OpenDialog(char* url, char* target, char* features);
+  virtual JSObject* OpenDialog(char* url, char* target, char* features, nsISupportsArray* args);
   virtual nsresult OpenTab(const char* url);
   virtual nsresult AddSelectListener(JSContext* cx, JSFunction* func);
   virtual nsresult RemoveSelectListener(JSFunction* func);
