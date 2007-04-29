@@ -173,19 +173,6 @@ function removeAttribute(attr) {
     setIconDelayed(0);
 }
 
-/*function removeWhitespace(element) {
-  element.QueryInterface(Components.interfaces.nsIDOMXULElement);
-  for (var child = element.firstChild; child; child = child.nextSibling) {
-    if (child.nodeType != Node.ELEMENT_NODE) {
-      var newChild = child.nextSibling;
-      child.parentNode.removeChild(child);
-      child = {nextSibling: newChild};
-    }
-    else
-      removeWhitespace(child);
-  }
-}*/
-
 var overlayContextMenu = function() {
   var request = Components.classes["@mozilla.org/xmlextras/xmlhttprequest;1"]
                           .createInstance(Components.interfaces.nsIXMLHttpRequest);
@@ -195,7 +182,6 @@ var overlayContextMenu = function() {
   var ret = request.responseXML
                 .getElementsByTagNameNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", "popup")
                 .item(0).QueryInterface(Components.interfaces.nsIDOMXULElement);
-//  removeWhitespace(ret);
   return ret;
 }();
 var overlayContextMenuItems = {};
