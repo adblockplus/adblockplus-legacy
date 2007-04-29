@@ -178,6 +178,7 @@ JSBool JS_DLL_CALLBACK JSOpenDialog(JSContext* cx, JSObject* obj, uintN argc, js
   char* url;
   char* target = nsnull;
   char* features = nsnull;
+  nsCOMPtr<nsISupportsArray> args;
   if (argc == 5) {
     // nsIWindowWatcher.openWindow
     if (!JS_ConvertArguments(cx, argc, argv, "bsssb", &dummy, &url, &target, &features, &dummy))
@@ -187,9 +188,21 @@ JSBool JS_DLL_CALLBACK JSOpenDialog(JSContext* cx, JSObject* obj, uintN argc, js
     // window.openDialog
     if (!JS_ConvertArguments(cx, argc, argv, "s/ss", &url, &target, &features))
       return JS_FALSE;
+
+    // Convert dialog arguments
+    if (argc > 3) {
+      nsCOMPtr<nsIXPConnect> xpc = do_GetService(nsIXPConnect::GetCID());
+      args = do_CreateInstance("@mozilla.org/supports-array;1");
+      for (uintN i = 3; xpc && args && i < argc; i++) {
+        nsCOMPtr<nsISupports> value;
+        JS_SetProperty(cx, JSVAL_TO_OBJECT(argv[i]), "wrappedJSObject", &argv[i]);
+        if (NS_SUCCEEDED(xpc->WrapJS(cx, JSVAL_TO_OBJECT(argv[i]), NS_GET_IID(nsISupports), getter_AddRefs(value))))
+          args->AppendElement(value);
+      }
+    }
   }
 
-  JSObject* ret = wrapper->OpenDialog(url, target, features);
+  JSObject* ret = wrapper->OpenDialog(url, target, features, args);
   if (ret == nsnull)
     return JS_TRUE;
 
@@ -1501,11 +1514,11 @@ void abpWrapper::ReadAccelerator(nsIPrefBranch* branch, const char* pref, const 
   }
 }
 
-JSObject* abpWrapper::OpenDialog(char* url, char* target, char* features) {
+JSObject* abpWrapper::OpenDialog(char* url, char* target, char* features, nsISupportsArray* args) {
   nsresult rv;
   nsCOMPtr<nsIDOMWindow> wnd;
 
-  rv = watcher->OpenWindow(fakeBrowserWindow, url, target, features, nsnull, getter_AddRefs(wnd));
+  rv = watcher->OpenWindow(fakeBrowserWindow, url, target, features, args, getter_AddRefs(wnd));
   if (NS_FAILED(rv) || wnd == nsnull)
     return nsnull;
 
