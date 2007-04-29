@@ -68,7 +68,7 @@ $pkg->cp('adblockplus.h', 'tmp/adblockplus.h');
 
 chdir('tmp');
 system("cl $CCFLAGS $includes adblockplus.cpp @LIBS /link $LDFLAGS $libs") && exit;
-system("mv adblockplus.dll ..") && exit;
+system("mv -f adblockplus.dll ..") && exit;
 chdir('..');
 
 chdir('../chrome');
@@ -81,7 +81,7 @@ mkdir('tmp', 0755) or die "Failed to create directory tmp: $!";
 $pkg->cp_rec("../$_", "tmp/$_") foreach ('components', 'defaults');
 
 mkdir('tmp/chrome', 0755) or die "Failed to create directory tmp/chrome: $!";
-system("mv adblockplus.jar tmp/chrome/adblockplus.jar");
+system("mv -f ../chrome/adblockplus.jar tmp/chrome/adblockplus.jar");
 
 {
   local $/;
@@ -99,15 +99,15 @@ system("mv adblockplus.jar tmp/chrome/adblockplus.jar");
   $pkg->cp("tmp/adblockplus.manifest", "tmp/chrome/adblockplus.manifest");
 }
 
-system("mv tmp/defaults/preferences tmp/defaults/pref") && exit;
+system("mv -f tmp/defaults/preferences tmp/defaults/pref") && exit;
 $pkg->cp("adblockplus_extra.js", "tmp/defaults/pref/adblockplus_extra.js");
 
 mkdir("tmp/kplugins", 0755) or die "Failed to created directory tmp/kplugins: $!";
-system("mv adblockplus.dll tmp/kplugins/adblockplus.dll");
+system("mv -f adblockplus.dll tmp/kplugins/adblockplus.dll");
 
 chdir('tmp');
 
-unlink('../$output_file');
+unlink("../$output_file");
 print `zip -rX9 ../$output_file kplugins chrome components defaults`;
 
 chdir('..');
