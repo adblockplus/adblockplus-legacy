@@ -1496,8 +1496,8 @@ JSObject* abpWrapper::OpenDialog(char* url, char* target, char* features) {
     SetWindowPos(hMostRecent, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOACTIVATE | SWP_NOOWNERZORDER | SWP_NOMOVE | SWP_NOSIZE);
 
     // Fix up sidebar dialog height
-    setNextWidth = 300;
-    setNextHeight = 600;
+    setNextWidth = 600;
+    setNextHeight = 400;
   }
   else if (strstr(url, "settings.xul")) {
     settingsDlg = do_QueryInterface(wnd);
