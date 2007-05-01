@@ -40,12 +40,12 @@
 
 <!ENTITY settings.label "設定">
 <!ENTITY settings.accesskey "F">
-<!ENTITY opensidebar.label "サイドバーを開く">
+<!ENTITY opensidebar.label "ブロック要素一覧を開く">
 <!ENTITY opensidebar.accesskey "B">
-<!ENTITY closesidebar.label "サイドバーを閉じる">
+<!ENTITY closesidebar.label "ブロック要素一覧を閉じる">
 <!ENTITY closesidebar.accesskey "B">
 <!ENTITY whitelist.site.label "-- をホワイトリストに追加">
 <!ENTITY whitelist.page.label "現在のページをホワイトリストに追加">
 
-<!ENTITY objecttab.title        "ブロック">
-<!ENTITY objecttab.tooltip      "Adblock Plus クリックでブロックします">
+<!ENTITY objecttab.title "ブロック">
+<!ENTITY objecttab.tooltip "Adblock Plus クリックでブロックします">
