@@ -1,117 +1,78 @@
-<!-- ***** BEGIN LICENSE BLOCK *****
-	 - Version: MPL 1.1
-	 -
-	 - The contents of this file are subject to the Mozilla Public License Version
-	 - 1.1 (the "License"); you may not use this file except in compliance with
-	 - the License. You may obtain a copy of the License at
-	 - http://www.mozilla.org/MPL/
-	 -
-	 - Software distributed under the License is distributed on an "AS IS" basis,
-	 - WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
-	 - for the specific language governing rights and limitations under the
-	 - License.
-	 -
-	 - The Original Code is Adblock Plus.
-	 -
-	 - The Initial Developer of the Original Code is
-	 - Wladimir Palant.
-	 - Portions created by the Initial Developer are Copyright (C) 2006
-	 - the Initial Developer. All Rights Reserved.
-	 -
-	 - Contributor(s):
-	 -
-	 - ***** END LICENSE BLOCK ***** -->
-
-<!ENTITY dialog.title               "Adblock Plus Тохиргоонууд">
-
-<!ENTITY filters.label              "Шүүлтүүрүүд">
-<!ENTITY filters.accesskey          "Ш">
-
-<!ENTITY add.label                  "Шүүлт нэмэх">
-<!ENTITY add.accesskey              "Н">
-<!ENTITY addsubscription.label      "Шүүлтүүр мэдээлэгч нэмэх">
-<!ENTITY addsubscription.accesskey  "М">
-<!ENTITY synchsubscriptions.label       "Бүх мэдээлэгчийг шинэчлэх">
-<!ENTITY synchsubscriptions.accesskey   "Б">
-<!ENTITY import.label               "Шүүлтүүр оруулах">
-<!ENTITY import.accesskey           "О">
-<!ENTITY export.label               "Шүүлтүүр гаргах">
-<!ENTITY export.accesskey           "Г">
-<!ENTITY clearall.label             "Бүх шүүлтүүрүүдийг хасах">
-<!ENTITY clearall.accesskey         "С">
-<!ENTITY resethitcounts.label       "Хандалтын төлвийг эхлүүлэх">
-<!ENTITY resethitcounts.accesskey   "Т">
-
-<!ENTITY edit.label                 "Засвар">
-<!ENTITY edit.accesskey             "З">
-
-<!ENTITY cut.label                  "Хайчлах">
-<!ENTITY cut.accesskey              "Ч">
-<!ENTITY copy.label                 "Хуулах">
-<!ENTITY copy.accesskey             "Х">
-<!ENTITY paste.label                "Тавих">
-<!ENTITY paste.accesskey            "Т">
-<!ENTITY remove.label               "Устгах">
-<!ENTITY remove.accesskey           "У">
-<!ENTITY menu.find.label            "Хайх">
-<!ENTITY menu.find.accesskey        "А">
-<!ENTITY menu.findagain.label       "Дахин хайх">
-<!ENTITY menu.findagain.accesskey   "Д">
-
-<!ENTITY options.label              "Сонголтууд">
-<!ENTITY options.accesskey          "О">
-
-<!ENTITY enable.label               "Adblock Plus идэвхтэй">
-<!ENTITY enable.accesskey           "И">
-<!ENTITY showintoolbar.label        "Хэрэгслийн мөрт харуулах">
-<!ENTITY showintoolbar.accesskey    "М">
-<!ENTITY showinstatusbar.label      "Төлвийн мөрт харуулах">
-<!ENTITY showinstatusbar.accesskey  "Т">
-<!ENTITY localpages.label           "Дотоод хуудас дахь алсын суртлыг хаах">
-<!ENTITY localpages.accesskey       "А">
-<!ENTITY objecttabs.label           "Flash болон Java-д tab харуулах">
-<!ENTITY objecttabs.accesskey       "Х">
-<!ENTITY collapse.label             "Хашигдсан элементийг хумих">
-<!ENTITY collapse.accesskey         "Э">
-<!ENTITY linkcheck.label            "Баннер холбоосыг шалгах">
-<!ENTITY linkcheck.accesskey        "Б">
-
-<!ENTITY help.label                 "Тусламж">
-<!ENTITY help.accesskey             "Т">
-
-<!ENTITY faq.label                  "Түгээмэл Асуултын Хариултууд">
-<!ENTITY faq.accesskey              "А">
-<!ENTITY faq.url                    "http://adblockplus.org/en/faq">
-<!ENTITY tips.label                 "Өнөөдрийн зөвлөгөө">
-<!ENTITY tips.accesskey             "З">
-<!ENTITY tips.url                   "http://adblockplus.org/en/tips">
-<!ENTITY filterdoc.label            "Adblock Plus шүүлтүүрүүд бичих">
-<!ENTITY filterdoc.accesskey        "Б">
-<!ENTITY filterdoc.url              "http://adblockplus.org/en/filters">
-<!ENTITY about.label                "Adblock Plus-ийн тухай">
-<!ENTITY about.accesskey            "Т">
-
-<!ENTITY disabled.warning           "Adblock Plus нь хаалттай байна. Та жагсаалт дахь ямарваа шүүлтүүрийг засаж чадна. Гэхдээ дараагийн идэвхтэй болготол идэвхжихгүй.">
-
-<!ENTITY description                "
+<!ENTITY dialog.title "Adblock Plus Тохиргоонууд">
+<!ENTITY filters.label "Шүүлтүүрүүд">
+<!ENTITY filters.accesskey "Ш">
+<!ENTITY add.label "Шүүлт нэмэх">
+<!ENTITY add.accesskey "Н">
+<!ENTITY addsubscription.label "Шүүлтүүр мэдээлэгч нэмэх">
+<!ENTITY addsubscription.accesskey "М">
+<!ENTITY synchsubscriptions.label "Бүх мэдээлэгчийг шинэчлэх">
+<!ENTITY synchsubscriptions.accesskey "Б">
+<!ENTITY import.label "Шүүлтүүр оруулах">
+<!ENTITY import.accesskey "О">
+<!ENTITY export.label "Шүүлтүүр гаргах">
+<!ENTITY export.accesskey "Г">
+<!ENTITY clearall.label "Бүх шүүлтүүрүүдийг хасах">
+<!ENTITY clearall.accesskey "С">
+<!ENTITY resethitcounts.label "Хандалтын төлвийг эхлүүлэх">
+<!ENTITY resethitcounts.accesskey "Т">
+<!ENTITY edit.label "Засвар">
+<!ENTITY edit.accesskey "З">
+<!ENTITY cut.label "Хайчлах">
+<!ENTITY cut.accesskey "Ч">
+<!ENTITY copy.label "Хуулах">
+<!ENTITY copy.accesskey "Х">
+<!ENTITY paste.label "Тавих">
+<!ENTITY paste.accesskey "Т">
+<!ENTITY remove.label "Устгах">
+<!ENTITY remove.accesskey "У">
+<!ENTITY menu.find.label "Хайх">
+<!ENTITY menu.find.accesskey "А">
+<!ENTITY menu.findagain.label "Дахин хайх">
+<!ENTITY menu.findagain.accesskey "Д">
+<!ENTITY options.label "Сонголтууд">
+<!ENTITY options.accesskey "О">
+<!ENTITY enable.label "Adblock Plus идэвхтэй">
+<!ENTITY enable.accesskey "И">
+<!ENTITY showintoolbar.label "Хэрэгслийн мөрт харуулах">
+<!ENTITY showintoolbar.accesskey "М">
+<!ENTITY showinstatusbar.label "Төлвийн мөрт харуулах">
+<!ENTITY showinstatusbar.accesskey "Т">
+<!ENTITY objecttabs.label "Flash болон Java-д tab харуулах">
+<!ENTITY objecttabs.accesskey "Х">
+<!ENTITY collapse.label "Хашигдсан элементийг хумих">
+<!ENTITY collapse.accesskey "Э">
+<!ENTITY linkcheck.label "Баннер холбоосыг шалгах">
+<!ENTITY linkcheck.accesskey "Б">
+<!ENTITY help.label "Тусламж">
+<!ENTITY help.accesskey "Т">
+<!ENTITY faq.label "Түгээмэл Асуултын Хариултууд">
+<!ENTITY faq.accesskey "А">
+<!ENTITY faq.url "http://adblockplus.org/en/faq">
+<!ENTITY tips.label "Өнөөдрийн зөвлөгөө">
+<!ENTITY tips.accesskey "З">
+<!ENTITY tips.url "http://adblockplus.org/en/tips">
+<!ENTITY filterdoc.label "Adblock Plus шүүлтүүрүүд бичих">
+<!ENTITY filterdoc.accesskey "Б">
+<!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
+<!ENTITY about.label "Adblock Plus-ийн тухай">
+<!ENTITY about.accesskey "Т">
+<!ENTITY disabled.warning "Adblock Plus нь хаалттай байна. Та жагсаалт дахь ямарваа шүүлтүүрийг засаж чадна. Гэхдээ дараагийн идэвхтэй болготол идэвхжихгүй.">
+<!ENTITY description "
 		Хашихыг хүссэн хаягаа нэмэхдээ, доош унжих жагсаалтаас авч боломжтой.
 		Та * ашиглан илүү ерөнхий шүүлтүүр үүсгэж болно. Илүү хэрэглэгчид
 		энгийн илэрхийлэл (regexpression) ашиглаж чадна. Ж: /banner\d+\.gif$/.
 ">
-
-<!ENTITY pattern.column             "Шүүлтүүрийн дүрэм">
-<!ENTITY enabled.column             "Идэвхтэй">
-<!ENTITY hitcount.column            "Хандалт">
-<!ENTITY lasthit.column             "Сүүлийн хандалт">
-
-<!ENTITY context.edit.label         "Шүүлтүүр засах">
-<!ENTITY context.resethitcount.label      "Шүүлтүүрийн хандалтын статистикийг эхлүүлэх">
-<!ENTITY context.synchsubscription.label  "Мэдээлэгчийг одоо шинэчлэх">
-<!ENTITY context.editsubscription.label   "Мэдээлэгч засах">
-<!ENTITY context.moveup.label       "Дээшлүүлэх">
-<!ENTITY context.movedown.label     "Доошлуулах">
-<!ENTITY context.movegroupup.label        "Бүлгийг дээшлүүлэх">
-<!ENTITY context.movegroupdown.label      "Бүлгийг доошлуулах">
-
-<!ENTITY apply.label                "Хэрэглэх">
-<!ENTITY apply.accesskey            "Г">
+<!ENTITY pattern.column "Шүүлтүүрийн дүрэм">
+<!ENTITY enabled.column "Идэвхтэй">
+<!ENTITY hitcount.column "Хандалт">
+<!ENTITY lasthit.column "Сүүлийн хандалт">
+<!ENTITY context.edit.label "Шүүлтүүр засах">
+<!ENTITY context.resethitcount.label "Шүүлтүүрийн хандалтын статистикийг эхлүүлэх">
+<!ENTITY context.synchsubscription.label "Мэдээлэгчийг одоо шинэчлэх">
+<!ENTITY context.editsubscription.label "Мэдээлэгч засах">
+<!ENTITY context.moveup.label "Дээшлүүлэх">
+<!ENTITY context.movedown.label "Доошлуулах">
+<!ENTITY context.movegroupup.label "Бүлгийг дээшлүүлэх">
+<!ENTITY context.movegroupdown.label "Бүлгийг доошлуулах">
+<!ENTITY apply.label "Хэрэглэх">
+<!ENTITY apply.accesskey "Г">
