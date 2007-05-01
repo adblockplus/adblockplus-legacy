@@ -81,7 +81,7 @@ var policy = {
       location = match.text.replace(/^.*?#/, '#');
     }
 
-    if (!match) {
+    if (!match && prefs.enabled) {
       var pageMatch = this.isWindowWhitelisted(topWnd);
       if (pageMatch) {
         prefs.increaseHitCount(pageMatch);
