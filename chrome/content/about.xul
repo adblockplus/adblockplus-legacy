@@ -56,6 +56,7 @@
   <description id="contributorsTitle" value="&contributors.label;"/>
   <vbox id="contributorsBox">
     <description value="Ahmet Serkan Tıratacı - Turkish translation"/>
+    <description value="Aigar Vals - Estonian translation"/>
     <description value="Antonio Urquia - Spanish translation of the Element Hiding Helper extension"/>
     <description value="Bahram Maravandi - Persian translation"/>
     <description value="Bayarsaikhan Enkhtaivan - Mongolian translation"/>
