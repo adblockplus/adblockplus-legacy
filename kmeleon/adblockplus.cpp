@@ -740,7 +740,8 @@ LRESULT abpWrapper::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPara
       }
     }
   }
-  else if ((message == TB_MBUTTONDOWN || message == TB_MBUTTONDBLCLK) && (wParam == cmdBase + CMD_TOOLBAR || wParam == cmdBase + CMD_STATUSBAR)) {
+  else if (((message == TB_MBUTTONDOWN || message == TB_MBUTTONDBLCLK) && wParam == cmdBase + CMD_TOOLBAR) ||
+           ((message == SB_MBUTTONDOWN || message == SB_MBUTTONDBLCLK) && wParam == cmdBase + CMD_STATUSBAR)) {
     abpJSContextHolder holder;
     char param[] = "enabled";
     JSObject* overlay = UnwrapNative(fakeBrowserWindow);
@@ -754,12 +755,13 @@ LRESULT abpWrapper::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPara
       JS_CallFunctionName(cx, overlay, "abpTogglePref", 1, &arg, &retval);
     }
   }
-  else if (message == TB_RBUTTONDOWN && wParam == cmdBase + CMD_TOOLBAR) {
+  else if ((message == TB_RBUTTONDOWN && wParam == cmdBase + CMD_TOOLBAR) ||
+           (message == SB_RBUTTONDOWN && wParam == cmdBase + CMD_STATUSBAR)) {
     abpJSContextHolder holder;
     JSObject* overlay = UnwrapNative(fakeBrowserWindow);
     JSContext* cx = holder.get();
     if (cx != nsnull && overlay != nsnull) {
-      jsval arg = JSVAL_FALSE;
+      jsval arg = (message == TB_RBUTTONDOWN ? JSVAL_FALSE : JSVAL_TRUE);
       jsval retval;
       if (JS_CallFunctionName(cx, overlay, "buildContextMenu", 1, &arg, &retval)) {
         HMENU hMenu = NS_REINTERPRET_CAST(HMENU, JSVAL_TO_INT(retval));
