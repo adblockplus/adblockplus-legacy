@@ -31,6 +31,8 @@ var documentElement = this;
 var parentNode = this;
 var style = this;
 var gContextMenu = this;
+var curState = null;
+var tooltipValue = null;
 
 var currentLocale = null;
 if ("@mozilla.org/chrome/chrome-registry;1" in Components.classes) {
@@ -92,7 +94,7 @@ function QueryInterface(iid) {
   throw Components.results.NS_ERROR_NO_INTERFACE;
 }
 
-this.getBrowser = this.appendChild = function() {return this};
+this.getBrowser = this.appendChild = this.createElement = function() {return this};
 
 function getElementsByTagName(name) {
   return [this];
@@ -148,6 +150,8 @@ function hasAttribute(attr) {
 function getAttribute(attr) {
   if (attr == "chromehidden")
     return "extrachrome";
+  else if (attr == "curstate")
+    return curState;
 
   return null;
 }
@@ -166,6 +170,10 @@ function setAttribute(attr, value) {
     setIconDelayed(1);
   else if (attr == "whitelisted")
     setIconDelayed(2);
+  else if (attr == "curstate")
+    curState = value;
+  else if (attr == "value" && /^abp-tooltip-/.test(lastRequested))
+    tooltipValue += value + "\n";
 }
 
 function removeAttribute(attr) {
@@ -186,6 +194,23 @@ var overlayContextMenu = function() {
 }();
 var overlayContextMenuItems = {};
 
+function getTooltipText(status) {
+  document.tooltipNode = {id: status ? "abp-status" : "abp-toolbarbutton", hasAttribute: function() {return true}};
+
+  tooltipValue = "";
+  abpFillTooltip({target: this});
+
+  var list = tooltipValue.replace(/[\r\n]+$/, '').split(/[\r\n]+/);
+  if (list.length > 3)
+    list.splice(3, 0, "", getOverlayEntity("filters.tooltip"));
+  if (list.length > 2)
+    list.splice(2, 0, "", getOverlayEntity("blocked.tooltip"));
+  if (list.length > 1)
+    list.splice(1, 0, "", getOverlayEntity("status.tooltip"));
+
+  return list.join("\n");
+}
+
 function buildContextMenu(status) {
   document.popupNode = {id: status ? "abp-status" : "abp-toolbarbutton"};
   abpFillPopup(overlayContextMenu);
@@ -198,6 +223,10 @@ function addMenuItems(popup) {
 
   for (var child = popup.firstChild; child; child = child.nextSibling) {
     if (child.nodeType != Node.ELEMENT_NODE || child.hidden)
+      continue;
+
+    // We should not show "show in toolbar" option
+    if (child.tagName == "menuitem" && child.getAttribute("id") == "abp-status-showintoolbar")
       continue;
 
     var type = 0;
