@@ -772,6 +772,24 @@ LRESULT abpWrapper::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPara
       }
     }
   }
+  else if (message == WM_NOTIFY) {
+    LPNMHDR notifyHeader = (LPNMHDR) lParam;
+    if (notifyHeader->code == (UINT)TTN_NEEDTEXT && (wParam == cmdBase + CMD_TOOLBAR || wParam == cmdBase + CMD_STATUSBAR)) {
+      abpJSContextHolder holder;
+      JSObject* overlay = UnwrapNative(fakeBrowserWindow);
+      JSContext* cx = holder.get();
+      if (cx != nsnull && overlay != nsnull) {
+        jsval arg = (wParam == cmdBase + CMD_STATUSBAR ? JSVAL_TRUE : JSVAL_FALSE);
+        jsval retval;
+        if (JS_CallFunctionName(cx, overlay, "getTooltipText", 1, &arg, &retval)) {
+          JSString* text = JS_ValueToString(cx, retval);
+          LPTOOLTIPTEXT lpTiptext = (LPTOOLTIPTEXT) lParam;
+          lpTiptext->lpszText = JS_GetStringBytes(text);
+          return 0;
+        }
+      }
+    }
+  }
   else if (message == WM_SETFOCUS) {
     nsIDOMWindow* wnd = activeWindows.getWindow(hWnd);
     if (wnd && wnd != currentWindow) {
