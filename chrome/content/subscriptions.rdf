@@ -36,7 +36,7 @@
       <RDF:Description>
         <abp:title>Corset (Korea) + EasyList</abp:title>
         <abp:url>http://easylist.adblockplus.org/corset+easylist.txt</abp:url>
-        <abp:homepage>http://www.brianyi.org/corset/</abp:homepage>
+        <abp:homepage>http://www.brianyi.com/corset/</abp:homepage>
       </RDF:Description>
     </RDF:li>
   </RDF:Seq>
