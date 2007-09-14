@@ -157,8 +157,7 @@ const abp = {
     if (iid.equals(Components.interfaces.nsIProtocolHandler))
       return protocol;
 
-    if (iid.equals(Components.interfaces.nsISupports) ||
-        iid.equals(Components.interfaces.nsIAdblockPlus))
+    if (iid.equals(Components.interfaces.nsISupports))
       return this;
 
     if (!iid.equals(Components.interfaces.nsIClassInfo) &&
