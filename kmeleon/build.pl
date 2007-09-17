@@ -11,7 +11,7 @@ $pkg->readVersion('../version');
 
 my $GECKO_DIR = 'c:\gecko_sdk';
 my $CCFLAGS = '/O1 /W3 /LD /MT /DXP_WIN';
-my $LDFLAGS = '/DLL /NODEFAULTLIB /NOLOGO /PDB:..\adblockplus.pdb';
+my $LDFLAGS = '/DLL /NODEFAULTLIB /NOLOGO /PDB:../adblockplus.pdb';
 my @INCLUDE_DIRS = ('c:\kmeleon_src', "$GECKO_DIR\\include");
 my @LIB_DIRS = ("$GECKO_DIR\\lib");
 my @LIBS = qw(libcmt.lib kernel32.lib user32.lib gdi32.lib comctl32.lib nspr4.lib plds4.lib plc4.lib xpcom.lib xpcomglue_s.lib embed_base_s.lib js3250.lib);
