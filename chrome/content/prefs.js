@@ -40,13 +40,20 @@ var unicodeConverter = Components.classes["@mozilla.org/intl/scriptableunicodeco
                                  .createInstance(Components.interfaces.nsIScriptableUnicodeConverter);
 unicodeConverter.charset = "UTF-8";
 
+var gObjtabClass = "abp-objtab-" + Math.random().toString().replace(/\W/g, "");
+
+var request = Components.classes["@mozilla.org/xmlextras/xmlhttprequest;1"]
+                        .createInstance(Components.interfaces.nsIXMLHttpRequest);
+request.open("GET", "chrome://adblockplus/content/objtabs.css", false);
+request.overrideMimeType("text/plain");
+request.send(null);
+var cssData = request.responseText.replace(/%%CLASSNAME%%/g, gObjtabClass);
+request = null;
+
 var styleService = Components.classes["@mozilla.org/content/style-sheet-service;1"]
                              .getService(Components.interfaces.nsIStyleSheetService);
-var objtabsCSS = Components.classes["@mozilla.org/network/standard-url;1"]
-                           .createInstance(Components.interfaces.nsIURI);
-objtabsCSS.spec = "chrome://adblockplus/content/objtabs.css";
+var objtabsCSS = ioService.newURI("data:text/css," + encodeURIComponent(cssData), null, null);
 styleService.loadAndRegisterSheet(objtabsCSS, styleService.USER_SHEET);
-
 
 // Matcher class constructor
 function Matcher() {

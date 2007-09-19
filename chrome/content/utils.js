@@ -206,7 +206,7 @@ function addObjectTab(node, location, tab, wnd) {
 
   var initHandler = function() {
     // Make binding apply properly
-    tab.className = "abp-objtab";
+    tab.className = gObjtabClass;
 
     createTimer(initHandler2, 0);
   }
@@ -232,7 +232,7 @@ function addObjectTab(node, location, tab, wnd) {
     tab.style.setProperty("top", (box1.screenY + (onTop ? 0 : box1.height) - box2.screenY) + "px", "important");
 
     // Show tab
-    tab.className = "abp-objtab visible" + (onTop ? " ontop" : "");
+    tab.className = gObjtabClass + " visible" + (onTop ? " ontop" : "");
   }
   createTimer(initHandler, 0);
 }
