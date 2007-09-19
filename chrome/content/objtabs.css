@@ -24,7 +24,7 @@
 
 @namespace url("http://www.w3.org/1999/xhtml");
 
-a.abp-objtab {
+a.%%CLASSNAME%% {
   display: inline !important;
   visibility: hidden !important;
   float: left !important;
@@ -37,15 +37,15 @@ a.abp-objtab {
   text-decoration: none !important;
 }
 
-a.abp-objtab:hover {
+a.%%CLASSNAME%%:hover {
   -moz-opacity: 0.8 !important;
 }
 
-a.abp-objtab.visible {
+a.%%CLASSNAME%%.visible {
   visibility: visible !important;
 }
 
-a.abp-objtab div {
+a.%%CLASSNAME%% div {
   display: inline !important;
   visibility: visible !important;
   float: left !important;
@@ -78,7 +78,7 @@ a.abp-objtab div {
   -moz-border-radius-bottomright: 10px !important;
 }
 
-a.abp-objtab.ontop div {
+a.%%CLASSNAME%%.ontop div {
   border-width: 2px 2px 0px 2px !important;
   -moz-border-radius-topleft: 10px !important;
   -moz-border-radius-topright: 10px !important;
