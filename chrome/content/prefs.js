@@ -28,6 +28,7 @@
  */
 
 const prefRoot = "extensions.adblockplus.";
+const gObjtabClass = "abp-objtab-" + Math.random().toString().replace(/\W/g, "");
 
 var prefService = Components.classes["@mozilla.org/preferences-service;1"]
                             .getService(Components.interfaces.nsIPrefService);
@@ -40,20 +41,9 @@ var unicodeConverter = Components.classes["@mozilla.org/intl/scriptableunicodeco
                                  .createInstance(Components.interfaces.nsIScriptableUnicodeConverter);
 unicodeConverter.charset = "UTF-8";
 
-var gObjtabClass = "abp-objtab-" + Math.random().toString().replace(/\W/g, "");
-
-var request = Components.classes["@mozilla.org/xmlextras/xmlhttprequest;1"]
-                        .createInstance(Components.interfaces.nsIXMLHttpRequest);
-request.open("GET", "chrome://adblockplus/content/objtabs.css", false);
-request.overrideMimeType("text/plain");
-request.send(null);
-var cssData = request.responseText.replace(/%%CLASSNAME%%/g, gObjtabClass);
-request = null;
-
 var styleService = Components.classes["@mozilla.org/content/style-sheet-service;1"]
                              .getService(Components.interfaces.nsIStyleSheetService);
-var objtabsCSS = ioService.newURI("data:text/css," + encodeURIComponent(cssData), null, null);
-styleService.loadAndRegisterSheet(objtabsCSS, styleService.USER_SHEET);
+var ScriptableInputStream = Components.Constructor("@mozilla.org/scriptableinputstream;1", "nsIScriptableInputStream", "init");
 
 // Matcher class constructor
 function Matcher() {
@@ -328,6 +318,34 @@ var prefs = {
   },
 
   init: function() {
+    try {
+      // Initialize object tabs CSS
+      var channel = ioService.newChannel("chrome://adblockplus/content/objtabs.css", null, null);
+      channel.asyncOpen({
+        data: "",
+        onDataAvailable: function(request, context, stream, offset, count) {
+          stream = ScriptableInputStream(stream);
+          this.data += stream.read(count);
+        },
+        onStartRequest: function() {},
+        onStopRequest: function() {
+          var data = this.data.replace(/%%CLASSNAME%%/g, gObjtabClass);
+          var objtabsCSS = ioService.newURI("data:text/css," + encodeURIComponent(data), null, null);
+          styleService.loadAndRegisterSheet(objtabsCSS, styleService.USER_SHEET);
+          channel = null;
+        },
+        QueryInterface: function(iid) {
+          if (iid.equals(Components.interfaces.nsISupport) ||
+              iid.equals(Components.interfaces.nsIRequestObserver) ||
+              iid.equals(Components.interfaces.nsIStreamListener))
+            return this;
+
+          throw Components.results.NS_ERROR_NO_INTERFACE;
+        }
+      }, null);
+    }
+    catch (e) {}
+
     // Try to fix selected locale in Mozilla/SeaMonkey
     strings = stringService.createBundle("chrome://adblockplus/locale/global.properties");
     fixPackageLocale();
