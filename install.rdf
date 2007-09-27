@@ -68,6 +68,15 @@
     </Description>
   </em:targetApplication>
 
+  <!-- Midbrowser -->
+  <em:targetApplication>
+    <Description>
+    <em:id>{aa5ca914-c309-495d-91cf-3141bbb04115}</em:id>
+    <em:minVersion>0.2</em:minVersion>
+    <em:maxVersion>0.3</em:maxVersion>
+    </Description>
+  </em:targetApplication>
+
   <!-- Front End MetaData -->
   <em:name>Adblock Plus</em:name>
   <em:description>Ads were yesterday!</em:description>
