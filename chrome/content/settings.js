@@ -125,8 +125,8 @@ function init() {
   document.getElementById("list").view = treeView;
 
   editor.height = editor.boxObject.height;
-  editorParent.hidden = true;
   document.getElementById("listStack").appendChild(editorParent);
+  editorParent.hidden = true;
   treeView.setEditor(editor, editorParent);
 
   treeView.ensureSelection(0);
