@@ -218,6 +218,9 @@ function createFilterSuggestion(menulist, suggestion) {
   else if (suggestion.filter)
     menuitem.className = "filtered";
 
+  if (menuitem.className)
+    menuitem.setAttribute("disabled", "true");
+
   menuitem.data = suggestion;
   suggestionItems.push(menuitem);
 }
