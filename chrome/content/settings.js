@@ -2272,7 +2272,7 @@ var treeView = {
 
     var text = abp.normalizeFilter(this.editor.value);
     if (typeof blur == "undefined" || !blur)
-      this.boxObject.treeBody.focus();
+      this.boxObject.treeBody.parentNode.focus();
 
     var info = this.getRowInfo(this.editedRow);
     var isDummy = info && (info[0].dummy || (info[1] && info[1].dummy));
