@@ -54,8 +54,8 @@
   buttons="accept,cancel,extra2"
   buttonlabelextra2="&add.label;..."
   buttonaccesskeyextra2="&add.accesskey;"
-  width="600px"
-  height="450px"
+  width="600"
+  height="450"
   persist="screenX screenY width height sizemode"
   windowtype="abp:settings">
 
