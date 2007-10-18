@@ -88,35 +88,44 @@
 enum {CMD_PREFERENCES, CMD_LISTALL, CMD_TOGGLEENABLED, CMD_IMAGE, CMD_OBJECT, CMD_LINK, CMD_FRAME, CMD_SEPARATOR, CMD_TOOLBAR, CMD_STATUSBAR, NUM_COMMANDS};
 enum {LABEL_CONTEXT_IMAGE, LABEL_CONTEXT_OBJECT, LABEL_CONTEXT_LINK, LABEL_CONTEXT_FRAME, NUM_LABELS};
 
-char* labels[] = {
+static char* labels[] = {
   "context.image...",
   "context.object...",
   "context.link...",
   "context.frame...",
 };
 
-char* images[] = {
+static char* images[] = {
   "chrome://adblockplus/skin/abp-enabled-16.png",
   "chrome://adblockplus/skin/abp-disabled-16.png",
   "chrome://adblockplus/skin/abp-whitelisted-16.png",
   "chrome://adblockplus/skin/abp-defunc-16.png",
 };
 
+extern HIMAGELIST hImages;
+
 JS_STATIC_DLL_CALLBACK(void) Reporter(JSContext *cx, const char *message, JSErrorReport *rep);
-JSBool JS_DLL_CALLBACK JSFocusDialog(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
-JSBool JS_DLL_CALLBACK FakeGetMostRecentWindow(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
+JSBool JS_DLL_CALLBACK JSAddRootListener(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
+JSBool JS_DLL_CALLBACK JSFocusWindow(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
 JSBool JS_DLL_CALLBACK JSOpenDialog(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
 JSBool JS_DLL_CALLBACK JSSetIcon(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
 JSBool JS_DLL_CALLBACK JSHideStatusBar(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
-JSBool JS_DLL_CALLBACK FakeAddEventListener(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
-JSBool JS_DLL_CALLBACK FakeRemoveEventListener(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
 JSBool JS_DLL_CALLBACK FakeOpenTab(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
+JSBool JS_DLL_CALLBACK JSResetContextMenu(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
 JSBool JS_DLL_CALLBACK FakeShowItem(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
 JSBool JS_DLL_CALLBACK JSCreateCommandID(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
 JSBool JS_DLL_CALLBACK JSCreatePopupMenu(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
 JSBool JS_DLL_CALLBACK JSAddMenuItem(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
-JSBool JS_DLL_CALLBACK JSGetContentWindow(JSContext *cx, JSObject *obj, jsval id, jsval *vp);
+JSBool JS_DLL_CALLBACK JSGetHWND(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
+JSBool JS_DLL_CALLBACK JSSubclassDialogWindow(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
 JSBool JS_DLL_CALLBACK JSGetWrapper(JSContext *cx, JSObject *obj, jsval id, jsval *vp);
+
+LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
+LRESULT CALLBACK DialogWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
+LRESULT CALLBACK HookProc(int nCode, WPARAM wParam, LPARAM lParam);
+
+static JSObject* UnwrapJSObject(nsISupports* native);
+static nsISupports* UnwrapNative(JSContext* cx, JSObject* obj);
 
 class abpJSContextHolder {
 public:
@@ -221,64 +230,6 @@ private:
   int entries;
   int bufSize;
   entryType* buffer;
-};
-
-class abpListenerList : public abpList<JSFunction*> {
-public:
-  void addListener(JSContext* cx, JSFunction* listener) {
-    JS_SetParent(cx, JS_GetFunctionObject(listener), JS_GetGlobalObject(cx));
-    addEntry(listener);
-  }
-
-  void removeListener(JSFunction* listener) {
-    for (int i = getFirstIndex(); i >= 0; i = getNextIndex(i))
-      if (getEntry(i) == listener)
-        removeEntry(i);
-  }
-
-  void notifyListeners() {
-    abpJSContextHolder holder;
-    JSContext* cx = holder.get();
-    if (cx == nsnull)
-      return;
-
-    for (int i = getFirstIndex(); i >= 0; i = getNextIndex(i)) {
-      JSFunction* function = getEntry(i);
-
-      jsval retval;
-      jsval args[] = {JSVAL_VOID};
-      JS_CallFunction(cx, JS_GetParent(cx, JS_GetFunctionObject(function)), function, 1, args, &retval);
-    }
-  }
-};
-
-typedef struct {
-  HWND hWnd;
-  nsIDOMWindow* window;
-} WindowDataEntry;
-
-class abpWindowList : public abpList<WindowDataEntry> {
-public:
-  void addWindow(HWND hWnd, nsIDOMWindow* window) {
-    WindowDataEntry entry = {hWnd, window};
-    addEntry(entry);
-  }
-
-  void removeWindow(nsIDOMWindow* window) {
-    for (int i = getFirstIndex(); i >= 0; i = getNextIndex(i))
-      if (getEntry(i).window == window)
-        removeEntry(i);
-  }
-
-  nsIDOMWindow* getWindow(HWND hWnd) {
-    for (int i = getFirstIndex(); i >= 0; i = getNextIndex(i)) {
-      WindowDataEntry& entry = getEntry(i);
-      if (entry.hWnd == hWnd)
-        return entry.window;
-    }
-
-    return nsnull;
-  }
 };
 
 typedef struct {
@@ -395,14 +346,12 @@ private:
 };
 
 class abpWrapper : public nsIDOMEventListener,
-                   public nsIObserver,
                    public nsIClassInfo,
                    public nsIXPCScriptable,
                    imgIDecoderObserver {
 public:
   NS_DECL_ISUPPORTS
   NS_DECL_NSIDOMEVENTLISTENER
-  NS_DECL_NSIOBSERVER
   NS_DECL_NSICLASSINFO
   NS_DECL_NSIXPCSCRIPTABLE
   NS_DECL_IMGIDECODEROBSERVER
@@ -425,59 +374,28 @@ public:
   static void DoMenu(HMENU menu, LPSTR action, LPSTR string);
   static INT DoAccel(LPSTR action);
   static void DoRebar(HWND hRebar);
-  static LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
-  static LRESULT CALLBACK HookProc(int nCode, WPARAM wParam, LPARAM lParam);
   virtual JSObject* OpenDialog(char* url, char* target, char* features, nsISupportsArray* args);
   virtual nsresult OpenTab(const char* url);
-  virtual nsresult AddSelectListener(JSContext* cx, JSFunction* func);
-  virtual nsresult RemoveSelectListener(JSFunction* func);
-  virtual nsIDOMWindowInternal* GetBrowserWindow() {return fakeBrowserWindow;}
-  virtual nsIDOMWindowInternal* GetSettingsWindow() {return settingsDlg;}
-  virtual nsIDOMWindow* GetCurrentWindow() {return currentWindow;}
   virtual void SetCurrentIcon(int icon) {toolbarList.setToolbarIcon(icon);statusbarList.setStatusIcon(icon);}
   virtual void HideStatusBar(JSBool hide) {statusbarList.setHidden(hide);}
   virtual JSObject* GetGlobalObject(nsIDOMWindow* wnd);
-  static JSObject* UnwrapNative(nsISupports* native);
-  virtual void Focus(nsIDOMWindow* wnd);
   virtual void AddContextMenuItem(WORD command, char* label);
   virtual void ResetContextMenu();
   virtual UINT CreateCommandID() {return kFuncs->GetCommandIDs(1);}
-  static void SaveWindowPlacement(HWND hWnd);
-  static already_AddRefed<nsIRDFResource> GetPersistResource(HWND hWnd);
-  static void GetLocalStoreInt(nsIRDFResource* source, char* property, int* value);
-  static void SetLocalStoreInt(nsIRDFResource* source, char* property, int value);
+  static WNDPROC SubclassWindow(HWND hWnd, WNDPROC newWndProc);
 protected:
   static kmeleonFunctions* kFuncs;
-  static WORD cmdBase;
-  static void* origWndProc;
-  static HWND hMostRecent;
-  static HWND hSidebarDlg;
-  static HWND hSettingsDlg;
-  static nsIDOMWindow* currentWindow;
   static nsCOMPtr<nsIWindowWatcher> watcher;
   static nsCOMPtr<nsIIOService> ioService;
-  static nsCOMPtr<nsIRDFService> rdfService;
-  static nsCOMPtr<nsIRDFDataSource> localStore;
-  nsCOMPtr<nsIDOMWindowInternal> settingsDlg;
-  static nsCOMPtr<nsIDOMWindowInternal> fakeBrowserWindow;
   static nsCOMPtr<nsIPrincipal> systemPrincipal;
-  static abpWindowList activeWindows;
-  static abpListenerList selectListeners;
   static abpToolbarDataList toolbarList;
   static abpStatusBarList statusbarList;
-  static int setNextLeft;
-  static int setNextTop;
-  static int setNextWidth;
-  static int setNextHeight;
 
   nsCOMPtr<imgIRequest> imageRequest;
   int currentImage;
-  HIMAGELIST hImages;
-  static HHOOK hook;
 
   static PRBool PatchComponent(JSContext* cx);
   static PRBool CreateFakeBrowserWindow(JSContext* cx, JSObject* parent);
-  static PRBool IsBrowserWindow(nsIDOMWindow* contentWnd);
   static HWND GetHWND(nsIDOMWindow* wnd);
   static INT CommandByName(LPSTR action);
   static void ReadAccelerator(nsIPrefBranch* branch, const char* pref, const char* command);

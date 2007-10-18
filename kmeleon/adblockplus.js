@@ -49,7 +49,7 @@ if (currentLocale)
   unicodeConverter.charset = (currentLocale == "ru-RU" ? "windows-1251" : "iso-8859-1");
 else
   unicodeConverter.charset = "{{CHARSET}}";
-var overlayDTD = function() {
+var _overlayDTD = function() {
   var request = Components.classes["@mozilla.org/xmlextras/xmlhttprequest;1"]
                           .createInstance(Components.interfaces.nsIXMLHttpRequest);
   request.open("GET", "chrome://adblockplus/locale/overlay.dtd", false);
@@ -72,13 +72,13 @@ var overlayDTD = function() {
   return ret;
 }();
 
-function getOverlayEntity(name) {
+function _getOverlayEntity(name) {
   var ellipsis = false;
   if (/\.{3}$/.test(name)) {
     ellipsis = true;
     name = name.replace(/\.{3}$/, "");
   }
-  var ret = (name in overlayDTD ? overlayDTD[name] : name) + (ellipsis ? "..." : "");
+  var ret = (name in _overlayDTD ? _overlayDTD[name] : name) + (ellipsis ? "..." : "");
   return unicodeConverter.ConvertFromUnicode(ret);
 }
 
@@ -100,12 +100,12 @@ function getElementsByTagName(name) {
   return [this];
 }
 
-var lastRequested = null;
+var _lastRequested = null;
 function getElementById(id) {
   if (id == "abp-sidebar")
     return null;
 
-  lastRequested = id;
+  _lastRequested = id;
   return this;
 }
 
@@ -124,9 +124,9 @@ function setTimeout(callback, delay) {
 }
 
 this.__defineGetter__("tagName", function() {
-  if (lastRequested == "abp-status")
+  if (_lastRequested == "abp-status")
     return "statusbarpanel";
-  if (lastRequested == "abp-toolbarbutton")
+  if (_lastRequested == "abp-toolbarbutton")
     return "toolbarbutton";
 
   return null;
@@ -136,7 +136,7 @@ this.__defineGetter__("hidden", function() {
   return false;
 });
 this.__defineSetter__("hidden", function(val) {
-  if (lastRequested == "abp-status")
+  if (_lastRequested == "abp-status")
     hideStatusBar(val);
 });
 
@@ -172,7 +172,7 @@ function setAttribute(attr, value) {
     setIconDelayed(2);
   else if (attr == "curstate")
     curState = value;
-  else if (attr == "value" && /^abp-tooltip-/.test(lastRequested))
+  else if (attr == "value" && /^abp-tooltip-/.test(_lastRequested))
     tooltipValue += value + "\n";
 }
 
@@ -181,7 +181,24 @@ function removeAttribute(attr) {
     setIconDelayed(0);
 }
 
-var overlayContextMenu = function() {
+var _selectListeners = [];
+
+function addEventListener(event, handler, capture) {
+  if (event == "select")
+    _selectListeners.push(handler);
+}
+
+function removeEventListener(event, handler, capture) {
+  if (event == "select")
+    _selectListeners = _selectListeners.filter(function(item) {return item != handler});
+}
+
+function _notifySelectListeners() {
+  for (var i = 0; i < _selectListeners.length; i++)
+    _selectListeners[i].call(this, null);
+}
+
+var _overlayContextMenu = function() {
   var request = Components.classes["@mozilla.org/xmlextras/xmlhttprequest;1"]
                           .createInstance(Components.interfaces.nsIXMLHttpRequest);
   request.open("GET", "chrome://adblockplus/content/overlayGeneral.xul", false);
@@ -192,7 +209,7 @@ var overlayContextMenu = function() {
                 .item(0).QueryInterface(Components.interfaces.nsIDOMXULElement);
   return ret;
 }();
-var overlayContextMenuItems = {};
+var _overlayContextMenuItems = {};
 
 function getTooltipText(status) {
   document.tooltipNode = {id: status ? "abp-status" : "abp-toolbarbutton", hasAttribute: function() {return true}};
@@ -202,20 +219,20 @@ function getTooltipText(status) {
 
   var list = tooltipValue.replace(/[\r\n]+$/, '').split(/[\r\n]+/);
   if (list.length > 3)
-    list.splice(3, 0, "", getOverlayEntity("filters.tooltip"));
+    list.splice(3, 0, "", _getOverlayEntity("filters.tooltip"));
   if (list.length > 2)
-    list.splice(2, 0, "", getOverlayEntity("blocked.tooltip"));
+    list.splice(2, 0, "", _getOverlayEntity("blocked.tooltip"));
   if (list.length > 1)
-    list.splice(1, 0, "", getOverlayEntity("status.tooltip"));
+    list.splice(1, 0, "", _getOverlayEntity("status.tooltip"));
 
   return list.join("\n");
 }
 
 function buildContextMenu(status) {
   document.popupNode = {id: status ? "abp-status" : "abp-toolbarbutton"};
-  abpFillPopup(overlayContextMenu);
+  abpFillPopup(_overlayContextMenu);
 
-  return addMenuItems(overlayContextMenu);
+  return addMenuItems(_overlayContextMenu);
 }
 
 function addMenuItems(popup) {
@@ -238,7 +255,7 @@ function addMenuItems(popup) {
     if (!("menuID" in child)) {
       if (child.tagName == "menuitem") {
         child.menuID = createCommandID();
-        overlayContextMenuItems[child.menuID] = child;
+        _overlayContextMenuItems[child.menuID] = child;
       }
       else
         child.menuID = -1;
@@ -263,10 +280,10 @@ function addMenuItems(popup) {
 }
 
 function triggerMenuItem(id) {
-  if (!(id in overlayContextMenuItems))
+  if (!(id in _overlayContextMenuItems))
     return;
 
-  var menuItem = overlayContextMenuItems[id];
+  var menuItem = _overlayContextMenuItems[id];
   if (!menuItem.hasAttribute("oncommand"))
     return;
 
@@ -274,10 +291,222 @@ function triggerMenuItem(id) {
   func.apply(menuItem);
 }
 
-function wrapNode(node) {
-  return abp.__parent__.wrapNode(node);
+var _currentWindow = null;
+var _hwndToWindow = {};
+var _recentWindowTypes = {};
+
+this.__defineGetter__("content", function() {
+  return (_currentWindow && !_currentWindow.closed ? XPCNativeWrapper(_currentWindow) : null);
+});
+this.__defineGetter__("contentWindow", function() {
+  return (_currentWindow && !_currentWindow.closed ? XPCNativeWrapper(_currentWindow) : null);
+});
+
+var _windowObserver = {
+  observe: function(wnd, topic, data) {
+    if (topic == "domwindowopened") {
+      var wndType = wnd.QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+                       .getInterface(Components.interfaces.nsIWebNavigation)
+                       .QueryInterface(Components.interfaces.nsIDocShellTreeItem)
+                       .itemType;
+
+      if (wndType == Components.interfaces.nsIDocShellTreeItem.typeContent)
+        addRootListener(wnd, "focus", true);
+      else
+        wnd.addEventListener("load", _processNewDialog, true);
+    }
+    else if (topic == "domwindowclosed") {
+      var hWnd = _getHWND(wnd);
+      if (hWnd && hWnd in _hwndToWindow)
+        delete _hwndToWindow[hWnd];
+    }
+  },
+  QueryInterface: function(iid) {
+    if (iid.equals(Components.interfaces.nsISupports) ||
+        iid.equals(Components.interfaces.nsIObserver))
+      return this;
+
+    throw Components.results.NS_ERROR_NO_INTERFACE;
+  }
+};
+
+var _windowWatcher = Components.classes["@mozilla.org/embedcomp/window-watcher;1"]
+                               .getService(Components.interfaces.nsIWindowWatcher);
+_windowWatcher.registerNotification(_windowObserver);
+
+var _rdfService = Components.classes["@mozilla.org/rdf/rdf-service;1"]
+                            .getService(Components.interfaces.nsIRDFService);
+var _localStore = _rdfService.GetDataSourceBlocking("rdf:local-store");
+
+function _getHWND(wnd) {
+  try {
+    return getHWND(_windowWatcher.getChromeForWindow(wnd)
+                                 .QueryInterface(Components.interfaces.nsIEmbeddingSiteWindow));
+  }
+  catch (e) {
+    return null;
+  }
 }
 
-Components.classes["@mozilla.org/moz/jssubscript-loader;1"]
-          .getService(Components.interfaces.mozIJSSubScriptLoader)
-          .loadSubScript("chrome://adblockplus/content/overlay.js", this);
+function _processNewDialog(event) {
+  var wnd = event.target.defaultView;
+  if (wnd.location.protocol != "chrome:" || wnd.location.host != "adblockplus")
+    return;
+
+  wnd.removeEventListener("load", _processNewDialog, true);
+
+  var hWnd = _getHWND(wnd);
+  if (!hWnd)
+    return;
+
+  subclassDialogWindow(hWnd);
+
+  _hwndToWindow[hWnd] = wnd;
+  _hwndToWindow["move" + hWnd] = true;
+  _hwndToWindow["resize" + hWnd] = true;
+
+  var oldFocus = wnd.focus;
+  wnd.focus = function() {
+    focusWindow(hWnd);
+  };
+
+  var root = wnd.document.documentElement;
+  if (root.hasAttribute("windowtype"))
+    _recentWindowTypes[root.getAttribute("windowtype")] = wnd;
+
+  if (wnd.location.href.indexOf("settings.xul") >= 0) {
+    try {
+      wnd.document.getElementById("showintoolbar").hidden = true;
+    }
+    catch (e) {}
+  }
+}
+
+var target;
+function _handleEvent(event) {
+  if (event.type == "contextmenu") {
+    resetContextMenu();
+    target = event.target;
+    abpCheckContext();
+  }
+  else if (event.type == "focus") {
+    var wnd = event.target.defaultView;
+    if (wnd != _currentWindow) {
+      _currentWindow = wnd;
+      if (!_initialized)
+        _initOverlay();
+      _notifySelectListeners();
+    }
+  }
+}
+
+function _getPersistResource(wnd) {
+  var root = wnd.document.documentElement;
+  if (!root.hasAttribute("id") || !root.hasAttribute("persist"))
+    return null;
+
+  return _rdfService.GetResource(wnd.location.href + "#" + root.getAttribute("id"));
+}
+
+function _getLocalStoreInt(resource, property) {
+  var link = _rdfService.GetResource(property);
+  var target = _localStore.GetTarget(resource, link, true);
+  try {
+    return target.QueryInterface(Components.interfaces.nsIRDFInt).Value;
+  }
+  catch (e) {
+    return 0;
+  }
+}
+
+function _setLocalStoreInt(resource, property, value) {
+  var link = _rdfService.GetResource(property);
+
+  var oldTarget = _localStore.GetTarget(resource, link, true)
+  if (oldTarget)
+    _localStore.Unassert(resource, link, oldTarget);
+
+  var target = _rdfService.GetIntLiteral(value);
+  _localStore.Assert(resource, link, target, true);
+}
+
+function onWindowFocus(hWnd) {
+  var wnd = _hwndToWindow[hWnd];
+  if (!wnd)
+    return;
+
+  _currentWindow = wnd;
+  _notifySelectListeners();
+}
+
+function onDialogMove(hWnd) {
+  var wnd = _hwndToWindow[hWnd];
+  if (!wnd)
+    return;
+
+  var resource = _getPersistResource(wnd);
+  if (!resource)
+    return;
+
+  if ("move" + hWnd in _hwndToWindow) {
+    delete _hwndToWindow["move" + hWnd];
+
+    var left = _getLocalStoreInt(resource, "left");
+    var top = _getLocalStoreInt(resource, "top");
+    if (left && top)
+      wnd.moveTo(left, top);
+  }
+  else
+  {
+    _setLocalStoreInt(resource, "left", wnd.screenX);
+    _setLocalStoreInt(resource, "top", wnd.screenY);
+  }
+}
+
+function onDialogResize(hWnd) {
+  var wnd = _hwndToWindow[hWnd];
+  if (!wnd)
+    return;
+
+  var resource = _getPersistResource(wnd);
+  if (!resource)
+    return;
+
+  if ("resize" + hWnd in _hwndToWindow) {
+    delete _hwndToWindow["resize" + hWnd];
+
+    var width = _getLocalStoreInt(resource, "width");
+    var height = _getLocalStoreInt(resource, "height");
+    if (!width && !height && wnd.location.href.indexOf("sidebarDetached.xul") >= 0)
+    {
+      // Fix default size for detached sidebar
+      width = 600;
+      height = 400;
+    }
+    if (width && height)
+      wnd.resizeTo(width, height);
+  }
+  else
+  {
+    _setLocalStoreInt(resource, "width", wnd.outerWidth);
+    _setLocalStoreInt(resource, "height", wnd.outerHeight);
+  }
+}
+
+var _initialized = false;
+function _initOverlay() {
+  _initialized = true;
+  Components.classes["@mozilla.org/moz/jssubscript-loader;1"]
+            .getService(Components.interfaces.mozIJSSubScriptLoader)
+            .loadSubScript("chrome://adblockplus/content/overlay.js", this);
+  abpInit();
+
+  abp.getMostRecentWindow = function(type) {
+    if (type == "navigator:browser")
+      return this.__parent__;
+    else if (type in _recentWindowTypes && !_recentWindowTypes[type].closed)
+      return _recentWindowTypes[type];
+    else
+      return null;
+  }
+}

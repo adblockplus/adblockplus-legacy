@@ -29,7 +29,6 @@ abpWrapper* wrapper = new abpWrapper();
 char labelValues[NUM_LABELS][100];
 
 JSFunctionSpec component_methods[] = {
-  {"getMostRecentWindow", FakeGetMostRecentWindow, 1, 0, 0},
   {"openWindow", JSOpenDialog, 3, 0, 0},
   {NULL},
 };
@@ -38,44 +37,40 @@ JSFunctionSpec browser_methods[] = {
   {"openDialog", JSOpenDialog, 3, 0, 0},
   {"setIcon", JSSetIcon, 1, 0, 0},
   {"hideStatusBar", JSHideStatusBar, 1, 0, 0},
-  {"addEventListener", FakeAddEventListener, 3, 0, 0},
-  {"removeEventListener", FakeRemoveEventListener, 3, 0, 0},
   {"delayedOpenTab", FakeOpenTab, 1, 0, 0},
+  {"resetContextMenu", JSResetContextMenu, 0, 0, 0},
   {"showItem", FakeShowItem, 2, 0, 0},
   {"createCommandID", JSCreateCommandID, 0, 0, 0},
   {"createPopupMenu", JSCreatePopupMenu, 0, 0, 0},
   {"addMenuItem", JSAddMenuItem, 7, 0, 0},
+  {"getHWND", JSGetHWND, 1, 0, 0},
+  {"subclassDialogWindow", JSSubclassDialogWindow, 1, 0, 0},
+  {"addRootListener", JSAddRootListener, 3, 0, 0},
+  {"focusWindow", JSFocusWindow, 1, 0, 0},
   {NULL},
 };
 JSPropertySpec browser_properties[] = {
-  {"contentWindow", 0, JSPROP_READONLY|JSPROP_PERMANENT, JSGetContentWindow, nsnull},
-  {"content", 1, JSPROP_READONLY|JSPROP_PERMANENT, JSGetContentWindow, nsnull},
   {"wrapper", 2, JSPROP_READONLY|JSPROP_PERMANENT, JSGetWrapper, nsnull},
   {NULL},
 };
 
+static WNDPROC origWndProc = NULL;
+static WNDPROC origDialogWndProc = NULL;
+static HIMAGELIST hImages = NULL;
+static HHOOK hook = NULL;
+static WORD cmdBase = 0;
+static nsCOMPtr<nsIDOMWindowInternal> fakeBrowserWindow;
+static int setNextLeft = 0;
+static int setNextTop = 0;
+static int setNextWidth = 0;
+static int setNextHeight = 0;
+
 kmeleonFunctions* abpWrapper::kFuncs = NULL;
-WORD abpWrapper::cmdBase = 0;
-void* abpWrapper::origWndProc = NULL;
-HWND abpWrapper::hMostRecent = NULL;
-HWND abpWrapper::hSidebarDlg = NULL;
-HWND abpWrapper::hSettingsDlg = NULL;
-nsCOMPtr<nsIDOMWindowInternal> abpWrapper::fakeBrowserWindow;
-nsIDOMWindow* abpWrapper::currentWindow = nsnull;
 nsCOMPtr<nsIWindowWatcher> abpWrapper::watcher;
 nsCOMPtr<nsIIOService> abpWrapper::ioService;
-nsCOMPtr<nsIRDFService> abpWrapper::rdfService;
-nsCOMPtr<nsIRDFDataSource> abpWrapper::localStore;
 nsCOMPtr<nsIPrincipal> abpWrapper::systemPrincipal;
-abpWindowList abpWrapper::activeWindows;
-abpListenerList abpWrapper::selectListeners;
 abpToolbarDataList abpWrapper::toolbarList;
 abpStatusBarList abpWrapper::statusbarList;
-int abpWrapper::setNextLeft = 0;
-int abpWrapper::setNextTop = 0;
-int abpWrapper::setNextWidth = 0;
-int abpWrapper::setNextHeight = 0;
-HHOOK abpWrapper::hook = NULL;
 
 BOOL APIENTRY DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpvReserved) {
   return TRUE;
@@ -109,65 +104,43 @@ JS_STATIC_DLL_CALLBACK(void) Reporter(JSContext *cx, const char *message, JSErro
     return;
 }
 
-JSBool JS_DLL_CALLBACK JSFocusDialog(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
-  nsresult rv;
+JSBool JS_DLL_CALLBACK JSAddRootListener(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
   *rval = JSVAL_VOID;
 
-  nsCOMPtr<nsIXPConnect> xpc = do_GetService(nsIXPConnect::GetCID());
-  if (xpc == nsnull)
+  JSObject* wndObject;
+  char* event;
+  JSBool capture;
+  if (!JS_ConvertArguments(cx, argc, argv, "osb", &wndObject, &event, &capture))
+    return JS_FALSE;
+
+  nsCOMPtr<nsPIDOMWindow> privateWnd = do_QueryInterface(UnwrapNative(cx, wndObject));
+  if (privateWnd == nsnull)
     return JS_TRUE;
 
-  nsCOMPtr<nsIXPConnectWrappedNative> wrapped;
-  rv = xpc->GetWrappedNativeOfJSObject(cx, obj, getter_AddRefs(wrapped));
-  if (NS_FAILED(rv))
-    return JS_TRUE;
+  nsPIDOMWindow* rootWnd = privateWnd->GetPrivateRoot();
+  if (rootWnd == nsnull)
+    return NS_ERROR_FAILURE;
 
-  nsCOMPtr<nsISupports> native;
-  rv = wrapped->GetNative(getter_AddRefs(native));
-  if (NS_FAILED(rv))
-    return JS_TRUE;
+  nsIChromeEventHandler* chromeHandler = rootWnd->GetChromeEventHandler();
+  if (chromeHandler == nsnull)
+    return NS_ERROR_FAILURE;
 
-  nsCOMPtr<nsIDOMWindow> wnd = do_QueryInterface(native);
-  if (wnd == nsnull)
-    return JS_TRUE;
+  nsCOMPtr<nsIDOMEventTarget> target = do_QueryInterface(chromeHandler);
+  if (target == nsnull)
+    return NS_ERROR_FAILURE;
 
-  wrapper->Focus(wnd);
+  target->AddEventListener(NS_ConvertASCIItoUTF16(event), wrapper, capture);
   return JS_TRUE;
 }
 
-JSBool JS_DLL_CALLBACK FakeGetMostRecentWindow(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
-  *rval = JSVAL_NULL;
+JSBool JS_DLL_CALLBACK JSFocusWindow(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
+  *rval = JSVAL_VOID;
 
-  char* type;
-  if (!JS_ConvertArguments(cx, argc, argv, "s", &type))
+  int32 wnd;
+  if (!JS_ConvertArguments(cx, argc, argv, "j", &wnd))
     return JS_FALSE;
 
-  nsIDOMWindowInternal* wnd = nsnull;
-  if (strcmp(type, "navigator:browser") == 0)
-    wnd = wrapper->GetBrowserWindow();
-  else if (strcmp(type, "abp:settings") == 0)
-    wnd = wrapper->GetSettingsWindow();
-
-  if (wnd != nsnull) {
-    PRBool closed;
-    nsresult rv = wnd->GetClosed(&closed);
-    if (NS_SUCCEEDED(rv) && closed)
-      wnd = nsnull;
-  }
-
-  if (wnd == nsnull)
-    return JS_TRUE;
-
-  JSObject* ret = wrapper->GetGlobalObject(wnd);
-  if (ret == nsnull)
-    ret = wrapper->UnwrapNative(wnd);
-  if (ret == nsnull)
-    return JS_TRUE;
-
-  // Fix up focus function
-  JS_DefineFunction(cx, ret, "focus", JSFocusDialog, 0, 0);
-
-  *rval = OBJECT_TO_JSVAL(ret);
+  BringWindowToTop((HWND)wnd);
   return JS_TRUE;
 }
 
@@ -228,34 +201,6 @@ JSBool JS_DLL_CALLBACK JSHideStatusBar(JSContext* cx, JSObject* obj, uintN argc,
   return JS_TRUE;
 }
 
-JSBool JS_DLL_CALLBACK FakeAddEventListener(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
-  *rval = JSVAL_VOID;
-  if (argc != 3)
-    return JS_TRUE;
-
-  JSString* event = JS_ValueToString(cx, argv[0]);
-  JSFunction* handler = JS_ValueToFunction(cx, argv[1]);
-  if (event == nsnull || handler == nsnull || strcmp(JS_GetStringBytes(event), "select") != 0)
-    return JS_TRUE;
-
-  wrapper->AddSelectListener(cx, handler);
-  return JS_TRUE;
-}
-
-JSBool JS_DLL_CALLBACK FakeRemoveEventListener(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
-  *rval = JSVAL_VOID;
-  if (argc != 3)
-    return JS_TRUE;
-
-  JSString* event = JS_ValueToString(cx, argv[0]);
-  JSFunction* handler = JS_ValueToFunction(cx, argv[1]);
-  if (event == nsnull || handler == nsnull || strcmp(JS_GetStringBytes(event), "select") != 0)
-    return JS_TRUE;
-
-  wrapper->RemoveSelectListener(handler);
-  return JS_TRUE;
-}
-
 JSBool JS_DLL_CALLBACK FakeOpenTab(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
   *rval = JSVAL_VOID;
   if (argc != 1)
@@ -266,6 +211,12 @@ JSBool JS_DLL_CALLBACK FakeOpenTab(JSContext* cx, JSObject* obj, uintN argc, jsv
     return JS_TRUE;
 
   wrapper->OpenTab(JS_GetStringBytes(url));
+  return JS_TRUE;
+}
+
+JSBool JS_DLL_CALLBACK JSResetContextMenu(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
+  *rval = JSVAL_VOID;
+  wrapper->ResetContextMenu();
   return JS_TRUE;
 }
 
@@ -340,21 +291,37 @@ JSBool JS_DLL_CALLBACK JSAddMenuItem(JSContext* cx, JSObject* obj, uintN argc, j
   return JS_TRUE;
 }
 
-JSBool JS_DLL_CALLBACK JSGetContentWindow(JSContext *cx, JSObject *obj, jsval id, jsval *vp) {
-  abpJSContextHolder holder;
-  JSObject* overlay = wrapper->UnwrapNative(wrapper->GetBrowserWindow());
-  if (!holder.get() || !overlay)
-    return PR_FALSE;
+JSBool JS_DLL_CALLBACK JSGetHWND(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
+  *rval = JSVAL_NULL;
 
-  jsval args[1];
-  JSObject* wndObj = wrapper->GetGlobalObject(wrapper->GetCurrentWindow());
-  if (wndObj != nsnull)
-    args[0] = OBJECT_TO_JSVAL(wndObj);
-  else
-    args[0] = OBJECT_TO_JSVAL(obj);
+  if (argc != 1) {
+    JS_ReportError(cx, "getHWND: wrong number of arguments");
+    return JS_FALSE;
+  }
 
-  // HACKHACK: There is probably a better way to wrap the object
-  return JS_CallFunctionName(holder.get(), overlay, "wrapNode", 1, args, vp);
+  nsCOMPtr<nsIEmbeddingSiteWindow> wnd  = do_QueryInterface(UnwrapNative(cx, JSVAL_TO_OBJECT(argv[0])));
+  if (wnd == nsnull)
+    return JS_TRUE;
+
+  void* hWnd;
+  nsresult rv = wnd->GetSiteWindow(&hWnd);
+  if (NS_FAILED(rv))
+    return JS_TRUE;
+
+  *rval = INT_TO_JSVAL((int32)hWnd);
+  return JS_TRUE;
+}
+
+JSBool JS_DLL_CALLBACK JSSubclassDialogWindow(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
+  *rval = JSVAL_VOID;
+
+  int32 wnd;
+  if (!JS_ConvertArguments(cx, argc, argv, "j", &wnd))
+    return JS_FALSE;
+  
+  origDialogWndProc = wrapper->SubclassWindow((HWND)wnd, &DialogWndProc);
+
+  return JS_TRUE;
 }
 
 JSBool JS_DLL_CALLBACK JSGetWrapper(JSContext *cx, JSObject *obj, jsval id, jsval *vp) {
@@ -388,11 +355,8 @@ LONG abpWrapper::DoMessage(LPCSTR to, LPCSTR from, LPCSTR subject, LONG data1, L
     return 0;
 
   LONG ret = 1;
-  if (_stricmp(subject, "Load") == 0) {
+  if (_stricmp(subject, "Load") == 0)
     ret = (Load() ? 1 : -1);
-    if (ret == -1 && watcher)
-      watcher->UnregisterNotification(wrapper);
-  }
   else if (_stricmp(subject, "Setup") == 0)
     Setup();
   else if (_stricmp(subject, "Create") == 0)
@@ -482,29 +446,18 @@ PRBool abpWrapper::Load() {
     return PR_FALSE;
   }
 
-  rv = watcher->RegisterNotification(wrapper);
-  if (NS_FAILED(rv)) {
-    JS_ReportError(cx, "Adblock Plus: Failed to register for window watcher notifications");
-    return PR_FALSE;
-  }
-
   ioService = do_GetService("@mozilla.org/network/io-service;1");
   if (ioService == nsnull) {
     JS_ReportError(cx, "Adblock Plus: Failed to retrieve IO service - wrong Gecko version?");
     return PR_FALSE;
   }
 
-  // Do not error out if we cannot get localstore, can work without it
-  rdfService = do_GetService("@mozilla.org/rdf/rdf-service;1");
-  if (rdfService)
-    rdfService->GetDataSourceBlocking("rdf:local-store", getter_AddRefs(localStore));
-
   if (!PatchComponent(cx))
     return PR_FALSE;
 
   cmdBase = kFuncs->GetCommandIDs(NUM_COMMANDS);
   toolbarList.init(cmdBase + CMD_TOOLBAR);
-  statusbarList.init(wrapper->hImages, cmdBase + CMD_STATUSBAR, kFuncs->AddStatusBarIcon, kFuncs->RemoveStatusBarIcon);
+  statusbarList.init(hImages, cmdBase + CMD_STATUSBAR, kFuncs->AddStatusBarIcon, kFuncs->RemoveStatusBarIcon);
 
   return PR_TRUE;
 }
@@ -528,31 +481,8 @@ void abpWrapper::Quit() {
 }
 
 void abpWrapper::Create(HWND parent) {
-  static PRBool initialized = PR_FALSE;
-  if (!initialized) {
-    initialized = PR_TRUE;
-
-    abpJSContextHolder holder;
-    JSContext* cx = holder.get();
-    JSObject* overlay = UnwrapNative(fakeBrowserWindow);
-    jsval retval;
-    if (cx != nsnull)
-      if (overlay == nsnull || !JS_CallFunctionName(cx, overlay, "abpInit", 0, nsnull, &retval))
-        JS_ReportError(cx, "Adblock Plus: Failed to initialize overlay.js");
-  }
-
   statusbarList.addStatusBar(parent);
-
-  if (IsWindowUnicode(parent)) {
-    origWndProc = (WNDPROC)GetWindowLongW(parent, GWL_WNDPROC);
-    SetWindowLongW(parent, GWL_WNDPROC, (LONG)&WndProc);
-  }
-  else {
-    origWndProc = (WNDPROC)GetWindowLongA(parent, GWL_WNDPROC);
-    SetWindowLongA(parent, GWL_WNDPROC, (LONG)&WndProc);
-  }
-
-  hMostRecent = parent;
+  origWndProc = SubclassWindow(parent, &WndProc);
 }
 
 void abpWrapper::Close(HWND parent) {
@@ -598,9 +528,9 @@ void abpWrapper::DoRebar(HWND hRebar) {
   SendMessage(toolbar, TB_ADDBUTTONS, 1, (LPARAM)&button);
 
   int width, height;
-  ImageList_GetIconSize(wrapper->hImages, &width, &height);
+  ImageList_GetIconSize(hImages, &width, &height);
   SendMessage(toolbar, TB_SETBUTTONSIZE, 0, (LPARAM)MAKELONG(width, height));
-  SendMessage(toolbar, TB_SETIMAGELIST, 0, (LPARAM)wrapper->hImages);
+  SendMessage(toolbar, TB_SETIMAGELIST, 0, (LPARAM)hImages);
 
   DWORD dwBtnSize = SendMessage(toolbar, TB_GETBUTTONSIZE, 0, 0); 
   width = LOWORD(dwBtnSize);
@@ -624,12 +554,16 @@ void abpWrapper::DoRebar(HWND hRebar) {
   toolbarList.addToolbar(toolbar, hRebar);
 }
 
-LRESULT abpWrapper::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
+/**********************
+ * Window procedures  *
+ **********************/
+
+LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
   if (message == WM_COMMAND) {
     WORD command = LOWORD(wParam) - cmdBase;
     if (command == CMD_PREFERENCES) {
       abpJSContextHolder holder;
-      JSObject* overlay = UnwrapNative(fakeBrowserWindow);
+      JSObject* overlay = UnwrapJSObject(fakeBrowserWindow);
       jsval retval;
       if (holder.get() != nsnull && overlay != nsnull)
         JS_CallFunctionName(holder.get(), overlay, "abpSettings", 0, nsnull, &retval);
@@ -637,7 +571,7 @@ LRESULT abpWrapper::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPara
     }
     else if (command == CMD_LISTALL) {
       abpJSContextHolder holder;
-      JSObject* overlay = UnwrapNative(fakeBrowserWindow);
+      JSObject* overlay = UnwrapJSObject(fakeBrowserWindow);
       jsval retval;
       if (holder.get() != nsnull && overlay != nsnull)
         JS_CallFunctionName(holder.get(), overlay, "abpToggleSidebar", 0, nsnull, &retval);
@@ -645,7 +579,7 @@ LRESULT abpWrapper::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPara
     }
     else if (command == CMD_TOGGLEENABLED) {
       abpJSContextHolder holder;
-      JSObject* overlay = UnwrapNative(fakeBrowserWindow);
+      JSObject* overlay = UnwrapJSObject(fakeBrowserWindow);
       if (holder.get() != nsnull && overlay != nsnull) {
         char pref[] = "enabled";
         JSString* str = JS_NewStringCopyZ(holder.get(), pref);
@@ -659,7 +593,7 @@ LRESULT abpWrapper::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPara
     }
     else if (command == CMD_IMAGE) {
       abpJSContextHolder holder;
-      JSObject* overlay = UnwrapNative(fakeBrowserWindow);
+      JSObject* overlay = UnwrapJSObject(fakeBrowserWindow);
       JSContext* cx = holder.get();
       if (cx != nsnull && overlay != nsnull) {
         jsval arg;
@@ -671,7 +605,7 @@ LRESULT abpWrapper::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPara
     }
     else if (command == CMD_OBJECT) {
       abpJSContextHolder holder;
-      JSObject* overlay = UnwrapNative(fakeBrowserWindow);
+      JSObject* overlay = UnwrapJSObject(fakeBrowserWindow);
       JSContext* cx = holder.get();
       if (cx != nsnull && overlay != nsnull) {
         jsval arg;
@@ -682,7 +616,7 @@ LRESULT abpWrapper::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPara
     }
     else if (command == CMD_LINK) {
       abpJSContextHolder holder;
-      JSObject* overlay = UnwrapNative(fakeBrowserWindow);
+      JSObject* overlay = UnwrapJSObject(fakeBrowserWindow);
       JSContext* cx = holder.get();
       if (cx != nsnull && overlay != nsnull) {
         jsval arg;
@@ -693,7 +627,7 @@ LRESULT abpWrapper::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPara
     }
     else if (command == CMD_FRAME) {
       abpJSContextHolder holder;
-      JSObject* overlay = UnwrapNative(fakeBrowserWindow);
+      JSObject* overlay = UnwrapJSObject(fakeBrowserWindow);
       JSContext* cx = holder.get();
       if (cx != nsnull && overlay != nsnull) {
         jsval arg;
@@ -704,7 +638,7 @@ LRESULT abpWrapper::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPara
     }
     else if (command == CMD_TOOLBAR) {
       abpJSContextHolder holder;
-      JSObject* overlay = UnwrapNative(fakeBrowserWindow);
+      JSObject* overlay = UnwrapJSObject(fakeBrowserWindow);
       JSContext* cx = holder.get();
       if (cx != nsnull && overlay != nsnull) {
         jsval retval;
@@ -714,7 +648,7 @@ LRESULT abpWrapper::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPara
     }
     else if (command == CMD_STATUSBAR) {
       abpJSContextHolder holder;
-      JSObject* overlay = UnwrapNative(fakeBrowserWindow);
+      JSObject* overlay = UnwrapJSObject(fakeBrowserWindow);
       JSContext* cx = holder.get();
       JSObject* event = nsnull;
       if (cx != nsnull && overlay != nsnull) {
@@ -731,7 +665,7 @@ LRESULT abpWrapper::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPara
     }
     else {
       abpJSContextHolder holder;
-      JSObject* overlay = UnwrapNative(fakeBrowserWindow);
+      JSObject* overlay = UnwrapJSObject(fakeBrowserWindow);
       JSContext* cx = holder.get();
       if (cx != nsnull && overlay != nsnull) {
         jsval arg = INT_TO_JSVAL(LOWORD(wParam));
@@ -744,7 +678,7 @@ LRESULT abpWrapper::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPara
            ((message == SB_MBUTTONDOWN || message == SB_MBUTTONDBLCLK) && wParam == cmdBase + CMD_STATUSBAR)) {
     abpJSContextHolder holder;
     char param[] = "enabled";
-    JSObject* overlay = UnwrapNative(fakeBrowserWindow);
+    JSObject* overlay = UnwrapJSObject(fakeBrowserWindow);
     JSContext* cx = holder.get();
     JSString* str = nsnull;
     if (cx)
@@ -758,7 +692,7 @@ LRESULT abpWrapper::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPara
   else if ((message == TB_RBUTTONDOWN && wParam == cmdBase + CMD_TOOLBAR) ||
            (message == SB_RBUTTONDOWN && wParam == cmdBase + CMD_STATUSBAR)) {
     abpJSContextHolder holder;
-    JSObject* overlay = UnwrapNative(fakeBrowserWindow);
+    JSObject* overlay = UnwrapJSObject(fakeBrowserWindow);
     JSContext* cx = holder.get();
     if (cx != nsnull && overlay != nsnull) {
       jsval arg = (message == TB_RBUTTONDOWN ? JSVAL_FALSE : JSVAL_TRUE);
@@ -776,7 +710,7 @@ LRESULT abpWrapper::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPara
     LPNMHDR notifyHeader = (LPNMHDR) lParam;
     if (notifyHeader->code == (UINT)TTN_NEEDTEXT && (wParam == cmdBase + CMD_TOOLBAR || wParam == cmdBase + CMD_STATUSBAR)) {
       abpJSContextHolder holder;
-      JSObject* overlay = UnwrapNative(fakeBrowserWindow);
+      JSObject* overlay = UnwrapJSObject(fakeBrowserWindow);
       JSContext* cx = holder.get();
       if (cx != nsnull && overlay != nsnull) {
         jsval arg = (wParam == cmdBase + CMD_STATUSBAR ? JSVAL_TRUE : JSVAL_FALSE);
@@ -790,48 +724,55 @@ LRESULT abpWrapper::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPara
       }
     }
   }
-  else if (message == WM_SETFOCUS) {
-    nsIDOMWindow* wnd = activeWindows.getWindow(hWnd);
-    if (wnd && wnd != currentWindow) {
-      currentWindow = wnd;
-      selectListeners.notifyListeners();
-    }
-  }
-  else if (message == WM_SIZE) {
-    if (setNextWidth > 0 && setNextHeight > 0) {
-      // Fix up window size
-      SetWindowPos(hWnd, NULL, 0, 0, setNextWidth, setNextHeight, SWP_NOACTIVATE|SWP_NOMOVE|SWP_NOZORDER);
-      setNextWidth = 0;
-      setNextHeight = 0;
-    }
-    else
-      SaveWindowPlacement(hWnd);
-  }
-  else if (message == WM_MOVE) {
-    if (setNextLeft > 0 && setNextTop > 0) {
-      // Fix up window position
-      SetWindowPos(hWnd, NULL, setNextLeft, setNextTop, 0, 0, SWP_NOACTIVATE|SWP_NOSIZE|SWP_NOZORDER);
-      setNextLeft = 0;
-      setNextTop = 0;
-    }
-    else
-      SaveWindowPlacement(hWnd);
-  }
 
   if (IsWindowUnicode(hWnd))
-    return CallWindowProcW((WNDPROC)origWndProc, hWnd, message, wParam, lParam);
+    return CallWindowProcW(origWndProc, hWnd, message, wParam, lParam);
   else
-    return CallWindowProcA((WNDPROC)origWndProc, hWnd, message, wParam, lParam);
+    return CallWindowProcA(origWndProc, hWnd, message, wParam, lParam);
 }
 
-LRESULT CALLBACK abpWrapper::HookProc(int nCode, WPARAM wParam, LPARAM lParam) {
+LRESULT CALLBACK DialogWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
+  LRESULT retVal;
+  if (IsWindowUnicode(hWnd))
+    retVal = CallWindowProcW(origDialogWndProc, hWnd, message, wParam, lParam);
+  else
+    retVal = CallWindowProcA(origDialogWndProc, hWnd, message, wParam, lParam);
+
+  char* eventHandler;
+  switch (message) {
+    case WM_SIZE:
+      eventHandler = "onDialogResize";
+      break;
+    case WM_MOVE:
+      eventHandler = "onDialogMove";
+      break;
+    default:
+      eventHandler = nsnull;
+      break;
+  }
+
+  if (eventHandler) {
+    abpJSContextHolder holder;
+    JSObject* overlay = UnwrapJSObject(fakeBrowserWindow);
+    if (holder.get() && overlay) {
+      jsval retval;
+      jsval arg = INT_TO_JSVAL((int32)hWnd);
+
+      JS_CallFunctionName(holder.get(), overlay, eventHandler, 1, &arg, &retval);
+    }
+  }
+
+  return retVal;
+}
+
+LRESULT CALLBACK HookProc(int nCode, WPARAM wParam, LPARAM lParam) {
   if (nCode == HC_ACTION) {
     CWPRETSTRUCT* params = (CWPRETSTRUCT*)lParam;
     if (params->message == WM_DRAWITEM) {
       DRAWITEMSTRUCT* dis = (DRAWITEMSTRUCT*)params->lParam;
       WORD id = dis->itemID - cmdBase;
       if (dis->CtlType == ODT_MENU && id < NUM_COMMANDS)
-        ImageList_Draw(wrapper->hImages, 0, dis->hDC, dis->rcItem.left + 1, dis->rcItem.top + 1, ILD_TRANSPARENT);
+        ImageList_Draw(hImages, 0, dis->hDC, dis->rcItem.left + 1, dis->rcItem.top + 1, ILD_TRANSPARENT);
     }
   }
 
@@ -842,7 +783,7 @@ LRESULT CALLBACK abpWrapper::HookProc(int nCode, WPARAM wParam, LPARAM lParam) {
  * nsISupports implementation *
  ******************************/
 
-NS_IMPL_ISUPPORTS5(abpWrapper, nsIDOMEventListener, nsIObserver, imgIDecoderObserver, nsIClassInfo, nsIXPCScriptable)
+NS_IMPL_ISUPPORTS4(abpWrapper, nsIDOMEventListener, imgIDecoderObserver, nsIClassInfo, nsIXPCScriptable)
 
 /**************************************
  * nsIDOMEventListener implementation *
@@ -851,94 +792,29 @@ NS_IMPL_ISUPPORTS5(abpWrapper, nsIDOMEventListener, nsIObserver, imgIDecoderObse
 nsresult abpWrapper::HandleEvent(nsIDOMEvent* event) {
   nsresult rv;
 
-  nsString type;
-  rv = event->GetType(type);
+  abpJSContextHolder holder;
+  JSObject* overlay = UnwrapJSObject(fakeBrowserWindow);
+  JSContext* cx = holder.get();
+  if (cx == nsnull || overlay == nsnull)
+    return NS_ERROR_FAILURE;
+
+  nsCOMPtr<nsIXPConnect> xpc = do_GetService(nsIXPConnect::GetCID());
+  if (xpc == nsnull)
+    return NS_ERROR_FAILURE;
+
+  nsCOMPtr<nsIXPConnectJSObjectHolder> wrapperHolder;
+  rv = xpc->WrapNative(cx, JS_GetParent(cx, overlay), event, NS_GET_IID(nsIDOMEvent), getter_AddRefs(wrapperHolder));
   if (NS_FAILED(rv))
     return rv;
 
-  if (type.Equals(NS_LITERAL_STRING("load"))) {
-    nsCOMPtr<nsIDOMDocument> doc;
-    rv = settingsDlg->GetDocument(getter_AddRefs(doc));
-    if (NS_SUCCEEDED(rv)) {
-      nsCOMPtr<nsIDOMElement> menuItem;
-      rv = doc->GetElementById(NS_LITERAL_STRING("showintoolbar"), getter_AddRefs(menuItem));
-      if (SUCCEEDED(rv))
-        menuItem->SetAttribute(NS_LITERAL_STRING("hidden"), NS_LITERAL_STRING("true"));
-    }
-  }
-  else if (type.Equals(NS_LITERAL_STRING("contextmenu"))) {
-    abpJSContextHolder holder;
-    JSObject* overlay = UnwrapNative(fakeBrowserWindow);
-    JSContext* cx = holder.get();
-    if (cx == nsnull || overlay == nsnull)
-      return NS_ERROR_FAILURE;
-  
-    nsCOMPtr<nsIDOMEventTarget> target;
-    rv = event->GetTarget(getter_AddRefs(target));
-    if (NS_FAILED(rv) || target == nsnull)
-      return NS_ERROR_FAILURE;
-  
-    nsCOMPtr<nsIXPConnect> xpc = do_GetService(nsIXPConnect::GetCID());
-    if (xpc == nsnull)
-      return NS_ERROR_FAILURE;
-  
-    nsCOMPtr<nsIXPConnectJSObjectHolder> wrapperHolder;
-    rv = xpc->WrapNative(cx, JS_GetParent(cx, overlay), target, NS_GET_IID(nsIDOMEventTarget), getter_AddRefs(wrapperHolder));
-    if (NS_FAILED(rv))
-      return rv;
-  
-    JSObject* jsObj;
-    rv = wrapperHolder->GetJSObject(&jsObj);
-    if (NS_FAILED(rv))
-      return rv;
-  
-    jsval value = OBJECT_TO_JSVAL(jsObj);
-    if (!JS_SetProperty(cx, overlay, "target", &value))
-      return NS_ERROR_FAILURE;
-  
-    ResetContextMenu();
-    JS_CallFunctionName(cx, overlay, "abpCheckContext", 0, nsnull, &value);
-  }
+  JSObject* jsObj;
+  rv = wrapperHolder->GetJSObject(&jsObj);
+  if (NS_FAILED(rv))
+    return rv;
 
-  return NS_OK;
-}
-
-/******************************
- * nsIObserver implementation *
- ******************************/
-
-nsresult abpWrapper::Observe(nsISupports* subject, const char* topic, const PRUnichar* data) {
-  nsCOMPtr<nsIDOMWindow> contentWnd = do_QueryInterface(subject);
-  if (contentWnd == nsnull)
-    return NS_ERROR_FAILURE;
-
-  if (!IsBrowserWindow(contentWnd))
-    return NS_OK;
-
-  if (strcmp(topic, "domwindowopened") == 0) {
-    HWND hWnd = GetHWND(contentWnd);
-    activeWindows.addWindow(hWnd, contentWnd);
-
-    nsCOMPtr<nsPIDOMWindow> privateWnd = do_QueryInterface(contentWnd);
-    if (privateWnd == nsnull)
-      return NS_ERROR_FAILURE;
-
-    nsPIDOMWindow* rootWnd = privateWnd->GetPrivateRoot();
-    if (rootWnd == nsnull)
-      return NS_ERROR_FAILURE;
-
-    nsIChromeEventHandler* chromeHandler = rootWnd->GetChromeEventHandler();
-    if (chromeHandler == nsnull)
-      return NS_ERROR_FAILURE;
-
-    nsCOMPtr<nsIDOMEventTarget> target = do_QueryInterface(chromeHandler);
-    if (target == nsnull)
-      return NS_ERROR_FAILURE;
-
-    target->AddEventListener(NS_LITERAL_STRING("contextmenu"), this, true);
-  }
-  else if (strcmp(topic, "domwindowclosed") == 0)
-    activeWindows.removeWindow(contentWnd);
+  jsval arg = OBJECT_TO_JSVAL(jsObj);
+  jsval retval;  
+  JS_CallFunctionName(cx, overlay, "_handleEvent", 1, &arg, &retval);
 
   return NS_OK;
 }
@@ -1142,7 +1018,7 @@ NS_METHOD abpWrapper::GetProperty(nsIXPConnectWrappedNative* wrapper, JSContext*
   if (NS_FAILED(rv))
     return rv;
 
-  JSObject* innerObj = UnwrapNative(native);
+  JSObject* innerObj = UnwrapJSObject(native);
   if (innerObj == nsnull)
     return NS_ERROR_FAILURE;
 
@@ -1161,7 +1037,7 @@ NS_METHOD abpWrapper::NewResolve(nsIXPConnectWrappedNative* wrapper, JSContext* 
   if (NS_FAILED(rv))
     return rv;
 
-  JSObject* innerObj = UnwrapNative(native);
+  JSObject* innerObj = UnwrapJSObject(native);
   if (innerObj == nsnull)
     return NS_ERROR_FAILURE;
 
@@ -1282,7 +1158,7 @@ PRBool abpWrapper::PatchComponent(JSContext* cx) {
     return PR_FALSE;
   }
 
-  JSObject* jsObject = UnwrapNative(abp);
+  JSObject* jsObject = UnwrapJSObject(abp);
   if (jsObject == nsnull) {
     JS_ReportError(cx, "Adblock Plus: Failed extracting JavaScript object from Adblock Plus component");
     return PR_FALSE;
@@ -1385,14 +1261,14 @@ PRBool abpWrapper::CreateFakeBrowserWindow(JSContext* cx, JSObject* parent) {
   
     jsval args[] = {STRING_TO_JSVAL(str)};
     jsval retval;
-    if (!JS_CallFunctionName(cx, obj, "getOverlayEntity", 1, args, &retval)) {
+    if (!JS_CallFunctionName(cx, obj, "_getOverlayEntity", 1, args, &retval)) {
       JS_ReportError(cx, "Adblock Plus: Failed to retrieve entity '%s' from overlay.dtd", labels[i]);
       return PR_FALSE;
     }
 
     str = JS_ValueToString(cx, retval);
     if (str == nsnull) {
-      JS_ReportError(cx, "Adblock Plus: Could not convert return value of getOverlayEntity() to string");
+      JS_ReportError(cx, "Adblock Plus: Could not convert return value of _getOverlayEntity() to string");
       return PR_FALSE;
     }
 
@@ -1402,7 +1278,7 @@ PRBool abpWrapper::CreateFakeBrowserWindow(JSContext* cx, JSObject* parent) {
   return PR_TRUE;
 }
 
-JSObject* abpWrapper::UnwrapNative(nsISupports* native) {
+JSObject* UnwrapJSObject(nsISupports* native) {
   nsCOMPtr<nsIXPConnectWrappedJS> holder = do_QueryInterface(native);
   if (holder == nsnull)
     return nsnull;
@@ -1415,26 +1291,32 @@ JSObject* abpWrapper::UnwrapNative(nsISupports* native) {
   return innerObj;
 }
 
+nsISupports* UnwrapNative(JSContext* cx, JSObject* obj) {
+  nsresult rv;
+
+  nsCOMPtr<nsIXPConnect> xpc = do_GetService(nsIXPConnect::GetCID());
+  if (xpc == nsnull)
+    return nsnull;
+
+  nsCOMPtr<nsIXPConnectWrappedNative> wrapped;
+  rv = xpc->GetWrappedNativeOfJSObject(cx, obj, getter_AddRefs(wrapped));
+  if (NS_FAILED(rv))
+    return nsnull;
+
+  nsCOMPtr<nsISupports> native;
+  rv = wrapped->GetNative(getter_AddRefs(native));
+  if (NS_FAILED(rv))
+    return nsnull;
+
+  return native;
+}
+
+
 
 /********************
  * Helper functions *
  ********************/
-
-PRBool abpWrapper::IsBrowserWindow(nsIDOMWindow* contentWnd) {
-  nsresult rv;
-
-  nsCOMPtr<nsIClassInfo> classInfo = do_QueryInterface(contentWnd);
-  if (classInfo == nsnull)
-    return PR_FALSE;
-
-  char* descr;
-  rv = classInfo->GetClassDescription(&descr);
-  if (NS_FAILED(rv))
-    return PR_FALSE;
-
-  return (strcmp(descr, "Window") == 0 ? PR_TRUE : PR_FALSE);
-}
-
+ 
 HWND abpWrapper::GetHWND(nsIDOMWindow* wnd) {
   nsresult rv;
 
@@ -1542,33 +1424,9 @@ JSObject* abpWrapper::OpenDialog(char* url, char* target, char* features, nsISup
   if (NS_FAILED(rv) || wnd == nsnull)
     return nsnull;
 
-  if (strstr(url, "sidebarDetached.xul")) {
-    hSidebarDlg = hMostRecent;
-
-    SetWindowPos(hMostRecent, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOACTIVATE | SWP_NOOWNERZORDER | SWP_NOMOVE | SWP_NOSIZE);
-
-    // Set default sidebar dialog height
-    setNextWidth = 600;
-    setNextHeight = 400;
-  }
-  else if (strstr(url, "settings.xul")) {
-    hSettingsDlg = hMostRecent;
-
-    settingsDlg = do_QueryInterface(wnd);
-
-    nsCOMPtr<nsIDOMEventTarget> target = do_QueryInterface(settingsDlg);
-    if (target != nsnull)
-      target->AddEventListener(NS_LITERAL_STRING("load"), this, PR_FALSE);
-  }
-
-  // Restore previous width/height settings for the dialog
-  nsCOMPtr<nsIRDFResource> persist = GetPersistResource(hMostRecent);
-  if (persist) {
-    GetLocalStoreInt(persist, "left", &setNextLeft);
-    GetLocalStoreInt(persist, "top", &setNextTop);
-    GetLocalStoreInt(persist, "width", &setNextWidth);
-    GetLocalStoreInt(persist, "height", &setNextHeight);
-  }
+  HWND hWnd = GetHWND(wnd);
+  if (strstr(url, "sidebarDetached.xul"))
+    SetWindowPos(hWnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOACTIVATE | SWP_NOOWNERZORDER | SWP_NOMOVE | SWP_NOSIZE);
 
   return wrapper->GetGlobalObject(wnd);
 }
@@ -1587,24 +1445,6 @@ nsresult abpWrapper::OpenTab(const char* url) {
   kFuncs->SendMessage("layers", PLUGIN_NAME, "AddLayersToWindow", (LONG)"1", (LONG)url);
 
   return rv;
-}
-
-nsresult abpWrapper::AddSelectListener(JSContext* cx, JSFunction* func) {
-  selectListeners.addListener(cx, func);
-
-  return NS_OK;
-}
-
-nsresult abpWrapper::RemoveSelectListener(JSFunction* func) {
-  selectListeners.removeListener(func);
-
-  return NS_OK;
-}
-
-void abpWrapper::Focus(nsIDOMWindow* wnd) {
-  HWND hWnd = GetHWND(wnd);
-  if (hWnd)
-    BringWindowToTop(hWnd);
 }
 
 TCHAR* menus[] = {_T("DocumentPopup"), _T("DocumentImagePopup"), _T("TextPopup"),
@@ -1682,81 +1522,15 @@ void abpWrapper::LoadImage(int index) {
   return;
 }
 
-void abpWrapper::SaveWindowPlacement(HWND hWnd) {
-  nsCOMPtr<nsIRDFResource> persist = GetPersistResource(hWnd);
-  if (persist) {
-    WINDOWPLACEMENT placement;
-    if (GetWindowPlacement(hWnd, &placement)) {
-      SetLocalStoreInt(persist, "left", placement.rcNormalPosition.left);
-      SetLocalStoreInt(persist, "top", placement.rcNormalPosition.top);
-      SetLocalStoreInt(persist, "width", placement.rcNormalPosition.right - placement.rcNormalPosition.left);
-      SetLocalStoreInt(persist, "height", placement.rcNormalPosition.bottom - placement.rcNormalPosition.top);
-    }
+WNDPROC abpWrapper::SubclassWindow(HWND hWnd, WNDPROC newWndProc) {
+  WNDPROC origProc;
+  if (IsWindowUnicode(hWnd)) {
+    origProc = (WNDPROC)GetWindowLongW(hWnd, GWL_WNDPROC);
+    SetWindowLongW(hWnd, GWL_WNDPROC, (LONG)newWndProc);
   }
-}
-
-already_AddRefed<nsIRDFResource> abpWrapper::GetPersistResource(HWND hWnd) {
-  if (!localStore)
-    return nsnull;
-
-  nsCString name;
-  if (hWnd == hSidebarDlg)
-    name = "chrome://adblockplus/content/sidebarDetached.xul#abpDetachedSidebar";
-  else if (hWnd == hSettingsDlg)
-    name = "chrome://adblockplus/content/settings.xul#abpPreferencesWindow";
-
-  if (!name.Length())
-    return nsnull;
-
-  nsIRDFResource* result;
-  nsresult rv = rdfService->GetResource(name, &result);
-  if (NS_FAILED(rv))
-    return nsnull;
-
-  return result;
-}
-
-void abpWrapper::GetLocalStoreInt(nsIRDFResource* source, char* property, int* value) {
-  nsCString name(property);
-  nsresult rv;
-
-  nsCOMPtr<nsIRDFResource> link;
-  rv = rdfService->GetResource(name, getter_AddRefs(link));
-  if (NS_FAILED(rv))
-    return;
-
-  nsCOMPtr<nsIRDFNode> target;
-  rv = localStore->GetTarget(source, link, PR_TRUE, getter_AddRefs(target));
-  if (NS_FAILED(rv))
-    return;
-
-  nsCOMPtr<nsIRDFInt> intTarget = do_QueryInterface(target);
-  if (!intTarget)
-    return;
-
-  PRInt32 result;
-  rv = intTarget->GetValue(&result);
-  if (NS_FAILED(rv))
-    return;
-
-  *value = result;
-}
-
-void abpWrapper::SetLocalStoreInt(nsIRDFResource* source, char* property, int value) {
-  nsCString name(property);
-
-  nsCOMPtr<nsIRDFResource> link;
-  nsCOMPtr<nsIRDFNode> oldTarget;
-  nsCOMPtr<nsIRDFInt> newTarget;
-
-  rdfService->GetResource(name, getter_AddRefs(link));
-
-  if (link)
-    localStore->GetTarget(source, link, PR_TRUE, getter_AddRefs(oldTarget));
-  if (oldTarget)
-    localStore->Unassert(source, link, oldTarget);
-
-  rdfService->GetIntLiteral(value, getter_AddRefs(newTarget));
-  if (link && newTarget)
-    localStore->Assert(source, link, newTarget, PR_TRUE);
+  else {
+    origProc = (WNDPROC)GetWindowLongA(hWnd, GWL_WNDPROC);
+    SetWindowLongA(hWnd, GWL_WNDPROC, (LONG)newWndProc);
+  }
+  return origProc;
 }
