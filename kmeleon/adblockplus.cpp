@@ -60,10 +60,6 @@ static HIMAGELIST hImages = NULL;
 static HHOOK hook = NULL;
 static WORD cmdBase = 0;
 static nsCOMPtr<nsIDOMWindowInternal> fakeBrowserWindow;
-static int setNextLeft = 0;
-static int setNextTop = 0;
-static int setNextWidth = 0;
-static int setNextHeight = 0;
 
 kmeleonFunctions* abpWrapper::kFuncs = NULL;
 nsCOMPtr<nsIWindowWatcher> abpWrapper::watcher;
@@ -117,11 +113,11 @@ JSBool JS_DLL_CALLBACK JSAddRootListener(JSContext* cx, JSObject* obj, uintN arg
   if (privateWnd == nsnull)
     return JS_TRUE;
 
-  nsPIDOMWindow* rootWnd = privateWnd->GetPrivateRoot();
+  nsCOMPtr<nsPIDOMWindow> rootWnd = privateWnd->GetPrivateRoot();
   if (rootWnd == nsnull)
     return NS_ERROR_FAILURE;
 
-  nsIChromeEventHandler* chromeHandler = rootWnd->GetChromeEventHandler();
+  nsCOMPtr<nsIChromeEventHandler> chromeHandler = rootWnd->GetChromeEventHandler();
   if (chromeHandler == nsnull)
     return NS_ERROR_FAILURE;
 
