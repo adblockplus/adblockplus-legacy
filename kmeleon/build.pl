@@ -9,11 +9,11 @@ my %params = ();
 my $pkg = Packager->new(\%params);
 $pkg->readVersion('../version');
 
-my $GECKO_DIR = 'c:\gecko_sdk';
-my $CCFLAGS = '/O1 /W3 /LD /MT /DXP_WIN';
-my $LDFLAGS = '/DLL /NODEFAULTLIB /NOLOGO /PDB:../adblockplus.pdb';
-my @INCLUDE_DIRS = ('c:\kmeleon_src', "$GECKO_DIR\\include");
-my @LIB_DIRS = ("$GECKO_DIR\\lib");
+my $GECKO_DIR = 'c:/gecko_sdk';
+my $CCFLAGS = '-O1 -W3 -LD -MT -DXP_WIN';
+my $LDFLAGS = '-DLL -NODEFAULTLIB -NOLOGO -PDB:../adblockplus.pdb';
+my @INCLUDE_DIRS = ('c:/kmeleon_src', "$GECKO_DIR/include");
+my @LIB_DIRS = ("$GECKO_DIR/lib");
 my @LIBS = qw(libcmt.lib kernel32.lib user32.lib gdi32.lib comctl32.lib nspr4.lib plds4.lib plc4.lib xpcom.lib xpcomglue_s.lib embed_base_s.lib js3250.lib);
 
 my $output_file = shift @ARGV || "adblockplus.zip";
@@ -26,13 +26,13 @@ if (@ARGV && $ARGV[0] =~ /^\+/)
 $params{locales} = \@ARGV if @ARGV;
 $params{locales} = ["en-US"] unless exists $params{locales};
 
-$CCFLAGS .= " /DTOOLKIT_ONLY" if $#{$params{locales}} > 0;
-$CCFLAGS .= " /DABP_VERSION=" . escapeMacro($params{version});
-$CCFLAGS .= " /DABP_LANGUAGE=" . escapeMacro($params{locales}[0]);
-$CCFLAGS .= " /FIinline_script.h";
+$CCFLAGS .= " -DTOOLKIT_ONLY" if $#{$params{locales}} > 0;
+$CCFLAGS .= " -DABP_VERSION=" . escapeMacro($params{version});
+$CCFLAGS .= " -DABP_LANGUAGE=" . escapeMacro($params{locales}[0]);
+$CCFLAGS .= " -FIinline_script.h";
 
-my $includes = join(' ', map {"/I$_"} @INCLUDE_DIRS);
-my $libs = join(' ', map {"/LIBPATH:$_"} @LIB_DIRS);
+my $includes = join(' ', map {"-I$_"} @INCLUDE_DIRS);
+my $libs = join(' ', map {"-LIBPATH:$_"} @LIB_DIRS);
 
 $pkg->rm_rec('tmp');
 mkdir('tmp', 0755) or die "Failed to create directory tmp: $!";
@@ -66,7 +66,7 @@ $pkg->cp('adblockplus.h', 'tmp/adblockplus.h');
 }
 
 chdir('tmp');
-system("cl $CCFLAGS $includes adblockplus.cpp @LIBS /link $LDFLAGS $libs") && exit;
+system("cl $CCFLAGS $includes adblockplus.cpp @LIBS -link $LDFLAGS $libs") && exit;
 system("mv -f adblockplus.dll ..") && exit;
 chdir('..');
 
