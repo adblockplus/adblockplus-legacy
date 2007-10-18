@@ -310,8 +310,10 @@ var _windowObserver = {
                        .QueryInterface(Components.interfaces.nsIDocShellTreeItem)
                        .itemType;
 
-      if (wndType == Components.interfaces.nsIDocShellTreeItem.typeContent)
+      if (wndType == Components.interfaces.nsIDocShellTreeItem.typeContent) {
         addRootListener(wnd, "focus", true);
+        addRootListener(wnd, "contextmenu", true);
+      }
       else
         wnd.addEventListener("load", _processNewDialog, true);
     }
@@ -382,7 +384,7 @@ function _processNewDialog(event) {
   }
 }
 
-var target;
+var target = null;
 function _handleEvent(event) {
   if (event.type == "contextmenu") {
     resetContextMenu();
