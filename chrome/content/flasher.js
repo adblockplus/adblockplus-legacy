@@ -41,16 +41,16 @@ var flasher = {
     if (nodes.length && prefs.flash_scrolltoitem && ("document" in nodes[0] || nodes[0].ownerDocument)) {
       // Ensure that at least one node is visible when flashing
       var wnd = ("document" in nodes[0] ? nodes[0] : nodes[0].ownerDocument.defaultView);
-      var viewer = wnd.QueryInterface(Components.interfaces.nsIInterfaceRequestor)
-                      .getInterface(Components.interfaces.nsIWebNavigation)
-                      .QueryInterface(Components.interfaces.nsIDocShellTreeItem)
-                      .rootTreeItem
-                      .QueryInterface(Components.interfaces.nsIInterfaceRequestor)
-                      .getInterface(Components.interfaces.nsIDOMWindow)
-                      .wrappedJSObject
-                      .abpGetBrowser()
-                      .markupDocumentViewer;
       try {
+        var viewer = wnd.QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+                        .getInterface(Components.interfaces.nsIWebNavigation)
+                        .QueryInterface(Components.interfaces.nsIDocShellTreeItem)
+                        .rootTreeItem
+                        .QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+                        .getInterface(Components.interfaces.nsIDOMWindow)
+                        .wrappedJSObject
+                        .abpGetBrowser()
+                        .markupDocumentViewer;
         viewer.scrollToNode(nodes[0]);
       } catch(e) {}
     }
