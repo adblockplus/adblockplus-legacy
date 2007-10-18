@@ -29,7 +29,7 @@ $params{locales} = ["en-US"] unless exists $params{locales};
 $CCFLAGS .= " -DTOOLKIT_ONLY" if $#{$params{locales}} > 0;
 $CCFLAGS .= " -DABP_VERSION=" . escapeMacro($params{version});
 $CCFLAGS .= " -DABP_LANGUAGE=" . escapeMacro($params{locales}[0]);
-$CCFLAGS .= " -FIinline_script.h";
+$CCFLAGS .= " -FIinline_scripts.h";
 
 my $includes = join(' ', map {"-I$_"} @INCLUDE_DIRS);
 my $libs = join(' ', map {"-LIBPATH:$_"} @LIB_DIRS);
@@ -40,10 +40,15 @@ mkdir('tmp', 0755) or die "Failed to create directory tmp: $!";
 $pkg->cp('adblockplus.cpp', 'tmp/adblockplus.cpp');
 $pkg->cp('adblockplus.h', 'tmp/adblockplus.h');
 
+open(INCLUDES, ">tmp/inline_scripts.h");
+print INCLUDES "char* includes[] = {\n";
+foreach my $include (sort <*.js>)
 {
+  next if $include eq "adblockplus_extra.js";
+
   local $/;
 
-  open(FILE, "adblockplus.js");
+  open(FILE, $include);
   my $inline_script = <FILE>;
   close(FILE);
 
@@ -57,13 +62,10 @@ $pkg->cp('adblockplus.h', 'tmp/adblockplus.h');
   my $charset = ($params{locales}[0] eq "ru-RU" ? "windows-1251" : "iso-8859-1");
   $inline_script =~ s/\{\{CHARSET\}\}/$charset/g;
 
-  # Remove license block
-  $inline_script =~ s/^\/\*.*?\*\/(?:\\n)+//;
-
-  open(FILE, ">tmp/inline_script.h");
-  print FILE  "#define ABP_INLINE_SCRIPT \"$inline_script\"";
-  close(FILE);
+  print INCLUDES qq(  "adblockplus.dll/$include", "$inline_script",\n);
 }
+print INCLUDES "  0\n};\n";
+close(INCLUDES);
 
 chdir('tmp');
 system("cl $CCFLAGS $includes adblockplus.cpp @LIBS -link $LDFLAGS $libs") && exit;

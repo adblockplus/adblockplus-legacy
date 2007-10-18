@@ -39,7 +39,7 @@ JSFunctionSpec browser_methods[] = {
   {"hideStatusBar", JSHideStatusBar, 1, 0, 0},
   {"delayedOpenTab", FakeOpenTab, 1, 0, 0},
   {"resetContextMenu", JSResetContextMenu, 0, 0, 0},
-  {"showItem", FakeShowItem, 2, 0, 0},
+  {"addContextMenuItem", JSAddContextMenuItem, 1, 0, 0},
   {"createCommandID", JSCreateCommandID, 0, 0, 0},
   {"createPopupMenu", JSCreatePopupMenu, 0, 0, 0},
   {"addMenuItem", JSAddMenuItem, 7, 0, 0},
@@ -47,6 +47,7 @@ JSFunctionSpec browser_methods[] = {
   {"subclassDialogWindow", JSSubclassDialogWindow, 1, 0, 0},
   {"addRootListener", JSAddRootListener, 3, 0, 0},
   {"focusWindow", JSFocusWindow, 1, 0, 0},
+  {"setTopmostWindow", JSSetTopmostWindow, 1, 0, 0},
   {NULL},
 };
 JSPropertySpec browser_properties[] = {
@@ -140,6 +141,17 @@ JSBool JS_DLL_CALLBACK JSFocusWindow(JSContext* cx, JSObject* obj, uintN argc, j
   return JS_TRUE;
 }
 
+JSBool JS_DLL_CALLBACK JSSetTopmostWindow(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
+  *rval = JSVAL_VOID;
+
+  int32 wnd;
+  if (!JS_ConvertArguments(cx, argc, argv, "j", &wnd))
+    return JS_FALSE;
+
+  SetWindowPos((HWND)wnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOACTIVATE | SWP_NOOWNERZORDER | SWP_NOMOVE | SWP_NOSIZE);
+  return JS_TRUE;
+}
+
 JSBool JS_DLL_CALLBACK JSOpenDialog(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
   *rval = JSVAL_NULL;
 
@@ -216,26 +228,17 @@ JSBool JS_DLL_CALLBACK JSResetContextMenu(JSContext* cx, JSObject* obj, uintN ar
   return JS_TRUE;
 }
 
-JSBool JS_DLL_CALLBACK FakeShowItem(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
+JSBool JS_DLL_CALLBACK JSAddContextMenuItem(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
   *rval = JSVAL_VOID;
 
-  char* item;
-  JSBool show;
-  if (!JS_ConvertArguments(cx, argc, argv, "sb", &item, &show))
+  int32 item;
+  if (!JS_ConvertArguments(cx, argc, argv, "j", &item))
     return JS_FALSE;
 
-  if (!show)
+  if (item < 0 || item >= NUM_LABELS)
     return JS_TRUE;
 
-  if (strcmp(item, "abp-image-menuitem") == 0)
-    wrapper->AddContextMenuItem(CMD_IMAGE, labelValues[LABEL_CONTEXT_IMAGE]);
-  else if (strcmp(item, "abp-object-menuitem") == 0)
-    wrapper->AddContextMenuItem(CMD_OBJECT, labelValues[LABEL_CONTEXT_OBJECT]);
-  else if (strcmp(item, "abp-link-menuitem") == 0)
-    wrapper->AddContextMenuItem(CMD_LINK, labelValues[LABEL_CONTEXT_LINK]);
-  else if (strcmp(item, "abp-frame-menuitem") == 0)
-    wrapper->AddContextMenuItem(CMD_FRAME, labelValues[LABEL_CONTEXT_FRAME]);
-
+  wrapper->AddContextMenuItem((WORD)(CMD_IMAGE + item), labelValues[item]);
   return JS_TRUE;
 }
 
@@ -810,7 +813,7 @@ nsresult abpWrapper::HandleEvent(nsIDOMEvent* event) {
 
   jsval arg = OBJECT_TO_JSVAL(jsObj);
   jsval retval;  
-  JS_CallFunctionName(cx, overlay, "_handleEvent", 1, &arg, &retval);
+  JS_CallFunctionName(cx, overlay, "onEvent", 1, &arg, &retval);
 
   return NS_OK;
 }
@@ -1215,19 +1218,20 @@ PRBool abpWrapper::CreateFakeBrowserWindow(JSContext* cx, JSObject* parent) {
     return PR_FALSE;
   }
 
-  char inlineScriptBody[] = ABP_INLINE_SCRIPT;
-  JSScript* inlineScript = JS_CompileScriptForPrincipals(cx, obj, principals, inlineScriptBody, strlen(inlineScriptBody), "adblockplus.dll inline script", 1);
-  JSPRINCIPALS_DROP(cx, principals);
-  if (inlineScript == nsnull) {
-    JS_ReportError(cx, "Adblock Plus: Failed to compile inline JavaScript code");
-    return PR_FALSE;
-  }
+  for (int i = 0; includes[i]; i += 2) {
+    JSScript* inlineScript = JS_CompileScriptForPrincipals(cx, obj, principals, includes[i+1], strlen(includes[i+1]), includes[i], 1);
+    if (inlineScript == nsnull) {
+      JS_ReportError(cx, "Adblock Plus: Failed to compile %s", includes[i]);
+      return PR_FALSE;
+    }
 
-  if (!JS_ExecuteScript(cx, obj, inlineScript, &value)) {
-    JS_ReportError(cx, "Adblock Plus: Failed to execute inline JavaScript code");
-    return PR_FALSE;
+    if (!JS_ExecuteScript(cx, obj, inlineScript, &value)) {
+      JS_ReportError(cx, "Adblock Plus: Failed to execute %s", includes[i]);
+      return PR_FALSE;
+    }
+    JS_DestroyScript(cx, inlineScript);
   }
-  JS_DestroyScript(cx, inlineScript);
+  JSPRINCIPALS_DROP(cx, principals);
 
   nsCOMPtr<nsIXPConnect> xpc = do_GetService(nsIXPConnect::GetCID());
   if (xpc == nsnull) {
@@ -1248,23 +1252,31 @@ PRBool abpWrapper::CreateFakeBrowserWindow(JSContext* cx, JSObject* parent) {
     return PR_FALSE;
   }
 
+  jsval readerVal;
+  JS_GetProperty(cx, obj, "_dtdReader", &readerVal);
+  if (readerVal == JSVAL_VOID) {
+    JS_ReportError(cx, "Adblock Plus: Failed to retrieve DTD reader object");
+    return PR_FALSE;
+  }
+
+  JSObject* reader = JSVAL_TO_OBJECT(readerVal);
   for (int i = 0; i < NUM_LABELS; i++) {
     JSString* str = JS_NewStringCopyZ(cx, labels[i]);
     if (str == nsnull) {
       JS_ReportError(cx, "Adblock Plus: Could not create JavaScript string for '%s' - out of memory?", labels[i]);
       return PR_FALSE;
     }
-  
+
     jsval args[] = {STRING_TO_JSVAL(str)};
     jsval retval;
-    if (!JS_CallFunctionName(cx, obj, "_getOverlayEntity", 1, args, &retval)) {
+    if (!JS_CallFunctionName(cx, reader, "getEntity", 1, args, &retval)) {
       JS_ReportError(cx, "Adblock Plus: Failed to retrieve entity '%s' from overlay.dtd", labels[i]);
       return PR_FALSE;
     }
 
     str = JS_ValueToString(cx, retval);
     if (str == nsnull) {
-      JS_ReportError(cx, "Adblock Plus: Could not convert return value of _getOverlayEntity() to string");
+      JS_ReportError(cx, "Adblock Plus: Could not convert return value of _dtdReader.getEntity() to string");
       return PR_FALSE;
     }
 
@@ -1313,26 +1325,6 @@ nsISupports* UnwrapNative(JSContext* cx, JSObject* obj) {
  * Helper functions *
  ********************/
  
-HWND abpWrapper::GetHWND(nsIDOMWindow* wnd) {
-  nsresult rv;
-
-  nsCOMPtr<nsIWebBrowserChrome> chrome;
-  rv = watcher->GetChromeForWindow(wnd, getter_AddRefs(chrome));
-  if (NS_FAILED(rv) || chrome == nsnull)
-    return NULL;
-
-  nsCOMPtr<nsIEmbeddingSiteWindow> site = do_QueryInterface(chrome);
-  if (site == nsnull)
-    return NULL;
-
-  HWND ret;
-  rv = site->GetSiteWindow((void**)&ret);
-  if (NS_FAILED(rv))
-    return NULL;
-
-  return ret;
-}
-
 INT abpWrapper::CommandByName(LPSTR action) {
   INT command = -1;
   if (_stricmp(action, "Preferences") == 0)
@@ -1419,10 +1411,6 @@ JSObject* abpWrapper::OpenDialog(char* url, char* target, char* features, nsISup
   rv = watcher->OpenWindow(fakeBrowserWindow, url, target, features, args, getter_AddRefs(wnd));
   if (NS_FAILED(rv) || wnd == nsnull)
     return nsnull;
-
-  HWND hWnd = GetHWND(wnd);
-  if (strstr(url, "sidebarDetached.xul"))
-    SetWindowPos(hWnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOACTIVATE | SWP_NOOWNERZORDER | SWP_NOMOVE | SWP_NOSIZE);
 
   return wrapper->GetGlobalObject(wnd);
 }
