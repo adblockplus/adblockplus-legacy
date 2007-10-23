@@ -57,9 +57,12 @@ var _element = {
     return [this];
   },
 
+  icon: 0,
   setIconDelayed: function(icon) {
+    var me = this;
+    me.icon = icon;
     setTimeout(function() {
-      setIcon(icon);
+      setIcon(me.icon);
     }, 0);
   }
 };

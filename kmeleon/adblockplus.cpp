@@ -48,6 +48,7 @@ JSFunctionSpec browser_methods[] = {
   {"addRootListener", JSAddRootListener, 3, 0, 0},
   {"focusWindow", JSFocusWindow, 1, 0, 0},
   {"setTopmostWindow", JSSetTopmostWindow, 1, 0, 0},
+  {"showToolbarContext", JSShowToolbarContext, 1, 0, 0},
   {NULL},
 };
 JSPropertySpec browser_properties[] = {
@@ -152,6 +153,18 @@ JSBool JS_DLL_CALLBACK JSSetTopmostWindow(JSContext* cx, JSObject* obj, uintN ar
   return JS_TRUE;
 }
 
+JSBool JS_DLL_CALLBACK JSShowToolbarContext(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
+  *rval = JSVAL_VOID;
+
+  int32 wnd;
+  if (!JS_ConvertArguments(cx, argc, argv, "j", &wnd))
+    return JS_FALSE;
+
+  showContextMenu((HWND)wnd, PR_FALSE);
+
+  return JS_TRUE;
+}
+
 JSBool JS_DLL_CALLBACK JSOpenDialog(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
   *rval = JSVAL_NULL;
 
@@ -238,7 +251,7 @@ JSBool JS_DLL_CALLBACK JSAddContextMenuItem(JSContext* cx, JSObject* obj, uintN 
   if (item < 0 || item >= NUM_LABELS)
     return JS_TRUE;
 
-  wrapper->AddContextMenuItem((WORD)(CMD_IMAGE + item), labelValues[item]);
+  wrapper->AddContextMenuItem(context_commands[item], labelValues[item]);
   return JS_TRUE;
 }
 
@@ -560,150 +573,74 @@ void abpWrapper::DoRebar(HWND hRebar) {
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
   if (message == WM_COMMAND) {
     WORD command = LOWORD(wParam) - cmdBase;
-    if (command == CMD_PREFERENCES) {
-      abpJSContextHolder holder;
-      JSObject* overlay = UnwrapJSObject(fakeBrowserWindow);
-      jsval retval;
-      if (holder.get() != nsnull && overlay != nsnull)
-        JS_CallFunctionName(holder.get(), overlay, "abpSettings", 0, nsnull, &retval);
-      return TRUE;
+    char* commandName;
+    PRBool done = PR_TRUE;
+    switch (command) {
+      case CMD_PREFERENCES:
+        commandName = "settings";
+        break;
+      case CMD_LISTALL:
+        commandName = "blockable";
+        break;
+      case CMD_TOGGLEENABLED:
+        commandName = "enable";
+        break;
+      case CMD_IMAGE:
+        commandName = "image";
+        break;
+      case CMD_OBJECT:
+        commandName = "object";
+        break;
+      case CMD_LINK:
+        commandName = "link";
+        break;
+      case CMD_FRAME:
+        commandName = "frame";
+        break;
+      case CMD_TOOLBAR:
+        commandName = "toolbar";
+        break;
+      case CMD_STATUSBAR:
+        commandName = "statusbar";
+        break;
+      default:
+        commandName = "menu";
+        done = PR_FALSE;
+        break;
     }
-    else if (command == CMD_LISTALL) {
-      abpJSContextHolder holder;
-      JSObject* overlay = UnwrapJSObject(fakeBrowserWindow);
-      jsval retval;
-      if (holder.get() != nsnull && overlay != nsnull)
-        JS_CallFunctionName(holder.get(), overlay, "abpToggleSidebar", 0, nsnull, &retval);
-      return TRUE;
-    }
-    else if (command == CMD_TOGGLEENABLED) {
-      abpJSContextHolder holder;
-      JSObject* overlay = UnwrapJSObject(fakeBrowserWindow);
-      if (holder.get() != nsnull && overlay != nsnull) {
-        char pref[] = "enabled";
-        JSString* str = JS_NewStringCopyZ(holder.get(), pref);
-        if (str != nsnull) {
-          jsval retval;
-          jsval args[] = {STRING_TO_JSVAL(str)};
-          JS_CallFunctionName(holder.get(), overlay, "abpTogglePref", 1, args, &retval);
-        }
-      }
-      return TRUE;
-    }
-    else if (command == CMD_IMAGE) {
-      abpJSContextHolder holder;
-      JSObject* overlay = UnwrapJSObject(fakeBrowserWindow);
-      JSContext* cx = holder.get();
-      if (cx != nsnull && overlay != nsnull) {
-        jsval arg;
-        jsval retval;
-        if ((JS_GetProperty(cx, overlay, "abpBgData", &arg) && !JSVAL_IS_NULL(arg)) ||
-            (JS_GetProperty(cx, overlay, "abpData", &arg) && !JSVAL_IS_NULL(arg)))
-          JS_CallFunctionName(cx, overlay, "abpNode", 1, &arg, &retval);
-      }
-    }
-    else if (command == CMD_OBJECT) {
-      abpJSContextHolder holder;
-      JSObject* overlay = UnwrapJSObject(fakeBrowserWindow);
-      JSContext* cx = holder.get();
-      if (cx != nsnull && overlay != nsnull) {
-        jsval arg;
-        jsval retval;
-        if (JS_GetProperty(cx, overlay, "abpData", &arg) && !JSVAL_IS_NULL(arg))
-          JS_CallFunctionName(cx, overlay, "abpNode", 1, &arg, &retval);
-      }
-    }
-    else if (command == CMD_LINK) {
-      abpJSContextHolder holder;
-      JSObject* overlay = UnwrapJSObject(fakeBrowserWindow);
-      JSContext* cx = holder.get();
-      if (cx != nsnull && overlay != nsnull) {
-        jsval arg;
-        jsval retval;
-        if (JS_GetProperty(cx, overlay, "abpLinkData", &arg) && !JSVAL_IS_NULL(arg))
-          JS_CallFunctionName(cx, overlay, "abpNode", 1, &arg, &retval);
-      }
-    }
-    else if (command == CMD_FRAME) {
-      abpJSContextHolder holder;
-      JSObject* overlay = UnwrapJSObject(fakeBrowserWindow);
-      JSContext* cx = holder.get();
-      if (cx != nsnull && overlay != nsnull) {
-        jsval arg;
-        jsval retval;
-        if (JS_GetProperty(cx, overlay, "abpFrameData", &arg) && !JSVAL_IS_NULL(arg))
-          JS_CallFunctionName(cx, overlay, "abpNode", 1, &arg, &retval);
-      }
-    }
-    else if (command == CMD_TOOLBAR) {
-      abpJSContextHolder holder;
-      JSObject* overlay = UnwrapJSObject(fakeBrowserWindow);
-      JSContext* cx = holder.get();
-      if (cx != nsnull && overlay != nsnull) {
-        jsval retval;
-        // FIXME: Need to pass event parameter to allow opening context menu
-        JS_CallFunctionName(cx, overlay, "abpCommandHandler", 0, nsnull, &retval);
-      }
-    }
-    else if (command == CMD_STATUSBAR) {
-      abpJSContextHolder holder;
-      JSObject* overlay = UnwrapJSObject(fakeBrowserWindow);
-      JSContext* cx = holder.get();
-      JSObject* event = nsnull;
-      if (cx != nsnull && overlay != nsnull) {
-        event = JS_NewObject(cx, nsnull, nsnull, overlay);
-        jsval button = JSVAL_ZERO;
-        if (event != nsnull)
-          JS_SetProperty(cx, event, "button", &button);
-      }
-      if (cx != nsnull && overlay != nsnull && event != nsnull) {
-        jsval arg = OBJECT_TO_JSVAL(event);
-        jsval retval;
-        JS_CallFunctionName(cx, overlay, "abpClickHandler", 1, &arg, &retval);
-      }
-    }
-    else {
-      abpJSContextHolder holder;
-      JSObject* overlay = UnwrapJSObject(fakeBrowserWindow);
-      JSContext* cx = holder.get();
-      if (cx != nsnull && overlay != nsnull) {
-        jsval arg = INT_TO_JSVAL(LOWORD(wParam));
-        jsval retval;
-        JS_CallFunctionName(cx, overlay, "triggerMenuItem", 1, &arg, &retval);
-      }
-    }
-  }
-  else if (((message == TB_MBUTTONDOWN || message == TB_MBUTTONDBLCLK) && wParam == cmdBase + CMD_TOOLBAR) ||
-           ((message == SB_MBUTTONDOWN || message == SB_MBUTTONDBLCLK) && wParam == cmdBase + CMD_STATUSBAR)) {
-    abpJSContextHolder holder;
-    char param[] = "enabled";
-    JSObject* overlay = UnwrapJSObject(fakeBrowserWindow);
-    JSContext* cx = holder.get();
-    JSString* str = nsnull;
-    if (cx)
-      str = JS_NewString(cx, param, strlen(param));
-    if (cx != nsnull && overlay != nsnull && str != nsnull) {
-      jsval arg = STRING_TO_JSVAL(str);
-      jsval retval;
-      JS_CallFunctionName(cx, overlay, "abpTogglePref", 1, &arg, &retval);
-    }
-  }
-  else if ((message == TB_RBUTTONDOWN && wParam == cmdBase + CMD_TOOLBAR) ||
-           (message == SB_RBUTTONDOWN && wParam == cmdBase + CMD_STATUSBAR)) {
+
     abpJSContextHolder holder;
     JSObject* overlay = UnwrapJSObject(fakeBrowserWindow);
     JSContext* cx = holder.get();
     if (cx != nsnull && overlay != nsnull) {
-      jsval arg = (message == TB_RBUTTONDOWN ? JSVAL_FALSE : JSVAL_TRUE);
-      jsval retval;
-      if (JS_CallFunctionName(cx, overlay, "buildContextMenu", 1, &arg, &retval)) {
-        HMENU hMenu = NS_REINTERPRET_CAST(HMENU, JSVAL_TO_INT(retval));
-
-        POINT pt;
-        GetCursorPos(&pt);
-        TrackPopupMenu(hMenu, TPM_LEFTALIGN, pt.x, pt.y, 0, hWnd, NULL);
+      JSString* str = JS_NewStringCopyZ(cx, commandName);
+      if (str != nsnull) {
+        jsval retval;
+        jsval args[] = {STRING_TO_JSVAL(str), INT_TO_JSVAL(hWnd), INT_TO_JSVAL(LOWORD(wParam))};
+        JS_CallFunctionName(cx, overlay, "onCommand", 3, args, &retval);
       }
     }
+    if (done)
+      return TRUE;
+  }
+  else if (((message == TB_MBUTTONDOWN || message == TB_MBUTTONDBLCLK) && wParam == cmdBase + CMD_TOOLBAR) ||
+           ((message == SB_MBUTTONDOWN || message == SB_MBUTTONDBLCLK) && wParam == cmdBase + CMD_STATUSBAR)) {
+    abpJSContextHolder holder;
+    char param[] = "enable";
+    JSObject* overlay = UnwrapJSObject(fakeBrowserWindow);
+    JSContext* cx = holder.get();
+    if (cx != nsnull && overlay != nsnull) {
+      JSString* str = JS_NewString(cx, param, strlen(param));
+      if (str != nsnull) {
+        jsval arg = STRING_TO_JSVAL(str);
+        jsval retval;
+        JS_CallFunctionName(cx, overlay, "onCommand", 1, &arg, &retval);
+      }
+    }
+  }
+  else if ((message == TB_RBUTTONDOWN && wParam == cmdBase + CMD_TOOLBAR) ||
+           (message == SB_RBUTTONDOWN && wParam == cmdBase + CMD_STATUSBAR)) {
+    showContextMenu(hWnd, message != TB_RBUTTONDOWN);
   }
   else if (message == WM_NOTIFY) {
     LPNMHDR notifyHeader = (LPNMHDR) lParam;
@@ -1261,16 +1198,16 @@ PRBool abpWrapper::CreateFakeBrowserWindow(JSContext* cx, JSObject* parent) {
 
   JSObject* reader = JSVAL_TO_OBJECT(readerVal);
   for (int i = 0; i < NUM_LABELS; i++) {
-    JSString* str = JS_NewStringCopyZ(cx, labels[i]);
+    JSString* str = JS_NewStringCopyZ(cx, context_labels[i]);
     if (str == nsnull) {
-      JS_ReportError(cx, "Adblock Plus: Could not create JavaScript string for '%s' - out of memory?", labels[i]);
+      JS_ReportError(cx, "Adblock Plus: Could not create JavaScript string for '%s' - out of memory?", context_labels[i]);
       return PR_FALSE;
     }
 
     jsval args[] = {STRING_TO_JSVAL(str)};
     jsval retval;
     if (!JS_CallFunctionName(cx, reader, "getEntity", 1, args, &retval)) {
-      JS_ReportError(cx, "Adblock Plus: Failed to retrieve entity '%s' from overlay.dtd", labels[i]);
+      JS_ReportError(cx, "Adblock Plus: Failed to retrieve entity '%s' from overlay.dtd", context_labels[i]);
       return PR_FALSE;
     }
 
@@ -1473,6 +1410,23 @@ void abpWrapper::ResetContextMenu() {
         if (id < NUM_COMMANDS)
           RemoveMenu(hMenu, j--, MF_BYPOSITION);
       }
+    }
+  }
+}
+
+void showContextMenu(HWND hWnd, PRBool status) {
+  abpJSContextHolder holder;
+  JSObject* overlay = UnwrapJSObject(fakeBrowserWindow);
+  JSContext* cx = holder.get();
+  if (cx != nsnull && overlay != nsnull) {
+    jsval arg = (status ? JSVAL_TRUE : JSVAL_FALSE);
+    jsval retval;
+    if (JS_CallFunctionName(cx, overlay, "buildContextMenu", 1, &arg, &retval)) {
+      HMENU hMenu = NS_REINTERPRET_CAST(HMENU, JSVAL_TO_INT(retval));
+
+      POINT pt;
+      GetCursorPos(&pt);
+      TrackPopupMenu(hMenu, TPM_LEFTALIGN, pt.x, pt.y, 0, hWnd, NULL);
     }
   }
 }

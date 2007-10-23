@@ -88,11 +88,18 @@
 enum {CMD_PREFERENCES, CMD_LISTALL, CMD_TOGGLEENABLED, CMD_IMAGE, CMD_OBJECT, CMD_LINK, CMD_FRAME, CMD_SEPARATOR, CMD_TOOLBAR, CMD_STATUSBAR, NUM_COMMANDS};
 enum {LABEL_CONTEXT_IMAGE, LABEL_CONTEXT_OBJECT, LABEL_CONTEXT_LINK, LABEL_CONTEXT_FRAME, NUM_LABELS};
 
-static char* labels[] = {
+static char* context_labels[] = {
   "context.image...",
   "context.object...",
   "context.link...",
   "context.frame...",
+};
+
+static WORD context_commands[] = {
+  CMD_IMAGE,
+  CMD_OBJECT,
+  CMD_LINK,
+  CMD_FRAME
 };
 
 static char* images[] = {
@@ -108,6 +115,7 @@ JS_STATIC_DLL_CALLBACK(void) Reporter(JSContext *cx, const char *message, JSErro
 JSBool JS_DLL_CALLBACK JSAddRootListener(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
 JSBool JS_DLL_CALLBACK JSFocusWindow(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
 JSBool JS_DLL_CALLBACK JSSetTopmostWindow(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
+JSBool JS_DLL_CALLBACK JSShowToolbarContext(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
 JSBool JS_DLL_CALLBACK JSOpenDialog(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
 JSBool JS_DLL_CALLBACK JSSetIcon(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
 JSBool JS_DLL_CALLBACK JSHideStatusBar(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
@@ -127,6 +135,7 @@ LRESULT CALLBACK HookProc(int nCode, WPARAM wParam, LPARAM lParam);
 
 static JSObject* UnwrapJSObject(nsISupports* native);
 static nsISupports* UnwrapNative(JSContext* cx, JSObject* obj);
+static void showContextMenu(HWND hWnd, PRBool status);
 
 class abpJSContextHolder {
 public:
