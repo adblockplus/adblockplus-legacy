@@ -5,7 +5,7 @@ var _currentWindow = null;
 function onEvent(event) {
   if (event.type == "contextmenu")
     gContextMenu.updateMenu(event.target);
-  else if (event.type == "focus") {
+  else if (event.type == "focus" && event.target instanceof Components.interfaces.nsIDOMDocument) {
     var wnd = event.target.defaultView;
     if (wnd != _currentWindow) {
       _currentWindow = wnd;
@@ -116,7 +116,7 @@ function getTooltipText(status) {
   document.tooltipNode = {id: status ? "abp-status" : "abp-toolbarbutton", hasAttribute: function() {return true}};
 
   tooltipValue = "";
-  abpFillTooltip({target: this});
+  abpFillTooltip({target: document.getElementById(null)});
 
   var list = tooltipValue.replace(/[\r\n]+$/, '').split(/[\r\n]+/);
   if (list.length > 3)
@@ -203,4 +203,27 @@ function triggerMenuItem(id) {
 
   var func = function() {eval(this.getAttribute("oncommand"))};
   func.apply(menuItem);
+}
+
+function onCommand(command, hWnd, id) {
+  if (command == "settings")
+    abpSettings();
+  else if (command == "blockable")
+    abpToggleSidebar();
+  else if (command == "enable")
+    abpTogglePref("enabled");
+  else if (command == "image")
+    abpNode(gContextMenu.abpBgData || gContextMenu.abpData);
+  else if (command == "object")
+    abpNode(gContextMenu.abpData);
+  else if (command == "link")
+    abpNode(gContextMenu.abpLinkData);
+  else if (command == "frame")
+    abpNode(gContextMenu.abpFrameData);
+  else if (command == "toolbar")
+    abpCommandHandler({target: {set open() {showToolbarContext(hWnd)}}});
+  else if (command == "statusbar")
+    abpClickHandler({button: 0});
+  else if (command == "menu")
+    triggerMenuItem(id);
 }

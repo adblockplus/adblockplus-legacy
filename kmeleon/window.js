@@ -53,6 +53,3 @@ function QueryInterface(iid) {
 this.__defineGetter__("content", function() {
   return (_currentWindow && !_currentWindow.closed ? XPCNativeWrapper(_currentWindow) : null);
 });
-this.__defineGetter__("rootTreeItem", function() {
-  return (_currentWindow && !_currentWindow.closed ? XPCNativeWrapper(_currentWindow) : null);
-});
