@@ -1,0 +1,14 @@
+<!ENTITY find.label "מצא:">
+<!ENTITY findNext.label "הבא">
+<!ENTITY findNext.accesskey "ב">
+<!ENTITY findNext.tooltip "מצא את המופע הבא של הביטוי">
+<!ENTITY findPrevious.label "הקודם">
+<!ENTITY findPrevious.accesskey "ק">
+<!ENTITY findPrevious.tooltip "מצא את המופע הקודם של הביטוי">
+<!ENTITY findCloseButton.tooltip "סגור את סרגל החיפוש">
+<!ENTITY highlight.label "הדגש הכל">
+<!ENTITY highlight.accesskey "ד">
+<!ENTITY highlight.tooltip "הדגש את כל המופעים של הביטוי (Ctrl+Enter)">
+<!ENTITY highlight.macTooltip "הדגש את כל המופעים של הביטוי (Cmd+Return)">
+<!ENTITY caseSensitiveCheckbox.label "התאם אותיות גדולות/קטנות">
+<!ENTITY caseSensitiveCheckbox.accesskey "ה">
