@@ -1,0 +1,23 @@
+<!ENTITY detached.title "(פריטים לחסימה (משוחרר :Adblock Plus">
+<!ENTITY detach.label "שחרר">
+<!ENTITY reattach.label "הצמד">
+<!ENTITY search.label "חיפוש:">
+<!ENTITY search.accesskey "ח">
+<!ENTITY type.label "סוג">
+<!ENTITY address.label "כתובת">
+<!ENTITY filter.label "מסנן">
+<!ENTITY state.label "מצב">
+<!ENTITY noitems.label "אין פריטים לחסימה">
+<!ENTITY whitelisted.label "העמוד נמצא ברשימה הלבנה">
+<!ENTITY notloaded.label "Adblock Plus אינו מותקן כיאות">
+<!ENTITY tooltip.address.label "כתובת:">
+<!ENTITY tooltip.type.label "סוג:">
+<!ENTITY tooltip.type.blocked "(חסום)">
+<!ENTITY tooltip.type.whitelisted "(ברשימה הלבנה)">
+<!ENTITY tooltip.filter.label "מסנן משפיע:">
+<!ENTITY context.block.label "חסום פריט זה">
+<!ENTITY context.editfilter.label "ערוך מסנן משפיע">
+<!ENTITY context.whitelist.label "הוסף כלל חריג עבור פריט זה">
+<!ENTITY context.open.label "פתח בלשונית חדשה">
+<!ENTITY context.flash.label "גבולות של פריט פלאש">
+<!ENTITY context.copy.label "העתק כתובת פריט">

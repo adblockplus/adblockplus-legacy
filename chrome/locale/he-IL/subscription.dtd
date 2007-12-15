@@ -1,0 +1,16 @@
+<!ENTITY dialog.title "ערוך הרשמה למסננים">
+<!ENTITY dialog.newtitle "הוסף הרשמה למסננים">
+<!ENTITY new.description "נא הכנס את כתובת האינטרנט או את הקובץ שמכילים את רשימת המסננים.">
+<!ENTITY edit.description "רשימת המסננים של הרשמה זו תורד מהמיקום שצוין.">
+<!ENTITY external.description "ההרשמה הזו היא לרשימת מסננים חיצונית, רשימת המסננים הזו תשאר מעודכנת בעזרת ההרחבה שיצרה אותה.">
+<!ENTITY autodownload.description "אם תבחר ב&quot;עדכונים אוטומטיים&quot; המיקום הזה יבדק לעדכונים מדי יום. אבל גם אם תנטרל את האפשרות הזאת לעדכן ידנית מתפריט ההקשר של ההרשמה.">
+<!ENTITY location.label "מיקום רשימת מסננים:">
+<!ENTITY location.accesskey "ר">
+<!ENTITY title.label "כותרת הרשמה:">
+<!ENTITY title.accesskey "כ">
+<!ENTITY autodownload.label "עדכון אוטומטי">
+<!ENTITY autodownload.accesskey "ע">
+<!ENTITY enabled.label "אפשר מסננים">
+<!ENTITY enabled.accesskey "פ">
+<!ENTITY full-list.url "http://adblockplus.org/en/subscriptions">
+<!ENTITY full-list.label "הצג את כל ההרשמות">

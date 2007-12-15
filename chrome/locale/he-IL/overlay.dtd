@@ -1,0 +1,22 @@
+<!ENTITY notloaded.label "לא נטען">
+<!ENTITY notloaded.tooltip "רכיב של Adblock Plus לא יכול להטען. אולי הוא לא מותקן כיאות.">
+<!ENTITY status.tooltip "מצב:">
+<!ENTITY blocked.tooltip "פריטים חסומים בעמוד זה:">
+<!ENTITY filters.tooltip "המסננים הפעילים ביותר:">
+<!ENTITY menuitem.label "Adblock Plus">
+<!ENTITY menuitem.accesskey "b">
+<!ENTITY context.image.label "חסום תמונה">
+<!ENTITY context.object.label "חסום אובייקט">
+<!ENTITY context.link.label "חסום קישור">
+<!ENTITY context.frame.label "חסום מסגרת">
+<!ENTITY sidebar.title "פריטים לחסימה בעמוד הנוכחי">
+<!ENTITY settings.label "מאפיינים">
+<!ENTITY settings.accesskey "פ">
+<!ENTITY opensidebar.label "פתח את רשימת פריטים לחסימה">
+<!ENTITY opensidebar.accesskey "ת">
+<!ENTITY closesidebar.label "סגור את רשימת פריטים לחסימה">
+<!ENTITY closesidebar.accesskey "ת">
+<!ENTITY whitelist.site.label "נטרל ב --">
+<!ENTITY whitelist.page.label "נטרל בעמוד הזה בלבד">
+<!ENTITY objecttab.title "חסום">
+<!ENTITY objecttab.tooltip "לחץ כאן כדי לחסום את האובייקט הזה עם Adblock Plus">
