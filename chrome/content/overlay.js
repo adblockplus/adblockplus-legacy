@@ -764,12 +764,13 @@ function abpImageStyle(computedStyle, property) {
 
 // Hides the unnecessary context menu items on display
 function abpCheckContext() {
-  var target = (gContextMenu.target ? new XPCNativeWrapper(gContextMenu.target) : null);
+  var contextMenu = document.getElementById("contentAreaContextMenu") || document.getElementById("messagePaneContext");
+  var target = document.popupNode;
 
   var nodeType = null;
-  gContextMenu.abpLinkData = null;
-  gContextMenu.abpBgData = null;
-  gContextMenu.abpFrameData = null;
+  contextMenu.abpLinkData = null;
+  contextMenu.abpBgData = null;
+  contextMenu.abpFrameData = null;
   if (abp && target) {
     // Lookup the node in our stored data
     var data = abp.getDataForNode(target);
@@ -778,7 +779,7 @@ function abpCheckContext() {
       targetNode = data[0];
       data = data[1];
     }
-    gContextMenu.abpData = data;
+    contextMenu.abpData = data;
     if (data && !data.filter)
       nodeType = data.typeDescr;
 
@@ -786,22 +787,22 @@ function abpCheckContext() {
     var wndData = (wnd ? abp.getDataForWindow(wnd) : null);
 
     if (wnd.frameElement)
-      gContextMenu.abpFrameData = abp.getDataForNode(wnd.frameElement, true);
-    if (gContextMenu.abpFrameData)
-      gContextMenu.abpFrameData = gContextMenu.abpFrameData[1];
-    if (gContextMenu.abpFrameData && gContextMenu.abpFrameData.filter)
-      gContextMenu.abpFrameData = null;
+      contextMenu.abpFrameData = abp.getDataForNode(wnd.frameElement, true);
+    if (contextMenu.abpFrameData)
+      contextMenu.abpFrameData = contextMenu.abpFrameData[1];
+    if (contextMenu.abpFrameData && contextMenu.abpFrameData.filter)
+      contextMenu.abpFrameData = null;
 
     if (abpPrefs.linkcheck && targetNode instanceof Components.interfaces.nsIImageLoadingContent) {
       // Look for a parent link
       var linkNode = target;
-      while (linkNode && !gContextMenu.abpLinkData) {
+      while (linkNode && !contextMenu.abpLinkData) {
         if ("href" in linkNode) {
           var link = abp.unwrapURL(linkNode.href);
           if (link) {
-            gContextMenu.abpLinkData = wndData.getLocation(abp.policy.type.LINK, link);
-            if (gContextMenu.abpLinkData && gContextMenu.abpLinkData.filter)
-              gContextMenu.abpLinkData = null;
+            contextMenu.abpLinkData = wndData.getLocation(abp.policy.type.LINK, link);
+            if (contextMenu.abpLinkData && contextMenu.abpLinkData.filter)
+              contextMenu.abpLinkData = null;
           }
         }
 
@@ -809,21 +810,21 @@ function abpCheckContext() {
       }
 
       if (linkNode)
-        gContextMenu.abpLink = abp.unwrapURL(linkNode.href);
+        contextMenu.abpLink = abp.unwrapURL(linkNode.href);
     }
 
     if (nodeType != "IMAGE") {
       // Look for a background image
       var imageNode = target;
-      while (imageNode && !gContextMenu.abpBgData) {
+      while (imageNode && !contextMenu.abpBgData) {
         if (imageNode.nodeType == Node.ELEMENT_NODE) {
           var bgImage = null;
           var style = wnd.getComputedStyle(imageNode, "");
           bgImage = abpImageStyle(style, "background-image") || abpImageStyle(style, "list-style-image");
           if (bgImage) {
-            gContextMenu.abpBgData = wndData.getLocation(abp.policy.type.BACKGROUND, bgImage);
-            if (gContextMenu.abpBgData && gContextMenu.abpBgData.filter)
-              gContextMenu.abpBgData = null;
+            contextMenu.abpBgData = wndData.getLocation(abp.policy.type.BACKGROUND, bgImage);
+            if (contextMenu.abpBgData && contextMenu.abpBgData.filter)
+              contextMenu.abpBgData = null;
           }
         }
 
@@ -842,10 +843,10 @@ function abpCheckContext() {
     }
   }
 
-  gContextMenu.showItem('abp-image-menuitem', nodeType == "IMAGE" || gContextMenu.abpBgData != null);
-  gContextMenu.showItem('abp-object-menuitem', nodeType == "OBJECT");
-  gContextMenu.showItem('abp-link-menuitem', gContextMenu.abpLinkData != null);
-  gContextMenu.showItem("abp-frame-menuitem", gContextMenu.abpFrameData != null);
+  document.getElementById("abp-image-menuitem").hidden = (nodeType != "IMAGE" && contextMenu.abpBgData == null);
+  document.getElementById("abp-object-menuitem").hidden = (nodeType != "OBJECT");
+  document.getElementById("abp-link-menuitem").hidden = (contextMenu.abpLinkData == null);
+  document.getElementById("abp-frame-menuitem").hidden = (contextMenu.abpFrameData == null);
 }
 
 // Bring up the settings dialog for the node the context menu was referring to
