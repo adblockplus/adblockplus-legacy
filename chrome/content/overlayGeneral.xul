@@ -91,10 +91,10 @@
   <menuitem id="abp-menuitem" label="&menuitem.label;..." accesskey="&menuitem.accesskey;" key="abp-key-settings" oncommand="abpSettings()"/>
 
   <!-- Context menu -->
-  <menuitem id="abp-image-menuitem" label="&context.image.label;..." oncommand="abpNode(gContextMenu.abpBgData || gContextMenu.abpData)"/>
-  <menuitem id="abp-object-menuitem" label="&context.object.label;..." oncommand="abpNode(gContextMenu.abpData)"/>
-  <menuitem id="abp-link-menuitem" label="&context.link.label;..." oncommand="abpNode(gContextMenu.abpLinkData)"/>
-  <menuitem id="abp-frame-menuitem" label="&context.frame.label;..." oncommand="abpNode(gContextMenu.abpFrameData)"/>
+  <menuitem id="abp-image-menuitem" label="&context.image.label;..." oncommand="abpNode(this.parentNode.abpBgData || this.parentNode.abpData)"/>
+  <menuitem id="abp-object-menuitem" label="&context.object.label;..." oncommand="abpNode(this.parentNode.abpData)"/>
+  <menuitem id="abp-link-menuitem" label="&context.link.label;..." oncommand="abpNode(this.parentNode.abpLinkData)"/>
+  <menuitem id="abp-frame-menuitem" label="&context.frame.label;..." oncommand="abpNode(this.parentNode.abpFrameData)"/>
 
   <!-- Fake sidebar -->
   <splitter id="abp-sidebar-splitter" hidden="true"/>

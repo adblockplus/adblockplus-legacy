@@ -34,6 +34,13 @@
     <commandset id="abp-commandset"/>
   </window>
 
+  <!-- Songbird window -->
+  <window id="mainplayer">
+    <popupset id="abp-popupset"/>
+    <keyset id="abp-keyset"/>
+    <commandset id="abp-commandset"/>
+  </window>
+
   <!-- Status bar -->
   <statusbar id="status-bar">
     <statusbarpanel id="abp-status"/>
