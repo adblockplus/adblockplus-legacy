@@ -385,7 +385,7 @@ const abp = {
 
   // Loads a URL in the browser window
   loadInBrowser: function(url) {
-    var currentWindow = windowMediator.getMostRecentWindow("navigator:browser");
+    var currentWindow = windowMediator.getMostRecentWindow("navigator:browser") || windowMediator.getMostRecentWindow("emusic:window");
     if (currentWindow) {
       try {
         currentWindow.delayedOpenTab(url);
@@ -397,7 +397,10 @@ const abp = {
     else {
       var protocolService = Components.classes["@mozilla.org/uriloader/external-protocol-service;1"]
                                       .getService(Components.interfaces.nsIExternalProtocolService);
-      protocolService.loadUrl(url);
+      var uri = Components.classes["@mozilla.org/network/io-service;1"]
+                          .getService(Components.interfaces.nsIIOService)
+                          .newURI(url, null, null);
+      protocolService.loadURI(uri, null);
     }
   },
 

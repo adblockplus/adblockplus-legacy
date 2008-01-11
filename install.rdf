@@ -77,6 +77,15 @@
     </Description>
   </em:targetApplication>
 
+  <!-- eMusic Remote -->
+  <em:targetApplication>
+    <Description>
+      <em:id>dlm@emusic.com</em:id>
+      <em:minVersion>1.0</em:minVersion>
+      <em:maxVersion>1.0.0.*</em:maxVersion>
+    </Description>
+  </em:targetApplication>
+
   <!-- Front End MetaData -->
   <em:name>Adblock Plus</em:name>
   <em:description>Ads were yesterday!</em:description>
