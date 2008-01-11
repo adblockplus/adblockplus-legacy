@@ -115,7 +115,7 @@ function init() {
   // Initialize content window data
   var windowMediator = Components.classes["@mozilla.org/appshell/window-mediator;1"]
                                  .getService(Components.interfaces.nsIWindowMediator);
-  var browser = windowMediator.getMostRecentWindow("navigator:browser");
+  var browser = windowMediator.getMostRecentWindow("navigator:browser") || windowMediator.getMostRecentWindow("emusic:window");
   if (browser)
     setContentWindow(browser.getBrowser().contentWindow);
   else
