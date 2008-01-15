@@ -22,10 +22,19 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-#include <windows.h>
-#include "adblockplus.h"
-#include "globals.cpp"
-#include "jstools.cpp"
-#include "jsdefs.cpp"
-#include "scriptable.cpp"
-#include "misc.cpp"
+abpWrapper* wrapper = new abpWrapper();
+char labelValues[NUM_LABELS][100];
+
+static WNDPROC origWndProc = NULL;
+static WNDPROC origDialogWndProc = NULL;
+static HIMAGELIST hImages = NULL;
+static HHOOK hook = NULL;
+static WORD cmdBase = 0;
+static nsCOMPtr<nsIDOMWindowInternal> fakeBrowserWindow;
+
+kmeleonFunctions* abpWrapper::kFuncs = NULL;
+nsCOMPtr<nsIWindowWatcher> abpWrapper::watcher;
+nsCOMPtr<nsIIOService> abpWrapper::ioService;
+nsCOMPtr<nsIPrincipal> abpWrapper::systemPrincipal;
+abpToolbarDataList abpWrapper::toolbarList;
+abpStatusBarList abpWrapper::statusbarList;

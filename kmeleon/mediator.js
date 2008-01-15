@@ -103,6 +103,10 @@ var _windowMediator = {
       return false;
   },
 
+  openWindow: function(parent, url, target, features, args) {
+    return openDialog(url, target, features);
+  },
+
   QueryInterface: function(iid) {
     if (iid.equals(Components.interfaces.nsISupports) ||
         iid.equals(Components.interfaces.nsIObserver) ||

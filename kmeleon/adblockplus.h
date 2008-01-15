@@ -111,24 +111,6 @@ static char* images[] = {
 
 extern HIMAGELIST hImages;
 
-JS_STATIC_DLL_CALLBACK(void) Reporter(JSContext *cx, const char *message, JSErrorReport *rep);
-JSBool JS_DLL_CALLBACK JSAddRootListener(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
-JSBool JS_DLL_CALLBACK JSFocusWindow(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
-JSBool JS_DLL_CALLBACK JSSetTopmostWindow(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
-JSBool JS_DLL_CALLBACK JSShowToolbarContext(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
-JSBool JS_DLL_CALLBACK JSOpenDialog(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
-JSBool JS_DLL_CALLBACK JSSetIcon(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
-JSBool JS_DLL_CALLBACK JSHideStatusBar(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
-JSBool JS_DLL_CALLBACK FakeOpenTab(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
-JSBool JS_DLL_CALLBACK JSResetContextMenu(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
-JSBool JS_DLL_CALLBACK JSAddContextMenuItem(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
-JSBool JS_DLL_CALLBACK JSCreateCommandID(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
-JSBool JS_DLL_CALLBACK JSCreatePopupMenu(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
-JSBool JS_DLL_CALLBACK JSAddMenuItem(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
-JSBool JS_DLL_CALLBACK JSGetHWND(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
-JSBool JS_DLL_CALLBACK JSSubclassDialogWindow(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
-JSBool JS_DLL_CALLBACK JSGetWrapper(JSContext *cx, JSObject *obj, jsval id, jsval *vp);
-
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 LRESULT CALLBACK DialogWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 LRESULT CALLBACK HookProc(int nCode, WPARAM wParam, LPARAM lParam);
@@ -136,49 +118,6 @@ LRESULT CALLBACK HookProc(int nCode, WPARAM wParam, LPARAM lParam);
 static JSObject* UnwrapJSObject(nsISupports* native);
 static nsISupports* UnwrapNative(JSContext* cx, JSObject* obj);
 static void showContextMenu(HWND hWnd, PRBool status);
-
-class abpJSContextHolder {
-public:
-  abpJSContextHolder() {
-    mContext = nsnull;
-
-    nsresult rv;
-    mStack = do_GetService("@mozilla.org/js/xpc/ContextStack;1", &rv);
-    if (NS_FAILED(rv))
-      return;
-  
-    JSContext* cx;
-    rv = mStack->GetSafeJSContext(&cx);
-    if (NS_FAILED(rv))
-      return;
-  
-    rv = mStack->Push(cx);
-    if (NS_FAILED(rv))
-      return;
-  
-    mContext = cx;
-    mOldReporter = JS_SetErrorReporter(mContext, ::Reporter);
-  }
-
-  ~abpJSContextHolder() {
-    if (mContext) {
-      JS_SetErrorReporter(mContext, mOldReporter);
-
-      nsresult rv;
-      JSContext* cx;
-      rv = mStack->Pop(&cx);
-      NS_ASSERTION(NS_SUCCEEDED(rv) && cx == mContext, "JSContext push/pop mismatch");
-    }
-  }
-
-  JSContext* get() {
-    return mContext;
-  }
-private:
-  nsCOMPtr<nsIThreadJSContextStack> mStack;
-  JSContext* mContext;
-  JSErrorReporter mOldReporter;
-};
 
 template<class T>
 class abpList {
@@ -356,13 +295,11 @@ private:
 };
 
 class abpWrapper : public nsIDOMEventListener,
-                   public nsIClassInfo,
                    public nsIXPCScriptable,
                    imgIDecoderObserver {
 public:
   NS_DECL_ISUPPORTS
   NS_DECL_NSIDOMEVENTLISTENER
-  NS_DECL_NSICLASSINFO
   NS_DECL_NSIXPCSCRIPTABLE
   NS_DECL_IMGIDECODEROBSERVER
   NS_DECL_IMGICONTAINEROBSERVER
@@ -384,7 +321,6 @@ public:
   static void DoMenu(HMENU menu, LPSTR action, LPSTR string);
   static INT DoAccel(LPSTR action);
   static void DoRebar(HWND hRebar);
-  virtual JSObject* OpenDialog(char* url, char* target, char* features, nsISupportsArray* args);
   virtual nsresult OpenTab(const char* url);
   virtual void SetCurrentIcon(int icon) {toolbarList.setToolbarIcon(icon);statusbarList.setStatusIcon(icon);}
   virtual void HideStatusBar(JSBool hide) {statusbarList.setHidden(hide);}

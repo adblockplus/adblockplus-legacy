@@ -37,7 +37,7 @@ my $libs = join(' ', map {"-LIBPATH:$_"} @LIB_DIRS);
 $pkg->rm_rec('tmp');
 mkdir('tmp', 0755) or die "Failed to create directory tmp: $!";
 
-$pkg->cp('adblockplus.cpp', 'tmp/adblockplus.cpp');
+$pkg->cp($_, "tmp/$_") foreach <*.cpp>;
 $pkg->cp('adblockplus.h', 'tmp/adblockplus.h');
 
 open(INCLUDES, ">tmp/inline_scripts.h");
