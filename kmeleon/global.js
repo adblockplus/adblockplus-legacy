@@ -25,6 +25,7 @@ function _initOverlay() {
   _notifyLoadListeners();
 
   abp.__parent__.windowMediator = _windowMediator;
+  abp.__parent__.windowWatcher = _windowMediator;
 }
 
 var _rdfService = Components.classes["@mozilla.org/rdf/rdf-service;1"]
@@ -226,4 +227,19 @@ function onCommand(command, hWnd, id) {
     abpClickHandler({button: 0});
   else if (command == "menu")
     triggerMenuItem(id);
+}
+
+function openDialog(url, target, features) {
+  var args = null;
+  if (arguments.length > 3)
+  {
+    args = Components.classes["@mozilla.org/supports-array;1"]
+                     .createInstance(Components.interfaces.nsISupportsArray);
+    for (var i = 3; i < arguments.length; i++)
+      args.AppendElement(arguments[i].wrappedJSObject = arguments[i]);
+  }
+
+  var watcher = Components.classes["@mozilla.org/embedcomp/window-watcher;1"]
+                          .getService(Components.interfaces.nsIWindowWatcher);
+  return watcher.openWindow(window, url, target, features, args);
 }

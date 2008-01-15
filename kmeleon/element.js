@@ -17,6 +17,8 @@ var _element = {
   set hidden(val) {
     if (this.id == "abp-status")
       hideStatusBar(val);
+    else if (this.id in gContextMenu.abpItems && !val)
+      addContextMenuItem(gContextMenu.abpItems[this.id]);
   },
 
   get parentNode() {

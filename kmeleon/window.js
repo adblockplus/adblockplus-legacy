@@ -45,9 +45,23 @@ function QueryInterface(iid) {
     return this;
 
   if (iid.equals(Components.interfaces.nsIClassInfo))
-    return this.wrapper;
+    return _classInfo;
 
   throw Components.results.NS_ERROR_NO_INTERFACE;
+}
+
+var _classInfo = {
+  get contractID() {throw Components.results.NS_ERROR_NOT_AVAILABLE},
+  get classDescription() {throw Components.results.NS_ERROR_NOT_AVAILABLE},
+  get classID() {throw Components.results.NS_ERROR_NOT_AVAILABLE},
+  implementationLanguage: Components.interfaces.nsIProgrammingLanguage.JAVASCRIPT,
+  flags: Components.interfaces.nsIClassInfoMAIN_THREAD_ONLY | Components.interfaces.nsIClassInfo.DOM_OBJECT,
+  getHelperForLanguage: function() {return window.scriptable},
+  getInterfaces: function(count, array) {
+    count.value = 0;
+    return [];
+  },
+  QueryInterface: window.QueryInterface
 }
 
 this.__defineGetter__("content", function() {
