@@ -43,7 +43,7 @@
 
   <!-- Status bar -->
   <statusbar id="status-bar">
-    <statusbarpanel id="abp-status" insertbefore="resizerBottomRight"/>
+    <statusbarpanel id="abp-status" mousethrough="never" insertbefore="resizerBottomRight"/>
   </statusbar> 
 
   <!-- Firefox toolbar -->
