@@ -46,14 +46,13 @@ JSBool JS_DLL_CALLBACK JSHideStatusBar(JSContext* cx, JSObject* obj, uintN argc,
 
 JSBool JS_DLL_CALLBACK JSOpenTab(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
   *rval = JSVAL_VOID;
-  if (argc != 1)
-    return JS_TRUE;
 
-  JSString* url = JS_ValueToString(cx, argv[0]);
-  if (url == nsnull)
-    return JS_TRUE;
+  char* url;
+  int32 wnd;
+  if (!JS_ConvertArguments(cx, argc, argv, "sj", &url, &wnd))
+    return JS_FALSE;
 
-  wrapper->OpenTab(JS_GetStringBytes(url));
+  wrapper->OpenTab(url, (HWND)wnd);
   return JS_TRUE;
 }
 
@@ -249,7 +248,7 @@ JSBool JS_DLL_CALLBACK JSGetScriptable(JSContext *cx, JSObject *obj, jsval id, j
 JSFunctionSpec window_methods[] = {
   {"setIcon", JSSetIcon, 1, 0, 0},
   {"hideStatusBar", JSHideStatusBar, 1, 0, 0},
-  {"delayedOpenTab", JSOpenTab, 1, 0, 0},
+  {"openTab", JSOpenTab, 1, 0, 0},
   {"resetContextMenu", JSResetContextMenu, 0, 0, 0},
   {"addContextMenuItem", JSAddContextMenuItem, 1, 0, 0},
   {"createCommandID", JSCreateCommandID, 0, 0, 0},

@@ -38,6 +38,12 @@ function setTimeout(callback, delay) {
   _timers.push(timer);
 }
 
+function delayedOpenTab(url)
+{
+  var hWnd = (_currentWindow && !_currentWindow.closed ? _windowMediator.toHWND(_currentWindow) : null);
+  openTab(url, hWnd);
+}
+
 function QueryInterface(iid) {
   if (iid.equals(Components.interfaces.nsISupports) ||
       iid.equals(Components.interfaces.nsIDOMWindow) ||
