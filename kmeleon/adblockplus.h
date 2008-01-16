@@ -222,7 +222,7 @@ private:
   REBARINFO info;
 };
 
-typedef void(*addStatusIconFunc)(HWND hWnd, int id, HICON hIcon, char* tpText);
+typedef void(*addStatusIconFunc)(HWND hWnd, int id, HICON hIcon, const char* tpText);
 typedef void(*removeStatusIconFunc)(HWND hWnd, int id);
 
 class abpStatusBarList : public abpList<HWND> {
@@ -321,7 +321,7 @@ public:
   static void DoMenu(HMENU menu, LPSTR action, LPSTR string);
   static INT DoAccel(LPSTR action);
   static void DoRebar(HWND hRebar);
-  virtual nsresult OpenTab(const char* url);
+  virtual nsresult OpenTab(const char* url, HWND hWnd);
   virtual void SetCurrentIcon(int icon) {toolbarList.setToolbarIcon(icon);statusbarList.setStatusIcon(icon);}
   virtual void HideStatusBar(JSBool hide) {statusbarList.setHidden(hide);}
   virtual JSObject* GetGlobalObject(nsIDOMWindow* wnd);

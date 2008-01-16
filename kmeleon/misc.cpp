@@ -821,10 +821,18 @@ JSObject* abpWrapper::GetGlobalObject(nsIDOMWindow* wnd) {
   return global->GetGlobalJSObject();
 }
 
-nsresult abpWrapper::OpenTab(const char* url) {
+nsresult abpWrapper::OpenTab(const char* url, HWND hWnd) {
   nsresult rv = NS_OK;
   
-  kFuncs->SendMessage("layers", PLUGIN_NAME, "AddLayersToWindow", (LONG)"1", (LONG)url);
+  if (kFuncs->GetKmeleonVersion() >= 0x01050000)
+  {
+    if (hWnd)
+      kFuncs->NavigateTo(url, OPEN_NEWTAB, GetTopWindow(hWnd));
+    else
+      kFuncs->NavigateTo(url, OPEN_NEW, NULL);
+  }
+  else
+    kFuncs->SendMessage("layers", PLUGIN_NAME, "AddLayersToWindow", (LONG)"1", (LONG)url);
 
   return rv;
 }
