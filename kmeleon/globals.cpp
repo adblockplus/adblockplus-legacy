@@ -31,10 +31,3 @@ static HIMAGELIST hImages = NULL;
 static HHOOK hook = NULL;
 static WORD cmdBase = 0;
 static nsCOMPtr<nsIDOMWindowInternal> fakeBrowserWindow;
-
-kmeleonFunctions* abpWrapper::kFuncs = NULL;
-nsCOMPtr<nsIWindowWatcher> abpWrapper::watcher;
-nsCOMPtr<nsIIOService> abpWrapper::ioService;
-nsCOMPtr<nsIPrincipal> abpWrapper::systemPrincipal;
-abpToolbarDataList abpWrapper::toolbarList;
-abpStatusBarList abpWrapper::statusbarList;
