@@ -52,13 +52,31 @@ JSBool JS_DLL_CALLBACK JSOpenTab(JSContext* cx, JSObject* obj, uintN argc, jsval
   if (!JS_ConvertArguments(cx, argc, argv, "sj", &url, &wnd))
     return JS_FALSE;
 
-  wrapper->OpenTab(url, (HWND)wnd);
+  OpenTab(url, (HWND)wnd);
   return JS_TRUE;
 }
 
+TCHAR* menus[] = {_T("DocumentPopup"), _T("DocumentImagePopup"), _T("TextPopup"),
+                  _T("LinkPopup"), _T("ImageLinkPopup"), _T("ImagePopup"),
+                  _T("FrameDocumentPopup"), _T("FrameDocumentImagePopup"), _T("FrameTextPopup"),
+                  _T("FrameLinkPopup"), _T("FrameImageLinkPopup"), _T("FrameImagePopup"),
+                  NULL};
+
 JSBool JS_DLL_CALLBACK JSResetContextMenu(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
   *rval = JSVAL_VOID;
-  wrapper->ResetContextMenu();
+
+  for (int i = 0; menus[i]; i++) {
+    HMENU hMenu = kFuncs->GetMenu(menus[i]);
+    if (hMenu) {
+      int count = GetMenuItemCount(hMenu);
+      for (int j = 0; j < count; j++) {
+        WORD id = GetMenuItemID(hMenu, j) - cmdBase;
+        if (id < NUM_COMMANDS)
+          RemoveMenu(hMenu, j--, MF_BYPOSITION);
+      }
+    }
+  }
+
   return JS_TRUE;
 }
 
@@ -72,7 +90,29 @@ JSBool JS_DLL_CALLBACK JSAddContextMenuItem(JSContext* cx, JSObject* obj, uintN 
   if (item < 0 || item >= NUM_LABELS)
     return JS_TRUE;
 
-  wrapper->AddContextMenuItem(context_commands[item], labelValues[item]);
+  MENUITEMINFO info = {0};
+  info.cbSize = sizeof info;
+  info.fMask = MIIM_TYPE;
+
+  UINT drawFlag;
+  for (int i = 0; menus[i]; i++) {
+    HMENU hMenu = kFuncs->GetMenu(menus[i]);
+    if (hMenu) {
+      drawFlag = MF_OWNERDRAW;
+
+      int count = GetMenuItemCount(hMenu);
+      if (count > 0) {
+        WORD id = GetMenuItemID(hMenu, count - 1) - cmdBase;
+        if (id >= NUM_COMMANDS)
+          AppendMenuA(hMenu, MF_SEPARATOR, cmdBase + CMD_SEPARATOR, NULL);
+
+        // Only use MF_OWNERDRAW flag if other menu items have it as well
+        if (GetMenuItemInfo(hMenu, 0, TRUE, &info) && !(info.fType & MFT_OWNERDRAW))
+          drawFlag = MF_STRING;
+      }
+      AppendMenuA(hMenu, drawFlag, cmdBase + context_commands[item], labelValues[item]);
+    }
+  }
   return JS_TRUE;
 }
 
@@ -152,7 +192,7 @@ JSBool JS_DLL_CALLBACK JSSubclassDialogWindow(JSContext* cx, JSObject* obj, uint
   if (!JS_ConvertArguments(cx, argc, argv, "j", &wnd))
     return JS_FALSE;
   
-  origDialogWndProc = wrapper->SubclassWindow((HWND)wnd, &DialogWndProc);
+  origDialogWndProc = SubclassWindow((HWND)wnd, &DialogWndProc);
 
   return JS_TRUE;
 }
@@ -215,7 +255,7 @@ JSBool JS_DLL_CALLBACK JSShowToolbarContext(JSContext* cx, JSObject* obj, uintN 
   if (!JS_ConvertArguments(cx, argc, argv, "j", &wnd))
     return JS_FALSE;
 
-  showContextMenu((HWND)wnd, PR_FALSE);
+  ShowContextMenu((HWND)wnd, PR_FALSE);
 
   return JS_TRUE;
 }

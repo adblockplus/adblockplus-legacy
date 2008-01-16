@@ -33,7 +33,6 @@
 #include "nsComponentManagerUtils.h"
 #include "nsServiceManagerUtils.h"
 #include "nsIInterfaceRequestorUtils.h"
-#include "nsIWindowWatcher.h"
 #include "nsIObserver.h"
 #include "nsIDOMWindow.h"
 #include "nsIDOMWindowInternal.h"
@@ -109,15 +108,22 @@ static char* images[] = {
   "chrome://adblockplus/skin/abp-defunc-16.png",
 };
 
+static kmeleonFunctions* kFuncs = NULL;
+extern kmeleonPlugin kPlugin;
+
+static nsCOMPtr<nsIPrincipal> systemPrincipal;
+
 extern HIMAGELIST hImages;
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 LRESULT CALLBACK DialogWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 LRESULT CALLBACK HookProc(int nCode, WPARAM wParam, LPARAM lParam);
 
-static JSObject* UnwrapJSObject(nsISupports* native);
-static nsISupports* UnwrapNative(JSContext* cx, JSObject* obj);
-static void showContextMenu(HWND hWnd, PRBool status);
+JSObject* UnwrapJSObject(nsISupports* native);
+nsISupports* UnwrapNative(JSContext* cx, JSObject* obj);
+void OpenTab(const char* url, HWND hWnd);
+void ShowContextMenu(HWND hWnd, PRBool status);
+WNDPROC SubclassWindow(HWND hWnd, WNDPROC newWndProc);
 
 template<class T>
 class abpList {
@@ -294,9 +300,12 @@ private:
   JSBool hidden;
 };
 
+static abpToolbarDataList toolbarList;
+static abpStatusBarList statusbarList;
+
 class abpWrapper : public nsIDOMEventListener,
                    public nsIXPCScriptable,
-                   imgIDecoderObserver {
+                   public imgIDecoderObserver {
 public:
   NS_DECL_ISUPPORTS
   NS_DECL_NSIDOMEVENTLISTENER
@@ -311,50 +320,8 @@ public:
     ImageList_Destroy(hImages);
   };
 
-  static LONG DoMessage(LPCSTR to, LPCSTR from, LPCSTR subject, LONG data1, LONG data2);
-  static PRBool Load();
-  static void Setup();
-  static void Create(HWND parent);
-  static void Close(HWND parent);
-  static void Config(HWND parent);
-  static void Quit();
-  static void DoMenu(HMENU menu, LPSTR action, LPSTR string);
-  static INT DoAccel(LPSTR action);
-  static void DoRebar(HWND hRebar);
-  virtual nsresult OpenTab(const char* url, HWND hWnd);
   virtual void SetCurrentIcon(int icon) {toolbarList.setToolbarIcon(icon);statusbarList.setStatusIcon(icon);}
   virtual void HideStatusBar(JSBool hide) {statusbarList.setHidden(hide);}
-  virtual JSObject* GetGlobalObject(nsIDOMWindow* wnd);
-  virtual void AddContextMenuItem(WORD command, char* label);
-  virtual void ResetContextMenu();
   virtual UINT CreateCommandID() {return kFuncs->GetCommandIDs(1);}
-  static WNDPROC SubclassWindow(HWND hWnd, WNDPROC newWndProc);
-protected:
-  static kmeleonFunctions* kFuncs;
-  static nsCOMPtr<nsIWindowWatcher> watcher;
-  static nsCOMPtr<nsIIOService> ioService;
-  static nsCOMPtr<nsIPrincipal> systemPrincipal;
-  static abpToolbarDataList toolbarList;
-  static abpStatusBarList statusbarList;
-
-  nsCOMPtr<imgIRequest> imageRequest;
-  int currentImage;
-
-  static PRBool PatchComponent(JSContext* cx);
-  static PRBool CreateFakeBrowserWindow(JSContext* cx, JSObject* parent);
-  static INT CommandByName(LPSTR action);
-  static void ReadAccelerator(nsIPrefBranch* branch, const char* pref, const char* command);
-  virtual void LoadImage(int index);
 };
-
-kmeleonPlugin kPlugin = {
-  KMEL_PLUGIN_VER,
-  PLUGIN_NAME,
-  &abpWrapper::DoMessage
-};
-
-extern "C" {
-  KMELEON_PLUGIN kmeleonPlugin *GetKmeleonPlugin() {
-    return &kPlugin;
-  }
-}
+NS_IMPL_ISUPPORTS3(abpWrapper, nsIDOMEventListener, imgIDecoderObserver, nsIXPCScriptable)

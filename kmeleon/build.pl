@@ -26,7 +26,6 @@ if (@ARGV && $ARGV[0] =~ /^\+/)
 $params{locales} = \@ARGV if @ARGV;
 $params{locales} = ["en-US"] unless exists $params{locales};
 
-$CCFLAGS .= " -DTOOLKIT_ONLY" if $#{$params{locales}} > 0;
 $CCFLAGS .= " -DABP_VERSION=" . escapeMacro($params{version});
 $CCFLAGS .= " -DABP_LANGUAGE=" . escapeMacro($params{locales}[0]);
 $CCFLAGS .= " -FIinline_scripts.h";
