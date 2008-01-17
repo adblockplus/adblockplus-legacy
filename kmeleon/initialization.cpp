@@ -22,12 +22,63 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
+#include "adblockplus.h"
+ 
+abpToolbarDataList toolbarList;
+abpStatusBarList statusbarList;
+nsCOMPtr<nsIDOMWindowInternal> fakeBrowserWindow;
+WORD cmdBase = 0;
+char labelValues[NUM_LABELS][100];
+
+char* context_labels[] = {
+  "context.image...",
+  "context.object...",
+  "context.link...",
+  "context.frame...",
+};
+
+PRBool Load() {
+  nsresult rv;
+
+  kFuncs = kPlugin.kFuncs;
+
+  abpJSContextHolder contextHolder;
+  JSContext* cx = contextHolder.get();
+  if (cx == nsnull)
+    return PR_FALSE;
+
+  nsCOMPtr<nsIScriptSecurityManager> secman = do_GetService(NS_SCRIPTSECURITYMANAGER_CONTRACTID);
+  if (secman == nsnull) {
+    JS_ReportError(cx, "Adblock Plus: Failed to retrieve security manager - wrong Gecko version?");
+    return PR_FALSE;
+  }
+
+  nsCOMPtr<nsIPrincipal> systemPrincipal;
+  rv = secman->GetSystemPrincipal(getter_AddRefs(systemPrincipal));
+  if (NS_FAILED(rv) || systemPrincipal == nsnull) {
+    JS_ReportError(cx, "Adblock Plus: Failed to retrieve system's security principal");
+    return PR_FALSE;
+  }
+
+  JSObject* jsObject = GetComponentObject(cx);
+  if (jsObject == nsnull)
+    return PR_FALSE;
+
+  if (!CreateFakeBrowserWindow(cx, JS_GetParent(cx, jsObject), systemPrincipal))
+    return PR_FALSE;
+
+  cmdBase = kFuncs->GetCommandIDs(NUM_COMMANDS);
+  toolbarList.init(cmdBase + CMD_TOOLBAR);
+  statusbarList.init(hImages, cmdBase + CMD_STATUSBAR, kFuncs->AddStatusBarIcon, kFuncs->RemoveStatusBarIcon);
+
+  return PR_TRUE;
+}
+
 /********************
  * Helper functions *
  ********************/
 
-JSObject* GetComponentObject(JSContext* cx)
-{
+JSObject* GetComponentObject(JSContext* cx) {
   nsCOMPtr<nsISupports> abp = do_CreateInstance(ADBLOCKPLUS_CONTRACTID);
   if (abp == nsnull) {
     // Maybe the component isn't registered yet? Try registering it.
@@ -76,7 +127,7 @@ JSObject* GetComponentObject(JSContext* cx)
   return jsObject;
 }
  
-PRBool CreateFakeBrowserWindow(JSContext* cx, JSObject* parent) {
+PRBool CreateFakeBrowserWindow(JSContext* cx, JSObject* parent, nsIPrincipal* systemPrincipal) {
   nsresult rv;
   jsval value;
 
@@ -168,46 +219,6 @@ PRBool CreateFakeBrowserWindow(JSContext* cx, JSObject* parent) {
 
     strcpy_s(labelValues[i], sizeof(labelValues[i]), JS_GetStringBytes(str));
   }
-
-  return PR_TRUE;
-}
-
-/***************************
- * Initialization function *
- ***************************/
-
-PRBool Load() {
-  nsresult rv;
-
-  kFuncs = kPlugin.kFuncs;
-
-  abpJSContextHolder contextHolder;
-  JSContext* cx = contextHolder.get();
-  if (cx == nsnull)
-    return PR_FALSE;
-
-  nsCOMPtr<nsIScriptSecurityManager> secman = do_GetService(NS_SCRIPTSECURITYMANAGER_CONTRACTID);
-  if (secman == nsnull) {
-    JS_ReportError(cx, "Adblock Plus: Failed to retrieve security manager - wrong Gecko version?");
-    return PR_FALSE;
-  }
-
-  rv = secman->GetSystemPrincipal(getter_AddRefs(systemPrincipal));
-  if (NS_FAILED(rv) || systemPrincipal == nsnull) {
-    JS_ReportError(cx, "Adblock Plus: Failed to retrieve system's security principal");
-    return PR_FALSE;
-  }
-
-  JSObject* jsObject = GetComponentObject(cx);
-  if (jsObject == nsnull)
-    return PR_FALSE;
-
-  if (!CreateFakeBrowserWindow(cx, JS_GetParent(cx, jsObject)))
-    return PR_FALSE;
-
-  cmdBase = kFuncs->GetCommandIDs(NUM_COMMANDS);
-  toolbarList.init(cmdBase + CMD_TOOLBAR);
-  statusbarList.init(hImages, cmdBase + CMD_STATUSBAR, kFuncs->AddStatusBarIcon, kFuncs->RemoveStatusBarIcon);
 
   return PR_TRUE;
 }

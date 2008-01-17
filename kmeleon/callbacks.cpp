@@ -22,6 +22,12 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
+#include "adblockplus.h"
+ 
+WNDPROC origWndProc = NULL;
+WNDPROC origDialogWndProc = NULL;
+HHOOK hook = NULL;
+
 BOOL APIENTRY DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpvReserved) {
   return TRUE;
 }
@@ -100,17 +106,29 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
   }
   else if (message == WM_NOTIFY) {
     LPNMHDR notifyHeader = (LPNMHDR) lParam;
-    if (notifyHeader->code == (UINT)TTN_NEEDTEXT && (wParam == cmdBase + CMD_TOOLBAR || wParam == cmdBase + CMD_STATUSBAR)) {
+    if ((notifyHeader->code == (UINT)TTN_NEEDTEXTA || notifyHeader->code == (UINT)TTN_NEEDTEXTW) &&
+        (wParam == cmdBase + CMD_TOOLBAR || wParam == cmdBase + CMD_STATUSBAR)) {
       abpJSContextHolder holder;
       JSObject* overlay = UnwrapJSObject(fakeBrowserWindow);
       JSContext* cx = holder.get();
       if (cx != nsnull && overlay != nsnull) {
-        jsval arg = (wParam == cmdBase + CMD_STATUSBAR ? JSVAL_TRUE : JSVAL_FALSE);
+        jsval args[] = {
+            wParam == cmdBase + CMD_STATUSBAR ? JSVAL_TRUE : JSVAL_FALSE,
+            notifyHeader->code == (UINT)TTN_NEEDTEXTW ? JSVAL_TRUE : JSVAL_FALSE
+        };
         jsval retval;
-        if (JS_CallFunctionName(cx, overlay, "getTooltipText", 1, &arg, &retval)) {
+        if (JS_CallFunctionName(cx, overlay, "getTooltipText", 2, args, &retval)) {
           JSString* text = JS_ValueToString(cx, retval);
-          LPTOOLTIPTEXT lpTiptext = (LPTOOLTIPTEXT) lParam;
-          lpTiptext->lpszText = JS_GetStringBytes(text);
+          if (notifyHeader->code == (UINT)TTN_NEEDTEXTA)
+          {
+              LPTOOLTIPTEXTA lpTiptext = (LPTOOLTIPTEXTA) lParam;
+              lpTiptext->lpszText = JS_GetStringBytes(text);
+          }
+          else
+          {
+              LPTOOLTIPTEXTW lpTiptext = (LPTOOLTIPTEXTW) lParam;
+              lpTiptext->lpszText = (LPWSTR)JS_GetStringChars(text);
+          }
           return 0;
         }
       }

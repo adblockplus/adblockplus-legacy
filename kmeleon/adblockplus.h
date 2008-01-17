@@ -22,6 +22,8 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
+#include <windows.h>
+
 #define KMELEON_PLUGIN_EXPORTS
 #include "KMeleonConst.h"
 #include "kmeleon_plugin.h"
@@ -37,31 +39,20 @@
 #include "nsIDOMWindow.h"
 #include "nsIDOMWindowInternal.h"
 #include "nsPIDOMWindow.h"
+#include "nsIEmbeddingSiteWindow.h"
 #include "nsIXPConnect.h"
-#include "nsIWebBrowser.h"
-#include "nsIWebNavigation.h"
-#include "nsIDOMEventTarget.h"
 #include "nsIDOMEvent.h"
-#include "nsIDOMDocument.h"
-#include "nsIDOMElement.h"
-#include "nsIURI.h"
-#include "nsIJSContextStack.h"
-#include "nsIScriptGlobalObject.h"
-#include "nsIXPCScriptable.h"
-#include "nsIChromeRegistrySea.h"
-#include "nsIDOMEventReceiver.h"
+#include "nsIDOMEventTarget.h"
 #include "nsIDOMEventListener.h"
-#include "nsIPromptService.h"
-#include "nsITimer.h"
-#include "nsIPrefBranch.h"
+#include "nsIChromeEventHandler.h"
+#include "nsIURI.h"
+#include "nsIXPCScriptable.h"
 #include "nsIPrefService.h"
+#include "nsIPrefBranch.h"
 #include "nsIConsoleService.h"
 #include "nsIScriptError.h"
 #include "nsIScriptSecurityManager.h"
 #include "nsIPrincipal.h"
-#include "nsIWebBrowserChrome.h"
-#include "nsIEmbeddingSiteWindow.h"
-#include "nsIChromeEventHandler.h"
 #include "imgIRequest.h"
 #include "imgILoader.h"
 #include "imgIDecoderObserver.h"
@@ -71,15 +62,11 @@
 #include "nsIProperties.h"
 #include "nsDirectoryServiceDefs.h"
 #include "nsILocalFile.h"
-#include "nsIRDFService.h"
-#include "nsIRDFDataSource.h"
-#include "nsIRDFResource.h"
-#include "nsIRDFNode.h"
+#include "nsIJSContextStack.h"
 #include "nsXPCOM.h"
 #include "nsEmbedString.h"
 #include "jsapi.h"
 #include "prmem.h"
-#include "nsISupportsArray.h"
 
 #define PLUGIN_NAME "Adblock Plus " ABP_VERSION
 #define ADBLOCKPLUS_CONTRACTID "@mozilla.org/adblockplus;1"
@@ -87,43 +74,38 @@
 enum {CMD_PREFERENCES, CMD_LISTALL, CMD_TOGGLEENABLED, CMD_IMAGE, CMD_OBJECT, CMD_LINK, CMD_FRAME, CMD_SEPARATOR, CMD_TOOLBAR, CMD_STATUSBAR, NUM_COMMANDS};
 enum {LABEL_CONTEXT_IMAGE, LABEL_CONTEXT_OBJECT, LABEL_CONTEXT_LINK, LABEL_CONTEXT_FRAME, NUM_LABELS};
 
-static char* context_labels[] = {
-  "context.image...",
-  "context.object...",
-  "context.link...",
-  "context.frame...",
+class abpScriptable : public nsIXPCScriptable {
+public:
+  NS_DECL_ISUPPORTS
+  NS_DECL_NSIXPCSCRIPTABLE
 };
 
-static WORD context_commands[] = {
-  CMD_IMAGE,
-  CMD_OBJECT,
-  CMD_LINK,
-  CMD_FRAME
+class abpListener : public nsIDOMEventListener {
+public:
+  NS_DECL_ISUPPORTS
+  NS_DECL_NSIDOMEVENTLISTENER
 };
 
-static char* images[] = {
-  "chrome://adblockplus/skin/abp-enabled-16.png",
-  "chrome://adblockplus/skin/abp-disabled-16.png",
-  "chrome://adblockplus/skin/abp-whitelisted-16.png",
-  "chrome://adblockplus/skin/abp-defunc-16.png",
+class abpImgObserver : public imgIDecoderObserver {
+public:
+  NS_DECL_ISUPPORTS
+  NS_DECL_IMGIDECODEROBSERVER
+  NS_DECL_IMGICONTAINEROBSERVER
 };
 
-static kmeleonFunctions* kFuncs = NULL;
-extern kmeleonPlugin kPlugin;
+class abpJSContextHolder {
+public:
+  abpJSContextHolder();
+  ~abpJSContextHolder();
 
-static nsCOMPtr<nsIPrincipal> systemPrincipal;
-
-extern HIMAGELIST hImages;
-
-LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
-LRESULT CALLBACK DialogWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
-LRESULT CALLBACK HookProc(int nCode, WPARAM wParam, LPARAM lParam);
-
-JSObject* UnwrapJSObject(nsISupports* native);
-nsISupports* UnwrapNative(JSContext* cx, JSObject* obj);
-void OpenTab(const char* url, HWND hWnd);
-void ShowContextMenu(HWND hWnd, PRBool status);
-WNDPROC SubclassWindow(HWND hWnd, WNDPROC newWndProc);
+  JSContext* get() {
+    return mContext;
+  }
+private:
+  nsCOMPtr<nsIThreadJSContextStack> mStack;
+  JSContext* mContext;
+  JSErrorReporter mOldReporter;
+};
 
 template<class T>
 class abpList {
@@ -300,28 +282,83 @@ private:
   JSBool hidden;
 };
 
-static abpToolbarDataList toolbarList;
-static abpStatusBarList statusbarList;
+// callbacks.cpp
+extern WNDPROC origWndProc;
+extern WNDPROC origDialogWndProc;
+extern HHOOK hook;
 
-class abpWrapper : public nsIDOMEventListener,
-                   public nsIXPCScriptable,
-                   public imgIDecoderObserver {
-public:
-  NS_DECL_ISUPPORTS
-  NS_DECL_NSIDOMEVENTLISTENER
-  NS_DECL_NSIXPCSCRIPTABLE
-  NS_DECL_IMGIDECODEROBSERVER
-  NS_DECL_IMGICONTAINEROBSERVER
+LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
+LRESULT CALLBACK DialogWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
+LRESULT CALLBACK HookProc(int nCode, WPARAM wParam, LPARAM lParam);
 
-  abpWrapper() {
-    hImages = ImageList_Create(16, 16, ILC_COLOR32, sizeof(images)/sizeof(images[0]), 0);
-  };
-  virtual ~abpWrapper() {
-    ImageList_Destroy(hImages);
-  };
+// imgobserver.cpp
+extern nsCOMPtr<abpImgObserver> imgObserver;
 
-  virtual void SetCurrentIcon(int icon) {toolbarList.setToolbarIcon(icon);statusbarList.setStatusIcon(icon);}
-  virtual void HideStatusBar(JSBool hide) {statusbarList.setHidden(hide);}
-  virtual UINT CreateCommandID() {return kFuncs->GetCommandIDs(1);}
-};
-NS_IMPL_ISUPPORTS3(abpWrapper, nsIDOMEventListener, imgIDecoderObserver, nsIXPCScriptable)
+// initialization.cpp
+extern abpToolbarDataList toolbarList;
+extern abpStatusBarList statusbarList;
+extern nsCOMPtr<nsIDOMWindowInternal> fakeBrowserWindow;
+extern WORD cmdBase;
+extern char labelValues[NUM_LABELS][100];
+
+PRBool Load();
+JSObject* GetComponentObject(JSContext* cx);
+PRBool CreateFakeBrowserWindow(JSContext* cx, JSObject* parent, nsIPrincipal* systemPrincipal);
+
+// jsdefs.cpp
+extern JSFunctionSpec window_methods[];
+extern JSPropertySpec window_properties[];
+
+JSBool JS_DLL_CALLBACK JSSetIcon(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
+JSBool JS_DLL_CALLBACK JSHideStatusBar(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
+JSBool JS_DLL_CALLBACK JSOpenTab(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
+JSBool JS_DLL_CALLBACK JSResetContextMenu(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
+JSBool JS_DLL_CALLBACK JSAddContextMenuItem(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
+JSBool JS_DLL_CALLBACK JSCreateCommandID(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
+JSBool JS_DLL_CALLBACK JSCreatePopupMenu(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
+JSBool JS_DLL_CALLBACK JSAddMenuItem(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
+JSBool JS_DLL_CALLBACK JSGetHWND(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
+JSBool JS_DLL_CALLBACK JSSubclassDialogWindow(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
+JSBool JS_DLL_CALLBACK JSAddRootListener(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
+JSBool JS_DLL_CALLBACK JSFocusWindow(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
+JSBool JS_DLL_CALLBACK JSSetTopmostWindow(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
+JSBool JS_DLL_CALLBACK JSShowToolbarContext(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
+JSBool JS_DLL_CALLBACK JSGetScriptable(JSContext *cx, JSObject *obj, jsval id, jsval *vp);
+
+// jstools.cpp
+JS_STATIC_DLL_CALLBACK(void) Reporter(JSContext *cx, const char *message, JSErrorReport *rep);
+
+// listener.cpp
+extern nsCOMPtr<abpListener> listener;
+
+// misc.cpp
+JSObject* UnwrapJSObject(nsISupports* native);
+nsISupports* UnwrapNative(JSContext* cx, JSObject* obj);
+void OpenTab(const char* url, HWND hWnd);
+void ShowContextMenu(HWND hWnd, PRBool status);
+WNDPROC SubclassWindow(HWND hWnd, WNDPROC newWndProc);
+
+// plugindefs.cpp
+extern kmeleonFunctions* kFuncs;
+extern kmeleonPlugin kPlugin;
+extern HIMAGELIST hImages;
+extern int currentImage;
+
+LONG DoMessage(LPCSTR to, LPCSTR from, LPCSTR subject, LONG data1, LONG data2);
+void Setup();
+void Quit();
+void Create(HWND parent);
+void Close(HWND parent);
+void Config(HWND parent);
+void DoMenu(HMENU menu, LPSTR action, LPSTR string);
+INT DoAccel(LPSTR action);
+void DoRebar(HWND hRebar);
+void ReadAccelerator(nsIPrefBranch* branch, const char* pref, const char* command);
+void LoadImage(int index);
+INT CommandByName(LPSTR action);
+
+// scriptable.cpp
+extern nsCOMPtr<abpScriptable> scriptable;
+
+// inline_scripts.cpp
+extern char* includes[];

@@ -22,6 +22,37 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
+#include "adblockplus.h"
+ 
+JSFunctionSpec window_methods[] = {
+  {"setIcon", JSSetIcon, 1, 0, 0},
+  {"hideStatusBar", JSHideStatusBar, 1, 0, 0},
+  {"openTab", JSOpenTab, 1, 0, 0},
+  {"resetContextMenu", JSResetContextMenu, 0, 0, 0},
+  {"addContextMenuItem", JSAddContextMenuItem, 1, 0, 0},
+  {"createCommandID", JSCreateCommandID, 0, 0, 0},
+  {"createPopupMenu", JSCreatePopupMenu, 0, 0, 0},
+  {"addMenuItem", JSAddMenuItem, 7, 0, 0},
+  {"getHWND", JSGetHWND, 1, 0, 0},
+  {"subclassDialogWindow", JSSubclassDialogWindow, 1, 0, 0},
+  {"addRootListener", JSAddRootListener, 3, 0, 0},
+  {"focusWindow", JSFocusWindow, 1, 0, 0},
+  {"setTopmostWindow", JSSetTopmostWindow, 1, 0, 0},
+  {"showToolbarContext", JSShowToolbarContext, 1, 0, 0},
+  {NULL},
+};
+JSPropertySpec window_properties[] = {
+  {"scriptable", 2, JSPROP_READONLY|JSPROP_PERMANENT, JSGetScriptable, nsnull},
+  {NULL},
+};
+
+WORD context_commands[] = {
+  CMD_IMAGE,
+  CMD_OBJECT,
+  CMD_LINK,
+  CMD_FRAME
+};
+
 /************************
  * JavaScript callbacks *
  ************************/
@@ -30,7 +61,11 @@ JSBool JS_DLL_CALLBACK JSSetIcon(JSContext* cx, JSObject* obj, uintN argc, jsval
   *rval = JSVAL_VOID;
 
   if (argc == 1)
-    wrapper->SetCurrentIcon(JSVAL_TO_INT(argv[0]));
+  {
+    int32 icon = JSVAL_TO_INT(argv[0]);
+    toolbarList.setToolbarIcon(icon);
+    statusbarList.setStatusIcon(icon);
+  }
 
   return JS_TRUE;
 }
@@ -39,7 +74,7 @@ JSBool JS_DLL_CALLBACK JSHideStatusBar(JSContext* cx, JSObject* obj, uintN argc,
   *rval = JSVAL_VOID;
 
   if (argc == 1)
-    wrapper->HideStatusBar(JSVAL_TO_BOOLEAN(argv[0]));
+    statusbarList.setHidden(JSVAL_TO_BOOLEAN(argv[0]));
 
   return JS_TRUE;
 }
@@ -117,7 +152,7 @@ JSBool JS_DLL_CALLBACK JSAddContextMenuItem(JSContext* cx, JSObject* obj, uintN 
 }
 
 JSBool JS_DLL_CALLBACK JSCreateCommandID(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
-  *rval = INT_TO_JSVAL(wrapper->CreateCommandID());
+  *rval = INT_TO_JSVAL(kFuncs->GetCommandIDs(1));
 
   return JS_TRUE;
 }
@@ -141,7 +176,6 @@ JSBool JS_DLL_CALLBACK JSAddMenuItem(JSContext* cx, JSObject* obj, uintN argc, j
   JSBool checked;
   if (!JS_ConvertArguments(cx, argc, argv, "jjjsbbb", &menu, &type, &menuID, &label, &default, &disabled, &checked))
     return JS_FALSE;
-  
   HMENU hMenu = (HMENU)menu;
 
   MENUITEMINFO info = {0};
@@ -222,7 +256,7 @@ JSBool JS_DLL_CALLBACK JSAddRootListener(JSContext* cx, JSObject* obj, uintN arg
   if (target == nsnull)
     return NS_ERROR_FAILURE;
 
-  target->AddEventListener(NS_ConvertASCIItoUTF16(event), wrapper, capture);
+  target->AddEventListener(NS_ConvertASCIItoUTF16(event), listener, capture);
   return JS_TRUE;
 }
 
@@ -268,7 +302,7 @@ JSBool JS_DLL_CALLBACK JSGetScriptable(JSContext *cx, JSObject *obj, jsval id, j
     return JS_FALSE;
 
   nsCOMPtr<nsIXPConnectJSObjectHolder> wrapperHolder;
-  rv = xpc->WrapNative(cx, JS_GetParent(cx, obj), NS_STATIC_CAST(nsIXPCScriptable*, wrapper), NS_GET_IID(nsISupports), getter_AddRefs(wrapperHolder));
+  rv = xpc->WrapNative(cx, JS_GetParent(cx, obj), scriptable, NS_GET_IID(nsISupports), getter_AddRefs(wrapperHolder));
   if (NS_FAILED(rv))
     return JS_FALSE;
 
@@ -280,29 +314,3 @@ JSBool JS_DLL_CALLBACK JSGetScriptable(JSContext *cx, JSObject *obj, jsval id, j
   *vp = OBJECT_TO_JSVAL(result);
   return JS_TRUE;
 }
-
-/*********************************************
- * Custom window method/property definitions *
- *********************************************/
-
-JSFunctionSpec window_methods[] = {
-  {"setIcon", JSSetIcon, 1, 0, 0},
-  {"hideStatusBar", JSHideStatusBar, 1, 0, 0},
-  {"openTab", JSOpenTab, 1, 0, 0},
-  {"resetContextMenu", JSResetContextMenu, 0, 0, 0},
-  {"addContextMenuItem", JSAddContextMenuItem, 1, 0, 0},
-  {"createCommandID", JSCreateCommandID, 0, 0, 0},
-  {"createPopupMenu", JSCreatePopupMenu, 0, 0, 0},
-  {"addMenuItem", JSAddMenuItem, 7, 0, 0},
-  {"getHWND", JSGetHWND, 1, 0, 0},
-  {"subclassDialogWindow", JSSubclassDialogWindow, 1, 0, 0},
-  {"addRootListener", JSAddRootListener, 3, 0, 0},
-  {"focusWindow", JSFocusWindow, 1, 0, 0},
-  {"setTopmostWindow", JSSetTopmostWindow, 1, 0, 0},
-  {"showToolbarContext", JSShowToolbarContext, 1, 0, 0},
-  {NULL},
-};
-JSPropertySpec window_properties[] = {
-  {"scriptable", 2, JSPROP_READONLY|JSPROP_PERMANENT, JSGetScriptable, nsnull},
-  {NULL},
-};

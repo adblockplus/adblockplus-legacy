@@ -22,43 +22,7 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-/**************************************
- * nsIDOMEventListener implementation *
- **************************************/
-
-nsresult abpWrapper::HandleEvent(nsIDOMEvent* event) {
-  nsresult rv;
-
-  abpJSContextHolder holder;
-  JSObject* overlay = UnwrapJSObject(fakeBrowserWindow);
-  JSContext* cx = holder.get();
-  if (cx == nsnull || overlay == nsnull)
-    return NS_ERROR_FAILURE;
-
-  nsCOMPtr<nsIXPConnect> xpc = do_GetService(nsIXPConnect::GetCID());
-  if (xpc == nsnull)
-    return NS_ERROR_FAILURE;
-
-  nsCOMPtr<nsIXPConnectJSObjectHolder> wrapperHolder;
-  rv = xpc->WrapNative(cx, JS_GetParent(cx, overlay), event, NS_GET_IID(nsIDOMEvent), getter_AddRefs(wrapperHolder));
-  if (NS_FAILED(rv))
-    return rv;
-
-  JSObject* jsObj;
-  rv = wrapperHolder->GetJSObject(&jsObj);
-  if (NS_FAILED(rv))
-    return rv;
-
-  jsval arg = OBJECT_TO_JSVAL(jsObj);
-  jsval retval;  
-  JS_CallFunctionName(cx, overlay, "onEvent", 1, &arg, &retval);
-
-  return NS_OK;
-}
-
-/********************
- * Helper functions *
- ********************/
+#include "adblockplus.h"
 
 JSObject* UnwrapJSObject(nsISupports* native) {
   nsCOMPtr<nsIXPConnectWrappedJS> holder = do_QueryInterface(native);

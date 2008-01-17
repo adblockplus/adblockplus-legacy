@@ -37,14 +37,17 @@ var _dtdReader = {
     }
   },
 
-  getEntity: function(name) {
+  getEntity: function(name, unicode) {
+    if (typeof unicode == "undefined")
+        unicode = false;
+
     var ellipsis = false;
     if (/\.{3}$/.test(name)) {
       ellipsis = true;
       name = name.replace(/\.{3}$/, "");
     }
     var ret = (name in this.data ? this.data[name] : name) + (ellipsis ? "..." : "");
-    return this.unicodeConverter.ConvertFromUnicode(ret);
+    return (unicode ? ret : this.unicodeConverter.ConvertFromUnicode(ret));
   }
 }
 
