@@ -22,11 +22,17 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
+#include "adblockplus.h"
+ 
+nsCOMPtr<abpImgObserver> imgObserver = new abpImgObserver();
+
+NS_IMPL_ISUPPORTS2(abpImgObserver, imgIDecoderObserver, imgIContainerObserver)
+
 /**************************************
  * imgIDecoderObserver implementation *
  **************************************/
 
-nsresult abpWrapper::OnStopFrame(imgIRequest* aRequest, gfxIImageFrame *aFrame) {
+nsresult abpImgObserver::OnStopFrame(imgIRequest* aRequest, gfxIImageFrame *aFrame) {
   nsresult rv;
 
   gfx_format format;
@@ -106,25 +112,25 @@ nsresult abpWrapper::OnStopFrame(imgIRequest* aRequest, gfxIImageFrame *aFrame) 
   return NS_OK;
 }
 
-nsresult abpWrapper::OnStartDecode(imgIRequest* aRequest) {
+nsresult abpImgObserver::OnStartDecode(imgIRequest* aRequest) {
   return NS_OK;
 }
-nsresult abpWrapper::OnStartContainer(imgIRequest* aRequest, imgIContainer *aContainer) {
+nsresult abpImgObserver::OnStartContainer(imgIRequest* aRequest, imgIContainer *aContainer) {
   return NS_OK;
 }
-nsresult abpWrapper::OnStartFrame(imgIRequest* aRequest, gfxIImageFrame *aFrame) {
+nsresult abpImgObserver::OnStartFrame(imgIRequest* aRequest, gfxIImageFrame *aFrame) {
   return NS_OK;
 }
-nsresult abpWrapper::OnDataAvailable(imgIRequest *aRequest, gfxIImageFrame *aFrame, const nsIntRect * aRect) {
+nsresult abpImgObserver::OnDataAvailable(imgIRequest *aRequest, gfxIImageFrame *aFrame, const nsIntRect * aRect) {
   return NS_OK;
 }
-nsresult abpWrapper::OnStopContainer(imgIRequest* aRequest, imgIContainer *aContainer) {
+nsresult abpImgObserver::OnStopContainer(imgIRequest* aRequest, imgIContainer *aContainer) {
   return NS_OK;
 }
-nsresult abpWrapper::OnStopDecode(imgIRequest* aRequest, nsresult status, const PRUnichar *statusArg) {
+nsresult abpImgObserver::OnStopDecode(imgIRequest* aRequest, nsresult status, const PRUnichar *statusArg) {
   LoadImage(currentImage + 1);
   return NS_OK;
 }
-nsresult abpWrapper::FrameChanged(imgIContainer *aContainer, gfxIImageFrame *aFrame, nsIntRect * aDirtyRect) {
+nsresult abpImgObserver::FrameChanged(imgIContainer *aContainer, gfxIImageFrame *aFrame, nsIntRect * aDirtyRect) {
   return NS_OK;
 }

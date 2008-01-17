@@ -113,7 +113,7 @@ function onDialogResize(hWnd) {
 }
 
 var tooltipValue = null;
-function getTooltipText(status) {
+function getTooltipText(status, unicode) {
   document.tooltipNode = {id: status ? "abp-status" : "abp-toolbarbutton", hasAttribute: function() {return true}};
 
   tooltipValue = "";
@@ -121,11 +121,11 @@ function getTooltipText(status) {
 
   var list = tooltipValue.replace(/[\r\n]+$/, '').split(/[\r\n]+/);
   if (list.length > 3)
-    list.splice(3, 0, "", _dtdReader.getEntity("filters.tooltip"));
+    list.splice(3, 0, "", _dtdReader.getEntity("filters.tooltip", unicode));
   if (list.length > 2)
-    list.splice(2, 0, "", _dtdReader.getEntity("blocked.tooltip"));
+    list.splice(2, 0, "", _dtdReader.getEntity("blocked.tooltip", unicode));
   if (list.length > 1)
-    list.splice(1, 0, "", _dtdReader.getEntity("status.tooltip"));
+    list.splice(1, 0, "", _dtdReader.getEntity("status.tooltip", unicode));
 
   return list.join("\n");
 }
@@ -177,7 +177,7 @@ function addMenuItems(popup) {
     }
 
     addMenuItem(menu, type, child.menuID,
-                    unicodeConverter.ConvertFromUnicode(child.getAttribute("label")),
+                    _dtdReader.unicodeConverter.ConvertFromUnicode(child.getAttribute("label")),
                     child.getAttribute("default") == "true",
                     child.getAttribute("disabled") == "true",
                     child.getAttribute("checked") == "true");

@@ -22,19 +22,25 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
+#include "adblockplus.h"
+
+nsCOMPtr<abpScriptable> scriptable = new abpScriptable();
+
+NS_IMPL_ISUPPORTS1(abpScriptable, nsIXPCScriptable)
+
 /***********************************
  * nsIXPCScriptable implementation *
  ***********************************/
 
-NS_METHOD abpWrapper::GetClassName(char** retval) {
+ NS_METHOD abpScriptable::GetClassName(char** retval) {
   NS_ENSURE_ARG_POINTER(retval);
 
-  *retval = "abpWrapper";
+  *retval = "abpScriptable";
 
   return NS_OK;
 }
 
-NS_METHOD abpWrapper::GetScriptableFlags(PRUint32* retval) {
+NS_METHOD abpScriptable::GetScriptableFlags(PRUint32* retval) {
   NS_ENSURE_ARG_POINTER(retval);
 
   *retval = nsIXPCScriptable::WANT_GETPROPERTY | nsIXPCScriptable::WANT_NEWRESOLVE;
@@ -42,7 +48,7 @@ NS_METHOD abpWrapper::GetScriptableFlags(PRUint32* retval) {
   return NS_OK;
 }
 
-NS_METHOD abpWrapper::GetProperty(nsIXPConnectWrappedNative* wrapper, JSContext* cx, JSObject* obj, jsval id, jsval* vp, PRBool* _retval) {
+NS_METHOD abpScriptable::GetProperty(nsIXPConnectWrappedNative* wrapper, JSContext* cx, JSObject* obj, jsval id, jsval* vp, PRBool* _retval) {
   nsresult rv = NS_OK;
 
   JSString* property = JS_ValueToString(cx, id);
@@ -58,13 +64,11 @@ NS_METHOD abpWrapper::GetProperty(nsIXPConnectWrappedNative* wrapper, JSContext*
   if (innerObj == nsnull)
     return NS_ERROR_FAILURE;
 
-  if (!JS_GetUCProperty(cx, innerObj, JS_GetStringChars(property), JS_GetStringLength(property), vp))
-    return NS_ERROR_FAILURE;
-
+  *_retval = JS_GetUCProperty(cx, innerObj, JS_GetStringChars(property), JS_GetStringLength(property), vp);
   return rv;
 }
 
-NS_METHOD abpWrapper::NewResolve(nsIXPConnectWrappedNative* wrapper, JSContext* cx, JSObject* obj, jsval id, PRUint32 flags, JSObject** objp, PRBool* _retval) {
+NS_METHOD abpScriptable::NewResolve(nsIXPConnectWrappedNative* wrapper, JSContext* cx, JSObject* obj, jsval id, PRUint32 flags, JSObject** objp, PRBool* _retval) {
   nsresult rv = NS_OK;
   *_retval = PR_FALSE;
 
@@ -83,57 +87,57 @@ NS_METHOD abpWrapper::NewResolve(nsIXPConnectWrappedNative* wrapper, JSContext* 
   return NS_OK;
 }
 
-NS_METHOD abpWrapper::PreCreate(nsISupports* nativeObj, JSContext* cx, JSObject* globalObj, JSObject** parentObj) {
+NS_METHOD abpScriptable::PreCreate(nsISupports* nativeObj, JSContext* cx, JSObject* globalObj, JSObject** parentObj) {
   return NS_ERROR_NOT_IMPLEMENTED;
 }
-NS_METHOD abpWrapper::Create(nsIXPConnectWrappedNative* wrapper, JSContext* cx, JSObject* obj) {
+NS_METHOD abpScriptable::Create(nsIXPConnectWrappedNative* wrapper, JSContext* cx, JSObject* obj) {
   return NS_ERROR_NOT_IMPLEMENTED;
 }
-NS_METHOD abpWrapper::PostCreate(nsIXPConnectWrappedNative* wrapper, JSContext* cx, JSObject* obj) {
+NS_METHOD abpScriptable::PostCreate(nsIXPConnectWrappedNative* wrapper, JSContext* cx, JSObject* obj) {
   return NS_ERROR_NOT_IMPLEMENTED;
 }
-NS_METHOD abpWrapper::AddProperty(nsIXPConnectWrappedNative* wrapper, JSContext* cx, JSObject* obj, jsval id, jsval* vp, PRBool* _retval) {
+NS_METHOD abpScriptable::AddProperty(nsIXPConnectWrappedNative* wrapper, JSContext* cx, JSObject* obj, jsval id, jsval* vp, PRBool* _retval) {
   return NS_ERROR_NOT_IMPLEMENTED;
 }
-NS_METHOD abpWrapper::DelProperty(nsIXPConnectWrappedNative* wrapper, JSContext* cx, JSObject* obj, jsval id, jsval* vp, PRBool* _retval) {
+NS_METHOD abpScriptable::DelProperty(nsIXPConnectWrappedNative* wrapper, JSContext* cx, JSObject* obj, jsval id, jsval* vp, PRBool* _retval) {
   return NS_ERROR_NOT_IMPLEMENTED;
 }
-NS_METHOD abpWrapper::SetProperty(nsIXPConnectWrappedNative* wrapper, JSContext* cx, JSObject* obj, jsval id, jsval* vp, PRBool* _retval) {
+NS_METHOD abpScriptable::SetProperty(nsIXPConnectWrappedNative* wrapper, JSContext* cx, JSObject* obj, jsval id, jsval* vp, PRBool* _retval) {
   return NS_ERROR_NOT_IMPLEMENTED;
 }
-NS_METHOD abpWrapper::Enumerate(nsIXPConnectWrappedNative* wrapper, JSContext* cx, JSObject* obj, PRBool* _retval) {
+NS_METHOD abpScriptable::Enumerate(nsIXPConnectWrappedNative* wrapper, JSContext* cx, JSObject* obj, PRBool* _retval) {
   return NS_ERROR_NOT_IMPLEMENTED;
 }
-NS_METHOD abpWrapper::NewEnumerate(nsIXPConnectWrappedNative* wrapper, JSContext* cx, JSObject* obj, PRUint32 enum_op, jsval* statep, jsid* idp, PRBool* _retval) {
+NS_METHOD abpScriptable::NewEnumerate(nsIXPConnectWrappedNative* wrapper, JSContext* cx, JSObject* obj, PRUint32 enum_op, jsval* statep, jsid* idp, PRBool* _retval) {
   return NS_ERROR_NOT_IMPLEMENTED;
 }
-NS_METHOD abpWrapper::Convert(nsIXPConnectWrappedNative* wrapper, JSContext* cx, JSObject* obj, PRUint32 type, jsval* vp, PRBool* _retval) {
+NS_METHOD abpScriptable::Convert(nsIXPConnectWrappedNative* wrapper, JSContext* cx, JSObject* obj, PRUint32 type, jsval* vp, PRBool* _retval) {
   return NS_ERROR_NOT_IMPLEMENTED;
 }
-NS_METHOD abpWrapper::Finalize(nsIXPConnectWrappedNative* wrapper, JSContext* cx, JSObject* obj) {
+NS_METHOD abpScriptable::Finalize(nsIXPConnectWrappedNative* wrapper, JSContext* cx, JSObject* obj) {
   return NS_ERROR_NOT_IMPLEMENTED;
 }
-NS_METHOD abpWrapper::CheckAccess(nsIXPConnectWrappedNative* wrapper, JSContext* cx, JSObject* obj, jsval id, PRUint32 mode, jsval* vp, PRBool* _retval) {
+NS_METHOD abpScriptable::CheckAccess(nsIXPConnectWrappedNative* wrapper, JSContext* cx, JSObject* obj, jsval id, PRUint32 mode, jsval* vp, PRBool* _retval) {
   return NS_ERROR_NOT_IMPLEMENTED;
 }
-NS_METHOD abpWrapper::Call(nsIXPConnectWrappedNative* wrapper, JSContext* cx, JSObject* obj, PRUint32 argc, jsval* argv, jsval* vp, PRBool* _retval) {
+NS_METHOD abpScriptable::Call(nsIXPConnectWrappedNative* wrapper, JSContext* cx, JSObject* obj, PRUint32 argc, jsval* argv, jsval* vp, PRBool* _retval) {
   return NS_ERROR_NOT_IMPLEMENTED;
 }
-NS_METHOD abpWrapper::Construct(nsIXPConnectWrappedNative* wrapper, JSContext* cx, JSObject* obj, PRUint32 argc, jsval* argv, jsval* vp, PRBool* _retval) {
+NS_METHOD abpScriptable::Construct(nsIXPConnectWrappedNative* wrapper, JSContext* cx, JSObject* obj, PRUint32 argc, jsval* argv, jsval* vp, PRBool* _retval) {
   return NS_ERROR_NOT_IMPLEMENTED;
 }
-NS_METHOD abpWrapper::HasInstance(nsIXPConnectWrappedNative* wrapper, JSContext* cx, JSObject* obj, jsval val, PRBool* bp, PRBool* _retval) {
+NS_METHOD abpScriptable::HasInstance(nsIXPConnectWrappedNative* wrapper, JSContext* cx, JSObject* obj, jsval val, PRBool* bp, PRBool* _retval) {
   return NS_ERROR_NOT_IMPLEMENTED;
 }
-NS_METHOD abpWrapper::Mark(nsIXPConnectWrappedNative* wrapper, JSContext* cx, JSObject* obj, void* arg, PRUint32* _retval) {
+NS_METHOD abpScriptable::Mark(nsIXPConnectWrappedNative* wrapper, JSContext* cx, JSObject* obj, void* arg, PRUint32* _retval) {
   return NS_ERROR_NOT_IMPLEMENTED;
 }
-NS_METHOD abpWrapper::Equality(nsIXPConnectWrappedNative* wrapper, JSContext* cx, JSObject* obj, jsval val, PRBool* _retval) {
+NS_METHOD abpScriptable::Equality(nsIXPConnectWrappedNative* wrapper, JSContext* cx, JSObject* obj, jsval val, PRBool* _retval) {
   return NS_ERROR_NOT_IMPLEMENTED;
 }
-NS_METHOD abpWrapper::OuterObject(nsIXPConnectWrappedNative* wrapper, JSContext* cx, JSObject* obj, JSObject** _retval) {
+NS_METHOD abpScriptable::OuterObject(nsIXPConnectWrappedNative* wrapper, JSContext* cx, JSObject* obj, JSObject** _retval) {
   return NS_ERROR_NOT_IMPLEMENTED;
 }
-NS_METHOD abpWrapper::InnerObject(nsIXPConnectWrappedNative* wrapper, JSContext* cx, JSObject* obj, JSObject** _retval) {
+NS_METHOD abpScriptable::InnerObject(nsIXPConnectWrappedNative* wrapper, JSContext* cx, JSObject* obj, JSObject** _retval) {
   return NS_ERROR_NOT_IMPLEMENTED;
 }

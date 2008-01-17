@@ -14,6 +14,7 @@ my $CCFLAGS = '-O1 -W3 -LD -MT -DXP_WIN';
 my $LDFLAGS = '-DLL -NODEFAULTLIB -NOLOGO -PDB:../adblockplus.pdb';
 my @INCLUDE_DIRS = ('c:/kmeleon_src', "$GECKO_DIR/include");
 my @LIB_DIRS = ("$GECKO_DIR/lib");
+my @SOURCE_FILES = <*.cpp>;
 my @LIBS = qw(libcmt.lib kernel32.lib user32.lib gdi32.lib comctl32.lib nspr4.lib plds4.lib plc4.lib xpcom.lib xpcomglue_s.lib embed_base_s.lib js3250.lib);
 
 my $output_file = shift @ARGV || "adblockplus.zip";
@@ -28,7 +29,6 @@ $params{locales} = ["en-US"] unless exists $params{locales};
 
 $CCFLAGS .= " -DABP_VERSION=" . escapeMacro($params{version});
 $CCFLAGS .= " -DABP_LANGUAGE=" . escapeMacro($params{locales}[0]);
-$CCFLAGS .= " -FIinline_scripts.h";
 
 my $includes = join(' ', map {"-I$_"} @INCLUDE_DIRS);
 my $libs = join(' ', map {"-LIBPATH:$_"} @LIB_DIRS);
@@ -36,10 +36,10 @@ my $libs = join(' ', map {"-LIBPATH:$_"} @LIB_DIRS);
 $pkg->rm_rec('tmp');
 mkdir('tmp', 0755) or die "Failed to create directory tmp: $!";
 
-$pkg->cp($_, "tmp/$_") foreach <*.cpp>;
+$pkg->cp($_, "tmp/$_") foreach @SOURCE_FILES;
 $pkg->cp('adblockplus.h', 'tmp/adblockplus.h');
 
-open(INCLUDES, ">tmp/inline_scripts.h");
+open(INCLUDES, ">tmp/inline_scripts.cpp");
 print INCLUDES "char* includes[] = {\n";
 foreach my $include (sort <*.js>)
 {
@@ -65,9 +65,10 @@ foreach my $include (sort <*.js>)
 }
 print INCLUDES "  0\n};\n";
 close(INCLUDES);
+push @SOURCE_FILES, "inline_scripts.cpp";
 
 chdir('tmp');
-system("cl $CCFLAGS $includes adblockplus.cpp @LIBS -link $LDFLAGS $libs") && exit;
+system("cl $CCFLAGS $includes @SOURCE_FILES @LIBS -Feadblockplus.dll -link $LDFLAGS $libs") && exit;
 system("mv -f adblockplus.dll ..") && exit;
 chdir('..');
 

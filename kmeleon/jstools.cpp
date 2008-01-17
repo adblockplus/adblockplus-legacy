@@ -22,6 +22,40 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
+#include "adblockplus.h"
+
+abpJSContextHolder::abpJSContextHolder() {
+  mContext = nsnull;
+
+  nsresult rv;
+  mStack = do_GetService("@mozilla.org/js/xpc/ContextStack;1", &rv);
+  if (NS_FAILED(rv))
+    return;
+  
+  JSContext* cx;
+  rv = mStack->GetSafeJSContext(&cx);
+  if (NS_FAILED(rv))
+    return;
+ 
+  rv = mStack->Push(cx);
+  if (NS_FAILED(rv))
+    return;
+  
+  mContext = cx;
+  mOldReporter = JS_SetErrorReporter(mContext, ::Reporter);
+}
+
+abpJSContextHolder::~abpJSContextHolder() {
+  if (mContext) {
+    JS_SetErrorReporter(mContext, mOldReporter);
+
+    nsresult rv;
+    JSContext* cx;
+    rv = mStack->Pop(&cx);
+    NS_ASSERTION(NS_SUCCEEDED(rv) && cx == mContext, "JSContext push/pop mismatch");
+  }
+}
+
 JS_STATIC_DLL_CALLBACK(void) Reporter(JSContext *cx, const char *message, JSErrorReport *rep) {
   nsresult rv;
 
@@ -45,46 +79,3 @@ JS_STATIC_DLL_CALLBACK(void) Reporter(JSContext *cx, const char *message, JSErro
   if (NS_FAILED(rv))
     return;
 }
-
-class abpJSContextHolder {
-public:
-  abpJSContextHolder() {
-    mContext = nsnull;
-
-    nsresult rv;
-    mStack = do_GetService("@mozilla.org/js/xpc/ContextStack;1", &rv);
-    if (NS_FAILED(rv))
-      return;
-  
-    JSContext* cx;
-    rv = mStack->GetSafeJSContext(&cx);
-    if (NS_FAILED(rv))
-      return;
-  
-    rv = mStack->Push(cx);
-    if (NS_FAILED(rv))
-      return;
-  
-    mContext = cx;
-    mOldReporter = JS_SetErrorReporter(mContext, ::Reporter);
-  }
-
-  ~abpJSContextHolder() {
-    if (mContext) {
-      JS_SetErrorReporter(mContext, mOldReporter);
-
-      nsresult rv;
-      JSContext* cx;
-      rv = mStack->Pop(&cx);
-      NS_ASSERTION(NS_SUCCEEDED(rv) && cx == mContext, "JSContext push/pop mismatch");
-    }
-  }
-
-  JSContext* get() {
-    return mContext;
-  }
-private:
-  nsCOMPtr<nsIThreadJSContextStack> mStack;
-  JSContext* mContext;
-  JSErrorReporter mOldReporter;
-};
