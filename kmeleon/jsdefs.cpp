@@ -23,11 +23,11 @@
  * ***** END LICENSE BLOCK ***** */
 
 #include "adblockplus.h"
- 
 JSFunctionSpec window_methods[] = {
+  {"alert", JSAlert, 1, 0, 0},
   {"setIcon", JSSetIcon, 1, 0, 0},
   {"hideStatusBar", JSHideStatusBar, 1, 0, 0},
-  {"openTab", JSOpenTab, 1, 0, 0},
+  {"openTab", JSOpenTab, 2, 0, 0},
   {"resetContextMenu", JSResetContextMenu, 0, 0, 0},
   {"addContextMenuItem", JSAddContextMenuItem, 1, 0, 0},
   {"createCommandID", JSCreateCommandID, 0, 0, 0},
@@ -36,6 +36,7 @@ JSFunctionSpec window_methods[] = {
   {"getHWND", JSGetHWND, 1, 0, 0},
   {"subclassDialogWindow", JSSubclassDialogWindow, 1, 0, 0},
   {"addRootListener", JSAddRootListener, 3, 0, 0},
+  {"removeRootListener", JSRemoveRootListener, 3, 0, 0},
   {"focusWindow", JSFocusWindow, 1, 0, 0},
   {"setTopmostWindow", JSSetTopmostWindow, 1, 0, 0},
   {"showToolbarContext", JSShowToolbarContext, 1, 0, 0},
@@ -57,6 +58,17 @@ WORD context_commands[] = {
  * JavaScript callbacks *
  ************************/
  
+JSBool JS_DLL_CALLBACK JSAlert(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
+  *rval = JSVAL_VOID;
+
+  JSString* message;
+  if (!JS_ConvertArguments(cx, argc, argv, "S", &message))
+    return JS_FALSE;
+
+  MessageBoxW(NULL, (LPWSTR)JS_GetStringChars(message), L"JavaScript message", 0);
+  return JS_TRUE;
+}
+
 JSBool JS_DLL_CALLBACK JSSetIcon(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
   *rval = JSVAL_VOID;
 
@@ -257,6 +269,35 @@ JSBool JS_DLL_CALLBACK JSAddRootListener(JSContext* cx, JSObject* obj, uintN arg
     return NS_ERROR_FAILURE;
 
   target->AddEventListener(NS_ConvertASCIItoUTF16(event), listener, capture);
+  return JS_TRUE;
+}
+
+JSBool JS_DLL_CALLBACK JSRemoveRootListener(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
+  *rval = JSVAL_VOID;
+
+  JSObject* wndObject;
+  char* event;
+  JSBool capture;
+  if (!JS_ConvertArguments(cx, argc, argv, "osb", &wndObject, &event, &capture))
+    return JS_FALSE;
+
+  nsCOMPtr<nsPIDOMWindow> privateWnd = do_QueryInterface(UnwrapNative(cx, wndObject));
+  if (privateWnd == nsnull)
+    return JS_TRUE;
+
+  nsCOMPtr<nsPIDOMWindow> rootWnd = privateWnd->GetPrivateRoot();
+  if (rootWnd == nsnull)
+    return NS_ERROR_FAILURE;
+
+  nsCOMPtr<nsIChromeEventHandler> chromeHandler = rootWnd->GetChromeEventHandler();
+  if (chromeHandler == nsnull)
+    return NS_ERROR_FAILURE;
+
+  nsCOMPtr<nsIDOMEventTarget> target = do_QueryInterface(chromeHandler);
+  if (target == nsnull)
+    return NS_ERROR_FAILURE;
+
+  target->RemoveEventListener(NS_ConvertASCIItoUTF16(event), listener, capture);
   return JS_TRUE;
 }
 

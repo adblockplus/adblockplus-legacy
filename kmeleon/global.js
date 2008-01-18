@@ -3,7 +3,9 @@ var CSSPrimitiveValue = Components.interfaces.nsIDOMCSSPrimitiveValue;
 
 var _currentWindow = null;
 function onEvent(event) {
-  if (event.type == "contextmenu")
+  if (event.type == "load")
+    _windowMediator.processNewDialog(event.target.defaultView.top);
+  else if (event.type == "contextmenu")
     gContextMenu.updateMenu(event.target);
   else if (event.type == "focus" && event.target instanceof Components.interfaces.nsIDOMDocument) {
     var wnd = event.target.defaultView;
