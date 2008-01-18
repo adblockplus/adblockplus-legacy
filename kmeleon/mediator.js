@@ -12,17 +12,12 @@ var _windowMediator = {
 
   observe: function(wnd, topic, data) {
     if (topic == "domwindowopened") {
-      var wndType = wnd.QueryInterface(Components.interfaces.nsIInterfaceRequestor)
-                       .getInterface(Components.interfaces.nsIWebNavigation)
-                       .QueryInterface(Components.interfaces.nsIDocShellTreeItem)
-                       .itemType;
-
-      if (wndType == Components.interfaces.nsIDocShellTreeItem.typeContent) {
+      if (wnd instanceof Components.interfaces.nsIDOMChromeWindow)
+        addRootListener(wnd, "load", true);
+      else {
         addRootListener(wnd, "focus", true);
         addRootListener(wnd, "contextmenu", true);
       }
-      else
-        wnd.addEventListener("load", this.processNewDialog, true);
     }
     else if (topic == "domwindowclosed") {
       var hWnd = this.toHWND(wnd);
@@ -31,24 +26,21 @@ var _windowMediator = {
     }
   },
 
-  processNewDialog: function(event) {
-    var me = _windowMediator;
-
-    var wnd = event.target.defaultView;
+  processNewDialog: function(wnd) {
     if (wnd.location.protocol != "chrome:" || wnd.location.host != "adblockplus")
       return;
 
-    wnd.removeEventListener("load", arguments.callee, true);
+    removeRootListener(wnd, "load", true);
 
-    var hWnd = me.toHWND(wnd);
+    var hWnd = this.toHWND(wnd);
     if (!hWnd)
       return;
 
     subclassDialogWindow(hWnd);
 
-    me.hwndToWindow[hWnd] = wnd;
-    me.hwndToWindow["move" + hWnd] = true;
-    me.hwndToWindow["resize" + hWnd] = true;
+    this.hwndToWindow[hWnd] = wnd;
+    this.hwndToWindow["move" + hWnd] = true;
+    this.hwndToWindow["resize" + hWnd] = true;
 
     var oldFocus = wnd.focus;
     wnd.focus = function() {
@@ -57,7 +49,7 @@ var _windowMediator = {
 
     var root = wnd.document.documentElement;
     if (root.hasAttribute("windowtype"))
-      me.recentTypes[root.getAttribute("windowtype")] = wnd;
+      this.recentTypes[root.getAttribute("windowtype")] = wnd;
 
     if (wnd.location.href.indexOf("settings.xul") >= 0) {
       try {

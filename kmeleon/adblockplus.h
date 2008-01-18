@@ -309,6 +309,7 @@ PRBool CreateFakeBrowserWindow(JSContext* cx, JSObject* parent, nsIPrincipal* sy
 extern JSFunctionSpec window_methods[];
 extern JSPropertySpec window_properties[];
 
+JSBool JS_DLL_CALLBACK JSAlert(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
 JSBool JS_DLL_CALLBACK JSSetIcon(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
 JSBool JS_DLL_CALLBACK JSHideStatusBar(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
 JSBool JS_DLL_CALLBACK JSOpenTab(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
@@ -320,6 +321,7 @@ JSBool JS_DLL_CALLBACK JSAddMenuItem(JSContext* cx, JSObject* obj, uintN argc, j
 JSBool JS_DLL_CALLBACK JSGetHWND(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
 JSBool JS_DLL_CALLBACK JSSubclassDialogWindow(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
 JSBool JS_DLL_CALLBACK JSAddRootListener(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
+JSBool JS_DLL_CALLBACK JSRemoveRootListener(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
 JSBool JS_DLL_CALLBACK JSFocusWindow(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
 JSBool JS_DLL_CALLBACK JSSetTopmostWindow(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
 JSBool JS_DLL_CALLBACK JSShowToolbarContext(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
