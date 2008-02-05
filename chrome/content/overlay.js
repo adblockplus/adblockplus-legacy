@@ -363,7 +363,7 @@ function abpCheckExtensionConflicts() {
 function abpInstallInToolbar() {
   if (!document.getElementById("abp-toolbarbutton")) {
     var insertBeforeBtn = null;
-    var toolbar = document.getElementById("nav-bar") || document.getElementById("navigation-toolbar");
+    var toolbar = document.getElementById("nav-bar");
     if (!toolbar) {
       insertBeforeBtn = "button-junk";
       toolbar = document.getElementById("mail-bar");
