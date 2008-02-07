@@ -105,6 +105,6 @@
         <toolbarbutton id="abp-sidebar-close" oncommand="abpToggleSidebar()" tooltiptext="&closesidebar.label;"/>
       </toolbar>
     </toolbox>
-    <browser id="abp-sidebar-browser" src="chrome://adblockplus/content/sidebar.xul" flex="1" autoscroll="false"/>
+    <iframe id="abp-sidebar-browser" src="chrome://adblockplus/content/sidebar.xul" flex="1"/>
   </vbox>
 </overlay>
