@@ -16,7 +16,7 @@
 <!ENTITY tooltip.type.whitelisted "(povolený)">
 <!ENTITY tooltip.filter.label "Platný filter:">
 <!ENTITY context.block.label "Blokovať túto položku">
-<!ENTITY context.editfilter.label "Upraviť Platný filter">
+<!ENTITY context.editfilter.label "Upraviť filter v skutočnosti">
 <!ENTITY context.whitelist.label "Pridať výnimku pre položku">
 <!ENTITY context.open.label "Otvoriť na novej karte">
 <!ENTITY context.flash.label "Ohraničenie flashových položiek">
