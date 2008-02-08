@@ -3,7 +3,7 @@
 <!ENTITY findNext.accesskey "O">
 <!ENTITY findNext.tooltip "Otsi järgmist juhtumit fraasis">
 <!ENTITY findPrevious.label "Otsi eelmist">
-<!ENTITY findPrevious.accesskey "l">
+<!ENTITY findPrevious.accesskey "L">
 <!ENTITY findPrevious.tooltip "Otsi eelmist juhtumit fraasis">
 <!ENTITY findCloseButton.tooltip "Sulge otsimisriba">
 <!ENTITY highlight.label "Tõsta kõik esile">

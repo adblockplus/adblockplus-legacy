@@ -13,9 +13,9 @@
 <!ENTITY settings.label "Seaded">
 <!ENTITY settings.accesskey "S">
 <!ENTITY opensidebar.label "Ava blokeeritavad objektid">
-<!ENTITY opensidebar.accesskey "o">
+<!ENTITY opensidebar.accesskey "O">
 <!ENTITY closesidebar.label "Sulge blokeeritavad objektid">
-<!ENTITY closesidebar.accesskey "o">
+<!ENTITY closesidebar.accesskey "O">
 <!ENTITY whitelist.site.label "Sulge --">
 <!ENTITY whitelist.page.label "Sulge ainult sellel lehel">
 <!ENTITY objecttab.title "Blokeeri">

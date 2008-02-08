@@ -4,18 +4,18 @@
 <!ENTITY blocked.tooltip "פריטים חסומים בעמוד זה:">
 <!ENTITY filters.tooltip "המסננים הפעילים ביותר:">
 <!ENTITY menuitem.label "Adblock Plus">
-<!ENTITY menuitem.accesskey "b">
+<!ENTITY menuitem.accesskey "B">
 <!ENTITY context.image.label "חסום תמונה">
 <!ENTITY context.object.label "חסום אובייקט">
 <!ENTITY context.link.label "חסום קישור">
 <!ENTITY context.frame.label "חסום מסגרת">
 <!ENTITY sidebar.title "פריטים לחסימה בעמוד הנוכחי">
 <!ENTITY settings.label "מאפיינים">
-<!ENTITY settings.accesskey "פ">
+<!ENTITY settings.accesskey "F">
 <!ENTITY opensidebar.label "פתח את רשימת פריטים לחסימה">
-<!ENTITY opensidebar.accesskey "ת">
+<!ENTITY opensidebar.accesskey "B">
 <!ENTITY closesidebar.label "סגור את רשימת פריטים לחסימה">
-<!ENTITY closesidebar.accesskey "ת">
+<!ENTITY closesidebar.accesskey "B">
 <!ENTITY whitelist.site.label "נטרל ב --">
 <!ENTITY whitelist.page.label "נטרל בעמוד הזה בלבד">
 <!ENTITY objecttab.title "חסום">

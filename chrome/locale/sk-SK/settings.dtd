@@ -3,7 +3,7 @@
 <!ENTITY filters.accesskey "F">
 <!ENTITY add.label "Pridať filter">
 <!ENTITY add.accesskey "D">
-<!ENTITY addsubscription.label "Pridať povolený filter">
+<!ENTITY addsubscription.label "Pridať povolenie filtra">
 <!ENTITY addsubscription.accesskey "P">
 <!ENTITY synchsubscriptions.label "Aktualizovať všetky povolenia">
 <!ENTITY synchsubscriptions.accesskey "T">
@@ -66,7 +66,7 @@
 <!ENTITY lasthit.column "Posledný zápis">
 <!ENTITY context.edit.label "Upraviť filter">
 <!ENTITY context.resethitcount.label "Resetovať štatistiku počítadla pre filter">
-<!ENTITY context.synchsubscription.label "Aktualizovať povolené teraz">
+<!ENTITY context.synchsubscription.label "Aktualizovať povolenia teraz">
 <!ENTITY context.editsubscription.label "Upraviť povolené">
 <!ENTITY context.moveup.label "Posunúť hore">
 <!ENTITY context.movedown.label "Posunúť dole">
