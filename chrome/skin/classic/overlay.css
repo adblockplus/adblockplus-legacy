@@ -108,6 +108,10 @@ menuitem[default="true"] {
   padding-left: 4px;
 }
 
+#abp-sidebar-toolbar {
+    display: -moz-box !important;
+}
+
 #abp-sidebar-close {
   padding: 4px 2px;
   border-style: none !important;
