@@ -1167,7 +1167,7 @@ var treeView = {
     if (info[1] && typeof info[1] != "string") {
       if (col == "pattern")
         return info[1].text;
-      else if (info[1].type != "comment" && info[1].type != "invalid") {
+      else if (!info[1].dummy && info[1].type != "comment" && info[1].type != "invalid") {
         if (col == "hitcount")
           return info[1].orig.hitCount;
         else
