@@ -636,6 +636,7 @@ function abpToggleSidebar() {
     var sidebar = document.getElementById("abp-sidebar");
     if (sidebar && (!abpPrefs.detachsidebar || !sidebar.hidden)) {
       document.getElementById("abp-sidebar-splitter").hidden = !sidebar.hidden;
+      document.getElementById("abp-sidebar-browser").setAttribute("src", sidebar.hidden ? "chrome://adblockplus/content/sidebar.xul" : "about:blank");
       sidebar.hidden = !sidebar.hidden;
     }
     else
