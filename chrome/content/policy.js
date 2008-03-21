@@ -37,7 +37,7 @@ var policy = {
   allowOnce: null,
 
   init: function() {
-    var types = ["OTHER", "SCRIPT", "IMAGE", "STYLESHEET", "OBJECT", "SUBDOCUMENT", "DOCUMENT"];
+    var types = ["OTHER", "SCRIPT", "IMAGE", "STYLESHEET", "OBJECT", "SUBDOCUMENT", "DOCUMENT", "XBL", "PING", "XMLHTTPREQUEST", "OBJECT_SUBREQUEST", "DTD"];
 
     // type constant by type description and type description by type constant
     this.type = type = {};
@@ -99,7 +99,7 @@ var policy = {
     }
 
     // Data loaded by plugins should be attached to the document
-    if (contentType == type.OTHER && node instanceof Element)
+    if ((contentType == type.OTHER || contentType == type.OBJECT_SUBREQUEST) && node instanceof Element)
       node = node.ownerDocument;
 
     // Fix type for background images

@@ -70,7 +70,12 @@ var typeMap = {
   SUBDOCUMENT: 32,
   DOCUMENT: 64,
   LINK: 128,
-  BACKGROUND: 256
+  BACKGROUND: 256,
+  XBL: 512,
+  PING: 1024,
+  XMLHTTPREQUEST: 2048,
+  OBJECT_SUBREQUEST: 4096,
+  DTD: 8192
 };
 
 Matcher.prototype = {
@@ -899,7 +904,7 @@ var prefs = {
 
       if (abp.optionsRegExp.test(text)) {
         // Pattern has options
-        var options = RegExp.$1.toUpperCase().split(",");
+        var options = RegExp.$1.replace(/-/g, "_").toUpperCase().split(",");
         text = text.replace(abp.optionsRegExp, '');
 
         for (i = 0; i < options.length; i++) {
@@ -913,7 +918,7 @@ var prefs = {
               pattern.contentType = 0xFFFFFFFF;
             pattern.contentType &= ~typeMap[RegExp.$1];
           }
-          else if (options[i] == "MATCH-CASE")
+          else if (options[i] == "MATCH_CASE")
             pattern.matchCase = true;
           else if (options[i] == "COLLAPSE")
             pattern.collapse = true;
@@ -1021,7 +1026,7 @@ var prefs = {
     ' ~il~': ["invalid_description", "invalid"],
     ' ~wl~': ["whitelist_description", "whitelist"],
     ' ~fl~': ["filterlist_description", "filterlist", "comment"],
-    ' ~eh~': ["elemhide_description", "elemhide"],
+    ' ~eh~': ["elemhide_description", "elemhide"]
   },
 
   // Creates a subscription from a data object
