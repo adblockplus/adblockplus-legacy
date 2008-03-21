@@ -78,7 +78,7 @@ var policy = {
       var key = RegExp.$1;
       if (this.isWindowWhitelisted(topWnd))
       {
-        wnd.document.documentElement.setAttribute("abpWhitelist" + prefs.elemhidePatterns.seed, "");
+        wnd.setTimeout(setElementHidingException, 0, wnd, prefs.elemhidePatterns.seed);
         return false;
       }
       else

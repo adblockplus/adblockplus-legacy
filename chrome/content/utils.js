@@ -110,6 +110,10 @@ function postProcessNode(node) {
     node.style.display = "none";
 }
 
+function setElementHidingException(wnd, seed) {
+  wnd.document.documentElement.setAttribute("abpWhitelist" + seed, "");
+}
+
 // Returns the visible area of an element, coordinates relative to the upper-left corner of the page
 function getElementRect(node) {
   if (!node.ownerDocument || !node.ownerDocument.defaultView)
