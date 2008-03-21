@@ -75,10 +75,19 @@ var policy = {
 
     var match = null;
     if (/^abp:\/*registerhit\/*\?(\d+)$/.test(location) && RegExp.$1 in prefs.elemhidePatterns.keys) {
-      match = prefs.elemhidePatterns.keys[RegExp.$1];
-      prefs.increaseHitCount(match);
-      contentType = type.ELEMHIDE;
-      location = match.text.replace(/^.*?#/, '#');
+      var key = RegExp.$1;
+      if (this.isWindowWhitelisted(topWnd))
+      {
+        wnd.document.documentElement.setAttribute("abpWhitelist" + prefs.elemhidePatterns.seed, "");
+        return false;
+      }
+      else
+      {
+        match = prefs.elemhidePatterns.keys[key];
+        prefs.increaseHitCount(match);
+        contentType = type.ELEMHIDE;
+        location = match.text.replace(/^.*?#/, '#');
+      }
     }
 
     if (!match && prefs.enabled) {

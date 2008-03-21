@@ -187,6 +187,7 @@ var elemhide = {
   patterns: [],
   keys: {},
   url: null,
+  seed: Math.random().toFixed(15).substr(5),
   clear: function() {
     this.patterns = [];
     this.unapply();
@@ -211,7 +212,6 @@ var elemhide = {
       if (!domain)
         domain = "";
 
-      var rule = pattern.selector + "{display:none !important}\n";
       var list;
       if (domain in domains)
         list = domains[domain];
@@ -224,11 +224,15 @@ var elemhide = {
 
     // Joining domains list
     var cssData = "";
+    var selectorAddition = ":root:not([abpWhitelist" + this.seed + "]) ";   // Addition to prevent selectors match in whitelisted documents
     for (var domain in domains) {
       var rules = [];
       var list = domains[domain];
       for (var selector in list)
-        rules.push(selector + "{display:none !important;cursor:url(abp:registerhit?" + list[selector] + "),auto !important;}\n");
+      {
+        var safeSelector = selectorAddition + selector.match(/(?:[^,"']|"[^"]*"|'[^']*')+/g).join("," + selectorAddition);
+        rules.push(safeSelector + "{display:none !important;cursor:url(abp:registerhit?" + list[selector] + "),auto !important;}\n");
+      }
 
       if (domain)
         cssData += '@-moz-document domain("' + domain.split(",").join('"),domain("') + '"){\n' + rules.join('') + '}\n';
