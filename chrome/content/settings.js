@@ -846,19 +846,30 @@ function fillContext() {
     document.getElementById("context-movedown").setAttribute("disabled", isLast);
   }
 
-  var hasFlavour = true;
   var clipboard = Components.classes["@mozilla.org/widget/clipboard;1"]
                             .getService(Components.interfaces.nsIClipboard);
-  var flavours = Components.classes["@mozilla.org/supports-array;1"]
-                            .createInstance(Components.interfaces.nsISupportsArray);
-  var flavourString = Components.classes["@mozilla.org/supports-cstring;1"]
-                                .createInstance(Components.interfaces.nsISupportsCString);
-  flavourString.data = "text/unicode";
-  flavours.AppendElement(flavourString);
+
+  var hasFlavour = true;
+  if (clipboard.hasDataMatchingFlavors.arity > 2)
+  {
+    // Gecko 1.9
+    hasFlavour = clipboard.hasDataMatchingFlavors(["text/unicode"], 1, clipboard.kGlobalClipboard);
+  }
+  else
+  {
+    // Gecko 1.8
+    var flavours = Components.classes["@mozilla.org/supports-array;1"]
+                             .createInstance(Components.interfaces.nsISupportsArray);
+    var flavourString = Components.classes["@mozilla.org/supports-cstring;1"]
+                                  .createInstance(Components.interfaces.nsISupportsCString);
+    flavourString.data = "text/unicode";
+    flavours.AppendElement(flavourString);
+    hasFlavour = clipboard.hasDataMatchingFlavors(flavours, clipboard.kGlobalClipboard);
+  }
 
   document.getElementById("copy-command").setAttribute("disabled", !origHasPatterns);
   document.getElementById("cut-command").setAttribute("disabled", !hasRemovable);
-  document.getElementById("paste-command").setAttribute("disabled", !clipboard.hasDataMatchingFlavors(flavours, clipboard.kGlobalClipboard));
+  document.getElementById("paste-command").setAttribute("disabled", !hasFlavour);
   document.getElementById("remove-command").setAttribute("disabled", !hasRemovable && (!subscription || subscription.special || subscription.dummy));
 
   return true;
