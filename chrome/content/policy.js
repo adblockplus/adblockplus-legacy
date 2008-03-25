@@ -31,7 +31,7 @@ var type, typeDescr, localizedDescr
 var whitelistSchemes = null;
 
 const ok = Components.interfaces.nsIContentPolicy.ACCEPT;
-const block = Components.interfaces.nsIContentPolicy.REJECT_REQUEST;
+const block = Components.interfaces.nsIContentPolicy.REJECT_SERVER;
 
 var policy = {
   allowOnce: null,
