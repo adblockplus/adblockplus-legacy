@@ -62,7 +62,7 @@ var flasher = {
   },
 
   doFlash: function() {
-    if (this.count >= 6) {
+    if (this.count >= 12) {
       this.stop();
       return;
     }
