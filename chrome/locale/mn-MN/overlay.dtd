@@ -7,7 +7,6 @@
 <!ENTITY menuitem.accesskey "B">
 <!ENTITY context.image.label "Adblock Зураг">
 <!ENTITY context.object.label "Adblock Объект">
-<!ENTITY context.link.label "Adblock Холбоос">
 <!ENTITY context.frame.label "Adblock Хүрээ">
 <!ENTITY sidebar.title "Тухайн хуудас дахь хашигдаж болох зүйлс">
 <!ENTITY settings.label "Тохиргоонууд">

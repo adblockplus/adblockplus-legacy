@@ -41,8 +41,6 @@
 <!ENTITY objecttabs.accesskey "F">
 <!ENTITY collapse.label "Usporiadať blokované prvky">
 <!ENTITY collapse.accesskey "U">
-<!ENTITY linkcheck.label "Kontrolovať odkazy titulkov">
-<!ENTITY linkcheck.accesskey "D">
 <!ENTITY help.label "Pomocník">
 <!ENTITY help.accesskey "P">
 <!ENTITY faq.label "Často kladené otázky">

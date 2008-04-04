@@ -7,7 +7,6 @@
 <!ENTITY menuitem.accesskey "B">
 <!ENTITY context.image.label "Adblock Bilde">
 <!ENTITY context.object.label "Adblock Objekt">
-<!ENTITY context.link.label "Adblock Lenke">
 <!ENTITY context.frame.label "Adblock Ramme">
 <!ENTITY sidebar.title "Elementer som kan blokkeres på denne siden">
 <!ENTITY settings.label "Innstillinger">

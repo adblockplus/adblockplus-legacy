@@ -41,8 +41,6 @@
 <!ENTITY objecttabs.accesskey "T">
 <!ENTITY collapse.label "Geblokkeerde elementen inklappen">
 <!ENTITY collapse.accesskey "G">
-<!ENTITY linkcheck.label "Koppelingen van reclames controleren">
-<!ENTITY linkcheck.accesskey "K">
 <!ENTITY help.label "Help">
 <!ENTITY help.accesskey "H">
 <!ENTITY faq.label "Veelgestelde vragen">

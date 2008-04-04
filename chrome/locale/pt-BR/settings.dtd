@@ -41,8 +41,6 @@
 <!ENTITY objecttabs.accesskey "J">
 <!ENTITY collapse.label "Comprimir elementos bloqueados">
 <!ENTITY collapse.accesskey "C">
-<!ENTITY linkcheck.label "Verificar links de cartazes">
-<!ENTITY linkcheck.accesskey "V">
 <!ENTITY help.label "Ajuda">
 <!ENTITY help.accesskey "U">
 <!ENTITY faq.label "Perguntas Mais Frequentes">

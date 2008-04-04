@@ -41,8 +41,6 @@
 <!ENTITY objecttabs.accesskey "T">
 <!ENTITY collapse.label "Plega els elements bloquejats">
 <!ENTITY collapse.accesskey "L">
-<!ENTITY linkcheck.label "Comprova els enllaços de les pancartes">
-<!ENTITY linkcheck.accesskey "C">
 <!ENTITY help.label "Ajuda">
 <!ENTITY help.accesskey "u">
 <!ENTITY faq.label "Preguntes més demanades (FAQ)">

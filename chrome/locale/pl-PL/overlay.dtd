@@ -7,7 +7,6 @@
 <!ENTITY menuitem.accesskey "A">
 <!ENTITY context.image.label "Adblokuj obrazek">
 <!ENTITY context.object.label "Adblokuj obiekt">
-<!ENTITY context.link.label "Adblokuj odnośnik">
 <!ENTITY context.frame.label "Adblokuj ramkę">
 <!ENTITY sidebar.title "Blokowalne elementy na aktywnej stronie">
 <!ENTITY settings.label "Ustawienia">

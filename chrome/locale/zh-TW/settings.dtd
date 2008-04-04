@@ -41,8 +41,6 @@
 <!ENTITY objecttabs.accesskey "T">
 <!ENTITY collapse.label "釋放物件所佔用的空間">
 <!ENTITY collapse.accesskey "L">
-<!ENTITY linkcheck.label "檢查來源連結">
-<!ENTITY linkcheck.accesskey "C">
 <!ENTITY help.label "說明">
 <!ENTITY help.accesskey "H">
 <!ENTITY faq.label "常見問題集 (英文網頁)">

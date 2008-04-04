@@ -41,8 +41,6 @@
 <!ENTITY objecttabs.accesskey "J">
 <!ENTITY collapse.label "Sulge blokeeritud elemendid">
 <!ENTITY collapse.accesskey "e">
-<!ENTITY linkcheck.label "Kontrolli reklaami linke">
-<!ENTITY linkcheck.accesskey "K">
 <!ENTITY help.label "Abi">
 <!ENTITY help.accesskey "A">
 <!ENTITY faq.label "Korduma Kippuvad Küsimused">

@@ -41,8 +41,6 @@
 <!ENTITY objecttabs.accesskey "T">
 <!ENTITY collapse.label "بسط العناصر المحجوبة">
 <!ENTITY collapse.accesskey "L">
-<!ENTITY linkcheck.label "التأكد من روابط الأشرطة الإعلانية">
-<!ENTITY linkcheck.accesskey "C">
 <!ENTITY help.label "مساعدة">
 <!ENTITY help.accesskey "H">
 <!ENTITY faq.label "الأسئلة الشائعة">

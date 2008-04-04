@@ -41,8 +41,6 @@
 <!ENTITY objecttabs.accesskey "T">
 <!ENTITY collapse.label "瓦解可过滤的元素">
 <!ENTITY collapse.accesskey "L">
-<!ENTITY linkcheck.label "检查横幅链接">
-<!ENTITY linkcheck.accesskey "C">
 <!ENTITY help.label "帮助">
 <!ENTITY help.accesskey "H">
 <!ENTITY faq.label "常见问题">

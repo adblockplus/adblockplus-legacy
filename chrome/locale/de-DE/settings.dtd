@@ -71,9 +71,6 @@
 <!ENTITY objecttabs.accesskey       "B">
 <!ENTITY collapse.label             "Platz von blockierten Elementen freigeben">
 <!ENTITY collapse.accesskey         "F">
-<!ENTITY linkcheck.label            "Banner-Links überprüfen">
-<!ENTITY linkcheck.accesskey        "K">
-
 <!ENTITY help.label                 "Hilfe">
 <!ENTITY help.accesskey             "H">
 

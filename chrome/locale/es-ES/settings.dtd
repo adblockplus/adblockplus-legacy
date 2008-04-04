@@ -41,8 +41,6 @@
 <!ENTITY objecttabs.accesskey "T">
 <!ENTITY collapse.label "Contraer elementos bloqueados">
 <!ENTITY collapse.accesskey "M">
-<!ENTITY linkcheck.label "Comprobar enlaces de anuncios">
-<!ENTITY linkcheck.accesskey "C">
 <!ENTITY help.label "Ayuda">
 <!ENTITY help.accesskey "Y">
 <!ENTITY faq.label "Preguntas frecuentes">

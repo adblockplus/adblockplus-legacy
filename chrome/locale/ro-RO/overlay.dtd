@@ -7,7 +7,6 @@
 <!ENTITY menuitem.accesskey "A">
 <!ENTITY context.image.label "Adblock: blochează imagine">
 <!ENTITY context.object.label "Adblock: blochează obiect">
-<!ENTITY context.link.label "Adblock: blochează legătură">
 <!ENTITY context.frame.label "Adblock: blochează frame">
 <!ENTITY sidebar.title "Adblock Plus: elemente blocabile în pagină">
 <!ENTITY settings.label "Particularizare">

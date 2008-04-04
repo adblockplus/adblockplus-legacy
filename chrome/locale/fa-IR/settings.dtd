@@ -41,8 +41,6 @@
 <!ENTITY objecttabs.accesskey "J">
 <!ENTITY collapse.label "نمایش موارد ردشده">
 <!ENTITY collapse.accesskey "م">
-<!ENTITY linkcheck.label "بررسی پیوندهای تصاویر تبلیغاتی">
-<!ENTITY linkcheck.accesskey "غ">
 <!ENTITY help.label "راهنما">
 <!ENTITY help.accesskey "ن">
 <!ENTITY faq.label "سوالات طرح شده">

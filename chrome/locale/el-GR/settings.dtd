@@ -41,8 +41,6 @@
 <!ENTITY objecttabs.accesskey "α">
 <!ENTITY collapse.label "Σύμπτυξη φιλτραρισμένων στοιχείων">
 <!ENTITY collapse.accesskey "Σ">
-<!ENTITY linkcheck.label "Έλεγχος δεσμών διαφημίσεων">
-<!ENTITY linkcheck.accesskey "δ">
 <!ENTITY help.label "Βοήθεια">
 <!ENTITY help.accesskey "Β">
 <!ENTITY faq.label "Συχνές ερωτήσεις">

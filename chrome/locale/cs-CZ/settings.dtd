@@ -41,8 +41,6 @@
 <!ENTITY objecttabs.accesskey "o">
 <!ENTITY collapse.label "Minimalizovat blokované objekty">
 <!ENTITY collapse.accesskey "i">
-<!ENTITY linkcheck.label "Kontrolovat odkazy reklamních pruhů">
-<!ENTITY linkcheck.accesskey "p">
 <!ENTITY help.label "Nápověda">
 <!ENTITY help.accesskey "v">
 <!ENTITY faq.label "Často kladené dotazy (FAQ)">

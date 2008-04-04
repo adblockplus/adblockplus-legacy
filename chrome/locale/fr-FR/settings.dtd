@@ -41,8 +41,6 @@
 <!ENTITY objecttabs.accesskey "J">
 <!ENTITY collapse.label "Utiliser l&apos;espace libéré par les éléments bloqués">
 <!ENTITY collapse.accesskey "u">
-<!ENTITY linkcheck.label "Bloquer en utilisant l&apos;adresse cible des publicités">
-<!ENTITY linkcheck.accesskey "p">
 <!ENTITY help.label "Aide">
 <!ENTITY help.accesskey "A">
 <!ENTITY faq.label "FAQ">

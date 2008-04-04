@@ -7,7 +7,6 @@
 <!ENTITY menuitem.accesskey "A">
 <!ENTITY context.image.label "Blokuoti paveikslėlį">
 <!ENTITY context.object.label "Blokuoti objektą">
-<!ENTITY context.link.label "Blokuoti nuorodą">
 <!ENTITY context.frame.label "Blokuoti kadrą">
 <!ENTITY sidebar.title "Blokuojami elementai dabartiniame tinklalapyje">
 <!ENTITY settings.label "Nustatymai">

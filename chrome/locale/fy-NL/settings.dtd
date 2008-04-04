@@ -41,8 +41,6 @@
 <!ENTITY objecttabs.accesskey "T">
 <!ENTITY collapse.label "Blokkearre eleminten ynklappe">
 <!ENTITY collapse.accesskey "B">
-<!ENTITY linkcheck.label "Keppelings fan reklames kontrolearje">
-<!ENTITY linkcheck.accesskey "K">
 <!ENTITY help.label "Help">
 <!ENTITY help.accesskey "H">
 <!ENTITY faq.label "Meaststelde fragen">

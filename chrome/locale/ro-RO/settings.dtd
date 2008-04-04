@@ -41,8 +41,6 @@
 <!ENTITY objecttabs.accesskey "p">
 <!ENTITY collapse.label "Ascunde elementele blocate">
 <!ENTITY collapse.accesskey "c">
-<!ENTITY linkcheck.label "Verifică legăturile banerelor">
-<!ENTITY linkcheck.accesskey "V">
 <!ENTITY help.label "Ajutor">
 <!ENTITY help.accesskey "A">
 <!ENTITY faq.label "Întrebări frecvente (FAQ)">

@@ -7,7 +7,6 @@
 <!ENTITY menuitem.accesskey "c">
 <!ENTITY context.image.label "Adblocki Pilt">
 <!ENTITY context.object.label "Adblocki Objekt">
-<!ENTITY context.link.label "Adblocki Link">
 <!ENTITY context.frame.label "Adblocki Kaader">
 <!ENTITY sidebar.title "Blokeeritavad objektid sellel lehel">
 <!ENTITY settings.label "Seaded">

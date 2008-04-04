@@ -33,7 +33,6 @@
 
 <!ENTITY context.image.label    "Adblock Image">
 <!ENTITY context.object.label   "Adblock Object">
-<!ENTITY context.link.label     "Adblock Link">
 <!ENTITY context.frame.label    "Adblock Frame">
 
 <!ENTITY sidebar.title          "Blockable items on current page">

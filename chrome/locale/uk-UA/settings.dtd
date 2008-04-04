@@ -41,8 +41,6 @@
 <!ENTITY objecttabs.accesskey "я">
 <!ENTITY collapse.label "Згортати заблоковані елементи">
 <!ENTITY collapse.accesskey "о">
-<!ENTITY linkcheck.label "Перевіряти посилання на банерах">
-<!ENTITY linkcheck.accesskey "е">
 <!ENTITY help.label "Довідка">
 <!ENTITY help.accesskey "о">
 <!ENTITY faq.label "Питання, що часто ставляться (англійською)">
