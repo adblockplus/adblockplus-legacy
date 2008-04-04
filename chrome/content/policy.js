@@ -51,10 +51,6 @@ var policy = {
       localizedDescr[type[typeName]] = abp.getString("type_label_" + typeName.toLowerCase());
     }
   
-    type.LINK = 0xFFFF;
-    typeDescr[0xFFFF] = "LINK";
-    localizedDescr[0xFFFF] = abp.getString("type_label_link");
-  
     type.BACKGROUND = 0xFFFE;
     typeDescr[0xFFFE] = "BACKGROUND";
     localizedDescr[0xFFFE] = abp.getString("type_label_background");
@@ -113,7 +109,6 @@ var policy = {
     var data = DataContainer.getDataForWindow(wnd);
 
     var objTab = null;
-    var linksOk = true;
 
     if (!match && prefs.enabled) {
       match = prefs.whitePatterns.matchesAny(location, typeDescr[contentType] || "");
@@ -123,10 +118,6 @@ var policy = {
       if (match)
         prefs.increaseHitCount(match);
 
-      // Check links in parent nodes
-      if (node && prefs.linkcheck && node instanceof Components.interfaces.nsIImageLoadingContent)
-        linksOk = this.checkLinks(wnd, node);
-  
       if (match && match.type != "whitelist" && node) {
         var prefCollapse = ("collapse" in match ? match.collapse : !prefs.fastcollapse);
         if (collapse || prefCollapse)
@@ -155,25 +146,7 @@ var policy = {
     // Store node data
     data.addNode(topWnd, node, contentType, location, match, objTab);
 
-    return (match && match.type == "whitelist") || (!match && linksOk);
-  },
-
-  // Tests whether some parent of the node is a link matching a filter
-  checkLinks: function(wnd, node) {
-    while (node) {
-      if ("href" in node) {
-        var nodeLocation = unwrapURL(node.href);
-        if (nodeLocation && this.isBlockableScheme(nodeLocation))
-          break;
-      }
-  
-      node = node.parentNode;
-    }
-
-    if (node)
-      return this.processNode(wnd, node, type.LINK, nodeLocation, false);
-    else
-      return true;
+    return !match || match.type == "whitelist";
   },
 
   // Checks whether the location's scheme is blockable

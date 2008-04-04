@@ -67,7 +67,6 @@ function abpInit() {
   
     // Make sure our context menu items are at the bottom
     contextMenu.appendChild(document.getElementById("abp-frame-menuitem"));
-    contextMenu.appendChild(document.getElementById("abp-link-menuitem"));
     contextMenu.appendChild(document.getElementById("abp-object-menuitem"));
     contextMenu.appendChild(document.getElementById("abp-image-menuitem"));
   }
@@ -591,7 +590,6 @@ function abpFillPopup(popup) {
   elements.enabled.setAttribute("checked", abpPrefs.enabled);
   elements.frameobjects.setAttribute("checked", abpPrefs.frameobjects);
   elements.slowcollapse.setAttribute("checked", !abpPrefs.fastcollapse);
-  elements.linkcheck.setAttribute("checked", abpPrefs.linkcheck);
   elements.showintoolbar.setAttribute("checked", abpPrefs.showintoolbar);
   elements.showinstatusbar.setAttribute("checked", abpPrefs.showinstatusbar);
 
@@ -769,7 +767,6 @@ function abpCheckContext() {
   var target = document.popupNode;
 
   var nodeType = null;
-  contextMenu.abpLinkData = null;
   contextMenu.abpBgData = null;
   contextMenu.abpFrameData = null;
   if (abp && target) {
@@ -793,26 +790,6 @@ function abpCheckContext() {
       contextMenu.abpFrameData = contextMenu.abpFrameData[1];
     if (contextMenu.abpFrameData && contextMenu.abpFrameData.filter)
       contextMenu.abpFrameData = null;
-
-    if (abpPrefs.linkcheck && targetNode instanceof Components.interfaces.nsIImageLoadingContent) {
-      // Look for a parent link
-      var linkNode = target;
-      while (linkNode && !contextMenu.abpLinkData) {
-        if ("href" in linkNode) {
-          var link = abp.unwrapURL(linkNode.href);
-          if (link) {
-            contextMenu.abpLinkData = wndData.getLocation(abp.policy.type.LINK, link);
-            if (contextMenu.abpLinkData && contextMenu.abpLinkData.filter)
-              contextMenu.abpLinkData = null;
-          }
-        }
-
-        linkNode = linkNode.parentNode;
-      }
-
-      if (linkNode)
-        contextMenu.abpLink = abp.unwrapURL(linkNode.href);
-    }
 
     if (nodeType != "IMAGE") {
       // Look for a background image
@@ -846,7 +823,6 @@ function abpCheckContext() {
 
   document.getElementById("abp-image-menuitem").hidden = (nodeType != "IMAGE" && contextMenu.abpBgData == null);
   document.getElementById("abp-object-menuitem").hidden = (nodeType != "OBJECT");
-  document.getElementById("abp-link-menuitem").hidden = (contextMenu.abpLinkData == null);
   document.getElementById("abp-frame-menuitem").hidden = (contextMenu.abpFrameData == null);
 }
 
