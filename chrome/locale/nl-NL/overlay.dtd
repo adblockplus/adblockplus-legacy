@@ -7,7 +7,6 @@
 <!ENTITY menuitem.accesskey "A">
 <!ENTITY context.image.label "Afbeelding blokkeren">
 <!ENTITY context.object.label "Objekt blokkeren">
-<!ENTITY context.link.label "Koppeling blokkeren">
 <!ENTITY context.frame.label "Deelvenster blokkeren">
 <!ENTITY sidebar.title "Blokkeerbare onderdelen op deze pagina">
 <!ENTITY settings.label "Voorkeuren">

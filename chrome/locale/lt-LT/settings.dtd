@@ -41,8 +41,6 @@
 <!ENTITY objecttabs.accesskey "F">
 <!ENTITY collapse.label "Suskleisti užblokuotus elementus">
 <!ENTITY collapse.accesskey "S">
-<!ENTITY linkcheck.label "Patikrinti reklaminių antraščių nuorodas">
-<!ENTITY linkcheck.accesskey "T">
 <!ENTITY help.label "Pagalba">
 <!ENTITY help.accesskey "G">
 <!ENTITY faq.label "Dažnai užduodami klausimai">

@@ -7,7 +7,6 @@
 <!ENTITY menuitem.accesskey "B">
 <!ENTITY context.image.label "صورة آدبلوك">
 <!ENTITY context.object.label "عنصر آدبلوك">
-<!ENTITY context.link.label "رابط آدبلوك">
 <!ENTITY context.frame.label "إطار آدبلوك">
 <!ENTITY sidebar.title "العناصر المحجوبة في الصفحة الحالية">
 <!ENTITY settings.label "إعدادات">

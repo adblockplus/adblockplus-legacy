@@ -7,7 +7,6 @@
 <!ENTITY menuitem.accesskey "B">
 <!ENTITY context.image.label "Adblock تصوير">
 <!ENTITY context.object.label "Adblock Object">
-<!ENTITY context.link.label "Adblock پيوند">
 <!ENTITY context.frame.label "Adblock قابک">
 <!ENTITY sidebar.title "موارد قابل ردکردن در صفحه جاری">
 <!ENTITY settings.label "تنظيمات">

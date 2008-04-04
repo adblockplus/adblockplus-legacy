@@ -7,7 +7,6 @@
 <!ENTITY menuitem.accesskey "A">
 <!ENTITY context.image.label "Adblock obrázok">
 <!ENTITY context.object.label "Adblock objekt">
-<!ENTITY context.link.label "Adblock odkaz">
 <!ENTITY context.frame.label "Adblock rámec">
 <!ENTITY sidebar.title "Blokovateľné položky na aktuálnej stránke">
 <!ENTITY settings.label "Nastavenia">

@@ -7,7 +7,6 @@
 <!ENTITY menuitem.accesskey "A">
 <!ENTITY context.image.label "Blocca immagine con Adblock Plus">
 <!ENTITY context.object.label "Blocca oggetto con Adblock Plus">
-<!ENTITY context.link.label "Blocca link con Adblock Plus">
 <!ENTITY context.frame.label "Blocca riquadro con Adblock Plus">
 <!ENTITY sidebar.title "Elementi bloccabili della pagina attuale">
 <!ENTITY settings.label "Impostazioni">

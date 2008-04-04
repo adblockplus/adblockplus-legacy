@@ -7,7 +7,6 @@
 <!ENTITY menuitem.accesskey "B">
 <!ENTITY context.image.label "Adblock: φραγή εικόνας">
 <!ENTITY context.object.label "Adblock: φραγή αντικειμένου">
-<!ENTITY context.link.label "Adblock: φραγή δεσμού">
 <!ENTITY context.frame.label "Adblock: φραγή πλαισίου">
 <!ENTITY sidebar.title "Στοιχεία προς φιλτράρισμα στην τρέχουσα σελίδα">
 <!ENTITY settings.label "Προτιμήσεις">

@@ -33,7 +33,6 @@
 
 <!ENTITY context.image.label "Adblock 画像をブロック">
 <!ENTITY context.object.label "Adblock オブジェクトをブロック">
-<!ENTITY context.link.label "Adblock リンクをブロック">
 <!ENTITY context.frame.label "Adblock フレームをブロック">
 
 <!ENTITY sidebar.title "Adblock Plus このページのブロック要素">

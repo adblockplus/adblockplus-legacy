@@ -7,7 +7,6 @@
 <!ENTITY menuitem.accesskey "A">
 <!ENTITY context.image.label "Ofbylding blokkearje">
 <!ENTITY context.object.label "Objekt blokkearje">
-<!ENTITY context.link.label "Keppeling blokkearje">
 <!ENTITY context.frame.label "Dielfinster blokkearje">
 <!ENTITY sidebar.title "Blokkearbere ûnderdelen op dizze side">
 <!ENTITY settings.label "Foarkarren">

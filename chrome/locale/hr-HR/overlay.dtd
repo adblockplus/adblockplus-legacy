@@ -7,7 +7,6 @@
 <!ENTITY menuitem.accesskey "b">
 <!ENTITY context.image.label "Blokiraj sliku s Adblock">
 <!ENTITY context.object.label "Blokiraj objekt s Adblock">
-<!ENTITY context.link.label "Blokiraj poveznicu s Adblock">
 <!ENTITY context.frame.label "Blokiraj okvir s Adblock">
 <!ENTITY sidebar.title "Stavke koje se mogu blokirati na trenutnoj stranici">
 <!ENTITY settings.label "Postavke">

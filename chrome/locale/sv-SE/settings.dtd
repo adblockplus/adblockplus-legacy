@@ -41,8 +41,6 @@
 <!ENTITY objecttabs.accesskey "V">
 <!ENTITY collapse.label "Dölj blockerade element">
 <!ENTITY collapse.accesskey "l">
-<!ENTITY linkcheck.label "Kontrollera länkar från banners">
-<!ENTITY linkcheck.accesskey "K">
 <!ENTITY help.label "Hjälp">
 <!ENTITY help.accesskey "H">
 <!ENTITY faq.label "FAQ">

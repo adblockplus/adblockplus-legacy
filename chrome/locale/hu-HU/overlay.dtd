@@ -7,7 +7,6 @@
 <!ENTITY menuitem.accesskey "b">
 <!ENTITY context.image.label "Kép blokkolása">
 <!ENTITY context.object.label "Objektum blokkolása">
-<!ENTITY context.link.label "Hivatkozás blokkolása">
 <!ENTITY context.frame.label "Keret blokkolása">
 <!ENTITY sidebar.title "Blokkolható objektumok">
 <!ENTITY settings.label "Beállítások">

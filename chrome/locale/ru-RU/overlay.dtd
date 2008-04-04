@@ -33,7 +33,6 @@
 
 <!ENTITY context.image.label    "Adblock Plus: заблокировать изображение">
 <!ENTITY context.object.label   "Adblock Plus: заблокировать объект">
-<!ENTITY context.link.label     "Adblock Plus: заблокировать ссылку">
 <!ENTITY context.frame.label    "Adblock Plus: заблокировать фрейм">
 
 <!ENTITY sidebar.title          "Элементы открытой страницы">

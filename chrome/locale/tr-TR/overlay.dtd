@@ -7,7 +7,6 @@
 <!ENTITY menuitem.accesskey "A">
 <!ENTITY context.image.label "Resmi engelle">
 <!ENTITY context.object.label "Nesneyi engelle">
-<!ENTITY context.link.label "Bağlantıyı engelle">
 <!ENTITY context.frame.label "Çerçeveyi engelle">
 <!ENTITY sidebar.title "Bu sayfadaki engellenebilecek öğeler">
 <!ENTITY settings.label "Tercihler">

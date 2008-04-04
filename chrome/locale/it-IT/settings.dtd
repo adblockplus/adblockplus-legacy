@@ -41,8 +41,6 @@
 <!ENTITY objecttabs.accesskey "T">
 <!ENTITY collapse.label "Nascondi elementi bloccati">
 <!ENTITY collapse.accesskey "e">
-<!ENTITY linkcheck.label "Controlla link attinenti">
-<!ENTITY linkcheck.accesskey "C">
 <!ENTITY help.label "Aiuto">
 <!ENTITY help.accesskey "A">
 <!ENTITY faq.label "FAQ di Adblock Plus">

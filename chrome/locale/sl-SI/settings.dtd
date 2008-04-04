@@ -41,8 +41,6 @@
 <!ENTITY objecttabs.accesskey "z">
 <!ENTITY collapse.label "Zloži blokirane elemente">
 <!ENTITY collapse.accesskey "l">
-<!ENTITY linkcheck.label "Preveri povezave pasic">
-<!ENTITY linkcheck.accesskey "p">
 <!ENTITY help.label "Pomoč">
 <!ENTITY help.accesskey "m">
 <!ENTITY faq.label "Pogosto zastavljena vprašanja">

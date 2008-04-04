@@ -41,8 +41,6 @@
 <!ENTITY objecttabs.accesskey "A">
 <!ENTITY collapse.label "Dồn nhóm các phần tử bị chặn">
 <!ENTITY collapse.accesskey "D">
-<!ENTITY linkcheck.label "Kiểm tra các liên kết của biểu ngữ">
-<!ENTITY linkcheck.accesskey "K">
 <!ENTITY help.label "Trợ Giúp">
 <!ENTITY help.accesskey "G">
 <!ENTITY faq.label "Những Câu Hỏi Thường Gặp">

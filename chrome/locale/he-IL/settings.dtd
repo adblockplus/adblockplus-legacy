@@ -41,8 +41,6 @@
 <!ENTITY objecttabs.accesskey "T">
 <!ENTITY collapse.label "השמט פריטים חסומים">
 <!ENTITY collapse.accesskey "L">
-<!ENTITY linkcheck.label "בדוק קישורי באנרים">
-<!ENTITY linkcheck.accesskey "C">
 <!ENTITY help.label "עזרה">
 <!ENTITY help.accesskey "H">
 <!ENTITY faq.label "שאלות נפוצות (אנגלית)">

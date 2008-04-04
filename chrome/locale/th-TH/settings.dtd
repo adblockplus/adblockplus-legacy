@@ -41,8 +41,6 @@
 <!ENTITY objecttabs.accesskey "T">
 <!ENTITY collapse.label "ย่อเก็บส่วนย่อยที่ถูกบล็อก">
 <!ENTITY collapse.accesskey "L">
-<!ENTITY linkcheck.label "ตรวจสอบลิงก์ป้ายประกาศ">
-<!ENTITY linkcheck.accesskey "C">
 <!ENTITY help.label "ช่วยเหลือ">
 <!ENTITY help.accesskey "H">
 <!ENTITY faq.label "คำถามพบบ่อย">

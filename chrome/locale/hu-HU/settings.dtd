@@ -41,8 +41,6 @@
 <!ENTITY objecttabs.accesskey "F">
 <!ENTITY collapse.label "Blokkolt objektumok összecsukása">
 <!ENTITY collapse.accesskey "m">
-<!ENTITY linkcheck.label "Banner hivatkozások ellenőrzése">
-<!ENTITY linkcheck.accesskey "h">
 <!ENTITY help.label "Súgó">
 <!ENTITY help.accesskey "g">
 <!ENTITY faq.label "Gyakran Ismételt Kérdések (FAQ)">

@@ -28,7 +28,7 @@
 <!ENTITY menu.find.label "Bul">
 <!ENTITY menu.find.accesskey "B">
 <!ENTITY menu.findagain.label "Sonrakini bul">
-<!ENTITY menu.findagain.accesskey "S">
+<!ENTITY menu.findagain.accesskey "A">
 <!ENTITY options.label "Seçenekler">
 <!ENTITY options.accesskey "S">
 <!ENTITY enable.label "Adblock Plus&apos;ı etkinleştir">
@@ -41,8 +41,6 @@
 <!ENTITY objecttabs.accesskey "J">
 <!ENTITY collapse.label "Öğeleri kapat">
 <!ENTITY collapse.accesskey "T">
-<!ENTITY linkcheck.label "Tanıtım bağlarına bak">
-<!ENTITY linkcheck.accesskey "B">
 <!ENTITY help.label "Yardım">
 <!ENTITY help.accesskey "A">
 <!ENTITY faq.label "Sıkça Sorulan Sorular">

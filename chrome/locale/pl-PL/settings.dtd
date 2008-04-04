@@ -41,8 +41,6 @@
 <!ENTITY objecttabs.accesskey "K">
 <!ENTITY collapse.label "Ukryj zablokowane elementy">
 <!ENTITY collapse.accesskey "U">
-<!ENTITY linkcheck.label "Sprawdź odnośniki banerów">
-<!ENTITY linkcheck.accesskey "S">
 <!ENTITY help.label "Pomoc">
 <!ENTITY help.accesskey "P">
 <!ENTITY faq.label "Często zadawane pytania">

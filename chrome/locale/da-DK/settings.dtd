@@ -41,8 +41,6 @@
 <!ENTITY objecttabs.accesskey "J">
 <!ENTITY collapse.label "Sammenklap blokerede elementer">
 <!ENTITY collapse.accesskey "m">
-<!ENTITY linkcheck.label "Check banner links">
-<!ENTITY linkcheck.accesskey "C">
 <!ENTITY help.label "Hjælp">
 <!ENTITY help.accesskey "H">
 <!ENTITY faq.label "Ofte Stillede Spørgsmål">

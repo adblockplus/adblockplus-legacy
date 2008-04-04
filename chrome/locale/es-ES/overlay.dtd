@@ -7,7 +7,6 @@
 <!ENTITY menuitem.accesskey "A">
 <!ENTITY context.image.label "Bloquear imagen">
 <!ENTITY context.object.label "Bloquear objeto">
-<!ENTITY context.link.label "Bloquear enlace">
 <!ENTITY context.frame.label "Bloquear marco">
 <!ENTITY sidebar.title "Elementos bloqueables en la página actual">
 <!ENTITY settings.label "Preferencias">

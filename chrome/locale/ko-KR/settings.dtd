@@ -41,8 +41,6 @@
 <!ENTITY objecttabs.accesskey "T">
 <!ENTITY collapse.label "차단된 항목 감추기">
 <!ENTITY collapse.accesskey "L">
-<!ENTITY linkcheck.label "배너 링크 확인하기">
-<!ENTITY linkcheck.accesskey "C">
 <!ENTITY help.label "도움말">
 <!ENTITY help.accesskey "H">
 <!ENTITY faq.label "자주 묻는 질문">

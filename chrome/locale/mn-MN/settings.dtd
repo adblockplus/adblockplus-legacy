@@ -41,8 +41,6 @@
 <!ENTITY objecttabs.accesskey "Х">
 <!ENTITY collapse.label "Хашигдсан элементийг хумих">
 <!ENTITY collapse.accesskey "Э">
-<!ENTITY linkcheck.label "Баннер холбоосыг шалгах">
-<!ENTITY linkcheck.accesskey "Б">
 <!ENTITY help.label "Тусламж">
 <!ENTITY help.accesskey "Т">
 <!ENTITY faq.label "Түгээмэл Асуултын Хариултууд">

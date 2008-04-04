@@ -41,8 +41,6 @@
 <!ENTITY objecttabs.accesskey "p">
 <!ENTITY collapse.label "Romahduta estetyt elementit">
 <!ENTITY collapse.accesskey "R">
-<!ENTITY linkcheck.label "Tarkista kuvien linkit">
-<!ENTITY linkcheck.accesskey "T">
 <!ENTITY help.label "Ohje">
 <!ENTITY help.accesskey "O">
 <!ENTITY faq.label "Usein kysytyt kysymykset (FAQ)">

@@ -71,9 +71,6 @@
 <!ENTITY objecttabs.accesskey       "я">
 <!ENTITY collapse.label             "Сворачивать заблокированные элементы">
 <!ENTITY collapse.accesskey         "в">
-<!ENTITY linkcheck.label            "Проверять ссылки на баннерах">
-<!ENTITY linkcheck.accesskey        "р">
-
 <!ENTITY help.label                 "Справка">
 <!ENTITY help.accesskey             "С">
 

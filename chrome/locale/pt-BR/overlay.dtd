@@ -7,7 +7,6 @@
 <!ENTITY menuitem.accesskey "A">
 <!ENTITY context.image.label "Adblock Imagem">
 <!ENTITY context.object.label "Adblock Objeto">
-<!ENTITY context.link.label "Adblock Link">
 <!ENTITY context.frame.label "Adblock Frame">
 <!ENTITY sidebar.title "Itens bloqueáveis na página atual.">
 <!ENTITY settings.label "Preferências">
