@@ -50,7 +50,6 @@ JSPropertySpec window_properties[] = {
 WORD context_commands[] = {
   CMD_IMAGE,
   CMD_OBJECT,
-  CMD_LINK,
   CMD_FRAME
 };
 

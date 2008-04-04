@@ -219,8 +219,6 @@ function onCommand(command, hWnd, id) {
     abpNode(gContextMenu.abpBgData || gContextMenu.abpData);
   else if (command == "object")
     abpNode(gContextMenu.abpData);
-  else if (command == "link")
-    abpNode(gContextMenu.abpLinkData);
   else if (command == "frame")
     abpNode(gContextMenu.abpFrameData);
   else if (command == "toolbar")
