@@ -69,7 +69,6 @@ var typeMap = {
   OBJECT: 16,
   SUBDOCUMENT: 32,
   DOCUMENT: 64,
-  LINK: 128,
   BACKGROUND: 256,
   XBL: 512,
   PING: 1024,

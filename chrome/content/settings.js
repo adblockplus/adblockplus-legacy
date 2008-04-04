@@ -760,7 +760,6 @@ function fillOptionsPopup() {
   document.getElementById("abp-enabled").setAttribute("checked", prefs.enabled);
   document.getElementById("frameobjects").setAttribute("checked", prefs.frameobjects);
   document.getElementById("slowcollapse").setAttribute("checked", !prefs.fastcollapse);
-  document.getElementById("linkcheck").setAttribute("checked", prefs.linkcheck);
   document.getElementById("showintoolbar").setAttribute("checked", prefs.showintoolbar);
   document.getElementById("showinstatusbar").setAttribute("checked", prefs.showinstatusbar);
 }

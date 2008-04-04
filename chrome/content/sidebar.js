@@ -246,7 +246,6 @@ function fillInTooltip(e) {
 const visual = {
   OTHER: true,
   IMAGE: true,
-  LINK: true,
   SUBDOCUMENT: true
 }
 
