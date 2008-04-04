@@ -33,7 +33,6 @@ char labelValues[NUM_LABELS][100];
 char* context_labels[] = {
   "context.image...",
   "context.object...",
-  "context.link...",
   "context.frame...",
 };
 
@@ -131,6 +130,17 @@ PRBool CreateFakeBrowserWindow(JSContext* cx, JSObject* parent, nsIPrincipal* sy
   nsresult rv;
   jsval value;
 
+  nsCOMPtr<nsIXPConnect> xpc = do_GetService(nsIXPConnect::GetCID());
+  if (xpc == nsnull) {
+    JS_ReportError(cx, "Adblock Plus: Coult not retrieve nsIXPConnect - wrong Gecko version?");
+    return PR_FALSE;
+  }
+  rv = xpc->FlagSystemFilenamePrefix("adblockplus.dll/");
+  if (NS_FAILED(rv)) {
+    JS_ReportError(cx, "Adblock Plus: Failed to enable protection for inline JavaScript");
+    return PR_FALSE;
+  }
+
   JSObject* obj = JS_NewObject(cx, nsnull, nsnull, parent);
   if (obj == nsnull) {
     JS_ReportError(cx, "Adblock Plus: Failed to create fake browser window object - out of memory?");
@@ -169,12 +179,6 @@ PRBool CreateFakeBrowserWindow(JSContext* cx, JSObject* parent, nsIPrincipal* sy
     JS_DestroyScript(cx, inlineScript);
   }
   JSPRINCIPALS_DROP(cx, principals);
-
-  nsCOMPtr<nsIXPConnect> xpc = do_GetService(nsIXPConnect::GetCID());
-  if (xpc == nsnull) {
-    JS_ReportError(cx, "Adblock Plus: Coult not retrieve nsIXPConnect - wrong Gecko version?");
-    return PR_FALSE;
-  }
 
   nsCOMPtr<nsISupports> wrapped;
   rv = xpc->WrapJS(cx, obj, NS_GET_IID(nsISupports), getter_AddRefs(wrapped));

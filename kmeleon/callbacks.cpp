@@ -53,9 +53,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
       case CMD_OBJECT:
         commandName = "object";
         break;
-      case CMD_LINK:
-        commandName = "link";
-        break;
       case CMD_FRAME:
         commandName = "frame";
         break;

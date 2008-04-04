@@ -2,8 +2,7 @@ var gContextMenu = {
   abpItems: {
     "abp-image-menuitem" : 0,
     "abp-object-menuitem" : 1,
-    "abp-link-menuitem" : 2,
-    "abp-frame-menuitem" : 3
+    "abp-frame-menuitem" : 2
   },
   target: null,
   showListeners: [],
@@ -18,7 +17,7 @@ var gContextMenu = {
   updateMenu: function(target) {
     resetContextMenu();
     this.target = target;
-    document.popupNode = target;
+    document.popupNode = this.target;
     for (var i = 0; i < this.showListeners.length; i++)
       this.showListeners[i].call(this);
   },
