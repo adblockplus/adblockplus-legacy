@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!/usr/bin/perl -w
 
 use strict;
 
@@ -15,10 +15,10 @@ foreach my $locale (@locales) {
   close(FILE);
 
   if ($file =~ /\.dtd$/) {
-    $data =~ s/<!ENTITY\s+$string\s+"[^"]*">\s*//gs or die "String $string not found in file chrome/locale/$locale/$file";
+    $data =~ s/<!ENTITY\s+$string\s+"[^"]*">\s*//gs or (warn "String $string not found in file chrome/locale/$locale/$file" && next);
   }
   else {
-    $data =~ s/^$string=.*\n//gm or die "String $string not found in file chrome/locale/$locale/$file";
+    $data =~ s/^$string=.*\n//gm or (warn "String $string not found in file chrome/locale/$locale/$file" && next);
   }
 
   open(FILE, ">chrome/locale/$locale/$file") or die "Could not write file chrome/locale/$locale/$file";
