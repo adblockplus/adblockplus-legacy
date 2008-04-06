@@ -1,0 +1,21 @@
+<!ENTITY notloaded.label "Tidak dilancarkan">
+<!ENTITY notloaded.tooltip "Komponen Adblock Plus tidak dapat dilancarkan, mungkin ia tidak dipasang dengan betul.">
+<!ENTITY status.tooltip "Status:">
+<!ENTITY blocked.tooltip "Item yang disekat pada laman ini:">
+<!ENTITY filters.tooltip "Penapis yang paling aktif:">
+<!ENTITY menuitem.label "Adblock Plus">
+<!ENTITY menuitem.accesskey "B">
+<!ENTITY context.image.label "Imej Adblock">
+<!ENTITY context.object.label "Objek Adblock">
+<!ENTITY context.frame.label "Bingkai Adblock">
+<!ENTITY sidebar.title "Item yang boleh dihalang pada halaman semasa">
+<!ENTITY settings.label "Tatarajah">
+<!ENTITY settings.accesskey "T">
+<!ENTITY opensidebar.label "Buka item yang boleh disekat">
+<!ENTITY opensidebar.accesskey "B">
+<!ENTITY closesidebar.label "Tutup item yang boleh disekat">
+<!ENTITY closesidebar.accesskey "B">
+<!ENTITY whitelist.site.label "Matikan pada --">
+<!ENTITY whitelist.page.label "Matikan pada halaman ini sahaja">
+<!ENTITY objecttab.title "Sekat">
+<!ENTITY objecttab.tooltip "Klik di sini untuk mennyekat objek ini dengan Adblock Plus">
