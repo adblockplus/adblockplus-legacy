@@ -12,7 +12,7 @@ my @must_differ = (
   ['abp:settings:filters.accesskey', 'abp:settings:edit.accesskey', 'abp:settings:options.accesskey', 'abp:settings:help.accesskey', 'abp:settings:add.accesskey', 'abp:settings:apply.accesskey'],
   ['abp:settings:add.accesskey', 'abp:settings:addsubscription.accesskey', 'abp:settings:synchsubscriptions.accesskey', 'abp:settings:import.accesskey', 'abp:settings:export.accesskey', 'abp:settings:clearall.accesskey', 'abp:settings:resethitcounts.accesskey'],
   ['abp:settings:cut.accesskey', 'abp:settings:copy.accesskey', 'abp:settings:paste.accesskey', 'abp:settings:remove.accesskey', 'abp:settings:menu.find.accesskey', 'abp:settings:menu.findagain.accesskey'],
-  ['abp:settings:enable.accesskey', 'abp:settings:showintoolbar.accesskey', 'abp:settings:showinstatusbar.accesskey', 'abp:settings:objecttabs.accesskey', 'abp:settings:collapse.accesskey', 'abp:settings:linkcheck.accesskey'],
+  ['abp:settings:enable.accesskey', 'abp:settings:showintoolbar.accesskey', 'abp:settings:showinstatusbar.accesskey', 'abp:settings:objecttabs.accesskey', 'abp:settings:collapse.accesskey'],
   ['abp:settings:faq.accesskey', 'abp:settings:tips.accesskey', 'abp:settings:filterdoc.accesskey', 'abp:settings:about.accesskey'],
   ['abp:findbar:findNext.accesskey', 'abp:findbar:findPrevious.accesskey', 'abp:findbar:highlight.accesskey', 'abp:findbar:caseSensitiveCheckbox.accesskey'],
   ['abp:subscription:location.accesskey', 'abp:subscription:title.accesskey', 'abp:subscription:autodownload.accesskey', 'abp:subscription:enabled.accesskey'],
