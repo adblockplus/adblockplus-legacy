@@ -56,8 +56,12 @@ function init() {
     mainWin.addEventListener("unload", mainUnload, false);
     document.getElementById("detachButton").hidden = true;
     document.getElementById("reattachButton").hidden = false;
-    if (!mainWin.document.getElementById('abp-sidebar'))
+    if (!mainWin.document.getElementById("abp-sidebar"))
       document.getElementById("reattachButton").setAttribute("disabled", "true");
+    if (mainWin.document.getElementById("abp-key-sidebar")) {
+      var sidebarKey = mainWin.document.getElementById("abp-key-sidebar").cloneNode(true);
+      parent.document.getElementById("detached-keyset").appendChild(parent.document.importNode(sidebarKey, true));
+    }
   }
   window.__defineGetter__("content", function() {return mainWin.abpGetBrowser().contentWindow;});
 

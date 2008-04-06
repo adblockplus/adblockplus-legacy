@@ -35,10 +35,13 @@
   persist="screenX screenY width height sizemode">
 
   <keyset id="detached-keyset">
-    <key keycode="VK_ESCAPE" oncommand="window.close()"/> 
-    <key modifiers="accel" key="w" oncommand="window.close()"/> 
-    <key modifiers="accel,shift" key="b" oncommand="window.close()"/>
+    <key keycode="VK_ESCAPE" command="abp-command-sidebar"/> 
+    <key modifiers="accel" key="w" command="abp-command-sidebar"/> 
   </keyset>
+
+  <commandset id="detached-commandset">
+    <command id="abp-command-sidebar" oncommand="window.close()"/>
+  </commandset>
 
   <iframe src="sidebar.xul" id="sidebarFrame" flex="1"/>
 </window>
