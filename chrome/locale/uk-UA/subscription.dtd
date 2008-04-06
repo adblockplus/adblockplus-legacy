@@ -12,7 +12,7 @@
 	її додало.
 ">
 <!ENTITY autodownload.description "
-	Якщо вибрано &apos;Оновлювати автоматично&apos;, то оновлення викачуватимуться
+	Якщо вибрано «Оновлювати автоматично», то оновлення викачуватимуться
 	з цієї адреси щодня.  Без цієї опції викачування потрібно запускати
 	вручну з контекстного меню підписки.
 ">
@@ -22,7 +22,7 @@
 <!ENTITY title.accesskey "а">
 <!ENTITY autodownload.label "Оновлювати автоматично">
 <!ENTITY autodownload.accesskey "о">
-<!ENTITY enabled.label "Включити фільтри">
+<!ENTITY enabled.label "Увімкнути фільтри">
 <!ENTITY enabled.accesskey "ю">
 <!ENTITY full-list.url "http://adblockplus.org/en/subscriptions">
 <!ENTITY full-list.label "Показати усі підписки">

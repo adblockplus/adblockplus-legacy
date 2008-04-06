@@ -2,9 +2,9 @@
 <!ENTITY filters.label "Filtrid">
 <!ENTITY filters.accesskey "F">
 <!ENTITY add.label "Lisa filter">
-<!ENTITY add.accesskey "t">
+<!ENTITY add.accesskey "C">
 <!ENTITY addsubscription.label "Lisa filtri tellimuse">
-<!ENTITY addsubscription.accesskey "L">
+<!ENTITY addsubscription.accesskey "t">
 <!ENTITY synchsubscriptions.label "Uuenda kõik tellimused">
 <!ENTITY synchsubscriptions.accesskey "d">
 <!ENTITY import.label "Impordi filtreid">
@@ -28,7 +28,7 @@
 <!ENTITY menu.find.label "Otsi">
 <!ENTITY menu.find.accesskey "O">
 <!ENTITY menu.findagain.label "Otsi uuesti">
-<!ENTITY menu.findagain.accesskey "s">
+<!ENTITY menu.findagain.accesskey "S">
 <!ENTITY options.label "Valikud">
 <!ENTITY options.accesskey "V">
 <!ENTITY enable.label "Võimalda Adblock Plusi">
@@ -52,7 +52,7 @@
 <!ENTITY filterdoc.label "Kirjutamas Adblock Plusi filtreid">
 <!ENTITY filterdoc.accesskey "m">
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
-<!ENTITY about.label "Adblock Plusist">
+<!ENTITY about.label "Teavet">
 <!ENTITY about.accesskey "s">
 <!ENTITY disabled.warning "Adblock Plus on kinni. Sa saad muuta kõiki filtreid kuid need ei ole rakendatud, kuni Adblock ei ole sees.">
 <!ENTITY description "Lisa aadresse mida sa soovid blokeerida, soovituseks vaata nimekirja.
