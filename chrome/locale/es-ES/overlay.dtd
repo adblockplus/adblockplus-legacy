@@ -5,17 +5,17 @@
 <!ENTITY filters.tooltip "Filtros más activos:">
 <!ENTITY menuitem.label "Adblock Plus">
 <!ENTITY menuitem.accesskey "A">
-<!ENTITY context.image.label "Bloquear imagen">
-<!ENTITY context.object.label "Bloquear objeto">
-<!ENTITY context.frame.label "Bloquear marco">
+<!ENTITY context.image.label "ABP - Bloquear imagen">
+<!ENTITY context.object.label "ABP - Bloquear objeto">
+<!ENTITY context.frame.label "ABP - Bloquear marco">
 <!ENTITY sidebar.title "Elementos bloqueables en la página actual">
 <!ENTITY settings.label "Preferencias">
 <!ENTITY settings.accesskey "P">
-<!ENTITY opensidebar.label "Abrir elementos bloqueables">
+<!ENTITY opensidebar.label "Abrir ventana de bloqueables">
 <!ENTITY opensidebar.accesskey "l">
-<!ENTITY closesidebar.label "Cerrar elementos bloqueables">
+<!ENTITY closesidebar.label "Cerrar ventana de bloqueables">
 <!ENTITY closesidebar.accesskey "l">
-<!ENTITY whitelist.site.label "Desactivar --">
+<!ENTITY whitelist.site.label "Desactivar en --">
 <!ENTITY whitelist.page.label "Desactivar sólo en esta página">
-<!ENTITY objecttab.title "Block">
-<!ENTITY objecttab.tooltip "Click here to block this object with Adblock Plus">
+<!ENTITY objecttab.title "Bloquear">
+<!ENTITY objecttab.tooltip "Pulse aquí para bloquear este objeto con Adblock Plus">

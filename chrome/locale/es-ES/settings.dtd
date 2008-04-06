@@ -3,7 +3,7 @@
 <!ENTITY filters.accesskey "F">
 <!ENTITY add.label "Añadir filtro">
 <!ENTITY add.accesskey "A">
-<!ENTITY addsubscription.label "Añadir suscripción de filtro">
+<!ENTITY addsubscription.label "Añadir suscripción de filtros">
 <!ENTITY addsubscription.accesskey "S">
 <!ENTITY synchsubscriptions.label "Actualizar todas las suscripciones">
 <!ENTITY synchsubscriptions.accesskey "d">
@@ -13,7 +13,7 @@
 <!ENTITY export.accesskey "X">
 <!ENTITY clearall.label "Eliminar todos los filtros">
 <!ENTITY clearall.accesskey "L">
-<!ENTITY resethitcounts.label "Reiniciar estadísticas de éxito">
+<!ENTITY resethitcounts.label "Reiniciar contadores de los filtros">
 <!ENTITY resethitcounts.accesskey "R">
 <!ENTITY edit.label "Editar">
 <!ENTITY edit.accesskey "E">
@@ -49,19 +49,21 @@
 <!ENTITY tips.label "Consejo del día">
 <!ENTITY tips.accesskey "J">
 <!ENTITY tips.url "http://adblockplus.org/en/tips">
-<!ENTITY filterdoc.label "Escribiendo filtros de Adblock Plus">
+<!ENTITY filterdoc.label "Escribir filtros de Adblock Plus">
 <!ENTITY filterdoc.accesskey "r">
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Acerca de Adblock Plus">
 <!ENTITY about.accesskey "B">
-<!ENTITY disabled.warning "Adblock Plus está desactivado. Puede editar cualquier filtro de la lista, pero no se aplicarán hasta que se reactive.">
-<!ENTITY description "Añada las direcciones que desee bloquear. Para sugerencias compruebe la lista desplegable. Puede usar un * como comodín para crear filtros más generales. Los usuarios avanzados pueden usar expresiones regulares como /banner\d+\.gif$/.">
+<!ENTITY disabled.warning "Adblock Plus está desactivado. Puede editar los filtros de la lista, pero no se usarán hasta que lo reactive.">
+<!ENTITY description "Añada las direcciones que desee bloquear, y buscar sugerencias en la lista 
+	desplegable. Puede usar &apos;*&apos; como comodín para crear filtros genéricos. Los 
+	usuarios avanzados pueden usar expresiones regulares como /banner\d+\.gif$/.">
 <!ENTITY pattern.column "Regla de filtro">
 <!ENTITY enabled.column "Activado">
-<!ENTITY hitcount.column "Éxitos">
-<!ENTITY lasthit.column "Último éxito">
+<!ENTITY hitcount.column "Contador">
+<!ENTITY lasthit.column "Último uso">
 <!ENTITY context.edit.label "Editar filtro">
-<!ENTITY context.resethitcount.label "Reiniciar estadísticas de éxitos para filtro">
+<!ENTITY context.resethitcount.label "Reiniciar contador de usos del filtro">
 <!ENTITY context.synchsubscription.label "Actualizar suscripción ahora">
 <!ENTITY context.editsubscription.label "Editar suscripción">
 <!ENTITY context.moveup.label "Subir">
