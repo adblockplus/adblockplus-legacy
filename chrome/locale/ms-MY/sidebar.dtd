@@ -1,0 +1,23 @@
+<!ENTITY detached.title "Adblock Plus: Item yang disekat (diasingkan)">
+<!ENTITY detach.label "Asingkan">
+<!ENTITY reattach.label "Lampir semula">
+<!ENTITY search.label "Cari:">
+<!ENTITY search.accesskey "C">
+<!ENTITY type.label "Jenis">
+<!ENTITY address.label "Alamat">
+<!ENTITY filter.label "Penapis">
+<!ENTITY state.label "Kawasan">
+<!ENTITY noitems.label "Tiada item yang disekat">
+<!ENTITY whitelisted.label "Laman yang disenarai putih">
+<!ENTITY notloaded.label "Adblock Plus tidak dipasang dengan betul">
+<!ENTITY tooltip.address.label "Alamat:">
+<!ENTITY tooltip.type.label "Jenis:">
+<!ENTITY tooltip.type.blocked "(disekat)">
+<!ENTITY tooltip.type.whitelisted "(senarai putih)">
+<!ENTITY tooltip.filter.label "Penapis yang menyekat:">
+<!ENTITY context.block.label "Sekat item ini">
+<!ENTITY context.editfilter.label "Ubah penapis yang menyekat">
+<!ENTITY context.whitelist.label "Tambah perintah pengecualian untuk item">
+<!ENTITY context.open.label "Buka dalam Tab Baru">
+<!ENTITY context.flash.label "Jelaskan sempadan item">
+<!ENTITY context.copy.label "Salin alamat item">

@@ -1,0 +1,14 @@
+<!ENTITY find.label "Gelintar:">
+<!ENTITY findNext.label "Gelintar Seterusnya">
+<!ENTITY findNext.accesskey "S">
+<!ENTITY findNext.tooltip "Gelintar frasa yang sama seterusnya">
+<!ENTITY findPrevious.label "Gelintar Sebelumnya">
+<!ENTITY findPrevious.accesskey "M">
+<!ENTITY findPrevious.tooltip "Gelintar frasa yang sama sebelumnya">
+<!ENTITY findCloseButton.tooltip "Tutup bar Gelintar">
+<!ENTITY highlight.label "Timbulkan semua">
+<!ENTITY highlight.accesskey "a">
+<!ENTITY highlight.tooltip "Timbulkan semua frasa yang sama (Ctrl+Enter)">
+<!ENTITY highlight.macTooltip "Timbulkan semua frasa yang sama (Ctrl+Return)">
+<!ENTITY caseSensitiveCheckbox.label "Kes sama">
+<!ENTITY caseSensitiveCheckbox.accesskey "k">
