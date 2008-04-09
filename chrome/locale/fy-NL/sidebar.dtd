@@ -16,8 +16,8 @@
 <!ENTITY tooltip.type.whitelisted "(tastien)">
 <!ENTITY tooltip.filter.label "Tapast filter:">
 <!ENTITY context.block.label "Blokkearje dit ûnderdiel">
-<!ENTITY context.editfilter.label "Wizig tapast filter">
+<!ENTITY context.editfilter.label "Bewurkje tapast filter">
 <!ENTITY context.whitelist.label "Meitsje in útsûnderingsrigel foar dit ûnderdiel">
-<!ENTITY context.open.label "Iepen yn in Nij Ljepblêd">
+<!ENTITY context.open.label "Iepen yn in nij ljepblêd">
 <!ENTITY context.flash.label "Lit rannen knipperje">
 <!ENTITY context.copy.label "Kopiearje">

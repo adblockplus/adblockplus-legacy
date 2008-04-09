@@ -23,10 +23,8 @@
 	 - ***** END LICENSE BLOCK ***** -->
 
 <!ENTITY dialog.title "Adblock Plus 設定">
-
 <!ENTITY filters.label "フィルタ">
 <!ENTITY filters.accesskey "F">
-
 <!ENTITY add.label "追加">
 <!ENTITY add.accesskey "A">
 <!ENTITY addsubscription.label "同期フィルタの読み込み追加">
@@ -41,10 +39,8 @@
 <!ENTITY clearall.accesskey "L">
 <!ENTITY resethitcounts.label "ヒット数をリセット">
 <!ENTITY resethitcounts.accesskey "R">
-
 <!ENTITY edit.label "編集">
 <!ENTITY edit.accesskey "E">
-
 <!ENTITY cut.label "切り取り">
 <!ENTITY cut.accesskey "T">
 <!ENTITY copy.label "コピー">
@@ -57,10 +53,8 @@
 <!ENTITY menu.find.accesskey "F">
 <!ENTITY menu.findagain.label "再検索">
 <!ENTITY menu.findagain.accesskey "G">
-
 <!ENTITY options.label "オプション">
 <!ENTITY options.accesskey "O">
-
 <!ENTITY enable.label "Adblock Plus を有効にする">
 <!ENTITY enable.accesskey "N">
 <!ENTITY showintoolbar.label "ツールバー表示">
@@ -73,7 +67,6 @@
 <!ENTITY collapse.accesskey "L">
 <!ENTITY help.label "ヘルプ">
 <!ENTITY help.accesskey "H">
-
 <!ENTITY faq.label "よくある質問と回答（FAQ）">
 <!ENTITY faq.accesskey "F">
 <!ENTITY faq.url "http://adblockplus.org/en/faq">
@@ -85,20 +78,16 @@
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Adblock Plus について">
 <!ENTITY about.accesskey "B">
-
 <!ENTITY disabled.warning "Adblock Plus は現在停止中です。 リスト内のフィルタ編集はできますが Adblock Plus を有効にするまでは適用されません。">
-
 <!ENTITY description                "
 		ドロップダウンリストの中からブロックしたいアドレスを追加してください。
 		汎用的なフィルタを作成する場合はワイルドカードとして * (アスタリスク)が使用できます。
 		上級ユーザは /banner\d+\.gif$/ のような正規表現を使用することができます。
 ">
-
 <!ENTITY pattern.column "フィルタルール">
 <!ENTITY enabled.column "有効／無効">
 <!ENTITY hitcount.column "ヒット数">
 <!ENTITY lasthit.column "最終ヒット日時">
-
 <!ENTITY context.edit.label "フィルタ編集">
 <!ENTITY context.resethitcount.label "フィルタヒット数をリセット">
 <!ENTITY context.synchsubscription.label "今すぐ同期フィルタをアップデート">
@@ -107,6 +96,5 @@
 <!ENTITY context.movedown.label "下へ">
 <!ENTITY context.movegroupup.label "上のグループへ">
 <!ENTITY context.movegroupdown.label "下のグループへ">
-
 <!ENTITY apply.label "適 用">
 <!ENTITY apply.accesskey "P">

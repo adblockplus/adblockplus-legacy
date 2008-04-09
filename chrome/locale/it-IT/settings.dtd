@@ -41,8 +41,8 @@
 <!ENTITY objecttabs.accesskey "T">
 <!ENTITY collapse.label "Nascondi elementi bloccati">
 <!ENTITY collapse.accesskey "e">
-<!ENTITY help.label "Aiuto">
-<!ENTITY help.accesskey "A">
+<!ENTITY help.label "?">
+<!ENTITY help.accesskey "?">
 <!ENTITY faq.label "FAQ di Adblock Plus">
 <!ENTITY faq.accesskey "F">
 <!ENTITY faq.url "http://adblockplus.org/en/faq">
@@ -71,4 +71,4 @@
 <!ENTITY context.movegroupup.label "Sposta il gruppo su">
 <!ENTITY context.movegroupdown.label "Sposta il gruppo giù">
 <!ENTITY apply.label "Applica">
-<!ENTITY apply.accesskey "P">
+<!ENTITY apply.accesskey "p">

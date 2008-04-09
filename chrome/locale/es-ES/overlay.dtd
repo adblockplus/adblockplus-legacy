@@ -11,9 +11,9 @@
 <!ENTITY sidebar.title "Elementos bloqueables en la página actual">
 <!ENTITY settings.label "Preferencias">
 <!ENTITY settings.accesskey "P">
-<!ENTITY opensidebar.label "Abrir ventana de bloqueables">
+<!ENTITY opensidebar.label "Abrir ventana elementos bloqueables">
 <!ENTITY opensidebar.accesskey "l">
-<!ENTITY closesidebar.label "Cerrar ventana de bloqueables">
+<!ENTITY closesidebar.label "Cerrar ventana elementos bloqueables">
 <!ENTITY closesidebar.accesskey "l">
 <!ENTITY whitelist.site.label "Desactivar en --">
 <!ENTITY whitelist.page.label "Desactivar sólo en esta página">
