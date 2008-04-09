@@ -27,16 +27,12 @@
 <!ENTITY status.tooltip "状態：">
 <!ENTITY blocked.tooltip "このページのブロック要素数：">
 <!ENTITY filters.tooltip "機能中のフィルタ（要素数）：">
-
 <!ENTITY menuitem.label "Adblock Plus">
 <!ENTITY menuitem.accesskey "B">
-
 <!ENTITY context.image.label "Adblock 画像をブロック">
 <!ENTITY context.object.label "Adblock オブジェクトをブロック">
 <!ENTITY context.frame.label "Adblock フレームをブロック">
-
 <!ENTITY sidebar.title "Adblock Plus このページのブロック要素">
-
 <!ENTITY settings.label "設定">
 <!ENTITY settings.accesskey "F">
 <!ENTITY opensidebar.label "ブロック要素一覧を開く">
@@ -45,6 +41,5 @@
 <!ENTITY closesidebar.accesskey "B">
 <!ENTITY whitelist.site.label "-- をホワイトリストに追加">
 <!ENTITY whitelist.page.label "現在のページをホワイトリストに追加">
-
 <!ENTITY objecttab.title "ブロック">
 <!ENTITY objecttab.tooltip "Adblock Plus クリックでブロックします">

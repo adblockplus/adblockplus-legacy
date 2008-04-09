@@ -49,7 +49,7 @@
 <!ENTITY tips.label "Consejo del día">
 <!ENTITY tips.accesskey "J">
 <!ENTITY tips.url "http://adblockplus.org/en/tips">
-<!ENTITY filterdoc.label "Escribir filtros de Adblock Plus">
+<!ENTITY filterdoc.label "Escribir filtros para Adblock Plus">
 <!ENTITY filterdoc.accesskey "r">
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Acerca de Adblock Plus">
@@ -58,12 +58,12 @@
 <!ENTITY description "Añada las direcciones que desee bloquear, y buscar sugerencias en la lista 
 	desplegable. Puede usar &apos;*&apos; como comodín para crear filtros genéricos. Los 
 	usuarios avanzados pueden usar expresiones regulares como /banner\d+\.gif$/.">
-<!ENTITY pattern.column "Regla de filtro">
+<!ENTITY pattern.column "Regla de filtrado">
 <!ENTITY enabled.column "Activado">
 <!ENTITY hitcount.column "Contador">
 <!ENTITY lasthit.column "Último uso">
 <!ENTITY context.edit.label "Editar filtro">
-<!ENTITY context.resethitcount.label "Reiniciar contador de usos del filtro">
+<!ENTITY context.resethitcount.label "Reiniciar contador del filtro">
 <!ENTITY context.synchsubscription.label "Actualizar suscripción ahora">
 <!ENTITY context.editsubscription.label "Editar suscripción">
 <!ENTITY context.moveup.label "Subir">

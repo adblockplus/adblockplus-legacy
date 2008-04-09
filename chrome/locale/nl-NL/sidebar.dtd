@@ -20,4 +20,4 @@
 <!ENTITY context.whitelist.label "Maak een uitzonderingsregel voor dit onderdeel">
 <!ENTITY context.open.label "Open in een nieuw tabblad">
 <!ENTITY context.flash.label "Laat randen knipperen">
-<!ENTITY context.copy.label "Kopieer">
+<!ENTITY context.copy.label "Kopieer adres">
