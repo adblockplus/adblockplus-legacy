@@ -1,6 +1,7 @@
 var document = {
   popupNode: null,
   tooltipNode: null,
+  realDoc: Components.classes["@mozilla.org/xml/xml-document;1"].createInstance(Components.interfaces.nsIDOMXMLDocument),
 
   getElementById: function(id) {
     if (id == "abp-sidebar")
@@ -14,6 +15,10 @@ var document = {
   },
 
   createElement: function(tagName) {
-    return this.getElementById(null);
+    return this.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", tagName);
+  },
+
+  createElementNS: function(namespace, tagName) {
+    return this.realDoc.createElementNS(namespace, tagName);
   }
 }
