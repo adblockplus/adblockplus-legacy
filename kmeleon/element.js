@@ -1,6 +1,7 @@
 var _element = {
   id: null,
   curState: null,
+  lastAppended: null,
   style: {},
   get tagName() {
     if (this.id == "abp-status")
@@ -54,9 +55,19 @@ var _element = {
       this.setIconDelayed(0);
   },
 
-  appendChild: function() {},
+  appendChild: function(child) {
+    this.lastAppended = child;
+  },
   getElementsByTagName: function(name) {
     return [this];
+  },
+
+  cloneNode: function() {
+    if (this.id != "abp-key-sidebar")
+      return null;
+
+    abpConfigureKey("sidebar", abpPrefs.sidebar_key);
+    return this.lastAppended;
   },
 
   icon: 0,
