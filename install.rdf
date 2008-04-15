@@ -86,6 +86,16 @@
     </Description>
   </em:targetApplication>
 
+  <!-- Conkeror -->
+  <em:targetApplication>
+    <Description>
+      <em:id>{a79fe89b-6662-4ff4-8e88-09950ad4dfde}</em:id>
+      <!-- Conkeror developers will take care of UI integration themselves -->
+      <em:minVersion>0.1</em:minVersion>
+      <em:maxVersion>100.0</em:maxVersion>
+    </Description>
+  </em:targetApplication>
+
   <!-- Front End MetaData -->
   <em:name>Adblock Plus</em:name>
   <em:description>Ads were yesterday!</em:description>
