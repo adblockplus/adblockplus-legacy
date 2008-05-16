@@ -35,11 +35,11 @@
   </window>
 
   <!-- Songbird window -->
-  <window id="mainplayer">
+  <sb-support id="mainSupportSet">
     <popupset id="abp-popupset"/>
     <keyset id="abp-keyset"/>
     <commandset id="abp-commandset"/>
-  </window>
+  </sb-support>
 
   <!-- Status bar -->
   <statusbar id="status-bar">
