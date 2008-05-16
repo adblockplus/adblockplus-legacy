@@ -124,8 +124,7 @@ var synchronizer = {
                               .createInstance(Components.interfaces.nsIJSXMLHttpRequest);
       request.open("GET", prefs.subscriptions_fallbackurl.replace(/%s/g, escape(subscription.url)));
       request.channel.loadFlags = request.channel.loadFlags |
-                                  request.channel.INHIBIT_CACHING |
-                                  request.channel.LOAD_BYPASS_CACHE;
+                                  request.channel.VALIDATE_ALWAYS;
       request.onload = function(ev) {
         if (subscription.errors >= prefs.subscriptions_fallbackerrors) {
           subscription.errors = 0;
