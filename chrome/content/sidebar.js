@@ -24,9 +24,7 @@
 
 var abp = null;
 try {
-  abp = Components.classes["@mozilla.org/adblockplus;1"].createInstance();
-  while (abp && !('getString' in abp))
-    abp = abp.wrappedJSObject;    // Unwrap component
+  abp = Components.classes["@mozilla.org/adblockplus;1"].createInstance().wrappedJSObject;
 
   if (abp.prefs.initialized) {
     var prefs = abp.prefs;
