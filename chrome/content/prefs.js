@@ -998,6 +998,9 @@ var prefs = {
   },
 
   increaseHitCount: function(pattern) {
+    if (!this.savestats)
+      return;
+
     pattern.hitCount++;
     pattern.lastHit = new Date().getTime();
 
