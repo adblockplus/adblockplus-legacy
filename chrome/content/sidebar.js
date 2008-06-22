@@ -44,21 +44,25 @@ var wndData = null;
 var cacheSession = null;
 var noFlash = false;
 
+function E(id) {
+  return document.getElementById(id);
+}
+
 function init() {
-  var list = document.getElementById("list");
+  var list = E("list");
   list.view = treeView;
 
   var selected = null;
   if (/sidebarDetached\.xul$/.test(parent.location.href)) {
     mainWin = parent.opener;
     mainWin.addEventListener("unload", mainUnload, false);
-    document.getElementById("detachButton").hidden = true;
-    document.getElementById("reattachButton").hidden = false;
-    if (!mainWin.document.getElementById("abp-sidebar"))
-      document.getElementById("reattachButton").setAttribute("disabled", "true");
-    if (mainWin.document.getElementById("abp-key-sidebar")) {
-      var sidebarKey = mainWin.document.getElementById("abp-key-sidebar").cloneNode(true);
-      parent.document.getElementById("detached-keyset").appendChild(parent.document.importNode(sidebarKey, true));
+    E("detachButton").hidden = true;
+    E("reattachButton").hidden = false;
+    if (!mainWin.E("abp-sidebar"))
+      E("reattachButton").setAttribute("disabled", "true");
+    if (mainWin.E("abp-key-sidebar")) {
+      var sidebarKey = mainWin.E("abp-key-sidebar").cloneNode(true);
+      parent.E("detached-keyset").appendChild(parent.document.importNode(sidebarKey, true));
     }
   }
   window.__defineGetter__("content", function() {return mainWin.abpGetBrowser().contentWindow;});
@@ -70,13 +74,13 @@ function init() {
     // Restore previous state
     var params = abp.getParams();
     if (params && params.filter) {
-      document.getElementById("searchField").value = params.filter;
+      E("searchField").value = params.filter;
       treeView.setFilter(params.filter);
     }
-    if (params && params.focus && document.getElementById(params.focus))
-      document.getElementById(params.focus).focus();
+    if (params && params.focus && E(params.focus))
+      E(params.focus).focus();
     else
-      document.getElementById("searchField").focus();
+      E("searchField").focus();
 
     // Activate flasher
     list.addEventListener("select", onSelectionChange, false);
@@ -116,9 +120,9 @@ function cleanUp() {
 function onSelectionChange() {
   var item = treeView.getSelectedItem();
   if (item)
-    document.getElementById("copy-command").removeAttribute("disabled");
+    E("copy-command").removeAttribute("disabled");
   else
-    document.getElementById("copy-command").setAttribute("disabled", "true");
+    E("copy-command").setAttribute("disabled", "true");
   if (item && wndData)
     wndData.lastSelection = item;
 
@@ -140,7 +144,7 @@ function handleItemChange(wnd, type, data, item) {
     type = "select";
 
   var i;
-  var filterSuggestions = document.getElementById("suggestionsList");
+  var filterSuggestions = E("suggestionsList");
   if (type == "clear") {
     // Current document has been unloaded, clear list
     wndData = null;
@@ -192,27 +196,27 @@ function fillInTooltip(e) {
 
   var filter = ("filter" in item ? item.filter : null);
 
-  document.getElementById("tooltipDummy").hidden = !("tooltip" in item);
-  document.getElementById("tooltipAddressRow").hidden = ("tooltip" in item);
-  document.getElementById("tooltipTypeRow").hidden = ("tooltip" in item);
-  document.getElementById("tooltipFilterRow").hidden = !filter;
+  E("tooltipDummy").hidden = !("tooltip" in item);
+  E("tooltipAddressRow").hidden = ("tooltip" in item);
+  E("tooltipTypeRow").hidden = ("tooltip" in item);
+  E("tooltipFilterRow").hidden = !filter;
 
   if ("tooltip" in item)
-    document.getElementById("tooltipDummy").setAttribute("value", item.tooltip);
+    E("tooltipDummy").setAttribute("value", item.tooltip);
   else {
-    document.getElementById("tooltipAddress").parentNode.hidden = (item.typeDescr == "ELEMHIDE");
-    setMultilineContent(document.getElementById("tooltipAddress"), item.location);
+    E("tooltipAddress").parentNode.hidden = (item.typeDescr == "ELEMHIDE");
+    setMultilineContent(E("tooltipAddress"), item.location);
   
     var type = item.localizedDescr;
     if (filter && filter.type == "whitelist")
-      type += " " + document.getElementById("tooltipType").getAttribute("whitelisted");
+      type += " " + E("tooltipType").getAttribute("whitelisted");
     else if (filter && item.typeDescr != "ELEMHIDE")
-      type += " " + document.getElementById("tooltipType").getAttribute("filtered");
-    document.getElementById("tooltipType").setAttribute("value", type);
+      type += " " + E("tooltipType").getAttribute("filtered");
+    E("tooltipType").setAttribute("value", type);
   }
 
   if (filter)
-    setMultilineContent(document.getElementById("tooltipFilter"), filter.text);
+    setMultilineContent(E("tooltipFilter"), filter.text);
 
   var showPreview = prefs.previewimages && !("tooltip" in item);
   showPreview = showPreview && (item.typeDescr == "IMAGE" || item.typeDescr == "BACKGROUND");
@@ -235,12 +239,12 @@ function fillInTooltip(e) {
   }
 
   if (showPreview) {
-    document.getElementById("tooltipPreviewBox").hidden = false;
-    document.getElementById("tooltipPreview").setAttribute("src", "");
-    document.getElementById("tooltipPreview").setAttribute("src", item.location);
+    E("tooltipPreviewBox").hidden = false;
+    E("tooltipPreview").setAttribute("src", "");
+    E("tooltipPreview").setAttribute("src", item.location);
   }
   else
-    document.getElementById("tooltipPreviewBox").hidden = true;
+    E("tooltipPreviewBox").hidden = true;
 
   return true;
 }
@@ -262,11 +266,12 @@ function fillInContext(e) {
   if (!item || ("tooltip" in item && !("filter" in item)))
     return false;
 
-  document.getElementById("contextBlock").hidden = ("filter" in item && item.filter != null);
-  document.getElementById("contextEditFilter").hidden = !("filter" in item && item.filter != null);
-  document.getElementById("contextWhitelist").setAttribute("disabled", !!("tooltip" in item || item.typeDescr == "ELEMHIDE" || (item.filter && item.filter.type == "whitelist")));
-  document.getElementById("contextOpen").setAttribute("disabled", "tooltip" in item || item.typeDescr == "ELEMHIDE");
-  document.getElementById("contextFlash").setAttribute("disabled", !!("tooltip" in item || !(item.typeDescr in visual) || (item.filter && item.filter.type != "whitelist")));
+  E("contextWhitelist").hidden = ("tooltip" in item || !item.filter || item.filter.type == "whitelist" || item.typeDescr == "ELEMHIDE");
+  E("contextBlock").hidden = !E("contextWhitelist").hidden;
+  E("contextBlock").setAttribute("disabled", "filter" in item && item.filter != null);
+  E("contextEditFilter").setAttribute("disabled", !("filter" in item && item.filter != null));
+  E("contextOpen").setAttribute("disabled", "tooltip" in item || item.typeDescr == "ELEMHIDE");
+  E("contextFlash").setAttribute("disabled", "tooltip" in item || !(item.typeDescr in visual) || (item.filter && item.filter.type != "whitelist"));
 
   return true;
 }
@@ -292,34 +297,42 @@ function openInTab(e) {
   }
 }
 
-// Starts up the main Adblock window
 function doBlock() {
   if (!abp)
     return;
 
   var item = treeView.getSelectedItem();
-  if (treeView.data && !treeView.data.length) {
-    item = treeView.getDummyTooltip();
-    item.location = undefined;
-    if (!("filter" in item))
-      item.filter = null;
-  }
+  if (!item || item.typeDescr == "ELEMHIDE")
+    return;
 
-  var location = (item ? item.location : undefined);
-  var filter = (item && item.filter ? item.filter : undefined);
+  var filter = null;
+  if ("filter" in item)
+    filter = item.filter;
 
-  abp.openSettingsDialog(window.content, location, filter);
+  if (filter && filter.type == "whitelist")
+    return;
+
+  if (abp.prefs.usefiltercomposer)
+    openDialog("chrome://adblockplus/content/composer.xul", "_blank", "chrome,centerscreen,resizable=no,dialog=no,dependent", window.content, item);
+  else
+    abp.openSettingsDialog(window.content, (filter ? "@@" : "") + item.location);
 }
 
-function doWhitelist() {
+function editFilter() {
   if (!abp)
     return;
 
   var item = treeView.getSelectedItem();
-  if (!item)
+  if (treeView.data && !treeView.data.length)
+    item = treeView.getDummyTooltip();
+
+  if (!("filter" in item) || !item.filter)
     return;
 
-  abp.openSettingsDialog(window.content, "@@" + item.location);
+  if (!("location") in item)
+    item.location = undefined
+
+  abp.openSettingsDialog(window.content, item.location, item.filter);
 }
 
 function copyToClipboard() {
@@ -594,7 +607,7 @@ var treeView = {
   cycleHeader: function(col) {
     col = col.id;
 
-    col = document.getElementById(col);
+    col = E(col);
     if (!col)
       return;
 
