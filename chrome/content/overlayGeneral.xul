@@ -73,7 +73,7 @@
     <command id="abp-command-enable" oncommand="abpTogglePref('enabled')"/>
   </commandset>
 
-  <statusbarpanel id="abp-status" disabled="true" context="abp-status-popup" onclick="abpClickHandler(event)" ondragover="abpDragHandler(event)" ondragdrop="abpDragHandler(event)" onmousedown="abpMouseHandler(event)">
+  <statusbarpanel id="abp-status" disabled="true" context="abp-status-popup" onclick="abpClickHandler(event)">
     <image tooltip="abp-tooltip"/>
     <label value="&notloaded.label;" tooltip="abp-tooltip"/>
   </statusbarpanel>
@@ -81,7 +81,6 @@
   <toolbarbutton id="abp-toolbarbutton" disabled="true" label="&menuitem.label;"
       oncommand="if (event.target == this) abpCommandHandler(event)"
       onclick="if (event.target == this &amp;&amp; event.button == 1) abpTogglePref('enabled')"
-      ondragover="abpDragHandler(event)" ondragdrop="abpDragHandler(event)"
       tooltip="abp-tooltip">
     <menupopup id="abp-toolbar-popup" onpopupshowing="return abpFillPopup(event.target)"/>
   </toolbarbutton>

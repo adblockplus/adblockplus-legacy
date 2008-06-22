@@ -674,9 +674,7 @@ function abpTogglePattern(text, insert) {
 
 // Handle clicks on the Adblock statusbar panel
 function abpClickHandler(e) {
-  if (e.button == 0 && new Date().getTime() - abpLastDrag > 100)
-    abpExecuteAction(abpPrefs.defaultstatusbaraction);
-  else if (e.button == 1)
+  if (e.button == 1)
     abpTogglePref("enabled");
 }
 
@@ -695,59 +693,6 @@ function abpExecuteAction(action) {
     abpSettings();
   else if (action == 3)
     abpTogglePref("enabled");
-}
-
-// Handles Drag&Drop of links and images to the Adblock statusbar panel
-function abpDragHandler(e) {
-  if (!abp)
-    return;
-
-  var dragService = Components.classes['@mozilla.org/widget/dragservice;1']
-                              .getService(Components.interfaces.nsIDragService);
-  var session = dragService.getCurrentSession();
-  if (!session)
-    return;
-
-  var link = null;
-  for (var node = new XPCNativeWrapper(session.sourceNode); node && !link; node = node.parentNode) {
-    if (node instanceof HTMLAnchorElement)
-      link = abp.unwrapURL(node.href);
-    else if (node instanceof HTMLImageElement)
-      link = abp.unwrapURL(node.src);
-  }
-
-  if (e.type == "dragover")
-    session.canDrop = (link != null);
-  else if (link)
-    abpSettings(link);
-
-  e.preventDefault();
-  e.stopPropagation();
-}
-
-var abpDraggingX = -1;
-var abpLastDrag = -1;
-
-// Allows activating/deactivating with a drag gesture on the Adblock status bar item
-function abpMouseHandler(e) {
-  if (!abp || e.button != 0)
-    return;
-
-  if (e.type == "mousedown") {
-    abpDraggingX = e.clientX;
-    e.target.addEventListener("mouseup", abpMouseHandler, false);
-    e.target.addEventListener("mouseout", abpMouseHandler, false);
-  }
-  else if (e.type == "mouseout" || e.type == "mouseup") {
-    e.target.removeEventListener("mouseup", abpMouseHandler, false);
-    e.target.removeEventListener("mouseout", abpMouseHandler, false);
-    if (e.type == "mouseup" && abpDraggingX >= 0 && Math.abs(e.clientX - abpDraggingX) > 10) {
-      abpPrefs.enabled = !abpPrefs.enabled;
-      abpPrefs.save();
-      abpLastDrag = new Date().getTime();
-    }
-    abpDraggingX = -1;
-  }
 }
 
 // Retrieves the image URL for the specified style property
