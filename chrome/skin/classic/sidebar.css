@@ -56,7 +56,7 @@ tooltip {
 }
 
 #contextBlock,
-#contextEditFilter {
+#contextWhitelist {
   font-weight: bold;
 }
 
