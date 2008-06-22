@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+
+<!-- ***** BEGIN LICENSE BLOCK *****
+   - Version: MPL 1.1
+   -
+   - The contents of this file are subject to the Mozilla Public License Version
+   - 1.1 (the "License"); you may not use this file except in compliance with
+   - the License. You may obtain a copy of the License at
+   - http://www.mozilla.org/MPL/
+   -
+   - Software distributed under the License is distributed on an "AS IS" basis,
+   - WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+   - for the specific language governing rights and limitations under the
+   - License.
+   -
+   - The Original Code is Adblock Plus.
+   -
+   - The Initial Developer of the Original Code is
+   - Wladimir Palant.
+   - Portions created by the Initial Developer are Copyright (C) 2006-2008
+   - the Initial Developer. All Rights Reserved.
+   -
+   - Contributor(s):
+   -
+   - ***** END LICENSE BLOCK ***** -->
+
+<!DOCTYPE overlay SYSTEM "chrome://adblockplus/locale/composer.dtd">
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://adblockplus/skin/composer.css" type="text/css"?>
+
+<dialog id="abp-composer"
+    xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+    title="&dialog.title;"
+    onload="init()"
+    ondialogaccept="addFilter()"
+    ondialogdisclosure="setAdvancedMode(!advancedMode)"
+    buttons="accept,cancel,disclosure"
+    width="800px"
+    height="400px"
+    persist="screenX screenY width height sizemode advancedMode"
+    advancedMode="false"
+    buttonlabelaccept="&accept.label;"
+    buttonlabeldisclosure="&advanced.label;"
+    buttonlabeldisclosure_on="&advanced.label;"
+    buttonlabeldisclosure_off="&basic.label;"
+    windowtype="abp:composer">
+  <script type="application/x-javascript" src="composer.js"/>  
+  
+  <hbox id="filterBox" align="center">
+    <label control="filter" value="&filter.label;" accesskey="&filter.accesskey;"/>
+    <textbox id="filter" flex="1" tabindex="-1" readonly="true"/>
+    <button id="preferences" label="&preferences.label;" accesskey="&preferences.accesskey;" oncommand="openPreferences()"/>
+  </hbox>
+
+  <radiogroup orient="horizontal" id="filterType" oncommand="updateFilter()">
+    <radio label="&type.filter.label;" accesskey="&type.filter.accesskey;" value="filterlist" flex="1"/>
+    <radio label="&type.whitelist.label;" accesskey="&type.whitelist.accesskey;" value="whitelist" flex="1"/>
+  </radiogroup>
+
+  <hbox flex="1">
+    <groupbox id="pattern" flex="1">
+      <caption label="&pattern.label;"/>
+      <radiogroup id="patternGroup" flex="1" oncommand="updatePatternSelection()" style="overflow: auto;">
+        <hbox>
+          <radio id="customPatternRadio" label="&custom.pattern.label;" accesskey="&custom.pattern.accesskey;" value="" control="customPattern"/>
+          <textbox id="customPattern" flex="1" oninput="updateCustomPattern()"/>
+        </hbox>
+      </radiogroup>
+      <hbox id="anchorGroup" pack="start" align="center">
+        <label value="&anchors.label;"/>
+        <checkbox id="anchorStart" label="&anchor.start.label;" accesskey="&anchor.start.accesskey;" oncommand="updateFilter()"/>
+        <checkbox id="anchorEnd" label="&anchor.end.label;" accesskey="&anchor.end.accesskey;" oncommand="updateFilter()"/>
+      </hbox>
+    </groupbox>
+    <groupbox id="options">
+      <caption label="&options.label;"/>
+      <checkbox id="matchCase" label="&matchCase.label;" accesskey="&matchCase.accesskey;" oncommand="updateFilter()"/>
+
+      <label id="typeGroupLabel" value="&types.label;"/>
+      <vbox flex="1" id="typeGroup"/>
+
+      <vbox>
+        <label control="collapse" value="&collapse.label;" accesskey="&collapse.accesskey;"/>
+        <menulist id="collapse" oncommand="updateFilter()">
+          <menupopup>
+            <menuitem id="collapseDefault" value="" label_yes="&collapse.default.yes.label;" label_no="&collapse.default.no.label;" selected="true"/>
+            <menuitem label="&collapse.yes.label;" value="collapse"/>
+            <menuitem label="&collapse.no.label;" value="~collapse"/>
+          </menupopup>
+        </menulist>
+      </vbox>
+    </groupbox>
+  </hbox>
+</dialog>
