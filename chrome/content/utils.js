@@ -321,7 +321,3 @@ var array = Components.classes['@mozilla.org/supports-array;1'].createInstance(C
 array.AppendElement(fakeFactory);
 fakeFactory = array.GetElementAt(0).QueryInterface(Components.interfaces.nsIFactory);
 array = null;
-
-function wrapNode(insecNode) {
-  return fakeFactory.createInstance(insecNode, Components.interfaces.nsISupports);
-}
