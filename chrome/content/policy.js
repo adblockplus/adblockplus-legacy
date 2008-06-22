@@ -41,8 +41,8 @@ var policy = {
 
     // type constant by type description and type description by type constant
     this.type = type = {};
-    typeDescr = {};
-    localizedDescr = {};
+    this.typeDescr = typeDescr = {};
+    this.localizedDescr = localizedDescr = {};
     var iface = Components.interfaces.nsIContentPolicy;
     for (var k = 0; k < types.length; k++) {
       var typeName = types[k];
