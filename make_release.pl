@@ -27,7 +27,7 @@ for my $locale (@locales)
 
 chdir('..');
 system("cvs add downloads/adblockplus-$version.xpi");
-system(qq(cvs commit -m "Releasing Adblock Plus $version"));
+system(qq(cvs commit -m "Releasing Adblock Plus $version" downloads src));
 
 my $branch = $version;
 $branch =~ s/\./_/g;
