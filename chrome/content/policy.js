@@ -217,16 +217,14 @@ var policy = {
   },
 
   // nsIContentPolicy interface implementation
-  shouldLoad: function(contentType, contentLocation, requestOrigin, insecNode, mimeTypeGuess, extra) {
+  shouldLoad: function(contentType, contentLocation, requestOrigin, node, mimeTypeGuess, extra) {
     // return unless we are initialized
     if (!whitelistSchemes)
       return ok;
 
-    if (!insecNode)
+    if (!node)
       return ok;
 
-    // HACKHACK: Pass the node though XPCOM to work around bug 337095
-    var node = wrapNode(insecNode);
     var wnd = getWindow(node);
     if (!wnd)
       return ok;

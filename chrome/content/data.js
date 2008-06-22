@@ -185,9 +185,6 @@ DataContainer.prototype = {
 
 // Loads Adblock data associated with a window object
 DataContainer.getDataForWindow = function(wnd) {
-  // Make sure we get the same wrapper as in shouldLoad()
-  wnd = wrapNode(wnd.wrappedJSObject);
-
   if ("abpData" + dataSeed in wnd.document)
     return wnd.document["abpData" + dataSeed];
   else
@@ -197,9 +194,6 @@ abp.getDataForWindow = DataContainer.getDataForWindow;
 
 // Loads Adblock data associated with a node object
 DataContainer.getDataForNode = function(node, noParent) {
-  // Make sure we get the same wrapper as in shouldLoad()
-  node = wrapNode(node.wrappedJSObject);
-
   while (node) {
     if ("abpLocation" + dataSeed in node)
       return [node, node["abpLocation" + dataSeed]];
