@@ -618,13 +618,21 @@ var prefs = {
     this.elemhidePatterns.clear();
 
     for (var i = 0; i < this.userPatterns.length; i++)
+    {
+      this.userPatterns[i].subscription = null;
       this.addPattern(this.userPatterns[i]);
+    }
 
     for (i = 0; i < this.subscriptions.length; i++) {
       var subscription = this.subscriptions[i];
       if (!subscription.disabled)
+      {
         for (var j = 0; j < subscription.patterns.length; j++)
+        {
+          subscription.patterns[j].subscription = subscription;
           this.addPattern(subscription.patterns[j]);
+        }
+      }
     }
 
     if (this.enabled)

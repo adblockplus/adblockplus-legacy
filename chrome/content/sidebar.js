@@ -200,6 +200,7 @@ function fillInTooltip(e) {
   E("tooltipAddressRow").hidden = ("tooltip" in item);
   E("tooltipTypeRow").hidden = ("tooltip" in item);
   E("tooltipFilterRow").hidden = !filter;
+  E("tooltipSubscriptionRow").hidden = !(filter && "subscription" in filter && filter.subscription);
 
   if ("tooltip" in item)
     E("tooltipDummy").setAttribute("value", item.tooltip);
@@ -216,7 +217,11 @@ function fillInTooltip(e) {
   }
 
   if (filter)
+  {
     setMultilineContent(E("tooltipFilter"), filter.text);
+    if ("subscription" in filter && filter.subscription)
+      E("tooltipSubscription").setAttribute("value", filter.subscription.title);
+  }
 
   var showPreview = prefs.previewimages && !("tooltip" in item);
   showPreview = showPreview && (item.typeDescr == "IMAGE" || item.typeDescr == "BACKGROUND");

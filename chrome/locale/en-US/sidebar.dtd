@@ -44,6 +44,7 @@
 <!ENTITY tooltip.type.blocked     "(blocked)">
 <!ENTITY tooltip.type.whitelisted "(whitelisted)">
 <!ENTITY tooltip.filter.label     "Filter in effect:">
+<!ENTITY tooltip.subscription.label "Filter subscription:">
 
 <!ENTITY context.block.label      "Block this item">
 <!ENTITY context.editfilter.label "Edit filter in effect">
