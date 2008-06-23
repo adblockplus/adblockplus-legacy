@@ -262,11 +262,17 @@ const visual = {
 
 // Fill in tooltip data before showing it
 function fillInContext(e) {
-  var item;
+  var item, allItems;
   if (treeView.data && !treeView.data.length)
+  {
     item = treeView.getDummyTooltip();
+    allItems = [item];
+  }
   else
+  {
     item = treeView.getItemAt(e.clientX, e.clientY);
+    allItems = treeView.getAllSelectedItems();
+  }
 
   if (!item || ("tooltip" in item && !("filter" in item)))
     return false;
@@ -277,7 +283,7 @@ function fillInContext(e) {
   E("contextEditFilter").setAttribute("disabled", !("filter" in item && item.filter != null));
   E("contextOpen").setAttribute("disabled", "tooltip" in item || item.typeDescr == "ELEMHIDE");
   E("contextFlash").setAttribute("disabled", "tooltip" in item || !(item.typeDescr in visual) || (item.filter && item.filter.type != "whitelist"));
-  E("contextCopyFilter").setAttribute("disabled", !("filter" in item && item.filter != null));
+  E("contextCopyFilter").setAttribute("disabled", !allItems.some(function(item) {return "filter" in item && item.filter != null}));
 
   return true;
 }
@@ -345,29 +351,36 @@ function copyToClipboard() {
   if (!abp)
     return;
 
-  var item = treeView.getSelectedItem();
-  if (!item)
+  var items = treeView.getAllSelectedItems();
+  if (!items.length)
     return;
 
   var clipboardHelper = Components.classes["@mozilla.org/widget/clipboardhelper;1"]
                                   .getService(Components.interfaces.nsIClipboardHelper);
-  clipboardHelper.copyString(item.location);
+  clipboardHelper.copyString(items.map(function(item) {return item.location}).join("\n"));
 }
 
 function copyFilter() {
   if (!abp)
     return;
 
-  var item = treeView.getSelectedItem();
+  var items = treeView.getAllSelectedItems().filter(function(item) {return item.filter});
   if (treeView.data && !treeView.data.length)
-    item = treeView.getDummyTooltip();
+    items = [treeView.getDummyTooltip()];
 
-  if (!item || !item.filter)
+  if (!items.length)
     return;
 
   var clipboardHelper = Components.classes["@mozilla.org/widget/clipboardhelper;1"]
                                   .getService(Components.interfaces.nsIClipboardHelper);
-  clipboardHelper.copyString(item.filter.text);
+  clipboardHelper.copyString(items.map(function(item) {return item.filter.text}).join("\n"));
+}
+
+function selectAll() {
+  if (!abp)
+    return;
+
+  treeView.selectAll();
 }
 
 // Saves sidebar's state before detaching/reattaching
@@ -769,11 +782,35 @@ var treeView = {
     this.boxObject.invalidate();
   },
 
+  selectAll: function() {
+    this.selection.selectAll();
+  },
+
   getSelectedItem: function() {
     if (!this.data || this.selection.currentIndex < 0 || this.selection.currentIndex >= this.data.length)
       return null;
 
     return this.data[this.selection.currentIndex];
+  },
+
+  getAllSelectedItems: function() {
+    let result = [];
+    if (!this.data)
+      return result;
+
+    let numRanges = this.selection.getRangeCount();
+    for (let i = 0; i < numRanges; i++)
+    {
+      let min = {};
+      let max = {};
+      let range = this.selection.getRangeAt(i, min, max);
+      for (let j = min.value; j <= max.value; j++)
+      {
+        if (j > 0 && j < this.data.length)
+          result.push(this.data[j]);
+      }
+    }
+    return result;
   },
 
   getItemAt: function(x, y) {
