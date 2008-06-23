@@ -173,9 +173,6 @@
   <description id="introduction">
     &description;
   </description>
-  <description id="disabledWarning" hidden="true">
-    &disabled.warning;
-  </description>
 </vbox>
 
 <button id="applyButton" class="dialog-button" hidden="true" label="&apply.label;" accesskey="&apply.accesskey;" oncommand="applyChanges()"/>

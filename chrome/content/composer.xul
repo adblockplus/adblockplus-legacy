@@ -47,6 +47,10 @@
     windowtype="abp:composer">
   <script type="application/x-javascript;version=1.7" src="composer.js"/>  
   
+  <description id="disabledWarning">
+    &disabled.warning.beforeLink;<label class="text-link" value="&disabled.warning.link;" onclick="doEnable()"/>&disabled.warning.afterLink;
+  </description>
+
   <hbox id="filterBox" align="center">
     <label control="filter" value="&filter.label;" accesskey="&filter.accesskey;"/>
     <textbox id="filter" flex="1" tabindex="-1" readonly="true"/>

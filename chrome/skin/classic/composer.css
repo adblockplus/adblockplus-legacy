@@ -44,3 +44,11 @@
 :root:not([advancedMode="true"]) #options {
   display: none;
 }
+
+#disabledWarning {
+  color: #E00000;
+}
+
+#disabledWarning > * {
+  margin: 0px;
+}

@@ -111,6 +111,8 @@ function init() {
   E("collapse").setAttribute("label", collapseDefault.label);
 
   updatePatternSelection();
+
+  document.getElementById("disabledWarning").hidden = abp.prefs.enabled;
 }
 
 function updateFilter()
@@ -240,4 +242,10 @@ function disableElement(element, disable, valueProperty, disabledValue) {
 
 function openPreferences() {
   abp.openSettingsDialog(wnd, item.location, E("filter").value);
+}
+
+function doEnable() {
+  abp.prefs.enabled = true;
+  abp.prefs.save();
+  E("disabledWarning").hidden = true;
 }
