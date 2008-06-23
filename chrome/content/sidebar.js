@@ -325,7 +325,7 @@ function doBlock() {
     return;
 
   if (abp.prefs.usefiltercomposer)
-    openDialog("chrome://adblockplus/content/composer.xul", "_blank", "chrome,centerscreen,resizable=no,dialog=no,dependent", window.content, item);
+    openDialog("chrome://adblockplus/content/composer.xul", "_blank", "chrome,centerscreen,resizable,dialog=no,dependent", window.content, item);
   else
     abp.openSettingsDialog(window.content, (filter ? "@@" : "") + item.location);
 }

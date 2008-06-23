@@ -776,7 +776,7 @@ function abpNode(data) {
   if (abp && data)
   {
     if (abp.prefs.usefiltercomposer)
-      openDialog("chrome://adblockplus/content/composer.xul", "_blank", "chrome,centerscreen,resizable=no,dialog=no,dependent", abpGetBrowser().contentWindow, data);
+      openDialog("chrome://adblockplus/content/composer.xul", "_blank", "chrome,centerscreen,resizable,dialog=no,dependent", abpGetBrowser().contentWindow, data);
     else
       abpSettings(data.location);
   }
