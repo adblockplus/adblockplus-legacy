@@ -77,7 +77,9 @@ function init() {
 
   let types = [];
   for (let type in abp.policy.localizedDescr)
+  {
     types.push(parseInt(type));
+  }
   types.sort(function(a, b) {
     if (a < b)
       return -1;
@@ -104,7 +106,9 @@ function init() {
   }
 
   let collapseDefault = E("collapseDefault");
-  collapseDefault.setAttribute("label", collapseDefault.getAttribute(abp.prefs.fastcollapse ? "label_no" : "label_yes"));
+  collapseDefault.label = collapseDefault.getAttribute(abp.prefs.fastcollapse ? "label_no" : "label_yes");
+  E("collapse").value = "";
+  E("collapse").setAttribute("label", collapseDefault.label);
 
   updatePatternSelection();
 }
