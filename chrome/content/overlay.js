@@ -674,7 +674,9 @@ function abpTogglePattern(text, insert) {
 
 // Handle clicks on the Adblock statusbar panel
 function abpClickHandler(e) {
-  if (e.button == 1)
+  if (e.button == 0)
+    abpExecuteAction(abpPrefs.defaultstatusbaraction);
+  else if (e.button == 1)
     abpTogglePref("enabled");
 }
 
