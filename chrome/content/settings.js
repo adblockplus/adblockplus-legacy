@@ -710,10 +710,11 @@ function pasteFromClipboard() {
 
   var lines = data.split(/[\r\n]+/);
   for (var i = 0; i < lines.length; i++) {
-    if (!lines[i])
+    var line = abp.normalizeFilter(lines[i]);
+    if (!line)
       continue;
 
-    treeView.addPattern(lines[i]);
+    treeView.addPattern(line);
   }
 }
 
