@@ -34,7 +34,7 @@
 ]>
 
 <overlay id="abp-overlay-general" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
-  <script type="application/x-javascript" src="overlay.js"/>  
+  <script type="application/x-javascript;version=1.7" src="overlay.js"/>  
   
   <popupset id="abp-popupset">
     <tooltip id="abp-tooltip" onpopupshowing="return abpFillTooltip(event)" orient="vertical">

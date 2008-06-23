@@ -37,7 +37,7 @@
   onload="fillInVersion()"
   buttons="accept">
 
-<script type="application/x-javascript" src="about.js"/>
+<script type="application/x-javascript;version=1.7" src="about.js"/>
 
 <description id="title" value="&caption.title;"/>
 <description id="version" value="&version.title;"/>

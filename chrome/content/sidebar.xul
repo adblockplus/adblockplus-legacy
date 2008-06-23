@@ -35,7 +35,7 @@
   onload="init()"
   onunload="cleanUp()">
 
-  <script type="application/x-javascript" src="sidebar.js"/>
+  <script type="application/x-javascript;version=1.7" src="sidebar.js"/>
 
   <keyset id="sidebarKeys">
     <key id="block-key" keycode="VK_ENTER"/>
@@ -99,7 +99,7 @@
     <description id="reattachButton" value="&reattach.label;" onclick="if (this.getAttribute('disabled') != 'true') reattach()" hidden="true"/>
   </hbox>
 
-  <tree id="list" flex="1" seltype="single" enableColumnDrag="true"
+  <tree id="list" flex="1" seltype="multiple" enableColumnDrag="true"
         onkeypress="if (event.keyCode == event.DOM_VK_RETURN || event.keyCode == event.DOM_VK_ENTER) doBlock()">
     <treecols>
       <treecol id="address" label="&address.label;" flex="2" crop="center" persist="width ordinal sortDirection hidden"/>
