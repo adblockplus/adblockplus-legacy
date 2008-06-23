@@ -555,9 +555,12 @@ function synchCallback(orig, status) {
     if (!subscription)
       return;
   
-    subscription.extra = treeView.getSubscriptionDescription(subscription);
-    treeView.initSubscriptionPatterns(subscription, orig.patterns);
-    treeView.invalidateSubscription(subscription, row, rowCount);
+    // Date.toLocaleString() doesn't handle Unicode properly if called directly from XPCOM (bug 441370)
+    setTimeout(function() {
+      subscription.extra = treeView.getSubscriptionDescription(subscription);
+      treeView.initSubscriptionPatterns(subscription, orig.patterns);
+      treeView.invalidateSubscription(subscription, row, rowCount);
+    }, 0);
   }
   else {
     // Filters added
