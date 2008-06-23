@@ -34,10 +34,6 @@ dialog {
   background-image: url(regexp.gif);
 }
 
-#disabledWarning {
-  color: #E00000;
-}
-
 .dialog-button-box, #entryarea, #listarea {
   margin: 8px;
 }

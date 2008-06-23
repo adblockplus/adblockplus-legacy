@@ -26,6 +26,11 @@
 <!ENTITY accept.label             "Add filter">
 <!ENTITY advanced.label           "Advanced view">
 <!ENTITY basic.label              "Basic view">
+
+<!ENTITY disabled.warning.beforeLink  "Adblock Plus is currently disabled. You can still add filters but those will not be applied unless you ">
+<!ENTITY disabled.warning.link    "enable Adblock Plus">
+<!ENTITY disabled.warning.afterLink   ".">
+
 <!ENTITY filter.label             "New filter:">
 <!ENTITY filter.accesskey         "f">
 <!ENTITY preferences.label        "Show existing filters...">

@@ -67,8 +67,6 @@ function dummyFunction() {}
 
 // Preference window initialization
 function init() {
-  document.getElementById("disabledWarning").hidden = prefs.enabled;
-
   newFilterLabel = document.documentElement.getAttribute("buttonlabelextra2")
 
   // Use our own findBar.css only if the default isn't there
@@ -95,7 +93,6 @@ function init() {
   applyBtn.hidden = false;
 
   // Install listeners
-  prefs.addListener(onPrefChange);
   prefs.addHitCountListener(onHitCountChange);
   synchronizer.addListener(synchCallback);
 
@@ -189,7 +186,6 @@ function selectPattern(pattern) {
 
 // To be called when the window is closed
 function cleanUp() {
-  prefs.removeListener(onPrefChange);
   prefs.removeHitCountListener(onHitCountChange);
   synchronizer.removeListener(synchCallback);
   flasher.stop();
@@ -880,11 +876,6 @@ function fillContext() {
 function togglePref(pref) {
   prefs[pref] = !prefs[pref];
   prefs.save();
-}
-
-// Show warning if Adblock Plus is disabled
-function onPrefChange() {
-  document.getElementById("disabledWarning").hidden = prefs.enabled;
 }
 
 // Updates hit count column whenever a value changes
