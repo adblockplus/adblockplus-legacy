@@ -45,7 +45,7 @@
     buttonlabeldisclosure_on="&advanced.label;"
     buttonlabeldisclosure_off="&basic.label;"
     windowtype="abp:composer">
-  <script type="application/x-javascript" src="composer.js"/>  
+  <script type="application/x-javascript;version=1.7" src="composer.js"/>  
   
   <hbox id="filterBox" align="center">
     <label control="filter" value="&filter.label;" accesskey="&filter.accesskey;"/>
