@@ -272,6 +272,7 @@ function fillInContext(e) {
   E("contextEditFilter").setAttribute("disabled", !("filter" in item && item.filter != null));
   E("contextOpen").setAttribute("disabled", "tooltip" in item || item.typeDescr == "ELEMHIDE");
   E("contextFlash").setAttribute("disabled", "tooltip" in item || !(item.typeDescr in visual) || (item.filter && item.filter.type != "whitelist"));
+  E("contextCopyFilter").setAttribute("disabled", !("filter" in item && item.filter != null));
 
   return true;
 }
@@ -346,6 +347,22 @@ function copyToClipboard() {
   var clipboardHelper = Components.classes["@mozilla.org/widget/clipboardhelper;1"]
                                   .getService(Components.interfaces.nsIClipboardHelper);
   clipboardHelper.copyString(item.location);
+}
+
+function copyFilter() {
+  if (!abp)
+    return;
+
+  var item = treeView.getSelectedItem();
+  if (treeView.data && !treeView.data.length)
+    item = treeView.getDummyTooltip();
+
+  if (!item || !item.filter)
+    return;
+
+  var clipboardHelper = Components.classes["@mozilla.org/widget/clipboardhelper;1"]
+                                  .getService(Components.interfaces.nsIClipboardHelper);
+  clipboardHelper.copyString(item.filter.text);
 }
 
 // Saves sidebar's state before detaching/reattaching

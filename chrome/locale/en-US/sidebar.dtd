@@ -51,3 +51,4 @@
 <!ENTITY context.open.label       "Open in New Tab">
 <!ENTITY context.flash.label      "Flash item's borders">
 <!ENTITY context.copy.label       "Copy item's address">
+<!ENTITY context.copyFilter.label "Copy filter">
