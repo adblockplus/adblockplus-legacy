@@ -202,7 +202,7 @@ function updateCustomPattern()
 }
 
 function addFilter() {
-  abp.addPatterns([document.getElementById("filter").value], 1);
+  abp.addPatterns([abp.normalizeFilter(document.getElementById("filter").value)], 1);
 
   if (wnd && !wnd.closed)
     abp.policy.refilterWindow(wnd);
