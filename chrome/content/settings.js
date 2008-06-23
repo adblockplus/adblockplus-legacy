@@ -708,7 +708,7 @@ function pasteFromClipboard() {
     return;
   }
 
-  var lines = data.split(/\s+/);
+  var lines = data.split(/[\r\n]+/);
   for (var i = 0; i < lines.length; i++) {
     if (!lines[i])
       continue;
