@@ -44,11 +44,14 @@ var policy = {
     this.typeDescr = typeDescr = {};
     this.localizedDescr = localizedDescr = {};
     var iface = Components.interfaces.nsIContentPolicy;
-    for (var k = 0; k < types.length; k++) {
-      var typeName = types[k];
-      type[typeName] = iface["TYPE_" + typeName];
-      typeDescr[type[typeName]] = typeName;
-      localizedDescr[type[typeName]] = abp.getString("type_label_" + typeName.toLowerCase());
+    for each (typeName in types)
+    {
+      if ("TYPE_" + typeName in iface)
+      {
+        type[typeName] = iface["TYPE_" + typeName];
+        typeDescr[type[typeName]] = typeName;
+        localizedDescr[type[typeName]] = abp.getString("type_label_" + typeName.toLowerCase());
+      }
     }
   
     type.BACKGROUND = 0xFFFE;
