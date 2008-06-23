@@ -59,8 +59,8 @@
   persist="screenX screenY width height sizemode"
   windowtype="abp:settings">
 
-<script type="application/x-javascript" src="settings.js"/>
-<script type="application/x-javascript" src="findbar.js"/>
+<script type="application/x-javascript;version=1.7" src="settings.js"/>
+<script type="application/x-javascript;version=1.7" src="findbar.js"/>
 
 <keyset id="adblockKeys">
   <key id="synchsubscription-key" key="t" modifiers="accel"/>

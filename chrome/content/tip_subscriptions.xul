@@ -48,7 +48,7 @@
   ondialogaccept="addSubscriptions()"
   ondialogextra2="addOther()">
 
-<script type="application/x-javascript" src="tip_subscriptions.js"/>
+<script type="application/x-javascript;version=1.7" src="tip_subscriptions.js"/>
 
 <hbox>
   <vbox flex="1">
