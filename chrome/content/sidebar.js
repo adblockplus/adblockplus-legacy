@@ -806,7 +806,7 @@ var treeView = {
       let range = this.selection.getRangeAt(i, min, max);
       for (let j = min.value; j <= max.value; j++)
       {
-        if (j > 0 && j < this.data.length)
+        if (j >= 0 && j < this.data.length)
           result.push(this.data[j]);
       }
     }
