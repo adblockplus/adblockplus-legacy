@@ -174,13 +174,24 @@ function updateFilter()
       options.push.apply(options, enabledTypes);
 
     if (options.length)
-    {
       filter += "$" + options.join(",");
-    }
   }
 
   filter = abp.normalizeFilter(filter);
   E("regexpWarning").hidden = !abp.regexpRegExp.test(filter);
+
+  let hasShortcut = false;
+  if (E("regexpWarning").hidden)
+  {
+    let compiledFilter = {text: filter};
+    abp.prefs.initPattern(compiledFilter);
+    if ((compiledFilter.type == "filterlist" && abp.prefs.filterPatterns.findShortcut(compiledFilter.text))
+        || (compiledFilter.type == "whitelist" && abp.prefs.whitePatterns.findShortcut(compiledFilter.text)))
+    {
+      hasShortcut = true;
+    }
+  }
+  E("shortpatternWarning").hidden = hasShortcut;
 
   E("filter").value = filter;
 }
