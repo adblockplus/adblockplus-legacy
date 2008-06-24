@@ -58,11 +58,11 @@ function init() {
     mainWin.addEventListener("unload", mainUnload, false);
     E("detachButton").hidden = true;
     E("reattachButton").hidden = false;
-    if (!mainWin.E("abp-sidebar"))
+    if (!mainWin.document.getElementById("abp-sidebar"))
       E("reattachButton").setAttribute("disabled", "true");
-    if (mainWin.E("abp-key-sidebar")) {
-      var sidebarKey = mainWin.E("abp-key-sidebar").cloneNode(true);
-      parent.E("detached-keyset").appendChild(parent.document.importNode(sidebarKey, true));
+    if (mainWin.document.getElementById("abp-key-sidebar")) {
+      var sidebarKey = mainWin.document.getElementById("abp-key-sidebar").cloneNode(true);
+      parent.document.getElementById("detached-keyset").appendChild(parent.document.importNode(sidebarKey, true));
     }
   }
   window.__defineGetter__("content", function() {return mainWin.abpGetBrowser().contentWindow;});
