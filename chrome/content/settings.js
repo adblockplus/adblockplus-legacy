@@ -76,7 +76,7 @@ function init() {
   // Insert Apply button between OK and Cancel
   var okBtn = document.documentElement.getButton("accept");
   var cancelBtn = document.documentElement.getButton("cancel");
-  var applyBtn = document.getElementById("applyButton");
+  var applyBtn = E("applyButton");
   var insertBefore = cancelBtn;
   for (var sibling = cancelBtn; sibling; sibling = sibling.nextSibling)
     if (sibling == okBtn)
@@ -117,15 +117,15 @@ function init() {
   synchronizer.addListener(synchCallback);
 
   // HACK: Prevent editor from selecting first list item by default
-  var editor = document.getElementById("listEditor");
-  var editorParent = document.getElementById("listEditorParent");
+  var editor = E("listEditor");
+  var editorParent = E("listEditorParent");
   editor.setInitialSelection = dummyFunction;
 
   // Capture keypress events - need to get them before the tree does
-  document.getElementById("listStack").addEventListener("keypress", onListKeyPress, true);
+  E("listStack").addEventListener("keypress", onListKeyPress, true);
 
   // Capture keypress events - need to get them before the text field does
-  document.getElementById("FindToolbar").addEventListener("keypress", onFindBarKeyPress, true);
+  E("FindToolbar").addEventListener("keypress", onFindBarKeyPress, true);
 
   // Initialize content window data
   var windowMediator = Components.classes["@mozilla.org/appshell/window-mediator;1"]
@@ -137,17 +137,17 @@ function init() {
     setContentWindow(null);
 
   // Initialize tree view
-  document.getElementById("list").view = treeView;
+  E("list").view = treeView;
 
   editor.height = editor.boxObject.height;
-  document.getElementById("listStack").appendChild(editorParent);
+  E("listStack").appendChild(editorParent);
   editorParent.hidden = true;
   treeView.setEditor(editor, editorParent);
 
   treeView.ensureSelection(0);
 
   // Set the focus to the input field by default
-  document.getElementById("list").focus();
+  E("list").focus();
 
   // Fire post-load handlers
   var e = document.createEvent("Events");
@@ -159,7 +159,7 @@ function setContentWindow(contentWnd) {
   if (!abp)
     return;
 
-  var editor = document.getElementById("listEditor");
+  var editor = E("listEditor");
 
   wnd = contentWnd;
   wndData = null;
@@ -201,7 +201,7 @@ function selectPattern(pattern) {
     clearTimeout(editorTimeout);
 
   treeView.selectPattern(pattern.text);
-  document.getElementById("list").focus();
+  E("list").focus();
 }
 
 // To be called when the window is closed
@@ -483,7 +483,7 @@ function onListKeyPress(e) {
     removeFilters('');
   else if (e.keyCode == e.DOM_VK_INSERT)
     addFilter();
-  else if (e.charCode == 32 && !document.getElementById("enabled").hidden) {
+  else if (e.charCode == 32 && !E("enabled").hidden) {
     var forceValue = undefined;
     for (var i = 0; i < treeView.selection.getRangeCount(); i++) {
       var min = {};
@@ -769,17 +769,17 @@ function moveFilter(type, up) {
 // Makes sure the right items in the options popup are checked/enabled
 function fillFiltersPopup(prefix) {
   var empty = !treeView.hasUserPatterns();
-  document.getElementById("export-command").setAttribute("disabled", empty);
-  document.getElementById("clearall").setAttribute("disabled", empty);
+  E("export-command").setAttribute("disabled", empty);
+  E("clearall").setAttribute("disabled", empty);
 }
 
 // Makes sure the right items in the options popup are checked
 function fillOptionsPopup() {
-  document.getElementById("abp-enabled").setAttribute("checked", prefs.enabled);
-  document.getElementById("frameobjects").setAttribute("checked", prefs.frameobjects);
-  document.getElementById("slowcollapse").setAttribute("checked", !prefs.fastcollapse);
-  document.getElementById("showintoolbar").setAttribute("checked", prefs.showintoolbar);
-  document.getElementById("showinstatusbar").setAttribute("checked", prefs.showinstatusbar);
+  E("abp-enabled").setAttribute("checked", prefs.enabled);
+  E("frameobjects").setAttribute("checked", prefs.frameobjects);
+  E("slowcollapse").setAttribute("checked", !prefs.fastcollapse);
+  E("showintoolbar").setAttribute("checked", prefs.showintoolbar);
+  E("showinstatusbar").setAttribute("checked", prefs.showinstatusbar);
 }
 
 // Makes sure the right items in the context menu are checked/enabled
@@ -819,28 +819,28 @@ function fillContext() {
   if (subscription && hasPatterns && !subscription.special)
     hasPatterns = false;
 
-  document.getElementById("context-filters-sep").hidden = !hasPatterns && (!subscription || subscription.special || subscription.dummy);
+  E("context-filters-sep").hidden = !hasPatterns && (!subscription || subscription.special || subscription.dummy);
 
-  document.getElementById("context-resethitcount").hidden = !origHasPatterns;
+  E("context-resethitcount").hidden = !origHasPatterns;
 
-  document.getElementById("context-edit").hidden =
-    document.getElementById("context-moveup").hidden =
-    document.getElementById("context-movedown").hidden =
+  E("context-edit").hidden =
+    E("context-moveup").hidden =
+    E("context-movedown").hidden =
     !hasPatterns;
 
-  document.getElementById("context-synchsubscription").hidden =
-    document.getElementById("context-editsubscription").hidden =
+  E("context-synchsubscription").hidden =
+    E("context-editsubscription").hidden =
     !subscription || subscription.special || subscription.dummy;
 
-  document.getElementById("context-movegroupup").hidden =
-    document.getElementById("context-movegroupdown").hidden =
-    document.getElementById("context-group-sep").hidden =
+  E("context-movegroupup").hidden =
+    E("context-movegroupdown").hidden =
+    E("context-group-sep").hidden =
     !subscription;
 
   if (subscription) {
-    document.getElementById("context-synchsubscription").setAttribute("disabled", subscription.special || subscription.external);
-    document.getElementById("context-movegroupup").setAttribute("disabled", subscription.dummy || treeView.isFirstSubscription(subscription));
-    document.getElementById("context-movegroupdown").setAttribute("disabled", subscription.dummy || treeView.isLastSubscription(subscription));
+    E("context-synchsubscription").setAttribute("disabled", subscription.special || subscription.external);
+    E("context-movegroupup").setAttribute("disabled", subscription.dummy || treeView.isFirstSubscription(subscription));
+    E("context-movegroupdown").setAttribute("disabled", subscription.dummy || treeView.isLastSubscription(subscription));
   }
 
   if (hasPatterns) {
@@ -858,9 +858,9 @@ function fillContext() {
       }
     }
 
-    document.getElementById("context-edit").setAttribute("disabled", !editable);
-    document.getElementById("context-moveup").setAttribute("disabled", isFirst);
-    document.getElementById("context-movedown").setAttribute("disabled", isLast);
+    E("context-edit").setAttribute("disabled", !editable);
+    E("context-moveup").setAttribute("disabled", isFirst);
+    E("context-movedown").setAttribute("disabled", isLast);
   }
 
   var clipboard = Components.classes["@mozilla.org/widget/clipboard;1"]
@@ -884,10 +884,10 @@ function fillContext() {
     hasFlavour = clipboard.hasDataMatchingFlavors(flavours, clipboard.kGlobalClipboard);
   }
 
-  document.getElementById("copy-command").setAttribute("disabled", !origHasPatterns);
-  document.getElementById("cut-command").setAttribute("disabled", !hasRemovable);
-  document.getElementById("paste-command").setAttribute("disabled", !hasFlavour);
-  document.getElementById("remove-command").setAttribute("disabled", !hasRemovable && (!subscription || subscription.special || subscription.dummy));
+  E("copy-command").setAttribute("disabled", !origHasPatterns);
+  E("cut-command").setAttribute("disabled", !hasRemovable);
+  E("paste-command").setAttribute("disabled", !hasFlavour);
+  E("remove-command").setAttribute("disabled", !hasRemovable && (!subscription || subscription.special || subscription.dummy));
 
   return true;
 }
@@ -901,7 +901,7 @@ function togglePref(pref) {
 // Updates hit count column whenever a value changes
 function onHitCountChange(pattern) {
   if (pattern) {
-    if (!document.getElementById("hitcount").hidden || !document.getElementById("lasthit").hidden)
+    if (!E("hitcount").hidden || !E("lasthit").hidden)
       treeView.invalidatePattern(pattern);
   }
   else
@@ -911,7 +911,7 @@ function onHitCountChange(pattern) {
 // Saves the filter list
 function applyChanges() {
   treeView.applyChanges();
-  document.getElementById("applyButton").setAttribute("disabled", "true");
+  E("applyButton").setAttribute("disabled", "true");
 
   if (wnd)
     abp.policy.refilterWindow(wnd);
@@ -956,7 +956,7 @@ function openAbout() {
 
 // To be called whenever the filter list has been changed and changes can be applied
 function onChange() {
-  document.getElementById("applyButton").removeAttribute("disabled");
+  E("applyButton").removeAttribute("disabled");
 }
 
 // Creates a copy of an object by copying all its properties
@@ -1143,7 +1143,7 @@ var treeView = {
     if (!this.sortColumn && prefs.branch.prefHasUserValue("listsort")) {
       try {
         if (prefs.branch.getBoolPref("listsort")) {
-          this.sortColumn = document.getElementById("pattern");
+          this.sortColumn = E("pattern");
           sortDir = "ascending";
           this.sortColumn.setAttribute("sortDirection", sortDir);
         }
