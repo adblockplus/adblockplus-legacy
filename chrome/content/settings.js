@@ -69,17 +69,6 @@ function dummyFunction() {}
 function init() {
   newFilterLabel = document.documentElement.getAttribute("buttonlabelextra2")
 
-  // Use our own findBar.css only if the default isn't there
-  var findBarOk = false;
-  for (var i = 0; i < document.styleSheets.length; i++)
-    if (document.styleSheets[i].href == "chrome://global/skin/findBar.css" && document.styleSheets[i].cssRules.length)
-      findBarOk = true;
-
-  if (findBarOk)
-    for (i = 0; i < document.styleSheets.length; i++)
-      if (document.styleSheets[i].href == "chrome://adblockplus/skin/findbar/findBar.css")
-        document.styleSheets[i].disabled = true;
-
   // Insert Apply button between OK and Cancel
   var okBtn = document.documentElement.getButton("accept");
   var cancelBtn = document.documentElement.getButton("cancel");
