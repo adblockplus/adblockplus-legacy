@@ -169,11 +169,9 @@
   </menubar>
 </toolbox>
 
-<vbox id="entryarea">
-  <description id="introduction">
-    &description;
-  </description>
-</vbox>
+<description id="introduction">
+  &description;
+</description>
 
 <button id="applyButton" class="dialog-button" hidden="true" label="&apply.label;" accesskey="&apply.accesskey;" oncommand="applyChanges()"/>
 

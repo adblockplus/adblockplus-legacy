@@ -87,11 +87,7 @@
 <!ENTITY about.label                "About Adblock Plus">
 <!ENTITY about.accesskey            "B">
 
-<!ENTITY description                "
-    Add the addresses you wish to block, for suggestions check the dropdown list.
-    You can use * as a wildcard to create more general filters. Advanced users can
-    use regular expressions like /banner\d+\.gif$/.
-">
+<!ENTITY description                "The following filters determine which addresses should be blocked and which ones should be allowed:">
 
 <!ENTITY pattern.column             "Filter rule">
 <!ENTITY enabled.column             "Enabled">
