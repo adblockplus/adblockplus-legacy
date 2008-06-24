@@ -65,6 +65,10 @@ var delayedAction = null;
 
 function dummyFunction() {}
 
+function E(id) {
+  return document.getElementById(id);
+}
+
 // Preference window initialization
 function init() {
   newFilterLabel = document.documentElement.getAttribute("buttonlabelextra2")
@@ -80,6 +84,33 @@ function init() {
   insertBefore.parentNode.insertBefore(applyBtn, insertBefore);
   applyBtn.setAttribute("disabled", "true");
   applyBtn.hidden = false;
+
+  // Convert menubar into toolbar on Mac OS X
+  let OS = Components.classes["@mozilla.org/xre/app-info;1"]
+                     .getService(Components.interfaces.nsIXULRuntime).OS;
+  if (OS == "Darwin")
+  {
+    let copyAttributes = function(from, to) {
+      for (let i = 0; i < from.attributes.length; i++)
+        to.setAttribute(from.attributes[i].name, from.attributes[i].value);
+    }
+
+    let menubar = E("menu");
+    let toolbar = document.createElement("toolbar");
+    copyAttributes(menubar, toolbar);
+
+    for (let menu = menubar.firstChild; menu; menu = menu.nextSibling)
+    {
+      let button = document.createElement("toolbarbutton");
+      copyAttributes(menu, button);
+      button.setAttribute("type", "menu");
+      while (menu.firstChild)
+        button.appendChild(menu.firstChild);
+      toolbar.appendChild(button);
+    }
+
+    menubar.parentNode.replaceChild(toolbar, menubar);
+  }
 
   // Install listeners
   prefs.addHitCountListener(onHitCountChange);
