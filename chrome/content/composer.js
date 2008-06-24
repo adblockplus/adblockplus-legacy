@@ -180,16 +180,19 @@ function updateFilter()
   filter = abp.normalizeFilter(filter);
   E("regexpWarning").hidden = !abp.regexpRegExp.test(filter);
 
-  let hasShortcut = false;
+  let hasShortcut = true;
   if (E("regexpWarning").hidden)
   {
     let compiledFilter = {text: filter};
     abp.prefs.initPattern(compiledFilter);
-    if ((compiledFilter.type == "filterlist" && abp.prefs.filterPatterns.findShortcut(compiledFilter.text))
-        || (compiledFilter.type == "whitelist" && abp.prefs.whitePatterns.findShortcut(compiledFilter.text)))
-    {
-      hasShortcut = true;
-    }
+
+    let matcher = null;
+    if (compiledFilter.type == "filterlist")
+      matcher = abp.prefs.filterPatterns;
+    if (compiledFilter.type == "whitelist")
+      matcher = abp.prefs.whitePatterns;
+    if (matcher && !matcher.findShortcut(compiledFilter.text))
+      hasShortcut = false;
   }
   E("shortpatternWarning").hidden = hasShortcut;
 
