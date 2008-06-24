@@ -204,10 +204,35 @@ function updateCustomPattern()
 }
 
 function addFilter() {
-  abp.addPatterns([abp.normalizeFilter(document.getElementById("filter").value)], 1);
+  let filter = abp.normalizeFilter(document.getElementById("filter").value);
+  if (abp.regexpRegExp.test(filter) && !regexpWarning())
+    return false;
+
+  abp.addPatterns([filter], 1);
 
   if (wnd && !wnd.closed)
     abp.policy.refilterWindow(wnd);
+
+  return true;
+}
+
+function regexpWarning() {
+  if (!abp.prefs.warnregexp)
+    return true;
+
+  var promptService = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
+                                .getService(Components.interfaces.nsIPromptService);
+  var check = {value: false};
+  var result = promptService.confirmCheck(window, abp.getString("regexp_warning_title"),
+    abp.getString("regexp_warning_text"),
+    abp.getString("regexp_warning_checkbox"), check);
+
+  if (check.value) {
+    abp.prefs.warnregexp = false;
+    abp.prefs.save();
+  }
+
+  return result;
 }
 
 function setAdvancedMode(mode) {

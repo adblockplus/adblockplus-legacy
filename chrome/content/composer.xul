@@ -33,7 +33,7 @@
     xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
     title="&dialog.title;"
     onload="init()"
-    ondialogaccept="addFilter()"
+    ondialogaccept="return addFilter()"
     ondialogdisclosure="setAdvancedMode(!advancedMode)"
     buttons="accept,cancel,disclosure"
     width="800px"
