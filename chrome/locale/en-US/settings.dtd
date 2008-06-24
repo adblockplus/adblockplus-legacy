@@ -103,5 +103,7 @@
 <!ENTITY context.movegroupup.label        "Move group up">
 <!ENTITY context.movegroupdown.label      "Move group down">
 
+<!ENTITY regexp.tooltip      "This filter is either a regular expression or too short to be optimized. Too many of these filters might slow down your browsing.">
+
 <!ENTITY apply.label                "Apply">
 <!ENTITY apply.accesskey            "P">

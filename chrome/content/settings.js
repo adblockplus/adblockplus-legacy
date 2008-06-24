@@ -897,6 +897,13 @@ function applyChanges() {
     abp.policy.refilterWindow(wnd);
 }
 
+// Checks whether user's mouse use hovering over a regexp exclamation mark
+function showRegExpTooltip(event) {
+  let childElement = {};
+  treeView.boxObject.getCellAt(event.clientX, event.clientY, {}, {}, childElement);
+  return (childElement.value == "image");
+}
+
 // Warns the user that he has entered a regular expression. 
 // Returns true if the user is ok with this, false if he wants to change the filter.
 function regexpWarning() {
