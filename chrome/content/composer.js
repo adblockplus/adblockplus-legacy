@@ -38,7 +38,7 @@ function init() {
   E("filterType").value = (item.filter && item.filter.type != "whitelist" ? "whitelist" : "filterlist");
   E("customPattern").value = item.location;
 
-  let insertionPoint = E("patternGroup").firstChild;
+  let insertionPoint = E("customPatternBox");
   let addSuggestion = function(address)
   {
     let suggestion = document.createElement("radio");
@@ -179,6 +179,9 @@ function updateFilter()
     }
   }
 
+  filter = abp.normalizeFilter(filter);
+  E("regexpWarning").hidden = !abp.regexpRegExp.test(filter);
+
   E("filter").value = filter;
 }
 
@@ -211,35 +214,12 @@ function updateCustomPattern()
 }
 
 function addFilter() {
-  let filter = abp.normalizeFilter(document.getElementById("filter").value);
-  if (abp.regexpRegExp.test(filter) && !regexpWarning())
-    return false;
-
-  abp.addPatterns([filter], 1);
+  abp.addPatterns([document.getElementById("filter").value], 1);
 
   if (wnd && !wnd.closed)
     abp.policy.refilterWindow(wnd);
 
   return true;
-}
-
-function regexpWarning() {
-  if (!abp.prefs.warnregexp)
-    return true;
-
-  var promptService = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
-                                .getService(Components.interfaces.nsIPromptService);
-  var check = {value: false};
-  var result = promptService.confirmCheck(window, abp.getString("regexp_warning_title"),
-    abp.getString("regexp_warning_text"),
-    abp.getString("regexp_warning_checkbox"), check);
-
-  if (check.value) {
-    abp.prefs.warnregexp = false;
-    abp.prefs.save();
-  }
-
-  return result;
 }
 
 function setAdvancedMode(mode) {

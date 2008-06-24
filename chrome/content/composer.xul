@@ -66,7 +66,10 @@
     <groupbox id="pattern" flex="1">
       <caption label="&pattern.label;"/>
       <radiogroup id="patternGroup" flex="1" oncommand="updatePatternSelection()" style="overflow: auto;">
-        <hbox>
+        <description id="patternExplanation">&pattern.explanation;</description>
+        <description id="regexpWarning" hidden="true">&regexp.warning;</description>
+        <description id="shortpatternWarning" hidden="true">&shortpattern.warning;</description>
+        <hbox id="customPatternBox">
           <radio id="customPatternRadio" label="&custom.pattern.label;" accesskey="&custom.pattern.accesskey;" value="" control="customPattern"/>
           <textbox id="customPattern" flex="1" oninput="updateCustomPattern()"/>
         </hbox>
