@@ -26,9 +26,5 @@ var abp = Components.classes["@mozilla.org/adblockplus;1"].createInstance().wrap
 
 function fillInVersion() {
   var versionField = document.getElementById("version");
-  var version = abp.getInstalledVersion();
-  if (version)
-    versionField.setAttribute("value", versionField.getAttribute("value") + " " + version);
-  else
-    versionField.parentNode.removeChild(versionField);
+  versionField.value = abp.getInstalledVersion();
 }
