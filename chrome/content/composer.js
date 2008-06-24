@@ -54,18 +54,23 @@ function init() {
   {
     let url = ioService.newURI(item.location, null, null)
                        .QueryInterface(Components.interfaces.nsIURL);
+    let suffix = (url.query ? "?*" : "");
     url.query = "";
-    addSuggestion(url.spec);
+    let defaultValue = url.spec + suffix;
+    addSuggestion(defaultValue);
 
     let parentURL = ioService.newURI(url.fileName == "" ? ".." : ".", null, url);
     if (!parentURL.equals(url))
-      addSuggestion(parentURL.spec);
+    {
+      defaultValue = parentURL.spec + "*";
+      addSuggestion(defaultValue);
+    }
 
     let rootURL = ioService.newURI("/", null, url);
     if (!rootURL.equals(parentURL) && !rootURL.equals(url))
-      addSuggestion(rootURL.spec);
+      addSuggestion(rootURL.spec + "*");
 
-    E("patternGroup").value = parentURL.spec;
+    E("patternGroup").value = defaultValue;
   }
   catch (e)
   {
@@ -190,8 +195,10 @@ function updatePatternSelection()
     E("anchorEnd").checked = false;
   }
 
-  disableElement(E("anchorStart"), item.location.substr(0, pattern.length) != pattern, "checked", false);
-  disableElement(E("anchorEnd"), item.location.substr(item.location.length - pattern.length, pattern.length) != pattern, "checked", false);
+  let startStr = pattern.replace(/\*+$/, '');
+  let endStr = pattern.replace(/^\*+/, '');
+  disableElement(E("anchorStart"), item.location.substr(0, startStr.length) != startStr, "checked", false);
+  disableElement(E("anchorEnd"), item.location.substr(item.location.length - endStr.length, endStr.length) != endStr, "checked", false);
 
   updateFilter();
   setAdvancedMode(document.documentElement.getAttribute("advancedMode") == "true");
