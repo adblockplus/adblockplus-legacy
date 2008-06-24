@@ -34,7 +34,7 @@ dialog {
   background-image: url(regexp.gif);
 }
 
-.dialog-button-box, #entryarea, #listarea {
+.dialog-button-box, #introduction, #listarea {
   margin: 8px;
 }
 

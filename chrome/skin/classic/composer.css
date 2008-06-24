@@ -45,7 +45,7 @@
   display: none;
 }
 
-#disabledWarning {
+#disabledWarning, #regexpWarning, #shortpatternWarning {
   color: #E00000;
 }
 
