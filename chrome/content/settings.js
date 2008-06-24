@@ -1206,7 +1206,7 @@ var treeView = {
     properties.AppendElement(this.atoms["selected-" + this.selection.isSelected(row)]);
     properties.AppendElement(this.atoms["subscription-" + !info[1]]);
     properties.AppendElement(this.atoms["pattern-" + !!(info[1] && typeof info[1] != "string")]);
-    properties.AppendElement(this.atoms["pattern-regexp-" + !!(info[1] && typeof info[1] != "string" && (info[1].type == "filterlist" || info[1].type == "whitelist") && abp.regexpRegExp.test(info[1].text))]);
+    properties.AppendElement(this.atoms["pattern-regexp-" + !!(info[1] && typeof info[1] != "string" && (info[1].type == "filterlist" || info[1].type == "whitelist") && !("shortcut" in info[1]))]);
     properties.AppendElement(this.atoms["description-" + !!(info[1] && typeof info[1] == "string")]);
     properties.AppendElement(this.atoms["subscription-special-" + info[0].special]);
     properties.AppendElement(this.atoms["subscription-external-" + (!info[0].special && info[0].external)]);
@@ -1667,7 +1667,7 @@ var treeView = {
       var pattern = prefs.patternFromText(text);
       if (!pattern || !(pattern.type in treeView.typemap))
         return;
-    
+
       var subscription = treeView.typemap[pattern.type];
       if (typeof origSubscription == "undefined" || typeof origPos == "undefined" || origSubscription != subscription)
         origPos = -1;
@@ -1691,6 +1691,13 @@ var treeView = {
       pattern = cloneObject(pattern);
       pattern.orig = orig;
       pattern.dummy = false;
+
+      if ((pattern.type == "filterlist" || pattern.type == "whitelist") && !abp.regexpRegExp.test(pattern.text)) {
+        let matcher = (pattern.type == "filterlist" ? abp.prefs.filterPatterns : abp.prefs.whitePatterns);
+        let shortcut = matcher.findShortcut(pattern.text);
+        if (shortcut)
+          pattern.shortcut = shortcut;
+      }
     }
     else {
       // Adding a dummy
