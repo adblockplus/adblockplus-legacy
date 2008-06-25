@@ -121,3 +121,7 @@ treechildren::-moz-tree-image(col-enabled, subscription-true, subscription-speci
 #FindToolbar, #FindToolbar > .toolbar-holder {
   border: none !important;
 }
+
+tooltip {
+  max-width: none;
+}
