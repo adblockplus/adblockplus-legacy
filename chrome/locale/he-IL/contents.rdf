@@ -9,7 +9,7 @@
 	<RDF:Description about="urn:mozilla:locale:he-IL"
 			chrome:displayName="Hebrew(IL)"
 			chrome:author="Amiad - Hatul"
-			chrome:name=he-IL">
+			chrome:name="he-IL">
 		<chrome:packages>
 			<RDF:Seq about="urn:mozilla:locale:he-IL:packages">
 				<RDF:li resource="urn:mozilla:locale:en-US:adblockplus"/>
