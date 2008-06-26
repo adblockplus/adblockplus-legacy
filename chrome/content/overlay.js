@@ -774,12 +774,7 @@ function abpCheckContext() {
 // Bring up the settings dialog for the node the context menu was referring to
 function abpNode(data) {
   if (abp && data)
-  {
-    if (abp.prefs.usefiltercomposer)
-      openDialog("chrome://adblockplus/content/composer.xul", "_blank", "chrome,centerscreen,resizable,dialog=no,dependent", abpGetBrowser().contentWindow, data);
-    else
-      abpSettings(data.location);
-  }
+    openDialog("chrome://adblockplus/content/composer.xul", "_blank", "chrome,centerscreen,resizable,dialog=no,dependent", abpGetBrowser().contentWindow, data);
 }
 
 // Open the settings window.
@@ -787,5 +782,5 @@ function abpSettings(url) {
   if (!abp)
     return;
 
-  abp.openSettingsDialog(abpGetBrowser().contentWindow, url);
+  abp.openSettingsDialog(url);
 }

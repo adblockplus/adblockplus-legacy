@@ -141,7 +141,7 @@ var policy = {
         if (!hasObjectTab) {
           objTab = node.ownerDocument.createElementNS("http://www.w3.org/1999/xhtml", "a");
           objTab.abpObjTab = true;
-          wnd.setTimeout(addObjectTab, 0, node, location, objTab, topWnd);
+          wnd.setTimeout(addObjectTab, 0, node, location, objTab);
         }
       }
     }

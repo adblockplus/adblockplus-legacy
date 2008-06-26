@@ -267,7 +267,7 @@ function disableElement(element, disable, valueProperty, disabledValue) {
 }
 
 function openPreferences() {
-  abp.openSettingsDialog(wnd, item.location, E("filter").value);
+  abp.openSettingsDialog(item.location, E("filter").value);
 }
 
 function doEnable() {
