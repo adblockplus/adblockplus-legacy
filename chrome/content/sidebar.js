@@ -324,10 +324,7 @@ function doBlock() {
   if (filter && filter.type == "whitelist")
     return;
 
-  if (abp.prefs.usefiltercomposer)
-    openDialog("chrome://adblockplus/content/composer.xul", "_blank", "chrome,centerscreen,resizable,dialog=no,dependent", window.content, item);
-  else
-    abp.openSettingsDialog(window.content, (filter ? "@@" : "") + item.location);
+  openDialog("chrome://adblockplus/content/composer.xul", "_blank", "chrome,centerscreen,resizable,dialog=no,dependent", window.content, item);
 }
 
 function editFilter() {
@@ -344,7 +341,7 @@ function editFilter() {
   if (!("location") in item)
     item.location = undefined
 
-  abp.openSettingsDialog(window.content, item.location, item.filter);
+  abp.openSettingsDialog(item.location, item.filter);
 }
 
 function copyToClipboard() {

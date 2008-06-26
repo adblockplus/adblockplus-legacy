@@ -351,10 +351,9 @@ const abp = {
   },
 
   // Opens preferences dialog for the supplied window and filter suggestion
-  openSettingsDialog: function(insecWnd, location, filter) {
+  openSettingsDialog: function(location, filter) {
     var dlg = this.getSettingsDialog();
     var func = function() {
-      dlg.setContentWindow(insecWnd);
       if (typeof location != "undefined" && location)
         dlg.setLocation(location);
       if (typeof filter != "undefined" && filter)

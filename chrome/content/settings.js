@@ -32,11 +32,7 @@ try {
 
 if (abp) {
   var prefs = abp.prefs;
-  var flasher = abp.flasher;
   var synchronizer = abp.synchronizer;
-  var suggestionItems = null;
-  var wnd = null;       // Window we should apply filters at
-  var wndData = null;   // Data for this window
   var dragService = Components.classes["@mozilla.org/widget/dragservice;1"]
                               .getService(Components.interfaces.nsIDragService);
 }
@@ -116,29 +112,17 @@ function init() {
   prefs.addHitCountListener(onHitCountChange);
   synchronizer.addListener(synchCallback);
 
-  // HACK: Prevent editor from selecting first list item by default
-  var editor = E("listEditor");
-  var editorParent = E("listEditorParent");
-  editor.setInitialSelection = dummyFunction;
-
   // Capture keypress events - need to get them before the tree does
   E("listStack").addEventListener("keypress", onListKeyPress, true);
 
   // Capture keypress events - need to get them before the text field does
   E("FindToolbar").addEventListener("keypress", onFindBarKeyPress, true);
 
-  // Initialize content window data
-  var windowMediator = Components.classes["@mozilla.org/appshell/window-mediator;1"]
-                                 .getService(Components.interfaces.nsIWindowMediator);
-  var browser = windowMediator.getMostRecentWindow("navigator:browser") || windowMediator.getMostRecentWindow("emusic:window");
-  if (browser)
-    setContentWindow(browser.getBrowser().contentWindow);
-  else
-    setContentWindow(null);
-
   // Initialize tree view
   E("list").view = treeView;
 
+  var editor = E("listEditor");
+  var editorParent = E("listEditorParent");
   editor.height = editor.boxObject.height;
   E("listStack").appendChild(editorParent);
   editorParent.hidden = true;
@@ -153,38 +137,6 @@ function init() {
   var e = document.createEvent("Events");
   e.initEvent("post-load", false, false);
   window.dispatchEvent(e);
-}
-
-function setContentWindow(contentWnd) {
-  if (!abp)
-    return;
-
-  var editor = E("listEditor");
-
-  wnd = contentWnd;
-  wndData = null;
-
-  var data = [];
-  if (wnd) {
-    // Retrieve data for the window
-    wndData = abp.getDataForWindow(wnd);
-    data = wndData.getAllLocations();
-  }
-  if (!data.length) {
-    var reason = abp.getString("no_blocking_suggestions");
-    var type = "filterlist";
-    if (wnd && abp.policy.isWindowWhitelisted(wnd)) {
-      reason = abp.getString("whitelisted_page");
-      type = "whitelist";
-    }
-    data.push({location: reason, typeDescr: "", localizedDescr: "", nodes: [], filter: {type: type}});
-  }
-
-  // Initialize filter suggestions dropdown
-  editor.removeAllItems();
-  suggestionItems = [];
-  for (var i = 0; i < data.length; i++)
-    createFilterSuggestion(editor, data[i]);
 }
 
 function setLocation(location) {
@@ -208,54 +160,7 @@ function selectPattern(pattern) {
 function cleanUp() {
   prefs.removeHitCountListener(onHitCountChange);
   synchronizer.removeListener(synchCallback);
-  flasher.stop();
 }
-
-function createDescription(label, flex) {
-  var result = document.createElement("description");
-  result.setAttribute("value", label);
-  if (flex) {
-    result.flex = flex;
-    result.setAttribute("crop", "center");
-  }
-  return result;
-}
-
-function createFilterSuggestion(menulist, suggestion) {
-  var menuitem = menulist.appendItem(suggestion.location, suggestion.location);
-
-  menuitem.appendChild(createDescription(suggestion.location, 1));
-  menuitem.appendChild(createDescription(suggestion.localizedDescr, 0));
-
-  if (suggestion.filter && suggestion.filter.type == "whitelist")
-    menuitem.className = "whitelisted";
-  else if (suggestion.filter)
-    menuitem.className = "filtered";
-
-  if (menuitem.className)
-    menuitem.setAttribute("disabled", "true");
-
-  menuitem.data = suggestion;
-  suggestionItems.push(menuitem);
-}
-
-function fixColWidth() {
-  var maxWidth = 0;
-  for (var i = 0; i < suggestionItems.length; i++) {
-    if (suggestionItems[i].childNodes[1].boxObject.width > maxWidth)
-      maxWidth = suggestionItems[i].childNodes[1].boxObject.width;
-  }
-  for (i = 0; i < suggestionItems.length; i++)
-    suggestionItems[i].childNodes[1].style.width = maxWidth+"px";
-}
-
-function onEditorSelectionChange(e) {
-  if (e.attrName != "value" || !wndData)
-    return;
-
-  var loc =  (e.target.selectedItem && "data" in e.target.selectedItem ? e.target.selectedItem.data : null);
-  flasher.flash(loc ? loc.nodes : null);
-};
 
 // Adds the filter entered into the input field to the list
 function addFilter() {
@@ -912,9 +817,6 @@ function onHitCountChange(pattern) {
 function applyChanges() {
   treeView.applyChanges();
   E("applyButton").setAttribute("disabled", "true");
-
-  if (wnd)
-    abp.policy.refilterWindow(wnd);
 }
 
 // Checks whether user's mouse use hovering over a regexp exclamation mark
@@ -2259,20 +2161,16 @@ var treeView = {
 
     var text = (isDummy ? this.editorDummyInit : info[1].text);
 
-    // Need a timeout here - Firefox 1.5 has to initialize html:input
-    setTimeout(function(boxObject, editor, handler1, handler2) {
-      editor.focus();
-      editor.field = document.commandDispatcher.focusedElement;
-      editor.field.value = text;
-      editor.field.setSelectionRange(editor.value.length, editor.value.length);
+    this.editor.focus();
+    this.editor.field = document.commandDispatcher.focusedElement;
+    this.editor.field.value = text;
+    this.editor.field.setSelectionRange(this.editor.value.length, this.editor.value.length);
 
-      // Need to attach handlers to the embedded html:input instead of menulist - won't catch blur otherwise
-      editor.field.addEventListener("keypress", handler1, false);
-      editor.field.addEventListener("blur", handler2, false);
-      editor.addEventListener("DOMAttrModified", onEditorSelectionChange, false);
+    // Need to attach handlers to the embedded html:input instead of menulist - won't catch blur otherwise
+    this.editor.field.addEventListener("keypress", this.editorKeyPressHandler, false);
+    this.editor.field.addEventListener("blur", this.editorBlurHandler, false);
 
-      boxObject.invalidateRow(row);
-    }, 0, this.boxObject, this.editor, this.editorKeyPressHandler, this.editorBlurHandler);
+    this.boxObject.invalidateRow(row);
 
     return true;
   },
@@ -2283,7 +2181,6 @@ var treeView = {
 
     this.editor.field.removeEventListener("keypress", this.editorKeyPressHandler, false);
     this.editor.field.removeEventListener("blur", this.editorBlurHandler, false);
-    this.editor.removeEventListener("DOMAttrModified", onEditorSelectionChange, false);
 
     var text = abp.normalizeFilter(this.editor.value);
     if (typeof blur == "undefined" || !blur)
