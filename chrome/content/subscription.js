@@ -22,29 +22,34 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-var abp;
-var prefs;
-var subscription;
-var result;
+var abp = Components.classes["@mozilla.org/adblockplus;1"].createInstance().wrappedJSObject;
+var prefs = abp.prefs;
+
+var subscription = null;
+var result = null;
+var autoAdd = false;
 
 function init() {
-  // In K-Meleon we might get the arguments wrapped
-  if (window.arguments)
+  if (window.arguments) {
+    // In K-Meleon we might get the arguments wrapped
     for (var i = 0; i < window.arguments.length; i++)
       if (window.arguments[i] && "wrappedJSObject" in window.arguments[i])
         window.arguments[i] = window.arguments[i].wrappedJSObject;
 
-  abp = window.arguments[0];
-  prefs = window.arguments[1];
-  subscription = window.arguments[2];
-  result = window.arguments[3];
+    [subscription, result] = window.arguments;
+  }
+
+  autoAdd = !result;
+  if (!result)
+    result = {};
+
   if (subscription) {
     document.getElementById("location").value = subscription.url;
-    document.getElementById("title").label = subscription.title;
+    document.getElementById("title").value = subscription.title;
     document.getElementById("enabled").setAttribute("checked", !subscription.disabled);
   }
   else
-    document.getElementById("title").label = document.getElementById("title").value = "";
+    document.getElementById("title").value = "";
 
   if (subscription && "patterns" in subscription) {
     if (subscription.external) {
@@ -64,19 +69,6 @@ function init() {
     document.getElementById("enabled").setAttribute("checked", "true");
     document.getElementById("autodownload").setAttribute("checked", "true");
   }
-
-  // List selection doesn't fire input event, have to register a property watcher
-  document.getElementById("title").inputField.watch("value", onTitleChange);
-}
-
-function onTitleChange(prop, oldval, newval) {
-  // Check whether the user selected something from the list
-  var list = document.getElementById("title").menupopup.getElementsByTagName("menuitem");
-  for (var i = 0; i < list.length; i++)
-    if (list[i].getAttribute("label") == newval)
-      document.getElementById("location").value = list[i].getAttribute("value");
-
-  return newval;
 }
 
 function saveSubscription() {
@@ -112,19 +104,15 @@ function saveSubscription() {
     }
   }
 
-  if (!window.arguments[3])
-    result = {};
-
   result.url = url;
-
-  result.title = document.getElementById("title").label.replace(/^\s+/, "").replace(/\s+$/, "");
+  result.title = document.getElementById("title").value.replace(/^\s+/, "").replace(/\s+$/, "");
   if (!result.title)
     result.title = result.url;
 
   result.autoDownload = document.getElementById("autodownload").checked;
   result.disabled = !document.getElementById("enabled").checked;
 
-  if (!window.arguments[3])
+  if (autoAdd)
     abp.addSubscription(result.url, result.title, result.autoDownload, result.disabled);
 
   return true;

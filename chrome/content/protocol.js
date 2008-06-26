@@ -110,12 +110,13 @@ ABPChannel.prototype = {
         var subscription = {url: url, title: title, disabled: false, external: false, autoDownload: true};
 
         var browser = windowMediator.getMostRecentWindow("navigator:browser") || windowMediator.getMostRecentWindow("emusic:window");
-        if (browser)
+        if (browser) {
           browser.openDialog("chrome://adblockplus/content/subscription.xul", "_blank",
-                             "chrome,centerscreen,modal", abp, prefs, subscription, result);
+                             "chrome,centerscreen,modal", subscription, result);
 
           if ("url" in result)
             this.addSubscription(result);
+        }
       }
     }
 

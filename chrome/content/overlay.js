@@ -424,7 +424,7 @@ function abpShowSubscriptions() {
     if (!abpPrefs.subscriptions[i].special)
       return;
 
-  window.openDialog("chrome://adblockplus/content/tip_subscriptions.xul", "_blank", "chrome,centerscreen,resizable=no,dialog=no");
+  window.openDialog("chrome://adblockplus/content/tip_subscriptions.xul", "_blank", "chrome,centerscreen");
 }
 
 function abpFillTooltip(ev) {

@@ -23,8 +23,16 @@
  * ***** END LICENSE BLOCK ***** */
 
 var abp = Components.classes["@mozilla.org/adblockplus;1"].createInstance().wrappedJSObject;
-
 var prefs = abp.prefs;
+
+var autoAdd;
+var result;
+
+function init() {
+  autoAdd = !(window.arguments && window.arguments.length);
+  result = (autoAdd ? {disabled: false, external: false, autoDownload: true} : window.arguments[0]);
+  document.getElementById("description-par1").hidden = !autoAdd;
+}
 
 function addSubscriptions() {
   var group = document.getElementById("subscriptions");
@@ -32,12 +40,21 @@ function addSubscriptions() {
   if (!selected)
     return;
 
-  abp.addSubscription(selected.getAttribute("_url"), selected.getAttribute("_title"));
+  result.url = selected.getAttribute("_url");
+  result.title = selected.getAttribute("_title");
+
+  if (autoAdd)
+    abp.addSubscription(result.url, result.title, result.autoDownload, result.disabled);
 }
 
 function addOther() {
-  openDialog("subscription.xul", "_blank", "chrome,centerscreen", abp, prefs, null, null);
-  window.close();
+  openDialog("subscription.xul", "_blank", "chrome,centerscreen,modal", null, result);
+  if ("url" in result)
+  {
+    if (autoAdd)
+      abp.addSubscription(result.url, result.title, result.autoDownload, result.disabled);
+    window.close();
+  }
 }
 
 function handleKeyPress(e) {
