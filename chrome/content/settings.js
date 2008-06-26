@@ -508,7 +508,10 @@ function editFilter(type) {
 // Starts editor for a given subscription
 function editSubscription(subscription) {
   var result = {};
-  openDialog("subscription.xul", "_blank", "chrome,centerscreen,modal", abp, prefs, subscription, result);
+  if (subscription)
+    openDialog("subscription.xul", "_blank", "chrome,centerscreen,modal", subscription, result);
+  else
+    openDialog("tip_subscriptions.xul", "_blank", "chrome,centerscreen,modal", result);
 
   if (!("url" in result))
     return true;

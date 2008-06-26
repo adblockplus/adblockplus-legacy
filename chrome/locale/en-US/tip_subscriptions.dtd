@@ -22,7 +22,7 @@
    -
    - ***** END LICENSE BLOCK ***** -->
 
-<!ENTITY dialog.title               "Welcome to Adblock Plus">
+<!ENTITY dialog.title               "Add Adblock Plus filter subscription">
 
 <!ENTITY description.par1           "
   Thank you for installing Adblock Plus. This extension can
@@ -53,3 +53,5 @@
 <!ENTITY other.label                "Add another subscription">
 <!ENTITY other.accesskey            "T">
 
+<!ENTITY full-list.url              "http://adblockplus.org/en/subscriptions">
+<!ENTITY full-list.label            "View all subscriptions">

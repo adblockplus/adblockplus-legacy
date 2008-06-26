@@ -27,12 +27,7 @@
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
 <?xml-stylesheet href="chrome://adblockplus/skin/tip_subscriptions.css" type="text/css"?>
 
-<!DOCTYPE dialog [
-<!ENTITY % tipDTD SYSTEM "chrome://adblockplus/locale/tip_subscriptions.dtd">
-%tipDTD;
-<!ENTITY % subscriptionDTD SYSTEM "chrome://adblockplus/locale/subscription.dtd">
-%subscriptionDTD;
-]>
+<!DOCTYPE dialog SYSTEM "chrome://adblockplus/locale/tip_subscriptions.dtd">
 
 <dialog
   xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
@@ -44,7 +39,7 @@
   title="&dialog.title;"
   id="abpTipSubscriptions"
   windowtype="abp:tip:subscriptions"
-  onload="setTimeout('sizeToContent();document.documentElement.centerWindowOnScreen()', 0)"
+  onload="init()"
   ondialogaccept="addSubscriptions()"
   ondialogextra2="addOther()">
 
