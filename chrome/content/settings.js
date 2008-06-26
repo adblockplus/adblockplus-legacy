@@ -60,9 +60,6 @@ try {
 
 var newFilterLabel = null;
 var editorTimeout = null;
-var showingWarning = false;
-var delayedAction = null;
-
 function dummyFunction() {}
 
 function E(id) {
@@ -925,31 +922,6 @@ function showRegExpTooltip(event) {
   let childElement = {};
   treeView.boxObject.getCellAt(event.clientX, event.clientY, {}, {}, childElement);
   return (childElement.value == "image");
-}
-
-// Warns the user that he has entered a regular expression. 
-// Returns true if the user is ok with this, false if he wants to change the filter.
-function regexpWarning() {
-  if (!prefs.warnregexp)
-    return true;
-
-  showingWarning = true;
-
-  var promptService = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
-                                .getService(Components.interfaces.nsIPromptService);
-  var check = {value: false};
-  var result = promptService.confirmCheck(window, abp.getString("regexp_warning_title"),
-    abp.getString("regexp_warning_text"),
-    abp.getString("regexp_warning_checkbox"), check);
-
-  if (check.value) {
-    prefs.warnregexp = false;
-    prefs.save();
-  }
-
-  showingWarning = false;
-
-  return result;
 }
 
 // Opens About Adblock Plus dialog
@@ -2322,18 +2294,13 @@ var treeView = {
 
     if (save) {
       if (text && (isDummy || text != info[1].text)) {
-        // Issue a warning if we got a regular expression - unless we were editing a regular expression
-        if (abp.regexpRegExp.test(text) && (isDummy || !abp.regexpRegExp.test(info[1].text)) && !regexpWarning())
-          save = false;
-        else {
-          if (!isDummy || this.editedRow != 0)
-            this.removeRow(info);
+        if (!isDummy || this.editedRow != 0)
+          this.removeRow(info);
 
-          if (info[1])
-            this.addPattern(text, info[0], info[1].origPos);
-          else
-            this.addPattern(text);
-        }
+        if (info[1])
+          this.addPattern(text, info[0], info[1].origPos);
+        else
+          this.addPattern(text);
       }
       else
         save = false;
@@ -2354,11 +2321,5 @@ var treeView = {
 
     this.editedRow = -1;
     this.editorDummyInit = (save ? "" : text);
-
-    if (delayedAction) {
-      document.documentElement[delayedAction]();
-      delayedAction = null;
-    }
   }
 };
-
