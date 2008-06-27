@@ -50,8 +50,8 @@
 
 <!ENTITY subscribe.label            "Subscribe">
 <!ENTITY subscribe.accesskey        "R">
-<!ENTITY other.label                "Add another subscription">
-<!ENTITY other.accesskey            "T">
+<!ENTITY other.label                "Add a different subscription">
+<!ENTITY other.accesskey            "f">
 
 <!ENTITY full-list.url              "http://adblockplus.org/en/subscriptions">
 <!ENTITY full-list.label            "View all subscriptions">
