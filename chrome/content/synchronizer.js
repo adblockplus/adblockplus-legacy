@@ -128,8 +128,12 @@ var synchronizer = {
       request.onload = function(ev) {
         if (subscription.errors >= prefs.subscriptions_fallbackerrors) {
           subscription.errors = 0;
-          if (/^301\s+(\S+)/.test(ev.target.responseText))
+          if (/^301\s+(\S+)/.test(ev.target.responseText))  // Moved permanently    
             subscription.nextURL = RegExp.$1;
+          else if (/^410\b/.test(ev.target.responseText)) { // Gone
+            subscription.autoDownload = false;
+            synchronizer.notifyListeners(subscription, "info");
+          }
           prefs.savePatterns();
         }
       }
