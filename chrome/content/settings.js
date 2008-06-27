@@ -1360,7 +1360,7 @@ var treeView = {
     if (orig.external)
       status += abp.getString("subscription_status_externaldownload");
     else
-      status += (orig.autoDownload ? abp.getString("subscription_status_autodownload") : abp.getString("subscription_status_manualdownload"));
+      status += (subscription.autoDownload ? abp.getString("subscription_status_autodownload") : abp.getString("subscription_status_manualdownload"));
 
     status += "; " + abp.getString("subscription_status_lastdownload") + " ";
     if (synchronizer.isExecuting(subscription.url))
