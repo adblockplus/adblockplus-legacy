@@ -1062,7 +1062,6 @@ var prefs = {
       ret.disabled = ("disabled" in obj && obj.disabled == "true");
       ret.external = ("external" in obj && obj.external == "true");
       ret.lastDownload = parseInt("lastDownload" in obj ? obj.lastDownload : 0) || 0;
-      ret.lastSuccess = parseInt("lastSuccess" in obj ? obj.lastSuccess : 0) || 0;
       ret.downloadStatus = ("downloadStatus" in obj ? obj.downloadStatus : "");
       ret.lastModified = ("lastModified" in obj ? obj.lastModified : "");
       ret.expires = parseInt("expires" in obj ? obj.expires : 0) || 0;
@@ -1118,7 +1117,6 @@ var prefs = {
         disabled: false,
         external: false,
         lastDownload: 0,
-        lastSuccess: 0,
         downloadStatus: "",
         lastModified: "",
         expires: 0,
@@ -1139,7 +1137,6 @@ var prefs = {
         ["Bool","disabled","disabled"],
         ["Bool","external","external"],
         ["Int","lastdownload","lastDownload"],
-        ["Int","lastsuccess","lastSuccess"],
         ["Char","downloadstatus","downloadStatus"],
         ["Char","lastmodified","lastModified"]
       ];
@@ -1192,7 +1189,6 @@ var prefs = {
       disabled: false,
       external: true,
       lastDownload: 0,
-      lastSuccess: 0,
       downloadStatus: "",
       lastModified: "",
       expires: 0,
@@ -1228,8 +1224,6 @@ var prefs = {
       buf.push('external=' + subscription.external);
       if (subscription.lastDownload)
         buf.push('lastDownload=' + subscription.lastDownload);
-      if (subscription.lastSuccess)
-        buf.push('lastSuccess=' + subscription.lastSuccess);
       if (subscription.downloadStatus)
         buf.push('downloadStatus=' + subscription.downloadStatus);
       if (subscription.lastModified)
