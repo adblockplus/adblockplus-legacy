@@ -466,7 +466,7 @@ function synchCallback(orig, status) {
     else if (subscription) {
       row = treeView.getSubscriptionRow(subscription);
       rowCount = treeView.getSubscriptionRowCount(subscription);
-      if (status == "replace") {
+      if (status == "replace" || status == "info") {
         subscription = cloneObject(orig);
         subscription.dummy = false;
         treeView.data[i] = subscription;
