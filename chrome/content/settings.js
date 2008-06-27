@@ -476,11 +476,14 @@ function synchCallback(orig, status) {
     if (!subscription)
       return;
   
+    subscription.extra = treeView.getSubscriptionDescription(subscription);
+    treeView.initSubscriptionPatterns(subscription, orig.patterns);
+    treeView.invalidateSubscription(subscription, row, rowCount);
+
     // Date.toLocaleString() doesn't handle Unicode properly if called directly from XPCOM (bug 441370)
     setTimeout(function() {
-      subscription.extra = treeView.getSubscriptionDescription(subscription);
-      treeView.initSubscriptionPatterns(subscription, orig.patterns);
-      treeView.invalidateSubscription(subscription, row, rowCount);
+        subscription.extra = treeView.getSubscriptionDescription(subscription);
+        treeView.invalidateSubscriptionInfo(subscription);
     }, 0);
   }
   else {
@@ -1940,6 +1943,11 @@ var treeView = {
       this.boxObject.rowCountChanged(row + Math.min(rowCount, origRowCount), rowCount - origRowCount);
 
     this.boxObject.invalidateRange(row, row + Math.min(rowCount, origRowCount) - 1);
+  },
+
+  invalidateSubscriptionInfo: function(subscription) {
+    var row = this.getSubscriptionRow(subscription);
+    this.boxObject.invalidateRange(row, row + subscription.extra.length);
   },
 
   removeUserPatterns: function() {
