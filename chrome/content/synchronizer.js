@@ -50,7 +50,7 @@ var synchronizer = {
         continue;
 
       // Get the number of hours since last download
-      var interval = (time - subscription.lastSuccess) / 3600;
+      var interval = (time - subscription.lastDownload) / 3600;
       if (interval > prefs.synchronizationinterval)
         synchronizer.execute(subscription);
     }
@@ -248,9 +248,6 @@ var synchronizer = {
             subscription.nextURL = RegExp.$1;
         }
         subscription.expires = (expires > subscription.lastDownload ? expires : 0);
-
-        if (!subscription.nextURL)
-          subscription.lastSuccess = subscription.lastDownload;
 
         // Expiration date shouldn't be more than two weeks in the future
         if (subscription.expires - subscription.lastDownload > 14*24*3600)
