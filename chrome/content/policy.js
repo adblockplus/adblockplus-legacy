@@ -22,13 +22,20 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-/*
+/**
  * Content policy implementation, responsible for blocking things.
  * This file is included from nsAdblockPlus.js.
  */
 
 var type, typeDescr, localizedDescr
 var whitelistSchemes = null;
+
+var effectiveTLD = null;
+if ("nsIEffectiveTLDService" in Components.interfaces)
+{
+  effectiveTLD = Components.classes["@mozilla.org/network/effective-tld-service;1"]
+                           .getService(Components.interfaces.nsIEffectiveTLDService);
+}
 
 const ok = Components.interfaces.nsIContentPolicy.ACCEPT;
 const block = Components.interfaces.nsIContentPolicy.REJECT_SERVER;
@@ -126,9 +133,11 @@ var policy = {
     var objTab = null;
 
     if (!match && prefs.enabled) {
-      match = prefs.whitePatterns.matchesAny(locationText, typeDescr[contentType] || "");
+      let thirdParty = this.isThirdParty(location, wnd);
+
+      match = prefs.whitePatterns.matchesAny(locationText, typeDescr[contentType] || "", thirdParty);
       if (match == null)
-        match = prefs.filterPatterns.matchesAny(locationText, typeDescr[contentType] || "");
+        match = prefs.filterPatterns.matchesAny(locationText, typeDescr[contentType] || "", thirdParty);
 
       if (match)
         prefs.increaseHitCount(match);
@@ -225,6 +234,28 @@ var policy = {
       return this.isWhitelisted(location.spec);
     }
     return null;
+  },
+
+  /**
+   * Checks whether the location's origin is different from document's origin.
+   * @param location {nsIURI}
+   * @param wnd {nsIDOMWindow}
+   * @return {Boolean}
+   */
+  isThirdParty: function(location, wnd)
+  {
+    try
+    {
+      let wndLocation = unwrapURL(wnd.location.href);
+      if (!location || !wndLocation)
+        return false;
+
+      if (effectiveTLD)
+        return effectiveTLD.getBaseDomain(location) != effectiveTLD.getBaseDomain(wndLocation);
+      else
+        return location.host.replace(/.*?((?:[^.]+\.)?[^.]+\.?)$/, "$1") != wndLocation.host.replace(/.*?((?:[^.]+\.)?[^.]+\.?)$/, "$1");
+    }
+    catch(e) { return false; }
   },
 
   // nsIContentPolicy interface implementation

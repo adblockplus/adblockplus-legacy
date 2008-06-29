@@ -145,34 +145,41 @@ Matcher.prototype = {
     }
   },
 
-  matchesAnyInternal: function(location, contentType) {
+  matchesAnyInternal: function(location, contentType, thirdParty) {
     if (this.shortcuts > 0) {
       // Optimized matching using shortcuts
-      var text = location.toLowerCase();
-      var endPos = text.length - shortcutLength + 1;
+      let text = location.toLowerCase();
+      let endPos = text.length - shortcutLength + 1;
       for (var i = 0; i <= endPos; i++) {
-        var substr = text.substr(i, shortcutLength);
-        var pattern = this.shortcutHash[substr];
-        if (typeof pattern != "undefined" && pattern.regexp.test(location) &&
-            (!("contentType" in pattern) || typeMap[contentType] & pattern.contentType))
-          return pattern;
+        let substr = text.substr(i, shortcutLength);
+        if (substr in this.shortcutHash)
+        {
+          let pattern = this.shortcutHash[substr];
+          if (pattern.regexp.test(location) &&
+              (!("contentType" in pattern) || typeMap[contentType] & pattern.contentType) &&
+              (!("thirdParty" in pattern) || pattern.thirdParty == thirdParty))
+            return pattern;
+        }
       }
     }
 
-    var list = this.regexps;
-    for (i = 0; i < list.length; i++)
-      if (list[i].regexp.test(location) && (!("contentType" in list[i]) || typeMap[contentType] & list[i].contentType))
-        return list[i];
+    for each (let pattern in this.regexps)
+    {
+      if (pattern.regexp.test(location) &&
+          (!("contentType" in pattern) || typeMap[contentType] & pattern.contentType) &&
+          (!("thirdParty" in pattern) || pattern.thirdParty == thirdParty))
+        return pattern;
+    }
 
     return null;
   },
 
   // Tests whether URL matches any of the patterns in the list, returns the matching pattern
-  matchesAny: function(location, contentType) {
-    var key = location + " " + contentType;
+  matchesAny: function(location, contentType, thirdParty) {
+    var key = location + " " + contentType + " " + thirdParty;
     var result = this.resultCache[key];
     if (typeof result == "undefined") {
-      result = this.matchesAnyInternal(location, contentType);
+      result = this.matchesAnyInternal(location, contentType, thirdParty);
 
       if (this.cacheEntries >= maxCacheEntries) {
         this.resultCache = new HashTable();
@@ -812,6 +819,8 @@ var prefs = {
       ret.contentType = parseInt(obj.contentType) || 0;
     if ("matchCase" in obj && obj.matchCase == "true")
       ret.matchCase = true;
+    if ("thirdParty" in obj)
+      ret.thirdParty = (obj.thirdParty == "true");
     if (ret.type == null || ret.type == "invalid" ||
         ((ret.type == "whitelist" || ret.type == "filterlist") && ret.regexpText == null) ||
         (ret.type == "whitelist" && ret.pageWhitelist == null) ||
@@ -928,6 +937,10 @@ var prefs = {
           }
           else if (options[i] == "MATCH_CASE")
             pattern.matchCase = true;
+          else if (options[i] == "THIRD_PARTY")
+            pattern.thirdParty = true;
+          else if (options[i] == "~THIRD_PARTY")
+            pattern.thirdParty = false;
           else if (options[i] == "COLLAPSE")
             pattern.collapse = true;
           else if (options[i] == "~COLLAPSE")
@@ -983,6 +996,8 @@ var prefs = {
       buf.push('contentType=' + pattern.contentType);
     if ("matchCase" in pattern)
       buf.push('matchCase=true');
+    if ("thirdParty" in pattern)
+      buf.push('thirdParty=' + pattern.thirdParty);
     buf.push('disabled=' + pattern.disabled);
     if (pattern.hitCount)
       buf.push('hitCount=' + pattern.hitCount);
