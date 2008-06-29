@@ -63,17 +63,29 @@ var policy = {
     localizedDescr[0xFFFD] = abp.getString("type_label_elemhide");
 
     // whitelisted URL schemes
-    whitelistSchemes = this.translateList(prefs.whitelistschemes);
+    whitelistSchemes = {};
+    for each (var scheme in prefs.whitelistschemes.toLowerCase().split(" "))
+      whitelistSchemes[scheme] = true;
   },
 
-  // Checks whether a node should be blocked, hides it if necessary, return value false means that the node is blocked
+  /**
+   * Checks whether a node should be blocked, hides it if necessary
+   * @param wnd {nsIDOMWindow}
+   * @param node {nsIDOMElement}
+   * @param contentType {String}
+   * @param location {nsIURI}
+   * @param collapse {Boolean} true to force hiding of the node
+   * @return {Boolean} false if the node is blocked
+   */
   processNode: function(wnd, node, contentType, location, collapse) {
     var topWnd = wnd.top;
     if (!topWnd || !topWnd.location || !topWnd.location.href)
       return true;
 
     var match = null;
-    if (/^abp:\/*registerhit\/*\?(\d+)$/.test(location) && RegExp.$1 in prefs.elemhidePatterns.keys) {
+    var locationText = location.spec;
+    if (location.scheme == "abp" && location.host == "registerhit" && /\?(\d+)$/.test(location.path) && RegExp.$1 in prefs.elemhidePatterns.keys)
+    {
       var key = RegExp.$1;
       if (this.isWindowWhitelisted(topWnd))
       {
@@ -85,7 +97,7 @@ var policy = {
         match = prefs.elemhidePatterns.keys[key];
         prefs.increaseHitCount(match);
         contentType = type.ELEMHIDE;
-        location = match.text.replace(/^.*?#/, '#');
+        locationText = match.text.replace(/^.*?#/, '#');
       }
     }
 
@@ -114,9 +126,9 @@ var policy = {
     var objTab = null;
 
     if (!match && prefs.enabled) {
-      match = prefs.whitePatterns.matchesAny(location, typeDescr[contentType] || "");
+      match = prefs.whitePatterns.matchesAny(locationText, typeDescr[contentType] || "");
       if (match == null)
-        match = prefs.filterPatterns.matchesAny(location, typeDescr[contentType] || "");
+        match = prefs.filterPatterns.matchesAny(locationText, typeDescr[contentType] || "");
 
       if (match)
         prefs.increaseHitCount(match);
@@ -132,7 +144,7 @@ var policy = {
           node.ownerDocument && /^text\/|[+\/]xml$/.test(node.ownerDocument.contentType)) {
         // Before adding object tabs always check whether one exist already
         var hasObjectTab = false;
-        var loc = data.getLocation(type.OBJECT, location);
+        var loc = data.getLocation(type.OBJECT, locationText);
         if (loc)
           for (var i = 0; i < loc.nodes.length; i++)
             if (loc.nodes[i] == node && i < loc.nodes.length - 1 && "abpObjTab" in loc.nodes[i+1])
@@ -141,36 +153,43 @@ var policy = {
         if (!hasObjectTab) {
           objTab = node.ownerDocument.createElementNS("http://www.w3.org/1999/xhtml", "a");
           objTab.abpObjTab = true;
-          wnd.setTimeout(addObjectTab, 0, node, location, objTab);
+          wnd.setTimeout(addObjectTab, 0, node, locationText, objTab);
         }
       }
     }
 
     // Store node data
-    data.addNode(topWnd, node, contentType, location, match, objTab);
+    data.addNode(topWnd, node, contentType, locationText, match, objTab);
 
     return !match || match.type == "whitelist";
   },
 
-  // Checks whether the location's scheme is blockable
+  /**
+   * Checks whether the location's scheme is blockable.
+   * @param location  {nsIURI}
+   * @return {Boolean}
+   */
   isBlockableScheme: function(location) {
-    if (location.indexOf(":") < 0)
-      return true;
-
-    var scheme = location.replace(/:.*/, "").toUpperCase();
-    return !(scheme in whitelistSchemes);
+    return !(location.scheme in whitelistSchemes);
   },
 
-  // Checks whether a page is whitelisted
+  /**
+   * Checks whether a page is whitelisted.
+   * @param url {String}
+   * @return {Boolean}
+   */
   isWhitelisted: function(url) {
     return prefs.whitePatternsPage.matchesAny(url, "DOCUMENT");
   },
 
-  // Checks whether the page loaded in a window is whitelisted
+  /**
+   * Checks whether the page loaded in a window is whitelisted.
+   * @param wnd {nsIDOMWindow}
+   * @return {Boolean}
+   */
   isWindowWhitelisted: function(wnd) {
     if ("name" in wnd && wnd.name == "messagepane") {
       // Thunderbird branch
-
       try {
         var mailWnd = wnd.QueryInterface(Components.interfaces.nsIInterfaceRequestor)
                          .getInterface(Components.interfaces.nsIWebNavigation)
@@ -185,8 +204,8 @@ var policy = {
         } catch(e) {}
   
         if ("currentHeaderData" in mailWnd && "content-base" in mailWnd.currentHeaderData) {
-          var location = unwrapURL(mailWnd.currentHeaderData["content-base"].headerValue);
-          return this.isWhitelisted(location);
+          let location = unwrapURL(mailWnd.currentHeaderData["content-base"].headerValue);
+          return this.isWhitelisted(location.spec);
         }
         else if ("gDBView" in mailWnd) {
           var msgHdr = mailWnd.gDBView.hdrForFirstSelectedMessage;
@@ -202,21 +221,10 @@ var policy = {
     }
     else {
       // Firefox branch
-
-      var topLocation = unwrapURL(wnd.location.href);
-      return this.isWhitelisted(topLocation);
+      let location = unwrapURL(wnd.location.href);
+      return this.isWhitelisted(location.spec);
     }
     return null;
-  },
-
-  // Translates a space separated list into an object where properties corresponding
-  // to list entries are set to true
-  translateList: function(str) {
-    var ret = {};
-    var list = str.toUpperCase().split(" ");
-    for (var i = 0; i < list.length; i++)
-      ret[list[i]] = true;
-    return ret;
   },
 
   // nsIContentPolicy interface implementation
@@ -240,17 +248,17 @@ var policy = {
     if (wndType != Components.interfaces.nsIDocShellTreeItem.typeContent)
       return ok;
 
-    var location = unwrapURL(contentLocation.spec);
-    if (location == this.allowOnce) {
+    var location = unwrapURL(contentLocation);
+    if (location.spec == this.allowOnce) {
       this.allowOnce = null;
       return ok;
     }
 
-    if (/^chrome:\/\/([^\/]+)/.test(location) && "protectchrome" in prefs) {
+    if (location.scheme == "chrome" && "protectchrome" in prefs) {
       // Disallow chrome requests for protected namespaces
-      var name = RegExp.$1;
-      for (var n = 0; n < prefs.protectchrome.length; n++)
-        if (prefs.protectchrome[n] == name)
+      var name = location.host;
+      for each (var protectedName in prefs.protectchrome)
+        if (protectedName == name)
           return block;
     }
 
@@ -293,7 +301,7 @@ var policy = {
               nodes[j].parentNode.removeChild(nodes[j]);
           }
           else
-            this.processNode(wnd, nodes[j], data[i].type, data[i].location, true);
+            this.processNode(wnd, nodes[j], data[i].type, makeURL(data[i].location), true);
         }
       }
     }

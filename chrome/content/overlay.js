@@ -145,15 +145,13 @@ function abpReloadPrefs() {
     label = abp.getString("status_" + state + "_label");
 
     if (state == "active") {
-      var location = null;
+      let location = null;
       if ("currentHeaderData" in window && "content-base" in currentHeaderData) {
         // Thunderbird blog entry
-    
-        location = abp.unwrapURL(currentHeaderData["content-base"].headerValue);
+        location = abp.unwrapURL(currentHeaderData["content-base"].headerValue).spec;
       }
       else if ("gDBView" in window) {
         // Thunderbird mail/newsgroup entry
-
         try {
           var msgHdr = gDBView.hdrForFirstSelectedMessage;
           var headerParser = Components.classes["@mozilla.org/messenger/headerparser;1"]
@@ -167,8 +165,7 @@ function abpReloadPrefs() {
       }
       else {
         // Firefox web page
-
-        location = abp.unwrapURL(abpGetBrowser().contentWindow.location.href);
+        location = abp.unwrapURL(abpGetBrowser().contentWindow.location.href).spec;
       }
 
       if (location && abp.policy.isWhitelisted(location))
@@ -532,12 +529,10 @@ function abpFillPopup(popup) {
   var site = null;
   if ("currentHeaderData" in window && "content-base" in currentHeaderData) {
     // Thunderbird blog entry
-
     location = abp.unwrapURL(currentHeaderData["content-base"].headerValue);
   }
   else if ("gDBView" in window) {
     // Thunderbird mail/newsgroup entry
-
     try {
       var msgHdr = gDBView.hdrForFirstSelectedMessage;
       var headerParser = Components.classes["@mozilla.org/messenger/headerparser;1"]
@@ -558,23 +553,27 @@ function abpFillPopup(popup) {
   }
   else {
     // Firefox web page
-
     location = abp.unwrapURL(abpGetBrowser().contentWindow.location.href);
   }
 
   if (!site && location) {
     if (abp.policy.isBlockableScheme(location)) {
-      var url = location.replace(/\?.*/, '');
-      var host = abp.makeURL(location);
-      if (host)
-        host = host.host;
+      let ending = "|";
+      if (location instanceof Components.interfaces.nsIURL && location.query)
+      {
+        location.query = "";
+        ending = "?";
+      }
+
+      let url = location.spec;
+      let host = location.host;
       site = url.replace(/^([^\/]+\/\/[^\/]+\/).*/, "$1");
 
       whitelistItemSite.pattern = "@@|" + site;
       whitelistItemSite.setAttribute("checked", abpHasPattern(whitelistItemSite.pattern));
       whitelistItemSite.setAttribute("label", whitelistItemSite.getAttribute("labeltempl").replace(/--/, host));
 
-      whitelistItemPage.pattern = "@@|" + url + "|";
+      whitelistItemPage.pattern = "@@|" + url + ending;
       whitelistItemPage.setAttribute("checked", abpHasPattern(whitelistItemPage.pattern));
     }
     else
@@ -701,7 +700,7 @@ function abpExecuteAction(action) {
 function abpImageStyle(computedStyle, property) {
   var value = computedStyle.getPropertyCSSValue(property);
   if (value.primitiveType == CSSPrimitiveValue.CSS_URI)
-    return abp.unwrapURL(value.getStringValue());
+    return abp.unwrapURL(value.getStringValue()).spec;
 
   return null;
 }

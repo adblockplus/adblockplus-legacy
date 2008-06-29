@@ -34,8 +34,6 @@ var prefService = Components.classes["@mozilla.org/preferences-service;1"]
                             .getService(Components.interfaces.nsIPrefService);
 var dirService = Components.classes["@mozilla.org/file/directory_service;1"]
                            .getService(Components.interfaces.nsIProperties);
-var ioService = Components.classes["@mozilla.org/network/io-service;1"]
-                          .getService(Components.interfaces.nsIIOService);
 
 var unicodeConverter = Components.classes["@mozilla.org/intl/scriptableunicodeconverter"]
                                  .createInstance(Components.interfaces.nsIScriptableUnicodeConverter);
@@ -341,7 +339,7 @@ var prefs = {
         onStartRequest: function() {},
         onStopRequest: function() {
           var data = this.data.replace(/%%CLASSNAME%%/g, gObjtabClass);
-          var objtabsCSS = ioService.newURI("data:text/css," + encodeURIComponent(data), null, null);
+          var objtabsCSS = makeURL("data:text/css," + encodeURIComponent(data));
           styleService.loadAndRegisterSheet(objtabsCSS, styleService.USER_SHEET);
           channel = null;
         },
