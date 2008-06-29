@@ -54,27 +54,32 @@ function getWindow(node) {
 
 // Unwraps jar:, view-source: and wyciwyg: URLs, returns the contained URL
 function unwrapURL(url) {
-  if (!url)
-    return url;
+  if (!(url instanceof Components.interfaces.nsIURI))
+    url = makeURL(url);
 
-  var ret = url.replace(/^view-source:/).replace(/^wyciwyg:\/\/\d+\//);
-  if (/^jar:(.*?)!/.test(ret))
-    ret = RegExp.$1;
-
-  if (ret == url)
-    return url;
-  else
-    return unwrapURL(ret);
+  try
+  {
+    switch (url.scheme)
+    {
+      case "view-source":
+        return unwrapURL(url.path);
+      case "wyciwyg":
+        return unwrapURL(url.path.replace(/^\/\/\d+\//, ""));
+      case "jar":
+        return unwrapURL(url.QueryInterface(Components.interfaces.nsIJARURI).JARFile);
+      default:
+        return url;
+    }
+  }
+  catch (e) { return url; }
 }
 abp.unwrapURL = unwrapURL;
 
-// Creates a nsISimpleURI with given url
+// Returns an nsIURI for given url
 function makeURL(url) {
-  var ret = Components.classes["@mozilla.org/network/standard-url;1"]
-                      .createInstance(Components.interfaces.nsIURL);
-  try {
-    ret.spec = url;
-    return ret;
+  try
+  {
+    return ioService.newURI(url, null, null);
   }
   catch (e) {
     return null;
