@@ -1022,12 +1022,16 @@ var prefs = {
 
   resetHitCounts: function(patterns) {
     if (typeof patterns == "undefined" || !patterns) {
-      for (var key in this.knownPatterns)
-        this.knownPatterns[key].hitCount = 0;
+      for each (var pattern in this.knownPatterns) {
+        pattern.hitCount = 0;
+        pattern.lastHit = 0;
+      }
     }
     else {
-      for (var i = 0; i < patterns.length; i++)
-        patterns[i].hitCount = 0;
+      for each (var pattern in patterns) {
+        pattern.hitCount = 0;
+        pattern.lastHit = 0;
+      }
     }
 
     // Fire hit count listeners
