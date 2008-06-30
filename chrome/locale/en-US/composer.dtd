@@ -51,6 +51,10 @@
 <!ENTITY anchor.end.label         "at the end of the address">
 <!ENTITY anchor.end.accesskey     "d">
 <!ENTITY options.label            "Options">
+<!ENTITY firstParty.label         "First-party only">
+<!ENTITY firstParty.accesskey     "F">
+<!ENTITY thirdParty.label         "Third-party only">
+<!ENTITY thirdParty.accesskey     "T">
 <!ENTITY matchCase.label          "Match case">
 <!ENTITY matchCase.accesskey      "M">
 <!ENTITY types.label              "Apply to types:">

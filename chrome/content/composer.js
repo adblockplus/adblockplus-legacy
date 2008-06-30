@@ -94,6 +94,10 @@ function init() {
       return 0;
   });
 
+  let thirdParty = abp.policy.isThirdParty(abp.makeURL(item.location), wnd);
+  E("thirdParty").hidden = !thirdParty;
+  E("firstParty").hidden = thirdParty;
+
   let typeGroup = E("typeGroup");
   for each (let type in types)
   {
@@ -143,6 +147,11 @@ function updateFilter()
   if (advancedMode)
   {
     let options = [];
+
+    if (E("firstParty").checked)
+      options.push("~third-party");
+    if (E("thirdParty").checked)
+      options.push("third-party");
 
     if (E("matchCase").checked)
       options.push("match-case");
