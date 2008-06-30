@@ -82,6 +82,8 @@
     </groupbox>
     <groupbox id="options">
       <caption label="&options.label;"/>
+      <checkbox id="firstParty" label="&firstParty.label;" accesskey="&firstParty.accesskey;" oncommand="updateFilter()"/>
+      <checkbox id="thirdParty" label="&thirdParty.label;" accesskey="&thirdParty.accesskey;" oncommand="updateFilter()"/>
       <checkbox id="matchCase" label="&matchCase.label;" accesskey="&matchCase.accesskey;" oncommand="updateFilter()"/>
 
       <label id="typeGroupLabel" value="&types.label;"/>
