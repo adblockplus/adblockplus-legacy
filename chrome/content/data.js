@@ -145,6 +145,8 @@ DataContainer.prototype = {
       this.locations[key].nodes.push(objTab);
       objTab["abpLocation" + dataSeed] = this.locations[key];
     }
+
+    return this.locations[key];
   },
 
   removeNode: function(node) {

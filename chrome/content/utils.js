@@ -172,17 +172,17 @@ function getElementRect(node) {
 }
 
 // Generates a click handler for object tabs
-function generateClickHandler(location) {
+function generateClickHandler(wnd, data) {
   return function(event) {
     event.preventDefault();
-    abp.openSettingsDialog(location);
+    wnd.openDialog("chrome://adblockplus/content/composer.xul", "_blank", "chrome,centerscreen,resizable,dialog=no,dependent", wnd, data); 
   }
 }
 
 var objTabBinding = null;
 
 // Creates a tab above/below the new object node
-function addObjectTab(node, location, tab) {
+function addObjectTab(wnd, node, data, tab) {
   var origNode = node;
 
   if (node.parentNode && node.parentNode.tagName.toLowerCase() == "object") {
@@ -201,8 +201,8 @@ function addObjectTab(node, location, tab) {
   var onTop = (offsetTop > 40);
 
   // Click event handler
-  tab.setAttribute("href", location);
-  tab.addEventListener("click", generateClickHandler(location), false);
+  tab.setAttribute("href", data.location);
+  tab.addEventListener("click", generateClickHandler(wnd, data), false);
 
   // Insert tab into the document
   node.parentNode.insertBefore(tab, node);

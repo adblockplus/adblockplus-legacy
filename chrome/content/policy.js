@@ -162,13 +162,14 @@ var policy = {
         if (!hasObjectTab) {
           objTab = node.ownerDocument.createElementNS("http://www.w3.org/1999/xhtml", "a");
           objTab.abpObjTab = true;
-          wnd.setTimeout(addObjectTab, 0, node, locationText, objTab);
         }
       }
     }
 
     // Store node data
-    data.addNode(topWnd, node, contentType, locationText, match, objTab);
+    var nodeData = data.addNode(topWnd, node, contentType, locationText, match, objTab);
+    if (objTab)
+      wnd.setTimeout(addObjectTab, 0, topWnd, node, nodeData, objTab);
 
     return !match || match.type == "whitelist";
   },
