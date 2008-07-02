@@ -110,6 +110,7 @@ menuitem[default="true"] {
 
 #abp-sidebar-toolbar {
     display: -moz-box !important;
+    visibility: visible !important;
 }
 
 #abp-sidebar-close {
