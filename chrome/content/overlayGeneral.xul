@@ -47,9 +47,9 @@
       <vbox id="abp-tooltip-filters" hidden="true"/>
     </tooltip>
     <popup id="abp-status-popup" onpopupshowing="return abpFillPopup(event.target)">
-      <menuitem id="abp-status-opensidebar" label="&opensidebar.label;" accesskey="&opensidebar.accesskey;" key="abp-key-sidebar" oncommand="abpToggleSidebar()"/>
-      <menuitem id="abp-status-closesidebar" label="&closesidebar.label;" accesskey="&closesidebar.accesskey;" key="abp-key-sidebar" oncommand="abpToggleSidebar()"/>
-      <menuitem id="abp-status-settings" label="&settings.label;..." accesskey="&settings.accesskey;" key="abp-key-settings" oncommand="abpSettings()"/>
+      <menuitem id="abp-status-opensidebar" label="&opensidebar.label;" accesskey="&opensidebar.accesskey;" key="abp-key-sidebar" command="abp-command-sidebar"/>
+      <menuitem id="abp-status-closesidebar" label="&closesidebar.label;" accesskey="&closesidebar.accesskey;" key="abp-key-sidebar" command="abp-command-sidebar"/>
+      <menuitem id="abp-status-settings" label="&settings.label;..." accesskey="&settings.accesskey;" key="abp-key-settings" command="abp-command-settings"/>
       <menuseparator id="abp-status-whitelist-sep"/>
       <menuitem id="abp-status-whitelistsite" labeltempl="&whitelist.site.label;" type="checkbox" oncommand="abpTogglePattern(this.pattern, this.hasAttribute('checked'))"/>
       <menuitem id="abp-status-whitelistpage" label="&whitelist.page.label;" type="checkbox" oncommand="abpTogglePattern(this.pattern, this.hasAttribute('checked'))"/>
@@ -68,7 +68,7 @@
   </popupset>
   <keyset id="abp-keyset"/>
   <commandset id="abp-commandset">
-    <command id="abp-command-settings" oncommand="abpSettings()"/>
+    <command id="abp-command-settings" oncommand="abp.openSettingsDialog()"/>
     <command id="abp-command-sidebar" oncommand="abpToggleSidebar()"/>
     <command id="abp-command-enable" oncommand="abpTogglePref('enabled')"/>
   </commandset>
@@ -86,7 +86,7 @@
   </toolbarbutton>
 
   <!-- Tools menu -->
-  <menuitem id="abp-menuitem" label="&menuitem.label;..." accesskey="&menuitem.accesskey;" key="abp-key-settings" oncommand="abpSettings()"/>
+  <menuitem id="abp-menuitem" label="&menuitem.label;..." accesskey="&menuitem.accesskey;" key="abp-key-settings" command="abp-command-settings"/>
 
   <!-- Context menu -->
   <menuitem id="abp-image-menuitem" label="&context.image.label;..." oncommand="abpNode(this.parentNode.abpBgData || this.parentNode.abpData)"/>
@@ -99,7 +99,7 @@
     <toolbox id="abp-sidebar-header">
       <toolbar id="abp-sidebar-toolbar" align="center" grippyhidden="true" fullscreentoolbar="true">
         <label id="abp-sidebar-title" control="abp-sidebar-browser" value="&sidebar.title;" flex="1" crop="end"/>
-        <toolbarbutton id="abp-sidebar-close" oncommand="abpToggleSidebar()" tooltiptext="&closesidebar.label;"/>
+        <toolbarbutton id="abp-sidebar-close" command="abp-command-sidebar" tooltiptext="&closesidebar.label;"/>
       </toolbar>
     </toolbox>
     <iframe id="abp-sidebar-browser" flex="1"/>

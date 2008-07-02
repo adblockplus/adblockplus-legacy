@@ -691,7 +691,7 @@ function abpExecuteAction(action) {
   if (action == 1)
     abpToggleSidebar();
   else if (action == 2)
-    abpSettings();
+    abp.openSettingsDialog();
   else if (action == 3)
     abpTogglePref("enabled");
 }
@@ -774,12 +774,4 @@ function abpCheckContext() {
 function abpNode(data) {
   if (abp && data)
     openDialog("chrome://adblockplus/content/composer.xul", "_blank", "chrome,centerscreen,resizable,dialog=no,dependent", abpGetBrowser().contentWindow, data);
-}
-
-// Open the settings window.
-function abpSettings(url) {
-  if (!abp)
-    return;
-
-  abp.openSettingsDialog(url);
 }
