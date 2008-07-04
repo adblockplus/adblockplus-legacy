@@ -245,18 +245,25 @@ var policy = {
    */
   isThirdParty: function(location, wnd)
   {
-    try
-    {
-      let wndLocation = unwrapURL(wnd.location.href);
-      if (!location || !wndLocation)
-        return false;
+    let wndLocation = unwrapURL(wnd.location.href);
+    if (!location || !wndLocation)
+      return false;
 
-      if (effectiveTLD)
+    if (effectiveTLD)
+    {
+      try {
         return effectiveTLD.getBaseDomain(location) != effectiveTLD.getBaseDomain(wndLocation);
-      else
-        return location.host.replace(/.*?((?:[^.]+\.)?[^.]+\.?)$/, "$1") != wndLocation.host.replace(/.*?((?:[^.]+\.)?[^.]+\.?)$/, "$1");
+      }
+      catch (e) {
+        // EffectiveTLDService throws on IP addresses
+        return location.host != wndLocation.host;
+      }
     }
-    catch(e) { return false; }
+    else
+    {
+      // Stupid fallback algorithm for Gecko 1.8
+      return location.host.replace(/.*?((?:[^.]+\.)?[^.]+\.?)$/, "$1") != wndLocation.host.replace(/.*?((?:[^.]+\.)?[^.]+\.?)$/, "$1");
+    }
   },
 
   // nsIContentPolicy interface implementation
