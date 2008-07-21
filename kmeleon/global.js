@@ -209,12 +209,12 @@ function triggerMenuItem(id) {
 }
 
 function onCommand(command, hWnd, id) {
-  if (command == "settings")
-    abpSettings();
-  else if (command == "blockable")
-    abpToggleSidebar();
+  if (command == "blockable")
+    abpExecuteAction(1);
+  else if (command == "settings")
+    abpExecuteAction(2);
   else if (command == "enable")
-    abpTogglePref("enabled");
+    abpExecuteAction(3);
   else if (command == "image")
     abpNode(gContextMenu.abpBgData || gContextMenu.abpData);
   else if (command == "object")
