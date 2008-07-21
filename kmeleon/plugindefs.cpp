@@ -87,13 +87,7 @@ LONG DoMessage(LPCSTR to, LPCSTR from, LPCSTR subject, LONG data1, LONG data2)
   else if (_stricmp(subject, "DoRebar") == 0)
     DoRebar((HWND)data1);
   else
-  {
-    INT command = CommandByName(subject);
-    if (command >= 0)
-      WndProc(NULL, WM_COMMAND, cmdBase + command, 0);
-    else
-      ret = 0;
-  }
+    ret = 0;
 
   return ret;
 }
