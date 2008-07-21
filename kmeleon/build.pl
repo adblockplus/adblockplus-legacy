@@ -105,10 +105,13 @@ $pkg->cp("adblockplus_extra.js", "tmp/defaults/pref/adblockplus_extra.js");
 mkdir("tmp/kplugins", 0755) or die "Failed to created directory tmp/kplugins: $!";
 system("mv -f adblockplus.dll tmp/kplugins/adblockplus.dll");
 
+mkdir("tmp/macros", 0755) or die "Failed to created directory tmp/macros: $!";
+$pkg->cp("adblockplus.kmm", "tmp/macros/adblockplus.kmm");
+
 chdir('tmp');
 
 unlink("../$output_file");
-print `zip -rX9 ../$output_file kplugins chrome components defaults`;
+print `zip -rX9 ../$output_file kplugins chrome components defaults macros`;
 
 chdir('..');
 $pkg->rm_rec('tmp');
