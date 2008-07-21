@@ -87,7 +87,13 @@ LONG DoMessage(LPCSTR to, LPCSTR from, LPCSTR subject, LONG data1, LONG data2)
   else if (_stricmp(subject, "DoRebar") == 0)
     DoRebar((HWND)data1);
   else
-    ret = 0;
+  {
+    INT command = CommandByName(subject);
+    if (command >= 0)
+      WndProc(NULL, WM_COMMAND, cmdBase + command, 0);
+    else
+      ret = 0;
+  }
 
   return ret;
 }
@@ -289,7 +295,7 @@ void LoadImage(int index) {
   return;
 }
 
-INT CommandByName(LPSTR action) {
+INT CommandByName(LPCSTR action) {
   INT command = -1;
   if (_stricmp(action, "Preferences") == 0)
     command = CMD_PREFERENCES;

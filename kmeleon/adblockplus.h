@@ -357,7 +357,7 @@ INT DoAccel(LPSTR action);
 void DoRebar(HWND hRebar);
 void ReadAccelerator(nsIPrefBranch* branch, const char* pref, const char* command);
 void LoadImage(int index);
-INT CommandByName(LPSTR action);
+INT CommandByName(LPCSTR action);
 
 // scriptable.cpp
 extern nsCOMPtr<abpScriptable> scriptable;
