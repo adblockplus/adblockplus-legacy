@@ -43,6 +43,7 @@ abpJSContextHolder::abpJSContextHolder() {
   
   mContext = cx;
   mOldReporter = JS_SetErrorReporter(mContext, ::Reporter);
+  JS_SetVersion(cx, JS_StringToVersion("1.7"));
 }
 
 abpJSContextHolder::~abpJSContextHolder() {
