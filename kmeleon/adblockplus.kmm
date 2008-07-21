@@ -1,0 +1,18 @@
+# K-Meleon Macros (http://kmeleon.sourceforge.net/wiki/index.php?id=MacroLanguage)
+
+# ---------- Adblock Plus Extension --------------------------------------------------------------------------------
+#
+# Dependencies	: -
+# Resources	: -
+# Preferences	: -
+#
+# ------------------------------------------------------------------------------------------------------------------
+
+# ----- PRIVATE
+
+_AdblockPlus_BuildMenu
+{
+  # tools menu
+  setmenu(Misc, command, "Ad&block Plus...", "adblockplus(Preferences)");
+}
+$OnInit=$OnInit."_AdblockPlus_BuildMenu;";
