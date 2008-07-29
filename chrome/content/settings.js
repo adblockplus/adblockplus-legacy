@@ -827,9 +827,10 @@ function applyChanges() {
 
 // Checks whether user's mouse use hovering over a regexp exclamation mark
 function showRegExpTooltip(event) {
+  let col = {};
   let childElement = {};
-  treeView.boxObject.getCellAt(event.clientX, event.clientY, {}, {}, childElement);
-  return (childElement.value == "image");
+  treeView.boxObject.getCellAt(event.clientX, event.clientY, {}, col, childElement);
+  return (col.value.id == "pattern" && childElement.value == "image");
 }
 
 // Opens About Adblock Plus dialog
