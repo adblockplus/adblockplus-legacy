@@ -42,6 +42,8 @@ function addSubscriptions() {
 
   result.url = selected.getAttribute("_url");
   result.title = selected.getAttribute("_title");
+  result.autoDownload = true;
+  result.disabled = false;
 
   if (autoAdd)
     abp.addSubscription(result.url, result.title, result.autoDownload, result.disabled);
