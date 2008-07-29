@@ -453,7 +453,7 @@ function abpFillTooltip(ev) {
       var locations = data.getAllLocations();
 
       var blocked = 0;
-      var filters = new abp.HashTable();
+      var filters = {__proto__: null};
       for (i = 0; i < locations.length; i++) {
         if (locations[i].filter && locations[i].filter.type != "whitelist")
           blocked++;

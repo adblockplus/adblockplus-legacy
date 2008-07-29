@@ -45,18 +45,10 @@ var ScriptableInputStream = Components.Constructor("@mozilla.org/scriptableinput
 
 // Matcher class constructor
 function Matcher() {
-  this.patterns = [];
-  this.shortcutHash = new HashTable();
-  this.jumpTable = new HashTable();
-  this.shortcuts = 0;
-  this.regexps = [];
-  this.known = new HashTable();
-  this.resultCache = new HashTable();
-  this.cacheEntries = 0;
+  this.clear();
 }
 
 const shortcutLength = 8;
-const jumpLength = shortcutLength / 2;
 const maxCacheEntries = 10000;
 
 var typeMap = {
@@ -79,12 +71,11 @@ Matcher.prototype = {
   // Clears the list
   clear: function() {
     this.patterns = [];
-    this.shortcutHash = new HashTable();
-    this.jumpTable = new HashTable();
+    this.shortcutHash = {__proto__: null};
     this.shortcuts = 0;
     this.regexps = [];
-    this.known = new HashTable();
-    this.resultCache = new HashTable();
+    this.known = {__proto__: null};
+    this.resultCache = {__proto__: null};
     this.cacheEntries = 0;
   },
 
@@ -111,13 +102,6 @@ Matcher.prototype = {
       var shortcut = pattern.shortcut;
       this.shortcutHash[shortcut] = pattern;
       this.shortcuts++;
-
-      for (i = 0; i <= shortcutLength - jumpLength; i++) {
-        var jumpKey = shortcut.substr(i, jumpLength);
-        var jump = jumpLength - i;
-        if (!(jumpKey in this.jumpTable) || this.jumpTable[jumpKey] > jump)
-          this.jumpTable[jumpKey] = jump;
-      }
     }
     else 
       this.regexps.push(pattern);
@@ -127,7 +111,7 @@ Matcher.prototype = {
   },
 
   findShortcut: function(text) {
-    text = text.replace(abp.optionsRegExp,'').toLowerCase();
+    text = text.replace(abp.optionsRegExp, "").toLowerCase();
 
     var i = parseInt((text.length - shortcutLength) / 2);
     for (var j = i - 1; i <= text.length - shortcutLength || j >= 0; i++, j--) {
@@ -182,7 +166,7 @@ Matcher.prototype = {
       result = this.matchesAnyInternal(location, contentType, thirdParty);
 
       if (this.cacheEntries >= maxCacheEntries) {
-        this.resultCache = new HashTable();
+        this.resultCache = {__proto__: null};
         this.cacheEntries = 0;
       }
   
@@ -217,9 +201,8 @@ var elemhide = {
     this.unapply();
 
     // Grouping selectors by domains
-    var domains = new HashTable();
-    for (var i = 0; i < this.patterns.length; i++) {
-      var pattern = this.patterns[i]
+    var domains = {__proto__: null};
+    for each (var pattern in this.patterns) {
       var domain = pattern.domain;
       if (!domain)
         domain = "";
@@ -228,7 +211,7 @@ var elemhide = {
       if (domain in domains)
         list = domains[domain];
       else {
-        list = new HashTable();
+        list = {__proto__: null};
         domains[domain] = list;
       }
       list[pattern.selector] = pattern.key;
@@ -287,10 +270,10 @@ var prefs = {
   branch: prefService.getBranch(prefRoot),
   prefList: [],
   patternsFile: null,
-  knownPatterns: new HashTable(),
+  knownPatterns: {__proto__: null},
   userPatterns: [],
-  knownSubscriptions: new HashTable(),
-  listedSubscriptions: new HashTable(),
+  knownSubscriptions: {__proto__: null},
+  listedSubscriptions: {__proto__: null},
   subscriptions: [],
   filterPatterns: new Matcher(),
   whitePatterns: new Matcher(),
@@ -375,8 +358,7 @@ var prefs = {
     types[defaultBranch.PREF_BOOL] = "Bool";
 
     this.prefList = [];
-    for (var i = 0; i < defaultPrefs.length; i++) {
-      var name = defaultPrefs[i];
+    for each (var name in defaultPrefs) {
       var type = defaultBranch.getPrefType(name);
       var typeName = (type in types ? types[type] : "Char");
 
@@ -389,8 +371,7 @@ var prefs = {
 
     // Load lists from runtime prefs
     var runtimePrefs = this.branch.getChildList("", {});
-    for (var i = 0; i < runtimePrefs.length; i++) {
-      var name = runtimePrefs[i];
+    for each (var name in runtimePrefs) {
       if (/^(\w+)\./.test(name)) {
         var listName = RegExp.$1;
         var type = this.branch.getPrefType(name);
@@ -435,8 +416,8 @@ var prefs = {
   // Reloads the preferences
   reload: function() {
     // Load data from prefs.js
-    for (var i = 0; i < this.prefList.length; i++)
-      this.loadPref(this.prefList[i]);
+    for each (var pref in this.prefList)
+      this.loadPref(pref);
 
     if (this.enabled)
       this.elemhidePatterns.apply();
@@ -444,16 +425,16 @@ var prefs = {
       this.elemhidePatterns.unapply();
 
     // Fire pref listeners
-    for (i = 0; i < this.listeners.length; i++)
-      this.listeners[i](this);
+    for each (var listener in this.listeners)
+      listener(this);
   },
 
   // Saves the changes back into the prefs
   save: function() {
     this.disableObserver = true;
   
-    for (var i = 0; i < this.prefList.length; i++)
-      this.savePref(this.prefList[i]);
+    for each (var pref in this.prefList)
+      this.savePref(pref);
 
     this.disableObserver = false;
 
@@ -470,8 +451,8 @@ var prefs = {
   reloadPatterns: function() {
 //    var start = new Date().getTime();
 
-    this.knownPatterns = new HashTable();
-    this.listedSubscriptions = new HashTable();
+    this.knownPatterns = {__proto__: null};
+    this.listedSubscriptions = {__proto__: null};
     this.userPatterns = [];
     this.subscriptions = [];
 
@@ -481,19 +462,23 @@ var prefs = {
 
     var stream = null;
     if (this.patternsFile) {
-      stream = Components.classes["@mozilla.org/network/file-input-stream;1"]
-                         .createInstance(Components.interfaces.nsIFileInputStream);
       try {
-        stream.init(this.patternsFile, 0x01, 0444, 0);
+        var fileStream = Components.classes["@mozilla.org/network/file-input-stream;1"]
+                           .createInstance(Components.interfaces.nsIFileInputStream);
+        fileStream.init(this.patternsFile, 0x01, 0444, 0);
+
+        stream = Components.classes["@mozilla.org/intl/converter-input-stream;1"]
+                           .createInstance(Components.interfaces.nsIConverterInputStream);
+        stream.init(fileStream, "UTF-8", 16384, Components.interfaces.nsIConverterInputStream.DEFAULT_REPLACEMENT_CHARACTER);
+        stream = stream.QueryInterface(Components.interfaces.nsIUnicharLineInputStream);
       }
       catch (e) {
+        dump("Adblock Plus: Failed to read patterns from file " + this.patternsFile.path + ": " + e + "\n");
         stream = null;
       }
     }
 
     if (stream) {
-      stream = stream.QueryInterface(Components.interfaces.nsILineInputStream);
-
       var makeList = {"user patterns": true, "subscription patterns": true};
       var wantList = false;
       var makeObj = {"pattern": true, "subscription": true};
@@ -501,14 +486,9 @@ var prefs = {
       var curObj = null;
       var curSection = null;
       var wantProp = false;
-      var line = {value: null};
-      while (stream.readLine(line) || (line = {value: '[end]'})) {
+      var line = {};
+      while (stream.readLine(line) || (line.value = "[end]")) {
         var val = line.value;
-
-        try {
-          val = unicodeConverter.ConvertToUnicode(val);
-        } catch(e) {}
-
         if (wantObj && /^(\w+)=(.*)$/.test(val))
           curObj[RegExp.$1] = RegExp.$2;
         else if (/^\s*\[(.+)\]\s*$/.test(val)) {
@@ -516,7 +496,9 @@ var prefs = {
           if (curObj) {
             // Process current object before going to next section
             if (curSection == "pattern")
+            {
               prefs.patternFromObject(curObj);
+            }
             else if (curSection == "subscription") {
               var subscription = prefs.subscriptionFromObject(curObj);
               if (subscription) {
@@ -525,16 +507,16 @@ var prefs = {
               }
             }
             else if (curSection == "user patterns") {
-              for (var i = 0; i < curObj.length; i++) {
-                var pattern = prefs.patternFromText(curObj[i]);
+              for each (var pattern in curObj) {
+                pattern = prefs.patternFromText(pattern);
                 if (pattern)
                   prefs.userPatterns.push(pattern);
               }
             }
             else if (curSection == "subscription patterns" && prefs.subscriptions.length) {
               subscription = prefs.subscriptions[prefs.subscriptions.length - 1];
-              for (var i = 0; i < curObj.length; i++) {
-                var pattern = prefs.patternFromText(curObj[i]);
+              for each (var pattern in curObj) {
+                pattern = prefs.patternFromText(pattern);
                 if (pattern)
                   subscription.patterns.push(pattern);
               }
@@ -603,10 +585,9 @@ var prefs = {
     if (!stream)
       this.importOldPrefs();
 
-    var specialGroups = ["~il~", "~wl~", "~fl~", "~eh~"];
-    for (i = 0; i < specialGroups.length; i++) {
-      if (!(specialGroups[i] in this.listedSubscriptions)) {
-        var subscription = this.subscriptionFromURL(specialGroups[i]);
+    for each (var specialGroup in ["~il~", "~wl~", "~fl~", "~eh~"]) {
+      if (!(specialGroup in this.listedSubscriptions)) {
+        var subscription = this.subscriptionFromURL(specialGroup);
         if (subscription) {
           this.subscriptions.push(subscription);
           this.listedSubscriptions[subscription.url] = subscription;
@@ -625,20 +606,19 @@ var prefs = {
     this.whitePatternsPage.clear();
     this.elemhidePatterns.clear();
 
-    for (var i = 0; i < this.userPatterns.length; i++)
+    for each (var pattern in this.userPatterns)
     {
-      this.userPatterns[i].subscription = null;
-      this.addPattern(this.userPatterns[i]);
+      pattern.subscription = null;
+      this.addPattern(pattern);
     }
 
-    for (i = 0; i < this.subscriptions.length; i++) {
-      var subscription = this.subscriptions[i];
+    for each (var subscription in this.subscriptions) {
       if (!subscription.disabled)
       {
-        for (var j = 0; j < subscription.patterns.length; j++)
+        for each (var pattern in subscription.patterns)
         {
-          subscription.patterns[j].subscription = subscription;
-          this.addPattern(subscription.patterns[j]);
+          pattern.subscription = subscription;
+          this.addPattern(pattern);
         }
       }
     }
@@ -670,7 +650,6 @@ var prefs = {
 
   // Saves pattern data back to the patterns file
   savePatterns: function() {
-    var i;
 //    var start = new Date().getTime();
 
     if (!this.patternsFile)
@@ -681,59 +660,102 @@ var prefs = {
     }
     catch (e) {}
 
-    // Try to create the file's directory recursively
-    var parents = [];
+    // Make sure the file's parent directory exists
     try {
-      for (var parent = this.patternsFile.parent; parent; parent = parent.parent) {
-        parents.push(parent);
-
-        // Hack for MacOS: parent for / is /../ :-/
-        if (parent.path == "/")
-          break;
-      }
+      this.patternsFile.parent.create(this.patternsFile.DIRECTORY_TYPE, 0755);
     } catch (e) {}
-    for (i = parents.length - 1; i >= 0; i--) {
-      try {
-        parents[i].create(parents[i].DIRECTORY_TYPE, 0755);
-      } catch (e) {}
+
+    var tempFile = this.patternsFile.clone();
+    tempFile.leafName += "-temp";
+    var stream;
+    try {
+      var fileStream = Components.classes["@mozilla.org/network/file-output-stream;1"]
+                             .createInstance(Components.interfaces.nsIFileOutputStream);
+      fileStream.init(tempFile, 0x02 | 0x08 | 0x20, 0644, 0);
+
+      stream = Components.classes["@mozilla.org/intl/converter-output-stream;1"]
+                         .createInstance(Components.interfaces.nsIConverterOutputStream);
+      stream.init(fileStream, "UTF-8", 16384, Components.interfaces.nsIConverterInputStream.DEFAULT_REPLACEMENT_CHARACTER);
+    }
+    catch (e) {
+      dump("Adblock Plus: failed create file " + tempFile.path + ": " + e + "\n");
+      return;
     }
 
+    const maxBufLength = 1024;
+    var buf = ["# Adblock Plus preferences", ""];
     var lineBreak = abp.getLineBreak();
-    var buf = ['# Adblock Plus preferences', ''];
+    function writeBuffer() {
+      try {
+        stream.writeString(buf.join(lineBreak) + lineBreak);
+        buf = [];
+        return true;
+      }
+      catch (e) {
+        stream.close();
+        dump("Adblock Plus: failed to write to file " + tempFile.path + ": " + e + "\n");
+        try {
+          tempFile.remove(false);
+        }
+        catch (e2) {}
+        return false;
+      }
+    }
 
-    var saved = new HashTable();
+    var saved = {__proto__: null};
 
     // Save pattern data
-    for (i = 0; i < this.userPatterns.length; i++) {
-      var pattern = this.userPatterns[i];
+    for each (var pattern in this.userPatterns) {
       if (!(pattern.text in saved)) {
         this.serializePattern(buf, pattern);
         saved[pattern.text] = pattern;
+
+        if (buf.length > maxBufLength && !writeBuffer())
+          return;
       }
     }
 
-    for (i = 0; i < this.subscriptions.length; i++) {
-      var subscription = this.subscriptions[i];
-      for (var j = 0; j < subscription.patterns.length; j++) {
-        var pattern = subscription.patterns[j];
+    for each (var subscription in this.subscriptions) {
+      for each (var pattern in subscription.patterns) {
         if (!(pattern.text in saved)) {
           this.serializePattern(buf, pattern);
           saved[pattern.text] = pattern;
+
+          if (buf.length > maxBufLength && !writeBuffer())
+            return;
         }
       }
     }
 
     // Save user patterns list
-    buf.push('[User patterns]');
-    for (i = 0; i < this.userPatterns.length; i++)
-      buf.push(this.userPatterns[i].text);
-    buf.push('');
+    buf.push("[User patterns]");
+    for each (var pattern in this.userPatterns)
+      buf.push(pattern.text);
+    buf.push("");
+    if (buf.length > maxBufLength && !writeBuffer())
+      return;
 
     // Save subscriptions list
-    for (i = 0; i < this.subscriptions.length; i++)
-      this.serializeSubscription(buf, this.subscriptions[i]);
+    for each (var subscription in this.subscriptions)
+    {
+      this.serializeSubscription(buf, subscription);
 
-    buf = unicodeConverter.ConvertFromUnicode(buf.join(lineBreak) + lineBreak);
+      if (buf.length > maxBufLength && !writeBuffer())
+        return;
+    }
+
+    try {
+      stream.writeString(buf.join(lineBreak) + lineBreak);
+      stream.close();
+    }
+    catch (e) {
+      dump("Adblock Plus: failed to close file " + tempFile.path + ": " + e + "\n");
+      try {
+        tempFile.remove(false);
+      }
+      catch (e2) {}
+      return false;
+    }
 
     if (this.patternsFile.exists()) {
       // Check whether we need to backup the file
@@ -762,37 +784,16 @@ var prefs = {
         } catch (e) {}
 
         // Rename backup files
-        for (i = this.patternsbackups - 1; i >= 0; i--) {
+        for (var i = this.patternsbackups - 1; i >= 0; i--) {
           backupFile.leafName = part1 + (i > 0 ? "-backup" + i : "") + part2;
           try {
             backupFile.moveTo(backupFile.parent, part1 + "-backup" + (i+1) + part2);
           } catch (e) {}
         }
       }
-      else {
-        // Remove existing file
-        try {
-          this.patternsFile.remove(false);
-        } catch (e) {}
-      }
     }
 
-    var stream = Components.classes["@mozilla.org/network/file-output-stream;1"]
-                           .createInstance(Components.interfaces.nsIFileOutputStream);
-    try {
-      stream.init(this.patternsFile, 0x02 | 0x08 | 0x20, 0644, 0)
-    }
-    catch (e) {
-      dump("Adblock plus: failed write pattern to file " + this.patternsFile.path + ": " + e + "\n");
-      return;
-    }
-
-    try {
-      stream.write(buf, buf.length);
-    }
-    finally {
-      stream.close();
-    }
+    tempFile.moveTo(this.patternsFile.parent, this.patternsFile.leafName);
 
 //    dump("Time to save patterns: " + (new Date().getTime() - start) + "\n");
   },
@@ -924,26 +925,26 @@ var prefs = {
         var options = RegExp.$1.replace(/-/g, "_").toUpperCase().split(",");
         text = text.replace(abp.optionsRegExp, '');
 
-        for (i = 0; i < options.length; i++) {
-          if (options[i] in typeMap) {
+        for each (var option in options) {
+          if (option in typeMap) {
             if (!("contentType" in pattern))
               pattern.contentType = 0;
-            pattern.contentType |= typeMap[options[i]];
+            pattern.contentType |= typeMap[option];
           }
-          else if (/^~(.*)/.test(options[i]) && RegExp.$1 in typeMap) {
+          else if (/^~(.*)/.test(option) && RegExp.$1 in typeMap) {
             if (!("contentType" in pattern))
               pattern.contentType = 0xFFFFFFFF;
             pattern.contentType &= ~typeMap[RegExp.$1];
           }
-          else if (options[i] == "MATCH_CASE")
+          else if (option == "MATCH_CASE")
             pattern.matchCase = true;
-          else if (options[i] == "THIRD_PARTY")
+          else if (option == "THIRD_PARTY")
             pattern.thirdParty = true;
-          else if (options[i] == "~THIRD_PARTY")
+          else if (option == "~THIRD_PARTY")
             pattern.thirdParty = false;
-          else if (options[i] == "COLLAPSE")
+          else if (option == "COLLAPSE")
             pattern.collapse = true;
-          else if (options[i] == "~COLLAPSE")
+          else if (option == "~COLLAPSE")
             pattern.collapse = false;
         }
       }
@@ -1029,8 +1030,8 @@ var prefs = {
     pattern.lastHit = new Date().getTime();
 
     // Fire hit count listeners
-    for (var i = 0; i < this.hitListeners.length; i++)
-      this.hitListeners[i](pattern);
+    for each (var listener in this.hitListeners)
+      listener(pattern);
   },
 
   resetHitCounts: function(patterns) {
@@ -1048,8 +1049,8 @@ var prefs = {
     }
 
     // Fire hit count listeners
-    for (i = 0; i < this.hitListeners.length; i++)
-      this.hitListeners[i](null);
+    for each (var listener in this.hitListeners)
+      listener(null);
   },
 
   specialSubscriptions: {
@@ -1253,9 +1254,9 @@ var prefs = {
         buf.push('requiredVersion=' + subscription.requiredVersion);
   
       if (subscription.patterns.length) {
-        buf.push('', '[Subscription patterns]');
-        for (var i = 0; i < subscription.patterns.length; i++)
-          buf.push(subscription.patterns[i].text);
+        buf.push("", "[Subscription patterns]");
+        for each (var pattern in subscription.patterns)
+          buf.push(pattern.text);
       }
     }
 

@@ -27,12 +27,6 @@
  * This file is included from nsAdblockPlus.js.
  */
 
-// A hash table class - sort of
-function HashTable() {
-  this.__proto__ = null;
-}
-abp.HashTable = HashTable;
-
 // String service
 var stringService = Components.classes["@mozilla.org/intl/stringbundle;1"]
                               .getService(Components.interfaces.nsIStringBundleService);
@@ -307,22 +301,3 @@ function normalizeFilter(text) {
     return text.replace(/\s/g, "");
 }
 abp.normalizeFilter = normalizeFilter;
-
-//HACKHACK: need a way to get an implicit wrapper for nodes because of bug 337095 (fixed in Gecko 1.8.0.5)
-var fakeFactory = {
-  createInstance: function(outer, iid) {
-    return outer;
-  },
-
-  QueryInterface: function(iid) {
-    if (iid.equals(Components.interfaces.nsISupports) ||
-        iid.equals(Components.interfaces.nsIFactory))
-      return this;
-
-    throw Components.results.NS_ERROR_NO_INTERFACE;
-  }
-};
-var array = Components.classes['@mozilla.org/supports-array;1'].createInstance(Components.interfaces.nsISupportsArray);
-array.AppendElement(fakeFactory);
-fakeFactory = array.GetElementAt(0).QueryInterface(Components.interfaces.nsIFactory);
-array = null;

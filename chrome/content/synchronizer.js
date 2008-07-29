@@ -28,7 +28,7 @@
  */
 
 var synchronizer = {
-  executing: new HashTable(),
+  executing: {__proto__: null},
   listeners: [],
   timer: null,
 

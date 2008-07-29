@@ -956,8 +956,8 @@ var treeView = {
       this.atoms[boolAtoms[i] + "-false"] = atomService.getAtom(boolAtoms[i] + "-false");
     }
 
-    this.typemap = new abp.HashTable();
-    this.disabled = new abp.HashTable();
+    this.typemap = {__proto__: null};
+    this.disabled = {__proto__: null};
     this.data = [];
 
     // Push new filter dummy
@@ -1003,7 +1003,7 @@ var treeView = {
         this.disabled[pattern.text] = true;
     }
 
-    this.closed = new abp.HashTable();
+    this.closed = {__proto__: null};
     var closed = this.boxObject.treeBody.parentNode.getAttribute("closedSubscriptions");
     if (closed) {
       closed = closed.split(" ");
@@ -2006,7 +2006,7 @@ var treeView = {
     var foundCurrent = !current;
     if (highlightAll) {
       this.selection.clearSelection();
-      var rowCache = new abp.HashTable();
+      var rowCache = {__proto__: null};
     }
 
     var selectMatch = function(subscription, offset) {
