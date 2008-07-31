@@ -35,10 +35,6 @@ var prefService = Components.classes["@mozilla.org/preferences-service;1"]
 var dirService = Components.classes["@mozilla.org/file/directory_service;1"]
                            .getService(Components.interfaces.nsIProperties);
 
-var unicodeConverter = Components.classes["@mozilla.org/intl/scriptableunicodeconverter"]
-                                 .createInstance(Components.interfaces.nsIScriptableUnicodeConverter);
-unicodeConverter.charset = "UTF-8";
-
 var styleService = Components.classes["@mozilla.org/content/style-sheet-service;1"]
                              .getService(Components.interfaces.nsIStyleSheetService);
 var ScriptableInputStream = Components.Constructor("@mozilla.org/scriptableinputstream;1", "nsIScriptableInputStream", "init");
