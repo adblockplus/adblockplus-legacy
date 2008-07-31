@@ -167,7 +167,7 @@ var policy = {
     }
 
     // Store node data
-    var nodeData = data.addNode(topWnd, node, contentType, locationText, match, objTab);
+    var nodeData = data.addNode(topWnd, node, contentType, thirdParty, locationText, match, objTab);
     if (objTab)
       wnd.setTimeout(addObjectTab, 0, topWnd, node, nodeData, objTab);
 

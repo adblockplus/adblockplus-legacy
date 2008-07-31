@@ -84,6 +84,8 @@
       <menuitem id="contextBlock" label="&context.block.label;..." oncommand="doBlock()" key="block-key"/>
       <menuitem id="contextWhitelist" label="&context.whitelist.label;..." oncommand="doBlock()" key="block-key"/>
       <menuitem id="contextEditFilter" label="&context.editfilter.label;..." oncommand="editFilter()"/>
+      <menuitem id="contextDisableFilter" labeltempl="&context.disablefilter.label;" oncommand="enableFilter(this.item, this.filter, false)"/>
+      <menuitem id="contextEnableFilter" labeltempl="&context.enablefilter.label;" oncommand="enableFilter(this.item, this.filter, true)"/>
       <menuseparator id="contextOpenSep"/>
       <menuitem id="contextOpen" label="&context.open.label;" oncommand="openInTab()"/>
       <menuitem id="contextFlash" label="&context.flash.label;" oncommand="onSelectionChange()"/>

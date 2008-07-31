@@ -487,15 +487,25 @@ function synchCallback(orig, status) {
     }, 0);
   }
   else {
-    // Filters added
+    // Filters changed
 
     if (status == "add") {
-      for (i = 0; i < orig.length; i++)
-        treeView.addPattern(orig[i], undefined, undefined, true);
+      for each (let pattern in orig)
+        treeView.addPattern(pattern, undefined, undefined, true);
     }
     else if (status == "remove") {
-      for (i = 0; i < orig.length; i++)
-        treeView.removePattern(orig[i]);
+      for each (let pattern in orig)
+        treeView.removePattern(pattern);
+    }
+    else if (status == "disable") {
+      if (!E("enabled").hidden)
+      {
+        for each (let pattern in orig)
+        {
+          treeView.disabled[pattern.text] = pattern.disabled;
+          treeView.invalidatePattern(pattern);
+        }
+      }
     }
   }
 }
