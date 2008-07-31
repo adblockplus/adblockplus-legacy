@@ -277,6 +277,45 @@ function fillInContext(e) {
   if (!item || ("tooltip" in item && !("filter" in item)))
     return false;
 
+  E("contextDisableFilter").hidden = true;
+  E("contextEnableFilter").hidden = true;
+  if ("filter" in item && item.filter != null)
+  {
+    let filter = item.filter;
+    let menuItem = E("contextDisableFilter");
+    menuItem.item = item;
+    menuItem.filter = filter;
+    menuItem.setAttribute("label", menuItem.getAttribute("labeltempl").replace(/--/, filter.text));
+    menuItem.hidden = false;
+  }
+  else
+  {
+    let candidates = [];
+    for each (let pattern in prefs.userPatterns)
+    {
+      if (pattern.disabled && (pattern.type == "filterlist" || pattern.type == "whitelist") &&
+          pattern.regexp.test(item.location))
+      {
+        candidates.push(pattern);
+      }
+    }
+    if (candidates.length)
+    {
+      candidates.sort(function(pattern1, pattern2) {
+        if (pattern1.type != pattern2.type)
+          return (pattern1.type == "filterlist" ? -1 : 1);
+        else
+          return (pattern1.length - pattern2.length);
+      });
+      let filter = candidates[0];
+      let menuItem = E("contextEnableFilter");
+      menuItem.item = item;
+      menuItem.filter = filter;
+      menuItem.setAttribute("label", menuItem.getAttribute("labeltempl").replace(/--/, filter.text));
+      menuItem.hidden = false;
+    }
+  }
+
   E("contextWhitelist").hidden = ("tooltip" in item || !item.filter || item.filter.type == "whitelist" || item.typeDescr == "ELEMHIDE");
   E("contextBlock").hidden = !E("contextWhitelist").hidden;
   E("contextBlock").setAttribute("disabled", "filter" in item && item.filter != null);
@@ -342,6 +381,20 @@ function editFilter() {
     item.location = undefined
 
   abp.openSettingsDialog(item.location, item.filter);
+}
+
+function enableFilter(item, filter, enable) {
+  if (!abp)
+    return;
+
+  filter.disabled = !enable;
+  item.filter = (enable ? filter : null);
+  abp.synchronizer.notifyListeners([filter], "disable");
+
+  treeView.boxObject.invalidate();
+
+  prefs.initMatching();
+  prefs.savePatterns();
 }
 
 function copyToClipboard() {
