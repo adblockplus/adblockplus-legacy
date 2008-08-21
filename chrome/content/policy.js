@@ -132,9 +132,8 @@ var policy = {
 
     var objTab = null;
 
+    let thirdParty = this.isThirdParty(location, wnd);
     if (!match && prefs.enabled) {
-      let thirdParty = this.isThirdParty(location, wnd);
-
       match = prefs.whitePatterns.matchesAny(locationText, typeDescr[contentType] || "", thirdParty);
       if (match == null)
         match = prefs.filterPatterns.matchesAny(locationText, typeDescr[contentType] || "", thirdParty);
