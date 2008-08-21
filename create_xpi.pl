@@ -20,7 +20,7 @@ $pkg->readVersion('version');
 $pkg->readLocales('chrome/locale') unless exists $params{locales};
 
 chdir('chrome');
-$pkg->makeJAR('adblockplus.jar', 'content', 'skin', 'locale');
+$pkg->makeJAR('adblockplus.jar', 'content', 'skin', 'locale', '-/tests');
 chdir('..');
 
 $pkg->makeXPI($xpiFile, 'chrome/adblockplus.jar', 'components', 'defaults', 'install.js', 'install.rdf', 'chrome.manifest');
