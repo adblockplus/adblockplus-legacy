@@ -37,7 +37,7 @@
 
 <!ENTITY external.description       "
   Das ist ein externes Filter-Abonnement, es wird von der
-  Erwerterung verwaltet, die es erstellt hat.
+  Erweiterung verwaltet, die es erstellt hat.
 ">
 
 <!ENTITY autodownload.description   "
