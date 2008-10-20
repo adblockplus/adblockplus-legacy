@@ -73,9 +73,9 @@ function init() {
 
     // Restore previous state
     var params = abp.getParams();
-    if (params && params.filter) {
-      E("searchField").value = params.filter;
-      treeView.setFilter(params.filter);
+    if (params && params.search) {
+      E("searchField").value = params.search;
+      treeView.setFilter(params.search);
     }
     if (params && params.focus && E(params.focus))
       E(params.focus).focus();
@@ -172,11 +172,14 @@ function handleTabChange() {
 }
 
 // Fills a box with text splitting it up into multiple lines if necessary
-function setMultilineContent(box, text) {
-  while (box.firstChild)
-    box.removeChild(box.firstChild);
+function setMultilineContent(box, text, noRemove)
+{
+  if (!noRemove)
+    while (box.firstChild)
+      box.removeChild(box.firstChild);
 
-  for (var i = 0; i < text.length; i += 80) {
+  for (var i = 0; i < text.length; i += 80)
+  {
     var description = document.createElement("description");
     description.setAttribute("value", text.substr(i, 80));
     box.appendChild(description);
@@ -200,16 +203,17 @@ function fillInTooltip(e) {
   E("tooltipAddressRow").hidden = ("tooltip" in item);
   E("tooltipTypeRow").hidden = ("tooltip" in item);
   E("tooltipFilterRow").hidden = !filter;
-  E("tooltipSubscriptionRow").hidden = !(filter && "subscription" in filter && filter.subscription);
+  E("tooltipFilterSourceRow").hidden = !(filter && filter.subscriptions.length);
 
   if ("tooltip" in item)
     E("tooltipDummy").setAttribute("value", item.tooltip);
-  else {
+  else
+  {
     E("tooltipAddress").parentNode.hidden = (item.typeDescr == "ELEMHIDE");
     setMultilineContent(E("tooltipAddress"), item.location);
   
     var type = item.localizedDescr;
-    if (filter && filter.type == "whitelist")
+    if (filter && filter instanceof abp.WhitelistFilter)
       type += " " + E("tooltipType").getAttribute("whitelisted");
     else if (filter && item.typeDescr != "ELEMHIDE")
       type += " " + E("tooltipType").getAttribute("filtered");
@@ -219,13 +223,19 @@ function fillInTooltip(e) {
   if (filter)
   {
     setMultilineContent(E("tooltipFilter"), filter.text);
-    if ("subscription" in filter && filter.subscription)
-      E("tooltipSubscription").setAttribute("value", filter.subscription.title);
+    if (filter.subscriptions.length)
+    {
+      let sourceElement = E("tooltipFilterSource");
+      while (sourceElement.firstChild)
+        sourceElement.removeChild(sourceElement.firstChild);
+      for each (let subscription in filter.subscriptions)
+        setMultilineContent(sourceElement, subscription.title, true);
+    }
   }
 
   var showPreview = prefs.previewimages && !("tooltip" in item);
   showPreview = showPreview && (item.typeDescr == "IMAGE" || item.typeDescr == "BACKGROUND");
-  showPreview = showPreview && (!item.filter || item.filter.type == "whitelist");
+  showPreview = showPreview && (!item.filter || item.filter instanceof abp.WhitelistFilter);
   if (showPreview) {
     // Check whether image is in cache (stolen from ImgLikeOpera)
     if (!cacheSession) {
@@ -291,21 +301,22 @@ function fillInContext(e) {
   else
   {
     let candidates = [];
-    for each (let pattern in prefs.userPatterns)
-    {
-      if (pattern.disabled && (pattern.type == "filterlist" || pattern.type == "whitelist") &&
-          pattern.regexp.test(item.location))
-      {
-        candidates.push(pattern);
-      }
-    }
+    for each (let subscription in abp.filterStorage.subscriptions)
+      if (subscription instanceof abp.SpecialSubscription && !subscription.disabled)
+        for each (let filter in subscription.filters)
+          if (filter.disabled && filter instanceof abp.RegExpFilter && filter.matches(item.location, item.typeDescr, item.thirdParty))
+            candidates.push(filter);
+
     if (candidates.length)
     {
-      candidates.sort(function(pattern1, pattern2) {
-        if (pattern1.type != pattern2.type)
-          return (pattern1.type == "filterlist" ? -1 : 1);
+      candidates.sort(function(filter1, filter2)
+      {
+        if (filter1 instanceof abp.BlockingFilter && !(filter2 instanceof abp.BlockingFilter))
+          return -1;
+        else if (filter2 instanceof abp.BlockingFilter && !(filter1 instanceof abp.BlockingFilter))
+          return 1;
         else
-          return (pattern1.length - pattern2.length);
+          return (filter1.length - filter2.length);
       });
       let filter = candidates[0];
       let menuItem = E("contextEnableFilter");
@@ -316,12 +327,12 @@ function fillInContext(e) {
     }
   }
 
-  E("contextWhitelist").hidden = ("tooltip" in item || !item.filter || item.filter.type == "whitelist" || item.typeDescr == "ELEMHIDE");
+  E("contextWhitelist").hidden = ("tooltip" in item || !item.filter || item.filter instanceof abp.WhitelistFilter || item.typeDescr == "ELEMHIDE");
   E("contextBlock").hidden = !E("contextWhitelist").hidden;
   E("contextBlock").setAttribute("disabled", "filter" in item && item.filter != null);
   E("contextEditFilter").setAttribute("disabled", !("filter" in item && item.filter != null));
   E("contextOpen").setAttribute("disabled", "tooltip" in item || item.typeDescr == "ELEMHIDE");
-  E("contextFlash").setAttribute("disabled", "tooltip" in item || !(item.typeDescr in visual) || (item.filter && item.filter.type != "whitelist"));
+  E("contextFlash").setAttribute("disabled", "tooltip" in item || !(item.typeDescr in visual) || (item.filter && !(item.filter instanceof abp.WhitelistFilter)));
   E("contextCopyFilter").setAttribute("disabled", !allItems.some(function(item) {return "filter" in item && item.filter != null}));
 
   return true;
@@ -360,7 +371,7 @@ function doBlock() {
   if ("filter" in item)
     filter = item.filter;
 
-  if (filter && filter.type == "whitelist")
+  if (filter && filter instanceof abp.WhitelistFilter)
     return;
 
   openDialog("chrome://adblockplus/content/composer.xul", "_blank", "chrome,centerscreen,resizable,dialog=no,dependent", window.content, item);
@@ -389,12 +400,10 @@ function enableFilter(item, filter, enable) {
 
   filter.disabled = !enable;
   item.filter = (enable ? filter : null);
-  abp.synchronizer.notifyListeners([filter], "disable");
+  abp.filterStorage.triggerFilterObservers(enable ? "enable" : "disable", [filter]);
+  abp.filterStorage.saveToDisk();
 
   treeView.boxObject.invalidate();
-
-  prefs.initMatching();
-  prefs.savePatterns();
 }
 
 function copyToClipboard() {
@@ -520,8 +529,8 @@ function compareFilter(item1, item2) {
 }
 
 function compareState(item1, item2) {
-  var state1 = (!item1.filter ? 0 : (item1.filter.type == "whitelist" ? 1 : 2));
-  var state2 = (!item2.filter ? 0 : (item2.filter.type == "whitelist" ? 1 : 2));
+  var state1 = (!item1.filter ? 0 : (item1.filter instanceof abp.WhitelistFilter ? 1 : 2));
+  var state2 = (!item2.filter ? 0 : (item2.filter instanceof abp.WhitelistFilter ? 1 : 2));
   return state1 - state2;
 }
 
@@ -671,7 +680,7 @@ var treeView = {
 
       state = "state-regular";
       if (this.data[row].filter)
-        state = (this.data[row].filter.type == "whitelist" ? "state-whitelisted" : "state-filtered");
+        state = (this.data[row].filter instanceof abp.WhitelistFilter ? "state-whitelisted" : "state-filtered");
     }
     else {
       properties.AppendElement(this.atoms["dummy-true"]);

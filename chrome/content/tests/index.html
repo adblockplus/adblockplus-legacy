@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Adblock Plus tests</title>
+  <script type="application/x-javascript;version=1.8">
+    window.onload = function()
+    {
+      let root = location.href.replace(/[^/]+$/, "");
+
+      let files = [];
+      let r = new XMLHttpRequest();
+      r.open("GET", root, false);
+      r.overrideMimeType("text/plain");
+      r.send(null);
+      for each (let line in r.responseText.split(/[\r\n]+/))
+        if (/^201:\s+(\S+\.html)\s/.test(line) && RegExp.$1 != "index.html")
+          files.push(RegExp.$1);
+      files.sort();
+
+      let description = document.createElement("div");
+      description.textContent = "Total:";
+      document.body.appendChild(description);
+
+      let summaryTable = document.createElement("table");
+      summaryTable.setAttribute("border", "1");
+      summaryTable.setAttribute("cellpadding", "5");
+      summaryTable.style.marginBottom = "20px";
+
+      let row = summaryTable.insertRow(-1);
+      let cell = row.insertCell(-1);
+      cell.textContent = "Passed";
+      let totalPassedCell = row.insertCell(-1);
+      totalPassedCell.id = "passed";
+      totalPassedCell.textContent = 0;
+
+      row = summaryTable.insertRow(-1);
+      cell = row.insertCell(-1);
+      cell.textContent = "Failed";
+      let totalFailedCell = row.insertCell(-1);
+      totalFailedCell.id = "failed";
+      totalFailedCell.textContent = 0;
+
+      document.body.appendChild(summaryTable);
+
+      for each (let file in files)
+      {
+        let description = document.createElement("div");
+        description.textContent = file + ":";
+        document.body.appendChild(description);
+
+        let frame = document.createElement("iframe");
+        frame.setAttribute("width", "100%");
+        frame.setAttribute("height", "200");
+        document.body.appendChild(frame);
+        frame.contentWindow.location.href = file;
+      }
+
+      setInterval(function()
+      {
+        let passed = 0;
+        let failed = 0;
+        for (let i = 0; i < window.frames.length; i++)
+        {
+          let passedCell = window.frames[i].document.getElementById("passed");
+          if (passedCell)
+            passed += parseInt(passedCell.textContent);
+
+          let failedCell = window.frames[i].document.getElementById("failed");
+          if (failedCell)
+            failed += parseInt(failedCell.textContent);
+        }
+        document.getElementById("passed").textContent = passed;
+        document.getElementById("failed").textContent = failed;
+      }, 500);
+    }
+  </script>
+</head>
+<body>
+</body>
+</html>

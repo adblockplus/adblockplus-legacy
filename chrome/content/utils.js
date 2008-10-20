@@ -289,7 +289,7 @@ function normalizeFilter(text) {
     // Don't remove spaces inside comments
     return text.replace(/^\s+/, "").replace(/\s+$/, "");
   }
-  else if (abp.elemhideRegExp.test(text)) {
+  else if (Filter.elemhideRegExp.test(text)) {
     // Special treatment for element hiding filters, right side is allowed to contain spaces
     /^(.*?)(#+)(.*)$/.test(text);   // .split(..., 2) will cut off the end of the string
     var domain = RegExp.$1;

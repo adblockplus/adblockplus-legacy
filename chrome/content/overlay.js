@@ -417,8 +417,8 @@ function abpShowSubscriptions() {
   abpPrefs.save();
 
   // Look for existing subscriptions
-  for (var i = 0; i < abpPrefs.subscriptions.length; i++)
-    if (!abpPrefs.subscriptions[i].special)
+  for each (let subscription in filterStorage.subscriptions)
+    if (subscription instanceof abp.RegularSubscription)
       return;
 
   window.openDialog("chrome://adblockplus/content/tip_subscriptions.xul", "_blank", "chrome,centerscreen");
@@ -547,7 +547,7 @@ function abpFillPopup(popup) {
 
     if (site) {
       whitelistItemSite.pattern = "@@|mailto:" + site.replace(' ', '%20') + "|";
-      whitelistItemSite.setAttribute("checked", abpHasPattern(whitelistItemSite.pattern));
+      whitelistItemSite.setAttribute("checked", abpHasFilter(whitelistItemSite.pattern));
       whitelistItemSite.setAttribute("label", whitelistItemSite.getAttribute("labeltempl").replace(/--/, site));
     }
   }
@@ -570,11 +570,11 @@ function abpFillPopup(popup) {
       site = url.replace(/^([^\/]+\/\/[^\/]+\/).*/, "$1");
 
       whitelistItemSite.pattern = "@@|" + site;
-      whitelistItemSite.setAttribute("checked", abpHasPattern(whitelistItemSite.pattern));
+      whitelistItemSite.setAttribute("checked", abpHasFilter(whitelistItemSite.pattern));
       whitelistItemSite.setAttribute("label", whitelistItemSite.getAttribute("labeltempl").replace(/--/, host));
 
       whitelistItemPage.pattern = "@@|" + url + ending;
-      whitelistItemPage.setAttribute("checked", abpHasPattern(whitelistItemPage.pattern));
+      whitelistItemPage.setAttribute("checked", abpHasFilter(whitelistItemPage.pattern));
     }
     else
       location = null;
@@ -639,10 +639,16 @@ function abpToggleSidebar() {
   }
 }
 
-// Checks whether the specified pattern exists in the list
-function abpHasPattern(pattern) {
-  for (var i = 0; i < abpPrefs.userPatterns.length; i++)
-    if (abpPrefs.userPatterns[i].text == pattern)
+/**
+ * Checks whether the specified user-defined filter exists
+ *
+ * @param {String} filter   text representation of the filter
+ */
+function abpHasFilter(filter)
+{
+  filter = Filter.fromText(filter);
+  for (let subscription in abp.filterStorage.subscriptions)
+    if (subscriptions instanceof abp.SpecialSubscription && subscription.filters.indexOf(filter))
       return true;
 
   return false;

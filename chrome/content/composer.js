@@ -35,7 +35,7 @@ function E(id) {
 function init() {
   [wnd, item] = window.arguments;
 
-  E("filterType").value = (item.filter && item.filter.type != "whitelist" ? "whitelist" : "filterlist");
+  E("filterType").value = (!item.filter || item.filter instanceof abp.WhitelistFilter ? "filterlist" : "whitelist");
   E("customPattern").value = item.location;
 
   let insertionPoint = E("customPatternBox");
@@ -187,19 +187,18 @@ function updateFilter()
   }
 
   filter = abp.normalizeFilter(filter);
-  E("regexpWarning").hidden = !abp.regexpRegExp.test(filter);
+  E("regexpWarning").hidden = !abp.Filter.regexpRegExp.test(filter);
 
   let hasShortcut = true;
   if (E("regexpWarning").hidden)
   {
-    let compiledFilter = {text: filter};
-    abp.prefs.initPattern(compiledFilter);
+    let compiledFilter = abp.Filter.fromText(filter);
 
     let matcher = null;
-    if (compiledFilter.type == "filterlist")
-      matcher = abp.prefs.filterPatterns;
-    if (compiledFilter.type == "whitelist")
-      matcher = abp.prefs.whitePatterns;
+    if (compiledFilter instanceof abp.BlockingFilter)
+      matcher = abp.blacklistMatcher;
+    if (compiledFilter instanceof abp.WhitelistFilter)
+      matcher = abp.whitelistMatcher;
     if (matcher && !matcher.findShortcut(compiledFilter.text))
       hasShortcut = false;
   }
@@ -237,7 +236,16 @@ function updateCustomPattern()
 }
 
 function addFilter() {
-  abp.addPatterns([document.getElementById("filter").value], 1);
+  let filter = abp.Filter.fromText(document.getElementById("filter").value);
+
+  if (filter.disabled)
+  {
+    filter.disabled = false;
+    abp.filterStorage.triggerFilterObservers("enable", [filter]);
+  }
+
+  abp.filterStorage.addFilter(filter);
+  abp.filterStorage.saveToDisk();
 
   if (wnd && !wnd.closed)
     abp.policy.refilterWindow(wnd);

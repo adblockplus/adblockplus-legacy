@@ -27,149 +27,178 @@
  * This file is included from nsAdblockPlus.js.
  */
 
-var synchronizer = {
-  executing: {__proto__: null},
-  listeners: [],
-  timer: null,
+var XMLHttpRequest = Components.Constructor("@mozilla.org/xmlextras/xmlhttprequest;1", "nsIJSXMLHttpRequest");
 
-  init: function() {
-    this.timer = createTimer(this.synchronizeCallback, 300000);
-    this.timer.type = this.timer.TYPE_REPEATING_SLACK;
+var synchronizer = {
+  /**
+   * Map of subscriptions currently being downloaded, all currently downloaded
+   * URLs are keys of that map.
+   */
+  executing: {__proto__: null},
+
+  /**
+   * Initializes synchronizer so that it checks hourly whether any subscriptions
+   * need to be downloaded.
+   */
+  init: function()
+  {
+    let me = this;
+    let timer = createTimer(function()
+    {
+      timer.delay = 3600000;
+      me.checkSubscriptions();
+    }, 300000);
+    timer.type = timer.TYPE_REPEATING_SLACK;
   },
 
-  synchronizeCallback: function() {
-    synchronizer.timer.delay = 3600000;
-
-    var time = new Date().getTime()/1000;
-    for (var i = 0; i < prefs.subscriptions.length; i++) {
-      var subscription = prefs.subscriptions[i];
-      if (subscription.special || !subscription.autoDownload || subscription.external)
+  /**
+   * Checks whether any subscriptions need to be downloaded and starts the download
+   * if necessary.
+   */
+  checkSubscriptions: function()
+  {
+    let time = Date.now()/1000;
+    for each (let subscription in filterStorage.subscriptions)
+    {
+      if (!(subscription instanceof DownloadableSubscription) || !subscription.autoDownload)
         continue;
   
       if (subscription.expires > time)
         continue;
 
       // Get the number of hours since last download
-      var interval = (time - subscription.lastDownload) / 3600;
-      if (interval > prefs.synchronizationinterval)
+      let interval = (time - subscription.lastDownload) / 3600;
+      if (interval >= prefs.synchronizationinterval)
         synchronizer.execute(subscription);
     }
   },
 
-  // Adds a new handler to be notified whenever synchronization status changes
-  addListener: function(handler) {
-    this.listeners.push(handler);
-  },
-  
-  // Removes a handler
-  removeListener: function(handler) {
-    for (var i = 0; i < this.listeners.length; i++)
-      if (this.listeners[i] == handler)
-        this.listeners.splice(i--, 1);
-  },
-
-  // Calls all listeners
-  notifyListeners: function(subscription, status) {
-    for (var i = 0; i < this.listeners.length; i++)
-      this.listeners[i](subscription, status);
-  },
-
-  isExecuting: function(url) {
+  /**
+   * Checks whether a subscription is currently being downloaded.
+   * @param {String} url  URL of the subscription
+   */
+  isExecuting: function(url)
+  {
     return url in this.executing;
   },
 
-  readPatterns: function(subscription, text) {
-    var lines = text.split(/[\r\n]+/);
-    for (var i = 0; i < lines.length; i++) {
-      lines[i] = normalizeFilter(lines[i]);
-      if (!lines[i])
-        lines.splice(i--, 1);
-    }
+  /**
+   * Extracts a list of filters from text returned by a server.
+   * @param {DownloadableSubscription} subscription  subscription the info should be placed into
+   * @param {String} text server response
+   * @return {Array of Filter}
+   */
+  readFilters: function(subscription, text)
+  {
+    let lines = text.split(/[\r\n]+/);
     if (!/\[Adblock(?:\s*Plus\s*([\d\.]+)?)?\]/i.test(lines[0])) {
       this.setError(subscription, "synchronize_invalid_data");
-      return false;
+      return null;
     }
 
     delete subscription.requiredVersion;
     delete subscription.upgradeRequired;
 
-    var minVersion = RegExp.$1;
-    if (minVersion) {
+    let minVersion = RegExp.$1;
+    if (minVersion)
+    {
       subscription.requiredVersion = minVersion;
       if (abp.versionComparator.compare(minVersion, abp.getInstalledVersion()) > 0)
         subscription.upgradeRequired = true;
     }
 
-    subscription.patterns = [];
-    for (var i = 1; i < lines.length; i++) {
-      var pattern = prefs.patternFromText(lines[i]);
-      if (pattern)
-        subscription.patterns.push(pattern);
+    lines.shift();
+    let result = [];
+    for each (let line in lines)
+    {
+      let filter = Filter.fromText(normalizeFilter(line));
+      if (filter)
+        result.push(filter);
     }
-    prefs.initMatching();
 
-    return true;
+    return result;
   },
 
-  setError: function(subscription, error) {
-    delete this.executing[subscription.url];
-    subscription.lastDownload = parseInt(new Date().getTime() / 1000);
+  /**
+   * Handles an error during a subscription download.
+   * @param {DownloadableSubscription} subscription  subscription that failed to download
+   * @param {String} error error ID in global.properties
+   */
+  setError: function(subscription, error)
+  {
+    subscription.lastDownload = parseInt(Date.now() / 1000);
     subscription.downloadStatus = error;
     subscription.errors++;
-    prefs.savePatterns();
-    this.notifyListeners(subscription, "error");
 
-    if (subscription.errors >= prefs.subscriptions_fallbackerrors && /^https?:\/\//i.test(subscription.url)) {
-      var request = Components.classes["@mozilla.org/xmlextras/xmlhttprequest;1"]
-                              .createInstance(Components.interfaces.nsIJSXMLHttpRequest);
-      request.open("GET", prefs.subscriptions_fallbackurl.replace(/%s/g, escape(subscription.url)));
+    if (subscription.errors >= prefs.subscriptions_fallbackerrors && /^https?:\/\//i.test(subscription.url))
+    {
+      subscription.errors = 0;
+
+      let request = new XMLHttpRequest();
+      request.open("GET", prefs.subscriptions_fallbackurl.replace(/%s/g, encodeURIComponent(subscription.url)));
+      request.overrideMimeType("text/plain");
+      request.channel.loadGroup = null;
       request.channel.loadFlags = request.channel.loadFlags |
+                                  request.channel.INHIBIT_CACHING |
                                   request.channel.VALIDATE_ALWAYS;
-      request.onload = function(ev) {
-        if (subscription.errors >= prefs.subscriptions_fallbackerrors) {
-          subscription.errors = 0;
-          if (/^301\s+(\S+)/.test(ev.target.responseText))  // Moved permanently    
-            subscription.nextURL = RegExp.$1;
-          else if (/^410\b/.test(ev.target.responseText)) { // Gone
-            subscription.autoDownload = false;
-            synchronizer.notifyListeners(subscription, "info");
-          }
-          prefs.savePatterns();
+      request.onload = function(ev)
+      {
+        if (/^301\s+(\S+)/.test(request.responseText))  // Moved permanently    
+          subscription.nextURL = RegExp.$1;
+        else if (/^410\b/.test(request.responseText))   // Gone
+        {
+          subscription.autoDownload = false;
+          filterStorage.triggerSubscriptionObservers("updateinfo", [subscription]);
         }
+        filterStorage.saveToDisk();
       }
       request.send(null);
-      request = null;
     }
+
+    filterStorage.triggerSubscriptionObservers("updateinfo", [subscription]);
+    filterStorage.saveToDisk();
   },
 
-  executeInternal: function(subscription, forceDownload) {
-    var url = subscription.url;
+  /**
+   * Starts the download of a subscription.
+   * @param {DownloadableSubscription} subscription  Subscription to be downloaded
+   * @param {Boolean}  forceDownload  if true, the subscription will even be redownloaded if it didn't change on the server
+   */
+  execute: function(subscription, forceDownload)
+  {
+    let url = subscription.url;
     if (url in this.executing)
       return;
 
-    var curVersion = abp.getInstalledVersion();
-    var loadFrom = (subscription.nextURL ? subscription.nextURL : url).replace(/%VERSION%/, curVersion ? "ABP" + curVersion : "");
+    let newURL = subscription.nextURL;
+    subscription.nextURL = null;
 
+    let curVersion = abp.getInstalledVersion();
+    let loadFrom = (newURL || url).replace(/%VERSION%/, "ABP" + curVersion);
+
+    let request = null;
     try {
-      var request = Components.classes["@mozilla.org/xmlextras/xmlhttprequest;1"]
-                              .createInstance(Components.interfaces.nsIJSXMLHttpRequest);
+      request = new XMLHttpRequest();
       request.open("GET", loadFrom);
-      request.channel.loadFlags = request.channel.loadFlags |
-                                  request.channel.INHIBIT_CACHING |
-                                  request.channel.LOAD_BYPASS_CACHE;
     }
     catch (e) {
       this.setError(subscription, "synchronize_invalid_url");
       return;
     }
 
-    var newURL = subscription.nextURL;
-    subscription.nextURL = null;
     try {
+      request.overrideMimeType("text/plain");
+      request.channel.loadGroup = null;
+      request.channel.loadFlags = request.channel.loadFlags |
+                                  request.channel.INHIBIT_CACHING |
+                                  request.channel.VALIDATE_ALWAYS;
+
       var oldNotifications = request.channel.notificationCallbacks;
       var oldEventSink = null;
-      request.channel.notificationCallbacks = {
-        QueryInterface: function(iid) {
+      request.channel.notificationCallbacks =
+      {
+        QueryInterface: function(iid)
+        {
           if (iid.equals(Components.interfaces.nsISupports) ||
               iid.equals(Components.interfaces.nsIChannelEventSink))
             return this;
@@ -177,8 +206,10 @@ var synchronizer = {
           throw Components.results.NS_ERROR_NO_INTERFACE;
         },
 
-        getInterface: function(iid) {
-          if (iid.equals(Components.interfaces.nsIChannelEventSink)) {
+        getInterface: function(iid)
+        {
+          if (iid.equals(Components.interfaces.nsIChannelEventSink))
+          {
             try {
               oldEventSink = oldNotifications.QueryInterface(iid);
             } catch(e) {}
@@ -188,7 +219,8 @@ var synchronizer = {
           return (oldNotifications ? oldNotifications.QueryInterface(iid) : null);
         },
 
-        onChannelRedirect: function(oldChannel, newChannel, flags) {
+        onChannelRedirect: function(oldChannel, newChannel, flags)
+        {
           if (flags & Components.interfaces.nsIChannelEventSink.REDIRECT_TEMPORARY)
             newURL = "";
           else if (newURL != "")
@@ -202,122 +234,109 @@ var synchronizer = {
 
     if (subscription.lastModified && !forceDownload)
       request.setRequestHeader("If-Modified-Since", subscription.lastModified);
+      this.request = request;
 
-    request.onerror = function(ev) {
-      var request = ev.target;
+    let me = this;
+    request.onerror = function(ev)
+    {
+      delete me.executing[url];
       try {
         request.channel.notificationCallbacks = null;
       } catch (e) {}
 
-      if (!(url in prefs.knownSubscriptions))
+      me.setError(subscription, "synchronize_connection_error");
+    };
+
+    request.onload = function(ev)
+    {
+      delete me.executing[url];
+      try {
+        request.channel.notificationCallbacks = null;
+      } catch (e) {}
+
+      if (request.status != 200 && request.status != 304)
+      {
+        me.setError(subscription, "synchronize_connection_error");
         return;
-
-      synchronizer.setError(prefs.knownSubscriptions[url], "synchronize_connection_error");
-    };
-
-    request.onload = function(ev) {
-      var request = ev.target;
-      try {
-        request.channel.notificationCallbacks = null;
-      } catch (e) {}
-
-      delete synchronizer.executing[url];
-      if (url in prefs.knownSubscriptions) {
-        var subscription = prefs.knownSubscriptions[url];
-
-        if (request.status != 304) {
-          if (!synchronizer.readPatterns(subscription, request.responseText))
-            return;
-
-          subscription.lastModified = request.getResponseHeader("Last-Modified");
-        }
-
-        subscription.lastDownload = parseInt(new Date().getTime() / 1000);
-        subscription.downloadStatus = "synchronize_ok";
-        subscription.errors = 0;
-
-        var expires = parseInt(new Date(request.getResponseHeader("Expires")).getTime() / 1000) || 0;
-        for (var i = 0; i < subscription.patterns.length; i++) {
-          if (subscription.patterns[i].type == "comment" && /\bExpires\s*(?::|after)\s*(\d+)\s*(h)?/i.test(subscription.patterns[i].text)) {
-            var hours = parseInt(RegExp.$1);
-            if (!RegExp.$2)
-              hours *= 24;
-            if (hours > 0) {
-              var time = subscription.lastDownload + hours * 3600;
-              if (time > expires)
-                expires = time;
-            }
-          }
-          if (subscription.patterns[i].type == "comment" && /\bRedirect(?:\s*:\s*|\s+to\s+|\s+)(\S+)/i.test(subscription.patterns[i].text))
-            subscription.nextURL = RegExp.$1;
-        }
-        subscription.expires = (expires > subscription.lastDownload ? expires : 0);
-
-        // Expiration date shouldn't be more than two weeks in the future
-        if (subscription.expires - subscription.lastDownload > 14*24*3600)
-          subscription.expires = subscription.lastDownload + 14*24*3600;
-
-        if (newURL) {
-          synchronizer.notifyListeners(subscription, "remove");
-          var inlist = false;
-          for (i = 0; i < prefs.subscriptions.length; i++) {
-            if (prefs.subscriptions[i].url == url) {
-              prefs.subscriptions.splice(i--, 1);
-              inlist = true;
-            }
-          }
-
-          delete prefs.knownSubscriptions[url];
-          delete prefs.listedSubscriptions[url];
-
-          url = newURL;
-          subscription.url = url;
-
-          var found = false;
-          for (i = 0; i < prefs.subscriptions.length; i++) {
-            if (prefs.subscriptions[i].url == url) {
-              prefs.subscriptions[i] = subscription;
-              found = true;
-            }
-          }
-          if (!found && inlist)
-            prefs.subscriptions.push(subscription);
-
-          prefs.knownSubscriptions[url] = subscription;
-          if (found || inlist)
-            prefs.listedSubscriptions[url] = subscription;
-
-          synchronizer.notifyListeners(subscription, "replace");
-        }
-        else
-          synchronizer.notifyListeners(subscription, "ok");
-
-        prefs.savePatterns();
-
       }
+
+      let newFilters = null;
+      if (request.status != 304)
+      {
+        newFilters = me.readFilters(subscription, request.responseText);
+        if (!newFilters)
+          return;
+
+        subscription.lastModified = request.getResponseHeader("Last-Modified");
+      }
+
+      subscription.lastDownload = parseInt(Date.now() / 1000);
+      subscription.downloadStatus = "synchronize_ok";
+      subscription.errors = 0;
+
+      let expires = parseInt(new Date(request.getResponseHeader("Expires")).getTime() / 1000) || 0;
+      for each (let filter in newFilters)
+      {
+        if (filter instanceof CommentFilter && /\bExpires\s*(?::|after)\s*(\d+)\s*(h)?/i.test(filter.text))
+        {
+          var hours = parseInt(RegExp.$1);
+          if (!RegExp.$2)
+            hours *= 24;
+          if (hours > 0)
+          {
+            let time = subscription.lastDownload + hours * 3600;
+            if (time > expires)
+              expires = time;
+          }
+        }
+        if (filter instanceof CommentFilter && /\bRedirect(?:\s*:\s*|\s+to\s+|\s+)(\S+)/i.test(filter.text))
+          subscription.nextURL = RegExp.$1;
+      }
+      subscription.expires = (expires > subscription.lastDownload ? expires : 0);
+
+      // Expiration date shouldn't be more than two weeks in the future
+      if (subscription.expires - subscription.lastDownload > 14*24*3600)
+        subscription.expires = subscription.lastDownload + 14*24*3600;
+
+      if (newURL && newURL != url)
+      {
+        let listed = (subscription.url in filterStorage.knownSubscriptions);
+        if (listed)
+          filterStorage.removeSubscription(subscription);
+
+        url = newURL;
+
+        let newSubscription = Subscription.fromURL(url);
+        for (let key in newSubscription)
+          delete newSubscription[key];
+        for (let key in subscription)
+          newSubscription[key] = subscription[key];
+
+        subscription = newSubscription;
+        subscription.url = url;
+
+        if (!(subscription.url in filterStorage.knownSubscriptions) && listed)
+          filterStorage.addSubscription(subscription);
+      }
+
+      if (newFilters)
+        filterStorage.updateSubscriptionFilters(subscription, newFilters);
+      else
+        filterStorage.triggerSubscriptionObservers("updateinfo", [subscription]);
+
+      filterStorage.saveToDisk();
     };
 
-    this.executing[url] = request;
-    this.notifyListeners(subscription, "executing");
+    this.executing[url] = true;
+    filterStorage.triggerSubscriptionObservers("updateinfo", [subscription]);
 
     try {
       request.send(null);
     }
     catch (e) {
       this.setError(subscription, "synchronize_connection_error");
+      return;
     }
-
-    // prevent cyclic references through closures
-    request = null;
-  },
-
-  execute: function(subscription, forceDownload) {
-    // Execute delayed so XMLHttpRequest isn't attached to the
-    // load group of the calling window
-    var me = this;
-    if (typeof forceDownload == "undefined")
-      forceDownload = false;
-    createTimer(function() {me.executeInternal(subscription, forceDownload)}, 0);
   }
 };
 
