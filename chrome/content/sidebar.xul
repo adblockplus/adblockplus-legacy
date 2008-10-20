@@ -72,9 +72,9 @@
             <label value="&tooltip.filter.label;"/>
             <vbox id="tooltipFilter"/>
           </row>
-          <row id="tooltipSubscriptionRow" align="top">
-            <label value="&tooltip.subscription.label;"/>
-            <description id="tooltipSubscription"/>
+          <row id="tooltipFilterSourceRow" align="top">
+            <label value="&tooltip.filterSource.label;"/>
+            <vbox id="tooltipFilterSource"/>
           </row>
         </rows>
       </grid>

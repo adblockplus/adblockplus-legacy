@@ -192,14 +192,15 @@ function clearList() {
 // Resets hit statistics (after a warning).
 function resetHitCounts(resetAll) {
   if (resetAll && confirm(abp.getString("resethitcounts_warning")))
-    prefs.resetHitCounts();
-  else if (!resetAll && confirm(abp.getString("resethitcounts_selected_warning"))) {
+    filterStorage.resetHitCounts(null);
+  else if (!resetAll && confirm(abp.getString("resethitcounts_selected_warning")))
+  {
     var selected = treeView.getSelectedInfo();
     var list = [];
     for (var i = 0; i < selected.length; i++)
       if (selected[i][1] && typeof selected[i][1] != "string")
         list.push(selected[i][1].orig);
-    prefs.resetHitCounts(list);
+    filterStorage.resetHitCounts(list);
   }
 }
 
@@ -321,7 +322,7 @@ function exportList() {
             // Find version requirements of this pattern
             var patternVersion;
             if (pattern.type == "filterlist" || pattern.type == "whitelist") {
-              if (abp.optionsRegExp.test(pattern.text))
+              if (abp.Filter.optionsRegExp.test(pattern.text))
                 patternVersion = "0.7.1";
               else if (/^(?:@@)?\|/.test(pattern.text) || /\|$/.test(pattern.text))
                 patternVersion = "0.6.1.2";
@@ -1613,7 +1614,7 @@ var treeView = {
       pattern.orig = orig;
       pattern.dummy = false;
 
-      if ((pattern.type == "filterlist" || pattern.type == "whitelist") && !abp.regexpRegExp.test(pattern.text)) {
+      if ((pattern.type == "filterlist" || pattern.type == "whitelist") && !abp.Filter.regexpRegExp.test(pattern.text)) {
         let matcher = (pattern.type == "filterlist" ? abp.prefs.filterPatterns : abp.prefs.whitePatterns);
         let shortcut = matcher.findShortcut(pattern.text);
         if (shortcut)

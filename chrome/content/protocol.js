@@ -64,24 +64,6 @@ ABPChannel.prototype = {
   name: null,
   status: Components.results.NS_OK,
 
-  addSubscription: function(data) {
-    for (var i = 0; i < prefs.subscriptions.length; i++)
-      if (prefs.subscriptions[i].url == data.url)
-        return;
-
-    var subscription = prefs.subscriptionFromURL(data.url);
-    if (!subscription)
-      return;
-
-    subscription.title = data.title;
-    subscription.disabled = data.disabled;
-    subscription.autoDownload = data.autoDownload;
-    prefs.subscriptions.push(subscription);
-
-    synchronizer.notifyListeners(subscription, "add");
-    synchronizer.execute(subscription);
-  },
-
   open: function() {
     throw Components.results.NS_ERROR_NOT_IMPLEMENTED;
   },
@@ -106,16 +88,12 @@ ABPChannel.prototype = {
         if (!title || !/\S/.test(title))
           title = url;
 
-        var result = {};
         var subscription = {url: url, title: title, disabled: false, external: false, autoDownload: true};
 
         var browser = windowMediator.getMostRecentWindow("navigator:browser") || windowMediator.getMostRecentWindow("emusic:window");
         if (browser) {
           browser.openDialog("chrome://adblockplus/content/subscription.xul", "_blank",
-                             "chrome,centerscreen,modal", subscription, result);
-
-          if ("url" in result)
-            this.addSubscription(result);
+                             "chrome,centerscreen,modal", subscription);
         }
       }
     }

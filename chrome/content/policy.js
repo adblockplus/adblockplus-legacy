@@ -51,7 +51,7 @@ var policy = {
     this.typeDescr = typeDescr = {};
     this.localizedDescr = localizedDescr = {};
     var iface = Components.interfaces.nsIContentPolicy;
-    for each (typeName in types)
+    for each (let typeName in types)
     {
       if ("TYPE_" + typeName in iface)
       {
@@ -91,27 +91,29 @@ var policy = {
 
     var match = null;
     var locationText = location.spec;
-    if (location.scheme == "abp" && location.host == "registerhit" && /\?(\d+)$/.test(location.path) && RegExp.$1 in prefs.elemhidePatterns.keys)
+    if (location.scheme == "abp" && location.host == "registerhit" && /\?(\d+)$/.test(location.path) && RegExp.$1 in elemhide.keys)
     {
       var key = RegExp.$1;
       if (this.isWindowWhitelisted(topWnd))
       {
-        wnd.setTimeout(setElementHidingException, 0, wnd, prefs.elemhidePatterns.seed);
+        wnd.setTimeout(setElementHidingException, 0, wnd, elemhide.seed);
         return false;
       }
       else
       {
-        match = prefs.elemhidePatterns.keys[key];
-        prefs.increaseHitCount(match);
+        match = elemhide.keys[key];
+        filterStorage.increaseHitCount(match);
         contentType = type.ELEMHIDE;
         locationText = match.text.replace(/^.*?#/, '#');
       }
     }
 
-    if (!match && prefs.enabled) {
-      var pageMatch = this.isWindowWhitelisted(topWnd);
-      if (pageMatch) {
-        prefs.increaseHitCount(pageMatch);
+    if (!match && prefs.enabled)
+    {
+      match = this.isWindowWhitelisted(topWnd);
+      if (match)
+      {
+        filterStorage.increaseHitCount(match);
         return true;
       }
     }
@@ -134,12 +136,12 @@ var policy = {
 
     let thirdParty = this.isThirdParty(location, wnd);
     if (!match && prefs.enabled) {
-      match = prefs.whitePatterns.matchesAny(locationText, typeDescr[contentType] || "", thirdParty);
+      match = whitelistMatcher.matchesAny(locationText, typeDescr[contentType] || "", thirdParty);
       if (match == null)
-        match = prefs.filterPatterns.matchesAny(locationText, typeDescr[contentType] || "", thirdParty);
+        match = blacklistMatcher.matchesAny(locationText, typeDescr[contentType] || "", thirdParty);
 
       if (match)
-        prefs.increaseHitCount(match);
+        filterStorage.increaseHitCount(match);
 
       if (match && match.type != "whitelist" && node) {
         var prefCollapse = ("collapse" in match ? match.collapse : !prefs.fastcollapse);
@@ -188,7 +190,7 @@ var policy = {
    * @return {Boolean}
    */
   isWhitelisted: function(url) {
-    return prefs.whitePatternsPage.matchesAny(url, "DOCUMENT");
+    return whitelistMatcher.matchesAny(url, "DOCUMENT", false);
   },
 
   /**
