@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Element hiding tests</title>
+
+  <link rel="stylesheet" type="text/css" href="/content/tests/SimpleTest/test.css" />
+
+  <script type="text/javascript" src="/content/MochiKit/MochiKit.js"></script>
+  <script type="text/javascript" src="/content/tests/SimpleTest/SimpleTest.js"></script>        
+
+  <script type="application/x-javascript;version=1.7" src="common.js"></script>
+  <script type="application/x-javascript;version=1.7" src="chrome://adblockplus/content/filterClasses.js"></script>
+  <script type="application/x-javascript;version=1.7" src="chrome://adblockplus/content/elemhide.js"></script>
+</head>
+<body>
+  <p id="display"></p>
+  <div id="content" style="display: none">
+    <div id="test1"></div>
+    <div id="test2"></div>
+  </div>
+  <pre id="test">
+  <script type="application/x-javascript;version=1.7">
+    var prefs = {
+      enabled: true
+    };
+
+    function checkMatch(filters, expected)
+    {
+      for each (let filter in filters)
+        elemhide.add(Filter.fromText(filter));
+
+      elemhide.apply();
+      let result = window.getComputedStyle(document.getElementById("test1"), "").display + " " + window.getComputedStyle(document.getElementById("test2"), "").display;
+
+      is(result, expected, filters.join("\n"));
+      elemhide.clear();
+    }
+
+    if (compareGeckoVersion("1.9") >= 0)
+    {
+      checkMatch([], "block block");
+      checkMatch(["#div(test1)"], "block block");
+      checkMatch(["mochikit#div(test1)"], "none block");
+      checkMatch(["mochikit#div(test1)", "foo,foo2#div(test2)"], "none block");
+      checkMatch(["mochikit,foo#div(test1)", "foo,mochikit#div(test2)"], "none none");
+      checkMatch(["mochikit#div(test1)", "mochikit#div(test2)"], "none none");
+      checkMatch(["foo#div(test1)", "foo#div(test2)"], "block block");
+    }
+    else
+    {
+      ok(true, "These tests require an application based on Gecko 1.9 or higher");
+    }
+  </script>
+  </pre>
+</body>
+</html>

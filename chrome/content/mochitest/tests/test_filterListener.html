@@ -1,0 +1,166 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Filter listeners tests</title>
+
+  <link rel="stylesheet" type="text/css" href="/content/tests/SimpleTest/test.css" />
+
+  <script type="text/javascript" src="/content/MochiKit/MochiKit.js"></script>
+  <script type="text/javascript" src="/content/tests/SimpleTest/SimpleTest.js"></script>        
+
+  <script type="application/x-javascript;version=1.7" src="common.js"></script>
+  <script type="application/x-javascript;version=1.7" src="chrome://adblockplus/content/filterClasses.js"></script>
+  <script type="application/x-javascript;version=1.7" src="chrome://adblockplus/content/subscriptionClasses.js"></script>
+  <script type="application/x-javascript;version=1.7" src="chrome://adblockplus/content/filterStorage.js"></script>
+  <script type="application/x-javascript;version=1.7" src="chrome://adblockplus/content/matcher.js"></script>
+  <script type="application/x-javascript;version=1.7" src="chrome://adblockplus/content/elemhide.js"></script>
+  <script type="application/x-javascript;version=1.7" src="chrome://adblockplus/content/filterListener.js"></script>
+</head>
+<body>
+  <p id="display"></p>
+  <div id="content" style="display: none">
+
+  </div>
+  <pre id="test">
+  <script type="application/x-javascript;version=1.7">
+    var prefs = {
+      enabled: true
+    };
+
+    filterStorage.addSubscription(Subscription.fromURL("~fl~"));
+    filterStorage.addSubscription(Subscription.fromURL("~wl~"));
+    filterStorage.addSubscription(Subscription.fromURL("~il~"));
+    filterStorage.addSubscription(Subscription.fromURL("~eh~"));
+
+    function checkKnownFilters(text, expected)
+    {
+      let result = {};
+      for each (let matcher in [blacklistMatcher, whitelistMatcher])
+      {
+        let filters = [];
+        for each (let filter in matcher.regexps)
+        {
+          if (filter.shortcut)
+            is(filter.shortcut, null, "Shortcut of filter " + filter.text);
+          filters.push(filter);
+        }
+        for (let shortcut in matcher.shortcutHash)
+        {
+          let filter = matcher.shortcutHash[shortcut];
+          if (filter.shortcut != shortcut)
+            is(filter.shortcut, shortcut, "Shortcut of filter " + filter.text);
+          filters.push(filter);
+        }
+        result[matcher == blacklistMatcher ? "blacklist" : "whitelist"] = filters;
+      }
+      result.elemhide = elemhide.filters;
+
+      function canonize(obj)
+      {
+        let result = [];
+        for (let key in obj)
+        {
+          if (obj[key].length)
+            result.push({key : key, value: obj[key].map(function(filter) {return filter.text;}).sort()});
+        }
+        result.sort(function(a, b)
+        {
+          if (a.key < b.key)
+            return -1;
+          else if (a.key > b.key)
+            return 1;
+          else
+            return 0;
+        });
+        return result.map(function(entry) {return entry.key + ":\n" + entry.value.join("\n")}).join("\n");
+      }
+
+      is(canonize(result), canonize(expected), text);
+    }
+
+    let filter1 = Filter.fromText("filter1");
+    let filter2 = Filter.fromText("@@filter2");
+    let filter3 = Filter.fromText("#filter3");
+    let filter4 = Filter.fromText("!filter4");
+
+    filterStorage.addFilter(filter1);
+    checkKnownFilters("add filter1", {blacklist: [filter1]});
+    filterStorage.addFilter(filter2);
+    checkKnownFilters("add filter2", {blacklist: [filter1], whitelist: [filter2]});
+    filterStorage.addFilter(filter3);
+    checkKnownFilters("add filter3", {blacklist: [filter1], whitelist: [filter2], elemhide: [filter3]});
+    filterStorage.addFilter(filter4);
+    checkKnownFilters("add filter4", {blacklist: [filter1], whitelist: [filter2], elemhide: [filter3]});
+
+    filterStorage.removeFilter(filter1);
+    checkKnownFilters("remove filter1", {whitelist: [filter2], elemhide: [filter3]});
+    filter2.disabled = true;
+    filterStorage.triggerFilterObservers("disable", [filter2]);
+    checkKnownFilters("disable filter2", {elemhide: [filter3]});
+    filterStorage.removeFilter(filter2);
+    checkKnownFilters("remove filter2", {elemhide: [filter3]});
+    filterStorage.removeFilter(filter4);
+    checkKnownFilters("remove filter4", {elemhide: [filter3]});
+
+    let subscription = Subscription.fromURL("http://test1/");
+    subscription.filters = [filter1, filter2, filter3, filter4];
+
+    filterStorage.addSubscription(subscription);
+    checkKnownFilters("add subscription with filter1, filter2, filter3, filter4", {blacklist: [filter1], elemhide: [filter3]});
+    filter2.disabled = false;
+    filterStorage.triggerFilterObservers("enable", [filter2]);
+    checkKnownFilters("enable filter2", {blacklist: [filter1], whitelist: [filter2], elemhide: [filter3]});
+    filterStorage.updateSubscriptionFilters(subscription, [filter4]);
+    checkKnownFilters("change subscription filters to filter4", {elemhide: [filter3]});
+    filterStorage.removeFilter(filter3);
+    checkKnownFilters("remove filter3", {});
+    filterStorage.updateSubscriptionFilters(subscription, [filter1, filter2]);
+    checkKnownFilters("change subscription filters to filter1, filter2", {blacklist: [filter1], whitelist: [filter2]});
+    filterStorage.addFilter(filter1);
+    checkKnownFilters("add filter1", {blacklist: [filter1], whitelist: [filter2]});
+
+    filter1.disabled = true;
+    filterStorage.triggerFilterObservers("disable", [filter1]);
+    checkKnownFilters("disable filter1", {whitelist: [filter2]});
+    filter2.disabled = true;
+    filterStorage.triggerFilterObservers("disable", [filter2]);
+    checkKnownFilters("disable filter2", {});
+    filter1.disabled = false;
+    filter2.disabled = false;
+    filterStorage.triggerFilterObservers("enable", [filter1, filter2]);
+    checkKnownFilters("enable filter1, filter2", {blacklist: [filter1], whitelist: [filter2]});
+
+    subscription.disabled = true;
+    filterStorage.triggerSubscriptionObservers("disable", [subscription]);
+    checkKnownFilters("disable subscription", {blacklist: [filter1]});
+    filterStorage.removeSubscription(subscription);
+    checkKnownFilters("remove subscription", {blacklist: [filter1]});
+    filterStorage.addSubscription(subscription);
+    checkKnownFilters("add subscription", {blacklist: [filter1]});
+    subscription.disabled = false;
+    filterStorage.triggerSubscriptionObservers("enable", [subscription]);
+    checkKnownFilters("enable subscription", {blacklist: [filter1], whitelist: [filter2]});
+
+    let subscription2 = Subscription.fromURL("~fl~");
+    subscription2.disabled = true;
+    filterStorage.triggerSubscriptionObservers("disable", [subscription2]);
+    checkKnownFilters("disable blocking filters", {blacklist: [filter1], whitelist: [filter2]});
+    filterStorage.removeSubscription(subscription);
+    checkKnownFilters("remove subscription", {});
+    subscription2.disabled = false;
+    filterStorage.triggerSubscriptionObservers("enable", [subscription2]);
+    checkKnownFilters("enable blocking filters", {blacklist: [filter1]});
+
+    let subscription3 = Subscription.fromURL("~wl~");
+    subscription3.disabled = true;
+    filterStorage.triggerSubscriptionObservers("disable", [subscription3]);
+    checkKnownFilters("disable exception rules", {blacklist: [filter1]});
+    filterStorage.addFilter(filter2);
+    checkKnownFilters("add filter2", {blacklist: [filter1]});
+    subscription3.disabled = false;
+    filterStorage.triggerSubscriptionObservers("enable", [subscription3]);
+    checkKnownFilters("enable exception rules", {blacklist: [filter1], whitelist: [filter2]});
+  </script>
+  </pre>
+</body>
+</html>

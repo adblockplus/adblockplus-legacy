@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Subscription classes tests</title>
+
+  <link rel="stylesheet" type="text/css" href="/content/tests/SimpleTest/test.css" />
+
+  <script type="text/javascript" src="/content/MochiKit/MochiKit.js"></script>
+  <script type="text/javascript" src="/content/tests/SimpleTest/SimpleTest.js"></script>        
+
+  <script type="application/x-javascript;version=1.7" src="common.js"></script>
+  <script type="application/x-javascript;version=1.7" src="chrome://adblockplus/content/filterClasses.js"></script>
+  <script type="application/x-javascript;version=1.7" src="chrome://adblockplus/content/subscriptionClasses.js"></script>
+</head>
+<body>
+  <p id="display"></p>
+  <div id="content" style="display: none">
+
+  </div>
+  <pre id="test">
+  <script type="application/x-javascript;version=1.7">
+    function compareSubscription(url, expected, postInit)
+    {
+      expected.push("[Subscription]")
+      let subscription;
+      if (/^external (.+)/.test(url))
+        subscription = new ExternalSubscription(RegExp.$1);
+      else
+        subscription = Subscription.fromURL(url);
+      if (postInit)
+        postInit(subscription)
+      let result = [];
+      subscription.serialize(result);
+      is(result.sort().join("\n"), expected.sort().join("\n"), url);
+
+      let map = {__proto__: null};
+      for each (let line in result.slice(1))
+      {
+        if (/(.*?)=(.*)/.test(line))
+          map[RegExp.$1] = RegExp.$2;
+      }
+      let subscription2 = Subscription.fromObject(map);
+      is(subscription.toString(), subscription2.toString(), url + " deserialization");
+    }
+
+    is(typeof abp.Subscription, "function", "typeof abp.Subscription");
+    is(typeof abp.SpecialSubscription, "function", "typeof abp.SpecialSubscription");
+    is(typeof abp.RegularSubscription, "function", "typeof abp.RegularSubscription");
+    is(typeof abp.ExternalSubscription, "function", "typeof abp.ExternalSubscription");
+    is(typeof abp.DownloadableSubscription, "function", "typeof abp.DownloadableSubscription");
+
+    compareSubscription("~il~", ["url=~il~"]);
+    compareSubscription("http://test/default", ["url=http://test/default", "title=http://test/default"]);
+    compareSubscription("http://test/default_titled", ["url=http://test/default_titled", "title=test"], function(subscription)
+    {
+      subscription.title = "test";
+    });
+    compareSubscription("http://test/non_default", ["url=http://test/non_default", "title=test", "nextURL=http://test2/", "autoDownload=false",
+                                                    "disabled=true", "lastDownload=12", "expires=20", "downloadStatus=foo", "lastModified=bar", "errors=3", "requiredVersion=0.6"], function(subscription)
+    {
+      subscription.title = "test";
+      subscription.nextURL = "http://test2/";
+      subscription.autoDownload = false;
+      subscription.disabled = true;
+      subscription.lastDownload = 12;
+      subscription.expires = 20;
+      subscription.downloadStatus = "foo";
+      subscription.lastModified = "bar";
+      subscription.errors = 3;
+      subscription.requiredVersion = "0.6";
+    });
+    compareSubscription("~fl~", ["url=~fl~", "disabled=true"], function(subscription)
+    {
+      subscription.disabled = true;
+    });
+    compareSubscription("external foo_default", ["url=foo_default", "title=foo_default", "external=true"]);
+    compareSubscription("external foo_non_default", ["url=foo_non_default", "title=foo", "disabled=true", "external=true", "lastDownload=12"], function(subscription)
+    {
+      subscription.title = "foo";
+      subscription.disabled = true;
+      subscription.lastDownload = 12;
+    });
+  </script>
+  </pre>
+</body>
+</html>

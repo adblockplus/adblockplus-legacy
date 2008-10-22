@@ -1,0 +1,528 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Subscription synchronizer tests</title>
+
+  <link rel="stylesheet" type="text/css" href="/content/tests/SimpleTest/test.css" />
+
+  <script type="text/javascript" src="/content/MochiKit/MochiKit.js"></script>
+  <script type="text/javascript" src="/content/tests/SimpleTest/SimpleTest.js"></script>        
+
+  <script type="application/x-javascript;version=1.7" src="common.js"></script>
+  <script type="application/x-javascript;version=1.7" src="../httpd.js"></script>
+  <script type="application/x-javascript;version=1.7" src="chrome://adblockplus/content/utils.js"></script>
+  <script type="application/x-javascript;version=1.7" src="chrome://adblockplus/content/filterClasses.js"></script>
+  <script type="application/x-javascript;version=1.7" src="chrome://adblockplus/content/subscriptionClasses.js"></script>
+  <script type="application/x-javascript;version=1.7" src="chrome://adblockplus/content/filterStorage.js"></script>
+
+  <script type="application/x-javascript;version=1.7">
+    let currentTime = 20000 * 24 * 60 * 60 * 1000;
+    let startTime = 0;
+    let scheduledTasks = [];
+
+    let oldNow = Date.now;
+    Date.now = function()
+    {
+      return currentTime;
+    }
+
+    let ourLoadGroup;
+    with (new XMLHttpRequest())
+    {
+        open("GET", "http://foo/bar");
+        ourLoadGroup = channel.loadGroup;
+    }
+
+    function createTimer(handler, delay)
+    {
+      let timer = {
+        __proto__: Components.interfaces.nsITimer,
+        type: Components.interfaces.nsITimer.TYPE_ONE_SHOT,
+        delay: delay,
+        nextExecution: currentTime + delay,
+        handler: handler
+      };
+      scheduledTasks.push(timer);
+      return timer;
+    }
+
+    function runScheduledTasks(maxHours)
+    {
+      startTime = currentTime;
+      let maxTime = maxHours * 60 * 60 * 1000;
+      let endTime = currentTime + maxTime;
+      while (true)
+      {
+        let nextTask = null;
+        for each (let task in scheduledTasks)
+        {
+          if (!nextTask || nextTask.nextExecution > task.nextExecution)
+            nextTask = task;
+        }
+        if (!nextTask || nextTask.nextExecution > endTime)
+          break;
+
+        currentTime = nextTask.nextExecution;
+        nextTask.handler();
+
+        // Let all asynchronous actions finish
+        let thread = Components.classes["@mozilla.org/thread-manager;1"]
+                               .getService(Components.interfaces.nsIThreadManager)
+                               .currentThread;
+        let loopStartTime = oldNow();
+
+        while (ourLoadGroup.requests.hasMoreElements() || thread.hasPendingEvents())
+        {
+          thread.processNextEvent(true);
+
+          if (oldNow() - loopStartTime > 5000)
+          {
+            ok(false, "Synchronizer stuck downloading subscriptions");
+            return;
+          }
+        }
+
+        if (nextTask.type == Components.interfaces.nsITimer.TYPE_ONE_SHOT)
+          scheduledTasks = scheduledTasks.filter(function(task) task != nextTask);
+        else
+          nextTask.nextExecution = currentTime + nextTask.delay;
+      }
+
+      currentTime = endTime;
+    }
+
+    let prefs = {
+      synchronizationinterval: 3,
+      subscriptions_fallbackerrors: 7,
+      subscriptions_fallbackurl: "http://localhost:1234/fallback?%s"
+    };
+  </script>
+
+  <script type="application/x-javascript;version=1.7" src="chrome://adblockplus/content/synchronizer.js"></script>
+</head>
+<body>
+  <p id="display"></p>
+  <div id="content" style="display: none">
+
+  </div>
+
+  <pre id="test">
+  <script type="application/x-javascript;version=1.7">
+    // Prevent synchronizer from changing the load group of its requests,
+    // we need it to recognize when all requests are done.
+    var oldXMLHttp = XMLHttpRequest;
+    XMLHttpRequest = function()
+    {
+      return {
+        __proto__: new oldXMLHttp(),
+        get channel()
+        {
+          var result = {
+            get loadGroup()
+            {
+              return this.__proto__.loadGroup;
+            },
+            set loadGroup(val)
+            {
+            }
+          };
+          result.__proto__ = this.__proto__.channel;
+          return result;
+        }
+      }
+    }
+
+    let server = new nsHttpServer();
+
+    let requests = [];
+
+    let subscription1 = Subscription.fromURL("http://localhost:1234/subscription1");
+    let subscription2 = Subscription.fromURL("http://localhost:1234/subscription2");
+    let subscription3 = Subscription.fromURL("http://localhost:1234/subscription3");
+
+    let subscriptionStatus = [200, "OK"];
+    let subscriptionExtraHeaders = null;
+    let subscriptionBody = "[Adblock]\nfoo\nbar";
+    function getSubscription(metadata, response)
+    {
+      requests.push((currentTime - startTime) + ": " + metadata.method + " " + metadata.path);
+
+      response.setStatusLine("1.1", subscriptionStatus[0], subscriptionStatus[1]);
+      // Return wrong MIME type, client should be able to handle it
+      response.setHeader("Content-Type", "text/xml");
+
+      if (subscriptionExtraHeaders)
+      {
+        for each (let [header, value] in subscriptionExtraHeaders())
+          response.setHeader(header, value);
+      }
+
+      response.bodyOutputStream.write(subscriptionBody, subscriptionBody.length); 
+    }
+
+    let redirectPermanent = null;
+    let redirectURL = null;
+    function redirectHandler(metadata, response)
+    {
+      response.setStatusLine("1.1", redirectPermanent ? 301 : 302, redirectPermanent ? "Moved Temporarily" : "Moved Permanently");
+      response.setHeader("Location", redirectURL);
+    }
+    function commentRedirectHandler(metadata, response)
+    {
+      getSubscription(metadata, response);
+
+      var comment = "\n! Redirect: " + redirectURL;
+      response.bodyOutputStream.write(comment, comment.length);
+    }
+
+    var fallbackResult = "";
+    function fallbackHandler(metadata, response)
+    {
+      requests.push((currentTime - startTime) + ": " + metadata.method + " " + metadata.path + " " + decodeURIComponent(metadata.queryString));
+
+      response.setStatusLine("1.1", 200, "OK");
+      // Return wrong MIME type, client should be able to handle it
+      response.setHeader("Content-Type", "application/x-foo-bar");
+
+      if (subscriptionExtraHeaders)
+      {
+        for each (let [header, value] in subscriptionExtraHeaders())
+          response.setHeader(header, value);
+      }
+
+      response.bodyOutputStream.write(fallbackResult, fallbackResult.length); 
+    }
+
+    function compareRequests(test, expected)
+    {
+      is(requests.join("\n"), expected.join("\n"), test);
+      requests = [];
+    }
+
+    function compareFilters(test, expected, expectedStatus, expectedVersion)
+    {
+      let result = subscription1.filters.map(function(filter) filter.text).join("\n");
+      is(result, expected, test);
+      is(subscription1.downloadStatus, expectedStatus, "Subscription status after previous test");
+      is(subscription1.requiredVersion, expectedVersion, "Required version after previous test");
+      requests = [];
+    }
+
+    function compareSubscriptions(test, expectedSubscriptions)
+    {
+      let result = filterStorage.subscriptions.map(function(subscription) subscription.url).join("\n");
+      let expected = expectedSubscriptions.map(function(subscription) subscription.url).join("\n");
+      is(result, expected, test);
+      requests = [];
+
+      // Reset subscriptions
+      filterStorage.removeSubscription(subscription1);
+      filterStorage.removeSubscription(subscription2);
+      filterStorage.removeSubscription(subscription3);
+      filterStorage.addSubscription(subscription1);
+      filterStorage.addSubscription(subscription2);
+      subscription2.autoDownload = false;
+    }
+
+    function runTests()
+    {
+      is(typeof synchronizer, "object", "typeof synchronizer");
+      is(typeof abp.synchronizer, "object", "typeof abp.synchronizer");
+
+      if (compareGeckoVersion("1.9") < 0)
+      {
+        ok(true, "Remaining tests require Gecko 1.9 or higher");
+      }
+      else
+      {
+        let registry = Components.classes["@mozilla.org/chrome/chrome-registry;1"].getService(Components.interfaces.nsIChromeRegistry);
+        let uri = ioService.newURI(location.href, null, null);
+        let fileURI = registry.convertChromeURL(uri).QueryInterface(Components.interfaces.nsIFileURL);
+
+        server.registerPathHandler("/subscription1", getSubscription);
+        server.registerPathHandler("/subscription2", getSubscription);
+        server.registerPathHandler("/subscription3", getSubscription);
+        server.registerPathHandler("/fallback", fallbackHandler);
+        server.start(1234);
+
+        filterStorage.addSubscription(subscription1);
+
+        subscription2.autoDownload = false;
+        filterStorage.addSubscription(subscription2);
+
+        // General subscription download testing
+
+        runScheduledTasks(7);
+        compareRequests("Downloads of one subscription (7 hours)", [
+          "300000: GET /subscription1",
+          "11100000: GET /subscription1",
+          "21900000: GET /subscription1"
+        ]);
+
+        subscription2.autoDownload = true;
+        runScheduledTasks(6);
+        compareRequests("Downloads with second subscription switched on (6 hours)", [
+          "300000: GET /subscription2",
+          "7500000: GET /subscription1",
+          "11100000: GET /subscription2",
+          "18300000: GET /subscription1"
+        ]);
+        subscription2.autoDownload = false;
+
+        // Header variations testing
+
+        subscriptionBody = "[Adblock]\nfoo\n!bar\n\n\n@@bas\n#bam";
+        runScheduledTasks(3);
+        compareFilters("Filters of downloaded subscription", "foo\n!bar\n@@bas\n#bam", "synchronize_ok", null);
+
+        subscriptionBody = "[Adblock Plus]\nfoo2\n!bar2\n@@bas2\n#bam2";
+        runScheduledTasks(3);
+        compareFilters("Filters of downloaded subscription with [Adblock Plus] header", "foo2\n!bar2\n@@bas2\n#bam2", "synchronize_ok", null);
+
+        subscriptionBody = "[Adblock Plus 0.0.1]\nfoo3\n!bar3\n@@bas3\n#bam3";
+        runScheduledTasks(3);
+        compareFilters("Filters of downloaded subscription with [Adblock Plus 0.0.1] header", "foo3\n!bar3\n@@bas3\n#bam3", "synchronize_ok", "0.0.1");
+
+        subscriptionBody = "(something)[Adblock]\nfoo4\n!bar4\n@@bas4\n#bam4";
+        runScheduledTasks(3);
+        compareFilters("Filters of downloaded subscription with (something)[Adblock] header", "foo4\n!bar4\n@@bas4\n#bam4", "synchronize_ok", null);
+
+        subscriptionBody = "[Foo]\nthis should not be accepted";
+        runScheduledTasks(3);
+        compareFilters("Filters of downloaded subscription with [Foo] header", "foo4\n!bar4\n@@bas4\n#bam4", "synchronize_invalid_data", null);
+
+        subscriptionBody = "[Adblock Plus 99.9]\nsome_new_syntax";
+        runScheduledTasks(5);
+        compareFilters("Filters of downloaded subscription with [Adblock Plus 99.9] header", "some_new_syntax", "synchronize_ok", "99.9");
+
+        // Expiration testing - expire times smaller than default update
+        // interval should not be accepted, and expiration times more than
+        // two weeks in the future should be cut down to two weeks.
+
+        subscriptionBody = "[Adblock]\n! Expires after 1 hour\nfoo";
+        runScheduledTasks(4);
+        compareRequests("Expiration comment with less than default update interval (4 hours)", [
+          "300000: GET /subscription1",
+          "11100000: GET /subscription1"
+        ]);
+
+        subscriptionBody = "[Adblock]\n! Expires after 4 hours\nfoo";
+        runScheduledTasks(7);
+        compareRequests("Downloads with 'Expires after 4 hours' comment (7 hours)", [
+          "7500000: GET /subscription1",
+          "21900000: GET /subscription1"
+        ]);
+
+        subscriptionBody = "[Adblock]\n! Expires: 1 day\nfoo";
+        runScheduledTasks(50);
+        compareRequests("Downloads with 'Expires: 1 day' comment (50 hours)", [
+          "11100000: GET /subscription1",
+          "97500000: GET /subscription1"
+        ]);
+
+        subscriptionBody = "[Adblock]\nfoo";
+        subscriptionExtraHeaders = function() [["Expires", new Date(currentTime + 5 * 60 * 60 * 1000).toGMTString()]];
+        runScheduledTasks(10);
+        compareRequests("Downloads with 'Expires: +5h' HTTP header (10 hours)", [
+          "3900000: GET /subscription1",
+          "21900000: GET /subscription1"
+        ]);
+
+        subscriptionExtraHeaders = function() [["Expires", new Date(currentTime + 2 * 60 * 60 * 1000).toGMTString()]];
+        runScheduledTasks(6);
+        compareRequests("Expiration header with less than default update interval (6 hours)", [
+          "3900000: GET /subscription1",
+          "14700000: GET /subscription1"
+        ]);
+
+        subscriptionExtraHeaders = function() [["Expires", new Date(currentTime + 504 * 60 * 60 * 1000).toGMTString()]];
+        runScheduledTasks(672);
+        compareRequests("Expiration header more than two weeks in future (672 hours)", [
+          "3900000: GET /subscription1",
+          "1213500000: GET /subscription1"
+        ]);
+        subscriptionExtraHeaders = null;
+
+        // Redirect testing
+
+        server.registerPathHandler("/subscription1", commentRedirectHandler);
+
+        redirectURL = subscription2.url;
+        runScheduledTasks(6);
+        compareSubscriptions("Subscriptions after comment redirect to /subscription2", [subscription2]);
+
+        redirectURL = subscription2.url.replace("subscription2", "invalid_url");
+        runScheduledTasks(6);
+        compareSubscriptions("Subscriptions after redirect to /invalid_url", [subscription1, subscription2]);
+
+        server.registerPathHandler("/subscription1", redirectHandler);
+
+        redirectURL = subscription2.url;
+        redirectPermanent = false;
+        runScheduledTasks(6);
+        compareSubscriptions("Subscriptions after temporary redirect to /subscription2", [subscription1, subscription2]);
+
+        redirectPermanent = true;
+        runScheduledTasks(6);
+        compareSubscriptions("Subscriptions after permanent redirect to /subscription2", [subscription2]);
+
+        redirectURL = subscription3.url;
+        redirectPermanent = false;
+        runScheduledTasks(6);
+        compareSubscriptions("Subscriptions after temporary redirect to /subscription3", [subscription1, subscription2]);
+
+        redirectPermanent = true;
+        runScheduledTasks(6);
+        compareSubscriptions("Subscriptions after permanent redirect to /subscription3", [subscription2, subscription3]);
+
+        redirectURL = subscription2.url.replace("subscription2", "invalid_url");
+        redirectPermanent = false;
+        runScheduledTasks(6);
+        compareSubscriptions("Subscriptions after temporary redirect to /invalid_url", [subscription1, subscription2]);
+
+        redirectPermanent = true;
+        runScheduledTasks(6);
+        compareSubscriptions("Subscriptions after permanent redirect to /invalid_url", [subscription1, subscription2]);
+
+        server.registerPathHandler("/subscription1", getSubscription);
+
+        // Behavior on errors
+
+        runScheduledTasks(6); // reset error counters
+        requests = [];
+
+        subscriptionStatus = [404, "Not Found"];
+        runScheduledTasks(9);
+        compareRequests("Requests after 404 error (9 hours)", [
+          "300000: GET /subscription1",
+          "11100000: GET /subscription1",
+          "21900000: GET /subscription1"
+        ]);
+
+        subscriptionStatus = [200, "OK"];
+        subscriptionBody = "Not a valid subscription";
+        runScheduledTasks(9);
+        compareRequests("Requests for invalid subscription (9 hours)", [
+          "300000: GET /subscription1",
+          "11100000: GET /subscription1",
+          "21900000: GET /subscription1"
+        ]);
+
+        server.registerPathHandler("/subscription1", function(metadata, response)
+        {
+          getSubscription(metadata, response);
+          response.setStatusLine("1.1", "404", "Not found");
+        });
+        subscriptionBody = "[Adblock]\nfoo\nbar";
+        runScheduledTasks(27);
+        compareRequests("Requests with fallback calls (27 hours)", [
+          "300000: GET /subscription1",
+          "300000: GET /fallback " + subscription1.url,
+          "11100000: GET /subscription1",
+          "21900000: GET /subscription1",
+          "32700000: GET /subscription1",
+          "43500000: GET /subscription1",
+          "54300000: GET /subscription1",
+          "65100000: GET /subscription1",
+          "75900000: GET /subscription1",
+          "75900000: GET /fallback " + subscription1.url,
+          "86700000: GET /subscription1"
+        ]);
+
+        fallbackResult = "410 Gone";
+        runScheduledTasks(27);
+        compareRequests("Requests with fallback returning 410 Gone (27 hours)", [
+          "300000: GET /subscription1",
+          "11100000: GET /subscription1",
+          "21900000: GET /subscription1",
+          "32700000: GET /subscription1",
+          "43500000: GET /subscription1",
+          "54300000: GET /subscription1",
+          "54300000: GET /fallback " + subscription1.url,
+        ]);
+        subscription1.autoDownload = true;
+
+        fallbackResult = "301 " + subscription2.url;
+        runScheduledTasks(27);
+        compareRequests("Requests with fallback redirecting to /subscription2 (27 hours)", [
+          "300000: GET /subscription1",
+          "11100000: GET /subscription1",
+          "21900000: GET /subscription1",
+          "32700000: GET /subscription1",
+          "43500000: GET /subscription1",
+          "54300000: GET /subscription1",
+          "65100000: GET /subscription1",
+          "65100000: GET /fallback " + subscription1.url,
+          "75900000: GET /subscription2",
+          "86700000: GET /subscription2"
+        ]);
+        compareSubscriptions("Subscriptions after test above", [subscription2]);
+        subscription1.autoDownload = true;
+
+        fallbackResult = "301 " + subscription3.url;
+        runScheduledTasks(27);
+        compareRequests("Requests with fallback redirecting to /subscription3 (27 hours)", [
+          "300000: GET /subscription1",
+          "11100000: GET /subscription1",
+          "21900000: GET /subscription1",
+          "32700000: GET /subscription1",
+          "43500000: GET /subscription1",
+          "54300000: GET /subscription1",
+          "65100000: GET /subscription1",
+          "65100000: GET /fallback " + subscription1.url,
+          "75900000: GET /subscription3",
+          "86700000: GET /subscription3"
+        ]);
+        compareSubscriptions("Subscriptions after test above", [subscription2, subscription3]);
+        subscription1.autoDownload = true;
+
+        fallbackResult = "301 " + subscription2.url.replace("subscription2", "invalid_url");
+        runScheduledTasks(48);
+        compareRequests("Requests with fallback redirecting to /invalid_url (27 hours)", [
+          "300000: GET /subscription1",
+          "11100000: GET /subscription1",
+          "21900000: GET /subscription1",
+          "32700000: GET /subscription1",
+          "43500000: GET /subscription1",
+          "54300000: GET /subscription1",
+          "65100000: GET /subscription1",
+          "65100000: GET /fallback " + subscription1.url,
+          "86700000: GET /subscription1",
+          "97500000: GET /subscription1",
+          "108300000: GET /subscription1",
+          "119100000: GET /subscription1",
+          "129900000: GET /subscription1",
+          "140700000: GET /subscription1",
+          "140700000: GET /fallback " + subscription1.url,
+          "162300000: GET /subscription1"
+        ]);
+        compareSubscriptions("Subscriptions after test above", [subscription1, subscription2]);
+        subscription1.autoDownload = true;
+
+        server.registerPathHandler("/subscription1", getSubscription);
+      }
+
+      // @TODO: If-Modified-Since
+    }
+
+    SimpleTest.waitForExplicitFinish();
+    addLoadEvent(function()
+    {
+      try
+      {
+        runTests();
+        SimpleTest.finish();
+        server.stop();
+      }
+      catch (e)
+      {
+        ok(false, e);
+        SimpleTest.finish();
+        server.stop();
+        throw e;
+      }
+    });
+  </script>
+  </pre>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Filter classes tests</title>
+
+  <link rel="stylesheet" type="text/css" href="/content/tests/SimpleTest/test.css" />
+
+  <script type="text/javascript" src="/content/MochiKit/MochiKit.js"></script>
+  <script type="text/javascript" src="/content/tests/SimpleTest/SimpleTest.js"></script>        
+
+  <script type="application/x-javascript;version=1.7" src="common.js"></script>
+  <script type="application/x-javascript;version=1.7" src="chrome://adblockplus/content/filterClasses.js"></script>
+</head>
+<body>
+  <p id="display"></p>
+  <div id="content" style="display: none">
+
+  </div>
+  <pre id="test">
+  <script type="application/x-javascript;version=1.7">
+    function compareFilter(text, expected, postInit)
+    {
+      expected.push("[Pattern]")
+      let filter = Filter.fromText(text);
+      if (postInit)
+        postInit(filter)
+      let result = [];
+      filter.serialize(result);
+      is(result.sort().join("\n"), expected.sort().join("\n"), text);
+
+      let map = {__proto__: null};
+      for each (let line in result.slice(1))
+      {
+        if (/(.*?)=(.*)/.test(line))
+          map[RegExp.$1] = RegExp.$2;
+      }
+      let filter2 = Filter.fromObject(map);
+      is(filter.toString(), filter2.toString(), text + " deserialization");
+    }
+
+    is(typeof abp.Filter, "function", "typeof abp.Filter");
+    is(typeof abp.InvalidFilter, "function", "typeof abp.InvalidFilter");
+    is(typeof abp.CommentFilter, "function", "typeof abp.CommentFilter");
+    is(typeof abp.ActiveFilter, "function", "typeof abp.ActiveFilter");
+    is(typeof abp.RegExpFilter, "function", "typeof abp.RegExpFilter");
+    is(typeof abp.BlockingFilter, "function", "typeof abp.BlockingFilter");
+    is(typeof abp.WhitelistFilter, "function", "typeof abp.WhitelistFilter");
+    is(typeof abp.ElemHideFilter, "function", "typeof abp.ElemHideFilter");
+
+    compareFilter("!asdf", ["type=comment", "text=!asdf"]);
+    compareFilter("/??/", ["type=invalid", "text=/??/"]);
+
+    {
+      let result = Filter.fromText("/??/").reason;
+      is((result ? "Not empty" : "Empty") + " (" + result + ")", "Not empty (" + result + ")", "/??/.reason");
+    }
+
+    compareFilter("#dd(asd)(ddd)", ["type=invalid", "text=#dd(asd)(ddd)"]);
+    {
+      let result = Filter.fromText("#dd(asd)(ddd)").reason;
+      is(result, "filter_elemhide_duplicate_id", "#dd(asd)(ddd).reason");
+    }
+
+    compareFilter("#*", ["type=invalid", "text=#*"]);
+    {
+      let result = Filter.fromText("#*").reason;
+      is(result, "filter_elemhide_nocriteria", "#*.reason");
+    }
+
+    compareFilter("blabla", ["type=filterlist", "text=blabla", "regexp=blabla"]);
+    compareFilter("blabla_default", ["type=filterlist", "text=blabla_default", "regexp=blabla_default"], function(filter)
+    {
+      filter.disabled = false;
+      filter.hitCount = 0;
+      filter.lastHit = 0;
+    });
+    compareFilter("blabla_non_default", ["type=filterlist", "text=blabla_non_default", "regexp=blabla_non_default", "disabled=true", "hitCount=12", "lastHit=20"], function(filter)
+    {
+      filter.disabled = true;
+      filter.hitCount = 12;
+      filter.lastHit = 20;
+    });
+
+    compareFilter("/ddd|f?a[s]d/", ["type=filterlist", "text=/ddd|f?a[s]d/", "regexp=ddd|f?a[s]d"]);
+    compareFilter("*asdf*d**dd*", ["type=filterlist", "text=*asdf*d**dd*", "regexp=asdf.*d.*dd"]);
+    compareFilter("|*asd|f*d**dd*|", ["type=filterlist", "text=|*asd|f*d**dd*|", "regexp=^.*asd\\|f.*d.*dd.*$"]);
+    compareFilter("dd[]{}$%^&()d", ["type=filterlist", "text=dd[]{}$%^&()d", "regexp=dd\\[\\]\\{\\}\\$\\%\\^\\&\\(\\)d"]);
+
+    compareFilter("@@/ddd|f?a[s]d/", ["type=whitelist", "text=@@/ddd|f?a[s]d/", "regexp=ddd|f?a[s]d"]);
+    compareFilter("@@*asdf*d**dd*", ["type=whitelist", "text=@@*asdf*d**dd*", "regexp=asdf.*d.*dd"]);
+    compareFilter("@@|*asd|f*d**dd*|", ["type=whitelist", "text=@@|*asd|f*d**dd*|", "regexp=^.*asd\\|f.*d.*dd.*$"]);
+    compareFilter("@@dd[]{}$%^&()d", ["type=whitelist", "text=@@dd[]{}$%^&()d", "regexp=dd\\[\\]\\{\\}\\$\\%\\^\\&\\(\\)d"]);
+
+    compareFilter("bla$match-case,script,other,third-party", ["type=filterlist", "text=bla$match-case,script,other,third-party", "regexp=bla", "matchCase=true", "contentType=3", "thirdParty=true"]);
+    compareFilter("bla$~match-case,~script,~other,~third-party", ["type=filterlist", "text=bla$~match-case,~script,~other,~third-party", "regexp=bla", "contentType=2147483644", "thirdParty=false"]);
+
+    compareFilter("@@bla$match-case,script,other,third-party", ["type=whitelist", "text=@@bla$match-case,script,other,third-party", "regexp=bla", "matchCase=true", "contentType=3", "thirdParty=true"]);
+    compareFilter("@@bla$~script,~other", ["type=whitelist", "text=@@bla$~script,~other", "regexp=bla", "contentType=2147483580"]);
+    compareFilter("@@http://bla$~script,~other", ["type=whitelist", "text=@@http://bla$~script,~other", "regexp=http\\:\\/\\/bla", "contentType=2147483644"]);
+    compareFilter("@@|ftp://bla$~script,~other", ["type=whitelist", "text=@@|ftp://bla$~script,~other", "regexp=^ftp\\:\\/\\/bla", "contentType=2147483644"]);
+    compareFilter("@@bla$~script,~other,document", ["type=whitelist", "text=@@bla$~script,~other,document", "regexp=bla", "contentType=2147483644"]);
+    compareFilter("@@bla$~script,~other,~document", ["type=whitelist", "text=@@bla$~script,~other,~document", "regexp=bla", "contentType=2147483580"]);
+    compareFilter("@@bla$document", ["type=whitelist", "text=@@bla$document", "regexp=bla", "contentType=64"]);
+
+    compareFilter("#ddd", ["type=elemhide", "text=#ddd", "selector=ddd"]);
+    compareFilter("foo,bar#ddd", ["type=elemhide", "domain=foo,bar", "text=foo,bar#ddd", "selector=ddd"]);
+    compareFilter("#ddd(fff)", ["type=elemhide", "text=#ddd(fff)", "selector=ddd.fff,ddd#fff"]);
+    compareFilter("#ddd(foo=bar)(foo2^=bar2)(foo3*=bar3)(foo4$=bar4)", ["type=elemhide", "text=#ddd(foo=bar)(foo2^=bar2)(foo3*=bar3)(foo4$=bar4)", 'selector=ddd[foo="bar"][foo2^="bar2"][foo3*="bar3"][foo4$="bar4"]']);
+    compareFilter("#ddd(fff)(foo=bar)", ["type=elemhide", "text=#ddd(fff)(foo=bar)", 'selector=ddd.fff[foo="bar"],ddd#fff[foo="bar"]']);
+    compareFilter("#*(fff)", ["type=elemhide", "text=#*(fff)", "selector=.fff,#fff"]);
+    compareFilter("#*(foo=bar)", ["type=elemhide", "text=#*(foo=bar)", 'selector=[foo="bar"]']);
+    compareFilter("##body > div:first-child", ["type=elemhide", "text=##body > div:first-child", 'selector=body > div:first-child']);
+  </script>
+  </pre>
+</body>
+</html>

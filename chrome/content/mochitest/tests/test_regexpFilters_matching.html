@@ -1,0 +1,152 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Regexp filter matching tests</title>
+
+  <link rel="stylesheet" type="text/css" href="/content/tests/SimpleTest/test.css" />
+
+  <script type="text/javascript" src="/content/MochiKit/MochiKit.js"></script>
+  <script type="text/javascript" src="/content/tests/SimpleTest/SimpleTest.js"></script>        
+
+  <script type="application/x-javascript;version=1.7" src="common.js"></script>
+  <script type="application/x-javascript;version=1.7" src="chrome://adblockplus/content/filterClasses.js"></script>
+</head>
+<body>
+  <p id="display"></p>
+  <div id="content" style="display: none">
+
+  </div>
+  <pre id="test">
+  <script type="application/x-javascript;version=1.7">
+    function testMatch(text, location, contentType, thirdParty, expected)
+    {
+      function testMatch_internal(text, location, contentType, thirdParty, expected)
+      {
+        let filter = Filter.fromText(text);
+        let result = filter.matches(location, contentType, thirdParty);
+        is(result, expected, '"' + text + '".matches(' + location + ", " + contentType + ", " + (thirdParty ? "third-party" : "first-party") + ")");
+      }
+      testMatch_internal(text, location, contentType, thirdParty, expected);
+      testMatch_internal("@@" + text, location, contentType, thirdParty, expected);
+    }
+
+    testMatch("abc", "http://abc/adf", "IMAGE", false, true);
+    testMatch("abc", "http://ABC/adf", "IMAGE", false, true);
+    testMatch("abc", "http://abd/adf", "IMAGE", false, false);
+    testMatch("|abc", "http://abc/adf", "IMAGE", false, false);
+    testMatch("|http://abc", "http://abc/adf", "IMAGE", false, true);
+    testMatch("abc|", "http://abc/adf", "IMAGE", false, false);
+    testMatch("abc/adf|", "http://abc/adf", "IMAGE", false, true);
+    testMatch("abc*d", "http://abc/adf", "IMAGE", false, true);
+    testMatch("abc*d", "http://abcd/af", "IMAGE", false, true);
+    testMatch("abc*d", "http://abc/d/af", "IMAGE", false, true);
+    testMatch("abc*d", "http://dabc/af", "IMAGE", false, false);
+    testMatch("*abc", "http://abc/adf", "IMAGE", false, true);
+    testMatch("abc*", "http://abc/adf", "IMAGE", false, true);
+    testMatch("|*abc", "http://abc/adf", "IMAGE", false, true);
+    testMatch("abc*|", "http://abc/adf", "IMAGE", false, true);
+    testMatch("abc***d", "http://abc/adf", "IMAGE", false, true);
+    testMatch("abc$image", "http://abc/adf", "IMAGE", false, true);
+    testMatch("abc$other", "http://abc/adf", "IMAGE", false, false);
+    testMatch("abc$other", "http://abc/adf", "OTHER", false, true);
+    testMatch("abc$~other", "http://abc/adf", "OTHER", false, false);
+    testMatch("abc$script", "http://abc/adf", "IMAGE", false, false);
+    testMatch("abc$script", "http://abc/adf", "SCRIPT", false, true);
+    testMatch("abc$~script", "http://abc/adf", "SCRIPT", false, false);
+    testMatch("abc$stylesheet", "http://abc/adf", "IMAGE", false, false);
+    testMatch("abc$stylesheet", "http://abc/adf", "STYLESHEET", false, true);
+    testMatch("abc$~stylesheet", "http://abc/adf", "STYLESHEET", false, false);
+    testMatch("abc$object", "http://abc/adf", "IMAGE", false, false);
+    testMatch("abc$object", "http://abc/adf", "OBJECT", false, true);
+    testMatch("abc$~object", "http://abc/adf", "OBJECT", false, false);
+    testMatch("abc$document", "http://abc/adf", "IMAGE", false, false);
+    testMatch("abc$document", "http://abc/adf", "DOCUMENT", false, true);
+    testMatch("abc$~document", "http://abc/adf", "DOCUMENT", false, false);
+    testMatch("abc$subdocument", "http://abc/adf", "IMAGE", false, false);
+    testMatch("abc$subdocument", "http://abc/adf", "SUBDOCUMENT", false, true);
+    testMatch("abc$~subdocument", "http://abc/adf", "SUBDOCUMENT", false, false);
+    testMatch("abc$background", "http://abc/adf", "IMAGE", false, false);
+    testMatch("abc$background", "http://abc/adf", "BACKGROUND", false, true);
+    testMatch("abc$~background", "http://abc/adf", "BACKGROUND", false, false);
+    if (compareGeckoVersion("1.9") >= 0)
+    {
+      testMatch("abc$xbl", "http://abc/adf", "IMAGE", false, false);
+      testMatch("abc$xbl", "http://abc/adf", "XBL", false, true);
+      testMatch("abc$~xbl", "http://abc/adf", "XBL", false, false);
+      testMatch("abc$ping", "http://abc/adf", "IMAGE", false, false);
+      testMatch("abc$ping", "http://abc/adf", "PING", false, true);
+      testMatch("abc$~ping", "http://abc/adf", "PING", false, false);
+      testMatch("abc$xmlhttprequest", "http://abc/adf", "IMAGE", false, false);
+      testMatch("abc$xmlhttprequest", "http://abc/adf", "XMLHTTPREQUEST", false, true);
+      testMatch("abc$~xmlhttprequest", "http://abc/adf", "XMLHTTPREQUEST", false, false);
+      testMatch("abc$object-subrequest", "http://abc/adf", "IMAGE", false, false);
+      testMatch("abc$object-subrequest", "http://abc/adf", "OBJECT_SUBREQUEST", false, true);
+      testMatch("abc$~object-subrequest", "http://abc/adf", "OBJECT_SUBREQUEST", false, false);
+      testMatch("abc$dtd", "http://abc/adf", "IMAGE", false, false);
+      testMatch("abc$dtd", "http://abc/adf", "DTD", false, true);
+      testMatch("abc$~dtd", "http://abc/adf", "DTD", false, false);
+    }
+    testMatch("abc$image,script", "http://abc/adf", "IMAGE", false, true);
+    testMatch("abc$~image", "http://abc/adf", "IMAGE", false, false);
+    testMatch("abc$~script", "http://abc/adf", "IMAGE", false, true);
+    testMatch("abc$~image,~script", "http://abc/adf", "IMAGE", false, false);
+    testMatch("abc$~script,~image", "http://abc/adf", "IMAGE", false, false);
+    testMatch("abc$~document,~script,~other", "http://abc/adf", "IMAGE", false, true);
+    testMatch("abc$~image,image", "http://abc/adf", "IMAGE", false, true);
+    testMatch("abc$image,~image", "http://abc/adf", "IMAGE", false, false);
+    testMatch("abc$~image,image", "http://abc/adf", "SCRIPT", false, true);
+    testMatch("abc$image,~image", "http://abc/adf", "SCRIPT", false, false);
+    testMatch("abc$match-case", "http://abc/adf", "IMAGE", false, true);
+    testMatch("abc$match-case", "http://ABC/adf", "IMAGE", false, false);
+    testMatch("abc$~match-case", "http://abc/adf", "IMAGE", false, true);
+    testMatch("abc$~match-case", "http://ABC/adf", "IMAGE", false, true);
+    testMatch("abc$match-case,image", "http://abc/adf", "IMAGE", false, true);
+    testMatch("abc$match-case,script", "http://abc/adf", "IMAGE", false, false);
+    testMatch("abc$match-case,image", "http://ABC/adf", "IMAGE", false, false);
+    testMatch("abc$match-case,script", "http://ABC/adf", "IMAGE", false, false);
+    testMatch("abc$third-party", "http://abc/adf", "IMAGE", false, false);
+    testMatch("abc$third-party", "http://abc/adf", "IMAGE", true, true);
+    testMatch("abd$third-party", "http://abc/adf", "IMAGE", false, false);
+    testMatch("abd$third-party", "http://abc/adf", "IMAGE", true, false);
+    testMatch("abc$image,third-party", "http://abc/adf", "IMAGE", false, false);
+    testMatch("abc$image,third-party", "http://abc/adf", "IMAGE", true, true);
+    testMatch("abc$~image,third-party", "http://abc/adf", "IMAGE", false, false);
+    testMatch("abc$~image,third-party", "http://abc/adf", "IMAGE", true, false);
+    testMatch("abc$~third-party", "http://abc/adf", "IMAGE", false, true);
+    testMatch("abc$~third-party", "http://abc/adf", "IMAGE", true, false);
+    testMatch("abd$~third-party", "http://abc/adf", "IMAGE", false, false);
+    testMatch("abd$~third-party", "http://abc/adf", "IMAGE", true, false);
+    testMatch("abc$image,~third-party", "http://abc/adf", "IMAGE", false, true);
+    testMatch("abc$image,~third-party", "http://abc/adf", "IMAGE", true, false);
+    testMatch("abc$~image,~third-party", "http://abc/adf", "IMAGE", false, false);
+    testMatch("/abc/", "http://abc/adf", "IMAGE", false, true);
+    testMatch("/abc/", "http://abcd/adf", "IMAGE", false, true);
+    testMatch("*/abc/", "http://abc/adf", "IMAGE", false, true);
+    testMatch("*/abc/", "http://abcd/adf", "IMAGE", false, false);
+    testMatch("/a\\wc/", "http://abc/adf", "IMAGE", false, true);
+    testMatch("/a\\wc/", "http://a1c/adf", "IMAGE", false, true);
+    testMatch("/a\\wc/", "http://a_c/adf", "IMAGE", false, true);
+    testMatch("/a\\wc/", "http://a%c/adf", "IMAGE", false, false);
+    testMatch("/abc/$image", "http://abc/adf", "IMAGE", false, true);
+    testMatch("/abc/$image", "http://aBc/adf", "IMAGE", false, true);
+    testMatch("/abc/$script", "http://abc/adf", "IMAGE", false, false);
+    testMatch("/abc/$~image", "http://abcd/adf", "IMAGE", false, false);
+    testMatch("/ab{2}c/$image", "http://abc/adf", "IMAGE", false, false);
+    testMatch("/ab{2}c/$script", "http://abc/adf", "IMAGE", false, false);
+    testMatch("/ab{2}c/$~image", "http://abcd/adf", "IMAGE", false, false);
+    testMatch("/abc/$third-party", "http://abc/adf", "IMAGE", false, false);
+    testMatch("/abc/$third-party", "http://abc/adf", "IMAGE", true, true);
+    testMatch("/abc/$~third-party", "http://abc/adf", "IMAGE", false, true);
+    testMatch("/abc/$~third-party", "http://abc/adf", "IMAGE", true, false);
+    testMatch("/abc/$match-case", "http://abc/adf", "IMAGE", false, true);
+    testMatch("/abc/$match-case", "http://aBc/adf", "IMAGE", true, false);
+    testMatch("/ab{2}c/$match-case", "http://abc/adf", "IMAGE", false, false);
+    testMatch("/ab{2}c/$match-case", "http://aBc/adf", "IMAGE", true, false);
+    testMatch("/abc/$~match-case", "http://abc/adf", "IMAGE", false, true);
+    testMatch("/abc/$~match-case", "http://aBc/adf", "IMAGE", true, true);
+    testMatch("/ab{2}c/$~match-case", "http://abc/adf", "IMAGE", false, false);
+    testMatch("/ab{2}c/$~match-case", "http://aBc/adf", "IMAGE", true, false);
+  </script>
+  </pre>
+</body>
+</html>
