@@ -152,7 +152,8 @@ const abp = {
   // nsISupports interface implementation
   //
 
-  QueryInterface: function(iid) {
+  QueryInterface: function(iid)
+  {
     if (iid.equals(Components.interfaces.nsIContentPolicy))
       return policy;
 
@@ -175,121 +176,102 @@ const abp = {
   //
 
   // Return current subscription count
-  get subscriptionCount() {
-    return prefs.subscriptions.length;
+  get subscriptionCount()
+  {
+    return filterStorage.subscriptions.length;
   },
 
   // Retrieves a subscription
-  getSubscription: function(id) {
-    if (!(id in prefs.knownSubscriptions))
-      return null;
+  getSubscription: function(id)
+  {
+    if (id in filterStorage.knownSubscriptions)
+      return filterStorage.knownSubscriptions[id];
 
-    return prefs.knownSubscriptions[id];
+    return null;
   },
 
   // Retrieves a subscription by list index
-  getSubscriptionAt: function(index) {
-    if (index < 0 || index >= prefs.subscriptions.length)
+  getSubscriptionAt: function(index)
+  {
+    if (index < 0 || index >= filterStorage.subscriptions.length)
       return null;
 
-    return prefs.subscriptions[index];
+    return filterStorage.subscriptions[index];
   },
 
   // Updates an external subscription and creates it if necessary
-  updateExternalSubscription: function(id, title, patterns, length) {
+  updateExternalSubscription: function(id, title, filters, length)
+  {
     var subscription;
     if (id in prefs.knownSubscriptions)
       subscription = prefs.knownSubscriptions[id];
     else
-      subscription = prefs.createExternalSubscription(id, title);
+      subscription = new ExternalSubscription(id, title);
 
-    if (!subscription.external)
+    if (!(subscription instanceof ExternalSubscription))
       return false;
 
     subscription.lastDownload = subscription.lastSuccess = parseInt(new Date().getTime() / 1000);
-    subscription.downloadStatus = "synchronize_ok";
-    subscription.patterns = [];
-    for (var i = 0; i < patterns.length; i++) {
-      var pattern = prefs.patternFromText(patterns[i]);
-      if (pattern)
-        subscription.patterns.push(pattern);
+
+    let newFilters = [];
+    for each (filter in filters.length)
+    {
+      filter = Filter.fromText(filter);
+      if (filter)
+        newFilters.push(filter);
     }
 
-    var found = false;
-    for (i = 0; i < prefs.subscriptions.length; i++)
-      if (prefs.subscriptions[i] == subscription)
-        found = true;
-
-    if (!found)
-      prefs.subscriptions.push(subscription);
-
-    prefs.initMatching();
-    prefs.savePatterns();
-    synchronizer.notifyListeners(subscription, "add");
+    if (id in prefs.knownSubscriptions)
+      filterStorage.updateSubscriptionFilters(subscription, newFilters);
+    else
+      filterStorage.addSubscription(subscription);
 
     return true;
   },
 
-  removeExternalSubscription: function(id) {
-    var index = -1;
-    for (var i = 0; index < 0 && i < prefs.subscriptions.length; i++)
-      if (prefs.subscriptions[i].url == id)
-        index = i;
+  removeExternalSubscription: function(id)
+  {
+    if (!(id in filterStorage.knownSubscriptions))
+      return false;
 
-    if (index < 0 || !prefs.subscriptions[index].external)
+    let subscription = filterStorage.knownSubscriptions[id];
+    if (!(subscription instanceof ExternalSubscription))
       return false;
     
-    synchronizer.notifyListeners(prefs.subscriptions[index], "remove");
-
-    prefs.subscriptions.splice(index, 1);
-    prefs.initMatching();
-    prefs.savePatterns();
+    filterStorage.removeSubscription(subscription);
 
     return true;
   },
 
-  addPatterns: function(patterns, length) {
-    for (var i = 0; i < patterns.length; i++) {
-      var text = patterns[i];
-      var found = false;
-      for (var j = 0; j < prefs.userPatterns.length; j++)
-        if (prefs.userPatterns[j].text == text)
-          found = true;
-
-      if (!found) {
-        var pattern = prefs.patternFromText(text);
-        if (pattern)
-          prefs.userPatterns.push(pattern);
-      }
+  addPatterns: function(filters, length)
+  {
+    for each (let filter in filters)
+    {
+      filter = Filter.fromText(filter);
+      if (filter)
+        filterStorage.addFilter(filter);
     }
-  
-    synchronizer.notifyListeners(patterns, "add");
-
-    prefs.initMatching();
-    prefs.savePatterns();
   },
 
-  removePatterns: function(patterns, length) {
-    for (var i = 0; i < patterns.length; i++) {
-      var text = patterns[i];
-      for (var j = 0; j < prefs.userPatterns.length; j++)
-        if (prefs.userPatterns[j].text == text)
-          prefs.userPatterns.splice(j--, 1);
+  removePatterns: function(filters, length)
+  {
+    for each (let filter in filters)
+    {
+      filter = Filter.fromText(filter);
+      if (filter)
+        filterStorage.removeFilter(filter);
     }
-  
-    synchronizer.notifyListeners(patterns, "remove");
-
-    prefs.initMatching();
-    prefs.savePatterns();
   },
 
   // Allows an address to be loaded once regardless the filters
-  allowOnce: function(address) {
+  allowOnce: function(address)
+  {
     policy.allowOnce = address;
   },
 
   // Returns installed Adblock Plus version
-  getInstalledVersion: function() {
+  getInstalledVersion: function()
+  {
     return "{{VERSION}}";
   },
 
@@ -455,6 +437,12 @@ function init() {
                                     .createInstance(Components.interfaces.nsIVersionComparator);
 
   loader.loadSubScript('chrome://adblockplus/content/utils.js');
+  loader.loadSubScript('chrome://adblockplus/content/filterClasses.js');
+  loader.loadSubScript('chrome://adblockplus/content/subscriptionClasses.js');
+  loader.loadSubScript('chrome://adblockplus/content/filterStorage.js');
+  loader.loadSubScript('chrome://adblockplus/content/matcher.js');
+  loader.loadSubScript('chrome://adblockplus/content/elemhide.js');
+  loader.loadSubScript('chrome://adblockplus/content/filterListener.js');
   loader.loadSubScript('chrome://adblockplus/content/protocol.js');
   loader.loadSubScript('chrome://adblockplus/content/policy.js');
   loader.loadSubScript('chrome://adblockplus/content/data.js');
