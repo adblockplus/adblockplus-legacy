@@ -30,7 +30,7 @@ my $version = readFile("version");
 $version =~ s/[^\w\.]//gs;
 
 opendir(local* LOCALES, "chrome/locale") || die "Could not read directory chrome/locales";
-my @locales = grep {!/[^\w\-]/ && !/CVS/} readdir(LOCALES);
+my @locales = grep {!/[^\w\-]/} readdir(LOCALES);
 @locales = sort {$a eq "en-US" ? -1 : ($b eq "en-US" ? 1 : $a cmp $b)} @locales; 
 closedir(LOCALES);
 
