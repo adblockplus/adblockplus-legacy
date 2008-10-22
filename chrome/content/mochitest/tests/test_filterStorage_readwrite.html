@@ -1,115 +1,23 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 <head>
+  <title>Filter storage read/write tests</title>
+
+  <link rel="stylesheet" type="text/css" href="/content/tests/SimpleTest/test.css" />
+
+  <script type="text/javascript" src="/content/MochiKit/MochiKit.js"></script>
+  <script type="text/javascript" src="/content/tests/SimpleTest/SimpleTest.js"></script>        
+
   <meta http-equiv="Content-Type" value="text/html; charset=utf-8"/>
-  <script type="application/x-javascript;version=1.8" src="framework.js"></script>
-  <script type="application/x-javascript;version=1.8" src="chrome://adblockplus/content/filterClasses.js"></script>
-  <script type="application/x-javascript;version=1.8" src="chrome://adblockplus/content/subscriptionClasses.js"></script>
-  <script type="application/x-javascript;version=1.8" src="chrome://adblockplus/content/filterStorage.js"></script>
-
-  <script type="application/x-javascript;version=1.8">
-    var prefs = {
-      patternsbackups: 0,
-      prefList: {}
-    };
-
-    function tests()
-    {
-      let testData = "";
-      for (let child = document.getElementById("filterData").firstChild; child; child = child.nextSibling)
-        testData += child.nodeValue;
-
-      let tempFile = dirService.get("TmpD", Components.interfaces.nsIFile);
-      tempFile.append("temp_patterns.ini");
-      tempFile.createUnique(tempFile.NORMAL_FILE_TYPE, 0666);
-
-      {
-        let fileStream = Components.classes["@mozilla.org/network/file-output-stream;1"]
-                                   .createInstance(Components.interfaces.nsIFileOutputStream);
-        fileStream.init(tempFile, 0x02 | 0x08 | 0x20, 0644, 0);
-
-        let stream = Components.classes["@mozilla.org/intl/converter-output-stream;1"]
-                               .createInstance(Components.interfaces.nsIConverterOutputStream);
-        stream.init(fileStream, "UTF-8", 16384, Components.interfaces.nsIConverterInputStream.DEFAULT_REPLACEMENT_CHARACTER);
-        stream.writeString(testData);
-        stream.close();
-      }
-
-      prefs.patternsfile = tempFile.path;
-
-      {
-        let startTime = Date.now();
-        filterStorage.loadFromDisk();
-        let endTime = Date.now();
-        writeResult("Time to load filters", endTime - startTime, endTime - startTime);
-      }
-
-      {
-        let startTime = Date.now();
-        filterStorage.saveToDisk();
-        let endTime = Date.now();
-        writeResult("Time to save filters", endTime - startTime, endTime - startTime);
-      }
-
-      {
-        let fileStream = Components.classes["@mozilla.org/network/file-input-stream;1"]
-                           .createInstance(Components.interfaces.nsIFileInputStream);
-        fileStream.init(tempFile, 0x01, 0444, 0);
-
-        let stream = Components.classes["@mozilla.org/intl/converter-input-stream;1"]
-                           .createInstance(Components.interfaces.nsIConverterInputStream);
-        stream.init(fileStream, "UTF-8", 16384, Components.interfaces.nsIConverterInputStream.DEFAULT_REPLACEMENT_CHARACTER);
-
-        let result = "";
-        let data = {};
-        while (stream.readString(0xFFFFFF, data))
-          result += data.value;
-
-        stream.close();
-
-        function canonize(data)
-        {
-          let curSection = null;
-          let sections = [];
-          for each (let line in (data + "\n[end]").split(/[\r\n]+/))
-          {
-            if (/^\[.*\]$/.test(line))
-            {
-              if (curSection)
-                sections.push(curSection);
-
-              curSection = {header: line, data: []};
-            }
-            else if (curSection && /\S/.test(line))
-              curSection.data.push(line);
-          }
-          for each (let section in sections)
-          {
-            section.key = section.header + " " + section.data[0];
-            section.data.sort();
-          }
-          sections.sort(function(a, b) {
-            if (a.key < b.key)
-              return -1;
-            else if (a.key > b.key)
-              return 1;
-            else
-              return 0;
-          });
-          return sections.map(function(section) {
-            return [section.header].concat(section.data).join("\n");
-          }).join("\n");
-        }
-        writeResult("Read/write result", canonize(result), canonize(testData));
-      }
-
-      tempFile.remove(false);
-    }
-  </script>
+  <script type="application/x-javascript;version=1.7" src="common.js"></script>
+  <script type="application/x-javascript;version=1.7" src="chrome://adblockplus/content/filterClasses.js"></script>
+  <script type="application/x-javascript;version=1.7" src="chrome://adblockplus/content/subscriptionClasses.js"></script>
+  <script type="application/x-javascript;version=1.7" src="chrome://adblockplus/content/filterStorage.js"></script>
 </head>
 <body>
-
-  <div id="filterData" style="display: none;">
+  <p id="display"></p>
+  <div id="content" style="display: none">
+    <div id="filterData">
 [Pattern]
 text=@@not/banner/
 regexp=not\/banner\/
@@ -25372,7 +25280,105 @@ youtube.com#DIV(id^=ad_creative_)
 zdnet.de#DIV(id*=_promo)
 zeit.de#DIV(adfooter)
 zeit.de#DIV(class$=_ad)
+    </div>
   </div>
+  <pre id="test">
+  <script type="application/x-javascript;version=1.7">
+    var prefs = {
+      patternsbackups: 0,
+      prefList: {}
+    };
 
+    let testData = "";
+    for (let child = document.getElementById("filterData").firstChild; child; child = child.nextSibling)
+      testData += child.nodeValue;
+
+    let tempFile = dirService.get("TmpD", Components.interfaces.nsIFile);
+    tempFile.append("temp_patterns.ini");
+    tempFile.createUnique(tempFile.NORMAL_FILE_TYPE, 0666);
+
+    {
+      let fileStream = Components.classes["@mozilla.org/network/file-output-stream;1"]
+                                 .createInstance(Components.interfaces.nsIFileOutputStream);
+      fileStream.init(tempFile, 0x02 | 0x08 | 0x20, 0644, 0);
+
+      let stream = Components.classes["@mozilla.org/intl/converter-output-stream;1"]
+                             .createInstance(Components.interfaces.nsIConverterOutputStream);
+      stream.init(fileStream, "UTF-8", 16384, Components.interfaces.nsIConverterInputStream.DEFAULT_REPLACEMENT_CHARACTER);
+      stream.writeString(testData);
+      stream.close();
+    }
+
+    prefs.patternsfile = tempFile.path;
+
+    {
+      let startTime = Date.now();
+      filterStorage.loadFromDisk();
+      let endTime = Date.now();
+      ok(true, "Time to load filters: " + (endTime - startTime) + "ms");
+    }
+
+    {
+      let startTime = Date.now();
+      filterStorage.saveToDisk();
+      let endTime = Date.now();
+      ok(true, "Time to save filters: " + (endTime - startTime) + "ms");
+    }
+
+    {
+      let fileStream = Components.classes["@mozilla.org/network/file-input-stream;1"]
+                         .createInstance(Components.interfaces.nsIFileInputStream);
+      fileStream.init(tempFile, 0x01, 0444, 0);
+
+      let stream = Components.classes["@mozilla.org/intl/converter-input-stream;1"]
+                         .createInstance(Components.interfaces.nsIConverterInputStream);
+      stream.init(fileStream, "UTF-8", 16384, Components.interfaces.nsIConverterInputStream.DEFAULT_REPLACEMENT_CHARACTER);
+
+      let result = "";
+      let data = {};
+      while (stream.readString(0xFFFFFF, data))
+        result += data.value;
+
+      stream.close();
+
+      function canonize(data)
+      {
+        let curSection = null;
+        let sections = [];
+        for each (let line in (data + "\n[end]").split(/[\r\n]+/))
+        {
+          if (/^\[.*\]$/.test(line))
+          {
+            if (curSection)
+              sections.push(curSection);
+
+            curSection = {header: line, data: []};
+          }
+          else if (curSection && /\S/.test(line))
+            curSection.data.push(line);
+        }
+        for each (let section in sections)
+        {
+          section.key = section.header + " " + section.data[0];
+          section.data.sort();
+        }
+        sections.sort(function(a, b) {
+          if (a.key < b.key)
+            return -1;
+          else if (a.key > b.key)
+            return 1;
+          else
+            return 0;
+        });
+        return sections.map(function(section) {
+          return [section.header].concat(section.data).join("\n");
+        }).join("\n");
+      }
+      is(canonize(result), canonize(testData), "Read/write result");
+    }
+
+    tempFile.remove(false);
+  </script>
+  </pre>
 </body>
 </html>

@@ -207,9 +207,6 @@ const FileInputStream = CC("@mozilla.org/network/file-input-stream;1",
 const StreamCopier = CC("@mozilla.org/network/async-stream-copier;1",
                         "nsIAsyncStreamCopier",
                         "init");
-const Pump = CC("@mozilla.org/network/input-stream-pump;1",
-                "nsIInputStreamPump",
-                "init");
 const ConverterInputStream = CC("@mozilla.org/intl/converter-input-stream;1",
                                 "nsIConverterInputStream",
                                 "init");
@@ -338,6 +335,9 @@ function nsHttpServer()
   /** The handler used to process requests to this server. */
   this._handler = new ServerHandler(this);
 
+  /** Naming information for this server. */
+  this._identity = new ServerIdentity();
+
   /**
    * Indicates when the server is to be shut down at the end of the request.
    */
@@ -423,6 +423,7 @@ nsHttpServer.prototype =
 
     dumpn(">>> listening on port " + socket.port);
     socket.asyncListen(this);
+    this._identity._initialize(port, true);
     this._socket = socket;
   },
 
@@ -437,6 +438,11 @@ nsHttpServer.prototype =
     dumpn(">>> stopping listening on port " + this._socket.port);
     this._socket.close();
     this._socket = null;
+
+    // We can't have this identity any more, and the port on which we're running
+    // this server now could be meaningless the next time around.
+    this._identity._teardown();
+
     this._doQuit = false;
 
     // spin an event loop and wait for the socket-close notification
@@ -506,6 +512,14 @@ nsHttpServer.prototype =
     this._handler.registerContentType(ext, type);
   },
 
+  //
+  // see nsIHttpServer.serverIdentity
+  //
+  get identity()
+  {
+    return this._identity;
+  },
+
   // NSISUPPORTS
 
   //
@@ -572,6 +586,263 @@ nsHttpServer.prototype =
     this._doQuit = true;
   }
 
+};
+
+
+//
+// RFC 2396 section 3.2.2:
+//
+// host        = hostname | IPv4address
+// hostname    = *( domainlabel "." ) toplabel [ "." ]
+// domainlabel = alphanum | alphanum *( alphanum | "-" ) alphanum
+// toplabel    = alpha | alpha *( alphanum | "-" ) alphanum
+// IPv4address = 1*digit "." 1*digit "." 1*digit "." 1*digit
+//
+
+const HOST_REGEX =
+  new RegExp("^(?:" +
+               // *( domainlabel "." )
+               "(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)*" +
+               // toplabel
+               "[a-z](?:[a-z0-9-]*[a-z0-9])?" +
+             "|" +
+               // IPv4 address 
+               "\\d+\\.\\d+\\.\\d+\\.\\d+" +
+             ")$",
+             "i");
+
+
+/**
+ * Represents the identity of a server.  An identity consists of a set of
+ * (scheme, host, port) tuples denoted as locations (allowing a single server to
+ * serve multiple sites or to be used behind both HTTP and HTTPS proxies for any
+ * host/port).  Any incoming request must be to one of these locations, or it
+ * will be rejected with an HTTP 400 error.  One location, denoted as the
+ * primary location, is the location assigned in contexts where a location
+ * cannot otherwise be endogenously derived, such as for HTTP/1.0 requests.
+ *
+ * A single identity may contain at most one location per unique host/port pair;
+ * other than that, no restrictions are placed upon what locations may
+ * constitute an identity.
+ */
+function ServerIdentity()
+{
+  /** The scheme of the primary location. */
+  this._primaryScheme = "http";
+
+  /** The hostname of the primary location. */
+  this._primaryHost = "127.0.0.1"
+
+  /** The port number of the primary location. */
+  this._primaryPort = -1;
+
+  /**
+   * The current port number for the corresponding server, stored so that a new
+   * primary location can always be set if the current one is removed.
+   */
+  this._defaultPort = -1;
+
+  /**
+   * Maps hosts to maps of ports to schemes, e.g. the following would represent
+   * https://example.com:789/ and http://example.org/:
+   *
+   *   {
+   *     "xexample.com": { 789: "https" },
+   *     "xexample.org": { 80: "http" }
+   *   }
+   *
+   * Note the "x" prefix on hostnames, which prevents collisions with special
+   * JS names like "prototype".
+   */
+  this._locations = { "xlocalhost": {} };
+}
+ServerIdentity.prototype =
+{
+  /**
+   * Initializes the primary name for the corresponding server, based on the
+   * provided port number.
+   */
+  _initialize: function(port, addSecondaryDefault)
+  {
+    if (this._primaryPort !== -1)
+      this.add("http", "localhost", port);
+    else
+      this.setPrimary("http", "localhost", port);
+    this._defaultPort = port;
+
+    // Only add this if we're being called at server startup
+    if (addSecondaryDefault)
+      this.add("http", "127.0.0.1", port);
+  },
+
+  /**
+   * Called at server shutdown time, unsets the primary location only if it was
+   * the default-assigned location and removes the default location from the
+   * set of locations used.
+   */
+  _teardown: function()
+  {
+    // Not the default primary location, nothing special to do here
+    this.remove("http", "127.0.0.1", this._defaultPort);
+
+    // This is a *very* tricky bit of reasoning here; make absolutely sure the
+    // tests for this code pass before you commit changes to it.
+    if (this._primaryScheme == "http" &&
+        this._primaryHost == "localhost" &&
+        this._primaryPort == this._defaultPort)
+    {
+      // Make sure we don't trigger the readding logic in .remove(), then remove
+      // the default location.
+      var port = this._defaultPort;
+      this._defaultPort = -1;
+      this.remove("http", "localhost", port);
+
+      // Ensure a server start triggers the setPrimary() path in ._initialize()
+      this._primaryPort = -1;
+    }
+    else
+    {
+      // No reason not to remove directly as it's not our primary location
+      this.remove("http", "localhost", this._defaultPort);
+    }
+  },
+
+  //
+  // see nsIHttpServerIdentity.primaryScheme
+  //
+  get primaryScheme()
+  {
+    if (this._primaryPort === -1)
+      throw Cr.NS_ERROR_NOT_INITIALIZED;
+    return this._primaryScheme;
+  },
+
+  //
+  // see nsIHttpServerIdentity.primaryHost
+  //
+  get primaryHost()
+  {
+    if (this._primaryPort === -1)
+      throw Cr.NS_ERROR_NOT_INITIALIZED;
+    return this._primaryHost;
+  },
+
+  //
+  // see nsIHttpServerIdentity.primaryPort
+  //
+  get primaryPort()
+  {
+    if (this._primaryPort === -1)
+      throw Cr.NS_ERROR_NOT_INITIALIZED;
+    return this._primaryPort;
+  },
+
+  //
+  // see nsIHttpServerIdentity.add
+  //
+  add: function(scheme, host, port)
+  {
+    this._validate(scheme, host, port);
+    
+    var entry = this._locations["x" + host];
+    if (!entry)
+      this._locations["x" + host] = entry = {};
+
+    entry[port] = scheme;
+  },
+
+  //
+  // see nsIHttpServerIdentity.remove
+  //
+  remove: function(scheme, host, port)
+  {
+    this._validate(scheme, host, port);
+
+    var entry = this._locations["x" + host];
+    if (!entry)
+      return false;
+
+    var present = port in entry;
+    delete entry[port];
+
+    if (this._primaryScheme == scheme &&
+        this._primaryHost == host &&
+        this._primaryPort == port &&
+        this._defaultPort !== -1)
+    {
+      // Always keep at least one identity in existence at any time, unless
+      // we're in the process of shutting down (the last condition above).
+      this._primaryPort = -1;
+      this._initialize(this._defaultPort, false);
+    }
+
+    return present;
+  },
+
+  //
+  // see nsIHttpServerIdentity.has
+  //
+  has: function(scheme, host, port)
+  {
+    this._validate(scheme, host, port);
+
+    return "x" + host in this._locations &&
+           scheme === this._locations["x" + host][port];
+  },
+  
+  //
+  // see nsIHttpServerIdentity.has
+  //
+  getScheme: function(host, port)
+  {
+    this._validate("http", host, port);
+
+    var entry = this._locations["x" + host];
+    if (!entry)
+      return "";
+
+    return entry[port] || "";
+  },
+  
+  //
+  // see nsIHttpServerIdentity.setPrimary
+  //
+  setPrimary: function(scheme, host, port)
+  {
+    this._validate(scheme, host, port);
+
+    this.add(scheme, host, port);
+
+    this._primaryScheme = scheme;
+    this._primaryHost = host;
+    this._primaryPort = port;
+  },
+
+  /**
+   * Ensures scheme, host, and port are all valid with respect to RFC 2396.
+   *
+   * @throws NS_ERROR_ILLEGAL_VALUE
+   *   if any argument doesn't match the corresponding production
+   */
+  _validate: function(scheme, host, port)
+  {
+    if (scheme !== "http" && scheme !== "https")
+    {
+      dumpn("*** server only supports http/https schemes: '" + scheme + "'");
+      dumpStack();
+      throw Cr.NS_ERROR_ILLEGAL_VALUE;
+    }
+    if (!HOST_REGEX.test(host))
+    {
+      dumpn("*** unexpected host: '" + host + "'");
+      throw Cr.NS_ERROR_ILLEGAL_VALUE;
+    }
+    if (port < 0 || port > 65535)
+    {
+      dumpn("*** unexpected port: '" + port + "'");
+      throw Cr.NS_ERROR_ILLEGAL_VALUE;
+    }
+  }
 };
 
 
@@ -717,6 +988,8 @@ function RequestReader(connection)
    */
   this._data = new LineData();
 
+  this._contentLength = 0;
+
   /** The current state of parsing the incoming request. */
   this._state = READER_INITIAL;
 
@@ -759,7 +1032,8 @@ RequestReader.prototype =
       return;
 
     var moreAvailable = false;
-
+    var wasInBody = false;
+    
     switch (this._state)
     {
       case READER_INITIAL:
@@ -771,12 +1045,15 @@ RequestReader.prototype =
         break;
 
       case READER_IN_BODY:
-        // XXX handle the request body!  until then, just stop reading
+        wasInBody = true;
+        moreAvailable = this._processBody(input, count);
         break;
-
       default:
         NS_ASSERT(false);
     }
+
+    if (!wasInBody && this._state == READER_IN_BODY && moreAvailable)
+      moreAvailable = this._processBody(input, count);
 
     if (moreAvailable)
       input.asyncWait(this, 0, 0, gThreadManager.currentThread);
@@ -836,6 +1113,10 @@ RequestReader.prototype =
       if (!this._parseHeaders())
         return true;
 
+      dumpn("_processRequestLine, Content-length="+this._contentLength);
+      if (this._contentLength > 0)
+        return true;
+
       // headers complete, do a data check and then forward to the handler
       this._validateRequest();
       return this._handleResponse();
@@ -865,8 +1146,6 @@ RequestReader.prototype =
     // XXX things to fix here:
     //
     // - need to support RFC 2047-encoded non-US-ASCII characters
-    // - really support absolute URLs (requires telling the server all its
-    //   hostnames, beyond just localhost:port or 127.0.0.1:port)
 
     this._data.appendBytes(readBytes(input, count));
 
@@ -876,7 +1155,47 @@ RequestReader.prototype =
       if (!this._parseHeaders())
         return true;
 
+      dumpn("_processHeaders, Content-length="+this._contentLength);
+      if (this._contentLength > 0)
+        return true;
+
       // we have all the headers, continue with the body
+      this._validateRequest();
+      return this._handleResponse();
+    }
+    catch (e)
+    {
+      this._handleError(e);
+      return false;
+    }
+  },
+
+  _processBody: function(input, count)
+  {
+    NS_ASSERT(this._state == READER_IN_BODY);
+
+    try
+    {
+      if (this._contentLength > 0)
+      {
+        var bodyData = this._data.purge();
+        if (!bodyData || bodyData.length == 0)
+        {
+          if (count > this._contentLength)
+            count = this._contentLength;
+
+          bodyData = readBytes(input, count);
+        }
+        dumpn("*** loading data="+bodyData+" len="+bodyData.length);
+
+        this._metadata._body.appendBytes(bodyData);
+        this._contentLength -= bodyData.length;
+      }
+
+      dumpn("*** remainig body data len="+this._contentLength);
+      if (this._contentLength > 0)
+        return true;
+
       this._validateRequest();
       return this._handleResponse();
     }
@@ -902,11 +1221,78 @@ RequestReader.prototype =
     var metadata = this._metadata;
     var headers = metadata._headers;
 
-    var isHttp11 = metadata._httpVersion.equals(nsHttpVersion.HTTP_1_1);
-
     // 19.6.1.1 -- servers MUST report 400 to HTTP/1.1 requests w/o Host header
-    if (isHttp11 && !headers.hasHeader("Host"))
-      throw HTTP_400;
+    var identity = this._connection.server.identity;
+    if (metadata._httpVersion.atLeast(nsHttpVersion.HTTP_1_1))
+    {
+      if (!headers.hasHeader("Host"))
+      {
+        dumpn("*** malformed HTTP/1.1 or greater request with no Host header!");
+        throw HTTP_400;
+      }
+
+      // If the Request-URI wasn't absolute, then we need to determine our host.
+      // We have to determine what scheme was used to access us based on the
+      // server identity data at this point, because the request just doesn't
+      // contain enough data on its own to do this, sadly.
+      if (!metadata._host)
+      {
+        var host, port;
+        var hostPort = headers.getHeader("Host");
+        var colon = hostPort.indexOf(":");
+        if (colon < 0)
+        {
+          host = hostPort;
+          port = "";
+        }
+        else
+        {
+          host = hostPort.substring(0, colon);
+          port = hostPort.substring(colon + 1);
+        }
+
+        // NB: We allow an empty port here because, oddly, a colon may be
+        //     present even without a port number, e.g. "example.com:"; in this
+        //     case the default port applies.
+        if (!HOST_REGEX.test(host) || !/^\d*$/.test(port))
+        {
+          dumpn("*** malformed hostname (" + hostPort + ") in Host " +
+                "header, 400 time");
+          throw HTTP_400;
+        }
+
+        // If we're not given a port, we're stuck, because we don't know what
+        // scheme to use to look up the correct port here, in general.  Since
+        // the HTTPS case requires a tunnel/proxy and thus requires that the
+        // requested URI be absolute (and thus contain the necessary
+        // information), let's assume HTTP will prevail and use that.
+        port = +port || 80;
+
+        var scheme = identity.getScheme(host, port);
+        if (!scheme)
+        {
+          dumpn("*** unrecognized hostname (" + hostPort + ") in Host " +
+                "header, 400 time");
+          throw HTTP_400;
+        }
+
+        metadata._scheme = scheme;
+        metadata._host = host;
+        metadata._port = port;
+      }
+    }
+    else
+    {
+      NS_ASSERT(metadata._host === undefined,
+                "HTTP/1.0 doesn't allow absolute paths in the request line!");
+
+      metadata._scheme = identity.primaryScheme;
+      metadata._host = identity.primaryHost;
+      metadata._port = identity.primaryPort;
+    }
+
+    NS_ASSERT(identity.has(metadata._scheme, metadata._host, metadata._port),
+              "must have a location we recognize by now!");
   },
 
   /**
@@ -943,7 +1329,7 @@ RequestReader.prototype =
    * the request to be handled.
    *
    * This method is called once per request, after the request line and all
-   * headers have been received.
+   * headers and the body, if any, have been received.
    *
    * @returns boolean
    *   true if more data must be read, false otherwise
@@ -951,8 +1337,6 @@ RequestReader.prototype =
   _handleResponse: function()
   {
     NS_ASSERT(this._state == READER_IN_BODY);
-
-    // XXX set up a stream for data in the request body here
 
     // We don't need the line-based data any more, so make attempted reuse an
     // error.
@@ -998,8 +1382,7 @@ RequestReader.prototype =
     try
     {
       metadata._httpVersion = new nsHttpVersion(match[1]);
-      if (!metadata._httpVersion.equals(nsHttpVersion.HTTP_1_0) &&
-          !metadata._httpVersion.equals(nsHttpVersion.HTTP_1_1))
+      if (!metadata._httpVersion.atLeast(nsHttpVersion.HTTP_1_0))
         throw "unsupported HTTP version";
     }
     catch (e)
@@ -1010,24 +1393,45 @@ RequestReader.prototype =
 
 
     var fullPath = request[1];
+    var serverIdentity = this._connection.server.identity;
+
+    var scheme, host, port;
 
     if (fullPath.charAt(0) != "/")
     {
-      // XXX we don't really support absolute URIs yet -- a MUST for HTTP/1.1;
-      //     for now just get the path and use that, ignoring hostport
+      // No absolute paths in the request line in HTTP prior to 1.1
+      if (!metadata._httpVersion.atLeast(nsHttpVersion.HTTP_1_1))
+        throw HTTP_400;
+
       try
       {
         var uri = Cc["@mozilla.org/network/io-service;1"]
                     .getService(Ci.nsIIOService)
                     .newURI(fullPath, null, null);
         fullPath = uri.path;
+        scheme = uri.scheme;
+        host = metadata._host = uri.asciiHost;
+        port = uri.port;
+        if (port === -1)
+        {
+          if (scheme === "http")
+            port = 80;
+          else if (scheme === "https")
+            port = 443;
+          else
+            throw HTTP_400;
+        }
       }
-      catch (e) { /* invalid URI */ }
-      if (fullPath.charAt(0) != "/")
+      catch (e)
       {
-        this.errorCode = 400;
-        return;
+        // If the host is not a valid host on the server, the response MUST be a
+        // 400 (Bad Request) error message (section 5.2).  Alternately, the URI
+        // is malformed.
+        throw HTTP_400;
       }
+
+      if (!serverIdentity.has(scheme, host, port) || fullPath.charAt(0) != "/")
+        throw HTTP_400;
     }
 
     var splitter = fullPath.indexOf("?");
@@ -1041,6 +1445,10 @@ RequestReader.prototype =
       metadata._path = fullPath.substring(0, splitter);
       metadata._queryString = fullPath.substring(splitter + 1);
     }
+
+    metadata._scheme = scheme;
+    metadata._host = host;
+    metadata._port = port;
 
     // our work here is finished
     this._state = READER_IN_HEADERS;
@@ -1109,6 +1517,12 @@ RequestReader.prototype =
 
         // either way, we're done processing headers
         this._state = READER_IN_BODY;
+        try
+        {
+          this._contentLength = parseInt(headers.getHeader("Content-Length"));
+          dumpn("Content-Length="+this._contentLength);
+        }
+        catch (e) {}
         return true;
       }
       else if (firstChar == " " || firstChar == "\t")
@@ -1509,6 +1923,11 @@ function ServerHandler(server)
    * @see ServerHandler.prototype._defaultPaths
    */
   this._overridePaths = {};
+  
+  /** 
+   * Put data overrides, privileged before _overridePaths.
+   */
+  this._putDataOverrides = {};
 
   /**
    * Custom request handlers for the error handlers in the server in which this
@@ -1557,10 +1976,61 @@ ServerHandler.prototype =
     {
       try
       {
-        // explicit paths first, then files based on existing directory mappings,
-        // then (if the file doesn't exist) built-in server default paths
-        if (path in this._overridePaths)
+        if (metadata.method == "PUT")
+        {
+          // remotely set path override
+          var data = metadata.body.purge();
+          data = String.fromCharCode.apply(null, data.splice(0, data.length + 2));
+          var contentType;
+          try
+          {
+            contentType = metadata.getHeader("Content-Type");
+          }
+          catch (ex)
+          {
+            contentType = "application/octet-stream";
+          }
+
+          dumpn("PUT data \'"+data+"\' for "+path);
+          this._putDataOverrides[path] =
+            function(ametadata, aresponse)
+            {
+              aresponse.setStatusLine(metadata.httpVersion, 200, "OK");
+              aresponse.setHeader("Content-Type", contentType, false);
+              dumpn("*** writting PUT data=\'"+data+"\'");
+              aresponse.bodyOutputStream.write(data, data.length);
+            };
+
+          response.setStatusLine(metadata.httpVersion, 200, "OK");
+        }
+        else if (metadata.method == "DELETE")
+        {
+          if (path in this._putDataOverrides)
+          {
+            delete this._putDataOverrides[path];
+            dumpn("clearing PUT data for "+path);
+            response.setStatusLine(metadata.httpVersion, 200, "OK");
+          }
+          else
+          {
+            dumpn("no PUT data for "+path+" to delete");
+            response.setStatusLine(metadata.httpVersion, 204, "No Content");
+          }
+        }
+        else if (path in this._putDataOverrides)
+        {
+          // PUT data overrides are priviledged before all
+          // other overrides.
+          dumpn("calling PUT data override for "+path);
+          this._putDataOverrides[path](metadata, response);
+        }
+        else if (path in this._overridePaths)
+        {
+          // explicit paths first, then files based on existing directory mappings,
+          // then (if the file doesn't exist) built-in server default paths
+          dumpn("calling override for "+path);
           this._overridePaths[path](metadata, response);
+        }
         else
           this._handleDefault(metadata, response);
       }
@@ -1828,12 +2298,13 @@ ServerHandler.prototype =
                                       Ci.nsIFileInputStream.CLOSE_ON_EOF);
         var sis = new ScriptableInputStream(fis);
         var s = Cu.Sandbox(gGlobalObject);
+        s.importFunction(dump, "dump");
         Cu.evalInSandbox(sis.read(file.fileSize), s);
         s.handleRequest(metadata, response);
       }
       catch (e)
       {
-        dumpn("*** error running SJS: " + e);
+        dump("*** error running SJS: " + e + " on line " + (e.lineNumber-2192) + "\n");
         throw HTTP_500;
       }
     }
@@ -2399,7 +2870,10 @@ ServerHandler.prototype =
       response.setStatusLine(metadata.httpVersion, 200, "OK");
       response.setHeader("Content-Type", "text/plain", false);
 
-      var body = "Request (semantically equivalent, slightly reformatted):\n\n";
+      var body = "Request-URI: " +
+                 metadata.scheme + "://" + metadata.host + ":" + metadata.port +
+                 metadata.path + "\n\n";
+      body += "Request (semantically equivalent, slightly reformatted):\n\n";
       body += metadata.method + " " + metadata.path;
 
       if (metadata.queryString)
@@ -2615,7 +3089,6 @@ Response.prototype =
   get httpVersion()
   {
     this._ensureAlive();
-
     return this._httpVersion.toString();
   },
 
@@ -2938,6 +3411,14 @@ nsHttpVersion.prototype =
   {
     return this.major == otherVersion.major &&
            this.minor == otherVersion.minor;
+  },
+
+  /** True if this >= otherVersion, false otherwise. */
+  atLeast: function(otherVersion)
+  {
+    return this.major > otherVersion.major ||
+           (this.major == otherVersion.major &&
+            this.minor >= otherVersion.minor);
   }
 };
 
@@ -3096,12 +3577,26 @@ nsSimpleEnumerator.prototype =
  */
 function Request(port)
 {
+  /** Method of this request, e.g. GET or POST. */
   this._method = "";
+
+  /** Path of the requested resource; empty paths are converted to '/'. */
   this._path = "";
+
+  /** Query string, if any, associated with this request (not including '?'). */
   this._queryString = "";
-  this._host = "";
+
+  /** Scheme of requested resource, usually http, always lowercase. */
+  this._scheme = "http";
+
+  /** Hostname on which the requested resource resides. */
+  this._host = undefined;
+
+  /** Port number over which the request was received. */
   this._port = port;
-  this._host = "localhost"; // XXX or from environment or server itself?
+
+  /** Body data of the request */
+  this._body = new LineData();
 
   /**
    * The headers in this request.
@@ -3118,6 +3613,14 @@ function Request(port)
 Request.prototype =
 {
   // SERVER METADATA
+
+  //
+  // see nsIHttpRequestMetadata.scheme
+  //
+  get scheme()
+  {
+    return this._scheme;
+  },
 
   //
   // see nsIHttpRequestMetadata.host
@@ -3218,6 +3721,11 @@ Request.prototype =
   {
     if (!this._bag)
       this._bag = new WritablePropertyBag();
+  },
+
+  get body()
+  {
+    return this._body;
   }
 };
 
@@ -3366,6 +3874,7 @@ function server(port, basePath)
   if (lp)
     srv.registerDirectory("/", lp);
   srv.registerContentType("sjs", SJS_TYPE);
+  srv.identity.setPrimary("http", "localhost", port);
   srv.start(port);
 
   var thread = gThreadManager.currentThread;

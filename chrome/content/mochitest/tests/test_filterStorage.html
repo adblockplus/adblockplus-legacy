@@ -1,52 +1,62 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 <head>
-  <script type="application/x-javascript;version=1.8" src="framework.js"></script>
-  <script type="application/x-javascript;version=1.8" src="chrome://adblockplus/content/filterClasses.js"></script>
-  <script type="application/x-javascript;version=1.8" src="chrome://adblockplus/content/subscriptionClasses.js"></script>
-  <script type="application/x-javascript;version=1.8" src="chrome://adblockplus/content/filterStorage.js"></script>
+  <title>Filter storage tests</title>
 
-  <script type="application/x-javascript;version=1.8">
+  <link rel="stylesheet" type="text/css" href="/content/tests/SimpleTest/test.css" />
+
+  <script type="text/javascript" src="/content/MochiKit/MochiKit.js"></script>
+  <script type="text/javascript" src="/content/tests/SimpleTest/SimpleTest.js"></script>        
+
+  <script type="application/x-javascript;version=1.7" src="common.js"></script>
+  <script type="application/x-javascript;version=1.7" src="chrome://adblockplus/content/filterClasses.js"></script>
+  <script type="application/x-javascript;version=1.7" src="chrome://adblockplus/content/subscriptionClasses.js"></script>
+  <script type="application/x-javascript;version=1.7" src="chrome://adblockplus/content/filterStorage.js"></script>
+</head>
+<body>
+  <p id="display"></p>
+  <div id="content" style="display: none">
+
+  </div>
+  <pre id="test">
+  <script type="application/x-javascript;version=1.7">
 //TODO: increaseHitCount, resetHitCounts
     function compareSubscriptionObservers(test, list)
     {
       let result = filterStorage.subscriptionObservers.map(function(observer) {return observer.name}).join("\n");
       let expected = list.map(function(observer) {return observer.name}).join("\n");
-      writeResult(test, result, expected);
+      is(result, expected, test);
     }
 
     function compareFilterObservers(test, list)
     {
       let result = filterStorage.filterObservers.map(function(observer) {return observer.name}).join("\n");
       let expected = list.map(function(observer) {return observer.name}).join("\n");
-      writeResult(test, result, expected);
+      is(result, expected, test);
     }
 
     function compareSubscriptionList(test, list)
     {
       let result = filterStorage.subscriptions.map(function(subscription) {return subscription.url}).join("\n");
       let expected = list.map(function(subscription) {return subscription.url}).join("\n");
-      writeResult(test, result, expected);
+      is(result, expected, test);
     }
 
     function compareFiltersList(test, list)
     {
       let result = filterStorage.subscriptions.map(function(subscription) {return subscription.filters.map(function(filter) {return filter.text}).join("\n") + "\n"}).join("\n");
       let expected = list.map(function(filters) {return filters.join("\n") + "\n"}).join("\n");
-      writeResult(test, result, expected);
+      is(result, expected, test);
     }
 
-    function tests()
-    {
-      testSubscriptions();
+    testSubscriptions();
 
-      filterStorage.addSubscription(Subscription.fromURL("~fl~"));
-      filterStorage.addSubscription(Subscription.fromURL("~wl~"));
-      filterStorage.addSubscription(Subscription.fromURL("~il~"));
-      filterStorage.addSubscription(Subscription.fromURL("~eh~"));
+    filterStorage.addSubscription(Subscription.fromURL("~fl~"));
+    filterStorage.addSubscription(Subscription.fromURL("~wl~"));
+    filterStorage.addSubscription(Subscription.fromURL("~il~"));
+    filterStorage.addSubscription(Subscription.fromURL("~eh~"));
 
-      testFilters();
-    }
+    testFilters();
 
     function testSubscriptions()
     {
@@ -115,9 +125,9 @@
       filterStorage.removeSubscription(subscription3);
       compareSubscriptionList("remove(test3) again", [subscription2, subscription1]);
 
-      writeResult("observed1", observed1, "add http://test1/\nremove http://test3/\n");
-      writeResult("observed2", observed2, "add http://test3/\nadd http://test1/\nremove http://test3/\n");
-      writeResult("observed3", observed3, "");
+      is(observed1, "add http://test1/\nremove http://test3/\n", "observed1");
+      is(observed2, "add http://test3/\nadd http://test1/\nremove http://test3/\n", "observed2");
+      is(observed3, "", "observed3");
 
       filterStorage.removeSubscription(subscription1);
       filterStorage.removeSubscription(subscription2);
@@ -190,16 +200,15 @@
       filterStorage.addFilter(Filter.fromText("@@asdf"));
       compareFiltersList("add(@asdf/)", [["foo", "!foobar"],["@@asdf"],["/??/"],["foo#bar"]]);
 
-      writeResult("observed1", observed1, "add bar\nadd foo#bar\nadd /??/\nadd @@asdf\n");
-      writeResult("observed2", observed2, "add @@ddd\nadd !foobar\nremove bar\nremove @@ddd\nadd foo#bar\nadd /??/\nadd @@asdf\n");
-      writeResult("observed3", observed3, "remove bar\nremove @@ddd\n");
+      is(observed1, "add bar\nadd foo#bar\nadd /??/\nadd @@asdf\n", "observed1");
+      is(observed2, "add @@ddd\nadd !foobar\nremove bar\nremove @@ddd\nadd foo#bar\nadd /??/\nadd @@asdf\n", "observed2");
+      is(observed3, "remove bar\nremove @@ddd\n", "observed3");
 
       filterStorage.removeFilterObserver(observer1);
       filterStorage.removeFilterObserver(observer2);
       filterStorage.removeFilterObserver(observer3);
     }
   </script>
-</head>
-<body>
+  </pre>
 </body>
 </html>
