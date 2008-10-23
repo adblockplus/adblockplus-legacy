@@ -1,5 +1,22 @@
 #!/usr/bin/perl
 
+#############################################################################
+# This script will set up a test version of the extension in the profiles   #
+# listed in .profileDirs file (one per line). This means that manifests,    #
+# components and preferences are copied to the profile (and must be         #
+# copied again on changes) while current directory is used for the chrome.  #
+# If you set nglayout.debug.disable_xul_cache preference to true the        #
+# changes in current directory will be available in the application without #
+# restart. Also, tests (if any) will be available under                     #
+# chrome://mochikit/content/harness-???.xul.                                #
+#                                                                           #
+# Example of .profileDirs contents:                                         #
+#                                                                           #
+#  c:\Documents and Setting\<user>\Application Data\Mozilla\Firefox\Profiles\<seed>.default
+#  c:\Documents and Setting\<user>\Application Data\Songbird1\Profiles\<seed>.default
+#                                                                           #
+#############################################################################
+
 use strict;
 use warnings;
 use Cwd;
