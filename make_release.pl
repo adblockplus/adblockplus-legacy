@@ -1,5 +1,11 @@
 #!/usr/bin/perl
 
+#############################################################################
+# This is the release automation script, it will change current extension   #
+# version, create release builds and commit it all into Mercurial. Usually  #
+# you just want to create a build - use make_devbuild.pl for this.          #
+#############################################################################
+
 use strict;
 
 die "Version number not specified" unless @ARGV;
