@@ -1,5 +1,10 @@
 #!/usr/bin/perl
 
+#############################################################################
+# This script will create an extension build. Usually, this script          #
+# shouldn't be run directly, use make_devbuild.pl instead.                  #
+#############################################################################
+
 use strict;
 use warnings;
 use Packager;
