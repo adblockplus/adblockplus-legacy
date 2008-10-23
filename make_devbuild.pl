@@ -1,5 +1,25 @@
 #!/usr/bin/perl
 
+#############################################################################
+# This script will create a development build of the extension. Without any #
+# command line arguments it will include all available locales in the       #
+# development build, command line arguments are interpreted as a list of    #
+# locales to be included.                                                   #
+#                                                                           #
+# Creating a development build with all locales:                            #
+#                                                                           #
+#   perl make_devbuild.pl                                                   #
+#                                                                           #
+# Creating a development build with en-US locale only:                      #
+#                                                                           #
+#   perl make_devbuild.pl en-US                                             #
+#                                                                           #
+# Creating a development build with English, German and Russian locales:    #
+#                                                                           #
+#   perl make_devbuild.pl en-US de-DE ru-RU                                 #
+#                                                                           #
+#############################################################################
+
 use strict;
 
 open(VERSION, "version");
