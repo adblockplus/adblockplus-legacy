@@ -32,10 +32,12 @@ for my $locale (@locales)
 }
 
 chdir('..');
-system("cvs add downloads/adblockplus-$version.xpi");
-system(qq(cvs commit -m "Releasing Adblock Plus $version" downloads src));
+system("hg add downloads/adblockplus-$version.xpi");
+system(qq(hg commit -m "Releasing Adblock Plus $version" downloads src));
 
 my $branch = $version;
 $branch =~ s/\./_/g;
 $branch = "ADBLOCK_PLUS_".$branch."_RELEASE";
-system(qq(cvs tag -R $branch src"));
+system(qq(hg tag $branch"));
+
+system(qq(hg push"));
