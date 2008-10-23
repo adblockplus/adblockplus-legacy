@@ -5,7 +5,7 @@ use strict;
 my ($file, $string) = @ARGV;
 
 opendir(local *DIR, "chrome/locale") or die "Could not open directory chrome/locale";
-my @locales = sort {$a cmp $b} grep {!/[^\w\-]/ && !/CVS/} readdir(DIR);
+my @locales = sort {$a cmp $b} grep {!/[^\w\-]/} readdir(DIR);
 closedir(DIR);
 
 foreach my $locale (@locales) {
