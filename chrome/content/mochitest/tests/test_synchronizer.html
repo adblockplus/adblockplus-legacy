@@ -239,7 +239,6 @@
         server.registerPathHandler("/subscription2", getSubscription);
         server.registerPathHandler("/subscription3", getSubscription);
         server.registerPathHandler("/fallback", fallbackHandler);
-        server.start(1234);
 
         filterStorage.addSubscription(subscription1);
 
@@ -506,16 +505,18 @@
     {
       try
       {
+        server.start(1234);
         runTests();
-        SimpleTest.finish();
-        server.stop();
       }
       catch (e)
       {
         ok(false, e);
-        SimpleTest.finish();
-        server.stop();
         throw e;
+      }
+      finally
+      {
+        server.stop();
+        SimpleTest.finish();
       }
     });
   </script>
