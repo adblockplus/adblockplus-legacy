@@ -59,7 +59,7 @@ sub makeLocaleList
   my %locales = ();
   foreach my $dir (keys %paths) {
     opendir(local* DIR, $paths{$dir}) or die "Could not open directory $paths{$dir}";
-    my @locales = grep {!/[^\w\-]/ && !/CVS/} readdir(DIR);
+    my @locales = grep {!/[^\w\-]/} readdir(DIR);
     $locales{$_} = 1 foreach @locales;
     closedir(DIR);
   }
