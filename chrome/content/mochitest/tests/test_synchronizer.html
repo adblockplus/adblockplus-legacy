@@ -235,10 +235,6 @@
       }
       else
       {
-        let registry = Components.classes["@mozilla.org/chrome/chrome-registry;1"].getService(Components.interfaces.nsIChromeRegistry);
-        let uri = ioService.newURI(location.href, null, null);
-        let fileURI = registry.convertChromeURL(uri).QueryInterface(Components.interfaces.nsIFileURL);
-
         server.registerPathHandler("/subscription1", getSubscription);
         server.registerPathHandler("/subscription2", getSubscription);
         server.registerPathHandler("/subscription3", getSubscription);
