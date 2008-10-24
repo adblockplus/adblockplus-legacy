@@ -54,18 +54,17 @@ try {
     accelMask = altMask;
 } catch(e) {}
 
-var newFilterLabel = null;
 var editorTimeout = null;
 function dummyFunction() {}
 
-function E(id) {
+function E(id)
+{
   return document.getElementById(id);
 }
 
 // Preference window initialization
-function init() {
-  newFilterLabel = document.documentElement.getAttribute("buttonlabelextra2")
-
+function init()
+{
   // Insert Apply button between OK and Cancel
   var okBtn = document.documentElement.getButton("accept");
   var cancelBtn = document.documentElement.getButton("cancel");
@@ -971,18 +970,6 @@ var treeView = {
     this.typemap = {__proto__: null};
     this.disabled = {__proto__: null};
     this.data = [];
-
-    // Push new filter dummy
-    this.data.push({
-      url: "",
-      title: newFilterLabel,
-      dummy: true,
-      special: false,
-      disabled: false,
-      external: false,
-      extra: [],
-      patterns: []
-    });
 
     for (i = 0; i < prefs.subscriptions.length; i++) {
       this.data.push(cloneObject(prefs.subscriptions[i]));
