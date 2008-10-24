@@ -32,6 +32,7 @@ try {
 
 if (abp) {
   var prefs = abp.prefs;
+  var filterStorage = abp.filterStorage;
   var synchronizer = abp.synchronizer;
   var dragService = Components.classes["@mozilla.org/widget/dragservice;1"]
                               .getService(Components.interfaces.nsIDragService);
@@ -109,8 +110,8 @@ function init()
   }
 
   // Install listeners
-  prefs.addHitCountListener(onHitCountChange);
-  synchronizer.addListener(synchCallback);
+  filterStorage.addFilterObserver(onFilterChange);
+  filterStorage.addSubscriptionObserver(onSubscriptionChange);
 
   // Capture keypress events - need to get them before the tree does
   E("listStack").addEventListener("keypress", onListKeyPress, true);
@@ -158,8 +159,8 @@ function selectPattern(pattern) {
 
 // To be called when the window is closed
 function cleanUp() {
-  prefs.removeHitCountListener(onHitCountChange);
-  synchronizer.removeListener(synchCallback);
+  filterStorage.removeFilterObserver(onFilterChange);
+  filterStorage.removeSubscriptionObserver(onSubscriptionChange);
 }
 
 // Adds the filter entered into the input field to the list
@@ -436,8 +437,9 @@ function onListDragGesture(e) {
   treeView.startDrag(treeView.boxObject.getRowAt(e.clientX, e.clientY));
 }
 
-// To be called whenever synchronization status changes
-function synchCallback(orig, status) {
+function onSubscriptionChange(action, subscriptions)
+{
+  // TODO
   var i;
 
   // Checking orig instanceof Array won't work (array created in different context)
@@ -821,13 +823,15 @@ function togglePref(pref) {
 }
 
 // Updates hit count column whenever a value changes
-function onHitCountChange(pattern) {
-  if (pattern) {
-    if (!E("hitcount").hidden || !E("lasthit").hidden)
-      treeView.invalidatePattern(pattern);
+function onFilterChange(action, filters)
+{
+  if (action == "hit" && (!E("hitcount").hidden || !E("lasthit").hidden))
+  {
+    if (filters.length == 1)
+      treeView.invalidatePattern(filters[0]);
+    else
+      treeView.boxObject.invalidate();
   }
-  else
-    treeView.boxObject.invalidate();
 }
 
 // Saves the filter list
