@@ -190,6 +190,7 @@ function createSubscriptionWrapper(subscription)
   let wrapper = 
   {
     __proto__: subscription,
+    isWrapper: true,
     sortedFilters: subscription.filters,
     description: getSubscriptionDescription(subscription)
   };
@@ -236,7 +237,8 @@ function createFilterWrapper(filter)
 
   let wrapper = 
   {
-    __proto__: filter
+    __proto__: filter,
+    isWrapper: true
   };
   filterWrappers[filter.text] = wrapper;
   return wrapper;
@@ -335,9 +337,9 @@ function resetHitCounts(resetAll) {
   {
     let selected = treeView.getSelectedInfo();
     let list = [];
-    for (let i = 0; i < selected.length; i++)
-      if (selected[i][1] && typeof selected[i][1] != "string")
-        list.push(selected[i][1].orig);
+    for each (let [subscription, filter] in selected)
+      if (filter instanceof abp.Filter)
+        list.push("isWrapper" in filter ? filter.__proto__ : filter);
     filterStorage.resetHitCounts(list);
   }
 }
