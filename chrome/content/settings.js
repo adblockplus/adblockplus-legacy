@@ -815,15 +815,78 @@ function synchAllSubscriptions(forceDownload) {
   }
 }
 
-// Makes sure the right items in the options popup are checked/enabled
-function fillFiltersPopup(prefix) {
+/**
+ * Updates the contents of the Filters menu, making sure the right
+ * items are checked/enabled.
+ */
+function fillFiltersPopup(prefix)
+{
   let empty = !treeView.hasUserPatterns();
   E("export-command").setAttribute("disabled", empty);
   E("clearall").setAttribute("disabled", empty);
 }
 
-// Makes sure the right items in the options popup are checked
-function fillOptionsPopup() {
+/**
+ * Updates the contents of the View menu, making sure the right
+ * items are checked/enabled.
+ */
+function fillViewPopup()
+{
+  E("view-filter").setAttribute("checked", !E("pattern").hidden);
+  E("view-enabled").setAttribute("checked", !E("enabled").hidden);
+  E("view-hitcount").setAttribute("checked", !E("hitcount").hidden);
+  E("view-lasthit").setAttribute("checked", !E("lasthit").hidden);
+
+  let sortColumn = treeView.sortColumn;
+  let sortColumnID = (sortColumn ? sortColumn.id : null);
+  let sortDir = (sortColumn ? sortColumn.getAttribute("sortDirection") : "natural");
+  E("sort-none").setAttribute("checked", sortColumn == null);
+  E("sort-filter").setAttribute("checked", sortColumnID == "pattern");
+  E("sort-enabled").setAttribute("checked", sortColumnID == "enabled");
+  E("sort-hitcount").setAttribute("checked", sortColumnID == "hitcount");
+  E("sort-lasthit").setAttribute("checked", sortColumnID == "lasthit");
+  E("sort-asc").setAttribute("checked", sortDir == "ascending");
+  E("sort-desc").setAttribute("checked", sortDir == "descending");
+}
+
+/**
+ * Toggles visibility of a column.
+ * @param {String} col  ID of the column to made visible/invisible
+ */
+function toggleColumn(col)
+{
+  col = E(col);
+  col.hidden = !col.hidden;
+}
+
+/**
+ * Switches list sorting to the specified column. Sort order is kept.
+ * @param {String} col  ID of the column to sort by or null for unsorted
+ */
+function sortBy(col)
+{
+  if (col)
+    treeView.resort(E(col), treeView.sortColumn ? treeView.sortColumn.getAttribute("sortDirection") : "ascending");
+  else
+    treeView.resort(null, "natural");
+}
+
+/**
+ * Changes sort order of the list. Sorts by filter column if the list is unsorted.
+ * @param {String} order  either "ascending" or "descending"
+ */
+function setSortOrder(order)
+{
+  let col = treeView.sortColumn || E("pattern");
+  treeView.resort(col, order);
+}
+
+/**
+ * Updates the contents of the Options menu, making sure the right
+ * items are checked/enabled.
+ */
+function fillOptionsPopup()
+{
   E("abp-enabled").setAttribute("checked", prefs.enabled);
   E("frameobjects").setAttribute("checked", prefs.frameobjects);
   E("slowcollapse").setAttribute("checked", !prefs.fastcollapse);
@@ -1114,6 +1177,7 @@ let treeView = {
 
     // Check current sort direction
     let cols = document.getElementsByTagName("treecol");
+    let sortColumn = null;
     let sortDir = null;
     for (let i = 0; i < cols.length; i++)
     {
@@ -1121,13 +1185,13 @@ let treeView = {
       let dir = col.getAttribute("sortDirection");
       if (dir && dir != "natural")
       {
-        this.sortColumn = col;
+        sortColumn = col;
         sortDir = dir;
       }
     }
 
-    if (this.sortColumn)
-      this.resort(this.sortColumn.id, sortDir);
+    if (sortColumn)
+      this.resort(sortColumn, sortDir);
 
     // Make sure we stop the editor when scrolling
     let me = this;
@@ -1326,14 +1390,7 @@ let treeView = {
     else if (this.sortColumn)
       this.sortColumn.removeAttribute("sortDirection");
 
-    curDirection = cycle[curDirection];
-
-    this.resort(col.id, curDirection);
-
-    col.setAttribute("sortDirection", curDirection);
-    this.sortColumn = col;
-
-    this.boxObject.invalidate();
+    this.resort(col, cycle[curDirection]);
   },
 
   isSorted: function()
@@ -1564,21 +1621,30 @@ let treeView = {
 
   resort: function(col, direction)
   {
+    if (this.sortColumn)
+      this.sortColumn.removeAttribute("sortDirection");
+
     if (direction == "natural")
     {
+      this.sortColumn = null;
       this.sortProc = null;
       for each (let subscription in this.subscriptions)
         subscription.sortedFilters = subscription.filters;
     }
     else
     {
-      this.sortProc = this.sortProcs[col + (direction == "descending" ? "Desc" : "")];
+      this.sortColumn = col;
+      this.sortProc = this.sortProcs[col.id + (direction == "descending" ? "Desc" : "")];
       for each (let subscription in this.subscriptions)
       {
         subscription.sortedFilters = subscription.filters.slice();
         subscription.sortedFilters.sort(this.sortProc);
       }
+
+      this.sortColumn.setAttribute("sortDirection", direction);
     }
+
+    this.boxObject.invalidate();
   },
 
   selectRow: function(row) {

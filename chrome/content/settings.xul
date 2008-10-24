@@ -145,6 +145,27 @@
         <menuitem id="find-again" label="&menu.findagain.label;" accesskey="&menu.findagain.accesskey;" command="find-again-command" key="find-again-key"/>
       </menupopup>
     </menu>
+    <menu id="view-menu" label="&view.label;" accesskey="&view.accesskey;">
+      <menupopup id="view-popup" onpopupshowing="fillViewPopup()">
+        <menuitem id="view-filter" label="&pattern.column;" accesskey="&pattern.accesskey;" type="checkbox" disabled="true"/>
+        <menuitem id="view-enabled" label="&enabled.column;" accesskey="&enabled.accesskey;" type="checkbox" oncommand="toggleColumn('enabled')"/>
+        <menuitem id="view-hitcount" label="&hitcount.column;" accesskey="&hitcount.accesskey;" type="checkbox" oncommand="toggleColumn('hitcount')"/>
+        <menuitem id="view-lasthit" label="&lasthit.column;" accesskey="&lasthit.accesskey;" type="checkbox" oncommand="toggleColumn('lasthit')"/>
+        <menuseparator/>
+        <menu id="sort-menu" label="&sort.label;" accesskey="&sort.accesskey;">
+          <menupopup id="sort-popup">
+            <menuitem id="sort-none" label="&sort.none.label;" accesskey="&sort.none.accesskey;" type="radio" name="sortColumn" oncommand="sortBy(null)"/>
+            <menuitem id="sort-filter" label="&pattern.column;" accesskey="&pattern.accesskey;" type="radio" name="sortColumn" oncommand="sortBy('pattern')"/>
+            <menuitem id="sort-enabled" label="&enabled.column;" accesskey="&enabled.accesskey;" type="radio" name="sortColumn" oncommand="sortBy('enabled')"/>
+            <menuitem id="sort-hitcount" label="&hitcount.column;" accesskey="&hitcount.accesskey;" type="radio" name="sortColumn" oncommand="sortBy('hitcount')"/>
+            <menuitem id="sort-lasthit" label="&lasthit.column;" accesskey="&lasthit.accesskey;" type="radio" name="sortColumn" oncommand="sortBy('lasthit')"/>
+            <menuseparator/>
+            <menuitem id="sort-asc" label="&sort.ascending.label;" accesskey="&sort.ascending.accesskey;" type="radio" name="sortOrder" oncommand="setSortOrder('ascending')"/>
+            <menuitem id="sort-desc" label="&sort.descending.label;" accesskey="&sort.descending.accesskey;" type="radio" name="sortOrder" oncommand="setSortOrder('descending')"/>
+          </menupopup>
+        </menu>
+      </menupopup>
+    </menu>
     <menu id="options-menu" label="&options.label;" accesskey="&options.accesskey;">
       <menupopup id="options-popup" onpopupshowing="fillOptionsPopup()">
         <menuitem id="abp-enabled" label="&enable.label;" accesskey="&enable.accesskey;" type="checkbox" oncommand="togglePref('enabled')"/>
@@ -184,7 +205,7 @@
     </hbox>
   </deck>
   <stack id="listStack" flex="1">
-    <tree id="list" persist="closedSubscriptions" flex="1" seltype="multiple" enableColumnDrag="true" context="listitem-context">
+    <tree id="list" persist="closedSubscriptions" flex="1" seltype="multiple" hidecolumnpicker="true" enableColumnDrag="true" context="listitem-context">
       <treecols>
         <treecol id="pattern" label="&pattern.column;" primary="true" flex="10" persist="width ordinal sortDirection hidden"/>
         <splitter class="tree-splitter"/>
