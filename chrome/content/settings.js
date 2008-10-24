@@ -140,20 +140,23 @@ function init()
   window.dispatchEvent(e);
 }
 
-function setLocation(location) {
+function setLocation(location)
+{
   treeView.stopEditor(true);
   treeView.editorDummyInit = location;
   treeView.selectRow(0);
-  editorTimeout = setTimeout(function() {
+  editorTimeout = setTimeout(function()
+  {
     treeView.startEditor();
   }, 0);
 }
 
-function selectPattern(pattern) {
+function selectFilter(filter)
+{
   if (editorTimeout != null)
     clearTimeout(editorTimeout);
 
-  treeView.selectPattern(pattern.text);
+  treeView.selectFilter(filter.text);
   E("list").focus();
 }
 
@@ -1504,7 +1507,7 @@ var treeView = {
     treeView.boxObject.ensureRowIsVisible(row);
   },
 
-  selectPattern: function(text) {
+  selectFilter: function(text) {
     for (var i = 0; i < this.data.length; i++) {
       for (var j = 0; j < this.data[i].patterns.length; j++) {
         if (this.data[i].patterns[j].text == text) {
