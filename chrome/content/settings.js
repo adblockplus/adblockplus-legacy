@@ -1085,7 +1085,7 @@ let treeView = {
     this.boxObject = boxObject;
 
     let stringAtoms = ["col-pattern", "col-enabled", "col-hitcount", "col-lasthit", "type-comment", "type-filterlist", "type-whitelist", "type-elemhide", "type-invalid"];
-    let boolAtoms = ["selected", "dummy", "subscription", "description", "pattern", "pattern-regexp", "subscription-special", "subscription-external", "subscription-autoDownload", "subscription-disabled", "subscription-upgradeRequired", "pattern-disabled"];
+    let boolAtoms = ["selected", "dummy", "subscription", "description", "filter", "filter-regexp", "subscription-special", "subscription-external", "subscription-autoDownload", "subscription-disabled", "subscription-upgradeRequired", "filter-disabled"];
     let atomService = Components.classes["@mozilla.org/atom-service;1"]
                                 .getService(Components.interfaces.nsIAtomService);
 
@@ -1209,8 +1209,8 @@ let treeView = {
 
     properties.AppendElement(this.atoms["selected-" + this.selection.isSelected(row)]);
     properties.AppendElement(this.atoms["subscription-" + !filter]);
-    properties.AppendElement(this.atoms["pattern-" + (filter instanceof abp.Filter)]);
-    properties.AppendElement(this.atoms["pattern-regexp-" + (filter instanceof abp.RegExpFilter && !filter.shortcut)]);
+    properties.AppendElement(this.atoms["filter-" + (filter instanceof abp.Filter)]);
+    properties.AppendElement(this.atoms["filter-regexp-" + (filter instanceof abp.RegExpFilter && !filter.shortcut)]);
     properties.AppendElement(this.atoms["description-" + (typeof filter == "string")]);
     properties.AppendElement(this.atoms["subscription-special-" + (subscription instanceof abp.SpecialSubscription)]);
     properties.AppendElement(this.atoms["subscription-external-" + (subscription instanceof abp.ExternalSubscription)]);
@@ -1220,7 +1220,7 @@ let treeView = {
     if (filter instanceof abp.Filter)
     {
       if (filter instanceof abp.ActiveFilter)
-        properties.AppendElement(this.atoms["pattern-disabled-" + filter.disabled]);
+        properties.AppendElement(this.atoms["filter-disabled-" + filter.disabled]);
 
       if (filter instanceof abp.CommentFilter)
         properties.AppendElement(this.atoms["type-comment"]);

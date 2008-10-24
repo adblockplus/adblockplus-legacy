@@ -67,41 +67,41 @@ treechildren::-moz-tree-cell-text(col-pattern, description-true, selected-false)
   color: #808080;
 }
 
-treechildren::-moz-tree-cell-text(col-pattern, pattern-true, type-whitelist, selected-false) {
+treechildren::-moz-tree-cell-text(col-pattern, filter-true, type-whitelist, selected-false) {
   color: #008000;
 }
 
-treechildren::-moz-tree-cell-text(col-pattern, pattern-true, type-elemhide, selected-false) {
+treechildren::-moz-tree-cell-text(col-pattern, filter-true, type-elemhide, selected-false) {
   color: #000080;
 }
 
-treechildren::-moz-tree-image(col-pattern, pattern-true, pattern-regexp-true) {
+treechildren::-moz-tree-image(col-pattern, filter-true, filter-regexp-true) {
   list-style-image: url(regexp.gif);
 }
 
-treechildren::-moz-tree-cell-text(col-pattern, pattern-false, subscription-upgradeRequired-true, selected-false) {
+treechildren::-moz-tree-cell-text(col-pattern, filter-false, subscription-upgradeRequired-true, selected-false) {
   color: #FF0000;
 }
 
-treechildren::-moz-tree-row(pattern-true, pattern-disabled-true, selected-false),
+treechildren::-moz-tree-row(filter-true, filter-disabled-true, selected-false),
 treechildren::-moz-tree-row(subscription-special-false, subscription-disabled-true, selected-false) {
   background-color: #E0E0E0;
 }
 
-treechildren::-moz-tree-cell-text(col-pattern, pattern-true, type-comment, selected-false) {
+treechildren::-moz-tree-cell-text(col-pattern, filter-true, type-comment, selected-false) {
   color: #808080;
 }
 
-treechildren::-moz-tree-cell-text(col-pattern, pattern-true, type-invalid, selected-false) {
+treechildren::-moz-tree-cell-text(col-pattern, filter-true, type-invalid, selected-false) {
   color: #C00000;
 }
 
-treechildren::-moz-tree-image(col-enabled, pattern-true, subscription-disabled-false, pattern-disabled-true),
+treechildren::-moz-tree-image(col-enabled, filter-true, subscription-disabled-false, filter-disabled-true),
 treechildren::-moz-tree-image(col-enabled, subscription-true, subscription-special-false, subscription-disabled-true) {
   list-style-image: url(unchecked.gif);
 }
 
-treechildren::-moz-tree-image(col-enabled, pattern-true, subscription-disabled-false, pattern-disabled-false),
+treechildren::-moz-tree-image(col-enabled, filter-true, subscription-disabled-false, filter-disabled-false),
 treechildren::-moz-tree-image(col-enabled, subscription-true, subscription-special-false, subscription-disabled-false) {
   list-style-image: url(checked-green.png);
 }
