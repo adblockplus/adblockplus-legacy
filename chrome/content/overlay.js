@@ -648,7 +648,7 @@ function abpHasFilter(filter)
 {
   filter = abp.Filter.fromText(filter);
   for (let subscription in abp.filterStorage.subscriptions)
-    if (subscription instanceof abp.SpecialSubscription && subscription.filters.indexOf(filter))
+    if (subscription instanceof abp.SpecialSubscription && subscription.filters.indexOf(filter) >= 0)
       return true;
 
   return false;
