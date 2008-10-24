@@ -9,9 +9,11 @@ my %paths = (
 
 my @must_differ = (
   ['abp:overlay:opensidebar.accesskey', 'abp:overlay:settings.accesskey', 'abp:settings:options.accesskey', 'abp:settings:enable.accesskey', 'ehh:overlay:selectelement.accesskey'],
-  ['abp:settings:filters.accesskey', 'abp:settings:edit.accesskey', 'abp:settings:options.accesskey', 'abp:settings:help.accesskey', 'abp:settings:add.accesskey', 'abp:settings:apply.accesskey'],
+  ['abp:settings:filters.accesskey', 'abp:settings:edit.accesskey', 'abp:settings:view.accesskey', 'abp:settings:options.accesskey', 'abp:settings:help.accesskey', 'abp:settings:add.accesskey', 'abp:settings:apply.accesskey'],
   ['abp:settings:add.accesskey', 'abp:settings:addsubscription.accesskey', 'abp:settings:synchsubscriptions.accesskey', 'abp:settings:import.accesskey', 'abp:settings:export.accesskey', 'abp:settings:clearall.accesskey', 'abp:settings:resethitcounts.accesskey'],
   ['abp:settings:cut.accesskey', 'abp:settings:copy.accesskey', 'abp:settings:paste.accesskey', 'abp:settings:remove.accesskey', 'abp:settings:menu.find.accesskey', 'abp:settings:menu.findagain.accesskey'],
+  ['abp:settings:pattern.accesskey', 'abp:settings:enabled.accesskey', 'abp:settings:hitcount.accesskey', 'abp:settings:lasthit.accesskey', 'abp:settings:sort.accesskey'],
+  ['abp:settings:sort.none.accesskey', 'abp:settings:pattern.accesskey', 'abp:settings:enabled.accesskey', 'abp:settings:hitcount.accesskey', 'abp:settings:lasthit.accesskey', 'abp:settings:sort.ascending.accesskey', 'abp:settings:sort.descending.accesskey'],
   ['abp:settings:enable.accesskey', 'abp:settings:showintoolbar.accesskey', 'abp:settings:showinstatusbar.accesskey', 'abp:settings:objecttabs.accesskey', 'abp:settings:collapse.accesskey'],
   ['abp:settings:faq.accesskey', 'abp:settings:tips.accesskey', 'abp:settings:filterdoc.accesskey', 'abp:settings:about.accesskey'],
   ['abp:findbar:findNext.accesskey', 'abp:findbar:findPrevious.accesskey', 'abp:findbar:highlight.accesskey', 'abp:findbar:caseSensitiveCheckbox.accesskey'],
@@ -82,7 +84,7 @@ sub retrieveKey
 
   return undef unless exists $fileCache{$fileName};
 
-  die "Key $key not found" unless exists $fileCache{$fileName}{$keyName};
+  die "Key $key not found in locale $locale" unless exists $fileCache{$fileName}{$keyName};
   return $fileCache{$fileName}{$keyName};
 }
 

@@ -58,6 +58,18 @@
 <!ENTITY menu.findagain.label       "Find Again">
 <!ENTITY menu.findagain.accesskey   "G">
 
+<!ENTITY view.label                 "View">
+<!ENTITY view.accesskey             "V">
+
+<!ENTITY sort.label                 "Sort by">
+<!ENTITY sort.accesskey             "S">
+<!ENTITY sort.none.label            "Unsorted">
+<!ENTITY sort.none.accesskey        "U">
+<!ENTITY sort.ascending.label       "A > Z sort order">
+<!ENTITY sort.ascending.accesskey   "A">
+<!ENTITY sort.descending.label      "Z > A sort order">
+<!ENTITY sort.descending.accesskey  "Z">
+
 <!ENTITY options.label              "Options">
 <!ENTITY options.accesskey          "O">
 
@@ -90,9 +102,13 @@
 <!ENTITY description                "The following filters determine which addresses should be blocked and which ones should be allowed:">
 
 <!ENTITY pattern.column             "Filter rule">
+<!ENTITY pattern.accesskey          "F">
 <!ENTITY enabled.column             "Enabled">
+<!ENTITY enabled.accesskey          "n">
 <!ENTITY hitcount.column            "Hits">
+<!ENTITY hitcount.accesskey         "H">
 <!ENTITY lasthit.column             "Last hit">
+<!ENTITY lasthit.accesskey          "L">
 
 <!ENTITY context.edit.label         "Edit filter">
 <!ENTITY context.resethitcount.label      "Reset hit statistics for filter">
