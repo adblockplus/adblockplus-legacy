@@ -104,16 +104,16 @@
     <menuitem id="context-editsubscription" label="&context.editsubscription.label;..." oncommand="editFilter('subscription')" key="edit-key"/>
     <menuitem id="context-edit" label="&context.edit.label;" oncommand="editFilter('filter')" key="edit-key"/>
     <menuitem id="context-resethitcount" label="&context.resethitcount.label;..." oncommand="resetHitCounts(false)"/>
-    <menuitem id="context-moveup" label="&context.moveup.label;" oncommand="moveFilter('filter', true)" key="moveup-key"/>
-    <menuitem id="context-movedown" label="&context.movedown.label;" oncommand="moveFilter('filter', false)" key="movedown-key"/>
+    <menuitem id="context-moveup" label="&context.moveup.label;" oncommand="treeView.moveFilter(true)" key="moveup-key"/>
+    <menuitem id="context-movedown" label="&context.movedown.label;" oncommand="treeView.moveFilter(false)" key="movedown-key"/>
     <menuseparator id="context-filters-sep"/>
     <menuitem id="context-cut" label="&cut.label;" accesskey="&cut.accesskey;" command="cut-command"/>
     <menuitem id="context-copy" label="&copy.label;" accesskey="&copy.accesskey;" command="copy-command"/>
     <menuitem id="context-paste" label="&paste.label;" accesskey="&paste.accesskey;" command="paste-command"/>
     <menuitem id="context-remove" label="&remove.label;" accesskey="&remove.accesskey;" command="remove-command"/>
     <menuseparator id="context-group-sep"/>
-    <menuitem id="context-movegroupup" label="&context.movegroupup.label;" oncommand="moveFilter('subscription', true)" key="movegroupup-key"/>
-    <menuitem id="context-movegroupdown" label="&context.movegroupdown.label;" oncommand="moveFilter('subscription', false)" key="movegroupdown-key"/>
+    <menuitem id="context-movegroupup" label="&context.movegroupup.label;" oncommand="treeView.moveSubscription(true)" key="movegroupup-key"/>
+    <menuitem id="context-movegroupdown" label="&context.movegroupdown.label;" oncommand="treeView.moveSubscription(false)" key="movegroupdown-key"/>
   </popup>
   <tooltip id="regexp-tooltip" label="&regexp.tooltip;" onpopupshowing="return showRegExpTooltip(event)"/>
 </popupset>

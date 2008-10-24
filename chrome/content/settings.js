@@ -190,9 +190,10 @@ function createSubscriptionWrapper(subscription)
   let wrapper = 
   {
     __proto__: subscription,
-    sortedFilters: subscription.filters,
+    filters: subscription.filters.slice(),
     description: getSubscriptionDescription(subscription)
   };
+  wrapper.sortedFilters = wrapper.filters;
   subscriptionWrappers[subscription.url] = wrapper;
   return wrapper;
 }
@@ -532,8 +533,12 @@ function onListKeyPress(e) {
         forceValue = treeView.toggleDisabled(j, forceValue);
     }
   }
-  else if ((e.keyCode == e.DOM_VK_UP || e.keyCode == e.DOM_VK_DOWN) && modifiers == accelMask) {
-    moveFilter(e.shiftKey ? 'subscription' : 'filter', e.keyCode == e.DOM_VK_UP);
+  else if ((e.keyCode == e.DOM_VK_UP || e.keyCode == e.DOM_VK_DOWN) && modifiers == accelMask)
+  {
+    if (e.shiftKey)
+      treeView.moveSubscription(e.keyCode == e.DOM_VK_UP);
+    else
+      treeView.moveFilter(e.keyCode == e.DOM_VK_UP);
     e.stopPropagation();
   }
   else if (useTypeAheadFind && e.charCode && modifiers == 0 && String.fromCharCode(e.charCode) != " ") {
@@ -804,17 +809,6 @@ function synchAllSubscriptions(forceDownload) {
       synchronizer.execute(orig, forceDownload);
     }
   }
-}
-
-// Moves a pattern or subscription up and down in the list
-function moveFilter(type, up) {
-  let info = treeView.getRowInfo(treeView.selection.currentIndex);
-  if (!info[0])
-    return;
-
-  if (type == "subscription")
-    info[1] = null;
-  treeView.moveRow(info, up ? -1 : 1);
 }
 
 // Makes sure the right items in the options popup are checked/enabled
@@ -1520,15 +1514,19 @@ let treeView = {
   },
 
   // Returns the info for all selected rows, starting with the current row
-  getSelectedInfo: function() {
+  getSelectedInfo: function()
+  {
     let selected = [];
-    for (let i = 0; i < this.selection.getRangeCount(); i++) {
+    for (let i = 0; i < this.selection.getRangeCount(); i++)
+    {
       let min = {};
       let max = {};
       this.selection.getRangeAt(i, min, max);
-      for (let j = min.value; j <= max.value; j++) {
+      for (let j = min.value; j <= max.value; j++)
+      {
         let info = this.getRowInfo(j);
-        if (info[0]) {
+        if (info[0])
+        {
           if (j == treeView.selection.currentIndex)
             selected.unshift(info);
           else
@@ -1816,92 +1814,63 @@ let treeView = {
     }
   },
 
-  moveRow: function(info, offset) {
-    if (info[1] && typeof info[1] != "string") {
-      if (this.isSorted() || !info[0].special)
+  /**
+   * Moves a filter in the list up or down.
+   * @param {Boolean} up  if true, the filter is moved up
+   */
+  moveFilter: function(up)
+  {
+    let oldRow = this.selection.currentIndex;
+    let [subscription, filter] = this.getRowInfo(oldRow);
+    if (this.isSorted() || !(filter instanceof abp.Filter) || !(subscription instanceof abp.SpecialSubscription))
+      return;
+
+    let oldIndex = subscription.filters.indexOf(filter);
+    if (oldIndex < 0)
+      return;
+
+    let newIndex = (up ? oldIndex - 1 : oldIndex + 1);
+    if (newIndex < 0 || newIndex >= subscription.filters.length)
+      return;
+
+    [subscription.filters[oldIndex], subscription.filters[newIndex]] = [subscription.filters[newIndex], subscription.filters[oldIndex]];
+
+    let newRow = oldRow - oldIndex + newIndex;
+    this.boxObject.invalidateRange(Math.min(oldRow, newRow), Math.max(oldRow, newRow));
+    this.selectRow(newRow);
+
+    onChange();
+  },
+
+  /**
+   * Moves a filter in the list up or down.
+   * @param {Boolean} up  if true, the filter is moved up
+   */
+  moveSubscription: function(up)
+  {
+    let [subscription, filter] = this.getRowInfo(this.selection.currentIndex);
+
+    let oldIndex = this.subscriptions.indexOf(subscription);
+    if (oldIndex < 0)
+      return;
+
+    let oldRow = this.getSubscriptionRow(subscription);
+    let offset = this.selection.currentIndex - oldRow;
+    let newIndex;
+    do
+    {
+      newIndex = (up ? oldIndex - 1 : oldIndex + 1);
+      if (newIndex < 0 || newIndex >= this.subscriptions.length)
         return;
+    } while (this.subscriptions[newIndex] instanceof abp.SpecialSubscription && this.subscriptions[newIndex].filters.length == 0);
 
-      // Swapping two patterns within a subscription
-      let subscription = info[0];
-      let index = -1;
-      for (let i = 0; i < subscription.filters.length; i++)
-        if (subscription.filters[i] == info[1])
-          index = i;
+    [this.subscriptions[oldIndex], this.subscriptions[newIndex]] = [this.subscriptions[newIndex], this.subscriptions[oldIndex]];
 
-      if (index < 0)
-        return;
+    let newRow = this.getSubscriptionRow(subscription);
+    let rowCount = this.getSubscriptionRowCount(subscription);
+    this.boxObject.invalidateRange(Math.min(oldRow, newRow), Math.max(oldRow, newRow) + rowCount - 1);
+    this.selectRow(newRow + offset);
 
-      if (index + offset < 0)
-        offset = -index;
-      if (index + offset > subscription.filters.length - 1)
-        offset = subscription.filters.length - 1 - index;
-
-      if (offset == 0)
-        return;
-
-      let step = (offset < 0 ? -1 : 1);
-      for (i = index + step; i != index + offset + step; i += step) {
-        let tmp = subscription.filters[i].origPos;
-        subscription.filters[i].origPos = subscription.filters[i - step].origPos;
-        subscription.filters[i - step].origPos = tmp;
-  
-        tmp = subscription.filters[i];
-        subscription.filters[i] = subscription.filters[i - step];
-        subscription.filters[i - step] = tmp;
-      }
-
-      let parentRow = this.getSubscriptionRow(subscription);
-      let row, row1, row2;
-      row1 = row2 = parentRow + 1 + subscription.description.length + index;
-      if (offset < 0)
-        row = row1 += offset;
-      else
-        row = row2 += offset;
-      this.boxObject.invalidateRange(row1, row2);
-
-      this.selection.select(row);
-      this.boxObject.ensureRowIsVisible(row);
-    }
-    else {
-      // Moving a subscription
-      let index = -1;
-      for (i = 0; i < this.subscriptions.length; i++)
-        if (this.subscriptions[i] == info[0])
-          index = i;
-
-      if (index < 0)
-        return;
-
-      let step = (offset < 0 ? -1 : 1);
-      let current = index;
-      for (i = index + step; i >= 0 && i < this.subscriptions.length && offset != 0; i += step) {
-        // Ignore invisible groups
-        if (this.subscriptions[i].dummy || (this.subscriptions[i].special && this.subscriptions[i].filters.length == 0))
-          continue;
-
-        tmp = this.subscriptions[i];
-        this.subscriptions[i] = this.subscriptions[current];
-        this.subscriptions[current] = tmp;
-
-        current = i;
-        offset -= step;
-      }
-
-      // No movement - can return here
-      if (current == index)
-        return;
-
-      let startIndex = Math.min(current, index);
-      let endIndex = Math.max(current, index)
-      let startRow = this.getSubscriptionRow(this.subscriptions[startIndex]);
-      let endRow = this.getSubscriptionRow(this.subscriptions[endIndex]) + 1;
-      if (!(this.subscriptions[endIndex].url in this.closed))
-        endRow += this.subscriptions[endIndex].description.length + this.subscriptions[endIndex].filters.length;
-
-      this.boxObject.invalidateRange(startRow, endRow);
-      this.selection.select(this.getSubscriptionRow(info[0]));
-      this.boxObject.ensureRowIsVisible(this.getSubscriptionRow(info[0]));
-    }
     onChange();
   },
 
