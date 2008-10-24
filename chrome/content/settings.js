@@ -351,13 +351,20 @@ function resetHitCounts(resetAll)
   }
 }
 
+/**
+ * Gets the default download dir, as used by the browser itself.
+ * @return {nsIFile}
+ * @see saveDefaultDir()
+ */
 function getDefaultDir()
 {
   // Copied from Firefox: getTargetFile() in contentAreaUtils.js
-  try {
+  try
+  {
     return prefService.getComplexValue("browser.download.lastDir", Components.interfaces.nsILocalFile);
   }
-  catch (e) {
+  catch (e)
+  {
     // No default download location. Default to desktop. 
     let fileLocator = Components.classes["@mozilla.org/file/directory_service;1"]
                                 .getService(Components.interfaces.nsIProperties);
@@ -366,10 +373,17 @@ function getDefaultDir()
   }
 }
 
+/**
+ * Saves new default download dir after the user chose a different directory to
+ * save his files to.
+ * @param {nsIFile} dir
+ * @see getDefaultDir()
+ */
 function saveDefaultDir(dir)
 {
   // Copied from Firefox: getTargetFile() in contentAreaUtils.js
-  try {
+  try
+  {
     prefService.setComplexValue("browser.download.lastDir", Components.interfaces.nsILocalFile, dir);
   } catch(e) {};
 }
@@ -531,7 +545,8 @@ function exportList()
 }
 
 // Handles keypress event on the patterns list
-function onListKeyPress(e) {
+function onListKeyPress(e)
+{
   // Ignore any keys directed to the editor
   if (treeView.isEditing())
     return;
@@ -546,7 +561,8 @@ function onListKeyPress(e) {
 
   if ((e.keyCode == e.DOM_VK_RETURN || e.keyCode == e.DOM_VK_ENTER) && modifiers)
     document.documentElement.acceptDialog();
-  else if (e.keyCode == e.DOM_VK_RETURN || e.keyCode == e.DOM_VK_ENTER || e.keyCode == e.DOM_VK_F2) {
+  else if (e.keyCode == e.DOM_VK_RETURN || e.keyCode == e.DOM_VK_ENTER || e.keyCode == e.DOM_VK_F2)
+  {
     e.preventDefault();
     if (editFilter(''))
       e.stopPropagation();
@@ -581,7 +597,8 @@ function onListKeyPress(e) {
       treeView.moveFilter(e.keyCode == e.DOM_VK_UP);
     e.stopPropagation();
   }
-  else if (useTypeAheadFind && e.charCode && modifiers == 0 && String.fromCharCode(e.charCode) != " ") {
+  else if (useTypeAheadFind && e.charCode && modifiers == 0 && String.fromCharCode(e.charCode) != " ")
+  {
     openFindBar(String.fromCharCode(e.charCode));
     e.stopPropagation();
   }
@@ -589,7 +606,8 @@ function onListKeyPress(e) {
     synchSubscription(false);
 }
 
-function onListClick(e) {
+function onListClick(e)
+{
   if (e.button != 0)
     return;
 
@@ -614,7 +632,8 @@ function onListClick(e) {
   }
 }
 
-function onListDragGesture(e) {
+function onListDragGesture(e)
+{
   treeView.startDrag(treeView.boxObject.getRowAt(e.clientX, e.clientY));
 }
 
