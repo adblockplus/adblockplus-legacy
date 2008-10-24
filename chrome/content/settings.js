@@ -339,12 +339,11 @@ function resetHitCounts(resetAll)
     filterStorage.resetHitCounts(null);
   else if (!resetAll && confirm(abp.getString("resethitcounts_selected_warning")))
   {
-    let selected = treeView.getSelectedInfo();
-    let list = [];
-    for each (let [subscription, filter] in selected)
-      if (filter instanceof abp.Filter)
-        list.push("isWrapper" in filter ? filter.__proto__ : filter);
-    filterStorage.resetHitCounts(list);
+    let filters = treeView.getSelectedFilters();
+    filterStorage.resetHitCounts(filters.map(function(filter)
+    {
+      return ("isWrapper" in filter ? filter.__proto__ : filter);
+    }));
   }
 }
 
@@ -747,22 +746,19 @@ function removeFilters(type) {
 }
 
 // Copies selected filters to clipboard
-function copyToClipboard() {
-  // Retrieve selected items
-  let selected = treeView.getSelectedInfo();
-
-  let lines = [];
-  for (let i = 0; i < selected.length; i++)
-    if (selected[i][1] && typeof selected[i][1] != "string")
-      lines.push(selected[i][1].text);
-
-  if (!lines.length)
+function copyToClipboard()
+{
+  let selected = treeView.getSelectedFilters();
+  if (!selected.length)
     return;
 
   let clipboardHelper = Components.classes["@mozilla.org/widget/clipboardhelper;1"]
                                   .getService(Components.interfaces.nsIClipboardHelper);
   let lineBreak = abp.getLineBreak();
-  clipboardHelper.copyString(lines.join(lineBreak) + lineBreak);
+  clipboardHelper.copyString(selected.map(function(filter)
+  {
+    return filter.text;
+  }).join(lineBreak) + lineBreak);
 }
 
 // Pastes text as filter list from clipboard
@@ -1558,6 +1554,15 @@ let treeView = {
     return 1 + subscription.description.length + subscription.sortedFilters.length;
   },
 
+  /**
+   * Returns the filter displayed in the given row and the corresponding filter subscription.
+   * @param {Integer} row   row index
+   * @return {Array}  array with two elements indicating the contents of the row:
+   *                    [null, null] - empty row
+   *                    [Subscription, null] - subscription title row
+   *                    [Subscription, String] - subscription description row (row text is second array element)
+   *                    [Subscription, Filter] - filter from the given subscription
+   */
   getRowInfo: function(row)
   {
     for each (let subscription in this.subscriptions)
@@ -1590,7 +1595,29 @@ let treeView = {
     return [null, null];
   },
 
-  // Returns the info for all selected rows, starting with the current row
+  /**
+   * Returns the filters currently selected.
+   * @return {Array of Filter}
+   */
+  getSelectedFilters: function()
+  {
+    let result = [];
+    for (let i = 0; i < this.selection.getRangeCount(); i++)
+    {
+      let min = {};
+      let max = {};
+      this.selection.getRangeAt(i, min, max);
+      for (let j = min.value; j <= max.value; j++)
+      {
+        let [subscription, filter] = this.getRowInfo(j);
+        if (filter instanceof abp.Filter)
+          result.push(filter);
+      }
+    }
+    return result;
+  },
+
+   // Returns the info for all selected rows, starting with the current row
   getSelectedInfo: function()
   {
     let selected = [];
