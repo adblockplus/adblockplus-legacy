@@ -1078,7 +1078,8 @@ let treeView = {
   // nsITreeView implementation
   //
 
-  setTree: function(boxObject) {
+  setTree: function(boxObject)
+  {
     if (!boxObject)
       return;
 
@@ -1283,24 +1284,27 @@ let treeView = {
 
   toggleOpenState: function(row)
   {
-    let info = this.getRowInfo(row);
-    if (!info[0] || info[1])
+    let [subscription, filter] = this.getRowInfo(row);
+    if (!subscription || filter)
       return;
 
-    let count = info[0].description.length + info[0].filters.length;
-    if (info[0].url in this.closed) {
-      delete this.closed[info[0].url];
+    let count = subscription.description.length + subscription.filters.length;
+    if (subscription.url in this.closed)
+    {
+      delete this.closed[subscription.url];
       this.boxObject.rowCountChanged(row + 1, count);
     }
-    else {
-      this.closed[info[0].url] = true;
+    else
+    {
+      this.closed[subscription.url] = true;
       this.boxObject.rowCountChanged(row + 1, -count);
     }
     this.boxObject.invalidateRow(row);
 
+    // Update closedSubscriptions attribute so that the state persists
     let closed = [];
-    for (let id in this.closed)
-      closed.push(id);
+    for (let url in this.closed)
+      closed.push(url);
     this.boxObject.treeBody.parentNode.setAttribute("closedSubscriptions", closed.join(" "));
   },
 
