@@ -339,7 +339,7 @@ function resetHitCounts(resetAll)
     filterStorage.resetHitCounts(null);
   else if (!resetAll && confirm(abp.getString("resethitcounts_selected_warning")))
   {
-    let filters = treeView.getSelectedFilters();
+    let filters = treeView.getSelectedFilters(false);
     filterStorage.resetHitCounts(filters.map(function(filter)
     {
       return ("isWrapper" in filter ? filter.__proto__ : filter);
@@ -532,14 +532,22 @@ function onListKeyPress(e) {
     removeFilters('');
   else if (e.keyCode == e.DOM_VK_INSERT)
     addFilter();
-  else if (e.charCode == 32 && !E("col-enabled").hidden) {
-    let forceValue = undefined;
-    for (let i = 0; i < treeView.selection.getRangeCount(); i++) {
-      let min = {};
-      let max = {};
-      treeView.selection.getRangeAt(i, min, max);
-      for (let j = min.value; j <= max.value; j++)
-        forceValue = treeView.toggleDisabled(j, forceValue);
+  else if (e.charCode == e.DOM_VK_SPACE && !E("col-enabled").hidden)
+  {
+    // Look for selected filters first
+    let selected = treeView.getSelectedFilters(true).filter(function(filter)
+    {
+      return filter instanceof abp.ActiveFilter;
+    });
+
+    if (selected.length)
+      treeView.toggleDisabled(selected);
+    else
+    {
+      // No filters selected, maybe a subscription?
+      let [subscription, filter] = treeView.getRowInfo(treeView.selection.currentIndex);
+      if (subscription && !filter)
+        treeView.toggleDisabled([subscription]);
     }
   }
   else if ((e.keyCode == e.DOM_VK_UP || e.keyCode == e.DOM_VK_DOWN) && modifiers == accelMask)
@@ -573,10 +581,14 @@ function onListClick(e) {
   if (col == "col-filter" && row.value == 0)
     editFilter('');
 
-  if (col != "col-enabled")
-    return;
-
-  treeView.toggleDisabled(row.value);
+  if (col == "col-enabled")
+  {
+    let [subscription, filter] = treeView.getRowInfo(row.value);
+    if (subscription && !filter)
+      treeView.toggleDisabled([subscription]);
+    else if (filter instanceof abp.ActiveFilter)
+      treeView.toggleDisabled([filter]);
+  }
 }
 
 function onListDragGesture(e) {
@@ -745,10 +757,12 @@ function removeFilters(type) {
   }
 }
 
-// Copies selected filters to clipboard
+/**
+ * Copies selected filters to clipboard.
+ */
 function copyToClipboard()
 {
-  let selected = treeView.getSelectedFilters();
+  let selected = treeView.getSelectedFilters(false);
   if (!selected.length)
     return;
 
@@ -1597,9 +1611,10 @@ let treeView = {
 
   /**
    * Returns the filters currently selected.
+   * @param {Boolean} prependCurrent if true, current element will be returned first
    * @return {Array of Filter}
    */
-  getSelectedFilters: function()
+  getSelectedFilters: function(prependCurrent)
   {
     let result = [];
     for (let i = 0; i < this.selection.getRangeCount(); i++)
@@ -1611,7 +1626,12 @@ let treeView = {
       {
         let [subscription, filter] = this.getRowInfo(j);
         if (filter instanceof abp.Filter)
-          result.push(filter);
+        {
+          if (prependCurrent && j == this.selection.currentIndex)
+            result.unshift(filter);
+          else
+            result.push(filter);
+        }
       }
     }
     return result;
@@ -1639,6 +1659,57 @@ let treeView = {
       }
     }
     return selected;
+  },
+
+  /**
+   * Checks whether the filter already has a wrapper. If
+   * not, replaces all instances of the filter but the
+   * wrapper.
+   * @param {Filter} filter   filter to be tested
+   * @return {Filter} wrapped filter
+   */
+  ensureFilterWrapper: function(filter)
+  {
+    if ("isWrapper" in filter)
+      return filter;
+
+    let wrapper = createFilterWrapper(filter);
+    for each (let subscription in this.subscriptions)
+    {
+      // Replace filter by its wrapper in all subscriptions
+      let index = -1;
+      let found = false;
+      do
+      {
+        index = subscription.filters.indexOf(filter, index + 1);
+        if (index >= 0)
+        {
+          if (!subscription.hasOwnProperty("filters"))
+            subscription.filters = subscription.filters.slice();
+
+          subscription.filters[index] = wrapper;
+          found = true;
+        }
+      } while (index >= 0);
+
+      if (found)
+      {
+        if (treeView.sortProc)
+        {
+          // Sorted filter list needs updating as well
+          index = -1;
+          do
+          {
+            index = subscription.sortedFilters.indexOf(filter, index + 1);
+            if (index >= 0)
+              subscription.sortedFilters[index] = wrapper;
+          } while (index >= 0);
+        }
+        else
+          subscription.sortedFilters = subscription.filters;
+      }
+    }
+    return wrapper;
   },
 
   sortProcs: {
@@ -2047,42 +2118,31 @@ let treeView = {
     } catch(e) {}
   },
 
-  toggleDisabled: function(row, forceValue) {
-    let info = treeView.getRowInfo(row);
-    if (!info[0] || typeof info[1] == "string" || (!info[1] && info[0].special) || info[0].dummy)
-      return forceValue;
-    if (info[1] && (info[1].type == "comment" || info[1].type == "invalid" || info[1].dummy))
-      return forceValue;
-    if (info[1] && !info[0].special && info[0].disabled)
-      return forceValue;
+  /**
+   * Toggles disabled state of the selected filters/subscriptions.
+   * @param {Array of Filter or Subscription} items
+   */
+  toggleDisabled: function(items)
+  {
+    let newValue;
+    for each (let item in items)
+    {
+      if (!(item instanceof abp.ActiveFilter || item instanceof abp.Subscription))
+        return;
 
-    if (info[1]) {
-      if (typeof forceValue == "undefined")
-        forceValue = !(info[1].text in this.disabled);
+      if (item instanceof abp.ActiveFilter)
+        item = this.ensureFilterWrapper(item);
 
-      if (forceValue)
-        this.disabled[info[1].text] = true;
-      else
-        delete this.disabled[info[1].text];
-
-      this.invalidatePattern(info[1]);
+      if (typeof newValue == "undefined")
+        newValue = !item.disabled;
+      item.disabled = newValue;
     }
-    else {
-      if (typeof forceValue == "undefined")
-        forceValue = !info[0].disabled;
 
-      info[0].disabled = forceValue;
-
-      let min = this.boxObject.getFirstVisibleRow();
-      let max = this.boxObject.getLastVisibleRow();
-      for (let i = min; i <= max; i++) {
-        let rowInfo = this.getRowInfo(i);
-        if (rowInfo[0] && rowInfo[0] == info[0])
-          this.boxObject.invalidateRow(i);
-      }
+    if (typeof newValue != "undefined")
+    {
+      this.boxObject.invalidate();
+      onChange();
     }
-    onChange();
-    return forceValue;
   },
 
   invalidatePattern: function(pattern) {

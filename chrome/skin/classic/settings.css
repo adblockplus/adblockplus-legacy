@@ -84,7 +84,7 @@ treechildren::-moz-tree-cell-text(col-filter, filter-false, subscription-upgrade
 }
 
 treechildren::-moz-tree-row(filter-true, filter-disabled-true, selected-false),
-treechildren::-moz-tree-row(subscription-special-false, subscription-disabled-true, selected-false) {
+treechildren::-moz-tree-row(subscription-disabled-true, selected-false) {
   background-color: #E0E0E0;
 }
 
