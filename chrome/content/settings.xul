@@ -147,18 +147,18 @@
     </menu>
     <menu id="view-menu" label="&view.label;" accesskey="&view.accesskey;">
       <menupopup id="view-popup" onpopupshowing="fillViewPopup()">
-        <menuitem id="view-filter" label="&pattern.column;" accesskey="&pattern.accesskey;" type="checkbox" disabled="true"/>
-        <menuitem id="view-enabled" label="&enabled.column;" accesskey="&enabled.accesskey;" type="checkbox" oncommand="toggleColumn('enabled')"/>
-        <menuitem id="view-hitcount" label="&hitcount.column;" accesskey="&hitcount.accesskey;" type="checkbox" oncommand="toggleColumn('hitcount')"/>
-        <menuitem id="view-lasthit" label="&lasthit.column;" accesskey="&lasthit.accesskey;" type="checkbox" oncommand="toggleColumn('lasthit')"/>
+        <menuitem id="view-filter" label="&filter.column;" accesskey="&filter.accesskey;" type="checkbox" disabled="true"/>
+        <menuitem id="view-enabled" label="&enabled.column;" accesskey="&enabled.accesskey;" type="checkbox" oncommand="toggleColumn('col-enabled')"/>
+        <menuitem id="view-hitcount" label="&hitcount.column;" accesskey="&hitcount.accesskey;" type="checkbox" oncommand="toggleColumn('col-hitcount')"/>
+        <menuitem id="view-lasthit" label="&lasthit.column;" accesskey="&lasthit.accesskey;" type="checkbox" oncommand="toggleColumn('col-lasthit')"/>
         <menuseparator/>
         <menu id="sort-menu" label="&sort.label;" accesskey="&sort.accesskey;">
           <menupopup id="sort-popup">
             <menuitem id="sort-none" label="&sort.none.label;" accesskey="&sort.none.accesskey;" type="radio" name="sortColumn" oncommand="sortBy(null)"/>
-            <menuitem id="sort-filter" label="&pattern.column;" accesskey="&pattern.accesskey;" type="radio" name="sortColumn" oncommand="sortBy('pattern')"/>
-            <menuitem id="sort-enabled" label="&enabled.column;" accesskey="&enabled.accesskey;" type="radio" name="sortColumn" oncommand="sortBy('enabled')"/>
-            <menuitem id="sort-hitcount" label="&hitcount.column;" accesskey="&hitcount.accesskey;" type="radio" name="sortColumn" oncommand="sortBy('hitcount')"/>
-            <menuitem id="sort-lasthit" label="&lasthit.column;" accesskey="&lasthit.accesskey;" type="radio" name="sortColumn" oncommand="sortBy('lasthit')"/>
+            <menuitem id="sort-filter" label="&filter.column;" accesskey="&filter.accesskey;" type="radio" name="sortColumn" oncommand="sortBy('col-filter')"/>
+            <menuitem id="sort-enabled" label="&enabled.column;" accesskey="&enabled.accesskey;" type="radio" name="sortColumn" oncommand="sortBy('col-enabled')"/>
+            <menuitem id="sort-hitcount" label="&hitcount.column;" accesskey="&hitcount.accesskey;" type="radio" name="sortColumn" oncommand="sortBy('col-hitcount')"/>
+            <menuitem id="sort-lasthit" label="&lasthit.column;" accesskey="&lasthit.accesskey;" type="radio" name="sortColumn" oncommand="sortBy('col-lasthit')"/>
             <menuseparator/>
             <menuitem id="sort-asc" label="&sort.ascending.label;" accesskey="&sort.ascending.accesskey;" type="radio" name="sortOrder" oncommand="setSortOrder('ascending')"/>
             <menuitem id="sort-desc" label="&sort.descending.label;" accesskey="&sort.descending.accesskey;" type="radio" name="sortOrder" oncommand="setSortOrder('descending')"/>
@@ -207,13 +207,13 @@
   <stack id="listStack" flex="1">
     <tree id="list" persist="closedSubscriptions" flex="1" seltype="multiple" hidecolumnpicker="true" enableColumnDrag="true" context="listitem-context">
       <treecols>
-        <treecol id="pattern" label="&pattern.column;" primary="true" flex="10" persist="width ordinal sortDirection hidden"/>
+        <treecol id="col-filter" label="&filter.column;" primary="true" flex="10" persist="width ordinal sortDirection hidden"/>
         <splitter class="tree-splitter"/>
-        <treecol id="enabled" label="&enabled.column;" flex="0" persist="width ordinal sortDirection hidden"/>
+        <treecol id="col-enabled" label="&enabled.column;" flex="0" persist="width ordinal sortDirection hidden"/>
         <splitter class="tree-splitter"/>
-        <treecol id="hitcount" label="&hitcount.column;" flex="0" persist="width ordinal sortDirection hidden"/>
+        <treecol id="col-hitcount" label="&hitcount.column;" flex="0" persist="width ordinal sortDirection hidden"/>
         <splitter class="tree-splitter"/>
-        <treecol id="lasthit" label="&lasthit.column;" hidden="true" flex="4" persist="width ordinal sortDirection hidden"/>
+        <treecol id="col-lasthit" label="&lasthit.column;" hidden="true" flex="4" persist="width ordinal sortDirection hidden"/>
       </treecols>
 
       <treechildren tooltip="regexp-tooltip" onclick="onListClick(event)" ondraggesture="onListDragGesture(event)" ondblclick="if (event.button == 0) editFilter('')"/>

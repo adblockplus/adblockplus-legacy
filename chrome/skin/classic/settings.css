@@ -62,24 +62,24 @@ deck, deck * {
   text-align: right;
 }
 
-treechildren::-moz-tree-cell-text(col-pattern, description-true, selected-false) {
+treechildren::-moz-tree-cell-text(col-filter, description-true, selected-false) {
   font-size: 80%;
   color: #808080;
 }
 
-treechildren::-moz-tree-cell-text(col-pattern, filter-true, type-whitelist, selected-false) {
+treechildren::-moz-tree-cell-text(col-filter, filter-true, type-whitelist, selected-false) {
   color: #008000;
 }
 
-treechildren::-moz-tree-cell-text(col-pattern, filter-true, type-elemhide, selected-false) {
+treechildren::-moz-tree-cell-text(col-filter, filter-true, type-elemhide, selected-false) {
   color: #000080;
 }
 
-treechildren::-moz-tree-image(col-pattern, filter-true, filter-regexp-true) {
+treechildren::-moz-tree-image(col-filter, filter-true, filter-regexp-true) {
   list-style-image: url(regexp.gif);
 }
 
-treechildren::-moz-tree-cell-text(col-pattern, filter-false, subscription-upgradeRequired-true, selected-false) {
+treechildren::-moz-tree-cell-text(col-filter, filter-false, subscription-upgradeRequired-true, selected-false) {
   color: #FF0000;
 }
 
@@ -88,11 +88,11 @@ treechildren::-moz-tree-row(subscription-special-false, subscription-disabled-tr
   background-color: #E0E0E0;
 }
 
-treechildren::-moz-tree-cell-text(col-pattern, filter-true, type-comment, selected-false) {
+treechildren::-moz-tree-cell-text(col-filter, filter-true, type-comment, selected-false) {
   color: #808080;
 }
 
-treechildren::-moz-tree-cell-text(col-pattern, filter-true, type-invalid, selected-false) {
+treechildren::-moz-tree-cell-text(col-filter, filter-true, type-invalid, selected-false) {
   color: #C00000;
 }
 
