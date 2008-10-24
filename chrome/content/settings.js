@@ -1191,41 +1191,48 @@ let treeView = {
       return filter;
   },
 
-  getColumnProperties: function(col, properties) {
+  getColumnProperties: function(col, properties)
+  {
     col = col.id;
 
     if ("col-" + col in this.atoms)
       properties.AppendElement(this.atoms["col-" + col]);
   },
 
-  getRowProperties: function(row, properties) {
+  getRowProperties: function(row, properties)
+  {
     let info = this.getRowInfo(row);
     if (!info)
       return;
 
-    let origSubscription = prefs.knownSubscriptions[info[0].url];
-    if (typeof origSubscription == "undefined")
-      origSubscription = null;
+    let [subscription, filter] = info;
 
     properties.AppendElement(this.atoms["selected-" + this.selection.isSelected(row)]);
-    properties.AppendElement(this.atoms["subscription-" + !info[1]]);
-    properties.AppendElement(this.atoms["pattern-" + !!(info[1] && typeof info[1] != "string")]);
-    properties.AppendElement(this.atoms["pattern-regexp-" + !!(info[1] && typeof info[1] != "string" && (info[1].type == "filterlist" || info[1].type == "whitelist") && !("shortcut" in info[1]))]);
-    properties.AppendElement(this.atoms["description-" + !!(info[1] && typeof info[1] == "string")]);
-    properties.AppendElement(this.atoms["subscription-special-" + info[0].special]);
-    properties.AppendElement(this.atoms["subscription-external-" + (!info[0].special && info[0].external)]);
-    properties.AppendElement(this.atoms["subscription-autoDownload-" + (info[0].special || info[0].autoDownload)]);
-    properties.AppendElement(this.atoms["subscription-disabled-" + (!info[0].special && info[0].disabled)]);
-    properties.AppendElement(this.atoms["subscription-upgradeRequired-" + (origSubscription && "upgradeRequired" in origSubscription)]);
-    let dummy = info[0].dummy;
-    if (info[1] && typeof info[1] != "string") {
-      dummy = info[1].dummy;
-      if (info[1].type != "comment" && info[1].type != "invalid")
-        properties.AppendElement(this.atoms["pattern-disabled-" + (info[1].text in this.disabled)]);
-      if ("type-" + info[1].type in this.atoms)
-        properties.AppendElement(this.atoms["type-" + info[1].type]);
+    properties.AppendElement(this.atoms["subscription-" + !filter]);
+    properties.AppendElement(this.atoms["pattern-" + (filter instanceof abp.Filter)]);
+    properties.AppendElement(this.atoms["pattern-regexp-" + (filter instanceof abp.RegExpFilter && !filter.shortcut)]);
+    properties.AppendElement(this.atoms["description-" + (typeof filter == "string")]);
+    properties.AppendElement(this.atoms["subscription-special-" + (subscription instanceof abp.SpecialSubscription)]);
+    properties.AppendElement(this.atoms["subscription-external-" + (subscription instanceof abp.ExternalSubscription)]);
+    properties.AppendElement(this.atoms["subscription-autoDownload-" + (subscription instanceof abp.DownloadableSubscription && subscription.autoDownload)]);
+    properties.AppendElement(this.atoms["subscription-disabled-" + subscription.disabled]);
+    properties.AppendElement(this.atoms["subscription-upgradeRequired-" + (subscription instanceof abp.DownloadableSubscription && subscription.upgradeRequired)]);
+    if (filter instanceof abp.Filter)
+    {
+      if (filter instanceof abp.ActiveFilter)
+        properties.AppendElement(this.atoms["pattern-disabled-" + filter.disabled]);
+
+      if (filter instanceof abp.CommentFilter)
+        properties.AppendElement(this.atoms["type-comment"]);
+      else if (filter instanceof abp.RegExpFilter)
+        properties.AppendElement(this.atoms["type-filterlist"]);
+      else if (filter instanceof abp.WhitelistFilter)
+        properties.AppendElement(this.atoms["type-whitelist"]);
+      else if (filter instanceof abp.ElemHideFilter)
+        properties.AppendElement(this.atoms["type-elemhide"]);
+      else if (filter instanceof abp.InvalidFilter)
+        properties.AppendElement(this.atoms["type-invalid"]);
     }
-    properties.AppendElement(this.atoms["dummy-" + dummy]);
   },
 
   getCellProperties: function(row, col, properties)
