@@ -527,7 +527,7 @@ function onListKeyPress(e) {
     removeFilters('');
   else if (e.keyCode == e.DOM_VK_INSERT)
     addFilter();
-  else if (e.charCode == 32 && !E("enabled").hidden) {
+  else if (e.charCode == 32 && !E("col-enabled").hidden) {
     let forceValue = undefined;
     for (let i = 0; i < treeView.selection.getRangeCount(); i++) {
       let min = {};
@@ -565,10 +565,10 @@ function onListClick(e) {
     return;
 
   col = col.value.id;
-  if (col == "pattern" && row.value == 0)
+  if (col == "col-filter" && row.value == 0)
     editFilter('');
 
-  if (col != "enabled")
+  if (col != "col-enabled")
     return;
 
   treeView.toggleDisabled(row.value);
@@ -640,7 +640,7 @@ function onSubscriptionChange(action, subscriptions)
         treeView.removePattern(pattern);
     }
     else if (status == "disable") {
-      if (!E("enabled").hidden)
+      if (!E("col-enabled").hidden)
       {
         for each (let pattern in orig)
         {
@@ -832,19 +832,19 @@ function fillFiltersPopup(prefix)
  */
 function fillViewPopup()
 {
-  E("view-filter").setAttribute("checked", !E("pattern").hidden);
-  E("view-enabled").setAttribute("checked", !E("enabled").hidden);
-  E("view-hitcount").setAttribute("checked", !E("hitcount").hidden);
-  E("view-lasthit").setAttribute("checked", !E("lasthit").hidden);
+  E("view-filter").setAttribute("checked", !E("col-filter").hidden);
+  E("view-enabled").setAttribute("checked", !E("col-enabled").hidden);
+  E("view-hitcount").setAttribute("checked", !E("col-hitcount").hidden);
+  E("view-lasthit").setAttribute("checked", !E("col-lasthit").hidden);
 
   let sortColumn = treeView.sortColumn;
   let sortColumnID = (sortColumn ? sortColumn.id : null);
   let sortDir = (sortColumn ? sortColumn.getAttribute("sortDirection") : "natural");
   E("sort-none").setAttribute("checked", sortColumn == null);
-  E("sort-filter").setAttribute("checked", sortColumnID == "pattern");
-  E("sort-enabled").setAttribute("checked", sortColumnID == "enabled");
-  E("sort-hitcount").setAttribute("checked", sortColumnID == "hitcount");
-  E("sort-lasthit").setAttribute("checked", sortColumnID == "lasthit");
+  E("sort-filter").setAttribute("checked", sortColumnID == "col-filter");
+  E("sort-enabled").setAttribute("checked", sortColumnID == "col-enabled");
+  E("sort-hitcount").setAttribute("checked", sortColumnID == "col-hitcount");
+  E("sort-lasthit").setAttribute("checked", sortColumnID == "col-lasthit");
   E("sort-asc").setAttribute("checked", sortDir == "ascending");
   E("sort-desc").setAttribute("checked", sortDir == "descending");
 }
@@ -877,7 +877,7 @@ function sortBy(col)
  */
 function setSortOrder(order)
 {
-  let col = treeView.sortColumn || E("pattern");
+  let col = treeView.sortColumn || E("col-filter");
   treeView.resort(col, order);
 }
 
@@ -1013,7 +1013,7 @@ function togglePref(pref) {
 // Updates hit count column whenever a value changes
 function onFilterChange(action, filters)
 {
-  if (action == "hit" && (!E("hitcount").hidden || !E("lasthit").hidden))
+  if (action == "hit" && (!E("col-hitcount").hidden || !E("col-lasthit").hidden))
   {
     if (filters.length == 1)
       treeView.invalidatePattern(filters[0]);
@@ -1033,7 +1033,7 @@ function showRegExpTooltip(event) {
   let col = {};
   let childElement = {};
   treeView.boxObject.getCellAt(event.clientX, event.clientY, {}, col, childElement);
-  return (col.value.id == "pattern" && childElement.value == "image");
+  return (col.value.id == "col-filter" && childElement.value == "image");
 }
 
 // Opens About Adblock Plus dialog
@@ -1149,7 +1149,7 @@ let treeView = {
 
     this.boxObject = boxObject;
 
-    let stringAtoms = ["col-pattern", "col-enabled", "col-hitcount", "col-lasthit", "type-comment", "type-filterlist", "type-whitelist", "type-elemhide", "type-invalid"];
+    let stringAtoms = ["col-filter", "col-enabled", "col-hitcount", "col-lasthit", "type-comment", "type-filterlist", "type-whitelist", "type-elemhide", "type-invalid"];
     let boolAtoms = ["selected", "dummy", "subscription", "description", "filter", "filter-regexp", "subscription-special", "subscription-external", "subscription-autoDownload", "subscription-disabled", "subscription-upgradeRequired", "filter-disabled"];
     let atomService = Components.classes["@mozilla.org/atom-service;1"]
                                 .getService(Components.interfaces.nsIAtomService);
@@ -1223,11 +1223,11 @@ let treeView = {
     col = col.id;
 
     // Only three columns have text
-    if (col != "pattern" && col != "hitcount" && col != "lasthit")
+    if (col != "col-filter" && col != "col-hitcount" && col != "col-lasthit")
       return null;
 
     // Don't show text in the edited row
-    if (col == "pattern" && this.editedRow == row)
+    if (col == "col-filter" && this.editedRow == row)
       return null;
 
     let [subscription, filter] = this.getRowInfo(row);
@@ -1236,11 +1236,11 @@ let treeView = {
 
     if (filter instanceof abp.Filter)
     {
-      if (col == "pattern")
+      if (col == "col-filter")
         return filter.text;
       else if (filter instanceof abp.ActiveFilter)
       {
-        if (col == "hitcount")
+        if (col == "col-hitcount")
           return filter.hitCount;
         else
           return (filter.lastHit ? new Date(filter.lastHit).toLocaleString() : null);
@@ -1248,7 +1248,7 @@ let treeView = {
       else
         return null;
     }
-    else if (col != "pattern")
+    else if (col != "col-filter")
       return null;
     else if (!filter)
       return (subscription instanceof abp.SpecialSubscription ? "" : this.titlePrefix) + subscription.title;
@@ -1260,8 +1260,8 @@ let treeView = {
   {
     col = col.id;
 
-    if ("col-" + col in this.atoms)
-      properties.AppendElement(this.atoms["col-" + col]);
+    if (col in this.atoms)
+      properties.AppendElement(this.atoms[col]);
   },
 
   getRowProperties: function(row, properties)
@@ -1609,8 +1609,8 @@ let treeView = {
   },
 
   sortProcs: {
-    pattern: sortByText,
-    patternDesc: sortByTextDesc,
+    filter: sortByText,
+    filterDesc: sortByTextDesc,
     enabled: createSortWithFallback(compareEnabled, sortByText, false),
     enabledDesc: createSortWithFallback(compareEnabled, sortByText, true),
     hitcount: createSortWithFallback(compareHitCount, sortByText, false),
@@ -1634,7 +1634,7 @@ let treeView = {
     else
     {
       this.sortColumn = col;
-      this.sortProc = this.sortProcs[col.id + (direction == "descending" ? "Desc" : "")];
+      this.sortProc = this.sortProcs[col.id.replace(/^col-/, "") + (direction == "descending" ? "Desc" : "")];
       for each (let subscription in this.subscriptions)
       {
         subscription.sortedFilters = subscription.filters.slice();

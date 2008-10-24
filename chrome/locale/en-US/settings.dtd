@@ -101,8 +101,8 @@
 
 <!ENTITY description                "The following filters determine which addresses should be blocked and which ones should be allowed:">
 
-<!ENTITY pattern.column             "Filter rule">
-<!ENTITY pattern.accesskey          "F">
+<!ENTITY filter.column              "Filter rule">
+<!ENTITY filter.accesskey           "F">
 <!ENTITY enabled.column             "Enabled">
 <!ENTITY enabled.accesskey          "n">
 <!ENTITY hitcount.column            "Hits">
