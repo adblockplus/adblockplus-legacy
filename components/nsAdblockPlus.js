@@ -341,7 +341,7 @@ const abp = {
       if (typeof location != "undefined" && location)
         dlg.setLocation(location);
       if (typeof filter != "undefined" && filter)
-        dlg.selectPattern(filter);
+        dlg.selectFilter(filter);
     }
 
     if (dlg) {
