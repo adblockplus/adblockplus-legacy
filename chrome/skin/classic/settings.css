@@ -62,10 +62,6 @@ deck, deck * {
   text-align: right;
 }
 
-treechildren::-moz-tree-cell-text(col-pattern, dummy-true) {
-  font-style: italic;
-}
-
 treechildren::-moz-tree-cell-text(col-pattern, description-true, selected-false) {
   font-size: 80%;
   color: #808080;
@@ -100,13 +96,13 @@ treechildren::-moz-tree-cell-text(col-pattern, pattern-true, type-invalid, selec
   color: #C00000;
 }
 
-treechildren::-moz-tree-image(col-enabled, pattern-true, subscription-disabled-false, pattern-disabled-true, dummy-false),
-treechildren::-moz-tree-image(col-enabled, subscription-true, subscription-special-false, subscription-disabled-true, dummy-false) {
+treechildren::-moz-tree-image(col-enabled, pattern-true, subscription-disabled-false, pattern-disabled-true),
+treechildren::-moz-tree-image(col-enabled, subscription-true, subscription-special-false, subscription-disabled-true) {
   list-style-image: url(unchecked.gif);
 }
 
-treechildren::-moz-tree-image(col-enabled, pattern-true, subscription-disabled-false, pattern-disabled-false, dummy-false),
-treechildren::-moz-tree-image(col-enabled, subscription-true, subscription-special-false, subscription-disabled-false, dummy-false) {
+treechildren::-moz-tree-image(col-enabled, pattern-true, subscription-disabled-false, pattern-disabled-false),
+treechildren::-moz-tree-image(col-enabled, subscription-true, subscription-special-false, subscription-disabled-false) {
   list-style-image: url(checked-green.png);
 }
 
