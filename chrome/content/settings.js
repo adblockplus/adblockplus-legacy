@@ -85,7 +85,8 @@ function init()
     isMac = /mac/i.test(window.navigator.oscpu);
   if (isMac)
   {
-    let copyAttributes = function(from, to) {
+    function copyAttributes(from, to)
+    {
       for (let i = 0; i < from.attributes.length; i++)
         to.setAttribute(from.attributes[i].name, from.attributes[i].value);
     }
