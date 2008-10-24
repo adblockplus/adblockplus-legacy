@@ -1158,34 +1158,37 @@ let treeView = {
 
     // Only three columns have text
     if (col != "pattern" && col != "hitcount" && col != "lasthit")
-      return "";
+      return null;
 
     // Don't show text in the edited row
     if (col == "pattern" && this.editedRow == row)
-      return "";
+      return null;
 
     let info = this.getRowInfo(row);
     if (!info)
-      return "";
+      return null;
 
-    if (info[1] && typeof info[1] != "string") {
+    let [subscription, filter] = info;
+    if (filter instanceof abp.Filter)
+    {
       if (col == "pattern")
-        return info[1].text;
-      else if (!info[1].dummy && info[1].type != "comment" && info[1].type != "invalid") {
+        return filter.text;
+      else if (filter instanceof abp.ActiveFilter)
+      {
         if (col == "hitcount")
-          return info[1].orig.hitCount;
+          return filter.hitCount;
         else
-          return (info[1].orig.lastHit ? new Date(info[1].orig.lastHit).toLocaleString() : null);
+          return (filter.lastHit ? new Date(filter.lastHit).toLocaleString() : null);
       }
       else
         return null;
     }
     else if (col != "pattern")
       return null;
-    else if (!info[1])
-      return (info[0].special || info[0].dummy ? "" : this.titlePrefix) + info[0].title;
+    else if (!filter)
+      return (subscription instanceof abp.SpecialSubscription ? "" : this.titlePrefix) + subscription.title;
     else
-      return info[1];
+      return filter;
   },
 
   getColumnProperties: function(col, properties) {
