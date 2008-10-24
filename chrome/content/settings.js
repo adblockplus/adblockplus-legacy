@@ -1422,7 +1422,7 @@ let treeView = {
   //
 
   typemap: null,
-  data: null,
+  subscriptions: null,
   boxObject: null,
   closed: null,
   disabled: null,
