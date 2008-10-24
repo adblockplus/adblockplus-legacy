@@ -417,7 +417,7 @@ function abpShowSubscriptions() {
   abpPrefs.save();
 
   // Look for existing subscriptions
-  for each (let subscription in filterStorage.subscriptions)
+  for each (let subscription in abp.filterStorage.subscriptions)
     if (subscription instanceof abp.RegularSubscription)
       return;
 
@@ -646,9 +646,9 @@ function abpToggleSidebar() {
  */
 function abpHasFilter(filter)
 {
-  filter = Filter.fromText(filter);
+  filter = abp.Filter.fromText(filter);
   for (let subscription in abp.filterStorage.subscriptions)
-    if (subscriptions instanceof abp.SpecialSubscription && subscription.filters.indexOf(filter))
+    if (subscription instanceof abp.SpecialSubscription && subscription.filters.indexOf(filter))
       return true;
 
   return false;
