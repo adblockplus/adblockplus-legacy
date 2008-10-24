@@ -31,7 +31,8 @@ try {
 } catch(e) {}
 
 let prefs, filterStorage, synchronizer, dragService;
-if (abp) {
+if (abp)
+{
   prefs = abp.prefs;
   filterStorage = abp.filterStorage;
   synchronizer = abp.synchronizer;
@@ -57,7 +58,6 @@ try {
 } catch(e) {}
 
 let editorTimeout = null;
-function dummyFunction() {}
 
 function E(id)
 {
