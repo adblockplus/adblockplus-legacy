@@ -992,25 +992,15 @@ var treeView = {
     // Check current sort direction
     var cols = document.getElementsByTagName("treecol");
     var sortDir = null;
-    for (i = 0; i < cols.length; i++) {
-      var col = cols[i];
-      var dir = col.getAttribute("sortDirection");
-      if (dir && dir != "natural") {
+    for (i = 0; i < cols.length; i++)
+    {
+      let col = cols[i];
+      let dir = col.getAttribute("sortDirection");
+      if (dir && dir != "natural")
+      {
         this.sortColumn = col;
         sortDir = dir;
       }
-    }
-
-    if (!this.sortColumn && prefs.branch.prefHasUserValue("listsort")) {
-      try {
-        if (prefs.branch.getBoolPref("listsort")) {
-          this.sortColumn = E("pattern");
-          sortDir = "ascending";
-          this.sortColumn.setAttribute("sortDirection", sortDir);
-        }
-        prefs.branch.clearUserPref("listsort");
-        prefs.save();
-      } catch(e) {}
     }
 
     if (this.sortColumn)
