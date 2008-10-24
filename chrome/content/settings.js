@@ -1135,13 +1135,13 @@ let treeView = {
     }, false);
   },
 
-  get rowCount() {
+  get rowCount()
+  {
     let count = 0;
-    for (let i = 0; i < this.subscriptions.length; i++) {
-      let subscription = this.subscriptions[i];
-
-      // Special groups are only shown if they aren't empty
-      if (subscription.special && subscription.filters.length == 0)
+    for each (let subscription in this.subscriptions)
+    {
+      // Special subscriptions are only shown if they aren't empty
+      if (subscription instanceof abp.SpecialSubscription && subscription.filters.length == 0)
         continue;
 
       count++;
@@ -1152,7 +1152,8 @@ let treeView = {
     return count;
   },
 
-  getCellText: function(row, col) {
+  getCellText: function(row, col)
+  {
     col = col.id;
 
     // Only three columns have text
@@ -1458,27 +1459,28 @@ let treeView = {
     return ret;
   },
 
-  getRowInfo: function(row) {
-    for (let i = 0; i < this.subscriptions.length; i++) {
-      let subscription = this.subscriptions[i];
-
-      // Special groups are only shown if they aren't empty
-      if (subscription.special && subscription.filters.length == 0)
+  getRowInfo: function(row)
+  {
+    for each (let subscription in this.subscriptions)
+    {
+      // Special subscriptions are only shown if they aren't empty
+      if (subscription instanceof abp.SpecialSubscription && subscription.filters.length == 0)
         continue;
 
-      // Check whether the group row has been requested
+      // Check whether the subscription row has been requested
       row--;
       if (row < 0)
         return [subscription, null];
 
-      if (!(subscription.url in this.closed)) {
+      if (!(subscription.url in this.closed))
+      {
         // Check whether the subscription description row has been requested
         if (row < subscription.description.length)
           return [subscription, subscription.description[row]];
 
         row -= subscription.description.length;
 
-        // Check whether one of the patterns has been requested
+        // Check whether one of the filters has been requested
         if (row < subscription.filters.length)
           return [subscription, subscription.filters[row]];
 
