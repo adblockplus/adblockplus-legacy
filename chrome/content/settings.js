@@ -1308,10 +1308,12 @@ let treeView = {
     this.boxObject.treeBody.parentNode.setAttribute("closedSubscriptions", closed.join(" "));
   },
 
-  cycleHeader: function(col) {
+  cycleHeader: function(col)
+  {
     col = col.element;
 
-    let cycle = {
+    let cycle =
+    {
       natural: 'ascending',
       ascending: 'descending',
       descending: 'natural'
@@ -1333,90 +1335,104 @@ let treeView = {
     this.boxObject.invalidate();
   },
 
-  isSorted: function() {
+  isSorted: function()
+  {
     return (this.sortProc != sortNatural);
   },
 
   DROP_ON: nsITreeView.DROP_ON,
   DROP_BEFORE: nsITreeView.DROP_BEFORE,
   DROP_AFTER: nsITreeView.DROP_AFTER,
-  canDrop: function(row, orientation) {
+  canDrop: function(row, orientation)
+  {
     let session = dragService.getCurrentSession();
-    if (!session || session.sourceNode != this.boxObject.treeBody || !this.dragData || orientation == this.DROP_ON)
+    if (!session || session.sourceNode != this.boxObject.treeBody || !this.dragSubscription || orientation == this.DROP_ON)
       return false;
 
-    let info = this.getRowInfo(row);
-    if (!info[0])
+    let [subscription, filter] = this.getRowInfo(row);
+    if (!subscription)
       return false;
 
-    if (this.dragData[1]) {
-      // Dragging a pattern
-      return info[1] && info[0] == this.dragData[0];
+    if (this.dragFilter)
+    {
+      // Dragging a filter
+      return filter && subscription == this.dragSubscription;
     }
-    else {
+    else
+    {
       // Dragging a subscription
-      return (!info[0].dummy || orientation == this.DROP_AFTER);
+      return true;
     }
   },
-  drop: function(row, orientation) {
+
+  drop: function(row, orientation)
+  {
     let session = dragService.getCurrentSession();
-    if (!session || session.sourceNode != this.boxObject.treeBody || !this.dragData || orientation == this.DROP_ON)
+    if (!session || session.sourceNode != this.boxObject.treeBody || !this.dragSubscription || orientation == this.DROP_ON)
       return;
 
-    let info = this.getRowInfo(row);
-    if (!info[0])
+    let [subscription, filter] = this.getRowInfo(row);
+    if (!subscription)
       return;
 
-    if (this.dragData[1]) {
-      // Dragging a pattern
-      if (!info[1] || info[0] != this.dragData[0])
+    if (this.dragFilter)
+    {
+      // Dragging a filter
+      if (!filter || subscription != this.dragSubscription)
         return;
 
-      let index1 = -1;
-      let index2 = -1;
-      for (let i = 0; i < info[0].filters.length; i++) {
-        if (info[0].filters[i] == this.dragData[1])
-          index1 = i;
-        if (info[0].filters[i] == info[1])
-          index2 = i;
-      }
-      if (index1 < 0 || index2 < 0)
+      let oldIndex = subscription.filters.indexOf(this.dragFilter);
+      let newIndex = subscription.filters.indexOf(filter);
+      if (oldIndex < 0 || newIndex < 0)
         return;
+
+      let oldRow = row - newIndex + oldIndex;
+      subscription.filters.splice(oldIndex, 1);
+      this.boxObject.rowCountChanged(oldRow, -1);
 
       if (orientation == this.DROP_AFTER)
-        index2++;
-      if (index2 > index1)
-        index2--;
+        newIndex++;
+      if (newIndex > oldIndex)
+        newIndex--;
 
-      this.moveRow(this.dragData, index2 - index1);
+      let newRow = oldRow - oldIndex + newIndex;
+      subscription.filters.splice(newIndex, 0, this.dragFilter);
+      this.boxObject.rowCountChanged(newRow, 1);
+
+      treeView.selectRow(newRow);
     }
-    else {
+    else
+    {
       // Dragging a subscription
-      let index1 = -1;
-      let index2 = -1;
-      let index = 0;
-      for (i = 0; i < this.subscriptions.length; i++) {
-        // Ignore invisible groups
-        if (this.subscriptions[i].special && this.subscriptions[i].filters.length == 0)
-          continue;
-
-        if (this.subscriptions[i] == this.dragData[0])
-          index1 = index;
-        if (this.subscriptions[i] == info[0])
-          index2 = index;
-
-        index++;
-      }
-      if (index1 < 0 || index2 < 0)
+      if (subscription == this.dragSubscription)
         return;
-      if ((info[0].url in this.closed) && orientation == this.DROP_AFTER)
-        index2++;
-      if (!(info[0].url in this.closed) && index2 > index1 && (info[1] || orientation == this.DROP_AFTER))
-        index2++;
-      if (index2 > index1)
-        index2--;
 
-      this.moveRow(this.dragData, index2 - index1);
+      let rowCount = this.getSubscriptionRowCount(this.dragSubscription);
+
+      let oldIndex = this.subscriptions.indexOf(this.dragSubscription);
+      let newIndex = this.subscriptions.indexOf(subscription);
+      if (oldIndex < 0 || newIndex < 0)
+        return;
+
+      if (filter && oldIndex > newIndex)
+        orientation = this.DROP_BEFORE;
+      else if (filter)
+        orientation = this.DROP_AFTER;
+
+      let oldRow = this.getSubscriptionRow(this.dragSubscription);
+      this.subscriptions.splice(oldIndex, 1);
+      this.boxObject.rowCountChanged(oldRow, -rowCount);
+
+      if (orientation == this.DROP_AFTER)
+        newIndex++;
+      if (oldIndex < newIndex)
+        newIndex--;
+
+      this.subscriptions.splice(newIndex, 0, this.dragSubscription);
+      let newRow = this.getSubscriptionRow(this.dragSubscription);
+      this.boxObject.rowCountChanged(newRow, rowCount);
+
+      treeView.selectRow(newRow);
     }
   },
 
@@ -1889,11 +1905,18 @@ let treeView = {
     onChange();
   },
 
-  dragData: null,
-  startDrag: function(row) {
-    let info = this.getRowInfo(row);
-    if (!info[0] || info[0].dummy || (info[1] && info[1].dummy))
+  dragSubscription: null,
+  dragFilter: null,
+  startDrag: function(row)
+  {
+    let [subscription, filter] = this.getRowInfo(row);
+    if (!subscription)
       return;
+    if (filter instanceof abp.Filter && (!(subscription instanceof abp.SpecialSubscription) || this.isSorted()))
+      return;
+
+    if (!(filter instanceof abp.Filter))
+      filter = null;
 
     let array = Components.classes["@mozilla.org/supports-array;1"]
                           .createInstance(Components.interfaces.nsISupportsArray);
@@ -1901,11 +1924,11 @@ let treeView = {
                                  .createInstance(Components.interfaces.nsITransferable);
     let data = Components.classes["@mozilla.org/supports-string;1"]
                          .createInstance(Components.interfaces.nsISupportsString);
-    if (info[1] && typeof info[1] != "string")
-      data.subscriptions = info[1].text;
+    if (filter instanceof abp.Filter)
+      data.data = filter.text;
     else
-      data.subscriptions = info[0].title;
-    transferable.setTransferData("text/unicode", data, data.subscriptions.length * 2);
+      data.data = subscription.title;
+    transferable.setTransferData("text/unicode", data, data.data.length * 2);
     array.AppendElement(transferable);
 
     let region = Components.classes["@mozilla.org/gfx/region;1"]
@@ -1919,16 +1942,10 @@ let treeView = {
     this.boxObject.getCoordsForCellItem(row, col, "text", x, y, width, height);
     region.setToRect(x.value, y.value, width.value, height.value);
 
-    if (info[1] && typeof info[1] != "string") {
-      if (!info[0].special || this.isSorted())
-        return;
-    }
-    else
-      info[1] = null;
+    this.dragSubscription = subscription;
+    this.dragFilter = filter;
 
-    this.dragData = info;
-
-    // This will through an exception if the user cancels D&D
+    // This will throw an exception if the user cancels D&D
     try {
       dragService.invokeDragSession(this.boxObject.treeBody, array, region, dragService.DRAGDROP_ACTION_MOVE);
     } catch(e) {}
