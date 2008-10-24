@@ -1431,32 +1431,29 @@ let treeView = {
   sortColumn: null,
   sortProc: sortNatural,
 
-  getSubscriptionRow: function(subscription) {
+  getSubscriptionRow: function(search)
+  {
     let index = 0;
-    for (let i = 0; i < this.subscriptions.length; i++) {
-      // Special groups are only shown if they aren't empty
-      if (this.subscriptions[i].special && this.subscriptions[i].filters.length == 0)
-        continue;
-
-      if (this.subscriptions[i] == subscription)
+    for each (let subscription in this.subscriptions)
+    {
+      let rowCount = this.getSubscriptionRowCount(subscription);
+      if (rowCount > 0 && search == subscription)
         return index;
 
-      index++;
-      if (!(this.subscriptions[i].url in this.closed))
-        index += this.subscriptions[i].description.length + this.subscriptions[i].filters.length;
+      index += rowCount;
     }
     return -1;
   },
 
-  getSubscriptionRowCount: function(subscription) {
-    if (subscription.special && subscription.filters.length == 0)
+  getSubscriptionRowCount: function(subscription)
+  {
+    if (subscription instanceof abp.SpecialSubscription && subscription.filters.length == 0)
       return 0;
 
-    let ret = 1;
-    if (!(subscription.url in this.closed))
-      ret += subscription.description.length + subscription.filters.length;
+    if (subscription.url in this.closed)
+      return 1;
 
-    return ret;
+    return 1 + subscription.description.length + subscription.filters.length;
   },
 
   getRowInfo: function(row)
