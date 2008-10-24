@@ -38,12 +38,12 @@ a.%%CLASSNAME%% {
     width: 0px !important;
     height: 0px !important;
     z-index: 65535 !important;
-    -moz-opacity: 0.2 !important;
+    opacity: 0.2 !important;
     text-decoration: none !important;
   }
 
   a.%%CLASSNAME%%:hover {
-    -moz-opacity: 0.8 !important;
+    opacity: 0.8 !important;
   }
 
   a.%%CLASSNAME%%.visible {
