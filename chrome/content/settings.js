@@ -967,7 +967,7 @@ let treeView = {
     this.atoms = {};
     for each (let atom in stringAtoms)
       this.atoms[atom] = atomService.getAtom(atom);
-    for each (let atom boolAtoms)
+    for each (let atom in boolAtoms)
     {
       this.atoms[atom + "-true"] = atomService.getAtom(atom + "-true");
       this.atoms[atom + "-false"] = atomService.getAtom(atom + "-false");
