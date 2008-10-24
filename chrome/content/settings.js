@@ -57,14 +57,14 @@ try {
     accelMask = altMask;
 } catch(e) {}
 
-let editorTimeout = null;
-
 function E(id)
 {
   return document.getElementById(id);
 }
 
-// Preference window initialization
+/**
+ * Initialization function, called when the window is loaded.
+ */
 function init()
 {
   // Insert Apply button between OK and Cancel
@@ -141,6 +141,8 @@ function init()
   window.dispatchEvent(e);
 }
 
+let editorTimeout = null;
+
 function setLocation(location)
 {
   treeView.stopEditor(true);
@@ -161,7 +163,9 @@ function selectFilter(filter)
   E("list").focus();
 }
 
-// To be called when the window is closed
+/**
+ * Cleanup function to remove observers, called when the window is unloaded.
+ */
 function cleanUp()
 {
   filterStorage.removeFilterObserver(onFilterChange);
@@ -347,7 +351,8 @@ function resetHitCounts(resetAll)
   }
 }
 
-function getDefaultDir() {
+function getDefaultDir()
+{
   // Copied from Firefox: getTargetFile() in contentAreaUtils.js
   try {
     return prefService.getComplexValue("browser.download.lastDir", Components.interfaces.nsILocalFile);
@@ -361,7 +366,8 @@ function getDefaultDir() {
   }
 }
 
-function saveDefaultDir(dir) {
+function saveDefaultDir(dir)
+{
   // Copied from Firefox: getTargetFile() in contentAreaUtils.js
   try {
     prefService.setComplexValue("browser.download.lastDir", Components.interfaces.nsILocalFile, dir);
@@ -429,14 +435,17 @@ function importList() {
   }
 }
 
-// Exports the current list of filters to a file on disc.
-function exportList() {
-  if (!treeView.hasUserPatterns())
+/**
+ * Lets the user choose a file and writes user-defined filters into this file.
+ */
+function exportList()
+{
+  if (!treeView.hasUserFilters())
     return;
 
   let picker = Components.classes["@mozilla.org/filepicker;1"].createInstance(Components.interfaces.nsIFilePicker);
   picker.init(window, abp.getString("export_filters_title"), picker.modeSave);
-  picker.defaultExtension=".txt";
+  picker.defaultExtension = ".txt";
   picker.appendFilters(picker.filterText);
   picker.appendFilters(picker.filterAll);
 
@@ -444,63 +453,77 @@ function exportList() {
   if (dir)
     picker.displayDirectory = dir;
 
-  if (picker.show() != picker.returnCancel) {
+  if (picker.show() != picker.returnCancel)
+  {
     saveDefaultDir(picker.file.parent.QueryInterface(Components.interfaces.nsILocalFile));
     let lineBreak = abp.getLineBreak();
-    try {
-      let stream = Components.classes["@mozilla.org/network/file-output-stream;1"]
-                            .createInstance(Components.interfaces.nsIFileOutputStream);
-      stream.init(picker.file, 0x02 | 0x08 | 0x20, 0644, 0);
-  
-      let list = ["[Adblock]"];
-      let minVersion = "0";
-      for (let i = 0; i < treeView.subscriptions.length; i++) {
-        if (treeView.subscriptions[i].special) {
-          let patterns = treeView.subscriptions[i].filters.slice();
-          patterns.sort(sortNatural);
-          for (let j = 0; j < patterns.length; j++) {
-            let pattern = patterns[j];
-            list.push(pattern.text);
 
-            // Find version requirements of this pattern
-            let patternVersion;
-            if (pattern.type == "filterlist" || pattern.type == "whitelist") {
-              if (abp.Filter.optionsRegExp.test(pattern.text))
-                patternVersion = "0.7.1";
-              else if (/^(?:@@)?\|/.test(pattern.text) || /\|$/.test(pattern.text))
-                patternVersion = "0.6.1.2";
-              else
-                patternVersion = "0";
-            }
-            else if (pattern.type == "elemhide") {
-              if (/^#([\w\-]+|\*)(?:\(([\w\-]+)\))?$/.test(pattern.text))
-                patternVersion = "0.6.1";
-              else
-                patternVersion = "0.7";
-            }
+    let list = ["[Adblock]"];
+    let minVersion = "0";
+    for each (let subscription in treeView.subscriptions)
+    {
+      if (subscription instanceof abp.SpecialSubscription)
+      {
+        for each (let filter in subscription.filters)
+        {
+          list.push(filter.text);
+
+          // Find version requirements of this filter
+          let filterVersion;
+          if (filter instanceof abp.RegExpFilter)
+          {
+            if (filter.thirdParty != null)
+              filterVersion = "0.8";
+            else if (filter.collapse != null)
+              filterVersion = "0.7.5";
+            else if (abp.Filter.optionsRegExp.test(filter.text))
+              filterVersion = "0.7.1";
+            else if (/^(?:@@)?\|/.test(filter.text) || /\|$/.test(filter.text))
+              filterVersion = "0.6.1.2";
             else
-              patternVersion = "0";
-            
-            // Adjust version requirements of the complete filter set
-            if (patternVersion != "0" && abp.versionComparator.compare(minVersion, patternVersion) < 0)
-              minVersion = patternVersion;
+              filterVersion = "0";
           }
+          else if (filter instanceof abp.ElemHideFilter)
+          {
+            if (/^#([\w\-]+|\*)(?:\(([\w\-]+)\))?$/.test(filter.text))
+              filterVersion = "0.6.1";
+            else
+              filterVersion = "0.7";
+          }
+          else
+            filterVersion = "0";
+          
+          // Adjust version requirements of the complete filter set
+          if (filterVersion != "0" && abp.versionComparator.compare(minVersion, filterVersion) < 0)
+            minVersion = filterVersion;
         }
       }
+    }
 
-      if (minVersion != "0") {
-        if (abp.versionComparator.compare(minVersion, "0.7.1") >= 0)
-          list[0] = "[Adblock Plus " + minVersion + "]";
-        else
-          list[0] = "(Adblock Plus " + minVersion + " or higher required) " + list[0];
-      }
+    if (minVersion != "0")
+    {
+      if (abp.versionComparator.compare(minVersion, "0.7.1") >= 0)
+        list[0] = "[Adblock Plus " + minVersion + "]";
+      else
+        list[0] = "(Adblock Plus " + minVersion + " or higher required) " + list[0];
+    }
 
-      let output = list.join(lineBreak) + lineBreak;
-      stream.write(output, output.length);
+    try
+    {
+      let fileStream = Components.classes["@mozilla.org/network/file-output-stream;1"]
+                                 .createInstance(Components.interfaces.nsIFileOutputStream);
+      fileStream.init(picker.file, 0x02 | 0x08 | 0x20, 0644, 0);
+
+      let stream = Components.classes["@mozilla.org/intl/converter-output-stream;1"]
+                             .createInstance(Components.interfaces.nsIConverterOutputStream);
+      stream.init(fileStream, "UTF-8", 16384, Components.interfaces.nsIConverterInputStream.DEFAULT_REPLACEMENT_CHARACTER);
+
+      stream.writeString(list.join(lineBreak) + lineBreak);
   
       stream.close();
     }
-    catch (e) {
+    catch (e)
+    {
       dump("Adblock Plus: error writing to file: " + e + "\n");
       alert(abp.getString("filters_write_error"));
     }
@@ -837,7 +860,7 @@ function synchAllSubscriptions(forceDownload) {
  */
 function fillFiltersPopup(prefix)
 {
-  let empty = !treeView.hasUserPatterns();
+  let empty = !treeView.hasUserFilters();
   E("export-command").setAttribute("disabled", empty);
   E("clearall").setAttribute("disabled", empty);
 }
@@ -1794,9 +1817,10 @@ let treeView = {
     }
   },
 
-  hasUserPatterns: function() {
-    for (let i = 0; i < this.subscriptions.length; i++)
-      if (this.subscriptions[i].special && this.subscriptions[i].sortedFilters.length)
+  hasUserFilters: function()
+  {
+    for each (let subscription in this.subscriptions)
+      if (subscription instanceof abp.SpecialSubscription && subscription.sortedFilters.length)
         return true;
 
     return false;
