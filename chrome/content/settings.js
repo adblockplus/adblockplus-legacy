@@ -1224,7 +1224,7 @@ let treeView = {
 
       if (filter instanceof abp.CommentFilter)
         properties.AppendElement(this.atoms["type-comment"]);
-      else if (filter instanceof abp.RegExpFilter)
+      else if (filter instanceof abp.BlockingFilter)
         properties.AppendElement(this.atoms["type-filterlist"]);
       else if (filter instanceof abp.WhitelistFilter)
         properties.AppendElement(this.atoms["type-whitelist"]);
