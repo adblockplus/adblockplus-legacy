@@ -1180,7 +1180,6 @@ let treeView = {
     }
 
     this.typemap = {__proto__: null};
-    this.disabled = {__proto__: null};
 
     // Copy the subscription list, we don't want to apply our changes immediately
     this.subscriptions = filterStorage.subscriptions.map(createSubscriptionWrapper);
@@ -1537,7 +1536,6 @@ let treeView = {
   subscriptions: null,
   boxObject: null,
   closed: null,
-  disabled: null,
   titlePrefix: abp.getString("subscription_description") + " ",
   atoms: null,
   sortColumn: null,
