@@ -329,8 +329,12 @@ function clearList() {
     treeView.removeUserPatterns();
 }
 
-// Resets hit statistics (after a warning).
-function resetHitCounts(resetAll) {
+/**
+ * Shows a warning and resets hit statistics on the filters if the user confirms.
+ * @param {Boolean} resetAll  If true, statistics of all filters will be reset. If false, only selected filters will be reset.
+ */
+function resetHitCounts(resetAll)
+{
   if (resetAll && confirm(abp.getString("resethitcounts_warning")))
     filterStorage.resetHitCounts(null);
   else if (!resetAll && confirm(abp.getString("resethitcounts_selected_warning")))
