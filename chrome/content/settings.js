@@ -168,6 +168,133 @@ function cleanUp()
   filterStorage.removeSubscriptionObserver(onSubscriptionChange);
 }
 
+/**
+ * Map of all subscription wrappers by their download location.
+ * @type Object
+ */
+let subscriptionWrappers = {__proto__: null};
+
+/**
+ * Creates a subscription wrapper that can be modified
+ * without affecting the original subscription. The properties
+ * sortedFilters and description are initialized immediately.
+ *
+ * @param {Subscription} subscription subscription to be wrapped
+ * @return {Subscription} subscription wrapper
+ */
+function createSubscriptionWrapper(subscription)
+{
+  if (subscription.url in subscriptionWrappers)
+    return subscriptionWrappers[subscription.url];
+
+  let wrapper = 
+  {
+    __proto__: subscription,
+    sortedFilters: subscription.filters,
+    description: getSubscriptionDescription(subscription)
+  };
+  subscriptionWrappers[subscription.url] = wrapper;
+  return wrapper;
+}
+
+/**
+ * Retrieves a subscription wrapper by the download location.
+ *
+ * @param {String} url download location of the subscription
+ * @return Subscription subscription wrapper or null
+ */
+function getSubscriptionByURL(url)
+{
+  if (url in subscriptionWrappers)
+    return subscriptionWrappers[url];
+  else
+    return null;
+}
+
+/**
+ * Map of all filter wrappers by their text representation.
+ * @type Object
+ */
+let filterWrappers = {__proto__: null};
+
+/**
+ * Creates a filter wrapper that can be modified without affecting
+ * the original filter.
+ *
+ * @param {Filter} filter filter to be wrapped
+ * @return {Filter} filter wrapper
+ */
+function createFilterWrapper(filter)
+{
+  if (filter.text in filterWrappers)
+    return filterWrappers[filter.text];
+
+  let wrapper = 
+  {
+    __proto__: filter
+  };
+  filterWrappers[filter.text] = wrapper;
+  return wrapper;
+}
+
+/**
+ * Retrieves a filter by its text (might be a filter wrapper).
+ *
+ * @param {String} text text representation of the filter
+ * @return Filter
+ */
+function getFilterByText(text)
+{
+  if (url in filterWrappers)
+    return filterWrappers[text];
+  else
+    return abp.Filter.fromText(text);
+}
+
+/**
+ * Generates the additional rows that should be shown as description
+ * of the subscription in the list.
+ *
+ * @param {Subscription} subscription
+ * @return {Array of String}
+ */
+function getSubscriptionDescription(subscription)
+{
+  let result = [];
+
+  if (!(subscription instanceof abp.RegularSubscription))
+    return result;
+
+  if (subscription instanceof abp.DownloadableSubscription && subscription.upgradeRequired)
+    result.push(abp.getString("subscription_wrong_version").replace(/--/, subscription.requiredVersion));
+
+  if (subscription instanceof abp.DownloadableSubscription)
+    result.push(abp.getString("subscription_source") + " " + subscription.url);
+
+  let status = "";
+  if (subscription instanceof abp.ExternalSubscription)
+    status += abp.getString("subscription_status_externaldownload");
+  else
+    status += (subscription.autoDownload ? abp.getString("subscription_status_autodownload") : abp.getString("subscription_status_manualdownload"));
+
+  status += "; " + abp.getString("subscription_status_lastdownload") + " ";
+  if (synchronizer.isExecuting(subscription.url))
+    status += abp.getString("subscription_status_lastdownload_inprogress");
+  else
+  {
+    status += (subscription.lastDownload > 0 ? new Date(subscription.lastDownload * 1000).toLocaleString() : abp.getString("subscription_status_lastdownload_unknown"));
+    if (subscription instanceof abp.DownloadableSubscription && subscription.downloadStatus)
+    {
+      try {
+        status += " (" + abp.getString(subscription.downloadStatus) + ")";
+      } catch (e) {}
+    }
+  }
+
+  result.push(abp.getString("subscription_status") + " " + status);
+  return result;
+}
+
 // Adds the filter entered into the input field to the list
 function addFilter() {
   let info = treeView.getRowInfo(treeView.selection.currentIndex);
@@ -483,13 +610,13 @@ function onSubscriptionChange(action, subscriptions)
     if (!subscription)
       return;
   
-    subscription.extra = treeView.getSubscriptionDescription(subscription);
+    subscription.description = getSubscriptionDescription(subscription);
     treeView.initSubscriptionPatterns(subscription, orig.patterns);
     treeView.invalidateSubscription(subscription, row, rowCount);
 
     // Date.toLocaleString() doesn't handle Unicode properly if called directly from XPCOM (bug 441370)
     setTimeout(function() {
-        subscription.extra = treeView.getSubscriptionDescription(subscription);
+        subscription.description = getSubscriptionDescription(subscription);
         treeView.invalidateSubscriptionInfo(subscription);
     }, 0);
   }
@@ -562,7 +689,7 @@ function editSubscription(subscription) {
   newSubscription.title = result.title;
   newSubscription.disabled = result.disabled;
   newSubscription.autoDownload = result.autoDownload;
-  newSubscription.extra = treeView.getSubscriptionDescription(newSubscription);
+  newSubscription.description = getSubscriptionDescription(newSubscription);
   treeView.initSubscriptionPatterns(newSubscription, orig.patterns);
 
   treeView.invalidateSubscription(newSubscription, row, rowCount);
@@ -977,7 +1104,7 @@ let treeView = {
     this.disabled = {__proto__: null};
 
     // Copy the subscription list, we don't want to apply our changes immediately
-    this.data = filterStorage.subscriptions.slice();
+    this.data = filterStorage.subscriptions.map(createSubscriptionWrapper);
 
     this.closed = {__proto__: null};
     let closed = this.boxObject.treeBody.parentNode.getAttribute("closedSubscriptions");
@@ -1021,7 +1148,7 @@ let treeView = {
 
       count++;
       if (!(subscription.url in this.closed))
-        count += subscription.extra.length + subscription.patterns.length;
+        count += subscription.description.length + subscription.patterns.length;
     }
 
     return count;
@@ -1117,7 +1244,7 @@ let treeView = {
 
   isContainerEmpty: function(row) {
     let info = this.getRowInfo(row);
-    return info && !info[1] && info[0].extra.length + info[0].patterns.length == 0;
+    return info && !info[1] && info[0].description.length + info[0].patterns.length == 0;
   },
 
   getLevel: function(row) {
@@ -1142,7 +1269,7 @@ let treeView = {
     if (infoIndex < 0)
       return false;
 
-    return (infoIndex + info[0].extra.length + info[0].patterns.length > afterRow);
+    return (infoIndex + info[0].description.length + info[0].patterns.length > afterRow);
   },
 
   toggleOpenState: function(row) {
@@ -1150,7 +1277,7 @@ let treeView = {
     if (!info || info[1])
       return;
 
-    let count = info[0].extra.length + info[0].patterns.length;
+    let count = info[0].description.length + info[0].patterns.length;
     if (info[0].url in this.closed) {
       delete this.closed[info[0].url];
       this.boxObject.rowCountChanged(row + 1, count);
@@ -1305,43 +1432,6 @@ let treeView = {
   sortColumn: null,
   sortProc: sortNatural,
 
-  // Returns an array containing description for a subscription group
-  getSubscriptionDescription: function(subscription) {
-    let descr = [];
-
-    if (subscription.special || !(subscription.url in prefs.knownSubscriptions))
-      return descr;
-
-    let orig = prefs.knownSubscriptions[subscription.url];
-
-    if ("upgradeRequired" in orig)
-      descr.push(abp.getString("subscription_wrong_version").replace(/--/, orig.requiredVersion));
-
-    if (!orig.external)
-      descr.push(abp.getString("subscription_source") + " " + subscription.url);
-
-    let status = "";
-    if (orig.external)
-      status += abp.getString("subscription_status_externaldownload");
-    else
-      status += (subscription.autoDownload ? abp.getString("subscription_status_autodownload") : abp.getString("subscription_status_manualdownload"));
-
-    status += "; " + abp.getString("subscription_status_lastdownload") + " ";
-    if (synchronizer.isExecuting(subscription.url))
-      status += abp.getString("subscription_status_lastdownload_inprogress");
-    else {
-      status += (orig.lastDownload > 0 ? new Date(orig.lastDownload * 1000).toLocaleString() : abp.getString("subscription_status_lastdownload_unknown"));
-      if (orig.lastDownload > 0 && orig.downloadStatus) {
-        try {
-          status += " (" + abp.getString(orig.downloadStatus) + ")";
-        } catch (e) {}
-      }
-    }
-
-    descr.push(abp.getString("subscription_status") + " " + status);
-    return descr;
-  },
-
   initSubscriptionPatterns: function(subscription, patterns) {
     subscription.patterns = [];
     subscription.nextPos = 0;
@@ -1369,7 +1459,7 @@ let treeView = {
 
       index++;
       if (!(this.data[i].url in this.closed))
-        index += this.data[i].extra.length + this.data[i].patterns.length;
+        index += this.data[i].description.length + this.data[i].patterns.length;
     }
     return -1;
   },
@@ -1380,7 +1470,7 @@ let treeView = {
 
     let ret = 1;
     if (!(subscription.url in this.closed))
-      ret += subscription.extra.length + subscription.patterns.length;
+      ret += subscription.description.length + subscription.patterns.length;
 
     return ret;
   },
@@ -1400,10 +1490,10 @@ let treeView = {
 
       if (!(subscription.url in this.closed)) {
         // Check whether the subscription description row has been requested
-        if (row < subscription.extra.length)
-          return [subscription, subscription.extra[row]];
+        if (row < subscription.description.length)
+          return [subscription, subscription.description[row]];
 
-        row -= subscription.extra.length;
+        row -= subscription.description.length;
 
         // Check whether one of the patterns has been requested
         if (row < subscription.patterns.length)
@@ -1471,8 +1561,8 @@ let treeView = {
           let parentRow = this.getSubscriptionRow(this.data[i]);
           if (this.data[i].url in this.closed)
             this.toggleOpenState(parentRow);
-          this.selection.select(parentRow + 1 + this.data[i].extra.length + j);
-          this.boxObject.ensureRowIsVisible(parentRow + 1 + this.data[i].extra.length + j);
+          this.selection.select(parentRow + 1 + this.data[i].description.length + j);
+          this.boxObject.ensureRowIsVisible(parentRow + 1 + this.data[i].description.length + j);
         }
       }
     }
@@ -1554,8 +1644,8 @@ let treeView = {
             if (subscription.url in this.closed)
               this.toggleOpenState(parentRow);
   
-            this.selection.select(parentRow + 1 + subscription.extra.length + i);
-            this.boxObject.ensureRowIsVisible(parentRow + 1 + subscription.extra.length + i);
+            this.selection.select(parentRow + 1 + subscription.description.length + i);
+            this.boxObject.ensureRowIsVisible(parentRow + 1 + subscription.description.length + i);
           }
           return;
         }
@@ -1624,18 +1714,18 @@ let treeView = {
       // Show previously invisible subscription
       let count = 1;
       if (!(subscription.url in this.closed))
-        count += subscription.extra.length;
+        count += subscription.description.length;
       this.boxObject.rowCountChanged(parentRow, count);
     }
 
     if (!(subscription.url in this.closed))
-      this.boxObject.rowCountChanged(parentRow + 1 + subscription.extra.length + pos, 1);
+      this.boxObject.rowCountChanged(parentRow + 1 + subscription.description.length + pos, 1);
 
     if (typeof noSelect == "undefined" || !noSelect) {
       if (subscription.url in this.closed)
         this.toggleOpenState(parentRow);
-      this.selection.select(parentRow + 1 + subscription.extra.length + pos);
-      this.boxObject.ensureRowIsVisible(parentRow + 1 + subscription.extra.length + pos);
+      this.selection.select(parentRow + 1 + subscription.description.length + pos);
+      this.boxObject.ensureRowIsVisible(parentRow + 1 + subscription.description.length + pos);
     }
 
     if (text)
@@ -1669,15 +1759,15 @@ let treeView = {
 
           let newSelection = parentRow;
           if (!(info[0].url in this.closed)) {
-            this.boxObject.rowCountChanged(parentRow + 1 + info[0].extra.length + i, -1);
-            newSelection = parentRow + 1 + info[0].extra.length + i;
+            this.boxObject.rowCountChanged(parentRow + 1 + info[0].description.length + i, -1);
+            newSelection = parentRow + 1 + info[0].description.length + i;
           }
 
           if (info[0].special && !info[0].patterns.length) {
             // Don't show empty special subscriptions
             let count = 1;
             if (!(info[0].url in this.closed))
-              count += info[0].extra.length;
+              count += info[0].description.length;
             this.boxObject.rowCountChanged(parentRow, -count);
             newSelection -= count;
           }
@@ -1700,7 +1790,7 @@ let treeView = {
           let firstRow = this.getSubscriptionRow(info[0]);
           count = 1;
           if (!(info[0].url in this.closed))
-            count += info[0].extra.length + info[0].patterns.length;
+            count += info[0].description.length + info[0].patterns.length;
 
           this.data.splice(i, 1);
           this.boxObject.rowCountChanged(firstRow, -count);
@@ -1749,7 +1839,7 @@ let treeView = {
 
       let parentRow = this.getSubscriptionRow(subscription);
       let row, row1, row2;
-      row1 = row2 = parentRow + 1 + subscription.extra.length + index;
+      row1 = row2 = parentRow + 1 + subscription.description.length + index;
       if (offset < 0)
         row = row1 += offset;
       else
@@ -1793,7 +1883,7 @@ let treeView = {
       let startRow = this.getSubscriptionRow(this.data[startIndex]);
       let endRow = this.getSubscriptionRow(this.data[endIndex]) + 1;
       if (!(this.data[endIndex].url in this.closed))
-        endRow += this.data[endIndex].extra.length + this.data[endIndex].patterns.length;
+        endRow += this.data[endIndex].description.length + this.data[endIndex].patterns.length;
 
       this.boxObject.invalidateRange(startRow, endRow);
       this.selection.select(this.getSubscriptionRow(info[0]));
@@ -1910,7 +2000,7 @@ let treeView = {
 
   invalidateSubscriptionInfo: function(subscription) {
     let row = this.getSubscriptionRow(subscription);
-    this.boxObject.invalidateRange(row, row + subscription.extra.length);
+    this.boxObject.invalidateRange(row, row + subscription.description.length);
   },
 
   removeUserPatterns: function() {
@@ -1920,7 +2010,7 @@ let treeView = {
         let row = this.getSubscriptionRow(subscription);
         let count = 1;
         if (!(subscription.url in this.closed))
-          count += subscription.extra.length + subscription.patterns.length;
+          count += subscription.description.length + subscription.patterns.length;
 
         subscription.patterns = [];
         this.boxObject.rowCountChanged(row, -count);
@@ -1998,8 +2088,8 @@ let treeView = {
       if (isCurrent)
         foundCurrent = true;
 
-      for (let j = 0; j < subscription.extra.length; j++) {
-        let descr = subscription.extra[j];
+      for (let j = 0; j < subscription.description.length; j++) {
+        let descr = subscription.description[j];
         isCurrent = (current && subscription == current[0] && current[1] == descr);
         if (descr.toLowerCase().indexOf(text) >= 0)
           selectMatch(subscription, 1 + j);
@@ -2011,7 +2101,7 @@ let treeView = {
         let pattern = subscription.patterns[j];
         isCurrent = (current && subscription == current[0] && current[1] == pattern);
         if (pattern.text.toLowerCase().indexOf(text) >= 0)
-          selectMatch(subscription, 1 + subscription.extra.length + j);
+          selectMatch(subscription, 1 + subscription.description.length + j);
         if (isCurrent)
           foundCurrent = true;
       }
