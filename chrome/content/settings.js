@@ -298,7 +298,7 @@ function getSubscriptionDescription(subscription)
 // Adds the filter entered into the input field to the list
 function addFilter() {
   let info = treeView.getRowInfo(treeView.selection.currentIndex);
-  if (info && info[0].special) {
+  if (info[0] && info[0].special) {
     // Insert editor dummy before an editable pattern
     let pos = (info[1] ? info[1].origPos : 0);
     for (let i = 0; i < info[0].filters.length; i++) {
@@ -645,7 +645,7 @@ function onSubscriptionChange(action, subscriptions)
 
 function editFilter(type) {
   let info = treeView.getRowInfo(treeView.selection.currentIndex);
-  if (info && type!= "filter" && !info[0].special && (info[1] || type == "subscription"))
+  if (info[0] && type != "filter" && !info[0].special && (info[1] || type == "subscription"))
     return editSubscription(info[0]);
   else
     return treeView.startEditor();
@@ -788,7 +788,7 @@ function pasteFromClipboard() {
 // Starts synchronization for a subscription
 function synchSubscription(forceDownload) {
   let info = treeView.getRowInfo(treeView.selection.currentIndex);
-  if (!info || info[0].special || info[0].external || info[0].dummy)
+  if (!info[0] || info[0].special || info[0].external || info[0].dummy)
     return;
 
   let orig = prefs.knownSubscriptions[info[0].url];
@@ -809,7 +809,7 @@ function synchAllSubscriptions(forceDownload) {
 // Moves a pattern or subscription up and down in the list
 function moveFilter(type, up) {
   let info = treeView.getRowInfo(treeView.selection.currentIndex);
-  if (!info)
+  if (!info[0])
     return;
 
   if (type == "subscription")
@@ -1164,11 +1164,10 @@ let treeView = {
     if (col == "pattern" && this.editedRow == row)
       return null;
 
-    let info = this.getRowInfo(row);
-    if (!info)
+    let [subscription, filter] = this.getRowInfo(row);
+    if (!subscription)
       return null;
 
-    let [subscription, filter] = info;
     if (filter instanceof abp.Filter)
     {
       if (col == "pattern")
@@ -1201,11 +1200,9 @@ let treeView = {
 
   getRowProperties: function(row, properties)
   {
-    let info = this.getRowInfo(row);
-    if (!info)
+    let [subscription, filter] = this.getRowInfo(row);
+    if (!subscription)
       return;
-
-    let [subscription, filter] = info;
 
     properties.AppendElement(this.atoms["selected-" + this.selection.isSelected(row)]);
     properties.AppendElement(this.atoms["subscription-" + !filter]);
@@ -1241,49 +1238,53 @@ let treeView = {
     this.getRowProperties(row, properties);
   },
 
-  isContainer: function(row) {
-    let info = this.getRowInfo(row);
-    return info && !info[1];
+  isContainer: function(row)
+  {
+    let [subscription, filter] = this.getRowInfo(row);
+    return subscription && !filter;
   },
 
-  isContainerOpen: function(row) {
-    let info = this.getRowInfo(row);
-    return info && !info[1] && !(info[0].url in this.closed);
+  isContainerOpen: function(row)
+  {
+    let [subscription, filter] = this.getRowInfo(row);
+    return subscription && !filter && !(subscription.url in this.closed);
   },
 
-  isContainerEmpty: function(row) {
-    let info = this.getRowInfo(row);
-    return info && !info[1] && info[0].description.length + info[0].filters.length == 0;
+  isContainerEmpty: function(row)
+  {
+    let [subscription, filter] = this.getRowInfo(row);
+    return subscription && !filter && subscription.description.length + subscription.filters.length == 0;
   },
 
-  getLevel: function(row) {
-    let info = this.getRowInfo(row);
-    return (info && info[1] ? 1 : 0);
+  getLevel: function(row)
+  {
+    let [subscription, filter] = this.getRowInfo(row);
+    return (filter ? 1 : 0);
   },
 
-  getParentIndex: function(row) {
-    let info = this.getRowInfo(row);
-    if (!info || !info[1])
-      return -1;
-
-    return this.getSubscriptionRow(info[0]);
+  getParentIndex: function(row)
+  {
+    let [subscription, filter] = this.getRowInfo(row);
+    return (subscription && filter ? this.getSubscriptionRow(subscription) : -1);
   },
 
-  hasNextSibling: function(row, afterRow) {
-    let info = this.getRowInfo(row);
-    if (!info || !info[1])
+  hasNextSibling: function(row, afterRow)
+  {
+    let [subscription, filter] = this.getRowInfo(row);
+    if (!filter)
       return false;
 
-    let infoIndex = this.getSubscriptionRow(info[0]);
-    if (infoIndex < 0)
+    let startIndex = this.getSubscriptionRow(subscription);
+    if (startIndex < 0)
       return false;
 
-    return (infoIndex + info[0].description.length + info[0].filters.length > afterRow);
+    return (startIndex + subscription.description.length + subscription.filters.length > afterRow);
   },
 
-  toggleOpenState: function(row) {
+  toggleOpenState: function(row)
+  {
     let info = this.getRowInfo(row);
-    if (!info || info[1])
+    if (!info[0] || info[1])
       return;
 
     let count = info[0].description.length + info[0].filters.length;
@@ -1341,7 +1342,7 @@ let treeView = {
       return false;
 
     let info = this.getRowInfo(row);
-    if (!info)
+    if (!info[0])
       return false;
 
     if (this.dragData[1]) {
@@ -1359,7 +1360,7 @@ let treeView = {
       return;
 
     let info = this.getRowInfo(row);
-    if (!info)
+    if (!info[0])
       return;
 
     if (this.dragData[1]) {
@@ -1495,7 +1496,7 @@ let treeView = {
       }
     }
 
-    return null;
+    return [null, null];
   },
 
   // Returns the info for all selected rows, starting with the current row
@@ -1507,7 +1508,7 @@ let treeView = {
       this.selection.getRangeAt(i, min, max);
       for (let j = min.value; j <= max.value; j++) {
         let info = this.getRowInfo(j);
-        if (info) {
+        if (info[0]) {
           if (j == treeView.selection.currentIndex)
             selected.unshift(info);
           else
@@ -1887,7 +1888,7 @@ let treeView = {
   dragData: null,
   startDrag: function(row) {
     let info = this.getRowInfo(row);
-    if (!info || info[0].dummy || (info[1] && info[1].dummy))
+    if (!info[0] || info[0].dummy || (info[1] && info[1].dummy))
       return;
 
     let array = Components.classes["@mozilla.org/supports-array;1"]
@@ -1931,7 +1932,7 @@ let treeView = {
 
   toggleDisabled: function(row, forceValue) {
     let info = treeView.getRowInfo(row);
-    if (!info || typeof info[1] == "string" || (!info[1] && info[0].special) || info[0].dummy)
+    if (!info[0] || typeof info[1] == "string" || (!info[1] && info[0].special) || info[0].dummy)
       return forceValue;
     if (info[1] && (info[1].type == "comment" || info[1].type == "invalid" || info[1].dummy))
       return forceValue;
@@ -1959,7 +1960,7 @@ let treeView = {
       let max = this.boxObject.getLastVisibleRow();
       for (let i = min; i <= max; i++) {
         let rowInfo = this.getRowInfo(i);
-        if (rowInfo && rowInfo[0] == info[0])
+        if (rowInfo[0] && rowInfo[0] == info[0])
           this.boxObject.invalidateRow(i);
       }
     }
@@ -1972,7 +1973,7 @@ let treeView = {
     let max = this.boxObject.getLastVisibleRow();
     for (let i = min; i <= max; i++) {
       let rowInfo = this.getRowInfo(i);
-      if (rowInfo && rowInfo[1] && typeof rowInfo[1] != "string" && rowInfo[1].text == pattern.text)
+      if (rowInfo[0] && rowInfo[1] && typeof rowInfo[1] != "string" && rowInfo[1].text == pattern.text)
         this.boxObject.invalidateRow(i);
     }
   },
@@ -2048,7 +2049,7 @@ let treeView = {
     let match = [null, null, null, null, null];
     let current = this.getRowInfo(this.selection.currentIndex);
     let isCurrent = false;
-    let foundCurrent = !current;
+    let foundCurrent = !current[0];
     if (highlightAll) {
       this.selection.clearSelection();
       let rowCache = {__proto__: null};
@@ -2074,7 +2075,7 @@ let treeView = {
       if (subscription.special && subscription.filters.length == 0)
         continue;
 
-      isCurrent = (current && subscription == current[0] && !current[1]);
+      isCurrent = (subscription == current[0] && !current[1]);
       if (subscription.title.toLowerCase().indexOf(text) >= 0)
         selectMatch(subscription, 0);
       if (isCurrent)
@@ -2082,7 +2083,7 @@ let treeView = {
 
       for (let j = 0; j < subscription.description.length; j++) {
         let descr = subscription.description[j];
-        isCurrent = (current && subscription == current[0] && current[1] == descr);
+        isCurrent = (subscription == current[0] && current[1] == descr);
         if (descr.toLowerCase().indexOf(text) >= 0)
           selectMatch(subscription, 1 + j);
         if (isCurrent)
@@ -2091,7 +2092,7 @@ let treeView = {
 
       for (j = 0; j < subscription.filters.length; j++) {
         let pattern = subscription.filters[j];
-        isCurrent = (current && subscription == current[0] && current[1] == pattern);
+        isCurrent = (subscription == current[0] && current[1] == pattern);
         if (pattern.text.toLowerCase().indexOf(text) >= 0)
           selectMatch(subscription, 1 + subscription.description.length + j);
         if (isCurrent)
@@ -2183,8 +2184,8 @@ let treeView = {
 
     let row = this.selection.currentIndex;
     let info = this.getRowInfo(row);
-    let isDummy = info && (info[0].dummy || (info[1] && info[1].dummy));
-    if (!isDummy && (!info || !info[0].special || !info[1] || typeof info[1] == "string"))
+    let isDummy = info[0] && (info[0].dummy || (info[1] && info[1].dummy));
+    if (!isDummy && (!info[0] || !info[0].special || !info[1] || typeof info[1] == "string"))
       return false;
 
     let col = this.boxObject.columns.getPrimaryColumn();
@@ -2246,7 +2247,7 @@ let treeView = {
       this.boxObject.treeBody.parentNode.focus();
 
     let info = this.getRowInfo(this.editedRow);
-    let isDummy = info && (info[0].dummy || (info[1] && info[1].dummy));
+    let isDummy = info[0] && (info[0].dummy || (info[1] && info[1].dummy));
 
     if (save) {
       if (text && (isDummy || text != info[1].text)) {
