@@ -161,7 +161,8 @@ function selectFilter(filter)
 }
 
 // To be called when the window is closed
-function cleanUp() {
+function cleanUp()
+{
   filterStorage.removeFilterObserver(onFilterChange);
   filterStorage.removeSubscriptionObserver(onSubscriptionChange);
 }
@@ -968,11 +969,12 @@ var treeView = {
                                 .getService(Components.interfaces.nsIAtomService);
 
     this.atoms = {};
-    for (i = 0; i < stringAtoms.length; i++)
-      this.atoms[stringAtoms[i]] = atomService.getAtom(stringAtoms[i]);
-    for (i = 0; i < boolAtoms.length; i++) {
-      this.atoms[boolAtoms[i] + "-true"] = atomService.getAtom(boolAtoms[i] + "-true");
-      this.atoms[boolAtoms[i] + "-false"] = atomService.getAtom(boolAtoms[i] + "-false");
+    for each (let atom in stringAtoms)
+      this.atoms[atom] = atomService.getAtom(atom);
+    for each (let atom boolAtoms)
+    {
+      this.atoms[atom + "-true"] = atomService.getAtom(atom + "-true");
+      this.atoms[atom + "-false"] = atomService.getAtom(atom + "-false");
     }
 
     this.typemap = {__proto__: null};
