@@ -444,9 +444,9 @@ function exportList() {
   
       let list = ["[Adblock]"];
       let minVersion = "0";
-      for (let i = 0; i < treeView.data.length; i++) {
-        if (treeView.data[i].special) {
-          let patterns = treeView.data[i].filters.slice();
+      for (let i = 0; i < treeView.subscriptions.length; i++) {
+        if (treeView.subscriptions[i].special) {
+          let patterns = treeView.subscriptions[i].filters.slice();
           patterns.sort(sortNatural);
           for (let j = 0; j < patterns.length; j++) {
             let pattern = patterns[j];
@@ -578,9 +578,9 @@ function onSubscriptionChange(action, subscriptions)
     // Subscription changed
 
     let subscription = null;
-    for (let i = 0; i < treeView.data.length; i++) {
-      if (treeView.data[i].url == orig.url) {
-        subscription = treeView.data[i];
+    for (let i = 0; i < treeView.subscriptions.length; i++) {
+      if (treeView.subscriptions[i].url == orig.url) {
+        subscription = treeView.subscriptions[i];
         break;
       }
     }
@@ -591,7 +591,7 @@ function onSubscriptionChange(action, subscriptions)
       subscription.dummy = false;
       row = treeView.rowCount;
       rowCount = 0;
-      treeView.data.push(subscription);
+      treeView.subscriptions.push(subscription);
     }
     else if (subscription && status == "remove") {
       treeView.removeRow([subscription, null]);
@@ -603,7 +603,7 @@ function onSubscriptionChange(action, subscriptions)
       if (status == "replace" || status == "info") {
         subscription = cloneObject(orig);
         subscription.dummy = false;
-        treeView.data[i] = subscription;
+        treeView.subscriptions[i] = subscription;
       }
     }
   
@@ -663,9 +663,9 @@ function editSubscription(subscription) {
     return true;
 
   let newSubscription = null;
-  for (let i = 0; i < treeView.data.length; i++)
-    if (treeView.data[i].url == result.url)
-      newSubscription = treeView.data[i];
+  for (let i = 0; i < treeView.subscriptions.length; i++)
+    if (treeView.subscriptions[i].url == result.url)
+      newSubscription = treeView.subscriptions[i];
 
   if (subscription && newSubscription && subscription != newSubscription)
     treeView.removeRow([subscription, null]);
@@ -681,7 +681,7 @@ function editSubscription(subscription) {
   if (!newSubscription) {
     newSubscription = cloneObject(orig);
     newSubscription.dummy = false;
-    treeView.data.push(newSubscription);
+    treeView.subscriptions.push(newSubscription);
   }
   
   newSubscription.url = result.url;
@@ -769,7 +769,7 @@ function pasteFromClipboard() {
   transferable.getTransferData("text/unicode", data, {});
 
   try {
-    data = data.value.QueryInterface(Components.interfaces.nsISupportsString).data;
+    data = data.value.QueryInterface(Components.interfaces.nsISupportsString).subscriptions;
   }
   catch (e) {
     return;
@@ -797,8 +797,8 @@ function synchSubscription(forceDownload) {
 
 // Starts synchronization for all subscriptions
 function synchAllSubscriptions(forceDownload) {
-  for (let i = 0; i < treeView.data.length; i++) {
-    let subscription = treeView.data[i];
+  for (let i = 0; i < treeView.subscriptions.length; i++) {
+    let subscription = treeView.subscriptions[i];
     if (!subscription.special && !subscription.external && !subscription.dummy) {
       let orig = prefs.knownSubscriptions[subscription.url];
       synchronizer.execute(orig, forceDownload);
@@ -930,7 +930,7 @@ function fillContext() {
                              .createInstance(Components.interfaces.nsISupportsArray);
     let flavourString = Components.classes["@mozilla.org/supports-cstring;1"]
                                   .createInstance(Components.interfaces.nsISupportsCString);
-    flavourString.data = "text/unicode";
+    flavourString.subscriptions = "text/unicode";
     flavours.AppendElement(flavourString);
     hasFlavour = clipboard.hasDataMatchingFlavors(flavours, clipboard.kGlobalClipboard);
   }
@@ -1102,7 +1102,7 @@ let treeView = {
     this.disabled = {__proto__: null};
 
     // Copy the subscription list, we don't want to apply our changes immediately
-    this.data = filterStorage.subscriptions.map(createSubscriptionWrapper);
+    this.subscriptions = filterStorage.subscriptions.map(createSubscriptionWrapper);
 
     this.closed = {__proto__: null};
     let closed = this.boxObject.treeBody.parentNode.getAttribute("closedSubscriptions");
@@ -1137,8 +1137,8 @@ let treeView = {
 
   get rowCount() {
     let count = 0;
-    for (let i = 0; i < this.data.length; i++) {
-      let subscription = this.data[i];
+    for (let i = 0; i < this.subscriptions.length; i++) {
+      let subscription = this.subscriptions[i];
 
       // Special groups are only shown if they aren't empty
       if (subscription.special && subscription.filters.length == 0)
@@ -1379,14 +1379,14 @@ let treeView = {
       let index1 = -1;
       let index2 = -1;
       let index = 0;
-      for (i = 0; i < this.data.length; i++) {
+      for (i = 0; i < this.subscriptions.length; i++) {
         // Ignore invisible groups
-        if (this.data[i].special && this.data[i].filters.length == 0)
+        if (this.subscriptions[i].special && this.subscriptions[i].filters.length == 0)
           continue;
 
-        if (this.data[i] == this.dragData[0])
+        if (this.subscriptions[i] == this.dragData[0])
           index1 = index;
-        if (this.data[i] == info[0])
+        if (this.subscriptions[i] == info[0])
           index2 = index;
 
         index++;
@@ -1432,17 +1432,17 @@ let treeView = {
 
   getSubscriptionRow: function(subscription) {
     let index = 0;
-    for (let i = 0; i < this.data.length; i++) {
+    for (let i = 0; i < this.subscriptions.length; i++) {
       // Special groups are only shown if they aren't empty
-      if (this.data[i].special && this.data[i].filters.length == 0)
+      if (this.subscriptions[i].special && this.subscriptions[i].filters.length == 0)
         continue;
 
-      if (this.data[i] == subscription)
+      if (this.subscriptions[i] == subscription)
         return index;
 
       index++;
-      if (!(this.data[i].url in this.closed))
-        index += this.data[i].description.length + this.data[i].filters.length;
+      if (!(this.subscriptions[i].url in this.closed))
+        index += this.subscriptions[i].description.length + this.subscriptions[i].filters.length;
     }
     return -1;
   },
@@ -1459,8 +1459,8 @@ let treeView = {
   },
 
   getRowInfo: function(row) {
-    for (let i = 0; i < this.data.length; i++) {
-      let subscription = this.data[i];
+    for (let i = 0; i < this.subscriptions.length; i++) {
+      let subscription = this.subscriptions[i];
 
       // Special groups are only shown if they aren't empty
       if (subscription.special && subscription.filters.length == 0)
@@ -1528,8 +1528,8 @@ let treeView = {
     else if (direction == "descending")
       this.sortProc = this.sortProcs[col + "Desc"];
 
-    for (let i = 0; i < this.data.length; i++)
-      this.data[i].filters.sort(this.sortProc);
+    for (let i = 0; i < this.subscriptions.length; i++)
+      this.subscriptions[i].filters.sort(this.sortProc);
   },
 
   selectRow: function(row) {
@@ -1538,14 +1538,14 @@ let treeView = {
   },
 
   selectFilter: function(text) {
-    for (let i = 0; i < this.data.length; i++) {
-      for (let j = 0; j < this.data[i].filters.length; j++) {
-        if (this.data[i].filters[j].text == text) {
-          let parentRow = this.getSubscriptionRow(this.data[i]);
-          if (this.data[i].url in this.closed)
+    for (let i = 0; i < this.subscriptions.length; i++) {
+      for (let j = 0; j < this.subscriptions[i].filters.length; j++) {
+        if (this.subscriptions[i].filters[j].text == text) {
+          let parentRow = this.getSubscriptionRow(this.subscriptions[i]);
+          if (this.subscriptions[i].url in this.closed)
             this.toggleOpenState(parentRow);
-          this.selection.select(parentRow + 1 + this.data[i].description.length + j);
-          this.boxObject.ensureRowIsVisible(parentRow + 1 + this.data[i].description.length + j);
+          this.selection.select(parentRow + 1 + this.subscriptions[i].description.length + j);
+          this.boxObject.ensureRowIsVisible(parentRow + 1 + this.subscriptions[i].description.length + j);
         }
       }
     }
@@ -1578,29 +1578,29 @@ let treeView = {
   },
 
   hasUserPatterns: function() {
-    for (let i = 0; i < this.data.length; i++)
-      if (this.data[i].special && this.data[i].filters.length)
+    for (let i = 0; i < this.subscriptions.length; i++)
+      if (this.subscriptions[i].special && this.subscriptions[i].filters.length)
         return true;
 
     return false;
   },
 
   isFirstSubscription: function(subscription) {
-    for (let i = 0; i < this.data.length; i++) {
-      if (this.data[i].dummy || (this.data[i].special && this.data[i].filters.length == 0))
+    for (let i = 0; i < this.subscriptions.length; i++) {
+      if (this.subscriptions[i].dummy || (this.subscriptions[i].special && this.subscriptions[i].filters.length == 0))
         continue;
 
-      return (this.data[i] == subscription);
+      return (this.subscriptions[i] == subscription);
     }
     return false;
   },
 
   isLastSubscription: function(subscription) {
-    for (let i = this.data.length - 1; i >= 0; i--) {
-      if (this.data[i].dummy || (this.data[i].special && this.data[i].filters.length == 0))
+    for (let i = this.subscriptions.length - 1; i >= 0; i--) {
+      if (this.subscriptions[i].dummy || (this.subscriptions[i].special && this.subscriptions[i].filters.length == 0))
         continue;
 
-      return (this.data[i] == subscription);
+      return (this.subscriptions[i] == subscription);
     }
     return false;
   },
@@ -1717,13 +1717,13 @@ let treeView = {
 
   // Removes a pattern by its text
   removePattern: function(text) {
-    for (let i = 0; i < this.data.length; i++) {
-      if (!this.data[i].special)
+    for (let i = 0; i < this.subscriptions.length; i++) {
+      if (!this.subscriptions[i].special)
         continue;
 
-      for (let j = 0; j < this.data[i].filters.length; j++)
-        if (this.data[i].filters[j].text == text)
-          this.removeRow([this.data[i], this.data[i].filters[j]]);
+      for (let j = 0; j < this.subscriptions[i].filters.length; j++)
+        if (this.subscriptions[i].filters[j].text == text)
+          this.removeRow([this.subscriptions[i], this.subscriptions[i].filters[j]]);
     }
   },
 
@@ -1768,14 +1768,14 @@ let treeView = {
         return;
 
       // Remove a complete subscription
-      for (i = 0; i < this.data.length; i++) {
-        if (this.data[i] == info[0]) {
+      for (i = 0; i < this.subscriptions.length; i++) {
+        if (this.subscriptions[i] == info[0]) {
           let firstRow = this.getSubscriptionRow(info[0]);
           count = 1;
           if (!(info[0].url in this.closed))
             count += info[0].description.length + info[0].filters.length;
 
-          this.data.splice(i, 1);
+          this.subscriptions.splice(i, 1);
           this.boxObject.rowCountChanged(firstRow, -count);
 
           this.ensureSelection(firstRow);
@@ -1835,8 +1835,8 @@ let treeView = {
     else {
       // Moving a subscription
       let index = -1;
-      for (i = 0; i < this.data.length; i++)
-        if (this.data[i] == info[0])
+      for (i = 0; i < this.subscriptions.length; i++)
+        if (this.subscriptions[i] == info[0])
           index = i;
 
       if (index < 0)
@@ -1844,14 +1844,14 @@ let treeView = {
 
       let step = (offset < 0 ? -1 : 1);
       let current = index;
-      for (i = index + step; i >= 0 && i < this.data.length && offset != 0; i += step) {
+      for (i = index + step; i >= 0 && i < this.subscriptions.length && offset != 0; i += step) {
         // Ignore invisible groups
-        if (this.data[i].dummy || (this.data[i].special && this.data[i].filters.length == 0))
+        if (this.subscriptions[i].dummy || (this.subscriptions[i].special && this.subscriptions[i].filters.length == 0))
           continue;
 
-        tmp = this.data[i];
-        this.data[i] = this.data[current];
-        this.data[current] = tmp;
+        tmp = this.subscriptions[i];
+        this.subscriptions[i] = this.subscriptions[current];
+        this.subscriptions[current] = tmp;
 
         current = i;
         offset -= step;
@@ -1863,10 +1863,10 @@ let treeView = {
 
       let startIndex = Math.min(current, index);
       let endIndex = Math.max(current, index)
-      let startRow = this.getSubscriptionRow(this.data[startIndex]);
-      let endRow = this.getSubscriptionRow(this.data[endIndex]) + 1;
-      if (!(this.data[endIndex].url in this.closed))
-        endRow += this.data[endIndex].description.length + this.data[endIndex].filters.length;
+      let startRow = this.getSubscriptionRow(this.subscriptions[startIndex]);
+      let endRow = this.getSubscriptionRow(this.subscriptions[endIndex]) + 1;
+      if (!(this.subscriptions[endIndex].url in this.closed))
+        endRow += this.subscriptions[endIndex].description.length + this.subscriptions[endIndex].filters.length;
 
       this.boxObject.invalidateRange(startRow, endRow);
       this.selection.select(this.getSubscriptionRow(info[0]));
@@ -1888,10 +1888,10 @@ let treeView = {
     let data = Components.classes["@mozilla.org/supports-string;1"]
                          .createInstance(Components.interfaces.nsISupportsString);
     if (info[1] && typeof info[1] != "string")
-      data.data = info[1].text;
+      data.subscriptions = info[1].text;
     else
-      data.data = info[0].title;
-    transferable.setTransferData("text/unicode", data, data.data.length * 2);
+      data.subscriptions = info[0].title;
+    transferable.setTransferData("text/unicode", data, data.subscriptions.length * 2);
     array.AppendElement(transferable);
 
     let region = Components.classes["@mozilla.org/gfx/region;1"]
@@ -1987,8 +1987,8 @@ let treeView = {
   },
 
   removeUserPatterns: function() {
-    for (let i = 0; i < this.data.length; i++) {
-      let subscription = this.data[i];
+    for (let i = 0; i < this.subscriptions.length; i++) {
+      let subscription = this.subscriptions[i];
       if (subscription.special && subscription.filters.length) {
         let row = this.getSubscriptionRow(subscription);
         let count = 1;
@@ -2007,21 +2007,21 @@ let treeView = {
   applyChanges: function() {
     prefs.userPatterns = [];
     prefs.subscriptions = [];
-    for (let i = 0; i < this.data.length; i++) {
-      if (this.data[i].dummy)
+    for (let i = 0; i < this.subscriptions.length; i++) {
+      if (this.subscriptions[i].dummy)
         continue;
 
       let list = prefs.userPatterns;
-      let subscription = prefs.knownSubscriptions[this.data[i].url];
+      let subscription = prefs.knownSubscriptions[this.subscriptions[i].url];
       if (!subscription.special) {
-        subscription.title = this.data[i].title;
-        subscription.autoDownload = this.data[i].autoDownload;
-        subscription.disabled = this.data[i].disabled;
+        subscription.title = this.subscriptions[i].title;
+        subscription.autoDownload = this.subscriptions[i].autoDownload;
+        subscription.disabled = this.subscriptions[i].disabled;
         list = subscription.filters = [];
       }
       prefs.subscriptions.push(subscription);
 
-      let patterns = this.data[i].filters.slice();
+      let patterns = this.subscriptions[i].filters.slice();
       patterns.sort(sortNatural);
       for (let j = 0; j < patterns.length; j++) {
         let pattern = patterns[j].orig;
@@ -2060,8 +2060,8 @@ let treeView = {
         match[index - 1] = match[index];
     };
 
-    for (let i = 0; i < this.data.length; i++) {
-      let subscription = this.data[i];
+    for (let i = 0; i < this.subscriptions.length; i++) {
+      let subscription = this.subscriptions[i];
       if (subscription.special && subscription.filters.length == 0)
         continue;
 
