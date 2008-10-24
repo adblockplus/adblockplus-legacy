@@ -193,6 +193,11 @@ function createSubscriptionWrapper(subscription)
     sortedFilters: subscription.filters,
     description: getSubscriptionDescription(subscription)
   };
+  if (treeView.sortProc)
+  {
+    wrapper.sortedFilters = subscription.filters.slice();
+    wrapper.sortedFilters.sort(treeView.sortProc);
+  }
   subscriptionWrappers[subscription.url] = wrapper;
   return wrapper;
 }
@@ -301,8 +306,8 @@ function addFilter() {
   if (info[0] && info[0].special) {
     // Insert editor dummy before an editable pattern
     let pos = (info[1] ? info[1].origPos : 0);
-    for (let i = 0; i < info[0].filters.length; i++) {
-      let pattern = info[0].filters[i];
+    for (let i = 0; i < info[0].sortedFilters.length; i++) {
+      let pattern = info[0].sortedFilters[i];
       if (pattern.origPos >= pos)
         pattern.origPos++;
     }
@@ -893,10 +898,10 @@ function fillContext() {
     let isFirst = true;
     let isLast = true;
     if (editable && !treeView.isSorted()) {
-      for (i = 0; i < current[0].filters.length; i++) {
-        if (current[0].filters[i] == current[1]) {
+      for (i = 0; i < current[0].sortedFilters.length; i++) {
+        if (current[0].sortedFilters[i] == current[1]) {
           isFirst = (i == 0);
-          isLast = (i == current[0].filters.length - 1);
+          isLast = (i == current[0].sortedFilters.length - 1);
           break;
         }
       }
@@ -988,63 +993,66 @@ function cloneObject(obj) {
 }
 
 // Sort functions for the filter list
-function sortByText(pattern1, pattern2) {
-  if (pattern1.text < pattern2.text)
+function sortByText(filter1, filter2)
+{
+  if (filter1.text < filter2.text)
     return -1;
-  else if (pattern1.text > pattern2.text)
+  else if (filter1.text > filter2.text)
     return 1;
   else
     return 0;
 }
 
-function sortByTextDesc(pattern1, pattern2) {
-  return -sortByText(pattern1, pattern2);
+function sortByTextDesc(filter1, filter2)
+{
+  return -sortByText(filter1, filter2);
 }
 
-function compareEnabled(pattern1, pattern2) {
-  let hasEnabled1 = (pattern1.type != "comment" && pattern1.type != "invalid" ? 1 : 0);
-  let hasEnabled2 = (pattern2.type != "comment" && pattern2.type != "invalid" ? 1 : 0);
+function compareEnabled(filter1, filter2)
+{
+  let hasEnabled1 = (filter1 instanceof abp.ActiveFilter ? 1 : 0);
+  let hasEnabled2 = (filter2 instanceof abp.ActiveFilter ? 1 : 0);
   if (hasEnabled1 != hasEnabled2)
     return hasEnabled1 - hasEnabled2;
-  else if (hasEnabled1 && (pattern1.text in treeView.disabled) != (pattern2.text in treeView.disabled))
-    return (pattern1.text in treeView.disabled ? -1 : 1);
+  else if (hasEnabled1 && filter1.disabled != filter2.disabled)
+    return (filter1.disabled ? -1 : 1);
   else
     return 0;
 }
 
-function compareHitCount(pattern1, pattern2) {
-  let hasHitCount1 = (pattern1.type != "comment" && pattern1.type != "invalid" ? 1 : 0);
-  let hasHitCount2 = (pattern2.type != "comment" || pattern2.type != "invalid" ? 1 : 0);
+function compareHitCount(filter1, filter2)
+{
+  let hasHitCount1 = (filter1 instanceof abp.ActiveFilter ? 1 : 0);
+  let hasHitCount2 = (filter2 instanceof abp.ActiveFilter ? 1 : 0);
   if (hasHitCount1 != hasHitCount2)
     return hasHitCount1 - hasHitCount2;
   else if (hasHitCount1)
-    return pattern1.orig.hitCount - pattern2.orig.hitCount;
+    return filter1.hitCount - filter2.hitCount;
   else
     return 0;
 }
 
-function compareLastHit(pattern1, pattern2) {
-  let hasLastHit1 = (pattern1.type != "comment" && pattern1.type != "invalid" ? 1 : 0);
-  let hasLastHit2 = (pattern2.type != "comment" && pattern2.type != "invalid" ? 1 : 0);
+function compareLastHit(filter1, filter2)
+{
+  let hasLastHit1 = (filter1 instanceof abp.ActiveFilter ? 1 : 0);
+  let hasLastHit2 = (filter2 instanceof abp.ActiveFilter ? 1 : 0);
   if (hasLastHit1 != hasLastHit2)
     return hasLastHit1 - hasLastHit2;
   else if (hasLastHit1)
-    return pattern1.orig.lastHit - pattern2.orig.lastHit;
+    return filter1.lastHit - filter2.lastHit;
   else
     return 0;
 }
 
-function sortNatural(pattern1, pattern2) {
-  return pattern1.origPos - pattern2.origPos;
-}
-
-function createSortWithFallback(cmpFunc, fallbackFunc, desc) {
+function createSortWithFallback(cmpFunc, fallbackFunc, desc)
+{
   let factor = (desc ? -1 : 1);
 
-  return function(pattern1, pattern2) {
-    let ret = cmpFunc(pattern1, pattern2);
+  return function(filter1, filter2)
+  {
+    let ret = cmpFunc(filter1, filter2);
     if (ret == 0)
-      return fallbackFunc(pattern1, pattern2);
+      return fallbackFunc(filter1, filter2);
     else
       return factor * ret;
   }
@@ -1135,12 +1143,12 @@ let treeView = {
     for each (let subscription in this.subscriptions)
     {
       // Special subscriptions are only shown if they aren't empty
-      if (subscription instanceof abp.SpecialSubscription && subscription.filters.length == 0)
+      if (subscription instanceof abp.SpecialSubscription && subscription.sortedFilters.length == 0)
         continue;
 
       count++;
       if (!(subscription.url in this.closed))
-        count += subscription.description.length + subscription.filters.length;
+        count += subscription.description.length + subscription.sortedFilters.length;
     }
 
     return count;
@@ -1247,7 +1255,7 @@ let treeView = {
   isContainerEmpty: function(row)
   {
     let [subscription, filter] = this.getRowInfo(row);
-    return subscription && !filter && subscription.description.length + subscription.filters.length == 0;
+    return subscription && !filter && subscription.description.length + subscription.sortedFilters.length == 0;
   },
 
   getLevel: function(row)
@@ -1272,7 +1280,7 @@ let treeView = {
     if (startIndex < 0)
       return false;
 
-    return (startIndex + subscription.description.length + subscription.filters.length > afterRow);
+    return (startIndex + subscription.description.length + subscription.sortedFilters.length > afterRow);
   },
 
   toggleOpenState: function(row)
@@ -1281,7 +1289,7 @@ let treeView = {
     if (!subscription || filter)
       return;
 
-    let count = subscription.description.length + subscription.filters.length;
+    let count = subscription.description.length + subscription.sortedFilters.length;
     if (subscription.url in this.closed)
     {
       delete this.closed[subscription.url];
@@ -1330,7 +1338,7 @@ let treeView = {
 
   isSorted: function()
   {
-    return (this.sortProc != sortNatural);
+    return (this.sortProc != null);
   },
 
   DROP_ON: nsITreeView.DROP_ON,
@@ -1381,7 +1389,10 @@ let treeView = {
 
       // Create a copy of the original subscription filters before modifying
       if (!subscription.hasOwnProperty("filters"))
+      {
         subscription.filters = subscription.filters.slice();
+        subscription.sortedFilters = subscription.filters;
+      }
 
       let oldRow = row - newIndex + oldIndex;
       subscription.filters.splice(oldIndex, 1);
@@ -1457,7 +1468,7 @@ let treeView = {
   titlePrefix: abp.getString("subscription_description") + " ",
   atoms: null,
   sortColumn: null,
-  sortProc: sortNatural,
+  sortProc: null,
 
   getSubscriptionRow: function(search)
   {
@@ -1475,13 +1486,13 @@ let treeView = {
 
   getSubscriptionRowCount: function(subscription)
   {
-    if (subscription instanceof abp.SpecialSubscription && subscription.filters.length == 0)
+    if (subscription instanceof abp.SpecialSubscription && subscription.sortedFilters.length == 0)
       return 0;
 
     if (subscription.url in this.closed)
       return 1;
 
-    return 1 + subscription.description.length + subscription.filters.length;
+    return 1 + subscription.description.length + subscription.sortedFilters.length;
   },
 
   getRowInfo: function(row)
@@ -1489,7 +1500,7 @@ let treeView = {
     for each (let subscription in this.subscriptions)
     {
       // Special subscriptions are only shown if they aren't empty
-      if (subscription instanceof abp.SpecialSubscription && subscription.filters.length == 0)
+      if (subscription instanceof abp.SpecialSubscription && subscription.sortedFilters.length == 0)
         continue;
 
       // Check whether the subscription row has been requested
@@ -1506,10 +1517,10 @@ let treeView = {
         row -= subscription.description.length;
 
         // Check whether one of the filters has been requested
-        if (row < subscription.filters.length)
-          return [subscription, subscription.filters[row]];
+        if (row < subscription.sortedFilters.length)
+          return [subscription, subscription.sortedFilters[row]];
 
-        row -= subscription.filters.length;
+        row -= subscription.sortedFilters.length;
       }
     }
 
@@ -1548,19 +1559,26 @@ let treeView = {
     hitcount: createSortWithFallback(compareHitCount, sortByText, false),
     hitcountDesc: createSortWithFallback(compareHitCount, sortByText, true),
     lasthit: createSortWithFallback(compareLastHit, sortByText, false),
-    lasthitDesc: createSortWithFallback(compareLastHit, sortByText, true),
-    natural: sortNatural
+    lasthitDesc: createSortWithFallback(compareLastHit, sortByText, true)
   },
 
-  resort: function(col, direction) {
-    this.sortProc = this.sortProcs[col];
+  resort: function(col, direction)
+  {
     if (direction == "natural")
-      this.sortProc = this.sortProcs.natural;
-    else if (direction == "descending")
-      this.sortProc = this.sortProcs[col + "Desc"];
-
-    for (let i = 0; i < this.subscriptions.length; i++)
-      this.subscriptions[i].filters.sort(this.sortProc);
+    {
+      this.sortProc = null;
+      for each (let subscription in this.subscriptions)
+        subscription.sortedFilters = subscription.filters;
+    }
+    else
+    {
+      this.sortProc = this.sortProcs[col + (direction == "descending" ? "Desc" : "")];
+      for each (let subscription in this.subscriptions)
+      {
+        subscription.sortedFilters = subscription.filters.slice();
+        subscription.sortedFilters.sort(this.sortProc);
+      }
+    }
   },
 
   selectRow: function(row) {
@@ -1570,8 +1588,8 @@ let treeView = {
 
   selectFilter: function(text) {
     for (let i = 0; i < this.subscriptions.length; i++) {
-      for (let j = 0; j < this.subscriptions[i].filters.length; j++) {
-        if (this.subscriptions[i].filters[j].text == text) {
+      for (let j = 0; j < this.subscriptions[i].sortedFilters.length; j++) {
+        if (this.subscriptions[i].sortedFilters[j].text == text) {
           let parentRow = this.getSubscriptionRow(this.subscriptions[i]);
           if (this.subscriptions[i].url in this.closed)
             this.toggleOpenState(parentRow);
@@ -1610,7 +1628,7 @@ let treeView = {
 
   hasUserPatterns: function() {
     for (let i = 0; i < this.subscriptions.length; i++)
-      if (this.subscriptions[i].special && this.subscriptions[i].filters.length)
+      if (this.subscriptions[i].special && this.subscriptions[i].sortedFilters.length)
         return true;
 
     return false;
@@ -1618,7 +1636,7 @@ let treeView = {
 
   isFirstSubscription: function(subscription) {
     for (let i = 0; i < this.subscriptions.length; i++) {
-      if (this.subscriptions[i].dummy || (this.subscriptions[i].special && this.subscriptions[i].filters.length == 0))
+      if (this.subscriptions[i].dummy || (this.subscriptions[i].special && this.subscriptions[i].sortedFilters.length == 0))
         continue;
 
       return (this.subscriptions[i] == subscription);
@@ -1628,7 +1646,7 @@ let treeView = {
 
   isLastSubscription: function(subscription) {
     for (let i = this.subscriptions.length - 1; i >= 0; i--) {
-      if (this.subscriptions[i].dummy || (this.subscriptions[i].special && this.subscriptions[i].filters.length == 0))
+      if (this.subscriptions[i].dummy || (this.subscriptions[i].special && this.subscriptions[i].sortedFilters.length == 0))
         continue;
 
       return (this.subscriptions[i] == subscription);
@@ -1651,8 +1669,8 @@ let treeView = {
         origPos = -1;
     
       // Maybe we have this pattern already, check this
-      for (i = 0; i < subscription.filters.length; i++) {
-        if (subscription.filters[i].text == pattern.text) {
+      for (i = 0; i < subscription.sortedFilters.length; i++) {
+        if (subscription.sortedFilters[i].text == pattern.text) {
           if (typeof noSelect == "undefined" || !noSelect) {
             parentRow = this.getSubscriptionRow(subscription);
             if (subscription.url in this.closed)
@@ -1703,28 +1721,28 @@ let treeView = {
       if (topMost)
         pos = 0;
       else
-        for (i = 0; i < subscription.filters.length; i++)
-          if (pattern.origPos < subscription.filters[i].origPos && (pos < 0 || subscription.filters[i].origPos < subscription.filters[pos].origPos))
+        for (i = 0; i < subscription.sortedFilters.length; i++)
+          if (pattern.origPos < subscription.sortedFilters[i].origPos && (pos < 0 || subscription.sortedFilters[i].origPos < subscription.sortedFilters[pos].origPos))
             pos = i;
     }
     else {
       // Insert patterns with respect to sorting
-      if (origPos >= 0 || this.sortProc != sortNatural)
-        for (i = 0; pos < 0 && i < subscription.filters.length; i++)
-          if (this.sortProc(pattern, subscription.filters[i]) < 0)
+      if (origPos >= 0 || this.sortProc != null)
+        for (i = 0; pos < 0 && i < subscription.sortedFilters.length; i++)
+          if (this.sortProc(pattern, subscription.sortedFilters[i]) < 0)
             pos = i;
     }
 
     if (pos < 0) {
-      subscription.filters.push(pattern);
-      pos = subscription.filters.length - 1;
+      subscription.sortedFilters.push(pattern);
+      pos = subscription.sortedFilters.length - 1;
     }
     else
-      subscription.filters.splice(pos, 0, pattern);
+      subscription.sortedFilters.splice(pos, 0, pattern);
 
     parentRow = this.getSubscriptionRow(subscription);
 
-    if (subscription.special && subscription.filters.length == 1) {
+    if (subscription.special && subscription.sortedFilters.length == 1) {
       // Show previously invisible subscription
       let count = 1;
       if (!(subscription.url in this.closed))
@@ -1752,9 +1770,9 @@ let treeView = {
       if (!this.subscriptions[i].special)
         continue;
 
-      for (let j = 0; j < this.subscriptions[i].filters.length; j++)
-        if (this.subscriptions[i].filters[j].text == text)
-          this.removeRow([this.subscriptions[i], this.subscriptions[i].filters[j]]);
+      for (let j = 0; j < this.subscriptions[i].sortedFilters.length; j++)
+        if (this.subscriptions[i].sortedFilters[j].text == text)
+          this.removeRow([this.subscriptions[i], this.subscriptions[i].sortedFilters[j]]);
     }
   },
 
@@ -1766,10 +1784,10 @@ let treeView = {
         return;
 
       // Remove a single pattern
-      for (let i = 0; i < info[0].filters.length; i++) {
-        if (info[0].filters[i] == info[1]) {
+      for (let i = 0; i < info[0].sortedFilters.length; i++) {
+        if (info[0].sortedFilters[i] == info[1]) {
           let parentRow = this.getSubscriptionRow(info[0]);
-          info[0].filters.splice(i, 1);
+          info[0].sortedFilters.splice(i, 1);
 
           let newSelection = parentRow;
           if (!(info[0].url in this.closed)) {
@@ -1777,7 +1795,7 @@ let treeView = {
             newSelection = parentRow + 1 + info[0].description.length + i;
           }
 
-          if (info[0].special && !info[0].filters.length) {
+          if (info[0].special && !info[0].sortedFilters.length) {
             // Don't show empty special subscriptions
             let count = 1;
             if (!(info[0].url in this.closed))
@@ -1804,7 +1822,7 @@ let treeView = {
           let firstRow = this.getSubscriptionRow(info[0]);
           count = 1;
           if (!(info[0].url in this.closed))
-            count += info[0].description.length + info[0].filters.length;
+            count += info[0].description.length + info[0].sortedFilters.length;
 
           this.subscriptions.splice(i, 1);
           this.boxObject.rowCountChanged(firstRow, -count);
@@ -1838,7 +1856,10 @@ let treeView = {
 
     // Create a copy of the original subscription filters before modifying
     if (!subscription.hasOwnProperty("filters"))
+    {
       subscription.filters = subscription.filters.slice();
+      subscription.sortedFilters = subscription.filters;
+    }
 
     [subscription.filters[oldIndex], subscription.filters[newIndex]] = [subscription.filters[newIndex], subscription.filters[oldIndex]];
 
@@ -1869,7 +1890,7 @@ let treeView = {
       newIndex = (up ? oldIndex - 1 : oldIndex + 1);
       if (newIndex < 0 || newIndex >= this.subscriptions.length)
         return;
-    } while (this.subscriptions[newIndex] instanceof abp.SpecialSubscription && this.subscriptions[newIndex].filters.length == 0);
+    } while (this.subscriptions[newIndex] instanceof abp.SpecialSubscription && this.subscriptions[newIndex].sortedFilters.length == 0);
 
     [this.subscriptions[oldIndex], this.subscriptions[newIndex]] = [this.subscriptions[newIndex], this.subscriptions[oldIndex]];
 
@@ -1996,13 +2017,14 @@ let treeView = {
   removeUserPatterns: function() {
     for (let i = 0; i < this.subscriptions.length; i++) {
       let subscription = this.subscriptions[i];
-      if (subscription.special && subscription.filters.length) {
+      if (subscription.special && subscription.sortedFilters.length) {
         let row = this.getSubscriptionRow(subscription);
         let count = 1;
         if (!(subscription.url in this.closed))
-          count += subscription.description.length + subscription.filters.length;
+          count += subscription.description.length + subscription.sortedFilters.length;
 
         subscription.filters = [];
+        subscription.sortedFilters = subscription.filters;
         this.boxObject.rowCountChanged(row, -count);
 
         onChange();
@@ -2069,7 +2091,7 @@ let treeView = {
 
     for (let i = 0; i < this.subscriptions.length; i++) {
       let subscription = this.subscriptions[i];
-      if (subscription.special && subscription.filters.length == 0)
+      if (subscription.special && subscription.sortedFilters.length == 0)
         continue;
 
       isCurrent = (subscription == current[0] && !current[1]);
@@ -2087,8 +2109,8 @@ let treeView = {
           foundCurrent = true;
       }
 
-      for (j = 0; j < subscription.filters.length; j++) {
-        let pattern = subscription.filters[j];
+      for (j = 0; j < subscription.sortedFilters.length; j++) {
+        let pattern = subscription.sortedFilters[j];
         isCurrent = (subscription == current[0] && current[1] == pattern);
         if (pattern.text.toLowerCase().indexOf(text) >= 0)
           selectMatch(subscription, 1 + subscription.description.length + j);
