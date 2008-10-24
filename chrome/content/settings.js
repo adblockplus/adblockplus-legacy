@@ -979,38 +979,9 @@ var treeView = {
 
     this.typemap = {__proto__: null};
     this.disabled = {__proto__: null};
-    this.data = [];
 
-    for (i = 0; i < prefs.subscriptions.length; i++) {
-      this.data.push(cloneObject(prefs.subscriptions[i]));
-      subscription = this.data[this.data.length - 1];
-      subscription.extra = this.getSubscriptionDescription(subscription);
-      subscription.dummy = false;
-
-      this.initSubscriptionPatterns(subscription, subscription.patterns);
-      for (j = 0; j < subscription.patterns.length; j++)
-        if (subscription.patterns[j].disabled)
-          this.disabled[subscription.patterns[j].text] = true;
-
-      if (subscription.special)
-        for (j = 0; j < subscription.types.length; j++)
-          this.typemap[subscription.types[j]] = subscription;
-    }
-
-    for (i = 0; i < prefs.userPatterns.length; i++) {
-      if (!(prefs.userPatterns[i].type in this.typemap))
-        continue;
-
-      subscription = this.typemap[prefs.userPatterns[i].type];
-      var pattern = cloneObject(prefs.userPatterns[i]);
-      pattern.orig = prefs.userPatterns[i];
-      pattern.origPos = subscription.nextPos++;
-      pattern.dummy = false;
-      subscription.patterns.push(pattern);
-
-      if (pattern.disabled)
-        this.disabled[pattern.text] = true;
-    }
+    // Copy the subscription list, we don't want to apply our changes immediately
+    this.data = filterStorage.subscriptions.slice();
 
     this.closed = {__proto__: null};
     var closed = this.boxObject.treeBody.parentNode.getAttribute("closedSubscriptions");
