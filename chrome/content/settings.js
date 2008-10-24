@@ -190,10 +190,9 @@ function createSubscriptionWrapper(subscription)
   let wrapper = 
   {
     __proto__: subscription,
-    filters: subscription.filters.slice(),
+    sortedFilters: subscription.filters,
     description: getSubscriptionDescription(subscription)
   };
-  wrapper.sortedFilters = wrapper.filters;
   subscriptionWrappers[subscription.url] = wrapper;
   return wrapper;
 }
@@ -1380,6 +1379,10 @@ let treeView = {
       if (oldIndex < 0 || newIndex < 0)
         return;
 
+      // Create a copy of the original subscription filters before modifying
+      if (!subscription.hasOwnProperty("filters"))
+        subscription.filters = subscription.filters.slice();
+
       let oldRow = row - newIndex + oldIndex;
       subscription.filters.splice(oldIndex, 1);
       this.boxObject.rowCountChanged(oldRow, -1);
@@ -1832,6 +1835,10 @@ let treeView = {
     let newIndex = (up ? oldIndex - 1 : oldIndex + 1);
     if (newIndex < 0 || newIndex >= subscription.filters.length)
       return;
+
+    // Create a copy of the original subscription filters before modifying
+    if (!subscription.hasOwnProperty("filters"))
+      subscription.filters = subscription.filters.slice();
 
     [subscription.filters[oldIndex], subscription.filters[newIndex]] = [subscription.filters[newIndex], subscription.filters[oldIndex]];
 
