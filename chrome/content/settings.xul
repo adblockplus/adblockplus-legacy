@@ -48,7 +48,7 @@
   onload="init()"
   onunload="cleanUp()"
   ondialogaccept="applyChanges(); return true;"
-  ondialogextra2="addFilter()"
+  ondialogextra2="treeView.startEditor(true)"
   buttons="accept,cancel,extra2"
   buttonlabelextra2="&add.label;..."
   buttonaccesskeyextra2="&add.accesskey;"
@@ -122,7 +122,7 @@
   <menubar id="menu" onpopupshowing="treeView.stopEditor(true, true);">
     <menu id="filters-menu" label="&filters.label;" accesskey="&filters.accesskey;">
       <menupopup id="filters-popup" onpopupshowing="fillFiltersPopup()">
-        <menuitem id="addfilter" label="&add.label;..." accesskey="&add.accesskey;" key="addfilter-key" oncommand="addFilter()"/>
+        <menuitem id="addfilter" label="&add.label;..." accesskey="&add.accesskey;" key="addfilter-key" oncommand="treeView.startEditor(true)"/>
         <menuseparator/>
         <menuitem id="addsubscription" label="&addsubscription.label;..." accesskey="&addsubscription.accesskey;" command="addsubscription-command"/>
         <menuitem id="synchsubscriptions" label="&synchsubscriptions.label;" accesskey="&synchsubscriptions.accesskey;" key="synchsubscriptions-key" command="synchsubscriptions-command"/>
@@ -216,7 +216,7 @@
         <treecol id="col-lasthit" label="&lasthit.column;" hidden="true" flex="4" persist="width ordinal sortDirection hidden"/>
       </treecols>
 
-      <treechildren tooltip="regexp-tooltip" onclick="onListClick(event)" ondraggesture="onListDragGesture(event)" ondblclick="if (event.button == 0) editFilter('')"/>
+      <treechildren tooltip="regexp-tooltip" onclick="onListClick(event)" ondraggesture="onListDragGesture(event)" ondblclick="if (event.button == 0) editFilter(null)"/>
     </tree>
   </stack>
 
