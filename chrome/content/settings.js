@@ -1652,31 +1652,24 @@ let treeView = {
    */
   getSelectedFilters: function(prependCurrent)
   {
-    let result = [];
-    for (let i = 0; i < this.selection.getRangeCount(); i++)
+    return this.getSelectedInfo(prependCurrent).map(function(info)
     {
-      let min = {};
-      let max = {};
-      this.selection.getRangeAt(i, min, max);
-      for (let j = min.value; j <= max.value; j++)
-      {
-        let [subscription, filter] = this.getRowInfo(j);
-        if (filter instanceof abp.Filter)
-        {
-          if (prependCurrent && j == this.selection.currentIndex)
-            result.unshift(filter);
-          else
-            result.push(filter);
-        }
-      }
-    }
-    return result;
+      return info[1];
+    }).filter(function(filter)
+    {
+      return filter instanceof abp.Filter;
+    });
   },
 
-   // Returns the info for all selected rows, starting with the current row
-  getSelectedInfo: function()
+  /**
+   * Returns the filters/subscription currently selected.
+   * @param {Boolean} prependCurrent if true, current element will be returned first
+   * @return {Array} each array entry has the same format as treeView.getRowInfo() result
+   * @see treeView.getRowInfo()
+   */
+  getSelectedInfo: function(prependCurrent)
   {
-    let selected = [];
+    let result = [];
     for (let i = 0; i < this.selection.getRangeCount(); i++)
     {
       let min = {};
@@ -1687,14 +1680,14 @@ let treeView = {
         let info = this.getRowInfo(j);
         if (info[0])
         {
-          if (j == treeView.selection.currentIndex)
-            selected.unshift(info);
+          if (prependCurrent && j == treeView.selection.currentIndex)
+            result.unshift(info);
           else
-            selected.push(info);
+            result.push(info);
         }
       }
     }
-    return selected;
+    return result;
   },
 
   /**
