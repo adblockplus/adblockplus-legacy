@@ -102,7 +102,7 @@ treechildren::-moz-tree-image(col-enabled, subscription-true, subscription-disab
 }
 
 treechildren::-moz-tree-image(col-enabled, filter-true, subscription-disabled-false, filter-disabled-false),
-treechildren::-moz-tree-image(col-enabled, subscription-true, subscription-disabled-false) {
+treechildren::-moz-tree-image(col-enabled, subscription-true, subscription-disabled-false, subscription-dummy-false) {
   list-style-image: url(checked-green.png);
 }
 
