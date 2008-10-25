@@ -159,7 +159,7 @@ function selectFilter(filter)
   if (editorTimeout != null)
     clearTimeout(editorTimeout);
 
-  treeView.selectFilter(filter.text);
+  treeView.selectFilter(getFilterByText(filter.text));
   E("list").focus();
 }
 
@@ -1801,16 +1801,20 @@ let treeView = {
     treeView.boxObject.ensureRowIsVisible(row);
   },
 
-  selectFilter: function(text) {
-    for (let i = 0; i < this.subscriptions.length; i++) {
-      for (let j = 0; j < this.subscriptions[i].sortedFilters.length; j++) {
-        if (this.subscriptions[i].sortedFilters[j].text == text) {
-          let parentRow = this.getSubscriptionRow(this.subscriptions[i]);
-          if (this.subscriptions[i].url in this.closed)
-            this.toggleOpenState(parentRow);
-          this.selection.select(parentRow + 1 + this.subscriptions[i].description.length + j);
-          this.boxObject.ensureRowIsVisible(parentRow + 1 + this.subscriptions[i].description.length + j);
-        }
+  /**
+   * Finds the given filter in the list and selects it.
+   */
+  selectFilter: function(/**Filter*/ filter)
+  {
+    for each (let subscription in this.subscriptions)
+    {
+      let index = subscription.sortedFilters.indexOf(filter);
+      if (index >= 0)
+      {
+        let parentRow = this.getSubscriptionRow(subscription);
+        if (subscription.url in this.closed)
+          this.toggleOpenState(parentRow);
+        this.selectRow(parentRow + 1 + subscription.description.length + index);
       }
     }
   },
