@@ -661,8 +661,9 @@ function onSubscriptionChange(action, subscriptions)
       rowCount = 0;
       treeView.subscriptions.push(subscription);
     }
-    else if (subscription && status == "remove") {
-      treeView.removeRow([subscription, null]);
+    else if (subscription && status == "remove")
+    {
+      treeView.removeSubscription(subscription);
       return;
     }
     else if (subscription) {
@@ -736,7 +737,7 @@ function editSubscription(subscription) {
       newSubscription = treeView.subscriptions[i];
 
   if (subscription && newSubscription && subscription != newSubscription)
-    treeView.removeRow([subscription, null]);
+    treeView.removeSubscription(subscription);
 
   let orig = (result.url in prefs.knownSubscriptions ? prefs.knownSubscriptions[result.url] : prefs.subscriptionFromURL(result.url));
 
@@ -1046,7 +1047,10 @@ function togglePref(pref)
   prefs.save();
 }
 
-// Updates hit count column whenever a value changes
+/**
+ * Filter observer
+ * @see filterStorage.addFilterObserver()
+ */
 function onFilterChange(action, filters)
 {
   if (action == "hit" && (!E("col-hitcount").hidden || !E("col-lasthit").hidden))
@@ -1058,26 +1062,39 @@ function onFilterChange(action, filters)
   }
 }
 
-// Saves the filter list
-function applyChanges() {
+/**
+ * Applies filter list changes.
+ */
+function applyChanges()
+{
   treeView.applyChanges();
   E("applyButton").setAttribute("disabled", "true");
 }
 
-// Checks whether user's mouse use hovering over a regexp exclamation mark
-function showRegExpTooltip(event) {
+/**
+ * Checks whether user's mouse is hovering over a regexp exclamation mark
+ * @param {Event} event
+ * @return {Boolean}
+ */
+function showRegExpTooltip(event)
+{
   let col = {};
   let childElement = {};
   treeView.boxObject.getCellAt(event.clientX, event.clientY, {}, col, childElement);
   return (col.value.id == "col-filter" && childElement.value == "image");
 }
 
-// Opens About Adblock Plus dialog
-function openAbout() {
+/**
+ * Opens About Adblock Plus dialog
+ */
+function openAbout()
+{
   openDialog("about.xul", "_blank", "chrome,centerscreen,modal");
 }
 
-// To be called whenever the filter list has been changed and changes can be applied
+/**
+ * Should be called after each change to the filter list that needs applying later
+ */
 function onChange() {
   E("applyButton").removeAttribute("disabled");
 }
@@ -1979,15 +1996,20 @@ let treeView = {
       onChange();
   },
 
-  // Removes a pattern by its text
-  removePattern: function(text) {
-    for (let i = 0; i < this.subscriptions.length; i++) {
-      if (!this.subscriptions[i].special)
+  /**
+   * Removes a filter by its text representation
+   * @param {String} text
+   */
+  removeFilter: function(text)
+  {
+    let filter = getFilterByText(text);
+    for each (let subscription in this.subscriptions)
+    {
+      if (!(subscription instanceof abp.SpecialSubscription))
         continue;
 
-      for (let j = 0; j < this.subscriptions[i].sortedFilters.length; j++)
-        if (this.subscriptions[i].sortedFilters[j].text == text)
-          this.removeRow([this.subscriptions[i], this.subscriptions[i].sortedFilters[j]]);
+      if (subscription.sortedFilters.indexOf(filter) >= 0)
+        this.removeFilter(subscription, filter);
     }
   },
 
@@ -2053,65 +2075,6 @@ let treeView = {
 
     this.ensureSelection(firstRow);
     onChange();
-  },
-
-  // Removes a pattern or a complete subscription by its info
-  removeRow: function(info) {
-    if (info[1]) {
-      // Not removing description rows or patterns from subscriptions
-      if (typeof info[1] == "string" || !info[0].special)
-        return;
-
-      // Remove a single pattern
-      for (let i = 0; i < info[0].sortedFilters.length; i++) {
-        if (info[0].sortedFilters[i] == info[1]) {
-          let parentRow = this.getSubscriptionRow(info[0]);
-          info[0].sortedFilters.splice(i, 1);
-
-          let newSelection = parentRow;
-          if (!(info[0].url in this.closed)) {
-            this.boxObject.rowCountChanged(parentRow + 1 + info[0].description.length + i, -1);
-            newSelection = parentRow + 1 + info[0].description.length + i;
-          }
-
-          if (info[0].special && !info[0].sortedFilters.length) {
-            // Don't show empty special subscriptions
-            let count = 1;
-            if (!(info[0].url in this.closed))
-              count += info[0].description.length;
-            this.boxObject.rowCountChanged(parentRow, -count);
-            newSelection -= count;
-          }
-
-          this.ensureSelection(newSelection);
-          if (!info[1].dummy)
-            onChange();
-          return;
-        }
-      }
-    }
-    else {
-      // Not removing special groups
-      if (info[0].special)
-        return;
-
-      // Remove a complete subscription
-      for (i = 0; i < this.subscriptions.length; i++) {
-        if (this.subscriptions[i] == info[0]) {
-          let firstRow = this.getSubscriptionRow(info[0]);
-          count = 1;
-          if (!(info[0].url in this.closed))
-            count += info[0].description.length + info[0].sortedFilters.length;
-
-          this.subscriptions.splice(i, 1);
-          this.boxObject.rowCountChanged(firstRow, -count);
-
-          this.ensureSelection(firstRow);
-          onChange();
-          return;
-        }
-      }
-    }
   },
 
   /**
