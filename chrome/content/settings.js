@@ -2021,6 +2021,7 @@ let treeView = {
       return;
 
     let parentRow = this.getSubscriptionRow(subscription);
+    let rowCount = this.getSubscriptionRowCount(subscription);
     let newSelection = parentRow;
 
     if (!subscription.hasOwnProperty("filters"))
@@ -2036,20 +2037,16 @@ let treeView = {
     else
       subscription.sortedFilters = subscription.filters;
 
-    if (!(subscription.url in this.closed))
+    if (subscription instanceof abp.SpecialSubscription && subscription.sortedFilters.length == 0)
+    {
+      // Empty special subscriptions aren't shown, remove everything
+      this.boxObject.rowCountChanged(parentRow, -rowCount);
+      newSelection -= rowCount;
+    }
+    else if (!(subscription.url in this.closed))
     {
       newSelection = parentRow + 1 + subscription.description.length + index;
       this.boxObject.rowCountChanged(newSelection, -1);
-    }
-    
-    if (subscription instanceof abp.SpecialSubscription && subscription.sortedFilters.length == 0)
-    {
-      // Don't show empty special subscriptions
-      let count = 1;
-      if (!(subscription.url in this.closed))
-        count += subscription.description.length;
-      this.boxObject.rowCountChanged(parentRow, -count);
-      newSelection -= count;
     }
 
     this.ensureSelection(newSelection);
