@@ -90,9 +90,9 @@
   <command id="export-command" oncommand="exportList()"/>
   <command id="selectall-command" oncommand="treeView.selection.selectAll()"/>
   <command id="copy-command" oncommand="copyToClipboard()"/>
-  <command id="cut-command" oncommand="copyToClipboard(); removeFilters('filter')"/>
+  <command id="cut-command" oncommand="copyToClipboard(); removeFilters(false)"/>
   <command id="paste-command" oncommand="pasteFromClipboard()"/>
-  <command id="remove-command" oncommand="removeFilters('')"/>
+  <command id="remove-command" oncommand="removeFilters(true)"/>
   <command id="find-command" oncommand="openFindBar()"/>
   <command id="find-again-command" oncommand="findAgain()"/>
   <command id="find-previous-command" oncommand="findPrevious()"/>

@@ -567,8 +567,8 @@ function onListKeyPress(e)
     if (editFilter(''))
       e.stopPropagation();
   }
-  else if (e.keyCode == e.DOM_VK_BACK_SPACE || e.keyCode == e.DOM_VK_DELETE)
-    removeFilters('');
+  else if (e.keyCode == e.DOM_VK_DELETE)
+    removeFilters(true);
   else if (e.keyCode == e.DOM_VK_INSERT)
     addFilter();
   else if (e.charCode == e.DOM_VK_SPACE && !E("col-enabled").hidden)
@@ -769,33 +769,44 @@ function editSubscription(subscription) {
   return true;
 }
 
-// Removes the selected entries from the list and sets selection to the next item
-function removeFilters(type) {
+/**
+ * Removes the selected entries from the list and sets selection to the
+ * next item.
+ * @param {Boolean} allowSubscriptions  if true, a subscription will be
+ *                  removed if no removable filters are selected
+ */
+function removeFilters(allowSubscriptions)
+{
   // Retrieve selected items
   let selected = treeView.getSelectedInfo();
 
-  let removable = [];
-  if (type != "subscription")
-    for (let i = 0; i < selected.length; i++)
-      if (selected[i][0].special && selected[i][1] && typeof selected[i][1] != "string")
-        removable.push(selected[i]);
-
-  if (removable.length) {
-    for (let i = 0; i < removable.length; i++)
-      treeView.removeRow(removable[i]);
+  let found = false;
+  for each (let [subscription, filter] in selected)
+  {
+    if (subscription instanceof abp.SpecialSubscription && filter instanceof abp.Filter)
+    {
+      treeView.removeFilter(subscription, filter);
+      found = true;
+    }
   }
-  else if (type != "filter") {
-    // No removable patterns found, maybe we should remove the subscription?
-    let subscription = null;
-    for (let i = 0; i < selected.length; i++) {
-      if (!subscription)
-        subscription = selected[i][0];
-      else if (subscription != selected[i][0])
+
+  if (found)
+    return;
+
+  if (allowSubscriptions)
+  {
+    // No removable filters found, maybe we can remove a subscription?
+    let selectedSubscription = null;
+    for each (let [subscription, filter] in selected)
+    {
+      if (!selectedSubscription)
+        selectedSubscription = subscription;
+      else if (selectedSubscription != subscription)
         return;
     }
 
-    if (subscription && !subscription.special && !subscription.dummy && confirm(abp.getString("remove_subscription_warning")))
-      treeView.removeRow([subscription, null]);
+    if (selectedSubscription && selectedSubscription instanceof abp.RegularSubscription && confirm(abp.getString("remove_subscription_warning")))
+      treeView.removeSubscription(selectedSubscription);
   }
 }
 
@@ -1819,17 +1830,28 @@ let treeView = {
     this.boxObject.ensureRowIsVisible(row);
   },
 
-  ensureSelection: function(row) {
-    if (this.selection.count == 0) {
+  /**
+   * This method will make sure that the list has some selection (assuming
+   * that it has at least one entry).
+   * @param {Integer} row   row to be selected if the list has no selection
+   */
+  ensureSelection: function(row)
+  {
+    if (this.selection.count == 0)
+    {
       let rowCount = this.rowCount;
+      if (row < 0)
+        row = 0;
       if (row >= rowCount)
         row = rowCount - 1;
-      if (row >= 0) {
+      if (row >= 0)
+      {
         this.selection.select(row);
         this.boxObject.ensureRowIsVisible(row);
       }
     }
-    else if (this.selection.currentIndex < 0) {
+    else if (this.selection.currentIndex < 0)
+    {
       let min = {};
       this.selection.getRangeAt(0, min, {});
       this.selection.currentIndex = min.value;
@@ -1985,6 +2007,73 @@ let treeView = {
         if (this.subscriptions[i].sortedFilters[j].text == text)
           this.removeRow([this.subscriptions[i], this.subscriptions[i].sortedFilters[j]]);
     }
+  },
+
+  /**
+   * Removes a filter from the list.
+   * @param {SpecialSubscription} subscription  the subscription the filter belongs to
+   * @param {Filter} filter filter to be removed
+   */
+  removeFilter: function(subscription, filter)
+  {
+    let index = subscription.filters.indexOf(filter);
+    if (index < 0)
+      return;
+
+    let parentRow = this.getSubscriptionRow(subscription);
+    let newSelection = parentRow;
+
+    if (!subscription.hasOwnProperty("filters"))
+      subscription.filters = subscription.filters.slice();
+
+    subscription.filters.splice(index, 1);
+
+    if (treeView.sortProc)
+    {
+      index = subscription.sortedFilters.indexOf(filter);
+      subscription.sortedFilters.splice(index, 1);
+    }
+    else
+      subscription.sortedFilters = subscription.filters;
+
+    if (!(subscription.url in this.closed))
+    {
+      newSelection = parentRow + 1 + subscription.description.length + index;
+      this.boxObject.rowCountChanged(newSelection, -1);
+    }
+    
+    if (subscription instanceof abp.SpecialSubscription && subscription.sortedFilters.length == 0)
+    {
+      // Don't show empty special subscriptions
+      let count = 1;
+      if (!(subscription.url in this.closed))
+        count += subscription.description.length;
+      this.boxObject.rowCountChanged(parentRow, -count);
+      newSelection -= count;
+    }
+
+    this.ensureSelection(newSelection);
+    onChange();
+  },
+
+  /**
+   * Removes a filter subscription from the list.
+   * @param {RegularSubscription} subscription  filter subscription to be removed
+   */
+  removeSubscription: function(subscription)
+  {
+    let index = this.subscriptions.indexOf(subscription);
+    if (index < 0)
+      return;
+
+    let firstRow = this.getSubscriptionRow(subscription);
+    let rowCount = this.getSubscriptionRowCount(subscription);
+
+    this.subscriptions.splice(index, 1);
+    this.boxObject.rowCountChanged(firstRow, -rowCount);
+
+    this.ensureSelection(firstRow);
+    onChange();
   },
 
   // Removes a pattern or a complete subscription by its info
