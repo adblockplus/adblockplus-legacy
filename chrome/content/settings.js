@@ -964,85 +964,48 @@ function fillOptionsPopup()
 }
 
 // Makes sure the right items in the context menu are checked/enabled
-function fillContext() {
+function fillContext()
+{
   // Retrieve selected items
   let selected = treeView.getSelectedInfo();
   let current = (selected.length ? selected[0] : null);
 
   // Check whether all selected items belong to the same subscription
-  let subscription = null;
-  for (let i = 0; i < selected.length; i++) {
-    if (!subscription)
-      subscription = selected[i][0];
-    else if (selected[i][0] != subscription) {
+  let selectedSubscription = null;
+  for each (let [subscription, filter] in selected)
+  {
+    if (!selectedSubscription)
+      selectedSubscription = subscription;
+    else if (subscription != selectedSubscription)
+    {
       // More than one subscription selected, ignoring it
-      subscription = null;
+      selectedSubscription = null;
       break;
     }
   }
 
   // Check whether any patterns have been selected and whether any of them can be removed
-  let hasPatterns = false;
-  let hasRemovable = false;
-  for (i = 0; i < selected.length; i++) {
-    if (selected[i][1] && typeof selected[i][1] != "string") {
-      hasPatterns = true;
-      if (selected[i][0].special)
-        hasRemovable = true;
-    }
-  }
+  let hasFilters = selected.some(function(info)
+  {
+    let [subscription, filter] = info;
+    return filter instanceof abp.Filter;
+  });
+  let hasRemovable = selected.some(function(info)
+  {
+    let [subscription, filter] = info;
+    return subscription instanceof abp.SpecialSubscription && filter instanceof abp.Filter;
+  });
 
-  // Nothing relevant selected
-  if (!subscription && !hasPatterns)
-    return false;
+  E("context-synchsubscription").setAttribute("disabled", !(selectedSubscription instanceof abp.DownloadableSubscription));
+  E("context-editsubscription").setAttribute("disabled", !(selectedSubscription instanceof abp.RegularSubscription));
+  E("context-edit").setAttribute("disabled", !(current && current[0] instanceof abp.SpecialSubscription && current[1] instanceof abp.Filter));
+  E("context-resethitcount").setAttribute("disabled", !hasFilters);
 
-  let origHasPatterns = hasPatterns;
-  if (subscription && hasPatterns && !subscription.special)
-    hasPatterns = false;
+  E("context-moveup").setAttribute("disabled", !(current && current[0] instanceof abp.SpecialSubscription && current[1] instanceof abp.Filter && !treeView.isSorted() && current[0].sortedFilters.indexOf(current[1]) > 0));
+  E("context-movedown").setAttribute("disabled", !(current && current[0] instanceof abp.SpecialSubscription && current[1] instanceof abp.Filter && !treeView.isSorted() && current[0].sortedFilters.indexOf(current[1]) < current[0].sortedFilters.length - 1));
 
-  E("context-filters-sep").hidden = !hasPatterns && (!subscription || subscription.special || subscription.dummy);
-
-  E("context-resethitcount").hidden = !origHasPatterns;
-
-  E("context-edit").hidden =
-    E("context-moveup").hidden =
-    E("context-movedown").hidden =
-    !hasPatterns;
-
-  E("context-synchsubscription").hidden =
-    E("context-editsubscription").hidden =
-    !subscription || subscription.special || subscription.dummy;
-
-  E("context-movegroupup").hidden =
-    E("context-movegroupdown").hidden =
-    E("context-group-sep").hidden =
-    !subscription;
-
-  if (subscription) {
-    E("context-synchsubscription").setAttribute("disabled", subscription.special || subscription.external);
-    E("context-movegroupup").setAttribute("disabled", subscription.dummy || treeView.isFirstSubscription(subscription));
-    E("context-movegroupdown").setAttribute("disabled", subscription.dummy || treeView.isLastSubscription(subscription));
-  }
-
-  if (hasPatterns) {
-    let editable = (current && current[0].special && current[1] && typeof current[1] != "string");
-
-    let isFirst = true;
-    let isLast = true;
-    if (editable && !treeView.isSorted()) {
-      for (i = 0; i < current[0].sortedFilters.length; i++) {
-        if (current[0].sortedFilters[i] == current[1]) {
-          isFirst = (i == 0);
-          isLast = (i == current[0].sortedFilters.length - 1);
-          break;
-        }
-      }
-    }
-
-    E("context-edit").setAttribute("disabled", !editable);
-    E("context-moveup").setAttribute("disabled", isFirst);
-    E("context-movedown").setAttribute("disabled", isLast);
-  }
+  E("context-movegroupup").setAttribute("disabled", !selectedSubscription || treeView.isFirstSubscription(selectedSubscription));
+  E("context-movegroupdown").setAttribute("disabled", !selectedSubscription || treeView.isLastSubscription(selectedSubscription));
 
   let clipboard = Components.classes["@mozilla.org/widget/clipboard;1"]
                             .getService(Components.interfaces.nsIClipboard);
@@ -1060,21 +1023,25 @@ function fillContext() {
                              .createInstance(Components.interfaces.nsISupportsArray);
     let flavourString = Components.classes["@mozilla.org/supports-cstring;1"]
                                   .createInstance(Components.interfaces.nsISupportsCString);
-    flavourString.subscriptions = "text/unicode";
+    flavourString.data = "text/unicode";
     flavours.AppendElement(flavourString);
     hasFlavour = clipboard.hasDataMatchingFlavors(flavours, clipboard.kGlobalClipboard);
   }
 
-  E("copy-command").setAttribute("disabled", !origHasPatterns);
+  E("copy-command").setAttribute("disabled", !hasFilters);
   E("cut-command").setAttribute("disabled", !hasRemovable);
   E("paste-command").setAttribute("disabled", !hasFlavour);
-  E("remove-command").setAttribute("disabled", !hasRemovable && (!subscription || subscription.special || subscription.dummy));
+  E("remove-command").setAttribute("disabled", !(hasRemovable && selectedSubscription instanceof abp.SpecialSubscription));
 
   return true;
 }
 
-// Toggles the value of a boolean pref
-function togglePref(pref) {
+/**
+ * Toggles the value of a boolean preference.
+ * @param {String} pref preference name (prefs object property)
+ */
+function togglePref(pref)
+{
   prefs[pref] = !prefs[pref];
   prefs.save();
 }
@@ -1867,22 +1834,37 @@ let treeView = {
     return false;
   },
 
-  isFirstSubscription: function(subscription) {
-    for (let i = 0; i < this.subscriptions.length; i++) {
-      if (this.subscriptions[i].dummy || (this.subscriptions[i].special && this.subscriptions[i].sortedFilters.length == 0))
+  /**
+   * Checks whether the given subscription is the first one displayed.
+   * @param {Subscription} search
+   * @result {Boolean}
+   */
+  isFirstSubscription: function(search)
+  {
+    for each (let subscription in this.subscriptions)
+    {
+      if (subscription instanceof abp.SpecialSubscription && subscription.sortedFilters.length == 0)
         continue;
 
-      return (this.subscriptions[i] == subscription);
+      return (subscription == search);
     }
     return false;
   },
 
-  isLastSubscription: function(subscription) {
-    for (let i = this.subscriptions.length - 1; i >= 0; i--) {
-      if (this.subscriptions[i].dummy || (this.subscriptions[i].special && this.subscriptions[i].sortedFilters.length == 0))
+  /**
+   * Checks whether the given subscription is the last one displayed.
+   * @param {Subscription} search
+   * @result {Boolean}
+   */
+  isLastSubscription: function(search)
+  {
+    for (let i = this.subscriptions.length - 1; i >= 0; i--)
+    {
+      let subscription = this.subscriptions[i];
+      if (subscription instanceof abp.SpecialSubscription && subscription.sortedFilters.length == 0)
         continue;
 
-      return (this.subscriptions[i] == subscription);
+      return (subscription == search);
     }
     return false;
   },
