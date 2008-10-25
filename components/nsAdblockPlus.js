@@ -337,10 +337,11 @@ const abp = {
   // Opens preferences dialog for the supplied window and filter suggestion
   openSettingsDialog: function(location, filter) {
     var dlg = this.getSettingsDialog();
-    var func = function() {
-      if (typeof location != "undefined" && location)
+    var func = function()
+    {
+      if (typeof location == "string")
         dlg.setLocation(location);
-      if (typeof filter != "undefined" && filter)
+      if (filter instanceof Filter)
         dlg.selectFilter(filter);
     }
 
