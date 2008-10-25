@@ -35,9 +35,9 @@
 <!ENTITY synchsubscriptions.accesskey   "D">
 <!ENTITY import.label               "Import filters">
 <!ENTITY import.accesskey           "M">
-<!ENTITY export.label               "Export filters">
+<!ENTITY export.label               "Export custom filters">
 <!ENTITY export.accesskey           "X">
-<!ENTITY clearall.label             "Remove all filters">
+<!ENTITY clearall.label             "Remove all custom filters">
 <!ENTITY clearall.accesskey         "L">
 <!ENTITY resethitcounts.label       "Reset hit statistics">
 <!ENTITY resethitcounts.accesskey   "R">
