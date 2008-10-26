@@ -652,6 +652,50 @@ function onListDragGesture(e)
   treeView.startDrag(treeView.boxObject.getRowAt(e.clientX, e.clientY));
 }
 
+/**
+ * Filter observer
+ * @see filterStorage.addFilterObserver()
+ */
+function onFilterChange(action, filters)
+{
+  switch (action)
+  {
+    case "add":
+      for each (let filter in filters)
+        treeView.addFilter(getFilterByText(filter.text), null, null, true);
+
+      // addFilter() won't invalidate if the filter is already there because
+      // the subscription didn't create its subscription.filters copy yet.
+      treeView.boxObject.invalidate();
+      break;
+    case "remove":
+      for each (let filter in filters)
+        treeView.removeFilter(null, getFilterByText(filter.text));
+
+      // removeFilter() won't invalidate if the filter is already removed because
+      // the subscription didn't create its subscription.filters copy yet.
+      treeView.boxObject.invalidate();
+      break;
+    case "enable":
+    case "disable":
+      // TODO
+      break;
+    case "hit":
+      if (!E("col-hitcount").hidden || !E("col-lasthit").hidden)
+      {
+        if (filters.length == 1)
+          treeView.invalidatePattern(filters[0]);
+        else
+          treeView.boxObject.invalidate();
+      }
+      break;
+  }
+}
+
+/**
+ * Subscription observer
+ * @see filterStorage.addSubscriptionObserver()
+ */
 function onSubscriptionChange(action, subscriptions)
 {
   // TODO
@@ -706,15 +750,7 @@ function onSubscriptionChange(action, subscriptions)
   else {
     // Filters changed
 
-    if (status == "add") {
-      for each (let pattern in orig)
-        treeView.addFilter(getFilterByText(pattern), null, null, true);
-    }
-    else if (status == "remove") {
-      for each (let pattern in orig)
-        treeView.removePattern(pattern);
-    }
-    else if (status == "disable") {
+    if (status == "disable") {
       if (!E("col-enabled").hidden)
       {
         for each (let pattern in orig)
@@ -1050,21 +1086,6 @@ function togglePref(pref)
 {
   prefs[pref] = !prefs[pref];
   prefs.save();
-}
-
-/**
- * Filter observer
- * @see filterStorage.addFilterObserver()
- */
-function onFilterChange(action, filters)
-{
-  if (action == "hit" && (!E("col-hitcount").hidden || !E("col-lasthit").hidden))
-  {
-    if (filters.length == 1)
-      treeView.invalidatePattern(filters[0]);
-    else
-      treeView.boxObject.invalidate();
-  }
 }
 
 /**
@@ -1916,7 +1937,6 @@ let treeView = {
 
     let insertPosition = -1;
     let insertPositionSorted = subscription.sortedFilters.indexOf(filter);
-
     if (insertPositionSorted >= 0)
     {
       // We have that filter already, only need to select it
@@ -1967,9 +1987,14 @@ let treeView = {
     let parentRow = this.getSubscriptionRow(subscription);
 
     if (subscription instanceof abp.SpecialSubscription && subscription.sortedFilters.length == 1)
+    {
       this.boxObject.rowCountChanged(parentRow, this.getSubscriptionRowCount(subscription));
+    }
     else if (!(subscription.url in this.closed))
+    {
       this.boxObject.rowCountChanged(parentRow + 1 + subscription.description.length + insertPositionSorted, 1);
+      this.boxObject.invalidateRow(parentRow + 1 + subscription.description.length + insertPositionSorted);
+    }
 
     if (!noSelect)
     {
@@ -1979,22 +2004,6 @@ let treeView = {
     }
 
     onChange();
-  },
-
-  /**
-   * Removes a filter by its text representation
-   */
-  removeFilterByText: function(/**String*/ text)
-  {
-    let filter = getFilterByText(text);
-    for each (let subscription in this.subscriptions)
-    {
-      if (!(subscription instanceof abp.SpecialSubscription))
-        continue;
-
-      if (subscription.sortedFilters.indexOf(filter) >= 0)
-        this.removeFilter(subscription, filter);
-    }
   },
 
   /**
@@ -2016,11 +2025,23 @@ let treeView = {
 
   /**
    * Removes a filter from the list.
-   * @param {SpecialSubscription} subscription  the subscription the filter belongs to
+   * @param {SpecialSubscription} subscription  the subscription the filter belongs to (if null, filter will be removed from all special subscriptions)
    * @param {Filter} filter filter to be removed
    */
   removeFilter: function(subscription, filter)
   {
+    if (!subscription)
+    {
+      for each (let subscription in this.subscriptions)
+      {
+        if (!(subscription instanceof abp.SpecialSubscription))
+          continue;
+
+        this.removeFilter(subscription, filter);
+      }
+      return;
+    }
+
     let index = subscription.filters.indexOf(filter);
     if (index < 0)
       return;
