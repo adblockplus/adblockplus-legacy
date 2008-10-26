@@ -559,7 +559,9 @@ function exportList()
   }
 }
 
-// Handles keypress event on the patterns list
+/**
+ * Handles keypress event on the filter list
+ */
 function onListKeyPress(e)
 {
   // Ignore any keys directed to the editor
@@ -871,7 +873,9 @@ function copyToClipboard()
   }).join(lineBreak) + lineBreak);
 }
 
-// Pastes text as filter list from clipboard
+/**
+ * Pastes text as list of filters from clipboard
+ */
 function pasteFromClipboard() {
   let clipboard = Components.classes["@mozilla.org/widget/clipboard;1"]
                             .getService(Components.interfaces.nsIClipboard);
@@ -890,7 +894,7 @@ function pasteFromClipboard() {
   transferable.getTransferData("text/unicode", data, {});
 
   try {
-    data = data.value.QueryInterface(Components.interfaces.nsISupportsString).subscriptions;
+    data = data.value.QueryInterface(Components.interfaces.nsISupportsString).data;
   }
   catch (e) {
     return;
@@ -898,7 +902,7 @@ function pasteFromClipboard() {
 
   for each (let line in data.split(/[\r\n]+/))
   {
-    let line = abp.normalizeFilter(line);
+    line = abp.normalizeFilter(line);
     if (!line)
       continue;
 
