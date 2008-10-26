@@ -656,7 +656,7 @@ function onListDragGesture(e)
  * Filter observer
  * @see filterStorage.addFilterObserver()
  */
-function onFilterChange(action, filters)
+function onFilterChange(/**String*/ action, /**Array of Filter*/ filters)
 {
   switch (action)
   {
@@ -707,51 +707,60 @@ function onFilterChange(action, filters)
  * Subscription observer
  * @see filterStorage.addSubscriptionObserver()
  */
-function onSubscriptionChange(action, subscriptions)
+function onSubscriptionChange(/**String*/ action, /**Array of Subscription*/ subscriptions)
 {
-  // TODO
-
-  let subscription = null;
-  for (let i = 0; i < treeView.subscriptions.length; i++) {
-    if (treeView.subscriptions[i].url == orig.url) {
-      subscription = treeView.subscriptions[i];
-      break;
-    }
-  }
-
-  let row, rowCount;
-  if (!subscription && (status == "add" || status == "replace")) {
-    subscription = cloneObject(orig);
-    subscription.dummy = false;
-    row = treeView.rowCount;
-    rowCount = 0;
-    treeView.subscriptions.push(subscription);
-  }
-  else if (subscription && status == "remove")
+  if (action == "reload")
   {
-    treeView.removeSubscription(subscription);
+    // TODO: reinit?
     return;
   }
-  else if (subscription) {
-    row = treeView.getSubscriptionRow(subscription);
-    rowCount = treeView.getSubscriptionRowCount(subscription);
-    if (status == "replace" || status == "info") {
-      subscription = cloneObject(orig);
-      subscription.dummy = false;
-      treeView.subscriptions[i] = subscription;
+
+  for each (let subscription in subscriptions)
+  {
+    subscription = getSubscriptionByURL(subscription.url);
+    switch (action)
+    {
+      case "add":
+        treeView.addSubscription(subscription, true);
+        break;
+      case "remove":
+        treeView.removeSubscription(subscription);
+        break;
+      case "enable":
+      case "disable":
+        // Remove existing changes to "disabled" property
+        delete subscription.disabled;
+        break;
+      case "update":
+        let oldCount = treeView.getSubscriptionRowCount(subscription);
+
+        delete subscription.filters;
+        subscription.filters = subscription.filters.slice();
+
+        if (treeView.sortProc)
+        {
+          subscription.sortedFilters = subscription.filters.slice();
+          subscription.sortedFilters.sort(treeView.sortProc);
+        }
+        else
+          subscription.sortedFilters = subscription.filters;
+
+        treeView.invalidateSubscription(subscription, oldCount);
+        break;
+      case "updateinfo":
+        treeView.invalidateSubscriptionInfo(subscription);
+        break;
     }
   }
-
-  if (!subscription)
-    return;
-
-  subscription.description = getSubscriptionDescription(subscription);
-  treeView.invalidateSubscription(subscription, row, rowCount);
 
   // Date.toLocaleString() doesn't handle Unicode properly if called directly from XPCOM (bug 441370)
   setTimeout(function()
   {
+    for each (let subscription in subscriptions)
+    {
+      subscription = getSubscriptionByURL(subscription.url);
       treeView.invalidateSubscriptionInfo(subscription);
+    }
   }, 0);
 }
 
@@ -2002,7 +2011,7 @@ let treeView = {
    * Adds a subscription to the list (if it isn't there already)
    * and makes sure it is selected.
    */
-  addSubscription: function(/**Subscription*/ subscription)
+  addSubscription: function(/**Subscription*/ subscription, /**Boolean*/ noSelect)
   {
     if (this.subscriptions.indexOf(subscription) < 0)
     {
@@ -2010,9 +2019,12 @@ let treeView = {
       this.boxObject.rowCountChanged(this.getSubscriptionRow(subscription), this.getSubscriptionRowCount(subscription));
     }
 
-    let [currentSelected, dummy] = this.getRowInfo(this.selection.currentIndex);
-    if (currentSelected != subscription)
-      this.selectSubscription(subscription);
+    if (!noSelect)
+    {
+      let [currentSelected, dummy] = this.getRowInfo(this.selection.currentIndex);
+      if (currentSelected != subscription)
+        this.selectSubscription(subscription);
+    }
   },
 
   /**
@@ -2243,17 +2255,17 @@ let treeView = {
     }
   },
 
-  invalidateSubscription: function(subscription, origRow, origRowCount) {
+  invalidateSubscription: function(subscription, oldRowCount)
+  {
     let row = this.getSubscriptionRow(subscription);
     if (row < 0)
-      row = origRow;
+      return;
 
     let rowCount = this.getSubscriptionRowCount(subscription);
+    if (typeof oldRowCount != "undefined" && rowCount != oldRowCount)
+      this.boxObject.rowCountChanged(row + Math.min(rowCount, oldRowCount), rowCount - oldRowCount);
 
-    if (rowCount != origRowCount)
-      this.boxObject.rowCountChanged(row + Math.min(rowCount, origRowCount), rowCount - origRowCount);
-
-    this.boxObject.invalidateRange(row, row + Math.min(rowCount, origRowCount) - 1);
+    this.boxObject.invalidateRange(row, row + Math.min(rowCount, oldRowCount) - 1);
   },
 
   invalidateSubscriptionInfo: function(subscription)
