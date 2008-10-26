@@ -1126,15 +1126,6 @@ function onChange() {
   E("applyButton").removeAttribute("disabled");
 }
 
-// Creates a copy of an object by copying all its properties
-function cloneObject(obj) {
-  let ret = {};
-  for (let key in obj)
-    ret[key] = obj[key];
-
-  return ret;
-}
-
 // Sort functions for the filter list
 function sortByText(filter1, filter2)
 {
