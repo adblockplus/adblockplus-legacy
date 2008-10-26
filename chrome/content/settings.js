@@ -221,7 +221,7 @@ function getSubscriptionByURL(url)
     result = createSubscriptionWrapper(result);
     result.filters = result.filters.slice();
     for (let i = 0; i < result.filters.length; i++)
-      result.filters[i] = getFilterFromText(result.filters[i].text);
+      result.filters[i] = getFilterByText(result.filters[i].text);
 
     if (treeView.sortProc)
     {
