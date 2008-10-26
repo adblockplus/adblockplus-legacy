@@ -198,11 +198,6 @@ function createSubscriptionWrapper(subscription)
     sortedFilters: subscription.filters,
     description: getSubscriptionDescription(subscription)
   };
-  if (treeView.sortProc)
-  {
-    wrapper.sortedFilters = subscription.filters.slice();
-    wrapper.sortedFilters.sort(treeView.sortProc);
-  }
   subscriptionWrappers[subscription.url] = wrapper;
   return wrapper;
 }
@@ -211,14 +206,32 @@ function createSubscriptionWrapper(subscription)
  * Retrieves a subscription wrapper by the download location.
  *
  * @param {String} url download location of the subscription
- * @return Subscription subscription wrapper or null
+ * @return Subscription subscription wrapper or null for invalid URL
  */
 function getSubscriptionByURL(url)
 {
   if (url in subscriptionWrappers)
     return subscriptionWrappers[url];
   else
-    return null;
+  {
+    let result = abp.Subscription.fromURL(url);
+    if (!result || "isWrapper" in result)
+      return result;
+
+    result = createSubscriptionWrapper(result);
+    result.filters = result.filters.slice();
+    for (let i = 0; i < result.filters.length; i++)
+      result.filters[i] = getFilterFromText(result.filters[i].text);
+
+    if (treeView.sortProc)
+    {
+      result.sortedFilters = result.filters.slice();
+      result.sortedFilters.sort(treeView.sortProc);
+    }
+    else
+      result.sortedFilters = result.filters;
+    return result;
+  }
 }
 
 /**
@@ -566,8 +579,8 @@ function onListKeyPress(e)
   else if (e.keyCode == e.DOM_VK_RETURN || e.keyCode == e.DOM_VK_ENTER || e.keyCode == e.DOM_VK_F2)
   {
     e.preventDefault();
-    if (editFilter(null))
-      e.stopPropagation();
+    e.stopPropagation();
+    editFilter(null);
   }
   else if (e.keyCode == e.DOM_VK_DELETE)
     removeFilters(true);
@@ -685,8 +698,8 @@ function onSubscriptionChange(action, subscriptions)
     treeView.invalidateSubscription(subscription, row, rowCount);
 
     // Date.toLocaleString() doesn't handle Unicode properly if called directly from XPCOM (bug 441370)
-    setTimeout(function() {
-        subscription.description = getSubscriptionDescription(subscription);
+    setTimeout(function()
+    {
         treeView.invalidateSubscriptionInfo(subscription);
     }, 0);
   }
@@ -741,41 +754,25 @@ function editSubscription(/**Subscription*/ subscription)
   if (!("url" in result))
     return;
 
-  let newSubscription = null;
-  for (let i = 0; i < treeView.subscriptions.length; i++)
-    if (treeView.subscriptions[i].url == result.url)
-      newSubscription = treeView.subscriptions[i];
+  let newSubscription = getSubscriptionByURL(result.url);
+  if (!newSubscription)
+    return;
 
-  if (subscription && newSubscription && subscription != newSubscription)
+  if (subscription && subscription != newSubscription)
     treeView.removeSubscription(subscription);
 
-  let orig = (result.url in prefs.knownSubscriptions ? prefs.knownSubscriptions[result.url] : prefs.subscriptionFromURL(result.url));
+  treeView.addSubscription(newSubscription);
 
-  if (subscription && !newSubscription)
-    newSubscription = subscription;
-
-  let row = (newSubscription ? treeView.getSubscriptionRow(newSubscription) : -1);
-  let rowCount = (newSubscription ? treeView.getSubscriptionRowCount(newSubscription) : 0);
-
-  if (!newSubscription) {
-    newSubscription = cloneObject(orig);
-    newSubscription.dummy = false;
-    treeView.subscriptions.push(newSubscription);
-  }
-  
-  newSubscription.url = result.url;
   newSubscription.title = result.title;
   newSubscription.disabled = result.disabled;
   newSubscription.autoDownload = result.autoDownload;
-  newSubscription.description = getSubscriptionDescription(newSubscription);
 
-  treeView.invalidateSubscription(newSubscription, row, rowCount);
-  treeView.selectSubscription(newSubscription);
+  treeView.invalidateSubscriptionInfo(newSubscription);
 
   onChange();
 
-  if (!orig.lastDownload)
-    synchronizer.execute(orig);
+  if (newSubscription instanceof abp.DownloadableSubscription && !newSubscription.lastDownload)
+    synchronizer.execute(newSubscription.__proto__);
 }
 
 /**
@@ -2001,6 +1998,23 @@ let treeView = {
   },
 
   /**
+   * Adds a subscription to the list (if it isn't there already)
+   * and makes sure it is selected.
+   */
+  addSubscription: function(/**Subscription*/ subscription)
+  {
+    if (this.subscriptions.indexOf(subscription) < 0)
+    {
+      this.subscriptions.push(subscription);
+      this.boxObject.rowCountChanged(this.getSubscriptionRow(subscription), this.getSubscriptionRowCount(subscription));
+    }
+
+    let [currentSelected, dummy] = this.getRowInfo(this.selection.currentIndex);
+    if (currentSelected != subscription)
+      this.selectSubscription(subscription);
+  },
+
+  /**
    * Removes a filter from the list.
    * @param {SpecialSubscription} subscription  the subscription the filter belongs to
    * @param {Filter} filter filter to be removed
@@ -2227,9 +2241,17 @@ let treeView = {
     this.boxObject.invalidateRange(row, row + Math.min(rowCount, origRowCount) - 1);
   },
 
-  invalidateSubscriptionInfo: function(subscription) {
+  invalidateSubscriptionInfo: function(subscription)
+  {
     let row = this.getSubscriptionRow(subscription);
-    this.boxObject.invalidateRange(row, row + subscription.description.length);
+
+    let oldCount = subscription.description.length;
+    subscription.description = getSubscriptionDescription(subscription);
+    let newCount = subscription.description.length;
+    if (oldCount != newCount)
+      this.boxObject.rowCountChanged(row + Math.min(oldCount, newCount), newCount - oldCount);
+
+    this.boxObject.invalidateRange(row, row + newCount);
   },
 
   removeUserFilters: function()
