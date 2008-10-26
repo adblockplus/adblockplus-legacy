@@ -566,7 +566,7 @@ function onListKeyPress(e)
   else if (e.keyCode == e.DOM_VK_RETURN || e.keyCode == e.DOM_VK_ENTER || e.keyCode == e.DOM_VK_F2)
   {
     e.preventDefault();
-    if (editFilter(''))
+    if (editFilter(null))
       e.stopPropagation();
   }
   else if (e.keyCode == e.DOM_VK_DELETE)
@@ -622,7 +622,7 @@ function onListClick(e)
 
   col = col.value.id;
   if (col == "col-filter" && row.value == 0)
-    editFilter('');
+    editFilter(null);
 
   if (col == "col-enabled")
   {
@@ -714,6 +714,10 @@ function onSubscriptionChange(action, subscriptions)
   }
 }
 
+/**
+ * Starts editor for filter or subscription.
+ * @param {String} type  "filter", "subscription" or null (any)
+ */
 function editFilter(type)
 {
   let [subscription, filter] = treeView.getRowInfo(treeView.selection.currentIndex);
