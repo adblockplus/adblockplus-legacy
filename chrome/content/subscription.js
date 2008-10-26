@@ -30,7 +30,8 @@ var result = null;
 var autoAdd = false;
 
 function init() {
-  if (window.arguments) {
+  if (window.arguments)
+  {
     // In K-Meleon we might get the arguments wrapped
     for (var i = 0; i < window.arguments.length; i++)
       if (window.arguments[i] && "wrappedJSObject" in window.arguments[i])
@@ -43,27 +44,32 @@ function init() {
   if (!result)
     result = {};
 
-  if (subscription) {
+  if (subscription)
+  {
     document.getElementById("location").value = subscription.url;
     document.getElementById("title").value = subscription.title;
-    document.getElementById("enabled").setAttribute("checked", !subscription.disabled);
   }
   else
     document.getElementById("title").value = "";
 
-  if (subscription && "patterns" in subscription) {
-    if (subscription.external) {
+  if (subscription instanceof abp.Subscription)
+  {
+    document.getElementById("enabled").setAttribute("checked", !subscription.disabled);
+    if (subscription instanceof abp.ExternalSubscription)
+    {
       document.getElementById("location").setAttribute("disabled", "true");
       document.getElementById("external-description").hidden = false;
       document.getElementById("autodownload").setAttribute("checked", "true");
       document.getElementById("autodownload").setAttribute("disabled", "true");
     }
-    else {
+    else
+    {
       document.getElementById("edit-description").hidden = false;
       document.getElementById("autodownload").setAttribute("checked", subscription.autoDownload);
     }
   }
-  else {
+  else
+  {
     document.title = document.documentElement.getAttribute("newtitle");
     document.getElementById("new-description").hidden = false;
     document.getElementById("enabled").setAttribute("checked", "true");
@@ -71,16 +77,19 @@ function init() {
   }
 }
 
-function saveSubscription() {
-  var add = !(subscription && "patterns" in subscription);
-  var url = (add || !subscription.external ? document.getElementById("location").value.replace(/^\s+/, "").replace(/\s+$/, "").replace(/^~+/, "") : subscription.url);
-  if (!url) {
+function saveSubscription()
+{
+  var add = !(subscription instanceof abp.Subscription);
+  var url = (add || subscription instanceof abp.DownloadableSubscription ? document.getElementById("location").value.replace(/^\s+/, "").replace(/\s+$/, "").replace(/^~+/, "") : subscription.url);
+  if (!url)
+  {
     alert(abp.getString("subscription_no_location"));
     document.getElementById("location").focus();
     return false;
   }
 
-  if (add || subscription.url != url) {
+  if (add || subscription.url != url)
+  {
     var file = Components.classes["@mozilla.org/file/local;1"]
                           .createInstance(Components.interfaces.nsILocalFile);
     try {
