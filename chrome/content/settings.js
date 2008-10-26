@@ -722,13 +722,16 @@ function editFilter(type)
 {
   let [subscription, filter] = treeView.getRowInfo(treeView.selection.currentIndex);
   if (type != "filter" && subscription instanceof abp.RegularSubscription)
-    return editSubscription(subscription);
+    editSubscription(subscription);
   else
-    return treeView.startEditor(false);
+    treeView.startEditor(false);
 }
 
-// Starts editor for a given subscription
-function editSubscription(subscription) {
+/**
+ * Starts editor for a given subscription (pass null to add a new subscription).
+ */
+function editSubscription(/**Subscription*/ subscription)
+{
   let result = {};
   if (subscription)
     openDialog("subscription.xul", "_blank", "chrome,centerscreen,modal", subscription, result);
@@ -736,7 +739,7 @@ function editSubscription(subscription) {
     openDialog("tip_subscriptions.xul", "_blank", "chrome,centerscreen,modal", result);
 
   if (!("url" in result))
-    return true;
+    return;
 
   let newSubscription = null;
   for (let i = 0; i < treeView.subscriptions.length; i++)
@@ -773,8 +776,6 @@ function editSubscription(subscription) {
 
   if (!orig.lastDownload)
     synchronizer.execute(orig);
-
-  return true;
 }
 
 /**
@@ -2492,8 +2493,6 @@ let treeView = {
 
       me.boxObject.invalidateRow(row);
     }, 0, this);
-
-    return true;
   },
 
   stopEditor: function(save, blur)
