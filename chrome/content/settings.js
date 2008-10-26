@@ -906,25 +906,24 @@ function pasteFromClipboard() {
   }
 }
 
-// Starts synchronization for a subscription
-function synchSubscription(forceDownload) {
-  let info = treeView.getRowInfo(treeView.selection.currentIndex);
-  if (!info[0] || info[0].special || info[0].external || info[0].dummy)
-    return;
-
-  let orig = prefs.knownSubscriptions[info[0].url];
-  synchronizer.execute(orig, forceDownload);
+/**
+ * Starts synchronization of the currently selected subscription
+ */
+function synchSubscription(/**Boolean*/ forceDownload)
+{
+  let [subscription, filter] = treeView.getRowInfo(treeView.selection.currentIndex);
+  if (subscription instanceof abp.DownloadableSubscription)
+    synchronizer.execute(subscription.__proto__, forceDownload);
 }
 
-// Starts synchronization for all subscriptions
-function synchAllSubscriptions(forceDownload) {
-  for (let i = 0; i < treeView.subscriptions.length; i++) {
-    let subscription = treeView.subscriptions[i];
-    if (!subscription.special && !subscription.external && !subscription.dummy) {
-      let orig = prefs.knownSubscriptions[subscription.url];
-      synchronizer.execute(orig, forceDownload);
-    }
-  }
+/**
+ * Starts synchronization for all subscriptions
+ */
+function synchAllSubscriptions(/**Boolean*/ forceDownload)
+{
+  for each (let subscription in treeView.subscriptions)
+    if (subscription instanceof abp.DownloadableSubscription)
+      synchronizer.execute(subscription.__proto__, forceDownload);
 }
 
 /**
