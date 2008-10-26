@@ -666,7 +666,6 @@ function onFilterChange(action, filters)
 
       // addFilter() won't invalidate if the filter is already there because
       // the subscription didn't create its subscription.filters copy yet.
-      treeView.boxObject.invalidate();
       break;
     case "remove":
       for each (let filter in filters)
@@ -674,22 +673,25 @@ function onFilterChange(action, filters)
 
       // removeFilter() won't invalidate if the filter is already removed because
       // the subscription didn't create its subscription.filters copy yet.
-      treeView.boxObject.invalidate();
       break;
     case "enable":
     case "disable":
-      // TODO
       break;
     case "hit":
-      if (!E("col-hitcount").hidden || !E("col-lasthit").hidden)
+      if (E("col-hitcount").hidden && E("col-lasthit").hidden)
       {
-        if (filters.length == 1)
-          treeView.invalidatePattern(filters[0]);
-        else
-          treeView.boxObject.invalidate();
+        // The data isn't visible, no need to invalidate
+        return;
       }
       break;
+    default:
+      return;
   }
+
+  if (filters.length == 1)
+    treeView.invalidateFilter(getFilterByText(filters[0].text));
+  else
+    treeView.boxObject.invalidate();
 }
 
 /**
@@ -2239,12 +2241,14 @@ let treeView = {
     }
   },
 
-  invalidatePattern: function(pattern) {
+  invalidateFilter: function(search)
+  {
     let min = this.boxObject.getFirstVisibleRow();
     let max = this.boxObject.getLastVisibleRow();
-    for (let i = min; i <= max; i++) {
-      let rowInfo = this.getRowInfo(i);
-      if (rowInfo[0] && rowInfo[1] && typeof rowInfo[1] != "string" && rowInfo[1].text == pattern.text)
+    for (let i = min; i <= max; i++)
+    {
+      let [subscription, filter] = this.getRowInfo(i);
+      if (filter == filter)
         this.boxObject.invalidateRow(i);
     }
   },
