@@ -666,16 +666,25 @@ function onFilterChange(action, filters)
 
       // addFilter() won't invalidate if the filter is already there because
       // the subscription didn't create its subscription.filters copy yet.
-      break;
+      treeView.boxObject.invalidate();
+      return;
     case "remove":
       for each (let filter in filters)
         treeView.removeFilter(null, getFilterByText(filter.text));
 
       // removeFilter() won't invalidate if the filter is already removed because
       // the subscription didn't create its subscription.filters copy yet.
-      break;
+      treeView.boxObject.invalidate();
+      return;
     case "enable":
     case "disable":
+      // Remove existing changes to "disabled" property
+      for each (let filter in filters)
+      {
+        filter = getFilterByText(filter.text);
+        if ("isWrapper" in filter && filter.hasOwnProperty("disabled"))
+          delete filter.disabled;
+      }
       break;
     case "hit":
       if (E("col-hitcount").hidden && E("col-lasthit").hidden)
@@ -702,67 +711,48 @@ function onSubscriptionChange(action, subscriptions)
 {
   // TODO
 
-  // Checking orig instanceof Array won't work (array created in different context)
-  if ("url" in orig) {
-    // Subscription changed
-
-    let subscription = null;
-    for (let i = 0; i < treeView.subscriptions.length; i++) {
-      if (treeView.subscriptions[i].url == orig.url) {
-        subscription = treeView.subscriptions[i];
-        break;
-      }
+  let subscription = null;
+  for (let i = 0; i < treeView.subscriptions.length; i++) {
+    if (treeView.subscriptions[i].url == orig.url) {
+      subscription = treeView.subscriptions[i];
+      break;
     }
-  
-    let row, rowCount;
-    if (!subscription && (status == "add" || status == "replace")) {
+  }
+
+  let row, rowCount;
+  if (!subscription && (status == "add" || status == "replace")) {
+    subscription = cloneObject(orig);
+    subscription.dummy = false;
+    row = treeView.rowCount;
+    rowCount = 0;
+    treeView.subscriptions.push(subscription);
+  }
+  else if (subscription && status == "remove")
+  {
+    treeView.removeSubscription(subscription);
+    return;
+  }
+  else if (subscription) {
+    row = treeView.getSubscriptionRow(subscription);
+    rowCount = treeView.getSubscriptionRowCount(subscription);
+    if (status == "replace" || status == "info") {
       subscription = cloneObject(orig);
       subscription.dummy = false;
-      row = treeView.rowCount;
-      rowCount = 0;
-      treeView.subscriptions.push(subscription);
-    }
-    else if (subscription && status == "remove")
-    {
-      treeView.removeSubscription(subscription);
-      return;
-    }
-    else if (subscription) {
-      row = treeView.getSubscriptionRow(subscription);
-      rowCount = treeView.getSubscriptionRowCount(subscription);
-      if (status == "replace" || status == "info") {
-        subscription = cloneObject(orig);
-        subscription.dummy = false;
-        treeView.subscriptions[i] = subscription;
-      }
-    }
-  
-    if (!subscription)
-      return;
-  
-    subscription.description = getSubscriptionDescription(subscription);
-    treeView.invalidateSubscription(subscription, row, rowCount);
-
-    // Date.toLocaleString() doesn't handle Unicode properly if called directly from XPCOM (bug 441370)
-    setTimeout(function()
-    {
-        treeView.invalidateSubscriptionInfo(subscription);
-    }, 0);
-  }
-  else {
-    // Filters changed
-
-    if (status == "disable") {
-      if (!E("col-enabled").hidden)
-      {
-        for each (let pattern in orig)
-        {
-          treeView.disabled[pattern.text] = pattern.disabled;
-          treeView.invalidatePattern(pattern);
-        }
-      }
+      treeView.subscriptions[i] = subscription;
     }
   }
+
+  if (!subscription)
+    return;
+
+  subscription.description = getSubscriptionDescription(subscription);
+  treeView.invalidateSubscription(subscription, row, rowCount);
+
+  // Date.toLocaleString() doesn't handle Unicode properly if called directly from XPCOM (bug 441370)
+  setTimeout(function()
+  {
+      treeView.invalidateSubscriptionInfo(subscription);
+  }, 0);
 }
 
 /**
