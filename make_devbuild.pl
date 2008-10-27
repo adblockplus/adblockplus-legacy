@@ -22,6 +22,13 @@
 
 use strict;
 
+my $manifest = readFile("chrome.manifest");
+unless ($manifest =~ /\bjar:chrome\/(\S+?)\.jar\b/)
+{
+  die "Could not find JAR file name in chrome.manifest";
+}
+my $baseName = $1;
+
 open(VERSION, "version");
 my $version = <VERSION>;
 $version =~ s/[^\w\.]//gs;
@@ -31,5 +38,18 @@ my ($sec, $min, $hour, $day, $mon, $year) = localtime;
 my $build = sprintf("%04i%02i%02i%02i", $year+1900, $mon+1, $day, $hour);
 
 my $locale = (@ARGV ? "-" . join("-", @ARGV) : "");
-@ARGV = ("adblockplus-$version+.$build$locale.xpi", "+.$build", @ARGV);
+@ARGV = ("$baseName-$version+.$build$locale.xpi", "+.$build", @ARGV);
 do './create_xpi.pl';
+
+sub readFile
+{
+  my $file = shift;
+
+  open(local *FILE, "<", $file) || die "Could not read file '$file'";
+  binmode(FILE);
+  local $/;
+  my $result = <FILE>;
+  close(FILE);
+
+  return $result;
+}
