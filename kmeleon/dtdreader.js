@@ -13,7 +13,7 @@ var _dtdReader = {
     }
 
     if (currentLocale)
-      this.unicodeConverter.charset = (currentLocale == "ru-RU" ? "windows-1251" : "iso-8859-1");
+      this.unicodeConverter.charset = (currentLocale == "ru-RU" ? "windows-1251" : (currentLocale == "pl-PL" ? "windows-1250" : "iso-8859-1"));
     else
       this.unicodeConverter.charset = "{{CHARSET}}";
 

@@ -58,7 +58,7 @@ foreach my $include (sort <*.js>)
   $inline_script =~ s/\t/\\t/g;
 
   # Replace charset mark
-  my $charset = ($params{locales}[0] eq "ru-RU" ? "windows-1251" : "iso-8859-1");
+  my $charset = ($params{locales}[0] eq "ru-RU" ? "windows-1251" : ($params{locales}[0] eq "pl-PL" ? "windows-1250" : "iso-8859-1"));
   $inline_script =~ s/\{\{CHARSET\}\}/$charset/g;
 
   print INCLUDES qq(  "adblockplus.dll/$include", "$inline_script",\n);
