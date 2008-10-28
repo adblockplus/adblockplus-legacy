@@ -2030,9 +2030,21 @@ let treeView = {
       return;
 
     if (!subscription)
+    {
       for each (let s in this.subscriptions)
+      {
         if (s instanceof abp.SpecialSubscription && s.isFilterAllowed(filter))
-          subscription = s;
+        {
+          if (s._sortedFilters.indexOf(filter) >= 0)
+          {
+            subscription = s;
+            break;
+          }
+          else if (!subscription || s.priority > subscription.priority)
+            subscription = s;
+        }
+      }
+    }
     if (!subscription)
       return;
 
