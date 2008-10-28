@@ -275,6 +275,7 @@ const abp =
       subscription.filters = newFilters;
       filterStorage.addSubscription(subscription);
     }
+    filterStorage.saveToDisk();
 
     return true;
   },
@@ -302,6 +303,7 @@ const abp =
       if (filter)
         filterStorage.addFilter(filter);
     }
+    filterStorage.saveToDisk();
   },
 
   /**
@@ -315,6 +317,7 @@ const abp =
       if (filter)
         filterStorage.removeFilter(filter);
     }
+    filterStorage.saveToDisk();
   },
 
   /**
