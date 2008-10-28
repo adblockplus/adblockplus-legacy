@@ -131,23 +131,6 @@ var prefs = {
       } catch(e) {}
     }
 
-    // Load lists from runtime prefs
-    var runtimePrefs = this.branch.getChildList("", {});
-    for each (var name in runtimePrefs) {
-      if (/^(\w+)\./.test(name)) {
-        var listName = RegExp.$1;
-        var type = this.branch.getPrefType(name);
-        var typeName = (type in types ? types[type] : "Char");
-
-        try {
-          var value = this.branch["get" + typeName + "Pref"](name);
-          if (!(listName in this && this[listName] instanceof Array))
-            this[listName] = [];
-          this[listName].push(value);
-        } catch(e) {}
-      }
-    }
-
     // Initial prefs loading
     this.reload();
     filterStorage.loadFromDisk();

@@ -152,20 +152,6 @@ interface IAdblockPlus : nsISupports
   void removePatterns([array, size_is(length)] in wstring patterns, in unsigned long length);
 
   /**
-   * Signal the content policy that the next request for the given address should be allowed
-   * regardless the filters. No processing of the request will be done, and it won't be
-   * registered for the list of blockable items. Next request for the same address will be
-   * processed in the usual way.
-   *
-   * Note that the request should follow immediately because the next allowOnce() call
-   * will override the setting.   
-   *
-   * @param address   address of the request to be permitted (instead of jar:, view-source:
-   *                  and wyciwyg: URLs the address of the actual file should be used)
-  */
-  void allowOnce(in wstring address);
-
-  /**
    * Returns the installed version of Adblock Plus.
   */
   AString getInstalledVersion();

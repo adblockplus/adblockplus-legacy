@@ -203,7 +203,6 @@ function addObjectTab(wnd, node, data, tab) {
 
   // Attach binding
   var doc = node.ownerDocument;
-  abp.allowOnce("chrome://adblockplus/content/objecttab.xml#objectTab");
   doc.loadBindingDocument("chrome://adblockplus/content/objecttab.xml");
   doc.addBinding(tab, "chrome://adblockplus/content/objecttab.xml#objectTab");
 
