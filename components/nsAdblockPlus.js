@@ -279,17 +279,15 @@ const abp =
     return true;
   },
 
-  removeExternalSubscription: function(id)
+  /**
+   * Removes an external subscription by its identifier
+   */
+  removeExternalSubscription: function(/**String*/ id) /**Boolean*/
   {
-    if (!(id in filterStorage.knownSubscriptions))
+    if (!(id in filterStorage.knownSubscriptions && filterStorage.knownSubscriptions[id] instanceof ExternalSubscription))
       return false;
 
-    let subscription = filterStorage.knownSubscriptions[id];
-    if (!(subscription instanceof ExternalSubscription))
-      return false;
-    
-    filterStorage.removeSubscription(subscription);
-
+    filterStorage.removeSubscription(filterStorage.knownSubscriptions[id]);
     return true;
   },
 
