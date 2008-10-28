@@ -170,7 +170,7 @@ var policy = {
     if (objTab)
       wnd.setTimeout(addObjectTab, 0, topWnd, node, nodeData, objTab);
 
-    return !match || match.type == "whitelist";
+    return !match || match instanceof WhitelistFilter;
   },
 
   /**
