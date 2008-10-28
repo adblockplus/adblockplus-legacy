@@ -291,7 +291,10 @@ const abp =
     return true;
   },
 
-  addPatterns: function(filters, length)
+  /**
+   * Adds user-defined filters to the list
+   */
+  addPatterns: function(/**Array of String*/ filters, /**Integer*/ length)
   {
     for each (let filter in filters)
     {
@@ -301,7 +304,10 @@ const abp =
     }
   },
 
-  removePatterns: function(filters, length)
+  /**
+   * Removes user-defined filters from the list
+   */
+  removePatterns: function(/**Array of String*/ filters, /**Integer*/ length)
   {
     for each (let filter in filters)
     {
@@ -311,14 +317,18 @@ const abp =
     }
   },
 
-  // Allows an address to be loaded once regardless the filters
+  /**
+   * Allows an address to be loaded once regardless the filters
+   */
   allowOnce: function(address)
   {
     policy.allowOnce = address;
   },
 
-  // Returns installed Adblock Plus version
-  getInstalledVersion: function()
+  /**
+   * Returns installed Adblock Plus version
+   */
+  getInstalledVersion: function() /**String*/
   {
     return "{{VERSION}}";
   },
