@@ -351,18 +351,34 @@ const abp = {
     }
   },
 
-  // Loads a URL in the browser window
-  loadInBrowser: function(url) {
-    var currentWindow = windowMediator.getMostRecentWindow("navigator:browser") || windowMediator.getMostRecentWindow("emusic:window");
-    if (currentWindow) {
-      try {
+  /**
+   * Opens a URL in the browser window.
+   */
+  loadInBrowser: function(/**String*/ url)
+  {
+    var currentWindow = windowMediator.getMostRecentWindow("navigator:browser") ||
+                        windowMediator.getMostRecentWindow("Songbird:Main") ||
+                        windowMediator.getMostRecentWindow("emusic:window");
+    if (currentWindow)
+    {
+      try
+      {
         currentWindow.delayedOpenTab(url);
       }
-      catch(e) {
-        currentWindow.loadURI(url);
+      catch(e)
+      {
+        try
+        {
+          currentWindow.openUILinkIn(url, "tab");
+        }
+        catch(e)
+        {
+          currentWindow.loadURI(url);
+        }
       }
     }
-    else {
+    else
+    {
       var protocolService = Components.classes["@mozilla.org/uriloader/external-protocol-service;1"]
                                       .getService(Components.interfaces.nsIExternalProtocolService);
       protocolService.loadURI(makeURL(url), null);
