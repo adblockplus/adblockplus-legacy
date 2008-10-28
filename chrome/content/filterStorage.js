@@ -351,7 +351,7 @@ var filterStorage =
         stream = stream.QueryInterface(Components.interfaces.nsIUnicharLineInputStream);
       }
       catch (e) {
-        dump("Adblock Plus: Failed to read patterns from file " + this.file.path + ": " + e + "\n");
+        dump("Adblock Plus: Failed to read filters from file " + this.file.path + ": " + e + "\n");
         stream = null;
       }
     }
@@ -359,9 +359,9 @@ var filterStorage =
     let userFilters = null;
     if (stream)
     {
-      let makeList = {"user patterns": true, "subscription patterns": true};
+      let makeList = {"subscription filters": true, "user patterns": true, "subscription patterns": true};
       let wantList = false;
-      let makeObj = {"pattern": true, "subscription": true};
+      let makeObj = {"filter": true, "pattern": true, "subscription": true};
       let wantObj = false;
       let curObj = null;
       let curSection = null;
@@ -377,7 +377,7 @@ var filterStorage =
           if (curObj)
           {
             // Process current object before going to next section
-            if (curSection == "pattern")
+            if (curSection == "filter" || curSection == "pattern")
             {
               Filter.fromObject(curObj);
             }
@@ -391,7 +391,7 @@ var filterStorage =
             {
               userFilters = curObj;
             }
-            else if (curSection == "subscription patterns" && this.subscriptions.length)
+            else if ((curSection == "subscription filters" || curSection == "subscription patterns") && this.subscriptions.length)
             {
               let subscription = this.subscriptions[this.subscriptions.length - 1];
               for each (let filter in curObj)
@@ -541,23 +541,14 @@ var filterStorage =
       }
     }
 
-    // Save user filters list
-    buf.push("", "[User patterns]");
-    for each (let subscription in this.subscriptions)
-      if (subscription instanceof SpecialSubscription)
-        for each (let filter in subscription.filters)
-          buf.push(filter.text);
-    if (buf.length > maxBufLength && !writeBuffer())
-      return;
-
-    // Save subscriptions list
+    // Save subscriptions
     for each (let subscription in this.subscriptions)
     {
       buf.push("");
       subscription.serialize(buf);
-      if (!(subscription instanceof SpecialSubscription))
+      if (subscription.filters.length)
       {
-        buf.push("", "[Subscription patterns]")
+        buf.push("", "[Subscription filters]")
         subscription.serializeFilters(buf);
       }
 
