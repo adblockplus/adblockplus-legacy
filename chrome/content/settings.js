@@ -1124,16 +1124,31 @@ function applyChanges()
 }
 
 /**
- * Checks whether user's mouse is hovering over a regexp exclamation mark
- * @param {Event} event
- * @return {Boolean}
+ * Checks whether a tooltip should be shown and sets tooltip text appropriately
  */
-function showRegExpTooltip(event)
+function showTreeTooltip(/**Event*/ event) /**Boolean*/
 {
   let col = {};
+  let row = {};
   let childElement = {};
-  treeView.boxObject.getCellAt(event.clientX, event.clientY, {}, col, childElement);
-  return (col.value && col.value.id == "col-filter" && childElement.value == "image");
+  treeView.boxObject.getCellAt(event.clientX, event.clientY, row, col, childElement);
+  if (!col.value || col.value.id != "col-filter")
+    return false;
+
+  if (childElement.value == "image")
+  {
+    E("tree-tooltip").setAttribute("label", abp.getString("filter_regexp_tooltip"));
+    return true;
+  }
+
+  let [subscription, filter] = treeView.getRowInfo(row.value);
+  if (filter instanceof abp.InvalidFilter && filter.reason)
+  {
+    E("tree-tooltip").setAttribute("label", filter.reason);
+    return true;
+  }
+
+  return false;
 }
 
 /**
