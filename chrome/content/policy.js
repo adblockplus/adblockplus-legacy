@@ -141,7 +141,8 @@ var policy = {
       if (match)
         filterStorage.increaseHitCount(match);
 
-      if (match && match.type != "whitelist" && node) {
+      if (match instanceof BlockingFilter && node)
+      {
         var prefCollapse = ("collapse" in match ? match.collapse : !prefs.fastcollapse);
         if (collapse || prefCollapse)
           wnd.setTimeout(postProcessNode, 0, node);
