@@ -115,7 +115,7 @@
     <menuitem id="context-movegroupup" label="&context.movegroupup.label;" oncommand="treeView.moveSubscription(true)" key="movegroupup-key"/>
     <menuitem id="context-movegroupdown" label="&context.movegroupdown.label;" oncommand="treeView.moveSubscription(false)" key="movegroupdown-key"/>
   </popup>
-  <tooltip id="regexp-tooltip" label="&regexp.tooltip;" onpopupshowing="return showRegExpTooltip(event)"/>
+  <tooltip id="tree-tooltip" onpopupshowing="return showTreeTooltip(event)"/>
 </popupset>
 
 <toolbox id="menuToolbox">
@@ -216,7 +216,7 @@
         <treecol id="col-lasthit" label="&lasthit.column;" hidden="true" flex="4" persist="width ordinal sortDirection hidden"/>
       </treecols>
 
-      <treechildren tooltip="regexp-tooltip" onclick="onListClick(event)" ondraggesture="onListDragGesture(event)" ondblclick="if (event.button == 0) editFilter(null)"/>
+      <treechildren tooltip="tree-tooltip" onclick="onListClick(event)" ondraggesture="onListDragGesture(event)" ondblclick="if (event.button == 0) editFilter(null)"/>
     </tree>
   </stack>
 
