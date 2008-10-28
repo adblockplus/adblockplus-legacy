@@ -318,7 +318,7 @@ var policy = {
         return;
       }
 
-      if (!data[i].filter || data[i].filter.type == "whitelist") {
+      if (!data[i].filter || data[i].filter instanceof WhitelistFilter) {
         var nodes = data[i].nodes;
         data[i].nodes = [];
         for (var j = 0; j < nodes.length; j++) {
