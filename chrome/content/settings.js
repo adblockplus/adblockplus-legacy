@@ -1132,10 +1132,8 @@ function showTreeTooltip(/**Event*/ event) /**Boolean*/
   let row = {};
   let childElement = {};
   treeView.boxObject.getCellAt(event.clientX, event.clientY, row, col, childElement);
-  if (!col.value || col.value.id != "col-filter")
-    return false;
 
-  if (childElement.value == "image")
+  if (col.value && col.value.id == "col-filter" && childElement.value == "image")
   {
     E("tree-tooltip").setAttribute("label", abp.getString("filter_regexp_tooltip"));
     return true;
@@ -1146,6 +1144,16 @@ function showTreeTooltip(/**Event*/ event) /**Boolean*/
   {
     E("tree-tooltip").setAttribute("label", filter.reason);
     return true;
+  }
+
+  if (treeView.boxObject.isCellCropped(row.value, col.value))
+  {
+    let text = treeView.getCellText(row.value, col.value);
+    if (text)
+    {
+      E("tree-tooltip").setAttribute("label", text);
+      return true;
+    }
   }
 
   return false;
