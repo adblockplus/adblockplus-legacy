@@ -58,7 +58,7 @@ Filter.prototype =
    */
   serialize: function(buffer)
   {
-    buffer.push("[Pattern]");
+    buffer.push("[Filter]");
     buffer.push("text=" + this.text);
   },
 
