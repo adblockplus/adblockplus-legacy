@@ -654,21 +654,14 @@ function onListClick(/**Event*/ e)
   let col = {};
   treeView.boxObject.getCellAt(e.clientX, e.clientY, row, col, {});
 
-  if (!col.value)
+  if (!col.value || col.value.id != "col-enabled")
     return;
 
-  col = col.value.id;
-  if (col == "col-filter" && row.value == 0)
-    editFilter(null);
-
-  if (col == "col-enabled")
-  {
-    let [subscription, filter] = treeView.getRowInfo(row.value);
-    if (subscription && !filter)
-      treeView.toggleDisabled([subscription]);
-    else if (filter instanceof abp.ActiveFilter)
-      treeView.toggleDisabled([filter]);
-  }
+  let [subscription, filter] = treeView.getRowInfo(row.value);
+  if (subscription && !filter)
+    treeView.toggleDisabled([subscription]);
+  else if (filter instanceof abp.ActiveFilter)
+    treeView.toggleDisabled([filter]);
 }
 
 /**
