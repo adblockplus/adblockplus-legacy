@@ -226,17 +226,26 @@ var filterStorage =
    */
   addFilter: function(filter, silent)
   {
-    for each (let subscription in this.subscriptions)
+    let subscription = null;
+    for each (let s in this.subscriptions)
     {
-      if (subscription instanceof SpecialSubscription && subscription.isFilterAllowed(filter) && subscription.filters.indexOf(filter) < 0)
+      if (s instanceof SpecialSubscription && s.isFilterAllowed(filter))
       {
-        filter.subscriptions.push(subscription);
-        subscription.filters.push(filter);
-        if (!silent)
-          this.triggerFilterObservers("add", [filter]);
-        return;
+        if (s.filters.indexOf(filter) >= 0)
+          return;
+
+        if (!subscription || s.priority > subscription.priority)
+          subscription = s;
       }
     }
+
+    if (!subscription)
+      return;
+
+    filter.subscriptions.push(subscription);
+    subscription.filters.push(filter);
+    if (!silent)
+      this.triggerFilterObservers("add", [filter]);
   },
 
   /**

@@ -187,7 +187,8 @@ function SpecialSubscription(url)
 
   let data = SpecialSubscription.map[url];
   this._titleID = data[0];
-  this.filterTypes = data.slice(1);
+  this._priority = data[1];
+  this.filterTypes = data.slice(2);
 }
 SpecialSubscription.prototype =
 {
@@ -198,6 +199,22 @@ SpecialSubscription.prototype =
    * @type String
    */
   _titleID: null,
+
+  /**
+   * Priority when adding new filters that are accepted by multiple subscriptions
+   * @type Integer
+   */
+  _priority: null,
+
+  /**
+   * Priority based on which new filters are added to a subscription if multiple
+   * subscriptions are possible
+   * @type Integer
+   */
+  get priority()
+  {
+    return this._priority;
+  },
 
   /**
    * Title of the subscription (read-only)
@@ -232,10 +249,10 @@ abp.SpecialSubscription = SpecialSubscription;
 
 SpecialSubscription.map = {
   __proto__: null,
-  "~il~": ["invalid_description", InvalidFilter],
-  "~wl~": ["whitelist_description", WhitelistFilter],
-  "~fl~": ["filterlist_description", BlockingFilter, CommentFilter],
-  "~eh~": ["elemhide_description", ElemHideFilter]
+  "~il~": ["invalid_description", 1, InvalidFilter, CommentFilter],
+  "~wl~": ["whitelist_description", 3, WhitelistFilter, CommentFilter],
+  "~fl~": ["filterlist_description", 4, BlockingFilter, CommentFilter],
+  "~eh~": ["elemhide_description", 2, ElemHideFilter, CommentFilter]
 };
 
 /**
