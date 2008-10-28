@@ -455,7 +455,7 @@ function abpFillTooltip(ev) {
       var blocked = 0;
       var filters = {__proto__: null};
       for (i = 0; i < locations.length; i++) {
-        if (locations[i].filter && locations[i].filter.type != "whitelist")
+        if (locations[i].filter && !(locations[i].filter instanceof abp.WhitelistFilter))
           blocked++;
         if (locations[i].filter) {
           if (locations[i].filter.text in filters)
