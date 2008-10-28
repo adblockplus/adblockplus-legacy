@@ -1133,7 +1133,7 @@ function showRegExpTooltip(event)
   let col = {};
   let childElement = {};
   treeView.boxObject.getCellAt(event.clientX, event.clientY, {}, col, childElement);
-  return (col.value.id == "col-filter" && childElement.value == "image");
+  return (col.value && col.value.id == "col-filter" && childElement.value == "image");
 }
 
 /**
