@@ -298,7 +298,7 @@ const abp =
   {
     for each (let filter in filters)
     {
-      filter = Filter.fromText(filter);
+      filter = Filter.fromText(normalizeFilter(filter));
       if (filter)
         filterStorage.addFilter(filter);
     }
@@ -311,7 +311,7 @@ const abp =
   {
     for each (let filter in filters)
     {
-      filter = Filter.fromText(filter);
+      filter = Filter.fromText(normalizeFilter(filter));
       if (filter)
         filterStorage.removeFilter(filter);
     }
