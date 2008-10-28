@@ -141,8 +141,19 @@ function init()
   window.dispatchEvent(e);
 }
 
+/**
+ * Timeout that will open the editor, set by setLocation() and used by
+ * selectFilter().
+ */
 let editorTimeout = null;
 
+/**
+ * This will set the address that is supposed to be edited. This will
+ * initialize the editor and start the editor delayed (a subsequent call to
+ * selectFilter() will prevent the editor from opening). Usually called by the
+ * opener of the window in the "post-init" event handler.
+ * @param {String}  location  URL of the address to be taken as template of a new filter
+ */
 function setLocation(location)
 {
   treeView.stopEditor(true);
@@ -154,6 +165,14 @@ function setLocation(location)
   }, 0);
 }
 
+/**
+ * This will select a particular filter in the list. If setLocation() was
+ * called before, this will also prevent the editor from opening (though it
+ * keeps editor's initial value in case the user opens the editor himself
+ * later). Usually called by the opener of the window in the "post-init" event
+ * handler.
+ * @param {Filter} filter  filter to be selected
+ */
 function selectFilter(filter)
 {
   if (editorTimeout != null)
@@ -562,10 +581,10 @@ function exportList()
 /**
  * Handles keypress event on the filter list
  */
-function onListKeyPress(e)
+function onListKeyPress(/**Event*/ e)
 {
   // Ignore any keys directed to the editor
-  if (treeView.isEditing())
+  if (treeView.isEditing)
     return;
 
   let modifiers = 0;
@@ -623,7 +642,10 @@ function onListKeyPress(e)
     synchSubscription(false);
 }
 
-function onListClick(e)
+/**
+ * Handles click event on the filter list
+ */
+function onListClick(/**Event*/ e)
 {
   if (e.button != 0)
     return;
@@ -649,7 +671,10 @@ function onListClick(e)
   }
 }
 
-function onListDragGesture(e)
+/**
+ * Handles draggesture event on the filter list, starts drag&drop session.
+ */
+function onListDragGesture(/**Event*/ e)
 {
   treeView.startDrag(treeView.boxObject.getRowAt(e.clientX, e.clientY));
 }
@@ -934,7 +959,7 @@ function synchAllSubscriptions(/**Boolean*/ forceDownload)
  * Updates the contents of the Filters menu, making sure the right
  * items are checked/enabled.
  */
-function fillFiltersPopup(prefix)
+function fillFiltersPopup()
 {
   let empty = !treeView.hasUserFilters();
   E("export-command").setAttribute("disabled", empty);
@@ -1009,7 +1034,10 @@ function fillOptionsPopup()
   E("showinstatusbar").setAttribute("checked", prefs.showinstatusbar);
 }
 
-// Makes sure the right items in the context menu are checked/enabled
+/**
+ * Updates the contents of the context menu, making sure the right
+ * items are checked/enabled.
+ */
 function fillContext()
 {
   // Retrieve selected items
@@ -1129,8 +1157,11 @@ function onChange() {
   E("applyButton").removeAttribute("disabled");
 }
 
-// Sort functions for the filter list
-function sortByText(filter1, filter2)
+/**
+ * Sort function for the filter list, compares two filters by their text
+ * representation.
+ */
+function sortByText(/**Filter*/ filter1, /**Filter*/ filter2)
 {
   if (filter1.text < filter2.text)
     return -1;
@@ -1140,12 +1171,19 @@ function sortByText(filter1, filter2)
     return 0;
 }
 
-function sortByTextDesc(filter1, filter2)
+/**
+ * Reverse of sortByText() - for sorting in descending order.
+ */
+function sortByTextDesc(/**Filter*/ filter1, /**Filter*/ filter2)
 {
   return -sortByText(filter1, filter2);
 }
 
-function compareEnabled(filter1, filter2)
+/**
+ * Sort function for the filter list, compares two filters by "enabled"
+ * state.
+ */
+function compareEnabled(/**Filter*/ filter1, /**Filter*/ filter2)
 {
   let hasEnabled1 = (filter1 instanceof abp.ActiveFilter ? 1 : 0);
   let hasEnabled2 = (filter2 instanceof abp.ActiveFilter ? 1 : 0);
@@ -1157,7 +1195,10 @@ function compareEnabled(filter1, filter2)
     return 0;
 }
 
-function compareHitCount(filter1, filter2)
+/**
+ * Sort function for the filter list, compares two filters by their hit count.
+ */
+function compareHitCount(/**Filter*/ filter1, /**Filter*/ filter2)
 {
   let hasHitCount1 = (filter1 instanceof abp.ActiveFilter ? 1 : 0);
   let hasHitCount2 = (filter2 instanceof abp.ActiveFilter ? 1 : 0);
@@ -1169,7 +1210,10 @@ function compareHitCount(filter1, filter2)
     return 0;
 }
 
-function compareLastHit(filter1, filter2)
+/**
+ * Sort function for the filter list, compares two filters by their last hit.
+ */
+function compareLastHit(/**Filter*/ filter1, /**Filter*/ filter2)
 {
   let hasLastHit1 = (filter1 instanceof abp.ActiveFilter ? 1 : 0);
   let hasLastHit2 = (filter2 instanceof abp.ActiveFilter ? 1 : 0);
@@ -1181,6 +1225,13 @@ function compareLastHit(filter1, filter2)
     return 0;
 }
 
+/**
+ * Creates a sort function from a primary and a secondary comparison function.
+ * @param {Function} cmpFunc  comparison function to be called first
+ * @param {Function} fallbackFunc  comparison function to be called if primary function returns 0
+ * @param {Boolean} desc  if true, the result of the primary function (not the secondary function) will be reversed - sorting in descending order
+ * @result {Function} comparison function to be used
+ */
 function createSortWithFallback(cmpFunc, fallbackFunc, desc)
 {
   let factor = (desc ? -1 : 1);
@@ -1195,8 +1246,12 @@ function createSortWithFallback(cmpFunc, fallbackFunc, desc)
   }
 }
 
-// Filter list's tree view object
 const nsITreeView = Components.interfaces.nsITreeView;
+
+/**
+ * nsITreeView implementation used for the filters list.
+ * @class
+ */
 let treeView = {
   //
   // nsISupports implementation
@@ -1470,13 +1525,10 @@ let treeView = {
     return (this.sortProc != null);
   },
 
-  DROP_ON: nsITreeView.DROP_ON,
-  DROP_BEFORE: nsITreeView.DROP_BEFORE,
-  DROP_AFTER: nsITreeView.DROP_AFTER,
   canDrop: function(row, orientation)
   {
     let session = dragService.getCurrentSession();
-    if (!session || session.sourceNode != this.boxObject.treeBody || !this.dragSubscription || orientation == this.DROP_ON)
+    if (!session || session.sourceNode != this.boxObject.treeBody || !this.dragSubscription || orientation == nsITreeView.DROP_ON)
       return false;
 
     let [subscription, filter] = this.getRowInfo(row);
@@ -1498,7 +1550,7 @@ let treeView = {
   drop: function(row, orientation)
   {
     let session = dragService.getCurrentSession();
-    if (!session || session.sourceNode != this.boxObject.treeBody || !this.dragSubscription || orientation == this.DROP_ON)
+    if (!session || session.sourceNode != this.boxObject.treeBody || !this.dragSubscription || orientation == nsITreeView.DROP_ON)
       return;
 
     let [subscription, filter] = this.getRowInfo(row);
@@ -1527,7 +1579,7 @@ let treeView = {
       subscription.filters.splice(oldIndex, 1);
       this.boxObject.rowCountChanged(oldRow, -1);
 
-      if (orientation == this.DROP_AFTER)
+      if (orientation == nsITreeView.DROP_AFTER)
         newIndex++;
       if (newIndex > oldIndex)
         newIndex--;
@@ -1552,15 +1604,15 @@ let treeView = {
         return;
 
       if (filter && oldIndex > newIndex)
-        orientation = this.DROP_BEFORE;
+        orientation = nsITreeView.DROP_BEFORE;
       else if (filter)
-        orientation = this.DROP_AFTER;
+        orientation = nsITreeView.DROP_AFTER;
 
       let oldRow = this.getSubscriptionRow(this.dragSubscription);
       this.subscriptions.splice(oldIndex, 1);
       this.boxObject.rowCountChanged(oldRow, -rowCount);
 
-      if (orientation == this.DROP_AFTER)
+      if (orientation == nsITreeView.DROP_AFTER)
         newIndex++;
       if (oldIndex < newIndex)
         newIndex--;
@@ -1589,15 +1641,54 @@ let treeView = {
   // Custom properties and methods
   //
 
+  /**
+   * List of subscriptions displayed
+   * @type Array of Subscription
+   */
   subscriptions: null,
+
+  /**
+   * Box object of the tree
+   * @type nsITreeBoxObject
+   */
   boxObject: null,
+
+  /**
+   * Map containing URLs of subscriptions that are displayed collapsed
+   * @type Object
+   */
   closed: null,
+
+  /**
+   * String to be displayed before the title of regular subscriptions
+   * @type String
+   * @const
+   */
   titlePrefix: abp.getString("subscription_description") + " ",
+
+  /**
+   * Map of atoms being used as col/row/cell properties, String => nsIAtom
+   * @type Object
+   */
   atoms: null,
+
+  /**
+   * Column by which the list is sorted or null for natural order
+   * @type Element
+   */
   sortColumn: null,
+
+  /**
+   * Comparison function used to sort the list or null for natural order
+   * @type Function
+   */
   sortProc: null,
 
-  getSubscriptionRow: function(search)
+  /**
+   * Returns the first row of a subscription in the list or -1 if the
+   * subscription isn't in the list or isn't visible.
+   */
+  getSubscriptionRow: function(/**Subscription*/ search)  /**Integer*/
   {
     let index = 0;
     for each (let subscription in this.subscriptions)
@@ -1611,7 +1702,10 @@ let treeView = {
     return -1;
   },
 
-  getSubscriptionRowCount: function(subscription)
+  /**
+   * Returns the number of rows used to display the subscription in the list.
+   */
+  getSubscriptionRowCount: function(/**Subscription*/ subscription) /**Integer*/
   {
     if (subscription instanceof abp.SpecialSubscription && subscription.sortedFilters.length == 0)
       return 0;
@@ -1759,7 +1853,13 @@ let treeView = {
     return wrapper;
   },
 
-  sortProcs: {
+  /**
+   * Map of comparison functions by column ID  or column ID + "Desc" for
+   * descending sort order.
+   * @const
+   */
+  sortProcs:
+  {
     filter: sortByText,
     filterDesc: sortByTextDesc,
     enabled: createSortWithFallback(compareEnabled, sortByText, false),
@@ -2249,7 +2349,11 @@ let treeView = {
     }
   },
 
-  invalidateFilter: function(search)
+  /**
+   * Invalidates all instances of a filter in the list, making sure changes
+   * are displayed.
+   */
+  invalidateFilter: function(/**Filter*/ search)
   {
     let min = this.boxObject.getFirstVisibleRow();
     let max = this.boxObject.getLastVisibleRow();
@@ -2261,6 +2365,11 @@ let treeView = {
     }
   },
 
+  /**
+   * Invalidates a subscription in the list, making sure changes are displayed.
+   * @param {Subscription} subscription
+   * @param {Integer} oldRowCount  number of roww in the subscription before the change
+   */
   invalidateSubscription: function(subscription, oldRowCount)
   {
     let row = this.getSubscriptionRow(subscription);
@@ -2274,7 +2383,10 @@ let treeView = {
     this.boxObject.invalidateRange(row, row + Math.min(rowCount, oldRowCount) - 1);
   },
 
-  invalidateSubscriptionInfo: function(subscription)
+  /**
+   * Makes sure the description rows of the subscription are updated.
+   */
+  invalidateSubscriptionInfo: function(/**Subscription*/subscription)
   {
     let row = this.getSubscriptionRow(subscription);
 
@@ -2287,6 +2399,9 @@ let treeView = {
     this.boxObject.invalidateRange(row, row + newCount);
   },
 
+  /**
+   * Removes all user-defined filters from the list.
+   */
   removeUserFilters: function()
   {
     for each (let subscription in this.subscriptions)
@@ -2422,7 +2537,7 @@ let treeView = {
   },
 
   //
-  // Inline pattern editor
+  // Inline filter editor
   //
 
   editor: null,
@@ -2434,29 +2549,50 @@ let treeView = {
   editorDummy: null,
   editorDummyInit: "",
 
-  setEditor: function(editor, editorParent) {
+  /**
+   * true if the editor is currently open
+   * @type Boolean
+   */
+  get isEditing()
+  {
+    return (this.editedRow >= 0);
+  },
+
+  /**
+   * Initializes inline editor.
+   * @param {Element} editor  text field to be used as inline editor
+   * @param {Element} editorParent  editor's parent node to be made visible when the editor should be shown
+   */
+  setEditor: function(editor, editorParent)
+  {
     this.editor = editor;
     this.editorParent = editorParent;
 
     let me = this;
-    this.editorKeyPressHandler = function(e) {
-      if (e.keyCode == e.DOM_VK_RETURN || e.keyCode == e.DOM_VK_ENTER) {
+    this.editorKeyPressHandler = function(e)
+    {
+      if (e.keyCode == e.DOM_VK_RETURN || e.keyCode == e.DOM_VK_ENTER)
+      {
         me.stopEditor(true);
         if (e.ctrlKey || e.altKey || e.metaKey)
           document.documentElement.acceptDialog();
-        else {
+        else
+        {
           e.preventDefault();
           e.stopPropagation();
         }
       }
-      else if (e.keyCode == e.DOM_VK_CANCEL || e.keyCode == e.DOM_VK_ESCAPE) {
+      else if (e.keyCode == e.DOM_VK_CANCEL || e.keyCode == e.DOM_VK_ESCAPE)
+      {
         me.stopEditor(false);
         e.preventDefault();
         e.stopPropagation();
       }
     };
-    this.editorBlurHandler = function(e) {
-      setTimeout(function() {
+    this.editorBlurHandler = function(e)
+    {
+      setTimeout(function()
+      {
         let focused = document.commandDispatcher.focusedElement;
         if (!focused || focused != me.editor.field)
           me.stopEditor(true, true);
@@ -2468,11 +2604,11 @@ let treeView = {
     editorParent = null;
   },
 
-  isEditing: function() {
-    return (this.editedRow >= 0);
-  },
-
-  startEditor: function(/**Boolean*/ insert)
+  /**
+   * Opens inline editor.
+   * @param {Boolean} insert  if false, the editor will insert a new filter, otherwise edit currently selected filter
+   */
+  startEditor: function(insert)
   {
     this.stopEditor(false);
 
@@ -2550,6 +2686,11 @@ let treeView = {
     }, 0, this);
   },
 
+  /**
+   * Closes inline editor.
+   * @param {Boolean} save  if true, the editor result should be saved (user accepted changes)
+   * @param {Boolean} blur  if true, editor was closed on blur and the list shouldn't be focused
+   */
   stopEditor: function(save, blur)
   {
     if (this.editedRow < 0)
