@@ -160,6 +160,30 @@
     subscription3.disabled = false;
     filterStorage.triggerSubscriptionObservers("enable", [subscription3]);
     checkKnownFilters("enable exception rules", {blacklist: [filter1], whitelist: [filter2]});
+
+    let subscription4 = Subscription.fromURL("http://test/");
+    let filter5 = Filter.fromText("filter5");
+    let filter6 = Filter.fromText("@@filter6");
+    let filter7 = Filter.fromText("!filter7");
+    filterStorage.updateSubscriptionFilters(subscription4, [filter5, filter6, filter7]);
+    checkKnownFilters("update subscription not in the list yet", {blacklist: [filter1], whitelist: [filter2]});
+
+    filterStorage.addSubscription(subscription4);
+    checkKnownFilters("add subscription to the list", {blacklist: [filter1, filter5], whitelist: [filter2, filter6]});
+
+    filterStorage.updateSubscriptionFilters(subscription4, [filter5, filter2, filter7]);
+    checkKnownFilters("update subscription while in the list", {blacklist: [filter1, filter5], whitelist: [filter2]});
+
+    subscription3.disabled = true;
+    filterStorage.triggerSubscriptionObservers("disable", [subscription3]);
+    checkKnownFilters("disable exception rules", {blacklist: [filter1, filter5], whitelist: [filter2]});
+
+    filterStorage.removeSubscription(subscription4);
+    checkKnownFilters("remove subscription from the list", {blacklist: [filter1]});
+
+    subscription3.disabled = false;
+    filterStorage.triggerSubscriptionObservers("enable", [subscription3]);
+    checkKnownFilters("enable exception rules", {blacklist: [filter1], whitelist: [filter2]});
   </script>
   </pre>
 </body>
