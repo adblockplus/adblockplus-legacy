@@ -147,7 +147,8 @@ catch(e) {
  * Content policy class definition
  */
 
-const abp = {
+const abp =
+{
   //
   // nsISupports interface implementation
   //
@@ -172,31 +173,70 @@ const abp = {
   },
 
   //
-  // nsIAdblockPlus interface implementation
+  // IAdblockPlus interface implementation
   //
 
-  // Return current subscription count
+  /**
+   * Returns current subscription count
+   * @type Integer
+   */
   get subscriptionCount()
   {
     return filterStorage.subscriptions.length;
   },
 
-  // Retrieves a subscription
-  getSubscription: function(id)
+  /**
+   * Wraps a subscription into IAdblockPlusSubscription structure.
+   */
+  _getSubscriptionWrapper: function(/**Subscription*/ subscription) /**IAdblockPlusSubscription*/
+  {
+    if (!subscription)
+      return null;
+
+    return {
+      url: subscription.url,
+      special: subscription instanceof SpecialSubscription,
+      title: subscription.title,
+      autoDownload: subscription instanceof DownloadableSubscription && subscription.autoDownload,
+      disabled: subscription.disabled,
+      external: subscription instanceof ExternalSubscription,
+      lastDownload: subscription instanceof RegularSubscription ? subscription.lastDownload : 0,
+      downloadStatus: subscription instanceof DownloadableSubscription ? subscription.downloadStatus : "synchronize_ok",
+      lastModified: subscription instanceof DownloadableSubscription ? subscription.lastModified : null,
+      expires: subscription instanceof DownloadableSubscription ? subscription.expires : 0,
+      getPatterns: function(length)
+      {
+        let result = subscription.filters.map(function(filter)
+        {
+          return filter.text;
+        });
+        if (typeof length == "object")
+          length.value = result.length;
+        return result;
+      }
+    };
+  },
+
+  /**
+   * Gets a subscription by its URL
+   */
+  getSubscription: function(/**String*/ id) /**IAdblockPlusSubscription*/
   {
     if (id in filterStorage.knownSubscriptions)
-      return filterStorage.knownSubscriptions[id];
+      return this._getSubscriptionWrapper(filterStorage.knownSubscriptions[id]);
 
     return null;
   },
 
-  // Retrieves a subscription by list index
-  getSubscriptionAt: function(index)
+  /**
+   * Gets a subscription by its position in the list
+   */
+  getSubscriptionAt: function(/**Integer*/ index) /**IAdblockPlusSubscription*/
   {
     if (index < 0 || index >= filterStorage.subscriptions.length)
       return null;
 
-    return filterStorage.subscriptions[index];
+    return this._getSubscriptionWrapper(filterStorage.subscriptions[index]);
   },
 
   // Updates an external subscription and creates it if necessary
@@ -387,13 +427,19 @@ const abp = {
 
   params: null,
 
-  // Saves sidebar state before detaching/reattaching
-  setParams: function(params) {
+  /**
+   * Saves sidebar state before detaching/reattaching
+   */
+  setParams: function(params)
+  {
     this.params = params;
   },
 
-  // Retrieves sidebar state
-  getParams: function() {
+  /**
+   * Retrieves and removes sidebar state after detaching/reattaching
+   */
+  getParams: function()
+  {
     var ret = this.params;
     this.params = null;
     return ret;
