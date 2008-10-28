@@ -2251,10 +2251,10 @@ let treeView = {
 
     let oldRow = this.getSubscriptionRow(subscription);
     let offset = this.selection.currentIndex - oldRow;
-    let newIndex;
+    let newIndex = oldIndex;
     do
     {
-      newIndex = (up ? oldIndex - 1 : oldIndex + 1);
+      newIndex = (up ? newIndex - 1 : newIndex + 1);
       if (newIndex < 0 || newIndex >= this.subscriptions.length)
         return;
     } while (this.subscriptions[newIndex] instanceof abp.SpecialSubscription && this.subscriptions[newIndex]._sortedFilters.length == 0);
