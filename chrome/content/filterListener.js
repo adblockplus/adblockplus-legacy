@@ -87,6 +87,17 @@ var filterListener =
    */
   onSubscriptionChange: function(action, subscriptions)
   {
+    if (action != "remove")
+    {
+      subscriptions = subscriptions.filter(function(subscription)
+      {
+        // Ignore updates for subscriptions not in the list
+        return subscription.url in filterStorage.knownSubscriptions;
+      });
+    }
+    if (!subscriptions.length)
+      return;
+
     if (action == "add" || action == "enable" ||
         action == "remove" || action == "disable" ||
         action == "update")
