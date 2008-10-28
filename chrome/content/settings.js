@@ -1817,16 +1817,28 @@ let treeView = {
    */
   selectFilter: function(/**Filter*/ filter)
   {
+    let resultSubscription = null;
+    let resultIndex;
     for each (let subscription in this.subscriptions)
     {
       let index = subscription.sortedFilters.indexOf(filter);
       if (index >= 0)
       {
-        let parentRow = this.getSubscriptionRow(subscription);
-        if (subscription.url in this.closed)
-          this.toggleOpenState(parentRow);
-        this.selectRow(parentRow + 1 + subscription.description.length + index);
+        [resultSubscription, resultIndex] = [subscription, index];
+
+        // If the subscription is disabled continue searching - maybe
+        // we have the same filter in an enabled subscription as well
+        if (!subscription.disabled)
+          break;
       }
+    }
+
+    if (resultSubscription)
+    {
+      let parentRow = this.getSubscriptionRow(resultSubscription);
+      if (resultSubscription.url in this.closed)
+        this.toggleOpenState(parentRow);
+      this.selectRow(parentRow + 1 + resultSubscription.description.length + resultIndex);
     }
   },
 
