@@ -750,7 +750,7 @@ function onSubscriptionChange(/**String*/ action, /**Array of Subscription*/ sub
       case "disable":
         // Remove existing changes to "disabled" property
         delete subscription.disabled;
-        treeView.invalidateSubscriptionInfo(subscription);
+        treeView.invalidateSubscription(subscription);
         break;
       case "update":
         let oldCount = treeView.getSubscriptionRowCount(subscription);
@@ -2362,7 +2362,7 @@ let treeView = {
   /**
    * Invalidates a subscription in the list, making sure changes are displayed.
    * @param {Subscription} subscription
-   * @param {Integer} oldRowCount  number of roww in the subscription before the change
+   * @param {Integer} oldRowCount  (optional) number of roww in the subscription before the change
    */
   invalidateSubscription: function(subscription, oldRowCount)
   {
@@ -2374,7 +2374,9 @@ let treeView = {
     if (typeof oldRowCount != "undefined" && rowCount != oldRowCount)
       this.boxObject.rowCountChanged(row + Math.min(rowCount, oldRowCount), rowCount - oldRowCount);
 
-    this.boxObject.invalidateRange(row, row + Math.min(rowCount, oldRowCount) - 1);
+    if (typeof oldRowCount != "undefined" && oldRowCount < rowCount)
+      rowCount = oldRowCount;
+    this.boxObject.invalidateRange(row, row + rowCount - 1);
   },
 
   /**
