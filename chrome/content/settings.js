@@ -1146,7 +1146,7 @@ function showTreeTooltip(/**Event*/ event) /**Boolean*/
     return true;
   }
 
-  if (treeView.boxObject.isCellCropped(row.value, col.value))
+  if (row.value && col.value && treeView.boxObject.isCellCropped(row.value, col.value))
   {
     let text = treeView.getCellText(row.value, col.value);
     if (text)
