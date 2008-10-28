@@ -140,6 +140,9 @@ var filterStorage =
    */
   _addSubscriptionFilters: function(subscription)
   {
+    if (!(subscription.url in this.knownSubscriptions))
+      return;
+
     for each (let filter in subscription.filters)
       filter.subscriptions.push(subscription);
   },
@@ -154,10 +157,10 @@ var filterStorage =
     if (subscription.url in this.knownSubscriptions)
       return;
 
-    this._addSubscriptionFilters(subscription);
-
     this.subscriptions.push(subscription);
     this.knownSubscriptions[subscription.url] = subscription;
+    this._addSubscriptionFilters(subscription);
+
     if (!silent)
       this.triggerSubscriptionObservers("add", [subscription]);
   },
@@ -168,6 +171,9 @@ var filterStorage =
    */
   _removeSubscriptionFilters: function(subscription)
   {
+    if (!(subscription.url in this.knownSubscriptions))
+      return;
+
     for each (let filter in subscription.filters)
     {
       let i = filter.subscriptions.indexOf(subscription);

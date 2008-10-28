@@ -49,7 +49,15 @@
       is(result, expected, test);
     }
 
+    function compareFilterSubscriptions(test, filter, list)
+    {
+      let result = filter.subscriptions.map(function(subscription) {return subscription.url}).join("\n");
+      let expected = list.map(function(subscription) {return subscription.url}).join("\n");
+      is(result, expected, test);
+    }
+
     testSubscriptions();
+    testFilterSubscriptionRelationship();
 
     filterStorage.addSubscription(Subscription.fromURL("~fl~"));
     filterStorage.addSubscription(Subscription.fromURL("~wl~"));
@@ -207,6 +215,72 @@
       filterStorage.removeFilterObserver(observer1);
       filterStorage.removeFilterObserver(observer2);
       filterStorage.removeFilterObserver(observer3);
+    }
+
+    function testFilterSubscriptionRelationship()
+    {
+      let filter1 = Filter.fromText("filter1");
+      let filter2 = Filter.fromText("filter2");
+      let filter3 = Filter.fromText("filter3");
+
+      let subscription1 = Subscription.fromURL("http://test1/");
+      subscription1.filters = [filter1, filter2];
+
+      let subscription2 = Subscription.fromURL("http://test2/");
+      subscription2.filters = [filter2, filter3];
+
+      let subscription3 = Subscription.fromURL("http://test3/");
+      subscription3.filters = [filter1, filter2, filter3];
+
+      compareFilterSubscriptions("Initial filter1 subscriptions", filter1, []);
+      compareFilterSubscriptions("Initial filter2 subscriptions", filter2, []);
+      compareFilterSubscriptions("Initial filter3 subscriptions", filter3, []);
+
+      filterStorage.addSubscription(subscription1);
+
+      compareFilterSubscriptions("filter1 subscriptions after adding http://test1/", filter1, [subscription1]);
+      compareFilterSubscriptions("filter2 subscriptions after adding http://test1/", filter2, [subscription1]);
+      compareFilterSubscriptions("filter3 subscriptions after adding http://test1/", filter3, []);
+
+      filterStorage.addSubscription(subscription2);
+
+      compareFilterSubscriptions("filter1 subscriptions after adding http://test2/", filter1, [subscription1]);
+      compareFilterSubscriptions("filter2 subscriptions after adding http://test2/", filter2, [subscription1, subscription2]);
+      compareFilterSubscriptions("filter3 subscriptions after adding http://test2/", filter3, [subscription2]);
+
+      filterStorage.removeSubscription(subscription1);
+
+      compareFilterSubscriptions("filter1 subscriptions after removing http://test1/", filter1, []);
+      compareFilterSubscriptions("filter2 subscriptions after removing http://test1/", filter2, [subscription2]);
+      compareFilterSubscriptions("filter3 subscriptions after removing http://test1/", filter3, [subscription2]);
+
+      filterStorage.updateSubscriptionFilters(subscription3, [filter3]);
+
+      compareFilterSubscriptions("filter1 subscriptions after updating http://test3/ filters", filter1, []);
+      compareFilterSubscriptions("filter2 subscriptions after updating http://test3/ filters", filter2, [subscription2]);
+      compareFilterSubscriptions("filter3 subscriptions after updating http://test3/ filters", filter3, [subscription2]);
+
+      filterStorage.addSubscription(subscription3);
+
+      compareFilterSubscriptions("filter1 subscriptions after adding http://test3/", filter1, []);
+      compareFilterSubscriptions("filter2 subscriptions after adding http://test3/", filter2, [subscription2]);
+      compareFilterSubscriptions("filter3 subscriptions after adding http://test3/", filter3, [subscription2, subscription3]);
+
+      filterStorage.updateSubscriptionFilters(subscription3, [filter1, filter2]);
+
+      compareFilterSubscriptions("filter1 subscriptions after updating http://test3/ filters", filter1, [subscription3]);
+      compareFilterSubscriptions("filter2 subscriptions after updating http://test3/ filters", filter2, [subscription2, subscription3]);
+      compareFilterSubscriptions("filter3 subscriptions after updating http://test3/ filters", filter3, [subscription2]);
+
+      filterStorage.removeSubscription(subscription3);
+
+      compareFilterSubscriptions("filter1 subscriptions after removing http://test3/", filter1, []);
+      compareFilterSubscriptions("filter2 subscriptions after removing http://test3/", filter2, [subscription2]);
+      compareFilterSubscriptions("filter3 subscriptions after removing http://test3/", filter3, [subscription2]);
+
+      filterStorage.removeSubscription(subscription1);
+      filterStorage.removeSubscription(subscription2);
+      filterStorage.removeSubscription(subscription3);
     }
   </script>
   </pre>
