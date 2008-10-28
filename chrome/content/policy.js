@@ -41,8 +41,6 @@ const ok = Components.interfaces.nsIContentPolicy.ACCEPT;
 const block = Components.interfaces.nsIContentPolicy.REJECT_SERVER;
 
 var policy = {
-  allowOnce: null,
-
   init: function() {
     var types = ["OTHER", "SCRIPT", "IMAGE", "STYLESHEET", "OBJECT", "SUBDOCUMENT", "DOCUMENT", "XBL", "PING", "XMLHTTPREQUEST", "OBJECT_SUBREQUEST", "DTD"];
 
@@ -289,18 +287,6 @@ var policy = {
       return ok;
 
     var location = unwrapURL(contentLocation);
-    if (location.spec == this.allowOnce) {
-      this.allowOnce = null;
-      return ok;
-    }
-
-    if (location.scheme == "chrome" && "protectchrome" in prefs) {
-      // Disallow chrome requests for protected namespaces
-      var name = location.host;
-      for each (var protectedName in prefs.protectchrome)
-        if (protectedName == name)
-          return block;
-    }
 
     // Interpret unknown types as "other"
     if (!(contentType in typeDescr))

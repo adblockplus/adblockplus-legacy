@@ -318,14 +318,6 @@ const abp =
   },
 
   /**
-   * Allows an address to be loaded once regardless the filters
-   */
-  allowOnce: function(address)
-  {
-    policy.allowOnce = address;
-  },
-
-  /**
    * Returns installed Adblock Plus version
    */
   getInstalledVersion: function() /**String*/
