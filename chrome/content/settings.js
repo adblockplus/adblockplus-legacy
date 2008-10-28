@@ -750,6 +750,7 @@ function onSubscriptionChange(/**String*/ action, /**Array of Subscription*/ sub
       case "disable":
         // Remove existing changes to "disabled" property
         delete subscription.disabled;
+        treeView.invalidateSubscriptionInfo(subscription);
         break;
       case "update":
         let oldCount = treeView.getSubscriptionRowCount(subscription);
