@@ -2719,7 +2719,7 @@ let treeView = {
 
     let [subscription, filter] = this.getRowInfo(this.editedRow);
     let text = abp.normalizeFilter(this.editor.value);
-    if (save && text && (!insert || !(filter instanceof abp.Filter) || text != filter.text))
+    if (save && text && (insert || !(filter instanceof abp.Filter) || text != filter.text))
     {
       let newFilter = getFilterByText(text);
       if (filter && subscription.isFilterAllowed(newFilter))
