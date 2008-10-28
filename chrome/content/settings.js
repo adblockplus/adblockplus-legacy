@@ -2414,33 +2414,99 @@ let treeView = {
     this.ensureSelection(0);
   },
 
-  applyChanges: function() {
-    prefs.userPatterns = [];
-    prefs.subscriptions = [];
-    for (let i = 0; i < this.subscriptions.length; i++) {
-      if (this.subscriptions[i].dummy)
-        continue;
+  /**
+   * Saves all changes back to filter storage.
+   */
+  applyChanges: function()
+  {
+    let oldSubscriptions = {__proto__: null};
+    for each (let subscription in filterStorage.subscriptions)
+      oldSubscriptions[subscription.url] = true;
 
-      let list = prefs.userPatterns;
-      let subscription = prefs.knownSubscriptions[this.subscriptions[i].url];
-      if (!subscription.special) {
-        subscription.title = this.subscriptions[i].title;
-        subscription.autoDownload = this.subscriptions[i].autoDownload;
-        subscription.disabled = this.subscriptions[i].disabled;
-        list = subscription.filters = [];
+    let newSubscriptions = {__proto__: null};
+    let subscriptions = [];
+    for each (let subscription in this.subscriptions)
+    {
+      let changed = false;
+      for (let key in subscription)
+      {
+        if (subscription.hasOwnProperty(key) && key[0] != "_" && key != "filters")
+        {
+          subscription.__proto__[key] = subscription[key];
+          delete subscription[key];
+          changed = true;
+        }
       }
-      prefs.subscriptions.push(subscription);
 
-      let patterns = this.subscriptions[i].filters.slice();
-      patterns.sort(sortNatural);
-      for (let j = 0; j < patterns.length; j++) {
-        let pattern = patterns[j].orig;
-        pattern.disabled = pattern.text in this.disabled;
-        list.push(pattern);
+      let hasFilters = {__proto__: null};
+      let hadWrappers = false;
+      for (let i = 0; i < subscription.filters.length; i++)
+      {
+        let filter = subscription.filters[i];
+        if ("_isWrapper" in filter)
+        {
+          if (filter.disabled != filter.__proto__.disabled)
+          {
+            filter.__proto__.disabled = filter.disabled;
+            filterStorage.triggerFilterObservers(filter.disabled ? "disabled" : "enabled", [filter.__proto__]);
+          }
+          subscription.filters[i] = filter.__proto__;
+          hasWrappers = false;
+        }
+        hasFilters[filter.text] = true;
       }
+
+      let filtersChanged = (subscription.filters.length != subscription.__proto__.filters.length);
+      if (!filtersChanged)
+      {
+        for each (let filter in subscription.__proto__.filters)
+        {
+          if (!(filter.text in hasFilters))
+          {
+            filtersChanged = true;
+            break;
+          }
+        }
+      }
+
+      if (!(subscription.url in oldSubscriptions))
+        filterStorage.addSubscription(subscription.__proto__);
+      else if (filtersChanged)
+        filterStorage.updateSubscriptionFilters(subscription.__proto__, subscription.filters);
+      else if (changed)
+        filterStorage.triggerSubscriptionObservers("updateinfo", [subscription.__proto__]);
+
+      // Even if the filters didn't change, their ordering might have
+      // changed. Replace filters on the original subscription without
+      // triggering observers.
+      subscription.__proto__.filters = subscription.filters;
+      delete subscription.filters;
+
+      if (hadWrappers)
+      {
+        // Reinitialize _sortedFilters to remove wrappers from it
+        if (this.sortProc)
+        {
+          subscription._sortedFilters = subscription.filters.slice();
+          subscription._sortedFilters.sort(this.sortProc);
+        }
+        else
+          subscription._sortedFilters = subscription.filters;
+      }
+
+      newSubscriptions[subscription.url] = true;
+      subscriptions.push(subscription.__proto__);
     }
-    prefs.initMatching();
-    prefs.savePatterns();
+
+    for each (let subscription in filterStorage.subscriptions.slice())
+      if (!(subscription.url in newSubscriptions))
+        filterStorage.removeSubscription(subscription);
+
+    // Make sure that filter storage has the subscriptions in correct order,
+    // replace subscriptions list without triggering observers.
+    filterStorage.subscriptions = subscriptions;
+
+    filterStorage.saveToDisk();
   },
 
   /**
