@@ -279,8 +279,11 @@ const abp = {
   // Custom methods
   //
 
-  // Adds a new subscription to the list
-  addSubscription: function(url, title, autoDownload, disabled)
+  /**
+   * Adds a new subscription to the list or changes the parameters of
+   * an existing filter subscription.
+   */
+  addSubscription: function(/**String*/ url, /**String*/ title, /**Boolean*/ autoDownload, /**Boolean*/ disabled)
   {
     if (typeof autoDownload == "undefined")
       autoDownload = true;
@@ -309,14 +312,14 @@ const abp = {
     filterStorage.saveToDisk();
   },
 
-  // Retrieves settings dialog if it is currently open
-  getSettingsDialog: function() {
-    return windowMediator.getMostRecentWindow("abp:settings");
-  },
-
-  // Opens preferences dialog for the supplied window and filter suggestion
-  openSettingsDialog: function(location, filter) {
-    var dlg = this.getSettingsDialog();
+  /**
+   * Opens preferences dialog or focused already open dialog.
+   * @param {String} location  (optional) filter suggestion
+   * @param {Filter} filter    (optional) filter to be selected
+   */
+  openSettingsDialog: function(location, filter)
+  {
+    var dlg = windowMediator.getMostRecentWindow("abp:settings");
     var func = function()
     {
       if (typeof location == "string")
@@ -325,23 +328,24 @@ const abp = {
         dlg.selectFilter(filter);
     }
 
-    if (dlg) {
+    if (dlg)
+    {
       func();
 
-      try {
+      try
+      {
         dlg.focus();
       }
-      catch (e) {
+      catch (e)
+      {
         // There must be some modal dialog open
-        dlg = windowMediator.getMostRecentWindow("abp:subscription");
-        if (!dlg)
-          dlg = windowMediator.getMostRecentWindow("abp:about");
-
+        dlg = windowMediator.getMostRecentWindow("abp:subscription") || windowMediator.getMostRecentWindow("abp:about");
         if (dlg)
           dlg.focus();
       }
     }
-    else {
+    else
+    {
       dlg = windowWatcher.openWindow(null, "chrome://adblockplus/content/settings.xul", "_blank", "chrome,centerscreen,resizable,dialog=no", null);
       dlg.addEventListener("post-load", func, false);
     }
