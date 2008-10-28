@@ -2465,7 +2465,7 @@ let treeView = {
           if (filter.disabled != filter.__proto__.disabled)
           {
             filter.__proto__.disabled = filter.disabled;
-            filterStorage.triggerFilterObservers(filter.disabled ? "disabled" : "enabled", [filter.__proto__]);
+            filterStorage.triggerFilterObservers(filter.disabled ? "disable" : "enable", [filter.__proto__]);
           }
           subscription.filters[i] = filter.__proto__;
           hasWrappers = false;
