@@ -2692,7 +2692,7 @@ let treeView = {
     this.editor.field.removeEventListener("keypress", this.editorKeyPressHandler, false);
     this.editor.field.removeEventListener("blur", this.editorBlurHandler, false);
 
-    let insert = true;
+    let insert = (this.editorDummy != null);
     if (this.editorDummy instanceof abp.Subscription)
     {
       let rowCount = this.getSubscriptionRowCount(this.editorDummy);
@@ -2709,10 +2709,7 @@ let treeView = {
       this.selectRow(this.editedRow);
     }
     else
-    {
-      insert = false;
       this.selectRow(this.editedRow);
-    }
 
     if (typeof blur == "undefined" || !blur)
       this.boxObject.treeBody.parentNode.focus();
