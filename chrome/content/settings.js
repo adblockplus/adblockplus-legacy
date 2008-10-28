@@ -2040,7 +2040,8 @@ let treeView = {
             subscription = s;
             break;
           }
-          else if (!subscription || s.priority > subscription.priority)
+
+          if (!subscription || s.priority > subscription.priority)
             subscription = s;
         }
       }
