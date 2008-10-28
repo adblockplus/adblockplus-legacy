@@ -2429,6 +2429,7 @@ let treeView = {
     for each (let subscription in this.subscriptions)
     {
       let changed = false;
+      let disableChanged = (subscription.disabled != subscription.__proto__.disabled);
       for (let key in subscription)
       {
         if (subscription.hasOwnProperty(key) && key[0] != "_" && key != "filters")
@@ -2475,7 +2476,11 @@ let treeView = {
       else if (filtersChanged)
         filterStorage.updateSubscriptionFilters(subscription.__proto__, subscription.filters);
       else if (changed)
+      {
         filterStorage.triggerSubscriptionObservers("updateinfo", [subscription.__proto__]);
+        if (disableChanged)
+          filterStorage.triggerSubscriptionObservers(subscription.disabled ? "disable" : "enable", [subscription.__proto__]);
+      }
 
       // Even if the filters didn't change, their ordering might have
       // changed. Replace filters on the original subscription without
