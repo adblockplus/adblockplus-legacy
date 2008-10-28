@@ -2709,7 +2709,10 @@ let treeView = {
       this.selectRow(this.editedRow);
     }
     else
+    {
       insert = false;
+      this.selectRow(this.editedRow);
+    }
 
     if (typeof blur == "undefined" || !blur)
       this.boxObject.treeBody.parentNode.focus();
