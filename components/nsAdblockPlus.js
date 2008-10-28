@@ -280,33 +280,33 @@ const abp = {
   //
 
   // Adds a new subscription to the list
-  addSubscription: function(url, title, autoDownload, disabled) {
+  addSubscription: function(url, title, autoDownload, disabled)
+  {
     if (typeof autoDownload == "undefined")
       autoDownload = true;
     if (typeof disabled == "undefined")
       disabled = false;
 
-    var subscription = (url in prefs.knownSubscriptions ? prefs.knownSubscriptions[url] : prefs.subscriptionFromURL(url));
+    let subscription = Subscription.fromURL(url);
     if (!subscription)
       return;
 
-    var found = false;
-    for (var j = 0; j < prefs.subscriptions.length; j++)
-      if (prefs.subscriptions[j] == subscription)
-        found = true;
+    filterStorage.addSubscription(subscription);
 
-    if (found)
-      return;
+    if (disabled != subscription.disabled)
+    {
+      subscription.disabled = disabled;
+      filterStorage.triggerSubscriptionObservers(disabled ? "disable" : "enable", [subscription]);
+    }
 
     subscription.title = title;
-    subscription.disabled = disabled;
-    subscription.autoDownload = autoDownload;
-    prefs.subscriptions.push(subscription);
+    if (subscription instanceof DownloadableSubscription)
+      subscription.autoDownload = autoDownload;
+    filterStorage.triggerSubscriptionObservers("updateinfo", [subscription]);
 
-    synchronizer.notifyListeners(subscription, "add");
-    synchronizer.execute(subscription);
-
-    prefs.savePatterns();
+    if (subscription instanceof DownloadableSubscription && !subscription.lastDownload)
+      synchronizer.execute(subscription);
+    filterStorage.saveToDisk();
   },
 
   // Returns update item for Adblock Plus (only when extension manager is available)
