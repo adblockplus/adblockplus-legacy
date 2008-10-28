@@ -239,32 +239,42 @@ const abp =
     return this._getSubscriptionWrapper(filterStorage.subscriptions[index]);
   },
 
-  // Updates an external subscription and creates it if necessary
-  updateExternalSubscription: function(id, title, filters, length)
+  /**
+   * Updates an external subscription and creates it if necessary
+   */
+  updateExternalSubscription: function(/**String*/ id, /**String*/ title, /**Array of Filter*/ filters, /**Integer*/ length) /**Boolean*/
   {
-    var subscription;
-    if (id in prefs.knownSubscriptions)
-      subscription = prefs.knownSubscriptions[id];
-    else
+    try
+    {
+      // Don't allow valid URLs as IDs for external subscriptions
+      if (ioService.newURI(id, null, null))
+        return false;
+    } catch (e) {}
+
+    let subscription = Subscription.fromURL(id);
+    if (!subscription)
       subscription = new ExternalSubscription(id, title);
 
     if (!(subscription instanceof ExternalSubscription))
       return false;
 
-    subscription.lastDownload = subscription.lastSuccess = parseInt(new Date().getTime() / 1000);
+    subscription.lastDownload = parseInt(new Date().getTime() / 1000);
 
     let newFilters = [];
-    for each (filter in filters.length)
+    for each (let filter in filters)
     {
-      filter = Filter.fromText(filter);
+      filter = Filter.fromText(normalizeFilter(filter));
       if (filter)
         newFilters.push(filter);
     }
 
-    if (id in prefs.knownSubscriptions)
+    if (id in filterStorage.knownSubscriptions)
       filterStorage.updateSubscriptionFilters(subscription, newFilters);
     else
+    {
+      subscription.filters = newFilters;
       filterStorage.addSubscription(subscription);
+    }
 
     return true;
   },
