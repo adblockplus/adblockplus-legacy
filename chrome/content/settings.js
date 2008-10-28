@@ -2443,87 +2443,109 @@ let treeView = {
     prefs.savePatterns();
   },
 
-  find: function(text, direction, highlightAll) {
+  /**
+   * Searches a text string in the subscription titles, subscription
+   * descriptions and filters. Selects the matches.
+   * @param {String} text  text being searched
+   * @param {Integer} direction 1 for searching forwards from current position,
+   *                            -1 for searching backwards,
+   *                            0 for searching forwards but including current position as well
+   * @param {Boolean} highlightAll if true, all matches will be selected and not only the current one
+   * @return {String} either null or ID of the message to be displayed: "NotFound", "WrappedToBottom", "WrappedToTop"
+   */
+  find: function(text, direction, highlightAll)
+  {
     text = text.toLowerCase();
 
+    // Matches: current row, first match, previous match, next match, last match
     let match = [null, null, null, null, null];
-    let current = this.getRowInfo(this.selection.currentIndex);
+    let [currentSubscription, currentFilter] = this.getRowInfo(this.selection.currentIndex);
     let isCurrent = false;
-    let foundCurrent = !current[0];
-    if (highlightAll) {
+    let foundCurrent = !currentSubscription;
+    let rowCache = {__proto__: null};
+    if (highlightAll)
       this.selection.clearSelection();
-      let rowCache = {__proto__: null};
-    }
 
-    let selectMatch = function(subscription, offset) {
-      if (highlightAll) {
-        let row = (subscription.url in rowCache ? rowCache[subscription.url] : treeView.getSubscriptionRow(subscription));
-        rowCache[subscription.url] = row;
+    let selectMatch = function(subscription, offset)
+    {
+      if (highlightAll)
+      {
+        if (!(subscription.url in rowCache))
+          rowCache[subscription.url] = treeView.getSubscriptionRow(subscription);
+
+        let row = rowCache[subscription.url];
         if (offset && subscription.url in treeView.closed)
           treeView.toggleOpenState(row);
         treeView.selection.rangedSelect(row + offset, row + offset, true);
       }
 
-      let index = (isCurrent ? 2 : (foundCurrent ?  4 : 1));
+      let index = (isCurrent ? 0 : (foundCurrent ?  4 : 2));
       match[index] = [subscription, offset];
-      if (index != 2 && !match[index - 1])
+      if (index > 0 && !match[index - 1])
         match[index - 1] = match[index];
     };
 
-    for (let i = 0; i < this.subscriptions.length; i++) {
-      let subscription = this.subscriptions[i];
-      if (subscription.special && subscription.sortedFilters.length == 0)
+    for each (let subscription in this.subscriptions)
+    {
+      // Skip invisible subscriptions
+      let rowCount = this.getSubscriptionRowCount(subscription);
+      if (rowCount == 0)
         continue;
 
-      isCurrent = (subscription == current[0] && !current[1]);
+      let offset = 0;
+      isCurrent = (subscription == currentSubscription && !currentFilter);
       if (subscription.title.toLowerCase().indexOf(text) >= 0)
-        selectMatch(subscription, 0);
+        selectMatch(subscription, offset);
       if (isCurrent)
         foundCurrent = true;
+      offset++;
 
-      for (let j = 0; j < subscription.description.length; j++) {
-        let descr = subscription.description[j];
-        isCurrent = (subscription == current[0] && current[1] == descr);
-        if (descr.toLowerCase().indexOf(text) >= 0)
-          selectMatch(subscription, 1 + j);
+      for each (let description in subscription.description)
+      {
+        isCurrent = (subscription == currentSubscription && currentFilter === description);
+        if (description.toLowerCase().indexOf(text) >= 0)
+          selectMatch(subscription, offset);
         if (isCurrent)
           foundCurrent = true;
+        offset++;
       }
 
-      for (j = 0; j < subscription.sortedFilters.length; j++) {
-        let pattern = subscription.sortedFilters[j];
-        isCurrent = (subscription == current[0] && current[1] == pattern);
-        if (pattern.text.toLowerCase().indexOf(text) >= 0)
-          selectMatch(subscription, 1 + subscription.description.length + j);
+      for each (let filter in subscription.sortedFilters)
+      {
+        isCurrent = (subscription == currentSubscription && filter == currentFilter);
+        if (filter.text.toLowerCase().indexOf(text) >= 0)
+          selectMatch(subscription, offset);
         if (isCurrent)
           foundCurrent = true;
+        offset++;
       }
     }
 
     let found = null;
     let status = "";
     if (direction == 0)
-      found = match[2] || match[3] || match[0];
+      found = match[0] || match[3] || match[1];
     else if (direction > 0)
-      found = match[3] || match[0] || match[2];
+      found = match[3] || match[1] || match[0];
     else
-      found = match[1] || match[4] || match[2];
+      found = match[2] || match[4] || match[0];
 
     if (!found)
       return "NotFound";
 
-    let row = this.getSubscriptionRow(found[0]);
-    if (found[1] && found[0].url in this.closed)
+    let [subscription, offset] = found;
+    let row = this.getSubscriptionRow(subscription);
+    if (offset && subscription.url in this.closed)
       this.toggleOpenState(row);
     if (highlightAll)
-      this.selection.currentIndex = row + found[1];
+      this.selection.currentIndex = row + offset;
     else
-      this.selection.select(row + found[1]);
-    this.boxObject.ensureRowIsVisible(row + found[1]);
+      this.selection.select(row + offset);
+    this.boxObject.ensureRowIsVisible(row + offset);
 
-    if (direction == -1 && found != match[1])
+    if (direction < 0 && found != match[2])
       return "WrappedToBottom";
-    if ((direction == 1 && found != match[3]) || (direction == 0 && match == match[0]))
+    if ((direction > 0 && found != match[3]) || (direction == 0 && found == match[1]))
       return "WrappedToTop";
 
     return null;
