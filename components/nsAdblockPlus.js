@@ -309,26 +309,6 @@ const abp = {
     filterStorage.saveToDisk();
   },
 
-  // Returns update item for Adblock Plus (only when extension manager is available)
-  getUpdateItem: function() {
-    if (!("@mozilla.org/extensions/manager;1" in Components.classes))
-      return null;
-
-    var extensionManager = Components.classes["@mozilla.org/extensions/manager;1"]
-                                    .getService(Components.interfaces.nsIExtensionManager);
-
-    // FF 1.1+
-    if ('getItemForID' in extensionManager)
-      return extensionManager.getItemForID(ABP_EXTENSION_ID);
-
-    // FF 1.0
-    var itemList = extensionManager.getItemList(ABP_EXTENSION_ID, Components.interfaces.nsIUpdateItem.TYPE_EXTENSION, {});
-    if (itemList && itemList.length > 0)
-      return itemList[0];
-
-    return null;
-  },
-
   // Retrieves settings dialog if it is currently open
   getSettingsDialog: function() {
     return windowMediator.getMostRecentWindow("abp:settings");
