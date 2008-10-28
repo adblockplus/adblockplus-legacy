@@ -25,7 +25,7 @@
 #include "nsISupports.idl"
 
 [scriptable, uuid(2a311a4f-f32b-472a-9fc9-f1b1529924ad)]
-interface nsIAdblockPlusSubscription: nsISupports
+interface IAdblockPlusSubscription: nsISupports
 {
   /**
    * Subscription identifier, this is its URL unless the attribute external is set
@@ -65,11 +65,6 @@ interface nsIAdblockPlusSubscription: nsISupports
   readonly attribute unsigned long lastDownload;
 
   /**
-   * Time of the last successful download in seconds since 1 January 1970 00:00:00
-  */
-  readonly attribute unsigned long lastSuccess;
-
-  /**
    * Code for the result of the last download attempt (one of "synchronize_ok",
    * "synchronize_invalid_url", "synchronize_connection_error", "synchronize_invalid_data")
   */
@@ -94,7 +89,7 @@ interface nsIAdblockPlusSubscription: nsISupports
 };
 
 [scriptable, uuid(6e70a4b4-bef8-b0b3-25a2-62146012352b)]
-interface nsIAdblockPlus : nsISupports
+interface IAdblockPlus : nsISupports
 {
   /**
    * Number of subscriptions in the list
@@ -106,14 +101,14 @@ interface nsIAdblockPlus : nsISupports
    *
    * @param id        subscription identifier
   */
-  nsIAdblockPlusSubscription getSubscription(in AString id);
+  IAdblockPlusSubscription getSubscription(in AString id);
 
   /**
    * Retrieves a subscription by its position in the list.
    *
    * @param index     index of the subscription in the list
   */
-  nsIAdblockPlusSubscription getSubscriptionAt(in PRInt32 index);
+  IAdblockPlusSubscription getSubscriptionAt(in PRInt32 index);
 
   /**
    * Adds an external subscription or updates subscription's patterns if it
