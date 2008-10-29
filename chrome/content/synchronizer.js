@@ -29,7 +29,8 @@
 
 var XMLHttpRequest = Components.Constructor("@mozilla.org/xmlextras/xmlhttprequest;1", "nsIJSXMLHttpRequest");
 
-var synchronizer = {
+var synchronizer =
+{
   /**
    * Map of subscriptions currently being downloaded, all currently downloaded
    * URLs are keys of that map.
@@ -92,15 +93,51 @@ var synchronizer = {
   readFilters: function(subscription, text)
   {
     let lines = text.split(/[\r\n]+/);
-    if (!/\[Adblock(?:\s*Plus\s*([\d\.]+)?)?\]/i.test(lines[0])) {
+    if (!/\[Adblock(?:\s*Plus\s*([\d\.]+)?)?\]/i.test(lines[0]))
+    {
       this.setError(subscription, "synchronize_invalid_data");
       return null;
+    }
+    let minVersion = RegExp.$1;
+
+    for (let i = 0; i < lines.length; i++)
+    {
+      if (/!\s*checksum[\s\-:]+([\w\+\/]+)/i.test(lines[i]))
+      {
+        lines.splice(i, 1);
+        let checksumExpected = RegExp.$1;
+
+        // Checksum validation: checksum is an MD5 checksum of all lines
+        // without the checksum line, joined with "\n".
+        try
+        {
+          let converter = Components.classes["@mozilla.org/intl/scriptableunicodeconverter"]
+                                    .createInstance(Components.interfaces.nsIScriptableUnicodeConverter);
+          converter.charset = "UTF-8";
+          let stream = converter.convertToInputStream(lines.join("\n"));
+
+          let hashEngine = Components.classes["@mozilla.org/security/hash;1"]
+                                     .createInstance(Components.interfaces.nsICryptoHash);
+          hashEngine.init(hashEngine.MD5);
+          hashEngine.updateFromStream(stream, stream.available());
+          let checksum = hashEngine.finish(true).replace(/=+$/, "");
+          stream.close();
+
+          if (checksum != checksumExpected)
+          {
+            this.setError(subscription, "synchronize_checksum_mismatch");
+            throw checksum;
+            return null;
+          }
+        }
+        catch(e) {throw e;}
+
+        break;
+      }
     }
 
     delete subscription.requiredVersion;
     delete subscription.upgradeRequired;
-
-    let minVersion = RegExp.$1;
     if (minVersion)
     {
       subscription.requiredVersion = minVersion;
