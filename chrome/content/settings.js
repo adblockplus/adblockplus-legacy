@@ -1099,7 +1099,7 @@ function fillContext()
   E("copy-command").setAttribute("disabled", !hasFilters);
   E("cut-command").setAttribute("disabled", !hasRemovable);
   E("paste-command").setAttribute("disabled", !hasFlavour);
-  E("remove-command").setAttribute("disabled", !(hasRemovable && selectedSubscription instanceof abp.SpecialSubscription));
+  E("remove-command").setAttribute("disabled", !(hasRemovable || selectedSubscription instanceof abp.RegularSubscription));
 
   return true;
 }
