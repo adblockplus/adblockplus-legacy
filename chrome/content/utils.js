@@ -300,3 +300,40 @@ function normalizeFilter(text) {
     return text.replace(/\s/g, "");
 }
 abp.normalizeFilter = normalizeFilter;
+
+/**
+ * Generates filter subscription checksum.
+ *
+ * @param {Array of String} lines filter subscription lines (with checksum line removed)
+ * @return {String} checksum or null
+ */
+function generateChecksum(lines)
+{
+  let stream = null;
+  try
+  {
+    // Checksum is an MD5 checksum (base64-encoded without the trailing "=") of
+    // all lines in UTF-8 without the checksum line, joined with "\n".
+
+    let converter = Components.classes["@mozilla.org/intl/scriptableunicodeconverter"]
+                              .createInstance(Components.interfaces.nsIScriptableUnicodeConverter);
+    converter.charset = "UTF-8";
+    stream = converter.convertToInputStream(lines.join("\n"));
+
+    let hashEngine = Components.classes["@mozilla.org/security/hash;1"]
+                               .createInstance(Components.interfaces.nsICryptoHash);
+    hashEngine.init(hashEngine.MD5);
+    hashEngine.updateFromStream(stream, stream.available());
+    return hashEngine.finish(true).replace(/=+$/, "");
+  }
+  catch (e)
+  {
+    return null;
+  }
+  finally
+  {
+    if (stream)
+      stream.close();
+  }
+}
+abp.generateChecksum = generateChecksum;

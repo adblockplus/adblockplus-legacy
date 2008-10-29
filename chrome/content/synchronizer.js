@@ -106,31 +106,14 @@ var synchronizer =
       {
         lines.splice(i, 1);
         let checksumExpected = RegExp.$1;
+        let checksum = generateChecksum(lines);
 
-        // Checksum validation: checksum is an MD5 checksum of all lines
-        // without the checksum line, joined with "\n".
-        try
+        if (checksum && checksum != checksumExpected)
         {
-          let converter = Components.classes["@mozilla.org/intl/scriptableunicodeconverter"]
-                                    .createInstance(Components.interfaces.nsIScriptableUnicodeConverter);
-          converter.charset = "UTF-8";
-          let stream = converter.convertToInputStream(lines.join("\n"));
-
-          let hashEngine = Components.classes["@mozilla.org/security/hash;1"]
-                                     .createInstance(Components.interfaces.nsICryptoHash);
-          hashEngine.init(hashEngine.MD5);
-          hashEngine.updateFromStream(stream, stream.available());
-          let checksum = hashEngine.finish(true).replace(/=+$/, "");
-          stream.close();
-
-          if (checksum != checksumExpected)
-          {
-            this.setError(subscription, "synchronize_checksum_mismatch");
-            throw checksum;
-            return null;
-          }
+          this.setError(subscription, "synchronize_checksum_mismatch");
+          throw checksum;
+          return null;
         }
-        catch(e) {throw e;}
 
         break;
       }
