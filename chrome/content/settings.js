@@ -608,23 +608,7 @@ function onListKeyPress(/**Event*/ e)
   else if (e.keyCode == e.DOM_VK_INSERT)
     treeView.startEditor(true);
   else if (e.charCode == e.DOM_VK_SPACE && !E("col-enabled").hidden)
-  {
-    // Look for selected filters first
-    let selected = treeView.getSelectedFilters(true).filter(function(filter)
-    {
-      return filter instanceof abp.ActiveFilter;
-    });
-
-    if (selected.length)
-      treeView.toggleDisabled(selected);
-    else
-    {
-      // No filters selected, maybe a subscription?
-      let [subscription, filter] = treeView.getRowInfo(treeView.selection.currentIndex);
-      if (subscription && !filter)
-        treeView.toggleDisabled([subscription]);
-    }
-  }
+    toggleDisabled();
   else if ((e.keyCode == e.DOM_VK_UP || e.keyCode == e.DOM_VK_DOWN) && modifiers == accelMask)
   {
     if (e.shiftKey)
@@ -875,6 +859,28 @@ function removeFilters(allowSubscriptions)
 }
 
 /**
+ * Enables or disables selected filters or the selected subscription
+ */
+function toggleDisabled()
+{
+  // Look for selected filters first
+  let selected = treeView.getSelectedFilters(true).filter(function(filter)
+  {
+    return filter instanceof abp.ActiveFilter;
+  });
+
+  if (selected.length)
+    treeView.toggleDisabled(selected);
+  else
+  {
+    // No filters selected, maybe a subscription?
+    let [subscription, filter] = treeView.getRowInfo(treeView.selection.currentIndex);
+    if (subscription && !filter)
+      treeView.toggleDisabled([subscription]);
+  }
+}
+
+/**
  * Copies selected filters to clipboard.
  */
 function copyToClipboard()
@@ -1067,6 +1073,11 @@ function fillContext()
     let [subscription, filter] = info;
     return subscription instanceof abp.SpecialSubscription && filter instanceof abp.Filter;
   });
+  let activeFilters = selected.filter(function(info)
+  {
+    let [subscription, filter] = info;
+    return filter instanceof abp.ActiveFilter;
+  });
 
   if (selectedSubscription instanceof abp.RegularSubscription)
   {
@@ -1114,6 +1125,20 @@ function fillContext()
   E("cut-command").setAttribute("disabled", !hasRemovable);
   E("paste-command").setAttribute("disabled", !hasFlavour);
   E("remove-command").setAttribute("disabled", !(hasRemovable || selectedSubscription instanceof abp.RegularSubscription));
+
+  if (activeFilters.length || (selectedSubscription && !currentFilter))
+  {
+    let current = activeFilters.length ? activeFilters[0][1] : selectedSubscription;
+    E("context-enable").hidden = !current.disabled;
+    E("context-disable").hidden = current.disabled;
+    E("context-disable").setAttribute("disabled", "false");
+  }
+  else
+  {
+    E("context-enable").hidden = true;
+    E("context-disable").hidden = false;
+    E("context-disable").setAttribute("disabled", "true");
+  }
 
   return true;
 }

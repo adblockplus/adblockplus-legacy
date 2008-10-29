@@ -118,6 +118,8 @@
 <!ENTITY context.movedown.label     "Move filter down">
 <!ENTITY context.movegroupup.label        "Move group up">
 <!ENTITY context.movegroupdown.label      "Move group down">
+<!ENTITY context.enable.label       "Enable">
+<!ENTITY context.disable.label      "Disable">
 
 <!ENTITY apply.label                "Apply">
 <!ENTITY apply.accesskey            "P">

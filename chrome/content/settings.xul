@@ -111,6 +111,8 @@
     <menuitem id="context-copy" label="&copy.label;" accesskey="&copy.accesskey;" command="copy-command" key="copy-key"/>
     <menuitem id="context-paste" label="&paste.label;" accesskey="&paste.accesskey;" command="paste-command" key="paste-key"/>
     <menuitem id="context-remove" label="&remove.label;" accesskey="&remove.accesskey;" command="remove-command" key="remove-key"/>
+    <menuitem id="context-enable" label="&context.enable.label;" oncommand="toggleDisabled()"/>
+    <menuitem id="context-disable" label="&context.disable.label;" oncommand="toggleDisabled()"/>
     <menuseparator/>
     <menuitem id="context-movegroupup" label="&context.movegroupup.label;" oncommand="treeView.moveSubscription(true)" key="movegroupup-key"/>
     <menuitem id="context-movegroupdown" label="&context.movegroupdown.label;" oncommand="treeView.moveSubscription(false)" key="movegroupdown-key"/>
