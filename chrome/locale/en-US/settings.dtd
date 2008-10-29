@@ -114,8 +114,8 @@
 <!ENTITY context.resethitcount.label      "Reset hit statistics for filter">
 <!ENTITY context.synchsubscription.label  "Update subscription now">
 <!ENTITY context.editsubscription.label   "Edit subscription">
-<!ENTITY context.moveup.label       "Move up">
-<!ENTITY context.movedown.label     "Move down">
+<!ENTITY context.moveup.label       "Move filter up">
+<!ENTITY context.movedown.label     "Move filter down">
 <!ENTITY context.movegroupup.label        "Move group up">
 <!ENTITY context.movegroupdown.label      "Move group down">
 
