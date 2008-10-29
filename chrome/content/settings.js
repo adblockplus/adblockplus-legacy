@@ -1068,9 +1068,19 @@ function fillContext()
     return subscription instanceof abp.SpecialSubscription && filter instanceof abp.Filter;
   });
 
+  if (selectedSubscription instanceof abp.RegularSubscription)
+  {
+    E("context-editsubscription").hidden = false;
+    E("context-edit").hidden = true;
+  }
+  else
+  {
+    E("context-editsubscription").hidden = true;
+    E("context-edit").hidden = false;
+    E("context-edit").setAttribute("disabled", !(currentSubscription instanceof abp.SpecialSubscription && currentFilter instanceof abp.Filter));
+  }
+
   E("context-synchsubscription").setAttribute("disabled", !(selectedSubscription instanceof abp.DownloadableSubscription));
-  E("context-editsubscription").setAttribute("disabled", !(selectedSubscription instanceof abp.RegularSubscription));
-  E("context-edit").setAttribute("disabled", !(currentSubscription instanceof abp.SpecialSubscription && currentFilter instanceof abp.Filter));
   E("context-resethitcount").setAttribute("disabled", !hasFilters);
 
   E("context-moveup").setAttribute("disabled", !(currentSubscription instanceof abp.SpecialSubscription && currentFilter instanceof abp.Filter && !treeView.isSorted() && currentSubscription._sortedFilters.indexOf(currentFilter) > 0));
