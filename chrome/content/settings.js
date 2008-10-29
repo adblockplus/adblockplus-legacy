@@ -514,6 +514,10 @@ function exportList()
       {
         for each (let filter in subscription.filters)
         {
+          // Skip checksums
+          if (filter instanceof abp.CommentFilter && /!\s*checksum[\s\-:]+([\w\+\/]+)/i.test(filter.text))
+            continue;
+
           list.push(filter.text);
 
           // Find version requirements of this filter
@@ -556,6 +560,13 @@ function exportList()
         list[0] = "(Adblock Plus " + minVersion + " or higher required) " + list[0];
     }
 
+    list.push("");
+
+    // Insert checksum
+    let checksum = abp.generateChecksum(list);
+    if (checksum)
+      list.splice(1, 0, "! Checksum: " + checksum);
+
     try
     {
       let fileStream = Components.classes["@mozilla.org/network/file-output-stream;1"]
@@ -566,7 +577,7 @@ function exportList()
                              .createInstance(Components.interfaces.nsIConverterOutputStream);
       stream.init(fileStream, "UTF-8", 16384, Components.interfaces.nsIConverterInputStream.DEFAULT_REPLACEMENT_CHARACTER);
 
-      stream.writeString(list.join(lineBreak) + lineBreak);
+      stream.writeString(list.join(lineBreak));
   
       stream.close();
     }
