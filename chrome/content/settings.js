@@ -842,7 +842,7 @@ function editSubscription(/**Subscription*/ subscription)
 function removeFilters(allowSubscriptions)
 {
   // Retrieve selected items
-  let selected = treeView.getSelectedInfo();
+  let selected = treeView.getSelectedInfo(false);
 
   let found = false;
   for each (let [subscription, filter] in selected)
@@ -1035,7 +1035,7 @@ function fillOptionsPopup()
 function fillContext()
 {
   // Retrieve selected items
-  let selected = treeView.getSelectedInfo();
+  let selected = treeView.getSelectedInfo(true);
 
   let currentSubscription = null;
   let currentFilter = null;
