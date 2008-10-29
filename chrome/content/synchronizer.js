@@ -255,7 +255,8 @@ var synchronizer = {
         request.channel.notificationCallbacks = null;
       } catch (e) {}
 
-      if (request.status != 200 && request.status != 304)
+      // Status will be 0 for non-HTTP requests
+      if (request.status && request.status != 200 && request.status != 304)
       {
         me.setError(subscription, "synchronize_connection_error");
         return;
