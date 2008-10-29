@@ -1036,7 +1036,11 @@ function fillContext()
 {
   // Retrieve selected items
   let selected = treeView.getSelectedInfo();
-  let current = (selected.length ? selected[0] : null);
+
+  let currentSubscription = null;
+  let currentFilter = null;
+  if (selected.length)
+    [currentSubscription, currentFilter] = selected[0];
 
   // Check whether all selected items belong to the same subscription
   let selectedSubscription = null;
@@ -1066,11 +1070,11 @@ function fillContext()
 
   E("context-synchsubscription").setAttribute("disabled", !(selectedSubscription instanceof abp.DownloadableSubscription));
   E("context-editsubscription").setAttribute("disabled", !(selectedSubscription instanceof abp.RegularSubscription));
-  E("context-edit").setAttribute("disabled", !(current && current[0] instanceof abp.SpecialSubscription && current[1] instanceof abp.Filter));
+  E("context-edit").setAttribute("disabled", !(currentSubscription instanceof abp.SpecialSubscription && currentFilter instanceof abp.Filter));
   E("context-resethitcount").setAttribute("disabled", !hasFilters);
 
-  E("context-moveup").setAttribute("disabled", !(current && current[0] instanceof abp.SpecialSubscription && current[1] instanceof abp.Filter && !treeView.isSorted() && current[0]._sortedFilters.indexOf(current[1]) > 0));
-  E("context-movedown").setAttribute("disabled", !(current && current[0] instanceof abp.SpecialSubscription && current[1] instanceof abp.Filter && !treeView.isSorted() && current[0]._sortedFilters.indexOf(current[1]) < current[0]._sortedFilters.length - 1));
+  E("context-moveup").setAttribute("disabled", !(currentSubscription instanceof abp.SpecialSubscription && currentFilter instanceof abp.Filter && !treeView.isSorted() && currentSubscription._sortedFilters.indexOf(currentFilter) > 0));
+  E("context-movedown").setAttribute("disabled", !(currentSubscription instanceof abp.SpecialSubscription && currentFilter instanceof abp.Filter && !treeView.isSorted() && currentSubscription._sortedFilters.indexOf(currentFilter) < currentSubscription._sortedFilters.length - 1));
 
   E("context-movegroupup").setAttribute("disabled", !selectedSubscription || treeView.isFirstSubscription(selectedSubscription));
   E("context-movegroupdown").setAttribute("disabled", !selectedSubscription || treeView.isLastSubscription(selectedSubscription));
