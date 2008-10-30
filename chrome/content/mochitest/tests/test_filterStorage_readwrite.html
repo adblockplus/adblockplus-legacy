@@ -25298,6 +25298,7 @@ zeit.de#DIV(class$=_ad)
     let testData = "";
     for (let child = document.getElementById("filterData").firstChild; child; child = child.nextSibling)
       testData += child.nodeValue;
+    testData = testData.replace(/\s+$/, "");
 
     let tempFile = dirService.get("TmpD", Components.interfaces.nsIFile);
     tempFile.append("temp_patterns.ini");
