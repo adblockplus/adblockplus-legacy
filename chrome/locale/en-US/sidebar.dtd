@@ -44,6 +44,7 @@
 <!ENTITY tooltip.type.label       "Type:">
 <!ENTITY tooltip.type.blocked     "(blocked)">
 <!ENTITY tooltip.type.whitelisted "(whitelisted)">
+<!ENTITY tooltip.size.label       "Size:">
 <!ENTITY tooltip.filter.label     "Filter in effect:">
 <!ENTITY tooltip.filterSource.label "Filter source:">
 

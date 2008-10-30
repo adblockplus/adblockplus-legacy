@@ -197,11 +197,13 @@ function fillInTooltip(e) {
   if (!item)
     return false;
 
-  var filter = ("filter" in item ? item.filter : null);
+  let filter = ("filter" in item ? item.filter : null);
+  let size = ("tooltip" in item ? null : getItemSize(item));
 
   E("tooltipDummy").hidden = !("tooltip" in item);
   E("tooltipAddressRow").hidden = ("tooltip" in item);
   E("tooltipTypeRow").hidden = ("tooltip" in item);
+  E("tooltipSizeRow").hidden = !size;
   E("tooltipFilterRow").hidden = !filter;
   E("tooltipFilterSourceRow").hidden = !(filter && filter.subscriptions.length);
 
@@ -218,6 +220,9 @@ function fillInTooltip(e) {
     else if (filter && item.typeDescr != "ELEMHIDE")
       type += " " + E("tooltipType").getAttribute("filtered");
     E("tooltipType").setAttribute("value", type);
+
+    if (size)
+      E("tooltipSize").setAttribute("value", size.join(" x "));
   }
 
   if (filter)
