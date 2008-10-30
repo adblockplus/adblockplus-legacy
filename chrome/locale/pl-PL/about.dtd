@@ -7,5 +7,6 @@
 	nie będziesz chciał ich oglądać - zleć to Adblock Plus!
 ">
 <!ENTITY homepage.label "Strona domowa Adblock Plus:">
+<!ENTITY homepage.url "http://adblockplus.org/">
 <!ENTITY author.label "Autor:">
 <!ENTITY contributors.label "Współtwórcy:">

@@ -7,5 +7,6 @@
 	討人厭的廣告佔滿網頁？ — 讓 Adblock Plus 幫您解決！
 ">
 <!ENTITY homepage.label "Adblock Plus 首頁:">
+<!ENTITY homepage.url "http://adblockplus.org/">
 <!ENTITY author.label "程式作者:">
 <!ENTITY contributors.label "貢獻者:">

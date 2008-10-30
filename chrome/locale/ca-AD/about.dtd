@@ -4,5 +4,6 @@
 <!ENTITY description "Adblock Plus et permet decidir que no vols veure a la xarxa.
 Ja no has de descarregar tots els anuncis i pancartes, si no els vols - digues-ho a Adblock Plus!">
 <!ENTITY homepage.label "Pàgina principal de Adblock Plus:">
+<!ENTITY homepage.url "http://adblockplus.org/">
 <!ENTITY author.label "Autor">
 <!ENTITY contributors.label "Contribuïdors:">

@@ -33,5 +33,7 @@
 ">
 
 <!ENTITY homepage.label "Adblock Plus ホームページ:">
+
+<!ENTITY homepage.url "http://adblockplus.org/">
 <!ENTITY author.label "製作者:">
 <!ENTITY contributors.label "貢献者:">

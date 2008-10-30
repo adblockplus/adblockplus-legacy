@@ -7,5 +7,6 @@
 	болон бусад зүйлсийг татах хэрэггүй болно!
 ">
 <!ENTITY homepage.label "Adblock Plus-ийн вэб хуудас:">
+<!ENTITY homepage.url "http://adblockplus.org/">
 <!ENTITY author.label "Зохиогч:">
 <!ENTITY contributors.label "Дэмжигчид:">

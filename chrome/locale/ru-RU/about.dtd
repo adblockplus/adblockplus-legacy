@@ -33,5 +33,6 @@
 ">
 
 <!ENTITY homepage.label     "Домашняя страница проекта:">
+<!ENTITY homepage.url       "http://adblockplus.org/">
 <!ENTITY author.label       "Разработчик:">
 <!ENTITY contributors.label "Другие участники:">

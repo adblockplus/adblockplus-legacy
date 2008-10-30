@@ -7,5 +7,6 @@
 	não os quer - diga ao Adblock Plus!
 ">
 <!ENTITY homepage.label "Página do Adblock Plus:">
+<!ENTITY homepage.url "http://adblockplus.org/">
 <!ENTITY author.label "Autor:">
 <!ENTITY contributors.label "Colaboradores:">

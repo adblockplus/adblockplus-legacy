@@ -33,5 +33,6 @@
 ">
 
 <!ENTITY homepage.label     "Adblock Plus im Internet:">
+<!ENTITY homepage.url       "http://adblockplus.org/de/">
 <!ENTITY author.label       "Entwickler:">
 <!ENTITY contributors.label "Beteiligte:">

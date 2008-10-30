@@ -33,5 +33,6 @@
 ">
 
 <!ENTITY homepage.label     "Adblock Plus homepage:">
+<!ENTITY homepage.url       "http://adblockplus.org/en/">
 <!ENTITY author.label       "Author:">
 <!ENTITY contributors.label "Contributors:">

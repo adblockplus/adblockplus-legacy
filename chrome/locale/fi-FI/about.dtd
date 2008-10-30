@@ -7,5 +7,6 @@
 	 - sano vain Adblock Plussalle!
 ">
 <!ENTITY homepage.label "Adblock Plussan kotisivu:">
+<!ENTITY homepage.url "http://adblockplus.org/">
 <!ENTITY author.label "Tekijä:">
 <!ENTITY contributors.label "Avustajat:">

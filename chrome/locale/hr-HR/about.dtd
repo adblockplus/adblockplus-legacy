@@ -4,5 +4,6 @@
 <!ENTITY description "Adblock Plus Vam dozvoljava da odlučite što ne želite vidjeti na webu.
 Više ne morate preuzeti sve oglase i banere, ako ih ne želite - recite Adblock Plus-u!">
 <!ENTITY homepage.label "Adblock Plus početna stranica:">
+<!ENTITY homepage.url "http://adblockplus.org/">
 <!ENTITY author.label "Autor:">
 <!ENTITY contributors.label "Oni koji su pridonijeli:">
