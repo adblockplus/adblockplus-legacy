@@ -58,7 +58,7 @@ deck, deck * {
   -moz-image-region: rect(0px, 48px, 16px, 32px);
 }
 
-#hitcount, #lasthit {
+#col-hitcount, #col-lasthit {
   text-align: right;
 }
 
