@@ -375,8 +375,14 @@ var filterStorage =
       let curObj = null;
       let curSection = null;
       let line = {};
-      while (stream.readLine(line) || (line.value = "[end]"))
+      let haveMore = true;
+      while (true)
       {
+        if (haveMore)
+          haveMore = stream.readLine(line);
+        else
+          line.value = "[end]";
+
         let val = line.value;
         if (wantObj && /^(\w+)=(.*)$/.test(val))
           curObj[RegExp.$1] = RegExp.$2;
