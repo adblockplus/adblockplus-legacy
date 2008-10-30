@@ -4,5 +4,6 @@
 <!ENTITY description "Adblock Plus מאפשר לך להחליט מה אתה לא רוצה לראות ברשת.
 אתה לא צריך להוריד את כל הפרסומות והבאנרים יותר, אם אתה לא רוצה אותם - ספר ל-Adblock Plus!">
 <!ENTITY homepage.label "דף הבית של Adblock Plus">
+<!ENTITY homepage.url "http://adblockplus.org/">
 <!ENTITY author.label "מחבר:">
 <!ENTITY contributors.label "תורמים:">

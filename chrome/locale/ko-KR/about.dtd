@@ -7,5 +7,6 @@
 	이제 Adblock Plus에게 알려주십시오!
 ">
 <!ENTITY homepage.label "Adblock Plus 홈페이지:">
+<!ENTITY homepage.url "http://adblockplus.org/">
 <!ENTITY author.label "제작자:">
 <!ENTITY contributors.label "배포자:">

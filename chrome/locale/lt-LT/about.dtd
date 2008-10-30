@@ -3,5 +3,6 @@
 <!ENTITY version.title "Versija">
 <!ENTITY description "„Adblock Plus“ Jums patiems leidžia nuspręsti, ką norite matyti Internete. Jums nereikia siųsti visų reklamų, jei jų nenorite matyti - nurodykite „Adblock Plus“!">
 <!ENTITY homepage.label "„Adblock Plus“ pradžios tinklalapis:">
+<!ENTITY homepage.url "http://adblockplus.org/">
 <!ENTITY author.label "Autorius:">
 <!ENTITY contributors.label "Prisidėjo:">

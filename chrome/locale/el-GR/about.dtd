@@ -7,5 +7,6 @@
 	Απλά ενημερώστε το Adblock Plus!
 ">
 <!ENTITY homepage.label "Ιστοσελίδα:">
+<!ENTITY homepage.url "http://adblockplus.org/">
 <!ENTITY author.label "Δημιουργός:">
 <!ENTITY contributors.label "Συντελεστές:">

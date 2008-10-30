@@ -8,5 +8,6 @@
 	— Adblock Plus вам допоможе!
 ">
 <!ENTITY homepage.label "Домашня сторінка проекту:">
+<!ENTITY homepage.url "http://adblockplus.org/">
 <!ENTITY author.label "Розробник:">
 <!ENTITY contributors.label "Інші учасники:">

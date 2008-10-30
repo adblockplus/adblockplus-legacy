@@ -3,5 +3,6 @@
 <!ENTITY version.title "Version">
 <!ENTITY description "Adblock Plus vous permet de décider de ne voir que ce que vous souhaitez voir sur le Web. Vous n&apos;êtes plus obligé de laisser s&apos;afficher des publicités et autres bannières. Si vous n&apos;en voulez plus, activez Adblock Plus !">
 <!ENTITY homepage.label "Page Web :">
+<!ENTITY homepage.url "http://adblockplus.org/fr/">
 <!ENTITY author.label "Auteur :">
 <!ENTITY contributors.label "Contributeurs :">

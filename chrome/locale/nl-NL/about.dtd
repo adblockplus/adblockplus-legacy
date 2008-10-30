@@ -3,5 +3,6 @@
 <!ENTITY version.title "Versie">
 <!ENTITY description "Adblock Plus laat u zelf beslissen wat u niet wilt zien op het internet. Voortaan hoeft u niet meer alle reclames te downloaden die u toch niet wilt zien -geef ze gewoon door aan Adblock Plus!">
 <!ENTITY homepage.label "Adblock Plus website:">
+<!ENTITY homepage.url "http://adblockplus.org/">
 <!ENTITY author.label "Auteur:">
 <!ENTITY contributors.label "Medewerkers:">

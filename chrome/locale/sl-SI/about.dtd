@@ -3,5 +3,6 @@
 <!ENTITY version.title "različice">
 <!ENTITY description "Adblock Plus daje moč, da izključite tisto, česar na spletu ne želite videti. Nič več vam ni treba gledati oglasov in pasic, če tega nočete - povejte to razširitvi Adblock Plus!">
 <!ENTITY homepage.label "Domača stran Adblock Plus:">
+<!ENTITY homepage.url "http://adblockplus.org/">
 <!ENTITY author.label "Avtor:">
 <!ENTITY contributors.label "Avtorji prispevkov:">

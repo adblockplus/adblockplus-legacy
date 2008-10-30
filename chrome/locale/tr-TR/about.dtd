@@ -3,5 +3,6 @@
 <!ENTITY version.title "Sürüm">
 <!ENTITY description "Adblock Plus size internette neyi görmek istediğinize karar verme şansı sunar. Artık reklamları ve tanıtımları izlemek zorunda değilsiniz. Görmek istemediklerinizi Adblock Plus&apos;a bildirin yeter!">
 <!ENTITY homepage.label "Adblock Plus ana sayfası:">
+<!ENTITY homepage.url "http://adblockplus.org/">
 <!ENTITY author.label "Yazar:">
 <!ENTITY contributors.label "Katkıda bulunanlar:">

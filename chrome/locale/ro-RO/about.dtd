@@ -3,5 +3,6 @@
 <!ENTITY version.title "Versiunea">
 <!ENTITY description "Adblock Plus vă permite să decideţi ceea ce nu doriţi să vedeţi în internet. Nu mai trebuie să descărcaţi toate reclamele şi bannerele publicitare!">
 <!ENTITY homepage.label "Pagina de start Adblock Plus:">
+<!ENTITY homepage.url "http://adblockplus.org/">
 <!ENTITY author.label "Autor:">
 <!ENTITY contributors.label "Contributori:">

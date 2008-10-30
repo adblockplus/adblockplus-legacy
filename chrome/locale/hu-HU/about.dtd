@@ -3,5 +3,6 @@
 <!ENTITY version.title "Verzió">
 <!ENTITY description "Az Adblock Plus segítségével eldöntheti, mit nem szeretne látni a weboldalakon. Nem kell többé letölteni a sok reklámot és bannert, csak bízza az Adblock Plusra!">
 <!ENTITY homepage.label "Az Adblock Plus honlapja:">
+<!ENTITY homepage.url "http://adblockplus.org/">
 <!ENTITY author.label "Készítette:">
 <!ENTITY contributors.label "Közreműködtek:">
