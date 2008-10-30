@@ -751,7 +751,10 @@ function onSubscriptionChange(/**String*/ action, /**Array of Subscription*/ sub
         let oldCount = treeView.getSubscriptionRowCount(subscription);
 
         delete subscription.filters;
-        subscription.filters = subscription.filters.slice();
+        subscription.filters = subscription.filters.map(function(filter)
+        {
+          return getFilterByText(filter.text);
+        });
 
         if (treeView.sortProc)
         {
