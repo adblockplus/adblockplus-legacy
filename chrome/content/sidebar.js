@@ -803,6 +803,7 @@ var treeView = {
   allData: [],
   sortColumn: null,
   sortProc: null,
+  resortTimeout: null,
   itemsDummy: null,
   whitelistDummy: null,
   itemsDummyTooltip: null,
@@ -838,7 +839,22 @@ var treeView = {
       return;
 
     var index = -1;
-    if (this.sortProc)
+    if (this.sortProc && this.sortColumn && this.sortColumn.id == "size")
+    {
+      // Sorting by size requires accessing content document, and that's
+      // dangerous from a content policy (and we are likely called directly
+      // from a content policy call). Size data will be inaccurate anyway,
+      // delay sorting until later.
+      if (this.resortTimeout)
+        clearTimeout(this.resortTimeout);
+      this.resortTimeout = setTimeout(function(me)
+      {
+        if (me.sortProc)
+          me.data.sort(me.sortProc);
+        me.boxObject.invalidate();
+      }, 500, this);
+    }
+    else if (this.sortProc)
       for (var i = 0; index < 0 && i < this.data.length; i++)
         if (this.sortProc(item, this.data[i]) < 0)
           index = i;
@@ -857,6 +873,9 @@ var treeView = {
   },
 
   refilter: function() {
+    if (this.resortTimeout)
+      clearTimeout(this.resortTimeout);
+
     this.data = [];
     for (var i = 0; i < this.allData.length; i++)
       if (!this.filter || this.allData[i].location.toLowerCase().indexOf(this.filter) >= 0 || this.allData[i].localizedDescr.toLowerCase().indexOf(this.filter) >= 0)
