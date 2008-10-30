@@ -143,7 +143,7 @@ var policy = {
 
       if (match instanceof BlockingFilter && node)
       {
-        var prefCollapse = ("collapse" in match ? match.collapse : !prefs.fastcollapse);
+        var prefCollapse = (match.collapse != null ? match.collapse : !prefs.fastcollapse);
         if (collapse || prefCollapse)
           wnd.setTimeout(postProcessNode, 0, node);
       }
