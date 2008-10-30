@@ -88,21 +88,21 @@ function postProcessNode(node) {
 
   // adjust frameset's cols/rows for frames
   var parentNode = node.parentNode;
-  if (parentNode && parentNode.nodeName.toLowerCase() == "frameset") {
+  if (parentNode && parentNode instanceof Components.interfaces.nsIDOMHTMLFrameSetElement)
+  {
     var nonEmptyRE = /,/;
-    var hasCols = parentNode.hasAttribute("cols") && nonEmptyRE.test(parentNode.getAttribute("cols"));
-    var hasRows = parentNode.hasAttribute("rows") && nonEmptyRE.test(parentNode.getAttribute("rows"));
-    if (hasCols ^ hasRows) {
+    if ((parentNode.cols || parentNode.rows) && !(parentNode.cols && parentNode.rows))
+    {
       var frameTags = {FRAME: true, FRAMESET: true};
       var index = -1;
       for (var frame = node; frame; frame = frame.previousSibling)
         if (frame.nodeName.toUpperCase() in frameTags)
           index++;
   
-      var attr = (hasRows ? "rows" : "cols");
-      var weights = parentNode.getAttribute(attr).split(",");
+      var property = (parentNode.rows ? "rows" : "cols");
+      var weights = parentNode[property].split(",");
       weights[index] = "0";
-      parentNode.setAttribute(attr, weights.join(","));
+      parentNode[property] = weights.join(",");
     }
   }
   else
