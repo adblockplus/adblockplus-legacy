@@ -492,6 +492,22 @@ function reattach() {
   parent.close();
 }
 
+// Returns items size in the document if available
+function getItemSize(item)
+{
+  if (item.filter && item.filter instanceof abp.BlockingFilter)
+    return null;
+
+  for each (let node in item.nodes)
+  {
+    if (node instanceof HTMLImageElement && (node.naturalWidth || node.naturalHeight))
+      return [node.naturalWidth, node.naturalHeight];
+    else if (node instanceof HTMLElement && (node.offsetWidth || node.offsetHeight))
+      return [node.offsetWidth, node.offsetHeight];
+  }
+  return null;
+}
+
 // Sort functions for the item list
 function sortByAddress(item1, item2) {
   if (item1.location < item2.location)
@@ -532,6 +548,15 @@ function compareState(item1, item2) {
   var state1 = (!item1.filter ? 0 : (item1.filter instanceof abp.WhitelistFilter ? 1 : 2));
   var state2 = (!item2.filter ? 0 : (item2.filter instanceof abp.WhitelistFilter ? 1 : 2));
   return state1 - state2;
+}
+
+function compareSize(item1, item2) {
+  var size1 = getItemSize(item1);
+  size1 = size1 ? size1[0] * size1[1] : 0;
+
+  var size2 = getItemSize(item2);
+  size2 = size2 ? size2[0] * size2[1] : 0;
+  return size1 - size2;
 }
 
 function createSortWithFallback(cmpFunc, fallbackFunc, desc) {
@@ -579,7 +604,7 @@ var treeView = {
     this.whitelistDummy = boxObject.treeBody.getAttribute("whitelistedlabel");
     this.loadDummy = boxObject.treeBody.getAttribute("notloadedlabel");
 
-    var stringAtoms = ["col-address", "col-type", "col-filter", "col-state", "state-regular", "state-filtered", "state-whitelisted"];
+    var stringAtoms = ["col-address", "col-type", "col-filter", "col-state", "col-size", "state-regular", "state-filtered", "state-whitelisted"];
     var boolAtoms = ["selected", "dummy"];
     var atomService = Components.classes["@mozilla.org/atom-service;1"]
                                 .getService(Components.interfaces.nsIAtomService);
@@ -630,7 +655,7 @@ var treeView = {
     col = col.id;
 
     // Only two columns have text
-    if (col != "type" && col != "address" && col != "filter")
+    if (col != "type" && col != "address" && col != "filter" && col != "size")
       return "";
 
     if (this.data && this.data.length) {
@@ -641,6 +666,11 @@ var treeView = {
         return this.data[row].localizedDescr;
       else if (col == "filter")
         return (this.data[row].filter ? this.data[row].filter.text : "");
+      else if (col == "size")
+      {
+        let size = getItemSize(this.data[row]);
+        return (size ? size.join(" x ") : "");
+      }
       else
         return this.data[row].location;
     }
@@ -782,7 +812,9 @@ var treeView = {
     filter: createSortWithFallback(compareFilter, sortByAddress, false),
     filterDesc: createSortWithFallback(compareFilter, sortByAddress, true),
     state: createSortWithFallback(compareState, sortByAddress, false),
-    stateDesc: createSortWithFallback(compareState, sortByAddress, true)
+    stateDesc: createSortWithFallback(compareState, sortByAddress, true),
+    size: createSortWithFallback(compareSize, sortByAddress, false),
+    sizeDesc: createSortWithFallback(compareSize, sortByAddress, true)
   },
 
   setData: function(data) {
