@@ -34,6 +34,7 @@
 <!ENTITY address.label            "Address">
 <!ENTITY filter.label             "Filter">
 <!ENTITY state.label              "State">
+<!ENTITY size.label               "Size">
 
 <!ENTITY noitems.label            "No blockable items">
 <!ENTITY whitelisted.label        "Whitelisted page">

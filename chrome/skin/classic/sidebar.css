@@ -64,6 +64,10 @@ tooltip {
   min-width: 16px;
 }
 
+#size {
+  text-align: right;
+} 
+
 treechildren::-moz-tree-cell-text(state-filtered, selected-false) {
   color: #C00000;
 }
