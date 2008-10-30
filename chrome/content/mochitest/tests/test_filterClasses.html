@@ -81,6 +81,11 @@
       filter.lastHit = 20;
     });
 
+    compareFilter("blabla_with_shortcut", ["type=filterlist", "text=blabla_with_shortcut", "regexp=blabla_with_shortcut", "shortcut=with_sho"], function(filter)
+    {
+      filter.shortcut = "with_sho";
+    });
+
     compareFilter("/ddd|f?a[s]d/", ["type=filterlist", "text=/ddd|f?a[s]d/", "regexp=ddd|f?a[s]d"]);
     compareFilter("*asdf*d**dd*", ["type=filterlist", "text=*asdf*d**dd*", "regexp=asdf.*d.*dd"]);
     compareFilter("|*asd|f*d**dd*|", ["type=filterlist", "text=|*asd|f*d**dd*|", "regexp=^.*asd\\|f.*d.*dd.*$"]);
