@@ -192,6 +192,7 @@ var synchronizer =
       return;
 
     let newURL = subscription.nextURL;
+    let hadTemporaryRedirect = false;
     subscription.nextURL = null;
 
     let curVersion = abp.getInstalledVersion();
@@ -243,8 +244,8 @@ var synchronizer =
         onChannelRedirect: function(oldChannel, newChannel, flags)
         {
           if (flags & Components.interfaces.nsIChannelEventSink.REDIRECT_TEMPORARY)
-            newURL = "";
-          else if (newURL != "")
+            hadTemporaryRedirect = true;
+          else if (!hadTemporaryRedirect)
             newURL = newChannel.URI.spec;
 
           if (oldEventSink)
