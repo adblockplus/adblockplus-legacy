@@ -379,7 +379,35 @@
         runScheduledTasks(6);
         compareSubscriptions("Subscriptions after permanent redirect to /invalid_url", [subscription1, subscription2]);
 
+        server.registerPathHandler("/subscription3", function redirectHandler(metadata, response)
+        {
+          response.setStatusLine("1.1", 302, "Moved Temporarily");
+          response.setHeader("Location", subscription2.url);
+        });
+        redirectURL = subscription3.url;
+        redirectPermanent = false;
+        runScheduledTasks(6);
+        compareSubscriptions("Subscriptions after temporary redirect to /subscription3 followed by temporary redirect to /subscription2", [subscription1, subscription2]);
+
+        redirectPermanent = true;
+        runScheduledTasks(6);
+        compareSubscriptions("Subscriptions after permanent redirect to /subscription3 followed by temporary redirect to /subscription2", [subscription2, subscription3]);
+
+        server.registerPathHandler("/subscription3", function redirectHandler(metadata, response)
+        {
+          response.setStatusLine("1.1", 301, "Moved Permanently");
+          response.setHeader("Location", subscription2.url);
+        });
+        redirectPermanent = false;
+        runScheduledTasks(6);
+        compareSubscriptions("Subscriptions after temporary redirect to /subscription3 followed by permanent redirect to /subscription2", [subscription1, subscription2]);
+
+        redirectPermanent = true;
+        runScheduledTasks(6);
+        compareSubscriptions("Subscriptions after permanent redirect to /subscription3 followed by permanent redirect to /subscription2", [subscription2]);
+
         server.registerPathHandler("/subscription1", getSubscription);
+        server.registerPathHandler("/subscription3", getSubscription);
 
         // Behavior on errors
 
