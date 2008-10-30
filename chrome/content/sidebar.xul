@@ -68,6 +68,10 @@
             <label value="&tooltip.type.label;"/>
             <description id="tooltipType" filtered="&tooltip.type.blocked;" whitelisted="&tooltip.type.whitelisted;"/>
           </row>
+          <row id="tooltipSizeRow">
+            <label value="&tooltip.size.label;"/>
+            <description id="tooltipSize"/>
+          </row>
           <row id="tooltipFilterRow" align="top">
             <label value="&tooltip.filter.label;"/>
             <vbox id="tooltipFilter"/>
