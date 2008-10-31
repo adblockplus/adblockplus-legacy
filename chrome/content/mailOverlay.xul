@@ -42,7 +42,7 @@
   <!-- Thunderbird toolbar -->
   <toolbarpalette id="MailToolbarPalette">
     <toolbarbutton id="abp-toolbarbutton" type="menu-button" insertafter="button-junk"
-        class="toolbarbutton-1 chromeclass-toolbar-additional"
+        class="chromeclass-toolbar-additional"
         oncontextmenu="abpCheckToolbarContext(event)"/>
   </toolbarpalette>
 
