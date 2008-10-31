@@ -196,7 +196,7 @@ Filter.fromObject = function(obj)
   if (ret instanceof RegExpFilter && "shortcut" in obj && obj.shortcut.length == Matcher.shortcutLength)
     ret.shortcut = obj.shortcut;
   
-  this.knownFilters[ret.text] = ret;
+  Filter.knownFilters[ret.text] = ret;
   return ret;
 }
 
