@@ -368,8 +368,7 @@ var filterStorage =
     let userFilters = null;
     if (stream)
     {
-      let wantList = false;
-      let wantObj = false;
+      let wantObj;
       let curObj = null;
       let curSection = null;
       let line = {};
@@ -382,7 +381,7 @@ var filterStorage =
           line.value = "[end]";
 
         let val = line.value;
-        if (wantObj && /^(\w+)=(.*)$/.test(val))
+        if (wantObj === true && /^(\w+)=(.*)$/.test(val))
           curObj[RegExp.$1] = RegExp.$2;
         else if (/^\s*\[(.+)\]\s*$/.test(val))
         {
@@ -433,23 +432,20 @@ var filterStorage =
             case "pattern":
             case "subscription":
               wantObj = true;
-              wantList = false;
               curObj = {};
               break;
             case "subscription filters":
             case "subscription patterns":
             case "user patterns":
               wantObj = false;
-              wantList = true;
               curObj = [];
               break;
             default:
-              wantObj = false;
-              wantList = false;
+              wantObj = undefined;
               curObj = null;
           }
         }
-        else if (wantList && val)
+        else if (wantObj === false && val)
           curObj.push(val);
       }
 
