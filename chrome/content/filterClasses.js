@@ -179,6 +179,8 @@ Filter.fromObject = function(obj)
     case "elemhide":
       ret = new ElemHideFilter(obj.text, obj.domain, obj.selector);
       break;
+    default:
+      return null;
   }
 
   if (ret instanceof ActiveFilter)
