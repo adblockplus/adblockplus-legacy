@@ -2,6 +2,7 @@
 <!ENTITY description.par1 "Terima kasih kerana memasang Adblock Plus. Ekstensi ini akan melenyapkan 99&#37; dari iklan-iklan yang anda lihat pada web. Walaubagaimanapun, tapisan iklan yang efektif memerlukan anda menakrifkan kumpulan penapis yang baik. Anda boleh lakukannya sendiri atau melanggan senarai penapis yang dicipta orang lain. Anda masih boleh menambah penapis anda sendiri, menambah dan membuang langganan apabila perlu.">
 <!ENTITY description.par2 "Anda boleh memilih satu langganan daripada senarai langganan yang dibawah (langganan yang lain boleh ditambah kemudian melalui tatarajah Adblock Plus walaupun ini tidak digalakkan):">
 <!ENTITY note "Nota: Senarai penapis akan lebih efektif apabila digunakan dari kawasan senarai penapis ini dibuat.">
+<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
 <!ENTITY homepage.label "Laman web">
 <!ENTITY subscribe.label "Langgan">
 <!ENTITY subscribe.accesskey "G">

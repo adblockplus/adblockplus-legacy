@@ -3,6 +3,7 @@
 <!ENTITY description.par2 "Môžete si vybrať jednu z možností zo zoznamu dole(viac možností môže byť pridaných do Nastavení Adblock Plus neskôr, aj keď to nie je potrebné):">
 <!ENTITY note "Poznámka: Zoznam filtrov je najefektívnejší, keď je na stránke použitý
 	zoznam filtrov z regiónu, v ktorom bol vytvorený.">
+<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
 <!ENTITY homepage.label "Domovská stránka">
 <!ENTITY subscribe.label "Odoberať">
 <!ENTITY subscribe.accesskey "R">

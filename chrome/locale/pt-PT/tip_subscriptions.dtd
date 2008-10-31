@@ -2,6 +2,7 @@
 <!ENTITY description.par1 "Obrigado por instalar o Adblock Plus. Esta extensão pode eliminar 99&#x25; da publicidade que vê no seu browser. No entanto, a sua eficácia requer que defina um bom conjunto de filtros. Pode fazê-lo você mesmo ou pode, simplesmente, subscrever uma lista de filtros mantida por terceiros. Será possível adicionar os seus próprios filtros ou desactivar/ remover subscrições sempre que necessário.">
 <!ENTITY description.par2 "Pode escolher uma subscrição da lista de subscrições recomendadas (podem ser adicionadas mais subscrições nas Preferências do Adblock Plus mais tarde):">
 <!ENTITY note "Nota: Uma lista de filtros é, tipicamente, mais eficaz quando aplicada a páginas da região onde essa lista foi criada.">
+<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
 <!ENTITY homepage.label "Página">
 <!ENTITY subscribe.label "Subscrever">
 <!ENTITY subscribe.accesskey "S">

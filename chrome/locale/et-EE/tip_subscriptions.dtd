@@ -11,6 +11,7 @@ eelistatud tellimuste nimekirjast alt (rohkem tellimusi on võimaldatud
 isada Adblock Plusi Seadetest hiljem kuid tavaliselt pole see vajalik):">
 <!ENTITY note "Märge: Filtrite nimekiri on tavaliselt kõige efektiivsem, kui see on rakendatud
 interneti saitidele, mille regiooni jaoks see filter oli loodud.">
+<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
 <!ENTITY homepage.label "Koduleht">
 <!ENTITY subscribe.label "Telli">
 <!ENTITY subscribe.accesskey "T">

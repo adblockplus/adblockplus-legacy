@@ -244,6 +244,9 @@ const abp =
    */
   updateExternalSubscription: function(/**String*/ id, /**String*/ title, /**Array of Filter*/ filters, /**Integer*/ length) /**Boolean*/
   {
+    if (id == "Filterset.G" && this.denyFiltersetG)
+      return false;
+
     try
     {
       // Don't allow valid URLs as IDs for external subscriptions
@@ -331,6 +334,11 @@ const abp =
   //
   // Custom methods
   //
+
+  /**
+   * If true, incoming updates for Filterset.G should be rejected.
+   */
+  denyFiltersetG: false,
 
   /**
    * Adds a new subscription to the list or changes the parameters of

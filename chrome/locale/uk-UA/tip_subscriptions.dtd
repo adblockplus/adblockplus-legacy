@@ -11,6 +11,7 @@
 	проте зазвичай потреби в цьому не виникає):">
 <!ENTITY note "Примітка: Список фільтрів, як правило, найбільш ефективний на сторінках
 				того регіону, для якого він створювався.">
+<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
 <!ENTITY homepage.label "Домашня сторінка">
 <!ENTITY subscribe.label "Підписатися">
 <!ENTITY subscribe.accesskey "і">

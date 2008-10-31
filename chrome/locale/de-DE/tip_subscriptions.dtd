@@ -45,6 +45,8 @@
   auf Webseiten der Region angewandt wird, für die sie erstellt wurde.
 ">
 
+<!ENTITY filterset.g.moreinfo.url   "http://adblockplus.org/de/faq_project#filterset.g">
+
 <!ENTITY homepage.label             "Webseite des Abonnements">
 
 <!ENTITY subscribe.label            "Abonnieren">

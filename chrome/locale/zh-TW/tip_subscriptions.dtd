@@ -2,6 +2,7 @@
 <!ENTITY description.par1 "感謝你安裝 Adblock Plus，本套件能阻擋超過 99&#x25; 網路上的擾人廣告，但首先你需要一份有效的過濾條件清單。你可以自己設定，或是從我們提供的條件集中選一份使用。就算使用我們提供的過濾條件集，你還是可以自己增刪過濾條件以符合你自己的需求。">
 <!ENTITY description.par2 "你可以從下列的推薦清單中選一份訂閱，雖然我們認為一份就夠用，但是之後你還是可以在偏好設定中訂閱其他的條件集：">
 <!ENTITY note "註: 請依照您所在的地區選擇過濾條件集，因為過濾條件集通常對當地的網站最有效。">
+<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
 <!ENTITY homepage.label "首頁">
 <!ENTITY subscribe.label "訂閱">
 <!ENTITY subscribe.accesskey "R">

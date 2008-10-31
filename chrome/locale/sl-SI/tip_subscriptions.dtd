@@ -3,6 +3,7 @@
 <!ENTITY description.par2 "S spodnjega seznama priporočenih naročnin lahko izberete eno naročnino (dodatne naročnine lahko dodate v nastavitvah Adblock Plus kasneje, čeprav to ponavadi ni potrebno):">
 <!ENTITY note "Opomba: seznam filtrov je ponavadi najbolj učinkovit, če je uporabljen
 za spletišča iz področja, za katere je bil seznam filtriranja narejen.">
+<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
 <!ENTITY homepage.label "Domača stran">
 <!ENTITY subscribe.label "Naroči">
 <!ENTITY subscribe.accesskey "N">

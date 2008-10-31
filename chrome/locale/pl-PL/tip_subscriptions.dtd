@@ -8,6 +8,7 @@
 		w ustawieniach Adblock Plusa w późniejszym czasie, ale zazwyczaj nie jest to konieczne.">
 <!ENTITY note "Uwaga! Filtry stworzone w danym regionie będą działały najefektywniej na stronach 
 		pochodzących z tego samego regionu.">
+<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
 <!ENTITY homepage.label "Strona domowa">
 <!ENTITY subscribe.label "Subskrybuj">
 <!ENTITY subscribe.accesskey "R">

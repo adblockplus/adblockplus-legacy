@@ -12,6 +12,7 @@
 	απαραίτητο):">
 <!ENTITY note "Σημείωση: Τυπικά, μια λίστα φίλτρων είναι αποτελεσματικότερη όταν εφαρμόζεται
 	σε ιστοσελίδες που προέρχονται από την ίδια περιοχή για την οποία δημιουργήθηκε η λίστα.">
+<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
 <!ENTITY homepage.label "Ιστοσελίδα">
 <!ENTITY subscribe.label "Εγγραφή">
 <!ENTITY subscribe.accesskey "Ε">

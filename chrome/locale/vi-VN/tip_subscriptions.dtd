@@ -15,6 +15,7 @@
 <!ENTITY note "Chú ý: Một danh sách quy luật lọc thường thường có hiệu quả nhất khi áp dụng
 		đến các trang web từ vùng danh sách quy luật lọc được tạo ra cho chúng.
 ">
+<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
 <!ENTITY homepage.label "Trang nhà">
 <!ENTITY subscribe.label "Đăng ký">
 <!ENTITY subscribe.accesskey "k">

@@ -7,6 +7,7 @@
 מסננים משלך או לנטרל/להסיר הרשמות בכל זמן שתצטרך.">
 <!ENTITY description.par2 "אתה יכול לבחור הרשמה אחת מהרשימה של ההרשמות המומלצות (תוכל להוסיף עוד הרשמות אחר כך בהגדרות של Adblock Plus, אבל בדרך כלל אין צורך בכך):">
 <!ENTITY note "הערה: בדרך הטבע, רשימת המסננים יותר יעילה כשהיא משמשת לסוג האתרים עבורו היא נכתבה.">
+<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
 <!ENTITY homepage.label "דף הבית">
 <!ENTITY subscribe.label "הרשם">
 <!ENTITY subscribe.accesskey "ר">

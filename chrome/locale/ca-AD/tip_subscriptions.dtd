@@ -2,6 +2,7 @@
 <!ENTITY description.par1 "Gràcies per instal.lar AdBlock Plus. Aquesta extensió pot eliminar el 99&#37; del anuncis que veus a la xarxa. De totes maneres, un filtratge efectiu requereix que defineixis un bon conjunt de filtres. Ho pots fer tu mateix, o bé subscriure&apos;t a una llista de filtres que altres mantenen per tu. Encara serà posible que afegeixis els teus propis filtres i que desactivis/eliminis les subscripcions si ho creus necessari">
 <!ENTITY description.par2 "Pots triar una subscripció de la llista de subscripcions recomanades a sota (es poden afegir més subscripcions a les preferències d&apos;Adblock Plus més tard tot i que normalment no és necessari)">
 <!ENTITY note "Nota: Una llista de filtres es més efectiva quan s&apos;aplica a llocs web de la regió per la que es va crear el filtre.">
+<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
 <!ENTITY homepage.label "Pàgina principal">
 <!ENTITY subscribe.label "Subscriure">
 <!ENTITY subscribe.accesskey "S">
