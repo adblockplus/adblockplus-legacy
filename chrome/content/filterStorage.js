@@ -405,9 +405,9 @@ var filterStorage =
                 if (this.subscriptions.length)
                 {
                   let subscription = this.subscriptions[this.subscriptions.length - 1];
-                  for each (let filter in curObj)
+                  for each (let text in curObj)
                   {
-                    filter = Filter.fromText(filter);
+                    let filter = Filter.fromText(text);
                     if (filter)
                     {
                       subscription.filters.push(filter);
