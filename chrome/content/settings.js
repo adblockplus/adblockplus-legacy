@@ -1010,7 +1010,7 @@ function fillViewPopup()
 function toggleColumn(col)
 {
   col = E(col);
-  col.hidden = !col.hidden;
+  col.setAttribute("hidden", col.hidden ? "false" : "true");
 }
 
 /**
