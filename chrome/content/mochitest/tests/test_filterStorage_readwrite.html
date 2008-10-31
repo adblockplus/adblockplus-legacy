@@ -30233,6 +30233,11 @@ zeit.de#DIV(class$=_ads)
   </div>
   <pre id="test">
   <script type="application/x-javascript;version=1.7">
+    if (/[?&]profiler/i.test(location.href))
+      document.getElementById("display").innerHTML = '<p><a href="?">Run this test without profiler</a></p>';
+    else
+      document.getElementById("display").innerHTML = '<p><a href="?profiler">Run this test with profiler</a></p>';
+
     var prefs = {
       patternsbackups: 0,
       prefList: {}
