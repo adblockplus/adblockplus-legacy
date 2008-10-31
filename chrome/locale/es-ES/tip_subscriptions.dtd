@@ -13,6 +13,7 @@
 	aunque no suele ser necesario):">
 <!ENTITY note "Nota: Una lista de filtros suele ser más eficaz cuando se aplica 
 	a sitios web de la región para la que ha sido desarrollada.">
+<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
 <!ENTITY homepage.label "Página de inicio">
 <!ENTITY subscribe.label "Suscribir">
 <!ENTITY subscribe.accesskey "r">

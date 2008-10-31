@@ -15,6 +15,7 @@
 	Тэмдэглэл: Шүүлтүүрийн жагсаалт нь эдгээр үүсгэгдсэн жагсаалтаар
 	хязгаарлагдана.
 ">
+<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
 <!ENTITY homepage.label "Үндсэн хуудас">
 <!ENTITY subscribe.label "Авах">
 <!ENTITY subscribe.accesskey "А">

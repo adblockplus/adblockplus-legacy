@@ -45,6 +45,8 @@
   региона, для которого он создавался.
 ">
 
+<!ENTITY filterset.g.moreinfo.url   "http://adblockplus.org/en/faq_project#filterset.g">
+
 <!ENTITY homepage.label             "Домашняя страница">
 
 <!ENTITY subscribe.label            "Подписаться">

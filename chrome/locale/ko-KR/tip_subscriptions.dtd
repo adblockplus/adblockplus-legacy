@@ -6,6 +6,7 @@
 또한 언제라도 필요에 따라 추가/비활성화/삭제가 가능합니다.">
 <!ENTITY description.par2 "아래 목록에서 추천되는 표현식을 선택할 수 있습니다.">
 <!ENTITY note "주: 필터 목록은 그 필터가 생성된 웹사이트에서 가장 효율적으로 동작합니다.">
+<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
 <!ENTITY homepage.label "홈페이지">
 <!ENTITY subscribe.label "표현식">
 <!ENTITY subscribe.accesskey "R">

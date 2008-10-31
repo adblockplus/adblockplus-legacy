@@ -49,6 +49,15 @@
   <vbox flex="1">
     <description id="description-par1">&description.par1;</description>
     <description id="description-par2">&description.par2;</description>
+    <vbox id="filtersetg-warning" hidden="true">
+      <description>
+        &filterset.g.warning;
+        <description class="moreinfo" _url="&filterset.g.moreinfo.url;" tooltiptext="&filterset.g.moreinfo.url;" value="&filterset.g.moreinfo;" onclick="abp.loadInBrowser(this.getAttribute('_url'))"/>
+      </description>
+      <hbox>
+        <button id="filtersetg-uninstall" label="&filterset.g.uninstall;" oncommand="uninstallFiltersetG()"/>
+      </hbox>
+    </vbox>
   </vbox>
   <vbox>
     <vbox flex="1" pack="center">

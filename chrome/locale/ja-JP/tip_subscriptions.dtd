@@ -42,6 +42,8 @@
 	参考: 対象外の地域でこのフィルタリストを使用しても効果の少ない場合があります。
 ">
 
+<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
+
 <!ENTITY homepage.label "ホームページ">
 
 <!ENTITY subscribe.label "購読">

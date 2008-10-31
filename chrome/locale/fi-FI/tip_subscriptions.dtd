@@ -18,6 +18,7 @@
 	Huomio: Suodatinlista on yleensä tehokkain, kun sitä käytetään
 	sivustoilla, joita varten se on alueellisesti luotu.
 ">
+<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
 <!ENTITY homepage.label "Kotisivu">
 <!ENTITY subscribe.label "Tilaa">
 <!ENTITY subscribe.accesskey "T">

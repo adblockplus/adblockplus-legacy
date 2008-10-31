@@ -11,6 +11,7 @@
 	solito non sia necessario):">
 <!ENTITY note "Nota: una lista di filtri è in genere più efficace quando la si applica
 	ai siti web della zona per la quale viene creata la lista dei filtri">
+<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
 <!ENTITY homepage.label "Sito web">
 <!ENTITY subscribe.label "Sottoscrivi">
 <!ENTITY subscribe.accesskey "R">

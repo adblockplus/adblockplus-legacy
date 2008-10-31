@@ -2,6 +2,7 @@
 <!ENTITY description.par1 "Tack för att du installerade Adblock Plus. Detta tillägg kan eliminera 99&#x25; av all reklam du ser på Internet. I kombination med filterprenumerationer tillsammans med egna filter, får du absolut bästa resultat. Även om du prenumererar på filter, kan du alltid lägga till eller ta bort dina egna filter.">
 <!ENTITY description.par2 "Du kan välja en av den rekommenderade prenumerationerna nedan (fler prenumerationer kan läggas till i Adblock Plus Inställningar vid ett senare tillfälle):">
 <!ENTITY note "Notera att en filterlista är mest effektiv om det är skapat för en sida i det land filtret var skapat.">
+<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
 <!ENTITY homepage.label "Hemsida">
 <!ENTITY subscribe.label "Prenumerera">
 <!ENTITY subscribe.accesskey "r">

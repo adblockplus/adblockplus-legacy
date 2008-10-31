@@ -2,6 +2,7 @@
 <!ENTITY description.par1 "Dank foar it ynstallearjen fan Adblock Plus. Dizze útwreiding kin 99&#37; fan alle reklame fuortsmite dy&apos;t jo sjogge op it web. Mar, om reklame goed te filterjen, hawwe jo in goede set filters nedich. Jo kinne dit sels meitsje, of simpel in abonnemint nimme op in filterlist dy&apos;t oaren foar jo ûnderhâlde. As it nedich is kinne jo hjirnei noch hieltiid jo eigen filters meitsje of abonneminten út skeakeljen/fuort te smiten.">
 <!ENTITY description.par2 "Jo kinne in abonnemint kieze út de list mei oanrikkemandearre abonneminten hjirûnder (mear abonneminten kinne tafoege wurde yn Adblock Plus Foarkarren, al is dit normaal net nedich):">
 <!ENTITY note "Tip: in filterlist wurket meastentiids it bêste as dy tapast wurdt op websteeën út de regio wêr&apos;t de list foar makke is.">
+<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
 <!ENTITY homepage.label "Webstee">
 <!ENTITY subscribe.label "Abonnearje">
 <!ENTITY subscribe.accesskey "A">

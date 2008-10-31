@@ -2,6 +2,7 @@
 <!ENTITY description.par1 "Děkujeme, že jste nainstalovali Adblock Plus. Toto rozšíření Vám umožní odstranit 99&#37; reklam na webu. Efektivní blokování reklam ovšem vyžaduje dobře vytvořenou sadu filtrů. Ty můžete přidat sami, nebo si jednoduše můžete objednat příjem sad filtrů, které spravuje někdo jiný. I tak bude možné přidávat vlastní filtry i vypnout nebo odstranit používané cizí filtry.">
 <!ENTITY description.par2 "Níže si můžete vybrat ze seznamu doporučených sad cizích filtrů (další cizí filtry můžete přidat v Předvolbách Adblock Plus později, i když to většinou není nutné):">
 <!ENTITY note "Poznámka: Nejúčinnější sada filtrů bude pochopitelně právě ta, jejíž správce má nejblíže vašemu regionu či jazyku.">
+<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
 <!ENTITY homepage.label "Domovská stránka">
 <!ENTITY subscribe.label "Přidat">
 <!ENTITY subscribe.accesskey "P">

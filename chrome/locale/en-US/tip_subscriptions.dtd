@@ -46,6 +46,15 @@
   to web sites from the region this filter list was created for.
 ">
 
+<!ENTITY filterset.g.warning        "
+  It seems that you use Filterset.G. This filter list has been barely
+  maintained in the last few years and is a common cause of problems with web
+  sites. It is recommended that you uninstall Filterset.G now.
+">
+<!ENTITY filterset.g.moreinfo       "More information">
+<!ENTITY filterset.g.moreinfo.url   "http://adblockplus.org/en/faq_project#filterset.g">
+<!ENTITY filterset.g.uninstall      "Uninstall Filterset.G">
+
 <!ENTITY homepage.label             "Home page">
 
 <!ENTITY subscribe.label            "Subscribe">

@@ -38,6 +38,14 @@ dialog {
   margin-bottom: 10px;
 }
 
+#filtersetg-warning {
+  color: #F00000;
+}
+
+#filtersetg-uninstall {
+  margin-left: 20px;
+}
+
 template+.container, .containerAdded {
   border-top: 1px solid black;
 }
@@ -52,7 +60,7 @@ template+.container, .containerAdded {
   border-bottom: 1px solid black;
 }
 
-.fulllist, .location, .homepage {
+.fulllist, .location, .homepage, .moreinfo {
   color: #0000E0;
   text-decoration: underline;
   cursor: pointer;

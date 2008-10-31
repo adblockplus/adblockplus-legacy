@@ -22,16 +22,35 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-var abp = Components.classes["@mozilla.org/adblockplus;1"].createInstance().wrappedJSObject;
-var prefs = abp.prefs;
+let abp = Components.classes["@mozilla.org/adblockplus;1"].createInstance().wrappedJSObject;
+let prefs = abp.prefs;
 
-var autoAdd;
-var result;
+let autoAdd;
+let result;
 
-function init() {
+let filtersetG = "filtersetg@updater";
+
+function init()
+{
   autoAdd = !(window.arguments && window.arguments.length);
   result = (autoAdd ? {disabled: false, external: false, autoDownload: true} : window.arguments[0]);
   document.getElementById("description-par1").hidden = !autoAdd;
+
+  // Don't show Filterset.G warning in SeaMonkey - no point showing a warning
+  // if we cannot uninstall updater.
+  if ("@mozilla.org/extensions/manager;1" in Components.classes)
+  {
+    if ("Filterset.G" in abp.filterStorage.knownSubscriptions &&
+        !abp.filterStorage.knownSubscriptions["Filterset.G"].disabled)
+    {
+      document.getElementById("filtersetg-warning").hidden = false;
+    }
+
+    let extensionManager = Components.classes["@mozilla.org/extensions/manager;1"]
+                                     .getService(Components.interfaces.nsIExtensionManager);
+    if (extensionManager.getItemForID(filtersetG) && !abp.denyFiltersetG)
+      document.getElementById("filtersetg-warning").hidden = false;
+  }  
 }
 
 function addSubscriptions() {
@@ -74,3 +93,31 @@ function handleKeyPress(e) {
   return true;
 }
 
+function uninstallFiltersetG()
+{
+  // Disable further updates
+  abp.denyFiltersetG = true;
+
+  // Uninstall extension
+  let extensionManager = Components.classes["@mozilla.org/extensions/manager;1"]
+                                   .getService(Components.interfaces.nsIExtensionManager);
+  if (extensionManager.getItemForID(filtersetG))
+  {
+    let location = extensionManager.getInstallLocation(filtersetG);
+    if (location && !location.canAccess)
+    {
+      // Cannot uninstall, need to disable
+      extensionManager.disableItem(filtersetG);
+    }
+    else
+    {
+      extensionManager.uninstallItem(filtersetG);
+    }
+  }
+
+  // Remove filter subscription
+  if ("Filterset.G" in abp.filterStorage.knownSubscriptions)
+    abp.filterStorage.removeSubscription(abp.filterStorage.knownSubscriptions["Filterset.G"]);
+
+  document.getElementById("filtersetg-warning").hidden = true;
+}

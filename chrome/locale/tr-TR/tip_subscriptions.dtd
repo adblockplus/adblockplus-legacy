@@ -2,6 +2,7 @@
 <!ENTITY description.par1 "Adblock Plus eklentisini kurduğunuz için teşekkür ederiz. Bu eklenti internette gördüğünüz reklamların &#37;99&apos;unu ortadan kaldırabilir. Ancak, başarılı bir reklam süzme işlemi sizin kaliteli süzgeçler kullanmanızı gerektirir. Bunu kendiniz de yapabilirsiniz, başkaları tarafından hazırlanan süzgeçleri kullanarak da yapabilirsiniz. İhtiyaç duyulduğunda aboneliği devre dışı bırakabilir, abonelikten ayrılabilir ya da kendi süzgeçlerinizi ekleyebilirsiniz.">
 <!ENTITY description.par2 "Aşağıda tavsiye edilen aboneliklerden birini seçebilirsiniz. (Her ne kadar genelde pek ihtiyaç duyulmasa da, Adblock Plus tercihlerine daha sonra diğer abonelikler de eklenebilir.)">
 <!ENTITY note "Açıklama: Süzgeç listesi en etkin olarak, hedef alınan sitelere karşı kullanılır.">
+<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
 <!ENTITY homepage.label "Başlangıç sayfası">
 <!ENTITY subscribe.label "Abone ol">
 <!ENTITY subscribe.accesskey "O">
