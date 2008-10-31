@@ -368,9 +368,7 @@ var filterStorage =
     let userFilters = null;
     if (stream)
     {
-      let makeList = {"subscription filters": true, "user patterns": true, "subscription patterns": true};
       let wantList = false;
-      let makeObj = {"filter": true, "pattern": true, "subscription": true};
       let wantObj = false;
       let curObj = null;
       let curSection = null;
@@ -392,32 +390,36 @@ var filterStorage =
           if (curObj)
           {
             // Process current object before going to next section
-            if (curSection == "filter" || curSection == "pattern")
+            switch (curSection)
             {
-              Filter.fromObject(curObj);
-            }
-            else if (curSection == "subscription")
-            {
-              let subscription = Subscription.fromObject(curObj);
-              if (subscription)
-                this.addSubscription(subscription, true);
-            }
-            else if ((curSection == "subscription filters" || curSection == "subscription patterns") && this.subscriptions.length)
-            {
-              let subscription = this.subscriptions[this.subscriptions.length - 1];
-              for each (let filter in curObj)
-              {
-                filter = Filter.fromText(filter);
-                if (filter)
+              case "filter":
+              case "pattern":
+                Filter.fromObject(curObj);
+                break;
+              case "subscription":
+                let subscription = Subscription.fromObject(curObj);
+                if (subscription)
+                  this.addSubscription(subscription, true);
+                break;
+              case "subscription filters":
+              case "subscription patterns":
+                if (this.subscriptions.length)
                 {
-                  subscription.filters.push(filter);
-                  filter.subscriptions.push(subscription);
+                  let subscription = this.subscriptions[this.subscriptions.length - 1];
+                  for each (let filter in curObj)
+                  {
+                    filter = Filter.fromText(filter);
+                    if (filter)
+                    {
+                      subscription.filters.push(filter);
+                      filter.subscriptions.push(subscription);
+                    }
+                  }
                 }
-              }
-            }
-            else if (curSection == "user patterns")
-            {
-              userFilters = curObj;
+                break;
+              case "user patterns":
+                userFilters = curObj;
+                break;
             }
           }
   
@@ -425,14 +427,27 @@ var filterStorage =
             break;
 
           curSection = newSection;
-          wantList = curSection in makeList;
-          wantObj = curSection in makeObj;
-          if (wantObj)
-            curObj = {};
-          else if (wantList)
-            curObj = [];
-          else
-            curObj = null;
+          switch (curSection)
+          {
+            case "filter":
+            case "pattern":
+            case "subscription":
+              wantObj = true;
+              wantList = false;
+              curObj = {};
+              break;
+            case "subscription filters":
+            case "subscription patterns":
+            case "user patterns":
+              wantObj = false;
+              wantList = true;
+              curObj = [];
+              break;
+            default:
+              wantObj = false;
+              wantList = false;
+              curObj = null;
+          }
         }
         else if (wantList && val)
           curObj.push(val);
