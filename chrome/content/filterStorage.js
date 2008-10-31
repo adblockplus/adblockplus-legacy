@@ -402,10 +402,6 @@ var filterStorage =
               if (subscription)
                 this.addSubscription(subscription, true);
             }
-            else if (curSection == "user patterns")
-            {
-              userFilters = curObj;
-            }
             else if ((curSection == "subscription filters" || curSection == "subscription patterns") && this.subscriptions.length)
             {
               let subscription = this.subscriptions[this.subscriptions.length - 1];
@@ -418,6 +414,10 @@ var filterStorage =
                   filter.subscriptions.push(subscription);
                 }
               }
+            }
+            else if (curSection == "user patterns")
+            {
+              userFilters = curObj;
             }
           }
   
