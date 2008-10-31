@@ -611,8 +611,8 @@ function onListKeyPress(/**Event*/ e)
   else if (e.keyCode == e.DOM_VK_RETURN || e.keyCode == e.DOM_VK_ENTER || e.keyCode == e.DOM_VK_F2)
   {
     e.preventDefault();
-    e.stopPropagation();
-    editFilter(null);
+    if (editFilter(null))
+      e.stopPropagation();
   }
   else if (e.keyCode == e.DOM_VK_DELETE)
     removeFilters(true);
@@ -787,13 +787,21 @@ function onSubscriptionChange(/**String*/ action, /**Array of Subscription*/ sub
  * Starts editor for filter or subscription.
  * @param {String} type  "filter", "subscription" or null (any)
  */
-function editFilter(type)
+function editFilter(type) /**Boolean*/
 {
   let [subscription, filter] = treeView.getRowInfo(treeView.selection.currentIndex);
+  if (!filter && !type)
+  {
+    // Don't do anything for group titles unless we were explicitly told what to do
+    return false;
+  }
+
   if (type != "filter" && subscription instanceof abp.RegularSubscription)
     editSubscription(subscription);
   else
     treeView.startEditor(false);
+
+  return true;
 }
 
 /**
