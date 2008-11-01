@@ -418,7 +418,7 @@ function abpShowSubscriptions() {
 
   // Look for existing subscriptions
   for each (let subscription in abp.filterStorage.subscriptions)
-    if (subscription instanceof abp.RegularSubscription)
+    if (subscription instanceof abp.DownloadableSubscription)
       return;
 
   window.openDialog("chrome://adblockplus/content/tip_subscriptions.xul", "_blank", "chrome,centerscreen");
