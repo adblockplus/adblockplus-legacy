@@ -23,18 +23,21 @@ die "Usage: $^X $0 subscription.txt\n" unless @ARGV;
 my $file = $ARGV[0];
 my $data = readFile($file);
 
-# Normalize data
-$data =~ s/\r//g;
-$data =~ s/\n+/\n/g;
-
 # Remove already existing checksum
 $data =~ s/^.*!\s*checksum[\s\-:]+([\w\+\/=]+).*\n//gmi;
 
+# Calculate new checksum: remote all CR symbols and empty
+# lines and get an MD5 checksum of the result (base64-encoded,
+# without the trailing = characters).
+my $checksumData = $data;
+$checksumData =~ s/\r//g;
+$checksumData =~ s/\n+/\n/g;
+
 # Calculate new checksum
-my $checksum = md5_base64($data);
+my $checksum = md5_base64($checksumData);
 
 # Insert checksum into the file
-$data =~ s/\n/\n! Checksum: $checksum\n/;
+$data =~ s/(\r?\n)/$1! Checksum: $checksum$1/;
 
 writeFile($file, $data);
 
