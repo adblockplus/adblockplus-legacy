@@ -110,6 +110,22 @@ function init()
     menubar.parentNode.replaceChild(toolbar, menubar);
   }
 
+  // Copy View menu contents into list header context menu
+  let viewMenu = E("view-popup").cloneNode(true);
+  let viewContext = E("treecols-context");
+  function replaceId(menuItem)
+  {
+    if (menuItem.id)
+      menuItem.id = "context-" + menuItem.id;
+    for (let child = menuItem.firstChild; child; child = child.nextSibling)
+      replaceId(child);
+  }
+  while (viewMenu.firstChild)
+  {
+    replaceId(viewMenu.firstChild);
+    viewContext.appendChild(viewMenu.firstChild);
+  }
+
   // Install listeners
   filterStorage.addFilterObserver(onFilterChange);
   filterStorage.addSubscriptionObserver(onSubscriptionChange);
@@ -992,23 +1008,23 @@ function fillFiltersPopup()
  * Updates the contents of the View menu, making sure the right
  * items are checked/enabled.
  */
-function fillViewPopup()
+function fillViewPopup(/**String*/prefix)
 {
-  E("view-filter").setAttribute("checked", !E("col-filter").hidden);
-  E("view-enabled").setAttribute("checked", !E("col-enabled").hidden);
-  E("view-hitcount").setAttribute("checked", !E("col-hitcount").hidden);
-  E("view-lasthit").setAttribute("checked", !E("col-lasthit").hidden);
+  E(prefix + "view-filter").setAttribute("checked", !E("col-filter").hidden);
+  E(prefix + "view-enabled").setAttribute("checked", !E("col-enabled").hidden);
+  E(prefix + "view-hitcount").setAttribute("checked", !E("col-hitcount").hidden);
+  E(prefix + "view-lasthit").setAttribute("checked", !E("col-lasthit").hidden);
 
   let sortColumn = treeView.sortColumn;
   let sortColumnID = (sortColumn ? sortColumn.id : null);
   let sortDir = (sortColumn ? sortColumn.getAttribute("sortDirection") : "natural");
-  E("sort-none").setAttribute("checked", sortColumn == null);
-  E("sort-filter").setAttribute("checked", sortColumnID == "col-filter");
-  E("sort-enabled").setAttribute("checked", sortColumnID == "col-enabled");
-  E("sort-hitcount").setAttribute("checked", sortColumnID == "col-hitcount");
-  E("sort-lasthit").setAttribute("checked", sortColumnID == "col-lasthit");
-  E("sort-asc").setAttribute("checked", sortDir == "ascending");
-  E("sort-desc").setAttribute("checked", sortDir == "descending");
+  E(prefix + "sort-none").setAttribute("checked", sortColumn == null);
+  E(prefix + "sort-filter").setAttribute("checked", sortColumnID == "col-filter");
+  E(prefix + "sort-enabled").setAttribute("checked", sortColumnID == "col-enabled");
+  E(prefix + "sort-hitcount").setAttribute("checked", sortColumnID == "col-hitcount");
+  E(prefix + "sort-lasthit").setAttribute("checked", sortColumnID == "col-lasthit");
+  E(prefix + "sort-asc").setAttribute("checked", sortDir == "ascending");
+  E(prefix + "sort-desc").setAttribute("checked", sortDir == "descending");
 }
 
 /**
