@@ -117,6 +117,7 @@
     <menuitem id="context-movegroupup" label="&context.movegroupup.label;" oncommand="treeView.moveSubscription(true)" key="movegroupup-key"/>
     <menuitem id="context-movegroupdown" label="&context.movegroupdown.label;" oncommand="treeView.moveSubscription(false)" key="movegroupdown-key"/>
   </popup>
+  <popup id="treecols-context" onpopupshowing="fillViewPopup('context-')"/>
   <tooltip id="tree-tooltip" onpopupshowing="return showTreeTooltip(event)"/>
 </popupset>
 
@@ -148,7 +149,7 @@
       </menupopup>
     </menu>
     <menu id="view-menu" label="&view.label;" accesskey="&view.accesskey;">
-      <menupopup id="view-popup" onpopupshowing="fillViewPopup()">
+      <menupopup id="view-popup" onpopupshowing="fillViewPopup('')">
         <menuitem id="view-filter" label="&filter.column;" accesskey="&filter.accesskey;" type="checkbox" disabled="true"/>
         <menuitem id="view-enabled" label="&enabled.column;" accesskey="&enabled.accesskey;" type="checkbox" oncommand="toggleColumn('col-enabled')"/>
         <menuitem id="view-hitcount" label="&hitcount.column;" accesskey="&hitcount.accesskey;" type="checkbox" oncommand="toggleColumn('col-hitcount')"/>
@@ -208,7 +209,7 @@
   </deck>
   <stack id="listStack" flex="1">
     <tree id="list" persist="closedSubscriptions" flex="1" seltype="multiple" hidecolumnpicker="true" enableColumnDrag="true">
-      <treecols>
+      <treecols context="treecols-context">
         <treecol id="col-filter" label="&filter.column;" primary="true" flex="10" persist="width ordinal sortDirection hidden"/>
         <splitter class="tree-splitter"/>
         <treecol id="col-enabled" label="&enabled.column;" flex="0" persist="width ordinal sortDirection hidden"/>
