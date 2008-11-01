@@ -111,7 +111,6 @@ var synchronizer =
         if (checksum && checksum != checksumExpected)
         {
           this.setError(subscription, "synchronize_checksum_mismatch");
-          throw checksum;
           return null;
         }
 
