@@ -26,7 +26,7 @@ my $data = readFile($file);
 # Remove already existing checksum
 $data =~ s/^.*!\s*checksum[\s\-:]+([\w\+\/=]+).*\n//gmi;
 
-# Calculate new checksum: remote all CR symbols and empty
+# Calculate new checksum: remove all CR symbols and empty
 # lines and get an MD5 checksum of the result (base64-encoded,
 # without the trailing = characters).
 my $checksumData = $data;
