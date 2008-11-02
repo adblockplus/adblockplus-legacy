@@ -41,7 +41,7 @@ nsresult abpImgObserver::OnStopFrame(imgIRequest* aRequest, gfxIImageFrame *aFra
     return rv;
 
   if (format != gfxIFormats::BGR_A8)
-    return NS_ERROR_FAILURE;
+    return NS_ERROR_UNEXPECTED;
 
   PRInt32 width;
   rv = aFrame->GetWidth(&width);
