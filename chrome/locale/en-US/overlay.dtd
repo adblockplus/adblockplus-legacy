@@ -31,6 +31,8 @@
 <!ENTITY menuitem.label         "Adblock Plus Preferences">
 <!ENTITY menuitem.accesskey     "B">
 
+<!ENTITY view.blockableItems.label  "Adblock Plus: Blockable Items">
+
 <!ENTITY context.image.label    "Adblock Image">
 <!ENTITY context.object.label   "Adblock Object">
 <!ENTITY context.frame.label    "Adblock Frame">

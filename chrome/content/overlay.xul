@@ -59,14 +59,23 @@
         context="abp-status-popup"/>
   </hbox>
 
-  <!-- SeaMonkey tools menu -->
+  <!-- SeaMonkey Tools menu -->
   <menupopup id="taskPopup">
     <menuitem id="abp-menuitem" insertafter="downloadmgr"/>
   </menupopup>
-  <!-- Firefox tools menu -->
+  <!-- Firefox Tools menu -->
   <menupopup id="menu_ToolsPopup">
     <menuitem id="abp-menuitem" insertafter="javascriptConsole"/>
-  </menupopup> 
+  </menupopup>
+
+  <!-- SeaMonkey View menu -->
+  <menupopup id="view_toolbars_popup">
+    <menuitem id="abp-blockableitems" insertafter="sidebar-menu"/>
+  </menupopup>
+  <!-- Firefox View menu -->
+  <menupopup id="menu_viewPopup">
+    <menuitem id="abp-blockableitems" insertafter="viewSidebarMenuMenu"/>
+  </menupopup>
 
   <!-- Context menu -->
   <popup id="contentAreaContextMenu">

@@ -88,6 +88,9 @@
   <!-- Tools menu -->
   <menuitem id="abp-menuitem" label="&menuitem.label;..." accesskey="&menuitem.accesskey;" key="abp-key-settings" command="abp-command-settings"/>
 
+  <!-- View menu -->
+  <menuitem id="abp-blockableitems" label="&view.blockableItems.label;" type="checkbox" autocheck="false" key="abp-key-sidebar" command="abp-command-sidebar"/>
+
   <!-- Context menu -->
   <menuitem id="abp-image-menuitem" label="&context.image.label;..." oncommand="abpNode(this.parentNode.abpBgData || this.parentNode.abpData)"/>
   <menuitem id="abp-object-menuitem" label="&context.object.label;..." oncommand="abpNode(this.parentNode.abpData)"/>
