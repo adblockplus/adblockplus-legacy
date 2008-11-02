@@ -27,7 +27,8 @@
         is(result, expected, '"' + text + '".matches(' + location + ", " + contentType + ", " + (thirdParty ? "third-party" : "first-party") + ")");
       }
       testMatch_internal(text, location, contentType, thirdParty, expected);
-      testMatch_internal("@@" + text, location, contentType, thirdParty, expected);
+      if (!/^@@/.test(text))
+        testMatch_internal("@@" + text, location, contentType, thirdParty, expected);
     }
 
     testMatch("abc", "http://abc/adf", "IMAGE", false, true);
@@ -146,6 +147,15 @@
     testMatch("/abc/$~match-case", "http://aBc/adf", "IMAGE", true, true);
     testMatch("/ab{2}c/$~match-case", "http://abc/adf", "IMAGE", false, false);
     testMatch("/ab{2}c/$~match-case", "http://aBc/adf", "IMAGE", true, false);
+
+    testMatch("@@test", "http://test/", "DOCUMENT", false, false);
+    testMatch("@@http://test*", "http://test/", "DOCUMENT", false, true);
+    testMatch("@@ftp://test*", "ftp://test/", "DOCUMENT", false, true);
+    testMatch("@@test$document", "http://test/", "DOCUMENT", false, true);
+    testMatch("@@test$document,image", "http://test/", "DOCUMENT", false, true);
+    testMatch("@@test$~image", "http://test/", "DOCUMENT", false, false);
+    testMatch("@@test$~image,document", "http://test/", "DOCUMENT", false, true);
+    testMatch("@@test$document,~image", "http://test/", "DOCUMENT", false, true);
   </script>
   </pre>
 </body>
