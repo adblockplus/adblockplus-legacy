@@ -38,14 +38,8 @@ extern "C" {
   }
 }
 
-char* images[] = {
-  "chrome://adblockplus/skin/abp-enabled-16.png",
-  "chrome://adblockplus/skin/abp-disabled-16.png",
-  "chrome://adblockplus/skin/abp-whitelisted-16.png",
-  "chrome://adblockplus/skin/abp-defunc-16.png",
-};
-HIMAGELIST hImages = ImageList_Create(16, 16, ILC_COLOR32, sizeof(images)/sizeof(images[0]), 0);
-int currentImage;
+char* imagesURL = "chrome://adblockplus/skin/abp-status-16.png";
+HIMAGELIST hImages = ImageList_Create(16, 16, ILC_COLOR32, 4, 0);
 nsCOMPtr<imgIRequest> imageRequest;
 
 LONG DoMessage(LPCSTR to, LPCSTR from, LPCSTR subject, LONG data1, LONG data2)
@@ -106,7 +100,7 @@ void Setup() {
     ReadAccelerator(branch, "extensions.adblockplus.enable_key", "adblockplus(ToggleEnabled)");
   }
 
-  LoadImage(0);
+  LoadImage();
 }
 
 void Quit() {
@@ -259,15 +253,9 @@ void ReadAccelerator(nsIPrefBranch* branch, const char* pref, const char* comman
   }
 }
 
-void LoadImage(int index) {
+void LoadImage()
+{
   nsresult rv;
-
-  currentImage = index;
-  if (currentImage >= sizeof(images)/sizeof(images[0])) {
-    toolbarList.invalidateToolbars();
-    statusbarList.invalidateStatusBars();
-    return;
-  }
 
   nsCOMPtr<imgILoader> loader = do_GetService("@mozilla.org/image/loader;1");
   nsCOMPtr<nsIIOService> ioService = do_GetService("@mozilla.org/network/io-service;1");
@@ -275,7 +263,7 @@ void LoadImage(int index) {
     return;
 
   nsCOMPtr<nsIURI> uri;
-  nsCString urlStr(images[index]);
+  nsCString urlStr(imagesURL);
   rv = ioService->NewURI(urlStr, nsnull, nsnull, getter_AddRefs(uri));
   if (NS_FAILED(rv))
     return;
@@ -287,6 +275,12 @@ void LoadImage(int index) {
     return;
 
   return;
+}
+
+void DoneLoadingImage()
+{
+  toolbarList.invalidateToolbars();
+  statusbarList.invalidateStatusBars();
 }
 
 INT CommandByName(LPCSTR action) {
