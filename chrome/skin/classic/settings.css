@@ -98,12 +98,14 @@ treechildren::-moz-tree-cell-text(col-filter, filter-true, type-invalid, selecte
 
 treechildren::-moz-tree-image(col-enabled, filter-true, subscription-disabled-false, filter-disabled-true),
 treechildren::-moz-tree-image(col-enabled, subscription-true, subscription-disabled-true) {
-  list-style-image: url(unchecked.gif);
+  list-style-image: url(checkbox.png);
+  -moz-image-region: rect(13px 13px 26px 0px);
 }
 
 treechildren::-moz-tree-image(col-enabled, filter-true, subscription-disabled-false, filter-disabled-false),
 treechildren::-moz-tree-image(col-enabled, subscription-true, subscription-disabled-false, subscription-dummy-false) {
-  list-style-image: url(checked-green.png);
+  list-style-image: url(checkbox.png);
+  -moz-image-region: rect(0px 13px 13px 0px);
 }
 
 .whitelisted:not([_moz-menuactive="true"]) {
