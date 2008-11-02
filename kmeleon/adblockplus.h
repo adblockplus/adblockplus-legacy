@@ -356,7 +356,8 @@ void DoMenu(HMENU menu, LPSTR action, LPSTR string);
 INT DoAccel(LPSTR action);
 void DoRebar(HWND hRebar);
 void ReadAccelerator(nsIPrefBranch* branch, const char* pref, const char* command);
-void LoadImage(int index);
+void LoadImage();
+void DoneLoadingImage();
 INT CommandByName(LPCSTR action);
 
 // scriptable.cpp

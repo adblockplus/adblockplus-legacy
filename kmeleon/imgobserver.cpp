@@ -79,25 +79,30 @@ nsresult abpImgObserver::OnStopFrame(imgIRequest* aRequest, gfxIImageFrame *aFra
   BITMAPINFOHEADER head;
   head.biSize = sizeof(head);
   head.biWidth = width;
-  head.biHeight = height;
+  head.biHeight = height / 4;
   head.biPlanes = 1;
   head.biBitCount = 32;
   head.biCompression = BI_RGB;
-  head.biSizeImage = imageSize + alphaSize;
+  head.biSizeImage = (imageSize + alphaSize) / 4;
   head.biXPelsPerMeter = 0;
   head.biYPelsPerMeter = 0;
   head.biClrUsed = 0;
   head.biClrImportant = 0;
 
-  HBITMAP image = ::CreateDIBitmap(hDC, NS_REINTERPRET_CAST(CONST BITMAPINFOHEADER*, &head),
-                                   CBM_INIT, bits, NS_REINTERPRET_CAST(CONST BITMAPINFO*, &head),
-                                   DIB_RGB_COLORS);
+  for (int i = 3; i >= 0; i--)
+  {
+    HBITMAP image = ::CreateDIBitmap(hDC, NS_REINTERPRET_CAST(CONST BITMAPINFOHEADER*, &head),
+                                     CBM_INIT, bits + i * head.biSizeImage,
+                                     NS_REINTERPRET_CAST(CONST BITMAPINFO*, &head),
+                                     DIB_RGB_COLORS);
+    ImageList_Add(hImages, image, NULL);
+    DeleteObject(image);
+  }
+
   delete bits;
-
-  ImageList_Add(hImages, image, NULL);
-  DeleteObject(image);
-
   ReleaseDC(NULL, hDC);
+
+  DoneLoadingImage();
 
   return NS_OK;
 }
@@ -118,7 +123,6 @@ nsresult abpImgObserver::OnStopContainer(imgIRequest* aRequest, imgIContainer *a
   return NS_OK;
 }
 nsresult abpImgObserver::OnStopDecode(imgIRequest* aRequest, nsresult status, const PRUnichar *statusArg) {
-  LoadImage(currentImage + 1);
   return NS_OK;
 }
 nsresult abpImgObserver::FrameChanged(imgIContainer *aContainer, gfxIImageFrame *aFrame, nsIntRect * aDirtyRect) {

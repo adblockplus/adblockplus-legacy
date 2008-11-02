@@ -47,22 +47,23 @@
 toolbar[iconsize="small"] #abp-toolbarbutton,
 #PersonalToolbar #abp-toolbarbutton,
 #abp-status image {
-  list-style-image: url("abp-enabled-16.png");
+  list-style-image: url("abp-status-16.png");
+  -moz-image-region: rect(0px, 16px, 16px, 0px);
 }
 toolbar[iconsize="small"] #abp-toolbarbutton[deactivated],
 #PersonalToolbar #abp-toolbarbutton[deactivated],
 #abp-status[deactivated] image {
-  list-style-image: url("abp-disabled-16.png");
+  -moz-image-region: rect(16px, 16px, 32px, 0px);
 }
 toolbar[iconsize="small"] #abp-toolbarbutton[whitelisted],
 #PersonalToolbar #abp-toolbarbutton[whitelisted],
 #abp-status[whitelisted] image {
-  list-style-image: url("abp-whitelisted-16.png");
+  -moz-image-region: rect(32px, 16px, 48px, 0px);
 }
 toolbar[iconsize="small"] #abp-toolbarbutton[disabled="true"],
 #PersonalToolbar #abp-toolbarbutton[disabled="true"],
 #abp-status[disabled="true"] image {
-  list-style-image: url("abp-defunc-16.png");
+  -moz-image-region: rect(48px, 16px, 64px, 0px);
 }
 
 #abp-toolbar-popup {
@@ -78,17 +79,18 @@ menuitem[default="true"] {
 }
 
 #abp-toolbarbutton {
-  list-style-image: url("abp-enabled.png");
+  list-style-image: url("abp-status.png");
+  -moz-image-region: rect(0px, 24px, 24px, 0px);
   width: auto;
 }
 #abp-toolbarbutton[deactivated] {
-  list-style-image: url("abp-disabled.png");
+  -moz-image-region: rect(24px, 24px, 48px, 0px);
 }
 #abp-toolbarbutton[whitelisted] {
-  list-style-image: url("abp-whitelisted.png");
+  -moz-image-region: rect(48px, 24px, 72px, 0px);
 }
 #abp-toolbarbutton[disabled="true"] {
-  list-style-image: url("abp-defunc.png");
+  -moz-image-region: rect(72px, 24px, 96px, 0px);
 }
 
 #abp-tooltip {
