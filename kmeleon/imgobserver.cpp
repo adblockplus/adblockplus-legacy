@@ -53,19 +53,9 @@ nsresult abpImgObserver::OnStopFrame(imgIRequest* aRequest, gfxIImageFrame *aFra
   if (NS_FAILED(rv))
     return rv;
 
-  PRUint32 imageBytesPerRow;
-  rv = aFrame->GetImageBytesPerRow(&imageBytesPerRow);
-  if (NS_FAILED(rv))
-    return rv;
-
   PRUint8* imageBits;
   PRUint32 imageSize;
   rv = aFrame->GetImageData(&imageBits, &imageSize);
-  if (NS_FAILED(rv))
-    return rv;
-
-  PRUint32 alphaBytesPerRow;
-  rv = aFrame->GetAlphaBytesPerRow(&alphaBytesPerRow);
   if (NS_FAILED(rv))
     return rv;
 
