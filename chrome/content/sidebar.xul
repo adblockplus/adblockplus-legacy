@@ -110,6 +110,7 @@
   </hbox>
 
   <tree id="list" flex="1" seltype="multiple" enableColumnDrag="true"
+        defaultSort="state descending" persist="defaultSort"
         onkeypress="if (event.keyCode == event.DOM_VK_RETURN || event.keyCode == event.DOM_VK_ENTER) doBlock()">
     <treecols>
       <treecol id="address" label="&address.label;" flex="2" crop="center" persist="width ordinal sortDirection hidden"/>
@@ -118,7 +119,7 @@
       <splitter class="tree-splitter"/>
       <treecol id="type" label="&type.label;" width="80" persist="width ordinal sortDirection hidden"/>
       <splitter class="tree-splitter"/>
-      <treecol id="state" label="&state.label;" sortDirection="descending" width="16" persist="width ordinal sortDirection hidden"/>
+      <treecol id="state" label="&state.label;" width="16" persist="width ordinal sortDirection hidden"/>
       <splitter class="tree-splitter"/>
       <treecol id="size" label="&size.label;" width="60" hidden="true" persist="width ordinal sortDirection hidden"/>
     </treecols>

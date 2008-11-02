@@ -602,8 +602,6 @@ var treeView = {
     if (!boxObject)
       return;
 
-    var i;
-
     this.boxObject = boxObject;
     this.itemsDummy = boxObject.treeBody.getAttribute("noitemslabel");
     this.whitelistDummy = boxObject.treeBody.getAttribute("whitelistedlabel");
@@ -615,11 +613,12 @@ var treeView = {
                                 .getService(Components.interfaces.nsIAtomService);
 
     this.atoms = {};
-    for (i = 0; i < stringAtoms.length; i++)
-      this.atoms[stringAtoms[i]] = atomService.getAtom(stringAtoms[i]);
-    for (i = 0; i < boolAtoms.length; i++) {
-      this.atoms[boolAtoms[i] + "-true"] = atomService.getAtom(boolAtoms[i] + "-true");
-      this.atoms[boolAtoms[i] + "-false"] = atomService.getAtom(boolAtoms[i] + "-false");
+    for each (let atom in stringAtoms)
+      this.atoms[atom] = atomService.getAtom(atom);
+    for each (let atom in boolAtoms)
+    {
+      this.atoms[atom + "-true"] = atomService.getAtom(atom + "-true");
+      this.atoms[atom + "-false"] = atomService.getAtom(atom + "-false");
     }
 
     if (abp) {
@@ -630,7 +629,7 @@ var treeView = {
     // Check current sort direction
     var cols = document.getElementsByTagName("treecol");
     var sortDir = null;
-    for (i = 0; i < cols.length; i++) {
+    for (let i = 0; i < cols.length; i++) {
       var col = cols[i];
       var dir = col.getAttribute("sortDirection");
       if (dir && dir != "natural") {
@@ -638,9 +637,25 @@ var treeView = {
         sortDir = dir;
       }
     }
+    if (!this.sortColumn)
+    {
+      let defaultSort = E("list").getAttribute("defaultSort");
+      if (/^(\w+)\s+(ascending|descending)$/.test(defaultSort))
+      {
+        this.sortColumn = E(RegExp.$1);
+        if (this.sortColumn)
+        {
+          sortDir = RegExp.$2;
+          this.sortColumn.setAttribute("sortDirection", sortDir);
+        }
+      }
+    }
 
     if (sortDir)
+    {
       this.sortProc = this.sortProcs[this.sortColumn.id + (sortDir == "descending" ? "Desc" : "")];
+      E("list").setAttribute("defaultSort", " ");
+    }
 
     // Make sure to update the dummy row every two seconds
     setInterval(function(view) {
