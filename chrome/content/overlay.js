@@ -637,6 +637,10 @@ function abpToggleSidebar() {
     else
       abpDetachedSidebar = window.openDialog("chrome://adblockplus/content/sidebarDetached.xul", "_blank", "chrome,resizable,dependent,dialog=no,width=600,height=300");
   }
+
+  let menuItem = document.getElementById("abp-blockableitems");
+  if (menuItem)
+    menuItem.setAttribute("checked", abpIsSidebarOpen());
 }
 
 /**
