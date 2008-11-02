@@ -75,16 +75,15 @@ treechildren::-moz-tree-cell-text(state-whitelisted, selected-false) {
   color: #008000;
 }
 
-treechildren::-moz-tree-image(col-state, state-regular, dummy-false) {
-  list-style-image: url(unchecked.gif);
+treechildren::-moz-tree-image(col-state, dummy-false)
+{
+  list-style-image: url(item-state.png);
+  -moz-image-region: rect(0px 10px 10px 0px);
+  margin-left: 3px;
 }
-
 treechildren::-moz-tree-image(col-state, state-filtered, dummy-false) {
-  list-style-image: url(item-blocked.png);
-  margin-left: 3px;
+  -moz-image-region: rect(10px 10px 20px 0px);
 }
-
 treechildren::-moz-tree-image(col-state, state-whitelisted, dummy-false) {
-  list-style-image: url(item-whitelisted.png);
-  margin-left: 3px;
+  -moz-image-region: rect(20px 10px 30px 0px);
 }
