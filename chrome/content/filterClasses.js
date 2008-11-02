@@ -459,10 +459,12 @@ RegExpFilter.fromText = function(text)
   if (regexp == "")
     regexp = ".*";
 
-  if (constructor == WhitelistFilter && (contentType & RegExpFilter.typeMap.DOCUMENT) &&
+  if (constructor == WhitelistFilter && (contentType == null || (contentType & RegExpFilter.typeMap.DOCUMENT)) &&
       (!options || options.indexOf("DOCUMENT") < 0) && !/^\|?[\w\-]+:/.test(text))
   {
     // Exception filters shouldn't apply to pages by default unless they start with a protocol name
+    if (contentType == null)
+      contentType = 0x7FFFFFFF;
     contentType &= ~RegExpFilter.typeMap.DOCUMENT;
   }
 
