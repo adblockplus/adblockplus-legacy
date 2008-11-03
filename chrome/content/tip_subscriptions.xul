@@ -48,7 +48,6 @@
 <hbox>
   <vbox flex="1">
     <description id="description-par1">&description.par1;</description>
-    <description id="description-par2">&description.par2;</description>
     <vbox id="adblock-warning" hidden="true">
       <description>&adblock.warning;</description>
       <hbox>
@@ -64,6 +63,7 @@
         <button id="filtersetg-uninstall" label="&filterset.g.uninstall;" oncommand="uninstallFiltersetG()"/>
       </hbox>
     </vbox>
+    <description id="description-par2">&description.par2;</description>
   </vbox>
   <vbox>
     <vbox flex="1" pack="center">
