@@ -69,11 +69,6 @@ function abpInit() {
     contextMenu.appendChild(document.getElementById("abp-image-menuitem"));
   }
 
-  // Check whether Adblock is installed and uninstall
-  // Delay it so the browser window will be displayed before the warning
-  if (abp && !abpPrefs.checkedadblockinstalled)
-    setTimeout(abpCheckExtensionConflicts, 0);
-
   // Install toolbar button in Firefox if necessary
   if (abp && !abpPrefs.checkedtoolbar)
     setTimeout(abpInstallInToolbar, 0);
@@ -302,55 +297,6 @@ function abpGetPaletteButton() {
       return child;
 
   return null;
-}
-
-// Check whether Adblock is installed and uninstall
-function abpCheckExtensionConflicts() {
-  // Make sure not to run this twice
-  abpPrefs.checkedadblockinstalled = true;
-  abpPrefs.save();
-
-  if ("@mozilla.org/adblock;1" in Components.classes) {
-    var promptService = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
-                                  .getService(Components.interfaces.nsIPromptService);
-    // Adblock is installed
-    if ("@mozilla.org/extensions/manager;1" in Components.classes) {
-      // Extension Manager available, ask whether to uninstall
-      var result = promptService.confirm(window, abp.getString("uninstall_adblock_title"),
-                                         abp.getString("uninstall_adblock_text"));
-      if (!result)
-        return;
-
-      try {
-        var id = Components.ID("{34274bf4-1d97-a289-e984-17e546307e4f}");
-        var extensionManager = Components.classes["@mozilla.org/extensions/manager;1"]
-                                         .getService(Components.interfaces.nsIExtensionManager);
-
-        if ('uninstallItem' in extensionManager) {
-          // FF 1.1+
-          extensionManager.uninstallItem(id);
-        }
-        else {
-          // FF 1.0
-          // This seems to fail with the error "this._ds has no properties",
-          // but only if the check isn't done immediately after installation.
-          extensionManager.uninstallExtension(id);
-        }
-        promptService.alert(window, abp.getString("uninstall_adblock_title"),
-                                    abp.getString("uninstall_adblock_success"));
-      }
-      catch (e) {
-        dump("Adblock Plus: error uninstalling Adblock, " + e + "\n");
-        promptService.alert(window, abp.getString("uninstall_adblock_title"),
-                                    abp.getString("uninstall_adblock_error"));
-      }
-    }
-    else {
-      // No extension manager, recomend manual uninstall
-      promptService.alert(window, abp.getString("uninstall_adblock_title"),
-                                  abp.getString("uninstall_adblock_manually"));
-    }
-  }
 }
 
 // Check whether we installed the toolbar button already
