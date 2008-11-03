@@ -69,13 +69,15 @@ function abpInit() {
     contextMenu.appendChild(document.getElementById("abp-image-menuitem"));
   }
 
-  // Install toolbar button in Firefox if necessary
-  if (abp && !abpPrefs.checkedtoolbar)
+  // First run actions
+  if (abp && abp.versionComparator.compare(abpPrefs.lastVersion, "0.0") <= 0)
+  {
+    // Add ABP icon to toolbar if necessary
     setTimeout(abpInstallInToolbar, 0);
 
-  // Let user choose subscriptions on first start
-  if (abp && abpPrefs.showsubscriptions)
+    // Show subscriptions dialog if the user doesn't have any subscriptions yet
     setTimeout(abpShowSubscriptions, 0);
+  }
 
   // Move toolbar button to a correct location in Mozilla/SeaMonkey
   var button = document.getElementById("abp-toolbarbutton");

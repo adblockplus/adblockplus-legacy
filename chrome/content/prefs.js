@@ -36,6 +36,7 @@ var prefService = Components.classes["@mozilla.org/preferences-service;1"]
 var ScriptableInputStream = Components.Constructor("@mozilla.org/scriptableinputstream;1", "nsIScriptableInputStream", "init");
 
 var prefs = {
+  lastVersion: null,
   initialized: false,
   disableObserver: false,
   branch: prefService.getBranch(prefRoot),
@@ -133,9 +134,16 @@ var prefs = {
 
     // Initial prefs loading
     this.reload();
-    filterStorage.loadFromDisk();
 
-    // Initialize content policy constants
+    // Update lastVersion pref if necessary
+    this.lastVersion = this.currentVersion;
+    if (this.currentVersion != abp.getInstalledVersion())
+    {
+      this.currentVersion = abp.getInstalledVersion();
+      this.save();
+    }
+
+    filterStorage.loadFromDisk();
     policy.init();
   },
 
