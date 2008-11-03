@@ -359,7 +359,7 @@ function abpShowSubscriptions() {
     if (subscription instanceof abp.DownloadableSubscription)
       return;
 
-  window.openDialog("chrome://adblockplus/content/tip_subscriptions.xul", "_blank", "chrome,centerscreen");
+  abp.loadInBrowser("chrome://adblockplus/content/tip_subscriptions.xul");
 }
 
 function abpFillTooltip(ev) {
