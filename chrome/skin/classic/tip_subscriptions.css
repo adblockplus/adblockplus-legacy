@@ -38,10 +38,12 @@ dialog {
   margin-bottom: 10px;
 }
 
+#adblock-warning,
 #filtersetg-warning {
   color: #F00000;
 }
 
+#adblock-uninstall,
 #filtersetg-uninstall {
   margin-left: 20px;
 }

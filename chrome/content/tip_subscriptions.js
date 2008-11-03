@@ -28,6 +28,7 @@ let prefs = abp.prefs;
 let autoAdd;
 let result;
 
+let adblockID = "{34274bf4-1d97-a289-e984-17e546307e4f}";
 let filtersetG = "filtersetg@updater";
 
 function init()
@@ -36,20 +37,21 @@ function init()
   result = (autoAdd ? {disabled: false, external: false, autoDownload: true} : window.arguments[0]);
   document.getElementById("description-par1").hidden = !autoAdd;
 
-  // Don't show Filterset.G warning in SeaMonkey - no point showing a warning
-  // if we cannot uninstall updater.
+  // Don't show Adblock/Filterset.G warning in SeaMonkey - no point showing
+  // a warning if we cannot uninstall.
   if ("@mozilla.org/extensions/manager;1" in Components.classes)
   {
+    if (isExtensionActive(adblockID))
+      document.getElementById("adblock-warning").hidden = false;
+
+    if (isExtensionActive(filtersetG))
+      document.getElementById("filtersetg-warning").hidden = false;
+
     if ("Filterset.G" in abp.filterStorage.knownSubscriptions &&
         !abp.filterStorage.knownSubscriptions["Filterset.G"].disabled)
     {
       document.getElementById("filtersetg-warning").hidden = false;
     }
-
-    let extensionManager = Components.classes["@mozilla.org/extensions/manager;1"]
-                                     .getService(Components.interfaces.nsIExtensionManager);
-    if (extensionManager.getItemForID(filtersetG) && !abp.denyFiltersetG)
-      document.getElementById("filtersetg-warning").hidden = false;
   }  
 }
 
@@ -93,27 +95,66 @@ function handleKeyPress(e) {
   return true;
 }
 
+function uninstallExtension(id)
+{
+  let extensionManager = Components.classes["@mozilla.org/extensions/manager;1"]
+                                   .getService(Components.interfaces.nsIExtensionManager);
+  if (extensionManager.getItemForID(id))
+  {
+    let location = extensionManager.getInstallLocation(id);
+    if (location && !location.canAccess)
+    {
+      // Cannot uninstall, need to disable
+      extensionManager.disableItem(id);
+    }
+    else
+    {
+      extensionManager.uninstallItem(id);
+    }
+  }
+}
+
+function isExtensionActive(id)
+{
+  let extensionManager = Components.classes["@mozilla.org/extensions/manager;1"]
+                                   .getService(Components.interfaces.nsIExtensionManager);
+
+  // First check whether the extension is installed
+  if (!extensionManager.getItemForID(id))
+    return false;
+
+  let ds = extensionManager.datasource;
+  let rdfService = Components.classes["@mozilla.org/rdf/rdf-service;1"]
+                             .getService(Components.interfaces.nsIRDFService);
+  let source = rdfService.GetResource("urn:mozilla:item:" + id);
+
+  // Check whether extension is disabled
+  let link = rdfService.GetResource("http://www.mozilla.org/2004/em-rdf#isDisabled");
+  let target = ds.GetTarget(source, link, true);
+  if (target instanceof Components.interfaces.nsIRDFLiteral && target.Value == "true")
+    return false;
+
+  // Check whether an operation is pending for the extension
+  link = rdfService.GetResource("http://www.mozilla.org/2004/em-rdf#opType");
+  if (ds.GetTarget(source, link, false))
+    return false;
+
+  return true;
+}
+
+function uninstallAdblock()
+{
+  uninstallExtension(adblockID);
+  document.getElementById("adblock-warning").hidden = true;
+}
+
 function uninstallFiltersetG()
 {
   // Disable further updates
   abp.denyFiltersetG = true;
 
   // Uninstall extension
-  let extensionManager = Components.classes["@mozilla.org/extensions/manager;1"]
-                                   .getService(Components.interfaces.nsIExtensionManager);
-  if (extensionManager.getItemForID(filtersetG))
-  {
-    let location = extensionManager.getInstallLocation(filtersetG);
-    if (location && !location.canAccess)
-    {
-      // Cannot uninstall, need to disable
-      extensionManager.disableItem(filtersetG);
-    }
-    else
-    {
-      extensionManager.uninstallItem(filtersetG);
-    }
-  }
+  uninstallExtension(filtersetG);
 
   // Remove filter subscription
   if ("Filterset.G" in abp.filterStorage.knownSubscriptions)
