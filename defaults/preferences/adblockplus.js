@@ -6,7 +6,6 @@ pref("extensions.adblockplus.fastcollapse", false);
 pref("extensions.adblockplus.showintoolbar", true);
 pref("extensions.adblockplus.showinstatusbar", false);
 pref("extensions.adblockplus.checkedtoolbar", false);
-pref("extensions.adblockplus.checkedadblockinstalled", false);
 pref("extensions.adblockplus.showsubscriptions", true);
 pref("extensions.adblockplus.detachsidebar", false);
 pref("extensions.adblockplus.synchronizationinterval", 24);
