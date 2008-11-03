@@ -350,20 +350,10 @@ function abpInstallInToolbar() {
       }
     }
   }
-
-  // Make sure not to run this twice
-  if (!abpPrefs.checkedtoolbar) {
-    abpPrefs.checkedtoolbar = true;
-    abpPrefs.save();
-  }
 }
 
 // Let user choose subscriptions on first start unless he has some already
 function abpShowSubscriptions() {
-  // Make sure not to run this twice
-  abpPrefs.showsubscriptions = false;
-  abpPrefs.save();
-
   // Look for existing subscriptions
   for each (let subscription in abp.filterStorage.subscriptions)
     if (subscription instanceof abp.DownloadableSubscription)
