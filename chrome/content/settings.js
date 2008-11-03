@@ -541,7 +541,7 @@ function exportList()
           if (filter instanceof abp.RegExpFilter)
           {
             if (filter.thirdParty != null)
-              filterVersion = "0.8";
+              filterVersion = "1.0";
             else if (filter.collapse != null)
               filterVersion = "0.7.5";
             else if (abp.Filter.optionsRegExp.test(filter.text))
