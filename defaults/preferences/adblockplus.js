@@ -1,12 +1,11 @@
 // For description of these values see http://adblockplus.org/en/preferences
 
+pref("extensions.adblockplus.currentVersion", "0.0");
 pref("extensions.adblockplus.enabled", true);
 pref("extensions.adblockplus.frameobjects", true);
 pref("extensions.adblockplus.fastcollapse", false);
 pref("extensions.adblockplus.showintoolbar", true);
 pref("extensions.adblockplus.showinstatusbar", false);
-pref("extensions.adblockplus.checkedtoolbar", false);
-pref("extensions.adblockplus.showsubscriptions", true);
 pref("extensions.adblockplus.detachsidebar", false);
 pref("extensions.adblockplus.synchronizationinterval", 24);
 pref("extensions.adblockplus.defaulttoolbaraction", 1);
