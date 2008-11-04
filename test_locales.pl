@@ -141,11 +141,20 @@ sub parsePropertiesFile
   my $data = readFile($file);
   while ($data =~ /^(.*)$/mg)
   {
-    $_ = $1;
-    next if /^\s*#/;
+    my $line = $1;
 
-    my ($key, $value) = split(/=/, $_, 2);
-    $result{$key} = $value;
+    # ignore comments
+    next if $line =~ /^\s*[#!]/;
+
+    if ($line =~ /=/)
+    {
+      my ($key, $value) = split(/=/, $line, 2);
+      $result{$key} = $value;
+    }
+    elsif ($line =~ /\S/)
+    {
+      warn "Unrecognized data in file '$file': $line";
+    }
   }
   close(FILE);
 
