@@ -73,7 +73,7 @@ foreach my $locale (@locales)
       next unless exists($currentLocale->{"$dir:$file"}) && exists($currentLocale->{"$dir:$file"}{$name});
       my $value = lc($currentLocale->{"$dir:$file"}{$name});
 
-      warn "$locale: values for $values{$value} and $key are identical, must differ\n" if exists $values{$value};
+      warn "$locale: values for '$values{$value}' and '$key' are identical, must differ\n" if exists $values{$value};
       $values{$value} = $key;
     }
   }
@@ -90,7 +90,7 @@ foreach my $locale (@locales)
 
       $stdValue = $value unless defined $stdValue;
       $stdName = $key unless defined $stdName;
-      warn "$locale: values for $stdName and $key differ, must be equal\n" if $value ne $stdValue;
+      warn "$locale: values for '$stdName' and '$key' differ, must be equal\n" if $value ne $stdValue;
     }
   }
 
@@ -101,7 +101,7 @@ foreach my $locale (@locales)
     {
       if (($key =~ /\.accesskey$/ || $key =~ /\.key$/) && length($fileData->{$key}) != 1)
       {
-        warn "$locale: Length of accesskey $file:$key isn't 1 character\n";
+        warn "$locale: Length of accesskey '$file:$key' isn't 1 character\n";
       }
 
       if ($key =~ /\.accesskey$/)
@@ -110,7 +110,7 @@ foreach my $locale (@locales)
         {
           if (exists($referenceLocale->{$file}{$key}) && $fileData->{$key} ne $referenceLocale->{$file}{$key})
           {
-            warn "$locale: Accesskey $file:$key should be the same as in the reference locale\n";
+            warn "$locale: Accesskey '$file:$key' should be the same as in the reference locale\n";
           }
         }
         else
@@ -119,7 +119,7 @@ foreach my $locale (@locales)
           $labelKey =~ s/\.accesskey$/.label/;
           if (exists($fileData->{$labelKey}) && $fileData->{$labelKey} !~ /\Q$fileData->{$key}/i)
           {
-            warn "$locale: Accesskey $file:$key not found in the corresponding label $file:$labelKey\n";
+            warn "$locale: Accesskey '$file:$key' not found in the corresponding label '$file:$labelKey'\n";
           }
         }
       }
@@ -131,7 +131,7 @@ foreach my $locale (@locales)
         {
           $ignore = 1 if "$file:$key" =~ $re;
         }
-        warn "$locale: Value of $file:$key is the same as in the reference locale, probably an untranslated string\n" unless $ignore;
+        warn "$locale: Value of '$file:$key' is the same as in the reference locale, probably an untranslated string\n" unless $ignore;
       }
     }
   }
