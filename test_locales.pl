@@ -114,7 +114,7 @@ sub parseDTDFile
   $data =~ s/<!--([^\-]|-[^\-])*-->//gs;
 
   # Process entities
-  while (/<!ENTITY$S+($Name)$S+$EntityValue$S*>/gs)
+  while ($data =~ /<!ENTITY$S+($Name)$S+$EntityValue$S*>/gs)
   {
     $result{$1} = $2 || $3;
   }
