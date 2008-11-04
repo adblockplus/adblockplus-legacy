@@ -1,0 +1,40 @@
+<!ENTITY dialog.title "Thêm quy tắc lọc Adblock Plus">
+<!ENTITY accept.label "Thêm bộ lọc">
+<!ENTITY advanced.label "Hiển thị nâng cao">
+<!ENTITY basic.label "Hiển thị cơ bản">
+<!ENTITY disabled.warning.beforeLink "Adblock Plus hiện đang bị vô hiệu hóa. Bạn vẫn có thể thêm các bộ lọc nhưng chúng sẽ không được áp dùng trừ khi bạn">
+<!ENTITY disabled.warning.link "kích hoạt Adblock Plus">
+<!ENTITY disabled.warning.afterLink ".">
+<!ENTITY filter.label "Bộ lọc mới:">
+<!ENTITY filter.accesskey "l">
+<!ENTITY preferences.label "Hiện các bộ lọc đang có...">
+<!ENTITY preferences.accesskey "H">
+<!ENTITY type.filter.label "Chặn bộ lọc">
+<!ENTITY type.filter.accesskey "b">
+<!ENTITY type.whitelist.label "Quy tắc ngoại lệ">
+<!ENTITY type.whitelist.accesskey "u">
+<!ENTITY pattern.label "Tìm mẫu">
+<!ENTITY pattern.explanation "Mẫu có thể là bất kì phần nào của địa chỉ, biểu tượng * được dùng như một mặt nạ. Bộ lọc sẽ chỉ được áp dụng cho những địa chỉ phù hợp với mẫu.">
+<!ENTITY regexp.warning "Mẫu bạn gõ vào sẽ được xem là biểu thức quy tắc. Nhiều biểu thức quy tắc có thể làm chậm việc duyệt web của bạn. Nếu bạn không định dùng biểu thức quy tắc, hãy thêm một biểu tượng * ở cuối mẫu.">
+<!ENTITY shortpattern.warning "Mẫu bạn gõ vào quá ngắn để tối ưu hóa, nhiều mẫu như vậy có thể làm chậm việc duyệt web của bạn. Lời khuyên là bạn hãy chọn một chuỗi dài hơn cho bộ lọc này.">
+<!ENTITY custom.pattern.label "Tùy biến:">
+<!ENTITY custom.pattern.accesskey "T">
+<!ENTITY anchors.label "Chỉ chấp nhận mẫu:">
+<!ENTITY anchor.start.label "ở đầu địa chỉ">
+<!ENTITY anchor.start.accesskey "u">
+<!ENTITY anchor.end.label "ở cuối địa chỉ">
+<!ENTITY anchor.end.accesskey "i">
+<!ENTITY options.label "Tùy chọn">
+<!ENTITY firstParty.label "Chỉ của bên thứ nhất">
+<!ENTITY firstParty.accesskey "n">
+<!ENTITY thirdParty.label "Chỉ của bên thứ ba">
+<!ENTITY thirdParty.accesskey "b">
+<!ENTITY matchCase.label "Phù hợp">
+<!ENTITY matchCase.accesskey "P">
+<!ENTITY types.label "Áp dụng cho các kiểu:">
+<!ENTITY collapse.label "Thu gọn những mục bị chặn:">
+<!ENTITY collapse.accesskey "h">
+<!ENTITY collapse.default.yes.label "Dùng mặc định (có)">
+<!ENTITY collapse.default.no.label "Dùng mặc định (không)">
+<!ENTITY collapse.yes.label "Có">
+<!ENTITY collapse.no.label "Không">
