@@ -33,6 +33,27 @@ my %keepAccessKeys = map {$_ => $_} (
   'zh-TW',
 );
 
+my @ignoreUntranslated = (
+  qr/\.url$/,
+  quotemeta("abp:about:caption.title"),
+  quotemeta("abp:about:version.title"),
+  quotemeta("abp:global:status_active_label"),
+  quotemeta("abp:global:type_label_document"),
+  quotemeta("abp:global:type_label_dtd"),
+  quotemeta("abp:global:type_label_ping"),
+  quotemeta("abp:global:type_label_script"),
+  quotemeta("abp:global:type_label_stylesheet"),
+  quotemeta("abp:global:type_label_xbl"),
+  quotemeta("abp:global:subscription_status"),
+  quotemeta("abp:global:subscription_status_lastdownload_unknown"),
+  quotemeta("abp:overlay:status.tooltip"),
+  quotemeta("abp:settings:filters.label"),
+  quotemeta("abp:sidebar:filter.label"),
+  quotemeta("ehh:composer:nodes-tree.class.label"),
+  quotemeta("ehh:composer:nodes-tree.id.label"),
+  quotemeta("ehh:global:noabp_warning_title"),
+);
+
 my @locales = sort {$a cmp $b} makeLocaleList();
 
 my $referenceLocale = readLocaleFiles("en-US");
@@ -101,6 +122,16 @@ foreach my $locale (@locales)
             warn "Accesskey $file:$key not found in the corresponding label $file:$labelKey in locale $locale\n";
           }
         }
+      }
+
+      if ($currentLocale != $referenceLocale && $locale ne "en-GB" && length($fileData->{$key}) > 1 && $fileData->{$key} eq $referenceLocale->{$file}{$key})
+      {
+        my $ignore = 0;
+        foreach my $re (@ignoreUntranslated)
+        {
+          $ignore = 1 if "$file:$key" =~ $re;
+        }
+        warn "Value of $file:$key in locale $locale is the same as in the reference locale, probably an untranslated string\n" unless $ignore;
       }
     }
   }
