@@ -33,7 +33,7 @@ $pkg->readVersion('version');
 $pkg->readLocales('chrome/locale') unless exists $params{locales};
 
 chdir('chrome');
-$pkg->makeJAR("$baseName.jar", 'content', 'skin', 'locale', '-/tests', '-/mochitest');
+$pkg->makeJAR("$baseName.jar", 'content', 'skin', 'locale', '-/tests', '-/mochitest', '-/.incomplete');
 chdir('..');
 
 my @files = grep {-e $_} ('components', 'defaults', 'install.js', 'install.rdf', 'chrome.manifest');
