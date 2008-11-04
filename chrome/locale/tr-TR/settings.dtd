@@ -29,6 +29,16 @@
 <!ENTITY menu.find.accesskey "B">
 <!ENTITY menu.findagain.label "Sonrakini bul">
 <!ENTITY menu.findagain.accesskey "A">
+<!ENTITY view.label "Görünüm">
+<!ENTITY view.accesskey "r">
+<!ENTITY sort.label "Sırala">
+<!ENTITY sort.accesskey "S">
+<!ENTITY sort.none.label "Sıralanmamış">
+<!ENTITY sort.none.accesskey "m">
+<!ENTITY sort.ascending.label "A&apos;da Z&apos;ye sıralama">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.descending.label "Z&apos;den A&apos;ya sıralama">
+<!ENTITY sort.descending.accesskey "Z">
 <!ENTITY options.label "Seçenekler">
 <!ENTITY options.accesskey "S">
 <!ENTITY enable.label "Adblock Plus&apos;ı etkinleştir">
@@ -54,12 +64,15 @@
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Adblock Plus hakkında">
 <!ENTITY about.accesskey "O">
-<!ENTITY disabled.warning "Adblock Plus şu an devre dışı. Listedeki süzgeçleri değiştirebilirsiniz. Ancak bunlar eklenti devreye girene kadar kullanılamayacak.">
 <!ENTITY description "Engellemek istediğiniz adresleri yazın. Öneriler için açılır menüye bakın. Daha genel süzgeçler tanımlamak için * işaretini kullanabilirsiniz. İleri düzeyde bilgiye sahip kullanıcılar düzenli ifadelere de (ör. /reklam\d+\.gif$/) başvurabilirler.">
-<!ENTITY pattern.column "Kural">
+<!ENTITY filter.column "Süzgeç kuralı">
+<!ENTITY filter.accesskey "k">
 <!ENTITY enabled.column "Etkinlik">
+<!ENTITY enabled.accesskey "n">
 <!ENTITY hitcount.column "İsabet">
+<!ENTITY hitcount.accesskey "e">
 <!ENTITY lasthit.column "Son isabet">
+<!ENTITY lasthit.accesskey "i">
 <!ENTITY context.edit.label "Süzgeci düzenle">
 <!ENTITY context.resethitcount.label "İstabet istatistiği sıfırlanacak olan süzgeç:">
 <!ENTITY context.synchsubscription.label "Aboneliği eşle">
@@ -68,5 +81,7 @@
 <!ENTITY context.movedown.label "Aşağıya taşı">
 <!ENTITY context.movegroupup.label "Öbeği yukarıya taşı">
 <!ENTITY context.movegroupdown.label "Öbeği aşağıya taşı">
+<!ENTITY context.enable.label "Devreye sok">
+<!ENTITY context.disable.label "Devreden çıkar">
 <!ENTITY apply.label "Uygula">
 <!ENTITY apply.accesskey "u">

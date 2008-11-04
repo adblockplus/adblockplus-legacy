@@ -12,5 +12,3 @@
 <!ENTITY autodownload.accesskey "O">
 <!ENTITY enabled.label "Süzgeçleri etkinleştir">
 <!ENTITY enabled.accesskey "E">
-<!ENTITY full-list.url "http://adblockplus.org/en/subscriptions">
-<!ENTITY full-list.label "Tüm abonelik seçeneklerini göster">

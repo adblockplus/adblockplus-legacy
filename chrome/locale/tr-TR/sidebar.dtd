@@ -7,6 +7,7 @@
 <!ENTITY address.label "Adres">
 <!ENTITY filter.label "Süzgeç">
 <!ENTITY state.label "Durum">
+<!ENTITY size.label "Boyut">
 <!ENTITY noitems.label "Engellenebilecek öğe yok">
 <!ENTITY whitelisted.label "Ak listeye dahil bir sayfa">
 <!ENTITY notloaded.label "Adblock Plus düzgün kurulmamış">
@@ -14,10 +15,16 @@
 <!ENTITY tooltip.type.label "Tür:">
 <!ENTITY tooltip.type.blocked "(engellendi)">
 <!ENTITY tooltip.type.whitelisted "(ak listede)">
+<!ENTITY tooltip.size.label "Boyut">
 <!ENTITY tooltip.filter.label "Yürürlükteki süzgeç:">
+<!ENTITY tooltip.filterSource.label "Süzgeç kaynağı:">
 <!ENTITY context.block.label "Bu öğeyi engelle">
 <!ENTITY context.editfilter.label "Yürürlükteki süzgeci düzelt">
 <!ENTITY context.whitelist.label "Öğeye ayrıcalık tanı">
+<!ENTITY context.disablefilter.label "Süzgeci devre dışı bırak --">
+<!ENTITY context.enablefilter.label "Süzgeci devreye sok --">
 <!ENTITY context.open.label "Yeni sekmede aç">
 <!ENTITY context.flash.label "Flash öğesinin sınırları">
 <!ENTITY context.copy.label "Öğenin konumunu kopyala">
+<!ENTITY context.copyFilter.label "Süzgeci kopyala">
+<!ENTITY context.selectAll.label "Tümünü seç">
