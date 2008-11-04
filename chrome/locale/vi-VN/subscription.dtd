@@ -9,8 +9,6 @@
 <!ENTITY title.label "Tiêu đề của bộ lọc đăng kí:">
 <!ENTITY title.accesskey "T">
 <!ENTITY autodownload.label "Cập nhật tự động">
-<!ENTITY autodownload.accesskey "N">
+<!ENTITY autodownload.accesskey "p">
 <!ENTITY enabled.label "Bật các bộ lọc">
-<!ENTITY enabled.accesskey "N">
-<!ENTITY full-list.url "http://adblockplus.org/en/subscriptions">
-<!ENTITY full-list.label "Xem tất cả đăng kí">
+<!ENTITY enabled.accesskey "B">

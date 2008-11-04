@@ -7,6 +7,7 @@
 <!ENTITY address.label "Địa chỉ">
 <!ENTITY filter.label "Bộ lọc">
 <!ENTITY state.label "Tình trạng">
+<!ENTITY size.label "Dung lượng">
 <!ENTITY noitems.label "Không có mục có thể chặn được">
 <!ENTITY whitelisted.label "Trang nằm trong sổ trắng">
 <!ENTITY notloaded.label "Adblock Plus chưa được cài đặt đúng">
@@ -14,10 +15,16 @@
 <!ENTITY tooltip.type.label "Dạng:">
 <!ENTITY tooltip.type.blocked "(đã chặn)">
 <!ENTITY tooltip.type.whitelisted "(sổ trắng)">
+<!ENTITY tooltip.size.label "Dung lượng:">
 <!ENTITY tooltip.filter.label "Bộ lọc hiệu lực:">
+<!ENTITY tooltip.filterSource.label "Nguồn bộ lọc:">
 <!ENTITY context.block.label "Chặn mục này">
 <!ENTITY context.editfilter.label "Sửa bộ lọc đang có hiệu lực">
 <!ENTITY context.whitelist.label "Thêm quy luật ngoại lệ cho mục">
+<!ENTITY context.disablefilter.label "Vô hiệu hóa bộ lọc --">
+<!ENTITY context.enablefilter.label "Kích hoạt lại bộ lọc --">
 <!ENTITY context.open.label "Mở trong Thẻ Mới">
 <!ENTITY context.flash.label "Đường viền cho các mục Flash">
 <!ENTITY context.copy.label "Chép địa chỉ của mục">
+<!ENTITY context.copyFilter.label "Chép bộ lọc">
+<!ENTITY context.selectAll.label "Chọn tất cả">
