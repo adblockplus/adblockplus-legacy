@@ -70,7 +70,7 @@ foreach my $locale (@locales)
   {
     foreach my $key (keys %{$currentLocale->{$file}})
     {
-      if ($key =~ /\.accesskey$/)
+      if ($key =~ /\.accesskey$/ || $key =~ /\.key$/)
       {
         my $value = $currentLocale->{$file}{$key};
         warn "Length of accesskey $file:$key in locale $locale isn't 1 character\n" if length($value) != 1;
