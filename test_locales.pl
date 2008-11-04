@@ -103,10 +103,31 @@ sub parseDTDFile
   my %result = ();
 
   my $data = readFile($file);
-  while ($data =~ /<!ENTITY\s+(\S+)\s*"([^"]*)"/sg)
+
+  my $S = qr/[\x20\x09\x0D\x0A]/;
+  my $Name = qr/[A-Za-z_:][\w.\-:]*/;
+  my $Reference = qr/&$Name;|&#\d+;|&#x[\da-fA-F]+;/;
+  my $PEReference = qr/%$Name;/;
+  my $EntityValue = qr/"((?:[^%&"]|$PEReference|$Reference)*)"|'((?:[^%&']|$PEReference|$Reference)*)'/;
+
+  # Remove comments
+  $data =~ s/<!--([^\-]|-[^\-])*-->//gs;
+
+  # Process entities
+  while (/<!ENTITY$S+($Name)$S+$EntityValue$S*>/gs)
   {
-    $result{$1} = $2;
+    $result{$1} = $2 || $3;
   }
+
+  # Remove entities
+  $data =~ s/<!ENTITY$S+$Name$S+$EntityValue$S*>//gs;
+
+  # Remove spaces
+  $data =~ s/^\s+//gs;
+  $data =~ s/\s+$//gs;
+  $data =~ s/\s+/ /gs;
+
+  warn "Unrecognized data in file '$file': $data" if $data ne '';
 
   return \%result;
 }
