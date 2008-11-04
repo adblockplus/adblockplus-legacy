@@ -3,16 +3,16 @@
 
 <!-- entities split out from browser.dtd -->
 <!ENTITY find.label "Hľadať:">
-<!ENTITY findNext.label "Hľadať ďalšie">
-<!ENTITY findNext.accesskey "d">
-<!ENTITY findNext.tooltip "Vyhľadá ďalší výskyt reťazca">
-<!ENTITY findPrevious.label "Hľadať predchádzajúce">
-<!ENTITY findPrevious.accesskey "p">
-<!ENTITY findPrevious.tooltip "Vyhľadá predchádzajúci výskyt reťazca">
-<!ENTITY findCloseButton.tooltip "Zatvoriť panel vyhľadávania">
+<!ENTITY next.label "Ďalšie">
+<!ENTITY next.accesskey "a">
+<!ENTITY next.tooltip "Vyhľadá ďalší výskyt reťazca">
+<!ENTITY previous.label "Predchádzajúce">
+<!ENTITY previous.accesskey "P">
+<!ENTITY previous.tooltip "Vyhľadá predchádzajúci výskyt reťazca">
+<!ENTITY findCloseButton.tooltip "Zavrieť panel vyhľadávania">
 <!ENTITY highlight.label "Zvýrazniť">
 <!ENTITY highlight.accesskey "Z">
-<!ENTITY highlight.tooltip "Zvýrazní všetky výskyty hľadaného reťazca (Ctrl+Enter)">
-<!ENTITY highlight.macTooltip "Zvýrazní všetky výskyty hľadaného reťazca (Cmd+Return)">
+<!ENTITY highlight.tooltiptext "Zvýrazní všetky výskyty hľadaného reťazca (Ctrl+Enter)">
 <!ENTITY caseSensitiveCheckbox.label "Rozlišovať veľké/malé písmená">
 <!ENTITY caseSensitiveCheckbox.accesskey "R">
+

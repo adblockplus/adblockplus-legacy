@@ -3,17 +3,15 @@
 
 <!-- entities split out from browser.dtd -->
 <!ENTITY find.label "Keresés:">
-<!ENTITY findNext.label "Következő">
-<!ENTITY findNext.accesskey "K">
-<!ENTITY findNext.tooltip "A kifejezés következő előfordulásának keresése">
-<!ENTITY findPrevious.label "Előző">
-<!ENTITY findPrevious.accesskey "E">
-<!ENTITY findPrevious.tooltip "A kifejezés előző előfordulásának keresése">
+<!ENTITY next.label "Következő">
+<!ENTITY next.accesskey "K">
+<!ENTITY next.tooltip "A kifejezés következő előfordulásának keresése">
+<!ENTITY previous.label "Előző">
+<!ENTITY previous.accesskey "E">
+<!ENTITY previous.tooltip "A kifejezés előző előfordulásának keresése">
 <!ENTITY findCloseButton.tooltip "Keresősáv bezárása">
 <!ENTITY highlight.label "Összes kiemelése">
 <!ENTITY highlight.accesskey "s">
-<!ENTITY highlight.tooltip "A keresett kifejezés kiemelése (Ctrl+Enter)">
-<!ENTITY highlight.macTooltip "A keresett kifejezés kiemelése (Cmd+Return)">
+<!ENTITY highlight.tooltiptext "A keresett kifejezés kiemelése">
 <!ENTITY caseSensitiveCheckbox.label "Kis- és nagybetűk megkülönböztetése">
 <!ENTITY caseSensitiveCheckbox.accesskey "i">
-

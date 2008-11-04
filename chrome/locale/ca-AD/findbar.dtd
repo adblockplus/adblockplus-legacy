@@ -3,16 +3,15 @@
 
 <!-- entities split out from browser.dtd -->
 <!ENTITY find.label "Cerca:">
-<!ENTITY findNext.label "Cerca el següent">
-<!ENTITY findNext.accesskey "n">
-<!ENTITY findNext.tooltip "Cerca la següent coincidència de l'expressió">
-<!ENTITY findPrevious.label "Cerca l'anterior">
-<!ENTITY findPrevious.accesskey "t">
-<!ENTITY findPrevious.tooltip "Cerca l'anterior coincidència de l'expressió">
+<!ENTITY next.label "Següent">
+<!ENTITY next.accesskey "n">
+<!ENTITY next.tooltip "Cerca la següent coincidència de l'expressió">
+<!ENTITY previous.label "Anterior">
+<!ENTITY previous.accesskey "t">
+<!ENTITY previous.tooltip "Cerca l'anterior coincidència de l'expressió">
 <!ENTITY findCloseButton.tooltip "Tanca la barra de cerca">
-<!ENTITY highlight.label "Ressalta">
+<!ENTITY highlight.label "Ressalta-ho tot">
 <!ENTITY highlight.accesskey "a">
-<!ENTITY highlight.tooltip "Ressalta totes les ocurrències de la frase (Ctrl+Retorn)">
+<!ENTITY highlight.tooltiptext "Ressalta totes les ocurrències de la frase">
 <!ENTITY caseSensitiveCheckbox.label "Distingeix entre majúscules i minúscules">
-<!ENTITY caseSensitiveCheckbox.accesskey "g">
-
+<!ENTITY caseSensitiveCheckbox.accesskey "c">

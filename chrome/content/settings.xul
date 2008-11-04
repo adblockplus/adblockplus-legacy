@@ -234,11 +234,11 @@
               oncompositionstart="onFindBarCompositionStart()"
               oncompositionend="onFindBarCompositionEnd()"/>
     </hbox>
-    <toolbarbutton id="find-next" label="&findNext.label;" tooltiptext="&findNext.tooltip;"
-                    command="find-again-command" disabled="true" accesskey="&findNext.accesskey;"/>
-    <toolbarbutton id="find-previous" label="&findPrevious.label;" tooltiptext="&findPrevious.tooltip;"
-                    command="find-previous-command" disabled="true" accesskey="&findPrevious.accesskey;"/>
-    <toolbarbutton id="highlight" label="&highlight.label;" tooltiptext="&highlight.tooltip;"
+    <toolbarbutton id="find-next" label="&next.label;" tooltiptext="&next.tooltip;"
+                    command="find-again-command" disabled="true" accesskey="&next.accesskey;"/>
+    <toolbarbutton id="find-previous" label="&previous.label;" tooltiptext="&previous.tooltip;"
+                    command="find-previous-command" disabled="true" accesskey="&previous.accesskey;"/>
+    <toolbarbutton id="highlight" label="&highlight.label;" tooltiptext="&highlight.tooltiptext;"
                     oncommand="toggleHighlight()" type="checkbox" accesskey="&highlight.accesskey;"/>
     <image id="find-status-icon"/>
     <label id="find-status"/>

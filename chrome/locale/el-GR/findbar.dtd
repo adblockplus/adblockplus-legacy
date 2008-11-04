@@ -3,16 +3,16 @@
 
 <!-- entities split out from browser.dtd -->
 <!ENTITY find.label "Εύρεση:">
-<!ENTITY findNext.label "Εύρεση επομένου">
-<!ENTITY findNext.tooltip "Εύρεση της επόμενης εμφάνισης της φράσης">
-<!ENTITY findPrevious.label "Εύρεση προηγουμένου">
-<!ENTITY findPrevious.tooltip "Εύρεση της προηγούμενης εμφάνισης της φράσης">
 <!ENTITY findCloseButton.tooltip "Κλείσιμο μπάρας εύρεσης">
 <!ENTITY highlight.label "Επισήμανση">
-<!ENTITY highlight.tooltip "Επισήμανση όλων των εμφανίσεων της φράσης (Ctrl+Enter)">
-<!ENTITY caseSensitiveCheckbox.label "Ταίριασμα χαρακτήρα">
-<!ENTITY caseSensitiveCheckbox.accesskey "ρ">
-<!ENTITY findPrevious.accesskey "π">
-<!ENTITY findNext.accesskey "ν">
 <!ENTITY highlight.accesskey "σ">
-<!ENTITY highlight.macTooltip "Επισήμανση όλων των των εμφανίσεων της φράσης (Cmd+Return)">
+<!ENTITY next.label "Επόμενο">
+<!ENTITY next.accesskey "ν">
+<!ENTITY next.tooltip "Εύρεση της επόμενης εμφάνισης της φράσης">
+<!ENTITY previous.label "Προηγούμενο">
+<!ENTITY previous.accesskey "γ">
+ <!ENTITY previous.tooltip "Εύρεση της προηγούμενης εμφάνισης της φράσης">
+
+<!ENTITY highlight.tooltiptext "Επισήμανση όλων των εμφανίσεων της φράσης">
+<!ENTITY caseSensitiveCheckbox.label "Ταίριασμα χαρακτήρα">
+<!ENTITY caseSensitiveCheckbox.accesskey "χ">

@@ -1,14 +1,17 @@
-<!ENTITY find.label "Otsi:">
-<!ENTITY findNext.label "Otsi järgmist">
-<!ENTITY findNext.accesskey "O">
-<!ENTITY findNext.tooltip "Otsi järgmist juhtumit fraasis">
-<!ENTITY findPrevious.label "Otsi eelmist">
-<!ENTITY findPrevious.accesskey "L">
-<!ENTITY findPrevious.tooltip "Otsi eelmist juhtumit fraasis">
-<!ENTITY findCloseButton.tooltip "Sulge otsimisriba">
-<!ENTITY highlight.label "Tõsta kõik esile">
-<!ENTITY highlight.accesskey "e">
-<!ENTITY highlight.tooltip "Tõsta esile kõik juhtumid fraasis (Ctrl+Enter)">
-<!ENTITY highlight.macTooltip "Tõsta eilse kõik fraasi juhtumid (Cmd+Return)">
-<!ENTITY caseSensitiveCheckbox.label "Sobita juhtum">
-<!ENTITY caseSensitiveCheckbox.accesskey "h">
+<!-- LOCALIZATION NOTE : FILE This file contains the entities needed to -->
+<!-- LOCALIZATION NOTE : FILE use the Find Bar. --> 
+<!-- entities split out from browser.dtd -->
+
+<!ENTITY find.label "Otsing:">
+<!ENTITY next.label "Järgmine">
+<!ENTITY next.accesskey "J">
+<!ENTITY next.tooltip "Järgmine otsingutulemus">
+<!ENTITY previous.label "Eelmine">
+<!ENTITY previous.accesskey "E">
+<!ENTITY previous.tooltip "Eelmine otsingutulemus">
+<!ENTITY findCloseButton.tooltip "Sulge otsinguriba">
+<!ENTITY highlight.label "Too kõik esile">
+<!ENTITY highlight.accesskey "k">
+<!ENTITY highlight.tooltiptext "Too see fraas lehel esile">
+<!ENTITY caseSensitiveCheckbox.label "Tõstutundlik">
+<!ENTITY caseSensitiveCheckbox.accesskey "t">

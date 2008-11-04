@@ -3,17 +3,15 @@
 
 <!-- entities split out from browser.dtd -->
 <!ENTITY find.label "Zoeken:">
-<!ENTITY findNext.label "Volgende zoeken">
-<!ENTITY findNext.accesskey "V">
-<!ENTITY findNext.tooltip "Het volgende voorkomen van de tekst zoeken">
-<!ENTITY findPrevious.label "Vorige zoeken">
-<!ENTITY findPrevious.accesskey "r">
-<!ENTITY findPrevious.tooltip "Het vorige voorkomen van de tekst zoeken">
+<!ENTITY next.label "Volgende">
+<!ENTITY next.accesskey "V">
+<!ENTITY next.tooltip "Het volgende voorkomen van de tekst zoeken">
+<!ENTITY previous.label "Vorige">
+<!ENTITY previous.accesskey "r">
+<!ENTITY previous.tooltip "Het vorige voorkomen van de tekst zoeken">
 <!ENTITY findCloseButton.tooltip "Zoekbalk sluiten">
 <!ENTITY highlight.label "Alles markeren">
 <!ENTITY highlight.accesskey "A">
-<!ENTITY highlight.tooltip "Alle voorkomens van de tekst markeren (Ctrl+Enter)">
-<!ENTITY highlight.macTooltip "Alle voorkomens van de tekst markeren (Cmd+Return)">
+<!ENTITY highlight.tooltiptext "Alle voorkomens van de tekst markeren">
 <!ENTITY caseSensitiveCheckbox.label "Hoofdlettergevoelig">
-<!ENTITY caseSensitiveCheckbox.accesskey "H">
-
+<!ENTITY caseSensitiveCheckbox.accesskey "o">

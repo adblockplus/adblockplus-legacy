@@ -1,14 +1,17 @@
+<!-- LOCALIZATION NOTE : FILE This file contains the entities needed to -->
+<!-- LOCALIZATION NOTE : FILE use the Find Bar. -->
+
+<!-- entities split out from browser.dtd -->
 <!ENTITY find.label "Najít:">
-<!ENTITY findNext.label "Najít další">
-<!ENTITY findNext.accesskey "d">
-<!ENTITY findNext.tooltip "Najít další výskyt hledaného spojení">
-<!ENTITY findPrevious.label "Najít předchozí">
-<!ENTITY findPrevious.accesskey "P">
-<!ENTITY findPrevious.tooltip "Najít předchozí výskyt hledaného spojení">
-<!ENTITY findCloseButton.tooltip "Zavřít lištu vyhledávání">
-<!ENTITY highlight.label "Zvýraznit vše">
+<!ENTITY next.label "Další">
+<!ENTITY next.accesskey "l">
+<!ENTITY next.tooltip "Najde další výskyt hledaného spojení">
+<!ENTITY previous.label "Předchozí">
+<!ENTITY previous.accesskey "e">
+<!ENTITY previous.tooltip "Najde předchozí výskyt hledaného spojení">
+<!ENTITY findCloseButton.tooltip "Zavře lištu hledání">
+<!ENTITY highlight.label "Zvýraznit">
 <!ENTITY highlight.accesskey "Z">
-<!ENTITY highlight.tooltip "Zvýrazní­ všechny výskyty hledaného spojení­ (Ctrl+Enter)">
-<!ENTITY highlight.macTooltip "Zvýrazní­ všechny výskyty hledaného spojení (Cmd+Return)">
-<!ENTITY caseSensitiveCheckbox.label "Rozlišovat velikost písmen">
+<!ENTITY highlight.tooltiptext "Zvýrazní všechny výskyty hledaného spojení">
+<!ENTITY caseSensitiveCheckbox.label "Rozlišovat velikost">
 <!ENTITY caseSensitiveCheckbox.accesskey "R">

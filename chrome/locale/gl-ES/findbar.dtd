@@ -1,14 +1,17 @@
-<!ENTITY find.label "Atopar:">
-<!ENTITY findNext.label "Atopar seguiNte">
-<!ENTITY findNext.accesskey "N">
-<!ENTITY findNext.tooltip "Atopar a seguinte aparición da frase">
-<!ENTITY findPrevious.label "Atopar Previo">
-<!ENTITY findPrevious.accesskey "P">
-<!ENTITY findPrevious.tooltip "Atopar a aparición previa da frase">
-<!ENTITY findCloseButton.tooltip "Pechar a barra de Atopar">
-<!ENTITY highlight.label "Resaltar todos">
-<!ENTITY highlight.accesskey "a">
-<!ENTITY highlight.tooltip "Resaltar todas as aparicións da frase (Ctrl+Enter)">
-<!ENTITY highlight.macTooltip "Resaltar todas as aparicións da frase(Cmd+Return)">
-<!ENTITY caseSensitiveCheckbox.label "Caso Match">
-<!ENTITY caseSensitiveCheckbox.accesskey "c">
+<!-- LOCALIZATION NOTE : FILE This file contains the entities needed to -->
+<!-- LOCALIZATION NOTE : FILE use the Find Bar. --> 
+
+<!-- entities split out from browser.dtd -->
+<!ENTITY find.label "Localizar:">
+<!ENTITY next.label "Seguinte">
+<!ENTITY next.accesskey "S">
+<!ENTITY next.tooltip "Localizar a seguinte aparición da frase">
+<!ENTITY previous.label "Anterior">
+<!ENTITY previous.accesskey "A">
+<!ENTITY previous.tooltip "Localizar a anterior aparición da frase">
+<!ENTITY findCloseButton.tooltip "Pechar a barra de localización">
+<!ENTITY highlight.label "Realzar todo">
+<!ENTITY highlight.accesskey "R">
+<!ENTITY highlight.tooltiptext "Realzar todas as aparicións da frase">
+<!ENTITY caseSensitiveCheckbox.label "Diferenciar maiúsculas de minúsculas">
+<!ENTITY caseSensitiveCheckbox.accesskey "m">
