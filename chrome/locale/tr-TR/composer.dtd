@@ -1,0 +1,40 @@
+<!ENTITY dialog.title "Adblock Plus süzgeç kuralı ekle">
+<!ENTITY accept.label "Süzgeç ekle">
+<!ENTITY advanced.label "Gelişmiş görünüm">
+<!ENTITY basic.label "Temel görünüm">
+<!ENTITY disabled.warning.beforeLink "Adblock Plus şu an devre dışı. Yine de süzgeç ekleyebilirsiniz, ancak bunlar">
+<!ENTITY disabled.warning.link "Adblock Plus etkinleştirilene kadar">
+<!ENTITY disabled.warning.afterLink "uygulanmayacaktır.">
+<!ENTITY filter.label "Yeni süzgeç:">
+<!ENTITY filter.accesskey "s">
+<!ENTITY preferences.label "Mevcut süzgeçleri göster...">
+<!ENTITY preferences.accesskey "S">
+<!ENTITY type.filter.label "Engelleyen süzgeç">
+<!ENTITY type.filter.accesskey "l">
+<!ENTITY type.whitelist.label "Hariç tutma kuralı">
+<!ENTITY type.whitelist.accesskey "h">
+<!ENTITY pattern.label "Aranacak örnek">
+<!ENTITY pattern.explanation "Bu örnek adresin herhangi bir bölümü olabilir ve * işareti joker görevi yapar. Süzgeç sadece örneğe uyan adreslere uygulanacak.">
+<!ENTITY regexp.warning "Girdiğiniz örnek düzenli ifade olarak yorumlanacak. Çok fazla düzenli ifade, taramayı yavaşlatabilir. Gerçekten düzenli ifade kullanmak istediğinizden emin değilseniz örneğin sonuna * işareti koyun.">
+<!ENTITY shortpattern.warning "Girdiğiniz örnek en iyileştirmek için çok kısa ve bu tür örnekler taramayı yavaşlatabilir. Bu süzgeç için daha uzun bir satır seçmeniz tavsiye edilir.">
+<!ENTITY custom.pattern.label "Özel:">
+<!ENTITY custom.pattern.accesskey "z">
+<!ENTITY anchors.label "Örneği sadece burada kabul et:">
+<!ENTITY anchor.start.label "adresin başında">
+<!ENTITY anchor.start.accesskey "b">
+<!ENTITY anchor.end.label "adresin sonunda">
+<!ENTITY anchor.end.accesskey "s">
+<!ENTITY options.label "Seçenekler">
+<!ENTITY firstParty.label "Sadece birinci kişilerden">
+<!ENTITY firstParty.accesskey "b">
+<!ENTITY thirdParty.label "Sadece üçüncü kişilerden">
+<!ENTITY thirdParty.accesskey "c">
+<!ENTITY matchCase.label "Birebir eşleşme">
+<!ENTITY matchCase.accesskey "e">
+<!ENTITY types.label "Bu türlere uygula:">
+<!ENTITY collapse.label "Engellenenleri kapat:">
+<!ENTITY collapse.accesskey "l">
+<!ENTITY collapse.default.yes.label "Öntanımlı kullan (evet)">
+<!ENTITY collapse.default.no.label "Öntanımlı kullan (hayır)">
+<!ENTITY collapse.yes.label "Evet">
+<!ENTITY collapse.no.label "Hayır">
