@@ -84,7 +84,7 @@ sub retrieveKey
 
   return undef unless exists $fileCache{$fileName};
 
-  die "Key $key not found in locale $locale" unless exists $fileCache{$fileName}{$keyName};
+  warn "Key $key not found in locale $locale" unless exists $fileCache{$fileName}{$keyName};
   return $fileCache{$fileName}{$keyName};
 }
 
