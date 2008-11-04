@@ -34,6 +34,8 @@ foreach my $locale (@locales)
 {
   my $currentLocale = $locale eq "en-US" ? $referenceLocale : readLocaleFiles($locale);
 
+  compareLocales($locale, $currentLocale, $referenceLocale) unless $currentLocale == $referenceLocale;
+
   foreach my $entry (@must_differ)
   {
     my %values = ();
@@ -152,4 +154,49 @@ sub readLocaleFiles
   }
 
   return \%result;
+}
+
+sub compareLocales
+{
+  my ($locale, $current, $reference) = @_;
+
+  my %hasFile = ();
+  foreach my $file (keys %$current)
+  {
+    unless (exists($reference->{$file}))
+    {
+      warn "Extra file '$file' in locale $locale";
+      next;
+    }
+    $hasFile{$file} = 1;
+
+    my %hasValue = ();
+    foreach my $key (keys %{$current->{$file}})
+    {
+      unless (exists($reference->{$file}{$key}))
+      {
+        warn "Extra value '$file:$key' in locale $locale";
+        next;
+      }
+      $hasValue{$key} = 1;
+    }
+
+    foreach my $key (keys %{$reference->{$file}})
+    {
+      unless (exists($current->{$file}{$key}))
+      {
+        warn "Missing value '$file:$key' in locale $locale";
+        next;
+      }
+    }
+  }
+
+  foreach my $file (keys %$reference)
+  {
+    unless (exists($current->{$file}))
+    {
+      warn "Missing file '$file' in locale $locale";
+      next;
+    }
+  }
 }
