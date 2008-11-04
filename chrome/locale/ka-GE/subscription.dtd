@@ -1,0 +1,4 @@
+<!ENTITY new.description "შეიყვანეთ იმ ფილტრის web-ადრესი, რომელში Adblock Plus-ის ფილტრებია.">
+<!ENTITY edit.description "ამ სუბსკრიპტიონის ფილტრი გადმოტვირთული იქნება იმ web-ადრესიდან, რომელიც შეიყვანეთ.">
+<!ENTITY external.description "ეს არის გარეთა ფილტრების სუბსკრიპტიონი, იმის ფილტრების სია up-to-date იქნება იმ გაფართოების მეშვეობით, რომელიც გააკეთა.">
+<!ENTITY autodownload.description "თუ თქვენ">

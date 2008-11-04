@@ -1,0 +1,8 @@
+<!ENTITY find.label "Търсене:">
+<!ENTITY findNext.label "Търсене на следващ">
+<!ENTITY findNext.accesskey "N">
+<!ENTITY findNext.tooltip "Търсене на следващa поява на фразата">
+<!ENTITY findPrevious.label "Търсене на предишен">
+<!ENTITY findPrevious.accesskey "P">
+<!ENTITY findPrevious.tooltip "Търсене на предишна поява на фразата">
+<!ENTITY findCloseButton.tooltip "Затваряне на лентата за търсене">

@@ -1,0 +1,19 @@
+<!ENTITY notloaded.label "დათვირთული არა არის">
+<!ENTITY notloaded.tooltip "Adblock Plus-ის კომპონენტი არ მუშაობს, შეიძლება კარგად არ არის დაყენებული.">
+<!ENTITY status.tooltip "სტატუსი:">
+<!ENTITY blocked.tooltip "ამ web-გვერდზე ბლოკირებული ელემენტები:">
+<!ENTITY filters.tooltip "ყველაზე აქტიური ფილტრები:">
+<!ENTITY menuitem.label "Adblock Plus">
+<!ENTITY menuitem.accesskey "B">
+<!ENTITY context.image.label "დაბლოკე სურათი">
+<!ENTITY context.object.label "დაბლოკე ობიექტი">
+<!ENTITY context.frame.label "დაბლოკე ფრეიმი">
+<!ENTITY sidebar.title "ამ web-გვერდის ბლოკირებადი ელემენტები">
+<!ENTITY settings.label "ოპციები">
+<!ENTITY settings.accesskey "А">
+<!ENTITY opensidebar.label "გახსენი ბლოკირებადი ელემენტები">
+<!ENTITY opensidebar.accesskey "И">
+<!ENTITY closesidebar.label "დახურე ბლოკირებადი ელემენტები">
+<!ENTITY closesidebar.accesskey "И">
+<!ENTITY whitelist.site.label "გამორთე ––ზე">
+<!ENTITY whitelist.page.label "გამორთე მხოლოდ ამ web-გვერდზე">

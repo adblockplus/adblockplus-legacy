@@ -33,9 +33,9 @@
 <!ENTITY options.accesskey "d">
 <!ENTITY enable.label "Slå Adblock Plus til">
 <!ENTITY enable.accesskey "I">
-<!ENTITY showintoolbar.label "Vis i værktøjslinie">
+<!ENTITY showintoolbar.label "Vis i værktøjslinje">
 <!ENTITY showintoolbar.accesskey "V">
-<!ENTITY showinstatusbar.label "Vis i statuslinie">
+<!ENTITY showinstatusbar.label "Vis i statuslinje">
 <!ENTITY showinstatusbar.accesskey "s">
 <!ENTITY objecttabs.label "Vis faner på Flash og Java">
 <!ENTITY objecttabs.accesskey "J">

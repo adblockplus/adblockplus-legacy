@@ -1,0 +1,11 @@
+<!ENTITY menuitem.label "Adblock Plus">
+<!ENTITY menuitem.accesskey "B">
+<!ENTITY context.image.label "Íomhá Adblock">
+<!ENTITY context.frame.label "Creatlach Adblock">
+<!ENTITY settings.label "Sainroghanna">
+<!ENTITY settings.accesskey "F">
+<!ENTITY opensidebar.label "Oscail nithe ar féidir bac a chur orthu">
+<!ENTITY opensidebar.accesskey "B">
+<!ENTITY closesidebar.label "Dún nithe ar féidir bac a chur orthu">
+<!ENTITY closesidebar.accesskey "B">
+<!ENTITY objecttab.title "Cuir bac ar">

@@ -1,76 +1,72 @@
-<!ENTITY dialog.title "Tùy Thích cho Adblock Plus">
-<!ENTITY filters.label "Lọc">
-<!ENTITY filters.accesskey "L">
-<!ENTITY add.label "Thêm quy luật lọc">
-<!ENTITY add.accesskey "T">
-<!ENTITY addsubscription.label "Đăng ký thêm bộ lọc">
+<!ENTITY dialog.title "Tùy Chọn Adblock Plus">
+<!ENTITY filters.label "Bộ lọc">
+<!ENTITY filters.accesskey "l">
+<!ENTITY add.label "Thêm bộ lọc">
+<!ENTITY add.accesskey "A">
+<!ENTITY addsubscription.label "Đăng kí thêm bộ lọc">
 <!ENTITY addsubscription.accesskey "k">
-<!ENTITY synchsubscriptions.label "Cập nhật tất cả bộ lọc đăng ký">
+<!ENTITY synchsubscriptions.label "Cập nhật tất cả bộ lọc đăng kí">
 <!ENTITY synchsubscriptions.accesskey "C">
-<!ENTITY import.label "Nhập các quy luật lọc">
-<!ENTITY import.accesskey "N">
-<!ENTITY export.label "Xuất các quy luật lọc">
-<!ENTITY export.accesskey "X">
-<!ENTITY clearall.label "Xóa toàn bộ các quy luật">
-<!ENTITY clearall.accesskey "a">
-<!ENTITY resethitcounts.label "Zero số lần hit">
-<!ENTITY resethitcounts.accesskey "Z">
+<!ENTITY import.label "Nhập các bộ lọc">
+<!ENTITY import.accesskey "h">
+<!ENTITY export.label "Xuất các bộ lọc">
+<!ENTITY export.accesskey "u">
+<!ENTITY clearall.label "Xóa tất cả các bộ lọc">
+<!ENTITY clearall.accesskey "X">
+<!ENTITY resethitcounts.label "Đưa số lần hit về 0">
+<!ENTITY resethitcounts.accesskey "a">
 <!ENTITY edit.label "Chỉnh sửa">
 <!ENTITY edit.accesskey "C">
 <!ENTITY cut.label "Cắt">
-<!ENTITY cut.accesskey "C">
+<!ENTITY cut.accesskey "T">
 <!ENTITY copy.label "Chép">
-<!ENTITY copy.accesskey "h">
+<!ENTITY copy.accesskey "C">
 <!ENTITY paste.label "Dán">
 <!ENTITY paste.accesskey "D">
 <!ENTITY remove.label "Xóa">
 <!ENTITY remove.accesskey "X">
 <!ENTITY menu.find.label "Tìm">
-<!ENTITY menu.find.accesskey "T">
-<!ENTITY menu.findagain.label "Tìm lại">
-<!ENTITY menu.findagain.accesskey "l">
+<!ENTITY menu.find.accesskey "m">
+<!ENTITY menu.findagain.label "Tìm Lại">
+<!ENTITY menu.findagain.accesskey "i">
 <!ENTITY options.label "Tùy chọn">
-<!ENTITY options.accesskey "h">
+<!ENTITY options.accesskey "y">
 <!ENTITY enable.label "Bật Adblock Plus">
 <!ENTITY enable.accesskey "B">
 <!ENTITY showintoolbar.label "Hiện trong thanh công cụ">
 <!ENTITY showintoolbar.accesskey "H">
 <!ENTITY showinstatusbar.label "Hiện trong thanh trạng thái">
-<!ENTITY showinstatusbar.accesskey "t">
-<!ENTITY objecttabs.label "Hiện thẻ Adblock trên Flash và Java">
-<!ENTITY objecttabs.accesskey "A">
-<!ENTITY collapse.label "Dồn nhóm các phần tử bị chặn">
-<!ENTITY collapse.accesskey "D">
-<!ENTITY help.label "Trợ Giúp">
-<!ENTITY help.accesskey "G">
+<!ENTITY showinstatusbar.accesskey "i">
+<!ENTITY objecttabs.label "Hiện thẻ trên Flash và Java">
+<!ENTITY objecttabs.accesskey "t">
+<!ENTITY collapse.label "Thu gọn các thành phần bị chặn">
+<!ENTITY collapse.accesskey "u">
+<!ENTITY help.label "Trợ giúp">
+<!ENTITY help.accesskey "g">
 <!ENTITY faq.label "Những Câu Hỏi Thường Gặp">
 <!ENTITY faq.accesskey "N">
 <!ENTITY faq.url "http://adblockplus.org/en/faq">
 <!ENTITY tips.label "Mẹo vặt của Hôm nay">
 <!ENTITY tips.accesskey "M">
 <!ENTITY tips.url "http://adblockplus.org/en/tips">
-<!ENTITY filterdoc.label "Cách tạo quy luật lọc cho Adblock Plus">
-<!ENTITY filterdoc.accesskey "t">
+<!ENTITY filterdoc.label "Cách tạo bộ lọc cho Adblock Plus">
+<!ENTITY filterdoc.accesskey "C">
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Thông tin về Adblock Plus">
-<!ENTITY about.accesskey "v">
-<!ENTITY disabled.warning "Adblock Plus đã vô hiệu. Bạn có thể sửa bất kỳ quy luật lọc quảng cáo nào trong danh sách, nhưng các quy luật lọc quảng cáo đó sẽ không có hiệu quả đến khi bạn bật lại Adblock Plus.">
-<!ENTITY description "
-				Thêm những địa chỉ bạn muốn chặn, kiểm tra các gợi ý trong danh sách dropdown.
-				Bạn có thể dùng * như là mặc nạ để tạo thêm các quy luật quảng cáo tổng quát.
-				Người sử dụng sành điệu có thể sử dụng regular expressions như /bannerd+.gif$/.
-">
-<!ENTITY pattern.column "Quy Luật">
+<!ENTITY about.accesskey "T">
+<!ENTITY disabled.warning "Adblock Plus đã bị vô hiệu hóa. Bạn có thể chỉnh sửa bất kì bộ lọc nào trong danh sách, nhưng các bộ lọc đó sẽ không được áp dụng cho đến khi bạn bật lại Adblock Plus.">
+<!ENTITY description "Thêm những địa chỉ bạn muốn chặn, kiểm tra các đề xuất trong danh sách thả xuống. Bạn có thể dùng * như là mặt nạ để tạo thêm các bộ lọc tổng quát. Người dùng nâng cao có thể sử dụng biểu thức quy tắc (regular expression) như /bannerd+.gif$/.">
+<!ENTITY pattern.column "Quy luật">
 <!ENTITY enabled.column "Có hiệu lực">
-<!ENTITY hitcount.column "Hits">
+<!ENTITY hitcount.column "Số lần hit">
 <!ENTITY lasthit.column "Lần hit cuối">
-<!ENTITY context.edit.label "Sửa quy luật">
-<!ENTITY context.resethitcount.label "Zero số lần hit cho quy luật">
-<!ENTITY context.synchsubscription.label "Cập nhật đăng ký ngay bây giờ">
-<!ENTITY context.editsubscription.label "Sửa đăng ký">
+<!ENTITY context.edit.label "Chỉnh sửa bộ lọc">
+<!ENTITY context.resethitcount.label "Đưa số lần hit của bộ lọc về 0">
+<!ENTITY context.synchsubscription.label "Cập nhật đăng kí ngay bây giờ">
+<!ENTITY context.editsubscription.label "Chỉnh sửa đăng kí">
 <!ENTITY context.moveup.label "Di chuyển lên">
 <!ENTITY context.movedown.label "Di chuyển xuống">
 <!ENTITY context.movegroupup.label "Di chuyển nhóm lên">
 <!ENTITY context.movegroupdown.label "Di chuyển nhóm xuống">
-<!ENTITY apply.label "Áp dụng">
-<!ENTITY apply.accesskey "p">
+<!ENTITY apply.label "Dùng thử">
+<!ENTITY apply.accesskey "D">

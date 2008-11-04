@@ -15,7 +15,7 @@
 <!ENTITY clearall.accesskey "S">
 <!ENTITY resethitcounts.label "Remettre le compteur à zéro">
 <!ENTITY resethitcounts.accesskey "z">
-<!ENTITY edit.label "Edition">
+<!ENTITY edit.label "Édition">
 <!ENTITY edit.accesskey "E">
 <!ENTITY cut.label "Couper">
 <!ENTITY cut.accesskey "u">

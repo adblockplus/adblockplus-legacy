@@ -1,0 +1,23 @@
+<!ENTITY dialog.title "Editar filtro de subscrición">
+<!ENTITY dialog.newtitle "Engadir filtro de subscrición">
+<!ENTITY new.description "Introduza a dirección web ou un arquivo que conteña unha lista de
+	 filtros de Adblock Plus.">
+<!ENTITY edit.description "A lista de filtros para esta subscrición vai
+	 ser descargada dese lugar.">
+<!ENTITY external.description "É unha subscrición externa de filtros, a súa lista de 
+	 filtros manterase ao día pola extensión que creou esta 
+	 subscrición.">
+<!ENTITY autodownload.description "Se escolle &quot;Actualizar automaticamente&quot; buscaranse 
+	 actualizacións diarias. Con esta opción desactivada 
+	 aínda poderá actualizar manualmente a subscrición co 
+	 menú de contexto.">
+<!ENTITY location.label "Localización da lista de *Filtros:">
+<!ENTITY location.accesskey "L">
+<!ENTITY title.label "Título da subscrición:">
+<!ENTITY title.accesskey "T">
+<!ENTITY autodownload.label "Posta ao día automática">
+<!ENTITY autodownload.accesskey "P">
+<!ENTITY enabled.label "Accionar filtros">
+<!ENTITY enabled.accesskey "N">
+<!ENTITY full-list.url "http://adblockplus.org/en/subscriptions">
+<!ENTITY full-list.label "Ver todas as subscricións">

@@ -1,0 +1,23 @@
+<!ENTITY detached.title "Adblock Plus - Ֆիլտրվվող տարրեր (Անջատ)">
+<!ENTITY detach.label "Անջատ պատուհան">
+<!ENTITY reattach.label "Ամրացնել">
+<!ENTITY search.label "Փնտրել">
+<!ENTITY search.accesskey "S">
+<!ENTITY type.label "Տեսակը">
+<!ENTITY address.label "Հասցեն">
+<!ENTITY filter.label "Ազդող ֆիլտրը">
+<!ENTITY state.label "Վիճակը">
+<!ENTITY noitems.label "Ֆիլտրվվող տարրեր չկան">
+<!ENTITY whitelisted.label "Բացառություն">
+<!ENTITY notloaded.label "«Adblock Plus»ը նորմալ տեղադրվել է">
+<!ENTITY tooltip.address.label "Հասցեն`">
+<!ENTITY tooltip.type.label "Տեսակը`">
+<!ENTITY tooltip.type.blocked "(ֆիլտրված)">
+<!ENTITY tooltip.type.whitelisted "(բացառություն)">
+<!ENTITY tooltip.filter.label "Ազդող ֆիլտրը`">
+<!ENTITY context.block.label "Ֆիլտրել այս տարրը">
+<!ENTITY context.editfilter.label "Խմբագրել Ազդող ֆիլտրը">
+<!ENTITY context.whitelist.label "Այս տարրի համար Բացառություն ավելացնել">
+<!ENTITY context.open.label "Բացել նոր Թաբում">
+<!ENTITY context.flash.label "Ցույց տալ օբյեկտը էջում">
+<!ENTITY context.copy.label "Կրկնել տարրի հասցեն">

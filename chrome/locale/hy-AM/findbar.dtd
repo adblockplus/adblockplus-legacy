@@ -1,0 +1,14 @@
+<!ENTITY find.label "Փնտրել ">
+<!ENTITY findNext.label "Նորից Փնտրել">
+<!ENTITY findNext.accesskey "N">
+<!ENTITY findNext.tooltip "Գտնել հաջորդ համընկնումը">
+<!ENTITY findPrevious.label "Գտնել նախորդը">
+<!ENTITY findPrevious.accesskey "P">
+<!ENTITY findPrevious.tooltip "Գտնել նախորդ համընկնումը">
+<!ENTITY findCloseButton.tooltip "Փակել ">
+<!ENTITY highlight.label "Ընդգծել բոլորը">
+<!ENTITY highlight.accesskey "a">
+<!ENTITY highlight.tooltip "Ընդգծել արտահայտության բոլոր համընկնումները (Ctrl+Enter)">
+<!ENTITY highlight.macTooltip "Ընդգծել արտահայտության բոլոր համընկնումները (Cmd+Return)">
+<!ENTITY caseSensitiveCheckbox.label "Հաշվի առնելով տառատեսակը">
+<!ENTITY caseSensitiveCheckbox.accesskey "c">

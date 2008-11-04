@@ -1,0 +1,13 @@
+<!ENTITY find.label "Bilatu:">
+<!ENTITY findNext.label "Hurrengoa Bilatu">
+<!ENTITY findNext.accesskey "H">
+<!ENTITY findNext.tooltip "Esaldiaren hurrengo agerraldia Bilatu ">
+<!ENTITY findPrevious.label "Aurrekoa Bilatu">
+<!ENTITY findPrevious.accesskey "A">
+<!ENTITY findPrevious.tooltip "Esaldiaren aurreko agerraldia Bilatu ">
+<!ENTITY findCloseButton.tooltip "Bilaketa-barra Itxi">
+<!ENTITY highlight.label "Nabarmendu">
+<!ENTITY highlight.accesskey "a">
+<!ENTITY highlight.tooltip "Esaldiaren agerraldi guztiak nabarmendu (Ctrl+Enter)">
+<!ENTITY caseSensitiveCheckbox.label "Maiuskula/minuskula">
+<!ENTITY caseSensitiveCheckbox.accesskey "u">

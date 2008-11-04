@@ -1,0 +1,14 @@
+<!ENTITY find.label "ძებნა">
+<!ENTITY findNext.label "შემდეგი">
+<!ENTITY findNext.accesskey "N">
+<!ENTITY findNext.tooltip "შემდეგი რეზულტატის ძებნა">
+<!ENTITY findPrevious.label "უკნის ძებნა">
+<!ENTITY findPrevious.accesskey "P">
+<!ENTITY findPrevious.tooltip "უკანა რეზულტატის ძებნა">
+<!ENTITY findCloseButton.tooltip "ძებნის პანელის დახურვა">
+<!ENTITY highlight.label "ყველა რეზულტატის მონიშვნა">
+<!ENTITY highlight.accesskey "a">
+<!ENTITY highlight.tooltip "ყველა რეზულტატის მონიშვნა">
+<!ENTITY highlight.macTooltip "ყველა რეზულტატის მონიშვნა">
+<!ENTITY caseSensitiveCheckbox.label "დიდი თუ პატარა ასოები მნიშვნელოვანია">
+<!ENTITY caseSensitiveCheckbox.accesskey "с">

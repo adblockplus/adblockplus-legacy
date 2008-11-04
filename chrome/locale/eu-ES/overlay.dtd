@@ -1,0 +1,11 @@
+<!ENTITY notloaded.tooltip "Adblock Plus osagaia ezin izan da kargatu, baliteke ondo instalatuta ez egotea.">
+<!ENTITY menuitem.label "Adblock Plus">
+<!ENTITY context.image.label "Adblock Irudia">
+<!ENTITY context.object.label "Adblock Objektu">
+<!ENTITY context.frame.label "Adblock Markoa">
+<!ENTITY sidebar.title "Elementu blokeagarriak uneko orrialdean">
+<!ENTITY settings.label "Lehentasunak">
+<!ENTITY opensidebar.label "Ireki elementu blokeagarriak">
+<!ENTITY closesidebar.label "Itxi elementu blokeagarriak">
+<!ENTITY whitelist.site.label "Ezgaitu --">
+<!ENTITY whitelist.page.label "Ezgaitu orri honetan soilik">

@@ -1,21 +1,13 @@
 <!ENTITY dialog.title "Редагувати підписку">
 <!ENTITY dialog.newtitle "Додати підписку">
-<!ENTITY new.description "
-	Будь ласка введіть адресу в інтернеті або шлях до файлу, де розташований
-	список фільтрів для Adblock Plus.
-">
-<!ENTITY edit.description "
-	Список фільтрів для цієї підписки викачуватиметься із заданої адреси.
-">
-<!ENTITY external.description "
-	Це зовнішня підписка, вона актуалізуватиметься розширенням, яке
-	її додало.
-">
-<!ENTITY autodownload.description "
-	Якщо вибрано «Оновлювати автоматично», то оновлення викачуватимуться
+<!ENTITY new.description "Будь ласка введіть адресу в інтернеті або шлях до файлу, де розташований
+	список фільтрів для Adblock Plus.">
+<!ENTITY edit.description "Список фільтрів для цієї підписки викачуватиметься із заданої адреси.">
+<!ENTITY external.description "Це зовнішня підписка, вона актуалізуватиметься розширенням, яке
+	її додало.">
+<!ENTITY autodownload.description "Якщо вибрано «Оновлювати автоматично», то оновлення викачуватимуться
 	з цієї адреси щодня.  Без цієї опції викачування потрібно запускати
-	вручну з контекстного меню підписки.
-">
+	вручну з контекстного меню підписки.">
 <!ENTITY location.label "Адреса списку фільтрів:">
 <!ENTITY location.accesskey "е">
 <!ENTITY title.label "Назва підписки:">
@@ -23,6 +15,6 @@
 <!ENTITY autodownload.label "Оновлювати автоматично">
 <!ENTITY autodownload.accesskey "о">
 <!ENTITY enabled.label "Увімкнути фільтри">
-<!ENTITY enabled.accesskey "ю">
+<!ENTITY enabled.accesskey "У">
 <!ENTITY full-list.url "http://adblockplus.org/en/subscriptions">
 <!ENTITY full-list.label "Показати усі підписки">

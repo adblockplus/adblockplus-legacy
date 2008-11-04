@@ -32,7 +32,7 @@
 <!ENTITY options.label "Налаштування">
 <!ENTITY options.accesskey "а">
 <!ENTITY enable.label "Увімкнути Adblock Plus">
-<!ENTITY enable.accesskey "ю">
+<!ENTITY enable.accesskey "У">
 <!ENTITY showintoolbar.label "Показувати в панелі інструментів">
 <!ENTITY showintoolbar.accesskey "к">
 <!ENTITY showinstatusbar.label "Показувати в рядку стану">
@@ -55,12 +55,10 @@
 <!ENTITY about.label "Про Adblock Plus">
 <!ENTITY about.accesskey "о">
 <!ENTITY disabled.warning "Adblock Plus вимкнено. Ви можете міняти правила блокування в списку, але Adblock Plus потрібно увімкнути, щоб ці правила застосувалися.">
-<!ENTITY description "
-	Додайте адреси, які хочете заблокувати. Для підказок подивіться випадний
+<!ENTITY description "Додайте адреси, які хочете заблокувати. Для підказок подивіться випадний
 	список. Ви можете створити і більш загальні фільтри, для цього замініть частину адреси
 	зірочкою (*). Досвідчені користувачі можуть також використовувати регулярні
-	вирази, наприклад /banner\d+\.gif$/.
-">
+	вирази, наприклад /banner\d+\.gif$/.">
 <!ENTITY pattern.column "Правило">
 <!ENTITY enabled.column "Увімкнено">
 <!ENTITY hitcount.column "Попадань">
