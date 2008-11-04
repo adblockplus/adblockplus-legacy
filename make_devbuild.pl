@@ -40,6 +40,7 @@ my $build = sprintf("%04i%02i%02i%02i", $year+1900, $mon+1, $day, $hour);
 my $locale = (@ARGV ? "-" . join("-", @ARGV) : "");
 @ARGV = ("$baseName-$version+.$build$locale.xpi", "+.$build", @ARGV);
 do './create_xpi.pl';
+die $@ if $@;
 
 sub readFile
 {
