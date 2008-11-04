@@ -33,13 +33,13 @@
 <!ENTITY options.accesskey "O">
 <!ENTITY enable.label "Włącz Adblock Plus">
 <!ENTITY enable.accesskey "W">
-<!ENTITY showintoolbar.label "Wyświetl ikonę Adblock Plusa na pasku narzędziowym">
+<!ENTITY showintoolbar.label "Wyświetlaj ikonę Adblock Plusa na pasku narzędziowym">
 <!ENTITY showintoolbar.accesskey "D">
-<!ENTITY showinstatusbar.label "Wyświetl ikonę Adblock Plusa na pasku stanu">
+<!ENTITY showinstatusbar.label "Wyświetlaj ikonę Adblock Plusa na pasku stanu">
 <!ENTITY showinstatusbar.accesskey "N">
-<!ENTITY objecttabs.label "Pokaż przyciski blokowania na elementach Flasha i Javy">
+<!ENTITY objecttabs.label "Wyświetlaj przyciski blokowania na elementach Flasha i Javy">
 <!ENTITY objecttabs.accesskey "K">
-<!ENTITY collapse.label "Ukryj zablokowane elementy">
+<!ENTITY collapse.label "Ukrywaj zablokowane elementy">
 <!ENTITY collapse.accesskey "U">
 <!ENTITY help.label "Pomoc">
 <!ENTITY help.accesskey "P">
@@ -61,7 +61,7 @@
 <!ENTITY pattern.column "Reguła filtru">
 <!ENTITY enabled.column "Aktywny">
 <!ENTITY hitcount.column "Użycie">
-<!ENTITY lasthit.column "Ostatnie uderzenie(trafienie)">
+<!ENTITY lasthit.column "Ostatnie trafienie">
 <!ENTITY context.edit.label "Edytuj filtr">
 <!ENTITY context.resethitcount.label "Wyzeruj licznik użycia dla filtru">
 <!ENTITY context.synchsubscription.label "Aktualizuj subskrypcję teraz">

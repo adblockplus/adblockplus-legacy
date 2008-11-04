@@ -16,7 +16,7 @@
 <!ENTITY resethitcounts.label "Limpar estatísticas de acerto">
 <!ENTITY resethitcounts.accesskey "L">
 <!ENTITY edit.label "Editar">
-<!ENTITY edit.accesskey "e">
+<!ENTITY edit.accesskey "E">
 <!ENTITY cut.label "Recortar">
 <!ENTITY cut.accesskey "T">
 <!ENTITY copy.label "Copiar">
@@ -43,7 +43,7 @@
 <!ENTITY collapse.accesskey "C">
 <!ENTITY help.label "Ajuda">
 <!ENTITY help.accesskey "U">
-<!ENTITY faq.label "Perguntas Mais Frequentes">
+<!ENTITY faq.label "Perguntas Mais Freqüentes">
 <!ENTITY faq.accesskey "G">
 <!ENTITY faq.url "http://adblockplus.org/en/faq">
 <!ENTITY tips.label "Dica do dia">
@@ -54,8 +54,8 @@
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Sobre o Adblock Plus">
 <!ENTITY about.accesskey "S">
-<!ENTITY disabled.warning "O Adblock Plus está desativado. Você pode editar qualquer filtro da lista, mas eles não serão aplicados até que você reative.">
-<!ENTITY description "Adicione o endereço que você deseja que seja bloqueado, para sugestões veja a lista.
+<!ENTITY disabled.warning "O Adblock Plus está desativado. Você pode editar qualquer filtro da lista, mas eles não serão aplicados até que você o reative.">
+<!ENTITY description "Adicione o endereço que você deseja que seja bloqueado, para sugestões, veja a lista.
 		Você pode usar * para substituir qualquer caractere e criar filtros mais gerais.
 		Usuários avançados podem usar expressões regulares como /banner\d+\.gif$/.">
 <!ENTITY pattern.column "Regra de Filtragem">

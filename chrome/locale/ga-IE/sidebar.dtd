@@ -1,0 +1,23 @@
+<!ENTITY detached.title "Adblock Plus: Nithe ar féidir bac a chur orthu (díscoirthe)">
+<!ENTITY detach.label "Díscoir">
+<!ENTITY reattach.label "Athcheangail">
+<!ENTITY search.label "Cuardaigh:">
+<!ENTITY search.accesskey "S">
+<!ENTITY type.label "Cineál">
+<!ENTITY address.label "Seoladh">
+<!ENTITY filter.label "Scagaire">
+<!ENTITY state.label "Stát">
+<!ENTITY noitems.label "Níl nithe ar féidir bac a chur orthu ann">
+<!ENTITY whitelisted.label "Leathanach ar an réim slán">
+<!ENTITY notloaded.label "Níl Adblock Plus suiteálta i gceart">
+<!ENTITY tooltip.address.label "Seoladh:">
+<!ENTITY tooltip.type.label "Cineál:">
+<!ENTITY tooltip.type.blocked "(bactha)">
+<!ENTITY tooltip.type.whitelisted "(ar an réim slán)">
+<!ENTITY tooltip.filter.label "Scagaire i bhfeidhm:">
+<!ENTITY context.block.label "Cuir bac ar an ní seo">
+<!ENTITY context.editfilter.label "Scagaire eagarthóireachta i bhfeidhm">
+<!ENTITY context.whitelist.label "Cuir riail eisceachtúla leis an ní seo">
+<!ENTITY context.open.label "Oscail i gCluaisín Nua">
+<!ENTITY context.flash.label "Imill an ní Flash">
+<!ENTITY context.copy.label "Macasamhlaigh seoladh an ní">

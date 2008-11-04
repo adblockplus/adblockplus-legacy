@@ -1,0 +1,41 @@
+<!ENTITY filters.label "Iragazkiak">
+<!ENTITY filters.accesskey "I">
+<!ENTITY add.label "Gehitu iragazkia">
+<!ENTITY import.label "Iragazkiak inportatu">
+<!ENTITY import.accesskey "n">
+<!ENTITY clearall.label "Kendu iragazki guztiak">
+<!ENTITY clearall.accesskey "K">
+<!ENTITY cut.label "Moztu">
+<!ENTITY cut.accesskey "M">
+<!ENTITY copy.label "Kopiatu">
+<!ENTITY copy.accesskey "K">
+<!ENTITY paste.label "Itsatsi">
+<!ENTITY paste.accesskey "I">
+<!ENTITY remove.label "Ezabatu">
+<!ENTITY remove.accesskey "E">
+<!ENTITY menu.find.label "Bilatu">
+<!ENTITY menu.find.accesskey "B">
+<!ENTITY menu.findagain.label "Berriro Bilatu">
+<!ENTITY options.label "Aukerak">
+<!ENTITY options.accesskey "A">
+<!ENTITY enable.label "Gaitu Adblock Plus">
+<!ENTITY showintoolbar.label "Erakutsi tresna-barran">
+<!ENTITY showintoolbar.accesskey "T">
+<!ENTITY showinstatusbar.label "Erakutsi egoera-barran">
+<!ENTITY objecttabs.label "Erakutsi fitxak Flash eta Javan">
+<!ENTITY collapse.label "Tolestu blokeatutako elementuak">
+<!ENTITY help.label "Laguntza">
+<!ENTITY help.accesskey "L">
+<!ENTITY faq.url "http://adblockplus.org/en/faq">
+<!ENTITY tips.label "Iradokizunak">
+<!ENTITY tips.url "http://adblockplus.org/en/tips">
+<!ENTITY disabled.warning "Adblock Plus ezgaituta dago. Listako edozein iragazki editatu dezakezu, baina ez dira aplikatuko berriro gaitzen ez duzun bitartean.">
+<!ENTITY pattern.column "Iragazki araua">
+<!ENTITY enabled.column "Gaituta">
+<!ENTITY context.edit.label "Editatu iragazkia">
+<!ENTITY context.synchsubscription.label "Eguneratu harpidetza orain">
+<!ENTITY context.editsubscription.label "Editatu harpidetza">
+<!ENTITY context.moveup.label "Eraman gora">
+<!ENTITY context.movedown.label "Eraman behera">
+<!ENTITY context.movegroupup.label "Mugitu taldea gora">
+<!ENTITY context.movegroupdown.label "Mugitu taldea behera">

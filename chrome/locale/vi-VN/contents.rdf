@@ -7,8 +7,8 @@
 	</RDF:Seq>
 
 	<RDF:Description about="urn:mozilla:locale:vi-VN"
-			chrome:displayName="Vietnamese (VN)"
-			chrome:author="Tony Nguyen"
+			chrome:displayName="Tiếng Việt (VN)"
+			chrome:author="NGUYỄN Mạnh Hùng"
 			chrome:name="vi-VN">
 		<chrome:packages>
 			<RDF:Seq about="urn:mozilla:locale:vi-VN:packages">

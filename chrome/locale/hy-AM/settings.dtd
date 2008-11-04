@@ -1,0 +1,76 @@
+<!ENTITY dialog.title "Adblock Plus - Նախընտրանքներ">
+<!ENTITY filters.label "Ֆիլտրեր">
+<!ENTITY filters.accesskey "F">
+<!ENTITY add.label "Ավելացնել Ֆիլտր">
+<!ENTITY add.accesskey "A">
+<!ENTITY addsubscription.label "Բաժանորդագրվել ֆիլտրերի">
+<!ENTITY addsubscription.accesskey "S">
+<!ENTITY synchsubscriptions.label "Թարմացնել բաժանորդագրությունները">
+<!ENTITY synchsubscriptions.accesskey "D">
+<!ENTITY import.label "Ներմուծել ֆիլտրեր">
+<!ENTITY import.accesskey "M">
+<!ENTITY export.label "Արտածել ֆիլտրերը">
+<!ENTITY export.accesskey "X">
+<!ENTITY clearall.label "Ջնջել բոլոր ֆիլտրերը">
+<!ENTITY clearall.accesskey "L">
+<!ENTITY resethitcounts.label "Զրոյացնել համընկումների քանակը">
+<!ENTITY resethitcounts.accesskey "R">
+<!ENTITY edit.label "Խմբագրում">
+<!ENTITY edit.accesskey "E">
+<!ENTITY cut.label "Կտրել">
+<!ENTITY cut.accesskey "T">
+<!ENTITY copy.label "Կրկնել">
+<!ENTITY copy.accesskey "C">
+<!ENTITY paste.label "Տեղադրել">
+<!ENTITY paste.accesskey "P">
+<!ENTITY remove.label "Ջնջել">
+<!ENTITY remove.accesskey "D">
+<!ENTITY menu.find.label "Փնտրել">
+<!ENTITY menu.find.accesskey "F">
+<!ENTITY menu.findagain.label "Նորից Փնտրել">
+<!ENTITY menu.findagain.accesskey "G">
+<!ENTITY options.label "Ընտրանքներ">
+<!ENTITY options.accesskey "O">
+<!ENTITY enable.label "Միացնել «Adblock Plus»ը">
+<!ENTITY enable.accesskey "N">
+<!ENTITY showintoolbar.label "Ցույց տալ գործիքաշարում">
+<!ENTITY showintoolbar.accesskey "B">
+<!ENTITY showinstatusbar.label "Ցույց տալ վիճակի տողում">
+<!ENTITY showinstatusbar.accesskey "S">
+<!ENTITY objecttabs.label "Ֆիլտրելու կոճակներ Flash-ի և Java-ի համար">
+<!ENTITY objecttabs.accesskey "T">
+<!ENTITY collapse.label "Թաքցնել արգելված տարրերը">
+<!ENTITY collapse.accesskey "L">
+<!ENTITY help.label "Օգնություն">
+<!ENTITY help.accesskey "H">
+<!ENTITY faq.label "Հաճախակի Տրվող Հարցեր">
+<!ENTITY faq.accesskey "F">
+<!ENTITY faq.url "http://adblockplus.org/en/faq">
+<!ENTITY tips.label "Օրվա Խորհուրդը">
+<!ENTITY tips.accesskey "T">
+<!ENTITY tips.url "http://adblockplus.org/en/tips">
+<!ENTITY filterdoc.label "Ինչպե՞ս գրել ֆիլտրեր">
+<!ENTITY filterdoc.accesskey "R">
+<!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
+<!ENTITY about.label "«Adblock Plus»ի մասին">
+<!ENTITY about.accesskey "B">
+<!ENTITY disabled.warning "«Adblock Plus»ը այժմ անջատված է: Դուք կարող եք փոփոխություններ անել ֆիլտրերի ցուցակում, բայց դրանք չեն ավելացվի մինչև միացումը:">
+<!ENTITY description "
+		Ավելացրեք հասցեն, որը ուզում եք ֆիլտրել, հնարավոր հասցեների համար կարելի է օգտվել մուտքագրման դաշտի ցուցակից:
+		Կարող եք օգտագործել * ցանկացած սիմվոլների հաջորդականության փոխարեն, ավելի ընդհանուր ազդեցության ֆիլտրերի համար: 
+		Փորձառու օգտագործողները կարող են օգտագործել ռեգուլյար արտահայտություններ օրինակ. /banner\d+\.gif$/:
+">
+<!ENTITY pattern.column "Ֆիլտրը">
+<!ENTITY enabled.column "Միացած է">
+<!ENTITY hitcount.column "Համընկնում">
+<!ENTITY lasthit.column "Վերջին համընկնում">
+<!ENTITY context.edit.label "Խմբագրել Ֆիլտրը">
+<!ENTITY context.resethitcount.label "Զրոյացնել ֆիլտրի համընկնման քանակը">
+<!ENTITY context.synchsubscription.label "Update subscription now">
+<!ENTITY context.editsubscription.label "Edit subscription">
+<!ENTITY context.moveup.label "Բարձրացնել">
+<!ENTITY context.movedown.label "Իջեցնել">
+<!ENTITY context.movegroupup.label "Բարձրացնել Խումբը">
+<!ENTITY context.movegroupdown.label "Իջեցնել Խումբը">
+<!ENTITY apply.label "Ընդունել">
+<!ENTITY apply.accesskey "P">

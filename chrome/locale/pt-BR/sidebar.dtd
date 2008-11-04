@@ -14,10 +14,10 @@
 <!ENTITY tooltip.type.label "Tipo:">
 <!ENTITY tooltip.type.blocked "(bloqueado)">
 <!ENTITY tooltip.type.whitelisted "(na lista branca)">
-<!ENTITY tooltip.filter.label "Fitro em ação:">
+<!ENTITY tooltip.filter.label "Filtro em ação:">
 <!ENTITY context.block.label "Bloquear este item">
 <!ENTITY context.editfilter.label "Editar filtro em efeito">
-<!ENTITY context.whitelist.label "Adicionar">
+<!ENTITY context.whitelist.label "Adicionar exceção para o item">
 <!ENTITY context.open.label "Abrir em nova aba">
 <!ENTITY context.flash.label "Realçar bordas do item">
 <!ENTITY context.copy.label "Copiar endereço do item">

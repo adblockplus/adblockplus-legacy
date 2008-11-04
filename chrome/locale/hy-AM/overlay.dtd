@@ -1,0 +1,21 @@
+<!ENTITY notloaded.label "Բեռնված չէ">
+<!ENTITY notloaded.tooltip "«Adblock Plus»ի չի կարող լրիվ բեռնվել, հնարավոր է լավ չէ տեղադրված:">
+<!ENTITY status.tooltip "Վիճակը`">
+<!ENTITY blocked.tooltip "Այս էջի ֆիլտրված տարրերը`">
+<!ENTITY filters.tooltip "Ամենաակտիվ ֆիլտրերը`">
+<!ENTITY menuitem.label "Adblock Plus">
+<!ENTITY menuitem.accesskey "B">
+<!ENTITY context.image.label "Adblock` Ֆիլտրել Նկարը">
+<!ENTITY context.object.label "Adblock` Ֆիլտրել Օբյեկտը">
+<!ENTITY context.frame.label "Adblock` Ֆիլտրել Ֆրեյմը">
+<!ENTITY sidebar.title "Այս էջի ֆիլտրվվող տարրերը">
+<!ENTITY settings.label "Նախընտրանքներ">
+<!ENTITY settings.accesskey "F">
+<!ENTITY opensidebar.label "Բացել ֆիլտրվվող տարրերը">
+<!ENTITY opensidebar.accesskey "B">
+<!ENTITY closesidebar.label "Փակել ֆիլտրվվող տարրերը">
+<!ENTITY closesidebar.accesskey "B">
+<!ENTITY whitelist.site.label "Անջատել հետևյալ կայքում`">
+<!ENTITY whitelist.page.label "Անջատել միայն այս էջի համար">
+<!ENTITY objecttab.title "Ֆիլտրել">
+<!ENTITY objecttab.tooltip "Սեղմել «Adblock Plus»ով այս օբյեկտը ֆիլտրելու համար">

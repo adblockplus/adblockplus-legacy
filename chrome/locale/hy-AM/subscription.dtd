@@ -1,0 +1,26 @@
+<!ENTITY dialog.title "Խմբագրել բաժանորդագրությունը">
+<!ENTITY dialog.newtitle "Նոր բաժանորդագրություն">
+<!ENTITY new.description "
+	Մուտքագրեք վեբ էջի կամ ֆայլի հասցե, որտեղ գտնվում են ֆիլտրերը:
+">
+<!ENTITY edit.description "
+	Այս բաժանորդագրության ֆիլտրերի ցուցակը բեռնվելու է տրված հասցեից:
+">
+<!ENTITY external.description "
+	Սա ֆիլտրերի արտաքին բաժանորդագրություն է, այս ֆիլտրերը
+	թարմ են պահվելու դրանց ստեղծող ընդլայնման կողմից:
+">
+<!ENTITY autodownload.description "
+	«Ավտոմատ թարմացում» տարբերակը ընտրելու դեպքում, այս բաժանորդագրությունը թարմացվելու է ամեն օր: 
+	Առանց այս տարբերակը ընտրելու դուք կարող եք թարմացնել այն բաժանորդագրությունների ցուցակի մենյուից:
+">
+<!ENTITY location.label "Ֆիլտրերի հասցեն`">
+<!ENTITY location.accesskey "L">
+<!ENTITY title.label "Բաժանորդագրության ավանումը`">
+<!ENTITY title.accesskey "T">
+<!ENTITY autodownload.label "Ավտոմատ թարմացում">
+<!ENTITY autodownload.accesskey "P">
+<!ENTITY enabled.label "Միացնել այս ֆիլտրերը">
+<!ENTITY enabled.accesskey "N">
+<!ENTITY full-list.url "http://adblockplus.org/en/subscriptions">
+<!ENTITY full-list.label "Նայել բոլոր բաժանորդագրությունները">

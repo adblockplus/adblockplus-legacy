@@ -1,0 +1,55 @@
+<!ENTITY dialog.title "Sainroghanna Adblock Plus">
+<!ENTITY filters.label "Scagairí">
+<!ENTITY filters.accesskey "F">
+<!ENTITY add.accesskey "A">
+<!ENTITY addsubscription.accesskey "S">
+<!ENTITY synchsubscriptions.accesskey "D">
+<!ENTITY import.accesskey "M">
+<!ENTITY export.accesskey "X">
+<!ENTITY clearall.label "Bain gach scagaire">
+<!ENTITY clearall.accesskey "L">
+<!ENTITY resethitcounts.accesskey "R">
+<!ENTITY edit.label "Déan eagar air">
+<!ENTITY edit.accesskey "E">
+<!ENTITY cut.label "Gearr">
+<!ENTITY cut.accesskey "T">
+<!ENTITY copy.label "Macasamhlaigh">
+<!ENTITY copy.accesskey "C">
+<!ENTITY paste.label "Greamaigh">
+<!ENTITY paste.accesskey "P">
+<!ENTITY remove.label "Scrios">
+<!ENTITY remove.accesskey "D">
+<!ENTITY menu.find.label "Aimsigh">
+<!ENTITY menu.find.accesskey "F">
+<!ENTITY menu.findagain.label "Aimsigh Arís">
+<!ENTITY menu.findagain.accesskey "G">
+<!ENTITY options.label "Roghanna">
+<!ENTITY options.accesskey "O">
+<!ENTITY enable.accesskey "N">
+<!ENTITY showintoolbar.label "Taispeáin i sabh na n-uirlisí">
+<!ENTITY showintoolbar.accesskey "B">
+<!ENTITY showinstatusbar.label "Taispeáin sa treosabh">
+<!ENTITY showinstatusbar.accesskey "S">
+<!ENTITY objecttabs.label "Taispeáin cluaisíní ar Flash agus Java">
+<!ENTITY objecttabs.accesskey "T">
+<!ENTITY collapse.accesskey "L">
+<!ENTITY help.label "Cabhair">
+<!ENTITY help.accesskey "H">
+<!ENTITY faq.label "Ceisteanna Coitianta">
+<!ENTITY faq.accesskey "F">
+<!ENTITY faq.url "http://adblockplus.org/en/faq">
+<!ENTITY tips.label "Nod an Lae">
+<!ENTITY tips.accesskey "T">
+<!ENTITY tips.url "http://adblockplus.org/en/tips">
+<!ENTITY filterdoc.accesskey "R">
+<!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
+<!ENTITY about.label "Maidir le Adblock Plus">
+<!ENTITY about.accesskey "B">
+<!ENTITY pattern.column "Riail an scagaire">
+<!ENTITY enabled.column "Cumasaithe">
+<!ENTITY context.moveup.label "Bog suas">
+<!ENTITY context.movedown.label "Bog síos">
+<!ENTITY context.movegroupup.label "Bog an aicme suas">
+<!ENTITY context.movegroupdown.label "Bog an aicme síos">
+<!ENTITY apply.label "Cuir i bhfeidhm">
+<!ENTITY apply.accesskey "P">

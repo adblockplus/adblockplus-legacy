@@ -1,0 +1,14 @@
+<!ENTITY find.label "Atopar:">
+<!ENTITY findNext.label "Atopar seguiNte">
+<!ENTITY findNext.accesskey "N">
+<!ENTITY findNext.tooltip "Atopar a seguinte aparición da frase">
+<!ENTITY findPrevious.label "Atopar Previo">
+<!ENTITY findPrevious.accesskey "P">
+<!ENTITY findPrevious.tooltip "Atopar a aparición previa da frase">
+<!ENTITY findCloseButton.tooltip "Pechar a barra de Atopar">
+<!ENTITY highlight.label "Resaltar todos">
+<!ENTITY highlight.accesskey "a">
+<!ENTITY highlight.tooltip "Resaltar todas as aparicións da frase (Ctrl+Enter)">
+<!ENTITY highlight.macTooltip "Resaltar todas as aparicións da frase(Cmd+Return)">
+<!ENTITY caseSensitiveCheckbox.label "Caso Match">
+<!ENTITY caseSensitiveCheckbox.accesskey "c">

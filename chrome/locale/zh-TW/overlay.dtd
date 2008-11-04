@@ -15,7 +15,7 @@
 <!ENTITY opensidebar.accesskey "B">
 <!ENTITY closesidebar.label "關閉可阻擋項目">
 <!ENTITY closesidebar.accesskey "B">
-<!ENTITY whitelist.site.label "設為白名單: --">
-<!ENTITY whitelist.page.label "將此頁及其子頁設為白名單">
+<!ENTITY whitelist.site.label "此網域設為白名單: --">
+<!ENTITY whitelist.page.label "只將此頁面設為白名單">
 <!ENTITY objecttab.title "封鎖">
 <!ENTITY objecttab.tooltip "請按這裡用 Adblock Plus 封鎖此物件">

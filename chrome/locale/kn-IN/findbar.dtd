@@ -1,0 +1,14 @@
+<!ENTITY find.label "ಹುಡುಕು:">
+<!ENTITY findNext.label "ಮುಂದಿನ">
+<!ENTITY findNext.accesskey "N">
+<!ENTITY findNext.tooltip "ಈ ಪದದ ಮುಂದಿನ ಬಳಕೆಯನ್ನು ಹುಡುಕು">
+<!ENTITY findPrevious.label "ಹಿಂದಿನ">
+<!ENTITY findPrevious.accesskey "P">
+<!ENTITY findPrevious.tooltip "ಈ ಪದದ ಹಿಂದಿನ ಬಳಕೆಯನ್ನು ಹುಡುಕು">
+<!ENTITY findCloseButton.tooltip "ಹುಡುಕು ಪಟ್ಟಿಯನ್ನು ಮುಚ್ಚು">
+<!ENTITY highlight.label "ಎಲ್ಲವನ್ನೂ ತೋರಿಸು">
+<!ENTITY highlight.accesskey "a">
+<!ENTITY highlight.tooltip "ಈ ಪದದ ಎಲ್ಲಾ ಬಳಕೆಯನ್ನಿ ತೋರಿಸು (Ctrl+Enter)">
+<!ENTITY highlight.macTooltip "ಈ ಪದದ ಎಲ್ಲಾ ಬಳಕೆಯನ್ನಿ ತೋರಿಸು (Cmd+Return)">
+<!ENTITY caseSensitiveCheckbox.label "ಕೇಸನ್ನು ಹೊಂದಿಸು">
+<!ENTITY caseSensitiveCheckbox.accesskey "c">

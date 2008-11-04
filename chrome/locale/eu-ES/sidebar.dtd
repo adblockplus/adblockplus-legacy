@@ -1,0 +1,14 @@
+<!ENTITY search.label "Bilatu:">
+<!ENTITY search.accesskey "B">
+<!ENTITY type.label "Mota">
+<!ENTITY address.label "Helbidea">
+<!ENTITY filter.label "Iragazki">
+<!ENTITY notloaded.label "Adblock Plus ez da ondo instalatu">
+<!ENTITY tooltip.address.label "Helbidea:">
+<!ENTITY tooltip.type.label "Mota:">
+<!ENTITY tooltip.type.blocked "(blokeatuta)">
+<!ENTITY context.block.label "Blokeatu elementu hau">
+<!ENTITY context.editfilter.label "Editatu martxan dabilen iragazkia">
+<!ENTITY context.open.label "Fitxa Berrian Ireki">
+<!ENTITY context.flash.label "Flash elementuaren ertzak">
+<!ENTITY context.copy.label "Elementuaren helbidea kopiatu">

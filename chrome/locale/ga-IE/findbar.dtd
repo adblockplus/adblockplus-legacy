@@ -1,0 +1,9 @@
+<!ENTITY find.label "Aimsigh:">
+<!ENTITY findNext.label "Aimsigh An Chéad Ceann Eile">
+<!ENTITY findNext.accesskey "N">
+<!ENTITY findPrevious.label "Aimsigh Roimhe">
+<!ENTITY findPrevious.accesskey "P">
+<!ENTITY findCloseButton.tooltip "Dún an sabh Aimsigh">
+<!ENTITY highlight.label "Aibhsigh uile">
+<!ENTITY highlight.accesskey "a">
+<!ENTITY caseSensitiveCheckbox.accesskey "c">

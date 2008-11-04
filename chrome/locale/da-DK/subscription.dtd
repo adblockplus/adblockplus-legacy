@@ -5,7 +5,7 @@
 <!ENTITY external.description "Dette er et eksternt filter-abonnement, filterlisten vil blive holdt opdateret af den udvidelse der har oprettet dette abonnement.">
 <!ENTITY autodownload.description "Hvis du vælger &apos;Opdater automatisk&apos; vil denne placering blive checket for opdateringer dagligt. Med denne indstilling slået fra kan du stadig udløse en manuel opdatering fra abonnementets kontekstmenu.">
 <!ENTITY location.label "Filterliste-placering:">
-<!ENTITY location.accesskey "l">
+<!ENTITY location.accesskey "L">
 <!ENTITY title.label "Abonnement-titel:">
 <!ENTITY title.accesskey "T">
 <!ENTITY autodownload.label "Opdater automatisk">

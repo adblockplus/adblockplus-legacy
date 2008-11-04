@@ -1,0 +1,21 @@
+<!ENTITY notloaded.label "ಲೋಡ್ ಆಗಲಿಲ್ಲ">
+<!ENTITY notloaded.tooltip "ಆಡ್‌ಬ್ಲಾಕ್ ಪ್ಲಸ್‌ನ ಭಾಗವೊಂದು ಸರಿಯಾಗಿ ಲೋಡ್ ಆಗಲಿಲ್ಲ, ಅದು ಸರಿಯಾಗಿ ಇನ್ಸ್ಟಾಲ್ ಆಗಲಿಲ್ಲವೆನ್ನಿಸುತ್ತದೆ.">
+<!ENTITY status.tooltip "ಸ್ಟೇಟಸ್:">
+<!ENTITY blocked.tooltip "ಈ ಪುಟದಲ್ಲಿ ತಡೆಹಿಡಿದಿರುವ ವಸ್ತುಗಳು">
+<!ENTITY filters.tooltip "ಬಹಳ ಸಕ್ರಿಯವಾಗಿರುವ ಫಿಲ್ಟರ್‌ಗಳು:">
+<!ENTITY menuitem.label "ಆಡ್‌ಬ್ಲಾಕ್ ಪ್ಲಸ್‌">
+<!ENTITY menuitem.accesskey "B">
+<!ENTITY context.image.label "ಚಿತ್ರವನ್ನು ಆಡ್‌ಬ್ಲಾಕ್ ಮಾಡು">
+<!ENTITY context.object.label "ವಸ್ತುವನ್ನು ಆಡ್‌ಬ್ಲಾಕ್ ಮಾಡು">
+<!ENTITY context.frame.label "ಫ್ರೇಮ್ ಅನ್ನು ಆಡ್‌ಬ್ಲಾಕ್ ಮಾಡು">
+<!ENTITY sidebar.title "ಈ ಪುಟದಲ್ಲಿನ ತಡೆಹಿಡಿಯಬಹುದಾದ ವಸ್ತುಗಳು">
+<!ENTITY settings.label "ಆದ್ಯತೆಗಳು">
+<!ENTITY settings.accesskey "F">
+<!ENTITY opensidebar.label "ತಡೆಹಿಡಿಯಬಹುದಾದ ವಸ್ತುಗಳನ್ನು ತೆರೆ">
+<!ENTITY opensidebar.accesskey "B">
+<!ENTITY closesidebar.label "ತಡೆಹಿಡಿಯಬಹುದಾದ ವಸ್ತುಗಳನ್ನು ಮುಚ್ಚು">
+<!ENTITY closesidebar.accesskey "B">
+<!ENTITY whitelist.site.label "-- ಅಲ್ಲಿ ನಿಷ್ಕ್ರಿಯಗೊಳಿಸು">
+<!ENTITY whitelist.page.label "ಈ ಪುಟದಲ್ಲಿ ಮಾತ್ರ ನಿಷ್ಕ್ರಿಯಗೊಳಿಸು">
+<!ENTITY objecttab.title "ತಡೆ ಹಿಡಿ">
+<!ENTITY objecttab.tooltip "ಈ ವಸ್ತುವನ್ನು ಆಡ್‌ಬ್ಲಾಕ್ ಪ್ಲಸ್‌ ಮೂಲಕ ತಡೆಹಿಡಿಯಲು ಇಲ್ಲ್ಲಿ ಕ್ಲಿಕ್ ಮಾಡಿ">
