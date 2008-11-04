@@ -1,14 +1,13 @@
-<!ENTITY caseSensitiveCheckbox.accesskey "С">
-<!ENTITY caseSensitiveCheckbox.label "С учётом регистра">
 <!ENTITY find.label "Найти:">
+<!ENTITY next.label "Следующее">
+<!ENTITY next.accesskey "С">
+<!ENTITY next.tooltip "Найти следующее вхождение фразы в текст">
+<!ENTITY previous.label "Предыдущее">
+<!ENTITY previous.accesskey "П">
+<!ENTITY previous.tooltip "Найти предыдущее вхождение фразы в текст">
 <!ENTITY findCloseButton.tooltip "Закрыть панель поиска">
-<!ENTITY findNext.accesskey "д">
-<!ENTITY findNext.label "Следующее">
-<!ENTITY findNext.tooltip "Найти следующее вхождение фразы в текст">
-<!ENTITY findPrevious.accesskey "п">
-<!ENTITY findPrevious.label "Предыдущее">
-<!ENTITY findPrevious.tooltip "Найти предыдущее вхождение фразы в текст">
-<!ENTITY highlight.accesskey "в">
 <!ENTITY highlight.label "Подсветить все">
-<!ENTITY highlight.macTooltip "Подсветить все вхождения фразы в текст (Cmd+Return)">
-<!ENTITY highlight.tooltip "Подсветить все вхождения фразы в текст (Ctrl+Enter)">
+<!ENTITY highlight.accesskey "в">
+<!ENTITY highlight.tooltiptext "Подсветить все вхождения фразы в текст">
+<!ENTITY caseSensitiveCheckbox.label "Учесть регистр">
+<!ENTITY caseSensitiveCheckbox.accesskey "р">

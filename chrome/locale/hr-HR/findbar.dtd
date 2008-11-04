@@ -1,14 +1,13 @@
 <!ENTITY find.label "Traži:">
-<!ENTITY findNext.label "Traži slijedeće">
-<!ENTITY findNext.accesskey "D">
-<!ENTITY findNext.tooltip "Traži slijedeći slučaj za izraz">
-<!ENTITY findPrevious.label "Traži prijašnji">
-<!ENTITY findPrevious.accesskey "R">
-<!ENTITY findPrevious.tooltip "Traži prijašnji slučaj za frazu">
+<!ENTITY next.label "Traži slijedeće">
+<!ENTITY next.accesskey "D">
+<!ENTITY next.tooltip "Traži slijedeći slučaj za izraz">
+<!ENTITY previous.label "Traži prijašnji">
+<!ENTITY previous.accesskey "R">
+<!ENTITY previous.tooltip "Traži prijašnji slučaj za frazu">
 <!ENTITY findCloseButton.tooltip "Zatvori traku za traženje">
 <!ENTITY highlight.label "Osvijetli sve">
 <!ENTITY highlight.accesskey "V">
-<!ENTITY highlight.tooltip "Osvijetli sve slučajeve za frazu (Ctrl+Enter)">
-<!ENTITY highlight.macTooltip "Osvijetli sve slučajeve za frazu (Cmd+Return)">
+<!ENTITY highlight.tooltiptext "Osvijetli sve slučajeve za frazu">
 <!ENTITY caseSensitiveCheckbox.label "Odgovarajući slučaji">
 <!ENTITY caseSensitiveCheckbox.accesskey "g">

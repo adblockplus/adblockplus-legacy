@@ -3,17 +3,15 @@
 
 <!-- entities split out from browser.dtd -->
 <!ENTITY find.label "Sök:">
-<!ENTITY findNext.label "Sök nästa">
-<!ENTITY findNext.accesskey "n">
-<!ENTITY findNext.tooltip "Hitta nästa förekomst av frasen">
-<!ENTITY findPrevious.label "Sök föregående">
-<!ENTITY findPrevious.accesskey "ö">
-<!ENTITY findPrevious.tooltip "Hitta föregående förekomst av frasen">
+<!ENTITY next.label "Nästa">
+<!ENTITY next.accesskey "N">
+<!ENTITY next.tooltip "Hitta nästa förekomst av frasen">
+<!ENTITY previous.label "Föregående">
+<!ENTITY previous.accesskey "ö">
+<!ENTITY previous.tooltip "Hitta föregående förekomst av frasen">
 <!ENTITY findCloseButton.tooltip "Stäng Sökfältet">
 <!ENTITY highlight.label "Markera alla">
 <!ENTITY highlight.accesskey "M">
-<!ENTITY highlight.tooltip "Markera alla förekomster av frasen (Ctrl+Enter)">
-<!ENTITY highlight.macTooltip "Markera alla förekomster av frasen (Cmd+Retur)">
+<!ENTITY highlight.tooltiptext "Markera alla förekomster av frasen">
 <!ENTITY caseSensitiveCheckbox.label "Matcha VERSALER/gemener">
 <!ENTITY caseSensitiveCheckbox.accesskey "c">
-

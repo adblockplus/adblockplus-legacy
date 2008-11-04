@@ -1,14 +1,13 @@
-<!ENTITY caseSensitiveCheckbox.accesskey "M">
-<!ENTITY caseSensitiveCheckbox.label "Maiuscole/minuscole">
 <!ENTITY find.label "Trova:">
+<!ENTITY next.label "Successivo">
+<!ENTITY next.accesskey "S">
+<!ENTITY next.tooltip "Trova l'occorrenza successiva del testo da cercare">
+<!ENTITY previous.label "Precedente">
+<!ENTITY previous.accesskey "P">
+<!ENTITY previous.tooltip "Trova l'occorrenza precedente del testo da cercare">
 <!ENTITY findCloseButton.tooltip "Chiudi la barra di ricerca">
-<!ENTITY findNext.accesskey "s">
-<!ENTITY findNext.label "Trova successivo">
-<!ENTITY findNext.tooltip "Trova l'occorrenza successiva del testo da cercare">
-<!ENTITY findPrevious.accesskey "p">
-<!ENTITY findPrevious.label "Trova precedente">
-<!ENTITY findPrevious.tooltip "Trova l'occorrenza precedente del testo da cercare">
-<!ENTITY highlight.accesskey "E">
 <!ENTITY highlight.label "Evidenzia">
-<!ENTITY highlight.macTooltip "Evidenzia tutte le ripetizioni del testo da cercare (Ctrl+Invio)">
-<!ENTITY highlight.tooltip "Evidenzia tutte le ripetizioni del testo da cercare (Ctrl+Invio)">
+<!ENTITY highlight.accesskey "n">
+<!ENTITY highlight.tooltiptext "Evidenzia tutte le ripetizioni del testo da cercare">
+<!ENTITY caseSensitiveCheckbox.label "Maiuscole/minuscole">
+<!ENTITY caseSensitiveCheckbox.accesskey "M">

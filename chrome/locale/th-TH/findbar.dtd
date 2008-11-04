@@ -1,14 +1,17 @@
-<!ENTITY find.label "ค้นหา:">
-<!ENTITY findNext.label "ค้นหาถัดไป">
-<!ENTITY findNext.accesskey "N">
-<!ENTITY findNext.tooltip "ค้นหาหาสิ่งที่เกิดขึ้นถัดไปของวลี">
-<!ENTITY findPrevious.label "ค้นหาก่อนหน้า">
-<!ENTITY findPrevious.accesskey "P">
-<!ENTITY findPrevious.tooltip "ค้นหาหาสิ่งที่เกิดขึ้นก่อนหน้าของวลี">
+<!-- LOCALIZATION NOTE : FILE This file contains the entities needed to -->
+<!-- LOCALIZATION NOTE : FILE use the Find Bar. --> 
+<!-- entities split out from browser.dtd -->
+
+<!ENTITY find.label "หา :">
+<!ENTITY next.label "ถัดไป">
+<!ENTITY next.accesskey "ถ">
+<!ENTITY next.tooltip "หาตำแหน่งถัดไปของคำค้น">
+<!ENTITY previous.label "ก่อนหน้า">
+<!ENTITY previous.accesskey "ก">
+<!ENTITY previous.tooltip "หาตำแหน่งก่อนหน้าของคำค้น">
 <!ENTITY findCloseButton.tooltip "ปิดแถบค้นหา">
-<!ENTITY highlight.label "เน้นข้อความทั้งหมด">
-<!ENTITY highlight.accesskey "a">
-<!ENTITY highlight.tooltip "เ้น้นข้อความที่เกิดขึ้นทั้งหมดของวลี (Ctrl+Enter)">
-<!ENTITY highlight.macTooltip "เน้นข้อความที่เกิดขึ้นทั้งหมดของวลี (Cmd+Return)">
-<!ENTITY caseSensitiveCheckbox.label "ตรงตามตัวใหญ่เล็ก">
-<!ENTITY caseSensitiveCheckbox.accesskey "c">
+<!ENTITY highlight.label "เน้นสีทั้งหมด">
+<!ENTITY highlight.accesskey "น">
+<!ENTITY highlight.tooltiptext "ใช้สีเน้นคำที่เจอทั้งหมด">
+<!ENTITY caseSensitiveCheckbox.label "ตัวพิมพ์ใหญ่-เล็กตรงกัน">
+<!ENTITY caseSensitiveCheckbox.accesskey "ต">

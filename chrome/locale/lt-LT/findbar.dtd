@@ -3,17 +3,15 @@
 
 <!-- entities split out from browser.dtd -->
 <!ENTITY find.label "Ieškoti:">
-<!ENTITY findNext.label "Tęsti paiešką">
-<!ENTITY findNext.accesskey "s">
-<!ENTITY findNext.tooltip "Ieškoti tolesnio frazės egzemplioriaus">
-<!ENTITY findPrevious.label "Ieškoti ankstesnio">
-<!ENTITY findPrevious.accesskey "n">
-<!ENTITY findPrevious.tooltip "Ieškoti ankstesnio frazės egzemplioriaus">
+<!ENTITY next.label "Tolesnis">
+<!ENTITY next.accesskey "s">
+<!ENTITY next.tooltip "Ieškoti tolesnio frazės egzemplioriaus">
+<!ENTITY previous.label "Ankstesnis">
+<!ENTITY previous.accesskey "n">
+<!ENTITY previous.tooltip "Ieškoti ankstesnio frazės egzemplioriaus">
 <!ENTITY findCloseButton.tooltip "Užverti paieškos juostą">
 <!ENTITY highlight.label "Viską paryškinti">
 <!ENTITY highlight.accesskey "V">
-<!ENTITY highlight.tooltip "Paryškinti visus radinius (Vald+Įvesti)">
-<!ENTITY highlight.macTooltip "Paryškinti visus radinius (Vald+Įvesti)">
-<!ENTITY caseSensitiveCheckbox.label "Skirti mažąsias ir didžiąsias raides">
+<!ENTITY highlight.tooltiptext "Paryškinti visus radinius">
+<!ENTITY caseSensitiveCheckbox.label "Skirti didžiąsias ir mažąsias raides">
 <!ENTITY caseSensitiveCheckbox.accesskey "k">
-

@@ -3,16 +3,15 @@
 
 <!-- entities split out from browser.dtd -->
 <!ENTITY find.label "Finn:">
-<!ENTITY findNext.label "Neste">
-<!ENTITY findNext.accesskey "N">
-<!ENTITY findNext.tooltip "Søker etter den neste forekomsten av teksten">
-<!ENTITY findPrevious.label "Forrige">
-<!ENTITY findPrevious.accesskey "F">
-<!ENTITY findPrevious.tooltip "Søker etter den forrige forekomsten av teksten">
-<!ENTITY findCloseButton.tooltip "Lukk søkeverktøylinje">
+<!ENTITY next.label "Neste">
+<!ENTITY next.accesskey "N">
+<!ENTITY next.tooltip "Søker etter den neste forekomsten av teksten">
+<!ENTITY previous.label "Forrige">
+<!ENTITY previous.accesskey "o">
+<!ENTITY previous.tooltip "Søker etter den forrige forekomsten av teksten">
+<!ENTITY findCloseButton.tooltip "Lukk søkelinje">
 <!ENTITY highlight.label "Marker tekst">
 <!ENTITY highlight.accesskey "M">
-<!ENTITY highlight.tooltip "Markerer alle forekomster av teksten (Ctrl+Enter)">
-<!ENTITY highlight.macTooltip "Markerer alle forekomster av teksten (Cmd+Return)">
-<!ENTITY caseSensitiveCheckbox.label "Adskill store/små bokstaver">
-<!ENTITY caseSensitiveCheckbox.accesskey "A">
+<!ENTITY highlight.tooltiptext "Markerer alle forekomster av teksten">
+<!ENTITY caseSensitiveCheckbox.label "Skill mellom store/små bokstaver">
+<!ENTITY caseSensitiveCheckbox.accesskey "k">

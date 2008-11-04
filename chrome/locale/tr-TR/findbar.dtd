@@ -3,17 +3,15 @@
 
 <!-- entities split out from browser.dtd -->
 <!ENTITY find.label "Bul:">
-<!ENTITY findNext.label "Sonrakini bul">
-<!ENTITY findNext.accesskey "N">
-<!ENTITY findNext.tooltip "Bir sonraki eşleşen kelimeyi bulur">
-<!ENTITY findPrevious.label "Öncekini bul">
-<!ENTITY findPrevious.accesskey "b">
-<!ENTITY findPrevious.tooltip "Bir önceki eşleşen kelimeyi bulur">
+<!ENTITY next.label "Sonrakini bul">
+<!ENTITY next.accesskey "n">
+<!ENTITY next.tooltip "Bir sonraki eşleşen kelimeyi bulur">
+<!ENTITY previous.label "Öncekini bul">
+<!ENTITY previous.accesskey "b">
+<!ENTITY previous.tooltip "Bir önceki eşleşen kelimeyi bulur">
 <!ENTITY findCloseButton.tooltip "Arama çubuğunu kapatır">
 <!ENTITY highlight.label "Vurgula">
 <!ENTITY highlight.accesskey "a">
-<!ENTITY highlight.tooltip "Eşleşen kelimeleri vurgular (Ctrl+Enter)">
-<!ENTITY highlight.macTooltip "Eşleşen kelimeleri vurgular (Ctrl+Enter">
-<!ENTITY caseSensitiveCheckbox.label "Bire bir eşleme">
-<!ENTITY caseSensitiveCheckbox.accesskey "e">
-
+<!ENTITY highlight.tooltiptext "Eşleşen kelimeleri vurgular (Ctrl+Enter)">
+<!ENTITY caseSensitiveCheckbox.label "Eşleşen kelimeler">
+<!ENTITY caseSensitiveCheckbox.accesskey "E">

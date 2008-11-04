@@ -3,17 +3,15 @@
 
 <!-- entities split out from browser.dtd -->
 <!ENTITY find.label "Rechercher :">
-<!ENTITY findNext.label "Occurrence suivante">
-<!ENTITY findNext.accesskey "s">
-<!ENTITY findNext.tooltip "Trouve la prochaine occurrence de la phrase">
-<!ENTITY findPrevious.label "Occurrence précédente">
-<!ENTITY findPrevious.accesskey "p">                                            
-<!ENTITY findPrevious.tooltip "Trouve l'occurrence précédente de la phrase">
+<!ENTITY next.label "Suivant">
+<!ENTITY next.accesskey "S">
+<!ENTITY next.tooltip "Trouve la prochaine occurrence de la phrase">
+<!ENTITY previous.label "Précédent">
+<!ENTITY previous.accesskey "P">
+<!ENTITY previous.tooltip "Trouve l'occurrence précédente de la phrase">
 <!ENTITY findCloseButton.tooltip "Fermer la Barre de recherche">
 <!ENTITY highlight.label "Surligner tout">
-<!ENTITY highlight.accesskey "u">                                               
-<!ENTITY highlight.tooltip "Surligner toutes les occurrences de la phrase (Ctrl+Entrée)">
-<!ENTITY highlight.macTooltip "Surligner toutes les occurrences de la phrase (Cmd+Retour arrière)">
+<!ENTITY highlight.accesskey "u">
+<!ENTITY highlight.tooltiptext "Surligner toutes les occurrences de la phrase">
 <!ENTITY caseSensitiveCheckbox.label "Respecter la casse">
-<!ENTITY caseSensitiveCheckbox.accesskey "c">
-
+<!ENTITY caseSensitiveCheckbox.accesskey "R">

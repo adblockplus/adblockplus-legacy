@@ -1,14 +1,13 @@
-<!ENTITY caseSensitiveCheckbox.accesskey "c">
-<!ENTITY caseSensitiveCheckbox.label "Coincidencia de mayúsculas/minúsculas">
-<!ENTITY find.label "Buscar:">
+<!ENTITY find.label "Encontrar:">
+<!ENTITY next.label "Siguiente">
+<!ENTITY next.accesskey "N">
+<!ENTITY next.tooltip "Encontrar la siguiente aparición de la frase">
+<!ENTITY previous.label "Anterior">
+<!ENTITY previous.accesskey "A">
+<!ENTITY previous.tooltip "Encontrar la anterior aparición de la frase">
 <!ENTITY findCloseButton.tooltip "Cerrar barra de búsqueda">
-<!ENTITY findNext.accesskey "N">
-<!ENTITY findNext.label "Buscar siguiente">
-<!ENTITY findNext.tooltip "Buscar la siguiente ocurrencia de la frase">
-<!ENTITY findPrevious.accesskey "b">
-<!ENTITY findPrevious.label "Buscar anterior">
-<!ENTITY findPrevious.tooltip "Buscar la ocurrencia anterior de la frase">
-<!ENTITY highlight.accesskey "a">
 <!ENTITY highlight.label "Resaltar todo">
-<!ENTITY highlight.macTooltip "Resaltar todas las ocurrencias de la frase (Cmd+Return)">
-<!ENTITY highlight.tooltip "Resaltar todas las ocurrencias de la frase (Ctrl+Enter)">
+<!ENTITY highlight.accesskey "R">
+<!ENTITY highlight.tooltiptext "Resaltar todas las apariciones de la frase">
+<!ENTITY caseSensitiveCheckbox.label "Coincidencia de mayúsculas/minúsculas">
+<!ENTITY caseSensitiveCheckbox.accesskey "C">

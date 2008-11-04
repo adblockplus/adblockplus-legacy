@@ -1,43 +1,17 @@
-<!-- ***** BEGIN LICENSE BLOCK *****
-   - Version: MPL 1.1
-   -
-   - The contents of this file are subject to the Mozilla Public License Version
-   - 1.1 (the "License"); you may not use this file except in compliance with
-   - the License. You may obtain a copy of the License at
-   - http://www.mozilla.org/MPL/
-   -
-   - Software distributed under the License is distributed on an "AS IS" basis,
-   - WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
-   - for the specific language governing rights and limitations under the
-   - License.
-   -
-   - The Original Code is mozilla.org code.
-   -
-   - The Initial Developer of the Original Code is
-   - Jeff Walden.
-   - Portions created by the Initial Developer are Copyright (C) 2005
-   - the Initial Developer. All Rights Reserved.
-   -
-   - Contributor(s):
-   -
-   - ***** END LICENSE BLOCK ***** -->
-
 <!-- LOCALIZATION NOTE : FILE This file contains the entities needed to -->
 <!-- LOCALIZATION NOTE : FILE use the Find Bar. --> 
 
 <!-- entities split out from browser.dtd -->
 <!ENTITY find.label "Find:">
-<!ENTITY findNext.label "Find Next">
-<!ENTITY findNext.accesskey "N">
-<!ENTITY findNext.tooltip "Find the next occurrence of the phrase">
-<!ENTITY findPrevious.label "Find Previous">
-<!ENTITY findPrevious.accesskey "P">
-<!ENTITY findPrevious.tooltip "Find the previous occurrence of the phrase">
+<!ENTITY next.label "Next">
+<!ENTITY next.accesskey "N">
+<!ENTITY next.tooltip "Find the next occurrence of the phrase">
+<!ENTITY previous.label "Previous">
+<!ENTITY previous.accesskey "P">
+<!ENTITY previous.tooltip "Find the previous occurrence of the phrase">
 <!ENTITY findCloseButton.tooltip "Close Find bar">
 <!ENTITY highlight.label "Highlight all">
 <!ENTITY highlight.accesskey "a">
-<!ENTITY highlight.tooltip "Highlight all occurrences of the phrase (Ctrl+Enter)">
-<!ENTITY highlight.macTooltip "Highlight all occurrences of the phrase (Cmd+Return)">
+<!ENTITY highlight.tooltiptext "Highlight all occurrences of the phrase">
 <!ENTITY caseSensitiveCheckbox.label "Match case">
 <!ENTITY caseSensitiveCheckbox.accesskey "c">
-
