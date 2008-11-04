@@ -80,7 +80,7 @@ sub retrieveKey
   my @parts = split(/:/, $key);
   my $keyName = pop(@parts);
   my $fileName = join(':', @parts);
-  readFile($locale, $fileName) unless exists $fileCache{$fileName};
+  parseFile($locale, $fileName) unless exists $fileCache{$fileName};
 
   return undef unless exists $fileCache{$fileName};
 
@@ -88,7 +88,7 @@ sub retrieveKey
   return $fileCache{$fileName}{$keyName};
 }
 
-sub readFile
+sub parseFile
 {
   my ($locale, $file) = @_;
 
@@ -99,25 +99,37 @@ sub readFile
 
   if (-f "$dir/$fileName.dtd")
   {
-    readDTDFile($file, "$dir/$fileName.dtd");
+    parseDTDFile($file, "$dir/$fileName.dtd");
   }
   elsif (-f "$dir/$fileName.properties")
   {
-    readPropertiesFile($file, "$dir/$fileName.properties");
+    parsePropertiesFile($file, "$dir/$fileName.properties");
   }
 }
 
-sub readDTDFile
+sub readFile
+{
+  my $file = shift;
+
+  open(local *FILE, "<", $file) || die "Could not read file '$file'";
+  binmode(FILE);
+  local $/;
+  my $result = <FILE>;
+  close(FILE);
+
+  warn "Byte Order Mark found in file '$file'" if $result =~ /\xEF\xBB\xBF/;
+  warn "File '$file' is not valid UTF-8" unless (utf8::decode($result));
+
+  return $result;
+}
+
+sub parseDTDFile
 {
   my ($key, $file) = @_;
   
   my %result = ();
 
-  open(local *FILE, $file) or die "Could not open file $file";
-  local $/;
-  my $data = <FILE>;
-  close(FILE);
-
+  my $data = readFile($file);
   while ($data =~ /<!ENTITY\s+(\S+)\s*"([^"]*)"/sg)
   {
     $result{$1} = $2;
@@ -126,16 +138,16 @@ sub readDTDFile
   $fileCache{$key} = \%result;
 }
 
-sub readPropertiesFile
+sub parsePropertiesFile
 {
   my ($key, $file) = @_;
 
   my %result = ();
 
-  open(local *FILE, $file) or die "Could not open file $file";
-  while (<FILE>)
+  my $data = readFile($file);
+  while ($data =~ /^(.*)$/mg)
   {
-    s/[\r\n]//g;
+    $_ = $1;
     next if /^\s*#/;
 
     my ($key, $value) = split(/=/, $_, 2);
