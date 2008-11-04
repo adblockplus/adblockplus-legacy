@@ -101,7 +101,7 @@ foreach my $locale (@locales)
     {
       if (($key =~ /\.accesskey$/ || $key =~ /\.key$/) && length($fileData->{$key}) != 1)
       {
-        warn "Length of accesskey $file:$key in locale $locale isn't 1 character\n";
+        warn "$locale: Length of accesskey $file:$key isn't 1 character\n";
       }
 
       if ($key =~ /\.accesskey$/)
@@ -110,7 +110,7 @@ foreach my $locale (@locales)
         {
           if (exists($referenceLocale->{$file}{$key}) && $fileData->{$key} ne $referenceLocale->{$file}{$key})
           {
-            warn "Accesskey $file:$key in locale $locale should be the same as in the reference locale\n";
+            warn "$locale: Accesskey $file:$key should be the same as in the reference locale\n";
           }
         }
         else
@@ -119,7 +119,7 @@ foreach my $locale (@locales)
           $labelKey =~ s/\.accesskey$/.label/;
           if (exists($fileData->{$labelKey}) && $fileData->{$labelKey} !~ /\Q$fileData->{$key}/i)
           {
-            warn "Accesskey $file:$key not found in the corresponding label $file:$labelKey in locale $locale\n";
+            warn "$locale: Accesskey $file:$key not found in the corresponding label $file:$labelKey\n";
           }
         }
       }
@@ -131,7 +131,7 @@ foreach my $locale (@locales)
         {
           $ignore = 1 if "$file:$key" =~ $re;
         }
-        warn "Value of $file:$key in locale $locale is the same as in the reference locale, probably an untranslated string\n" unless $ignore;
+        warn "$locale: Value of $file:$key is the same as in the reference locale, probably an untranslated string\n" unless $ignore;
       }
     }
   }
@@ -265,7 +265,7 @@ sub compareLocales
   {
     unless (exists($reference->{$file}))
     {
-      warn "Extra file '$file' in locale $locale\n";
+      warn "$locale: Extra file '$file'\n";
       next;
     }
     $hasFile{$file} = 1;
@@ -275,7 +275,7 @@ sub compareLocales
     {
       unless (exists($reference->{$file}{$key}))
       {
-        warn "Extra value '$file:$key' in locale $locale\n";
+        warn "$locale: Extra value '$file:$key'\n";
         next;
       }
       $hasValue{$key} = 1;
@@ -285,7 +285,7 @@ sub compareLocales
     {
       unless (exists($current->{$file}{$key}))
       {
-        warn "Missing value '$file:$key' in locale $locale\n";
+        warn "$locale: Missing value '$file:$key'\n";
         next;
       }
     }
@@ -295,7 +295,7 @@ sub compareLocales
   {
     unless (exists($current->{$file}))
     {
-      warn "Missing file '$file' in locale $locale\n";
+      warn "$locale: Missing file '$file'\n";
       next;
     }
   }
