@@ -26,6 +26,13 @@ my @must_equal = (
   ['ehh:overlay:selectelement.accesskey', 'ehh:overlay:stopselection.accesskey'],
 );
 
+my %keepAccessKeys = map {$_ => $_} (
+  'ja-JP',
+  'ko-KR',
+  'zh-CN',
+  'zh-TW',
+);
+
 my @locales = sort {$a cmp $b} makeLocaleList();
 
 my $referenceLocale = readLocaleFiles("en-US");
@@ -68,12 +75,32 @@ foreach my $locale (@locales)
 
   foreach my $file (keys %$currentLocale)
   {
-    foreach my $key (keys %{$currentLocale->{$file}})
+    my $fileData = $currentLocale->{$file};
+    foreach my $key (keys %$fileData)
     {
-      if ($key =~ /\.accesskey$/ || $key =~ /\.key$/)
+      if (($key =~ /\.accesskey$/ || $key =~ /\.key$/) && length($fileData->{$key}) != 1)
       {
-        my $value = $currentLocale->{$file}{$key};
-        warn "Length of accesskey $file:$key in locale $locale isn't 1 character\n" if length($value) != 1;
+        warn "Length of accesskey $file:$key in locale $locale isn't 1 character\n";
+      }
+
+      if ($key =~ /\.accesskey$/)
+      {
+        if (exists($keepAccessKeys{$locale}))
+        {
+          if (exists($referenceLocale->{$file}{$key}) && $fileData->{$key} ne $referenceLocale->{$file}{$key})
+          {
+            warn "Accesskey $file:$key in locale $locale should be the same as in the reference locale\n";
+          }
+        }
+        else
+        {
+          my $labelKey = $key;
+          $labelKey =~ s/\.accesskey$/.label/;
+          if (exists($fileData->{$labelKey}) && $fileData->{$labelKey} !~ /\Q$fileData->{$key}/i)
+          {
+            warn "Accesskey $file:$key not found in the corresponding label $file:$labelKey in locale $locale\n";
+          }
+        }
       }
     }
   }
