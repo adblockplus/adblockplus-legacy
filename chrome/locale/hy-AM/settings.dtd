@@ -66,8 +66,6 @@
 <!ENTITY lasthit.column "Վերջին համընկնում">
 <!ENTITY context.edit.label "Խմբագրել Ֆիլտրը">
 <!ENTITY context.resethitcount.label "Զրոյացնել ֆիլտրի համընկնման քանակը">
-<!ENTITY context.synchsubscription.label "Update subscription now">
-<!ENTITY context.editsubscription.label "Edit subscription">
 <!ENTITY context.moveup.label "Բարձրացնել">
 <!ENTITY context.movedown.label "Իջեցնել">
 <!ENTITY context.movegroupup.label "Բարձրացնել Խումբը">
