@@ -65,6 +65,18 @@ foreach my $locale (@locales)
       warn "$locale: values for $stdName and $key differ, must be equal\n" if $value ne $stdValue;
     }
   }
+
+  foreach my $file (keys %$currentLocale)
+  {
+    foreach my $key (keys %{$currentLocale->{$file}})
+    {
+      if ($key =~ /\.accesskey$/)
+      {
+        my $value = $currentLocale->{$file}{$key};
+        warn "Length of accesskey $file:$key in locale $locale isn't 1 character\n" if length($value) != 1;
+      }
+    }
+  }
 }
 
 sub makeLocaleList
