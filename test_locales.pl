@@ -28,26 +28,35 @@ my @must_equal = (
 
 my @locales = sort {$a cmp $b} makeLocaleList();
 
-foreach my $locale (@locales) {
-  foreach my $entry (@must_differ) {
+my $referenceLocale = readLocaleFiles("en-US");
+
+foreach my $locale (@locales)
+{
+  my $currentLocale = $locale eq "en-US" ? $referenceLocale : readLocaleFiles($locale);
+
+  foreach my $entry (@must_differ)
+  {
     my %values = ();
-    foreach my $key (@$entry) {
-      my $value = retrieveKey($locale, $key);
-      next unless defined $value;
-      $value = lc($value);
+    foreach my $key (@$entry)
+    {
+      my ($dir, $file, $name) = split(/:/, $key);
+      next unless exists($currentLocale->{"$dir:$file"}) && exists($currentLocale->{"$dir:$file"}{$name});
+      my $value = lc($currentLocale->{"$dir:$file"}{$name});
 
       print STDERR "$locale: values for $values{$value} and $key are identical, must differ\n" if exists $values{$value};
       $values{$value} = $key;
     }
   }
 
-  foreach my $entry (@must_equal) {
+  foreach my $entry (@must_equal)
+  {
     my $stdValue;
     my $stdName;
-    foreach my $key (@$entry) {
-      my $value = retrieveKey($locale, $key);
-      next unless defined $value;
-      $value = lc($value);
+    foreach my $key (@$entry)
+    {
+      my ($dir, $file, $name) = split(/:/, $key);
+      next unless exists($currentLocale->{"$dir:$file"}) && exists($currentLocale->{"$dir:$file"}{$name});
+      my $value = lc($currentLocale->{"$dir:$file"}{$name});
 
       $stdValue = $value unless defined $stdValue;
       $stdName = $key unless defined $stdName;
@@ -59,52 +68,14 @@ foreach my $locale (@locales) {
 sub makeLocaleList
 {
   my %locales = ();
-  foreach my $dir (keys %paths) {
+  foreach my $dir (keys %paths)
+  {
     opendir(local* DIR, $paths{$dir}) or die "Could not open directory $paths{$dir}";
     my @locales = grep {!/[^\w\-]/ && !-e("$paths{$dir}/$_/.incomplete")} readdir(DIR);
     $locales{$_} = 1 foreach @locales;
     closedir(DIR);
   }
   return keys %locales;
-}
-
-my %fileCache = ();
-my $lastLocale;
-sub retrieveKey
-{
-  my ($locale, $key) = @_;
-
-  %fileCache = () unless $lastLocale eq $locale;
-  $lastLocale = $locale;
-
-  my @parts = split(/:/, $key);
-  my $keyName = pop(@parts);
-  my $fileName = join(':', @parts);
-  parseFile($locale, $fileName) unless exists $fileCache{$fileName};
-
-  return undef unless exists $fileCache{$fileName};
-
-  warn "Key $key not found in locale $locale" unless exists $fileCache{$fileName}{$keyName};
-  return $fileCache{$fileName}{$keyName};
-}
-
-sub parseFile
-{
-  my ($locale, $file) = @_;
-
-  my ($dir, $fileName) = split(/:/, $file, 2);
-
-  die "Unknown directory $dir" unless exists $paths{$dir};
-  $dir = $paths{$dir} . '/' . $locale;
-
-  if (-f "$dir/$fileName.dtd")
-  {
-    parseDTDFile($file, "$dir/$fileName.dtd");
-  }
-  elsif (-f "$dir/$fileName.properties")
-  {
-    parsePropertiesFile($file, "$dir/$fileName.properties");
-  }
 }
 
 sub readFile
@@ -125,7 +96,7 @@ sub readFile
 
 sub parseDTDFile
 {
-  my ($key, $file) = @_;
+  my $file = shift;
   
   my %result = ();
 
@@ -135,12 +106,12 @@ sub parseDTDFile
     $result{$1} = $2;
   }
 
-  $fileCache{$key} = \%result;
+  return \%result;
 }
 
 sub parsePropertiesFile
 {
-  my ($key, $file) = @_;
+  my $file = shift;
 
   my %result = ();
 
@@ -155,5 +126,30 @@ sub parsePropertiesFile
   }
   close(FILE);
 
-  $fileCache{$key} = \%result;
+  return \%result;
+}
+
+sub readLocaleFiles
+{
+  my $locale = shift;
+
+  my %result = ();
+  foreach my $dir (keys %paths)
+  {
+    opendir(local *DIR, "$paths{$dir}/$locale") or next;
+    foreach my $file (readdir(DIR))
+    {
+      if ($file =~ /(.*)\.dtd$/)
+      {
+        $result{"$dir:$1"} = parseDTDFile("$paths{$dir}/$locale/$file");
+      }
+      elsif ($file =~ /(.*)\.properties$/)
+      {
+        $result{"$dir:$1"} = parsePropertiesFile("$paths{$dir}/$locale/$file");
+      }
+    }
+    closedir(DIR);
+  }
+
+  return \%result;
 }
