@@ -52,7 +52,7 @@
 <!ENTITY anchor.end.accesskey     "d">
 <!ENTITY options.label            "Options">
 <!ENTITY firstParty.label         "First-party only">
-<!ENTITY firstParty.accesskey     "F">
+<!ENTITY firstParty.accesskey     "r">
 <!ENTITY thirdParty.label         "Third-party only">
 <!ENTITY thirdParty.accesskey     "T">
 <!ENTITY matchCase.label          "Match case">
