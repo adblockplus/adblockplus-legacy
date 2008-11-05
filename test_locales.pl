@@ -187,6 +187,7 @@ sub parseDTDFile
   while ($data =~ /<!ENTITY$S+($Name)$S+$EntityValue$S*>/gs)
   {
     $result{$1} = $2 || $3;
+    $result{$1} =~ s/&apos;/'/;
   }
 
   # Remove entities
