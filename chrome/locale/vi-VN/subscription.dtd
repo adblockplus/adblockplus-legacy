@@ -1,14 +1,14 @@
 <!ENTITY dialog.title "Chỉnh sửa bộ lọc đăng kí">
 <!ENTITY dialog.newtitle "Thêm bộ lọc đăng kí">
-<!ENTITY new.description "Vui lòng nhập địa chỉ web hay tập tin chứa danh sách bộ lọc Adblock Plus">
+<!ENTITY new.description "Vui lòng nhập địa chỉ web hay tập tin chứa danh sách bộ lọc cho Adblock Plus.">
 <!ENTITY edit.description "Danh sách bộ lọc cho bộ đăng kí này sẽ được tải từ địa chỉ đã cho.">
 <!ENTITY external.description "Đây là một bộ lọc đăng kí từ bên ngoài, danh sách bộ lọc của nó sẽ được cập nhật bởi phần mở rộng đã tạo ra bộ lọc đăng kí này.">
 <!ENTITY autodownload.description "Nếu bạn chọn &apos;Cập nhật tự động&apos; địa chỉ này sẽ được kiểm tra để tìm bản cập nhật mỗi ngày. Nếu tùy chọn này bị vô hiệu hóa, bạn vẫn có thể kích hoạt cập nhật thủ công từ trình đơn ngữ cảnh của bộ lọc đăng kí.">
 <!ENTITY location.label "Địa chỉ của danh sách bộ lọc:">
-<!ENTITY location.accesskey "L">
+<!ENTITY location.accesskey "a">
 <!ENTITY title.label "Tiêu đề của bộ lọc đăng kí:">
 <!ENTITY title.accesskey "T">
 <!ENTITY autodownload.label "Cập nhật tự động">
-<!ENTITY autodownload.accesskey "p">
+<!ENTITY autodownload.accesskey "C">
 <!ENTITY enabled.label "Bật các bộ lọc">
 <!ENTITY enabled.accesskey "B">

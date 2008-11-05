@@ -1,22 +1,22 @@
-<!ENTITY notloaded.label "Chưa nạp">
-<!ENTITY notloaded.tooltip "Adblock Plus component không thể nạp được, có thể nó chưa được gắn đúng.">
+<!ENTITY notloaded.label "Chưa tải">
+<!ENTITY notloaded.tooltip "Thành phần Adblock Plus không thể tải được, có thể nó chưa được cài đặt đúng.">
 <!ENTITY status.tooltip "Trạng thái:">
-<!ENTITY blocked.tooltip "Số mục bị chặn trong trang này:">
-<!ENTITY filters.tooltip "Quy luật linh hoạt nhất:">
-<!ENTITY menuitem.label "Adblock Plus">
+<!ENTITY blocked.tooltip "Các mục bị chặn trong trang này:">
+<!ENTITY filters.tooltip "Các bộ lọc có hiệu lực nhất:">
+<!ENTITY menuitem.label "Tùy chọn Adblock Plus">
 <!ENTITY menuitem.accesskey "P">
 <!ENTITY view.blockableItems.label "Adblock Plus: Các Mục Có Thể Chặn">
 <!ENTITY context.image.label "Adblock Plus: Chặn Ảnh">
 <!ENTITY context.object.label "Adblock Plus: Chặn Object">
 <!ENTITY context.frame.label "Adblock Plus: Chặn Frame">
 <!ENTITY sidebar.title "Các mục bị chặn trong trang hiện tại">
-<!ENTITY settings.label "Tùy thích">
+<!ENTITY settings.label "Tùy chọn">
 <!ENTITY settings.accesskey "T">
 <!ENTITY opensidebar.label "Mở các mục có thể chặn được">
 <!ENTITY opensidebar.accesskey "c">
 <!ENTITY closesidebar.label "Đóng các mục có thể chặn được">
 <!ENTITY closesidebar.accesskey "c">
-<!ENTITY whitelist.site.label "Vô hiệu trong --">
-<!ENTITY whitelist.page.label "Vô hiệu chỉ trong trang này">
+<!ENTITY whitelist.site.label "Vô hiệu hóa trên --">
+<!ENTITY whitelist.page.label "Chỉ vô hiệu hóa trên trang này">
 <!ENTITY objecttab.title "Chặn">
-<!ENTITY objecttab.tooltip "Nhấn ở đây để chặn đối tượng này với Adblock Plus">
+<!ENTITY objecttab.tooltip "Nhấn vào đây để chặn đối tượng này với Adblock Plus">
