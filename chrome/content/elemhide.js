@@ -158,7 +158,12 @@ var elemhide =
       for (let selector in list)
       {
         let safeSelector = selectorAddition + selector.match(/(?:[^,"']|"[^"]*"|'[^']*')+/g).join("," + selectorAddition);
-        rules.push(safeSelector + "{display:none !important;cursor:url(abp:registerhit?" + list[selector] + "),auto !important;}\n");
+
+        // Firefox 2 does not apply bindings to table rows and cells, need to
+        // change the value for display here. display:none won't work because
+        // invisible elements cannot have bindings but elements with misapplied
+        // bindings are hidden anyway.
+        rules.push(safeSelector + "{display: inline !important; -moz-binding: url(abp:registerhit?" + list[selector] + ") !important;}\n");
       }
 
       if (domain)
