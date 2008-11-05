@@ -18,6 +18,7 @@ my @must_differ = (
   ['abp:settings:faq.accesskey', 'abp:settings:tips.accesskey', 'abp:settings:filterdoc.accesskey', 'abp:settings:about.accesskey'],
   ['abp:findbar:next.accesskey', 'abp:findbar:previous.accesskey', 'abp:findbar:highlight.accesskey'],
   ['abp:subscription:location.accesskey', 'abp:subscription:title.accesskey', 'abp:subscription:autodownload.accesskey', 'abp:subscription:enabled.accesskey'],
+  ['abp:composer:filter.accesskey', 'abp:composer:preferences.accesskey', 'abp:composer:type.filter.accesskey', 'abp:composer:type.whitelist.accesskey', 'abp:composer:custom.pattern.accesskey', 'abp:composer:anchor.start.accesskey', 'abp:composer:anchor.end.accesskey', 'abp:composer:firstParty.accesskey', 'abp:composer:thirdParty.accesskey', 'abp:composer:matchCase.accesskey', 'abp:composer:collapse.accesskey'],
   ['ehh:global:command.select.key', 'ehh:global:command.wider.key', 'ehh:global:command.narrower.key', 'ehh:global:command.quit.key', 'ehh:global:command.blinkElement.key', 'ehh:global:command.viewSource.key', 'ehh:global:command.viewSourceWindow.key', 'ehh:global:command.showMenu.key'],
 );
 
