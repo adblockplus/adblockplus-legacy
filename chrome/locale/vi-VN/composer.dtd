@@ -9,10 +9,10 @@
 <!ENTITY filter.accesskey "l">
 <!ENTITY preferences.label "Hiện các bộ lọc đang có...">
 <!ENTITY preferences.accesskey "H">
-<!ENTITY type.filter.label "Chặn bộ lọc">
-<!ENTITY type.filter.accesskey "b">
-<!ENTITY type.whitelist.label "Quy tắc ngoại lệ">
-<!ENTITY type.whitelist.accesskey "u">
+<!ENTITY type.filter.label "Bộ lọc chặn">
+<!ENTITY type.filter.accesskey "B">
+<!ENTITY type.whitelist.label "Quy luật ngoại lệ">
+<!ENTITY type.whitelist.accesskey "Q">
 <!ENTITY pattern.label "Tìm mẫu">
 <!ENTITY pattern.explanation "Mẫu có thể là bất kì phần nào của địa chỉ, biểu tượng * được dùng như một mặt nạ. Bộ lọc sẽ chỉ được áp dụng cho những địa chỉ phù hợp với mẫu.">
 <!ENTITY regexp.warning "Mẫu bạn gõ vào sẽ được xem là biểu thức quy tắc. Nhiều biểu thức quy tắc có thể làm chậm việc duyệt web của bạn. Nếu bạn không định dùng biểu thức quy tắc, hãy thêm một biểu tượng * ở cuối mẫu.">
@@ -28,7 +28,7 @@
 <!ENTITY firstParty.label "Chỉ của bên thứ nhất">
 <!ENTITY firstParty.accesskey "n">
 <!ENTITY thirdParty.label "Chỉ của bên thứ ba">
-<!ENTITY thirdParty.accesskey "b">
+<!ENTITY thirdParty.accesskey "a">
 <!ENTITY matchCase.label "Phù hợp">
 <!ENTITY matchCase.accesskey "P">
 <!ENTITY types.label "Áp dụng cho các kiểu:">

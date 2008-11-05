@@ -1,7 +1,7 @@
 <!ENTITY dialog.title "Thông tin về Adblock Plus">
 <!ENTITY caption.title "Adblock Plus">
 <!ENTITY version.title "Phiên bản">
-<!ENTITY description "Adblock Plus cho phép bạn chọn những gì bạn không muốn xem trên mạng. Bạn không cần phải tải tất cả các mục quảng cáo nữa, nếu bạn không muốn chúng - chỉ cần nói với Adblock Plus!">
+<!ENTITY description "Adblock Plus cho phép bạn quyết định những thứ bạn không muốn xem trên mạng. Bạn không cần phải tải tất cả các mục quảng cáo nữa, nếu bạn không muốn chúng - chỉ cần nói với Adblock Plus!">
 <!ENTITY homepage.label "Trang chủ Adblock Plus:">
 <!ENTITY homepage.url "http://adblockplus.org/">
 <!ENTITY author.label "Tác giả:">

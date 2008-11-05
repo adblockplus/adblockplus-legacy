@@ -1,17 +1,17 @@
-<!ENTITY dialog.title "Tùy Chọn Adblock Plus">
+<!ENTITY dialog.title "Tùy chọn Adblock Plus">
 <!ENTITY filters.label "Bộ lọc">
-<!ENTITY filters.accesskey "l">
+<!ENTITY filters.accesskey "B">
 <!ENTITY add.label "Thêm bộ lọc">
-<!ENTITY add.accesskey "A">
+<!ENTITY add.accesskey "T">
 <!ENTITY addsubscription.label "Đăng kí thêm bộ lọc">
 <!ENTITY addsubscription.accesskey "k">
 <!ENTITY synchsubscriptions.label "Cập nhật tất cả bộ lọc đăng kí">
 <!ENTITY synchsubscriptions.accesskey "C">
 <!ENTITY import.label "Nhập các bộ lọc">
-<!ENTITY import.accesskey "h">
-<!ENTITY export.label "Xuất các bộ lọc">
+<!ENTITY import.accesskey "N">
+<!ENTITY export.label "Xuất các bộ lọc tùy biến">
 <!ENTITY export.accesskey "u">
-<!ENTITY clearall.label "Xóa tất cả các bộ lọc">
+<!ENTITY clearall.label "Xóa tất cả bộ lọc tùy biến">
 <!ENTITY clearall.accesskey "X">
 <!ENTITY resethitcounts.label "Đưa số lần hit về 0">
 <!ENTITY resethitcounts.accesskey "a">
@@ -31,28 +31,28 @@
 <!ENTITY menu.findagain.accesskey "i">
 <!ENTITY view.label "Hiển thị">
 <!ENTITY view.accesskey "H">
-<!ENTITY sort.label "Sắp xếp">
-<!ENTITY sort.accesskey "S">
-<!ENTITY sort.none.label "Không sắp xếp">
-<!ENTITY sort.none.accesskey "K">
-<!ENTITY sort.ascending.label "Xếp theo A &gt; Z">
+<!ENTITY sort.label "Xếp theo">
+<!ENTITY sort.accesskey "p">
+<!ENTITY sort.none.label "Chưa xếp">
+<!ENTITY sort.none.accesskey "C">
+<!ENTITY sort.ascending.label "Thứ tự A &gt; Z">
 <!ENTITY sort.ascending.accesskey "A">
-<!ENTITY sort.descending.label "Xếp theo Z &gt; A">
+<!ENTITY sort.descending.label "Thứ tự Z &gt; A">
 <!ENTITY sort.descending.accesskey "Z">
 <!ENTITY options.label "Tùy chọn">
 <!ENTITY options.accesskey "y">
 <!ENTITY enable.label "Bật Adblock Plus">
 <!ENTITY enable.accesskey "B">
 <!ENTITY showintoolbar.label "Hiện trong thanh công cụ">
-<!ENTITY showintoolbar.accesskey "H">
+<!ENTITY showintoolbar.accesskey "c">
 <!ENTITY showinstatusbar.label "Hiện trong thanh trạng thái">
-<!ENTITY showinstatusbar.accesskey "i">
+<!ENTITY showinstatusbar.accesskey "r">
 <!ENTITY objecttabs.label "Hiện thẻ trên Flash và Java">
 <!ENTITY objecttabs.accesskey "t">
-<!ENTITY collapse.label "Thu gọn các thành phần bị chặn">
+<!ENTITY collapse.label "Thu gọn các phần tử bị chặn">
 <!ENTITY collapse.accesskey "u">
 <!ENTITY help.label "Trợ giúp">
-<!ENTITY help.accesskey "g">
+<!ENTITY help.accesskey "p">
 <!ENTITY faq.label "Những Câu Hỏi Thường Gặp">
 <!ENTITY faq.accesskey "N">
 <!ENTITY faq.url "http://adblockplus.org/en/faq">
@@ -64,23 +64,23 @@
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Thông tin về Adblock Plus">
 <!ENTITY about.accesskey "T">
-<!ENTITY description "Thêm những địa chỉ bạn muốn chặn, kiểm tra các đề xuất trong danh sách thả xuống. Bạn có thể dùng * như là mặt nạ để tạo thêm các bộ lọc tổng quát. Người dùng nâng cao có thể sử dụng biểu thức quy tắc (regular expression) như /bannerd+.gif$/.">
-<!ENTITY filter.column "Quy tắc Lọc">
-<!ENTITY filter.accesskey "L">
-<!ENTITY enabled.column "Có hiệu lực">
-<!ENTITY enabled.accesskey "C">
+<!ENTITY description "Những bộ lọc sau xác định những địa chỉ nào sẽ bị chặn và những địa chỉ nào sẽ được cho phép:">
+<!ENTITY filter.column "Quy luật lọc">
+<!ENTITY filter.accesskey "Q">
+<!ENTITY enabled.column "Hiệu lực">
+<!ENTITY enabled.accesskey "H">
 <!ENTITY hitcount.column "Số lần hit">
-<!ENTITY hitcount.accesskey "H">
+<!ENTITY hitcount.accesskey "S">
 <!ENTITY lasthit.column "Lần hit cuối">
-<!ENTITY lasthit.accesskey "u">
+<!ENTITY lasthit.accesskey "L">
 <!ENTITY context.edit.label "Chỉnh sửa bộ lọc">
 <!ENTITY context.resethitcount.label "Đưa số lần hit của bộ lọc về 0">
 <!ENTITY context.synchsubscription.label "Cập nhật đăng kí ngay bây giờ">
 <!ENTITY context.editsubscription.label "Chỉnh sửa đăng kí">
-<!ENTITY context.moveup.label "Di chuyển lên">
-<!ENTITY context.movedown.label "Di chuyển xuống">
-<!ENTITY context.movegroupup.label "Di chuyển nhóm lên">
-<!ENTITY context.movegroupdown.label "Di chuyển nhóm xuống">
+<!ENTITY context.moveup.label "Di chuyển bộ lọc lên trên">
+<!ENTITY context.movedown.label "Di chuyển bộ lọc xuống dưới">
+<!ENTITY context.movegroupup.label "Di chuyển nhóm lên trên">
+<!ENTITY context.movegroupdown.label "Di chuyển nhóm xuống dưới">
 <!ENTITY context.enable.label "Kích hoạt">
 <!ENTITY context.disable.label "Vô hiệu hóa">
 <!ENTITY apply.label "Dùng thử">
