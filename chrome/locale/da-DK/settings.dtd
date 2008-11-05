@@ -9,9 +9,9 @@
 <!ENTITY synchsubscriptions.accesskey "d">
 <!ENTITY import.label "Importer filtre">
 <!ENTITY import.accesskey "M">
-<!ENTITY export.label "Eksporter filtre">
+<!ENTITY export.label "Eksporter brugerdefinerede filtre">
 <!ENTITY export.accesskey "P">
-<!ENTITY clearall.label "Fjern alle filtre">
+<!ENTITY clearall.label "Fjern alle brugerdefinerede filtre">
 <!ENTITY clearall.accesskey "L">
 <!ENTITY resethitcounts.label "Nulstil hit-statistikker">
 <!ENTITY resethitcounts.accesskey "N">
@@ -22,13 +22,23 @@
 <!ENTITY copy.label "Kopier">
 <!ENTITY copy.accesskey "o">
 <!ENTITY paste.label "Sæt ind">
-<!ENTITY paste.accesskey "i">
+<!ENTITY paste.accesskey "æ">
 <!ENTITY remove.label "Slet">
 <!ENTITY remove.accesskey "S">
 <!ENTITY menu.find.label "Find">
 <!ENTITY menu.find.accesskey "F">
 <!ENTITY menu.findagain.label "Find igen">
 <!ENTITY menu.findagain.accesskey "g">
+<!ENTITY view.label "Vis">
+<!ENTITY view.accesskey "i">
+<!ENTITY sort.label "Sorter efter">
+<!ENTITY sort.accesskey "S">
+<!ENTITY sort.none.label "Usorteret">
+<!ENTITY sort.none.accesskey "U">
+<!ENTITY sort.ascending.label "A &gt; Z sorteringsorden">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.descending.label "Z &gt; A sorteringsorden">
+<!ENTITY sort.descending.accesskey "Z">
 <!ENTITY options.label "Indstillinger">
 <!ENTITY options.accesskey "d">
 <!ENTITY enable.label "Slå Adblock Plus til">
@@ -54,19 +64,24 @@
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Om Adblock Plus">
 <!ENTITY about.accesskey "B">
-<!ENTITY disabled.warning "Adblock Plus er slået fra. Du kan redigere alle filtre i listen, men de vil ikke være aktive før du slår Adblock Plus til igen.">
-<!ENTITY description "Tilføj adressen du ønsker at blokere, for forslag check rullegardin-listen. Du kan bruge * som jokertegn for at skabe mere generelle filtre. Avancerede brugere kan bruge regulære udtryk som /banner\d+\.gif$/.">
-<!ENTITY pattern.column "Filterregel">
+<!ENTITY description "Følgende filtre afgør hvilke adresser der skal blokeres og hvilke der skal tillades:">
+<!ENTITY filter.column "Filterregel">
+<!ENTITY filter.accesskey "F">
 <!ENTITY enabled.column "Slået til">
+<!ENTITY enabled.accesskey "l">
 <!ENTITY hitcount.column "Hits">
+<!ENTITY hitcount.accesskey "H">
 <!ENTITY lasthit.column "Seneste hit">
+<!ENTITY lasthit.accesskey "i">
 <!ENTITY context.edit.label "Redigér filter">
 <!ENTITY context.resethitcount.label "Nulstil hitsstatistik for filter">
 <!ENTITY context.synchsubscription.label "Opdatér abonnement nu">
 <!ENTITY context.editsubscription.label "Redigér abonnement">
-<!ENTITY context.moveup.label "Flyt op">
-<!ENTITY context.movedown.label "Flyt ned">
+<!ENTITY context.moveup.label "Flyt filter op">
+<!ENTITY context.movedown.label "Flyt filter ned">
 <!ENTITY context.movegroupup.label "Flyt gruppe op">
 <!ENTITY context.movegroupdown.label "Flyt gruppe ned">
+<!ENTITY context.enable.label "Aktiver">
+<!ENTITY context.disable.label "Deaktiver">
 <!ENTITY apply.label "Anvend">
 <!ENTITY apply.accesskey "v">
