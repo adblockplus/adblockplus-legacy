@@ -607,7 +607,7 @@ var treeView = {
     this.whitelistDummy = boxObject.treeBody.getAttribute("whitelistedlabel");
     this.loadDummy = boxObject.treeBody.getAttribute("notloadedlabel");
 
-    var stringAtoms = ["col-address", "col-type", "col-filter", "col-state", "col-size", "state-regular", "state-filtered", "state-whitelisted"];
+    var stringAtoms = ["col-address", "col-type", "col-filter", "col-state", "col-size", "state-regular", "state-filtered", "state-whitelisted", "state-hidden"];
     var boolAtoms = ["selected", "dummy"];
     var atomService = Components.classes["@mozilla.org/atom-service;1"]
                                 .getService(Components.interfaces.nsIAtomService);
@@ -730,7 +730,14 @@ var treeView = {
 
       state = "state-regular";
       if (this.data[row].filter)
-        state = (this.data[row].filter instanceof abp.WhitelistFilter ? "state-whitelisted" : "state-filtered");
+      {
+        if (this.data[row].filter instanceof abp.WhitelistFilter)
+          state = "state-whitelisted";
+        else if (this.data[row].filter instanceof abp.BlockingFilter)
+          state = "state-filtered";
+        else if (this.data[row].filter instanceof abp.ElemHideFilter)
+          state = "state-hidden";
+      }
     }
     else {
       properties.AppendElement(this.atoms["dummy-true"]);

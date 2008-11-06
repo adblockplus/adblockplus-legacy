@@ -68,8 +68,12 @@ tooltip {
   text-align: right;
 } 
 
-treechildren::-moz-tree-cell-text(state-filtered, selected-false) {
+treechildren::-moz-tree-cell-text(state-filtered, selected-false),
+treechildren::-moz-tree-cell-text(state-hidden, selected-false) {
   color: #C00000;
+}
+treechildren::-moz-tree-cell-text(state-hidden, col-filter, selected-false) {
+  color: #000080;
 }
 treechildren::-moz-tree-cell-text(state-whitelisted, selected-false) {
   color: #008000;
@@ -81,7 +85,8 @@ treechildren::-moz-tree-image(col-state, dummy-false)
   -moz-image-region: rect(0px 10px 10px 0px);
   margin-left: 3px;
 }
-treechildren::-moz-tree-image(col-state, state-filtered, dummy-false) {
+treechildren::-moz-tree-image(col-state, state-filtered, dummy-false),
+treechildren::-moz-tree-image(col-state, state-hidden, dummy-false) {
   -moz-image-region: rect(10px 10px 20px 0px);
 }
 treechildren::-moz-tree-image(col-state, state-whitelisted, dummy-false) {
