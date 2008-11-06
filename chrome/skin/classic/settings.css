@@ -96,6 +96,10 @@ treechildren::-moz-tree-cell-text(col-filter, filter-true, type-invalid, selecte
   color: #C00000;
 }
 
+treechildren::-moz-tree-cell-text(col-filter, subscription-true) {
+  font-weight: bold;
+}
+
 treechildren::-moz-tree-image(col-enabled, filter-true, subscription-disabled-false, filter-disabled-true),
 treechildren::-moz-tree-image(col-enabled, subscription-true, subscription-disabled-true) {
   list-style-image: url(checkbox.png);
