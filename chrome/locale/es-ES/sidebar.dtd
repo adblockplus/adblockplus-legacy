@@ -2,11 +2,12 @@
 <!ENTITY detach.label "Separar">
 <!ENTITY reattach.label "Unir">
 <!ENTITY search.label "Buscar:">
-<!ENTITY search.accesskey "S">
+<!ENTITY search.accesskey "B">
 <!ENTITY type.label "Tipo">
 <!ENTITY address.label "Dirección">
 <!ENTITY filter.label "Filtro">
 <!ENTITY state.label "Estado">
+<!ENTITY size.label "Tamaño">
 <!ENTITY noitems.label "Ningún elemento bloqueable">
 <!ENTITY whitelisted.label "Página de lista blanca">
 <!ENTITY notloaded.label "Adblock Plus no se instaló correctamente">
@@ -14,10 +15,16 @@
 <!ENTITY tooltip.type.label "Tipo:">
 <!ENTITY tooltip.type.blocked "(bloqueado)">
 <!ENTITY tooltip.type.whitelisted "(en lista blanca)">
+<!ENTITY tooltip.size.label "Tamaño:">
 <!ENTITY tooltip.filter.label "Filtro en efecto:">
+<!ENTITY tooltip.filterSource.label "Procedencia del filtro:">
 <!ENTITY context.block.label "Bloquear este elemento">
 <!ENTITY context.editfilter.label "Editar el filtro en uso">
 <!ENTITY context.whitelist.label "Añadir regla de excepción para el elemento">
+<!ENTITY context.disablefilter.label "Desactivar filtro --">
+<!ENTITY context.enablefilter.label "Reactivar filtro --">
 <!ENTITY context.open.label "Abrir en nueva pestaña">
 <!ENTITY context.flash.label "Resaltar los bordes del elemento">
 <!ENTITY context.copy.label "Copiar la dirección del elemento">
+<!ENTITY context.copyFilter.label "Copiar filtro">
+<!ENTITY context.selectAll.label "Seleccionar todo">

@@ -5,6 +5,7 @@
 <!ENTITY filters.tooltip "Filtros más activos:">
 <!ENTITY menuitem.label "Adblock Plus">
 <!ENTITY menuitem.accesskey "A">
+<!ENTITY view.blockableItems.label "Ablock Plus: elementos bloqueables">
 <!ENTITY context.image.label "ABP - Bloquear imagen">
 <!ENTITY context.object.label "ABP - Bloquear objeto">
 <!ENTITY context.frame.label "ABP - Bloquear marco">
@@ -12,9 +13,9 @@
 <!ENTITY settings.label "Preferencias">
 <!ENTITY settings.accesskey "P">
 <!ENTITY opensidebar.label "Abrir ventana elementos bloqueables">
-<!ENTITY opensidebar.accesskey "l">
+<!ENTITY opensidebar.accesskey "v">
 <!ENTITY closesidebar.label "Cerrar ventana elementos bloqueables">
-<!ENTITY closesidebar.accesskey "l">
+<!ENTITY closesidebar.accesskey "v">
 <!ENTITY whitelist.site.label "Desactivar en --">
 <!ENTITY whitelist.page.label "Desactivar sólo en esta página">
 <!ENTITY objecttab.title "Bloquear">

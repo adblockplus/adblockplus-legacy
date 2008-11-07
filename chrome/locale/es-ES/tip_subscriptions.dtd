@@ -1,5 +1,5 @@
 <!ENTITY dialog.title "Bienvenido a Adblock Plus">
-<!ENTITY description.par1 "Gracias por instalar Adblock Plus. Esta extensión puede
+<!ENTITY description.par1 "Gracias por instalar Adblock Plus. Este complemento puede
 	eliminar el 99&#37; de los anuncios que ve en la web. Sin 
 	embargo, para filtrar eficazmente los anuncios tiene que
 	definir unos buenos filtros. Puede hacerlo usted mismo, 
@@ -13,9 +13,20 @@
 	aunque no suele ser necesario):">
 <!ENTITY note "Nota: Una lista de filtros suele ser más eficaz cuando se aplica 
 	a sitios web de la región para la que ha sido desarrollada.">
+<!ENTITY adblock.warning "Adblock Plus ha detectado que está instalado Adblock o una versión antigua de 
+Adblock Plus. Utilizar Adblock y Adblock Plus de forma simultánea puede causar
+problemas y está totalmente desaconsejado. Le recomendamos que desinstale Adblock ahora.">
+<!ENTITY adblock.uninstall "Desinstalar Adblock">
+<!ENTITY filterset.g.warning "Parece que usted utiliza Filterset.G. Esta lista de filtros apenas ha 
+tenido mantenimiento en los últimos años y suele causar problemas con
+diversos sitios web. Le recomendamos que desinstale Filterset.G ahora.">
+<!ENTITY filterset.g.moreinfo "Más información">
 <!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
+<!ENTITY filterset.g.uninstall "Desinstalar Filterset.G">
 <!ENTITY homepage.label "Página de inicio">
 <!ENTITY subscribe.label "Suscribir">
-<!ENTITY subscribe.accesskey "r">
+<!ENTITY subscribe.accesskey "S">
 <!ENTITY other.label "Añadir otra suscripción">
-<!ENTITY other.accesskey "t">
+<!ENTITY other.accesskey "A">
+<!ENTITY full-list.url "http://adblockplus.org/en/subscriptions">
+<!ENTITY full-list.label "Ver todas las subscripciones">
