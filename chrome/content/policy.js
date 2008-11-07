@@ -249,20 +249,28 @@ var policy = {
     if (!location || !wndLocation)
       return false;
 
-    if (effectiveTLD)
+    try 
     {
-      try {
-        return effectiveTLD.getBaseDomain(location) != effectiveTLD.getBaseDomain(wndLocation);
+      if (effectiveTLD)
+      {
+        try {
+          return effectiveTLD.getBaseDomain(location) != effectiveTLD.getBaseDomain(wndLocation);
+        }
+        catch (e) {
+          // EffectiveTLDService throws on IP addresses
+          return location.host != wndLocation.host;
+        }
       }
-      catch (e) {
-        // EffectiveTLDService throws on IP addresses
-        return location.host != wndLocation.host;
+      else
+      {
+        // Stupid fallback algorithm for Gecko 1.8
+        return location.host.replace(/.*?((?:[^.]+\.)?[^.]+\.?)$/, "$1") != wndLocation.host.replace(/.*?((?:[^.]+\.)?[^.]+\.?)$/, "$1");
       }
     }
-    else
+    catch (e2)
     {
-      // Stupid fallback algorithm for Gecko 1.8
-      return location.host.replace(/.*?((?:[^.]+\.)?[^.]+\.?)$/, "$1") != wndLocation.host.replace(/.*?((?:[^.]+\.)?[^.]+\.?)$/, "$1");
+      // nsSimpleURL.host will throw, treat those URLs as third-party
+      return true;
     }
   },
 
