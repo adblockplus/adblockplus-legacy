@@ -1,0 +1,40 @@
+<!ENTITY dialog.title "Regla de filtrado de Adblock Plus">
+<!ENTITY accept.label "Añadir filtro">
+<!ENTITY advanced.label "Vista avanzada">
+<!ENTITY basic.label "Vista básica">
+<!ENTITY disabled.warning.beforeLink "Adblock Plus está desactivado. Puede añadir filtros, pero no se aplicarán a menos que">
+<!ENTITY disabled.warning.link "active Adblock Plus">
+<!ENTITY disabled.warning.afterLink ".">
+<!ENTITY filter.label "Nuevo filtro:">
+<!ENTITY filter.accesskey "N">
+<!ENTITY preferences.label "Mostrar filtros existentes...">
+<!ENTITY preferences.accesskey "M">
+<!ENTITY type.filter.label "Filtro de bloqueo">
+<!ENTITY type.filter.accesskey "b">
+<!ENTITY type.whitelist.label "Regla de excepción">
+<!ENTITY type.whitelist.accesskey "x">
+<!ENTITY pattern.label "Buscar patrón">
+<!ENTITY pattern.explanation "El patrón puede ser cualquier parte de la dirección, el carácter * actúa como comodín. El filtro sólo se aplicará a las direcciones que se correspondan con el patrón.">
+<!ENTITY regexp.warning "El patrón que ha introducido se interpretará como expresión regular. Si usa muchas expresiones regulares su navegación podría volverse más lenta. Si no quería usar una expresión regular, añada un carácter * al final del patrón.">
+<!ENTITY shortpattern.warning "El patrón que ha introducido es demasiado corto para ser introducido, si usa muchos patrones como este su navegación podría volverse más lenta. Se le recomienda elegir una cadena más larga para este filtro.">
+<!ENTITY custom.pattern.label "Personalizar:">
+<!ENTITY custom.pattern.accesskey "P">
+<!ENTITY anchors.label "Sólo aceptar patrones:">
+<!ENTITY anchor.start.label "al inicio de la dirección">
+<!ENTITY anchor.start.accesskey "i">
+<!ENTITY anchor.end.label "al final de la dirección">
+<!ENTITY anchor.end.accesskey "f">
+<!ENTITY options.label "Opciones">
+<!ENTITY firstParty.label "Sólo del sitio">
+<!ENTITY firstParty.accesskey "S">
+<!ENTITY thirdParty.label "Sólo de terceros">
+<!ENTITY thirdParty.accesskey "t">
+<!ENTITY matchCase.label "Coincidir mayús/minús">
+<!ENTITY matchCase.accesskey "C">
+<!ENTITY types.label "Aplicar a estos tipos:">
+<!ENTITY collapse.label "Colapsar elementos bloqueados:">
+<!ENTITY collapse.accesskey "o">
+<!ENTITY collapse.default.yes.label "Usar predeterminado (sí)">
+<!ENTITY collapse.default.no.label "Usar predeterminado (no)">
+<!ENTITY collapse.yes.label "Sí">
+<!ENTITY collapse.no.label "No">
