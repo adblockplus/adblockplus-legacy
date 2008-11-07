@@ -140,6 +140,8 @@ foreach my $locale (@locales)
 
 sub makeLocaleList
 {
+  return @ARGV if @ARGV;
+
   my %locales = ();
   foreach my $dir (keys %paths)
   {
