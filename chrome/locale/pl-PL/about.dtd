@@ -1,12 +1,10 @@
 <!ENTITY dialog.title "O Adblock Plus">
 <!ENTITY caption.title "Adblock Plus">
 <!ENTITY version.title "Wersja">
-<!ENTITY description "
-	Adblock Plus pozwala decydować o tym jak będą wyglądały strony w Twojej przeglądarce.
+<!ENTITY description "Adblock Plus pozwala decydować o tym jak będą wyglądały strony w Twojej przeglądarce.
 	Nie będzie już konieczności wczytywania wszystkich reklam i banerów. Jeżeli
-	nie będziesz chciał ich oglądać - zleć to Adblock Plus!
-">
-<!ENTITY homepage.label "Strona domowa Adblock Plus:">
-<!ENTITY homepage.url "http://adblockplus.org/">
+	nie będziesz chciał ich oglądać - zleć to Adblock Plus!">
+<!ENTITY homepage.label "Strona domowa Adblock Plusa:">
+<!ENTITY homepage.url "http://adblockplus.org/en/">
 <!ENTITY author.label "Autor:">
 <!ENTITY contributors.label "Współtwórcy:">

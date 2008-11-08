@@ -1,0 +1,40 @@
+<!ENTITY dialog.title "Tworzenie reguły filtru">
+<!ENTITY accept.label "Dodaj filtr">
+<!ENTITY advanced.label "Widok zaawansowany">
+<!ENTITY basic.label "Widok podstawowy">
+<!ENTITY disabled.warning.beforeLink "Adblock Plus jest wyłączony. Można dodawać filtry, ale nie będą one działały do czasu">
+<!ENTITY disabled.warning.link "włączenia Adblock Plusa">
+<!ENTITY disabled.warning.afterLink ".">
+<!ENTITY filter.label "Nowy filtr:">
+<!ENTITY filter.accesskey "F">
+<!ENTITY preferences.label "Wyświetl istniejące filtry...">
+<!ENTITY preferences.accesskey "S">
+<!ENTITY type.filter.label "Filtr blokujący">
+<!ENTITY type.filter.accesskey "B">
+<!ENTITY type.whitelist.label "Reguła wyjątku">
+<!ENTITY type.whitelist.accesskey "W">
+<!ENTITY pattern.label "Wygląd wzorca">
+<!ENTITY pattern.explanation "Wzorzec może składać się z dowolnej części adresu i symbolu * działającego jako wieloznacznik. Filtr będzie działał tylko na stronach o adresie pasującym do wzorca.">
+<!ENTITY regexp.warning "Wprowadzony wzorzec będzie interpretowany jako wyrażenie regularne. Wiele wyrażeń regularnych może spowalniać przeglądanie internetu. Jeśli nie zamierzasz używać wyrażeń regularnych, dodaj na końcu wzorca wieloznacznik *.">
+<!ENTITY shortpattern.warning "Wprowadzony wzorzec jest za krótki, aby go zoptymalizować. Duża ilość takich wzorców może spowalniać przeglądanie internetu. Zaleca się wybrać dla tego filtru nieco dłuższy ciąg znaków.">
+<!ENTITY custom.pattern.label "Dostosuj:">
+<!ENTITY custom.pattern.accesskey "D">
+<!ENTITY anchors.label "Akceptuj wzorzec tylko:">
+<!ENTITY anchor.start.label "na początku adresu">
+<!ENTITY anchor.start.accesskey "o">
+<!ENTITY anchor.end.label "na końcu adresu">
+<!ENTITY anchor.end.accesskey "k">
+<!ENTITY options.label "Opcje">
+<!ENTITY firstParty.label "Tylko pierwsza część adresu">
+<!ENTITY firstParty.accesskey "e">
+<!ENTITY thirdParty.label "Tylko trzecia część adresu">
+<!ENTITY thirdParty.accesskey "t">
+<!ENTITY matchCase.label "Uwzględniaj wielkość liter">
+<!ENTITY matchCase.accesskey "U">
+<!ENTITY types.label "Zastosuj do typów:">
+<!ENTITY collapse.label "Zwiń zablokowane:">
+<!ENTITY collapse.accesskey "A">
+<!ENTITY collapse.default.yes.label "Domyślnie (tak)">
+<!ENTITY collapse.default.no.label "Domyślnie (nie)">
+<!ENTITY collapse.yes.label "Tak">
+<!ENTITY collapse.no.label "Nie">
