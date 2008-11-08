@@ -4,15 +4,15 @@
 <!ENTITY add.label "Add filter">
 <!ENTITY add.accesskey "A">
 <!ENTITY addsubscription.label "Add filter subscription">
-<!ENTITY addsubscription.accesskey "S">
+<!ENTITY addsubscription.accesskey "s">
 <!ENTITY synchsubscriptions.label "Update all subscriptions">
-<!ENTITY synchsubscriptions.accesskey "D">
+<!ENTITY synchsubscriptions.accesskey "d">
 <!ENTITY import.label "Import filters">
-<!ENTITY import.accesskey "M">
+<!ENTITY import.accesskey "m">
 <!ENTITY export.label "Export filters">
-<!ENTITY export.accesskey "X">
+<!ENTITY export.accesskey "x">
 <!ENTITY clearall.label "Remove all filters">
-<!ENTITY clearall.accesskey "L">
+<!ENTITY clearall.accesskey "l">
 <!ENTITY resethitcounts.label "Reset statistics">
 <!ENTITY resethitcounts.accesskey "R">
 <!ENTITY edit.label "Edit">
@@ -29,18 +29,28 @@
 <!ENTITY menu.find.accesskey "F">
 <!ENTITY menu.findagain.label "Find Again">
 <!ENTITY menu.findagain.accesskey "g">
+<!ENTITY view.label "View">
+<!ENTITY view.accesskey "V">
+<!ENTITY sort.label "Sort by">
+<!ENTITY sort.accesskey "S">
+<!ENTITY sort.none.label "Unsorted">
+<!ENTITY sort.none.accesskey "U">
+<!ENTITY sort.ascending.label "A &gt; Z sort order">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.descending.label "Z &gt; A sort order">
+<!ENTITY sort.descending.accesskey "Z">
 <!ENTITY options.label "Options">
 <!ENTITY options.accesskey "O">
 <!ENTITY enable.label "Enable Adblock Plus">
-<!ENTITY enable.accesskey "N">
+<!ENTITY enable.accesskey "n">
 <!ENTITY showintoolbar.label "Show in toolbar">
 <!ENTITY showintoolbar.accesskey "b">
 <!ENTITY showinstatusbar.label "Show in status bar">
 <!ENTITY showinstatusbar.accesskey "s">
 <!ENTITY objecttabs.label "Show tabs on Flash and Java">
-<!ENTITY objecttabs.accesskey "T">
+<!ENTITY objecttabs.accesskey "t">
 <!ENTITY collapse.label "Collapse blocked elements">
-<!ENTITY collapse.accesskey "L">
+<!ENTITY collapse.accesskey "l">
 <!ENTITY help.label "Help">
 <!ENTITY help.accesskey "H">
 <!ENTITY faq.label "Frequently Asked Questions">
@@ -50,16 +60,19 @@
 <!ENTITY tips.accesskey "T">
 <!ENTITY tips.url "http://adblockplus.org/en/tips">
 <!ENTITY filterdoc.label "Writing Adblock Plus filters">
-<!ENTITY filterdoc.accesskey "R">
+<!ENTITY filterdoc.accesskey "r">
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "About Adblock Plus">
-<!ENTITY about.accesskey "B">
-<!ENTITY disabled.warning "Adblock Plus is disabled. You can edit filters in the list, but they won&apos;t be applied until you reenable.">
-<!ENTITY description "Add the addresses you wish to block; for suggestions check the dropdown list.  You can use * as a wildcard to create more general filters. Advanced users can use regular expressions like /banner\d+\.gif$/.">
-<!ENTITY pattern.column "Filter rule">
+<!ENTITY about.accesskey "b">
+<!ENTITY description "The following filters determine which addresses should be blocked and which ones should be allowed:">
+<!ENTITY filter.column "Filter rule">
+<!ENTITY filter.accesskey "F">
 <!ENTITY enabled.column "Enabled">
+<!ENTITY enabled.accesskey "n">
 <!ENTITY hitcount.column "Hits">
+<!ENTITY hitcount.accesskey "H">
 <!ENTITY lasthit.column "Last hit">
+<!ENTITY lasthit.accesskey "L">
 <!ENTITY context.edit.label "Edit filter">
 <!ENTITY context.resethitcount.label "Reset statistics for filter">
 <!ENTITY context.synchsubscription.label "Update subscription now">
@@ -68,5 +81,7 @@
 <!ENTITY context.movedown.label "Move down">
 <!ENTITY context.movegroupup.label "Move group up">
 <!ENTITY context.movegroupdown.label "Move group down">
+<!ENTITY context.enable.label "Enable">
+<!ENTITY context.disable.label "Disable">
 <!ENTITY apply.label "Apply">
 <!ENTITY apply.accesskey "p">
