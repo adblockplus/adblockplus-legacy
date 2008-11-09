@@ -45,7 +45,7 @@ var prefs = {
   listeners: [],
 
   addObservers: function() {
-    // Preferences observer registration
+    // Observe preferences changes
     try {
       var branchInternal = this.branch.QueryInterface(Components.interfaces.nsIPrefBranchInternal);
       branchInternal.addObserver("", this, true);
@@ -57,7 +57,7 @@ var prefs = {
     var observerService = Components.classes["@mozilla.org/observer-service;1"]
                                     .getService(Components.interfaces.nsIObserverService);
 
-    // Shutdown observer registration
+    // Observe profile changes
     try {
       observerService.addObserver(this, "profile-before-change", true);
       observerService.addObserver(this, "profile-after-change", true);
@@ -78,6 +78,7 @@ var prefs = {
       } catch(e) {}
     }
 
+    // Delay initialization if profile isn't available yet (SeaMonkey)
     var doInit = true;
     if ("@mozilla.org/profile/manager;1" in Components.classes) {
       try {
