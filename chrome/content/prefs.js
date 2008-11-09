@@ -75,7 +75,11 @@ var prefs = {
                                          .getService(Components.interfaces.nsIPrivateBrowsingService)
                                          .privateBrowsingEnabled;
         observerService.addObserver(this, "private-browsing", true);
-      } catch(e) {}
+      }
+      catch(e)
+      {
+        dump("Adblock Plus: exception initializing private browsing observer: " + e + "\n");
+      }
     }
 
     // Delay initialization if profile isn't available yet (SeaMonkey)
