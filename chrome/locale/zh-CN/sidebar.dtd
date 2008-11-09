@@ -7,6 +7,7 @@
 <!ENTITY address.label "地址">
 <!ENTITY filter.label "过滤规则">
 <!ENTITY state.label "状态">
+<!ENTITY size.label "大小">
 <!ENTITY noitems.label "无可过滤项目">
 <!ENTITY whitelisted.label "列入白名单的页面">
 <!ENTITY notloaded.label "Adblock Plus没有完全安装">
@@ -14,10 +15,16 @@
 <!ENTITY tooltip.type.label "类型:">
 <!ENTITY tooltip.type.blocked "(过滤规则)">
 <!ENTITY tooltip.type.whitelisted "(白名单)">
+<!ENTITY tooltip.size.label "大小:">
 <!ENTITY tooltip.filter.label "已生效的过滤规则:">
+<!ENTITY tooltip.filterSource.label "过滤规则源:">
 <!ENTITY context.block.label "过滤该项">
 <!ENTITY context.editfilter.label "编辑过滤规则有效">
 <!ENTITY context.whitelist.label "将该项加入白名单">
+<!ENTITY context.disablefilter.label "禁用过滤规则 --">
+<!ENTITY context.enablefilter.label "重新启用过滤规则 --">
 <!ENTITY context.open.label "在新标签页打开">
 <!ENTITY context.flash.label "闪动显示该项目的边框">
 <!ENTITY context.copy.label "复制项目地址">
+<!ENTITY context.copyFilter.label "复制过滤规则">
+<!ENTITY context.selectAll.label "全选">
