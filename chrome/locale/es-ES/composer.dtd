@@ -25,9 +25,9 @@
 <!ENTITY anchor.end.label "al final de la dirección">
 <!ENTITY anchor.end.accesskey "f">
 <!ENTITY options.label "Opciones">
-<!ENTITY firstParty.label "Sólo del sitio">
-<!ENTITY firstParty.accesskey "S">
-<!ENTITY thirdParty.label "Sólo de terceros">
+<!ENTITY firstParty.label "Sólo ítems de este dominio">
+<!ENTITY firstParty.accesskey "d">
+<!ENTITY thirdParty.label "Sólo ítems de otros dominios">
 <!ENTITY thirdParty.accesskey "t">
 <!ENTITY matchCase.label "Coincidir mayús/minús">
 <!ENTITY matchCase.accesskey "C">
