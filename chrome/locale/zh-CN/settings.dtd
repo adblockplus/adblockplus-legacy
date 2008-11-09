@@ -18,7 +18,7 @@
 <!ENTITY edit.label "编辑">
 <!ENTITY edit.accesskey "E">
 <!ENTITY cut.label "剪切">
-<!ENTITY cut.accesskey "t">
+<!ENTITY cut.accesskey "T">
 <!ENTITY copy.label "复制">
 <!ENTITY copy.accesskey "C">
 <!ENTITY paste.label "粘贴">
@@ -29,6 +29,16 @@
 <!ENTITY menu.find.accesskey "F">
 <!ENTITY menu.findagain.label "再次查找">
 <!ENTITY menu.findagain.accesskey "G">
+<!ENTITY view.label "查看">
+<!ENTITY view.accesskey "V">
+<!ENTITY sort.label "排序">
+<!ENTITY sort.accesskey "S">
+<!ENTITY sort.none.label "未排序">
+<!ENTITY sort.none.accesskey "U">
+<!ENTITY sort.ascending.label "A &gt; Z 顺序">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.descending.label "Z &gt; A 顺序">
+<!ENTITY sort.descending.accesskey "Z">
 <!ENTITY options.label "选项">
 <!ENTITY options.accesskey "O">
 <!ENTITY enable.label "启用Adblock Plus">
@@ -54,14 +64,17 @@
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "关于Adblock Plus">
 <!ENTITY about.accesskey "B">
-<!ENTITY disabled.warning "Adblock Plus已被禁用。你可以编辑列表中的任何过滤规则，但是这些规则在重新启用前不会生效。">
 <!ENTITY description "添加你想过滤的地址，建议检查下拉列表。
 		你可以使用*作为通配符来创建更通用的过滤规则。
 		高级用户可以使用象 /banner\d+\.gif$/ 这样的正则表达式。">
-<!ENTITY pattern.column "过滤规则">
+<!ENTITY filter.column "过滤规则">
+<!ENTITY filter.accesskey "F">
 <!ENTITY enabled.column "启用">
+<!ENTITY enabled.accesskey "n">
 <!ENTITY hitcount.column "计数">
+<!ENTITY hitcount.accesskey "H">
 <!ENTITY lasthit.column "最后匹配时间">
+<!ENTITY lasthit.accesskey "L">
 <!ENTITY context.edit.label "编辑过滤规则">
 <!ENTITY context.resethitcount.label "重置该过滤规则的计数">
 <!ENTITY context.synchsubscription.label "现在更新订阅">
@@ -70,5 +83,7 @@
 <!ENTITY context.movedown.label "下移">
 <!ENTITY context.movegroupup.label "上移组">
 <!ENTITY context.movegroupdown.label "下移组">
+<!ENTITY context.enable.label "启用">
+<!ENTITY context.disable.label "禁用">
 <!ENTITY apply.label "应用">
 <!ENTITY apply.accesskey "P">

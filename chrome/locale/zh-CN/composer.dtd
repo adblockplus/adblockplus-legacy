@@ -1,0 +1,40 @@
+<!ENTITY dialog.title "添加 Adblock Plus 过滤规则">
+<!ENTITY accept.label "添加规则">
+<!ENTITY advanced.label "高级视图">
+<!ENTITY basic.label "基本视图">
+<!ENTITY disabled.warning.beforeLink "Adblock Plus 目前处于禁用状态。您可以继续添加过滤规则，但是这些规则无法生效。">
+<!ENTITY disabled.warning.link "启用 Adblock Plus">
+<!ENTITY disabled.warning.afterLink ".">
+<!ENTITY filter.label "新建过滤规则:">
+<!ENTITY filter.accesskey "f">
+<!ENTITY preferences.label "显示现有过滤规则...">
+<!ENTITY preferences.accesskey "S">
+<!ENTITY type.filter.label "应用的过滤规则">
+<!ENTITY type.filter.accesskey "B">
+<!ENTITY type.whitelist.label "例外规则">
+<!ENTITY type.whitelist.accesskey "x">
+<!ENTITY pattern.label "查找模式">
+<!ENTITY pattern.explanation "模式可以使地址的任意部分，符号 * 是通配符。过滤规则将仅应用到匹配模式的地址上。">
+<!ENTITY regexp.warning "您输入的模式将以正则表达式解释。过多的正的表达式会降低您浏览的速度。如果您不希望使用正则表达式，请在模式末尾添加一个 * 的符号。">
+<!ENTITY shortpattern.warning "您输入的模式太短儿不能被优化，过多这样的模式会降低您浏览的速度。推荐您为该过滤规则选择一个长些的字符串。">
+<!ENTITY custom.pattern.label "自定义:">
+<!ENTITY custom.pattern.accesskey "C">
+<!ENTITY anchors.label "仅接受模式:">
+<!ENTITY anchor.start.label "在地址开始处">
+<!ENTITY anchor.start.accesskey "g">
+<!ENTITY anchor.end.label "在地址末尾">
+<!ENTITY anchor.end.accesskey "d">
+<!ENTITY options.label "选项">
+<!ENTITY firstParty.label "仅第一方">
+<!ENTITY firstParty.accesskey "r">
+<!ENTITY thirdParty.label "仅第三方">
+<!ENTITY thirdParty.accesskey "T">
+<!ENTITY matchCase.label "匹配大小写">
+<!ENTITY matchCase.accesskey "M">
+<!ENTITY types.label "应用类型:">
+<!ENTITY collapse.label "折叠已过滤:">
+<!ENTITY collapse.accesskey "l">
+<!ENTITY collapse.default.yes.label "使用默认只 (是)">
+<!ENTITY collapse.default.no.label "使用默认值 (否)">
+<!ENTITY collapse.yes.label "是">
+<!ENTITY collapse.no.label "否">
