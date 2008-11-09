@@ -48,7 +48,7 @@ var prefs = {
     // Preferences observer registration
     try {
       var branchInternal = this.branch.QueryInterface(Components.interfaces.nsIPrefBranchInternal);
-      branchInternal.addObserver("", this, false);
+      branchInternal.addObserver("", this, true);
     }
     catch (e) {
       dump("Adblock Plus: exception registering pref observer: " + e + "\n");
@@ -59,8 +59,8 @@ var prefs = {
 
     // Shutdown observer registration
     try {
-      observerService.addObserver(this, "profile-before-change", false);
-      observerService.addObserver(this, "profile-after-change", false);
+      observerService.addObserver(this, "profile-before-change", true);
+      observerService.addObserver(this, "profile-after-change", true);
     }
     catch (e) {
       dump("Adblock Plus: exception registering profile observer: " + e + "\n");
@@ -74,7 +74,7 @@ var prefs = {
         this.privateBrowsing = Components.classes["@mozilla.org/privatebrowsing;1"]
                                          .getService(Components.interfaces.nsIPrivateBrowsingService)
                                          .privateBrowsingEnabled;
-        observerService.addObserver(this, "private-browsing", false);
+        observerService.addObserver(this, "private-browsing", true);
       } catch(e) {}
     }
 
@@ -245,6 +245,7 @@ var prefs = {
   // nsISupports implementation
   QueryInterface: function(iid) {
     if (!iid.equals(Components.interfaces.nsISupports) &&
+        !iid.equals(Components.interfaces.nsISupportsWeakReference) &&
         !iid.equals(Components.interfaces.nsIObserver))
       throw Components.results.NS_ERROR_NO_INTERFACE;
 
