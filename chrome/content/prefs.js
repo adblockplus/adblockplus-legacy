@@ -67,7 +67,7 @@ var prefs = {
     }
 
     // Add Private Browsing observer
-    if ("nsIPrivateBrowsingService" in Components.interfaces)
+    if ("@mozilla.org/privatebrowsing;1" in Components.classes)
     {
       try
       {
