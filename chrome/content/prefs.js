@@ -39,6 +39,7 @@ var prefs = {
   lastVersion: null,
   initialized: false,
   disableObserver: false,
+  privateBrowsing: false,
   branch: prefService.getBranch(prefRoot),
   prefList: [],
   listeners: [],
@@ -53,15 +54,28 @@ var prefs = {
       dump("Adblock Plus: exception registering pref observer: " + e + "\n");
     }
 
+    var observerService = Components.classes["@mozilla.org/observer-service;1"]
+                                    .getService(Components.interfaces.nsIObserverService);
+
     // Shutdown observer registration
     try {
-      var observerService = Components.classes["@mozilla.org/observer-service;1"]
-                                      .getService(Components.interfaces.nsIObserverService);
       observerService.addObserver(this, "profile-before-change", false);
       observerService.addObserver(this, "profile-after-change", false);
     }
     catch (e) {
       dump("Adblock Plus: exception registering profile observer: " + e + "\n");
+    }
+
+    // Add Private Browsing observer
+    if ("nsIPrivateBrowsingService" in Components.interfaces)
+    {
+      try
+      {
+        this.privateBrowsing = Components.classes["@mozilla.org/privatebrowsing;1"]
+                                         .getService(Components.interfaces.nsIPrivateBrowsingService)
+                                         .privateBrowsingEnabled;
+        observerService.addObserver(this, "private-browsing", false);
+      } catch(e) {}
     }
 
     var doInit = true;
@@ -216,6 +230,13 @@ var prefs = {
     else if (this.initialized && topic == "profile-before-change") {
       filterStorage.saveToDisk();
       this.initialized = false;
+    }
+    else if (topic == "private-browsing")
+    {
+      if (prefName == "enter")
+        this.privateBrowsing = true;
+      else if (prefName == "exit")
+        this.privateBrowsing = false;
     }
     else if (this.initialized && !this.disableObserver)
       this.reload();

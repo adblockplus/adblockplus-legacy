@@ -281,7 +281,7 @@ var filterStorage =
    */
   increaseHitCount: function(filter)
   {
-    if (!prefs.savestats || !(filter instanceof ActiveFilter))
+    if (!prefs.savestats || prefs.privateBrowsing || !(filter instanceof ActiveFilter))
       return;
 
     filter.hitCount++;
