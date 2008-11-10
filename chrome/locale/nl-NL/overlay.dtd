@@ -1,12 +1,13 @@
 <!ENTITY notloaded.label "Niet geladen">
-<!ENTITY notloaded.tooltip "Adblock Plus onderdelen konden niet worden geladen, waarschijnlijk is het niet goed geïnstalleerd">
+<!ENTITY notloaded.tooltip "Adblock Plus onderdelen konden niet worden geladen, misschien was het installeren niet goed gegaan.">
 <!ENTITY status.tooltip "Status:">
 <!ENTITY blocked.tooltip "Geblokkeerde onderdelen:">
 <!ENTITY filters.tooltip "Meest actieve filters:">
-<!ENTITY menuitem.label "Adblock Plus">
+<!ENTITY menuitem.label "Adblock Plus voorkeuren">
 <!ENTITY menuitem.accesskey "A">
+<!ENTITY view.blockableItems.label "Adblock Plus: Blokkeerbare onderdelen">
 <!ENTITY context.image.label "Afbeelding blokkeren">
-<!ENTITY context.object.label "Objekt blokkeren">
+<!ENTITY context.object.label "Object blokkeren">
 <!ENTITY context.frame.label "Deelvenster blokkeren">
 <!ENTITY sidebar.title "Blokkeerbare onderdelen op deze pagina">
 <!ENTITY settings.label "Voorkeuren">
@@ -18,4 +19,4 @@
 <!ENTITY whitelist.site.label "Uitschakelen op --">
 <!ENTITY whitelist.page.label "Alleen op deze pagina uitschakelen">
 <!ENTITY objecttab.title "Blokkeer">
-<!ENTITY objecttab.tooltip "Klik hier om dit objekt te blokkeren met Adblock Plus">
+<!ENTITY objecttab.tooltip "Klik hier om dit object te blokkeren met Adblock Plus">

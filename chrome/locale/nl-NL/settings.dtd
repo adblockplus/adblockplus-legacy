@@ -1,20 +1,20 @@
 <!ENTITY dialog.title "Adblock Plus Voorkeuren">
 <!ENTITY filters.label "Filters">
 <!ENTITY filters.accesskey "F">
-<!ENTITY add.label "Toevoegen">
+<!ENTITY add.label "Filter toevoegen">
 <!ENTITY add.accesskey "g">
-<!ENTITY addsubscription.label "Filterabonnement toevoegen">
-<!ENTITY addsubscription.accesskey "A">
-<!ENTITY synchsubscriptions.label "Alle abonnementen bijwerken">
-<!ENTITY synchsubscriptions.accesskey "l">
-<!ENTITY import.label "Filters Importeren">
-<!ENTITY import.accesskey "I">
-<!ENTITY export.label "Filters Exporteren">
-<!ENTITY export.accesskey "E">
-<!ENTITY clearall.label "Alle filters verwijderen">
+<!ENTITY addsubscription.label "Abonnement toevoegen">
+<!ENTITY addsubscription.accesskey "t">
+<!ENTITY synchsubscriptions.label "Abonnementen bijwerken">
+<!ENTITY synchsubscriptions.accesskey "A">
+<!ENTITY import.label "Filters importeren">
+<!ENTITY import.accesskey "i">
+<!ENTITY export.label "Filters exporteren">
+<!ENTITY export.accesskey "x">
+<!ENTITY clearall.label "Eigen filters verwijderen">
 <!ENTITY clearall.accesskey "v">
-<!ENTITY resethitcounts.label "Reset trefstatistieken">
-<!ENTITY resethitcounts.accesskey "R">
+<!ENTITY resethitcounts.label "Trefstatistieken herstellen">
+<!ENTITY resethitcounts.accesskey "r">
 <!ENTITY edit.label "Bewerken">
 <!ENTITY edit.accesskey "W">
 <!ENTITY cut.label "Knippen">
@@ -25,17 +25,27 @@
 <!ENTITY paste.accesskey "P">
 <!ENTITY remove.label "Verwijderen">
 <!ENTITY remove.accesskey "V">
-<!ENTITY menu.find.label "Zoek">
+<!ENTITY menu.find.label "Zoeken">
 <!ENTITY menu.find.accesskey "Z">
-<!ENTITY menu.findagain.label "Zoek Opnieuw">
-<!ENTITY menu.findagain.accesskey "O">
+<!ENTITY menu.findagain.label "Opnieuw zoeken">
+<!ENTITY menu.findagain.accesskey "w">
+<!ENTITY view.label "Beeld">
+<!ENTITY view.accesskey "l">
+<!ENTITY sort.label "Sorteer op">
+<!ENTITY sort.accesskey "S">
+<!ENTITY sort.none.label "Ongesorteerd">
+<!ENTITY sort.none.accesskey "O">
+<!ENTITY sort.ascending.label "Oplopend gesorteerd">
+<!ENTITY sort.ascending.accesskey "p">
+<!ENTITY sort.descending.label "Aflopend gesorteerd">
+<!ENTITY sort.descending.accesskey "A">
 <!ENTITY options.label "Opties">
 <!ENTITY options.accesskey "O">
 <!ENTITY enable.label "Adblock Plus inschakelen">
 <!ENTITY enable.accesskey "A">
-<!ENTITY showintoolbar.label "Laat zien in werkbalk">
+<!ENTITY showintoolbar.label "Toon in werkbalk">
 <!ENTITY showintoolbar.accesskey "w">
-<!ENTITY showinstatusbar.label "Laat zien in statusbalk">
+<!ENTITY showinstatusbar.label "Toon in statusbalk">
 <!ENTITY showinstatusbar.accesskey "s">
 <!ENTITY objecttabs.label "Tabs laten zien op Flash en Java">
 <!ENTITY objecttabs.accesskey "T">
@@ -54,19 +64,24 @@
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Over Adblock Plus">
 <!ENTITY about.accesskey "A">
-<!ENTITY disabled.warning "Adblock Plus is uitgeschakeld. U kunt de filters in de lijst aanpassen, maar wijzigingen zullen niet worden toegepast voordat u Adblock weer inschakeld.">
-<!ENTITY description "Voeg het adres toe dat u wilt blokkeren, zie de keuzelijst voor suggesties. U kunt een * als jokerteken gebruiken voor meer algemene filters. Ervaren gebruikers kunnen reguliere expressies gebruiken, zoals /banner\d+\.gif$/.">
-<!ENTITY pattern.column "Filterregel">
+<!ENTITY description "De volgende filters bepalen welke adressen geblokkeerd worden en welke worden toegestaan:">
+<!ENTITY filter.column "Filterregel">
+<!ENTITY filter.accesskey "F">
 <!ENTITY enabled.column "Ingeschakeld">
+<!ENTITY enabled.accesskey "I">
 <!ENTITY hitcount.column "Treffers">
+<!ENTITY hitcount.accesskey "T">
 <!ENTITY lasthit.column "Laatste treffer">
+<!ENTITY lasthit.accesskey "L">
 <!ENTITY context.edit.label "Filter wijzigen">
-<!ENTITY context.resethitcount.label "Reset trefstatistieken voor filter">
+<!ENTITY context.resethitcount.label "Trefstatistieken voor filter herstellen">
 <!ENTITY context.synchsubscription.label "Abonnement nu bijwerken">
 <!ENTITY context.editsubscription.label "Abonnement wijzigen">
 <!ENTITY context.moveup.label "Omhoog verplaatsen">
 <!ENTITY context.movedown.label "Omlaag verplaatsen">
 <!ENTITY context.movegroupup.label "Groep omhoog verplaatsen">
 <!ENTITY context.movegroupdown.label "Groep omlaag verplaatsen">
+<!ENTITY context.enable.label "Inschakelen">
+<!ENTITY context.disable.label "Uitschakelen">
 <!ENTITY apply.label "Toepassen">
 <!ENTITY apply.accesskey "T">
