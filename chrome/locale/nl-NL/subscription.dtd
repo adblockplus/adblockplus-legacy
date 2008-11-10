@@ -1,9 +1,9 @@
 <!ENTITY dialog.title "Filter abonnement wijzigen">
 <!ENTITY dialog.newtitle "Filter abonnement toevoegen">
 <!ENTITY new.description "Geef alstublieft het internetadres of bestand op met een Adblock Plus filterslijst.">
-<!ENTITY edit.description "De filterlijst van dit abonnement zal worden gedownload van de opgegeven locatie.">
-<!ENTITY external.description "Dit is een extern filter abonnement, de filterlijst zal worden bijgewerkt door de extensie die is gemaakt voor dit abonnement.">
-<!ENTITY autodownload.description "Als u kiest voor ‘Automatisch bijwerken’ zal deze locatie dagelijks worden gecontroleerd op nieuwe versies. Als u deze optie uitschakelt kunt u nog steeds een handmatige update uitvoeren vanuit het context menu van het filter abonnement.">
+<!ENTITY edit.description "De filterlijst van dit abonnement zal worden gedownload van de gegeven locatie.">
+<!ENTITY external.description "Dit is een extern filter abonnement, de filterlijst zal worden bijgewerkt door de extensie die dit abonnement heeft toegevoegd.">
+<!ENTITY autodownload.description "Als u kiest voor ‘Automatisch bijwerken’ zal deze locatie dagelijks worden gecontroleerd op nieuwe versies. Als u deze optie uitschakelt kunt u nog steeds een handmatige controle uitvoeren vanuit het context menu van het abonnement.">
 <!ENTITY location.label "Filterlijst locatie:">
 <!ENTITY location.accesskey "L">
 <!ENTITY title.label "Abonnementnaam:">
@@ -12,5 +12,3 @@
 <!ENTITY autodownload.accesskey "T">
 <!ENTITY enabled.label "Filters inschakelen">
 <!ENTITY enabled.accesskey "N">
-<!ENTITY full-list.url "http://adblockplus.org/en/subscriptions">
-<!ENTITY full-list.label "Bekijk alle abonnementen">

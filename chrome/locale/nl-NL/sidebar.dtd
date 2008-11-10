@@ -1,4 +1,4 @@
-<!ENTITY detached.title "Adblock Plus: Blokkeerbare onderdelen (los)">
+<!ENTITY detached.title "Adblock Plus: Blokkeerbare onderdelen (losgekoppeld)">
 <!ENTITY detach.label "Losmaken">
 <!ENTITY reattach.label "Vastmaken">
 <!ENTITY search.label "Zoeken:">
@@ -7,17 +7,24 @@
 <!ENTITY address.label "Adres">
 <!ENTITY filter.label "Filter">
 <!ENTITY state.label "Status">
-<!ENTITY noitems.label "Geen blokkeerbare voorwerpen">
+<!ENTITY size.label "Grootte">
+<!ENTITY noitems.label "Geen blokkeerbare onderdelen">
 <!ENTITY whitelisted.label "Toegestane pagina">
 <!ENTITY notloaded.label "Adblock Plus is niet goed geïnstalleerd">
 <!ENTITY tooltip.address.label "Adres:">
 <!ENTITY tooltip.type.label "Type:">
 <!ENTITY tooltip.type.blocked "(geblokkeerd)">
 <!ENTITY tooltip.type.whitelisted "(toegestaan)">
+<!ENTITY tooltip.size.label "Grootte">
 <!ENTITY tooltip.filter.label "Toegepast filter:">
+<!ENTITY tooltip.filterSource.label "Filter bron:">
 <!ENTITY context.block.label "Blokkeer dit onderdeel">
 <!ENTITY context.editfilter.label "Wijzig toegepast filter">
-<!ENTITY context.whitelist.label "Maak een uitzonderingsregel voor dit onderdeel">
+<!ENTITY context.whitelist.label "Voeg een uitzonderingsregel voor dit onderdeel toe">
+<!ENTITY context.disablefilter.label "Filter uitschakelen --">
+<!ENTITY context.enablefilter.label "Filter inschakelen --">
 <!ENTITY context.open.label "Open in een nieuw tabblad">
 <!ENTITY context.flash.label "Laat randen knipperen">
-<!ENTITY context.copy.label "Kopieer adres">
+<!ENTITY context.copy.label "Adres kopiëren">
+<!ENTITY context.copyFilter.label "Filter kopiëren">
+<!ENTITY context.selectAll.label "Alles selecteren">
