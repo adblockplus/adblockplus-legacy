@@ -19,5 +19,3 @@ menu by Filter abonnemint.">
 <!ENTITY autodownload.accesskey "T">
 <!ENTITY enabled.label "Filters ynskeakelje">
 <!ENTITY enabled.accesskey "N">
-<!ENTITY full-list.url "http://adblockplus.org/en/subscriptions">
-<!ENTITY full-list.label "Besjoch alle abonneminten">
