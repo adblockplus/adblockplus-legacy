@@ -1,0 +1,67 @@
+<!-- ***** BEGIN LICENSE BLOCK *****
+   - Version: MPL 1.1
+   -
+   - The contents of this file are subject to the Mozilla Public License Version
+   - 1.1 (the "License"); you may not use this file except in compliance with
+   - the License. You may obtain a copy of the License at
+   - http://www.mozilla.org/MPL/
+   -
+   - Software distributed under the License is distributed on an "AS IS" basis,
+   - WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+   - for the specific language governing rights and limitations under the
+   - License.
+   -
+   - The Original Code is Adblock Plus.
+   -
+   - The Initial Developer of the Original Code is
+   - Wladimir Palant.
+   - Portions created by the Initial Developer are Copyright (C) 2006-2008
+   - the Initial Developer. All Rights Reserved.
+   -
+   - Contributor(s):
+   -
+   - ***** END LICENSE BLOCK ***** -->
+
+<!ENTITY dialog.title             "Neuen Filter hinzufügen">
+<!ENTITY accept.label             "Filter hinzufügen">
+<!ENTITY advanced.label           "Erweiterte Ansicht">
+<!ENTITY basic.label              "Standardansicht">
+
+<!ENTITY disabled.warning.beforeLink  "Adblock Plus ist deaktiviert. Sie können weiterhin die Filter hinzufügen, diese werden jedoch erst angewandt, wenn Sie ">
+<!ENTITY disabled.warning.link    "Adblock Plus aktivieren">
+<!ENTITY disabled.warning.afterLink   ".">
+
+<!ENTITY filter.label             "Neuer Filter:">
+<!ENTITY filter.accesskey         "r">
+<!ENTITY preferences.label        "Existierende Filter anzeigen...">
+<!ENTITY preferences.accesskey    "z">
+<!ENTITY type.filter.label        "Blockierregel">
+<!ENTITY type.filter.accesskey    "B">
+<!ENTITY type.whitelist.label     "Ausnahmeregel">
+<!ENTITY type.whitelist.accesskey "A">
+<!ENTITY pattern.label            "Muster suchen">
+<!ENTITY pattern.explanation      "Das Muster kann ein beliebiger Teil der Adresse sein, das Zeichen '*' kann dabei als Jokerzeichen verwendet werden. Der Filter wird nur auf Adressen angewandt, die auf das Muster passen.">
+<!ENTITY regexp.warning           "Das Muster, das Sie eingegeben haben, wird als regulärer Ausdruck interpretiert. Zu viele reguläre Ausdrücke könnten Ihren Browser verlangsamen. Falls Sie nicht beabsichtigt haben, reguläre Ausdrücke zu verwenden, fügen Sie einfach das Symbol '*' am Ende des Musters an.">
+<!ENTITY shortpattern.warning     "Das Muster, das Sie eingegeben haben, ist zu kurz zum Optimieren. Zu viele solche Muster könnten Ihren Browser verlangsamen. Es ist deshalb empfehlenswert, nach Möglichkeit einen längeren Muster für diesen Filter zu verwenden.">
+<!ENTITY custom.pattern.label     "Benutzerdefiniert:">
+<!ENTITY custom.pattern.accesskey "n">
+<!ENTITY anchors.label            "Muster nur akzeptieren:">
+<!ENTITY anchor.start.label       "am Anfang der Adresse">
+<!ENTITY anchor.start.accesskey   "f">
+<!ENTITY anchor.end.label         "am Ende der Adresse">
+<!ENTITY anchor.end.accesskey     "d">
+<!ENTITY options.label            "Optionen">
+<!ENTITY firstParty.label         "Nur für Elemente der Ursprungsseite">
+<!ENTITY firstParty.accesskey     "p">
+<!ENTITY thirdParty.label         "Nur für Elemente von Drittseiten">
+<!ENTITY thirdParty.accesskey     "t">
+<!ENTITY matchCase.label          "Groß-/Kleinschreibung beachten">
+<!ENTITY matchCase.accesskey      "K">
+<!ENTITY types.label              "Auf Elementtypen anwenden:">
+
+<!ENTITY collapse.label           "Platz freigeben:">
+<!ENTITY collapse.accesskey       "g">
+<!ENTITY collapse.default.yes.label "Standardeinstellung (ja)">
+<!ENTITY collapse.default.no.label  "Standardeinstellung (nein)">
+<!ENTITY collapse.yes.label       "Ja">
+<!ENTITY collapse.no.label        "Nein">
