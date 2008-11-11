@@ -34,6 +34,7 @@
 <!ENTITY address.label            "Адрес">
 <!ENTITY filter.label             "Фильтр">
 <!ENTITY state.label              "Статус">
+<!ENTITY size.label               "Размер">
 
 <!ENTITY noitems.label            "Блокировать нечего">
 <!ENTITY whitelisted.label        "Отключен на этой странице">
@@ -43,11 +44,17 @@
 <!ENTITY tooltip.type.label       "Тип:">
 <!ENTITY tooltip.type.blocked     "(заблокирован)">
 <!ENTITY tooltip.type.whitelisted "(исключение)">
+<!ENTITY tooltip.size.label       "Размер:">
 <!ENTITY tooltip.filter.label     "Применен фильтр:">
+<!ENTITY tooltip.filterSource.label "Источник фильтра:">
 
 <!ENTITY context.block.label      "Заблокировать элемент">
 <!ENTITY context.editfilter.label "Отредактировать примененный фильтр">
 <!ENTITY context.whitelist.label  "Добавить исключение для элемента">
+<!ENTITY context.disablefilter.label  "Отключить фильтр --">
+<!ENTITY context.enablefilter.label   "Включить обратно фильтр --">
 <!ENTITY context.open.label       "Открыть в новой вкладке">
 <!ENTITY context.flash.label      "Показать расположение элемента">
 <!ENTITY context.copy.label       "Копировать адрес">
+<!ENTITY context.copyFilter.label "Копировать фильтр">
+<!ENTITY context.selectAll.label  "Выделить всё">
