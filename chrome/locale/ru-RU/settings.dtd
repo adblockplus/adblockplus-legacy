@@ -22,7 +22,7 @@
    -
    - ***** END LICENSE BLOCK ***** -->
 
-<!ENTITY dialog.title               "Adblock Plus - Установки">
+<!ENTITY dialog.title               "Установки Adblock Plus">
 
 <!ENTITY filters.label              "Фильтры">
 <!ENTITY filters.accesskey          "Ф">
@@ -35,9 +35,9 @@
 <!ENTITY synchsubscriptions.accesskey  "ч">
 <!ENTITY import.label               "Импорт фильтров">
 <!ENTITY import.accesskey           "м">
-<!ENTITY export.label               "Экспорт фильтров">
+<!ENTITY export.label               "Экспорт пользовательских фильтров">
 <!ENTITY export.accesskey           "к">
-<!ENTITY clearall.label             "Удалить все фильтры">
+<!ENTITY clearall.label             "Удалить все пользовательские фильтры">
 <!ENTITY clearall.accesskey         "д">
 <!ENTITY resethitcounts.label       "Обнулить статистику попаданий">
 <!ENTITY resethitcounts.accesskey   "н">
@@ -57,6 +57,18 @@
 <!ENTITY menu.find.accesskey        "Н">
 <!ENTITY menu.findagain.label       "Найти следующий">
 <!ENTITY menu.findagain.accesskey   "й">
+
+<!ENTITY view.label                 "Вид">
+<!ENTITY view.accesskey             "и">
+
+<!ENTITY sort.label                 "Сортировка">
+<!ENTITY sort.accesskey             "р">
+<!ENTITY sort.none.label            "Без сортировки">
+<!ENTITY sort.none.accesskey        "з">
+<!ENTITY sort.ascending.label       "Сортировка по алфавиту">
+<!ENTITY sort.ascending.accesskey   "ф">
+<!ENTITY sort.descending.label      "В обратном порядке">
+<!ENTITY sort.descending.accesskey  "р">
 
 <!ENTITY options.label              "Настройки">
 <!ENTITY options.accesskey          "Н">
@@ -86,28 +98,27 @@
 <!ENTITY about.label                "О Adblock Plus">
 <!ENTITY about.accesskey            "О">
 
-<!ENTITY disabled.warning           "Adblock Plus отключен. Вы можете менять правила блокирования в списке, но Adblock Plus нужно включить, чтобы эти правила применились.">
+<!ENTITY description                "Следующие фильтры определяют, к каким адресам запросы нужно блокировать, а к каким разрешать:">
 
-<!ENTITY description                "
-  Добавьте адреса, которые вы хотите заблокировать. Для подсказок посмотрите выпадающий
-  список. Вы можете создать и более общие фильтры, для этого замените часть адреса
-  звездочкой (*). Продвинутые пользователи могут также использовать регулярные
-  выражения, к примеру /banner\d+\.gif$/.
-">
-
-<!ENTITY pattern.column             "Правило">
+<!ENTITY filter.column              "Правило">
+<!ENTITY filter.accesskey           "П">
 <!ENTITY enabled.column             "Включено">
+<!ENTITY enabled.accesskey          "к">
 <!ENTITY hitcount.column            "Попаданий">
+<!ENTITY hitcount.accesskey         "д">
 <!ENTITY lasthit.column             "Последнее попадание">
+<!ENTITY lasthit.accesskey          "л">
 
 <!ENTITY context.edit.label         "Редактировать фильтр">
 <!ENTITY context.resethitcount.label      "Обнулить статистику попаданий для фильтра">
 <!ENTITY context.synchsubscription.label  "Скачать фильтры заново">
 <!ENTITY context.editsubscription.label   "Редактировать подписку">
-<!ENTITY context.moveup.label       "Сдвинуть вверх">
-<!ENTITY context.movedown.label     "Сдвинуть вниз">
+<!ENTITY context.moveup.label       "Сдвинуть фильтр вверх">
+<!ENTITY context.movedown.label     "Сдвинуть фильтр вниз">
 <!ENTITY context.movegroupup.label        "Сдвинуть группу вверх">
 <!ENTITY context.movegroupdown.label      "Сдвинуть группу вниз">
+<!ENTITY context.enable.label       "Включить">
+<!ENTITY context.disable.label      "Отключить">
 
 <!ENTITY apply.label                "Применить">
 <!ENTITY apply.accesskey            "р">

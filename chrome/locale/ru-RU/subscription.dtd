@@ -53,6 +53,3 @@
 <!ENTITY autodownload.accesskey     "т">
 <!ENTITY enabled.label              "Включить фильтры">
 <!ENTITY enabled.accesskey          "к">
-
-<!ENTITY full-list.url              "http://adblockplus.org/en/subscriptions">
-<!ENTITY full-list.label            "Просмотреть все известные подписки">
