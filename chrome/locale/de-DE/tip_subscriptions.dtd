@@ -22,7 +22,7 @@
    -
    - ***** END LICENSE BLOCK ***** -->
 
-<!ENTITY dialog.title               "Willkommen">
+<!ENTITY dialog.title               "Filterabonnement für Adblock Plus hinzufügen">
 
 <!ENTITY description.par1           "
   Danke, dass Sie Adblock Plus installiert haben. Diese Erweiterung erlaubt
@@ -41,11 +41,25 @@
 ">
 
 <!ENTITY note                       "
-  Bemerkung: In der Regel ist eine Filterlist dann am effektivsten, wenn sie
+  Bemerkung: In der Regel ist eine Filterliste dann am effektivsten, wenn sie
   auf Webseiten der Region angewandt wird, für die sie erstellt wurde.
 ">
 
+<!ENTITY adblock.warning            "
+  Adblock Plus hat festgestellt, dass Sie Adblock oder eine alte Version von Adblock Plus
+  installiert haben. Wenn Sie Adblock und Adblock Plus parallel ausführen, kann das Probleme
+  beim Browsen verursachen. Es wird empfohlen, Adblock jetzt zu deinstallieren.
+">
+<!ENTITY adblock.uninstall          "Adblock deinstallieren">
+
+<!ENTITY filterset.g.warning        "
+  Es scheint, dass Sie Filterset.G verwenden. Diese Filterliste wurde in den vergangenen Jahren
+  kaum aktualisiert und ist oft Ursache von Problemen auf Webseiten. Es wird empfohlen, Filterset.G
+  jetzt zu deinstallieren.
+">
+<!ENTITY filterset.g.moreinfo       "Weitere Informationen">
 <!ENTITY filterset.g.moreinfo.url   "http://adblockplus.org/de/faq_project#filterset.g">
+<!ENTITY filterset.g.uninstall      "Filterset.G deinstallieren">
 
 <!ENTITY homepage.label             "Webseite des Abonnements">
 
@@ -53,3 +67,6 @@
 <!ENTITY subscribe.accesskey        "B">
 <!ENTITY other.label                "Anderes Abonnement hinzufügen">
 <!ENTITY other.accesskey            "D">
+ 
+<!ENTITY full-list.url              "http://adblockplus.org/de/subscriptions">
+<!ENTITY full-list.label            "Alle bekannten Abonnements anzeigen">

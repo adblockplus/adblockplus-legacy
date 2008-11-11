@@ -28,8 +28,10 @@
 <!ENTITY blocked.tooltip        "Blockierte Elemente auf dieser Seite:">
 <!ENTITY filters.tooltip        "Am meisten angewandte Filter:">
 
-<!ENTITY menuitem.label         "Adblock Plus">
+<!ENTITY menuitem.label         "Adblock Plus - Einstellungen">
 <!ENTITY menuitem.accesskey     "A">
+
+<!ENTITY view.blockableItems.label  "Adblock Plus: Elemente der geöffneten Seite">
 
 <!ENTITY context.image.label    "Adblock Plus: Grafik blockieren">
 <!ENTITY context.object.label   "Adblock Plus: Objekt blockieren">

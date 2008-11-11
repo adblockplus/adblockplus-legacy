@@ -35,9 +35,9 @@
 <!ENTITY synchsubscriptions.accesskey   "N">
 <!ENTITY import.label               "Filter importieren">
 <!ENTITY import.accesskey           "M">
-<!ENTITY export.label               "Filter exportieren">
+<!ENTITY export.label               "Benutzerfilter exportieren">
 <!ENTITY export.accesskey           "X">
-<!ENTITY clearall.label             "Alle Filter entfernen">
+<!ENTITY clearall.label             "Alle Benutzerfilter entfernen">
 <!ENTITY clearall.accesskey         "L">
 <!ENTITY resethitcounts.label       "Trefferstatistik zurücksetzen">
 <!ENTITY resethitcounts.accesskey   "R">
@@ -57,6 +57,18 @@
 <!ENTITY menu.find.accesskey        "S">
 <!ENTITY menu.findagain.label       "Weitersuchen">
 <!ENTITY menu.findagain.accesskey   "N">
+
+<!ENTITY view.label                 "Ansicht">
+<!ENTITY view.accesskey             "s">
+
+<!ENTITY sort.label                 "Sortieren">
+<!ENTITY sort.accesskey             "S">
+<!ENTITY sort.none.label            "Unsortiert">
+<!ENTITY sort.none.accesskey        "U">
+<!ENTITY sort.ascending.label       "Aufsteigend">
+<!ENTITY sort.ascending.accesskey   "A">
+<!ENTITY sort.descending.label      "Absteigend">
+<!ENTITY sort.descending.accesskey  "b">
 
 <!ENTITY options.label              "Optionen">
 <!ENTITY options.accesskey          "O">
@@ -86,28 +98,27 @@
 <!ENTITY about.label                "Über Adblock Plus">
 <!ENTITY about.accesskey            "B">
 
-<!ENTITY disabled.warning           "Adblock Plus ist deaktiviert. Sie können weiterhin die Filter in der Liste bearbeiten, jedoch Sie müssen Adblock Plus wieder aktivieren, damit diese angewandt werden.">
+<!ENTITY description                "Die Filter in dieser Liste bestimmen, für welche Adressen Anfragen blockiert und für welche zugelassen werden sollten:">
 
-<!ENTITY description                "
-  Fügen Sie Adressen hinzu, die Sie blockieren möchten, Vorschläge gibt es in der
-  Dropdown-Liste. Für allgemeinere Filter können Sie Sternchen (*) als Joker-Zeichen
-  verwenden. Fortgeschrittene Benutzer können auch reguläre Ausdrücke benutzen,
-  wie z.B. /banner\d+\.gif$/.
-">
-
-<!ENTITY pattern.column             "Filterregel">
+<!ENTITY filter.column              "Filterregel">
+<!ENTITY filter.accesskey           "F">
 <!ENTITY enabled.column             "Aktiv">
+<!ENTITY enabled.accesskey          "k">
 <!ENTITY hitcount.column            "Treffer">
+<!ENTITY hitcount.accesskey         "r">
 <!ENTITY lasthit.column             "Letzter Treffer">
+<!ENTITY lasthit.accesskey          "z">
 
 <!ENTITY context.edit.label         "Filter bearbeiten">
 <!ENTITY context.resethitcount.label      "Trefferstatistik für Filter zurücksetzen">
 <!ENTITY context.synchsubscription.label  "Filter jetzt neu herunterladen">
 <!ENTITY context.editsubscription.label   "Abonnement bearbeiten">
-<!ENTITY context.moveup.label       "Nach oben verschieben">
-<!ENTITY context.movedown.label     "Nach unten verschieben">
+<!ENTITY context.moveup.label       "Filter nach oben verschieben">
+<!ENTITY context.movedown.label     "Filter nach unten verschieben">
 <!ENTITY context.movegroupup.label        "Gruppe nach oben verschieben">
 <!ENTITY context.movegroupdown.label      "Gruppe nach unten verschieben">
+<!ENTITY context.enable.label       "Aktivieren">
+<!ENTITY context.disable.label      "Deaktivieren">
 
 <!ENTITY apply.label                "Anwenden">
 <!ENTITY apply.accesskey            "W">
