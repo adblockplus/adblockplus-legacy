@@ -29,6 +29,16 @@
 <!ENTITY menu.find.accesskey "н">
 <!ENTITY menu.findagain.label "Знайти наступний">
 <!ENTITY menu.findagain.accesskey "т">
+<!ENTITY view.label "Вигляд">
+<!ENTITY view.accesskey "В">
+<!ENTITY sort.label "Сортувати за">
+<!ENTITY sort.accesskey "С">
+<!ENTITY sort.none.label "Несортовано">
+<!ENTITY sort.none.accesskey "Н">
+<!ENTITY sort.ascending.label "Від А до Я">
+<!ENTITY sort.ascending.accesskey "А">
+<!ENTITY sort.descending.label "Від Я до А">
+<!ENTITY sort.descending.accesskey "Я">
 <!ENTITY options.label "Налаштування">
 <!ENTITY options.accesskey "а">
 <!ENTITY enable.label "Увімкнути Adblock Plus">
@@ -54,15 +64,18 @@
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Про Adblock Plus">
 <!ENTITY about.accesskey "о">
-<!ENTITY disabled.warning "Adblock Plus вимкнено. Ви можете міняти правила блокування в списку, але Adblock Plus потрібно увімкнути, щоб ці правила застосувалися.">
 <!ENTITY description "Додайте адреси, які хочете заблокувати. Для підказок подивіться випадний
 	список. Ви можете створити і більш загальні фільтри, для цього замініть частину адреси
 	зірочкою (*). Досвідчені користувачі можуть також використовувати регулярні
 	вирази, наприклад /banner\d+\.gif$/.">
-<!ENTITY pattern.column "Правило">
+<!ENTITY filter.column "Правило фільтрування">
+<!ENTITY filter.accesskey "ф">
 <!ENTITY enabled.column "Увімкнено">
+<!ENTITY enabled.accesskey "в">
 <!ENTITY hitcount.column "Попадань">
+<!ENTITY hitcount.accesskey "п">
 <!ENTITY lasthit.column "Останнє попадання">
+<!ENTITY lasthit.accesskey "О">
 <!ENTITY context.edit.label "Редагувати фільтр">
 <!ENTITY context.resethitcount.label "Обнулити статистику попадань для фільтру">
 <!ENTITY context.synchsubscription.label "Викачати фільтри наново">
@@ -71,5 +84,7 @@
 <!ENTITY context.movedown.label "Зрушити вниз">
 <!ENTITY context.movegroupup.label "Зрушити групу вгору">
 <!ENTITY context.movegroupdown.label "Зрушити групу вниз">
+<!ENTITY context.enable.label "Увімкнути">
+<!ENTITY context.disable.label "Вимкнути">
 <!ENTITY apply.label "Застосувати">
 <!ENTITY apply.accesskey "т">
