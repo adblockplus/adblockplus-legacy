@@ -3,8 +3,9 @@
 <!ENTITY status.tooltip "Статус:">
 <!ENTITY blocked.tooltip "Заблоковані елементи на цій сторінці:">
 <!ENTITY filters.tooltip "Найбільш часто застосовані фільтри:">
-<!ENTITY menuitem.label "Adblock Plus">
+<!ENTITY menuitem.label "Налаштування Adblock Plus">
 <!ENTITY menuitem.accesskey "A">
+<!ENTITY view.blockableItems.label "Adblock Plus: Об’єкти котрі можна заблокувати">
 <!ENTITY context.image.label "Adblock Plus: заблокувати зображення">
 <!ENTITY context.object.label "Adblock Plus: заблокувати об’єкт">
 <!ENTITY context.frame.label "Adblock Plus: заблокувати фрейм">

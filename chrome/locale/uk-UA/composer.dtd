@@ -1,0 +1,40 @@
+<!ENTITY dialog.title "Додати правило фільтрування Adblock Plus">
+<!ENTITY accept.label "Додати фільтр">
+<!ENTITY advanced.label "Складний вигляд">
+<!ENTITY basic.label "Простий вигляд">
+<!ENTITY disabled.warning.beforeLink "Adblock Plus наразі вимкнений. Ви все одно можете додавати фільтри, але вони не застосуються доки ви">
+<!ENTITY disabled.warning.link "увімкнути Adblock Plus">
+<!ENTITY disabled.warning.afterLink ".">
+<!ENTITY filter.label "Новий фільтр:">
+<!ENTITY filter.accesskey "ф">
+<!ENTITY preferences.label "Показати існуючі фільтри…">
+<!ENTITY preferences.accesskey "і">
+<!ENTITY type.filter.label "Правило блокування">
+<!ENTITY type.filter.accesskey "Б">
+<!ENTITY type.whitelist.label "Правило винятку">
+<!ENTITY type.whitelist.accesskey "в">
+<!ENTITY pattern.label "Шукати шаблон">
+<!ENTITY pattern.explanation "Шаблон може бути будь-якою частиною адреси, символ * працює як джокер. Фільтр буде застосовано лише до адрес що відповідають шаблону.">
+<!ENTITY regexp.warning "Шаблон що ви ввели буде інтерпретовано як регулярний вираз. Багато регулярних виразів можуть уповільнити перегляд сторінок. Додайте * на кінець шаблону якщо ви не збирались використовувати регулярний вираз.">
+<!ENTITY shortpattern.warning "Шаблон що ви ввели закороткий для оптимізування, багато таких шаблонів можуть уповільнити перегляд сторінок. Рекомендовано обрати довшу строку для цього фільтра">
+<!ENTITY custom.pattern.label "Інше">
+<!ENTITY custom.pattern.accesskey "н">
+<!ENTITY anchors.label "Шаблон має бути">
+<!ENTITY anchor.start.label "на початку адреси">
+<!ENTITY anchor.start.accesskey "п">
+<!ENTITY anchor.end.label "при кінці адреси">
+<!ENTITY anchor.end.accesskey "к">
+<!ENTITY options.label "Настройки">
+<!ENTITY firstParty.label "Той же сайт">
+<!ENTITY firstParty.accesskey "й">
+<!ENTITY thirdParty.label "Сторонній сайт">
+<!ENTITY thirdParty.accesskey "т">
+<!ENTITY matchCase.label "Враховувати регістр">
+<!ENTITY matchCase.accesskey "р">
+<!ENTITY types.label "Застосовувати до об’єктів:">
+<!ENTITY collapse.label "Згортати заблоковане:">
+<!ENTITY collapse.accesskey "г">
+<!ENTITY collapse.default.yes.label "Як завжди (так)">
+<!ENTITY collapse.default.no.label "Як завжди (ні)">
+<!ENTITY collapse.yes.label "Так">
+<!ENTITY collapse.no.label "Ні">

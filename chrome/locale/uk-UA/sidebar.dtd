@@ -1,4 +1,4 @@
-<!ENTITY detached.title "Adblock Plus: елементи відкритої сторінки (від’днані)">
+<!ENTITY detached.title "Adblock Plus: елементи відкритої сторінки (від’єднані)">
 <!ENTITY detach.label "Від’єднати">
 <!ENTITY reattach.label "Приєднати">
 <!ENTITY search.label "Пошук:">
@@ -7,6 +7,7 @@
 <!ENTITY address.label "Адреса">
 <!ENTITY filter.label "Фільтр">
 <!ENTITY state.label "Статус">
+<!ENTITY size.label "Розмір">
 <!ENTITY noitems.label "Блокувати нічого">
 <!ENTITY whitelisted.label "Дозволений на цій сторінці">
 <!ENTITY notloaded.label "Adblock Plus не завантажився нормально">
@@ -14,10 +15,16 @@
 <!ENTITY tooltip.type.label "Тип:">
 <!ENTITY tooltip.type.blocked "(заблокований)">
 <!ENTITY tooltip.type.whitelisted "(виняток)">
+<!ENTITY tooltip.size.label "Розмір:">
 <!ENTITY tooltip.filter.label "Застосований фільтр:">
+<!ENTITY tooltip.filterSource.label "Джерело фільтра:">
 <!ENTITY context.block.label "Заблокувати елемент">
 <!ENTITY context.editfilter.label "Відредагувати застосований фільтр">
 <!ENTITY context.whitelist.label "Вказати елемент як виняток">
+<!ENTITY context.disablefilter.label "Вимкнути фільтр --">
+<!ENTITY context.enablefilter.label "Знов увімкнути фільтр --">
 <!ENTITY context.open.label "Відкрити в новій вкладці">
 <!ENTITY context.flash.label "Показати розташування елементу">
 <!ENTITY context.copy.label "Копіювати адресу">
+<!ENTITY context.copyFilter.label "Копіювати фільтр">
+<!ENTITY context.selectAll.label "Вибрати всі">
