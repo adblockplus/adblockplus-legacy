@@ -2263,7 +2263,17 @@ let treeView = {
       return;
     }
 
+    // The filter might be removed already if we don't have our own filters property yet
     let index = subscription.filters.indexOf(filter);
+    if (index >= 0)
+    {
+      if (!subscription.hasOwnProperty("filters"))
+        subscription.filters = subscription.filters.slice();
+
+      subscription.filters.splice(index, 1);
+    }
+
+    index = subscription._sortedFilters.indexOf(filter);
     if (index < 0)
       return;
 
@@ -2271,16 +2281,8 @@ let treeView = {
     let rowCount = this.getSubscriptionRowCount(subscription);
     let newSelection = parentRow;
 
-    if (!subscription.hasOwnProperty("filters"))
-      subscription.filters = subscription.filters.slice();
-
-    subscription.filters.splice(index, 1);
-
     if (treeView.sortProc)
-    {
-      index = subscription._sortedFilters.indexOf(filter);
       subscription._sortedFilters.splice(index, 1);
-    }
     else
       subscription._sortedFilters = subscription.filters;
 
