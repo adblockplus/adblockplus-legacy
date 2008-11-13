@@ -2135,7 +2135,7 @@ let treeView = {
       {
         if (s instanceof abp.SpecialSubscription && s.isFilterAllowed(filter))
         {
-          if (s._sortedFilters.indexOf(filter) >= 0)
+          if (s._sortedFilters.indexOf(filter) >= 0 || s.filters.indexOf(filter) >= 0)
           {
             subscription = s;
             break;
@@ -2187,11 +2187,15 @@ let treeView = {
         insertPositionSorted = insertPosition;
     }
 
-    // Create a copy of the original subscription filters before modifying
-    if (!subscription.hasOwnProperty("filters"))
-      subscription.filters = subscription.filters.slice();
+    // If we don't have our own filters property the filter might be there already
+    if (subscription.filters.indexOf(filter) < 0)
+    {
+      // Create a copy of the original subscription filters before modifying
+      if (!subscription.hasOwnProperty("filters"))
+        subscription.filters = subscription.filters.slice();
 
-    subscription.filters.splice(insertPosition, 0, filter);
+      subscription.filters.splice(insertPosition, 0, filter);
+    }
 
     if (this.sortProc)
       subscription._sortedFilters.splice(insertPositionSorted, 0, filter);
