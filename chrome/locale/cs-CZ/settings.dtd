@@ -9,9 +9,9 @@
 <!ENTITY synchsubscriptions.accesskey "A">
 <!ENTITY import.label "Importovat filtry ze souboru">
 <!ENTITY import.accesskey "I">
-<!ENTITY export.label "Exportovat filtry do souboru">
+<!ENTITY export.label "Exportovat vlastní filtry do souboru">
 <!ENTITY export.accesskey "x">
-<!ENTITY clearall.label "Odstranit všechny filtry">
+<!ENTITY clearall.label "Odstranit všechny vlastní filtry">
 <!ENTITY clearall.accesskey "O">
 <!ENTITY resethitcounts.label "Vynulovat počítadla zásahů">
 <!ENTITY resethitcounts.accesskey "V">
@@ -29,6 +29,16 @@
 <!ENTITY menu.find.accesskey "N">
 <!ENTITY menu.findagain.label "Najít další">
 <!ENTITY menu.findagain.accesskey "d">
+<!ENTITY view.label "Zobrazit">
+<!ENTITY view.accesskey "Z">
+<!ENTITY sort.label "Seřadit podle">
+<!ENTITY sort.accesskey "S">
+<!ENTITY sort.none.label "Neřadit">
+<!ENTITY sort.none.accesskey "N">
+<!ENTITY sort.ascending.label "Vzestupně (A-Z)">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.descending.label "Sestupně (Z-A)">
+<!ENTITY sort.descending.accesskey "Z">
 <!ENTITY options.label "Možnosti">
 <!ENTITY options.accesskey "M">
 <!ENTITY enable.label "Aktivovat Adblock Plus">
@@ -54,20 +64,24 @@
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "O doplňku Adblock Plus">
 <!ENTITY about.accesskey "o">
-<!ENTITY disabled.warning "Adblock Plus není aktivní. Můžete upravovat filtry v seznamu, nicméně žádný z nich nebude aplikován, dokud Adblock neaktivujete.">
-<!ENTITY description "Přidejte adresy, jež chcete blokovat. V rozbalovací nabídce jsou návrhy filtrů.
-Můžete použít * jako &quot;divokou kartu&quot; pro vytváření obecnějších filtrů. Pokročilí uživatelé mohou využít i regulárních výrazů jako /banner\d+\.gif$/.">
-<!ENTITY pattern.column "Zápis filtru">
+<!ENTITY description "Následující filtry rozhodují, které adresy budou blokovány a které budou povoleny:">
+<!ENTITY filter.column "Pravidlo filtru">
+<!ENTITY filter.accesskey "P">
 <!ENTITY enabled.column "Aktivní">
-<!ENTITY hitcount.column "Zásahů">
+<!ENTITY enabled.accesskey "k">
+<!ENTITY hitcount.column "Zásahy">
+<!ENTITY hitcount.accesskey "h">
 <!ENTITY lasthit.column "Poslední zásah">
+<!ENTITY lasthit.accesskey "l">
 <!ENTITY context.edit.label "Přidat filtr">
 <!ENTITY context.resethitcount.label "Vynulovat počítadlo zásahů tohoto filtru">
 <!ENTITY context.synchsubscription.label "Aktualizovat seznam cizích filtrů">
 <!ENTITY context.editsubscription.label "Upravit cizí filtry">
-<!ENTITY context.moveup.label "Posunout nahoru">
-<!ENTITY context.movedown.label "Posunout dolů">
+<!ENTITY context.moveup.label "Posunout filtr nahoru">
+<!ENTITY context.movedown.label "Posunout filtr dolů">
 <!ENTITY context.movegroupup.label "Posunout skupinu nahoru">
 <!ENTITY context.movegroupdown.label "Posunout skupinu dolů">
+<!ENTITY context.enable.label "Povolit">
+<!ENTITY context.disable.label "Zakázat">
 <!ENTITY apply.label "Použít">
 <!ENTITY apply.accesskey "U">

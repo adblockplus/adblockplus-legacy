@@ -17,5 +17,3 @@ pomocí příslušné volby v místní nabídce.">
 <!ENTITY autodownload.accesskey "A">
 <!ENTITY enabled.label "Aplikovat filtry">
 <!ENTITY enabled.accesskey "p">
-<!ENTITY full-list.url "http://adblockplus.org/en/subscriptions">
-<!ENTITY full-list.label "Zobrazit všechny dostupné cizí filtry">
