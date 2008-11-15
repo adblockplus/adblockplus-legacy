@@ -7,6 +7,7 @@
 <!ENTITY address.label "Adresa">
 <!ENTITY filter.label "Filtr">
 <!ENTITY state.label "Stav">
+<!ENTITY size.label "Velikost">
 <!ENTITY noitems.label "Nic nebylo zablokováno">
 <!ENTITY whitelisted.label "Adresa je na bílé listině">
 <!ENTITY notloaded.label "Adblock Plus nebyl korektně nainstalován">
@@ -14,10 +15,16 @@
 <!ENTITY tooltip.type.label "Typ:">
 <!ENTITY tooltip.type.blocked "(blokováno)">
 <!ENTITY tooltip.type.whitelisted "(na bílé listině)">
+<!ENTITY tooltip.size.label "Velikost:">
 <!ENTITY tooltip.filter.label "Použité filtry:">
+<!ENTITY tooltip.filterSource.label "Zdroj filtru:">
 <!ENTITY context.block.label "Blokovat tento objekt">
 <!ENTITY context.editfilter.label "Upravit příslušný filtr">
 <!ENTITY context.whitelist.label "Přidat výjimku pro tento objekt">
+<!ENTITY context.disablefilter.label "Zakázat filtr --">
+<!ENTITY context.enablefilter.label "Opět povolit filtr --">
 <!ENTITY context.open.label "Otevřít v novém panelu">
 <!ENTITY context.flash.label "Blikání obrysu objektu">
 <!ENTITY context.copy.label "Kopírovat adresu objektu">
+<!ENTITY context.copyFilter.label "Kopírovat filtr">
+<!ENTITY context.selectAll.label "Vybrat vše">

@@ -3,8 +3,9 @@
 <!ENTITY status.tooltip "Stav:">
 <!ENTITY blocked.tooltip "Blokované prvky na této stránce:">
 <!ENTITY filters.tooltip "Nejúčinnější filtry:">
-<!ENTITY menuitem.label "Adblock Plus">
+<!ENTITY menuitem.label "Předvolby Adblock Plus">
 <!ENTITY menuitem.accesskey "B">
+<!ENTITY view.blockableItems.label "Adblock Plus: Blokovatelné objekty">
 <!ENTITY context.image.label "Blokovat obrázek">
 <!ENTITY context.object.label "Blokovat objekt">
 <!ENTITY context.frame.label "Blokovat rámec">
