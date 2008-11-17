@@ -20,7 +20,7 @@
 <!ENTITY cut.label "Αποκοπή">
 <!ENTITY cut.accesskey "κ">
 <!ENTITY copy.label "Αντιγραφή">
-<!ENTITY copy.accesskey "Α">
+<!ENTITY copy.accesskey "γ">
 <!ENTITY paste.label "Επικόλληση">
 <!ENTITY paste.accesskey "π">
 <!ENTITY remove.label "Διαγραφή">
@@ -29,6 +29,16 @@
 <!ENTITY menu.find.accesskey "ζ">
 <!ENTITY menu.findagain.label "Εύρεση ξανά">
 <!ENTITY menu.findagain.accesskey "ξ">
+<!ENTITY view.label "Προβολή">
+<!ENTITY view.accesskey "ο">
+<!ENTITY sort.label "Ταξινόμηση κατά">
+<!ENTITY sort.accesskey "Τ">
+<!ENTITY sort.none.label "Χωρίς ταξινόμηση">
+<!ENTITY sort.none.accesskey "ω">
+<!ENTITY sort.ascending.label "Αύξουσα">
+<!ENTITY sort.ascending.accesskey "Α">
+<!ENTITY sort.descending.label "Φθίνουσα">
+<!ENTITY sort.descending.accesskey "θ">
 <!ENTITY options.label "Επιλογές">
 <!ENTITY options.accesskey "λ">
 <!ENTITY enable.label "Ενεργοποίηση του Adblock Plus">
@@ -54,14 +64,15 @@
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Περί">
 <!ENTITY about.accesskey "Π">
-<!ENTITY disabled.warning "Το Adblock Plus είναι απενεργοποιημένο. Οι όποιες αλλαγές στην λίστα δεν θα εμφανιστούν μέχρι να το ενεργοποιήσετε.">
-<!ENTITY description "Προσθέστε τις διευθύνσεις που θέλετε να φιλτράρετε. Για προτάσεις συμβουλευτείτε την αναδυόμενη λίστα.
-		Μπορείτε να χρησιμοποιήσετε το * ως μπαλαντέρ για να δημιουργήσετε κάποια γενικά φίλτρα. Οι προχωρημένοι χρήστες
-		μπορούν να εισάγουν κάποιους γενικούς κανόνες όπως /banner\d+\.gif$/.">
-<!ENTITY pattern.column "Φίλτρο">
+<!ENTITY description "Τα παρακάτω φίλτρα καθορίζουν το ποιες διευθύνσεις θα φιλτράρονται και ποιες όχι:">
+<!ENTITY filter.column "Κανόνας φίλτρου">
+<!ENTITY filter.accesskey "φ">
 <!ENTITY enabled.column "Ενεργοποιημένο">
+<!ENTITY enabled.accesskey "ν">
 <!ENTITY hitcount.column "Επιτυχίες">
+<!ENTITY hitcount.accesskey "χ">
 <!ENTITY lasthit.column "Τελευταία επιτυχία">
+<!ENTITY lasthit.accesskey "λ">
 <!ENTITY context.edit.label "Επεξεργασία φίλτρου">
 <!ENTITY context.resethitcount.label "Μηδενισμός στατιστικών επιτυχιών για το φίλτρο">
 <!ENTITY context.synchsubscription.label "Ενημέρωση συνδρομής τώρα">
@@ -70,5 +81,7 @@
 <!ENTITY context.movedown.label "Μετακίνηση κάτω">
 <!ENTITY context.movegroupup.label "Μετακίνηση ομάδας επάνω">
 <!ENTITY context.movegroupdown.label "Μετακίνηση ομάδας κάτω">
+<!ENTITY context.enable.label "Ενεργοποίηση">
+<!ENTITY context.disable.label "Απενεργοποίηση">
 <!ENTITY apply.label "Εφαρμογή">
 <!ENTITY apply.accesskey "ρ">
