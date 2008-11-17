@@ -7,6 +7,7 @@
 <!ENTITY address.label "Διεύθυνση">
 <!ENTITY filter.label "Φίλτρο">
 <!ENTITY state.label "Κατάσταση">
+<!ENTITY size.label "Μέγεθος">
 <!ENTITY noitems.label "Δεν υπάρχουν στοιχεία προς φιλτράρισμα">
 <!ENTITY whitelisted.label "Η σελίδα ανήκει στην άσπρη λίστα">
 <!ENTITY notloaded.label "Η εγκατάσταση του Adblock Plus είναι ημιτελής">
@@ -14,10 +15,16 @@
 <!ENTITY tooltip.type.label "Τύπος:">
 <!ENTITY tooltip.type.blocked "(φιλτραρισμένο)">
 <!ENTITY tooltip.type.whitelisted "(στην άσπρη λίστα)">
+<!ENTITY tooltip.size.label "Μέγεθος:">
 <!ENTITY tooltip.filter.label "Φίλτρο εν δράση:">
+<!ENTITY tooltip.filterSource.label "Πηγή φίλτρου:">
 <!ENTITY context.block.label "Φραγή του στοιχείου">
 <!ENTITY context.editfilter.label "Επεξεργασία του φίλτρου εν δράση">
 <!ENTITY context.whitelist.label "Προσθήκη κανόνα εξαίρεσης για το στοιχείο">
+<!ENTITY context.disablefilter.label "Απενεργοποίηση φίλτρου --">
+<!ENTITY context.enablefilter.label "Ενεργοποίηση φίλτρου --">
 <!ENTITY context.open.label "Άνοιγμα σε νέα καρτέλα">
 <!ENTITY context.flash.label "Πλαίσιο στοιχείου Flash">
 <!ENTITY context.copy.label "Αντιγραφή τοποθεσίας του στοιχείου">
+<!ENTITY context.copyFilter.label "Αντιγραφή φίλτρου">
+<!ENTITY context.selectAll.label "Επιλογή όλων">
