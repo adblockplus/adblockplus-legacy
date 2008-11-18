@@ -3,9 +3,9 @@
 <!ENTITY filters.accesskey "F">
 <!ENTITY add.label "Adaugă filtru">
 <!ENTITY add.accesskey "d">
-<!ENTITY addsubscription.label "Adaugă subscriere filtre">
-<!ENTITY addsubscription.accesskey "s">
-<!ENTITY synchsubscriptions.label "Actualizează toate subscrierile">
+<!ENTITY addsubscription.label "Adaugă abonament filtre">
+<!ENTITY addsubscription.accesskey "b">
+<!ENTITY synchsubscriptions.label "Actualizează toate abonamentele">
 <!ENTITY synchsubscriptions.accesskey "c">
 <!ENTITY import.label "Importă filtre">
 <!ENTITY import.accesskey "m">
@@ -29,6 +29,16 @@
 <!ENTITY menu.find.accesskey "u">
 <!ENTITY menu.findagain.label "Caută următorul">
 <!ENTITY menu.findagain.accesskey "m">
+<!ENTITY view.label "Vizualizare">
+<!ENTITY view.accesskey "V">
+<!ENTITY sort.label "Ordonare">
+<!ENTITY sort.accesskey "O">
+<!ENTITY sort.none.label "Neordonat">
+<!ENTITY sort.none.accesskey "N">
+<!ENTITY sort.ascending.label "Crescător (A&gt;Z)">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.descending.label "Descrescător (Z&gt;A)">
+<!ENTITY sort.descending.accesskey "Z">
 <!ENTITY options.label "Opţiuni">
 <!ENTITY options.accesskey "O">
 <!ENTITY enable.label "Activează Adblock Plus">
@@ -54,19 +64,24 @@
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Despre Adblock Plus">
 <!ENTITY about.accesskey "D">
-<!ENTITY disabled.warning "Adblock Plus este inactiv. Filtrele nu vor avea efect până nu reactivaţi extensia.">
 <!ENTITY description "Adăugaţi adresele pe care doriţi să le blocaţi; puteţi alege din lista derulantă. Pentru a crea filtre generice, folosiţi caracterul * ca joker. Utilizatorii avansaţi pot folosi expresii, ca de exemplu /banner\d+\.gif$/.">
-<!ENTITY pattern.column "Regulă filtru">
+<!ENTITY filter.column "Regulă de filtrare">
+<!ENTITY filter.accesskey "R">
 <!ENTITY enabled.column "Stare">
+<!ENTITY enabled.accesskey "S">
 <!ENTITY hitcount.column "Contor">
+<!ENTITY hitcount.accesskey "C">
 <!ENTITY lasthit.column "Ultima aplicare">
-<!ENTITY context.edit.label "Modifică filtru">
+<!ENTITY lasthit.accesskey "U">
+<!ENTITY context.edit.label "Modifică filtrul">
 <!ENTITY context.resethitcount.label "Reiniţializează contorul filtrului">
-<!ENTITY context.synchsubscription.label "Actualizează subscrieri">
-<!ENTITY context.editsubscription.label "Editează subscrieri">
+<!ENTITY context.synchsubscription.label "Actualizează abonament">
+<!ENTITY context.editsubscription.label "Modifică abonament">
 <!ENTITY context.moveup.label "Mută în sus">
 <!ENTITY context.movedown.label "Mută în jos">
 <!ENTITY context.movegroupup.label "Mută grupul în sus">
 <!ENTITY context.movegroupdown.label "Mută grupul în jos">
+<!ENTITY context.enable.label "Activează">
+<!ENTITY context.disable.label "Dezactivează">
 <!ENTITY apply.label "Aplică">
 <!ENTITY apply.accesskey "p">
