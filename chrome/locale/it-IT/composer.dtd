@@ -1,0 +1,40 @@
+<!ENTITY dialog.title "Nuovo filtro di Adblock Plus">
+<!ENTITY accept.label "Aggiungi filtro">
+<!ENTITY advanced.label "Avanzate &gt;&gt;">
+<!ENTITY basic.label "&lt;&lt; Generali">
+<!ENTITY disabled.warning.beforeLink "Adblock Plus è attualmente disattivata. È comunque possibile aggiungere filtri, ma questi verranno applicati solo con la">
+<!ENTITY disabled.warning.link "riattivazione di Adblock Plus">
+<!ENTITY disabled.warning.afterLink " ">
+<!ENTITY filter.label "Nuovo filtro:">
+<!ENTITY filter.accesskey "N">
+<!ENTITY preferences.label "Mostra i filtri esistenti…">
+<!ENTITY preferences.accesskey "M">
+<!ENTITY type.filter.label "Filtri per bloccare">
+<!ENTITY type.filter.accesskey "b">
+<!ENTITY type.whitelist.label "Eccezioni">
+<!ENTITY type.whitelist.accesskey "E">
+<!ENTITY pattern.label "Modelli">
+<!ENTITY pattern.explanation "Il modello può corrispondere a qualsiasi parte dell&apos;indirizzo web, il carattere * corrisponde ad un carattere jolly. Il filtro verrà applicato ai soli indirizzi web corrispondenti al modello">
+<!ENTITY regexp.warning "Il modello inserito verrà interpretato come espressione regolare. Un numero eccessivo di tali modelli potrebbe rallentare la navigazione. Se non si intende utilizzare le espressioni regolari aggiungere il carattere * alla fine del modello">
+<!ENTITY shortpattern.warning "Il modello inserito è troppo breve per essere ottimizzato. Un numero eccessivo di tali modelli potrebbe rallentare la navigazione. Sarebbe preferibile utilizzare una stringa più lunga">
+<!ENTITY custom.pattern.label "Personalizza:">
+<!ENTITY custom.pattern.accesskey "P">
+<!ENTITY anchors.label "Accetta modelli solo:">
+<!ENTITY anchor.start.label "all&apos;inizio dell&apos;indirizzo web">
+<!ENTITY anchor.start.accesskey "i">
+<!ENTITY anchor.end.label "alla fine dell&apos;indirizzo web">
+<!ENTITY anchor.end.accesskey "f">
+<!ENTITY options.label "Opzioni">
+<!ENTITY firstParty.label "Solo dominii di primo livello">
+<!ENTITY firstParty.accesskey "d">
+<!ENTITY thirdParty.label "Solo dominii non di primo livello">
+<!ENTITY thirdParty.accesskey "S">
+<!ENTITY matchCase.label "Maiuscole/minuscole">
+<!ENTITY matchCase.accesskey "u">
+<!ENTITY types.label "Applica ai tipi:">
+<!ENTITY collapse.label "Contrai bloccati:">
+<!ENTITY collapse.accesskey "l">
+<!ENTITY collapse.default.yes.label "Utilizza predefiniti (sì)">
+<!ENTITY collapse.default.no.label "Utilizza predefiniti (no)">
+<!ENTITY collapse.yes.label "Sì">
+<!ENTITY collapse.no.label "No">
