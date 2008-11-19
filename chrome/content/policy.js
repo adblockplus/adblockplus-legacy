@@ -89,13 +89,12 @@ var policy = {
 
     var match = null;
     var locationText = location.spec;
-    if (location.scheme == "abp" && location.host == "registerhit" && /\?(\d+)$/.test(location.path) && RegExp.$1 in elemhide.keys)
+    if (location.scheme == "chrome" && location.host == "global" && /abphit:(\d+)#/.test(location.path) && RegExp.$1 in elemhide.keys)
     {
       var key = RegExp.$1;
       if (this.isWindowWhitelisted(topWnd))
       {
-        wnd.setTimeout(setElementHidingException, 0, wnd, elemhide.seed);
-        return false;
+        return true;
       }
       else
       {
@@ -180,6 +179,10 @@ var policy = {
    * @return {Boolean}
    */
   isBlockableScheme: function(location) {
+    // HACK: Allow blocking element hiding hits
+    if (location.scheme == "chrome" && location.host == "global" && /abphit:(\d+)#/.test(location.path))
+      return true;
+
     return !(location.scheme in whitelistSchemes);
   },
 

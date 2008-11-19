@@ -61,12 +61,6 @@ var elemhide =
   url: null,
 
   /**
-   * Random seed for whitelisting class
-   * @type String
-   */
-  seed: Math.random().toFixed(15).substr(5),
-
-  /**
    * Indicates whether filters have been added or removed since the last apply() call.
    * @type Boolean
    */
@@ -150,20 +144,17 @@ var elemhide =
 
     // Joining domains list
     let cssData = "";
-    let selectorAddition = ":root:not([abpWhitelist" + this.seed + "]) ";   // Addition to prevent selectors match in whitelisted documents
     for (let domain in domains)
     {
       let rules = [];
       let list = domains[domain];
       for (let selector in list)
       {
-        let safeSelector = selectorAddition + selector.match(/(?:[^,"']|"[^"]*"|'[^']*')+/g).join("," + selectorAddition);
-
         // Firefox 2 does not apply bindings to table rows and cells, need to
         // change the value for display here. display:none won't work because
         // invisible elements cannot have bindings but elements with misapplied
         // bindings are hidden anyway.
-        rules.push(safeSelector + "{display: inline !important; -moz-binding: url(abp:registerhit?" + list[selector] + ") !important;}\n");
+        rules.push(selector + "{display: inline !important; -moz-binding: url(chrome://global/content/bindings/general.xml?abphit:" + list[selector] + "#basecontrol) !important;}\n");
       }
 
       if (domain)
