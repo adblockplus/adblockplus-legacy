@@ -1,4 +1,4 @@
-const abp = {
+var abp = {
   getString: function(name)
   {
     return name;
