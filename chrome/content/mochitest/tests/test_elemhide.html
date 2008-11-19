@@ -9,42 +9,61 @@
   <script type="text/javascript" src="/content/tests/SimpleTest/SimpleTest.js"></script>        
 
   <script type="application/x-javascript;version=1.7" src="common.js"></script>
-  <script type="application/x-javascript;version=1.7" src="chrome://adblockplus/content/filterClasses.js"></script>
-  <script type="application/x-javascript;version=1.7" src="chrome://adblockplus/content/elemhide.js"></script>
 </head>
 <body>
   <p id="display"></p>
-  <div id="content" style="display: none">
-    <div id="test1"></div>
-    <div id="test2"></div>
+  <div id="content" style="visibility: hidden;">
+    <div id="test1">foo</div>
+    <div id="test2">bar</div>
   </div>
   <pre id="test">
   <script type="application/x-javascript;version=1.7">
-    var prefs = {
-      enabled: true
-    };
+    let abp = Components.classes["@mozilla.org/adblockplus;1"].createInstance().wrappedJSObject;
 
-    function checkMatch(filters, expected)
+    let tests = [
+      [[], "visible visible"],
+      [["#div(test1)"], "visible visible"],
+      [["mochikit#div(test1)"], "hidden visible"],
+      [["mochikit#div(test1)", "foo,foo2#div(test2)"], "hidden visible"],
+      [["mochikit,foo#div(test1)", "foo,mochikit#div(test2)"], "hidden hidden"],
+      [["mochikit#div(test1)", "mochikit#div(test2)"], "hidden hidden"],
+      [["foo#div(test1)", "foo#div(test2)"], "visible visible"],
+    ];
+    let currentTest = 0;
+    let oldEnabled = abp.prefs.enabled;
+
+    function runNextTest()
     {
+      if (currentTest >= tests.length)
+      {
+        abp.filterStorage.triggerSubscriptionObservers("reload", abp.filterStorage.subscriptions);
+        abp.prefs.enabled = oldEnabled;
+        SimpleTest.finish();
+        return;
+      }
+
+      let [filters, expected] = tests[currentTest++];
+      abp.elemhide.clear();
       for each (let filter in filters)
-        elemhide.add(Filter.fromText(filter));
+        abp.elemhide.add(abp.Filter.fromText(filter));
+      abp.elemhide.apply();
 
-      elemhide.apply();
-      let result = window.getComputedStyle(document.getElementById("test1"), "").display + " " + window.getComputedStyle(document.getElementById("test2"), "").display;
+      document.getElementById("test1").parentNode.appendChild(document.getElementById("test1"));
+      document.getElementById("test2").parentNode.appendChild(document.getElementById("test2"));
 
-      is(result, expected, filters.join("\n"));
-      elemhide.clear();
+      setTimeout(function()
+      {
+        let result = (document.getElementById("test1").offsetHeight > 0 ? "visible" : "hidden") + " " + (document.getElementById("test2").offsetHeight > 0 ? "visible" : "hidden");
+        is(result, expected, filters.join("\n"));
+        runNextTest();
+      }, 0);
     }
 
     if (compareGeckoVersion("1.9") >= 0)
     {
-      checkMatch([], "block block");
-      checkMatch(["#div(test1)"], "block block");
-      checkMatch(["mochikit#div(test1)"], "none block");
-      checkMatch(["mochikit#div(test1)", "foo,foo2#div(test2)"], "none block");
-      checkMatch(["mochikit,foo#div(test1)", "foo,mochikit#div(test2)"], "none none");
-      checkMatch(["mochikit#div(test1)", "mochikit#div(test2)"], "none none");
-      checkMatch(["foo#div(test1)", "foo#div(test2)"], "block block");
+      SimpleTest.waitForExplicitFinish();
+      abp.prefs.enabled = true;
+      runNextTest();
     }
     else
     {
