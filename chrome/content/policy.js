@@ -89,22 +89,6 @@ var policy = {
 
     var match = null;
     var locationText = location.spec;
-    if (location.scheme == "chrome" && location.host == "global" && /abphit:(\d+)#/.test(location.path) && RegExp.$1 in elemhide.keys)
-    {
-      var key = RegExp.$1;
-      if (this.isWindowWhitelisted(topWnd))
-      {
-        return true;
-      }
-      else
-      {
-        match = elemhide.keys[key];
-        filterStorage.increaseHitCount(match);
-        contentType = type.ELEMHIDE;
-        locationText = match.text.replace(/^.*?#/, '#');
-      }
-    }
-
     if (!match && prefs.enabled)
     {
       match = this.isWindowWhitelisted(topWnd);
@@ -130,8 +114,16 @@ var policy = {
     var data = DataContainer.getDataForWindow(wnd);
 
     var objTab = null;
-
     let thirdParty = this.isThirdParty(location, wnd);
+
+    if (!match && location.scheme == "chrome" && location.host == "global" && /abphit:(\d+)#/.test(location.path) && RegExp.$1 in elemhide.keys)
+    {
+      match = elemhide.keys[RegExp.$1];
+      filterStorage.increaseHitCount(match);
+      contentType = type.ELEMHIDE;
+      locationText = match.text.replace(/^.*?#/, '#');
+    }
+
     if (!match && prefs.enabled) {
       match = whitelistMatcher.matchesAny(locationText, typeDescr[contentType] || "", thirdParty);
       if (match == null)
