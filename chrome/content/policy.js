@@ -119,7 +119,6 @@ var policy = {
     if (!match && location.scheme == "chrome" && location.host == "global" && /abphit:(\d+)#/.test(location.path) && RegExp.$1 in elemhide.keys)
     {
       match = elemhide.keys[RegExp.$1];
-      filterStorage.increaseHitCount(match);
       contentType = type.ELEMHIDE;
       locationText = match.text.replace(/^.*?#/, '#');
     }
@@ -128,9 +127,6 @@ var policy = {
       match = whitelistMatcher.matchesAny(locationText, typeDescr[contentType] || "", thirdParty);
       if (match == null)
         match = blacklistMatcher.matchesAny(locationText, typeDescr[contentType] || "", thirdParty);
-
-      if (match)
-        filterStorage.increaseHitCount(match);
 
       if (match instanceof BlockingFilter && node)
       {
@@ -159,6 +155,8 @@ var policy = {
 
     // Store node data
     var nodeData = data.addNode(topWnd, node, contentType, thirdParty, locationText, match, objTab);
+    if (match)
+      filterStorage.increaseHitCount(match);
     if (objTab)
       wnd.setTimeout(addObjectTab, 0, topWnd, node, nodeData, objTab);
 
