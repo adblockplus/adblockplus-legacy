@@ -307,7 +307,7 @@ function fillInContext(e) {
   {
     let candidates = [];
     for each (let subscription in abp.filterStorage.subscriptions)
-      if (subscription instanceof abp.SpecialSubscription && !subscription.disabled)
+      if (!subscription.disabled)
         for each (let filter in subscription.filters)
           if (filter.disabled && filter instanceof abp.RegExpFilter && filter.matches(item.location, item.typeDescr, item.thirdParty))
             candidates.push(filter);
