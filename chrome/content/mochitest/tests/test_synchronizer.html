@@ -546,6 +546,69 @@
         subscription1.autoDownload = true;
 
         server.registerPathHandler("/subscription1", getSubscription);
+        fallbackResult = "";
+
+        // Checksum verification
+        subscriptionBody = "[Adblock]\n! Checksum: e/JCmqXny6Fn24b7JHsq/A\nfoo\nbar\n";
+
+        runScheduledTasks(6);
+        is(subscription1.downloadStatus, "synchronize_ok", "Subscription download with correct checksum succeeded");
+        
+        subscriptionBody = subscriptionBody.replace(/Checksum: /, "$&wrong");
+        runScheduledTasks(6);
+        is(subscription1.downloadStatus, "synchronize_checksum_mismatch", "Subscription download with wrong checksum failed");
+        subscriptionBody = subscriptionBody.replace(/wrong/, "");
+
+        subscriptionBody = subscriptionBody.replace(/\n/g, "\n\n");
+        runScheduledTasks(6);
+        is(subscription1.downloadStatus, "synchronize_ok", "Empty lines are ignored for checksum validation");
+        subscriptionBody = subscriptionBody.replace(/\n\n/g, "\n");
+
+        subscriptionBody = subscriptionBody.replace(/\n/g, "\n \n");
+        runScheduledTasks(6);
+        is(subscription1.downloadStatus, "synchronize_checksum_mismatch", "Lines with spaces are not ignored for checksum validation");
+        subscriptionBody = subscriptionBody.replace(/\n \n/g, "\n");
+
+        subscriptionBody = subscriptionBody.replace(/(Checksum[^\r\n]*)/, "extra1 $& extra2");
+        runScheduledTasks(6);
+        is(subscription1.downloadStatus, "synchronize_ok", "Extra content in checksum line is ignored");
+        subscriptionBody = subscriptionBody.replace(/extra1 /, "").replace(/ extra2/, "");
+
+        subscriptionBody = subscriptionBody.replace(/\n/g, "\r\n");
+        runScheduledTasks(6);
+        is(subscription1.downloadStatus, "synchronize_ok", "LF symbols are ignored for checksum validation");
+        subscriptionBody = subscriptionBody.replace(/\r\n/g, "\n");
+
+        subscriptionBody = subscriptionBody.replace(/\n/g, "\r");
+        runScheduledTasks(6);
+        is(subscription1.downloadStatus, "synchronize_ok", "CR symbols are relevant for checksum validation");
+        subscriptionBody = subscriptionBody.replace(/\r/g, "\n");
+
+        subscriptionBody = subscriptionBody.replace(/(Checksum[^\r\n]*)/, "$&extra");
+        runScheduledTasks(6);
+        is(subscription1.downloadStatus, "synchronize_checksum_mismatch", "Extra symbols in the checksum are interpreted as part of the checksum");
+        subscriptionBody = subscriptionBody.replace(/extra/, "");
+
+        subscriptionBody = subscriptionBody.replace(/(Checksum[^\r\n]*)/, "$&===");
+        runScheduledTasks(6);
+        is(subscription1.downloadStatus, "synchronize_ok", "= symbols after checksum are ignored");
+        subscriptionBody = subscriptionBody.replace(/===/, "");
+
+        requests = [];
+        subscriptionBody = subscriptionBody.replace(/Checksum: /, "$&wrong");
+        runScheduledTasks(27);
+        compareRequests("Requests with checksum failures shouldn't trigger fallback URL (27 hours)", [
+          "300000: GET /subscription1",
+          "11100000: GET /subscription1",
+          "21900000: GET /subscription1",
+          "32700000: GET /subscription1",
+          "43500000: GET /subscription1",
+          "54300000: GET /subscription1",
+          "65100000: GET /subscription1",
+          "75900000: GET /subscription1",
+          "86700000: GET /subscription1",
+        ]);
+        subscriptionBody = subscriptionBody.replace(/wrong/, "");
       }
 
       // @TODO: If-Modified-Since
