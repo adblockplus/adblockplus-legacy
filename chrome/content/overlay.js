@@ -59,7 +59,7 @@ function abpInit() {
   }
 
   // Install context menu handler
-  var contextMenu = document.getElementById("contentAreaContextMenu") || document.getElementById("messagePaneContext");
+  var contextMenu = document.getElementById("contentAreaContextMenu") || document.getElementById("messagePaneContext") || document.getElementById("popup_content");
   if (contextMenu) {
     contextMenu.addEventListener("popupshowing", abpCheckContext, false);
   
@@ -124,10 +124,8 @@ function abpGetBrowser() {
     return getBrowser();
   else if ("messageContent" in window)
     return window.messageContent;
-  else if (document.getElementById("frame_main_pane"))
-    return document.getElementById("frame_main_pane");
   else
-    return null;
+    return document.getElementById("frame_main_pane") || document.getElementById("browser_content");
 }
 
 function abpReloadPrefs() {
@@ -190,8 +188,8 @@ function abpReloadPrefs() {
       else
         element.hidden = !abpPrefs.showintoolbar;
 
-      // HACKHACK: Show status bar icon in SeaMonkey Mail and Songbird instead of toolbar icon
-      if (element.hidden && (element.tagName == "statusbarpanel" || element.tagName == "vbox") && (document.getElementById("msgToolbar") || document.getElementById("frame_main_pane_html")))
+      // HACKHACK: Show status bar icon in SeaMonkey Mail, Songbird and Prism instead of toolbar icon
+      if (element.hidden && (element.tagName == "statusbarpanel" || element.tagName == "vbox") && (document.getElementById("msgToolbar") || document.getElementById("frame_main_pane_html") || location.host == "webrunner"))
         element.hidden = !abpPrefs.showintoolbar;
 
       if (abpOldShowInToolbar != abpPrefs.showintoolbar)
@@ -655,7 +653,7 @@ function abpImageStyle(computedStyle, property) {
 
 // Hides the unnecessary context menu items on display
 function abpCheckContext() {
-  var contextMenu = document.getElementById("contentAreaContextMenu") || document.getElementById("messagePaneContext");
+  var contextMenu = document.getElementById("contentAreaContextMenu") || document.getElementById("messagePaneContext") || document.getElementById("popup_content");
   var target = document.popupNode;
 
   var nodeType = null;
