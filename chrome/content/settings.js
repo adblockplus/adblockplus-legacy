@@ -676,6 +676,23 @@ function onListClick(/**Event*/ e)
 }
 
 /**
+ * Handles dblclick event on the filter list
+ */
+function onListDblClick(/**Event*/ e)
+{
+  if (e.button != 0)
+    return;
+
+  let col = {};
+  treeView.boxObject.getCellAt(e.clientX, e.clientY, {}, col, {});
+
+  if (col.value && col.value.id == "col-enabled")
+    return;
+
+  editFilter(null);
+}
+
+/**
  * Handles draggesture event on the filter list, starts drag&drop session.
  */
 function onListDragGesture(/**Event*/ e)
