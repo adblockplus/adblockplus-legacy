@@ -148,7 +148,13 @@ var synchronizer =
   {
     subscription.lastDownload = parseInt(Date.now() / 1000);
     subscription.downloadStatus = error;
-    subscription.errors++;
+    if (error == "synchronize_checksum_mismatch")
+    {
+      // No fallback for successful download with checksum mismatch, reset error counter
+      subscription.errors = 0;
+    }
+    else
+      subscription.errors++;
 
     if (subscription.errors >= prefs.subscriptions_fallbackerrors && /^https?:\/\//i.test(subscription.url))
     {
