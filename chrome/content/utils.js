@@ -172,10 +172,21 @@ function addObjectTab(wnd, node, data, tab) {
     label.style.setProperty("top", onTop ? -tabHeight + "px" :  "0px", "important");
 
     // Tab positioning
-    var box1 = doc.getBoxObjectFor(origNode);
-    var box2 = doc.getBoxObjectFor(tab);
-    tab.style.setProperty("left", (box1.screenX + box1.width - box2.screenX) + "px", "important");
-    tab.style.setProperty("top", (box1.screenY + (onTop ? 0 : box1.height) - box2.screenY) + "px", "important");
+	if ("getBoundingClientRect" in origNode)
+	{
+      let nodeRect = origNode.getBoundingClientRect();
+      let tabRect = tab.getBoundingClientRect();
+      tab.style.setProperty("left", (nodeRect.right - tabRect.left) + "px", "important");
+      tab.style.setProperty("top", ((onTop ? nodeRect.top : nodeRect.bottom) - tabRect.top) + "px", "important");
+	}
+	else
+	{
+	  // Firefox 2 fallback code
+      let box1 = doc.getBoxObjectFor(origNode);
+      let box2 = doc.getBoxObjectFor(tab);
+      tab.style.setProperty("left", (box1.screenX + box1.width - box2.screenX) + "px", "important");
+      tab.style.setProperty("top", (box1.screenY + (onTop ? 0 : box1.height) - box2.screenY) + "px", "important");
+	}
 
     // Show tab
     tab.className = gObjtabClass + " visible" + (onTop ? " ontop" : "");
