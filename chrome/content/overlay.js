@@ -188,8 +188,8 @@ function abpReloadPrefs() {
       else
         element.hidden = !abpPrefs.showintoolbar;
 
-      // HACKHACK: Show status bar icon in SeaMonkey Mail, Songbird and Prism instead of toolbar icon
-      if (element.hidden && (element.tagName == "statusbarpanel" || element.tagName == "vbox") && (document.getElementById("msgToolbar") || document.getElementById("frame_main_pane_html") || location.host == "webrunner"))
+      // HACKHACK: Show status bar icon in SeaMonkey Mail and Prism instead of toolbar icon
+      if (element.hidden && (element.tagName == "statusbarpanel" || element.tagName == "vbox") && (document.getElementById("msgToolbar") || location.host == "webrunner"))
         element.hidden = !abpPrefs.showintoolbar;
 
       if (abpOldShowInToolbar != abpPrefs.showintoolbar)
