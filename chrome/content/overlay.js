@@ -351,13 +351,23 @@ function abpInstallInToolbar() {
 }
 
 // Let user choose subscriptions on first start unless he has some already
-function abpShowSubscriptions() {
+function abpShowSubscriptions()
+{
   // Look for existing subscriptions
   for each (let subscription in abp.filterStorage.subscriptions)
     if (subscription instanceof abp.DownloadableSubscription)
       return;
 
-  abp.loadInBrowser("chrome://adblockplus/content/tip_subscriptions.xul");
+  let browser = abpGetBrowser();
+  if ("addTab" in browser)
+  {
+    // We have a tabbrowser
+    browser.addTab("chrome://adblockplus/content/tip_subscriptions.xul");
+  }
+  else
+  {
+	window.openDialog("chrome://adblockplus/content/tip_subscriptions.xul", "_blank", "chrome,centerscreen,resizable=no,dialog=no");
+  }
 }
 
 function abpFillTooltip(ev) {
