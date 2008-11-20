@@ -4,8 +4,11 @@ overlay   chrome://messenger/content/mailWindowOverlay.xul chrome://adblockplus/
 overlay   chrome://songbird/content/xul/layoutWithBrowserOverlay.xul chrome://adblockplus/content/overlay.xul
 overlay   chrome://midbrowser/content/midbrowser.xul chrome://adblockplus/content/overlay.xul
 overlay   chrome://emusic/content/startup.xul chrome://adblockplus/content/overlay.xul
+overlay   chrome://webrunner/content/webrunner.xul chrome://adblockplus/content/prismOverlay.xul
 content   adblockplus jar:chrome/adblockplus.jar!/content/
 skin      adblockplus classic/1.0 jar:chrome/adblockplus.jar!/skin/classic/
 style     chrome://global/content/customizeToolbar.xul  chrome://adblockplus/skin/overlay.css
 locale    adblockplus {{LOCALE}} jar:chrome/adblockplus.jar!/locale/{{LOCALE}}/
 
+# Work-around for bug 465991 (to be removed once Prism 0.9 is no longer supported)
+override  chrome://webrunner/content/overlays/inspector.xul data:text/xml,<nada/> application=prism@developer.mozilla.org appversion=0.9

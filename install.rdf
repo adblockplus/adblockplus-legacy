@@ -84,6 +84,15 @@
     </Description>
   </em:targetApplication>
 
+  <!-- Prism -->
+  <em:targetApplication>
+    <Description>
+      <em:id>prism@developer.mozilla.org</em:id>
+      <em:minVersion>0.9</em:minVersion>
+      <em:maxVersion>0.9.*</em:maxVersion>
+    </Description>
+  </em:targetApplication>
+
   <!-- Front End MetaData -->
   <em:name>Adblock Plus</em:name>
   <em:description>Ads were yesterday!</em:description>
