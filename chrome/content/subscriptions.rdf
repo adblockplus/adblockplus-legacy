@@ -6,8 +6,8 @@
   <RDF:Seq about="abp:subscriptions">
     <RDF:li>
       <RDF:Description>
-        <abp:title>EasyList (USA)</abp:title>
-        <abp:url>http://easylist.adblockplus.org/adblock_rick752.txt</abp:url>
+        <abp:title>EasyList + EasyElement (USA)</abp:title>
+        <abp:url>http://easylist.adblockplus.org/easyelement+easylist.txt</abp:url>
         <abp:homepage>http://easylist.adblockplus.org/</abp:homepage>
       </RDF:Description>
     </RDF:li>
@@ -28,8 +28,8 @@
     <RDF:li>
       <RDF:Description>
         <abp:title>Filter von Dr.Evil (Deutschland)</abp:title>
-        <abp:url>http://maltekraus.de/Firefox/adblock_site-specific-elemhiding.txt</abp:url>
-        <abp:homepage>http://www.firefox-browser.de/forum/viewtopic.php?t=28904</abp:homepage>
+        <abp:url>http://maltekraus.de/Firefox/adblock.txt</abp:url>
+        <abp:homepage>http://www.firefox-browser.de/forum/viewtopic.php?t=58194</abp:homepage>
       </RDF:Description>
     </RDF:li>
     <RDF:li>
