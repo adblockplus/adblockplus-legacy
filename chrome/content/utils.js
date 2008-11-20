@@ -109,58 +109,6 @@ function postProcessNode(node) {
     node.style.display = "none";
 }
 
-// Returns the visible area of an element, coordinates relative to the upper-left corner of the page
-function getElementRect(node) {
-  if (!node.ownerDocument || !node.ownerDocument.defaultView)
-    return null;
-
-  var doc = node.ownerDocument;
-  var wnd = doc.defaultView;
-
-  var box = doc.getBoxObjectFor(node);
-  var rect = [
-    box.x,
-    box.y,
-    node.clientWidth || box.width,
-    node.clientHeight || box.height
-  ];
-
-  while (node != box.parentBox) {
-    node = box.parentBox;
-    if (!node)
-      break;
-
-    box = doc.getBoxObjectFor(node);
-
-    // Account for parent's scrolling
-    rect[0] -= node.scrollLeft;
-    rect[1] -= node.scrollTop;
-
-    if (wnd.getComputedStyle(node, "").overflow != "visible") {
-      // Adjust coordinates to the visible area of the parent
-      var px = box.x;
-      var py = box.y;
-      if (rect[0] < px) {
-        rect[2] -= px - rect[0];
-        rect[0] = px;
-      }
-      if (rect[1] < py) {
-        rect[3] -= py - rect[1];
-        rect[1] = py;
-      }
-      if (rect[0] + rect[2] > px + node.clientWidth)
-        rect[2] = px + node.clientWidth - rect[0];
-      if (rect[1] + rect[3] > py + node.clientHeight)
-        rect[3] = py + node.clientHeight - rect[1];
-
-      if (rect[2] <= 0 || rect[3] <= 0)
-        return null;
-    }
-  }
-
-  return rect;
-}
-
 // Generates a click handler for object tabs
 function generateClickHandler(wnd, data) {
   return function(event) {
