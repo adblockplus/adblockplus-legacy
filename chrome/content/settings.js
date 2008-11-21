@@ -2202,7 +2202,6 @@ let treeView = {
     if (!subscription)
       return;
 
-    let insertPosition = -1;
     let insertPositionSorted = subscription._sortedFilters.indexOf(filter);
     if (insertPositionSorted >= 0)
     {
@@ -2218,40 +2217,18 @@ let treeView = {
       return;
     }
 
+    let insertPosition = -1;
     if (insertBefore)
-    {
-      // Insertion point given, use it
       insertPosition = subscription.filters.indexOf(insertBefore);
-      insertPositionSorted = subscription._sortedFilters.indexOf(insertBefore);
-    }
-
     if (insertPosition < 0)
-      insertPosition = subscription.filters.length;
-    if (insertPositionSorted < 0)
     {
-      if (this.sortProc)
-      {
-        if (filter instanceof abp.CommentFilter)
-        {
-          // New comments will always be sorted to the very bottom of the list
-          // because they don't have any filter following them.
-          insertPositionSorted = subscription._sortedFilters.length;
-        }
-        else
-        {
-          for (insertPositionSorted = 0;
-               insertPositionSorted < subscription._sortedFilters.length &&
-                  (subscription._sortedFilters[insertPositionSorted] instanceof abp.CommentFilter ||
-                    this.sortProc(filter, subscription._sortedFilters[insertPositionSorted]) >= 0);
-               insertPositionSorted++);
+      insertPosition = subscription.filters.length;
 
-          // Let the comments before insert position keep their place
-          while (insertPositionSorted > 0 && subscription._sortedFilters[insertPositionSorted - 1] instanceof abp.CommentFilter)
-            insertPositionSorted--;
-        }
-      }
-      else
-        insertPositionSorted = insertPosition;
+      // Insert before the comments at the end
+      while (insertPosition > 0 && subscription.filters[insertPosition - 1] instanceof abp.CommentFilter && !(filter instanceof abp.CommentFilter))
+        insertPosition--;
+      if (insertPosition == 0)
+        insertPosition = subscription.filters.length;
     }
 
     // If we don't have our own filters property the filter might be there already
@@ -2263,11 +2240,8 @@ let treeView = {
 
       subscription.filters.splice(insertPosition, 0, filter);
     }
-
-    if (this.sortProc)
-      subscription._sortedFilters.splice(insertPositionSorted, 0, filter);
-    else
-      subscription._sortedFilters = subscription.filters;
+    this.resortSubscription(subscription);
+    insertPositionSorted = subscription._sortedFilters.indexOf(filter);
 
     let parentRow = this.getSubscriptionRow(subscription);
 
