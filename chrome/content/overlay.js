@@ -70,8 +70,11 @@ function abpInit() {
   }
 
   // First run actions
-  if (abp && abp.versionComparator.compare(abpPrefs.lastVersion, "0.0") <= 0)
+  if (abp && !("doneFirstRunActions" in abpPrefs) && abp.versionComparator.compare(abpPrefs.lastVersion, "0.0") <= 0)
   {
+    // Don't repeat first run actions if new window is opened
+    abpPrefs.doneFirstRunActions = true;
+
     // Add ABP icon to toolbar if necessary
     setTimeout(abpInstallInToolbar, 0);
 
