@@ -6,7 +6,7 @@
 <!ENTITY disabled.warning.link "Adblock Plus etkinleştirilene kadar">
 <!ENTITY disabled.warning.afterLink "uygulanmayacaktır.">
 <!ENTITY filter.label "Yeni süzgeç:">
-<!ENTITY filter.accesskey "s">
+<!ENTITY filter.accesskey "y">
 <!ENTITY preferences.label "Mevcut süzgeçleri göster...">
 <!ENTITY preferences.accesskey "S">
 <!ENTITY type.filter.label "Engelleyen süzgeç">
@@ -23,17 +23,17 @@
 <!ENTITY anchor.start.label "adresin başında">
 <!ENTITY anchor.start.accesskey "b">
 <!ENTITY anchor.end.label "adresin sonunda">
-<!ENTITY anchor.end.accesskey "s">
+<!ENTITY anchor.end.accesskey "o">
 <!ENTITY options.label "Seçenekler">
 <!ENTITY firstParty.label "Sadece birinci kişilerden">
-<!ENTITY firstParty.accesskey "b">
+<!ENTITY firstParty.accesskey "i">
 <!ENTITY thirdParty.label "Sadece üçüncü kişilerden">
 <!ENTITY thirdParty.accesskey "c">
 <!ENTITY matchCase.label "Birebir eşleşme">
 <!ENTITY matchCase.accesskey "e">
 <!ENTITY types.label "Bu türlere uygula:">
 <!ENTITY collapse.label "Engellenenleri kapat:">
-<!ENTITY collapse.accesskey "l">
+<!ENTITY collapse.accesskey "p">
 <!ENTITY collapse.default.yes.label "Öntanımlı kullan (evet)">
 <!ENTITY collapse.default.no.label "Öntanımlı kullan (hayır)">
 <!ENTITY collapse.yes.label "Evet">
