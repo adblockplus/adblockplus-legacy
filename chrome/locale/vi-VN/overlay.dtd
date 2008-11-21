@@ -9,13 +9,13 @@
 <!ENTITY context.image.label "Adblock Plus: Chặn Ảnh">
 <!ENTITY context.object.label "Adblock Plus: Chặn Object">
 <!ENTITY context.frame.label "Adblock Plus: Chặn Frame">
-<!ENTITY sidebar.title "Các mục bị chặn trong trang hiện tại">
+<!ENTITY sidebar.title "Các mục bị chặn trên trang hiện tại">
 <!ENTITY settings.label "Tùy chọn">
 <!ENTITY settings.accesskey "T">
 <!ENTITY opensidebar.label "Mở các mục có thể chặn được">
-<!ENTITY opensidebar.accesskey "c">
+<!ENTITY opensidebar.accesskey "m">
 <!ENTITY closesidebar.label "Đóng các mục có thể chặn được">
-<!ENTITY closesidebar.accesskey "c">
+<!ENTITY closesidebar.accesskey "m">
 <!ENTITY whitelist.site.label "Vô hiệu hóa trên --">
 <!ENTITY whitelist.page.label "Chỉ vô hiệu hóa trên trang này">
 <!ENTITY objecttab.title "Chặn">
