@@ -1333,6 +1333,14 @@ function createSortFunction(cmpFunc, fallbackFunc, desc)
 
   return function(filter1, filter2)
   {
+    // Comment replacements without prototype always go last
+    let isLast1 = (filter1.__proto__ == null);
+    let isLast2 = (filter2.__proto__ == null);
+    if (isLast1)
+      return (isLast2 ? 0 : 1)
+    else if (isLast2)
+      return -1;
+
     let ret = cmpFunc(filter1, filter2);
     if (ret == 0 && fallbackFunc)
       return fallbackFunc(filter1, filter2);
@@ -2001,8 +2009,25 @@ let treeView = {
   {
     if (this.sortProc)
     {
-      subscription._sortedFilters = subscription.filters.slice();
-      subscription._sortedFilters.sort(this.sortProc);
+      // Hide comments in the list, they should be sorted like the filter following them
+      let filters = subscription.filters.slice();
+      let followingFilter = null;
+      for (let i = filters.length - 1; i >= 0; i--)
+      {
+        if (filters[i] instanceof abp.CommentFilter)
+          filters[i] = { __proto__: followingFilter, _origFilter: filters[i] };
+        else
+          followingFilter = filters[i];
+      }
+
+      filters.sort(this.sortProc);
+
+      // Restore comments
+      for (let i = 0; i < filters.length; i++)
+        if ("_origFilter" in filters[i])
+          filters[i] = filters[i]._origFilter;
+
+      subscription._sortedFilters = filters;
     }
     else
       subscription._sortedFilters = subscription.filters;
@@ -2189,10 +2214,24 @@ let treeView = {
     {
       if (this.sortProc)
       {
-        for (insertPositionSorted = 0;
-             insertPositionSorted < subscription._sortedFilters.length &&
-                this.sortProc(filter, subscription._sortedFilters[insertPositionSorted]) >= 0;
-             insertPositionSorted++);
+        if (filter instanceof abp.CommentFilter)
+        {
+          // New comments will always be sorted to the very bottom of the list
+          // because they don't have any filter following them.
+          insertPositionSorted = subscription._sortedFilters.length;
+        }
+        else
+        {
+          for (insertPositionSorted = 0;
+               insertPositionSorted < subscription._sortedFilters.length &&
+                  (subscription._sortedFilters[insertPositionSorted] instanceof abp.CommentFilter ||
+                    this.sortProc(filter, subscription._sortedFilters[insertPositionSorted]) >= 0);
+               insertPositionSorted++);
+
+          // Let the comments before insert position keep their place
+          while (insertPositionSorted > 0 && subscription._sortedFilters[insertPositionSorted - 1] instanceof abp.CommentFilter)
+            insertPositionSorted--;
+        }
       }
       else
         insertPositionSorted = insertPosition;
