@@ -1641,7 +1641,7 @@ let treeView = {
     if (this.dragFilter)
     {
       // Dragging a filter
-      return filter && subscription == this.dragSubscription;
+      return filter && subscription instanceof abp.SpecialSubscription && subscription.isFilterAllowed(this.dragFilter);
     }
     else
     {
@@ -1663,35 +1663,52 @@ let treeView = {
     if (this.dragFilter)
     {
       // Dragging a filter
-      if (!filter || subscription != this.dragSubscription)
+      if (!(filter && subscription instanceof abp.SpecialSubscription && subscription.isFilterAllowed(this.dragFilter)))
         return;
 
-      let oldIndex = subscription.filters.indexOf(this.dragFilter);
-      let newIndex = subscription.filters.indexOf(filter);
+      let oldSubscription = this.dragSubscription;
+      let oldSortedIndex = oldSubscription._sortedFilters.indexOf(this.dragFilter);
+      let newSortedIndex = subscription._sortedFilters.indexOf(filter);
+      if (oldSortedIndex < 0 || newSortedIndex < 0)
+        return;
+      if (orientation == nsITreeView.DROP_AFTER)
+        newSortedIndex++;
+
+      let oldIndex = (oldSubscription.filters == oldSubscription._sortedFilters ? oldSortedIndex : oldSubscription.filters.indexOf(this.dragFilter));
+      let newIndex = (subscription.filters == subscription._sortedFilters || newSortedIndex >= subscription._sortedFilters.length ? newSortedIndex : subscription.filters.indexOf(subscription._sortedFilters[newSortedIndex]));
       if (oldIndex < 0 || newIndex < 0)
         return;
 
-      // Create a copy of the original subscription filters before modifying
-      if (!subscription.hasOwnProperty("filters"))
       {
-        subscription.filters = subscription.filters.slice();
-        subscription._sortedFilters = subscription.filters;
+        if (!oldSubscription.hasOwnProperty("filters"))
+          oldSubscription.filters = oldSubscription.filters.slice();
+
+        let rowCountBefore = treeView.getSubscriptionRowCount(oldSubscription);
+        let row = treeView.getSubscriptionRow(oldSubscription) + rowCountBefore - oldSubscription._sortedFilters.length + oldSortedIndex;
+        oldSubscription.filters.splice(oldIndex, 1);
+        this.resortSubscription(oldSubscription);
+        let rowCountAfter = treeView.getSubscriptionRowCount(oldSubscription);
+        this.boxObject.rowCountChanged(row + 1 + rowCountAfter - rowCountBefore, rowCountAfter - rowCountBefore);
       }
 
-      let oldRow = row - newIndex + oldIndex;
-      subscription.filters.splice(oldIndex, 1);
-      this.boxObject.rowCountChanged(oldRow, -1);
-
-      if (orientation == nsITreeView.DROP_AFTER)
-        newIndex++;
-      if (newIndex > oldIndex)
+      if (oldSubscription == subscription && newSortedIndex > oldSortedIndex)
+        newSortedIndex--;
+      if (oldSubscription == subscription && newIndex > oldIndex)
         newIndex--;
 
-      let newRow = oldRow - oldIndex + newIndex;
-      subscription.filters.splice(newIndex, 0, this.dragFilter);
-      this.boxObject.rowCountChanged(newRow, 1);
+      {
+        if (!subscription.hasOwnProperty("filters"))
+          subscription.filters = subscription.filters.slice();
 
-      treeView.selectRow(newRow);
+        let rowCountBefore = treeView.getSubscriptionRowCount(subscription);
+        subscription.filters.splice(newIndex, 0, this.dragFilter);
+        this.resortSubscription(subscription);
+        let rowCountAfter = treeView.getSubscriptionRowCount(subscription);
+        let row = treeView.getSubscriptionRow(subscription) + rowCountAfter - subscription._sortedFilters.length + newSortedIndex;
+        this.boxObject.rowCountChanged(row + 1 + rowCountBefore - rowCountAfter, rowCountAfter - rowCountBefore);
+
+        treeView.selectRow(row);
+      }
     }
     else
     {
@@ -2446,7 +2463,9 @@ let treeView = {
     let [subscription, filter] = this.getRowInfo(row);
     if (!subscription)
       return;
-    if (filter instanceof abp.Filter && (!(subscription instanceof abp.SpecialSubscription) || this.isSorted()))
+    if (filter instanceof abp.Filter && !(subscription instanceof abp.SpecialSubscription))
+      return;
+    if (filter instanceof abp.Filter && !(filter instanceof abp.CommentFilter) && this.isSorted())
       return;
 
     if (!(filter instanceof abp.Filter))
