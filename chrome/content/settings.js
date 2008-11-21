@@ -2593,7 +2593,7 @@ let treeView = {
             filterStorage.triggerFilterObservers(filter.disabled ? "disable" : "enable", [filter.__proto__]);
           }
           subscription.filters[i] = filter.__proto__;
-          hasWrappers = false;
+          hadWrappers = true;
         }
         hasFilters[filter.text] = true;
       }
