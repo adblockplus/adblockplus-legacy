@@ -13,5 +13,3 @@
 <!ENTITY autodownload.accesskey "P">
 <!ENTITY enabled.label "필터 사용하기">
 <!ENTITY enabled.accesskey "N">
-<!ENTITY full-list.url "http://adblockplus.org/en/subscriptions">
-<!ENTITY full-list.label "모든 표현식 보기">

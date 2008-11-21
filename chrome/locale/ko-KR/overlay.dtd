@@ -5,6 +5,7 @@
 <!ENTITY filters.tooltip "최상위 활성 필터:">
 <!ENTITY menuitem.label "Adblock Plus">
 <!ENTITY menuitem.accesskey "B">
+<!ENTITY view.blockableItems.label "Adblock Plus: 차단 가능 항목">
 <!ENTITY context.image.label "Adblock 이미지">
 <!ENTITY context.object.label "Adblock 객체">
 <!ENTITY context.frame.label "Adblock 프레임">

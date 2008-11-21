@@ -7,6 +7,7 @@
 <!ENTITY address.label "주소">
 <!ENTITY filter.label "필터">
 <!ENTITY state.label "상태">
+<!ENTITY size.label "크기">
 <!ENTITY noitems.label "차단 가능한 항목 없음">
 <!ENTITY whitelisted.label "차단 목록 페이지">
 <!ENTITY notloaded.label "Adblock Plus가 올바르게 설치되지 않았습니다.">
@@ -14,10 +15,16 @@
 <!ENTITY tooltip.type.label "형식:">
 <!ENTITY tooltip.type.blocked "(차단됨)">
 <!ENTITY tooltip.type.whitelisted "(차단 목록)">
+<!ENTITY tooltip.size.label "크기:">
 <!ENTITY tooltip.filter.label "필터:">
+<!ENTITY tooltip.filterSource.label "필터 소스:">
 <!ENTITY context.block.label "이 항목 차단">
 <!ENTITY context.editfilter.label "유효한 필터 편집">
 <!ENTITY context.whitelist.label "예외 규칙 추가">
+<!ENTITY context.disablefilter.label "필터 금지 --">
+<!ENTITY context.enablefilter.label "필터 재시작 --">
 <!ENTITY context.open.label "새 탭으로 열기">
 <!ENTITY context.flash.label "플래쉬 항목의 테두리">
 <!ENTITY context.copy.label "항목 주소 복사">
+<!ENTITY context.copyFilter.label "필터 복사">
+<!ENTITY context.selectAll.label "모두 선택">
