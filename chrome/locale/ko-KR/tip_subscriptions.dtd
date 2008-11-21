@@ -6,9 +6,16 @@
 또한 언제라도 필요에 따라 추가/비활성화/삭제가 가능합니다.">
 <!ENTITY description.par2 "아래 목록에서 추천되는 표현식을 선택할 수 있습니다.">
 <!ENTITY note "주: 필터 목록은 그 필터가 생성된 웹사이트에서 가장 효율적으로 동작합니다.">
+<!ENTITY adblock.warning "Adblock Plus가 Adblock 또는 이전 버전의 Adblock Plus를 찾았습니다. Adblock과 Adblock Plus를 동시에 실행하면 문제를 일으킬 수 있어 피해야 합니다. 지금 Adblock을 제거하시는 것이 좋습니다.(권장됨)">
+<!ENTITY adblock.uninstall "Adblock 제거">
+<!ENTITY filterset.g.warning "Filterset.G가 사용 중인 것 같습니다. 이 필터 목록은 현재 거의 관리되지 않아, 웹사이트와 문제를 일으킬 수 있습니다. 지금 Filterset.G를 제거하시는 것이 좋습니다.(권장됨)">
+<!ENTITY filterset.g.moreinfo "더 많은 정보">
 <!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
+<!ENTITY filterset.g.uninstall "Filterset.G 제거">
 <!ENTITY homepage.label "홈페이지">
-<!ENTITY subscribe.label "표현식">
+<!ENTITY subscribe.label "가입">
 <!ENTITY subscribe.accesskey "R">
 <!ENTITY other.label "다른 표현식 추가">
-<!ENTITY other.accesskey "T">
+<!ENTITY other.accesskey "f">
+<!ENTITY full-list.url "http://adblockplus.org/en/subscriptions">
+<!ENTITY full-list.label "모든 가입 보기">
