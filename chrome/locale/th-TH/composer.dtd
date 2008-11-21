@@ -1,0 +1,40 @@
+<!ENTITY dialog.title "เพิ่มกฎตัวกรอง Adblock Plus">
+<!ENTITY accept.label "เพิ่มตัวกรอง">
+<!ENTITY advanced.label "มุมมองละเอียด">
+<!ENTITY basic.label "มุมมองพื้นฐาน">
+<!ENTITY disabled.warning.beforeLink "Adblock Plus ถูกปิดใช้งานอยู่ คุณยังคงสามารถเพิ่มตัวกรองได้แต่จะไม่ถูกใช้งานจนกว่าคุณ">
+<!ENTITY disabled.warning.link "เปิดใช้งาน Adblock Plus">
+<!ENTITY disabled.warning.afterLink ".">
+<!ENTITY filter.label "ตัวกรองใหม่:">
+<!ENTITY filter.accesskey "ต">
+<!ENTITY preferences.label "แสดงตัวกรองที่มีอยู่...">
+<!ENTITY preferences.accesskey "ส">
+<!ENTITY type.filter.label "ตัวกรองบล็อก">
+<!ENTITY type.filter.accesskey "บ">
+<!ENTITY type.whitelist.label "กฎข้อยกเว้น">
+<!ENTITY type.whitelist.accesskey "ก">
+<!ENTITY pattern.label "ดูรูปแบบ">
+<!ENTITY pattern.explanation "รูปแบบสามารถเป็นส่วนใดส่วนหนึ่งของที่อยู่ สัญลักษณ์ * เป็นอักขระใดๆ ตัวกรองจะถูกใช้งานกับที่อยู่ที่เหมาะสมกับตัวกรองเท่านั้น">
+<!ENTITY regexp.warning "รูปแบบที่คุณป้อนเข้าจะถูกแปลเป็นการแสดงออกทั่วไป การแสดงออกทั่วไปมากๆจะทำให้การเข้าเว็บช้าลง ถ้าคุณไม่ตั้งใจจะใช้การแสดงออกทั่วไปให้ใส่สัญลักษณ์ * ที่ท้ายรูปแบบ">
+<!ENTITY shortpattern.warning "รูปแบบที่คุณป้อนเข้าสั้นเกินกว่าจะใช้ให้เหมาะสม รูปแบบมากๆจะทำให้เข้าเว็บช้า แนะนำให้ใช้รูปแบบยาวๆสำหรับตัวกรองนี้">
+<!ENTITY custom.pattern.label "ปรับเอง:">
+<!ENTITY custom.pattern.accesskey "ป">
+<!ENTITY anchors.label "รับเฉพาะรูปแบบ:">
+<!ENTITY anchor.start.label "ที่หน้าๆของที่อยู่">
+<!ENTITY anchor.start.accesskey "น">
+<!ENTITY anchor.end.label "ที่ท้ายๆของที่อยู่">
+<!ENTITY anchor.end.accesskey "ท">
+<!ENTITY options.label "ตัวเลือก">
+<!ENTITY firstParty.label "First-party เท่านั้น">
+<!ENTITY firstParty.accesskey "r">
+<!ENTITY thirdParty.label "Third-party เท่านั้น">
+<!ENTITY thirdParty.accesskey "T">
+<!ENTITY matchCase.label "จับคู่">
+<!ENTITY matchCase.accesskey "จ">
+<!ENTITY types.label "ใช้งานกับชนิด:">
+<!ENTITY collapse.label "การบล็อกที่ล้มเหลว:">
+<!ENTITY collapse.accesskey "ม">
+<!ENTITY collapse.default.yes.label "ใช้ค่าเริ่มต้น(ใช่)">
+<!ENTITY collapse.default.no.label "ใช้ค่าเริ่มต้น(ไม่ใช่)">
+<!ENTITY collapse.yes.label "ใช่">
+<!ENTITY collapse.no.label "ไม่ใช่">

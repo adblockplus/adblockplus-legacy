@@ -5,16 +5,17 @@
 <!ENTITY filters.tooltip "ตัวกรองที่ใช้งานมากที่สุด:">
 <!ENTITY menuitem.label "Adblock Plus">
 <!ENTITY menuitem.accesskey "B">
+<!ENTITY view.blockableItems.label "Adblock Plus: วัตถุที่บล็อกได้">
 <!ENTITY context.image.label "Adblock รูปภาพ">
 <!ENTITY context.object.label "Adblock สิ่งของ">
 <!ENTITY context.frame.label "Adblock กรอบความ">
 <!ENTITY sidebar.title "รายการที่บล็อกได้ในหน้าล่าสุด">
 <!ENTITY settings.label "ปรับแต่ง">
-<!ENTITY settings.accesskey "F">
+<!ENTITY settings.accesskey "ป">
 <!ENTITY opensidebar.label "เปิดรายการที่บล็อกได้">
-<!ENTITY opensidebar.accesskey "B">
+<!ENTITY opensidebar.accesskey "ไ">
 <!ENTITY closesidebar.label "ปิดรายการที่บล็อกได้">
-<!ENTITY closesidebar.accesskey "B">
+<!ENTITY closesidebar.accesskey "ไ">
 <!ENTITY whitelist.site.label "ปิดการใช้งาน --">
 <!ENTITY whitelist.page.label "ปิดการใช้งานเฉพาะหน้านี้">
 <!ENTITY objecttab.title "บล็อก">

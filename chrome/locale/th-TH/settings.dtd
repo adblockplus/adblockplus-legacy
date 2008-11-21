@@ -1,65 +1,78 @@
 <!ENTITY dialog.title "ปรับแต่ง Adblock Plus">
 <!ENTITY filters.label "ตัวกรอง">
-<!ENTITY filters.accesskey "F">
+<!ENTITY filters.accesskey "ต">
 <!ENTITY add.label "เพิ่มตัวกรอง">
-<!ENTITY add.accesskey "Z">
+<!ENTITY add.accesskey "พ">
 <!ENTITY addsubscription.label "เพิ่มนามข้างท้ายตัวกรอง">
-<!ENTITY addsubscription.accesskey "S">
+<!ENTITY addsubscription.accesskey "น">
 <!ENTITY synchsubscriptions.label "อัปเดตนามข้างท้ายทั้งหมด">
-<!ENTITY synchsubscriptions.accesskey "D">
+<!ENTITY synchsubscriptions.accesskey "ด">
 <!ENTITY import.label "นำเข้าตัวกรอง">
-<!ENTITY import.accesskey "M">
+<!ENTITY import.accesskey "ข">
 <!ENTITY export.label "ส่งออกตัวกรอง">
-<!ENTITY export.accesskey "X">
+<!ENTITY export.accesskey "อ">
 <!ENTITY clearall.label "ลบตัวกรองทั้งหมด">
-<!ENTITY clearall.accesskey "L">
+<!ENTITY clearall.accesskey "ล">
 <!ENTITY resethitcounts.label "เริ่มสถิติใหม่">
-<!ENTITY resethitcounts.accesskey "R">
+<!ENTITY resethitcounts.accesskey "ร">
 <!ENTITY edit.label "แก้ไข">
-<!ENTITY edit.accesskey "E">
+<!ENTITY edit.accesskey "ก">
 <!ENTITY cut.label "ตัด">
-<!ENTITY cut.accesskey "T">
+<!ENTITY cut.accesskey "ต">
 <!ENTITY copy.label "คัดลอก">
-<!ENTITY copy.accesskey "C">
+<!ENTITY copy.accesskey "ค">
 <!ENTITY paste.label "วาง">
-<!ENTITY paste.accesskey "P">
+<!ENTITY paste.accesskey "ว">
 <!ENTITY remove.label "ลบ">
-<!ENTITY remove.accesskey "D">
+<!ENTITY remove.accesskey "บ">
 <!ENTITY menu.find.label "ค้นหา">
-<!ENTITY menu.find.accesskey "F">
+<!ENTITY menu.find.accesskey "ห">
 <!ENTITY menu.findagain.label "ค้นหาอีกครั้ง">
-<!ENTITY menu.findagain.accesskey "G">
+<!ENTITY menu.findagain.accesskey "ง">
+<!ENTITY view.label "มุมมอง">
+<!ENTITY view.accesskey "ม">
+<!ENTITY sort.label "จัดลำดับ">
+<!ENTITY sort.accesskey "จ">
+<!ENTITY sort.none.label "ไม่จัดลำดับ">
+<!ENTITY sort.none.accesskey "บ">
+<!ENTITY sort.ascending.label "จัดลำดับ A &gt; Z">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.descending.label "จัดลำดับ Z &gt; A">
+<!ENTITY sort.descending.accesskey "Z">
 <!ENTITY options.label "ตัวเลือก">
-<!ENTITY options.accesskey "O">
+<!ENTITY options.accesskey "เ">
 <!ENTITY enable.label "เปิดการใช้งาน Adblock Plus">
-<!ENTITY enable.accesskey "N">
+<!ENTITY enable.accesskey "ก">
 <!ENTITY showintoolbar.label "แสดงในแถบเครื่องมือ">
-<!ENTITY showintoolbar.accesskey "B">
+<!ENTITY showintoolbar.accesskey "ค">
 <!ENTITY showinstatusbar.label "แสดงในแถบสถานะ">
-<!ENTITY showinstatusbar.accesskey "S">
+<!ENTITY showinstatusbar.accesskey "ส">
 <!ENTITY objecttabs.label "แสดงแท็บบนแฟลชและจาวา">
-<!ENTITY objecttabs.accesskey "T">
+<!ENTITY objecttabs.accesskey "ฟ">
 <!ENTITY collapse.label "ย่อเก็บส่วนย่อยที่ถูกบล็อก">
-<!ENTITY collapse.accesskey "L">
+<!ENTITY collapse.accesskey "ย">
 <!ENTITY help.label "ช่วยเหลือ">
-<!ENTITY help.accesskey "H">
+<!ENTITY help.accesskey "ห">
 <!ENTITY faq.label "คำถามพบบ่อย">
-<!ENTITY faq.accesskey "F">
+<!ENTITY faq.accesskey "พ">
 <!ENTITY faq.url "http://adblockplus.org/en/faq">
 <!ENTITY tips.label "เคล็ดลับประจำวัน">
-<!ENTITY tips.accesskey "T">
+<!ENTITY tips.accesskey "ค">
 <!ENTITY tips.url "http://adblockplus.org/en/tips">
-<!ENTITY filterdoc.label "กำลังเขียนตัวกรอง Adblock Plus">
-<!ENTITY filterdoc.accesskey "R">
+<!ENTITY filterdoc.label "การเขียนตัวกรอง Adblock Plus">
+<!ENTITY filterdoc.accesskey "ข">
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "เกี่ยวกับ Adblock Plus">
-<!ENTITY about.accesskey "B">
-<!ENTITY disabled.warning "Adblock Plus ถูกปิดการทำงาน คุณสามารถแก้ไขตัวกรองในรายชื่อ แต่จะใช้ไม่ได้จนกว่าคุณจะเปิดการทำงานอีกครั้ง">
-<!ENTITY description "เพิ่มที่อยู่ที่คุณต้องการบล็อก สำหรับข้อเสนอแนะดูที่รายชื่อแบบเลื่อนลง คุณสามารถใช้ * เป็นเสมือนสิ่งใดๆเพื่อสร้างตัวกรองที่ำไม่เจาะจง ผู้ใช้ขั้นสูงสามารถใช้การแสดงออกทั่วไปเช่น banner\d+\.gif$/">
-<!ENTITY pattern.column "กฎตัวกรอง">
+<!ENTITY about.accesskey "ก">
+<!ENTITY description "ตัวกรองต่อไปนี้ระบุว่าที่อยู่ใดควรจะถูกบล็อกและที่อยู่ใดควรให้ผ่าน:">
+<!ENTITY filter.column "กฎตัวกรอง">
+<!ENTITY filter.accesskey "ต">
 <!ENTITY enabled.column "เปิดการใช้งาน">
+<!ENTITY enabled.accesskey "ป">
 <!ENTITY hitcount.column "นับ">
+<!ENTITY hitcount.accesskey "น">
 <!ENTITY lasthit.column "กดล่าสุด">
+<!ENTITY lasthit.accesskey "ล">
 <!ENTITY context.edit.label "แก้ไขตัวกรอง">
 <!ENTITY context.resethitcount.label "เริ่มนับสถิติสำหรับตัวกรองใหม่">
 <!ENTITY context.synchsubscription.label "อัปเดตนามข้างท้าย">
@@ -68,5 +81,7 @@
 <!ENTITY context.movedown.label "เลื่อนลง">
 <!ENTITY context.movegroupup.label "เลื่อนกลุ่มขึ้น">
 <!ENTITY context.movegroupdown.label "เลื่อนกลุ่มลง">
+<!ENTITY context.enable.label "เปิดใช้งาน">
+<!ENTITY context.disable.label "ปิดใช้งาน">
 <!ENTITY apply.label "ใช้งาน">
-<!ENTITY apply.accesskey "P">
+<!ENTITY apply.accesskey "ช">

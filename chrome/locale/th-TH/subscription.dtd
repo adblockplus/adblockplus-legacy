@@ -5,12 +5,10 @@
 <!ENTITY external.description "นี่คือนามข้างท้ายตัวกรองภายนอก รายชื่อตัวกรองจะรักษาความทันสมัยโดยส่วนขยายที่สร้างนามข้างท้ายนี้">
 <!ENTITY autodownload.description "ถ้าคุณเลือก&quot;อัปเดตอัตโนมัติ&quot;ตำแหน่งนี้จะตรวจสอบการอัปเดตทุกวัน แม้ตัวเลือกนี้ถูกปิดการใช้งานคุณก็ยังคงสามารถเรียกการอัปเดตด้วยตัวเองจากเมนูบริบทของนามข้างท้าย">
 <!ENTITY location.label "ตำแหน่งรายชื่อตัวกรอง:">
-<!ENTITY location.accesskey "L">
+<!ENTITY location.accesskey "ร">
 <!ENTITY title.label "หัวเรื่องนามข้างท้าย:">
-<!ENTITY title.accesskey "T">
+<!ENTITY title.accesskey "ห">
 <!ENTITY autodownload.label "อัปเดตอัตโนมัติ">
-<!ENTITY autodownload.accesskey "P">
+<!ENTITY autodownload.accesskey "อ">
 <!ENTITY enabled.label "เปิดการใช้งานตัวกรอง">
-<!ENTITY enabled.accesskey "N">
-<!ENTITY full-list.url "http://adblockplus.org/en/subscriptions">
-<!ENTITY full-list.label "ดูนามข้างท้ายทั้งหมด">
+<!ENTITY enabled.accesskey "ป">
