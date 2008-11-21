@@ -29,6 +29,16 @@
 <!ENTITY menu.find.accesskey "d">
 <!ENTITY menu.findagain.label "Ponovno najdi">
 <!ENTITY menu.findagain.accesskey "j">
+<!ENTITY view.label "Pogled">
+<!ENTITY view.accesskey "o">
+<!ENTITY sort.label "Razvrsti">
+<!ENTITY sort.accesskey "v">
+<!ENTITY sort.none.label "Nerazvrščeno">
+<!ENTITY sort.none.accesskey "š">
+<!ENTITY sort.ascending.label "od A &gt; Z">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.descending.label "od Z &gt; A">
+<!ENTITY sort.descending.accesskey "Z">
 <!ENTITY options.label "Možnosti">
 <!ENTITY options.accesskey "ž">
 <!ENTITY enable.label "Omogoči Adblock Plus">
@@ -54,12 +64,15 @@
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "O Adblock Plus">
 <!ENTITY about.accesskey "b">
-<!ENTITY disabled.warning "Adblock Plus je izključen. Urejate lahko filtre v seznamu, vendar ti ne bodo delovali, dokler ga spet ne vključite.">
 <!ENTITY description "Dodajte naslove, ki bi jih radi blokirali, za nasvete preverite seznamsko polje. Uporabite lahko * za izdelavo bolj splošnih filtrov. Napredni uporabniki lahko uporabite regularne izraze kot je /banner\d+\.gif$/.">
-<!ENTITY pattern.column "Pravilo filtra">
+<!ENTITY filter.column "Pravilo filtra">
+<!ENTITY filter.accesskey "f">
 <!ENTITY enabled.column "Omogočeno">
+<!ENTITY enabled.accesskey "m">
 <!ENTITY hitcount.column "Zadetki">
+<!ENTITY hitcount.accesskey "d">
 <!ENTITY lasthit.column "Zadnji zadetek">
+<!ENTITY lasthit.accesskey "n">
 <!ENTITY context.edit.label "Uredi filter">
 <!ENTITY context.resethitcount.label "Ponastavi statistiko zadetkov za filter">
 <!ENTITY context.synchsubscription.label "Posodobi naročnino zdaj">
@@ -68,5 +81,7 @@
 <!ENTITY context.movedown.label "Premakni navzdol">
 <!ENTITY context.movegroupup.label "Premakni skupino navzgor">
 <!ENTITY context.movegroupdown.label "Premakni skupino navzdol">
+<!ENTITY context.enable.label "Omogoči">
+<!ENTITY context.disable.label "Onemogoči">
 <!ENTITY apply.label "Uporabi">
 <!ENTITY apply.accesskey "U">
