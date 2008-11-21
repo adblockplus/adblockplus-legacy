@@ -1,0 +1,40 @@
+<!ENTITY dialog.title "Dodaj pravilo filtra Adblock Plus">
+<!ENTITY accept.label "Dodaj filter">
+<!ENTITY advanced.label "Napredni pogled">
+<!ENTITY basic.label "Osnovni pogled">
+<!ENTITY disabled.warning.beforeLink "Adblock Plus je trenutno onemogočen. Še vedno lahko dodajate filtre, vendar ne bodo veljali, če ne">
+<!ENTITY disabled.warning.link "omogočite Adblock Plus">
+<!ENTITY disabled.warning.afterLink ".">
+<!ENTITY filter.label "Nov filter:">
+<!ENTITY filter.accesskey "f">
+<!ENTITY preferences.label "Pokaži obstoječe filtre ...">
+<!ENTITY preferences.accesskey "ž">
+<!ENTITY type.filter.label "Filter blokade">
+<!ENTITY type.filter.accesskey "b">
+<!ENTITY type.whitelist.label "Pravilo izjem">
+<!ENTITY type.whitelist.accesskey "l">
+<!ENTITY pattern.label "Išči vzorec">
+<!ENTITY pattern.explanation "Vzorec je lahko kateri koli del naslova, simbol * velja kot poljuben znak. Filter bo le za naslove, ki ustrezajo vzorcu.">
+<!ENTITY regexp.warning "Vneseni vzorec bo obravnavan kot regularni izraz. Številni regularni izrazi lahko upočasnijo vaše brskanje. Če ne nameravate uporabljati regularnih izrazov, dodajte simbol * na konec vzorca.">
+<!ENTITY shortpattern.warning "Vzorec, ki ste ga vnesli, je prekratek za optimizacijo, številni tovrstni vzorci lahko upočasnijo vaše brskanje. Priporočamo, da izberete daljši niz za ta filter.">
+<!ENTITY custom.pattern.label "Po meri:">
+<!ENTITY custom.pattern.accesskey "m">
+<!ENTITY anchors.label "Sprejmi le vzorec:">
+<!ENTITY anchor.start.label "na začetku naslova">
+<!ENTITY anchor.start.accesskey "t">
+<!ENTITY anchor.end.label "na koncu naslova">
+<!ENTITY anchor.end.accesskey "k">
+<!ENTITY options.label "Možnosti">
+<!ENTITY firstParty.label "Samo prve stranke">
+<!ENTITY firstParty.accesskey "p">
+<!ENTITY thirdParty.label "Samo zunanje stranke">
+<!ENTITY thirdParty.accesskey "z">
+<!ENTITY matchCase.label "Razlikuj velike/male črke">
+<!ENTITY matchCase.accesskey "č">
+<!ENTITY types.label "Uporabi za vrste:">
+<!ENTITY collapse.label "Strni blokirane:">
+<!ENTITY collapse.accesskey "r">
+<!ENTITY collapse.default.yes.label "Uporabi privzeto (da)">
+<!ENTITY collapse.default.no.label "Uporabi privzeto (ne)">
+<!ENTITY collapse.yes.label "Da">
+<!ENTITY collapse.no.label "Ne">

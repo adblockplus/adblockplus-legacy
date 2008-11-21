@@ -7,6 +7,7 @@
 <!ENTITY address.label "Naslov">
 <!ENTITY filter.label "Filter">
 <!ENTITY state.label "Stanje">
+<!ENTITY size.label "Velikost">
 <!ENTITY noitems.label "Ni elementov blokiranja">
 <!ENTITY whitelisted.label "Dovoljena stran">
 <!ENTITY notloaded.label "Adblock Plus ni bil pravilno nameščen">
@@ -14,10 +15,16 @@
 <!ENTITY tooltip.type.label "Vrsta:">
 <!ENTITY tooltip.type.blocked "(blokirano)">
 <!ENTITY tooltip.type.whitelisted "(dovoljeno)">
+<!ENTITY tooltip.size.label "Velikost:">
 <!ENTITY tooltip.filter.label "Trenutni filter:">
+<!ENTITY tooltip.filterSource.label "Vir filtra:">
 <!ENTITY context.block.label "Blokiraj ta element">
 <!ENTITY context.editfilter.label "Uredi trenutni filter">
 <!ENTITY context.whitelist.label "Dodaj pravilo izjem za element">
+<!ENTITY context.disablefilter.label "Onemogoči filter ...">
+<!ENTITY context.enablefilter.label "Ponovno omogoči filter ...">
 <!ENTITY context.open.label "Odpri v novem zavihku">
 <!ENTITY context.flash.label "Obrobe elementa naj utripajo">
 <!ENTITY context.copy.label "Kopiraj naslov elementa">
+<!ENTITY context.copyFilter.label "Kopiraj filter">
+<!ENTITY context.selectAll.label "Izberi vse">
