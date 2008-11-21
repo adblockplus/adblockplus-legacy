@@ -1264,7 +1264,7 @@ function onChange() {
  * Sort function for the filter list, compares two filters by their text
  * representation.
  */
-function sortByText(/**Filter*/ filter1, /**Filter*/ filter2)
+function compareText(/**Filter*/ filter1, /**Filter*/ filter2)
 {
   if (filter1.text < filter2.text)
     return -1;
@@ -1272,14 +1272,6 @@ function sortByText(/**Filter*/ filter1, /**Filter*/ filter2)
     return 1;
   else
     return 0;
-}
-
-/**
- * Reverse of sortByText() - for sorting in descending order.
- */
-function sortByTextDesc(/**Filter*/ filter1, /**Filter*/ filter2)
-{
-  return -sortByText(filter1, filter2);
 }
 
 /**
@@ -1331,18 +1323,18 @@ function compareLastHit(/**Filter*/ filter1, /**Filter*/ filter2)
 /**
  * Creates a sort function from a primary and a secondary comparison function.
  * @param {Function} cmpFunc  comparison function to be called first
- * @param {Function} fallbackFunc  comparison function to be called if primary function returns 0
+ * @param {Function} fallbackFunc  (optional) comparison function to be called if primary function returns 0
  * @param {Boolean} desc  if true, the result of the primary function (not the secondary function) will be reversed - sorting in descending order
  * @result {Function} comparison function to be used
  */
-function createSortWithFallback(cmpFunc, fallbackFunc, desc)
+function createSortFunction(cmpFunc, fallbackFunc, desc)
 {
   let factor = (desc ? -1 : 1);
 
   return function(filter1, filter2)
   {
     let ret = cmpFunc(filter1, filter2);
-    if (ret == 0)
+    if (ret == 0 && fallbackFunc)
       return fallbackFunc(filter1, filter2);
     else
       return factor * ret;
@@ -1963,14 +1955,14 @@ let treeView = {
    */
   sortProcs:
   {
-    filter: sortByText,
-    filterDesc: sortByTextDesc,
-    enabled: createSortWithFallback(compareEnabled, sortByText, false),
-    enabledDesc: createSortWithFallback(compareEnabled, sortByText, true),
-    hitcount: createSortWithFallback(compareHitCount, sortByText, false),
-    hitcountDesc: createSortWithFallback(compareHitCount, sortByText, true),
-    lasthit: createSortWithFallback(compareLastHit, sortByText, false),
-    lasthitDesc: createSortWithFallback(compareLastHit, sortByText, true)
+    filter: createSortFunction(compareText, null, false),
+    filterDesc: createSortFunction(compareText, null, true),
+    enabled: createSortFunction(compareEnabled, compareText, false),
+    enabledDesc: createSortFunction(compareEnabled, compareText, true),
+    hitcount: createSortFunction(compareHitCount, compareText, false),
+    hitcountDesc: createSortFunction(compareHitCount, compareText, true),
+    lasthit: createSortFunction(compareLastHit, compareText, false),
+    lasthitDesc: createSortFunction(compareLastHit, compareText, true)
   },
 
   /**
