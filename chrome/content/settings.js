@@ -248,7 +248,7 @@ function getSubscriptionByURL(url)
   if (url in subscriptionWrappers)
   {
     let result = subscriptionWrappers[url];
-    if (result._sortProc != treeView.sortProc)
+    if (treeView.subscriptions.indexOf(result) < 0)
       treeView.resortSubscription(result);
     return result;
   }
@@ -2014,7 +2014,6 @@ let treeView = {
     }
     else
       subscription._sortedFilters = subscription.filters;
-    subscription._sortProc = this.sortProc;
   },
 
   /**
