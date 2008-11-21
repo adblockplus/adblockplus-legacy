@@ -246,7 +246,12 @@ function createSubscriptionWrapper(subscription)
 function getSubscriptionByURL(url)
 {
   if (url in subscriptionWrappers)
-    return subscriptionWrappers[url];
+  {
+    let result = subscriptionWrappers[url];
+    if (result._sortProc != treeView.sortProc)
+      treeView.resortSubscription(result);
+    return result;
+  }
   else
   {
     let result = abp.Subscription.fromURL(url);
@@ -258,13 +263,7 @@ function getSubscriptionByURL(url)
     for (let i = 0; i < result.filters.length; i++)
       result.filters[i] = getFilterByText(result.filters[i].text);
 
-    if (treeView.sortProc)
-    {
-      result._sortedFilters = result.filters.slice();
-      result._sortedFilters.sort(treeView.sortProc);
-    }
-    else
-      result._sortedFilters = result.filters;
+    treeView.resortSubscription(result);
     return result;
   }
 }
@@ -789,14 +788,7 @@ function onSubscriptionChange(/**String*/ action, /**Array of Subscription*/ sub
           return getFilterByText(filter.text);
         });
 
-        if (treeView.sortProc)
-        {
-          subscription._sortedFilters = subscription.filters.slice();
-          subscription._sortedFilters.sort(treeView.sortProc);
-        }
-        else
-          subscription._sortedFilters = subscription.filters;
-
+        treeView.resortSubscription(subscription);
         treeView.invalidateSubscription(subscription, oldCount);
         break;
       case "updateinfo":
@@ -1995,23 +1987,34 @@ let treeView = {
     {
       this.sortColumn = null;
       this.sortProc = null;
-      for each (let subscription in this.subscriptions)
-        subscription._sortedFilters = subscription.filters;
     }
     else
     {
       this.sortColumn = col;
       this.sortProc = this.sortProcs[col.id.replace(/^col-/, "") + (direction == "descending" ? "Desc" : "")];
-      for each (let subscription in this.subscriptions)
-      {
-        subscription._sortedFilters = subscription.filters.slice();
-        subscription._sortedFilters.sort(this.sortProc);
-      }
-
       this.sortColumn.setAttribute("sortDirection", direction);
     }
 
+    for each (let subscription in this.subscriptions)
+      this.resortSubscription(subscription);
+
     this.boxObject.invalidate();
+  },
+
+  /**
+   * Updates subscription's _sortedFilters property (sorted index
+   * of subscription's filters).
+   */
+  resortSubscription: function(/**Subscription*/ subscription)
+  {
+    if (this.sortProc)
+    {
+      subscription._sortedFilters = subscription.filters.slice();
+      subscription._sortedFilters.sort(this.sortProc);
+    }
+    else
+      subscription._sortedFilters = subscription.filters;
+    subscription._sortProc = this.sortProc;
   },
 
   /**
@@ -2629,13 +2632,7 @@ let treeView = {
       if (hadWrappers)
       {
         // Reinitialize _sortedFilters to remove wrappers from it
-        if (this.sortProc)
-        {
-          subscription._sortedFilters = subscription.filters.slice();
-          subscription._sortedFilters.sort(this.sortProc);
-        }
-        else
-          subscription._sortedFilters = subscription.filters;
+        this.resortSubscription(subscription);
       }
 
       newSubscriptions[subscription.url] = true;
