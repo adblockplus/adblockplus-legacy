@@ -365,7 +365,7 @@ function abpShowSubscriptions()
   if ("addTab" in browser)
   {
     // We have a tabbrowser
-    browser.addTab("chrome://adblockplus/content/tip_subscriptions.xul");
+    browser.selectedTab = browser.addTab("chrome://adblockplus/content/tip_subscriptions.xul");
   }
   else
   {
