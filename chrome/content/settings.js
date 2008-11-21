@@ -2304,6 +2304,10 @@ let treeView = {
       return;
     }
 
+    let parentRow = this.getSubscriptionRow(subscription);
+    let rowCount = this.getSubscriptionRowCount(subscription);
+    let newSelection = parentRow;
+
     // The filter might be removed already if we don't have our own filters property yet
     let index = subscription.filters.indexOf(filter);
     if (index >= 0)
@@ -2314,13 +2318,10 @@ let treeView = {
       subscription.filters.splice(index, 1);
     }
 
-    index = subscription._sortedFilters.indexOf(filter);
+    if (subscription.filters != subscription._sortedFilters)
+      index = subscription._sortedFilters.indexOf(filter);
     if (index < 0)
       return;
-
-    let parentRow = this.getSubscriptionRow(subscription);
-    let rowCount = this.getSubscriptionRowCount(subscription);
-    let newSelection = parentRow;
 
     if (treeView.sortProc)
       subscription._sortedFilters.splice(index, 1);
