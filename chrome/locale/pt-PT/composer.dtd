@@ -1,0 +1,40 @@
+<!ENTITY dialog.title "Adicionar regra de filtro ao Adblock Plus">
+<!ENTITY accept.label "Adicionar filtro">
+<!ENTITY advanced.label "Vista avançada">
+<!ENTITY basic.label "Vista básica">
+<!ENTITY disabled.warning.beforeLink "O Adblock Plus está desactivado. Pode, mesmo assim, adicionar filtros, no entanto, estes não serão aplicados até que">
+<!ENTITY disabled.warning.link "active o Adblock Plus">
+<!ENTITY disabled.warning.afterLink ".">
+<!ENTITY filter.label "Novo filtro:">
+<!ENTITY filter.accesskey "n">
+<!ENTITY preferences.label "Mostrar filtros existentes...">
+<!ENTITY preferences.accesskey "e">
+<!ENTITY type.filter.label "Filtro bloqueador">
+<!ENTITY type.filter.accesskey "B">
+<!ENTITY type.whitelist.label "Regra de excepção">
+<!ENTITY type.whitelist.accesskey "x">
+<!ENTITY pattern.label "Procurar por padrão">
+<!ENTITY pattern.explanation "O padrão pode ser qualquer parte do endereço, o asterisco (*) funciona como wildcard. O filtro apenas será aplicado a endereços que correspondam ao padrão.">
+<!ENTITY regexp.warning "O padrão inserido será interpretado como expressão regular. A utilização de demasiadas expressões regulares poderá lentificar o browser. Se não pretendia utilizar expressões regulares adicione um asterisco (*) no final do padrão.">
+<!ENTITY shortpattern.warning "O padrão inserido é demasiado curto para ser optimizado. A utilização de demasiados padrões poderá lentificar o browser. É recomendável a utilização de expressões mais longas para este filtro.">
+<!ENTITY custom.pattern.label "Personalização:">
+<!ENTITY custom.pattern.accesskey "P">
+<!ENTITY anchors.label "Aceitar o padrão apenas:">
+<!ENTITY anchor.start.label "no início do endereço">
+<!ENTITY anchor.start.accesskey "i">
+<!ENTITY anchor.end.label "no final do endereço">
+<!ENTITY anchor.end.accesskey "f">
+<!ENTITY options.label "Opções">
+<!ENTITY firstParty.label "Apenas primários">
+<!ENTITY firstParty.accesskey "r">
+<!ENTITY thirdParty.label "De terceiros">
+<!ENTITY thirdParty.accesskey "t">
+<!ENTITY matchCase.label "Maiúsculas/ minúsculas">
+<!ENTITY matchCase.accesskey "M">
+<!ENTITY types.label "Aplicar aos tipos:">
+<!ENTITY collapse.label "Colapsar bloqueados:">
+<!ENTITY collapse.accesskey "l">
+<!ENTITY collapse.default.yes.label "Usar por defeito (sim)">
+<!ENTITY collapse.default.no.label "Usar por defeito (não)">
+<!ENTITY collapse.yes.label "Sim">
+<!ENTITY collapse.no.label "Não">
