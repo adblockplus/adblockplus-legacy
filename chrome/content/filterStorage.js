@@ -625,7 +625,7 @@ var filterStorage =
         } catch (e) {}
 
         // Rename backup files
-        for (let i = this.patternsbackups - 1; i >= 0; i--) {
+        for (let i = prefs.patternsbackups - 1; i >= 0; i--) {
           backupFile.leafName = part1 + (i > 0 ? "-backup" + i : "") + part2;
           try {
             backupFile.moveTo(backupFile.parent, part1 + "-backup" + (i+1) + part2);
