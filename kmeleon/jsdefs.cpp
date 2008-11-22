@@ -153,8 +153,7 @@ JSBool JS_DLL_CALLBACK JSAddContextMenuItem(JSContext* cx, JSObject* obj, uintN 
           AppendMenuA(hMenu, MF_SEPARATOR, cmdBase + CMD_SEPARATOR, NULL);
 
         // Only use MF_OWNERDRAW flag if other menu items have it as well
-// Don't use MF_OWNERDRAW for now, it is causing bmpmenu to crash
-//        if (GetMenuItemInfo(hMenu, 0, TRUE, &info) && !(info.fType & MFT_OWNERDRAW))
+        if (GetMenuItemInfo(hMenu, 0, TRUE, &info) && !(info.fType & MFT_OWNERDRAW))
           drawFlag = MF_STRING;
       }
       AppendMenuA(hMenu, drawFlag, cmdBase + context_commands[item], labelValues[item]);
