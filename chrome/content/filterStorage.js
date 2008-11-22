@@ -610,7 +610,7 @@ var filterStorage =
       {
         let lastBackup = this.file.clone();
         lastBackup.leafName = part1 + "-backup1" + part2;
-        if (lastBackup.exists() && (new Date().getTime() - lastBackup.lastModifiedTime) / 3600000 < prefs.patternsbackupinterval)
+        if (lastBackup.exists() && (Date.now() - lastBackup.lastModifiedTime) / 3600000 < prefs.patternsbackupinterval)
           doBackup = false;
       }
 
