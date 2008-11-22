@@ -40,7 +40,7 @@ nsresult abpImgObserver::OnStopFrame(imgIRequest* aRequest, gfxIImageFrame *aFra
   if (NS_FAILED(rv))
     return rv;
 
-  if (format != gfxIFormats::BGR_A8)
+  if (format != gfxIFormats::BGR_A1)
     return NS_ERROR_UNEXPECTED;
 
   PRInt32 width;
@@ -53,9 +53,21 @@ nsresult abpImgObserver::OnStopFrame(imgIRequest* aRequest, gfxIImageFrame *aFra
   if (NS_FAILED(rv))
     return rv;
 
+  PRUint32 imageBytesPerRow;
+  rv = aFrame->GetImageBytesPerRow(&imageBytesPerRow);
+  if (NS_FAILED(rv))
+    return rv;
+
   PRUint8* imageBits;
   PRUint32 imageSize;
   rv = aFrame->GetImageData(&imageBits, &imageSize);
+  if (NS_FAILED(rv))
+    return rv;
+  if (imageSize < height * imageBytesPerRow)
+    return NS_ERROR_UNEXPECTED;
+
+  PRUint32 alphaBytesPerRow;
+  rv = aFrame->GetAlphaBytesPerRow(&alphaBytesPerRow);
   if (NS_FAILED(rv))
     return rv;
 
@@ -64,16 +76,29 @@ nsresult abpImgObserver::OnStopFrame(imgIRequest* aRequest, gfxIImageFrame *aFra
   rv = aFrame->GetAlphaData(&alphaBits, &alphaSize);
   if (NS_FAILED(rv))
     return rv;
+  if (alphaSize < height * alphaBytesPerRow)
+    return NS_ERROR_UNEXPECTED;
 
   HDC hDC = ::GetDC(NULL);
 
-  PRUint8* bits = new PRUint8[imageSize + alphaSize];
+  PRUint32 resultSize = width * height * 4;
+  PRUint8* bits = new PRUint8[resultSize];
+  for (PRUint32 row = 0, col = 0, n = 0; row < (PRUint32)height && n < resultSize;)
+  {
+    PRUint32 imageOffset = row * imageBytesPerRow + col * 3;
+    bits[n++] = imageBits[imageOffset];
+    bits[n++] = imageBits[imageOffset + 1];
+    bits[n++] = imageBits[imageOffset + 2];
 
-  for (PRUint32 i = 0, j = 0, n = 0; i < imageSize && j < alphaSize && n < imageSize + alphaSize;) {
-    bits[n++] = imageBits[i++];
-    bits[n++] = imageBits[i++];
-    bits[n++] = imageBits[i++];
-    bits[n++] = alphaBits[j++];
+    PRUint32 alphaOffset = row * alphaBytesPerRow + col / 8;
+    bits[n++] = (alphaBits[alphaOffset] & (0x80 >> col % 8) ? 0xFF : 0x00);
+
+    col++;
+    if (col >= (PRUint32)width)
+    {
+      col = 0;
+      row++;
+    }
   }
 
   BITMAPINFOHEADER head;
@@ -83,7 +108,7 @@ nsresult abpImgObserver::OnStopFrame(imgIRequest* aRequest, gfxIImageFrame *aFra
   head.biPlanes = 1;
   head.biBitCount = 32;
   head.biCompression = BI_RGB;
-  head.biSizeImage = (imageSize + alphaSize) / 4;
+  head.biSizeImage = resultSize / 4;
   head.biXPelsPerMeter = 0;
   head.biYPelsPerMeter = 0;
   head.biClrUsed = 0;
