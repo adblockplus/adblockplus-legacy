@@ -71,5 +71,5 @@ var _classInfo = {
 }
 
 this.__defineGetter__("content", function() {
-  return (_currentWindow && !_currentWindow.closed ? XPCNativeWrapper(_currentWindow) : null);
+  return (_currentWindow && !_currentWindow.closed ? _currentWindow : null);
 });
