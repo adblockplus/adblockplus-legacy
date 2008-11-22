@@ -1,0 +1,22 @@
+<!ENTITY notloaded.label "Non cargado">
+<!ENTITY notloaded.tooltip "Un compoñente de Adblock Plus non se puido cargar, talvez non se instale correctamente.">
+<!ENTITY status.tooltip "Estado:">
+<!ENTITY blocked.tooltip "Elementos bloqueados nesta páxina:">
+<!ENTITY filters.tooltip "Filtros máis activos:">
+<!ENTITY menuitem.label "Preferencias Adblock Plus">
+<!ENTITY menuitem.accesskey "B">
+<!ENTITY view.blockableItems.label "Adblock Plus: Temas bloqueables">
+<!ENTITY context.image.label "Imaxe Adblock">
+<!ENTITY context.object.label "Obxecto Adblock">
+<!ENTITY context.frame.label "Marco Adblock">
+<!ENTITY sidebar.title "Temas bloqueables de la página actual">
+<!ENTITY settings.label "Preferencias">
+<!ENTITY settings.accesskey "F">
+<!ENTITY opensidebar.label "Abrir temas bloqueables">
+<!ENTITY opensidebar.accesskey "B">
+<!ENTITY closesidebar.label "Pechar temas bloqueables">
+<!ENTITY closesidebar.accesskey "b">
+<!ENTITY whitelist.site.label "Desactivar en --">
+<!ENTITY whitelist.page.label "Desactivar só nesta páxina">
+<!ENTITY objecttab.title "Bloquear">
+<!ENTITY objecttab.tooltip "Prema aquí para bloquear este obxecto con Adblock Plus">

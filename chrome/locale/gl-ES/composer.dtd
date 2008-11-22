@@ -1,0 +1,40 @@
+<!ENTITY dialog.title "Engadir regra de filtrado Adblock Plus">
+<!ENTITY accept.label "Engadir filtro">
+<!ENTITY advanced.label "Vista avanzada">
+<!ENTITY basic.label "Vista básica">
+<!ENTITY disabled.warning.beforeLink "Adblock Plus atópase actualmente desactivado. Aínda pode engadir os filtros, mais non se aplicarán a menos que vostede">
+<!ENTITY disabled.warning.link "Active Adblock Plus">
+<!ENTITY disabled.warning.afterLink ".">
+<!ENTITY filter.label "Filtro novo:">
+<!ENTITY filter.accesskey "F">
+<!ENTITY preferences.label "Mostrar filtros existentes ...">
+<!ENTITY preferences.accesskey "S">
+<!ENTITY type.filter.label "Filtro de bloqueo">
+<!ENTITY type.filter.accesskey "B">
+<!ENTITY type.whitelist.label "Excepción">
+<!ENTITY type.whitelist.accesskey "x">
+<!ENTITY pattern.label "Buscar unha pauta">
+<!ENTITY pattern.explanation "A pauta pode ser calquera parte da dirección, o símbolo * actúa como comodín. O filtro só se aplicará ás direccións coincidentes coa pauta.">
+<!ENTITY regexp.warning "A pauta que introduciu interprétase como unha expresión regular, e usar moitas podería retardar a navegación. Se non ten a intención de utilizar expresións regulares, engada un símbolo * ao final da pauta.">
+<!ENTITY shortpattern.warning "A pauta que introduciu é demasiado curta para ser optimizada, de haber moitas pautas así podería retardarse a navegación. Recoméndase que vostede elixa unha cadea máis longa para este filtro.">
+<!ENTITY custom.pattern.label "Personalizado:">
+<!ENTITY custom.pattern.accesskey "P">
+<!ENTITY anchors.label "Acepte só a pauta:">
+<!ENTITY anchor.start.label "ao comezo da dirección">
+<!ENTITY anchor.start.accesskey "z">
+<!ENTITY anchor.end.label "ao final da dirección">
+<!ENTITY anchor.end.accesskey "d">
+<!ENTITY options.label "Opcións">
+<!ENTITY firstParty.label "Só de orixe">
+<!ENTITY firstParty.accesskey "r">
+<!ENTITY thirdParty.label "Só de terceiros">
+<!ENTITY thirdParty.accesskey "T">
+<!ENTITY matchCase.label "Caso coincidente">
+<!ENTITY matchCase.accesskey "C">
+<!ENTITY types.label "Aplicar aos tipos:">
+<!ENTITY collapse.label "Encartar bloqueados:">
+<!ENTITY collapse.accesskey "E">
+<!ENTITY collapse.default.yes.label "Uso por defecto (si)">
+<!ENTITY collapse.default.no.label "Uso por defecto (non)">
+<!ENTITY collapse.yes.label "Si">
+<!ENTITY collapse.no.label "Non">

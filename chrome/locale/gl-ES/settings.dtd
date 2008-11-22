@@ -1,0 +1,87 @@
+<!ENTITY dialog.title "Preferencias Adblock Plus">
+<!ENTITY filters.label "Filtros">
+<!ENTITY filters.accesskey "F">
+<!ENTITY add.label "Engadir filtro">
+<!ENTITY add.accesskey "n">
+<!ENTITY addsubscription.label "Engadir subscrición de filtros">
+<!ENTITY addsubscription.accesskey "S">
+<!ENTITY synchsubscriptions.label "Actualizar todas as subscricións">
+<!ENTITY synchsubscriptions.accesskey "A">
+<!ENTITY import.label "Importar filtros">
+<!ENTITY import.accesskey "M">
+<!ENTITY export.label "Exportar filtros personalizados">
+<!ENTITY export.accesskey "X">
+<!ENTITY clearall.label "Eliminar todos os filtros personalizados">
+<!ENTITY clearall.accesskey "L">
+<!ENTITY resethitcounts.label "Reiniciar as estatísticas">
+<!ENTITY resethitcounts.accesskey "R">
+<!ENTITY edit.label "Editar">
+<!ENTITY edit.accesskey "E">
+<!ENTITY cut.label "Cortar">
+<!ENTITY cut.accesskey "T">
+<!ENTITY copy.label "Copiar">
+<!ENTITY copy.accesskey "C">
+<!ENTITY paste.label "Pegar">
+<!ENTITY paste.accesskey "P">
+<!ENTITY remove.label "Borrar">
+<!ENTITY remove.accesskey "B">
+<!ENTITY menu.find.label "Atopar">
+<!ENTITY menu.find.accesskey "O">
+<!ENTITY menu.findagain.label "Atopar de novo">
+<!ENTITY menu.findagain.accesskey "N">
+<!ENTITY view.label "Ver">
+<!ENTITY view.accesskey "V">
+<!ENTITY sort.label "Ordenar por">
+<!ENTITY sort.accesskey "o">
+<!ENTITY sort.none.label "Sen clasificar">
+<!ENTITY sort.none.accesskey "s">
+<!ENTITY sort.ascending.label "Ordenar A &gt; Z">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.descending.label "Ordenar Z &gt; A">
+<!ENTITY sort.descending.accesskey "Z">
+<!ENTITY options.label "Opcións">
+<!ENTITY options.accesskey "O">
+<!ENTITY enable.label "Activar Adblock Plus">
+<!ENTITY enable.accesskey "a">
+<!ENTITY showintoolbar.label "Mostrar na barra de ferramentas">
+<!ENTITY showintoolbar.accesskey "f">
+<!ENTITY showinstatusbar.label "Mostrar na barra de estado">
+<!ENTITY showinstatusbar.accesskey "e">
+<!ENTITY objecttabs.label "Mostrar separadores en Flash e Java">
+<!ENTITY objecttabs.accesskey "s">
+<!ENTITY collapse.label "Encartar elementos bloqueados">
+<!ENTITY collapse.accesskey "L">
+<!ENTITY help.label "Axuda">
+<!ENTITY help.accesskey "X">
+<!ENTITY faq.label "Preguntas frecuentes (FAQ)">
+<!ENTITY faq.accesskey "F">
+<!ENTITY faq.url "http://adblockplus.org/en/faq">
+<!ENTITY tips.label "Suxestión do día">
+<!ENTITY tips.accesskey "d">
+<!ENTITY tips.url "http://adblockplus.org/en/tips">
+<!ENTITY filterdoc.label "Escribir filtros de Adblock Plus">
+<!ENTITY filterdoc.accesskey "R">
+<!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
+<!ENTITY about.label "Verbo do Adblock Plus">
+<!ENTITY about.accesskey "B">
+<!ENTITY description "Os seguintes filtros determinan que enderezos débense bloquear e cales débense permitir:">
+<!ENTITY filter.column "Regra de filtro">
+<!ENTITY filter.accesskey "F">
+<!ENTITY enabled.column "Activada">
+<!ENTITY enabled.accesskey "c">
+<!ENTITY hitcount.column "Impactos">
+<!ENTITY hitcount.accesskey "I">
+<!ENTITY lasthit.column "Último impacto">
+<!ENTITY lasthit.accesskey "L">
+<!ENTITY context.edit.label "Editar filtro">
+<!ENTITY context.resethitcount.label "Reinicciar a estatística de impactos do filtro">
+<!ENTITY context.synchsubscription.label "Actualizar subscrición">
+<!ENTITY context.editsubscription.label "Editar subscrición">
+<!ENTITY context.moveup.label "Mover filtro arriba">
+<!ENTITY context.movedown.label "Mover filtro abaixo">
+<!ENTITY context.movegroupup.label "Mover grupo arriba">
+<!ENTITY context.movegroupdown.label "Mover grupo abaixo">
+<!ENTITY context.enable.label "Activar">
+<!ENTITY context.disable.label "Desactivar">
+<!ENTITY apply.label "Aplicar">
+<!ENTITY apply.accesskey "P">

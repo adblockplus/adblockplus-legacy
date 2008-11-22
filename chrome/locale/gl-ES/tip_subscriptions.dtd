@@ -1,13 +1,21 @@
 <!ENTITY dialog.title "Benvido a Adblock Plus">
-<!ENTITY description.par1 "Grazas por instalar Adblock Plus. Esta extensión pode eliminar o 99&amp;#x25 dos anuncios que ve na web. Con todo, o filtrado de anuncios eficaz require que se defina un bo conxunto de filtros. Pode facelo vostede mesmo, ou pode subscribirse ás listas de filtros mantidas por outros. Será posible engadir os seus propios filtros ou desactivar/eliminar subscricións sempre que sexa necesario.">
+<!ENTITY description.par1 "Grazas por instalar Adblock Plus. Esta extensión pode eliminar o 99&#37; dos anuncios que ve na web. Con todo, o filtrado de anuncios eficaz require que se defina un bo conxunto de filtros. Pode facelo vostede mesmo, ou pode subscribirse ás listas de filtros mantidas por outros. Será posible engadir os seus propios filtros ou desactivar/eliminar subscricións sempre que sexa necesario.">
 <!ENTITY description.par2 "Pode elixir unha subscrición da lista 
 	 de subscricións recomendadas (pódense engadir logo máis 
 	 subscricións en Preferencias Adblock Plus, aínda que non 
 	 adoita ser necesario):">
 <!ENTITY note "Nota: Unha lista de filtros adoita ser máis eficaz cando 
 	 se aplica aos sitios da rexión para a que foi creada.">
+<!ENTITY adblock.warning "Adblock Plus detectou que está instalado Adblock ou unha versión antiga de Adblock Plus. Executar Adblock Plus e Adblock en paralelo pode causar problemas e debe evitarse. Recoméndase desinstalar Adblock.">
+<!ENTITY adblock.uninstall "Desinstalar Adblock">
+<!ENTITY filterset.g.warning "Parece que utiliza Filterset.G. Esta lista de filtros apenas se mantivo nos últimos anos e é unha causa de problemas cos sitios da Rede. Recoméndase desinstalar Filterset.G.">
+<!ENTITY filterset.g.moreinfo "Máis información">
+<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
+<!ENTITY filterset.g.uninstall "Desinstalar Filterset.G">
 <!ENTITY homepage.label "Páxina">
 <!ENTITY subscribe.label "Subscribir">
-<!ENTITY subscribe.accesskey "R">
-<!ENTITY other.label "Empatar outra subscrición">
-<!ENTITY other.accesskey "T">
+<!ENTITY subscribe.accesskey "S">
+<!ENTITY other.label "Engadir outra subscrición">
+<!ENTITY other.accesskey "O">
+<!ENTITY full-list.url "http://adblockplus.org/en/subscriptions">
+<!ENTITY full-list.label "Ver todas as subscricións">

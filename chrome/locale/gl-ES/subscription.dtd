@@ -18,6 +18,4 @@
 <!ENTITY autodownload.label "Posta ao día automática">
 <!ENTITY autodownload.accesskey "P">
 <!ENTITY enabled.label "Accionar filtros">
-<!ENTITY enabled.accesskey "N">
-<!ENTITY full-list.url "http://adblockplus.org/en/subscriptions">
-<!ENTITY full-list.label "Ver todas as subscricións">
+<!ENTITY enabled.accesskey "A">
