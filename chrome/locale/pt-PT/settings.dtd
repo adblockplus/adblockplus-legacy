@@ -29,6 +29,16 @@
 <!ENTITY menu.find.accesskey "L">
 <!ENTITY menu.findagain.label "Localizar seguinte">
 <!ENTITY menu.findagain.accesskey "S">
+<!ENTITY view.label "Ver">
+<!ENTITY view.accesskey "V">
+<!ENTITY sort.label "Organizar por">
+<!ENTITY sort.accesskey "O">
+<!ENTITY sort.none.label "Não organizado">
+<!ENTITY sort.none.accesskey "N">
+<!ENTITY sort.ascending.label "Organizar A &gt; Z">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.descending.label "Organizar Z &gt; A">
+<!ENTITY sort.descending.accesskey "Z">
 <!ENTITY options.label "Opções">
 <!ENTITY options.accesskey "O">
 <!ENTITY enable.label "Activar Adblock Plus">
@@ -54,12 +64,15 @@
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Acerca do Adblock Plus">
 <!ENTITY about.accesskey "B">
-<!ENTITY disabled.warning "O Adblock Plus está desactivado. Pode editar os filtros da lista mas essas alterações apenas surtirão efeito depois de reactivar o Adblock Plus.">
 <!ENTITY description "Adicione os endereços que pretende bloquear, para sugestões verifique a lista. Pode usar * para criar filtros mais genéricos. Utilizadores avançados podem usar expressões regulares como /banner\d+\.gif$/.">
-<!ENTITY pattern.column "Regra de filtros">
+<!ENTITY filter.column "Regra de filtro">
+<!ENTITY filter.accesskey "F">
 <!ENTITY enabled.column "Activado">
+<!ENTITY enabled.accesskey "t">
 <!ENTITY hitcount.column "Contagem">
+<!ENTITY hitcount.accesskey "C">
 <!ENTITY lasthit.column "Última utilização">
+<!ENTITY lasthit.accesskey "U">
 <!ENTITY context.edit.label "Editar filtro">
 <!ENTITY context.resethitcount.label "Apagar estatísticas por filtro">
 <!ENTITY context.synchsubscription.label "Actualizar subscrição agora">
@@ -68,5 +81,7 @@
 <!ENTITY context.movedown.label "Mover para baixo">
 <!ENTITY context.movegroupup.label "Mover grupo para cima">
 <!ENTITY context.movegroupdown.label "Mover grupo para baixo">
+<!ENTITY context.enable.label "Activar">
+<!ENTITY context.disable.label "Desactivar">
 <!ENTITY apply.label "Aplicar">
 <!ENTITY apply.accesskey "P">
