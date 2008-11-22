@@ -13,7 +13,7 @@
 <!ENTITY export.accesskey "x">
 <!ENTITY clearall.label "Az összes szűrő törlése">
 <!ENTITY clearall.accesskey "t">
-<!ENTITY resethitcounts.label "Találat-számlálók kinullázása">
+<!ENTITY resethitcounts.label "Találat-számlálók nullázása">
 <!ENTITY resethitcounts.accesskey "n">
 <!ENTITY edit.label "Szerkesztés">
 <!ENTITY edit.accesskey "z">
@@ -29,13 +29,23 @@
 <!ENTITY menu.find.accesskey "e">
 <!ENTITY menu.findagain.label "Következő keresése">
 <!ENTITY menu.findagain.accesskey "z">
+<!ENTITY view.label "Nézet">
+<!ENTITY view.accesskey "N">
+<!ENTITY sort.label "Rendezés">
+<!ENTITY sort.accesskey "R">
+<!ENTITY sort.none.label "Rendezetlen">
+<!ENTITY sort.none.accesskey "e">
+<!ENTITY sort.ascending.label "A &gt; Z rendezés">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.descending.label "Z &gt; A rendezés">
+<!ENTITY sort.descending.accesskey "Z">
 <!ENTITY options.label "Opciók">
 <!ENTITY options.accesskey "O">
-<!ENTITY enable.label "Adblock Plus aktiválása">
+<!ENTITY enable.label "Adblock Plus bekapcsolása">
 <!ENTITY enable.accesskey "a">
-<!ENTITY showintoolbar.label "Megjelenés az eszköztáron">
+<!ENTITY showintoolbar.label "Megjelenítés az eszköztáron">
 <!ENTITY showintoolbar.accesskey "e">
-<!ENTITY showinstatusbar.label "Megjelenés az állapotsoron">
+<!ENTITY showinstatusbar.label "Megjelenítés az állapotsoron">
 <!ENTITY showinstatusbar.accesskey "l">
 <!ENTITY objecttabs.label "Fülek megjelenítése Java és Flash objektumoknál">
 <!ENTITY objecttabs.accesskey "F">
@@ -54,12 +64,15 @@
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Az Adblock Plus névjegye">
 <!ENTITY about.accesskey "A">
-<!ENTITY disabled.warning "Az Adblock Plus ki van kapcsolva. A szűrőkön való módosítás csak akkor fog érvénybe lépni, ha újra bekapcsolja.">
-<!ENTITY description "Itt megadhatja a címeket, amelyeket blokkolni szeretne. Javaslatokhoz gördítse le a legördülőmenüt. Használhatja a * helyettesítő jelet általános szűrők létrehozásához. A haladó felhasználók használhatnak reguláris kifejezéseket, mint pl. /banner\d+\.gif$/.">
-<!ENTITY pattern.column "Szabály">
+<!ENTITY description "Az alábbi szűrők meghatározzák, hogy mely címek lesznek blokkolva és melyek lesznek átengedve:">
+<!ENTITY filter.column "Szűrő szabály">
+<!ENTITY filter.accesskey "S">
 <!ENTITY enabled.column "Engedélyezve">
+<!ENTITY enabled.accesskey "n">
 <!ENTITY hitcount.column "Találatok">
+<!ENTITY hitcount.accesskey "T">
 <!ENTITY lasthit.column "Utolsó találat">
+<!ENTITY lasthit.accesskey "U">
 <!ENTITY context.edit.label "Szűrő szerkesztése">
 <!ENTITY context.resethitcount.label "Szűrő találatainak nullázása">
 <!ENTITY context.synchsubscription.label "Külső szűrő frissítése">
@@ -68,5 +81,7 @@
 <!ENTITY context.movedown.label "Mozgatás lefelé">
 <!ENTITY context.movegroupup.label "Csoport mozgatása felfelé">
 <!ENTITY context.movegroupdown.label "Csoport mozgatása lefelé">
+<!ENTITY context.enable.label "Engedélyezés">
+<!ENTITY context.disable.label "Letiltás">
 <!ENTITY apply.label "Alkalmaz">
 <!ENTITY apply.accesskey "A">
