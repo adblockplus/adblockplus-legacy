@@ -33,6 +33,11 @@ function E(id) {
 }
 
 function init() {
+  // In K-Meleon we might get the arguments wrapped
+  for (var i = 0; i < window.arguments.length; i++)
+    if (window.arguments[i] && "wrappedJSObject" in window.arguments[i])
+      window.arguments[i] = window.arguments[i].wrappedJSObject;
+
   [wnd, item] = window.arguments;
 
   E("filterType").value = (!item.filter || item.filter instanceof abp.WhitelistFilter ? "filterlist" : "whitelist");
