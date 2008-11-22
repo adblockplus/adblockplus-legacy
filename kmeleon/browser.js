@@ -15,6 +15,10 @@ var _browser = {
   notifySelectListeners: function() {
     for (var i = 0; i < this.selectListeners.length; i++)
       this.selectListeners[i].call(this, null);
+  },
+  addTab: function(url)
+  {
+    delayedOpenTab(url);
   }
 }
 
