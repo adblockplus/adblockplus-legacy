@@ -4,17 +4,18 @@
 <!ENTITY blocked.tooltip "العناصر المحجوبة في هذه الصفحة">
 <!ENTITY filters.tooltip "الفلاتر الأكثر فعالية">
 <!ENTITY menuitem.label "آدبلوك بلاس">
-<!ENTITY menuitem.accesskey "B">
+<!ENTITY menuitem.accesskey "ب">
+<!ENTITY view.blockableItems.label "آدبلوك بلس: العناصر المحجوبة">
 <!ENTITY context.image.label "صورة آدبلوك">
 <!ENTITY context.object.label "عنصر آدبلوك">
 <!ENTITY context.frame.label "إطار آدبلوك">
 <!ENTITY sidebar.title "العناصر المحجوبة في الصفحة الحالية">
-<!ENTITY settings.label "إعدادات">
-<!ENTITY settings.accesskey "F">
+<!ENTITY settings.label "تفضيلات">
+<!ENTITY settings.accesskey "ض">
 <!ENTITY opensidebar.label "فتح العناصر المحجوبة">
-<!ENTITY opensidebar.accesskey "B">
+<!ENTITY opensidebar.accesskey "ج">
 <!ENTITY closesidebar.label "إغلاق العناصر المحجوبة">
-<!ENTITY closesidebar.accesskey "B">
+<!ENTITY closesidebar.accesskey "ج">
 <!ENTITY whitelist.site.label "تعطيل">
 <!ENTITY whitelist.page.label "تعطيل في هذه الصفحة فقط">
 <!ENTITY objecttab.title "منع">

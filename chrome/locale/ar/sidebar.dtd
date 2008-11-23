@@ -2,11 +2,12 @@
 <!ENTITY detach.label "فصل">
 <!ENTITY reattach.label "إعادة إرفاق">
 <!ENTITY search.label "بحث">
-<!ENTITY search.accesskey "ٍS">
+<!ENTITY search.accesskey "ث">
 <!ENTITY type.label "النوع">
 <!ENTITY address.label "العنوان">
 <!ENTITY filter.label "الفلتر">
 <!ENTITY state.label "الحالة">
+<!ENTITY size.label "الحجم">
 <!ENTITY noitems.label "لا عناصر محجوبة">
 <!ENTITY whitelisted.label "صفحة موثوقة">
 <!ENTITY notloaded.label "لتم يتم إعداد آدبلوك بلاس جيداً">
@@ -14,10 +15,16 @@
 <!ENTITY tooltip.type.label "النوع">
 <!ENTITY tooltip.type.blocked "(محجوب)">
 <!ENTITY tooltip.type.whitelisted "(موثوق)">
+<!ENTITY tooltip.size.label "الحجم:">
 <!ENTITY tooltip.filter.label "الفلتر الفعال">
+<!ENTITY tooltip.filterSource.label "مصدر الفلتر:">
 <!ENTITY context.block.label "حجب هذا العنصر">
 <!ENTITY context.editfilter.label "تعديل الفلتر الفعال">
 <!ENTITY context.whitelist.label "إضافة قانون استثنائي إلى هذا العنصر">
+<!ENTITY context.disablefilter.label "تعطيل الفلتر --">
+<!ENTITY context.enablefilter.label "إعادة تفعيل الفلتر --">
 <!ENTITY context.open.label "فتح في تبويب جديد">
 <!ENTITY context.flash.label "إضاءة حواف العنصر">
 <!ENTITY context.copy.label "نسخ عنوان العنصر">
+<!ENTITY context.copyFilter.label "نسخ الفلتر">
+<!ENTITY context.selectAll.label "اختيار الكل">
