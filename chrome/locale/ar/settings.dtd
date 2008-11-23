@@ -1,66 +1,79 @@
 <!ENTITY dialog.title "إعدادات آدبلوك بلاس">
 <!ENTITY filters.label "فلاتر">
-<!ENTITY filters.accesskey "F">
+<!ENTITY filters.accesskey "ف">
 <!ENTITY add.label "إضافة فلتر">
-<!ENTITY add.accesskey "A">
+<!ENTITY add.accesskey "إ">
 <!ENTITY addsubscription.label "إضافة اشتراك إلى فلتر">
-<!ENTITY addsubscription.accesskey "S">
+<!ENTITY addsubscription.accesskey "ش">
 <!ENTITY synchsubscriptions.label "تحديث كل الاشتراكات">
-<!ENTITY synchsubscriptions.accesskey "D">
+<!ENTITY synchsubscriptions.accesskey "د">
 <!ENTITY import.label "استيراد فلاتر">
-<!ENTITY import.accesskey "M">
+<!ENTITY import.accesskey "س">
 <!ENTITY export.label "تصدير فلاتر">
-<!ENTITY export.accesskey "X">
+<!ENTITY export.accesskey "ي">
 <!ENTITY clearall.label "إزالة كل الفلاتر">
-<!ENTITY clearall.accesskey "L">
+<!ENTITY clearall.accesskey "ل">
 <!ENTITY resethitcounts.label "إعادة ضبط إحصائيات الضغطات">
-<!ENTITY resethitcounts.accesskey "R">
+<!ENTITY resethitcounts.accesskey "ع">
 <!ENTITY edit.label "تعديل">
-<!ENTITY edit.accesskey "E">
+<!ENTITY edit.accesskey "ت">
 <!ENTITY cut.label "قص">
-<!ENTITY cut.accesskey "T">
+<!ENTITY cut.accesskey "ق">
 <!ENTITY copy.label "نسخ">
-<!ENTITY copy.accesskey "C">
+<!ENTITY copy.accesskey "ن">
 <!ENTITY paste.label "لصق">
-<!ENTITY paste.accesskey "P">
+<!ENTITY paste.accesskey "ص">
 <!ENTITY remove.label "حذف">
-<!ENTITY remove.accesskey "D">
+<!ENTITY remove.accesskey "ح">
 <!ENTITY menu.find.label "بحث">
-<!ENTITY menu.find.accesskey "F">
+<!ENTITY menu.find.accesskey "ب">
 <!ENTITY menu.findagain.label "بحث من جديد">
-<!ENTITY menu.findagain.accesskey "G">
+<!ENTITY menu.findagain.accesskey "ج">
+<!ENTITY view.label "عرض">
+<!ENTITY view.accesskey "ض">
+<!ENTITY sort.label "ترتيب حسب">
+<!ENTITY sort.accesskey "ب">
+<!ENTITY sort.none.label "غير مرتب">
+<!ENTITY sort.none.accesskey "ر">
+<!ENTITY sort.ascending.label "ترتيب أبجدي (A &gt; Z)">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.descending.label "ترتيب أبجدي (Z &gt; A)">
+<!ENTITY sort.descending.accesskey "Z">
 <!ENTITY options.label "خيارات">
-<!ENTITY options.accesskey "O">
+<!ENTITY options.accesskey "خ">
 <!ENTITY enable.label "تفعيل آدبلوك بلاس">
-<!ENTITY enable.accesskey "N">
+<!ENTITY enable.accesskey "ف">
 <!ENTITY showintoolbar.label "عرض في شريط الأدوات">
-<!ENTITY showintoolbar.accesskey "B">
+<!ENTITY showintoolbar.accesskey "ش">
 <!ENTITY showinstatusbar.label "عرض في شريط الحالة">
-<!ENTITY showinstatusbar.accesskey "S">
+<!ENTITY showinstatusbar.accesskey "ح">
 <!ENTITY objecttabs.label "عرض تبويبات لفلاش و جافا">
-<!ENTITY objecttabs.accesskey "T">
+<!ENTITY objecttabs.accesskey "ت">
 <!ENTITY collapse.label "بسط العناصر المحجوبة">
-<!ENTITY collapse.accesskey "L">
+<!ENTITY collapse.accesskey "ط">
 <!ENTITY help.label "مساعدة">
-<!ENTITY help.accesskey "H">
+<!ENTITY help.accesskey "م">
 <!ENTITY faq.label "الأسئلة الشائعة">
-<!ENTITY faq.accesskey "F">
+<!ENTITY faq.accesskey "س">
 <!ENTITY faq.url "http://adblockplus.org/en/faq">
 <!ENTITY tips.label "تلميح اليوم">
-<!ENTITY tips.accesskey "T">
+<!ENTITY tips.accesskey "ح">
 <!ENTITY tips.url "http://adblockplus.org/en/tips">
 <!ENTITY filterdoc.label "كتابة فلاتر لآدبلوك بلاس">
-<!ENTITY filterdoc.accesskey "R">
+<!ENTITY filterdoc.accesskey "ك">
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "عن آدبلوك بلاس">
-<!ENTITY about.accesskey "B">
-<!ENTITY disabled.warning "آدبلوك بلاس معطل. يمكنك تعديل أي من الفلاتر في القائمة، و لكن لن يتم تطبيقهم إلا بعد أن تعيد التفعيل.">
+<!ENTITY about.accesskey "ع">
 <!ENTITY description "أضف العناوين التي ترغب بحجبها، و للاقتراحات انظر القائمة المنسدلة.
 يمكنك أن تستعمل الرمز * لإنشاء فلاتر عامة. المستخدمين المتقدمين يمكنهم استخدام بعض التعبيرات النظامية مثل /banner\d+\.gif$/">
-<!ENTITY pattern.column "قانون الفلتر">
+<!ENTITY filter.column "قانون الفلتر">
+<!ENTITY filter.accesskey "ف">
 <!ENTITY enabled.column "مشغل">
+<!ENTITY enabled.accesskey "غ">
 <!ENTITY hitcount.column "الضغطات">
+<!ENTITY hitcount.accesskey "ض">
 <!ENTITY lasthit.column "آخر ضغطة">
+<!ENTITY lasthit.accesskey "آ">
 <!ENTITY context.edit.label "تعديل فلتر">
 <!ENTITY context.resethitcount.label "إعادة إحصائيات الضغط للفلتر">
 <!ENTITY context.synchsubscription.label "تحديث الاشتراك الآن">
@@ -69,5 +82,7 @@
 <!ENTITY context.movedown.label "خفض">
 <!ENTITY context.movegroupup.label "رفع المجموعة">
 <!ENTITY context.movegroupdown.label "خفض المجموعة">
+<!ENTITY context.enable.label "تفعيل">
+<!ENTITY context.disable.label "تعطيل">
 <!ENTITY apply.label "تطبيق">
-<!ENTITY apply.accesskey "P">
+<!ENTITY apply.accesskey "ب">

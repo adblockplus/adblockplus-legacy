@@ -5,12 +5,10 @@
 <!ENTITY external.description "هذا الاشتراك هو اشتراك إضافي إلى هذا الفلتر، و سيبقى هذا الاشتراك محدثاً باستمرار من خلال الإضافة التي أنشأت هذا الاشتراك.">
 <!ENTITY autodownload.description "إذا اخترت &quot;تحديث أوتوماتيكي&quot; سيتم التأكد من هذا الموقع كل يوم. بتعطيل هذا الخيار ستبقى قادراً على التحديث يدوياً من قائمة المقرونة باسم الفلتر.">
 <!ENTITY location.label "موقع قائمة الفلاتر">
-<!ENTITY location.accesskey "L">
+<!ENTITY location.accesskey "م">
 <!ENTITY title.label "عنوان الاشتراك">
-<!ENTITY title.accesskey "T">
+<!ENTITY title.accesskey "ع">
 <!ENTITY autodownload.label "تحديث أوتوماتيكي">
-<!ENTITY autodownload.accesskey "P">
+<!ENTITY autodownload.accesskey "ث">
 <!ENTITY enabled.label "تفعيل الفلاتر">
-<!ENTITY enabled.accesskey "N">
-<!ENTITY full-list.url "http://adblockplus.org/en/subscriptions">
-<!ENTITY full-list.label "عرض كل الاشتراكات">
+<!ENTITY enabled.accesskey "ف">

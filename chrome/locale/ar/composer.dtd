@@ -1,0 +1,40 @@
+<!ENTITY dialog.title "إضافة قاعدة فلاتر لآدبلوك بلس">
+<!ENTITY accept.label "إضافة فلتر">
+<!ENTITY advanced.label "عرض متقدم">
+<!ENTITY basic.label "عرض أساسي">
+<!ENTITY disabled.warning.beforeLink "آدبلوك بلس معطل حالياً. ما زال يمكنك إضافة الفلاتر و لكن لن يتم تطبيقهم إلا إذا قمت">
+<!ENTITY disabled.warning.link "بتفعيل آدبلوك بلس">
+<!ENTITY disabled.warning.afterLink ".">
+<!ENTITY filter.label "فلتر جديد :">
+<!ENTITY filter.accesskey "ف">
+<!ENTITY preferences.label "عرض الفلاتر الموجودة...">
+<!ENTITY preferences.accesskey "ع">
+<!ENTITY type.filter.label "منع فلتر">
+<!ENTITY type.filter.accesskey "م">
+<!ENTITY type.whitelist.label "قاعدة استثناء">
+<!ENTITY type.whitelist.accesskey "ث">
+<!ENTITY pattern.label "بحث عن نموذج">
+<!ENTITY pattern.explanation "يمكن أن يكون النموذج أي قسم من العنوان، الرمز * يستعمل على أنه &quot;ويلدكارد&quot; (يعبر عن أي حرف أو مجموعة من الأحرف). لن يتم تطبيق الفلتر إلا على على العناوين التي تطابق النموذج">
+<!ENTITY regexp.warning "النموذج الذي أدخلته سيتم تفسيره على أنه &quot;تعبير منطقي&quot;، الكثير من التعابير المنطقية قد تؤدي إلى بطء في التصفح. إن لم تكن تنوي استخدام التعابير المنطقية، قم بإضافة الرمز &quot;*&quot; إلى نهاية النموذج">
+<!ENTITY shortpattern.warning "النموذج الذي أدخلته قصير جداً ليتم تحسينه، الكثير من هذه التعابير قد تبطئ تصفحك. ينصح باختيار قيمة أطول لهذا الفلتر">
+<!ENTITY custom.pattern.label "مخصص:">
+<!ENTITY custom.pattern.accesskey "ص">
+<!ENTITY anchors.label "قبول النموذج فقط:">
+<!ENTITY anchor.start.label "في بداية العنوان">
+<!ENTITY anchor.start.accesskey "د">
+<!ENTITY anchor.end.label "في نهاية العنوان">
+<!ENTITY anchor.end.accesskey "ه">
+<!ENTITY options.label "خيارات">
+<!ENTITY firstParty.label "الطرف نفسه فقط">
+<!ENTITY firstParty.accesskey "ن">
+<!ENTITY thirdParty.label "أطراف أخرى فقط">
+<!ENTITY thirdParty.accesskey "خ">
+<!ENTITY matchCase.label "مطابقة الحالة">
+<!ENTITY matchCase.accesskey "ط">
+<!ENTITY types.label "التطبيق على الأنواع:">
+<!ENTITY collapse.label "بسط المحجوب:">
+<!ENTITY collapse.accesskey "س">
+<!ENTITY collapse.default.yes.label "استخدام الافتراضي (نعم)">
+<!ENTITY collapse.default.no.label "استخدام الافتراضي (لا)">
+<!ENTITY collapse.yes.label "نعم">
+<!ENTITY collapse.no.label "لا">
