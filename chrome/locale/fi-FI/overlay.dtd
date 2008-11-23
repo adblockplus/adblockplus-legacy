@@ -3,8 +3,9 @@
 <!ENTITY status.tooltip "Tila:">
 <!ENTITY blocked.tooltip "Estettyjä elementtejä tällä sivulla:">
 <!ENTITY filters.tooltip "Aktiivisimmat suodattimet:">
-<!ENTITY menuitem.label "Adblock Plus">
+<!ENTITY menuitem.label "Adblock Plus - Asetukset">
 <!ENTITY menuitem.accesskey "d">
+<!ENTITY view.blockableItems.label "Adblock Plus: Estettävät elementit">
 <!ENTITY context.image.label "Estä kuva Adblockilla">
 <!ENTITY context.object.label "Estä kohde Adblockilla">
 <!ENTITY context.frame.label "Estä kehys Adblockilla">

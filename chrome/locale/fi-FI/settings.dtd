@@ -9,9 +9,9 @@
 <!ENTITY synchsubscriptions.accesskey "k">
 <!ENTITY import.label "Tuo suodattimia">
 <!ENTITY import.accesskey "T">
-<!ENTITY export.label "Vie suodattimia">
+<!ENTITY export.label "Vie omia suodattimia">
 <!ENTITY export.accesskey "V">
-<!ENTITY clearall.label "Poista kaikki suodattimet">
+<!ENTITY clearall.label "Poista kaikki omat suodattimet">
 <!ENTITY clearall.accesskey "P">
 <!ENTITY resethitcounts.label "Nollaa osumatilastot">
 <!ENTITY resethitcounts.accesskey "N">
@@ -29,6 +29,16 @@
 <!ENTITY menu.find.accesskey "E">
 <!ENTITY menu.findagain.label "Etsi seuraava">
 <!ENTITY menu.findagain.accesskey "t">
+<!ENTITY view.label "Näytä">
+<!ENTITY view.accesskey "N">
+<!ENTITY sort.label "Lajitteluperuste">
+<!ENTITY sort.accesskey "E">
+<!ENTITY sort.none.label "Ei lajiteltu">
+<!ENTITY sort.none.accesskey "L">
+<!ENTITY sort.ascending.label "A &gt; Z lajittelu">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.descending.label "Z &gt; A lajittelu">
+<!ENTITY sort.descending.accesskey "Z">
 <!ENTITY options.label "Valinnat">
 <!ENTITY options.accesskey "V">
 <!ENTITY enable.label "Adblock Plus käytössä">
@@ -54,23 +64,24 @@
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Tietoja Adblock Plussasta">
 <!ENTITY about.accesskey "T">
-<!ENTITY disabled.warning "Adblock Plus on poissa käytöstä. Voit muokata listan suodattimia mutta niitä ei käytetä ennen kuin otat Adblockin käyttöön.">
-<!ENTITY description "
-												Lisää osoitteet, jotka haluat estää. Katso ehdotuksia pudotusvalikosta.
-												Voit käyttää * jokerimerkkinä luodaksesi yleisluntoisempia suodattimia. Kokeneet käyttäjät voivat
-										käyttää säännöllisiä lausekkeita kuten /banner\d+\.gif$/.
-">
-<!ENTITY pattern.column "Suodatusehdot">
+<!ENTITY description "Seuraavat suodattimet määrittelevät sen, mitkä osoitteet estetään ja mitkä sallitaan:">
+<!ENTITY filter.column "Suodatusehto">
+<!ENTITY filter.accesskey "S">
 <!ENTITY enabled.column "Käytössä">
+<!ENTITY enabled.accesskey "y">
 <!ENTITY hitcount.column "Osumat">
+<!ENTITY hitcount.accesskey "O">
 <!ENTITY lasthit.column "Viimeisin osuma">
+<!ENTITY lasthit.accesskey "V">
 <!ENTITY context.edit.label "Muokkaa suodatinta">
 <!ENTITY context.resethitcount.label "Nollaa suodattimen osumatilastot">
 <!ENTITY context.synchsubscription.label "Päivitä tilaus nyt">
 <!ENTITY context.editsubscription.label "Muokkaa tilausta">
-<!ENTITY context.moveup.label "Siirrä ylös">
-<!ENTITY context.movedown.label "Siirrä alas">
+<!ENTITY context.moveup.label "Siirrä suodatin ylös">
+<!ENTITY context.movedown.label "Siirrä suodatin alas">
 <!ENTITY context.movegroupup.label "Siirrä ryhmä ylös">
 <!ENTITY context.movegroupdown.label "Siirrä ryhmä alas">
+<!ENTITY context.enable.label "Ota käyttöön">
+<!ENTITY context.disable.label "Poista käytöstä">
 <!ENTITY apply.label "Käytä">
 <!ENTITY apply.accesskey "K">
