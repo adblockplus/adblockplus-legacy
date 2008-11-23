@@ -30332,6 +30332,12 @@ zeit.de#DIV(class$=_ads)
       is(canonize(result), canonize(testData), "Read/write result");
     }
 
+    for each (let subscription in filterStorage.subscriptions.filter(function (subscription) {return !(subscription instanceof SpecialSubscription)}))
+    {
+      filterStorage.removeSubscription(subscription);
+    }
+    
+
     tempFile.remove(false);
   </script>
   </pre>
