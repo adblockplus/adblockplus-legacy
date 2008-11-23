@@ -30240,6 +30240,7 @@ zeit.de#DIV(class$=_ads)
 
     var prefs = {
       patternsbackups: 0,
+      patternsbackupinterval: 24,
       prefList: {}
     };
 
@@ -30336,9 +30337,64 @@ zeit.de#DIV(class$=_ads)
     {
       filterStorage.removeSubscription(subscription);
     }
-    
+    let backupFile1 = tempFile.clone();
+    backupFile1.leafName = backupFile1.leafName.replace(/\.ini$/, "-backup1.ini");
 
-    tempFile.remove(false);
+    filterStorage.saveToDisk();
+    ok(!backupFile1.exists(), "Backup not created with patternsbackups = 0");
+
+    prefs.patternsbackups = 2;
+    filterStorage.saveToDisk();
+    ok(backupFile1.exists(), "Backup created with patternsbackups = 2");
+
+    backupFile1.lastModifiedTime -= 10000;
+    let oldModifiedTime = backupFile1.lastModifiedTime;
+    filterStorage.saveToDisk();
+    backupFile1 = backupFile1.clone();  // File parameters are cached, clone to prevent this
+    is(backupFile1.lastModifiedTime, oldModifiedTime, "Backup not overwritten if it is only 10 seconds old");
+
+    backupFile1.lastModifiedTime -= 40*60*60*1000;
+    oldModifiedTime = backupFile1.lastModifiedTime;
+    filterStorage.saveToDisk();
+    backupFile1 = backupFile1.clone();  // File parameters are cached, clone to prevent this
+    isnot(backupFile1.lastModifiedTime, oldModifiedTime, "Backup overwritten if it is 40 hours old");
+
+    let backupFile2 = backupFile1.clone();
+    backupFile2.leafName = backupFile2.leafName.replace(/-backup1\.ini$/, "-backup2.ini");
+    ok(backupFile2.exists(), "Second backup created when first backup is overwritten");
+
+    backupFile1.lastModifiedTime -= 20000;
+    oldModifiedTime = backupFile2.lastModifiedTime;
+    filterStorage.saveToDisk();
+    backupFile2 = backupFile2.clone();  // File parameters are cached, clone to prevent this
+    is(backupFile2.lastModifiedTime, oldModifiedTime, "Second backup not overwritten if first one is only 20 seconds old");
+
+    backupFile1.lastModifiedTime -= 25*60*60*1000;
+    oldModifiedTime = backupFile2.lastModifiedTime;
+    filterStorage.saveToDisk();
+    backupFile2 = backupFile2.clone();  // File parameters are cached, clone to prevent this
+    isnot(backupFile2.lastModifiedTime, oldModifiedTime, "Second backup overwritten if first one is 25 hours old");
+
+    let backupFile3 = backupFile2.clone();
+    backupFile3.leafName = backupFile3.leafName.replace(/-backup2\.ini$/, "-backup3.ini");
+    ok(!backupFile3.exists(), "Third backup not created with patternsbackups = 2");
+
+    try
+    {
+      tempFile.remove(false);
+    } catch (e) {}
+    try
+    {
+      backupFile1.remove(false);
+    } catch (e) {}
+    try
+    {
+      backupFile2.remove(false);
+    } catch (e) {}
+    try
+    {
+      backupFile3.remove(false);
+    } catch (e) {}
   </script>
   </pre>
 </body>
