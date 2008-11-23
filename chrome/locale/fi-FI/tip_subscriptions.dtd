@@ -1,26 +1,27 @@
-<!ENTITY dialog.title "Tervetuloa käyttämään Adblock Plussaa">
-<!ENTITY description.par1 "
-	Kiitos, että asensit Adblock Plussan. Tämä laajennus voi
-	vähentää 99&#x25; mainoksista, joita näet verkossa. Tarvitset silti
+<!ENTITY dialog.title "Lisää Adblock Plus -suodatintilaus">
+<!ENTITY description.par1 "Kiitos, että asensit Adblock Plussan. Tämä laajennus voi
+	estää 99&#37; mainoksista, joita näet verkossa. Tarvitset silti
 	hyvän setin suodattimia, jotta mainosten suodattaminen olisi 
-	tehokasta. Voit luoda sen itse tai voit yksinkertaisesti tilata
+	tehokasta. Voit luoda sen itse tai voit vain yksinkertaisesti tilata
 	toisten ylläpitämiä suodatinlistoja. Vaikka tilaisit suodatinlistan, 
 	voit silti lisätä suodattimia itse kuten myös poistaa tilauksia 
-	kokonaan tai vain ottaa pois käytöstä milloin hyvänsä.
-">
-<!ENTITY description.par2 "
-	Voit valita yhden tilauksen
+	kokonaan tai vain ottaa pois käytöstä milloin hyvänsä.">
+<!ENTITY description.par2 "Voit valita yhden tilauksen
 	suositeltujen tilausten listasta alapuolelta
 	(lisää tilauksia voi lisätä Adblock Plussan 
-	astuksista myöhemmin, vaikka tämä ei ole usein tarpeellista):
-">
-<!ENTITY note "
-	Huomio: Suodatinlista on yleensä tehokkain, kun sitä käytetään
-	sivustoilla, joita varten se on alueellisesti luotu.
-">
+	asetuksista myöhemmin, vaikka tämä ei ole usein tarpeellista):">
+<!ENTITY note "Huomio: Suodatinlista on yleensä tehokkain, kun sitä käytetään
+	sivustoilla, joita varten se on alueellisesti luotu.">
+<!ENTITY adblock.warning "Adblock Plus on huomannut, että Adblockista tai Adblock Plussasta on vanha versio asennettuna. Adblockin ja Adblock Plussan yhtäaikainen käyttäminen saattaa ongelmia ja tulisi välttää. On suositeltavaa, että poistat Adblockin nyt.">
+<!ENTITY adblock.uninstall "Poista Adblock">
+<!ENTITY filterset.g.warning "Näyttää siltä, että käytät Filterset.G:tä. Tätä suodatinlistaa ei ole ylläpidetty viime vuosina ja yleinen syy ongelmiin verkkosivujen kanssa. On suositeltavaa poistaa Filterset.G nyt.">
+<!ENTITY filterset.g.moreinfo "Lisätietoa">
 <!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
+<!ENTITY filterset.g.uninstall "Poista Filterset.G">
 <!ENTITY homepage.label "Kotisivu">
 <!ENTITY subscribe.label "Tilaa">
 <!ENTITY subscribe.accesskey "T">
-<!ENTITY other.label "Lisää toinen tilaus">
+<!ENTITY other.label "Lisää jokin muu tilaus">
 <!ENTITY other.accesskey "L">
+<!ENTITY full-list.url "http://adblockplus.org/en/subscriptions">
+<!ENTITY full-list.label "Näytä kaikki tilaukset">
