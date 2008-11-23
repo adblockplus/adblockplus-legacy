@@ -1,0 +1,40 @@
+<!ENTITY dialog.title "新增 Adblock Plus 過濾規則">
+<!ENTITY accept.label "新增過濾條件">
+<!ENTITY advanced.label "進階檢視">
+<!ENTITY basic.label "基本檢視">
+<!ENTITY disabled.warning.beforeLink "Adblock Plus 目前已停用。您還是可以新增過濾條件，但不會有任何作用，除非您">
+<!ENTITY disabled.warning.link "啟用 Adblock Plus">
+<!ENTITY disabled.warning.afterLink "。">
+<!ENTITY filter.label "新過濾條件:">
+<!ENTITY filter.accesskey "f">
+<!ENTITY preferences.label "顯示已有的條件...">
+<!ENTITY preferences.accesskey "S">
+<!ENTITY type.filter.label "已阻擋過濾條件">
+<!ENTITY type.filter.accesskey "B">
+<!ENTITY type.whitelist.label "例外規則">
+<!ENTITY type.whitelist.accesskey "x">
+<!ENTITY pattern.label "要比對的樣式">
+<!ENTITY pattern.explanation "樣式可以是網址的任一部分，符號「*」表示萬用字元。過濾條件只會套用到符合樣式的網址上。">
+<!ENTITY regexp.warning "您輸入的樣式是正規表示式，若清單內有太多正規表示式會拖慢瀏覽速度。若你不打算使用正規表示式，請在樣式結尾加上符號「*」。">
+<!ENTITY shortpattern.warning "您輸入的樣式太短，需要最佳化，若清單內有太多這類的樣式會拖慢瀏覽速度。建議您將此過濾條件改為更長的字串。">
+<!ENTITY custom.pattern.label "自訂:">
+<!ENTITY custom.pattern.accesskey "C">
+<!ENTITY anchors.label "只比對樣式於:">
+<!ENTITY anchor.start.label "網址開頭">
+<!ENTITY anchor.start.accesskey "g">
+<!ENTITY anchor.end.label "網址結尾">
+<!ENTITY anchor.end.accesskey "d">
+<!ENTITY options.label "選項">
+<!ENTITY firstParty.label "只限第一方">
+<!ENTITY firstParty.accesskey "r">
+<!ENTITY thirdParty.label "只限第三方">
+<!ENTITY thirdParty.accesskey "T">
+<!ENTITY matchCase.label "符合大小寫">
+<!ENTITY matchCase.accesskey "M">
+<!ENTITY types.label "套用類型:">
+<!ENTITY collapse.label "折疊已阻擋項目:">
+<!ENTITY collapse.accesskey "l">
+<!ENTITY collapse.default.yes.label "使用預設值 (是)">
+<!ENTITY collapse.default.no.label "使用預設值 (否)">
+<!ENTITY collapse.yes.label "是">
+<!ENTITY collapse.no.label "否">

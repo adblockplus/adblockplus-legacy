@@ -1,4 +1,4 @@
-<!ENTITY dialog.title "編輯訂閱清單">
+<!ENTITY dialog.title "編輯過濾條件集">
 <!ENTITY dialog.newtitle "訂閱過濾條件集">
 <!ENTITY new.description "請輸入含有 Adblock Plus 過濾條件集的網址或檔案位址。">
 <!ENTITY edit.description "這是此過濾條件集的下載來源。">
@@ -13,5 +13,3 @@
 <!ENTITY autodownload.accesskey "P">
 <!ENTITY enabled.label "啟用此條件集">
 <!ENTITY enabled.accesskey "N">
-<!ENTITY full-list.url "http://adblockplus.org/en/subscriptions">
-<!ENTITY full-list.label "檢視所有可訂閱項目">

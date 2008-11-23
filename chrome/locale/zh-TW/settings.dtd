@@ -18,7 +18,7 @@
 <!ENTITY edit.label "編輯">
 <!ENTITY edit.accesskey "E">
 <!ENTITY cut.label "剪下">
-<!ENTITY cut.accesskey "t">
+<!ENTITY cut.accesskey "T">
 <!ENTITY copy.label "複製">
 <!ENTITY copy.accesskey "C">
 <!ENTITY paste.label "貼上">
@@ -29,6 +29,16 @@
 <!ENTITY menu.find.accesskey "F">
 <!ENTITY menu.findagain.label "重新尋找">
 <!ENTITY menu.findagain.accesskey "G">
+<!ENTITY view.label "檢視">
+<!ENTITY view.accesskey "V">
+<!ENTITY sort.label "排序">
+<!ENTITY sort.accesskey "S">
+<!ENTITY sort.none.label "不排序">
+<!ENTITY sort.none.accesskey "U">
+<!ENTITY sort.ascending.label "遞增排序 (A &gt; Z)">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.descending.label "遞增排序 (Z &gt; A)">
+<!ENTITY sort.descending.accesskey "Z">
 <!ENTITY options.label "選項">
 <!ENTITY options.accesskey "O">
 <!ENTITY enable.label "啟用 Adblock Plus">
@@ -54,21 +64,24 @@
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "關於 Adblock Plus">
 <!ENTITY about.accesskey "B">
-<!ENTITY disabled.warning "Adblock Plus 已停用。您仍然可以編輯過濾條件，但直到您啟用前都不會有作用。">
-<!ENTITY description "請輸入您想阻擋的物件位址，或從下拉清單中選擇現正瀏覽頁面的物件來阻擋。
-		您可以使用萬用字元「*」建立可適用多個網站的過濾條件。
-		進階使用者則可以輸入像 /banner\d+\.gif$/ 這類的「正規表示式」。">
-<!ENTITY pattern.column "過濾條件">
+<!ENTITY description "下面列出的過濾條件會決定哪些網址會被阻擋、哪些網址會允許顯示:">
+<!ENTITY filter.column "過濾規則">
+<!ENTITY filter.accesskey "F">
 <!ENTITY enabled.column "已啟用">
+<!ENTITY enabled.accesskey "n">
 <!ENTITY hitcount.column "命中數">
+<!ENTITY hitcount.accesskey "H">
 <!ENTITY lasthit.column "最後使用">
+<!ENTITY lasthit.accesskey "L">
 <!ENTITY context.edit.label "編輯過濾條件">
 <!ENTITY context.resethitcount.label "重設此條件統計資料">
-<!ENTITY context.synchsubscription.label "立即更新已訂閱條件集">
+<!ENTITY context.synchsubscription.label "立即更新訂閱條件集">
 <!ENTITY context.editsubscription.label "編輯訂閱清單">
 <!ENTITY context.moveup.label "向上移">
 <!ENTITY context.movedown.label "向下移">
 <!ENTITY context.movegroupup.label "整組向上移">
 <!ENTITY context.movegroupdown.label "整組向下移">
+<!ENTITY context.enable.label "啟用">
+<!ENTITY context.disable.label "停用">
 <!ENTITY apply.label "套用">
 <!ENTITY apply.accesskey "P">
