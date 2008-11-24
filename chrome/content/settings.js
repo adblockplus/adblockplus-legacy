@@ -629,7 +629,7 @@ function onListKeyPress(/**Event*/ e)
     if (editFilter(null))
       e.stopPropagation();
   }
-  else if (e.keyCode == e.DOM_VK_DELETE)
+  else if (e.keyCode == e.DOM_VK_DELETE || e.keyCode == e.DOM_VK_BACK_SPACE)
     removeFilters(true);
   else if (e.keyCode == e.DOM_VK_INSERT)
     treeView.startEditor(true);
