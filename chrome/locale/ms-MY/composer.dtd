@@ -1,0 +1,40 @@
+<!ENTITY dialog.title "Tambah peraturan penapis Adblock Plus">
+<!ENTITY accept.label "Tambah penapis">
+<!ENTITY advanced.label "Paparan mahir">
+<!ENTITY basic.label "Paparan biasa">
+<!ENTITY disabled.warning.beforeLink "Adblock Plus sedang dinyahaktifkan. Anda masih boleh menambah penapis tetapi tambahan anda tidak akan aktif sehingga anda">
+<!ENTITY disabled.warning.link "aktifkan Adblock Plus">
+<!ENTITY disabled.warning.afterLink ".">
+<!ENTITY filter.label "Penapis baru:">
+<!ENTITY filter.accesskey "r">
+<!ENTITY preferences.label "Papar penapis sedia ada...">
+<!ENTITY preferences.accesskey "a">
+<!ENTITY type.filter.label "Penapis penghalang">
+<!ENTITY type.filter.accesskey "g">
+<!ENTITY type.whitelist.label "Peraturan pengecualian">
+<!ENTITY type.whitelist.accesskey "c">
+<!ENTITY pattern.label "Lihat pola">
+<!ENTITY pattern.explanation "Pola boleh jadi mana-mana bahagian alamat, simbol ^ adalah kad liar. Penapis hanya digunakan pada alamat yang sepadan dengan pola.">
+<!ENTITY regexp.warning "Pola yang anda masukkan akan diinterpretasi sebagai ungkapan biasa. Kebanyakan ungkapab biasa boleh melambatkan penjelajahan web. Jika anda tidak berniat untuk menggunakan ungkapan biasa, tambah simbol ^ diakhir pola.">
+<!ENTITY shortpattern.warning "Pola yang anda masukkan terlalu pendek untuk dioptimumkan, kebanyakan pola seperti ini melambatkan penjelajahan web. Anda digalakkan memilih masukan yang lebih panjang untuk penapis ini.">
+<!ENTITY custom.pattern.label "Ubah suai:">
+<!ENTITY custom.pattern.accesskey "u">
+<!ENTITY anchors.label "Terima pola sahaja:">
+<!ENTITY anchor.start.label "pada permulaan alamat">
+<!ENTITY anchor.start.accesskey "m">
+<!ENTITY anchor.end.label "pada akhir alamat">
+<!ENTITY anchor.end.accesskey "d">
+<!ENTITY options.label "Opsyen">
+<!ENTITY firstParty.label "Orang pertama sahaja">
+<!ENTITY firstParty.accesskey "j">
+<!ENTITY thirdParty.label "Orang ketiga sahaja">
+<!ENTITY thirdParty.accesskey "t">
+<!ENTITY matchCase.label "Kes sepadan">
+<!ENTITY matchCase.accesskey "n">
+<!ENTITY types.label "Gunakan kepada jenis:">
+<!ENTITY collapse.label "Jatuhkan yang dihalang:">
+<!ENTITY collapse.accesskey "l">
+<!ENTITY collapse.default.yes.label "Gunakan aturan lalai (ya)">
+<!ENTITY collapse.default.no.label "Gunakan aturan lalai (tidak)">
+<!ENTITY collapse.yes.label "Ya">
+<!ENTITY collapse.no.label "Tidak">
