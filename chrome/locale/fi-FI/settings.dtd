@@ -47,8 +47,8 @@
 <!ENTITY showintoolbar.accesskey "y">
 <!ENTITY showinstatusbar.label "Näytä tilarivillä">
 <!ENTITY showinstatusbar.accesskey "N">
-<!ENTITY objecttabs.label "Näytä painike Flashin ja Javan yhteydessä">
-<!ENTITY objecttabs.accesskey "p">
+<!ENTITY objecttabs.label "Korvake Flashin ja Javan yhteydessä">
+<!ENTITY objecttabs.accesskey "K">
 <!ENTITY collapse.label "Romahduta estetyt elementit">
 <!ENTITY collapse.accesskey "R">
 <!ENTITY help.label "Ohje">
@@ -77,10 +77,10 @@
 <!ENTITY context.resethitcount.label "Nollaa suodattimen osumatilastot">
 <!ENTITY context.synchsubscription.label "Päivitä tilaus nyt">
 <!ENTITY context.editsubscription.label "Muokkaa tilausta">
-<!ENTITY context.moveup.label "Siirrä suodatin ylös">
-<!ENTITY context.movedown.label "Siirrä suodatin alas">
-<!ENTITY context.movegroupup.label "Siirrä ryhmä ylös">
-<!ENTITY context.movegroupdown.label "Siirrä ryhmä alas">
+<!ENTITY context.moveup.label "Siirrä suodatin ylöspäin">
+<!ENTITY context.movedown.label "Siirrä suodatin alaspäin">
+<!ENTITY context.movegroupup.label "Siirrä ryhmä ylöspäin">
+<!ENTITY context.movegroupdown.label "Siirrä ryhmä alaspäin">
 <!ENTITY context.enable.label "Ota käyttöön">
 <!ENTITY context.disable.label "Poista käytöstä">
 <!ENTITY apply.label "Käytä">

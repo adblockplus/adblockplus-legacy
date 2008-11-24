@@ -1,4 +1,4 @@
-<!ENTITY detached.title "Adblock Plus: Estettävät elementit (irrotettu)">
+<!ENTITY detached.title "Adblock Plus: Estettävien elementtien lista (irrotettu)">
 <!ENTITY detach.label "Irrota">
 <!ENTITY reattach.label "Kiinnitä">
 <!ENTITY search.label "Etsi:">
@@ -10,7 +10,7 @@
 <!ENTITY size.label "Koko">
 <!ENTITY noitems.label "Ei estettäviä elementtejä">
 <!ENTITY whitelisted.label "Sallittu sivu">
-<!ENTITY notloaded.label "Adblock Plussaa ei ole asennettu oikein">
+<!ENTITY notloaded.label "Adblock Plus ei ole asentunut oikein">
 <!ENTITY tooltip.address.label "Osoite:">
 <!ENTITY tooltip.type.label "Tyyppi:">
 <!ENTITY tooltip.type.blocked "(estetty)">
@@ -18,8 +18,8 @@
 <!ENTITY tooltip.size.label "Koko:">
 <!ENTITY tooltip.filter.label "Vaikuttava suodatin:">
 <!ENTITY tooltip.filterSource.label "Suodattimen lähde:">
-<!ENTITY context.block.label "Estä tämä">
-<!ENTITY context.editfilter.label "Muokkaa vaikuttavaa suodatinta">
+<!ENTITY context.block.label "Estä elementti">
+<!ENTITY context.editfilter.label "Muokkaa suodatinta">
 <!ENTITY context.whitelist.label "Lisää poikkeusehto">
 <!ENTITY context.disablefilter.label "Poista käytöstä suodatin: --">
 <!ENTITY context.enablefilter.label "Palauta suodatin: --">
