@@ -2,8 +2,8 @@
 <!ENTITY accept.label "Lisää suodatin">
 <!ENTITY advanced.label "Näytä lisää">
 <!ENTITY basic.label "Näytä vähemmän">
-<!ENTITY disabled.warning.beforeLink "Adblock Plus tällä hetkellä poistettu käytöstä. Voit silti lisätä suodattimia mutta ne otetaan käyttöön vasta kun,">
-<!ENTITY disabled.warning.link "otat Adblockin käyttöön">
+<!ENTITY disabled.warning.beforeLink "Adblock Plus on tällä hetkellä poistettu käytöstä. Voit silti lisätä suodattimia mutta ne otetaan käyttöön vasta kun,">
+<!ENTITY disabled.warning.link "otat Adblockin Plussan käyttöön">
 <!ENTITY disabled.warning.afterLink ".">
 <!ENTITY filter.label "Uusi suodatin:">
 <!ENTITY filter.accesskey "U">
