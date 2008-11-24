@@ -116,7 +116,7 @@ var prefs = {
           channel = null;
         },
         QueryInterface: function(iid) {
-          if (iid.equals(Components.interfaces.nsISupport) ||
+          if (iid.equals(Components.interfaces.nsISupports) ||
               iid.equals(Components.interfaces.nsIRequestObserver) ||
               iid.equals(Components.interfaces.nsIStreamListener))
             return this;
