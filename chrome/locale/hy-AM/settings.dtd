@@ -13,7 +13,7 @@
 <!ENTITY export.accesskey "ծ">
 <!ENTITY clearall.label "Ջնջել բոլոր ֆիլտրերը">
 <!ENTITY clearall.accesskey "բ">
-<!ENTITY resethitcounts.label "Զրոյացնել համընկումների քանակը">
+<!ENTITY resethitcounts.label "Զրոյացնել ազդերի քանակը">
 <!ENTITY resethitcounts.accesskey "Զ">
 <!ENTITY edit.label "Խմբագրում">
 <!ENTITY edit.accesskey "Խ">
@@ -73,12 +73,12 @@
 <!ENTITY filter.accesskey "լ">
 <!ENTITY enabled.column "Միացած է">
 <!ENTITY enabled.accesskey "Մ">
-<!ENTITY hitcount.column "Համընկնում">
+<!ENTITY hitcount.column "Ազդ">
 <!ENTITY hitcount.accesskey "Հ">
-<!ENTITY lasthit.column "Վերջին համընկնում">
+<!ENTITY lasthit.column "Վերջինը">
 <!ENTITY lasthit.accesskey "ջ">
 <!ENTITY context.edit.label "Խմբագրել Ֆիլտրը">
-<!ENTITY context.resethitcount.label "Զրոյացնել ֆիլտրի համընկնման քանակը">
+<!ENTITY context.resethitcount.label "Զրոյացնել ֆիլտրի ազդերի քանակը">
 <!ENTITY context.synchsubscription.label "Թարմացնել բաժանորդագրությունները">
 <!ENTITY context.editsubscription.label "Խմբագրել բաժանորդագրությունը">
 <!ENTITY context.moveup.label "Բարձրացնել">
