@@ -1,0 +1,40 @@
+<!ENTITY dialog.title "Ավելացնել Adblock Plus ֆիլտրման կանոն">
+<!ENTITY accept.label "Ավելացնել ֆիլտր">
+<!ENTITY advanced.label "Ընդլայնված տեսք">
+<!ENTITY basic.label "Պարզ տեսք">
+<!ENTITY disabled.warning.beforeLink "&apos;Adblock Plus&apos;-ը անջատված է: Դուք կարող եք ավելացնել ֆիլտրեր, բայց դրանց գործելու համար պետք է ">
+<!ENTITY disabled.warning.link "միացնել &apos;Adblock Plus&apos;-ը">
+<!ENTITY disabled.warning.afterLink ":">
+<!ENTITY filter.label "Նոր Ֆիլտր.">
+<!ENTITY filter.accesskey "ֆ">
+<!ENTITY preferences.label "Նայել առկա ֆիլտրերը...">
+<!ENTITY preferences.accesskey "ռ">
+<!ENTITY type.filter.label "Արգելող ֆիլտր">
+<!ENTITY type.filter.accesskey "Ա">
+<!ENTITY type.whitelist.label "Բացառություն">
+<!ENTITY type.whitelist.accesskey "ց">
+<!ENTITY pattern.label "Որոնել շաբլոն">
+<!ENTITY pattern.explanation "Շաբլոնը կարող է լինել հասցեի ցանկացած մաս, *-ը նշանակում է ցանկացած սիմվոլ: Կֆիլտրվեն միայն շաբլոնին բավարարող հասցեները:">
+<!ENTITY regexp.warning "Ներմուծված շաբլոնը ընկալվելու է որպես ռեգուլյար արտահայտություն(regexp): Ռեգուլյար արտահայտությունների մեծ քանակը կարող է դանդաղեցնել ծրագրի աշխատանքը: Եթե դուք չեք պատրաստվում օգտագործել ռեգուլյար արտահայտություն, ավելացրեք * շաբլոնի վերջում:">
+<!ENTITY shortpattern.warning "Ներմուծված շաբլոնը շատ կարճ է ու չի կարող օպտիմիզացվել, այսպիսի շաբլոնների մեծ քանակը կարող է դանդաղեցնել ծրագրի աշխատանքը: Խորհուրդ է տրվում ֆիլտրի համար օգտագործել ավելի երկար տող:">
+<!ENTITY custom.pattern.label "Սեփական.">
+<!ENTITY custom.pattern.accesskey "փ">
+<!ENTITY anchors.label "Շաբլոններն ընդունել միայն.">
+<!ENTITY anchor.start.label "հասցեի սկզբում">
+<!ENTITY anchor.start.accesskey "ս">
+<!ENTITY anchor.end.label "հասցեի վերջում">
+<!ENTITY anchor.end.accesskey "վ">
+<!ENTITY options.label "Ընտրանքներ">
+<!ENTITY firstParty.label "Միայն հիմնական">
+<!ENTITY firstParty.accesskey "հ">
+<!ENTITY thirdParty.label "Միայն երրորդ կողմից">
+<!ENTITY thirdParty.accesskey "ե">
+<!ENTITY matchCase.label "Հաշվի առնել տառատեսակը">
+<!ENTITY matchCase.accesskey "տ">
+<!ENTITY types.label "Ավելացնել հետևյալ տիպերին`">
+<!ENTITY collapse.label "Թաքցնել ֆիլտրվածները`">
+<!ENTITY collapse.accesskey "Ծ">
+<!ENTITY collapse.default.yes.label "Լռությամբ (այո)">
+<!ENTITY collapse.default.no.label "Լռությամբ (ոչ)">
+<!ENTITY collapse.yes.label "Այո">
+<!ENTITY collapse.no.label "Ոչ">

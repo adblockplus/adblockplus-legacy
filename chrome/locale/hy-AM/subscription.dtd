@@ -1,4 +1,4 @@
-<!ENTITY dialog.title "Խմբագրել բաժանորդագրությունը">
+<!ENTITY dialog.title "Խմբագրել բաժանորդագրությունները">
 <!ENTITY dialog.newtitle "Նոր բաժանորդագրություն">
 <!ENTITY new.description "
 	Մուտքագրեք վեբ էջի կամ ֆայլի հասցե, որտեղ գտնվում են ֆիլտրերը:
@@ -15,12 +15,10 @@
 	Առանց այս տարբերակը ընտրելու դուք կարող եք թարմացնել այն բաժանորդագրությունների ցուցակի մենյուից:
 ">
 <!ENTITY location.label "Ֆիլտրերի հասցեն`">
-<!ENTITY location.accesskey "L">
+<!ENTITY location.accesskey "հ">
 <!ENTITY title.label "Բաժանորդագրության ավանումը`">
-<!ENTITY title.accesskey "T">
+<!ENTITY title.accesskey "ա">
 <!ENTITY autodownload.label "Ավտոմատ թարմացում">
-<!ENTITY autodownload.accesskey "P">
+<!ENTITY autodownload.accesskey "թ">
 <!ENTITY enabled.label "Միացնել այս ֆիլտրերը">
-<!ENTITY enabled.accesskey "N">
-<!ENTITY full-list.url "http://adblockplus.org/en/subscriptions">
-<!ENTITY full-list.label "Նայել բոլոր բաժանորդագրությունները">
+<!ENTITY enabled.accesskey "Մ">
