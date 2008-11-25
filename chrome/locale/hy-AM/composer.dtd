@@ -1,9 +1,9 @@
-<!ENTITY dialog.title "Ավելացնել Adblock Plus ֆիլտրման կանոն">
+<!ENTITY dialog.title "Ավելացնել «Adblock Plus» ֆիլտրման կանոն">
 <!ENTITY accept.label "Ավելացնել ֆիլտր">
 <!ENTITY advanced.label "Ընդլայնված տեսք">
 <!ENTITY basic.label "Պարզ տեսք">
-<!ENTITY disabled.warning.beforeLink "&apos;Adblock Plus&apos;-ը անջատված է: Դուք կարող եք ավելացնել ֆիլտրեր, բայց դրանց գործելու համար պետք է ">
-<!ENTITY disabled.warning.link "միացնել &apos;Adblock Plus&apos;-ը">
+<!ENTITY disabled.warning.beforeLink "«Adblock Plus»ը անջատված է: Դուք կարող եք ավելացնել ֆիլտրեր, բայց դրանց գործելու համար պետք է ">
+<!ENTITY disabled.warning.link "միացնել «Adblock Plus»ը">
 <!ENTITY disabled.warning.afterLink ":">
 <!ENTITY filter.label "Նոր Ֆիլտր.">
 <!ENTITY filter.accesskey "ֆ">
