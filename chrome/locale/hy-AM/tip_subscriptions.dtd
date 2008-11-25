@@ -1,4 +1,4 @@
-<!ENTITY dialog.title "Welcome to Adblock Plus">
+<!ENTITY dialog.title "Բարի գալուստ Adblock Plus">
 <!ENTITY description.par1 "
 	Շնորհակալություն Adblock Plus տեղադրելու համար: Այն կօգնի Ձեզ
 	վերացնելու էջերում գովազդի 99&#x25;ը: Սակայն,
@@ -14,8 +14,24 @@
 <!ENTITY note "
 	Հուշում: Ֆիլտրերը սովորաբար ավելի արդյունավետ են այն տարածաշրջանի կայքերում, որոնց համար ստեղծված են:
 ">
+<!ENTITY adblock.warning "
+	Adblock Plus - ից բացի ձեր համակարգում տեղադրված է Adblock կամ 
+	Adblock Plus - ի հին տարբերակ: Դրանց զուգահեռ օգտագործումը կարող է 
+	խնդիրներ առաջացնել: Խորհուրդ է տրվում հեռացնել Adblock -ը:
+">
+<!ENTITY adblock.uninstall "Հեռացնել Adblock">
+<!ENTITY filterset.g.warning "
+	Դուք օգտագործում եք Filterset.G. Այս ցանկին վերջին տարիներին 
+	քիչ է փոփոխվումում և այն առաջացնում է մեծ քանակով խնդիրներ կայքերի հետ: 
+	Խորհուրդ է տրվում հեռացնել այդ ցանկը:
+">
+<!ENTITY filterset.g.moreinfo "Ավել տեղեկություն">
+<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
+<!ENTITY filterset.g.uninstall "Հեռացնել Filterset.G-ն">
 <!ENTITY homepage.label "Վեբ էջ">
 <!ENTITY subscribe.label "Բաժանորդագրվել">
-<!ENTITY subscribe.accesskey "R">
+<!ENTITY subscribe.accesskey "Բ">
 <!ENTITY other.label "Ավելացնել բաժանորդագրություն">
-<!ENTITY other.accesskey "T">
+<!ENTITY other.accesskey "Ա">
+<!ENTITY full-list.url "http://adblockplus.org/en/subscriptions">
+<!ENTITY full-list.label "Նայել բոլոր Բաժանորդագրությունները">
