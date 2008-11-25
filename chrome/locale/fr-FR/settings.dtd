@@ -3,20 +3,20 @@
 <!ENTITY filters.accesskey "F">
 <!ENTITY add.label "Ajouter un filtre">
 <!ENTITY add.accesskey "j">
-<!ENTITY addsubscription.label "S&apos;abonner à une liste de filtres">
+<!ENTITY addsubscription.label "S&apos;abonner à la liste de filtres">
 <!ENTITY addsubscription.accesskey "l">
 <!ENTITY synchsubscriptions.label "Mettre à jour tous les abonnements">
 <!ENTITY synchsubscriptions.accesskey "t">
 <!ENTITY import.label "Importer des filtres">
 <!ENTITY import.accesskey "I">
-<!ENTITY export.label "Exporter les filtres">
+<!ENTITY export.label "Exporter les filtres personnalisés">
 <!ENTITY export.accesskey "E">
-<!ENTITY clearall.label "Supprimer tous les filtres">
+<!ENTITY clearall.label "Supprimer tous les filtres personnalisés">
 <!ENTITY clearall.accesskey "S">
 <!ENTITY resethitcounts.label "Remettre le compteur à zéro">
 <!ENTITY resethitcounts.accesskey "z">
 <!ENTITY edit.label "Édition">
-<!ENTITY edit.accesskey "E">
+<!ENTITY edit.accesskey "d">
 <!ENTITY cut.label "Couper">
 <!ENTITY cut.accesskey "u">
 <!ENTITY copy.label "Copier">
@@ -29,6 +29,16 @@
 <!ENTITY menu.find.accesskey "h">
 <!ENTITY menu.findagain.label "Rechercher à nouveau">
 <!ENTITY menu.findagain.accesskey "v">
+<!ENTITY view.label "Affichage">
+<!ENTITY view.accesskey "h">
+<!ENTITY sort.label "Trier par">
+<!ENTITY sort.accesskey "T">
+<!ENTITY sort.none.label "Non trié">
+<!ENTITY sort.none.accesskey "N">
+<!ENTITY sort.ascending.label "Ordre de A &gt; Z">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.descending.label "Ordre de Z &gt; A">
+<!ENTITY sort.descending.accesskey "Z">
 <!ENTITY options.label "Options">
 <!ENTITY options.accesskey "O">
 <!ENTITY enable.label "Activer Adblock Plus">
@@ -43,7 +53,7 @@
 <!ENTITY collapse.accesskey "u">
 <!ENTITY help.label "Aide">
 <!ENTITY help.accesskey "A">
-<!ENTITY faq.label "FAQ">
+<!ENTITY faq.label "Foire Aux Questions">
 <!ENTITY faq.accesskey "F">
 <!ENTITY faq.url "http://adblockplus.org/fr/faq">
 <!ENTITY tips.label "Astuce du jour">
@@ -54,12 +64,15 @@
 <!ENTITY filterdoc.url "http://adblockplus.org/fr/filters">
 <!ENTITY about.label "À propos d&apos;Adblock Plus">
 <!ENTITY about.accesskey "A">
-<!ENTITY disabled.warning "Adblock Plus est désactivée. Vous pouvez modifier vos filtres, mais ils ne seront appliqués qu&apos;une fois Adblock Plus réactivée.">
-<!ENTITY description "Ajoutez les adresses que vous souhaitez bloquer, voyez le menu déroulant pour des suggestions d&apos;adresses contenues dans cette page. Vous pouvez utiliser * comme joker pour créer des filtres plus généraux. Les utilisateurs plus expérimentés peuvent également utiliser des expressions régulières telles que /banner\d+\.gif$/">
-<!ENTITY pattern.column "Filtre">
+<!ENTITY description "Les filtres suivants indiquent les adresses qui devront être bloquées et celles qui devront être autorisées :">
+<!ENTITY filter.column "Règle de filtrage">
+<!ENTITY filter.accesskey "F">
 <!ENTITY enabled.column "Activé">
+<!ENTITY enabled.accesskey "c">
 <!ENTITY hitcount.column "Compteur">
+<!ENTITY hitcount.accesskey "m">
 <!ENTITY lasthit.column "Dernière utilisation">
+<!ENTITY lasthit.accesskey "D">
 <!ENTITY context.edit.label "Modifier le filtre">
 <!ENTITY context.resethitcount.label "Remettre le compteur à zéro">
 <!ENTITY context.synchsubscription.label "Mettre à jour maintenant">
@@ -68,5 +81,7 @@
 <!ENTITY context.movedown.label "Descendre">
 <!ENTITY context.movegroupup.label "Monter la sélection">
 <!ENTITY context.movegroupdown.label "Descendre la sélection">
+<!ENTITY context.enable.label "Activer">
+<!ENTITY context.disable.label "Désactiver">
 <!ENTITY apply.label "Appliquer">
 <!ENTITY apply.accesskey "p">
