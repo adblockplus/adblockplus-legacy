@@ -1,0 +1,30 @@
+<!ENTITY detached.title "Adblock Plus: Item yang bisa diblok (dilepaskan)">
+<!ENTITY detach.label "Lepas">
+<!ENTITY reattach.label "Sertakan kembali">
+<!ENTITY search.label "Cari:">
+<!ENTITY search.accesskey "C">
+<!ENTITY type.label "Tipe">
+<!ENTITY address.label "Alamat">
+<!ENTITY filter.label "Filter">
+<!ENTITY state.label "Bagian">
+<!ENTITY size.label "Ukuran">
+<!ENTITY noitems.label "Tidak ada item yang bisa diblok">
+<!ENTITY whitelisted.label "Halaman yang dibebaskan">
+<!ENTITY notloaded.label "Adblock Plus belum diinstal dengan benar">
+<!ENTITY tooltip.address.label "Alamat:">
+<!ENTITY tooltip.type.label "Tipe:">
+<!ENTITY tooltip.type.blocked "(diblok)">
+<!ENTITY tooltip.type.whitelisted "(dibebaskan)">
+<!ENTITY tooltip.size.label "Ukuran:">
+<!ENTITY tooltip.filter.label "Filter efek:">
+<!ENTITY tooltip.filterSource.label "Sumber filter:">
+<!ENTITY context.block.label "Blok item ini">
+<!ENTITY context.editfilter.label "Edit filter efek">
+<!ENTITY context.whitelist.label "Tambahkan Aturan pengecualian untuk item">
+<!ENTITY context.disablefilter.label "Matikan filter --">
+<!ENTITY context.enablefilter.label "Hidupkan ulang filter --">
+<!ENTITY context.open.label "Buka di tab baru">
+<!ENTITY context.flash.label "Border item yang ber-flash">
+<!ENTITY context.copy.label "Salin alamat item">
+<!ENTITY context.copyFilter.label "Salin filter">
+<!ENTITY context.selectAll.label "Pilih semua">

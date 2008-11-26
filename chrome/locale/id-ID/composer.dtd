@@ -1,0 +1,40 @@
+<!ENTITY dialog.title "Tambah aturan filter Adblock Plus">
+<!ENTITY accept.label "Tambah filter">
+<!ENTITY advanced.label "View lanjutan">
+<!ENTITY basic.label "View dasar">
+<!ENTITY disabled.warning.beforeLink "Adblock Plus sedang dimatikan. Anda tetap bisa menambahkan filter tapi tidak akan diaplikasikan kecuali Anda">
+<!ENTITY disabled.warning.link "Hidupkan Adblock Plus">
+<!ENTITY disabled.warning.afterLink ".">
+<!ENTITY filter.label "Filter baru:">
+<!ENTITY filter.accesskey "F">
+<!ENTITY preferences.label "Tunjukkan filter yang ada...">
+<!ENTITY preferences.accesskey "k">
+<!ENTITY type.filter.label "Filter blocking">
+<!ENTITY type.filter.accesskey "B">
+<!ENTITY type.whitelist.label "Aturan pengecualian">
+<!ENTITY type.whitelist.accesskey "g">
+<!ENTITY pattern.label "Lihat pola">
+<!ENTITY pattern.explanation "Pola bisa diartikan untuk semua bagian dari alamat, simbol * sebagai wildcard. Filter hanya akan diaplikasikan ke alamat yang cocok dengan pola.">
+<!ENTITY regexp.warning "Pola yang Anda masukkan akan diartikan sebagai ekspresi biasa. Banyak ekspresi biasa bisa melambatkan browser Anda. Jika Anda tidak bermmaksud untuk memakai ekspresi biasa, tambahkan tanda * apda akhir pola.">
+<!ENTITY shortpattern.warning "Pola yang anda masukkan terlalu kecil untuk dioptimalkan, terlalu banyak pola bisa melambatkan browser Anda. Disarankan anda memilih string yang lebih panjang untuk filter ini.">
+<!ENTITY custom.pattern.label "Aturan Sendiri:">
+<!ENTITY custom.pattern.accesskey "t">
+<!ENTITY anchors.label "Pola yang disetujui saja:">
+<!ENTITY anchor.start.label "pada awal alamat">
+<!ENTITY anchor.start.accesskey "w">
+<!ENTITY anchor.end.label "pada akhir alamat">
+<!ENTITY anchor.end.accesskey "D">
+<!ENTITY options.label "Opsi">
+<!ENTITY firstParty.label "Pihak pertama saja">
+<!ENTITY firstParty.accesskey "R">
+<!ENTITY thirdParty.label "Pihak ketiga saja">
+<!ENTITY thirdParty.accesskey "j">
+<!ENTITY matchCase.label "Case tepat">
+<!ENTITY matchCase.accesskey "p">
+<!ENTITY types.label "Dipakai untuk tipe:">
+<!ENTITY collapse.label "Gabung yang diblok:">
+<!ENTITY collapse.accesskey "L">
+<!ENTITY collapse.default.yes.label "Gunakan biasa (ya)">
+<!ENTITY collapse.default.no.label "Gunakan biasa (tidak)">
+<!ENTITY collapse.yes.label "Ya">
+<!ENTITY collapse.no.label "Tidak">

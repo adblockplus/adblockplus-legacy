@@ -1,0 +1,13 @@
+<!ENTITY find.label "Cari:">
+<!ENTITY next.label "sSelanjutnya">
+<!ENTITY next.accesskey "N">
+<!ENTITY next.tooltip "Cari frase kejadian selanjutnya">
+<!ENTITY previous.label "Sebelumnya">
+<!ENTITY previous.accesskey "S">
+<!ENTITY previous.tooltip "Cari frase kejadian sebelumnya">
+<!ENTITY findCloseButton.tooltip "Tutup bar pencarian">
+<!ENTITY highlight.label "Soroti semuanya">
+<!ENTITY highlight.accesskey "A">
+<!ENTITY highlight.tooltiptext "Soroti semua frase kejadian">
+<!ENTITY caseSensitiveCheckbox.label "Sesuai contoh">
+<!ENTITY caseSensitiveCheckbox.accesskey "C">
