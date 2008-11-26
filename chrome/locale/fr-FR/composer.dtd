@@ -1,0 +1,40 @@
+<!ENTITY dialog.title "Ajouter une règle de filtrage Adblock Plus">
+<!ENTITY accept.label "Ajouter le filtre">
+<!ENTITY advanced.label "Affichage avancé">
+<!ENTITY basic.label "Affichage standard">
+<!ENTITY disabled.warning.beforeLink "Adblock Plus est actuellement désactivée. Vous pouvez continuer à ajouter des filtres mais ils ne seront pas appliqués tant que vous n&apos;aurez pas">
+<!ENTITY disabled.warning.link "activé Adblock Plus">
+<!ENTITY disabled.warning.afterLink ".">
+<!ENTITY filter.label "Nouveau filtre :">
+<!ENTITY filter.accesskey "f">
+<!ENTITY preferences.label "Afficher les filtres existants…">
+<!ENTITY preferences.accesskey "A">
+<!ENTITY type.filter.label "Filtre bloquant">
+<!ENTITY type.filter.accesskey "b">
+<!ENTITY type.whitelist.label "Règle d&apos;exception">
+<!ENTITY type.whitelist.accesskey "x">
+<!ENTITY pattern.label "Proposition de motifs">
+<!ENTITY pattern.explanation "Le motif peut être une partie de l&apos;adresse, le symbole * jouant le rôle de joker. Le filtre ne sera appliqué qu&apos;aux adresses coïncidant avec le motif.">
+<!ENTITY regexp.warning "Le motif que vous avez indiqué sera interprété comme une expression régulière. Un grand nombre d&apos;expressions régulières ralentira votre navigation. Si vous ne souhaitiez pas utiliser des expressions régulières, veuillez ajouter un * à la fin du motif.">
+<!ENTITY shortpattern.warning "Le motif que vous avez indiqué est trop court pour être optimisé, un grand nombre de ce genre de motifs ralentira votre navigation. Nous vous recommandons de choisir une chaîne de caractères plus longue pour ce filtre.">
+<!ENTITY custom.pattern.label "Personnaliser :">
+<!ENTITY custom.pattern.accesskey "P">
+<!ENTITY anchors.label "Accepter le motif uniquement :">
+<!ENTITY anchor.start.label "en début d&apos;adresse">
+<!ENTITY anchor.start.accesskey "u">
+<!ENTITY anchor.end.label "en fin d&apos;adresse">
+<!ENTITY anchor.end.accesskey "n">
+<!ENTITY options.label "Options">
+<!ENTITY firstParty.label "Provenant uniquement du même domaine">
+<!ENTITY firstParty.accesskey "m">
+<!ENTITY thirdParty.label "Provenant uniquement d&apos;autres domaines">
+<!ENTITY thirdParty.accesskey "t">
+<!ENTITY matchCase.label "Sensible à la casse">
+<!ENTITY matchCase.accesskey "c">
+<!ENTITY types.label "Appliquer aux types suivants :">
+<!ENTITY collapse.label "Réutiliser l&apos;espace de l&apos;élément filtré :">
+<!ENTITY collapse.accesskey "R">
+<!ENTITY collapse.default.yes.label "Utiliser le comportement par défaut (oui)">
+<!ENTITY collapse.default.no.label "Utiliser le comportement par défaut (non)">
+<!ENTITY collapse.yes.label "Oui">
+<!ENTITY collapse.no.label "Non">
