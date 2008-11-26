@@ -1,0 +1,22 @@
+<!ENTITY notloaded.label "Tidak dimuat">
+<!ENTITY notloaded.tooltip "Komponen Adblock Plus tidak bisa dimuat, mungkin belum diinstall sebelumnya.">
+<!ENTITY status.tooltip "Status:">
+<!ENTITY blocked.tooltip "Item yang diblok pada halaman ini:">
+<!ENTITY filters.tooltip "Filter yang paling aktif:">
+<!ENTITY menuitem.label "Preferensi Adblock Plus">
+<!ENTITY menuitem.accesskey "B">
+<!ENTITY view.blockableItems.label "Adblock Plus: Item yang Diblok">
+<!ENTITY context.image.label "Gambar Adblock">
+<!ENTITY context.object.label "Obyek Adblock">
+<!ENTITY context.frame.label "Bingkai Adblock">
+<!ENTITY sidebar.title "Item yang bisa diblok pada halaman ini">
+<!ENTITY settings.label "Preferensi">
+<!ENTITY settings.accesskey "F">
+<!ENTITY opensidebar.label "Buka item yang bisa diblok">
+<!ENTITY opensidebar.accesskey "B">
+<!ENTITY closesidebar.label "Buka item yang bisa diblok">
+<!ENTITY closesidebar.accesskey "B">
+<!ENTITY whitelist.site.label "Matikan pada --">
+<!ENTITY whitelist.page.label "Matikan pada halaman ini saja">
+<!ENTITY objecttab.title "Blok">
+<!ENTITY objecttab.tooltip "Klik ini untuk memblok obyek ini dengan Adblock Plus">

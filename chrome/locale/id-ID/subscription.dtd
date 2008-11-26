@@ -1,0 +1,19 @@
+<!ENTITY dialog.title "Edit skrip filter">
+<!ENTITY dialog.newtitle "Tambahkan skrip filter">
+<!ENTITY new.description "Tolong masukkan alamat web atau file berisi daftar
+	filter Adblock Plus.">
+<!ENTITY edit.description "Daftar filter untuk skrip ini akan didownload
+	dari lokasi yang telah diberikan.">
+<!ENTITY external.description "Ini adalah skrip filter eksternal, daftar filternya
+	akan tetap up-to-date dari ekstensi yang membuat skrip.">
+<!ENTITY autodownload.description "Jika anda memilih &apos;Update otomatis&apos; lokasi ini akan
+	ditandai untuk update setiap hari. Dengan mematikan opsi ini anda tetap
+	bisa memilih update secara manual dari menu konteks skrip.">
+<!ENTITY location.label "Lokasi daftar filter:">
+<!ENTITY location.accesskey "L">
+<!ENTITY title.label "Judul Skrip:">
+<!ENTITY title.accesskey "J">
+<!ENTITY autodownload.label "Update otomatis">
+<!ENTITY autodownload.accesskey "P">
+<!ENTITY enabled.label "Hidupkan filter">
+<!ENTITY enabled.accesskey "N">
