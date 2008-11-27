@@ -7,6 +7,7 @@
 <!ENTITY address.label "Adreça">
 <!ENTITY filter.label "Filtre">
 <!ENTITY state.label "Estat">
+<!ENTITY size.label "Mida">
 <!ENTITY noitems.label "Elements no bloquejables">
 <!ENTITY whitelisted.label "Pàgina a la llista de permesos">
 <!ENTITY notloaded.label "AdBlock Plus no ha estat instal.lat correctament">
@@ -14,10 +15,16 @@
 <!ENTITY tooltip.type.label "Tipus">
 <!ENTITY tooltip.type.blocked "(bloquejat)">
 <!ENTITY tooltip.type.whitelisted "(a la llista de permesos)">
+<!ENTITY tooltip.size.label "Mida">
 <!ENTITY tooltip.filter.label "Filtre actiu">
+<!ENTITY tooltip.filterSource.label "Filtre d&apos;origen">
 <!ENTITY context.block.label "Bloqueja aquest element">
 <!ENTITY context.editfilter.label "Editar filtre actiu">
 <!ENTITY context.whitelist.label "Afegeix regla d&apos;excepció per l&apos;element">
+<!ENTITY context.disablefilter.label "Desactivar filtre">
+<!ENTITY context.enablefilter.label "Reactivar filtre">
 <!ENTITY context.open.label "Obrir en una nova pestanya">
 <!ENTITY context.flash.label "Pampalluguejar vores de l&apos;element">
 <!ENTITY context.copy.label "Copia l&apos;adreça de l&apos;element">
+<!ENTITY context.copyFilter.label "Copia Filtre">
+<!ENTITY context.selectAll.label "Selecciona tots">
