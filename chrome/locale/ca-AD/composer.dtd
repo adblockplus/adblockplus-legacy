@@ -1,0 +1,40 @@
+<!ENTITY dialog.title "Afegir una regla de filtre d&apos;Adblock Plus">
+<!ENTITY accept.label "Afegir filtre">
+<!ENTITY advanced.label "Visualització avançada">
+<!ENTITY basic.label "Visualització bàsica">
+<!ENTITY disabled.warning.beforeLink "Adblock Plus està desactivat. Encara es poden afegir filtres però no seran aplicats a menys que">
+<!ENTITY disabled.warning.link "activis Adblock Plus">
+<!ENTITY disabled.warning.afterLink ".">
+<!ENTITY filter.label "Nou filtre:">
+<!ENTITY filter.accesskey "n">
+<!ENTITY preferences.label "Mostra filtres existents...">
+<!ENTITY preferences.accesskey "S">
+<!ENTITY type.filter.label "Filtre de bloqueig">
+<!ENTITY type.filter.accesskey "B">
+<!ENTITY type.whitelist.label "Excepció">
+<!ENTITY type.whitelist.accesskey "x">
+<!ENTITY pattern.label "Cerca un patró">
+<!ENTITY pattern.explanation "El patró pot ser qualsevol part de l&apos;adreça, el símbol ^ serveix de comodí. El filtre només s&apos;aplicarà a adreces que concordin amb el filtre">
+<!ENTITY regexp.warning "El patró que s&apos;ha entrat serà interpretat com una expressió regular. Massa expressions regulars poden alentir la navegació. Si no es volia utilitzar una expressió regular, afegir el símbol ^ al final del patró.">
+<!ENTITY shortpattern.warning "El patró entrat es massa curt per ser optimitzat, massa patrons d&apos;aquest tipus poden alentir la navegació. Es recomana una cadena de text més llarga per aquest filtre.">
+<!ENTITY custom.pattern.label "Personalitzar:">
+<!ENTITY custom.pattern.accesskey "P">
+<!ENTITY anchors.label "Accepta només un patró:">
+<!ENTITY anchor.start.label "al començament de l&apos;adreça">
+<!ENTITY anchor.start.accesskey "c">
+<!ENTITY anchor.end.label "al final de l&apos;adreça">
+<!ENTITY anchor.end.accesskey "f">
+<!ENTITY options.label "Opcions">
+<!ENTITY firstParty.label "Només originals">
+<!ENTITY firstParty.accesskey "r">
+<!ENTITY thirdParty.label "Només de tercers">
+<!ENTITY thirdParty.accesskey "T">
+<!ENTITY matchCase.label "Diferencia majúscules i minúscules">
+<!ENTITY matchCase.accesskey "M">
+<!ENTITY types.label "Aplicar als tipus:">
+<!ENTITY collapse.label "Col·lapsar els bloquejats:">
+<!ENTITY collapse.accesskey "l">
+<!ENTITY collapse.default.yes.label "Utilitza per defecte (si)">
+<!ENTITY collapse.default.no.label "Utilitza per defecte (no)">
+<!ENTITY collapse.yes.label "Si">
+<!ENTITY collapse.no.label "No">
