@@ -9,14 +9,14 @@
 <!ENTITY context.image.label "Adblock` Ֆիլտրել Նկարը">
 <!ENTITY context.object.label "Adblock` Ֆիլտրել Օբյեկտը">
 <!ENTITY context.frame.label "Adblock` Ֆիլտրել Ֆրեյմը">
-<!ENTITY sidebar.title "Այս էջի ֆիլտրվվող տարրերը">
+<!ENTITY sidebar.title "Այս էջի ֆիլտրվող տարրերը">
 <!ENTITY settings.label "Նախընտրանքներ">
 <!ENTITY settings.accesskey "Ն">
-<!ENTITY opensidebar.label "Բացել ֆիլտրվվող տարրերը">
+<!ENTITY opensidebar.label "Բացել ֆիլտրվող տարրերը">
 <!ENTITY opensidebar.accesskey "տ">
-<!ENTITY closesidebar.label "Փակել ֆիլտրվվող տարրերը">
+<!ENTITY closesidebar.label "Փակել ֆիլտրվող տարրերը">
 <!ENTITY closesidebar.accesskey "տ">
-<!ENTITY whitelist.site.label "Անջատել հետևյալ կայքում.">
+<!ENTITY whitelist.site.label "Անջատել այս կայքում">
 <!ENTITY whitelist.page.label "Անջատել միայն այս էջի համար">
 <!ENTITY objecttab.title "Ֆիլտրել">
 <!ENTITY objecttab.tooltip "Սեղմել «Adblock Plus»ով այս օբյեկտը ֆիլտրելու համար">
