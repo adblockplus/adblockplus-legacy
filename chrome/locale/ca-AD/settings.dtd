@@ -41,15 +41,15 @@
 <!ENTITY sort.descending.accesskey "Z">
 <!ENTITY options.label "Opcions">
 <!ENTITY options.accesskey "O">
-<!ENTITY enable.label "Habilita Adblock Plus">
-<!ENTITY enable.accesskey "H">
+<!ENTITY enable.label "Activa Adblock Plus">
+<!ENTITY enable.accesskey "A">
 <!ENTITY showintoolbar.label "Mostra a la barra d&apos;eines">
 <!ENTITY showintoolbar.accesskey "B">
 <!ENTITY showinstatusbar.label "Mostra a la barra d&apos;estat">
 <!ENTITY showinstatusbar.accesskey "S">
 <!ENTITY objecttabs.label "Mostra les pestanyes a Flash i Java">
 <!ENTITY objecttabs.accesskey "T">
-<!ENTITY collapse.label "Plega els elements bloquejats">
+<!ENTITY collapse.label "Col·lapsa els elements bloquejats">
 <!ENTITY collapse.accesskey "L">
 <!ENTITY help.label "Ajuda">
 <!ENTITY help.accesskey "u">
@@ -65,9 +65,9 @@
 <!ENTITY about.label "Sobre Adblock Plus">
 <!ENTITY about.accesskey "B">
 <!ENTITY description "Afegeix les adreces que desitgis bloquejar, per suggerències comprova la llista desplegable. Pots utilitzar * com a comodí per crear filtres més generals. Usuaris avançats poden utilitzar expressions regulars com /banner\d+\.gif$/.">
-<!ENTITY filter.column "Filtra regla">
+<!ENTITY filter.column "Regla de filtre">
 <!ENTITY filter.accesskey "F">
-<!ENTITY enabled.column "Habilitat">
+<!ENTITY enabled.column "Activat">
 <!ENTITY enabled.accesskey "n">
 <!ENTITY hitcount.column "Encerts">
 <!ENTITY hitcount.accesskey "H">
