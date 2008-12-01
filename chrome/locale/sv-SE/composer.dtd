@@ -6,11 +6,11 @@
 <!ENTITY disabled.warning.link "aktiverar Adblock Plus">
 <!ENTITY disabled.warning.afterLink ".">
 <!ENTITY filter.label "Nytt filter:">
-<!ENTITY filter.accesskey "f">
+<!ENTITY filter.accesskey "N">
 <!ENTITY preferences.label "Visa filter...">
 <!ENTITY preferences.accesskey "s">
 <!ENTITY type.filter.label "Blockerande filter">
-<!ENTITY type.filter.accesskey "B">
+<!ENTITY type.filter.accesskey "k">
 <!ENTITY type.whitelist.label "Regel för undantag">
 <!ENTITY type.whitelist.accesskey "u">
 <!ENTITY pattern.label "Sök efter mönster">
@@ -23,12 +23,12 @@
 <!ENTITY anchor.start.label "i början av adresser">
 <!ENTITY anchor.start.accesskey "b">
 <!ENTITY anchor.end.label "i slutet av adresser">
-<!ENTITY anchor.end.accesskey "s">
+<!ENTITY anchor.end.accesskey "t">
 <!ENTITY options.label "Inställningar">
 <!ENTITY firstParty.label "Endast första-part">
 <!ENTITY firstParty.accesskey "f">
 <!ENTITY thirdParty.label "Endast tredje-part">
-<!ENTITY thirdParty.accesskey "t">
+<!ENTITY thirdParty.accesskey "d">
 <!ENTITY matchCase.label "Matcha versaler/gemener">
 <!ENTITY matchCase.accesskey "M">
 <!ENTITY types.label "Verkställ för:">
