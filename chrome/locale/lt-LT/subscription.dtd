@@ -12,5 +12,3 @@
 <!ENTITY autodownload.accesskey "A">
 <!ENTITY enabled.label "Įjungti filtrus">
 <!ENTITY enabled.accesskey "J">
-<!ENTITY full-list.url "http://adblockplus.org/en/subscriptions">
-<!ENTITY full-list.label "Rodyti visas prenumeratas">

@@ -54,9 +54,7 @@
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Om Adblock Plus">
 <!ENTITY about.accesskey "O">
-<!ENTITY disabled.warning "Adblock Plus er deaktivert. Du kan endre filtrene i listen, men endringene vil ikke tre i kraft før Adblock Plus aktiveres igjen.">
 <!ENTITY description "Legg til adressene du vil blokkere. For forslag, se rullegardinlisten. Du kan bruke * som jokertegn for å lage mer dekkende filtre. Avanserte brukere kan bruke uttrykk som /banner\d+\.gif$/.">
-<!ENTITY pattern.column "Regler for filtre">
 <!ENTITY enabled.column "Aktivert">
 <!ENTITY hitcount.column "Treff">
 <!ENTITY lasthit.column "Siste treff">

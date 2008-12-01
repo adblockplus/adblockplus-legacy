@@ -1,0 +1,40 @@
+<!ENTITY dialog.title "Lägg till Adblock Plus filterregel">
+<!ENTITY accept.label "Lägg till filter">
+<!ENTITY advanced.label "Avancerat">
+<!ENTITY basic.label "Standard">
+<!ENTITY disabled.warning.beforeLink "Adblock Plus är inaktiverad. Du kan lägga till filter men kan inte användas förrän du">
+<!ENTITY disabled.warning.link "aktiverar Adblock Plus">
+<!ENTITY disabled.warning.afterLink ".">
+<!ENTITY filter.label "Nytt filter:">
+<!ENTITY filter.accesskey "f">
+<!ENTITY preferences.label "Visa filter...">
+<!ENTITY preferences.accesskey "s">
+<!ENTITY type.filter.label "Blockerande filter">
+<!ENTITY type.filter.accesskey "B">
+<!ENTITY type.whitelist.label "Regel för undantag">
+<!ENTITY type.whitelist.accesskey "u">
+<!ENTITY pattern.label "Sök efter mönster">
+<!ENTITY pattern.explanation "Mönster är en del av en adress, symbolen * är jokertecken. Filtret används endast på adresser som matchas mot mönstret.">
+<!ENTITY regexp.warning "Mönstret du angett hanteras som ett reguljärt uttryck. Många reguljära uttryck kan göra din surfning långsam. Om du inte avsåg att använda reguljära uttruck, lägg till ett *-tecken i slutet av mönstret.">
+<!ENTITY shortpattern.warning "Detta mönster är för kort för optimal prestanda och för många sådana mönster kan göra din surfning långsam. Det rekommenderas att använda längre strängar för detta filter.">
+<!ENTITY custom.pattern.label "Eget:">
+<!ENTITY custom.pattern.accesskey "E">
+<!ENTITY anchors.label "Acceptera endast mönster:">
+<!ENTITY anchor.start.label "i början av adresser">
+<!ENTITY anchor.start.accesskey "b">
+<!ENTITY anchor.end.label "i slutet av adresser">
+<!ENTITY anchor.end.accesskey "s">
+<!ENTITY options.label "Inställningar">
+<!ENTITY firstParty.label "Endast första-part">
+<!ENTITY firstParty.accesskey "f">
+<!ENTITY thirdParty.label "Endast tredje-part">
+<!ENTITY thirdParty.accesskey "t">
+<!ENTITY matchCase.label "Matcha versaler/gemener">
+<!ENTITY matchCase.accesskey "M">
+<!ENTITY types.label "Verkställ för:">
+<!ENTITY collapse.label "Göm blockerat:">
+<!ENTITY collapse.accesskey "l">
+<!ENTITY collapse.default.yes.label "Standard (ja)">
+<!ENTITY collapse.default.no.label "Standard (nej)">
+<!ENTITY collapse.yes.label "Ja">
+<!ENTITY collapse.no.label "Nej">

@@ -1,0 +1,22 @@
+<!ENTITY notloaded.label "Није учитано">
+<!ENTITY notloaded.tooltip "Компонента Adblock Plus-а не може бити учитана. Можда постоји грешка у инсталацији.">
+<!ENTITY status.tooltip "Статус:">
+<!ENTITY blocked.tooltip "Блокиране ставке на овој страни:">
+<!ENTITY filters.tooltip "Најактивнији филтер:">
+<!ENTITY menuitem.label "Подешавања Adblock Plus-а">
+<!ENTITY menuitem.accesskey "в">
+<!ENTITY view.blockableItems.label "Adblock Plus:Ставке које се могу блокирати">
+<!ENTITY context.image.label "Блокирај слику">
+<!ENTITY context.object.label "Блокирај објекат">
+<!ENTITY context.frame.label "Блокирај оквир">
+<!ENTITY sidebar.title "Ставке које се могу блокирати на овој страни">
+<!ENTITY settings.label "Подешавања">
+<!ENTITY settings.accesskey "д">
+<!ENTITY opensidebar.label "Отвори ставке које се могу блокирати">
+<!ENTITY opensidebar.accesskey "т">
+<!ENTITY closesidebar.label "Затвори ставке које се могу блокирати">
+<!ENTITY closesidebar.accesskey "т">
+<!ENTITY whitelist.site.label "Искључи на --">
+<!ENTITY whitelist.page.label "Искључи само на овој страни">
+<!ENTITY objecttab.title "Блокирај">
+<!ENTITY objecttab.tooltip "Кликните овде како би сте блокирали ставку помоћу Adblock Plus-а">

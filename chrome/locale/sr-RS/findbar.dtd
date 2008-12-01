@@ -1,0 +1,13 @@
+<!ENTITY find.label "Нађи:">
+<!ENTITY next.label "Следећа">
+<!ENTITY next.accesskey "С">
+<!ENTITY next.tooltip "Налази наредну појаву фразе">
+<!ENTITY previous.label "Претходна">
+<!ENTITY previous.accesskey "П">
+<!ENTITY previous.tooltip "Налази претходну појаву фразе">
+<!ENTITY findCloseButton.tooltip "Затвори линију претраге">
+<!ENTITY highlight.label "Истакни све">
+<!ENTITY highlight.accesskey "к">
+<!ENTITY highlight.tooltiptext "Истиче све појаве фразе">
+<!ENTITY caseSensitiveCheckbox.label "Разликуј мала и велика слова">
+<!ENTITY caseSensitiveCheckbox.accesskey "м">

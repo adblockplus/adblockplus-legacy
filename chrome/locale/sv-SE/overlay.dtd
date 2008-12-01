@@ -3,8 +3,9 @@
 <!ENTITY status.tooltip "Status:">
 <!ENTITY blocked.tooltip "Blockerade objekt på denna sida:">
 <!ENTITY filters.tooltip "Mest aktiva filter:">
-<!ENTITY menuitem.label "Adblock Plus">
+<!ENTITY menuitem.label "Adblock Plus inställningar">
 <!ENTITY menuitem.accesskey "A">
+<!ENTITY view.blockableItems.label "Adblock Plus: Blockerbara poster">
 <!ENTITY context.image.label "Adblock Bild">
 <!ENTITY context.object.label "Adblock Objekt">
 <!ENTITY context.frame.label "Adblock Ram">

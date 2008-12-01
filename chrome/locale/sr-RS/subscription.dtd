@@ -1,0 +1,14 @@
+<!ENTITY dialog.title "Уређивање пријаве на филтер">
+<!ENTITY dialog.newtitle "Пријављивање на филтер">
+<!ENTITY new.description "Молимо унесите интернет адресу или датотеку која садржи листу Adblock Plus филтера.">
+<!ENTITY edit.description "Листа филтера ће бити преузета са задате локације.">
+<!ENTITY external.description "Ово је вањска пријава на филтер. Листа филтера ће бити ажурирана од стране проширења које је извршило пријаву.">
+<!ENTITY autodownload.description "Уколико изаберете &apos;Аутоматско ажурирање&apos;, на овој локација ће свакодневно бити проверавано постојање унапређења. Искључивањем ове опције и даље можете вршити ручно унапређење.">
+<!ENTITY location.label "Локација листе са филтерима:">
+<!ENTITY location.accesskey "Л">
+<!ENTITY title.label "Назив пријаве:">
+<!ENTITY title.accesskey "Н">
+<!ENTITY autodownload.label "Аутоматско ажурирање">
+<!ENTITY autodownload.accesskey "А">
+<!ENTITY enabled.label "Омогући филтере">
+<!ENTITY enabled.accesskey "О">

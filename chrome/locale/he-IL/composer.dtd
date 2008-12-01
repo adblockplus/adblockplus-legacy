@@ -1,0 +1,40 @@
+<!ENTITY dialog.title "הוספת חוק מסנן Adblock Plus">
+<!ENTITY accept.label "הוספת מסנן">
+<!ENTITY advanced.label "תצוגה מתקדמת">
+<!ENTITY basic.label "תצוגה בסיסית">
+<!ENTITY disabled.warning.beforeLink "Adblock Plus מנוטרל. אתה יכול לערוך את כל המסננים ברשימה, אבל זה לא יהיה מעשי עד שתאפשר אותו מחדש.">
+<!ENTITY disabled.warning.link "מאפשר את Adblock Plus">
+<!ENTITY disabled.warning.afterLink ".">
+<!ENTITY filter.label "מסנן חדש:">
+<!ENTITY filter.accesskey "כ">
+<!ENTITY preferences.label "מציג מסננים קיימים...">
+<!ENTITY preferences.accesskey "ד">
+<!ENTITY type.filter.label "מסנן חסימה">
+<!ENTITY type.filter.accesskey "נ">
+<!ENTITY type.whitelist.label "חוק חריג">
+<!ENTITY type.whitelist.accesskey "ס">
+<!ENTITY pattern.label "חפש אחר תבנית">
+<!ENTITY pattern.explanation "הדפוס יכול להיות כל חלק מהכתובת, סמל * משמש כתו חופשי שאחריו יכול לבוא כל תו אחר. המסנן יכול להחיל רק על כתובות המתאימות לתבנית.">
+<!ENTITY regexp.warning "הדפוס שהוזן יפורש כביטוי רגיל. ביטויים רגילים רבים עשויים להאט את הגלישה. אם אין כוונה להשתמש בביטויים רגילים, יש להוסיף את הסמל * בסוף התבנית.">
+<!ENTITY shortpattern.warning "הדפוס שהוזן קצר מדי בכדי להיות יעיל, דפוסים רבים מסוג זה עשויים להאט את הגלישה. מומלץ לבחור מחרוזת ארוכה יותר למסנן זה.">
+<!ENTITY custom.pattern.label "מותאם אישית:">
+<!ENTITY custom.pattern.accesskey "ב">
+<!ENTITY anchors.label "הסכם לתבנית שרק:">
+<!ENTITY anchor.start.label "בתחילת הכתובת">
+<!ENTITY anchor.start.accesskey "ע">
+<!ENTITY anchor.end.label "בסוף הכתובת">
+<!ENTITY anchor.end.accesskey "ג">
+<!ENTITY options.label "אפשרויות">
+<!ENTITY firstParty.label "צד-ראשון (יוצר) בלבד">
+<!ENTITY firstParty.accesskey "ר">
+<!ENTITY thirdParty.label "צד-שלישי בלבד">
+<!ENTITY thirdParty.accesskey "א">
+<!ENTITY matchCase.label "התאם אותיות גדולות/קטנות">
+<!ENTITY matchCase.accesskey "צ">
+<!ENTITY types.label "החל על סוגים:">
+<!ENTITY collapse.label "שמוט חסומים:">
+<!ENTITY collapse.accesskey "ך">
+<!ENTITY collapse.default.yes.label "השתמש בברירת מחדל (כן)">
+<!ENTITY collapse.default.no.label "השתמש בברירת מחדל (לא)">
+<!ENTITY collapse.yes.label "כן">
+<!ENTITY collapse.no.label "לא">

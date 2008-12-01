@@ -18,5 +18,3 @@ manuaalselt tellimuse konteksti menüüst.">
 <!ENTITY autodownload.accesskey "U">
 <!ENTITY enabled.label "Luba filtreid">
 <!ENTITY enabled.accesskey "L">
-<!ENTITY full-list.url "http://adblockplus.org/en/subscriptions">
-<!ENTITY full-list.label "Näita kõiki tellimusi">

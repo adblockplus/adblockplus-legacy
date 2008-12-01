@@ -54,11 +54,9 @@
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Teavet">
 <!ENTITY about.accesskey "s">
-<!ENTITY disabled.warning "Adblock Plus on kinni. Sa saad muuta kõiki filtreid kuid need ei ole rakendatud, kuni Adblock ei ole sees.">
 <!ENTITY description "Lisa aadresse mida sa soovid blokeerida, soovituseks vaata nimekirja.
 Sa saad kasutada * et luua rohkem üldiseid filtreid. Edasijõudnud kasutajad saavad
 kasutada regulaarseid väljendeid.">
-<!ENTITY pattern.column "Filtri reegel">
 <!ENTITY enabled.column "Lubatud">
 <!ENTITY hitcount.column "Tabamusi">
 <!ENTITY lasthit.column "Viimane tabamus">

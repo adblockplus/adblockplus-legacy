@@ -5,6 +5,7 @@
 <!ENTITY filters.tooltip "Najaktívnejšie filtre:">
 <!ENTITY menuitem.label "Adblock Plus">
 <!ENTITY menuitem.accesskey "A">
+<!ENTITY view.blockableItems.label "Adblock Plus: Blokovateľné položky">
 <!ENTITY context.image.label "Adblock obrázok">
 <!ENTITY context.object.label "Adblock objekt">
 <!ENTITY context.frame.label "Adblock rámec">

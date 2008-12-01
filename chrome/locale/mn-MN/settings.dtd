@@ -29,6 +29,16 @@
 <!ENTITY menu.find.accesskey "А">
 <!ENTITY menu.findagain.label "Дахин хайх">
 <!ENTITY menu.findagain.accesskey "Д">
+<!ENTITY view.label "Харах">
+<!ENTITY view.accesskey "Х">
+<!ENTITY sort.label "Эрэмбэлэх нь">
+<!ENTITY sort.accesskey "Э">
+<!ENTITY sort.none.label "Эрэмбэ үгүй">
+<!ENTITY sort.none.accesskey "Ү">
+<!ENTITY sort.ascending.label "А &gt; Я эрэмбэлэх">
+<!ENTITY sort.ascending.accesskey "А">
+<!ENTITY sort.descending.label "Я &gt; А эрэмбэлэх">
+<!ENTITY sort.descending.accesskey "Я">
 <!ENTITY options.label "Сонголтууд">
 <!ENTITY options.accesskey "О">
 <!ENTITY enable.label "Adblock Plus идэвхтэй">
@@ -54,16 +64,17 @@
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Adblock Plus-ийн тухай">
 <!ENTITY about.accesskey "Т">
-<!ENTITY disabled.warning "Adblock Plus нь хаалттай байна. Та жагсаалт дахь ямарваа шүүлтүүрийг засаж чадна. Гэхдээ дараагийн идэвхтэй болготол идэвхжихгүй.">
-<!ENTITY description "
-		Хашихыг хүссэн хаягаа нэмэхдээ, доош унжих жагсаалтаас авч боломжтой.
+<!ENTITY description "Хашихыг хүссэн хаягаа нэмэхдээ, доош унжих жагсаалтаас авч боломжтой.
 		Та * ашиглан илүү ерөнхий шүүлтүүр үүсгэж болно. Илүү хэрэглэгчид
-		энгийн илэрхийлэл (regexpression) ашиглаж чадна. Ж: /banner\d+\.gif$/.
-">
-<!ENTITY pattern.column "Шүүлтүүрийн дүрэм">
+		энгийн илэрхийлэл (regexpression) ашиглаж чадна. Ж: /banner\d+\.gif$/.">
+<!ENTITY filter.column "Шүүх дүрэм">
+<!ENTITY filter.accesskey "Ш">
 <!ENTITY enabled.column "Идэвхтэй">
+<!ENTITY enabled.accesskey "И">
 <!ENTITY hitcount.column "Хандалт">
+<!ENTITY hitcount.accesskey "Х">
 <!ENTITY lasthit.column "Сүүлийн хандалт">
+<!ENTITY lasthit.accesskey "С">
 <!ENTITY context.edit.label "Шүүлтүүр засах">
 <!ENTITY context.resethitcount.label "Шүүлтүүрийн хандалтын статистикийг эхлүүлэх">
 <!ENTITY context.synchsubscription.label "Мэдээлэгчийг одоо шинэчлэх">
@@ -72,5 +83,7 @@
 <!ENTITY context.movedown.label "Доошлуулах">
 <!ENTITY context.movegroupup.label "Бүлгийг дээшлүүлэх">
 <!ENTITY context.movegroupdown.label "Бүлгийг доошлуулах">
+<!ENTITY context.enable.label "Нээх">
+<!ENTITY context.disable.label "Хаах">
 <!ENTITY apply.label "Хэрэглэх">
 <!ENTITY apply.accesskey "Г">

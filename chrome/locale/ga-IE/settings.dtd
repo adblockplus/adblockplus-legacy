@@ -45,7 +45,6 @@
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Maidir le Adblock Plus">
 <!ENTITY about.accesskey "B">
-<!ENTITY pattern.column "Riail an scagaire">
 <!ENTITY enabled.column "Cumasaithe">
 <!ENTITY context.moveup.label "Bog suas">
 <!ENTITY context.movedown.label "Bog síos">

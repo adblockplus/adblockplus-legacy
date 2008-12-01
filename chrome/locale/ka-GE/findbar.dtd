@@ -1,7 +1,3 @@
-<!-- LOCALIZATION NOTE : FILE This file contains the entities needed to -->
-<!-- LOCALIZATION NOTE : FILE use the Find Bar. --> 
-
-<!-- entities split out from browser.dtd -->
 <!ENTITY find.label "\u10de\u10dd\u10d5\u10dc\u10d0:">
 <!ENTITY next.label "შემდეგი">
 <!ENTITY next.accesskey "N">
