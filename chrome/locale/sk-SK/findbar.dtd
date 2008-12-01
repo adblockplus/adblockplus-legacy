@@ -1,7 +1,3 @@
-<!-- LOCALIZATION NOTE : FILE This file contains the entities needed to -->
-<!-- LOCALIZATION NOTE : FILE use the Find Bar. -->
-
-<!-- entities split out from browser.dtd -->
 <!ENTITY find.label "Hľadať:">
 <!ENTITY next.label "Ďalšie">
 <!ENTITY next.accesskey "a">
@@ -15,4 +11,3 @@
 <!ENTITY highlight.tooltiptext "Zvýrazní všetky výskyty hľadaného reťazca (Ctrl+Enter)">
 <!ENTITY caseSensitiveCheckbox.label "Rozlišovať veľké/malé písmená">
 <!ENTITY caseSensitiveCheckbox.accesskey "R">
-

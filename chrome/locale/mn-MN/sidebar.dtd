@@ -7,6 +7,7 @@
 <!ENTITY address.label "Хаяг">
 <!ENTITY filter.label "Шүүлтүүр">
 <!ENTITY state.label "Нөхцөл">
+<!ENTITY size.label "Хэмжээ">
 <!ENTITY noitems.label "Хашигдах зүйлс алга">
 <!ENTITY whitelisted.label "Цагаанжагсаалтын хуудас">
 <!ENTITY notloaded.label "Adblock Plus нь зөв суугдаагүй байна">
@@ -14,10 +15,16 @@
 <!ENTITY tooltip.type.label "Төрөл:">
 <!ENTITY tooltip.type.blocked "(хашигдсан)">
 <!ENTITY tooltip.type.whitelisted "(цагаандсан)">
+<!ENTITY tooltip.size.label "Хэмжээ:">
 <!ENTITY tooltip.filter.label "Эффектийн шүүлтүүр:">
+<!ENTITY tooltip.filterSource.label "Шүүлтүүрийн эх:">
 <!ENTITY context.block.label "Уг зүйлийг хаших">
 <!ENTITY context.editfilter.label "Эффектийн шүүлтүүрийг засах">
 <!ENTITY context.whitelist.label "Зүйлд онцгой дүрэм нэмэх">
+<!ENTITY context.disablefilter.label "Шүүлтүүр хаах --">
+<!ENTITY context.enablefilter.label "Шүүлтүүр нээх --">
 <!ENTITY context.open.label "Шинэ хуудсанд нээх">
 <!ENTITY context.flash.label "Flash зүйлийн хүрээнүүд">
 <!ENTITY context.copy.label "Зүйлийн хаягийг сануулах">
+<!ENTITY context.copyFilter.label "Шүүлтүүр хуулах">
+<!ENTITY context.selectAll.label "Бүгдийг сонгох">

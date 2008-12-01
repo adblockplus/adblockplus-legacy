@@ -1,0 +1,5 @@
+<!ENTITY filterset.g.moreinfo "Више информација">
+<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
+<!ENTITY subscribe.label "Претплата">
+<!ENTITY subscribe.accesskey "П">
+<!ENTITY full-list.url "http://adblockplus.org/en/subscriptions">

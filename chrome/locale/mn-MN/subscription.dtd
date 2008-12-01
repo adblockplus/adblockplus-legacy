@@ -1,22 +1,14 @@
 <!ENTITY dialog.title "Шүүлтүүрийн мэдээлэгч засах">
 <!ENTITY dialog.newtitle "Шүүлтүүрийн мэдээлэгч нэмэх">
-<!ENTITY new.description "
-	Вэб хаяг эсвэл Adblock Plus шүүлтүүрийн жагсаалт агуулж буй файл оруулна уу.
-">
-<!ENTITY edit.description "
-	Өгсөн хаягаас татагдах уг мэдээлэгчийн шүүлтүүрийн
-	жагсаалт.
-">
-<!ENTITY external.description "
-	Энэ бол гадаад шүүлтүүрийн мэдээлэгч байна. Энэ шүүлтүүрийн
+<!ENTITY new.description "Вэб хаяг эсвэл Adblock Plus шүүлтүүрийн жагсаалт агуулж буй файл оруулна уу.">
+<!ENTITY edit.description "Өгсөн хаягаас татагдах уг мэдээлэгчийн шүүлтүүрийн
+	жагсаалт.">
+<!ENTITY external.description "Энэ бол гадаад шүүлтүүрийн мэдээлэгч байна. Энэ шүүлтүүрийн
 	жагсаалт нь уг мэдээлэгчийг үүсгэсэн нэмэлтийг шинэчлэх
-	хүрэтэл хадгалагдана.
-">
-<!ENTITY autodownload.description "
-		Хэрэв та уг байршилд &apos;Автоматаар шинэчлэх&apos;-ийг сонгосон бол
+	хүрэтэл хадгалагдана.">
+<!ENTITY autodownload.description "Хэрэв та уг байршилд &apos;Автоматаар шинэчлэх&apos;-ийг сонгосон бол
 		шинэчлэлт нь өдөр бүр шалгагдах болно. Уг тохиргоо нь хаалттай
-		бол мэдээлэгчийн хамаарах цэсээс та гараар шинэчилж чадна..
-">
+		бол мэдээлэгчийн хамаарах цэсээс та гараар шинэчилж чадна..">
 <!ENTITY location.label "Шүүлтүүрийн жагсаалтын байршил:">
 <!ENTITY location.accesskey "Б">
 <!ENTITY title.label "Мэдээлэгчийн гарчиг:">
@@ -25,5 +17,3 @@
 <!ENTITY autodownload.accesskey "В">
 <!ENTITY enabled.label "Шүүлтүүр нээлттэй">
 <!ENTITY enabled.accesskey "Н">
-<!ENTITY full-list.url "http://adblockplus.org/en/subscriptions">
-<!ENTITY full-list.label "Бүх мэдээлэгчийг харах">

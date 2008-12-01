@@ -29,10 +29,20 @@
 <!ENTITY menu.find.accesskey "N">
 <!ENTITY menu.findagain.label "Nájsť znova">
 <!ENTITY menu.findagain.accesskey "Z">
+<!ENTITY view.label "Zobraziť">
+<!ENTITY view.accesskey "Z">
+<!ENTITY sort.label "Triediť podľa">
+<!ENTITY sort.accesskey "T">
+<!ENTITY sort.none.label "Netriedené">
+<!ENTITY sort.none.accesskey "N">
+<!ENTITY sort.ascending.label "Triediť od A &gt; Z">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.descending.label "Triediť od Z &gt; A">
+<!ENTITY sort.descending.accesskey "d">
 <!ENTITY options.label "Možnosti">
 <!ENTITY options.accesskey "M">
 <!ENTITY enable.label "Zapnúť Adblock Plus">
-<!ENTITY enable.accesskey "Z">
+<!ENTITY enable.accesskey "A">
 <!ENTITY showintoolbar.label "Zobraziť v paneli nástrojov">
 <!ENTITY showintoolbar.accesskey "B">
 <!ENTITY showinstatusbar.label "Zobraziť v stavovom riadku">
@@ -54,14 +64,17 @@
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "O rozšírení Adblock Plus">
 <!ENTITY about.accesskey "O">
-<!ENTITY disabled.warning "Adblock Plus je vypnutý. Môžete upraviť filtre v zozname, ale tie nebudú potvrdené po znovuzapnutí.">
 <!ENTITY description "Pridať adresu,ktorú chcete blokovať, návrhy skontrolujte v rozbaľovacej ponuke.
 		Môžete použiť * ako divokú kartu na vytvorenie všeobecných filtrov. Pokročilí používatelia môžu
 		použiť regulárne výrazy ako /banner\d+\.gif$/.">
-<!ENTITY pattern.column "Pravidlo filtra">
+<!ENTITY filter.column "Pravidlo filtra">
+<!ENTITY filter.accesskey "f">
 <!ENTITY enabled.column "Zapnuté">
+<!ENTITY enabled.accesskey "Z">
 <!ENTITY hitcount.column "Počítadlá">
+<!ENTITY hitcount.accesskey "P">
 <!ENTITY lasthit.column "Posledný zápis">
+<!ENTITY lasthit.accesskey "s">
 <!ENTITY context.edit.label "Upraviť filter">
 <!ENTITY context.resethitcount.label "Resetovať štatistiku počítadla pre filter">
 <!ENTITY context.synchsubscription.label "Aktualizovať povolenia teraz">
@@ -70,5 +83,7 @@
 <!ENTITY context.movedown.label "Posunúť dole">
 <!ENTITY context.movegroupup.label "Posunúť skupinu hore">
 <!ENTITY context.movegroupdown.label "Posunúť skupinu dole">
+<!ENTITY context.enable.label "Zapnúť">
+<!ENTITY context.disable.label "Vypnúť">
 <!ENTITY apply.label "Potvrdiť">
 <!ENTITY apply.accesskey "V">

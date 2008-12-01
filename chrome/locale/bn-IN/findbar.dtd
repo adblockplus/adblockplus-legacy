@@ -1,7 +1,3 @@
-<!-- LOCALIZATION NOTE : FILE This file contains the entities needed to -->
-<!-- LOCALIZATION NOTE : FILE use the Find Bar. --> 
-
-<!-- entities split out from browser.dtd -->
 <!ENTITY find.label "অনুসন্ধান:">
 <!ENTITY next.label "পরবর্তী উপস্থিতি অনুসন্ধান">
 <!ENTITY next.accesskey "N">

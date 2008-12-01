@@ -29,8 +29,6 @@
 <!ENTITY faq.url "http://adblockplus.org/en/faq">
 <!ENTITY tips.label "Iradokizunak">
 <!ENTITY tips.url "http://adblockplus.org/en/tips">
-<!ENTITY disabled.warning "Adblock Plus ezgaituta dago. Listako edozein iragazki editatu dezakezu, baina ez dira aplikatuko berriro gaitzen ez duzun bitartean.">
-<!ENTITY pattern.column "Iragazki araua">
 <!ENTITY enabled.column "Gaituta">
 <!ENTITY context.edit.label "Editatu iragazkia">
 <!ENTITY context.synchsubscription.label "Eguneratu harpidetza orain">

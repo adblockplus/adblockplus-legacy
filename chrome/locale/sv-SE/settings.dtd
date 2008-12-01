@@ -9,9 +9,9 @@
 <!ENTITY synchsubscriptions.accesskey "d">
 <!ENTITY import.label "Importera filter">
 <!ENTITY import.accesskey "I">
-<!ENTITY export.label "Exportera filter">
+<!ENTITY export.label "Exportera egna filter">
 <!ENTITY export.accesskey "E">
-<!ENTITY clearall.label "Ta bort alla filter">
+<!ENTITY clearall.label "Ta bort alla egna filter">
 <!ENTITY clearall.accesskey "T">
 <!ENTITY resethitcounts.label "Nollställ statistik - Antal träffar">
 <!ENTITY resethitcounts.accesskey "r">
@@ -29,6 +29,16 @@
 <!ENTITY menu.find.accesskey "S">
 <!ENTITY menu.findagain.label "Sök igen">
 <!ENTITY menu.findagain.accesskey "g">
+<!ENTITY view.label "Visa">
+<!ENTITY view.accesskey "s">
+<!ENTITY sort.label "Sortera på">
+<!ENTITY sort.accesskey "å">
+<!ENTITY sort.none.label "Osorterad">
+<!ENTITY sort.none.accesskey "O">
+<!ENTITY sort.ascending.label "Sortering A &gt; Ö">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.descending.label "Sortering Ö &gt; A">
+<!ENTITY sort.descending.accesskey "Ö">
 <!ENTITY options.label "Alternativ">
 <!ENTITY options.accesskey "n">
 <!ENTITY enable.label "Adblock Plus på">
@@ -54,19 +64,24 @@
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Om Adblock Plus">
 <!ENTITY about.accesskey "O">
-<!ENTITY disabled.warning "Adblock Plus är av. Du kan ändra filter i listan men tas inte i bruk förrän du slår på Adblock Plus.">
-<!ENTITY description "Lägg till adresser du vill blockera (ex. finns listrutan). Du kan använda * som flagga för att skapa mer generella filter. Avancerade användare an använda reguljära uttryck som /banner/d+/.gif$/.">
-<!ENTITY pattern.column "Filterregler">
+<!ENTITY description "Följande filter avgör vilka adresser som skall blockeras och vilka som skall tillåtas:">
+<!ENTITY filter.column "Filterregler">
+<!ENTITY filter.accesskey "F">
 <!ENTITY enabled.column "På">
+<!ENTITY enabled.accesskey "å">
 <!ENTITY hitcount.column "Träffar">
+<!ENTITY hitcount.accesskey "ä">
 <!ENTITY lasthit.column "Senaste träff">
+<!ENTITY lasthit.accesskey "r">
 <!ENTITY context.edit.label "Ändra filter">
 <!ENTITY context.resethitcount.label "Nollställ statistik - Antal träffar med filter">
 <!ENTITY context.synchsubscription.label "Uppdatera prenumeration nu">
 <!ENTITY context.editsubscription.label "Ändra prenumeration">
-<!ENTITY context.moveup.label "Flytta upp">
-<!ENTITY context.movedown.label "Flytta ner">
+<!ENTITY context.moveup.label "Flytta upp filter">
+<!ENTITY context.movedown.label "Flytta ner filter">
 <!ENTITY context.movegroupup.label "Flytta upp grupp">
 <!ENTITY context.movegroupdown.label "Flytta ner grupp">
+<!ENTITY context.enable.label "Aktivera">
+<!ENTITY context.disable.label "Inaktivera">
 <!ENTITY apply.label "Verkställ">
 <!ENTITY apply.accesskey "V">
