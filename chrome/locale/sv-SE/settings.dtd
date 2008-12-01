@@ -32,7 +32,7 @@
 <!ENTITY view.label "Visa">
 <!ENTITY view.accesskey "s">
 <!ENTITY sort.label "Sortera på">
-<!ENTITY sort.accesskey "å">
+<!ENTITY sort.accesskey "t">
 <!ENTITY sort.none.label "Osorterad">
 <!ENTITY sort.none.accesskey "O">
 <!ENTITY sort.ascending.label "Sortering A &gt; Ö">
