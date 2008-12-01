@@ -38,6 +38,6 @@ system(qq(hg commit -m "Releasing Adblock Plus $version" downloads src));
 my $branch = $version;
 $branch =~ s/\./_/g;
 $branch = "ADBLOCK_PLUS_".$branch."_RELEASE";
-system(qq(hg tag $branch"));
+system(qq(hg tag $branch));
 
-system(qq(hg push"));
+system(qq(hg push));
