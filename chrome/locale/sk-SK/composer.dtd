@@ -8,7 +8,7 @@
 <!ENTITY filter.label "Nový filter:">
 <!ENTITY filter.accesskey "f">
 <!ENTITY preferences.label "Zobraziť existujúce filtre...">
-<!ENTITY preferences.accesskey "Z">
+<!ENTITY preferences.accesskey "x">
 <!ENTITY type.filter.label "Blokovanie filtra">
 <!ENTITY type.filter.accesskey "B">
 <!ENTITY type.whitelist.label "Základné pravidlo">
@@ -21,9 +21,9 @@
 <!ENTITY custom.pattern.accesskey "V">
 <!ENTITY anchors.label "Prijať vzor len:">
 <!ENTITY anchor.start.label "na začiatku adresy">
-<!ENTITY anchor.start.accesskey "k">
+<!ENTITY anchor.start.accesskey "z">
 <!ENTITY anchor.end.label "na konci adresy">
-<!ENTITY anchor.end.accesskey "d">
+<!ENTITY anchor.end.accesskey "c">
 <!ENTITY options.label "Možnosti">
 <!ENTITY firstParty.label "Len prvá strana">
 <!ENTITY firstParty.accesskey "L">
@@ -33,7 +33,7 @@
 <!ENTITY matchCase.accesskey "M">
 <!ENTITY types.label "Aplikovať na typy:">
 <!ENTITY collapse.label "Pád zablokovaný::">
-<!ENTITY collapse.accesskey "l">
+<!ENTITY collapse.accesskey "d">
 <!ENTITY collapse.default.yes.label "Použiť pôvodné (áno)">
 <!ENTITY collapse.default.no.label "Použiť pôvodné (nie)">
 <!ENTITY collapse.yes.label "Áno">
