@@ -40,7 +40,7 @@ function init() {
 
   [wnd, item] = window.arguments;
 
-  E("filterType").value = (!item.filter || item.filter instanceof abp.WhitelistFilter ? "filterlist" : "whitelist");
+  E("filterType").value = (!item.filter || item.filter.disabled || item.filter instanceof abp.WhitelistFilter ? "filterlist" : "whitelist");
   E("customPattern").value = item.location;
 
   let insertionPoint = E("customPatternBox");

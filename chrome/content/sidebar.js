@@ -228,7 +228,7 @@ function fillInTooltip(e) {
   if (!item)
     return false;
 
-  let filter = ("filter" in item ? item.filter : null);
+  let filter = ("filter" in item && item.filter && !item.filter.disabled ? item.filter : null);
   let size = ("tooltip" in item ? null : getItemSize(item));
 
   E("tooltipDummy").hidden = !("tooltip" in item);
@@ -325,38 +325,22 @@ function fillInContext(e) {
 
   E("contextDisableFilter").hidden = true;
   E("contextEnableFilter").hidden = true;
-  if ("filter" in item && item.filter != null)
+  if ("filter" in item && item.filter)
   {
     let filter = item.filter;
-    let menuItem = E("contextDisableFilter");
-    menuItem.item = item;
+    let menuItem = E(item.filter.disabled ? "contextEnableFilter" : "contextDisableFilter");
     menuItem.filter = filter;
     menuItem.setAttribute("label", menuItem.getAttribute("labeltempl").replace(/--/, filter.text));
     menuItem.hidden = false;
   }
-  else
-  {
-    let filter = disabledWhitelistMatcher.matchesAny(item.location, item.typeDescr, item.thirdParty);
-    if (!filter)
-      filter = disabledBlacklistMatcher.matchesAny(item.location, item.typeDescr, item.thirdParty);
 
-    if (filter)
-    {
-      let menuItem = E("contextEnableFilter");
-      menuItem.item = item;
-      menuItem.filter = filter;
-      menuItem.setAttribute("label", menuItem.getAttribute("labeltempl").replace(/--/, filter.text));
-      menuItem.hidden = false;
-    }
-  }
-
-  E("contextWhitelist").hidden = ("tooltip" in item || !item.filter || item.filter instanceof abp.WhitelistFilter || item.typeDescr == "ELEMHIDE");
+  E("contextWhitelist").hidden = ("tooltip" in item || !item.filter || item.filter.disabled || item.filter instanceof abp.WhitelistFilter || item.typeDescr == "ELEMHIDE");
   E("contextBlock").hidden = !E("contextWhitelist").hidden;
-  E("contextBlock").setAttribute("disabled", "filter" in item && item.filter != null);
-  E("contextEditFilter").setAttribute("disabled", !("filter" in item && item.filter != null));
+  E("contextBlock").setAttribute("disabled", "filter" in item && item.filter && !item.filter.disabled);
+  E("contextEditFilter").setAttribute("disabled", !("filter" in item && item.filter));
   E("contextOpen").setAttribute("disabled", "tooltip" in item || item.typeDescr == "ELEMHIDE");
-  E("contextFlash").setAttribute("disabled", "tooltip" in item || !(item.typeDescr in visual) || (item.filter && !(item.filter instanceof abp.WhitelistFilter)));
-  E("contextCopyFilter").setAttribute("disabled", !allItems.some(function(item) {return "filter" in item && item.filter != null}));
+  E("contextFlash").setAttribute("disabled", "tooltip" in item || !(item.typeDescr in visual) || (item.filter && !item.filter.disabled && !(item.filter instanceof abp.WhitelistFilter)));
+  E("contextCopyFilter").setAttribute("disabled", !allItems.some(function(item) {return "filter" in item && item.filter}));
 
   return true;
 }
@@ -417,12 +401,11 @@ function editFilter() {
   abp.openSettingsDialog(item.location, item.filter);
 }
 
-function enableFilter(item, filter, enable) {
+function enableFilter(filter, enable) {
   if (!abp)
     return;
 
   filter.disabled = !enable;
-  item.filter = (enable ? filter : null);
   abp.filterStorage.triggerFilterObservers(enable ? "enable" : "disable", [filter]);
   abp.filterStorage.saveToDisk();
 
@@ -518,7 +501,7 @@ function reattach() {
 // Returns items size in the document if available
 function getItemSize(item)
 {
-  if (item.filter && item.filter instanceof abp.BlockingFilter)
+  if (item.filter && !item.filter.disabled && item.filter instanceof abp.BlockingFilter)
     return null;
 
   for each (let node in item.nodes)
@@ -568,8 +551,8 @@ function compareFilter(item1, item2) {
 }
 
 function compareState(item1, item2) {
-  var state1 = (!item1.filter ? 0 : (item1.filter instanceof abp.WhitelistFilter ? 1 : 2));
-  var state2 = (!item2.filter ? 0 : (item2.filter instanceof abp.WhitelistFilter ? 1 : 2));
+  var state1 = (!item1.filter || item1.filter.disabled ? 0 : (item1.filter instanceof abp.WhitelistFilter ? 1 : 2));
+  var state2 = (!item2.filter || item2.filter.disabled ? 0 : (item2.filter instanceof abp.WhitelistFilter ? 1 : 2));
   return state1 - state2;
 }
 
@@ -626,7 +609,7 @@ var treeView = {
     this.loadDummy = boxObject.treeBody.getAttribute("notloadedlabel");
 
     var stringAtoms = ["col-address", "col-type", "col-filter", "col-state", "col-size", "state-regular", "state-filtered", "state-whitelisted", "state-hidden"];
-    var boolAtoms = ["selected", "dummy"];
+    var boolAtoms = ["selected", "dummy", "filter-disabled"];
     var atomService = Components.classes["@mozilla.org/atom-service;1"]
                                 .getService(Components.interfaces.nsIAtomService);
 
@@ -746,14 +729,18 @@ var treeView = {
     if (this.data && this.data.length) {
       properties.AppendElement(this.atoms["dummy-false"]);
 
+      let filter = this.data[row].filter;
+      if (filter)
+        properties.AppendElement(this.atoms["filter-disabled-" + filter.disabled]);
+
       state = "state-regular";
-      if (this.data[row].filter)
+      if (filter && !filter.disabled)
       {
-        if (this.data[row].filter instanceof abp.WhitelistFilter)
+        if (filter instanceof abp.WhitelistFilter)
           state = "state-whitelisted";
-        else if (this.data[row].filter instanceof abp.BlockingFilter)
+        else if (filter instanceof abp.BlockingFilter)
           state = "state-filtered";
-        else if (this.data[row].filter instanceof abp.ElemHideFilter)
+        else if (filter instanceof abp.ElemHideFilter)
           state = "state-hidden";
       }
     }
@@ -867,6 +854,13 @@ var treeView = {
     var oldRows = this.rowCount;
 
     this.allData = data;
+    for each (let item in this.allData)
+    {
+      if (!item.filter)
+        item.filter = disabledWhitelistMatcher.matchesAny(item.location, item.typeDescr, item.thirdParty);
+      if (!item.filter)
+        item.filter = disabledBlacklistMatcher.matchesAny(item.location, item.typeDescr, item.thirdParty);
+    }
     this.refilter();
 
     this.boxObject.rowCountChanged(0, -oldRows);
@@ -875,6 +869,11 @@ var treeView = {
 
   addItem: function(item) {
     this.allData.push(item);
+    if (!item.filter)
+      item.filter = disabledWhitelistMatcher.matchesAny(item.location, item.typeDescr, item.thirdParty);
+    if (!item.filter)
+      item.filter = disabledBlacklistMatcher.matchesAny(item.location, item.typeDescr, item.thirdParty);
+
     if (this.filter && item.location.toLowerCase().indexOf(this.filter) < 0 && item.localizedDescr.toLowerCase().indexOf(this.filter) < 0)
       return;
 
