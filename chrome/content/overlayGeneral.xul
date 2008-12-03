@@ -78,7 +78,7 @@
     <label value="&notloaded.label;" tooltip="abp-tooltip"/>
   </statusbarpanel>
 
-  <toolbarbutton id="abp-toolbarbutton" disabled="true" label="&menuitem.label;"
+  <toolbarbutton id="abp-toolbarbutton" disabled="true" label="&toolbarbutton.label;"
       oncommand="if (event.target == this) abpCommandHandler(event)"
       onclick="if (event.target == this &amp;&amp; event.button == 1) abpTogglePref('enabled')"
       tooltip="abp-tooltip">
