@@ -28,7 +28,10 @@
  */
 
 const prefRoot = "extensions.adblockplus.";
-const gObjtabClass = "abp-objtab-" + Math.random().toString().replace(/\W/g, "");
+
+var gObjtabClass = ""
+for (let i = 0; i < 20; i++)
+  gObjtabClass += String.fromCharCode("a".charCodeAt(0) + Math.random() * 26);
 
 var prefService = Components.classes["@mozilla.org/preferences-service;1"]
                             .getService(Components.interfaces.nsIPrefService);
