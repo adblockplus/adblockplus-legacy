@@ -90,16 +90,16 @@ function postProcessNode(node) {
   var parentNode = node.parentNode;
   if (parentNode && parentNode instanceof Components.interfaces.nsIDOMHTMLFrameSetElement)
   {
-    var nonEmptyRE = /,/;
-    if ((parentNode.cols || parentNode.rows) && !(parentNode.cols && parentNode.rows))
+    let hasCols = (parentNode.cols && parentNode.cols.indexOf(",") > 0);
+    let hasRows = (parentNode.rows && parentNode.rows.indexOf(",") > 0);
+    if ((hasCols || hasRows) && !(hasCols && hasRows))
     {
-      var frameTags = {FRAME: true, FRAMESET: true};
       var index = -1;
       for (var frame = node; frame; frame = frame.previousSibling)
-        if (frame.nodeName.toUpperCase() in frameTags)
+        if (frame instanceof Components.interfaces.nsIDOMHTMLFrameElement || frame instanceof Components.interfaces.nsIDOMHTMLFrameSetElement)
           index++;
   
-      var property = (parentNode.rows ? "rows" : "cols");
+      var property = (hasCols ? "cols" : "rows");
       var weights = parentNode[property].split(",");
       weights[index] = "0";
       parentNode[property] = weights.join(",");
