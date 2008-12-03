@@ -21,7 +21,7 @@ close(VERSION);
 do './create_xpi.pl';
 
 opendir(LOCALES, "chrome/locale");
-my @locales = grep {!/[^\w\-]/} readdir(LOCALES);
+my @locales = grep {!/[^\w\-]/ && !-e("chrome/locale/$_/.incomplete")} readdir(LOCALES);
 closedir(LOCALES);
 
 # Create new single-locale builds
