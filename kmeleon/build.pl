@@ -73,7 +73,7 @@ system("mv -f adblockplus.dll ..") && exit;
 chdir('..');
 
 chdir('../chrome');
-$pkg->makeJAR('adblockplus.jar', 'content', 'skin', 'locale');
+$pkg->makeJAR('adblockplus.jar', 'content', 'skin', 'locale', '-/tests', '-/mochitest', '-/.incomplete');
 chdir('../kmeleon');
 
 $pkg->rm_rec('tmp');
