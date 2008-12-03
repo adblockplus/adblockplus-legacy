@@ -494,7 +494,8 @@ RegExpFilter.typeMap = {
   PING: 1024,
   XMLHTTPREQUEST: 2048,
   OBJECT_SUBREQUEST: 4096,
-  DTD: 8192
+  DTD: 8192,
+  MEDIA: 16384
 };
 
 /**

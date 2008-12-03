@@ -42,7 +42,7 @@ const block = Components.interfaces.nsIContentPolicy.REJECT_SERVER;
 
 var policy = {
   init: function() {
-    var types = ["OTHER", "SCRIPT", "IMAGE", "STYLESHEET", "OBJECT", "SUBDOCUMENT", "DOCUMENT", "XBL", "PING", "XMLHTTPREQUEST", "OBJECT_SUBREQUEST", "DTD"];
+    var types = ["OTHER", "SCRIPT", "IMAGE", "STYLESHEET", "OBJECT", "SUBDOCUMENT", "DOCUMENT", "XBL", "PING", "XMLHTTPREQUEST", "OBJECT_SUBREQUEST", "DTD", "MEDIA"];
 
     // type constant by type description and type description by type constant
     this.type = type = {};
