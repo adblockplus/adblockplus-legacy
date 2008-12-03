@@ -57,6 +57,10 @@
       is(result, expected, "match(" + location + ", " + contentType + ", " + (thirdParty ? "third-party" : "first-party") + ") with static filters");
     }
 
+    is(typeof abp.Matcher, "function", "typeof abp.Matcher");
+    ok(abp.blacklistMatcher instanceof abp.Matcher, "abp.blacklistMatcher is a Matcher instance");
+    ok(abp.whitelistMatcher instanceof abp.Matcher, "abp.blacklistMatcher is a Matcher instance");
+
     compareShortcuts("*", []);
     compareShortcuts("asdf", []);
     compareShortcuts("asdf1234", ["asdf1234"]);

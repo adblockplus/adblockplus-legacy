@@ -44,6 +44,10 @@ var wndData = null;
 var cacheSession = null;
 var noFlash = false;
 
+// Matchers for disabled filters
+var disabledBlacklistMatcher = new abp.Matcher();
+var disabledWhitelistMatcher = new abp.Matcher();
+
 function E(id) {
   return document.getElementById(id);
 }
@@ -70,6 +74,11 @@ function init() {
   if (abp) {
     // Install item listener
     DataContainer.addListener(handleItemChange);
+
+    // Initialize matchers for disabled filters
+    reloadDisabledFilters();
+    abp.filterStorage.addFilterObserver(reloadDisabledFilters);
+    abp.filterStorage.addSubscriptionObserver(reloadDisabledFilters);
 
     // Restore previous state
     var params = abp.getParams();
@@ -111,9 +120,31 @@ function cleanUp() {
 
   flasher.stop();
   DataContainer.removeListener(handleItemChange);
+  abp.filterStorage.removeFilterObserver(reloadDisabledFilters);
+  abp.filterStorage.removeSubscriptionObserver(reloadDisabledFilters);
 
   mainWin.abpGetBrowser().removeEventListener("select", handleTabChange, false);
   mainWin.removeEventListener("unload", mainUnload, false);
+}
+
+/**
+ * Updates matchers for disabled filters (global disabledBlacklistMatcher and
+ * disabledWhitelistMatcher variables), called on each filter change.
+ */
+function reloadDisabledFilters()
+{
+  disabledBlacklistMatcher.clear();
+  disabledWhitelistMatcher.clear();
+
+  for each (let subscription in abp.filterStorage.subscriptions)
+  {
+    if (subscription.disabled)
+      continue;
+
+    for each (let filter in subscription.filters)
+      if (filter instanceof abp.RegExpFilter && filter.disabled)
+        (filter instanceof abp.BlockingFilter ? disabledBlacklistMatcher : disabledWhitelistMatcher).add(filter);
+  }
 }
 
 // Called whenever list selection changes - triggers flasher
@@ -305,25 +336,12 @@ function fillInContext(e) {
   }
   else
   {
-    let candidates = [];
-    for each (let subscription in abp.filterStorage.subscriptions)
-      if (!subscription.disabled)
-        for each (let filter in subscription.filters)
-          if (filter.disabled && filter instanceof abp.RegExpFilter && filter.matches(item.location, item.typeDescr, item.thirdParty))
-            candidates.push(filter);
+    let filter = disabledWhitelistMatcher.matchesAny(item.location, item.typeDescr, item.thirdParty);
+    if (!filter)
+      filter = disabledBlacklistMatcher.matchesAny(item.location, item.typeDescr, item.thirdParty);
 
-    if (candidates.length)
+    if (filter)
     {
-      candidates.sort(function(filter1, filter2)
-      {
-        if (filter1 instanceof abp.BlockingFilter && !(filter2 instanceof abp.BlockingFilter))
-          return -1;
-        else if (filter2 instanceof abp.BlockingFilter && !(filter1 instanceof abp.BlockingFilter))
-          return 1;
-        else
-          return (filter1.length - filter2.length);
-      });
-      let filter = candidates[0];
       let menuItem = E("contextEnableFilter");
       menuItem.item = item;
       menuItem.filter = filter;

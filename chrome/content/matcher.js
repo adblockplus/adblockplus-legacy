@@ -236,6 +236,7 @@ Matcher.prototype = {
     return result;
   }
 };
+abp.Matcher = Matcher;
 
 /**
  * Matcher instance for blocking filters
