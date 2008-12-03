@@ -144,18 +144,25 @@ var elemhide =
 
     // Joining domains list
     let cssData = "";
+    let cssTemplate = "-moz-binding: url(chrome://global/content/bindings/general.xml?abphit:%ID%#basecontrol) !important;"
+
+    let geckoVersion = "0.0";
+    if ("nsIXULAppInfo" in  Components.interfaces)
+        geckoVersion = Components.classes["@mozilla.org/xre/app-info;1"].getService(Components.interfaces.nsIXULAppInfo).platformVersion;
+    if (abp.versionComparator.compare(geckoVersion, "1.9a1") < 0)
+    {
+      // Gecko 1.8 does not apply bindings to table rows and cells, need to
+      // change the value for display here. This might have undesired
+      // side-effects (http://adblockplus.org/forum/viewtopic.php?t=3200).
+      cssTemplate += "display: inline !important;";
+    }
+
     for (let domain in domains)
     {
       let rules = [];
       let list = domains[domain];
       for (let selector in list)
-      {
-        // Firefox 2 does not apply bindings to table rows and cells, need to
-        // change the value for display here. display:none won't work because
-        // invisible elements cannot have bindings but elements with misapplied
-        // bindings are hidden anyway.
-        rules.push(selector + "{display: inline !important; -moz-binding: url(chrome://global/content/bindings/general.xml?abphit:" + list[selector] + "#basecontrol) !important;}\n");
-      }
+        rules.push(selector + "{" + cssTemplate.replace(/%ID%/, list[selector]) + "}\n");
 
       if (domain)
         cssData += '@-moz-document domain("' + domain.split(",").join('"),domain("') + '"){\n' + rules.join('') + '}\n';
