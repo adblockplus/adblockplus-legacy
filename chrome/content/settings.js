@@ -708,20 +708,22 @@ function onFilterChange(/**String*/ action, /**Array of Filter*/ filters)
   switch (action)
   {
     case "add":
+      // addFilter() won't invalidate if the filter is already there because
+      // the subscription didn't create its subscription.filters copy yet,
+      // an update batch makes sure that everything is invalidated.
+      treeView.boxObject.beginUpdateBatch();
       for each (let filter in filters)
         treeView.addFilter(getFilterByText(filter.text), null, null, true);
-
-      // addFilter() won't invalidate if the filter is already there because
-      // the subscription didn't create its subscription.filters copy yet.
-      treeView.boxObject.invalidate();
+      treeView.boxObject.endUpdateBatch();
       return;
     case "remove":
+      // removeFilter() won't invalidate if the filter is already removed because
+      // the subscription didn't create its subscription.filters copy yet,
+      // an update batch makes sure that everything is invalidated.
+      treeView.boxObject.beginUpdateBatch();
       for each (let filter in filters)
         treeView.removeFilter(null, getFilterByText(filter.text));
-
-      // removeFilter() won't invalidate if the filter is already removed because
-      // the subscription didn't create its subscription.filters copy yet.
-      treeView.boxObject.invalidate();
+      treeView.boxObject.endUpdateBatch();
       return;
     case "enable":
     case "disable":
