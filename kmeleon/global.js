@@ -138,9 +138,20 @@ var _overlayContextMenu = function() {
   request.open("GET", "chrome://adblockplus/content/overlayGeneral.xul", false);
   request.send(null);
 
-  var ret = request.responseXML
-                .getElementsByTagNameNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", "popup")
-                .item(0).QueryInterface(Components.interfaces.nsIDOMXULElement);
+  var doc = request.responseXML;
+  var ret = doc.getElementsByTagNameNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", "popup")
+               .item(0).QueryInterface(Components.interfaces.nsIDOMXULElement);
+  var menuitems = ret.getElementsByTagName("menuitem");
+  for (var i = 0; i < menuitems.length; i++)
+  {
+    var menuitem = menuitems.item(i).QueryInterface(Components.interfaces.nsIDOMXULElement);
+    if (menuitem.hasAttribute("command"))
+    {
+      var command = doc.getElementById(menuitem.getAttribute("command"));
+      if (command && command.hasAttribute("oncommand"))
+        menuitem.setAttribute("oncommand", command.getAttribute("oncommand"));
+    }
+  }
   return ret;
 }();
 var _overlayContextMenuItems = {};
