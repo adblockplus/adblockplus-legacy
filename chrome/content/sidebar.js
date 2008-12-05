@@ -551,8 +551,8 @@ function compareFilter(item1, item2) {
 }
 
 function compareState(item1, item2) {
-  var state1 = (!item1.filter || item1.filter.disabled ? 0 : (item1.filter instanceof abp.WhitelistFilter ? 1 : 2));
-  var state2 = (!item2.filter || item2.filter.disabled ? 0 : (item2.filter instanceof abp.WhitelistFilter ? 1 : 2));
+  var state1 = (!item1.filter ? 0 : (item1.filter.disabled ? 1 : (item1.filter instanceof abp.WhitelistFilter ? 2 : 3)));
+  var state2 = (!item2.filter ? 0 : (item2.filter.disabled ? 1 : (item2.filter instanceof abp.WhitelistFilter ? 2 : 3)));
   return state1 - state2;
 }
 

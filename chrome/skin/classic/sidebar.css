@@ -82,12 +82,15 @@ treechildren::-moz-tree-image(col-state, dummy-false)
   -moz-image-region: rect(0px 10px 10px 0px);
   margin-left: 3px;
 }
-treechildren::-moz-tree-image(col-state, state-filtered, dummy-false),
-treechildren::-moz-tree-image(col-state, state-hidden, dummy-false) {
+treechildren::-moz-tree-image(col-state, filter-disabled-true, dummy-false) {
   -moz-image-region: rect(10px 10px 20px 0px);
 }
-treechildren::-moz-tree-image(col-state, state-whitelisted, dummy-false) {
+treechildren::-moz-tree-image(col-state, state-filtered, dummy-false),
+treechildren::-moz-tree-image(col-state, state-hidden, dummy-false) {
   -moz-image-region: rect(20px 10px 30px 0px);
+}
+treechildren::-moz-tree-image(col-state, state-whitelisted, dummy-false) {
+  -moz-image-region: rect(30px 10px 40px 0px);
 }
 
 treechildren::-moz-tree-cell-text(col-filter, state-hidden, selected-false) {
