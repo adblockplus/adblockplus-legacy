@@ -104,8 +104,7 @@ Matcher.prototype = {
    */
   add: function(filter)
   {
-    let key = filter.regexp + " " + filter.contentType + " " + filter.thirdParty;
-    if (key in this.knownFilters)
+    if (filter.text in this.knownFilters)
       return;
 
     // Look for a suitable shortcut if the current can't be used
@@ -119,7 +118,7 @@ Matcher.prototype = {
     else 
       this.regexps.push(filter);
 
-    this.knownFilters[key] = true;
+    this.knownFilters[filter.text] = true;
     if (this.cacheEntries > 0)
     {
       this.resultCache = {__proto__: null};
@@ -133,8 +132,7 @@ Matcher.prototype = {
    */
   remove: function(filter)
   {
-    let key = filter.regexp + " " + filter.contentType + " " + filter.thirdParty;
-    if (!(key in this.knownFilters))
+    if (!(filter.text in this.knownFilters))
       return;
 
     if (filter.shortcut)
@@ -146,7 +144,7 @@ Matcher.prototype = {
         this.regexps.splice(i, 1);
     }
 
-    delete this.knownFilters[key];
+    delete this.knownFilters[filter.text];
     if (this.cacheEntries > 0)
     {
       this.resultCache = {__proto__: null};
