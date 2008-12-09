@@ -128,7 +128,7 @@ function addObjectTab(wnd, node, data, tab) {
     node = node.parentNode;
   }
 
-  if (!node.parentNode)
+  if (!node.parentNode || !node.offsetWidth || !node.offsetHeight)
     return;
 
   // Decide whether to display the tab on top or the bottom of the object
