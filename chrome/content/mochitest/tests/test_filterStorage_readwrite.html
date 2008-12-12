@@ -32,6 +32,12 @@ shortcut=ot/banne
 type=whitelist
 
 [Filter]
+text=[Filter]
+regexp=\[Filter\]
+shortcut=[filter]
+type=filterlist
+
+[Filter]
 text=*/banner/*
 regexp=\/banner\/
 shortcut=/banner/
@@ -25687,6 +25693,7 @@ url=~wl~
 url=~fl~
 
 [Subscription filters]
+\[Filter]
 */banner/*
 
 [Subscription]
@@ -27036,7 +27043,7 @@ online-antivirus.net#body
 #div(id^=wrapper_wnsz)
 1001webgames.com,1001spill.no,1001spel.se#*(class^=advert)
 1911encyclopedia.org#div(class^=google_)
-2cpu.com##td[width="155"]:last-child
+2cpu.com##td\[width="155"]:last-child
 2cpu.com#td(id=right-ad)
 2cpu.com#iframe(src*=2cpu/)(src*=side)
 43things.com#div(ads)
@@ -27078,9 +27085,9 @@ au.yahoo.com#div(id*=-ad-)
 au.yahoo.com#div(id*=-advertorial-)
 audioreview.com#div(id=_ctl10_HotDeals)
 autotrader.com#*(class$=_advertisement)
-battleon.com##td[width="180"]:last-child
+battleon.com##td\[width="180"]:last-child
 bbc.co.uk#div(id^=bbccom_)
-bit-tech.net##div[style*="width: 925px; height: 115px"]
+bit-tech.net##div\[style*="width: 925px; height: 115px"]
 bjorn3d.com#div(class*=_bigad_)
 blackberryforums.com#td(width=160)(align=left)
 bloggingstocks.com#div(id=topleader)
@@ -27139,9 +27146,9 @@ deviantart.com#div(class^=sleekadbubble)
 devshed.com#div(id=resultright)
 devx.com#table(style*=width: 444px)
 digg.com#div(class*=_ad)
-digitalspy.co.uk##div.box300 + table[height="250"][width="300"]
+digitalspy.co.uk##div.box300 + table\[height="250"]\[width="300"]
 digitalspy.co.uk#table(style=width: 300px; height: 250px;)
-digitalspy.co.uk##div[\;]
+digitalspy.co.uk##div\[\;]
 dir.yahoo.com#td(width=215)
 dir.yahoo.com#div(ads)
 discovery.com#embed(id=splashFO)
@@ -27152,7 +27159,7 @@ download.com#div(id^=launchpad-)
 download.com#div(class$=-ad)
 download.com#div(id=contentAux)
 downloadsquad.com#*(topleader)
-dragonfable.com##td.tdclear[width="125"]:last-child
+dragonfable.com##td.tdclear\[width="125"]:last-child
 drugs.com#div(id=topbanner)
 ebaumsworld.com#div(id=eacs-sidebar)
 ebaumsworld.com#iframe(id=mediumrect)(width=300)
@@ -27161,10 +27168,10 @@ ecommercetimes.com#div(class*=slink)
 economist.com#*(id*=banner)
 economist.com#div(class*=banner)
 edmunds.com#table(class*=spotlightArea)
-eetimes.com##div[style="border: 1px solid rgb(204, 0, 0); padding: 0px;"]
+eetimes.com##div\[style="border: 1px solid rgb(204, 0, 0); padding: 0px;"]
 eetimes.com#table(width=131)(bgcolor=#ffffff)
 elitistjerks.com#div(easylist)
-embedded.com##table[width="975"]:first-child
+embedded.com##table\[width="975"]:first-child
 embedded.com#div(id=cc_container)(style=width: 336px;)
 empireonline.com#td(width$=0)(bgcolor=#000000)
 eweek.com#div(id^=hp_ad_)
@@ -27189,7 +27196,7 @@ forbes.com#span(smallgreytxt)
 forbes.com#div(id=dynamicAdWinDiv)
 forestryforum.com#td(width=145)
 forums.audioreview.com#td(bgcolor=#ffffff)
-forums.gametrailers.com##td[bgcolor="#a5abb9"]:first-child > div[align="center"]:first-child
+forums.gametrailers.com##td\[bgcolor="#a5abb9"]:first-child > div\[align="center"]:first-child
 forums.motortrend.com#div(id$=_ncLinksYMMColumn)
 forums.mozillazine.org#*(class*=gas)
 forums.scifi.com#table(bgcolor=#3a3163)
@@ -27207,9 +27214,9 @@ foxsports.com#div(id^=ad300x250)
 foxsports.com#table(class=big7)(height=41)
 foxsports.com#table(width=294)(height=400)(bgcolor=#fffff0)
 foxsports.com#div(class=dMSNME_1)
-foxsports.com##*.hdrContainer > table[width="980"]
-foxsports.com##table[width="770"]:first-child
-foxsports.com##*#commentsDiv > *:first-child + DIV[style="height: 330px; position: relative;"]
+foxsports.com##*.hdrContainer > table\[width="980"]
+foxsports.com##table\[width="770"]:first-child
+foxsports.com##*#commentsDiv > *:first-child + DIV\[style="height: 330px; position: relative;"]
 freeservers.com#div(id*=aws)
 freeworldgroup.com#iframe(src*=banner)
 fudzilla.com#div(id=showcase)
@@ -27229,7 +27236,7 @@ gettherhythm.com,actionext.com#img(width=336)(height=280)
 gizmodo.com.au#div(class=medium_rectangle_container)
 gpsreview.net#tr(id=lead)
 gpsreview.net#div(style$=width: 450px; height: 450px;)
-golivewire.com##div[style*="height: 292px;"][style*="/stickynote"]
+golivewire.com##div\[style*="height: 292px;"]\[style*="/stickynote"]
 golivewire.com#img(width=132)(height=83)
 goodgearguide.com.au#div(class^=marketplace_)
 google.com,google.ca,google.co.uk#div(ads)
@@ -27239,10 +27246,10 @@ google.com,google.ca,google.co.uk,google.com.ar,google.com.es,google.com.au,goog
 google.com#table(class=lads)
 google.com#*(class^=promo)
 google.com,google.com.au,google.co.il#div(id=tads)
-google.com##table[style="border: 1px solid rgb(0, 102, 102);"]
+google.com##table\[style="border: 1px solid rgb(0, 102, 102);"]
 google.com,google.com.au,google.co.uk,google.ca#table(id=mbEnd)(width=30%)
 google.com#table(class=ra)(align=right)(width=30%)
-googletutor.com##div[style="width: 125px; text-align: center;"]:last-child
+googletutor.com##div\[style="width: 125px; text-align: center;"]:last-child
 guardian.co.uk#div(spacedesc_mpu_div)
 guidelive.com#td(id^=biright)
 hardocp.com#div(class^=thead)
@@ -27255,7 +27262,7 @@ helpwithwindows.com#span(id=ad)
 hexus.net#div(id=cColAd)
 hotmail.com#td(width=300)(style^=padding-top)
 huffingtonpost.com#div(class^=ad_block)
-hummy.org.uk##div#userlinksguest + p[align="center"]
+hummy.org.uk##div#userlinksguest + p\[align="center"]
 hvac-talk.com#td(style=padding-left: 10px;)
 hwt.dk#div(class*=-banner)
 icalshare.com#div(style*=adsense)
@@ -27269,7 +27276,7 @@ idg.com.au#div(class^=careerone)
 idg.com.au#div(class=black_box)
 idg.com.au#div(id=ebay_search_box)
 idg.com.au#img(src*=/C1_)
-imageshack.us##table[class="table_decoration"][width="760"][bordercolor="#cccccc"]>tbody>tr>td:first-child
+imageshack.us##table\[class="table_decoration"]\[width="760"]\[bordercolor="#cccccc"]>tbody>tr>td:first-child
 imageshack.us#div(id=doneaddiv)
 imdb.com#div(id$=adrhs)
 imdb.com#div(class$=-ad-container)
@@ -27277,9 +27284,9 @@ imdb.com#div(id^=swf_)(style*=position: absolute;)
 imdb.com#div(id^=swf_)(align=right)
 imdb.com#*(id=^swf_)(id*=_728x90)
 imdb.com#div(id^=swf_rectangle)
-imdb.com##div.aux-content-widget-3[style="padding-top: 6px;"] + div.aux-content-widget-3
-imdb.com##layer div[id$="supertab"]
-imdb.com##body >div#wrapper > div[align="center"]
+imdb.com##div.aux-content-widget-3\[style="padding-top: 6px;"] + div.aux-content-widget-3
+imdb.com##layer div\[id$="supertab"]
+imdb.com##body >div#wrapper > div\[align="center"]
 imdb.com#div(class=imdb_lb)
 imeem.com#div(id^=PanelImeemAd)
 imtranslator.net#iframe(id=topbanner)
@@ -27309,7 +27316,7 @@ live.com#div(id$=AdPart)
 livejournal.com#div(class^=ljad)
 lowbird.com#div(class=teaser)
 lyrics007.com#td(width=770)(height=110)
-lyrics007.com##br + div[align="center"]
+lyrics007.com##br + div\[align="center"]
 lyrics007.com#div(id=jangoWrapper)
 macdailynews.com#div(adbox)
 macnn.com#div(id=supportbod)
@@ -27318,7 +27325,7 @@ madison.com#td(bgcolor=#e5e5e5)(width=175)(height=615)
 madison.com#div(ldrbrd_cntnr)
 madison.com#div(mrktng_ad_wrp)
 mail.google.com#div(class^=rh)
-mail.google.com##*.XoqCub > [style="width: 189px;"]
+mail.google.com##*.XoqCub > \[style="width: 189px;"]
 mail.google.com#div(style^=width: 189px;)(class^=yx)
 mail.google.com#div(class=slwyWc)
 mail.google.com#SPAN(class=iFOJMb)
@@ -27353,7 +27360,7 @@ msn.com#div(id^=ad-front)
 msn.com#div(class=dapad)
 msnbc.msn.com#div(id=Dcolumn)
 mtv.com#div(thirdColumnAd)
-myspace.com##table[width="800"] > tbody > tr > td > div[style="height: 90px;"]
+myspace.com##table\[width="800"] > tbody > tr > td > div\[style="height: 90px;"]
 myspace.com#div(id$=_leaderboardDiv)(style=height: 90px;)
 myspace.com#div(id*=_adspecial)
 myspace.com#div(id=cmsContent)
@@ -27375,7 +27382,7 @@ netmag.co.uk#div(style*=width: 320px; padding-top: 0px; height: 290px;)
 networkworld.com#div(id^=lb_container)
 news.com.au#div(ad-network)
 news.com.au#div(id=special-promotion)
-news8austin.com##td[width="180"]:last-child
+news8austin.com##td\[width="180"]:last-child
 newscientist.com,newscientisttech.com,newscientistspace.com#div(id*=mpu)
 newsfactor.com#td(background$=-ad.gif)
 newsmax.com#td(noprint1)
@@ -27386,21 +27393,21 @@ nysun.com#div(class=ad-300-250)
 nytimes.com#ul(advertisementThumbnails)
 observer.com#p(advertisement)
 opendns.com#div(id$=-ads)
-pantagraph.com##body > div.omniture + * + table[width="1000"]
+pantagraph.com##body > div.omniture + * + table\[width="1000"]
 pantagraph.com#*(id^=dropinbox)
 payments.ebay.com.au#div(class=pcontent)
 penny-arcade.com#div(id=adhoriz)
 people.com#div(id=adTop)
 pcmag.com#*(class^=AdModule)
 pcmag.com#table(class=PremPart_Container)
-pcmag.com##td[valign="top"][_base_target="_top"]:last-child
+pcmag.com##td\[valign="top"]\[_base_target="_top"]:last-child
 pcmag.com#td(class^=mrktcell)
 pcmag.com#div(class^=spotlight)
 pcmag.com#div(class=storybox)
 pcworld.com#div(class^=adMkt2Col)
 pcworld.com#div(class*=Ad)
 pcworld.com#div(class=areaBanner)
-pcworld.co.nz,pressf1.co.nz##td[width="180"][align="center"]:last-child
+pcworld.co.nz,pressf1.co.nz##td\[width="180"]\[align="center"]:last-child
 pcworld.com#div(id=topAd)
 pcworld.co.nz,pressf1.co.nz#div(style=width: 160px; float: left;)
 people.com#div(class$=adTout)
@@ -27434,7 +27441,7 @@ rottentomatoes.com#td(height=100)(align=center)
 rottentomatoes.com#div(header_leaderboard_ad_container)
 runescape.com#div(id=tb)
 sbsun.com#div(articleEmbeddedAdBox)
-sci-tech-today.com##table[width="980"]:first-child + TABLE + TABLE[width="980"]
+sci-tech-today.com##table\[width="980"]:first-child + TABLE + TABLE\[width="980"]
 sci-tech-today.com#TD(width=346)(bgcolor=#eeeeee)
 sciencemag.org#td(id=SideColumnCell)
 search.live.com#div(class^=sb_ads)
@@ -27450,7 +27457,7 @@ sfgate.com#div(sfg_ads001)
 sfgate.com#div(class^=ad top)
 shopping.com#div(class^=lvl2Box)
 shopping.yahoo.com#div(class=ovt)
-siliconchip.com.au,v8x.com.au##table[style*="background: rgb(227, 235, 243) none repeat scroll 0% 0%; width: 310px;"]
+siliconchip.com.au,v8x.com.au##table\[style*="background: rgb(227, 235, 243) none repeat scroll 0% 0%; width: 310px;"]
 sitepoint.com#div(featuredproduct)
 slashdot.org#div(id^=fad)
 slashfilm.com#td(style*=300adback)
@@ -27459,7 +27466,7 @@ sltrib.com#td(class=preHeaderRegion)
 sltrib.com#div(class*=AdBox)
 sourceforge.net#div(id^=fad)
 sportsline.com#td(class^=cshoptxt)
-space.com##table[width="968"]:first-child
+space.com##table\[width="968"]:first-child
 space.com#table(height=285)(bgcolor=#000000)(width=321)
 spikedhumor.com#p(class=ad)
 spinner.com#div(class$=_aol)
@@ -27468,7 +27475,7 @@ sportsline.com#table(class=banner_bg)(width=985)
 sportsline.com#table(width=310)(align=left)
 sportsline.com#td(width=160)(align=center)
 staticice.com.au#td(height=80)(align=center)
-staticice.com.au##table[rules="none"][style="border: 1px solid rgb(135, 185, 245);"]
+staticice.com.au##table\[rules="none"]\[style="border: 1px solid rgb(135, 185, 245);"]
 stylusstudio.com#div(id=popwin)
 superpages.com#div(ads)
 superpages.com#td(relatedppc_text)
@@ -27487,7 +27494,7 @@ tectonic.co.za#*(id=bannerad)
 tek-tips.com#div(id=dropin)
 theglobeandmail.com#div(bigbox)
 thefreedictionary.com#div(Ov)
-themaineedge.com##td[height="80"]:first-child
+themaineedge.com##td\[height="80"]:first-child
 themorningnews.org#div(class=deckAd)
 theonion.com#div(id=partner_feeds)
 thephoenix.com#div(GrayBackground)
@@ -27532,7 +27539,7 @@ washingtontimes.com#*(class*=-ad)
 washingtonwatch.com##*#container > div#right
 weatherbug.com#div(id^=wXcds)
 webpronews.com#div(class=topad)
-wdvl.com##body div:first-child, td[bgcolor="#e6e6e6"] img, td[bgcolor="#e6e6e6"] p:first-child, td[bgcolor="#e6e6e6"] div:first-child
+wdvl.com##body div:first-child, td\[bgcolor="#e6e6e6"] img, td\[bgcolor="#e6e6e6"] p:first-child, td\[bgcolor="#e6e6e6"] div:first-child
 whistlestopper.com#td(width=160)(align=left)
 winamp.com#div(id=subheader)
 windowsbbs.com#span(style=margin: 2px; float: left; width: 337px; height: 281px;)
@@ -27545,10 +27552,10 @@ wsj.com#div(style=width: 300px; height: 250px;)
 wunderground.com#*(class^=leftad)
 wunderground.com#div(bottomAds)
 wunderground.com#td(class=taC)(style=width: 50%; padding-bottom: 10px;)
-wunderground.com##div[style*="/statefarm_bg.gif)"]
+wunderground.com##div\[style*="/statefarm_bg.gif)"]
 wwe.com#div(id^=wrapAd)
-www.google.com##table[bgcolor="#ffffff"][align="right"][style=""]
-windowsitpro.com##table[width="973"]:not([bgcolor])
+www.google.com##table\[bgcolor="#ffffff"]\[align="right"]\[style=""]
+windowsitpro.com##table\[width="973"]:not(\[bgcolor])
 x17online.com#div(id=alpha)
 xanga.com#ul(search-ad)
 xanga.com#div(module-ad)
@@ -28241,9 +28248,9 @@ requiredVersion=0.7.1
 @@://ad.doubleclick.net*/DartShellPlayer
 @@://www.rtl.de/media/ads/
 @@.yahoo.com/*playlist
-/[-\/\._\(&=]ad_?(action|butler|brite|bottom|codes?\d*|function|ima?ge?s?|_?id(?!=&)|js(?!\.php)|\.php|box_?|farm|x\.js|-(?!aware).*|l(ink|og|ayer))[-\/\._\)&=\|\?](?!s(ea)?rch)/$~stylesheet
-/[-\/\._\(&=]ad_?(man|mentor|module|mosaic|pops?|parse|revolver|s(dk|end|erv(er)|ize|tome|onar|cripts?)|s|s?remote|type|-?f(low|rame|etch))[-\/\._\)&=]/$~stylesheet
-/[-\/\._\(&=\?]ad(vert.*|view|type|_?string|code|case|cli(ck|ent)s?)[-\/\._\)\?=](?!etr)/$~stylesheet
+/\[-\/\._\(&=]ad_?(action|butler|brite|bottom|codes?\d*|function|ima?ge?s?|_?id(?!=&)|js(?!\.php)|\.php|box_?|farm|x\.js|-(?!aware).*|l(ink|og|ayer))\[-\/\._\)&=\|\?](?!s(ea)?rch)/$~stylesheet
+/\[-\/\._\(&=]ad_?(man|mentor|module|mosaic|pops?|parse|revolver|s(dk|end|erv(er)|ize|tome|onar|cripts?)|s|s?remote|type|-?f(low|rame|etch))\[-\/\._\)&=]/$~stylesheet
+/\[-\/\._\(&=\?]ad(vert.*|view|type|_?string|code|case|cli(ck|ent)s?)\[-\/\._\)\?=](?!etr)/$~stylesheet
 /\W(atwola|dimaso|dvlabs|eproof|falkag|ientry|revsci|tacoda)\./
 moneymakers.de/script.php?
 .ebayrtm.com/clk?RtmClk&
@@ -28632,7 +28639,7 @@ metrics.feedroom.com/
 #object(FLASH_AD)
 #table(id^=werbung_)
 #table(class^=ad_top)
-##*[id="ads"]:not([class="xs"])
+##*\[id="ads"]:not(\[class="xs"])
 taz.de#div(class^=werb)
 web.de#iframe(id=promo)
 sourceforge.net#div(adbatch)
@@ -28644,14 +28651,14 @@ heise.de#div(class*=bcadv)
 heise.de#*(contentbanner)
 heise.de#div(id^=jobsuche)
 heise.de#*(class*=kasten_markt)
-heise.de##table[cellpadding="3"][border="0"][align="center"], table[width="200"][cellpadding="3"][border="0"][align="right"], table[class="druck"][align="center"]
-heise.de##td[width="1"][valign="top"][rowspan="2"], td[valign="bottom"][colspan="2"][class="rightcontent_2"], div[class="leaderboard"]
+heise.de##table\[cellpadding="3"]\[border="0"]\[align="center"], table\[width="200"]\[cellpadding="3"]\[border="0"]\[align="right"], table\[class="druck"]\[align="center"]
+heise.de##td\[width="1"]\[valign="top"]\[rowspan="2"], td\[valign="bottom"]\[colspan="2"]\[class="rightcontent_2"], div\[class="leaderboard"]
 sueddeutsche.de#p(class=bannerAnzeige)
-sueddeutsche.de##tr[class="bgeff8ff"], table[bgcolor="#f2f2f2"], div[class="BannerBug"], div[class="bannerMediumRectangle"]
+sueddeutsche.de##tr\[class="bgeff8ff"], table\[bgcolor="#f2f2f2"], div\[class="BannerBug"], div\[class="bannerMediumRectangle"]
 zeit.de#*(ad)
 zeit.de#*(main_related)
 zeit.de#div(class^=adcloud_)
-zeit.de##div[class="marktplatz"], div[class="yahoo_ad"], div[class="anzeige"]
+zeit.de##div\[class="marktplatz"], div\[class="yahoo_ad"], div\[class="anzeige"]
 spiegel.de#*(spCommercialNav)
 spiegel.de#div(class=spPartnerBar)
 exalead.de#div(class^=c236)
@@ -28662,21 +28669,21 @@ google.de,google.com,google.fr,google.pl,google.at,google.ch,google.it,google.co
 google.de,google.com,google.fr,google.pl,google.at,google.ch,google.it,google.co.uk#table(id=mbEnd)
 google.de,google.com,google.fr,google.pl,google.at,google.ch,google.it,google.co.uk#*(tads)
 google.de,google.com,google.fr,google.pl,google.at,google.ch,google.it,google.co.uk#*(id^=tpa)
-map24.com##td[id="m24s"], iframe[id="m24up"], div[id="cont_m24up"]
-dict.leo.org##td[class="cT"][width="15%"], td[width="80%"][valign="middle"][align="right"], td[width="10"], td[valign="middle"][style*="text-align: center"]
+map24.com##td\[id="m24s"], iframe\[id="m24up"], div\[id="cont_m24up"]
+dict.leo.org##td\[class="cT"]\[width="15%"], td\[width="80%"]\[valign="middle"]\[align="right"], td\[width="10"], td\[valign="middle"]\[style*="text-align: center"]
 dict.leo.org###filter
 dict.leo.org#*(sidebar)
 dict.leo.org#*(standard_banner)
-golem.de##td > h5[class="rightcolhead"] + div
-golem.de##table[style="background-color: rgb(221, 244, 254);"]
-golem.de##table[width="480"][cellspacing="0"][style="clear: right;"], table[width="740"][height="90"], table[width="772"][height="90"], table[width="792"][height="90"], div[style*="width: 234px;"], div[style="margin-top: 10px; margin-bottom: 10px;"]
+golem.de##td > h5\[class="rightcolhead"] + div
+golem.de##table\[style="background-color: rgb(221, 244, 254);"]
+golem.de##table\[width="480"]\[cellspacing="0"]\[style="clear: right;"], table\[width="740"]\[height="90"], table\[width="772"]\[height="90"], table\[width="792"]\[height="90"], div\[style*="width: 234px;"], div\[style="margin-top: 10px; margin-bottom: 10px;"]
 imdb.com#div(id^=lea_)
 imdb.com#div(tn15adrhs)
 imdb.com#div(nb15supertab)
-creativeproxy.web.de##div[id="mainWrapper"], div[id="header-banner-intern-s"]
+creativeproxy.web.de##div\[id="mainWrapper"], div\[id="header-banner-intern-s"]
 cnn.com#div(class$=AdBox)
 n-tv.de##td.hl:first-child
-n-tv.de##div#mainnavi > *:not([class="navi"]):not([id="searchform"])
+n-tv.de##div#mainnavi > *:not(\[class="navi"]):not(\[id="searchform"])
 n-tv.de#div(class^=dms_ad_)
 n-tv.de#table(bannerhead)
 n-tv.de#div(upphcontent)
@@ -28698,7 +28705,7 @@ www.t-online.de#div(tsrwh)
 bildblog.de#div(anzeige)
 studivz.net#a(href*=doubleclick.net/)
 studivz.net#div(class=yahoo_leftnav)
-studivz.net##span[style="color: rgb(69, 69, 69); font-size: 10px;"], span[style="color: rgb(153, 153, 153); font-size: 9px;"]
+studivz.net##span\[style="color: rgb(69, 69, 69); font-size: 10px;"], span\[style="color: rgb(153, 153, 153); font-size: 9px;"]
 groups.google.com#DIV(class=rnimc)
 wetter.com#div(id$=_BOX_PARENT)
 youtube.com#DIV(id=search-pva)
@@ -29887,12 +29894,12 @@ xbitlabs.com/images/banners/*
 @@|http://www.krone.tv/*/kmwebtv/
 @@|http://www.n-tv.de/s/player/NTV_Player_
 3dcenter.org#DIV(id^=add_)
-92.241.169.251##div#PlayerContent > center > img[usemap="#Map"]
+92.241.169.251##div#PlayerContent > center > img\[usemap="#Map"]
 angesagter.de#A(href^=out.php?bid=)
 anonymouse.org#DIV(id=mouselayer)
 ask.com#DIV(class=gsl)
 autobild.de#DIV(class^=adspace-)
-beisammen.de##td.mainpage > table[cellspacing="0"][cellpadding="0"][border="0"]:first-child + table
+beisammen.de##td.mainpage > table\[cellspacing="0"]\[cellpadding="0"]\[border="0"]:first-child + table
 bildblog.de#DIV(class=anzeige)
 bildblog.de#DIV(class=reklam)
 bildblog.de#DIV(class=wb_contentad)
@@ -29956,7 +29963,7 @@ gamestar.de#A(href*=.eyewonder.com)
 gamestar.de#A(href^=http://ad.doubleclick.net/)
 gamestar.de#DIV(class=wide_ads)
 gametrailers.com#div(id^=ad_)
-geizhals.at##td.s[width="100%"] + td[width="305"]
+geizhals.at##td.s\[width="100%"] + td\[width="305"]
 geizhals.at#TABLE(bgcolor=#999999)
 gmx.net#*(shopping)
 gmx.net#DIV(class=adv singlecontent)
@@ -30003,15 +30010,15 @@ imdb.com#DIV(id^=lea_)
 imeem.com#DIV(id^=PanelImeemAd)
 ingame.de#div(id=adlayer)
 kicker.de#DIV(class=ad-promo)
-kino.to##div#PlayerContent > center > img[usemap="#Map"]
-kino.to##div#PlayerContent > center > img[width="579"][height="120"]
+kino.to##div#PlayerContent > center > img\[usemap="#Map"]
+kino.to##div#PlayerContent > center > img\[width="579"]\[height="120"]
 kino.to#*(href*=.firstload.de)
 kino.to#DIV(style=display: block; width: 780px; top: 10px; left: 10px; height: 410px; margin-left: 27%;)
 klicktel.de#DIV(id$=_adtable)
 krone.at#TABLE(class=teaser_bg)(height=100%)
 kwick.de#DIV(id^=ad-)
 last.fm,lastfm.de#DIV(id=footer_ads)
-leo.org##TD[width="55%"][valign="middle"][style="background-color: rgb(255, 255, 238); text-align: center;"]
+leo.org##TD\[width="55%"]\[valign="middle"]\[style="background-color: rgb(255, 255, 238); text-align: center;"]
 leo.org#TD(width=15%)(valign=top)(style=font-size: 100%; padding-top: 2px;)
 linksave.in#DIV(id=ad)
 live.com#*(class=adRow)
@@ -30023,8 +30030,8 @@ lycos.de#DIV(id=ad_wide_bigtop)
 lycos.de#DIV(id=globalwidebanner)
 lyrics.de#div(id=genlayer)
 mactechnews.de#DIV(class^=Advertisement)
-mail.google.com##*.XoqCub > [style="width: 189px;"]
-mail.google.com##*.XoqCub > [style="width: 225px;"]
+mail.google.com##*.XoqCub > \[style="width: 189px;"]
+mail.google.com##*.XoqCub > \[style="width: 225px;"]
 mail.google.com#div(class^=rh)
 mail.live.com#DIV(class=ToolsCustomerCommunication)
 mail.live.com#DIV(id=RadAd_Banner)
@@ -30038,7 +30045,7 @@ maps.google.de,maps.google.com#DIV(id=mclip)
 maps.live.de#*(id^=search_sponsorsRepeater_)
 motor-talk.de#DIV(class*=commercialbox)
 motor-talk.de#DIV(id=topbanner)
-moviestream.to##div#PlayerContent > center > img[usemap="#Map"]
+moviestream.to##div#PlayerContent > center > img\[usemap="#Map"]
 msn.com#DIV(class$=radads)
 msn.com#DIV(class=genericadtext)
 msn.com#DIV(id=lgad)
@@ -30075,7 +30082,7 @@ onvista.de#DIV(id=MEGASIZE_BANNER)
 onvista.de#TD(id=bottom_line)(class=footer_br)
 opendns.com#DIV(id$=-ads)
 opendns.com#DIV(id=noresultsads)
-otrforum.com##DIV[id=""][style^="display: block; left:"]
+otrforum.com##DIV\[id=""]\[style^="display: block; left:"]
 pc-magazin.de#TD(class=micrLink)
 pcgames.de#*(class$=_werbung)
 pcgames.de#A(href*=http://ad.doubleclick.net/)
@@ -30161,10 +30168,10 @@ tomshardware.com#A(href*=.smartadserver.com)
 tutorials.de#DIV(class=postbit_adcode)
 tweakpc.de#*(class=anzeige)
 tweakpc.de#IMG(src^=/i/anzeige_v)
-unixboard.de##*[style="border-style: none solid; border-color: -moz-use-text-color rgb(226, 225, 234); border-width: 0px 1px;"] + * *
+unixboard.de##*\[style="border-style: none solid; border-color: -moz-use-text-color rgb(226, 225, 234); border-width: 0px 1px;"] + * *
 veoh.com#DIV(id=adTop)
 vimeo.com#DIV(class=atlas ad)
-web.de##TABLE[bgcolor="#ffffff"][width="100%"][style="border: 1px solid rgb(136, 136, 136); text-align: left;"]
+web.de##TABLE\[bgcolor="#ffffff"]\[width="100%"]\[style="border: 1px solid rgb(136, 136, 136); text-align: left;"]
 web.de#DIV(id^=adv-)
 web.de#TABLE(cellspacing=1)(cellpadding=0)(border=0)(bgcolor=#888888)(width=100%)(style=margin-top: 10px;)
 web.de#div(id=advMovein)
@@ -30176,12 +30183,12 @@ wer-kennt-wen.de#div(id=ads)
 wetter.com#DIV(class^=box blue)
 wetter.com#DIV(id*=BOX)(class*=blue)
 wetter.com#DIV(id=smallteaser)
-winboard.org##TD[width="130"][valign="top"][align="center"]:last-child
+winboard.org##TD\[width="130"]\[valign="top"]\[align="center"]:last-child
 winfuture.de#DIV(id=ad)
 winload.de#DIV(id=topBanner)
 woerterbuch.info#TD(class=ov)(valign=top)(bgcolor=#f1f1f1)(align=left)(colspan=2)
 woerterbuch.info#TD(class=standard)(valign=top)(bgcolor=#e5e5e5)(align=right)(colspan=2)
-www.google.com,www.google.de,www.google.at,www.google.ch,www.google.nl##table[bgcolor="#ffffff"][align="right"][style=""]
+www.google.com,www.google.de,www.google.at,www.google.ch,www.google.nl##table\[bgcolor="#ffffff"]\[align="right"]\[style=""]
 www.planet-liebe.de##TR.portalmenu + TR + TR + TR + TR
 xonio.com#DIV(class=bullet-extern border3)
 yahoo.com#*(ad)
@@ -30318,7 +30325,8 @@ zeit.de#DIV(class$=_ads)
           section.key = section.header + " " + section.data[0];
           section.data.sort();
         }
-        sections.sort(function(a, b) {
+        sections.sort(function(a, b)
+        {
           if (a.key < b.key)
             return -1;
           else if (a.key > b.key)

@@ -74,7 +74,7 @@ Subscription.prototype =
   serializeFilters: function(buffer)
   {
     for each (let filter in this.filters)
-      buffer.push(filter.text);
+      buffer.push(filter.text.replace(/\[/g, "\\["));
   },
 
   toString: function()

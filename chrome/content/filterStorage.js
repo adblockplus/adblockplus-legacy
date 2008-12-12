@@ -446,7 +446,7 @@ var filterStorage =
           }
         }
         else if (wantObj === false && val)
-          curObj.push(val);
+          curObj.push(val.replace(/\\\[/g, "["));
       }
 
       stream.close();
