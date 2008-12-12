@@ -484,6 +484,10 @@ function importList()
       lines.shift();
       for each (let line in lines)
       {
+        // Don't import checksum comments
+        if (/!\s*checksum[\s\-:]+([\w\+\/]+)/i.test(line))
+          continue;
+
         line = abp.normalizeFilter(line);
         if (!line)
           continue;
