@@ -34,6 +34,13 @@
     </RDF:li>
     <RDF:li>
       <RDF:Description>
+        <abp:title>MORPEH List + EasyList (Россия)</abp:title>
+        <abp:url>http://easylist.adblockplus.org/morpeh+easylist.txt</abp:url>
+        <abp:homepage>http://adblockplus.org/forum/viewtopic.php?t=2126</abp:homepage>
+      </RDF:Description>
+    </RDF:li>
+    <RDF:li>
+      <RDF:Description>
         <abp:title>Corset (Korea) + EasyList</abp:title>
         <abp:url>http://easylist.adblockplus.org/corset+easylist.txt</abp:url>
         <abp:homepage>http://www.brianyi.com/corset/</abp:homepage>
