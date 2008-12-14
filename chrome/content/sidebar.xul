@@ -91,7 +91,7 @@
       <menuitem id="contextDisableFilter" labeltempl="&context.disablefilter.label;" oncommand="enableFilter(this.filter, false)"/>
       <menuitem id="contextEnableFilter" labeltempl="&context.enablefilter.label;" oncommand="enableFilter(this.filter, true)"/>
       <menuseparator id="contextOpenSep"/>
-      <menuitem id="contextOpen" label="&context.open.label;" oncommand="openInTab()"/>
+      <menuitem id="contextOpen" label="&context.open.label;" oncommand="openInTab(null)"/>
       <menuitem id="contextFlash" label="&context.flash.label;" oncommand="onSelectionChange()"/>
       <menuitem id="contextCopy" label="&context.copy.label;" command="copy-command" key="copy-key"/>
       <menuitem id="contextCopyFilter" label="&context.copyFilter.label;" oncommand="copyFilter()"/>
@@ -125,8 +125,8 @@
     </treecols>
 
     <treechildren tooltip="tooltip" context="context"
-                  onclick="if (event.button == 1) {openInTab(event);event.preventDefault();}"
-                  ondblclick="if (event.button == 0) doBlock()"
+                  onclick="handleClick(event)"
+                  ondblclick="handleDblClick(event)"
                   noitemslabel="&noitems.label;"
                   whitelistedlabel="&whitelisted.label;" notloadedlabel="&notloaded.label;"/>
   </tree>

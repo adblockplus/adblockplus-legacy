@@ -345,9 +345,42 @@ function fillInContext(e) {
   return true;
 }
 
+/**
+ * Processed mouse clicks on the item list.
+ * @param {Event} event
+ */
+function handleClick(event)
+{
+  let item = treeView.getItemAt(event.clientX, event.clientY);
+  if (event.button == 0 && treeView.getColumnAt(event.clientX, event.clientY) == "state")
+  {
+    if (item.filter)
+      enableFilter(item.filter, item.filter.disabled);
+    event.preventDefault();
+  }
+  else if (event.button == 1)
+  {
+    openInTab(item);
+    event.preventDefault();
+  }
+}
+
+/**
+ * Processes double-clicks on the item list.
+ * @param {Event} event
+ */
+function handleDblClick(event)
+{
+  if (event.button != 0 || treeView.getColumnAt(event.clientX, event.clientY) == "state")
+    return;
+
+  doBlock();
+}
+
 // Handles middle-click on an item
-function openInTab(e) {
-  var item = (typeof e == "undefined" ? treeView.getSelectedItem() : treeView.getItemAt(e.clientX, e.clientY));
+function openInTab(item) {
+  if (!item)
+    item = treeView.getSelectedItem();
   if (!item || item.typeDescr == "ELEMHIDE")
     return;
 
@@ -967,7 +1000,8 @@ var treeView = {
     return result;
   },
 
-  getItemAt: function(x, y) {
+  getItemAt: function(x, y)
+  {
     if (!this.data)
       return null;
 
@@ -976,6 +1010,17 @@ var treeView = {
       return null;
 
     return this.data[row];
+  },
+
+  getColumnAt: function(x, y)
+  {
+    if (!this.data)
+      return null;
+
+    let col = {};
+    this.boxObject.getCellAt(x, y, {}, col, {});
+    if (col.value)
+      return col.value.id;
   },
 
   getDummyTooltip: function() {
