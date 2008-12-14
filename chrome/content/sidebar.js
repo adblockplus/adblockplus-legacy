@@ -898,7 +898,7 @@ var treeView = {
     if (!item.filter)
       item.filter = disabledBlacklistMatcher.matchesAny(item.location, item.typeDescr, item.thirdParty);
 
-    if (this.filter && item.location.toLowerCase().indexOf(this.filter) < 0 && item.localizedDescr.toLowerCase().indexOf(this.filter) < 0)
+    if (!this.matchesFilter(item))
       return;
 
     var index = -1;
@@ -935,17 +935,32 @@ var treeView = {
       this.boxObject.rowCountChanged(index, 1);
   },
 
-  refilter: function() {
+  /**
+   * Updates the list after a filter or sorting change.
+   */
+  refilter: function()
+  {
     if (this.resortTimeout)
       clearTimeout(this.resortTimeout);
 
-    this.data = [];
-    for (var i = 0; i < this.allData.length; i++)
-      if (!this.filter || this.allData[i].location.toLowerCase().indexOf(this.filter) >= 0 || this.allData[i].localizedDescr.toLowerCase().indexOf(this.filter) >= 0)
-        this.data.push(this.allData[i]);
+    this.data = this.allData.filter(this.matchesFilter, this);
 
     if (this.sortProc)
       this.data.sort(this.sortProc);
+  },
+
+  /**
+   * Tests whether an item matches current list filter.
+   * @return {Boolean} true if the item should be shown
+   */
+  matchesFilter: function(item)
+  {
+    if (!this.filter)
+      return true;
+
+    return (item.location.toLowerCase().indexOf(this.filter) >= 0 ||
+            (item.filter && item.filter.text.toLowerCase().indexOf(this.filter) >= 0) ||
+            item.localizedDescr.toLowerCase().indexOf(this.filter) >= 0);
   },
 
   setFilter: function(filter) {
