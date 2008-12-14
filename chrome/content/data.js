@@ -122,7 +122,8 @@ DataContainer.prototype = {
     var key = " " + contentType + " " + location;
     if (key in this.locations) {
       // Always override the filter just in case a known node has been blocked
-      this.locations[key].filter = filter;
+      if (filter)
+        this.locations[key].filter = filter;
       this.locations[key].nodes.push(node);
     }
     else {
