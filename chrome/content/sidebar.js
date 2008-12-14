@@ -377,26 +377,17 @@ function handleDblClick(event)
   doBlock();
 }
 
-// Handles middle-click on an item
-function openInTab(item) {
+/**
+ * Opens the item in a new tab.
+ */
+function openInTab(item)
+{
   if (!item)
     item = treeView.getSelectedItem();
   if (!item || item.typeDescr == "ELEMHIDE")
     return;
 
-  if ('delayedOpenTab' in mainWin)
-    mainWin.delayedOpenTab(item.location);
-  else if ('getBrowser' in mainWin)
-    mainWin.getBrowser().addTab(item.location);
-  else {
-    var uri = Components.classes["@mozilla.org/network/io-service;1"]
-                        .getService(Components.interfaces.nsIIOService)
-                        .newURI(item.location, null, null);
-
-    var protocolSvc = Components.classes["@mozilla.org/uriloader/external-protocol-service;1"]
-                                .getService(Components.interfaces.nsIExternalProtocolService);
-    protocolSvc.loadUrl(uri);
-  }
+  abp.loadInBrowser(item.location, mainWin);
 }
 
 function doBlock() {

@@ -413,37 +413,42 @@ const abp =
   },
 
   /**
-   * Opens a URL in the browser window.
+   * Opens a URL in the browser window. If browser window isn't passed as parameter,
+   * this function attempts to find a browser window.
    */
-  loadInBrowser: function(/**String*/ url)
+  loadInBrowser: function(/**String*/ url, /**Window*/ currentWindow)
   {
-    var currentWindow = windowMediator.getMostRecentWindow("navigator:browser") ||
-                        windowMediator.getMostRecentWindow("Songbird:Main") ||
-                        windowMediator.getMostRecentWindow("emusic:window");
+    currentWindow = currentWindow ||
+                    windowMediator.getMostRecentWindow("navigator:browser") ||
+                    windowMediator.getMostRecentWindow("Songbird:Main") ||
+                    windowMediator.getMostRecentWindow("emusic:window");
     if (currentWindow)
     {
       try
       {
         currentWindow.delayedOpenTab(url);
+        return;
       }
-      catch(e)
+      catch(e) {}
+
+      try
       {
-        try
-        {
-          currentWindow.openUILinkIn(url, "tab");
-        }
-        catch(e)
-        {
-          currentWindow.loadURI(url);
-        }
+        currentWindow.openUILinkIn(url, "tab");
+        return;
       }
+      catch(e) {}
+
+      try
+      {
+        currentWindow.loadURI(url);
+        return;
+      }
+      catch(e) {}
     }
-    else
-    {
-      var protocolService = Components.classes["@mozilla.org/uriloader/external-protocol-service;1"]
-                                      .getService(Components.interfaces.nsIExternalProtocolService);
-      protocolService.loadURI(makeURL(url), null);
-    }
+
+    var protocolService = Components.classes["@mozilla.org/uriloader/external-protocol-service;1"]
+                                    .getService(Components.interfaces.nsIExternalProtocolService);
+    protocolService.loadURI(makeURL(url), null);
   },
 
   params: null,
