@@ -280,15 +280,15 @@ var policy = {
     if (!wnd)
       return ok;
 
-    // Only block in content windows
+    var location = unwrapURL(contentLocation);
+
+    // Only block in content windows (Gecko 1.8 compatibility)
     var wndType = wnd.QueryInterface(Components.interfaces.nsIInterfaceRequestor)
                      .getInterface(Components.interfaces.nsIWebNavigation)
                      .QueryInterface(Components.interfaces.nsIDocShellTreeItem)
                      .itemType;
-    if (wndType != Components.interfaces.nsIDocShellTreeItem.typeContent)
+    if (wndType != Components.interfaces.nsIDocShellTreeItem.typeContent && !(location.scheme == "chrome" && location.host == "global" && /abphit:(\d+)#/.test(location.path)))
       return ok;
-
-    var location = unwrapURL(contentLocation);
 
     // Interpret unknown types as "other"
     if (!(contentType in typeDescr))
