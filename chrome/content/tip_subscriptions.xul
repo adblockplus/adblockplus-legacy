@@ -39,6 +39,8 @@
   title="&dialog.title;"
   id="abpTipSubscriptions"
   windowtype="abp:tip:subscriptions"
+  width="550"
+  height="500"
   onload="init()"
   ondialogaccept="addSubscriptions()"
   ondialogextra2="addOther()">
@@ -74,7 +76,6 @@
     <description class="fulllist" _url="&full-list.url;" tooltiptext="&full-list.url;" value="&full-list.label;" onclick="abp.loadInBrowser(this.getAttribute('_url'))"/>
   </vbox>
 </hbox>
-
 
 <radiogroup id="subscriptions" flex="1" datasources="subscriptions.rdf" ref="abp:subscriptions" onkeypress="return handleKeyPress(event)">
   <template>
