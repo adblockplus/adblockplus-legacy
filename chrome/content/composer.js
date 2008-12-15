@@ -57,25 +57,34 @@ function init() {
                             .getService(Components.interfaces.nsIIOService);
   try
   {
+    let suggestions = [""];
+
     let url = ioService.newURI(item.location, null, null)
                        .QueryInterface(Components.interfaces.nsIURL);
     let suffix = (url.query ? "?*" : "");
     url.query = "";
-    let defaultValue = url.spec + suffix;
-    addSuggestion(defaultValue);
+    suggestions[1] = url.spec + suffix;
+    addSuggestion(suggestions[1]);
 
     let parentURL = ioService.newURI(url.fileName == "" ? ".." : ".", null, url);
     if (!parentURL.equals(url))
     {
-      defaultValue = parentURL.spec + "*";
-      addSuggestion(defaultValue);
+      suggestions[2] = parentURL.spec + "*";
+      addSuggestion(suggestions[2]);
     }
+    else
+      suggestions[2] = suggestions[1];
 
     let rootURL = ioService.newURI("/", null, url);
     if (!rootURL.equals(parentURL) && !rootURL.equals(url))
-      addSuggestion(rootURL.spec + "*");
+    {
+      suggestions[3] = rootURL.spec + "*";
+      addSuggestion(suggestions[3]);
+    }
+    else
+      suggestions[3] = suggestions[2];
 
-    E("patternGroup").value = defaultValue;
+    E("patternGroup").value = (abp.prefs.composer_default in suggestions ? suggestions[abp.prefs.composer_default] : suggestions[1]);
   }
   catch (e)
   {
@@ -83,7 +92,10 @@ function init() {
     addSuggestion(item.location);
     E("patternGroup").value = "";
   }
-  E("patternGroup").focus();
+  if (abp.prefs.composer_default == 0)
+    E("customPattern").focus();
+  else
+    E("patternGroup").focus();
 
   let types = [];
   for (let type in abp.policy.localizedDescr)
