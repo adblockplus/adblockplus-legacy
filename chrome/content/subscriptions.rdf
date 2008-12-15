@@ -34,7 +34,7 @@
     </RDF:li>
     <RDF:li>
       <RDF:Description>
-        <abp:title>MORPEH List (Россия) + EasyList</abp:title>
+        <abp:title>Morpeh Rus List (Россия) + EasyList</abp:title>
         <abp:url>http://easylist.adblockplus.org/morpeh+easylist.txt</abp:url>
         <abp:homepage>http://adblockplus.org/forum/viewtopic.php?t=2126</abp:homepage>
       </RDF:Description>
