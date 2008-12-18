@@ -13,9 +13,9 @@
     </RDF:li>
     <RDF:li>
       <RDF:Description>
-        <abp:title>Cédrics Liste (Deutschland)</abp:title>
-        <abp:url>http://chewey.de/mozilla/data/adblock.txt</abp:url>
-        <abp:homepage>http://chewey.de/mozilla/adblock-filterliste.html</abp:homepage>
+        <abp:title>Ares’ ABP Liste (Deutschland) + EasyList</abp:title>
+        <abp:url>http://easylist.adblockplus.org/ares+easylist.txt</abp:url>
+        <abp:homepage>http://forums.lanik.us/viewforum.php?f=90</abp:homepage>
       </RDF:Description>
     </RDF:li>
     <RDF:li>
