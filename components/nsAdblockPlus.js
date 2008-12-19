@@ -422,29 +422,32 @@ const abp =
                     windowMediator.getMostRecentWindow("navigator:browser") ||
                     windowMediator.getMostRecentWindow("Songbird:Main") ||
                     windowMediator.getMostRecentWindow("emusic:window");
-    if (currentWindow)
+    function tryWindowMethod(method, parameters)
     {
-      try
-      {
-        currentWindow.delayedOpenTab(url);
-        return;
-      }
-      catch(e) {}
+      if (!currentWindow)
+        return false;
 
       try
       {
-        currentWindow.openUILinkIn(url, "tab");
-        return;
+        currentWindow[method].apply(currentWindow, parameters);
       }
-      catch(e) {}
-
-      try
+      catch(e)
       {
-        currentWindow.loadURI(url);
-        return;
+        return false;
       }
-      catch(e) {}
+
+      try {
+        currentWindow.focus();
+      } catch(e) {}
+      return true;
     }
+
+    if (tryWindowMethod("delayedOpenTab", [url]))
+      return;
+    if (tryWindowMethod("openUILinkIn", [url, "tab"]))
+      return;
+    if (tryWindowMethod("loadURI", [url]))
+      return;
 
     var protocolService = Components.classes["@mozilla.org/uriloader/external-protocol-service;1"]
                                     .getService(Components.interfaces.nsIExternalProtocolService);
