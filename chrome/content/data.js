@@ -114,7 +114,7 @@ DataContainer.prototype = {
     if (!this.detached)
       DataContainer.notifyListeners(topWnd, "refresh", this);
   },
-  addNode: function(topWnd, node, contentType, thirdParty, location, filter, objTab) {
+  addNode: function(topWnd, node, contentType, docDomain, thirdParty, location, filter, objTab) {
     // If we had this node already, remove it from the list first
     this.removeNode(node);
 
@@ -133,6 +133,7 @@ DataContainer.prototype = {
         location: location,
         type: contentType,
         typeDescr: typeDescr[contentType],
+        docDomain: docDomain,
         thirdParty: thirdParty,
         localizedDescr: localizedDescr[contentType],
         filter: filter

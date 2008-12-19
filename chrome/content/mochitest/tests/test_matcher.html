@@ -36,25 +36,25 @@
       is(result.join("\n"), expected.join("\n"), "Shortcut candidates for " + text);
       matcher.clear();
     }
-    function checkMatch(filters, location, contentType, thirdParty, expected)
+    function checkMatch(filters, location, contentType, docDomain, thirdParty, expected)
     {
       for each (let filter in filters)
         matcher.add(Filter.fromText(filter));
 
-      let result = matcher.matchesAny(location, contentType, thirdParty);
+      let result = matcher.matchesAny(location, contentType, docDomain, thirdParty);
       if (result)
         result = result.text;
 
-      is(result, expected, "match(" + location + ", " + contentType + ", " + (thirdParty ? "third-party" : "first-party") + ") with:\n" + filters.join("\n"));
+      is(result, expected, "match(" + location + ", " + contentType + ", " + docDomain + ", " + (thirdParty ? "third-party" : "first-party") + ") with:\n" + filters.join("\n"));
       matcher.clear();
     }
-    function cacheCheck(location, contentType, thirdParty, expected)
+    function cacheCheck(location, contentType, docDomain, thirdParty, expected)
     {
-      let result = matcher.matchesAny(location, contentType, thirdParty);
+      let result = matcher.matchesAny(location, contentType, docDomain, thirdParty);
       if (result)
         result = result.text;
 
-      is(result, expected, "match(" + location + ", " + contentType + ", " + (thirdParty ? "third-party" : "first-party") + ") with static filters");
+      is(result, expected, "match(" + location + ", " + contentType + ", " + docDomain + ", " + (thirdParty ? "third-party" : "first-party") + ") with static filters");
     }
 
     is(typeof abp.Matcher, "function", "typeof abp.Matcher");
@@ -81,34 +81,41 @@
     compareShortcuts("*/foo/", []);
     compareShortcuts("*/foobarbar/", ["foobarba", "oobarbar", "/foobarb", "obarbar/"]);
 
-    checkMatch([], "http://abc/def", "IMAGE", false, null);
-    checkMatch(["abc"], "http://abc/def", "IMAGE", false, "abc");
-    checkMatch(["abc", "ddd"], "http://abc/def", "IMAGE", false, "abc");
-    checkMatch(["ddd", "abc"], "http://abc/def", "IMAGE", false, "abc");
-    checkMatch(["ddd", "abd"], "http://abc/def", "IMAGE", false, null);
-    checkMatch(["abc", "://abc/d"], "http://abc/def", "IMAGE", false, "://abc/d");
-    checkMatch(["://abc/d", "abc"], "http://abc/def", "IMAGE", false, "://abc/d");
-    checkMatch(["abc", "://abc/d", "asdf1234"], "http://abc/def", "IMAGE", false, "://abc/d");
-    checkMatch(["foo*://abc/d", "foo*//abc/de", "://abc/de", "asdf1234"], "http://abc/def", "IMAGE", false, "://abc/de");
-    checkMatch(["abc$third-party", "abc$~third-party", "ddd"], "http://abc/def", "IMAGE", false, "abc$~third-party");
-    checkMatch(["abc$third-party", "abc$~third-party", "ddd"], "http://abc/def", "IMAGE", true, "abc$third-party");
-    checkMatch(["//abc/def$third-party", "//abc/def$~third-party", "//abc_def"], "http://abc/def", "IMAGE", false, "//abc/def$~third-party");
-    checkMatch(["//abc/def$third-party", "//abc/def$~third-party", "//abc_def"], "http://abc/def", "IMAGE", true, "//abc/def$third-party");
-    checkMatch(["abc$third-party", "abc$~third-party", "//abc/def"], "http://abc/def", "IMAGE", true, "//abc/def");
-    checkMatch(["//abc/def", "abc$third-party", "abc$~third-party"], "http://abc/def", "IMAGE", true, "//abc/def");
-    checkMatch(["abc$third-party", "abc$~third-party", "//abc/def$third-party"], "http://abc/def", "IMAGE", true, "//abc/def$third-party");
-    checkMatch(["abc$third-party", "abc$~third-party", "//abc/def$third-party"], "http://abc/def", "IMAGE", false, "abc$~third-party");
-    checkMatch(["abc$third-party", "abc$~third-party", "//abc/def$~third-party"], "http://abc/def", "IMAGE", true, "abc$third-party");
-    checkMatch(["abc$image", "abc$script", "abc$~image"], "http://abc/def", "IMAGE", false, "abc$image");
-    checkMatch(["abc$image", "abc$script", "abc$~script"], "http://abc/def", "SCRIPT", false, "abc$script");
-    checkMatch(["abc$image", "abc$script", "abc$~image"], "http://abc/def", "OTHER", false, "abc$~image");
-    checkMatch(["//abc/def$image", "//abc/def$script", "//abc/def$~image"], "http://abc/def", "IMAGE", false, "//abc/def$image");
-    checkMatch(["//abc/def$image", "//abc/def$script", "//abc/def$~script"], "http://abc/def", "SCRIPT", false, "//abc/def$script");
-    checkMatch(["//abc/def$image", "//abc/def$script", "//abc/def$~image"], "http://abc/def", "OTHER", false, "//abc/def$~image");
-    checkMatch(["abc$image", "abc$~image", "//abc/def"], "http://abc/def", "IMAGE", false, "//abc/def");
-    checkMatch(["//abc/def", "abc$image", "abc$~image"], "http://abc/def", "IMAGE", false, "//abc/def");
-    checkMatch(["abc$image", "abc$~image", "//abc/def$image"], "http://abc/def", "IMAGE", false, "//abc/def$image");
-    checkMatch(["abc$image", "abc$~image", "//abc/def$script"], "http://abc/def", "IMAGE", false, "abc$image");
+    checkMatch([], "http://abc/def", "IMAGE", null, false, null);
+    checkMatch(["abc"], "http://abc/def", "IMAGE", null, false, "abc");
+    checkMatch(["abc", "ddd"], "http://abc/def", "IMAGE", null, false, "abc");
+    checkMatch(["ddd", "abc"], "http://abc/def", "IMAGE", null, false, "abc");
+    checkMatch(["ddd", "abd"], "http://abc/def", "IMAGE", null, false, null);
+    checkMatch(["abc", "://abc/d"], "http://abc/def", "IMAGE", null, false, "://abc/d");
+    checkMatch(["://abc/d", "abc"], "http://abc/def", "IMAGE", null, false, "://abc/d");
+    checkMatch(["abc", "://abc/d", "asdf1234"], "http://abc/def", "IMAGE", null, false, "://abc/d");
+    checkMatch(["foo*://abc/d", "foo*//abc/de", "://abc/de", "asdf1234"], "http://abc/def", "IMAGE", null, false, "://abc/de");
+    checkMatch(["abc$third-party", "abc$~third-party", "ddd"], "http://abc/def", "IMAGE", null, false, "abc$~third-party");
+    checkMatch(["abc$third-party", "abc$~third-party", "ddd"], "http://abc/def", "IMAGE", null, true, "abc$third-party");
+    checkMatch(["//abc/def$third-party", "//abc/def$~third-party", "//abc_def"], "http://abc/def", "IMAGE", null, false, "//abc/def$~third-party");
+    checkMatch(["//abc/def$third-party", "//abc/def$~third-party", "//abc_def"], "http://abc/def", "IMAGE", null, true, "//abc/def$third-party");
+    checkMatch(["abc$third-party", "abc$~third-party", "//abc/def"], "http://abc/def", "IMAGE", null, true, "//abc/def");
+    checkMatch(["//abc/def", "abc$third-party", "abc$~third-party"], "http://abc/def", "IMAGE", null, true, "//abc/def");
+    checkMatch(["abc$third-party", "abc$~third-party", "//abc/def$third-party"], "http://abc/def", "IMAGE", null, true, "//abc/def$third-party");
+    checkMatch(["abc$third-party", "abc$~third-party", "//abc/def$third-party"], "http://abc/def", "IMAGE", null, false, "abc$~third-party");
+    checkMatch(["abc$third-party", "abc$~third-party", "//abc/def$~third-party"], "http://abc/def", "IMAGE", null, true, "abc$third-party");
+    checkMatch(["abc$image", "abc$script", "abc$~image"], "http://abc/def", "IMAGE", null, false, "abc$image");
+    checkMatch(["abc$image", "abc$script", "abc$~script"], "http://abc/def", "SCRIPT", null, false, "abc$script");
+    checkMatch(["abc$image", "abc$script", "abc$~image"], "http://abc/def", "OTHER", null, false, "abc$~image");
+    checkMatch(["//abc/def$image", "//abc/def$script", "//abc/def$~image"], "http://abc/def", "IMAGE", null, false, "//abc/def$image");
+    checkMatch(["//abc/def$image", "//abc/def$script", "//abc/def$~script"], "http://abc/def", "SCRIPT", null, false, "//abc/def$script");
+    checkMatch(["//abc/def$image", "//abc/def$script", "//abc/def$~image"], "http://abc/def", "OTHER", null, false, "//abc/def$~image");
+    checkMatch(["abc$image", "abc$~image", "//abc/def"], "http://abc/def", "IMAGE", null, false, "//abc/def");
+    checkMatch(["//abc/def", "abc$image", "abc$~image"], "http://abc/def", "IMAGE", null, false, "//abc/def");
+    checkMatch(["abc$image", "abc$~image", "//abc/def$image"], "http://abc/def", "IMAGE", null, false, "//abc/def$image");
+    checkMatch(["abc$image", "abc$~image", "//abc/def$script"], "http://abc/def", "IMAGE", null, false, "abc$image");
+    checkMatch(["abc$domain=foo.com", "abc$domain=bar.com", "abc$domain=~foo.com|~bar.com"], "http://abc/def", "IMAGE", "foo.com", false, "abc$domain=foo.com");
+    checkMatch(["abc$domain=foo.com", "abc$domain=bar.com", "abc$domain=~foo.com|~bar.com"], "http://abc/def", "IMAGE", "bar.com", false, "abc$domain=bar.com");
+    checkMatch(["abc$domain=foo.com", "abc$domain=bar.com", "abc$domain=~foo.com|~bar.com"], "http://abc/def", "IMAGE", "baz.com", false, "abc$domain=~foo.com|~bar.com");
+    checkMatch(["abc$domain=foo.com", "cba$domain=bar.com", "ccc$domain=~foo.com|~bar.com"], "http://abc/def", "IMAGE", "foo.com", false, "abc$domain=foo.com");
+    checkMatch(["abc$domain=foo.com", "cba$domain=bar.com", "ccc$domain=~foo.com|~bar.com"], "http://abc/def", "IMAGE", "bar.com", false, null);
+    checkMatch(["abc$domain=foo.com", "cba$domain=bar.com", "ccc$domain=~foo.com|~bar.com"], "http://abc/def", "IMAGE", "baz.com", false, null);
+    checkMatch(["abc$domain=foo.com", "cba$domain=bar.com", "ccc$domain=~foo.com|~bar.com"], "http://ccc/def", "IMAGE", "baz.com", false, "ccc$domain=~foo.com|~bar.com");
 
     // Testing whether result cache messes up results
     matcher.add(Filter.fromText("abc$image"));
@@ -121,22 +128,22 @@
     matcher.add(Filter.fromText("http://def$~image,~script,~document"));
     matcher.add(Filter.fromText("http://fed$third-party"));
     matcher.add(Filter.fromText("http://fed$~third-party,~script"));
-    cacheCheck("http://abc", "IMAGE", false, "abc$image");
-    cacheCheck("http://abc", "SCRIPT", false, "abc$script");
-    cacheCheck("http://abc", "OTHER", false, "abc$~image,~script,~document");
-    cacheCheck("http://cba", "IMAGE", false, "cba$~third-party,~script");
-    cacheCheck("http://cba", "IMAGE", true, "cba$third-party");
-    cacheCheck("http://def", "IMAGE", false, "http://def$image");
-    cacheCheck("http://def", "SCRIPT", false, "http://def$script");
-    cacheCheck("http://def", "OTHER", false, "http://def$~image,~script,~document");
-    cacheCheck("http://fed", "IMAGE", false, "http://fed$~third-party,~script");
-    cacheCheck("http://fed", "IMAGE", true, "http://fed$third-party");
-    cacheCheck("http://abc_cba", "DOCUMENT", false, "cba$~third-party,~script");
-    cacheCheck("http://abc_cba", "DOCUMENT", true, "cba$third-party");
-    cacheCheck("http://abc_cba", "SCRIPT", false, "abc$script");
-    cacheCheck("http://def?http://fed", "DOCUMENT", false, "http://fed$~third-party,~script");
-    cacheCheck("http://def?http://fed", "DOCUMENT", true, "http://fed$third-party");
-    cacheCheck("http://def?http://fed", "SCRIPT", false, "http://def$script");
+    cacheCheck("http://abc", "IMAGE", null, false, "abc$image");
+    cacheCheck("http://abc", "SCRIPT", null, false, "abc$script");
+    cacheCheck("http://abc", "OTHER", null, false, "abc$~image,~script,~document");
+    cacheCheck("http://cba", "IMAGE", null, false, "cba$~third-party,~script");
+    cacheCheck("http://cba", "IMAGE", null, true, "cba$third-party");
+    cacheCheck("http://def", "IMAGE", null, false, "http://def$image");
+    cacheCheck("http://def", "SCRIPT", null, false, "http://def$script");
+    cacheCheck("http://def", "OTHER", null, false, "http://def$~image,~script,~document");
+    cacheCheck("http://fed", "IMAGE", null, false, "http://fed$~third-party,~script");
+    cacheCheck("http://fed", "IMAGE", null, true, "http://fed$third-party");
+    cacheCheck("http://abc_cba", "DOCUMENT", null, false, "cba$~third-party,~script");
+    cacheCheck("http://abc_cba", "DOCUMENT", null, true, "cba$third-party");
+    cacheCheck("http://abc_cba", "SCRIPT", null, false, "abc$script");
+    cacheCheck("http://def?http://fed", "DOCUMENT", null, false, "http://fed$~third-party,~script");
+    cacheCheck("http://def?http://fed", "DOCUMENT", null, true, "http://fed$third-party");
+    cacheCheck("http://def?http://fed", "SCRIPT", null, false, "http://def$script");
   </script>
   </pre>
 </body>

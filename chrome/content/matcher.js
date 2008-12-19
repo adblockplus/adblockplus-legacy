@@ -179,7 +179,7 @@ Matcher.prototype = {
   /**
    * Same as matchesAny but bypasses result cache
    */
-  matchesAnyInternal: function(location, contentType, thirdParty)
+  matchesAnyInternal: function(location, contentType, docDomain, thirdParty)
   {
     if (this.hasShortcuts)
     {
@@ -193,7 +193,7 @@ Matcher.prototype = {
         if (substr in this.shortcutHash)
         {
           let filter = this.shortcutHash[substr];
-          if (filter.matches(location, contentType, thirdParty))
+          if (filter.matches(location, contentType, docDomain, thirdParty))
             return filter;
         }
       }
@@ -201,7 +201,7 @@ Matcher.prototype = {
 
     // Slow matching for filters without shortcut
     for each (let filter in this.regexps)
-      if (filter.matches(location, contentType, thirdParty))
+      if (filter.matches(location, contentType, docDomain, thirdParty))
         return filter;
 
     return null;
@@ -211,16 +211,17 @@ Matcher.prototype = {
    * Tests whether the URL matches any of the known filters
    * @param {String} location URL to be tested
    * @param {String} contentType content type identifier of the URL
+   * @param {String} docDomain domain name of the document that loads the URL
    * @param {Boolean} thirdParty should be true if the URL is a third-party request
    * @return {RegExpFilter} matching filter or null
    */
-  matchesAny: function(location, contentType, thirdParty)
+  matchesAny: function(location, contentType, docDomain, thirdParty)
   {
-    let key = location + " " + contentType + " " + thirdParty;
+    let key = location + " " + contentType + " " + docDomain + " " + thirdParty;
     if (key in this.resultCache)
       return this.resultCache[key];
 
-    let result = this.matchesAnyInternal(location, contentType, thirdParty);
+    let result = this.matchesAnyInternal(location, contentType, docDomain, thirdParty);
 
     if (this.cacheEntries >= Matcher.maxCacheEntries)
     {

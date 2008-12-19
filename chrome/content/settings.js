@@ -543,7 +543,9 @@ function exportList()
           let filterVersion;
           if (filter instanceof abp.RegExpFilter)
           {
-            if (filter.thirdParty != null)
+            if (filter.includeDomains != null || filter.excludeDomains != null)
+              filterVersion = "1.0.1";
+            else if (filter.thirdParty != null)
               filterVersion = "1.0";
             else if (filter.collapse != null)
               filterVersion = "0.7.5";

@@ -114,7 +114,8 @@ var policy = {
     var data = DataContainer.getDataForWindow(wnd);
 
     var objTab = null;
-    let thirdParty = this.isThirdParty(location, wnd);
+    let docDomain = this.getHostname(wnd.location.href);
+    let thirdParty = this.isThirdParty(location, docDomain);
 
     if (!match && location.scheme == "chrome" && location.host == "global" && /abphit:(\d+)#/.test(location.path) && RegExp.$1 in elemhide.keys)
     {
@@ -124,9 +125,9 @@ var policy = {
     }
 
     if (!match && prefs.enabled) {
-      match = whitelistMatcher.matchesAny(locationText, typeDescr[contentType] || "", thirdParty);
+      match = whitelistMatcher.matchesAny(locationText, typeDescr[contentType] || "", docDomain, thirdParty);
       if (match == null)
-        match = blacklistMatcher.matchesAny(locationText, typeDescr[contentType] || "", thirdParty);
+        match = blacklistMatcher.matchesAny(locationText, typeDescr[contentType] || "", docDomain, thirdParty);
 
       if (match instanceof BlockingFilter && node)
       {
@@ -154,7 +155,7 @@ var policy = {
     }
 
     // Store node data
-    var nodeData = data.addNode(topWnd, node, contentType, thirdParty, locationText, match, objTab);
+    var nodeData = data.addNode(topWnd, node, contentType, docDomain, thirdParty, locationText, match, objTab);
     if (match)
       filterStorage.increaseHitCount(match);
     if (objTab)
@@ -177,12 +178,27 @@ var policy = {
   },
 
   /**
+   * Extracts the hostname from a URL (might return null).
+   */
+  getHostname: function(/**String*/ url) /**String*/
+  {
+    try
+    {
+      return unwrapURL(url).host;
+    }
+    catch(e)
+    {
+      return null;
+    }
+  },
+
+  /**
    * Checks whether a page is whitelisted.
    * @param url {String}
    * @return {Boolean}
    */
   isWhitelisted: function(url) {
-    return whitelistMatcher.matchesAny(url, "DOCUMENT", false);
+    return whitelistMatcher.matchesAny(url, "DOCUMENT", this.getHostname(url), false);
   },
 
   /**
@@ -190,11 +206,14 @@ var policy = {
    * @param wnd {nsIDOMWindow}
    * @return {Boolean}
    */
-  isWindowWhitelisted: function(wnd) {
-    if ("name" in wnd && wnd.name == "messagepane") {
+  isWindowWhitelisted: function(wnd)
+  {
+    if ("name" in wnd && wnd.name == "messagepane")
+    {
       // Thunderbird branch
-      try {
-        var mailWnd = wnd.QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+      try
+      {
+        let mailWnd = wnd.QueryInterface(Components.interfaces.nsIInterfaceRequestor)
                          .getInterface(Components.interfaces.nsIWebNavigation)
                          .QueryInterface(Components.interfaces.nsIDocShellTreeItem)
                          .rootTreeItem
@@ -202,62 +221,59 @@ var policy = {
                          .getInterface(Components.interfaces.nsIDOMWindow);
 
         // Typically we get a wrapped mail window here, need to unwrap
-        try {
+        try
+        {
           mailWnd = mailWnd.wrappedJSObject;
         } catch(e) {}
   
-        if ("currentHeaderData" in mailWnd && "content-base" in mailWnd.currentHeaderData) {
-          let location = unwrapURL(mailWnd.currentHeaderData["content-base"].headerValue);
-          return this.isWhitelisted(location.spec);
+        if ("currentHeaderData" in mailWnd && "content-base" in mailWnd.currentHeaderData)
+        {
+          return this.isWhitelisted(mailWnd.currentHeaderData["content-base"].headerValue);
         }
-        else if ("gDBView" in mailWnd) {
-          var msgHdr = mailWnd.gDBView.hdrForFirstSelectedMessage;
-          var emailAddress = headerParser.extractHeaderAddressMailboxes(null, msgHdr.author);
-          if (emailAddress) {
+        else if ("gDBView" in mailWnd)
+        {
+          let msgHdr = mailWnd.gDBView.hdrForFirstSelectedMessage;
+          let emailAddress = headerParser.extractHeaderAddressMailboxes(null, msgHdr.author);
+          if (emailAddress)
+          {
             emailAddress = 'mailto:' + emailAddress.replace(/^[\s"]+/, "").replace(/[\s"]+$/, "").replace(' ', '%20');
             return this.isWhitelisted(emailAddress);
           }
         }
-      }
-      catch(e) {
-      }
+      } catch(e) {}
     }
-    else {
+    else
+    {
       // Firefox branch
-      let location = unwrapURL(wnd.location.href);
-      return this.isWhitelisted(location.spec);
+      return this.isWhitelisted(wnd.location.href);
     }
     return null;
   },
 
   /**
    * Checks whether the location's origin is different from document's origin.
-   * @param location {nsIURI}
-   * @param wnd {nsIDOMWindow}
-   * @return {Boolean}
    */
-  isThirdParty: function(location, wnd)
+  isThirdParty: function(/**nsIURI*/location, /**String*/ docDomain) /**Boolean*/
   {
-    let wndLocation = unwrapURL(wnd.location.href);
-    if (!location || !wndLocation)
-      return false;
+    if (!location || !docDomain)
+      return true;
 
     try 
     {
       if (effectiveTLD)
       {
         try {
-          return effectiveTLD.getBaseDomain(location) != effectiveTLD.getBaseDomain(wndLocation);
+          return effectiveTLD.getBaseDomain(location) != effectiveTLD.getBaseDomainFromHost(docDomain);
         }
         catch (e) {
           // EffectiveTLDService throws on IP addresses
-          return location.host != wndLocation.host;
+          return location.host != docDomain;
         }
       }
       else
       {
         // Stupid fallback algorithm for Gecko 1.8
-        return location.host.replace(/.*?((?:[^.]+\.)?[^.]+\.?)$/, "$1") != wndLocation.host.replace(/.*?((?:[^.]+\.)?[^.]+\.?)$/, "$1");
+        return location.host.replace(/.*?((?:[^.]+\.)?[^.]+\.?)$/, "$1") != docDomain.replace(/.*?((?:[^.]+\.)?[^.]+\.?)$/, "$1");
       }
     }
     catch (e2)

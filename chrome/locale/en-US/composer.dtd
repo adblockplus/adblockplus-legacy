@@ -49,8 +49,10 @@
 <!ENTITY anchor.start.label       "at the beginning of the address">
 <!ENTITY anchor.start.accesskey   "g">
 <!ENTITY anchor.end.label         "at the end of the address">
-<!ENTITY anchor.end.accesskey     "d">
+<!ENTITY anchor.end.accesskey     "n">
 <!ENTITY options.label            "Options">
+<!ENTITY domainRestriction.label      "Restrict to domain:">
+<!ENTITY domainRestriction.accesskey  "d">
 <!ENTITY firstParty.label         "First-party only">
 <!ENTITY firstParty.accesskey     "r">
 <!ENTITY thirdParty.label         "Third-party only">

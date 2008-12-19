@@ -881,9 +881,9 @@ var treeView = {
     for each (let item in this.allData)
     {
       if (!item.filter)
-        item.filter = disabledWhitelistMatcher.matchesAny(item.location, item.typeDescr, item.thirdParty);
+        item.filter = disabledWhitelistMatcher.matchesAny(item.location, item.typeDescr, item.docDomain, item.thirdParty);
       if (!item.filter)
-        item.filter = disabledBlacklistMatcher.matchesAny(item.location, item.typeDescr, item.thirdParty);
+        item.filter = disabledBlacklistMatcher.matchesAny(item.location, item.typeDescr, item.docDomain, item.thirdParty);
     }
     this.refilter();
 
@@ -894,9 +894,9 @@ var treeView = {
   addItem: function(item) {
     this.allData.push(item);
     if (!item.filter)
-      item.filter = disabledWhitelistMatcher.matchesAny(item.location, item.typeDescr, item.thirdParty);
+      item.filter = disabledWhitelistMatcher.matchesAny(item.location, item.typeDescr, item.docDomain, item.thirdParty);
     if (!item.filter)
-      item.filter = disabledBlacklistMatcher.matchesAny(item.location, item.typeDescr, item.thirdParty);
+      item.filter = disabledBlacklistMatcher.matchesAny(item.location, item.typeDescr, item.docDomain, item.thirdParty);
 
     if (!this.matchesFilter(item))
       return;
