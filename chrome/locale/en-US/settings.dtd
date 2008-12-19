@@ -87,12 +87,12 @@
 <!ENTITY help.label                 "Help">
 <!ENTITY help.accesskey             "H">
 
+<!ENTITY gettingStarted.label       "Getting started">
+<!ENTITY gettingStarted.accesskey   "s">
+<!ENTITY gettingStarted.url         "http://adblockplus.org/en/getting_started">
 <!ENTITY faq.label                  "Frequently Asked Questions">
 <!ENTITY faq.accesskey              "F">
 <!ENTITY faq.url                    "http://adblockplus.org/en/faq">
-<!ENTITY tips.label                 "Tip of the Day">
-<!ENTITY tips.accesskey             "T">
-<!ENTITY tips.url                   "http://adblockplus.org/en/tips">
 <!ENTITY filterdoc.label            "Writing Adblock Plus filters">
 <!ENTITY filterdoc.accesskey        "R">
 <!ENTITY filterdoc.url              "http://adblockplus.org/en/filters">
