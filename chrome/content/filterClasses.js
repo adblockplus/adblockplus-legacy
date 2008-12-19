@@ -91,7 +91,7 @@ Filter.regexpRegExp = /^(@@)?\/.*\/(?:\$~?[\w\-]+(?:,~?[\w\-]+)*)?$/;
  * Regular expression that options on a RegExp filter should match
  * @type RegExp
  */
-Filter.optionsRegExp = /\$(~?[\w\-]+(?:,~?[\w\-]+)*)$/;
+Filter.optionsRegExp = /\$(~?[\w\-]+(?:=[^,\s]+)?(?:,~?[\w\-]+(?:=[^,\s]+)?)*)$/;
 
 /**
  * Creates a filter of correct type from its text representation - does the basic parsing and
@@ -146,6 +146,10 @@ Filter.fromObject = function(obj)
       if ("matchCase" in obj)
         matchCase = (obj.matchCase == "true");
 
+      let domains = null;
+      if ("domains" in obj)
+        domains = obj.domains;
+
       let thirdParty = null;
       if ("thirdParty" in obj)
         thirdParty = (obj.thirdParty == "true");
@@ -154,7 +158,7 @@ Filter.fromObject = function(obj)
       if ("collapse" in obj)
         collapse = (obj.collapse == "true");
 
-      ret = new BlockingFilter(obj.text, obj.regexp, contentType, matchCase, thirdParty, collapse);
+      ret = new BlockingFilter(obj.text, obj.regexp, contentType, matchCase, domains, thirdParty, collapse);
       break;
     case "whitelist":
       if ("pageWhitelist" in obj)
@@ -169,11 +173,15 @@ Filter.fromObject = function(obj)
         if ("matchCase" in obj)
           matchCase = (obj.matchCase == "true");
 
+        let domains = null;
+        if ("domains" in obj)
+          domains = obj.domains;
+
         let thirdParty = null;
         if ("thirdParty" in obj)
           thirdParty = (obj.thirdParty == "true");
 
-        ret = new WhitelistFilter(obj.text, obj.regexp, contentType, matchCase, thirdParty);
+        ret = new WhitelistFilter(obj.text, obj.regexp, contentType, matchCase, domains, thirdParty);
       }
       break;
     case "elemhide":
@@ -311,11 +319,12 @@ abp.ActiveFilter = ActiveFilter;
  * @param {String} regexp       regular expression this filter should use
  * @param {Number} contentType  (optional) Content types the filter applies to, combination of values from RegExpFilter.typeMap
  * @param {Boolean} matchCase   (optional) Defines whether the filter should distinguish between lower and upper case letters
+ * @param {String} domains      (optional) Domains that the filter is restricted to, e.g. "foo.com|bar.com|~baz.com"
  * @param {Boolean} thirdParty  (optional) Defines whether the filter should apply to third-party or first-party content only
  * @constructor
  * @augments ActiveFilter
  */
-function RegExpFilter(text, regexp, contentType, matchCase, thirdParty)
+function RegExpFilter(text, regexp, contentType, matchCase, domains, thirdParty)
 {
   ActiveFilter.call(this, text);
 
@@ -323,6 +332,27 @@ function RegExpFilter(text, regexp, contentType, matchCase, thirdParty)
     this.contentType = contentType;
   if (matchCase)
     this.matchCase = matchCase;
+  if (domains != null)
+  {
+    this.domains = domains;
+    for each (let domain in domains.split("|"))
+    {
+      if (domain == "")
+        continue;
+
+      let hash = "includeDomains";
+      if (domain[0] == "~")
+      {
+        hash = "excludeDomains";
+        domain = domain.substr(1);
+      }
+
+      if (!this[hash])
+        this[hash] = {__proto__: null};
+
+      this[hash][domain] = true;
+    }
+  }
   if (thirdParty != null)
     this.thirdParty = thirdParty;
 
@@ -353,23 +383,66 @@ RegExpFilter.prototype =
    */
   matchCase: false,
   /**
+   * String representation of the domains the filter should be restricted to, e.g. "foo.com|bar.com|~baz.com"
+   * @type String
+   */
+  domains: null,
+  /**
    * Defines whether the filter should apply to third-party or first-party content only. Can be null (apply to all content).
    * @type Boolean
    */
   thirdParty: null,
 
   /**
+   * Map containing domains that this filter should match on or null if the filter should match on all domains
+   * @type Object
+   */
+  includeDomains: null,
+  /**
+   * Map containing domains that this filter should not match on or null if the filter should match on all domains
+   * @type Object
+   */
+  excludeDomains: null,
+
+  /**
+   * Checks whether this filter is active on a domain.
+   */
+  isActiveOnDomain: function(/**String*/ docDomain) /**Boolean*/
+  {
+    if (!this.includeDomains && !this.excludeDomains)
+      return true;
+
+    docDomain = docDomain.replace(/\.+$/, "").toUpperCase();
+
+    while (true)
+    {
+      if (this.includeDomains && docDomain in this.includeDomains)
+        return true;
+      if (this.excludeDomains && docDomain in this.excludeDomains)
+        return false;
+
+      let nextDot = docDomain.indexOf(".");
+      if (nextDot < 0)
+        break;
+      docDomain = docDomain.substr(nextDot + 1);
+    }
+    return (this.includeDomains == null);
+  },
+
+  /**
    * Tests whether the URL matches this filters
    * @param {String} location URL to be tested
    * @param {String} contentType content type identifier of the URL
+   * @param {String} docDomain domain name of the document that loads the URL
    * @param {Boolean} thirdParty should be true if the URL is a third-party request
    * @return {Boolean}
    */
-  matches: function(location, contentType, thirdParty)
+  matches: function(location, contentType, docDomain, thirdParty)
   {
     return (this.regexp.test(location) &&
             (RegExpFilter.typeMap[contentType] & this.contentType) != 0 &&
-            (this.thirdParty == null || this.thirdParty == thirdParty));
+            (this.thirdParty == null || this.thirdParty == thirdParty) &&
+            (!docDomain || this.isActiveOnDomain(docDomain)));
   },
 
   /**
@@ -385,6 +458,8 @@ RegExpFilter.prototype =
       buffer.push("contentType=" + this.contentType);
     if (this.matchCase)
       buffer.push("matchCase=" + this.matchCase);
+    if (this.domains != null)
+      buffer.push("domains=" + this.domains);
     if (this.thirdParty != null)
       buffer.push("thirdParty=" + this.thirdParty);
   }
@@ -407,15 +482,19 @@ RegExpFilter.fromText = function(text)
 
   let contentType = null;
   let matchCase = null;
+  let domains = null;
   let thirdParty = null;
   let collapse = null;
   let options;
   if (Filter.optionsRegExp.test(text))
   {
-    options = RegExp.$1.replace(/-/g, "_").toUpperCase().split(",");
+    options = RegExp.$1.toUpperCase().split(",");
     text = text.replace(Filter.optionsRegExp, "");
     for each (let option in options)
     {
+      let value;
+      [option, value] = option.split("=");
+      option = option.replace(/-/, "_");
       if (option in RegExpFilter.typeMap)
       {
         if (contentType == null)
@@ -430,13 +509,15 @@ RegExpFilter.fromText = function(text)
       }
       else if (option == "MATCH_CASE")
         matchCase = true;
+      else if (option == "DOMAIN" && typeof value != "undefined")
+        domains = value;
       else if (option == "THIRD_PARTY")
         thirdParty = true;
       else if (option == "~THIRD_PARTY")
         thirdParty = false;
       else if (option == "COLLAPSE")
         collapse = true;
-      else if (options == "~COLLAPSE")
+      else if (option == "~COLLAPSE")
         collapse = false;
     }
   }
@@ -470,7 +551,7 @@ RegExpFilter.fromText = function(text)
 
   try
   {
-    return new constructor(origText, regexp, contentType, matchCase, thirdParty, collapse);
+    return new constructor(origText, regexp, contentType, matchCase, domains, thirdParty, collapse);
   }
   catch (e)
   {
@@ -504,14 +585,15 @@ RegExpFilter.typeMap = {
  * @param {String} regexp see RegExpFilter()
  * @param {Number} contentType see RegExpFilter()
  * @param {Boolean} matchCase see RegExpFilter()
+ * @param {String} domains see RegExpFilter()
  * @param {Boolean} thirdParty see RegExpFilter()
  * @param {Boolean} collapse  defines whether the filter should collapse blocked content, can be null
  * @constructor
  * @augments RegExpFilter
  */
-function BlockingFilter(text, regexp, contentType, matchCase, thirdParty, collapse)
+function BlockingFilter(text, regexp, contentType, matchCase, domains, thirdParty, collapse)
 {
-  RegExpFilter.call(this, text, regexp, contentType, matchCase, thirdParty);
+  RegExpFilter.call(this, text, regexp, contentType, matchCase, domains, thirdParty);
 
   this.collapse = collapse;
 }
@@ -544,13 +626,14 @@ abp.BlockingFilter = BlockingFilter;
  * @param {String} regexp see RegExpFilter()
  * @param {Number} contentType see RegExpFilter()
  * @param {Boolean} matchCase see RegExpFilter()
+ * @param {String} domains see RegExpFilter()
  * @param {Boolean} thirdParty see RegExpFilter()
  * @constructor
  * @augments RegExpFilter
  */
-function WhitelistFilter(text, regexp, contentType, matchCase, thirdParty)
+function WhitelistFilter(text, regexp, contentType, matchCase, domains, thirdParty)
 {
-  RegExpFilter.call(this, text, regexp, contentType, matchCase, thirdParty);
+  RegExpFilter.call(this, text, regexp, contentType, matchCase, domains, thirdParty);
 }
 WhitelistFilter.prototype =
 {

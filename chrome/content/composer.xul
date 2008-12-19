@@ -85,6 +85,8 @@
       <checkbox id="firstParty" label="&firstParty.label;" accesskey="&firstParty.accesskey;" oncommand="updateFilter()"/>
       <checkbox id="thirdParty" label="&thirdParty.label;" accesskey="&thirdParty.accesskey;" oncommand="updateFilter()"/>
       <checkbox id="matchCase" label="&matchCase.label;" accesskey="&matchCase.accesskey;" oncommand="updateFilter()"/>
+      <checkbox id="domainRestrictionEnabled" label="&domainRestriction.label;" accesskey="&domainRestriction.accesskey;" oncommand="updateFilter()"/>
+      <textbox id="domainRestriction" oninput="updateFilter()"/>
 
       <label id="typeGroupLabel" value="&types.label;"/>
       <vbox flex="1" id="typeGroup"/>

@@ -51,6 +51,12 @@ matchCase=true
 type=filterlist
 
 [Filter]
+text=abc$domain=foo.com|~bar.foo.com
+regexp=abc
+domains=~bar.foo.com
+type=filterlist
+
+[Filter]
 text=*/banner/*
 regexp=\/banner\/
 shortcut=/banner/
@@ -25709,6 +25715,7 @@ url=~fl~
 \[Filter]
 foo$collapse
 bar$~collapse,match-case
+abc$domain=foo.com|~bar.foo.com
 */banner/*
 
 [Subscription]

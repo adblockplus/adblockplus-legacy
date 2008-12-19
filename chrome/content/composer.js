@@ -111,7 +111,14 @@ function init() {
       return 0;
   });
 
-  let thirdParty = abp.policy.isThirdParty(abp.makeURL(item.location), wnd);
+  let docDomain = abp.policy.getHostname(wnd.location.href);
+  let thirdParty = abp.policy.isThirdParty(abp.makeURL(item.location), docDomain);
+
+  if (docDomain)
+    docDomain = docDomain.replace(/^www\./i, "").replace(/\.+$/, "");
+  if (docDomain)
+    E("domainRestriction").value = docDomain;
+
   E("thirdParty").hidden = !thirdParty;
   E("firstParty").hidden = thirdParty;
 
@@ -164,6 +171,13 @@ function updateFilter()
   if (advancedMode)
   {
     let options = [];
+
+    if (E("domainRestrictionEnabled").checked)
+    {
+      let domainRestriction = E("domainRestriction").value.replace(/^\s+/, "").replace(/\s+$/, "").replace(/\.+$/, "").replace(/,/g, "");
+      if (domainRestriction)
+        options.push("domain=" + domainRestriction);
+    }
 
     if (E("firstParty").checked)
       options.push("~third-party");

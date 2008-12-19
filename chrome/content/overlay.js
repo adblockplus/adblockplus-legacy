@@ -142,28 +142,32 @@ function abpReloadPrefs() {
 
     label = abp.getString("status_" + state + "_label");
 
-    if (state == "active") {
+    if (state == "active")
+    {
       let location = null;
-      if ("currentHeaderData" in window && "content-base" in currentHeaderData) {
+      if ("currentHeaderData" in window && "content-base" in currentHeaderData)
+      {
         // Thunderbird blog entry
-        location = abp.unwrapURL(currentHeaderData["content-base"].headerValue).spec;
+        location = currentHeaderData["content-base"].headerValue;
       }
-      else if ("gDBView" in window) {
+      else if ("gDBView" in window)
+      {
         // Thunderbird mail/newsgroup entry
-        try {
+        try
+        {
           var msgHdr = gDBView.hdrForFirstSelectedMessage;
           var headerParser = Components.classes["@mozilla.org/messenger/headerparser;1"]
                                       .getService(Components.interfaces.nsIMsgHeaderParser);
           var emailAddress = headerParser.extractHeaderAddressMailboxes(null, msgHdr.author);
-          if (emailAddress) {
+          if (emailAddress)
             location = 'mailto:' + emailAddress.replace(/^[\s"]+/, "").replace(/[\s"]+$/, "").replace(' ', '%20');
-          }
         }
         catch(e) {}
       }
-      else {
+      else
+      {
         // Firefox web page
-        location = abp.unwrapURL(abpGetBrowser().contentWindow.location.href).spec;
+        location = abpGetBrowser().contentWindow.location.href;
       }
 
       if (location && abp.policy.isWhitelisted(location))
