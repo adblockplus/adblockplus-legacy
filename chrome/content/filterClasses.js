@@ -152,7 +152,7 @@ Filter.fromObject = function(obj)
 
       let collapse = null;
       if ("collapse" in obj)
-        collapse = (obj.thirdParty == "true");
+        collapse = (obj.collapse == "true");
 
       ret = new BlockingFilter(obj.text, obj.regexp, contentType, matchCase, thirdParty, collapse);
       break;
