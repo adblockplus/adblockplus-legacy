@@ -402,15 +402,15 @@ function abpFillTooltip(ev) {
       var locations = data.getAllLocations();
 
       var blocked = 0;
-      var filters = {__proto__: null};
+      var filterCount = {__proto__: null};
       for (i = 0; i < locations.length; i++) {
         if (locations[i].filter && !(locations[i].filter instanceof abp.WhitelistFilter))
           blocked++;
         if (locations[i].filter) {
-          if (locations[i].filter.text in filters)
-            filters[locations[i].filter.text].value++;
+          if (locations[i].filter.text in filterCount)
+            filterCount[locations[i].filter.text]++;
           else
-            filters[locations[i].filter.text] = {value:1};
+            filterCount[locations[i].filter.text] = 1;
         }
       }
 
@@ -419,9 +419,9 @@ function abpFillTooltip(ev) {
       document.getElementById("abp-tooltip-blocked").setAttribute("value", blockedStr);
 
       var filterSort = function(a, b) {
-        return filters[b].value - filters[a].value;
+        return filterCount[b] - filterCount[a];
       };
-      for (var filter in filters)
+      for (var filter in filterCount)
         activeFilters.push(filter);
       activeFilters = activeFilters.sort(filterSort);
     }
@@ -435,7 +435,7 @@ function abpFillTooltip(ev) {
 
       for (var i = 0; i < activeFilters.length && i < 3; i++) {
         var descr = document.createElement("description");
-        descr.setAttribute("value", activeFilters[i] + " (" + filters[activeFilters[i]].value + ")");
+        descr.setAttribute("value", activeFilters[i] + " (" + filterCount[activeFilters[i]] + ")");
         filtersContainer.appendChild(descr);
       }
       if (activeFilters.length > 3) {
