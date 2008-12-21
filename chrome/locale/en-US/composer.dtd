@@ -53,6 +53,7 @@
 <!ENTITY options.label            "Options">
 <!ENTITY domainRestriction.label      "Restrict to domain:">
 <!ENTITY domainRestriction.accesskey  "d">
+<!ENTITY domainRestriction.help       "Specify one or more domains separated by the symbol &quot;|&quot;, the filter will only be applied on these domains then. The symbol &quot;~&quot; before a domain name means that the filter should not be applied on that domain.">
 <!ENTITY firstParty.label         "First-party only">
 <!ENTITY firstParty.accesskey     "r">
 <!ENTITY thirdParty.label         "Third-party only">
