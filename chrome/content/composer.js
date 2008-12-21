@@ -323,3 +323,15 @@ function doEnable() {
   abp.prefs.save();
   E("disabledWarning").hidden = true;
 }
+
+/**
+ * Selects or unselects all type checkboxes except those
+ * that are disabled.
+ */
+function selectAllTypes(/**Boolean*/ select)
+{
+  for (let typeNode = E("typeGroup").firstChild; typeNode; typeNode = typeNode.nextSibling)
+    if (typeNode.getAttribute("disabled") != "true")
+      typeNode.checked = select;
+  updateFilter();
+}

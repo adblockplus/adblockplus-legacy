@@ -53,6 +53,11 @@
   margin: 0px;
 }
 
+.text-link {
+  font-size: 80%;
+  -moz-user-focus: ignore;
+}
+
 .help {
   color: #0000E0;
   border-bottom: 1px dotted #0000E0;
