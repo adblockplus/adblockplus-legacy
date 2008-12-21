@@ -45,11 +45,11 @@
 <!ENTITY enable.accesskey "N">
 <!ENTITY showintoolbar.label "Tunjukkan di toolbar">
 <!ENTITY showintoolbar.accesskey "B">
-<!ENTITY showinstatusbar.label "Tunjukkan in status bar">
+<!ENTITY showinstatusbar.label "Tunjukkan di status bar">
 <!ENTITY showinstatusbar.accesskey "S">
 <!ENTITY objecttabs.label "Tunjukkan tab pada Flash dan Java">
 <!ENTITY objecttabs.accesskey "T">
-<!ENTITY collapse.label "Gabung elemen yang diblok">
+<!ENTITY collapse.label "Gabungkan elemen yang diblok">
 <!ENTITY collapse.accesskey "L">
 <!ENTITY help.label "Bantuan">
 <!ENTITY help.accesskey "b">

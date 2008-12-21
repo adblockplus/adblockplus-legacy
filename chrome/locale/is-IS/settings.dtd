@@ -1,0 +1,88 @@
+<!ENTITY dialog.title "Adblock Plus stillingar">
+<!ENTITY filters.label "Síur">
+<!ENTITY filters.accesskey "S">
+<!ENTITY add.label "Bæta við síu">
+<!ENTITY add.accesskey "B">
+<!ENTITY addsubscription.label "Bæta við síuáskrift">
+<!ENTITY addsubscription.accesskey "S">
+<!ENTITY synchsubscriptions.label "Uppfæra allar áskriftir">
+<!ENTITY synchsubscriptions.accesskey "U">
+<!ENTITY import.label "Flytja inn síur">
+<!ENTITY import.accesskey "F">
+<!ENTITY export.label "Flytja út síur">
+<!ENTITY export.accesskey "u">
+<!ENTITY clearall.label "Fjarlægja allar síur">
+<!ENTITY clearall.accesskey "L">
+<!ENTITY resethitcounts.label "Endurstilla talningar">
+<!ENTITY resethitcounts.accesskey "E">
+<!ENTITY edit.label "Breyta">
+<!ENTITY edit.accesskey "B">
+<!ENTITY cut.label "Klippa">
+<!ENTITY cut.accesskey "K">
+<!ENTITY copy.label "Afrita">
+<!ENTITY copy.accesskey "A">
+<!ENTITY paste.label "Líma">
+<!ENTITY paste.accesskey "L">
+<!ENTITY remove.label "Eyða">
+<!ENTITY remove.accesskey "E">
+<!ENTITY menu.find.label "Leita">
+<!ENTITY menu.find.accesskey "t">
+<!ENTITY menu.findagain.label "Leita aftur">
+<!ENTITY menu.findagain.accesskey "f">
+<!ENTITY view.label "Skoða
+">
+<!ENTITY view.accesskey "k">
+<!ENTITY sort.label "Raða eftir">
+<!ENTITY sort.accesskey "R">
+<!ENTITY sort.none.label "Óraðað">
+<!ENTITY sort.none.accesskey "r">
+<!ENTITY sort.ascending.label "A &gt; Ö röðun">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.descending.label "Ö &gt; A röðun">
+<!ENTITY sort.descending.accesskey "Ö">
+<!ENTITY options.label "Valkostir">
+<!ENTITY options.accesskey "V">
+<!ENTITY enable.label "Virkja Adblock Plus">
+<!ENTITY enable.accesskey "A">
+<!ENTITY showintoolbar.label "Sýna í tækjastiku">
+<!ENTITY showintoolbar.accesskey "t">
+<!ENTITY showinstatusbar.label "Sýna í stöðuslá">
+<!ENTITY showinstatusbar.accesskey "S">
+<!ENTITY objecttabs.label "Sýna flipa fyrir Flash og Java">
+<!ENTITY objecttabs.accesskey "f">
+<!ENTITY collapse.label "Fella saman lokaða hluti">
+<!ENTITY collapse.accesskey "L">
+<!ENTITY help.label "Hjálp">
+<!ENTITY help.accesskey "H">
+<!ENTITY faq.label "Oft spurðar spurningar">
+<!ENTITY faq.accesskey "O">
+<!ENTITY faq.url "http://adblockplus.org/en/faq">
+<!ENTITY tips.label "Hollráð dagsins">
+<!ENTITY tips.accesskey "H">
+<!ENTITY tips.url "http://adblockplus.org/en/tips">
+<!ENTITY filterdoc.label "Hvernig á að búa til Adblock Plus síur">
+<!ENTITY filterdoc.accesskey "v">
+<!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
+<!ENTITY about.label "Um Adblock Plus">
+<!ENTITY about.accesskey "B">
+<!ENTITY description "Eftirfarandi síur ákvarða hvaða netföng á að loka á og hvaða netföng eigi að leyfa:">
+<!ENTITY filter.column "Síu regla">
+<!ENTITY filter.accesskey "r">
+<!ENTITY enabled.column "Virkt">
+<!ENTITY enabled.accesskey "V">
+<!ENTITY hitcount.column "Notkun">
+<!ENTITY hitcount.accesskey "N">
+<!ENTITY lasthit.column "Seinast heimsótt">
+<!ENTITY lasthit.accesskey "h">
+<!ENTITY context.edit.label "Breyta">
+<!ENTITY context.resethitcount.label "Endurstilla talningu fyrir síu">
+<!ENTITY context.synchsubscription.label "Uppfæra áskrift núna">
+<!ENTITY context.editsubscription.label "Breyta áskrift">
+<!ENTITY context.moveup.label "Færa upp">
+<!ENTITY context.movedown.label "Færa niður">
+<!ENTITY context.movegroupup.label "Færa hóp upp">
+<!ENTITY context.movegroupdown.label "Færa hóp niður">
+<!ENTITY context.enable.label "Gera virkt">
+<!ENTITY context.disable.label "Gera óvirkt">
+<!ENTITY apply.label "Nota">
+<!ENTITY apply.accesskey "N">

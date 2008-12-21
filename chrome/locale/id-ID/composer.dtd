@@ -32,7 +32,7 @@
 <!ENTITY matchCase.label "Case tepat">
 <!ENTITY matchCase.accesskey "p">
 <!ENTITY types.label "Dipakai untuk tipe:">
-<!ENTITY collapse.label "Gabung yang diblok:">
+<!ENTITY collapse.label "Gabungkan yang diblok:">
 <!ENTITY collapse.accesskey "L">
 <!ENTITY collapse.default.yes.label "Gunakan biasa (ya)">
 <!ENTITY collapse.default.no.label "Gunakan biasa (tidak)">

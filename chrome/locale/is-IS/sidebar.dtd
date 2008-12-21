@@ -1,0 +1,30 @@
+<!ENTITY detached.title "Adblock Plus: Lokaðir hlutir (aðskildir)">
+<!ENTITY detach.label "Aftengja">
+<!ENTITY reattach.label "Festa aftur">
+<!ENTITY search.label "Leita:">
+<!ENTITY search.accesskey "L">
+<!ENTITY type.label "Tegund">
+<!ENTITY address.label "Netfang">
+<!ENTITY filter.label "Sía">
+<!ENTITY state.label "Ríki">
+<!ENTITY size.label "Stærð">
+<!ENTITY noitems.label "Engir hlutir til að loka á">
+<!ENTITY whitelisted.label "Síða fyrir hvítlista">
+<!ENTITY notloaded.label "Adblock Plus er ekki rétt uppsett">
+<!ENTITY tooltip.address.label "Netfang:">
+<!ENTITY tooltip.type.label "Tegund:">
+<!ENTITY tooltip.type.blocked "(stöðvað)">
+<!ENTITY tooltip.type.whitelisted "(hvítlisti)">
+<!ENTITY tooltip.size.label "Stærð:">
+<!ENTITY tooltip.filter.label "Sía í notkun:">
+<!ENTITY tooltip.filterSource.label "Sía frumkóða:">
+<!ENTITY context.block.label "Loka á þennan hlut">
+<!ENTITY context.editfilter.label "Breyta núverandi síu">
+<!ENTITY context.whitelist.label "Bæta við undantekningu fyrir hlut">
+<!ENTITY context.disablefilter.label "Aftengja síu --">
+<!ENTITY context.enablefilter.label "Virkja aftur síu --">
+<!ENTITY context.open.label "Opna í nýjum flipa">
+<!ENTITY context.flash.label "Rammi Flash hlutar">
+<!ENTITY context.copy.label "Afrita netfang hluts">
+<!ENTITY context.copyFilter.label "Afrita síu">
+<!ENTITY context.selectAll.label "Velja allt">
