@@ -38,6 +38,19 @@ shortcut=[filter]
 type=filterlist
 
 [Filter]
+text=foo$collapse
+regexp=foo
+collapse=true
+type=filterlist
+
+[Filter]
+text=bar$~collapse,match-case
+regexp=bar
+collapse=false
+matchCase=true
+type=filterlist
+
+[Filter]
 text=*/banner/*
 regexp=\/banner\/
 shortcut=/banner/
@@ -25694,6 +25707,8 @@ url=~fl~
 
 [Subscription filters]
 \[Filter]
+foo$collapse
+bar$~collapse,match-case
 */banner/*
 
 [Subscription]
