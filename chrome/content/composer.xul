@@ -96,6 +96,11 @@
       <textbox id="domainRestriction" oninput="updateFilter()"/>
 
       <label id="typeGroupLabel" value="&types.label;"/>
+      <hbox>
+        <label id="selectAllTypes" class="text-link" value="&selectAllTypes.label;" onclick="selectAllTypes(true)"/>
+        <spacer flex="1"/>
+        <label id="unselectAllTypes" class="text-link" value="&unselectAllTypes.label;" onclick="selectAllTypes(false)"/>
+      </hbox>
       <vbox flex="1" id="typeGroup"/>
 
       <vbox>
