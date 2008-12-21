@@ -83,5 +83,5 @@
 <!ENTITY context.movegroupdown.label "Di chuyển nhóm xuống dưới">
 <!ENTITY context.enable.label "Kích hoạt">
 <!ENTITY context.disable.label "Vô hiệu hóa">
-<!ENTITY apply.label "Dùng thử">
-<!ENTITY apply.accesskey "D">
+<!ENTITY apply.label "Áp dụng">
+<!ENTITY apply.accesskey "d">

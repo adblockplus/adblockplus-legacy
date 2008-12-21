@@ -23,6 +23,8 @@
 <!ENTITY context.whitelist.label "Añadir regla de excepción para el elemento">
 <!ENTITY context.disablefilter.label "Desactivar filtro --">
 <!ENTITY context.enablefilter.label "Reactivar filtro --">
+<!ENTITY context.disablefilteronsite.label "Desactivar este filtro en --">
+<!ENTITY context.enablefilteronsite.label "Reactivar este filtro en --">
 <!ENTITY context.open.label "Abrir en nueva pestaña">
 <!ENTITY context.flash.label "Resaltar los bordes del elemento">
 <!ENTITY context.copy.label "Copiar la dirección del elemento">
