@@ -82,13 +82,14 @@
     <template>
       <hbox uri="rdf:*" class="container" align="center">
         <radio _title="rdf:http://adblockplus.org/#title" _url="rdf:http://adblockplus.org/#url"/>
-        <vbox flex="1">
+        <vbox flex="1" onclick="this.previousSibling.radioGroup.selectedItem = this.previousSibling;">
           <hbox>
-            <label class="title" value="rdf:http://adblockplus.org/#title"/>
-            <spacer flex="1"/>
-            <description class="homepage" _url="rdf:http://adblockplus.org/#homepage" tooltiptext="rdf:http://adblockplus.org/#homepage" value="&homepage.label;" onclick="abp.loadInBrowser(this.getAttribute('_url'))"/>
+            <description class="title" value="rdf:http://adblockplus.org/#title" flex="1"/>
+            <description class="homepage" _url="rdf:http://adblockplus.org/#homepage" tooltiptext="rdf:http://adblockplus.org/#homepage" value="&homepage.label;" onclick="abp.loadInBrowser(this.getAttribute('_url'));event.stopPropagation();"/>
           </hbox>
-          <description class="location" value="rdf:http://adblockplus.org/#url" onclick="abp.loadInBrowser(this.getAttribute('value'))"/>
+          <hbox pack="start">
+            <description class="location" value="rdf:http://adblockplus.org/#url" onclick="abp.loadInBrowser(this.getAttribute('value'));event.stopPropagation();"/>
+          </hbox>
         </vbox>
       </hbox>
     </template>
