@@ -1,13 +1,17 @@
+<!-- LOCALIZATION NOTE : FILE This file contains the entities needed to -->
+<!-- LOCALIZATION NOTE : FILE use the Find Bar. --> 
+
+<!-- entities split out from browser.dtd -->
 <!ENTITY find.label "Tìm kiếm:">
-<!ENTITY next.label "Tìm tiếp">
+<!ENTITY next.label "Tiếp">
 <!ENTITY next.accesskey "i">
-<!ENTITY next.tooltip "Tìm nhóm từ kế tiếp">
-<!ENTITY previous.label "Tìm trước">
+<!ENTITY next.tooltip "Tìm cụm từ ở phần sau">
+<!ENTITY previous.label "Trước">
 <!ENTITY previous.accesskey "r">
-<!ENTITY previous.tooltip "Tìm nhóm từ trước đó">
-<!ENTITY findCloseButton.tooltip "Đóng thanh Tìm Kiếm">
-<!ENTITY highlight.label "Tô sáng toàn bộ">
-<!ENTITY highlight.accesskey "b">
-<!ENTITY highlight.tooltiptext "Tô sáng tất cả các nhóm từ tìm thấy">
-<!ENTITY caseSensitiveCheckbox.label "Phân biệt HOA/thường">
-<!ENTITY caseSensitiveCheckbox.accesskey "n">
+<!ENTITY previous.tooltip "Tìm cụm từ ở phần trước">
+<!ENTITY findCloseButton.tooltip "Đóng thanh Tìm kiếm">
+<!ENTITY highlight.label "Tô sáng tất cả">
+<!ENTITY highlight.accesskey "s">
+<!ENTITY highlight.tooltiptext "Tô sáng tất cả các cụm từ tìm thấy">
+<!ENTITY caseSensitiveCheckbox.label "Phân biệt HOA-thường">
+<!ENTITY caseSensitiveCheckbox.accesskey "A">
