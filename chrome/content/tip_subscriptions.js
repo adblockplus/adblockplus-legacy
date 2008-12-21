@@ -95,6 +95,15 @@ function handleKeyPress(e) {
   return true;
 }
 
+function handleCommand(event)
+{
+  let scrollBox = document.getElementById("subscriptionsScrollbox")
+                          .boxObject
+                          .QueryInterface(Components.interfaces.nsIScrollBoxObject);
+  scrollBox.ensureElementIsVisible(event.target);
+  scrollBox.ensureElementIsVisible(event.target.nextSibling);
+}
+
 function uninstallExtension(id)
 {
   let extensionManager = Components.classes["@mozilla.org/extensions/manager;1"]

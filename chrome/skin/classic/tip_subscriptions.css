@@ -36,6 +36,9 @@ dialog {
 #subscriptions {
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+#subscriptionsScrollbox {
   overflow: auto;
 }
 
