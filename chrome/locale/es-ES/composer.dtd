@@ -25,6 +25,9 @@
 <!ENTITY anchor.end.label "al final de la dirección">
 <!ENTITY anchor.end.accesskey "f">
 <!ENTITY options.label "Opciones">
+<!ENTITY domainRestriction.label "Restringir al dominio:">
+<!ENTITY domainRestriction.accesskey "d">
+<!ENTITY domainRestriction.help "Si especifica uno o varios dominios separados por el símbolo &quot;|&quot;, el filtro sólo se aplicará a dichos dominios. El símbolo &quot;~&quot; antes del nombre de un dominio indica que el filtro no se aplicará en ese dominio.">
 <!ENTITY firstParty.label "Sólo ítems de este dominio">
 <!ENTITY firstParty.accesskey "d">
 <!ENTITY thirdParty.label "Sólo ítems de otros dominios">
@@ -32,6 +35,8 @@
 <!ENTITY matchCase.label "Coincidir mayús/minús">
 <!ENTITY matchCase.accesskey "C">
 <!ENTITY types.label "Aplicar a estos tipos:">
+<!ENTITY selectAllTypes.label "Seleccionar todos">
+<!ENTITY unselectAllTypes.label "No seleccionar ninguno">
 <!ENTITY collapse.label "Colapsar elementos bloqueados:">
 <!ENTITY collapse.accesskey "o">
 <!ENTITY collapse.default.yes.label "Usar predeterminado (sí)">

@@ -25,6 +25,9 @@
 <!ENTITY anchor.end.label "na końcu adresu">
 <!ENTITY anchor.end.accesskey "k">
 <!ENTITY options.label "Opcje">
+<!ENTITY domainRestriction.label "Ogranicz do domeny:">
+<!ENTITY domainRestriction.accesskey "d">
+<!ENTITY domainRestriction.help "Określ jedną lub więcej domen oddzielonych symbolem &quot;|&quot;. Filtr będzie stosowany tylko dla tych domen. Symbol &quot;~&quot; przed nazwą domeny oznacza, że filtr nie powinien być stosowany w tych domenach.">
 <!ENTITY firstParty.label "Tylko pierwsza część adresu">
 <!ENTITY firstParty.accesskey "e">
 <!ENTITY thirdParty.label "Tylko trzecia część adresu">
@@ -32,6 +35,8 @@
 <!ENTITY matchCase.label "Uwzględniaj wielkość liter">
 <!ENTITY matchCase.accesskey "U">
 <!ENTITY types.label "Zastosuj do typów:">
+<!ENTITY selectAllTypes.label "Zaznacz wszystko">
+<!ENTITY unselectAllTypes.label "Usuń zaznaczenie">
 <!ENTITY collapse.label "Zwiń zablokowane:">
 <!ENTITY collapse.accesskey "A">
 <!ENTITY collapse.default.yes.label "Domyślnie (tak)">

@@ -53,20 +53,18 @@
 <!ENTITY collapse.accesskey "C">
 <!ENTITY help.label "Ayuda">
 <!ENTITY help.accesskey "Y">
+<!ENTITY gettingStarted.label "Introducción a Adblock Plus">
+<!ENTITY gettingStarted.accesskey "s">
+<!ENTITY gettingStarted.url "http://adblockplus.org/en/getting_started">
 <!ENTITY faq.label "Preguntas frecuentes">
 <!ENTITY faq.accesskey "P">
 <!ENTITY faq.url "http://adblockplus.org/en/faq">
-<!ENTITY tips.label "Consejo del día">
-<!ENTITY tips.accesskey "C">
-<!ENTITY tips.url "http://adblockplus.org/en/tips">
 <!ENTITY filterdoc.label "Escribir filtros para Adblock Plus">
 <!ENTITY filterdoc.accesskey "E">
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Acerca de Adblock Plus">
 <!ENTITY about.accesskey "A">
-<!ENTITY description "Añada las direcciones que desee bloquear, y buscar sugerencias en la lista 
-	desplegable. Puede usar &apos;*&apos; como comodín para crear filtros genéricos. Los 
-	usuarios avanzados pueden usar expresiones regulares como /banner\d+\.gif$/.">
+<!ENTITY description "Los siguientes filtros determinan que direcciones se bloquean y cuales se permiten:">
 <!ENTITY filter.column "Regla de filtrado">
 <!ENTITY filter.accesskey "R">
 <!ENTITY enabled.column "Activado">
