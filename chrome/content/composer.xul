@@ -47,6 +47,10 @@
     windowtype="abp:composer">
   <script type="application/x-javascript;version=1.7" src="composer.js"/>  
   
+  <popupset>
+    <tooltip id="domainRestrictionHelp" label="&domainRestriction.help;"/>
+  </popupset>
+
   <description id="disabledWarning">
     &disabled.warning.beforeLink;<label class="text-link" value="&disabled.warning.link;" onclick="doEnable()"/>&disabled.warning.afterLink;
   </description>
@@ -85,7 +89,10 @@
       <checkbox id="firstParty" label="&firstParty.label;" accesskey="&firstParty.accesskey;" oncommand="updateFilter()"/>
       <checkbox id="thirdParty" label="&thirdParty.label;" accesskey="&thirdParty.accesskey;" oncommand="updateFilter()"/>
       <checkbox id="matchCase" label="&matchCase.label;" accesskey="&matchCase.accesskey;" oncommand="updateFilter()"/>
-      <checkbox id="domainRestrictionEnabled" label="&domainRestriction.label;" accesskey="&domainRestriction.accesskey;" oncommand="updateFilter()"/>
+      <hbox align="baseline">
+        <checkbox id="domainRestrictionEnabled" label="&domainRestriction.label;" accesskey="&domainRestriction.accesskey;" oncommand="updateFilter()"/>
+        <description class="help" value="?" tooltip="domainRestrictionHelp"/>
+      </hbox>
       <textbox id="domainRestriction" oninput="updateFilter()"/>
 
       <label id="typeGroupLabel" value="&types.label;"/>

@@ -52,3 +52,16 @@
 #disabledWarning > * {
   margin: 0px;
 }
+
+.help {
+  color: #0000E0;
+  border-bottom: 1px dotted #0000E0;
+  cursor: help;
+  margin: 0px !important;
+  padding: 0px !important;
+}
+
+tooltip {
+  /* Gecko 1.8.1 doesn't support multiline tooltips :-( */
+  max-width: none;
+}
