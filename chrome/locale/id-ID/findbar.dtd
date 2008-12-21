@@ -1,13 +1,13 @@
 <!ENTITY find.label "Cari:">
-<!ENTITY next.label "sSelanjutnya">
+<!ENTITY next.label "Berikutnya">
 <!ENTITY next.accesskey "N">
-<!ENTITY next.tooltip "Cari frase kejadian selanjutnya">
+<!ENTITY next.tooltip "Temukan lebih lanjut">
 <!ENTITY previous.label "Sebelumnya">
 <!ENTITY previous.accesskey "S">
-<!ENTITY previous.tooltip "Cari frase kejadian sebelumnya">
-<!ENTITY findCloseButton.tooltip "Tutup bar pencarian">
-<!ENTITY highlight.label "Soroti semuanya">
-<!ENTITY highlight.accesskey "A">
-<!ENTITY highlight.tooltiptext "Soroti semua frase kejadian">
-<!ENTITY caseSensitiveCheckbox.label "Sesuai contoh">
+<!ENTITY previous.tooltip "Temukan kata sebelumnya">
+<!ENTITY findCloseButton.tooltip "Tutup Bar Pencarian">
+<!ENTITY highlight.label "Sorot semuanya">
+<!ENTITY highlight.accesskey "a">
+<!ENTITY highlight.tooltiptext "Sorot semua kata yang ditemukan">
+<!ENTITY caseSensitiveCheckbox.label "Cocokkan BESAR/kecil">
 <!ENTITY caseSensitiveCheckbox.accesskey "C">

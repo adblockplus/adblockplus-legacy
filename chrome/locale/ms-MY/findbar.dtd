@@ -1,13 +1,13 @@
-<!ENTITY find.label "Gelintar:">
-<!ENTITY next.label "Gelintar Seterusnya">
-<!ENTITY next.accesskey "S">
-<!ENTITY next.tooltip "Gelintar frasa yang sama seterusnya">
-<!ENTITY previous.label "Gelintar Sebelumnya">
-<!ENTITY previous.accesskey "M">
-<!ENTITY previous.tooltip "Gelintar frasa yang sama sebelumnya">
-<!ENTITY findCloseButton.tooltip "Tutup bar Gelintar">
-<!ENTITY highlight.label "Timbulkan semua">
+<!ENTITY find.label "Cari:">
+<!ENTITY next.label "Berikut">
+<!ENTITY next.accesskey "B">
+<!ENTITY next.tooltip "Cari teks frasa berkenaan yang berikut">
+<!ENTITY previous.label "Terdahulu">
+<!ENTITY previous.accesskey "T">
+<!ENTITY previous.tooltip "Cari teks frasa berkenaan yang terdahulu">
+<!ENTITY findCloseButton.tooltip "Tutup Bar Carian">
+<!ENTITY highlight.label "Serlahkan semua">
 <!ENTITY highlight.accesskey "a">
-<!ENTITY highlight.tooltiptext "Timbulkan semua frasa yang sama">
-<!ENTITY caseSensitiveCheckbox.label "Kes sama">
-<!ENTITY caseSensitiveCheckbox.accesskey "k">
+<!ENTITY highlight.tooltiptext "Serlahkan semua frasa berkenaan">
+<!ENTITY caseSensitiveCheckbox.label "Sepadan kes">
+<!ENTITY caseSensitiveCheckbox.accesskey "S">
