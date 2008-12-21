@@ -174,7 +174,7 @@ function updateFilter()
 
     if (E("domainRestrictionEnabled").checked)
     {
-      let domainRestriction = E("domainRestriction").value.replace(/^\s+/, "").replace(/\s+$/, "").replace(/\.+$/, "").replace(/,/g, "");
+      let domainRestriction = E("domainRestriction").value.replace(/[,\s]/g, "").replace(/\.+$/, "");
       if (domainRestriction)
         options.push("domain=" + domainRestriction);
     }
