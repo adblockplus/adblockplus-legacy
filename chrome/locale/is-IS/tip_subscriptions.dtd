@@ -1,0 +1,41 @@
+<!ENTITY dialog.title "Bæta við Adblock Plus síu áskrift">
+<!ENTITY description.par1 "
+	Þakka þér fyrir að setja inn Adblock Plus. Þessi viðbót getur
+	fjarlægt 99&#x25; af öllum auglýsingum sem þú sérð á vefnum. Hinsvegar,
+	til þess að ná þessum árangri þarftu að skrilgreina góðar
+	síur. Þú getur skilgreint svoleiðis sjálfur, eða þú getur einfaldlega gerst áskrifandi
+	að síulistum sem aðrir sjá um að viðhalda fyrir þig. Það er samt alltaf hægt að
+	bæta við þínum eigin síum eða gera óvirkar/fjarlægja áskriftir
+	hvenær sem er.
+">
+<!ENTITY description.par2 "
+	Þú getur valið eina áskrift af áskriftarlistum sem mælt er með
+	hér fyrir neðan (fleiri áskriftir er hægt að
+	bæta við seinna í Adblock Plus stillingaglugganum þótt venjulega sé það ekki
+	nauðsynlegt):
+">
+<!ENTITY note "
+	Athugið: Síulisti er venjulega árangursríkastur þegar honum er beitt
+	á þau vefsvæði sem eru frá því svæði sem listinn var búinn til fyrir.
+">
+<!ENTITY adblock.warning "
+	Adblock Plus hefur uppgötvað að Adblock eða gömul útgáfa af Adblock Plus er
+	uppsett. Ef þú keyrir bæði Adblock og Adblock Plus samsíða getur það valdið
+	vandræðum og ætti að forðast í lengstu lög. Mælt er með að þú takir út Adblock strax.
+">
+<!ENTITY adblock.uninstall "Taka út Adblock">
+<!ENTITY filterset.g.warning "
+	Svo virðist sem þú sért að nota Filterset.G. Þessum síulista hefur ekki verið
+	viðhaldið seinustu árin og er algeng ástæða fyrir vandamálum á
+	vefsíðum. Mælt er með að þú takir út Filterset.G strax.
+">
+<!ENTITY filterset.g.moreinfo "Starfsupplýsingar">
+<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
+<!ENTITY filterset.g.uninstall "Taka út Filterset.G">
+<!ENTITY homepage.label "Heimasíða">
+<!ENTITY subscribe.label "Gerast áskrifandi">
+<!ENTITY subscribe.accesskey "G">
+<!ENTITY other.label "Add another subscription">
+<!ENTITY other.accesskey "T">
+<!ENTITY full-list.url "http://adblockplus.org/en/subscriptions">
+<!ENTITY full-list.label "Skoða allar áskriftir">

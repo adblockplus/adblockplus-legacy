@@ -1,0 +1,29 @@
+<!ENTITY dialog.title "Breyta síuáskrift">
+<!ENTITY dialog.newtitle "Bæta við síuáskrift">
+<!ENTITY new.description "
+	Sláðu inn netfang eða skráarnafn sem inniheldur lista af
+	Adblock Plus síum.
+">
+<!ENTITY edit.description "
+	Síulistinn fyrir þessa áskrift verður niðurhalað
+	frá gefinni staðsetningu.
+">
+<!ENTITY external.description "
+	Áskrift þessi er ytri síuáskrfit, síulistinn
+	verður uppfærður af viðbótinni sem bjó til þessa
+	áskrift.
+">
+<!ENTITY autodownload.description "
+	Ef þú velur að &apos;Uppfæra sjálfvirkt&apos; mun þessi staðsetning verða
+	athuguð daglega fyrir uppfærslur. Ef þessi valmöguleiki er óvirkur
+	geturðu samt uppfært handvirkt frá
+	áskriftarvalmdynd.
+">
+<!ENTITY location.label "Staðsetning síulista:">
+<!ENTITY location.accesskey "L">
+<!ENTITY title.label "Áskriftartitill:">
+<!ENTITY title.accesskey "T">
+<!ENTITY autodownload.label "Uppfæra sjálfvirkt">
+<!ENTITY autodownload.accesskey "U">
+<!ENTITY enabled.label "Virkja síur">
+<!ENTITY enabled.accesskey "V">

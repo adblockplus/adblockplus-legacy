@@ -1,0 +1,22 @@
+<!ENTITY notloaded.label "Ekki hlaðið inn">
+<!ENTITY notloaded.tooltip "Ekki var hægt að hlaða inn Adblock Plus, kannski er Adblock Plus ekki rétt uppsett.">
+<!ENTITY status.tooltip "Staða:">
+<!ENTITY blocked.tooltip "Lokaðir hlutir á þessari síðu:">
+<!ENTITY filters.tooltip "Mest notaðar síur:">
+<!ENTITY menuitem.label "Adblock Plus stillingar">
+<!ENTITY menuitem.accesskey "B">
+<!ENTITY view.blockableItems.label "Adblock Plus: Lokaðir hlutir">
+<!ENTITY context.image.label "Loka auglýsingamynd">
+<!ENTITY context.object.label "Loka auglýsingahlut">
+<!ENTITY context.frame.label "Loka auglýsingaramma">
+<!ENTITY sidebar.title "Hlutir á núverandi síðu sem hægt er að loka á">
+<!ENTITY settings.label "Stillingar">
+<!ENTITY settings.accesskey "S">
+<!ENTITY opensidebar.label "Opna hluti">
+<!ENTITY opensidebar.accesskey "O">
+<!ENTITY closesidebar.label "Loka hlutum">
+<!ENTITY closesidebar.accesskey "L">
+<!ENTITY whitelist.site.label "Gera óvirkt á --">
+<!ENTITY whitelist.page.label "Gera óvirkt aðeins á þessari síðu">
+<!ENTITY objecttab.title "Loka á">
+<!ENTITY objecttab.tooltip "Smelltu hér til að loka á þennan hlut með Adblock Plus">

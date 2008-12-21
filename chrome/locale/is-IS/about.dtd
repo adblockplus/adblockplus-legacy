@@ -1,0 +1,12 @@
+<!ENTITY dialog.title "Um Adblock Plus">
+<!ENTITY caption.title "Adblock Plus">
+<!ENTITY version.title "Útgáfa">
+<!ENTITY description "
+	Adblock Plus gerir þér kleyft að ákveða hvað þú vilt ekki sjá á vefnum.
+	Þú þarft ekki framar að niðurhala auglýsingum og auglýsingaborðum, ef þú
+	vilt það ekki - notaðu Adblock Plus!
+">
+<!ENTITY homepage.label "Adblock Plus heimasíða:">
+<!ENTITY homepage.url "http://adblockplus.org/en/">
+<!ENTITY author.label "Höfundur:">
+<!ENTITY contributors.label "Þátttakendur:">

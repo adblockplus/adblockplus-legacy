@@ -1,0 +1,40 @@
+<!ENTITY dialog.title "Bæta við Adblock Plus síureglu">
+<!ENTITY accept.label "Bæta við síu">
+<!ENTITY advanced.label "Ítarleg sýn">
+<!ENTITY basic.label "Einföld sýn">
+<!ENTITY disabled.warning.beforeLink "Adblock Plus er óvirtk eins og er. Þú getur samt bætt við síum en síurnar munu ekki vera virkar nema þú ">
+<!ENTITY disabled.warning.link "virkja Adblock Plus">
+<!ENTITY disabled.warning.afterLink ".">
+<!ENTITY filter.label "Ný sía:">
+<!ENTITY filter.accesskey "s">
+<!ENTITY preferences.label "Sýna núverandi síur...">
+<!ENTITY preferences.accesskey "S">
+<!ENTITY type.filter.label "Lokunarsía">
+<!ENTITY type.filter.accesskey "L">
+<!ENTITY type.whitelist.label "Frávikregla">
+<!ENTITY type.whitelist.accesskey "F">
+<!ENTITY pattern.label "Leita að mynstri">
+<!ENTITY pattern.explanation "Mynstrið getur verið hvaða hluti sem er í netfanginu, táknið * virkar sem algildisstafur. Síunni verður aðeins beitt á þau netföng sem passa við mynstrið.">
+<!ENTITY regexp.warning "Mynstrið sem þú slóst inn verður túlkað sem regluleg segð. Margar reglulegar segðir gætu haft þau áhrif að hægja á vöfrun. Ef þú ætlar ekki að nota reglulega segðir, bættu þá * tákni við enda mynstursins.">
+<!ENTITY shortpattern.warning "Mynstrið sem þú slóst inn er of stutt til að hægt sé að nota það, of mörg svona mynstur geta hægt á vöfrun. Mælt er með að þú notir lengri streng fyrir þessa síu.">
+<!ENTITY custom.pattern.label "Sérsnið:">
+<!ENTITY custom.pattern.accesskey "S">
+<!ENTITY anchors.label "Aðeins samþykkja mynstur:">
+<!ENTITY anchor.start.label "í byrjun netfangs">
+<!ENTITY anchor.start.accesskey "g">
+<!ENTITY anchor.end.label "í enda netfangs">
+<!ENTITY anchor.end.accesskey "d">
+<!ENTITY options.label "Valkostir">
+<!ENTITY firstParty.label "Aðeins fyrsta aðila">
+<!ENTITY firstParty.accesskey "r">
+<!ENTITY thirdParty.label "Aðeins þriðja aðila">
+<!ENTITY thirdParty.accesskey "A">
+<!ENTITY matchCase.label "Passa við stafstöðu">
+<!ENTITY matchCase.accesskey "P">
+<!ENTITY types.label "Virkja fyrir tegundir:">
+<!ENTITY collapse.label "Fella saman lokaða hluti:">
+<!ENTITY collapse.accesskey "l">
+<!ENTITY collapse.default.yes.label "Nota sjálfgefið (já)">
+<!ENTITY collapse.default.no.label "Nota sjálfgefið (nei)">
+<!ENTITY collapse.yes.label "Já">
+<!ENTITY collapse.no.label "Nei">

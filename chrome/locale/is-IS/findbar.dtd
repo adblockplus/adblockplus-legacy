@@ -1,0 +1,17 @@
+<!-- LOCALIZATION NOTE : FILE This file contains the entities needed to -->
+<!-- LOCALIZATION NOTE : FILE use the Find Bar. --> 
+
+<!-- entities split out from browser.dtd -->
+<!ENTITY find.label "Leita:">
+<!ENTITY next.label "Næsta">
+<!ENTITY next.accesskey "N">
+<!ENTITY next.tooltip "Leita að næsta tilfelli þessara orða">
+<!ENTITY previous.label "Fyrri">
+<!ENTITY previous.accesskey "F">
+<!ENTITY previous.tooltip "Leita að fyrra tilfelli þessara orða">
+<!ENTITY findCloseButton.tooltip "Loka leitarslá">
+<!ENTITY highlight.label "Lita allt">
+<!ENTITY highlight.accesskey "a">
+<!ENTITY highlight.tooltiptext "Lita öll tilvik orðsins">
+<!ENTITY caseSensitiveCheckbox.label "Passa við stafstöðu">
+<!ENTITY caseSensitiveCheckbox.accesskey "P">
