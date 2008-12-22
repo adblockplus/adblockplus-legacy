@@ -5,6 +5,7 @@
 <!ENTITY filters.tooltip "Các bộ lọc có hiệu lực nhất:">
 <!ENTITY menuitem.label "Tùy chọn Adblock Plus">
 <!ENTITY menuitem.accesskey "P">
+<!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY view.blockableItems.label "Adblock Plus: Các Mục Có Thể Chặn">
 <!ENTITY context.image.label "Adblock Plus: Chặn Ảnh">
 <!ENTITY context.object.label "Adblock Plus: Chặn Object">
