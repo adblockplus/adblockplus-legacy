@@ -30,6 +30,7 @@
 
 <!ENTITY menuitem.label         "Adblock Plus - Einstellungen">
 <!ENTITY menuitem.accesskey     "A">
+<!ENTITY toolbarbutton.label    "Adblock Plus">
 
 <!ENTITY view.blockableItems.label  "Adblock Plus: Elemente der geöffneten Seite">
 
