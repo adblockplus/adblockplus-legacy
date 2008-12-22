@@ -51,6 +51,9 @@
 <!ENTITY anchor.end.label         "в конце адреса">
 <!ENTITY anchor.end.accesskey     "ц">
 <!ENTITY options.label            "Дополнительные настройки">
+<!ENTITY domainRestriction.label      "Ограничить доменом:">
+<!ENTITY domainRestriction.accesskey  "д">
+<!ENTITY domainRestriction.help       "Укажите один или несколько доменов, разделенные символом &quot;|&quot;, фильтр будет применен только на этих доменах. Символ &quot;~&quot; перед именем домена означает, что фильтр не должен применяться на этом домене.">
 <!ENTITY firstParty.label         "Только элементы с того же сайта">
 <!ENTITY firstParty.accesskey     "г">
 <!ENTITY thirdParty.label         "Только элементы с другого сайта">
@@ -58,6 +61,8 @@
 <!ENTITY matchCase.label          "Учитывать регистр букв">
 <!ENTITY matchCase.accesskey      "У">
 <!ENTITY types.label              "Применять к типам элементов:">
+<!ENTITY selectAllTypes.label     "Пометить все">
+<!ENTITY unselectAllTypes.label   "Убрать все">
 
 <!ENTITY collapse.label           "Сворачивать заблокированные элементы:">
 <!ENTITY collapse.accesskey       "в">
