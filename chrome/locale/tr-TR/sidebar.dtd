@@ -23,6 +23,8 @@
 <!ENTITY context.whitelist.label "Öğeye ayrıcalık tanı">
 <!ENTITY context.disablefilter.label "Süzgeci devre dışı bırak --">
 <!ENTITY context.enablefilter.label "Süzgeci devreye sok --">
+<!ENTITY context.disablefilteronsite.label "Bu süzgeci burada kullanma --">
+<!ENTITY context.enablefilteronsite.label "Bu süzgeci burada kullan --">
 <!ENTITY context.open.label "Yeni sekmede aç">
 <!ENTITY context.flash.label "Flash öğesinin sınırları">
 <!ENTITY context.copy.label "Öğenin konumunu kopyala">

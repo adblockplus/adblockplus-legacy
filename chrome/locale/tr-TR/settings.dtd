@@ -53,12 +53,12 @@
 <!ENTITY collapse.accesskey "T">
 <!ENTITY help.label "Yardım">
 <!ENTITY help.accesskey "A">
+<!ENTITY gettingStarted.label "İlk adım">
+<!ENTITY gettingStarted.accesskey "k">
+<!ENTITY gettingStarted.url "http://adblockplus.org/en/getting_started">
 <!ENTITY faq.label "Sıkça sorulan sorular">
 <!ENTITY faq.accesskey "S">
 <!ENTITY faq.url "http://adblockplus.org/en/faq">
-<!ENTITY tips.label "Bugünün ipucu">
-<!ENTITY tips.accesskey "B">
-<!ENTITY tips.url "http://adblockplus.org/en/tips">
 <!ENTITY filterdoc.label "Adblock Plus süzgeç yazımı">
 <!ENTITY filterdoc.accesskey "z">
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
