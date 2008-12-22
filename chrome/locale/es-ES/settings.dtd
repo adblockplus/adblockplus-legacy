@@ -54,7 +54,7 @@
 <!ENTITY help.label "Ayuda">
 <!ENTITY help.accesskey "Y">
 <!ENTITY gettingStarted.label "Introducción a Adblock Plus">
-<!ENTITY gettingStarted.accesskey "s">
+<!ENTITY gettingStarted.accesskey "I">
 <!ENTITY gettingStarted.url "http://adblockplus.org/en/getting_started">
 <!ENTITY faq.label "Preguntas frecuentes">
 <!ENTITY faq.accesskey "P">
