@@ -25,6 +25,9 @@
 <!ENTITY anchor.end.label "adresin sonunda">
 <!ENTITY anchor.end.accesskey "o">
 <!ENTITY options.label "Seçenekler">
+<!ENTITY domainRestriction.label "Alan adına kısıtlama:">
+<!ENTITY domainRestriction.accesskey "d">
+<!ENTITY domainRestriction.help "Aralarına &quot;|&quot; simgesi koyarak bir ya da daha fazla alan adı belirtin. Böylece süzgeç sadece bu sitelerde uygulanacaktır. Alan adından önce &quot;~&quot; simgesi kullanılması, süzgecin o alan adında kullanılmaması gerektiği anlamına gelir.">
 <!ENTITY firstParty.label "Sadece birinci kişilerden">
 <!ENTITY firstParty.accesskey "i">
 <!ENTITY thirdParty.label "Sadece üçüncü kişilerden">
@@ -32,6 +35,8 @@
 <!ENTITY matchCase.label "Birebir eşleşme">
 <!ENTITY matchCase.accesskey "e">
 <!ENTITY types.label "Bu türlere uygula:">
+<!ENTITY selectAllTypes.label "Tümünü seç">
+<!ENTITY unselectAllTypes.label "Hiçbirini seçme">
 <!ENTITY collapse.label "Engellenenleri kapat:">
 <!ENTITY collapse.accesskey "p">
 <!ENTITY collapse.default.yes.label "Öntanımlı kullan (evet)">
