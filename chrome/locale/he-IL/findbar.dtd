@@ -1,6 +1,6 @@
 <!ENTITY find.label "מצא:">
 <!ENTITY next.label "הבא">
-<!ENTITY next.accesskey "ב">
+<!ENTITY next.accesskey "ה">
 <!ENTITY next.tooltip "מצא את המופע הבא של הביטוי">
 <!ENTITY previous.label "הקודם">
 <!ENTITY previous.accesskey "ק">
@@ -10,4 +10,4 @@
 <!ENTITY highlight.accesskey "ד">
 <!ENTITY highlight.tooltiptext "הדגש את כל המופעים של הביטוי">
 <!ENTITY caseSensitiveCheckbox.label "התאם אותיות גדולות/קטנות">
-<!ENTITY caseSensitiveCheckbox.accesskey "ה">
+<!ENTITY caseSensitiveCheckbox.accesskey "ת">

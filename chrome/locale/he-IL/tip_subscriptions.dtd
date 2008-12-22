@@ -17,6 +17,6 @@
 <!ENTITY subscribe.label "הרשם">
 <!ENTITY subscribe.accesskey "ר">
 <!ENTITY other.label "הוסף הרשמה אחרת">
-<!ENTITY other.accesskey "כ">
+<!ENTITY other.accesskey "ס">
 <!ENTITY full-list.url "http://adblockplus.org/en/subscriptions">
 <!ENTITY full-list.label "הצג את כל ההרשמות">

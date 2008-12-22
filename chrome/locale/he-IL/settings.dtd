@@ -1,10 +1,10 @@
 <!ENTITY dialog.title "Adblock Plus מאפייני">
 <!ENTITY filters.label "מסננים">
-<!ENTITY filters.accesskey "ס">
+<!ENTITY filters.accesskey "מ">
 <!ENTITY add.label "הוסף מסנן">
-<!ENTITY add.accesskey "ה">
+<!ENTITY add.accesskey "ס">
 <!ENTITY addsubscription.label "הוסף הרשמה למסננים">
-<!ENTITY addsubscription.accesskey "ר">
+<!ENTITY addsubscription.accesskey "ף">
 <!ENTITY synchsubscriptions.label "עדכן את כל ההרשמות">
 <!ENTITY synchsubscriptions.accesskey "ע">
 <!ENTITY import.label "ייבוא מסננים">
@@ -12,63 +12,63 @@
 <!ENTITY export.label "יצוא מסננים מותאמים אישית">
 <!ENTITY export.accesskey "צ">
 <!ENTITY clearall.label "הסר את כל המסננים המותאמים אישית">
-<!ENTITY clearall.accesskey "ת">
+<!ENTITY clearall.accesskey "ה">
 <!ENTITY resethitcounts.label "אפס את כל מוני הלחיצות">
-<!ENTITY resethitcounts.accesskey "פ">
+<!ENTITY resethitcounts.accesskey "א">
 <!ENTITY edit.label "ערוך">
-<!ENTITY edit.accesskey "ע">
+<!ENTITY edit.accesskey "ר">
 <!ENTITY cut.label "גזור">
 <!ENTITY cut.accesskey "ג">
 <!ENTITY copy.label "העתק">
-<!ENTITY copy.accesskey "ע">
+<!ENTITY copy.accesskey "ק">
 <!ENTITY paste.label "הדבק">
-<!ENTITY paste.accesskey "ד">
+<!ENTITY paste.accesskey "ה">
 <!ENTITY remove.label "מחק">
 <!ENTITY remove.accesskey "ח">
 <!ENTITY menu.find.label "מצא">
 <!ENTITY menu.find.accesskey "מ">
 <!ENTITY menu.findagain.label "מצא שוב">
-<!ENTITY menu.findagain.accesskey "ש">
+<!ENTITY menu.findagain.accesskey "צ">
 <!ENTITY view.label "תצוגה">
 <!ENTITY view.accesskey "ת">
 <!ENTITY sort.label "מיין לפי">
 <!ENTITY sort.accesskey "מ">
 <!ENTITY sort.none.label "לא ממוין">
-<!ENTITY sort.none.accesskey "ל">
+<!ENTITY sort.none.accesskey "ן">
 <!ENTITY sort.ascending.label "מיון מ- א &gt; עד ת">
-<!ENTITY sort.ascending.accesskey "א">
+<!ENTITY sort.ascending.accesskey "מ">
 <!ENTITY sort.descending.label "מיון מ- ת &gt; עד א">
-<!ENTITY sort.descending.accesskey "ת">
+<!ENTITY sort.descending.accesskey "י">
 <!ENTITY options.label "אפשרויות">
 <!ENTITY options.accesskey "פ">
 <!ENTITY enable.label "אפשר את Adblock Plus">
-<!ENTITY enable.accesskey "פ">
+<!ENTITY enable.accesskey "א">
 <!ENTITY showintoolbar.label "הצג בסרגל הכלים">
-<!ENTITY showintoolbar.accesskey "ס">
+<!ENTITY showintoolbar.accesskey "ל">
 <!ENTITY showinstatusbar.label "הצג בשורת המצב">
-<!ENTITY showinstatusbar.accesskey "ש">
+<!ENTITY showinstatusbar.accesskey "צ">
 <!ENTITY objecttabs.label "הצג לשוניות על ג&apos;אווה ופלאש">
-<!ENTITY objecttabs.accesskey "ל">
+<!ENTITY objecttabs.accesskey "ג">
 <!ENTITY collapse.label "השמט פריטים חסומים">
-<!ENTITY collapse.accesskey "ש">
+<!ENTITY collapse.accesskey "ה">
 <!ENTITY help.label "עזרה">
-<!ENTITY help.accesskey "ז">
+<!ENTITY help.accesskey "ע">
+<!ENTITY gettingStarted.label "התחלה">
+<!ENTITY gettingStarted.accesskey "ת">
+<!ENTITY gettingStarted.url "http://adblockplus.org/en/getting_started">
 <!ENTITY faq.label "שאלות נפוצות (אנגלית)">
 <!ENTITY faq.accesskey "ש">
 <!ENTITY faq.url "http://adblockplus.org/en/faq">
-<!ENTITY tips.label "העצה היומית (אנגלית)">
-<!ENTITY tips.accesskey "ע">
-<!ENTITY tips.url "http://adblockplus.org/en/tips">
 <!ENTITY filterdoc.label "כתיבת מסננים ל-Adblock Plus (אנגלית)">
-<!ENTITY filterdoc.accesskey "כ">
+<!ENTITY filterdoc.accesskey "מ">
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "אודות Adblock Plus">
 <!ENTITY about.accesskey "א">
 <!ENTITY description "המסננים הבאים קובעים איזה כתובות אמורות להיחסם ואיזה להיות מורשות:">
 <!ENTITY filter.column "חוק סינון">
-<!ENTITY filter.accesskey "ח">
+<!ENTITY filter.accesskey "נ">
 <!ENTITY enabled.column "מאופשר">
-<!ENTITY enabled.accesskey "פ">
+<!ENTITY enabled.accesskey "ר">
 <!ENTITY hitcount.column "לחיצות">
 <!ENTITY hitcount.accesskey "ל">
 <!ENTITY lasthit.column "לחיצה אחרונה">

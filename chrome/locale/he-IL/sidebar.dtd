@@ -23,6 +23,8 @@
 <!ENTITY context.whitelist.label "הוסף כלל חריג עבור פריט">
 <!ENTITY context.disablefilter.label "נטרל מסנן --">
 <!ENTITY context.enablefilter.label "אפשר מסנן מחדש --">
+<!ENTITY context.disablefilteronsite.label "נטרול מסנן זה ב --">
+<!ENTITY context.enablefilteronsite.label "אפשור מסנן זה ב --">
 <!ENTITY context.open.label "פתח בלשונית חדשה">
 <!ENTITY context.flash.label "גבולות של פריט פלאש">
 <!ENTITY context.copy.label "העתק כתובת הפריט">
