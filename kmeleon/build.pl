@@ -6,6 +6,14 @@ use lib qw(..);
 use Packager;
 
 my %params = ();
+
+my $output_file = shift @ARGV || "adblockplus.zip";
+if (@ARGV && $ARGV[0] =~ /^\+/)
+{
+  $params{devbuild} = $ARGV[0];
+  shift @ARGV;
+}
+
 my $pkg = Packager->new(\%params);
 $pkg->readVersion('../version');
 
@@ -16,13 +24,6 @@ my @INCLUDE_DIRS = ('c:/kmeleon_src', "$GECKO_DIR/include");
 my @LIB_DIRS = ("$GECKO_DIR/lib");
 my @SOURCE_FILES = <*.cpp>;
 my @LIBS = qw(libcmt.lib kernel32.lib user32.lib gdi32.lib comctl32.lib nspr4.lib plds4.lib plc4.lib xpcom.lib xpcomglue_s.lib embed_base_s.lib js3250.lib);
-
-my $output_file = shift @ARGV || "adblockplus.zip";
-if (@ARGV && $ARGV[0] =~ /^\+/)
-{
-  $params{devbuild} = $ARGV[0];
-  shift @ARGV;
-}
 
 $params{locales} = \@ARGV if @ARGV;
 $params{locales} = ["en-US"] unless exists $params{locales};
