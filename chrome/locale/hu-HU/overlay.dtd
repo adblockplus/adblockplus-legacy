@@ -5,6 +5,7 @@
 <!ENTITY filters.tooltip "Legaktívabb szűrők:">
 <!ENTITY menuitem.label "Adblock Plus beállítások">
 <!ENTITY menuitem.accesskey "b">
+<!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY view.blockableItems.label "Adblock Plus: Blokkolható objektumok">
 <!ENTITY context.image.label "Kép blokkolása">
 <!ENTITY context.object.label "Objektum blokkolása">
@@ -17,6 +18,6 @@
 <!ENTITY closesidebar.label "Blokkolható objektumok elrejtése">
 <!ENTITY closesidebar.accesskey "j">
 <!ENTITY whitelist.site.label "Szűrés tiltása itt: --">
-<!ENTITY whitelist.page.label "Szűrés tiltása csak ezen az oldalon">
+<!ENTITY whitelist.page.label "Szűrés tiltása csak ezen az aloldalon">
 <!ENTITY objecttab.title "Blokkolás">
 <!ENTITY objecttab.tooltip "Kattintson ide a blokkoláshoz (Adblock Plus)">
