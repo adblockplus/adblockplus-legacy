@@ -25,13 +25,18 @@
 <!ENTITY anchor.end.label "al final de l&apos;adreça">
 <!ENTITY anchor.end.accesskey "f">
 <!ENTITY options.label "Opcions">
+<!ENTITY domainRestriction.label "Restringeix al domini:">
+<!ENTITY domainRestriction.accesskey "d">
+<!ENTITY domainRestriction.help "Especifica un o més dominis separats pel símbol &quot;|&quot;,, el filtre només s&apos;aplicarà a aquests dominis. El símbol &quot;~&quot; abans d&apos;un nom de domini significa que els filtre no s&apos;ha d&apos;aplicar en aquell domini.">
 <!ENTITY firstParty.label "Només originals">
-<!ENTITY firstParty.accesskey "r">
+<!ENTITY firstParty.accesskey "o">
 <!ENTITY thirdParty.label "Només de tercers">
 <!ENTITY thirdParty.accesskey "T">
 <!ENTITY matchCase.label "Diferencia majúscules i minúscules">
 <!ENTITY matchCase.accesskey "M">
 <!ENTITY types.label "Aplicar als tipus:">
+<!ENTITY selectAllTypes.label "Selecciona-ho tot">
+<!ENTITY unselectAllTypes.label "No seleccionis res">
 <!ENTITY collapse.label "Col·lapsar els bloquejats:">
 <!ENTITY collapse.accesskey "l">
 <!ENTITY collapse.default.yes.label "Utilitza per defecte (si)">

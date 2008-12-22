@@ -23,6 +23,8 @@
 <!ENTITY context.whitelist.label "Afegeix regla d&apos;excepció per l&apos;element">
 <!ENTITY context.disablefilter.label "Desactivar filtre">
 <!ENTITY context.enablefilter.label "Reactivar filtre">
+<!ENTITY context.disablefilteronsite.label "Desactiva aquest filtre a --">
+<!ENTITY context.enablefilteronsite.label "Reactiva aquest filtre a --">
 <!ENTITY context.open.label "Obrir en una nova pestanya">
 <!ENTITY context.flash.label "Pampalluguejar vores de l&apos;element">
 <!ENTITY context.copy.label "Copia l&apos;adreça de l&apos;element">
