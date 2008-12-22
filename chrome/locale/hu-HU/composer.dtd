@@ -25,6 +25,9 @@
 <!ENTITY anchor.end.label "a cím végén">
 <!ENTITY anchor.end.accesskey "v">
 <!ENTITY options.label "Beállítások">
+<!ENTITY domainRestriction.label "Korlátozás tartományra:">
+<!ENTITY domainRestriction.accesskey "t">
+<!ENTITY domainRestriction.help "Adjon meg egy vagy több tartományt a &quot;|&quot; jellel elválasztva, a szűrő csak ezeken a tartományokon lesz alkalmazva. A &quot;~&quot; jellel a tartománynév elején letilthatja a szűrő használatát az adott tartományon.">
 <!ENTITY firstParty.label "Csak belső címhez">
 <!ENTITY firstParty.accesskey "b">
 <!ENTITY thirdParty.label "Csak külső címhez">
@@ -32,6 +35,8 @@
 <!ENTITY matchCase.label "Kis- és nagy betűk megkülönböztetése">
 <!ENTITY matchCase.accesskey "i">
 <!ENTITY types.label "Alkalmazás típusokra:">
+<!ENTITY selectAllTypes.label "Minden kijelölése">
+<!ENTITY unselectAllTypes.label "Kijelölés törlése">
 <!ENTITY collapse.label "Blokkolt elem összecsukása:">
 <!ENTITY collapse.accesskey "o">
 <!ENTITY collapse.default.yes.label "Alapértelmezett (igen)">

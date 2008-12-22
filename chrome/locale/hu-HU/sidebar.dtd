@@ -23,6 +23,8 @@
 <!ENTITY context.whitelist.label "Kivétel megadása objektumhoz">
 <!ENTITY context.disablefilter.label "Szűrő letiltása --">
 <!ENTITY context.enablefilter.label "Szűrő engedélyezése --">
+<!ENTITY context.disablefilteronsite.label "Szűrő letiltása itt: --">
+<!ENTITY context.enablefilteronsite.label "Szűrő engedélyezése itt: --">
 <!ENTITY context.open.label "Megnyitás új fülön">
 <!ENTITY context.flash.label "Objektum széleinek villogtatása">
 <!ENTITY context.copy.label "Objektum címének másolása">

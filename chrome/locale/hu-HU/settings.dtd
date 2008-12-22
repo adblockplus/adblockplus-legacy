@@ -53,12 +53,12 @@
 <!ENTITY collapse.accesskey "m">
 <!ENTITY help.label "Súgó">
 <!ENTITY help.accesskey "g">
+<!ENTITY gettingStarted.label "Első lépések">
+<!ENTITY gettingStarted.accesskey "l">
+<!ENTITY gettingStarted.url "http://adblockplus.org/en/getting_started">
 <!ENTITY faq.label "Gyakran Ismételt Kérdések (FAQ)">
 <!ENTITY faq.accesskey "G">
 <!ENTITY faq.url "http://adblockplus.org/en/faq">
-<!ENTITY tips.label "A nap tippje">
-<!ENTITY tips.accesskey "n">
-<!ENTITY tips.url "http://adblockplus.org/en/tips">
 <!ENTITY filterdoc.label "Adblock Plus szűrők írása">
 <!ENTITY filterdoc.accesskey "s">
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
