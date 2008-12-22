@@ -53,12 +53,12 @@
 <!ENTITY collapse.accesskey "u">
 <!ENTITY help.label "Trợ giúp">
 <!ENTITY help.accesskey "p">
+<!ENTITY gettingStarted.label "Bắt Đầu">
+<!ENTITY gettingStarted.accesskey "B">
+<!ENTITY gettingStarted.url "http://adblockplus.org/en/getting_started">
 <!ENTITY faq.label "Những Câu Hỏi Thường Gặp">
 <!ENTITY faq.accesskey "N">
 <!ENTITY faq.url "http://adblockplus.org/en/faq">
-<!ENTITY tips.label "Mẹo vặt của Hôm nay">
-<!ENTITY tips.accesskey "M">
-<!ENTITY tips.url "http://adblockplus.org/en/tips">
 <!ENTITY filterdoc.label "Cách tạo bộ lọc cho Adblock Plus">
 <!ENTITY filterdoc.accesskey "C">
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">

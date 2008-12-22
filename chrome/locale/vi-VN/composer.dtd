@@ -25,6 +25,9 @@
 <!ENTITY anchor.end.label "ở cuối địa chỉ">
 <!ENTITY anchor.end.accesskey "i">
 <!ENTITY options.label "Tùy chọn">
+<!ENTITY domainRestriction.label "Giới hạn trên miền:">
+<!ENTITY domainRestriction.accesskey "r">
+<!ENTITY domainRestriction.help "Chọn một hay nhiều tên miền ngăn cách bằng dấu &quot;|&quot;, bộ lọc sẽ chỉ được áp dụng trên những tên miền này. Dấu &quot;~&quot; trước một tên miền có nghĩa là bộ lọc sẽ không được áp dụng cho tên miền đó.">
 <!ENTITY firstParty.label "Chỉ của bên thứ nhất">
 <!ENTITY firstParty.accesskey "n">
 <!ENTITY thirdParty.label "Chỉ của bên thứ ba">
@@ -32,6 +35,8 @@
 <!ENTITY matchCase.label "Phù hợp">
 <!ENTITY matchCase.accesskey "P">
 <!ENTITY types.label "Áp dụng cho các kiểu:">
+<!ENTITY selectAllTypes.label "Chọn tất cả">
+<!ENTITY unselectAllTypes.label "Không chọn">
 <!ENTITY collapse.label "Thu gọn những mục bị chặn:">
 <!ENTITY collapse.accesskey "T">
 <!ENTITY collapse.default.yes.label "Dùng mặc định (có)">
