@@ -86,12 +86,12 @@
 <!ENTITY help.label                 "Справка">
 <!ENTITY help.accesskey             "С">
 
+<!ENTITY gettingStarted.label       "Первые шаги (английский)">
+<!ENTITY gettingStarted.accesskey   "ш">
+<!ENTITY gettingStarted.url         "http://adblockplus.org/en/getting_started">
 <!ENTITY faq.label                  "Часто задаваемые вопросы (английский)">
 <!ENTITY faq.accesskey              "Ч">
 <!ENTITY faq.url                    "http://adblockplus.org/en/faq">
-<!ENTITY tips.label                 "Подсказки (английский)">
-<!ENTITY tips.accesskey             "П">
-<!ENTITY tips.url                   "http://adblockplus.org/en/tips">
 <!ENTITY filterdoc.label            "Составление фильтров для Adblock Plus (английский)">
 <!ENTITY filterdoc.accesskey        "т">
 <!ENTITY filterdoc.url              "http://adblockplus.org/en/filters">
