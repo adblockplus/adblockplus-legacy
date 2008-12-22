@@ -48,6 +48,7 @@ my @ignoreUntranslated = (
   quotemeta("abp:global:subscription_status"),
   quotemeta("abp:global:subscription_status_lastdownload_unknown"),
   quotemeta("abp:overlay:status.tooltip"),
+  quotemeta("abp:overlay:toolbarbutton.label"),
   quotemeta("abp:settings:filters.label"),
   quotemeta("abp:sidebar:filter.label"),
   quotemeta("ehh:composer:nodes-tree.class.label"),
