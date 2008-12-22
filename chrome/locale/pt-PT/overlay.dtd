@@ -5,6 +5,7 @@
 <!ENTITY filters.tooltip "Filtros mais activos:">
 <!ENTITY menuitem.label "Adblock Plus">
 <!ENTITY menuitem.accesskey "A">
+<!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY view.blockableItems.label "Adblock Plus: Itens Bloqueáveis">
 <!ENTITY context.image.label "Bloquear Imagem">
 <!ENTITY context.object.label "Bloquear Objecto">
