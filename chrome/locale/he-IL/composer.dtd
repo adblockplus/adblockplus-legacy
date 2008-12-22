@@ -6,34 +6,39 @@
 <!ENTITY disabled.warning.link "מאפשר את Adblock Plus">
 <!ENTITY disabled.warning.afterLink ".">
 <!ENTITY filter.label "מסנן חדש:">
-<!ENTITY filter.accesskey "כ">
+<!ENTITY filter.accesskey "מ">
 <!ENTITY preferences.label "מציג מסננים קיימים...">
-<!ENTITY preferences.accesskey "ד">
+<!ENTITY preferences.accesskey "צ">
 <!ENTITY type.filter.label "מסנן חסימה">
-<!ENTITY type.filter.accesskey "נ">
+<!ENTITY type.filter.accesskey "ס">
 <!ENTITY type.whitelist.label "חוק חריג">
-<!ENTITY type.whitelist.accesskey "ס">
+<!ENTITY type.whitelist.accesskey "ק">
 <!ENTITY pattern.label "חפש אחר תבנית">
 <!ENTITY pattern.explanation "הדפוס יכול להיות כל חלק מהכתובת, סמל * משמש כתו חופשי שאחריו יכול לבוא כל תו אחר. המסנן יכול להחיל רק על כתובות המתאימות לתבנית.">
 <!ENTITY regexp.warning "הדפוס שהוזן יפורש כביטוי רגיל. ביטויים רגילים רבים עשויים להאט את הגלישה. אם אין כוונה להשתמש בביטויים רגילים, יש להוסיף את הסמל * בסוף התבנית.">
 <!ENTITY shortpattern.warning "הדפוס שהוזן קצר מדי בכדי להיות יעיל, דפוסים רבים מסוג זה עשויים להאט את הגלישה. מומלץ לבחור מחרוזת ארוכה יותר למסנן זה.">
 <!ENTITY custom.pattern.label "מותאם אישית:">
-<!ENTITY custom.pattern.accesskey "ב">
+<!ENTITY custom.pattern.accesskey "א">
 <!ENTITY anchors.label "הסכם לתבנית שרק:">
 <!ENTITY anchor.start.label "בתחילת הכתובת">
-<!ENTITY anchor.start.accesskey "ע">
+<!ENTITY anchor.start.accesskey "ב">
 <!ENTITY anchor.end.label "בסוף הכתובת">
-<!ENTITY anchor.end.accesskey "ג">
+<!ENTITY anchor.end.accesskey "ף">
 <!ENTITY options.label "אפשרויות">
+<!ENTITY domainRestriction.label "הגבלה למתחם:">
+<!ENTITY domainRestriction.accesskey "ג">
+<!ENTITY domainRestriction.help "מתחם אחד או יותר מופרדים על ידי הסמל &quot;|&quot;, המסנן יאפשר מתחמים אלו בלבד. הסמל &quot;~&quot; לפני שם המתחם משמעותו שמסנן זה מנוטרל על מתחם זה.">
 <!ENTITY firstParty.label "צד-ראשון (יוצר) בלבד">
-<!ENTITY firstParty.accesskey "ר">
+<!ENTITY firstParty.accesskey "ד">
 <!ENTITY thirdParty.label "צד-שלישי בלבד">
-<!ENTITY thirdParty.accesskey "א">
+<!ENTITY thirdParty.accesskey "ש">
 <!ENTITY matchCase.label "התאם אותיות גדולות/קטנות">
-<!ENTITY matchCase.accesskey "צ">
+<!ENTITY matchCase.accesskey "ט">
 <!ENTITY types.label "החל על סוגים:">
+<!ENTITY selectAllTypes.label "בחר הכל">
+<!ENTITY unselectAllTypes.label "לא לבחור דבר">
 <!ENTITY collapse.label "שמוט חסומים:">
-<!ENTITY collapse.accesskey "ך">
+<!ENTITY collapse.accesskey "ו">
 <!ENTITY collapse.default.yes.label "השתמש בברירת מחדל (כן)">
 <!ENTITY collapse.default.no.label "השתמש בברירת מחדל (לא)">
 <!ENTITY collapse.yes.label "כן">
