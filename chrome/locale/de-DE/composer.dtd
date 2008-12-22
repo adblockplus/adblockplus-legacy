@@ -51,6 +51,9 @@
 <!ENTITY anchor.end.label         "am Ende der Adresse">
 <!ENTITY anchor.end.accesskey     "d">
 <!ENTITY options.label            "Optionen">
+<!ENTITY domainRestriction.label      "Auf Domain beschränken:">
+<!ENTITY domainRestriction.accesskey  "m">
+<!ENTITY domainRestriction.help       "Geben Sie eine oder mehrere Domains an (Trennzeichen ist &quot;|&quot;), der Filter wird dann nur auf diesen Domains angewandt. Das Zeichen &quot;~&quot; vor einem Domainnamen bedeutet, dass der Filter auf dieser Domain nicht angewandt werden sollte.">
 <!ENTITY firstParty.label         "Nur für Elemente der Ursprungsseite">
 <!ENTITY firstParty.accesskey     "p">
 <!ENTITY thirdParty.label         "Nur für Elemente von Drittseiten">
@@ -58,6 +61,8 @@
 <!ENTITY matchCase.label          "Groß-/Kleinschreibung beachten">
 <!ENTITY matchCase.accesskey      "K">
 <!ENTITY types.label              "Auf Elementtypen anwenden:">
+<!ENTITY selectAllTypes.label     "Alle auswählen">
+<!ENTITY unselectAllTypes.label   "Keine auswählen">
 
 <!ENTITY collapse.label           "Platz freigeben:">
 <!ENTITY collapse.accesskey       "g">

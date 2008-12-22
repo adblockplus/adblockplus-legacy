@@ -53,6 +53,8 @@
 <!ENTITY context.whitelist.label  "Ausnahmeregel für das Element hinzufügen">
 <!ENTITY context.disablefilter.label  "Filter -- deaktivieren">
 <!ENTITY context.enablefilter.label   "Filter -- wieder aktivieren">
+<!ENTITY context.disablefilteronsite.label  "Diesen Filter auf -- deaktivieren">
+<!ENTITY context.enablefilteronsite.label   "Filter auf -- wieder aktivieren">
 <!ENTITY context.open.label       "Adresse in neuem Tab öffnen">
 <!ENTITY context.flash.label      "Position des Elements aufzeigen">
 <!ENTITY context.copy.label       "Adresse des Elements kopieren">
