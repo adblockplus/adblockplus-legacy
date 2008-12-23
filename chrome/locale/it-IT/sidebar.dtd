@@ -21,8 +21,10 @@
 <!ENTITY context.block.label "Blocca questo elemento">
 <!ENTITY context.editfilter.label "Modifica il filtro in effetto">
 <!ENTITY context.whitelist.label "Aggiungi un&apos;eccezione per l&apos;elemento">
-<!ENTITY context.disablefilter.label "Disattiva il filtro per --">
-<!ENTITY context.enablefilter.label "Riattiva il filtro per --">
+<!ENTITY context.disablefilter.label "Disattiva il filtro --">
+<!ENTITY context.enablefilter.label "Riattiva il filtro --">
+<!ENTITY context.disablefilteronsite.label "Disattiva il filtro per --">
+<!ENTITY context.enablefilteronsite.label "Riattiva il filtro per --">
 <!ENTITY context.open.label "Apri in una nuova scheda">
 <!ENTITY context.flash.label "Fai lampeggiare il contorno dell&apos;elemento selezionato">
 <!ENTITY context.copy.label "Copia l&apos;indirizzo web dell&apos;elemento">
