@@ -25,6 +25,9 @@
 <!ENTITY anchor.end.label "ที่ท้ายๆของที่อยู่">
 <!ENTITY anchor.end.accesskey "ท">
 <!ENTITY options.label "ตัวเลือก">
+<!ENTITY domainRestriction.label "จำกัดโดเมน:">
+<!ENTITY domainRestriction.accesskey "ด">
+<!ENTITY domainRestriction.help "ระบุโดเมนหนึ่งหรือหลายแห่งให้คั่นด้วยสัญลักษณ์ &quot;|&quot; ตัวกรองจะใช้งานบนโดเมนเหล่านี้เท่านั้น ถ้าไม่ต้องการใช้โดเมนใดให้ใส่สัญลักษณ์ &quot;~&quot; หน้าชื่อโดเมน">
 <!ENTITY firstParty.label "First-party เท่านั้น">
 <!ENTITY firstParty.accesskey "r">
 <!ENTITY thirdParty.label "Third-party เท่านั้น">
@@ -32,6 +35,8 @@
 <!ENTITY matchCase.label "จับคู่">
 <!ENTITY matchCase.accesskey "จ">
 <!ENTITY types.label "ใช้งานกับชนิด:">
+<!ENTITY selectAllTypes.label "เลือกทั้งหมด">
+<!ENTITY unselectAllTypes.label "ไม่เลือก">
 <!ENTITY collapse.label "การบล็อกที่ล้มเหลว:">
 <!ENTITY collapse.accesskey "ม">
 <!ENTITY collapse.default.yes.label "ใช้ค่าเริ่มต้น(ใช่)">

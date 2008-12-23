@@ -53,12 +53,12 @@
 <!ENTITY collapse.accesskey "ย">
 <!ENTITY help.label "ช่วยเหลือ">
 <!ENTITY help.accesskey "ห">
+<!ENTITY gettingStarted.label "เริ่มต้นใช้งาน">
+<!ENTITY gettingStarted.accesskey "ร">
+<!ENTITY gettingStarted.url "http://adblockplus.org/en/getting_started">
 <!ENTITY faq.label "คำถามพบบ่อย">
 <!ENTITY faq.accesskey "พ">
 <!ENTITY faq.url "http://adblockplus.org/en/faq">
-<!ENTITY tips.label "เคล็ดลับประจำวัน">
-<!ENTITY tips.accesskey "ค">
-<!ENTITY tips.url "http://adblockplus.org/en/tips">
 <!ENTITY filterdoc.label "การเขียนตัวกรอง Adblock Plus">
 <!ENTITY filterdoc.accesskey "ข">
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
