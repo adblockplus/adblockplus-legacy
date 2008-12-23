@@ -25,6 +25,9 @@
 <!ENTITY anchor.end.label "alla fine dell&apos;indirizzo web">
 <!ENTITY anchor.end.accesskey "f">
 <!ENTITY options.label "Opzioni">
+<!ENTITY domainRestriction.label "Limita al dominio qui sotto">
+<!ENTITY domainRestriction.accesskey "t">
+<!ENTITY domainRestriction.help "È possibile specificare uno o più dominii separandoli con il carattere &quot;|&quot;: il filtro verrà applicato solamente a tali dominii (si noti che il carattere &quot;~&quot; prima del nome di un dominio significa che il filtro non verrà applicato per tale dominio)">
 <!ENTITY firstParty.label "Solo dominii di primo livello">
 <!ENTITY firstParty.accesskey "d">
 <!ENTITY thirdParty.label "Solo dominii non di primo livello">
@@ -32,6 +35,8 @@
 <!ENTITY matchCase.label "Maiuscole/minuscole">
 <!ENTITY matchCase.accesskey "u">
 <!ENTITY types.label "Applica ai tipi:">
+<!ENTITY selectAllTypes.label "Seleziona tutti">
+<!ENTITY unselectAllTypes.label "Deseleziona">
 <!ENTITY collapse.label "Contrai bloccati:">
 <!ENTITY collapse.accesskey "l">
 <!ENTITY collapse.default.yes.label "Utilizza predefiniti (sì)">
