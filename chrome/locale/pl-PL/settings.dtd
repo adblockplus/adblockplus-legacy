@@ -54,16 +54,16 @@
 <!ENTITY help.label "Pomoc">
 <!ENTITY help.accesskey "P">
 <!ENTITY gettingStarted.label "Wprowadzenie">
-<!ENTITY gettingStarted.accesskey "s">
+<!ENTITY gettingStarted.accesskey "W">
 <!ENTITY gettingStarted.url "http://adblockplus.org/en/getting_started">
 <!ENTITY faq.label "Często zadawane pytania">
-<!ENTITY faq.accesskey "T">
+<!ENTITY faq.accesskey "C">
 <!ENTITY faq.url "http://adblockplus.org/en/faq">
 <!ENTITY filterdoc.label "O tworzeniu filtrów">
-<!ENTITY filterdoc.accesskey "R">
+<!ENTITY filterdoc.accesskey "O">
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Adblock Plus - informacje">
-<!ENTITY about.accesskey "O">
+<!ENTITY about.accesskey "A">
 <!ENTITY description "Poniższe filtry określają, na których witrynach reklamy są blokowane, a na których dozwolone">
 <!ENTITY filter.column "Reguła filtru">
 <!ENTITY filter.accesskey "R">
