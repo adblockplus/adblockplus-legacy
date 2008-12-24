@@ -25,6 +25,9 @@
 <!ENTITY anchor.end.label "en fin d&apos;adresse">
 <!ENTITY anchor.end.accesskey "n">
 <!ENTITY options.label "Options">
+<!ENTITY domainRestriction.label "Restreindre au domaine :">
+<!ENTITY domainRestriction.accesskey "d">
+<!ENTITY domainRestriction.help "Spécifiez un ou plusieurs domaines séparés par le symbole « | », le filtre ne s&apos;appliquera alors qu&apos;aux domaines indiqués. Le symbole « ~ » précédant un nom de domaine signifie que le filtre ne devra pas être appliqué sur ce domaine.">
 <!ENTITY firstParty.label "Provenant uniquement du même domaine">
 <!ENTITY firstParty.accesskey "m">
 <!ENTITY thirdParty.label "Provenant uniquement d&apos;autres domaines">
@@ -32,6 +35,8 @@
 <!ENTITY matchCase.label "Sensible à la casse">
 <!ENTITY matchCase.accesskey "c">
 <!ENTITY types.label "Appliquer aux types suivants :">
+<!ENTITY selectAllTypes.label "Tout sélectionner">
+<!ENTITY unselectAllTypes.label "Ne rien sélectionner">
 <!ENTITY collapse.label "Réutiliser l&apos;espace de l&apos;élément filtré :">
 <!ENTITY collapse.accesskey "R">
 <!ENTITY collapse.default.yes.label "Utiliser le comportement par défaut (oui)">
