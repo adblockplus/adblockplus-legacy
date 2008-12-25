@@ -55,8 +55,7 @@
 
   <!-- SeaMonkey toolbar -->
   <hbox id="nav-bar-buttons">
-    <toolbarbutton id="abp-toolbarbutton" class="bookmark-item" hidden="true"
-        context="abp-status-popup"/>
+    <toolbarbutton id="abp-toolbarbutton" class="bookmark-item" hidden="true"/>
   </hbox>
 
   <!-- SeaMonkey Tools menu -->
