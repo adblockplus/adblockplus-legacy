@@ -138,30 +138,35 @@ Filter.fromObject = function(obj)
       ret = new CommentFilter(obj.text);
       break;
     case "filterlist":
-      let contentType = null;
-      if ("contentType" in obj)
-        contentType = parseInt(obj.contentType) || null;
+      if (filterStorage.fileProperties.version != filterStorage.formatVersion)
+        ret = new Filter.fromText(obj.text);
+      else
+      {
+        let contentType = null;
+        if ("contentType" in obj)
+          contentType = parseInt(obj.contentType) || null;
 
-      let matchCase = null;
-      if ("matchCase" in obj)
-        matchCase = (obj.matchCase == "true");
+        let matchCase = null;
+        if ("matchCase" in obj)
+          matchCase = (obj.matchCase == "true");
 
-      let domains = null;
-      if ("domains" in obj)
-        domains = obj.domains;
+        let domains = null;
+        if ("domains" in obj)
+          domains = obj.domains;
 
-      let thirdParty = null;
-      if ("thirdParty" in obj)
-        thirdParty = (obj.thirdParty == "true");
+        let thirdParty = null;
+        if ("thirdParty" in obj)
+          thirdParty = (obj.thirdParty == "true");
 
-      let collapse = null;
-      if ("collapse" in obj)
-        collapse = (obj.collapse == "true");
+        let collapse = null;
+        if ("collapse" in obj)
+          collapse = (obj.collapse == "true");
 
-      ret = new BlockingFilter(obj.text, obj.regexp, contentType, matchCase, domains, thirdParty, collapse);
+        ret = new BlockingFilter(obj.text, obj.regexp, contentType, matchCase, domains, thirdParty, collapse);
+      }
       break;
     case "whitelist":
-      if ("pageWhitelist" in obj)
+      if (filterStorage.fileProperties.version != filterStorage.formatVersion)
         ret = new Filter.fromText(obj.text);
       else
       {
