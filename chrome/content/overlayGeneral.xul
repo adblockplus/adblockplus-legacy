@@ -81,7 +81,7 @@
   <toolbarbutton id="abp-toolbarbutton" disabled="true" label="&toolbarbutton.label;"
       oncommand="if (event.target == this) abpCommandHandler(event)"
       onclick="if (event.target == this &amp;&amp; event.button == 1) abpTogglePref('enabled')"
-      tooltip="abp-tooltip">
+      tooltip="abp-tooltip" context="abp-status-popup">
     <menupopup id="abp-toolbar-popup" onpopupshowing="return abpFillPopup(event.target)"/>
   </toolbarbutton>
 
