@@ -23,6 +23,8 @@
 <!ENTITY context.whitelist.label "Pridať výnimku pre položku">
 <!ENTITY context.disablefilter.label "Vypnúť filter --">
 <!ENTITY context.enablefilter.label "Znovu zapnúť filter --">
+<!ENTITY context.disablefilteronsite.label "Vypnúť tento filter na...">
+<!ENTITY context.enablefilteronsite.label "Zapnúť tento filter na...">
 <!ENTITY context.open.label "Otvoriť na novej karte">
 <!ENTITY context.flash.label "Ohraničenie flashových položiek">
 <!ENTITY context.copy.label "Kopírovať adresu položiek">

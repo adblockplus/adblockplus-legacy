@@ -21,10 +21,13 @@
 <!ENTITY custom.pattern.accesskey "V">
 <!ENTITY anchors.label "Prijať vzor len:">
 <!ENTITY anchor.start.label "na začiatku adresy">
-<!ENTITY anchor.start.accesskey "k">
+<!ENTITY anchor.start.accesskey "i">
 <!ENTITY anchor.end.label "na konci adresy">
 <!ENTITY anchor.end.accesskey "d">
 <!ENTITY options.label "Možnosti">
+<!ENTITY domainRestriction.label "Obmedziť na doménu:">
+<!ENTITY domainRestriction.accesskey "e">
+<!ENTITY domainRestriction.help "Špecifikujte jednu alebo viac domén oddelených značkou &quot;|&quot;, filter bude obmedzený len pre tieto domény. Symbol &quot;~&quot; pred názvom domény znamená, že filter by nemal byť aplikovaný na tejto doméne.">
 <!ENTITY firstParty.label "Len prvá strana">
 <!ENTITY firstParty.accesskey "L">
 <!ENTITY thirdParty.label "Len tretie strany">
@@ -32,8 +35,10 @@
 <!ENTITY matchCase.label "Modelový prípad">
 <!ENTITY matchCase.accesskey "M">
 <!ENTITY types.label "Aplikovať na typy:">
+<!ENTITY selectAllTypes.label "Vybrať všetko">
+<!ENTITY unselectAllTypes.label "Nezvoliť nič">
 <!ENTITY collapse.label "Pád zablokovaný::">
-<!ENTITY collapse.accesskey "l">
+<!ENTITY collapse.accesskey "o">
 <!ENTITY collapse.default.yes.label "Použiť pôvodné (áno)">
 <!ENTITY collapse.default.no.label "Použiť pôvodné (nie)">
 <!ENTITY collapse.yes.label "Áno">

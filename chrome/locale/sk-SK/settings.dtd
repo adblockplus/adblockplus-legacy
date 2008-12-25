@@ -53,12 +53,12 @@
 <!ENTITY collapse.accesskey "U">
 <!ENTITY help.label "Pomocník">
 <!ENTITY help.accesskey "P">
+<!ENTITY gettingStarted.label "Začíname">
+<!ENTITY gettingStarted.accesskey "m">
+<!ENTITY gettingStarted.url "http://adblockplus.org/en/getting_started">
 <!ENTITY faq.label "Často kladené otázky">
 <!ENTITY faq.accesskey "K">
 <!ENTITY faq.url "http://adblockplus.org/en/faq">
-<!ENTITY tips.label "Tip dňa">
-<!ENTITY tips.accesskey "T">
-<!ENTITY tips.url "http://adblockplus.org/en/tips">
 <!ENTITY filterdoc.label "Písanie filtrov Adblock Plus">
 <!ENTITY filterdoc.accesskey "F">
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
