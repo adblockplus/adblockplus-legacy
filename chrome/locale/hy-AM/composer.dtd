@@ -25,6 +25,9 @@
 <!ENTITY anchor.end.label "հասցեի վերջում">
 <!ENTITY anchor.end.accesskey "վ">
 <!ENTITY options.label "Ընտրանքներ">
+<!ENTITY domainRestriction.label "Արգելել դոմեյնում`">
+<!ENTITY domainRestriction.accesskey "դ">
+<!ENTITY domainRestriction.help "Սահմանեք մեկ կամ ավել դոմեյներ բաժանված &quot;|&quot; նշանով, ֆիլտրը կաշխատի միայն այդ դոմեյներում: Դոմեյնի անվան առաջ &quot;~&quot; նշանը արգելում է ֆիլտրի օգտագործումը այդ դոմեյնում:">
 <!ENTITY firstParty.label "Միայն հիմնական">
 <!ENTITY firstParty.accesskey "հ">
 <!ENTITY thirdParty.label "Միայն երրորդ կողմից">
@@ -32,6 +35,8 @@
 <!ENTITY matchCase.label "Հաշվի առնել տառատեսակը">
 <!ENTITY matchCase.accesskey "տ">
 <!ENTITY types.label "Ավելացնել հետևյալ տիպերին`">
+<!ENTITY selectAllTypes.label "Լրիվ Ընտրել">
+<!ENTITY unselectAllTypes.label "Չընտրել ոչինչ">
 <!ENTITY collapse.label "Թաքցնել ֆիլտրվածները`">
 <!ENTITY collapse.accesskey "Ծ">
 <!ENTITY collapse.default.yes.label "Լռությամբ (այո)">
