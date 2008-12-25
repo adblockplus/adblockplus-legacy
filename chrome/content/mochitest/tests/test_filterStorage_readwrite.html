@@ -30278,6 +30278,9 @@ zeit.de#DIV(class$=_ads)
       testData += child.nodeValue;
     testData = testData.replace(/\s+$/, "");
 
+    // Make sure not to trigger fallback code on format version changes
+    testData = "version=" + filterStorage.formatVersion + "\n" + testData;
+
     let tempFile = dirService.get("TmpD", Components.interfaces.nsIFile);
     tempFile.append("temp_patterns.ini");
     tempFile.createUnique(tempFile.NORMAL_FILE_TYPE, 0666);

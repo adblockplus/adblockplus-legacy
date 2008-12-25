@@ -37,6 +37,18 @@ var dirService = Components.classes["@mozilla.org/file/directory_service;1"]
 var filterStorage =
 {
   /**
+   * Version number of the filter storage file format.
+   * @type Integer
+   */
+  formatVersion: 2,
+
+  /**
+   * Map of properties listed in the filter storage file before the sections
+   * start. Right now this should be only the format version.
+   */
+  fileProperties: {},
+
+  /**
    * List of filter subscriptions containing all filters
    * @type Array of Subscription
    */
@@ -368,8 +380,10 @@ var filterStorage =
     let userFilters = null;
     if (stream)
     {
-      let wantObj;
-      let curObj = null;
+      this.fileProperties = {};
+
+      let wantObj = true;
+      let curObj = this.fileProperties;
       let curSection = null;
       let line = {};
       let haveMore = true;
@@ -528,7 +542,7 @@ var filterStorage =
     }
 
     const maxBufLength = 1024;
-    let buf = ["# Adblock Plus preferences"];
+    let buf = ["# Adblock Plus preferences", "version=" + this.formatVersion];
     let lineBreak = abp.getLineBreak();
     function writeBuffer()
     {
