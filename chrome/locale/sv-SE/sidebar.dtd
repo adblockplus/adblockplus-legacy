@@ -23,6 +23,8 @@
 <!ENTITY context.whitelist.label "Lägg till undantag för objekt">
 <!ENTITY context.disablefilter.label "Inaktivera filter --">
 <!ENTITY context.enablefilter.label "Re-aktivera filter --">
+<!ENTITY context.disablefilteronsite.label "Inaktivera detta filter på --">
+<!ENTITY context.enablefilteronsite.label "Re-aktivera filter på --">
 <!ENTITY context.open.label "Öppna i ny flik">
 <!ENTITY context.flash.label "Markera objektets ram">
 <!ENTITY context.copy.label "Kopiera objektets adress">
