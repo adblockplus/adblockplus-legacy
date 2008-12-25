@@ -25,13 +25,18 @@
 <!ENTITY anchor.end.label "i slutet av adresser">
 <!ENTITY anchor.end.accesskey "t">
 <!ENTITY options.label "Inställningar">
+<!ENTITY domainRestriction.label "Begränsa till domän:">
+<!ENTITY domainRestriction.accesskey "d">
+<!ENTITY domainRestriction.help "Ange en eller flera domäner separerade med tecknet &quot;|&quot; för att begränsa användning på endast dessa domäner. Tecknet &quot;~&quot; framför en domän anger att filter ej kommer att användas för denna domän.">
 <!ENTITY firstParty.label "Endast första-part">
 <!ENTITY firstParty.accesskey "f">
 <!ENTITY thirdParty.label "Endast tredje-part">
-<!ENTITY thirdParty.accesskey "d">
+<!ENTITY thirdParty.accesskey "j">
 <!ENTITY matchCase.label "Matcha versaler/gemener">
 <!ENTITY matchCase.accesskey "M">
 <!ENTITY types.label "Verkställ för:">
+<!ENTITY selectAllTypes.label "Välj alla">
+<!ENTITY unselectAllTypes.label "Välj ingen">
 <!ENTITY collapse.label "Göm blockerat:">
 <!ENTITY collapse.accesskey "l">
 <!ENTITY collapse.default.yes.label "Standard (ja)">
