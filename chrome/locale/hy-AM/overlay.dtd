@@ -5,6 +5,7 @@
 <!ENTITY filters.tooltip "Ամենաակտիվ ֆիլտրերը`">
 <!ENTITY menuitem.label "Adblock Plus">
 <!ENTITY menuitem.accesskey "B">
+<!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY view.blockableItems.label "Adblock Plus. Արգելված տարրեր">
 <!ENTITY context.image.label "Adblock` Ֆիլտրել Նկարը">
 <!ENTITY context.object.label "Adblock` Ֆիլտրել Օբյեկտը">

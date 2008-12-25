@@ -53,12 +53,12 @@
 <!ENTITY collapse.accesskey "ք">
 <!ENTITY help.label "Օգնություն">
 <!ENTITY help.accesskey "Օ">
+<!ENTITY gettingStarted.label "Սկսել">
+<!ENTITY gettingStarted.accesskey "ե">
+<!ENTITY gettingStarted.url "http://adblockplus.org/en/getting_started">
 <!ENTITY faq.label "Հաճախակի Տրվող Հարցեր">
 <!ENTITY faq.accesskey "Հ">
 <!ENTITY faq.url "http://adblockplus.org/en/faq">
-<!ENTITY tips.label "Օրվա Խորհուրդը">
-<!ENTITY tips.accesskey "Խ">
-<!ENTITY tips.url "http://adblockplus.org/en/tips">
 <!ENTITY filterdoc.label "Ինչպե՞ս գրել ֆիլտրեր">
 <!ENTITY filterdoc.accesskey "չ">
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
