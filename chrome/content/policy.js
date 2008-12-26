@@ -27,9 +27,6 @@
  * This file is included from nsAdblockPlus.js.
  */
 
-var type, typeDescr, localizedDescr
-var whitelistSchemes = null;
-
 var effectiveTLD = null;
 if ("nsIEffectiveTLDService" in Components.interfaces)
 {
@@ -40,37 +37,60 @@ if ("nsIEffectiveTLDService" in Components.interfaces)
 const ok = Components.interfaces.nsIContentPolicy.ACCEPT;
 const block = Components.interfaces.nsIContentPolicy.REJECT_SERVER;
 
-var policy = {
+var policy =
+{
+  /**
+   * Map of content type identifiers by their name.
+   * @type Object
+   */
+  type: null,
+  /**
+   * Map of content type names by their identifiers (reverse of type map).
+   * @type Object
+   */
+  typeDescr: null,
+  /**
+   * Map of localized content type names by their identifiers.
+   * @type Object
+   */
+  localizedDescr: null,
+
+  /**
+   * Map containing all schemes that should be ignored by content policy.
+   * @type Object
+   */
+  whitelistSchemes: null,
+
   init: function() {
     var types = ["OTHER", "SCRIPT", "IMAGE", "STYLESHEET", "OBJECT", "SUBDOCUMENT", "DOCUMENT", "XBL", "PING", "XMLHTTPREQUEST", "OBJECT_SUBREQUEST", "DTD", "MEDIA"];
 
     // type constant by type description and type description by type constant
-    this.type = type = {};
-    this.typeDescr = typeDescr = {};
-    this.localizedDescr = localizedDescr = {};
+    this.type = {};
+    this.typeDescr = {};
+    this.localizedDescr = {};
     var iface = Components.interfaces.nsIContentPolicy;
     for each (let typeName in types)
     {
       if ("TYPE_" + typeName in iface)
       {
-        type[typeName] = iface["TYPE_" + typeName];
-        typeDescr[type[typeName]] = typeName;
-        localizedDescr[type[typeName]] = abp.getString("type_label_" + typeName.toLowerCase());
+        this.type[typeName] = iface["TYPE_" + typeName];
+        this.typeDescr[this.type[typeName]] = typeName;
+        this.localizedDescr[this.type[typeName]] = abp.getString("type_label_" + typeName.toLowerCase());
       }
     }
   
-    type.BACKGROUND = 0xFFFE;
-    typeDescr[0xFFFE] = "BACKGROUND";
-    localizedDescr[0xFFFE] = abp.getString("type_label_background");
+    this.type.BACKGROUND = 0xFFFE;
+    this.typeDescr[0xFFFE] = "BACKGROUND";
+    this.localizedDescr[0xFFFE] = abp.getString("type_label_background");
 
-    type.ELEMHIDE = 0xFFFD;
-    typeDescr[0xFFFD] = "ELEMHIDE";
-    localizedDescr[0xFFFD] = abp.getString("type_label_elemhide");
+    this.type.ELEMHIDE = 0xFFFD;
+    this.typeDescr[0xFFFD] = "ELEMHIDE";
+    this.localizedDescr[0xFFFD] = abp.getString("type_label_elemhide");
 
     // whitelisted URL schemes
-    whitelistSchemes = {};
+    this.whitelistSchemes = {};
     for each (var scheme in prefs.whitelistschemes.toLowerCase().split(" "))
-      whitelistSchemes[scheme] = true;
+      this.whitelistSchemes[scheme] = true;
   },
 
   /**
@@ -100,16 +120,16 @@ var policy = {
     }
 
     // Data loaded by plugins should be attached to the document
-    if ((contentType == type.OTHER || contentType == type.OBJECT_SUBREQUEST) && node instanceof Element)
+    if ((contentType == this.type.OTHER || contentType == this.type.OBJECT_SUBREQUEST) && node instanceof Element)
       node = node.ownerDocument;
 
     // Fix type for background images
-    if (contentType == type.IMAGE && node.nodeType == Node.DOCUMENT_NODE)
-      contentType = type.BACKGROUND;
+    if (contentType == this.type.IMAGE && node.nodeType == Node.DOCUMENT_NODE)
+      contentType = this.type.BACKGROUND;
 
     // Fix type for objects misrepresented as frames or images
-    if (contentType != type.OBJECT && (node instanceof Components.interfaces.nsIDOMHTMLObjectElement || node instanceof Components.interfaces.nsIDOMHTMLEmbedElement))
-      contentType = type.OBJECT;
+    if (contentType != this.type.OBJECT && (node instanceof Components.interfaces.nsIDOMHTMLObjectElement || node instanceof Components.interfaces.nsIDOMHTMLEmbedElement))
+      contentType = this.type.OBJECT;
 
     var data = DataContainer.getDataForWindow(wnd);
 
@@ -120,14 +140,14 @@ var policy = {
     if (!match && location.scheme == "chrome" && location.host == "global" && /abphit:(\d+)#/.test(location.path) && RegExp.$1 in elemhide.keys)
     {
       match = elemhide.keys[RegExp.$1];
-      contentType = type.ELEMHIDE;
+      contentType = this.type.ELEMHIDE;
       locationText = match.text.replace(/^.*?#/, '#');
     }
 
     if (!match && prefs.enabled) {
-      match = whitelistMatcher.matchesAny(locationText, typeDescr[contentType] || "", docDomain, thirdParty);
+      match = whitelistMatcher.matchesAny(locationText, this.typeDescr[contentType] || "", docDomain, thirdParty);
       if (match == null)
-        match = blacklistMatcher.matchesAny(locationText, typeDescr[contentType] || "", docDomain, thirdParty);
+        match = blacklistMatcher.matchesAny(locationText, this.typeDescr[contentType] || "", docDomain, thirdParty);
 
       if (match instanceof BlockingFilter && node)
       {
@@ -137,11 +157,11 @@ var policy = {
       }
 
       // Show object tabs unless this is a standalone object
-      if (!match && prefs.frameobjects && contentType == type.OBJECT &&
+      if (!match && prefs.frameobjects && contentType == this.type.OBJECT &&
           node.ownerDocument && /^text\/|[+\/]xml$/.test(node.ownerDocument.contentType)) {
         // Before adding object tabs always check whether one exist already
         var hasObjectTab = false;
-        var loc = data.getLocation(type.OBJECT, locationText);
+        var loc = data.getLocation(this.type.OBJECT, locationText);
         if (loc)
           for (var i = 0; i < loc.nodes.length; i++)
             if (loc.nodes[i] == node && i < loc.nodes.length - 1 && "abpObjTab" in loc.nodes[i+1])
@@ -174,7 +194,7 @@ var policy = {
     if (location.scheme == "chrome" && location.host == "global" && /abphit:(\d+)#/.test(location.path) && RegExp.$1 in elemhide.keys)
       return true;
 
-    return !(location.scheme in whitelistSchemes);
+    return !(location.scheme in this.whitelistSchemes);
   },
 
   /**
@@ -286,7 +306,7 @@ var policy = {
   // nsIContentPolicy interface implementation
   shouldLoad: function(contentType, contentLocation, requestOrigin, node, mimeTypeGuess, extra) {
     // return unless we are initialized
-    if (!whitelistSchemes)
+    if (!this.whitelistSchemes)
       return ok;
 
     if (!node)
@@ -307,11 +327,11 @@ var policy = {
       return ok;
 
     // Interpret unknown types as "other"
-    if (!(contentType in typeDescr))
-      contentType = type.OTHER;
+    if (!(contentType in this.typeDescr))
+      contentType = this.type.OTHER;
 
     // if it's not a blockable type or a whitelisted scheme, use the usual policy
-    if (contentType == type.DOCUMENT || !this.isBlockableScheme(location))
+    if (contentType == this.type.DOCUMENT || !this.isBlockableScheme(location))
       return ok;
 
     return (this.processNode(wnd, node, contentType, location, false) ? ok : block);

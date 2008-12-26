@@ -132,10 +132,10 @@ DataContainer.prototype = {
         nodes: [node],
         location: location,
         type: contentType,
-        typeDescr: typeDescr[contentType],
+        typeDescr: policy.typeDescr[contentType],
         docDomain: docDomain,
         thirdParty: thirdParty,
-        localizedDescr: localizedDescr[contentType],
+        localizedDescr: policy.localizedDescr[contentType],
         filter: filter
       };
 
