@@ -53,12 +53,12 @@
 <!ENTITY collapse.accesskey "Σ">
 <!ENTITY help.label "Βοήθεια">
 <!ENTITY help.accesskey "Β">
+<!ENTITY gettingStarted.label "Γρήγορη εκκίνηση">
+<!ENTITY gettingStarted.accesskey "γ">
+<!ENTITY gettingStarted.url "http://adblockplus.org/en/getting_started">
 <!ENTITY faq.label "Συχνές ερωτήσεις">
 <!ENTITY faq.accesskey "ε">
 <!ENTITY faq.url "http://adblockplus.org/en/faq">
-<!ENTITY tips.label "Συμβουλή της ημέρας">
-<!ENTITY tips.accesskey "η">
-<!ENTITY tips.url "http://adblockplus.org/en/tips">
 <!ENTITY filterdoc.label "Συγγραφή φίλτρων">
 <!ENTITY filterdoc.accesskey "Σ">
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">

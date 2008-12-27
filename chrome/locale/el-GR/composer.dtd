@@ -2,7 +2,7 @@
 <!ENTITY accept.label "Προσθήκη φίλτρου">
 <!ENTITY advanced.label "Για προχωρημένους">
 <!ENTITY basic.label "Βασική προβολή">
-<!ENTITY disabled.warning.beforeLink "Το Adblock Plus είναι απενεργοποιημένο. Μπορείτε να προσθέσετε φίλτρα αλλά αυτά θα εφαρμοστούν μόλις ">
+<!ENTITY disabled.warning.beforeLink "Το Adblock Plus είναι απενεργοποιημένο. Μπορείτε να προσθέσετε φίλτρα αλλά αυτά θα εφαρμοστούν μόλις">
 <!ENTITY disabled.warning.link "ενεργοποιήσετε το Adblock Plus">
 <!ENTITY disabled.warning.afterLink ".">
 <!ENTITY filter.label "Νέο φίλτρο:">
@@ -25,6 +25,9 @@
 <!ENTITY anchor.end.label "στο τέλος της διεύθυνσης">
 <!ENTITY anchor.end.accesskey "λ">
 <!ENTITY options.label "Επιλογές">
+<!ENTITY domainRestriction.label "Περιορισμός στον τομέα:">
+<!ENTITY domainRestriction.accesskey "μ">
+<!ENTITY domainRestriction.help "Δηλώστε έναν ή περισσότερους τομείς (domain) διαχωρισμένους με το σύμβολο &quot;|&quot;, και το φίλτρο θα εφαρμοστεί μόνο σε αυτούς. Το σύμβολο &quot;~&quot; πριν από τον τομέα σημαίνει πως το φίλτρο δεν θα εφαρμοστεί στο συγκεκριμένο τομέα.">
 <!ENTITY firstParty.label "Εκτός από τρίτους">
 <!ENTITY firstParty.accesskey "Ε">
 <!ENTITY thirdParty.label "Από τρίτους μόνο">
@@ -32,6 +35,8 @@
 <!ENTITY matchCase.label "Ταίριασμα μικρών-κεφαλαίων">
 <!ENTITY matchCase.accesskey "κ">
 <!ENTITY types.label "Εφαρμογή στους τύπους:">
+<!ENTITY selectAllTypes.label "Επιλογή όλων">
+<!ENTITY unselectAllTypes.label "Επιλογή κανενός">
 <!ENTITY collapse.label "Σύμπτυξη στοιχείων:">
 <!ENTITY collapse.accesskey "χ">
 <!ENTITY collapse.default.yes.label "Χρήση προκαθορισμένου (ναι)">
