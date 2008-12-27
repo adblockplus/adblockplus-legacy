@@ -53,12 +53,12 @@
 <!ENTITY collapse.accesskey "c">
 <!ENTITY help.label "Ajutor">
 <!ENTITY help.accesskey "A">
+<!ENTITY gettingStarted.label "Ghidul începătorului">
+<!ENTITY gettingStarted.accesskey "G">
+<!ENTITY gettingStarted.url "http://adblockplus.org/en/getting_started">
 <!ENTITY faq.label "Întrebări frecvente (FAQ)">
 <!ENTITY faq.accesskey "Q">
 <!ENTITY faq.url "http://adblockplus.org/en/faq">
-<!ENTITY tips.label "Sfatul zilei">
-<!ENTITY tips.accesskey "S">
-<!ENTITY tips.url "http://adblockplus.org/en/tips">
 <!ENTITY filterdoc.label "Sfaturi scriere filtre Adblock Plus">
 <!ENTITY filterdoc.accesskey "f">
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">

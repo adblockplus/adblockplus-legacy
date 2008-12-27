@@ -23,6 +23,8 @@
 <!ENTITY context.whitelist.label "Adaugă regulă excepţie pentru element">
 <!ENTITY context.disablefilter.label "Dezactivează filtru --">
 <!ENTITY context.enablefilter.label "Reactivează filtru --">
+<!ENTITY context.disablefilteronsite.label "Dezactivează acest filtru pe --">
+<!ENTITY context.enablefilteronsite.label "Reactivează acest filtru pe --">
 <!ENTITY context.open.label "Deschide în filă nouă">
 <!ENTITY context.flash.label "Evidenţiază marginile elementelor">
 <!ENTITY context.copy.label "Copiază adresa elementului">

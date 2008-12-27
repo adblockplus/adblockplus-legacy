@@ -5,6 +5,7 @@
 <!ENTITY filters.tooltip "Cele mai active filtre:">
 <!ENTITY menuitem.label "Adblock Plus">
 <!ENTITY menuitem.accesskey "A">
+<!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY view.blockableItems.label "Adblock Plus: elemente blocabile">
 <!ENTITY context.image.label "Adblock: blochează imagine">
 <!ENTITY context.object.label "Adblock: blochează obiect">
