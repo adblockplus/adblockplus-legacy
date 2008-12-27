@@ -25,6 +25,9 @@
 <!ENTITY anchor.end.label "la sfârşitul adresei">
 <!ENTITY anchor.end.accesskey "f">
 <!ENTITY options.label "Opţiuni">
+<!ENTITY domainRestriction.label "Aplică doar domeniului">
+<!ENTITY domainRestriction.accesskey "d">
+<!ENTITY domainRestriction.help "Specificaţi unul sau ma multe domenii internet, separate de către simbolul &quot;|&quot;, pentru care filtrul este valid. Simbolul &quot;~&quot; înaintea numelui domeniului va face ca regula să NU se aplice pe domniul specificat.">
 <!ENTITY firstParty.label "Doar la pagina vizitată">
 <!ENTITY firstParty.accesskey "v">
 <!ENTITY thirdParty.label "La pagini partener (3rd party)">
@@ -32,6 +35,8 @@
 <!ENTITY matchCase.label "Potrivire majusculă">
 <!ENTITY matchCase.accesskey "m">
 <!ENTITY types.label "Valabil pentru:">
+<!ENTITY selectAllTypes.label "Toate tipurile">
+<!ENTITY unselectAllTypes.label "Nici unul">
 <!ENTITY collapse.label "Eliberează spaţiul blocat:">
 <!ENTITY collapse.accesskey "s">
 <!ENTITY collapse.default.yes.label "Foloseşte opţiunea implicită (da)">
