@@ -25,6 +25,9 @@
 <!ENTITY anchor.end.label "na konci adresy">
 <!ENTITY anchor.end.accesskey "k">
 <!ENTITY options.label "Možnosti">
+<!ENTITY domainRestriction.label "Omezit na doménu:">
+<!ENTITY domainRestriction.accesskey "d">
+<!ENTITY domainRestriction.help "Zadejte jednu nebo více domén oddělených znakem &quot;|&quot;, filtr bude poté použit pouze na těchto doménách. Znak &quot;~&quot; před názvem domény zajistí, že filtr nebude na této doméně použit.">
 <!ENTITY firstParty.label "Pouze vlastní filtry">
 <!ENTITY firstParty.accesskey "a">
 <!ENTITY thirdParty.label "Pouze filtry třetích stran">
@@ -32,6 +35,8 @@
 <!ENTITY matchCase.label "Rozlišovat velikost">
 <!ENTITY matchCase.accesskey "R">
 <!ENTITY types.label "Použít na typy:">
+<!ENTITY selectAllTypes.label "Vybrat vše">
+<!ENTITY unselectAllTypes.label "Zrušit výběr">
 <!ENTITY collapse.label "Minimalizovat blokované objekty:">
 <!ENTITY collapse.accesskey "i">
 <!ENTITY collapse.default.yes.label "Použít výchozí (ano)">

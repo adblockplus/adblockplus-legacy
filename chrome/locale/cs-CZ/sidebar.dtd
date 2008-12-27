@@ -23,6 +23,8 @@
 <!ENTITY context.whitelist.label "Přidat výjimku pro tento objekt">
 <!ENTITY context.disablefilter.label "Zakázat filtr --">
 <!ENTITY context.enablefilter.label "Opět povolit filtr --">
+<!ENTITY context.disablefilteronsite.label "Zakázat tento filtr na --">
+<!ENTITY context.enablefilteronsite.label "Opět povolit tento filtr na --">
 <!ENTITY context.open.label "Otevřít v novém panelu">
 <!ENTITY context.flash.label "Blikání obrysu objektu">
 <!ENTITY context.copy.label "Kopírovat adresu objektu">
