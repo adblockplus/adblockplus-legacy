@@ -23,6 +23,8 @@
 <!ENTITY context.whitelist.label "将该项加入白名单">
 <!ENTITY context.disablefilter.label "禁用过滤规则 --">
 <!ENTITY context.enablefilter.label "重新启用过滤规则 --">
+<!ENTITY context.disablefilteronsite.label "在 -- 禁用该过滤规则">
+<!ENTITY context.enablefilteronsite.label "在 -- 重新启用过滤规则">
 <!ENTITY context.open.label "在新标签页打开">
 <!ENTITY context.flash.label "闪动显示该项目的边框">
 <!ENTITY context.copy.label "复制项目地址">
