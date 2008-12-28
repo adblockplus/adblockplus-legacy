@@ -92,6 +92,15 @@
       <em:maxVersion>0.9.*</em:maxVersion>
     </Description>
   </em:targetApplication>
+  
+  <!-- Fennec -->
+  <em:targetApplication>
+    <Description>
+      <em:id>{a23983c0-fd0e-11dc-95ff-0800200c9a66}</em:id>
+      <em:minVersion>1.0a2</em:minVersion>
+      <em:maxVersion>1.0a2</em:maxVersion>
+    </Description>
+  </em:targetApplication>
 
   <!-- Front End MetaData -->
   <em:name>Adblock Plus</em:name>
