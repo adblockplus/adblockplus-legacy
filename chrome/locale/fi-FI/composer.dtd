@@ -25,6 +25,9 @@
 <!ENTITY anchor.end.label "osoitteen lopussa">
 <!ENTITY anchor.end.accesskey "l">
 <!ENTITY options.label "Valinnat">
+<!ENTITY domainRestriction.label "Rajoita verkkotunnukseen:">
+<!ENTITY domainRestriction.accesskey "a">
+<!ENTITY domainRestriction.help "Määrittele yksi tai useampia verkkotunnuksia &quot;|&quot;-merkilla eroteltuna. Suodatin on käytössä vain näissä verkkotunnuksissa. Suodatinta ei käytetä verkkotunnuksella, jos sen edessä on &quot;~&quot;-merkki.">
 <!ENTITY firstParty.label "Vain sivun ylläpitäjän">
 <!ENTITY firstParty.accesskey "i">
 <!ENTITY thirdParty.label "Vain muiden kuin sivun ylläpitäjän">
@@ -32,6 +35,8 @@
 <!ENTITY matchCase.label "Huomioi kirjainkoko">
 <!ENTITY matchCase.accesskey "H">
 <!ENTITY types.label "Käytä tyypeissä:">
+<!ENTITY selectAllTypes.label "Valitse kaikki">
+<!ENTITY unselectAllTypes.label "Älä valitse mitään">
 <!ENTITY collapse.label "Romahduta estetyt:">
 <!ENTITY collapse.accesskey "R">
 <!ENTITY collapse.default.yes.label "Käytä oletusta (kyllä)">

@@ -5,6 +5,7 @@
 <!ENTITY filters.tooltip "Aktiivisimmat suodattimet:">
 <!ENTITY menuitem.label "Adblock Plus - Asetukset">
 <!ENTITY menuitem.accesskey "d">
+<!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY view.blockableItems.label "Adblock Plus: Estettävät elementit">
 <!ENTITY context.image.label "Estä kuva Adblockilla">
 <!ENTITY context.object.label "Estä kohde Adblockilla">
