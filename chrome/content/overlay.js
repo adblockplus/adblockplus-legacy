@@ -224,7 +224,10 @@ function abpReloadPrefs() {
   updateElement(button);
   if (button) {
     if (button.hasAttribute("context") && abpPrefs.defaulttoolbaraction == 0)
+    {
       button.setAttribute("popup", button.getAttribute("context"));
+      button.removeAttribute("type");
+    }
     else
       button.removeAttribute("popup");
   }
