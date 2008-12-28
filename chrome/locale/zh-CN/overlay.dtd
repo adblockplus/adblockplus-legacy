@@ -5,6 +5,7 @@
 <!ENTITY filters.tooltip "最活跃过滤规则：">
 <!ENTITY menuitem.label "Adblock Plus">
 <!ENTITY menuitem.accesskey "B">
+<!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY view.blockableItems.label "Adblock Plus: 可过滤项目">
 <!ENTITY context.image.label "过滤图片(Adblock Plus)">
 <!ENTITY context.object.label "过滤对象(Adblock Plus)">

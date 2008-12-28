@@ -23,8 +23,11 @@
 <!ENTITY anchor.start.label "在地址开始处">
 <!ENTITY anchor.start.accesskey "g">
 <!ENTITY anchor.end.label "在地址末尾">
-<!ENTITY anchor.end.accesskey "d">
+<!ENTITY anchor.end.accesskey "n">
 <!ENTITY options.label "选项">
+<!ENTITY domainRestriction.label "限制域：">
+<!ENTITY domainRestriction.accesskey "d">
+<!ENTITY domainRestriction.help "由符号 &quot;|&quot; 分割的一个或多个域，过滤规则仅应用于这些域上。一个域名前有符号 &quot;~&quot;，意味着过滤规则不应该应用于该域上。">
 <!ENTITY firstParty.label "仅第一方">
 <!ENTITY firstParty.accesskey "r">
 <!ENTITY thirdParty.label "仅第三方">
@@ -32,6 +35,8 @@
 <!ENTITY matchCase.label "匹配大小写">
 <!ENTITY matchCase.accesskey "M">
 <!ENTITY types.label "应用类型:">
+<!ENTITY selectAllTypes.label "全选">
+<!ENTITY unselectAllTypes.label "全不选">
 <!ENTITY collapse.label "折叠已过滤:">
 <!ENTITY collapse.accesskey "l">
 <!ENTITY collapse.default.yes.label "使用默认只 (是)">
