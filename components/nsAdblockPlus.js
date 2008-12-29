@@ -448,6 +448,14 @@ const abp =
       return;
     if (tryWindowMethod("loadURI", [url]))
       return;
+    try
+    {
+      // Fennec
+      currentWindow.Browser.newTab(true);
+      currentWindow.Browser.currentBrowser.loadURI(url, null, null, false);
+      return;
+    }
+    catch(e) {}
 
     var protocolService = Components.classes["@mozilla.org/uriloader/external-protocol-service;1"]
                                     .getService(Components.interfaces.nsIExternalProtocolService);
