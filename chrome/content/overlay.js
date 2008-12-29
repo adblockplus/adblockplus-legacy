@@ -370,14 +370,21 @@ function abpShowSubscriptions()
       return;
 
   let browser = abpGetBrowser();
+  let url = "chrome://adblockplus/content/tip_subscriptions.xul";
   if ("addTab" in browser)
   {
     // We have a tabbrowser
-    browser.selectedTab = browser.addTab("chrome://adblockplus/content/tip_subscriptions.xul");
+    browser.selectedTab = browser.addTab(url);
+  }
+  else if ("Browser" in window)
+  {
+    // Fennec
+    Browser.newTab(true);
+    Browser.currentBrowser.loadURI(url, null, null, false);
   }
   else
   {
-	window.openDialog("chrome://adblockplus/content/tip_subscriptions.xul", "_blank", "chrome,centerscreen,resizable=no,dialog=no");
+    window.openDialog(url, "_blank", "chrome,centerscreen,resizable=no,dialog=no");
   }
 }
 
