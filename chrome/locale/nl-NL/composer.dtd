@@ -3,7 +3,7 @@
 <!ENTITY advanced.label "Uitgebreid">
 <!ENTITY basic.label "Eenvoudig">
 <!ENTITY disabled.warning.beforeLink "Adblock Plus is uitgeschakeld. U kunt nog wel filters toevoegen, maar ze worden niet toegepast tot u">
-<!ENTITY disabled.warning.link "Adblock Plus weer inschakeld">
+<!ENTITY disabled.warning.link "Adblock Plus weer inschakelen">
 <!ENTITY disabled.warning.afterLink ".">
 <!ENTITY filter.label "Nieuw filter">
 <!ENTITY filter.accesskey "N">
@@ -25,6 +25,9 @@
 <!ENTITY anchor.end.label "aan het eind van het adres">
 <!ENTITY anchor.end.accesskey "e">
 <!ENTITY options.label "Opties">
+<!ENTITY domainRestriction.label "Beperk tot domein:">
+<!ENTITY domainRestriction.accesskey "p">
+<!ENTITY domainRestriction.help "Geef één of meer domeinen gescheiden met het &quot;|&quot;-teken, het filter zal dan alleen op deze domeinen worden toegepast. Het &quot;~&quot;-teken voor een domein betekend dat het filter niet moet worden toegepast op dat domein.">
 <!ENTITY firstParty.label "Alleen van eigen site">
 <!ENTITY firstParty.accesskey "l">
 <!ENTITY thirdParty.label "Alleen van derden">
@@ -32,6 +35,8 @@
 <!ENTITY matchCase.label "Hoofdlettergevoelig">
 <!ENTITY matchCase.accesskey "o">
 <!ENTITY types.label "Toepassen op types:">
+<!ENTITY selectAllTypes.label "Alles selecteren">
+<!ENTITY unselectAllTypes.label "Niets selecteren">
 <!ENTITY collapse.label "Geblokkeerd onderdeel inklappen:">
 <!ENTITY collapse.accesskey "G">
 <!ENTITY collapse.default.yes.label "Gebruik standaard (ja)">
