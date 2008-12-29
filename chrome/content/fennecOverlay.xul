@@ -29,6 +29,8 @@
 <!DOCTYPE overlay SYSTEM "chrome://adblockplus/locale/overlay.dtd">
 
 <overlay id="abp-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <script type="application/x-javascript;version=1.7" src="overlay.js"/>
+
   <vbox id="browser-controls">
     <toolbarbutton id="abp-toolbarbutton" class="browser-control-button" disabled="true" label="&toolbarbutton.label;" insertafter="tool-forward"/>
   </vbox>
