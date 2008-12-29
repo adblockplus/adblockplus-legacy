@@ -215,14 +215,18 @@ function abpReloadPrefs() {
 
   var status = document.getElementById("abp-status");
   updateElement(status);
-  if (abpPrefs.defaultstatusbaraction == 0)
-    status.setAttribute("popup", status.getAttribute("context"));
-  else
-    status.removeAttribute("popup");
+  if (status)
+  {
+    if (abpPrefs.defaultstatusbaraction == 0)
+      status.setAttribute("popup", status.getAttribute("context"));
+    else
+      status.removeAttribute("popup");
+  }
 
   var button = document.getElementById("abp-toolbarbutton");
   updateElement(button);
-  if (button) {
+  if (button)
+  {
     if (button.hasAttribute("context") && abpPrefs.defaulttoolbaraction == 0)
       button.setAttribute("popup", button.getAttribute("context"));
     else
