@@ -30,6 +30,6 @@
 
 <overlay id="abp-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
   <vbox id="browser-controls">
-    <toolbarbutton id="abp-toolbarbutton" disabled="true" label="&toolbarbutton.label;"/>
+    <toolbarbutton id="abp-toolbarbutton" disabled="true" label="&toolbarbutton.label;" insertafter="tool-forward"/>
   </vbox>
 </overlay>
