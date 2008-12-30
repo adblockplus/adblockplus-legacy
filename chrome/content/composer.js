@@ -111,8 +111,8 @@ function init() {
       return 0;
   });
 
-  let docDomain = abp.policy.getHostname(wnd.location.href);
-  let thirdParty = abp.policy.isThirdParty(abp.makeURL(item.location), docDomain);
+  let docDomain = item.docDomain;
+  let thirdParty = item.thirdParty;
 
   if (docDomain)
     docDomain = docDomain.replace(/^www\./i, "").replace(/\.+$/, "");
