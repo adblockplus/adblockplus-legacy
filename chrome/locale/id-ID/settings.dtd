@@ -53,12 +53,12 @@
 <!ENTITY collapse.accesskey "L">
 <!ENTITY help.label "Bantuan">
 <!ENTITY help.accesskey "b">
+<!ENTITY gettingStarted.label "Memulai">
+<!ENTITY gettingStarted.accesskey "a">
+<!ENTITY gettingStarted.url "http://adblockplus.org/en/getting_started">
 <!ENTITY faq.label "Pertanyaan yang Sering Ditanya">
 <!ENTITY faq.accesskey "y">
 <!ENTITY faq.url "http://adblockplus.org/en/faq">
-<!ENTITY tips.label "Tip Hari Ini">
-<!ENTITY tips.accesskey "T">
-<!ENTITY tips.url "http://adblockplus.org/en/tips">
 <!ENTITY filterdoc.label "Menulis filter Adblock Plus">
 <!ENTITY filterdoc.accesskey "R">
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">

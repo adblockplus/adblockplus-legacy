@@ -23,6 +23,8 @@
 <!ENTITY context.whitelist.label "Tambahkan Aturan pengecualian untuk item">
 <!ENTITY context.disablefilter.label "Matikan filter --">
 <!ENTITY context.enablefilter.label "Hidupkan ulang filter --">
+<!ENTITY context.disablefilteronsite.label "Matikan filter ini pada --">
+<!ENTITY context.enablefilteronsite.label "Hidupkan lagi filter pada --">
 <!ENTITY context.open.label "Buka di tab baru">
 <!ENTITY context.flash.label "Border item yang ber-flash">
 <!ENTITY context.copy.label "Salin alamat item">
