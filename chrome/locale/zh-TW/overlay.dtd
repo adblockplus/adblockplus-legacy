@@ -5,6 +5,7 @@
 <!ENTITY filters.tooltip "最常用的條件:">
 <!ENTITY menuitem.label "Adblock Plus 偏好設定">
 <!ENTITY menuitem.accesskey "B">
+<!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY view.blockableItems.label "Adblock Plus: 可阻擋項目">
 <!ENTITY context.image.label "阻擋圖片">
 <!ENTITY context.object.label "阻擋物件">

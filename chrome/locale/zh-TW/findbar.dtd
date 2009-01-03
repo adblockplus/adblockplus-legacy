@@ -1,7 +1,3 @@
-<!-- LOCALIZATION NOTE : FILE This file contains the entities needed to -->
-<!-- LOCALIZATION NOTE : FILE use the Find Bar. --> 
-
-<!-- entities split out from browser.dtd -->
 <!ENTITY find.label "尋找:">
 <!ENTITY next.label "下一筆">
 <!ENTITY next.accesskey "N">

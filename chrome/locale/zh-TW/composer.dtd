@@ -23,8 +23,11 @@
 <!ENTITY anchor.start.label "網址開頭">
 <!ENTITY anchor.start.accesskey "g">
 <!ENTITY anchor.end.label "網址結尾">
-<!ENTITY anchor.end.accesskey "d">
+<!ENTITY anchor.end.accesskey "n">
 <!ENTITY options.label "選項">
+<!ENTITY domainRestriction.label "網域限制:">
+<!ENTITY domainRestriction.accesskey "d">
+<!ENTITY domainRestriction.help "請輸入要套用此過濾條件的網域名稱，有多個網域請以符號「|」分隔。若在網域名稱前加上符號「~」則表示此條件將「不會」套用於此網域。">
 <!ENTITY firstParty.label "只限第一方">
 <!ENTITY firstParty.accesskey "r">
 <!ENTITY thirdParty.label "只限第三方">
@@ -32,7 +35,9 @@
 <!ENTITY matchCase.label "符合大小寫">
 <!ENTITY matchCase.accesskey "M">
 <!ENTITY types.label "套用類型:">
-<!ENTITY collapse.label "折疊已阻擋項目:">
+<!ENTITY selectAllTypes.label "全選">
+<!ENTITY unselectAllTypes.label "取消全選">
+<!ENTITY collapse.label "摺疊已阻擋項目:">
 <!ENTITY collapse.accesskey "l">
 <!ENTITY collapse.default.yes.label "使用預設值 (是)">
 <!ENTITY collapse.default.no.label "使用預設值 (否)">
