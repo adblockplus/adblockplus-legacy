@@ -53,12 +53,12 @@
 <!ENTITY collapse.accesskey "m">
 <!ENTITY help.label "Hjælp">
 <!ENTITY help.accesskey "H">
+<!ENTITY gettingStarted.label "Kom godt i gang (engelsk)">
+<!ENTITY gettingStarted.accesskey "a">
+<!ENTITY gettingStarted.url "http://adblockplus.org/en/getting_started">
 <!ENTITY faq.label "Ofte Stillede Spørgsmål">
 <!ENTITY faq.accesskey "f">
 <!ENTITY faq.url "http://adblockplus.org/en/faq">
-<!ENTITY tips.label "Dagens Tip">
-<!ENTITY tips.accesskey "T">
-<!ENTITY tips.url "http://adblockplus.org/en/tips">
 <!ENTITY filterdoc.label "Skriver Adblock Plus filtre">
 <!ENTITY filterdoc.accesskey "R">
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">

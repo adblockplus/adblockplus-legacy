@@ -1,7 +1,3 @@
-<!-- LOCALIZATION NOTE : FILE This file contains the entities needed to -->
-<!-- LOCALIZATION NOTE : FILE use the Find Bar. --> 
-
-<!-- entities split out from browser.dtd -->
 <!ENTITY find.label "Søg:">
 <!ENTITY next.label "Næste">
 <!ENTITY next.accesskey "N">
@@ -15,6 +11,3 @@
 <!ENTITY highlight.tooltiptext "Fremhæv alle forekomster af sætningen">
 <!ENTITY caseSensitiveCheckbox.label "Forskel på store og små bogstaver">
 <!ENTITY caseSensitiveCheckbox.accesskey "s">
-
-
-
