@@ -25,6 +25,9 @@
 <!ENTITY anchor.end.label "i slutningen af adressen">
 <!ENTITY anchor.end.accesskey "l">
 <!ENTITY options.label "Indstillinger">
+<!ENTITY domainRestriction.label "Begræns til domæne:">
+<!ENTITY domainRestriction.accesskey "d">
+<!ENTITY domainRestriction.help "Angiv ét eller flere domæner adskilt af symbolet &quot;|&quot;, så vil filteret kun blive anvendt på disse domæner. Symbolet &quot;~&quot; foran et domæne angiver at filteret ikke skal anvendes på dette domæne.">
 <!ENTITY firstParty.label "Kun førsteparts">
 <!ENTITY firstParty.accesskey "f">
 <!ENTITY thirdParty.label "Kun tredjeparts">
@@ -32,6 +35,8 @@
 <!ENTITY matchCase.label "Match store/små bogstaver">
 <!ENTITY matchCase.accesskey "M">
 <!ENTITY types.label "Benyt på typer:">
+<!ENTITY selectAllTypes.label "Vælg alle">
+<!ENTITY unselectAllTypes.label "Vælg ingen">
 <!ENTITY collapse.label "Sammenfold blokeret:">
 <!ENTITY collapse.accesskey "o">
 <!ENTITY collapse.default.yes.label "Brug standard (ja)">
