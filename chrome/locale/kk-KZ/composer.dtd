@@ -1,0 +1,45 @@
+<!ENTITY dialog.title "Adblock Plus фильтр ережесін қосу">
+<!ENTITY accept.label "Фильтрі қосу">
+<!ENTITY advanced.label "Кеңейтілген көрінісі">
+<!ENTITY basic.label "Негізгі көрінісі">
+<!ENTITY disabled.warning.beforeLink "Adblock Plus қазір сөндірулі. Филтрлерді қазір де қоса аласыз, бірақ олар жұмыс істемейді, сіз">
+<!ENTITY disabled.warning.link "Adblock Plus қосқанға дейін">
+<!ENTITY disabled.warning.afterLink ".">
+<!ENTITY filter.label "Жаңа фильтр:">
+<!ENTITY filter.accesskey "ф">
+<!ENTITY preferences.label "Бар фильтрлерді көрсету...">
+<!ENTITY preferences.accesskey "к">
+<!ENTITY type.filter.label "Блоктаушы фильтр">
+<!ENTITY type.filter.accesskey "Б">
+<!ENTITY type.whitelist.label "Ерекше ереже">
+<!ENTITY type.whitelist.accesskey "Е">
+<!ENTITY pattern.label "Шаблон">
+<!ENTITY pattern.explanation "Шаблон адрестің кез-келген бөлігі бола алады, мұндағы жұлдызша (*) таңбалардың кез-келген санын белгілейді. Фильтр тек оған сәйкес келетін адрестер үшін қолданылады.">
+<!ENTITY regexp.warning "Сіз енгізген шаблон, регулярлы өрнек ретінде өңделеді. Осындай шаблондардың көп саны браузеріңіздің жұмысын тежей алады. Регулярлы өрнекті қолданғыңыз келмесе, шаблон соңына жұлдызшаны қосыңыз.">
+<!ENTITY shortpattern.warning "Сіз енгізген оптимизация үшін тым қысқа, осындай шаблондардың көп саны браузеріңіздің жұмысын тежей алады. Осы фильтр үшін ұзынырақ шаблонды қолдану ұсынылады.">
+<!ENTITY custom.pattern.label "Өзіңіздің:">
+<!ENTITY custom.pattern.accesskey "з">
+<!ENTITY anchors.label "Шаблонды тек келесіде қолдану:">
+<!ENTITY anchor.start.label "адрес басында">
+<!ENTITY anchor.start.accesskey "н">
+<!ENTITY anchor.end.label "адрес соңында">
+<!ENTITY anchor.end.accesskey "ы">
+<!ENTITY options.label "Баптаулар">
+<!ENTITY domainRestriction.label "Доменмен шектеу:">
+<!ENTITY domainRestriction.accesskey "Д">
+<!ENTITY domainRestriction.help "Бір немесе &quot;|&quot; таңбасымен ажыратылған бірнеше доменді көрсетіңіз, фильтр тек осы домендер үшін орындалады. Домен атының алдыңдағы &quot;~&quot; таңбасы осы доменде фильтр орындалмайтынын көрсетеді.">
+<!ENTITY firstParty.label "Тек сол сайт өз құрамасы үшін">
+<!ENTITY firstParty.accesskey "ш">
+<!ENTITY thirdParty.label "Тек басқа сайт құрамасы үшін">
+<!ENTITY thirdParty.accesskey "а">
+<!ENTITY matchCase.label "Регистрді ескеру">
+<!ENTITY matchCase.accesskey "Р">
+<!ENTITY types.label "Қолдану үшін құрама түрі:">
+<!ENTITY selectAllTypes.label "Барлығын ерекшелеу">
+<!ENTITY unselectAllTypes.label "Ерекшелеуді тастау">
+<!ENTITY collapse.label "Блокталған құраманы жинау:">
+<!ENTITY collapse.accesskey "ж">
+<!ENTITY collapse.default.yes.label "Бастапқысын қолдану (иә)">
+<!ENTITY collapse.default.no.label "Бастапқысын қолдану (жоқ)">
+<!ENTITY collapse.yes.label "Иә">
+<!ENTITY collapse.no.label "Жоқ">

@@ -1,0 +1,23 @@
+<!ENTITY notloaded.label "Жүктелмеді">
+<!ENTITY notloaded.tooltip "Adblock Plus құрамасы жүктелмейді, мүмкін ол дұрыс орнатылмады.">
+<!ENTITY status.tooltip "Күйі:">
+<!ENTITY blocked.tooltip "Осы парақтағы блокталған құрама:">
+<!ENTITY filters.tooltip "Көп қолданылатын фильтрлер:">
+<!ENTITY menuitem.label "Adblock Plus параметрлері">
+<!ENTITY menuitem.accesskey "м">
+<!ENTITY toolbarbutton.label "Adblock Plus">
+<!ENTITY view.blockableItems.label "Adblock Plus: Парақ құрамасы">
+<!ENTITY context.image.label "Adblock Plus: Суретті болдырмау">
+<!ENTITY context.object.label "Adblock Plus: Объектті болдырмау">
+<!ENTITY context.frame.label "Adblock Plus: Фреймді болдырмау">
+<!ENTITY sidebar.title "Ағымдағы парақ құрамасы">
+<!ENTITY settings.label "Параметрлері">
+<!ENTITY settings.accesskey "е">
+<!ENTITY opensidebar.label "Блокталған құраманы ашу">
+<!ENTITY opensidebar.accesskey "у">
+<!ENTITY closesidebar.label "Блокталған құраманы жабу">
+<!ENTITY closesidebar.accesskey "у">
+<!ENTITY whitelist.site.label "Келесі үшін сөндіру: --">
+<!ENTITY whitelist.page.label "Тек осы парақ үшін сөндіру">
+<!ENTITY objecttab.title "Блоктау">
+<!ENTITY objecttab.tooltip "Adblock Plus көмегімен осы объектті блоктау үшін шертіңіз">

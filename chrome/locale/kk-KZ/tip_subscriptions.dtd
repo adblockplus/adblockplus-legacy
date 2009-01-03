@@ -1,0 +1,29 @@
+<!ENTITY dialog.title "Adblock Plus фильтрлерге жазылуды қосу">
+<!ENTITY description.par1 "Adblock Plus орнатқаныңызға рахмет. Бұл кеңейту Интернеттегі
+	жарнаманың 99&#37; болдырмауға көмектеседі. Бірақ, жақсы нәтиже алу үшін
+	жақсы фильтрлер жиыны керек. Сіз осы фильтрлерді өзіңіз анықтай аласыз,
+	немесе басқалар құрап отырған фильтрлер тізімдеріне жазыла аласыз.
+	Соған қоса фильтрлерді өзіңіз жасай аласыз, және жазылуларды
+	кез-келген уақытта сөндіре не өшіре аласыз.">
+<!ENTITY description.par2 "Төменде ұсынылатын жазылулар тізімі көрсетілген, сіз олардың біреуін
+	таңдай аласыз (көбірек жазылуларды кейін Adblock Plus баптаулары ішінде
+	қоса аласыз, бірақта әдетте бұл керек емес):">
+<!ENTITY note "Қосымша: Фильтрлер тізімі, көбінесе, қай регион үшін құрылған, сол
+	регион сайттары үшін қолдануға тиімді.">
+<!ENTITY adblock.warning "Adblock Plus бұл бағдарламада Adblock немесе Adblock Plus ескі нұсқасы қолданылып
+	тұрғанын анықтады. Adblock пен Adblock Plus бірге қолдану мәселелерді тұғызуы мүмкін.
+	Оларды болдырмау үшін Adblock өшіру ұсынылады.">
+<!ENTITY adblock.uninstall "Adblock өшіру">
+<!ENTITY filterset.g.warning "Сіз Filterset.G қолданатын сияқтысыз. Бұл фильтрлер тізімі бірнеше жыл
+	жаңартылмады, және көп мәселелердің көзі болды.
+	Мәселелерді болдырмау үшін Filterset.G өшіру ұсынылады.">
+<!ENTITY filterset.g.moreinfo "Көбірек білу">
+<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
+<!ENTITY filterset.g.uninstall "Filterset.G өшіру">
+<!ENTITY homepage.label "Үй парағы">
+<!ENTITY subscribe.label "Жазылу">
+<!ENTITY subscribe.accesskey "Ж">
+<!ENTITY other.label "Басқа жазылуды қосу">
+<!ENTITY other.accesskey "с">
+<!ENTITY full-list.url "http://adblockplus.org/en/subscriptions">
+<!ENTITY full-list.label "Барлық жазылуларды қарап шығу">
