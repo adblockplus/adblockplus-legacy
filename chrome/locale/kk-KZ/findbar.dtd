@@ -1,0 +1,13 @@
+<!ENTITY find.label "Іздеу:">
+<!ENTITY next.label "Келесі">
+<!ENTITY next.accesskey "к">
+<!ENTITY next.tooltip "Мәтіннің келесі кездесуін табу">
+<!ENTITY previous.label "Алдыңғы">
+<!ENTITY previous.accesskey "а">
+<!ENTITY previous.tooltip "Мәтіннің алдыңғы кездесуін табу">
+<!ENTITY findCloseButton.tooltip "Іздеу панелін жабу">
+<!ENTITY highlight.label "Барлығын түспен ерекшелеу">
+<!ENTITY highlight.accesskey "б">
+<!ENTITY highlight.tooltiptext "Мәтіннің барлық кездесулерін түспен ерекшелеу">
+<!ENTITY caseSensitiveCheckbox.label "Регистрді ескеру">
+<!ENTITY caseSensitiveCheckbox.accesskey "р">
