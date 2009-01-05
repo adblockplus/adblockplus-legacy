@@ -40,7 +40,7 @@ var filterStorage =
    * Version number of the filter storage file format.
    * @type Integer
    */
-  formatVersion: 2,
+  formatVersion: 3,
 
   /**
    * Map of properties listed in the filter storage file before the sections
@@ -586,7 +586,6 @@ var filterStorage =
       {
         if (!(filter.text in saved))
         {
-          buf.push("");
           filter.serialize(buf);
           saved[filter.text] = filter;
 

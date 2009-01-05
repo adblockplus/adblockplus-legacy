@@ -60,13 +60,6 @@ Filter.prototype =
   {
     buffer.push("[Filter]");
     buffer.push("text=" + this.text);
-  },
-
-  toString: function()
-  {
-    let buffer = [];
-    this.serialize(buffer);
-    return buffer.join("\n");
   }
 };
 abp.Filter = Filter;
@@ -128,74 +121,7 @@ Filter.fromText = function(text)
  */
 Filter.fromObject = function(obj)
 {
-  let ret = null;
-  switch (obj.type)
-  {
-    case "invalid":
-      ret = Filter.fromText(obj.text);
-      break;
-    case "comment":
-      ret = new CommentFilter(obj.text);
-      break;
-    case "filterlist":
-      if (filterStorage.fileProperties.version != filterStorage.formatVersion)
-        ret = new Filter.fromText(obj.text);
-      else
-      {
-        let contentType = null;
-        if ("contentType" in obj)
-          contentType = parseInt(obj.contentType) || null;
-
-        let matchCase = null;
-        if ("matchCase" in obj)
-          matchCase = (obj.matchCase == "true");
-
-        let domains = null;
-        if ("domains" in obj)
-          domains = obj.domains;
-
-        let thirdParty = null;
-        if ("thirdParty" in obj)
-          thirdParty = (obj.thirdParty == "true");
-
-        let collapse = null;
-        if ("collapse" in obj)
-          collapse = (obj.collapse == "true");
-
-        ret = new BlockingFilter(obj.text, obj.regexp, contentType, matchCase, domains, thirdParty, collapse);
-      }
-      break;
-    case "whitelist":
-      if (filterStorage.fileProperties.version != filterStorage.formatVersion)
-        ret = new Filter.fromText(obj.text);
-      else
-      {
-        let contentType = null;
-        if ("contentType" in obj)
-          contentType = parseInt(obj.contentType) || null;
-
-        let matchCase = null;
-        if ("matchCase" in obj)
-          matchCase = (obj.matchCase == "true");
-
-        let domains = null;
-        if ("domains" in obj)
-          domains = obj.domains;
-
-        let thirdParty = null;
-        if ("thirdParty" in obj)
-          thirdParty = (obj.thirdParty == "true");
-
-        ret = new WhitelistFilter(obj.text, obj.regexp, contentType, matchCase, domains, thirdParty);
-      }
-      break;
-    case "elemhide":
-      ret = new ElemHideFilter(obj.text, obj.domain, obj.selector);
-      break;
-    default:
-      return null;
-  }
-
+  let ret = Filter.fromText(obj.text);
   if (ret instanceof ActiveFilter)
   {
     if ("disabled" in obj)
@@ -205,11 +131,6 @@ Filter.fromObject = function(obj)
     if ("lastHit" in obj)
       ret.lastHit = parseInt(obj.lastHit) || 0;
   }
-
-  if (ret instanceof RegExpFilter && "shortcut" in obj && obj.shortcut.length == Matcher.shortcutLength)
-    ret.shortcut = obj.shortcut;
-  
-  Filter.knownFilters[ret.text] = ret;
   return ret;
 }
 
@@ -239,11 +160,7 @@ InvalidFilter.prototype =
   /**
    * See Filter.serialize()
    */
-  serialize: function(buffer)
-  {
-    Filter.prototype.serialize.call(this, buffer);
-    buffer.push("type=invalid");
-  }
+  serialize: function(buffer) {}
 };
 abp.InvalidFilter = InvalidFilter;
 
@@ -264,11 +181,7 @@ CommentFilter.prototype =
   /**
    * See Filter.serialize()
    */
-  serialize: function(buffer)
-  {
-    Filter.prototype.serialize.call(this, buffer);
-    buffer.push("type=comment");
-  }
+  serialize: function(buffer) {}
 };
 abp.CommentFilter = CommentFilter;
 
@@ -307,13 +220,16 @@ ActiveFilter.prototype =
    */
   serialize: function(buffer)
   {
-    Filter.prototype.serialize.call(this, buffer);
-    if (this.disabled)
-      buffer.push("disabled=true");
-    if (this.hitCount)
-      buffer.push("hitCount=" + this.hitCount);
-    if (this.lastHit)
-      buffer.push("lastHit=" + this.lastHit);
+    if (this.disabled || this.hitCount || this.lastHit)
+    {
+      Filter.prototype.serialize.call(this, buffer);
+      if (this.disabled)
+        buffer.push("disabled=true");
+      if (this.hitCount)
+        buffer.push("hitCount=" + this.hitCount);
+      if (this.lastHit)
+        buffer.push("lastHit=" + this.lastHit);
+    }
   }
 };
 abp.ActiveFilter = ActiveFilter;
@@ -339,7 +255,6 @@ function RegExpFilter(text, regexp, contentType, matchCase, domains, thirdParty)
     this.matchCase = matchCase;
   if (domains != null)
   {
-    this.domains = domains;
     for each (let domain in domains.split("|"))
     {
       if (domain == "")
@@ -387,11 +302,6 @@ RegExpFilter.prototype =
    * @type Boolean
    */
   matchCase: false,
-  /**
-   * String representation of the domains the filter should be restricted to, e.g. "foo.com|bar.com|~baz.com"
-   * @type String
-   */
-  domains: null,
   /**
    * Defines whether the filter should apply to third-party or first-party content only. Can be null (apply to all content).
    * @type Boolean
@@ -448,25 +358,6 @@ RegExpFilter.prototype =
             (RegExpFilter.typeMap[contentType] & this.contentType) != 0 &&
             (this.thirdParty == null || this.thirdParty == thirdParty) &&
             (!docDomain || this.isActiveOnDomain(docDomain)));
-  },
-
-  /**
-   * See Filter.serialize()
-   */
-  serialize: function(buffer)
-  {
-    ActiveFilter.prototype.serialize.call(this, buffer);
-    buffer.push("regexp=" + this.regexp.source);
-    if (this.shortcut)
-      buffer.push("shortcut=" + this.shortcut);
-    if (this.hasOwnProperty("contentType"))
-      buffer.push("contentType=" + this.contentType);
-    if (this.matchCase)
-      buffer.push("matchCase=" + this.matchCase);
-    if (this.domains != null)
-      buffer.push("domains=" + this.domains);
-    if (this.thirdParty != null)
-      buffer.push("thirdParty=" + this.thirdParty);
   }
 };
 abp.RegExpFilter = RegExpFilter;
@@ -610,18 +501,7 @@ BlockingFilter.prototype =
    * Defines whether the filter should collapse blocked content. Can be null (use the global preference).
    * @type Boolean
    */
-  collapse: null,
-
-  /**
-   * See Filter.serialize()
-   */
-  serialize: function(buffer)
-  {
-    RegExpFilter.prototype.serialize.call(this, buffer);
-    buffer.push("type=filterlist");
-    if (this.collapse != null)
-      buffer.push("collapse=" + this.collapse);
-  }
+  collapse: null
 };
 abp.BlockingFilter = BlockingFilter;
 
@@ -640,19 +520,7 @@ function WhitelistFilter(text, regexp, contentType, matchCase, domains, thirdPar
 {
   RegExpFilter.call(this, text, regexp, contentType, matchCase, domains, thirdParty);
 }
-WhitelistFilter.prototype =
-{
-  __proto__: RegExpFilter.prototype,
-
-  /**
-   * See Filter.serialize()
-   */
-  serialize: function(buffer)
-  {
-    RegExpFilter.prototype.serialize.call(this, buffer);
-    buffer.push("type=whitelist");
-  }
-};
+WhitelistFilter.prototype = RegExpFilter.prototype;
 abp.WhitelistFilter = WhitelistFilter;
 
 /**
@@ -689,20 +557,7 @@ ElemHideFilter.prototype =
    * Random key associated with the filter - used to register hits from element hiding filters
    * @type String
    */
-  key: null,
-
-  /**
-   * See Filter.serialize()
-   */
-  serialize: function(buffer)
-  {
-    ActiveFilter.prototype.serialize.call(this, buffer);
-    buffer.push("type=elemhide");
-    if (this.domain)
-      buffer.push("domain=" + this.domain);
-    if (this.selector)
-      buffer.push("selector=" + this.selector);
-  }
+  key: null
 };
 abp.ElemHideFilter = ElemHideFilter;
 
