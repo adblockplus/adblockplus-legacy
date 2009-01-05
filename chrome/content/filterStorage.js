@@ -382,88 +382,7 @@ var filterStorage =
     let userFilters = null;
     if (stream)
     {
-      this.fileProperties = {};
-
-      let wantObj = true;
-      let curObj = this.fileProperties;
-      let curSection = null;
-      let line = {};
-      let haveMore = true;
-      while (true)
-      {
-        if (haveMore)
-          haveMore = stream.readLine(line);
-        else
-          line.value = "[end]";
-
-        let val = line.value;
-        if (wantObj === true && /^(\w+)=(.*)$/.test(val))
-          curObj[RegExp.$1] = RegExp.$2;
-        else if (/^\s*\[(.+)\]\s*$/.test(val))
-        {
-          let newSection = RegExp.$1.toLowerCase();
-          if (curObj)
-          {
-            // Process current object before going to next section
-            switch (curSection)
-            {
-              case "filter":
-              case "pattern":
-                Filter.fromObject(curObj);
-                break;
-              case "subscription":
-                let subscription = Subscription.fromObject(curObj);
-                if (subscription)
-                  this.addSubscription(subscription, true);
-                break;
-              case "subscription filters":
-              case "subscription patterns":
-                if (this.subscriptions.length)
-                {
-                  let subscription = this.subscriptions[this.subscriptions.length - 1];
-                  for each (let text in curObj)
-                  {
-                    let filter = Filter.fromText(text);
-                    if (filter)
-                    {
-                      subscription.filters.push(filter);
-                      filter.subscriptions.push(subscription);
-                    }
-                  }
-                }
-                break;
-              case "user patterns":
-                userFilters = curObj;
-                break;
-            }
-          }
-  
-          if (newSection == 'end')
-            break;
-
-          curSection = newSection;
-          switch (curSection)
-          {
-            case "filter":
-            case "pattern":
-            case "subscription":
-              wantObj = true;
-              curObj = {};
-              break;
-            case "subscription filters":
-            case "subscription patterns":
-            case "user patterns":
-              wantObj = false;
-              curObj = [];
-              break;
-            default:
-              wantObj = undefined;
-              curObj = null;
-          }
-        }
-        else if (wantObj === false && val)
-          curObj.push(val.replace(/\\\[/g, "["));
-      }
+      userFilters = this.parseIniFile(stream);
 
       stream.close();
     }
@@ -509,6 +428,92 @@ var filterStorage =
     timeLine.log("loaded from disk");
     this.triggerSubscriptionObservers("reload", this.subscriptions);
     timeLine.log("reload subscription observers");
+  },
+  
+  parseIniFile: function(stream) {
+    let wantObj = true;
+    this.fileProperties = {};
+    let curObj = this.fileProperties;
+    let curSection = null;
+    let line = {};
+    let haveMore = true;
+    let userFilters = null;
+    while (true)
+    {
+      if (haveMore)
+        haveMore = stream.readLine(line);
+      else
+        line.value = "[end]";
+
+      let val = line.value;
+      if (wantObj === true && /^(\w+)=(.*)$/.test(val))
+        curObj[RegExp.$1] = RegExp.$2;
+      else if (/^\s*\[(.+)\]\s*$/.test(val))
+      {
+        let newSection = RegExp.$1.toLowerCase();
+        if (curObj)
+        {
+          // Process current object before going to next section
+          switch (curSection)
+          {
+            case "filter":
+            case "pattern":
+              Filter.fromObject(curObj);
+              break;
+            case "subscription":
+              let subscription = Subscription.fromObject(curObj);
+              if (subscription)
+                this.addSubscription(subscription, true);
+              break;
+            case "subscription filters":
+            case "subscription patterns":
+              if (this.subscriptions.length)
+              {
+                let subscription = this.subscriptions[this.subscriptions.length - 1];
+                for each (let text in curObj)
+                {
+                  let filter = Filter.fromText(text);
+                  if (filter)
+                  {
+                    subscription.filters.push(filter);
+                    filter.subscriptions.push(subscription);
+                  }
+                }
+              }
+              break;
+            case "user patterns":
+              userFilters = curObj;
+              break;
+          }
+        }
+
+        if (newSection == 'end')
+          break;
+
+        curSection = newSection;
+        switch (curSection)
+        {
+          case "filter":
+          case "pattern":
+          case "subscription":
+            wantObj = true;
+            curObj = {};
+            break;
+          case "subscription filters":
+          case "subscription patterns":
+          case "user patterns":
+            wantObj = false;
+            curObj = [];
+            break;
+          default:
+            wantObj = undefined;
+            curObj = null;
+        }
+      }
+      else if (wantObj === false && val)
+        curObj.push(val.replace(/\\\[/g, "["));
+    }
+    return userFilters;
   },
 
   /**
