@@ -485,6 +485,7 @@ abp.wrappedJSObject = abp;
 // Initialization and registration
 function init() {
   initialized = true;
+  timeLine.log("init() called");
 
   if ("nsIChromeRegistrySea" in Components.interfaces) {
     // Autoregister chrome in SeaMonkey
@@ -525,6 +526,7 @@ function init() {
   loader.loadSubScript('chrome://adblockplus/content/prefs.js');
   loader.loadSubScript('chrome://adblockplus/content/synchronizer.js');
   loader.loadSubScript('chrome://adblockplus/content/flasher.js');
+  timeLine.log("all .js loaded");
 
   // Clean up uninstalled files
   var dirService = Components.classes["@mozilla.org/file/directory_service;1"]
@@ -541,6 +543,9 @@ function init() {
       }
     } catch(e) {}
   }
+  timeLine.log("clean up complete");
+
+  timeLine.log("init() done");
 }
 
 // Try to fix selected locale (SeaMonkey doesn't do it correctly)
@@ -580,3 +585,21 @@ function fixPackageLocale() {
     registry.selectLocaleForPackage(select, "adblockplus", true);
   } catch(e) {}
 }
+
+
+var timeLine = {
+  _lastTimeStamp: null,
+  _loggingEnabled: true,
+  
+  log: function(msg) {
+    let now = (new Date()).getTime();
+    let diff = this._lastTimeStamp ? (now - this._lastTimeStamp) : "first event";
+    this._lastTimeStamp = now;
+    
+    let padding = [];
+    for (var i = msg.toString().length; i < 40; i++)
+      padding.push(" ");
+    dump("ABP timeline: " + msg + padding.join("") + "\t (" + diff + ")\n");
+  }
+};
+if (!timeLine._loggingEnabled) timeLine.log = function() {};

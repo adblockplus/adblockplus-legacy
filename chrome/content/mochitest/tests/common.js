@@ -132,3 +132,6 @@ if (/[?&]profiler/i.test(location.href))
   debuggerService.flags |= debuggerService.COLLECT_PROFILE_DATA;
   debuggerService.clearProfileData();
 }
+
+// Stub for a function that's used for profiling startup
+var timeLine = {log: function() {}};
