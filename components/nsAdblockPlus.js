@@ -618,7 +618,6 @@ function fixPackageLocale()
  */
 var timeLine = {
   _lastTimeStamp: null,
-  _loggingEnabled: true,
 
   /**
    * Logs an event to console together with the time it took to get there.
@@ -635,4 +634,3 @@ var timeLine = {
     dump("ABP timeline: " + msg + padding.join("") + "\t (" + diff + ")\n");
   }
 };
-if (!timeLine._loggingEnabled) timeLine.log = function() {};
