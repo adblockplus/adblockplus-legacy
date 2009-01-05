@@ -542,9 +542,12 @@ function init()
   loader.loadSubScript('chrome://adblockplus/content/prefs.js');
   loader.loadSubScript('chrome://adblockplus/content/synchronizer.js');
   loader.loadSubScript('chrome://adblockplus/content/flasher.js');
-  timeLine.log("all .js loaded");
+  
+  this._cleanupTimer = createTimer(cleanUpUninstalledFiles, 10000);
+  timeLine.log("init() done");
+}
 
-  // Clean up uninstalled files
+function cleanUpUninstalledFiles() {
   var dirService = Components.classes["@mozilla.org/file/directory_service;1"]
                              .getService(Components.interfaces.nsIProperties);
   var dirArray = ["AChrom", "UChrm", "ProfD", "ComsD"];
@@ -562,9 +565,6 @@ function init()
       }
     } catch(e) {}
   }
-  timeLine.log("clean up complete");
-
-  timeLine.log("init() done");
 }
 
 // Try to fix selected locale (SeaMonkey doesn't do it correctly)
