@@ -33,40 +33,6 @@ if (!incompatible) {
 }
 
 if (!incompatible && confirm(WARNING, APP_DISPLAY_NAME)) {
-  /* Pre-Install Cleanup (for prior versions) */
-  
-  // List of files to be checked
-  var checkFiles = [
-    [getFolder("Profile", "chrome"), "adblockplus.jar"],      // Profile jar
-    [getFolder("Chrome"), "adblockplus.jar"],                 // Root jar
-    [getFolder("Components"), "nsAdblockPlus.js"],            // Root component
-    [getFolder("Components"), "nsAdblockPlus.xpt"],           // Component interface
-    [getFolder("Profile", "components"), "nsAdblockPlus.js"], // Profile component
-    [getFolder("Profile"), "XUL FastLoad File"],              // XUL cache Mac Classic
-    [getFolder("Profile"), "XUL.mfast"],                      // XUL cache MacOS X
-    [getFolder("Profile"), "XUL.mfasl"],                      // XUL cache Linux
-    [getFolder("Profile"), "XUL.mfl"]                         // XUL cache Windows
-  ];
-
-  // Remove any existing files
-  initInstall("pre-install", "/rename", "0.0");  // open dummy-install
-  for (var i = 0 ; i < checkFiles.length ; i++) {
-    var currentDir = checkFiles[i][0];
-    var name = checkFiles[i][1];
-    var oldFile = getFolder(currentDir, name);
-
-    // Find a name to rename the file into
-    var newName = name + "-uninstalled";
-    for (var n = 1; File.exists(oldFile) && File.exists(getFolder(currentDir, newName)); n++)
-      newName = name + n + "-uninstalled";
-  
-    if (File.exists(oldFile))
-      File.rename(oldFile, newName);
-  }
-  performInstall(); // commit renamed files
-
-  /* Main part of the installation */
-
   var chromeType = DELAYED_CHROME;
 
   var files = [

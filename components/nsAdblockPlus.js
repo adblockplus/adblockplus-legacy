@@ -543,28 +543,7 @@ function init()
   loader.loadSubScript('chrome://adblockplus/content/synchronizer.js');
   loader.loadSubScript('chrome://adblockplus/content/flasher.js');
   
-  this._cleanupTimer = createTimer(cleanUpUninstalledFiles, 10000);
   timeLine.log("init() done");
-}
-
-function cleanUpUninstalledFiles() {
-  var dirService = Components.classes["@mozilla.org/file/directory_service;1"]
-                             .getService(Components.interfaces.nsIProperties);
-  var dirArray = ["AChrom", "UChrm", "ProfD", "ComsD"];
-  for (var i = 0, n ; i < dirArray.length ; i++)
-  {
-    try
-    {
-      var currentDir = dirService.get(dirArray[i], Components.interfaces.nsIFile);
-      var dirEntries = currentDir.directoryEntries;
-      while (dirEntries.hasMoreElements())
-      {
-        var file = dirEntries.getNext().QueryInterface(Components.interfaces.nsIFile);
-        if (file.path.match(/-uninstalled$/))
-          file.remove(false);
-      }
-    } catch(e) {}
-  }
 }
 
 // Try to fix selected locale (SeaMonkey doesn't do it correctly)
