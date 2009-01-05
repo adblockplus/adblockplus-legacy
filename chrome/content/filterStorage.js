@@ -326,6 +326,8 @@ var filterStorage =
    */
   loadFromDisk: function()
   {
+    timeLine.log("up to loadFromDisk()");
+
     this.subscriptions = [];
     this.knownSubscriptions = {__proto__: null};
 
@@ -504,7 +506,9 @@ var filterStorage =
       }
     }
 
+    timeLine.log("loaded from disk");
     this.triggerSubscriptionObservers("reload", this.subscriptions);
+    timeLine.log("reload subscription observers");
   },
 
   /**
