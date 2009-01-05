@@ -296,6 +296,18 @@ function createFilterWrapper(filter)
 }
 
 /**
+ * Makes sure shortcut is initialized for the filter.
+ */
+function ensureFilterShortcut(/**Filter*/ filter)
+{
+  if (filter instanceof abp.RegExpFilter && !filter.shortcut)
+  {
+    let matcher = (filter instanceof abp.BlockingFilter ? abp.blacklistMatcher : abp.whitelistMatcher);
+    filter.shortcut = matcher.findShortcut(filter.text);
+  }
+}
+
+/**
  * Retrieves a filter by its text (might be a filter wrapper).
  *
  * @param {String} text text representation of the filter
@@ -308,11 +320,7 @@ function getFilterByText(text)
   else
   {
     let result = abp.Filter.fromText(text);
-    if (result instanceof abp.RegExpFilter && !result.shortcut)
-    {
-      let matcher = (result instanceof abp.BlockingFilter ? abp.blacklistMatcher : abp.whitelistMatcher);
-      result.shortcut = matcher.findShortcut(result.text);
-    }
+    ensureFilterShortcut(result);
     return result;
   }
 }
@@ -2504,6 +2512,18 @@ let treeView = {
 
       if (typeof newValue == "undefined")
         newValue = !item.disabled;
+
+      if (!newValue)
+      {
+        if (item instanceof abp.Subscription)
+        {
+          for each (let filter in item._sortedFilters)
+            ensureFilterShortcut(filter);
+        }
+        else
+          ensureFilterShortcut(item);
+      }
+
       item.disabled = newValue;
     }
 
