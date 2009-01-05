@@ -429,8 +429,14 @@ var filterStorage =
     this.triggerSubscriptionObservers("reload", this.subscriptions);
     timeLine.log("reload subscription observers");
   },
-  
-  parseIniFile: function(stream) {
+
+  /**
+   * Parses filter data from a stream. If the data contains user filters outside of filter
+   * groups (Adblock Plus 0.7.x data) these filters are returned - they need to be added
+   * separately.
+   */
+  parseIniFile: function(/**nsIUnicharLineInputStream*/ stream) /**Array of String*/
+  {
     let wantObj = true;
     this.fileProperties = {};
     let curObj = this.fileProperties;
