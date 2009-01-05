@@ -60,6 +60,11 @@ Filter.prototype =
   {
     buffer.push("[Filter]");
     buffer.push("text=" + this.text);
+  },
+
+  toString: function()
+  {
+    return this.text;
   }
 };
 abp.Filter = Filter;
