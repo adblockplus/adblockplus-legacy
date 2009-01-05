@@ -75,7 +75,7 @@ treechildren::-moz-tree-cell-text(col-filter, filter-true, type-elemhide, select
   color: #000080;
 }
 
-treechildren::-moz-tree-image(col-filter, filter-true, filter-regexp-true) {
+treechildren::-moz-tree-image(col-filter, filter-true, filter-regexp-true, filter-disabled-false, subscription-disabled-false) {
   list-style-image: url(regexp.gif);
 }
 
