@@ -43,7 +43,8 @@ const ioService = Components.classes["@mozilla.org/network/io-service;1"]
  */
 
 const module = {
-  registerSelf: function(compMgr, fileSpec, location, type) {
+  registerSelf: function(compMgr, fileSpec, location, type)
+  {
     compMgr = compMgr.QueryInterface(Components.interfaces.nsIComponentRegistrar);
     compMgr.registerFactoryLocation(ABP_CID, 
                     "Adblock content policy",
@@ -63,7 +64,8 @@ const module = {
               ABP_CONTRACTID, true, true);
   },
 
-  unregisterSelf: function(compMgr, fileSpec, location) {
+  unregisterSelf: function(compMgr, fileSpec, location)
+  {
     compMgr = compMgr.QueryInterface(Components.interfaces.nsIComponentRegistrar);
 
     compMgr.unregisterFactoryLocation(ABP_CID, fileSpec);
@@ -73,7 +75,8 @@ const module = {
     catman.deleteCategoryEntry("content-policy", ABP_CONTRACTID, true);
   },
 
-  getClassObject: function(compMgr, cid, iid) {
+  getClassObject: function(compMgr, cid, iid)
+  {
     if (!cid.equals(ABP_CID) && !cid.equals(ABP_PROT_CID))
       throw Components.results.NS_ERROR_NO_INTERFACE;
 
@@ -83,12 +86,14 @@ const module = {
     return factory;
   },
 
-  canUnload: function(compMgr) {
+  canUnload: function(compMgr)
+  {
     return true;
   }
 };
 
-function NSGetModule(comMgr, fileSpec) {
+function NSGetModule(comMgr, fileSpec)
+{
   return module;
 }
 
@@ -99,7 +104,8 @@ function NSGetModule(comMgr, fileSpec) {
 var initialized = false;
 const factory = {
   // nsIFactory interface implementation
-  createInstance: function(outer, iid) {
+  createInstance: function(outer, iid)
+  {
     if (outer != null)
       throw Components.results.NS_ERROR_NO_AGGREGATION;
 
@@ -110,7 +116,8 @@ const factory = {
   },
 
   // nsISupports interface implementation
-  QueryInterface: function(iid) {
+  QueryInterface: function(iid)
+  {
     if (iid.equals(Components.interfaces.nsISupports) ||
         iid.equals(Components.interfaces.nsIFactory))
       return this;
@@ -135,11 +142,13 @@ var windowMediator = Components.classes["@mozilla.org/appshell/window-mediator;1
                                .getService(Components.interfaces.nsIWindowMediator);
 var windowWatcher= Components.classes["@mozilla.org/embedcomp/window-watcher;1"]
                              .getService(Components.interfaces.nsIWindowWatcher);
-try {
+try
+{
   var headerParser = Components.classes["@mozilla.org/messenger/headerparser;1"]
                                .getService(Components.interfaces.nsIMsgHeaderParser);
 }
-catch(e) {
+catch(e)
+{
   headerParser = null;
 }
 
@@ -436,7 +445,8 @@ const abp =
         return false;
       }
 
-      try {
+      try
+      {
         currentWindow.focus();
       } catch(e) {}
       return true;
@@ -483,28 +493,34 @@ abp.wrappedJSObject = abp;
  */
 
 // Initialization and registration
-function init() {
+function init()
+{
   initialized = true;
   timeLine.log("init() called");
 
-  if ("nsIChromeRegistrySea" in Components.interfaces) {
+  if ("nsIChromeRegistrySea" in Components.interfaces)
+  {
     // Autoregister chrome in SeaMonkey
     var registry = Components.classes["@mozilla.org/chrome/chrome-registry;1"]
                              .getService(Components.interfaces.nsIChromeRegistrySea);
 
-    try {
+    try
+    {
       registry.installPackage("jar:resource:/chrome/adblockplus.jar!/content/", false);
     } catch(e) {}
 
-    try {
+    try
+    {
       registry.installSkin("jar:resource:/chrome/adblockplus.jar!/skin/classic/", false, true);
     } catch(e) {}
 
-    for (var i = 0; i < locales.length; i++) {
+    for (var i = 0; i < locales.length; i++)
+    {
       if (!locales[i])
         continue;
 
-      try {
+      try
+      {
         registry.installLocale("jar:resource:/chrome/adblockplus.jar!/locale/" + locales[i] + "/", false);
       } catch(e) {}
     }
@@ -532,11 +548,14 @@ function init() {
   var dirService = Components.classes["@mozilla.org/file/directory_service;1"]
                              .getService(Components.interfaces.nsIProperties);
   var dirArray = ["AChrom", "UChrm", "ProfD", "ComsD"];
-  for (var i = 0, n ; i < dirArray.length ; i++) {
-    try {
+  for (var i = 0, n ; i < dirArray.length ; i++)
+  {
+    try
+    {
       var currentDir = dirService.get(dirArray[i], Components.interfaces.nsIFile);
       var dirEntries = currentDir.directoryEntries;
-      while (dirEntries.hasMoreElements()) {
+      while (dirEntries.hasMoreElements())
+      {
         var file = dirEntries.getNext().QueryInterface(Components.interfaces.nsIFile);
         if (file.path.match(/-uninstalled$/))
           file.remove(false);
@@ -549,27 +568,34 @@ function init() {
 }
 
 // Try to fix selected locale (SeaMonkey doesn't do it correctly)
-function fixPackageLocale() {
-  try {
+function fixPackageLocale()
+{
+  try
+  {
     var locale = "en-US";
-    try {
+    try
+    {
       var branch = Components.classes["@mozilla.org/preferences-service;1"]
                              .getService(Components.interfaces.nsIPrefBranch);
-      try {
+      try
+      {
         var complex = branch.getComplexValue("general.useragent.locale", Components.interfaces.nsIPrefLocalizedString);
         locale = complex.data;
       }
-      catch (e) {
+      catch (e)
+      {
         locale = branch.getCharPref("general.useragent.locale");
       }
     } catch (e) {}
 
     var select = null;
-    for (var i = 0; i < locales.length; i++) {
+    for (var i = 0; i < locales.length; i++)
+    {
       if (!locales[i])
         continue;
 
-      if (locales[i] == locale) {
+      if (locales[i] == locale)
+      {
         select = locales[i];
         break;
       }
@@ -586,12 +612,19 @@ function fixPackageLocale() {
   } catch(e) {}
 }
 
-
+/**
+ * Time logging module, used to measure startup time of Adblock Plus (development builds only).
+ * @class
+ */
 var timeLine = {
   _lastTimeStamp: null,
   _loggingEnabled: true,
-  
-  log: function(msg) {
+
+  /**
+   * Logs an event to console together with the time it took to get there.
+   */
+  log: function(/**String*/ msg)
+  {
     let now = (new Date()).getTime();
     let diff = this._lastTimeStamp ? (now - this._lastTimeStamp) : "first event";
     this._lastTimeStamp = now;
