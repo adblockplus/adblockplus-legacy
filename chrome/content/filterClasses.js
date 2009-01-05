@@ -525,7 +525,10 @@ function WhitelistFilter(text, regexp, contentType, matchCase, domains, thirdPar
 {
   RegExpFilter.call(this, text, regexp, contentType, matchCase, domains, thirdParty);
 }
-WhitelistFilter.prototype = RegExpFilter.prototype;
+WhitelistFilter.prototype =
+{
+  __proto__: RegExpFilter.prototype
+}
 abp.WhitelistFilter = WhitelistFilter;
 
 /**
