@@ -230,13 +230,14 @@ function fillInTooltip(e) {
 
   let filter = ("filter" in item && item.filter && !item.filter.disabled ? item.filter : null);
   let size = ("tooltip" in item ? null : getItemSize(item));
+  let subscriptions = (filter ? filter.subscriptions.filter(function(subscription) { return !subscription.disabled; }) : []);
 
   E("tooltipDummy").hidden = !("tooltip" in item);
   E("tooltipAddressRow").hidden = ("tooltip" in item);
   E("tooltipTypeRow").hidden = ("tooltip" in item);
   E("tooltipSizeRow").hidden = !size;
   E("tooltipFilterRow").hidden = !filter;
-  E("tooltipFilterSourceRow").hidden = !(filter && filter.subscriptions.length);
+  E("tooltipFilterSourceRow").hidden = !subscriptions.length;
 
   if ("tooltip" in item)
     E("tooltipDummy").setAttribute("value", item.tooltip);
@@ -259,12 +260,12 @@ function fillInTooltip(e) {
   if (filter)
   {
     setMultilineContent(E("tooltipFilter"), filter.text);
-    if (filter.subscriptions.length)
+    if (subscriptions.length)
     {
       let sourceElement = E("tooltipFilterSource");
       while (sourceElement.firstChild)
         sourceElement.removeChild(sourceElement.firstChild);
-      for each (let subscription in filter.subscriptions)
+      for each (let subscription in subscriptions)
         setMultilineContent(sourceElement, subscription.title, true);
     }
   }
