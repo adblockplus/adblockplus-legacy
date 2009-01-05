@@ -25,6 +25,10 @@ if (@ARGV && $ARGV[0] =~ /^\+/)
   $params{devbuild} = $ARGV[0];
   shift @ARGV;
 }
+else
+{
+  $params{postprocess_line} = \&removeTimeLine;
+}
 
 $params{locales} = \@ARGV if @ARGV;
 
@@ -40,6 +44,15 @@ my @files = grep {-e $_} ('components', 'defaults', 'install.js', 'install.rdf',
 
 $pkg->makeXPI($xpiFile, "chrome/$baseName.jar", @files);
 unlink("chrome/$baseName.jar");
+
+sub removeTimeLine
+{
+  my ($file, $line) = @_;
+
+  return "\n" if $file =~ /\.js$/ && $line =~ /\btimeLine\.log\(/;
+
+  return $line;
+}
 
 sub readFile
 {
