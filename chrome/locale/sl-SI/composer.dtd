@@ -25,6 +25,9 @@
 <!ENTITY anchor.end.label "na koncu naslova">
 <!ENTITY anchor.end.accesskey "k">
 <!ENTITY options.label "Možnosti">
+<!ENTITY domainRestriction.label "Omeji na domeno:">
+<!ENTITY domainRestriction.accesskey "d">
+<!ENTITY domainRestriction.help "Navedite eno ali več domen, ločenih s simbolom &quot;|&quot;, filter bo veljal le za te domene. Simbol &quot;~&quot; pred imenom domene pomeni, da filter za to domeno ne sme veljati.">
 <!ENTITY firstParty.label "Samo prve stranke">
 <!ENTITY firstParty.accesskey "p">
 <!ENTITY thirdParty.label "Samo zunanje stranke">
@@ -32,6 +35,8 @@
 <!ENTITY matchCase.label "Razlikuj velike/male črke">
 <!ENTITY matchCase.accesskey "č">
 <!ENTITY types.label "Uporabi za vrste:">
+<!ENTITY selectAllTypes.label "Izberi vse">
+<!ENTITY unselectAllTypes.label "Nič ne izberi">
 <!ENTITY collapse.label "Strni blokirane:">
 <!ENTITY collapse.accesskey "r">
 <!ENTITY collapse.default.yes.label "Uporabi privzeto (da)">
