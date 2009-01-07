@@ -23,6 +23,8 @@
 <!ENTITY context.whitelist.label "Dodaj pravilo izjem za element">
 <!ENTITY context.disablefilter.label "Onemogoči filter ...">
 <!ENTITY context.enablefilter.label "Ponovno omogoči filter ...">
+<!ENTITY context.disablefilteronsite.label "Onemogoči ta filter na --">
+<!ENTITY context.enablefilteronsite.label "Ponovno omogoči filter na --">
 <!ENTITY context.open.label "Odpri v novem zavihku">
 <!ENTITY context.flash.label "Obrobe elementa naj utripajo">
 <!ENTITY context.copy.label "Kopiraj naslov elementa">
