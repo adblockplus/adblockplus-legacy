@@ -27,8 +27,6 @@
 <!ENTITY help.label "Laguntza">
 <!ENTITY help.accesskey "L">
 <!ENTITY faq.url "http://adblockplus.org/en/faq">
-<!ENTITY tips.label "Iradokizunak">
-<!ENTITY tips.url "http://adblockplus.org/en/tips">
 <!ENTITY enabled.column "Gaituta">
 <!ENTITY context.edit.label "Editatu iragazkia">
 <!ENTITY context.synchsubscription.label "Eguneratu harpidetza orain">

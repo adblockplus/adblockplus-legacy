@@ -46,9 +46,6 @@
 <!ENTITY faq.label "Dažnai užduodami klausimai">
 <!ENTITY faq.accesskey "D">
 <!ENTITY faq.url "http://adblockplus.org/en/faq">
-<!ENTITY tips.label "Dienos patarimas">
-<!ENTITY tips.accesskey "P">
-<!ENTITY tips.url "http://adblockplus.org/en/tips">
 <!ENTITY filterdoc.label "Kaip rašyti „Adblock Plus“ filtrus">
 <!ENTITY filterdoc.accesskey "f">
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">

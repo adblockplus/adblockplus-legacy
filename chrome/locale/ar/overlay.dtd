@@ -3,8 +3,9 @@
 <!ENTITY status.tooltip "الحالة">
 <!ENTITY blocked.tooltip "العناصر المحجوبة في هذه الصفحة">
 <!ENTITY filters.tooltip "الفلاتر الأكثر فعالية">
-<!ENTITY menuitem.label "آدبلوك بلاس">
+<!ENTITY menuitem.label "تفضيلات آدبلوك بلس">
 <!ENTITY menuitem.accesskey "ب">
+<!ENTITY toolbarbutton.label "آدبلوك بلس">
 <!ENTITY view.blockableItems.label "آدبلوك بلس: العناصر المحجوبة">
 <!ENTITY context.image.label "صورة آدبلوك">
 <!ENTITY context.object.label "عنصر آدبلوك">

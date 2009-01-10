@@ -1,3 +1,7 @@
+<!-- LOCALIZATION NOTE : FILE This file contains the entities needed to -->
+<!-- LOCALIZATION NOTE : FILE use the Find Bar. --> 
+<!-- entities split out from browser.dtd -->
+
 <!ENTITY find.label "Procura:">
 <!ENTITY next.label "Seguinte">
 <!ENTITY next.accesskey "S">
@@ -7,7 +11,7 @@
 <!ENTITY previous.tooltip "Procura a ocorrência anterior da frase">
 <!ENTITY findCloseButton.tooltip "Fechar a barra de pesquisa">
 <!ENTITY highlight.label "Marcar todas">
-<!ENTITY highlight.accesskey "t">
+<!ENTITY highlight.accesskey "a">
 <!ENTITY highlight.tooltiptext "Marca todas as ocorrências da frase (Ctrl+Enter)">
 <!ENTITY caseSensitiveCheckbox.label "Sensível a maiúsculas/minúsculas">
 <!ENTITY caseSensitiveCheckbox.accesskey "s">

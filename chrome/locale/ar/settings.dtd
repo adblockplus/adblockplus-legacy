@@ -56,9 +56,6 @@
 <!ENTITY faq.label "الأسئلة الشائعة">
 <!ENTITY faq.accesskey "س">
 <!ENTITY faq.url "http://adblockplus.org/en/faq">
-<!ENTITY tips.label "تلميح اليوم">
-<!ENTITY tips.accesskey "ح">
-<!ENTITY tips.url "http://adblockplus.org/en/tips">
 <!ENTITY filterdoc.label "كتابة فلاتر لآدبلوك بلاس">
 <!ENTITY filterdoc.accesskey "ك">
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">

@@ -56,9 +56,6 @@
 <!ENTITY faq.label "Најчешће постављана питања">
 <!ENTITY faq.accesskey "Н">
 <!ENTITY faq.url "http://adblockplus.org/en/faq">
-<!ENTITY tips.label "Савет дана">
-<!ENTITY tips.accesskey "т">
-<!ENTITY tips.url "http://adblockplus.org/en/tips">
 <!ENTITY filterdoc.label "Писање филтера за Adblock Plus">
 <!ENTITY filterdoc.accesskey "P">
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">

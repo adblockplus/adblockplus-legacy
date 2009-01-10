@@ -56,9 +56,6 @@
 <!ENTITY faq.label "Soalan yang selalu ditanya">
 <!ENTITY faq.accesskey "A">
 <!ENTITY faq.url "http://adblockplus.org/en/faq">
-<!ENTITY tips.label "Tip Hari Ini">
-<!ENTITY tips.accesskey "T">
-<!ENTITY tips.url "http://adblockplus.org/en/tips">
 <!ENTITY filterdoc.label "Menulis penapis Adblock Plus">
 <!ENTITY filterdoc.accesskey "N">
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">

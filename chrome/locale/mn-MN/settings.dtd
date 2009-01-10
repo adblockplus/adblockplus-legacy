@@ -56,9 +56,6 @@
 <!ENTITY faq.label "Түгээмэл Асуултын Хариултууд">
 <!ENTITY faq.accesskey "А">
 <!ENTITY faq.url "http://adblockplus.org/en/faq">
-<!ENTITY tips.label "Өнөөдрийн зөвлөгөө">
-<!ENTITY tips.accesskey "З">
-<!ENTITY tips.url "http://adblockplus.org/en/tips">
 <!ENTITY filterdoc.label "Adblock Plus шүүлтүүрүүд бичих">
 <!ENTITY filterdoc.accesskey "Б">
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">

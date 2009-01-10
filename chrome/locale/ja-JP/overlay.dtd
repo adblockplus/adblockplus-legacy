@@ -5,6 +5,8 @@
 <!ENTITY filters.tooltip "機能中のフィルタ（要素数）：">
 <!ENTITY menuitem.label "Adblock Plus">
 <!ENTITY menuitem.accesskey "B">
+<!ENTITY toolbarbutton.label "Adblock Plus">
+<!ENTITY view.blockableItems.label "Adblock Plus: ブロックアイテム">
 <!ENTITY context.image.label "Adblock 画像をブロック">
 <!ENTITY context.object.label "Adblock オブジェクトをブロック">
 <!ENTITY context.frame.label "Adblock フレームをブロック">

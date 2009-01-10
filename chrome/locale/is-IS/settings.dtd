@@ -2,7 +2,7 @@
 <!ENTITY filters.label "Síur">
 <!ENTITY filters.accesskey "S">
 <!ENTITY add.label "Bæta við síu">
-<!ENTITY add.accesskey "B">
+<!ENTITY add.accesskey "t">
 <!ENTITY addsubscription.label "Bæta við síuáskrift">
 <!ENTITY addsubscription.accesskey "S">
 <!ENTITY synchsubscriptions.label "Uppfæra allar áskriftir">
@@ -10,7 +10,7 @@
 <!ENTITY import.label "Flytja inn síur">
 <!ENTITY import.accesskey "F">
 <!ENTITY export.label "Flytja út síur">
-<!ENTITY export.accesskey "u">
+<!ENTITY export.accesskey "y">
 <!ENTITY clearall.label "Fjarlægja allar síur">
 <!ENTITY clearall.accesskey "L">
 <!ENTITY resethitcounts.label "Endurstilla talningar">
@@ -29,11 +29,10 @@
 <!ENTITY menu.find.accesskey "t">
 <!ENTITY menu.findagain.label "Leita aftur">
 <!ENTITY menu.findagain.accesskey "f">
-<!ENTITY view.label "Skoða
-">
+<!ENTITY view.label "Skoða">
 <!ENTITY view.accesskey "k">
 <!ENTITY sort.label "Raða eftir">
-<!ENTITY sort.accesskey "R">
+<!ENTITY sort.accesskey "f">
 <!ENTITY sort.none.label "Óraðað">
 <!ENTITY sort.none.accesskey "r">
 <!ENTITY sort.ascending.label "A &gt; Ö röðun">
@@ -54,12 +53,12 @@
 <!ENTITY collapse.accesskey "L">
 <!ENTITY help.label "Hjálp">
 <!ENTITY help.accesskey "H">
+<!ENTITY gettingStarted.label "Byrja notkun">
+<!ENTITY gettingStarted.accesskey "n">
+<!ENTITY gettingStarted.url "http://adblockplus.org/en/getting_started">
 <!ENTITY faq.label "Oft spurðar spurningar">
 <!ENTITY faq.accesskey "O">
 <!ENTITY faq.url "http://adblockplus.org/en/faq">
-<!ENTITY tips.label "Hollráð dagsins">
-<!ENTITY tips.accesskey "H">
-<!ENTITY tips.url "http://adblockplus.org/en/tips">
 <!ENTITY filterdoc.label "Hvernig á að búa til Adblock Plus síur">
 <!ENTITY filterdoc.accesskey "v">
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
@@ -67,7 +66,7 @@
 <!ENTITY about.accesskey "B">
 <!ENTITY description "Eftirfarandi síur ákvarða hvaða netföng á að loka á og hvaða netföng eigi að leyfa:">
 <!ENTITY filter.column "Síu regla">
-<!ENTITY filter.accesskey "r">
+<!ENTITY filter.accesskey "g">
 <!ENTITY enabled.column "Virkt">
 <!ENTITY enabled.accesskey "V">
 <!ENTITY hitcount.column "Notkun">

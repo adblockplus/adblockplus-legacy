@@ -23,6 +23,8 @@
 <!ENTITY context.whitelist.label "예외 규칙 추가">
 <!ENTITY context.disablefilter.label "필터 금지 --">
 <!ENTITY context.enablefilter.label "필터 재시작 --">
+<!ENTITY context.disablefilteronsite.label "이 필터 사용 해제 --">
+<!ENTITY context.enablefilteronsite.label "이 필터 재 사용 --">
 <!ENTITY context.open.label "새 탭으로 열기">
 <!ENTITY context.flash.label "플래쉬 항목의 테두리">
 <!ENTITY context.copy.label "항목 주소 복사">

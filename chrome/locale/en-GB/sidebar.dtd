@@ -23,6 +23,8 @@
 <!ENTITY context.whitelist.label "Add exception rule for item">
 <!ENTITY context.disablefilter.label "Disable filter --">
 <!ENTITY context.enablefilter.label "Re-enable filter --">
+<!ENTITY context.disablefilteronsite.label "Disable this filter on --">
+<!ENTITY context.enablefilteronsite.label "Re-enable filter on --">
 <!ENTITY context.open.label "Open in New Tab">
 <!ENTITY context.flash.label "Flash item&apos;s borders">
 <!ENTITY context.copy.label "Copy item&apos;s address">

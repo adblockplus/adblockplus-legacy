@@ -46,9 +46,6 @@
 <!ENTITY faq.label "سوالات طرح شده">
 <!ENTITY faq.accesskey "ش">
 <!ENTITY faq.url "http://adblockplus.org/en/faq">
-<!ENTITY tips.label "نکته روز">
-<!ENTITY tips.accesskey "ز">
-<!ENTITY tips.url "http://adblockplus.org/en/tips">
 <!ENTITY filterdoc.label "نوشتن فیلترهای Adblock Plus">
 <!ENTITY filterdoc.accesskey "P">
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">

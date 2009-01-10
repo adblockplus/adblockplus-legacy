@@ -5,6 +5,7 @@
 <!ENTITY filters.tooltip "Mest notaðar síur:">
 <!ENTITY menuitem.label "Adblock Plus stillingar">
 <!ENTITY menuitem.accesskey "B">
+<!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY view.blockableItems.label "Adblock Plus: Lokaðir hlutir">
 <!ENTITY context.image.label "Loka auglýsingamynd">
 <!ENTITY context.object.label "Loka auglýsingahlut">
@@ -13,9 +14,9 @@
 <!ENTITY settings.label "Stillingar">
 <!ENTITY settings.accesskey "S">
 <!ENTITY opensidebar.label "Opna hluti">
-<!ENTITY opensidebar.accesskey "O">
+<!ENTITY opensidebar.accesskey "l">
 <!ENTITY closesidebar.label "Loka hlutum">
-<!ENTITY closesidebar.accesskey "L">
+<!ENTITY closesidebar.accesskey "l">
 <!ENTITY whitelist.site.label "Gera óvirkt á --">
 <!ENTITY whitelist.page.label "Gera óvirkt aðeins á þessari síðu">
 <!ENTITY objecttab.title "Loka á">

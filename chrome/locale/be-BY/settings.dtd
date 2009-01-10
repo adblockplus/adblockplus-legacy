@@ -46,9 +46,6 @@
 <!ENTITY faq.label "Пытаньні й адказы">
 <!ENTITY faq.accesskey "П">
 <!ENTITY faq.url "http://adblockplus.org/en/faq">
-<!ENTITY tips.label "Даць параду">
-<!ENTITY tips.accesskey "А">
-<!ENTITY tips.url "http://adblockplus.org/en/tips">
 <!ENTITY filterdoc.label "Напісаньне фільтраў для Adblock Plus">
 <!ENTITY filterdoc.accesskey "Н">
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">

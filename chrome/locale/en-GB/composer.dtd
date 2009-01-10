@@ -23,8 +23,11 @@
 <!ENTITY anchor.start.label "at the beginning of the address">
 <!ENTITY anchor.start.accesskey "g">
 <!ENTITY anchor.end.label "at the end of the address">
-<!ENTITY anchor.end.accesskey "d">
+<!ENTITY anchor.end.accesskey "n">
 <!ENTITY options.label "Options">
+<!ENTITY domainRestriction.label "Restrict to domain:">
+<!ENTITY domainRestriction.accesskey "d">
+<!ENTITY domainRestriction.help "Specify one or more domains separated by the symbol &quot;|&quot;; the filter will only be applied on those domains. The symbol &quot;~&quot; before a domain name means that the filter should not be applied on that domain.">
 <!ENTITY firstParty.label "First-party only">
 <!ENTITY firstParty.accesskey "r">
 <!ENTITY thirdParty.label "Third-party only">
@@ -32,6 +35,8 @@
 <!ENTITY matchCase.label "Match case">
 <!ENTITY matchCase.accesskey "M">
 <!ENTITY types.label "Apply to types:">
+<!ENTITY selectAllTypes.label "Select all">
+<!ENTITY unselectAllTypes.label "Select none">
 <!ENTITY collapse.label "Collapse blocked:">
 <!ENTITY collapse.accesskey "l">
 <!ENTITY collapse.default.yes.label "Use default (yes)">
