@@ -56,9 +56,6 @@
 <!ENTITY faq.label "Питання, що часто ставляться (англійською)">
 <!ENTITY faq.accesskey "и">
 <!ENTITY faq.url "http://adblockplus.org/en/faq">
-<!ENTITY tips.label "Підказки (англійською)">
-<!ENTITY tips.accesskey "і">
-<!ENTITY tips.url "http://adblockplus.org/en/tips">
 <!ENTITY filterdoc.label "Складання фільтрів для Adblock Plus (англійською)">
 <!ENTITY filterdoc.accesskey "а">
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">

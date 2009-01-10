@@ -9,9 +9,9 @@
 <!ENTITY synchsubscriptions.accesskey "d">
 <!ENTITY import.label "Import filters">
 <!ENTITY import.accesskey "m">
-<!ENTITY export.label "Export filters">
+<!ENTITY export.label "Export custom filters">
 <!ENTITY export.accesskey "x">
-<!ENTITY clearall.label "Remove all filters">
+<!ENTITY clearall.label "Remove all custom filters">
 <!ENTITY clearall.accesskey "l">
 <!ENTITY resethitcounts.label "Reset statistics">
 <!ENTITY resethitcounts.accesskey "R">
@@ -53,12 +53,12 @@
 <!ENTITY collapse.accesskey "l">
 <!ENTITY help.label "Help">
 <!ENTITY help.accesskey "H">
+<!ENTITY gettingStarted.label "Getting started">
+<!ENTITY gettingStarted.accesskey "s">
+<!ENTITY gettingStarted.url "http://adblockplus.org/en/getting_started">
 <!ENTITY faq.label "Frequently Asked Questions">
 <!ENTITY faq.accesskey "F">
 <!ENTITY faq.url "http://adblockplus.org/en/faq">
-<!ENTITY tips.label "Tip of the day">
-<!ENTITY tips.accesskey "T">
-<!ENTITY tips.url "http://adblockplus.org/en/tips">
 <!ENTITY filterdoc.label "Writing Adblock Plus filters">
 <!ENTITY filterdoc.accesskey "r">
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">

@@ -23,8 +23,11 @@
 <!ENTITY anchor.start.label "주소 시작 부분">
 <!ENTITY anchor.start.accesskey "g">
 <!ENTITY anchor.end.label "주소 끝 부분">
-<!ENTITY anchor.end.accesskey "d">
+<!ENTITY anchor.end.accesskey "n">
 <!ENTITY options.label "옵션">
+<!ENTITY domainRestriction.label "도메인 제한:">
+<!ENTITY domainRestriction.accesskey "d">
+<!ENTITY domainRestriction.help "한 개 또는 &quot;|&quot; 기호를 이용하여 여러 도메인을 지정하면, 필터는 지정된 도메인에 대해서만 적용됩니다. 도메인명 앞에 &quot;~&quot; 기호는 필터 적용에서 제외됩니다.">
 <!ENTITY firstParty.label "First-party 만">
 <!ENTITY firstParty.accesskey "r">
 <!ENTITY thirdParty.label "Third-party 만">
@@ -32,6 +35,8 @@
 <!ENTITY matchCase.label "대/소문자 구별">
 <!ENTITY matchCase.accesskey "M">
 <!ENTITY types.label "적용 형식:">
+<!ENTITY selectAllTypes.label "모두 선택">
+<!ENTITY unselectAllTypes.label "모든 선택 취소">
 <!ENTITY collapse.label "차단 항목 숨김:">
 <!ENTITY collapse.accesskey "l">
 <!ENTITY collapse.default.yes.label "기본값 적용(예)">

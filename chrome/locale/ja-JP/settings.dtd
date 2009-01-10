@@ -29,6 +29,16 @@
 <!ENTITY menu.find.accesskey "F">
 <!ENTITY menu.findagain.label "再検索">
 <!ENTITY menu.findagain.accesskey "G">
+<!ENTITY view.label "見る">
+<!ENTITY view.accesskey "V">
+<!ENTITY sort.label "並び替え">
+<!ENTITY sort.accesskey "S">
+<!ENTITY sort.none.label "ソートしない">
+<!ENTITY sort.none.accesskey "U">
+<!ENTITY sort.ascending.label "A &gt; Z">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.descending.label "Z &gt; A">
+<!ENTITY sort.descending.accesskey "Z">
 <!ENTITY options.label "オプション">
 <!ENTITY options.accesskey "O">
 <!ENTITY enable.label "Adblock Plus を有効にする">
@@ -43,25 +53,28 @@
 <!ENTITY collapse.accesskey "L">
 <!ENTITY help.label "ヘルプ">
 <!ENTITY help.accesskey "H">
+<!ENTITY gettingStarted.label "開始">
+<!ENTITY gettingStarted.accesskey "s">
+<!ENTITY gettingStarted.url "http://adblockplus.org/en/getting_started">
 <!ENTITY faq.label "よくある質問と回答（FAQ）">
 <!ENTITY faq.accesskey "F">
 <!ENTITY faq.url "http://adblockplus.org/en/faq">
-<!ENTITY tips.label "今日のヒント">
-<!ENTITY tips.accesskey "T">
-<!ENTITY tips.url "http://adblockplus.org/en/tips">
 <!ENTITY filterdoc.label "Adblock Plus フィルタ記述ガイド">
 <!ENTITY filterdoc.accesskey "R">
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Adblock Plus について">
 <!ENTITY about.accesskey "B">
-<!ENTITY description "
-		ドロップダウンリストの中からブロックしたいアドレスを追加してください。
+<!ENTITY description "ドロップダウンリストの中からブロックしたいアドレスを追加してください。
 		汎用的なフィルタを作成する場合はワイルドカードとして * (アスタリスク)が使用できます。
-		上級ユーザは /banner\d+\.gif$/ のような正規表現を使用することができます。
-">
+		上級ユーザは /banner\d+\.gif$/ のような正規表現を使用することができます。">
+<!ENTITY filter.column "フィルターのルール">
+<!ENTITY filter.accesskey "F">
 <!ENTITY enabled.column "有効／無効">
+<!ENTITY enabled.accesskey "n">
 <!ENTITY hitcount.column "ヒット数">
+<!ENTITY hitcount.accesskey "H">
 <!ENTITY lasthit.column "最終ヒット日時">
+<!ENTITY lasthit.accesskey "L">
 <!ENTITY context.edit.label "フィルタ編集">
 <!ENTITY context.resethitcount.label "フィルタヒット数をリセット">
 <!ENTITY context.synchsubscription.label "今すぐ同期フィルタをアップデート">
@@ -70,5 +83,7 @@
 <!ENTITY context.movedown.label "下へ">
 <!ENTITY context.movegroupup.label "上のグループへ">
 <!ENTITY context.movegroupdown.label "下のグループへ">
+<!ENTITY context.enable.label "有効">
+<!ENTITY context.disable.label "無効">
 <!ENTITY apply.label "適 用">
 <!ENTITY apply.accesskey "P">

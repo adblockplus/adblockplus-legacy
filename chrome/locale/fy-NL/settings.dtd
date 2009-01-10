@@ -56,9 +56,6 @@
 <!ENTITY faq.label "Meaststelde fragen">
 <!ENTITY faq.accesskey "f">
 <!ENTITY faq.url "http://adblockplus.org/en/faq">
-<!ENTITY tips.label "Tip Fan De Dei">
-<!ENTITY tips.accesskey "T">
-<!ENTITY tips.url "http://adblockplus.org/en/tips">
 <!ENTITY filterdoc.label "It skriuwen fan Adblock Plus filters">
 <!ENTITY filterdoc.accesskey "I">
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">

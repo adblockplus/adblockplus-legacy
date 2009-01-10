@@ -23,6 +23,8 @@
 <!ENTITY context.whitelist.label "إضافة قانون استثنائي إلى هذا العنصر">
 <!ENTITY context.disablefilter.label "تعطيل الفلتر --">
 <!ENTITY context.enablefilter.label "إعادة تفعيل الفلتر --">
+<!ENTITY context.disablefilteronsite.label "تعطيل هذا الفلتر على --">
+<!ENTITY context.enablefilteronsite.label "إعادة تفعيل هذا الفلتر على --">
 <!ENTITY context.open.label "فتح في تبويب جديد">
 <!ENTITY context.flash.label "إضاءة حواف العنصر">
 <!ENTITY context.copy.label "نسخ عنوان العنصر">

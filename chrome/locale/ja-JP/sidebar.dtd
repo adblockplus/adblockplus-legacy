@@ -7,6 +7,7 @@
 <!ENTITY address.label "アドレス">
 <!ENTITY filter.label "フィルタ">
 <!ENTITY state.label "状態">
+<!ENTITY size.label "サイズ">
 <!ENTITY noitems.label "ブロック可能な要素はありません">
 <!ENTITY whitelisted.label "ホワイトリストに登録されたページです">
 <!ENTITY notloaded.label "適切にインストールされていません">
@@ -14,10 +15,18 @@
 <!ENTITY tooltip.type.label "種別：">
 <!ENTITY tooltip.type.blocked "(ブロック)">
 <!ENTITY tooltip.type.whitelisted "(ホワイトリスト)">
+<!ENTITY tooltip.size.label "ザイズ：">
 <!ENTITY tooltip.filter.label "フィルタ：">
+<!ENTITY tooltip.filterSource.label "フィルタのソーズ：">
 <!ENTITY context.block.label "この要素をブロック">
 <!ENTITY context.editfilter.label "フィルタを編集">
 <!ENTITY context.whitelist.label "ホワイトリストに追加">
+<!ENTITY context.disablefilter.label "フィルタを無効 --">
+<!ENTITY context.enablefilter.label "再度フィルタを有効 --">
+<!ENTITY context.disablefilteronsite.label "このフィルタを無効 --">
+<!ENTITY context.enablefilteronsite.label "このフィルタを有効 --">
 <!ENTITY context.open.label "新規タブに開く">
 <!ENTITY context.flash.label "領域枠の点滅表示">
 <!ENTITY context.copy.label "アドレスのコピー">
+<!ENTITY context.copyFilter.label "フィルタのコピー">
+<!ENTITY context.selectAll.label "すべて選択">

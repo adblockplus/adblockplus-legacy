@@ -1,5 +1,5 @@
 <!ENTITY dialog.title "Adblock Plus фильтр ережесін қосу">
-<!ENTITY accept.label "Фильтрі қосу">
+<!ENTITY accept.label "Фильтрді қосу">
 <!ENTITY advanced.label "Кеңейтілген көрінісі">
 <!ENTITY basic.label "Негізгі көрінісі">
 <!ENTITY disabled.warning.beforeLink "Adblock Plus қазір сөндірулі. Филтрлерді қазір де қоса аласыз, бірақ олар жұмыс істемейді, сіз">

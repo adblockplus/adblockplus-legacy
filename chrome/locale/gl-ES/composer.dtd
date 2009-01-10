@@ -23,8 +23,11 @@
 <!ENTITY anchor.start.label "ao comezo da dirección">
 <!ENTITY anchor.start.accesskey "z">
 <!ENTITY anchor.end.label "ao final da dirección">
-<!ENTITY anchor.end.accesskey "d">
+<!ENTITY anchor.end.accesskey "n">
 <!ENTITY options.label "Opcións">
+<!ENTITY domainRestriction.label "Restrición ao dominio:">
+<!ENTITY domainRestriction.accesskey "d">
+<!ENTITY domainRestriction.help "Especifique un ou máis dominios separados polo símbolo &quot;|&quot;, o filtro só se aplicará nestes dominios. O símbolo &quot;~&quot; antes dun nome de dominio significa que o filtro non debe aplicarse sobre el.">
 <!ENTITY firstParty.label "Só de orixe">
 <!ENTITY firstParty.accesskey "r">
 <!ENTITY thirdParty.label "Só de terceiros">
@@ -32,6 +35,8 @@
 <!ENTITY matchCase.label "Caso coincidente">
 <!ENTITY matchCase.accesskey "C">
 <!ENTITY types.label "Aplicar aos tipos:">
+<!ENTITY selectAllTypes.label "Marcar todos">
+<!ENTITY unselectAllTypes.label "Non marcar ningún">
 <!ENTITY collapse.label "Encartar bloqueados:">
 <!ENTITY collapse.accesskey "E">
 <!ENTITY collapse.default.yes.label "Uso por defecto (si)">

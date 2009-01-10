@@ -2,7 +2,7 @@
 <!ENTITY filters.label "Filtrid">
 <!ENTITY filters.accesskey "F">
 <!ENTITY add.label "Lisa filter">
-<!ENTITY add.accesskey "C">
+<!ENTITY add.accesskey "L">
 <!ENTITY addsubscription.label "Lisa filtri tellimuse">
 <!ENTITY addsubscription.accesskey "t">
 <!ENTITY synchsubscriptions.label "Uuenda kõik tellimused">
@@ -46,14 +46,11 @@
 <!ENTITY faq.label "Korduma Kippuvad Küsimused">
 <!ENTITY faq.accesskey "K">
 <!ENTITY faq.url "http://adblockplus.org/en/faq">
-<!ENTITY tips.label "Päeva Vihje">
-<!ENTITY tips.accesskey "P">
-<!ENTITY tips.url "http://adblockplus.org/en/tips">
 <!ENTITY filterdoc.label "Kirjutamas Adblock Plusi filtreid">
 <!ENTITY filterdoc.accesskey "m">
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Teavet">
-<!ENTITY about.accesskey "s">
+<!ENTITY about.accesskey "v">
 <!ENTITY description "Lisa aadresse mida sa soovid blokeerida, soovituseks vaata nimekirja.
 Sa saad kasutada * et luua rohkem üldiseid filtreid. Edasijõudnud kasutajad saavad
 kasutada regulaarseid väljendeid.">

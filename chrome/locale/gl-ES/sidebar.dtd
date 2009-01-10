@@ -23,6 +23,8 @@
 <!ENTITY context.whitelist.label "Engadir excepción para o tema">
 <!ENTITY context.disablefilter.label "Desactivar filtro --">
 <!ENTITY context.enablefilter.label "Activar filtro --">
+<!ENTITY context.disablefilteronsite.label "Desactivar este filtro en --">
+<!ENTITY context.enablefilteronsite.label "Volver habilitar este filtro en --">
 <!ENTITY context.open.label "Abrir nun novo separador">
 <!ENTITY context.flash.label "Bordos do tema Flash">
 <!ENTITY context.copy.label "Copiar o enderezo do tema">

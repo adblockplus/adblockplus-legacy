@@ -14,4 +14,4 @@
 <!ENTITY highlight.accesskey "R">
 <!ENTITY highlight.tooltiptext "Realçar todas as ocorrências do texto">
 <!ENTITY caseSensitiveCheckbox.label "Diferenciar maiúsc./minúsc.">
-<!ENTITY caseSensitiveCheckbox.accesskey "D">
+<!ENTITY caseSensitiveCheckbox.accesskey "n">

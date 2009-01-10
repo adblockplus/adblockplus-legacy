@@ -46,9 +46,6 @@
 <!ENTITY faq.label "Perguntas Mais Freqüentes">
 <!ENTITY faq.accesskey "G">
 <!ENTITY faq.url "http://adblockplus.org/en/faq">
-<!ENTITY tips.label "Dica do dia">
-<!ENTITY tips.accesskey "D">
-<!ENTITY tips.url "http://adblockplus.org/en/tips">
 <!ENTITY filterdoc.label "Criando filtros para o Adblock Plus">
 <!ENTITY filterdoc.accesskey "C">
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
