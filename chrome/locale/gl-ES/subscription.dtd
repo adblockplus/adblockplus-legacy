@@ -11,7 +11,7 @@
 	 actualizacións diarias. Con esta opción desactivada 
 	 aínda poderá actualizar manualmente a subscrición co 
 	 menú de contexto.">
-<!ENTITY location.label "Localización da lista de *Filtros:">
+<!ENTITY location.label "Localización da lista de Filtros:">
 <!ENTITY location.accesskey "L">
 <!ENTITY title.label "Título da subscrición:">
 <!ENTITY title.accesskey "T">
