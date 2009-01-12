@@ -10,7 +10,7 @@
 <!ENTITY context.image.label "Imaxe Adblock">
 <!ENTITY context.object.label "Obxecto Adblock">
 <!ENTITY context.frame.label "Marco Adblock">
-<!ENTITY sidebar.title "Temas bloqueables de la página actual">
+<!ENTITY sidebar.title "Temas bloqueables da páxina actual">
 <!ENTITY settings.label "Preferencias">
 <!ENTITY settings.accesskey "F">
 <!ENTITY opensidebar.label "Abrir temas bloqueables">
