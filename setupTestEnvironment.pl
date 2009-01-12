@@ -46,9 +46,10 @@ my $id = $2;
 my $chromeManifest = fixupFile(readFile("chrome.manifest"));
 my $baseURL = cwd;
 $baseURL =~ s/\\/\//g;
-$baseURL = "file:///$baseURL/chrome";
-$chromeManifest =~ s~jar:chrome/\w+\.jar!~$baseURL~g;
-$chromeManifest =~ s~^content ~content   mochikit $baseURL/content/mochitest/\n$&~m if -d "chrome/content/mochitest";
+$baseURL = "file:///$baseURL";
+$chromeManifest =~ s~jar:chrome/\w+\.jar!~$baseURL/chrome~g;
+$chromeManifest =~ s~^\s*resource\s+\S+\s+~$&$baseURL/~gmi;
+$chromeManifest =~ s~^content ~content   mochikit $baseURL/chrome/content/mochitest/\n$&~m if -d "chrome/content/mochitest";
 
 push @files, ["chrome.manifest", $chromeManifest];
 
