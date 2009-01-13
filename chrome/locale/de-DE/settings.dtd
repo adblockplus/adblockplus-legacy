@@ -98,7 +98,7 @@
 <!ENTITY about.label                "Über Adblock Plus">
 <!ENTITY about.accesskey            "B">
 
-<!ENTITY description                "Die Filter in dieser Liste bestimmen, für welche Adressen Anfragen blockiert und für welche zugelassen werden sollten:">
+<!ENTITY description                "Die Filter in dieser Liste bestimmen, welche Adressen von Adblock Plus blockiert werden:">
 
 <!ENTITY filter.column              "Filterregel">
 <!ENTITY filter.accesskey           "F">
