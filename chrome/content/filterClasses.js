@@ -81,10 +81,10 @@ Filter.knownFilters = {__proto__: null};
  */
 Filter.elemhideRegExp = /^([^\/\*\|\@"]*?)#(?:([\w\-]+|\*)((?:\([\w\-]+(?:[$^*]?=[^\(\)"]*)?\))*)|#([^{}]+))$/;
 /**
- * Regular expression that RegExp filters specified as RegExps should match (with options already removed)
+ * Regular expression that RegExp filters specified as RegExps should match
  * @type RegExp
  */
-Filter.regexpRegExp = /^(@@)?\/.*\/(?:\$~?[\w\-]+(?:,~?[\w\-]+)*)?$/;
+Filter.regexpRegExp = /^(@@)?\/.*\/(?:\$~?[\w\-]+(?:=[^,\s]+)?(?:,~?[\w\-]+(?:=[^,\s]+)?)*)?$/;
 /**
  * Regular expression that options on a RegExp filter should match
  * @type RegExp
