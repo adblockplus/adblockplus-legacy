@@ -46,7 +46,7 @@ function abpInit() {
     abpPrefs.addListener(abpReloadPrefs);
 
     // Make sure whitelisting gets displayed after at most 2 seconds
-    setInterval(abpReloadPrefs, 2000);
+    window.setInterval(abpReloadPrefs, 2000);
     abpGetBrowser().addEventListener("select", abpReloadPrefs, false); 
 
     // Make sure we always configure keys but don't let them break anything
@@ -76,10 +76,10 @@ function abpInit() {
     abpPrefs.doneFirstRunActions = true;
 
     // Add ABP icon to toolbar if necessary
-    setTimeout(abpInstallInToolbar, 0);
+    window.setTimeout(abpInstallInToolbar, 0);
 
     // Show subscriptions dialog if the user doesn't have any subscriptions yet
-    setTimeout(abpShowSubscriptions, 0);
+    window.setTimeout(abpShowSubscriptions, 0);
   }
 
   // Move toolbar button to a correct location in Mozilla/SeaMonkey
@@ -114,7 +114,7 @@ function abpInit() {
   copyMenu(document.getElementById("abp-toolbarbutton"));
   copyMenu(abpGetPaletteButton());
 
-  setTimeout(abpInitImageManagerHiding, 0);
+  window.setTimeout(abpInitImageManagerHiding, 0);
 }
 
 function abpUnload() {
@@ -739,5 +739,5 @@ function abpCheckContext() {
 // Bring up the settings dialog for the node the context menu was referring to
 function abpNode(data) {
   if (abp && data)
-    openDialog("chrome://adblockplus/content/composer.xul", "_blank", "chrome,centerscreen,resizable,dialog=no,dependent", abpGetBrowser().contentWindow, data);
+    window.openDialog("chrome://adblockplus/content/composer.xul", "_blank", "chrome,centerscreen,resizable,dialog=no,dependent", abpGetBrowser().contentWindow, data);
 }
