@@ -256,7 +256,7 @@ var policy =
           let emailAddress = headerParser.extractHeaderAddressMailboxes(null, msgHdr.author);
           if (emailAddress)
           {
-            emailAddress = 'mailto:' + emailAddress.replace(/^[\s"]+/, "").replace(/[\s"]+$/, "").replace(' ', '%20');
+            emailAddress = 'mailto:' + emailAddress.replace(/^[\s"]+/, "").replace(/[\s"]+$/, "").replace(/\s/g, '%20');
             return this.isWhitelisted(emailAddress);
           }
         }
