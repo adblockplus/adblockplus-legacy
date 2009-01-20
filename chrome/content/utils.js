@@ -204,6 +204,7 @@ function createTimer(callback, delay) {
   timer.init({observe: callback}, delay, timer.TYPE_ONE_SHOT);
   return timer;
 }
+abp.createTimer = createTimer;
 
 // Returns plattform dependent line break string
 var lineBreak = null;
