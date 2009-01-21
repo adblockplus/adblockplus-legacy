@@ -635,9 +635,6 @@ function abpIsSidebarOpen() {
 }
 
 function abpToggleSidebar() {
-  if (!abp)
-    return;
-
   if (abpDetachedSidebar && !abpDetachedSidebar.closed)
     abpDetachedSidebar.close();
   else {
@@ -668,9 +665,6 @@ function isUserDefinedFilter(/**Filter*/ filter)  /**Boolean*/
 
 // Toggles the value of a boolean pref
 function abpTogglePref(pref) {
-  if (!abp)
-    return;
-
   abpPrefs[pref] = !abpPrefs[pref];
   abpPrefs.save();
 }
