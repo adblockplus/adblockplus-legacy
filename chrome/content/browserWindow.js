@@ -52,7 +52,10 @@ let eventHandlers = [
   ["abp-command-togglecollapse", "command", function() { abpTogglePref("fastcollapse"); }],
   ["abp-command-toggleshowintoolbar", "command", function() { abpTogglePref("showintoolbar"); }],
   ["abp-command-toggleshowinstatusbar", "command", function() { abpTogglePref("showinstatusbar"); }],
-  ["abp-command-enable", "command", function() { abpTogglePref("enabled"); }]
+  ["abp-command-enable", "command", function() { abpTogglePref("enabled"); }],
+  ["abp-status", "click", abpClickHandler],
+  ["abp-toolbarbutton", "command", function(event) { if (event.eventPhase == event.AT_TARGET) abpCommandHandler(event); }],
+  ["abp-toolbarbutton", "click", function(event) { if (event.eventPhase == event.AT_TARGET && event.button == 1) abpTogglePref("enabled"); }]
 ];
 
 /**
