@@ -62,7 +62,10 @@ function unwrapURL(url) {
       case "jar":
         return unwrapURL(url.QueryInterface(Components.interfaces.nsIJARURI).JARFile);
       default:
-        return url;
+        if (url instanceof Components.interfaces.nsIURL && url.ref)
+          return makeURL(url.spec.replace(/#.*/, ""));
+        else
+          return url;
     }
   }
   catch (e) { return url; }
