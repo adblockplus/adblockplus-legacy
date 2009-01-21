@@ -35,18 +35,36 @@ var abpDetachedSidebar = null;
 var abpOldShowInToolbar = abpPrefs.showintoolbar;
 var abpHideImageManager;
 
+/**
+ * List of event handers to be registered. For each event handler the element ID,
+ * event and the actual event handler are listed.
+ * @type Array
+ */
+let eventHandlers = [
+  ["abp-tooltip", "popupshowing", abpFillTooltip],
+  ["abp-status-popup", "popupshowing", abpFillPopup],
+  ["abp-toolbar-popup", "popupshowing", abpFillPopup],
+];
+
 abpInit();
 
 function E(id)
 {
-  return E(id);
+  return document.getElementById(id);
 }
 
 function abpInit() {
   // Process preferences
   abpReloadPrefs();
   if (abp) {
+    // Register event listeners
     window.addEventListener("unload", abpUnload, false);
+    for each (let [id, event, handler] in eventHandlers)
+    {
+      let element = E(id);
+      if (element)
+        element.addEventListener(event, handler, false);
+    }
 
     abpPrefs.addListener(abpReloadPrefs);
 
@@ -129,7 +147,7 @@ function abpUnload() {
 
 function abpGetBrowser() {
   if ("getBrowser" in window)
-    return getBrowser();
+    return window.getBrowser();
   else if ("messageContent" in window)
     return window.messageContent;
   else
@@ -385,89 +403,88 @@ function abpShowSubscriptions()
   }
 }
 
-function abpFillTooltip(ev) {
+function abpFillTooltip(event) {
   if (!document.tooltipNode || !document.tooltipNode.hasAttribute("tooltip"))
-    return false;
+  {
+    event.preventDefault();
+    return;
+  }
 
-  if (abp) {
-    abpReloadPrefs();
+  abpReloadPrefs();
 
-    var type = (document.tooltipNode && document.tooltipNode.id == "abp-toolbarbutton" ? "toolbar" : "statusbar");
-    var action = parseInt(abpPrefs["default" + type + "action"]);
-    if (isNaN(action))
-      action = -1;
+  var type = (document.tooltipNode && document.tooltipNode.id == "abp-toolbarbutton" ? "toolbar" : "statusbar");
+  var action = parseInt(abpPrefs["default" + type + "action"]);
+  if (isNaN(action))
+    action = -1;
 
-    var actionDescr = E("abp-tooltip-action");
-    actionDescr.hidden = (action < 0 || action > 3);
-    if (!actionDescr.hidden)
-      actionDescr.setAttribute("value", abp.getString("action" + action + "_tooltip"));
+  var actionDescr = E("abp-tooltip-action");
+  actionDescr.hidden = (action < 0 || action > 3);
+  if (!actionDescr.hidden)
+    actionDescr.setAttribute("value", abp.getString("action" + action + "_tooltip"));
 
-    var state = ev.target.getAttribute("curstate");
-    var statusDescr = E("abp-tooltip-status");
-    statusDescr.setAttribute("value", abp.getString(state + "_tooltip"));
+  var state = event.target.getAttribute("curstate");
+  var statusDescr = E("abp-tooltip-status");
+  statusDescr.setAttribute("value", abp.getString(state + "_tooltip"));
 
-    var activeFilters = [];
-    E("abp-tooltip-blocked-label").hidden = (state != "active");
-    E("abp-tooltip-blocked").hidden = (state != "active");
-    if (state == "active") {
-      var data = abp.getDataForWindow(abpGetBrowser().contentWindow);
-      var locations = data.getAllLocations();
+  var activeFilters = [];
+  E("abp-tooltip-blocked-label").hidden = (state != "active");
+  E("abp-tooltip-blocked").hidden = (state != "active");
+  if (state == "active") {
+    var data = abp.getDataForWindow(abpGetBrowser().contentWindow);
+    var locations = data.getAllLocations();
 
-      var blocked = 0;
-      var filterCount = {__proto__: null};
-      for (i = 0; i < locations.length; i++) {
-        if (locations[i].filter && !(locations[i].filter instanceof abp.WhitelistFilter))
-          blocked++;
-        if (locations[i].filter) {
-          if (locations[i].filter.text in filterCount)
-            filterCount[locations[i].filter.text]++;
-          else
-            filterCount[locations[i].filter.text] = 1;
-        }
+    var blocked = 0;
+    var filterCount = {__proto__: null};
+    for (i = 0; i < locations.length; i++) {
+      if (locations[i].filter && !(locations[i].filter instanceof abp.WhitelistFilter))
+        blocked++;
+      if (locations[i].filter) {
+        if (locations[i].filter.text in filterCount)
+          filterCount[locations[i].filter.text]++;
+        else
+          filterCount[locations[i].filter.text] = 1;
       }
-
-      var blockedStr = abp.getString("blocked_count_tooltip");
-      blockedStr = blockedStr.replace(/--/, blocked).replace(/--/, locations.length);
-      E("abp-tooltip-blocked").setAttribute("value", blockedStr);
-
-      var filterSort = function(a, b) {
-        return filterCount[b] - filterCount[a];
-      };
-      for (var filter in filterCount)
-        activeFilters.push(filter);
-      activeFilters = activeFilters.sort(filterSort);
     }
 
-    E("abp-tooltip-filters-label").hidden = (activeFilters.length == 0);
-    E("abp-tooltip-filters").hidden = (activeFilters.length == 0);
-    if (activeFilters.length > 0) {
-      var filtersContainer = E("abp-tooltip-filters");
-      while (filtersContainer.firstChild)
-        filtersContainer.removeChild(filtersContainer.firstChild);
+    var blockedStr = abp.getString("blocked_count_tooltip");
+    blockedStr = blockedStr.replace(/--/, blocked).replace(/--/, locations.length);
+    E("abp-tooltip-blocked").setAttribute("value", blockedStr);
 
-      for (var i = 0; i < activeFilters.length && i < 3; i++) {
-        var descr = document.createElement("description");
-        descr.setAttribute("value", activeFilters[i] + " (" + filterCount[activeFilters[i]] + ")");
-        filtersContainer.appendChild(descr);
-      }
-      if (activeFilters.length > 3) {
-        var descr = document.createElement("description");
-        descr.setAttribute("value", "...");
-        filtersContainer.appendChild(descr);
-      }
+    var filterSort = function(a, b) {
+      return filterCount[b] - filterCount[a];
+    };
+    for (var filter in filterCount)
+      activeFilters.push(filter);
+    activeFilters = activeFilters.sort(filterSort);
+  }
+
+  E("abp-tooltip-filters-label").hidden = (activeFilters.length == 0);
+  E("abp-tooltip-filters").hidden = (activeFilters.length == 0);
+  if (activeFilters.length > 0) {
+    var filtersContainer = E("abp-tooltip-filters");
+    while (filtersContainer.firstChild)
+      filtersContainer.removeChild(filtersContainer.firstChild);
+
+    for (var i = 0; i < activeFilters.length && i < 3; i++) {
+      var descr = document.createElement("description");
+      descr.setAttribute("value", activeFilters[i] + " (" + filterCount[activeFilters[i]] + ")");
+      filtersContainer.appendChild(descr);
+    }
+    if (activeFilters.length > 3) {
+      var descr = document.createElement("description");
+      descr.setAttribute("value", "...");
+      filtersContainer.appendChild(descr);
     }
   }
-  return true;
 }
 
 // Fills the context menu on the status bar
-function abpFillPopup(popup) {
-  if (!abp)
-    return false;
+function abpFillPopup(event) {
+  let popup = event.target;
 
   // Not at-target call, ignore
   if (popup.getAttribute("id").indexOf("options") >= 0)
-    return true;
+    return;
 
   // Need to do it this way to prevent a Gecko bug from striking
   var elements = {};
@@ -556,8 +573,6 @@ function abpFillPopup(popup) {
   elements.closesidebar.setAttribute("default", defAction == 1);
   elements.settings.setAttribute("default", defAction == 2);
   elements.enabled.setAttribute("default", defAction == 3);
-
-  return true;
 }
 
 // Only show context menu on toolbar button in vertical toolbars
