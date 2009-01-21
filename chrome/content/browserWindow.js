@@ -46,6 +46,12 @@ let eventHandlers = [
   ["abp-toolbar-popup", "popupshowing", abpFillPopup],
 ];
 
+/**
+ * Timer triggering UI reinitialization in regular intervals.
+ * @type nsITimer
+ */
+let prefReloadTimer = null;
+
 abpInit();
 
 function E(id)
@@ -69,7 +75,9 @@ function abpInit() {
     abpPrefs.addListener(abpReloadPrefs);
 
     // Make sure whitelisting gets displayed after at most 2 seconds
-    window.setInterval(abpReloadPrefs, 2000);
+    prefReloadTimer = abp.createTimer(abpReloadPrefs, 2000);
+    prefReloadTimer.type = prefReloadTimer.TYPE_REPEATING_SLACK;
+    
     abpGetBrowser().addEventListener("select", abpReloadPrefs, false); 
 
     // Make sure we always configure keys but don't let them break anything
@@ -99,10 +107,10 @@ function abpInit() {
     abpPrefs.doneFirstRunActions = true;
 
     // Add ABP icon to toolbar if necessary
-    window.setTimeout(abpInstallInToolbar, 0);
+    abp.createTimer(abpInstallInToolbar, 0);
 
     // Show subscriptions dialog if the user doesn't have any subscriptions yet
-    window.setTimeout(abpShowSubscriptions, 0);
+    abp.createTimer(abpShowSubscriptions, 0);
   }
 
   // Move toolbar button to a correct location in Mozilla/SeaMonkey
@@ -137,7 +145,7 @@ function abpInit() {
   copyMenu(E("abp-toolbarbutton"));
   copyMenu(abpGetPaletteButton());
 
-  window.setTimeout(abpInitImageManagerHiding, 0);
+  abp.createTimer(abpInitImageManagerHiding, 0);
 }
 
 function abpUnload() {
