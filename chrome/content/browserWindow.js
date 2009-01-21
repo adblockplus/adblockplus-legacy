@@ -190,6 +190,7 @@ function abpInit() {
 function abpUnload() {
   abpPrefs.removeListener(abpReloadPrefs);
   abpGetBrowser().removeEventListener("select", abpReloadPrefs, false); 
+  prefReloadTimer.cancel();
 }
 
 function abpGetBrowser() {
