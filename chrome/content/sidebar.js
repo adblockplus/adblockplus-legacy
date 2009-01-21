@@ -498,7 +498,7 @@ function detach() {
   var position = ",left="+boxObject.screenX+",top="+boxObject.screenY+",outerWidth="+boxObject.width+",outerHeight="+boxObject.height;
 
   // Close sidebar and open detached window
-  mainWin.abpToggleSidebar();
+  mainWin.document.getElementById("abp-command-sidebar").doCommand();
   mainWin.abpDetachedSidebar = mainWin.openDialog("chrome://adblockplus/content/sidebarDetached.xul", "_blank", "chrome,resizable,dependent,dialog=no"+position);
 
   // Save setting
@@ -519,7 +519,7 @@ function reattach() {
 
   // Open sidebar in window
   mainWin.abpDetachedSidebar = null;
-  mainWin.abpToggleSidebar();
+  mainWin.document.getElementById("abp-command-sidebar").doCommand();
   parent.close();
 }
 

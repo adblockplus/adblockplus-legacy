@@ -31,7 +31,6 @@ try {
 } catch (e) {}
 
 var abpPrefs = abp ? abp.prefs : {enabled: false};
-var abpDetachedSidebar = null;
 var abpOldShowInToolbar = abpPrefs.showintoolbar;
 var abpHideImageManager;
 
@@ -100,6 +99,7 @@ function E(id)
 
 function abpInit() {
   // Process preferences
+  window.abpDetachedSidebar = null;
   abpReloadPrefs();
   if (abp) {
     // Register event listeners
@@ -619,7 +619,7 @@ function abpCheckToolbarContext(event) {
 
 function abpIsSidebarOpen() {
   // Test whether detached sidebar window is open
-  if (abpDetachedSidebar && !abpDetachedSidebar.closed)
+  if (window.abpDetachedSidebar && !window.abpDetachedSidebar.closed)
     return true;
 
   var sidebar = E("abp-sidebar");
@@ -627,8 +627,8 @@ function abpIsSidebarOpen() {
 }
 
 function abpToggleSidebar() {
-  if (abpDetachedSidebar && !abpDetachedSidebar.closed)
-    abpDetachedSidebar.close();
+  if (window.abpDetachedSidebar && !window.abpDetachedSidebar.closed)
+    window.abpDetachedSidebar.close();
   else {
     var sidebar = E("abp-sidebar");
     if (sidebar && (!abpPrefs.detachsidebar || !sidebar.hidden)) {
@@ -637,7 +637,7 @@ function abpToggleSidebar() {
       sidebar.hidden = !sidebar.hidden;
     }
     else
-      abpDetachedSidebar = window.openDialog("chrome://adblockplus/content/sidebarDetached.xul", "_blank", "chrome,resizable,dependent,dialog=no,width=600,height=300");
+      window.abpDetachedSidebar = window.openDialog("chrome://adblockplus/content/sidebarDetached.xul", "_blank", "chrome,resizable,dependent,dialog=no,width=600,height=300");
   }
 
   let menuItem = E("abp-blockableitems");
