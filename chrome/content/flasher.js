@@ -42,14 +42,14 @@ var flasher = {
       // Ensure that at least one node is visible when flashing
       var wnd = ("document" in nodes[0] ? nodes[0] : nodes[0].ownerDocument.defaultView);
       try {
-        var viewer = wnd.QueryInterface(Components.interfaces.nsIInterfaceRequestor)
-                        .getInterface(Components.interfaces.nsIWebNavigation)
-                        .QueryInterface(Components.interfaces.nsIDocShellTreeItem)
-                        .rootTreeItem
-                        .QueryInterface(Components.interfaces.nsIInterfaceRequestor)
-                        .getInterface(Components.interfaces.nsIDOMWindow)
-                        .wrappedJSObject
-                        .abpGetBrowser()
+        var viewer = abp.getBrowserInWindow(
+                        wnd.QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+                           .getInterface(Components.interfaces.nsIWebNavigation)
+                           .QueryInterface(Components.interfaces.nsIDocShellTreeItem)
+                           .rootTreeItem
+                           .QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+                           .getInterface(Components.interfaces.nsIDOMWindow)
+                           .wrappedJSObject)
                         .markupDocumentViewer;
         viewer.scrollToNode(nodes[0]);
       } catch(e) {}

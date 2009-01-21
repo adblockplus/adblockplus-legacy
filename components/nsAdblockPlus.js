@@ -464,6 +464,19 @@ const abp =
     protocolService.loadURI(makeURL(url), null);
   },
 
+  /**
+   * Retrieves the browser/tabbrowser element for the specified window (might return null).
+   */
+  getBrowserInWindow: function(/**Window*/ window)  /**Element*/
+  {
+    if ("getBrowser" in window)
+      return window.getBrowser();
+    else if ("messageContent" in window)
+      return window.messageContent;
+    else
+      return window.document.getElementById("frame_main_pane") || window.document.getElementById("browser_content");
+  },
+
   params: null,
 
   /**

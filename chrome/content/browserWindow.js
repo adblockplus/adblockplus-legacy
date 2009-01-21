@@ -117,7 +117,7 @@ function abpInit() {
     prefReloadTimer = abp.createTimer(abpReloadPrefs, 2000);
     prefReloadTimer.type = prefReloadTimer.TYPE_REPEATING_SLACK;
     
-    abpGetBrowser().addEventListener("select", abpReloadPrefs, false); 
+    abp.getBrowserInWindow(window).addEventListener("select", abpReloadPrefs, false); 
 
     // Make sure we always configure keys but don't let them break anything
     try {
@@ -189,17 +189,8 @@ function abpInit() {
 
 function abpUnload() {
   abpPrefs.removeListener(abpReloadPrefs);
-  abpGetBrowser().removeEventListener("select", abpReloadPrefs, false); 
+  abp.getBrowserInWindow(window).removeEventListener("select", abpReloadPrefs, false); 
   prefReloadTimer.cancel();
-}
-
-function abpGetBrowser() {
-  if ("getBrowser" in window)
-    return window.getBrowser();
-  else if ("messageContent" in window)
-    return window.messageContent;
-  else
-    return E("frame_main_pane") || E("browser_content");
 }
 
 function abpReloadPrefs() {
@@ -414,7 +405,7 @@ function abpShowSubscriptions()
     if (subscription instanceof abp.DownloadableSubscription)
       return;
 
-  let browser = abpGetBrowser();
+  let browser = abp.getBrowserInWindow(window);
   if ("addTab" in browser)
   {
     // We have a tabbrowser
@@ -453,7 +444,7 @@ function abpFillTooltip(event) {
   E("abp-tooltip-blocked-label").hidden = (state != "active");
   E("abp-tooltip-blocked").hidden = (state != "active");
   if (state == "active") {
-    var data = abp.getDataForWindow(abpGetBrowser().contentWindow);
+    var data = abp.getDataForWindow(abp.getBrowserInWindow(window).contentWindow);
     var locations = data.getAllLocations();
 
     var blocked = 0;
@@ -530,7 +521,7 @@ function getCurrentLocation() /**nsIURI*/
   else
   {
     // Regular browser
-    return abp.unwrapURL(abpGetBrowser().contentWindow.location.href);
+    return abp.unwrapURL(abp.getBrowserInWindow(window).contentWindow.location.href);
   }
 }
 
@@ -787,5 +778,5 @@ function abpCheckContext() {
 // Bring up the settings dialog for the node the context menu was referring to
 function abpNode(data) {
   if (abp && data)
-    window.openDialog("chrome://adblockplus/content/composer.xul", "_blank", "chrome,centerscreen,resizable,dialog=no,dependent", abpGetBrowser().contentWindow, data);
+    window.openDialog("chrome://adblockplus/content/composer.xul", "_blank", "chrome,centerscreen,resizable,dialog=no,dependent", abp.getBrowserInWindow(window).contentWindow, data);
 }
