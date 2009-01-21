@@ -35,14 +35,19 @@ var abpDetachedSidebar = null;
 var abpOldShowInToolbar = abpPrefs.showintoolbar;
 var abpHideImageManager;
 
-window.addEventListener("load", abpInit, false);
+abpInit();
+
+function E(id)
+{
+  return E(id);
+}
 
 function abpInit() {
-  window.addEventListener("unload", abpUnload, false);
-
   // Process preferences
   abpReloadPrefs();
   if (abp) {
+    window.addEventListener("unload", abpUnload, false);
+
     abpPrefs.addListener(abpReloadPrefs);
 
     // Make sure whitelisting gets displayed after at most 2 seconds
@@ -59,14 +64,14 @@ function abpInit() {
   }
 
   // Install context menu handler
-  var contextMenu = document.getElementById("contentAreaContextMenu") || document.getElementById("messagePaneContext") || document.getElementById("popup_content");
+  var contextMenu = E("contentAreaContextMenu") || E("messagePaneContext") || E("popup_content");
   if (contextMenu) {
     contextMenu.addEventListener("popupshowing", abpCheckContext, false);
   
     // Make sure our context menu items are at the bottom
-    contextMenu.appendChild(document.getElementById("abp-frame-menuitem"));
-    contextMenu.appendChild(document.getElementById("abp-object-menuitem"));
-    contextMenu.appendChild(document.getElementById("abp-image-menuitem"));
+    contextMenu.appendChild(E("abp-frame-menuitem"));
+    contextMenu.appendChild(E("abp-object-menuitem"));
+    contextMenu.appendChild(E("abp-image-menuitem"));
   }
 
   // First run actions
@@ -83,15 +88,15 @@ function abpInit() {
   }
 
   // Move toolbar button to a correct location in Mozilla/SeaMonkey
-  var button = document.getElementById("abp-toolbarbutton");
+  var button = E("abp-toolbarbutton");
   if (button && button.parentNode.id == "nav-bar-buttons") {
-    var ptf = document.getElementById("bookmarks-ptf");
+    var ptf = E("bookmarks-ptf");
     ptf.parentNode.insertBefore(button, ptf);
   }
 
   // Copy the menu from status bar icon to the toolbar
   var fixId = function(node) {
-    if (node.nodeType != Node.ELEMENT_NODE)
+    if (node.nodeType != node.ELEMENT_NODE)
       return node;
 
     if ("id" in node && node.id)
@@ -107,11 +112,11 @@ function abpInit() {
       return;
 
     to = to.firstChild;
-    var from = document.getElementById("abp-status-popup");
+    var from = E("abp-status-popup");
     for (var node = from.firstChild; node; node = node.nextSibling)
       to.appendChild(fixId(node.cloneNode(true)));
   };
-  copyMenu(document.getElementById("abp-toolbarbutton"));
+  copyMenu(E("abp-toolbarbutton"));
   copyMenu(abpGetPaletteButton());
 
   window.setTimeout(abpInitImageManagerHiding, 0);
@@ -128,7 +133,7 @@ function abpGetBrowser() {
   else if ("messageContent" in window)
     return window.messageContent;
   else
-    return document.getElementById("frame_main_pane") || document.getElementById("browser_content");
+    return E("frame_main_pane") || E("browser_content");
 }
 
 function abpReloadPrefs() {
@@ -175,7 +180,7 @@ function abpReloadPrefs() {
     }
   }
 
-  var tooltip = document.getElementById("abp-tooltip");
+  var tooltip = E("abp-tooltip");
   if (state && tooltip)
     tooltip.setAttribute("curstate", state);
 
@@ -196,7 +201,7 @@ function abpReloadPrefs() {
         element.hidden = !abpPrefs.showintoolbar;
 
       // HACKHACK: Show status bar icon in SeaMonkey Mail and Prism instead of toolbar icon
-      if (element.hidden && (element.tagName == "statusbarpanel" || element.tagName == "vbox") && (document.getElementById("msgToolbar") || location.host == "webrunner"))
+      if (element.hidden && (element.tagName == "statusbarpanel" || element.tagName == "vbox") && (E("msgToolbar") || location.host == "webrunner"))
         element.hidden = !abpPrefs.showintoolbar;
 
       if (abpOldShowInToolbar != abpPrefs.showintoolbar)
@@ -213,14 +218,14 @@ function abpReloadPrefs() {
       element.setAttribute("deactivated", "true");
   };
 
-  var status = document.getElementById("abp-status");
+  var status = E("abp-status");
   updateElement(status);
   if (abpPrefs.defaultstatusbaraction == 0)
     status.setAttribute("popup", status.getAttribute("context"));
   else
     status.removeAttribute("popup");
 
-  var button = document.getElementById("abp-toolbarbutton");
+  var button = E("abp-toolbarbutton");
   updateElement(button);
   if (button) {
     if (button.hasAttribute("context") && abpPrefs.defaulttoolbaraction == 0)
@@ -265,7 +270,7 @@ function abpConfigureKey(key, value) {
     meta: "meta"
   };
 
-  var command = document.getElementById("abp-command-" + key);
+  var command = E("abp-command-" + key);
   if (!command)
     return;
 
@@ -292,13 +297,13 @@ function abpConfigureKey(key, value) {
       element.setAttribute("keycode", keycode);
     element.setAttribute("modifiers", modifiers.join(","));
 
-    document.getElementById("abp-keyset").appendChild(element);
+    E("abp-keyset").appendChild(element);
   }
 }
 
 // Finds the toolbar button in the toolbar palette
 function abpGetPaletteButton() {
-  var toolbox = document.getElementById("navigator-toolbox") || document.getElementById("mail-toolbox");
+  var toolbox = E("navigator-toolbox") || E("mail-toolbox");
   if (!toolbox || !("palette" in toolbox) || !toolbox.palette)
     return null;
 
@@ -311,16 +316,16 @@ function abpGetPaletteButton() {
 
 // Check whether we installed the toolbar button already
 function abpInstallInToolbar() {
-  if (!document.getElementById("abp-toolbarbutton")) {
+  if (!E("abp-toolbarbutton")) {
     var insertBeforeBtn = null;
-    var toolbar = document.getElementById("nav-bar");
+    var toolbar = E("nav-bar");
     if (!toolbar) {
       insertBeforeBtn = "button-junk";
-      toolbar = document.getElementById("mail-bar");
+      toolbar = E("mail-bar");
     }
 
     if (toolbar && "insertItem" in toolbar) {
-      var insertBefore = (insertBeforeBtn ? document.getElementById(insertBeforeBtn) : null);
+      var insertBefore = (insertBeforeBtn ? E(insertBeforeBtn) : null);
       if (insertBefore && insertBefore.parentNode != toolbar)
         insertBefore = null;
 
@@ -344,7 +349,7 @@ function abpInstallInToolbar() {
           var resource = rdf.GetResource(override);
           var arc = rdf.GetResource("currentset");
           var target = localstore.GetTarget(resource, arc, true);
-          var currentSet = (target ? target.QueryInterface(Components.interfaces.nsIRDFLiteral).Value : document.getElementById('mail-bar').getAttribute("defaultset"));
+          var currentSet = (target ? target.QueryInterface(Components.interfaces.nsIRDFLiteral).Value : E('mail-bar').getAttribute("defaultset"));
 
           if (/\bbutton-junk\b/.test(currentSet))
             currentSet = currentSet.replace(/\bbutton-junk\b/, "abp-toolbarbutton,button-junk");
@@ -392,18 +397,18 @@ function abpFillTooltip(ev) {
     if (isNaN(action))
       action = -1;
 
-    var actionDescr = document.getElementById("abp-tooltip-action");
+    var actionDescr = E("abp-tooltip-action");
     actionDescr.hidden = (action < 0 || action > 3);
     if (!actionDescr.hidden)
       actionDescr.setAttribute("value", abp.getString("action" + action + "_tooltip"));
 
     var state = ev.target.getAttribute("curstate");
-    var statusDescr = document.getElementById("abp-tooltip-status");
+    var statusDescr = E("abp-tooltip-status");
     statusDescr.setAttribute("value", abp.getString(state + "_tooltip"));
 
     var activeFilters = [];
-    document.getElementById("abp-tooltip-blocked-label").hidden = (state != "active");
-    document.getElementById("abp-tooltip-blocked").hidden = (state != "active");
+    E("abp-tooltip-blocked-label").hidden = (state != "active");
+    E("abp-tooltip-blocked").hidden = (state != "active");
     if (state == "active") {
       var data = abp.getDataForWindow(abpGetBrowser().contentWindow);
       var locations = data.getAllLocations();
@@ -423,7 +428,7 @@ function abpFillTooltip(ev) {
 
       var blockedStr = abp.getString("blocked_count_tooltip");
       blockedStr = blockedStr.replace(/--/, blocked).replace(/--/, locations.length);
-      document.getElementById("abp-tooltip-blocked").setAttribute("value", blockedStr);
+      E("abp-tooltip-blocked").setAttribute("value", blockedStr);
 
       var filterSort = function(a, b) {
         return filterCount[b] - filterCount[a];
@@ -433,10 +438,10 @@ function abpFillTooltip(ev) {
       activeFilters = activeFilters.sort(filterSort);
     }
 
-    document.getElementById("abp-tooltip-filters-label").hidden = (activeFilters.length == 0);
-    document.getElementById("abp-tooltip-filters").hidden = (activeFilters.length == 0);
+    E("abp-tooltip-filters-label").hidden = (activeFilters.length == 0);
+    E("abp-tooltip-filters").hidden = (activeFilters.length == 0);
     if (activeFilters.length > 0) {
-      var filtersContainer = document.getElementById("abp-tooltip-filters");
+      var filtersContainer = E("abp-tooltip-filters");
       while (filtersContainer.firstChild)
         filtersContainer.removeChild(filtersContainer.firstChild);
 
@@ -478,7 +483,7 @@ function abpFillPopup(popup) {
   var whitelistItemSite = elements.whitelistsite;
   var whitelistItemPage = elements.whitelistpage;
   var whitelistSeparator = whitelistItemPage.nextSibling;
-  while (whitelistSeparator.nodeType != Node.ELEMENT_NODE)
+  while (whitelistSeparator.nodeType != whitelistSeparator.ELEMENT_NODE)
     whitelistSeparator = whitelistSeparator.nextSibling;
 
   var location = null;
@@ -573,7 +578,7 @@ function abpIsSidebarOpen() {
   if (abpDetachedSidebar && !abpDetachedSidebar.closed)
     return true;
 
-  var sidebar = document.getElementById("abp-sidebar");
+  var sidebar = E("abp-sidebar");
   return (sidebar ? !sidebar.hidden : false);
 }
 
@@ -584,17 +589,17 @@ function abpToggleSidebar() {
   if (abpDetachedSidebar && !abpDetachedSidebar.closed)
     abpDetachedSidebar.close();
   else {
-    var sidebar = document.getElementById("abp-sidebar");
+    var sidebar = E("abp-sidebar");
     if (sidebar && (!abpPrefs.detachsidebar || !sidebar.hidden)) {
-      document.getElementById("abp-sidebar-splitter").hidden = !sidebar.hidden;
-      document.getElementById("abp-sidebar-browser").setAttribute("src", sidebar.hidden ? "chrome://adblockplus/content/sidebar.xul" : "about:blank");
+      E("abp-sidebar-splitter").hidden = !sidebar.hidden;
+      E("abp-sidebar-browser").setAttribute("src", sidebar.hidden ? "chrome://adblockplus/content/sidebar.xul" : "about:blank");
       sidebar.hidden = !sidebar.hidden;
     }
     else
       abpDetachedSidebar = window.openDialog("chrome://adblockplus/content/sidebarDetached.xul", "_blank", "chrome,resizable,dependent,dialog=no,width=600,height=300");
   }
 
-  let menuItem = document.getElementById("abp-blockableitems");
+  let menuItem = E("abp-blockableitems");
   if (menuItem)
     menuItem.setAttribute("checked", abpIsSidebarOpen());
 }
@@ -665,7 +670,7 @@ function abpExecuteAction(action) {
 // Retrieves the image URL for the specified style property
 function abpImageStyle(computedStyle, property) {
   var value = computedStyle.getPropertyCSSValue(property);
-  if (value.primitiveType == CSSPrimitiveValue.CSS_URI)
+  if (value.primitiveType == value.CSS_URI)
     return abp.unwrapURL(value.getStringValue()).spec;
 
   return null;
@@ -673,7 +678,7 @@ function abpImageStyle(computedStyle, property) {
 
 // Hides the unnecessary context menu items on display
 function abpCheckContext() {
-  var contextMenu = document.getElementById("contentAreaContextMenu") || document.getElementById("messagePaneContext") || document.getElementById("popup_content");
+  var contextMenu = E("contentAreaContextMenu") || E("messagePaneContext") || E("popup_content");
   var target = document.popupNode;
 
   var nodeType = null;
@@ -705,7 +710,7 @@ function abpCheckContext() {
       // Look for a background image
       var imageNode = target;
       while (imageNode && !contextMenu.abpBgData) {
-        if (imageNode.nodeType == Node.ELEMENT_NODE) {
+        if (imageNode.nodeType == imageNode.ELEMENT_NODE) {
           var bgImage = null;
           var style = wnd.getComputedStyle(imageNode, "");
           bgImage = abpImageStyle(style, "background-image") || abpImageStyle(style, "list-style-image");
@@ -721,7 +726,7 @@ function abpCheckContext() {
     }
 
     // Hide "Block Images from ..." if hideimagemanager pref is true and the image manager isn't already blocking something
-    var imgManagerContext = document.getElementById("context-blockimage");
+    var imgManagerContext = E("context-blockimage");
     if (imgManagerContext) {
       if (typeof abpHideImageManager == "undefined")
         abpInitImageManagerHiding();
@@ -731,9 +736,9 @@ function abpCheckContext() {
     }
   }
 
-  document.getElementById("abp-image-menuitem").hidden = (nodeType != "IMAGE" && contextMenu.abpBgData == null);
-  document.getElementById("abp-object-menuitem").hidden = (nodeType != "OBJECT");
-  document.getElementById("abp-frame-menuitem").hidden = (contextMenu.abpFrameData == null);
+  E("abp-image-menuitem").hidden = (nodeType != "IMAGE" && contextMenu.abpBgData == null);
+  E("abp-object-menuitem").hidden = (nodeType != "OBJECT");
+  E("abp-frame-menuitem").hidden = (contextMenu.abpFrameData == null);
 }
 
 // Bring up the settings dialog for the node the context menu was referring to
