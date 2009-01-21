@@ -68,15 +68,16 @@
   </popupset>
   <keyset id="abp-keyset"/>
   <commandset id="abp-commandset">
-    <command id="abp-command-settings"/>
-    <command id="abp-command-sidebar"/>
+    <!-- Dummy oncommand attributes are work-arounds for bug 371900 -->
+    <command id="abp-command-settings" oncommand="//"/>
+    <command id="abp-command-sidebar" oncommand="//"/>
     <command id="abp-command-togglesitewhitelist"/>
     <command id="abp-command-togglepagewhitelist"/>
     <command id="abp-command-toggleobjtabs"/>
     <command id="abp-command-togglecollapse"/>
     <command id="abp-command-toggleshowintoolbar"/>
     <command id="abp-command-toggleshowinstatusbar"/>
-    <command id="abp-command-enable"/>
+    <command id="abp-command-enable" oncommand="//"/>
   </commandset>
 
   <statusbarpanel id="abp-status" disabled="true" context="abp-status-popup">
