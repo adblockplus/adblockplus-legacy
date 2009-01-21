@@ -44,8 +44,15 @@ let eventHandlers = [
   ["abp-tooltip", "popupshowing", abpFillTooltip],
   ["abp-status-popup", "popupshowing", abpFillPopup],
   ["abp-toolbar-popup", "popupshowing", abpFillPopup],
+  ["abp-command-settings", "command", function() { abp.openSettingsDialog(); }],
+  ["abp-command-sidebar", "command", abpToggleSidebar],
   ["abp-command-togglesitewhitelist", "command", function() { toggleFilter(siteWhitelist); }],
   ["abp-command-togglepagewhitelist", "command", function() { toggleFilter(pageWhitelist); }],
+  ["abp-command-toggleobjtabs", "command", function() { abpTogglePref("frameobjects"); }],
+  ["abp-command-togglecollapse", "command", function() { abpTogglePref("fastcollapse"); }],
+  ["abp-command-toggleshowintoolbar", "command", function() { abpTogglePref("showintoolbar"); }],
+  ["abp-command-toggleshowinstatusbar", "command", function() { abpTogglePref("showinstatusbar"); }],
+  ["abp-command-enable", "command", function() { abpTogglePref("enabled"); }]
 ];
 
 /**
