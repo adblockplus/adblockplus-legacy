@@ -44,7 +44,20 @@ let eventHandlers = [
   ["abp-tooltip", "popupshowing", abpFillTooltip],
   ["abp-status-popup", "popupshowing", abpFillPopup],
   ["abp-toolbar-popup", "popupshowing", abpFillPopup],
+  ["abp-command-togglesitewhitelist", "command", function() { toggleFilter(siteWhitelist); }],
+  ["abp-command-togglepagewhitelist", "command", function() { toggleFilter(pageWhitelist); }],
 ];
+
+/**
+ * Filter corresponding with "disable on site" menu item (set in abpFillPopup()).
+ * @type Filter
+ */
+let siteWhitelist = null;
+/**
+ * Filter corresponding with "disable on site" menu item (set in abpFillPopup()).
+ * @type Filter
+ */
+let pageWhitelist = null;
 
 /**
  * Timer triggering UI reinitialization in regular intervals.
@@ -175,33 +188,8 @@ function abpReloadPrefs() {
 
     if (state == "active")
     {
-      let location = null;
-      if ("currentHeaderData" in window && "content-base" in currentHeaderData)
-      {
-        // Thunderbird blog entry
-        location = currentHeaderData["content-base"].headerValue;
-      }
-      else if ("gDBView" in window)
-      {
-        // Thunderbird mail/newsgroup entry
-        try
-        {
-          var msgHdr = gDBView.hdrForFirstSelectedMessage;
-          var headerParser = Components.classes["@mozilla.org/messenger/headerparser;1"]
-                                      .getService(Components.interfaces.nsIMsgHeaderParser);
-          var emailAddress = headerParser.extractHeaderAddressMailboxes(null, msgHdr.author);
-          if (emailAddress)
-            location = 'mailto:' + emailAddress.replace(/^[\s"]+/, "").replace(/[\s"]+$/, "").replace(' ', '%20');
-        }
-        catch(e) {}
-      }
-      else
-      {
-        // Firefox web page
-        location = abpGetBrowser().contentWindow.location.href;
-      }
-
-      if (location && abp.policy.isWhitelisted(location))
+      let location = getCurrentLocation();
+      if (location && abp.policy.isWhitelisted(location.spec))
         state = "whitelisted";
     }
   }
@@ -486,6 +474,39 @@ function abpFillTooltip(event) {
   }
 }
 
+/**
+ * Retrieves the current location of the browser (might return null on failure).
+ */
+function getCurrentLocation() /**nsIURI*/
+{
+  if ("currentHeaderData" in window && "content-base" in currentHeaderData)
+  {
+    // Thunderbird blog entry
+    return abp.unwrapURL(window.currentHeaderData["content-base"].headerValue);
+  }
+  else if ("gDBView" in window)
+  {
+    // Thunderbird mail/newsgroup entry
+    try
+    {
+      let msgHdr = gDBView.hdrForFirstSelectedMessage;
+      let headerParser = Components.classes["@mozilla.org/messenger/headerparser;1"]
+                                   .getService(Components.interfaces.nsIMsgHeaderParser);
+      let emailAddress = headerParser.extractHeaderAddressMailboxes(null, msgHdr.author);
+      return "mailto:" + emailAddress.replace(/^[\s"]+/, "").replace(/[\s"]+$/, "").replace(/\s/g, "%20");
+    }
+    catch(e)
+    {
+      return null;
+    }
+  }
+  else
+  {
+    // Regular browser
+    return abp.unwrapURL(abpGetBrowser().contentWindow.location.href);
+  }
+}
+
 // Fills the context menu on the status bar
 function abpFillPopup(event) {
   let popup = event.target;
@@ -507,68 +528,50 @@ function abpFillPopup(event) {
 
   var whitelistItemSite = elements.whitelistsite;
   var whitelistItemPage = elements.whitelistpage;
+  whitelistItemSite.hidden = whitelistItemPage.hidden = true;
+
   var whitelistSeparator = whitelistItemPage.nextSibling;
   while (whitelistSeparator.nodeType != whitelistSeparator.ELEMENT_NODE)
     whitelistSeparator = whitelistSeparator.nextSibling;
 
-  var location = null;
-  var site = null;
-  if ("currentHeaderData" in window && "content-base" in currentHeaderData) {
-    // Thunderbird blog entry
-    location = abp.unwrapURL(currentHeaderData["content-base"].headerValue);
-  }
-  else if ("gDBView" in window) {
-    // Thunderbird mail/newsgroup entry
-    try {
-      var msgHdr = gDBView.hdrForFirstSelectedMessage;
-      var headerParser = Components.classes["@mozilla.org/messenger/headerparser;1"]
-                                  .getService(Components.interfaces.nsIMsgHeaderParser);
-      site = headerParser.extractHeaderAddressMailboxes(null, msgHdr.author);
-      if (site)
-        site = site.replace(/^[\s"]+/, "").replace(/[\s"]+$/, "");
-    }
-    catch(e) {
-      site = null;
-    }
+  let location = getCurrentLocation();
+  if (location && abp.policy.isBlockableScheme(location))
+  {
+    let host = null;
+    try
+    {
+      host = location.host;
+    } catch (e) {}
 
-    if (site) {
-      whitelistItemSite.pattern = "@@|mailto:" + site.replace(' ', '%20') + "|";
-      whitelistItemSite.setAttribute("checked", abpHasFilter(whitelistItemSite.pattern));
-      whitelistItemSite.setAttribute("label", whitelistItemSite.getAttribute("labeltempl").replace(/--/, site));
-    }
-  }
-  else {
-    // Firefox web page
-    location = abp.unwrapURL(abpGetBrowser().contentWindow.location.href);
-  }
-
-  if (!site && location) {
-    if (abp.policy.isBlockableScheme(location)) {
+    if (host)
+    {
       let ending = "|";
+      if (location instanceof Components.interfaces.nsIURL && location.ref)
+        location.ref = "";
       if (location instanceof Components.interfaces.nsIURL && location.query)
       {
         location.query = "";
         ending = "?";
       }
 
-      let url = location.spec;
-      let host = location.host;
-      site = url.replace(/^([^\/]+\/\/[^\/]+\/).*/, "$1");
-
-      whitelistItemSite.pattern = "@@|" + site;
-      whitelistItemSite.setAttribute("checked", abpHasFilter(whitelistItemSite.pattern));
+      siteWhitelist = abp.Filter.fromText("@@|" + location.prePath + "/");
+      whitelistItemSite.setAttribute("checked", isUserDefinedFilter(siteWhitelist));
       whitelistItemSite.setAttribute("label", whitelistItemSite.getAttribute("labeltempl").replace(/--/, host));
+      whitelistItemSite.hidden = false;
 
-      whitelistItemPage.pattern = "@@|" + url + ending;
-      whitelistItemPage.setAttribute("checked", abpHasFilter(whitelistItemPage.pattern));
+      pageWhitelist = abp.Filter.fromText("@@|" + location.spec + ending);
+      whitelistItemPage.setAttribute("checked", isUserDefinedFilter(pageWhitelist));
+      whitelistItemPage.hidden = false;
     }
     else
-      location = null;
+    {
+      siteWhitelist = abp.Filter.fromText("@@|" + location.spec + "|");
+      whitelistItemSite.setAttribute("checked", isUserDefinedFilter(siteWhitelist));
+      whitelistItemSite.setAttribute("label", whitelistItemSite.getAttribute("labeltempl").replace(/--/, location.spec.replace(/^mailto:/, "")));
+      whitelistItemSite.hidden = false;
+    }
   }
-
-  whitelistItemSite.hidden = !site;
-  whitelistItemPage.hidden = !location;
-  whitelistSeparator.hidden = !site && !location;
+  whitelistSeparator.hidden = whitelistItemSite.hidden && whitelistItemPage.hidden;
 
   elements.enabled.setAttribute("checked", abpPrefs.enabled);
   elements.frameobjects.setAttribute("checked", abpPrefs.frameobjects);
@@ -628,18 +631,13 @@ function abpToggleSidebar() {
 }
 
 /**
- * Checks whether the specified user-defined filter exists
+ * Checks whether the specified filter exists as a user-defined filter in the list.
  *
  * @param {String} filter   text representation of the filter
  */
-function abpHasFilter(filter)
+function isUserDefinedFilter(/**Filter*/ filter)  /**Boolean*/
 {
-  filter = abp.Filter.fromText(filter);
-  for each (let subscription in abp.filterStorage.subscriptions)
-    if (subscription instanceof abp.SpecialSubscription && subscription.filters.indexOf(filter) >= 0)
-      return true;
-
-  return false;
+  return filter.subscriptions.some(function(subscription) { return subscription instanceof abp.SpecialSubscription; });
 }
 
 // Toggles the value of a boolean pref
@@ -651,15 +649,16 @@ function abpTogglePref(pref) {
   abpPrefs.save();
 }
 
-// Inserts or removes the specified pattern into/from the list
-function abpTogglePattern(text, insert) {
-  if (!abp)
-    return;
-
-  if (insert)
-    abp.addPatterns([text], 1);
+/**
+ * If the given filter is already in user's list, removes it from the list. Otherwise adds it.
+ */
+function toggleFilter(/**Filter*/ filter)
+{
+  if (isUserDefinedFilter(filter))
+    abp.filterStorage.removeFilter(filter);
   else
-    abp.removePatterns([text], 1);
+    abp.filterStorage.addFilter(filter);
+  abp.filterStorage.saveToDisk();
 
   // Make sure to display whitelisting immediately
   abpReloadPrefs();
