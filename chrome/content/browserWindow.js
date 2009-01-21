@@ -55,7 +55,10 @@ let eventHandlers = [
   ["abp-command-enable", "command", function() { abpTogglePref("enabled"); }],
   ["abp-status", "click", abpClickHandler],
   ["abp-toolbarbutton", "command", function(event) { if (event.eventPhase == event.AT_TARGET) abpCommandHandler(event); }],
-  ["abp-toolbarbutton", "click", function(event) { if (event.eventPhase == event.AT_TARGET && event.button == 1) abpTogglePref("enabled"); }]
+  ["abp-toolbarbutton", "click", function(event) { if (event.eventPhase == event.AT_TARGET && event.button == 1) abpTogglePref("enabled"); }],
+  ["abp-image-menuitem", "command", function() { abpNode(backgroundData || nodeData); }],
+  ["abp-object-menuitem", "command", function() { abpNode(nodeData); }],
+  ["abp-frame-menuitem", "command", function() { abpNode(frameData); }]
 ];
 
 /**
@@ -68,6 +71,19 @@ let siteWhitelist = null;
  * @type Filter
  */
 let pageWhitelist = null;
+
+/**
+ * Data associated with the node currently under mouse pointer (set in abpCheckContext()).
+ */
+let nodeData = null;
+/**
+ * Data associated with the background image currently under mouse pointer (set in abpCheckContext()).
+ */
+let backgroundData = null;
+/**
+ * Data associated with the frame currently under mouse pointer (set in abpCheckContext()).
+ */
+let frameData = null;
 
 /**
  * Timer triggering UI reinitialization in regular intervals.
@@ -714,8 +730,8 @@ function abpCheckContext() {
   var target = document.popupNode;
 
   var nodeType = null;
-  contextMenu.abpBgData = null;
-  contextMenu.abpFrameData = null;
+  backgroundData = null;
+  frameData = null;
   if (abp && target) {
     // Lookup the node in our stored data
     var data = abp.getDataForNode(target);
@@ -724,7 +740,7 @@ function abpCheckContext() {
       targetNode = data[0];
       data = data[1];
     }
-    contextMenu.abpData = data;
+    nodeData = data;
     if (data && !data.filter)
       nodeType = data.typeDescr;
 
@@ -732,24 +748,24 @@ function abpCheckContext() {
     var wndData = (wnd ? abp.getDataForWindow(wnd) : null);
 
     if (wnd.frameElement)
-      contextMenu.abpFrameData = abp.getDataForNode(wnd.frameElement, true);
-    if (contextMenu.abpFrameData)
-      contextMenu.abpFrameData = contextMenu.abpFrameData[1];
-    if (contextMenu.abpFrameData && contextMenu.abpFrameData.filter)
-      contextMenu.abpFrameData = null;
+      frameData = abp.getDataForNode(wnd.frameElement, true);
+    if (frameData)
+      frameData = frameData[1];
+    if (frameData && frameData.filter)
+      frameData = null;
 
     if (nodeType != "IMAGE") {
       // Look for a background image
       var imageNode = target;
-      while (imageNode && !contextMenu.abpBgData) {
+      while (imageNode && !backgroundData) {
         if (imageNode.nodeType == imageNode.ELEMENT_NODE) {
           var bgImage = null;
           var style = wnd.getComputedStyle(imageNode, "");
           bgImage = abpImageStyle(style, "background-image") || abpImageStyle(style, "list-style-image");
           if (bgImage) {
-            contextMenu.abpBgData = wndData.getLocation(abp.policy.type.BACKGROUND, bgImage);
-            if (contextMenu.abpBgData && contextMenu.abpBgData.filter)
-              contextMenu.abpBgData = null;
+            backgroundData = wndData.getLocation(abp.policy.type.BACKGROUND, bgImage);
+            if (backgroundData && backgroundData.filter)
+              backgroundData = null;
           }
         }
 
@@ -768,9 +784,9 @@ function abpCheckContext() {
     }
   }
 
-  E("abp-image-menuitem").hidden = (nodeType != "IMAGE" && contextMenu.abpBgData == null);
+  E("abp-image-menuitem").hidden = (nodeType != "IMAGE" && backgroundData == null);
   E("abp-object-menuitem").hidden = (nodeType != "OBJECT");
-  E("abp-frame-menuitem").hidden = (contextMenu.abpFrameData == null);
+  E("abp-frame-menuitem").hidden = (frameData == null);
 }
 
 // Bring up the settings dialog for the node the context menu was referring to
