@@ -1,6 +1,6 @@
 <!ENTITY dialog.title "Editar inscrição de filtro">
 <!ENTITY dialog.newtitle "Adicionar inscrição de filtro">
-<!ENTITY new.description "Por favor digite o endereço na internet ou arquivo contendo uma lista de filtros do Adblock Plus.">
+<!ENTITY new.description "Por favor, digite o endereço na internet ou arquivo contendo uma lista de filtros do Adblock Plus.">
 <!ENTITY edit.description "A lista de filtros para esta inscrição será baixada do local informado.">
 <!ENTITY external.description "Esta é uma inscrição para um filtro externo, sua lista de filtros será mantida atualizada pela extensão que criou a inscrição.">
 <!ENTITY autodownload.description "Se você escolher &apos;Atualizar automaticamente&apos; este local será verificado diariamente. Com esta opção desabilitada você ainda pode fazer uma atualização manualmente no menu de contexto da inscrição.">
