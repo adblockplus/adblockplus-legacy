@@ -413,7 +413,7 @@ function abpShowSubscriptions()
   }
   else
   {
-	window.openDialog("chrome://adblockplus/content/tip_subscriptions.xul", "_blank", "chrome,centerscreen,resizable=no,dialog=no");
+    window.openDialog("chrome://adblockplus/content/tip_subscriptions.xul", "_blank", "chrome,centerscreen,resizable,dialog=no");
   }
 }
 
