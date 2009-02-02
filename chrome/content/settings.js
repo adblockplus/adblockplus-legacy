@@ -854,7 +854,7 @@ function editSubscription(/**Subscription*/ subscription)
   if (subscription)
     openDialog("subscription.xul", "_blank", "chrome,centerscreen,modal", subscription, result);
   else
-    openDialog("tip_subscriptions.xul", "_blank", "chrome,centerscreen,modal", result);
+    openDialog("tip_subscriptions.xul", "_blank", "chrome,centerscreen,resizable,dialog=no,modal", result);
 
   if (!("url" in result))
     return;
