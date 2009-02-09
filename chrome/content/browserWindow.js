@@ -233,7 +233,7 @@ function abpReloadPrefs() {
         element.hidden = !abpPrefs.showintoolbar;
 
       // HACKHACK: Show status bar icon in SeaMonkey Mail and Prism instead of toolbar icon
-      if (element.hidden && (element.tagName == "statusbarpanel" || element.tagName == "vbox") && (E("msgToolbar") || location.host == "webrunner"))
+      if (element.hidden && (element.tagName == "statusbarpanel" || element.tagName == "vbox") && (E("msgToolbar") || window.location.host == "webrunner"))
         element.hidden = !abpPrefs.showintoolbar;
 
       if (abpOldShowInToolbar != abpPrefs.showintoolbar)
