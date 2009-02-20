@@ -1,10 +1,10 @@
 <!ENTITY find.label "Trova:">
 <!ENTITY next.label "Successivo">
 <!ENTITY next.accesskey "S">
-<!ENTITY next.tooltip "Trova l'occorrenza successiva del testo da cercare">
+<!ENTITY next.tooltip "Trova l&apos;occorrenza successiva del testo da cercare">
 <!ENTITY previous.label "Precedente">
 <!ENTITY previous.accesskey "P">
-<!ENTITY previous.tooltip "Trova l'occorrenza precedente del testo da cercare">
+<!ENTITY previous.tooltip "Trova l&apos;occorrenza precedente del testo da cercare">
 <!ENTITY findCloseButton.tooltip "Chiudi la barra di ricerca">
 <!ENTITY highlight.label "Evidenzia">
 <!ENTITY highlight.accesskey "n">
