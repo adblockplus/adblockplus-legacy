@@ -131,18 +131,24 @@ var policy =
     if (contentType != this.type.OBJECT && (node instanceof Components.interfaces.nsIDOMHTMLObjectElement || node instanceof Components.interfaces.nsIDOMHTMLEmbedElement))
       contentType = this.type.OBJECT;
 
-    var data = DataContainer.getDataForWindow(wnd);
-
-    var objTab = null;
-    let docDomain = this.getHostname(wnd.location.href);
-    let thirdParty = this.isThirdParty(location, docDomain);
-
-    if (!match && location.scheme == "chrome" && location.host == "global" && /abphit:(\d+)#/.test(location.path) && RegExp.$1 in elemhide.keys)
+    if (!match && contentType == this.type.ELEMHIDE)
+    {
+      match = location;
+      locationText = match.text.replace(/^.*?#/, '#');
+      location = locationText;
+    }
+    if (!match && location.scheme == "chrome" && location.host == "global" && /abphit:(\d+)\b/.test(location.path) && RegExp.$1 in elemhide.keys)
     {
       match = elemhide.keys[RegExp.$1];
       contentType = this.type.ELEMHIDE;
       locationText = match.text.replace(/^.*?#/, '#');
     }
+
+    var data = DataContainer.getDataForWindow(wnd);
+
+    var objTab = null;
+    let docDomain = this.getHostname(wnd.location.href);
+    let thirdParty = (contentType == this.type.ELEMHIDE ? false : this.isThirdParty(location, docDomain));
 
     if (!match && prefs.enabled) {
       match = whitelistMatcher.matchesAny(locationText, this.typeDescr[contentType] || "", docDomain, thirdParty);
@@ -191,8 +197,8 @@ var policy =
    */
   isBlockableScheme: function(location) {
     // HACK: Allow blocking element hiding hits
-    if (location.scheme == "chrome" && location.host == "global" && /abphit:(\d+)#/.test(location.path) && RegExp.$1 in elemhide.keys)
-      return true;
+//    if (location.scheme == "chrome" && location.host == "global" && /abphit:(\d+)\b/.test(location.path) && RegExp.$1 in elemhide.keys)
+//      return true;
 
     return !(location.scheme in this.whitelistSchemes);
   },
@@ -323,7 +329,7 @@ var policy =
                      .getInterface(Components.interfaces.nsIWebNavigation)
                      .QueryInterface(Components.interfaces.nsIDocShellTreeItem)
                      .itemType;
-    if (wndType != Components.interfaces.nsIDocShellTreeItem.typeContent && !(location.scheme == "chrome" && location.host == "global" && /abphit:(\d+)#/.test(location.path)))
+    if (wndType != Components.interfaces.nsIDocShellTreeItem.typeContent && !(location.scheme == "chrome" && location.host == "global" && /abphit:(\d+)\b/.test(location.path)))
       return ok;
 
     // Interpret unknown types as "other"
