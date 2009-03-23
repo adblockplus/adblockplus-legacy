@@ -37,6 +37,11 @@ var styleService = Components.classes["@mozilla.org/content/style-sheet-service;
 var elemhide =
 {
   /**
+   * Class ID for the protocol handler.
+   */
+  protoCID: Components.ID("{e3823970-1546-11de-8c30-0800200c9a66}"),
+
+  /**
    * List of known filters
    * @type Array of ElemHideFilter
    */
@@ -67,9 +72,22 @@ var elemhide =
   isDirty: false,
 
   /**
+   * Initialization function, should be called after policy initialization.
+   */
+  init: function()
+  {
+    try {
+      let compMgr = Components.manager.QueryInterface(Components.interfaces.nsIComponentRegistrar);
+      compMgr.registerFactory(this.protoCID, "Element hiding hit registration protocol handler", "@mozilla.org/network/protocol;1?name=" + this.scheme, this);
+      policy.whitelistSchemes[this.scheme] = true;
+    } catch (e) {}
+  },
+
+  /**
    * Removes all known filters
    */
-  clear: function() {
+  clear: function()
+  {
     this.filters = [];
     this.knownFilters= {__proto__: null};
     this.keys = {__proto__: null};
@@ -118,7 +136,8 @@ var elemhide =
   /**
    * Generates stylesheet URL and applies it globally
    */
-  apply: function() {
+  apply: function()
+  {
     this.unapply();
     this.isDirty = false;
 
@@ -144,11 +163,15 @@ var elemhide =
 
     // Joining domains list
     let cssData = "";
-    let cssTemplate = "-moz-binding: url(chrome://global/content/bindings/general.xml?abphit:%ID%#basecontrol) !important;"
 
     let geckoVersion = "0.0";
     if ("nsIXULAppInfo" in  Components.interfaces)
         geckoVersion = Components.classes["@mozilla.org/xre/app-info;1"].getService(Components.interfaces.nsIXULAppInfo).platformVersion;
+
+    // User sheets get null principal before Gecko 1.9.0.8, only chrome: protocol can be loaded
+    let bindingURL = (abp.versionComparator.compare(geckoVersion, "1.9.0.8pre") < 0 ? "chrome://global/content/bindings/general.xml?abphit:%ID%#basecontrol" : this.scheme + "://%ID%/#dummy");
+    let cssTemplate = "-moz-binding: url(" + bindingURL + ") !important;";
+
     if (abp.versionComparator.compare(geckoVersion, "1.9a1") < 0)
     {
       // Gecko 1.8 does not apply bindings to table rows and cells, need to
@@ -189,13 +212,150 @@ var elemhide =
   /**
    * Unapplies current stylesheet URL
    */
-  unapply: function() {
+  unapply: function()
+  {
     if (this.url) {
       try {
         styleService.unregisterSheet(this.url, styleService.USER_SHEET);
       } catch (e) {}
       this.url = null;
     }
+  },
+
+  //
+  // Factory implementation
+  //
+
+  createInstance: function(outer, iid)
+  {
+    if (outer != null)
+      throw Components.results.NS_ERROR_NO_AGGREGATION;
+
+    return this.QueryInterface(iid);
+  },
+
+  //
+  // Protocol handler implementation
+  //
+  defaultPort: -1,
+  protocolFlags: Components.interfaces.nsIProtocolHandler.URI_STD |
+                 Components.interfaces.nsIProtocolHandler.URI_DANGEROUS_TO_LOAD |
+                 Components.interfaces.nsIProtocolHandler.URI_NON_PERSISTABLE,
+  scheme: "abp-elemhidehit-" + Math.random().toFixed(15).substr(5),
+  allowPort: function() {return false},
+
+  newURI: function(spec, originCharset, baseURI)
+  {
+    var url = Components.classes["@mozilla.org/network/standard-url;1"]
+                        .createInstance(Components.interfaces.nsIStandardURL);
+    url.init(Components.interfaces.nsIStandardURL.URLTYPE_STANDARD,
+              0, spec, originCharset, baseURI);
+    return url;
+  },
+
+  newChannel: function(uri)
+  {
+    if (!/:\/+(\d+)\//.test(uri.spec))
+      throw Components.results.NS_ERROR_FAILURE;
+
+    return new HitRegistrationChannel(uri, RegExp.$1);
+  },
+
+  QueryInterface: function(iid)
+  {
+    if (iid.equals(Components.interfaces.nsISupports) ||
+        iid.equals(Components.interfaces.nsIFactory) ||
+        iid.equals(Components.interfaces.nsIProtocolHandler))
+      return this;
+
+    throw Components.results.NS_ERROR_NO_INTERFACE;
   }
 };
 abp.elemhide = elemhide;
+
+function HitRegistrationChannel(uri, key)
+{
+  this.key = key;
+  this.URI = this.originalURI = uri;
+}
+HitRegistrationChannel.prototype = {
+  key: null,
+  URI: null,
+  originalURI: null,
+  contentCharset: "utf-8",
+  contentLength: 0,
+  contentType: "text/xml",
+  owner: null,
+  securityInfo: null,
+  notificationCallbacks: null,
+  loadFlags: 0,
+  loadGroup: null,
+  name: null,
+  status: Components.results.NS_OK,
+
+  asyncOpen: function(listener, context)
+  {
+    let data = "<bindings xmlns='http://www.mozilla.org/xbl'><binding id='dummy'/></bindings>";
+    let filter = elemhide.keys[this.key];
+    if (filter)
+    {
+      // Check who caused this hit
+      let document = null;
+      try {
+        document = this.loadGroup.notificationCallbacks.getInterface(Components.interfaces.nsIDOMDocument);
+      } catch (e) {}
+
+      if (document && document.defaultView && !policy.processNode(document.defaultView, document, policy.type.ELEMHIDE, filter))
+        data = "<nada/>";
+    }
+
+    let stream = Components.classes["@mozilla.org/io/string-input-stream;1"]
+                           .createInstance(Components.interfaces.nsIStringInputStream);
+    stream.setData(data, data.length);
+
+    let me = this;
+    createTimer(function()
+    {
+      try {
+        listener.onStartRequest(me, context);
+      } catch(e) {}
+      try {
+        listener.onDataAvailable(me, context, stream, 0, data.length);
+      } catch(e) {}
+      try {
+        listener.onStopRequest(me, context, Components.results.NS_OK);
+      } catch(e) {}
+    }, 0);
+  },
+
+  open: function()
+  {
+    throw Components.results.NS_ERROR_NOT_IMPLEMENTED;
+  },
+  isPending: function()
+  {
+    return false;
+  },
+  cancel: function()
+  {
+    throw Components.results.NS_ERROR_NOT_IMPLEMENTED;
+  },
+  suspend: function()
+  {
+    throw Components.results.NS_ERROR_NOT_IMPLEMENTED;
+  },
+  resume: function()
+  {
+    throw Components.results.NS_ERROR_NOT_IMPLEMENTED;
+  },
+
+  QueryInterface: function(iid)
+  {
+    if (iid.equals(Components.interfaces.nsIChannel) ||
+        iid.equals(Components.interfaces.nsIRequest) ||
+        iid.equals(Components.interfaces.nsISupports))
+      return this; 
+
+    throw Components.results.NS_ERROR_NO_INTERFACE;
+  }
+};
