@@ -167,6 +167,7 @@ var prefs = {
 
     filterStorage.loadFromDisk();
     policy.init();
+    elemhide.init();
   },
 
   // Loads a pref and stores it as a property of the object
