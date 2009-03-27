@@ -168,8 +168,8 @@ var elemhide =
     if ("nsIXULAppInfo" in  Components.interfaces)
         geckoVersion = Components.classes["@mozilla.org/xre/app-info;1"].getService(Components.interfaces.nsIXULAppInfo).platformVersion;
 
-    // User sheets get null principal before Gecko 1.9.0.8, only chrome: protocol can be loaded
-    let bindingURL = (abp.versionComparator.compare(geckoVersion, "1.9.0.8pre") < 0 ? "chrome://global/content/bindings/general.xml?abphit:%ID%#basecontrol" : this.scheme + "://%ID%/#dummy");
+    // User sheets get null principal before Gecko 1.9.0.9, only chrome: protocol can be loaded
+    let bindingURL = (abp.versionComparator.compare(geckoVersion, "1.9.0.9pre") < 0 ? "chrome://global/content/bindings/general.xml?abphit:%ID%#basecontrol" : this.scheme + "://%ID%/#dummy");
     let cssTemplate = "-moz-binding: url(" + bindingURL + ") !important;";
 
     if (abp.versionComparator.compare(geckoVersion, "1.9a1") < 0)
