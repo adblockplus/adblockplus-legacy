@@ -53,6 +53,9 @@
 <!ENTITY collapse.accesskey "Э">
 <!ENTITY help.label "Тусламж">
 <!ENTITY help.accesskey "Т">
+<!ENTITY gettingStarted.label "Эхлэл">
+<!ENTITY gettingStarted.accesskey "Э">
+<!ENTITY gettingStarted.url "http://adblockplus.org/en/getting_started">
 <!ENTITY faq.label "Түгээмэл Асуултын Хариултууд">
 <!ENTITY faq.accesskey "А">
 <!ENTITY faq.url "http://adblockplus.org/en/faq">
