@@ -23,6 +23,8 @@
 <!ENTITY context.whitelist.label "Зүйлд онцгой дүрэм нэмэх">
 <!ENTITY context.disablefilter.label "Шүүлтүүр хаах --">
 <!ENTITY context.enablefilter.label "Шүүлтүүр нээх --">
+<!ENTITY context.disablefilteronsite.label "Энэ шүүлтүүрийг хаах газар нь --">
+<!ENTITY context.enablefilteronsite.label "Шүүлтүүрийг нээх газар нь --">
 <!ENTITY context.open.label "Шинэ хуудсанд нээх">
 <!ENTITY context.flash.label "Flash зүйлийн хүрээнүүд">
 <!ENTITY context.copy.label "Зүйлийн хаягийг сануулах">
