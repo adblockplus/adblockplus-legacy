@@ -447,7 +447,7 @@ function copyToClipboard() {
 
   var clipboardHelper = Components.classes["@mozilla.org/widget/clipboardhelper;1"]
                                   .getService(Components.interfaces.nsIClipboardHelper);
-  clipboardHelper.copyString(items.map(function(item) {return item.location}).join("\n"));
+  clipboardHelper.copyString(items.map(function(item) {return item.location}).join(abp.getLineBreak()));
 }
 
 function copyFilter() {
@@ -463,7 +463,7 @@ function copyFilter() {
 
   var clipboardHelper = Components.classes["@mozilla.org/widget/clipboardhelper;1"]
                                   .getService(Components.interfaces.nsIClipboardHelper);
-  clipboardHelper.copyString(items.map(function(item) {return item.filter.text}).join("\n"));
+  clipboardHelper.copyString(items.map(function(item) {return item.filter.text}).join(abp.getLineBreak()));
 }
 
 function selectAll() {
