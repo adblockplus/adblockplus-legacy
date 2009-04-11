@@ -22,16 +22,6 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-var abp = null;
-try {
-  abp = Components.classes["@mozilla.org/adblockplus;1"].createInstance().wrappedJSObject;
-
-  if (!abp.prefs.initialized)
-    abp = null;
-} catch (e) {}
-
-var abpPrefs = abp ? abp.prefs : {enabled: false};
-var abpOldShowInToolbar = abpPrefs.showintoolbar;
 var abpHideImageManager;
 
 /**
@@ -59,6 +49,27 @@ let eventHandlers = [
   ["abp-object-menuitem", "command", function() { abpNode(nodeData); }],
   ["abp-frame-menuitem", "command", function() { abpNode(frameData); }]
 ];
+
+/**
+ * Adblock Plus component (if available)
+ */
+let abp = null;
+try {
+  abp = Components.classes["@mozilla.org/adblockplus;1"].createInstance().wrappedJSObject;
+
+  if (!abp.prefs.initialized)
+    abp = null;
+} catch (e) {}
+
+/**
+ * Adblock Plus preferences object
+ */
+let prefs = abp ? abp.prefs : {enabled: false};
+
+/**
+ * Stores the current value of showintoolbar preference (to detect changes).
+ */
+let currentlyShowingInToolbar = prefs.showintoolbar;
 
 /**
  * Filter corresponding with "disable on site" menu item (set in abpFillPopup()).
@@ -111,7 +122,7 @@ function abpInit() {
         element.addEventListener(event, handler, false);
     }
 
-    abpPrefs.addListener(abpReloadPrefs);
+    prefs.addListener(abpReloadPrefs);
 
     // Make sure whitelisting gets displayed after at most 2 seconds
     prefReloadTimer = abp.createTimer(abpReloadPrefs, 2000);
@@ -122,9 +133,9 @@ function abpInit() {
     // Make sure we always configure keys but don't let them break anything
     try {
       // Configure keys
-      for (var key in abpPrefs)
+      for (var key in prefs)
         if (key.match(/(.*)_key$/))
-          abpConfigureKey(RegExp.$1, abpPrefs[key]);
+          abpConfigureKey(RegExp.$1, prefs[key]);
     } catch(e) {}
   }
 
@@ -140,10 +151,10 @@ function abpInit() {
   }
 
   // First run actions
-  if (abp && !("doneFirstRunActions" in abpPrefs) && abp.versionComparator.compare(abpPrefs.lastVersion, "0.0") <= 0)
+  if (abp && !("doneFirstRunActions" in prefs) && abp.versionComparator.compare(prefs.lastVersion, "0.0") <= 0)
   {
     // Don't repeat first run actions if new window is opened
-    abpPrefs.doneFirstRunActions = true;
+    prefs.doneFirstRunActions = true;
 
     // Add ABP icon to toolbar if necessary
     abp.createTimer(abpInstallInToolbar, 0);
@@ -188,7 +199,7 @@ function abpInit() {
 }
 
 function abpUnload() {
-  abpPrefs.removeListener(abpReloadPrefs);
+  prefs.removeListener(abpReloadPrefs);
   abp.getBrowserInWindow(window).removeEventListener("select", abpReloadPrefs, false); 
   prefReloadTimer.cancel();
 }
@@ -197,7 +208,7 @@ function abpReloadPrefs() {
   var label;
   var state = null;
   if (abp) {
-    if (abpPrefs.enabled)
+    if (prefs.enabled)
       state = "active";
     else
       state = "disabled";
@@ -224,22 +235,22 @@ function abpReloadPrefs() {
       element.removeAttribute("disabled");
 
       if (element.tagName == "statusbarpanel" || element.tagName == "vbox") {
-        element.hidden = !abpPrefs.showinstatusbar;
+        element.hidden = !prefs.showinstatusbar;
 
         var labelElement = element.getElementsByTagName("label")[0];
         labelElement.setAttribute("value", label);
       }
       else
-        element.hidden = !abpPrefs.showintoolbar;
+        element.hidden = !prefs.showintoolbar;
 
       // HACKHACK: Show status bar icon in SeaMonkey Mail and Prism instead of toolbar icon
       if (element.hidden && (element.tagName == "statusbarpanel" || element.tagName == "vbox") && (E("msgToolbar") || window.location.host == "webrunner"))
-        element.hidden = !abpPrefs.showintoolbar;
+        element.hidden = !prefs.showintoolbar;
 
-      if (abpOldShowInToolbar != abpPrefs.showintoolbar)
+      if (currentlyShowingInToolbar != prefs.showintoolbar)
         abpInstallInToolbar();
 
-      abpOldShowInToolbar = abpPrefs.showintoolbar;
+      currentlyShowingInToolbar = prefs.showintoolbar;
     }
 
     element.removeAttribute("deactivated");
@@ -252,7 +263,7 @@ function abpReloadPrefs() {
 
   var status = E("abp-status");
   updateElement(status);
-  if (abpPrefs.defaultstatusbaraction == 0)
+  if (prefs.defaultstatusbaraction == 0)
     status.setAttribute("popup", status.getAttribute("context"));
   else
     status.removeAttribute("popup");
@@ -260,7 +271,7 @@ function abpReloadPrefs() {
   var button = E("abp-toolbarbutton");
   updateElement(button);
   if (button) {
-    if (button.hasAttribute("context") && abpPrefs.defaulttoolbaraction == 0)
+    if (button.hasAttribute("context") && prefs.defaulttoolbaraction == 0)
     {
       button.setAttribute("popup", button.getAttribute("context"));
       button.removeAttribute("type");
@@ -277,7 +288,7 @@ function abpInitImageManagerHiding() {
     return;
 
   abpHideImageManager = false;
-  if (abpPrefs.hideimagemanager && "@mozilla.org/permissionmanager;1" in Components.classes) {
+  if (prefs.hideimagemanager && "@mozilla.org/permissionmanager;1" in Components.classes) {
     try {
       abpHideImageManager = true;
       var permissionManager = Components.classes["@mozilla.org/permissionmanager;1"]
@@ -427,7 +438,7 @@ function abpFillTooltip(event) {
   abpReloadPrefs();
 
   var type = (document.tooltipNode && document.tooltipNode.id == "abp-toolbarbutton" ? "toolbar" : "statusbar");
-  var action = parseInt(abpPrefs["default" + type + "action"]);
+  var action = parseInt(prefs["default" + type + "action"]);
   if (isNaN(action))
     action = -1;
 
@@ -591,13 +602,13 @@ function abpFillPopup(event) {
   }
   whitelistSeparator.hidden = whitelistItemSite.hidden && whitelistItemPage.hidden;
 
-  elements.enabled.setAttribute("checked", abpPrefs.enabled);
-  elements.frameobjects.setAttribute("checked", abpPrefs.frameobjects);
-  elements.slowcollapse.setAttribute("checked", !abpPrefs.fastcollapse);
-  elements.showintoolbar.setAttribute("checked", abpPrefs.showintoolbar);
-  elements.showinstatusbar.setAttribute("checked", abpPrefs.showinstatusbar);
+  elements.enabled.setAttribute("checked", prefs.enabled);
+  elements.frameobjects.setAttribute("checked", prefs.frameobjects);
+  elements.slowcollapse.setAttribute("checked", !prefs.fastcollapse);
+  elements.showintoolbar.setAttribute("checked", prefs.showintoolbar);
+  elements.showinstatusbar.setAttribute("checked", prefs.showinstatusbar);
 
-  var defAction = (popup.tagName == "menupopup" || document.popupNode.id == "abp-toolbarbutton" ? abpPrefs.defaulttoolbaraction : abpPrefs.defaultstatusbaraction);
+  var defAction = (popup.tagName == "menupopup" || document.popupNode.id == "abp-toolbarbutton" ? prefs.defaulttoolbaraction : prefs.defaultstatusbaraction);
   elements.opensidebar.setAttribute("default", defAction == 1);
   elements.closesidebar.setAttribute("default", defAction == 1);
   elements.settings.setAttribute("default", defAction == 2);
@@ -631,7 +642,7 @@ function abpToggleSidebar() {
     window.abpDetachedSidebar.close();
   else {
     var sidebar = E("abp-sidebar");
-    if (sidebar && (!abpPrefs.detachsidebar || !sidebar.hidden)) {
+    if (sidebar && (!prefs.detachsidebar || !sidebar.hidden)) {
       E("abp-sidebar-splitter").hidden = !sidebar.hidden;
       E("abp-sidebar-browser").setAttribute("src", sidebar.hidden ? "chrome://adblockplus/content/sidebar.xul" : "about:blank");
       sidebar.hidden = !sidebar.hidden;
@@ -657,8 +668,8 @@ function isUserDefinedFilter(/**Filter*/ filter)  /**Boolean*/
 
 // Toggles the value of a boolean pref
 function abpTogglePref(pref) {
-  abpPrefs[pref] = !abpPrefs[pref];
-  abpPrefs.save();
+  prefs[pref] = !prefs[pref];
+  prefs.save();
 }
 
 /**
@@ -679,16 +690,16 @@ function toggleFilter(/**Filter*/ filter)
 // Handle clicks on the Adblock statusbar panel
 function abpClickHandler(e) {
   if (e.button == 0)
-    abpExecuteAction(abpPrefs.defaultstatusbaraction);
+    abpExecuteAction(prefs.defaultstatusbaraction);
   else if (e.button == 1)
     abpTogglePref("enabled");
 }
 
 function abpCommandHandler(e) {
-  if (abpPrefs.defaulttoolbaraction == 0)
+  if (prefs.defaulttoolbaraction == 0)
     e.target.open = true;
   else
-    abpExecuteAction(abpPrefs.defaulttoolbaraction);
+    abpExecuteAction(prefs.defaulttoolbaraction);
 }
 
 // Executes default action for statusbar/toolbar by its number
