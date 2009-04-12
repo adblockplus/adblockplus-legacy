@@ -197,8 +197,8 @@ var policy =
    */
   isBlockableScheme: function(location) {
     // HACK: Allow blocking element hiding hits
-//    if (location.scheme == "chrome" && location.host == "global" && /abphit:(\d+)\b/.test(location.path) && RegExp.$1 in elemhide.keys)
-//      return true;
+    if (location.scheme == "chrome" && location.host == "global" && /abphit:(\d+)\b/.test(location.path) && RegExp.$1 in elemhide.keys)
+      return true;
 
     return !(location.scheme in this.whitelistSchemes);
   },
