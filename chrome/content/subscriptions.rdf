@@ -7,13 +7,13 @@
     <RDF:li>
       <RDF:Description>
         <abp:title>EasyList (USA)</abp:title>
-        <abp:url>http://easylist.adblockplus.org/adblock_rick752.txt</abp:url>
+        <abp:url>http://easylist.adblockplus.org/easylist.txt</abp:url>
         <abp:homepage>http://easylist.adblockplus.org/</abp:homepage>
       </RDF:Description>
     </RDF:li>
     <RDF:li>
       <RDF:Description>
-        <abp:title>Ares’ ABP Liste (Deutschland) + EasyList</abp:title>
+        <abp:title>EasyList Germany (Deutschland) + EasyList</abp:title>
         <abp:url>http://easylist.adblockplus.org/ares+easylist.txt</abp:url>
         <abp:homepage>http://forums.lanik.us/viewforum.php?f=90</abp:homepage>
       </RDF:Description>
