@@ -4,7 +4,7 @@ use strict;
 
 my %paths = (
   abp => 'chrome/locale',
-  ehh => 'elemhidehelper/chrome/locale',
+  ehh => '../elemhidehelper/chrome/locale',
 );
 
 my @must_differ = (
