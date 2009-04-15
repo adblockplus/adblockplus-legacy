@@ -1,8 +1,8 @@
 <!ENTITY dialog.title "เกี่ยวกับ Adblock Plus">
 <!ENTITY caption.title "Adblock Plus">
 <!ENTITY version.title "รุ่น">
-<!ENTITY description "Adblock Plus อนุญาตให้พิฆาตสิ่งที่คุณไม่ต้องการจะเห็นบนเว็บ คุณไม่จำเป็นต้องดาวน์โหลดโฆษณาและป้ายประกาศอีกต่อไป ถ้าคุณไม่ต้องการพวกมัน - บอก Adblock Plus!">
+<!ENTITY description "Adblock Plus อนุญาตให้คุณเลือกเองว่าสิ่งที่คุณไม่ต้องการจะเห็นบนเว็บ คุณไม่จำเป็นต้องดาวน์โหลดโฆษณาและป้ายประกาศอีกต่อไป ถ้าคุณไม่ต้องการพวกมัน - บอก Adblock Plus!">
 <!ENTITY homepage.label "โฮมเพจ Adblock Plus:">
-<!ENTITY homepage.url "http://adblockplus.org/">
-<!ENTITY author.label "ผู้จัดทำ:">
-<!ENTITY contributors.label "ผู้สนับสนุน:">
+<!ENTITY homepage.url "http://adblockplus.org/en/">
+<!ENTITY author.label "ผู้พัฒนา:">
+<!ENTITY contributors.label "ผู้ร่วมสมทบงาน:">

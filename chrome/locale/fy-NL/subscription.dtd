@@ -1,7 +1,7 @@
 <!ENTITY dialog.title "Filter abonnemint wizigje">
 <!ENTITY dialog.newtitle "Filter abonnemint tafoegje">
 <!ENTITY new.description "Jou asjobleaft it ynternetadres of bestân op mei in
-Adblock Plus filterslist.">
+Adblock Plus filterlist.">
 <!ENTITY edit.description "De filterlist fan dit abonnemint sil ynladen wurde
 fan de opjûne lokaasje.">
 <!ENTITY external.description "Dit is in ekstern filterabonnemint, de filterlist
@@ -9,7 +9,7 @@ sil bywurke wurde troch de útwreiding dy&apos;t makke is foar dit
 abonnemint.">
 <!ENTITY autodownload.description "As jo kieze foar ‘Automatysk bywurkje’ sil dizze lokaasje 
 daagliks kontrolearre wurde op nije ferzjes. As jo dizze opsje útskeakelje
-kinne jo noch hieltiid in hânmjittige fernijing útfiere fan út it kontekst
+kinne jo noch hieltyd in hânmjittige fernijing útfiere fan út it kontekst
 menu by Filter abonnemint.">
 <!ENTITY location.label "Filterlist lokaasje:">
 <!ENTITY location.accesskey "L">

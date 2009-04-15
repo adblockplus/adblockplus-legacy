@@ -1,0 +1,40 @@
+<!ENTITY dialog.title "Legg til regel for Adblock Plus filter">
+<!ENTITY accept.label "Legg til filter">
+<!ENTITY advanced.label "Avansert vising">
+<!ENTITY basic.label "Grunnleggjande vising">
+<!ENTITY disabled.warning.beforeLink "Adblock Plus er kopla ut. Du kan like vel leggje til filtre, men desse vil ikkje bli tekne i bruk dersom du ikkje">
+<!ENTITY disabled.warning.link "koplar inn Adblock Plus">
+<!ENTITY disabled.warning.afterLink ".">
+<!ENTITY filter.label "Nytt filter:">
+<!ENTITY filter.accesskey "f">
+<!ENTITY preferences.label "Syn filter...">
+<!ENTITY preferences.accesskey "S">
+<!ENTITY type.filter.label "Blokker filter">
+<!ENTITY type.filter.accesskey "B">
+<!ENTITY type.whitelist.label "Unntaksregel">
+<!ENTITY type.whitelist.accesskey "U">
+<!ENTITY pattern.label "Sjå etter mønster">
+<!ENTITY pattern.explanation "Mønsteret kan vera ein kvar del av adressa, bruk *-symbolet som jokerteikn. Filterert blir berre nytta på adressar som stemmer med mønsteret.">
+<!ENTITY regexp.warning "Mønsteret du la inn blir tolka som eit regulært uttrykk. Å ha mange regulære uttrykk kan gjera nettlesinga treig. Dersom du ikkje har tenkt til å nytte regulære uttrykk så sett eit *-symbol sist i mønsteret.">
+<!ENTITY custom.pattern.accesskey "C">
+<!ENTITY anchor.start.accesskey "g">
+<!ENTITY anchor.end.accesskey "n">
+<!ENTITY options.label "Options">
+<!ENTITY domainRestriction.label "Restrict to domain:">
+<!ENTITY domainRestriction.accesskey "d">
+<!ENTITY domainRestriction.help "Specify one or more domains separated by the symbol &quot;|&quot;, the filter will only be applied on these domains then. The symbol &quot;~&quot; before a domain name means that the filter should not be applied on that domain.">
+<!ENTITY firstParty.label "First-party only">
+<!ENTITY firstParty.accesskey "r">
+<!ENTITY thirdParty.label "Third-party only">
+<!ENTITY thirdParty.accesskey "T">
+<!ENTITY matchCase.label "Match case">
+<!ENTITY matchCase.accesskey "M">
+<!ENTITY types.label "Apply to types:">
+<!ENTITY selectAllTypes.label "Select all">
+<!ENTITY unselectAllTypes.label "Select none">
+<!ENTITY collapse.label "Collapse blocked:">
+<!ENTITY collapse.accesskey "l">
+<!ENTITY collapse.default.yes.label "Use default (yes)">
+<!ENTITY collapse.default.no.label "Use default (no)">
+<!ENTITY collapse.yes.label "Yes">
+<!ENTITY collapse.no.label "No">

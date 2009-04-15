@@ -3,9 +3,9 @@
 <!ENTITY filters.accesskey "Ф">
 <!ENTITY add.label "Додај филтер">
 <!ENTITY add.accesskey "а">
-<!ENTITY addsubscription.label "Додај пријаву на филтер">
+<!ENTITY addsubscription.label "Додај претплату на филтер">
 <!ENTITY addsubscription.accesskey "л">
-<!ENTITY synchsubscriptions.label "Ажурирај све пријаве">
+<!ENTITY synchsubscriptions.label "Ажурирај све претплате">
 <!ENTITY synchsubscriptions.accesskey "ј">
 <!ENTITY import.label "Увези филтере">
 <!ENTITY import.accesskey "з">
@@ -53,6 +53,9 @@
 <!ENTITY collapse.accesskey "б">
 <!ENTITY help.label "Помоћ">
 <!ENTITY help.accesskey "П">
+<!ENTITY gettingStarted.label "Како почети">
+<!ENTITY gettingStarted.accesskey "К">
+<!ENTITY gettingStarted.url "http://adblockplus.org/en/getting_started">
 <!ENTITY faq.label "Најчешће постављана питања">
 <!ENTITY faq.accesskey "Н">
 <!ENTITY faq.url "http://adblockplus.org/en/faq">
