@@ -1,19 +1,30 @@
-<!ENTITY dialog.title "Tere tulemast Adblock Plusi">
+<!ENTITY dialog.title "Lisa reklaamifiltri tellimuse">
 <!ENTITY description.par1 "Täname teid, et installeerisite Adblock Plusi. See laiendus võimaldab 
-elimineerida enamiku reklaamidest, mida te internetis näete. Kuid
-efektiivne reklaami filtreerimine nõuab sul defineerida head komplekti
-filtreid. Sa võid seda teha ise, või sa võid lihtsalt võtta
-filtrite nimekirju mida teised sinu jaoks teevad. 
-Ja isegi siis on võimalik lisada enda filtreid või 
+eemaldada enamiku reklaamidest, mida Te internetis näete. Kuid
+efektiivne reklaami filtreerimine nõuab hea filtrite
+komplekti olemasolu. Sa võid neid ise valmistada, 
+või valida juba olemasolevatest.
+Ning isegi siis on võimalik lisada enda filtreid või 
 vajadusel deaktiveerida/eemaldada tellimusi.">
 <!ENTITY description.par2 "Sa võid valida ühe tellimuse
-eelistatud tellimuste nimekirjast alt (rohkem tellimusi on võimaldatud
-isada Adblock Plusi Seadetest hiljem kuid tavaliselt pole see vajalik):">
+eelistatud tellimuste nimekirjast (rohkem tellimusi on võimalik lisada
+Adblock Plusi Seadetest hiljem, kuid tavaliselt pole see vajalik):">
 <!ENTITY note "Märge: Filtrite nimekiri on tavaliselt kõige efektiivsem, kui see on rakendatud
-interneti saitidele, mille regiooni jaoks see filter oli loodud.">
+internetilehekülgedele, mille regiooni jaoks see filter oli loodud.">
+<!ENTITY adblock.warning "On tuvastatud, et vanem versioon (Adblock) on eelnevalt paigaldatud.
+Kasutades nii Adblock Plusi kui ka Adblocki korraga võib põhjustada probleeme 
+ning Adblocki tuleks eemaldada.">
+<!ENTITY adblock.uninstall "Eemalda Adblock">
+<!ENTITY filterset.g.warning "On tuvastatud, et Te kasutate Filterset.G-d. Kuna seda on viimastel aastatel 
+vähe uuendatud ning on teada, et see põhjustab probleeme internetilehekülgedel, 
+siis on soovitatav selle koheselt eemaldada.">
+<!ENTITY filterset.g.moreinfo "Lisainformatsioon">
 <!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
+<!ENTITY filterset.g.uninstall "Eemalda Filterset.G">
 <!ENTITY homepage.label "Koduleht">
 <!ENTITY subscribe.label "Telli">
 <!ENTITY subscribe.accesskey "T">
 <!ENTITY other.label "Lisa uus tellimus">
 <!ENTITY other.accesskey "L">
+<!ENTITY full-list.url "http://adblockplus.org/en/subscriptions">
+<!ENTITY full-list.label "Vaata kõiki tellimusi">

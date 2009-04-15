@@ -8,7 +8,7 @@
 <!ENTITY filter.label "Filter">
 <!ENTITY state.label "Steat">
 <!ENTITY size.label "Grutte">
-<!ENTITY noitems.label "Gjin blokkearbere foarwerpen">
+<!ENTITY noitems.label "Gjin blokkearbere items">
 <!ENTITY whitelisted.label "Tastiene side">
 <!ENTITY notloaded.label "Adblock Plus is net goed ynstallearre">
 <!ENTITY tooltip.address.label "Adres:">
@@ -18,11 +18,13 @@
 <!ENTITY tooltip.size.label "Grutte:">
 <!ENTITY tooltip.filter.label "Tapast filter:">
 <!ENTITY tooltip.filterSource.label "Filterboarne:">
-<!ENTITY context.block.label "Blokkearje dit ûnderdiel">
-<!ENTITY context.editfilter.label "Bewurkje tapast filter">
+<!ENTITY context.block.label "Blokkearje dit item">
+<!ENTITY context.editfilter.label "Bewurkje tapaste filter">
 <!ENTITY context.whitelist.label "Meitsje in útsûnderingsrigel foar dit ûnderdiel">
 <!ENTITY context.disablefilter.label "Filter útskeakelje --">
 <!ENTITY context.enablefilter.label "Filter ynskeakelje --">
+<!ENTITY context.disablefilteronsite.label "Skeakel dit filter út op --">
+<!ENTITY context.enablefilteronsite.label "Skeakel dit filter wer yn op --">
 <!ENTITY context.open.label "Iepen yn in nij ljepblêd">
 <!ENTITY context.flash.label "Lit rannen knipperje">
 <!ENTITY context.copy.label "Kopiearje">

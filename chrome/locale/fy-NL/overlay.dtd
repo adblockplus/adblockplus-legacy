@@ -1,11 +1,12 @@
 <!ENTITY notloaded.label "Net laden">
-<!ENTITY notloaded.tooltip "Adblock Plus ûnderdielen koenen net laden wurden, warskienlik is it net goed ynstallearre">
+<!ENTITY notloaded.tooltip "Adblock Plus ûnderdielen koene net laden wurden, warskienlik is it net goed ynstallearre">
 <!ENTITY status.tooltip "Steat:">
 <!ENTITY blocked.tooltip "Blokkearre ûnderdielen:">
 <!ENTITY filters.tooltip "Meast aktive filters:">
 <!ENTITY menuitem.label "Adblock Plus">
 <!ENTITY menuitem.accesskey "A">
-<!ENTITY view.blockableItems.label "Adblock Plus: Blokkeaebere items">
+<!ENTITY toolbarbutton.label "Adblock Plus">
+<!ENTITY view.blockableItems.label "Adblock Plus: Blokkearbere items">
 <!ENTITY context.image.label "Ofbylding blokkearje">
 <!ENTITY context.object.label "Objekt blokkearje">
 <!ENTITY context.frame.label "Dielfinster blokkearje">

@@ -1,11 +1,11 @@
-<!ENTITY dialog.title "Adblock Plus Foarkarren">
+<!ENTITY dialog.title "Adblock Plus foarkarren">
 <!ENTITY filters.label "Filters">
 <!ENTITY filters.accesskey "F">
 <!ENTITY add.label "Tafoegje">
 <!ENTITY add.accesskey "g">
 <!ENTITY addsubscription.label "Filterabonnemint tafoegje">
 <!ENTITY addsubscription.accesskey "A">
-<!ENTITY synchsubscriptions.label "Alle abonneminten bywerkje">
+<!ENTITY synchsubscriptions.label "Alle abonneminten bywurkje">
 <!ENTITY synchsubscriptions.accesskey "l">
 <!ENTITY import.label "Filters Ymportearje">
 <!ENTITY import.accesskey "Y">
@@ -13,13 +13,13 @@
 <!ENTITY export.accesskey "E">
 <!ENTITY clearall.label "Alle filters fuortsmite">
 <!ENTITY clearall.accesskey "f">
-<!ENTITY resethitcounts.label "Tebeksette trefstatistieken">
+<!ENTITY resethitcounts.label "Tebeksette trefstatistiken">
 <!ENTITY resethitcounts.accesskey "T">
 <!ENTITY edit.label "Bewurkje">
 <!ENTITY edit.accesskey "W">
 <!ENTITY cut.label "Knippe">
 <!ENTITY cut.accesskey "n">
-<!ENTITY copy.label "Kopieare">
+<!ENTITY copy.label "Kopiearje">
 <!ENTITY copy.accesskey "K">
 <!ENTITY paste.label "Plakke">
 <!ENTITY paste.accesskey "P">
@@ -27,7 +27,7 @@
 <!ENTITY remove.accesskey "F">
 <!ENTITY menu.find.label "Sykje">
 <!ENTITY menu.find.accesskey "S">
-<!ENTITY menu.findagain.label "Sykje Op &apos;e nij">
+<!ENTITY menu.findagain.label "Op &apos;e nij sykje">
 <!ENTITY menu.findagain.accesskey "O">
 <!ENTITY view.label "Byld">
 <!ENTITY view.accesskey "B">
@@ -53,6 +53,9 @@
 <!ENTITY collapse.accesskey "B">
 <!ENTITY help.label "Help">
 <!ENTITY help.accesskey "H">
+<!ENTITY gettingStarted.label "Starte mei Adblock Plus">
+<!ENTITY gettingStarted.accesskey "S">
+<!ENTITY gettingStarted.url "http://adblockplus.org/en/getting_started">
 <!ENTITY faq.label "Meaststelde fragen">
 <!ENTITY faq.accesskey "f">
 <!ENTITY faq.url "http://adblockplus.org/en/faq">
@@ -62,7 +65,7 @@
 <!ENTITY about.label "Oer Adblock Plus">
 <!ENTITY about.accesskey "A">
 <!ENTITY description "Foech it adres ta dat jo blokkearje wolle, sjoch de karlist foar foarstellen. Jo kinne in * as jokerteken brûke foar mear algemiene filters. Erfaren brûkers kinne reguliere ekspresjes brûke, lykas /banner\d+\.gif$/.">
-<!ENTITY filter.column "Filterregel">
+<!ENTITY filter.column "Filterrigel">
 <!ENTITY filter.accesskey "F">
 <!ENTITY enabled.column "Ynskeakele">
 <!ENTITY enabled.accesskey "k">
@@ -71,7 +74,7 @@
 <!ENTITY lasthit.column "Lêste hit">
 <!ENTITY lasthit.accesskey "L">
 <!ENTITY context.edit.label "Filter wizigje">
-<!ENTITY context.resethitcount.label "Trefstatistieken tebeksette foar filter">
+<!ENTITY context.resethitcount.label "Trefstatistiken tebeksette foar filter">
 <!ENTITY context.synchsubscription.label "Abonnemint no bywurkje">
 <!ENTITY context.editsubscription.label "Abonnemint wizigje">
 <!ENTITY context.moveup.label "Omheech ferpleatse">

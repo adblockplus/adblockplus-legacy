@@ -1,6 +1,6 @@
 <!ENTITY detached.title "Adblock Plus: รายการที่บล็อกได้ (ถูกแยกออก)">
 <!ENTITY detach.label "แยกออก">
-<!ENTITY reattach.label "แนบซ้ำ">
+<!ENTITY reattach.label "แนบกลับ">
 <!ENTITY search.label "ค้นหา:">
 <!ENTITY search.accesskey "ค">
 <!ENTITY type.label "ชนิด">
@@ -8,18 +8,18 @@
 <!ENTITY filter.label "ตัวกรอง">
 <!ENTITY state.label "สถานะ">
 <!ENTITY size.label "ขนาด">
-<!ENTITY noitems.label "ไม่มีรายการที่บล็อกได้">
-<!ENTITY whitelisted.label "หน้ารายชื่อโปร่งใส">
-<!ENTITY notloaded.label "Adblock Plus ไม่ถูกติดตั้งอย่างถูกต้อง">
+<!ENTITY noitems.label "ไม่มีรายการที่บล็อคได้">
+<!ENTITY whitelisted.label "หน้าที่ถูกขึ้นบัญชีขาว">
+<!ENTITY notloaded.label "Adblock Plus ถูกติดตั้งอย่างไม่ถูกต้อง">
 <!ENTITY tooltip.address.label "ที่อยู่:">
 <!ENTITY tooltip.type.label "ชนิด:">
-<!ENTITY tooltip.type.blocked "(ถูกบล็อก)">
-<!ENTITY tooltip.type.whitelisted "(รายชื่อโปร่งใส)">
+<!ENTITY tooltip.type.blocked "(ถูกบล็อค)">
+<!ENTITY tooltip.type.whitelisted "(ขึ้นบัญชีขาว)">
 <!ENTITY tooltip.size.label "ขนาด:">
-<!ENTITY tooltip.filter.label "ตัวกรองในผลกระทบ:">
-<!ENTITY tooltip.filterSource.label "ตัวกรององค์ประกอบ:">
-<!ENTITY context.block.label "บล็อกรายการนี้">
-<!ENTITY context.editfilter.label "แก้ไขตัวกรองในผลกระทบ">
+<!ENTITY tooltip.filter.label "เป็นผลมาจากตัวกรอง:">
+<!ENTITY tooltip.filterSource.label "ตัวกรองแหล่งที่มา:">
+<!ENTITY context.block.label "บล็อครายการนี้">
+<!ENTITY context.editfilter.label "แก้ไขตัวกรองที่มีผล">
 <!ENTITY context.whitelist.label "เพิ่มข้อยกเว้นสำหรับรายการ">
 <!ENTITY context.disablefilter.label "ปิดตัวกรอง --">
 <!ENTITY context.enablefilter.label "เปิดตัวกรองอีกครั้ง --">

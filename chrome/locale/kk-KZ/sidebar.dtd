@@ -13,12 +13,12 @@
 <!ENTITY notloaded.label "Adblock Plus дұрыс орнатылмады">
 <!ENTITY tooltip.address.label "Адресі:">
 <!ENTITY tooltip.type.label "Түрі:">
-<!ENTITY tooltip.type.blocked "(блокталған)">
+<!ENTITY tooltip.type.blocked "(оқшауланған)">
 <!ENTITY tooltip.type.whitelisted "(ережеден тыс)">
 <!ENTITY tooltip.size.label "Көлемі:">
 <!ENTITY tooltip.filter.label "Қолданылған фильтр:">
 <!ENTITY tooltip.filterSource.label "Фильтр көзі:">
-<!ENTITY context.block.label "Бұл элементті блоктау">
+<!ENTITY context.block.label "Бұл элементті оқшаулау">
 <!ENTITY context.editfilter.label "Қолданылған фильтрді түзету">
 <!ENTITY context.whitelist.label "Элемент үшін ерекше ереже жасау">
 <!ENTITY context.disablefilter.label "Фильтрді сөндіру --">
