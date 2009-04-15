@@ -1,13 +1,17 @@
+<!-- LOCALIZATION NOTE : FILE This file contains the entities needed to -->
+<!-- LOCALIZATION NOTE : FILE use the Find Bar. --> 
+
+<!-- entities split out from browser.dtd -->
 <!ENTITY find.label "Traži:">
-<!ENTITY next.label "Traži slijedeće">
+<!ENTITY next.label "Dalje">
 <!ENTITY next.accesskey "D">
-<!ENTITY next.tooltip "Traži slijedeći slučaj za izraz">
-<!ENTITY previous.label "Traži prijašnji">
-<!ENTITY previous.accesskey "R">
-<!ENTITY previous.tooltip "Traži prijašnji slučaj za frazu">
-<!ENTITY findCloseButton.tooltip "Zatvori traku za traženje">
-<!ENTITY highlight.label "Osvijetli sve">
-<!ENTITY highlight.accesskey "V">
-<!ENTITY highlight.tooltiptext "Osvijetli sve slučajeve za frazu">
-<!ENTITY caseSensitiveCheckbox.label "Odgovarajući slučaji">
-<!ENTITY caseSensitiveCheckbox.accesskey "g">
+<!ENTITY next.tooltip "Pronađi iduće javljanje ovog izraza">
+<!ENTITY previous.label "Prethodno">
+<!ENTITY previous.accesskey "P">
+<!ENTITY previous.tooltip "Pronađi prethodno javljanje ovog izraza">
+<!ENTITY findCloseButton.tooltip "Zatvori traku pretraživanja">
+<!ENTITY highlight.label "Istakni sve">
+<!ENTITY highlight.accesskey "a">
+<!ENTITY highlight.tooltiptext "Istakni sva javljanja ovog izraza">
+<!ENTITY caseSensitiveCheckbox.label "Slučaj podudarnosti">
+<!ENTITY caseSensitiveCheckbox.accesskey "p">

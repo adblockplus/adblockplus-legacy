@@ -14,8 +14,8 @@
 <!ENTITY type.whitelist.label "Үл хаших дүрэм">
 <!ENTITY type.whitelist.accesskey "Ү">
 <!ENTITY pattern.label "Эсгүүрийн байдал">
-<!ENTITY pattern.explanation "The pattern can be any part of the address, symbol * acts as a wildcard. The filter will only be applied to addresses matching the pattern.">
-<!ENTITY regexp.warning "The pattern you entered will be interpreted as a regular expression. Many regular expressions might slow down your browsing. If you didn&apos;t intend to use regular expressions, add a * symbol at the end of the pattern.">
+<!ENTITY pattern.explanation "Эсгүүр нь хаягийн аль нэг хэсэг, * тэмдэг шиг байж болно. Энэ шүүлтүүр нь зөвхөн энэ эсгүүртэй холбогдох хаяг дээр хэрэгжинэ.">
+<!ENTITY regexp.warning "Эсгүүр нь энгийн илэрхийлэл шиг байж болно. Хэт их энгийн илэрхийлэл нь ажиллагааг удаашруулж болзошгүй. If you didn&apos;t intend to use regular expressions, add a * symbol at the end of the pattern.">
 <!ENTITY shortpattern.warning "The pattern you entered is too short to be optimized, many such patterns might slow down your browsing. It is recommended that you choose a longer string for this filter.">
 <!ENTITY custom.pattern.label "Тусгай:">
 <!ENTITY custom.pattern.accesskey "Т">

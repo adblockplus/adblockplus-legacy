@@ -54,7 +54,7 @@
 <!ENTITY help.label "ヘルプ">
 <!ENTITY help.accesskey "H">
 <!ENTITY gettingStarted.label "開始">
-<!ENTITY gettingStarted.accesskey "s">
+<!ENTITY gettingStarted.accesskey "S">
 <!ENTITY gettingStarted.url "http://adblockplus.org/en/getting_started">
 <!ENTITY faq.label "よくある質問と回答（FAQ）">
 <!ENTITY faq.accesskey "F">
@@ -70,7 +70,7 @@
 <!ENTITY filter.column "フィルターのルール">
 <!ENTITY filter.accesskey "F">
 <!ENTITY enabled.column "有効／無効">
-<!ENTITY enabled.accesskey "n">
+<!ENTITY enabled.accesskey "N">
 <!ENTITY hitcount.column "ヒット数">
 <!ENTITY hitcount.accesskey "H">
 <!ENTITY lasthit.column "最終ヒット日時">

@@ -1,9 +1,9 @@
-<!ENTITY detached.title "Adblock Plus:Ставке које се могу блокирати (одвојене)">
+<!ENTITY detached.title "Adblock Plus:Ставке које се могу блокирати (одвојено">
 <!ENTITY detach.label "Одвоји">
 <!ENTITY reattach.label "Поново споји">
 <!ENTITY search.label "Тражи:">
 <!ENTITY search.accesskey "Т">
-<!ENTITY type.label "Тип">
+<!ENTITY type.label "Врста">
 <!ENTITY address.label "Адреса">
 <!ENTITY filter.label "Филтер">
 <!ENTITY state.label "Статус">
@@ -23,6 +23,8 @@
 <!ENTITY context.whitelist.label "Додај изузетак за ставку">
 <!ENTITY context.disablefilter.label "Искључи филтер --">
 <!ENTITY context.enablefilter.label "Поново укључи филтер --">
+<!ENTITY context.disablefilteronsite.label "Искључи овај филтер на --">
+<!ENTITY context.enablefilteronsite.label "Укључи поново на --">
 <!ENTITY context.open.label "Отвори на новом листу">
 <!ENTITY context.flash.label "Осветли границе ставке">
 <!ENTITY context.copy.label "Умножи адресу ставке">

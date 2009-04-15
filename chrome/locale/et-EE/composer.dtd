@@ -1,0 +1,19 @@
+<!ENTITY dialog.title "Lisa Ablock Plusi filtri reeglel">
+<!ENTITY accept.label "Lisa filter">
+<!ENTITY advanced.label "Arenenud vaade">
+<!ENTITY basic.label "Põhivaade">
+<!ENTITY disabled.warning.beforeLink "Adblock Plus on hetkel keelatud, kuid siiski on võimalik lisada filtreid, kuid need ei jõustu kuni Sa">
+<!ENTITY disabled.warning.link "Lubad Adblock Plusi">
+<!ENTITY disabled.warning.afterLink ".">
+<!ENTITY filter.label "Uus filter">
+<!ENTITY filter.accesskey "f">
+<!ENTITY preferences.label "Näita olemasolevaid filtreid...">
+<!ENTITY preferences.accesskey "N">
+<!ENTITY type.filter.label "Keela filtri">
+<!ENTITY type.filter.accesskey "K">
+<!ENTITY type.whitelist.label "Erandlik reegel">
+<!ENTITY type.whitelist.accesskey "E">
+<!ENTITY selectAllTypes.label "Vali kõik">
+<!ENTITY unselectAllTypes.label "Vali mitte ühtegi">
+<!ENTITY collapse.yes.label "Jah">
+<!ENTITY collapse.no.label "Ei">
