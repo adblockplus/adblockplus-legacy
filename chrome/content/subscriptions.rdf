@@ -48,13 +48,6 @@
     </RDF:li>
     <RDF:li>
       <RDF:Description>
-        <abp:title>Việt Nam List (Việt Nam) + EasyList</abp:title>
-        <abp:url>http://easylist.adblockplus.org/abpvn+easylist.txt</abp:url>
-        <abp:homepage>http://code.google.com/p/adblockplus-vietnam/</abp:homepage>
-      </RDF:Description>
-    </RDF:li>
-    <RDF:li>
-      <RDF:Description>
         <abp:title>ROList (România) + EasyList</abp:title>
         <abp:url>http://easylist.adblockplus.org/rolist+easylist.txt</abp:url>
         <abp:homepage>http://www.picpoc.ro/</abp:homepage>
