@@ -2,7 +2,7 @@
 <!ENTITY filters.label "Filtrid">
 <!ENTITY filters.accesskey "F">
 <!ENTITY add.label "Lisa filter">
-<!ENTITY add.accesskey "L">
+<!ENTITY add.accesskey "C">
 <!ENTITY addsubscription.label "Lisa filtri tellimuse">
 <!ENTITY addsubscription.accesskey "t">
 <!ENTITY synchsubscriptions.label "Uuenda kõik tellimused">
@@ -29,6 +29,16 @@
 <!ENTITY menu.find.accesskey "O">
 <!ENTITY menu.findagain.label "Otsi uuesti">
 <!ENTITY menu.findagain.accesskey "S">
+<!ENTITY view.label "Vaata">
+<!ENTITY view.accesskey "V">
+<!ENTITY sort.label "Sorteeri">
+<!ENTITY sort.accesskey "S">
+<!ENTITY sort.none.label "Sorteerimata">
+<!ENTITY sort.none.accesskey "e">
+<!ENTITY sort.ascending.label "Sorteeri A-st Z-ni">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.descending.label "Sorteeri Z-st A-ni">
+<!ENTITY sort.descending.accesskey "Z">
 <!ENTITY options.label "Valikud">
 <!ENTITY options.accesskey "V">
 <!ENTITY enable.label "Võimalda Adblock Plusi">
@@ -43,6 +53,9 @@
 <!ENTITY collapse.accesskey "e">
 <!ENTITY help.label "Abi">
 <!ENTITY help.accesskey "A">
+<!ENTITY gettingStarted.label "info Adblock Plusist">
+<!ENTITY gettingStarted.accesskey "i">
+<!ENTITY gettingStarted.url "http://adblockplus.org/en/getting_started">
 <!ENTITY faq.label "Korduma Kippuvad Küsimused">
 <!ENTITY faq.accesskey "K">
 <!ENTITY faq.url "http://adblockplus.org/en/faq">
@@ -50,13 +63,18 @@
 <!ENTITY filterdoc.accesskey "m">
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Teavet">
-<!ENTITY about.accesskey "v">
+<!ENTITY about.accesskey "s">
 <!ENTITY description "Lisa aadresse mida sa soovid blokeerida, soovituseks vaata nimekirja.
 Sa saad kasutada * et luua rohkem üldiseid filtreid. Edasijõudnud kasutajad saavad
 kasutada regulaarseid väljendeid.">
+<!ENTITY filter.column "Filtri reegel">
+<!ENTITY filter.accesskey "F">
 <!ENTITY enabled.column "Lubatud">
+<!ENTITY enabled.accesskey "d">
 <!ENTITY hitcount.column "Tabamusi">
+<!ENTITY hitcount.accesskey "m">
 <!ENTITY lasthit.column "Viimane tabamus">
+<!ENTITY lasthit.accesskey "u">
 <!ENTITY context.edit.label "Muuda filtrit">
 <!ENTITY context.resethitcount.label "Nulli">
 <!ENTITY context.synchsubscription.label "Uuenda tellimust nüüd">
@@ -65,5 +83,7 @@ kasutada regulaarseid väljendeid.">
 <!ENTITY context.movedown.label "Liiguta alla">
 <!ENTITY context.movegroupup.label "Liiguta grupp üles">
 <!ENTITY context.movegroupdown.label "Liiguta grupp alla">
+<!ENTITY context.enable.label "Luba">
+<!ENTITY context.disable.label "Keela">
 <!ENTITY apply.label "Rakenda">
 <!ENTITY apply.accesskey "R">

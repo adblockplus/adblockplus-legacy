@@ -1,14 +1,14 @@
-<!ENTITY dialog.title "แก้ไขนามข้างท้ายตัวกรอง">
-<!ENTITY dialog.newtitle "เพิ่มนามข้างท้ายตัวกรอง">
+<!ENTITY dialog.title "แก้ไขการเป็นสมาชิกบอกรับรายการตัวกรอง">
+<!ENTITY dialog.newtitle "เพิ่มการบอกรับรายการตัวกรอง">
 <!ENTITY new.description "กรุณาใส่ที่อยู่เว็บหรือแฟ้มที่มีรายชื่อตัวกรอง Adblock Plus">
-<!ENTITY edit.description "รายชื่อตัวกรองสำหรับนามข้างท้ายนี้จะถูกดาวน์โหลดจากตำแหน่งที่ให้">
-<!ENTITY external.description "นี่คือนามข้างท้ายตัวกรองภายนอก รายชื่อตัวกรองจะรักษาความทันสมัยโดยส่วนขยายที่สร้างนามข้างท้ายนี้">
-<!ENTITY autodownload.description "ถ้าคุณเลือก&quot;อัปเดตอัตโนมัติ&quot;ตำแหน่งนี้จะตรวจสอบการอัปเดตทุกวัน แม้ตัวเลือกนี้ถูกปิดการใช้งานคุณก็ยังคงสามารถเรียกการอัปเดตด้วยตัวเองจากเมนูบริบทของนามข้างท้าย">
-<!ENTITY location.label "ตำแหน่งรายชื่อตัวกรอง:">
+<!ENTITY edit.description "รายการตัวกรองสำหรับการบอกรับนี้จะถูกดาวน์โหลดจากตำแหน่งที่ให้มา">
+<!ENTITY external.description "นี่คือการบอกรับตัวกรองภายนอก รายการตัวกรองจะถูกปรับปรุงให้ทันสมัยโดยส่วนขยายที่สร้างการบอกรับนี้">
+<!ENTITY autodownload.description "ถ้าคุณเลือก &quot;ปรับปรุงอัตโนมัติ&quot; จะมีการตรวจสอบที่อยู่นี้เพื่อปรับปรุงให้ทันสมัยทุกวัน แม้ตัวเลือกนี้ถูกปิดการใช้งานคุณก็ยังคงสามารถเรียกการปรับปรุงด้วยตัวเองจากเมนูบริบทของการบอกรับ">
+<!ENTITY location.label "ที่อยู่รายชื่อตัวกรอง:">
 <!ENTITY location.accesskey "ร">
-<!ENTITY title.label "หัวเรื่องนามข้างท้าย:">
-<!ENTITY title.accesskey "ห">
-<!ENTITY autodownload.label "อัปเดตอัตโนมัติ">
+<!ENTITY title.label "ชื่อ:">
+<!ENTITY title.accesskey "ช">
+<!ENTITY autodownload.label "ปรับปรุงอัตโนมัติ">
 <!ENTITY autodownload.accesskey "อ">
-<!ENTITY enabled.label "เปิดการใช้งานตัวกรอง">
+<!ENTITY enabled.label "เปิดใช้งานตัวกรอง">
 <!ENTITY enabled.accesskey "ป">

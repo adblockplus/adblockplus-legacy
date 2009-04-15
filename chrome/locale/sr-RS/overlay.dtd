@@ -5,6 +5,7 @@
 <!ENTITY filters.tooltip "Најактивнији филтер:">
 <!ENTITY menuitem.label "Подешавања Adblock Plus-а">
 <!ENTITY menuitem.accesskey "в">
+<!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY view.blockableItems.label "Adblock Plus:Ставке које се могу блокирати">
 <!ENTITY context.image.label "Блокирај слику">
 <!ENTITY context.object.label "Блокирај објекат">

@@ -5,6 +5,8 @@
 <!ENTITY filters.tooltip "Kõige aktiivsemad filtrid:">
 <!ENTITY menuitem.label "Adblock Plus">
 <!ENTITY menuitem.accesskey "c">
+<!ENTITY toolbarbutton.label "Adblock Plus">
+<!ENTITY view.blockableItems.label "Adblock Plus: Blokeeritavad objektid">
 <!ENTITY context.image.label "Adblocki Pilt">
 <!ENTITY context.object.label "Adblocki Objekt">
 <!ENTITY context.frame.label "Adblocki Kaader">
