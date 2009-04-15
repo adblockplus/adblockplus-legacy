@@ -33,7 +33,7 @@ for my $locale (@locales)
 
 chdir('..');
 system("hg add downloads/adblockplus-$version.xpi");
-system(qq(hg commit -m "Releasing Adblock Plus $version" downloads src));
+system(qq(hg commit -m "Releasing Adblock Plus $version" downloads adblockplus));
 
 my $branch = $version;
 $branch =~ s/\./_/g;
