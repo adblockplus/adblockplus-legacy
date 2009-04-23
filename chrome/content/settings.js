@@ -138,14 +138,7 @@ function init()
 
   // Initialize tree view
   E("list").view = treeView;
-
-  let editor = E("listEditor");
-  let editorParent = E("listEditorParent");
-  editor.height = editor.boxObject.height;
-  E("listStack").appendChild(editorParent);
-  editorParent.hidden = true;
-  treeView.setEditor(editor, editorParent);
-
+  treeView.setEditor(E("listEditor"), E("listEditorParent"));
   treeView.ensureSelection(0);
 
   // Set the focus to the input field by default
@@ -2884,7 +2877,7 @@ let treeView = {
 
       row = 1;
       this.selectRow(row);
-      this.editorDummy = dummySubscription
+      this.editorDummy = dummySubscription;
     }
     else if (insert)
     {
@@ -2900,32 +2893,35 @@ let treeView = {
     }
 
     let col = this.boxObject.columns.getPrimaryColumn();
-    let cellX = {};
-    let cellY = {};
-    let cellWidth = {};
-    let cellHeight = {};
-    this.boxObject.ensureRowIsVisible(row);
-    this.boxObject.getCoordsForCellItem(row, col, "cell", cellX, cellY, cellWidth, cellHeight);
-
     let textX = {};
-    this.boxObject.getCoordsForCellItem(row, col, "text", textX, {}, {}, {});
+    let textY = {};
+    let textWidth = {};
+    let textHeight = {};
+    this.boxObject.ensureRowIsVisible(row);
+    this.boxObject.getCoordsForCellItem(row, col, "text", textX, textY, textWidth, textHeight);
+
+    let cellX = {};
+    let cellWidth = {};
+    this.boxObject.getCoordsForCellItem(row, col, "cell", cellX, {}, cellWidth, {});
     cellWidth.value -= textX.value - cellX.value;
-    cellX.value = textX.value;
 
     // Need to translate coordinates so that they are relative to <stack>, not <treechildren>
     let treeBody = this.boxObject.treeBody;
     let editorStack = this.editorParent.parentNode;
-    cellX.value += treeBody.boxObject.x - editorStack.boxObject.x;
-    cellY.value += treeBody.boxObject.y - editorStack.boxObject.y;
+    textX.value += treeBody.boxObject.x - editorStack.boxObject.x;
+    textY.value += treeBody.boxObject.y - editorStack.boxObject.y;
 
     this.selection.clearSelection();
+
+    let style = window.getComputedStyle(this.editor, "");
+    let topadj = parseInt(style.borderTopWidth) + parseInt(style.paddingTop);
 
     this.editedRow = row;
     this.editorParent.hidden = false;
     this.editorParent.width = cellWidth.value;
-    this.editorParent.height = this.editor.height;
-    this.editorParent.left = cellX.value;
-    this.editorParent.top = Math.round(cellY.value + (cellHeight.value - this.editor.height)/2);
+    this.editorParent.height = textHeight.value + topadj + parseInt(style.borderBottomWidth) + parseInt(style.paddingBottom);
+    this.editorParent.left = textX.value;
+    this.editorParent.top = textY.value - topadj;
 
     let text = (this.editorDummy ? this.editorDummyInit : filter.text);
 

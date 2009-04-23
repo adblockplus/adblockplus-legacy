@@ -31,6 +31,7 @@
    - ***** END LICENSE BLOCK ***** -->
 
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://global/skin/tree.css" type="text/css"?>
 <?xml-stylesheet href="chrome://adblockplus/skin/settings.css" type="text/css"?>
 <?xml-stylesheet href="chrome://adblockplus/skin/findbar/findBar.css" type="text/css"?>
 
@@ -199,12 +200,6 @@
 <button id="applyButton" class="dialog-button" hidden="true" label="&apply.label;" accesskey="&apply.accesskey;" oncommand="applyChanges()"/>
 
 <vbox id="listarea" flex="1">
-  <deck id="listEditorParent">
-    <hbox align="center">
-      <textbox id="listEditor" class="tree-input" flex="1"/>
-      <image id="listEditorIcon" onclick="if (event.button == 0) treeView.stopEditor(false);" />
-    </hbox>
-  </deck>
   <stack id="listStack" flex="1">
     <tree id="list" persist="closedSubscriptions" flex="1" seltype="multiple" hidecolumnpicker="true" enableColumnDrag="true">
       <treecols context="treecols-context">
@@ -219,6 +214,10 @@
 
       <treechildren tooltip="tree-tooltip" context="listitem-context" onclick="onListClick(event)" ondblclick="onListDblClick(event)" ondraggesture="onListDragGesture(event)"/>
     </tree>
+    <hbox id="listEditorParent" align="center" hidden="true">
+      <textbox id="listEditor" class="tree-input" flex="1"/>
+      <image id="listEditorIcon" onclick="if (event.button == 0) treeView.stopEditor(false);" />
+    </hbox>
   </stack>
 
   <toolbar id="FindToolbar" grippyhidden="true" hidden="true" align="center">
