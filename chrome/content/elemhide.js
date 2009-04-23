@@ -163,29 +163,14 @@ var elemhide =
 
     // Joining domains list
     let cssData = "";
-
-    let geckoVersion = "0.0";
-    if ("nsIXULAppInfo" in  Components.interfaces)
-        geckoVersion = Components.classes["@mozilla.org/xre/app-info;1"].getService(Components.interfaces.nsIXULAppInfo).platformVersion;
-
-    // User sheets get null principal before Gecko 1.9.0.9, only chrome: protocol can be loaded
-    let bindingURL = (abp.versionComparator.compare(geckoVersion, "1.9.0.9pre") < 0 ? "chrome://global/content/bindings/general.xml?abphit:%ID%#basecontrol" : this.scheme + "://%ID%/#dummy");
-    let cssTemplate = "-moz-binding: url(" + bindingURL + ") !important;";
-
-    if (abp.versionComparator.compare(geckoVersion, "1.9a1") < 0)
-    {
-      // Gecko 1.8 does not apply bindings to table rows and cells, need to
-      // change the value for display here. This might have undesired
-      // side-effects (http://adblockplus.org/forum/viewtopic.php?t=3200).
-      cssTemplate += "display: inline !important;";
-    }
+    let cssTemplate = "-moz-binding: url(" + this.scheme + "://%ID%/#dummy) !important;";
 
     for (let domain in domains)
     {
       let rules = [];
       let list = domains[domain];
       for (let selector in list)
-        rules.push(selector + "{" + cssTemplate.replace(/%ID%/, list[selector]) + "}\n");
+        rules.push(selector + "{" + cssTemplate.replace("%ID%", list[selector]) + "}\n");
 
       if (domain)
         cssData += '@-moz-document domain("' + domain.split(",").join('"),domain("') + '"){\n' + rules.join('') + '}\n';
