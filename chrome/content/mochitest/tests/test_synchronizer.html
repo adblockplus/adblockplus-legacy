@@ -229,387 +229,380 @@
       is(typeof synchronizer, "object", "typeof synchronizer");
       is(typeof abp.synchronizer, "object", "typeof abp.synchronizer");
 
-      if (compareGeckoVersion("1.9") < 0)
+      server.registerPathHandler("/subscription1", getSubscription);
+      server.registerPathHandler("/subscription2", getSubscription);
+      server.registerPathHandler("/subscription3", getSubscription);
+      server.registerPathHandler("/fallback", fallbackHandler);
+
+      filterStorage.addSubscription(subscription1);
+
+      subscription2.autoDownload = false;
+      filterStorage.addSubscription(subscription2);
+
+      // General subscription download testing
+
+      runScheduledTasks(7);
+      compareRequests("Downloads of one subscription (7 hours)", [
+        "300000: GET /subscription1",
+        "11100000: GET /subscription1",
+        "21900000: GET /subscription1"
+      ]);
+
+      subscription2.autoDownload = true;
+      runScheduledTasks(6);
+      compareRequests("Downloads with second subscription switched on (6 hours)", [
+        "300000: GET /subscription2",
+        "7500000: GET /subscription1",
+        "11100000: GET /subscription2",
+        "18300000: GET /subscription1"
+      ]);
+      subscription2.autoDownload = false;
+
+      // Header variations testing
+
+      subscriptionBody = "[Adblock]\nfoo\n!bar\n\n\n@@bas\n#bam";
+      runScheduledTasks(3);
+      compareFilters("Filters of downloaded subscription", "foo\n!bar\n@@bas\n#bam", "synchronize_ok", null);
+
+      subscriptionBody = "[Adblock Plus]\nfoo2\n!bar2\n@@bas2\n#bam2";
+      runScheduledTasks(3);
+      compareFilters("Filters of downloaded subscription with [Adblock Plus] header", "foo2\n!bar2\n@@bas2\n#bam2", "synchronize_ok", null);
+
+      subscriptionBody = "[Adblock Plus 0.0.1]\nfoo3\n!bar3\n@@bas3\n#bam3";
+      runScheduledTasks(3);
+      compareFilters("Filters of downloaded subscription with [Adblock Plus 0.0.1] header", "foo3\n!bar3\n@@bas3\n#bam3", "synchronize_ok", "0.0.1");
+
+      subscriptionBody = "(something)[Adblock]\nfoo4\n!bar4\n@@bas4\n#bam4";
+      runScheduledTasks(3);
+      compareFilters("Filters of downloaded subscription with (something)[Adblock] header", "foo4\n!bar4\n@@bas4\n#bam4", "synchronize_ok", null);
+
+      subscriptionBody = "[Foo]\nthis should not be accepted";
+      runScheduledTasks(3);
+      compareFilters("Filters of downloaded subscription with [Foo] header", "foo4\n!bar4\n@@bas4\n#bam4", "synchronize_invalid_data", null);
+
+      subscriptionBody = "[Adblock Plus 99.9]\nsome_new_syntax";
+      runScheduledTasks(5);
+      compareFilters("Filters of downloaded subscription with [Adblock Plus 99.9] header", "some_new_syntax", "synchronize_ok", "99.9");
+
+      // Expiration testing - expire times smaller than default update
+      // interval should not be accepted, and expiration times more than
+      // two weeks in the future should be cut down to two weeks.
+
+      subscriptionBody = "[Adblock]\n! Expires after 1 hour\nfoo";
+      runScheduledTasks(4);
+      compareRequests("Expiration comment with less than default update interval (4 hours)", [
+        "300000: GET /subscription1",
+        "11100000: GET /subscription1"
+      ]);
+
+      subscriptionBody = "[Adblock]\n! Expires after 4 hours\nfoo";
+      runScheduledTasks(7);
+      compareRequests("Downloads with 'Expires after 4 hours' comment (7 hours)", [
+        "7500000: GET /subscription1",
+        "21900000: GET /subscription1"
+      ]);
+
+      subscriptionBody = "[Adblock]\n! Expires: 1 day\nfoo";
+      runScheduledTasks(50);
+      compareRequests("Downloads with 'Expires: 1 day' comment (50 hours)", [
+        "11100000: GET /subscription1",
+        "97500000: GET /subscription1"
+      ]);
+
+      subscriptionBody = "[Adblock]\nfoo";
+      subscriptionExtraHeaders = function() [["Expires", new Date(currentTime + 5 * 60 * 60 * 1000).toGMTString()]];
+      runScheduledTasks(10);
+      compareRequests("Downloads with 'Expires: +5h' HTTP header (10 hours)", [
+        "3900000: GET /subscription1",
+        "21900000: GET /subscription1"
+      ]);
+
+      subscriptionExtraHeaders = function() [["Expires", new Date(currentTime + 2 * 60 * 60 * 1000).toGMTString()]];
+      runScheduledTasks(6);
+      compareRequests("Expiration header with less than default update interval (6 hours)", [
+        "3900000: GET /subscription1",
+        "14700000: GET /subscription1"
+      ]);
+
+      subscriptionExtraHeaders = function() [["Expires", new Date(currentTime + 504 * 60 * 60 * 1000).toGMTString()]];
+      runScheduledTasks(672);
+      compareRequests("Expiration header more than two weeks in future (672 hours)", [
+        "3900000: GET /subscription1",
+        "1213500000: GET /subscription1"
+      ]);
+      subscriptionExtraHeaders = null;
+
+      // Redirect testing
+
+      server.registerPathHandler("/subscription1", commentRedirectHandler);
+
+      redirectURL = subscription2.url;
+      runScheduledTasks(6);
+      compareSubscriptions("Subscriptions after comment redirect to /subscription2", [subscription2]);
+
+      redirectURL = subscription2.url.replace("subscription2", "invalid_url");
+      runScheduledTasks(6);
+      compareSubscriptions("Subscriptions after redirect to /invalid_url", [subscription1, subscription2]);
+
+      server.registerPathHandler("/subscription1", redirectHandler);
+
+      redirectURL = subscription2.url;
+      redirectPermanent = false;
+      runScheduledTasks(6);
+      compareSubscriptions("Subscriptions after temporary redirect to /subscription2", [subscription1, subscription2]);
+
+      redirectPermanent = true;
+      runScheduledTasks(6);
+      compareSubscriptions("Subscriptions after permanent redirect to /subscription2", [subscription2]);
+
+      redirectURL = subscription3.url;
+      redirectPermanent = false;
+      runScheduledTasks(6);
+      compareSubscriptions("Subscriptions after temporary redirect to /subscription3", [subscription1, subscription2]);
+
+      redirectPermanent = true;
+      runScheduledTasks(6);
+      compareSubscriptions("Subscriptions after permanent redirect to /subscription3", [subscription2, subscription3]);
+
+      redirectURL = subscription2.url.replace("subscription2", "invalid_url");
+      redirectPermanent = false;
+      runScheduledTasks(6);
+      compareSubscriptions("Subscriptions after temporary redirect to /invalid_url", [subscription1, subscription2]);
+
+      redirectPermanent = true;
+      runScheduledTasks(6);
+      compareSubscriptions("Subscriptions after permanent redirect to /invalid_url", [subscription1, subscription2]);
+
+      server.registerPathHandler("/subscription3", redirectHandler);
+
+      server.registerPathHandler("/subscription1", function redirectHandler(metadata, response)
       {
-        ok(true, "Remaining tests require Gecko 1.9 or higher");
-      }
-      else
+        response.setStatusLine("1.1", 302, "Moved Temporarily");
+        response.setHeader("Location", subscription3.url);
+      });
+
+      redirectURL = subscription2.url;
+      redirectPermanent = false;
+      runScheduledTasks(6);
+      compareSubscriptions("Subscriptions after temporary redirect to /subscription3 followed by temporary redirect to /subscription2", [subscription1, subscription2]);
+
+      redirectPermanent = true;
+      runScheduledTasks(6);
+      compareSubscriptions("Subscriptions after temporary redirect to /subscription3 followed by permanent redirect to /subscription2", [subscription1, subscription2]);
+
+      redirectURL = subscription2.url.replace("subscription2", "invalid_url");;
+      redirectPermanent = false;
+      runScheduledTasks(6);
+      compareSubscriptions("Subscriptions after temporary redirect to /subscription3 followed by temporary redirect to /invalid_url", [subscription1, subscription2]);
+
+      redirectPermanent = true;
+      runScheduledTasks(6);
+      compareSubscriptions("Subscriptions after temporary redirect to /subscription3 followed by permanent redirect to /invalid_url", [subscription1, subscription2]);
+
+      server.registerPathHandler("/subscription1", function redirectHandler(metadata, response)
       {
-        server.registerPathHandler("/subscription1", getSubscription);
-        server.registerPathHandler("/subscription2", getSubscription);
-        server.registerPathHandler("/subscription3", getSubscription);
-        server.registerPathHandler("/fallback", fallbackHandler);
+        response.setStatusLine("1.1", 301, "Moved Permanently");
+        response.setHeader("Location", subscription3.url);
+      });
 
-        filterStorage.addSubscription(subscription1);
+      redirectURL = subscription2.url;
+      redirectPermanent = false;
+      runScheduledTasks(6);
+      compareSubscriptions("Subscriptions after permanent redirect to /subscription3 followed by temporary redirect to /subscription2", [subscription2, subscription3]);
 
-        subscription2.autoDownload = false;
-        filterStorage.addSubscription(subscription2);
+      redirectPermanent = true;
+      runScheduledTasks(6);
+      compareSubscriptions("Subscriptions after permanent redirect to /subscription3 followed by permanent redirect to /subscription2", [subscription2]);
 
-        // General subscription download testing
+      redirectURL = subscription2.url.replace("subscription2", "invalid_url");;
+      redirectPermanent = false;
+      runScheduledTasks(6);
+      compareSubscriptions("Subscriptions after permanent redirect to /subscription3 followed by temporary redirect to /invalid_url", [subscription1, subscription2]);
 
-        runScheduledTasks(7);
-        compareRequests("Downloads of one subscription (7 hours)", [
-          "300000: GET /subscription1",
-          "11100000: GET /subscription1",
-          "21900000: GET /subscription1"
-        ]);
+      redirectPermanent = true;
+      runScheduledTasks(6);
+      compareSubscriptions("Subscriptions after permanent redirect to /subscription3 followed by permanent redirect to /invalid_url", [subscription1, subscription2]);
 
-        subscription2.autoDownload = true;
-        runScheduledTasks(6);
-        compareRequests("Downloads with second subscription switched on (6 hours)", [
-          "300000: GET /subscription2",
-          "7500000: GET /subscription1",
-          "11100000: GET /subscription2",
-          "18300000: GET /subscription1"
-        ]);
-        subscription2.autoDownload = false;
+      server.registerPathHandler("/subscription1", getSubscription);
+      server.registerPathHandler("/subscription3", getSubscription);
 
-        // Header variations testing
+      // Behavior on errors
 
-        subscriptionBody = "[Adblock]\nfoo\n!bar\n\n\n@@bas\n#bam";
-        runScheduledTasks(3);
-        compareFilters("Filters of downloaded subscription", "foo\n!bar\n@@bas\n#bam", "synchronize_ok", null);
+      runScheduledTasks(6); // reset error counters
+      requests = [];
 
-        subscriptionBody = "[Adblock Plus]\nfoo2\n!bar2\n@@bas2\n#bam2";
-        runScheduledTasks(3);
-        compareFilters("Filters of downloaded subscription with [Adblock Plus] header", "foo2\n!bar2\n@@bas2\n#bam2", "synchronize_ok", null);
+      subscriptionStatus = [404, "Not Found"];
+      runScheduledTasks(9);
+      compareRequests("Requests after 404 error (9 hours)", [
+        "300000: GET /subscription1",
+        "11100000: GET /subscription1",
+        "21900000: GET /subscription1"
+      ]);
 
-        subscriptionBody = "[Adblock Plus 0.0.1]\nfoo3\n!bar3\n@@bas3\n#bam3";
-        runScheduledTasks(3);
-        compareFilters("Filters of downloaded subscription with [Adblock Plus 0.0.1] header", "foo3\n!bar3\n@@bas3\n#bam3", "synchronize_ok", "0.0.1");
+      subscriptionStatus = [200, "OK"];
+      subscriptionBody = "Not a valid subscription";
+      runScheduledTasks(9);
+      compareRequests("Requests for invalid subscription (9 hours)", [
+        "300000: GET /subscription1",
+        "11100000: GET /subscription1",
+        "21900000: GET /subscription1"
+      ]);
 
-        subscriptionBody = "(something)[Adblock]\nfoo4\n!bar4\n@@bas4\n#bam4";
-        runScheduledTasks(3);
-        compareFilters("Filters of downloaded subscription with (something)[Adblock] header", "foo4\n!bar4\n@@bas4\n#bam4", "synchronize_ok", null);
+      server.registerPathHandler("/subscription1", function(metadata, response)
+      {
+        getSubscription(metadata, response);
+        response.setStatusLine("1.1", "404", "Not found");
+      });
+      subscriptionBody = "[Adblock]\nfoo\nbar";
+      runScheduledTasks(27);
+      compareRequests("Requests with fallback calls (27 hours)", [
+        "300000: GET /subscription1",
+        "300000: GET /fallback " + subscription1.url,
+        "11100000: GET /subscription1",
+        "21900000: GET /subscription1",
+        "32700000: GET /subscription1",
+        "43500000: GET /subscription1",
+        "54300000: GET /subscription1",
+        "65100000: GET /subscription1",
+        "75900000: GET /subscription1",
+        "75900000: GET /fallback " + subscription1.url,
+        "86700000: GET /subscription1"
+      ]);
 
-        subscriptionBody = "[Foo]\nthis should not be accepted";
-        runScheduledTasks(3);
-        compareFilters("Filters of downloaded subscription with [Foo] header", "foo4\n!bar4\n@@bas4\n#bam4", "synchronize_invalid_data", null);
+      fallbackResult = "410 Gone";
+      runScheduledTasks(27);
+      compareRequests("Requests with fallback returning 410 Gone (27 hours)", [
+        "300000: GET /subscription1",
+        "11100000: GET /subscription1",
+        "21900000: GET /subscription1",
+        "32700000: GET /subscription1",
+        "43500000: GET /subscription1",
+        "54300000: GET /subscription1",
+        "54300000: GET /fallback " + subscription1.url,
+      ]);
+      subscription1.autoDownload = true;
 
-        subscriptionBody = "[Adblock Plus 99.9]\nsome_new_syntax";
-        runScheduledTasks(5);
-        compareFilters("Filters of downloaded subscription with [Adblock Plus 99.9] header", "some_new_syntax", "synchronize_ok", "99.9");
+      fallbackResult = "301 " + subscription2.url;
+      runScheduledTasks(27);
+      compareRequests("Requests with fallback redirecting to /subscription2 (27 hours)", [
+        "300000: GET /subscription1",
+        "11100000: GET /subscription1",
+        "21900000: GET /subscription1",
+        "32700000: GET /subscription1",
+        "43500000: GET /subscription1",
+        "54300000: GET /subscription1",
+        "65100000: GET /subscription1",
+        "65100000: GET /fallback " + subscription1.url,
+        "75900000: GET /subscription2",
+        "86700000: GET /subscription2"
+      ]);
+      compareSubscriptions("Subscriptions after test above", [subscription2]);
+      subscription1.autoDownload = true;
 
-        // Expiration testing - expire times smaller than default update
-        // interval should not be accepted, and expiration times more than
-        // two weeks in the future should be cut down to two weeks.
+      fallbackResult = "301 " + subscription3.url;
+      runScheduledTasks(27);
+      compareRequests("Requests with fallback redirecting to /subscription3 (27 hours)", [
+        "300000: GET /subscription1",
+        "11100000: GET /subscription1",
+        "21900000: GET /subscription1",
+        "32700000: GET /subscription1",
+        "43500000: GET /subscription1",
+        "54300000: GET /subscription1",
+        "65100000: GET /subscription1",
+        "65100000: GET /fallback " + subscription1.url,
+        "75900000: GET /subscription3",
+        "86700000: GET /subscription3"
+      ]);
+      compareSubscriptions("Subscriptions after test above", [subscription2, subscription3]);
+      subscription1.autoDownload = true;
 
-        subscriptionBody = "[Adblock]\n! Expires after 1 hour\nfoo";
-        runScheduledTasks(4);
-        compareRequests("Expiration comment with less than default update interval (4 hours)", [
-          "300000: GET /subscription1",
-          "11100000: GET /subscription1"
-        ]);
+      fallbackResult = "301 " + subscription2.url.replace("subscription2", "invalid_url");
+      runScheduledTasks(48);
+      compareRequests("Requests with fallback redirecting to /invalid_url (27 hours)", [
+        "300000: GET /subscription1",
+        "11100000: GET /subscription1",
+        "21900000: GET /subscription1",
+        "32700000: GET /subscription1",
+        "43500000: GET /subscription1",
+        "54300000: GET /subscription1",
+        "65100000: GET /subscription1",
+        "65100000: GET /fallback " + subscription1.url,
+        "86700000: GET /subscription1",
+        "97500000: GET /subscription1",
+        "108300000: GET /subscription1",
+        "119100000: GET /subscription1",
+        "129900000: GET /subscription1",
+        "140700000: GET /subscription1",
+        "140700000: GET /fallback " + subscription1.url,
+        "162300000: GET /subscription1"
+      ]);
+      compareSubscriptions("Subscriptions after test above", [subscription1, subscription2]);
+      subscription1.autoDownload = true;
 
-        subscriptionBody = "[Adblock]\n! Expires after 4 hours\nfoo";
-        runScheduledTasks(7);
-        compareRequests("Downloads with 'Expires after 4 hours' comment (7 hours)", [
-          "7500000: GET /subscription1",
-          "21900000: GET /subscription1"
-        ]);
+      server.registerPathHandler("/subscription1", getSubscription);
+      fallbackResult = "";
 
-        subscriptionBody = "[Adblock]\n! Expires: 1 day\nfoo";
-        runScheduledTasks(50);
-        compareRequests("Downloads with 'Expires: 1 day' comment (50 hours)", [
-          "11100000: GET /subscription1",
-          "97500000: GET /subscription1"
-        ]);
+      // Checksum verification
+      subscriptionBody = "[Adblock]\n! Checksum: e/JCmqXny6Fn24b7JHsq/A\nfoo\nbar\n";
 
-        subscriptionBody = "[Adblock]\nfoo";
-        subscriptionExtraHeaders = function() [["Expires", new Date(currentTime + 5 * 60 * 60 * 1000).toGMTString()]];
-        runScheduledTasks(10);
-        compareRequests("Downloads with 'Expires: +5h' HTTP header (10 hours)", [
-          "3900000: GET /subscription1",
-          "21900000: GET /subscription1"
-        ]);
+      runScheduledTasks(6);
+      is(subscription1.downloadStatus, "synchronize_ok", "Subscription download with correct checksum succeeded");
+      
+      subscriptionBody = subscriptionBody.replace(/Checksum: /, "$&wrong");
+      runScheduledTasks(6);
+      is(subscription1.downloadStatus, "synchronize_checksum_mismatch", "Subscription download with wrong checksum failed");
+      subscriptionBody = subscriptionBody.replace(/wrong/, "");
 
-        subscriptionExtraHeaders = function() [["Expires", new Date(currentTime + 2 * 60 * 60 * 1000).toGMTString()]];
-        runScheduledTasks(6);
-        compareRequests("Expiration header with less than default update interval (6 hours)", [
-          "3900000: GET /subscription1",
-          "14700000: GET /subscription1"
-        ]);
+      subscriptionBody = subscriptionBody.replace(/\n/g, "\n\n");
+      runScheduledTasks(6);
+      is(subscription1.downloadStatus, "synchronize_ok", "Empty lines are ignored for checksum validation");
+      subscriptionBody = subscriptionBody.replace(/\n\n/g, "\n");
 
-        subscriptionExtraHeaders = function() [["Expires", new Date(currentTime + 504 * 60 * 60 * 1000).toGMTString()]];
-        runScheduledTasks(672);
-        compareRequests("Expiration header more than two weeks in future (672 hours)", [
-          "3900000: GET /subscription1",
-          "1213500000: GET /subscription1"
-        ]);
-        subscriptionExtraHeaders = null;
+      subscriptionBody = subscriptionBody.replace(/\n/g, "\n \n");
+      runScheduledTasks(6);
+      is(subscription1.downloadStatus, "synchronize_checksum_mismatch", "Lines with spaces are not ignored for checksum validation");
+      subscriptionBody = subscriptionBody.replace(/\n \n/g, "\n");
 
-        // Redirect testing
+      subscriptionBody = subscriptionBody.replace(/(Checksum[^\r\n]*)/, "extra1 $& extra2");
+      runScheduledTasks(6);
+      is(subscription1.downloadStatus, "synchronize_ok", "Extra content in checksum line is ignored");
+      subscriptionBody = subscriptionBody.replace(/extra1 /, "").replace(/ extra2/, "");
 
-        server.registerPathHandler("/subscription1", commentRedirectHandler);
+      subscriptionBody = subscriptionBody.replace(/\n/g, "\r\n");
+      runScheduledTasks(6);
+      is(subscription1.downloadStatus, "synchronize_ok", "LF symbols are ignored for checksum validation");
+      subscriptionBody = subscriptionBody.replace(/\r\n/g, "\n");
 
-        redirectURL = subscription2.url;
-        runScheduledTasks(6);
-        compareSubscriptions("Subscriptions after comment redirect to /subscription2", [subscription2]);
+      subscriptionBody = subscriptionBody.replace(/\n/g, "\r");
+      runScheduledTasks(6);
+      is(subscription1.downloadStatus, "synchronize_ok", "CR symbols are relevant for checksum validation");
+      subscriptionBody = subscriptionBody.replace(/\r/g, "\n");
 
-        redirectURL = subscription2.url.replace("subscription2", "invalid_url");
-        runScheduledTasks(6);
-        compareSubscriptions("Subscriptions after redirect to /invalid_url", [subscription1, subscription2]);
+      subscriptionBody = subscriptionBody.replace(/(Checksum[^\r\n]*)/, "$&extra");
+      runScheduledTasks(6);
+      is(subscription1.downloadStatus, "synchronize_checksum_mismatch", "Extra symbols in the checksum are interpreted as part of the checksum");
+      subscriptionBody = subscriptionBody.replace(/extra/, "");
 
-        server.registerPathHandler("/subscription1", redirectHandler);
+      subscriptionBody = subscriptionBody.replace(/(Checksum[^\r\n]*)/, "$&===");
+      runScheduledTasks(6);
+      is(subscription1.downloadStatus, "synchronize_ok", "= symbols after checksum are ignored");
+      subscriptionBody = subscriptionBody.replace(/===/, "");
 
-        redirectURL = subscription2.url;
-        redirectPermanent = false;
-        runScheduledTasks(6);
-        compareSubscriptions("Subscriptions after temporary redirect to /subscription2", [subscription1, subscription2]);
-
-        redirectPermanent = true;
-        runScheduledTasks(6);
-        compareSubscriptions("Subscriptions after permanent redirect to /subscription2", [subscription2]);
-
-        redirectURL = subscription3.url;
-        redirectPermanent = false;
-        runScheduledTasks(6);
-        compareSubscriptions("Subscriptions after temporary redirect to /subscription3", [subscription1, subscription2]);
-
-        redirectPermanent = true;
-        runScheduledTasks(6);
-        compareSubscriptions("Subscriptions after permanent redirect to /subscription3", [subscription2, subscription3]);
-
-        redirectURL = subscription2.url.replace("subscription2", "invalid_url");
-        redirectPermanent = false;
-        runScheduledTasks(6);
-        compareSubscriptions("Subscriptions after temporary redirect to /invalid_url", [subscription1, subscription2]);
-
-        redirectPermanent = true;
-        runScheduledTasks(6);
-        compareSubscriptions("Subscriptions after permanent redirect to /invalid_url", [subscription1, subscription2]);
-
-        server.registerPathHandler("/subscription3", redirectHandler);
-
-        server.registerPathHandler("/subscription1", function redirectHandler(metadata, response)
-        {
-          response.setStatusLine("1.1", 302, "Moved Temporarily");
-          response.setHeader("Location", subscription3.url);
-        });
-
-        redirectURL = subscription2.url;
-        redirectPermanent = false;
-        runScheduledTasks(6);
-        compareSubscriptions("Subscriptions after temporary redirect to /subscription3 followed by temporary redirect to /subscription2", [subscription1, subscription2]);
-
-        redirectPermanent = true;
-        runScheduledTasks(6);
-        compareSubscriptions("Subscriptions after temporary redirect to /subscription3 followed by permanent redirect to /subscription2", [subscription1, subscription2]);
-
-        redirectURL = subscription2.url.replace("subscription2", "invalid_url");;
-        redirectPermanent = false;
-        runScheduledTasks(6);
-        compareSubscriptions("Subscriptions after temporary redirect to /subscription3 followed by temporary redirect to /invalid_url", [subscription1, subscription2]);
-
-        redirectPermanent = true;
-        runScheduledTasks(6);
-        compareSubscriptions("Subscriptions after temporary redirect to /subscription3 followed by permanent redirect to /invalid_url", [subscription1, subscription2]);
-
-        server.registerPathHandler("/subscription1", function redirectHandler(metadata, response)
-        {
-          response.setStatusLine("1.1", 301, "Moved Permanently");
-          response.setHeader("Location", subscription3.url);
-        });
-
-        redirectURL = subscription2.url;
-        redirectPermanent = false;
-        runScheduledTasks(6);
-        compareSubscriptions("Subscriptions after permanent redirect to /subscription3 followed by temporary redirect to /subscription2", [subscription2, subscription3]);
-
-        redirectPermanent = true;
-        runScheduledTasks(6);
-        compareSubscriptions("Subscriptions after permanent redirect to /subscription3 followed by permanent redirect to /subscription2", [subscription2]);
-
-        redirectURL = subscription2.url.replace("subscription2", "invalid_url");;
-        redirectPermanent = false;
-        runScheduledTasks(6);
-        compareSubscriptions("Subscriptions after permanent redirect to /subscription3 followed by temporary redirect to /invalid_url", [subscription1, subscription2]);
-
-        redirectPermanent = true;
-        runScheduledTasks(6);
-        compareSubscriptions("Subscriptions after permanent redirect to /subscription3 followed by permanent redirect to /invalid_url", [subscription1, subscription2]);
-
-        server.registerPathHandler("/subscription1", getSubscription);
-        server.registerPathHandler("/subscription3", getSubscription);
-
-        // Behavior on errors
-
-        runScheduledTasks(6); // reset error counters
-        requests = [];
-
-        subscriptionStatus = [404, "Not Found"];
-        runScheduledTasks(9);
-        compareRequests("Requests after 404 error (9 hours)", [
-          "300000: GET /subscription1",
-          "11100000: GET /subscription1",
-          "21900000: GET /subscription1"
-        ]);
-
-        subscriptionStatus = [200, "OK"];
-        subscriptionBody = "Not a valid subscription";
-        runScheduledTasks(9);
-        compareRequests("Requests for invalid subscription (9 hours)", [
-          "300000: GET /subscription1",
-          "11100000: GET /subscription1",
-          "21900000: GET /subscription1"
-        ]);
-
-        server.registerPathHandler("/subscription1", function(metadata, response)
-        {
-          getSubscription(metadata, response);
-          response.setStatusLine("1.1", "404", "Not found");
-        });
-        subscriptionBody = "[Adblock]\nfoo\nbar";
-        runScheduledTasks(27);
-        compareRequests("Requests with fallback calls (27 hours)", [
-          "300000: GET /subscription1",
-          "300000: GET /fallback " + subscription1.url,
-          "11100000: GET /subscription1",
-          "21900000: GET /subscription1",
-          "32700000: GET /subscription1",
-          "43500000: GET /subscription1",
-          "54300000: GET /subscription1",
-          "65100000: GET /subscription1",
-          "75900000: GET /subscription1",
-          "75900000: GET /fallback " + subscription1.url,
-          "86700000: GET /subscription1"
-        ]);
-
-        fallbackResult = "410 Gone";
-        runScheduledTasks(27);
-        compareRequests("Requests with fallback returning 410 Gone (27 hours)", [
-          "300000: GET /subscription1",
-          "11100000: GET /subscription1",
-          "21900000: GET /subscription1",
-          "32700000: GET /subscription1",
-          "43500000: GET /subscription1",
-          "54300000: GET /subscription1",
-          "54300000: GET /fallback " + subscription1.url,
-        ]);
-        subscription1.autoDownload = true;
-
-        fallbackResult = "301 " + subscription2.url;
-        runScheduledTasks(27);
-        compareRequests("Requests with fallback redirecting to /subscription2 (27 hours)", [
-          "300000: GET /subscription1",
-          "11100000: GET /subscription1",
-          "21900000: GET /subscription1",
-          "32700000: GET /subscription1",
-          "43500000: GET /subscription1",
-          "54300000: GET /subscription1",
-          "65100000: GET /subscription1",
-          "65100000: GET /fallback " + subscription1.url,
-          "75900000: GET /subscription2",
-          "86700000: GET /subscription2"
-        ]);
-        compareSubscriptions("Subscriptions after test above", [subscription2]);
-        subscription1.autoDownload = true;
-
-        fallbackResult = "301 " + subscription3.url;
-        runScheduledTasks(27);
-        compareRequests("Requests with fallback redirecting to /subscription3 (27 hours)", [
-          "300000: GET /subscription1",
-          "11100000: GET /subscription1",
-          "21900000: GET /subscription1",
-          "32700000: GET /subscription1",
-          "43500000: GET /subscription1",
-          "54300000: GET /subscription1",
-          "65100000: GET /subscription1",
-          "65100000: GET /fallback " + subscription1.url,
-          "75900000: GET /subscription3",
-          "86700000: GET /subscription3"
-        ]);
-        compareSubscriptions("Subscriptions after test above", [subscription2, subscription3]);
-        subscription1.autoDownload = true;
-
-        fallbackResult = "301 " + subscription2.url.replace("subscription2", "invalid_url");
-        runScheduledTasks(48);
-        compareRequests("Requests with fallback redirecting to /invalid_url (27 hours)", [
-          "300000: GET /subscription1",
-          "11100000: GET /subscription1",
-          "21900000: GET /subscription1",
-          "32700000: GET /subscription1",
-          "43500000: GET /subscription1",
-          "54300000: GET /subscription1",
-          "65100000: GET /subscription1",
-          "65100000: GET /fallback " + subscription1.url,
-          "86700000: GET /subscription1",
-          "97500000: GET /subscription1",
-          "108300000: GET /subscription1",
-          "119100000: GET /subscription1",
-          "129900000: GET /subscription1",
-          "140700000: GET /subscription1",
-          "140700000: GET /fallback " + subscription1.url,
-          "162300000: GET /subscription1"
-        ]);
-        compareSubscriptions("Subscriptions after test above", [subscription1, subscription2]);
-        subscription1.autoDownload = true;
-
-        server.registerPathHandler("/subscription1", getSubscription);
-        fallbackResult = "";
-
-        // Checksum verification
-        subscriptionBody = "[Adblock]\n! Checksum: e/JCmqXny6Fn24b7JHsq/A\nfoo\nbar\n";
-
-        runScheduledTasks(6);
-        is(subscription1.downloadStatus, "synchronize_ok", "Subscription download with correct checksum succeeded");
-        
-        subscriptionBody = subscriptionBody.replace(/Checksum: /, "$&wrong");
-        runScheduledTasks(6);
-        is(subscription1.downloadStatus, "synchronize_checksum_mismatch", "Subscription download with wrong checksum failed");
-        subscriptionBody = subscriptionBody.replace(/wrong/, "");
-
-        subscriptionBody = subscriptionBody.replace(/\n/g, "\n\n");
-        runScheduledTasks(6);
-        is(subscription1.downloadStatus, "synchronize_ok", "Empty lines are ignored for checksum validation");
-        subscriptionBody = subscriptionBody.replace(/\n\n/g, "\n");
-
-        subscriptionBody = subscriptionBody.replace(/\n/g, "\n \n");
-        runScheduledTasks(6);
-        is(subscription1.downloadStatus, "synchronize_checksum_mismatch", "Lines with spaces are not ignored for checksum validation");
-        subscriptionBody = subscriptionBody.replace(/\n \n/g, "\n");
-
-        subscriptionBody = subscriptionBody.replace(/(Checksum[^\r\n]*)/, "extra1 $& extra2");
-        runScheduledTasks(6);
-        is(subscription1.downloadStatus, "synchronize_ok", "Extra content in checksum line is ignored");
-        subscriptionBody = subscriptionBody.replace(/extra1 /, "").replace(/ extra2/, "");
-
-        subscriptionBody = subscriptionBody.replace(/\n/g, "\r\n");
-        runScheduledTasks(6);
-        is(subscription1.downloadStatus, "synchronize_ok", "LF symbols are ignored for checksum validation");
-        subscriptionBody = subscriptionBody.replace(/\r\n/g, "\n");
-
-        subscriptionBody = subscriptionBody.replace(/\n/g, "\r");
-        runScheduledTasks(6);
-        is(subscription1.downloadStatus, "synchronize_ok", "CR symbols are relevant for checksum validation");
-        subscriptionBody = subscriptionBody.replace(/\r/g, "\n");
-
-        subscriptionBody = subscriptionBody.replace(/(Checksum[^\r\n]*)/, "$&extra");
-        runScheduledTasks(6);
-        is(subscription1.downloadStatus, "synchronize_checksum_mismatch", "Extra symbols in the checksum are interpreted as part of the checksum");
-        subscriptionBody = subscriptionBody.replace(/extra/, "");
-
-        subscriptionBody = subscriptionBody.replace(/(Checksum[^\r\n]*)/, "$&===");
-        runScheduledTasks(6);
-        is(subscription1.downloadStatus, "synchronize_ok", "= symbols after checksum are ignored");
-        subscriptionBody = subscriptionBody.replace(/===/, "");
-
-        requests = [];
-        subscriptionBody = subscriptionBody.replace(/Checksum: /, "$&wrong");
-        runScheduledTasks(27);
-        compareRequests("Requests with checksum failures shouldn't trigger fallback URL (27 hours)", [
-          "300000: GET /subscription1",
-          "11100000: GET /subscription1",
-          "21900000: GET /subscription1",
-          "32700000: GET /subscription1",
-          "43500000: GET /subscription1",
-          "54300000: GET /subscription1",
-          "65100000: GET /subscription1",
-          "75900000: GET /subscription1",
-          "86700000: GET /subscription1",
-        ]);
-        subscriptionBody = subscriptionBody.replace(/wrong/, "");
-      }
+      requests = [];
+      subscriptionBody = subscriptionBody.replace(/Checksum: /, "$&wrong");
+      runScheduledTasks(27);
+      compareRequests("Requests with checksum failures shouldn't trigger fallback URL (27 hours)", [
+        "300000: GET /subscription1",
+        "11100000: GET /subscription1",
+        "21900000: GET /subscription1",
+        "32700000: GET /subscription1",
+        "43500000: GET /subscription1",
+        "54300000: GET /subscription1",
+        "65100000: GET /subscription1",
+        "75900000: GET /subscription1",
+        "86700000: GET /subscription1",
+      ]);
+      subscriptionBody = subscriptionBody.replace(/wrong/, "");
 
       // @TODO: If-Modified-Since
     }
