@@ -137,12 +137,6 @@ var policy =
       locationText = match.text.replace(/^.*?#/, '#');
       location = locationText;
     }
-    if (!match && location.scheme == "chrome" && location.host == "global" && /abphit:(\d+)\b/.test(location.path) && RegExp.$1 in elemhide.keys)
-    {
-      match = elemhide.keys[RegExp.$1];
-      contentType = this.type.ELEMHIDE;
-      locationText = match.text.replace(/^.*?#/, '#');
-    }
 
     var data = DataContainer.getDataForWindow(wnd);
 
@@ -195,11 +189,8 @@ var policy =
    * @param location  {nsIURI}
    * @return {Boolean}
    */
-  isBlockableScheme: function(location) {
-    // HACK: Allow blocking element hiding hits
-    if (location.scheme == "chrome" && location.host == "global" && /abphit:(\d+)\b/.test(location.path) && RegExp.$1 in elemhide.keys)
-      return true;
-
+  isBlockableScheme: function(location)
+  {
     return !(location.scheme in this.whitelistSchemes);
   },
 
@@ -323,14 +314,6 @@ var policy =
       return ok;
 
     var location = unwrapURL(contentLocation);
-
-    // Only block in content windows (Gecko 1.8 compatibility)
-    var wndType = wnd.QueryInterface(Components.interfaces.nsIInterfaceRequestor)
-                     .getInterface(Components.interfaces.nsIWebNavigation)
-                     .QueryInterface(Components.interfaces.nsIDocShellTreeItem)
-                     .itemType;
-    if (wndType != Components.interfaces.nsIDocShellTreeItem.typeContent && !(location.scheme == "chrome" && location.host == "global" && /abphit:(\d+)\b/.test(location.path)))
-      return ok;
 
     // Interpret unknown types as "other"
     if (!(contentType in this.typeDescr))
