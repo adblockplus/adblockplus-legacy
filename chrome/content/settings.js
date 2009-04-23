@@ -1166,23 +1166,7 @@ function fillContext()
   let clipboard = Components.classes["@mozilla.org/widget/clipboard;1"]
                             .getService(Components.interfaces.nsIClipboard);
 
-  let hasFlavour = true;
-  if (clipboard.hasDataMatchingFlavors.arity > 2)
-  {
-    // Gecko 1.9
-    hasFlavour = clipboard.hasDataMatchingFlavors(["text/unicode"], 1, clipboard.kGlobalClipboard);
-  }
-  else
-  {
-    // Gecko 1.8
-    let flavours = Components.classes["@mozilla.org/supports-array;1"]
-                             .createInstance(Components.interfaces.nsISupportsArray);
-    let flavourString = Components.classes["@mozilla.org/supports-cstring;1"]
-                                  .createInstance(Components.interfaces.nsISupportsCString);
-    flavourString.data = "text/unicode";
-    flavours.AppendElement(flavourString);
-    hasFlavour = clipboard.hasDataMatchingFlavors(flavours, clipboard.kGlobalClipboard);
-  }
+  let hasFlavour = clipboard.hasDataMatchingFlavors(["text/unicode"], 1, clipboard.kGlobalClipboard);
 
   E("copy-command").setAttribute("disabled", !hasFilters);
   E("cut-command").setAttribute("disabled", !hasRemovable);
