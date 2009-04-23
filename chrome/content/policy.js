@@ -1,4 +1,5 @@
 /* ***** BEGIN LICENSE BLOCK *****
+/* ***** BEGIN LICENSE BLOCK *****
  * Version: MPL 1.1
  *
  * The contents of this file are subject to the Mozilla Public License Version
@@ -27,12 +28,8 @@
  * This file is included from nsAdblockPlus.js.
  */
 
-var effectiveTLD = null;
-if ("nsIEffectiveTLDService" in Components.interfaces)
-{
-  effectiveTLD = Components.classes["@mozilla.org/network/effective-tld-service;1"]
-                           .getService(Components.interfaces.nsIEffectiveTLDService);
-}
+var effectiveTLD = Components.classes["@mozilla.org/network/effective-tld-service;1"]
+                             .getService(Components.interfaces.nsIEffectiveTLDService);
 
 const ok = Components.interfaces.nsIContentPolicy.ACCEPT;
 const block = Components.interfaces.nsIContentPolicy.REJECT_SERVER;
@@ -275,28 +272,14 @@ var policy =
     if (!location || !docDomain)
       return true;
 
-    try 
+    try
     {
-      if (effectiveTLD)
-      {
-        try {
-          return effectiveTLD.getBaseDomain(location) != effectiveTLD.getBaseDomainFromHost(docDomain);
-        }
-        catch (e) {
-          // EffectiveTLDService throws on IP addresses
-          return location.host != docDomain;
-        }
-      }
-      else
-      {
-        // Stupid fallback algorithm for Gecko 1.8
-        return location.host.replace(/.*?((?:[^.]+\.)?[^.]+\.?)$/, "$1") != docDomain.replace(/.*?((?:[^.]+\.)?[^.]+\.?)$/, "$1");
-      }
+      return effectiveTLD.getBaseDomain(location) != effectiveTLD.getBaseDomainFromHost(docDomain);
     }
-    catch (e2)
+    catch (e)
     {
-      // nsSimpleURL.host will throw, treat those URLs as third-party
-      return true;
+      // EffectiveTLDService throws on IP addresses
+      return location.host != docDomain;
     }
   },
 
