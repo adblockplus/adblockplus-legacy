@@ -201,10 +201,8 @@
 <vbox id="listarea" flex="1">
   <deck id="listEditorParent">
     <hbox align="center">
+      <textbox id="listEditor" class="tree-input" flex="1"/>
       <image id="listEditorIcon" onclick="if (event.button == 0) treeView.stopEditor(false);" />
-      <vbox flex="1" pack="center">
-        <textbox id="listEditor" flex="1"/>
-      </vbox>
     </hbox>
   </deck>
   <stack id="listStack" flex="1">
