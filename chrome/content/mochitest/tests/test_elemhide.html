@@ -59,16 +59,9 @@
       }, 0);
     }
 
-    if (compareGeckoVersion("1.9") >= 0)
-    {
-      SimpleTest.waitForExplicitFinish();
-      abp.prefs.enabled = true;
-      runNextTest();
-    }
-    else
-    {
-      ok(true, "These tests require an application based on Gecko 1.9 or higher");
-    }
+    SimpleTest.waitForExplicitFinish();
+    abp.prefs.enabled = true;
+    runNextTest();
   </script>
   </pre>
 </body>

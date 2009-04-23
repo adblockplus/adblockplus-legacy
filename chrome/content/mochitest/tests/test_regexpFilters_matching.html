@@ -69,24 +69,21 @@
     testMatch("abc$background", "http://abc/adf", "IMAGE", null, false, false);
     testMatch("abc$background", "http://abc/adf", "BACKGROUND", null, false, true);
     testMatch("abc$~background", "http://abc/adf", "BACKGROUND", null, false, false);
-    if (compareGeckoVersion("1.9") >= 0)
-    {
-      testMatch("abc$xbl", "http://abc/adf", "IMAGE", null, false, false);
-      testMatch("abc$xbl", "http://abc/adf", "XBL", null, false, true);
-      testMatch("abc$~xbl", "http://abc/adf", "XBL", null, false, false);
-      testMatch("abc$ping", "http://abc/adf", "IMAGE", null, false, false);
-      testMatch("abc$ping", "http://abc/adf", "PING", null, false, true);
-      testMatch("abc$~ping", "http://abc/adf", "PING", null, false, false);
-      testMatch("abc$xmlhttprequest", "http://abc/adf", "IMAGE", null, false, false);
-      testMatch("abc$xmlhttprequest", "http://abc/adf", "XMLHTTPREQUEST", null, false, true);
-      testMatch("abc$~xmlhttprequest", "http://abc/adf", "XMLHTTPREQUEST", null, false, false);
-      testMatch("abc$object-subrequest", "http://abc/adf", "IMAGE", null, false, false);
-      testMatch("abc$object-subrequest", "http://abc/adf", "OBJECT_SUBREQUEST", null, false, true);
-      testMatch("abc$~object-subrequest", "http://abc/adf", "OBJECT_SUBREQUEST", null, false, false);
-      testMatch("abc$dtd", "http://abc/adf", "IMAGE", null, false, false);
-      testMatch("abc$dtd", "http://abc/adf", "DTD", null, false, true);
-      testMatch("abc$~dtd", "http://abc/adf", "DTD", null, false, false);
-    }
+    testMatch("abc$xbl", "http://abc/adf", "IMAGE", null, false, false);
+    testMatch("abc$xbl", "http://abc/adf", "XBL", null, false, true);
+    testMatch("abc$~xbl", "http://abc/adf", "XBL", null, false, false);
+    testMatch("abc$ping", "http://abc/adf", "IMAGE", null, false, false);
+    testMatch("abc$ping", "http://abc/adf", "PING", null, false, true);
+    testMatch("abc$~ping", "http://abc/adf", "PING", null, false, false);
+    testMatch("abc$xmlhttprequest", "http://abc/adf", "IMAGE", null, false, false);
+    testMatch("abc$xmlhttprequest", "http://abc/adf", "XMLHTTPREQUEST", null, false, true);
+    testMatch("abc$~xmlhttprequest", "http://abc/adf", "XMLHTTPREQUEST", null, false, false);
+    testMatch("abc$object-subrequest", "http://abc/adf", "IMAGE", null, false, false);
+    testMatch("abc$object-subrequest", "http://abc/adf", "OBJECT_SUBREQUEST", null, false, true);
+    testMatch("abc$~object-subrequest", "http://abc/adf", "OBJECT_SUBREQUEST", null, false, false);
+    testMatch("abc$dtd", "http://abc/adf", "IMAGE", null, false, false);
+    testMatch("abc$dtd", "http://abc/adf", "DTD", null, false, true);
+    testMatch("abc$~dtd", "http://abc/adf", "DTD", null, false, false);
     testMatch("abc$image,script", "http://abc/adf", "IMAGE", null, false, true);
     testMatch("abc$~image", "http://abc/adf", "IMAGE", null, false, false);
     testMatch("abc$~script", "http://abc/adf", "IMAGE", null, false, true);
