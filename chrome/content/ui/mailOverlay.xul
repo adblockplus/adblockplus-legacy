@@ -24,67 +24,42 @@
    -
    - ***** END LICENSE BLOCK ***** -->
 
-<?xul-overlay href="chrome://adblockplus/content/overlayGeneral.xul"?>
+<?xul-overlay href="chrome://adblockplus/content/ui/overlayGeneral.xul"?>
 
 <overlay id="abp-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
   <!-- Window extensions -->
-  <window id="main-window">
+  <window id="messengerWindow">
     <popupset id="abp-popupset"/>
     <keyset id="abp-keyset"/>
     <commandset id="abp-commandset"/>
   </window>
 
-  <!-- Songbird window -->
-  <sb-support id="mainSupportSet">
-    <popupset id="abp-popupset"/>
-    <keyset id="abp-keyset"/>
-    <commandset id="abp-commandset"/>
-  </sb-support>
-
   <!-- Status bar -->
   <statusbar id="status-bar">
-    <statusbarpanel id="abp-status" mousethrough="never" insertbefore="resizerBottomRight"/>
+    <statusbarpanel id="abp-status"/>
   </statusbar> 
 
-  <!-- Firefox toolbar -->
-  <toolbarpalette id="BrowserToolbarPalette">
-    <toolbarbutton id="abp-toolbarbutton" type="menu-button" insertbefore="print-button"
+  <!-- Thunderbird toolbar -->
+  <toolbarpalette id="MailToolbarPalette">
+    <toolbarbutton id="abp-toolbarbutton" type="menu-button" insertafter="button-junk"
         class="chromeclass-toolbar-additional"
         oncontextmenu="abpCheckToolbarContext(event)"/>
   </toolbarpalette>
 
-  <!-- SeaMonkey toolbar -->
-  <hbox id="nav-bar-buttons">
-    <toolbarbutton id="abp-toolbarbutton" class="bookmark-item" hidden="true"/>
-  </hbox>
-
-  <!-- SeaMonkey Tools menu -->
+  <!-- Thunderbird/SeaMonkey Mail tools menu -->
   <menupopup id="taskPopup">
-    <menuitem id="abp-menuitem" insertafter="downloadmgr"/>
-  </menupopup>
-  <!-- Firefox Tools menu -->
-  <menupopup id="menu_ToolsPopup">
-    <menuitem id="abp-menuitem" insertafter="javascriptConsole"/>
-  </menupopup>
-
-  <!-- SeaMonkey View menu -->
-  <menupopup id="view_toolbars_popup">
-    <menuitem id="abp-blockableitems" insertafter="sidebar-menu"/>
-  </menupopup>
-  <!-- Firefox View menu -->
-  <menupopup id="menu_viewPopup">
-    <menuitem id="abp-blockableitems" insertafter="viewSidebarMenuMenu"/>
+    <menuitem id="abp-menuitem" insertafter="downloadmgr,javaScriptConsole"/>
   </menupopup>
 
   <!-- Context menu -->
-  <popup id="contentAreaContextMenu">
+  <popup id="messagePaneContext">
     <menuitem id="abp-image-menuitem"/>
     <menuitem id="abp-object-menuitem"/>
     <menuitem id="abp-frame-menuitem"/>
   </popup>
 
   <!-- Fake sidebar -->
-  <vbox id="appcontent">
+  <vbox id="messagepanebox">
     <splitter id="abp-sidebar-splitter"/>
     <vbox id="abp-sidebar"/>
   </vbox>

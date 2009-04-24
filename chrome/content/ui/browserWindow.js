@@ -386,7 +386,7 @@ function handleLinkClick(/**Event*/ event)
 
       var subscription = {url: url, title: title, disabled: false, external: false, autoDownload: true};
 
-      window.openDialog("chrome://adblockplus/content/subscription.xul", "_blank",
+      window.openDialog("chrome://adblockplus/content/ui/subscription.xul", "_blank",
                          "chrome,centerscreen,modal", subscription);
     }
   }
@@ -468,11 +468,11 @@ function abpShowSubscriptions()
   if ("addTab" in browser)
   {
     // We have a tabbrowser
-    browser.selectedTab = browser.addTab("chrome://adblockplus/content/tip_subscriptions.xul");
+    browser.selectedTab = browser.addTab("chrome://adblockplus/content/ui/tip_subscriptions.xul");
   }
   else
   {
-    window.openDialog("chrome://adblockplus/content/tip_subscriptions.xul", "_blank", "chrome,centerscreen,resizable,dialog=no");
+    window.openDialog("chrome://adblockplus/content/ui/tip_subscriptions.xul", "_blank", "chrome,centerscreen,resizable,dialog=no");
   }
 }
 
@@ -692,11 +692,11 @@ function abpToggleSidebar() {
     var sidebar = E("abp-sidebar");
     if (sidebar && (!prefs.detachsidebar || !sidebar.hidden)) {
       E("abp-sidebar-splitter").hidden = !sidebar.hidden;
-      E("abp-sidebar-browser").setAttribute("src", sidebar.hidden ? "chrome://adblockplus/content/sidebar.xul" : "about:blank");
+      E("abp-sidebar-browser").setAttribute("src", sidebar.hidden ? "chrome://adblockplus/content/ui/sidebar.xul" : "about:blank");
       sidebar.hidden = !sidebar.hidden;
     }
     else
-      window.abpDetachedSidebar = window.openDialog("chrome://adblockplus/content/sidebarDetached.xul", "_blank", "chrome,resizable,dependent,dialog=no,width=600,height=300");
+      window.abpDetachedSidebar = window.openDialog("chrome://adblockplus/content/ui/sidebarDetached.xul", "_blank", "chrome,resizable,dependent,dialog=no,width=600,height=300");
   }
 
   let menuItem = E("abp-blockableitems");
@@ -837,5 +837,5 @@ function abpCheckContext() {
 // Bring up the settings dialog for the node the context menu was referring to
 function abpNode(data) {
   if (abp && data)
-    window.openDialog("chrome://adblockplus/content/composer.xul", "_blank", "chrome,centerscreen,resizable,dialog=no,dependent", abp.getBrowserInWindow(window).contentWindow, data);
+    window.openDialog("chrome://adblockplus/content/ui/composer.xul", "_blank", "chrome,centerscreen,resizable,dialog=no,dependent", abp.getBrowserInWindow(window).contentWindow, data);
 }

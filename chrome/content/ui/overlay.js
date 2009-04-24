@@ -30,5 +30,5 @@ window.addEventListener("load", function()
   sandbox.document = document;
   Components.classes["@mozilla.org/moz/jssubscript-loader;1"]
             .getService(Components.interfaces.mozIJSSubScriptLoader)
-            .loadSubScript("chrome://adblockplus/content/browserWindow.js", sandbox);
+            .loadSubScript("chrome://adblockplus/content/ui/browserWindow.js", sandbox);
 }, false);

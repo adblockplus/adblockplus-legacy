@@ -327,7 +327,7 @@ const abp =
     }
     else
     {
-      dlg = windowWatcher.openWindow(null, "chrome://adblockplus/content/settings.xul", "_blank", "chrome,centerscreen,resizable,dialog=no", null);
+      dlg = windowWatcher.openWindow(null, "chrome://adblockplus/content/ui/settings.xul", "_blank", "chrome,centerscreen,resizable,dialog=no", null);
       dlg.addEventListener("post-load", func, false);
     }
   },

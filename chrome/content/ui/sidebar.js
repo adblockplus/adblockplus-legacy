@@ -406,7 +406,7 @@ function doBlock() {
   if (filter && filter instanceof abp.WhitelistFilter)
     return;
 
-  openDialog("chrome://adblockplus/content/composer.xul", "_blank", "chrome,centerscreen,resizable,dialog=no,dependent", window.content, item);
+  openDialog("chrome://adblockplus/content/ui/composer.xul", "_blank", "chrome,centerscreen,resizable,dialog=no,dependent", window.content, item);
 }
 
 function editFilter() {
@@ -499,7 +499,7 @@ function detach() {
 
   // Close sidebar and open detached window
   mainWin.document.getElementById("abp-command-sidebar").doCommand();
-  mainWin.abpDetachedSidebar = mainWin.openDialog("chrome://adblockplus/content/sidebarDetached.xul", "_blank", "chrome,resizable,dependent,dialog=no"+position);
+  mainWin.abpDetachedSidebar = mainWin.openDialog("chrome://adblockplus/content/ui/sidebarDetached.xul", "_blank", "chrome,resizable,dependent,dialog=no"+position);
 
   // Save setting
   prefs.detachsidebar = true;
