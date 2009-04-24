@@ -42,15 +42,15 @@ deck, deck * {
 }
 
 #listEditorIcon {
-  list-style-image: url("findbar/close.png");
-  -moz-image-region: rect(0px, 16px, 16px, 0px);
-  margin-right: 2px;
+  list-style-image: url("close.png");
+  -moz-image-region: rect(0px, 14px, 14px, 0px);
+  margin-left: 2px;
 }
 #listEditorIcon:hover {
-  -moz-image-region: rect(0px, 32px, 16px, 16px);
+  -moz-image-region: rect(0px, 28px, 14px, 14px);
 }
 #listEditorIcon:hover:active {
-  -moz-image-region: rect(0px, 48px, 16px, 32px);
+  -moz-image-region: rect(0px, 42px, 14px, 28px);
 }
 
 #col-slow {
