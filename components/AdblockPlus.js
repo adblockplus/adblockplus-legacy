@@ -452,7 +452,6 @@ function init()
   loader.loadSubScript('chrome://adblockplus/content/data.js');
   loader.loadSubScript('chrome://adblockplus/content/prefs.js');
   loader.loadSubScript('chrome://adblockplus/content/synchronizer.js');
-  loader.loadSubScript('chrome://adblockplus/content/flasher.js');
   
   timeLine.log("init() done");
 }
