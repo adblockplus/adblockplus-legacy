@@ -448,7 +448,6 @@ function init()
   loader.loadSubScript('chrome://adblockplus/content/matcher.js');
   loader.loadSubScript('chrome://adblockplus/content/elemhide.js');
   loader.loadSubScript('chrome://adblockplus/content/filterListener.js');
-  loader.loadSubScript('chrome://adblockplus/content/protocol.js');
   loader.loadSubScript('chrome://adblockplus/content/policy.js');
   loader.loadSubScript('chrome://adblockplus/content/data.js');
   loader.loadSubScript('chrome://adblockplus/content/prefs.js');

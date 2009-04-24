@@ -128,7 +128,9 @@ function abpInit() {
     prefReloadTimer = abp.createTimer(abpReloadPrefs, 2000);
     prefReloadTimer.type = prefReloadTimer.TYPE_REPEATING_SLACK;
     
-    abp.getBrowserInWindow(window).addEventListener("select", abpReloadPrefs, false); 
+    let browser = abp.getBrowserInWindow(window);
+    browser.addEventListener("select", abpReloadPrefs, false);
+    browser.addEventListener("click", handleLinkClick, true);
 
     // Make sure we always configure keys but don't let them break anything
     try {
@@ -341,6 +343,52 @@ function abpConfigureKey(key, value) {
     element.setAttribute("modifiers", modifiers.join(","));
 
     E("abp-keyset").appendChild(element);
+  }
+}
+
+/**
+ * Handles browser clicks to intercept clicks on abp: links.
+ */
+function handleLinkClick(/**Event*/ event)
+{
+  // Ignore right-clicks
+  if (event.button == 2)
+    return;
+
+  let link = event.target;
+  while (link && !(link instanceof Components.interfaces.nsIDOMNSHTMLAnchorElement))
+    link = link.parentNode;
+
+  if (link && /^abp:\/*subscribe\/*\?(.*)/i.test(link.href))
+  {
+    event.preventDefault();
+    event.stopPropagation();
+
+    let unescape = Components.classes["@mozilla.org/intl/texttosuburi;1"]
+                             .getService(Components.interfaces.nsITextToSubURI);
+
+    let params = RegExp.$1.split('&');
+    let title = null;
+    let url = null;
+    for each (let param in params)
+    {
+      let parts = param.split("=", 2);
+      if (parts.length == 2 && parts[0] == 'title')
+        title = decodeURIComponent(parts[1]);
+      if (parts.length == 2 && parts[0] == 'location')
+        url = decodeURIComponent(parts[1]);
+    }
+
+    if (url && /\S/.test(url))
+    {
+      if (!title || !/\S/.test(title))
+        title = url;
+
+      var subscription = {url: url, title: title, disabled: false, external: false, autoDownload: true};
+
+      window.openDialog("chrome://adblockplus/content/subscription.xul", "_blank",
+                         "chrome,centerscreen,modal", subscription);
+    }
   }
 }
 
