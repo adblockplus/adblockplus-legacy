@@ -6,7 +6,7 @@ overlay   chrome://midbrowser/content/midbrowser.xul chrome://adblockplus/conten
 overlay   chrome://emusic/content/startup.xul chrome://adblockplus/content/overlay.xul
 overlay   chrome://webrunner/content/webrunner.xul chrome://adblockplus/content/prismOverlay.xul
 content   adblockplus jar:chrome/adblockplus.jar!/content/
-skin      adblockplus classic/1.0 jar:chrome/adblockplus.jar!/skin/classic/
+skin      adblockplus classic/1.0 jar:chrome/adblockplus.jar!/skin/
 style     chrome://global/content/customizeToolbar.xul  chrome://adblockplus/skin/overlay.css
 locale    adblockplus {{LOCALE}} jar:chrome/adblockplus.jar!/locale/{{LOCALE}}/
 
