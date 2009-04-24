@@ -202,6 +202,26 @@ SimpleTest.waitForExplicitFinish = function () {
 };
 
 /**
+ * Executes a function shortly after the call, but lets the caller continue
+ * working (or finish).
+ */
+SimpleTest.executeSoon = function(aFunc) {
+    if ("Components" in window && "classes" in window.Components) {
+        netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+        var tm = Components.classes["@mozilla.org/thread-manager;1"]
+                   .getService(Components.interfaces.nsIThreadManager);
+
+        tm.mainThread.dispatch({
+            run: function() {
+                aFunc();
+            }
+        }, Components.interfaces.nsIThread.DISPATCH_NORMAL);
+    } else {
+        setTimeout(aFunc, 0);
+    }
+}
+
+/**
  * Talks to the TestRunner if being ran on a iframe and the parent has a
  * TestRunner object.
 **/
