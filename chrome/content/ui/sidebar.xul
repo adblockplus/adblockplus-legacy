@@ -36,6 +36,7 @@
   onunload="cleanUp()">
 
   <script type="application/x-javascript;version=1.7" src="sidebar.js"/>
+  <script type="application/x-javascript;version=1.7" src="flasher.js"/>
 
   <keyset id="sidebarKeys">
     <key id="block-key" keycode="VK_ENTER"/>

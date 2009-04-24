@@ -22,9 +22,8 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-/*
+/**
  * Draws a blinking border for a list of matching nodes.
- * This file is included from AdblockPlus.js.
  */
 
 var flasher = {
@@ -74,12 +73,12 @@ var flasher = {
 
     this.count++;
 
-    this.timer = createTimer(function() {flasher.doFlash()}, 300);
+    this.timer = window.setTimeout(function() {flasher.doFlash()}, 300);
   },
 
   stop: function() {
     if (this.timer) {
-      this.timer.cancel();
+      window.clearTimeout(this.timer);
       this.timer = null;
     }
 
@@ -103,5 +102,3 @@ var flasher = {
     this.setOutline("none");
   }
 };
-
-abp.flasher = flasher;

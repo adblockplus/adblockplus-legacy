@@ -28,7 +28,6 @@ try {
 
   if (abp.prefs.initialized) {
     var prefs = abp.prefs;
-    var flasher = abp.flasher;
     var DataContainer = abp.DataContainer;
   }
   else
