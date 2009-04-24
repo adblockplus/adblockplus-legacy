@@ -24,7 +24,7 @@
 
 /*
  * Stores Adblock Plus data to be attached to a window.
- * This file is included from nsAdblockPlus.js.
+ * This file is included from AdblockPlus.js.
  */
 
 var dataSeed = Math.random();    // Make sure our properties have randomized names

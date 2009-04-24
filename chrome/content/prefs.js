@@ -24,7 +24,7 @@
 
 /*
  * Manages Adblock Plus preferences.
- * This file is included from nsAdblockPlus.js.
+ * This file is included from AdblockPlus.js.
  */
 
 const prefRoot = "extensions.adblockplus.";
