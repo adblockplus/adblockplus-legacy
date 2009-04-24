@@ -32,7 +32,7 @@ var effectiveTLD = Components.classes["@mozilla.org/network/effective-tld-servic
                              .getService(Components.interfaces.nsIEffectiveTLDService);
 
 const ok = Components.interfaces.nsIContentPolicy.ACCEPT;
-const block = Components.interfaces.nsIContentPolicy.REJECT_SERVER;
+const block = Components.interfaces.nsIContentPolicy.REJECT_REQUEST;
 
 var policy =
 {
