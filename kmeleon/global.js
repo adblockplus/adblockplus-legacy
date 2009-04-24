@@ -23,7 +23,7 @@ function _initOverlay() {
   _initialized = true;
   Components.classes["@mozilla.org/moz/jssubscript-loader;1"]
             .getService(Components.interfaces.mozIJSSubScriptLoader)
-            .loadSubScript("chrome://adblockplus/content/overlay.js", this);
+            .loadSubScript("chrome://adblockplus/content/ui/overlay.js", this);
   _notifyLoadListeners();
 
   abp.__parent__.windowMediator = _windowMediator;
@@ -135,7 +135,7 @@ function getTooltipText(status, unicode) {
 var _overlayContextMenu = function() {
   var request = Components.classes["@mozilla.org/xmlextras/xmlhttprequest;1"]
                           .createInstance(Components.interfaces.nsIXMLHttpRequest);
-  request.open("GET", "chrome://adblockplus/content/overlayGeneral.xul", false);
+  request.open("GET", "chrome://adblockplus/content/ui/overlayGeneral.xul", false);
   request.send(null);
 
   var doc = request.responseXML;

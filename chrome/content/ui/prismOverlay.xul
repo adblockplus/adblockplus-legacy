@@ -24,7 +24,7 @@
    -
    - ***** END LICENSE BLOCK ***** -->
 
-<?xul-overlay href="chrome://adblockplus/content/overlayGeneral.xul"?>
+<?xul-overlay href="chrome://adblockplus/content/ui/overlayGeneral.xul"?>
 
 <overlay id="abp-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
   <!-- Window extensions -->

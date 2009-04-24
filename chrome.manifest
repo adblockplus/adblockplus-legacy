@@ -1,10 +1,10 @@
-overlay   chrome://browser/content/browser.xul chrome://adblockplus/content/overlay.xul
-overlay   chrome://navigator/content/navigator.xul chrome://adblockplus/content/overlay.xul
-overlay   chrome://messenger/content/mailWindowOverlay.xul chrome://adblockplus/content/mailOverlay.xul
-overlay   chrome://songbird/content/xul/layoutWithBrowserOverlay.xul chrome://adblockplus/content/overlay.xul
-overlay   chrome://midbrowser/content/midbrowser.xul chrome://adblockplus/content/overlay.xul
-overlay   chrome://emusic/content/startup.xul chrome://adblockplus/content/overlay.xul
-overlay   chrome://webrunner/content/webrunner.xul chrome://adblockplus/content/prismOverlay.xul
+overlay   chrome://browser/content/browser.xul chrome://adblockplus/content/ui/overlay.xul
+overlay   chrome://navigator/content/navigator.xul chrome://adblockplus/content/ui/overlay.xul
+overlay   chrome://messenger/content/mailWindowOverlay.xul chrome://adblockplus/content/ui/mailOverlay.xul
+overlay   chrome://songbird/content/xul/layoutWithBrowserOverlay.xul chrome://adblockplus/content/ui/overlay.xul
+overlay   chrome://midbrowser/content/midbrowser.xul chrome://adblockplus/content/ui/overlay.xul
+overlay   chrome://emusic/content/startup.xul chrome://adblockplus/content/ui/overlay.xul
+overlay   chrome://webrunner/content/webrunner.xul chrome://adblockplus/content/ui/prismOverlay.xul
 content   adblockplus jar:chrome/adblockplus.jar!/content/
 skin      adblockplus classic/1.0 jar:chrome/adblockplus.jar!/skin/
 style     chrome://global/content/customizeToolbar.xul  chrome://adblockplus/skin/overlay.css
