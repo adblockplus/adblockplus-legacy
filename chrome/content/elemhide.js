@@ -246,15 +246,7 @@ var elemhide =
     return new HitRegistrationChannel(uri, RegExp.$1);
   },
 
-  QueryInterface: function(iid)
-  {
-    if (iid.equals(Components.interfaces.nsISupports) ||
-        iid.equals(Components.interfaces.nsIFactory) ||
-        iid.equals(Components.interfaces.nsIProtocolHandler))
-      return this;
-
-    throw Components.results.NS_ERROR_NO_INTERFACE;
-  }
+  QueryInterface: XPCOMUtils.generateQI([Components.interfaces.nsIFactory, Components.interfaces.nsIProtocolHandler])
 };
 abp.elemhide = elemhide;
 
@@ -334,13 +326,5 @@ HitRegistrationChannel.prototype = {
     throw Components.results.NS_ERROR_NOT_IMPLEMENTED;
   },
 
-  QueryInterface: function(iid)
-  {
-    if (iid.equals(Components.interfaces.nsIChannel) ||
-        iid.equals(Components.interfaces.nsIRequest) ||
-        iid.equals(Components.interfaces.nsISupports))
-      return this; 
-
-    throw Components.results.NS_ERROR_NO_INTERFACE;
-  }
+  QueryInterface: XPCOMUtils.generateQI([Components.interfaces.nsIChannel, Components.interfaces.nsIRequest])
 };

@@ -118,14 +118,7 @@ var prefs = {
                     .loadAndRegisterSheet(objtabsCSS, styleService.USER_SHEET);
           channel = null;
         },
-        QueryInterface: function(iid) {
-          if (iid.equals(Components.interfaces.nsISupports) ||
-              iid.equals(Components.interfaces.nsIRequestObserver) ||
-              iid.equals(Components.interfaces.nsIStreamListener))
-            return this;
-
-          throw Components.results.NS_ERROR_NO_INTERFACE;
-        }
+        QueryInterface: XPCOMUtils.generateQI([Components.interfaces.nsIRequestObserver, Components.interfaces.nsIStreamListener])
       }, null);
     }
     catch (e) {}
@@ -247,14 +240,7 @@ var prefs = {
   },
 
   // nsISupports implementation
-  QueryInterface: function(iid) {
-    if (!iid.equals(Components.interfaces.nsISupports) &&
-        !iid.equals(Components.interfaces.nsISupportsWeakReference) &&
-        !iid.equals(Components.interfaces.nsIObserver))
-      throw Components.results.NS_ERROR_NO_INTERFACE;
-
-    return this;
-  }
+  QueryInterface: XPCOMUtils.generateQI([Components.interfaces.nsISupportsWeakReference, Components.interfaces.nsIObserver])
 };
 
 prefs.addObservers();

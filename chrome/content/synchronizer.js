@@ -224,14 +224,7 @@ var synchronizer =
       var oldEventSink = null;
       request.channel.notificationCallbacks =
       {
-        QueryInterface: function(iid)
-        {
-          if (iid.equals(Components.interfaces.nsISupports) ||
-              iid.equals(Components.interfaces.nsIChannelEventSink))
-            return this;
-      
-          throw Components.results.NS_ERROR_NO_INTERFACE;
-        },
+        QueryInterface: XPCOMUtils.generateQI([Components.interfaces.nsIChannelEventSink]),
 
         getInterface: function(iid)
         {
