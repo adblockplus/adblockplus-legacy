@@ -63,6 +63,17 @@ function E(id)
 }
 
 /**
+ * Location to be pre-set after initialization, as passed to setLocation().
+ * @type String
+ */
+let initWithLocation = null;
+/**
+ * Filter to be selected after initialization, as passed to selectFilter().
+ * @type Filter
+ */
+let initWithFilter = null;
+
+/**
  * Initialization function, called when the window is loaded.
  */
 function init()
@@ -139,7 +150,6 @@ function init()
   // Initialize tree view
   E("list").view = treeView;
   treeView.setEditor(E("listEditor"), E("listEditorParent"));
-  treeView.ensureSelection(0);
 
   // Set the focus to the input field by default
   E("list").focus();
@@ -148,47 +158,48 @@ function init()
   let e = document.createEvent("Events");
   e.initEvent("post-load", false, false);
   window.dispatchEvent(e);
-}
 
-/**
- * Timeout that will open the editor, set by setLocation() and used by
- * selectFilter().
- */
-let editorTimeout = null;
-
-/**
- * This will set the address that is supposed to be edited. This will
- * initialize the editor and start the editor delayed (a subsequent call to
- * selectFilter() will prevent the editor from opening). Usually called by the
- * opener of the window in the "post-init" event handler.
- * @param {String}  location  URL of the address to be taken as template of a new filter
- */
-function setLocation(location)
-{
-  treeView.stopEditor(true);
-  treeView.editorDummyInit = location;
-  treeView.selectRow(0);
-  editorTimeout = setTimeout(function()
+  // Execute these actions delayed to work around bug 489881
+  setTimeout(function()
   {
-    treeView.startEditor(true);
+    if (initWithLocation)
+    {
+      treeView.editorDummyInit = initWithLocation;
+      treeView.selectRow(0);
+      if (!initWithFilter)
+        treeView.startEditor(true);
+    }
+    if (initWithFilter)
+    {
+      treeView.selectFilter(getFilterByText(initWithFilter.text));
+      E("list").focus();
+    }
+    if (!initWithLocation && !initWithFilter)
+      treeView.ensureSelection(0);
   }, 0);
 }
 
 /**
- * This will select a particular filter in the list. If setLocation() was
- * called before, this will also prevent the editor from opening (though it
- * keeps editor's initial value in case the user opens the editor himself
- * later). Usually called by the opener of the window in the "post-init" event
- * handler.
+ * This should be called from "post-load" event handler to set the address that is
+ * supposed to be edited. This will initialize the editor and start the editor delayed
+ * (a subsequent call to selectFilter() will prevent the editor from opening).
+ * @param {String}  location  URL of the address to be taken as template of a new filter
+ */
+function setLocation(location)
+{
+  initWithLocation = location;
+}
+
+/**
+ * This should be called from "post-load" event handler to select a particular filter
+ * in the list. If setLocation() was called before, this will also prevent the editor
+ * from opening (though it keeps editor's initial value in case the user opens the editor
+ * himself later).
  * @param {Filter} filter  filter to be selected
  */
 function selectFilter(filter)
 {
-  if (editorTimeout != null)
-    clearTimeout(editorTimeout);
-
-  treeView.selectFilter(getFilterByText(filter.text));
-  E("list").focus();
+  initWithFilter = filter;
 }
 
 /**
