@@ -34,12 +34,7 @@
 <?xml-stylesheet href="chrome://global/skin/tree.css" type="text/css"?>
 <?xml-stylesheet href="chrome://adblockplus/skin/settings.css" type="text/css"?>
 
-<!DOCTYPE dialog [
-<!ENTITY % settingsDTD SYSTEM "chrome://adblockplus/locale/settings.dtd">
-%settingsDTD;
-<!ENTITY % findbarDTD SYSTEM "chrome://adblockplus/locale/findbar.dtd">
-%findbarDTD;
-]>
+<!DOCTYPE dialog SYSTEM "chrome://adblockplus/locale/settings.dtd">
 
 <dialog
   xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
