@@ -37,22 +37,17 @@ function init()
   result = (autoAdd ? {disabled: false, external: false, autoDownload: true} : window.arguments[0]);
   document.getElementById("description-par1").hidden = !autoAdd;
 
-  // Don't show Adblock/Filterset.G warning in SeaMonkey - no point showing
-  // a warning if we cannot uninstall.
-  if ("@mozilla.org/extensions/manager;1" in Components.classes)
+  if (isExtensionActive(adblockID))
+    document.getElementById("adblock-warning").hidden = false;
+
+  if (isExtensionActive(filtersetG))
+    document.getElementById("filtersetg-warning").hidden = false;
+
+  if ("Filterset.G" in abp.filterStorage.knownSubscriptions &&
+      !abp.filterStorage.knownSubscriptions["Filterset.G"].disabled)
   {
-    if (isExtensionActive(adblockID))
-      document.getElementById("adblock-warning").hidden = false;
-
-    if (isExtensionActive(filtersetG))
-      document.getElementById("filtersetg-warning").hidden = false;
-
-    if ("Filterset.G" in abp.filterStorage.knownSubscriptions &&
-        !abp.filterStorage.knownSubscriptions["Filterset.G"].disabled)
-    {
-      document.getElementById("filtersetg-warning").hidden = false;
-    }
-  }  
+    document.getElementById("filtersetg-warning").hidden = false;
+  }
 }
 
 function addSubscriptions() {
