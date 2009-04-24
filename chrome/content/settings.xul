@@ -33,7 +33,6 @@
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
 <?xml-stylesheet href="chrome://global/skin/tree.css" type="text/css"?>
 <?xml-stylesheet href="chrome://adblockplus/skin/settings.css" type="text/css"?>
-<?xml-stylesheet href="chrome://adblockplus/skin/findbar/findBar.css" type="text/css"?>
 
 <!DOCTYPE dialog [
 <!ENTITY % settingsDTD SYSTEM "chrome://adblockplus/locale/settings.dtd">
@@ -94,9 +93,9 @@
   <command id="cut-command" oncommand="copyToClipboard(); removeFilters(false)"/>
   <command id="paste-command" oncommand="pasteFromClipboard()"/>
   <command id="remove-command" oncommand="removeFilters(true)"/>
-  <command id="find-command" oncommand="openFindBar()"/>
-  <command id="find-again-command" oncommand="findAgain()"/>
-  <command id="find-previous-command" oncommand="findPrevious()"/>
+  <command id="find-command" oncommand="E('findbar').startFind(E('findbar').FIND_NORMAL)"/>
+  <command id="find-again-command" oncommand="E('findbar').onFindAgainCommand(false)"/>
+  <command id="find-previous-command" oncommand="E('findbar').onFindAgainCommand(true)"/>
 </commandset>
 
 <popupset id="abpPopups">
@@ -224,26 +223,7 @@
     </hbox>
   </stack>
 
-  <toolbar id="FindToolbar" grippyhidden="true" hidden="true" align="center">
-    <toolbarbutton id="find-closebutton" tooltiptext="&findCloseButton.tooltip;"
-                    oncommand="closeFindBar()"/>
-
-    <label control="find-field" value="&find.label;"/>
-    <hbox id="find-field-container">
-      <textbox id="find-field" oninput="find(this.value)"
-              onblur="onFindBarBlur()"
-              oncompositionstart="onFindBarCompositionStart()"
-              oncompositionend="onFindBarCompositionEnd()"/>
-    </hbox>
-    <toolbarbutton id="find-next" label="&next.label;" tooltiptext="&next.tooltip;"
-                    command="find-again-command" disabled="true" accesskey="&next.accesskey;"/>
-    <toolbarbutton id="find-previous" label="&previous.label;" tooltiptext="&previous.tooltip;"
-                    command="find-previous-command" disabled="true" accesskey="&previous.accesskey;"/>
-    <toolbarbutton id="highlight" label="&highlight.label;" tooltiptext="&highlight.tooltiptext;"
-                    oncommand="toggleHighlight()" type="checkbox" accesskey="&highlight.accesskey;"/>
-    <image id="find-status-icon"/>
-    <label id="find-status"/>
-  </toolbar>
+  <findbar id="findbar"/>
 </vbox>
 
 </dialog>
