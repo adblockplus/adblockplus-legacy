@@ -28,6 +28,28 @@
  */
 
 var protocol = {
+  classDescription: "Adblock Plus protocol",
+  classID: Components.ID("{6a5987fd-93d8-049c-19ac-b9bfe88718fe}"),
+  contractID: "@mozilla.org/network/protocol;1?name=abp",
+  _xpcom_factory: {
+    createInstance: function(outer, iid)
+    {
+      if (outer)
+        throw Components.results.NS_ERROR_NO_AGGREGATION;
+      return protocol.QueryInterface(iid);
+    }
+  },
+
+  //
+  // nsISupports interface implementation
+  //
+
+  QueryInterface: XPCOMUtils.generateQI([Components.interfaces.nsIProtocolHandler]),
+
+  //
+  // nsIProtocolHandler interface implementation
+  //
+
   defaultPort: 0,
   protocolFlags: Components.interfaces.nsIProtocolHandler.URI_NORELATIVE |
                  Components.interfaces.nsIProtocolHandler.URI_NOAUTH |
@@ -49,12 +71,24 @@ var protocol = {
     return new ABPChannel(uri);
   }
 };
+let compMgr = Components.manager.QueryInterface(Components.interfaces.nsIComponentRegistrar);
+compMgr.registerFactory(protocol.classID, protocol.classDescription, protocol.contractID, protocol._xpcom_factory);
 
 function ABPChannel(uri) {
   this.URI = this.originalURI = uri;
 }
 
 ABPChannel.prototype = {
+  //
+  // nsISupports interface implementation
+  //
+
+  QueryInterface: XPCOMUtils.generateQI([Components.interfaces.nsIChannel, Components.interfaces.nsIRequest]),
+
+  //
+  // nsIChannel interface implementation
+  //
+
   contentLength: 0,
   owner: null,
   securityInfo: null,
@@ -122,14 +156,5 @@ ABPChannel.prototype = {
   },
   resume: function() {
     throw Components.results.NS_ERROR_NOT_IMPLEMENTED;
-  },
-
-  QueryInterface: function(iid) {
-    if (iid.equals(Components.interfaces.nsIChannel) ||
-        iid.equals(Components.interfaces.nsIRequest) ||
-        iid.equals(Components.interfaces.nsISupports))
-      return this; 
-
-    throw Components.results.NS_ERROR_NO_INTERFACE;
   }
 };

@@ -22,10 +22,8 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-const ABP_CONTRACTID = "@mozilla.org/adblockplus;1";
-const ABP_CID = Components.ID("{79c889f6-f5a2-abba-8b27-852e6fec4d56}");
-const ABP_PROT_CONTRACTID = "@mozilla.org/network/protocol;1?name=abp";
-const ABP_PROT_CID = Components.ID("{6a5987fd-93d8-049c-19ac-b9bfe88718fe}");
+Components.utils.import("resource://gre/modules/XPCOMUtils.jsm");
+
 const locales = [
   "{{LOCALE}}",
   null
@@ -35,97 +33,6 @@ const loader = Components.classes["@mozilla.org/moz/jssubscript-loader;1"]
                          .getService(Components.interfaces.mozIJSSubScriptLoader);
 const ioService = Components.classes["@mozilla.org/network/io-service;1"]
                             .getService(Components.interfaces.nsIIOService);
-
-/*
- * Module object
- */
-
-const module = {
-  registerSelf: function(compMgr, fileSpec, location, type)
-  {
-    compMgr = compMgr.QueryInterface(Components.interfaces.nsIComponentRegistrar);
-    compMgr.registerFactoryLocation(ABP_CID, 
-                    "Adblock content policy",
-                    ABP_CONTRACTID,
-                    fileSpec, location, type);
-    compMgr.registerFactoryLocation(ABP_PROT_CID,
-                    "ABP protocol handler",
-                    ABP_PROT_CONTRACTID,
-                    fileSpec, location, type);
-
-    // Need to delete category before removing, nsIContentPolicies in Gecko 1.9 listens to
-    // category changes
-    var catman = Components.classes["@mozilla.org/categorymanager;1"]
-                           .getService(Components.interfaces.nsICategoryManager);
-    catman.deleteCategoryEntry("content-policy", ABP_CONTRACTID, true);
-    catman.addCategoryEntry("content-policy", ABP_CONTRACTID,
-              ABP_CONTRACTID, true, true);
-  },
-
-  unregisterSelf: function(compMgr, fileSpec, location)
-  {
-    compMgr = compMgr.QueryInterface(Components.interfaces.nsIComponentRegistrar);
-
-    compMgr.unregisterFactoryLocation(ABP_CID, fileSpec);
-    compMgr.unregisterFactoryLocation(ABP_PROT_CID, fileSpec);
-    var catman = Components.classes["@mozilla.org/categorymanager;1"]
-                           .getService(Components.interfaces.nsICategoryManager);
-    catman.deleteCategoryEntry("content-policy", ABP_CONTRACTID, true);
-  },
-
-  getClassObject: function(compMgr, cid, iid)
-  {
-    if (!cid.equals(ABP_CID) && !cid.equals(ABP_PROT_CID))
-      throw Components.results.NS_ERROR_NO_INTERFACE;
-
-    if (!iid.equals(Components.interfaces.nsIFactory))
-      throw Components.results.NS_ERROR_NOT_IMPLEMENTED;
-
-    return factory;
-  },
-
-  canUnload: function(compMgr)
-  {
-    return true;
-  }
-};
-
-function NSGetModule(comMgr, fileSpec)
-{
-  return module;
-}
-
-/*
- * Factory object
- */
-
-var initialized = false;
-const factory = {
-  // nsIFactory interface implementation
-  createInstance: function(outer, iid)
-  {
-    if (outer != null)
-      throw Components.results.NS_ERROR_NO_AGGREGATION;
-
-    if (!initialized)
-      init();
-
-    return abp.QueryInterface(iid);
-  },
-
-  // nsISupports interface implementation
-  QueryInterface: function(iid)
-  {
-    if (iid.equals(Components.interfaces.nsISupports) ||
-        iid.equals(Components.interfaces.nsIFactory))
-      return this;
-
-    if (!iid.equals(Components.interfaces.nsIClassInfo))
-      dump("Adblock Plus: factory.QI to an unknown interface: " + iid + "\n");
-
-    throw Components.results.NS_ERROR_NO_INTERFACE;
-  }
-}
 
 /*
  * Constants / Globals
@@ -156,6 +63,25 @@ catch(e)
 
 const abp =
 {
+  classDescription: "Adblock Plus component",
+  classID: Components.ID("{79c889f6-f5a2-abba-8b27-852e6fec4d56}"),
+  contractID: "@mozilla.org/adblockplus;1",
+  _xpcom_factory: {
+    initialized: false,
+    createInstance: function(outer, iid)
+    {
+      if (outer)
+        throw Components.results.NS_ERROR_NO_AGGREGATION;
+
+      if (!this.initialized)
+        init();
+      this.initialized = true;
+
+      return abp.QueryInterface(iid);
+    }
+  },
+  _xpcom_categories: [{category: "content-policy"}],
+
   //
   // nsISupports interface implementation
   //
@@ -507,6 +433,13 @@ const abp =
   headerParser: headerParser
 };
 abp.wrappedJSObject = abp;
+
+/*
+ * Module declaration
+ */
+function ABPComponent() {}
+ABPComponent.prototype = abp;
+var NSGetModule = XPCOMUtils.generateNSGetModule([ABPComponent]);
 
 /*
  * Core Routines
