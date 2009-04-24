@@ -24,7 +24,7 @@
 
 /*
  * Fake protocol handler for the abp: protocol.
- * This file is included from nsAdblockPlus.js.
+ * This file is included from AdblockPlus.js.
  */
 
 var protocol = {

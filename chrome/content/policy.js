@@ -25,7 +25,7 @@
 
 /**
  * Content policy implementation, responsible for blocking things.
- * This file is included from nsAdblockPlus.js.
+ * This file is included from AdblockPlus.js.
  */
 
 var effectiveTLD = Components.classes["@mozilla.org/network/effective-tld-service;1"]

@@ -24,7 +24,7 @@
 
 /*
  * Component synchronizing filter storage with Matcher instances and elemhide.
- * This file is included from nsAdblockPlus.js.
+ * This file is included from AdblockPlus.js.
  */
 
 /**

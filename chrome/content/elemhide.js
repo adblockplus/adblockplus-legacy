@@ -24,7 +24,7 @@
 
 /*
  * Element hiding implementation.
- * This file is included from nsAdblockPlus.js.
+ * This file is included from AdblockPlus.js.
  */
 
 var styleService = Components.classes["@mozilla.org/content/style-sheet-service;1"]

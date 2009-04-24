@@ -103,10 +103,10 @@ JSObject* GetComponentObject(JSContext* cx) {
       return nsnull;
     }
 
-    compFile->AppendRelativePath(NS_LITERAL_STRING("nsAdblockPlus.js"));
+    compFile->AppendRelativePath(NS_LITERAL_STRING("AdblockPlus.js"));
     rv = compReg->AutoRegister(compFile);
     if (NS_FAILED(rv)) {
-      JS_ReportError(cx, "Adblock Plus: Failed to register nsAdblockPlus.js");
+      JS_ReportError(cx, "Adblock Plus: Failed to register AdblockPlus.js");
       return nsnull;
     }
 

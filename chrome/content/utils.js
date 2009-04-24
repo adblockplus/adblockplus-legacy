@@ -24,7 +24,7 @@
 
 /*
  * Utility functions and classes.
- * This file is included from nsAdblockPlus.js.
+ * This file is included from AdblockPlus.js.
  */
 
 // String service

@@ -24,7 +24,7 @@
 
 /*
  * FilterStorage class responsible to managing user's subscriptions and filters.
- * This file is included from nsAdblockPlus.js.
+ * This file is included from AdblockPlus.js.
  */
 
 var dirService = Components.classes["@mozilla.org/file/directory_service;1"]
