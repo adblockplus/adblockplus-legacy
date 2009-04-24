@@ -144,8 +144,16 @@ function init()
   // Capture keypress events - need to get them before the tree does
   E("listStack").addEventListener("keypress", onListKeyPress, true);
 
-  // Capture keypress events - need to get them before the text field does
-  E("FindToolbar").addEventListener("keypress", onFindBarKeyPress, true);
+  // Use our fake browser with the findbar - and prevent default action on Enter key
+  E("findbar").browser = fastFindBrowser;
+  E("findbar").addEventListener("keypress", function(event)
+  {
+    // Work-around for bug 490047
+    if (event.keyCode == KeyEvent.DOM_VK_RETURN)
+      event.preventDefault();
+  }, false);
+  // Hack to prevent "highlight all" from getting enabled
+  E("findbar").toggleHighlight = function() {};
 
   // Initialize tree view
   E("list").view = treeView;
@@ -659,11 +667,6 @@ function onListKeyPress(/**Event*/ e)
       treeView.moveSubscription(e.keyCode == e.DOM_VK_UP);
     else
       treeView.moveFilter(e.keyCode == e.DOM_VK_UP);
-    e.stopPropagation();
-  }
-  else if (useTypeAheadFind && e.charCode && modifiers == 0 && String.fromCharCode(e.charCode) != " ")
-  {
-    openFindBar(String.fromCharCode(e.charCode));
     e.stopPropagation();
   }
   else if (String.fromCharCode(e.charCode).toLowerCase() == "t" && modifiers == accelMask)
@@ -2714,11 +2717,16 @@ let treeView = {
    *                            -1 for searching backwards,
    *                            0 for searching forwards but including current position as well
    * @param {Boolean} highlightAll if true, all matches will be selected and not only the current one
-   * @return {String} either null or ID of the message to be displayed: "NotFound", "WrappedToBottom", "WrappedToTop"
+   * @param {Boolean} caseSensitive if true, string comparisons should be case-sensitive
+   * @return {Integer} one of the nsITypeAheadFind constants
    */
-  find: function(text, direction, highlightAll)
+  find: function(text, direction, highlightAll, caseSensitive)
   {
-    text = text.toLowerCase();
+    function normalizeString(string)
+    {
+      return caseSensitive ? string : string.toLowerCase();
+    }
+    text = normalizeString(text);
 
     // Matches: current row, first match, previous match, next match, last match
     let match = [null, null, null, null, null];
@@ -2757,7 +2765,7 @@ let treeView = {
 
       let offset = 0;
       isCurrent = (subscription == currentSubscription && !currentFilter);
-      if (subscription.title.toLowerCase().indexOf(text) >= 0)
+      if (normalizeString(subscription.title).indexOf(text) >= 0)
         selectMatch(subscription, offset);
       if (isCurrent)
         foundCurrent = true;
@@ -2766,7 +2774,7 @@ let treeView = {
       for each (let description in subscription._description)
       {
         isCurrent = (subscription == currentSubscription && currentFilter === description);
-        if (description.toLowerCase().indexOf(text) >= 0)
+        if (normalizeString(description).indexOf(text) >= 0)
           selectMatch(subscription, offset);
         if (isCurrent)
           foundCurrent = true;
@@ -2776,7 +2784,7 @@ let treeView = {
       for each (let filter in subscription._sortedFilters)
       {
         isCurrent = (subscription == currentSubscription && filter == currentFilter);
-        if (filter.text.toLowerCase().indexOf(text) >= 0)
+        if (normalizeString(filter.text).indexOf(text) >= 0)
           selectMatch(subscription, offset);
         if (isCurrent)
           foundCurrent = true;
@@ -2794,7 +2802,7 @@ let treeView = {
       found = match[2] || match[4] || match[0];
 
     if (!found)
-      return "NotFound";
+      return Components.interfaces.nsITypeAheadFind.FIND_NOTFOUND;
 
     let [subscription, offset] = found;
     let row = this.getSubscriptionRow(subscription);
@@ -2807,11 +2815,11 @@ let treeView = {
     this.boxObject.ensureRowIsVisible(row + offset);
 
     if (direction < 0 && found != match[2])
-      return "WrappedToBottom";
+      return Components.interfaces.nsITypeAheadFind.FIND_WRAPPED;
     if ((direction > 0 && found != match[3]) || (direction == 0 && found == match[1]))
-      return "WrappedToTop";
+      return Components.interfaces.nsITypeAheadFind.FIND_WRAPPED;
 
-    return null;
+    return Components.interfaces.nsITypeAheadFind.FIND_FOUND;
   },
 
   //

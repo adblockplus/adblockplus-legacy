@@ -128,8 +128,12 @@ treechildren::-moz-tree-image(col-enabled) {
   color: #C00000;
 }
 
-#FindToolbar, #FindToolbar > .toolbar-holder {
+#findbar {
   border: none !important;
+}
+
+#findbar .findbar-highlight {
+  display: none;
 }
 
 tooltip {
