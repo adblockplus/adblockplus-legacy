@@ -1040,6 +1040,7 @@ function fillFiltersPopup()
 function fillViewPopup(/**String*/prefix)
 {
   E(prefix + "view-filter").setAttribute("checked", !E("col-filter").hidden);
+  E(prefix + "view-slow").setAttribute("checked", !E("col-slow").hidden);
   E(prefix + "view-enabled").setAttribute("checked", !E("col-enabled").hidden);
   E(prefix + "view-hitcount").setAttribute("checked", !E("col-hitcount").hidden);
   E(prefix + "view-lasthit").setAttribute("checked", !E("col-lasthit").hidden);
@@ -1223,13 +1224,13 @@ function showTreeTooltip(/**Event*/ event) /**Boolean*/
   let childElement = {};
   treeView.boxObject.getCellAt(event.clientX, event.clientY, row, col, childElement);
 
-  if (col.value && col.value.id == "col-filter" && childElement.value == "image")
+  let [subscription, filter] = treeView.getRowInfo(row.value);
+  if (filter instanceof abp.RegExpFilter && !filter.shortcut && col.value && col.value.id == "col-slow")
   {
     E("tree-tooltip").setAttribute("label", abp.getString("filter_regexp_tooltip"));
     return true;
   }
 
-  let [subscription, filter] = treeView.getRowInfo(row.value);
   if (filter instanceof abp.InvalidFilter && filter.reason)
   {
     E("tree-tooltip").setAttribute("label", filter.reason);
@@ -1276,6 +1277,17 @@ function compareText(/**Filter*/ filter1, /**Filter*/ filter2)
     return 1;
   else
     return 0;
+}
+
+/**
+ * Sort function for the filter list, compares two filters by "slow"
+ * marker.
+ */
+function compareSlow(/**Filter*/ filter1, /**Filter*/ filter2)
+{
+  let isSlow1 = (filter1 instanceof abp.RegExpFilter && !filter1.shortcut ? 1 : 0);
+  let isSlow2 = (filter2 instanceof abp.RegExpFilter && !filter2.shortcut ? 1 : 0);
+  return isSlow1 - isSlow2;
 }
 
 /**
@@ -1456,7 +1468,7 @@ let treeView = {
     col = col.id;
 
     // Only three columns have text
-    if (col != "col-filter" && col != "col-hitcount" && col != "col-lasthit")
+    if (col != "col-filter" && col != "col-slow" && col != "col-hitcount" && col != "col-lasthit")
       return null;
 
     // Don't show text in the edited row
@@ -1471,6 +1483,8 @@ let treeView = {
     {
       if (col == "col-filter")
         return filter.text;
+      else if (col == "col-slow")
+        return (filter instanceof abp.RegExpFilter && !filter.shortcut ? "!" : null);
       else if (filter instanceof abp.ActiveFilter)
       {
         if (col == "col-hitcount")
@@ -1986,6 +2000,8 @@ let treeView = {
   {
     filter: createSortFunction(compareText, null, false),
     filterDesc: createSortFunction(compareText, null, true),
+    slow: createSortFunction(compareSlow, compareText, true),
+    slowDesc: createSortFunction(compareSlow, compareText, false),
     enabled: createSortFunction(compareEnabled, compareText, false),
     enabledDesc: createSortFunction(compareEnabled, compareText, true),
     hitcount: createSortFunction(compareHitCount, compareText, false),

@@ -29,11 +29,6 @@ dialog {
   padding: 0px;
 }
 
-/* Preload regexp.gif (work around XUL cache issue)*/
-#dummy {
-  background-image: url(regexp.gif);
-}
-
 .dialog-button-box, #introduction, #listarea {
   margin: 8px;
 }
@@ -58,6 +53,10 @@ deck, deck * {
   -moz-image-region: rect(0px, 48px, 16px, 32px);
 }
 
+#col-slow {
+  text-align: center;
+}
+
 #col-hitcount, #col-lasthit {
   text-align: right;
 }
@@ -75,12 +74,14 @@ treechildren::-moz-tree-cell-text(col-filter, filter-true, type-elemhide, select
   color: #000080;
 }
 
-treechildren::-moz-tree-image(col-filter, filter-true, filter-regexp-true, filter-disabled-false, subscription-disabled-false) {
-  list-style-image: url(regexp.gif);
-}
-
 treechildren::-moz-tree-cell-text(col-filter, filter-false, subscription-upgradeRequired-true, selected-false) {
   color: #FF0000;
+}
+
+treechildren::-moz-tree-cell-text(col-slow) {
+  color: #C00000;
+  font-weight: bold;
+  font-size: 120%;
 }
 
 treechildren::-moz-tree-row(filter-true, filter-disabled-true, selected-false),

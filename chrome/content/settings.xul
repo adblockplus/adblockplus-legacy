@@ -152,6 +152,7 @@
     <menu id="view-menu" label="&view.label;" accesskey="&view.accesskey;">
       <menupopup id="view-popup" onpopupshowing="fillViewPopup('')">
         <menuitem id="view-filter" label="&filter.column;" accesskey="&filter.accesskey;" type="checkbox" disabled="true"/>
+        <menuitem id="view-slow" label="&slow.column;" accesskey="&slow.accesskey;" type="checkbox" oncommand="toggleColumn('col-slow')"/>
         <menuitem id="view-enabled" label="&enabled.column;" accesskey="&enabled.accesskey;" type="checkbox" oncommand="toggleColumn('col-enabled')"/>
         <menuitem id="view-hitcount" label="&hitcount.column;" accesskey="&hitcount.accesskey;" type="checkbox" oncommand="toggleColumn('col-hitcount')"/>
         <menuitem id="view-lasthit" label="&lasthit.column;" accesskey="&lasthit.accesskey;" type="checkbox" oncommand="toggleColumn('col-lasthit')"/>
@@ -160,6 +161,7 @@
           <menupopup id="sort-popup">
             <menuitem id="sort-none" label="&sort.none.label;" accesskey="&sort.none.accesskey;" type="radio" name="sortColumn" oncommand="sortBy(null)"/>
             <menuitem id="sort-filter" label="&filter.column;" accesskey="&filter.accesskey;" type="radio" name="sortColumn" oncommand="sortBy('col-filter')"/>
+            <menuitem id="sort-slow" label="&slow.column;" accesskey="&slow.accesskey;" type="radio" name="sortColumn" oncommand="sortBy('col-slow')"/>
             <menuitem id="sort-enabled" label="&enabled.column;" accesskey="&enabled.accesskey;" type="radio" name="sortColumn" oncommand="sortBy('col-enabled')"/>
             <menuitem id="sort-hitcount" label="&hitcount.column;" accesskey="&hitcount.accesskey;" type="radio" name="sortColumn" oncommand="sortBy('col-hitcount')"/>
             <menuitem id="sort-lasthit" label="&lasthit.column;" accesskey="&lasthit.accesskey;" type="radio" name="sortColumn" oncommand="sortBy('col-lasthit')"/>
@@ -205,6 +207,8 @@
       <treecols context="treecols-context">
         <treecol id="col-filter" label="&filter.column;" primary="true" flex="10" persist="width ordinal sortDirection hidden"/>
         <splitter class="tree-splitter"/>
+        <treecol id="col-slow" label="!" flex="0" width="16" persist="width ordinal sortDirection hidden"/>
+        <splitter class="tree-splitter"/>
         <treecol id="col-enabled" label="&enabled.column;" flex="0" persist="width ordinal sortDirection hidden"/>
         <splitter class="tree-splitter"/>
         <treecol id="col-hitcount" label="&hitcount.column;" flex="0" persist="width ordinal sortDirection hidden"/>
@@ -241,7 +245,5 @@
     <label id="find-status"/>
   </toolbar>
 </vbox>
-
-<hbox id="dummy" height="0"/>
 
 </dialog>
