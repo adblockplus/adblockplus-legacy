@@ -86,16 +86,8 @@ const abp =
     if (iid.equals(Components.interfaces.nsIContentPolicy))
       return policy;
 
-    if (iid.equals(Components.interfaces.nsIProtocolHandler))
-      return protocol;
-
     if (iid.equals(Components.interfaces.nsISupports))
       return this;
-
-    if (!iid.equals(Components.interfaces.nsIClassInfo) &&
-        !iid.equals(Components.interfaces.nsISecurityCheckedComponent) &&
-        !iid.equals(Components.interfaces.nsIDOMWindow))
-      dump("Adblock Plus: abp.QI to an unknown interface: " + iid + "\n");
 
     throw Components.results.NS_ERROR_NO_INTERFACE;
   },
