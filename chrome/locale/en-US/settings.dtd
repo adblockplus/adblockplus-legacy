@@ -103,6 +103,8 @@
 
 <!ENTITY filter.column              "Filter rule">
 <!ENTITY filter.accesskey           "F">
+<!ENTITY slow.column                "Slow filters">
+<!ENTITY slow.accesskey             "w">
 <!ENTITY enabled.column             "Enabled">
 <!ENTITY enabled.accesskey          "n">
 <!ENTITY hitcount.column            "Hits">
