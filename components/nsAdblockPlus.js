@@ -22,8 +22,6 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-const ABP_PACKAGE = "/adblockplus.mozdev.org"; 
-const ABP_EXTENSION_ID = "{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}";
 const ABP_CONTRACTID = "@mozilla.org/adblockplus;1";
 const ABP_CID = Components.ID("{79c889f6-f5a2-abba-8b27-852e6fec4d56}");
 const ABP_PROT_CONTRACTID = "@mozilla.org/network/protocol;1?name=abp";
