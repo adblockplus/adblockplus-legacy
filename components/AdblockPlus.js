@@ -24,11 +24,6 @@
 
 Components.utils.import("resource://gre/modules/XPCOMUtils.jsm");
 
-const locales = [
-  "{{LOCALE}}",
-  null
-];
-
 const loader = Components.classes["@mozilla.org/moz/jssubscript-loader;1"]
                          .getService(Components.interfaces.mozIJSSubScriptLoader);
 const ioService = Components.classes["@mozilla.org/network/io-service;1"]
