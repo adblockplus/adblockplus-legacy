@@ -277,6 +277,7 @@ HitRegistrationChannel.prototype = {
     if (filter)
     {
       // Check who caused this hit
+      // Note: this should be changed to get nsILoadContext interface later and only get nsIDOMDocument as fallback
       let document = null;
       try {
         document = this.loadGroup.notificationCallbacks.getInterface(Components.interfaces.nsIDOMDocument);
