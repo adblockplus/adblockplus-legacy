@@ -209,6 +209,33 @@ function createTimer(callback, delay) {
 }
 abp.createTimer = createTimer;
 
+/**
+ * Gets the DOM window associated with a particular request (if any).
+ */
+function getRequestWindow(/**nsIChannel*/ channel) /**nsIDOMWindow*/
+{
+  let callbacks = [];
+  if (channel.notificationCallbacks)
+    callbacks.push(channel.notificationCallbacks);
+  if (channel.loadGroup && channel.loadGroup.notificationCallbacks)
+    callbacks.push(channel.loadGroup.notificationCallbacks);
+
+  for each (let callback in callbacks)
+  {
+    try {
+      // For Gecko 1.9.1
+      return callback.getInterface(Components.interfaces.nsILoadContext).associatedWindow;
+    } catch(e) {}
+
+    try {
+      // For Gecko 1.9.0
+      return callback.getInterface(Components.interfaces.nsIDOMWindow);
+    } catch(e) {}
+  }
+
+  return null;
+}
+
 // Returns plattform dependent line break string
 var lineBreak = null;
 function getLineBreak() {

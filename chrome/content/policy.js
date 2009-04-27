@@ -282,7 +282,16 @@ var policy =
     }
   },
 
+  //
+  // nsISupports interface implementation
+  //
+
+  QueryInterface: abp.QueryInterface,
+
+  //
   // nsIContentPolicy interface implementation
+  //
+
   shouldLoad: function(contentType, contentLocation, requestOrigin, node, mimeTypeGuess, extra) {
     // return unless we are initialized
     if (!this.whitelistSchemes)
@@ -310,6 +319,46 @@ var policy =
 
   shouldProcess: function(contentType, contentLocation, requestOrigin, insecNode, mimeType, extra) {
     return ok;
+  },
+
+  //
+  // nsIChannelEventSink interface implementation
+  //
+
+  onChannelRedirect: function(oldChannel, newChannel, flags)
+  {
+    try {
+      let oldLocation = null;
+      let newLocation = null;
+      try {
+        oldLocation = oldChannel.originalURI.spec;
+        newLocation = newChannel.URI.spec;
+      }
+      catch(e2) {}
+
+      if (!oldLocation || !newLocation || oldLocation == newLocation)
+        return;
+
+      let context = getRequestWindow(newChannel);
+      if (!context)
+        return;
+
+      let data = DataContainer.getDataForWindow(context, true);
+      if (!data)
+        return;
+
+      let info = data.getURLInfo(oldLocation);
+      if (!info)
+        return;
+
+      if (!this.processNode(context, info.nodes[info.nodes.length - 1], info.type, newChannel.URI))
+        newChannel.cancel(Components.results.NS_BINDING_ABORTED);
+    }
+    catch (e)
+    {
+      // We shouldn't throw exceptions here - this will prevent the redirect.
+      dump("Adblock Plus: Unexpected error in policy.onChannelRedirect: " + e + "\n");
+    }
   },
 
   // Reapplies filters to all nodes of the window
