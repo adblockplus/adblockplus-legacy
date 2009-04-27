@@ -9,6 +9,3 @@ content   adblockplus jar:chrome/adblockplus.jar!/content/
 skin      adblockplus classic/1.0 jar:chrome/adblockplus.jar!/skin/
 style     chrome://global/content/customizeToolbar.xul  chrome://adblockplus/skin/overlay.css
 locale    adblockplus {{LOCALE}} jar:chrome/adblockplus.jar!/locale/{{LOCALE}}/
-
-# Work-around for bug 465991 (to be removed once Prism 0.9 is no longer supported)
-override  chrome://webrunner/content/overlays/inspector.xul data:text/xml,<nada/> application=prism@developer.mozilla.org appversion=0.9
