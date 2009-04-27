@@ -9,32 +9,33 @@
   <script type="text/javascript" src="/content/tests/SimpleTest/SimpleTest.js"></script>        
 
   <script type="application/x-javascript;version=1.7" src="common.js"></script>
+  <script type="application/x-javascript;version=1.7" src="../httpd.js"></script>
 </head>
 <body>
   <p id="display"></p>
   <div id="content" style="visibility: hidden;">
-    <div id="test1">foo</div>
-    <div id="test2">bar</div>
+    <iframe id="frame" onload="doRunTest()"></iframe>
   </div>
+
   <pre id="test">
   <script type="application/x-javascript;version=1.7">
     let abp = Components.classes["@mozilla.org/adblockplus;1"].createInstance().wrappedJSObject;
 
     let tests = [
       [[], "visible visible"],
-      [["#div(test1)"], "visible visible"],
-      [["mochikit#div(test1)"], "hidden visible"],
-      [["mochikit#div(test1)", "foo,foo2#div(test2)"], "hidden visible"],
-      [["mochikit,foo#div(test1)", "foo,mochikit#div(test2)"], "hidden hidden"],
-      [["mochikit#div(test1)", "mochikit#div(test2)"], "hidden hidden"],
+      [["#div(test1)"], "hidden visible"],
+      [["localhost#div(test1)"], "hidden visible"],
+      [["localhost#div(test1)", "foo,foo2#div(test2)"], "hidden visible"],
+      [["localhost,foo#div(test1)", "foo,localhost#div(test2)"], "hidden hidden"],
+      [["localhost#div(test1)", "localhost#div(test2)"], "hidden hidden"],
       [["foo#div(test1)", "foo#div(test2)"], "visible visible"],
     ];
-    let currentTest = 0;
+    let currentTest = -1;
     let oldEnabled = abp.prefs.enabled;
 
     function runNextTest()
     {
-      if (currentTest >= tests.length)
+      if (currentTest >= tests.length - 1)
       {
         abp.filterStorage.triggerSubscriptionObservers("reload", abp.filterStorage.subscriptions);
         abp.prefs.enabled = oldEnabled;
@@ -42,26 +43,48 @@
         return;
       }
 
-      let [filters, expected] = tests[currentTest++];
+      currentTest++;
       abp.elemhide.clear();
+      document.getElementById("frame").contentWindow.location.href = "http://localhost:1234/test";
+    }
+
+    function doRunTest()
+    {
+      if (currentTest < 0)
+        return;
+
+      let [filters, expected] = tests[currentTest];
       for each (let filter in filters)
         abp.elemhide.add(abp.Filter.fromText(filter));
       abp.elemhide.apply();
 
-      document.getElementById("test1").parentNode.appendChild(document.getElementById("test1"));
-      document.getElementById("test2").parentNode.appendChild(document.getElementById("test2"));
-
       setTimeout(function()
       {
-        let result = (document.getElementById("test1").offsetHeight > 0 ? "visible" : "hidden") + " " + (document.getElementById("test2").offsetHeight > 0 ? "visible" : "hidden");
+        let doc = document.getElementById("frame").contentDocument;
+        let result = (doc.getElementById("test1").offsetHeight > 0 ? "visible" : "hidden") + " " + (doc.getElementById("test2").offsetHeight > 0 ? "visible" : "hidden");
         is(result, expected, filters.join("\n"));
         runNextTest();
       }, 0);
     }
 
+    let server = new nsHttpServer();
     SimpleTest.waitForExplicitFinish();
-    abp.prefs.enabled = true;
-    runNextTest();
+    addLoadEvent(function()
+    {
+      server.start(1234);
+      window.addEventListener("unload", function() { server.stop(); }, false);
+
+      server.registerPathHandler("/test", function(metadata, response)
+      {
+        let body = '<div id="test1">foo</div><div id="test2">bar</div>';
+        response.setStatusLine("1.1", "200", "OK");
+        response.setHeader("Content-Type", "text/html");
+        response.bodyOutputStream.write(body, body.length);
+      });
+
+      abp.prefs.enabled = true;
+      runNextTest();
+    });
   </script>
   </pre>
 </body>
