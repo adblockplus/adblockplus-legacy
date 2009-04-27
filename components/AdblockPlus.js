@@ -75,7 +75,7 @@ const abp =
       return abp.QueryInterface(iid);
     }
   },
-  _xpcom_categories: [{category: "content-policy"}],
+  _xpcom_categories: [{category: "content-policy"}, {category: "net-channel-event-sinks"}],
 
   //
   // nsISupports interface implementation
@@ -83,11 +83,14 @@ const abp =
 
   QueryInterface: function(iid)
   {
-    if (iid.equals(Components.interfaces.nsIContentPolicy))
+    // Note: do not use |this| in this method! It is being used in the
+    // content policy component as well.
+
+    if (iid.equals(Components.interfaces.nsIContentPolicy) || iid.equals(Components.interfaces.nsIChannelEventSink))
       return policy;
 
     if (iid.equals(Components.interfaces.nsISupports))
-      return this;
+      return abp;
 
     throw Components.results.NS_ERROR_NO_INTERFACE;
   },

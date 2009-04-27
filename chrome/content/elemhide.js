@@ -276,14 +276,8 @@ HitRegistrationChannel.prototype = {
     let filter = elemhide.keys[this.key];
     if (filter)
     {
-      // Check who caused this hit
-      // Note: this should be changed to get nsILoadContext interface later and only get nsIDOMDocument as fallback
-      let document = null;
-      try {
-        document = this.loadGroup.notificationCallbacks.getInterface(Components.interfaces.nsIDOMDocument);
-      } catch (e) {}
-
-      if (document && document.defaultView && !policy.processNode(document.defaultView, document, policy.type.ELEMHIDE, filter))
+      let wnd = getRequestWindow(this);
+      if (wnd && wnd.document && !policy.processNode(wnd, wnd.document, policy.type.ELEMHIDE, filter))
         data = "<nada/>";
     }
 

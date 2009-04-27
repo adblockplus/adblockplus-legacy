@@ -30,13 +30,17 @@
 var dataSeed = Math.random();    // Make sure our properties have randomized names
 
 function DataContainer(wnd) {
-  this.locations = {};
+  this.locations = {__proto__: null};
+  this.urls = {__proto__: null};
   this.subdocs = [];
   this.install(wnd);
 }
 abp.DataContainer = DataContainer;
 
 DataContainer.prototype = {
+  locations: null,
+  urls: null,
+  subdocs: null,
   topContainer: null,
   lastSelection: null,
   detached: false,
@@ -142,7 +146,7 @@ DataContainer.prototype = {
       if (!this.topContainer.detached)
         DataContainer.notifyListeners(topWnd, "add", this.topContainer, this.locations[key]);
     }
-    node["abpLocation" + dataSeed] = this.locations[key];
+    node["abpLocation" + dataSeed] = this.urls[location] = this.locations[key];
 
     if (typeof objTab != "undefined" && objTab) {
       this.locations[key].nodes.push(objTab);
@@ -185,15 +189,22 @@ DataContainer.prototype = {
       this.subdocs[i].getAllLocations(results);
 
     return results;
+  },
+
+  getURLInfo: function(location)
+  {
+    return (location in this.urls ? this.urls[location] : null);
   }
 };
 
 // Loads Adblock data associated with a window object
-DataContainer.getDataForWindow = function(wnd) {
+DataContainer.getDataForWindow = function(wnd, noInstall) {
   if ("abpData" + dataSeed in wnd.document)
     return wnd.document["abpData" + dataSeed];
-  else
+  else if (!noInstall)
     return new DataContainer(wnd);
+  else
+    return null;
 };
 abp.getDataForWindow = DataContainer.getDataForWindow;
 
