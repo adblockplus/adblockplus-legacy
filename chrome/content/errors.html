@@ -1,0 +1,67 @@
+<html>
+<head>
+  <title>Adblock Plus Errors</title>
+  <style type="text/css">
+    .warning, .error
+    {
+      border: 1px dashed black;
+      margin: 5px;
+      padding: 2px;
+    }
+
+    .error 
+    {
+      background-color: #fff0f0;
+    }
+
+    .warning 
+    {
+      background-color: #ffffe0;
+    }
+  </style>
+</head>
+<body>
+  <script type="application/x-javascript;version=1.7">
+    let messages = {};
+    Components.classes["@mozilla.org/consoleservice;1"]
+              .getService(Components.interfaces.nsIConsoleService)
+              .getMessageArray(messages, {});
+    messages = messages.value || [];
+
+    messages = messages.filter(function(message)
+    {
+      return (message instanceof Components.interfaces.nsIScriptError &&
+          (/adblock/i.test(message.errorMessage) || /adblock/i.test(message.sourceName)));
+    });
+
+    if (messages)
+    {
+      document.write("Errors related to Adblock Plus:");
+
+      for each (let message in messages)
+      {
+        let type = (message.flags & Components.interfaces.nsIScriptError.warningFlag ? "warning" : "error");
+        let html = "<b>" + (type == "warning" ? "Warning:" : "Error:") + "</b><br>";
+        html += encodeHTML(message.errorMessage) + "<br><br>";
+        if (message.sourceLine)
+          html += "Source line: " + encodeHTML(message.sourceLine) + "<br>";
+        if (message.sourceName)
+          html += "Location: " + encodeHTML(message.sourceName) + " line " + message.lineNumber + "<br>";
+        html = html.replace(/(<br>)+$/, "");
+        document.write("<div class='" + type + "'>" +
+                       html +
+                       "</div>");
+      }
+    }
+    else
+    {
+      document.write("No errors found.");
+    }
+
+    function encodeHTML(string)
+    {
+      return string.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
+  </script>
+</body>
+</html>
