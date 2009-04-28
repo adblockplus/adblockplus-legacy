@@ -234,8 +234,6 @@ function abpReloadPrefs() {
       return;
 
     if (abp) {
-      element.removeAttribute("disabled");
-
       if (element.tagName == "statusbarpanel" || element.tagName == "vbox") {
         element.hidden = !prefs.showinstatusbar;
 
@@ -255,12 +253,7 @@ function abpReloadPrefs() {
       currentlyShowingInToolbar = prefs.showintoolbar;
     }
 
-    element.removeAttribute("deactivated");
-    element.removeAttribute("whitelisted");
-    if (state == "whitelisted")
-      element.setAttribute("whitelisted", "true");
-    else if (state == "disabled")
-      element.setAttribute("deactivated", "true");
+    element.setAttribute("abpstate", state);
   };
 
   var status = E("abp-status");
