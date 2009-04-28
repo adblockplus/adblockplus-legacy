@@ -25,10 +25,45 @@
       [[], "visible visible"],
       [["#div(test1)"], "hidden visible"],
       [["localhost#div(test1)"], "hidden visible"],
-      [["localhost#div(test1)", "foo,foo2#div(test2)"], "hidden visible"],
-      [["localhost,foo#div(test1)", "foo,localhost#div(test2)"], "hidden hidden"],
-      [["localhost#div(test1)", "localhost#div(test2)"], "hidden hidden"],
-      [["foo#div(test1)", "foo#div(test2)"], "visible visible"],
+      [["localhost#div(test1)", "foo,foo2#p(test2)"], "hidden visible"],
+      [["localhost,foo#div(test1)", "foo,localhost#p(test2)"], "hidden hidden"],
+      [["localhost#div(test1)", "localhost#p(test2)"], "hidden hidden"],
+      [["foo#div(test1)", "foo#p(test2)"], "visible visible"],
+
+      [["localhost#div(testClass)"], "hidden visible"],
+      [["localhost#p(testClass)"], "visible hidden"],
+      [["localhost#*(testClass)"], "hidden hidden"],
+      [["localhost#div(testClass)", "localhost#p(test2)"], "hidden hidden"],
+      [["localhost#p(testClass)", "localhost#p(test2)"], "visible hidden"],
+      [["localhost#p(testClass)(test2)"], "visible visible"],   // this filter is invalid, must be ignored
+
+      [["localhost#*(id^=test)"], "hidden hidden"],
+      [["localhost#p(id^=test)"], "visible hidden"],
+      [["localhost#*(id$=2)"], "visible hidden"],
+      [["localhost#p(id$=2)"], "visible hidden"],
+      [["localhost#div(id$=2)"], "visible visible"],
+
+      [["localhost#*(test1)(id^=test)"], "hidden visible"],
+      [["localhost#*(testClass)(id^=test)"], "hidden hidden"],
+      [["localhost#p(testClass)(id^=test)"], "visible hidden"],
+      [["localhost#*(test1)(id$=2)"], "visible visible"],
+      [["localhost#*(testClass)(id$=2)"], "visible hidden"],
+      [["localhost#p(testClass)(id$=2)"], "visible hidden"],
+
+      [["localhost#*(test1)(id^=test)(id$=2)"], "visible visible"],
+      [["localhost#*(test1)(id^=test)(id$=1)"], "hidden visible"],
+      [["localhost#p(test1)(id^=test)(id$=1)"], "visible visible"],
+      [["localhost#div(test1)(id^=test)(id$=1)"], "hidden visible"],
+      [["localhost#*(id^=test)(id$=2)"], "visible hidden"],
+      [["localhost#*(id^=test)(id$=1)"], "hidden visible"],
+      [["localhost#p(id^=test)(id$=1)"], "visible visible"],
+      [["localhost#div(id^=test)(id$=1)"], "hidden visible"],
+
+      [["localhost##div#test1"], "hidden visible"],
+      [["localhost##p.testClass"], "visible hidden"],
+      [["localhost##div#test1, p.testClass"], "hidden hidden"],
+      [["localhost##div#test1", "localhost##p.testClass"], "hidden hidden"],
+      [["localhost##.testClass"], "hidden hidden"],
     ];
     let currentTest = -1;
     let oldEnabled = abp.prefs.enabled;
@@ -76,7 +111,7 @@
 
       server.registerPathHandler("/test", function(metadata, response)
       {
-        let body = '<div id="test1">foo</div><div id="test2">bar</div>';
+        let body = '<div id="test1" class="testClass">foo</div><p id="test2" class="testClass">bar</p>';
         response.setStatusLine("1.1", "200", "OK");
         response.setHeader("Content-Type", "text/html");
         response.bodyOutputStream.write(body, body.length);
