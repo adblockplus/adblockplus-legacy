@@ -53,18 +53,12 @@ let eventHandlers = [
 /**
  * Adblock Plus component (if available)
  */
-let abp = null;
-try {
-  abp = Components.classes["@mozilla.org/adblockplus;1"].createInstance().wrappedJSObject;
-
-  if (!abp.prefs.initialized)
-    abp = null;
-} catch (e) {}
+let abp = Components.classes["@mozilla.org/adblockplus;1"].createInstance().wrappedJSObject;
 
 /**
  * Adblock Plus preferences object
  */
-let prefs = abp ? abp.prefs : {enabled: false};
+let prefs = abp.prefs;
 
 /**
  * Stores the current value of showintoolbar preference (to detect changes).
@@ -112,34 +106,33 @@ function abpInit() {
   // Process preferences
   window.abpDetachedSidebar = null;
   abpReloadPrefs();
-  if (abp) {
-    // Register event listeners
-    window.addEventListener("unload", abpUnload, false);
-    for each (let [id, event, handler] in eventHandlers)
-    {
-      let element = E(id);
-      if (element)
-        element.addEventListener(event, handler, false);
-    }
 
-    prefs.addListener(abpReloadPrefs);
-
-    // Make sure whitelisting gets displayed after at most 2 seconds
-    prefReloadTimer = abp.createTimer(abpReloadPrefs, 2000);
-    prefReloadTimer.type = prefReloadTimer.TYPE_REPEATING_SLACK;
-    
-    let browser = abp.getBrowserInWindow(window);
-    browser.addEventListener("select", abpReloadPrefs, false);
-    browser.addEventListener("click", handleLinkClick, true);
-
-    // Make sure we always configure keys but don't let them break anything
-    try {
-      // Configure keys
-      for (var key in prefs)
-        if (key.match(/(.*)_key$/))
-          abpConfigureKey(RegExp.$1, prefs[key]);
-    } catch(e) {}
+  // Register event listeners
+  window.addEventListener("unload", abpUnload, false);
+  for each (let [id, event, handler] in eventHandlers)
+  {
+    let element = E(id);
+    if (element)
+      element.addEventListener(event, handler, false);
   }
+
+  prefs.addListener(abpReloadPrefs);
+
+  // Make sure whitelisting gets displayed after at most 2 seconds
+  prefReloadTimer = abp.createTimer(abpReloadPrefs, 2000);
+  prefReloadTimer.type = prefReloadTimer.TYPE_REPEATING_SLACK;
+  
+  let browser = abp.getBrowserInWindow(window);
+  browser.addEventListener("select", abpReloadPrefs, false);
+  browser.addEventListener("click", handleLinkClick, true);
+
+  // Make sure we always configure keys but don't let them break anything
+  try {
+    // Configure keys
+    for (var key in prefs)
+      if (key.match(/(.*)_key$/))
+        abpConfigureKey(RegExp.$1, prefs[key]);
+  } catch(e) {}
 
   // Install context menu handler
   var contextMenu = E("contentAreaContextMenu") || E("messagePaneContext") || E("popup_content");
@@ -153,7 +146,7 @@ function abpInit() {
   }
 
   // First run actions
-  if (abp && !("doneFirstRunActions" in prefs) && abp.versionComparator.compare(prefs.lastVersion, "0.0") <= 0)
+  if (!("doneFirstRunActions" in prefs) && abp.versionComparator.compare(prefs.lastVersion, "0.0") <= 0)
   {
     // Don't repeat first run actions if new window is opened
     prefs.doneFirstRunActions = true;
@@ -207,22 +200,14 @@ function abpUnload() {
 }
 
 function abpReloadPrefs() {
-  var label;
-  var state = null;
-  if (abp) {
-    if (prefs.enabled)
-      state = "active";
-    else
-      state = "disabled";
+  var state = (prefs.enabled ? "active" : "disabled");
+  var label = abp.getString("status_" + state + "_label");
 
-    label = abp.getString("status_" + state + "_label");
-
-    if (state == "active")
-    {
-      let location = getCurrentLocation();
-      if (location && abp.policy.isWhitelisted(location.spec))
-        state = "whitelisted";
-    }
+  if (state == "active")
+  {
+    let location = getCurrentLocation();
+    if (location && abp.policy.isWhitelisted(location.spec))
+      state = "whitelisted";
   }
 
   var tooltip = E("abp-tooltip");
@@ -233,25 +218,23 @@ function abpReloadPrefs() {
     if (!element)
       return;
 
-    if (abp) {
-      if (element.tagName == "statusbarpanel" || element.tagName == "vbox") {
-        element.hidden = !prefs.showinstatusbar;
+    if (element.tagName == "statusbarpanel" || element.tagName == "vbox") {
+      element.hidden = !prefs.showinstatusbar;
 
-        var labelElement = element.getElementsByTagName("label")[0];
-        labelElement.setAttribute("value", label);
-      }
-      else
-        element.hidden = !prefs.showintoolbar;
-
-      // HACKHACK: Show status bar icon in SeaMonkey Mail and Prism instead of toolbar icon
-      if (element.hidden && (element.tagName == "statusbarpanel" || element.tagName == "vbox") && (E("msgToolbar") || window.location.host == "webrunner"))
-        element.hidden = !prefs.showintoolbar;
-
-      if (currentlyShowingInToolbar != prefs.showintoolbar)
-        abpInstallInToolbar();
-
-      currentlyShowingInToolbar = prefs.showintoolbar;
+      var labelElement = element.getElementsByTagName("label")[0];
+      labelElement.setAttribute("value", label);
     }
+    else
+      element.hidden = !prefs.showintoolbar;
+
+    // HACKHACK: Show status bar icon in SeaMonkey Mail and Prism instead of toolbar icon
+    if (element.hidden && (element.tagName == "statusbarpanel" || element.tagName == "vbox") && (E("msgToolbar") || window.location.host == "webrunner"))
+      element.hidden = !prefs.showintoolbar;
+
+    if (currentlyShowingInToolbar != prefs.showintoolbar)
+      abpInstallInToolbar();
+
+    currentlyShowingInToolbar = prefs.showintoolbar;
 
     element.setAttribute("abpstate", state);
   };
@@ -772,7 +755,7 @@ function abpCheckContext() {
   var nodeType = null;
   backgroundData = null;
   frameData = null;
-  if (abp && target) {
+  if (target) {
     // Lookup the node in our stored data
     var data = abp.getDataForNode(target);
     var targetNode = null;
@@ -831,6 +814,6 @@ function abpCheckContext() {
 
 // Bring up the settings dialog for the node the context menu was referring to
 function abpNode(data) {
-  if (abp && data)
+  if (data)
     window.openDialog("chrome://adblockplus/content/ui/composer.xul", "_blank", "chrome,centerscreen,resizable,dialog=no,dependent", abp.getBrowserInWindow(window).contentWindow, data);
 }

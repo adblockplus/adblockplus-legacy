@@ -22,25 +22,12 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-let abp = null;
-try {
-  abp = Components.classes["@mozilla.org/adblockplus;1"].createInstance().wrappedJSObject;
-
-  if (!abp.prefs.initialized)
-    abp = null;
-} catch(e) {}
-
-let prefs, filterStorage, synchronizer, dragService;
-if (abp)
-{
-  prefs = abp.prefs;
-  filterStorage = abp.filterStorage;
-  synchronizer = abp.synchronizer;
-  dragService = Components.classes["@mozilla.org/widget/dragservice;1"]
-                          .getService(Components.interfaces.nsIDragService);
-}
-else
-  window.close();   // Extension manager opened us without checking whether we are installed properly
+let abp = Components.classes["@mozilla.org/adblockplus;1"].createInstance().wrappedJSObject;
+let prefs = abp.prefs;
+let filterStorage = abp.filterStorage;
+let synchronizer = abp.synchronizer;
+let dragService = Components.classes["@mozilla.org/widget/dragservice;1"]
+                            .getService(Components.interfaces.nsIDragService);
 
 const altMask = 2;
 const ctrlMask = 4;
