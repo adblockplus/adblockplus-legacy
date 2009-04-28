@@ -66,17 +66,35 @@
       [["localhost##.testClass"], "hidden hidden"],
     ];
     let currentTest = -1;
+    let currentRun = 1;
 
     function runNextTest()
     {
       if (currentTest >= tests.length - 1)
       {
-        SimpleTest.finish();
+        if (++currentRun <= 3)
+        {
+          currentTest = -1;
+          runNextTest();
+        }
+        else
+          SimpleTest.finish();
         return;
       }
 
       currentTest++;
       abp.elemhide.clear();
+      abp.whitelistMatcher.clear();
+
+      let filters = tests[currentTest][0];
+      for each (let filter in filters)
+        abp.elemhide.add(abp.Filter.fromText(filter));
+      abp.elemhide.apply();
+      if (currentRun == 2)
+        abp.whitelistMatcher.add(abp.Filter.fromText("@@|chrome://mochikit/"));
+      else if (currentRun == 3)
+        abp.whitelistMatcher.add(abp.Filter.fromText("@@|chrome://mochikit/$~document"));
+
       document.getElementById("frame").contentWindow.location.href = "http://localhost:1234/test";
     }
 
@@ -86,15 +104,15 @@
         return;
 
       let [filters, expected] = tests[currentTest];
-      for each (let filter in filters)
-        abp.elemhide.add(abp.Filter.fromText(filter));
-      abp.elemhide.apply();
+
+      if (currentRun == 2)
+        expected = "visible visible";   // Second run is whitelisted, nothing should be hidden
 
       setTimeout(function()
       {
         let doc = document.getElementById("frame").contentDocument;
         let result = (doc.getElementById("test1").offsetHeight > 0 ? "visible" : "hidden") + " " + (doc.getElementById("test2").offsetHeight > 0 ? "visible" : "hidden");
-        is(result, expected, filters.join("\n"));
+        is(result, expected, "Run " + currentRun + "\n" + filters.join("\n"));
         runNextTest();
       }, 0);
     }
