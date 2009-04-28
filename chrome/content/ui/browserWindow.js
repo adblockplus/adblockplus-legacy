@@ -763,7 +763,9 @@ function abpExecuteAction(action) {
 // Retrieves the image URL for the specified style property
 function abpImageStyle(computedStyle, property) {
   var value = computedStyle.getPropertyCSSValue(property);
-  if (value.primitiveType == value.CSS_URI)
+  if (value instanceof Components.interfaces.nsIDOMCSSValueList && value.length >= 1)
+    value = value[0];
+  if (value instanceof Components.interfaces.nsIDOMCSSPrimitiveValue && value.primitiveType == Components.interfaces.nsIDOMCSSPrimitiveValue.CSS_URI)
     return abp.unwrapURL(value.getStringValue()).spec;
 
   return null;
