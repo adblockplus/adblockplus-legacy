@@ -339,22 +339,29 @@ var policy =
       if (!oldLocation || !newLocation || oldLocation == newLocation)
         return;
 
-      let context = getRequestWindow(newChannel);
-      if (!context)
-        return;
+      // Look for the request both in the origin window and in its parent (for frames)
+      let contexts = [getRequestWindow(newChannel)];
+      if (contexts[0] && contexts[0].parent != contexts[0])
+        contexts.push(contexts[0].parent);
 
-      let data = DataContainer.getDataForWindow(context, true);
-      if (!data)
-        return;
+      let info = null;
+      for each (let context in contexts)
+      {
+        // Did we record the original request in its own window?
+        let data = DataContainer.getDataForWindow(context, true);
+        if (data)
+          info = data.getURLInfo(oldLocation);
 
-      let info = data.getURLInfo(oldLocation);
-      if (!info)
-        return;
-
-      if (!this.processNode(context, info.nodes[info.nodes.length - 1], info.type, newChannel.URI))
-        newChannel.cancel(Components.results.NS_BINDING_ABORTED);
+        if (info)
+        {
+          if (!this.processNode(context, info.nodes[info.nodes.length - 1], info.type, newChannel.URI))
+            throw Components.results.NS_BINDING_ABORTED;
+          else
+            return;
+        }
+      }
     }
-    catch (e)
+    catch (e if (e != Components.results.NS_BINDING_ABORTED))
     {
       // We shouldn't throw exceptions here - this will prevent the redirect.
       dump("Adblock Plus: Unexpected error in policy.onChannelRedirect: " + e + "\n");
