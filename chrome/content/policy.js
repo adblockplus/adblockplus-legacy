@@ -354,14 +354,15 @@ var policy =
 
         if (info)
         {
+          // HACK: NS_BINDING_ABORTED would be proper error code to throw but this will show up in error console (bug 287107)
           if (!this.processNode(context, info.nodes[info.nodes.length - 1], info.type, newChannel.URI))
-            throw Components.results.NS_BINDING_ABORTED;
+            throw Components.results.NS_BASE_STREAM_WOULD_BLOCK;
           else
             return;
         }
       }
     }
-    catch (e if (e != Components.results.NS_BINDING_ABORTED))
+    catch (e if (e != Components.results.NS_BASE_STREAM_WOULD_BLOCK))
     {
       // We shouldn't throw exceptions here - this will prevent the redirect.
       dump("Adblock Plus: Unexpected error in policy.onChannelRedirect: " + e + "\n");
