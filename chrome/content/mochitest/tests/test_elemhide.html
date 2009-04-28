@@ -66,14 +66,11 @@
       [["localhost##.testClass"], "hidden hidden"],
     ];
     let currentTest = -1;
-    let oldEnabled = abp.prefs.enabled;
 
     function runNextTest()
     {
       if (currentTest >= tests.length - 1)
       {
-        abp.filterStorage.triggerSubscriptionObservers("reload", abp.filterStorage.subscriptions);
-        abp.prefs.enabled = oldEnabled;
         SimpleTest.finish();
         return;
       }
@@ -102,12 +99,10 @@
       }, 0);
     }
 
-    let server = new nsHttpServer();
-    SimpleTest.waitForExplicitFinish();
-    addLoadEvent(function()
+    function start()
     {
+      window.addEventListener("unload", stop, false);
       server.start(1234);
-      window.addEventListener("unload", function() { server.stop(); }, false);
 
       server.registerPathHandler("/test", function(metadata, response)
       {
@@ -119,7 +114,20 @@
 
       abp.prefs.enabled = true;
       runNextTest();
-    });
+    }
+
+    function stop()
+    {
+      server.stop();
+
+      abp.filterStorage.triggerSubscriptionObservers("reload", abp.filterStorage.subscriptions);
+      abp.prefs.enabled = oldEnabled;
+    }
+
+    let server = new nsHttpServer();
+    let oldEnabled = abp.prefs.enabled;
+    SimpleTest.waitForExplicitFinish();
+    addLoadEvent(start);
   </script>
   </pre>
 </body>
