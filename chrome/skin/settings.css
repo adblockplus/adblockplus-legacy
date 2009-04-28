@@ -61,6 +61,13 @@ deck, deck * {
   text-align: right;
 }
 
+#col-hitcount {
+  min-width: 60px;
+}
+#col-enabled, #col-slow {
+  min-width: 16px;
+}
+
 treechildren::-moz-tree-cell-text(col-filter, description-true, selected-false) {
   font-size: 80%;
   color: #808080;
