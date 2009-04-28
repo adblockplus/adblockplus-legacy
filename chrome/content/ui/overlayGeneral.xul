@@ -40,7 +40,7 @@
     <tooltip id="abp-tooltip" orient="vertical">
       <description id="abp-tooltip-action" hidden="true"/>
       <label id="abp-tooltip-status-label" value="&status.tooltip;"/>
-      <description id="abp-tooltip-status" value="&notloaded.tooltip;"/>
+      <description id="abp-tooltip-status"/>
       <label id="abp-tooltip-blocked-label" value="&blocked.tooltip;" hidden="true"/>
       <description id="abp-tooltip-blocked" hidden="true"/>
       <label id="abp-tooltip-filters-label" value="&filters.tooltip;" hidden="true"/>
@@ -80,12 +80,12 @@
     <command id="abp-command-enable" oncommand="//"/>
   </commandset>
 
-  <statusbarpanel id="abp-status" disabled="true" context="abp-status-popup">
+  <statusbarpanel id="abp-status" context="abp-status-popup">
     <image tooltip="abp-tooltip"/>
-    <label value="&notloaded.label;" tooltip="abp-tooltip"/>
+    <label tooltip="abp-tooltip"/>
   </statusbarpanel>
 
-  <toolbarbutton id="abp-toolbarbutton" disabled="true" label="&toolbarbutton.label;"
+  <toolbarbutton id="abp-toolbarbutton" label="&toolbarbutton.label;"
       tooltip="abp-tooltip" context="abp-status-popup">
     <menupopup id="abp-toolbar-popup"/>
   </toolbarbutton>

@@ -24,19 +24,19 @@
 
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
-#abp-status:not([disabled="true"]) *
+#abp-status *
 {
   cursor: pointer;
 }
-#abp-status:not([disabled="true"]):hover
+#abp-status:hover
 {
   text-decoration: underline;
 }
-#abp-status[deactivated]
+#abp-status[abpstate="disabled"]
 {
   color: #999999;
 }
-#abp-status[whitelisted]
+#abp-status[abpstate="whitelisted"]
 {
   color: #008000;
 }
@@ -50,20 +50,15 @@ toolbar[iconsize="small"] #abp-toolbarbutton,
   list-style-image: url("abp-status-16.png");
   -moz-image-region: rect(0px, 16px, 16px, 0px);
 }
-toolbar[iconsize="small"] #abp-toolbarbutton[deactivated],
-#PersonalToolbar #abp-toolbarbutton[deactivated],
-#abp-status[deactivated] image {
+toolbar[iconsize="small"] #abp-toolbarbutton[abpstate="disabled"],
+#PersonalToolbar #abp-toolbarbutton[abpstate="disabled"],
+#abp-status[abpstate="disabled"] image {
   -moz-image-region: rect(16px, 16px, 32px, 0px);
 }
-toolbar[iconsize="small"] #abp-toolbarbutton[whitelisted],
-#PersonalToolbar #abp-toolbarbutton[whitelisted],
-#abp-status[whitelisted] image {
+toolbar[iconsize="small"] #abp-toolbarbutton[abpstate="whitelisted"],
+#PersonalToolbar #abp-toolbarbutton[abpstate="whitelisted"],
+#abp-status[abpstate="whitelisted"] image {
   -moz-image-region: rect(32px, 16px, 48px, 0px);
-}
-toolbar[iconsize="small"] #abp-toolbarbutton[disabled="true"],
-#PersonalToolbar #abp-toolbarbutton[disabled="true"],
-#abp-status[disabled="true"] image {
-  -moz-image-region: rect(48px, 16px, 64px, 0px);
 }
 
 #abp-toolbar-popup {
@@ -83,14 +78,11 @@ menuitem[default="true"] {
   -moz-image-region: rect(0px, 24px, 24px, 0px);
   width: auto;
 }
-#abp-toolbarbutton[deactivated] {
+#abp-toolbarbutton[abpstate="disabled"] {
   -moz-image-region: rect(24px, 24px, 48px, 0px);
 }
-#abp-toolbarbutton[whitelisted] {
+#abp-toolbarbutton[abpstate="whitelisted"] {
   -moz-image-region: rect(48px, 24px, 72px, 0px);
-}
-#abp-toolbarbutton[disabled="true"] {
-  -moz-image-region: rect(72px, 24px, 96px, 0px);
 }
 
 #abp-tooltip {
