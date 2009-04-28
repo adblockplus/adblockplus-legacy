@@ -22,17 +22,9 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-var abp = null;
-try {
-  abp = Components.classes["@mozilla.org/adblockplus;1"].createInstance().wrappedJSObject;
-
-  if (abp.prefs.initialized) {
-    var prefs = abp.prefs;
-    var DataContainer = abp.DataContainer;
-  }
-  else
-    abp = null;
-} catch (e) {}
+var abp = Components.classes["@mozilla.org/adblockplus;1"].createInstance().wrappedJSObject;
+var prefs = abp.prefs;
+var DataContainer = abp.DataContainer;
 
 // Main browser window
 var mainWin = parent;
@@ -70,41 +62,39 @@ function init() {
   }
   window.__defineGetter__("content", function() {return abp.getBrowserInWindow(mainWin).contentWindow;});
 
-  if (abp) {
-    // Install item listener
-    DataContainer.addListener(handleItemChange);
+  // Install item listener
+  DataContainer.addListener(handleItemChange);
 
-    // Initialize matchers for disabled filters
-    reloadDisabledFilters();
-    abp.filterStorage.addFilterObserver(reloadDisabledFilters);
-    abp.filterStorage.addSubscriptionObserver(reloadDisabledFilters);
+  // Initialize matchers for disabled filters
+  reloadDisabledFilters();
+  abp.filterStorage.addFilterObserver(reloadDisabledFilters);
+  abp.filterStorage.addSubscriptionObserver(reloadDisabledFilters);
 
-    // Restore previous state
-    var params = abp.getParams();
-    if (params && params.search) {
-      E("searchField").value = params.search;
-      treeView.setFilter(params.search);
-    }
-    if (params && params.focus && E(params.focus))
-      E(params.focus).focus();
-    else
-      E("searchField").focus();
-
-    // Activate flasher
-    list.addEventListener("select", onSelectionChange, false);
-
-    // Retrieve data for the window
-    wndData = DataContainer.getDataForWindow(window.content);
-    treeView.setData(wndData.getAllLocations());
-    if (wndData.lastSelection) {
-      noFlash = true;
-      treeView.selectItem(wndData.lastSelection);
-      noFlash = false;
-    }
-
-    // Install a handler for tab changes
-    abp.getBrowserInWindow(mainWin).addEventListener("select", handleTabChange, false);
+  // Restore previous state
+  var params = abp.getParams();
+  if (params && params.search) {
+    E("searchField").value = params.search;
+    treeView.setFilter(params.search);
   }
+  if (params && params.focus && E(params.focus))
+    E(params.focus).focus();
+  else
+    E("searchField").focus();
+
+  // Activate flasher
+  list.addEventListener("select", onSelectionChange, false);
+
+  // Retrieve data for the window
+  wndData = DataContainer.getDataForWindow(window.content);
+  treeView.setData(wndData.getAllLocations());
+  if (wndData.lastSelection) {
+    noFlash = true;
+    treeView.selectItem(wndData.lastSelection);
+    noFlash = false;
+  }
+
+  // Install a handler for tab changes
+  abp.getBrowserInWindow(mainWin).addEventListener("select", handleTabChange, false);
 }
 
 // To be called for a detached window when the main window has been closed
@@ -630,7 +620,6 @@ var treeView = {
     this.boxObject = boxObject;
     this.itemsDummy = boxObject.treeBody.getAttribute("noitemslabel");
     this.whitelistDummy = boxObject.treeBody.getAttribute("whitelistedlabel");
-    this.loadDummy = boxObject.treeBody.getAttribute("notloadedlabel");
 
     var stringAtoms = ["col-address", "col-type", "col-filter", "col-state", "col-size", "state-regular", "state-filtered", "state-whitelisted", "state-hidden"];
     var boolAtoms = ["selected", "dummy", "filter-disabled"];
@@ -646,10 +635,8 @@ var treeView = {
       this.atoms[atom + "-false"] = atomService.getAtom(atom + "-false");
     }
 
-    if (abp) {
-      this.itemsDummyTooltip = abp.getString("no_blocking_suggestions");
-      this.whitelistDummyTooltip = abp.getString("whitelisted_page");
-    }
+    this.itemsDummyTooltip = abp.getString("no_blocking_suggestions");
+    this.whitelistDummyTooltip = abp.getString("whitelisted_page");
 
     // Check current sort direction
     var cols = document.getElementsByTagName("treecol");
@@ -723,9 +710,6 @@ var treeView = {
       // Empty list, show dummy
       if (row > 0 || (col != "address" && col != "filter"))
         return "";
-
-      if (!this.data)
-        return (col == "address" ? this.loadDummy : "");
 
       if (col == "filter") {
         var filter = abp.policy.isWindowWhitelisted(window.content);
@@ -859,7 +843,6 @@ var treeView = {
   whitelistDummy: null,
   itemsDummyTooltip: null,
   whitelistDummyTooltip: null,
-  loadDummy: null,
 
   sortProcs: {
     address: sortByAddress,

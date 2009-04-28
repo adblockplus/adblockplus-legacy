@@ -129,6 +129,6 @@
                   onclick="handleClick(event)"
                   ondblclick="handleDblClick(event)"
                   noitemslabel="&noitems.label;"
-                  whitelistedlabel="&whitelisted.label;" notloadedlabel="&notloaded.label;"/>
+                  whitelistedlabel="&whitelisted.label;"/>
   </tree>
 </page>

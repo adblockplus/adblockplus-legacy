@@ -38,7 +38,6 @@
 
 <!ENTITY noitems.label            "No blockable items">
 <!ENTITY whitelisted.label        "Whitelisted page">
-<!ENTITY notloaded.label          "Adblock Plus hasn't been installed properly">
 
 <!ENTITY tooltip.address.label    "Address:">
 <!ENTITY tooltip.type.label       "Type:">
