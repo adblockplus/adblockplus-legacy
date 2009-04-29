@@ -109,7 +109,9 @@
         ]
       ],
       [
-        '<window xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"><image src="test.gif"/></window>',
+        <window xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+          <image src="test.gif"/>
+        </window>,
         "http://localhost:1234/test.gif",
         [
           ["http://localhost*$~subdocument", "blocked"],
@@ -126,7 +128,9 @@
         ]
       ],
       [
-        '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><image xlink:href="test.gif"/></svg>',
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <image xlink:href="test.gif"/>
+        </svg>,
         "http://localhost:1234/test.gif",
         [
           ["http://localhost*$~subdocument", "blocked"],
@@ -243,6 +247,8 @@
       server.registerPathHandler("/test", function(metadata, response)
       {
         let body = tests[currentTest][0];
+        if (body instanceof XML)
+          body = body.toXMLString();
         response.setStatusLine("1.1", "200", "OK");
 
         let contentType = "text/html";
