@@ -341,7 +341,9 @@ var policy =
 
       // Look for the request both in the origin window and in its parent (for frames)
       let contexts = [getRequestWindow(newChannel)];
-      if (contexts[0] && contexts[0].parent != contexts[0])
+      if (!contexts[0])
+        contexts.pop();
+      else if (contexts[0] && contexts[0].parent != contexts[0])
         contexts.push(contexts[0].parent);
 
       let info = null;
