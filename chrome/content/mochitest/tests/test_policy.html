@@ -1,0 +1,251 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Content policy tests</title>
+
+  <link rel="stylesheet" type="text/css" href="/content/tests/SimpleTest/test.css" />
+
+  <script type="text/javascript" src="/content/MochiKit/MochiKit.js"></script>
+  <script type="text/javascript" src="/content/tests/SimpleTest/SimpleTest.js"></script>        
+
+  <script type="application/x-javascript;version=1.7" src="common.js"></script>
+  <script type="application/x-javascript;version=1.7" src="../httpd.js"></script>
+</head>
+<body>
+  <p id="display"></p>
+  <div id="content" style="visibility: hidden;">
+    <iframe id="frame" onload="doRunTest()"></iframe>
+  </div>
+
+  <pre id="test">
+  <script type="application/x-javascript;version=1.7">
+    let abp = Components.classes["@mozilla.org/adblockplus;1"].createInstance().wrappedJSObject;
+
+    let tests = [
+      ['<img src="test.gif">', "http://localhost:1234/test.gif", [
+        ["http://localhost*$~subdocument", "blocked"],
+        ["test.gif", "blocked"],
+        ["test$~subdocument", "blocked"],
+        ["foo", "allowed"],
+        ["test.gif$third-party", "allowed"],
+        ["test.gif$~third-party", "blocked"],
+        ["test.gif$image", "blocked"],
+        ["test.gif$~image", "allowed"],
+        ["test.gif$script", "allowed"],
+        ["test.gif$domain=localhost", "blocked"],
+        ["test.gif$domain=example.com", "allowed"],
+      ]],
+      ['<img src="http://127.0.0.1:1234/test.gif">', "http://127.0.0.1:1234/test.gif", [
+        ["http://localhost*$~subdocument", "allowed"],
+        ["test.gif", "blocked"],
+        ["test$~subdocument", "blocked"],
+        ["foo", "allowed"],
+        ["test.gif$third-party", "blocked"],
+        ["test.gif$~third-party", "allowed"],
+        ["test.gif$image", "blocked"],
+        ["test.gif$~image", "allowed"],
+        ["test.gif$script", "allowed"],
+        ["test.gif$domain=localhost", "blocked"],
+        ["test.gif$domain=example.com", "allowed"],
+        ["test.gif$domain=127.0.0.1", "allowed"],
+      ]],
+      ['<input type="image" src="test.gif">', "http://localhost:1234/test.gif", [
+        ["http://localhost*$~subdocument", "blocked"],
+        ["test.gif", "blocked"],
+        ["test$~subdocument", "blocked"],
+        ["foo", "allowed"],
+        ["test.gif$third-party", "allowed"],
+        ["test.gif$~third-party", "blocked"],
+        ["test.gif$image", "blocked"],
+        ["test.gif$~image", "allowed"],
+        ["test.gif$script", "allowed"],
+        ["test.gif$domain=localhost", "blocked"],
+        ["test.gif$domain=example.com", "allowed"],
+      ]],
+      ['<embed type="image/gif" src="test.gif"></embed>', "http://localhost:1234/test.gif", [
+        ["http://localhost*$~subdocument", "blocked"],
+        ["test.gif", "blocked"],
+        ["test$~subdocument", "blocked"],
+        ["foo", "allowed"],
+        ["test.gif$third-party", "allowed"],
+        ["test.gif$~third-party", "blocked"],
+        ["test.gif$image", "allowed"],
+        ["test.gif$~image", "blocked"],
+        ["test.gif$object", "blocked"],
+        ["test.gif$domain=localhost", "blocked"],
+        ["test.gif$domain=example.com", "allowed"],
+      ]],
+      ['<object type="image/gif" data="test.gif"></object>', "http://localhost:1234/test.gif", [
+        ["http://localhost*$~subdocument", "blocked"],
+        ["test.gif", "blocked"],
+        ["test$~subdocument", "blocked"],
+        ["foo", "allowed"],
+        ["test.gif$third-party", "allowed"],
+        ["test.gif$~third-party", "blocked"],
+        ["test.gif$image", "allowed"],
+        ["test.gif$~image", "blocked"],
+        ["test.gif$object", "blocked"],
+        ["test.gif$domain=localhost", "blocked"],
+        ["test.gif$domain=example.com", "allowed"],
+      ]],
+      ['<window xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"><image src="test.gif"/></window>', "http://localhost:1234/test.gif", [
+        ["http://localhost*$~subdocument", "blocked"],
+        ["test.gif", "blocked"],
+        ["test$~subdocument", "blocked"],
+        ["foo", "allowed"],
+        ["test.gif$third-party", "allowed"],
+        ["test.gif$~third-party", "blocked"],
+        ["test.gif$image", "blocked"],
+        ["test.gif$~image", "allowed"],
+        ["test.gif$script", "allowed"],
+        ["test.gif$domain=localhost", "blocked"],
+        ["test.gif$domain=example.com", "allowed"],
+      ]],
+      ['<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><image xlink:href="test.gif"/></svg>', "http://localhost:1234/test.gif", [
+        ["http://localhost*$~subdocument", "blocked"],
+        ["test.gif", "blocked"],
+        ["test$~subdocument", "blocked"],
+        ["foo", "allowed"],
+        ["test.gif$third-party", "allowed"],
+        ["test.gif$~third-party", "blocked"],
+        ["test.gif$image", "blocked"],
+        ["test.gif$~image", "allowed"],
+        ["test.gif$script", "allowed"],
+        ["test.gif$domain=localhost", "blocked"],
+        ["test.gif$domain=example.com", "allowed"],
+      ]],
+    ];
+    let currentTest = 0;
+    let currentStage = 0;
+    let currentFilter = 0;
+
+    let policyHits = [];
+    let stageDescriptions = {
+      1: "running without filters",
+      2: "running with filter %S",
+      3: "running with filter %S and site exception",
+      4: "running with filter %S and exception not applicable to sites",
+      5: "running with filter %S and exception only applicable for frame",
+    };
+
+    function onPolicyHit(wnd, type, data, location)
+    {
+      if (wnd != top || type != "add" || location.location == "http://localhost:1234/test")
+        return;
+      policyHits.push([wnd, type, data, location]);
+    }
+
+    function runNextTest()
+    {
+      if (currentStage > 1)
+        currentFilter++;
+      if (currentStage <= 1 || currentFilter >= tests[currentTest][2].length)
+      {
+        currentStage++;
+        currentFilter = 0;
+      }
+      if (currentStage > 5)
+      {
+        currentTest++;
+        currentStage = 1;
+      }
+      if (currentTest >= tests.length)
+      {
+        SimpleTest.finish();
+        return;
+      }
+
+      let [body, expectedURL, filters] = tests[currentTest];
+
+      abp.blacklistMatcher.clear();
+      abp.whitelistMatcher.clear();
+
+      if (currentStage > 1)
+        abp.blacklistMatcher.add(abp.Filter.fromText(filters[currentFilter][0]));
+      if (currentStage == 3)
+        abp.whitelistMatcher.add(abp.Filter.fromText("@@|chrome://mochikit/"));
+      if (currentStage == 4)
+        abp.whitelistMatcher.add(abp.Filter.fromText("@@|chrome://mochikit/$~document"));
+      if (currentStage == 5)
+        abp.whitelistMatcher.add(abp.Filter.fromText("@@|http://localhost:1234/test|"));
+
+      policyHits = [];
+      document.getElementById("frame").contentWindow.location.href = "http://localhost:1234/test";
+    }
+
+    function doRunTest()
+    {
+      if (currentStage == 0)
+        return;
+
+      let [body, expectedURL, filters] = tests[currentTest];
+
+      if (currentStage == 3)
+        is(policyHits.length, 0, "Number of policy hits for " + body + " with site whitelisting");
+      else
+      {
+        is(policyHits.length, 1, "Number of policy hits for " + body + " " + policyHits.map(function(hit) hit[3].location).join(", "));
+        if (policyHits.length == 1)
+        {
+          let [wnd, type, data, location] = policyHits[0];
+
+          is(location.location, expectedURL, "Checking request URL");
+
+          let expectedStatus = (currentStage == 1 ? "allowed" : filters[currentFilter][1]);
+          let actualStatus = (location.filter ? "blocked" : "allowed");
+
+          let stageDescription = stageDescriptions[currentStage];
+          if (stageDescription.indexOf("%S") >= 0)
+            stageDescription = stageDescription.replace("%S", filters[currentFilter][0]);
+
+          is(actualStatus, expectedStatus, "Checking whether request was blocked (" + stageDescription + ")");
+        }
+      }
+
+      setTimeout(runNextTest, 0);
+    }
+
+    function start()
+    {
+      abp.DataContainer.addListener(onPolicyHit);
+
+      window.addEventListener("unload", stop, false);
+      server.start(1234);
+
+      server.registerPathHandler("/test", function(metadata, response)
+      {
+        let body = tests[currentTest][0];
+        response.setStatusLine("1.1", "200", "OK");
+
+        let contentType = "text/html";
+        if (body.indexOf("there.is.only.xul") >= 0)
+          contentType = "application/vnd.mozilla.xul+xml";
+        else if (body.indexOf("2000/svg") >= 0)
+          contentType = "image/svg+xml";
+        response.setHeader("Content-Type", contentType);
+
+        response.bodyOutputStream.write(body, body.length);
+      });
+
+      abp.prefs.enabled = true;
+      runNextTest();
+    }
+
+    function stop()
+    {
+      abp.DataContainer.removeListener(onPolicyHit);
+
+      server.stop();
+
+      abp.filterStorage.triggerSubscriptionObservers("reload", abp.filterStorage.subscriptions);
+      abp.prefs.enabled = oldEnabled;
+    }
+
+    let server = new nsHttpServer();
+    let oldEnabled = abp.prefs.enabled;
+    SimpleTest.waitForExplicitFinish();
+    addLoadEvent(start);
+  </script>
+  </pre>
+</body>
+</html>
