@@ -256,7 +256,47 @@
           ["test.gif$domain=example.com", "allowed"],
         ]
       ],
+      [
+        '<' + 'script src="test.js"><' + '/script>',
+        "http://localhost:1234/test.js",
+        [
+          ["http://localhost*$~subdocument", "blocked"],
+          ["test.js", "blocked"],
+          ["test$~subdocument", "blocked"],
+          ["foo", "allowed"],
+          ["test.js$third-party", "allowed"],
+          ["test.js$~third-party", "blocked"],
+          ["test.js$script", "blocked"],
+          ["test.js$~script", "allowed"],
+          ["test.js$image", "allowed"],
+          ["test.js$domain=localhost", "blocked"],
+          ["test.js$domain=example.com", "allowed"],
+        ]
+      ],
+      [
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <script xlink:href="test.js"/>
+        </svg>,
+        "http://localhost:1234/test.js",
+        [
+          ["http://localhost*$~subdocument", "blocked"],
+          ["test.js", "blocked"],
+          ["test$~subdocument", "blocked"],
+          ["foo", "allowed"],
+          ["test.js$third-party", "allowed"],
+          ["test.js$~third-party", "blocked"],
+          ["test.js$script", "blocked"],
+          ["test.js$~script", "allowed"],
+          ["test.js$image", "allowed"],
+          ["test.js$domain=localhost", "blocked"],
+          ["test.js$domain=example.com", "allowed"],
+        ]
+      ],
     ];
+
+    // TODO: '<' + 'script>new Worker("test.js");<' + '/script>'
+    // Web workers need special treatment, no way to ensure that web worker loads before the page is loaded.
+
     let currentTest = 0;
     let currentStage = 0;
     let currentFilter = 0;
@@ -335,7 +375,7 @@
         is(policyHits.length, 0, "Number of policy hits for " + body + " with site whitelisting");
       else
       {
-        is(policyHits.length, 1, "Number of policy hits for " + body + " " + policyHits.map(function(hit) hit[3].location).join(", "));
+        is(policyHits.length, 1, "Number of policy hits for " + body);
         if (policyHits.length == 1)
         {
           let [wnd, type, data, location] = policyHits[0];
