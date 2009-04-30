@@ -262,6 +262,7 @@
     let currentFilter = 0;
 
     let policyHits = [];
+    let serverHit = false;
     let stageDescriptions = {
       1: "running without filters",
       2: "running with filter %S",
@@ -311,6 +312,13 @@
       if (currentStage == 5)
         abp.whitelistMatcher.add(abp.Filter.fromText("@@|http://localhost:1234/test|"));
 
+      serverHit = false;
+      server.registerPathHandler(expectedURL.replace(/http:\/\/[^\/]+/, ""), function(metadata, response)
+      {
+        serverHit = true;
+        response.setStatusLine("1.1", "404", "Not Found");
+      });
+
       policyHits = [];
       document.getElementById("frame").contentWindow.location.href = "http://localhost:1234/test";
     }
@@ -322,6 +330,7 @@
 
       let [body, expectedURL, filters] = tests[currentTest];
 
+      let expectedStatus = "allowed";
       if (currentStage == 3)
         is(policyHits.length, 0, "Number of policy hits for " + body + " with site whitelisting");
       else
@@ -333,7 +342,7 @@
 
           is(location.location, expectedURL, "Checking request URL");
 
-          let expectedStatus = (currentStage == 1 ? "allowed" : filters[currentFilter][1]);
+          expectedStatus = (currentStage == 1 ? "allowed" : filters[currentFilter][1]);
           let actualStatus = (location.filter ? "blocked" : "allowed");
 
           let stageDescription = stageDescriptions[currentStage];
@@ -343,6 +352,9 @@
           is(actualStatus, expectedStatus, "Checking whether request was blocked (" + stageDescription + ")");
         }
       }
+
+      server.registerPathHandler(expectedURL.replace(/http:\/\/[^\/]+/, ""), null);
+      is(serverHit, expectedStatus == "allowed", "Checking whether request was received by server");
 
       runNextTest();
     }
