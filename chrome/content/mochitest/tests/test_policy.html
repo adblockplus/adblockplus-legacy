@@ -75,6 +75,76 @@
         ]
       ],
       [
+        '<div style="background-image: url(test.gif)"></div>',
+        "http://localhost:1234/test.gif",
+        [
+          ["http://localhost*$~subdocument", "blocked"],
+          ["test.gif", "blocked"],
+          ["test$~subdocument", "blocked"],
+          ["foo", "allowed"],
+          ["test.gif$third-party", "allowed"],
+          ["test.gif$~third-party", "blocked"],
+          ["test.gif$background", "blocked"],
+          ["test.gif$~background", "allowed"],
+          ["test.gif$script", "allowed"],
+          ["test.gif$domain=localhost", "blocked"],
+          ["test.gif$domain=example.com", "allowed"],
+        ]
+      ],
+      [
+        '<div style="cursor: url(test.gif), pointer"></div>',
+        "http://localhost:1234/test.gif",
+        [
+          ["http://localhost*$~subdocument", "blocked"],
+          ["test.gif", "blocked"],
+          ["test$~subdocument", "blocked"],
+          ["foo", "allowed"],
+          ["test.gif$third-party", "allowed"],
+          ["test.gif$~third-party", "blocked"],
+          ["test.gif$background", "blocked"],
+          ["test.gif$~background", "allowed"],
+          ["test.gif$script", "allowed"],
+          ["test.gif$domain=localhost", "blocked"],
+          ["test.gif$domain=example.com", "allowed"],
+        ]
+      ],
+      [
+        <ol>
+          <li style="list-style-image: url(test.gif)">foo</li>
+        </ol>,
+        "http://localhost:1234/test.gif",
+        [
+          ["http://localhost*$~subdocument", "blocked"],
+          ["test.gif", "blocked"],
+          ["test$~subdocument", "blocked"],
+          ["foo", "allowed"],
+          ["test.gif$third-party", "allowed"],
+          ["test.gif$~third-party", "blocked"],
+          ["test.gif$background", "blocked"],
+          ["test.gif$~background", "allowed"],
+          ["test.gif$script", "allowed"],
+          ["test.gif$domain=localhost", "blocked"],
+          ["test.gif$domain=example.com", "allowed"],
+        ]
+      ],
+      [
+        '<style>div:before { content: url(test.gif); }</style><div>foo</div>',
+        "http://localhost:1234/test.gif",
+        [
+          ["http://localhost*$~subdocument", "blocked"],
+          ["test.gif", "blocked"],
+          ["test$~subdocument", "blocked"],
+          ["foo", "allowed"],
+          ["test.gif$third-party", "allowed"],
+          ["test.gif$~third-party", "blocked"],
+          ["test.gif$background", "blocked"],
+          ["test.gif$~background", "allowed"],
+          ["test.gif$script", "allowed"],
+          ["test.gif$domain=localhost", "blocked"],
+          ["test.gif$domain=example.com", "allowed"],
+        ]
+      ],
+      [
         '<embed type="image/gif" src="test.gif"></embed>',
         "http://localhost:1234/test.gif",
         [
@@ -128,8 +198,48 @@
         ]
       ],
       [
+        <window xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+          <image style="list-style-image: url(test.gif)"/>
+        </window>,
+        "http://localhost:1234/test.gif",
+        [
+          ["http://localhost*$~subdocument", "blocked"],
+          ["test.gif", "blocked"],
+          ["test$~subdocument", "blocked"],
+          ["foo", "allowed"],
+          ["test.gif$third-party", "allowed"],
+          ["test.gif$~third-party", "blocked"],
+          ["test.gif$background", "blocked"],
+          ["test.gif$~background", "allowed"],
+          ["test.gif$script", "allowed"],
+          ["test.gif$domain=localhost", "blocked"],
+          ["test.gif$domain=example.com", "allowed"],
+        ]
+      ],
+      [
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <image xlink:href="test.gif"/>
+        </svg>,
+        "http://localhost:1234/test.gif",
+        [
+          ["http://localhost*$~subdocument", "blocked"],
+          ["test.gif", "blocked"],
+          ["test$~subdocument", "blocked"],
+          ["foo", "allowed"],
+          ["test.gif$third-party", "allowed"],
+          ["test.gif$~third-party", "blocked"],
+          ["test.gif$image", "blocked"],
+          ["test.gif$~image", "allowed"],
+          ["test.gif$script", "allowed"],
+          ["test.gif$domain=localhost", "blocked"],
+          ["test.gif$domain=example.com", "allowed"],
+        ]
+      ],
+      [
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <filter>
+            <feImage xlink:href="test.gif"/>
+          </filter>
         </svg>,
         "http://localhost:1234/test.gif",
         [
