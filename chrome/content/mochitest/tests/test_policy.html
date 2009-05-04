@@ -132,6 +132,14 @@
       ]);
     }
 
+    if (compareGeckoVersion("1.9.1b3") >= 0)
+    {
+      tests.push([
+        '<style type="text/css">@font-face { font-family: Test; src: url("test.otf"); } html { font-family: Test; }</style>',
+        "http://localhost:1234/test.otf", "font", "localhost", false
+      ]);
+    }
+
     // TODO: '<' + 'script>new Worker("test.js");<' + '/script>'
     // Web workers need special treatment, no way to ensure that web worker loads before the page is loaded.
 
