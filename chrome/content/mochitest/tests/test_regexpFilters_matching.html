@@ -90,6 +90,10 @@
       testMatch("abc$media", "http://abc/adf", "IMAGE", null, false, false);
       testMatch("abc$media", "http://abc/adf", "MEDIA", null, false, true);
       testMatch("abc$~media", "http://abc/adf", "MEDIA", null, false, false);
+
+      testMatch("abc$font", "http://abc/adf", "IMAGE", null, false, false);
+      testMatch("abc$font", "http://abc/adf", "FONT", null, false, true);
+      testMatch("abc$~font", "http://abc/adf", "FONT", null, false, false);
     }
 
     testMatch("abc$image,script", "http://abc/adf", "IMAGE", null, false, true);
