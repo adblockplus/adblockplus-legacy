@@ -2956,19 +2956,16 @@ let treeView = {
 
     let text = (this.editorDummy ? this.editorDummyInit : filter.text);
 
-    // Firefox 2 needs time to initialize the text field
-    setTimeout(function(me) {
-      me.editor.focus();
-      me.editor.field = document.commandDispatcher.focusedElement;
-      me.editor.field.value = text;
-      me.editor.field.setSelectionRange(me.editor.value.length, me.editor.value.length);
+    this.editor.focus();
+    this.editor.field = document.commandDispatcher.focusedElement;
+    this.editor.field.value = text;
+    this.editor.field.setSelectionRange(this.editor.value.length, this.editor.value.length);
 
-      // Need to attach handlers to the embedded html:input instead of menulist - won't catch blur otherwise
-      me.editor.field.addEventListener("keypress", me.editorKeyPressHandler, false);
-      me.editor.field.addEventListener("blur", me.editorBlurHandler, false);
+    // Need to attach handlers to the embedded html:input instead of menulist - won't catch blur otherwise
+    this.editor.field.addEventListener("keypress", this.editorKeyPressHandler, false);
+    this.editor.field.addEventListener("blur", this.editorBlurHandler, false);
 
-      me.boxObject.invalidateRow(row);
-    }, 0, this);
+    this.boxObject.invalidateRow(row);
   },
 
   /**
