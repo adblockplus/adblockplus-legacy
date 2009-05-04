@@ -328,6 +328,84 @@
       ],
     ];
 
+    if (window.navigator.mimeTypes["application/x-shockwave-flash"] && window.navigator.mimeTypes["application/x-shockwave-flash"].enabledPlugin)
+    {
+      tests.push([
+        '<embed type="application/x-shockwave-flash" src="test.swf"></embed>',
+        "http://localhost:1234/test.swf",
+        [
+          ["http://localhost*$~subdocument", "blocked"],
+          ["test.swf", "blocked"],
+          ["test$~subdocument", "blocked"],
+          ["foo", "allowed"],
+          ["test.swf$third-party", "allowed"],
+          ["test.swf$~third-party", "blocked"],
+          ["test.swf$object", "blocked"],
+          ["test.swf$~object", "allowed"],
+          ["test.swf$image", "allowed"],
+          ["test.swf$domain=localhost", "blocked"],
+          ["test.swf$domain=example.com", "allowed"],
+        ]
+      ],
+      [
+        '<object type="application/x-shockwave-flash" data="test.swf"></object>',
+        "http://localhost:1234/test.swf",
+        [
+          ["http://localhost*$~subdocument", "blocked"],
+          ["test.swf", "blocked"],
+          ["test$~subdocument", "blocked"],
+          ["foo", "allowed"],
+          ["test.swf$third-party", "allowed"],
+          ["test.swf$~third-party", "blocked"],
+          ["test.swf$object", "blocked"],
+          ["test.swf$~object", "allowed"],
+          ["test.swf$image", "allowed"],
+          ["test.swf$domain=localhost", "blocked"],
+          ["test.swf$domain=example.com", "allowed"],
+        ]
+      ]);
+    }
+
+    if (window.navigator.mimeTypes["application/x-java-applet"] && window.navigator.mimeTypes["application/x-java-applet"].enabledPlugin)
+    {
+      // Note: this could use some improvement but Gecko will fail badly with more complicated tests (bug 364400)
+      // Note: <applet> is not on the list because it shows some weird async behavior (data is loaded after page load in some strange way)
+      tests.push([
+        '<embed type="application/x-java-applet" code="test.class" src="test.class"></embed>',
+        "http://localhost:1234/test.class",
+        [
+          ["http://localhost*$~subdocument", "blocked"],
+          ["test.class", "blocked"],
+          ["test$~subdocument", "blocked"],
+          ["foo", "allowed"],
+          ["test.class$third-party", "allowed"],
+          ["test.class$~third-party", "blocked"],
+          ["test.class$object", "blocked"],
+          ["test.class$~object", "allowed"],
+          ["test.class$image", "allowed"],
+          ["test.class$domain=localhost", "blocked"],
+          ["test.class$domain=example.com", "allowed"],
+        ]
+      ],
+      [
+        '<object type="application/x-java-applet" data="test.class"></object>',
+        "http://localhost:1234/test.class",
+        [
+          ["http://localhost*$~subdocument", "blocked"],
+          ["test.class", "blocked"],
+          ["test$~subdocument", "blocked"],
+          ["foo", "allowed"],
+          ["test.class$third-party", "allowed"],
+          ["test.class$~third-party", "blocked"],
+          ["test.class$object", "blocked"],
+          ["test.class$~object", "allowed"],
+          ["test.class$image", "allowed"],
+          ["test.class$domain=localhost", "blocked"],
+          ["test.class$domain=example.com", "allowed"],
+        ]
+      ]);
+    }
+
     // TODO: '<' + 'script>new Worker("test.js");<' + '/script>'
     // Web workers need special treatment, no way to ensure that web worker loads before the page is loaded.
 
