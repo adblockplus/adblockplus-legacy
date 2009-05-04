@@ -48,6 +48,8 @@ function init()
   {
     document.getElementById("filtersetg-warning").hidden = false;
   }
+
+  document.getElementById("subscriptions").selectedIndex = 0;
 }
 
 function addSubscriptions() {
