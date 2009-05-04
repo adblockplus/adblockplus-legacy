@@ -356,8 +356,9 @@ var policy =
 
         if (info)
         {
+          let node = (info.nodes.length ? info.nodes[info.nodes.length - 1] : context.document);
           // HACK: NS_BINDING_ABORTED would be proper error code to throw but this will show up in error console (bug 287107)
-          if (!this.processNode(context, info.nodes[info.nodes.length - 1], info.type, newChannel.URI))
+          if (!this.processNode(context, node, info.type, newChannel.URI))
             throw Components.results.NS_BASE_STREAM_WOULD_BLOCK;
           else
             return;
