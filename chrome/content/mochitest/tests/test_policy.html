@@ -292,6 +292,40 @@
           ["test.js$domain=example.com", "allowed"],
         ]
       ],
+      [
+        '<link rel="stylesheet" type="text/css" href="test.css">',
+        "http://localhost:1234/test.css",
+        [
+          ["http://localhost*$~subdocument", "blocked"],
+          ["test.css", "blocked"],
+          ["test$~subdocument", "blocked"],
+          ["foo", "allowed"],
+          ["test.css$third-party", "allowed"],
+          ["test.css$~third-party", "blocked"],
+          ["test.css$stylesheet", "blocked"],
+          ["test.css$~stylesheet", "allowed"],
+          ["test.css$image", "allowed"],
+          ["test.css$domain=localhost", "blocked"],
+          ["test.css$domain=example.com", "allowed"],
+        ]
+      ],
+      [
+        '<?xml-stylesheet href="test.css" type="text/css"?><window xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"/>',
+        "http://localhost:1234/test.css",
+        [
+          ["http://localhost*$~subdocument", "blocked"],
+          ["test.css", "blocked"],
+          ["test$~subdocument", "blocked"],
+          ["foo", "allowed"],
+          ["test.css$third-party", "allowed"],
+          ["test.css$~third-party", "blocked"],
+          ["test.css$stylesheet", "blocked"],
+          ["test.css$~stylesheet", "allowed"],
+          ["test.css$image", "allowed"],
+          ["test.css$domain=localhost", "blocked"],
+          ["test.css$domain=example.com", "allowed"],
+        ]
+      ],
     ];
 
     // TODO: '<' + 'script>new Worker("test.js");<' + '/script>'
