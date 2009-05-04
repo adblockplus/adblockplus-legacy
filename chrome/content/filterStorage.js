@@ -361,9 +361,10 @@ var filterStorage =
       dump("Adblock Plus: Failed to resolve filter file location from extensions.adblockplus.patternsfile preference\n");
 
     let stream = null;
-    if (this.file)
+    try
     {
-      try {
+      if (this.file && this.file.exists())
+      {
         var fileStream = Components.classes["@mozilla.org/network/file-input-stream;1"]
                            .createInstance(Components.interfaces.nsIFileInputStream);
         fileStream.init(this.file, 0x01, 0444, 0);
@@ -373,10 +374,11 @@ var filterStorage =
         stream.init(fileStream, "UTF-8", 16384, Components.interfaces.nsIConverterInputStream.DEFAULT_REPLACEMENT_CHARACTER);
         stream = stream.QueryInterface(Components.interfaces.nsIUnicharLineInputStream);
       }
-      catch (e) {
-        dump("Adblock Plus: Failed to read filters from file " + this.file.path + ": " + e + "\n");
-        stream = null;
-      }
+    }
+    catch (e)
+    {
+      dump("Adblock Plus: Failed to read filters from file " + this.file.path + ": " + e + "\n");
+      stream = null;
     }
 
     let userFilters = null;
