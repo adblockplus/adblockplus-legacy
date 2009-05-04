@@ -24,216 +24,59 @@
     let tests = [
       [
         '<img src="test.gif">',
-        "http://localhost:1234/test.gif",
-        [
-          ["http://localhost*$~subdocument", "blocked"],
-          ["test.gif", "blocked"],
-          ["test$~subdocument", "blocked"],
-          ["foo", "allowed"],
-          ["test.gif$third-party", "allowed"],
-          ["test.gif$~third-party", "blocked"],
-          ["test.gif$image", "blocked"],
-          ["test.gif$~image", "allowed"],
-          ["test.gif$script", "allowed"],
-          ["test.gif$domain=localhost", "blocked"],
-          ["test.gif$domain=example.com", "allowed"],
-        ]
+        "http://localhost:1234/test.gif", "image", "localhost", false
       ],
       [
         '<img src="http://127.0.0.1:1234/test.gif">',
-        "http://127.0.0.1:1234/test.gif",
-        [
-          ["http://localhost*$~subdocument", "allowed"],
-          ["test.gif", "blocked"],
-          ["test$~subdocument", "blocked"],
-          ["foo", "allowed"],
-          ["test.gif$third-party", "blocked"],
-          ["test.gif$~third-party", "allowed"],
-          ["test.gif$image", "blocked"],
-          ["test.gif$~image", "allowed"],
-          ["test.gif$script", "allowed"],
-          ["test.gif$domain=localhost", "blocked"],
-          ["test.gif$domain=example.com", "allowed"],
-          ["test.gif$domain=127.0.0.1", "allowed"],
-        ]
+        "http://127.0.0.1:1234/test.gif", "image", "localhost", true
       ],
       [
         '<input type="image" src="test.gif">',
-        "http://localhost:1234/test.gif",
-        [
-          ["http://localhost*$~subdocument", "blocked"],
-          ["test.gif", "blocked"],
-          ["test$~subdocument", "blocked"],
-          ["foo", "allowed"],
-          ["test.gif$third-party", "allowed"],
-          ["test.gif$~third-party", "blocked"],
-          ["test.gif$image", "blocked"],
-          ["test.gif$~image", "allowed"],
-          ["test.gif$script", "allowed"],
-          ["test.gif$domain=localhost", "blocked"],
-          ["test.gif$domain=example.com", "allowed"],
-        ]
+        "http://localhost:1234/test.gif", "image", "localhost", false
       ],
       [
         '<div style="background-image: url(test.gif)"></div>',
-        "http://localhost:1234/test.gif",
-        [
-          ["http://localhost*$~subdocument", "blocked"],
-          ["test.gif", "blocked"],
-          ["test$~subdocument", "blocked"],
-          ["foo", "allowed"],
-          ["test.gif$third-party", "allowed"],
-          ["test.gif$~third-party", "blocked"],
-          ["test.gif$background", "blocked"],
-          ["test.gif$~background", "allowed"],
-          ["test.gif$script", "allowed"],
-          ["test.gif$domain=localhost", "blocked"],
-          ["test.gif$domain=example.com", "allowed"],
-        ]
+        "http://localhost:1234/test.gif", "background", "localhost", false
       ],
       [
         '<div style="cursor: url(test.gif), pointer"></div>',
-        "http://localhost:1234/test.gif",
-        [
-          ["http://localhost*$~subdocument", "blocked"],
-          ["test.gif", "blocked"],
-          ["test$~subdocument", "blocked"],
-          ["foo", "allowed"],
-          ["test.gif$third-party", "allowed"],
-          ["test.gif$~third-party", "blocked"],
-          ["test.gif$background", "blocked"],
-          ["test.gif$~background", "allowed"],
-          ["test.gif$script", "allowed"],
-          ["test.gif$domain=localhost", "blocked"],
-          ["test.gif$domain=example.com", "allowed"],
-        ]
+        "http://localhost:1234/test.gif", "background", "localhost", false
       ],
       [
         <ol>
           <li style="list-style-image: url(test.gif)">foo</li>
         </ol>,
-        "http://localhost:1234/test.gif",
-        [
-          ["http://localhost*$~subdocument", "blocked"],
-          ["test.gif", "blocked"],
-          ["test$~subdocument", "blocked"],
-          ["foo", "allowed"],
-          ["test.gif$third-party", "allowed"],
-          ["test.gif$~third-party", "blocked"],
-          ["test.gif$background", "blocked"],
-          ["test.gif$~background", "allowed"],
-          ["test.gif$script", "allowed"],
-          ["test.gif$domain=localhost", "blocked"],
-          ["test.gif$domain=example.com", "allowed"],
-        ]
+        "http://localhost:1234/test.gif", "background", "localhost", false
       ],
       [
         '<style>div:before { content: url(test.gif); }</style><div>foo</div>',
-        "http://localhost:1234/test.gif",
-        [
-          ["http://localhost*$~subdocument", "blocked"],
-          ["test.gif", "blocked"],
-          ["test$~subdocument", "blocked"],
-          ["foo", "allowed"],
-          ["test.gif$third-party", "allowed"],
-          ["test.gif$~third-party", "blocked"],
-          ["test.gif$background", "blocked"],
-          ["test.gif$~background", "allowed"],
-          ["test.gif$script", "allowed"],
-          ["test.gif$domain=localhost", "blocked"],
-          ["test.gif$domain=example.com", "allowed"],
-        ]
+        "http://localhost:1234/test.gif", "background", "localhost", false
       ],
       [
         '<embed type="image/gif" src="test.gif"></embed>',
-        "http://localhost:1234/test.gif",
-        [
-          ["http://localhost*$~subdocument", "blocked"],
-          ["test.gif", "blocked"],
-          ["test$~subdocument", "blocked"],
-          ["foo", "allowed"],
-          ["test.gif$third-party", "allowed"],
-          ["test.gif$~third-party", "blocked"],
-          ["test.gif$image", "allowed"],
-          ["test.gif$~image", "blocked"],
-          ["test.gif$object", "blocked"],
-          ["test.gif$domain=localhost", "blocked"],
-          ["test.gif$domain=example.com", "allowed"],
-        ]
+        "http://localhost:1234/test.gif", "object", "localhost", false
       ],
       [
         '<object type="image/gif" data="test.gif"></object>',
-        "http://localhost:1234/test.gif",
-        [
-          ["http://localhost*$~subdocument", "blocked"],
-          ["test.gif", "blocked"],
-          ["test$~subdocument", "blocked"],
-          ["foo", "allowed"],
-          ["test.gif$third-party", "allowed"],
-          ["test.gif$~third-party", "blocked"],
-          ["test.gif$image", "allowed"],
-          ["test.gif$~image", "blocked"],
-          ["test.gif$object", "blocked"],
-          ["test.gif$domain=localhost", "blocked"],
-          ["test.gif$domain=example.com", "allowed"],
-        ]
+        "http://localhost:1234/test.gif", "object", "localhost", false
       ],
       [
         <window xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
           <image src="test.gif"/>
         </window>,
-        "http://localhost:1234/test.gif",
-        [
-          ["http://localhost*$~subdocument", "blocked"],
-          ["test.gif", "blocked"],
-          ["test$~subdocument", "blocked"],
-          ["foo", "allowed"],
-          ["test.gif$third-party", "allowed"],
-          ["test.gif$~third-party", "blocked"],
-          ["test.gif$image", "blocked"],
-          ["test.gif$~image", "allowed"],
-          ["test.gif$script", "allowed"],
-          ["test.gif$domain=localhost", "blocked"],
-          ["test.gif$domain=example.com", "allowed"],
-        ]
+        "http://localhost:1234/test.gif", "image", "localhost", false
       ],
       [
         <window xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
           <image style="list-style-image: url(test.gif)"/>
         </window>,
-        "http://localhost:1234/test.gif",
-        [
-          ["http://localhost*$~subdocument", "blocked"],
-          ["test.gif", "blocked"],
-          ["test$~subdocument", "blocked"],
-          ["foo", "allowed"],
-          ["test.gif$third-party", "allowed"],
-          ["test.gif$~third-party", "blocked"],
-          ["test.gif$background", "blocked"],
-          ["test.gif$~background", "allowed"],
-          ["test.gif$script", "allowed"],
-          ["test.gif$domain=localhost", "blocked"],
-          ["test.gif$domain=example.com", "allowed"],
-        ]
+        "http://localhost:1234/test.gif", "background", "localhost", false
       ],
       [
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <image xlink:href="test.gif"/>
         </svg>,
-        "http://localhost:1234/test.gif",
-        [
-          ["http://localhost*$~subdocument", "blocked"],
-          ["test.gif", "blocked"],
-          ["test$~subdocument", "blocked"],
-          ["foo", "allowed"],
-          ["test.gif$third-party", "allowed"],
-          ["test.gif$~third-party", "blocked"],
-          ["test.gif$image", "blocked"],
-          ["test.gif$~image", "allowed"],
-          ["test.gif$script", "allowed"],
-          ["test.gif$domain=localhost", "blocked"],
-          ["test.gif$domain=example.com", "allowed"],
-        ]
+        "http://localhost:1234/test.gif", "image", "localhost", false
       ],
       [
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -241,90 +84,25 @@
             <feImage xlink:href="test.gif"/>
           </filter>
         </svg>,
-        "http://localhost:1234/test.gif",
-        [
-          ["http://localhost*$~subdocument", "blocked"],
-          ["test.gif", "blocked"],
-          ["test$~subdocument", "blocked"],
-          ["foo", "allowed"],
-          ["test.gif$third-party", "allowed"],
-          ["test.gif$~third-party", "blocked"],
-          ["test.gif$image", "blocked"],
-          ["test.gif$~image", "allowed"],
-          ["test.gif$script", "allowed"],
-          ["test.gif$domain=localhost", "blocked"],
-          ["test.gif$domain=example.com", "allowed"],
-        ]
+        "http://localhost:1234/test.gif", "image", "localhost", false
       ],
       [
         '<' + 'script src="test.js"><' + '/script>',
-        "http://localhost:1234/test.js",
-        [
-          ["http://localhost*$~subdocument", "blocked"],
-          ["test.js", "blocked"],
-          ["test$~subdocument", "blocked"],
-          ["foo", "allowed"],
-          ["test.js$third-party", "allowed"],
-          ["test.js$~third-party", "blocked"],
-          ["test.js$script", "blocked"],
-          ["test.js$~script", "allowed"],
-          ["test.js$image", "allowed"],
-          ["test.js$domain=localhost", "blocked"],
-          ["test.js$domain=example.com", "allowed"],
-        ]
+        "http://localhost:1234/test.js", "script", "localhost", false
       ],
       [
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <script xlink:href="test.js"/>
         </svg>,
-        "http://localhost:1234/test.js",
-        [
-          ["http://localhost*$~subdocument", "blocked"],
-          ["test.js", "blocked"],
-          ["test$~subdocument", "blocked"],
-          ["foo", "allowed"],
-          ["test.js$third-party", "allowed"],
-          ["test.js$~third-party", "blocked"],
-          ["test.js$script", "blocked"],
-          ["test.js$~script", "allowed"],
-          ["test.js$image", "allowed"],
-          ["test.js$domain=localhost", "blocked"],
-          ["test.js$domain=example.com", "allowed"],
-        ]
+        "http://localhost:1234/test.js", "script", "localhost", false
       ],
       [
         '<link rel="stylesheet" type="text/css" href="test.css">',
-        "http://localhost:1234/test.css",
-        [
-          ["http://localhost*$~subdocument", "blocked"],
-          ["test.css", "blocked"],
-          ["test$~subdocument", "blocked"],
-          ["foo", "allowed"],
-          ["test.css$third-party", "allowed"],
-          ["test.css$~third-party", "blocked"],
-          ["test.css$stylesheet", "blocked"],
-          ["test.css$~stylesheet", "allowed"],
-          ["test.css$image", "allowed"],
-          ["test.css$domain=localhost", "blocked"],
-          ["test.css$domain=example.com", "allowed"],
-        ]
+        "http://localhost:1234/test.css", "stylesheet", "localhost", false
       ],
       [
         '<?xml-stylesheet href="test.css" type="text/css"?><window xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"/>',
-        "http://localhost:1234/test.css",
-        [
-          ["http://localhost*$~subdocument", "blocked"],
-          ["test.css", "blocked"],
-          ["test$~subdocument", "blocked"],
-          ["foo", "allowed"],
-          ["test.css$third-party", "allowed"],
-          ["test.css$~third-party", "blocked"],
-          ["test.css$stylesheet", "blocked"],
-          ["test.css$~stylesheet", "allowed"],
-          ["test.css$image", "allowed"],
-          ["test.css$domain=localhost", "blocked"],
-          ["test.css$domain=example.com", "allowed"],
-        ]
+        "http://localhost:1234/test.css", "stylesheet", "localhost", false
       ],
     ];
 
@@ -332,37 +110,11 @@
     {
       tests.push([
         '<embed type="application/x-shockwave-flash" src="test.swf"></embed>',
-        "http://localhost:1234/test.swf",
-        [
-          ["http://localhost*$~subdocument", "blocked"],
-          ["test.swf", "blocked"],
-          ["test$~subdocument", "blocked"],
-          ["foo", "allowed"],
-          ["test.swf$third-party", "allowed"],
-          ["test.swf$~third-party", "blocked"],
-          ["test.swf$object", "blocked"],
-          ["test.swf$~object", "allowed"],
-          ["test.swf$image", "allowed"],
-          ["test.swf$domain=localhost", "blocked"],
-          ["test.swf$domain=example.com", "allowed"],
-        ]
+        "http://localhost:1234/test.swf", "object", "localhost", false
       ],
       [
         '<object type="application/x-shockwave-flash" data="test.swf"></object>',
-        "http://localhost:1234/test.swf",
-        [
-          ["http://localhost*$~subdocument", "blocked"],
-          ["test.swf", "blocked"],
-          ["test$~subdocument", "blocked"],
-          ["foo", "allowed"],
-          ["test.swf$third-party", "allowed"],
-          ["test.swf$~third-party", "blocked"],
-          ["test.swf$object", "blocked"],
-          ["test.swf$~object", "allowed"],
-          ["test.swf$image", "allowed"],
-          ["test.swf$domain=localhost", "blocked"],
-          ["test.swf$domain=example.com", "allowed"],
-        ]
+        "http://localhost:1234/test.swf", "object", "localhost", false
       ]);
     }
 
@@ -372,37 +124,11 @@
       // Note: <applet> is not on the list because it shows some weird async behavior (data is loaded after page load in some strange way)
       tests.push([
         '<embed type="application/x-java-applet" code="test.class" src="test.class"></embed>',
-        "http://localhost:1234/test.class",
-        [
-          ["http://localhost*$~subdocument", "blocked"],
-          ["test.class", "blocked"],
-          ["test$~subdocument", "blocked"],
-          ["foo", "allowed"],
-          ["test.class$third-party", "allowed"],
-          ["test.class$~third-party", "blocked"],
-          ["test.class$object", "blocked"],
-          ["test.class$~object", "allowed"],
-          ["test.class$image", "allowed"],
-          ["test.class$domain=localhost", "blocked"],
-          ["test.class$domain=example.com", "allowed"],
-        ]
+        "http://localhost:1234/test.class", "object", "localhost", false
       ],
       [
         '<object type="application/x-java-applet" data="test.class"></object>',
-        "http://localhost:1234/test.class",
-        [
-          ["http://localhost*$~subdocument", "blocked"],
-          ["test.class", "blocked"],
-          ["test$~subdocument", "blocked"],
-          ["foo", "allowed"],
-          ["test.class$third-party", "allowed"],
-          ["test.class$~third-party", "blocked"],
-          ["test.class$object", "blocked"],
-          ["test.class$~object", "allowed"],
-          ["test.class$image", "allowed"],
-          ["test.class$domain=localhost", "blocked"],
-          ["test.class$domain=example.com", "allowed"],
-        ]
+        "http://localhost:1234/test.class", "object", "localhost", false
       ]);
     }
 
@@ -411,7 +137,6 @@
 
     let currentTest = 0;
     let currentStage = 0;
-    let currentFilter = 0;
 
     let policyHits = [];
     let serverHit = false;
@@ -432,13 +157,7 @@
 
     function runNextTest()
     {
-      if (currentStage > 1)
-        currentFilter++;
-      if (currentStage <= 1 || currentFilter >= tests[currentTest][2].length)
-      {
-        currentStage++;
-        currentFilter = 0;
-      }
+      currentStage++;
       if (currentStage > 5)
       {
         currentTest++;
@@ -450,13 +169,13 @@
         return;
       }
 
-      let [body, expectedURL, filters] = tests[currentTest];
+      let [body, expectedURL, expectedType, expectedDomain, expectedThirdParty] = tests[currentTest];
 
       abp.blacklistMatcher.clear();
       abp.whitelistMatcher.clear();
 
       if (currentStage > 1)
-        abp.blacklistMatcher.add(abp.Filter.fromText(filters[currentFilter][0]));
+        abp.blacklistMatcher.add(abp.Filter.fromText(expectedURL));
       if (currentStage == 3)
         abp.whitelistMatcher.add(abp.Filter.fromText("@@|chrome://mochikit/"));
       if (currentStage == 4)
@@ -480,28 +199,31 @@
       if (currentStage == 0)
         return;
 
-      let [body, expectedURL, filters] = tests[currentTest];
+      let [body, expectedURL, expectedType, expectedDomain, expectedThirdParty] = tests[currentTest];
 
       let expectedStatus = "allowed";
       if (currentStage == 3)
         is(policyHits.length, 0, "Number of policy hits for " + body + " with site whitelisting");
       else
       {
-        is(policyHits.length, 1, "Number of policy hits for " + body);
+        let stageDescription = stageDescriptions[currentStage];
+        if (stageDescription.indexOf("%S") >= 0)
+          stageDescription = stageDescription.replace("%S", expectedURL);
+
+        is(policyHits.length, 1, "Number of policy hits for " + body + " (" + stageDescription + ")");
         if (policyHits.length == 1)
         {
-          let [wnd, type, data, location] = policyHits[0];
+          let [wnd, type, data, hit] = policyHits[0];
 
-          is(location.location, expectedURL, "Checking request URL");
+          is(hit.location, expectedURL, "Checking request URL");
 
-          expectedStatus = (currentStage == 1 ? "allowed" : filters[currentFilter][1]);
-          let actualStatus = (location.filter ? "blocked" : "allowed");
-
-          let stageDescription = stageDescriptions[currentStage];
-          if (stageDescription.indexOf("%S") >= 0)
-            stageDescription = stageDescription.replace("%S", filters[currentFilter][0]);
+          expectedStatus = (currentStage == 1 ? "allowed" : "blocked");
+          let actualStatus = (hit.filter ? "blocked" : "allowed");
 
           is(actualStatus, expectedStatus, "Checking whether request was blocked (" + stageDescription + ")");
+          is (hit.typeDescr.toLowerCase(), expectedType, "Checking whether request type was determined correctly (" + stageDescription + ")");
+          is (hit.thirdParty, expectedThirdParty, "Checking whether third-party flag was set correctly (" + stageDescription + ")");
+          is (hit.docDomain, expectedDomain, "Checking whether document domain was set correctly (" + stageDescription + ")");
         }
       }
 
