@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<subscriptions>
+  <subscription title="EasyList (USA)"
+                url="http://easylist.adblockplus.org/easylist.txt"
+                homepage="http://easylist.adblockplus.org/"/>
+  <subscription title="EasyList Germany (Deutschland) + EasyList"
+                url="http://easylist.adblockplus.org/ares+easylist.txt"
+                homepage="http://forums.lanik.us/viewforum.php?f=90"/>
+  <subscription title="Liste FR (France) + EasyList"
+                url="http://easylist.adblockplus.org/liste_fr+easylist.txt"
+                homepage="http://forums.lanik.us/viewforum.php?f=91"/>
+  <subscription title="Filter von Dr.Evil (Deutschland)"
+                url="http://maltekraus.de/Firefox/adblock.txt"
+                homepage="http://www.firefox-browser.de/forum/viewtopic.php?t=58194"/>
+  <subscription title="Morpeh Rus List (Россия) + EasyList"
+                url="http://easylist.adblockplus.org/morpeh+easylist.txt"
+                homepage="http://adblockplus.org/forum/viewtopic.php?t=2126"/>
+  <subscription title="Corset (Korea) + EasyList"
+                url="http://easylist.adblockplus.org/corset+easylist.txt"
+                homepage="http://www.brianyi.com/corset/"/>
+  <subscription title="ROList (România) + EasyList"
+                url="http://easylist.adblockplus.org/rolist+easylist.txt"
+                homepage="http://www.picpoc.ro/"/>
+</subscriptions>

@@ -78,17 +78,17 @@
 </hbox>
 
 <radiogroup id="subscriptions" flex="1" onkeypress="return handleKeyPress(event)" oncommand="handleCommand(event)">
-  <scrollbox id="subscriptionsScrollbox" flex="1" orient="vertical" datasources="subscriptions.rdf" ref="abp:subscriptions">
+  <scrollbox id="subscriptionsScrollbox" flex="1" orient="vertical" datasources="subscriptions.xml" ref="*" querytype="xml">
     <template>
-      <hbox uri="rdf:*" class="container" align="center">
-        <radio _title="rdf:http://adblockplus.org/#title" _url="rdf:http://adblockplus.org/#url"/>
+      <hbox uri="?" class="container" align="center">
+        <radio _title="?title" _url="?url"/>
         <vbox flex="1" onclick="this.previousSibling.radioGroup.selectedItem = this.previousSibling;">
           <hbox>
-            <description class="title" value="rdf:http://adblockplus.org/#title" flex="1"/>
-            <description class="homepage" _url="rdf:http://adblockplus.org/#homepage" tooltiptext="rdf:http://adblockplus.org/#homepage" value="&homepage.label;" onclick="abp.loadInBrowser(this.getAttribute('_url'));event.stopPropagation();"/>
+            <description class="title" value="?title" flex="1"/>
+            <description class="homepage" _url="?homepage" tooltiptext="?homepage" value="&homepage.label;" onclick="abp.loadInBrowser(this.getAttribute('_url'));event.stopPropagation();"/>
           </hbox>
           <hbox pack="start">
-            <description class="location" value="rdf:http://adblockplus.org/#url" onclick="abp.loadInBrowser(this.getAttribute('value'));event.stopPropagation();"/>
+            <description class="location" value="?url" onclick="abp.loadInBrowser(this.getAttribute('value'));event.stopPropagation();"/>
           </hbox>
         </vbox>
       </hbox>
