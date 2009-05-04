@@ -84,6 +84,14 @@
     testMatch("abc$dtd", "http://abc/adf", "IMAGE", null, false, false);
     testMatch("abc$dtd", "http://abc/adf", "DTD", null, false, true);
     testMatch("abc$~dtd", "http://abc/adf", "DTD", null, false, false);
+
+    if (compareGeckoVersion("1.9.1b3") >= 0)
+    {
+      testMatch("abc$media", "http://abc/adf", "IMAGE", null, false, false);
+      testMatch("abc$media", "http://abc/adf", "MEDIA", null, false, true);
+      testMatch("abc$~media", "http://abc/adf", "MEDIA", null, false, false);
+    }
+
     testMatch("abc$image,script", "http://abc/adf", "IMAGE", null, false, true);
     testMatch("abc$~image", "http://abc/adf", "IMAGE", null, false, false);
     testMatch("abc$~script", "http://abc/adf", "IMAGE", null, false, true);
