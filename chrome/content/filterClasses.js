@@ -433,6 +433,7 @@ RegExpFilter.fromText = function(text)
     regexp = text.replace(/\*+/g, "*")        // remove multiple wildcards
                  .replace(/(\W)/g, "\\$1")    // escape special symbols
                  .replace(/\\\*/g, ".*")      // replace wildcards by .*
+                 .replace(/^\\\|\\\|/, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?") // process extended anchor at expression start
                  .replace(/^\\\|/, "^")       // process anchor at expression start
                  .replace(/\\\|$/, "$")       // process anchor at expression end
                  .replace(/^(\.\*)/,"")       // remove leading wildcards
@@ -442,7 +443,7 @@ RegExpFilter.fromText = function(text)
     regexp = ".*";
 
   if (constructor == WhitelistFilter && (contentType == null || (contentType & RegExpFilter.typeMap.DOCUMENT)) &&
-      (!options || options.indexOf("DOCUMENT") < 0) && !/^\|?[\w\-]+:/.test(text))
+      (!options || options.indexOf("DOCUMENT") < 0) && !/^\|{0,2}[\w\-]+:/.test(text))
   {
     // Exception filters shouldn't apply to pages by default unless they start with a protocol name
     if (contentType == null)

@@ -38,6 +38,12 @@
     testMatch("|http://abc", "http://abc/adf", "IMAGE", null, false, true);
     testMatch("abc|", "http://abc/adf", "IMAGE", null, false, false);
     testMatch("abc/adf|", "http://abc/adf", "IMAGE", null, false, true);
+    testMatch("||example.com/foo", "http://example.com/foo/bar", "IMAGE", null, false, true);
+    testMatch("||com/foo", "http://example.com/foo/bar", "IMAGE", null, false, true);
+    testMatch("||mple.com/foo", "http://example.com/foo/bar", "IMAGE", null, false, false);
+    testMatch("||/example.com/foo", "http://example.com/foo/bar", "IMAGE", null, false, false);
+    testMatch("||example.com/foo/bar|", "http://example.com/foo/bar", "IMAGE", null, false, true);
+    testMatch("||example.com/foo|", "http://example.com/foo/bar", "IMAGE", null, false, false);
     testMatch("abc*d", "http://abc/adf", "IMAGE", null, false, true);
     testMatch("abc*d", "http://abcd/af", "IMAGE", null, false, true);
     testMatch("abc*d", "http://abc/d/af", "IMAGE", null, false, true);
