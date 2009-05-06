@@ -593,7 +593,7 @@ function abpFillPopup(event) {
     let host = null;
     try
     {
-      host = location.host;
+      host = location.host.replace(/^www\./, "");
     } catch (e) {}
 
     if (host)
@@ -607,12 +607,12 @@ function abpFillPopup(event) {
         ending = "?";
       }
 
-      siteWhitelist = abp.Filter.fromText("@@|" + location.prePath + "/");
+      siteWhitelist = abp.Filter.fromText("@@||" + host + "^$document");
       whitelistItemSite.setAttribute("checked", isUserDefinedFilter(siteWhitelist));
       whitelistItemSite.setAttribute("label", whitelistItemSite.getAttribute("labeltempl").replace(/--/, host));
       whitelistItemSite.hidden = false;
 
-      pageWhitelist = abp.Filter.fromText("@@|" + location.spec + ending);
+      pageWhitelist = abp.Filter.fromText("@@|" + location.spec + ending + "$document");
       whitelistItemPage.setAttribute("checked", isUserDefinedFilter(pageWhitelist));
       whitelistItemPage.hidden = false;
     }
