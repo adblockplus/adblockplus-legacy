@@ -8,6 +8,7 @@
   <script type="text/javascript" src="/content/MochiKit/MochiKit.js"></script>
   <script type="text/javascript" src="/content/tests/SimpleTest/SimpleTest.js"></script>        
 
+  <meta http-equiv="Content-Type" value="text/html; charset=utf-8"/>
   <script type="application/x-javascript;version=1.7" src="common.js"></script>
   <script type="application/x-javascript;version=1.7" src="chrome://adblockplus/content/filterClasses.js"></script>
 </head>
@@ -45,6 +46,29 @@
     testMatch("||example.com/foo/bar|", "http://example.com/foo/bar", "IMAGE", null, false, true);
     testMatch("||example.com/foo", "http://foo.com/http://example.com/foo/bar", "IMAGE", null, false, false);
     testMatch("||example.com/foo|", "http://example.com/foo/bar", "IMAGE", null, false, false);
+    testMatch("abc^d", "http://abc/def", "IMAGE", null, false, true);
+    testMatch("abc^e", "http://abc/def", "IMAGE", null, false, false);
+    testMatch("def^", "http://abc/def", "IMAGE", null, false, true);
+    testMatch("http://abc/d^f", "http://abc/def", "IMAGE", null, false, false);
+    testMatch("http://abc/def^", "http://abc/def", "IMAGE", null, false, true);
+    testMatch("^foo=bar^", "http://abc/?foo=bar", "IMAGE", null, false, true);
+    testMatch("^foo=bar^", "http://abc/?a=b&foo=bar", "IMAGE", null, false, true);
+    testMatch("^foo=bar^", "http://abc/?foo=bar&a=b", "IMAGE", null, false, true);
+    testMatch("^foo=bar^", "http://abc/?notfoo=bar", "IMAGE", null, false, false);
+    testMatch("^foo=bar^", "http://abc/?foo=barnot", "IMAGE", null, false, false);
+    testMatch("^foo=bar^", "http://abc/?foo=bar%2Enot", "IMAGE", null, false, false);
+    testMatch("||example.com^", "http://example.com/foo/bar", "IMAGE", null, false, true);
+    testMatch("||example.com^", "http://example.company.com/foo/bar", "IMAGE", null, false, false);
+    testMatch("||example.com^", "http://example.com:1234/foo/bar", "IMAGE", null, false, true);
+    testMatch("||example.com^", "http://example.com.com/foo/bar", "IMAGE", null, false, false);
+    testMatch("||example.com^", "http://example.com-company.com/foo/bar", "IMAGE", null, false, false);
+    testMatch("||example.com^foo", "http://example.com/foo/bar", "IMAGE", null, false, true);
+    testMatch("||пример.ру^", "http://пример.ру/foo/bar", "IMAGE", null, false, true);
+    testMatch("||пример.ру^", "http://пример.руководитель.ру/foo/bar", "IMAGE", null, false, false);
+    testMatch("||пример.ру^", "http://пример.ру:1234/foo/bar", "IMAGE", null, false, true);
+    testMatch("||пример.ру^", "http://пример.ру.ру/foo/bar", "IMAGE", null, false, false);
+    testMatch("||пример.ру^", "http://пример.ру-ководитель.ру/foo/bar", "IMAGE", null, false, false);
+    testMatch("||пример.ру^foo", "http://пример.ру/foo/bar", "IMAGE", null, false, true);
     testMatch("abc*d", "http://abc/adf", "IMAGE", null, false, true);
     testMatch("abc*d", "http://abcd/af", "IMAGE", null, false, true);
     testMatch("abc*d", "http://abc/d/af", "IMAGE", null, false, true);

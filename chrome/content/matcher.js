@@ -162,7 +162,9 @@ Matcher.prototype = {
     if (Filter.regexpRegExp.test(text))
       return null;
 
-    text = text.replace(Filter.optionsRegExp, "").replace(/^@@/, "").replace(/^\|{1,2}/, "").replace(/\|$/, "").toLowerCase();
+    text = text.replace(Filter.optionsRegExp, "").replace(/^@@/, "")
+               .replace(/^\|{1,2}/, "").replace(/\|$/, "")
+               .replace(/\^/g, "*").toLowerCase();
 
     let len = Matcher.shortcutLength;
     let numCandidates = text.length - len + 1;
