@@ -80,7 +80,7 @@
       </radiogroup>
       <hbox id="anchorGroup" pack="start" align="center">
         <label value="&anchors.label;"/>
-        <checkbox id="anchorStart" label="&anchor.start.label;" accesskey="&anchor.start.accesskey;" oncommand="updateFilter()"/>
+        <checkbox id="anchorStart" labelRegular="&anchor.start.label;" labelFlexible="&anchor.start.flexible.label;" accesskey="&anchor.start.accesskey;" oncommand="updateFilter()"/>
         <checkbox id="anchorEnd" label="&anchor.end.label;" accesskey="&anchor.end.accesskey;" oncommand="updateFilter()"/>
       </hbox>
     </groupbox>

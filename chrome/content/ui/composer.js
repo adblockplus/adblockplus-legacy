@@ -84,6 +84,16 @@ function init() {
     else
       suggestions[3] = suggestions[2];
 
+    try
+    {
+      suggestions[4] = url.host.replace(/^www\./, "") + "^";
+      addSuggestion(suggestions[4]);
+    }
+    catch (e)
+    {
+      suggestions[4] = suggestions[3];
+    }
+
     E("patternGroup").value = (abp.prefs.composer_default in suggestions ? suggestions[abp.prefs.composer_default] : suggestions[1]);
   }
   catch (e)
@@ -161,7 +171,7 @@ function updateFilter()
     pattern = E("customPattern").value;
 
   if (E("anchorStart").checked)
-    filter += "|";
+    filter += E("anchorStart").flexibleAnchor ? "||" : "|";
 
   filter += pattern;
 
@@ -251,10 +261,25 @@ function updatePatternSelection()
     E("anchorEnd").checked = false;
   }
 
-  let startStr = pattern.replace(/\*+$/, '');
-  let endStr = pattern.replace(/^\*+/, '');
-  disableElement(E("anchorStart"), item.location.substr(0, startStr.length) != startStr, "checked", false);
-  disableElement(E("anchorEnd"), item.location.substr(item.location.length - endStr.length, endStr.length) != endStr, "checked", false);
+  function testFilter(/**String*/ filter) /**Boolean*/
+  {
+    return abp.RegExpFilter.fromText(filter).matches(item.location, item.typeDescr, item.docDomain, item.thirdParty);
+  }
+
+  let anchorStartCheckbox = E("anchorStart");
+  if (!/^\*/.test(pattern) && testFilter("||" + pattern))
+  {
+    disableElement(anchorStartCheckbox, false, "checked", false);
+    anchorStartCheckbox.setAttribute("label", anchorStartCheckbox.getAttribute("labelFlexible"));
+    anchorStartCheckbox.flexibleAnchor = true;
+  }
+  else
+  {
+    disableElement(anchorStartCheckbox, /^\*/.test(pattern) || !testFilter("|" + pattern), "checked", false);
+    anchorStartCheckbox.setAttribute("label", anchorStartCheckbox.getAttribute("labelRegular"));
+    anchorStartCheckbox.flexibleAnchor = false;
+  }
+  disableElement(E("anchorEnd"), /[\*\^]$/.test(pattern) || !testFilter(pattern + "|"), "checked", false);
 
   updateFilter();
   setAdvancedMode(document.documentElement.getAttribute("advancedMode") == "true");

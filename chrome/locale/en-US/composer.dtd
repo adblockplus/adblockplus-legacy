@@ -47,6 +47,7 @@
 <!ENTITY custom.pattern.accesskey "C">
 <!ENTITY anchors.label            "Accept pattern only:">
 <!ENTITY anchor.start.label       "at the beginning of the address">
+<!ENTITY anchor.start.flexible.label  "at the beginning of the domain name">
 <!ENTITY anchor.start.accesskey   "g">
 <!ENTITY anchor.end.label         "at the end of the address">
 <!ENTITY anchor.end.accesskey     "n">
