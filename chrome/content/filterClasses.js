@@ -431,8 +431,10 @@ RegExpFilter.fromText = function(text)
   else
   {
     regexp = text.replace(/\*+/g, "*")        // remove multiple wildcards
+                 .replace(/\^\|$/, "^")       // remove anchors following separator placeholder
                  .replace(/(\W)/g, "\\$1")    // escape special symbols
                  .replace(/\\\*/g, ".*")      // replace wildcards by .*
+                 .replace(/\\\^/g, "(?:[^\\w\\-.%\\u0080-\\uFFFF]|$)")            // process separator placeholders
                  .replace(/^\\\|\\\|/, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?") // process extended anchor at expression start
                  .replace(/^\\\|/, "^")       // process anchor at expression start
                  .replace(/\\\|$/, "$")       // process anchor at expression end
