@@ -73,6 +73,10 @@
             <label value="&tooltip.size.label;"/>
             <description id="tooltipSize"/>
           </row>
+          <row id="tooltipDocDomainRow">
+            <label value="&tooltip.docDomain.label;"/>
+            <description id="tooltipDocDomain"/>
+          </row>
           <row id="tooltipFilterRow" align="top">
             <label value="&tooltip.filter.label;"/>
             <vbox id="tooltipFilter"/>
@@ -123,6 +127,8 @@
       <treecol id="state" label="&state.label;" width="16" persist="width ordinal sortDirection hidden"/>
       <splitter class="tree-splitter"/>
       <treecol id="size" label="&size.label;" width="60" hidden="true" persist="width ordinal sortDirection hidden"/>
+      <splitter class="tree-splitter"/>
+      <treecol id="docDomain" label="&docDomain.label;" width="100" hidden="true" persist="width ordinal sortDirection hidden"/>
     </treecols>
 
     <treechildren tooltip="tooltip" context="context"

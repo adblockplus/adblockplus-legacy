@@ -35,6 +35,7 @@
 <!ENTITY filter.label             "Filter">
 <!ENTITY state.label              "State">
 <!ENTITY size.label               "Size">
+<!ENTITY docDomain.label          "Document source">
 
 <!ENTITY noitems.label            "No blockable items">
 <!ENTITY whitelisted.label        "Whitelisted page">
@@ -44,6 +45,7 @@
 <!ENTITY tooltip.type.blocked     "(blocked)">
 <!ENTITY tooltip.type.whitelisted "(whitelisted)">
 <!ENTITY tooltip.size.label       "Size:">
+<!ENTITY tooltip.docDomain.label  "Document source:">
 <!ENTITY tooltip.filter.label     "Filter in effect:">
 <!ENTITY tooltip.filterSource.label "Filter source:">
 
