@@ -23,6 +23,7 @@ my @must_differ = (
 
 my @must_equal = (
   ['abp:overlay:opensidebar.accesskey', 'abp:overlay:closesidebar.accesskey'],
+  ['abp:composer:anchor.start.accesskey', 'abp:composer:anchor.start.flexible.accesskey'],
   ['ehh:overlay:selectelement.accesskey', 'ehh:overlay:stopselection.accesskey'],
 );
 
