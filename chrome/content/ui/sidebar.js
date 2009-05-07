@@ -225,6 +225,7 @@ function fillInTooltip(e) {
   E("tooltipAddressRow").hidden = ("tooltip" in item);
   E("tooltipTypeRow").hidden = ("tooltip" in item);
   E("tooltipSizeRow").hidden = !size;
+  E("tooltipDocDomainRow").hidden = ("tooltip" in item || !item.docDomain);
   E("tooltipFilterRow").hidden = !filter;
   E("tooltipFilterSourceRow").hidden = !subscriptions.length;
 
@@ -244,6 +245,8 @@ function fillInTooltip(e) {
 
     if (size)
       E("tooltipSize").setAttribute("value", size.join(" x "));
+
+    E("tooltipDocDomain").setAttribute("value", item.docDomain);
   }
 
   if (filter)
@@ -579,6 +582,16 @@ function compareSize(item1, item2) {
   return size1 - size2;
 }
 
+function compareDocDomain(item1, item2)
+{
+  if (item1.docDomain < item2.docDomain)
+    return -1;
+  else if (item1.docDomain > item2.docDomain)
+    return 1;
+  else
+    return 0;
+}
+
 function createSortWithFallback(cmpFunc, fallbackFunc, desc) {
   var factor = (desc ? -1 : 1);
 
@@ -621,7 +634,7 @@ var treeView = {
     this.itemsDummy = boxObject.treeBody.getAttribute("noitemslabel");
     this.whitelistDummy = boxObject.treeBody.getAttribute("whitelistedlabel");
 
-    var stringAtoms = ["col-address", "col-type", "col-filter", "col-state", "col-size", "state-regular", "state-filtered", "state-whitelisted", "state-hidden"];
+    var stringAtoms = ["col-address", "col-type", "col-filter", "col-state", "col-size", "col-docDomain", "state-regular", "state-filtered", "state-whitelisted", "state-hidden"];
     var boolAtoms = ["selected", "dummy", "filter-disabled"];
     var atomService = Components.classes["@mozilla.org/atom-service;1"]
                                 .getService(Components.interfaces.nsIAtomService);
@@ -686,8 +699,7 @@ var treeView = {
   getCellText: function(row, col) {
     col = col.id;
 
-    // Only two columns have text
-    if (col != "type" && col != "address" && col != "filter" && col != "size")
+    if (col != "type" && col != "address" && col != "filter" && col != "size" && col != "docDomain")
       return "";
 
     if (this.data && this.data.length) {
@@ -703,6 +715,8 @@ var treeView = {
         let size = getItemSize(this.data[row]);
         return (size ? size.join(" x ") : "");
       }
+      else if (col == "docDomain")
+        return this.data[row].docDomain;
       else
         return this.data[row].location;
     }
@@ -854,7 +868,9 @@ var treeView = {
     state: createSortWithFallback(compareState, sortByAddress, false),
     stateDesc: createSortWithFallback(compareState, sortByAddress, true),
     size: createSortWithFallback(compareSize, sortByAddress, false),
-    sizeDesc: createSortWithFallback(compareSize, sortByAddress, true)
+    sizeDesc: createSortWithFallback(compareSize, sortByAddress, true),
+    docDomain: createSortWithFallback(compareDocDomain, sortByAddress, false),
+    docDomainDesc: createSortWithFallback(compareDocDomain, sortByAddress, true)
   },
 
   setData: function(data) {
