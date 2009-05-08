@@ -1,10 +1,6 @@
-var geckoVersion = 0;
-try {
-  geckoVersion = Components.classes["@mozilla.org/xre/app-info;1"]
-                           .getService(Components.interfaces.nsIXULAppInfo)
-                           .platformVersion;
-} catch (e) {}
-
+var geckoVersion = Components.classes["@mozilla.org/xre/app-info;1"]
+                             .getService(Components.interfaces.nsIXULAppInfo)
+                             .platformVersion;
 function compareGeckoVersion(version)
 {
   return Components.classes["@mozilla.org/xpcom/version-comparator;1"]
