@@ -488,6 +488,8 @@ function importList()
       if (result == 0)
         treeView.removeUserFilters();
 
+      let commentQueue = [];
+
       lines.shift();
       for each (let line in lines)
       {
@@ -499,8 +501,24 @@ function importList()
         if (!line)
           continue;
 
-        treeView.addFilter(getFilterByText(line), null, null, true);
+        let filter = getFilterByText(line);
+        if (filter instanceof abp.CommentFilter)
+          commentQueue.push(filter);
+        else
+        {
+          let subscription = treeView.addFilter(filter, null, null, true);
+          if (subscription && commentQueue.length)
+          {
+            // Insert comments before the filter that follows them
+            for each (let comment in commentQueue)
+              treeView.addFilter(comment, subscription, filter, true);
+            commentQueue.splice(0, commentQueue.length);
+          }
+        }
       }
+
+      for each (let comment in commentQueue)
+        treeView.addFilter(comment, null, null, true);
 
       treeView.ensureSelection(0);
     }
@@ -2188,11 +2206,12 @@ let treeView = {
   /**
    * Adds a filter to a subscription. If no subscription is given, will
    * find one that accepts filters of this type.
+   * @result {Subscription} the subscription this filter was added to
    */
   addFilter: function(/**Filter*/ filter, /**Subscription*/ subscription, /**Filter*/ insertBefore, /**Boolean*/ noSelect)
   {
     if (!filter)
-      return;
+      return null;
 
     if (!subscription)
     {
@@ -2212,7 +2231,7 @@ let treeView = {
       }
     }
     if (!subscription)
-      return;
+      return null;
 
     let insertPositionSorted = subscription._sortedFilters.indexOf(filter);
     if (insertPositionSorted >= 0)
@@ -2226,7 +2245,7 @@ let treeView = {
 
         this.selectRow(parentRow + 1 + subscription._description.length + insertPositionSorted);
       }
-      return;
+      return subscription;
     }
 
     let insertPosition = -1;
@@ -2275,6 +2294,7 @@ let treeView = {
     }
 
     onChange();
+    return subscription;
   },
 
   /**
