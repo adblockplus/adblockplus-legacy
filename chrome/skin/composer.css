@@ -45,12 +45,13 @@
   display: none;
 }
 
-#disabledWarning, #regexpWarning, #shortpatternWarning {
+#disabledWarning, #groupDisabledWarning, #regexpWarning, #shortpatternWarning {
   color: #E00000;
 }
 
-#disabledWarning > * {
+#disabledWarning > *, #groupDisabledWarning > * {
   margin: 0px;
+  font-size: inherit;
 }
 
 .text-link {

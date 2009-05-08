@@ -153,9 +153,8 @@ function init() {
   E("collapse").value = "";
   E("collapse").setAttribute("label", collapseDefault.label);
 
+  E("disabledWarning").hidden = abp.prefs.enabled;
   updatePatternSelection();
-
-  document.getElementById("disabledWarning").hidden = abp.prefs.enabled;
 }
 
 function updateFilter()
@@ -231,10 +230,9 @@ function updateFilter()
   E("regexpWarning").hidden = !abp.Filter.regexpRegExp.test(filter);
 
   let hasShortcut = true;
+  let compiledFilter = abp.Filter.fromText(filter);
   if (E("regexpWarning").hidden)
   {
-    let compiledFilter = abp.Filter.fromText(filter);
-
     let matcher = null;
     if (compiledFilter instanceof abp.BlockingFilter)
       matcher = abp.blacklistMatcher;
@@ -246,6 +244,26 @@ function updateFilter()
   E("shortpatternWarning").hidden = hasShortcut;
 
   E("filter").value = filter;
+
+  if (E("disabledWarning").hidden)
+  {
+    let subscription = null;
+    for each (let s in abp.filterStorage.subscriptions)
+      if (s instanceof abp.SpecialSubscription && s.isFilterAllowed(compiledFilter) && (!subscription || s.priority > subscription.priority))
+        subscription = s;
+
+    let warning = E("groupDisabledWarning");
+    if (subscription && subscription.disabled)
+    {
+      warning.subscription = subscription;
+      warning.firstChild.textContent = warning.getAttribute("textTemplate").replace(/%S/g, subscription.title);
+      warning.hidden = false;
+    }
+    else
+      warning.hidden = true;
+  }
+  else
+    E("groupDisabledWarning").hidden = true;
 }
 
 function updatePatternSelection()
@@ -349,6 +367,14 @@ function doEnable() {
   abp.prefs.enabled = true;
   abp.prefs.save();
   E("disabledWarning").hidden = true;
+}
+
+function enableSubscription(subscription)
+{
+  subscription.disabled = false;
+  abp.filterStorage.triggerSubscriptionObservers("enable", [subscription]);
+  abp.filterStorage.saveToDisk();
+  E("groupDisabledWarning").hidden = true;
 }
 
 /**
