@@ -19,13 +19,9 @@ var abp = {
 const ioService = Components.classes["@mozilla.org/network/io-service;1"]
                             .getService(Components.interfaces.nsIIOService);
 
-var geckoVersion = 0;
-try {
-  geckoVersion = Components.classes["@mozilla.org/xre/app-info;1"]
-                           .getService(Components.interfaces.nsIXULAppInfo)
-                           .platformVersion;
-} catch (e) {}
-
+var geckoVersion = Components.classes["@mozilla.org/xre/app-info;1"]
+                             .getService(Components.interfaces.nsIXULAppInfo)
+                             .platformVersion;
 function compareGeckoVersion(version)
 {
   return Components.classes["@mozilla.org/xpcom/version-comparator;1"]
