@@ -1,0 +1,143 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>ABP icon status tests</title>
+
+  <link rel="stylesheet" type="text/css" href="/content/tests/SimpleTest/test.css" />
+
+  <script type="text/javascript" src="/content/MochiKit/MochiKit.js"></script>
+  <script type="text/javascript" src="/content/tests/SimpleTest/SimpleTest.js"></script>        
+
+  <script type="application/x-javascript;version=1.7" src="common.js"></script>
+</head>
+<body>
+  <p id="display"></p>
+  <div id="content" style="display: none">
+
+  </div>
+
+  <pre id="test">
+  <script type="application/x-javascript;version=1.7">
+    let abp = Components.classes["@mozilla.org/adblockplus;1"].createInstance().wrappedJSObject;
+
+    let tests = [
+      createToolbarTest(testEnabled),
+      createToolbarTest(testDisabled),
+      createToolbarTest(testWhitelisted),
+      createStatusbarTest(testEnabled),
+      createStatusbarTest(testDisabled),
+      createStatusbarTest(testWhitelisted)
+    ];
+    let currentTest = -1;
+
+    function testEnabled(element, cleanup)
+    {
+      let oldEnabled = abp.prefs.enabled;
+      abp.prefs.enabled = true;
+      abp.prefs.save();
+      setTimeout(function()
+      {
+        is(element.getAttribute("abpstate"), "active", "Checking icon state when Adblock Plus is enabled");
+
+        abp.prefs.enabled = oldEnabled;
+        cleanup();
+        abp.prefs.save();
+        runNextTest();
+      }, 0);
+    }
+
+    function testDisabled(element, cleanup)
+    {
+      let oldEnabled = abp.prefs.enabled;
+      abp.prefs.enabled = false;
+      abp.prefs.save();
+      setTimeout(function()
+      {
+        is(element.getAttribute("abpstate"), "disabled", "Checking icon state when Adblock Plus is disabled");
+
+        abp.prefs.enabled = oldEnabled;
+        cleanup();
+        abp.prefs.save();
+        runNextTest();
+      }, 0);
+    }
+
+    function testWhitelisted(element, cleanup)
+    {
+      let oldEnabled = abp.prefs.enabled;
+      abp.prefs.enabled = true;
+      abp.filterStorage.addFilter(abp.Filter.fromText("@@|chrome://mochikit/$document"));
+      abp.prefs.save();
+      setTimeout(function()
+      {
+        is(element.getAttribute("abpstate"), "whitelisted", "Checking icon state with site whitelisting");
+
+        abp.prefs.enabled = oldEnabled;
+        abp.filterStorage.removeFilter(abp.Filter.fromText("@@|chrome://mochikit/$document"));
+        cleanup();
+        abp.prefs.save();
+        runNextTest();
+      }, 0);
+    }
+
+    function createToolbarTest(testFunction)
+    {
+      return function()
+      {
+        let oldShowInToolbar = abp.prefs.showintoolbar;
+        abp.prefs.showintoolbar = false;
+        abp.prefs.save();
+        setTimeout(function()
+        {
+          abp.prefs.showintoolbar = true;
+          abp.prefs.save();
+          setTimeout(function()
+          {
+            let icon = getBrowserWindow().document.getElementById("abp-toolbarbutton");
+            if (icon)
+              testFunction(icon, function() { abp.prefs.showintoolbar = oldShowInToolbar; });
+            else
+              ok(false, "Toolbar icon not found in browser");
+          }, 0)
+        }, 0)
+      };
+    }
+
+    function createStatusbarTest(testFunction)
+    {
+      return function()
+      {
+        let oldShowInStatusbar = abp.prefs.showinstatusbar;
+        abp.prefs.showinstatusbar = false;
+        abp.prefs.save();
+        setTimeout(function()
+        {
+          abp.prefs.showinstatusbar = true;
+          abp.prefs.save();
+          setTimeout(function()
+          {
+            let icon = getBrowserWindow().document.getElementById("abp-status");
+            if (icon)
+              testFunction(icon, function() { abp.prefs.showinstatusbar = oldShowInStatusbar; });
+            else
+              ok(false, "Status bar icon not found in browser");
+          }, 0)
+        }, 0)
+      };
+    }
+
+    function runNextTest()
+    {
+      currentTest++;
+      if (currentTest >= tests.length)
+        SimpleTest.finish();
+      else
+        tests[currentTest]();
+    }
+
+    SimpleTest.waitForExplicitFinish();
+    addLoadEvent(runNextTest);
+  </script>
+  </pre>
+</body>
+</html>
