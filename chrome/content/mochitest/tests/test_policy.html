@@ -185,7 +185,7 @@
       if (currentStage > 1)
         abp.blacklistMatcher.add(abp.Filter.fromText(expectedURL));
       if (currentStage == 3)
-        abp.whitelistMatcher.add(abp.Filter.fromText("@@|chrome://mochikit/"));
+        abp.whitelistMatcher.add(abp.Filter.fromText("@@|chrome://mochikit/$document"));
       if (currentStage == 4)
         abp.whitelistMatcher.add(abp.Filter.fromText("@@|chrome://mochikit/$~document"));
       if (currentStage == 5)

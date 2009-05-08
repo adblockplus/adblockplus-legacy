@@ -91,7 +91,7 @@
         abp.elemhide.add(abp.Filter.fromText(filter));
       abp.elemhide.apply();
       if (currentRun == 2)
-        abp.whitelistMatcher.add(abp.Filter.fromText("@@|chrome://mochikit/"));
+        abp.whitelistMatcher.add(abp.Filter.fromText("@@|chrome://mochikit/$document"));
       else if (currentRun == 3)
         abp.whitelistMatcher.add(abp.Filter.fromText("@@|chrome://mochikit/$~document"));
 
