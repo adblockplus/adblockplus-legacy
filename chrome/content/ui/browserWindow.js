@@ -90,10 +90,10 @@ let backgroundData = null;
 let frameData = null;
 
 /**
- * Timer triggering UI reinitialization in regular intervals.
- * @type nsITimer
+ * Progress listener detecting location changes and triggering status updates.
+ * @type nsIWebProgress
  */
-let prefReloadTimer = null;
+let progressListener = null;
 
 abpInit();
 
@@ -117,14 +117,21 @@ function abpInit() {
   }
 
   prefs.addListener(abpReloadPrefs);
+  abp.filterStorage.addFilterObserver(abpReloadPrefs);
+  abp.filterStorage.addSubscriptionObserver(abpReloadPrefs);
 
-  // Make sure whitelisting gets displayed after at most 2 seconds
-  prefReloadTimer = abp.createTimer(abpReloadPrefs, 2000);
-  prefReloadTimer.type = prefReloadTimer.TYPE_REPEATING_SLACK;
-  
   let browser = abp.getBrowserInWindow(window);
-  browser.addEventListener("select", abpReloadPrefs, false);
   browser.addEventListener("click", handleLinkClick, true);
+
+  let dummy = function() {};
+  let progressListener = {
+    onLocationChange: abpReloadPrefs,
+    onProgressChange: dummy,
+    onSecurityChange: dummy,
+    onStateChange: dummy,
+    onStatusChange: dummy
+  };
+  browser.addProgressListener(progressListener);
 
   // Make sure we always configure keys but don't let them break anything
   try {
@@ -193,10 +200,12 @@ function abpInit() {
   abp.createTimer(abpInitImageManagerHiding, 0);
 }
 
-function abpUnload() {
+function abpUnload()
+{
   prefs.removeListener(abpReloadPrefs);
-  abp.getBrowserInWindow(window).removeEventListener("select", abpReloadPrefs, false); 
-  prefReloadTimer.cancel();
+  abp.filterStorage.removeFilterObserver(abpReloadPrefs);
+  abp.filterStorage.removeSubscriptionObserver(abpReloadPrefs);
+  abp.getBrowserInWindow(window).removeProgressListener(progressListener);
 }
 
 function abpReloadPrefs() {
@@ -459,8 +468,6 @@ function abpFillTooltip(event) {
     return;
   }
 
-  abpReloadPrefs();
-
   var type = (document.tooltipNode && document.tooltipNode.id == "abp-toolbarbutton" ? "toolbar" : "statusbar");
   var action = parseInt(prefs["default" + type + "action"]);
   if (isNaN(action))
@@ -706,9 +713,6 @@ function toggleFilter(/**Filter*/ filter)
   else
     abp.filterStorage.addFilter(filter);
   abp.filterStorage.saveToDisk();
-
-  // Make sure to display whitelisting immediately
-  abpReloadPrefs();
 }
 
 // Handle clicks on the Adblock statusbar panel
