@@ -69,8 +69,10 @@ const abp =
         throw Components.results.NS_ERROR_NO_AGGREGATION;
 
       if (!this.initialized)
+      {
+        this.initialized = true;
         init();
-      this.initialized = true;
+      }
 
       return abp.QueryInterface(iid);
     }
@@ -438,7 +440,6 @@ var NSGetModule = XPCOMUtils.generateNSGetModule([ABPComponent]);
 // Initialization and registration
 function init()
 {
-  initialized = true;
   timeLine.log("init() called");
 
   abp.versionComparator = Components.classes["@mozilla.org/xpcom/version-comparator;1"]
