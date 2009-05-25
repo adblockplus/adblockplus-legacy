@@ -466,7 +466,8 @@ var filterStorage =
           {
             case "filter":
             case "pattern":
-              Filter.fromObject(curObj);
+              if ("text" in curObj)
+                Filter.fromObject(curObj);
               break;
             case "subscription":
               let subscription = Subscription.fromObject(curObj);
