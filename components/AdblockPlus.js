@@ -457,18 +457,6 @@ function init()
   loader.loadSubScript('chrome://adblockplus/content/prefs.js');
   loader.loadSubScript('chrome://adblockplus/content/synchronizer.js');
 
-  try
-  {
-    let resProtocol = Components.classes["@mozilla.org/network/protocol;1?name=resource"]
-                                .getService(Components.interfaces.nsIResProtocolHandler);
-    if (resProtocol.hasSubstitution("weave"))
-      loader.loadSubScript('chrome://adblockplus/content/weaveIntegration.js');
-  }
-  catch (e)
-  {
-    dump("Adblock Plus: Error loading Weave integration code: " + e + "\n");
-  }
-  
   timeLine.log("init() done");
 }
 
