@@ -71,13 +71,13 @@ Initializer.prototype =
     {
       case "app-startup":
         let observerService = Cc["@mozilla.org/observer-service;1"].getService(Ci.nsIObserverService);
-        observerService.addObserver(this, "profile-after-change", true);
-        observerService.addObserver(this, "profile-before-change", true);
+        observerService.addObserver(this, "final-ui-startup", true);
+        observerService.addObserver(this, "quit-application", true);
         break;
-      case "profile-after-change":
+      case "final-ui-startup":
         abp.init();
         break;
-      case "profile-before-change":
+      case "quit-application":
         abp.shutdown();
         break;
     }
