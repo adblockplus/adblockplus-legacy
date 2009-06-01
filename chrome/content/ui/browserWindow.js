@@ -596,18 +596,18 @@ function abpFillPopup(event) {
       }
 
       siteWhitelist = abp.Filter.fromText("@@||" + host + "^$document");
-      whitelistItemSite.setAttribute("checked", isUserDefinedFilter(siteWhitelist));
+      whitelistItemSite.setAttribute("checked", !siteWhitelist.disabled && isUserDefinedFilter(siteWhitelist));
       whitelistItemSite.setAttribute("label", whitelistItemSite.getAttribute("labeltempl").replace(/--/, host));
       whitelistItemSite.hidden = false;
 
       pageWhitelist = abp.Filter.fromText("@@|" + location.spec + ending + "$document");
-      whitelistItemPage.setAttribute("checked", isUserDefinedFilter(pageWhitelist));
+      whitelistItemPage.setAttribute("checked", !pageWhitelist.disabled && isUserDefinedFilter(pageWhitelist));
       whitelistItemPage.hidden = false;
     }
     else
     {
       siteWhitelist = abp.Filter.fromText("@@|" + location.spec + "|");
-      whitelistItemSite.setAttribute("checked", isUserDefinedFilter(siteWhitelist));
+      whitelistItemSite.setAttribute("checked", !siteWhitelist.disabled && isUserDefinedFilter(siteWhitelist));
       whitelistItemSite.setAttribute("label", whitelistItemSite.getAttribute("labeltempl").replace(/--/, location.spec.replace(/^mailto:/, "")));
       whitelistItemSite.hidden = false;
     }
@@ -690,7 +690,15 @@ function abpTogglePref(pref) {
 function toggleFilter(/**Filter*/ filter)
 {
   if (isUserDefinedFilter(filter))
-    filterStorage.removeFilter(filter);
+  {
+    if (filter.disabled)
+    {
+      filter.disabled = false;
+      filterStorage.triggerFilterObservers("enable", [filter]);
+    }
+    else
+      filterStorage.removeFilter(filter);
+  }
   else
     filterStorage.addFilter(filter);
   filterStorage.saveToDisk();
