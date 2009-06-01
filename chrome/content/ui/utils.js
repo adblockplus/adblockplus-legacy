@@ -22,7 +22,20 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-function fillInVersion() {
-  var versionField = document.getElementById("version");
-  versionField.value = abp.getInstalledVersion();
+const Cc = Components.classes;
+const Ci = Components.interfaces;
+const Cr = Components.results;
+const Cu = Components.utils;
+
+const abp = Components.classes["@mozilla.org/adblockplus;1"].createInstance().wrappedJSObject;
+const prefs = abp.prefs;
+const filterStorage = abp.filterStorage;
+const synchronizer = abp.synchronizer;
+
+/**
+ * Shortcut for document.getElementById(id)
+ */
+function E(id)
+{
+  return document.getElementById(id);
 }

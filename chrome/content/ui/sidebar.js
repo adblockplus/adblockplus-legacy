@@ -22,8 +22,6 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-var abp = Components.classes["@mozilla.org/adblockplus;1"].createInstance().wrappedJSObject;
-var prefs = abp.prefs;
 var DataContainer = abp.DataContainer;
 
 // Main browser window
@@ -38,10 +36,6 @@ var noFlash = false;
 // Matchers for disabled filters
 var disabledBlacklistMatcher = new abp.Matcher();
 var disabledWhitelistMatcher = new abp.Matcher();
-
-function E(id) {
-  return document.getElementById(id);
-}
 
 function init() {
   var list = E("list");
@@ -67,8 +61,8 @@ function init() {
 
   // Initialize matchers for disabled filters
   reloadDisabledFilters();
-  abp.filterStorage.addFilterObserver(reloadDisabledFilters);
-  abp.filterStorage.addSubscriptionObserver(reloadDisabledFilters);
+  filterStorage.addFilterObserver(reloadDisabledFilters);
+  filterStorage.addSubscriptionObserver(reloadDisabledFilters);
 
   // Restore previous state
   var params = abp.getParams();
@@ -109,8 +103,8 @@ function cleanUp() {
 
   flasher.stop();
   DataContainer.removeListener(handleItemChange);
-  abp.filterStorage.removeFilterObserver(reloadDisabledFilters);
-  abp.filterStorage.removeSubscriptionObserver(reloadDisabledFilters);
+  filterStorage.removeFilterObserver(reloadDisabledFilters);
+  filterStorage.removeSubscriptionObserver(reloadDisabledFilters);
 
   abp.getBrowserInWindow(mainWin).removeEventListener("select", handleTabChange, false);
   mainWin.removeEventListener("unload", mainUnload, false);
@@ -125,7 +119,7 @@ function reloadDisabledFilters()
   disabledBlacklistMatcher.clear();
   disabledWhitelistMatcher.clear();
 
-  for each (let subscription in abp.filterStorage.subscriptions)
+  for each (let subscription in filterStorage.subscriptions)
   {
     if (subscription.disabled)
       continue;
@@ -423,8 +417,8 @@ function enableFilter(filter, enable) {
     return;
 
   filter.disabled = !enable;
-  abp.filterStorage.triggerFilterObservers(enable ? "enable" : "disable", [filter]);
-  abp.filterStorage.saveToDisk();
+  filterStorage.triggerFilterObservers(enable ? "enable" : "disable", [filter]);
+  filterStorage.saveToDisk();
 
   treeView.boxObject.invalidate();
 }

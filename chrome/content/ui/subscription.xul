@@ -39,6 +39,7 @@
   onload="init()"
   ondialogaccept="return saveSubscription()">
 
+<script type="application/x-javascript;version=1.7" src="utils.js"/>
 <script type="application/x-javascript;version=1.7" src="subscription.js"/>
 
 <description id="new-description" hidden="true">&new.description; &autodownload.description;</description>

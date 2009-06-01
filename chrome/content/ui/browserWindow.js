@@ -51,16 +51,6 @@ let eventHandlers = [
 ];
 
 /**
- * Adblock Plus component (if available)
- */
-let abp = Components.classes["@mozilla.org/adblockplus;1"].createInstance().wrappedJSObject;
-
-/**
- * Adblock Plus preferences object
- */
-let prefs = abp.prefs;
-
-/**
  * Stores the current value of showintoolbar preference (to detect changes).
  */
 let currentlyShowingInToolbar = prefs.showintoolbar;
@@ -97,11 +87,6 @@ let progressListener = null;
 
 abpInit();
 
-function E(id)
-{
-  return document.getElementById(id);
-}
-
 function abpInit() {
   // Process preferences
   window.abpDetachedSidebar = null;
@@ -117,8 +102,8 @@ function abpInit() {
   }
 
   prefs.addListener(abpReloadPrefs);
-  abp.filterStorage.addFilterObserver(abpReloadPrefs);
-  abp.filterStorage.addSubscriptionObserver(abpReloadPrefs);
+  filterStorage.addFilterObserver(abpReloadPrefs);
+  filterStorage.addSubscriptionObserver(abpReloadPrefs);
 
   let browser = abp.getBrowserInWindow(window);
   browser.addEventListener("click", handleLinkClick, true);
@@ -203,8 +188,8 @@ function abpInit() {
 function abpUnload()
 {
   prefs.removeListener(abpReloadPrefs);
-  abp.filterStorage.removeFilterObserver(abpReloadPrefs);
-  abp.filterStorage.removeSubscriptionObserver(abpReloadPrefs);
+  filterStorage.removeFilterObserver(abpReloadPrefs);
+  filterStorage.removeSubscriptionObserver(abpReloadPrefs);
   abp.getBrowserInWindow(window).removeProgressListener(progressListener);
 }
 
@@ -445,7 +430,7 @@ function abpInstallInToolbar() {
 function abpShowSubscriptions()
 {
   // Look for existing subscriptions
-  for each (let subscription in abp.filterStorage.subscriptions)
+  for each (let subscription in filterStorage.subscriptions)
     if (subscription instanceof abp.DownloadableSubscription)
       return;
 
@@ -709,10 +694,10 @@ function abpTogglePref(pref) {
 function toggleFilter(/**Filter*/ filter)
 {
   if (isUserDefinedFilter(filter))
-    abp.filterStorage.removeFilter(filter);
+    filterStorage.removeFilter(filter);
   else
-    abp.filterStorage.addFilter(filter);
-  abp.filterStorage.saveToDisk();
+    filterStorage.addFilter(filter);
+  filterStorage.saveToDisk();
 }
 
 // Handle clicks on the Adblock statusbar panel

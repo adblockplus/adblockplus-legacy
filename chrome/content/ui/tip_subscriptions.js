@@ -22,9 +22,6 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-let abp = Components.classes["@mozilla.org/adblockplus;1"].createInstance().wrappedJSObject;
-let prefs = abp.prefs;
-
 let autoAdd;
 let result;
 
@@ -43,8 +40,8 @@ function init()
   if (isExtensionActive(filtersetG))
     document.getElementById("filtersetg-warning").hidden = false;
 
-  if ("Filterset.G" in abp.filterStorage.knownSubscriptions &&
-      !abp.filterStorage.knownSubscriptions["Filterset.G"].disabled)
+  if ("Filterset.G" in filterStorage.knownSubscriptions &&
+      !filterStorage.knownSubscriptions["Filterset.G"].disabled)
   {
     document.getElementById("filtersetg-warning").hidden = false;
   }
@@ -163,8 +160,8 @@ function uninstallFiltersetG()
   uninstallExtension(filtersetG);
 
   // Remove filter subscription
-  if ("Filterset.G" in abp.filterStorage.knownSubscriptions)
-    abp.filterStorage.removeSubscription(abp.filterStorage.knownSubscriptions["Filterset.G"]);
+  if ("Filterset.G" in filterStorage.knownSubscriptions)
+    filterStorage.removeSubscription(filterStorage.knownSubscriptions["Filterset.G"]);
 
   document.getElementById("filtersetg-warning").hidden = true;
 }
