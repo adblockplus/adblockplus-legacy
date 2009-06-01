@@ -27,11 +27,10 @@
  * This file is included from AdblockPlus.js.
  */
 
-var effectiveTLD = Components.classes["@mozilla.org/network/effective-tld-service;1"]
-                             .getService(Components.interfaces.nsIEffectiveTLDService);
+var effectiveTLD = Cc["@mozilla.org/network/effective-tld-service;1"].getService(Ci.nsIEffectiveTLDService);
 
-const ok = Components.interfaces.nsIContentPolicy.ACCEPT;
-const block = Components.interfaces.nsIContentPolicy.REJECT_REQUEST;
+const ok = Ci.nsIContentPolicy.ACCEPT;
+const block = Ci.nsIContentPolicy.REJECT_REQUEST;
 
 var policy =
 {
@@ -64,7 +63,7 @@ var policy =
     this.type = {};
     this.typeDescr = {};
     this.localizedDescr = {};
-    var iface = Components.interfaces.nsIContentPolicy;
+    var iface = Ci.nsIContentPolicy;
     for each (let typeName in types)
     {
       if ("TYPE_" + typeName in iface)
@@ -124,7 +123,7 @@ var policy =
       contentType = this.type.BACKGROUND;
 
     // Fix type for objects misrepresented as frames or images
-    if (contentType != this.type.OBJECT && (node instanceof Components.interfaces.nsIDOMHTMLObjectElement || node instanceof Components.interfaces.nsIDOMHTMLEmbedElement))
+    if (contentType != this.type.OBJECT && (node instanceof Ci.nsIDOMHTMLObjectElement || node instanceof Ci.nsIDOMHTMLEmbedElement))
       contentType = this.type.OBJECT;
 
     if (!match && contentType == this.type.ELEMHIDE)
@@ -226,12 +225,12 @@ var policy =
       // Thunderbird branch
       try
       {
-        let mailWnd = wnd.QueryInterface(Components.interfaces.nsIInterfaceRequestor)
-                         .getInterface(Components.interfaces.nsIWebNavigation)
-                         .QueryInterface(Components.interfaces.nsIDocShellTreeItem)
+        let mailWnd = wnd.QueryInterface(Ci.nsIInterfaceRequestor)
+                         .getInterface(Ci.nsIWebNavigation)
+                         .QueryInterface(Ci.nsIDocShellTreeItem)
                          .rootTreeItem
-                         .QueryInterface(Components.interfaces.nsIInterfaceRequestor)
-                         .getInterface(Components.interfaces.nsIDOMWindow);
+                         .QueryInterface(Ci.nsIInterfaceRequestor)
+                         .getInterface(Ci.nsIDOMWindow);
 
         // Typically we get a wrapped mail window here, need to unwrap
         try
@@ -359,13 +358,13 @@ var policy =
           let node = (info.nodes.length ? info.nodes[info.nodes.length - 1] : context.document);
           // HACK: NS_BINDING_ABORTED would be proper error code to throw but this will show up in error console (bug 287107)
           if (!this.processNode(context, node, info.type, newChannel.URI))
-            throw Components.results.NS_BASE_STREAM_WOULD_BLOCK;
+            throw Cr.NS_BASE_STREAM_WOULD_BLOCK;
           else
             return;
         }
       }
     }
-    catch (e if (e != Components.results.NS_BASE_STREAM_WOULD_BLOCK))
+    catch (e if (e != Cr.NS_BASE_STREAM_WOULD_BLOCK))
     {
       // We shouldn't throw exceptions here - this will prevent the redirect.
       dump("Adblock Plus: Unexpected error in policy.onChannelRedirect: " + e + "\n");

@@ -27,8 +27,7 @@
  * This file is included from AdblockPlus.js.
  */
 
-var dirService = Components.classes["@mozilla.org/file/directory_service;1"]
-                           .getService(Components.interfaces.nsIProperties);
+var dirService = Cc["@mozilla.org/file/directory_service;1"].getService(Ci.nsIProperties);
 
 /**
  * This class reads user's filters from disk, manages them in memory and writes them back.
@@ -335,17 +334,15 @@ var filterStorage =
     {
       try {
         // Assume an absolute path first
-        let file = Components.classes["@mozilla.org/file/local;1"]
-                             .createInstance(Components.interfaces.nsILocalFile);
+        let file = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsILocalFile);
         file.initWithPath(path);
         return file;
       } catch (e) {}
 
       try {
         // Try relative path now
-        let profileDir = dirService.get("ProfD", Components.interfaces.nsIFile);
-        let file = Components.classes["@mozilla.org/file/local;1"]
-                         .createInstance(Components.interfaces.nsILocalFile);
+        let profileDir = dirService.get("ProfD", Ci.nsIFile);
+        let file = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsILocalFile);
         file.setRelativeDescriptor(profileDir, path);
         return file;
       } catch (e) {}
@@ -365,14 +362,12 @@ var filterStorage =
     {
       if (this.file && this.file.exists())
       {
-        var fileStream = Components.classes["@mozilla.org/network/file-input-stream;1"]
-                           .createInstance(Components.interfaces.nsIFileInputStream);
+        var fileStream = Cc["@mozilla.org/network/file-input-stream;1"].createInstance(Ci.nsIFileInputStream);
         fileStream.init(this.file, 0x01, 0444, 0);
 
-        stream = Components.classes["@mozilla.org/intl/converter-input-stream;1"]
-                           .createInstance(Components.interfaces.nsIConverterInputStream);
-        stream.init(fileStream, "UTF-8", 16384, Components.interfaces.nsIConverterInputStream.DEFAULT_REPLACEMENT_CHARACTER);
-        stream = stream.QueryInterface(Components.interfaces.nsIUnicharLineInputStream);
+        stream = Cc["@mozilla.org/intl/converter-input-stream;1"].createInstance(Ci.nsIConverterInputStream);
+        stream.init(fileStream, "UTF-8", 16384, Ci.nsIConverterInputStream.DEFAULT_REPLACEMENT_CHARACTER);
+        stream = stream.QueryInterface(Ci.nsIUnicharLineInputStream);
       }
     }
     catch (e)
@@ -546,13 +541,11 @@ var filterStorage =
     tempFile.leafName += "-temp";
     let stream;
     try {
-      let fileStream = Components.classes["@mozilla.org/network/file-output-stream;1"]
-                                 .createInstance(Components.interfaces.nsIFileOutputStream);
+      let fileStream = Cc["@mozilla.org/network/file-output-stream;1"].createInstance(Ci.nsIFileOutputStream);
       fileStream.init(tempFile, 0x02 | 0x08 | 0x20, 0644, 0);
 
-      stream = Components.classes["@mozilla.org/intl/converter-output-stream;1"]
-                         .createInstance(Components.interfaces.nsIConverterOutputStream);
-      stream.init(fileStream, "UTF-8", 16384, Components.interfaces.nsIConverterInputStream.DEFAULT_REPLACEMENT_CHARACTER);
+      stream = Cc["@mozilla.org/intl/converter-output-stream;1"].createInstance(Ci.nsIConverterOutputStream);
+      stream.init(fileStream, "UTF-8", 16384, Ci.nsIConverterInputStream.DEFAULT_REPLACEMENT_CHARACTER);
     }
     catch (e) {
       dump("Adblock Plus: failed to create file " + tempFile.path + ": " + e + "\n");

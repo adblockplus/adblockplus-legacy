@@ -1,4 +1,15 @@
-Components.utils.import("resource://gre/modules/XPCOMUtils.jsm");
+if (typeof Cc == "undefined")
+  eval("const Cc = Components.classes");
+if (typeof Ci == "undefined")
+  eval("const Ci = Components.interfaces");
+if (typeof Cr == "undefined")
+  eval("const Cr = Components.results");
+if (typeof Cu == "undefined")
+  eval("const Cu = Components.utils");
+
+Cu.import("resource://gre/modules/XPCOMUtils.jsm");
+
+var versionComparator = Cc["@mozilla.org/xpcom/version-comparator;1"].createInstance(Ci.nsIVersionComparator)
 
 var abp = {
   getString: function(name)
@@ -13,20 +24,14 @@ var abp = {
   {
     return "\r\n";
   },
-  versionComparator: Components.classes["@mozilla.org/xpcom/version-comparator;1"]
-                               .createInstance(Components.interfaces.nsIVersionComparator)
+  versionComparator: versionComparator
 };
-const ioService = Components.classes["@mozilla.org/network/io-service;1"]
-                            .getService(Components.interfaces.nsIIOService);
+const ioService = Cc["@mozilla.org/network/io-service;1"].getService(Ci.nsIIOService);
 
-var geckoVersion = Components.classes["@mozilla.org/xre/app-info;1"]
-                             .getService(Components.interfaces.nsIXULAppInfo)
-                             .platformVersion;
+var geckoVersion = Cc["@mozilla.org/xre/app-info;1"].getService(Ci.nsIXULAppInfo).platformVersion;
 function compareGeckoVersion(version)
 {
-  return Components.classes["@mozilla.org/xpcom/version-comparator;1"]
-                   .createInstance(Components.interfaces.nsIVersionComparator)
-                   .compare(geckoVersion, version);
+  return versionComparator.compare(geckoVersion, version);
 }
 
 function showProfilingData(debuggerService)
@@ -112,8 +117,7 @@ function guessFunctionName(fileName, lineNumber)
 
 if (/[?&]profiler/i.test(location.href))
 {
-  let debuggerService = Components.classes["@mozilla.org/js/jsd/debugger-service;1"]
-                                  .getService(Components.interfaces.jsdIDebuggerService);
+  let debuggerService = Cc["@mozilla.org/js/jsd/debugger-service;1"].getService(Ci.jsdIDebuggerService);
 
   let oldFinish = SimpleTest.finish;
   SimpleTest.finish = function()
