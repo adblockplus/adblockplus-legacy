@@ -54,9 +54,9 @@
   </toolbarpalette>
 
   <!-- SeaMonkey toolbar -->
-  <hbox id="nav-bar-buttons">
+  <toolbar id="PersonalToolbar">
     <toolbarbutton id="abp-toolbarbutton" class="bookmark-item" hidden="true"/>
-  </hbox>
+  </toolbar>
 
   <!-- SeaMonkey Tools menu -->
   <menupopup id="taskPopup">
