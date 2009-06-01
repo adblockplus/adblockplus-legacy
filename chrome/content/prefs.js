@@ -40,7 +40,6 @@ var ScriptableInputStream = Components.Constructor("@mozilla.org/scriptableinput
 
 var prefs = {
   lastVersion: null,
-  initialized: false,
   disableObserver: false,
   privateBrowsing: false,
   branch: prefService.getBranch(prefRoot),
@@ -57,18 +56,6 @@ var prefs = {
       dump("Adblock Plus: exception registering pref observer: " + e + "\n");
     }
 
-    var observerService = Components.classes["@mozilla.org/observer-service;1"]
-                                    .getService(Components.interfaces.nsIObserverService);
-
-    // Observe profile changes
-    try {
-      observerService.addObserver(this, "profile-before-change", true);
-      observerService.addObserver(this, "profile-after-change", true);
-    }
-    catch (e) {
-      dump("Adblock Plus: exception registering profile observer: " + e + "\n");
-    }
-
     // Add Private Browsing observer
     if ("@mozilla.org/privatebrowsing;1" in Components.classes)
     {
@@ -77,6 +64,9 @@ var prefs = {
         this.privateBrowsing = Components.classes["@mozilla.org/privatebrowsing;1"]
                                          .getService(Components.interfaces.nsIPrivateBrowsingService)
                                          .privateBrowsingEnabled;
+
+        var observerService = Components.classes["@mozilla.org/observer-service;1"]
+                                        .getService(Components.interfaces.nsIObserverService);
         observerService.addObserver(this, "private-browsing", true);
       }
       catch(e)
@@ -84,22 +74,10 @@ var prefs = {
         dump("Adblock Plus: exception initializing private browsing observer: " + e + "\n");
       }
     }
-
-    // Delay initialization if profile isn't available yet (SeaMonkey)
-    var doInit = true;
-    if ("@mozilla.org/profile/manager;1" in Components.classes) {
-      try {
-        // Need to catch errors here because of kprofile.dll (Pocket K-Meleon)
-        var profileManager = Components.classes["@mozilla.org/profile/manager;1"]
-                                      .getService(Components.interfaces.nsIProfileInternal);
-        doInit = profileManager.isCurrentProfileAvailable();
-      } catch(e) {}
-    }
-    if (doInit)
-      this.observe(null, "profile-after-change", null);
   },
 
-  init: function() {
+  init: function()
+  {
     try {
       // Initialize object tabs CSS
       var channel = ioService.newChannel("chrome://adblockplus/content/objtabs.css", null, null);
@@ -152,10 +130,6 @@ var prefs = {
       this.currentVersion = abp.getInstalledVersion();
       this.save();
     }
-
-    filterStorage.loadFromDisk();
-    policy.init();
-    elemhide.init();
   },
 
   // Loads a pref and stores it as a property of the object
@@ -220,22 +194,14 @@ var prefs = {
 
   // nsIObserver implementation
   observe: function(subject, topic, prefName) {
-    if (topic == "profile-after-change") {
-      this.init();
-      this.initialized = true;
-    }
-    else if (this.initialized && topic == "profile-before-change") {
-      filterStorage.saveToDisk();
-      this.initialized = false;
-    }
-    else if (topic == "private-browsing")
+    if (topic == "private-browsing")
     {
       if (prefName == "enter")
         this.privateBrowsing = true;
       else if (prefName == "exit")
         this.privateBrowsing = false;
     }
-    else if (this.initialized && !this.disableObserver)
+    else if (!this.disableObserver)
       this.reload();
   },
 
