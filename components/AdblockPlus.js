@@ -34,7 +34,6 @@ const Cu = Components.utils;
 const Node = Ci.nsIDOMNode;
 const Element = Ci.nsIDOMElement;
 const Window = Ci.nsIDOMWindow;
-const ImageLoadingContent = Ci.nsIImageLoadingContent;
 
 const loader = Cc["@mozilla.org/moz/jssubscript-loader;1"].getService(Ci.mozIJSSubScriptLoader);
 const ioService = Cc["@mozilla.org/network/io-service;1"].getService(Ci.nsIIOService);
