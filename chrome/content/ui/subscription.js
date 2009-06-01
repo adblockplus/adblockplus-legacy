@@ -22,9 +22,6 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-var abp = Components.classes["@mozilla.org/adblockplus;1"].createInstance().wrappedJSObject;
-var prefs = abp.prefs;
-
 var subscription = null;
 var result = null;
 var autoAdd = false;

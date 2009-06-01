@@ -52,6 +52,7 @@
   persist="screenX screenY width height sizemode"
   windowtype="abp:settings">
 
+<script type="application/x-javascript;version=1.7" src="utils.js"/>
 <script type="application/x-javascript;version=1.7" src="settings.js"/>
 <script type="application/x-javascript;version=1.7" src="findbar.js"/>
 

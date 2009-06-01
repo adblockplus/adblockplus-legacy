@@ -22,10 +22,6 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-let abp = Components.classes["@mozilla.org/adblockplus;1"].createInstance().wrappedJSObject;
-let prefs = abp.prefs;
-let filterStorage = abp.filterStorage;
-let synchronizer = abp.synchronizer;
 let dragService = Components.classes["@mozilla.org/widget/dragservice;1"]
                             .getService(Components.interfaces.nsIDragService);
 
@@ -43,11 +39,6 @@ try {
   else if (accelKey == Components.interfaces.nsIDOMKeyEvent.DOM_VK_ALT)
     accelMask = altMask;
 } catch(e) {}
-
-function E(id)
-{
-  return document.getElementById(id);
-}
 
 /**
  * Location to be pre-set after initialization, as passed to setLocation().

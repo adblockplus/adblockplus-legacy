@@ -45,6 +45,8 @@
     buttonlabeldisclosure_on="&advanced.label;"
     buttonlabeldisclosure_off="&basic.label;"
     windowtype="abp:composer">
+
+  <script type="application/x-javascript;version=1.7" src="utils.js"/>
   <script type="application/x-javascript;version=1.7" src="composer.js"/>  
   
   <popupset>

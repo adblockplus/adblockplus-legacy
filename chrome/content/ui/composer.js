@@ -22,15 +22,9 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-let abp = Components.classes["@mozilla.org/adblockplus;1"].createInstance().wrappedJSObject;
-
 let wnd = null;
 let item = null;
 let advancedMode = false;
-
-function E(id) {
-  return document.getElementById(id);
-}
 
 function init() {
   // In K-Meleon we might get the arguments wrapped
@@ -94,7 +88,7 @@ function init() {
       suggestions[4] = suggestions[3];
     }
 
-    E("patternGroup").value = (abp.prefs.composer_default in suggestions ? suggestions[abp.prefs.composer_default] : suggestions[1]);
+    E("patternGroup").value = (prefs.composer_default in suggestions ? suggestions[prefs.composer_default] : suggestions[1]);
   }
   catch (e)
   {
@@ -102,7 +96,7 @@ function init() {
     addSuggestion(item.location);
     E("patternGroup").value = "";
   }
-  if (abp.prefs.composer_default == 0)
+  if (prefs.composer_default == 0)
     E("customPattern").focus();
   else
     E("patternGroup").focus();
@@ -149,11 +143,11 @@ function init() {
   }
 
   let collapseDefault = E("collapseDefault");
-  collapseDefault.label = collapseDefault.getAttribute(abp.prefs.fastcollapse ? "label_no" : "label_yes");
+  collapseDefault.label = collapseDefault.getAttribute(prefs.fastcollapse ? "label_no" : "label_yes");
   E("collapse").value = "";
   E("collapse").setAttribute("label", collapseDefault.label);
 
-  E("disabledWarning").hidden = abp.prefs.enabled;
+  E("disabledWarning").hidden = prefs.enabled;
   updatePatternSelection();
 }
 
@@ -248,7 +242,7 @@ function updateFilter()
   if (E("disabledWarning").hidden)
   {
     let subscription = null;
-    for each (let s in abp.filterStorage.subscriptions)
+    for each (let s in filterStorage.subscriptions)
       if (s instanceof abp.SpecialSubscription && s.isFilterAllowed(compiledFilter) && (!subscription || s.priority > subscription.priority))
         subscription = s;
 
@@ -317,11 +311,11 @@ function addFilter() {
   if (filter.disabled)
   {
     filter.disabled = false;
-    abp.filterStorage.triggerFilterObservers("enable", [filter]);
+    filterStorage.triggerFilterObservers("enable", [filter]);
   }
 
-  abp.filterStorage.addFilter(filter);
-  abp.filterStorage.saveToDisk();
+  filterStorage.addFilter(filter);
+  filterStorage.saveToDisk();
 
   if (wnd && !wnd.closed)
     abp.policy.refilterWindow(wnd);
@@ -364,16 +358,16 @@ function openPreferences() {
 }
 
 function doEnable() {
-  abp.prefs.enabled = true;
-  abp.prefs.save();
+  prefs.enabled = true;
+  prefs.save();
   E("disabledWarning").hidden = true;
 }
 
 function enableSubscription(subscription)
 {
   subscription.disabled = false;
-  abp.filterStorage.triggerSubscriptionObservers("enable", [subscription]);
-  abp.filterStorage.saveToDisk();
+  filterStorage.triggerSubscriptionObservers("enable", [subscription]);
+  filterStorage.saveToDisk();
   E("groupDisabledWarning").hidden = true;
 }
 
