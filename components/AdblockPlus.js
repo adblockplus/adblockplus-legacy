@@ -33,6 +33,11 @@ const ioService = Components.classes["@mozilla.org/network/io-service;1"]
  * Constants / Globals
  */
 
+const Cc = Components.classes;
+const Ci = Components.interfaces;
+const Cr = Components.results;
+const Cu = Components.utils;
+
 const Node = Components.interfaces.nsIDOMNode;
 const Element = Components.interfaces.nsIDOMElement;
 const Window = Components.interfaces.nsIDOMWindow;
@@ -52,6 +57,38 @@ catch(e)
   headerParser = null;
 }
 
+/**
+ * Application startup/shutdown observer, triggers init()/shutdown() methods in abp object.
+ */
+function Initializer() {}
+Initializer.prototype =
+{
+  classDescription: "Adblock Plus initializer",
+  contractID: "@adblockplus.org/abp/startup;1",
+  classID: Components.ID("{d32a3c00-4ed3-11de-8a39-0800200c9a66}"),
+  _xpcom_categories: [{ category: "app-startup", service: true }],
+
+  QueryInterface: XPCOMUtils.generateQI([Ci.nsIObserver, Ci.nsISupportsWeakReference]),
+
+  observe: function(subject, topic, data)
+  {
+    switch (topic)
+    {
+      case "app-startup":
+        let observerService = Cc["@mozilla.org/observer-service;1"].getService(Ci.nsIObserverService);
+        observerService.addObserver(this, "profile-after-change", true);
+        observerService.addObserver(this, "profile-before-change", true);
+        break;
+      case "profile-after-change":
+        abp.init();
+        break;
+      case "profile-before-change":
+        abp.shutdown();
+        break;
+    }
+  }
+};
+
 /*
  * Content policy class definition
  */
@@ -62,17 +99,13 @@ const abp =
   classID: Components.ID("{79c889f6-f5a2-abba-8b27-852e6fec4d56}"),
   contractID: "@mozilla.org/adblockplus;1",
   _xpcom_factory: {
-    initialized: false,
     createInstance: function(outer, iid)
     {
       if (outer)
         throw Components.results.NS_ERROR_NO_AGGREGATION;
 
-      if (!this.initialized)
-      {
-        this.initialized = true;
-        init();
-      }
+      if (!abp.initialized)
+        throw Components.results.NS_ERROR_FAILURE;
 
       return abp.QueryInterface(iid);
     }
@@ -261,9 +294,65 @@ const abp =
   //
 
   /**
+   * Will be set to true if init() was called already.
+   * @type Boolean
+   */
+  initialized: false,
+
+  /**
    * If true, incoming updates for Filterset.G should be rejected.
+   * @type Boolean
    */
   denyFiltersetG: false,
+
+  /**
+   * Initializes the component, called on application startup.
+   */
+  init: function()
+  {
+    timeLine.log("abp.init() called");
+
+    if (this.initialized)
+      return;
+    this.initialized = true;
+
+    this.versionComparator = Components.classes["@mozilla.org/xpcom/version-comparator;1"]
+                                       .createInstance(Components.interfaces.nsIVersionComparator);
+
+    loader.loadSubScript('chrome://adblockplus/content/utils.js');
+    loader.loadSubScript('chrome://adblockplus/content/filterClasses.js');
+    loader.loadSubScript('chrome://adblockplus/content/subscriptionClasses.js');
+    loader.loadSubScript('chrome://adblockplus/content/filterStorage.js');
+    loader.loadSubScript('chrome://adblockplus/content/matcher.js');
+    loader.loadSubScript('chrome://adblockplus/content/elemhide.js');
+    loader.loadSubScript('chrome://adblockplus/content/filterListener.js');
+    loader.loadSubScript('chrome://adblockplus/content/policy.js');
+    loader.loadSubScript('chrome://adblockplus/content/data.js');
+    loader.loadSubScript('chrome://adblockplus/content/prefs.js');
+    loader.loadSubScript('chrome://adblockplus/content/synchronizer.js');
+
+    timeLine.log("calling prefs.init()");
+    prefs.init();
+
+    timeLine.log("calling filterStore.loadFromDisk()");
+    filterStorage.loadFromDisk();
+
+    timeLine.log("calling policy.init()");
+    policy.init();
+
+    timeLine.log("calling elemhide.init()");
+    elemhide.init();
+
+    timeLine.log("abp.init() done");
+  },
+
+  /**
+   * Saves all unsaved changes, called on application shutdown.
+   */
+  shutdown: function()
+  {
+    filterStorage.saveToDisk();
+  },
 
   /**
    * Adds a new subscription to the list or changes the parameters of
@@ -431,34 +520,11 @@ abp.wrappedJSObject = abp;
  */
 function ABPComponent() {}
 ABPComponent.prototype = abp;
-var NSGetModule = XPCOMUtils.generateNSGetModule([ABPComponent]);
+var NSGetModule = XPCOMUtils.generateNSGetModule([Initializer, ABPComponent]);
 
 /*
  * Core Routines
  */
-
-// Initialization and registration
-function init()
-{
-  timeLine.log("init() called");
-
-  abp.versionComparator = Components.classes["@mozilla.org/xpcom/version-comparator;1"]
-                                    .createInstance(Components.interfaces.nsIVersionComparator);
-
-  loader.loadSubScript('chrome://adblockplus/content/utils.js');
-  loader.loadSubScript('chrome://adblockplus/content/filterClasses.js');
-  loader.loadSubScript('chrome://adblockplus/content/subscriptionClasses.js');
-  loader.loadSubScript('chrome://adblockplus/content/filterStorage.js');
-  loader.loadSubScript('chrome://adblockplus/content/matcher.js');
-  loader.loadSubScript('chrome://adblockplus/content/elemhide.js');
-  loader.loadSubScript('chrome://adblockplus/content/filterListener.js');
-  loader.loadSubScript('chrome://adblockplus/content/policy.js');
-  loader.loadSubScript('chrome://adblockplus/content/data.js');
-  loader.loadSubScript('chrome://adblockplus/content/prefs.js');
-  loader.loadSubScript('chrome://adblockplus/content/synchronizer.js');
-
-  timeLine.log("init() done");
-}
 
 /**
  * Time logging module, used to measure startup time of Adblock Plus (development builds only).
