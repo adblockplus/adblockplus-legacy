@@ -71,10 +71,10 @@ Initializer.prototype =
     {
       case "app-startup":
         let observerService = Cc["@mozilla.org/observer-service;1"].getService(Ci.nsIObserverService);
-        observerService.addObserver(this, "final-ui-startup", true);
+        observerService.addObserver(this, "profile-after-change", true);
         observerService.addObserver(this, "quit-application", true);
         break;
-      case "final-ui-startup":
+      case "profile-after-change":
         abp.init();
         break;
       case "quit-application":
@@ -100,7 +100,7 @@ const abp =
         throw Cr.NS_ERROR_NO_AGGREGATION;
 
       if (!abp.initialized)
-        throw Cr.NS_ERROR_FAILURE;
+        throw Cr.NS_ERROR_NOT_INITIALIZED;
 
       return abp.QueryInterface(iid);
     }
