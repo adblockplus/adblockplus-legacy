@@ -27,8 +27,7 @@
  * This file is included from AdblockPlus.js.
  */
 
-var styleService = Components.classes["@mozilla.org/content/style-sheet-service;1"]
-                             .getService(Components.interfaces.nsIStyleSheetService); 
+var styleService = Cc["@mozilla.org/content/style-sheet-service;1"].getService(Ci.nsIStyleSheetService); 
 
 /**
  * Element hiding component
@@ -77,7 +76,7 @@ var elemhide =
   init: function()
   {
     try {
-      let compMgr = Components.manager.QueryInterface(Components.interfaces.nsIComponentRegistrar);
+      let compMgr = Components.manager.QueryInterface(Ci.nsIComponentRegistrar);
       compMgr.registerFactory(this.protoCID, "Element hiding hit registration protocol handler", "@mozilla.org/network/protocol;1?name=" + this.scheme, this);
       policy.whitelistSchemes[this.scheme] = true;
     } catch (e) {}
@@ -214,7 +213,7 @@ var elemhide =
   createInstance: function(outer, iid)
   {
     if (outer != null)
-      throw Components.results.NS_ERROR_NO_AGGREGATION;
+      throw Cr.NS_ERROR_NO_AGGREGATION;
 
     return this.QueryInterface(iid);
   },
@@ -223,17 +222,16 @@ var elemhide =
   // Protocol handler implementation
   //
   defaultPort: -1,
-  protocolFlags: Components.interfaces.nsIProtocolHandler.URI_STD |
-                 Components.interfaces.nsIProtocolHandler.URI_DANGEROUS_TO_LOAD |
-                 Components.interfaces.nsIProtocolHandler.URI_NON_PERSISTABLE,
+  protocolFlags: Ci.nsIProtocolHandler.URI_STD |
+                 Ci.nsIProtocolHandler.URI_DANGEROUS_TO_LOAD |
+                 Ci.nsIProtocolHandler.URI_NON_PERSISTABLE,
   scheme: "abp-elemhidehit-" + Math.random().toFixed(15).substr(5),
   allowPort: function() {return false},
 
   newURI: function(spec, originCharset, baseURI)
   {
-    var url = Components.classes["@mozilla.org/network/standard-url;1"]
-                        .createInstance(Components.interfaces.nsIStandardURL);
-    url.init(Components.interfaces.nsIStandardURL.URLTYPE_STANDARD,
+    var url = Cc["@mozilla.org/network/standard-url;1"].createInstance(Ci.nsIStandardURL);
+    url.init(Ci.nsIStandardURL.URLTYPE_STANDARD,
               0, spec, originCharset, baseURI);
     return url;
   },
@@ -241,12 +239,12 @@ var elemhide =
   newChannel: function(uri)
   {
     if (!/:\/+(\d+)\//.test(uri.spec))
-      throw Components.results.NS_ERROR_FAILURE;
+      throw Cr.NS_ERROR_FAILURE;
 
     return new HitRegistrationChannel(uri, RegExp.$1);
   },
 
-  QueryInterface: XPCOMUtils.generateQI([Components.interfaces.nsIFactory, Components.interfaces.nsIProtocolHandler])
+  QueryInterface: XPCOMUtils.generateQI([Ci.nsIFactory, Ci.nsIProtocolHandler])
 };
 abp.elemhide = elemhide;
 
@@ -268,7 +266,7 @@ HitRegistrationChannel.prototype = {
   loadFlags: 0,
   loadGroup: null,
   name: null,
-  status: Components.results.NS_OK,
+  status: Cr.NS_OK,
 
   asyncOpen: function(listener, context)
   {
@@ -281,8 +279,7 @@ HitRegistrationChannel.prototype = {
         data = "<nada/>";
     }
 
-    let stream = Components.classes["@mozilla.org/io/string-input-stream;1"]
-                           .createInstance(Components.interfaces.nsIStringInputStream);
+    let stream = Cc["@mozilla.org/io/string-input-stream;1"].createInstance(Ci.nsIStringInputStream);
     stream.setData(data, data.length);
 
     let me = this;
@@ -295,14 +292,14 @@ HitRegistrationChannel.prototype = {
         listener.onDataAvailable(me, context, stream, 0, data.length);
       } catch(e) {}
       try {
-        listener.onStopRequest(me, context, Components.results.NS_OK);
+        listener.onStopRequest(me, context, Cr.NS_OK);
       } catch(e) {}
     }, 0);
   },
 
   open: function()
   {
-    throw Components.results.NS_ERROR_NOT_IMPLEMENTED;
+    throw Cr.NS_ERROR_NOT_IMPLEMENTED;
   },
   isPending: function()
   {
@@ -310,16 +307,16 @@ HitRegistrationChannel.prototype = {
   },
   cancel: function()
   {
-    throw Components.results.NS_ERROR_NOT_IMPLEMENTED;
+    throw Cr.NS_ERROR_NOT_IMPLEMENTED;
   },
   suspend: function()
   {
-    throw Components.results.NS_ERROR_NOT_IMPLEMENTED;
+    throw Cr.NS_ERROR_NOT_IMPLEMENTED;
   },
   resume: function()
   {
-    throw Components.results.NS_ERROR_NOT_IMPLEMENTED;
+    throw Cr.NS_ERROR_NOT_IMPLEMENTED;
   },
 
-  QueryInterface: XPCOMUtils.generateQI([Components.interfaces.nsIChannel, Components.interfaces.nsIRequest])
+  QueryInterface: XPCOMUtils.generateQI([Ci.nsIChannel, Ci.nsIRequest])
 };

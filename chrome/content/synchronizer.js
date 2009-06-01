@@ -224,11 +224,11 @@ var synchronizer =
       var oldEventSink = null;
       request.channel.notificationCallbacks =
       {
-        QueryInterface: XPCOMUtils.generateQI([Components.interfaces.nsIChannelEventSink]),
+        QueryInterface: XPCOMUtils.generateQI([Ci.nsIChannelEventSink]),
 
         getInterface: function(iid)
         {
-          if (iid.equals(Components.interfaces.nsIChannelEventSink))
+          if (iid.equals(Ci.nsIChannelEventSink))
           {
             try {
               oldEventSink = oldNotifications.QueryInterface(iid);
@@ -241,7 +241,7 @@ var synchronizer =
 
         onChannelRedirect: function(oldChannel, newChannel, flags)
         {
-          if (flags & Components.interfaces.nsIChannelEventSink.REDIRECT_TEMPORARY)
+          if (flags & Ci.nsIChannelEventSink.REDIRECT_TEMPORARY)
             hadTemporaryRedirect = true;
           else if (!hadTemporaryRedirect)
             newURL = newChannel.URI.spec;

@@ -28,8 +28,7 @@
  */
 
 // String service
-var stringService = Components.classes["@mozilla.org/intl/stringbundle;1"]
-                              .getService(Components.interfaces.nsIStringBundleService);
+var stringService = Cc["@mozilla.org/intl/stringbundle;1"].getService(Ci.nsIStringBundleService);
 var strings = stringService.createBundle("chrome://adblockplus/locale/global.properties");
 abp.getString = function(name) {
   return strings.GetStringFromName(name);
@@ -48,7 +47,7 @@ function getWindow(node) {
 
 // Unwraps jar:, view-source: and wyciwyg: URLs, returns the contained URL
 function unwrapURL(url) {
-  if (!(url instanceof Components.interfaces.nsIURI))
+  if (!(url instanceof Ci.nsIURI))
     url = makeURL(url);
 
   try
@@ -60,9 +59,9 @@ function unwrapURL(url) {
       case "wyciwyg":
         return unwrapURL(url.path.replace(/^\/\/\d+\//, ""));
       case "jar":
-        return unwrapURL(url.QueryInterface(Components.interfaces.nsIJARURI).JARFile);
+        return unwrapURL(url.QueryInterface(Ci.nsIJARURI).JARFile);
       default:
-        if (url instanceof Components.interfaces.nsIURL && url.ref)
+        if (url instanceof Ci.nsIURL && url.ref)
           return makeURL(url.spec.replace(/#.*/, ""));
         else
           return url;
@@ -91,7 +90,7 @@ function postProcessNode(node) {
 
   // adjust frameset's cols/rows for frames
   var parentNode = node.parentNode;
-  if (parentNode && parentNode instanceof Components.interfaces.nsIDOMHTMLFrameSetElement)
+  if (parentNode && parentNode instanceof Ci.nsIDOMHTMLFrameSetElement)
   {
     let hasCols = (parentNode.cols && parentNode.cols.indexOf(",") > 0);
     let hasRows = (parentNode.rows && parentNode.rows.indexOf(",") > 0);
@@ -99,7 +98,7 @@ function postProcessNode(node) {
     {
       var index = -1;
       for (var frame = node; frame; frame = frame.previousSibling)
-        if (frame instanceof Components.interfaces.nsIDOMHTMLFrameElement || frame instanceof Components.interfaces.nsIDOMHTMLFrameSetElement)
+        if (frame instanceof Ci.nsIDOMHTMLFrameElement || frame instanceof Ci.nsIDOMHTMLFrameSetElement)
           index++;
   
       var property = (hasCols ? "cols" : "rows");
@@ -191,8 +190,7 @@ function addObjectTab(wnd, node, data, tab) {
 
 // Sets a timeout, comparable to the usual setTimeout function
 function createTimer(callback, delay) {
-  var timer = Components.classes["@mozilla.org/timer;1"];
-  timer = timer.createInstance(Components.interfaces.nsITimer);
+  var timer = Cc["@mozilla.org/timer;1"].createInstance(Ci.nsITimer);
   timer.init({observe: callback}, delay, timer.TYPE_ONE_SHOT);
   return timer;
 }
@@ -213,12 +211,12 @@ function getRequestWindow(/**nsIChannel*/ channel) /**nsIDOMWindow*/
   {
     try {
       // For Gecko 1.9.1
-      return callback.getInterface(Components.interfaces.nsILoadContext).associatedWindow;
+      return callback.getInterface(Ci.nsILoadContext).associatedWindow;
     } catch(e) {}
 
     try {
       // For Gecko 1.9.0
-      return callback.getInterface(Components.interfaces.nsIDOMWindow);
+      return callback.getInterface(Ci.nsIDOMWindow);
     } catch(e) {}
   }
 
@@ -233,15 +231,12 @@ function getLineBreak() {
     // plattform's line breaks by reading prefs.js
     lineBreak = "\n";
     try {
-      var dirService = Components.classes["@mozilla.org/file/directory_service;1"]
-                                  .createInstance(Components.interfaces.nsIProperties);
-      var prefFile = dirService.get("PrefF", Components.interfaces.nsIFile);
-      var inputStream = Components.classes["@mozilla.org/network/file-input-stream;1"]
-                                  .createInstance(Components.interfaces.nsIFileInputStream);
+      var dirService = Cc["@mozilla.org/file/directory_service;1"].createInstance(Ci.nsIProperties);
+      var prefFile = dirService.get("PrefF", Ci.nsIFile);
+      var inputStream = Cc["@mozilla.org/network/file-input-stream;1"].createInstance(Ci.nsIFileInputStream);
       inputStream.init(prefFile, 0x01, 0444, 0);
 
-      var scriptableStream = Components.classes["@mozilla.org/scriptableinputstream;1"]
-                                        .createInstance(Components.interfaces.nsIScriptableInputStream);
+      var scriptableStream = Cc["@mozilla.org/scriptableinputstream;1"].createInstance(Ci.nsIScriptableInputStream);
       scriptableStream.init(inputStream);
       var data = scriptableStream.read(1024);
       scriptableStream.close();
@@ -293,13 +288,11 @@ function generateChecksum(lines)
     // Checksum is an MD5 checksum (base64-encoded without the trailing "=") of
     // all lines in UTF-8 without the checksum line, joined with "\n".
 
-    let converter = Components.classes["@mozilla.org/intl/scriptableunicodeconverter"]
-                              .createInstance(Components.interfaces.nsIScriptableUnicodeConverter);
+    let converter = Cc["@mozilla.org/intl/scriptableunicodeconverter"].createInstance(Ci.nsIScriptableUnicodeConverter);
     converter.charset = "UTF-8";
     stream = converter.convertToInputStream(lines.join("\n"));
 
-    let hashEngine = Components.classes["@mozilla.org/security/hash;1"]
-                               .createInstance(Components.interfaces.nsICryptoHash);
+    let hashEngine = Cc["@mozilla.org/security/hash;1"].createInstance(Ci.nsICryptoHash);
     hashEngine.init(hashEngine.MD5);
     hashEngine.updateFromStream(stream, stream.available());
     return hashEngine.finish(true).replace(/=+$/, "");

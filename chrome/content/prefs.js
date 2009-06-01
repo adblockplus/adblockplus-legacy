@@ -33,8 +33,7 @@ var gObjtabClass = ""
 for (let i = 0; i < 20; i++)
   gObjtabClass += String.fromCharCode("a".charCodeAt(0) + Math.random() * 26);
 
-var prefService = Components.classes["@mozilla.org/preferences-service;1"]
-                            .getService(Components.interfaces.nsIPrefService);
+var prefService = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefService);
 
 var ScriptableInputStream = Components.Constructor("@mozilla.org/scriptableinputstream;1", "nsIScriptableInputStream", "init");
 
@@ -49,7 +48,7 @@ var prefs = {
   addObservers: function() {
     // Observe preferences changes
     try {
-      var branchInternal = this.branch.QueryInterface(Components.interfaces.nsIPrefBranchInternal);
+      var branchInternal = this.branch.QueryInterface(Ci.nsIPrefBranchInternal);
       branchInternal.addObserver("", this, true);
     }
     catch (e) {
@@ -57,16 +56,13 @@ var prefs = {
     }
 
     // Add Private Browsing observer
-    if ("@mozilla.org/privatebrowsing;1" in Components.classes)
+    if ("@mozilla.org/privatebrowsing;1" in Cc)
     {
       try
       {
-        this.privateBrowsing = Components.classes["@mozilla.org/privatebrowsing;1"]
-                                         .getService(Components.interfaces.nsIPrivateBrowsingService)
-                                         .privateBrowsingEnabled;
+        this.privateBrowsing = Cc["@mozilla.org/privatebrowsing;1"].getService(Ci.nsIPrivateBrowsingService).privateBrowsingEnabled;
 
-        var observerService = Components.classes["@mozilla.org/observer-service;1"]
-                                        .getService(Components.interfaces.nsIObserverService);
+        var observerService = Cc["@mozilla.org/observer-service;1"].getService(Ci.nsIObserverService);
         observerService.addObserver(this, "private-browsing", true);
       }
       catch(e)
@@ -91,12 +87,11 @@ var prefs = {
         onStopRequest: function() {
           var data = this.data.replace(/%%CLASSNAME%%/g, gObjtabClass);
           var objtabsCSS = makeURL("data:text/css," + encodeURIComponent(data));
-          Components.classes["@mozilla.org/content/style-sheet-service;1"]
-                    .getService(Components.interfaces.nsIStyleSheetService)
-                    .loadAndRegisterSheet(objtabsCSS, styleService.USER_SHEET);
+          Cc["@mozilla.org/content/style-sheet-service;1"].getService(Ci.nsIStyleSheetService)
+                                                          .loadAndRegisterSheet(objtabsCSS, styleService.USER_SHEET);
           channel = null;
         },
-        QueryInterface: XPCOMUtils.generateQI([Components.interfaces.nsIRequestObserver, Components.interfaces.nsIStreamListener])
+        QueryInterface: XPCOMUtils.generateQI([Ci.nsIRequestObserver, Ci.nsIStreamListener])
       }, null);
     }
     catch (e) {}
@@ -206,7 +201,7 @@ var prefs = {
   },
 
   // nsISupports implementation
-  QueryInterface: XPCOMUtils.generateQI([Components.interfaces.nsISupportsWeakReference, Components.interfaces.nsIObserver])
+  QueryInterface: XPCOMUtils.generateQI([Ci.nsISupportsWeakReference, Ci.nsIObserver])
 };
 
 prefs.addObservers();
