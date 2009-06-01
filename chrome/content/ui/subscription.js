@@ -87,19 +87,14 @@ function saveSubscription()
 
   if (add || subscription.url != url)
   {
-    var file = Components.classes["@mozilla.org/file/local;1"]
-                          .createInstance(Components.interfaces.nsILocalFile);
+    var file = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsILocalFile);
     try {
       file.initWithPath(url);
-      var ioService = Components.classes["@mozilla.org/network/io-service;1"]
-                                .getService(Components.interfaces.nsIIOService); 
-      var protHandler = ioService.getProtocolHandler('file')
-                                .QueryInterface(Components.interfaces.nsIFileProtocolHandler);
-      url = protHandler.newFileURI(file).spec;
+      var ioService = Cc["@mozilla.org/network/io-service;1"].getService(Ci.nsIIOService); 
+      url = ioService.newFileURI(file).spec;
     } catch (e2) {
       try {
-        var uri = Components.classes["@mozilla.org/network/simple-uri;1"]
-                            .createInstance(Components.interfaces.nsIURI);
+        var uri = Cc["@mozilla.org/network/simple-uri;1"].createInstance(Ci.nsIURI);
         uri.spec = url;
         url = uri.spec;
       } catch (e) {
