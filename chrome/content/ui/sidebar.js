@@ -262,13 +262,12 @@ function fillInTooltip(e) {
   if (showPreview) {
     // Check whether image is in cache (stolen from ImgLikeOpera)
     if (!cacheSession) {
-      var cacheService = Components.classes["@mozilla.org/network/cache-service;1"]
-                                   .getService(Components.interfaces.nsICacheService);
-      cacheSession = cacheService.createSession("HTTP", Components.interfaces.nsICache.STORE_ANYWHERE, true);
+      var cacheService = Cc["@mozilla.org/network/cache-service;1"].getService(Ci.nsICacheService);
+      cacheSession = cacheService.createSession("HTTP", Ci.nsICache.STORE_ANYWHERE, true);
     }
 
     try {
-      var descriptor = cacheSession.openCacheEntry(item.location, Components.interfaces.nsICache.ACCESS_READ, false);
+      var descriptor = cacheSession.openCacheEntry(item.location, Ci.nsICache.ACCESS_READ, false);
       descriptor.close();
     }
     catch (e) {
@@ -431,8 +430,7 @@ function copyToClipboard() {
   if (!items.length)
     return;
 
-  var clipboardHelper = Components.classes["@mozilla.org/widget/clipboardhelper;1"]
-                                  .getService(Components.interfaces.nsIClipboardHelper);
+  var clipboardHelper = Cc["@mozilla.org/widget/clipboardhelper;1"].getService(Ci.nsIClipboardHelper);
   clipboardHelper.copyString(items.map(function(item) {return item.location}).join(abp.getLineBreak()));
 }
 
@@ -447,8 +445,7 @@ function copyFilter() {
   if (!items.length)
     return;
 
-  var clipboardHelper = Components.classes["@mozilla.org/widget/clipboardhelper;1"]
-                                  .getService(Components.interfaces.nsIClipboardHelper);
+  var clipboardHelper = Cc["@mozilla.org/widget/clipboardhelper;1"].getService(Ci.nsIClipboardHelper);
   clipboardHelper.copyString(items.map(function(item) {return item.filter.text}).join(abp.getLineBreak()));
 }
 
@@ -605,10 +602,10 @@ var treeView = {
   //
 
   QueryInterface: function(uuid) {
-    if (!uuid.equals(Components.interfaces.nsISupports) &&
-        !uuid.equals(Components.interfaces.nsITreeView))
+    if (!uuid.equals(Ci.nsISupports) &&
+        !uuid.equals(Ci.nsITreeView))
     {
-      throw Components.results.NS_ERROR_NO_INTERFACE;
+      throw Cr.NS_ERROR_NO_INTERFACE;
     }
   
     return this;
@@ -630,8 +627,7 @@ var treeView = {
 
     var stringAtoms = ["col-address", "col-type", "col-filter", "col-state", "col-size", "col-docDomain", "state-regular", "state-filtered", "state-whitelisted", "state-hidden"];
     var boolAtoms = ["selected", "dummy", "filter-disabled"];
-    var atomService = Components.classes["@mozilla.org/atom-service;1"]
-                                .getService(Components.interfaces.nsIAtomService);
+    var atomService = Cc["@mozilla.org/atom-service;1"].getService(Ci.nsIAtomService);
 
     this.atoms = {};
     for each (let atom in stringAtoms)

@@ -93,15 +93,14 @@ function handleCommand(event)
 {
   let scrollBox = document.getElementById("subscriptionsScrollbox")
                           .boxObject
-                          .QueryInterface(Components.interfaces.nsIScrollBoxObject);
+                          .QueryInterface(Ci.nsIScrollBoxObject);
   scrollBox.ensureElementIsVisible(event.target);
   scrollBox.ensureElementIsVisible(event.target.nextSibling);
 }
 
 function uninstallExtension(id)
 {
-  let extensionManager = Components.classes["@mozilla.org/extensions/manager;1"]
-                                   .getService(Components.interfaces.nsIExtensionManager);
+  let extensionManager = Cc["@mozilla.org/extensions/manager;1"].getService(Ci.nsIExtensionManager);
   if (extensionManager.getItemForID(id))
   {
     let location = extensionManager.getInstallLocation(id);
@@ -119,22 +118,20 @@ function uninstallExtension(id)
 
 function isExtensionActive(id)
 {
-  let extensionManager = Components.classes["@mozilla.org/extensions/manager;1"]
-                                   .getService(Components.interfaces.nsIExtensionManager);
+  let extensionManager = Cc["@mozilla.org/extensions/manager;1"].getService(Ci.nsIExtensionManager);
 
   // First check whether the extension is installed
   if (!extensionManager.getItemForID(id))
     return false;
 
   let ds = extensionManager.datasource;
-  let rdfService = Components.classes["@mozilla.org/rdf/rdf-service;1"]
-                             .getService(Components.interfaces.nsIRDFService);
+  let rdfService = Cc["@mozilla.org/rdf/rdf-service;1"].getService(Ci.nsIRDFService);
   let source = rdfService.GetResource("urn:mozilla:item:" + id);
 
   // Check whether extension is disabled
   let link = rdfService.GetResource("http://www.mozilla.org/2004/em-rdf#isDisabled");
   let target = ds.GetTarget(source, link, true);
-  if (target instanceof Components.interfaces.nsIRDFLiteral && target.Value == "true")
+  if (target instanceof Ci.nsIRDFLiteral && target.Value == "true")
     return false;
 
   // Check whether an operation is pending for the extension

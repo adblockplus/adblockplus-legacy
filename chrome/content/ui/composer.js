@@ -47,14 +47,13 @@ function init() {
     insertionPoint.parentNode.insertBefore(suggestion, insertionPoint);
   }
 
-  let ioService = Components.classes["@mozilla.org/network/io-service;1"]
-                            .getService(Components.interfaces.nsIIOService);
+  let ioService = Cc["@mozilla.org/network/io-service;1"].getService(Ci.nsIIOService);
   try
   {
     let suggestions = [""];
 
     let url = ioService.newURI(item.location, null, null)
-                       .QueryInterface(Components.interfaces.nsIURL);
+                       .QueryInterface(Ci.nsIURL);
     let suffix = (url.query ? "?*" : "");
     url.query = "";
     suggestions[1] = url.spec + suffix;
