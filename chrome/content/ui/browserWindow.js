@@ -102,6 +102,7 @@ function abpInit() {
     if (handler)
       abpHooks[hook] = new Function(handler);
   }
+  abpHooks.hasToolbar = (abpHooks.getAttribute("hasToolbar") == "true");
 
   // Process preferences
   window.abpDetachedSidebar = null;
@@ -235,8 +236,8 @@ function abpReloadPrefs() {
     else
       element.hidden = !prefs.showintoolbar;
 
-    // HACKHACK: Show status bar icon in SeaMonkey Mail and Prism instead of toolbar icon
-    if (element.hidden && (element.tagName == "statusbarpanel" || element.tagName == "vbox") && (E("msgToolbar") || window.location.host == "webrunner"))
+    // HACKHACK: Show status bar icon instead of toolbar icon if the application doesn't have a toolbar icon
+    if (element.hidden && element.tagName == "statusbarpanel" && !abpHooks.hasToolbar)
       element.hidden = !prefs.showintoolbar;
 
     if (currentlyShowingInToolbar != prefs.showintoolbar)
