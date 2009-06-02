@@ -34,6 +34,7 @@
     <commandset id="abp-commandset"/>
     <box id="abp-hooks" getBrowser="return window.gBrowser;"
       addTab="window.gBrowser.addTab(arguments[0], null, null, true);"
+      getContextMenu="return E('contentAreaContextMenu');"
       onInit="let bookmarks = E('bookmarks-button');bookmarks.parentNode.insertBefore(E('abp-toolbarbutton'), bookmarks);"/>
   </window>
 
