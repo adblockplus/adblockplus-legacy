@@ -85,9 +85,22 @@ let frameData = null;
  */
 let progressListener = null;
 
+/**
+ * Object implementing app-specific methods.
+ */
+let abpHooks = E("abp-hooks");
+
 abpInit();
 
 function abpInit() {
+  // Initialize app hooks
+  for each (let hook in ["getBrowser", "addTab", "onInit"])
+  {
+    let handler = abpHooks.getAttribute(hook);
+    if (handler)
+      abpHooks[hook] = new Function(handler);
+  }
+
   // Process preferences
   window.abpDetachedSidebar = null;
   abpReloadPrefs();
@@ -105,7 +118,7 @@ function abpInit() {
   filterStorage.addFilterObserver(abpReloadPrefs);
   filterStorage.addSubscriptionObserver(abpReloadPrefs);
 
-  let browser = abp.getBrowserInWindow(window);
+  let browser = abpHooks.getBrowser();
   browser.addEventListener("click", handleLinkClick, true);
 
   let dummy = function() {};
@@ -150,13 +163,9 @@ function abpInit() {
     abp.createTimer(abpShowSubscriptions, 0);
   }
 
-  // Move toolbar button to a correct location in SeaMonkey
-  var button = E("abp-toolbarbutton");
-  if (button && button.parentNode.id == "PersonalToolbar")
-  {
-    let bookmarks = E("bookmarks-button");
-    bookmarks.parentNode.insertBefore(button, bookmarks);
-  }
+  // Run application-specific initialization
+  if (abpHooks.onInit)
+    abpHooks.onInit();
 
   // Copy the menu from status bar icon to the toolbar
   var fixId = function(node) {
@@ -191,7 +200,7 @@ function abpUnload()
   prefs.removeListener(abpReloadPrefs);
   filterStorage.removeFilterObserver(abpReloadPrefs);
   filterStorage.removeSubscriptionObserver(abpReloadPrefs);
-  abp.getBrowserInWindow(window).removeProgressListener(progressListener);
+  abpHooks.getBrowser().removeProgressListener(progressListener);
 }
 
 function abpReloadPrefs() {
@@ -432,7 +441,7 @@ function abpShowSubscriptions()
     if (subscription instanceof abp.DownloadableSubscription)
       return;
 
-  let browser = abp.getBrowserInWindow(window);
+  let browser = abpHooks.getBrowser();
   if ("addTab" in browser)
   {
     // We have a tabbrowser
@@ -469,7 +478,7 @@ function abpFillTooltip(event) {
   E("abp-tooltip-blocked-label").hidden = (state != "active");
   E("abp-tooltip-blocked").hidden = (state != "active");
   if (state == "active") {
-    var data = abp.getDataForWindow(abp.getBrowserInWindow(window).contentWindow);
+    var data = abp.getDataForWindow(abpHooks.getBrowser().contentWindow);
     var locations = data.getAllLocations();
 
     var blocked = 0;
@@ -545,7 +554,7 @@ function getCurrentLocation() /**nsIURI*/
   else
   {
     // Regular browser
-    return abp.unwrapURL(abp.getBrowserInWindow(window).contentWindow.location.href);
+    return abp.unwrapURL(abpHooks.getBrowser().contentWindow.location.href);
   }
 }
 
@@ -809,5 +818,5 @@ function abpCheckContext() {
 // Bring up the settings dialog for the node the context menu was referring to
 function abpNode(data) {
   if (data)
-    window.openDialog("chrome://adblockplus/content/ui/composer.xul", "_blank", "chrome,centerscreen,resizable,dialog=no,dependent", abp.getBrowserInWindow(window).contentWindow, data);
+    window.openDialog("chrome://adblockplus/content/ui/composer.xul", "_blank", "chrome,centerscreen,resizable,dialog=no,dependent", abpHooks.getBrowser().contentWindow, data);
 }

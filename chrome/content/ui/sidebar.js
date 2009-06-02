@@ -37,6 +37,8 @@ var noFlash = false;
 var disabledBlacklistMatcher = new abp.Matcher();
 var disabledWhitelistMatcher = new abp.Matcher();
 
+var abpHooks = null;
+
 function init() {
   var list = E("list");
   list.view = treeView;
@@ -54,7 +56,9 @@ function init() {
       parent.document.getElementById("detached-keyset").appendChild(parent.document.importNode(sidebarKey, true));
     }
   }
-  window.__defineGetter__("content", function() {return abp.getBrowserInWindow(mainWin).contentWindow;});
+
+  abpHooks = mainWin.document.getElementById("abp-hooks");
+  window.__defineGetter__("content", function() {return abpHooks.getBrowser().contentWindow;});
 
   // Install item listener
   DataContainer.addListener(handleItemChange);
@@ -88,7 +92,7 @@ function init() {
   }
 
   // Install a handler for tab changes
-  abp.getBrowserInWindow(mainWin).addEventListener("select", handleTabChange, false);
+  abpHooks.getBrowser().addEventListener("select", handleTabChange, false);
 }
 
 // To be called for a detached window when the main window has been closed
@@ -106,7 +110,7 @@ function cleanUp() {
   filterStorage.removeFilterObserver(reloadDisabledFilters);
   filterStorage.removeSubscriptionObserver(reloadDisabledFilters);
 
-  abp.getBrowserInWindow(mainWin).removeEventListener("select", handleTabChange, false);
+  abpHooks.getBrowser().removeEventListener("select", handleTabChange, false);
   mainWin.removeEventListener("unload", mainUnload, false);
 }
 

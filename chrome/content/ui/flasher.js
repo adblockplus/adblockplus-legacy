@@ -41,14 +41,15 @@ var flasher = {
       // Ensure that at least one node is visible when flashing
       var wnd = ("document" in nodes[0] ? nodes[0] : nodes[0].ownerDocument.defaultView);
       try {
-        var viewer = abp.getBrowserInWindow(
-                        wnd.QueryInterface(Ci.nsIInterfaceRequestor)
-                           .getInterface(Ci.nsIWebNavigation)
-                           .QueryInterface(Ci.nsIDocShellTreeItem)
-                           .rootTreeItem
-                           .QueryInterface(Ci.nsIInterfaceRequestor)
-                           .getInterface(Ci.nsIDOMWindow)
-                           .wrappedJSObject)
+        var viewer = wnd.QueryInterface(Ci.nsIInterfaceRequestor)
+                        .getInterface(Ci.nsIWebNavigation)
+                        .QueryInterface(Ci.nsIDocShellTreeItem)
+                        .rootTreeItem
+                        .QueryInterface(Ci.nsIInterfaceRequestor)
+                        .getInterface(Ci.nsIDOMWindow)
+                        .document.getElementById("abp-hooks")
+                        .wrappedJSObject
+                        .getBrowser()
                         .markupDocumentViewer;
         viewer.scrollToNode(nodes[0]);
       } catch(e) {}

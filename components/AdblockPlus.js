@@ -433,58 +433,16 @@ const abp =
                     windowMediator.getMostRecentWindow("navigator:browser") ||
                     windowMediator.getMostRecentWindow("Songbird:Main") ||
                     windowMediator.getMostRecentWindow("emusic:window");
-    function tryWindowMethod(method, parameters)
+    let abpHooks = currentWindow ? currentWindow.document.getElementById("abp-hooks") : null;
+    if (abpHooks && abpHooks.addTab)
     {
-      let obj = currentWindow;
-      if (currentWindow && /^browser\.(.*)/.test(method))
-      {
-        method = RegExp.$1;
-        obj = abp.getBrowserInWindow(currentWindow);
-      }
-
-      if (!obj)
-        return false;
-
-      try
-      {
-        obj[method].apply(obj, parameters);
-      }
-      catch(e)
-      {
-        return false;
-      }
-
-      try
-      {
-        currentWindow.focus();
-      } catch(e) {}
-      return true;
+      abpHooks.addTab(url);
     }
-
-    if (tryWindowMethod("delayedOpenTab", [url]))
-      return;
-    if (tryWindowMethod("browser.addTab", [url, null, null, true]))
-      return;
-    if (tryWindowMethod("openUILinkIn", [url, "tab"]))
-      return;
-    if (tryWindowMethod("loadURI", [url]))
-      return;
-
-    var protocolService = Cc["@mozilla.org/uriloader/external-protocol-service;1"].getService(Ci.nsIExternalProtocolService);
-    protocolService.loadURI(makeURL(url), null);
-  },
-
-  /**
-   * Retrieves the browser/tabbrowser element for the specified window (might return null).
-   */
-  getBrowserInWindow: function(/**Window*/ window)  /**Element*/
-  {
-    if ("getBrowser" in window)
-      return window.getBrowser();
-    else if ("messageContent" in window)
-      return window.messageContent;
     else
-      return window.document.getElementById("frame_main_pane") || window.document.getElementById("browser_content");
+    {
+      let protocolService = Cc["@mozilla.org/uriloader/external-protocol-service;1"].getService(Ci.nsIExternalProtocolService);
+      protocolService.loadURI(makeURL(url), null);
+    }
   },
 
   params: null,
