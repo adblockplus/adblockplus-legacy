@@ -81,7 +81,7 @@
   <em:targetApplication>
     <Description>
       <em:id>prism@developer.mozilla.org</em:id>
-      <em:minVersion>1.0</em:minVersion>
+      <em:minVersion>1.0b1</em:minVersion>
       <em:maxVersion>1.0.*</em:maxVersion>
     </Description>
   </em:targetApplication>
