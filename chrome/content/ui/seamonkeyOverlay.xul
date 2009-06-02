@@ -34,46 +34,24 @@
     <commandset id="abp-commandset"/>
   </window>
 
-  <!-- Songbird window -->
-  <sb-support id="mainSupportSet">
-    <popupset id="abp-popupset"/>
-    <keyset id="abp-keyset"/>
-    <commandset id="abp-commandset"/>
-  </sb-support>
-
   <!-- Status bar -->
   <statusbar id="status-bar">
     <statusbarpanel id="abp-status" mousethrough="never" insertbefore="resizerBottomRight"/>
   </statusbar> 
 
-  <!-- Firefox toolbar -->
-  <toolbarpalette id="BrowserToolbarPalette">
-    <toolbarbutton id="abp-toolbarbutton" type="menu-button" insertbefore="print-button"
-        class="chromeclass-toolbar-additional"
-        oncontextmenu="abpCheckToolbarContext(event)"/>
-  </toolbarpalette>
-
-  <!-- SeaMonkey toolbar -->
+  <!-- Toolbar -->
   <toolbar id="PersonalToolbar">
     <toolbarbutton id="abp-toolbarbutton" class="bookmark-item" hidden="true"/>
   </toolbar>
 
-  <!-- SeaMonkey Tools menu -->
+  <!-- Tools menu -->
   <menupopup id="taskPopup">
     <menuitem id="abp-menuitem" insertafter="downloadmgr"/>
   </menupopup>
-  <!-- Firefox Tools menu -->
-  <menupopup id="menu_ToolsPopup">
-    <menuitem id="abp-menuitem" insertafter="javascriptConsole"/>
-  </menupopup>
 
-  <!-- SeaMonkey View menu -->
+  <!-- View menu -->
   <menupopup id="view_toolbars_popup">
     <menuitem id="abp-blockableitems" insertafter="sidebar-menu"/>
-  </menupopup>
-  <!-- Firefox View menu -->
-  <menupopup id="menu_viewPopup">
-    <menuitem id="abp-blockableitems" insertafter="viewSidebarMenuMenu"/>
   </menupopup>
 
   <!-- Context menu -->
