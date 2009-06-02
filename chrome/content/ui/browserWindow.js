@@ -94,7 +94,7 @@ abpInit();
 
 function abpInit() {
   // Initialize app hooks
-  for each (let hook in ["getBrowser", "addTab", "onInit"])
+  for each (let hook in ["getBrowser", "addTab", "getContextMenu", "onInit"])
   {
     let handler = abpHooks.getAttribute(hook);
     if (handler)
@@ -140,8 +140,9 @@ function abpInit() {
   } catch(e) {}
 
   // Install context menu handler
-  var contextMenu = E("contentAreaContextMenu") || E("messagePaneContext") || E("popup_content");
-  if (contextMenu) {
+  var contextMenu = abpHooks.getContextMenu();
+  if (contextMenu)
+  {
     contextMenu.addEventListener("popupshowing", abpCheckContext, false);
   
     // Make sure our context menu items are at the bottom
@@ -752,7 +753,7 @@ function abpImageStyle(computedStyle, property) {
 
 // Hides the unnecessary context menu items on display
 function abpCheckContext() {
-  var contextMenu = E("contentAreaContextMenu") || E("messagePaneContext") || E("popup_content");
+  var contextMenu = abpHooks.getContextMenu();
   var target = document.popupNode;
 
   var nodeType = null;
