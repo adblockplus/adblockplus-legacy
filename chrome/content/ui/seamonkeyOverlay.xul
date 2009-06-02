@@ -32,6 +32,9 @@
     <popupset id="abp-popupset"/>
     <keyset id="abp-keyset"/>
     <commandset id="abp-commandset"/>
+    <box id="abp-hooks" getBrowser="return window.gBrowser;"
+      addTab="window.gBrowser.addTab(arguments[0], null, null, true);"
+      onInit="let bookmarks = E('bookmarks-button');bookmarks.parentNode.insertBefore(E('abp-toolbarbutton'), bookmarks);"/>
   </window>
 
   <!-- Status bar -->

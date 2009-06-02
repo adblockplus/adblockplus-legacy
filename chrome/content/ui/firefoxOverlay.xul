@@ -32,6 +32,8 @@
     <popupset id="abp-popupset"/>
     <keyset id="abp-keyset"/>
     <commandset id="abp-commandset"/>
+    <box id="abp-hooks" getBrowser="return window.gBrowser;"
+      addTab="window.gBrowser.loadOneTab(arguments[0], null, null, null, false);"/>
   </window>
 
   <!-- Songbird window -->
@@ -39,6 +41,8 @@
     <popupset id="abp-popupset"/>
     <keyset id="abp-keyset"/>
     <commandset id="abp-commandset"/>
+    <box id="abp-hooks" getBrowser="return window.gBrowser;"
+      addTab="window.gBrowser.loadOneTab(arguments[0], null, null, null, false);"/>
   </sb-support>
 
   <!-- Status bar -->
