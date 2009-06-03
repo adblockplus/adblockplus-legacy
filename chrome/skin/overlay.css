@@ -63,6 +63,7 @@ toolbar[iconsize="small"] #abp-toolbarbutton[abpstate="whitelisted"],
 
 #abp-toolbar-popup {
   list-style-image: none;
+  -moz-image-region: rect(0px, 0px, 0px, 0px);
 }
 
 toolbox[vertical="true"] toolbar #abp-toolbarbutton dropmarker {
