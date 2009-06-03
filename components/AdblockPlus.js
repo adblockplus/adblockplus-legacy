@@ -90,7 +90,7 @@ Initializer.prototype =
 const abp =
 {
   classDescription: "Adblock Plus component",
-  classID: Components.ID("{79c889f6-f5a2-abba-8b27-852e6fec4d56}"),
+  classID: Components.ID("{259c2980-505f-11de-8a39-0800200c9a66}"),
   contractID: "@mozilla.org/adblockplus;1",
   _xpcom_factory: {
     createInstance: function(outer, iid)
