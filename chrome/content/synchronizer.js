@@ -333,6 +333,8 @@ var synchronizer =
         for (let key in subscription)
           newSubscription[key] = subscription[key];
 
+        delete Subscription.knownSubscriptions[subscription.url];
+        newSubscription.oldSubscription = subscription;
         subscription = newSubscription;
         subscription.url = url;
 
@@ -344,6 +346,7 @@ var synchronizer =
         filterStorage.updateSubscriptionFilters(subscription, newFilters);
       else
         filterStorage.triggerSubscriptionObservers("updateinfo", [subscription]);
+      delete subscription.oldSubscription;
 
       filterStorage.saveToDisk();
     };
