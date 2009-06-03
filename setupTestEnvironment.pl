@@ -141,6 +141,7 @@ sub fixupFile
   my $str = shift;
 
   $str =~ s/{{VERSION}}/$version/g;
+  $str =~ s/{{BUILD}}//g;
   $str =~ s/^.*{{LOCALE}}.*$/
     my @result = ();
     my $template = $&;
