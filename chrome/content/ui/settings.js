@@ -803,6 +803,16 @@ function onSubscriptionChange(/**String*/ action, /**Array of Subscription*/ sub
         treeView.invalidateSubscription(subscription);
         break;
       case "update":
+        if ("oldSubscription" in subscription)
+        {
+          treeView.removeSubscription(getSubscriptionByURL(subscription.oldSubscription.url));
+          delete subscriptionWrappers[subscription.oldSubscription.url];
+          if (treeView.subscriptions.indexOf(subscription) < 0)
+          {
+            treeView.addSubscription(subscription, true);
+            break;
+          }
+        }
         let oldCount = treeView.getSubscriptionRowCount(subscription);
 
         delete subscription.filters;
@@ -815,6 +825,16 @@ function onSubscriptionChange(/**String*/ action, /**Array of Subscription*/ sub
         treeView.invalidateSubscription(subscription, oldCount);
         break;
       case "updateinfo":
+        if ("oldSubscription" in subscription)
+        {
+          treeView.removeSubscription(getSubscriptionByURL(subscription.oldSubscription.url));
+          delete subscriptionWrappers[subscription.oldSubscription.url];
+          if (treeView.subscriptions.indexOf(subscription) < 0)
+          {
+            treeView.addSubscription(subscription, true);
+            break;
+          }
+        }
         treeView.invalidateSubscriptionInfo(subscription);
         break;
     }
