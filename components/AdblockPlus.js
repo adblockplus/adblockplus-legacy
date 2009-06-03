@@ -283,6 +283,14 @@ const abp =
     return "{{VERSION}}";
   },
 
+  /**
+   * Returns source code revision this Adblock Plus build was created from (if available)
+   */
+  getInstalledBuild: function() /**String*/
+  {
+    return "{{BUILD}}";
+  },
+
   //
   // Custom methods
   //
