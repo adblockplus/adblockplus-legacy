@@ -417,6 +417,51 @@ function saveDefaultDir(dir)
 }
 
 /**
+ * Adds a set of filters to the list.
+ * @param {Array of String} filters
+ * @return {Filter} last filter added (or null)
+ */
+function addFilters(filters)
+{
+  let commentQueue = [];
+  let lastAdded = null;
+  for each (let text in filters)
+  {
+    // Don't add checksum comments
+    if (/!\s*checksum[\s\-:]+([\w\+\/]+)/i.test(text))
+      continue;
+
+    text = abp.normalizeFilter(text);
+    if (!text)
+      continue;
+
+    let filter = getFilterByText(text);
+    if (filter instanceof abp.CommentFilter)
+      commentQueue.push(filter);
+    else
+    {
+      lastAdded = filter;
+      let subscription = treeView.addFilter(filter, null, null, true);
+      if (subscription && commentQueue.length)
+      {
+        // Insert comments before the filter that follows them
+        for each (let comment in commentQueue)
+          treeView.addFilter(comment, subscription, filter, true);
+        commentQueue.splice(0, commentQueue.length);
+      }
+    }
+  }
+
+  for each (let comment in commentQueue)
+  {
+    lastAdded = comment;
+    treeView.addFilter(comment, null, null, true);
+  }
+
+  return lastAdded;
+}
+
+/**
  * Lets the user choose a file and reads user-defined filters from this file.
  */
 function importList()
@@ -468,38 +513,8 @@ function importList()
       if (result == 0)
         treeView.removeUserFilters();
 
-      let commentQueue = [];
-
       lines.shift();
-      for each (let line in lines)
-      {
-        // Don't import checksum comments
-        if (/!\s*checksum[\s\-:]+([\w\+\/]+)/i.test(line))
-          continue;
-
-        line = abp.normalizeFilter(line);
-        if (!line)
-          continue;
-
-        let filter = getFilterByText(line);
-        if (filter instanceof abp.CommentFilter)
-          commentQueue.push(filter);
-        else
-        {
-          let subscription = treeView.addFilter(filter, null, null, true);
-          if (subscription && commentQueue.length)
-          {
-            // Insert comments before the filter that follows them
-            for each (let comment in commentQueue)
-              treeView.addFilter(comment, subscription, filter, true);
-            commentQueue.splice(0, commentQueue.length);
-          }
-        }
-      }
-
-      for each (let comment in commentQueue)
-        treeView.addFilter(comment, null, null, true);
-
+      addFilters(lines);
       treeView.ensureSelection(0);
     }
     else 
@@ -977,14 +992,9 @@ function pasteFromClipboard() {
     return;
   }
 
-  for each (let line in data.split(/[\r\n]+/))
-  {
-    line = abp.normalizeFilter(line);
-    if (!line)
-      continue;
-
-    treeView.addFilter(getFilterByText(line));
-  }
+  let lastAdded = addFilters(data.split(/[\r\n]+/));
+  if (lastAdded)
+    treeView.selectFilter(lastAdded);
 }
 
 /**
