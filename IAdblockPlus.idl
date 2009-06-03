@@ -29,61 +29,61 @@ interface IAdblockPlusSubscription: nsISupports
 {
   /**
    * Subscription identifier, this is its URL unless the attribute external is set
-  */
+   */
   readonly attribute AString url;
 
   /**
    * true for special "subscriptions" representing segments of the user patterns
    * list (e.g. ~wl~ contains whitelisting patterns)
-  */
+   */
   readonly attribute boolean special;
 
   /**
    * Subscription's title
-  */
+   */
   readonly attribute AUTF8String title;
 
   /**
    * Defines whether the subscription is downloaded automatically
-  */
+   */
   readonly attribute boolean autoDownload;
 
   /**
    * Defines whether the subscription's patterns are disabled
-  */
+   */
   readonly attribute boolean disabled;
 
   /**
    * Defines whether the subscription is managed externally rather than
    * downloaded by the built-in synchronizer
-  */
+   */
   readonly attribute boolean external;
 
   /**
    * Time of the last download attempt in seconds since 1 January 1970 00:00:00
-  */
+   */
   readonly attribute unsigned long lastDownload;
 
   /**
    * Code for the result of the last download attempt (one of "synchronize_ok",
    * "synchronize_invalid_url", "synchronize_connection_error", "synchronize_invalid_data")
-  */
+   */
   readonly attribute AString downloadStatus;
 
   /**
    * Value of the Last-Modified header for the last download
-  */
+   */
   readonly attribute AString lastModified;
 
   /**
    * Expiration time of the subscription (value of the Expires header but no more than two weeks
    * after the download) for the last download in seconds since 1 January 1970 00:00:00
-  */
+   */
   readonly attribute unsigned long expires;
 
   /**
    * Retrieves a list of subscription's patterns
-  */
+   */
   void getPatterns(out unsigned long length,
                    [retval, array, size_is(length)] out wstring patterns);
 };
@@ -93,21 +93,21 @@ interface IAdblockPlus : nsISupports
 {
   /**
    * Number of subscriptions in the list
-  */
+   */
   readonly attribute PRInt32 subscriptionCount;
 
   /**
    * Retrieves a subscription by its identifier.
    *
    * @param id        subscription identifier
-  */
+   */
   IAdblockPlusSubscription getSubscription(in AString id);
 
   /**
    * Retrieves a subscription by its position in the list.
    *
    * @param index     index of the subscription in the list
-  */
+   */
   IAdblockPlusSubscription getSubscriptionAt(in PRInt32 index);
 
   /**
@@ -121,7 +121,7 @@ interface IAdblockPlus : nsISupports
    * @param length    length of patterns array
    * @return          true if the subscription was updated or false if the
    *                  update failed
-  */
+   */
   boolean updateExternalSubscription(in AString id, in AUTF8String title,
                                      [array, size_is(length), const] in wstring patterns,
                                      in unsigned long length);
@@ -132,7 +132,7 @@ interface IAdblockPlus : nsISupports
    * @param id        subscription identifier
    * @return          true if the subscription was removed or false if no
    *                  external subscription with the given identifier was found
-  */
+   */
   boolean removeExternalSubscription(in AString id);
 
   /**
@@ -140,7 +140,7 @@ interface IAdblockPlus : nsISupports
    *
    * @param patterns  array of patterns to be added
    * @param length    length of the patterns array
-  */
+   */
   void addPatterns([array, size_is(length)] in wstring patterns, in unsigned long length);
 
   /**
@@ -148,11 +148,16 @@ interface IAdblockPlus : nsISupports
    *
    * @param patterns  array of patterns to be removed
    * @param length    length of the patterns array
-  */
+   */
   void removePatterns([array, size_is(length)] in wstring patterns, in unsigned long length);
 
   /**
    * Returns the installed version of Adblock Plus.
-  */
+   */
   AString getInstalledVersion();
+
+  /**
+   * Returns source code revision this Adblock Plus build was created from (if available)
+   */
+  AString getInstalledBuild();
 };

@@ -22,6 +22,16 @@
 </head>
 <body>
   <script type="application/x-javascript;version=1.7">
+    try {
+      let abp = Components.classes["@mozilla.org/adblockplus;1"].createInstance().wrappedJSObject;
+      let text = "You are running Adblock Plus " + abp.getInstalledVersion();
+      let build = abp.getInstalledBuild();
+      if (build)
+        text += ", build " + build;
+      text += ".";
+      document.write("<p>" + text + "</p>");
+    } catch (e) {}
+
     let messages = {};
     Components.classes["@mozilla.org/consoleservice;1"]
               .getService(Components.interfaces.nsIConsoleService)
@@ -36,7 +46,7 @@
 
     if (messages.length)
     {
-      document.write("Errors related to Adblock Plus:");
+      document.write("<p>Errors related to Adblock Plus:</p>");
 
       for each (let message in messages)
       {
@@ -55,7 +65,7 @@
     }
     else
     {
-      document.write("No errors found.");
+      document.write("<p>No errors found.</p>");
     }
 
     function encodeHTML(string)
