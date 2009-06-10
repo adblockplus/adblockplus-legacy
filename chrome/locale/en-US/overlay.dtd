@@ -32,9 +32,10 @@
 
 <!ENTITY view.blockableItems.label  "Adblock Plus: Blockable Items">
 
-<!ENTITY context.image.label    "Adblock Image">
-<!ENTITY context.object.label   "Adblock Object">
-<!ENTITY context.frame.label    "Adblock Frame">
+<!ENTITY context.image.label    "Adblock Plus: Block image">
+<!ENTITY context.object.label   "Adblock Plus: Block object">
+<!ENTITY context.frame.label    "Adblock Plus: Block frame">
+<!ENTITY context.removeWhitelist.label  "Adblock Plus: Re-enable on this page">
 
 <!ENTITY sidebar.title          "Blockable items on current page">
 

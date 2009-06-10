@@ -51,6 +51,7 @@
     <menuitem id="abp-image-menuitem"/>
     <menuitem id="abp-object-menuitem"/>
     <menuitem id="abp-frame-menuitem"/>
+    <menuitem id="abp-removeWhitelist-menuitem"/>
   </menupopup>
 
   <!-- Fake sidebar -->
