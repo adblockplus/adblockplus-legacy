@@ -97,9 +97,9 @@
   <menuitem id="abp-blockableitems" label="&view.blockableItems.label;" type="checkbox" autocheck="false" key="abp-key-sidebar" command="abp-command-sidebar"/>
 
   <!-- Context menu -->
-  <menuitem id="abp-image-menuitem" label="&context.image.label;..."/>
-  <menuitem id="abp-object-menuitem" label="&context.object.label;..."/>
-  <menuitem id="abp-frame-menuitem" label="&context.frame.label;..."/>
+  <menuitem id="abp-image-menuitem" label="&context.image.label;..." hidden="true"/>
+  <menuitem id="abp-object-menuitem" label="&context.object.label;..." hidden="true"/>
+  <menuitem id="abp-frame-menuitem" label="&context.frame.label;..." hidden="true"/>
 
   <!-- Fake sidebar -->
   <splitter id="abp-sidebar-splitter" hidden="true"/>
