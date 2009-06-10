@@ -100,6 +100,7 @@
   <menuitem id="abp-image-menuitem" label="&context.image.label;..." hidden="true"/>
   <menuitem id="abp-object-menuitem" label="&context.object.label;..." hidden="true"/>
   <menuitem id="abp-frame-menuitem" label="&context.frame.label;..." hidden="true"/>
+  <menuitem id="abp-removeWhitelist-menuitem" label="&context.removeWhitelist.label;" hidden="true"/>
 
   <!-- Fake sidebar -->
   <splitter id="abp-sidebar-splitter" hidden="true"/>

@@ -49,7 +49,8 @@ let eventHandlers = [
   ["abp-toolbarbutton", "click", function(event) { if (event.eventPhase == event.AT_TARGET && event.button == 1) abpTogglePref("enabled"); }],
   ["abp-image-menuitem", "command", function() { abpNode(backgroundData || nodeData); }],
   ["abp-object-menuitem", "command", function() { abpNode(nodeData); }],
-  ["abp-frame-menuitem", "command", function() { abpNode(frameData); }]
+  ["abp-frame-menuitem", "command", function() { abpNode(frameData); }],
+  ["abp-removeWhitelist-menuitem", "command", function() { removeWhitelist(); }]
 ];
 
 /**
@@ -150,6 +151,7 @@ function abpInit() {
     contextMenu.addEventListener("popupshowing", abpCheckContext, false);
   
     // Make sure our context menu items are at the bottom
+    contextMenu.appendChild(E("abp-removeWhitelist-menuitem"));
     contextMenu.appendChild(E("abp-frame-menuitem"));
     contextMenu.appendChild(E("abp-object-menuitem"));
     contextMenu.appendChild(E("abp-image-menuitem"));
@@ -611,18 +613,18 @@ function abpFillPopup(event) {
       }
 
       siteWhitelist = abp.Filter.fromText("@@||" + host + "^$document");
-      whitelistItemSite.setAttribute("checked", !siteWhitelist.disabled && isUserDefinedFilter(siteWhitelist));
+      whitelistItemSite.setAttribute("checked", siteWhitelist.subscriptions.length && !siteWhitelist.disabled);
       whitelistItemSite.setAttribute("label", whitelistItemSite.getAttribute("labeltempl").replace(/--/, host));
       whitelistItemSite.hidden = false;
 
       pageWhitelist = abp.Filter.fromText("@@|" + location.spec + ending + "$document");
-      whitelistItemPage.setAttribute("checked", !pageWhitelist.disabled && isUserDefinedFilter(pageWhitelist));
+      whitelistItemPage.setAttribute("checked", pageWhitelist.subscriptions.length && !pageWhitelist.disabled);
       whitelistItemPage.hidden = false;
     }
     else
     {
       siteWhitelist = abp.Filter.fromText("@@|" + location.spec + "|");
-      whitelistItemSite.setAttribute("checked", !siteWhitelist.disabled && isUserDefinedFilter(siteWhitelist));
+      whitelistItemSite.setAttribute("checked", siteWhitelist.subscriptions.length && !siteWhitelist.disabled);
       whitelistItemSite.setAttribute("label", whitelistItemSite.getAttribute("labeltempl").replace(/--/, location.spec.replace(/^mailto:/, "")));
       whitelistItemSite.hidden = false;
     }
@@ -683,16 +685,6 @@ function abpToggleSidebar() {
     menuItem.setAttribute("checked", abpIsSidebarOpen());
 }
 
-/**
- * Checks whether the specified filter exists as a user-defined filter in the list.
- *
- * @param {String} filter   text representation of the filter
- */
-function isUserDefinedFilter(/**Filter*/ filter)  /**Boolean*/
-{
-  return filter.subscriptions.some(function(subscription) { return subscription instanceof abp.SpecialSubscription; });
-}
-
 // Toggles the value of a boolean pref
 function abpTogglePref(pref) {
   prefs[pref] = !prefs[pref];
@@ -704,12 +696,12 @@ function abpTogglePref(pref) {
  */
 function toggleFilter(/**Filter*/ filter)
 {
-  if (isUserDefinedFilter(filter))
+  if (filter.subscriptions.length)
   {
-    if (filter.disabled)
+    if (filter.disabled || filter.subscriptions.some(function(subscription) !(subscription instanceof abp.SpecialSubscription)))
     {
-      filter.disabled = false;
-      filterStorage.triggerFilterObservers("enable", [filter]);
+      filter.disabled = !filter.disabled;
+      filterStorage.triggerFilterObservers(filter.disabled ? "disable" : "enable", [filter]);
     }
     else
       filterStorage.removeFilter(filter);
@@ -717,6 +709,19 @@ function toggleFilter(/**Filter*/ filter)
   else
     filterStorage.addFilter(filter);
   filterStorage.saveToDisk();
+}
+
+/**
+ * Removes/disable the exception rule applying for the current page.
+ */
+function removeWhitelist()
+{
+  let location = getCurrentLocation();
+  let filter = null;
+  if (location)
+    filter = abp.policy.isWhitelisted(location.spec);
+  if (filter && filter.subscriptions.length && !filter.disabled)
+    toggleFilter(filter);
 }
 
 // Handle clicks on the Adblock statusbar panel
@@ -818,6 +823,9 @@ function abpCheckContext() {
   E("abp-image-menuitem").hidden = (nodeType != "IMAGE" && backgroundData == null);
   E("abp-object-menuitem").hidden = (nodeType != "OBJECT");
   E("abp-frame-menuitem").hidden = (frameData == null);
+
+  let location = getCurrentLocation();
+  E("abp-removeWhitelist-menuitem").hidden = (!location || !abp.policy.isWhitelisted(location.spec));
 }
 
 // Bring up the settings dialog for the node the context menu was referring to
