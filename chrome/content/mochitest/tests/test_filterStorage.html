@@ -215,6 +215,20 @@
       filterStorage.removeFilterObserver(observer1);
       filterStorage.removeFilterObserver(observer2);
       filterStorage.removeFilterObserver(observer3);
+
+      // Tests for adding filters before a particular filter
+
+      filterStorage.addFilter(Filter.fromText("test1"), Filter.fromText("!foobar"));
+      compareFiltersList("add(test1) before !foobar", [["foo", "test1", "!foobar"],["@@asdf"],["/??/"],["foo#bar"]]);
+
+      filterStorage.addFilter(Filter.fromText("test2"), Filter.fromText("foo"));
+      compareFiltersList("add(test2) before foo", [["test2", "foo", "test1", "!foobar"],["@@asdf"],["/??/"],["foo#bar"]]);
+
+      filterStorage.addFilter(Filter.fromText("test3"), Filter.fromText("@@asdf"));
+      compareFiltersList("add(test3) before @@asdf", [["test2", "foo", "test1", "!foobar", "test3"],["@@asdf"],["/??/"],["foo#bar"]]);
+
+      filterStorage.addFilter(Filter.fromText("@@test4"), Filter.fromText("@@asdf"));
+      compareFiltersList("add(@@test5) before @@asdf", [["test2", "foo", "test1", "!foobar", "test3"],["@@test4", "@@asdf"],["/??/"],["foo#bar"]]);
     }
 
     function testFilterSubscriptionRelationship()

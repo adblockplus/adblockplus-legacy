@@ -22,6 +22,7 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
+var effectiveTLD = Cc["@mozilla.org/network/effective-tld-service;1"].getService(Ci.nsIEffectiveTLDService);
 var DataContainer = abp.DataContainer;
 
 // Main browser window
@@ -296,9 +297,12 @@ const visual = {
   SUBDOCUMENT: true
 }
 
-// Fill in tooltip data before showing it
-function fillInContext(e) {
-  var item, allItems;
+/**
+ * Updates context menu before it is shown.
+ */
+function fillInContext(/**Event*/ e)
+{
+  let item, allItems;
   if (treeView.data && !treeView.data.length)
   {
     item = treeView.getDummyTooltip();
@@ -315,13 +319,33 @@ function fillInContext(e) {
 
   E("contextDisableFilter").hidden = true;
   E("contextEnableFilter").hidden = true;
+  E("contextDisableOnSite").hidden = true;
   if ("filter" in item && item.filter)
   {
     let filter = item.filter;
-    let menuItem = E(item.filter.disabled ? "contextEnableFilter" : "contextDisableFilter");
+    let menuItem = E(filter.disabled ? "contextEnableFilter" : "contextDisableFilter");
     menuItem.filter = filter;
     menuItem.setAttribute("label", menuItem.getAttribute("labeltempl").replace(/--/, filter.text));
     menuItem.hidden = false;
+
+    if (filter instanceof abp.RegExpFilter && !filter.disabled && filter.subscriptions.length && !filter.subscriptions.some(function(subscription) !(subscription instanceof abp.SpecialSubscription)))
+    {
+      let domain = null;
+      try {
+        domain = content.location.host;
+        domain = effectiveTLD.getBaseDomainFromHost(domain);
+      } catch (e) {}
+
+      if (domain && !filter.isActiveOnlyOnDomain(domain))
+      {
+        menuItem = E("contextDisableOnSite");
+        menuItem.item = item;
+        menuItem.filter = filter;
+        menuItem.domain = domain;
+        menuItem.setAttribute("label", menuItem.getAttribute("labeltempl").replace(/--/, domain));
+        menuItem.hidden = false;
+      }
+    }
   }
 
   E("contextWhitelist").hidden = ("tooltip" in item || !item.filter || item.filter.disabled || item.filter instanceof abp.WhitelistFilter || item.typeDescr == "ELEMHIDE");
@@ -423,6 +447,57 @@ function enableFilter(filter, enable) {
   filterStorage.triggerFilterObservers(enable ? "enable" : "disable", [filter]);
   filterStorage.saveToDisk();
 
+  treeView.boxObject.invalidate();
+}
+
+/**
+ * Edits the filter to disable it on a particular domain.
+ */
+function disableOnSite(item, /**Filter*/ filter, /**String*/ domain)
+{
+  // Generate text for new filter that excludes current domain
+  domain = domain.toUpperCase();
+  let text = filter.text;
+  if (abp.Filter.optionsRegExp.test(text))
+  {
+    let found = false;
+    let options = RegExp.$1.toUpperCase().split(",");
+    for (let i = 0; i < options.length; i++)
+    {
+      if (/^DOMAIN=(.*)/.test(options[i]))
+      {
+        let domains = RegExp.$1.split(/\|/).filter(function(d) d != domain && d != "~" + domain && d.lastIndexOf("." + domain) != d.length - domain.length - 1);
+        domains.push("~" + domain);
+        options[i] = "DOMAIN=" + domains.join("|");
+        found = true;
+        break;
+      }
+    }
+    if (!found)
+      options.push("DOMAIN=~" + domain);
+
+    text = text.replace(abp.Filter.optionsRegExp, "$" + options.join(",").toLowerCase());
+  }
+  else
+    text += "$domain=~" + domain.toLowerCase();
+
+  // Insert new filter before the old one and remove the old one then
+  let newFilter = abp.Filter.fromText(text);
+  if (newFilter.disabled && newFilter.subscriptions.length)
+  {
+    newFilter.disabled = false;
+    filterStorage.triggerFilterObservers("enable", [newFilter]);
+  }
+  else if (!newFilter.subscriptions.length)
+  {
+    newFilter.disabled = false;
+    filterStorage.addFilter(newFilter, filter);
+  }
+  filterStorage.removeFilter(filter);
+  filterStorage.saveToDisk();
+
+  // Update display
+  item.filter = null;
   treeView.boxObject.invalidate();
 }
 

@@ -724,7 +724,7 @@ function onListDragGesture(/**Event*/ e)
  * Filter observer
  * @see filterStorage.addFilterObserver()
  */
-function onFilterChange(/**String*/ action, /**Array of Filter*/ filters)
+function onFilterChange(/**String*/ action, /**Array of Filter*/ filters, additionalData)
 {
   switch (action)
   {
@@ -734,7 +734,10 @@ function onFilterChange(/**String*/ action, /**Array of Filter*/ filters)
       // an update batch makes sure that everything is invalidated.
       treeView.boxObject.beginUpdateBatch();
       for each (let filter in filters)
-        treeView.addFilter(getFilterByText(filter.text), null, null, true);
+      {
+        let insertBefore = (additionalData ? getFilterByText(additionalData.text) : null);
+        treeView.addFilter(getFilterByText(filter.text), null, insertBefore, true);
+      }
       treeView.boxObject.endUpdateBatch();
       return;
     case "remove":

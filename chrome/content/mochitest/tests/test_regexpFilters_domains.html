@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Regexp domain limit tests</title>
+
+  <link rel="stylesheet" type="text/css" href="/content/tests/SimpleTest/test.css" />
+
+  <script type="text/javascript" src="/content/MochiKit/MochiKit.js"></script>
+  <script type="text/javascript" src="/content/tests/SimpleTest/SimpleTest.js"></script>
+
+  <meta http-equiv="Content-Type" value="text/html; charset=utf-8"/>
+  <script type="application/x-javascript;version=1.7" src="common.js"></script>
+  <script type="application/x-javascript;version=1.7" src="chrome://adblockplus/content/filterClasses.js"></script>
+</head>
+<body>
+  <p id="display"></p>
+  <div id="content" style="display: none">
+
+  </div>
+  <pre id="test">
+  <script type="application/x-javascript;version=1.7">
+    function testActive(text, domain, expectedActive, expectedOnlyDomain)
+    {
+      let filter = Filter.fromText(text);
+      is(filter.isActiveOnDomain(domain), expectedActive, text + " active on " + domain);
+      is(filter.isActiveOnlyOnDomain(domain), expectedOnlyDomain, text + " only active on " + domain);
+    }
+
+    testActive("foo$domain=example.com", "com", false, true);
+    testActive("foo$domain=example.com", "example.com", true, true);
+    testActive("foo$domain=example.com", "foo.example.com", true, false);
+    testActive("foo$domain=example.com", "mple.com", false, false);
+
+    testActive("foo$domain=example.com|foo.example.com", "com", false, true);
+    testActive("foo$domain=example.com|foo.example.com", "example.com", true, true);
+    testActive("foo$domain=example.com|foo.example.com", "foo.example.com", true, false);
+    testActive("foo$domain=example.com|foo.example.com", "mple.com", false, false);
+
+    testActive("foo$domain=~foo.example.com", "com", true, false);
+    testActive("foo$domain=~foo.example.com", "example.com", true, false);
+    testActive("foo$domain=~foo.example.com", "foo.example.com", false, false);
+    testActive("foo$domain=~foo.example.com", "mple.com", true, false);
+
+    testActive("foo$domain=example.com|~foo.example.com", "com", false, true);
+    testActive("foo$domain=example.com|~foo.example.com", "example.com", true, true);
+    testActive("foo$domain=example.com|~foo.example.com", "foo.example.com", false, false);
+    testActive("foo$domain=example.com|~foo.example.com", "mple.com", false, false);
+
+    testActive("foo$domain=example.com|~com", "com", false, true);
+    testActive("foo$domain=example.com|~com", "example.com", true, true);
+    testActive("foo$domain=example.com|~com", "foo.example.com", true, false);
+    testActive("foo$domain=example.com|~com", "mple.com", false, false);
+  </script>
+  </pre>
+</body>
+</html>
