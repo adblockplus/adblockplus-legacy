@@ -350,6 +350,23 @@ RegExpFilter.prototype =
   },
 
   /**
+   * Checks whether this filter is active only on a domain and its subdomains.
+   */
+  isActiveOnlyOnDomain: function(/**String*/ docDomain) /**Boolean*/
+  {
+    if (!this.includeDomains)
+      return false;
+
+    docDomain = docDomain.replace(/\.+$/, "").toUpperCase();
+
+    for (let domain in this.includeDomains)
+      if (domain != docDomain && domain.indexOf("." + docDomain) != domain.length - docDomain.length - 1)
+        return false;
+
+    return true;
+  },
+
+  /**
    * Tests whether the URL matches this filters
    * @param {String} location URL to be tested
    * @param {String} contentType content type identifier of the URL

@@ -148,11 +148,12 @@ var filterStorage =
    * Calls filter observers after a change
    * @param {String} action change code ("add", "remove", "enable", "disable", "hit")
    * @param {Array of Filter} filters the change applies to
+   * @param additionalData optional additional data, depends on change code
    */
-  triggerFilterObservers: function(action, filters)
+  triggerFilterObservers: function(action, filters, additionalData)
   {
     for each (let observer in this.filterObservers)
-      observer(action, filters);
+      observer(action, filters, additionalData);
   },
 
   /**
@@ -243,30 +244,41 @@ var filterStorage =
   /**
    * Adds a user-defined filter to the list
    * @param {Filter} filter
+   * @param {Filter} insertBefore   filter to insert before (if possible)
    * @param {Boolean} silent  if true, no observers will be triggered (to be used when filter list is reloaded)
    */
-  addFilter: function(filter, silent)
+  addFilter: function(filter, insertBefore, silent)
   {
     let subscription = null;
-    for each (let s in this.subscriptions)
+    if (!subscription)
     {
-      if (s instanceof SpecialSubscription && s.isFilterAllowed(filter))
+      for each (let s in this.subscriptions)
       {
-        if (s.filters.indexOf(filter) >= 0)
-          return;
+        if (s instanceof SpecialSubscription && s.isFilterAllowed(filter))
+        {
+          if (s.filters.indexOf(filter) >= 0)
+            return;
 
-        if (!subscription || s.priority > subscription.priority)
-          subscription = s;
+          if (!subscription || s.priority > subscription.priority)
+            subscription = s;
+        }
       }
     }
 
     if (!subscription)
       return;
 
+    let insertIndex = -1;
+    if (insertBefore)
+      insertIndex = subscription.filters.indexOf(insertBefore);
+
     filter.subscriptions.push(subscription);
-    subscription.filters.push(filter);
+    if (insertIndex >= 0)
+      subscription.filters.splice(insertIndex, 0, filter);
+    else
+      subscription.filters.push(filter);
     if (!silent)
-      this.triggerFilterObservers("add", [filter]);
+      this.triggerFilterObservers("add", [filter], insertBefore);
   },
 
   /**
@@ -399,7 +411,7 @@ var filterStorage =
       try {
         if (importBranch.prefHasUserValue("patterns"))
           for each (let text in importBranch.getCharPref("patterns").split(" "))
-            this.addFilter(Filter.fromText(text), true);
+            this.addFilter(Filter.fromText(text), null, true);
       } catch (e) {}
 
       try {
@@ -426,7 +438,7 @@ var filterStorage =
       {
         filter = Filter.fromText(filter);
         if (filter)
-          this.addFilter(filter, true);
+          this.addFilter(filter, null, true);
       }
     }
 
