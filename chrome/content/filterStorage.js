@@ -78,6 +78,16 @@ var filterStorage =
   filterObservers: [],
 
   /**
+   * Initializes the component, e.g. triggers the initial load from disk.
+   */
+  init: function()
+  {
+    this.loadFromDisk();
+    Cc["@mozilla.org/observer-service;1"].getService(Ci.nsIObserverService)
+                                         .addObserver(this, "browser:purge-session-history", true);
+  },
+
+  /**
    * Adds an observer for subscription changes (addition, deletion)
    * @param {function(String, Array of Subscription)} observer
    */
@@ -657,6 +667,16 @@ var filterStorage =
     }
 
     tempFile.moveTo(this.file.parent, this.file.leafName);
-  }
+  },
+
+  observe: function(subject, topic, data)
+  {
+    if (topic == "browser:purge-session-history")
+    {
+      this.resetHitCounts();
+      this.saveToDisk();
+    }
+  },
+  QueryInterface: XPCOMUtils.generateQI([Ci.nsISupportsWeakReference, Ci.nsIObserver])
 };
 abp.filterStorage = filterStorage;
