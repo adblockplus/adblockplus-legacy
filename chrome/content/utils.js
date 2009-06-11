@@ -85,9 +85,6 @@ abp.makeURL = makeURL;
 
 // hides a blocked element and collapses it if necessary
 function postProcessNode(node) {
-  if (!(node instanceof Element))
-    return;
-
   // adjust frameset's cols/rows for frames
   var parentNode = node.parentNode;
   if (parentNode && parentNode instanceof Ci.nsIDOMHTMLFrameSetElement)
