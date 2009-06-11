@@ -49,6 +49,11 @@ var policy =
    * @type Object
    */
   localizedDescr: null,
+  /**
+   * Lists the non-visual content types.
+   * @type Object
+   */
+  nonVisual: null,
 
   /**
    * Map containing all schemes that should be ignored by content policy.
@@ -81,6 +86,10 @@ var policy =
     this.type.ELEMHIDE = 0xFFFD;
     this.typeDescr[0xFFFD] = "ELEMHIDE";
     this.localizedDescr[0xFFFD] = abp.getString("type_label_elemhide");
+
+    this.nonVisual = {};
+    for each (let type in ["SCRIPT", "STYLESHEET", "XBL", "PING", "XMLHTTPREQUEST", "OBJECT_SUBREQUEST", "DTD", "FONT"])
+      this.nonVisual[this.type[type]] = true;
 
     // whitelisted URL schemes
     this.whitelistSchemes = {};
@@ -144,7 +153,7 @@ var policy =
       if (match == null)
         match = blacklistMatcher.matchesAny(locationText, this.typeDescr[contentType] || "", docDomain, thirdParty);
 
-      if (match instanceof BlockingFilter && node)
+      if (match instanceof BlockingFilter && node instanceof Element && !(contentType in this.nonVisual))
       {
         var prefCollapse = (match.collapse != null ? match.collapse : !prefs.fastcollapse);
         if (collapse || prefCollapse)
