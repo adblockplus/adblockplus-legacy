@@ -105,7 +105,15 @@ function postProcessNode(node) {
     }
   }
   else
-    node.style.display = "none";
+  {
+    let oldStyle = node.getAttribute("style");
+    node.style.MozBinding = "url(chrome://global/content/bindings/general.xml#asdfzxcv)";
+    node.offsetLeft;    // Force reflow
+    if (oldStyle == null)
+      node.removeAttribute("style")
+    else
+      node.setAttribute("style", oldStyle);
+  }
 }
 
 // Generates a click handler for object tabs
