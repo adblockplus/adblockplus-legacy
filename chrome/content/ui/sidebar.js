@@ -328,7 +328,7 @@ function fillInContext(/**Event*/ e)
     menuItem.setAttribute("label", menuItem.getAttribute("labeltempl").replace(/--/, filter.text));
     menuItem.hidden = false;
 
-    if (filter instanceof abp.RegExpFilter && !filter.disabled && filter.subscriptions.length && !filter.subscriptions.some(function(subscription) !(subscription instanceof abp.SpecialSubscription)))
+    if (filter instanceof abp.ActiveFilter && !filter.disabled && filter.subscriptions.length && !filter.subscriptions.some(function(subscription) !(subscription instanceof abp.SpecialSubscription)))
     {
       let domain = null;
       try {
@@ -458,28 +458,46 @@ function disableOnSite(item, /**Filter*/ filter, /**String*/ domain)
   // Generate text for new filter that excludes current domain
   domain = domain.toUpperCase();
   let text = filter.text;
-  if (abp.Filter.optionsRegExp.test(text))
+  if (filter instanceof abp.RegExpFilter)
   {
-    let found = false;
-    let options = RegExp.$1.toUpperCase().split(",");
-    for (let i = 0; i < options.length; i++)
+    if (abp.Filter.optionsRegExp.test(text))
     {
-      if (/^DOMAIN=(.*)/.test(options[i]))
+      let found = false;
+      let options = RegExp.$1.toUpperCase().split(",");
+      for (let i = 0; i < options.length; i++)
       {
-        let domains = RegExp.$1.split(/\|/).filter(function(d) d != domain && d != "~" + domain && d.lastIndexOf("." + domain) != d.length - domain.length - 1);
-        domains.push("~" + domain);
-        options[i] = "DOMAIN=" + domains.join("|");
-        found = true;
-        break;
+        if (/^DOMAIN=(.*)/.test(options[i]))
+        {
+          let domains = RegExp.$1.split("|").filter(function(d) d != domain && d != "~" + domain && d.lastIndexOf("." + domain) != d.length - domain.length - 1);
+          domains.push("~" + domain);
+          options[i] = "DOMAIN=" + domains.join("|");
+          found = true;
+          break;
+        }
       }
-    }
-    if (!found)
-      options.push("DOMAIN=~" + domain);
+      if (!found)
+        options.push("DOMAIN=~" + domain);
 
-    text = text.replace(abp.Filter.optionsRegExp, "$" + options.join(",").toLowerCase());
+      text = text.replace(abp.Filter.optionsRegExp, "$" + options.join(",").toLowerCase());
+    }
+    else
+      text += "$domain=~" + domain.toLowerCase();
   }
-  else
-    text += "$domain=~" + domain.toLowerCase();
+  else if (filter instanceof abp.ElemHideFilter)
+  {
+    if (/^([^#]+)(#.*)/.test(text))
+    {
+      let selector = RegExp.$2;
+      let domains = RegExp.$1.toUpperCase().split(",").filter(function(d) d != domain && d != "~" + domain && d.lastIndexOf("." + domain) != d.length - domain.length - 1);
+      domains.push("~" + domain);
+      text = domains.join(",").toLowerCase() + selector;
+    }
+    else
+      text = "~" + domain.toLowerCase() + text;
+  }
+
+  if (text == filter.text)
+    return;   // Just in case, shouldn't happen
 
   // Insert new filter before the old one and remove the old one then
   let newFilter = abp.Filter.fromText(text);
