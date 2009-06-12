@@ -135,17 +135,20 @@ var policy =
     if (contentType != this.type.OBJECT && (node instanceof Ci.nsIDOMHTMLObjectElement || node instanceof Ci.nsIDOMHTMLEmbedElement))
       contentType = this.type.OBJECT;
 
+    let docDomain = this.getHostname(wnd.location.href);
     if (!match && contentType == this.type.ELEMHIDE)
     {
       match = location;
       locationText = match.text.replace(/^.*?#/, '#');
       location = locationText;
+
+      if (!match.isActiveOnDomain(docDomain))
+        return true;
     }
 
     var data = DataContainer.getDataForWindow(wnd);
 
     var objTab = null;
-    let docDomain = this.getHostname(wnd.location.href);
     let thirdParty = (contentType == this.type.ELEMHIDE ? false : this.isThirdParty(location, docDomain));
 
     if (!match && prefs.enabled) {

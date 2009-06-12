@@ -64,6 +64,10 @@
       [["localhost##div#test1, p.testClass"], "hidden hidden"],
       [["localhost##div#test1", "localhost##p.testClass"], "hidden hidden"],
       [["localhost##.testClass"], "hidden hidden"],
+
+      [["~localhost##div#test1"], "visible visible"],
+      [["foo,~localhost##div#test1"], "visible visible"],
+      [["localhost,~foo##div#test1"], "hidden visible"],
     ];
     let currentTest = -1;
     let currentRun = 1;

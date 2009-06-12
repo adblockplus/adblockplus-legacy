@@ -147,7 +147,7 @@ var elemhide =
     let domains = {__proto__: null};
     for each (var filter in this.filters)
     {
-      let domain = filter.domain || "";
+      let domain = filter.selectorDomain || "";
 
       let list;
       if (domain in domains)

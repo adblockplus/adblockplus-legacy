@@ -193,12 +193,34 @@ abp.CommentFilter = CommentFilter;
 /**
  * Abstract base class for filters that can get hits
  * @param {String} text see Filter()
+ * @param {Array of String} domains  (optional) Domains that the filter is restricted to, e.g. ["foo.com", "bar.com", "~baz.com"]
  * @constructor
  * @augments Filter
  */
-function ActiveFilter(text)
+function ActiveFilter(text, domains)
 {
   Filter.call(this, text);
+
+  if (domains != null)
+  {
+    for each (let domain in domains)
+    {
+      if (domain == "")
+        continue;
+
+      let hash = "includeDomains";
+      if (domain[0] == "~")
+      {
+        hash = "excludeDomains";
+        domain = domain.substr(1);
+      }
+
+      if (!this[hash])
+        this[hash] = {__proto__: null};
+
+      this[hash][domain] = true;
+    }
+  }
 }
 ActiveFilter.prototype =
 {
@@ -219,99 +241,6 @@ ActiveFilter.prototype =
    * @type Number
    */
   lastHit: 0,
-
-  /**
-   * See Filter.serialize()
-   */
-  serialize: function(buffer)
-  {
-    if (this.disabled || this.hitCount || this.lastHit)
-    {
-      Filter.prototype.serialize.call(this, buffer);
-      if (this.disabled)
-        buffer.push("disabled=true");
-      if (this.hitCount)
-        buffer.push("hitCount=" + this.hitCount);
-      if (this.lastHit)
-        buffer.push("lastHit=" + this.lastHit);
-    }
-  }
-};
-abp.ActiveFilter = ActiveFilter;
-
-/**
- * Abstract base class for RegExp-based filters
- * @param {String} text see Filter()
- * @param {String} regexp       regular expression this filter should use
- * @param {Number} contentType  (optional) Content types the filter applies to, combination of values from RegExpFilter.typeMap
- * @param {Boolean} matchCase   (optional) Defines whether the filter should distinguish between lower and upper case letters
- * @param {String} domains      (optional) Domains that the filter is restricted to, e.g. "foo.com|bar.com|~baz.com"
- * @param {Boolean} thirdParty  (optional) Defines whether the filter should apply to third-party or first-party content only
- * @constructor
- * @augments ActiveFilter
- */
-function RegExpFilter(text, regexp, contentType, matchCase, domains, thirdParty)
-{
-  ActiveFilter.call(this, text);
-
-  if (contentType != null)
-    this.contentType = contentType;
-  if (matchCase)
-    this.matchCase = matchCase;
-  if (domains != null)
-  {
-    for each (let domain in domains.split("|"))
-    {
-      if (domain == "")
-        continue;
-
-      let hash = "includeDomains";
-      if (domain[0] == "~")
-      {
-        hash = "excludeDomains";
-        domain = domain.substr(1);
-      }
-
-      if (!this[hash])
-        this[hash] = {__proto__: null};
-
-      this[hash][domain] = true;
-    }
-  }
-  if (thirdParty != null)
-    this.thirdParty = thirdParty;
-
-  this.regexp = new RegExp(regexp, this.matchCase ? "" : "i");
-}
-RegExpFilter.prototype =
-{
-  __proto__: ActiveFilter.prototype,
-
-  /**
-   * Regular expression to be used when testing against this filter
-   * @type RegExp
-   */
-  regexp: null,
-  /**
-   * 8 character string identifying this filter for faster matching
-   * @type String
-   */
-  shortcut: null,
-  /**
-   * Content types the filter applies to, combination of values from RegExpFilter.typeMap
-   * @type Number
-   */
-  contentType: 0x7FFFFFFF,
-  /**
-   * Defines whether the filter should distinguish between lower and upper case letters
-   * @type Boolean
-   */
-  matchCase: false,
-  /**
-   * Defines whether the filter should apply to third-party or first-party content only. Can be null (apply to all content).
-   * @type Boolean
-   */
-  thirdParty: null,
 
   /**
    * Map containing domains that this filter should match on or null if the filter should match on all domains
@@ -365,6 +294,79 @@ RegExpFilter.prototype =
 
     return true;
   },
+
+  /**
+   * See Filter.serialize()
+   */
+  serialize: function(buffer)
+  {
+    if (this.disabled || this.hitCount || this.lastHit)
+    {
+      Filter.prototype.serialize.call(this, buffer);
+      if (this.disabled)
+        buffer.push("disabled=true");
+      if (this.hitCount)
+        buffer.push("hitCount=" + this.hitCount);
+      if (this.lastHit)
+        buffer.push("lastHit=" + this.lastHit);
+    }
+  }
+};
+abp.ActiveFilter = ActiveFilter;
+
+/**
+ * Abstract base class for RegExp-based filters
+ * @param {String} text see Filter()
+ * @param {String} regexp       regular expression this filter should use
+ * @param {Number} contentType  (optional) Content types the filter applies to, combination of values from RegExpFilter.typeMap
+ * @param {Boolean} matchCase   (optional) Defines whether the filter should distinguish between lower and upper case letters
+ * @param {String} domains      (optional) Domains that the filter is restricted to, e.g. "foo.com|bar.com|~baz.com"
+ * @param {Boolean} thirdParty  (optional) Defines whether the filter should apply to third-party or first-party content only
+ * @constructor
+ * @augments ActiveFilter
+ */
+function RegExpFilter(text, regexp, contentType, matchCase, domains, thirdParty)
+{
+  ActiveFilter.call(this, text, domains ? domains.split("|") : null);
+
+  if (contentType != null)
+    this.contentType = contentType;
+  if (matchCase)
+    this.matchCase = matchCase;
+  if (thirdParty != null)
+    this.thirdParty = thirdParty;
+
+  this.regexp = new RegExp(regexp, this.matchCase ? "" : "i");
+}
+RegExpFilter.prototype =
+{
+  __proto__: ActiveFilter.prototype,
+
+  /**
+   * Regular expression to be used when testing against this filter
+   * @type RegExp
+   */
+  regexp: null,
+  /**
+   * 8 character string identifying this filter for faster matching
+   * @type String
+   */
+  shortcut: null,
+  /**
+   * Content types the filter applies to, combination of values from RegExpFilter.typeMap
+   * @type Number
+   */
+  contentType: 0x7FFFFFFF,
+  /**
+   * Defines whether the filter should distinguish between lower and upper case letters
+   * @type Boolean
+   */
+  matchCase: false,
+  /**
+   * Defines whether the filter should apply to third-party or first-party content only. Can be null (apply to all content).
+   * @type Boolean
+   */
+  thirdParty: null,
 
   /**
    * Tests whether the URL matches this filters
@@ -555,16 +557,19 @@ abp.WhitelistFilter = WhitelistFilter;
 /**
  * Class for element hiding filters
  * @param {String} text see Filter()
- * @param {String} domain     Host name or domain the filter should be restricted to (can be null for no restriction)
+ * @param {String} domains    (optional) Host names or domains the filter should be restricted to
  * @param {String} selector   CSS selector for the HTML elements that should be hidden
  * @constructor
  * @augments ActiveFilter
  */
-function ElemHideFilter(text, domain, selector)
+function ElemHideFilter(text, domains, selector)
 {
-  ActiveFilter.call(this, text);
+  if (domains)
+    domains = domains.toUpperCase().split(",");
+  ActiveFilter.call(this, text, domains);
 
-  this.domain = domain;
+  if (domains)
+    this.selectorDomain = domains.filter(function(domain) domain[0] != "~").join(",").toLowerCase();
   this.selector = selector;
 }
 ElemHideFilter.prototype =
@@ -575,7 +580,7 @@ ElemHideFilter.prototype =
    * Host name or domain the filter should be restricted to (can be null for no restriction)
    * @type String
    */
-  domain: null,
+  selectorDomain: null,
   /**
    * CSS selector for the HTML elements that should be hidden
    * @type String
@@ -594,10 +599,10 @@ abp.ElemHideFilter = ElemHideFilter;
  * Creates an element hiding filter from a pre-parsed text representation
  *
  * @param {String} text       same as in Filter()
- * @param {String} domain     (optional) domain part of the text representation
- * @param {String} tagName    (optional) tag name part
- * @param {String} attrRules  (optional) attribute matching rules
- * @param {String} selector   (optional) raw CSS selector
+ * @param {String} domain     domain part of the text representation (can be empty)
+ * @param {String} tagName    tag name part (can be empty)
+ * @param {String} attrRules  attribute matching rules (can be empty)
+ * @param {String} selector   raw CSS selector (can be empty)
  * @return {ElemHideFilter or InvalidFilter}
  */
 ElemHideFilter.fromText = function(text, domain, tagName, attrRules, selector)
