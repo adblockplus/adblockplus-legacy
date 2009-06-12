@@ -18,9 +18,17 @@
     {
       background-color: #ffffe0;
     }
+
+    button
+    {
+      float: right;
+    }
   </style>
 </head>
 <body>
+  <button onclick="window.location.reload();">Refresh</button>
+  <button onclick="clearErrors();">Clear errors</button>
+
   <script type="application/x-javascript;version=1.7">
     try {
       let abp = Components.classes["@mozilla.org/adblockplus;1"].createInstance().wrappedJSObject;
@@ -71,6 +79,14 @@
     function encodeHTML(string)
     {
       return string.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
+
+    function clearErrors()
+    {
+      Components.classes["@mozilla.org/consoleservice;1"]
+                .getService(Components.interfaces.nsIConsoleService)
+                .reset();
+      window.location.reload();
     }
   </script>
 </body>
