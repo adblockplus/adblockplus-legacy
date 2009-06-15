@@ -92,7 +92,7 @@ var flasher = {
   setOutline: function(value) {
     for (var i = 0; i < this.nodes.length; i++)
       if ("style" in this.nodes[i])
-        this.nodes[i].style.MozOutline = value;
+        this.nodes[i].style.outline = value;
   },
 
   switchOn: function() {
