@@ -24,39 +24,29 @@
 
 @namespace url("http://www.w3.org/1999/xhtml");
 
-a.%%CLASSNAME%% {
+a.%%CLASSNAME%%
+{
   display: none !important;
+  -moz-binding: url(chrome://adblockplus/content/objecttab.xml#dummy) !important;
 }
 
-@media screen {
-  a.%%CLASSNAME%% {
-    display: inline !important;
-    visibility: hidden !important;
-    float: left !important;
-    position: relative !important;
-    overflow: visible !important;
-    width: 0px !important;
-    height: 0px !important;
-    z-index: 65535 !important;
-    opacity: 0.2 !important;
-    text-decoration: none !important;
-  }
+@media screen
+{
+  object:hover + a.%%CLASSNAME%%,
+  embed:hover + a.%%CLASSNAME%%,
+  applet:hover + a.%%CLASSNAME%%,
+  a.%%CLASSNAME%%:hover
+  {
+    display: block !important;
+    -moz-binding: url(chrome://adblockplus/content/objecttab.xml#objectTab) !important;
 
-  a.%%CLASSNAME%%:hover {
-    opacity: 0.8 !important;
-  }
-
-  a.%%CLASSNAME%%.visible {
-    visibility: visible !important;
-  }
-
-  a.%%CLASSNAME%% div {
-    display: inline !important;
-    visibility: visible !important;
-    float: left !important;
-    position: relative !important;
+    position: fixed !important;
     width: auto !important;
     height: auto !important;
+    z-index: 65535 !important;
+    opacity: 0.8 !important;
+    float: left !important;
+    border-color: black !important;
     border-style: ridge !important;
     background: white !important;
     color: black !important;
@@ -75,19 +65,29 @@ a.%%CLASSNAME%% {
     text-transform: none !important;
     direction: ltr !important;
     padding: 0px 5px !important;
+
     border-width: 0px 2px 2px 2px !important;
-    border-color: black !important;
     -moz-border-radius-topleft: 0px !important;
     -moz-border-radius-topright: 0px !important;
     -moz-border-radius-bottomleft: 10px !important;
     -moz-border-radius-bottomright: 10px !important;
   }
 
-  a.%%CLASSNAME%%.ontop div {
+  object:hover + a.%%CLASSNAME%%.%%ONTOP%%,
+  embed:hover + a.%%CLASSNAME%%.%%ONTOP%%,
+  applet:hover + a.%%CLASSNAME%%.%%ONTOP%%,
+  a.%%CLASSNAME%%.%%ONTOP%%:hover
+    {
     border-width: 2px 2px 0px 2px !important;
     -moz-border-radius-topleft: 10px !important;
     -moz-border-radius-topright: 10px !important;
     -moz-border-radius-bottomleft: 0px !important;
     -moz-border-radius-bottomright: 0px !important;
+  }
+
+  a.%%CLASSNAME%% > img
+    {
+    /* Images still load even if invisible, unlikely to change */
+    display: none !important;
   }
 }

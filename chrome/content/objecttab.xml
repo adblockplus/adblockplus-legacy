@@ -8,8 +8,12 @@
     xmlns:xbl="http://www.mozilla.org/xbl">
 
   <binding id="objectTab">
-    <content>
-      <html:div title="&objecttab.tooltip;">&objecttab.title;</html:div>
+    <content title="&objecttab.tooltip;" style="visibility: hidden !important;">
+      &objecttab.title;
+      <html:img src="chrome://global/content/abp-dummy-image-request.png"/>
     </content>
   </binding>
+
+  <!-- Dummy binding to apply to invisible object tabs, without this the previous binding won't be unapplied -->
+  <binding id="dummy"/>
 </bindings>

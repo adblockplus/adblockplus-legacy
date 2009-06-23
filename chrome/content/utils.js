@@ -127,26 +127,14 @@ function generateClickHandler(wnd, data) {
 var objTabBinding = null;
 
 // Creates a tab above/below the new object node
-function addObjectTab(wnd, node, data, tab) {
-  var origNode = node;
-
-  if (node.parentNode && node.parentNode.tagName.toLowerCase() == "object") {
-    // Don't insert object tabs inside an outer object, causes ActiveX Plugin to do bad things
-    node = node.parentNode;
-  }
-
-  if (!node.parentNode || !node.offsetWidth || !node.offsetHeight)
+function addObjectTab(wnd, node, data, tab)
+{
+  if (!node.parentNode)
     return;
-
-  // Decide whether to display the tab on top or the bottom of the object
-  var offsetTop = 0;
-  for (var offsetNode = origNode; offsetNode; offsetNode = offsetNode.offsetParent)
-    offsetTop += offsetNode.offsetTop;
-
-  var onTop = (offsetTop > 40);
 
   // Click event handler
   tab.setAttribute("href", data.location);
+  tab.setAttribute("class", gObjtabClass);
   tab.addEventListener("click", generateClickHandler(wnd, data), false);
 
   // Insert tab into the document
@@ -154,43 +142,6 @@ function addObjectTab(wnd, node, data, tab) {
     node.parentNode.insertBefore(tab, node.nextSibling);
   else
     node.parentNode.appendChild(tab);
-
-  // Attach binding
-  var doc = node.ownerDocument;
-  doc.loadBindingDocument("chrome://adblockplus/content/objecttab.xml");
-  doc.addBinding(tab, "chrome://adblockplus/content/objecttab.xml#objectTab");
-
-  var initHandler = function() {
-    // Make binding apply properly
-    tab.className = gObjtabClass;
-
-    createTimer(initHandler2, 0);
-  }
-  var initHandler2 = function() {
-    // Initialization
-    var label = doc.getAnonymousNodes(tab)[0];
-
-    // Tooltip
-    tab.setAttribute("title", label.getAttribute("title"));
-
-    // Tab dimensions
-    var tabWidth = label.offsetWidth;
-    var tabHeight = label.offsetHeight;
-
-    // Label positioning
-    label.style.setProperty("left", -tabWidth + "px", "important");
-    label.style.setProperty("top", onTop ? -tabHeight + "px" :  "0px", "important");
-
-    // Tab positioning
-    let nodeRect = origNode.getBoundingClientRect();
-    let tabRect = tab.getBoundingClientRect();
-    tab.style.setProperty("left", (nodeRect.right - tabRect.left) + "px", "important");
-    tab.style.setProperty("top", ((onTop ? nodeRect.top : nodeRect.bottom) - tabRect.top) + "px", "important");
-
-    // Show tab
-    tab.className = gObjtabClass + " visible" + (onTop ? " ontop" : "");
-  }
-  createTimer(initHandler, 0);
 }
 
 // Sets a timeout, comparable to the usual setTimeout function

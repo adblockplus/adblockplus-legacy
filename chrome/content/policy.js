@@ -293,6 +293,31 @@ var policy =
     }
   },
 
+  /**
+   * Updates position of an object tab to match the object
+   */
+  repositionObjectTab: function(/**Element*/ objTab)
+  {
+    let object = objTab.previousSibling;
+    if (!(object instanceof Ci.nsIDOMHTMLObjectElement || object instanceof Ci.nsIDOMHTMLEmbedElement || object instanceof Ci.nsIDOMHTMLAppletElement))
+    {
+      if (objTab.parentNode)
+        objTab.parentNode.removeChild(objTab);
+      return;
+    }
+
+    let doc = objTab.ownerDocument;
+
+    let objectRect = object.getBoundingClientRect();
+    let tabRect = objTab.getBoundingClientRect();
+
+    let onTop = (objectRect.top > tabRect.bottom - tabRect.top + 5);
+    objTab.style.setProperty("left", (objectRect.right - tabRect.right + tabRect.left) + "px", "important");
+    objTab.style.setProperty("top", (onTop ? objectRect.top - tabRect.bottom + tabRect.top : objectRect.bottom) + "px", "important");
+    objTab.className = (onTop ? gObjtabClass + " " + gObjtabOnTopClass : gObjtabClass);
+    objTab.style.removeProperty("visibility");
+  },
+
   //
   // nsISupports interface implementation
   //
@@ -303,7 +328,8 @@ var policy =
   // nsIContentPolicy interface implementation
   //
 
-  shouldLoad: function(contentType, contentLocation, requestOrigin, node, mimeTypeGuess, extra) {
+  shouldLoad: function(contentType, contentLocation, requestOrigin, node, mimeTypeGuess, extra)
+  {
     // return unless we are initialized
     if (!this.whitelistSchemes)
       return ok;
@@ -321,6 +347,14 @@ var policy =
     if (!(contentType in this.typeDescr))
       contentType = this.type.OTHER;
 
+    if (contentType == this.type.IMAGE && location.spec == "chrome://global/content/abp-dummy-image-request.png")
+    {
+      let objTab = node.parentNode;
+      if (objTab && typeof objTab.className == "string" && objTab.className.indexOf(gObjtabClass) == 0)
+        createTimer(function() { policy.repositionObjectTab(objTab); }, 0);
+      return block;
+    }
+
     // if it's not a blockable type or a whitelisted scheme, use the usual policy
     if (contentType == this.type.DOCUMENT || !this.isBlockableScheme(location))
       return ok;
@@ -328,7 +362,8 @@ var policy =
     return (this.processNode(wnd, node, contentType, location, false) ? ok : block);
   },
 
-  shouldProcess: function(contentType, contentLocation, requestOrigin, insecNode, mimeType, extra) {
+  shouldProcess: function(contentType, contentLocation, requestOrigin, insecNode, mimeType, extra)
+  {
     return ok;
   },
 
