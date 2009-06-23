@@ -195,7 +195,7 @@
     testMatch("abc$domain=foo.com", "http://abc/def", "IMAGE", "Foo.com", true, true);
     testMatch("abc$domain=foo.com", "http://abc/def", "IMAGE", "abc.def.foo.com", true, true);
     testMatch("abc$domain=foo.com", "http://abc/def", "IMAGE", "www.baz.com", true, false);
-    testMatch("abc$domain=foo.com", "http://abc/def", "IMAGE", null, true, true);
+    testMatch("abc$domain=foo.com", "http://abc/def", "IMAGE", null, true, false);
     testMatch("abc$domain=foo.com|bar.com", "http://abc/def", "IMAGE", "foo.com", true, true);
     testMatch("abc$domain=foo.com|bar.com", "http://abc/def", "IMAGE", "foo.com.", true, true);
     testMatch("abc$domain=foo.com|bar.com", "http://abc/def", "IMAGE", "www.foo.com", true, true);
@@ -203,7 +203,7 @@
     testMatch("abc$domain=foo.com|bar.com", "http://abc/def", "IMAGE", "Foo.com", true, true);
     testMatch("abc$domain=foo.com|bar.com", "http://abc/def", "IMAGE", "abc.def.foo.com", true, true);
     testMatch("abc$domain=foo.com|bar.com", "http://abc/def", "IMAGE", "www.baz.com", true, false);
-    testMatch("abc$domain=foo.com|bar.com", "http://abc/def", "IMAGE", null, true, true);
+    testMatch("abc$domain=foo.com|bar.com", "http://abc/def", "IMAGE", null, true, false);
     testMatch("abc$domain=bar.com|foo.com", "http://abc/def", "IMAGE", "foo.com", true, true);
     testMatch("abc$domain=bar.com|foo.com", "http://abc/def", "IMAGE", "foo.com.", true, true);
     testMatch("abc$domain=bar.com|foo.com", "http://abc/def", "IMAGE", "www.foo.com", true, true);
@@ -211,7 +211,7 @@
     testMatch("abc$domain=bar.com|foo.com", "http://abc/def", "IMAGE", "Foo.com", true, true);
     testMatch("abc$domain=bar.com|foo.com", "http://abc/def", "IMAGE", "abc.def.foo.com", true, true);
     testMatch("abc$domain=bar.com|foo.com", "http://abc/def", "IMAGE", "www.baz.com", true, false);
-    testMatch("abc$domain=bar.com|foo.com", "http://abc/def", "IMAGE", null, true, true);
+    testMatch("abc$domain=bar.com|foo.com", "http://abc/def", "IMAGE", null, true, false);
     testMatch("abc$domain=~foo.com", "http://abc/def", "IMAGE", "foo.com", true, false);
     testMatch("abc$domain=~foo.com", "http://abc/def", "IMAGE", "foo.com.", true, false);
     testMatch("abc$domain=~foo.com", "http://abc/def", "IMAGE", "www.foo.com", true, false);
