@@ -30,8 +30,12 @@
 const prefRoot = "extensions.adblockplus.";
 
 var gObjtabClass = ""
+var gObjtabOnTopClass = ""
 for (let i = 0; i < 20; i++)
+{
   gObjtabClass += String.fromCharCode("a".charCodeAt(0) + Math.random() * 26);
+  gObjtabOnTopClass += String.fromCharCode("a".charCodeAt(0) + Math.random() * 26);
+}
 
 var prefService = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefService);
 
@@ -85,7 +89,7 @@ var prefs = {
         },
         onStartRequest: function() {},
         onStopRequest: function() {
-          var data = this.data.replace(/%%CLASSNAME%%/g, gObjtabClass);
+          var data = this.data.replace(/%%CLASSNAME%%/g, gObjtabClass).replace(/%%ONTOP%%/g, gObjtabOnTopClass);
           var objtabsCSS = makeURL("data:text/css," + encodeURIComponent(data));
           Cc["@mozilla.org/content/style-sheet-service;1"].getService(Ci.nsIStyleSheetService)
                                                           .loadAndRegisterSheet(objtabsCSS, styleService.USER_SHEET);
