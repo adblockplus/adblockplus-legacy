@@ -258,6 +258,10 @@ ActiveFilter.prototype =
    */
   isActiveOnDomain: function(/**String*/ docDomain) /**Boolean*/
   {
+    // If the document has no host name, match only if the filter isn't restricted to specific domains
+    if (!docDomain)
+      return (!this.includeDomains);
+
     if (!this.includeDomains && !this.excludeDomains)
       return true;
 
@@ -283,7 +287,7 @@ ActiveFilter.prototype =
    */
   isActiveOnlyOnDomain: function(/**String*/ docDomain) /**Boolean*/
   {
-    if (!this.includeDomains)
+    if (!docDomain || !this.includeDomains)
       return false;
 
     docDomain = docDomain.replace(/\.+$/, "").toUpperCase();
@@ -381,7 +385,7 @@ RegExpFilter.prototype =
     return (this.regexp.test(location) &&
             (RegExpFilter.typeMap[contentType] & this.contentType) != 0 &&
             (this.thirdParty == null || this.thirdParty == thirdParty) &&
-            (!docDomain || this.isActiveOnDomain(docDomain)));
+            this.isActiveOnDomain(docDomain));
   }
 };
 abp.RegExpFilter = RegExpFilter;
