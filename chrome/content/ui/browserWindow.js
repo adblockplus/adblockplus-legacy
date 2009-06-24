@@ -164,10 +164,10 @@ function abpInit() {
     prefs.doneFirstRunActions = true;
 
     // Add ABP icon to toolbar if necessary
-    abp.createTimer(abpInstallInToolbar, 0);
+    abp.runAsync(abpInstallInToolbar);
 
     // Show subscriptions dialog if the user doesn't have any subscriptions yet
-    abp.createTimer(abpShowSubscriptions, 0);
+    abp.runAsync(abpShowSubscriptions);
   }
 
   // Run application-specific initialization
@@ -199,7 +199,7 @@ function abpInit() {
   copyMenu(E("abp-toolbarbutton"));
   copyMenu(abpGetPaletteButton());
 
-  abp.createTimer(abpInitImageManagerHiding, 0);
+  abp.runAsync(abpInitImageManagerHiding);
 }
 
 function abpUnload()

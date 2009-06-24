@@ -282,19 +282,18 @@ HitRegistrationChannel.prototype = {
     let stream = Cc["@mozilla.org/io/string-input-stream;1"].createInstance(Ci.nsIStringInputStream);
     stream.setData(data, data.length);
 
-    let me = this;
-    createTimer(function()
+    runAsync(function()
     {
       try {
-        listener.onStartRequest(me, context);
+        listener.onStartRequest(this, context);
       } catch(e) {}
       try {
-        listener.onDataAvailable(me, context, stream, 0, data.length);
+        listener.onDataAvailable(this, context, stream, 0, data.length);
       } catch(e) {}
       try {
-        listener.onStopRequest(me, context, Cr.NS_OK);
+        listener.onStopRequest(this, context, Cr.NS_OK);
       } catch(e) {}
-    }, 0);
+    }, this);
   },
 
   open: function()

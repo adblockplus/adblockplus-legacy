@@ -44,12 +44,14 @@ var synchronizer =
   init: function()
   {
     let me = this;
-    let timer = createTimer(function()
+    let callback = function()
     {
-      timer.delay = 3600000;
+      me.timer.delay = 3600000;
       me.checkSubscriptions();
-    }, 300000);
-    timer.type = timer.TYPE_REPEATING_SLACK;
+    };
+
+    this.timer = Cc["@mozilla.org/timer;1"].createInstance(Ci.nsITimer);
+    this.timer.initWithCallback(callback, 300000, Ci.nsITimer.TYPE_REPEATING_SLACK);
   },
 
   /**

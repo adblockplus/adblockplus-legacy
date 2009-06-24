@@ -351,7 +351,7 @@ var policy =
     {
       let objTab = node.parentNode;
       if (objTab && typeof objTab.className == "string" && objTab.className.indexOf(gObjtabClass) == 0)
-        createTimer(function() { policy.repositionObjectTab(objTab); }, 0);
+        runAsync(this.repositionObjectTab, this, objTab);
       return block;
     }
 
@@ -428,7 +428,7 @@ var policy =
     for (var i = start; i < data.length; i++) {
       if (i - start >= 20) {
         // Allow events to process
-        createTimer(function() {policy.refilterWindowInternal(wnd, i)}, 0);
+        runAsync(this.refilterWindowInternal, this, wnd, i);
         return;
       }
 
@@ -452,7 +452,7 @@ var policy =
 
   // Calls refilterWindowInternal delayed to allow events to process
   refilterWindow: function(wnd) {
-    createTimer(function() {policy.refilterWindowInternal(wnd, 0)}, 0);
+    runAsync(this, this.refilterWindowInternal, wnd, 0);
   }
 };
 
