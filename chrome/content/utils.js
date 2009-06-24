@@ -27,6 +27,8 @@
  * This file is included from AdblockPlus.js.
  */
 
+var threadManager = Cc["@mozilla.org/thread-manager;1"].getService(Ci.nsIThreadManager);
+
 // String service
 var stringService = Cc["@mozilla.org/intl/stringbundle;1"].getService(Ci.nsIStringBundleService);
 var strings = stringService.createBundle("chrome://adblockplus/locale/global.properties");
@@ -144,13 +146,23 @@ function addObjectTab(wnd, node, data, tab)
     node.parentNode.appendChild(tab);
 }
 
-// Sets a timeout, comparable to the usual setTimeout function
-function createTimer(callback, delay) {
-  var timer = Cc["@mozilla.org/timer;1"].createInstance(Ci.nsITimer);
-  timer.init({observe: callback}, delay, timer.TYPE_ONE_SHOT);
-  return timer;
+/**
+ * Posts an action to the event queue of the current thread to run it
+ * asynchronously. Any additional parameters to this function are passed
+ * as parameters to the callback.
+ */
+function runAsync(/**Function*/ callback, /**Object*/ thisPtr)
+{
+  let params = Array.prototype.slice.call(arguments, 2);
+  let runnable = {
+    run: function()
+    {
+      callback.apply(thisPtr, params);
+    }
+  };
+  threadManager.currentThread.dispatch(runnable, Ci.nsIEventTarget.DISPATCH_NORMAL);
 }
-abp.createTimer = createTimer;
+abp.runAsync = runAsync;
 
 /**
  * Gets the DOM window associated with a particular request (if any).

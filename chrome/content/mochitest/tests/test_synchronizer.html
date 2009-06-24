@@ -33,19 +33,6 @@
         ourLoadGroup = channel.loadGroup;
     }
 
-    function createTimer(handler, delay)
-    {
-      let timer = {
-        __proto__: Components.interfaces.nsITimer,
-        type: Components.interfaces.nsITimer.TYPE_ONE_SHOT,
-        delay: delay,
-        nextExecution: currentTime + delay,
-        handler: handler
-      };
-      scheduledTasks.push(timer);
-      return timer;
-    }
-
     function runScheduledTasks(maxHours)
     {
       startTime = currentTime;
@@ -108,6 +95,18 @@
 
   <pre id="test">
   <script type="application/x-javascript;version=1.7">
+    {
+      let timer = {__proto__: synchronizer.timer};
+      let callback = timer.callback;
+      timer.handler = function() { callback.notify(timer); };
+      timer.nextExecution = currentTime + timer.delay;
+
+      scheduledTasks.push(timer);
+
+      synchronizer.timer.cancel();
+      synchronizer.timer = timer;
+    }
+
     // Prevent synchronizer from changing the load group of its requests,
     // we need it to recognize when all requests are done.
     var oldXMLHttp = XMLHttpRequest;
