@@ -310,10 +310,12 @@ var policy =
 
     let objectRect = object.getBoundingClientRect();
     let tabRect = objTab.getBoundingClientRect();
+    let scrollLeft = doc.documentElement.scrollLeft || doc.body.scrollLeft;
+    let scrollTop = doc.documentElement.scrollTop || doc.body.scrollTop;
 
     let onTop = (objectRect.top > tabRect.bottom - tabRect.top + 5);
-    objTab.style.setProperty("left", (objectRect.right - tabRect.right + tabRect.left) + "px", "important");
-    objTab.style.setProperty("top", (onTop ? objectRect.top - tabRect.bottom + tabRect.top : objectRect.bottom) + "px", "important");
+    objTab.style.setProperty("left", (scrollLeft + objectRect.right - tabRect.right + tabRect.left) + "px", "important");
+    objTab.style.setProperty("top", (scrollTop + (onTop ? objectRect.top - tabRect.bottom + tabRect.top : objectRect.bottom)) + "px", "important");
     objTab.className = (onTop ? gObjtabClass + " " + gObjtabOnTopClass : gObjtabClass);
     objTab.style.removeProperty("visibility");
   },
