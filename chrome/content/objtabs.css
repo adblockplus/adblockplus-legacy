@@ -24,70 +24,63 @@
 
 @namespace url("http://www.w3.org/1999/xhtml");
 
-a.%%CLASSNAME%%
+:not(:hover) + a.%%CLASSNAME%%
 {
   display: none !important;
   -moz-binding: url(chrome://adblockplus/content/objecttab.xml#dummy) !important;
 }
 
-@media screen
+a.%%CLASSNAME%%,
+a.%%CLASSNAME%%:hover
 {
-  object:hover + a.%%CLASSNAME%%,
-  embed:hover + a.%%CLASSNAME%%,
-  applet:hover + a.%%CLASSNAME%%,
-  a.%%CLASSNAME%%:hover
-  {
-    display: block !important;
-    -moz-binding: url(chrome://adblockplus/content/objecttab.xml#objectTab) !important;
+  display: block !important;
+  -moz-binding: url(chrome://adblockplus/content/objecttab.xml#objectTab) !important;
 
-    position: fixed !important;
-    width: auto !important;
-    height: auto !important;
-    z-index: 65535 !important;
-    opacity: 0.8 !important;
-    float: left !important;
-    border-color: black !important;
-    border-style: ridge !important;
-    background: white !important;
-    color: black !important;
-    cursor: pointer !important;
-    white-space: nowrap !important;
-    font-family: Arial,Helvetica,Sans-Serif !important;
-    font-size: 10px !important;
-    font-style: normal !important;
-    font-variant: normal !important;
-    font-weight: normal !important;
-    letter-spacing: normal !important;
-    line-height: normal !important;
-    text-align: center !important;
-    text-decoration: none !important;
-    text-indent: 0px !important;
-    text-transform: none !important;
-    direction: ltr !important;
-    padding: 0px 5px !important;
+  position: fixed !important;
+  width: auto !important;
+  height: auto !important;
+  z-index: 65535 !important;
+  opacity: 0.8 !important;
+  float: left !important;
+  border-color: black !important;
+  border-style: ridge !important;
+  background: white !important;
+  color: black !important;
+  cursor: pointer !important;
+  white-space: nowrap !important;
+  font-family: Arial,Helvetica,Sans-Serif !important;
+  font-size: 10px !important;
+  font-style: normal !important;
+  font-variant: normal !important;
+  font-weight: normal !important;
+  letter-spacing: normal !important;
+  line-height: normal !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  text-indent: 0px !important;
+  text-transform: none !important;
+  direction: ltr !important;
+  padding: 0px 5px !important;
 
-    border-width: 0px 2px 2px 2px !important;
-    -moz-border-radius-topleft: 0px !important;
-    -moz-border-radius-topright: 0px !important;
-    -moz-border-radius-bottomleft: 10px !important;
-    -moz-border-radius-bottomright: 10px !important;
-  }
+  border-width: 0px 2px 2px 2px !important;
+  -moz-border-radius-topleft: 0px !important;
+  -moz-border-radius-topright: 0px !important;
+  -moz-border-radius-bottomleft: 10px !important;
+  -moz-border-radius-bottomright: 10px !important;
+}
 
-  object:hover + a.%%CLASSNAME%%.%%ONTOP%%,
-  embed:hover + a.%%CLASSNAME%%.%%ONTOP%%,
-  applet:hover + a.%%CLASSNAME%%.%%ONTOP%%,
-  a.%%CLASSNAME%%.%%ONTOP%%:hover
-    {
-    border-width: 2px 2px 0px 2px !important;
-    -moz-border-radius-topleft: 10px !important;
-    -moz-border-radius-topright: 10px !important;
-    -moz-border-radius-bottomleft: 0px !important;
-    -moz-border-radius-bottomright: 0px !important;
-  }
+a.%%CLASSNAME%%.%%ONTOP%%,
+a.%%CLASSNAME%%.%%ONTOP%%:hover
+{
+  border-width: 2px 2px 0px 2px !important;
+  -moz-border-radius-topleft: 10px !important;
+  -moz-border-radius-topright: 10px !important;
+  -moz-border-radius-bottomleft: 0px !important;
+  -moz-border-radius-bottomright: 0px !important;
+}
 
-  a.%%CLASSNAME%% > img
-    {
-    /* Images still load even if invisible, unlikely to change */
-    display: none !important;
-  }
+a.%%CLASSNAME%% > img
+{
+  /* Images still load even if invisible, unlikely to change */
+  display: none !important;
 }
