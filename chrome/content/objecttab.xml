@@ -8,7 +8,7 @@
     xmlns:xbl="http://www.mozilla.org/xbl">
 
   <binding id="objectTab">
-    <content title="&objecttab.tooltip;" style="visibility: hidden !important;">
+    <content title="&objecttab.tooltip;">
       &objecttab.title;
       <html:img src="chrome://global/content/abp-dummy-image-request.png"/>
     </content>
