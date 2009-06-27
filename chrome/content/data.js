@@ -391,8 +391,18 @@ function getWeakReference(node)
   return Cu.getWeakReference(node.wrappedJSObject || node);
 }
 
-let dummyArray = Cc["@mozilla.org/supports-array;1"].createInstance(Ci.nsISupportsArray);
-dummyArray.AppendElement(null);
+
+let fakeFactory = {
+  result: null,
+  createInstance: function(outer, iid) this.result,
+  QueryInterface: XPCOMUtils.generateQI([Ci.nsIFactory])
+};
+let fakeFactoryWrapped;
+{
+  let array = Cc["@mozilla.org/array;1"].createInstance(Ci.nsIMutableArray);
+  array.appendElement(fakeFactory, false);
+  fakeFactoryWrapped = array.queryElementAt(0, Ci.nsIFactory);
+}
 
 /**
  * Retrieves a DOM node from a weak reference, restores XPCNativeWrapper if necessary.
@@ -404,8 +414,8 @@ function getReferencee(weakRef)
     return null;
 
   // HACK: Pass the node through XPCOM to get the wrapper back
-  dummyArray.SetElementAt(0, node);
-  let result = dummyArray.GetElementAt(0);
-  dummyArray.SetElementAt(0, null);
+  fakeFactory.result = node;
+  let result = fakeFactoryWrapped.createInstance(null, Ci.nsISupports);
+  fakeFactory.result = node;
   return result;
 }
