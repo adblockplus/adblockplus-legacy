@@ -47,12 +47,34 @@ DataContainer.prototype = {
   lastSelection: null,
   detached: false,
 
+  /**
+   * Weak reference to the window this data is attached to.
+   * @type xpcIJSWeakReference
+   */
+  window: null,
+
+  /**
+   * Notifies all listeners about changes in this list or one of its sublists.
+   * 
+   */
+  notifyListeners: function(type, data, location)
+  {
+    let wnd = this.window.get();
+    if (this.detached || !wnd)
+      return;
+
+    for each (let listener in DataContainer._listeners)
+      listener(wnd, type, data, location);
+  },
+
   // Attaches the data to a window
   install: function(wnd) {
+    this.window = Cu.getWeakReference(wnd);
+
     var topWnd = wnd.top;
     if (topWnd != wnd) {
       this.topContainer = DataContainer.getDataForWindow(topWnd);
-      this.topContainer.registerSubdocument(topWnd, this);
+      this.topContainer.registerSubdocument(this);
     }
     else
       this.topContainer = this;
@@ -69,9 +91,9 @@ DataContainer.prototype = {
         return;
 
       if (me != me.topContainer)
-        me.topContainer.unregisterSubdocument(this.top, me);
+        me.topContainer.unregisterSubdocument(me);
       else
-        DataContainer.notifyListeners(this, "clear", me);
+        me.notifyListeners("clear", me);
 
       // We shouldn't send further notifications
       me.detached = true;
@@ -85,33 +107,31 @@ DataContainer.prototype = {
       me.detached = false;
 
       if (me != me.topContainer)
-        me.topContainer.registerSubdocument(this.top, me);
+        me.topContainer.registerSubdocument(me);
       else
-        DataContainer.notifyListeners(this, "select", me);
+        me.notifyListeners("select", me);
     };
 
     wnd.addEventListener("pagehide", hideHandler, false);
     wnd.addEventListener("pageshow", showHandler, false);
   },
 
-  registerSubdocument: function(topWnd, data) {
+  registerSubdocument: function(data) {
     for (var i = 0; i < this.subdocs.length; i++)
       if (this.subdocs[i] == data)
         return;
 
     this.subdocs.push(data);
-    if (!this.detached)
-      DataContainer.notifyListeners(topWnd, "refresh", this);
+    this.notifyListeners("refresh", this);
   },
-  unregisterSubdocument: function(topWnd, data) {
+  unregisterSubdocument: function(data) {
     for (var i = 0; i < this.subdocs.length; i++)
       if (this.subdocs[i] == data)
         this.subdocs.splice(i--, 1);
 
-    if (!this.detached)
-      DataContainer.notifyListeners(topWnd, "refresh", this);
+    this.notifyListeners("refresh", this);
   },
-  addNode: function(topWnd, node, contentType, docDomain, thirdParty, location, filter, objTab)
+  addNode: function(node, contentType, docDomain, thirdParty, location, filter, objTab)
   {
     // for images repeated on page store node for each repeated image
     let key = " " + contentType + " " + location;
@@ -130,8 +150,8 @@ DataContainer.prototype = {
     if (objTab)
       entry.addNode(objTab);
 
-    if (isNew && !this.topContainer.detached)
-      DataContainer.notifyListeners(topWnd, "add", this.topContainer, this.entries[key]);
+    if (isNew)
+      this.topContainer.notifyListeners("add", this.topContainer, this.entries[key]);
 
     return entry;
   },
@@ -196,23 +216,31 @@ DataContainer.getDataForNode = function(node, noParent) {
 };
 abp.getDataForNode = DataContainer.getDataForNode;
 
-// Adds a new handler to be notified whenever the location list is added
-DataContainer.listeners = [];
-DataContainer.addListener = function(handler) {
-  DataContainer.listeners.push(handler);
+/**
+ * List of registered data listeners
+ * @type Array of Function
+ * @static
+ */
+DataContainer._listeners = [];
+
+/**
+ * Adds a new listener to be notified whenever new requests are added to the list.
+ * @static
+ */
+DataContainer.addListener = function(/**Function*/ listener)
+{
+  DataContainer._listeners.push(listener);
 };
   
-// Removes a handler
-DataContainer.removeListener = function(handler) {
-  for (var i = 0; i < DataContainer.listeners.length; i++)
-    if (DataContainer.listeners[i] == handler)
-      DataContainer.listeners.splice(i--, 1);
-};
-
-// Calls all location listeners
-DataContainer.notifyListeners = function(wnd, type, data, location) {
-  for (var i = 0; i < DataContainer.listeners.length; i++)
-    DataContainer.listeners[i](wnd, type, data, location);
+/**
+ * Removes a listener.
+ * @static
+ */
+DataContainer.removeListener = function(/**Function*/ listener)
+{
+  for (var i = 0; i < DataContainer._listeners.length; i++)
+    if (DataContainer._listeners[i] == listener)
+      DataContainer._listeners.splice(i--, 1);
 };
 
 function DataEntry(contentType, docDomain, thirdParty, location)
@@ -274,7 +302,7 @@ DataEntry.prototype =
     // If we had this node already - remove it from its old data entry first
     if (nodeDataProp in node)
     {
-      let nodes = oldEntry.nodes;
+      let nodes = node[nodeDataProp].nodes;
       for (let i = 0; i < nodes.length; i++)
       {
         let n = nodes[i].get();
@@ -283,7 +311,7 @@ DataEntry.prototype =
       }
     }
 
-    this.nodes.push(Components.utils.getWeakReference(node));
+    this.nodes.push(Cu.getWeakReference(node));
     node[nodeDataProp] = this;
   }
 };
