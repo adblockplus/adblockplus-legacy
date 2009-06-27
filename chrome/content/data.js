@@ -54,52 +54,38 @@ DataContainer.prototype = {
   window: null,
 
   /**
-   * Notifies all listeners about changes in this list or one of its sublists.
-   * 
+   * Attaches this request list to a window.
    */
-  notifyListeners: function(type, data, location)
+  install: function(/**Window*/ wnd)
   {
-    let wnd = this.window.get();
-    if (this.detached || !wnd)
-      return;
-
-    for each (let listener in DataContainer._listeners)
-      listener(wnd, type, data, location);
-  },
-
-  // Attaches the data to a window
-  install: function(wnd) {
     this.window = Cu.getWeakReference(wnd);
+    wnd.document[docDataProp] = this;
 
-    var topWnd = wnd.top;
-    if (topWnd != wnd) {
+    let topWnd = wnd.top;
+    if (topWnd != wnd)
+    {
       this.topContainer = DataContainer.getDataForWindow(topWnd);
       this.topContainer.registerSubdocument(this);
     }
     else
       this.topContainer = this;
 
-    wnd.document[docDataProp] = this;
-
-    this.installListeners(wnd);
-  },
-
-  installListeners: function(wnd) {
-    var me = this;
-    var hideHandler = function(ev) {
+    let me = this;
+    wnd.addEventListener("pagehide", function(ev)
+    {
       if (!ev.isTrusted || ev.eventPhase != ev.AT_TARGET)
         return;
 
       if (me != me.topContainer)
         me.topContainer.unregisterSubdocument(me);
       else
-        me.notifyListeners("clear", me);
+        me.notifyListeners("clear");
 
       // We shouldn't send further notifications
       me.detached = true;
-    };
-
-    var showHandler = function(ev) {
+    }, false);
+    wnd.addEventListener("pageshow", function(ev)
+    {
       if (!ev.isTrusted || ev.eventPhase != ev.AT_TARGET)
         return;
 
@@ -109,11 +95,23 @@ DataContainer.prototype = {
       if (me != me.topContainer)
         me.topContainer.registerSubdocument(me);
       else
-        me.notifyListeners("select", me);
-    };
+        me.notifyListeners("select");
+    }, false);
+  },
 
-    wnd.addEventListener("pagehide", hideHandler, false);
-    wnd.addEventListener("pageshow", showHandler, false);
+  /**
+   * Notifies all listeners about changes in this list or one of its sublists.
+   * @param {String} type   type of notification, one of "add", "refresh", "select", "clear"
+   * @param {DataEntry} entry   data entry being updated (only present for type "add")
+   */
+  notifyListeners: function(type, entry)
+  {
+    let wnd = this.window.get();
+    if (this.detached || !wnd)
+      return;
+
+    for each (let listener in DataContainer._listeners)
+      listener(wnd, type, this, entry);
   },
 
   registerSubdocument: function(data) {
@@ -122,14 +120,14 @@ DataContainer.prototype = {
         return;
 
     this.subdocs.push(data);
-    this.notifyListeners("refresh", this);
+    this.notifyListeners("refresh");
   },
   unregisterSubdocument: function(data) {
     for (var i = 0; i < this.subdocs.length; i++)
       if (this.subdocs[i] == data)
         this.subdocs.splice(i--, 1);
 
-    this.notifyListeners("refresh", this);
+    this.notifyListeners("refresh");
   },
   addNode: function(node, contentType, docDomain, thirdParty, location, filter, objTab)
   {
@@ -151,7 +149,7 @@ DataContainer.prototype = {
       entry.addNode(objTab);
 
     if (isNew)
-      this.topContainer.notifyListeners("add", this.topContainer, this.entries[key]);
+      this.topContainer.notifyListeners("add", this.entries[key]);
 
     return entry;
   },
