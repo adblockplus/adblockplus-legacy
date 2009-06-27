@@ -34,7 +34,6 @@ const nodeDataProp = "abpNodeData" + dataSeed;
 function DataContainer(wnd) {
   this.entries = {__proto__: null};
   this.urls = {__proto__: null};
-  this.subdocs = [];
   this.install(wnd);
 }
 abp.DataContainer = DataContainer;
@@ -42,7 +41,6 @@ abp.DataContainer = DataContainer;
 DataContainer.prototype = {
   entries: null,
   urls: null,
-  subdocs: null,
   topContainer: null,
   lastSelection: null,
   detached: false,
@@ -65,7 +63,7 @@ DataContainer.prototype = {
     if (topWnd != wnd)
     {
       this.topContainer = DataContainer.getDataForWindow(topWnd);
-      this.topContainer.registerSubdocument(this);
+      this.topContainer.notifyListeners("refresh");
     }
     else
       this.topContainer = this;
@@ -76,13 +74,14 @@ DataContainer.prototype = {
       if (!ev.isTrusted || ev.eventPhase != ev.AT_TARGET)
         return;
 
-      if (me != me.topContainer)
-        me.topContainer.unregisterSubdocument(me);
-      else
+      if (me == me.topContainer)
         me.notifyListeners("clear");
 
       // We shouldn't send further notifications
       me.detached = true;
+
+      if (me != me.topContainer)
+        me.topContainer.notifyListeners("refresh");
     }, false);
     wnd.addEventListener("pageshow", function(ev)
     {
@@ -93,7 +92,7 @@ DataContainer.prototype = {
       me.detached = false;
 
       if (me != me.topContainer)
-        me.topContainer.registerSubdocument(me);
+        me.topContainer.notifyListeners("refresh");
       else
         me.notifyListeners("select");
     }, false);
@@ -114,21 +113,6 @@ DataContainer.prototype = {
       listener(wnd, type, this, entry);
   },
 
-  registerSubdocument: function(data) {
-    for (var i = 0; i < this.subdocs.length; i++)
-      if (this.subdocs[i] == data)
-        return;
-
-    this.subdocs.push(data);
-    this.notifyListeners("refresh");
-  },
-  unregisterSubdocument: function(data) {
-    for (var i = 0; i < this.subdocs.length; i++)
-      if (this.subdocs[i] == data)
-        this.subdocs.splice(i--, 1);
-
-    this.notifyListeners("refresh");
-  },
   addNode: function(node, contentType, docDomain, thirdParty, location, filter, objTab)
   {
     // for images repeated on page store node for each repeated image
@@ -154,28 +138,43 @@ DataContainer.prototype = {
     return entry;
   },
 
-  getLocation: function(type, location) {
-    var key = " " + type + " " + location;
+  getLocation: function(type, location)
+  {
+    let key = " " + type + " " + location;
     if (key in this.entries)
       return this.entries[key];
 
-    for (var i = 0; i < this.subdocs.length; i++) {
-      var result = this.subdocs[i].getLocation(type, location);
-      if (result)
-        return result;
+    let wnd = this.window.get();
+    let numFrames = (wnd ? wnd.frames.length : -1);
+    for (let i = 0; i < numFrames; i++)
+    {
+      let frameData = DataContainer.getDataForWindow(wnd.frames[i], true);
+      if (frameData && !frameData.detached)
+      {
+        let result = frameData.getLocation(type, location);
+        if (result)
+          return result;
+      }
     }
 
     return null;
   },
-  getAllLocations: function(results) {
+  getAllLocations: function(results)
+  {
     if (typeof results == "undefined")
       results = [];
     for (var key in this.entries)
       if (key[0] == " ")
           results.push(this.entries[key]);
 
-    for (var i = 0; i < this.subdocs.length; i++)
-      this.subdocs[i].getAllLocations(results);
+    let wnd = this.window.get();
+    let numFrames = (wnd ? wnd.frames.length : -1);
+    for (let i = 0; i < numFrames; i++)
+    {
+      let frameData = DataContainer.getDataForWindow(wnd.frames[i], true);
+      if (frameData && !frameData.detached)
+        frameData.getAllLocations(results);
+    }
 
     return results;
   },
@@ -187,8 +186,9 @@ DataContainer.prototype = {
 };
 
 // Loads Adblock data associated with a window object
-DataContainer.getDataForWindow = function(wnd, noInstall) {
-  if (docDataProp in wnd.document)
+DataContainer.getDataForWindow = function(wnd, noInstall)
+{
+  if (wnd.document && docDataProp in wnd.document)
     return wnd.document[docDataProp];
   else if (!noInstall)
     return new DataContainer(wnd);
