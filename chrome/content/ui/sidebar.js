@@ -611,6 +611,10 @@ function getItemSize(item)
 
   for each (let node in item.nodes)
   {
+    node = node.get();
+    if (!node)
+      continue;
+
     if (node instanceof HTMLImageElement && (node.naturalWidth || node.naturalHeight))
       return [node.naturalWidth, node.naturalHeight];
     else if (node instanceof HTMLElement && (node.offsetWidth || node.offsetHeight))

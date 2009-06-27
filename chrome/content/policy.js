@@ -165,16 +165,25 @@ var policy =
 
       // Show object tabs unless this is a standalone object
       if (!match && prefs.frameobjects && contentType == this.type.OBJECT &&
-          node.ownerDocument && /^text\/|[+\/]xml$/.test(node.ownerDocument.contentType)) {
+          node.ownerDocument && /^text\/|[+\/]xml$/.test(node.ownerDocument.contentType))
+      {
         // Before adding object tabs always check whether one exist already
         var hasObjectTab = false;
         var loc = data.getLocation(this.type.OBJECT, locationText);
         if (loc)
-          for (var i = 0; i < loc.nodes.length; i++)
-            if (loc.nodes[i] == node && i < loc.nodes.length - 1 && "abpObjTab" in loc.nodes[i+1])
-              hasObjectTab = true;
+        {
+          for (let i = 0; i < loc.nodes.length - 1; i++)
+          {
+            if (loc.nodes[i].get() == node)
+            {
+              let objTab = loc.nodes[i+1].get();
+              hasObjectTab = objTab && "abpObjTab" in objTab;
+            }
+          }
+        }
 
-        if (!hasObjectTab) {
+        if (!hasObjectTab)
+        {
           objTab = node.ownerDocument.createElementNS("http://www.w3.org/1999/xhtml", "a");
           objTab.abpObjTab = true;
         }
@@ -405,7 +414,12 @@ var policy =
 
         if (info)
         {
-          let node = (info.nodes.length ? info.nodes[info.nodes.length - 1] : context.document);
+          let node = null;
+          for (let i = info.nodes.length - 1; !node && i >= 0; i--)
+            node = info.nodes[i].get();
+          if (!node)
+            node = context.document;
+
           // HACK: NS_BINDING_ABORTED would be proper error code to throw but this will show up in error console (bug 287107)
           if (!this.processNode(context, node, info.type, newChannel.URI))
             throw Cr.NS_BASE_STREAM_WOULD_BLOCK;
@@ -435,17 +449,24 @@ var policy =
         return;
       }
 
-      if (!data[i].filter || data[i].filter instanceof WhitelistFilter) {
-        var nodes = data[i].nodes;
+      if (!data[i].filter || data[i].filter instanceof WhitelistFilter)
+      {
+        let nodes = data[i].nodes;
         data[i].nodes = [];
-        for (var j = 0; j < nodes.length; j++) {
-          if ("abpObjTab" in nodes[j]) {
+        for each (let node in nodes)
+        {
+          node = node.get();
+          if (!node)
+            continue;
+
+          if ("abpObjTab" in node)
+          {
             // Remove object tabs
-            if (nodes[j].parentNode)
-              nodes[j].parentNode.removeChild(nodes[j]);
+            if (node.parentNode)
+              node.parentNode.removeChild(node);
           }
           else
-            this.processNode(wnd, nodes[j], data[i].type, makeURL(data[i].location), true);
+            this.processNode(wnd, node, data[i].type, makeURL(data[i].location), true);
         }
       }
     }
@@ -455,7 +476,7 @@ var policy =
 
   // Calls refilterWindowInternal delayed to allow events to process
   refilterWindow: function(wnd) {
-    runAsync(this, this.refilterWindowInternal, wnd, 0);
+    runAsync(this.refilterWindowInternal, this, wnd, 0);
   }
 };
 
