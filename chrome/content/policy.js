@@ -168,18 +168,14 @@ var policy =
           node.ownerDocument && /^text\/|[+\/]xml$/.test(node.ownerDocument.contentType))
       {
         // Before adding object tabs always check whether one exist already
-        var hasObjectTab = false;
-        var loc = data.getLocation(this.type.OBJECT, locationText);
-        if (loc)
+        let hasObjectTab = (node.nextSibling && "abpObjTab" in node.nextSibling);
+        let entry = data.getLocation(this.type.OBJECT, locationText);
+        if (entry)
         {
-          for (let i = 0; i < loc.nodes.length - 1; i++)
-          {
-            if (loc.nodes[i].get() == node)
-            {
-              let objTab = loc.nodes[i+1].get();
-              hasObjectTab = objTab && "abpObjTab" in objTab;
-            }
-          }
+          let nodes = entry.nodes;
+          let index = nodes.indexOf(node);
+          if (index >= 0 && index < nodes.length - 1 && "abpObjTab" in nodes[index + 1])
+            hasObjectTab = true;
         }
 
         if (!hasObjectTab)
@@ -414,11 +410,8 @@ var policy =
 
         if (info)
         {
-          let node = null;
-          for (let i = info.nodes.length - 1; !node && i >= 0; i--)
-            node = info.nodes[i].get();
-          if (!node)
-            node = context.document;
+          let nodes = info.nodes;
+          let node = (nodes.length > 0 ? nodes[nodes.length - 1] : context.document);
 
           // HACK: NS_BINDING_ABORTED would be proper error code to throw but this will show up in error console (bug 287107)
           if (!this.processNode(context, node, info.type, newChannel.URI))
@@ -451,14 +444,9 @@ var policy =
 
       if (!data[i].filter || data[i].filter instanceof WhitelistFilter)
       {
-        let nodes = data[i].nodes;
-        data[i].nodes = [];
+        let nodes = data[i].clearNodes();
         for each (let node in nodes)
         {
-          node = node.get();
-          if (!node)
-            continue;
-
           if ("abpObjTab" in node)
           {
             // Remove object tabs

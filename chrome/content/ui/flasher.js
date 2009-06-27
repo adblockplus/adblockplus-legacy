@@ -33,11 +33,7 @@ var flasher = {
 
   flash: function(nodes) {
     this.stop();
-    if (!nodes)
-      return;
-
-    nodes = nodes.map(function(node) node.get()).filter(function(node) node);
-    if (!nodes.length)
+    if (!nodes || !nodes.length)
       return;
 
     if (prefs.flash_scrolltoitem && ("document" in nodes[0] || nodes[0].ownerDocument)) {
