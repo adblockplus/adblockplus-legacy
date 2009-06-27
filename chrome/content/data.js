@@ -27,10 +27,12 @@
  * This file is included from AdblockPlus.js.
  */
 
-var dataSeed = Math.random();    // Make sure our properties have randomized names
+const dataSeed = Math.random();    // Make sure our properties have randomized names
+const docDataProp = "abpDocData" + dataSeed;
+const nodeDataProp = "abpNodeData" + dataSeed;
 
 function DataContainer(wnd) {
-  this.locations = {__proto__: null};
+  this.entries = {__proto__: null};
   this.urls = {__proto__: null};
   this.subdocs = [];
   this.install(wnd);
@@ -38,7 +40,7 @@ function DataContainer(wnd) {
 abp.DataContainer = DataContainer;
 
 DataContainer.prototype = {
-  locations: null,
+  entries: null,
   urls: null,
   subdocs: null,
   topContainer: null,
@@ -55,7 +57,7 @@ DataContainer.prototype = {
     else
       this.topContainer = this;
 
-    wnd.document["abpData" + dataSeed] = this;
+    wnd.document[docDataProp] = this;
 
     this.installListeners(wnd);
   },
@@ -109,57 +111,35 @@ DataContainer.prototype = {
     if (!this.detached)
       DataContainer.notifyListeners(topWnd, "refresh", this);
   },
-  addNode: function(topWnd, node, contentType, docDomain, thirdParty, location, filter, objTab) {
-    // If we had this node already, remove it from the list first
-    this.removeNode(node);
-
+  addNode: function(topWnd, node, contentType, docDomain, thirdParty, location, filter, objTab)
+  {
     // for images repeated on page store node for each repeated image
-    var key = " " + contentType + " " + location;
-    if (key in this.locations) {
-      // Always override the filter just in case a known node has been blocked
-      if (filter)
-        this.locations[key].filter = filter;
-      this.locations[key].nodes.push(Components.utils.getWeakReference(node));
-    }
-    else {
-      // Add a new location and notify the listeners
-      this.locations[key] = {
-        nodes: [Components.utils.getWeakReference(node)],
-        location: location,
-        type: contentType,
-        typeDescr: policy.typeDescr[contentType],
-        docDomain: docDomain,
-        thirdParty: thirdParty,
-        localizedDescr: policy.localizedDescr[contentType],
-        filter: filter
-      };
+    let key = " " + contentType + " " + location;
+    let entry;
+    let isNew = !(key in this.entries);
+    if (isNew)
+      this.entries[key] = this.urls[location] = entry = new DataEntry(contentType, docDomain, thirdParty, location);
+    else
+      entry = this.entries[key];
 
-      if (!this.topContainer.detached)
-        DataContainer.notifyListeners(topWnd, "add", this.topContainer, this.locations[key]);
-    }
-    node["abpLocation" + dataSeed] = this.urls[location] = this.locations[key];
+    // Always override the filter just in case a known node has been blocked
+    if (filter)
+      entry.filter = filter;
 
-    if (typeof objTab != "undefined" && objTab) {
-      this.locations[key].nodes.push(Components.utils.getWeakReference(objTab));
-      objTab["abpLocation" + dataSeed] = this.locations[key];
-    }
+    entry.addNode(node);
+    if (objTab)
+      entry.addNode(objTab);
 
-    return this.locations[key];
-  },
+    if (isNew && !this.topContainer.detached)
+      DataContainer.notifyListeners(topWnd, "add", this.topContainer, this.entries[key]);
 
-  removeNode: function(node) {
-    if ("abpLocation" + dataSeed in node) {
-      var nodes = node["abpLocation" + dataSeed].nodes;
-      for (var i = 0; i < nodes.length; i++)
-        if (nodes[i].get() == node)
-          nodes.splice(i--, 1);
-    }
+    return entry;
   },
 
   getLocation: function(type, location) {
     var key = " " + type + " " + location;
-    if (key in this.locations)
-      return this.locations[key];
+    if (key in this.entries)
+      return this.entries[key];
 
     for (var i = 0; i < this.subdocs.length; i++) {
       var result = this.subdocs[i].getLocation(type, location);
@@ -172,9 +152,9 @@ DataContainer.prototype = {
   getAllLocations: function(results) {
     if (typeof results == "undefined")
       results = [];
-    for (var key in this.locations)
-      if (key.match(/^ /))
-          results.push(this.locations[key]);
+    for (var key in this.entries)
+      if (key[0] == " ")
+          results.push(this.entries[key]);
 
     for (var i = 0; i < this.subdocs.length; i++)
       this.subdocs[i].getAllLocations(results);
@@ -190,8 +170,8 @@ DataContainer.prototype = {
 
 // Loads Adblock data associated with a window object
 DataContainer.getDataForWindow = function(wnd, noInstall) {
-  if ("abpData" + dataSeed in wnd.document)
-    return wnd.document["abpData" + dataSeed];
+  if (docDataProp in wnd.document)
+    return wnd.document[docDataProp];
   else if (!noInstall)
     return new DataContainer(wnd);
   else
@@ -202,8 +182,8 @@ abp.getDataForWindow = DataContainer.getDataForWindow;
 // Loads Adblock data associated with a node object
 DataContainer.getDataForNode = function(node, noParent) {
   while (node) {
-    if ("abpLocation" + dataSeed in node)
-      return [node, node["abpLocation" + dataSeed]];
+    if (nodeDataProp in node)
+      return [node, node[nodeDataProp]];
 
     if (typeof noParent == "boolean" && noParent)
       return null;
@@ -233,4 +213,77 @@ DataContainer.removeListener = function(handler) {
 DataContainer.notifyListeners = function(wnd, type, data, location) {
   for (var i = 0; i < DataContainer.listeners.length; i++)
     DataContainer.listeners[i](wnd, type, data, location);
+};
+
+function DataEntry(contentType, docDomain, thirdParty, location)
+{
+  this.nodes = [];
+  this.type = contentType;
+  this.docDomain = docDomain;
+  this.thirdParty = thirdParty;
+  this.location = location;
+}
+DataEntry.prototype =
+{
+  /**
+   * Document elements associated with this entry (stored as weak references)
+   * @type Array of xpcIJSWeakReference
+   */
+  nodes: null,
+  /**
+   * Content type of the request (one of the nsIContentPolicy constants)
+   * @type Integer
+   */
+  type: null,
+  /**
+   * Domain name of the requesting document
+   * @type String
+   */
+  docDomain: null,
+  /**
+   * True if the request goes to a different domain than the domain of the containing document
+   * @type Boolean
+   */
+  thirdParty: false,
+  /**
+   * Address being requested
+   * @type String
+   */
+  location: null,
+  /**
+   * Filter that was applied to this request (if any)
+   * @type Filter
+   */
+  filter: null,
+  /**
+   * String representation of the content type, e.g. "subdocument"
+   * @type String
+   */
+  get typeDescr() policy.typeDescr[this.type],
+  /**
+   * User-visible localized representation of the content type, e.g. "frame"
+   * @type String
+   */
+  get localizedDescr() policy.localizedDescr[this.type],
+
+  /**
+   * Adds a new document element to be associated with this request.
+   */
+  addNode: function(/**Node*/ node)
+  {
+    // If we had this node already - remove it from its old data entry first
+    if (nodeDataProp in node)
+    {
+      let nodes = oldEntry.nodes;
+      for (let i = 0; i < nodes.length; i++)
+      {
+        let n = nodes[i].get();
+        if (!n || n == node)
+          nodes.splice(i--, 1);
+      }
+    }
+
+    this.nodes.push(Components.utils.getWeakReference(node));
+    node[nodeDataProp] = this;
+  }
 };
