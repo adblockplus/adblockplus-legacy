@@ -56,7 +56,7 @@ DataContainer.prototype = {
    */
   install: function(/**Window*/ wnd)
   {
-    this.window = Cu.getWeakReference(wnd);
+    this.window = getWeakReference(wnd);
     wnd.document[docDataProp] = this;
 
     let topWnd = wnd.top;
@@ -105,7 +105,7 @@ DataContainer.prototype = {
    */
   notifyListeners: function(type, entry)
   {
-    let wnd = this.window.get();
+    let wnd = getReferencee(this.window);
     if (this.detached || !wnd)
       return;
 
@@ -144,7 +144,7 @@ DataContainer.prototype = {
     if (key in this.entries)
       return this.entries[key];
 
-    let wnd = this.window.get();
+    let wnd = getReferencee(this.window);
     let numFrames = (wnd ? wnd.frames.length : -1);
     for (let i = 0; i < numFrames; i++)
     {
@@ -167,7 +167,7 @@ DataContainer.prototype = {
       if (key[0] == " ")
           results.push(this.entries[key]);
 
-    let wnd = this.window.get();
+    let wnd = getReferencee(this.window);
     let numFrames = (wnd ? wnd.frames.length : -1);
     for (let i = 0; i < numFrames; i++)
     {
@@ -304,7 +304,7 @@ DataEntry.prototype =
     let result = [];
     for (let i = 0; i < this._nodes.length; i++)
     {
-      let node = this._nodes[i].get();
+      let node = getReferencee(this._nodes[i]);
       if (node)
         result.push(node);
       else
@@ -320,7 +320,7 @@ DataEntry.prototype =
   {
     for (let i = 0; i < this._nodes.length; i++)
     {
-      let node = this._nodes[i].get();
+      let node = getReferencee(this._nodes[i]);
       if (node)
         yield node;
       else
@@ -352,7 +352,7 @@ DataEntry.prototype =
         oldEntry._nodes.splice(index, 1);
     }
 
-    this._nodes.push(Cu.getWeakReference(node));
+    this._nodes.push(getWeakReference(node));
     node[nodeDataProp] = this;
   },
 
@@ -367,3 +367,32 @@ DataEntry.prototype =
     return result;
   }
 };
+
+/**
+ * Stores a weak reference to a DOM node (will store a reference to original node if wrapped).
+ */
+function getWeakReference(node)
+{
+  // Store weak reference to the node itself rather than its wrapper - wrapper
+  // will go away even if there are still references to the node
+  return Cu.getWeakReference(node.wrappedJSObject || node);
+}
+
+let dummyArray = Cc["@mozilla.org/supports-array;1"].createInstance(Ci.nsISupportsArray);
+dummyArray.AppendElement(null);
+
+/**
+ * Retrieves a DOM node from a weak reference, restores XPCNativeWrapper if necessary.
+ */
+function getReferencee(weakRef)
+{
+  let node = weakRef.get();
+  if (!node)
+    return null;
+
+  // HACK: Pass the node through XPCOM to get the wrapper back
+  dummyArray.SetElementAt(0, node);
+  let result = dummyArray.GetElementAt(0);
+  dummyArray.SetElementAt(0, null);
+  return result;
+}
