@@ -257,7 +257,7 @@ DataContainer.removeListener = function(/**Function*/ listener)
 
 function DataEntry(contentType, docDomain, thirdParty, location)
 {
-  this.nodes = [];
+  this._nodes = [];
   this.type = contentType;
   this.docDomain = docDomain;
   this.thirdParty = thirdParty;
@@ -269,7 +269,7 @@ DataEntry.prototype =
    * Document elements associated with this entry (stored as weak references)
    * @type Array of xpcIJSWeakReference
    */
-  nodes: null,
+  _nodes: null,
   /**
    * Content type of the request (one of the nsIContentPolicy constants)
    * @type Integer
@@ -296,6 +296,38 @@ DataEntry.prototype =
    */
   filter: null,
   /**
+   * Document elements associated with this entry
+   * @type Array of Element
+   */
+  get nodes()
+  {
+    let result = [];
+    for (let i = 0; i < this._nodes.length; i++)
+    {
+      let node = this._nodes[i].get();
+      if (node)
+        result.push(node);
+      else
+        this._nodes.splice(i--, 1);
+    }
+    return result;
+  },
+  /**
+   * Document elements associated with this entry
+   * @type Iterator of Element
+   */
+  get nodesIterator()
+  {
+    for (let i = 0; i < this._nodes.length; i++)
+    {
+      let node = this._nodes[i].get();
+      if (node)
+        yield node;
+      else
+        this._nodes.splice(i--, 1);
+    }
+  },
+  /**
    * String representation of the content type, e.g. "subdocument"
    * @type String
    */
@@ -314,16 +346,24 @@ DataEntry.prototype =
     // If we had this node already - remove it from its old data entry first
     if (nodeDataProp in node)
     {
-      let nodes = node[nodeDataProp].nodes;
-      for (let i = 0; i < nodes.length; i++)
-      {
-        let n = nodes[i].get();
-        if (!n || n == node)
-          nodes.splice(i--, 1);
-      }
+      let oldEntry = node[nodeDataProp];
+      let index = oldEntry.nodes.indexOf(node);
+      if (index >= 0)
+        oldEntry._nodes.splice(index, 1);
     }
 
-    this.nodes.push(Cu.getWeakReference(node));
+    this._nodes.push(Cu.getWeakReference(node));
     node[nodeDataProp] = this;
+  },
+
+  /**
+   * Resets the list of document elements associated with this entry.
+   * @return {Array of Node} old list of elements
+   */
+  clearNodes: function()
+  {
+    let result = this.nodes;
+    this._nodes = [];
+    return result;
   }
 };
