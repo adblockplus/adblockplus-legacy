@@ -191,7 +191,7 @@ var policy =
     }
 
     // Store node data
-    var nodeData = data.addNode(topWnd, node, contentType, docDomain, thirdParty, locationText, match, objTab);
+    var nodeData = data.addNode(node, contentType, docDomain, thirdParty, locationText, match, objTab);
     if (match)
       filterStorage.increaseHitCount(match);
     if (objTab)
