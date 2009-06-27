@@ -185,7 +185,13 @@ DataContainer.prototype = {
   }
 };
 
-// Loads Adblock data associated with a window object
+/**
+ * Retrieves the data list associated with a window.
+ * @param {Window} window
+ * @param {Boolean} noInstall  if missing or false, a new empty list will be created and returned if no data is associated with the window yet.
+ * @result {DataContainer}
+ * @static
+ */
 DataContainer.getDataForWindow = function(wnd, noInstall)
 {
   if (wnd.document && docDataProp in wnd.document)
@@ -197,9 +203,17 @@ DataContainer.getDataForWindow = function(wnd, noInstall)
 };
 abp.getDataForWindow = DataContainer.getDataForWindow;
 
-// Loads Adblock data associated with a node object
-DataContainer.getDataForNode = function(node, noParent) {
-  while (node) {
+/**
+ * Retrieves the data entry associated with the document element.
+ * @param {Node} node
+ * @param {Boolean} noParent  if missing or false, the search will extend to the parent nodes until one is found that has data associated with it
+ * @result {DataEntry}
+ * @static
+ */
+DataContainer.getDataForNode = function(node, noParent)
+{
+  while (node)
+  {
     if (nodeDataProp in node)
       return [node, node[nodeDataProp]];
 
