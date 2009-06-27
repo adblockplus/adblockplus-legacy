@@ -258,6 +258,7 @@ DataContainer.removeListener = function(/**Function*/ listener)
 function DataEntry(contentType, docDomain, thirdParty, location)
 {
   this._nodes = [];
+  this._lastCompact = Date.now();
   this.type = contentType;
   this.docDomain = docDomain;
   this.thirdParty = thirdParty;
@@ -270,6 +271,11 @@ DataEntry.prototype =
    * @type Array of xpcIJSWeakReference
    */
   _nodes: null,
+  /**
+   * Time when the list of nodes has been compacted last time.
+   * @type Integer
+   */
+  _lastCompact: 0,
   /**
    * Content type of the request (one of the nsIContentPolicy constants)
    * @type Integer
@@ -301,6 +307,8 @@ DataEntry.prototype =
    */
   get nodes()
   {
+    this._lastCompact = Date.now();
+
     let result = [];
     for (let i = 0; i < this._nodes.length; i++)
     {
@@ -318,6 +326,8 @@ DataEntry.prototype =
    */
   get nodesIterator()
   {
+    this._lastCompact = Date.now();
+
     for (let i = 0; i < this._nodes.length; i++)
     {
       let node = getReferencee(this._nodes[i]);
@@ -351,6 +361,9 @@ DataEntry.prototype =
       if (index >= 0)
         oldEntry._nodes.splice(index, 1);
     }
+
+    if (this._nodes.length >= 20 && Date.now() - this._lastCompact >= 60000)   // Compact the list of nodes every minute
+      this.nodes;
 
     this._nodes.push(getWeakReference(node));
     node[nodeDataProp] = this;
