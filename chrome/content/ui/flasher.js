@@ -36,8 +36,11 @@ var flasher = {
     if (!nodes)
       return;
 
-    nodes = nodes.slice();
-    if (nodes.length && prefs.flash_scrolltoitem && ("document" in nodes[0] || nodes[0].ownerDocument)) {
+    nodes = nodes.map(function(node) node.get()).filter(function(node) node);
+    if (!nodes.length)
+      return;
+
+    if (prefs.flash_scrolltoitem && ("document" in nodes[0] || nodes[0].ownerDocument)) {
       // Ensure that at least one node is visible when flashing
       var wnd = ("document" in nodes[0] ? nodes[0] : nodes[0].ownerDocument.defaultView);
       try {
