@@ -408,7 +408,7 @@ let fakeFactoryWrapped;
 function getReferencee(weakRef)
 {
   let node = weakRef.get();
-  if (!node)
+  if (node === null)
     return null;
 
   // HACK: Pass the node through XPCOM to get the wrapper back
