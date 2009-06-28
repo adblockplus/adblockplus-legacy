@@ -249,7 +249,7 @@
 
     function start()
     {
-      abp.DataContainer.addListener(onPolicyHit);
+      abp.RequestList.addListener(onPolicyHit);
 
       window.addEventListener("unload", stop, false);
       server.start(1234);
@@ -277,7 +277,7 @@
 
     function stop()
     {
-      abp.DataContainer.removeListener(onPolicyHit);
+      abp.RequestList.removeListener(onPolicyHit);
 
       server.stop();
 

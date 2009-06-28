@@ -332,7 +332,7 @@ const abp =
     loader.loadSubScript('chrome://adblockplus/content/elemhide.js');
     loader.loadSubScript('chrome://adblockplus/content/filterListener.js');
     loader.loadSubScript('chrome://adblockplus/content/policy.js');
-    loader.loadSubScript('chrome://adblockplus/content/data.js');
+    loader.loadSubScript('chrome://adblockplus/content/requests.js');
     loader.loadSubScript('chrome://adblockplus/content/prefs.js');
     loader.loadSubScript('chrome://adblockplus/content/synchronizer.js');
 

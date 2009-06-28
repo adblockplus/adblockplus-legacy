@@ -23,7 +23,7 @@
  * ***** END LICENSE BLOCK ***** */
 
 var effectiveTLD = Cc["@mozilla.org/network/effective-tld-service;1"].getService(Ci.nsIEffectiveTLDService);
-var DataContainer = abp.DataContainer;
+var RequestList = abp.RequestList;
 
 // Main browser window
 var mainWin = parent;
@@ -62,7 +62,7 @@ function init() {
   window.__defineGetter__("content", function() {return abpHooks.getBrowser().contentWindow;});
 
   // Install item listener
-  DataContainer.addListener(handleItemChange);
+  RequestList.addListener(handleItemChange);
 
   // Initialize matchers for disabled filters
   reloadDisabledFilters();
@@ -84,7 +84,7 @@ function init() {
   list.addEventListener("select", onSelectionChange, false);
 
   // Retrieve data for the window
-  wndData = DataContainer.getDataForWindow(window.content);
+  wndData = RequestList.getDataForWindow(window.content);
   treeView.setData(wndData.getAllLocations());
   if (wndData.lastSelection) {
     noFlash = true;
@@ -107,7 +107,7 @@ function cleanUp() {
     return;
 
   flasher.stop();
-  DataContainer.removeListener(handleItemChange);
+  RequestList.removeListener(handleItemChange);
   filterStorage.removeFilterObserver(reloadDisabledFilters);
   filterStorage.removeSubscriptionObserver(reloadDisabledFilters);
 
@@ -181,7 +181,7 @@ function handleItemChange(wnd, type, data, item) {
 }
 
 function handleTabChange() {
-  wndData = DataContainer.getDataForWindow(window.content);
+  wndData = RequestList.getDataForWindow(window.content);
   treeView.setData(wndData.getAllLocations());
   if (wndData.lastSelection) {
     noFlash = true;
