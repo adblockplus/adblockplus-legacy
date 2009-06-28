@@ -25,6 +25,7 @@
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 
 var abpHideImageManager;
+var DataContainer = abp.DataContainer;
 
 /**
  * List of event handers to be registered. For each event handler the element ID,
@@ -485,7 +486,7 @@ function abpFillTooltip(event) {
   E("abp-tooltip-blocked-label").hidden = (state != "active");
   E("abp-tooltip-blocked").hidden = (state != "active");
   if (state == "active") {
-    var data = abp.getDataForWindow(abpHooks.getBrowser().contentWindow);
+    var data = DataContainer.getDataForWindow(abpHooks.getBrowser().contentWindow);
     var locations = data.getAllLocations();
 
     var blocked = 0;
@@ -770,7 +771,7 @@ function abpCheckContext() {
   frameData = null;
   if (target) {
     // Lookup the node in our stored data
-    var data = abp.getDataForNode(target);
+    var data = DataContainer.getDataForNode(target);
     var targetNode = null;
     if (data) {
       targetNode = data[0];
@@ -781,10 +782,10 @@ function abpCheckContext() {
       nodeType = data.typeDescr;
 
     var wnd = (target ? target.ownerDocument.defaultView : null);
-    var wndData = (wnd ? abp.getDataForWindow(wnd) : null);
+    var wndData = (wnd ? DataContainer.getDataForWindow(wnd) : null);
 
     if (wnd.frameElement)
-      frameData = abp.getDataForNode(wnd.frameElement, true);
+      frameData = DataContainer.getDataForNode(wnd.frameElement, true);
     if (frameData)
       frameData = frameData[1];
     if (frameData && frameData.filter)
