@@ -146,7 +146,7 @@ var policy =
         return true;
     }
 
-    var data = DataContainer.getDataForWindow(wnd);
+    var data = RequestList.getDataForWindow(wnd);
 
     var objTab = null;
     let thirdParty = (contentType == this.type.ELEMHIDE ? false : this.isThirdParty(location, docDomain));
@@ -404,7 +404,7 @@ var policy =
       for each (let context in contexts)
       {
         // Did we record the original request in its own window?
-        let data = DataContainer.getDataForWindow(context, true);
+        let data = RequestList.getDataForWindow(context, true);
         if (data)
           info = data.getURLInfo(oldLocation);
 
@@ -433,7 +433,7 @@ var policy =
     if (wnd.closed)
       return;
 
-    var wndData = DataContainer.getDataForWindow(wnd);
+    var wndData = RequestList.getDataForWindow(wnd);
     var data = wndData.getAllLocations();
     for (var i = start; i < data.length; i++) {
       if (i - start >= 20) {

@@ -31,17 +31,17 @@ const dataSeed = Math.random();    // Make sure our properties have randomized n
 const docDataProp = "abpDocData" + dataSeed;
 const nodeDataProp = "abpNodeData" + dataSeed;
 
-function DataContainer(wnd) {
+function RequestList(wnd) {
   this.entries = {__proto__: null};
   this.urls = {__proto__: null};
   this.install(wnd);
 }
-abp.DataContainer = DataContainer;
+abp.RequestList = RequestList;
 
-DataContainer.prototype = {
+RequestList.prototype = {
   entries: null,
   urls: null,
-  topContainer: null,
+  topList: null,
   lastSelection: null,
   detached: false,
 
@@ -62,11 +62,11 @@ DataContainer.prototype = {
     let topWnd = wnd.top;
     if (topWnd != wnd)
     {
-      this.topContainer = DataContainer.getDataForWindow(topWnd);
-      this.topContainer.notifyListeners("refresh");
+      this.topList = RequestList.getDataForWindow(topWnd);
+      this.topList.notifyListeners("refresh");
     }
     else
-      this.topContainer = this;
+      this.topList = this;
 
     let me = this;
     wnd.addEventListener("pagehide", function(ev)
@@ -74,14 +74,14 @@ DataContainer.prototype = {
       if (!ev.isTrusted || ev.eventPhase != ev.AT_TARGET)
         return;
 
-      if (me == me.topContainer)
+      if (me == me.topList)
         me.notifyListeners("clear");
 
       // We shouldn't send further notifications
       me.detached = true;
 
-      if (me != me.topContainer)
-        me.topContainer.notifyListeners("refresh");
+      if (me != me.topList)
+        me.topList.notifyListeners("refresh");
     }, false);
     wnd.addEventListener("pageshow", function(ev)
     {
@@ -91,8 +91,8 @@ DataContainer.prototype = {
       // Allow notifications again
       me.detached = false;
 
-      if (me != me.topContainer)
-        me.topContainer.notifyListeners("refresh");
+      if (me != me.topList)
+        me.topList.notifyListeners("refresh");
       else
         me.notifyListeners("select");
     }, false);
@@ -101,7 +101,7 @@ DataContainer.prototype = {
   /**
    * Notifies all listeners about changes in this list or one of its sublists.
    * @param {String} type   type of notification, one of "add", "refresh", "select", "clear"
-   * @param {DataEntry} entry   data entry being updated (only present for type "add")
+   * @param {RequestEntry} entry   data entry being updated (only present for type "add")
    */
   notifyListeners: function(type, entry)
   {
@@ -109,7 +109,7 @@ DataContainer.prototype = {
     if (this.detached || !wnd)
       return;
 
-    for each (let listener in DataContainer._listeners)
+    for each (let listener in RequestList._listeners)
       listener(wnd, type, this, entry);
   },
 
@@ -120,7 +120,7 @@ DataContainer.prototype = {
     let entry;
     let isNew = !(key in this.entries);
     if (isNew)
-      this.entries[key] = this.urls[location] = entry = new DataEntry(contentType, docDomain, thirdParty, location);
+      this.entries[key] = this.urls[location] = entry = new RequestEntry(contentType, docDomain, thirdParty, location);
     else
       entry = this.entries[key];
 
@@ -133,7 +133,7 @@ DataContainer.prototype = {
       entry.addNode(objTab);
 
     if (isNew)
-      this.topContainer.notifyListeners("add", this.entries[key]);
+      this.topList.notifyListeners("add", this.entries[key]);
 
     return entry;
   },
@@ -148,7 +148,7 @@ DataContainer.prototype = {
     let numFrames = (wnd ? wnd.frames.length : -1);
     for (let i = 0; i < numFrames; i++)
     {
-      let frameData = DataContainer.getDataForWindow(wnd.frames[i], true);
+      let frameData = RequestList.getDataForWindow(wnd.frames[i], true);
       if (frameData && !frameData.detached)
       {
         let result = frameData.getLocation(type, location);
@@ -171,7 +171,7 @@ DataContainer.prototype = {
     let numFrames = (wnd ? wnd.frames.length : -1);
     for (let i = 0; i < numFrames; i++)
     {
-      let frameData = DataContainer.getDataForWindow(wnd.frames[i], true);
+      let frameData = RequestList.getDataForWindow(wnd.frames[i], true);
       if (frameData && !frameData.detached)
         frameData.getAllLocations(results);
     }
@@ -189,15 +189,15 @@ DataContainer.prototype = {
  * Retrieves the data list associated with a window.
  * @param {Window} window
  * @param {Boolean} noInstall  if missing or false, a new empty list will be created and returned if no data is associated with the window yet.
- * @result {DataContainer}
+ * @result {RequestList}
  * @static
  */
-DataContainer.getDataForWindow = function(wnd, noInstall)
+RequestList.getDataForWindow = function(wnd, noInstall)
 {
   if (wnd.document && docDataProp in wnd.document)
     return wnd.document[docDataProp];
   else if (!noInstall)
-    return new DataContainer(wnd);
+    return new RequestList(wnd);
   else
     return null;
 };
@@ -206,10 +206,10 @@ DataContainer.getDataForWindow = function(wnd, noInstall)
  * Retrieves the data entry associated with the document element.
  * @param {Node} node
  * @param {Boolean} noParent  if missing or false, the search will extend to the parent nodes until one is found that has data associated with it
- * @result {DataEntry}
+ * @result {RequestEntry}
  * @static
  */
-DataContainer.getDataForNode = function(node, noParent)
+RequestList.getDataForNode = function(node, noParent)
 {
   while (node)
   {
@@ -231,29 +231,29 @@ DataContainer.getDataForNode = function(node, noParent)
  * @type Array of Function
  * @static
  */
-DataContainer._listeners = [];
+RequestList._listeners = [];
 
 /**
  * Adds a new listener to be notified whenever new requests are added to the list.
  * @static
  */
-DataContainer.addListener = function(/**Function*/ listener)
+RequestList.addListener = function(/**Function*/ listener)
 {
-  DataContainer._listeners.push(listener);
+  RequestList._listeners.push(listener);
 };
   
 /**
  * Removes a listener.
  * @static
  */
-DataContainer.removeListener = function(/**Function*/ listener)
+RequestList.removeListener = function(/**Function*/ listener)
 {
-  for (var i = 0; i < DataContainer._listeners.length; i++)
-    if (DataContainer._listeners[i] == listener)
-      DataContainer._listeners.splice(i--, 1);
+  for (var i = 0; i < RequestList._listeners.length; i++)
+    if (RequestList._listeners[i] == listener)
+      RequestList._listeners.splice(i--, 1);
 };
 
-function DataEntry(contentType, docDomain, thirdParty, location)
+function RequestEntry(contentType, docDomain, thirdParty, location)
 {
   this._nodes = [];
   this._lastCompact = Date.now();
@@ -262,7 +262,7 @@ function DataEntry(contentType, docDomain, thirdParty, location)
   this.thirdParty = thirdParty;
   this.location = location;
 }
-DataEntry.prototype =
+RequestEntry.prototype =
 {
   /**
    * Document elements associated with this entry (stored as weak references)
