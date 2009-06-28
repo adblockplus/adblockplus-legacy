@@ -121,10 +121,8 @@
       let [dummy, scriptNodeData] = abp.RequestList.getDataForNode(getWrapped($("frame").contentDocument.getElementById("script")), true);
       ok(scriptNodeData, "Script node inside the frame has data associated with it");
 
-      Components.utils.forceGC();
-
       is(wndData.getAllLocations().length, 3, "Number of entries in the window data");
-      is(wndData.getAllLocations()[0].nodes.length, 0, "First entry has no nodes after garbage collection");
+      is(wndData.getAllLocations()[0].nodes.length, 0, "First entry has no nodes");
       is(wndData.getAllLocations()[1], frameNodeData, "Second entry in the window data should be the frame");
       is(wndData.getAllLocations()[2], scriptNodeData, "Third entry in the window data should be the script");
 
