@@ -24,13 +24,15 @@
 
 @namespace url("http://www.w3.org/1999/xhtml");
 
-:not(:hover) + a.%%CLASSNAME%%
+a.%%CLASSNAME%%
 {
   display: none !important;
   -moz-binding: url(chrome://adblockplus/content/objecttab.xml#dummy) !important;
 }
 
-a.%%CLASSNAME%%,
+object:hover + a.%%CLASSNAME%%,
+embed:hover + a.%%CLASSNAME%%,
+applet:hover + a.%%CLASSNAME%%,
 a.%%CLASSNAME%%:hover
 {
   display: block !important;
@@ -70,7 +72,9 @@ a.%%CLASSNAME%%:hover
   -moz-border-radius-bottomright: 10px !important;
 }
 
-a.%%CLASSNAME%%.%%ONTOP%%,
+object:hover + a.%%CLASSNAME%%.%%ONTOP%%,
+embed:hover + a.%%CLASSNAME%%.%%ONTOP%%,
+applet:hover + a.%%CLASSNAME%%.%%ONTOP%%,
 a.%%CLASSNAME%%.%%ONTOP%%:hover
 {
   border-width: 2px 2px 0px 2px !important;
