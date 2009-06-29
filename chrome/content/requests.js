@@ -387,8 +387,6 @@ RequestEntry.prototype =
  */
 function getWeakReference(node)
 {
-  // Store weak reference to the node itself rather than its wrapper - wrapper
-  // will go away even if there are still references to the node
   return Cu.getWeakReference(node.QueryInterface(Ci.nsISupportsWeakReference));
 }
 
