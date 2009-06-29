@@ -69,7 +69,7 @@
       let [dummy, frameNodeData] = abp.RequestList.getDataForNode(getWrapped($("frame")), true);
       ok(frameNodeData, "Frame node has data associated with it");
 
-      let [dummy, imageNodeData] = abp.RequestList.getDataForNode(getWrapped($("frame").contentDocument.getElementById("image")), true);
+      let [dummy2, imageNodeData] = abp.RequestList.getDataForNode(getWrapped($("frame").contentDocument.getElementById("image")), true);
       ok(imageNodeData, "Image node inside the frame has data associated with it");
 
       is(wndData.getAllLocations().length, 2, "Number of entries in the window data");
@@ -118,7 +118,7 @@
       let [dummy, frameNodeData] = abp.RequestList.getDataForNode(getWrapped($("frame")), true);
       ok(frameNodeData, "Frame node has data associated with it");
 
-      let [dummy, scriptNodeData] = abp.RequestList.getDataForNode(getWrapped($("frame").contentDocument.getElementById("script")), true);
+      let [dummy2, scriptNodeData] = abp.RequestList.getDataForNode(getWrapped($("frame").contentDocument.getElementById("script")), true);
       ok(scriptNodeData, "Script node inside the frame has data associated with it");
 
       is(wndData.getAllLocations().length, 3, "Number of entries in the window data");
