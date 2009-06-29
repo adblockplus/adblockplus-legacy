@@ -411,7 +411,6 @@ let fakeFactoryWrapped;
 function getReferencee(weakRef)
 {
   let node = weakRef.get();
-dump(node + "\n");
   if (node === null)
     return null;
 
