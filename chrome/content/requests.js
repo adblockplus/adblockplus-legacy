@@ -37,6 +37,7 @@ function RequestList(wnd) {
   this.install(wnd);
 }
 abp.RequestList = RequestList;
+abp.DataContainer = RequestList;    // For sake of ABP Watcher
 
 RequestList.prototype = {
   entries: null,
