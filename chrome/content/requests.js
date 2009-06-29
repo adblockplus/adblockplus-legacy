@@ -414,7 +414,7 @@ function getReferencee(weakRef)
   if (node === null)
     return null;
 
-  // HACK: Pass the node through XPCOM to get the wrapper back
+  // HACK: Pass the node through XPCOM to get the wrapper back (bug 500931)
   fakeFactory.result = node;
   let result = fakeFactoryWrapped.createInstance(null, Ci.nsISupports);
   fakeFactory.result = node;
