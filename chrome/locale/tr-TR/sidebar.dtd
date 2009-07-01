@@ -10,7 +10,6 @@
 <!ENTITY size.label "Boyut">
 <!ENTITY noitems.label "Engellenebilecek öğe yok">
 <!ENTITY whitelisted.label "Ak listeye dahil bir sayfa">
-<!ENTITY notloaded.label "Adblock Plus düzgün kurulmamış">
 <!ENTITY tooltip.address.label "Konum:">
 <!ENTITY tooltip.type.label "Tür:">
 <!ENTITY tooltip.type.blocked "(engellendi)">
@@ -24,7 +23,6 @@
 <!ENTITY context.disablefilter.label "Süzgeci devre dışı bırak --">
 <!ENTITY context.enablefilter.label "Süzgeci devreye sok --">
 <!ENTITY context.disablefilteronsite.label "Bu süzgeci burada kullanma --">
-<!ENTITY context.enablefilteronsite.label "Bu süzgeci burada kullan --">
 <!ENTITY context.open.label "Yeni sekmede aç">
 <!ENTITY context.flash.label "Flash öğesinin sınırları">
 <!ENTITY context.copy.label "Öğenin konumunu kopyala">

@@ -1,5 +1,3 @@
-<!ENTITY notloaded.label "ไม่โหลด">
-<!ENTITY notloaded.tooltip "ส่วนประกอบ Adblock Plus ไม่ถูกโหลด อาจจะไม่ถูกติดตั้งอย่างถูกต้อง">
 <!ENTITY status.tooltip "สถานะ:">
 <!ENTITY blocked.tooltip "สิ่งที่บล็อกในหน้านี้:">
 <!ENTITY filters.tooltip "ตัวกรองที่ใช้งานมากที่สุด:">

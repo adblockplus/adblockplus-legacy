@@ -3,7 +3,6 @@
 <!ENTITY type.label "Mota">
 <!ENTITY address.label "Helbidea">
 <!ENTITY filter.label "Iragazki">
-<!ENTITY notloaded.label "Adblock Plus ez da ondo instalatu">
 <!ENTITY tooltip.address.label "Helbidea:">
 <!ENTITY tooltip.type.label "Mota:">
 <!ENTITY tooltip.type.blocked "(blokeatuta)">

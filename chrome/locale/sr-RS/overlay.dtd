@@ -1,5 +1,3 @@
-<!ENTITY notloaded.label "Није учитано">
-<!ENTITY notloaded.tooltip "Компонента Adblock Plus-а не може бити учитана. Можда постоји грешка у инсталацији.">
 <!ENTITY status.tooltip "Статус:">
 <!ENTITY blocked.tooltip "Блокиране ставке на овој страни:">
 <!ENTITY filters.tooltip "Најактивнији филтер:">

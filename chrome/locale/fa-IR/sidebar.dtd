@@ -9,7 +9,6 @@
 <!ENTITY state.label "وصعيت">
 <!ENTITY noitems.label "موارد قابل ردکردن پيدا نشد">
 <!ENTITY whitelisted.label "صفحه در فهرست سفيد">
-<!ENTITY notloaded.label "Adblock Plus صحيح نصب نشده">
 <!ENTITY tooltip.address.label "نشاني:">
 <!ENTITY tooltip.type.label "نوع:">
 <!ENTITY tooltip.type.blocked "(ردشده)">

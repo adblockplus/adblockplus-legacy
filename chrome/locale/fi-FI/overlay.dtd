@@ -1,5 +1,3 @@
-<!ENTITY notloaded.label "Ei ladattu">
-<!ENTITY notloaded.tooltip "Adblock Plussan komponenttia ei voitu ladata, ehkä se ei asentunut oikein">
 <!ENTITY status.tooltip "Tila:">
 <!ENTITY blocked.tooltip "Tämän sivun estetyt elementit:">
 <!ENTITY filters.tooltip "Aktiivisimmat suodattimet:">

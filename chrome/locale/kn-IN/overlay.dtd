@@ -1,5 +1,3 @@
-<!ENTITY notloaded.label "ಲೋಡ್ ಆಗಲಿಲ್ಲ">
-<!ENTITY notloaded.tooltip "ಆಡ್‌ಬ್ಲಾಕ್ ಪ್ಲಸ್‌ನ ಭಾಗವೊಂದು ಸರಿಯಾಗಿ ಲೋಡ್ ಆಗಲಿಲ್ಲ, ಅದು ಸರಿಯಾಗಿ ಇನ್ಸ್ಟಾಲ್ ಆಗಲಿಲ್ಲವೆನ್ನಿಸುತ್ತದೆ.">
 <!ENTITY status.tooltip "ಸ್ಟೇಟಸ್:">
 <!ENTITY blocked.tooltip "ಈ ಪುಟದಲ್ಲಿ ತಡೆಹಿಡಿದಿರುವ ವಸ್ತುಗಳು">
 <!ENTITY filters.tooltip "ಬಹಳ ಸಕ್ರಿಯವಾಗಿರುವ ಫಿಲ್ಟರ್‌ಗಳು:">

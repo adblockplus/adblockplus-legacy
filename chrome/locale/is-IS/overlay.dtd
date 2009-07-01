@@ -1,5 +1,3 @@
-<!ENTITY notloaded.label "Ekki hlaðið inn">
-<!ENTITY notloaded.tooltip "Ekki var hægt að hlaða inn Adblock Plus, kannski er Adblock Plus ekki rétt uppsett.">
 <!ENTITY status.tooltip "Staða:">
 <!ENTITY blocked.tooltip "Lokaðir hlutir á þessari síðu:">
 <!ENTITY filters.tooltip "Mest notaðar síur:">

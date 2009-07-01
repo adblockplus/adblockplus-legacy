@@ -1,5 +1,3 @@
-<!ENTITY notloaded.label "Ej laddad">
-<!ENTITY notloaded.tooltip "En Adblock Plus-komponent kunde inte laddades. Kontrollera installationen.">
 <!ENTITY status.tooltip "Status:">
 <!ENTITY blocked.tooltip "Blockerade objekt på denna sida:">
 <!ENTITY filters.tooltip "Mest aktiva filter:">

@@ -10,7 +10,6 @@
 <!ENTITY size.label "Rozmiar">
 <!ENTITY noitems.label "Elementy nieblokowalne">
 <!ENTITY whitelisted.label "Nieblokowana strona">
-<!ENTITY notloaded.label "Adblock Plus nie został zainstalowany prawidłowo">
 <!ENTITY tooltip.address.label "Adres:">
 <!ENTITY tooltip.type.label "Typ:">
 <!ENTITY tooltip.type.blocked "(zablokowany)">
@@ -24,7 +23,6 @@
 <!ENTITY context.disablefilter.label "Wyłącz filtr...">
 <!ENTITY context.enablefilter.label "Włącz filtr...">
 <!ENTITY context.disablefilteronsite.label "Wyłącz ten filtr na...">
-<!ENTITY context.enablefilteronsite.label "Włącz ponownie ten filtr na...">
 <!ENTITY context.open.label "Otwórz w nowej karcie">
 <!ENTITY context.flash.label "Pokaż element w mrugającej ramce">
 <!ENTITY context.copy.label "Kopiuj adres elementu">

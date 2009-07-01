@@ -1,5 +1,3 @@
-<!ENTITY notloaded.label "Not loaded">
-<!ENTITY notloaded.tooltip "Adblock Plus component couldn&apos;t be loaded; maybe it didn&apos;t install properly">
 <!ENTITY status.tooltip "Status:">
 <!ENTITY blocked.tooltip "Blocked items on this page:">
 <!ENTITY filters.tooltip "Most active filters:">

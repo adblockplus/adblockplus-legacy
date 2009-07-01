@@ -1,5 +1,3 @@
-<!ENTITY notloaded.label "Дуудагдсангүй">
-<!ENTITY notloaded.tooltip "Adblock Plus нэгдэл дуудагдсангүй, магадгүй зөв суугдаагүй байх.">
 <!ENTITY status.tooltip "Төлөв:">
 <!ENTITY blocked.tooltip "Уг хуудас дахь хашигдсан зүйлс:">
 <!ENTITY filters.tooltip "Хамгийн идэвхтэй шүүлтүүрүүд:">

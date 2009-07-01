@@ -10,7 +10,6 @@
 <!ENTITY size.label "Розмір">
 <!ENTITY noitems.label "Блокувати нічого">
 <!ENTITY whitelisted.label "Дозволений на цій сторінці">
-<!ENTITY notloaded.label "Adblock Plus не завантажився нормально">
 <!ENTITY tooltip.address.label "Адреса:">
 <!ENTITY tooltip.type.label "Тип:">
 <!ENTITY tooltip.type.blocked "(заблокований)">

@@ -10,7 +10,6 @@
 <!ENTITY size.label "Величина">
 <!ENTITY noitems.label "Нема ставки за блокирање">
 <!ENTITY whitelisted.label "Бела листа">
-<!ENTITY notloaded.label "Adblock Plus није инсталиран правилно">
 <!ENTITY tooltip.address.label "Адреса:">
 <!ENTITY tooltip.type.label "Врста:">
 <!ENTITY tooltip.type.blocked "(блокирано)">
@@ -24,7 +23,6 @@
 <!ENTITY context.disablefilter.label "Искључи филтер --">
 <!ENTITY context.enablefilter.label "Поново укључи филтер --">
 <!ENTITY context.disablefilteronsite.label "Искључи овај филтер на --">
-<!ENTITY context.enablefilteronsite.label "Укључи поново на --">
 <!ENTITY context.open.label "Отвори на новом листу">
 <!ENTITY context.flash.label "Осветли границе ставке">
 <!ENTITY context.copy.label "Умножи адресу ставке">

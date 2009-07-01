@@ -9,7 +9,6 @@
 <!ENTITY state.label "Stát">
 <!ENTITY noitems.label "Níl nithe ar féidir bac a chur orthu ann">
 <!ENTITY whitelisted.label "Leathanach ar an réim slán">
-<!ENTITY notloaded.label "Níl Adblock Plus suiteálta i gceart">
 <!ENTITY tooltip.address.label "Seoladh:">
 <!ENTITY tooltip.type.label "Cineál:">
 <!ENTITY tooltip.type.blocked "(bactha)">

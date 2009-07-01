@@ -10,7 +10,6 @@
 <!ENTITY size.label "Tamanho">
 <!ENTITY noitems.label "Nenhum item bloqueável">
 <!ENTITY whitelisted.label "Página na lista branca">
-<!ENTITY notloaded.label "O Adblock Plus não foi instalado corretamente">
 <!ENTITY tooltip.address.label "Endereço:">
 <!ENTITY tooltip.type.label "Tipo:">
 <!ENTITY tooltip.type.blocked "(bloqueado)">
@@ -24,7 +23,6 @@
 <!ENTITY context.disablefilter.label "Desativar filtro --">
 <!ENTITY context.enablefilter.label "Reativar filtro --">
 <!ENTITY context.disablefilteronsite.label "Desativar esse filtro em --">
-<!ENTITY context.enablefilteronsite.label "Reativar esse filtro em --">
 <!ENTITY context.open.label "Abrir em nova aba">
 <!ENTITY context.flash.label "Realçar bordas do item">
 <!ENTITY context.copy.label "Copiar endereço do item">

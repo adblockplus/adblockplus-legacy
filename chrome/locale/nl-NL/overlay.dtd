@@ -1,5 +1,3 @@
-<!ENTITY notloaded.label "Niet geladen">
-<!ENTITY notloaded.tooltip "Adblock Plus onderdelen konden niet worden geladen, misschien was het installeren niet goed gegaan.">
 <!ENTITY status.tooltip "Status:">
 <!ENTITY blocked.tooltip "Geblokkeerde onderdelen:">
 <!ENTITY filters.tooltip "Meest actieve filters:">

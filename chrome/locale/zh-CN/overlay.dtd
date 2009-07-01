@@ -1,5 +1,3 @@
-<!ENTITY notloaded.label "未加载">
-<!ENTITY notloaded.tooltip "Adblock Plus组件不能加载，可能是因为未完全安装">
 <!ENTITY status.tooltip "状态：">
 <!ENTITY blocked.tooltip "过滤该页上的项目">
 <!ENTITY filters.tooltip "最活跃过滤规则：">

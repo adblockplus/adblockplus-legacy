@@ -10,7 +10,6 @@
 <!ENTITY size.label "الحجم">
 <!ENTITY noitems.label "لا عناصر محجوبة">
 <!ENTITY whitelisted.label "صفحة موثوقة">
-<!ENTITY notloaded.label "لتم يتم إعداد آدبلوك بلاس جيداً">
 <!ENTITY tooltip.address.label "العنوان">
 <!ENTITY tooltip.type.label "النوع">
 <!ENTITY tooltip.type.blocked "(محجوب)">
@@ -24,7 +23,6 @@
 <!ENTITY context.disablefilter.label "تعطيل الفلتر --">
 <!ENTITY context.enablefilter.label "إعادة تفعيل الفلتر --">
 <!ENTITY context.disablefilteronsite.label "تعطيل هذا الفلتر على --">
-<!ENTITY context.enablefilteronsite.label "إعادة تفعيل هذا الفلتر على --">
 <!ENTITY context.open.label "فتح في تبويب جديد">
 <!ENTITY context.flash.label "إضاءة حواف العنصر">
 <!ENTITY context.copy.label "نسخ عنوان العنصر">

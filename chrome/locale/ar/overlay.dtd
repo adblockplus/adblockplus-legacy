@@ -1,5 +1,3 @@
-<!ENTITY notloaded.label "لم يتم التحميل">
-<!ENTITY notloaded.tooltip "لم يتم تحميل هذه الإضافة، ربما لم يتم إعدادها جيداً">
 <!ENTITY status.tooltip "الحالة">
 <!ENTITY blocked.tooltip "العناصر المحجوبة في هذه الصفحة">
 <!ENTITY filters.tooltip "الفلاتر الأكثر فعالية">

@@ -10,7 +10,6 @@
 <!ENTITY size.label "Storlek">
 <!ENTITY noitems.label "Inget att blockera">
 <!ENTITY whitelisted.label "Vitlistad sida">
-<!ENTITY notloaded.label "Adblock Plus är inte fullständigt installerat">
 <!ENTITY tooltip.address.label "Adress:">
 <!ENTITY tooltip.type.label "Typ:">
 <!ENTITY tooltip.type.blocked "(blockerad)">
@@ -24,7 +23,6 @@
 <!ENTITY context.disablefilter.label "Inaktivera filter --">
 <!ENTITY context.enablefilter.label "Re-aktivera filter --">
 <!ENTITY context.disablefilteronsite.label "Inaktivera detta filter på --">
-<!ENTITY context.enablefilteronsite.label "Re-aktivera filter på --">
 <!ENTITY context.open.label "Öppna i ny flik">
 <!ENTITY context.flash.label "Markera objektets ram">
 <!ENTITY context.copy.label "Kopiera objektets adress">

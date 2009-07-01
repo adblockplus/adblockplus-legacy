@@ -10,7 +10,6 @@
 <!ENTITY size.label "Grutte">
 <!ENTITY noitems.label "Gjin blokkearbere items">
 <!ENTITY whitelisted.label "Tastiene side">
-<!ENTITY notloaded.label "Adblock Plus is net goed ynstallearre">
 <!ENTITY tooltip.address.label "Adres:">
 <!ENTITY tooltip.type.label "Type:">
 <!ENTITY tooltip.type.blocked "(blokkearre)">
@@ -24,7 +23,6 @@
 <!ENTITY context.disablefilter.label "Filter útskeakelje --">
 <!ENTITY context.enablefilter.label "Filter ynskeakelje --">
 <!ENTITY context.disablefilteronsite.label "Skeakel dit filter út op --">
-<!ENTITY context.enablefilteronsite.label "Skeakel dit filter wer yn op --">
 <!ENTITY context.open.label "Iepen yn in nij ljepblêd">
 <!ENTITY context.flash.label "Lit rannen knipperje">
 <!ENTITY context.copy.label "Kopiearje">

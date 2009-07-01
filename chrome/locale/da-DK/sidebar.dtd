@@ -10,7 +10,6 @@
 <!ENTITY size.label "Størrelse">
 <!ENTITY noitems.label "Ingen blokérbare emner">
 <!ENTITY whitelisted.label "Hvidlistet side">
-<!ENTITY notloaded.label "Adblock Plus er ikke installeret korrekt">
 <!ENTITY tooltip.address.label "Adresse:">
 <!ENTITY tooltip.type.label "Type:">
 <!ENTITY tooltip.type.blocked "(blokeret)">
@@ -24,7 +23,6 @@
 <!ENTITY context.disablefilter.label "Deaktiver filter --">
 <!ENTITY context.enablefilter.label "Gen-aktiver filter --">
 <!ENTITY context.disablefilteronsite.label "Deaktiver dette filter på --">
-<!ENTITY context.enablefilteronsite.label "Gen-aktiver filter på --">
 <!ENTITY context.open.label "Åbn i nyt faneblad">
 <!ENTITY context.flash.label "Blink med elementets kanter">
 <!ENTITY context.copy.label "Kopier elementets adresse">

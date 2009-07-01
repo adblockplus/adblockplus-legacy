@@ -1,5 +1,3 @@
-<!ENTITY notloaded.label "Nincs betöltve">
-<!ENTITY notloaded.tooltip "Az Adblock Plus-t nem sikerült betölteni. Valószínűleg nem volt megfelelően telepítve.">
 <!ENTITY status.tooltip "Állapot:">
 <!ENTITY blocked.tooltip "Blokkolt objektumok ezen az oldalon:">
 <!ENTITY filters.tooltip "Legaktívabb szűrők:">

@@ -10,7 +10,6 @@
 <!ENTITY size.label "大小">
 <!ENTITY noitems.label "無可阻擋項目">
 <!ENTITY whitelisted.label "此頁面已加入白名單">
-<!ENTITY notloaded.label "Adblock Plus 未正確安裝">
 <!ENTITY tooltip.address.label "位址:">
 <!ENTITY tooltip.type.label "類型:">
 <!ENTITY tooltip.type.blocked "(已阻擋)">
@@ -24,7 +23,6 @@
 <!ENTITY context.disablefilter.label "停用過濾條件 --">
 <!ENTITY context.enablefilter.label "重新啟用過濾條件 --">
 <!ENTITY context.disablefilteronsite.label "停用此條件 --">
-<!ENTITY context.enablefilteronsite.label "重新啟用此條件 --">
 <!ENTITY context.open.label "於新分頁開啟">
 <!ENTITY context.flash.label "Flash 物件框線">
 <!ENTITY context.copy.label "複製項目位址">

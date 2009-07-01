@@ -1,5 +1,3 @@
-<!ENTITY notloaded.label "Не завантажений">
-<!ENTITY notloaded.tooltip "Adblock Plus не завантажився нормально, можливо він був неправильно встановлений">
 <!ENTITY status.tooltip "Статус:">
 <!ENTITY blocked.tooltip "Заблоковані елементи на цій сторінці:">
 <!ENTITY filters.tooltip "Найбільш часто застосовані фільтри:">

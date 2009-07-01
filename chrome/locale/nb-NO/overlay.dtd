@@ -1,5 +1,3 @@
-<!ENTITY notloaded.label "Ikke lastet">
-<!ENTITY notloaded.tooltip "Adblock Plus komponent kunne ikke bli lastet inn, kanskje den ikke er installert rett.">
 <!ENTITY status.tooltip "Status:">
 <!ENTITY blocked.tooltip "Blokkerte elementer på denne siden:">
 <!ENTITY filters.tooltip "Mest aktive filtre:">

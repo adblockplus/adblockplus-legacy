@@ -1,5 +1,3 @@
-<!ENTITY notloaded.label "Δεν φορτώθηκε">
-<!ENTITY notloaded.tooltip "Ο μηχανισμός του Adblock Plus δεν φορτώθηκε, ίσως η εγκατάσταση να μην ήταν επιτυχής.">
 <!ENTITY status.tooltip "Κατάσταση:">
 <!ENTITY blocked.tooltip "Στοιχεία που έχουν φραχθεί σε αυτή τη σελίδα:">
 <!ENTITY filters.tooltip "Φίλτρα με τις περισσότερες επιτυχίες:">

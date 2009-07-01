@@ -1,5 +1,3 @@
-<!ENTITY notloaded.label "Inactiv">
-<!ENTITY notloaded.tooltip "Adblock Plus nu poate fi încărcat, probabil că nu a fost instalat corect">
 <!ENTITY status.tooltip "Stare:">
 <!ENTITY blocked.tooltip "Elemente blocate în pagină:">
 <!ENTITY filters.tooltip "Cele mai active filtre:">

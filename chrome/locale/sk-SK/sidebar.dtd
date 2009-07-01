@@ -10,7 +10,6 @@
 <!ENTITY size.label "Veľkosť">
 <!ENTITY noitems.label "Neblokovateľné položky">
 <!ENTITY whitelisted.label "Povolené stránky">
-<!ENTITY notloaded.label "Adblock Plus nebol nainštalovaný správne">
 <!ENTITY tooltip.address.label "Adresa:">
 <!ENTITY tooltip.type.label "Typ:">
 <!ENTITY tooltip.type.blocked "(blokovaný)">
@@ -24,7 +23,6 @@
 <!ENTITY context.disablefilter.label "Vypnúť filter --">
 <!ENTITY context.enablefilter.label "Znovu zapnúť filter --">
 <!ENTITY context.disablefilteronsite.label "Vypnúť tento filter na...">
-<!ENTITY context.enablefilteronsite.label "Zapnúť tento filter na...">
 <!ENTITY context.open.label "Otvoriť na novej karte">
 <!ENTITY context.flash.label "Ohraničenie flashových položiek">
 <!ENTITY context.copy.label "Kopírovať adresu položiek">
