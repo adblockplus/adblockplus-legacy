@@ -8,6 +8,7 @@
 <!ENTITY context.image.label "Kép blokkolása">
 <!ENTITY context.object.label "Objektum blokkolása">
 <!ENTITY context.frame.label "Keret blokkolása">
+<!ENTITY context.removeWhitelist.label "Adblock Plus: Újra-aktiválás ezen az oldalon">
 <!ENTITY sidebar.title "Blokkolható objektumok">
 <!ENTITY settings.label "Beállítások">
 <!ENTITY settings.accesskey "B">

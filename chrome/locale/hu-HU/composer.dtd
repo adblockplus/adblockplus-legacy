@@ -5,6 +5,9 @@
 <!ENTITY disabled.warning.beforeLink "Az Adblock Plus jelenleg le van tiltva. Szűrőket hozzáadhat, de azok nem lesznek elérhetőek,">
 <!ENTITY disabled.warning.link "amíg az Adblock Plus nincs engedélyezve">
 <!ENTITY disabled.warning.afterLink ".">
+<!ENTITY groupDisabled.warning.beforeLink "A &quot;&#x25;S&quot; szűrőcsoport jelenleg le van tiltva. Hozzáadhatja a szűrőt, de az nem lesz használatban">
+<!ENTITY groupDisabled.warning.link "amíg nem engedélyezi a szűrőcsoportot">
+<!ENTITY groupDisabled.warning.afterLink ".">
 <!ENTITY filter.label "Új szűrő:">
 <!ENTITY filter.accesskey "j">
 <!ENTITY preferences.label "Meglévő szűrők megjelenítése...">
@@ -22,6 +25,8 @@
 <!ENTITY anchors.label "Minta elfogadása csak:">
 <!ENTITY anchor.start.label "a cím elején">
 <!ENTITY anchor.start.accesskey "e">
+<!ENTITY anchor.start.flexible.label "a tartománynév elején">
+<!ENTITY anchor.start.flexible.accesskey "e">
 <!ENTITY anchor.end.label "a cím végén">
 <!ENTITY anchor.end.accesskey "v">
 <!ENTITY options.label "Beállítások">
