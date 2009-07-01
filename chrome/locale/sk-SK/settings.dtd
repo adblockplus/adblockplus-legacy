@@ -69,6 +69,8 @@
 		použiť regulárne výrazy ako /banner\d+\.gif$/.">
 <!ENTITY filter.column "Pravidlo filtra">
 <!ENTITY filter.accesskey "f">
+<!ENTITY slow.column "Voľné filtre">
+<!ENTITY slow.accesskey "V">
 <!ENTITY enabled.column "Zapnuté">
 <!ENTITY enabled.accesskey "Z">
 <!ENTITY hitcount.column "Počítadlá">

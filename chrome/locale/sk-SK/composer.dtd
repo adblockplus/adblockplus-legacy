@@ -5,6 +5,9 @@
 <!ENTITY disabled.warning.beforeLink "Adblock Plus je aktuálne vypnutý. Môžete pridávať filtre, ale tie nebudú aplikované pokiaľ">
 <!ENTITY disabled.warning.link "nezapnete Adblock Plus">
 <!ENTITY disabled.warning.afterLink ".">
+<!ENTITY groupDisabled.warning.beforeLink "Skupina filtrov &quot;&#37;S&quot;, ktorá mala tento filter pridať, je aktuálne vypnutá. Stále ho však môžete pridať, ale nebude aplikovaný skôr, než">
+<!ENTITY groupDisabled.warning.link "zapnete skupinu filtrov">
+<!ENTITY groupDisabled.warning.afterLink ".">
 <!ENTITY filter.label "Nový filter:">
 <!ENTITY filter.accesskey "f">
 <!ENTITY preferences.label "Zobraziť existujúce filtre...">
@@ -21,7 +24,9 @@
 <!ENTITY custom.pattern.accesskey "V">
 <!ENTITY anchors.label "Prijať vzor len:">
 <!ENTITY anchor.start.label "na začiatku adresy">
-<!ENTITY anchor.start.accesskey "i">
+<!ENTITY anchor.start.accesskey "n">
+<!ENTITY anchor.start.flexible.label "na začiatku názvu domény">
+<!ENTITY anchor.start.flexible.accesskey "n">
 <!ENTITY anchor.end.label "na konci adresy">
 <!ENTITY anchor.end.accesskey "d">
 <!ENTITY options.label "Možnosti">
