@@ -102,6 +102,8 @@
 
 <!ENTITY filter.column              "Filterregel">
 <!ENTITY filter.accesskey           "F">
+<!ENTITY slow.column                "Langsam">
+<!ENTITY slow.accesskey             "L">
 <!ENTITY enabled.column             "Aktiv">
 <!ENTITY enabled.accesskey          "k">
 <!ENTITY hitcount.column            "Treffer">

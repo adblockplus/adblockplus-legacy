@@ -27,9 +27,13 @@
 <!ENTITY advanced.label           "Расширенный вид">
 <!ENTITY basic.label              "Стандартный вид">
 
-<!ENTITY disabled.warning.beforeLink  "Adblock Plus сейчас отключен. Вы можете добавлять фильтры, но чтобы они применились нужно ">
+<!ENTITY disabled.warning.beforeLink  "Adblock Plus сейчас отключен. Вы можете добавить этот фильтр, но чтобы он применился нужно ">
 <!ENTITY disabled.warning.link    "включить Adblock Plus">
 <!ENTITY disabled.warning.afterLink   ".">
+
+<!ENTITY groupDisabled.warning.beforeLink  "Группа фильтров &quot;&#x25;S&quot;, в которую этот фильтр должен быть добавлен, сейчас отключена. Вы можете добавить этот фильтр, но чтобы он применился нужно ">
+<!ENTITY groupDisabled.warning.link        "включить эту группу фильтров">
+<!ENTITY groupDisabled.warning.afterLink   ".">
 
 <!ENTITY filter.label             "Новый фильтр:">
 <!ENTITY filter.accesskey         "ф">
@@ -48,6 +52,8 @@
 <!ENTITY anchors.label            "Принимать шаблон только:">
 <!ENTITY anchor.start.label       "в начале адреса">
 <!ENTITY anchor.start.accesskey   "ч">
+<!ENTITY anchor.start.flexible.label      "в начале доменного имени">
+<!ENTITY anchor.start.flexible.accesskey  "ч">
 <!ENTITY anchor.end.label         "в конце адреса">
 <!ENTITY anchor.end.accesskey     "ц">
 <!ENTITY options.label            "Дополнительные настройки">
