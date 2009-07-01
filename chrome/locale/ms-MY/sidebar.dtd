@@ -10,7 +10,6 @@
 <!ENTITY size.label "Saiz">
 <!ENTITY noitems.label "Tiada item yang disekat">
 <!ENTITY whitelisted.label "Laman yang disenarai putih">
-<!ENTITY notloaded.label "Adblock Plus tidak dipasang dengan betul">
 <!ENTITY tooltip.address.label "Alamat:">
 <!ENTITY tooltip.type.label "Jenis:">
 <!ENTITY tooltip.type.blocked "(disekat)">

@@ -1,5 +1,3 @@
-<!ENTITY notloaded.label "ロードエラー">
-<!ENTITY notloaded.tooltip "Adblock Plus をロードできませんでした。初期の読み込みに失敗した可能性があります。">
 <!ENTITY status.tooltip "状態：">
 <!ENTITY blocked.tooltip "このページのブロック要素数：">
 <!ENTITY filters.tooltip "機能中のフィルタ（要素数）：">

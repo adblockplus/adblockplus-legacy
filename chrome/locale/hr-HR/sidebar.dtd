@@ -9,7 +9,6 @@
 <!ENTITY state.label "Status">
 <!ENTITY noitems.label "Nema stavki koje se mogu blokirati">
 <!ENTITY whitelisted.label "Stranica koja je na dopuštenom popisu">
-<!ENTITY notloaded.label "Adblock Plus nije pravilno instaliran">
 <!ENTITY tooltip.address.label "Adresa:">
 <!ENTITY tooltip.type.label "Tip:">
 <!ENTITY tooltip.type.blocked "(blokiran)">

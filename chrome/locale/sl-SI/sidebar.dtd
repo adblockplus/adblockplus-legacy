@@ -10,7 +10,6 @@
 <!ENTITY size.label "Velikost">
 <!ENTITY noitems.label "Ni elementov blokiranja">
 <!ENTITY whitelisted.label "Dovoljena stran">
-<!ENTITY notloaded.label "Adblock Plus ni bil pravilno nameščen">
 <!ENTITY tooltip.address.label "Naslov:">
 <!ENTITY tooltip.type.label "Vrsta:">
 <!ENTITY tooltip.type.blocked "(blokirano)">
@@ -24,7 +23,6 @@
 <!ENTITY context.disablefilter.label "Onemogoči filter ...">
 <!ENTITY context.enablefilter.label "Ponovno omogoči filter ...">
 <!ENTITY context.disablefilteronsite.label "Onemogoči ta filter na --">
-<!ENTITY context.enablefilteronsite.label "Ponovno omogoči filter na --">
 <!ENTITY context.open.label "Odpri v novem zavihku">
 <!ENTITY context.flash.label "Obrobe elementa naj utripajo">
 <!ENTITY context.copy.label "Kopiraj naslov elementa">

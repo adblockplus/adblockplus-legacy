@@ -1,5 +1,3 @@
-<!ENTITY notloaded.label "Yüklenmedi">
-<!ENTITY notloaded.tooltip "Adblock Plus eklentisinin bir bileşeni yüklenemedi. Belki de düzgün kurulu değil.">
 <!ENTITY status.tooltip "Durum:">
 <!ENTITY blocked.tooltip "Bu sayfada engellenen öğeler:">
 <!ENTITY filters.tooltip "En etkin süzgeçler:">

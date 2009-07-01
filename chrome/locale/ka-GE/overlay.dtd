@@ -1,5 +1,3 @@
-<!ENTITY notloaded.label "დათვირთული არა არის">
-<!ENTITY notloaded.tooltip "Adblock Plus-ის კომპონენტი არ მუშაობს, შეიძლება კარგად არ არის დაყენებული.">
 <!ENTITY status.tooltip "სტატუსი:">
 <!ENTITY blocked.tooltip "ამ web-გვერდზე ბლოკირებული ელემენტები:">
 <!ENTITY filters.tooltip "ყველაზე აქტიური ფილტრები:">

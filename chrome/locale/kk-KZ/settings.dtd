@@ -1,4 +1,4 @@
-<!ENTITY dialog.title "Adblock Plus параметрлері">
+<!ENTITY dialog.title "Adblock Plus баптаулары">
 <!ENTITY filters.label "Фильтрлер">
 <!ENTITY filters.accesskey "Ф">
 <!ENTITY add.label "Фильтрді қосу">
@@ -7,7 +7,7 @@
 <!ENTITY addsubscription.accesskey "с">
 <!ENTITY synchsubscriptions.label "Барлық жазылуларды жаңарту">
 <!ENTITY synchsubscriptions.accesskey "д">
-<!ENTITY import.label "Филтрлерді импорттау">
+<!ENTITY import.label "Фильтрлерді импорттау">
 <!ENTITY import.accesskey "м">
 <!ENTITY export.label "Пайдаланушы фильтрлерін экспорттау">
 <!ENTITY export.accesskey "к">
@@ -43,7 +43,7 @@
 <!ENTITY options.accesskey "Б">
 <!ENTITY enable.label "Adblock Plus қосу">
 <!ENTITY enable.accesskey "с">
-<!ENTITY showintoolbar.label "Панелде көрсету">
+<!ENTITY showintoolbar.label "Панельде көрсету">
 <!ENTITY showintoolbar.accesskey "П">
 <!ENTITY showinstatusbar.label "Қалып-күй жолағында көрсету">
 <!ENTITY showinstatusbar.accesskey "к">
@@ -83,5 +83,5 @@
 <!ENTITY context.movegroupdown.label "Топты төмен түсіру">
 <!ENTITY context.enable.label "Қосу">
 <!ENTITY context.disable.label "Сөндіру">
-<!ENTITY apply.label "Қолдану">
+<!ENTITY apply.label "Іске асыру">
 <!ENTITY apply.accesskey "о">

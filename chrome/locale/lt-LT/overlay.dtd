@@ -1,5 +1,3 @@
-<!ENTITY notloaded.label "Neįkelta">
-<!ENTITY notloaded.tooltip "„Adblock Plus“ priedas negali būti įkeltas. Greičiausiai jis nebuvo sėkmingai įdiegtas">
 <!ENTITY status.tooltip "Būsena:">
 <!ENTITY blocked.tooltip "Šiame tinklalapyje užblokuoti elementai:">
 <!ENTITY filters.tooltip "Aktyviausi filtrai:">

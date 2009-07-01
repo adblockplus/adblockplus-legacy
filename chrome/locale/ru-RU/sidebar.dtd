@@ -38,8 +38,6 @@
 
 <!ENTITY noitems.label            "Блокировать нечего">
 <!ENTITY whitelisted.label        "Отключен на этой странице">
-<!ENTITY notloaded.label          "Adblock Plus не загрузился нормально">
-
 <!ENTITY tooltip.address.label    "Адрес:">
 <!ENTITY tooltip.type.label       "Тип:">
 <!ENTITY tooltip.type.blocked     "(заблокирован)">
@@ -54,7 +52,6 @@
 <!ENTITY context.disablefilter.label  "Отключить фильтр --">
 <!ENTITY context.enablefilter.label   "Включить обратно фильтр --">
 <!ENTITY context.disablefilteronsite.label  "Отключить фильтр на --">
-<!ENTITY context.enablefilteronsite.label   "Включить обратно фильтр на --">
 <!ENTITY context.open.label       "Открыть в новой вкладке">
 <!ENTITY context.flash.label      "Показать расположение элемента">
 <!ENTITY context.copy.label       "Копировать адрес">

@@ -22,8 +22,6 @@
    -
    - ***** END LICENSE BLOCK ***** -->
 
-<!ENTITY notloaded.label        "Не загружен">
-<!ENTITY notloaded.tooltip      "Adblock Plus не загрузился нормально, возможно он был неправильно установлен">
 <!ENTITY status.tooltip         "Статус:">
 <!ENTITY blocked.tooltip        "Заблокированные элементы на этой странице:">
 <!ENTITY filters.tooltip        "Наиболее часто примененные фильтры:">

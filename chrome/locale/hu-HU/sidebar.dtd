@@ -10,7 +10,6 @@
 <!ENTITY size.label "Méret">
 <!ENTITY noitems.label "Nincs blokkolható objektum">
 <!ENTITY whitelisted.label "A cím &apos;fehér listán&apos; van">
-<!ENTITY notloaded.label "Az Adblock Plus nem lett megfelelően telepítve">
 <!ENTITY tooltip.address.label "Cím:">
 <!ENTITY tooltip.type.label "Típus:">
 <!ENTITY tooltip.type.blocked "(blokkolva)">
@@ -24,7 +23,6 @@
 <!ENTITY context.disablefilter.label "Szűrő letiltása --">
 <!ENTITY context.enablefilter.label "Szűrő engedélyezése --">
 <!ENTITY context.disablefilteronsite.label "Szűrő letiltása itt: --">
-<!ENTITY context.enablefilteronsite.label "Szűrő engedélyezése itt: --">
 <!ENTITY context.open.label "Megnyitás új fülön">
 <!ENTITY context.flash.label "Objektum széleinek villogtatása">
 <!ENTITY context.copy.label "Objektum címének másolása">

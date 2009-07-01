@@ -1,5 +1,3 @@
-<!ENTITY notloaded.label "Բեռնված չէ">
-<!ENTITY notloaded.tooltip "«Adblock Plus»ի չի կարող լրիվ բեռնվել, հնարավոր է լավ չէ տեղադրված:">
 <!ENTITY status.tooltip "Վիճակը.">
 <!ENTITY blocked.tooltip "Այս էջի ֆիլտրված տարրերը`">
 <!ENTITY filters.tooltip "Ամենաակտիվ ֆիլտրերը`">

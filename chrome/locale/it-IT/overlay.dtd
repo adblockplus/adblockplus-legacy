@@ -1,5 +1,3 @@
-<!ENTITY notloaded.label "Non caricata">
-<!ENTITY notloaded.tooltip "Impossibile caricare alcuni componenti di Adblock Plus, probabilmente si sono verificati alcuni errori durante l&apos;installazione">
 <!ENTITY status.tooltip "Stato:">
 <!ENTITY blocked.tooltip "Elementi bloccati in questa pagina:">
 <!ENTITY filters.tooltip "Filtri maggiormente attivi:">

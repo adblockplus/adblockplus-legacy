@@ -9,7 +9,6 @@
 <!ENTITY state.label "status">
 <!ENTITY noitems.label "Ingen elementer som kan blokkeres">
 <!ENTITY whitelisted.label "Hvitlistet side">
-<!ENTITY notloaded.label "Adblock Plus har ikke blitt installert riktig">
 <!ENTITY tooltip.address.label "Adresse:">
 <!ENTITY tooltip.type.label "Type:">
 <!ENTITY tooltip.type.blocked "(blokkert)">

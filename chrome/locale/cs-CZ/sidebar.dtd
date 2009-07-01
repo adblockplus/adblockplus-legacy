@@ -10,7 +10,6 @@
 <!ENTITY size.label "Velikost">
 <!ENTITY noitems.label "Nic nebylo zablokováno">
 <!ENTITY whitelisted.label "Adresa je na bílé listině">
-<!ENTITY notloaded.label "Adblock Plus nebyl korektně nainstalován">
 <!ENTITY tooltip.address.label "Adresa:">
 <!ENTITY tooltip.type.label "Typ:">
 <!ENTITY tooltip.type.blocked "(blokováno)">
@@ -24,7 +23,6 @@
 <!ENTITY context.disablefilter.label "Zakázat filtr --">
 <!ENTITY context.enablefilter.label "Opět povolit filtr --">
 <!ENTITY context.disablefilteronsite.label "Zakázat tento filtr na --">
-<!ENTITY context.enablefilteronsite.label "Opět povolit tento filtr na --">
 <!ENTITY context.open.label "Otevřít v novém panelu">
 <!ENTITY context.flash.label "Blikání obrysu objektu">
 <!ENTITY context.copy.label "Kopírovat adresu objektu">

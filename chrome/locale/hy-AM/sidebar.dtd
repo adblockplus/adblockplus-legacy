@@ -10,7 +10,6 @@
 <!ENTITY size.label "Չափը">
 <!ENTITY noitems.label "Ֆիլտրվվող տարրեր չկան">
 <!ENTITY whitelisted.label "Բացառություն">
-<!ENTITY notloaded.label "«Adblock Plus»ը նորմալ տեղադրվել է">
 <!ENTITY tooltip.address.label "Հասցեն`">
 <!ENTITY tooltip.type.label "Տեսակը`">
 <!ENTITY tooltip.type.blocked "(ֆիլտրված)">
@@ -24,7 +23,6 @@
 <!ENTITY context.disablefilter.label "Անջատել ֆիլտրը --">
 <!ENTITY context.enablefilter.label "Վերակտիվացնել ֆիլտրը --">
 <!ENTITY context.disablefilteronsite.label "Արգելել այս ֆիլտրը -- -ում">
-<!ENTITY context.enablefilteronsite.label "Թույլատրել այս ֆիլտրը -- -ում">
 <!ENTITY context.open.label "Բացել նոր Թաբում">
 <!ENTITY context.flash.label "Ցույց տալ օբյեկտը էջում">
 <!ENTITY context.copy.label "Կրկնել տարրի հասցեն">

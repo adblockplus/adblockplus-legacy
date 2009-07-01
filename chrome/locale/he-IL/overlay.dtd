@@ -1,5 +1,3 @@
-<!ENTITY notloaded.label "לא נטען">
-<!ENTITY notloaded.tooltip "רכיב של Adblock Plus לא יכול להטען. אולי הוא לא מותקן כיאות.">
 <!ENTITY status.tooltip "מצב:">
 <!ENTITY blocked.tooltip "פריטים חסומים בעמוד זה:">
 <!ENTITY filters.tooltip "המסננים הפעילים ביותר:">

@@ -10,7 +10,6 @@
 <!ENTITY size.label "גודל">
 <!ENTITY noitems.label "אין פריטים הניתנים לחסימה">
 <!ENTITY whitelisted.label "העמוד נמצא ברשימה הלבנה">
-<!ENTITY notloaded.label "Adblock Plus אינו מותקן כיאות">
 <!ENTITY tooltip.address.label "כתובת:">
 <!ENTITY tooltip.type.label "סוג:">
 <!ENTITY tooltip.type.blocked "(חסום)">
@@ -24,7 +23,6 @@
 <!ENTITY context.disablefilter.label "נטרל מסנן --">
 <!ENTITY context.enablefilter.label "אפשר מסנן מחדש --">
 <!ENTITY context.disablefilteronsite.label "נטרול מסנן זה ב --">
-<!ENTITY context.enablefilteronsite.label "אפשור מסנן זה ב --">
 <!ENTITY context.open.label "פתח בלשונית חדשה">
 <!ENTITY context.flash.label "גבולות של פריט פלאש">
 <!ENTITY context.copy.label "העתק כתובת הפריט">

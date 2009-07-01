@@ -1,5 +1,3 @@
-<!ENTITY notloaded.label "Pole laetud">
-<!ENTITY notloaded.tooltip "Adblock Plusi komponenti ei saa laadida, võib-olla see ei ole korrapäraselt paigaldatud.">
 <!ENTITY status.tooltip "Olek:">
 <!ENTITY blocked.tooltip "Blokeeritud objektid sellel lehel:">
 <!ENTITY filters.tooltip "Kõige aktiivsemad filtrid:">

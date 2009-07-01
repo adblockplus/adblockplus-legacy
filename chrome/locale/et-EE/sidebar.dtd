@@ -10,7 +10,6 @@
 <!ENTITY size.label "Suurus">
 <!ENTITY noitems.label "Blokeeritavaid objekte pole">
 <!ENTITY whitelisted.label "Hea nimekiri">
-<!ENTITY notloaded.label "Adblock Plus pole paigaldatud korralikult">
 <!ENTITY tooltip.address.label "Aadress:">
 <!ENTITY tooltip.type.label "Tüüp:">
 <!ENTITY tooltip.type.blocked "(blokeeritud)">
@@ -24,7 +23,6 @@
 <!ENTITY context.disablefilter.label "Keela filetr">
 <!ENTITY context.enablefilter.label "Luba filter">
 <!ENTITY context.disablefilteronsite.label "Keela filter">
-<!ENTITY context.enablefilteronsite.label "Luba filter">
 <!ENTITY context.open.label "Ava uues tabis">
 <!ENTITY context.flash.label "Flashi objekti ääred">
 <!ENTITY context.copy.label "Kopeeri objekti aadress">

@@ -10,7 +10,6 @@
 <!ENTITY size.label "Stærð">
 <!ENTITY noitems.label "Engir hlutir til að loka á">
 <!ENTITY whitelisted.label "Síða fyrir hvítlista">
-<!ENTITY notloaded.label "Adblock Plus er ekki rétt uppsett">
 <!ENTITY tooltip.address.label "Netfang:">
 <!ENTITY tooltip.type.label "Tegund:">
 <!ENTITY tooltip.type.blocked "(stöðvað)">
@@ -24,7 +23,6 @@
 <!ENTITY context.disablefilter.label "Aftengja síu --">
 <!ENTITY context.enablefilter.label "Virkja aftur síu --">
 <!ENTITY context.disablefilteronsite.label "Aftengja síu fyrir --">
-<!ENTITY context.enablefilteronsite.label "Virkja aftur síu fyrir --">
 <!ENTITY context.open.label "Opna í nýjum flipa">
 <!ENTITY context.flash.label "Rammi Flash hlutar">
 <!ENTITY context.copy.label "Afrita netfang hluts">

@@ -9,7 +9,6 @@
 <!ENTITY state.label "ಸ್ಥಿತಿ">
 <!ENTITY noitems.label "ತಡೆಹಿಡಿಯಬಹುದಾದ ಯಾವುದೇ ವಸ್ತುಗಳಿಲ್ಲ">
 <!ENTITY whitelisted.label "ನಂಬಿಗಸ್ಥ ಪುಟ">
-<!ENTITY notloaded.label "ಆಡ್‌ಬ್ಲಾಕ್ ಪ್ಲಸ್ ಸರಿಯಾದಿ ಇನ್ಸ್ಟಾಲ್ ಆಗಿಲ್ಲ">
 <!ENTITY tooltip.address.label "ವಿಳಾಸ:">
 <!ENTITY tooltip.type.label "ಟೈಪ್ ಮಾಡಿ:">
 <!ENTITY tooltip.type.blocked "(ತಡೆಹಿಡಿದಿದೆ)">

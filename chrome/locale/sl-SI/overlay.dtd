@@ -1,5 +1,3 @@
-<!ENTITY notloaded.label "Ni naložen">
-<!ENTITY notloaded.tooltip "Komponente Adblock Plus ni mogoče naložiti, morda ni bila pravilno nameščena.">
 <!ENTITY status.tooltip "Stanje:">
 <!ENTITY blocked.tooltip "Blokirani elementi na tej strani:">
 <!ENTITY filters.tooltip "Najbolj aktivni filtri:">

@@ -1,5 +1,3 @@
-<!ENTITY notloaded.label "Tidak dimuat">
-<!ENTITY notloaded.tooltip "Komponen Adblock Plus tidak bisa dimuat, mungkin belum diinstall sebelumnya.">
 <!ENTITY status.tooltip "Status:">
 <!ENTITY blocked.tooltip "Item yang diblok pada halaman ini:">
 <!ENTITY filters.tooltip "Filter yang paling aktif:">
