@@ -35,6 +35,7 @@
 <!ENTITY filter.label             "Filter">
 <!ENTITY state.label              "Status">
 <!ENTITY size.label               "Größe">
+<!ENTITY docDomain.label          "Ursprungsdomain">
 
 <!ENTITY noitems.label            "Keine Elemente zu blockieren">
 <!ENTITY whitelisted.label        "Deaktiviert auf dieser Seite">
@@ -43,6 +44,7 @@
 <!ENTITY tooltip.type.blocked     "(blockiert)">
 <!ENTITY tooltip.type.whitelisted "(Ausnahmeregel aktiv)">
 <!ENTITY tooltip.size.label       "Größe:">
+<!ENTITY tooltip.docDomain.label  "Ursprungsdomain:">
 <!ENTITY tooltip.filter.label     "Angewandter Filter:">
 <!ENTITY tooltip.filterSource.label "Herkunft des Filters:">
 

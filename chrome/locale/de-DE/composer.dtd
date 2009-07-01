@@ -27,9 +27,13 @@
 <!ENTITY advanced.label           "Erweiterte Ansicht">
 <!ENTITY basic.label              "Standardansicht">
 
-<!ENTITY disabled.warning.beforeLink  "Adblock Plus ist deaktiviert. Sie können weiterhin die Filter hinzufügen, diese werden jedoch erst angewandt, wenn Sie ">
+<!ENTITY disabled.warning.beforeLink  "Adblock Plus ist deaktiviert. Sie können trotzdem den Filter hinzufügen, dieser wird jedoch erst angewandt, wenn Sie ">
 <!ENTITY disabled.warning.link    "Adblock Plus aktivieren">
 <!ENTITY disabled.warning.afterLink   ".">
+
+<!ENTITY groupDisabled.warning.beforeLink  "Die Filtergruppe &quot;&#x25;S&quot;, in die dieser Filter eingefügt wird, ist derzeit deaktiviert. Sie können trotzdem den Filter hinzufügen, dieser wird jedoch erst angewandt, wenn Sie ">
+<!ENTITY groupDisabled.warning.link        "diese Filtergruppe aktivieren">
+<!ENTITY groupDisabled.warning.afterLink   ".">
 
 <!ENTITY filter.label             "Neuer Filter:">
 <!ENTITY filter.accesskey         "r">
@@ -48,6 +52,8 @@
 <!ENTITY anchors.label            "Muster nur akzeptieren:">
 <!ENTITY anchor.start.label       "am Anfang der Adresse">
 <!ENTITY anchor.start.accesskey   "f">
+<!ENTITY anchor.start.flexible.label      "am Anfang des Domain-Namens">
+<!ENTITY anchor.start.flexible.accesskey  "f">
 <!ENTITY anchor.end.label         "am Ende der Adresse">
 <!ENTITY anchor.end.accesskey     "d">
 <!ENTITY options.label            "Optionen">

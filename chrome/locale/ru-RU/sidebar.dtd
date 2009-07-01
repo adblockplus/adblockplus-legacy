@@ -35,6 +35,7 @@
 <!ENTITY filter.label             "Фильтр">
 <!ENTITY state.label              "Статус">
 <!ENTITY size.label               "Размер">
+<!ENTITY docDomain.label          "Домен страницы">
 
 <!ENTITY noitems.label            "Блокировать нечего">
 <!ENTITY whitelisted.label        "Отключен на этой странице">
@@ -43,6 +44,7 @@
 <!ENTITY tooltip.type.blocked     "(заблокирован)">
 <!ENTITY tooltip.type.whitelisted "(исключение)">
 <!ENTITY tooltip.size.label       "Размер:">
+<!ENTITY tooltip.docDomain.label  "Домен страницы:">
 <!ENTITY tooltip.filter.label     "Применен фильтр:">
 <!ENTITY tooltip.filterSource.label "Источник фильтра:">
 

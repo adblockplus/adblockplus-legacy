@@ -35,6 +35,7 @@
 <!ENTITY context.image.label    "Adblock Plus: Grafik blockieren">
 <!ENTITY context.object.label   "Adblock Plus: Objekt blockieren">
 <!ENTITY context.frame.label    "Adblock Plus: Frame blockieren">
+<!ENTITY context.removeWhitelist.label  "Adblock Plus: Auf dieser Seite wieder aktivieren">
 
 <!ENTITY sidebar.title          "Elemente der geöffneten Seite">
 

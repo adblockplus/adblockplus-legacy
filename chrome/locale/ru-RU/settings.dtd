@@ -102,6 +102,8 @@
 
 <!ENTITY filter.column              "Правило">
 <!ENTITY filter.accesskey           "П">
+<!ENTITY slow.column                "Медленное">
+<!ENTITY slow.accesskey             "М">
 <!ENTITY enabled.column             "Включено">
 <!ENTITY enabled.accesskey          "к">
 <!ENTITY hitcount.column            "Попаданий">
