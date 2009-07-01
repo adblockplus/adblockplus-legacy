@@ -110,7 +110,7 @@ foreach my $locale (@locales)
       {
         if (exists($keepAccessKeys{$locale}))
         {
-          if (exists($referenceLocale->{$file}{$key}) && $fileData->{$key} ne $referenceLocale->{$file}{$key})
+          if (exists($referenceLocale->{$file}{$key}) && lc($fileData->{$key}) ne lc($referenceLocale->{$file}{$key}))
           {
             print "$locale: Accesskey '$file:$key' should be the same as in the reference locale\n";
           }
