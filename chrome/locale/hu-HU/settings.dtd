@@ -67,6 +67,8 @@
 <!ENTITY description "Az alábbi szűrők meghatározzák, hogy mely címek lesznek blokkolva és melyek lesznek átengedve:">
 <!ENTITY filter.column "Szűrő szabály">
 <!ENTITY filter.accesskey "S">
+<!ENTITY slow.column "Lassú szűrők">
+<!ENTITY slow.accesskey "L">
 <!ENTITY enabled.column "Engedélyezve">
 <!ENTITY enabled.accesskey "n">
 <!ENTITY hitcount.column "Találatok">

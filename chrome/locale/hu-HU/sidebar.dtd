@@ -8,6 +8,7 @@
 <!ENTITY filter.label "Szűrő">
 <!ENTITY state.label "Állapot">
 <!ENTITY size.label "Méret">
+<!ENTITY docDomain.label "Dokumentum forrása">
 <!ENTITY noitems.label "Nincs blokkolható objektum">
 <!ENTITY whitelisted.label "A cím &apos;fehér listán&apos; van">
 <!ENTITY tooltip.address.label "Cím:">
@@ -15,6 +16,7 @@
 <!ENTITY tooltip.type.blocked "(blokkolva)">
 <!ENTITY tooltip.type.whitelisted "(fehér listán)">
 <!ENTITY tooltip.size.label "Méret:">
+<!ENTITY tooltip.docDomain.label "Dokumentum forrása:">
 <!ENTITY tooltip.filter.label "Alkalmazott szűrők:">
 <!ENTITY tooltip.filterSource.label "Szűrő forrása:">
 <!ENTITY context.block.label "Objektum blokkolása">
