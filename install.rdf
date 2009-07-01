@@ -65,7 +65,8 @@
       <em:minVersion>1.0</em:minVersion>
       <em:maxVersion>1.0.0.*</em:maxVersion>
     </Description>
-  </em:targetApplication>-->
+  </em:targetApplication>
+  -->
 
   <!-- Conkeror -->
   <em:targetApplication>
