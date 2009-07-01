@@ -42,8 +42,10 @@
 <!ENTITY settings.label         "Preferences">
 <!ENTITY settings.accesskey     "F">
 <!ENTITY opensidebar.label      "Open blockable items">
+<!-- Note: This access key should usually be the same as closesidebar.accesskey. It is the same menu item with different label depending on whether the sidebar is currently open.-->
 <!ENTITY opensidebar.accesskey  "B">
 <!ENTITY closesidebar.label     "Close blockable items">
+<!-- Note: This access key should usually be the same as opensidebar.accesskey. It is the same menu item with different label depending on whether the sidebar is currently open.-->
 <!ENTITY closesidebar.accesskey "B">
 <!ENTITY whitelist.site.label   "Disable on --">
 <!ENTITY whitelist.page.label   "Disable on this page only">
