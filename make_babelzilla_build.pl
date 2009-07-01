@@ -10,6 +10,8 @@ use warnings;
 use lib qw(..);
 use Packager;
 
+sub Packager::fixLocales() {}
+
 my $manifest = readFile("chrome.manifest");
 unless ($manifest =~ /\bjar:chrome\/(\S+?)\.jar\b/)
 {
