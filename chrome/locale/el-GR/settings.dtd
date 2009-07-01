@@ -67,6 +67,8 @@
 <!ENTITY description "Τα παρακάτω φίλτρα καθορίζουν το ποιες διευθύνσεις θα φιλτράρονται και ποιες όχι:">
 <!ENTITY filter.column "Κανόνας φίλτρου">
 <!ENTITY filter.accesskey "φ">
+<!ENTITY slow.column "Εμφάνιση φίλτρων">
+<!ENTITY slow.accesskey "Ε">
 <!ENTITY enabled.column "Ενεργοποιημένο">
 <!ENTITY enabled.accesskey "ν">
 <!ENTITY hitcount.column "Επιτυχίες">

@@ -8,6 +8,7 @@
 <!ENTITY filter.label "Φίλτρο">
 <!ENTITY state.label "Κατάσταση">
 <!ENTITY size.label "Μέγεθος">
+<!ENTITY docDomain.label "Πηγή εγγράφου">
 <!ENTITY noitems.label "Δεν υπάρχουν στοιχεία προς φιλτράρισμα">
 <!ENTITY whitelisted.label "Η σελίδα ανήκει στην άσπρη λίστα">
 <!ENTITY tooltip.address.label "Διεύθυνση:">
@@ -15,6 +16,7 @@
 <!ENTITY tooltip.type.blocked "(φιλτραρισμένο)">
 <!ENTITY tooltip.type.whitelisted "(στην άσπρη λίστα)">
 <!ENTITY tooltip.size.label "Μέγεθος:">
+<!ENTITY tooltip.docDomain.label "Πηγή εγγράφου:">
 <!ENTITY tooltip.filter.label "Φίλτρο εν δράση:">
 <!ENTITY tooltip.filterSource.label "Πηγή φίλτρου:">
 <!ENTITY context.block.label "Φραγή του στοιχείου">
