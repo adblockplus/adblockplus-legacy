@@ -8,6 +8,7 @@
 <!ENTITY context.image.label "ABP - Bloquear imagen">
 <!ENTITY context.object.label "ABP - Bloquear objeto">
 <!ENTITY context.frame.label "ABP - Bloquear marco">
+<!ENTITY context.removeWhitelist.label "ABP - Reactivar en esta página">
 <!ENTITY sidebar.title "Elementos bloqueables en la página actual">
 <!ENTITY settings.label "Preferencias">
 <!ENTITY settings.accesskey "P">
@@ -16,6 +17,6 @@
 <!ENTITY closesidebar.label "Cerrar ventana elementos bloqueables">
 <!ENTITY closesidebar.accesskey "v">
 <!ENTITY whitelist.site.label "Desactivar en --">
-<!ENTITY whitelist.page.label "Desactivar sólo en esta página">
+<!ENTITY whitelist.page.label "Deshabilitar sólo en esta página">
 <!ENTITY objecttab.title "Bloquear">
 <!ENTITY objecttab.tooltip "Pulse aquí para bloquear este objeto con Adblock Plus">

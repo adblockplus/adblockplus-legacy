@@ -5,6 +5,9 @@
 <!ENTITY disabled.warning.beforeLink "Adblock Plus está desactivado. Puede añadir filtros, pero no se aplicarán a menos que">
 <!ENTITY disabled.warning.link "active Adblock Plus">
 <!ENTITY disabled.warning.afterLink ".">
+<!ENTITY groupDisabled.warning.beforeLink "El grupo de filtros &quot;&#37;S&quot; al que se va añadir este filtro está desactivado. Puede añadir el filtro, pero éste no se aplicará a menos que">
+<!ENTITY groupDisabled.warning.link "active el grupo de filtros">
+<!ENTITY groupDisabled.warning.afterLink ".">
 <!ENTITY filter.label "Nuevo filtro:">
 <!ENTITY filter.accesskey "N">
 <!ENTITY preferences.label "Mostrar filtros existentes...">
@@ -16,12 +19,14 @@
 <!ENTITY pattern.label "Buscar patrón">
 <!ENTITY pattern.explanation "El patrón puede ser cualquier parte de la dirección, el carácter * actúa como comodín. El filtro sólo se aplicará a las direcciones que se correspondan con el patrón.">
 <!ENTITY regexp.warning "El patrón que ha introducido se interpretará como expresión regular. Si usa muchas expresiones regulares su navegación podría volverse más lenta. Si no quería usar una expresión regular, añada un carácter * al final del patrón.">
-<!ENTITY shortpattern.warning "El patrón que ha introducido es demasiado corto para ser introducido, si usa muchos patrones como este su navegación podría volverse más lenta. Se le recomienda elegir una cadena más larga para este filtro.">
+<!ENTITY shortpattern.warning "El patrón que ha introducido es demasiado corto para ser optimizado, si usa muchos patrones como este su navegación podría volverse más lenta. Se le recomienda elegir una cadena más larga para este filtro.">
 <!ENTITY custom.pattern.label "Personalizar:">
 <!ENTITY custom.pattern.accesskey "P">
 <!ENTITY anchors.label "Sólo aceptar patrones:">
 <!ENTITY anchor.start.label "al inicio de la dirección">
 <!ENTITY anchor.start.accesskey "i">
+<!ENTITY anchor.start.flexible.label "al inicio del nombre de dominio">
+<!ENTITY anchor.start.flexible.accesskey "i">
 <!ENTITY anchor.end.label "al final de la dirección">
 <!ENTITY anchor.end.accesskey "f">
 <!ENTITY options.label "Opciones">
