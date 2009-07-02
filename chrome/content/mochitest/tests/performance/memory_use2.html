@@ -1,11 +1,11 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-  <title>Memory use while an image with the same address is being created continuously</title>
+  <title>Memory use while images with different addresses are being created continuously</title>
   <script type="application/x-javascript;version=1.7" src="../../httpd.js"></script>
 </head>
 <body>
-  <p>This page will continuously create new images with the same address and throw them away. Adblock Plus should let garbage collection do its job and the browser's memory use shouldn't increase while this page is open.</p>
+  <p>This page will continuously create new images with different addresses and throw them away. This will make the memory use grow but it should reach a stable point after a few minutes where a certain limit is no longer exceeded. Also, old entries should disappear from the list of blockable items after a minute.</p>
 
   <iframe id="frame" style="visibility: visible;"></iframe>
 
@@ -27,7 +27,7 @@
         response.setStatusLine("1.1", "200", "OK");
         response.setHeader("Content-Type", "text/html");
 
-        let body = "<script>setInterval(function() { new Image().src = 'test.png'; }, 0);</" + "script>";
+        let body = "<script>var i = 0; setInterval(function() { new Image().src = 'test' + (++i) + '.png'; }, 0);</" + "script>";
         response.bodyOutputStream.write(body, body.length);
       });
 

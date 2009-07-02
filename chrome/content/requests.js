@@ -51,6 +51,11 @@ RequestList.prototype = {
    * @type nsIWeakReference
    */
   window: null,
+  /**
+   * Counter to be incremented every time an entry is added - list will be compacted when a threshold is reached.
+   * @type Integer
+   */
+  _compactCounter: 0,
 
   /**
    * Attaches this request list to a window.
@@ -136,6 +141,9 @@ RequestList.prototype = {
     if (isNew)
       this.topList.notifyListeners("add", this.entries[key]);
 
+    if (isNew && ++this._compactCounter >= 20)
+      this.getAllLocations();
+
     return entry;
   },
 
@@ -160,13 +168,35 @@ RequestList.prototype = {
 
     return null;
   },
-  getAllLocations: function(results)
+
+  getAllLocations: function(results, hadOutdated)
   {
+    this._compactCounter = 0;
+
+    let now = Date.now();
     if (typeof results == "undefined")
       results = [];
+
+    let recursiveCall = true;
+    if (typeof hadOutdated == "undefined")
+    {
+      recursiveCall = false;
+      hadOutdated = {value: false};
+    }
     for (var key in this.entries)
+    {
       if (key[0] == " ")
+      {
+        let entry = this.entries[key];
+        if (now - entry.lastUpdate >= 60000 && !entry.nodes.length)
+        {
+          hadOutdated.value = true;
+          delete this.entries[key];
+        }
+        else
           results.push(this.entries[key]);
+      }
+    }
 
     let wnd = getReferencee(this.window);
     let numFrames = (wnd ? wnd.frames.length : -1);
@@ -174,8 +204,11 @@ RequestList.prototype = {
     {
       let frameData = RequestList.getDataForWindow(wnd.frames[i], true);
       if (frameData && !frameData.detached)
-        frameData.getAllLocations(results);
+        frameData.getAllLocations(results, hadOutdated);
     }
+
+    if (!recursiveCall && hadOutdated.value)
+      this.topList.notifyListeners("refresh");
 
     return results;
   },
@@ -257,7 +290,6 @@ RequestList.removeListener = function(/**Function*/ listener)
 function RequestEntry(contentType, docDomain, thirdParty, location)
 {
   this._nodes = [];
-  this._lastCompact = Date.now();
   this.type = contentType;
   this.docDomain = docDomain;
   this.thirdParty = thirdParty;
@@ -275,6 +307,11 @@ RequestEntry.prototype =
    * @type Integer
    */
   _compactCounter: 0,
+  /**
+   * Time out last node addition or compact operation (used to find outdated entries).
+   * @type Integer
+   */
+  lastUpdate: 0,
   /**
    * Content type of the request (one of the nsIContentPolicy constants)
    * @type Integer
@@ -307,6 +344,7 @@ RequestEntry.prototype =
   get nodes()
   {
     this._compactCounter = 0;
+    this.lastUpdate = Date.now();
 
     let result = [];
     for (let i = 0; i < this._nodes.length; i++)
@@ -363,6 +401,8 @@ RequestEntry.prototype =
 
     if (++this._compactCounter >= 20)   // Compact the list of nodes after 20 additions
       this.nodes;
+    else
+      this.lastUpdate = Date.now();
 
     if (node instanceof Element)
     {
