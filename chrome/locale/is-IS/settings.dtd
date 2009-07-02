@@ -67,6 +67,8 @@
 <!ENTITY description "Eftirfarandi síur ákvarða hvaða netföng á að loka á og hvaða netföng eigi að leyfa:">
 <!ENTITY filter.column "Síu regla">
 <!ENTITY filter.accesskey "g">
+<!ENTITY slow.column "Hægvirkar síur">
+<!ENTITY slow.accesskey "i">
 <!ENTITY enabled.column "Virkt">
 <!ENTITY enabled.accesskey "V">
 <!ENTITY hitcount.column "Notkun">
