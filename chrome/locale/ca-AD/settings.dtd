@@ -67,6 +67,8 @@
 <!ENTITY description "Afegeix les adreces que desitgis bloquejar, per suggerències comprova la llista desplegable. Pots utilitzar * com a comodí per crear filtres més generals. Usuaris avançats poden utilitzar expressions regulars com /banner\d+\.gif$/.">
 <!ENTITY filter.column "Regla de filtre">
 <!ENTITY filter.accesskey "F">
+<!ENTITY slow.column "Filtres d&apos;aminorament">
+<!ENTITY slow.accesskey "w">
 <!ENTITY enabled.column "Activat">
 <!ENTITY enabled.accesskey "n">
 <!ENTITY hitcount.column "Encerts">
