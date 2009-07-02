@@ -1,8 +1,8 @@
 <!ENTITY dialog.title "Adblock Plus אודות">
 <!ENTITY caption.title "Adblock Plus">
 <!ENTITY version.title "גירסה">
-<!ENTITY description "Adblock Plus מאפשר לך להחליט מה אתה לא רוצה לראות ברשת.
-אתה לא צריך להוריד את כל הפרסומות והבאנרים יותר, אם אתה לא רוצה אותם - ספר ל-Adblock Plus!">
+<!ENTITY description "Adblock Plus מאפשר להחליט מה רוצים לראות ברשת.
+אין צורך יותר להוריד את כל הפרסומות והבאנרים יותר, אם לא רוצים אותם - ספר ל-Adblock Plus!">
 <!ENTITY homepage.label "עמוד הבית של Adblock Plus">
 <!ENTITY homepage.url "http://adblockplus.org/">
 <!ENTITY author.label "מחבר:">

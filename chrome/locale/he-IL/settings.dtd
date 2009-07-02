@@ -67,6 +67,8 @@
 <!ENTITY description "המסננים הבאים קובעים איזה כתובות אמורות להיחסם ואיזה להיות מורשות:">
 <!ENTITY filter.column "חוק סינון">
 <!ENTITY filter.accesskey "נ">
+<!ENTITY slow.column "פילטרים אטיים">
+<!ENTITY slow.accesskey "פ">
 <!ENTITY enabled.column "מאופשר">
 <!ENTITY enabled.accesskey "ר">
 <!ENTITY hitcount.column "לחיצות">

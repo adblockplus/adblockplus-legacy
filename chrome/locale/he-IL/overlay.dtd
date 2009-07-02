@@ -8,6 +8,7 @@
 <!ENTITY context.image.label "חסום תמונה">
 <!ENTITY context.object.label "חסום פריט">
 <!ENTITY context.frame.label "חסום מסגרת">
+<!ENTITY context.removeWhitelist.label "Adblock Plus: מאופשר מחדש בעמוד זה">
 <!ENTITY sidebar.title "פריטים לחסימה בעמוד הנוכחי">
 <!ENTITY settings.label "מאפיינים">
 <!ENTITY settings.accesskey "מ">
