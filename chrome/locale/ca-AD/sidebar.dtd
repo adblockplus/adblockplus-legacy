@@ -8,6 +8,7 @@
 <!ENTITY filter.label "Filtre">
 <!ENTITY state.label "Estat">
 <!ENTITY size.label "Mida">
+<!ENTITY docDomain.label "Font del document">
 <!ENTITY noitems.label "Elements no bloquejables">
 <!ENTITY whitelisted.label "Pàgina a la llista de permesos">
 <!ENTITY tooltip.address.label "Adreça">
@@ -15,6 +16,7 @@
 <!ENTITY tooltip.type.blocked "(bloquejat)">
 <!ENTITY tooltip.type.whitelisted "(a la llista de permesos)">
 <!ENTITY tooltip.size.label "Mida">
+<!ENTITY tooltip.docDomain.label "Font del document:">
 <!ENTITY tooltip.filter.label "Filtre actiu">
 <!ENTITY tooltip.filterSource.label "Filtre d&apos;origen">
 <!ENTITY context.block.label "Bloqueja aquest element">
