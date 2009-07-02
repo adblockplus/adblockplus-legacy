@@ -8,6 +8,7 @@
 <!ENTITY filter.label "필터">
 <!ENTITY state.label "상태">
 <!ENTITY size.label "크기">
+<!ENTITY docDomain.label "문서 원본">
 <!ENTITY noitems.label "차단 가능한 항목 없음">
 <!ENTITY whitelisted.label "차단 목록 페이지">
 <!ENTITY tooltip.address.label "주소:">
@@ -15,6 +16,7 @@
 <!ENTITY tooltip.type.blocked "(차단됨)">
 <!ENTITY tooltip.type.whitelisted "(차단 목록)">
 <!ENTITY tooltip.size.label "크기:">
+<!ENTITY tooltip.docDomain.label "문서 원본:">
 <!ENTITY tooltip.filter.label "필터:">
 <!ENTITY tooltip.filterSource.label "필터 소스:">
 <!ENTITY context.block.label "이 항목 차단">
