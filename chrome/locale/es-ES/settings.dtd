@@ -67,6 +67,8 @@
 <!ENTITY description "Los siguientes filtros determinan que direcciones se bloquean y cuales se permiten:">
 <!ENTITY filter.column "Regla de filtrado">
 <!ENTITY filter.accesskey "R">
+<!ENTITY slow.column "Filtros lentos">
+<!ENTITY slow.accesskey "e">
 <!ENTITY enabled.column "Activado">
 <!ENTITY enabled.accesskey "v">
 <!ENTITY hitcount.column "Contador">
