@@ -48,7 +48,7 @@ RequestList.prototype = {
 
   /**
    * Weak reference to the window this data is attached to.
-   * @type xpcIJSWeakReference
+   * @type nsIWeakReference
    */
   window: null,
 
@@ -267,7 +267,7 @@ RequestEntry.prototype =
 {
   /**
    * Document elements associated with this entry (stored as weak references)
-   * @type Array of xpcIJSWeakReference
+   * @type Array of nsIWeakReference
    */
   _nodes: null,
   /**
@@ -386,36 +386,19 @@ RequestEntry.prototype =
 /**
  * Stores a weak reference to a DOM node (will store a reference to original node if wrapped).
  */
-function getWeakReference(node)
+function getWeakReference(/**nsISupports*/ node) /**nsIWeakReference*/
 {
-  return Cu.getWeakReference(node.QueryInterface(Ci.nsISupportsWeakReference));
-}
-
-
-let fakeFactory = {
-  result: null,
-  createInstance: function(outer, iid) this.result,
-  QueryInterface: XPCOMUtils.generateQI([Ci.nsIFactory])
-};
-let fakeFactoryWrapped;
-{
-  let array = Cc["@mozilla.org/array;1"].createInstance(Ci.nsIMutableArray);
-  array.appendElement(fakeFactory, false);
-  fakeFactoryWrapped = array.queryElementAt(0, Ci.nsIFactory);
+  return node.QueryInterface(Ci.nsISupportsWeakReference).GetWeakReference();
 }
 
 /**
  * Retrieves a DOM node from a weak reference, restores XPCNativeWrapper if necessary.
  */
-function getReferencee(weakRef)
+function getReferencee(/**nsIWeakReference*/ weakRef) /**nsISupports*/
 {
-  let node = weakRef.get();
-  if (node === null)
+  try {
+    return weakRef.QueryReferent(Ci.nsISupports);
+  } catch (e) {
     return null;
-
-  // HACK: Pass the node through XPCOM to get the wrapper back (bug 500931)
-  fakeFactory.result = node;
-  let result = fakeFactoryWrapped.createInstance(null, Ci.nsISupports);
-  fakeFactory.result = node;
-  return result;
+  }
 }
