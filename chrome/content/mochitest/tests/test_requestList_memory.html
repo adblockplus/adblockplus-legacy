@@ -45,6 +45,15 @@
         response.bodyOutputStream.write(body, body.length);
       });
 
+      server.registerPathHandler("/test3", function(metadata, response)
+      {
+        response.setStatusLine("1.1", "200", "OK");
+        response.setHeader("Content-Type", "text/html");
+
+        let body = "<body><script>for (var i = 0; i < 40; i++) document.write('<iframe src=dummy></iframe>')<" + "/script></body>";
+        response.bodyOutputStream.write(body, body.length);
+      });
+
       $("frame").onload = test1Done;
       $("frame").src = "http://localhost:1234/test1";
     }
@@ -82,6 +91,24 @@
       window.QueryInterface(Ci.nsIInterfaceRequestor).getInterface(Ci.nsIDOMWindowUtils).garbageCollect();
       // This should really be comparing to zero but something is keeping the last node passed to content policies in memory
       is(entry.nodes.length, 1, "Number of associated nodes after garbage collection");
+
+      $("frame").onload = test3Done;
+      $("frame").src = "http://localhost:1234/test3";
+    }
+
+    function test3Done()
+    {
+      let frameData = abp.RequestList.getDataForWindow(abp.wrapNode(window.frames[0]), true);
+      ok(frameData, "Frame has data associated with it");
+
+      let entries = frameData.getAllLocations();
+      is(entries.length, 1, "Number of entries in the frame data");
+
+      let entry = entries[0];
+      is(entry.nodes.length, 40, "Number of associated nodes before garbage collection");
+
+      window.QueryInterface(Ci.nsIInterfaceRequestor).getInterface(Ci.nsIDOMWindowUtils).garbageCollect();
+      is(entry.nodes.length, 40, "Number of associated nodes after garbage collection");
 
       $("frame").onload = null;
       SimpleTest.finish();
