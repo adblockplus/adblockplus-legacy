@@ -5,6 +5,9 @@
 <!ENTITY disabled.warning.beforeLink "Adblock Plus is op dit stuit útskeakele. Jo kinne noch hieltyd filters tafoegje, mar dy sille net earder aktyf wêze as jo">
 <!ENTITY disabled.warning.link "Adblock Plus ynskeakelje">
 <!ENTITY disabled.warning.afterLink ".">
+<!ENTITY groupDisabled.warning.beforeLink "De filtergroep &quot;&#x25;S&quot;wêr&apos;t dit filter oan tafoege wurde soe is op dit stuit útskeakele. Jo kinne noch hieltyd it filter tafoegje, mar it sil net tapast wurde útsein as jo">
+<!ENTITY groupDisabled.warning.link "de filtergroep ynskeakelje">
+<!ENTITY groupDisabled.warning.afterLink ".">
 <!ENTITY filter.label "Nij filter:">
 <!ENTITY filter.accesskey "f">
 <!ENTITY preferences.label "Toan besteande filters...">
@@ -22,6 +25,8 @@
 <!ENTITY anchors.label "Akseptearje allinnich patroan:">
 <!ENTITY anchor.start.label "oan it begjin fan it adres">
 <!ENTITY anchor.start.accesskey "g">
+<!ENTITY anchor.start.flexible.label "oan it begjin fan de domeinnamme">
+<!ENTITY anchor.start.flexible.accesskey "g">
 <!ENTITY anchor.end.label "oan it ein fan it adres">
 <!ENTITY anchor.end.accesskey "d">
 <!ENTITY options.label "Opsjes">

@@ -8,6 +8,7 @@
 <!ENTITY filter.label "Filter">
 <!ENTITY state.label "Steat">
 <!ENTITY size.label "Grutte">
+<!ENTITY docDomain.label "Dokumintboarne">
 <!ENTITY noitems.label "Gjin blokkearbere items">
 <!ENTITY whitelisted.label "Tastiene side">
 <!ENTITY tooltip.address.label "Adres:">
@@ -15,6 +16,7 @@
 <!ENTITY tooltip.type.blocked "(blokkearre)">
 <!ENTITY tooltip.type.whitelisted "(tastien)">
 <!ENTITY tooltip.size.label "Grutte:">
+<!ENTITY tooltip.docDomain.label "Dokumintboarne:">
 <!ENTITY tooltip.filter.label "Tapast filter:">
 <!ENTITY tooltip.filterSource.label "Filterboarne:">
 <!ENTITY context.block.label "Blokkearje dit item">

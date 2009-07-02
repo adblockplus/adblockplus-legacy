@@ -67,6 +67,8 @@
 <!ENTITY description "Foech it adres ta dat jo blokkearje wolle, sjoch de karlist foar foarstellen. Jo kinne in * as jokerteken brûke foar mear algemiene filters. Erfaren brûkers kinne reguliere ekspresjes brûke, lykas /banner\d+\.gif$/.">
 <!ENTITY filter.column "Filterrigel">
 <!ENTITY filter.accesskey "F">
+<!ENTITY slow.column "Langsame filters">
+<!ENTITY slow.accesskey "g">
 <!ENTITY enabled.column "Ynskeakele">
 <!ENTITY enabled.accesskey "k">
 <!ENTITY hitcount.column "Hits">
