@@ -276,3 +276,20 @@ function generateChecksum(lines)
   }
 }
 abp.generateChecksum = generateChecksum;
+
+let _wrapNodeArray = null;
+
+/**
+ * Forces XPCNativeWrapper on a DOM element. This is used only in tests.
+ */
+function wrapNode(node)
+{
+  if (!_wrapNodeArray)
+    _wrapNodeArray = Cc["@mozilla.org/array;1"].createInstance(Ci.nsIMutableArray);
+
+  _wrapNodeArray.appendElement(node, false);
+  let result = _wrapNodeArray.queryElementAt(0, Ci.nsISupports);
+  _wrapNodeArray.removeElementAt(0);
+  return result;
+}
+abp.wrapNode = wrapNode;
