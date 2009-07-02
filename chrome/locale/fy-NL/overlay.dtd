@@ -8,6 +8,7 @@
 <!ENTITY context.image.label "Ofbylding blokkearje">
 <!ENTITY context.object.label "Objekt blokkearje">
 <!ENTITY context.frame.label "Dielfinster blokkearje">
+<!ENTITY context.removeWhitelist.label "Adblock Plus: Opnij ynskeakelje op dizze side">
 <!ENTITY sidebar.title "Blokkearbere ûnderdelen op dizze side">
 <!ENTITY settings.label "Foarkarren">
 <!ENTITY settings.accesskey "F">
