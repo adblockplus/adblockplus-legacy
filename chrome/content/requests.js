@@ -271,10 +271,10 @@ RequestEntry.prototype =
    */
   _nodes: null,
   /**
-   * Time when the list of nodes has been compacted last time.
+   * Counter to be incremented every time a node is added - list will be compacted when a threshold is reached.
    * @type Integer
    */
-  _lastCompact: 0,
+  _compactCounter: 0,
   /**
    * Content type of the request (one of the nsIContentPolicy constants)
    * @type Integer
@@ -306,7 +306,7 @@ RequestEntry.prototype =
    */
   get nodes()
   {
-    this._lastCompact = Date.now();
+    this._compactCounter = 0;
 
     let result = [];
     for (let i = 0; i < this._nodes.length; i++)
@@ -325,7 +325,7 @@ RequestEntry.prototype =
    */
   get nodesIterator()
   {
-    this._lastCompact = Date.now();
+    this._compactCounter = 0;
 
     for (let i = 0; i < this._nodes.length; i++)
     {
@@ -361,7 +361,7 @@ RequestEntry.prototype =
         oldEntry._nodes.splice(index, 1);
     }
 
-    if (this._nodes.length >= 20 && Date.now() - this._lastCompact >= 60000)   // Compact the list of nodes every minute
+    if (++this._compactCounter >= 20)   // Compact the list of nodes after 20 additions
       this.nodes;
 
     if (node instanceof Element)

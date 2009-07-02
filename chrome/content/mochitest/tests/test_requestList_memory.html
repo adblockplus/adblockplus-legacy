@@ -54,7 +54,16 @@
         response.bodyOutputStream.write(body, body.length);
       });
 
-      $("frame").onload = test1Done;
+      server.registerPathHandler("/test4", function(metadata, response)
+      {
+        response.setStatusLine("1.1", "200", "OK");
+        response.setHeader("Content-Type", "text/html");
+
+        let body = "<script>function addImage() { new Image().src='test.gif'; }for (var i = 0; i < 40; i++) addImage();<" + "/script>";
+        response.bodyOutputStream.write(body, body.length);
+      });
+
+      $("frame").onload = function() setTimeout(test1Done, 0);;
       $("frame").src = "http://localhost:1234/test1";
     }
 
@@ -70,10 +79,9 @@
       is(entry.nodes.length, 40, "Number of associated nodes before garbage collection");
 
       window.QueryInterface(Ci.nsIInterfaceRequestor).getInterface(Ci.nsIDOMWindowUtils).garbageCollect();
-      // This should really be comparing to zero but something is keeping the last node passed to content policies in memory
-      is(entry.nodes.length, 1, "Number of associated nodes after garbage collection");
+      is(entry.nodes.length, 0, "Number of associated nodes after garbage collection");
 
-      $("frame").onload = test2Done;
+      $("frame").onload = function() setTimeout(test2Done, 0);;
       $("frame").src = "http://localhost:1234/test2";
     }
 
@@ -89,10 +97,9 @@
       is(entry.nodes.length, 40, "Number of associated nodes before garbage collection");
 
       window.QueryInterface(Ci.nsIInterfaceRequestor).getInterface(Ci.nsIDOMWindowUtils).garbageCollect();
-      // This should really be comparing to zero but something is keeping the last node passed to content policies in memory
-      is(entry.nodes.length, 1, "Number of associated nodes after garbage collection");
+      is(entry.nodes.length, 0, "Number of associated nodes after garbage collection");
 
-      $("frame").onload = test3Done;
+      $("frame").onload = function() setTimeout(test3Done, 0);;
       $("frame").src = "http://localhost:1234/test3";
     }
 
@@ -109,6 +116,28 @@
 
       window.QueryInterface(Ci.nsIInterfaceRequestor).getInterface(Ci.nsIDOMWindowUtils).garbageCollect();
       is(entry.nodes.length, 40, "Number of associated nodes after garbage collection");
+
+      $("frame").onload = function() setTimeout(test4Done, 0);
+      $("frame").src = "http://localhost:1234/test4";
+    }
+
+    function test4Done(event)
+    {
+      let frameData = abp.RequestList.getDataForWindow(abp.wrapNode(window.frames[0]), true);
+      ok(frameData, "Frame has data associated with it");
+
+      let entries = frameData.getAllLocations();
+      is(entries.length, 1, "Number of entries in the frame data");
+
+      let entry = entries[0];
+      is(entry._nodes.length, 40, "Number of associated nodes before garbage collection");
+
+      window.QueryInterface(Ci.nsIInterfaceRequestor).getInterface(Ci.nsIDOMWindowUtils).garbageCollect();
+
+      // Trigger list compression by adding a node while the counter has a high value
+      entry._compactCounter = 100;
+      window.frames[0].addImage();
+      is(entry._nodes.length, 1, "Number of associated nodes after garbage collection");
 
       $("frame").onload = null;
       SimpleTest.finish();
