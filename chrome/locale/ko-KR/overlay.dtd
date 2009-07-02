@@ -8,6 +8,7 @@
 <!ENTITY context.image.label "Adblock 이미지">
 <!ENTITY context.object.label "Adblock 객체">
 <!ENTITY context.frame.label "Adblock 프레임">
+<!ENTITY context.removeWhitelist.label "Adblock Plus: 이 페이지 재설정">
 <!ENTITY sidebar.title "현재 페이지에서 차단 가능한 항목">
 <!ENTITY settings.label "설정">
 <!ENTITY settings.accesskey "F">

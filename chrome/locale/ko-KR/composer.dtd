@@ -5,6 +5,9 @@
 <!ENTITY disabled.warning.beforeLink "Adblock Plus가 현재 중지 중입니다. 필터는 추가할 수 있지만 적용되지는 않습니다.">
 <!ENTITY disabled.warning.link "Adblock Plus 사용">
 <!ENTITY disabled.warning.afterLink ".">
+<!ENTITY groupDisabled.warning.beforeLink "추가될 필터 그룹 &quot;&#x25;S&quot;은(는) 현재 사용 해제 상태입니다. 필터를 더 추가할 수 있지만 자동으로 적용되지는 않습니다.">
+<!ENTITY groupDisabled.warning.link "필터 그룹 사용">
+<!ENTITY groupDisabled.warning.afterLink ".">
 <!ENTITY filter.label "새 필터:">
 <!ENTITY filter.accesskey "f">
 <!ENTITY preferences.label "저장된 필터 보기...">
@@ -22,6 +25,8 @@
 <!ENTITY anchors.label "허용 패턴:">
 <!ENTITY anchor.start.label "주소 시작 부분">
 <!ENTITY anchor.start.accesskey "g">
+<!ENTITY anchor.start.flexible.label "도메인명 시작지점">
+<!ENTITY anchor.start.flexible.accesskey "g">
 <!ENTITY anchor.end.label "주소 끝 부분">
 <!ENTITY anchor.end.accesskey "n">
 <!ENTITY options.label "옵션">
