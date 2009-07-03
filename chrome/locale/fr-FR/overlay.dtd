@@ -8,6 +8,7 @@
 <!ENTITY context.image.label "Bloquer l&apos;image avec Adblock">
 <!ENTITY context.object.label "Bloquer l&apos;objet avec Adblock">
 <!ENTITY context.frame.label "Bloquer le cadre avec Adblock">
+<!ENTITY context.removeWhitelist.label "Adblock Plus : activer à nouveau pour cette page">
 <!ENTITY sidebar.title "Éléments filtrables dans la page courante">
 <!ENTITY settings.label "Préférences">
 <!ENTITY settings.accesskey "P">

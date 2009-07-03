@@ -67,6 +67,8 @@
 <!ENTITY description "Les filtres suivants indiquent les adresses qui devront être bloquées et celles qui devront être autorisées :">
 <!ENTITY filter.column "Règle de filtrage">
 <!ENTITY filter.accesskey "F">
+<!ENTITY slow.column "Afficher les filtres">
+<!ENTITY slow.accesskey "h">
 <!ENTITY enabled.column "Activé">
 <!ENTITY enabled.accesskey "c">
 <!ENTITY hitcount.column "Compteur">
