@@ -5,6 +5,9 @@
 <!ENTITY disabled.warning.beforeLink "Adblock Plus este inactiv. Puteţi să adăugaţi filtre, însă ele vor fi utilizate doar după ce">
 <!ENTITY disabled.warning.link "activaţi Adblock Plus">
 <!ENTITY disabled.warning.afterLink ".">
+<!ENTITY groupDisabled.warning.beforeLink "Grupul de filtre în care filtrul trebuie adăugat - &quot;&#37;S&quot; - este inactiv. Filtrul nu va fi folosit până nu">
+<!ENTITY groupDisabled.warning.link "activaţi grupul de filtre">
+<!ENTITY groupDisabled.warning.afterLink ".">
 <!ENTITY filter.label "Filtru nou:">
 <!ENTITY filter.accesskey "t">
 <!ENTITY preferences.label "Arată filtrele existente...">
@@ -22,6 +25,8 @@
 <!ENTITY anchors.label "Foloseşte modelul introdus doar:">
 <!ENTITY anchor.start.label "la începutul adresei">
 <!ENTITY anchor.start.accesskey "n">
+<!ENTITY anchor.start.flexible.label "la începutul numelui de domeniu">
+<!ENTITY anchor.start.flexible.accesskey "n">
 <!ENTITY anchor.end.label "la sfârşitul adresei">
 <!ENTITY anchor.end.accesskey "f">
 <!ENTITY options.label "Opţiuni">

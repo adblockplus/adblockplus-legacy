@@ -5,9 +5,10 @@
 <!ENTITY menuitem.accesskey "A">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY view.blockableItems.label "Adblock Plus: elemente blocabile">
-<!ENTITY context.image.label "Adblock: blochează imagine">
-<!ENTITY context.object.label "Adblock: blochează obiect">
-<!ENTITY context.frame.label "Adblock: blochează frame">
+<!ENTITY context.image.label "Adblock Plus: blochează imagine">
+<!ENTITY context.object.label "Adblock Plus: blochează obiect">
+<!ENTITY context.frame.label "Adblock Plus: blochează frame">
+<!ENTITY context.removeWhitelist.label "Adblock Plus: reactivează în pagina curentă">
 <!ENTITY sidebar.title "Adblock Plus: elemente blocabile în pagină">
 <!ENTITY settings.label "Particularizare">
 <!ENTITY settings.accesskey "P">
