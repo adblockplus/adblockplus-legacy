@@ -67,6 +67,8 @@
 <!ENTITY description "Engellemek istediğiniz adresleri yazın. Öneriler için açılır menüye bakın. Daha genel süzgeçler tanımlamak için * işaretini kullanabilirsiniz. İleri düzeyde bilgiye sahip kullanıcılar düzenli ifadelere de (ör. /reklam\d+\.gif$/) başvurabilirler.">
 <!ENTITY filter.column "Süzgeç kuralı">
 <!ENTITY filter.accesskey "k">
+<!ENTITY slow.column "Yavaş süzgeçler">
+<!ENTITY slow.accesskey "v">
 <!ENTITY enabled.column "Etkinlik">
 <!ENTITY enabled.accesskey "n">
 <!ENTITY hitcount.column "İsabet">

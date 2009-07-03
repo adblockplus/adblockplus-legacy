@@ -5,6 +5,9 @@
 <!ENTITY disabled.warning.beforeLink "Adblock Plus şu an devre dışı. Yine de süzgeç ekleyebilirsiniz, ancak bunlar">
 <!ENTITY disabled.warning.link "Adblock Plus etkinleştirilene kadar">
 <!ENTITY disabled.warning.afterLink "uygulanmayacaktır.">
+<!ENTITY groupDisabled.warning.beforeLink "Bu süzgecin eklenmesi gereken &quot;&#x25;S&quot; süzgeç grubu şu anda devre dışı. Süzgeci yine de ekleyebilirsiniz ancak">
+<!ENTITY groupDisabled.warning.link "süzgeç grubunu devreye sokana kadar">
+<!ENTITY groupDisabled.warning.afterLink "bu süzgeç kullanılmayacaktır.">
 <!ENTITY filter.label "Yeni süzgeç:">
 <!ENTITY filter.accesskey "y">
 <!ENTITY preferences.label "Mevcut süzgeçleri göster...">
@@ -22,6 +25,8 @@
 <!ENTITY anchors.label "Örneği sadece burada kabul et:">
 <!ENTITY anchor.start.label "adresin başında">
 <!ENTITY anchor.start.accesskey "b">
+<!ENTITY anchor.start.flexible.label "alan adının başında">
+<!ENTITY anchor.start.flexible.accesskey "b">
 <!ENTITY anchor.end.label "adresin sonunda">
 <!ENTITY anchor.end.accesskey "o">
 <!ENTITY options.label "Seçenekler">

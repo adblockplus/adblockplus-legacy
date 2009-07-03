@@ -8,6 +8,7 @@
 <!ENTITY filter.label "Süzgeç">
 <!ENTITY state.label "Durum">
 <!ENTITY size.label "Boyut">
+<!ENTITY docDomain.label "Belge kaynağı">
 <!ENTITY noitems.label "Engellenebilecek öğe yok">
 <!ENTITY whitelisted.label "Ak listeye dahil bir sayfa">
 <!ENTITY tooltip.address.label "Konum:">
@@ -15,6 +16,7 @@
 <!ENTITY tooltip.type.blocked "(engellendi)">
 <!ENTITY tooltip.type.whitelisted "(ak listede)">
 <!ENTITY tooltip.size.label "Boyut">
+<!ENTITY tooltip.docDomain.label "Belge kaynağı:">
 <!ENTITY tooltip.filter.label "Yürürlükteki süzgeç:">
 <!ENTITY tooltip.filterSource.label "Süzgeç kaynağı:">
 <!ENTITY context.block.label "Bu öğeyi engelle">

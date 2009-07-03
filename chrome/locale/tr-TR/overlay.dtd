@@ -8,6 +8,7 @@
 <!ENTITY context.image.label "Resmi engelle">
 <!ENTITY context.object.label "Nesneyi engelle">
 <!ENTITY context.frame.label "Çerçeveyi engelle">
+<!ENTITY context.removeWhitelist.label "Adblock Plus: Bu sayfada devreye sok">
 <!ENTITY sidebar.title "Bu sayfadaki engellenebilecek öğeler">
 <!ENTITY settings.label "Tercihler">
 <!ENTITY settings.accesskey "T">
