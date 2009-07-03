@@ -188,7 +188,7 @@ RequestList.prototype = {
       if (key[0] == " ")
       {
         let entry = this.entries[key];
-        if (now - entry.lastUpdate >= 60000 && !entry.nodes.length)
+        if (!entry.hasAdditionalNodes && now - entry.lastUpdate >= 60000 && !entry.nodes.length)
         {
           hadOutdated.value = true;
           delete this.entries[key];
@@ -303,6 +303,13 @@ RequestEntry.prototype =
    */
   _nodes: null,
   /**
+   * Will be set to true if the entry is associated with other nodes besides the
+   * ones listed in the nodes property - used if obtaining a weak reference to
+   * some nodes isn't possible.
+   * @type Boolean
+   */
+  hasAdditionalNodes: false,
+  /**
    * Counter to be incremented every time a node is added - list will be compacted when a threshold is reached.
    * @type Integer
    */
@@ -404,11 +411,13 @@ RequestEntry.prototype =
     else
       this.lastUpdate = Date.now();
 
-    if (node instanceof Element)
-    {
-      this._nodes.push(getWeakReference(node));
-      node[nodeDataProp] = this;
-    }
+    node[nodeDataProp] = this;
+
+    let weakRef = getWeakReference(node);
+    if (weakRef)
+      this._nodes.push(weakRef);
+    else
+      this.hasAdditionalNodes = true;
   },
 
   /**
@@ -428,7 +437,10 @@ RequestEntry.prototype =
  */
 function getWeakReference(/**nsISupports*/ node) /**nsIWeakReference*/
 {
-  return node.QueryInterface(Ci.nsISupportsWeakReference).GetWeakReference();
+  if (node instanceof Ci.nsISupportsWeakReference)
+    return node.GetWeakReference();
+  else
+    return null;
 }
 
 /**
