@@ -29,7 +29,7 @@
 <!ENTITY menu.find.accesskey "F">
 <!ENTITY menu.findagain.label "再検索">
 <!ENTITY menu.findagain.accesskey "G">
-<!ENTITY view.label "見る">
+<!ENTITY view.label "表示">
 <!ENTITY view.accesskey "V">
 <!ENTITY sort.label "並び替え">
 <!ENTITY sort.accesskey "S">
@@ -54,7 +54,7 @@
 <!ENTITY help.label "ヘルプ">
 <!ENTITY help.accesskey "H">
 <!ENTITY gettingStarted.label "開始">
-<!ENTITY gettingStarted.accesskey "S">
+<!ENTITY gettingStarted.accesskey "s">
 <!ENTITY gettingStarted.url "http://adblockplus.org/en/getting_started">
 <!ENTITY faq.label "よくある質問と回答（FAQ）">
 <!ENTITY faq.accesskey "F">
@@ -64,13 +64,13 @@
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Adblock Plus について">
 <!ENTITY about.accesskey "B">
-<!ENTITY description "ドロップダウンリストの中からブロックしたいアドレスを追加してください。
-		汎用的なフィルタを作成する場合はワイルドカードとして * (アスタリスク)が使用できます。
-		上級ユーザは /banner\d+\.gif$/ のような正規表現を使用することができます。">
-<!ENTITY filter.column "フィルターのルール">
+<!ENTITY description "以下のフィルタはどのアドレスがブロックされるか、またどれが許可されるかを決定します。">
+<!ENTITY filter.column "フィルタのルール">
 <!ENTITY filter.accesskey "F">
-<!ENTITY enabled.column "有効／無効">
-<!ENTITY enabled.accesskey "N">
+<!ENTITY slow.column "低速フィルタ">
+<!ENTITY slow.accesskey "w">
+<!ENTITY enabled.column "有効">
+<!ENTITY enabled.accesskey "n">
 <!ENTITY hitcount.column "ヒット数">
 <!ENTITY hitcount.accesskey "H">
 <!ENTITY lasthit.column "最終ヒット日時">

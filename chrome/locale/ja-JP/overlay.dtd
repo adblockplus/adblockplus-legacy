@@ -4,10 +4,11 @@
 <!ENTITY menuitem.label "Adblock Plus">
 <!ENTITY menuitem.accesskey "B">
 <!ENTITY toolbarbutton.label "Adblock Plus">
-<!ENTITY view.blockableItems.label "Adblock Plus: ブロックアイテム">
-<!ENTITY context.image.label "Adblock 画像をブロック">
-<!ENTITY context.object.label "Adblock オブジェクトをブロック">
-<!ENTITY context.frame.label "Adblock フレームをブロック">
+<!ENTITY view.blockableItems.label "Adblock Plus ブロックアイテム">
+<!ENTITY context.image.label "Adblock Plus 画像をブロック">
+<!ENTITY context.object.label "Adblock Plus オブジェクトをブロック">
+<!ENTITY context.frame.label "Adblock Plus フレームをブロック">
+<!ENTITY context.removeWhitelist.label "Adblock Plus このページを有効に戻す">
 <!ENTITY sidebar.title "Adblock Plus このページのブロック要素">
 <!ENTITY settings.label "設定">
 <!ENTITY settings.accesskey "F">
