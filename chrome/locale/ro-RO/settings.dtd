@@ -67,6 +67,8 @@
 <!ENTITY description "Adăugaţi adresele pe care doriţi să le blocaţi; puteţi alege din lista derulantă. Pentru a crea filtre generice, folosiţi caracterul * ca joker. Utilizatorii avansaţi pot folosi expresii, ca de exemplu /banner\d+\.gif$/.">
 <!ENTITY filter.column "Regulă de filtrare">
 <!ENTITY filter.accesskey "R">
+<!ENTITY slow.column "Filtre lente">
+<!ENTITY slow.accesskey "l">
 <!ENTITY enabled.column "Stare">
 <!ENTITY enabled.accesskey "S">
 <!ENTITY hitcount.column "Contor">
