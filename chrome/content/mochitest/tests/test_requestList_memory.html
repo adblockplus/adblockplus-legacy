@@ -20,6 +20,19 @@
   <script type="application/x-javascript;version=1.7">
     let abp = Components.classes["@mozilla.org/adblockplus;1"].createInstance().wrappedJSObject;
 
+    let tests = [
+      ["test1", "", sameAddressNodes1],
+      ["test2", "", sameAddressNodes2],
+      ["test3", "", sameAddressNodes3],
+      ["test4", "", sameAddressNodes4],
+      ["test1", "'+i+'", differentAddressNodes1],
+      ["test2", "'+i+'", differentAddressNodes2],
+      ["test3", "'+i+'", differentAddressNodes3],
+      ["test4", "'+i+'", differentAddressNodes4],
+    ];
+    let currentTest = -1;
+    let urlModifier = null;
+
     function start()
     {
       window.addEventListener("unload", stop, false);
@@ -32,7 +45,7 @@
         response.setStatusLine("1.1", "200", "OK");
         response.setHeader("Content-Type", "text/html");
 
-        let body = "<script>for (var i = 0; i < 40; i++) new Image().src='test.gif';<" + "/script>";
+        let body = "<script>for (var i = 0; i < 40; i++) new Image().src='test" + urlModifier + ".png';<" + "/script>";
         response.bodyOutputStream.write(body, body.length);
       });
 
@@ -41,7 +54,7 @@
         response.setStatusLine("1.1", "200", "OK");
         response.setHeader("Content-Type", "text/html");
 
-        let body = "<body onload='document.body.innerHTML=null;'><script>for (var i = 0; i < 40; i++) document.write('<iframe src=dummy></iframe>')<" + "/script></body>";
+        let body = "<body onload='document.body.innerHTML=null;'><script>for (var i = 0; i < 40; i++) document.write('<iframe src=dummy" + urlModifier + "></iframe>')<" + "/script></body>";
         response.bodyOutputStream.write(body, body.length);
       });
 
@@ -50,7 +63,7 @@
         response.setStatusLine("1.1", "200", "OK");
         response.setHeader("Content-Type", "text/html");
 
-        let body = "<body><script>for (var i = 0; i < 40; i++) document.write('<iframe src=dummy></iframe>')<" + "/script></body>";
+        let body = "<body><script>for (var i = 0; i < 40; i++) document.write('<iframe src=dummy" + urlModifier + "></iframe>')<" + "/script></body>";
         response.bodyOutputStream.write(body, body.length);
       });
 
@@ -59,51 +72,36 @@
         response.setStatusLine("1.1", "200", "OK");
         response.setHeader("Content-Type", "text/html");
 
-        let body = "<script>function addImage() { new Image().src='test.gif'; }for (var i = 0; i < 40; i++) addImage();<" + "/script>";
+        let body = "<script>function addImage() { new Image().src='test" + urlModifier + ".png'; }for (var i = 0; i < 40; i++) addImage();<" + "/script>";
         response.bodyOutputStream.write(body, body.length);
       });
 
-      server.registerPathHandler("/test5", function(metadata, response)
-      {
-        response.setStatusLine("1.1", "200", "OK");
-        response.setHeader("Content-Type", "text/html");
-
-        let body = "<script>for (var i = 0; i < 40; i++) new Image().src='test'+i+'.gif';<" + "/script>";
-        response.bodyOutputStream.write(body, body.length);
-      });
-
-      server.registerPathHandler("/test6", function(metadata, response)
-      {
-        response.setStatusLine("1.1", "200", "OK");
-        response.setHeader("Content-Type", "text/html");
-
-        let body = "<body onload='document.body.innerHTML=null;'><script>for (var i = 0; i < 40; i++) document.write('<iframe src=dummy'+i+'></iframe>')<" + "/script></body>";
-        response.bodyOutputStream.write(body, body.length);
-      });
-
-      server.registerPathHandler("/test7", function(metadata, response)
-      {
-        response.setStatusLine("1.1", "200", "OK");
-        response.setHeader("Content-Type", "text/html");
-
-        let body = "<body><script>for (var i = 0; i < 40; i++) document.write('<iframe src=dummy' +i+'></iframe>')<" + "/script></body>";
-        response.bodyOutputStream.write(body, body.length);
-      });
-
-      server.registerPathHandler("/test8", function(metadata, response)
-      {
-        response.setStatusLine("1.1", "200", "OK");
-        response.setHeader("Content-Type", "text/html");
-
-        let body = "<script>function addImage() { new Image().src='test'+i+'.gif'; }for (var i = 0; i < 40; i++) addImage();<" + "/script>";
-        response.bodyOutputStream.write(body, body.length);
-      });
-
-      $("frame").onload = function() setTimeout(test1Done, 0);;
-      $("frame").src = "http://localhost:1234/test1";
+      runNextTest();
     }
 
-    function test1Done()
+    function runNextTest()
+    {
+      ++currentTest;
+      if (currentTest >= tests.length)
+      {
+        $("frame").onload = null;
+        SimpleTest.finish();
+        return;
+      }
+
+      urlModifier = tests[currentTest][1];
+
+      $("frame").onload = function() setTimeout(testPageLoaded, 0);
+      $("frame").src = "http://localhost:1234/" + tests[currentTest][0];
+    }
+
+    function testPageLoaded()
+    {
+      tests[currentTest][2]();
+      runNextTest();
+    }
+
+    function sameAddressNodes1()
     {
       let frameData = abp.RequestList.getDataForWindow(abp.wrapNode(window.frames[0]), true);
       ok(frameData, "Frame has data associated with it");
@@ -116,12 +114,9 @@
 
       window.QueryInterface(Ci.nsIInterfaceRequestor).getInterface(Ci.nsIDOMWindowUtils).garbageCollect();
       is(entry.nodes.length, 0, "Number of associated nodes after garbage collection");
-
-      $("frame").onload = function() setTimeout(test2Done, 0);;
-      $("frame").src = "http://localhost:1234/test2";
     }
 
-    function test2Done()
+    function sameAddressNodes2()
     {
       let frameData = abp.RequestList.getDataForWindow(abp.wrapNode(window.frames[0]), true);
       ok(frameData, "Frame has data associated with it");
@@ -134,12 +129,9 @@
 
       window.QueryInterface(Ci.nsIInterfaceRequestor).getInterface(Ci.nsIDOMWindowUtils).garbageCollect();
       is(entry.nodes.length, 0, "Number of associated nodes after garbage collection");
-
-      $("frame").onload = function() setTimeout(test3Done, 0);;
-      $("frame").src = "http://localhost:1234/test3";
     }
 
-    function test3Done()
+    function sameAddressNodes3()
     {
       let frameData = abp.RequestList.getDataForWindow(abp.wrapNode(window.frames[0]), true);
       ok(frameData, "Frame has data associated with it");
@@ -152,12 +144,9 @@
 
       window.QueryInterface(Ci.nsIInterfaceRequestor).getInterface(Ci.nsIDOMWindowUtils).garbageCollect();
       is(entry.nodes.length, 40, "Number of associated nodes after garbage collection");
-
-      $("frame").onload = function() setTimeout(test4Done, 0);
-      $("frame").src = "http://localhost:1234/test4";
     }
 
-    function test4Done(event)
+    function sameAddressNodes4(event)
     {
       let frameData = abp.RequestList.getDataForWindow(abp.wrapNode(window.frames[0]), true);
       ok(frameData, "Frame has data associated with it");
@@ -174,12 +163,9 @@
       entry._compactCounter = 100;
       window.frames[0].addImage();
       is(entry._nodes.length, 1, "Number of associated nodes after garbage collection");
-
-      $("frame").onload = function() setTimeout(test5Done, 0);;
-      $("frame").src = "http://localhost:1234/test5";
     }
 
-    function test5Done()
+    function differentAddressNodes1()
     {
       let frameData = abp.RequestList.getDataForWindow(abp.wrapNode(window.frames[0]), true);
       ok(frameData, "Frame has data associated with it");
@@ -193,12 +179,9 @@
 
       entries = frameData.getAllLocations();
       is(entries.length, 0, "Number of entries in the frame data after garbage collection");
-
-      $("frame").onload = function() setTimeout(test6Done, 0);;
-      $("frame").src = "http://localhost:1234/test6";
     }
 
-    function test6Done()
+    function differentAddressNodes2()
     {
       let frameData = abp.RequestList.getDataForWindow(abp.wrapNode(window.frames[0]), true);
       ok(frameData, "Frame has data associated with it");
@@ -212,12 +195,9 @@
 
       entries = frameData.getAllLocations();
       is(entries.length, 0, "Number of entries in the frame data after garbage collection");
-
-      $("frame").onload = function() setTimeout(test7Done, 0);;
-      $("frame").src = "http://localhost:1234/test7";
     }
 
-    function test7Done()
+    function differentAddressNodes3()
     {
       let frameData = abp.RequestList.getDataForWindow(abp.wrapNode(window.frames[0]), true);
       ok(frameData, "Frame has data associated with it");
@@ -231,12 +211,9 @@
 
       entries = frameData.getAllLocations();
       is(entries.length, 40, "Number of entries in the frame data after garbage collection");
-
-      $("frame").onload = function() setTimeout(test8Done, 0);;
-      $("frame").src = "http://localhost:1234/test8";
     }
 
-    function test8Done()
+    function differentAddressNodes4()
     {
       let frameData = abp.RequestList.getDataForWindow(abp.wrapNode(window.frames[0]), true);
       ok(frameData, "Frame has data associated with it");
@@ -254,9 +231,6 @@
 
       entries = frameData.getAllLocations();
       is(entries.length, 1, "Number of entries in the frame data after garbage collection");
-
-      $("frame").onload = null;
-      SimpleTest.finish();
     }
 
     function stop()
