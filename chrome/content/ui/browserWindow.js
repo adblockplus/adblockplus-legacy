@@ -676,6 +676,8 @@ function abpToggleSidebar() {
       E("abp-sidebar-splitter").hidden = !sidebar.hidden;
       E("abp-sidebar-browser").setAttribute("src", sidebar.hidden ? "chrome://adblockplus/content/ui/sidebar.xul" : "about:blank");
       sidebar.hidden = !sidebar.hidden;
+      if (sidebar.hidden)
+        abpHooks.getBrowser().contentWindow.focus();
     }
     else
       window.abpDetachedSidebar = window.openDialog("chrome://adblockplus/content/ui/sidebarDetached.xul", "_blank", "chrome,resizable,dependent,dialog=no,width=600,height=300");
