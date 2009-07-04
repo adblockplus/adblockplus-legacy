@@ -410,7 +410,7 @@ var policy =
     if (contentType == this.type.IMAGE && location.spec == "chrome://global/content/abp-dummy-image-request.png")
     {
       let objTab = node.parentNode;
-      if (objTab && typeof objTab.className == "string" && objTab.className.indexOf(this.objtabClass) == 0)
+      if (objTab && "abpObjTab" in objTab)
         runAsync(this.repositionObjectTab, this, objTab);
       return block;
     }
