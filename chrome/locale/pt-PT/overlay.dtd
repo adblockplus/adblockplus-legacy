@@ -8,6 +8,7 @@
 <!ENTITY context.image.label "Bloquear Imagem">
 <!ENTITY context.object.label "Bloquear Objecto">
 <!ENTITY context.frame.label "Bloquear Moldura">
+<!ENTITY context.removeWhitelist.label "Adblock Plus: Reactivar nesta página">
 <!ENTITY sidebar.title "Elementos bloqueáveis na página actual">
 <!ENTITY settings.label "Preferências">
 <!ENTITY settings.accesskey "F">

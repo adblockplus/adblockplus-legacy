@@ -8,6 +8,7 @@
 <!ENTITY filter.label "Filtro">
 <!ENTITY state.label "Estado">
 <!ENTITY size.label "Tamanho">
+<!ENTITY docDomain.label "Origem do documento">
 <!ENTITY noitems.label "Sem itens bloqueáveis">
 <!ENTITY whitelisted.label "Página em lista branca">
 <!ENTITY tooltip.address.label "Endereço:">
@@ -15,6 +16,7 @@
 <!ENTITY tooltip.type.blocked "(bloqueado)">
 <!ENTITY tooltip.type.whitelisted "(lista branca)">
 <!ENTITY tooltip.size.label "Tamanho:">
+<!ENTITY tooltip.docDomain.label "Origem do documento:">
 <!ENTITY tooltip.filter.label "Filtro activo:">
 <!ENTITY tooltip.filterSource.label "Origem do filtro:">
 <!ENTITY context.block.label "Bloquear este elemento">
