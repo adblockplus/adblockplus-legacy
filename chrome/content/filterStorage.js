@@ -556,6 +556,9 @@ var filterStorage =
     if (!this.file)
       return;
 
+    timeLine.start();
+    timeLine.log("Entered filterStorage.saveToDisk()");
+
     try {
       this.file.normalize();
     } catch (e) {}
@@ -579,6 +582,8 @@ var filterStorage =
       dump("Adblock Plus: failed to create file " + tempFile.path + ": " + e + "\n");
       return;
     }
+
+    timeLine.log("* created temp file");
 
     const maxBufLength = 1024;
     let buf = ["# Adblock Plus preferences", "version=" + this.formatVersion];
@@ -618,6 +623,7 @@ var filterStorage =
         }
       }
     }
+    timeLine.log("* saved filter data");
 
     // Save subscriptions
     for each (let subscription in this.subscriptions)
@@ -633,6 +639,7 @@ var filterStorage =
       if (buf.length > maxBufLength && !writeBuffer())
         return;
     }
+    timeLine.log("* saved subscription data");
 
     try {
       stream.writeString(buf.join(lineBreak) + lineBreak);
@@ -646,6 +653,7 @@ var filterStorage =
       catch (e2) {}
       return;
     }
+    timeLine.log("* finalized file write");
 
     if (this.file.exists()) {
       // Check whether we need to backup the file
@@ -687,6 +695,9 @@ var filterStorage =
     }
 
     tempFile.moveTo(this.file.parent, this.file.leafName);
+    timeLine.log("* created backups and renamed temp file");
+    timeLine.log("* filterStorage.saveToDisk() done");
+    timeLine.stop();
   },
 
   observe: function(subject, topic, data)
