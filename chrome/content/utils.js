@@ -136,7 +136,7 @@ function addObjectTab(wnd, node, data, tab)
 
   // Click event handler
   tab.setAttribute("href", data.location);
-  tab.setAttribute("class", gObjtabClass);
+  tab.setAttribute("class", policy.objtabClass);
   tab.addEventListener("click", generateClickHandler(wnd, data), false);
 
   // Insert tab into the document

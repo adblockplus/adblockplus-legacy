@@ -29,17 +29,7 @@
 
 const prefRoot = "extensions.adblockplus.";
 
-var gObjtabClass = ""
-var gObjtabOnTopClass = ""
-for (let i = 0; i < 20; i++)
-{
-  gObjtabClass += String.fromCharCode("a".charCodeAt(0) + Math.random() * 26);
-  gObjtabOnTopClass += String.fromCharCode("a".charCodeAt(0) + Math.random() * 26);
-}
-
 var prefService = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefService);
-
-var ScriptableInputStream = Components.Constructor("@mozilla.org/scriptableinputstream;1", "nsIScriptableInputStream", "init");
 
 var prefs = {
   lastVersion: null,
@@ -78,28 +68,6 @@ var prefs = {
 
   init: function()
   {
-    try {
-      // Initialize object tabs CSS
-      var channel = ioService.newChannel("chrome://adblockplus/content/objtabs.css", null, null);
-      channel.asyncOpen({
-        data: "",
-        onDataAvailable: function(request, context, stream, offset, count) {
-          stream = ScriptableInputStream(stream);
-          this.data += stream.read(count);
-        },
-        onStartRequest: function() {},
-        onStopRequest: function() {
-          var data = this.data.replace(/%%CLASSNAME%%/g, gObjtabClass).replace(/%%ONTOP%%/g, gObjtabOnTopClass);
-          var objtabsCSS = makeURL("data:text/css," + encodeURIComponent(data));
-          Cc["@mozilla.org/content/style-sheet-service;1"].getService(Ci.nsIStyleSheetService)
-                                                          .loadAndRegisterSheet(objtabsCSS, styleService.USER_SHEET);
-          channel = null;
-        },
-        QueryInterface: XPCOMUtils.generateQI([Ci.nsIRequestObserver, Ci.nsIStreamListener])
-      }, null);
-    }
-    catch (e) {}
-
     // Initialize prefs list
     var defaultBranch = prefService.getDefaultBranch(prefRoot);
     var defaultPrefs = defaultBranch.getChildList("", {});
