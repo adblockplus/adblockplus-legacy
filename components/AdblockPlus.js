@@ -318,8 +318,7 @@ const abp =
    */
   init: function()
   {
-    timeLine.start();
-    timeLine.log("abp.init() called");
+    timeLine.enter("Entered abp.init()");
 
     if (this.initialized)
       return;
@@ -349,8 +348,7 @@ const abp =
     timeLine.log("calling elemhide.init()");
     elemhide.init();
 
-    timeLine.log("abp.init() done");
-    timeLine.stop();
+    timeLine.leave("abp.init() done");
   },
 
   /**
@@ -495,46 +493,50 @@ var NSGetModule = XPCOMUtils.generateNSGetModule([Initializer, ABPComponent]);
  * @class
  */
 var timeLine = {
-  _invocationCounter: 0,
+  _nestingCounter: 0,
   _lastTimeStamp: null,
 
   /**
    * Logs an event to console together with the time it took to get there.
    */
-  log: function(/**String*/ msg)
+  log: function(/**String*/ message, /**Boolean*/ _forceDisplay)
   {
-    if (this._invocationCounter <= 0)
+    if (!_forceDisplay && this._invocationCounter <= 0)
       return;
 
     let now = (new Date()).getTime();
     let diff = this._lastTimeStamp ? (now - this._lastTimeStamp) : "first event";
     this._lastTimeStamp = now;
-    
+
+    // Indent message depending on current nesting level
+    for (let i = 0; i < this._nestingCounter; i++)
+      message = "* " + message;
+
+    // Pad message with spaces
     let padding = [];
-    for (var i = msg.toString().length; i < 40; i++)
+    for (let i = message.toString().length; i < 40; i++)
       padding.push(" ");
-    dump("ABP timeline: " + msg + padding.join("") + "\t (" + diff + ")\n");
+    dump("ABP timeline: " + message + padding.join("") + "\t (" + diff + ")\n");
   },
 
   /**
-   * Starts timeline logging and resets current timestamp (unless logging already).
+   * Called to indicate that application entered a block that needs to be timed.
    */
-  start: function()
+  enter: function(/**String*/ message)
   {
-    if (this._invocationCounter <= 0)
-    {
+    this.log(message, true);
+    this._nestingCounter = (this._nestingCounter <= 0 ? 1 : this._nestingCounter + 1);
+  },
+
+  /**
+   * Called when applicaiton exited a block that timeLine.enter() was called for.
+   */
+  leave: function(/**String*/ message)
+  {
+    this._nestingCounter--;
+    this.log(message, true);
+
+    if (this._nestingCounter <= 0)
       this._lastTimeStamp = null;
-      this._invocationCounter = 1;
-    }
-    else
-      this._invocationCounter++;
-  },
-
-  /**
-   * Stops timeline logging, additional log calls will be ignored.
-   */
-  stop: function()
-  {
-    this._invocationCounter--;
   }
 };

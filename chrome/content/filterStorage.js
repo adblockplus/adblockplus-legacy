@@ -347,8 +347,7 @@ var filterStorage =
    */
   loadFromDisk: function()
   {
-    timeLine.start();
-    timeLine.log("Entered filterStorage.loadFromDisk()");
+    timeLine.enter("Entered filterStorage.loadFromDisk()");
 
     this.subscriptions = [];
     this.knownSubscriptions = {__proto__: null};
@@ -380,7 +379,7 @@ var filterStorage =
     if (!this.file)
       dump("Adblock Plus: Failed to resolve filter file location from extensions.adblockplus.patternsfile preference\n");
 
-    timeLine.log("* done locating patterns.ini file");
+    timeLine.log("done locating patterns.ini file");
 
     let stream = null;
     try
@@ -426,7 +425,7 @@ var filterStorage =
       } catch (e) {}
     }
 
-    timeLine.log("* done parsing file");
+    timeLine.log("done parsing file");
 
     // Add missing special subscriptions if necessary
     for each (let specialSubscription in ["~il~", "~wl~", "~fl~", "~eh~"])
@@ -449,10 +448,9 @@ var filterStorage =
       }
     }
 
-    timeLine.log("* load complete, calling observers");
+    timeLine.log("load complete, calling observers");
     this.triggerSubscriptionObservers("reload", this.subscriptions);
-    timeLine.log("* filterStorage.loadFromDisk() done");
-    timeLine.stop();
+    timeLine.leave("filterStorage.loadFromDisk() done");
   },
 
   /**
@@ -556,8 +554,7 @@ var filterStorage =
     if (!this.file)
       return;
 
-    timeLine.start();
-    timeLine.log("Entered filterStorage.saveToDisk()");
+    timeLine.enter("Entered filterStorage.saveToDisk()");
 
     try {
       this.file.normalize();
@@ -583,7 +580,7 @@ var filterStorage =
       return;
     }
 
-    timeLine.log("* created temp file");
+    timeLine.log("created temp file");
 
     const maxBufLength = 1024;
     let buf = ["# Adblock Plus preferences", "version=" + this.formatVersion];
@@ -623,7 +620,7 @@ var filterStorage =
         }
       }
     }
-    timeLine.log("* saved filter data");
+    timeLine.log("saved filter data");
 
     // Save subscriptions
     for each (let subscription in this.subscriptions)
@@ -639,7 +636,7 @@ var filterStorage =
       if (buf.length > maxBufLength && !writeBuffer())
         return;
     }
-    timeLine.log("* saved subscription data");
+    timeLine.log("saved subscription data");
 
     try {
       stream.writeString(buf.join(lineBreak) + lineBreak);
@@ -653,7 +650,7 @@ var filterStorage =
       catch (e2) {}
       return;
     }
-    timeLine.log("* finalized file write");
+    timeLine.log("finalized file write");
 
     if (this.file.exists()) {
       // Check whether we need to backup the file
@@ -695,9 +692,8 @@ var filterStorage =
     }
 
     tempFile.moveTo(this.file.parent, this.file.leafName);
-    timeLine.log("* created backups and renamed temp file");
-    timeLine.log("* filterStorage.saveToDisk() done");
-    timeLine.stop();
+    timeLine.log("created backups and renamed temp file");
+    timeLine.leave("filterStorage.saveToDisk() done");
   },
 
   observe: function(subject, topic, data)
