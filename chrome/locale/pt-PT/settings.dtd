@@ -67,6 +67,8 @@
 <!ENTITY description "Adicione os endereços que pretende bloquear, para sugestões verifique a lista. Pode usar * para criar filtros mais genéricos. Utilizadores avançados podem usar expressões regulares como /banner\d+\.gif$/.">
 <!ENTITY filter.column "Regra de filtro">
 <!ENTITY filter.accesskey "F">
+<!ENTITY slow.column "Filtros lentos">
+<!ENTITY slow.accesskey "l">
 <!ENTITY enabled.column "Activado">
 <!ENTITY enabled.accesskey "t">
 <!ENTITY hitcount.column "Contagem">
