@@ -318,6 +318,7 @@ const abp =
    */
   init: function()
   {
+    timeLine.start();
     timeLine.log("abp.init() called");
 
     if (this.initialized)
@@ -349,6 +350,7 @@ const abp =
     elemhide.init();
 
     timeLine.log("abp.init() done");
+    timeLine.stop();
   },
 
   /**
@@ -493,6 +495,7 @@ var NSGetModule = XPCOMUtils.generateNSGetModule([Initializer, ABPComponent]);
  * @class
  */
 var timeLine = {
+  _invocationCounter: 0,
   _lastTimeStamp: null,
 
   /**
@@ -500,6 +503,9 @@ var timeLine = {
    */
   log: function(/**String*/ msg)
   {
+    if (this._invocationCounter <= 0)
+      return;
+
     let now = (new Date()).getTime();
     let diff = this._lastTimeStamp ? (now - this._lastTimeStamp) : "first event";
     this._lastTimeStamp = now;
@@ -508,5 +514,27 @@ var timeLine = {
     for (var i = msg.toString().length; i < 40; i++)
       padding.push(" ");
     dump("ABP timeline: " + msg + padding.join("") + "\t (" + diff + ")\n");
+  },
+
+  /**
+   * Starts timeline logging and resets current timestamp (unless logging already).
+   */
+  start: function()
+  {
+    if (this._invocationCounter <= 0)
+    {
+      this._lastTimeStamp = null;
+      this._invocationCounter = 1;
+    }
+    else
+      this._invocationCounter++;
+  },
+
+  /**
+   * Stops timeline logging, additional log calls will be ignored.
+   */
+  stop: function()
+  {
+    this._invocationCounter--;
   }
 };

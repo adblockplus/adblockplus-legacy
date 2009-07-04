@@ -49,7 +49,7 @@ sub removeTimeLine
 {
   my ($file, $line) = @_;
 
-  return "\n" if $file =~ /\.js$/ && $line =~ /\btimeLine\.log\(/;
+  return "\n" if $file =~ /\.js$/ && $line =~ /\btimeLine\.(\w+)\(/;
 
   return $line;
 }

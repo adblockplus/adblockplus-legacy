@@ -137,13 +137,22 @@ var elemhide =
    */
   apply: function()
   {
+    timeLine.start();
+    timeLine.log("elemhide.apply: calling unapply()");
     this.unapply();
+    timeLine.log("elemhide.apply: unapply() finished");
+
     this.isDirty = false;
 
     if (!prefs.enabled)
+    {
+      timeLine.log("elemhide.apply: done (disabled)");
+      timeLine.stop();
       return;
+    }
 
     // Grouping selectors by domains
+    timeLine.log("elemhide.apply: start grouping selectors");
     let domains = {__proto__: null};
     for each (var filter in this.filters)
     {
@@ -159,8 +168,10 @@ var elemhide =
       }
       list[filter.selector] = filter.key;
     }
+    timeLine.log("elemhide.apply: done grouping selectors");
 
     // Joining domains list
+    timeLine.log("elemhide.apply: start building CSS data");
     let cssData = "";
     let cssTemplate = "-moz-binding: url(" + this.scheme + "://%ID%/#dummy) !important;";
 
@@ -182,15 +193,20 @@ var elemhide =
                   + '}\n';
       }
     }
+    timeLine.log("elemhide.apply: done building CSS data");
 
     // Creating new stylesheet
     if (cssData)
     {
+      timeLine.log("elemhide.apply: start inserting stylesheet");
       try {
         this.url = ioService.newURI("data:text/css;charset=utf8,/*** Adblock Plus ***/" + encodeURIComponent("\n" + cssData), null, null);
         styleService.loadAndRegisterSheet(this.url, styleService.USER_SHEET);
       } catch(e) {};
+      timeLine.log("elemhide.apply: done inserting stylesheet");
     }
+    timeLine.log("elemhide.apply: done");
+    timeLine.stop();
   },
 
   /**
