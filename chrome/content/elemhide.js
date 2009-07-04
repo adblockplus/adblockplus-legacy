@@ -137,6 +137,10 @@ var elemhide =
    */
   apply: function()
   {
+    // Return immediately if nothing to do
+    if (!this.url && (!prefs.enabled || !this.filters.length))
+      return;
+
     timeLine.start();
     timeLine.log("Entered elemhide.apply()");
     this.unapply();
