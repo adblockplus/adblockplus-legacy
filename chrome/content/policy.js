@@ -61,6 +61,17 @@ var policy =
    */
   whitelistSchemes: null,
 
+  /**
+   * Randomly generated class for object tab nodes.
+   * @type String
+   */
+  objtabClass: null,
+  /**
+   * Randomly generated class for object tab nodes displayed on top of the object.
+   * @type String
+   */
+  objtabOnTopClass: null,
+
   init: function() {
     var types = ["OTHER", "SCRIPT", "IMAGE", "STYLESHEET", "OBJECT", "SUBDOCUMENT", "DOCUMENT", "XBL", "PING", "XMLHTTPREQUEST", "OBJECT_SUBREQUEST", "DTD", "FONT", "MEDIA"];
 
@@ -95,6 +106,8 @@ var policy =
     this.whitelistSchemes = {};
     for each (var scheme in prefs.whitelistschemes.toLowerCase().split(" "))
       this.whitelistSchemes[scheme] = true;
+
+    this.initObjectTabCSS();
   },
 
   /**
@@ -322,8 +335,47 @@ var policy =
 
     objTab.style.setProperty("left", ((parseInt(objTab.style.left) || 0) + leftDiff) + "px", "important");
     objTab.style.setProperty("top", ((parseInt(objTab.style.top) || 0) + topDiff) + "px", "important");
-    objTab.className = (onTop ? gObjtabClass + " " + gObjtabOnTopClass : gObjtabClass);
+    objTab.className = (onTop ? this.objtabClass + " " + this.objtabOnTopClass : this.objtabClass);
     objTab.style.removeProperty("visibility");
+  },
+
+  /**
+   * Loads objtabs.css on startup and registers it globally.
+   */
+  initObjectTabCSS: function()
+  {
+    // Generate classes for object tabs
+    this.objtabClass = "";
+    this.objtabOnTopClass = "";
+    for (let i = 0; i < 20; i++)
+    {
+      this.objtabClass += String.fromCharCode("a".charCodeAt(0) + Math.random() * 26);
+      this.objtabOnTopClass += String.fromCharCode("a".charCodeAt(0) + Math.random() * 26);
+    }
+
+    // Load CSS asynchronously (synchronous loading at startup causes weird issues)
+    try {
+      let channel = ioService.newChannel("chrome://adblockplus/content/objtabs.css", null, null);
+      channel.asyncOpen({
+        data: "",
+        onDataAvailable: function(request, context, stream, offset, count)
+        {
+          let scriptableStream = Cc["@mozilla.org/scriptableinputstream;1"].createInstance(Ci.nsIScriptableInputStream);
+          scriptableStream.init(stream);
+          this.data += scriptableStream.read(count);
+        },
+        onStartRequest: function() {},
+        onStopRequest: function()
+        {
+          let data = this.data.replace(/%%CLASSNAME%%/g, policy.objtabClass).replace(/%%ONTOP%%/g, policy.objtabOnTopClass);
+          let objtabsCSS = makeURL("data:text/css," + encodeURIComponent(data));
+          Cc["@mozilla.org/content/style-sheet-service;1"].getService(Ci.nsIStyleSheetService)
+                                                          .loadAndRegisterSheet(objtabsCSS, styleService.USER_SHEET);
+          channel = null;
+        },
+        QueryInterface: XPCOMUtils.generateQI([Ci.nsIRequestObserver, Ci.nsIStreamListener])
+      }, null);
+    } catch (e) {}
   },
 
   //
@@ -358,7 +410,7 @@ var policy =
     if (contentType == this.type.IMAGE && location.spec == "chrome://global/content/abp-dummy-image-request.png")
     {
       let objTab = node.parentNode;
-      if (objTab && typeof objTab.className == "string" && objTab.className.indexOf(gObjtabClass) == 0)
+      if (objTab && typeof objTab.className == "string" && objTab.className.indexOf(this.objtabClass) == 0)
         runAsync(this.repositionObjectTab, this, objTab);
       return block;
     }
