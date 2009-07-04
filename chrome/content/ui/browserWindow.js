@@ -110,6 +110,50 @@ function abpInit() {
   window.abpDetachedSidebar = null;
   abpReloadPrefs();
 
+  // Copy the menu from status bar icon to the toolbar
+  function fixId(node)
+  {
+    if (node.nodeType != node.ELEMENT_NODE)
+      return node;
+
+    if ("id" in node && node.id)
+      node.id = node.id.replace(/abp-status/, "abp-toolbar");
+
+    for (var child = node.firstChild; child; child = child.nextSibling)
+      fixId(child);
+
+    return node;
+  }
+  function copyMenu(to)
+  {
+    if (!to || !to.firstChild)
+      return;
+
+    to = to.firstChild;
+    var from = E("abp-status-popup");
+    for (var node = from.firstChild; node; node = node.nextSibling)
+      to.appendChild(fixId(node.cloneNode(true)));
+  }
+  let paletteButton = abpGetPaletteButton();
+  copyMenu(E("abp-toolbarbutton"));
+  copyMenu(paletteButton);
+
+  // Palette button elements aren't reachable by ID, create a lookup table
+  let paletteButtonIDs = {};
+  if (paletteButton)
+  {
+    function getElementIds(element)
+    {
+      if (element.hasAttribute("id"))
+        paletteButtonIDs[element.getAttribute("id")] = element;
+
+      for (let child = element.firstChild; child; child = child.nextSibling)
+        if (child.nodeType == Ci.nsIDOMNode.ELEMENT_NODE)
+          getElementIds(child);
+    }
+    getElementIds(paletteButton);
+  }
+
   // Register event listeners
   window.addEventListener("unload", abpUnload, false);
   for each (let [id, event, handler] in eventHandlers)
@@ -117,6 +161,9 @@ function abpInit() {
     let element = E(id);
     if (element)
       element.addEventListener(event, handler, false);
+
+    if (id in paletteButtonIDs)
+      paletteButtonIDs[id].addEventListener(event, handler, false);
   }
 
   prefs.addListener(abpReloadPrefs);
@@ -174,31 +221,6 @@ function abpInit() {
   // Run application-specific initialization
   if (abpHooks.onInit)
     abpHooks.onInit();
-
-  // Copy the menu from status bar icon to the toolbar
-  var fixId = function(node) {
-    if (node.nodeType != node.ELEMENT_NODE)
-      return node;
-
-    if ("id" in node && node.id)
-      node.id = node.id.replace(/abp-status/, "abp-toolbar");
-
-    for (var child = node.firstChild; child; child = child.nextSibling)
-      fixId(child);
-
-    return node;
-  };
-  var copyMenu = function(to) {
-    if (!to || !to.firstChild)
-      return;
-
-    to = to.firstChild;
-    var from = E("abp-status-popup");
-    for (var node = from.firstChild; node; node = node.nextSibling)
-      to.appendChild(fixId(node.cloneNode(true)));
-  };
-  copyMenu(E("abp-toolbarbutton"));
-  copyMenu(abpGetPaletteButton());
 
   abp.runAsync(abpInitImageManagerHiding);
 }
