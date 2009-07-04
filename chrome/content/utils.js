@@ -126,8 +126,6 @@ function generateClickHandler(wnd, data) {
   }
 }
 
-var objTabBinding = null;
-
 // Creates a tab above/below the new object node
 function addObjectTab(wnd, node, data, tab)
 {
