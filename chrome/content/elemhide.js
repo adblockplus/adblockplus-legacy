@@ -141,22 +141,20 @@ var elemhide =
     if (!this.url && (!prefs.enabled || !this.filters.length))
       return;
 
-    timeLine.start();
-    timeLine.log("Entered elemhide.apply()");
+    timeLine.enter("Entered elemhide.apply()");
     this.unapply();
-    timeLine.log("* elemhide.unapply() finished");
+    timeLine.log("elemhide.unapply() finished");
 
     this.isDirty = false;
 
     if (!prefs.enabled)
     {
-      timeLine.log("* elemhide.apply() done (disabled)");
-      timeLine.stop();
+      timeLine.leave("elemhide.apply() done (disabled)");
       return;
     }
 
     // Grouping selectors by domains
-    timeLine.log("* start grouping selectors");
+    timeLine.log("start grouping selectors");
     let domains = {__proto__: null};
     for each (var filter in this.filters)
     {
@@ -172,10 +170,10 @@ var elemhide =
       }
       list[filter.selector] = filter.key;
     }
-    timeLine.log("* done grouping selectors");
+    timeLine.log("done grouping selectors");
 
     // Joining domains list
-    timeLine.log("* start building CSS data");
+    timeLine.log("start building CSS data");
     let cssData = "";
     let cssTemplate = "-moz-binding: url(" + this.scheme + "://%ID%/#dummy) !important;";
 
@@ -197,20 +195,19 @@ var elemhide =
                   + '}\n';
       }
     }
-    timeLine.log("* done building CSS data");
+    timeLine.log("done building CSS data");
 
     // Creating new stylesheet
     if (cssData)
     {
-      timeLine.log("* start inserting stylesheet");
+      timeLine.log("start inserting stylesheet");
       try {
         this.url = ioService.newURI("data:text/css;charset=utf8,/*** Adblock Plus ***/" + encodeURIComponent("\n" + cssData), null, null);
         styleService.loadAndRegisterSheet(this.url, styleService.USER_SHEET);
       } catch(e) {};
-      timeLine.log("* done inserting stylesheet");
+      timeLine.log("done inserting stylesheet");
     }
-    timeLine.log("* elemhide.apply() done");
-    timeLine.stop();
+    timeLine.leave("elemhide.apply() done");
   },
 
   /**
