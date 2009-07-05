@@ -67,6 +67,8 @@
 <!ENTITY description "De volgende filters bepalen welke adressen geblokkeerd worden en welke worden toegestaan:">
 <!ENTITY filter.column "Filterregel">
 <!ENTITY filter.accesskey "F">
+<!ENTITY slow.column "Trage filters">
+<!ENTITY slow.accesskey "r">
 <!ENTITY enabled.column "Ingeschakeld">
 <!ENTITY enabled.accesskey "I">
 <!ENTITY hitcount.column "Treffers">

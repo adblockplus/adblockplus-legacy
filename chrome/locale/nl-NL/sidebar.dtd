@@ -8,6 +8,7 @@
 <!ENTITY filter.label "Filter">
 <!ENTITY state.label "Status">
 <!ENTITY size.label "Grootte">
+<!ENTITY docDomain.label "Bronpagina">
 <!ENTITY noitems.label "Geen blokkeerbare onderdelen">
 <!ENTITY whitelisted.label "Toegestane pagina">
 <!ENTITY tooltip.address.label "Adres:">
@@ -15,6 +16,7 @@
 <!ENTITY tooltip.type.blocked "(geblokkeerd)">
 <!ENTITY tooltip.type.whitelisted "(toegestaan)">
 <!ENTITY tooltip.size.label "Grootte">
+<!ENTITY tooltip.docDomain.label "Bronbagina:">
 <!ENTITY tooltip.filter.label "Toegepast filter:">
 <!ENTITY tooltip.filterSource.label "Filter bron:">
 <!ENTITY context.block.label "Blokkeer dit onderdeel">
