@@ -67,6 +67,8 @@
 <!ENTITY description "Poniższe filtry określają, na których witrynach reklamy są blokowane, a na których dozwolone">
 <!ENTITY filter.column "Reguła filtru">
 <!ENTITY filter.accesskey "R">
+<!ENTITY slow.column "Wolne filtry">
+<!ENTITY slow.accesskey "W">
 <!ENTITY enabled.column "Aktywny">
 <!ENTITY enabled.accesskey "K">
 <!ENTITY hitcount.column "Użycie">

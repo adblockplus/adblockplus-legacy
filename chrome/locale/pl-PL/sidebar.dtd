@@ -8,6 +8,7 @@
 <!ENTITY filter.label "Filtr">
 <!ENTITY state.label "Stan">
 <!ENTITY size.label "Rozmiar">
+<!ENTITY docDomain.label "Źródło dokumentu">
 <!ENTITY noitems.label "Elementy nieblokowalne">
 <!ENTITY whitelisted.label "Nieblokowana strona">
 <!ENTITY tooltip.address.label "Adres:">
@@ -15,14 +16,15 @@
 <!ENTITY tooltip.type.blocked "(zablokowany)">
 <!ENTITY tooltip.type.whitelisted "(nieblokowane)">
 <!ENTITY tooltip.size.label "Rozmiar:">
+<!ENTITY tooltip.docDomain.label "Źródło dokumentu:">
 <!ENTITY tooltip.filter.label "Działające filtry:">
 <!ENTITY tooltip.filterSource.label "Źródło filtra:">
 <!ENTITY context.block.label "Zablokuj ten element">
 <!ENTITY context.editfilter.label "Edytuj filtr w rzeczywistości">
 <!ENTITY context.whitelist.label "Dodaj regułę wyjątku dla elementu">
-<!ENTITY context.disablefilter.label "Wyłącz filtr...">
-<!ENTITY context.enablefilter.label "Włącz filtr...">
-<!ENTITY context.disablefilteronsite.label "Wyłącz ten filtr na...">
+<!ENTITY context.disablefilter.label "Wyłącz filtr…">
+<!ENTITY context.enablefilter.label "Włącz filtr…">
+<!ENTITY context.disablefilteronsite.label "Wyłącz ten filtr na…">
 <!ENTITY context.open.label "Otwórz w nowej karcie">
 <!ENTITY context.flash.label "Pokaż element w mrugającej ramce">
 <!ENTITY context.copy.label "Kopiuj adres elementu">
