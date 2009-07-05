@@ -1,3 +1,28 @@
+<!--   ***** BEGIN LICENSE BLOCK *****
+	 - Version: MPL 1.1
+	 -
+	 - The contents of this file are subject to the Mozilla Public License Version
+	 - 1.1 (the "License"); you may not use this file except in compliance with
+	 - the License. You may obtain a copy of the License at
+	 - http://www.mozilla.org/MPL/
+	 -
+	 - Software distributed under the License is distributed on an "AS IS" basis,
+	 - WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+	 - for the specific language governing rights and limitations under the
+	 - License.
+	 -
+	 - The Original Code is Adblock Plus.
+	 -
+	 - The Initial Developer of the Original Code is
+	 - Wladimir Palant.
+	 - Portions created by the Initial Developer are Copyright (C) 2006-2009
+	 - the Initial Developer. All Rights Reserved.
+	 -
+	 - Contributor(s):
+	 -
+	 - ***** END LICENSE BLOCK ***** 
+ 
+ -->
 <!ENTITY detached.title "Elementi bloccabili con Adblock Plus (separati)">
 <!ENTITY detach.label "Separa">
 <!ENTITY reattach.label "Riunisci">
@@ -8,6 +33,7 @@
 <!ENTITY filter.label "Filtro">
 <!ENTITY state.label "Stato">
 <!ENTITY size.label "Dimensione">
+<!ENTITY docDomain.label "Sorgente">
 <!ENTITY noitems.label "Nessun elemento bloccabile">
 <!ENTITY whitelisted.label "Pagina in lista di siti permessi">
 <!ENTITY tooltip.address.label "Indirizzo web:">
@@ -15,6 +41,7 @@
 <!ENTITY tooltip.type.blocked "(bloccato)">
 <!ENTITY tooltip.type.whitelisted "(in lista di siti permessi)">
 <!ENTITY tooltip.size.label "Dimensione:">
+<!ENTITY tooltip.docDomain.label "Sorgente del documento:">
 <!ENTITY tooltip.filter.label "Filtro effettivo:">
 <!ENTITY tooltip.filterSource.label "Sorgente del filtro:">
 <!ENTITY context.block.label "Blocca questo elemento">

@@ -1,5 +1,30 @@
+<!--   ***** BEGIN LICENSE BLOCK *****
+	 - Version: MPL 1.1
+	 -
+	 - The contents of this file are subject to the Mozilla Public License Version
+	 - 1.1 (the "License"); you may not use this file except in compliance with
+	 - the License. You may obtain a copy of the License at
+	 - http://www.mozilla.org/MPL/
+	 -
+	 - Software distributed under the License is distributed on an "AS IS" basis,
+	 - WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+	 - for the specific language governing rights and limitations under the
+	 - License.
+	 -
+	 - The Original Code is Adblock Plus.
+	 -
+	 - The Initial Developer of the Original Code is
+	 - Wladimir Palant.
+	 - Portions created by the Initial Developer are Copyright (C) 2006-2009
+	 - the Initial Developer. All Rights Reserved.
+	 -
+	 - Contributor(s):
+	 -
+	 - ***** END LICENSE BLOCK ***** 
+ 
+ -->
 <!ENTITY status.tooltip "Stato:">
-<!ENTITY blocked.tooltip "Elementi bloccati in questa pagina:">
+<!ENTITY blocked.tooltip "Elementi bloccati nella pagina attuale:">
 <!ENTITY filters.tooltip "Filtri maggiormente attivi:">
 <!ENTITY menuitem.label "Impostazioni di Adblock Plus">
 <!ENTITY menuitem.accesskey "A">
@@ -8,14 +33,17 @@
 <!ENTITY context.image.label "Blocca immagine con Adblock Plus">
 <!ENTITY context.object.label "Blocca oggetto con Adblock Plus">
 <!ENTITY context.frame.label "Blocca riquadro con Adblock Plus">
+<!ENTITY context.removeWhitelist.label "Riattiva Adblock Plus nella pagina attuale">
 <!ENTITY sidebar.title "Elementi bloccabili della pagina attuale">
 <!ENTITY settings.label "Impostazioni">
 <!ENTITY settings.accesskey "I">
 <!ENTITY opensidebar.label "Apri gli elementi bloccabili">
+<!--   Note: This access key should usually be the same as closesidebar.accesskey. It is the same menu item with different label depending on whether the sidebar is currently open.  -->
 <!ENTITY opensidebar.accesskey "b">
 <!ENTITY closesidebar.label "Chiudi gli elementi bloccabili">
+<!--   Note: This access key should usually be the same as opensidebar.accesskey. It is the same menu item with different label depending on whether the sidebar is currently open.  -->
 <!ENTITY closesidebar.accesskey "b">
 <!ENTITY whitelist.site.label "Disattiva per --">
-<!ENTITY whitelist.page.label "Disattiva solo per questa pagina">
+<!ENTITY whitelist.page.label "Disattiva solo per la pagina attuale">
 <!ENTITY objecttab.title "Blocca">
 <!ENTITY objecttab.tooltip "Fare clic qui per bloccare l&apos;oggetto con Adblock Plus">
