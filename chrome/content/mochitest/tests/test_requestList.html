@@ -98,7 +98,7 @@
       is(frameData.getLocation(abp.policy.type.SUBDOCUMENT, "http://localhost:1234/test1"), null, "Getting frame data from frame by location");
       is(frameData.getLocation(abp.policy.type.IMAGE, "http://localhost:1234/test.png"), imageNodeData, "Getting image data from frame  by location");
 
-      window.QueryInterface(Ci.nsIInterfaceRequestor).getInterface(Ci.nsIDOMWindowUtils).garbageCollect();
+      top.QueryInterface(Ci.nsIInterfaceRequestor).getInterface(Ci.nsIDOMWindowUtils).garbageCollect();
       ok(abp.RequestList.getDataForNode(abp.wrapNode($("frame")), true), "Frame node still has data associated with it after garbage collection");
       ok(abp.RequestList.getDataForNode(abp.wrapNode($("frame").contentDocument.getElementById("image")), true), "Image node still has data associated with it after garbage collection");
 
@@ -152,7 +152,7 @@
       is(frameData.getLocation(abp.policy.type.SUBDOCUMENT, "http://localhost:1234/test2"), null, "Getting frame data from frame by location");
       is(frameData.getLocation(abp.policy.type.SCRIPT, "http://localhost:1234/test.js"), scriptNodeData, "Getting script data from frame  by location");
 
-      window.QueryInterface(Ci.nsIInterfaceRequestor).getInterface(Ci.nsIDOMWindowUtils).garbageCollect();
+      top.QueryInterface(Ci.nsIInterfaceRequestor).getInterface(Ci.nsIDOMWindowUtils).garbageCollect();
       ok(abp.RequestList.getDataForNode(abp.wrapNode($("frame")), true), "Frame node still has data associated with it after garbage collection");
       ok(abp.RequestList.getDataForNode(abp.wrapNode($("frame").contentDocument.getElementById("script")), true), "Script node still has data associated with it after garbage collection");
 
