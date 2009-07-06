@@ -30,52 +30,46 @@
     ];
     let currentTest = -1;
 
-    function testEnabled(element, cleanup)
+    function testEnabled(element)
     {
-      let oldEnabled = abp.prefs.enabled;
-      abp.prefs.enabled = true;
-      abp.prefs.save();
+      if (!abp.prefs.enabled)
+      {
+        abp.prefs.enabled = true;
+        abp.prefs.save();
+      }
       setTimeout(function()
       {
         is(element.getAttribute("abpstate"), "active", "Checking icon state when Adblock Plus is enabled");
-
-        abp.prefs.enabled = oldEnabled;
-        cleanup();
-        abp.prefs.save();
         runNextTest();
       }, 0);
     }
 
-    function testDisabled(element, cleanup)
+    function testDisabled(element)
     {
-      let oldEnabled = abp.prefs.enabled;
-      abp.prefs.enabled = false;
-      abp.prefs.save();
+      if (abp.prefs.enabled)
+      {
+        abp.prefs.enabled = false;
+        abp.prefs.save();
+      }
       setTimeout(function()
       {
         is(element.getAttribute("abpstate"), "disabled", "Checking icon state when Adblock Plus is disabled");
-
-        abp.prefs.enabled = oldEnabled;
-        cleanup();
-        abp.prefs.save();
         runNextTest();
       }, 0);
     }
 
-    function testWhitelisted(element, cleanup)
+    function testWhitelisted(element)
     {
-      let oldEnabled = abp.prefs.enabled;
-      abp.prefs.enabled = true;
       abp.filterStorage.addFilter(abp.Filter.fromText("@@|chrome://mochikit/$document"));
-      abp.prefs.save();
+      if (!abp.prefs.enabled)
+      {
+        abp.prefs.enabled = true;
+        abp.prefs.save();
+      }
       setTimeout(function()
       {
         is(element.getAttribute("abpstate"), "whitelisted", "Checking icon state with site whitelisting");
-
-        abp.prefs.enabled = oldEnabled;
         abp.filterStorage.removeFilter(abp.Filter.fromText("@@|chrome://mochikit/$document"));
-        cleanup();
-        abp.prefs.save();
         runNextTest();
       }, 0);
     }
@@ -84,22 +78,11 @@
     {
       return function()
       {
-        let oldShowInToolbar = abp.prefs.showintoolbar;
-        abp.prefs.showintoolbar = false;
-        abp.prefs.save();
-        setTimeout(function()
-        {
-          abp.prefs.showintoolbar = true;
-          abp.prefs.save();
-          setTimeout(function()
-          {
-            let icon = getBrowserWindow().document.getElementById("abp-toolbarbutton");
-            if (icon)
-              testFunction(icon, function() { abp.prefs.showintoolbar = oldShowInToolbar; });
-            else
-              ok(false, "Toolbar icon not found in browser");
-          }, 0)
-        }, 0)
+        let icon = getBrowserWindow().document.getElementById("abp-toolbarbutton");
+        if (icon)
+          testFunction(icon, function() { abp.prefs.showintoolbar = oldShowInToolbar; });
+        else
+          ok(false, "Toolbar icon not found in browser");
       };
     }
 
@@ -107,22 +90,11 @@
     {
       return function()
       {
-        let oldShowInStatusbar = abp.prefs.showinstatusbar;
-        abp.prefs.showinstatusbar = false;
-        abp.prefs.save();
-        setTimeout(function()
-        {
-          abp.prefs.showinstatusbar = true;
-          abp.prefs.save();
-          setTimeout(function()
-          {
-            let icon = getBrowserWindow().document.getElementById("abp-status");
-            if (icon)
-              testFunction(icon, function() { abp.prefs.showinstatusbar = oldShowInStatusbar; });
-            else
-              ok(false, "Status bar icon not found in browser");
-          }, 0)
-        }, 0)
+        let icon = getBrowserWindow().document.getElementById("abp-status");
+        if (icon)
+          testFunction(icon);
+        else
+          ok(false, "Status bar icon not found in browser");
       };
     }
 
@@ -135,8 +107,40 @@
         tests[currentTest]();
     }
 
+    function start()
+    {
+      window.addEventListener("unload", stop, false);
+
+      abp.prefs.enabled = true;
+
+      // Make sure status bar and toolbar icons are shown
+      abp.prefs.showintoolbar = false;
+      abp.prefs.showinstatusbar = false;
+      abp.prefs.save();
+      setTimeout(function()
+      {
+        abp.prefs.showintoolbar = true;
+        abp.prefs.showinstatusbar = true;
+        abp.prefs.save();
+
+        setTimeout(runNextTest, 0);
+      }, 0);
+    }
+
+    function stop()
+    {
+      abp.prefs.enabled = oldEnabled;
+      abp.prefs.showintoolbar = oldShowInToolbar;
+      abp.prefs.showinstatusbar = oldShowInStatusbar;
+      abp.prefs.save();
+    }
+
+    let oldEnabled = abp.prefs.enabled;
+    let oldShowInToolbar = abp.prefs.showintoolbar;
+    let oldShowInStatusbar = abp.prefs.showinstatusbar;
+
     SimpleTest.waitForExplicitFinish();
-    addLoadEvent(runNextTest);
+    addLoadEvent(start);
   </script>
   </pre>
 </body>
