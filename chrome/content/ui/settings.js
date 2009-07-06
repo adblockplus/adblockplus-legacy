@@ -2713,7 +2713,6 @@ let treeView = {
         subscriptions.push(subscription.__proto__);
       }
 
-      subscriptionWrappers = {__proto__: null};
       filterWrappers = {__proto__: null};
 
       for each (let subscription in filterStorage.subscriptions.slice())
