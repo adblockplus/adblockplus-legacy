@@ -250,9 +250,10 @@ RequestList.getDataForNode = function(node, noParent)
     let entryKey = node.getUserData(nodeDataProp);
     if (entryKey)
     {
-      let data = RequestList.getDataForWindow(node.ownerDocument.defaultView, true);
+      let wnd = getWindow(node);
+      let data = (wnd ? RequestList.getDataForWindow(wnd, true) : null);
       if (data && entryKey in data.entries)
-      return [node, data.entries[entryKey]];
+        return [node, data.entries[entryKey]];
     }
 
     if (typeof noParent == "boolean" && noParent)
