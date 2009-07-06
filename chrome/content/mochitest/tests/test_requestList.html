@@ -61,11 +61,11 @@
       let frameData = abp.RequestList.getDataForWindow(abp.wrapNode(window.frames[0]), true);
       ok(frameData, "Frame has data associated with it");
 
-      let [dummy, frameNodeData] = abp.RequestList.getDataForNode(abp.wrapNode($("frame")), true);
-      ok(frameNodeData, "Frame node has data associated with it");
+      ok(abp.RequestList.getDataForNode(abp.wrapNode($("frame")), true), "Frame node has data associated with it");
+      let frameNodeData = abp.RequestList.getDataForNode(abp.wrapNode($("frame")), true)[1];
 
-      let [dummy2, imageNodeData] = abp.RequestList.getDataForNode(abp.wrapNode($("frame").contentDocument.getElementById("image")), true);
-      ok(imageNodeData, "Image node inside the frame has data associated with it");
+      ok(abp.RequestList.getDataForNode(abp.wrapNode($("frame").contentDocument.getElementById("image")), true), "Image node inside the frame has data associated with it");
+      let imageNodeData = abp.RequestList.getDataForNode(abp.wrapNode($("frame").contentDocument.getElementById("image")), true)[1];
 
       is(wndData.getAllLocations().length, 2, "Number of entries in the window data");
       is(wndData.getAllLocations()[0], frameNodeData, "First entry in the window data should be the frame");
@@ -98,6 +98,10 @@
       is(frameData.getLocation(abp.policy.type.SUBDOCUMENT, "http://localhost:1234/test1"), null, "Getting frame data from frame by location");
       is(frameData.getLocation(abp.policy.type.IMAGE, "http://localhost:1234/test.png"), imageNodeData, "Getting image data from frame  by location");
 
+      window.QueryInterface(Ci.nsIInterfaceRequestor).getInterface(Ci.nsIDOMWindowUtils).garbageCollect();
+      ok(abp.RequestList.getDataForNode(abp.wrapNode($("frame")), true), "Frame node still has data associated with it after garbage collection");
+      ok(abp.RequestList.getDataForNode(abp.wrapNode($("frame").contentDocument.getElementById("image")), true), "Image node still has data associated with it after garbage collection");
+
       $("frame").onload = test2Done;
       $("frame").src = "http://localhost:1234/test2";
     }
@@ -110,11 +114,11 @@
       let frameData = abp.RequestList.getDataForWindow(abp.wrapNode(window.frames[0]), true);
       ok(frameData, "Frame has data associated with it");
 
-      let [dummy, frameNodeData] = abp.RequestList.getDataForNode(abp.wrapNode($("frame")), true);
-      ok(frameNodeData, "Frame node has data associated with it");
+      ok(abp.RequestList.getDataForNode(abp.wrapNode($("frame")), true), "Frame node has data associated with it");
+      let frameNodeData = abp.RequestList.getDataForNode(abp.wrapNode($("frame")), true)[1];
 
-      let [dummy2, scriptNodeData] = abp.RequestList.getDataForNode(abp.wrapNode($("frame").contentDocument.getElementById("script")), true);
-      ok(scriptNodeData, "Script node inside the frame has data associated with it");
+      ok(abp.RequestList.getDataForNode(abp.wrapNode($("frame").contentDocument.getElementById("script")), true), "Script node inside the frame has data associated with it");
+      let scriptNodeData = abp.RequestList.getDataForNode(abp.wrapNode($("frame").contentDocument.getElementById("script")), true)[1];
 
       is(wndData.getAllLocations().length, 3, "Number of entries in the window data");
       is(wndData.getAllLocations()[0].nodes.length, 0, "First entry has no nodes");
@@ -147,6 +151,10 @@
 
       is(frameData.getLocation(abp.policy.type.SUBDOCUMENT, "http://localhost:1234/test2"), null, "Getting frame data from frame by location");
       is(frameData.getLocation(abp.policy.type.SCRIPT, "http://localhost:1234/test.js"), scriptNodeData, "Getting script data from frame  by location");
+
+      window.QueryInterface(Ci.nsIInterfaceRequestor).getInterface(Ci.nsIDOMWindowUtils).garbageCollect();
+      ok(abp.RequestList.getDataForNode(abp.wrapNode($("frame")), true), "Frame node still has data associated with it after garbage collection");
+      ok(abp.RequestList.getDataForNode(abp.wrapNode($("frame").contentDocument.getElementById("script")), true), "Script node still has data associated with it after garbage collection");
 
       $("frame").onload = null;
       SimpleTest.finish();
