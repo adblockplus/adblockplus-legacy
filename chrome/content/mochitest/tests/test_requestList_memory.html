@@ -112,7 +112,7 @@
       let entry = entries[0];
       is(entry.nodes.length, 40, "Number of associated nodes before garbage collection");
 
-      window.QueryInterface(Ci.nsIInterfaceRequestor).getInterface(Ci.nsIDOMWindowUtils).garbageCollect();
+      top.QueryInterface(Ci.nsIInterfaceRequestor).getInterface(Ci.nsIDOMWindowUtils).garbageCollect();
       is(entry.nodes.length, 0, "Number of associated nodes after garbage collection");
     }
 
@@ -127,7 +127,7 @@
       let entry = entries[0];
       is(entry.nodes.length, 40, "Number of associated nodes before garbage collection");
 
-      window.QueryInterface(Ci.nsIInterfaceRequestor).getInterface(Ci.nsIDOMWindowUtils).garbageCollect();
+      top.QueryInterface(Ci.nsIInterfaceRequestor).getInterface(Ci.nsIDOMWindowUtils).garbageCollect();
       is(entry.nodes.length, 0, "Number of associated nodes after garbage collection");
     }
 
@@ -142,7 +142,7 @@
       let entry = entries[0];
       is(entry.nodes.length, 40, "Number of associated nodes before garbage collection");
 
-      window.QueryInterface(Ci.nsIInterfaceRequestor).getInterface(Ci.nsIDOMWindowUtils).garbageCollect();
+      top.QueryInterface(Ci.nsIInterfaceRequestor).getInterface(Ci.nsIDOMWindowUtils).garbageCollect();
       is(entry.nodes.length, 40, "Number of associated nodes after garbage collection");
     }
 
@@ -157,7 +157,7 @@
       let entry = entries[0];
       is(entry._nodes.length, 40, "Number of associated nodes before garbage collection");
 
-      window.QueryInterface(Ci.nsIInterfaceRequestor).getInterface(Ci.nsIDOMWindowUtils).garbageCollect();
+      top.QueryInterface(Ci.nsIInterfaceRequestor).getInterface(Ci.nsIDOMWindowUtils).garbageCollect();
 
       // Trigger list compression by adding a node while the counter has a high value
       entry._compactCounter = 100;
@@ -173,7 +173,7 @@
       let entries = frameData.getAllLocations();
       is(entries.length, 40, "Number of entries in the frame data before garbage collection");
 
-      window.QueryInterface(Ci.nsIInterfaceRequestor).getInterface(Ci.nsIDOMWindowUtils).garbageCollect();
+      top.QueryInterface(Ci.nsIInterfaceRequestor).getInterface(Ci.nsIDOMWindowUtils).garbageCollect();
       for each (let entry in entries)
         entry.lastUpdate = 0;
 
@@ -189,7 +189,7 @@
       let entries = frameData.getAllLocations();
       is(entries.length, 40, "Number of entries in the frame data before garbage collection");
 
-      window.QueryInterface(Ci.nsIInterfaceRequestor).getInterface(Ci.nsIDOMWindowUtils).garbageCollect();
+      top.QueryInterface(Ci.nsIInterfaceRequestor).getInterface(Ci.nsIDOMWindowUtils).garbageCollect();
       for each (let entry in entries)
         entry.lastUpdate = 0;
 
@@ -205,7 +205,7 @@
       let entries = frameData.getAllLocations();
       is(entries.length, 40, "Number of entries in the frame data before garbage collection");
 
-      window.QueryInterface(Ci.nsIInterfaceRequestor).getInterface(Ci.nsIDOMWindowUtils).garbageCollect();
+      top.QueryInterface(Ci.nsIInterfaceRequestor).getInterface(Ci.nsIDOMWindowUtils).garbageCollect();
       for each (let entry in entries)
         entry.lastUpdate = 0;
 
@@ -221,7 +221,7 @@
       let entries = frameData.getAllLocations();
       is(entries.length, 40, "Number of entries in the frame data before garbage collection");
 
-      window.QueryInterface(Ci.nsIInterfaceRequestor).getInterface(Ci.nsIDOMWindowUtils).garbageCollect();
+      top.QueryInterface(Ci.nsIInterfaceRequestor).getInterface(Ci.nsIDOMWindowUtils).garbageCollect();
       for each (let entry in entries)
         entry.lastUpdate = 0;
 
