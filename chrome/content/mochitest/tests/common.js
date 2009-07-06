@@ -136,4 +136,4 @@ if (/[?&]profiler/i.test(location.href))
 }
 
 // Stub for a function that's used for profiling startup
-var timeLine = {log: function() {}};
+var timeLine = {log: function() {}, enter: function() {}, leave: function() {}};
