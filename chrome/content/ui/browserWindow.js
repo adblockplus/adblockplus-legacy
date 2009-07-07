@@ -561,20 +561,19 @@ function abpFillTooltip(event) {
  */
 function getCurrentLocation() /**nsIURI*/
 {
-  if ("currentHeaderData" in window && "content-base" in currentHeaderData)
+  if ("currentHeaderData" in window && "content-base" in window.currentHeaderData)
   {
     // Thunderbird blog entry
     return abp.unwrapURL(window.currentHeaderData["content-base"].headerValue);
   }
-  else if ("gDBView" in window)
+  else if ("currentHeaderData" in window && "from" in window.currentHeaderData)
   {
     // Thunderbird mail/newsgroup entry
     try
     {
-      let msgHdr = gDBView.hdrForFirstSelectedMessage;
       let headerParser = Cc["@mozilla.org/messenger/headerparser;1"].getService(Ci.nsIMsgHeaderParser);
-      let emailAddress = headerParser.extractHeaderAddressMailboxes(null, msgHdr.author);
-      return "mailto:" + emailAddress.replace(/^[\s"]+/, "").replace(/[\s"]+$/, "").replace(/\s/g, "%20");
+      let emailAddress = headerParser.extractHeaderAddressMailboxes(window.currentHeaderData.from.headerValue);
+      return abp.makeURL("mailto:" + emailAddress.replace(/^[\s"]+/, "").replace(/[\s"]+$/, "").replace(/\s/g, "%20"));
     }
     catch(e)
     {

@@ -18,7 +18,7 @@ pref("extensions.adblockplus.previewimages", true);
 pref("extensions.adblockplus.patternsfile", "adblockplus/patterns.ini");
 pref("extensions.adblockplus.patternsbackups", 5);
 pref("extensions.adblockplus.patternsbackupinterval", 24);
-pref("extensions.adblockplus.whitelistschemes", "about chrome file irc mailto news resource snews x-jsd addbook cid imap mailbox nntp pop data javascript moz-icon");
+pref("extensions.adblockplus.whitelistschemes", "about chrome file irc news resource snews x-jsd addbook cid imap mailbox nntp pop data javascript moz-icon");
 pref("extensions.adblockplus.hideimagemanager", true);
 pref("extensions.adblockplus.subscriptions_fallbackurl", "http://adblockplus.org/getSubscription?url=%s");
 pref("extensions.adblockplus.subscriptions_fallbackerrors", 5);
