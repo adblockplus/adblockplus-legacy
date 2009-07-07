@@ -272,10 +272,9 @@ var policy =
         {
           return this.isWhitelisted(mailWnd.currentHeaderData["content-base"].headerValue);
         }
-        else if ("gDBView" in mailWnd)
+        else if ("currentHeaderData" in mailWnd && "from" in mailWnd.currentHeaderData)
         {
-          let msgHdr = mailWnd.gDBView.hdrForFirstSelectedMessage;
-          let emailAddress = headerParser.extractHeaderAddressMailboxes(null, msgHdr.author);
+          let emailAddress = headerParser.extractHeaderAddressMailboxes(mailWnd.currentHeaderData.from.headerValue);
           if (emailAddress)
           {
             emailAddress = 'mailto:' + emailAddress.replace(/^[\s"]+/, "").replace(/[\s"]+$/, "").replace(/\s/g, '%20');
