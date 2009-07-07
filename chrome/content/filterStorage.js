@@ -698,7 +698,7 @@ var filterStorage =
 
   observe: function(subject, topic, data)
   {
-    if (topic == "browser:purge-session-history")
+    if (topic == "browser:purge-session-history" && prefs.clearStatsOnHistoryPurge)
     {
       this.resetHitCounts();
       this.saveToDisk();
