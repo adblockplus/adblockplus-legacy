@@ -24,4 +24,5 @@ pref("extensions.adblockplus.subscriptions_fallbackurl", "http://adblockplus.org
 pref("extensions.adblockplus.subscriptions_fallbackerrors", 5);
 pref("extensions.adblockplus.savestats", true);
 pref("extensions.adblockplus.composer_default", 2);
+pref("extensions.adblockplus.clearStatsOnHistoryPurge", true);
 pref("extensions.{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}.description", "chrome://adblockplus/locale/global.properties");
