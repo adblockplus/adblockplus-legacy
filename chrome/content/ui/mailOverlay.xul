@@ -34,6 +34,7 @@
     <commandset id="abp-commandset"/>
     <box id="abp-hooks" getBrowser="return window.messageContent;"
       getContextMenu="return E('messagePaneContext');"
+      getToolbox="return E('mail-toolbox')"
       getDefaultToolbar="return E('mail-bar2');" toolbarInsertBefore="return E('button-junk');"/>
   </window>
 

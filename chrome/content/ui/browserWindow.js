@@ -98,7 +98,7 @@ abpInit();
 
 function abpInit() {
   // Initialize app hooks
-  for each (let hook in ["getBrowser", "addTab", "getContextMenu", "getDefaultToolbar", "toolbarInsertBefore"])
+  for each (let hook in ["getBrowser", "addTab", "getContextMenu", "getToolbox", "getDefaultToolbar", "toolbarInsertBefore"])
   {
     let handler = abpHooks.getAttribute(hook);
     if (handler)
@@ -396,8 +396,9 @@ function handleLinkClick(/**Event*/ event)
 }
 
 // Finds the toolbar button in the toolbar palette
-function abpGetPaletteButton() {
-  var toolbox = E("navigator-toolbox") || E("mail-toolbox");
+function abpGetPaletteButton()
+{
+  let toolbox = (abpHooks.getToolbox ? abpHooks.getToolbox() : null);
   if (!toolbox || !("palette" in toolbox) || !toolbox.palette)
     return null;
 

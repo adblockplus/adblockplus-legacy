@@ -36,6 +36,7 @@
       getBrowser="return window.gBrowser;"
       addTab="window.gBrowser.addTab(arguments[0], null, null, true);"
       getContextMenu="return E('contentAreaContextMenu');"
+      getToolbox="return E('navigator-toolbox')"
       getDefaultToolbar="return E('PersonalToolbar');"  toolbarInsertBefore="return E('bookmarks-button');"/>
   </window>
 

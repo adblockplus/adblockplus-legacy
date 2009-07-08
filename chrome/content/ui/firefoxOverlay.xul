@@ -36,6 +36,7 @@
       getBrowser="return window.gBrowser;"
       addTab="window.gBrowser.loadOneTab(arguments[0], null, null, null, false);"
       getContextMenu="return E('contentAreaContextMenu');"
+      getToolbox="return E('navigator-toolbox')"
       getDefaultToolbar="return E('nav-bar');"/>
   </window>
 
@@ -48,6 +49,7 @@
       getBrowser="return window.gBrowser;"
       addTab="window.gBrowser.loadOneTab(arguments[0], null, null, null, false);"
       getContextMenu="return E('contentAreaContextMenu');"
+      getToolbox="return E('navigator-toolbox')"
       getDefaultToolbar="return E('nav-bar');"/>
   </sb-support>
 
