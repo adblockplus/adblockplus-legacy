@@ -32,7 +32,7 @@
     <popupset id="abp-popupset"/>
     <keyset id="abp-keyset"/>
     <commandset id="abp-commandset"/>
-    <box id="abp-hooks" hasToolbar="true"
+    <box id="abp-hooks"
       getBrowser="return window.gBrowser;"
       addTab="window.gBrowser.loadOneTab(arguments[0], null, null, null, false);"
       getContextMenu="return E('contentAreaContextMenu');"
@@ -44,7 +44,7 @@
     <popupset id="abp-popupset"/>
     <keyset id="abp-keyset"/>
     <commandset id="abp-commandset"/>
-    <box id="abp-hooks" hasToolbar="true"
+    <box id="abp-hooks"
       getBrowser="return window.gBrowser;"
       addTab="window.gBrowser.loadOneTab(arguments[0], null, null, null, false);"
       getContextMenu="return E('contentAreaContextMenu');"
