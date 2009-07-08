@@ -46,7 +46,7 @@
   <!-- Toolbar -->
   <toolbarpalette id="MailToolbarPalette">
     <toolbarbutton id="abp-toolbarbutton" type="menu-button" insertafter="button-junk"
-        class="chromeclass-toolbar-additional toolbarbutton-1 seamonkeyHack2"/>
+        class="chromeclass-toolbar-additional toolbarbutton-1"/>
   </toolbarpalette>
 
   <!-- Tools menu -->
