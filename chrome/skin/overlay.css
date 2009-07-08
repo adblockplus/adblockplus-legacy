@@ -44,6 +44,15 @@
   display: none;
 }
 
+#abp-toolbarbutton.seamonkeyHack .toolbarbutton-icon
+{
+  margin-top: 5px;
+}
+#abp-toolbarbutton.seamonkeyHack > .toolbarbutton-menubutton-stack > .toolbarbutton-menubutton-dropmarker
+{
+  margin-bottom: 0px;
+}
+
 toolbar[iconsize="small"] #abp-toolbarbutton,
 #PersonalToolbar #abp-toolbarbutton,
 #abp-status image {
