@@ -104,7 +104,6 @@ function abpInit() {
     if (handler)
       abpHooks[hook] = new Function(handler);
   }
-  abpHooks.hasToolbar = (abpHooks.getAttribute("hasToolbar") == "true");
 
   // Process preferences
   window.abpDetachedSidebar = null;
@@ -258,7 +257,7 @@ function abpReloadPrefs() {
       element.hidden = !prefs.showintoolbar;
 
     // HACKHACK: Show status bar icon instead of toolbar icon if the application doesn't have a toolbar icon
-    if (element.hidden && element.tagName == "statusbarpanel" && !abpHooks.hasToolbar)
+    if (element.hidden && element.tagName == "statusbarpanel" && !abpHooks.getDefaultToolbar)
       element.hidden = !prefs.showintoolbar;
 
     if (currentlyShowingInToolbar != prefs.showintoolbar)
