@@ -98,7 +98,7 @@ abpInit();
 
 function abpInit() {
   // Initialize app hooks
-  for each (let hook in ["getBrowser", "addTab", "getContextMenu", "onInit"])
+  for each (let hook in ["getBrowser", "addTab", "getContextMenu"])
   {
     let handler = abpHooks.getAttribute(hook);
     if (handler)
@@ -217,10 +217,6 @@ function abpInit() {
     // Show subscriptions dialog if the user doesn't have any subscriptions yet
     abp.runAsync(abpShowSubscriptions);
   }
-
-  // Run application-specific initialization
-  if (abpHooks.onInit)
-    abpHooks.onInit();
 
   abp.runAsync(abpInitImageManagerHiding);
 }

@@ -35,8 +35,7 @@
     <box id="abp-hooks" hasToolbar="true"
       getBrowser="return window.gBrowser;"
       addTab="window.gBrowser.addTab(arguments[0], null, null, true);"
-      getContextMenu="return E('contentAreaContextMenu');"
-      onInit="let bookmarks = E('bookmarks-button');bookmarks.parentNode.insertBefore(E('abp-toolbarbutton'), bookmarks);"/>
+      getContextMenu="return E('contentAreaContextMenu');"/>
   </window>
 
   <!-- Status bar -->
@@ -45,9 +44,11 @@
   </statusbar> 
 
   <!-- Toolbar -->
-  <toolbar id="PersonalToolbar">
-    <toolbarbutton id="abp-toolbarbutton" class="bookmark-item" hidden="true"/>
-  </toolbar>
+  <toolbarpalette id="BrowserToolbarPalette">
+    <toolbarbutton id="abp-toolbarbutton" type="menu-button" pack="end"
+        class="toolbarbutton-1 chromeclass-toolbar-additional seamonkeyHack"
+        oncontextmenu="abpCheckToolbarContext(event)"/>
+  </toolbarpalette>
 
   <!-- Tools menu -->
   <menupopup id="taskPopup">
