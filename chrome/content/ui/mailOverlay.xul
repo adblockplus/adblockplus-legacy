@@ -43,13 +43,13 @@
     <statusbarpanel id="abp-status"/>
   </statusbar> 
 
-  <!-- Thunderbird toolbar -->
+  <!-- Toolbar -->
   <toolbarpalette id="MailToolbarPalette">
     <toolbarbutton id="abp-toolbarbutton" type="menu-button" insertafter="button-junk"
         class="chromeclass-toolbar-additional toolbarbutton-1 seamonkeyHack2"/>
   </toolbarpalette>
 
-  <!-- Thunderbird/SeaMonkey Mail tools menu -->
+  <!-- Tools menu -->
   <menupopup id="taskPopup">
     <menuitem id="abp-menuitem" insertafter="downloadmgr,javaScriptConsole"/>
   </menupopup>
