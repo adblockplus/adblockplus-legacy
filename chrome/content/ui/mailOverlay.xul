@@ -45,8 +45,7 @@
   <!-- Thunderbird toolbar -->
   <toolbarpalette id="MailToolbarPalette">
     <toolbarbutton id="abp-toolbarbutton" type="menu-button" insertafter="button-junk"
-        class="chromeclass-toolbar-additional"
-        oncontextmenu="abpCheckToolbarContext(event)"/>
+        class="chromeclass-toolbar-additional"/>
   </toolbarpalette>
 
   <!-- Thunderbird/SeaMonkey Mail tools menu -->
