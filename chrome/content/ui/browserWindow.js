@@ -98,7 +98,7 @@ abpInit();
 
 function abpInit() {
   // Initialize app hooks
-  for each (let hook in ["getBrowser", "addTab", "getContextMenu"])
+  for each (let hook in ["getBrowser", "addTab", "getContextMenu", "getDefaultToolbar", "toolbarInsertBefore"])
   {
     let handler = abpHooks.getAttribute(hook);
     if (handler)
@@ -410,17 +410,15 @@ function abpGetPaletteButton() {
 }
 
 // Check whether we installed the toolbar button already
-function abpInstallInToolbar() {
-  if (!E("abp-toolbarbutton")) {
-    var insertBeforeBtn = null;
-    var toolbar = E("nav-bar");
-    if (!toolbar) {
-      insertBeforeBtn = "button-junk";
-      toolbar = E("mail-bar");
-    }
-
-    if (toolbar && "insertItem" in toolbar) {
-      var insertBefore = (insertBeforeBtn ? E(insertBeforeBtn) : null);
+function abpInstallInToolbar()
+{
+  let tb = E("abp-toolbarbutton");
+  if (!tb || tb.parentNode.localName == "toolbarpalette")
+  {
+    let toolbar = (abpHooks.getDefaultToolbar ? abpHooks.getDefaultToolbar() : null);
+    let insertBefore = (abpHooks.toolbarInsertBefore ? abpHooks.toolbarInsertBefore() : null);
+    if (toolbar && "insertItem" in toolbar)
+    {
       if (insertBefore && insertBefore.parentNode != toolbar)
         insertBefore = null;
 

@@ -35,7 +35,8 @@
     <box id="abp-hooks" hasToolbar="true"
       getBrowser="return window.gBrowser;"
       addTab="window.gBrowser.loadOneTab(arguments[0], null, null, null, false);"
-      getContextMenu="return E('contentAreaContextMenu');"/>
+      getContextMenu="return E('contentAreaContextMenu');"
+      getDefaultToolbar="return E('nav-bar');"/>
   </window>
 
   <!-- Songbird window -->
@@ -46,7 +47,8 @@
     <box id="abp-hooks" hasToolbar="true"
       getBrowser="return window.gBrowser;"
       addTab="window.gBrowser.loadOneTab(arguments[0], null, null, null, false);"
-      getContextMenu="return E('contentAreaContextMenu');"/>
+      getContextMenu="return E('contentAreaContextMenu');"
+      getDefaultToolbar="return E('nav-bar');"/>
   </sb-support>
 
   <!-- Status bar -->

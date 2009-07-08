@@ -35,7 +35,8 @@
     <box id="abp-hooks" hasToolbar="true"
       getBrowser="return window.gBrowser;"
       addTab="window.gBrowser.addTab(arguments[0], null, null, true);"
-      getContextMenu="return E('contentAreaContextMenu');"/>
+      getContextMenu="return E('contentAreaContextMenu');"
+      getDefaultToolbar="return E('PersonalToolbar');"  toolbarInsertBefore="return E('bookmarks-button');"/>
   </window>
 
   <!-- Status bar -->
