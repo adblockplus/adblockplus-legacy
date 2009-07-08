@@ -135,7 +135,8 @@ function abpInit() {
   }
   let paletteButton = abpGetPaletteButton();
   copyMenu(E("abp-toolbarbutton"));
-  copyMenu(paletteButton);
+  if (paletteButton != E("abp-toolbarbutton"))
+    copyMenu(paletteButton);
 
   // Palette button elements aren't reachable by ID, create a lookup table
   let paletteButtonIDs = {};
