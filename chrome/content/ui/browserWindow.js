@@ -660,19 +660,6 @@ function abpFillPopup(event) {
   elements.enabled.setAttribute("default", defAction == 3);
 }
 
-// Only show context menu on toolbar button in vertical toolbars
-function abpCheckToolbarContext(event) {
-  var toolbox = event.target;
-  while (toolbox && toolbox.tagName != "toolbox")
-    toolbox = toolbox.parentNode;
-
-  if (!toolbox || toolbox.getAttribute("vertical") != "true")
-    return;
-
-  event.target.open = true;
-  event.preventDefault();
-}
-
 function abpIsSidebarOpen() {
   // Test whether detached sidebar window is open
   if (window.abpDetachedSidebar && !window.abpDetachedSidebar.closed)
