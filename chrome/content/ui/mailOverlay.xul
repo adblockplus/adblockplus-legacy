@@ -46,7 +46,7 @@
   <!-- Thunderbird toolbar -->
   <toolbarpalette id="MailToolbarPalette">
     <toolbarbutton id="abp-toolbarbutton" type="menu-button" insertafter="button-junk"
-        class="chromeclass-toolbar-additional"/>
+        class="chromeclass-toolbar-additional toolbarbutton-1 seamonkeyHack2"/>
   </toolbarpalette>
 
   <!-- Thunderbird/SeaMonkey Mail tools menu -->
