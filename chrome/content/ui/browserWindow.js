@@ -24,7 +24,6 @@
 
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 
-var abpHideImageManager;
 var RequestList = abp.RequestList;
 
 /**
@@ -315,23 +314,40 @@ function abpReloadPrefs() {
   updateElement(abpGetPaletteButton());
 }
 
-function abpInitImageManagerHiding() {
-  if (!abp || typeof abpHideImageManager != "undefined")
-    return;
+/**
+ * Tests whether image manager context menu entry should be hidden with user's current preferences.
+ * @return Boolean
+ */
+function shouldHideImageManager()
+{
+  if (typeof arguments.callee._result != "undefined")
+    return arguments.callee._result;
 
-  abpHideImageManager = false;
-  if (prefs.hideimagemanager && "@mozilla.org/permissionmanager;1" in Cc) {
-    try {
-      abpHideImageManager = true;
-      var permissionManager = Cc["@mozilla.org/permissionmanager;1"].getService(Ci.nsIPermissionManager);
-      var enumerator = permissionManager.enumerator;
-      while (abpHideImageManager && enumerator.hasMoreElements()) {
-        var item = enumerator.getNext().QueryInterface(Ci.nsIPermission);
+  let result = false;
+  if (prefs.hideimagemanager && "@mozilla.org/permissionmanager;1" in Cc)
+  {
+    try
+    {
+      result = true;
+      let enumerator = Cc["@mozilla.org/permissionmanager;1"].getService(Ci.nsIPermissionManager).enumerator;
+      while (enumerator.hasMoreElements())
+      {
+        let item = enumerator.getNext().QueryInterface(Ci.nsIPermission);
         if (item.type == "image" && item.capability == Ci.nsIPermissionManager.DENY_ACTION)
-          abpHideImageManager = false;
+        {
+          result = false;
+          break;
+        }
       }
-    } catch(e) {}
+    }
+    catch(e)
+    {
+      result = false;
+    }
   }
+
+  arguments.callee._result = result;
+  return result;
 }
 
 function abpConfigureKey(key, value) {
@@ -814,12 +830,10 @@ function abpCheckContext() {
 
     // Hide "Block Images from ..." if hideimagemanager pref is true and the image manager isn't already blocking something
     var imgManagerContext = E("context-blockimage");
-    if (imgManagerContext) {
-      if (typeof abpHideImageManager == "undefined")
-        abpInitImageManagerHiding();
-
+    if (imgManagerContext && shouldHideImageManager())
+    {
       // Don't use "hidden" attribute - it might be overridden by the default popupshowing handler
-      imgManagerContext.style.display = (abpHideImageManager ? "none" : "");
+      imgManagerContext.collapsed = true;
     }
   }
 
