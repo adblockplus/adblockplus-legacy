@@ -67,6 +67,8 @@
 <!ENTITY description "ตัวกรองต่อไปนี้ระบุว่าที่อยู่ใดควรจะถูกบล็อกและที่อยู่ใดควรให้ผ่าน:">
 <!ENTITY filter.column "กฎตัวกรอง">
 <!ENTITY filter.accesskey "ต">
+<!ENTITY slow.column "ทำให้ตัวกรองช้าลง">
+<!ENTITY slow.accesskey "ง">
 <!ENTITY enabled.column "เปิดการใช้งาน">
 <!ENTITY enabled.accesskey "ป">
 <!ENTITY hitcount.column "นับ">
