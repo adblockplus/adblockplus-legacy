@@ -67,6 +67,8 @@
 <!ENTITY description "Следећи филтери одређују које ће адресе бити блокиране, а које дозвољене:">
 <!ENTITY filter.column "Правило филтера">
 <!ENTITY filter.accesskey "ф">
+<!ENTITY slow.column "Спори филтери">
+<!ENTITY slow.accesskey "п">
 <!ENTITY enabled.column "Укључен">
 <!ENTITY enabled.accesskey "н">
 <!ENTITY hitcount.column "Број погодака">
