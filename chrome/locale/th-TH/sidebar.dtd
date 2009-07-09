@@ -8,6 +8,7 @@
 <!ENTITY filter.label "ตัวกรอง">
 <!ENTITY state.label "สถานะ">
 <!ENTITY size.label "ขนาด">
+<!ENTITY docDomain.label "แหล่งที่มาเอกสาร">
 <!ENTITY noitems.label "ไม่มีรายการที่บล็อคได้">
 <!ENTITY whitelisted.label "หน้าที่ถูกขึ้นบัญชีขาว">
 <!ENTITY tooltip.address.label "ที่อยู่:">
@@ -15,6 +16,7 @@
 <!ENTITY tooltip.type.blocked "(ถูกบล็อค)">
 <!ENTITY tooltip.type.whitelisted "(ขึ้นบัญชีขาว)">
 <!ENTITY tooltip.size.label "ขนาด:">
+<!ENTITY tooltip.docDomain.label "แหล่งที่มาเอกสาร:">
 <!ENTITY tooltip.filter.label "เป็นผลมาจากตัวกรอง:">
 <!ENTITY tooltip.filterSource.label "ตัวกรองแหล่งที่มา:">
 <!ENTITY context.block.label "บล็อครายการนี้">

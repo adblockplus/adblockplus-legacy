@@ -5,6 +5,9 @@
 <!ENTITY disabled.warning.beforeLink "Adblock Plus ถูกปิดใช้งานอยู่ คุณยังคงสามารถเพิ่มตัวกรองได้แต่จะไม่ถูกใช้งานจนกว่าคุณ">
 <!ENTITY disabled.warning.link "เปิดใช้งาน Adblock Plus">
 <!ENTITY disabled.warning.afterLink ".">
+<!ENTITY groupDisabled.warning.beforeLink "กลุ่มตัวกรอง &quot;&#x25;S&quot; ว่าตัวกรองที่เพิ่มกำลังถูกปิดการใช้งาน คุณยังคงสามารถเพิ่มตัวกรองได้แต่จะไม่ใช้งานจนกว่า">
+<!ENTITY groupDisabled.warning.link "เปิดใช้งานกลุ่มตัวกรอง">
+<!ENTITY groupDisabled.warning.afterLink ".">
 <!ENTITY filter.label "ตัวกรองใหม่:">
 <!ENTITY filter.accesskey "ต">
 <!ENTITY preferences.label "แสดงตัวกรองที่มีอยู่...">
@@ -22,6 +25,8 @@
 <!ENTITY anchors.label "รับเฉพาะรูปแบบ:">
 <!ENTITY anchor.start.label "ที่หน้าๆของที่อยู่">
 <!ENTITY anchor.start.accesskey "น">
+<!ENTITY anchor.start.flexible.label "ส่วนต้นของชื่อโดเมน">
+<!ENTITY anchor.start.flexible.accesskey "น">
 <!ENTITY anchor.end.label "ที่ท้ายๆของที่อยู่">
 <!ENTITY anchor.end.accesskey "ท">
 <!ENTITY options.label "ตัวเลือก">

@@ -1,13 +1,14 @@
 <!ENTITY status.tooltip "สถานะ:">
 <!ENTITY blocked.tooltip "สิ่งที่บล็อกในหน้านี้:">
 <!ENTITY filters.tooltip "ตัวกรองที่ใช้งานมากที่สุด:">
-<!ENTITY menuitem.label "Adblock Plus">
-<!ENTITY menuitem.accesskey "B">
+<!ENTITY menuitem.label "ปรับแต่ง Adblock Plus">
+<!ENTITY menuitem.accesskey "ป">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY view.blockableItems.label "Adblock Plus: วัตถุที่บล็อกได้">
 <!ENTITY context.image.label "Adblock รูปภาพ">
 <!ENTITY context.object.label "Adblock สิ่งของ">
 <!ENTITY context.frame.label "Adblock กรอบความ">
+<!ENTITY context.removeWhitelist.label "Adblock Plus: เปิดใช้งานอีกครั้งในหน้านี้">
 <!ENTITY sidebar.title "รายการที่บล็อกได้ในหน้าล่าสุด">
 <!ENTITY settings.label "ปรับแต่ง">
 <!ENTITY settings.accesskey "ป">
