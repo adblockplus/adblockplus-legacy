@@ -240,8 +240,6 @@ function abpInit() {
         abp.runAsync(abpInstallInToolbar);
     }
   }
-
-  abp.runAsync(abpInitImageManagerHiding);
 }
 
 function abpUnload()
