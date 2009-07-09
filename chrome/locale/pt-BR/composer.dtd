@@ -5,6 +5,9 @@
 <!ENTITY disabled.warning.beforeLink "O Adblock Plus está atualmente desativado. Você ainda pode adicionar filtro mas eles não serão aplicados enquanto você não">
 <!ENTITY disabled.warning.link "ativar o Adblock Plus">
 <!ENTITY disabled.warning.afterLink ".">
+<!ENTITY groupDisabled.warning.beforeLink "O grupo de filtros &quot;&#x25;S&quot; a que esse filtro deveria ser adicionado está atualmente desativada. Você ainda pode adicionar o filtro, mas ele não será aplicado até que">
+<!ENTITY groupDisabled.warning.link "ative o grupo de filtros">
+<!ENTITY groupDisabled.warning.afterLink ".">
 <!ENTITY filter.label "Novo filtro:">
 <!ENTITY filter.accesskey "f">
 <!ENTITY preferences.label "Mostrar filtros existentes...">
@@ -22,6 +25,8 @@
 <!ENTITY anchors.label "Aceitar somente padrão:">
 <!ENTITY anchor.start.label "no começo do endereço">
 <!ENTITY anchor.start.accesskey "c">
+<!ENTITY anchor.start.flexible.label "no começo do nome do domínio">
+<!ENTITY anchor.start.flexible.accesskey "c">
 <!ENTITY anchor.end.label "no final do endereço">
 <!ENTITY anchor.end.accesskey "i">
 <!ENTITY options.label "Opções">
