@@ -43,7 +43,7 @@
 <description id="title" value="&caption.title;"/>
 <hbox align="baseline">
   <label control="version" value="&version.title;"/>
-  <textbox id="version" class="plain" readonly="true" tabindex="-1"/>
+  <textbox id="version" flex="1" class="plain" readonly="true" tabindex="-1"/>
 </hbox>
 
 <groupbox id="mainGroup">
