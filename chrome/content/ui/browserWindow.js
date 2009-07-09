@@ -479,16 +479,8 @@ function abpShowSubscriptions()
     if (subscription instanceof abp.DownloadableSubscription)
       return;
 
-  let browser = abpHooks.getBrowser();
-  if ("addTab" in browser)
-  {
-    // We have a tabbrowser
-    browser.selectedTab = browser.addTab("chrome://adblockplus/content/ui/tip_subscriptions.xul");
-  }
-  else
-  {
+  if (!abpHooks.addTab || abpHooks.addTab("chrome://adblockplus/content/ui/tip_subscriptions.xul") === false)
     window.openDialog("chrome://adblockplus/content/ui/tip_subscriptions.xul", "_blank", "chrome,centerscreen,resizable,dialog=no");
-  }
 }
 
 function abpFillTooltip(event) {
