@@ -71,6 +71,11 @@ var policy =
    * @type String
    */
   objtabOnTopClass: null,
+  /**
+   * Randomly generated property name to be set for object tab nodes.
+   * @type String
+   */
+  objtabMarker: null,
 
   init: function() {
     var types = ["OTHER", "SCRIPT", "IMAGE", "STYLESHEET", "OBJECT", "SUBDOCUMENT", "DOCUMENT", "XBL", "PING", "XMLHTTPREQUEST", "OBJECT_SUBREQUEST", "DTD", "FONT", "MEDIA"];
@@ -106,6 +111,17 @@ var policy =
     this.whitelistSchemes = {};
     for each (var scheme in prefs.whitelistschemes.toLowerCase().split(" "))
       this.whitelistSchemes[scheme] = true;
+
+    // Generate identifiers for object tabs
+    this.objtabClass = "";
+    this.objtabOnTopClass = "";
+    this.objtabMarker = "abpObjTab"
+    for (let i = 0; i < 20; i++)
+    {
+      this.objtabClass += String.fromCharCode("a".charCodeAt(0) + Math.random() * 26);
+      this.objtabOnTopClass += String.fromCharCode("a".charCodeAt(0) + Math.random() * 26);
+      this.objtabMarker += String.fromCharCode("a".charCodeAt(0) + Math.random() * 26);
+    }
 
     this.initObjectTabCSS();
   },
@@ -181,20 +197,11 @@ var policy =
           node.ownerDocument && /^text\/|[+\/]xml$/.test(node.ownerDocument.contentType))
       {
         // Before adding object tabs always check whether one exist already
-        let hasObjectTab = (node.nextSibling && "abpObjTab" in node.nextSibling);
-        let entry = data.getLocation(this.type.OBJECT, locationText);
-        if (entry)
-        {
-          let nodes = entry.nodes;
-          let index = nodes.indexOf(node);
-          if (index >= 0 && index < nodes.length - 1 && "abpObjTab" in nodes[index + 1])
-            hasObjectTab = true;
-        }
-
+        let hasObjectTab = (node.nextSibling && node.nextSibling.getUserData(this.objtabMarker));
         if (!hasObjectTab)
         {
           objTab = node.ownerDocument.createElementNS("http://www.w3.org/1999/xhtml", "a");
-          objTab.abpObjTab = true;
+          objTab.setUserData(this.objtabMarker, true, null);
         }
       }
     }
@@ -343,15 +350,6 @@ var policy =
    */
   initObjectTabCSS: function()
   {
-    // Generate classes for object tabs
-    this.objtabClass = "";
-    this.objtabOnTopClass = "";
-    for (let i = 0; i < 20; i++)
-    {
-      this.objtabClass += String.fromCharCode("a".charCodeAt(0) + Math.random() * 26);
-      this.objtabOnTopClass += String.fromCharCode("a".charCodeAt(0) + Math.random() * 26);
-    }
-
     // Load CSS asynchronously (synchronous loading at startup causes weird issues)
     try {
       let channel = ioService.newChannel("chrome://adblockplus/content/objtabs.css", null, null);
@@ -409,7 +407,7 @@ var policy =
     if (contentType == this.type.IMAGE && location.spec == "chrome://global/content/abp-dummy-image-request.png")
     {
       let objTab = node.parentNode;
-      if (objTab && "abpObjTab" in objTab)
+      if (objTab && objTab.getUserData(this.objtabMarker))
         runAsync(this.repositionObjectTab, this, objTab);
       return block;
     }
@@ -498,7 +496,7 @@ var policy =
         let nodes = data[i].clearNodes();
         for each (let node in nodes)
         {
-          if ("abpObjTab" in node)
+          if (node.getUserData(this.objtabMarker))
           {
             // Remove object tabs
             if (node.parentNode)
