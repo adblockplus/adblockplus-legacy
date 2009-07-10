@@ -41,7 +41,7 @@
 <script type="application/x-javascript;version=1.7" src="about.js"/>
 
 <description id="title" value="&caption.title;"/>
-<hbox align="baseline">
+<hbox align="start">
   <label control="version" value="&version.title;"/>
   <textbox id="version" flex="1" class="plain" readonly="true" tabindex="-1"/>
 </hbox>
