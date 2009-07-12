@@ -2,9 +2,12 @@
 <!ENTITY accept.label "Додати фільтр">
 <!ENTITY advanced.label "Складний вигляд">
 <!ENTITY basic.label "Простий вигляд">
-<!ENTITY disabled.warning.beforeLink "Adblock Plus наразі вимкнений. Ви все одно можете додавати фільтри, але вони не застосуються доки ви">
+<!ENTITY disabled.warning.beforeLink "Adblock Plus наразі вимкнений. Ви все одно можете додавати фільтри, але вони не застосуються. Хіба що ви можете">
 <!ENTITY disabled.warning.link "увімкнути Adblock Plus">
 <!ENTITY disabled.warning.afterLink ".">
+<!ENTITY groupDisabled.warning.beforeLink "Група фільтрів &quot;&#37;S&quot; до котрої додається цей фільтр наразі вимкнена. Ви можете все одно додати його, але він не буде застосований. Хіба що ви можете">
+<!ENTITY groupDisabled.warning.link "увімкнути групу фільтрів">
+<!ENTITY groupDisabled.warning.afterLink ".">
 <!ENTITY filter.label "Новий фільтр:">
 <!ENTITY filter.accesskey "ф">
 <!ENTITY preferences.label "Показати існуючі фільтри…">
@@ -22,9 +25,14 @@
 <!ENTITY anchors.label "Шаблон має бути">
 <!ENTITY anchor.start.label "на початку адреси">
 <!ENTITY anchor.start.accesskey "п">
+<!ENTITY anchor.start.flexible.label "на початку імені домена">
+<!ENTITY anchor.start.flexible.accesskey "п">
 <!ENTITY anchor.end.label "при кінці адреси">
 <!ENTITY anchor.end.accesskey "к">
 <!ENTITY options.label "Настройки">
+<!ENTITY domainRestriction.label "Обмежити доменом">
+<!ENTITY domainRestriction.accesskey "м">
+<!ENTITY domainRestriction.help "Вкажіть один чи більше доменів, розділених символом „|“, фільтр буде застосовано лише на них. Символ „~“ перед іменем домена вказує що фільтр на цей домен не розповсюджується.">
 <!ENTITY firstParty.label "Той же сайт">
 <!ENTITY firstParty.accesskey "й">
 <!ENTITY thirdParty.label "Сторонній сайт">
@@ -32,6 +40,8 @@
 <!ENTITY matchCase.label "Враховувати регістр">
 <!ENTITY matchCase.accesskey "р">
 <!ENTITY types.label "Застосовувати до об’єктів:">
+<!ENTITY selectAllTypes.label "Вибрати все">
+<!ENTITY unselectAllTypes.label "Скинути все">
 <!ENTITY collapse.label "Згортати заблоковане:">
 <!ENTITY collapse.accesskey "г">
 <!ENTITY collapse.default.yes.label "Як завжди (так)">

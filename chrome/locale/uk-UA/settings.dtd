@@ -53,6 +53,9 @@
 <!ENTITY collapse.accesskey "о">
 <!ENTITY help.label "Довідка">
 <!ENTITY help.accesskey "о">
+<!ENTITY gettingStarted.label "Початківцям">
+<!ENTITY gettingStarted.accesskey "П">
+<!ENTITY gettingStarted.url "http://adblockplus.org/en/getting_started">
 <!ENTITY faq.label "Питання, що часто ставляться (англійською)">
 <!ENTITY faq.accesskey "и">
 <!ENTITY faq.url "http://adblockplus.org/en/faq">
@@ -61,12 +64,11 @@
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Про Adblock Plus">
 <!ENTITY about.accesskey "о">
-<!ENTITY description "Додайте адреси, які хочете заблокувати. Для підказок подивіться випадний
-	список. Ви можете створити і більш загальні фільтри, для цього замініть частину адреси
-	зірочкою (*). Досвідчені користувачі можуть також використовувати регулярні
-	вирази, наприклад /banner\d+\.gif$/.">
+<!ENTITY description "Наступні фільтри визначають які адреси блокуються та які дозволяються:">
 <!ENTITY filter.column "Правило фільтрування">
 <!ENTITY filter.accesskey "ф">
+<!ENTITY slow.column "Повільні фільтри">
+<!ENTITY slow.accesskey "і">
 <!ENTITY enabled.column "Увімкнено">
 <!ENTITY enabled.accesskey "в">
 <!ENTITY hitcount.column "Попадань">
