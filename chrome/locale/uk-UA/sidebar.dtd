@@ -8,6 +8,7 @@
 <!ENTITY filter.label "Фільтр">
 <!ENTITY state.label "Статус">
 <!ENTITY size.label "Розмір">
+<!ENTITY docDomain.label "Джерело документа">
 <!ENTITY noitems.label "Блокувати нічого">
 <!ENTITY whitelisted.label "Дозволений на цій сторінці">
 <!ENTITY tooltip.address.label "Адреса:">
@@ -15,6 +16,7 @@
 <!ENTITY tooltip.type.blocked "(заблокований)">
 <!ENTITY tooltip.type.whitelisted "(виняток)">
 <!ENTITY tooltip.size.label "Розмір:">
+<!ENTITY tooltip.docDomain.label "Джерело документа:">
 <!ENTITY tooltip.filter.label "Застосований фільтр:">
 <!ENTITY tooltip.filterSource.label "Джерело фільтра:">
 <!ENTITY context.block.label "Заблокувати елемент">
@@ -22,6 +24,7 @@
 <!ENTITY context.whitelist.label "Вказати елемент як виняток">
 <!ENTITY context.disablefilter.label "Вимкнути фільтр --">
 <!ENTITY context.enablefilter.label "Знов увімкнути фільтр --">
+<!ENTITY context.disablefilteronsite.label "Вимкнути цей фільтр на --">
 <!ENTITY context.open.label "Відкрити в новій вкладці">
 <!ENTITY context.flash.label "Показати розташування елементу">
 <!ENTITY context.copy.label "Копіювати адресу">
