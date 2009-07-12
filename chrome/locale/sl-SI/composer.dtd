@@ -5,6 +5,9 @@
 <!ENTITY disabled.warning.beforeLink "Adblock Plus je trenutno onemogočen. Še vedno lahko dodajate filtre, vendar ne bodo veljali, če ne">
 <!ENTITY disabled.warning.link "omogočite Adblock Plus">
 <!ENTITY disabled.warning.afterLink ".">
+<!ENTITY groupDisabled.warning.beforeLink "Skupina filtrov &quot;&#37;S&quot;, kateri naj bo dodan ta filter, je trenutno onemogočena. Še vedno ji lahko dodate filter, vendar ne bo deloval, razen če ne">
+<!ENTITY groupDisabled.warning.link "omogočite skupine filtrov">
+<!ENTITY groupDisabled.warning.afterLink ".">
 <!ENTITY filter.label "Nov filter:">
 <!ENTITY filter.accesskey "f">
 <!ENTITY preferences.label "Pokaži obstoječe filtre ...">
@@ -21,7 +24,9 @@
 <!ENTITY custom.pattern.accesskey "m">
 <!ENTITY anchors.label "Sprejmi le vzorec:">
 <!ENTITY anchor.start.label "na začetku naslova">
-<!ENTITY anchor.start.accesskey "t">
+<!ENTITY anchor.start.accesskey "z">
+<!ENTITY anchor.start.flexible.label "na začetku imena domene">
+<!ENTITY anchor.start.flexible.accesskey "z">
 <!ENTITY anchor.end.label "na koncu naslova">
 <!ENTITY anchor.end.accesskey "k">
 <!ENTITY options.label "Možnosti">
@@ -31,7 +36,7 @@
 <!ENTITY firstParty.label "Samo prve stranke">
 <!ENTITY firstParty.accesskey "p">
 <!ENTITY thirdParty.label "Samo zunanje stranke">
-<!ENTITY thirdParty.accesskey "z">
+<!ENTITY thirdParty.accesskey "n">
 <!ENTITY matchCase.label "Razlikuj velike/male črke">
 <!ENTITY matchCase.accesskey "č">
 <!ENTITY types.label "Uporabi za vrste:">

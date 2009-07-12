@@ -8,6 +8,7 @@
 <!ENTITY filter.label "Filter">
 <!ENTITY state.label "Stanje">
 <!ENTITY size.label "Velikost">
+<!ENTITY docDomain.label "Vir dokumenta">
 <!ENTITY noitems.label "Ni elementov blokiranja">
 <!ENTITY whitelisted.label "Dovoljena stran">
 <!ENTITY tooltip.address.label "Naslov:">
@@ -15,6 +16,7 @@
 <!ENTITY tooltip.type.blocked "(blokirano)">
 <!ENTITY tooltip.type.whitelisted "(dovoljeno)">
 <!ENTITY tooltip.size.label "Velikost:">
+<!ENTITY tooltip.docDomain.label "Vir dokumenta:">
 <!ENTITY tooltip.filter.label "Trenutni filter:">
 <!ENTITY tooltip.filterSource.label "Vir filtra:">
 <!ENTITY context.block.label "Blokiraj ta element">

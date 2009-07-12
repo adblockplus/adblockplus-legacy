@@ -67,6 +67,8 @@
 <!ENTITY description "Dodajte naslove, ki bi jih radi blokirali, za nasvete preverite seznamsko polje. Uporabite lahko * za izdelavo bolj splošnih filtrov. Napredni uporabniki lahko uporabite regularne izraze kot je /banner\d+\.gif$/.">
 <!ENTITY filter.column "Pravilo filtra">
 <!ENTITY filter.accesskey "f">
+<!ENTITY slow.column "Počasni filtri">
+<!ENTITY slow.accesskey "č">
 <!ENTITY enabled.column "Omogočeno">
 <!ENTITY enabled.accesskey "m">
 <!ENTITY hitcount.column "Zadetki">
