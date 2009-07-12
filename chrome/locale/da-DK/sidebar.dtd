@@ -8,6 +8,7 @@
 <!ENTITY filter.label "Filter">
 <!ENTITY state.label "Tilstand">
 <!ENTITY size.label "Størrelse">
+<!ENTITY docDomain.label "Dokument-kilde">
 <!ENTITY noitems.label "Ingen blokérbare emner">
 <!ENTITY whitelisted.label "Hvidlistet side">
 <!ENTITY tooltip.address.label "Adresse:">
@@ -15,6 +16,7 @@
 <!ENTITY tooltip.type.blocked "(blokeret)">
 <!ENTITY tooltip.type.whitelisted "(hvidlistet)">
 <!ENTITY tooltip.size.label "Størrelse:">
+<!ENTITY tooltip.docDomain.label "Dokument-kilde:">
 <!ENTITY tooltip.filter.label "Fungerende filter:">
 <!ENTITY tooltip.filterSource.label "Filter kilde:">
 <!ENTITY context.block.label "Blokér dette element">

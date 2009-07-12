@@ -67,6 +67,8 @@
 <!ENTITY description "Følgende filtre afgør hvilke adresser der skal blokeres og hvilke der skal tillades:">
 <!ENTITY filter.column "Filterregel">
 <!ENTITY filter.accesskey "F">
+<!ENTITY slow.column "Langsomme filtre">
+<!ENTITY slow.accesskey "o">
 <!ENTITY enabled.column "Slået til">
 <!ENTITY enabled.accesskey "l">
 <!ENTITY hitcount.column "Hits">
