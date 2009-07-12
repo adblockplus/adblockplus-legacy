@@ -68,6 +68,8 @@
 يمكنك أن تستعمل الرمز * لإنشاء فلاتر عامة. المستخدمين المتقدمين يمكنهم استخدام بعض التعبيرات النظامية مثل /banner\d+\.gif$/">
 <!ENTITY filter.column "قانون الفلتر">
 <!ENTITY filter.accesskey "ف">
+<!ENTITY slow.column "عرض الفلاتر">
+<!ENTITY slow.accesskey "ع">
 <!ENTITY enabled.column "مشغل">
 <!ENTITY enabled.accesskey "غ">
 <!ENTITY hitcount.column "الضغطات">

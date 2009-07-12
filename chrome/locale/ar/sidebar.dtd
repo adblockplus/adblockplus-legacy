@@ -8,6 +8,7 @@
 <!ENTITY filter.label "الفلتر">
 <!ENTITY state.label "الحالة">
 <!ENTITY size.label "الحجم">
+<!ENTITY docDomain.label "مصدر الملف">
 <!ENTITY noitems.label "لا عناصر محجوبة">
 <!ENTITY whitelisted.label "صفحة موثوقة">
 <!ENTITY tooltip.address.label "العنوان">
@@ -15,6 +16,7 @@
 <!ENTITY tooltip.type.blocked "(محجوب)">
 <!ENTITY tooltip.type.whitelisted "(موثوق)">
 <!ENTITY tooltip.size.label "الحجم:">
+<!ENTITY tooltip.docDomain.label "مصدر الملف:">
 <!ENTITY tooltip.filter.label "الفلتر الفعال">
 <!ENTITY tooltip.filterSource.label "مصدر الفلتر:">
 <!ENTITY context.block.label "حجب هذا العنصر">
