@@ -8,6 +8,7 @@
 <!ENTITY filter.label "Filter">
 <!ENTITY state.label "Tillstånd">
 <!ENTITY size.label "Storlek">
+<!ENTITY docDomain.label "Dokumentkälla">
 <!ENTITY noitems.label "Inget att blockera">
 <!ENTITY whitelisted.label "Vitlistad sida">
 <!ENTITY tooltip.address.label "Adress:">
@@ -15,6 +16,7 @@
 <!ENTITY tooltip.type.blocked "(blockerad)">
 <!ENTITY tooltip.type.whitelisted "(vitlistad)">
 <!ENTITY tooltip.size.label "Storlek:">
+<!ENTITY tooltip.docDomain.label "Dokumentkälla:">
 <!ENTITY tooltip.filter.label "Filter som används:">
 <!ENTITY tooltip.filterSource.label "Filterkälla:">
 <!ENTITY context.block.label "Blockera detta objekt">

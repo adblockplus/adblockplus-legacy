@@ -8,6 +8,7 @@
 <!ENTITY context.image.label "Adblock Bild">
 <!ENTITY context.object.label "Adblock Objekt">
 <!ENTITY context.frame.label "Adblock Ram">
+<!ENTITY context.removeWhitelist.label "Adblock Plus: Återaktivera på denna sida">
 <!ENTITY sidebar.title "Objekt att blockera på denna sida">
 <!ENTITY settings.label "Inställningar">
 <!ENTITY settings.accesskey "I">

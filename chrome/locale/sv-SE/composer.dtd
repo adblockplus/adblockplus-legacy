@@ -5,6 +5,9 @@
 <!ENTITY disabled.warning.beforeLink "Adblock Plus är inaktiverad. Du kan lägga till filter men kan inte användas förrän du">
 <!ENTITY disabled.warning.link "aktiverar Adblock Plus">
 <!ENTITY disabled.warning.afterLink ".">
+<!ENTITY groupDisabled.warning.beforeLink "Filtergruppen &quot;&#37;S&quot; som detta filter skulle läggas till i är f.n. avaktiverat. Du kan fortfarande lägga till det men kommer fungera">
+<!ENTITY groupDisabled.warning.link "först när du aktiverar gruppen">
+<!ENTITY groupDisabled.warning.afterLink ".">
 <!ENTITY filter.label "Nytt filter:">
 <!ENTITY filter.accesskey "N">
 <!ENTITY preferences.label "Visa filter...">
@@ -21,7 +24,9 @@
 <!ENTITY custom.pattern.accesskey "E">
 <!ENTITY anchors.label "Acceptera endast mönster:">
 <!ENTITY anchor.start.label "i början av adresser">
-<!ENTITY anchor.start.accesskey "b">
+<!ENTITY anchor.start.accesskey "ö">
+<!ENTITY anchor.start.flexible.label "i början av domännamnet">
+<!ENTITY anchor.start.flexible.accesskey "ö">
 <!ENTITY anchor.end.label "i slutet av adresser">
 <!ENTITY anchor.end.accesskey "t">
 <!ENTITY options.label "Inställningar">
