@@ -5,6 +5,9 @@
 <!ENTITY disabled.warning.beforeLink "Adblock Plus sedang dinyahaktifkan. Anda masih boleh menambah penapis tetapi tambahan anda tidak akan aktif sehingga anda">
 <!ENTITY disabled.warning.link "aktifkan Adblock Plus">
 <!ENTITY disabled.warning.afterLink ".">
+<!ENTITY groupDisabled.warning.beforeLink "Kumpulan penapis &quot;&#x25;S&quot; bahawa penapis ini sedah nyah aktif. Anda masih boleh menambah penapis tetapi penapis tersebut tidak akan digunakan kecuali anda">
+<!ENTITY groupDisabled.warning.link "aktifkan kumpulan penapis">
+<!ENTITY groupDisabled.warning.afterLink ".">
 <!ENTITY filter.label "Penapis baru:">
 <!ENTITY filter.accesskey "r">
 <!ENTITY preferences.label "Papar penapis sedia ada...">
@@ -22,9 +25,14 @@
 <!ENTITY anchors.label "Terima pola sahaja:">
 <!ENTITY anchor.start.label "pada permulaan alamat">
 <!ENTITY anchor.start.accesskey "m">
+<!ENTITY anchor.start.flexible.label "pada permulaan nama domain">
+<!ENTITY anchor.start.flexible.accesskey "m">
 <!ENTITY anchor.end.label "pada akhir alamat">
-<!ENTITY anchor.end.accesskey "d">
+<!ENTITY anchor.end.accesskey "k">
 <!ENTITY options.label "Opsyen">
+<!ENTITY domainRestriction.label "Sekat kepada domain:">
+<!ENTITY domainRestriction.accesskey "d">
+<!ENTITY domainRestriction.help "Tentukan satu atau lebih domain secara berasingan dengan simbol &quot;|&quot;, penapis hanya akan digunakan pada domain tersebut sahaja. Simbol &quot;|&quot; sebelum domain bermaksud penapis tidak akan digunakan pada domain tersebut.">
 <!ENTITY firstParty.label "Orang pertama sahaja">
 <!ENTITY firstParty.accesskey "j">
 <!ENTITY thirdParty.label "Orang ketiga sahaja">
@@ -32,6 +40,8 @@
 <!ENTITY matchCase.label "Kes sepadan">
 <!ENTITY matchCase.accesskey "n">
 <!ENTITY types.label "Gunakan kepada jenis:">
+<!ENTITY selectAllTypes.label "Pilih semua">
+<!ENTITY unselectAllTypes.label "Tidak pilih">
 <!ENTITY collapse.label "Jatuhkan yang dihalang:">
 <!ENTITY collapse.accesskey "l">
 <!ENTITY collapse.default.yes.label "Gunakan aturan lalai (ya)">

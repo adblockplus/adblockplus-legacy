@@ -5,6 +5,9 @@
 <!ENTITY disabled.warning.beforeLink "Adblock Plus on hetkel keelatud, kuid siiski on võimalik lisada filtreid, kuid need ei jõustu kuni Sa">
 <!ENTITY disabled.warning.link "Lubad Adblock Plusi">
 <!ENTITY disabled.warning.afterLink ".">
+<!ENTITY groupDisabled.warning.beforeLink "Filtrite grupp &quot;&#x25;S&quot; that this filter should be added to is currently disabled. You can still add the filter but it will not be applied unless you">
+<!ENTITY groupDisabled.warning.link "luba filtrid">
+<!ENTITY groupDisabled.warning.afterLink ".">
 <!ENTITY filter.label "Uus filter">
 <!ENTITY filter.accesskey "f">
 <!ENTITY preferences.label "Näita olemasolevaid filtreid...">
@@ -13,7 +16,8 @@
 <!ENTITY type.filter.accesskey "K">
 <!ENTITY type.whitelist.label "Erandlik reegel">
 <!ENTITY type.whitelist.accesskey "E">
+<!ENTITY pattern.label "Otsi mustreid">
 <!ENTITY selectAllTypes.label "Vali kõik">
-<!ENTITY unselectAllTypes.label "Vali mitte ühtegi">
+<!ENTITY unselectAllTypes.label "Vali 0">
 <!ENTITY collapse.yes.label "Jah">
 <!ENTITY collapse.no.label "Ei">

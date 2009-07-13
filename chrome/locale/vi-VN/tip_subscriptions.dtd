@@ -1,7 +1,7 @@
-<!ENTITY dialog.title "Chào mừng bạn đến với Adblock Plus">
-<!ENTITY description.par1 "Cám ơn bạn đã cài Adblock Plus. Phần mở rộng này có thể	triệt 99&#37; các mục quảng cáo mà bạn thấy trên mạng. Tuy nhiên, quá trình lọc quảng cáo một cách hiệu quả cần bạn phải định nghĩa một tập hợp các bộ lọc tốt. Bạn có thể tự tạo, hay bạn chỉ cần đăng kí danh sách bộ lọc mà những người khác đang duy trì cho bạn. Bạn vẫn có thể thêm bộ lọc của chính bạn cũng như vô hiệu hóa/xóa các đăng kí khi cần thiết.">
-<!ENTITY description.par2 "Bạn có thể chọn một bộ đăng kí từ danh sách bên dưới (nhiều mục đăng kí khác có thể được thêm vào Tùy chọn Adblock Plus sau này, mặc dù thông thường điều này là không cần thiết):">
-<!ENTITY note "Chú ý: Một danh sách bộ lọc thông thường có hiệu quả nhất khi áp dụng cho các trang web đến từ cùng khu vực mà danh sách bộ lọc đó được tạo ra. Bạn có thể vào &quot;Xem tất cả các bộ đăng kí&quot; để tải bộ dành riêng cho Việt Nam.">
+<!ENTITY dialog.title "Thêm bộ lọc trọn gói cho Adblock Plus">
+<!ENTITY description.par1 "Cám ơn bạn đã cài đặt Adblock Plus. Phần mở rộng này có thể triệt 99&#x25; các hình ảnh quảng cáo mà bạn thấy trên mạng. Tuy nhiên, quá trình lọc quảng cáo một cách hiệu quả cần bạn phải định nghĩa một tập hợp các bộ lọc tốt. Bạn có thể tự tạo, hoặc chỉ cần đăng kí vào danh sách bộ lọc trọn gói mà những người khác đang duy trì. Bạn vẫn có thể thêm bộ lọc của chính mình cũng như vô hiệu hóa/xóa các bộ trọn gói khi cần thiết.">
+<!ENTITY description.par2 "Bạn có thể chọn một bộ trọn gói từ danh sách bên dưới (những bộ trọn gói khác vẫn có thể được thêm vào Tùy chọn Adblock Plus sau, mặc dù thông thường điều này là không cần thiết):">
+<!ENTITY note "Chú ý: Một danh sách bộ lọc thông thường có hiệu quả nhất khi áp dụng cho các trang web đến từ cùng khu vực mà danh sách bộ lọc đó được tạo ra. Bạn có thể vào &quot;Xem tất cả các bộ trọn gói&quot; để tải bộ dành riêng cho Việt Nam.">
 <!ENTITY adblock.warning "Adblock Plus nhận thấy Adblock hoặc một phiên bản cũ của Adblock Plus đã được cài. Chạy song song Adblock và Adblock Plus có thể gây ra vấn đề, cho nên hãy tránh làm vậy. Lời khuyên là bạn hãy gỡ bỏ Adblock ngay bây giờ.">
 <!ENTITY adblock.uninstall "Gỡ bỏ Adblock">
 <!ENTITY filterset.g.warning "Có vẻ như bạn đang dùng Filterset.G. Danh sách bộ lọc này đã không được duy trì trong suốt vài năm qua và là một nguyên nhân gây ra vấn đề với các trang web. Lời khuyên là bạn hãy gỡ bỏ Filterset.G ngay bây giờ.">
@@ -11,7 +11,7 @@
 <!ENTITY homepage.label "Trang chủ">
 <!ENTITY subscribe.label "Đăng kí">
 <!ENTITY subscribe.accesskey "k">
-<!ENTITY other.label "Thêm đăng kí khác">
+<!ENTITY other.label "Thêm bộ lọc trọn gói khác">
 <!ENTITY other.accesskey "T">
 <!ENTITY full-list.url "http://adblockplus.org/en/subscriptions">
-<!ENTITY full-list.label "Xem tất cả các bộ đăng kí (có cả Việt Nam)">
+<!ENTITY full-list.label "Xem tất cả các bộ trọn gói (có cả Việt Nam)">

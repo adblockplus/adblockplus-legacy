@@ -8,6 +8,7 @@
 <!ENTITY context.image.label "Estä kuva Adblockilla">
 <!ENTITY context.object.label "Estä kohde Adblockilla">
 <!ENTITY context.frame.label "Estä kehys Adblockilla">
+<!ENTITY context.removeWhitelist.label "Adblock Plus: Ota tämä sivu uudelleen käyttöön">
 <!ENTITY sidebar.title "Estettävät elementit avoimella sivulla">
 <!ENTITY settings.label "Asetukset">
 <!ENTITY settings.accesskey "A">

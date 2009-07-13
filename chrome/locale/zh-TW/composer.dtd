@@ -5,6 +5,9 @@
 <!ENTITY disabled.warning.beforeLink "Adblock Plus 目前已停用。您還是可以新增過濾條件，但不會有任何作用，除非您">
 <!ENTITY disabled.warning.link "啟用 Adblock Plus">
 <!ENTITY disabled.warning.afterLink "。">
+<!ENTITY groupDisabled.warning.beforeLink "此過濾條件應加到過濾條件組 &quot;&#x25;S&quot; 中，但該過濾條件組目前已停用。您還是可以新增過濾條件，但不會有任何作用，除非您">
+<!ENTITY groupDisabled.warning.link "啟用該過濾條件組">
+<!ENTITY groupDisabled.warning.afterLink "。">
 <!ENTITY filter.label "新過濾條件:">
 <!ENTITY filter.accesskey "f">
 <!ENTITY preferences.label "顯示已有的條件...">
@@ -22,6 +25,8 @@
 <!ENTITY anchors.label "只比對樣式於:">
 <!ENTITY anchor.start.label "網址開頭">
 <!ENTITY anchor.start.accesskey "g">
+<!ENTITY anchor.start.flexible.label "網域名稱開頭">
+<!ENTITY anchor.start.flexible.accesskey "g">
 <!ENTITY anchor.end.label "網址結尾">
 <!ENTITY anchor.end.accesskey "n">
 <!ENTITY options.label "選項">

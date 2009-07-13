@@ -53,6 +53,9 @@
 <!ENTITY collapse.accesskey "J">
 <!ENTITY help.label "Bantuan">
 <!ENTITY help.accesskey "t">
+<!ENTITY gettingStarted.label "Sedia untuk mengguna">
+<!ENTITY gettingStarted.accesskey "S">
+<!ENTITY gettingStarted.url "http://adblockplus.org/en/getting_started">
 <!ENTITY faq.label "Soalan yang selalu ditanya">
 <!ENTITY faq.accesskey "A">
 <!ENTITY faq.url "http://adblockplus.org/en/faq">
@@ -64,6 +67,8 @@
 <!ENTITY description "Tambah alamat yang anda ingin sekat, untuk cadangan semak senarai dropdown. Anda boleh guna * sebagai kad liar untuk mencipta penapis yang lebih am. Pengguna pakar boleh menggunakan ungkapan biasa seperti /banner\d+\.gif$/.">
 <!ENTITY filter.column "Peraturan penapis">
 <!ENTITY filter.accesskey "F">
+<!ENTITY slow.column "Lambatkan penapis">
+<!ENTITY slow.accesskey "W">
 <!ENTITY enabled.column "Diaktifkan">
 <!ENTITY enabled.accesskey "n">
 <!ENTITY hitcount.column "Hit">

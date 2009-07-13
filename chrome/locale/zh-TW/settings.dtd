@@ -67,6 +67,8 @@
 <!ENTITY description "下面列出的過濾條件會決定哪些網址會被阻擋、哪些網址會允許顯示:">
 <!ENTITY filter.column "過濾規則">
 <!ENTITY filter.accesskey "F">
+<!ENTITY slow.column "緩慢過濾條件">
+<!ENTITY slow.accesskey "w">
 <!ENTITY enabled.column "已啟用">
 <!ENTITY enabled.accesskey "n">
 <!ENTITY hitcount.column "命中數">

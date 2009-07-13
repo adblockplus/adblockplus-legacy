@@ -5,6 +5,9 @@
 <!ENTITY disabled.warning.beforeLink "Adblock Plus hiện đang bị vô hiệu hóa. Bạn vẫn có thể thêm các bộ lọc nhưng chúng sẽ không được áp dụng trừ khi bạn">
 <!ENTITY disabled.warning.link "kích hoạt Adblock Plus">
 <!ENTITY disabled.warning.afterLink ".">
+<!ENTITY groupDisabled.warning.beforeLink "Nhóm bộ lọc &quot;&#x25;S&quot;, mà bộ lọc này nên được đưa vào, hiện đang bị vô hiệu hóa. Bạn vẫn có thể thêm các bộ lọc nhưng chúng sẽ không được áp dụng trừ khi bạn">
+<!ENTITY groupDisabled.warning.link "kích hoạt nhóm bộ lọc">
+<!ENTITY groupDisabled.warning.afterLink ".">
 <!ENTITY filter.label "Bộ lọc mới:">
 <!ENTITY filter.accesskey "l">
 <!ENTITY preferences.label "Hiện các bộ lọc đang có...">
@@ -22,6 +25,8 @@
 <!ENTITY anchors.label "Chỉ chấp nhận mẫu:">
 <!ENTITY anchor.start.label "ở đầu địa chỉ">
 <!ENTITY anchor.start.accesskey "u">
+<!ENTITY anchor.start.flexible.label "ở đầu tên miền">
+<!ENTITY anchor.start.flexible.accesskey "u">
 <!ENTITY anchor.end.label "ở cuối địa chỉ">
 <!ENTITY anchor.end.accesskey "i">
 <!ENTITY options.label "Tùy chọn">
@@ -32,7 +37,7 @@
 <!ENTITY firstParty.accesskey "n">
 <!ENTITY thirdParty.label "Chỉ của bên thứ ba">
 <!ENTITY thirdParty.accesskey "a">
-<!ENTITY matchCase.label "Phù hợp">
+<!ENTITY matchCase.label "Phân biệt HOA thường">
 <!ENTITY matchCase.accesskey "P">
 <!ENTITY types.label "Áp dụng cho các kiểu:">
 <!ENTITY selectAllTypes.label "Chọn tất cả">
