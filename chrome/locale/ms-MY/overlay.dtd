@@ -3,10 +3,12 @@
 <!ENTITY filters.tooltip "Penapis yang paling aktif:">
 <!ENTITY menuitem.label "Adblock Plus">
 <!ENTITY menuitem.accesskey "B">
+<!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY view.blockableItems.label "Adblock Plus: Item yang boleh dihalang">
 <!ENTITY context.image.label "Imej Adblock">
 <!ENTITY context.object.label "Objek Adblock">
 <!ENTITY context.frame.label "Bingkai Adblock">
+<!ENTITY context.removeWhitelist.label "Adblock Plus: Aktifkan semula pada halaman ini">
 <!ENTITY sidebar.title "Item yang boleh dihalang pada halaman semasa">
 <!ENTITY settings.label "Tatarajah">
 <!ENTITY settings.accesskey "T">

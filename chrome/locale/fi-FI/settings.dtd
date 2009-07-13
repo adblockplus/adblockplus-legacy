@@ -67,6 +67,8 @@
 <!ENTITY description "Seuraavat suodattimet määrittelevät sen, mitkä osoitteet estetään ja mitkä sallitaan:">
 <!ENTITY filter.column "Suodatusehto">
 <!ENTITY filter.accesskey "S">
+<!ENTITY slow.column "Hitaat suodattimet">
+<!ENTITY slow.accesskey "H">
 <!ENTITY enabled.column "Käytössä">
 <!ENTITY enabled.accesskey "y">
 <!ENTITY hitcount.column "Osumat">

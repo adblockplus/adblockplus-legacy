@@ -3,9 +3,9 @@
 <!ENTITY filters.accesskey "B">
 <!ENTITY add.label "Thêm bộ lọc">
 <!ENTITY add.accesskey "T">
-<!ENTITY addsubscription.label "Đăng kí thêm bộ lọc">
-<!ENTITY addsubscription.accesskey "k">
-<!ENTITY synchsubscriptions.label "Cập nhật tất cả bộ lọc đăng kí">
+<!ENTITY addsubscription.label "Thêm bộ lọc trọn gói">
+<!ENTITY addsubscription.accesskey "m">
+<!ENTITY synchsubscriptions.label "Cập nhật tất cả bộ lọc trọn gói">
 <!ENTITY synchsubscriptions.accesskey "C">
 <!ENTITY import.label "Nhập các bộ lọc">
 <!ENTITY import.accesskey "N">
@@ -13,8 +13,8 @@
 <!ENTITY export.accesskey "u">
 <!ENTITY clearall.label "Xóa tất cả bộ lọc tùy biến">
 <!ENTITY clearall.accesskey "X">
-<!ENTITY resethitcounts.label "Đưa số lần hit về 0">
-<!ENTITY resethitcounts.accesskey "a">
+<!ENTITY resethitcounts.label "Đặt lại số lần hit về 0">
+<!ENTITY resethitcounts.accesskey "l">
 <!ENTITY edit.label "Chỉnh sửa">
 <!ENTITY edit.accesskey "C">
 <!ENTITY cut.label "Cắt">
@@ -31,9 +31,9 @@
 <!ENTITY menu.findagain.accesskey "i">
 <!ENTITY view.label "Hiển thị">
 <!ENTITY view.accesskey "H">
-<!ENTITY sort.label "Xếp theo">
-<!ENTITY sort.accesskey "p">
-<!ENTITY sort.none.label "Chưa xếp">
+<!ENTITY sort.label "Sắp xếp theo">
+<!ENTITY sort.accesskey "x">
+<!ENTITY sort.none.label "Chưa sắp xếp">
 <!ENTITY sort.none.accesskey "C">
 <!ENTITY sort.ascending.label "Thứ tự A &gt; Z">
 <!ENTITY sort.ascending.accesskey "A">
@@ -53,20 +53,22 @@
 <!ENTITY collapse.accesskey "u">
 <!ENTITY help.label "Trợ giúp">
 <!ENTITY help.accesskey "p">
-<!ENTITY gettingStarted.label "Bắt Đầu">
+<!ENTITY gettingStarted.label "Bắt đầu">
 <!ENTITY gettingStarted.accesskey "B">
 <!ENTITY gettingStarted.url "http://adblockplus.org/en/getting_started">
-<!ENTITY faq.label "Những Câu Hỏi Thường Gặp">
-<!ENTITY faq.accesskey "N">
+<!ENTITY faq.label "Câu hỏi Thường gặp">
+<!ENTITY faq.accesskey "C">
 <!ENTITY faq.url "http://adblockplus.org/en/faq">
-<!ENTITY filterdoc.label "Cách tạo bộ lọc cho Adblock Plus">
-<!ENTITY filterdoc.accesskey "C">
+<!ENTITY filterdoc.label "Hướng dẫn viết bộ lọc cho Adblock Plus">
+<!ENTITY filterdoc.accesskey "H">
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
-<!ENTITY about.label "Thông tin về Adblock Plus">
-<!ENTITY about.accesskey "T">
+<!ENTITY about.label "Giới thiệu Adblock Plus">
+<!ENTITY about.accesskey "G">
 <!ENTITY description "Những bộ lọc sau xác định những địa chỉ nào sẽ bị chặn và những địa chỉ nào sẽ được cho phép:">
 <!ENTITY filter.column "Quy luật lọc">
 <!ENTITY filter.accesskey "Q">
+<!ENTITY slow.column "Bộ lọc chậm">
+<!ENTITY slow.accesskey "B">
 <!ENTITY enabled.column "Hiệu lực">
 <!ENTITY enabled.accesskey "H">
 <!ENTITY hitcount.column "Số lần hit">
@@ -74,9 +76,9 @@
 <!ENTITY lasthit.column "Lần hit cuối">
 <!ENTITY lasthit.accesskey "L">
 <!ENTITY context.edit.label "Chỉnh sửa bộ lọc">
-<!ENTITY context.resethitcount.label "Đưa số lần hit của bộ lọc về 0">
-<!ENTITY context.synchsubscription.label "Cập nhật đăng kí ngay bây giờ">
-<!ENTITY context.editsubscription.label "Chỉnh sửa đăng kí">
+<!ENTITY context.resethitcount.label "Đặt lại số lần hit của bộ lọc về 0">
+<!ENTITY context.synchsubscription.label "Cập nhật bộ trọn gói ngay bây giờ">
+<!ENTITY context.editsubscription.label "Chỉnh sửa bộ trọn gói">
 <!ENTITY context.moveup.label "Di chuyển bộ lọc lên trên">
 <!ENTITY context.movedown.label "Di chuyển bộ lọc xuống dưới">
 <!ENTITY context.movegroupup.label "Di chuyển nhóm lên trên">

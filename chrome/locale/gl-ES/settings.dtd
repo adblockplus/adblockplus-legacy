@@ -67,6 +67,8 @@
 <!ENTITY description "Os seguintes filtros determinan que enderezos débense bloquear e cales débense permitir:">
 <!ENTITY filter.column "Regra de filtro">
 <!ENTITY filter.accesskey "F">
+<!ENTITY slow.column "Filtros lentos">
+<!ENTITY slow.accesskey "n">
 <!ENTITY enabled.column "Activada">
 <!ENTITY enabled.accesskey "c">
 <!ENTITY hitcount.column "Impactos">

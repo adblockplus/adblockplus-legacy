@@ -8,6 +8,7 @@
 <!ENTITY filter.label "Penapis">
 <!ENTITY state.label "Kawasan">
 <!ENTITY size.label "Saiz">
+<!ENTITY docDomain.label "Sumber dokumen">
 <!ENTITY noitems.label "Tiada item yang disekat">
 <!ENTITY whitelisted.label "Laman yang disenarai putih">
 <!ENTITY tooltip.address.label "Alamat:">
@@ -15,6 +16,7 @@
 <!ENTITY tooltip.type.blocked "(disekat)">
 <!ENTITY tooltip.type.whitelisted "(senarai putih)">
 <!ENTITY tooltip.size.label "Saiz:">
+<!ENTITY tooltip.docDomain.label "Sumber dokumen:">
 <!ENTITY tooltip.filter.label "Penapis yang menyekat:">
 <!ENTITY tooltip.filterSource.label "Sumber penapis:">
 <!ENTITY context.block.label "Sekat item ini">
@@ -22,6 +24,7 @@
 <!ENTITY context.whitelist.label "Tambah perintah pengecualian untuk item">
 <!ENTITY context.disablefilter.label "Nyahaktif penapis --">
 <!ENTITY context.enablefilter.label "Aktifkan penapis --">
+<!ENTITY context.disablefilteronsite.label "Nyah aktif penapis ini pada --">
 <!ENTITY context.open.label "Buka dalam Tab Baru">
 <!ENTITY context.flash.label "Jelaskan sempadan item">
 <!ENTITY context.copy.label "Salin alamat item">

@@ -8,6 +8,7 @@
 <!ENTITY filter.label "Filtro">
 <!ENTITY state.label "Estado">
 <!ENTITY size.label "Tamaño">
+<!ENTITY docDomain.label "Documento fonte">
 <!ENTITY noitems.label "Non hai temas bloqueables">
 <!ENTITY whitelisted.label "Páxina da Lista Branca">
 <!ENTITY tooltip.address.label "Enderezo:">
@@ -15,6 +16,7 @@
 <!ENTITY tooltip.type.blocked "(bloqueado)">
 <!ENTITY tooltip.type.whitelisted "(engadido á lista branca)">
 <!ENTITY tooltip.size.label "Tamaño:">
+<!ENTITY tooltip.docDomain.label "Documento fonte:">
 <!ENTITY tooltip.filter.label "Filtro en vigor:">
 <!ENTITY tooltip.filterSource.label "Fonte do filtro:">
 <!ENTITY context.block.label "Bloquear este tema">
