@@ -85,39 +85,6 @@ function makeURL(url) {
 }
 abp.makeURL = makeURL;
 
-// hides a blocked element and collapses it if necessary
-function postProcessNode(node) {
-  // adjust frameset's cols/rows for frames
-  var parentNode = node.parentNode;
-  if (parentNode && parentNode instanceof Ci.nsIDOMHTMLFrameSetElement)
-  {
-    let hasCols = (parentNode.cols && parentNode.cols.indexOf(",") > 0);
-    let hasRows = (parentNode.rows && parentNode.rows.indexOf(",") > 0);
-    if ((hasCols || hasRows) && !(hasCols && hasRows))
-    {
-      var index = -1;
-      for (var frame = node; frame; frame = frame.previousSibling)
-        if (frame instanceof Ci.nsIDOMHTMLFrameElement || frame instanceof Ci.nsIDOMHTMLFrameSetElement)
-          index++;
-  
-      var property = (hasCols ? "cols" : "rows");
-      var weights = parentNode[property].split(",");
-      weights[index] = "0";
-      parentNode[property] = weights.join(",");
-    }
-  }
-  else
-  {
-    let oldStyle = node.getAttribute("style");
-    node.style.MozBinding = "url(chrome://global/content/bindings/general.xml#asdfzxcv)";
-    node.offsetLeft;    // Force reflow
-    if (oldStyle == null)
-      node.removeAttribute("style")
-    else
-      node.setAttribute("style", oldStyle);
-  }
-}
-
 // Generates a click handler for object tabs
 function generateClickHandler(wnd, data) {
   return function(event) {

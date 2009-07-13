@@ -189,7 +189,7 @@ var policy =
       {
         var prefCollapse = (match.collapse != null ? match.collapse : !prefs.fastcollapse);
         if (collapse || prefCollapse)
-          wnd.setTimeout(postProcessNode, 0, node);
+          this.schedulePostProcess(node);
       }
 
       // Show object tabs unless this is a standalone object
@@ -214,6 +214,77 @@ var policy =
       wnd.setTimeout(addObjectTab, 0, topWnd, node, nodeData, objTab);
 
     return !match || match instanceof WhitelistFilter;
+  },
+
+  /**
+   * Nodes scheduled for post-processing (might be null).
+   * @type Array of Node
+   */
+  _scheduledNodes: null,
+
+  /**
+   * Schedules a node for post-processing.
+   * @type Array of Node
+   */
+  schedulePostProcess: function(node)
+  {
+    if (this._scheduledNodes)
+      this._scheduledNodes.push(node);
+    else
+    {
+      this._scheduledNodes = [node];
+      runAsync(this.postProcessNodes, this);
+    }
+  },
+
+  /**
+   * Processes nodes scheduled for post-processing (typically hides them).
+   * @type Array of Node
+   */
+  postProcessNodes: function()
+  {
+    let nodes = this._scheduledNodes;
+    this._scheduledNodes = null;
+
+    let oldStyles = [];
+    for each (let node in nodes)
+    {
+      // adjust frameset's cols/rows for frames
+      let parentNode = node.parentNode;
+      if (parentNode && parentNode instanceof Ci.nsIDOMHTMLFrameSetElement)
+      {
+        let hasCols = (parentNode.cols && parentNode.cols.indexOf(",") > 0);
+        let hasRows = (parentNode.rows && parentNode.rows.indexOf(",") > 0);
+        if ((hasCols || hasRows) && !(hasCols && hasRows))
+        {
+          let index = -1;
+          for (let frame = node; frame; frame = frame.previousSibling)
+            if (frame instanceof Ci.nsIDOMHTMLFrameElement || frame instanceof Ci.nsIDOMHTMLFrameSetElement)
+              index++;
+      
+          let property = (hasCols ? "cols" : "rows");
+          let weights = parentNode[property].split(",");
+          weights[index] = "0";
+          parentNode[property] = weights.join(",");
+        }
+      }
+      else
+      {
+        oldStyles.push([node, node.getAttribute("style")]);
+        node.style.MozBinding = "url(chrome://global/content/bindings/general.xml#asdfzxcv)";
+      }
+    }
+
+    for each (let [node, oldStyle] in oldStyles)
+      node.offsetLeft;    // Force reflow
+
+    for each (let [node, oldStyle] in oldStyles)
+    {
+      if (oldStyle == null)
+        node.removeAttribute("style")
+      else
+        node.setAttribute("style", oldStyle);
+    }
   },
 
   /**
