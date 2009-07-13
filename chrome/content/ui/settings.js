@@ -563,7 +563,7 @@ function exportList()
           let filterVersion;
           if (filter instanceof abp.RegExpFilter)
           {
-            if (/^(?:@@)?\|\|/.test(filter.text) || /\^/.test(filter.text))
+            if (/^(?:@@)?\|\|/.test(filter.text) || (!abp.Filter.regexpRegExp.test(filter.text) && /\^/.test(filter.text)))
               filterVersion = "1.1";
             else if (filter.includeDomains != null || filter.excludeDomains != null)
               filterVersion = "1.0.1";
@@ -580,7 +580,9 @@ function exportList()
           }
           else if (filter instanceof abp.ElemHideFilter)
           {
-            if (/^#([\w\-]+|\*)(?:\(([\w\-]+)\))?$/.test(filter.text))
+            if (filter.excludeDomains != null)
+              filterVersion = "1.1";
+            else if (/^#([\w\-]+|\*)(?:\(([\w\-]+)\))?$/.test(filter.text))
               filterVersion = "0.6.1";
             else
               filterVersion = "0.7";
