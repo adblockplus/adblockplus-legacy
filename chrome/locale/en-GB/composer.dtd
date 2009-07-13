@@ -5,6 +5,9 @@
 <!ENTITY disabled.warning.beforeLink "Adblock Plus is currently disabled. You can still add filters but those will not be applied unless you">
 <!ENTITY disabled.warning.link "enable Adblock Plus">
 <!ENTITY disabled.warning.afterLink ".">
+<!ENTITY groupDisabled.warning.beforeLink "The filter group &quot;&#x25;S&quot; that this filter should be added to is currently disabled. You can still add the filter but it will not be applied unless you">
+<!ENTITY groupDisabled.warning.link "enable the filter group">
+<!ENTITY groupDisabled.warning.afterLink ".">
 <!ENTITY filter.label "New filter:">
 <!ENTITY filter.accesskey "f">
 <!ENTITY preferences.label "Show existing filters...">
@@ -22,6 +25,8 @@
 <!ENTITY anchors.label "Accept pattern only:">
 <!ENTITY anchor.start.label "at the beginning of the address">
 <!ENTITY anchor.start.accesskey "g">
+<!ENTITY anchor.start.flexible.label "at the beginning of the domain name">
+<!ENTITY anchor.start.flexible.accesskey "g">
 <!ENTITY anchor.end.label "at the end of the address">
 <!ENTITY anchor.end.accesskey "n">
 <!ENTITY options.label "Options">
