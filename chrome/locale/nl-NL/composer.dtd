@@ -1,3 +1,28 @@
+<!--  ***** BEGIN LICENSE BLOCK *****
+	 - Version: MPL 1.1
+	 -
+	 - The contents of this file are subject to the Mozilla Public License Version
+	 - 1.1 (the "License"); you may not use this file except in compliance with
+	 - the License. You may obtain a copy of the License at
+	 - http://www.mozilla.org/MPL/
+	 -
+	 - Software distributed under the License is distributed on an "AS IS" basis,
+	 - WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+	 - for the specific language governing rights and limitations under the
+	 - License.
+	 -
+	 - The Original Code is Adblock Plus.
+	 -
+	 - The Initial Developer of the Original Code is
+	 - Wladimir Palant.
+	 - Portions created by the Initial Developer are Copyright (C) 2006-2009
+	 - the Initial Developer. All Rights Reserved.
+	 -
+	 - Contributor(s):
+	 -
+	 - ***** END LICENSE BLOCK ***** 
+ 
+-->
 <!ENTITY dialog.title "Adblock Plus filterregel toevoegen">
 <!ENTITY accept.label "Filter toevoegen">
 <!ENTITY advanced.label "Uitgebreid">
@@ -5,7 +30,7 @@
 <!ENTITY disabled.warning.beforeLink "Adblock Plus is uitgeschakeld. U kunt nog wel filters toevoegen, maar ze worden niet toegepast tot u">
 <!ENTITY disabled.warning.link "Adblock Plus weer inschakelen">
 <!ENTITY disabled.warning.afterLink ".">
-<!ENTITY groupDisabled.warning.beforeLink "De filtergroep &quot;&#37;S&quot; waar dit filter aan wordt toegevoegd is momenteel uitgeschakeld. U kunt het filter nog wel toevoegen maar het wordt niet gebruikt totdat u">
+<!ENTITY groupDisabled.warning.beforeLink "De filtergroep &quot;&#x25;S&quot; aan wordt toegevoegd is momenteel uitgeschakeld. U kunt het filter nog wel toevoegen maar het wordt niet toegepast tenzij u">
 <!ENTITY groupDisabled.warning.link "de filtergroep inschakeld">
 <!ENTITY groupDisabled.warning.afterLink ".">
 <!ENTITY filter.label "Nieuw filter">
@@ -24,8 +49,10 @@
 <!ENTITY custom.pattern.accesskey "A">
 <!ENTITY anchors.label "Accepteer alleen patronen:">
 <!ENTITY anchor.start.label "aan het begin van het adres">
+<!--  Note: This access key should usually be the same as anchor.start.flexible.accesskey. It is the same checkbox with different label depending on suggested filter. -->
 <!ENTITY anchor.start.accesskey "h">
 <!ENTITY anchor.start.flexible.label "aan het begin van de domeinnaam">
+<!--  Note: This access key should usually be the same as anchor.start.accesskey. It is the same checkbox with different label depending on suggested filter. -->
 <!ENTITY anchor.start.flexible.accesskey "h">
 <!ENTITY anchor.end.label "aan het eind van het adres">
 <!ENTITY anchor.end.accesskey "e">
