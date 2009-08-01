@@ -5,8 +5,8 @@
 <!ENTITY disabled.warning.beforeLink "Adblock Plus қазір сөндірулі. Фильтрлерді қазір де қоса аласыз, бірақ олар жұмыс істемейді, сіз">
 <!ENTITY disabled.warning.link "Adblock Plus қосқанға дейін">
 <!ENTITY disabled.warning.afterLink ".">
-<!ENTITY groupDisabled.warning.beforeLink "Осы фильтрді &quot;&#37;S&quot; фильтрлер тобына қосқыңыз келеді, бірақ ол топ сөндірілген. Фильтрді қоса аласыз, бірақ топты іске қоспағанша">
-<!ENTITY groupDisabled.warning.link "фильтр іске қосылмайды">
+<!ENTITY groupDisabled.warning.beforeLink "Осы фильтр қосылатын &quot;&#37;S&quot; фильтрлер тобы қазір сөндірулі. Сіз фильтрді қоса аласыз, бірақ фильтрлер тобы қосылған">
+<!ENTITY groupDisabled.warning.link "кезде ғана іске асады">
 <!ENTITY groupDisabled.warning.afterLink ".">
 <!ENTITY filter.label "Жаңа фильтр:">
 <!ENTITY filter.accesskey "ф">
@@ -24,14 +24,14 @@
 <!ENTITY custom.pattern.accesskey "з">
 <!ENTITY anchors.label "Шаблонды тек келесіде қолдану:">
 <!ENTITY anchor.start.label "адрес басында">
-<!ENTITY anchor.start.accesskey "н">
-<!ENTITY anchor.start.flexible.label "домен аты басында">
-<!ENTITY anchor.start.flexible.accesskey "н">
+<!ENTITY anchor.start.accesskey "д">
+<!ENTITY anchor.start.flexible.label "домен атынын басында">
+<!ENTITY anchor.start.flexible.accesskey "д">
 <!ENTITY anchor.end.label "адрес соңында">
 <!ENTITY anchor.end.accesskey "ы">
 <!ENTITY options.label "Баптаулар">
 <!ENTITY domainRestriction.label "Доменмен шектеу:">
-<!ENTITY domainRestriction.accesskey "Д">
+<!ENTITY domainRestriction.accesskey "т">
 <!ENTITY domainRestriction.help "Бір немесе &quot;|&quot; таңбасымен ажыратылған бірнеше доменді көрсетіңіз, фильтр тек осы домендер үшін орындалады. Домен атының алдыңдағы &quot;~&quot; таңбасы осы доменде фильтр орындалмайтынын көрсетеді.">
 <!ENTITY firstParty.label "Тек сол сайт өз құрамасы үшін">
 <!ENTITY firstParty.accesskey "ш">

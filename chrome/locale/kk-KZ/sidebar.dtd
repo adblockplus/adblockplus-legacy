@@ -8,7 +8,7 @@
 <!ENTITY filter.label "Фильтр">
 <!ENTITY state.label "Күйі">
 <!ENTITY size.label "Көлемі">
-<!ENTITY docDomain.label "Құжат шыққан көзі">
+<!ENTITY docDomain.label "Құжат көзі">
 <!ENTITY noitems.label "Блокталатын құрама жоқ">
 <!ENTITY whitelisted.label "Ережеден тыс парақ">
 <!ENTITY tooltip.address.label "Адресі:">
@@ -16,7 +16,7 @@
 <!ENTITY tooltip.type.blocked "(блокталған)">
 <!ENTITY tooltip.type.whitelisted "(ережеден тыс)">
 <!ENTITY tooltip.size.label "Көлемі:">
-<!ENTITY tooltip.docDomain.label "Құжат шыққан көзі:">
+<!ENTITY tooltip.docDomain.label "Құжат көзі:">
 <!ENTITY tooltip.filter.label "Қолданудағы фильтр:">
 <!ENTITY tooltip.filterSource.label "Фильтр көзі:">
 <!ENTITY context.block.label "Бұл элементті блоктау">

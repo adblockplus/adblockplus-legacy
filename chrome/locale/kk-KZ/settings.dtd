@@ -79,8 +79,8 @@
 <!ENTITY context.resethitcount.label "Фильтр үшін хит статистикасын тастау">
 <!ENTITY context.synchsubscription.label "Жазылуды қазір жаңарту">
 <!ENTITY context.editsubscription.label "Жазылуды жаңарту">
-<!ENTITY context.moveup.label "Фильтрді жоғары көтеру">
-<!ENTITY context.movedown.label "Фильтрді төмен түсіру">
+<!ENTITY context.moveup.label "Фильтрі жоғары көтеру">
+<!ENTITY context.movedown.label "Фильтрі төмен түсіру">
 <!ENTITY context.movegroupup.label "Топты жоғары көтеру">
 <!ENTITY context.movegroupdown.label "Топты төмен түсіру">
 <!ENTITY context.enable.label "Қосу">
