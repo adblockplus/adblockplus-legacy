@@ -1,3 +1,28 @@
+<!--  ***** BEGIN LICENSE BLOCK *****
+	 - Version: MPL 1.1
+	 -
+	 - The contents of this file are subject to the Mozilla Public License Version
+	 - 1.1 (the "License"); you may not use this file except in compliance with
+	 - the License. You may obtain a copy of the License at
+	 - http://www.mozilla.org/MPL/
+	 -
+	 - Software distributed under the License is distributed on an "AS IS" basis,
+	 - WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+	 - for the specific language governing rights and limitations under the
+	 - License.
+	 -
+	 - The Original Code is Adblock Plus.
+	 -
+	 - The Initial Developer of the Original Code is
+	 - Wladimir Palant.
+	 - Portions created by the Initial Developer are Copyright (C) 2006-2009
+	 - the Initial Developer. All Rights Reserved.
+	 -
+	 - Contributor(s):
+	 -
+	 - ***** END LICENSE BLOCK ***** 
+ 
+-->
 <!ENTITY dialog.title "Witaj w Adblock Plus">
 <!ENTITY description.par1 "Dziękuję za zainstalowanie Adblock Plusa. Rozszerzenie to jest w stanie wyeliminować 98&#37; reklam pojawiających się w witrynach internetowych. Jednakże efektywne filtrowanie reklam wymaga zdefiniowania dobrego zestawu filtrów. Można to zrobić samemu, lub skorzystać z subskrypcji gotowych zestawów filtrów. Korzystając z gotowych zestawów filtrów można nadal definiować swoje własne filtry lub dezaktywować/usunąć subskrypcję w dowolnym momencie.">
 <!ENTITY description.par2 "Wybierz jedną z listy polecanych poniżej subskrypcji. Więcej subskrypcji można dodać w ustawieniach Adblock Plusa w późniejszym czasie, ale zazwyczaj nie jest to konieczne.">
