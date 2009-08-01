@@ -1,4 +1,4 @@
-<!--   ***** BEGIN LICENSE BLOCK *****
+<!--  ***** BEGIN LICENSE BLOCK *****
 	 - Version: MPL 1.1
 	 -
 	 - The contents of this file are subject to the Mozilla Public License Version
@@ -22,7 +22,7 @@
 	 -
 	 - ***** END LICENSE BLOCK ***** 
  
- -->
+-->
 <!ENTITY status.tooltip "Stato:">
 <!ENTITY blocked.tooltip "Elementi bloccati nella pagina attuale:">
 <!ENTITY filters.tooltip "Filtri maggiormente attivi:">
@@ -38,10 +38,10 @@
 <!ENTITY settings.label "Impostazioni">
 <!ENTITY settings.accesskey "I">
 <!ENTITY opensidebar.label "Apri gli elementi bloccabili">
-<!--   Note: This access key should usually be the same as closesidebar.accesskey. It is the same menu item with different label depending on whether the sidebar is currently open.  -->
+<!--  Note: This access key should usually be the same as closesidebar.accesskey. It is the same menu item with different label depending on whether the sidebar is currently open. -->
 <!ENTITY opensidebar.accesskey "b">
 <!ENTITY closesidebar.label "Chiudi gli elementi bloccabili">
-<!--   Note: This access key should usually be the same as opensidebar.accesskey. It is the same menu item with different label depending on whether the sidebar is currently open.  -->
+<!--  Note: This access key should usually be the same as opensidebar.accesskey. It is the same menu item with different label depending on whether the sidebar is currently open. -->
 <!ENTITY closesidebar.accesskey "b">
 <!ENTITY whitelist.site.label "Disattiva per --">
 <!ENTITY whitelist.page.label "Disattiva solo per la pagina attuale">
