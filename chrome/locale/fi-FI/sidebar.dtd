@@ -8,7 +8,7 @@
 <!ENTITY filter.label "Suodatin">
 <!ENTITY state.label "Tila">
 <!ENTITY size.label "Koko">
-<!ENTITY docDomain.label "Asiakirjan alkuperä">
+<!ENTITY docDomain.label "Dokumentin lähde">
 <!ENTITY noitems.label "Ei estettäviä elementtejä">
 <!ENTITY whitelisted.label "Sallittu sivu">
 <!ENTITY tooltip.address.label "Osoite:">
@@ -16,7 +16,7 @@
 <!ENTITY tooltip.type.blocked "(estetty)">
 <!ENTITY tooltip.type.whitelisted "(sallittu)">
 <!ENTITY tooltip.size.label "Koko:">
-<!ENTITY tooltip.docDomain.label "Asiakirjan alkuperä">
+<!ENTITY tooltip.docDomain.label "Dokumentin lähde:">
 <!ENTITY tooltip.filter.label "Vaikuttava suodatin:">
 <!ENTITY tooltip.filterSource.label "Suodattimen lähde:">
 <!ENTITY context.block.label "Estä elementti">
