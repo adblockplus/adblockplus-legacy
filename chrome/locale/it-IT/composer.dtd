@@ -1,4 +1,4 @@
-<!--   ***** BEGIN LICENSE BLOCK *****
+<!--  ***** BEGIN LICENSE BLOCK *****
 	 - Version: MPL 1.1
 	 -
 	 - The contents of this file are subject to the Mozilla Public License Version
@@ -22,7 +22,7 @@
 	 -
 	 - ***** END LICENSE BLOCK ***** 
  
- -->
+-->
 <!ENTITY dialog.title "Nuovo filtro di Adblock Plus">
 <!ENTITY accept.label "Aggiungi filtro">
 <!ENTITY advanced.label "Avanzate &gt;&gt;">
@@ -49,10 +49,10 @@
 <!ENTITY custom.pattern.accesskey "P">
 <!ENTITY anchors.label "Accetta modelli solo:">
 <!ENTITY anchor.start.label "all&apos;inizio dell&apos;indirizzo web">
-<!--   Note: This access key should usually be the same as anchor.start.flexible.accesskey. It is the same checkbox with different label depending on suggested filter.  -->
+<!--  Note: This access key should usually be the same as anchor.start.flexible.accesskey. It is the same checkbox with different label depending on suggested filter. -->
 <!ENTITY anchor.start.accesskey "i">
 <!ENTITY anchor.start.flexible.label "all&apos;inizio del nome del dominio">
-<!--   Note: This access key should usually be the same as anchor.start.accesskey. It is the same checkbox with different label depending on suggested filter.  -->
+<!--  Note: This access key should usually be the same as anchor.start.accesskey. It is the same checkbox with different label depending on suggested filter. -->
 <!ENTITY anchor.start.flexible.accesskey "i">
 <!ENTITY anchor.end.label "alla fine dell&apos;indirizzo web">
 <!ENTITY anchor.end.accesskey "f">
