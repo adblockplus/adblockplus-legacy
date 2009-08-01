@@ -67,6 +67,8 @@
 <!ENTITY description "Následující filtry rozhodují, které adresy budou blokovány a které budou povoleny:">
 <!ENTITY filter.column "Pravidlo filtru">
 <!ENTITY filter.accesskey "P">
+<!ENTITY slow.column "Pomalé filtry">
+<!ENTITY slow.accesskey "m">
 <!ENTITY enabled.column "Aktivní">
 <!ENTITY enabled.accesskey "k">
 <!ENTITY hitcount.column "Zásahy">
