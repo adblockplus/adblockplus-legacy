@@ -68,7 +68,7 @@
 <!ENTITY filter.column "Regra de Filtro">
 <!ENTITY filter.accesskey "R">
 <!ENTITY slow.column "Filtros lentos">
-<!ENTITY slow.accesskey "i">
+<!ENTITY slow.accesskey "e">
 <!ENTITY enabled.column "Ativado">
 <!ENTITY enabled.accesskey "A">
 <!ENTITY hitcount.column "Acertos">
