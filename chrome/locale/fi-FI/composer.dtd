@@ -5,8 +5,8 @@
 <!ENTITY disabled.warning.beforeLink "Adblock Plus on tällä hetkellä poistettu käytöstä. Voit silti lisätä suodattimia mutta ne otetaan käyttöön vasta kun,">
 <!ENTITY disabled.warning.link "otat Adblockin Plussan käyttöön">
 <!ENTITY disabled.warning.afterLink ".">
-<!ENTITY groupDisabled.warning.beforeLink "Suodatinryhmä &quot;&#37;S&quot;, johon tämä suodatin lisätään on poistettu käytöstä. Voit silti lisätä tämän suodattimen mutta sitä ei käytetä ellet">
-<!ENTITY groupDisabled.warning.link "ota suodatin ryhmää käyttöön">
+<!ENTITY groupDisabled.warning.beforeLink "Suodatinryhmä &quot;&#x25;S&quot;, johon tämä suodatin tulisi lisätä on poistettu käytöstä. Voit silti lisätä tämän suodattimen mutta sitä ei oteta käyttöön ellet">
+<!ENTITY groupDisabled.warning.link "ota suodatinryhmää käyttöön">
 <!ENTITY groupDisabled.warning.afterLink ".">
 <!ENTITY filter.label "Uusi suodatin:">
 <!ENTITY filter.accesskey "U">
@@ -25,7 +25,7 @@
 <!ENTITY anchors.label "Hyväksy merkkijono vain:">
 <!ENTITY anchor.start.label "osoitteen alussa">
 <!ENTITY anchor.start.accesskey "t">
-<!ENTITY anchor.start.flexible.label "vain verkkotunnuksen alussa">
+<!ENTITY anchor.start.flexible.label "verkkotunnuksen alussa.">
 <!ENTITY anchor.start.flexible.accesskey "t">
 <!ENTITY anchor.end.label "osoitteen lopussa">
 <!ENTITY anchor.end.accesskey "l">
