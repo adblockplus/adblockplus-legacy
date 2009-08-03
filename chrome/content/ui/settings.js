@@ -1714,6 +1714,8 @@ let treeView = {
       let newIndex = (subscription.filters == subscription._sortedFilters || newSortedIndex >= subscription._sortedFilters.length ? newSortedIndex : subscription.filters.indexOf(subscription._sortedFilters[newSortedIndex]));
       if (oldIndex < 0 || newIndex < 0)
         return;
+      if (oldSubscription == subscription && (newIndex == oldIndex || newIndex == oldIndex + 1))
+        return;
 
       {
         if (!oldSubscription.hasOwnProperty("filters"))
@@ -1779,6 +1781,8 @@ let treeView = {
 
       treeView.selectRow(newRow);
     }
+
+    onChange();
   },
 
   getCellValue: function() {return null},
