@@ -383,8 +383,13 @@ var policy =
     }
     catch (e)
     {
-      // EffectiveTLDService throws on IP addresses
-      return location.host != docDomain;
+      // EffectiveTLDService throws on IP addresses, just compare the host name
+      let host = "";
+      try
+      {
+        host = location.host;
+      } catch (e) {}
+      return host != docDomain;
     }
   },
 
