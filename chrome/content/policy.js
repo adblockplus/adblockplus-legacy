@@ -271,7 +271,7 @@ var policy =
       else
       {
         oldStyles.push([node, node.getAttribute("style")]);
-        node.style.MozBinding = "url(chrome://global/content/bindings/general.xml#asdfzxcv)";
+        node.style.setProperty("-moz-binding", "url(chrome://global/content/bindings/general.xml#asdfzxcv)", "important");
       }
     }
 
