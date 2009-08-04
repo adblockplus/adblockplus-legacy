@@ -246,7 +246,6 @@ var policy =
     let nodes = this._scheduledNodes;
     this._scheduledNodes = null;
 
-    let oldStyles = [];
     for each (let node in nodes)
     {
       // adjust frameset's cols/rows for frames
@@ -269,21 +268,7 @@ var policy =
         }
       }
       else
-      {
-        oldStyles.push([node, node.getAttribute("style")]);
         node.style.setProperty("-moz-binding", "url(chrome://global/content/bindings/general.xml#asdfzxcv)", "important");
-      }
-    }
-
-    for each (let [node, oldStyle] in oldStyles)
-      node.offsetLeft;    // Force reflow
-
-    for each (let [node, oldStyle] in oldStyles)
-    {
-      if (oldStyle == null)
-        node.removeAttribute("style")
-      else
-        node.setAttribute("style", oldStyle);
     }
   },
 
