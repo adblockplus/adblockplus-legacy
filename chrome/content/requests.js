@@ -56,6 +56,11 @@ RequestList.prototype = {
    * @type Integer
    */
   _compactCounter: 0,
+  /**
+   * Time in milliseconds of the last list cleanup, makes sure cleanup isn't triggered too often.
+   * @type Integer
+   */
+  _lastCompact: 0,
 
   /**
    * Attaches this request list to a window.
@@ -141,7 +146,8 @@ RequestList.prototype = {
     if (isNew)
       this.topList.notifyListeners("add", this.entries[key]);
 
-    if (isNew && ++this._compactCounter >= 20)
+    // Compact the list of entries after 100 additions but at most once every 5 seconds
+    if (isNew && ++this._compactCounter >= 100 && Date.now() - this._lastCompact > 5000)
       this.getAllLocations();
 
     return entry;
@@ -171,9 +177,11 @@ RequestList.prototype = {
 
   getAllLocations: function(results, hadOutdated)
   {
-    this._compactCounter = 0;
-
     let now = Date.now();
+
+    this._compactCounter = 0;
+    this._lastCompact = now;
+
     if (typeof results == "undefined")
       results = [];
 
@@ -322,6 +330,11 @@ RequestEntry.prototype =
    */
   _compactCounter: 0,
   /**
+   * Time in milliseconds of the last list cleanup, makes sure cleanup isn't triggered too often.
+   * @type Integer
+   */
+  _lastCompact: 0,
+  /**
    * Time out last node addition or compact operation (used to find outdated entries).
    * @type Integer
    */
@@ -363,7 +376,7 @@ RequestEntry.prototype =
   get nodes()
   {
     this._compactCounter = 0;
-    this.lastUpdate = Date.now();
+    this.lastUpdate = this._lastCompact = Date.now();
 
     let result = [];
     for (let i = 0; i < this._nodes.length; i++)
@@ -383,6 +396,7 @@ RequestEntry.prototype =
   get nodesIterator()
   {
     this._compactCounter = 0;
+    this.lastUpdate = this._lastCompact = Date.now();
 
     for (let i = 0; i < this._nodes.length; i++)
     {
@@ -419,7 +433,8 @@ RequestEntry.prototype =
         oldEntry._nodes.splice(index, 1);
     }
 
-    if (++this._compactCounter >= 20)   // Compact the list of nodes after 20 additions
+    // Compact the list of nodes after 100 additions but at most once every 5 seconds
+    if (++this._compactCounter >= 100 && Date.now() - this._lastCompact > 5000)
       this.nodes;
     else
       this.lastUpdate = Date.now();
