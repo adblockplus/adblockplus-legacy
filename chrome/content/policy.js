@@ -76,6 +76,11 @@ var policy =
    * @type String
    */
   objtabMarker: null,
+  /**
+   * Randomly generated class for collapsed nodes.
+   * @type String
+   */
+  collapsedClass: null,
 
   init: function() {
     var types = ["OTHER", "SCRIPT", "IMAGE", "STYLESHEET", "OBJECT", "SUBDOCUMENT", "DOCUMENT", "XBL", "PING", "XMLHTTPREQUEST", "OBJECT_SUBREQUEST", "DTD", "FONT", "MEDIA"];
@@ -115,11 +120,13 @@ var policy =
     // Generate identifiers for object tabs
     this.objtabClass = "";
     this.objtabOnTopClass = "";
+    this.collapsedClass = "";
     this.objtabMarker = "abpObjTab"
     for (let i = 0; i < 20; i++)
     {
       this.objtabClass += String.fromCharCode("a".charCodeAt(0) + Math.random() * 26);
       this.objtabOnTopClass += String.fromCharCode("a".charCodeAt(0) + Math.random() * 26);
+      this.collapsedClass +=  String.fromCharCode("a".charCodeAt(0) + Math.random() * 26);
       this.objtabMarker += String.fromCharCode("a".charCodeAt(0) + Math.random() * 26);
     }
 
@@ -268,7 +275,7 @@ var policy =
         }
       }
       else
-        node.style.setProperty("-moz-binding", "url(chrome://global/content/bindings/general.xml#asdfzxcv)", "important");
+        node.className += " " + this.collapsedClass;
     }
   },
 
@@ -425,7 +432,7 @@ var policy =
         onStartRequest: function() {},
         onStopRequest: function()
         {
-          let data = this.data.replace(/%%CLASSNAME%%/g, policy.objtabClass).replace(/%%ONTOP%%/g, policy.objtabOnTopClass);
+          let data = this.data.replace(/%%CLASSNAME%%/g, policy.objtabClass).replace(/%%ONTOP%%/g, policy.objtabOnTopClass).replace(/%%COLLAPSED%%/g, policy.collapsedClass);
           let objtabsCSS = makeURL("data:text/css," + encodeURIComponent(data));
           Cc["@mozilla.org/content/style-sheet-service;1"].getService(Ci.nsIStyleSheetService)
                                                           .loadAndRegisterSheet(objtabsCSS, styleService.USER_SHEET);
