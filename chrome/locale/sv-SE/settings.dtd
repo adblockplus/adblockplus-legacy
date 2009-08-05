@@ -68,7 +68,7 @@
 <!ENTITY filter.column "Filterregler">
 <!ENTITY filter.accesskey "F">
 <!ENTITY slow.column "Långsamma filter">
-<!ENTITY slow.accesskey "i">
+<!ENTITY slow.accesskey "l">
 <!ENTITY enabled.column "På">
 <!ENTITY enabled.accesskey "å">
 <!ENTITY hitcount.column "Träffar">
