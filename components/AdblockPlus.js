@@ -99,7 +99,7 @@ const abp =
         throw Cr.NS_ERROR_NO_AGGREGATION;
 
       if (!abp.initialized)
-        throw Cr.NS_ERROR_NOT_INITIALIZED;
+        abp.init();
 
       return abp.QueryInterface(iid);
     }
@@ -318,11 +318,11 @@ const abp =
    */
   init: function()
   {
-    timeLine.enter("Entered abp.init()");
-
     if (this.initialized)
       return;
     this.initialized = true;
+
+    timeLine.enter("Entered abp.init()");
 
     loader.loadSubScript('chrome://adblockplus/content/utils.js');
     loader.loadSubScript('chrome://adblockplus/content/filterClasses.js');
