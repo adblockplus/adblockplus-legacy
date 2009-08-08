@@ -365,6 +365,4 @@ var synchronizer =
     }
   }
 };
-
-synchronizer.init();
 abp.synchronizer = synchronizer;

@@ -191,6 +191,4 @@ var filterListener =
     }
   }
 };
-
-filterListener.init();
 abp.filterListener = filterListener;
