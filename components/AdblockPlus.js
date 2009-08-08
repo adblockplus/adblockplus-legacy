@@ -339,6 +339,9 @@ const abp =
     timeLine.log("calling prefs.init()");
     prefs.init();
 
+    timeLine.log("calling filterListener.init()");
+    filterListener.init();
+
     timeLine.log("calling filterStorage.init()");
     filterStorage.init();
 
@@ -347,6 +350,9 @@ const abp =
 
     timeLine.log("calling elemhide.init()");
     elemhide.init();
+
+    timeLine.log("calling synchronizer.init()");
+    synchronizer.init();
 
     timeLine.leave("abp.init() done");
   },
