@@ -98,9 +98,6 @@ const abp =
       if (outer)
         throw Cr.NS_ERROR_NO_AGGREGATION;
 
-      if (!abp.initialized)
-        abp.init();
-
       return abp.QueryInterface(iid);
     }
   },
@@ -318,23 +315,11 @@ const abp =
    */
   init: function()
   {
+    timeLine.enter("Entered abp.init()");
+
     if (this.initialized)
       return;
     this.initialized = true;
-
-    timeLine.enter("Entered abp.init()");
-
-    loader.loadSubScript('chrome://adblockplus/content/utils.js');
-    loader.loadSubScript('chrome://adblockplus/content/filterClasses.js');
-    loader.loadSubScript('chrome://adblockplus/content/subscriptionClasses.js');
-    loader.loadSubScript('chrome://adblockplus/content/filterStorage.js');
-    loader.loadSubScript('chrome://adblockplus/content/matcher.js');
-    loader.loadSubScript('chrome://adblockplus/content/elemhide.js');
-    loader.loadSubScript('chrome://adblockplus/content/filterListener.js');
-    loader.loadSubScript('chrome://adblockplus/content/policy.js');
-    loader.loadSubScript('chrome://adblockplus/content/requests.js');
-    loader.loadSubScript('chrome://adblockplus/content/prefs.js');
-    loader.loadSubScript('chrome://adblockplus/content/synchronizer.js');
 
     timeLine.log("calling prefs.init()");
     prefs.init();
@@ -485,6 +470,21 @@ abp.wrappedJSObject = abp;
 function ABPComponent() {}
 ABPComponent.prototype = abp;
 var NSGetModule = XPCOMUtils.generateNSGetModule([Initializer, ABPComponent]);
+
+/*
+ * Loading additional files
+ */
+loader.loadSubScript('chrome://adblockplus/content/utils.js');
+loader.loadSubScript('chrome://adblockplus/content/filterClasses.js');
+loader.loadSubScript('chrome://adblockplus/content/subscriptionClasses.js');
+loader.loadSubScript('chrome://adblockplus/content/filterStorage.js');
+loader.loadSubScript('chrome://adblockplus/content/matcher.js');
+loader.loadSubScript('chrome://adblockplus/content/elemhide.js');
+loader.loadSubScript('chrome://adblockplus/content/filterListener.js');
+loader.loadSubScript('chrome://adblockplus/content/policy.js');
+loader.loadSubScript('chrome://adblockplus/content/requests.js');
+loader.loadSubScript('chrome://adblockplus/content/prefs.js');
+loader.loadSubScript('chrome://adblockplus/content/synchronizer.js');
 
 /*
  * Core Routines
