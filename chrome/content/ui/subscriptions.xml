@@ -10,6 +10,9 @@
   <subscription title="Liste FR (France) + EasyList"
                 url="https://easylist.adblockplus.org/liste_fr+easylist.txt"
                 homepage="http://forums.lanik.us/viewforum.php?f=91"/>
+  <subscription title="ChinaList (中国)"
+                url="http://adblock-chinalist.googlecode.com/svn/trunk/adblock.txt"
+                homepage="http://code.google.com/p/adblock-chinalist/"/>
   <subscription title="Filter von Dr.Evil (Deutschland)"
                 url="http://maltekraus.de/Firefox/adblock.txt"
                 homepage="http://www.camp-firefox.de/forum/viewtopic.php?t=58194"/>
