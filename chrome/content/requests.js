@@ -30,6 +30,8 @@
 const dataSeed = Math.random();    // Make sure our properties have randomized names
 const docDataProp = "abpDocData" + dataSeed;
 const nodeDataProp = "abpNodeData" + dataSeed;
+const nodeIndexProp = "abpNodeIndex" + dataSeed;
+var nodeIndex = 0;
 
 function RequestList(wnd) {
   this.entries = {__proto__: null};
@@ -304,6 +306,7 @@ RequestList.removeListener = function(/**Function*/ listener)
 function RequestEntry(key, contentType, docDomain, thirdParty, location)
 {
   this._nodes = [];
+  this._indexes = [];
   this.key = key;
   this.type = contentType;
   this.docDomain = docDomain;
@@ -317,6 +320,11 @@ RequestEntry.prototype =
    * @type Array of nsIWeakReference
    */
   _nodes: null,
+  /**
+   * Nodes indexes corresponding with the nodes - used to recognize outdated entries.
+   * @type Array of Integer
+   */
+  _indexes: null,
   /**
    * Will be set to true if the entry is associated with other nodes besides the
    * ones listed in the nodes property - used if obtaining a weak reference to
@@ -382,30 +390,18 @@ RequestEntry.prototype =
     for (let i = 0; i < this._nodes.length; i++)
     {
       let node = getReferencee(this._nodes[i]);
-      if (node)
+
+      // Remove node if associated with a different weak reference - this node was added to a different list already
+      if (node && node.getUserData(nodeIndexProp) == this._indexes[i])
         result.push(node);
       else
-        this._nodes.splice(i--, 1);
+      {
+        this._nodes.splice(i, 1);
+        this._indexes.splice(i, 1);
+        i--;
+      }
     }
     return result;
-  },
-  /**
-   * Document elements associated with this entry
-   * @type Iterator of Element
-   */
-  get nodesIterator()
-  {
-    this._compactCounter = 0;
-    this.lastUpdate = this._lastCompact = Date.now();
-
-    for (let i = 0; i < this._nodes.length; i++)
-    {
-      let node = getReferencee(this._nodes[i]);
-      if (node)
-        yield node;
-      else
-        this._nodes.splice(i--, 1);
-    }
   },
   /**
    * String representation of the content type, e.g. "subdocument"
@@ -423,16 +419,6 @@ RequestEntry.prototype =
    */
   addNode: function(/**Node*/ node)
   {
-    // If we had this node already - remove it from its old data entry first
-    let oldEntry = RequestList.getDataForNode(node, true);
-    if (oldEntry)
-    {
-      oldEntry = oldEntry[1];
-      let index = oldEntry.nodes.indexOf(node);
-      if (index >= 0)
-        oldEntry._nodes.splice(index, 1);
-    }
-
     // Compact the list of nodes after 100 additions but at most once every 5 seconds
     if (++this._compactCounter >= 100 && Date.now() - this._lastCompact > 5000)
       this.nodes;
@@ -443,7 +429,13 @@ RequestEntry.prototype =
 
     let weakRef = getWeakReference(node);
     if (weakRef)
+    {
       this._nodes.push(weakRef);
+
+      ++nodeIndex;
+      node.setUserData(nodeIndexProp, nodeIndex, null);
+      this._indexes.push(nodeIndex);
+    }
     else
       this.hasAdditionalNodes = true;
   },
@@ -456,6 +448,7 @@ RequestEntry.prototype =
   {
     let result = this.nodes;
     this._nodes = [];
+    this._indexes = [];
     return result;
   }
 };
