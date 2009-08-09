@@ -181,6 +181,11 @@ RequestList.prototype = {
   {
     let now = Date.now();
 
+    // Accessing wnd.frames will flush outstanding content policy requests in Gecko 1.9.0/1.9.1.
+    // Access it now to make sure we return the correct result even if more nodes are added here.
+    let wnd = getReferencee(this.window);
+    let frames = wnd.frames;
+
     this._compactCounter = 0;
     this._lastCompact = now;
 
@@ -208,11 +213,10 @@ RequestList.prototype = {
       }
     }
 
-    let wnd = getReferencee(this.window);
-    let numFrames = (wnd ? wnd.frames.length : -1);
+    let numFrames = (wnd ? frames.length : -1);
     for (let i = 0; i < numFrames; i++)
     {
-      let frameData = RequestList.getDataForWindow(wnd.frames[i], true);
+      let frameData = RequestList.getDataForWindow(frames[i], true);
       if (frameData && !frameData.detached)
         frameData.getAllLocations(results, hadOutdated);
     }
