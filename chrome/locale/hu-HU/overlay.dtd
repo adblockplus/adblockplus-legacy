@@ -8,13 +8,14 @@
 <!ENTITY context.image.label "Kép blokkolása">
 <!ENTITY context.object.label "Objektum blokkolása">
 <!ENTITY context.frame.label "Keret blokkolása">
-<!ENTITY context.removeWhitelist.label "Adblock Plus: Újra-aktiválás ezen az oldalon">
+<!ENTITY context.removeWhitelist.label "Adblock Plus: Újra-engedélyezés ezen az oldalon">
 <!ENTITY sidebar.title "Blokkolható objektumok">
 <!ENTITY settings.label "Beállítások">
 <!ENTITY settings.accesskey "B">
 <!ENTITY opensidebar.label "Blokkolható objektumok megjelenítése">
 <!ENTITY opensidebar.accesskey "j">
 <!ENTITY closesidebar.label "Blokkolható objektumok elrejtése">
+<!--  Note: This access key should usually be the same as closesidebar.accesskey. It is the same menu item with different label depending on whether the sidebar is currently open. -->
 <!ENTITY closesidebar.accesskey "j">
 <!ENTITY whitelist.site.label "Szűrés tiltása itt: --">
 <!ENTITY whitelist.page.label "Szűrés tiltása csak ezen az aloldalon">
