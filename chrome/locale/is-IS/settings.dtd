@@ -47,7 +47,7 @@
 <!ENTITY showintoolbar.accesskey "t">
 <!ENTITY showinstatusbar.label "Sýna í stöðuslá">
 <!ENTITY showinstatusbar.accesskey "S">
-<!ENTITY objecttabs.label "Sýna flipa fyrir Flash og Java">
+<!ENTITY objecttabs.label "Sýna flipa fyrir Flass og Java">
 <!ENTITY objecttabs.accesskey "f">
 <!ENTITY collapse.label "Fella saman lokaða hluti">
 <!ENTITY collapse.accesskey "L">

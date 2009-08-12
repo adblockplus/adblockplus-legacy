@@ -27,6 +27,6 @@
 <!ENTITY context.disablefilteronsite.label "Aftengja síu fyrir --">
 <!ENTITY context.open.label "Opna í nýjum flipa">
 <!ENTITY context.flash.label "Rammi Flash hlutar">
-<!ENTITY context.copy.label "Afrita netfang hluts">
+<!ENTITY context.copy.label "Afrita netfang hlutar">
 <!ENTITY context.copyFilter.label "Afrita síu">
 <!ENTITY context.selectAll.label "Velja allt">

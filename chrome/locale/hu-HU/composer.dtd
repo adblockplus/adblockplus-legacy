@@ -2,11 +2,11 @@
 <!ENTITY accept.label "Szűrő hozzáadása">
 <!ENTITY advanced.label "Haladó nézet">
 <!ENTITY basic.label "Alap nézet">
-<!ENTITY disabled.warning.beforeLink "Az Adblock Plus jelenleg le van tiltva. Szűrőket hozzáadhat, de azok nem lesznek elérhetőek,">
+<!ENTITY disabled.warning.beforeLink "Az Adblock Plus jelenleg le van tiltva. Szűrőket hozzáadhat, de azok nem fognak működni,">
 <!ENTITY disabled.warning.link "amíg az Adblock Plus nincs engedélyezve">
 <!ENTITY disabled.warning.afterLink ".">
-<!ENTITY groupDisabled.warning.beforeLink "A &quot;&#x25;S&quot; szűrőcsoport jelenleg le van tiltva. Hozzáadhatja a szűrőt, de az nem lesz használatban">
-<!ENTITY groupDisabled.warning.link "amíg nem engedélyezi a szűrőcsoportot">
+<!ENTITY groupDisabled.warning.beforeLink "A szűrőcsoport, amelyhez hozzá szeretné adni a szűrőt le van tiltva. Hozzáadás után a szűrő csak akkor fog működni, ha">
+<!ENTITY groupDisabled.warning.link "engedélyezi a csoportot">
 <!ENTITY groupDisabled.warning.afterLink ".">
 <!ENTITY filter.label "Új szűrő:">
 <!ENTITY filter.accesskey "j">
@@ -26,6 +26,7 @@
 <!ENTITY anchor.start.label "a cím elején">
 <!ENTITY anchor.start.accesskey "e">
 <!ENTITY anchor.start.flexible.label "a tartománynév elején">
+<!--  Note: This access key should usually be the same as anchor.start.flexible.accesskey. It is the same checkbox with different label depending on suggested filter. -->
 <!ENTITY anchor.start.flexible.accesskey "e">
 <!ENTITY anchor.end.label "a cím végén">
 <!ENTITY anchor.end.accesskey "v">
