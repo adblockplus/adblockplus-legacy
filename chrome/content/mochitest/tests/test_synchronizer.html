@@ -14,7 +14,16 @@
   <script type="application/x-javascript;version=1.7" src="chrome://adblockplus/content/filterClasses.js"></script>
   <script type="application/x-javascript;version=1.7" src="chrome://adblockplus/content/subscriptionClasses.js"></script>
   <script type="application/x-javascript;version=1.7" src="chrome://adblockplus/content/filterStorage.js"></script>
+  <script type="application/x-javascript;version=1.7" src="chrome://adblockplus/content/synchronizer.js"></script>
 
+</head>
+<body>
+  <p id="display"></p>
+  <div id="content" style="display: none">
+
+  </div>
+
+  <pre id="test">
   <script type="application/x-javascript;version=1.7">
     let currentTime = 20000 * 24 * 60 * 60 * 1000;
     let startTime = 0;
@@ -83,19 +92,10 @@
       subscriptions_fallbackerrors: 7,
       subscriptions_fallbackurl: "http://localhost:1234/fallback?%s"
     };
-  </script>
 
-  <script type="application/x-javascript;version=1.7" src="chrome://adblockplus/content/synchronizer.js"></script>
-</head>
-<body>
-  <p id="display"></p>
-  <div id="content" style="display: none">
-
-  </div>
-
-  <pre id="test">
-  <script type="application/x-javascript;version=1.7">
     {
+      synchronizer.init();
+
       let timer = {__proto__: synchronizer.timer};
       let callback = timer.callback;
       timer.handler = function() { callback.notify(timer); };
