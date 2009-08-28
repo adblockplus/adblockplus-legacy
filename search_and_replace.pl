@@ -2,6 +2,8 @@
 
 use strict;
 
+die "Usage: $^X $0 <regexp> <replaceBy>\n" unless @ARGV >= 2;
+
 my ($from, $to) = @ARGV;
 
 doDir('.');
