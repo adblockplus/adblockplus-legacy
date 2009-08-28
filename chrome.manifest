@@ -13,3 +13,7 @@ locale    adblockplus {{LOCALE}} jar:chrome/adblockplus.jar!/locale/{{LOCALE}}/
 
 # Hack to prevent .Net Framework Assistant from messing up the browser
 override chrome://dotnetassistant/content/bootstrap.xul data:text/xml,<nada/>
+
+# Hack to make icon.png available as adblockplus.png in the skin
+skin      adblockplus_icon classic/1.0 ./
+override  chrome://adblockplus/skin/adblockplus.png chrome://adblockplus_icon/skin/icon.png
