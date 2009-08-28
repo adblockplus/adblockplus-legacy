@@ -33,6 +33,8 @@ my @files = ();
 my $installManifest = fixupFile(readFile("install.rdf"));
 push @files, ["install.rdf", $installManifest];
 
+push @files, ["icon.png", readFile("icon.png")] if -f "icon.png";
+
 my $cleanManifest = $installManifest;
 $cleanManifest =~ s/<(\w+:)?targetApplication>.*?<\/\1targetApplication>//gs;
 $cleanManifest =~ s/<(\w+:)?requires>.*?<\/\1requires>//gs;
