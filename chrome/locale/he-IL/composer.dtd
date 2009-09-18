@@ -5,7 +5,7 @@
 <!ENTITY disabled.warning.beforeLink "Adblock Plus מנוטרל. ניתן לערוך את כל המסננים ברשימה, אבל זה לא יהיה מעשי עד שתאפשר אותו מחדש.">
 <!ENTITY disabled.warning.link "מאפשר את Adblock Plus">
 <!ENTITY disabled.warning.afterLink ".">
-<!ENTITY groupDisabled.warning.beforeLink "סנן זה אשר אמור להיות מצורף לקבוצת הסינון &quot;&#37;S&quot; מנוטרל כרגע. עדיין ניתן להוסיף סנן זה אך הוא לא ייושם אל אם">
+<!ENTITY groupDisabled.warning.beforeLink "סנן זה אשר אמור להיות מצורף לקבוצת הסינון &quot;&amp;#37;S&quot; מנוטרל כרגע. עדיין ניתן להוסיף סנן זה אך הוא לא ייושם אל אם">
 <!ENTITY groupDisabled.warning.link "קבוצת הסינון תאפשר">
 <!ENTITY groupDisabled.warning.afterLink ".">
 <!ENTITY filter.label "מסנן חדש:">
