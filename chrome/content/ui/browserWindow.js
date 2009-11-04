@@ -686,7 +686,7 @@ function abpToggleSidebar() {
         abpHooks.getBrowser().contentWindow.focus();
     }
     else
-      window.abpDetachedSidebar = window.openDialog("chrome://adblockplus/content/ui/sidebarDetached.xul", "_blank", "chrome,resizable,dependent,dialog=no,width=600,height=300");
+      window.abpDetachedSidebar = window.openDialog("chrome://adblockplus/content/ui/sidebarDetached.xul", "_blank", "chrome,resizable,dependent,dialog=no");
   }
 
   let menuItem = E("abp-blockableitems");
