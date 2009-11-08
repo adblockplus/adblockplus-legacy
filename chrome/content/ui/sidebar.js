@@ -44,6 +44,17 @@ function init() {
   var list = E("list");
   list.view = treeView;
 
+  // Restore previous state
+  var params = abp.getParams();
+  if (params && params.search) {
+    E("searchField").value = params.search;
+    treeView.setFilter(params.search);
+  }
+  if (params && params.focus && E(params.focus))
+    E(params.focus).focus();
+  else
+    E("searchField").focus();
+
   var selected = null;
   if (/sidebarDetached\.xul$/.test(parent.location.href)) {
     mainWin = parent.opener;
@@ -56,6 +67,16 @@ function init() {
       var sidebarKey = mainWin.document.getElementById("abp-key-sidebar").cloneNode(true);
       parent.document.getElementById("detached-keyset").appendChild(parent.document.importNode(sidebarKey, true));
     }
+
+    // Set default size/position unless already persisted
+    let defaults = {screenX: 0, screenY: 0, width: 600, height: 300};
+    if (params && params.position)
+      defaults = params.position;
+
+    let wnd = parent.document.documentElement;
+    for (let attr in defaults)
+      if (!wnd.hasAttribute(attr))
+        wnd.setAttribute(attr, defaults[attr]);
   }
 
   abpHooks = mainWin.document.getElementById("abp-hooks");
@@ -68,17 +89,6 @@ function init() {
   reloadDisabledFilters();
   filterStorage.addFilterObserver(reloadDisabledFilters);
   filterStorage.addSubscriptionObserver(reloadDisabledFilters);
-
-  // Restore previous state
-  var params = abp.getParams();
-  if (params && params.search) {
-    E("searchField").value = params.search;
-    treeView.setFilter(params.search);
-  }
-  if (params && params.focus && E(params.focus))
-    E(params.focus).focus();
-  else
-    E("searchField").focus();
 
   // Activate flasher
   list.addEventListener("select", onSelectionChange, false);
@@ -559,48 +569,43 @@ function saveState() {
   while (focused && (!focused.id || !("focus" in focused)))
     focused = focused.parentNode;
 
-  var params = {
-    filter: treeView.filter,
-    focus: (focused ? focused.id : null)
-  };
-  abp.setParams(params);
-}
-
-// detaches the sidebar
-function detach() {
-  if (!abp)
-    return;
-
-  saveState();
-
   // Calculate default position for the detached window
   var boxObject = document.documentElement.boxObject;
   var position = {screenX: boxObject.screenX, screenY: boxObject.screenY, width: boxObject.width, height: boxObject.height};
 
-  // Close sidebar and open detached window
-  mainWin.document.getElementById("abp-command-sidebar").doCommand();
-  mainWin.abpDetachedSidebar = mainWin.openDialog("chrome://adblockplus/content/ui/sidebarDetached.xul", "_blank", "chrome,resizable,dependent,dialog=no", position);
-
-  // Save setting
-  prefs.detachsidebar = true;
-  prefs.save();
+  var params = {
+    filter: treeView.filter,
+    focus: (focused ? focused.id : null),
+    position: position
+  };
+  abp.setParams(params);
 }
 
-// reattaches the sidebar
-function reattach() {
+// closes the sidebar
+function doClose()
+{
+  mainWin.document.getElementById("abp-command-sidebar").doCommand();
+}
+
+// detaches/reattaches the sidebar
+function detach(doDetach)
+{
   if (!abp)
     return;
 
   saveState();
 
-  // Save setting
-  prefs.detachsidebar = false;
-  prefs.save();
+  // Store variables locally, global variables will go away when we are closed
+  let myPrefs = prefs;
+  let myMainWin = mainWin;
 
-  // Open sidebar in window
-  mainWin.abpDetachedSidebar = null;
-  mainWin.document.getElementById("abp-command-sidebar").doCommand();
-  parent.close();
+  // Close sidebar and open detached window
+  myMainWin.document.getElementById("abp-command-sidebar").doCommand();
+  myPrefs.detachsidebar = doDetach;
+  myMainWin.document.getElementById("abp-command-sidebar").doCommand();
+
+  // Save setting
+  myPrefs.save();
 }
 
 // Returns items size in the document if available
