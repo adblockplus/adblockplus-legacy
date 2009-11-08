@@ -36,7 +36,7 @@ let eventHandlers = [
   ["abp-status-popup", "popupshowing", abpFillPopup],
   ["abp-toolbar-popup", "popupshowing", abpFillPopup],
   ["abp-command-settings", "command", function() { abp.openSettingsDialog(); }],
-  ["abp-command-sidebar", "command", abpToggleSidebar],
+  ["abp-command-sidebar", "command", toggleSidebar],
   ["abp-command-togglesitewhitelist", "command", function() { toggleFilter(siteWhitelist); }],
   ["abp-command-togglepagewhitelist", "command", function() { toggleFilter(pageWhitelist); }],
   ["abp-command-toggleobjtabs", "command", function() { abpTogglePref("frameobjects"); }],
@@ -93,6 +93,12 @@ let progressListener = null;
  */
 let abpHooks = E("abp-hooks");
 
+/**
+ * Window of the detached list of blockable items (might be null or closed).
+ * @type nsIDOMWindow 
+ */
+let detachedSidebar = null;
+
 abpInit();
 
 function abpInit() {
@@ -105,7 +111,6 @@ function abpInit() {
   }
 
   // Process preferences
-  window.abpDetachedSidebar = null;
   abpReloadPrefs();
 
   // Copy the menu from status bar icon to the toolbar
@@ -666,19 +671,25 @@ function abpFillPopup(event) {
 
 function abpIsSidebarOpen() {
   // Test whether detached sidebar window is open
-  if (window.abpDetachedSidebar && !window.abpDetachedSidebar.closed)
+  if (detachedSidebar && !detachedSidebar.closed)
     return true;
 
   var sidebar = E("abp-sidebar");
   return (sidebar ? !sidebar.hidden : false);
 }
 
-function abpToggleSidebar() {
-  if (window.abpDetachedSidebar && !window.abpDetachedSidebar.closed)
-    window.abpDetachedSidebar.close();
-  else {
+function toggleSidebar()
+{
+  if (detachedSidebar && !detachedSidebar.closed)
+  {
+    detachedSidebar.close();
+    detachedSidebar = null;
+  }
+  else
+  {
     var sidebar = E("abp-sidebar");
-    if (sidebar && (!prefs.detachsidebar || !sidebar.hidden)) {
+    if (sidebar && (!prefs.detachsidebar || !sidebar.hidden))
+    {
       E("abp-sidebar-splitter").hidden = !sidebar.hidden;
       E("abp-sidebar-browser").setAttribute("src", sidebar.hidden ? "chrome://adblockplus/content/ui/sidebar.xul" : "about:blank");
       sidebar.hidden = !sidebar.hidden;
@@ -686,7 +697,7 @@ function abpToggleSidebar() {
         abpHooks.getBrowser().contentWindow.focus();
     }
     else
-      window.abpDetachedSidebar = window.openDialog("chrome://adblockplus/content/ui/sidebarDetached.xul", "_blank", "chrome,resizable,dependent,dialog=no");
+      detachedSidebar = window.openDialog("chrome://adblockplus/content/ui/sidebarDetached.xul", "_blank", "chrome,resizable,dependent,dialog=no");
   }
 
   let menuItem = E("abp-blockableitems");
@@ -751,7 +762,7 @@ function abpCommandHandler(e) {
 // Executes default action for statusbar/toolbar by its number
 function abpExecuteAction(action) {
   if (action == 1)
-    abpToggleSidebar();
+    toggleSidebar();
   else if (action == 2)
     abp.openSettingsDialog();
   else if (action == 3)

@@ -33,24 +33,7 @@
   id="abpDetachedSidebar"
   title="&detached.title;"
   persist="screenX screenY width height sizemode"
-  onload="correctPosition()">
-
-  <script type="application/x-javascript;version=1.7">
-  <![CDATA[
-    function correctPosition()
-    {
-      // Set default size/position unless already persisted
-      let defaults = {screenX: 0, screenY: 0, width: 600, height: 300};
-      if (window.arguments && window.arguments.length >= 1)
-        defaults = window.arguments[0];
-
-      let wnd = document.documentElement;
-      for (let attr in defaults)
-        if (!wnd.hasAttribute(attr))
-          wnd.setAttribute(attr, defaults[attr]);
-    }
-  ]]>
-  </script>
+  onclose="document.getElementById('abp-command-sidebar').doCommand(); return false;">
 
   <keyset id="detached-keyset">
     <key keycode="VK_ESCAPE" command="abp-command-sidebar"/> 
@@ -58,7 +41,7 @@
   </keyset>
 
   <commandset id="detached-commandset">
-    <command id="abp-command-sidebar" oncommand="window.close()"/>
+    <command id="abp-command-sidebar" oncommand="document.getElementById('sidebarFrame').contentWindow.doClose()"/>
   </commandset>
 
   <iframe src="sidebar.xul" id="sidebarFrame" flex="1"/>
