@@ -5,6 +5,9 @@
 <!ENTITY disabled.warning.beforeLink "Adblock Plus 目前处于禁用状态。您可以继续添加过滤规则，但是这些规则无法生效。">
 <!ENTITY disabled.warning.link "启用 Adblock Plus">
 <!ENTITY disabled.warning.afterLink ".">
+<!ENTITY groupDisabled.warning.beforeLink "该过滤规则将被添加到过滤规则组 group &quot;&amp;#x25;S&quot;，该组目前是禁用状态。 您仍然可以添加该过滤规则，但是该规则不会被应用，除非您启用它。">
+<!ENTITY groupDisabled.warning.link "启用过滤器分组">
+<!ENTITY groupDisabled.warning.afterLink ".">
 <!ENTITY filter.label "新建过滤规则:">
 <!ENTITY filter.accesskey "f">
 <!ENTITY preferences.label "显示现有过滤规则...">
@@ -22,6 +25,8 @@
 <!ENTITY anchors.label "仅接受模式:">
 <!ENTITY anchor.start.label "在地址开始处">
 <!ENTITY anchor.start.accesskey "g">
+<!ENTITY anchor.start.flexible.label "在域名开始处">
+<!ENTITY anchor.start.flexible.accesskey "g">
 <!ENTITY anchor.end.label "在地址末尾">
 <!ENTITY anchor.end.accesskey "n">
 <!ENTITY options.label "选项">
