@@ -69,6 +69,8 @@
 		高级用户可以使用象 /banner\d+\.gif$/ 这样的正则表达式。">
 <!ENTITY filter.column "过滤规则">
 <!ENTITY filter.accesskey "F">
+<!ENTITY slow.column "慢速过滤规则">
+<!ENTITY slow.accesskey "w">
 <!ENTITY enabled.column "启用">
 <!ENTITY enabled.accesskey "n">
 <!ENTITY hitcount.column "计数">

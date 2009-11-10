@@ -8,6 +8,7 @@
 <!ENTITY filter.label "过滤规则">
 <!ENTITY state.label "状态">
 <!ENTITY size.label "大小">
+<!ENTITY docDomain.label "文档源">
 <!ENTITY noitems.label "无可过滤项目">
 <!ENTITY whitelisted.label "列入白名单的页面">
 <!ENTITY tooltip.address.label "地址:">
@@ -15,6 +16,7 @@
 <!ENTITY tooltip.type.blocked "(过滤规则)">
 <!ENTITY tooltip.type.whitelisted "(白名单)">
 <!ENTITY tooltip.size.label "大小:">
+<!ENTITY tooltip.docDomain.label "文档源：">
 <!ENTITY tooltip.filter.label "已生效的过滤规则:">
 <!ENTITY tooltip.filterSource.label "过滤规则源:">
 <!ENTITY context.block.label "过滤该项">
