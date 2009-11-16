@@ -7,7 +7,7 @@
 
 use strict;
 use warnings;
-use lib qw(..);
+use lib qw(buildtools);
 use Packager;
 
 sub Packager::fixLocales() {}
