@@ -15,7 +15,7 @@ system("hg", "clone", "https://hg.adblockplus.org/jsdoc-toolkit/") unless -e "js
          '-d=' . $target,
          '-a',
          '-p',
-         'chrome/content/');
+         'chrome/content/', 'components/AdblockPlus.js');
 
 $0 = "jsdoc-toolkit/jsrun.pl";
 do $0;
