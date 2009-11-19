@@ -53,6 +53,7 @@ Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 
 /**
  * Application startup/shutdown observer, triggers init()/shutdown() methods in abp object.
+ * @constructor
  */
 function Initializer() {}
 Initializer.prototype =
@@ -83,10 +84,10 @@ Initializer.prototype =
   }
 };
 
-/*
- * Content policy class definition
+/**
+ * Adblock Plus XPCOM component
+ * @class
  */
-
 const abp =
 {
   classDescription: "Adblock Plus component",
