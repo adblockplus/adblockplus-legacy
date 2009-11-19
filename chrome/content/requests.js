@@ -22,8 +22,8 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-/*
- * Stores Adblock Plus data to be attached to a window.
+/**
+ * @fileOverview Stores Adblock Plus data to be attached to a window.
  * This file is included from AdblockPlus.js.
  */
 

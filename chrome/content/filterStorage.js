@@ -22,8 +22,8 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-/*
- * FilterStorage class responsible to managing user's subscriptions and filters.
+/**
+ * @fileOverview FilterStorage class responsible to managing user's subscriptions and filters.
  * This file is included from AdblockPlus.js.
  */
 

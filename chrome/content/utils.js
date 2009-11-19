@@ -22,8 +22,8 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-/*
- * Utility functions and classes.
+/**
+ * @fileOverview Utility functions and classes.
  * This file is included from AdblockPlus.js.
  */
 

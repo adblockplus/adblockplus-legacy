@@ -22,8 +22,8 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-/*
- * Definition of Subscription class and its subclasses.
+/**
+ * @fileOverview Definition of Subscription class and its subclasses.
  * This file is included from AdblockPlus.js.
  */
 

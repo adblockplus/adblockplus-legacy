@@ -22,8 +22,8 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-/*
- * Manages Adblock Plus preferences.
+/**
+ * @fileOverview Manages Adblock Plus preferences.
  * This file is included from AdblockPlus.js.
  */
 
@@ -31,6 +31,11 @@ const prefRoot = "extensions.adblockplus.";
 
 var prefService = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefService);
 
+/**
+ * This object allows easy access to Adblock Plus preferences, all defined
+ * preferences will be available as its members.
+ * @class
+ */
 var prefs = {
   lastVersion: null,
   disableObserver: false,

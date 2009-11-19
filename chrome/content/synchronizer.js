@@ -22,13 +22,18 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-/*
- * Manages synchronization of filter subscriptions.
+/**
+ * @fileOverview Manages synchronization of filter subscriptions.
  * This file is included from AdblockPlus.js.
  */
 
 var XMLHttpRequest = Components.Constructor("@mozilla.org/xmlextras/xmlhttprequest;1", "nsIJSXMLHttpRequest");
 
+/**
+ * This object is responsible for downloading filter subscriptions whenever
+ * necessary.
+ * @class
+ */
 var synchronizer =
 {
   /**

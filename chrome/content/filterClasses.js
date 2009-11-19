@@ -22,8 +22,8 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-/*
- * Definition of Filter class and its subclasses.
+/**
+ * @fileOverview Definition of Filter class and its subclasses.
  * This file is included from AdblockPlus.js.
  */
 

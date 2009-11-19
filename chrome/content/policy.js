@@ -23,7 +23,7 @@
  * ***** END LICENSE BLOCK ***** */
 
 /**
- * Content policy implementation, responsible for blocking things.
+ * @fileOverview Content policy implementation, responsible for blocking things.
  * This file is included from AdblockPlus.js.
  */
 
@@ -32,6 +32,11 @@ var effectiveTLD = Cc["@mozilla.org/network/effective-tld-service;1"].getService
 const ok = Ci.nsIContentPolicy.ACCEPT;
 const block = Ci.nsIContentPolicy.REJECT_REQUEST;
 
+/**
+ * nsIContentPolicy implementation, this gets triggered whenever the browser needs
+ * to load something to decide whether the request should be blocked.
+ * @class
+ */
 var policy =
 {
   /**
