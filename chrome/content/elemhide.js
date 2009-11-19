@@ -22,8 +22,8 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-/*
- * Element hiding implementation.
+/**
+ * @fileOverview Element hiding implementation.
  * This file is included from AdblockPlus.js.
  */
 

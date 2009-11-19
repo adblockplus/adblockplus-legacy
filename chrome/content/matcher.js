@@ -22,8 +22,8 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-/*
- * Matcher class implementing matching addresses against a list of filters.
+/**
+ * @fileOverview Matcher class implementing matching addresses against a list of filters.
  * This file is included from AdblockPlus.js.
  */
 

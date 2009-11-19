@@ -22,8 +22,8 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-/*
- * Component synchronizing filter storage with Matcher instances and elemhide.
+/**
+ * @fileOverview Component synchronizing filter storage with Matcher instances and elemhide.
  * This file is included from AdblockPlus.js.
  */
 
