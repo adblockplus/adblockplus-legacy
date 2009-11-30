@@ -2,13 +2,13 @@
 
 <subscriptions>
   <subscription title="EasyList (USA)"
-                url="https://easylist.adblockplus.org/easylist.txt"
+                url="https://easylist-downloads.adblockplus.org/easylist.txt"
                 homepage="http://easylist.adblockplus.org/"/>
   <subscription title="EasyList Germany (Deutschland) + EasyList"
-                url="https://easylist.adblockplus.org/ares+easylist.txt"
+                url="https://easylist-downloads.adblockplus.org/ares+easylist.txt"
                 homepage="http://forums.lanik.us/viewforum.php?f=90"/>
   <subscription title="Liste FR (France) + EasyList"
-                url="https://easylist.adblockplus.org/liste_fr+easylist.txt"
+                url="https://easylist-downloads.adblockplus.org/liste_fr+easylist.txt"
                 homepage="http://forums.lanik.us/viewforum.php?f=91"/>
   <subscription title="ChinaList (中国)"
                 url="http://adblock-chinalist.googlecode.com/svn/trunk/adblock.txt"
@@ -17,12 +17,12 @@
                 url="http://maltekraus.de/Firefox/adblock.txt"
                 homepage="http://www.camp-firefox.de/forum/viewtopic.php?t=58194"/>
   <subscription title="Morpeh Rus List (Россия) + EasyList"
-                url="https://easylist.adblockplus.org/morpeh+easylist.txt"
+                url="https://easylist-downloads.adblockplus.org/morpeh+easylist.txt"
                 homepage="http://adblockplus.mihalkin.ru/"/>
   <subscription title="Corset (Korea) + EasyList"
-                url="https://easylist.adblockplus.org/corset+easylist.txt"
+                url="https://easylist-downloads.adblockplus.org/corset+easylist.txt"
                 homepage="http://www.brianyi.com/corset/"/>
   <subscription title="ROList (România) + EasyList"
-                url="https://easylist.adblockplus.org/rolist+easylist.txt"
+                url="https://easylist-downloads.adblockplus.org/rolist+easylist.txt"
                 homepage="http://www.picpoc.ro/"/>
 </subscriptions>
