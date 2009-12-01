@@ -73,6 +73,10 @@ var prefs = {
 
   init: function()
   {
+    // Prevent multiple invocation
+    if (this.currentVersion)
+      return;
+
     // Initialize prefs list
     var defaultBranch = prefService.getDefaultBranch(prefRoot);
     var defaultPrefs = defaultBranch.getChildList("", {});

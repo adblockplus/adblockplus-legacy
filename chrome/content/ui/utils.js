@@ -32,6 +32,9 @@ const prefs = abp.prefs;
 const filterStorage = abp.filterStorage;
 const synchronizer = abp.synchronizer;
 
+// Make sure to initialized preferences if they aren't at this point (Fennec)
+prefs.init();
+
 /**
  * Shortcut for document.getElementById(id)
  */
