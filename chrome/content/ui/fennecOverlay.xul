@@ -32,7 +32,7 @@
   <window id="main-window">
     <box id="abp-hooks"
       getBrowser="return window.getBrowser();"
-      addTab="window.getBrowser().addTab(arguments[0], false);"
+      addTab="window.Browser.addTab(arguments[0], false);"
       getContextMenu="return null"
       getToolbox="return null"
       getDefaultToolbar="return null"/>
