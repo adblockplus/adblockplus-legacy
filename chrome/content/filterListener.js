@@ -134,7 +134,7 @@ var filterListener =
     {
       let method = (action == "add" || action == "enable" ? this.addFilter : this.removeFilter);
       for each (let subscription in subscriptions)
-        if (action == "disable" || !subscription.disabled)
+        if (subscription.filters && (action == "disable" || !subscription.disabled))
           subscription.filters.forEach(method, this);
     }
     else if (action == "update")

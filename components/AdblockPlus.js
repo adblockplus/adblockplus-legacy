@@ -75,7 +75,10 @@ Initializer.prototype =
         observerService.addObserver(this, "quit-application", true);
         break;
       case "profile-after-change":
-        abp.init();
+        // delayed init for Fennec
+        let appInfo = Cc["@mozilla.org/xre/app-info;1"].createInstance(Ci.nsIXULAppInfo);
+        if (appInfo.ID != "{a23983c0-fd0e-11dc-95ff-0800200c9a66}")
+          abp.init();
         break;
       case "quit-application":
         abp.shutdown();

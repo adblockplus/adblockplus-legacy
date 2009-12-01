@@ -297,11 +297,13 @@ function abpReloadPrefs() {
 
   var status = E("abp-status");
   updateElement(status);
-  if (prefs.defaultstatusbaraction == 0)
-    status.setAttribute("popup", status.getAttribute("context"));
-  else
-    status.removeAttribute("popup");
-
+  if (status) {
+    if (prefs.defaultstatusbaraction == 0)
+      status.setAttribute("popup", status.getAttribute("context"));
+    else
+      status.removeAttribute("popup");
+  }
+  
   var button = E("abp-toolbarbutton");
   updateElement(button);
   if (button) {
