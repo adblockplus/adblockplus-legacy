@@ -26,14 +26,16 @@
 var fennecAbp = {
   abp: Components.classes["@mozilla.org/adblockplus;1"].createInstance().wrappedJSObject,
   
+  init: function()
+  {
+    setTimeout(function(me) me.abp.init(), 0, this);
+  },
+
   onCreateOptions: function(event)
   {
     if (event.originalTarget.getAttribute("addonID") != "{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}")
       return;
     
-    // We need the component to be initialized at this point if it isn't already
-    this.abp.init();
-
     let filterStorage = this.abp.filterStorage;
     let currentSubscription = filterStorage.subscriptions.filter(function(subscription) subscription instanceof this.abp.DownloadableSubscription, this);
     currentSubscription = (currentSubscription.length ? currentSubscription[0] : null);
@@ -86,6 +88,9 @@ var fennecAbp = {
     filterStorage.saveToDisk();
   }
 }
+
+window.addEventListener("load",
+      function() fennecAbp.init(), false);
 
 document.getElementById("addons-list").addEventListener("AddonOptionsLoad",
       function(event) fennecAbp.onCreateOptions(event), false);
