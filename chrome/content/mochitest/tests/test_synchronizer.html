@@ -156,7 +156,7 @@
           response.setHeader(header, value);
       }
 
-      response.bodyOutputStream.write(subscriptionBody, subscriptionBody.length); 
+      response.bodyOutputStream.write(subscriptionBody, subscriptionBody.length);
     }
 
     let redirectPermanent = null;
@@ -238,7 +238,9 @@
       subscription2.autoDownload = false;
       filterStorage.addSubscription(subscription2);
 
+      //
       // General subscription download testing
+      //
 
       runScheduledTasks(7);
       compareRequests("Downloads of one subscription (7 hours)", [
@@ -257,7 +259,9 @@
       ]);
       subscription2.autoDownload = false;
 
+      //
       // Header variations testing
+      //
 
       subscriptionBody = "[Adblock]\nfoo\n!bar\n\n\n@@bas\n#bam";
       runScheduledTasks(3);
@@ -283,9 +287,11 @@
       runScheduledTasks(5);
       compareFilters("Filters of downloaded subscription with [Adblock Plus 99.9] header", "some_new_syntax", "synchronize_ok", "99.9");
 
+      //
       // Expiration testing - expire times smaller than default update
       // interval should not be accepted, and expiration times more than
       // two weeks in the future should be cut down to two weeks.
+      //
 
       subscriptionBody = "[Adblock]\n! Expires after 1 hour\nfoo";
       runScheduledTasks(4);
@@ -331,7 +337,9 @@
       ]);
       subscriptionExtraHeaders = null;
 
+      //
       // Redirect testing
+      //
 
       server.registerPathHandler("/subscription1", commentRedirectHandler);
 
@@ -425,7 +433,9 @@
       server.registerPathHandler("/subscription1", getSubscription);
       server.registerPathHandler("/subscription3", getSubscription);
 
+      //
       // Behavior on errors
+      //
 
       runScheduledTasks(6); // reset error counters
       requests = [];
@@ -541,7 +551,10 @@
       server.registerPathHandler("/subscription1", getSubscription);
       fallbackResult = "";
 
+      //
       // Checksum verification
+      //
+
       subscriptionBody = "[Adblock]\n! Checksum: e/JCmqXny6Fn24b7JHsq/A\nfoo\nbar\n";
 
       runScheduledTasks(6);
@@ -602,6 +615,125 @@
         "86700000: GET /subscription1",
       ]);
       subscriptionBody = subscriptionBody.replace(/wrong/, "");
+
+      //
+      // Alternative download locations
+      //
+
+      subscriptionBody = "[Adblock]\nfoo\nbar\n";
+      let alternativeLocations = subscription2.url + ";q=0.5," + subscription3.url + ";q=2";
+      subscriptionExtraHeaders = function() [["X-Alternative-Locations", alternativeLocations]];
+      let oldRandom = Math.random;
+      
+      runScheduledTasks(6);
+      is(subscription1.downloadStatus, "synchronize_ok", "= symbols after checksum are ignored");
+      is(subscription1.alternativeLocations, alternativeLocations, "Alternative locations header processed on download");
+
+      requests = [];
+      Math.random = function() 0;
+      runScheduledTasks(9);
+      compareRequests("Base URL should be chosen if Math.random() returns 0", [
+        "300000: GET /subscription1",
+        "11100000: GET /subscription1",
+        "21900000: GET /subscription1",
+      ]);
+
+      requests = [];
+      Math.random = function() 0.28;
+      runScheduledTasks(9);
+      compareRequests("Base URL should be chosen if Math.random() returns 0.28", [
+        "300000: GET /subscription1",
+        "11100000: GET /subscription1",
+        "21900000: GET /subscription1",
+      ]);
+
+      requests = [];
+      Math.random = function() 0.29;
+      runScheduledTasks(9);
+      compareRequests("First alternative should be chosen if Math.random() returns 0.29", [
+        "300000: GET /subscription2",
+        "11100000: GET /subscription2",
+        "21900000: GET /subscription2",
+      ]);
+
+      requests = [];
+      Math.random = function() 0.42;
+      runScheduledTasks(9);
+      compareRequests("First alternative should be chosen if Math.random() returns 0.42", [
+        "300000: GET /subscription2",
+        "11100000: GET /subscription2",
+        "21900000: GET /subscription2",
+      ]);
+
+      requests = [];
+      Math.random = function() 0.43;
+      runScheduledTasks(9);
+      compareRequests("Second alternative should be chosen if Math.random() returns 0.43", [
+        "300000: GET /subscription3",
+        "11100000: GET /subscription3",
+        "21900000: GET /subscription3",
+      ]);
+
+      requests = [];
+      Math.random = function() 0.99;
+      runScheduledTasks(9);
+      compareRequests("Second alternative should be chosen if Math.random() returns 0.99", [
+        "300000: GET /subscription3",
+        "11100000: GET /subscription3",
+        "21900000: GET /subscription3",
+      ]);
+
+      subscriptionStatus = [404, "Not Found"];
+      Math.random = function() 0;
+      runScheduledTasks(3);
+      is(subscription1.alternativeLocations, alternativeLocations, "Alternative locations shouldn't be reset on download failure for base URL");
+
+      Math.random = function() 0.99;
+      runScheduledTasks(3);
+      is(subscription1.alternativeLocations, null, "Alternative locations should be reset on download failure for alternative URL");
+
+      requests = [];
+      subscriptionStatus = [200, "OK"];
+      Math.random = function() 0.99;
+      runScheduledTasks(9);
+      compareRequests("Alternative locations should be used again one the base URL returns a new list", [
+        "300000: GET /subscription1",
+        "11100000: GET /subscription3",
+        "21900000: GET /subscription3",
+      ]);
+
+      server.registerPathHandler("/subscription1", commentRedirectHandler);
+      redirectURL = subscription2.url;
+      Math.random = function() 0;
+      runScheduledTasks(3);
+      is(subscription1.nextURL, subscription2.url, "Redirect comment accepted from base URL");
+      subscription1.nextURL = null;
+      server.registerPathHandler("/subscription1", getSubscription);
+
+      server.registerPathHandler("/subscription3", commentRedirectHandler);
+      redirectURL = subscription2.url;
+      Math.random = function() 0.99;
+      runScheduledTasks(3);
+      is(subscription1.nextURL, null, "Redirect comment ignored from alternative URL");
+
+      server.registerPathHandler("/subscription3", redirectHandler);
+      redirectURL = subscription2.url;
+      Math.random = function() 0.99;
+      redirectPermanent = true;
+      runScheduledTasks(3);
+      compareSubscriptions("Subscriptions after redirect from alternative URL", [subscription1, subscription2]);
+      server.registerPathHandler("/subscription3", getSubscription);
+
+      server.registerPathHandler("/subscription1", redirectHandler);
+      redirectURL = subscription2.url;
+      Math.random = function() 0;
+      redirectPermanent = true;
+      runScheduledTasks(3);
+      compareSubscriptions("Subscriptions after redirect from base URL", [subscription2]);
+      server.registerPathHandler("/subscription1", getSubscription);
+
+      subscriptionExtraHeaders = null;
+      Math.random = oldRandom;
 
       // @TODO: If-Modified-Since
     }
