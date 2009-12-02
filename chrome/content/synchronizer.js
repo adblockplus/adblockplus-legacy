@@ -95,14 +95,15 @@ var synchronizer =
    * Extracts a list of filters from text returned by a server.
    * @param {DownloadableSubscription} subscription  subscription the info should be placed into
    * @param {String} text server response
+   * @param {Boolean} isBaseLocation false if the subscription was downloaded from a location specified in X-Alternative-Locations header
    * @return {Array of Filter}
    */
-  readFilters: function(subscription, text)
+  readFilters: function(subscription, text, isBaseLocation)
   {
     let lines = text.split(/[\r\n]+/);
     if (!/\[Adblock(?:\s*Plus\s*([\d\.]+)?)?\]/i.test(lines[0]))
     {
-      this.setError(subscription, "synchronize_invalid_data");
+      this.setError(subscription, "synchronize_invalid_data", isBaseLocation);
       return null;
     }
     let minVersion = RegExp.$1;
@@ -117,7 +118,7 @@ var synchronizer =
 
         if (checksum && checksum != checksumExpected)
         {
-          this.setError(subscription, "synchronize_checksum_mismatch");
+          this.setError(subscription, "synchronize_checksum_mismatch", isBaseLocation);
           return null;
         }
 
@@ -150,9 +151,15 @@ var synchronizer =
    * Handles an error during a subscription download.
    * @param {DownloadableSubscription} subscription  subscription that failed to download
    * @param {String} error error ID in global.properties
+   * @param {Boolean} isBaseLocation false if the subscription was downloaded from a location specified in X-Alternative-Locations header
    */
-  setError: function(subscription, error)
+  setError: function(subscription, error, isBaseLocation)
   {
+    // If download from an alternative location failed, reset the list of
+    // alternative locations - have to get an updated list from base location.
+    if (!isBaseLocation)
+      subscription.alternativeLocations = null;
+
     subscription.lastDownload = parseInt(Date.now() / 1000);
     subscription.downloadStatus = error;
     if (error == "synchronize_checksum_mismatch")
@@ -208,7 +215,53 @@ var synchronizer =
     subscription.nextURL = null;
 
     let curVersion = abp.getInstalledVersion();
-    let loadFrom = (newURL || url).replace(/%VERSION%/, "ABP" + curVersion);
+    let loadFrom = newURL;
+    let isBaseLocation = true;
+    if (!loadFrom)
+    {
+      loadFrom = url;
+      if (subscription.alternativeLocations)
+      {
+        // We have alternative download locations, choose one. "Regular"
+        // subscription URL always goes in with weight 1.
+        let options = [[1, url]];
+        let totalWeight = 1;
+        for each (let alternative in subscription.alternativeLocations.split(','))
+        {
+          if (!/^https?:\/\//.test(alternative))
+            continue;
+
+          let weight = 1;
+          let weightingRegExp = /;q=([\d\.]+)$/;
+          if (weightingRegExp.test(alternative))
+          {
+            weight = parseFloat(RegExp.$1);
+            if (isNaN(weight) || !isFinite(weight) || weight < 0)
+              weight = 1;
+            if (weight > 10)
+              weight = 10;
+
+            alternative = alternative.replace(weightingRegExp, "");
+          }
+          options.push([weight, alternative]);
+          totalWeight += weight;
+        }
+
+        let choice = Math.random() * totalWeight;
+        for each (let [weight, alternative] in options)
+        {
+          choice -= weight;
+          if (choice < 0)
+          {
+            loadFrom = alternative;
+            break;
+          }
+        }
+
+        isBaseLocation = (loadFrom == url);
+      }
+    }
+    loadFrom = loadFrom.replace(/%VERSION%/, "ABP" + curVersion);
 
     let request = null;
     try {
@@ -216,7 +269,7 @@ var synchronizer =
       request.open("GET", loadFrom);
     }
     catch (e) {
-      this.setError(subscription, "synchronize_invalid_url");
+      this.setError(subscription, "synchronize_invalid_url", isBaseLocation);
       return;
     }
 
@@ -271,7 +324,7 @@ var synchronizer =
         request.channel.notificationCallbacks = null;
       } catch (e) {}
 
-      me.setError(subscription, "synchronize_connection_error");
+      me.setError(subscription, "synchronize_connection_error", isBaseLocation);
     };
 
     request.onload = function(ev)
@@ -284,20 +337,22 @@ var synchronizer =
       // Status will be 0 for non-HTTP requests
       if (request.status && request.status != 200 && request.status != 304)
       {
-        me.setError(subscription, "synchronize_connection_error");
+        me.setError(subscription, "synchronize_connection_error", isBaseLocation);
         return;
       }
 
       let newFilters = null;
       if (request.status != 304)
       {
-        newFilters = me.readFilters(subscription, request.responseText);
+        newFilters = me.readFilters(subscription, request.responseText, isBaseLocation);
         if (!newFilters)
           return;
 
         subscription.lastModified = request.getResponseHeader("Last-Modified");
       }
 
+      if (isBaseLocation)
+        subscription.alternativeLocations = request.getResponseHeader("X-Alternative-Locations");
       subscription.lastDownload = parseInt(Date.now() / 1000);
       subscription.downloadStatus = "synchronize_ok";
       subscription.errors = 0;
@@ -317,7 +372,7 @@ var synchronizer =
               expires = time;
           }
         }
-        if (filter instanceof CommentFilter && /\bRedirect(?:\s*:\s*|\s+to\s+|\s+)(\S+)/i.test(filter.text))
+        if (isBaseLocation && filter instanceof CommentFilter && /\bRedirect(?:\s*:\s*|\s+to\s+|\s+)(\S+)/i.test(filter.text))
           subscription.nextURL = RegExp.$1;
       }
       subscription.expires = (expires > subscription.lastDownload ? expires : 0);
@@ -326,7 +381,7 @@ var synchronizer =
       if (subscription.expires - subscription.lastDownload > 14*24*3600)
         subscription.expires = subscription.lastDownload + 14*24*3600;
 
-      if (newURL && newURL != url)
+      if (isBaseLocation && newURL && newURL != url)
       {
         let listed = (subscription.url in filterStorage.knownSubscriptions);
         if (listed)
@@ -365,7 +420,7 @@ var synchronizer =
       request.send(null);
     }
     catch (e) {
-      this.setError(subscription, "synchronize_connection_error");
+      this.setError(subscription, "synchronize_connection_error", isBaseLocation);
       return;
     }
   }

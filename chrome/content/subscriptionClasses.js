@@ -165,6 +165,8 @@ Subscription.fromObject = function(obj)
         if (abp.versionComparator.compare(result.requiredVersion, abp.getInstalledVersion()) > 0)
           result.upgradeRequired = true;
       }
+      if ("alternativeLocations" in obj)
+        result.alternativeLocations = obj.alternativeLocations;
     }
     if ("lastDownload" in obj)
       result.lastDownload = parseInt(obj.lastDownload) || 0;
@@ -387,6 +389,13 @@ DownloadableSubscription.prototype =
   upgradeRequired: false,
 
   /**
+   * Value of the X-Alternative-Locations header: comma-separated list of URLs
+   * with their weighting factors, e.g.: http://foo.example.com/;q=0.5,http://bar.example.com/;q=2
+   * @type String
+   */
+  alternativeLocations: null,
+
+  /**
    * See Subscription.serialize()
    */
   serialize: function(buffer)
@@ -406,6 +415,8 @@ DownloadableSubscription.prototype =
       buffer.push("errors=" + this.errors);
     if (this.requiredVersion)
       buffer.push("requiredVersion=" + this.requiredVersion);
+    if (this.alternativeLocations)
+      buffer.push("alternativeLocations=" + this.alternativeLocations);
   }
 };
 abp.DownloadableSubscription = DownloadableSubscription;
