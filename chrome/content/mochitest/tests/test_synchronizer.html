@@ -90,7 +90,7 @@
     let prefs = {
       synchronizationinterval: 3,
       subscriptions_fallbackerrors: 7,
-      subscriptions_fallbackurl: "http://127.0.0.1:1234/fallback?%s"
+      subscriptions_fallbackurl: "http://127.0.0.1:1234/fallback?%SUBSCRIPTION%&%URL%&%CHANNELSTATUS%&%RESPONSESTATUS%"
     };
 
     {
@@ -466,7 +466,7 @@
       runScheduledTasks(27);
       compareRequests("Requests with fallback calls (27 hours)", [
         "300000: GET /subscription1",
-        "300000: GET /fallback " + subscription1.url,
+        "300000: GET /fallback " + subscription1.url + "&" + subscription1.url + "&0&404",
         "11100000: GET /subscription1",
         "21900000: GET /subscription1",
         "32700000: GET /subscription1",
@@ -474,7 +474,7 @@
         "54300000: GET /subscription1",
         "65100000: GET /subscription1",
         "75900000: GET /subscription1",
-        "75900000: GET /fallback " + subscription1.url,
+        "75900000: GET /fallback " + subscription1.url + "&" + subscription1.url + "&0&404",
         "86700000: GET /subscription1"
       ]);
 
@@ -487,7 +487,7 @@
         "32700000: GET /subscription1",
         "43500000: GET /subscription1",
         "54300000: GET /subscription1",
-        "54300000: GET /fallback " + subscription1.url,
+        "54300000: GET /fallback " + subscription1.url + "&" + subscription1.url + "&0&404",
       ]);
       subscription1.autoDownload = true;
 
@@ -501,7 +501,7 @@
         "43500000: GET /subscription1",
         "54300000: GET /subscription1",
         "65100000: GET /subscription1",
-        "65100000: GET /fallback " + subscription1.url,
+        "65100000: GET /fallback " + subscription1.url + "&" + subscription1.url + "&0&404",
         "75900000: GET /subscription2",
         "86700000: GET /subscription2"
       ]);
@@ -518,7 +518,7 @@
         "43500000: GET /subscription1",
         "54300000: GET /subscription1",
         "65100000: GET /subscription1",
-        "65100000: GET /fallback " + subscription1.url,
+        "65100000: GET /fallback " + subscription1.url + "&" + subscription1.url + "&0&404",
         "75900000: GET /subscription3",
         "86700000: GET /subscription3"
       ]);
@@ -535,14 +535,14 @@
         "43500000: GET /subscription1",
         "54300000: GET /subscription1",
         "65100000: GET /subscription1",
-        "65100000: GET /fallback " + subscription1.url,
+        "65100000: GET /fallback " + subscription1.url + "&" + subscription1.url + "&0&404",
         "86700000: GET /subscription1",
         "97500000: GET /subscription1",
         "108300000: GET /subscription1",
         "119100000: GET /subscription1",
         "129900000: GET /subscription1",
         "140700000: GET /subscription1",
-        "140700000: GET /fallback " + subscription1.url,
+        "140700000: GET /fallback " + subscription1.url + "&" + subscription1.url + "&0&404",
         "162300000: GET /subscription1"
       ]);
       compareSubscriptions("Subscriptions after test above", [subscription1, subscription2]);
