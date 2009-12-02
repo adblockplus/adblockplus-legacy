@@ -33,12 +33,14 @@
     <box id="abp-hooks"
       getBrowser="return window.getBrowser();"
       addTab="
-        /* work around bug 528406 */
+        /* work around bug 528406 and bug 531071 */
         var url = arguments[0];
-        window.Browser.addTab('about:blank', true);
+        window.BrowserUI.newTab('about:blank');
         Cc['@mozilla.org/timer;1'].createInstance(Ci.nsITimer)
-                                  .initWithCallback(function() window.getBrowser().loadURI(url, null, null),
-                                                    0, Ci.nsITimer.TYPE_ONE_SHOT);"
+                                  .initWithCallback(function() {
+          window.getBrowser().loadURI(url, null, null);
+          window.BrowserUI.closeAutoComplete(false);
+        }, 50, Ci.nsITimer.TYPE_ONE_SHOT);"
       getContextMenu="return null"
       getToolbox="return null"
       getDefaultToolbar="return null"/>
