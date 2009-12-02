@@ -14,7 +14,7 @@
 <body>
   <p id="display"></p>
   <div id="content" style="visibility: hidden;">
-    <iframe id="frame" onload="doRunTest()"></iframe>
+    <iframe id="frame" onload="runNextTest()"></iframe>
   </div>
 
   <pre id="test">
@@ -70,10 +70,13 @@
       [["localhost,~foo##div#test1"], "hidden visible"],
     ];
     let currentTest = -1;
-    let currentRun = 1;
+    let currentRun = -1;
 
     function runNextTest()
     {
+      if (currentRun < 0)
+        return;
+
       if (currentTest >= tests.length - 1)
       {
         if (++currentRun <= 3)
@@ -90,7 +93,7 @@
       abp.elemhide.clear();
       abp.whitelistMatcher.clear();
 
-      let filters = tests[currentTest][0];
+      let [filters, expected] = tests[currentTest];
       for each (let filter in filters)
         abp.elemhide.add(abp.Filter.fromText(filter));
       abp.elemhide.apply();
@@ -99,15 +102,9 @@
       else if (currentRun == 3)
         abp.whitelistMatcher.add(abp.Filter.fromText("@@|chrome://mochikit/$~document"));
 
-      document.getElementById("frame").contentWindow.location.href = "http://localhost:1234/test";
-    }
-
-    function doRunTest()
-    {
-      if (currentTest < 0)
-        return;
-
-      let [filters, expected] = tests[currentTest];
+      // Reset the loaded document
+      let body = document.getElementById("frame").contentWindow.document.body;
+      body.innerHTML = body.innerHTML;
 
       if (currentRun == 2)
         expected = "visible visible";   // Second run is whitelisted, nothing should be hidden
@@ -135,7 +132,10 @@
       });
 
       abp.prefs.enabled = true;
-      runNextTest();
+      currentRun = 1;
+
+      let frame = document.getElementById("frame");
+      frame.contentWindow.location.href = "http://localhost:1234/test";
     }
 
     function stop()
