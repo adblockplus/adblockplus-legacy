@@ -95,15 +95,15 @@ var synchronizer =
    * Extracts a list of filters from text returned by a server.
    * @param {DownloadableSubscription} subscription  subscription the info should be placed into
    * @param {String} text server response
-   * @param {Boolean} isBaseLocation false if the subscription was downloaded from a location specified in X-Alternative-Locations header
+   * @param {Function} errorCallback function to be called on error
    * @return {Array of Filter}
    */
-  readFilters: function(subscription, text, isBaseLocation)
+  readFilters: function(subscription, text, errorCallback)
   {
     let lines = text.split(/[\r\n]+/);
     if (!/\[Adblock(?:\s*Plus\s*([\d\.]+)?)?\]/i.test(lines[0]))
     {
-      this.setError(subscription, "synchronize_invalid_data", isBaseLocation);
+      errorCallback("synchronize_invalid_data");
       return null;
     }
     let minVersion = RegExp.$1;
@@ -118,7 +118,7 @@ var synchronizer =
 
         if (checksum && checksum != checksumExpected)
         {
-          this.setError(subscription, "synchronize_checksum_mismatch", isBaseLocation);
+          errorCallback("synchronize_checksum_mismatch");
           return null;
         }
 
@@ -150,10 +150,13 @@ var synchronizer =
   /**
    * Handles an error during a subscription download.
    * @param {DownloadableSubscription} subscription  subscription that failed to download
+   * @param {Integer} channelStatus result code of the download channel
+   * @param {String} responseStatus result code as received from server
+   * @param {String} downloadURL the URL used for download
    * @param {String} error error ID in global.properties
    * @param {Boolean} isBaseLocation false if the subscription was downloaded from a location specified in X-Alternative-Locations header
    */
-  setError: function(subscription, error, isBaseLocation)
+  setError: function(subscription, error, channelStatus, responseStatus, downloadURL, isBaseLocation)
   {
     // If download from an alternative location failed, reset the list of
     // alternative locations - have to get an updated list from base location.
@@ -174,8 +177,14 @@ var synchronizer =
     {
       subscription.errors = 0;
 
+      let fallbackURL = prefs.subscriptions_fallbackurl;
+      fallbackURL = fallbackURL.replace(/%SUBSCRIPTION%/g, encodeURIComponent(subscription.url));
+      fallbackURL = fallbackURL.replace(/%URL%/g, encodeURIComponent(downloadURL));
+      fallbackURL = fallbackURL.replace(/%CHANNELSTATUS%/g, encodeURIComponent(channelStatus));
+      fallbackURL = fallbackURL.replace(/%RESPONSESTATUS%/g, encodeURIComponent(responseStatus));
+
       let request = new XMLHttpRequest();
-      request.open("GET", prefs.subscriptions_fallbackurl.replace(/%s/g, encodeURIComponent(subscription.url)));
+      request.open("GET", fallbackURL);
       request.overrideMimeType("text/plain");
       request.channel.loadGroup = null;
       request.channel.loadFlags = request.channel.loadFlags |
@@ -264,12 +273,26 @@ var synchronizer =
     loadFrom = loadFrom.replace(/%VERSION%/, "ABP" + curVersion);
 
     let request = null;
+    let me = this;
+    function errorCallback(error)
+    {
+      let channelStatus = -1;
+      try {
+        channelStatus = request.channel.status;
+      } catch (e) {}
+      let responseStatus = "";
+      try {
+        responseStatus = request.channel.QueryInterface(Ci.nsIHttpChannel).responseStatus;
+      } catch (e) {}
+      me.setError(subscription, error, channelStatus, responseStatus, loadFrom, isBaseLocation);
+    }
+
     try {
       request = new XMLHttpRequest();
       request.open("GET", loadFrom);
     }
     catch (e) {
-      this.setError(subscription, "synchronize_invalid_url", isBaseLocation);
+      errorCallback("synchronize_invalid_url");
       return;
     }
 
@@ -316,7 +339,6 @@ var synchronizer =
       request.setRequestHeader("If-Modified-Since", subscription.lastModified);
       this.request = request;
 
-    let me = this;
     request.onerror = function(ev)
     {
       delete me.executing[url];
@@ -324,7 +346,7 @@ var synchronizer =
         request.channel.notificationCallbacks = null;
       } catch (e) {}
 
-      me.setError(subscription, "synchronize_connection_error", isBaseLocation);
+      errorCallback("synchronize_connection_error");
     };
 
     request.onload = function(ev)
@@ -337,14 +359,14 @@ var synchronizer =
       // Status will be 0 for non-HTTP requests
       if (request.status && request.status != 200 && request.status != 304)
       {
-        me.setError(subscription, "synchronize_connection_error", isBaseLocation);
+        errorCallback("synchronize_connection_error");
         return;
       }
 
       let newFilters = null;
       if (request.status != 304)
       {
-        newFilters = me.readFilters(subscription, request.responseText, isBaseLocation);
+        newFilters = me.readFilters(subscription, request.responseText, errorCallback);
         if (!newFilters)
           return;
 
@@ -420,7 +442,7 @@ var synchronizer =
       request.send(null);
     }
     catch (e) {
-      this.setError(subscription, "synchronize_connection_error", isBaseLocation);
+      errorCallback("synchronize_connection_error");
       return;
     }
   }
