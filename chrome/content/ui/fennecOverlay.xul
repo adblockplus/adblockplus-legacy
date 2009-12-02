@@ -27,20 +27,24 @@
 <?xul-overlay href="chrome://adblockplus/content/ui/overlayGeneral.xul"?>
 
 <overlay id="abp-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
-  <script type="application/x-javascript;version=1.7" src="fennecOverlay.js"/>
   <!-- Window extensions -->
   <window id="main-window">
     <box id="abp-hooks"
+      init="
+        let loader = Cc['@mozilla.org/moz/jssubscript-loader;1'].getService(Ci.mozIJSSubScriptLoader);
+        loader.loadSubScript('chrome://adblockplus/content/ui/fennecOverlay.js');
+      "
       getBrowser="return window.getBrowser();"
       addTab="
         /* work around bug 528406 and bug 531071 */
         var url = arguments[0];
         window.BrowserUI.newTab('about:blank');
         Cc['@mozilla.org/timer;1'].createInstance(Ci.nsITimer)
-                                  .initWithCallback(function() {
+                                  .initWithCallback(function()
+        {
           window.getBrowser().loadURI(url, null, null);
           window.BrowserUI.closeAutoComplete(false);
-        }, 50, Ci.nsITimer.TYPE_ONE_SHOT);"
+        }, 100, Ci.nsITimer.TYPE_ONE_SHOT);"
       getContextMenu="return null"
       getToolbox="return null"
       getDefaultToolbar="return null"/>
