@@ -24,59 +24,59 @@
     let tests = [
       [
         '<img src="test.gif">',
-        "http://localhost:1234/test.gif", "image", "localhost", false
+        "http://127.0.0.1:1234/test.gif", "image", "127.0.0.1", false
       ],
       [
-        '<img src="http://127.0.0.1:1234/test.gif">',
-        "http://127.0.0.1:1234/test.gif", "image", "localhost", true
+        '<img src="http://localhost:1234/test.gif">',
+        "http://localhost:1234/test.gif", "image", "127.0.0.1", true
       ],
       [
         '<input type="image" src="test.gif">',
-        "http://localhost:1234/test.gif", "image", "localhost", false
+        "http://127.0.0.1:1234/test.gif", "image", "127.0.0.1", false
       ],
       [
         '<div style="background-image: url(test.gif)"></div>',
-        "http://localhost:1234/test.gif", "background", "localhost", false
+        "http://127.0.0.1:1234/test.gif", "background", "127.0.0.1", false
       ],
       [
         '<div style="cursor: url(test.gif), pointer"></div>',
-        "http://localhost:1234/test.gif", "background", "localhost", false
+        "http://127.0.0.1:1234/test.gif", "background", "127.0.0.1", false
       ],
       [
         <ol>
           <li style="list-style-image: url(test.gif)">foo</li>
         </ol>,
-        "http://localhost:1234/test.gif", "background", "localhost", false
+        "http://127.0.0.1:1234/test.gif", "background", "127.0.0.1", false
       ],
       [
         '<style>div:before { content: url(test.gif); }</style><div>foo</div>',
-        "http://localhost:1234/test.gif", "background", "localhost", false
+        "http://127.0.0.1:1234/test.gif", "background", "127.0.0.1", false
       ],
       [
         '<embed type="image/gif" src="test.gif"></embed>',
-        "http://localhost:1234/test.gif", "object", "localhost", false
+        "http://127.0.0.1:1234/test.gif", "object", "127.0.0.1", false
       ],
       [
         '<object type="image/gif" data="test.gif"></object>',
-        "http://localhost:1234/test.gif", "object", "localhost", false
+        "http://127.0.0.1:1234/test.gif", "object", "127.0.0.1", false
       ],
       [
         <window xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
           <image src="test.gif"/>
         </window>,
-        "http://localhost:1234/test.gif", "image", "localhost", false
+        "http://127.0.0.1:1234/test.gif", "image", "127.0.0.1", false
       ],
       [
         <window xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
           <image style="list-style-image: url(test.gif)"/>
         </window>,
-        "http://localhost:1234/test.gif", "background", "localhost", false
+        "http://127.0.0.1:1234/test.gif", "background", "127.0.0.1", false
       ],
       [
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <image xlink:href="test.gif"/>
         </svg>,
-        "http://localhost:1234/test.gif", "image", "localhost", false
+        "http://127.0.0.1:1234/test.gif", "image", "127.0.0.1", false
       ],
       [
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -84,31 +84,31 @@
             <feImage xlink:href="test.gif"/>
           </filter>
         </svg>,
-        "http://localhost:1234/test.gif", "image", "localhost", false
+        "http://127.0.0.1:1234/test.gif", "image", "127.0.0.1", false
       ],
       [
         '<' + 'script src="test.js"><' + '/script>',
-        "http://localhost:1234/test.js", "script", "localhost", false
+        "http://127.0.0.1:1234/test.js", "script", "127.0.0.1", false
       ],
       [
         <svg xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
           <script src="test.js"/>
         </svg>,
-        "http://localhost:1234/test.js", "script", "localhost", false
+        "http://127.0.0.1:1234/test.js", "script", "127.0.0.1", false
       ],
       [
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <script xlink:href="test.js"/>
         </svg>,
-        "http://localhost:1234/test.js", "script", "localhost", false
+        "http://127.0.0.1:1234/test.js", "script", "127.0.0.1", false
       ],
       [
         '<link rel="stylesheet" type="text/css" href="test.css">',
-        "http://localhost:1234/test.css", "stylesheet", "localhost", false
+        "http://127.0.0.1:1234/test.css", "stylesheet", "127.0.0.1", false
       ],
       [
         '<?xml-stylesheet href="test.css" type="text/css"?><window xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"/>',
-        "http://localhost:1234/test.css", "stylesheet", "localhost", false
+        "http://127.0.0.1:1234/test.css", "stylesheet", "127.0.0.1", false
       ],
     ];
 
@@ -116,11 +116,11 @@
     {
       tests.push([
         '<embed type="application/x-shockwave-flash" src="test.swf"></embed>',
-        "http://localhost:1234/test.swf", "object", "localhost", false
+        "http://127.0.0.1:1234/test.swf", "object", "127.0.0.1", false
       ],
       [
         '<object type="application/x-shockwave-flash" data="test.swf"></object>',
-        "http://localhost:1234/test.swf", "object", "localhost", false
+        "http://127.0.0.1:1234/test.swf", "object", "127.0.0.1", false
       ]);
     }
 
@@ -130,11 +130,11 @@
       // Note: <applet> is not on the list because it shows some weird async behavior (data is loaded after page load in some strange way)
       tests.push([
         '<embed type="application/x-java-applet" code="test.class" src="test.class"></embed>',
-        "http://localhost:1234/test.class", "object", "localhost", false
+        "http://127.0.0.1:1234/test.class", "object", "127.0.0.1", false
       ],
       [
         '<object type="application/x-java-applet" data="test.class"></object>',
-        "http://localhost:1234/test.class", "object", "localhost", false
+        "http://127.0.0.1:1234/test.class", "object", "127.0.0.1", false
       ]);
     }
 
@@ -142,7 +142,7 @@
     {
       tests.push([
         '<style type="text/css">@font-face { font-family: Test; src: url("test.otf"); } html { font-family: Test; }</style>',
-        "http://localhost:1234/test.otf", "font", "localhost", false
+        "http://127.0.0.1:1234/test.otf", "font", "127.0.0.1", false
       ]);
     }
 
@@ -164,7 +164,7 @@
 
     function onPolicyHit(wnd, type, data, location)
     {
-      if (wnd != top || type != "add" || location.location == "http://localhost:1234/test")
+      if (wnd != top || type != "add" || location.location == "http://127.0.0.1:1234/test")
         return;
       policyHits.push([wnd, type, data, location]);
     }
@@ -195,7 +195,7 @@
       if (currentStage == 4)
         abp.whitelistMatcher.add(abp.Filter.fromText("@@|chrome://mochikit/$~document"));
       if (currentStage == 5)
-        abp.whitelistMatcher.add(abp.Filter.fromText("@@|http://localhost:1234/test|"));
+        abp.whitelistMatcher.add(abp.Filter.fromText("@@|http://127.0.0.1:1234/test|"));
 
       serverHit = false;
       server.registerPathHandler(expectedURL.replace(/http:\/\/[^\/]+/, ""), function(metadata, response)
@@ -205,7 +205,7 @@
       });
 
       policyHits = [];
-      document.getElementById("frame").contentWindow.location.href = "http://localhost:1234/test";
+      document.getElementById("frame").contentWindow.location.href = "http://127.0.0.1:1234/test";
     }
 
     function doRunTest()
