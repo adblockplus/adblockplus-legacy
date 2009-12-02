@@ -23,74 +23,65 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-var fennecAbp = {
-  abp: Components.classes["@mozilla.org/adblockplus;1"].createInstance().wrappedJSObject,
+function onCreateOptions(event)
+{
+  if (event.originalTarget.getAttribute("addonID") != "{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}")
+    return;
   
-  init: function()
+  let filterStorage = abp.filterStorage;
+  let currentSubscription = filterStorage.subscriptions.filter(function(subscription) subscription instanceof abp.DownloadableSubscription);
+  currentSubscription = (currentSubscription.length ? currentSubscription[0] : null);
+  
+  let menu = document.getElementById("adblockplus-subscription-list");
+  
+  let xhr = Cc["@mozilla.org/xmlextras/xmlhttprequest;1"].createInstance(Ci.nsIJSXMLHttpRequest);
+  xhr.open("GET", "chrome://adblockplus/content/ui/subscriptions.xml", false);
+  xhr.send(null);
+  if (!xhr.responseXML)
+    return;
+
+  let subscriptions = xhr.responseXML.documentElement.getElementsByTagName("subscription");
+  for (let i = 0; i < subscriptions.length; i++)
   {
-    setTimeout(function(me) me.abp.init(), 0, this);
-  },
-
-  onCreateOptions: function(event)
-  {
-    if (event.originalTarget.getAttribute("addonID") != "{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}")
-      return;
-    
-    let filterStorage = this.abp.filterStorage;
-    let currentSubscription = filterStorage.subscriptions.filter(function(subscription) subscription instanceof this.abp.DownloadableSubscription, this);
-    currentSubscription = (currentSubscription.length ? currentSubscription[0] : null);
-    
-    let menu = document.getElementById("adblockplus-subscription-list");
-    
-    let xhr = new XMLHttpRequest();
-    xhr.open("GET", "chrome://adblockplus/content/ui/subscriptions.xml", false);
-    xhr.send(null);
-    if (!xhr.responseXML)
-      return;
-
-    let subscriptions = xhr.responseXML.documentElement.getElementsByTagName("subscription");
-    for (let i = 0; i < subscriptions.length; i++)
-    {
-      let item = subscriptions[i];
-      menu.appendItem(item.getAttribute("title"), item.getAttribute("url"), null);
-      if (currentSubscription && item.getAttribute("url") == currentSubscription.url)
-        menu.selectedIndex = menu.itemCount - 1;
-    }
-
-    if (currentSubscription && menu.selectedIndex < 0)
-    {
-      menu.appendItem(currentSubscription.title, currentSubscription.url, null);
+    let item = subscriptions[i];
+    menu.appendItem(item.getAttribute("title"), item.getAttribute("url"), null);
+    if (currentSubscription && item.getAttribute("url") == currentSubscription.url)
       menu.selectedIndex = menu.itemCount - 1;
-    }
-  },
-  
-  setSubscription: function(event)
-  {
-    let menu = event.target;
-    if (!menu.value)
-      return;
-
-    let filterStorage = this.abp.filterStorage;
-    let currentSubscription = filterStorage.subscriptions.filter(function(subscription) subscription instanceof this.abp.DownloadableSubscription, this);
-    currentSubscription = (currentSubscription.length ? currentSubscription[0] : null);
-    if (currentSubscription && currentSubscription.url == menu.value)
-      return;
-
-    // We only allow one subscription, remove existing one before adding
-    if (currentSubscription)
-      filterStorage.removeSubscription(currentSubscription);
-
-    currentSubscription = this.abp.Subscription.fromURL(menu.value);
-    currentSubscription.title = menu.label;
-
-    filterStorage.addSubscription(currentSubscription);
-    this.abp.synchronizer.execute(currentSubscription);
-    filterStorage.saveToDisk();
   }
+
+  if (currentSubscription && menu.selectedIndex < 0)
+  {
+    menu.appendItem(currentSubscription.title, currentSubscription.url, null);
+    menu.selectedIndex = menu.itemCount - 1;
+  }
+
+  menu.addEventListener("command", setSubscription, false);
+}
+  
+function setSubscription(event)
+{
+  let menu = event.target;
+  if (!menu.value)
+    return;
+
+  let filterStorage = abp.filterStorage;
+  let currentSubscription = filterStorage.subscriptions.filter(function(subscription) subscription instanceof abp.DownloadableSubscription);
+  currentSubscription = (currentSubscription.length ? currentSubscription[0] : null);
+  if (currentSubscription && currentSubscription.url == menu.value)
+    return;
+
+  // We only allow one subscription, remove existing one before adding
+  if (currentSubscription)
+    filterStorage.removeSubscription(currentSubscription);
+
+  currentSubscription = abp.Subscription.fromURL(menu.value);
+  currentSubscription.title = menu.label;
+
+  filterStorage.addSubscription(currentSubscription);
+  abp.synchronizer.execute(currentSubscription);
+  filterStorage.saveToDisk();
 }
 
-window.addEventListener("load",
-      function() fennecAbp.init(), false);
+abp.runAsync(function() abp.init());
 
-document.getElementById("addons-list").addEventListener("AddonOptionsLoad",
-      function(event) fennecAbp.onCreateOptions(event), false);
+E("addons-list").addEventListener("AddonOptionsLoad", onCreateOptions, false);

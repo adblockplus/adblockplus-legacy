@@ -103,7 +103,7 @@ abpInit();
 
 function abpInit() {
   // Initialize app hooks
-  for each (let hook in ["getBrowser", "addTab", "getContextMenu", "getToolbox", "getDefaultToolbar", "toolbarInsertBefore"])
+  for each (let hook in ["init", "getBrowser", "addTab", "getContextMenu", "getToolbox", "getDefaultToolbar", "toolbarInsertBefore"])
   {
     let handler = abpHooks.getAttribute(hook);
     if (handler)
@@ -245,6 +245,9 @@ function abpInit() {
         abp.runAsync(abpInstallInToolbar);
     }
   }
+
+  if ("init" in abpHooks)
+    abpHooks.init();
 }
 
 function abpUnload()
