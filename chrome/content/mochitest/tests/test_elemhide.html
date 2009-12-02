@@ -103,7 +103,7 @@
         abp.whitelistMatcher.add(abp.Filter.fromText("@@|chrome://mochikit/$~document"));
 
       // Reset the loaded document
-      let body = document.getElementById("frame").contentWindow.document.body;
+      let body = document.getElementById("frame").contentDocument.body;
       body.innerHTML = body.innerHTML;
 
       if (currentRun == 2)

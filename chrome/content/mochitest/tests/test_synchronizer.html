@@ -90,7 +90,7 @@
     let prefs = {
       synchronizationinterval: 3,
       subscriptions_fallbackerrors: 7,
-      subscriptions_fallbackurl: "http://localhost:1234/fallback?%s"
+      subscriptions_fallbackurl: "http://127.0.0.1:1234/fallback?%s"
     };
 
     {
@@ -135,9 +135,9 @@
 
     let requests = [];
 
-    let subscription1 = Subscription.fromURL("http://localhost:1234/subscription1");
-    let subscription2 = Subscription.fromURL("http://localhost:1234/subscription2");
-    let subscription3 = Subscription.fromURL("http://localhost:1234/subscription3");
+    let subscription1 = Subscription.fromURL("http://127.0.0.1:1234/subscription1");
+    let subscription2 = Subscription.fromURL("http://127.0.0.1:1234/subscription2");
+    let subscription3 = Subscription.fromURL("http://127.0.0.1:1234/subscription3");
 
     let subscriptionStatus = [200, "OK"];
     let subscriptionExtraHeaders = null;

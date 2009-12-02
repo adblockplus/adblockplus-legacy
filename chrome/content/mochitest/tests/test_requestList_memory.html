@@ -92,7 +92,7 @@
       urlModifier = tests[currentTest][1];
 
       $("frame").onload = function() setTimeout(testPageLoaded, 0);
-      $("frame").src = "http://localhost:1234/" + tests[currentTest][0];
+      $("frame").src = "http://127.0.0.1:1234/" + tests[currentTest][0];
     }
 
     function testPageLoaded()

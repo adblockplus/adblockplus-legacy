@@ -50,7 +50,7 @@
       });
 
       $("frame").onload = test1Done;
-      $("frame").src = "http://localhost:1234/test1";
+      $("frame").src = "http://127.0.0.1:1234/test1";
     }
 
     function test1Done()
@@ -78,32 +78,32 @@
       is(frameNodeData.typeDescr, "SUBDOCUMENT", "Frame node data: typeDescr property");
       is(frameNodeData.docDomain, "mochikit", "Frame node data: docDomain property");
       is(frameNodeData.thirdParty, true, "Frame node data: thirdParty property");
-      is(frameNodeData.location, "http://localhost:1234/test1", "Frame node data: location property");
+      is(frameNodeData.location, "http://127.0.0.1:1234/test1", "Frame node data: location property");
       is(frameNodeData.filter, null, "Frame node data: filter property");
       is(frameNodeData.nodes.length, 1, "Frame node data: number of nodes");
       is(frameNodeData.nodes[0], abp.wrapNode($("frame")), "Frame node data: only node");
 
       is(imageNodeData.type, abp.policy.type.IMAGE, "Image node data: type property");
       is(imageNodeData.typeDescr, "IMAGE", "Image node data: typeDescr property");
-      is(imageNodeData.docDomain, "localhost", "Image node data: docDomain property");
+      is(imageNodeData.docDomain, "127.0.0.1", "Image node data: docDomain property");
       is(imageNodeData.thirdParty, false, "Image node data: thirdParty property");
-      is(imageNodeData.location, "http://localhost:1234/test.png", "Image node data: location property");
+      is(imageNodeData.location, "http://127.0.0.1:1234/test.png", "Image node data: location property");
       is(imageNodeData.filter, null, "Image node data: filter property");
       is(imageNodeData.nodes.length, 1, "Image node data: number of nodes");
       is(imageNodeData.nodes[0], abp.wrapNode($("frame").contentDocument.getElementById("image")), "Image node data: only node");
 
-      is(wndData.getLocation(abp.policy.type.SUBDOCUMENT, "http://localhost:1234/test1"), frameNodeData, "Getting frame data by location");
-      is(wndData.getLocation(abp.policy.type.IMAGE, "http://localhost:1234/test.png"), imageNodeData, "Getting image data by location");
+      is(wndData.getLocation(abp.policy.type.SUBDOCUMENT, "http://127.0.0.1:1234/test1"), frameNodeData, "Getting frame data by location");
+      is(wndData.getLocation(abp.policy.type.IMAGE, "http://127.0.0.1:1234/test.png"), imageNodeData, "Getting image data by location");
 
-      is(frameData.getLocation(abp.policy.type.SUBDOCUMENT, "http://localhost:1234/test1"), null, "Getting frame data from frame by location");
-      is(frameData.getLocation(abp.policy.type.IMAGE, "http://localhost:1234/test.png"), imageNodeData, "Getting image data from frame  by location");
+      is(frameData.getLocation(abp.policy.type.SUBDOCUMENT, "http://127.0.0.1:1234/test1"), null, "Getting frame data from frame by location");
+      is(frameData.getLocation(abp.policy.type.IMAGE, "http://127.0.0.1:1234/test.png"), imageNodeData, "Getting image data from frame  by location");
 
       top.QueryInterface(Ci.nsIInterfaceRequestor).getInterface(Ci.nsIDOMWindowUtils).garbageCollect();
       ok(abp.RequestList.getDataForNode(abp.wrapNode($("frame")), true), "Frame node still has data associated with it after garbage collection");
       ok(abp.RequestList.getDataForNode(abp.wrapNode($("frame").contentDocument.getElementById("image")), true), "Image node still has data associated with it after garbage collection");
 
       $("frame").onload = test2Done;
-      $("frame").src = "http://localhost:1234/test2";
+      $("frame").src = "http://127.0.0.1:1234/test2";
     }
 
     function test2Done()
@@ -132,25 +132,25 @@
       is(frameNodeData.typeDescr, "SUBDOCUMENT", "Frame node data: typeDescr property");
       is(frameNodeData.docDomain, "mochikit", "Frame node data: docDomain property");
       is(frameNodeData.thirdParty, true, "Frame node data: thirdParty property");
-      is(frameNodeData.location, "http://localhost:1234/test2", "Frame node data: location property");
+      is(frameNodeData.location, "http://127.0.0.1:1234/test2", "Frame node data: location property");
       is(frameNodeData.filter, null, "Frame node data: filter property");
       is(frameNodeData.nodes.length, 1, "Frame node data: number of nodes");
       is(frameNodeData.nodes[0], abp.wrapNode($("frame")), "Frame node data: only node");
 
       is(scriptNodeData.type, abp.policy.type.SCRIPT, "Script node data: type property");
       is(scriptNodeData.typeDescr, "SCRIPT", "Script node data: typeDescr property");
-      is(scriptNodeData.docDomain, "localhost", "Script node data: docDomain property");
+      is(scriptNodeData.docDomain, "127.0.0.1", "Script node data: docDomain property");
       is(scriptNodeData.thirdParty, false, "Script node data: thirdParty property");
-      is(scriptNodeData.location, "http://localhost:1234/test.js", "Script node data: location property");
+      is(scriptNodeData.location, "http://127.0.0.1:1234/test.js", "Script node data: location property");
       is(scriptNodeData.filter, null, "Script node data: filter property");
       is(scriptNodeData.nodes.length, 1, "Script node data: number of nodes");
       is(scriptNodeData.nodes[0], abp.wrapNode($("frame").contentDocument.getElementById("script")), "Script node data: only node");
 
-      is(wndData.getLocation(abp.policy.type.SUBDOCUMENT, "http://localhost:1234/test2"), frameNodeData, "Getting frame data by location");
-      is(wndData.getLocation(abp.policy.type.SCRIPT, "http://localhost:1234/test.js"), scriptNodeData, "Getting script data by location");
+      is(wndData.getLocation(abp.policy.type.SUBDOCUMENT, "http://127.0.0.1:1234/test2"), frameNodeData, "Getting frame data by location");
+      is(wndData.getLocation(abp.policy.type.SCRIPT, "http://127.0.0.1:1234/test.js"), scriptNodeData, "Getting script data by location");
 
-      is(frameData.getLocation(abp.policy.type.SUBDOCUMENT, "http://localhost:1234/test2"), null, "Getting frame data from frame by location");
-      is(frameData.getLocation(abp.policy.type.SCRIPT, "http://localhost:1234/test.js"), scriptNodeData, "Getting script data from frame  by location");
+      is(frameData.getLocation(abp.policy.type.SUBDOCUMENT, "http://127.0.0.1:1234/test2"), null, "Getting frame data from frame by location");
+      is(frameData.getLocation(abp.policy.type.SCRIPT, "http://127.0.0.1:1234/test.js"), scriptNodeData, "Getting script data from frame  by location");
 
       top.QueryInterface(Ci.nsIInterfaceRequestor).getInterface(Ci.nsIDOMWindowUtils).garbageCollect();
       ok(abp.RequestList.getDataForNode(abp.wrapNode($("frame")), true), "Frame node still has data associated with it after garbage collection");
