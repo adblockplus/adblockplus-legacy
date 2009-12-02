@@ -136,6 +136,11 @@ var prefs = {
     for (let i = 0; i < this.prefList.length; i++)
       this.loadPref(this.prefList[i]);
 
+    // Always disable object tabs in Fennec, they aren't usable
+    let appInfo = Cc["@mozilla.org/xre/app-info;1"].getService(Ci.nsIXULAppInfo);
+    if (appInfo.ID == "{a23983c0-fd0e-11dc-95ff-0800200c9a66}")
+      this.frameobjects = false;
+
     elemhide.apply();
 
     // Fire pref listeners
