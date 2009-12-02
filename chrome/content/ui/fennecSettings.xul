@@ -35,7 +35,6 @@
   <setting type="control" title="&subscribe.label;">
     <menulist oncommand="fennecAbp.setSubscription(event)" id="adblockplus-subscription-list"/>
   </setting>
-  <setting pref="extensions.adblockplus.frameobjects" type="bool" title="&objecttabs.label;"/>
   <setting pref="extensions.adblockplus.fastcollapse" type="bool" title="&collapse.label;"
            inverted="true"/>
 </vbox>

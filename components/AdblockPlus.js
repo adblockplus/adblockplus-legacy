@@ -76,7 +76,7 @@ Initializer.prototype =
         break;
       case "profile-after-change":
         // delayed init for Fennec
-        let appInfo = Cc["@mozilla.org/xre/app-info;1"].createInstance(Ci.nsIXULAppInfo);
+        let appInfo = Cc["@mozilla.org/xre/app-info;1"].getService(Ci.nsIXULAppInfo);
         if (appInfo.ID != "{a23983c0-fd0e-11dc-95ff-0800200c9a66}")
           abp.init();
         break;
