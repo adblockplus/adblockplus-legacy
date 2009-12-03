@@ -152,7 +152,7 @@
 
       if (subscriptionExtraHeaders)
       {
-        for each (let [header, value] in subscriptionExtraHeaders())
+        for each (let [header, value] in subscriptionExtraHeaders(metadata))
           response.setHeader(header, value);
       }
 
@@ -161,14 +161,27 @@
 
     let redirectPermanent = null;
     let redirectURL = null;
+    let redirectExtraHeaders = null;
     function redirectHandler(metadata, response)
     {
       response.setStatusLine("1.1", redirectPermanent ? 301 : 302, redirectPermanent ? "Moved Permanently" : "Moved Temporarily");
       response.setHeader("Location", redirectURL);
+
+      if (redirectExtraHeaders)
+      {
+        for each (let [header, value] in redirectExtraHeaders(metadata))
+          response.setHeader(header, value);
+      }
     }
     function commentRedirectHandler(metadata, response)
     {
       getSubscription(metadata, response);
+
+      if (redirectExtraHeaders)
+      {
+        for each (let [header, value] in redirectExtraHeaders(metadata))
+          response.setHeader(header, value);
+      }
 
       var comment = "\n! Redirect: " + redirectURL;
       response.bodyOutputStream.write(comment, comment.length);
@@ -207,20 +220,23 @@
       requests = [];
     }
 
-    function compareSubscriptions(test, expectedSubscriptions)
+    function resetSubscriptions()
     {
-      let result = filterStorage.subscriptions.map(function(subscription) subscription.url).join("\n");
-      let expected = expectedSubscriptions.map(function(subscription) subscription.url).join("\n");
-      is(result, expected, test);
-      requests = [];
-
-      // Reset subscriptions
       filterStorage.removeSubscription(subscription1);
       filterStorage.removeSubscription(subscription2);
       filterStorage.removeSubscription(subscription3);
       filterStorage.addSubscription(subscription1);
       filterStorage.addSubscription(subscription2);
       subscription2.autoDownload = false;
+    }
+
+    function compareSubscriptions(test, expectedSubscriptions)
+    {
+      let result = filterStorage.subscriptions.map(function(subscription) subscription.url).join("\n");
+      let expected = expectedSubscriptions.map(function(subscription) subscription.url).join("\n");
+      is(result, expected, test);
+      requests = [];
+      resetSubscriptions();
     }
 
     function runTests()
@@ -732,7 +748,28 @@
       compareSubscriptions("Subscriptions after redirect from base URL", [subscription2]);
       server.registerPathHandler("/subscription1", getSubscription);
 
+      subscriptionExtraHeaders = redirectExtraHeaders =
+        function(metadata) [["X-Alternative-Locations", metadata.path == "/subscription1" ? subscription2.url : subscription1.url]];
+      server.registerPathHandler("/subscription1", redirectHandler);
+      redirectURL = subscription2.url;
+      Math.random = function() 0;
+      redirectPermanent = false;
+      runScheduledTasks(3);
+      is(subscription1.alternativeLocations, subscription2.url, "Alternative locations not taken over from redirect target on temporary redirect");
+      resetSubscriptions();
+      server.registerPathHandler("/subscription1", getSubscription);
+
+      server.registerPathHandler("/subscription1", redirectHandler);
+      redirectURL = subscription2.url;
+      Math.random = function() 0;
+      redirectPermanent = true;
+      runScheduledTasks(3);
+      is(subscription1.alternativeLocations, subscription1.url, "Alternative locations taken over from redirect target on permanent redirect");
+      resetSubscriptions();
+      server.registerPathHandler("/subscription1", getSubscription);
+
       subscriptionExtraHeaders = null;
+      redirectExtraHeaders = null;
       Math.random = oldRandom;
 
       // @TODO: If-Modified-Since
