@@ -324,6 +324,16 @@ var synchronizer =
 
         onChannelRedirect: function(oldChannel, newChannel, flags)
         {
+          if (isBaseLocation && !hadTemporaryRedirect && oldChannel instanceof Ci.nsIHttpChannel)
+          {
+            try {
+              subscription.alternativeLocations = oldChannel.getResponseHeader("X-Alternative-Locations");
+            }
+            catch (e) {
+              subscription.alternativeLocations = null;
+            }
+          }
+
           if (flags & Ci.nsIChannelEventSink.REDIRECT_TEMPORARY)
             hadTemporaryRedirect = true;
           else if (!hadTemporaryRedirect)
@@ -373,7 +383,7 @@ var synchronizer =
         subscription.lastModified = request.getResponseHeader("Last-Modified");
       }
 
-      if (isBaseLocation)
+      if (isBaseLocation && !hadTemporaryRedirect)
         subscription.alternativeLocations = request.getResponseHeader("X-Alternative-Locations");
       subscription.lastDownload = parseInt(Date.now() / 1000);
       subscription.downloadStatus = "synchronize_ok";
