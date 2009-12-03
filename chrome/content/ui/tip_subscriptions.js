@@ -30,7 +30,7 @@ let filtersetG = "filtersetg@updater";
 
 function init()
 {
-  autoAdd = !(window.arguments && window.arguments.length);
+  autoAdd = !("arguments" in window && window.arguments && window.arguments.length);
   result = (autoAdd ? {disabled: false, external: false, autoDownload: true} : window.arguments[0]);
   document.getElementById("description-par1").hidden = !autoAdd;
 
