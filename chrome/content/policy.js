@@ -204,9 +204,8 @@ var policy =
           this.schedulePostProcess(node);
       }
 
-      // Show object tabs unless this is a standalone object
-      if (!match && prefs.frameobjects && contentType == this.type.OBJECT &&
-          node.ownerDocument && /^text\/|[+\/]xml$/.test(node.ownerDocument.contentType))
+      // Add object tab
+      if (!match && prefs.frameobjects && contentType == this.type.OBJECT)
       {
         // Before adding object tabs always check whether one exist already
         let hasObjectTab = (node.nextSibling && node.nextSibling.getUserData(this.objtabMarker));
@@ -465,6 +464,10 @@ var policy =
       return ok;
 
     if (!node)
+      return ok;
+
+    // Ignore standalone objects
+    if (contentType == this.type.OBJECT && node.ownerDocument && !/^text\/|[+\/]xml$/.test(node.ownerDocument.contentType))
       return ok;
 
     var wnd = getWindow(node);
