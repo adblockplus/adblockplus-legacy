@@ -165,7 +165,7 @@ var policy =
     }
 
     // Data loaded by plugins should be attached to the document
-    if ((contentType == this.type.OTHER || contentType == this.type.OBJECT_SUBREQUEST) && node instanceof Element)
+    if (contentType == this.type.OBJECT_SUBREQUEST && node instanceof Element)
       node = node.ownerDocument;
 
     // Fix type for background images
