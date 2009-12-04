@@ -303,6 +303,10 @@ var synchronizer =
                                   request.channel.INHIBIT_CACHING |
                                   request.channel.VALIDATE_ALWAYS;
 
+      // Override redirect limit from preferences, user might have set it to 1
+      if (request.channel instanceof Ci.nsIHttpChannel)
+        request.channel.redirectionLimit = 5;
+
       var oldNotifications = request.channel.notificationCallbacks;
       var oldEventSink = null;
       request.channel.notificationCallbacks =
