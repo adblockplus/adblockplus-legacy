@@ -90,18 +90,17 @@ function saveSubscription()
     var file = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsILocalFile);
     try {
       file.initWithPath(url);
-      var ioService = Cc["@mozilla.org/network/io-service;1"].getService(Ci.nsIIOService); 
+      var ioService = Cc["@mozilla.org/network/io-service;1"].getService(Ci.nsIIOService);
       url = ioService.newFileURI(file).spec;
     } catch (e2) {
-      try {
-        var uri = Cc["@mozilla.org/network/simple-uri;1"].createInstance(Ci.nsIURI);
-        uri.spec = url;
-        url = uri.spec;
-      } catch (e) {
+      let uri = abp.makeURL(url);
+      if (!uri)
+      {
         alert(abp.getString("subscription_invalid_location"));
         document.getElementById("location").focus();
         return false;
       }
+      url = uri.spec;
     }
   }
 
