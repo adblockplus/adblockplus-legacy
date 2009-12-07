@@ -461,7 +461,7 @@ function handleLinkClick(/**Event*/ event)
   else
   {
     // Special handling for Fennec
-    window.importDialog(null, "chrome://adblockplus/content/ui/subscriptionFennec.xul");
+    window.importDialog(null, "chrome://adblockplus/content/ui/fennecSubscription.xul");
     initFennecSubscriptionDialog(url, title);
   }
 }
