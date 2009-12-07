@@ -438,8 +438,16 @@ function handleLinkClick(/**Event*/ event)
 
       var subscription = {url: url, title: title, disabled: false, external: false, autoDownload: true};
 
-      window.openDialog("chrome://adblockplus/content/ui/subscription.xul", "_blank",
+      let appInfo = Cc["@mozilla.org/xre/app-info;1"].getService(Ci.nsIXULAppInfo);
+      if (appInfo.ID != "{a23983c0-fd0e-11dc-95ff-0800200c9a66}")
+      {
+        window.openDialog("chrome://adblockplus/content/ui/subscription.xul", "_blank",
                          "chrome,centerscreen,modal", subscription);
+      }
+      else
+      {
+        window.importDialog(null, "chrome://adblockplus/content/ui/subscriptionFennec.xul", subscription);
+      }
     }
   }
 }
