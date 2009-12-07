@@ -27,18 +27,37 @@ function onCreateOptions(event)
 {
   if (event.originalTarget.getAttribute("addonID") != "{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}")
     return;
-  
+
+  E("adblockplus-subscription-list").addEventListener("command", function(event)
+  {
+    let menu = event.target;
+    if (menu.value)
+      setSubscription(menu.value, menu.label);
+  }, false);
+
+  updateSubscriptionList();
+  abp.filterStorage.addSubscriptionObserver(updateSubscriptionList);
+
+  window.addEventListener("unload", function()
+  {
+    abp.filterStorage.removeSubscriptionObserver(updateSubscriptionList);
+  }, false);
+}
+
+function updateSubscriptionList()
+{
   let filterStorage = abp.filterStorage;
   let currentSubscription = filterStorage.subscriptions.filter(function(subscription) subscription instanceof abp.DownloadableSubscription);
   currentSubscription = (currentSubscription.length ? currentSubscription[0] : null);
-  
-  let menu = document.getElementById("adblockplus-subscription-list");
   
   let xhr = Cc["@mozilla.org/xmlextras/xmlhttprequest;1"].createInstance(Ci.nsIJSXMLHttpRequest);
   xhr.open("GET", "chrome://adblockplus/content/ui/subscriptions.xml", false);
   xhr.send(null);
   if (!xhr.responseXML)
     return;
+
+  let menu = E("adblockplus-subscription-list");
+  menu.removeAllItems();
 
   let subscriptions = xhr.responseXML.documentElement.getElementsByTagName("subscription");
   for (let i = 0; i < subscriptions.length; i++)
@@ -54,13 +73,6 @@ function onCreateOptions(event)
     menu.appendItem(currentSubscription.title, currentSubscription.url, null);
     menu.selectedIndex = menu.itemCount - 1;
   }
-
-  menu.addEventListener("command", function(event)
-  {
-    let menu = event.target;
-    if (menu.value)
-      setSubscription(menu.value, menu.label);
-  }, false);
 }
   
 function setSubscription(url, title)
