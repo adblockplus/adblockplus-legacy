@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+
+<!-- ***** BEGIN LICENSE BLOCK *****
+   - Version: MPL 1.1
+   -
+   - The contents of this file are subject to the Mozilla Public License Version
+   - 1.1 (the "License"); you may not use this file except in compliance with
+   - the License. You may obtain a copy of the License at
+   - http://www.mozilla.org/MPL/
+   -
+   - Software distributed under the License is distributed on an "AS IS" basis,
+   - WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+   - for the specific language governing rights and limitations under the
+   - License.
+   -
+   - The Original Code is Adblock Plus.
+   -
+   - The Initial Developer of the Original Code is
+   - Wladimir Palant.
+   - Portions created by the Initial Developer are Copyright (C) 2006-2009
+   - the Initial Developer. All Rights Reserved.
+   -
+   - Contributor(s):
+   -
+   - ***** END LICENSE BLOCK ***** -->
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://adblockplus/skin/subscription.css" type="text/css"?>
+
+<!DOCTYPE dialog [
+<!ENTITY % subst SYSTEM "chrome://adblockplus/locale/subscription.dtd">
+<!ENTITY % prompts SYSTEM "chrome://browser/locale/prompt.dtd">
+%subst;
+%prompts;
+]>
+
+<dialog
+  xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+  buttons="accept,cancel"
+  title="&dialog.title;"
+  newtitle="&dialog.newtitle;"
+  id="abpEditSubscription"
+  onload="this.init()"
+  script="chrome://adblockplus/content/ui/subscriptionFennec.js">
+
+<label value="&dialog.newtitle;"/>
+
+<grid class="prompt-message">
+  <columns>
+    <column/>
+    <column flex="1"/> 
+  </columns>
+  <rows>
+    <row align="center">
+      <label value="&title.label;" accesskey="&title.accesskey;" control="title"/>
+      <label id="abp-title"/>
+    </row>
+    <row>
+      <label value="&location.label;" accesskey="&location.accesskey;" control="location"/>
+      <scrollbox orient="vertical">
+         <description id="abp-location"/>
+      </scrollbox>
+    </row>
+  </rows>
+</grid>
+
+<hbox>
+   <button class="button-dark" label="&cancel.label;" oncommand="document.getElementById('abpEditSubscription').close()"/>
+   <button class="button-dark" label="&ok.label;" oncommand="document.getElementById('abpEditSubscription').saveSubscription()"/>
+</hbox>
+</dialog>
