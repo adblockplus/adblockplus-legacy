@@ -408,47 +408,61 @@ function handleLinkClick(/**Event*/ event)
   if (event.button == 2)
     return;
 
+  // Search the link associated with the click
   let link = event.target;
   while (link && !(link instanceof Ci.nsIDOMNSHTMLAnchorElement))
     link = link.parentNode;
 
-  if (link && /^abp:\/*subscribe\/*\?(.*)/i.test(link.href))
+  if (!link || !/^abp:\/*subscribe\/*\?(.*)/i.test(link.href))
+    return;
+
+  // This is our link - make sure the browser doesn't handle it
+  event.preventDefault();
+  event.stopPropagation();
+
+  // Decode URL parameters
+  let title = null;
+  let url = null;
+  for each (let param in RegExp.$1.split('&'))
   {
-    event.preventDefault();
-    event.stopPropagation();
+    let parts = param.split("=", 2);
+    if (parts.length == 2 && parts[0] == 'title')
+      title = decodeURIComponent(parts[1]);
+    if (parts.length == 2 && parts[0] == 'location')
+      url = decodeURIComponent(parts[1]);
+  }
+  if (!url || !/\S/.test(url))
+    return;
 
-    let unescape = Cc["@mozilla.org/intl/texttosuburi;1"].getService(Ci.nsITextToSubURI);
+  // Default title to the URL
+  if (!title || !/\S/.test(title))
+    title = url;
 
-    let params = RegExp.$1.split('&');
-    let title = null;
-    let url = null;
-    for each (let param in params)
-    {
-      let parts = param.split("=", 2);
-      if (parts.length == 2 && parts[0] == 'title')
-        title = decodeURIComponent(parts[1]);
-      if (parts.length == 2 && parts[0] == 'location')
-        url = decodeURIComponent(parts[1]);
-    }
+  // Trim spaces in title and URL
+  title = title.replace(/^\s+/, "").replace(/\s+$/, "");
+  url = url.replace(/^\s+/, "").replace(/\s+$/, "");
 
-    if (url && /\S/.test(url))
-    {
-      if (!title || !/\S/.test(title))
-        title = url;
+  // Verify that the URL is valid
+  url = abp.makeURL(url);
+  if (!url)
+    return;
+  if (url.scheme != "http" && url.scheme != "https" && url.scheme != "ftp")
+    return;
+  url = url.spec;
 
-      var subscription = {url: url, title: title, disabled: false, external: false, autoDownload: true};
-
-      let appInfo = Cc["@mozilla.org/xre/app-info;1"].getService(Ci.nsIXULAppInfo);
-      if (appInfo.ID != "{a23983c0-fd0e-11dc-95ff-0800200c9a66}")
-      {
-        window.openDialog("chrome://adblockplus/content/ui/subscription.xul", "_blank",
-                         "chrome,centerscreen,modal", subscription);
-      }
-      else
-      {
-        window.importDialog(null, "chrome://adblockplus/content/ui/subscriptionFennec.xul", subscription);
-      }
-    }
+  // Open dialog
+  let appInfo = Cc["@mozilla.org/xre/app-info;1"].getService(Ci.nsIXULAppInfo);
+  if (appInfo.ID != "{a23983c0-fd0e-11dc-95ff-0800200c9a66}")
+  {
+    var subscription = {url: url, title: title, disabled: false, external: false, autoDownload: true};
+    window.openDialog("chrome://adblockplus/content/ui/subscription.xul", "_blank",
+                     "chrome,centerscreen,modal", subscription);
+  }
+  else
+  {
+    // Special handling for Fennec
+    window.importDialog(null, "chrome://adblockplus/content/ui/subscriptionFennec.xul");
+    initFennecSubscriptionDialog(url, title);
   }
 }
 
