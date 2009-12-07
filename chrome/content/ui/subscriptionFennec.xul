@@ -21,6 +21,7 @@
    - the Initial Developer. All Rights Reserved.
    -
    - Contributor(s):
+   -  Fabrice Desré
    -
    - ***** END LICENSE BLOCK ***** -->
 
@@ -36,12 +37,16 @@
 
 <dialog
   xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
-  buttons="accept,cancel"
-  title="&dialog.title;"
-  newtitle="&dialog.newtitle;"
-  id="abpEditSubscription"
-  onload="this.init()"
-  script="chrome://adblockplus/content/ui/subscriptionFennec.js">
+  id="abpEditSubscription">
+
+<keyset>
+  <key keycode="VK_RETURN" command="abp-subscription-cmd-ok"/>
+  <key keycode="VK_ESCAPE" command="abp-subscription-cmd-cancel"/>
+</keyset>
+<commandset>
+  <command id="abp-subscription-cmd-ok"/>
+  <command id="abp-subscription-cmd-cancel" oncommand="document.getElementById('abpEditSubscription').close();"/>
+</commandset>
 
 <label value="&dialog.newtitle;"/>
 
@@ -52,20 +57,21 @@
   </columns>
   <rows>
     <row align="center">
-      <label value="&title.label;" accesskey="&title.accesskey;" control="title"/>
-      <label id="abp-title"/>
+      <label value="&title.label;" control="abp-subscription-title"/>
+      <description id="abp-subscription-title"/>
     </row>
     <row>
-      <label value="&location.label;" accesskey="&location.accesskey;" control="location"/>
+      <label value="&location.label;" control="abp-subscription-url"/>
       <scrollbox orient="vertical">
-         <description id="abp-location"/>
+         <description id="abp-subscription-url"/>
       </scrollbox>
     </row>
   </rows>
 </grid>
 
 <hbox>
-   <button class="button-dark" label="&cancel.label;" oncommand="document.getElementById('abpEditSubscription').close()"/>
-   <button class="button-dark" label="&ok.label;" oncommand="document.getElementById('abpEditSubscription').saveSubscription()"/>
+   <button id="abp-subscription-btn-ok" class="button-dark" label="&ok.label;" command="abp-subscription-cmd-ok"/>
+   <button class="button-dark" label="&cancel.label;" command="abp-subscription-cmd-cancel"/>
 </hbox>
+
 </dialog>

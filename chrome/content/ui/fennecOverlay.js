@@ -55,31 +55,78 @@ function onCreateOptions(event)
     menu.selectedIndex = menu.itemCount - 1;
   }
 
-  menu.addEventListener("command", setSubscription, false);
+  menu.addEventListener("command", function(event)
+  {
+    let menu = event.target;
+    if (menu.value)
+      setSubscription(menu.value, menu.label);
+  }, false);
 }
   
-function setSubscription(event)
+function setSubscription(url, title)
 {
-  let menu = event.target;
-  if (!menu.value)
-    return;
-
   let filterStorage = abp.filterStorage;
   let currentSubscription = filterStorage.subscriptions.filter(function(subscription) subscription instanceof abp.DownloadableSubscription);
   currentSubscription = (currentSubscription.length ? currentSubscription[0] : null);
-  if (currentSubscription && currentSubscription.url == menu.value)
+  if (currentSubscription && currentSubscription.url == url)
     return;
 
   // We only allow one subscription, remove existing one before adding
   if (currentSubscription)
     filterStorage.removeSubscription(currentSubscription);
 
-  currentSubscription = abp.Subscription.fromURL(menu.value);
-  currentSubscription.title = menu.label;
+  currentSubscription = abp.Subscription.fromURL(url);
+  currentSubscription.title = title;
 
   filterStorage.addSubscription(currentSubscription);
   abp.synchronizer.execute(currentSubscription);
   filterStorage.saveToDisk();
+}
+
+function initFennecSubscriptionDialog(url, title)
+{
+  // Copied from Fennec's PromptService.js
+  // add a width style to prevent a element to grow larger 
+  // than the screen width
+  function sizeElement(id, percent)
+  {
+    let elem = E(id);
+    let screenW = E("main-window").getBoundingClientRect().width;
+    elem.style.width = screenW * percent / 100 + "px"
+  }
+  
+  // size the height of the scrollable message. this assumes the given element
+  // is a child of a scrollbox
+  function sizeScrollableMsg(id, percent)
+  {
+    let screenH = E("main-window").getBoundingClientRect().height;
+    let maxHeight = screenH * percent / 100;
+    
+    let elem = E(id);
+    let style = document.defaultView.getComputedStyle(elem, null);
+    let height = Math.ceil(elem.getBoundingClientRect().height) +
+                 parseInt(style.marginTop) +
+                 parseInt(style.marginBottom);
+  
+    if (height > maxHeight)
+      height = maxHeight;
+    elem.parentNode.style.height = height + "px";
+  }
+
+  sizeElement("abp-subscription-title", 50);
+  E("abp-subscription-title").textContent = title;
+
+  sizeElement("abp-subscription-url", 50);
+  E("abp-subscription-url").textContent = url;
+  sizeScrollableMsg("abp-subscription-url", 50);
+
+  E("abp-subscription-cmd-ok").addEventListener("command", function()
+  {
+    setSubscription(url, title);
+    E("abpEditSubscription").close();
+  }, false);
+
+  E("abp-subscription-btn-ok").focus();
 }
 
 abp.runAsync(function() abp.init());
