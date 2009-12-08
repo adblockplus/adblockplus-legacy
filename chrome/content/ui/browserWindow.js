@@ -328,9 +328,6 @@ function abpReloadPrefs() {
  */
 function shouldHideImageManager()
 {
-  if (typeof arguments.callee._result != "undefined")
-    return arguments.callee._result;
-
   let result = false;
   if (prefs.hideimagemanager && "@mozilla.org/permissionmanager;1" in Cc)
   {
@@ -354,7 +351,7 @@ function shouldHideImageManager()
     }
   }
 
-  arguments.callee._result = result;
+  shouldHideImageManager = function() result;
   return result;
 }
 
