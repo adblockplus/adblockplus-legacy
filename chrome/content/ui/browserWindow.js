@@ -216,8 +216,8 @@ function abpInit() {
     prefs.doneFirstRunActions = true;
 
     // Show subscriptions dialog if the user doesn't have any subscriptions yet
-    if (abp.versionComparator.compare(prefs.lastVersion, "0.0") <= 0)
-      abp.runAsync(abpShowSubscriptions);
+    if (prefs.lastVersion != prefs.currentVersion)
+      abp.runAsync(showSubscriptions);
   }
 
   // Window-specific first run actions
@@ -498,13 +498,21 @@ function abpInstallInToolbar()
   }
 }
 
-// Let user choose subscriptions on first start unless he has some already
-function abpShowSubscriptions()
+/**
+ * Executed on first run, presents the user with a list of filter subscriptions
+ * and allows choosing one.
+ */
+function showSubscriptions()
 {
-  // Look for existing subscriptions
-  for each (let subscription in filterStorage.subscriptions)
-    if (subscription instanceof abp.DownloadableSubscription)
-      return;
+  // Don't annoy the user if he has a subscription already
+  let hasSubscriptions = filterStorage.subscriptions.some(function(subscription) subscription instanceof abp.DownloadableSubscription);
+  if (hasSubscriptions)
+    return;
+
+  // Only show the list if this is the first run or the user has no filters
+  let hasFilters = filterStorage.subscriptions.some(function(subscription) subscription.filters.length);
+  if (hasFilters && abp.versionComparator.compare(prefs.lastVersion, "0.0") > 0)
+    return;
 
   if (!abpHooks.addTab || abpHooks.addTab("chrome://adblockplus/content/ui/tip_subscriptions.xul") === false)
     window.openDialog("chrome://adblockplus/content/ui/tip_subscriptions.xul", "_blank", "chrome,centerscreen,resizable,dialog=no");
