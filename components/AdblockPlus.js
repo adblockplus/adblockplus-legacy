@@ -352,6 +352,7 @@ const abp =
   shutdown: function()
   {
     filterStorage.saveToDisk();
+    prefs.shutdown();
   },
 
   /**
