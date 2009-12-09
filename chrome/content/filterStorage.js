@@ -354,6 +354,9 @@ var filterStorage =
 
     function getFileByPath(path)
     {
+      if (!path)
+        return null;
+
       try {
         // Assume an absolute path first
         let file = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsILocalFile);
@@ -373,8 +376,8 @@ var filterStorage =
     }
 
     this.file = getFileByPath(prefs.patternsfile);
-    if (!this.file && "patternsfile" in prefs.prefList)
-      this.file = getFileByPath(this.prefList.patternsfile[2]);   // Try default
+    if (!this.file)
+      this.file = getFileByPath(prefs.getDefault("patternsfile"));
 
     if (!this.file)
       dump("Adblock Plus: Failed to resolve filter file location from extensions.adblockplus.patternsfile preference\n");

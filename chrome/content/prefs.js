@@ -40,23 +40,59 @@ var prefs = {
   /**
    * Old value of the "currentVersion" preference - version of Adblock Plus used
    * on previous browser start.
+   * @type String
    */
   lastVersion: null,
 
   /**
+   * Will be set to true if the user enters private browsing mode.
+   * @type Boolean
+   */
+  privateBrowsing: false,
+
+  /**
    * If set to true notifications about preference changes will no longer cause
    * a reload. This is to prevent unnecessary reloads while saving.
+   * @type Boolean
    */
   _disableObserver: false,
 
   /**
-   * Will be set to true if the user enters private browsing mode.
+   * Preferences branch containing Adblock Plus preferences.
+   * @type nsIPrefBranch
    */
-  privateBrowsing: false,
+  _branch: prefService.getBranch(prefRoot),
 
-  branch: prefService.getBranch(prefRoot),
-  prefList: [],
-  listeners: [],
+  /**
+   * Maps preferences to their default values.
+   * @type Object
+   */
+  _defaultPrefs: null,
+
+  /**
+   * nsIPrefBranch methods used to load prefererences, mapped by JavaScript type
+   * @type Object
+   */
+  _loadPrefMethods: {
+    string: "getCharPref",
+    boolean: "getBoolPref",
+    number: "getIntPref",
+  },
+  /**
+   * nsIPrefBranch methods used to save prefererences, mapped by JavaScript type
+   * @type Object
+   */
+  _savePrefMethods: {
+    string: "setCharPref",
+    boolean: "setBoolPref",
+    number: "setIntPref",
+  },
+
+  /**
+   * List of listeners to be notified whenever preferences are reloaded
+   * @type Array of Function
+   */
+  _listeners: [],
 
   /**
    * Will be set to true if Adblock Plus is scheduled to be uninstalled on
@@ -67,8 +103,9 @@ var prefs = {
   addObservers: function() {
     // Observe preferences changes
     try {
-      var branchInternal = this.branch.QueryInterface(Ci.nsIPrefBranchInternal);
-      branchInternal.addObserver("", this, true);
+      this._branch
+          .QueryInterface(Ci.nsIPrefBranchInternal)
+          .addObserver("", this, true);
     }
     catch (e) {
       dump("Adblock Plus: exception registering pref observer: " + e + "\n");
@@ -102,21 +139,20 @@ var prefs = {
       return;
 
     // Initialize prefs list
-    var defaultBranch = prefService.getDefaultBranch(prefRoot);
-    var defaultPrefs = defaultBranch.getChildList("", {});
-    var types = {};
+    let defaultBranch = prefService.getDefaultBranch(prefRoot);
+    let types = {};
     types[defaultBranch.PREF_INT] = "Int";
     types[defaultBranch.PREF_BOOL] = "Bool";
 
-    this.prefList = [];
-    for each (var name in defaultPrefs) {
-      var type = defaultBranch.getPrefType(name);
-      var typeName = (type in types ? types[type] : "Char");
+    this._defaultPrefs = {};
+    this._defaultPrefs.__proto__ = null;
+    for each (let name in defaultBranch.getChildList("", {}))
+    {
+      let type = defaultBranch.getPrefType(name);
+      let typeName = (type in types ? types[type] : "Char");
 
       try {
-        var pref = [name, typeName, defaultBranch["get" + typeName + "Pref"](name)];
-        this.prefList.push(pref);
-        this.prefList[" " + name] = pref;
+        this._defaultPrefs[name] = defaultBranch["get" + typeName + "Pref"](name);
       } catch(e) {}
     }
 
@@ -145,35 +181,57 @@ var prefs = {
       // Make sure that a new installation after uninstall will be treated like
       // an update.
       try {
-        this.branch.clearUserPref("currentVersion");
+        this._branch.clearUserPref("currentVersion");
       } catch(e) {}
     }
   },
 
-  // Loads a pref and stores it as a property of the object
-  loadPref: function(pref) {
-    try {
-      this[pref[0]] = this.branch["get" + pref[1] + "Pref"](pref[0]);
+  /**
+   * Retrieves the default value of a preference, will return null if the
+   * preference doesn't exist.
+   */
+  getDefault: function(/**String*/ pref)
+  {
+    return (pref in this._defaultPrefs ? this._defaultPrefs[pref] : null);
+  },
+
+  /**
+   * Reloads a preference and stores it as a property of this object.
+   */
+  _reloadPref: function(/**String*/pref)
+  {
+    let defaultValue = this._defaultPrefs[pref];
+    try
+    {
+      this[pref] = this._branch[this._loadPrefMethods[typeof defaultValue]](pref);
     }
-    catch (e) {
-      // Use default value
-      this[pref[0]] = pref[2];
+    catch (e)
+    {
+      this[pref] = defaultValue;
     }
   },
 
-  // Saves a property of the object into the corresponding pref
-  savePref: function(pref) {
-    try {
-      this.branch["set" + pref[1] + "Pref"](pref[0], this[pref[0]]);
+  /**
+   * Saves a property of the object into the corresponding preference.
+   */
+  _savePref: function(/**String*/pref)
+  {
+    let defaultValue = this._defaultPrefs[pref];
+    try
+    {
+      this._branch[this._savePrefMethods[typeof defaultValue]](pref, this[pref]);
     }
     catch (e) {}
   },
 
-  // Reloads the preferences
-  reload: function() {
+  /**
+   * Reloads all preferences on change an notifies listeners.
+   */
+  reload: function()
+  {
     // Load data from prefs.js
-    for (let i = 0; i < this.prefList.length; i++)
-      this.loadPref(this.prefList[i]);
+    for (let pref in this._defaultPrefs)
+      this._reloadPref(pref);
 
     // Always disable object tabs in Fennec, they aren't usable
     let appInfo = Cc["@mozilla.org/xre/app-info;1"].getService(Ci.nsIXULAppInfo);
@@ -183,23 +241,29 @@ var prefs = {
     elemhide.apply();
 
     // Fire pref listeners
-    for each (var listener in this.listeners)
+    for each (let listener in this._listeners)
       listener(this);
   },
 
-  // Saves the changes back into the prefs
-  save: function() {
-    try {
+  /**
+   * Saves all object properties back to preferences
+   */
+  save: function()
+  {
+    try
+    {
       this._disableObserver = true;
-      for (let i = 0; i < this.prefList.length; i++)
-        this.savePref(this.prefList[i]);
+      for (let pref in this._defaultPrefs)
+        this._savePref(pref);
     }
-    finally {
+    finally
+    {
       this._disableObserver = false;
     }
 
     // Make sure to save the prefs on disk (and if we don't - at least reload the prefs)
-    try {
+    try
+    {
       prefService.savePrefFile(null);
     }
     catch(e) {}  
@@ -207,14 +271,22 @@ var prefs = {
     this.reload();
   },
 
-  addListener: function(handler) {
-    this.listeners.push(handler);
+  /**
+   * Adds a preferences listener that will be fired whenever preferences are
+   * reloaded
+   */
+  addListener: function(/**Function*/handler)
+  {
+    this._listeners.push(handler);
   },
-
-  removeListener: function(handler) {
-    for (var i = 0; i < this.listeners.length; i++)
-      if (this.listeners[i] == handler)
-        this.listeners.splice(i--, 1);
+  /**
+   * Removes a preferences listener
+   */
+  removeListener: function(/**Function*/handler)
+  {
+    for (let i = 0; i < this._listeners.length; i++)
+      if (this._listeners[i] == handler)
+        this._listeners.splice(i--, 1);
   },
 
   /**
