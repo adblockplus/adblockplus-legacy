@@ -180,6 +180,7 @@ var synchronizer =
       let fallbackURL = prefs.subscriptions_fallbackurl;
       fallbackURL = fallbackURL.replace(/%SUBSCRIPTION%/g, encodeURIComponent(subscription.url));
       fallbackURL = fallbackURL.replace(/%URL%/g, encodeURIComponent(downloadURL));
+      fallbackURL = fallbackURL.replace(/%ERROR%/g, encodeURIComponent(error));
       fallbackURL = fallbackURL.replace(/%CHANNELSTATUS%/g, encodeURIComponent(channelStatus));
       fallbackURL = fallbackURL.replace(/%RESPONSESTATUS%/g, encodeURIComponent(responseStatus));
 
