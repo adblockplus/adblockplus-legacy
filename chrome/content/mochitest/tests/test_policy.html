@@ -35,6 +35,18 @@
         "http://127.0.0.1:1234/test.gif", "image", "127.0.0.1", false
       ],
       [
+        '<iframe src="data:text/html,%3Cinput%20type%3D%22image%22%20src%3D%22http%3A%2F%2F127.0.0.1:1234%2Ftest.gif%22%3E"></iframe>',
+        "http://127.0.0.1:1234/test.gif", "image", "127.0.0.1", false
+      ],
+      [
+        '<iframe src="data:text/html,%3Ciframe%20src%3D%22data%3Atext%2Fhtml%2C%253Cinput%2520type%253D%2522image%2522%2520src%253D%2522http%253A%252F%252F127.0.0.1%3A1234%252Ftest.gif%2522%253E%22%3E%3C%2Fiframe%3E"></iframe>',
+        "http://127.0.0.1:1234/test.gif", "image", "127.0.0.1", false
+      ],
+      [
+        '<iframe src="about:blank"></iframe><script>frames[0].document.body.innerHTML = \'<input type="image" src="test.gif">\';<' + '/script>',
+        "http://127.0.0.1:1234/test.gif", "image", "127.0.0.1", false
+      ],
+      [
         '<div style="background-image: url(test.gif)"></div>',
         "http://127.0.0.1:1234/test.gif", "background", "127.0.0.1", false
       ],
