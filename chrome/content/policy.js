@@ -28,6 +28,7 @@
  */
 
 var effectiveTLD = Cc["@mozilla.org/network/effective-tld-service;1"].getService(Ci.nsIEffectiveTLDService);
+var netUtils = Cc["@mozilla.org/network/util;1"].getService(Ci.nsINetUtil);
 
 const ok = Ci.nsIContentPolicy.ACCEPT;
 const block = Ci.nsIContentPolicy.REJECT_REQUEST;
@@ -176,7 +177,7 @@ var policy =
     if (contentType != this.type.OBJECT && (node instanceof Ci.nsIDOMHTMLObjectElement || node instanceof Ci.nsIDOMHTMLEmbedElement))
       contentType = this.type.OBJECT;
 
-    let docDomain = this.getHostname(wnd.location.href);
+    let docDomain = this.getHostname(this.getOriginWindow(wnd).location.href);
     if (!match && contentType == this.type.ELEMHIDE)
     {
       match = location;
@@ -306,6 +307,23 @@ var policy =
     {
       return null;
     }
+  },
+
+  /**
+   * If the window doesn't have its own security context (e.g. about:blank or
+   * data: URL) walks up the parent chain until a window is found that has a
+   * security context.
+   */
+  getOriginWindow: function(/**Window*/ wnd) /**Window*/
+  {
+    while (wnd != wnd.parent)
+    {
+      let uri = abp.makeURL(wnd.location.href);
+      if (uri.spec != "about:blank" && !netUtils.URIChainHasFlags(uri, Ci.nsIProtocolHandler.URI_INHERITS_SECURITY_CONTEXT))
+        break;
+      wnd = wnd.parent;
+    }
+    return wnd;
   },
 
   /**
