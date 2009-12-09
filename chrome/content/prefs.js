@@ -37,12 +37,32 @@ var prefService = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPref
  * @class
  */
 var prefs = {
+  /**
+   * Old value of the "currentVersion" preference - version of Adblock Plus used
+   * on previous browser start.
+   */
   lastVersion: null,
-  disableObserver: false,
+
+  /**
+   * If set to true notifications about preference changes will no longer cause
+   * a reload. This is to prevent unnecessary reloads while saving.
+   */
+  _disableObserver: false,
+
+  /**
+   * Will be set to true if the user enters private browsing mode.
+   */
   privateBrowsing: false,
+
   branch: prefService.getBranch(prefRoot),
   prefList: [],
   listeners: [],
+
+  /**
+   * Will be set to true if Adblock Plus is scheduled to be uninstalled on
+   * browser restart.
+   */
+  _willBeUninstalled: false,
 
   addObservers: function() {
     // Observe preferences changes
@@ -54,14 +74,15 @@ var prefs = {
       dump("Adblock Plus: exception registering pref observer: " + e + "\n");
     }
 
+    let observerService = Cc["@mozilla.org/observer-service;1"].getService(Ci.nsIObserverService);
+    observerService.addObserver(this, "em-action-requested", true);
+
     // Add Private Browsing observer
     if ("@mozilla.org/privatebrowsing;1" in Cc)
     {
       try
       {
         this.privateBrowsing = Cc["@mozilla.org/privatebrowsing;1"].getService(Ci.nsIPrivateBrowsingService).privateBrowsingEnabled;
-
-        var observerService = Cc["@mozilla.org/observer-service;1"].getService(Ci.nsIObserverService);
         observerService.addObserver(this, "private-browsing", true);
       }
       catch(e)
@@ -71,6 +92,9 @@ var prefs = {
     }
   },
 
+  /**
+   * Called during browser startup, performs initial load of preferences.
+   */
   init: function()
   {
     // Prevent multiple invocation
@@ -109,6 +133,21 @@ var prefs = {
 
     // Add observers for pref changes
     prefs.addObservers();
+  },
+
+  /**
+   * Called during browser shutdown.
+   */
+  shutdown: function()
+  {
+    if (this._willBeUninstalled)
+    {
+      // Make sure that a new installation after uninstall will be treated like
+      // an update.
+      try {
+        this.branch.clearUserPref("currentVersion");
+      } catch(e) {}
+    }
   },
 
   // Loads a pref and stores it as a property of the object
@@ -150,12 +189,14 @@ var prefs = {
 
   // Saves the changes back into the prefs
   save: function() {
-    this.disableObserver = true;
-  
-    for (let i = 0; i < this.prefList.length; i++)
-      this.savePref(this.prefList[i]);
-
-    this.disableObserver = false;
+    try {
+      this._disableObserver = true;
+      for (let i = 0; i < this.prefList.length; i++)
+        this.savePref(this.prefList[i]);
+    }
+    finally {
+      this._disableObserver = false;
+    }
 
     // Make sure to save the prefs on disk (and if we don't - at least reload the prefs)
     try {
@@ -176,8 +217,11 @@ var prefs = {
         this.listeners.splice(i--, 1);
   },
 
-  // nsIObserver implementation
-  observe: function(subject, topic, prefName) {
+  /**
+   * nsIObserver implementation
+   */
+  observe: function(subject, topic, data)
+  {
     if (topic == "private-browsing")
     {
       if (prefName == "enter")
@@ -185,11 +229,15 @@ var prefs = {
       else if (prefName == "exit")
         this.privateBrowsing = false;
     }
-    else if (!this.disableObserver)
+    else if (topic == "em-action-requested")
+      this._willBeUninstalled = (data == "item-uninstalled");
+    else if (!this._disableObserver)
       this.reload();
   },
 
-  // nsISupports implementation
+  /**
+   * nsISupports implementation
+   */
   QueryInterface: XPCOMUtils.generateQI([Ci.nsISupportsWeakReference, Ci.nsIObserver])
 };
 
