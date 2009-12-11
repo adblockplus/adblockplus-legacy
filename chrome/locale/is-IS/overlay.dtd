@@ -12,7 +12,7 @@
 <!ENTITY sidebar.title "Hlutir á núverandi síðu sem hægt er að loka á">
 <!ENTITY settings.label "Stillingar">
 <!ENTITY settings.accesskey "S">
-<!ENTITY opensidebar.label "Opna hluti">
+<!ENTITY opensidebar.label "Skoða hluti">
 <!ENTITY opensidebar.accesskey "l">
 <!ENTITY closesidebar.label "Loka hlutum">
 <!ENTITY closesidebar.accesskey "l">

@@ -5,7 +5,7 @@
 <!ENTITY disabled.warning.beforeLink "Adblock Plus atópase actualmente desactivado. Aínda pode engadir os filtros, mais non se aplicarán a menos que vostede">
 <!ENTITY disabled.warning.link "active Adblock Plus">
 <!ENTITY disabled.warning.afterLink ".">
-<!ENTITY groupDisabled.warning.beforeLink "O grupo de filtros &quot;&#x25;S&quot; ao que se tiña que engadir este filtro está desactivado. Pode engadir o filtro mais non será aplicado ata que">
+<!ENTITY groupDisabled.warning.beforeLink "O grupo de filtros &quot;&#37;S&quot; ao que se tiña que engadir este filtro está desactivado. Pode engadir o filtro mais non será aplicado ata que">
 <!ENTITY groupDisabled.warning.link "active o grupo de filtros">
 <!ENTITY groupDisabled.warning.afterLink ".">
 <!ENTITY filter.label "Filtro novo:">

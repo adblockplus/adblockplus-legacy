@@ -1,0 +1,7 @@
+<!ENTITY location.label "Vendi i listës së filtruesit">
+<!ENTITY location.accesskey "L">
+<!ENTITY title.accesskey "T">
+<!ENTITY autodownload.label "Fresko Automatikisht">
+<!ENTITY autodownload.accesskey "P">
+<!ENTITY enabled.label "Aktivizo filtruesit">
+<!ENTITY enabled.accesskey "N">

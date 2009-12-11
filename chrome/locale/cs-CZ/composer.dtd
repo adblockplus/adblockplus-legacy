@@ -5,7 +5,7 @@
 <!ENTITY disabled.warning.beforeLink "Adblock Plus je momentálně zakázán. Můžete stále přidávat filtry, ale nebudou aplikovány dokud">
 <!ENTITY disabled.warning.link "nepovolíte Adblock Plus">
 <!ENTITY disabled.warning.afterLink ".">
-<!ENTITY groupDisabled.warning.beforeLink "Skupina filtrů &quot;&#x25;S&quot;, do které chcete přidat tento filtr, je momentálně zakázaná. Filtr můžete přidat, ale nebude aplikován, dokud">
+<!ENTITY groupDisabled.warning.beforeLink "Skupina filtrů &quot;&#37;S&quot;, do které chcete přidat tento filtr, je momentálně zakázaná. Filtr můžete přidat, ale nebude aplikován, dokud">
 <!ENTITY groupDisabled.warning.link "nepovolíte skupinu filtrů">
 <!ENTITY groupDisabled.warning.afterLink ".">
 <!ENTITY filter.label "Nový filtr:">

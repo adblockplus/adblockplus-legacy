@@ -5,9 +5,9 @@
 <!ENTITY menuitem.accesskey "B">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY view.blockableItems.label "Adblock Plus: 차단 가능 항목">
-<!ENTITY context.image.label "Adblock 이미지">
-<!ENTITY context.object.label "Adblock 객체">
-<!ENTITY context.frame.label "Adblock 프레임">
+<!ENTITY context.image.label "Adblock Plus: 이미지 차단">
+<!ENTITY context.object.label "Adblock Plus: 객체 차단">
+<!ENTITY context.frame.label "Adblock Plus: 프레임 차단">
 <!ENTITY context.removeWhitelist.label "Adblock Plus: 이 페이지 재설정">
 <!ENTITY sidebar.title "현재 페이지에서 차단 가능한 항목">
 <!ENTITY settings.label "설정">
@@ -16,7 +16,7 @@
 <!ENTITY opensidebar.accesskey "B">
 <!ENTITY closesidebar.label "차단 가능한 항목 닫기">
 <!ENTITY closesidebar.accesskey "B">
-<!ENTITY whitelist.site.label "다음 사이트에서 차단하기 --">
-<!ENTITY whitelist.page.label "이 페이지에서만 차단하기">
+<!ENTITY whitelist.site.label "다음 사이트는 차단 안 함 --">
+<!ENTITY whitelist.page.label "현재 페이지만 차단 안 함">
 <!ENTITY objecttab.title "차단">
 <!ENTITY objecttab.tooltip "Adblock Plus로 이 객체를 차단하려면 여기를 누르십시오.">

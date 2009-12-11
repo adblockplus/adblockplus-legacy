@@ -5,7 +5,7 @@
 <!ENTITY disabled.warning.beforeLink "Adblock Plus är inaktiverad. Du kan lägga till filter men kan inte användas förrän du">
 <!ENTITY disabled.warning.link "aktiverar Adblock Plus">
 <!ENTITY disabled.warning.afterLink ".">
-<!ENTITY groupDisabled.warning.beforeLink "Filtergruppen &quot;&#x25;S&quot; som detta filter skall läggas till i är f.n. inaktiverat. Du kan lägga till det men kommer inte att användas förrän du">
+<!ENTITY groupDisabled.warning.beforeLink "Filtergruppen &quot;&#37;S&quot; som detta filter skall läggas till i är f.n. inaktiverat. Du kan lägga till det men kommer inte att användas förrän du">
 <!ENTITY groupDisabled.warning.link "aktiverar denna filtergrupp.">
 <!ENTITY groupDisabled.warning.afterLink ".">
 <!ENTITY filter.label "Nytt filter:">

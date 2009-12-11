@@ -13,9 +13,9 @@
 <!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
 <!ENTITY filterset.g.uninstall "Filterset.G 제거">
 <!ENTITY homepage.label "홈페이지">
-<!ENTITY subscribe.label "가입">
+<!ENTITY subscribe.label "표현식">
 <!ENTITY subscribe.accesskey "R">
 <!ENTITY other.label "다른 표현식 추가">
 <!ENTITY other.accesskey "f">
 <!ENTITY full-list.url "http://adblockplus.org/en/subscriptions">
-<!ENTITY full-list.label "모든 가입 보기">
+<!ENTITY full-list.label "모든 표현식 보기">

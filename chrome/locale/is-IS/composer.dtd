@@ -6,7 +6,7 @@
 <!ENTITY disabled.warning.link "virkjir Adblock Plus">
 <!ENTITY disabled.warning.afterLink ".">
 <!ENTITY groupDisabled.warning.beforeLink "Síuhópurinn &quot;&#37;S&quot; sem þessi sía á að bætast við er ekki virkur. Þú getur bætt síunni við en hún mun ekki verða virkjuð nema þú">
-<!ENTITY groupDisabled.warning.link "virkjir síðuhópinn">
+<!ENTITY groupDisabled.warning.link "gerir síuhópinn virkan">
 <!ENTITY groupDisabled.warning.afterLink ".">
 <!ENTITY filter.label "Ný sía:">
 <!ENTITY filter.accesskey "s">

@@ -5,7 +5,7 @@
 <!ENTITY disabled.warning.beforeLink "Adblock Plus è attualmente disattivata. È comunque possibile aggiungere filtri, ma questi verranno applicati solo dopo la">
 <!ENTITY disabled.warning.link "riattivazione di Adblock Plus">
 <!ENTITY disabled.warning.afterLink " ">
-<!ENTITY groupDisabled.warning.beforeLink "Il gruppo di filtri &quot;&#x25;S&quot; al quale bisognerebbe aggiungere il filtro è attualmente disattivato. È comunque possibile aggiungere il filtro, ma questo verrà applicato solo dopo la ">
+<!ENTITY groupDisabled.warning.beforeLink "Il gruppo di filtri &quot;&#37;S&quot; al quale bisognerebbe aggiungere il filtro è attualmente disattivato. È comunque possibile aggiungere il filtro, ma questo verrà applicato solo dopo la ">
 <!ENTITY groupDisabled.warning.link "riattivazione del gruppo di filtri ">
 <!ENTITY groupDisabled.warning.afterLink " ">
 <!ENTITY filter.label "Nuovo filtro:">

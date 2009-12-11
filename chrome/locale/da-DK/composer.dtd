@@ -5,7 +5,7 @@
 <!ENTITY disabled.warning.beforeLink "Adblock Plus er i øjeblikket deaktiveret. Du kan stadig tilføje filtre men disse vil ikke blive benyttet med mindre du">
 <!ENTITY disabled.warning.link "aktiverer Adblock Plus">
 <!ENTITY disabled.warning.afterLink ".">
-<!ENTITY groupDisabled.warning.beforeLink "Filtergruppen &quot;&#x25;S&quot; som dette filer skal tilføjes til er deaktiveret i øjeblikket. Du kan stadig tilføje filteret men det vil ikke blive benyttet med mindre du">
+<!ENTITY groupDisabled.warning.beforeLink "Filtergruppen &quot;&#37;S&quot; som dette filer skal tilføjes til er deaktiveret i øjeblikket. Du kan stadig tilføje filteret men det vil ikke blive benyttet med mindre du">
 <!ENTITY groupDisabled.warning.link "aktiverer filtergruppen">
 <!ENTITY groupDisabled.warning.afterLink ".">
 <!ENTITY filter.label "Nyt filter:">
