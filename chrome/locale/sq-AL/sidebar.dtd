@@ -1,0 +1,26 @@
+<!ENTITY search.label "Kërko">
+<!ENTITY search.accesskey "S">
+<!ENTITY type.label "Lloji">
+<!ENTITY address.label "Adresa">
+<!ENTITY filter.label "Filtruesi">
+<!ENTITY state.label "Gjendja">
+<!ENTITY size.label "Madhësia">
+<!ENTITY docDomain.label "Burimi i dokumentit">
+<!ENTITY noitems.label "S'ka elemente bllokuese">
+<!ENTITY tooltip.address.label "Adresa:">
+<!ENTITY tooltip.type.label "Lloji:">
+<!ENTITY tooltip.type.blocked "(bllokuar)">
+<!ENTITY tooltip.type.whitelisted "(lejuar)">
+<!ENTITY tooltip.size.label "Madhësia:">
+<!ENTITY tooltip.docDomain.label "Burimi i dokumentit:">
+<!ENTITY tooltip.filter.label "Filtruesi efektiv:">
+<!ENTITY tooltip.filterSource.label "Burimi i filtruesit:">
+<!ENTITY context.block.label "Blloko këtë send">
+<!ENTITY context.editfilter.label "Vendos filtruesin në veprim">
+<!ENTITY context.disablefilter.label "Çaktivizo filtruesin --">
+<!ENTITY context.enablefilter.label "Ri mundëso filtruesin --">
+<!ENTITY context.disablefilteronsite.label "Pamundëso filtruesin në --">
+<!ENTITY context.open.label "Hape një një lidhje të re">
+<!ENTITY context.copy.label "Kopjo adresën e elementit">
+<!ENTITY context.copyFilter.label "Kopjo filtruesin">
+<!ENTITY context.selectAll.label "Selekto të gjitha">

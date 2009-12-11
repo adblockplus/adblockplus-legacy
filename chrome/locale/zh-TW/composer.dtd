@@ -5,7 +5,7 @@
 <!ENTITY disabled.warning.beforeLink "Adblock Plus 目前已停用。您還是可以新增過濾條件，但不會有任何作用，除非您">
 <!ENTITY disabled.warning.link "啟用 Adblock Plus">
 <!ENTITY disabled.warning.afterLink "。">
-<!ENTITY groupDisabled.warning.beforeLink "此過濾條件應加到過濾條件組 &quot;&#x25;S&quot; 中，但該過濾條件組目前已停用。您還是可以新增過濾條件，但不會有任何作用，除非您">
+<!ENTITY groupDisabled.warning.beforeLink "此過濾條件應加到過濾條件組 &quot;&#37;S&quot; 中，但該過濾條件組目前已停用。您還是可以新增過濾條件，但不會有任何作用，除非您">
 <!ENTITY groupDisabled.warning.link "啟用該過濾條件組">
 <!ENTITY groupDisabled.warning.afterLink "。">
 <!ENTITY filter.label "新過濾條件:">

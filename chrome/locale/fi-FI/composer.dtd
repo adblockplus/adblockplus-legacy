@@ -5,7 +5,7 @@
 <!ENTITY disabled.warning.beforeLink "Adblock Plus on tällä hetkellä poistettu käytöstä. Voit silti lisätä suodattimia mutta ne otetaan käyttöön vasta kun,">
 <!ENTITY disabled.warning.link "otat Adblockin Plussan käyttöön">
 <!ENTITY disabled.warning.afterLink ".">
-<!ENTITY groupDisabled.warning.beforeLink "Suodatinryhmä &quot;&#x25;S&quot;, johon tämä suodatin tulisi lisätä on poistettu käytöstä. Voit silti lisätä tämän suodattimen mutta sitä ei oteta käyttöön ellet">
+<!ENTITY groupDisabled.warning.beforeLink "Suodatinryhmä &quot;&#37;S&quot;, johon tämä suodatin tulisi lisätä on poistettu käytöstä. Voit silti lisätä tämän suodattimen mutta sitä ei oteta käyttöön ellet">
 <!ENTITY groupDisabled.warning.link "ota suodatinryhmää käyttöön">
 <!ENTITY groupDisabled.warning.afterLink ".">
 <!ENTITY filter.label "Uusi suodatin:">

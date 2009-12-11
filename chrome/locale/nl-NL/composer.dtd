@@ -5,7 +5,7 @@
 <!ENTITY disabled.warning.beforeLink "Adblock Plus is uitgeschakeld. U kunt nog wel filters toevoegen, maar ze worden niet toegepast tot u">
 <!ENTITY disabled.warning.link "Adblock Plus weer inschakelen">
 <!ENTITY disabled.warning.afterLink ".">
-<!ENTITY groupDisabled.warning.beforeLink "De filtergroep &quot;&#x25;S&quot; aan wordt toegevoegd is momenteel uitgeschakeld. U kunt het filter nog wel toevoegen maar het wordt niet toegepast tenzij u">
+<!ENTITY groupDisabled.warning.beforeLink "De filtergroep &quot;&#37;S&quot; aan wordt toegevoegd is momenteel uitgeschakeld. U kunt het filter nog wel toevoegen maar het wordt niet toegepast tenzij u">
 <!ENTITY groupDisabled.warning.link "de filtergroep inschakeld">
 <!ENTITY groupDisabled.warning.afterLink ".">
 <!ENTITY filter.label "Nieuw filter">

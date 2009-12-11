@@ -5,7 +5,7 @@
 <!ENTITY disabled.warning.beforeLink "Adblock Plus on hetkel keelatud, kuid siiski on võimalik lisada filtreid, kuid need ei jõustu kuni Sa">
 <!ENTITY disabled.warning.link "Lubad Adblock Plusi">
 <!ENTITY disabled.warning.afterLink ".">
-<!ENTITY groupDisabled.warning.beforeLink "Filtrite grupp &quot;&#x25;S&quot; that this filter should be added to is currently disabled. You can still add the filter but it will not be applied unless you">
+<!ENTITY groupDisabled.warning.beforeLink "Filtrite grupp &quot;&#37;S&quot; that this filter should be added to is currently disabled. You can still add the filter but it will not be applied unless you">
 <!ENTITY groupDisabled.warning.link "luba filtrid">
 <!ENTITY groupDisabled.warning.afterLink ".">
 <!ENTITY filter.label "Uus filter">

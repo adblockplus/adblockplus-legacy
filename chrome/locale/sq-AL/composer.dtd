@@ -1,0 +1,35 @@
+<!ENTITY advanced.label "Pamja e avancuar">
+<!ENTITY basic.label "Pamja e zakonshme">
+<!ENTITY disabled.warning.link "aktivizo Adblock Plus">
+<!ENTITY disabled.warning.afterLink ".">
+<!ENTITY groupDisabled.warning.link "aktivizo grupin e filtrimit">
+<!ENTITY groupDisabled.warning.afterLink ".">
+<!ENTITY filter.label "Filtrues i ri:">
+<!ENTITY filter.accesskey "f">
+<!ENTITY preferences.label "Trego filtruesit ekzistues...">
+<!ENTITY preferences.accesskey "S">
+<!ENTITY type.filter.label "Blloko filtruesin">
+<!ENTITY type.filter.accesskey "B">
+<!ENTITY type.whitelist.label "Mos përfill">
+<!ENTITY type.whitelist.accesskey "x">
+<!ENTITY custom.pattern.label "Përshtatja:">
+<!ENTITY custom.pattern.accesskey "C">
+<!ENTITY anchor.start.accesskey "g">
+<!ENTITY anchor.start.flexible.accesskey "g">
+<!ENTITY anchor.end.label "në fund të adresës">
+<!ENTITY anchor.end.accesskey "n">
+<!ENTITY options.label "Mundësitë">
+<!ENTITY domainRestriction.accesskey "d">
+<!ENTITY firstParty.label "Vetëm pjesa e parë">
+<!ENTITY firstParty.accesskey "r">
+<!ENTITY thirdParty.label "Vetëm pjesa e tretë">
+<!ENTITY thirdParty.accesskey "T">
+<!ENTITY matchCase.accesskey "M">
+<!ENTITY types.label "Apliko në llojet:">
+<!ENTITY selectAllTypes.label "Selekto të gjitha">
+<!ENTITY unselectAllTypes.label "Mos selekto asnjë">
+<!ENTITY collapse.accesskey "I">
+<!ENTITY collapse.default.yes.label "Përdor të parazgjedhurën (po):">
+<!ENTITY collapse.default.no.label "Përdor të parazgjedhurën (jo):">
+<!ENTITY collapse.yes.label "Po">
+<!ENTITY collapse.no.label "Jo">

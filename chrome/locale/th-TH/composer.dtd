@@ -5,7 +5,7 @@
 <!ENTITY disabled.warning.beforeLink "Adblock Plus ถูกปิดใช้งานอยู่ คุณยังคงสามารถเพิ่มตัวกรองได้แต่จะไม่ถูกใช้งานจนกว่าคุณ">
 <!ENTITY disabled.warning.link "เปิดใช้งาน Adblock Plus">
 <!ENTITY disabled.warning.afterLink ".">
-<!ENTITY groupDisabled.warning.beforeLink "กลุ่มตัวกรอง &quot;&#x25;S&quot; ว่าตัวกรองที่เพิ่มกำลังถูกปิดการใช้งาน คุณยังคงสามารถเพิ่มตัวกรองได้แต่จะไม่ใช้งานจนกว่า">
+<!ENTITY groupDisabled.warning.beforeLink "กลุ่มตัวกรอง &quot;&#37;S&quot; ว่าตัวกรองที่เพิ่มกำลังถูกปิดการใช้งาน คุณยังคงสามารถเพิ่มตัวกรองได้แต่จะไม่ใช้งานจนกว่า">
 <!ENTITY groupDisabled.warning.link "เปิดใช้งานกลุ่มตัวกรอง">
 <!ENTITY groupDisabled.warning.afterLink ".">
 <!ENTITY filter.label "ตัวกรองใหม่:">

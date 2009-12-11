@@ -5,7 +5,7 @@
 <!ENTITY disabled.warning.beforeLink "Adblock Plus は現在無効です。フィルタを追加して適用するのはあなたしだいです。 ">
 <!ENTITY disabled.warning.link "Adblock Plus を有効にする">
 <!ENTITY disabled.warning.afterLink ".">
-<!ENTITY groupDisabled.warning.beforeLink "このフィルタを追加するフィルタグループ &quot;&#x25;S&quot; は現在、無効となっています。フィルタを追加することはできますが適用されません。">
+<!ENTITY groupDisabled.warning.beforeLink "このフィルタを追加するフィルタグループ &quot;&#37;S&quot; は現在、無効となっています。フィルタを追加することはできますが適用されません。">
 <!ENTITY groupDisabled.warning.link "フィルタグループを有効にする">
 <!ENTITY groupDisabled.warning.afterLink ".">
 <!ENTITY filter.label "新規フィルタ：">

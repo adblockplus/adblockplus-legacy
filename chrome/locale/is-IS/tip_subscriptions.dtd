@@ -19,7 +19,7 @@
 <!ENTITY filterset.g.warning "Svo virðist sem þú sért að nota Filterset.G. Þessum síulista hefur ekki verið
 	viðhaldið seinustu árin og er algeng ástæða fyrir vandamálum á
 	vefsíðum. Mælt er með að þú takir út Filterset.G strax.">
-<!ENTITY filterset.g.moreinfo "Starfsupplýsingar">
+<!ENTITY filterset.g.moreinfo "Meiri upplýsingar">
 <!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
 <!ENTITY filterset.g.uninstall "Taka út Filterset.G">
 <!ENTITY homepage.label "Heimasíða">

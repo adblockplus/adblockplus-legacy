@@ -43,7 +43,7 @@
 <!ENTITY options.accesskey "V">
 <!ENTITY enable.label "Virkja Adblock Plus">
 <!ENTITY enable.accesskey "A">
-<!ENTITY showintoolbar.label "Sýna í tækjastiku">
+<!ENTITY showintoolbar.label "Sýna í tækjaslá">
 <!ENTITY showintoolbar.accesskey "t">
 <!ENTITY showinstatusbar.label "Sýna í stöðuslá">
 <!ENTITY showinstatusbar.accesskey "S">
@@ -67,7 +67,7 @@
 <!ENTITY description "Eftirfarandi síur ákvarða hvaða netföng á að loka á og hvaða netföng eigi að leyfa:">
 <!ENTITY filter.column "Síu regla">
 <!ENTITY filter.accesskey "g">
-<!ENTITY slow.column "hægar síur">
+<!ENTITY slow.column "Hægar síur">
 <!ENTITY slow.accesskey "æ">
 <!ENTITY enabled.column "Virkt">
 <!ENTITY enabled.accesskey "V">

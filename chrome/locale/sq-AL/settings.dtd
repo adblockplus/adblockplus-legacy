@@ -1,0 +1,79 @@
+<!ENTITY dialog.title "Parapëlqimet e Adblock Plus">
+<!ENTITY filters.label "Filtruesit">
+<!ENTITY filters.accesskey "F">
+<!ENTITY add.label "Vendos filtrues">
+<!ENTITY add.accesskey "A">
+<!ENTITY addsubscription.accesskey "S">
+<!ENTITY synchsubscriptions.accesskey "D">
+<!ENTITY import.label "Importo filtrues">
+<!ENTITY import.accesskey "M">
+<!ENTITY export.label "Eksporto filtruesit ekzistues">
+<!ENTITY export.accesskey "X">
+<!ENTITY clearall.label "Largo të gjithë filtruesit ekxistues">
+<!ENTITY clearall.accesskey "L">
+<!ENTITY resethitcounts.label "Rishkruaj statistikat">
+<!ENTITY resethitcounts.accesskey "R">
+<!ENTITY edit.label "Redakto">
+<!ENTITY edit.accesskey "E">
+<!ENTITY cut.label "Kopjo-largo">
+<!ENTITY cut.accesskey "T">
+<!ENTITY copy.label "Kopjo">
+<!ENTITY copy.accesskey "C">
+<!ENTITY paste.label "Hedh">
+<!ENTITY paste.accesskey "P">
+<!ENTITY remove.label "Fshijë">
+<!ENTITY remove.accesskey "D">
+<!ENTITY menu.find.label "Kërko">
+<!ENTITY menu.find.accesskey "F">
+<!ENTITY menu.findagain.label "Kërko përsëri">
+<!ENTITY menu.findagain.accesskey "G">
+<!ENTITY view.label "Shih">
+<!ENTITY view.accesskey "V">
+<!ENTITY sort.label "Radhit sipas">
+<!ENTITY sort.accesskey "S">
+<!ENTITY sort.none.label "Pa radhitur">
+<!ENTITY sort.none.accesskey "U">
+<!ENTITY sort.ascending.label "A &gt; Z radhitje">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.descending.label "Z &gt; A radhitje">
+<!ENTITY sort.descending.accesskey "Z">
+<!ENTITY options.label "Mundësitë">
+<!ENTITY options.accesskey "O">
+<!ENTITY enable.label "Aktivizo Adblock Plus">
+<!ENTITY enable.accesskey "N">
+<!ENTITY showintoolbar.accesskey "B">
+<!ENTITY showinstatusbar.accesskey "S">
+<!ENTITY objecttabs.accesskey "T">
+<!ENTITY collapse.accesskey "L">
+<!ENTITY help.label "Ndihmë">
+<!ENTITY help.accesskey "H">
+<!ENTITY gettingStarted.label "Fillo">
+<!ENTITY gettingStarted.accesskey "s">
+<!ENTITY gettingStarted.url "http://adblockplus.org/getting_started">
+<!ENTITY faq.label "Pyetje e zakonshme">
+<!ENTITY faq.accesskey "F">
+<!ENTITY faq.url "http://adblockplus.org/en/faq">
+<!ENTITY filterdoc.label "Duke shkruar filtruesit e Adblock Plus">
+<!ENTITY filterdoc.accesskey "R">
+<!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
+<!ENTITY about.label "Rreth Adblock Plus">
+<!ENTITY about.accesskey "B">
+<!ENTITY filter.column "Rregulla e filtrimit">
+<!ENTITY filter.accesskey "F">
+<!ENTITY slow.column "Filtruesit e ngadalshëm">
+<!ENTITY slow.accesskey "w">
+<!ENTITY enabled.column "Aktivizo">
+<!ENTITY enabled.accesskey "n">
+<!ENTITY hitcount.column "Shtypje">
+<!ENTITY hitcount.accesskey "H">
+<!ENTITY lasthit.column "Shtypja e fundit">
+<!ENTITY lasthit.accesskey "L">
+<!ENTITY context.edit.label "Redakto filtruesin">
+<!ENTITY context.moveup.label "Zhvendos filtruesin sipër">
+<!ENTITY context.movedown.label "Zhvendos filtruesin poshtë">
+<!ENTITY context.movegroupup.label "Zhvendos grupin sipër">
+<!ENTITY context.movegroupdown.label "Zhvendos grupin poshtë">
+<!ENTITY context.enable.label "Aktivizo">
+<!ENTITY context.disable.label "Ç'aktivizoj">
+<!ENTITY apply.label "Ruaji">
+<!ENTITY apply.accesskey "p">
