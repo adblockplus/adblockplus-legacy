@@ -36,14 +36,12 @@
       "
       getBrowser="return window.getBrowser();"
       addTab="
-        /* work around bug 528406 and bug 531071 */
+        /* delay to work around bug 531071 */
         var url = arguments[0];
-        window.BrowserUI.newTab('about:blank');
         Cc['@mozilla.org/timer;1'].createInstance(Ci.nsITimer)
                                   .initWithCallback(function()
         {
-          window.getBrowser().loadURI(url, null, null);
-          window.BrowserUI.closeAutoComplete(false);
+          window.BrowserUI.newTab(url);
         }, 100, Ci.nsITimer.TYPE_ONE_SHOT);"
       getContextMenu="return null"
       getToolbox="return null"
