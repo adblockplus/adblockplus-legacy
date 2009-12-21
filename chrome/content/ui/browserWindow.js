@@ -49,6 +49,7 @@ let eventHandlers = [
   ["abp-toolbarbutton", "click", function(event) { if (event.eventPhase == event.AT_TARGET && event.button == 1) abpTogglePref("enabled"); }],
   ["abp-image-menuitem", "command", function() { abpNode(backgroundData || nodeData); }],
   ["abp-object-menuitem", "command", function() { abpNode(nodeData); }],
+  ["abp-media-menuitem", "command", function() { abpNode(nodeData); }],
   ["abp-frame-menuitem", "command", function() { abpNode(frameData); }],
   ["abp-removeWhitelist-menuitem", "command", function() { removeWhitelist(); }]
 ];
@@ -206,6 +207,7 @@ function abpInit() {
     contextMenu.appendChild(E("abp-removeWhitelist-menuitem"));
     contextMenu.appendChild(E("abp-frame-menuitem"));
     contextMenu.appendChild(E("abp-object-menuitem"));
+    contextMenu.appendChild(E("abp-media-menuitem"));
     contextMenu.appendChild(E("abp-image-menuitem"));
   }
 
@@ -872,6 +874,7 @@ function abpCheckContext() {
 
   E("abp-image-menuitem").hidden = (nodeType != "IMAGE" && backgroundData == null);
   E("abp-object-menuitem").hidden = (nodeType != "OBJECT");
+  E("abp-media-menuitem").hidden = (nodeType != "MEDIA");
   E("abp-frame-menuitem").hidden = (frameData == null);
 
   let location = getCurrentLocation();
