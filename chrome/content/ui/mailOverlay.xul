@@ -59,6 +59,7 @@
   <popup id="messagePaneContext">
     <menuitem id="abp-image-menuitem"/>
     <menuitem id="abp-object-menuitem"/>
+    <menuitem id="abp-media-menuitem"/>
     <menuitem id="abp-frame-menuitem"/>
     <menuitem id="abp-removeWhitelist-menuitem"/>
   </popup>

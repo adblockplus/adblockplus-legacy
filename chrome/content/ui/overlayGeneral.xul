@@ -99,6 +99,7 @@
   <!-- Context menu -->
   <menuitem id="abp-image-menuitem" label="&context.image.label;..." hidden="true"/>
   <menuitem id="abp-object-menuitem" label="&context.object.label;..." hidden="true"/>
+  <menuitem id="abp-media-menuitem" label="&context.media.label;..." hidden="true"/>
   <menuitem id="abp-frame-menuitem" label="&context.frame.label;..." hidden="true"/>
   <menuitem id="abp-removeWhitelist-menuitem" label="&context.removeWhitelist.label;" hidden="true"/>
 
