@@ -3,7 +3,7 @@
 <!ENTITY filters.accesskey "F">
 <!ENTITY add.label "追加">
 <!ENTITY add.accesskey "A">
-<!ENTITY addsubscription.label "同期フィルタの読み込み追加">
+<!ENTITY addsubscription.label "同期フィルタの追加">
 <!ENTITY addsubscription.accesskey "S">
 <!ENTITY synchsubscriptions.label "すべての同期フィルタをアップデート">
 <!ENTITY synchsubscriptions.accesskey "D">
@@ -31,7 +31,7 @@
 <!ENTITY menu.findagain.accesskey "G">
 <!ENTITY view.label "表示">
 <!ENTITY view.accesskey "V">
-<!ENTITY sort.label "並び替え">
+<!ENTITY sort.label "並べ替え">
 <!ENTITY sort.accesskey "S">
 <!ENTITY sort.none.label "ソートしない">
 <!ENTITY sort.none.accesskey "U">
@@ -47,7 +47,7 @@
 <!ENTITY showintoolbar.accesskey "B">
 <!ENTITY showinstatusbar.label "ステータスバー表示">
 <!ENTITY showinstatusbar.accesskey "S">
-<!ENTITY objecttabs.label "オブジェクト（Flashなど）にタブを付ける">
+<!ENTITY objecttabs.label "Flash と Java にタブを付ける">
 <!ENTITY objecttabs.accesskey "T">
 <!ENTITY collapse.label "ブロック要素を隠す">
 <!ENTITY collapse.accesskey "L">
@@ -64,9 +64,7 @@
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Adblock Plus について">
 <!ENTITY about.accesskey "B">
-<!ENTITY description "ドロップダウンリストの中からブロックしたいアドレスを追加してください。
-		汎用的なフィルタを作成する場合はワイルドカードとして * (アスタリスク)が使用できます。
-		上級ユーザは /banner\d+\.gif$/ のような正規表現を使用することができます。">
+<!ENTITY description "以下のフィルタでブロックの可否を設定します。">
 <!ENTITY filter.column "フィルタのルール">
 <!ENTITY filter.accesskey "F">
 <!ENTITY slow.column "低速フィルタ">
@@ -80,7 +78,7 @@
 <!ENTITY context.edit.label "フィルタ編集">
 <!ENTITY context.resethitcount.label "フィルタヒット数をリセット">
 <!ENTITY context.synchsubscription.label "今すぐ同期フィルタをアップデート">
-<!ENTITY context.editsubscription.label "読み込み編集">
+<!ENTITY context.editsubscription.label "同期フィルタの設定">
 <!ENTITY context.moveup.label "上へ">
 <!ENTITY context.movedown.label "下へ">
 <!ENTITY context.movegroupup.label "上のグループへ">

@@ -1,26 +1,25 @@
 <!ENTITY dialog.title "同期フィルタを編集">
 <!ENTITY dialog.newtitle "同期フィルタを追加">
 <!ENTITY new.description "
-	Adblock Plus のフィルタリストを含むファイルか
-	ウェブアドレスを入力してください
+	Adblock Plus のフィルタリストを含むウェブアドレスか
+	ファイルを入力してください。
 ">
 <!ENTITY edit.description "
-	指定した場所からこの読み込みのためのフィルタリストを
-	ダウンロードします
+	指定した場所からこの同期フィルタをダウンロードします。
 ">
 <!ENTITY external.description "
-	他の拡張機能（Filterset.G Updater）を経由してフィルタリストを読み込みます。
-	リストの更新はその拡張機能によって行われます。
+	これは外部同期フィルタです。このフィルタを設定した
+	外部アドオンによって更新されます。
 ">
 <!ENTITY autodownload.description "
-	「自動アップデート」を選ぶとアップデートがないかどうかこの場所を毎日チェックします。
-	この設定を無効にしても読み込みのコンテキストメニューから手動でアップデートできます。
+	「自動更新にする」を選ぶとアップデートがないかどうかこの場所を毎日チェックします。
+	この設定を無効にしても同期フィルタのコンテキストメニューから手動でアップデートできます。
 ">
-<!ENTITY location.label "フィルタリスト場所:">
+<!ENTITY location.label "場所:">
 <!ENTITY location.accesskey "L">
-<!ENTITY title.label "購読タイトル:">
+<!ENTITY title.label "タイトル:">
 <!ENTITY title.accesskey "T">
-<!ENTITY autodownload.label "自動アップデートにする">
+<!ENTITY autodownload.label "自動更新にする">
 <!ENTITY autodownload.accesskey "P">
 <!ENTITY enabled.label "フィルタを有効にする">
 <!ENTITY enabled.accesskey "N">

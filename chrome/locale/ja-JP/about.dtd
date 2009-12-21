@@ -2,10 +2,9 @@
 <!ENTITY caption.title "Adblock Plus">
 <!ENTITY version.title "バージョン">
 <!ENTITY description "
-	Adblock Plus はウェブ上で非表示にするものを決めることができます。
-	見たくないすべての広告とバナーをダウンロードする必要が無くなります。
-	-- Adblock Plus にアドレスを追加するだけです！
-">
+	Adblock Plus でウェブ上の見たくないものを非表示にできます。
+	いらない広告やバナーをダウンロードする必要はもうありません。
+	-- Adblock Plus にアドレスを追加するだけです！">
 <!ENTITY homepage.label "Adblock Plus ホームページ:">
 <!ENTITY homepage.url "http://adblockplus.org/">
 <!ENTITY author.label "製作者:">
