@@ -1,4 +1,4 @@
-<!ENTITY detached.title "Adblock Plus このページのブロック要素">
+<!ENTITY detached.title "Adblock Plus：ブロック対象">
 <!ENTITY detach.label "ウィンドウ表示にする">
 <!ENTITY reattach.label "ページ内表示にする">
 <!ENTITY search.label "検索：">
@@ -9,7 +9,7 @@
 <!ENTITY state.label "状態">
 <!ENTITY size.label "サイズ">
 <!ENTITY docDomain.label "ドキュメントソース">
-<!ENTITY noitems.label "ブロック可能な要素はありません">
+<!ENTITY noitems.label "ブロック可能なアイテムはありません">
 <!ENTITY whitelisted.label "ホワイトリストに登録されたページです">
 <!ENTITY tooltip.address.label "アドレス：">
 <!ENTITY tooltip.type.label "種別：">
@@ -19,7 +19,7 @@
 <!ENTITY tooltip.docDomain.label "ドキュメントソース：">
 <!ENTITY tooltip.filter.label "フィルタ：">
 <!ENTITY tooltip.filterSource.label "フィルタのソース：">
-<!ENTITY context.block.label "この要素をブロック">
+<!ENTITY context.block.label "このアイテムをブロック">
 <!ENTITY context.editfilter.label "フィルタを編集">
 <!ENTITY context.whitelist.label "ホワイトリストに追加">
 <!ENTITY context.disablefilter.label "フィルタを無効 --">

@@ -1,24 +1,24 @@
 <!ENTITY status.tooltip "状態：">
-<!ENTITY blocked.tooltip "このページのブロック要素数：">
-<!ENTITY filters.tooltip "機能中のフィルタ（要素数）：">
-<!ENTITY menuitem.label "Adblock Plus">
+<!ENTITY blocked.tooltip "このページのブロック済アイテム数：">
+<!ENTITY filters.tooltip "ヒット数最多のフィルタ：">
+<!ENTITY menuitem.label "Adblock Plus 設定">
 <!ENTITY menuitem.accesskey "B">
 <!ENTITY toolbarbutton.label "Adblock Plus">
-<!ENTITY view.blockableItems.label "Adblock Plus ブロックアイテム">
-<!ENTITY context.image.label "Adblock Plus 画像をブロック">
-<!ENTITY context.object.label "Adblock Plus オブジェクトをブロック">
-<!ENTITY context.frame.label "Adblock Plus フレームをブロック">
-<!ENTITY context.removeWhitelist.label "Adblock Plus このページを有効に戻す">
-<!ENTITY sidebar.title "Adblock Plus このページのブロック要素">
+<!ENTITY view.blockableItems.label "Adblock Plus：ブロック対象">
+<!ENTITY context.image.label "Adblock Plus：画像をブロック">
+<!ENTITY context.object.label "Adblock Plus：オブジェクトをブロック">
+<!ENTITY context.frame.label "Adblock Plus：フレームをブロック">
+<!ENTITY context.removeWhitelist.label "Adblock Plus：このページを有効に戻す">
+<!ENTITY sidebar.title "このページのブロック対象">
 <!ENTITY settings.label "設定">
 <!ENTITY settings.accesskey "F">
-<!ENTITY opensidebar.label "ブロック要素一覧を開く">
+<!ENTITY opensidebar.label "ブロック対象一覧を開く">
 <!-- Note: This access key should usually be the same as closesidebar.accesskey. It is the same menu item with different label depending on whether the sidebar is currently open.-->
 <!ENTITY opensidebar.accesskey "B">
-<!ENTITY closesidebar.label "ブロック要素一覧を閉じる">
+<!ENTITY closesidebar.label "ブロック対象一覧を閉じる">
 <!-- Note: This access key should usually be the same as opensidebar.accesskey. It is the same menu item with different label depending on whether the sidebar is currently open.-->
 <!ENTITY closesidebar.accesskey "B">
-<!ENTITY whitelist.site.label "-- をホワイトリストに追加">
-<!ENTITY whitelist.page.label "現在のページをホワイトリストに追加">
+<!ENTITY whitelist.site.label "-- では無効にする">
+<!ENTITY whitelist.page.label "このページでは無効にする">
 <!ENTITY objecttab.title "ブロック">
-<!ENTITY objecttab.tooltip "Adblock Plus クリックでブロックします">
+<!ENTITY objecttab.tooltip "クリックして Adblock Plus でオブジェクトをブロック">

@@ -2,7 +2,7 @@
 <!ENTITY accept.label "フィルタ追加">
 <!ENTITY advanced.label "詳細表示">
 <!ENTITY basic.label "簡易表示">
-<!ENTITY disabled.warning.beforeLink "Adblock Plus は現在無効です。フィルタを追加して適用するのはあなたしだいです。 ">
+<!ENTITY disabled.warning.beforeLink "Adblock Plus は現在無効です。フィルタを追加することはできますが適用されません。">
 <!ENTITY disabled.warning.link "Adblock Plus を有効にする">
 <!ENTITY disabled.warning.afterLink ".">
 <!ENTITY groupDisabled.warning.beforeLink "このフィルタを追加するフィルタグループ &quot;&#37;S&quot; は現在、無効となっています。フィルタを追加することはできますが適用されません。">
@@ -10,16 +10,16 @@
 <!ENTITY groupDisabled.warning.afterLink ".">
 <!ENTITY filter.label "新規フィルタ：">
 <!ENTITY filter.accesskey "f">
-<!ENTITY preferences.label "既存フィルタを表示...">
+<!ENTITY preferences.label "既存のフィルタを表示...">
 <!ENTITY preferences.accesskey "S">
 <!ENTITY type.filter.label "ブロックフィルタ">
 <!ENTITY type.filter.accesskey "B">
 <!ENTITY type.whitelist.label "例外ルール">
 <!ENTITY type.whitelist.accesskey "x">
 <!ENTITY pattern.label "パターンを探す">
-<!ENTITY pattern.explanation "パターンはアドレスの任意の部分になり、シンボル * はワイルドカードの役割をします。フィルタは単にパターンと一致するアドレスに適用されるでしょう。">
-<!ENTITY regexp.warning "入力したパターンは正規表現として解釈されるでしょう。多くの正規表現がブラウジングを遅くするかもしれません。正規表現を使用するつもりでなければパターンの終わりに * シンボルを加えてください。">
-<!ENTITY shortpattern.warning "入力したパターンは短すぎるので最適ではありません。多くのそのようなパターンがブラウジングを遅くするかもしれません。このフィルタ用にはより長い文字列を選ぶのをお勧めします。">
+<!ENTITY pattern.explanation "アドレスの一部をパターンとして使用します。シンボル * はワイルドカードの役割をします。パターンに一致するアドレスにだけフィルタが適用されます。">
+<!ENTITY regexp.warning "入力されたパターンは正規表現として認識されます。正規表現を多用しすぎるとブラウジングが遅くなる可能性があります。正規表現を使用するつもりでなければパターンの終わりに * シンボルを加えてください。">
+<!ENTITY shortpattern.warning "入力されたパターンは最適化に必要な文字数に達していません。このようなパターンを多用しすぎるとブラウジングが遅くなる可能性があります。より長い文字列が推奨されます。">
 <!ENTITY custom.pattern.label "カスタム：">
 <!ENTITY custom.pattern.accesskey "C">
 <!ENTITY anchors.label "パターン限定対応：">
@@ -34,7 +34,7 @@
 <!ENTITY options.label "オプション">
 <!ENTITY domainRestriction.label "ドメイン制限：">
 <!ENTITY domainRestriction.accesskey "d">
-<!ENTITY domainRestriction.help "シンボル 「 | 」 によって分けられる一つ以上のドメインを指定してください。フィルタは単にそのドメイン領域で適用されることになります。ドメイン名の前のシンボル 「 ~」 はフィルタがそのドメインで適用してはならないことを意味します。">
+<!ENTITY domainRestriction.help "シンボル 「 | 」 によって分けられる一つ以上のドメインを指定してください。フィルタはそのドメインにのみ適用されることになります。ドメイン名の前のシンボル 「 ~」 はフィルタがそのドメインでは適用されないことを意味します。">
 <!ENTITY firstParty.label "ファーストパーティのみ">
 <!ENTITY firstParty.accesskey "r">
 <!ENTITY thirdParty.label "サードパーティのみ">

@@ -1,4 +1,4 @@
-<!ENTITY dialog.title "Adblock Plus へようこそ">
+<!ENTITY dialog.title "Adblock Plus 同期フィルタの追加">
 <!ENTITY description.par1 "
 	Adblock Plus をインストールしていただき、ありがとうございます。
 	この拡張機能はウェブ上で見る広告の 99&#37; を排除することができます。
@@ -7,9 +7,9 @@
 	閲覧する際、必要に応じて自分でフィルタを追加したり無効化したり削除することができます。
 ">
 <!ENTITY description.par2 "
-	以下のお勧めの購読リストから 1 つの購読を選ぶことができます。
-	(これは通常必要ではありませんが後から Adblock Plus 設定でも
-	より多くの購読を追加することができます。):
+	以下のお勧めリストから 1 つの選ぶことができます。
+	(通常必要ありませんが後から Adblock Plus 設定で
+	さらに追加することもできます。):
 ">
 <!ENTITY note "
 	参考: 対象外の地域でこのフィルタリストを使用しても効果の少ない場合があります。
@@ -19,7 +19,7 @@
 	いるのを検出しました。 Adblock と Adblock Plus を並行して機能させるのは問題を引き起こす
 	ことになりますので避けるべきです。 今すぐ Adblock のアンインストールをお勧めします。
 ">
-<!ENTITY adblock.uninstall "Adblock アンストールについて">
+<!ENTITY adblock.uninstall "Adblock アンストール">
 <!ENTITY filterset.g.warning "
 	Filterset.G を使用していると思われます。このフィルタ・リストは過去数年の間かろうじて
 	維持されている状態でウェブサイトに関する問題の共通の原因となっています。今すぐ Filterset.G
@@ -27,11 +27,11 @@
 ">
 <!ENTITY filterset.g.moreinfo "詳細情報">
 <!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
-<!ENTITY filterset.g.uninstall "Filterset.G アンインストールについて">
+<!ENTITY filterset.g.uninstall "Filterset.G アンインストール">
 <!ENTITY homepage.label "ホームページ">
-<!ENTITY subscribe.label "購読">
+<!ENTITY subscribe.label "追加">
 <!ENTITY subscribe.accesskey "R">
-<!ENTITY other.label "別の購読を追加">
+<!ENTITY other.label "上記以外を追加">
 <!ENTITY other.accesskey "f">
 <!ENTITY full-list.url "http://adblockplus.org/en/subscriptions">
-<!ENTITY full-list.label "すべての購読リストを見る">
+<!ENTITY full-list.label "全リストを見る">
