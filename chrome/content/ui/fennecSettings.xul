@@ -26,7 +26,7 @@
    
 <!DOCTYPE vbox [
 <!ENTITY % settingsDTD SYSTEM "chrome://adblockplus/locale/settings.dtd">
-<!ENTITY % subscriptionDTD SYSTEM "chrome://adblockplus/locale/tip_subscriptions.dtd">
+<!ENTITY % subscriptionDTD SYSTEM "chrome://adblockplus/locale/subscriptionSelection.dtd">
 %subscriptionDTD;
 %settingsDTD;
 ]>

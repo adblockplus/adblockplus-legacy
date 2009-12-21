@@ -25,9 +25,9 @@
    - ***** END LICENSE BLOCK ***** -->
 
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
-<?xml-stylesheet href="chrome://adblockplus/skin/tip_subscriptions.css" type="text/css"?>
+<?xml-stylesheet href="chrome://adblockplus/skin/subscriptionSelection.css" type="text/css"?>
 
-<!DOCTYPE dialog SYSTEM "chrome://adblockplus/locale/tip_subscriptions.dtd">
+<!DOCTYPE dialog SYSTEM "chrome://adblockplus/locale/subscriptionSelection.dtd">
 
 <dialog
   xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
@@ -46,7 +46,7 @@
   ondialogextra2="addOther()">
 
 <script type="application/x-javascript;version=1.7" src="utils.js"/>
-<script type="application/x-javascript;version=1.7" src="tip_subscriptions.js"/>
+<script type="application/x-javascript;version=1.7" src="subscriptionSelection.js"/>
 
 <hbox>
   <vbox flex="1">
