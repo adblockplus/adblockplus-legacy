@@ -516,8 +516,8 @@ function showSubscriptions()
   if (hasFilters && abp.versionComparator.compare(prefs.lastVersion, "0.0") > 0)
     return;
 
-  if (!abpHooks.addTab || abpHooks.addTab("chrome://adblockplus/content/ui/tip_subscriptions.xul") === false)
-    window.openDialog("chrome://adblockplus/content/ui/tip_subscriptions.xul", "_blank", "chrome,centerscreen,resizable,dialog=no");
+  if (!abpHooks.addTab || abpHooks.addTab("chrome://adblockplus/content/ui/subscriptionSelection.xul") === false)
+    window.openDialog("chrome://adblockplus/content/ui/subscriptionSelection.xul", "_blank", "chrome,centerscreen,resizable,dialog=no");
 }
 
 function abpFillTooltip(event)
