@@ -520,77 +520,117 @@ function showSubscriptions()
     window.openDialog("chrome://adblockplus/content/ui/tip_subscriptions.xul", "_blank", "chrome,centerscreen,resizable,dialog=no");
 }
 
-function abpFillTooltip(event) {
+function abpFillTooltip(event)
+{
   if (!document.tooltipNode || !document.tooltipNode.hasAttribute("tooltip"))
   {
     event.preventDefault();
     return;
   }
 
-  var type = (document.tooltipNode && document.tooltipNode.id == "abp-toolbarbutton" ? "toolbar" : "statusbar");
-  var action = parseInt(prefs["default" + type + "action"]);
+  let type = (document.tooltipNode && document.tooltipNode.id == "abp-toolbarbutton" ? "toolbar" : "statusbar");
+  let action = parseInt(prefs["default" + type + "action"]);
   if (isNaN(action))
     action = -1;
 
-  var actionDescr = E("abp-tooltip-action");
+  let actionDescr = E("abp-tooltip-action");
   actionDescr.hidden = (action < 0 || action > 3);
   if (!actionDescr.hidden)
     actionDescr.setAttribute("value", abp.getString("action" + action + "_tooltip"));
 
-  var state = event.target.getAttribute("curstate");
-  var statusDescr = E("abp-tooltip-status");
-  statusDescr.setAttribute("value", abp.getString(state + "_tooltip"));
+  let state = event.target.getAttribute("curstate");
+  let statusDescr = E("abp-tooltip-status");
+  let statusStr = abp.getString(state + "_tooltip");
+  if (state == "active")
+  {
+    let [activeSubscriptions, activeFilters] = abp.filterStorage.subscriptions.reduce(function([subscriptions, filters], current)
+    {
+      if (current instanceof abp.SpecialSubscription)
+        return [subscriptions, filters + current.filters.length];
+      else
+        return [subscriptions + 1, filters];
+    }, [0, 0]);
 
-  var activeFilters = [];
+    statusStr = statusStr.replace(/--/, activeSubscriptions).replace(/--/, activeFilters);
+  }
+  statusDescr.setAttribute("value", statusStr);
+
+  let activeFilters = [];
   E("abp-tooltip-blocked-label").hidden = (state != "active");
   E("abp-tooltip-blocked").hidden = (state != "active");
-  if (state == "active") {
-    var data = RequestList.getDataForWindow(abpHooks.getBrowser().contentWindow);
-    var locations = data.getAllLocations();
+  if (state == "active")
+  {
+    let data = RequestList.getDataForWindow(abpHooks.getBrowser().contentWindow);
 
-    var blocked = 0;
-    var filterCount = {__proto__: null};
-    for (i = 0; i < locations.length; i++) {
-      if (locations[i].filter && !(locations[i].filter instanceof abp.WhitelistFilter))
-        blocked++;
-      if (locations[i].filter) {
-        if (locations[i].filter.text in filterCount)
-          filterCount[locations[i].filter.text]++;
+    let itemsCount = 0;
+    let blocked = 0;
+    let hidden = 0;
+    let whitelisted = 0;
+    let filterCount = {__proto__: null};
+    for each (let location in data.getAllLocations())
+    {
+      let filter = location.filter;
+      if (filter && filter instanceof abp.ElemHideFilter)
+        hidden++;
+      else
+        itemsCount++;
+
+      if (filter)
+      {
+        if (filter instanceof abp.BlockingFilter)
+          blocked++;
+        else if (filter instanceof abp.WhitelistFilter)
+          whitelisted++;
+
+        if (filter.text in filterCount)
+          filterCount[filter.text]++;
         else
-          filterCount[locations[i].filter.text] = 1;
+          filterCount[filter.text] = 1;
       }
     }
 
-    var blockedStr = abp.getString("blocked_count_tooltip");
-    blockedStr = blockedStr.replace(/--/, blocked).replace(/--/, locations.length);
+    let blockedStr = abp.getString("blocked_count_tooltip");
+    blockedStr = blockedStr.replace(/--/, blocked).replace(/--/, itemsCount);
+
+    if (whitelisted + hidden)
+    {
+      blockedStr += " " + abp.getString("blocked_count_addendum");
+      blockedStr = blockedStr.replace(/--/, whitelisted).replace(/--/, hidden);
+    }
+
     E("abp-tooltip-blocked").setAttribute("value", blockedStr);
 
-    var filterSort = function(a, b) {
+    let filterSort = function(a, b)
+    {
       return filterCount[b] - filterCount[a];
     };
-    for (var filter in filterCount)
+    for (let filter in filterCount)
       activeFilters.push(filter);
     activeFilters = activeFilters.sort(filterSort);
+
+    if (activeFilters.length > 0)
+    {
+      let filtersContainer = E("abp-tooltip-filters");
+      while (filtersContainer.firstChild)
+        filtersContainer.removeChild(filtersContainer.firstChild);
+  
+      for (let i = 0; i < activeFilters.length && i < 3; i++)
+      {
+        let descr = document.createElement("description");
+        descr.setAttribute("value", activeFilters[i] + " (" + filterCount[activeFilters[i]] + ")");
+        filtersContainer.appendChild(descr);
+      }
+      if (activeFilters.length > 3)
+      {
+        let descr = document.createElement("description");
+        descr.setAttribute("value", "...");
+        filtersContainer.appendChild(descr);
+      }
+    }
   }
 
   E("abp-tooltip-filters-label").hidden = (activeFilters.length == 0);
   E("abp-tooltip-filters").hidden = (activeFilters.length == 0);
-  if (activeFilters.length > 0) {
-    var filtersContainer = E("abp-tooltip-filters");
-    while (filtersContainer.firstChild)
-      filtersContainer.removeChild(filtersContainer.firstChild);
-
-    for (var i = 0; i < activeFilters.length && i < 3; i++) {
-      var descr = document.createElement("description");
-      descr.setAttribute("value", activeFilters[i] + " (" + filterCount[activeFilters[i]] + ")");
-      filtersContainer.appendChild(descr);
-    }
-    if (activeFilters.length > 3) {
-      var descr = document.createElement("description");
-      descr.setAttribute("value", "...");
-      filtersContainer.appendChild(descr);
-    }
-  }
 }
 
 /**
