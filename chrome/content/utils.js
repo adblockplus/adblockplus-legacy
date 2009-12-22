@@ -36,6 +36,37 @@ abp.getString = function(name) {
   return strings.GetStringFromName(name);
 };
 
+/**
+ * Shows an alert message like window.alert() but with a custom title.
+ * 
+ * @param {Window} parentWindow  parent window of the dialog (can be null)
+ * @param {String} message  message to be displayed
+ * @param {String} [title]  dialog title, default title will be used if omitted
+ */
+function alert(parentWindow, message, title)
+{
+  if (!title)
+    title = abp.getString("default_dialog_title");
+  Cc["@mozilla.org/embedcomp/prompt-service;1"].getService(Ci.nsIPromptService).alert(parentWindow, title, message);
+}
+abp.alert = alert;
+
+/**
+ * Asks the user for a confirmation like window.confirm() but with a custom title.
+ * 
+ * @param {Window} parentWindow  parent window of the dialog (can be null)
+ * @param {String} message  message to be displayed
+ * @param {String} [title]  dialog title, default title will be used if omitted
+ * @return {Bool}
+ */
+function confirm(parentWindow, message, title)
+{
+  if (!title)
+    title = abp.getString("default_dialog_title");
+  return Cc["@mozilla.org/embedcomp/prompt-service;1"].getService(Ci.nsIPromptService).confirm(null, title, message);
+}
+abp.confirm = confirm;
+
 // Retrieves the window object for a node or returns null if it isn't possible
 function getWindow(node) {
   if (node && node.nodeType != Node.DOCUMENT_NODE)

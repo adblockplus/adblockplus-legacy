@@ -1,25 +1,10 @@
 <!ENTITY dialog.title               "Add Adblock Plus filter subscription">
 
-<!ENTITY description.par1           "
-  Thank you for installing Adblock Plus. This extension can
-  eliminate 99&#x25; of the advertisements you see on the web. However,
-  effective ad filtering requires you to define a good set of
-  filters. You can do it yourself, or you can simply subscribe
-  to filter lists others maintain for you. It will still be possible
-  to add your own filters or deactivate/remove subscriptions
-  whenever necessary.
-">
-
-<!ENTITY description.par2           "
-  You can choose one subscription from the
-  list of recommended subscriptions below (more subscriptions can be
-  added in Adblock Plus Preferences later though usually this is not
-  necessary):
-">
-
-<!ENTITY note                       "
-  Note: A filter list is typically most effective when applied
-  to web sites from the region this filter list was created for.
+<!ENTITY description.newInstall     "
+  For Adblock Plus to be most effective you should add a filter subscription.
+  These filter subscriptions are provided by other Adblock Plus users free of
+  charge. The most suitable filter subscriptions for your language is already
+  selected.
 ">
 
 <!ENTITY adblock.warning            "
@@ -38,12 +23,20 @@
 <!ENTITY filterset.g.moreinfo.url   "http://adblockplus.org/en/faq_project#filterset.g">
 <!ENTITY filterset.g.uninstall      "Uninstall Filterset.G">
 
-<!ENTITY homepage.label             "Home page">
+<!ENTITY subscriptionSelector.label "Please choose a filter subscription from the list:">
 
-<!ENTITY subscribe.label            "Subscribe">
-<!ENTITY subscribe.accesskey        "R">
+<!ENTITY viewList.label             "View filters">
+<!ENTITY visitHomepage.label        "Visit home page">
+
+<!ENTITY addSubscription.label      "Add subscription">
+
 <!ENTITY other.label                "Add a different subscription">
 <!ENTITY other.accesskey            "f">
+
+<!ENTITY title.label                "Subscription title:">
+<!ENTITY title.accesskey            "T">
+<!ENTITY location.label             "Filter list location:">
+<!ENTITY location.accesskey         "L">
 
 <!ENTITY full-list.url              "http://adblockplus.org/en/subscriptions">
 <!ENTITY full-list.label            "View all subscriptions">

@@ -22,80 +22,174 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-let autoAdd;
+let newInstall;
 let result;
+let closing = false;
 
 let adblockID = "{34274bf4-1d97-a289-e984-17e546307e4f}";
 let filtersetG = "filtersetg@updater";
 
 function init()
 {
-  autoAdd = !("arguments" in window && window.arguments && window.arguments.length);
-  result = (autoAdd ? {disabled: false, external: false, autoDownload: true} : window.arguments[0]);
-  document.getElementById("description-par1").hidden = !autoAdd;
+  newInstall = !("arguments" in window && window.arguments && window.arguments.length);
+  result = (newInstall ? {disabled: false, external: false, autoDownload: true} : window.arguments[0]);
+  E("description-newInstall").hidden = !newInstall;
 
+  // Find filter subscription suggestion based on user's browser locale
+  let locale = "en-US";
+  try
+  {
+    locale = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefBranch).getCharPref("general.useragent.locale");
+  }
+  catch (e)
+  {
+    Cu.reportError(e);
+  }
+
+  let list = E("subscriptions");
+  let items = list.menupopup.childNodes;
+  let selectedItem = null;
+  let selectedPrefix = null;
+  for (let i = 0; i < items.length; i++)
+  {
+    let item = items[i];
+    let prefixes = item.getAttribute("_prefixes");
+    if (!prefixes)
+      continue;
+
+    if (!selectedItem)
+      selectedItem = item;
+    for each (let prefix in prefixes.split(/,/))
+    {
+      if (new RegExp("^" + prefix + "\\b").test(locale) &&
+          (!selectedPrefix || selectedPrefix.length < prefix.length))
+      {
+        selectedItem = item;
+        selectedPrefix = prefix;
+      }
+    }
+  }
+  list.selectedItem = selectedItem;
+  list.focus();
+
+  // Warn if Adblock or Filterset.G Updater are installed
   if (isExtensionActive(adblockID))
-    document.getElementById("adblock-warning").hidden = false;
+    E("adblock-warning").hidden = false;
 
   if (isExtensionActive(filtersetG))
-    document.getElementById("filtersetg-warning").hidden = false;
+    E("filtersetg-warning").hidden = false;
 
   if ("Filterset.G" in filterStorage.knownSubscriptions &&
       !filterStorage.knownSubscriptions["Filterset.G"].disabled)
   {
-    document.getElementById("filtersetg-warning").hidden = false;
+    E("filtersetg-warning").hidden = false;
   }
-
-  document.getElementById("subscriptions").selectedIndex = 0;
 }
 
-function addSubscriptions() {
-  var group = document.getElementById("subscriptions");
-  var selected = group.selectedItem;
-  if (!selected)
-    return;
+function onSelectionChange()
+{
+  let selectedSubscription = E("subscriptions").value;
+  E("subscriptionInfo").setAttribute("invisible", !selectedSubscription);
+  E("differentSubscription").setAttribute("invisible", !!selectedSubscription);
 
-  result.url = selected.getAttribute("_url");
-  result.title = selected.getAttribute("_title");
+  if (selectedSubscription)
+  {
+    let viewLink = E("view-list");
+    viewLink.setAttribute("_url", selectedSubscription);
+    viewLink.setAttribute("tooltiptext", selectedSubscription);
+
+    let homePageLink = E("visit-homepage");
+    let homePage = E("subscriptions").selectedItem.getAttribute("_homepage");
+    homePageLink.hidden = !homePage;
+    if (homePage)
+    {
+      homePageLink.setAttribute("_url", homePage);
+      homePageLink.setAttribute("tooltiptext", homePage);
+    }
+  }
+  else
+    E("title").focus();
+}
+
+function selectCustomSubscription()
+{
+  let list = E("subscriptions")
+  list.selectedItem = list.menupopup.lastChild;
+}
+
+function validateURL(url)
+{
+  url = url.replace(/^\s+/, "").replace(/\s+$/, "");
+
+  // Is this a file path?
+  try {
+    let file = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsILocalFile);
+    file.initWithPath(url);
+    return Cc["@mozilla.org/network/io-service;1"].getService(Ci.nsIIOService).newFileURI(file).spec;
+  } catch (e) {}
+
+  // Is this a valid URL?
+  let uri = abp.makeURL(url);
+  if (uri)
+    return uri.spec;
+
+  return null;
+}
+
+function addSubscription()
+{
+  let list = E("subscriptions");
+  let url;
+  let title;
+  if (list.value)
+  {
+    url = list.value;
+    title = list.label;
+  }
+  else
+  {
+    url = validateURL(E("location").value);
+    if (!url)
+    {
+      abp.alert(window, abp.getString("subscription_invalid_location"));
+      E("location").focus();
+      return false;
+    }
+
+    title = E("title").value.replace(/^\s+/, "").replace(/\s+$/, "");
+    if (!title)
+      title = url;
+  }
+
+  result.url = url;
+  result.title = title;
   result.autoDownload = true;
   result.disabled = false;
 
-  if (autoAdd)
+  if (newInstall)
     abp.addSubscription(result.url, result.title, result.autoDownload, result.disabled);
-}
 
-function addOther() {
-  openDialog("subscription.xul", "_blank", "chrome,centerscreen,modal", null, result);
-  if ("url" in result)
-  {
-    if (autoAdd)
-      abp.addSubscription(result.url, result.title, result.autoDownload, result.disabled);
-    window.close();
-  }
-}
-
-function handleKeyPress(e) {
-  switch (e.keyCode) {
-    case e.DOM_VK_PAGE_UP:
-    case e.DOM_VK_PAGE_DOWN:
-    case e.DOM_VK_END:
-    case e.DOM_VK_HOME:
-    case e.DOM_VK_LEFT:
-    case e.DOM_VK_RIGHT:
-    case e.DOM_VK_UP:
-    case e.DOM_VK_DOWN:
-      return false;
-  }
+  closing = true;
   return true;
 }
 
-function handleCommand(event)
+function checkUnload()
 {
-  let scrollBox = document.getElementById("subscriptionsScrollbox")
-                          .boxObject
-                          .QueryInterface(Ci.nsIScrollBoxObject);
-  scrollBox.ensureElementIsVisible(event.target);
-  scrollBox.ensureElementIsVisible(event.target.nextSibling);
+  if (newInstall && !closing)
+    return abp.getString("subscription_notAdded_warning");
+
+  return undefined;
+}
+
+function onDialogCancel()
+{
+  let message = checkUnload();
+  if (!message)
+    return true;
+
+  message += " " + abp.getString("subscription_notAdded_warning_addendum");
+  closing = abp.confirm(window, message);
+  return closing;
 }
 
 function uninstallExtension(id)
@@ -145,7 +239,7 @@ function isExtensionActive(id)
 function uninstallAdblock()
 {
   uninstallExtension(adblockID);
-  document.getElementById("adblock-warning").hidden = true;
+  E("adblock-warning").hidden = true;
 }
 
 function uninstallFiltersetG()
@@ -160,5 +254,5 @@ function uninstallFiltersetG()
   if ("Filterset.G" in filterStorage.knownSubscriptions)
     filterStorage.removeSubscription(filterStorage.knownSubscriptions["Filterset.G"]);
 
-  document.getElementById("filtersetg-warning").hidden = true;
+  E("filtersetg-warning").hidden = true;
 }
