@@ -63,8 +63,12 @@ function updateSubscriptionList()
   for (let i = 0; i < subscriptions.length; i++)
   {
     let item = subscriptions[i];
-    menu.appendItem(item.getAttribute("title"), item.getAttribute("url"), null);
-    if (currentSubscription && item.getAttribute("url") == currentSubscription.url)
+    let url = item.getAttribute("url");
+    if (!url)
+      continue;
+
+    menu.appendItem(item.getAttribute("title"), url, null);
+    if (currentSubscription && url == currentSubscription.url)
       menu.selectedIndex = menu.itemCount - 1;
   }
 
