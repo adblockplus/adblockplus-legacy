@@ -25,65 +25,26 @@
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
 dialog {
-  max-width: 600px;
+  min-width: 550px;
+  min-height: 300px;
+  background-image: url(abp-icon-big.png);
+  background-repeat: no-repeat;
+  background-position: 95% 5%;
 }
 
-#icon {
-  list-style-image: url(adblockplus.png);
-  margin: 15px;
-}
-
-#subscriptions {
-  margin-top: 10px;
+#description-newInstall,
+#adblock-warning,
+#filtersetg-warning
+{
   margin-bottom: 10px;
 }
 
-#subscriptionsScrollbox {
-  overflow: auto;
+*[invisible="true"]
+{
+  visibility: hidden;
 }
 
 #adblock-warning,
 #filtersetg-warning {
   color: #F00000;
 }
-
-#adblock-uninstall,
-#filtersetg-uninstall {
-  margin-left: 20px;
-}
-
-template+.container, .containerAdded {
-  border-top: 1px solid black;
-}
-
-.container, .containerAdded {
-  padding-top: 5px;
-  padding-bottom: 5px;
-  margin: 0px;
-}
-
-.container {
-  border-bottom: 1px solid black;
-}
-
-.fulllist, .location, .homepage, .moreinfo {
-  color: #0000E0;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-radiogroup {
-  -moz-box-align: stretch;
-}
-
-radio .radio-label-box {
-  display: none;
-}
-
-radio + vbox {
-  border: 1px solid transparent;
-}
-radio[focused="true"] + vbox {
-  border: 1px dotted ThreeDDarkShadow;
-}
-
