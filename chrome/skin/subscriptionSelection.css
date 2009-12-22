@@ -27,7 +27,6 @@
 dialog
 {
   min-width: 550px;
-  min-height: 300px;
 }
 
 dialog[newInstall]
