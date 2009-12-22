@@ -34,6 +34,8 @@ function init()
   newInstall = !("arguments" in window && window.arguments && window.arguments.length);
   result = (newInstall ? {disabled: false, external: false, autoDownload: true} : window.arguments[0]);
   E("description-newInstall").hidden = !newInstall;
+  if (newInstall)
+    document.documentElement.setAttribute("newInstall", "true");
 
   // Find filter subscription suggestion based on user's browser locale
   let locale = "en-US";

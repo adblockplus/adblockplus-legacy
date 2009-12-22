@@ -24,9 +24,14 @@
 
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
-dialog {
+dialog
+{
   min-width: 550px;
   min-height: 300px;
+}
+
+dialog[newInstall]
+{
   background-image: url(abp-icon-big.png);
   background-repeat: no-repeat;
   background-position: 95% 5%;
@@ -45,6 +50,7 @@ dialog {
 }
 
 #adblock-warning,
-#filtersetg-warning {
+#filtersetg-warning
+{
   color: #F00000;
 }
