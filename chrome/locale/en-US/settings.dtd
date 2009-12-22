@@ -101,3 +101,5 @@
 
 <!ENTITY apply.label                "Apply">
 <!ENTITY apply.accesskey            "P">
+
+<!ENTITY fennec.subscription.label  "Filter subscription">
