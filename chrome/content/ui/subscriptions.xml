@@ -15,7 +15,7 @@
                 homepage="http://code.google.com/p/adblock-chinalist/"/>
   <subscription title="Filter von Dr.Evil (Deutschland)"
                 url="http://maltekraus.de/Firefox/adblock.txt"
-                homepage="http://www.camp-firefox.de/forum/viewtopic.php?t=58194"/>
+                homepage="http://www.camp-firefox.de/forum/viewtopic.php?t=55998"/>
   <subscription title="Morpeh Rus List (Россия) + EasyList"
                 url="https://easylist-downloads.adblockplus.org/morpeh+easylist.txt"
                 homepage="http://adblockplus.mihalkin.ru/"/>
@@ -25,4 +25,7 @@
   <subscription title="ROList (România) + EasyList"
                 url="https://easylist-downloads.adblockplus.org/rolist+easylist.txt"
                 homepage="http://www.picpoc.ro/"/>
+  <subscription title="Việt Nam List (Việt Nam) + EasyList"
+                url="https://easylist-downloads.adblockplus.org/abpvn+easylist.txt"
+                homepage="http://code.google.com/p/adblockplus-vietnam/"/>
 </subscriptions>
