@@ -33,10 +33,12 @@
 <!ENTITY other.label                "Add a different subscription">
 <!ENTITY other.accesskey            "f">
 
+<!ENTITY list.download.failed       "Failed retrieving list of subscriptions.">
+<!ENTITY list.download.retry        "Try again">
+<!ENTITY list.download.website      "View website">
+<!ENTITY list.website.url           "http://adblockplus.org/en/subscriptions">
+
 <!ENTITY title.label                "Subscription title:">
 <!ENTITY title.accesskey            "T">
 <!ENTITY location.label             "Filter list location:">
 <!ENTITY location.accesskey         "L">
-
-<!ENTITY full-list.url              "http://adblockplus.org/en/subscriptions">
-<!ENTITY full-list.label            "View all subscriptions">

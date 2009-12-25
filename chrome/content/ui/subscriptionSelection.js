@@ -24,7 +24,9 @@
 
 let newInstall;
 let result;
+let initialized = false;
 let closing = false;
+let subscriptionListLoading = false;
 
 let adblockID = "{34274bf4-1d97-a289-e984-17e546307e4f}";
 let filtersetG = "filtersetg@updater";
@@ -47,6 +49,8 @@ function init()
   {
     Cu.reportError(e);
   }
+
+  initialized = true;
 
   let list = E("subscriptions");
   let items = list.menupopup.childNodes;
@@ -90,18 +94,54 @@ function init()
 
 function onSelectionChange()
 {
-  let selectedSubscription = E("subscriptions").value;
-  E("subscriptionInfo").setAttribute("invisible", !selectedSubscription);
-  E("differentSubscription").setAttribute("invisible", !!selectedSubscription);
+  if (!initialized)
+    return;
 
+  let selectedSubscription = E("subscriptions").value;
+
+  let container = E("all-subscriptions-container");
+  let inputFields = E("differentSubscription");
+  if (container.hidden && !selectedSubscription)
+  {
+    container.hidden = false;
+    inputFields.hidden = false;
+    if (!newInstall)
+      window.resizeBy(0, container.boxObject.height + inputFields.boxObject.height);
+  }
+  else if (!container.hidden && selectedSubscription)
+  {
+    if (!newInstall)
+      window.resizeBy(0, -(container.boxObject.height + inputFields.boxObject.height));
+    container.hidden = true;
+    inputFields.hidden = true;
+  }
+
+  if (!selectedSubscription)
+  {
+    loadSubscriptionList();
+    E("title").focus();
+  }
+
+  updateSubscriptionInfo();
+}
+
+function updateSubscriptionInfo()
+{
+  let selectedSubscription = E("subscriptions").selectedItem;
+  if (!selectedSubscription.value)
+    selectedSubscription = E("all-subscriptions").selectedItem;
+
+  E("subscriptionInfo").setAttribute("invisible", !selectedSubscription);
   if (selectedSubscription)
   {
+    let url = selectedSubscription.getAttribute("_url");
+    let homePage = selectedSubscription.getAttribute("_homepage")
+
     let viewLink = E("view-list");
-    viewLink.setAttribute("_url", selectedSubscription);
-    viewLink.setAttribute("tooltiptext", selectedSubscription);
+    viewLink.setAttribute("_url", url);
+    viewLink.setAttribute("tooltiptext", url);
 
     let homePageLink = E("visit-homepage");
-    let homePage = E("subscriptions").selectedItem.getAttribute("_homepage");
     homePageLink.hidden = !homePage;
     if (homePage)
     {
@@ -109,8 +149,127 @@ function onSelectionChange()
       homePageLink.setAttribute("tooltiptext", homePage);
     }
   }
-  else
-    E("title").focus();
+}
+
+function reloadSubscriptionList()
+{
+  subscriptionListLoading = false;
+  loadSubscriptionList();
+}
+
+function loadSubscriptionList()
+{
+  if (subscriptionListLoading)
+    return;
+
+  E("all-subscriptions-container").selectedIndex = 0;
+
+  let request = new XMLHttpRequest();
+  let errorHandler = function()
+  {
+    E("all-subscriptions-container").selectedIndex = 2;
+  };
+  let successHandler = function()
+  {
+    if (!request.responseXML || request.responseXML.documentElement.localName != "subscriptions")
+    {
+      errorHandler();
+      return;
+    }
+
+    try
+    {
+      processSubscriptionList(request.responseXML);
+    }
+    catch (e)
+    {
+      Cu.reportError(e);
+      errorHandler();
+    }
+  };
+
+  request.open("GET", abp.prefs.subscriptions_listurl);
+  request.onerror = errorHandler;
+  request.onload = successHandler;
+  request.send(null);
+
+  subscriptionListLoading = true;
+}
+
+function processSubscriptionList(doc)
+{
+  let list = E("all-subscriptions");
+  while (list.firstChild)
+    list.removeChild(list.firstChild);
+
+  addSubscriptions(list, doc.documentElement, 0);
+  E("all-subscriptions-container").selectedIndex = 1;
+}
+
+function addSubscriptions(list, parent, level)
+{
+  for (let i = 0; i < parent.childNodes.length; i++)
+  {
+    let node = parent.childNodes[i];
+    if (node.nodeType != Node.ELEMENT_NODE || node.localName != "subscription")
+      continue;
+
+    if (node.getAttribute("type") != "ads" || node.getAttribute("deprecated") == "true")
+      continue;
+
+    let variants = node.getElementsByTagName("variants");
+    if (!variants.length || !variants[0].childNodes.length)
+      continue;
+    variants = variants[0].childNodes;
+
+    let isFirst = true;
+    for (let j = 0; j < variants.length; j++)
+    {
+      let variant = variants[j];
+      if (variant.nodeType != Node.ELEMENT_NODE || variant.localName != "variant")
+        continue;
+
+      let item = document.createElement("richlistitem");
+      item.setAttribute("_title", variant.getAttribute("title"));
+      item.setAttribute("_url", variant.getAttribute("url"));
+      item.setAttribute("tooltiptext", variant.getAttribute("url"));
+      item.setAttribute("_homepage", node.getAttribute("homepage"));
+  
+      let title = document.createElement("description");
+      if (isFirst)
+      {
+        title.setAttribute("class", "title");
+        title.textContent = node.getAttribute("title");
+        isFirst = false;
+      }
+      title.setAttribute("flex", "1");
+      title.style.marginLeft = (20 * level) + "px";
+      item.appendChild(title);
+  
+      let variantTitle = document.createElement("description");
+      variantTitle.setAttribute("class", "variant");
+      variantTitle.textContent = variant.getAttribute("title");
+      variantTitle.setAttribute("crop", "end");
+      item.appendChild(variantTitle);
+
+      list.appendChild(item);
+    }
+
+    let supplements = node.getElementsByTagName("supplements");
+    if (supplements.length)
+      addSubscriptions(list, supplements[0], level + 1);
+  }
+}
+
+function onAllSelectionChange()
+{
+  let selectedItem = E("all-subscriptions").selectedItem;
+  if (!selectedItem)
+    return;
+
+  E("title").value = selectedItem.getAttribute("_title");
+  E("location").value = selectedItem.getAttribute("_url");
+  updateSubscriptionInfo();
 }
 
 function selectCustomSubscription()

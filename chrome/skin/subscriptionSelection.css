@@ -53,3 +53,24 @@ dialog[newInstall]
 {
   color: #F00000;
 }
+
+#all-subscriptions-loading
+{
+  margin: 50px;
+}
+
+#all-subscriptions
+{
+  height: 200px;
+}
+#all-subscriptions  > richlistitem > .variant
+{
+  width: 200px;
+}
+#all-subscriptions > richlistitem:not(:first-child) > .title,
+#all-subscriptions > richlistitem:not(:first-child) > .title + .variant
+{
+  border-top: 1px dashed black;
+  margin-top: 0px;
+  padding-top: 4px;
+}

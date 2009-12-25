@@ -65,27 +65,38 @@
   <menulist id="subscriptions" label=" " onselect="onSelectionChange()">
     <menupopup datasources="subscriptions.xml" ref="*" querytype="xml">
       <template>
-        <menuitem uri="?" label="?title" value="?url" _homepage="?homepage" _prefixes="?prefixes"/>
+        <menuitem uri="?" label="?title" value="?url" _url="?url" _homepage="?homepage" _prefixes="?prefixes"/>
       </template>
     </menupopup>
   </menulist>
-  <hbox id="subscriptionInfo" invisible="true">
-    <label id="view-list" class="text-link" value="&viewList.label;" onclick="abp.loadInBrowser(this.getAttribute('_url'))"/>
-    <spacer flex="1"/>
-    <label id="visit-homepage" class="text-link" value="&visitHomepage.label;" onclick="abp.loadInBrowser(this.getAttribute('_url'))"/>
-  </hbox>
 </vbox>
 
-<groupbox id="differentSubscription" invisible="true">
+<deck id="all-subscriptions-container" selectedIndex="0" hidden="true">
+  <vbox pack="center">
+    <progressmeter id="all-subscriptions-loading" mode="undetermined"/>
+  </vbox>
+  <richlistbox id="all-subscriptions" onselect="onAllSelectionChange()"/>
+  <vbox pack="center" align="center">
+    <description value="&list.download.failed;"/>
+    <hbox>
+      <button label="&list.download.retry;" oncommand="reloadSubscriptionList()"/>
+      <button label="&list.download.website;" _url="&list.website.url;" oncommand="abp.loadInBrowser(this.getAttribute('_url'))"/>
+    </hbox>
+  </vbox>
+</deck>
+
+<hbox id="subscriptionInfo" invisible="true">
+  <label id="view-list" class="text-link" value="&viewList.label;" onclick="abp.loadInBrowser(this.getAttribute('_url'))"/>
+  <spacer flex="1"/>
+  <label id="visit-homepage" class="text-link" value="&visitHomepage.label;" onclick="abp.loadInBrowser(this.getAttribute('_url'))"/>
+</hbox>
+
+<groupbox id="differentSubscription" hidden="true">
   <label value="&title.label;" accesskey="&title.accesskey;" control="title"/>
   <textbox id="title"/>
 
   <label value="&location.label;" accesskey="&location.accesskey;" control="location"/>
   <textbox id="location"/>
-
-  <hbox pack="start">
-    <label id="fulllist" class="text-link" _url="&full-list.url;" tooltiptext="&full-list.url;" value="&full-list.label;" onclick="abp.loadInBrowser(this.getAttribute('_url'))"/>
-  </hbox>
 </groupbox>
 
 </dialog>
