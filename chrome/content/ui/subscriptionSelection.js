@@ -110,18 +110,30 @@ function onSelectionChange()
 
   let selectedSubscription = E("subscriptions").value;
 
+  // Show/hide extra UI widgets for custom subscriptions, resize window appropriately
   let container = E("all-subscriptions-container");
   let inputFields = E("differentSubscription");
   if (container.hidden && !selectedSubscription)
   {
     container.hidden = false;
     inputFields.hidden = false;
-    if (!newInstall)
-      window.resizeBy(0, container.boxObject.height + inputFields.boxObject.height);
+
+    let scrollBox = E("content-scroll").boxObject;
+    if (!newInstall && window.windowState == Ci.nsIDOMChromeWindow.STATE_NORMAL && scrollBox instanceof Ci.nsIScrollBoxObject)
+    {
+      // Force reflow
+      container.boxObject.height;
+      inputFields.boxObject.height;
+  
+      let scrollHeight = {};
+      scrollBox.getScrolledSize({}, scrollHeight);
+      if (scrollHeight.value > scrollBox.height)
+        window.resizeBy(0, scrollHeight.value - scrollBox.height);
+    }
   }
   else if (!container.hidden && selectedSubscription)
   {
-    if (!newInstall)
+    if (!newInstall && window.windowState == Ci.nsIDOMChromeWindow.STATE_NORMAL)
       window.resizeBy(0, -(container.boxObject.height + inputFields.boxObject.height));
     container.hidden = true;
     inputFields.hidden = true;
