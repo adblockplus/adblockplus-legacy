@@ -29,7 +29,7 @@
 <?xml-stylesheet href="chrome://adblockplus/skin/subscription.css" type="text/css"?>
 
 <!DOCTYPE dialog [
-<!ENTITY % subst SYSTEM "chrome://adblockplus/locale/subscription.dtd">
+<!ENTITY % subst SYSTEM "chrome://adblockplus/locale/subscriptionSelection.dtd">
 <!ENTITY % prompts SYSTEM "chrome://browser/locale/prompt.dtd">
 %subst;
 %prompts;
@@ -48,7 +48,7 @@
   <command id="abp-subscription-cmd-cancel" oncommand="document.getElementById('abpEditSubscription').close();"/>
 </commandset>
 
-<label value="&dialog.newtitle;"/>
+<label value="&dialog.title;"/>
 
 <grid class="prompt-message">
   <columns>
