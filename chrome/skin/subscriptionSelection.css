@@ -54,6 +54,11 @@ dialog[newInstall]
   color: #F00000;
 }
 
+.localeMatch
+{
+  font-weight: bold;
+}
+
 #all-subscriptions-loading
 {
   margin: 50px;

@@ -27,6 +27,7 @@ let result;
 let initialized = false;
 let closing = false;
 let subscriptionListLoading = false;
+let browserLocale = "en-US";
 
 let adblockID = "{34274bf4-1d97-a289-e984-17e546307e4f}";
 let filtersetG = "filtersetg@updater";
@@ -40,10 +41,9 @@ function init()
     document.documentElement.setAttribute("newInstall", "true");
 
   // Find filter subscription suggestion based on user's browser locale
-  let locale = "en-US";
   try
   {
-    locale = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefBranch).getCharPref("general.useragent.locale");
+    browserLocale = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefBranch).getCharPref("general.useragent.locale");
   }
   catch (e)
   {
@@ -65,14 +65,13 @@ function init()
 
     if (!selectedItem)
       selectedItem = item;
-    for each (let prefix in prefixes.split(/,/))
+
+    let prefix = checkPrefixMatch(prefixes, browserLocale);
+    if (prefix && (!selectedPrefix || selectedPrefix.length < prefix.length))
     {
-      if (new RegExp("^" + prefix + "\\b").test(locale) &&
-          (!selectedPrefix || selectedPrefix.length < prefix.length))
-      {
-        selectedItem = item;
-        selectedPrefix = prefix;
-      }
+      selectedItem = item;
+      selectedPrefix = prefix;
+      item.setAttribute("class", "localeMatch");
     }
   }
   list.selectedItem = selectedItem;
@@ -90,6 +89,18 @@ function init()
   {
     E("filtersetg-warning").hidden = false;
   }
+}
+
+function checkPrefixMatch(prefixes, browserLocale)
+{
+  if (!prefixes)
+    return null;
+
+  for each (let prefix in prefixes.split(/,/))
+    if (new RegExp("^" + prefix + "\\b").test(browserLocale))
+      return prefix;
+
+  return null;
 }
 
 function onSelectionChange()
@@ -234,11 +245,14 @@ function addSubscriptions(list, parent, level)
       item.setAttribute("_url", variant.getAttribute("url"));
       item.setAttribute("tooltiptext", variant.getAttribute("url"));
       item.setAttribute("_homepage", node.getAttribute("homepage"));
-  
+
       let title = document.createElement("description");
       if (isFirst)
       {
-        title.setAttribute("class", "title");
+        if (checkPrefixMatch(node.getAttribute("prefixes"), browserLocale))
+          title.setAttribute("class", "title localeMatch");
+        else
+          title.setAttribute("class", "title");
         title.textContent = node.getAttribute("title");
         isFirst = false;
       }
