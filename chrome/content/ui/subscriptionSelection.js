@@ -139,6 +139,9 @@ function onSelectionChange()
     inputFields.hidden = true;
   }
 
+  // Make sure to hide "Add different subscription button" if we are already in that mode
+  document.documentElement.getButton("extra2").hidden = !selectedSubscription;
+
   if (!selectedSubscription)
   {
     loadSubscriptionList();
