@@ -412,10 +412,12 @@ const abp =
       {
         dlg.focus();
       }
-      catch (e)
+      catch (e) {}
+
+      if (windowMediator.getMostRecentWindow(null) != dlg)
       {
         // There must be some modal dialog open
-        dlg = windowMediator.getMostRecentWindow("abp:subscription") || windowMediator.getMostRecentWindow("abp:about");
+        dlg = windowMediator.getMostRecentWindow("abp:subscriptionSelection") || windowMediator.getMostRecentWindow("abp:about");
         if (dlg)
           dlg.focus();
       }
