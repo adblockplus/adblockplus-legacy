@@ -49,6 +49,7 @@ function init()
   {
     Cu.reportError(e);
   }
+  browserLocale = "pl";
 
   initialized = true;
 
