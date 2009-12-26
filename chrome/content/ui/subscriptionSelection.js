@@ -22,8 +22,11 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-let newInstall;
-let result;
+let newInstall = true;
+let editMode = true;
+let autoAdd = false;
+let source = null;
+let result = null;
 let initialized = false;
 let closing = false;
 let subscriptionListLoading = false;
@@ -34,11 +37,58 @@ let filtersetG = "filtersetg@updater";
 
 function init()
 {
-  newInstall = !("arguments" in window && window.arguments && window.arguments.length);
-  result = (newInstall ? {disabled: false, external: false, autoDownload: true} : window.arguments[0]);
+  if (window.arguments  && window.arguments.length)
+  {
+    // In K-Meleon we might get the arguments wrapped
+    for (var i = 0; i < window.arguments.length; i++)
+      if (window.arguments[i] && "wrappedJSObject" in window.arguments[i])
+        window.arguments[i] = window.arguments[i].wrappedJSObject;
+
+    newInstall = false;
+    [source, result] = window.arguments;
+  }
+
+  if (!result)
+  {
+    result = {};
+    autoAdd = true;
+  }
+  if (!source)
+  {
+    editMode = false;
+    source = {title: "", url: "", disabled: false, external: false, autoDownload: true};
+  }
+
   E("description-newInstall").hidden = !newInstall;
   if (newInstall)
     document.documentElement.setAttribute("newInstall", "true");
+
+  E("subscriptionsBox").hidden = E("all-subscriptions-container").hidden
+    = E("subscriptionInfo").hidden = editMode;
+
+  E("fromWebText").hidden = !editMode || source instanceof abp.Subscription;
+  E("editText").hidden = !(source instanceof abp.Subscription) || source instanceof abp.ExternalSubscription;
+  E("externalText").hidden = !(source instanceof abp.ExternalSubscription);
+  E("differentSubscription").hidden = !editMode;
+  document.documentElement.getButton("extra2").hidden = editMode;
+
+  E("title").value = source.title;
+  E("location").value = source.url;
+
+  if (source instanceof abp.Subscription)
+  {
+    document.title = document.documentElement.getAttribute("edittitle");
+    document.documentElement.getButton("accept").setAttribute("label", document.documentElement.getAttribute("buttonlabelacceptedit"))
+  }
+
+  if (source instanceof abp.ExternalSubscription)
+  {
+    E("location").setAttribute("disabled", "true");
+    E("autoDownload").setAttribute("disabled", "true");
+    E("autoDownload").checked = true;
+  }
+  else
+    E("autoDownload").checked = source.autoDownload;
 
   // Find filter subscription suggestion based on user's browser locale
   try
@@ -52,42 +102,44 @@ function init()
 
   initialized = true;
 
-  let list = E("subscriptions");
-  let items = list.menupopup.childNodes;
-  let selectedItem = null;
-  let selectedPrefix = null;
-  for (let i = 0; i < items.length; i++)
+  if (!editMode)
   {
-    let item = items[i];
-    let prefixes = item.getAttribute("_prefixes");
-    if (!prefixes)
-      continue;
-
-    if (!selectedItem)
-      selectedItem = item;
-
-    let prefix = checkPrefixMatch(prefixes, browserLocale);
-    if (prefix && (!selectedPrefix || selectedPrefix.length < prefix.length))
+    let list = E("subscriptions");
+    let items = list.menupopup.childNodes;
+    let selectedItem = null;
+    let selectedPrefix = null;
+    for (let i = 0; i < items.length; i++)
     {
-      selectedItem = item;
-      selectedPrefix = prefix;
-      item.setAttribute("class", "localeMatch");
+      let item = items[i];
+      let prefixes = item.getAttribute("_prefixes");
+      if (!prefixes)
+        continue;
+  
+      if (!selectedItem)
+        selectedItem = item;
+  
+      let prefix = checkPrefixMatch(prefixes, browserLocale);
+      if (prefix && (!selectedPrefix || selectedPrefix.length < prefix.length))
+      {
+        selectedItem = item;
+        selectedPrefix = prefix;
+        item.setAttribute("class", "localeMatch");
+      }
     }
-  }
-  list.selectedItem = selectedItem;
-  list.focus();
+    list.selectedItem = selectedItem;
 
-  // Warn if Adblock or Filterset.G Updater are installed
-  if (isExtensionActive(adblockID))
-    E("adblock-warning").hidden = false;
-
-  if (isExtensionActive(filtersetG))
-    E("filtersetg-warning").hidden = false;
-
-  if ("Filterset.G" in filterStorage.knownSubscriptions &&
-      !filterStorage.knownSubscriptions["Filterset.G"].disabled)
-  {
-    E("filtersetg-warning").hidden = false;
+    // Warn if Adblock or Filterset.G Updater are installed
+    if (isExtensionActive(adblockID))
+      E("adblock-warning").hidden = false;
+  
+    if (isExtensionActive(filtersetG))
+      E("filtersetg-warning").hidden = false;
+  
+    if ("Filterset.G" in filterStorage.knownSubscriptions &&
+        !filterStorage.knownSubscriptions["Filterset.G"].disabled)
+    {
+      E("filtersetg-warning").hidden = false;
+    }
   }
 }
 
@@ -128,13 +180,21 @@ function onSelectionChange()
       let scrollHeight = {};
       scrollBox.getScrolledSize({}, scrollHeight);
       if (scrollHeight.value > scrollBox.height)
-        window.resizeBy(0, scrollHeight.value - scrollBox.height);
+      {
+        let diff = scrollHeight.value - scrollBox.height;
+        window.resizeBy(0, diff);
+        window.moveBy(0, -diff/2);
+      }
     }
   }
   else if (!container.hidden && selectedSubscription)
   {
-    if (!newInstall && window.windowState == Ci.nsIDOMChromeWindow.STATE_NORMAL)
-      window.resizeBy(0, -(container.boxObject.height + inputFields.boxObject.height));
+    if (!newInstall && window.innerHeight && window.windowState == Ci.nsIDOMChromeWindow.STATE_NORMAL)
+    {
+      let diff = -(container.boxObject.height + inputFields.boxObject.height);
+      window.resizeBy(0, diff);
+      window.moveBy(0, -diff/2);
+    }
     container.hidden = true;
     inputFields.hidden = true;
   }
@@ -331,14 +391,18 @@ function addSubscription()
   let list = E("subscriptions");
   let url;
   let title;
+  let autoDownload;
   if (list.value)
   {
     url = list.value;
     title = list.label;
+    autoDownload = true;
   }
   else
   {
-    url = validateURL(E("location").value);
+    url = E("location").value;
+    if (!(source instanceof abp.ExternalSubscription))
+      url = validateURL(url);
     if (!url)
     {
       abp.alert(window, abp.getString("subscription_invalid_location"));
@@ -349,14 +413,16 @@ function addSubscription()
     title = E("title").value.replace(/^\s+/, "").replace(/\s+$/, "");
     if (!title)
       title = url;
+
+    autoDownload = E("autoDownload").checked;
   }
 
   result.url = url;
   result.title = title;
-  result.autoDownload = true;
-  result.disabled = false;
+  result.autoDownload = autoDownload;
+  result.disabled = source.disabled;
 
-  if (newInstall)
+  if (autoAdd)
     abp.addSubscription(result.url, result.title, result.autoDownload, result.disabled);
 
   closing = true;

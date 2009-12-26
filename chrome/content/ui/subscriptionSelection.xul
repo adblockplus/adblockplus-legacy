@@ -33,9 +33,11 @@
   xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
   buttons="accept,cancel,extra2"
   buttonlabelaccept="&addSubscription.label;"
+  buttonlabelacceptedit="&saveSubscription.label;"
   buttonlabelextra2="&other.label;"
   buttonaccesskeyextra2="&other.accesskey;"
   title="&dialog.title;"
+  edittitle="&dialog.title.edit;"
   id="abpSubscriptionSelection"
   windowtype="abp:subscriptionSelection"
   onload="init()"
@@ -92,12 +94,18 @@
     <label id="visit-homepage" class="text-link" value="&visitHomepage.label;" onclick="abp.loadInBrowser(this.getAttribute('_url'))"/>
   </hbox>
   
+  <description id="fromWebText" hidden="true">&fromWeb.description;</description>
+  <description id="editText" hidden="true">&edit.description;</description>
+  <description id="externalText" hidden="true">&external.description;</description>
+
   <groupbox id="differentSubscription" hidden="true">
     <label value="&title.label;" accesskey="&title.accesskey;" control="title"/>
     <textbox id="title"/>
   
     <label value="&location.label;" accesskey="&location.accesskey;" control="location"/>
     <textbox id="location"/>
+
+    <checkbox id="autoDownload" label="&autodownload.label;" accesskey="&autodownload.accesskey;"/>
   </groupbox>
 </scrollbox>
 

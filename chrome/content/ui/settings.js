@@ -883,10 +883,7 @@ function editFilter(type) /**Boolean*/
 function editSubscription(/**Subscription*/ subscription)
 {
   let result = {};
-  if (subscription)
-    openDialog("subscription.xul", "_blank", "chrome,centerscreen,modal", subscription, result);
-  else
-    openDialog("subscriptionSelection.xul", "_blank", "chrome,centerscreen,modal,resizable,dialog=no", result);
+  openDialog("subscriptionSelection.xul", "_blank", "chrome,centerscreen,modal,resizable,dialog=no", subscription, result);
 
   if (!("url" in result))
     return;
