@@ -517,7 +517,7 @@ function showSubscriptions()
     return;
 
   if (!abpHooks.addTab || abpHooks.addTab("chrome://adblockplus/content/ui/subscriptionSelection.xul") === false)
-    window.openDialog("chrome://adblockplus/content/ui/subscriptionSelection.xul", "_blank", "chrome,centerscreen");
+    window.openDialog("chrome://adblockplus/content/ui/subscriptionSelection.xul", "_blank", "chrome,centerscreen,resizable,dialog=no");
 }
 
 function abpFillTooltip(event)
