@@ -27,7 +27,7 @@
                 url="https://easylist-downloads.adblockplus.org/liste_fr+easylist.txt"
                 homepage="http://forums.lanik.us/viewforum.php?f=91"
                 prefixes="fr"/>
-  <subscription title="Morpeh Rus List+EasyList (русский)"
+  <subscription title="Morpeh Rus List+EasyList (русский, українська)"
                 url="https://easylist-downloads.adblockplus.org/morpeh+easylist.txt"
                 homepage="http://adblockplus.mihalkin.ru/"
                 prefixes="ru,uk"/>
