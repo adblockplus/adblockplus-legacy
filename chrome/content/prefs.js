@@ -296,9 +296,9 @@ var prefs = {
   {
     if (topic == "private-browsing")
     {
-      if (prefName == "enter")
+      if (data == "enter")
         this.privateBrowsing = true;
-      else if (prefName == "exit")
+      else if (data == "exit")
         this.privateBrowsing = false;
     }
     else if (topic == "em-action-requested")
