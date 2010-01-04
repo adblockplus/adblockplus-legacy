@@ -119,11 +119,14 @@ function init()
         selectedItem = item;
   
       let prefix = checkPrefixMatch(prefixes, browserLocale);
-      if (prefix && (!selectedPrefix || selectedPrefix.length < prefix.length))
+      if (prefix)
       {
-        selectedItem = item;
-        selectedPrefix = prefix;
         item.setAttribute("class", "localeMatch");
+        if (!selectedPrefix || selectedPrefix.length < prefix.length)
+        {
+          selectedItem = item;
+          selectedPrefix = prefix;
+        }
       }
     }
     list.selectedItem = selectedItem;
