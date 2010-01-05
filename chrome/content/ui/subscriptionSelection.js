@@ -30,7 +30,7 @@ let result = null;
 let initialized = false;
 let closing = false;
 let subscriptionListLoading = false;
-let browserLocale = "en-US";
+let appLocale = "en-US";
 
 let adblockID = "{34274bf4-1d97-a289-e984-17e546307e4f}";
 let filtersetG = "filtersetg@updater";
@@ -93,7 +93,7 @@ function init()
   // Find filter subscription suggestion based on user's browser locale
   try
   {
-    browserLocale = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefBranch).getCharPref("general.useragent.locale");
+    appLocale = Cc["@mozilla.org/chrome/chrome-registry;1"].getService(Ci.nsIXULChromeRegistry).getSelectedLocale("adblockplus");
   }
   catch (e)
   {
@@ -118,7 +118,7 @@ function init()
       if (!selectedItem)
         selectedItem = item;
   
-      let prefix = checkPrefixMatch(prefixes, browserLocale);
+      let prefix = checkPrefixMatch(prefixes, appLocale);
       if (prefix)
       {
         item.setAttribute("class", "localeMatch");
@@ -146,13 +146,13 @@ function init()
   }
 }
 
-function checkPrefixMatch(prefixes, browserLocale)
+function checkPrefixMatch(prefixes, appLocale)
 {
   if (!prefixes)
     return null;
 
   for each (let prefix in prefixes.split(/,/))
-    if (new RegExp("^" + prefix + "\\b").test(browserLocale))
+    if (new RegExp("^" + prefix + "\\b").test(appLocale))
       return prefix;
 
   return null;
@@ -327,7 +327,7 @@ function addSubscriptions(list, parent, level)
       let title = document.createElement("description");
       if (isFirst)
       {
-        if (checkPrefixMatch(node.getAttribute("prefixes"), browserLocale))
+        if (checkPrefixMatch(node.getAttribute("prefixes"), appLocale))
           title.setAttribute("class", "title localeMatch");
         else
           title.setAttribute("class", "title");
