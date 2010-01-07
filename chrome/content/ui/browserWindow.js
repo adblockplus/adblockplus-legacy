@@ -506,6 +506,9 @@ function abpInstallInToolbar()
  */
 function showSubscriptions()
 {
+  // In Fennec we might not be initialized yet
+  abp.init();
+
   // Don't annoy the user if he has a subscription already
   let hasSubscriptions = filterStorage.subscriptions.some(function(subscription) subscription instanceof abp.DownloadableSubscription);
   if (hasSubscriptions)
