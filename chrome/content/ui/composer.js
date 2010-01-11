@@ -146,7 +146,10 @@ function init() {
   E("collapse").value = "";
   E("collapse").setAttribute("label", collapseDefault.label);
 
-  E("disabledWarning").hidden = prefs.enabled;
+  let warning = E("disabledWarning");
+  generateLinkText(warning);
+  warning.hidden = prefs.enabled;
+
   updatePatternSelection();
 }
 
@@ -249,7 +252,7 @@ function updateFilter()
     if (subscription && subscription.disabled)
     {
       warning.subscription = subscription;
-      warning.firstChild.textContent = warning.getAttribute("textTemplate").replace(/%S/g, subscription.title);
+      generateLinkText(warning, subscription.title);
       warning.hidden = false;
     }
     else
@@ -257,6 +260,30 @@ function updateFilter()
   }
   else
     E("groupDisabledWarning").hidden = true;
+}
+
+function generateLinkText(element, replacement)
+{
+  let template = element.getAttribute("textTemplate");
+  if (typeof replacement != "undefined")
+    template = template.replace(/%S/g, replacement)
+
+  let beforeLink, linkText, afterLink;
+  if (/(.*)\[link\](.*)\[\/link\](.*)/.test(template))
+    [beforeLink, linkText, afterLink] = [RegExp.$1, RegExp.$2, RegExp.$3];
+  else
+    [beforeLink, linkText, afterLink] = ["", template, ""];
+
+  while (element.firstChild && element.firstChild.nodeType != Node.ELEMENT_NODE)
+    element.removeChild(element.firstChild);
+  while (element.lastChild && element.lastChild.nodeType != Node.ELEMENT_NODE)
+    element.removeChild(element.lastChild);
+  if (!element.firstChild)
+    return;
+
+  element.firstChild.textContent = linkText;
+  element.insertBefore(document.createTextNode(beforeLink), element.firstChild);
+  element.appendChild(document.createTextNode(afterLink));
 }
 
 function updatePatternSelection()

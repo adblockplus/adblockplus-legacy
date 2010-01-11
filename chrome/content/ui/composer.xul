@@ -53,12 +53,12 @@
     <tooltip id="domainRestrictionHelp" label="&domainRestriction.help;"/>
   </popupset>
 
-  <description id="disabledWarning" hidden="true">
-    &disabled.warning.beforeLink;<label class="text-link" value="&disabled.warning.link;" onclick="doEnable()"/>&disabled.warning.afterLink;
+  <description id="disabledWarning" hidden="true" textTemplate="&disabled.warning;">
+    <label class="text-link" onclick="doEnable()"/>
   </description>
 
-  <description id="groupDisabledWarning" textTemplate="&groupDisabled.warning.beforeLink;" hidden="true">
-    dummy <label class="text-link" value="&groupDisabled.warning.link;" onclick="enableSubscription(this.parentNode.subscription)"/>&groupDisabled.warning.afterLink;
+  <description id="groupDisabledWarning" textTemplate="&groupDisabled.warning;" hidden="true">
+    <label class="text-link" onclick="enableSubscription(this.parentNode.subscription)"/>
   </description>
 
   <hbox id="filterBox" align="center">
