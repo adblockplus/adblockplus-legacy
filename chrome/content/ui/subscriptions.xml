@@ -27,14 +27,14 @@
                 url="https://easylist-downloads.adblockplus.org/liste_fr+easylist.txt"
                 homepage="http://forums.lanik.us/viewforum.php?f=91"
                 prefixes="fr"/>
-  <subscription title="Morpeh Rus List+EasyList (русский, українська)"
-                url="https://easylist-downloads.adblockplus.org/morpeh+easylist.txt"
-                homepage="http://adblockplus.mihalkin.ru/"
-                prefixes="ru,uk"/>
   <subscription title="ROList+EasyList (românesc)"
                 url="https://easylist-downloads.adblockplus.org/rolist+easylist.txt"
                 homepage="http://www.picpoc.ro/"
                 prefixes="ro"/>
+  <subscription title="RuAdList (русский, українська)"
+                url="http://ruadlist.googlecode.com/svn/trunk/adblock.txt"
+                homepage="http://code.google.com/p/ruadlist/"
+                prefixes="ru,uk"/>
   <subscription title="Việt Nam List+EasyList (Việt)"
                 url="https://easylist-downloads.adblockplus.org/abpvn+easylist.txt"
                 homepage="http://code.google.com/p/adblockplus-vietnam/"
