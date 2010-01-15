@@ -30,7 +30,7 @@ let result = null;
 let initialized = false;
 
 /**
- * Suppresses window resizing while the window is loading.
+ * Suppresses window resizing while the window is loading or if the window is loaded in a browser tab.
  * @type Boolean
  */
 let suppressResize = true;
@@ -152,7 +152,9 @@ function init()
     }
   }
 
-  suppressResize = false;
+  // Only resize if we are a chrome window (not loaded into a browser tab)
+  if (window.QueryInterface(Ci.nsIInterfaceRequestor).getInterface(Ci.nsIWebNavigation).QueryInterface(Ci.nsIDocShellTreeItem).itemType == Ci.nsIDocShellTreeItem.typeChrome)
+    suppressResize = false;
 }
 
 function checkPrefixMatch(prefixes, appLocale)
@@ -183,7 +185,7 @@ function onSelectionChange()
     inputFields.hidden = false;
 
     let scrollBox = E("content-scroll").boxObject;
-    if (!suppressResize && !newInstall && window.windowState == Ci.nsIDOMChromeWindow.STATE_NORMAL && scrollBox instanceof Ci.nsIScrollBoxObject)
+    if (!suppressResize && window.windowState == Ci.nsIDOMChromeWindow.STATE_NORMAL && scrollBox instanceof Ci.nsIScrollBoxObject)
     {
       // Force reflow
       container.boxObject.height;
@@ -201,7 +203,7 @@ function onSelectionChange()
   }
   else if (!container.hidden && selectedSubscription)
   {
-    if (!suppressResize && !newInstall && window.innerHeight && window.windowState == Ci.nsIDOMChromeWindow.STATE_NORMAL)
+    if (!suppressResize && window.innerHeight && window.windowState == Ci.nsIDOMChromeWindow.STATE_NORMAL)
     {
       let diff = -(container.boxObject.height + inputFields.boxObject.height);
       window.resizeBy(0, diff);
