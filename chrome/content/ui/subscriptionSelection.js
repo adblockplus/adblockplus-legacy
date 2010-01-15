@@ -28,6 +28,13 @@ let autoAdd = false;
 let source = null;
 let result = null;
 let initialized = false;
+
+/**
+ * Suppresses window resizing while the window is loading.
+ * @type Boolean
+ */
+let suppressResize = true;
+
 let closing = false;
 let subscriptionListLoading = false;
 let appLocale = "en-US";
@@ -144,6 +151,8 @@ function init()
       E("filtersetg-warning").hidden = false;
     }
   }
+
+  suppressResize = false;
 }
 
 function checkPrefixMatch(prefixes, appLocale)
@@ -174,7 +183,7 @@ function onSelectionChange()
     inputFields.hidden = false;
 
     let scrollBox = E("content-scroll").boxObject;
-    if (!newInstall && window.windowState == Ci.nsIDOMChromeWindow.STATE_NORMAL && scrollBox instanceof Ci.nsIScrollBoxObject)
+    if (!suppressResize && !newInstall && window.windowState == Ci.nsIDOMChromeWindow.STATE_NORMAL && scrollBox instanceof Ci.nsIScrollBoxObject)
     {
       // Force reflow
       container.boxObject.height;
@@ -192,7 +201,7 @@ function onSelectionChange()
   }
   else if (!container.hidden && selectedSubscription)
   {
-    if (!newInstall && window.innerHeight && window.windowState == Ci.nsIDOMChromeWindow.STATE_NORMAL)
+    if (!suppressResize && !newInstall && window.innerHeight && window.windowState == Ci.nsIDOMChromeWindow.STATE_NORMAL)
     {
       let diff = -(container.boxObject.height + inputFields.boxObject.height);
       window.resizeBy(0, diff);
