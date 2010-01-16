@@ -107,6 +107,9 @@
 
     <checkbox id="autoDownload" label="&autodownload.label;" accesskey="&autodownload.accesskey;"/>
   </groupbox>
+
+  <description id="supplementMessage" hidden="true" _textTemplate="&supplementMessage;">&supplementMessage;</description>
+  <checkbox id="addMainSubscription" hidden="true" checked="true" _labelTemplate="&addMain.label;" label="&addMain.label;" accesskey="&addMain.accesskey;"/>
 </scrollbox>
 
 </dialog>

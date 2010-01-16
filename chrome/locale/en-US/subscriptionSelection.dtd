@@ -50,3 +50,7 @@
 <!ENTITY location.accesskey         "L">
 <!ENTITY autodownload.label         "Update filters automatically">
 <!ENTITY autodownload.accesskey     "P">
+
+<!ENTITY supplementMessage          "This filter subscription is meant to be used together with filter subscription &quot;&#37;S&quot; that you didn't add yet.">
+<!ENTITY addMain.label              "Add filter subscription &quot;&#37;S&quot; as well">
+<!ENTITY addMain.accesskey          "s">

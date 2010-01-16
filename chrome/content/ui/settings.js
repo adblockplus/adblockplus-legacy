@@ -882,31 +882,42 @@ function editFilter(type) /**Boolean*/
  */
 function editSubscription(/**Subscription*/ subscription)
 {
+  let hasSubscription = function(url) treeView.subscriptions.indexOf(getSubscriptionByURL(url)) >= 0;
   let result = {};
-  openDialog("subscriptionSelection.xul", "_blank", "chrome,centerscreen,modal,resizable,dialog=no", subscription, result);
+  openDialog("subscriptionSelection.xul", "_blank", "chrome,centerscreen,modal,resizable,dialog=no", subscription, result, hasSubscription);
 
   if (!("url" in result))
     return;
 
-  let newSubscription = getSubscriptionByURL(result.url);
-  if (!newSubscription)
-    return;
+  let subscriptionResults = [[result.url, result.title]];
+  if ("mainSubscriptionURL" in result)
+    subscriptionResults.push([result.mainSubscriptionURL, result.mainSubscriptionTitle]);
 
-  if (subscription && subscription != newSubscription)
-    treeView.removeSubscription(subscription);
+  let changed = false;
+  for each (let [url, title] in subscriptionResults)
+  {
+    let newSubscription = getSubscriptionByURL(url);
+    if (!newSubscription)
+      continue;
+  
+    changed = true;
+    if (subscription && subscription != newSubscription)
+      treeView.removeSubscription(subscription);
+  
+    treeView.addSubscription(newSubscription);
+  
+    newSubscription.title = title;
+    newSubscription.disabled = result.disabled;
+    newSubscription.autoDownload = result.autoDownload;
+  
+    treeView.invalidateSubscriptionInfo(newSubscription);
 
-  treeView.addSubscription(newSubscription);
+    if (newSubscription instanceof abp.DownloadableSubscription && !newSubscription.lastDownload)
+      synchronizer.execute(newSubscription.__proto__);
+  }
 
-  newSubscription.title = result.title;
-  newSubscription.disabled = result.disabled;
-  newSubscription.autoDownload = result.autoDownload;
-
-  treeView.invalidateSubscriptionInfo(newSubscription);
-
-  onChange();
-
-  if (newSubscription instanceof abp.DownloadableSubscription && !newSubscription.lastDownload)
-    synchronizer.execute(newSubscription.__proto__);
+  if (changed)
+    onChange();
 }
 
 /**
