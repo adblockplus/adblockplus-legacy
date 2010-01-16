@@ -52,7 +52,7 @@ function init()
         window.arguments[i] = window.arguments[i].wrappedJSObject;
 
     newInstall = false;
-    [source, result] = window.arguments;
+    [source, result, hasSubscription] = window.arguments;
   }
 
   if (!result)
@@ -169,6 +169,43 @@ function checkPrefixMatch(prefixes, appLocale)
   return null;
 }
 
+function collapseElements()
+{
+  if (!suppressResize && window.windowState == Ci.nsIDOMChromeWindow.STATE_NORMAL)
+  {
+    let diff = 0;
+    for (let i = 0; i < arguments.length; i++)
+      diff -= arguments[i].boxObject.height;
+    window.resizeBy(0, diff);
+    window.moveBy(0, -diff/2);
+  }
+  for (let i = 0; i < arguments.length; i++)
+    arguments[i].hidden = true;
+}
+
+function showElements()
+{
+  for (let i = 0; i < arguments.length; i++)
+    arguments[i].hidden = false;
+
+  let scrollBox = E("content-scroll").boxObject;
+  if (!suppressResize && window.windowState == Ci.nsIDOMChromeWindow.STATE_NORMAL && scrollBox instanceof Ci.nsIScrollBoxObject)
+  {
+    // Force reflow
+    for (let i = 0; i < arguments.length; i++)
+      arguments[i].boxObject.height;
+
+    let scrollHeight = {};
+    scrollBox.getScrolledSize({}, scrollHeight);
+    if (scrollHeight.value > scrollBox.height)
+    {
+      let diff = scrollHeight.value - scrollBox.height;
+      window.resizeBy(0, diff);
+      window.moveBy(0, -diff/2);
+    }
+  }
+}
+
 function onSelectionChange()
 {
   if (!initialized)
@@ -180,38 +217,9 @@ function onSelectionChange()
   let container = E("all-subscriptions-container");
   let inputFields = E("differentSubscription");
   if (container.hidden && !selectedSubscription)
-  {
-    container.hidden = false;
-    inputFields.hidden = false;
-
-    let scrollBox = E("content-scroll").boxObject;
-    if (!suppressResize && window.windowState == Ci.nsIDOMChromeWindow.STATE_NORMAL && scrollBox instanceof Ci.nsIScrollBoxObject)
-    {
-      // Force reflow
-      container.boxObject.height;
-      inputFields.boxObject.height;
-  
-      let scrollHeight = {};
-      scrollBox.getScrolledSize({}, scrollHeight);
-      if (scrollHeight.value > scrollBox.height)
-      {
-        let diff = scrollHeight.value - scrollBox.height;
-        window.resizeBy(0, diff);
-        window.moveBy(0, -diff/2);
-      }
-    }
-  }
+    showElements(container, inputFields);
   else if (!container.hidden && selectedSubscription)
-  {
-    if (!suppressResize && window.innerHeight && window.windowState == Ci.nsIDOMChromeWindow.STATE_NORMAL)
-    {
-      let diff = -(container.boxObject.height + inputFields.boxObject.height);
-      window.resizeBy(0, diff);
-      window.moveBy(0, -diff/2);
-    }
-    container.hidden = true;
-    inputFields.hidden = true;
-  }
+    collapseElements(container, inputFields);
 
   // Make sure to hide "Add different subscription button" if we are already in that mode
   document.documentElement.getButton("extra2").hidden = !selectedSubscription;
@@ -302,11 +310,11 @@ function processSubscriptionList(doc)
   while (list.firstChild)
     list.removeChild(list.firstChild);
 
-  addSubscriptions(list, doc.documentElement, 0);
+  addSubscriptions(list, doc.documentElement, 0, null, null);
   E("all-subscriptions-container").selectedIndex = 1;
 }
 
-function addSubscriptions(list, parent, level)
+function addSubscriptions(list, parent, level, parentTitle, parentURL)
 {
   for (let i = 0; i < parent.childNodes.length; i++)
   {
@@ -323,6 +331,8 @@ function addSubscriptions(list, parent, level)
     variants = variants[0].childNodes;
 
     let isFirst = true;
+    let mainTitle = null;
+    let mainURL = null;
     for (let j = 0; j < variants.length; j++)
     {
       let variant = variants[j];
@@ -332,6 +342,11 @@ function addSubscriptions(list, parent, level)
       let item = document.createElement("richlistitem");
       item.setAttribute("_title", variant.getAttribute("title"));
       item.setAttribute("_url", variant.getAttribute("url"));
+      if (parentTitle && parentURL && variant.getAttribute("complete") != "true")
+      {
+        item.setAttribute("_supplementForTitle", parentTitle);
+        item.setAttribute("_supplementForURL", parentURL);
+      }
       item.setAttribute("tooltiptext", variant.getAttribute("url"));
       item.setAttribute("_homepage", node.getAttribute("homepage"));
 
@@ -343,6 +358,8 @@ function addSubscriptions(list, parent, level)
         else
           title.setAttribute("class", "title");
         title.textContent = node.getAttribute("title");
+        mainTitle = variant.getAttribute("title");
+        mainURL = variant.getAttribute("url");
         isFirst = false;
       }
       title.setAttribute("flex", "1");
@@ -360,7 +377,7 @@ function addSubscriptions(list, parent, level)
 
     let supplements = node.getElementsByTagName("supplements");
     if (supplements.length)
-      addSubscriptions(list, supplements[0], level + 1);
+      addSubscriptions(list, supplements[0], level + 1, mainTitle, mainURL);
   }
 }
 
@@ -372,6 +389,24 @@ function onAllSelectionChange()
 
   E("title").value = selectedItem.getAttribute("_title");
   E("location").value = selectedItem.getAttribute("_url");
+
+  let mainSubscriptionTitle = selectedItem.getAttribute("_supplementForTitle");
+  let mainSubscriptionURL = selectedItem.getAttribute("_supplementForURL");
+  let messageElement = E("supplementMessage");
+  let addMainCheckbox = E("addMainSubscription");
+  if (mainSubscriptionURL && !hasSubscription(mainSubscriptionURL))
+  {
+    if (messageElement.hidden)
+      showElements(messageElement, addMainCheckbox);
+    messageElement.textContent = messageElement.getAttribute("_textTemplate").replace(/%S/g, mainSubscriptionTitle);
+    addMainCheckbox.value = mainSubscriptionURL;
+    addMainCheckbox.setAttribute("_mainSubscriptionTitle", mainSubscriptionTitle)
+    addMainCheckbox.label = addMainCheckbox.getAttribute("_labelTemplate").replace(/%S/g, mainSubscriptionTitle);
+    addMainCheckbox.accessKey = addMainCheckbox.accessKey;
+  }
+  else if (!messageElement.hidden)
+    collapseElements(messageElement, addMainCheckbox);
+
   updateSubscriptionInfo();
 }
 
@@ -436,11 +471,27 @@ function addSubscription()
   result.autoDownload = autoDownload;
   result.disabled = source.disabled;
 
+  let addMainCheckbox = E("addMainSubscription")
+  if (!addMainCheckbox.hidden && addMainCheckbox.checked)
+  {
+    result.mainSubscriptionTitle = addMainCheckbox.getAttribute("_mainSubscriptionTitle");
+    result.mainSubscriptionURL = addMainCheckbox.value;
+  }
+
   if (autoAdd)
+  {
     abp.addSubscription(result.url, result.title, result.autoDownload, result.disabled);
+    if ("mainSubscriptionURL" in result)
+      abp.addSubscription(result.mainSubscriptionURL, result.mainSubscriptionTitle, result.autoDownload, result.disabled);
+  }
 
   closing = true;
   return true;
+}
+
+function hasSubscription(url)
+{
+  return abp.filterStorage.subscriptions.some(function(subscription) subscription instanceof abp.DownloadableSubscription && subscription.url == url);
 }
 
 function checkUnload()

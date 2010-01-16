@@ -49,7 +49,8 @@ dialog[newInstall]
 }
 
 #adblock-warning,
-#filtersetg-warning
+#filtersetg-warning,
+#supplementMessage
 {
   color: #F00000;
 }
@@ -78,4 +79,9 @@ dialog[newInstall]
   border-top: 1px dashed black;
   margin-top: 0px;
   padding-top: 4px;
+}
+
+#supplementMessage
+{
+  margin-top: 5px;
 }
