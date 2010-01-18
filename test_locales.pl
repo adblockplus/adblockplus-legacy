@@ -53,11 +53,16 @@ my @ignoreUntranslated = (
   quotemeta("abp:overlay:toolbarbutton.label"),
   quotemeta("abp:settings:filters.label"),
   quotemeta("abp:sidebar:filter.label"),
+  quotemeta("abp:meta:name"),
   quotemeta("ehh:composer:nodes-tree.class.label"),
   quotemeta("ehh:composer:nodes-tree.id.label"),
   quotemeta("ehh:global:noabp_warning_title"),
 );
 
+my %lengthRestrictions = (
+  'abp:meta:description.short' => 250,
+);
+ 
 LocaleTester::testLocales(
   paths => \%paths,
   locales => \@ARGV,

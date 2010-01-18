@@ -7,7 +7,18 @@
   
   <em:id>{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}</em:id>
   <em:version>{{VERSION}}</em:version>
-  
+  <em:name>Adblock Plus</em:name>
+  <em:description>{{DESCRIPTION}}</em:description>
+  <em:creator>Wladimir Palant</em:creator>
+  <em:homepageURL>http://adblockplus.org/</em:homepageURL>
+
+{{LOCALIZED}}
+
+  <!-- Front End Integration Hooks (used by Extension Manager)-->
+  <em:iconURL>chrome://adblockplus/skin/adblockplus.png</em:iconURL>
+  <em:aboutURL>chrome://adblockplus/content/ui/about.xul</em:aboutURL>
+  <em:optionsURL>chrome://adblockplus/content/ui/settings.xul</em:optionsURL>
+
   <!-- Target Application this extension can install into, 
     with minimum and maximum supported versions. --> 
   
@@ -95,17 +106,5 @@
       <em:maxVersion>1.0.*</em:maxVersion>
     </Description>
   </em:targetApplication>
-  
-  <!-- Front End MetaData -->
-  <em:name>Adblock Plus</em:name>
-  <em:description>Ads were yesterday!</em:description>
-  <em:creator>Wladimir Palant</em:creator>
-  <em:homepageURL>http://adblockplus.org/</em:homepageURL>
-  
-  <!-- Front End Integration Hooks (used by Extension Manager)-->
-  <em:iconURL>chrome://adblockplus/skin/adblockplus.png</em:iconURL>
-  <em:aboutURL>chrome://adblockplus/content/ui/about.xul</em:aboutURL>
-  <em:optionsURL>chrome://adblockplus/content/ui/settings.xul</em:optionsURL>
-
   </Description>  
 </RDF>
