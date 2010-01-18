@@ -10,6 +10,7 @@ closedir(DIR);
 
 foreach my $locale (@locales) {
   open(local *FILE, "chrome/locale/$locale/$file") or ((warn "Could not open file chrome/locale/$locale/$file") && next);
+  binmode(FILE);
   local $/;
   my $data = <FILE>;
   close(FILE);
@@ -22,6 +23,7 @@ foreach my $locale (@locales) {
   }
 
   open(FILE, ">chrome/locale/$locale/$file") or die "Could not write file chrome/locale/$locale/$file";
+  binmode(FILE);
   print FILE $data;
   close(FILE);
 }

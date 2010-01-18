@@ -5,6 +5,7 @@
 
 <!ENTITY disabled.warning         "Adblock Plus is currently disabled. You can still add filters but those will not be applied unless you [link]enable Adblock Plus[/link].">
 
+<!-- Note: the placeholder (%S) will be replaced by the name of the disabled filter group -->
 <!ENTITY groupDisabled.warning    "The filter group &quot;&#37;S&quot; that this filter should be added to is currently disabled. You can still add the filter but it will not be applied unless you [link]enable the filter group[/link].">
 
 <!ENTITY filter.label             "New filter:">
