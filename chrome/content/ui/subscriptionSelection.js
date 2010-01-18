@@ -52,7 +52,9 @@ function init()
         window.arguments[i] = window.arguments[i].wrappedJSObject;
 
     newInstall = false;
-    [source, result, hasSubscription] = window.arguments;
+    [source, result] = window.arguments;
+    if (window.arguments.length > 2 && window.arguments[2])
+      window.hasSubscription = window.arguments[2];
   }
 
   if (!result)
@@ -63,7 +65,12 @@ function init()
   if (!source)
   {
     editMode = false;
-    source = {title: "", url: "", disabled: false, external: false, autoDownload: true};
+    source = {title: "", url: "", disabled: false, external: false, autoDownload: true, mainSubscriptionTitle: null, mainSubscriptionURL: null};
+  }
+  else
+  {
+    if (typeof source.mainSubscriptionURL == "undefined")
+      source.mainSubscriptionURL = source.mainSubscriptionTitle = null;
   }
 
   E("description-newInstall").hidden = !newInstall;
@@ -79,8 +86,8 @@ function init()
   E("differentSubscription").hidden = !editMode;
   document.documentElement.getButton("extra2").hidden = editMode;
 
-  E("title").value = source.title;
-  E("location").value = source.url;
+  setCustomSubscription(source.title, source.url,
+                        source.mainSubscriptionTitle, source.mainSubscriptionURL);
 
   if (source instanceof abp.Subscription)
   {
@@ -387,11 +394,17 @@ function onAllSelectionChange()
   if (!selectedItem)
     return;
 
-  E("title").value = selectedItem.getAttribute("_title");
-  E("location").value = selectedItem.getAttribute("_url");
+  setCustomSubscription(selectedItem.getAttribute("_title"), selectedItem.getAttribute("_url"),
+                        selectedItem.getAttribute("_supplementForTitle"), selectedItem.getAttribute("_supplementForURL"));
 
-  let mainSubscriptionTitle = selectedItem.getAttribute("_supplementForTitle");
-  let mainSubscriptionURL = selectedItem.getAttribute("_supplementForURL");
+  updateSubscriptionInfo();
+}
+
+function setCustomSubscription(title, url, mainSubscriptionTitle, mainSubscriptionURL)
+{
+  E("title").value = title;
+  E("location").value = url;
+
   let messageElement = E("supplementMessage");
   let addMainCheckbox = E("addMainSubscription");
   if (mainSubscriptionURL && !hasSubscription(mainSubscriptionURL))
@@ -406,8 +419,6 @@ function onAllSelectionChange()
   }
   else if (!messageElement.hidden)
     collapseElements(messageElement, addMainCheckbox);
-
-  updateSubscriptionInfo();
 }
 
 function selectCustomSubscription()
