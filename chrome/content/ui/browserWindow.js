@@ -412,7 +412,7 @@ function handleLinkClick(/**Event*/ event)
   while (link && !(link instanceof Ci.nsIDOMNSHTMLAnchorElement))
     link = link.parentNode;
 
-  if (!link || !/^abp:\/*subscribe\/*\?(.*)/i.test(link.href))
+  if (!link || !/^abp:\/*subscribe\/*\?(.*)/i.test(link.href))  /**/
     return;
 
   // This is our link - make sure the browser doesn't handle it
@@ -422,38 +422,72 @@ function handleLinkClick(/**Event*/ event)
   // Decode URL parameters
   let title = null;
   let url = null;
+  let mainSubscriptionTitle = null;
+  let mainSubscriptionURL = null;
   for each (let param in RegExp.$1.split('&'))
   {
     let parts = param.split("=", 2);
-    if (parts.length == 2 && parts[0] == 'title')
-      title = decodeURIComponent(parts[1]);
-    if (parts.length == 2 && parts[0] == 'location')
-      url = decodeURIComponent(parts[1]);
+    if (parts.length != 2 || !/\S/.test(parts[1]))
+      continue;
+    switch (parts[0])
+    {
+      case "title":
+        title = decodeURIComponent(parts[1]);
+        break;
+      case "location":
+        url = decodeURIComponent(parts[1]);
+        break;
+      case "requiresTitle":
+        mainSubscriptionTitle = decodeURIComponent(parts[1]);
+        break;
+      case "requiresLocation":
+        mainSubscriptionURL = decodeURIComponent(parts[1]);
+        break;
+    }
   }
-  if (!url || !/\S/.test(url))
+  if (!url)
     return;
 
   // Default title to the URL
-  if (!title || !/\S/.test(title))
+  if (!title)
     title = url;
+
+  // Main subscription needs both title and URL
+  if (mainSubscriptionTitle && !mainSubscriptionURL)
+    mainSubscriptionTitle = null;
+  if (mainSubscriptionURL && !mainSubscriptionTitle)
+    mainSubscriptionURL = null;
 
   // Trim spaces in title and URL
   title = title.replace(/^\s+/, "").replace(/\s+$/, "");
   url = url.replace(/^\s+/, "").replace(/\s+$/, "");
+  if (mainSubscriptionURL)
+  {
+    mainSubscriptionTitle = mainSubscriptionTitle.replace(/^\s+/, "").replace(/\s+$/, "");
+    mainSubscriptionURL = mainSubscriptionURL.replace(/^\s+/, "").replace(/\s+$/, "");
+  }
 
   // Verify that the URL is valid
   url = abp.makeURL(url);
-  if (!url)
-    return;
-  if (url.scheme != "http" && url.scheme != "https" && url.scheme != "ftp")
+  if (!url || (url.scheme != "http" && url.scheme != "https" && url.scheme != "ftp"))
     return;
   url = url.spec;
+
+  if (mainSubscriptionURL)
+  {
+    mainSubscriptionURL = abp.makeURL(mainSubscriptionURL);
+    if (!mainSubscriptionURL || (mainSubscriptionURL.scheme != "http" && mainSubscriptionURL.scheme != "https" && mainSubscriptionURL.scheme != "ftp"))
+      mainSubscriptionURL = mainSubscriptionTitle = null;
+    else
+      mainSubscriptionURL = mainSubscriptionURL.spec;
+  }
 
   // Open dialog
   let appInfo = Cc["@mozilla.org/xre/app-info;1"].getService(Ci.nsIXULAppInfo);
   if (appInfo.ID != "{a23983c0-fd0e-11dc-95ff-0800200c9a66}")
   {
-    var subscription = {url: url, title: title, disabled: false, external: false, autoDownload: true};
+    var subscription = {url: url, title: title, disabled: false, external: false, autoDownload: true,
+                        mainSubscriptionTitle: mainSubscriptionTitle, mainSubscriptionURL: mainSubscriptionURL};
     window.openDialog("chrome://adblockplus/content/ui/subscriptionSelection.xul", "_blank",
                      "chrome,centerscreen,modal,resizable,dialog=no", subscription, null);
   }
