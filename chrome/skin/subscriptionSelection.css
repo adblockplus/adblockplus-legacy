@@ -85,3 +85,8 @@ dialog[newInstall]
 {
   margin-top: 5px;
 }
+#supplementMessage > label
+{
+  margin-left: 0px;
+  margin-right: 0px;
+}

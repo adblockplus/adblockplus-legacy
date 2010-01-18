@@ -489,7 +489,7 @@ function handleLinkClick(/**Event*/ event)
     var subscription = {url: url, title: title, disabled: false, external: false, autoDownload: true,
                         mainSubscriptionTitle: mainSubscriptionTitle, mainSubscriptionURL: mainSubscriptionURL};
     window.openDialog("chrome://adblockplus/content/ui/subscriptionSelection.xul", "_blank",
-                     "chrome,centerscreen,modal,resizable,dialog=no", subscription, null);
+                     "chrome,centerscreen,resizable,dialog=no", subscription, null);
   }
   else
   {
