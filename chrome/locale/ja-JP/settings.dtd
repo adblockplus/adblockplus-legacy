@@ -5,7 +5,7 @@
 <!ENTITY add.accesskey "A">
 <!ENTITY addsubscription.label "同期フィルタの追加">
 <!ENTITY addsubscription.accesskey "S">
-<!ENTITY synchsubscriptions.label "すべての同期フィルタをアップデート">
+<!ENTITY synchsubscriptions.label "すべての同期フィルタを更新">
 <!ENTITY synchsubscriptions.accesskey "D">
 <!ENTITY import.label "フィルタのインポート">
 <!ENTITY import.accesskey "M">
@@ -77,7 +77,7 @@
 <!ENTITY lasthit.accesskey "L">
 <!ENTITY context.edit.label "フィルタ編集">
 <!ENTITY context.resethitcount.label "フィルタヒット数をリセット">
-<!ENTITY context.synchsubscription.label "今すぐ同期フィルタをアップデート">
+<!ENTITY context.synchsubscription.label "今すぐ同期フィルタを更新">
 <!ENTITY context.editsubscription.label "同期フィルタの設定">
 <!ENTITY context.moveup.label "上へ">
 <!ENTITY context.movedown.label "下へ">

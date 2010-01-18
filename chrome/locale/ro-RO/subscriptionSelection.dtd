@@ -1,0 +1,16 @@
+<!ENTITY dialog.title "Adăugare abonamente pentru filtre Adblock Plus">
+<!ENTITY adblock.warning "Se pare că Adblock sau o versiune mai veche Adblock Plus este instalată, ceea ce poate cauza probleme. Este recomandabil să dezinstalaţi Adblock.">
+<!ENTITY adblock.uninstall "Dezinstaleză Adblock">
+<!ENTITY filterset.g.warning "Se pare că Filterset.G este instalat, ceea ce poate cauza probleme, dearece filtrele sunt învechite şi în multe cazuri greşite. Este recomandabil să dezinstalaţi Filterset.G acum.">
+<!ENTITY filterset.g.moreinfo "Informţii suplimentare">
+<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
+<!ENTITY filterset.g.uninstall "Dezinstalează Filterset.G">
+<!ENTITY other.label "Adaugă alt abonament">
+<!ENTITY other.accesskey "t">
+<!ENTITY dialog.title.edit "Editare abonament filtre">
+<!ENTITY location.label "Locaţia listei de filtre:">
+<!ENTITY location.accesskey "L">
+<!ENTITY title.label "Titlul abonamentului:">
+<!ENTITY title.accesskey "T">
+<!ENTITY autodownload.label "Actualizare automată">
+<!ENTITY autodownload.accesskey "c">

@@ -1,0 +1,10 @@
+<!ENTITY dialog.title "Fáilte go Adblock Plus">
+<!ENTITY other.label "Cuir síntiús eile leis">
+<!ENTITY other.accesskey "T">
+<!ENTITY dialog.title.edit "Déan eagarthóireacht ar síntiús an scagaire">
+<!ENTITY location.label "Láthair réim an scagaire:">
+<!ENTITY location.accesskey "L">
+<!ENTITY title.label "Teideal síntiús:">
+<!ENTITY title.accesskey "T">
+<!ENTITY autodownload.label "Uathnuashonraigh">
+<!ENTITY autodownload.accesskey "P">

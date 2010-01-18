@@ -1,0 +1,16 @@
+<!ENTITY dialog.title "Dobrodošli v Adblock Plus">
+<!ENTITY adblock.warning "Adblock Plus je zaznal, da je nameščen Adblock ali stara različica Adblock Plus. Vzporedno poganjanje Adblocka in Adblocka Plus lahko povzroča težave in ni priporočljivo. Priporočamo, da zdaj odstranite Adblock.">
+<!ENTITY adblock.uninstall "Odstrani Adblock">
+<!ENTITY filterset.g.warning "Zdi se, da uporabljate Filterset.G. Ta seznam filtrov je komaj vzdrževan zadnja leta in je pogost razlog težav s spletnimi mesti. Priporočamo, da zdaj odstranite Filterset.G.">
+<!ENTITY filterset.g.moreinfo "Več informacij">
+<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
+<!ENTITY filterset.g.uninstall "Odstrani Filterset.g">
+<!ENTITY other.label "Dodaj novo naročnino">
+<!ENTITY other.accesskey "D">
+<!ENTITY dialog.title.edit "Uredi naročnino filtra">
+<!ENTITY location.label "Mesto seznama filtriranja:">
+<!ENTITY location.accesskey "M">
+<!ENTITY title.label "Naslov naročnine:">
+<!ENTITY title.accesskey "N">
+<!ENTITY autodownload.label "Samodejno posodobi">
+<!ENTITY autodownload.accesskey "S">

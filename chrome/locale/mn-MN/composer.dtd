@@ -2,9 +2,7 @@
 <!ENTITY accept.label "Шүүлтүүр нэмэх">
 <!ENTITY advanced.label "Дэвшмэл харагдац">
 <!ENTITY basic.label "Үндсэн харагдац">
-<!ENTITY disabled.warning.beforeLink "Adblock Plus нь одоогоор хаалттай байна.  Та шүүлтүүр нэмж чадах боловч хэрэгжихгүй байх болно.">
-<!ENTITY disabled.warning.link "Adblock Plus-ийг нээх">
-<!ENTITY disabled.warning.afterLink ".">
+<!ENTITY disabled.warning "Adblock Plus нь одоогоор хаалттай байна.  Та шүүлтүүр нэмж чадах боловч хэрэгжихгүй байх болно. [link]Adblock Plus-ийг нээх[/link].">
 <!ENTITY filter.label "Шинэ шүүлтүүр:">
 <!ENTITY filter.accesskey "ш">
 <!ENTITY preferences.label "Байгаа шүүлтүүрүүдийг харах...">

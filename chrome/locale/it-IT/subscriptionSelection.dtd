@@ -1,0 +1,24 @@
+<!ENTITY dialog.title "Nuova sottoscrizione di Adblock Plus">
+<!ENTITY adblock.warning "
+	Adblock Plus ha rilevato la presenza di Adblock oppure di una versione 
+	precedente di Adblock Plus fra le estensioni installate. Si raccomanda 
+	di disinstallare qualsiasi precedente versione
+">
+<!ENTITY adblock.uninstall "Disinstalla Adblock">
+<!ENTITY filterset.g.warning "
+	Adblock Plus ha rilevato la presenza di Filterset.G, la cui lista di filtri è
+	stata mantenuta a malapena negli ultimi anni ed attualmente è causa comune di
+	problemi con i siti web. Si raccomanda di disinstallare Filterset.G
+">
+<!ENTITY filterset.g.moreinfo "Ulteriori informazioni">
+<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
+<!ENTITY filterset.g.uninstall "Disinstalla Filterset.G">
+<!ENTITY other.label "Nuova sottoscrizione…">
+<!ENTITY other.accesskey "N">
+<!ENTITY dialog.title.edit "Modifica sottoscrizione">
+<!ENTITY location.label "URL/percorso della lista dei filtri:">
+<!ENTITY location.accesskey "U">
+<!ENTITY title.label "Titolo della sottoscrizione:">
+<!ENTITY title.accesskey "T">
+<!ENTITY autodownload.label "Aggiorna automaticamente">
+<!ENTITY autodownload.accesskey "A">

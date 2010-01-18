@@ -2,12 +2,8 @@
 <!ENTITY accept.label "Lisa filter">
 <!ENTITY advanced.label "Arenenud vaade">
 <!ENTITY basic.label "Põhivaade">
-<!ENTITY disabled.warning.beforeLink "Adblock Plus on hetkel keelatud, kuid siiski on võimalik lisada filtreid, kuid need ei jõustu kuni Sa">
-<!ENTITY disabled.warning.link "Lubad Adblock Plusi">
-<!ENTITY disabled.warning.afterLink ".">
-<!ENTITY groupDisabled.warning.beforeLink "Filtrite grupp &quot;&#37;S&quot; that this filter should be added to is currently disabled. You can still add the filter but it will not be applied unless you">
-<!ENTITY groupDisabled.warning.link "luba filtrid">
-<!ENTITY groupDisabled.warning.afterLink ".">
+<!ENTITY disabled.warning "Adblock Plus on hetkel keelatud, kuid siiski on võimalik lisada filtreid, kuid need ei jõustu kuni Sa [link]Lubad Adblock Plusi[/link].">
+<!ENTITY groupDisabled.warning "Filtrite grupp &quot;&#37;S&quot; that this filter should be added to is currently disabled. You can still add the filter but it will not be applied unless you [link]luba filtrid[/link].">
 <!ENTITY filter.label "Uus filter">
 <!ENTITY filter.accesskey "f">
 <!ENTITY preferences.label "Näita olemasolevaid filtreid...">

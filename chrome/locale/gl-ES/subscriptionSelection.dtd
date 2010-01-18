@@ -1,0 +1,16 @@
+<!ENTITY dialog.title "Engadir subscrición de filtros Adblock Plus">
+<!ENTITY adblock.warning "Adblock Plus detectou que está instalado Adblock ou unha versión antiga de Adblock Plus. Executar Adblock Plus e Adblock en paralelo pode causar problemas e debe evitarse. Recoméndase desinstalar Adblock.">
+<!ENTITY adblock.uninstall "Desinstalar Adblock">
+<!ENTITY filterset.g.warning "Parece que utiliza Filterset.G. Esta lista de filtros apenas se mantivo nos últimos anos e é unha causa de problemas cos sitios da Rede. Recoméndase desinstalar Filterset.G.">
+<!ENTITY filterset.g.moreinfo "Máis información">
+<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
+<!ENTITY filterset.g.uninstall "Desinstalar Filterset.G">
+<!ENTITY other.label "Engadir outra subscrición">
+<!ENTITY other.accesskey "O">
+<!ENTITY dialog.title.edit "Editar filtro de subscrición">
+<!ENTITY location.label "Localización da lista de Filtros:">
+<!ENTITY location.accesskey "L">
+<!ENTITY title.label "Título da subscrición:">
+<!ENTITY title.accesskey "T">
+<!ENTITY autodownload.label "Posta ao día automática">
+<!ENTITY autodownload.accesskey "P">

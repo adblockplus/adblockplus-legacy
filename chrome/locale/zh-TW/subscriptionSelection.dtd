@@ -1,0 +1,16 @@
+<!ENTITY dialog.title "訂閱 Adblock Plus 過濾條件集">
+<!ENTITY adblock.warning "Adblock Plus 發現您已安裝 Adblock 或舊版的 Adblock Plus。同時執行 Adblock 及 Adblock Plus 會造成無法避免的問題。建議您立刻移除 Adblock。">
+<!ENTITY adblock.uninstall "移除 Adblock">
+<!ENTITY filterset.g.warning "您似乎正在使用 Filterset.G。此過濾條件清單最近幾年幾乎沒有更新過，而且常常在瀏覽網站時造成問題。建議您立刻移除 Filterset.G。">
+<!ENTITY filterset.g.moreinfo "更多資訊">
+<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
+<!ENTITY filterset.g.uninstall "移除 Filterset.G">
+<!ENTITY other.label "新增其他訂閱來源">
+<!ENTITY other.accesskey "f">
+<!ENTITY dialog.title.edit "編輯過濾條件集">
+<!ENTITY location.label "過濾條件集位址:">
+<!ENTITY location.accesskey "L">
+<!ENTITY title.label "訂閱項目名稱:">
+<!ENTITY title.accesskey "T">
+<!ENTITY autodownload.label "自動更新">
+<!ENTITY autodownload.accesskey "P">

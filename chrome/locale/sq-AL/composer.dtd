@@ -1,9 +1,5 @@
 <!ENTITY advanced.label "Pamja e avancuar">
 <!ENTITY basic.label "Pamja e zakonshme">
-<!ENTITY disabled.warning.link "aktivizo Adblock Plus">
-<!ENTITY disabled.warning.afterLink ".">
-<!ENTITY groupDisabled.warning.link "aktivizo grupin e filtrimit">
-<!ENTITY groupDisabled.warning.afterLink ".">
 <!ENTITY filter.label "Filtrues i ri:">
 <!ENTITY filter.accesskey "f">
 <!ENTITY preferences.label "Trego filtruesit ekzistues...">

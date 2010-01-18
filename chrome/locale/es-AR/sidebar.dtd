@@ -1,0 +1,32 @@
+<!ENTITY detached.title "Adblock Plus: elementos bloqueables (separados)">
+<!ENTITY detach.label "Separar">
+<!ENTITY reattach.label "Rejuntar">
+<!ENTITY search.label "Buscar:">
+<!ENTITY search.accesskey "B">
+<!ENTITY type.label "Tipo">
+<!ENTITY address.label "Dirección">
+<!ENTITY filter.label "Filtro">
+<!ENTITY state.label "Estado">
+<!ENTITY size.label "Tamaño">
+<!ENTITY docDomain.label "Fuente del documento">
+<!ENTITY noitems.label "Sin elementos bloqueables">
+<!ENTITY whitelisted.label "Página aceptada">
+<!ENTITY tooltip.address.label "Dirección:">
+<!ENTITY tooltip.type.label "Tipo:">
+<!ENTITY tooltip.type.blocked "(bloqueada)">
+<!ENTITY tooltip.type.whitelisted "(aceptada)">
+<!ENTITY tooltip.size.label "Tamaño:">
+<!ENTITY tooltip.docDomain.label "Fuente del documento:">
+<!ENTITY tooltip.filter.label "Filtro en efecto:">
+<!ENTITY tooltip.filterSource.label "Fuente del filtro">
+<!ENTITY context.block.label "Bloquear este elemento">
+<!ENTITY context.editfilter.label "Editar filtro en efecto">
+<!ENTITY context.whitelist.label "Agregar regla de excepción a este elemento">
+<!ENTITY context.disablefilter.label "Deshabilitar filtro --">
+<!ENTITY context.enablefilter.label "Rehabilitar filtro --">
+<!ENTITY context.disablefilteronsite.label "Deshabilitar este filtro en --">
+<!ENTITY context.open.label "Abrir en nueva pestaña">
+<!ENTITY context.flash.label "Bordes de los elementos flash">
+<!ENTITY context.copy.label "Copiar dirección del elemento">
+<!ENTITY context.copyFilter.label "Copiar filtro">
+<!ENTITY context.selectAll.label "Seleccionar todo">

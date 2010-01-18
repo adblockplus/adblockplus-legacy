@@ -1,0 +1,20 @@
+<!ENTITY dialog.title "Wolkom by Adblock Plus">
+<!ENTITY adblock.warning "Adblock Plus hat ûntdekt dat Adblock of in âlde ferzje fan Adblock Plus
+ynstallearre is. Adblock en Adblock Plus lyktidich brûke kin problemen
+feroarsaakje en moat foarkommen wurde. It wurd oanrikkemandearre dat jo Adblock de-ynstallearje.">
+<!ENTITY adblock.uninstall "Adblock de-ynstallearje">
+<!ENTITY filterset.g.warning "It liket derop dat jo Fiterset.G brûke. Dizze filterlist wurdt hast net byhâlden
+yn de lêste jieren en is bekend foar it feroarsaakjen fan problemen
+mei websteeën. It wurd oanret dat jo Filterset.G de-ynstallearje.">
+<!ENTITY filterset.g.moreinfo "Mear ynformaasje">
+<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
+<!ENTITY filterset.g.uninstall "De-ynstallearje">
+<!ENTITY other.label "In oar abonnemint tafoegje">
+<!ENTITY other.accesskey "T">
+<!ENTITY dialog.title.edit "Filter abonnemint wizigje">
+<!ENTITY location.label "Filterlist lokaasje:">
+<!ENTITY location.accesskey "L">
+<!ENTITY title.label "Abonnemintnamme:">
+<!ENTITY title.accesskey "B">
+<!ENTITY autodownload.label "Automatysk bywurkje">
+<!ENTITY autodownload.accesskey "T">

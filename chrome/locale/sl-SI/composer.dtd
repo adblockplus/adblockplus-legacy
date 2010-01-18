@@ -2,12 +2,8 @@
 <!ENTITY accept.label "Dodaj filter">
 <!ENTITY advanced.label "Napredni pogled">
 <!ENTITY basic.label "Osnovni pogled">
-<!ENTITY disabled.warning.beforeLink "Adblock Plus je trenutno onemogočen. Še vedno lahko dodajate filtre, vendar ne bodo veljali, če ne">
-<!ENTITY disabled.warning.link "omogočite Adblock Plus">
-<!ENTITY disabled.warning.afterLink ".">
-<!ENTITY groupDisabled.warning.beforeLink "Skupina filtrov &quot;&#37;S&quot;, kateri naj bo dodan ta filter, je trenutno onemogočena. Še vedno ji lahko dodate filter, vendar ne bo deloval, razen če ne">
-<!ENTITY groupDisabled.warning.link "omogočite skupine filtrov">
-<!ENTITY groupDisabled.warning.afterLink ".">
+<!ENTITY disabled.warning "Adblock Plus je trenutno onemogočen. Še vedno lahko dodajate filtre, vendar ne bodo veljali, če ne [link]omogočite Adblock Plus[/link].">
+<!ENTITY groupDisabled.warning "Skupina filtrov &quot;&#37;S&quot;, kateri naj bo dodan ta filter, je trenutno onemogočena. Še vedno ji lahko dodate filter, vendar ne bo deloval, razen če ne [link]omogočite skupine filtrov[/link].">
 <!ENTITY filter.label "Nov filter:">
 <!ENTITY filter.accesskey "f">
 <!ENTITY preferences.label "Pokaži obstoječe filtre ...">

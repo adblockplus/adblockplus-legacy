@@ -1,0 +1,16 @@
+<!ENTITY dialog.title "Üdvözli az Adblock Plus">
+<!ENTITY adblock.warning "Az Adblock Plus észlelte egy korábbi verzió, vagy az Adblock jelenlétét. Az Adblock és az Adblock Plus párhuzamos jelenléte problémákhoz vezethet. Ajánlott az Adblock eltávolítása.">
+<!ENTITY adblock.uninstall "Adblock eltávolítása">
+<!ENTITY filterset.g.warning "Úgy tűnik, hogy a Filterset.G használatban van. Az utóbbi években alig volt fenntartva, így problémák adódhatnak az oldalakkal kapcsolatban. Ajánlott a Filterset.G eltávolítása.">
+<!ENTITY filterset.g.moreinfo "További információk">
+<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
+<!ENTITY filterset.g.uninstall "Filterset.G eltávolítása">
+<!ENTITY other.label "Külső szűrő hozzáadása">
+<!ENTITY other.accesskey "K">
+<!ENTITY dialog.title.edit "Külső szűrő szerkesztése">
+<!ENTITY location.label "Szűrőlista címe:">
+<!ENTITY location.accesskey "c">
+<!ENTITY title.label "Külső szűrő neve:">
+<!ENTITY title.accesskey "n">
+<!ENTITY autodownload.label "Automatikus frissítés">
+<!ENTITY autodownload.accesskey "A">

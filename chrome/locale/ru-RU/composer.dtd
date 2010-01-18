@@ -3,14 +3,8 @@
 <!ENTITY advanced.label           "Расширенный вид">
 <!ENTITY basic.label              "Стандартный вид">
 
-<!ENTITY disabled.warning.beforeLink  "Adblock Plus сейчас отключен. Вы можете добавить этот фильтр, но чтобы он применился нужно ">
-<!ENTITY disabled.warning.link    "включить Adblock Plus">
-<!ENTITY disabled.warning.afterLink   ".">
-
-<!ENTITY groupDisabled.warning.beforeLink  "Группа фильтров &quot;&#x25;S&quot;, в которую этот фильтр должен быть добавлен, сейчас отключена. Вы можете добавить этот фильтр, но чтобы он применился нужно ">
-<!ENTITY groupDisabled.warning.link        "включить эту группу фильтров">
-<!ENTITY groupDisabled.warning.afterLink   ".">
-
+<!ENTITY disabled.warning "Adblock Plus сейчас отключен. Вы можете добавить этот фильтр, но чтобы он применился нужно [link]включить Adblock Plus[/link].">
+<!ENTITY groupDisabled.warning "Группа фильтров &quot;&#x25;S&quot;, в которую этот фильтр должен быть добавлен, сейчас отключена. Вы можете добавить этот фильтр, но чтобы он применился нужно [link]включить эту группу фильтров[/link].">
 <!ENTITY filter.label             "Новый фильтр:">
 <!ENTITY filter.accesskey         "ф">
 <!ENTITY preferences.label        "Показать существующие фильтры...">

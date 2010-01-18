@@ -2,12 +2,8 @@
 <!ENTITY accept.label "Προσθήκη φίλτρου">
 <!ENTITY advanced.label "Για προχωρημένους">
 <!ENTITY basic.label "Βασική προβολή">
-<!ENTITY disabled.warning.beforeLink "Το Adblock Plus είναι απενεργοποιημένο. Μπορείτε να προσθέσετε φίλτρα αλλά αυτά θα εφαρμοστούν μόλις">
-<!ENTITY disabled.warning.link "ενεργοποιήσετε το Adblock Plus">
-<!ENTITY disabled.warning.afterLink ".">
-<!ENTITY groupDisabled.warning.beforeLink "Η ομάδα φίλτρων &quot;&#37;S&quot; στην οποία το φίλτρο θα πρέπει να προστεθεί είναι απενεργοποιημένη. Μπορείτε να προσθέσετε το φίλτρο, αλλά δεν θα εφαρμοστεί εκτός και αν">
-<!ENTITY groupDisabled.warning.link "ενεργοποιήσετε την ομάδα φίλτρων">
-<!ENTITY groupDisabled.warning.afterLink ".">
+<!ENTITY disabled.warning "Το Adblock Plus είναι απενεργοποιημένο. Μπορείτε να προσθέσετε φίλτρα αλλά αυτά θα εφαρμοστούν μόλις [link]ενεργοποιήσετε το Adblock Plus[/link].">
+<!ENTITY groupDisabled.warning "Η ομάδα φίλτρων &quot;&#37;S&quot; στην οποία το φίλτρο θα πρέπει να προστεθεί είναι απενεργοποιημένη. Μπορείτε να προσθέσετε το φίλτρο, αλλά δεν θα εφαρμοστεί εκτός και αν [link]ενεργοποιήσετε την ομάδα φίλτρων[/link].">
 <!ENTITY filter.label "Νέο φίλτρο:">
 <!ENTITY filter.accesskey "φ">
 <!ENTITY preferences.label "Προβολή υπαρχόντων φίλτρων...">

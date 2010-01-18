@@ -24,7 +24,7 @@
 <!ENTITY context.whitelist.label "Voeg een uitzonderingsregel voor dit onderdeel toe">
 <!ENTITY context.disablefilter.label "Filter uitschakelen --">
 <!ENTITY context.enablefilter.label "Filter inschakelen --">
-<!ENTITY context.disablefilteronsite.label "Filter uitschakelen op __">
+<!ENTITY context.disablefilteronsite.label "Filter uitschakelen op --">
 <!ENTITY context.open.label "Open in een nieuw tabblad">
 <!ENTITY context.flash.label "Laat randen knipperen">
 <!ENTITY context.copy.label "Adres kopiëren">

@@ -1,8 +1,0 @@
-<!ENTITY dialog.title "Editatu iragazki harpidetza">
-<!ENTITY dialog.newtitle "Gehitu iragazki harpidetza">
-<!ENTITY new.description "Mesedez idatzi web-aren helbidea edo Adblock Plus iragazki zerrenda daukan fitxategia.">
-<!ENTITY edit.description "Harpidetza honetarako iragazki-zerrenda behera deskargatuko da emandako kokalekutik.">
-<!ENTITY external.description "Hau urruneko iragazki harpidetza da, bere iragazki zerrenda eguneratua mantenduko da harpideta sortu zuen gehigarriagatik.">
-<!ENTITY title.label "Harpidetza titulua:">
-<!ENTITY autodownload.label "Eguneratu automatikoki">
-<!ENTITY enabled.label "Iragazkiak gaitu">

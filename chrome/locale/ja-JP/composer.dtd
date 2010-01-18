@@ -2,19 +2,15 @@
 <!ENTITY accept.label "フィルタ追加">
 <!ENTITY advanced.label "詳細表示">
 <!ENTITY basic.label "簡易表示">
-<!ENTITY disabled.warning.beforeLink "Adblock Plus は現在無効です。フィルタを追加することはできますが適用されません。">
-<!ENTITY disabled.warning.link "Adblock Plus を有効にする">
-<!ENTITY disabled.warning.afterLink ".">
-<!ENTITY groupDisabled.warning.beforeLink "このフィルタを追加するフィルタグループ &quot;&#37;S&quot; は現在、無効となっています。フィルタを追加することはできますが適用されません。">
-<!ENTITY groupDisabled.warning.link "フィルタグループを有効にする">
-<!ENTITY groupDisabled.warning.afterLink ".">
+<!ENTITY disabled.warning "Adblock Plus は現在無効です。フィルタを追加することはできますが適用されません。[link]Adblock Plus を有効にする[/link].">
+<!ENTITY groupDisabled.warning "このフィルタを追加するフィルタグループ &quot;&#37;S&quot; は現在、無効となっています。フィルタを追加することはできますが適用されません。[link]フィルタグループを有効にする[/link].">
 <!ENTITY filter.label "新規フィルタ：">
 <!ENTITY filter.accesskey "f">
 <!ENTITY preferences.label "既存のフィルタを表示...">
 <!ENTITY preferences.accesskey "S">
 <!ENTITY type.filter.label "ブロックフィルタ">
 <!ENTITY type.filter.accesskey "B">
-<!ENTITY type.whitelist.label "例外ルール">
+<!ENTITY type.whitelist.label "ホワイトリスト">
 <!ENTITY type.whitelist.accesskey "x">
 <!ENTITY pattern.label "パターンを探す">
 <!ENTITY pattern.explanation "アドレスの一部をパターンとして使用します。シンボル * はワイルドカードの役割をします。パターンに一致するアドレスにだけフィルタが適用されます。">
@@ -35,15 +31,15 @@
 <!ENTITY domainRestriction.label "ドメイン制限：">
 <!ENTITY domainRestriction.accesskey "d">
 <!ENTITY domainRestriction.help "シンボル 「 | 」 によって分けられる一つ以上のドメインを指定してください。フィルタはそのドメインにのみ適用されることになります。ドメイン名の前のシンボル 「 ~」 はフィルタがそのドメインでは適用されないことを意味します。">
-<!ENTITY firstParty.label "ファーストパーティのみ">
+<!ENTITY firstParty.label "現在のサイト内のみ適用">
 <!ENTITY firstParty.accesskey "r">
-<!ENTITY thirdParty.label "サードパーティのみ">
+<!ENTITY thirdParty.label "サードパーティのみ適用">
 <!ENTITY thirdParty.accesskey "T">
-<!ENTITY matchCase.label "一致ケース">
+<!ENTITY matchCase.label "大文字/小文字を区別">
 <!ENTITY matchCase.accesskey "M">
 <!ENTITY types.label "種別適用：">
 <!ENTITY selectAllTypes.label "すべて選択">
-<!ENTITY unselectAllTypes.label "選択なし">
+<!ENTITY unselectAllTypes.label "すべて選択解除">
 <!ENTITY collapse.label "折りたたみブロック：">
 <!ENTITY collapse.accesskey "l">
 <!ENTITY collapse.default.yes.label "デフォルト使用（はい）">
