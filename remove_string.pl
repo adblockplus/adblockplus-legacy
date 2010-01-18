@@ -9,13 +9,13 @@ my @locales = sort {$a cmp $b} grep {!/[^\w\-]/} readdir(DIR);
 closedir(DIR);
 
 foreach my $locale (@locales) {
-  open(local *FILE, "chrome/locale/$locale/$file") or die "Could not open file chrome/locale/$locale/$file";
+  open(local *FILE, "chrome/locale/$locale/$file") or ((warn "Could not open file chrome/locale/$locale/$file") && next);
   local $/;
   my $data = <FILE>;
   close(FILE);
 
   if ($file =~ /\.dtd$/) {
-    $data =~ s/<!ENTITY\s+$string\s+"[^"]*">\s*//gs or (warn "String $string not found in file chrome/locale/$locale/$file" && next);
+    $data =~ s/<!ENTITY\s+$string\s+"[^"]*">\s*//gs or ((warn "String $string not found in file chrome/locale/$locale/$file") && next);
   }
   else {
     $data =~ s/^$string=.*\n//gm or (warn "String $string not found in file chrome/locale/$locale/$file" && next);

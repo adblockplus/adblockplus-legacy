@@ -1,9 +1,0 @@
-<!ENTITY dialog.title "Golygu tanysgrifiadau ffilter">
-<!ENTITY dialog.newtitle "Ychwanegu tansygrifiad ffilter">
-<!ENTITY new.description "Ysgrifennwch y cyfeiriad gwe neu ffeil sydd yn cynnwys rhestr o ffilteri Adblock Plus os gwelwch yn dda.">
-<!ENTITY edit.description "Mi fydd y rhestr ffilteri yn cael ei ddadlwytho o&apos;r lleoliad a rhoddir.">
-<!ENTITY location.label "Lleoliad y rhestr ffilteri:">
-<!ENTITY location.accesskey "L">
-<!ENTITY title.accesskey "T">
-<!ENTITY autodownload.accesskey "P">
-<!ENTITY enabled.accesskey "N">

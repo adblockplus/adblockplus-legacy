@@ -2,12 +2,8 @@
 <!ENTITY accept.label "Фильтрді қосу">
 <!ENTITY advanced.label "Кеңейтілген көрінісі">
 <!ENTITY basic.label "Негізгі көрінісі">
-<!ENTITY disabled.warning.beforeLink "Adblock Plus қазір сөндірулі. Фильтрлерді қазір де қоса аласыз, бірақ олар жұмыс істемейді, сіз">
-<!ENTITY disabled.warning.link "Adblock Plus қосқанға дейін">
-<!ENTITY disabled.warning.afterLink ".">
-<!ENTITY groupDisabled.warning.beforeLink "Осы фильтр қосылатын &quot;&#37;S&quot; фильтрлер тобы қазір сөндірулі. Сіз фильтрді қоса аласыз, бірақ фильтрлер тобы қосылған">
-<!ENTITY groupDisabled.warning.link "кезде ғана іске асады">
-<!ENTITY groupDisabled.warning.afterLink ".">
+<!ENTITY disabled.warning "Adblock Plus қазір сөндірулі. Фильтрлерді қазір де қоса аласыз, бірақ олар жұмыс істемейді, сіз [link]Adblock Plus қосқанға дейін[/link].">
+<!ENTITY groupDisabled.warning "Осы фильтр қосылатын &quot;&#37;S&quot; фильтрлер тобы қазір сөндірулі. Сіз фильтрді қоса аласыз, бірақ фильтрлер тобы қосылған [link]кезде ғана іске асады[/link].">
 <!ENTITY filter.label "Жаңа фильтр:">
 <!ENTITY filter.accesskey "ф">
 <!ENTITY preferences.label "Бар фильтрлерді көрсету...">

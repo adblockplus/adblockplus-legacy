@@ -1,0 +1,11 @@
+<!ENTITY dialog.title "Sveiki">
+<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
+<!ENTITY other.label "Pridėti kitą prenumeratą">
+<!ENTITY other.accesskey "T">
+<!ENTITY dialog.title.edit "Redaguoti filtrų prenumeratą">
+<!ENTITY location.label "Filtrų sąrašo vieta:">
+<!ENTITY location.accesskey "V">
+<!ENTITY title.label "Prenumeratos pavadinimas:">
+<!ENTITY title.accesskey "P">
+<!ENTITY autodownload.label "Automatiškai atnaujinti">
+<!ENTITY autodownload.accesskey "A">

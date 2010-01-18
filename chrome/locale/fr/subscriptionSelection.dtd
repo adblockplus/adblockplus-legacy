@@ -1,0 +1,16 @@
+<!ENTITY dialog.title "Bienvenue sur Adblock Plus">
+<!ENTITY adblock.warning "Adblock Plus a détecté qu&apos;Adblock ou une ancienne version d&apos;Adblock Plus est installée. Faire fonctionner les deux Adblock en parallèle peut engendrer des problèmes et doit être évité. Il est recommandé de désinstaller Adblock immédiatement.">
+<!ENTITY adblock.uninstall "Désinstaller Adblock">
+<!ENTITY filterset.g.warning "Il semblerait que vous utilisiez Filterset.G. Cette liste de filtre a été maintenue de manière aléatoire ces dernières années et est la cause de problèmes avec des sites Web. Il est recommandé de désinstaller Filterset.G immédiatement.">
+<!ENTITY filterset.g.moreinfo "Davantage d&apos;informations">
+<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/fr/faq_project#filterset.g">
+<!ENTITY filterset.g.uninstall "Désinstaller Filterset.G">
+<!ENTITY other.label "Ajouter un autre abonnement">
+<!ENTITY other.accesskey "t">
+<!ENTITY dialog.title.edit "Modifier l&apos;abonnement">
+<!ENTITY location.label "Emplacement de la liste :">
+<!ENTITY location.accesskey "E">
+<!ENTITY title.label "Nom de l&apos;abonnement :">
+<!ENTITY title.accesskey "N">
+<!ENTITY autodownload.label "Mettre à jour automatiquement">
+<!ENTITY autodownload.accesskey "M">

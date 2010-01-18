@@ -2,9 +2,7 @@
 <!ENTITY accept.label "Tambah filter">
 <!ENTITY advanced.label "View lanjutan">
 <!ENTITY basic.label "View dasar">
-<!ENTITY disabled.warning.beforeLink "Adblock Plus sedang dimatikan. Anda tetap bisa menambahkan filter tapi tidak akan diaplikasikan kecuali Anda">
-<!ENTITY disabled.warning.link "Hidupkan Adblock Plus">
-<!ENTITY disabled.warning.afterLink ".">
+<!ENTITY disabled.warning "Adblock Plus sedang dimatikan. Anda tetap bisa menambahkan filter tapi tidak akan diaplikasikan kecuali Anda [link]Hidupkan Adblock Plus[/link].">
 <!ENTITY filter.label "Filter baru:">
 <!ENTITY filter.accesskey "F">
 <!ENTITY preferences.label "Tunjukkan filter yang ada...">

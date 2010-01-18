@@ -1,0 +1,16 @@
+<!ENTITY dialog.title "Vitajte na Adblock Plus">
+<!ENTITY adblock.warning "Adblock Plus zistil, že máte nainštalovaný Adblock alebo staršiu verziu Adblock Plus. Súbežné používanie Adblock a Adblock Plus môže viesť k problémom a mali by ste sa tomu vyhnúť. Odporúčame, aby ste Adblock odinštalovali.">
+<!ENTITY adblock.uninstall "Odinštalovať Adblock">
+<!ENTITY filterset.g.warning "Zdá sa, že používate Filterset.G. Tento zoznam filtrov bol sotva obnovovaný posledných pár rokov a je bežnou príčinou problémov so stránkami na webe. Odporúčame, aby ste odinštalovali Filterset.G.">
+<!ENTITY filterset.g.moreinfo "Viac informácií">
+<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
+<!ENTITY filterset.g.uninstall "Odinštalovať Filterset.G">
+<!ENTITY other.label "Pridať iné odoberania">
+<!ENTITY other.accesskey "P">
+<!ENTITY dialog.title.edit "Upraviť povolenie filtra">
+<!ENTITY location.label "Umiestnenie zoznamu filtrov:">
+<!ENTITY location.accesskey "M">
+<!ENTITY title.label "Názov povolenia:">
+<!ENTITY title.accesskey "Z">
+<!ENTITY autodownload.label "Automatická aktualizácia">
+<!ENTITY autodownload.accesskey "T">

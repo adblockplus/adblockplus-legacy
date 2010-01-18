@@ -2,12 +2,8 @@
 <!ENTITY accept.label "Додај филтер">
 <!ENTITY advanced.label "Напредни изглед">
 <!ENTITY basic.label "Основни изглед">
-<!ENTITY disabled.warning.beforeLink "Adblock Plus је тренутно искључен. И даље можете додавати филтере, али ће они бити примењени тек по">
-<!ENTITY disabled.warning.link "укључивању Adblock Plus-а">
-<!ENTITY disabled.warning.afterLink ".">
-<!ENTITY groupDisabled.warning.beforeLink "Група филтера &quot;&#37;S&quot; у коју желите да додате овај филтер је тренутно искључена. Можете додати филтер, али ће он бити примењен тек по">
-<!ENTITY groupDisabled.warning.link "поновном укључењу групе филтера">
-<!ENTITY groupDisabled.warning.afterLink ".">
+<!ENTITY disabled.warning "Adblock Plus је тренутно искључен. И даље можете додавати филтере, али ће они бити примењени тек по [link]укључивању Adblock Plus-а[/link].">
+<!ENTITY groupDisabled.warning "Група филтера &quot;&#37;S&quot; у коју желите да додате овај филтер је тренутно искључена. Можете додати филтер, али ће он бити примењен тек по [link]поновном укључењу групе филтера[/link].">
 <!ENTITY filter.label "Нови филтер">
 <!ENTITY filter.accesskey "ф">
 <!ENTITY preferences.label "Прикажи постојеће филтере...">

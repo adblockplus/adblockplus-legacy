@@ -1,0 +1,20 @@
+<!ENTITY dialog.title "Lisa reklaamifiltri tellimuse">
+<!ENTITY adblock.warning "On tuvastatud, et vanem versioon (Adblock) on eelnevalt paigaldatud.
+Kasutades nii Adblock Plusi kui ka Adblocki korraga võib põhjustada probleeme 
+ning Adblocki tuleks eemaldada.">
+<!ENTITY adblock.uninstall "Eemalda Adblock">
+<!ENTITY filterset.g.warning "On tuvastatud, et Te kasutate Filterset.G-d. Kuna seda on viimastel aastatel 
+vähe uuendatud ning on teada, et see põhjustab probleeme internetilehekülgedel, 
+siis on soovitatav selle koheselt eemaldada.">
+<!ENTITY filterset.g.moreinfo "Lisainformatsioon">
+<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
+<!ENTITY filterset.g.uninstall "Eemalda Filterset.G">
+<!ENTITY other.label "Lisa uus tellimus">
+<!ENTITY other.accesskey "L">
+<!ENTITY dialog.title.edit "Muuda filtri tellimust">
+<!ENTITY location.label "Flitri nimekirja asukoht:">
+<!ENTITY location.accesskey "F">
+<!ENTITY title.label "Tellimuse pealkiri:">
+<!ENTITY title.accesskey "T">
+<!ENTITY autodownload.label "Uuenda automaatselt">
+<!ENTITY autodownload.accesskey "U">

@@ -3,14 +3,8 @@
 <!ENTITY advanced.label           "Erweiterte Ansicht">
 <!ENTITY basic.label              "Standardansicht">
 
-<!ENTITY disabled.warning.beforeLink  "Adblock Plus ist deaktiviert. Sie können trotzdem den Filter hinzufügen, dieser wird jedoch erst angewandt, wenn Sie ">
-<!ENTITY disabled.warning.link    "Adblock Plus aktivieren">
-<!ENTITY disabled.warning.afterLink   ".">
-
-<!ENTITY groupDisabled.warning.beforeLink  "Die Filtergruppe &quot;&#x25;S&quot;, in die dieser Filter eingefügt wird, ist derzeit deaktiviert. Sie können trotzdem den Filter hinzufügen, dieser wird jedoch erst angewandt, wenn Sie ">
-<!ENTITY groupDisabled.warning.link        "diese Filtergruppe aktivieren">
-<!ENTITY groupDisabled.warning.afterLink   ".">
-
+<!ENTITY disabled.warning "Adblock Plus ist deaktiviert. Sie können trotzdem den Filter hinzufügen, dieser wird jedoch erst angewandt, wenn Sie [link]Adblock Plus aktivieren[/link].">
+<!ENTITY groupDisabled.warning "Die Filtergruppe &quot;&#x25;S&quot;, in die dieser Filter eingefügt wird, ist derzeit deaktiviert. Sie können trotzdem den Filter hinzufügen, dieser wird jedoch erst angewandt, wenn Sie [link]diese Filtergruppe aktivieren[/link].">
 <!ENTITY filter.label             "Neuer Filter:">
 <!ENTITY filter.accesskey         "r">
 <!ENTITY preferences.label        "Existierende Filter anzeigen...">

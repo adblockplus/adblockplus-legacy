@@ -2,12 +2,8 @@
 <!ENTITY accept.label "Ավելացնել ֆիլտր">
 <!ENTITY advanced.label "Ընդլայնված տեսք">
 <!ENTITY basic.label "Պարզ տեսք">
-<!ENTITY disabled.warning.beforeLink "«Adblock Plus»ը անջատված է: Դուք կարող եք ավելացնել ֆիլտրեր, բայց դրանց գործելու համար պետք է ">
-<!ENTITY disabled.warning.link "միացնել «Adblock Plus»ը">
-<!ENTITY disabled.warning.afterLink ":">
-<!ENTITY groupDisabled.warning.beforeLink "Ֆիլտրերի &quot;&#37;S&quot; խումբը, որին այս ֆիլտրը ավելացվում է միացած չէ. Ֆիլտրը միևնույն է կարող է ավելացնել, բայց նրա կիրառման համար պետք է">
-<!ENTITY groupDisabled.warning.link "միացնել ֆիլտրի խումբը">
-<!ENTITY groupDisabled.warning.afterLink ":">
+<!ENTITY disabled.warning "«Adblock Plus»ը անջատված է: Դուք կարող եք ավելացնել ֆիլտրեր, բայց դրանց գործելու համար պետք է [link]միացնել «Adblock Plus»ը[/link]:">
+<!ENTITY groupDisabled.warning "Ֆիլտրերի &quot;&#37;S&quot; խումբը, որին այս ֆիլտրը ավելացվում է միացած չէ. Ֆիլտրը միևնույն է կարող է ավելացնել, բայց նրա կիրառման համար պետք է [link]միացնել ֆիլտրի խումբը[/link]:">
 <!ENTITY filter.label "Նոր Ֆիլտր.">
 <!ENTITY filter.accesskey "ֆ">
 <!ENTITY preferences.label "Նայել առկա ֆիլտրերը...">

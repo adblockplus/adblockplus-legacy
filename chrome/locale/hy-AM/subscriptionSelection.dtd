@@ -1,0 +1,24 @@
+<!ENTITY dialog.title "Բարի գալուստ Adblock Plus">
+<!ENTITY adblock.warning "
+	«Adblock Plus»-ից բացի ձեր համակարգում տեղադրված է Adblock կամ 
+	«Adblock Plus»-ի հին տարբերակ: Դրանց զուգահեռ օգտագործումը կարող է 
+	խնդիրներ առաջացնել: Խորհուրդ է տրվում հեռացնել Adblock -ը:
+">
+<!ENTITY adblock.uninstall "Հեռացնել Adblock">
+<!ENTITY filterset.g.warning "
+	Դուք օգտագործում եք Filterset.G. Այս ցանկին վերջին տարիներին 
+	քիչ է փոփոխվումում և այն առաջացնում է մեծ քանակով խնդիրներ կայքերի հետ: 
+	Խորհուրդ է տրվում հեռացնել այդ ցանկը:
+">
+<!ENTITY filterset.g.moreinfo "Ավել տեղեկություն">
+<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
+<!ENTITY filterset.g.uninstall "Հեռացնել Filterset.G-ն">
+<!ENTITY other.label "Ավելացնել բաժանորդագրություն">
+<!ENTITY other.accesskey "Ա">
+<!ENTITY dialog.title.edit "Խմբագրել բաժանորդագրությունները">
+<!ENTITY location.label "Ֆիլտրերի հասցեն`">
+<!ENTITY location.accesskey "հ">
+<!ENTITY title.label "Բաժանորդագրության ավանումը`">
+<!ENTITY title.accesskey "ա">
+<!ENTITY autodownload.label "Ավտոմատ թարմացում">
+<!ENTITY autodownload.accesskey "թ">

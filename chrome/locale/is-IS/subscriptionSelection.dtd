@@ -1,0 +1,20 @@
+<!ENTITY dialog.title "Bæta við Adblock Plus síu áskrift">
+<!ENTITY adblock.warning "Adblock Plus hefur uppgötvað að Adblock eða gömul útgáfa af Adblock Plus er
+	uppsett. Ef þú keyrir bæði Adblock og Adblock Plus samsíða getur það valdið
+	vandræðum og ætti að forðast í lengstu lög. Mælt er með að þú takir út Adblock strax.">
+<!ENTITY adblock.uninstall "Taka út Adblock">
+<!ENTITY filterset.g.warning "Svo virðist sem þú sért að nota Filterset.G. Þessum síulista hefur ekki verið
+	viðhaldið seinustu árin og er algeng ástæða fyrir vandamálum á
+	vefsíðum. Mælt er með að þú takir út Filterset.G strax.">
+<!ENTITY filterset.g.moreinfo "Meiri upplýsingar">
+<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
+<!ENTITY filterset.g.uninstall "Taka út Filterset.G">
+<!ENTITY other.label "Bæta við öðruvísi áskrift">
+<!ENTITY other.accesskey "T">
+<!ENTITY dialog.title.edit "Breyta síuáskrift">
+<!ENTITY location.label "Staðsetning síulista:">
+<!ENTITY location.accesskey "L">
+<!ENTITY title.label "Áskriftartitill:">
+<!ENTITY title.accesskey "T">
+<!ENTITY autodownload.label "Uppfæra sjálfvirkt">
+<!ENTITY autodownload.accesskey "U">

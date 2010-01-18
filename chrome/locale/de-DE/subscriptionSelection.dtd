@@ -1,0 +1,28 @@
+<!ENTITY dialog.title               "Filterabonnement für Adblock Plus hinzufügen">
+
+<!ENTITY adblock.warning            "
+  Adblock Plus hat festgestellt, dass Sie Adblock oder eine alte Version von Adblock Plus
+  installiert haben. Wenn Sie Adblock und Adblock Plus parallel ausführen, kann das Probleme
+  beim Browsen verursachen. Es wird empfohlen, Adblock jetzt zu deinstallieren.
+">
+<!ENTITY adblock.uninstall          "Adblock deinstallieren">
+
+<!ENTITY filterset.g.warning        "
+  Es scheint, dass Sie Filterset.G verwenden. Diese Filterliste wurde in den vergangenen Jahren
+  kaum aktualisiert und ist oft Ursache von Problemen auf Webseiten. Es wird empfohlen, Filterset.G
+  jetzt zu deinstallieren.
+">
+<!ENTITY filterset.g.moreinfo       "Weitere Informationen">
+<!ENTITY filterset.g.moreinfo.url   "http://adblockplus.org/de/faq_project#filterset.g">
+<!ENTITY filterset.g.uninstall      "Filterset.G deinstallieren">
+
+<!ENTITY other.label                "Anderes Abonnement hinzufügen">
+<!ENTITY other.accesskey            "D">
+ 
+<!ENTITY dialog.title.edit               "Filter-Abonnement bearbeiten">
+<!ENTITY location.label             "Adresse der Filter-Liste:">
+<!ENTITY location.accesskey         "D">
+<!ENTITY title.label                "Bezeichnung des Abonnements:">
+<!ENTITY title.accesskey            "Z">
+<!ENTITY autodownload.label         "Automatisch aktualisieren">
+<!ENTITY autodownload.accesskey     "T">

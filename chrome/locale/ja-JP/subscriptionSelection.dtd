@@ -1,0 +1,24 @@
+<!ENTITY dialog.title "Adblock Plus 同期フィルタの追加">
+<!ENTITY adblock.warning "
+	Adblock Plus が Adblock 、あるいは Adblock Plus の古いバージョンがインストールされて
+	いるのを検出しました。 Adblock と Adblock Plus を並行して機能させるのは問題を引き起こす
+	ことになりますので避けるべきです。 今すぐ Adblock のアンインストールをお勧めします。
+">
+<!ENTITY adblock.uninstall "Adblock アンストール">
+<!ENTITY filterset.g.warning "
+	Filterset.G を使用していると思われます。このフィルタ・リストは過去数年の間かろうじて
+	維持されている状態でウェブサイトに関する問題の共通の原因となっています。今すぐ Filterset.G
+	のアンインストールをお勧めします。
+">
+<!ENTITY filterset.g.moreinfo "詳細情報">
+<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
+<!ENTITY filterset.g.uninstall "Filterset.G アンインストール">
+<!ENTITY other.label "上記以外を追加">
+<!ENTITY other.accesskey "f">
+<!ENTITY dialog.title.edit "同期フィルタを編集">
+<!ENTITY location.label "場所:">
+<!ENTITY location.accesskey "L">
+<!ENTITY title.label "名前:">
+<!ENTITY title.accesskey "T">
+<!ENTITY autodownload.label "自動更新にする">
+<!ENTITY autodownload.accesskey "P">

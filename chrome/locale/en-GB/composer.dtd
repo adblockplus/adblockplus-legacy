@@ -2,12 +2,8 @@
 <!ENTITY accept.label "Add filter">
 <!ENTITY advanced.label "Advanced view">
 <!ENTITY basic.label "Basic view">
-<!ENTITY disabled.warning.beforeLink "Adblock Plus is currently disabled. You can still add filters but those will not be applied unless you">
-<!ENTITY disabled.warning.link "enable Adblock Plus">
-<!ENTITY disabled.warning.afterLink ".">
-<!ENTITY groupDisabled.warning.beforeLink "The filter group &quot;&#37;S&quot; that this filter should be added to is currently disabled. You can still add the filter but it will not be applied unless you">
-<!ENTITY groupDisabled.warning.link "enable the filter group">
-<!ENTITY groupDisabled.warning.afterLink ".">
+<!ENTITY disabled.warning "Adblock Plus is currently disabled. You can still add filters but those will not be applied unless you [link]enable Adblock Plus[/link].">
+<!ENTITY groupDisabled.warning "The filter group &quot;&#37;S&quot; that this filter should be added to is currently disabled. You can still add the filter but it will not be applied unless you [link]enable the filter group[/link].">
 <!ENTITY filter.label "New filter:">
 <!ENTITY filter.accesskey "f">
 <!ENTITY preferences.label "Show existing filters...">

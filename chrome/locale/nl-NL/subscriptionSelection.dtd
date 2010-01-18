@@ -1,0 +1,16 @@
+<!ENTITY dialog.title "Welkom bij Adblock Plus">
+<!ENTITY adblock.warning "Adblock Plus heeft gevonden dat Adblock of een oudere versie van Adblock Plus geïnstalleerd is. Het tegelijk gebruiken van Adblock en Adblock Plus kan problemen veroorzaken en moet worden vermeden. Het is aangereden dat u Adblock nu de-installeerd.">
+<!ENTITY adblock.uninstall "Adblock de-installeren">
+<!ENTITY filterset.g.warning "Het lijkt erop dat u Filterset.G gebruikt. Deze filterlijst is de afgelopen jaren nauwelijks bijgehouden en is een veel voorkomende oorzaak van problemen met websites. Het is aangereden dat u Filterset.G nu de-installeerd.">
+<!ENTITY filterset.g.moreinfo "Meer informatie">
+<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
+<!ENTITY filterset.g.uninstall "Filterset.G de-installeren">
+<!ENTITY other.label "Een ander abonnement toevoegen">
+<!ENTITY other.accesskey "E">
+<!ENTITY dialog.title.edit "Filter abonnement wijzigen">
+<!ENTITY location.label "Filterlijst locatie:">
+<!ENTITY location.accesskey "L">
+<!ENTITY title.label "Abonnementnaam:">
+<!ENTITY title.accesskey "B">
+<!ENTITY autodownload.label "Automatisch bijwerken">
+<!ENTITY autodownload.accesskey "T">

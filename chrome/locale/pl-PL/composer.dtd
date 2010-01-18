@@ -2,12 +2,8 @@
 <!ENTITY accept.label "Dodaj filtr">
 <!ENTITY advanced.label "Widok zaawansowany">
 <!ENTITY basic.label "Widok podstawowy">
-<!ENTITY disabled.warning.beforeLink "Adblock Plus jest wyłączony. Można dodawać filtry, ale nie będą one działały do czasu">
-<!ENTITY disabled.warning.link "włączenia Adblock Plusa">
-<!ENTITY disabled.warning.afterLink ".">
-<!ENTITY groupDisabled.warning.beforeLink "Grupa filtrów &quot;&#37;S&quot;, do której ten filtr powinien zostać dodany jest wyłączona. Można dodać ten filtr, ale nie będzie działał do czasu">
-<!ENTITY groupDisabled.warning.link "włączenia grupy">
-<!ENTITY groupDisabled.warning.afterLink ".">
+<!ENTITY disabled.warning "Adblock Plus jest wyłączony. Można dodawać filtry, ale nie będą one działały do czasu [link]włączenia Adblock Plusa[/link].">
+<!ENTITY groupDisabled.warning "Grupa filtrów &quot;&#37;S&quot;, do której ten filtr powinien zostać dodany jest wyłączona. Można dodać ten filtr, ale nie będzie działał do czasu [link]włączenia grupy[/link].">
 <!ENTITY filter.label "Nowy filtr:">
 <!ENTITY filter.accesskey "F">
 <!ENTITY preferences.label "Wyświetl istniejące filtry…">

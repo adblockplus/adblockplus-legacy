@@ -2,9 +2,7 @@
 <!ENTITY accept.label "Legg til filter">
 <!ENTITY advanced.label "Avansert vising">
 <!ENTITY basic.label "Grunnleggjande vising">
-<!ENTITY disabled.warning.beforeLink "Adblock Plus er kopla ut. Du kan like vel leggje til filtre, men desse vil ikkje bli tekne i bruk dersom du ikkje">
-<!ENTITY disabled.warning.link "koplar inn Adblock Plus">
-<!ENTITY disabled.warning.afterLink ".">
+<!ENTITY disabled.warning "Adblock Plus er kopla ut. Du kan like vel leggje til filtre, men desse vil ikkje bli tekne i bruk dersom du ikkje [link]koplar inn Adblock Plus[/link].">
 <!ENTITY filter.label "Nytt filter:">
 <!ENTITY filter.accesskey "f">
 <!ENTITY preferences.label "Syn filter...">

@@ -2,12 +2,8 @@
 <!ENTITY accept.label "Afegir filtre">
 <!ENTITY advanced.label "Visualització avançada">
 <!ENTITY basic.label "Visualització bàsica">
-<!ENTITY disabled.warning.beforeLink "Adblock Plus està desactivat. Encara es poden afegir filtres però no seran aplicats a menys que">
-<!ENTITY disabled.warning.link "activis Adblock Plus">
-<!ENTITY disabled.warning.afterLink ".">
-<!ENTITY groupDisabled.warning.beforeLink "El filtre de grup &quot;&#37;S&quot; que aquest filtre hauria de ser afegit està deshabilitat.Pots afegir-lo encara però no apareixerà fins que">
-<!ENTITY groupDisabled.warning.link "habilitis el filtre de grup">
-<!ENTITY groupDisabled.warning.afterLink ".">
+<!ENTITY disabled.warning "Adblock Plus està desactivat. Encara es poden afegir filtres però no seran aplicats a menys que [link]activis Adblock Plus[/link].">
+<!ENTITY groupDisabled.warning "El filtre de grup &quot;&#37;S&quot; que aquest filtre hauria de ser afegit està deshabilitat.Pots afegir-lo encara però no apareixerà fins que [link]habilitis el filtre de grup[/link].">
 <!ENTITY filter.label "Nou filtre:">
 <!ENTITY filter.accesskey "n">
 <!ENTITY preferences.label "Mostra filtres existents...">

@@ -2,12 +2,7 @@
 <!ENTITY accept.label "Szűrő hozzáadása">
 <!ENTITY advanced.label "Haladó nézet">
 <!ENTITY basic.label "Alap nézet">
-<!ENTITY disabled.warning.beforeLink "Az Adblock Plus jelenleg le van tiltva. Szűrőket hozzáadhat, de azok nem fognak működni,">
-<!ENTITY disabled.warning.link "amíg az Adblock Plus nincs engedélyezve">
-<!ENTITY disabled.warning.afterLink ".">
-<!ENTITY groupDisabled.warning.beforeLink "A szűrőcsoport, amelyhez hozzá szeretné adni a szűrőt le van tiltva. Hozzáadás után a szűrő csak akkor fog működni, ha">
-<!ENTITY groupDisabled.warning.link "engedélyezi a csoportot">
-<!ENTITY groupDisabled.warning.afterLink ".">
+<!ENTITY disabled.warning "Az Adblock Plus jelenleg le van tiltva. Szűrőket hozzáadhat, de azok nem fognak működni, [link]amíg az Adblock Plus nincs engedélyezve[/link].">
 <!ENTITY filter.label "Új szűrő:">
 <!ENTITY filter.accesskey "j">
 <!ENTITY preferences.label "Meglévő szűrők megjelenítése...">

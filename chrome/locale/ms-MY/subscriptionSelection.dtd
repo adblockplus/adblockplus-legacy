@@ -1,0 +1,16 @@
+<!ENTITY dialog.title "Selamat datang ke Adblock Plus">
+<!ENTITY adblock.warning "Adblock Plus telah mengesan Adblock atau Adblock Plus versi terdahulu telah dipasang. Menjalankan Adblock dan Adblock Plus dalam masa yang sama boleh menyebabkan masalah dan perlu dielakkan. Anda digalakkan membuang Adblock sekarang.">
+<!ENTITY adblock.uninstall "Buang Adblock">
+<!ENTITY filterset.g.warning "Anda kelihatan menggunakan Filterset.G. Penapis ini sudah jarang-jarang dikemaskini dan sering menyebabkan masalah dengan laman web. Anda digalakkan membuang Filterset.G sekarang.">
+<!ENTITY filterset.g.moreinfo "Lebih info">
+<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
+<!ENTITY filterset.g.uninstall "Buang Filterset.G">
+<!ENTITY other.label "Tambah langganan lain">
+<!ENTITY other.accesskey "T">
+<!ENTITY dialog.title.edit "Ubah deskripsi penapis">
+<!ENTITY location.label "Lokasi senarai penapis:">
+<!ENTITY location.accesskey "L">
+<!ENTITY title.label "Tajuk langganan">
+<!ENTITY title.accesskey "T">
+<!ENTITY autodownload.label "Kemaskini automatik">
+<!ENTITY autodownload.accesskey "K">
