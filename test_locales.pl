@@ -40,6 +40,7 @@ my @ignoreUntranslated = (
   qr/\.url$/,
   quotemeta("abp:about:caption.title"),
   quotemeta("abp:about:version.title"),
+  quotemeta("abp:global:default_dialog_title"),
   quotemeta("abp:global:status_active_label"),
   quotemeta("abp:global:type_label_document"),
   quotemeta("abp:global:type_label_dtd"),
