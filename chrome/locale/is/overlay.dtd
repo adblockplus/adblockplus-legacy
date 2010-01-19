@@ -8,6 +8,7 @@
 <!ENTITY context.image.label "Loka auglýsingamynd">
 <!ENTITY context.object.label "Loka auglýsingahlut">
 <!ENTITY context.frame.label "Loka auglýsingaramma">
+<!ENTITY context.media.label "Adblock Plus: Loka á myndefni/hljóð">
 <!ENTITY context.removeWhitelist.label "Adblock Plus: Endurvirkja á þessari síðu">
 <!ENTITY sidebar.title "Hlutir á núverandi síðu sem hægt er að loka á">
 <!ENTITY settings.label "Stillingar">
