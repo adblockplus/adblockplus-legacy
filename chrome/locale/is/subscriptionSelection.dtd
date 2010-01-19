@@ -1,4 +1,6 @@
 <!ENTITY dialog.title "Bæta við Adblock Plus síu áskrift">
+<!ENTITY dialog.title.edit "Breyta síuáskrift">
+<!ENTITY description.newInstall "Til að Adblock Plus sé sem árangursríkast ættirðu að bæta við síu áskrift. Síu áskriftirnar eru ókeypis í boði annarra Adblock Plus notenda. Viðeigandi síu áskrift fyrir þitt tungumál er þegar valið.">
 <!ENTITY adblock.warning "Adblock Plus hefur uppgötvað að Adblock eða gömul útgáfa af Adblock Plus er
 	uppsett. Ef þú keyrir bæði Adblock og Adblock Plus samsíða getur það valdið
 	vandræðum og ætti að forðast í lengstu lög. Mælt er með að þú takir út Adblock strax.">
@@ -9,12 +11,26 @@
 <!ENTITY filterset.g.moreinfo "Meiri upplýsingar">
 <!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
 <!ENTITY filterset.g.uninstall "Taka út Filterset.G">
+<!ENTITY subscriptionSelector.label "Veldu síu áskrift úr listanum:">
+<!ENTITY viewList.label "Skoða síur">
+<!ENTITY visitHomepage.label "Heimsækja heimasíðu">
+<!ENTITY addSubscription.label "Bæta við áskrift">
+<!ENTITY saveSubscription.label "Vista áskrift">
 <!ENTITY other.label "Bæta við öðruvísi áskrift">
 <!ENTITY other.accesskey "T">
-<!ENTITY dialog.title.edit "Breyta síuáskrift">
-<!ENTITY location.label "Staðsetning síulista:">
-<!ENTITY location.accesskey "L">
+<!ENTITY list.download.failed "Gat ekki náð í lista af áskriftum">
+<!ENTITY list.download.retry "Reyndu aftur">
+<!ENTITY list.download.website "Skoða vefsvæði">
+<!ENTITY list.website.url "http://adblockplus.org/en/subscriptions">
+<!ENTITY fromWeb.description "Staðfestu að þú viljir bæta við þessari síu áskrift. Þú getur breytt titlinum eða staðsetningu áður en þú bætir við.">
+<!ENTITY edit.description "Þú getur breytt titli eða staðsetningu ef nauðsynlegt er.">
+<!ENTITY external.description "Þetta er utanáliggjandi síu áskrift, síulistinn verður uppfærður af viðbótinni sem bjó til þessa áskrift.">
 <!ENTITY title.label "Áskriftartitill:">
 <!ENTITY title.accesskey "T">
+<!ENTITY location.label "Staðsetning síulista:">
+<!ENTITY location.accesskey "L">
 <!ENTITY autodownload.label "Uppfæra sjálfvirkt">
 <!ENTITY autodownload.accesskey "U">
+<!ENTITY supplementMessage "Þessi síu áskrift er ætluð til þess að vera notuð með síu áskrift &quot;&#37;S&quot; sem þú hefur ekki ennþá bætt við.">
+<!ENTITY addMain.label "Bættu einnig við síu áskrift &quot;&#37;S&quot;">
+<!ENTITY addMain.accesskey "s">
