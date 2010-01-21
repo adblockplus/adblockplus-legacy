@@ -84,12 +84,14 @@
           <textbox id="customPattern" flex="1" oninput="updateCustomPattern()"/>
         </hbox>
       </radiogroup>
-      <hbox id="anchorGroup" pack="start" align="center">
+      <hbox id="anchorGroup" pack="start" align="baseline">
         <label value="&anchors.label;"/>
-        <checkbox id="anchorStart" labelRegular="&anchor.start.label;" accesskeyRegular="&anchor.start.accesskey;"
-                                   labelFlexible="&anchor.start.flexible.label;" accesskeyFlexible="&anchor.start.flexible.accesskey;"
-                                   oncommand="updateFilter()"/>
-        <checkbox id="anchorEnd" label="&anchor.end.label;" accesskey="&anchor.end.accesskey;" oncommand="updateFilter()"/>
+        <description flex="1" style="margin: 0; padding: 0;">
+          <checkbox id="anchorStart" labelRegular="&anchor.start.label;" accesskeyRegular="&anchor.start.accesskey;"
+                                     labelFlexible="&anchor.start.flexible.label;" accesskeyFlexible="&anchor.start.flexible.accesskey;"
+                                     oncommand="updateFilter()"/>
+          <checkbox id="anchorEnd" label="&anchor.end.label;" accesskey="&anchor.end.accesskey;" oncommand="updateFilter()"/>
+        </description>
       </hbox>
     </groupbox>
     <groupbox id="options">
