@@ -16,6 +16,7 @@
 <!ENTITY opensidebar.accesskey "E">
 <!ENTITY closesidebar.label "Engellenebilecek öğeleri gizle">
 <!ENTITY closesidebar.accesskey "E">
+<!ENTITY whitelist.site.label "Bu sitedeyken devre dışı kal">
 <!ENTITY whitelist.page.label "Bu sayfada devre dışı kal">
 <!ENTITY objecttab.title "Engelle">
 <!ENTITY objecttab.tooltip "Bu nesneyi Adblock Plus ile engellemek için buraya tıklayın.">

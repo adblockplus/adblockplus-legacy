@@ -13,8 +13,8 @@
 <!ENTITY whitelisted.label "Pagina in lista di siti permessi">
 <!ENTITY tooltip.address.label "Indirizzo web:">
 <!ENTITY tooltip.type.label "Tipo:">
-<!ENTITY tooltip.type.blocked "(bloccato)">
-<!ENTITY tooltip.type.whitelisted "(in lista di siti permessi)">
+<!ENTITY tooltip.type.blocked "(in lista di elementi bloccati)">
+<!ENTITY tooltip.type.whitelisted "(in lista di elementi permessi)">
 <!ENTITY tooltip.size.label "Dimensione:">
 <!ENTITY tooltip.docDomain.label "Sorgente del documento:">
 <!ENTITY tooltip.filter.label "Filtro effettivo:">
@@ -22,8 +22,35 @@
 <!ENTITY context.block.label "Blocca questo elemento">
 <!ENTITY context.editfilter.label "Modifica il filtro in effetto">
 <!ENTITY context.whitelist.label "Aggiungi un&apos;eccezione per l&apos;elemento">
+<!--  ***** BEGIN LICENSE BLOCK *****
+	 - Version: MPL 1.1
+	 -
+	 - The contents of this file are subject to the Mozilla Public License Version
+	 - 1.1 (the "License"); you may not use this file except in compliance with
+	 - the License. You may obtain a copy of the License at
+	 - http://www.mozilla.org/MPL/
+	 -
+	 - Software distributed under the License is distributed on an "AS IS" basis,
+	 - WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+	 - for the specific language governing rights and limitations under the
+	 - License.
+	 -
+	 - The Original Code is Adblock Plus.
+	 -
+	 - The Initial Developer of the Original Code is
+	 - Wladimir Palant.
+	 - Portions created by the Initial Developer are Copyright (C) 2006-2009
+	 - the Initial Developer. All Rights Reserved.
+	 -
+	 - Contributor(s):
+	 -
+	 - ***** END LICENSE BLOCK ***** 
+ 
+-->
 <!ENTITY context.disablefilter.label "Disattiva il filtro --">
+<!-- Note: the placeholder (double-dash) will be replaced by the filter text -->
 <!ENTITY context.enablefilter.label "Riattiva il filtro --">
+<!-- Note: the placeholder (double-dash) will be replaced by the filter text -->
 <!ENTITY context.disablefilteronsite.label "Disattiva il filtro per --">
 <!ENTITY context.open.label "Apri in una nuova scheda">
 <!ENTITY context.flash.label "Fai lampeggiare il contorno dell&apos;elemento selezionato">

@@ -1,16 +1,32 @@
 <!ENTITY dialog.title "Agregar suscripción de filtro de Adblock Plus">
+<!ENTITY dialog.title.edit "Editar suscripción de filtro">
+<!ENTITY description.newInstall "Para que Adblock Plus sea más efectivo, tendrías que agregar una suscripción de filtros. Estas suscripciones son ofrecidas por otros usuarios de Adblock Plus, gratuitamente. Las suscripciones más adecuadas para tu idioma ya fueron seleccionadas.">
 <!ENTITY adblock.warning "Adblock Plus ha detectado que Adblock, o una versión vieja de Adblock Plus, está instalada. Tener funcionando simultáneamente Adblock y Adblock Plus puede causar problemas y se aconseja evitar esto. Te recomendamos desinstalar el viejo Adblock ahora.">
 <!ENTITY adblock.uninstall "Desinstalar Adblock">
 <!ENTITY filterset.g.warning "Parece que estás usando Filterset.G. Esta lista de filtros ha sido pobremente mantenida en los últimos años y es un constante causante de problemas con los sitios web. Te recomendamos que desinstalés Filterset.G ahora.">
 <!ENTITY filterset.g.moreinfo "Más información (en inglés)">
 <!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
 <!ENTITY filterset.g.uninstall "Desinstalar Filterset.G">
+<!ENTITY subscriptionSelector.label "Por favor, seleccioná una suscripción de la lista:">
+<!ENTITY viewList.label "Ver filtros">
+<!ENTITY visitHomepage.label "Visitar la página oficial">
+<!ENTITY addSubscription.label "Agregar suscripción">
+<!ENTITY saveSubscription.label "Guardar suscripción">
 <!ENTITY other.label "Agregar un filtro de suscripción">
 <!ENTITY other.accesskey "f">
-<!ENTITY dialog.title.edit "Editar suscripción de filtro">
-<!ENTITY location.label "Ubicación de la lista de filtros:">
-<!ENTITY location.accesskey "U">
+<!ENTITY list.download.failed "Hubo un error al recuperar la lista de suscripciones.">
+<!ENTITY list.download.retry "Intentá otra vez">
+<!ENTITY list.download.website "Ver sitio web">
+<!ENTITY list.website.url "http://adblockplus.org/en/subscriptions">
+<!ENTITY fromWeb.description "Por favor, confirmá que querés agregar esta suscripción de filtros. Podés cambiar el título de la suscripción o la ubicación antes de agregarla.">
+<!ENTITY edit.description "Podés cambiar el título de la suscripción o la ubicación, de ser necesario.">
+<!ENTITY external.description "Esta es una suscripción externa de filtros. La lista de filtros será actualizada por la extensión que creó esta suscripción.">
 <!ENTITY title.label "Título de suscripción:">
 <!ENTITY title.accesskey "T">
+<!ENTITY location.label "Ubicación de la lista de filtros:">
+<!ENTITY location.accesskey "U">
 <!ENTITY autodownload.label "Actualizar automáticamente">
 <!ENTITY autodownload.accesskey "A">
+<!ENTITY supplementMessage "Esta suscripción está diseñada para ser usada conjuntamente con la suscripción de filtros &quot;&#37;S&quot;, que aún no agregaste.">
+<!ENTITY addMain.label "Agregá también la suscripción de filtros &quot;&#37;S&quot;.">
+<!ENTITY addMain.accesskey "s">

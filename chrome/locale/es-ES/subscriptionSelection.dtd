@@ -1,4 +1,5 @@
 <!ENTITY dialog.title "Añadir suscripción de filtros para Adblock Plus">
+<!ENTITY dialog.title.edit "Editar suscripción de filtros">
 <!ENTITY adblock.warning "Adblock Plus ha detectado que está instalado Adblock o una versión antigua de 
 Adblock Plus. Utilizar Adblock y Adblock Plus de forma simultánea puede causar
 problemas y está totalmente desaconsejado. Le recomendamos que desinstale Adblock ahora.">
@@ -11,10 +12,9 @@ diversos sitios web. Le recomendamos que desinstale Filterset.G ahora.">
 <!ENTITY filterset.g.uninstall "Desinstalar Filterset.G">
 <!ENTITY other.label "Añadir otra suscripción">
 <!ENTITY other.accesskey "A">
-<!ENTITY dialog.title.edit "Editar suscripción de filtros">
-<!ENTITY location.label "Ubicación de lista de filtros:">
-<!ENTITY location.accesskey "U">
 <!ENTITY title.label "Título de la suscripción:">
 <!ENTITY title.accesskey "T">
+<!ENTITY location.label "Ubicación de lista de filtros:">
+<!ENTITY location.accesskey "U">
 <!ENTITY autodownload.label "Actualizar automáticamente">
 <!ENTITY autodownload.accesskey "z">

@@ -1,4 +1,5 @@
 <!ENTITY dialog.title "Adblock Plus-д тавтай морил">
+<!ENTITY dialog.title.edit "Шүүлтүүрийн мэдээлэгч засах">
 <!ENTITY adblock.warning "Adblock Plus нь хуучин Adblock Plus эсвэл энэ Adblock хувилбарыг суулгасныг илрүүллээ.  Adblock болон Adblock Plus нь зэрэгцэн ажиллавал хүндрэл үүсгэж болзошгүй.  Adblock-ийг устгахыг зөвлөж байна.">
 <!ENTITY adblock.uninstall "Adblovk-ийг устгах">
 <!ENTITY filterset.g.warning "It seems that you use Filterset.G. This filter list has been barely maintained in the last few years and is a common cause of problems with web sites. It is recommended that you uninstall Filterset.G now.">
@@ -7,10 +8,9 @@
 <!ENTITY filterset.g.uninstall "Filterset.G-г устгах">
 <!ENTITY other.label "Өөр мэдээлэгч нэмэх">
 <!ENTITY other.accesskey "Ө">
-<!ENTITY dialog.title.edit "Шүүлтүүрийн мэдээлэгч засах">
-<!ENTITY location.label "Шүүлтүүрийн жагсаалтын байршил:">
-<!ENTITY location.accesskey "Б">
 <!ENTITY title.label "Мэдээлэгчийн гарчиг:">
 <!ENTITY title.accesskey "Г">
+<!ENTITY location.label "Шүүлтүүрийн жагсаалтын байршил:">
+<!ENTITY location.accesskey "Б">
 <!ENTITY autodownload.label "Автоматаар шинэчлэх">
 <!ENTITY autodownload.accesskey "В">

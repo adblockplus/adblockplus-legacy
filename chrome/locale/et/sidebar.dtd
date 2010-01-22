@@ -20,6 +20,9 @@
 <!ENTITY context.block.label "Blokeeri selle objekti">
 <!ENTITY context.editfilter.label "Muuda filtrit efektis">
 <!ENTITY context.whitelist.label "Lisa objektile erandliku reegeli">
+<!ENTITY context.disablefilter.label "Keela filetr">
+<!ENTITY context.enablefilter.label "Luba filter">
+<!ENTITY context.disablefilteronsite.label "Keela filter">
 <!ENTITY context.open.label "Ava uues tabis">
 <!ENTITY context.flash.label "Flashi objekti ääred">
 <!ENTITY context.copy.label "Kopeeri objekti aadress">

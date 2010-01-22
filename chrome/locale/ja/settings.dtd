@@ -87,3 +87,4 @@
 <!ENTITY context.disable.label "無効">
 <!ENTITY apply.label "適 用">
 <!ENTITY apply.accesskey "P">
+<!ENTITY fennec.subscription.label "同期フィルタ">

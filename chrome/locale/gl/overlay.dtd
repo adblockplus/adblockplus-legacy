@@ -8,6 +8,7 @@
 <!ENTITY context.image.label "Imaxe Adblock">
 <!ENTITY context.object.label "Obxecto Adblock">
 <!ENTITY context.frame.label "Marco Adblock">
+<!ENTITY context.media.label "Adblock Plus: Bloquear vídeo/audio">
 <!ENTITY context.removeWhitelist.label "Adblock Plus: Re-activado nesta páxina">
 <!ENTITY sidebar.title "Temas bloqueables da páxina actual">
 <!ENTITY settings.label "Preferencias">

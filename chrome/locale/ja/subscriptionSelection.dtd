@@ -1,4 +1,10 @@
 <!ENTITY dialog.title "Adblock Plus 同期フィルタの追加">
+<!ENTITY dialog.title.edit "同期フィルタを編集">
+<!ENTITY description.newInstall "
+	Adblock Plus では同期フィルタを使うと効果的です。
+	以下のフィルタは有志によって作成され無償で提供されています。
+	あなたが使っている言語に最も適したものが選択されています。
+">
 <!ENTITY adblock.warning "
 	Adblock Plus が Adblock 、あるいは Adblock Plus の古いバージョンがインストールされて
 	いるのを検出しました。 Adblock と Adblock Plus を並行して機能させるのは問題を引き起こす
@@ -13,12 +19,26 @@
 <!ENTITY filterset.g.moreinfo "詳細情報">
 <!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
 <!ENTITY filterset.g.uninstall "Filterset.G アンインストール">
+<!ENTITY subscriptionSelector.label "リストから同期フィルタを選択してください：">
+<!ENTITY viewList.label "内容を確認する">
+<!ENTITY visitHomepage.label "ホームページ">
+<!ENTITY addSubscription.label "追加">
+<!ENTITY saveSubscription.label "保存">
 <!ENTITY other.label "上記以外を追加">
 <!ENTITY other.accesskey "f">
-<!ENTITY dialog.title.edit "同期フィルタを編集">
-<!ENTITY location.label "場所:">
-<!ENTITY location.accesskey "L">
+<!ENTITY list.download.failed "リスト取得に失敗しました。">
+<!ENTITY list.download.retry "再試行">
+<!ENTITY list.download.website "Webサイトで見る">
+<!ENTITY list.website.url "http://adblockplus.org/en/subscriptions">
+<!ENTITY fromWeb.description "追加する同期フィルタを確認してください。保存する前に名前と場所を変更できます。">
+<!ENTITY edit.description "必要に応じて変更できます。名前と場所を入力することで上記以外の同期フィルタも使えます。">
+<!ENTITY external.description "これは外部同期フィルタです。このフィルタを設定した外部アドオンによって更新されます">
 <!ENTITY title.label "名前:">
 <!ENTITY title.accesskey "T">
+<!ENTITY location.label "場所:">
+<!ENTITY location.accesskey "L">
 <!ENTITY autodownload.label "自動更新にする">
 <!ENTITY autodownload.accesskey "P">
+<!ENTITY supplementMessage "この同期フィルタは &quot;&#37;S&quot; との併用が推奨されています。">
+<!ENTITY addMain.label " &quot;&#37;S&quot; も追加する">
+<!ENTITY addMain.accesskey "s">

@@ -1,11 +1,10 @@
-<!ENTITY dialog.title "Dobrodošli u Adblock Plus">
+<!ENTITY dialog.title.edit "Uredi pretplatu na filter">
 <!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
 <!ENTITY other.label "Dodajte drugu pretplatu">
 <!ENTITY other.accesskey "g">
-<!ENTITY dialog.title.edit "Uredi pretplatu na filter">
-<!ENTITY location.label "Mjesto popisa filtera:">
-<!ENTITY location.accesskey "j">
 <!ENTITY title.label "Naslov pretplate:">
 <!ENTITY title.accesskey "p">
+<!ENTITY location.label "Mjesto popisa filtera:">
+<!ENTITY location.accesskey "j">
 <!ENTITY autodownload.label "Automatski ažuriraj">
 <!ENTITY autodownload.accesskey "m">

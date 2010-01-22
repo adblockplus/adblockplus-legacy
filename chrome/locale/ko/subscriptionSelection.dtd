@@ -1,16 +1,32 @@
 <!ENTITY dialog.title "Adblock Plus에 오신 것을 환영합니다.">
+<!ENTITY dialog.title.edit "필터 표현식 편집">
+<!ENTITY description.newInstall "Adblock Plus를 효과적으로 이용하려면 필터 표현식을 추가해야 합니다. 필터 표현식은 다른 사용자들에게 의해 무료로 제공됩니다. 사용자 언어에 맞는 대부분의 필터 표현식이 이미 선택되었습니다.">
 <!ENTITY adblock.warning "Adblock Plus가 Adblock 또는 이전 버전의 Adblock Plus를 찾았습니다. Adblock과 Adblock Plus를 동시에 실행하면 문제를 일으킬 수 있어 피해야 합니다. 지금 Adblock을 제거하시는 것이 좋습니다.(권장됨)">
 <!ENTITY adblock.uninstall "Adblock 제거">
 <!ENTITY filterset.g.warning "Filterset.G가 사용 중인 것 같습니다. 이 필터 목록은 현재 거의 관리되지 않아, 웹사이트와 문제를 일으킬 수 있습니다. 지금 Filterset.G를 제거하시는 것이 좋습니다.(권장됨)">
 <!ENTITY filterset.g.moreinfo "더 많은 정보">
 <!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
 <!ENTITY filterset.g.uninstall "Filterset.G 제거">
+<!ENTITY subscriptionSelector.label "목록으로부터 필터 표현식을 선택하십시오:">
+<!ENTITY viewList.label "필터 보기">
+<!ENTITY visitHomepage.label "홈페이지 방문">
+<!ENTITY addSubscription.label "표현식 추가">
+<!ENTITY saveSubscription.label "표현식 저장">
 <!ENTITY other.label "다른 표현식 추가">
 <!ENTITY other.accesskey "f">
-<!ENTITY dialog.title.edit "필터 표현식 편집">
-<!ENTITY location.label "필터 목록 위치:">
-<!ENTITY location.accesskey "L">
+<!ENTITY list.download.failed "실패한 표현식 목록">
+<!ENTITY list.download.retry "재시도">
+<!ENTITY list.download.website "웹사이트 보기">
+<!ENTITY list.website.url "http://adblockplus.org/en/subscriptions">
+<!ENTITY fromWeb.description "이 필터 표현식을 추가하기 위해 확인해 주십시오. 추가하기 전 제목 또는 로케일을 변경할 수 있습니다.">
+<!ENTITY edit.description "필요하다면 제목 또는 로케일을 변경할 수 있습니다.">
+<!ENTITY external.description "외부 필터 표현식입니다. 이 표현식에 의해 생성된 확장기능에 의해 필터 목록이 업데이트 됩니다.">
 <!ENTITY title.label "표현식 제목:">
 <!ENTITY title.accesskey "T">
+<!ENTITY location.label "필터 목록 위치:">
+<!ENTITY location.accesskey "L">
 <!ENTITY autodownload.label "자동 업데이트">
 <!ENTITY autodownload.accesskey "P">
+<!ENTITY supplementMessage "이 필터 표현식은 아직 추가되지 않은 &quot;&#37;S&quot; 필터 표현식과 함께 사용됩니다.">
+<!ENTITY addMain.label "&quot;&#37;S&quot; 필터 표현식 추가">
+<!ENTITY addMain.accesskey "s">

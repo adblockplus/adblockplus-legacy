@@ -1,4 +1,5 @@
 <!ENTITY dialog.title "Adblock Plus фильтрлерге жазылуды қосу">
+<!ENTITY dialog.title.edit "Фильтрге жазылуды түзету">
 <!ENTITY adblock.warning "Adblock Plus бұл бағдарламада Adblock немесе Adblock Plus ескі нұсқасы қолданылып
 	тұрғанын анықтады. Adblock пен Adblock Plus бірге қолдану мәселелерді тұғызуы мүмкін.
 	Оларды болдырмау үшін Adblock өшіру ұсынылады.">
@@ -11,10 +12,9 @@
 <!ENTITY filterset.g.uninstall "Filterset.G өшіру">
 <!ENTITY other.label "Басқа жазылуды қосу">
 <!ENTITY other.accesskey "с">
-<!ENTITY dialog.title.edit "Фильтрге жазылуды түзету">
-<!ENTITY location.label "Фильтр тізім адресі:">
-<!ENTITY location.accesskey "д">
 <!ENTITY title.label "Жазылудың аты:">
 <!ENTITY title.accesskey "з">
+<!ENTITY location.label "Фильтр тізім адресі:">
+<!ENTITY location.accesskey "д">
 <!ENTITY autodownload.label "Автоматты түрде жаңарту">
 <!ENTITY autodownload.accesskey "а">

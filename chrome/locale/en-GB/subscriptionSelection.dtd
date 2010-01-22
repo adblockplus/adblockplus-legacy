@@ -1,4 +1,4 @@
-<!ENTITY dialog.title "Welcome to Adblock Plus">
+<!ENTITY dialog.title.edit "Edit filter subscription">
 <!ENTITY adblock.warning "Adblock Plus has detected that Adblock or an old version of Adblock Plus is installed. Running both Adblock and Adblock Plus in parallel can cause problems and should be avoided. It is recommended that you uninstall Adblock now.">
 <!ENTITY adblock.uninstall "Uninstall Adblock">
 <!ENTITY filterset.g.warning "Adblock Plus has detected that you use Filterset.G. This filter list has been barely maintained in the last few years and is a common cause of problems with web sites. It is recommended that you uninstall Filterset.G now.">
@@ -7,10 +7,9 @@
 <!ENTITY filterset.g.uninstall "Uninstall Filterset.G">
 <!ENTITY other.label "Add a different subscription">
 <!ENTITY other.accesskey "f">
-<!ENTITY dialog.title.edit "Edit filter subscription">
-<!ENTITY location.label "Filter list location:">
-<!ENTITY location.accesskey "l">
 <!ENTITY title.label "Subscription title:">
 <!ENTITY title.accesskey "t">
+<!ENTITY location.label "Filter list location:">
+<!ENTITY location.accesskey "l">
 <!ENTITY autodownload.label "Update automatically">
 <!ENTITY autodownload.accesskey "p">

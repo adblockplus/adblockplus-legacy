@@ -89,3 +89,4 @@
 <!ENTITY context.disable.label "사용 안 함">
 <!ENTITY apply.label "적용">
 <!ENTITY apply.accesskey "P">
+<!ENTITY fennec.subscription.label "필터 표현식">
