@@ -1464,9 +1464,13 @@ let treeView = {
     if (sortColumn)
       this.resort(sortColumn, sortDir);
 
-    // Make sure we stop the editor when scrolling
+    // Make sure we stop the editor when scrolling or resizing window
     let me = this;
     this.boxObject.treeBody.addEventListener("DOMMouseScroll", function()
+    {
+      me.stopEditor(true);
+    }, false);
+    window.addEventListener("resize", function()
     {
       me.stopEditor(true);
     }, false);
