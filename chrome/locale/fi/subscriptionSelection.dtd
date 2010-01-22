@@ -1,4 +1,5 @@
 <!ENTITY dialog.title "Lisää Adblock Plus -suodatintilaus">
+<!ENTITY dialog.title.edit "Muokkaa suodatintilausta">
 <!ENTITY adblock.warning "Adblock Plus on huomannut, että Adblockista tai Adblock Plussasta on vanha versio asennettuna. Adblockin ja Adblock Plussan yhtäaikainen käyttäminen saattaa aiheuttaa ongelmia ja tulisi välttää. Suosittelemme Adblockin poistamista välittömästi.">
 <!ENTITY adblock.uninstall "Poista Adblock">
 <!ENTITY filterset.g.warning "Näyttää siltä, että käytät Filterset.G:tä. Tätä suodatinlistaa ei ole ylläpidetty viime vuosina ja yleinen syy ongelmiin verkkosivujen kanssa. Suosittelemme Filterset.G:n poistamista välittömästi.">
@@ -7,10 +8,9 @@
 <!ENTITY filterset.g.uninstall "Poista Filterset.G">
 <!ENTITY other.label "Lisää jokin muu tilaus">
 <!ENTITY other.accesskey "L">
-<!ENTITY dialog.title.edit "Muokkaa suodatintilausta">
-<!ENTITY location.label "Listan sijainti:">
-<!ENTITY location.accesskey "L">
 <!ENTITY title.label "Tilauksen nimi:">
 <!ENTITY title.accesskey "T">
+<!ENTITY location.label "Listan sijainti:">
+<!ENTITY location.accesskey "L">
 <!ENTITY autodownload.label "Päivitä automaattisesti">
 <!ENTITY autodownload.accesskey "a">

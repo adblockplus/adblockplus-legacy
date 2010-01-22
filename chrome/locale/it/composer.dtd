@@ -2,8 +2,33 @@
 <!ENTITY accept.label "Aggiungi filtro">
 <!ENTITY advanced.label "Avanzate &gt;&gt;">
 <!ENTITY basic.label "&lt;&lt; Generali">
-<!ENTITY disabled.warning "Adblock Plus è attualmente disattivata. È comunque possibile aggiungere filtri, ma questi verranno applicati solo dopo la [link]riattivazione di Adblock Plus[/link] ">
-<!ENTITY groupDisabled.warning "Il gruppo di filtri &quot;&#37;S&quot; al quale bisognerebbe aggiungere il filtro è attualmente disattivato. È comunque possibile aggiungere il filtro, ma questo verrà applicato solo dopo la [link]riattivazione del gruppo di filtri[/link] ">
+<!ENTITY disabled.warning "Adblock Plus è attualmente disattivata. È comunque possibile aggiungere filtri, ma questi verranno applicati solo dopo la [link]riattivazione di Adblock Plus[/link]">
+<!--  ***** BEGIN LICENSE BLOCK *****
+	 - Version: MPL 1.1
+	 -
+	 - The contents of this file are subject to the Mozilla Public License Version
+	 - 1.1 (the "License"); you may not use this file except in compliance with
+	 - the License. You may obtain a copy of the License at
+	 - http://www.mozilla.org/MPL/
+	 -
+	 - Software distributed under the License is distributed on an "AS IS" basis,
+	 - WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+	 - for the specific language governing rights and limitations under the
+	 - License.
+	 -
+	 - The Original Code is Adblock Plus.
+	 -
+	 - The Initial Developer of the Original Code is
+	 - Wladimir Palant.
+	 - Portions created by the Initial Developer are Copyright (C) 2006-2009
+	 - the Initial Developer. All Rights Reserved.
+	 -
+	 - Contributor(s):
+	 -
+	 - ***** END LICENSE BLOCK ***** 
+ 
+-->
+<!ENTITY groupDisabled.warning "Il gruppo di filtri &quot;&#37;S&quot; al quale bisognerebbe aggiungere il filtro è attualmente disattivato. È comunque possibile aggiungere il filtro, ma questo verrà applicato solo dopo la [link]riattivazione del gruppo di filtri[/link]">
 <!ENTITY filter.label "Nuovo filtro:">
 <!ENTITY filter.accesskey "N">
 <!ENTITY preferences.label "Mostra i filtri esistenti…">
@@ -20,10 +45,10 @@
 <!ENTITY custom.pattern.accesskey "P">
 <!ENTITY anchors.label "Accetta modelli solo:">
 <!ENTITY anchor.start.label "all&apos;inizio dell&apos;indirizzo web">
-<!--  Note: This access key should usually be the same as anchor.start.flexible.accesskey. It is the same checkbox with different label depending on suggested filter. -->
+<!-- Note: the placeholder (%S) will be replaced by the name of the disabled filter group -->
 <!ENTITY anchor.start.accesskey "i">
 <!ENTITY anchor.start.flexible.label "all&apos;inizio del nome del dominio">
-<!--  Note: This access key should usually be the same as anchor.start.accesskey. It is the same checkbox with different label depending on suggested filter. -->
+<!-- Note: This access key should usually be the same as anchor.start.flexible.accesskey. It is the same checkbox with different label depending on suggested filter. -->
 <!ENTITY anchor.start.flexible.accesskey "i">
 <!ENTITY anchor.end.label "alla fine dell&apos;indirizzo web">
 <!ENTITY anchor.end.accesskey "f">

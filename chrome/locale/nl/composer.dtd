@@ -3,6 +3,7 @@
 <!ENTITY advanced.label "Uitgebreid">
 <!ENTITY basic.label "Eenvoudig">
 <!ENTITY disabled.warning "Adblock Plus is uitgeschakeld. U kunt nog wel filters toevoegen, maar ze worden niet toegepast tot u [link]Adblock Plus weer inschakelen[/link].">
+<!--  Note: This access key should usually be the same as anchor.start.flexible.accesskey. It is the same checkbox with different label depending on suggested filter. -->
 <!ENTITY groupDisabled.warning "De filtergroep &quot;&#37;S&quot; aan wordt toegevoegd is momenteel uitgeschakeld. U kunt het filter nog wel toevoegen maar het wordt niet toegepast tenzij u [link]de filtergroep inschakeld[/link].">
 <!ENTITY filter.label "Nieuw filter">
 <!ENTITY filter.accesskey "N">
@@ -20,10 +21,9 @@
 <!ENTITY custom.pattern.accesskey "A">
 <!ENTITY anchors.label "Accepteer alleen patronen:">
 <!ENTITY anchor.start.label "aan het begin van het adres">
-<!--  Note: This access key should usually be the same as anchor.start.flexible.accesskey. It is the same checkbox with different label depending on suggested filter. -->
+<!--  Note: This access key should usually be the same as anchor.start.accesskey. It is the same checkbox with different label depending on suggested filter. -->
 <!ENTITY anchor.start.accesskey "h">
 <!ENTITY anchor.start.flexible.label "aan het begin van de domeinnaam">
-<!--  Note: This access key should usually be the same as anchor.start.accesskey. It is the same checkbox with different label depending on suggested filter. -->
 <!ENTITY anchor.start.flexible.accesskey "h">
 <!ENTITY anchor.end.label "aan het eind van het adres">
 <!ENTITY anchor.end.accesskey "e">

@@ -1,9 +1,9 @@
+<!ENTITY dialog.title.edit "ಫಿಲ್ಟರ್ ಚಂದಾವನ್ನು ಸಂಪಾದಿಸು">
 <!ENTITY other.label "ಇನ್ನೊಂದು ಚಂದಾವನ್ನು ಸೇರಿಸಿ">
 <!ENTITY other.accesskey "T">
-<!ENTITY dialog.title.edit "ಫಿಲ್ಟರ್ ಚಂದಾವನ್ನು ಸಂಪಾದಿಸು">
-<!ENTITY location.label "ಫಿಲ್ಟರ್ ಪಟ್ಟಿಯ ಸ್ಥಾನ:">
-<!ENTITY location.accesskey "L">
 <!ENTITY title.label "ಚಂದಾ ಶೀರ್ಷಿಕೆ:">
 <!ENTITY title.accesskey "T">
+<!ENTITY location.label "ಫಿಲ್ಟರ್ ಪಟ್ಟಿಯ ಸ್ಥಾನ:">
+<!ENTITY location.accesskey "L">
 <!ENTITY autodownload.label "ಸ್ವಯಂಚಾಲಿತವಾಗಿ ನವೇನಗೊಳಿಸು">
 <!ENTITY autodownload.accesskey "P">

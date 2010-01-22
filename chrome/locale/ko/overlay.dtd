@@ -8,6 +8,7 @@
 <!ENTITY context.image.label "Adblock Plus: 이미지 차단">
 <!ENTITY context.object.label "Adblock Plus: 객체 차단">
 <!ENTITY context.frame.label "Adblock Plus: 프레임 차단">
+<!ENTITY context.media.label "Adblock Plus: 비디오/오디오 차단">
 <!ENTITY context.removeWhitelist.label "Adblock Plus: 이 페이지 재설정">
 <!ENTITY sidebar.title "현재 페이지에서 차단 가능한 항목">
 <!ENTITY settings.label "설정">

@@ -18,6 +18,7 @@
 <!ENTITY closesidebar.label "Փակել ֆիլտրվող տարրերը">
 <!--  Note: This access key should usually be the same as opensidebar.accesskey. It is the same menu item with different label depending on whether the sidebar is currently open. -->
 <!ENTITY closesidebar.accesskey "տ">
+<!ENTITY whitelist.site.label "Անջատել այս կայքում">
 <!ENTITY whitelist.page.label "Անջատել միայն այս էջի համար">
 <!ENTITY objecttab.title "Ֆիլտրել">
 <!ENTITY objecttab.tooltip "Սեղմել «Adblock Plus»ով այս օբյեկտը ֆիլտրելու համար">

@@ -1,4 +1,4 @@
-<!ENTITY dialog.title "ยินดีต้อนรับสู่ Adblock Plus">
+<!ENTITY dialog.title.edit "แก้ไขการเป็นสมาชิกบอกรับรายการตัวกรอง">
 <!ENTITY adblock.warning "Adblock Plus พบว่าคุณติดตั้ง Adblock หรือ Adblock Plus เวอร์ชันเก่า การใช้งานทั้ง Adblock และ Adblock Plus พร้อมกันอาจเกิดปัญหาได้ คุณควรยอกเลิกการติดตั้ง Adblock">
 <!ENTITY adblock.uninstall "ยอกเลิกการติดตั้ง Adblock">
 <!ENTITY filterset.g.warning "ดูเหมือนว่าคุณจะใช้ Filterset.G ตัวกรองนี้ไม่ได้ปรับปรุงมานานและอาจเกิดปัญหาได้ คุณควรยกเลิกการติดตั้ง Filterset.G">
@@ -7,10 +7,9 @@
 <!ENTITY filterset.g.uninstall "ยกเลิกการติดตั้ง Filterset.G">
 <!ENTITY other.label "เพิ่มนามข้างท้าย">
 <!ENTITY other.accesskey "พ">
-<!ENTITY dialog.title.edit "แก้ไขการเป็นสมาชิกบอกรับรายการตัวกรอง">
-<!ENTITY location.label "ที่อยู่รายชื่อตัวกรอง:">
-<!ENTITY location.accesskey "ร">
 <!ENTITY title.label "ชื่อ:">
 <!ENTITY title.accesskey "ช">
+<!ENTITY location.label "ที่อยู่รายชื่อตัวกรอง:">
+<!ENTITY location.accesskey "ร">
 <!ENTITY autodownload.label "ปรับปรุงอัตโนมัติ">
 <!ENTITY autodownload.accesskey "อ">

@@ -1,4 +1,5 @@
 <!ENTITY dialog.title "Բարի գալուստ Adblock Plus">
+<!ENTITY dialog.title.edit "Խմբագրել բաժանորդագրությունները">
 <!ENTITY adblock.warning "
 	«Adblock Plus»-ից բացի ձեր համակարգում տեղադրված է Adblock կամ 
 	«Adblock Plus»-ի հին տարբերակ: Դրանց զուգահեռ օգտագործումը կարող է 
@@ -15,10 +16,9 @@
 <!ENTITY filterset.g.uninstall "Հեռացնել Filterset.G-ն">
 <!ENTITY other.label "Ավելացնել բաժանորդագրություն">
 <!ENTITY other.accesskey "Ա">
-<!ENTITY dialog.title.edit "Խմբագրել բաժանորդագրությունները">
-<!ENTITY location.label "Ֆիլտրերի հասցեն`">
-<!ENTITY location.accesskey "հ">
 <!ENTITY title.label "Բաժանորդագրության ավանումը`">
 <!ENTITY title.accesskey "ա">
+<!ENTITY location.label "Ֆիլտրերի հասցեն`">
+<!ENTITY location.accesskey "հ">
 <!ENTITY autodownload.label "Ավտոմատ թարմացում">
 <!ENTITY autodownload.accesskey "թ">

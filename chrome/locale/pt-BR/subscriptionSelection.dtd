@@ -1,4 +1,4 @@
-<!ENTITY dialog.title "Bem vindo ao Adblock Plus">
+<!ENTITY dialog.title.edit "Editar inscrição de filtro">
 <!ENTITY adblock.warning "O Adblock Plus detectou que o Adblock ou uma versão mais antiga do Adblock Plus está instalada. Executar simultaneamente o Adblock e o Adblock Plus pode causar problemas que deveriam ser evitados. É recomendado que você desinstale o Adblock agora.">
 <!ENTITY adblock.uninstall "Desinstalar Adblock">
 <!ENTITY filterset.g.warning "Parece que você usa o Filterset.G. Essa lista de filtros tem sido raramente atualizada nos últimos anos e é uma causa comum de problemas em sites. É recomendado que você desinstale o Filterset.G agora.">
@@ -7,10 +7,9 @@
 <!ENTITY filterset.g.uninstall "Desinstalar Filterset.G">
 <!ENTITY other.label "Adicionar outra inscrição">
 <!ENTITY other.accesskey "O">
-<!ENTITY dialog.title.edit "Editar inscrição de filtro">
-<!ENTITY location.label "Localização da lista de filtros:">
-<!ENTITY location.accesskey "L">
 <!ENTITY title.label "Título da inscrição:">
 <!ENTITY title.accesskey "T">
+<!ENTITY location.label "Localização da lista de filtros:">
+<!ENTITY location.accesskey "L">
 <!ENTITY autodownload.label "Atualizar automaticamente">
 <!ENTITY autodownload.accesskey "A">

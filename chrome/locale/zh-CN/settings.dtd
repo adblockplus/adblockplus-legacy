@@ -89,3 +89,4 @@
 <!ENTITY context.disable.label "禁用">
 <!ENTITY apply.label "应用">
 <!ENTITY apply.accesskey "P">
+<!ENTITY fennec.subscription.label "过滤规则订阅">

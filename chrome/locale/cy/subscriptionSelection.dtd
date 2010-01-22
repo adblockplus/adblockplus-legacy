@@ -1,6 +1,5 @@
-
 <!ENTITY dialog.title.edit "Golygu tanysgrifiadau ffilter">
+<!ENTITY title.accesskey "T">
 <!ENTITY location.label "Lleoliad y rhestr ffilteri:">
 <!ENTITY location.accesskey "L">
-<!ENTITY title.accesskey "T">
 <!ENTITY autodownload.accesskey "P">

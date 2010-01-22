@@ -1,4 +1,4 @@
-<!ENTITY dialog.title "Välkommen till Adblock Plus filterprenumeration">
+<!ENTITY dialog.title.edit "Ändra filterprenumeration">
 <!ENTITY adblock.warning "Adblock Plus har upptäckt en tidigare version av Adblock Plus eller Adblock. Att köra Adblock och Adblock Plus samtidigt kan orsaka problem och bör undvikas. Vi rekommenderar att du avinstallerar Adblock nu.">
 <!ENTITY adblock.uninstall "Avinstallera Adblock">
 <!ENTITY filterset.g.warning "Det verkar som om du andvänder Filterset.G. Denna filterlista har knappt uppdaterats de senaste åren och har återkommande orsakat problem med hemsidor. Vi rekommenderar att du avinstallerar Filterset.G nu.">
@@ -7,10 +7,9 @@
 <!ENTITY filterset.g.uninstall "Avinstallera Filterset.G">
 <!ENTITY other.label "Lägg till en ny prenumeration">
 <!ENTITY other.accesskey "t">
-<!ENTITY dialog.title.edit "Ändra filterprenumeration">
-<!ENTITY location.label "Plats för filter:">
-<!ENTITY location.accesskey "F">
 <!ENTITY title.label "Titel för prenumeration:">
 <!ENTITY title.accesskey "T">
+<!ENTITY location.label "Plats för filter:">
+<!ENTITY location.accesskey "F">
 <!ENTITY autodownload.label "Uppdatera automatiskt">
 <!ENTITY autodownload.accesskey "a">

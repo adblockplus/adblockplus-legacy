@@ -1,4 +1,4 @@
-<!ENTITY dialog.title "ברוכים הבאים ל-Adblock Plus">
+<!ENTITY dialog.title.edit "ערוך הרשמה למסננים">
 <!ENTITY adblock.warning "Adblock Plus זיהה שAdblock או גרסה ישנה של Adblock Plus מותקנת. הרצת שתי הגרסאות במקביל יכולה לגרום לבעיות ואמורה להמנע.מומלץ למחוק את Adblock כעת.">
 <!ENTITY adblock.uninstall "הסרת Adblock">
 <!ENTITY filterset.g.warning "נראה שנעשה שימוש בהרחבה Filterset.G. רשימת מסננים זו בקושי תוחזקה בשנים האחרונות ולכן ישנן בעיות עם אתרים. מומלץ להסיר את Filterset.G כעת.">
@@ -7,10 +7,12 @@
 <!ENTITY filterset.g.uninstall "הסרת Filterset.G">
 <!ENTITY other.label "הוסף הרשמה אחרת">
 <!ENTITY other.accesskey "ס">
-<!ENTITY dialog.title.edit "ערוך הרשמה למסננים">
-<!ENTITY location.label "מיקום רשימת מסננים:">
-<!ENTITY location.accesskey "מ">
+<!ENTITY list.download.retry "נסה שנית">
+<!ENTITY list.download.website "הצגת האתר">
+<!ENTITY list.website.url "http://adblockplus.org/en/subscriptions">
 <!ENTITY title.label "כותרת הרשמה:">
 <!ENTITY title.accesskey "כ">
+<!ENTITY location.label "מיקום רשימת מסננים:">
+<!ENTITY location.accesskey "מ">
 <!ENTITY autodownload.label "עדכון אוטומטי">
 <!ENTITY autodownload.accesskey "ע">

@@ -8,6 +8,7 @@
 <!ENTITY context.image.label "过滤图片(Adblock Plus)">
 <!ENTITY context.object.label "过滤对象(Adblock Plus)">
 <!ENTITY context.frame.label "过滤帧(Adblock Plus)">
+<!ENTITY context.media.label "过滤视频/音频(Adblock Plus)">
 <!ENTITY context.removeWhitelist.label "Adblock Plus: 在此页面上重新启用">
 <!ENTITY sidebar.title "本页可过滤的项目">
 <!ENTITY settings.label "首选项">

@@ -1,4 +1,5 @@
 <!ENTITY dialog.title "أهلاً بك في آدبلوك بلاس">
+<!ENTITY dialog.title.edit "تعديل اشتراك فلتر">
 <!ENTITY adblock.warning "قام آدبلوك بلس بتحديد أن &quot;آدبلوك&quot; أو نسخة قديمة من &quot;آدبلوك بلس&quot; منصبة. تشغيل &quot;آدبلوك&quot; و &quot;آدبلوك بلس&quot; معاً يمكن أن يسبب مشاكل و يجب تجنبه. ننصحك بإزالة &quot;آدبلوك&quot; الآن.">
 <!ENTITY adblock.uninstall "إزالة آدبلوك.">
 <!ENTITY filterset.g.warning "يبدو أنك تستخدم Filterset.G، بالكاد تم تطوير هذا الفلتر في السنوات الماضية لذلك فهو يسبب المشاكل مع مواقع الويب، يفضل إزالته الآن.">
@@ -7,10 +8,9 @@
 <!ENTITY filterset.g.uninstall "إزالة Filterset.G">
 <!ENTITY other.label "إضافة اشتراك آخر">
 <!ENTITY other.accesskey "آ">
-<!ENTITY dialog.title.edit "تعديل اشتراك فلتر">
-<!ENTITY location.label "موقع قائمة الفلاتر">
-<!ENTITY location.accesskey "م">
 <!ENTITY title.label "عنوان الاشتراك">
 <!ENTITY title.accesskey "ع">
+<!ENTITY location.label "موقع قائمة الفلاتر">
+<!ENTITY location.accesskey "م">
 <!ENTITY autodownload.label "تحديث أوتوماتيكي">
 <!ENTITY autodownload.accesskey "ث">

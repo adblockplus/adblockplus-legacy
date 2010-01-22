@@ -1,4 +1,4 @@
-<!ENTITY dialog.title "Benvinguts a Adblock Plus">
+<!ENTITY dialog.title.edit "Edita subscripció del filtre">
 <!ENTITY adblock.warning "Adblock Plus ha detectat que Adblock o una versió anterior de Adblock Plus està instal·lat. Executar Adblock i Adblock Plus en Paralel pot causar problemes i s&apos;hauria d&apos;evitar. Es recomana desinstal·lar Adblock.">
 <!ENTITY adblock.uninstall "Desinstal·lar Adblock">
 <!ENTITY filterset.g.warning "Sembla que s&apos;utilitza Filterset.G Aquest filtre quasi no s&apos;ha actualitzat en els últims anys i és una causa comú de problemes amb llocs web. Es recomana desinstal·lar Filterset.G ara.">
@@ -7,10 +7,9 @@
 <!ENTITY filterset.g.uninstall "Desinstal·lar Filterset.G">
 <!ENTITY other.label "Afegir una altra subscripció">
 <!ENTITY other.accesskey "A">
-<!ENTITY dialog.title.edit "Edita subscripció del filtre">
-<!ENTITY location.label "Filtra la localització de la llista:">
-<!ENTITY location.accesskey "L">
 <!ENTITY title.label "Títol de la subscripció:">
 <!ENTITY title.accesskey "T">
+<!ENTITY location.label "Filtra la localització de la llista:">
+<!ENTITY location.accesskey "L">
 <!ENTITY autodownload.label "Actualitza automàticament">
 <!ENTITY autodownload.accesskey "Z">

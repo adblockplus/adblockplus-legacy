@@ -1,4 +1,5 @@
 <!ENTITY dialog.title "Tambahkan skrip filter Adblock Plus">
+<!ENTITY dialog.title.edit "Edit skrip filter">
 <!ENTITY adblock.warning "Adblock Plus telah mendeteksi bahwa Adblock atau versi lama Adblock Plus terinstall.
 	Menjalankan kedua Adblock dan Adblock Plus terpisah bisa menyebabkan
 	masalah dan harus dicegah. Disarankan untuk menghapus Adblock sekarang.">
@@ -11,10 +12,9 @@
 <!ENTITY filterset.g.uninstall "Hapus Filterset.G">
 <!ENTITY other.label "Tambahkan skrip yang berbeda">
 <!ENTITY other.accesskey "y">
-<!ENTITY dialog.title.edit "Edit skrip filter">
-<!ENTITY location.label "Lokasi daftar filter:">
-<!ENTITY location.accesskey "L">
 <!ENTITY title.label "Judul Skrip:">
 <!ENTITY title.accesskey "J">
+<!ENTITY location.label "Lokasi daftar filter:">
+<!ENTITY location.accesskey "L">
 <!ENTITY autodownload.label "Update otomatis">
 <!ENTITY autodownload.accesskey "P">

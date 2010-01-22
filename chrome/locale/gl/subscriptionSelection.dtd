@@ -1,16 +1,32 @@
 <!ENTITY dialog.title "Engadir subscrición de filtros Adblock Plus">
+<!ENTITY dialog.title.edit "Editar filtro de subscrición">
+<!ENTITY description.newInstall "Para que Adblock Plus sexa máis eficaz ten que engadir unha subscrición de filtro. Estas subscricións de filtro son proporcionadas gratis por outros usuarios de Adblock Plus. As subscricións de filtro máis axeitadas para o seu idioma xa están seleccionadas.">
 <!ENTITY adblock.warning "Adblock Plus detectou que está instalado Adblock ou unha versión antiga de Adblock Plus. Executar Adblock Plus e Adblock en paralelo pode causar problemas e debe evitarse. Recoméndase desinstalar Adblock.">
 <!ENTITY adblock.uninstall "Desinstalar Adblock">
 <!ENTITY filterset.g.warning "Parece que utiliza Filterset.G. Esta lista de filtros apenas se mantivo nos últimos anos e é unha causa de problemas cos sitios da Rede. Recoméndase desinstalar Filterset.G.">
 <!ENTITY filterset.g.moreinfo "Máis información">
 <!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
 <!ENTITY filterset.g.uninstall "Desinstalar Filterset.G">
+<!ENTITY subscriptionSelector.label "Por favor, escolla unha subscrición de filtro da lista:">
+<!ENTITY viewList.label "Ver filtros">
+<!ENTITY visitHomepage.label "Visite a páxina de inicio">
+<!ENTITY addSubscription.label "Engadir subscrición">
+<!ENTITY saveSubscription.label "Engadir subscrición">
 <!ENTITY other.label "Engadir outra subscrición">
 <!ENTITY other.accesskey "O">
-<!ENTITY dialog.title.edit "Editar filtro de subscrición">
-<!ENTITY location.label "Localización da lista de Filtros:">
-<!ENTITY location.accesskey "L">
+<!ENTITY list.download.failed "Fallo na recuperación da lista de subscricións.">
+<!ENTITY list.download.retry "Ténteo de novo">
+<!ENTITY list.download.website "Ver sitio web">
+<!ENTITY list.website.url "http://adblockplus.org/en/subscriptions">
+<!ENTITY fromWeb.description "Por favor, confirme que quere engadir esa subscrición de filtro. Pode cambiar o título ou a situación da subscrición antes de engadila.">
+<!ENTITY edit.description "Pode cambiar o título ou a situación da subscrición se fose necesario.">
+<!ENTITY external.description "Esta é unha subscrición de filtro externa, a lista de filtros será actualizada pola extensión que creou esta subscrición.">
 <!ENTITY title.label "Título da subscrición:">
 <!ENTITY title.accesskey "T">
+<!ENTITY location.label "Localización da lista de Filtros:">
+<!ENTITY location.accesskey "L">
 <!ENTITY autodownload.label "Posta ao día automática">
 <!ENTITY autodownload.accesskey "P">
+<!ENTITY supplementMessage "Esta subscrición de filtro está feita para ser usada en conxunto coa subscrición de filtro &quot;&#37;S&quot; que non engadiu aínda.">
+<!ENTITY addMain.label "Engadir tamén subscrición de filtro &quot;&#37;S&quot;">
+<!ENTITY addMain.accesskey "s">

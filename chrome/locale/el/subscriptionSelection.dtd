@@ -1,4 +1,5 @@
 <!ENTITY dialog.title "Συνδρομές φίλτρων του Add Adblock Plus">
+<!ENTITY dialog.title.edit "Επεξεργασία συνδρομής">
 <!ENTITY adblock.warning "
 	Το Adblock Plus ανίχνευσε πως το Adblock ή μια παλαιότερη έκδοση του Adblock Plus είναι 
 	εγκατεστημένο. Η παράλληλη χρήση του Adblock και του Adblock Plus μπορεί να προκαλέσει 
@@ -15,10 +16,9 @@
 <!ENTITY filterset.g.uninstall "Απεγκατάσταση της Filterset.G">
 <!ENTITY other.label "Προσθήκη άλλης συνδρομής">
 <!ENTITY other.accesskey "Π">
-<!ENTITY dialog.title.edit "Επεξεργασία συνδρομής">
-<!ENTITY location.label "Τοποθεσία λίστας φίλτρων:">
-<!ENTITY location.accesskey "Τ">
 <!ENTITY title.label "Τίτλος συνδρομής:">
 <!ENTITY title.accesskey "σ">
+<!ENTITY location.label "Τοποθεσία λίστας φίλτρων:">
+<!ENTITY location.accesskey "Τ">
 <!ENTITY autodownload.label "Αυτόματη ενημέρωση">
 <!ENTITY autodownload.accesskey "Α">

@@ -1,16 +1,31 @@
-<!ENTITY dialog.title "欢迎使用Adblock Plus">
+<!ENTITY dialog.title.edit "编辑过滤规则订阅">
+<!ENTITY description.newInstall "要使 Adblock Plus 发挥最大功效，您应该添加规律规则订阅。这些规律规则订阅由其他 Adblock Plus 用户免费提供。大多数适用于您的语言的过滤过则订阅已经选择了。">
 <!ENTITY adblock.warning "Adblock Plus 检测出您已经安装了 Adblock 或旧版本的 Adblock Plus。同时运行 Adblock 和 Adblock Plus 会导致问题，应该避免此类问题发生。推荐现在卸载 Adblock。">
 <!ENTITY adblock.uninstall "卸载 Adblock">
 <!ENTITY filterset.g.warning "您正在使用 Filterset.G。该过滤规则列表由于网站问题已经很久不维护了。推荐您现在卸载 Filterset.G now。">
 <!ENTITY filterset.g.moreinfo "更多信息">
 <!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
 <!ENTITY filterset.g.uninstall "卸载 Filterset.G">
+<!ENTITY subscriptionSelector.label "从列表中选择过滤规则订阅：">
+<!ENTITY viewList.label "查看过滤规则">
+<!ENTITY visitHomepage.label "查看主页">
+<!ENTITY addSubscription.label "添加订阅">
+<!ENTITY saveSubscription.label "保存订阅">
 <!ENTITY other.label "添加订阅">
 <!ENTITY other.accesskey "f">
-<!ENTITY dialog.title.edit "编辑过滤规则订阅">
-<!ENTITY location.label "过滤规则列表位置:">
-<!ENTITY location.accesskey "L">
+<!ENTITY list.download.failed "获取订阅列表失败。">
+<!ENTITY list.download.retry "重试">
+<!ENTITY list.download.website "查看站点">
+<!ENTITY list.website.url "http://adblockplus.org/en/subscriptions">
+<!ENTITY fromWeb.description "请确认您希望添加该过滤规则订阅。在添加之前，您可以更改订阅标题或位置。">
+<!ENTITY edit.description "您可以更改订阅挑剔或位置">
+<!ENTITY external.description "这是外部的过滤规则订阅，由该订阅创建的过滤规则列表将会由扩展自动更新">
 <!ENTITY title.label "订阅的标题:">
 <!ENTITY title.accesskey "T">
+<!ENTITY location.label "过滤规则列表位置:">
+<!ENTITY location.accesskey "L">
 <!ENTITY autodownload.label "自动更新">
 <!ENTITY autodownload.accesskey "P">
+<!ENTITY supplementMessage "该规律规则订阅意味着该订阅将与您未添加的过滤规则订阅 &quot;&#37;S&quot; 一起使用。">
+<!ENTITY addMain.label "同时添加过滤规则订阅&quot;&#37;S&quot;">
+<!ENTITY addMain.accesskey "s">

@@ -2,8 +2,8 @@
 <!ENTITY filterset.g.moreinfo "Më shumë informata">
 <!ENTITY filterset.g.uninstall "Ç'instalo Filterset.G">
 <!ENTITY other.accesskey "f">
+<!ENTITY title.accesskey "T">
 <!ENTITY location.label "Vendi i listës së filtruesit">
 <!ENTITY location.accesskey "L">
-<!ENTITY title.accesskey "T">
 <!ENTITY autodownload.label "Fresko Automatikisht">
 <!ENTITY autodownload.accesskey "P">
