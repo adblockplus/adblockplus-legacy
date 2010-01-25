@@ -1,16 +1,32 @@
 <!ENTITY dialog.title "訂閱 Adblock Plus 過濾條件集">
 <!ENTITY dialog.title.edit "編輯過濾條件集">
+<!ENTITY description.newInstall "為了讓 Adblock Plus 發揮最大效果，您應該訂閱過濾條件集。下列這些條件集是由其他 Adblock Plus 使用者免費提供，最適合您使用語言的過濾條件集會被自動選擇。">
 <!ENTITY adblock.warning "Adblock Plus 發現您已安裝 Adblock 或舊版的 Adblock Plus。同時執行 Adblock 及 Adblock Plus 會造成無法避免的問題。建議您立刻移除 Adblock。">
 <!ENTITY adblock.uninstall "移除 Adblock">
 <!ENTITY filterset.g.warning "您似乎正在使用 Filterset.G。此過濾條件清單最近幾年幾乎沒有更新過，而且常常在瀏覽網站時造成問題。建議您立刻移除 Filterset.G。">
 <!ENTITY filterset.g.moreinfo "更多資訊">
 <!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
 <!ENTITY filterset.g.uninstall "移除 Filterset.G">
+<!ENTITY subscriptionSelector.label "請從清單中選擇過濾條件集:">
+<!ENTITY viewList.label "檢視過濾條件">
+<!ENTITY visitHomepage.label "瀏覽首頁">
+<!ENTITY addSubscription.label "新增過濾條件集">
+<!ENTITY saveSubscription.label "儲存過濾條件集">
 <!ENTITY other.label "新增其他訂閱來源">
 <!ENTITY other.accesskey "f">
+<!ENTITY list.download.failed "取回過濾條件集清單失敗。">
+<!ENTITY list.download.retry "再試一次">
+<!ENTITY list.download.website "瀏覽網站">
+<!ENTITY list.website.url "http://adblockplus.org/en/subscriptions">
+<!ENTITY fromWeb.description "請確認您要訂閱的過濾條件集。訂閱前您可以變更條件集標題或位址。">
+<!ENTITY edit.description "您需要的話可以變更條件集標題或位址。">
+<!ENTITY external.description "這次一份外部過濾條件集，這份條件集會由擴充套件建立並更新。">
 <!ENTITY title.label "訂閱項目名稱:">
 <!ENTITY title.accesskey "T">
 <!ENTITY location.label "過濾條件集位址:">
 <!ENTITY location.accesskey "L">
 <!ENTITY autodownload.label "自動更新">
 <!ENTITY autodownload.accesskey "P">
+<!ENTITY supplementMessage "該過濾條件集需要同時使用您未訂閱的條件集「&#37;S」。">
+<!ENTITY addMain.label "一併訂閱「&#37;S」條件集">
+<!ENTITY addMain.accesskey "s">

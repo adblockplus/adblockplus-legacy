@@ -3,9 +3,9 @@
 <!ENTITY filters.accesskey "F">
 <!ENTITY add.label "Dodaj filtr">
 <!ENTITY add.accesskey "D">
-<!ENTITY addsubscription.label "Dodaj subskrypcję filtrów">
+<!ENTITY addsubscription.label "Dodaj zestaw filtrów">
 <!ENTITY addsubscription.accesskey "S">
-<!ENTITY synchsubscriptions.label "Aktualizuj wszystkie subskrypcje">
+<!ENTITY synchsubscriptions.label "Aktualizuj zestawy">
 <!ENTITY synchsubscriptions.accesskey "U">
 <!ENTITY import.label "Importuj filtry">
 <!ENTITY import.accesskey "M">
@@ -77,8 +77,8 @@
 <!ENTITY lasthit.accesskey "O">
 <!ENTITY context.edit.label "Edytuj filtr">
 <!ENTITY context.resethitcount.label "Wyzeruj licznik użycia dla filtru">
-<!ENTITY context.synchsubscription.label "Aktualizuj subskrypcję teraz">
-<!ENTITY context.editsubscription.label "Edytuj subskrypcję">
+<!ENTITY context.synchsubscription.label "Aktualizuj zestaw teraz">
+<!ENTITY context.editsubscription.label "Edytuj zestaw">
 <!ENTITY context.moveup.label "Przesuń w górę">
 <!ENTITY context.movedown.label "Przesuń w dół">
 <!ENTITY context.movegroupup.label "Przesuń grupę w górę">
@@ -87,3 +87,4 @@
 <!ENTITY context.disable.label "Wyłącz">
 <!ENTITY apply.label "Zastosuj">
 <!ENTITY apply.accesskey "S">
+<!ENTITY fennec.subscription.label "Zestawy filtrów">

@@ -4,7 +4,7 @@
 <!ENTITY basic.label "Widok podstawowy">
 <!ENTITY disabled.warning "Adblock Plus jest wyłączony. Można dodawać filtry, ale nie będą one działały do czasu [link]włączenia Adblock Plusa[/link].">
 <!--  Note: This access key should usually be the same as anchor.start.flexible.accesskey. It is the same checkbox with different label depending on suggested filter. -->
-<!ENTITY groupDisabled.warning "Grupa filtrów &quot;&#37;S&quot;, do której ten filtr powinien zostać dodany jest wyłączona. Można dodać ten filtr, ale nie będzie działał do czasu [link]włączenia grupy[/link].">
+<!ENTITY groupDisabled.warning "Grupa filtrów „&#37;S”, do której ten filtr powinien zostać dodany, jest wyłączona. Można dodać ten filtr, ale nie będzie działał do czasu [link]włączenia grupy[/link].">
 <!ENTITY filter.label "Nowy filtr:">
 <!ENTITY filter.accesskey "F">
 <!ENTITY preferences.label "Wyświetl istniejące filtry…">
@@ -15,8 +15,8 @@
 <!ENTITY type.whitelist.accesskey "W">
 <!ENTITY pattern.label "Wygląd wzorca">
 <!ENTITY pattern.explanation "Wzorzec może składać się z dowolnej części adresu i symbolu * działającego jako wieloznacznik. Filtr będzie działał tylko na stronach o adresie pasującym do wzorca.">
-<!ENTITY regexp.warning "Wprowadzony wzorzec będzie interpretowany jako wyrażenie regularne. Wiele wyrażeń regularnych może spowalniać przeglądanie internetu. Jeśli nie zamierzasz używać wyrażeń regularnych, dodaj na końcu wzorca wieloznacznik *.">
-<!ENTITY shortpattern.warning "Wprowadzony wzorzec jest za krótki, aby go zoptymalizować. Duża ilość takich wzorców może spowalniać przeglądanie internetu. Zaleca się wybrać dla tego filtru nieco dłuższy ciąg znaków.">
+<!ENTITY regexp.warning "Wprowadzony wzorzec będzie interpretowany jako wyrażenie regularne. Wiele wyrażeń regularnych może spowalniać przeglądanie Internetu. Jeśli nie zamierzasz używać wyrażeń regularnych, dodaj na końcu wzorca wieloznacznik *.">
+<!ENTITY shortpattern.warning "Wprowadzony wzorzec jest za krótki, by go zoptymalizować. Duża liczba takich wzorców może spowalniać przeglądanie Internetu. Zaleca się wybrać dla tego filtru nieco dłuższy ciąg znaków.">
 <!ENTITY custom.pattern.label "Dostosuj:">
 <!ENTITY custom.pattern.accesskey "D">
 <!ENTITY anchors.label "Akceptuj wzorzec tylko:">
@@ -24,13 +24,14 @@
 <!--  Note: This access key should usually be the same as anchor.start.accesskey. It is the same checkbox with different label depending on suggested filter. -->
 <!ENTITY anchor.start.accesskey "o">
 <!ENTITY anchor.start.flexible.label "na początku nazwy domeny">
+<!-- Note: This access key should usually be the same as anchor.start.accesskey. It is the same checkbox with different label depending on suggested filter.-->
 <!ENTITY anchor.start.flexible.accesskey "o">
 <!ENTITY anchor.end.label "na końcu adresu">
 <!ENTITY anchor.end.accesskey "k">
 <!ENTITY options.label "Opcje">
 <!ENTITY domainRestriction.label "Ogranicz do domeny:">
 <!ENTITY domainRestriction.accesskey "r">
-<!ENTITY domainRestriction.help "Określ jedną lub więcej domen oddzielonych symbolem &quot;|&quot;. Filtr będzie stosowany tylko dla tych domen. Symbol &quot;~&quot; przed nazwą domeny oznacza, że filtr nie powinien być stosowany w tych domenach.">
+<!ENTITY domainRestriction.help "Określ jedną lub więcej domen oddzielonych symbolem „|”. Filtr będzie stosowany tylko dla tych domen. Symbol „~” przed nazwą domeny oznacza, że filtr nie powinien być stosowany w tych domenach.">
 <!ENTITY firstParty.label "Tylko pierwsza część adresu">
 <!ENTITY firstParty.accesskey "e">
 <!ENTITY thirdParty.label "Tylko trzecia część adresu">
