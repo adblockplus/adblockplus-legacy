@@ -8,6 +8,7 @@
 <!ENTITY context.image.label "Zablokuj obrazek">
 <!ENTITY context.object.label "Zablokuj obiekt">
 <!ENTITY context.frame.label "Zablokuj ramkę">
+<!ENTITY context.media.label "Zablokuj wideo/audio">
 <!ENTITY context.removeWhitelist.label "Włącz ponownie na tej stronie">
 <!ENTITY sidebar.title "Blokowalne elementy na aktywnej stronie">
 <!ENTITY settings.label "Ustawienia">
@@ -18,6 +19,7 @@
 <!ENTITY closesidebar.label "Zamknij listę blokowalnych elementów">
 <!--  Note: This access key should usually be the same as opensidebar.accesskey. It is the same menu item with different label depending on whether the sidebar is currently open. -->
 <!ENTITY closesidebar.accesskey "B">
+<!-- Note: the placeholder (double-dash) will be replaced by the domain name of the current page -->
 <!ENTITY whitelist.site.label "Wyłącz blokowanie na --">
 <!ENTITY whitelist.page.label "Wyłącz blokowanie tylko na tej stronie">
 <!ENTITY objecttab.title "Zablokuj">

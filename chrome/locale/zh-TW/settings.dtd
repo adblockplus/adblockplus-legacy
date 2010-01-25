@@ -87,3 +87,4 @@
 <!ENTITY context.disable.label "停用">
 <!ENTITY apply.label "套用">
 <!ENTITY apply.accesskey "P">
+<!ENTITY fennec.subscription.label "過濾條件訂閱">
