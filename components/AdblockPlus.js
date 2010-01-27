@@ -35,21 +35,31 @@ const Node = Ci.nsIDOMNode;
 const Element = Ci.nsIDOMElement;
 const Window = Ci.nsIDOMWindow;
 
-const loader = Cc["@mozilla.org/moz/jssubscript-loader;1"].getService(Ci.mozIJSSubScriptLoader);
-const ioService = Cc["@mozilla.org/network/io-service;1"].getService(Ci.nsIIOService);
-const versionComparator = Cc["@mozilla.org/xpcom/version-comparator;1"].createInstance(Ci.nsIVersionComparator);
-var windowMediator = Cc["@mozilla.org/appshell/window-mediator;1"].getService(Ci.nsIWindowMediator);
-var windowWatcher= Cc["@mozilla.org/embedcomp/window-watcher;1"].getService(Ci.nsIWindowWatcher);
-try
+Cu.import("resource://gre/modules/XPCOMUtils.jsm");
+
+// Gecko 1.9.0/1.9.1 compatibility - add XPCOMUtils.defineLazyServiceGetter
+if (!("defineLazyServiceGetter" in XPCOMUtils))
 {
-  var headerParser = Cc["@mozilla.org/messenger/headerparser;1"].getService(Ci.nsIMsgHeaderParser);
-}
-catch(e)
-{
-  headerParser = null;
+  XPCOMUtils.defineLazyServiceGetter = function XPCU_defineLazyServiceGetter(obj, prop, contract, iface)
+  {
+    obj.__defineGetter__(prop, function XPCU_serviceGetter()
+    {
+      delete obj[prop];
+      return obj[prop] = Cc[contract].getService(Ci[iface]);
+    });
+  };
 }
 
-Cu.import("resource://gre/modules/XPCOMUtils.jsm");
+XPCOMUtils.defineLazyServiceGetter(this, "loader", "@mozilla.org/moz/jssubscript-loader;1", "mozIJSSubScriptLoader");
+XPCOMUtils.defineLazyServiceGetter(this, "ioService", "@mozilla.org/network/io-service;1", "nsIIOService");
+XPCOMUtils.defineLazyServiceGetter(this, "versionComparator", "@mozilla.org/xpcom/version-comparator;1", "nsIVersionComparator");
+XPCOMUtils.defineLazyServiceGetter(this, "windowMediator", "@mozilla.org/appshell/window-mediator;1", "nsIWindowMediator");
+XPCOMUtils.defineLazyServiceGetter(this, "windowWatcher", "@mozilla.org/embedcomp/window-watcher;1", "nsIWindowWatcher");
+
+if ("@mozilla.org/messenger/headerparser;1" in Cc)
+  XPCOMUtils.defineLazyServiceGetter(this, "headerParser", "@mozilla.org/messenger/headerparser;1", "nsIMsgHeaderParser");
+else
+  this.headerParser = null;
 
 /**
  * Application startup/shutdown observer, triggers init()/shutdown() methods in abp object.
@@ -481,17 +491,17 @@ var NSGetModule = XPCOMUtils.generateNSGetModule([Initializer, ABPComponent]);
 /*
  * Loading additional files
  */
-loader.loadSubScript('chrome://adblockplus/content/utils.js');
-loader.loadSubScript('chrome://adblockplus/content/filterClasses.js');
-loader.loadSubScript('chrome://adblockplus/content/subscriptionClasses.js');
-loader.loadSubScript('chrome://adblockplus/content/filterStorage.js');
-loader.loadSubScript('chrome://adblockplus/content/matcher.js');
-loader.loadSubScript('chrome://adblockplus/content/elemhide.js');
-loader.loadSubScript('chrome://adblockplus/content/filterListener.js');
-loader.loadSubScript('chrome://adblockplus/content/policy.js');
-loader.loadSubScript('chrome://adblockplus/content/requests.js');
-loader.loadSubScript('chrome://adblockplus/content/prefs.js');
-loader.loadSubScript('chrome://adblockplus/content/synchronizer.js');
+loader.loadSubScript('chrome://adblockplus/content/utils.js', this);
+loader.loadSubScript('chrome://adblockplus/content/filterClasses.js', this);
+loader.loadSubScript('chrome://adblockplus/content/subscriptionClasses.js', this);
+loader.loadSubScript('chrome://adblockplus/content/filterStorage.js', this);
+loader.loadSubScript('chrome://adblockplus/content/matcher.js', this);
+loader.loadSubScript('chrome://adblockplus/content/elemhide.js', this);
+loader.loadSubScript('chrome://adblockplus/content/filterListener.js', this);
+loader.loadSubScript('chrome://adblockplus/content/policy.js', this);
+loader.loadSubScript('chrome://adblockplus/content/requests.js', this);
+loader.loadSubScript('chrome://adblockplus/content/prefs.js', this);
+loader.loadSubScript('chrome://adblockplus/content/synchronizer.js', this);
 
 /*
  * Core Routines

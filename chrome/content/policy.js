@@ -27,8 +27,8 @@
  * This file is included from AdblockPlus.js.
  */
 
-var effectiveTLD = Cc["@mozilla.org/network/effective-tld-service;1"].getService(Ci.nsIEffectiveTLDService);
-var netUtils = Cc["@mozilla.org/network/util;1"].getService(Ci.nsINetUtil);
+XPCOMUtils.defineLazyServiceGetter(this, "effectiveTLD", "@mozilla.org/network/effective-tld-service;1", "nsIEffectiveTLDService");
+XPCOMUtils.defineLazyServiceGetter(this, "netUtils", "@mozilla.org/network/util;1", "nsINetUtil");
 
 const ok = Ci.nsIContentPolicy.ACCEPT;
 const block = Ci.nsIContentPolicy.REJECT_REQUEST;

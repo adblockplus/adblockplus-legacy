@@ -29,7 +29,7 @@
 
 const prefRoot = "extensions.adblockplus.";
 
-var prefService = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefService);
+XPCOMUtils.defineLazyServiceGetter(this, "prefService", "@mozilla.org/preferences-service;1", "nsIPrefService");
 
 /**
  * This object allows easy access to Adblock Plus preferences, all defined
