@@ -27,7 +27,7 @@
  * This file is included from AdblockPlus.js.
  */
 
-var styleService = Cc["@mozilla.org/content/style-sheet-service;1"].getService(Ci.nsIStyleSheetService); 
+XPCOMUtils.defineLazyServiceGetter(this, "styleService", "@mozilla.org/content/style-sheet-service;1", "nsIStyleSheetService");
 
 /**
  * Element hiding component

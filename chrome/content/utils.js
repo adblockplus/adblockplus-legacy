@@ -27,12 +27,24 @@
  * This file is included from AdblockPlus.js.
  */
 
-var threadManager = Cc["@mozilla.org/thread-manager;1"].getService(Ci.nsIThreadManager);
+XPCOMUtils.defineLazyServiceGetter(this, "threadManager", "@mozilla.org/thread-manager;1", "nsIThreadManager");
 
-// String service
-var stringService = Cc["@mozilla.org/intl/stringbundle;1"].getService(Ci.nsIStringBundleService);
-var strings = stringService.createBundle("chrome://adblockplus/locale/global.properties");
-abp.getString = function(name) {
+var strings = null;
+
+/**
+ * Retrieves a string from global.properties string bundle, will throw if string isn't found.
+ * 
+ * @param {String} name  string name
+ * @return {String}
+ */
+abp.getString = function(name)
+{
+  if (!strings)
+  {
+    strings = Cc["@mozilla.org/intl/stringbundle;1"]
+                .getService(Ci.nsIStringBundleService)
+                .createBundle("chrome://adblockplus/locale/global.properties");
+  }
   return strings.GetStringFromName(name);
 };
 

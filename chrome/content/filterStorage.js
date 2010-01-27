@@ -27,7 +27,7 @@
  * This file is included from AdblockPlus.js.
  */
 
-var dirService = Cc["@mozilla.org/file/directory_service;1"].getService(Ci.nsIProperties);
+XPCOMUtils.defineLazyServiceGetter(this, "dirService", "@mozilla.org/file/directory_service;1", "nsIProperties");
 
 /**
  * This class reads user's filters from disk, manages them in memory and writes them back.
