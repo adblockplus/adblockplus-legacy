@@ -15,7 +15,7 @@ sub doDir
   opendir(local *DIR, $dir) or die "Could not open directory $dir";
   foreach (readdir(DIR))
   {
-    next if !/[^.]/;
+    next if /^\./;
 
     my $path = "$dir/$_";
     if (-f $path)
