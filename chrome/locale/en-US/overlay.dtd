@@ -3,7 +3,7 @@
 <!ENTITY filters.tooltip        "Most active filters:">
 
 <!ENTITY menuitem.label         "Adblock Plus Preferences">
-<!ENTITY menuitem.accesskey     "B">
+<!ENTITY menuitem.accesskey     "b">
 <!ENTITY toolbarbutton.label    "Adblock Plus">
 
 <!ENTITY view.blockableItems.label  "Adblock Plus: Blockable Items">
@@ -17,13 +17,13 @@
 <!ENTITY sidebar.title          "Blockable items on current page">
 
 <!ENTITY settings.label         "Preferences">
-<!ENTITY settings.accesskey     "F">
+<!ENTITY settings.accesskey     "f">
 <!ENTITY opensidebar.label      "Open blockable items">
 <!-- Note: This access key should usually be the same as closesidebar.accesskey. It is the same menu item with different label depending on whether the sidebar is currently open.-->
-<!ENTITY opensidebar.accesskey  "B">
+<!ENTITY opensidebar.accesskey  "b">
 <!ENTITY closesidebar.label     "Close blockable items">
 <!-- Note: This access key should usually be the same as opensidebar.accesskey. It is the same menu item with different label depending on whether the sidebar is currently open.-->
-<!ENTITY closesidebar.accesskey "B">
+<!ENTITY closesidebar.accesskey "b">
 <!-- Note: the placeholder (double-dash) will be replaced by the domain name of the current page -->
 <!ENTITY whitelist.site.label   "Disable on --">
 <!ENTITY whitelist.page.label   "Disable on this page only">
