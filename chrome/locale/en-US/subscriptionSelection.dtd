@@ -45,11 +45,11 @@
 <!ENTITY external.description       "This is an external filter subscription, the filter list will be updated by the extension that created this subscription.">
 
 <!ENTITY title.label                "Subscription title:">
-<!ENTITY title.accesskey            "T">
+<!ENTITY title.accesskey            "t">
 <!ENTITY location.label             "Filter list location:">
-<!ENTITY location.accesskey         "L">
+<!ENTITY location.accesskey         "l">
 <!ENTITY autodownload.label         "Update filters automatically">
-<!ENTITY autodownload.accesskey     "P">
+<!ENTITY autodownload.accesskey     "p">
 
 <!-- Note: the placeholder (%S) will be replaced by the name of the filter subscription required -->
 <!ENTITY supplementMessage          "This filter subscription is meant to be used with the filter subscription &quot;&#37;S&quot; which you are not using yet.">
