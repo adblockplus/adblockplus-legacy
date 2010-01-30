@@ -2,9 +2,9 @@
 <!ENTITY dialog.title.edit          "Edit filter subscription">
 
 <!ENTITY description.newInstall     "
-  For Adblock Plus to be most effective you should add a filter subscription.
-  These filter subscriptions are provided by other Adblock Plus users free of
-  charge. The most suitable filter subscriptions for your language is already
+  Adblock Plus will be most effective if you add a filter subscription.
+  Filter subscriptions are provided by other Adblock Plus users free of
+  charge. The most suitable subscription for your language is already
   selected.
 ">
 
@@ -35,14 +35,14 @@
 <!ENTITY other.label                "Add a different subscription">
 <!ENTITY other.accesskey            "f">
 
-<!ENTITY list.download.failed       "Failed retrieving list of subscriptions.">
+<!ENTITY list.download.failed       "Adblock Plus failed to retrieve the list of subscriptions.">
 <!ENTITY list.download.retry        "Try again">
 <!ENTITY list.download.website      "View website">
 <!ENTITY list.website.url           "http://adblockplus.org/en/subscriptions">
 
 <!ENTITY fromWeb.description        "Please confirm that you want to add this filter subscription. You can change the subscription title or location before adding it.">
 <!ENTITY edit.description           "You can change the subscription title or location as necessary.">
-<!ENTITY external.description       "This is an external filter subscription, the filter list will be updated by the extension that created this subscription.">
+<!ENTITY external.description       "This is an external filter subscription; it will be updated by the extension that created this subscription.">
 
 <!ENTITY title.label                "Subscription title:">
 <!ENTITY title.accesskey            "t">
