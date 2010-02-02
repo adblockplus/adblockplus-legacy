@@ -126,7 +126,7 @@ RequestList.prototype = {
       listener(wnd, type, this, entry);
   },
 
-  addNode: function(node, contentType, docDomain, thirdParty, location, filter, objTab)
+  addNode: function(node, contentType, docDomain, thirdParty, location, filter)
   {
     // for images repeated on page store node for each repeated image
     let key = " " + contentType + " " + location;
@@ -142,8 +142,6 @@ RequestList.prototype = {
       entry.filter = filter;
 
     entry.addNode(node);
-    if (objTab)
-      entry.addNode(objTab);
 
     if (isNew)
       this.topList.notifyListeners("add", this.entries[key]);
@@ -442,6 +440,14 @@ RequestEntry.prototype =
     }
     else
       this.hasAdditionalNodes = true;
+  },
+
+  /**
+   * Associates a document element with a request without adding it to the list.
+   */
+  attachTo: function(/**Node*/ node)
+  {
+    node.setUserData(nodeDataProp, this.key, null);
   },
 
   /**

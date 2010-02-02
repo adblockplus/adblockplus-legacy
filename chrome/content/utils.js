@@ -136,24 +136,6 @@ function generateClickHandler(wnd, data) {
   }
 }
 
-// Creates a tab above/below the new object node
-function addObjectTab(wnd, node, data, tab)
-{
-  if (!node.parentNode)
-    return;
-
-  // Click event handler
-  tab.setAttribute("href", data.location);
-  tab.setAttribute("class", policy.objtabClass);
-  tab.addEventListener("click", generateClickHandler(wnd, data), false);
-
-  // Insert tab into the document
-  if (node.nextSibling)
-    node.parentNode.insertBefore(tab, node.nextSibling);
-  else
-    node.parentNode.appendChild(tab);
-}
-
 /**
  * Posts an action to the event queue of the current thread to run it
  * asynchronously. Any additional parameters to this function are passed
