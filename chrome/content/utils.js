@@ -128,14 +128,6 @@ function makeURL(url) {
 }
 abp.makeURL = makeURL;
 
-// Generates a click handler for object tabs
-function generateClickHandler(wnd, data) {
-  return function(event) {
-    event.preventDefault();
-    wnd.openDialog("chrome://adblockplus/content/ui/composer.xul", "_blank", "chrome,centerscreen,resizable,dialog=no,dependent", wnd, data); 
-  }
-}
-
 /**
  * Posts an action to the event queue of the current thread to run it
  * asynchronously. Any additional parameters to this function are passed
