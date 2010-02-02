@@ -108,7 +108,7 @@ var policy =
     for each (var scheme in prefs.whitelistschemes.toLowerCase().split(" "))
       this.whitelistSchemes[scheme] = true;
 
-    // Generate identifiers for object tabs
+    // Generate class identifier used to collapse node
     this.collapsedClass = "";
     for (let i = 0; i < 20; i++)
       this.collapsedClass +=  String.fromCharCode("a".charCodeAt(0) + Math.random() * 26);
