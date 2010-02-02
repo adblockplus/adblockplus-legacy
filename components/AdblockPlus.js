@@ -498,6 +498,7 @@ loader.loadSubScript('chrome://adblockplus/content/filterStorage.js', this);
 loader.loadSubScript('chrome://adblockplus/content/matcher.js', this);
 loader.loadSubScript('chrome://adblockplus/content/elemhide.js', this);
 loader.loadSubScript('chrome://adblockplus/content/filterListener.js', this);
+loader.loadSubScript('chrome://adblockplus/content/objtabs.js', this);
 loader.loadSubScript('chrome://adblockplus/content/policy.js', this);
 loader.loadSubScript('chrome://adblockplus/content/requests.js', this);
 loader.loadSubScript('chrome://adblockplus/content/prefs.js', this);

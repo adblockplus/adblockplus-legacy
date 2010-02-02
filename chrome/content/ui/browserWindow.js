@@ -51,6 +51,7 @@ let eventHandlers = [
   ["abp-object-menuitem", "command", function() { abpNode(nodeData); }],
   ["abp-media-menuitem", "command", function() { abpNode(nodeData); }],
   ["abp-frame-menuitem", "command", function() { abpNode(frameData); }],
+  ["abp-objtab", "click", function(event) { if (event.button == 0) abpNode(E("abp-objtab").nodeData); }],
   ["abp-removeWhitelist-menuitem", "command", function() { removeWhitelist(); }]
 ];
 

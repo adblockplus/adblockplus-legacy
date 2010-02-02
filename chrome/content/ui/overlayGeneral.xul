@@ -37,6 +37,7 @@
   <script type="application/x-javascript;version=1.7" src="overlay.js"/>  
   
   <popupset id="abp-popupset">
+    <!-- Icon's tooltip -->
     <tooltip id="abp-tooltip" orient="vertical">
       <description id="abp-tooltip-action" hidden="true"/>
       <label id="abp-tooltip-status-label" value="&status.tooltip;"/>
@@ -46,6 +47,8 @@
       <label id="abp-tooltip-filters-label" value="&filters.tooltip;" hidden="true"/>
       <vbox id="abp-tooltip-filters" hidden="true"/>
     </tooltip>
+
+    <!-- Icon's context menu -->
     <popup id="abp-status-popup">
       <menuitem id="abp-status-opensidebar" label="&opensidebar.label;" accesskey="&opensidebar.accesskey;" key="abp-key-sidebar" command="abp-command-sidebar"/>
       <menuitem id="abp-status-closesidebar" label="&closesidebar.label;" accesskey="&closesidebar.accesskey;" key="abp-key-sidebar" command="abp-command-sidebar"/>
@@ -65,6 +68,11 @@
       </menu>
       <menuitem id="abp-status-enabled" label="&enable.label;" accesskey="&enable.accesskey;" type="checkbox" key="abp-key-enable" command="abp-command-enable"/>
     </popup>
+
+    <!-- Object tab -->
+    <panel id="abp-objtab" noautofocus="true" noautohide="true" level="parent">
+      <description id="abp-objtab-inner" class="text-link" value="&objecttab.title;" tooltiptext="&objecttab.tooltip;"/>
+    </panel>
   </popupset>
   <keyset id="abp-keyset"/>
   <commandset id="abp-commandset">

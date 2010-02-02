@@ -68,21 +68,6 @@ var policy =
   whitelistSchemes: null,
 
   /**
-   * Randomly generated class for object tab nodes.
-   * @type String
-   */
-  objtabClass: null,
-  /**
-   * Randomly generated class for object tab nodes displayed on top of the object.
-   * @type String
-   */
-  objtabOnTopClass: null,
-  /**
-   * Randomly generated property name to be set for object tab nodes.
-   * @type String
-   */
-  objtabMarker: null,
-  /**
    * Randomly generated class for collapsed nodes.
    * @type String
    */
@@ -124,19 +109,9 @@ var policy =
       this.whitelistSchemes[scheme] = true;
 
     // Generate identifiers for object tabs
-    this.objtabClass = "";
-    this.objtabOnTopClass = "";
     this.collapsedClass = "";
-    this.objtabMarker = "abpObjTab"
     for (let i = 0; i < 20; i++)
-    {
-      this.objtabClass += String.fromCharCode("a".charCodeAt(0) + Math.random() * 26);
-      this.objtabOnTopClass += String.fromCharCode("a".charCodeAt(0) + Math.random() * 26);
       this.collapsedClass +=  String.fromCharCode("a".charCodeAt(0) + Math.random() * 26);
-      this.objtabMarker += String.fromCharCode("a".charCodeAt(0) + Math.random() * 26);
-    }
-
-    this.initObjectTabCSS();
   },
 
   /**
@@ -190,7 +165,6 @@ var policy =
 
     var data = RequestList.getDataForWindow(wnd);
 
-    var objTab = null;
     let thirdParty = (contentType == this.type.ELEMHIDE ? false : this.isThirdParty(location, docDomain));
 
     if (!match && prefs.enabled) {
@@ -205,25 +179,18 @@ var policy =
           this.schedulePostProcess(node);
       }
 
-      // Add object tab
-      if (!match && prefs.frameobjects && contentType == this.type.OBJECT)
+      // Track mouse events for objects
+      if (!match && contentType == this.type.OBJECT)
       {
-        // Before adding object tabs always check whether one exist already
-        let hasObjectTab = (node.nextSibling && node.nextSibling.getUserData(this.objtabMarker));
-        if (!hasObjectTab)
-        {
-          objTab = node.ownerDocument.createElementNS("http://www.w3.org/1999/xhtml", "a");
-          objTab.setUserData(this.objtabMarker, true, null);
-        }
+        node.addEventListener("mouseover", objectMouseEventHander, true);
+        node.addEventListener("mouseout", objectMouseEventHander, true);
       }
     }
 
     // Store node data
-    var nodeData = data.addNode(node, contentType, docDomain, thirdParty, locationText, match, objTab);
+    var nodeData = data.addNode(node, contentType, docDomain, thirdParty, locationText, match);
     if (match)
       filterStorage.increaseHitCount(match);
-    if (objTab)
-      wnd.setTimeout(addObjectTab, 0, topWnd, node, nodeData, objTab);
 
     return !match || match instanceof WhitelistFilter;
   },
@@ -407,64 +374,6 @@ var policy =
     }
   },
 
-  /**
-   * Updates position of an object tab to match the object
-   */
-  repositionObjectTab: function(/**Element*/ objTab)
-  {
-    let object = objTab.previousSibling;
-    if (!(object instanceof Ci.nsIDOMHTMLObjectElement || object instanceof Ci.nsIDOMHTMLEmbedElement || object instanceof Ci.nsIDOMHTMLAppletElement))
-    {
-      if (objTab.parentNode)
-        objTab.parentNode.removeChild(objTab);
-      return;
-    }
-
-    let doc = objTab.ownerDocument;
-
-    let objectRect = object.getBoundingClientRect();
-    let tabRect = objTab.getBoundingClientRect();
-
-    let onTop = (objectRect.top > tabRect.bottom - tabRect.top + 5);
-    let leftDiff = objectRect.right - tabRect.right;
-    let topDiff = (onTop ? objectRect.top - tabRect.bottom : objectRect.bottom - tabRect.top);
-
-    objTab.style.setProperty("left", ((parseInt(objTab.style.left) || 0) + leftDiff) + "px", "important");
-    objTab.style.setProperty("top", ((parseInt(objTab.style.top) || 0) + topDiff) + "px", "important");
-    objTab.className = (onTop ? this.objtabClass + " " + this.objtabOnTopClass : this.objtabClass);
-    objTab.style.removeProperty("visibility");
-  },
-
-  /**
-   * Loads objtabs.css on startup and registers it globally.
-   */
-  initObjectTabCSS: function()
-  {
-    // Load CSS asynchronously (synchronous loading at startup causes weird issues)
-    try {
-      let channel = ioService.newChannel("chrome://adblockplus/content/objtabs.css", null, null);
-      channel.asyncOpen({
-        data: "",
-        onDataAvailable: function(request, context, stream, offset, count)
-        {
-          let scriptableStream = Cc["@mozilla.org/scriptableinputstream;1"].createInstance(Ci.nsIScriptableInputStream);
-          scriptableStream.init(stream);
-          this.data += scriptableStream.read(count);
-        },
-        onStartRequest: function() {},
-        onStopRequest: function()
-        {
-          let data = this.data.replace(/%%CLASSNAME%%/g, policy.objtabClass).replace(/%%ONTOP%%/g, policy.objtabOnTopClass).replace(/%%COLLAPSED%%/g, policy.collapsedClass);
-          let objtabsCSS = makeURL("data:text/css," + encodeURIComponent(data));
-          Cc["@mozilla.org/content/style-sheet-service;1"].getService(Ci.nsIStyleSheetService)
-                                                          .loadAndRegisterSheet(objtabsCSS, styleService.USER_SHEET);
-          channel = null;
-        },
-        QueryInterface: XPCOMUtils.generateQI([Ci.nsIRequestObserver, Ci.nsIStreamListener])
-      }, null);
-    } catch (e) {}
-  },
-
   //
   // nsISupports interface implementation
   //
@@ -497,14 +406,6 @@ var policy =
     // Interpret unknown types as "other"
     if (!(contentType in this.typeDescr))
       contentType = this.type.OTHER;
-
-    if (contentType == this.type.IMAGE && location.spec == "chrome://global/content/abp-dummy-image-request.png")
-    {
-      let objTab = node.parentNode;
-      if (objTab && objTab.getUserData(this.objtabMarker))
-        runAsync(this.repositionObjectTab, this, objTab);
-      return block;
-    }
 
     // if it's not a blockable type or a whitelisted scheme, use the usual policy
     if (contentType == this.type.DOCUMENT || !this.isBlockableScheme(location))
@@ -590,14 +491,12 @@ var policy =
         let nodes = data[i].clearNodes();
         for each (let node in nodes)
         {
-          if (node.getUserData(this.objtabMarker))
+          if (data[i].type == this.type.OBJECT)
           {
-            // Remove object tabs
-            if (node.parentNode)
-              node.parentNode.removeChild(node);
+            node.removeEventListener("mouseover", objectMouseEventHander, true);
+            node.removeEventListener("mouseout", objectMouseEventHander, true);
           }
-          else
-            this.processNode(wnd, node, data[i].type, makeURL(data[i].location), true);
+          this.processNode(wnd, node, data[i].type, makeURL(data[i].location), true);
         }
       }
     }
