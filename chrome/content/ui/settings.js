@@ -358,7 +358,7 @@ function getSubscriptionDescription(subscription)
  */
 function clearList()
 {
-  if (confirm(abp.getString("clearall_warning")))
+  if (abp.confirm(window, abp.getString("clearall_warning")))
     treeView.removeUserFilters();
 }
 
@@ -368,9 +368,9 @@ function clearList()
  */
 function resetHitCounts(resetAll)
 {
-  if (resetAll && confirm(abp.getString("resethitcounts_warning")))
+  if (resetAll && abp.confirm(window, abp.getString("resethitcounts_warning")))
     filterStorage.resetHitCounts(null);
-  else if (!resetAll && confirm(abp.getString("resethitcounts_selected_warning")))
+  else if (!resetAll && abp.confirm(window, abp.getString("resethitcounts_selected_warning")))
   {
     let filters = treeView.getSelectedFilters(false);
     filterStorage.resetHitCounts(filters.map(function(filter)
@@ -518,7 +518,7 @@ function importList()
       treeView.ensureSelection(0);
     }
     else 
-      alert(abp.getString("invalid_filters_file"));
+      abp.alert(window, abp.getString("invalid_filters_file"));
   }
 }
 
@@ -627,7 +627,7 @@ function exportList()
     catch (e)
     {
       dump("Adblock Plus: error writing to file: " + e + "\n");
-      alert(abp.getString("filters_write_error"));
+      abp.alert(window, abp.getString("filters_write_error"));
     }
   }
 }
@@ -956,7 +956,7 @@ function removeFilters(allowSubscriptions)
         return;
     }
 
-    if (selectedSubscription && selectedSubscription instanceof abp.RegularSubscription && confirm(abp.getString("remove_subscription_warning")))
+    if (selectedSubscription && selectedSubscription instanceof abp.RegularSubscription && abp.confirm(window, abp.getString("remove_subscription_warning")))
       treeView.removeSubscription(selectedSubscription);
   }
 }
