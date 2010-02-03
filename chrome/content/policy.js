@@ -108,10 +108,16 @@ var policy =
     for each (var scheme in prefs.whitelistschemes.toLowerCase().split(" "))
       this.whitelistSchemes[scheme] = true;
 
-    // Generate class identifier used to collapse node
+    // Generate class identifier used to collapse node and register corresponding
+    // stylesheet.
     this.collapsedClass = "";
     for (let i = 0; i < 20; i++)
       this.collapsedClass +=  String.fromCharCode("a".charCodeAt(0) + Math.random() * 26);
+
+    let collapseStyle = makeURL("data:text/css," +
+                                 encodeURIComponent("." + this.collapsedClass +
+                                 "{-moz-binding: url(chrome://global/content/bindings/general.xml#foobarbazdummy) !important;}"));
+    styleService.loadAndRegisterSheet(collapseStyle, Ci.nsIStyleSheetService.USER_SHEET);
   },
 
   /**
