@@ -70,7 +70,7 @@
     </popup>
 
     <!-- Object tab -->
-    <panel id="abp-objtab" noautofocus="true" noautohide="true" level="parent">
+    <panel id="abp-objtab" noautofocus="true" level="parent">
       <description id="abp-objtab-inner" class="text-link" value="&objecttab.title;" tooltiptext="&objecttab.tooltip;"/>
     </panel>
   </popupset>
