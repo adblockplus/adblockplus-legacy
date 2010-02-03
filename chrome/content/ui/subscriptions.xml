@@ -20,7 +20,7 @@
                 homepage="http://easylist.adblockplus.org/"
                 prefixes="de"/>
   <subscription title="Filter von Dr.Evil (Deutsch)"
-                url="http://maltekraus.de/Firefox/adblock.txt"
+                url="http://adblock.maltekraus.de/adblock.txt"
                 homepage="http://www.camp-firefox.de/forum/viewtopic.php?t=55998"
                 prefixes="de"/>
   <subscription title="Liste FR+EasyList (français)"
