@@ -122,6 +122,9 @@ var objTabs =
    */
   hideTabFor: function(/**Element*/ element)
   {
+    if (element != this.currentElement)
+      return;
+
     this.hideTargetTime = Date.now() + this.HIDE_DELAY;
     this.hideTimer = Cc["@mozilla.org/timer;1"].createInstance(Ci.nsITimer);
     this.hideTimer.init(this, 40, Ci.nsITimer.TYPE_REPEATING_SLACK);
