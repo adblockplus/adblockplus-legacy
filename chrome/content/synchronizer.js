@@ -464,6 +464,7 @@ var synchronizer =
       request.send(null);
     }
     catch (e) {
+      delete me.executing[url];
       errorCallback("synchronize_connection_error");
       return;
     }
