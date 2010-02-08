@@ -163,6 +163,13 @@ var synchronizer =
     if (!isBaseLocation)
       subscription.alternativeLocations = null;
 
+    try {
+      Cu.reportError("Adblock Plus: Downloading filter subscription " + subscription.title + " failed (" + abp.getString(error) + ")\n" +
+                     "Download address: " + downloadURL + "\n" +
+                     "Channel status: " + channelStatus + "\n" +
+                     "Server response: " + responseStatus);
+    } catch(e) {}
+
     subscription.lastDownload = parseInt(Date.now() / 1000);
     subscription.downloadStatus = error;
     if (error == "synchronize_checksum_mismatch")
