@@ -46,9 +46,10 @@ function init() {
 
   // Restore previous state
   var params = abp.getParams();
-  if (params && params.search) {
-    E("searchField").value = params.search;
-    treeView.setFilter(params.search);
+  if (params && params.filter)
+  {
+    E("searchField").value = params.filter;
+    treeView.setFilter(params.filter);
   }
   if (params && params.focus && E(params.focus))
     E(params.focus).focus();
