@@ -458,7 +458,7 @@ RegExpFilter.fromText = function(text)
                  .replace(/(\W)/g, "\\$1")    // escape special symbols
                  .replace(/\\\*/g, ".*")      // replace wildcards by .*
                  // process separator placeholders (all ANSI charaters but alphanumeric characters and _%.-)
-                 .replace(/\\\^/g, "(?:[\x00-\x24\x26-\x2C\x2F\x3A-\x40\x5B-\x5E\x60\x7B-\x80]|$)")
+                 .replace(/\\\^/g, "(?:[\\x00-\\x24\\x26-\\x2C\\x2F\\x3A-\\x40\\x5B-\\x5E\\x60\\x7B-\\x80]|$)")
                  .replace(/^\\\|\\\|/, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?") // process extended anchor at expression start
                  .replace(/^\\\|/, "^")       // process anchor at expression start
                  .replace(/\\\|$/, "$")       // process anchor at expression end
