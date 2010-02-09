@@ -178,6 +178,15 @@
     {
       if (wnd != top || type != "add" || location.location == "http://127.0.0.1:1234/test")
         return;
+      if (policyHits.length > 0)
+      {
+        // Ignore duplicate policy calls (possible due to prefetching)
+        let [prevWnd, prevType, prevData, prevLocation] = policyHits[policyHits.length - 1];
+        if (prevType == "background") // Prefetched images are misinterpreted as background images
+          prevType = "image";
+        if (prevWnd == wnd && prevType == type && prevData == data && prevLocation == location)
+          policyHits.pop();
+      }
       policyHits.push([wnd, type, data, location]);
     }
 
