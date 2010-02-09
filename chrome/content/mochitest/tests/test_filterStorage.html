@@ -65,6 +65,7 @@
     filterStorage.addSubscription(Subscription.fromURL("~eh~"));
 
     testFilters();
+    testDisabledSubscriptions();
 
     function testSubscriptions()
     {
@@ -295,6 +296,34 @@
       filterStorage.removeSubscription(subscription1);
       filterStorage.removeSubscription(subscription2);
       filterStorage.removeSubscription(subscription3);
+    }
+
+    function testDisabledSubscriptions()
+    {
+      let subscription = Subscription.fromURL("~fl~");
+      filterStorage.updateSubscriptionFilters(subscription, []);
+      subscription.disabled = true;
+
+      let filter1 = Filter.fromText("filter1");
+      let filter2 = Filter.fromText("filter2");
+
+      filterStorage.addFilter(filter1);
+      is(subscription.disabled, true, "Subscription still disabled after adding one filter");
+      filterStorage.addFilter(filter2);
+      is(subscription.disabled, true, "Subscription still disabled after adding two filters");
+
+      filterStorage.removeFilter(filter1);
+      is(subscription.disabled, true, "Subscription still disabled after removing one filter");
+      filterStorage.removeFilter(filter2);
+      is(subscription.disabled, false, "Subscription no longer disabled after removing all filters");
+
+      subscription.disabled = true;
+      filterStorage.updateSubscriptionFilters(subscription, [filter1]);
+      is(subscription.disabled, true, "Subscription still disabled after replacing filters by one filter");
+      filterStorage.updateSubscriptionFilters(subscription, [filter1, filter2]);
+      is(subscription.disabled, true, "Subscription still disabled after replacing filters by two filters");
+      filterStorage.updateSubscriptionFilters(subscription, []);
+      is(subscription.disabled, false, "Subscription no longer disabled after replacing filters by an empty list");
     }
   </script>
   </pre>
