@@ -77,7 +77,7 @@ var synchronizer =
       // Get the number of hours since last download
       let interval = (time - subscription.lastDownload) / 3600;
       if (interval >= prefs.synchronizationinterval)
-        synchronizer.execute(subscription);
+        synchronizer.execute(subscription, false);
     }
   },
 
@@ -155,8 +155,9 @@ var synchronizer =
    * @param {String} downloadURL the URL used for download
    * @param {String} error error ID in global.properties
    * @param {Boolean} isBaseLocation false if the subscription was downloaded from a location specified in X-Alternative-Locations header
+   * @param {Boolean} manual  true for a manually started download (should not trigger fallback requests)
    */
-  setError: function(subscription, error, channelStatus, responseStatus, downloadURL, isBaseLocation)
+  setError: function(subscription, error, channelStatus, responseStatus, downloadURL, isBaseLocation, manual)
   {
     // If download from an alternative location failed, reset the list of
     // alternative locations - have to get an updated list from base location.
@@ -172,45 +173,50 @@ var synchronizer =
 
     subscription.lastDownload = parseInt(Date.now() / 1000);
     subscription.downloadStatus = error;
-    if (error == "synchronize_checksum_mismatch")
+
+    // Request fallback URL if necessary - for automatic updates only
+    if (!manual)
     {
-      // No fallback for successful download with checksum mismatch, reset error counter
-      subscription.errors = 0;
-    }
-    else
-      subscription.errors++;
-
-    if (subscription.errors >= prefs.subscriptions_fallbackerrors && /^https?:\/\//i.test(subscription.url))
-    {
-      subscription.errors = 0;
-
-      let fallbackURL = prefs.subscriptions_fallbackurl;
-      fallbackURL = fallbackURL.replace(/%VERSION%/g, encodeURIComponent(abp.getInstalledVersion()));
-      fallbackURL = fallbackURL.replace(/%SUBSCRIPTION%/g, encodeURIComponent(subscription.url));
-      fallbackURL = fallbackURL.replace(/%URL%/g, encodeURIComponent(downloadURL));
-      fallbackURL = fallbackURL.replace(/%ERROR%/g, encodeURIComponent(error));
-      fallbackURL = fallbackURL.replace(/%CHANNELSTATUS%/g, encodeURIComponent(channelStatus));
-      fallbackURL = fallbackURL.replace(/%RESPONSESTATUS%/g, encodeURIComponent(responseStatus));
-
-      let request = new XMLHttpRequest();
-      request.open("GET", fallbackURL);
-      request.overrideMimeType("text/plain");
-      request.channel.loadGroup = null;
-      request.channel.loadFlags = request.channel.loadFlags |
-                                  request.channel.INHIBIT_CACHING |
-                                  request.channel.VALIDATE_ALWAYS;
-      request.onload = function(ev)
+      if (error == "synchronize_checksum_mismatch")
       {
-        if (/^301\s+(\S+)/.test(request.responseText))  // Moved permanently    
-          subscription.nextURL = RegExp.$1;
-        else if (/^410\b/.test(request.responseText))   // Gone
-        {
-          subscription.autoDownload = false;
-          filterStorage.triggerSubscriptionObservers("updateinfo", [subscription]);
-        }
-        filterStorage.saveToDisk();
+        // No fallback for successful download with checksum mismatch, reset error counter
+        subscription.errors = 0;
       }
-      request.send(null);
+      else
+        subscription.errors++;
+  
+      if (subscription.errors >= prefs.subscriptions_fallbackerrors && /^https?:\/\//i.test(subscription.url))
+      {
+        subscription.errors = 0;
+  
+        let fallbackURL = prefs.subscriptions_fallbackurl;
+        fallbackURL = fallbackURL.replace(/%VERSION%/g, encodeURIComponent(abp.getInstalledVersion()));
+        fallbackURL = fallbackURL.replace(/%SUBSCRIPTION%/g, encodeURIComponent(subscription.url));
+        fallbackURL = fallbackURL.replace(/%URL%/g, encodeURIComponent(downloadURL));
+        fallbackURL = fallbackURL.replace(/%ERROR%/g, encodeURIComponent(error));
+        fallbackURL = fallbackURL.replace(/%CHANNELSTATUS%/g, encodeURIComponent(channelStatus));
+        fallbackURL = fallbackURL.replace(/%RESPONSESTATUS%/g, encodeURIComponent(responseStatus));
+  
+        let request = new XMLHttpRequest();
+        request.open("GET", fallbackURL);
+        request.overrideMimeType("text/plain");
+        request.channel.loadGroup = null;
+        request.channel.loadFlags = request.channel.loadFlags |
+                                    request.channel.INHIBIT_CACHING |
+                                    request.channel.VALIDATE_ALWAYS;
+        request.onload = function(ev)
+        {
+          if (/^301\s+(\S+)/.test(request.responseText))  // Moved permanently    
+            subscription.nextURL = RegExp.$1;
+          else if (/^410\b/.test(request.responseText))   // Gone
+          {
+            subscription.autoDownload = false;
+            filterStorage.triggerSubscriptionObservers("updateinfo", [subscription]);
+          }
+          filterStorage.saveToDisk();
+        }
+        request.send(null);
+      }
     }
 
     filterStorage.triggerSubscriptionObservers("updateinfo", [subscription]);
@@ -220,9 +226,10 @@ var synchronizer =
   /**
    * Starts the download of a subscription.
    * @param {DownloadableSubscription} subscription  Subscription to be downloaded
+   * @param {Boolean} manual  true for a manually started download (should not trigger fallback requests)
    * @param {Boolean}  forceDownload  if true, the subscription will even be redownloaded if it didn't change on the server
    */
-  execute: function(subscription, forceDownload)
+  execute: function(subscription, manual, forceDownload)
   {
     let url = subscription.url;
     if (url in this.executing)
@@ -293,7 +300,7 @@ var synchronizer =
       try {
         responseStatus = request.channel.QueryInterface(Ci.nsIHttpChannel).responseStatus;
       } catch (e) {}
-      me.setError(subscription, error, channelStatus, responseStatus, loadFrom, isBaseLocation);
+      me.setError(subscription, error, channelStatus, responseStatus, loadFrom, isBaseLocation, manual);
     }
 
     try {

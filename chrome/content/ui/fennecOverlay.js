@@ -95,7 +95,7 @@ function setSubscription(url, title)
   currentSubscription.title = title;
 
   filterStorage.addSubscription(currentSubscription);
-  abp.synchronizer.execute(currentSubscription);
+  abp.synchronizer.execute(currentSubscription, false);
   filterStorage.saveToDisk();
 }
 

@@ -913,7 +913,7 @@ function editSubscription(/**Subscription*/ subscription)
     treeView.invalidateSubscriptionInfo(newSubscription);
 
     if (newSubscription instanceof abp.DownloadableSubscription && !newSubscription.lastDownload)
-      synchronizer.execute(newSubscription.__proto__);
+      synchronizer.execute(newSubscription.__proto__, false);
   }
 
   if (changed)
@@ -1037,7 +1037,7 @@ function synchSubscription(/**Boolean*/ forceDownload)
 {
   let [subscription, filter] = treeView.getRowInfo(treeView.selection.currentIndex);
   if (subscription instanceof abp.DownloadableSubscription)
-    synchronizer.execute(subscription.__proto__, forceDownload);
+    synchronizer.execute(subscription.__proto__, true, forceDownload);
 }
 
 /**
@@ -1047,7 +1047,7 @@ function synchAllSubscriptions(/**Boolean*/ forceDownload)
 {
   for each (let subscription in treeView.subscriptions)
     if (subscription instanceof abp.DownloadableSubscription)
-      synchronizer.execute(subscription.__proto__, forceDownload);
+      synchronizer.execute(subscription.__proto__, true, forceDownload);
 }
 
 /**
