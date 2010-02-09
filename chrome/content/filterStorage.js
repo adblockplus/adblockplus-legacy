@@ -239,6 +239,13 @@ var filterStorage =
     this._addSubscriptionFilters(subscription);
     this.triggerSubscriptionObservers("update", [subscription]);
     delete subscription.oldFilters;
+
+    // Do not keep empty subscriptions disabled
+    if (subscription instanceof SpecialSubscription && !subscription.filters.length && subscription.disabled)
+    {
+      subscription.disabled = false;
+      this.triggerSubscriptionObservers("enable", [subscription]);
+    }
   },
 
   /**
@@ -301,6 +308,14 @@ var filterStorage =
             subscription.filters.splice(j, 1);
             if (!silent)
               this.triggerFilterObservers("remove", [filter]);
+
+            // Do not keep empty subscriptions disabled
+            if (!subscription.filters.length && subscription.disabled)
+            {
+              subscription.disabled = false;
+              if (!silent)
+                this.triggerSubscriptionObservers("enable", [subscription]);
+            }
             return;
           }
         }
