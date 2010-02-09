@@ -185,6 +185,7 @@ var synchronizer =
       subscription.errors = 0;
 
       let fallbackURL = prefs.subscriptions_fallbackurl;
+      fallbackURL = fallbackURL.replace(/%VERSION%/g, encodeURIComponent(abp.getInstalledVersion()));
       fallbackURL = fallbackURL.replace(/%SUBSCRIPTION%/g, encodeURIComponent(subscription.url));
       fallbackURL = fallbackURL.replace(/%URL%/g, encodeURIComponent(downloadURL));
       fallbackURL = fallbackURL.replace(/%ERROR%/g, encodeURIComponent(error));
