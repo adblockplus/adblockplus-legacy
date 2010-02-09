@@ -9,7 +9,17 @@ if (typeof Cu == "undefined")
 
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 
-var versionComparator = Cc["@mozilla.org/xpcom/version-comparator;1"].createInstance(Ci.nsIVersionComparator)
+// Always overwrite defineLazyServiceGetter - the default one will get the object wrapped and fail
+XPCOMUtils.defineLazyServiceGetter = function XPCU_defineLazyServiceGetter(obj, prop, contract, iface)
+{
+  obj.__defineGetter__(prop, function XPCU_serviceGetter()
+  {
+    delete obj[prop];
+    return obj[prop] = Cc[contract].getService(Ci[iface]);
+  });
+};
+
+XPCOMUtils.defineLazyServiceGetter(this, "versionComparator", "@mozilla.org/xpcom/version-comparator;1", "nsIVersionComparator");
 
 var abp = {
   getString: function(name)
