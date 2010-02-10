@@ -7,8 +7,8 @@
 <!ENTITY add.accesskey              "б">
 <!ENTITY addsubscription.label      "Добавить подписку">
 <!ENTITY addsubscription.accesskey  "п">
-<!ENTITY synchsubscriptions.label      "Скачать все подписки">
-<!ENTITY synchsubscriptions.accesskey  "ч">
+<!ENTITY synchsubscriptions.label      "Обновить все подписки">
+<!ENTITY synchsubscriptions.accesskey  "в">
 <!ENTITY import.label               "Импорт фильтров">
 <!ENTITY import.accesskey           "м">
 <!ENTITY export.label               "Экспорт пользовательских фильтров">
@@ -89,7 +89,7 @@
 
 <!ENTITY context.edit.label         "Редактировать фильтр">
 <!ENTITY context.resethitcount.label      "Обнулить статистику попаданий для фильтра">
-<!ENTITY context.synchsubscription.label  "Скачать фильтры заново">
+<!ENTITY context.synchsubscription.label  "Обновить фильтры подписки">
 <!ENTITY context.editsubscription.label   "Редактировать подписку">
 <!ENTITY context.moveup.label       "Сдвинуть фильтр вверх">
 <!ENTITY context.movedown.label     "Сдвинуть фильтр вниз">
