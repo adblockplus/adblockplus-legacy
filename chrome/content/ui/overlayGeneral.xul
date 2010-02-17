@@ -112,8 +112,8 @@
   <menuitem id="abp-removeWhitelist-menuitem" label="&context.removeWhitelist.label;" hidden="true"/>
 
   <!-- Fake sidebar -->
-  <splitter id="abp-sidebar-splitter" collapsed="true"/>
-  <vbox id="abp-sidebar" height="200" width="200" collapsed="true" persist="height width">
+  <splitter id="abp-sidebar-splitter" hidden="true"/>
+  <vbox id="abp-sidebar" height="200" width="200" hidden="true" persist="height width">
     <toolbox id="abp-sidebar-header">
       <toolbar id="abp-sidebar-toolbar" align="center" grippyhidden="true" fullscreentoolbar="true">
         <label id="abp-sidebar-title" control="abp-sidebar-browser" value="&sidebar.title;" flex="1" crop="end"/>

@@ -787,7 +787,7 @@ function abpIsSidebarOpen() {
     return true;
 
   var sidebar = E("abp-sidebar");
-  return (sidebar ? !sidebar.collapsed : false);
+  return (sidebar ? !sidebar.hidden : false);
 }
 
 function toggleSidebar()
@@ -800,12 +800,12 @@ function toggleSidebar()
   else
   {
     var sidebar = E("abp-sidebar");
-    if (sidebar && (!prefs.detachsidebar || !sidebar.collapsed))
+    if (sidebar && (!prefs.detachsidebar || !sidebar.hidden))
     {
-      E("abp-sidebar-splitter").collapsed = !sidebar.collapsed;
-      E("abp-sidebar-browser").setAttribute("src", sidebar.collapsed ? "chrome://adblockplus/content/ui/sidebar.xul" : "about:blank");
-      sidebar.collapsed = !sidebar.collapsed;
-      if (sidebar.collapsed)
+      E("abp-sidebar-splitter").hidden = !sidebar.hidden;
+      E("abp-sidebar-browser").setAttribute("src", sidebar.hidden ? "chrome://adblockplus/content/ui/sidebar.xul" : "about:blank");
+      sidebar.hidden = !sidebar.hidden;
+      if (sidebar.hidden)
         abpHooks.getBrowser().contentWindow.focus();
     }
     else
