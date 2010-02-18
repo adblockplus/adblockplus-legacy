@@ -8,7 +8,8 @@
 <!ENTITY context.image.label "Adblock Plus: φραγή εικόνας">
 <!ENTITY context.object.label "Adblock Plus: φραγή αντικειμένου">
 <!ENTITY context.frame.label "Adblock Plus: φραγή πλαισίου">
-<!ENTITY context.removeWhitelist.label "Adblock Plus: Ενεργοποίηση σ&apos; αυτή την σελίδα">
+<!ENTITY context.media.label "Adblock Plus: φραγή ήχου/βίντεο">
+<!ENTITY context.removeWhitelist.label "Adblock Plus: Ενεργοποίηση σ' αυτή την σελίδα">
 <!ENTITY sidebar.title "Στοιχεία προς φιλτράρισμα στην τρέχουσα σελίδα">
 <!ENTITY settings.label "Προτιμήσεις">
 <!ENTITY settings.accesskey "Π">

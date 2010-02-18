@@ -8,6 +8,7 @@
 <!ENTITY context.image.label "Adblock - slike">
 <!ENTITY context.object.label "Adblock - predmeti">
 <!ENTITY context.frame.label "Adblock - okviri">
+<!ENTITY context.media.label "Adblock Plus: Blokiraj zvok/video">
 <!ENTITY context.removeWhitelist.label "Adblock Plus - ponovno omogoči na tej strani">
 <!ENTITY sidebar.title "Elementi blokad na trenutni strani">
 <!ENTITY settings.label "Nastavitve">

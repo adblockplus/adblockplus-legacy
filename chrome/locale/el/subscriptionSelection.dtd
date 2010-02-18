@@ -1,24 +1,38 @@
-<!ENTITY dialog.title "Συνδρομές φίλτρων του Add Adblock Plus">
+<!ENTITY dialog.title "Συνδρομές φίλτρων του Adblock Plus">
 <!ENTITY dialog.title.edit "Επεξεργασία συνδρομής">
-<!ENTITY adblock.warning "
-	Το Adblock Plus ανίχνευσε πως το Adblock ή μια παλαιότερη έκδοση του Adblock Plus είναι 
+<!ENTITY description.newInstall "Το Adblock Plus θα είναι πιο αποτελεσματικό αν γίνετε συνδρομητής σε μια λίστα φίλτρων.
+	Οι λίστες φίλτρων παρέχονται από χρήστες του Adblock Plus χωρίς κόστος.
+	Η καταλληλότερη συνδρομή για την γλώσσα σας έχει ήδη επιλεγεί.">
+<!ENTITY adblock.warning "Το Adblock Plus ανίχνευσε πως το Adblock ή μια παλαιότερη έκδοση του Adblock Plus είναι 
 	εγκατεστημένο. Η παράλληλη χρήση του Adblock και του Adblock Plus μπορεί να προκαλέσει 
-	προβλήματα και έτσι πρέπει να αποφεύγεται. Προτείνεται η απεγκατάσταση του Adblock.
-">
+	προβλήματα και έτσι πρέπει να αποφεύγεται. Προτείνεται η απεγκατάσταση του Adblock.">
 <!ENTITY adblock.uninstall "Απεγκατάσταση του Adblock">
-<!ENTITY filterset.g.warning "
-	Χρησιμοποιείτε την Filterset.G. Αυτή η λίστα φίλτρων συντηρείται ελάχιστα
+<!ENTITY filterset.g.warning "Χρησιμοποιείτε την Filterset.G. Αυτή η λίστα φίλτρων συντηρείται ελάχιστα
 	τα τελευταία χρόνια και είναι συχνή αιτία σε προβλήματα που εμφανίζονται σε
-	ιστοσελίδες. Προτείνεται να απεγκαταστήσετε την λίστα Filterset.G.
-">
+	ιστοσελίδες. Προτείνεται να απεγκαταστήσετε την λίστα Filterset.G.">
 <!ENTITY filterset.g.moreinfo "Περισσότερες πληροφορίες">
 <!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
 <!ENTITY filterset.g.uninstall "Απεγκατάσταση της Filterset.G">
+<!ENTITY subscriptionSelector.label "Παρακαλώ επιλέξτε μια συνδρομή σε φίλτρα από την λίστα:">
+<!ENTITY viewList.label "Προβολή φίλτρων">
+<!ENTITY visitHomepage.label "Ιστοσελίδα του Adblock Plus">
+<!ENTITY addSubscription.label "Προσθήκη συνδρομής">
+<!ENTITY saveSubscription.label "Αποθήκευση συνδρομής">
 <!ENTITY other.label "Προσθήκη άλλης συνδρομής">
 <!ENTITY other.accesskey "Π">
+<!ENTITY list.download.failed "Το Adblock Plus απέτυχε να λάβει την λίστα με τις συνδρομές.">
+<!ENTITY list.download.retry "Προσπαθήστε ξανά">
+<!ENTITY list.download.website "Προβολή της ιστοσελίδας">
+<!ENTITY list.website.url "http://adblockplus.org/en/subscriptions">
+<!ENTITY fromWeb.description "Παρακαλώ επιβεβαιώστε ότι θέλετε να προσθέσετε αυτή την λίστα φίλτρων. Μπορείτε να τροποποιήσετε τον τίτλο ή την τοποθεσία πριν την προσθήκη.">
+<!ENTITY edit.description "Μπορείτε ν' αλλάξετε τον τίτλο της συνδρομής ή την τοποθεσία όπως σας βολεύει.">
+<!ENTITY external.description "Αυτή η λίστα φίλτρων προέρχεται από τρίτους· θα ενημερωθεί από το πρόσθετο που την δημιούργησε.">
 <!ENTITY title.label "Τίτλος συνδρομής:">
 <!ENTITY title.accesskey "σ">
 <!ENTITY location.label "Τοποθεσία λίστας φίλτρων:">
 <!ENTITY location.accesskey "Τ">
 <!ENTITY autodownload.label "Αυτόματη ενημέρωση">
 <!ENTITY autodownload.accesskey "Α">
+<!ENTITY supplementMessage "Αυτή η συνδρομή φίλτρων μπορεί να χρησιμοποιηθεί μαζί με την συνδρομή &quot;&#37;S&quot; την οποία δεν χρησιμοποιείτε.">
+<!ENTITY addMain.label "Προσθήκη και της συνδρομής φίλτρων &quot;&#37;S&quot;">
+<!ENTITY addMain.accesskey "σ">

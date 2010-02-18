@@ -5,6 +5,10 @@
 <!ENTITY filterset.g.moreinfo "מידע נוסף">
 <!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
 <!ENTITY filterset.g.uninstall "הסרת Filterset.G">
+<!ENTITY viewList.label "הצגת מסננים">
+<!ENTITY visitHomepage.label "ביקור באתר הבית">
+<!ENTITY addSubscription.label "הוספת הרשמה">
+<!ENTITY saveSubscription.label "שמירת הרשמה">
 <!ENTITY other.label "הוסף הרשמה אחרת">
 <!ENTITY other.accesskey "ס">
 <!ENTITY list.download.retry "נסה שנית">

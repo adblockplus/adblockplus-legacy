@@ -8,6 +8,7 @@
 <!ENTITY context.image.label "Adblock obrázok">
 <!ENTITY context.object.label "Adblock objekt">
 <!ENTITY context.frame.label "Adblock rámec">
+<!ENTITY context.media.label "Adblock Plus: Blokovať audio/video">
 <!ENTITY context.removeWhitelist.label "Adblock Plus: Znovu zapnúť túto stránku">
 <!ENTITY sidebar.title "Blokovateľné položky na aktuálnej stránke">
 <!ENTITY settings.label "Nastavenia">

@@ -28,7 +28,7 @@ diversos sitios web. Le recomendamos que desinstale Filterset.G ahora.">
 <!ENTITY title.label "Título de la suscripción:">
 <!ENTITY title.accesskey "T">
 <!ENTITY location.label "Ubicación de la lista de filtros:">
-<!ENTITY location.accesskey "c">
+<!ENTITY location.accesskey "U">
 <!ENTITY autodownload.label "Actualizar automáticamente">
 <!ENTITY autodownload.accesskey "z">
 <!ENTITY supplementMessage "Esta suscripción de filtros está pensada para usarse junto a la suscripción &quot;&#37;S&quot; que usted aún no ha instalado.">
