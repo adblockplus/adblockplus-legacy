@@ -280,7 +280,8 @@ function abpReloadPrefs() {
     if (!element)
       return;
 
-    if (element.tagName == "statusbarpanel" || element.tagName == "vbox") {
+    if (element.tagName == "statusbarpanel")
+    {
       element.hidden = !prefs.showinstatusbar;
 
       var labelElement = element.getElementsByTagName("label")[0];
