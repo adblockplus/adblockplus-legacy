@@ -97,6 +97,18 @@
     testActive("example.com,~com#foo", "example.com", true, true);
     testActive("example.com,~com#foo", "foo.example.com", true, false);
     testActive("example.com,~com#foo", "mple.com", false, false);
+
+    testActive("foo$domain=nnnnnnn.nnn", null, false, false);
+    testActive("foo$domain=nnnnnnn.nnn", "com", false, false);
+    testActive("foo$domain=nnnnnnn.nnn", "example.com", false, false);
+    testActive("foo$domain=nnnnnnn.nnn", "foo.example.com", false, false);
+    testActive("foo$domain=nnnnnnn.nnn", "mple.com", false, false);
+
+    testActive("nnnnnnn.nnn#foo", null, false, false);
+    testActive("nnnnnnn.nnn#foo", "com", false, false);
+    testActive("nnnnnnn.nnn#foo", "example.com", false, false);
+    testActive("nnnnnnn.nnn#foo", "foo.example.com", false, false);
+    testActive("nnnnnnn.nnn#foo", "mple.com", false, false);
   </script>
   </pre>
 </body>

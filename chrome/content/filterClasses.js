@@ -293,7 +293,7 @@ ActiveFilter.prototype =
     docDomain = docDomain.replace(/\.+$/, "").toUpperCase();
 
     for (let domain in this.includeDomains)
-      if (domain != docDomain && domain.indexOf("." + docDomain) != domain.length - docDomain.length - 1)
+      if (domain != docDomain && (domain.length <= docDomain.length || domain.indexOf("." + docDomain) != domain.length - docDomain.length - 1))
         return false;
 
     return true;
