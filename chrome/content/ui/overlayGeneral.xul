@@ -88,10 +88,8 @@
     <command id="abp-command-enable" oncommand="//"/>
   </commandset>
 
-  <statusbarpanel id="abp-status" context="abp-status-popup">
-    <image tooltip="abp-tooltip"/>
-    <label tooltip="abp-tooltip"/>
-  </statusbarpanel>
+  <statusbarpanel id="abp-status" class="statusbarpanel-iconic"
+      context="abp-status-popup" tooltip="abp-tooltip"/>
 
   <toolbarbutton id="abp-toolbarbutton" label="&toolbarbutton.label;"
       tooltip="abp-tooltip" context="abp-status-popup">

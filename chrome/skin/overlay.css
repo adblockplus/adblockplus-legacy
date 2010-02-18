@@ -24,40 +24,25 @@
 
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
-#abp-status *
+#abp-status
 {
   cursor: pointer;
-}
-#abp-status:hover
-{
-  text-decoration: underline;
-}
-#abp-status[abpstate="disabled"]
-{
-  color: #999999;
-}
-#abp-status[abpstate="whitelisted"]
-{
-  color: #008000;
-}
-#abp-status label {
-  display: none;
 }
 
 toolbar[iconsize="small"] #abp-toolbarbutton,
 #PersonalToolbar #abp-toolbarbutton,
-#abp-status image {
+#abp-status {
   list-style-image: url("abp-status-16.png");
   -moz-image-region: rect(0px, 16px, 16px, 0px);
 }
 toolbar[iconsize="small"] #abp-toolbarbutton[abpstate="disabled"],
 #PersonalToolbar #abp-toolbarbutton[abpstate="disabled"],
-#abp-status[abpstate="disabled"] image {
+#abp-status[abpstate="disabled"] {
   -moz-image-region: rect(16px, 16px, 32px, 0px);
 }
 toolbar[iconsize="small"] #abp-toolbarbutton[abpstate="whitelisted"],
 #PersonalToolbar #abp-toolbarbutton[abpstate="whitelisted"],
-#abp-status[abpstate="whitelisted"] image {
+#abp-status[abpstate="whitelisted"] {
   -moz-image-region: rect(32px, 16px, 48px, 0px);
 }
 
