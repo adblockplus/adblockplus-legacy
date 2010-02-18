@@ -263,7 +263,6 @@ function abpUnload()
 
 function abpReloadPrefs() {
   var state = (prefs.enabled ? "active" : "disabled");
-  var label = abp.getString("status_" + state + "_label");
 
   if (state == "active")
   {
@@ -281,12 +280,7 @@ function abpReloadPrefs() {
       return;
 
     if (element.tagName == "statusbarpanel")
-    {
       element.hidden = !prefs.showinstatusbar;
-
-      var labelElement = element.getElementsByTagName("label")[0];
-      labelElement.setAttribute("value", label);
-    }
     else
       element.hidden = !prefs.showintoolbar;
 
