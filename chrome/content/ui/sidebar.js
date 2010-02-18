@@ -479,7 +479,7 @@ function disableOnSite(item, /**Filter*/ filter, /**String*/ domain)
       {
         if (/^DOMAIN=(.*)/.test(options[i]))
         {
-          let domains = RegExp.$1.split("|").filter(function(d) d != domain && d != "~" + domain && d.lastIndexOf("." + domain) != d.length - domain.length - 1);
+          let domains = RegExp.$1.split("|").filter(function(d) d != domain && d != "~" + domain && (d.length <= domain.length || d.lastIndexOf("." + domain) != d.length - domain.length - 1));
           domains.push("~" + domain);
           options[i] = "DOMAIN=" + domains.join("|");
           found = true;
@@ -499,7 +499,7 @@ function disableOnSite(item, /**Filter*/ filter, /**String*/ domain)
     if (/^([^#]+)(#.*)/.test(text))
     {
       let selector = RegExp.$2;
-      let domains = RegExp.$1.toUpperCase().split(",").filter(function(d) d != domain && d != "~" + domain && d.lastIndexOf("." + domain) != d.length - domain.length - 1);
+      let domains = RegExp.$1.toUpperCase().split(",").filter(function(d) d != domain && (d.length <= domain.length || d != "~" + domain && d.lastIndexOf("." + domain) != d.length - domain.length - 1));
       domains.push("~" + domain);
       text = domains.join(",").toLowerCase() + selector;
     }
