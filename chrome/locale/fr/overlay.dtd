@@ -5,9 +5,10 @@
 <!ENTITY menuitem.accesskey "b">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY view.blockableItems.label "Adblock Plus : éléments filtrables">
-<!ENTITY context.image.label "Bloquer l&apos;image avec Adblock">
-<!ENTITY context.object.label "Bloquer l&apos;objet avec Adblock">
+<!ENTITY context.image.label "Bloquer l'image avec Adblock">
+<!ENTITY context.object.label "Bloquer l'objet avec Adblock">
 <!ENTITY context.frame.label "Bloquer le cadre avec Adblock">
+<!ENTITY context.media.label "Bloquer les vidéo/audio avec Adblock">
 <!ENTITY context.removeWhitelist.label "Adblock Plus : activer à nouveau pour cette page">
 <!ENTITY sidebar.title "Éléments filtrables dans la page courante">
 <!ENTITY settings.label "Préférences">
@@ -19,4 +20,4 @@
 <!ENTITY whitelist.site.label "Désactiver pour --">
 <!ENTITY whitelist.page.label "Désactiver pour cette page uniquement">
 <!ENTITY objecttab.title "Bloquer">
-<!ENTITY objecttab.tooltip "Cliquer ici afin qu&apos;Adblock Plus bloque cet objet">
+<!ENTITY objecttab.tooltip "Cliquer ici afin qu'Adblock Plus bloque cet objet">

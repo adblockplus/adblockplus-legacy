@@ -33,7 +33,7 @@
 <!ENTITY view.accesskey "V">
 <!ENTITY sort.label "並べ替え">
 <!ENTITY sort.accesskey "S">
-<!ENTITY sort.none.label "ソートしない">
+<!ENTITY sort.none.label "並べ替えない">
 <!ENTITY sort.none.accesskey "U">
 <!ENTITY sort.ascending.label "A &gt; Z">
 <!ENTITY sort.ascending.accesskey "A">

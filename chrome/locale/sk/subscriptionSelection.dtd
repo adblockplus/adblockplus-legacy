@@ -1,15 +1,31 @@
 <!ENTITY dialog.title.edit "Upraviť povolenie filtra">
+<!ENTITY description.newInstall "Adblock Plus bude efektívnejší ak pridáte odber filtra. Odber filtrov sú voľne poskytované inými používateľmi Adblock Plus. Najvhodnejší odber pre váš jazyk je už zvolený.">
 <!ENTITY adblock.warning "Adblock Plus zistil, že máte nainštalovaný Adblock alebo staršiu verziu Adblock Plus. Súbežné používanie Adblock a Adblock Plus môže viesť k problémom a mali by ste sa tomu vyhnúť. Odporúčame, aby ste Adblock odinštalovali.">
 <!ENTITY adblock.uninstall "Odinštalovať Adblock">
 <!ENTITY filterset.g.warning "Zdá sa, že používate Filterset.G. Tento zoznam filtrov bol sotva obnovovaný posledných pár rokov a je bežnou príčinou problémov so stránkami na webe. Odporúčame, aby ste odinštalovali Filterset.G.">
 <!ENTITY filterset.g.moreinfo "Viac informácií">
 <!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
 <!ENTITY filterset.g.uninstall "Odinštalovať Filterset.G">
+<!ENTITY subscriptionSelector.label "Prosím, zvoľte odber zo zoznamu:">
+<!ENTITY viewList.label "Zobraziť filtre">
+<!ENTITY visitHomepage.label "Navštíviť domovskú stránku">
+<!ENTITY addSubscription.label "Pridať odber">
+<!ENTITY saveSubscription.label "Uložiť odber">
 <!ENTITY other.label "Pridať iné odoberania">
 <!ENTITY other.accesskey "P">
+<!ENTITY list.download.failed "Adblock Plus zlyhal pri získavaní zoznamu odberov.">
+<!ENTITY list.download.retry "Skúsiť znova">
+<!ENTITY list.download.website "Zobraziť webovú stránku">
+<!ENTITY list.website.url "http://adblockplus.org/en/subscriptions">
+<!ENTITY fromWeb.description "Prosím, potvrďte, že chcete pridať tento filter odberu.">
+<!ENTITY edit.description "Môžete zmeniť názov odberu alebo umiestnenie ak je to potrebné.">
+<!ENTITY external.description "Toto je externý filter odberu;bude aktualizovaný podľa prípony, ktorý vytvoril tento odber.">
 <!ENTITY title.label "Názov povolenia:">
 <!ENTITY title.accesskey "Z">
 <!ENTITY location.label "Umiestnenie zoznamu filtrov:">
 <!ENTITY location.accesskey "M">
 <!ENTITY autodownload.label "Automatická aktualizácia">
 <!ENTITY autodownload.accesskey "T">
+<!ENTITY supplementMessage "Tento filter odberu je určený pre použitie s filtrom odberu &quot;&#37;S&quot;ktorý ešte nepoužívate.">
+<!ENTITY addMain.label "Pridať tiež filter odberu &quot;&#37;S&quot;">
+<!ENTITY addMain.accesskey "o">

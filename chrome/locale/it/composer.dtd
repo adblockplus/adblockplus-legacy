@@ -13,19 +13,17 @@
 <!ENTITY type.whitelist.label "Eccezioni">
 <!ENTITY type.whitelist.accesskey "E">
 <!ENTITY pattern.label "Modelli">
-<!ENTITY pattern.explanation "Il modello può corrispondere a qualsiasi parte dell&apos;indirizzo web, il carattere * corrisponde ad un carattere jolly. Il filtro verrà applicato ai soli indirizzi web corrispondenti al modello">
+<!ENTITY pattern.explanation "Il modello può corrispondere a qualsiasi parte dell'indirizzo web, il carattere * corrisponde ad un carattere jolly. Il filtro verrà applicato ai soli indirizzi web corrispondenti al modello">
 <!ENTITY regexp.warning "Il modello inserito verrà interpretato come espressione regolare. Un numero eccessivo di tali modelli potrebbe rallentare la navigazione. Se non si intende utilizzare le espressioni regolari aggiungere il carattere * alla fine del modello">
 <!ENTITY shortpattern.warning "Il modello inserito è troppo breve per essere ottimizzato. Un numero eccessivo di tali modelli potrebbe rallentare la navigazione. Sarebbe preferibile utilizzare una stringa più lunga">
 <!ENTITY custom.pattern.label "Personalizza:">
 <!ENTITY custom.pattern.accesskey "P">
 <!ENTITY anchors.label "Accetta modelli solo:">
-<!ENTITY anchor.start.label "all&apos;inizio dell&apos;indirizzo web">
-<!-- Note: the placeholder (%S) will be replaced by the name of the disabled filter group -->
+<!ENTITY anchor.start.label "all'inizio dell'indirizzo web">
 <!ENTITY anchor.start.accesskey "i">
-<!ENTITY anchor.start.flexible.label "all&apos;inizio del nome del dominio">
-<!-- Note: This access key should usually be the same as anchor.start.flexible.accesskey. It is the same checkbox with different label depending on suggested filter. -->
+<!ENTITY anchor.start.flexible.label "all'inizio del nome del dominio">
 <!ENTITY anchor.start.flexible.accesskey "i">
-<!ENTITY anchor.end.label "alla fine dell&apos;indirizzo web">
+<!ENTITY anchor.end.label "alla fine dell'indirizzo web">
 <!ENTITY anchor.end.accesskey "f">
 <!ENTITY options.label "Opzioni">
 <!ENTITY domainRestriction.label "Limita al dominio qui sotto">

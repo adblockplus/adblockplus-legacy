@@ -1,7 +1,7 @@
 <!ENTITY dialog.title.edit "Edita subscripció del filtre">
-<!ENTITY adblock.warning "Adblock Plus ha detectat que Adblock o una versió anterior de Adblock Plus està instal·lat. Executar Adblock i Adblock Plus en Paralel pot causar problemes i s&apos;hauria d&apos;evitar. Es recomana desinstal·lar Adblock.">
+<!ENTITY adblock.warning "Adblock Plus ha detectat que Adblock o una versió anterior de Adblock Plus està instal·lat. Executar Adblock i Adblock Plus en Paralel pot causar problemes i s'hauria d'evitar. Es recomana desinstal·lar Adblock.">
 <!ENTITY adblock.uninstall "Desinstal·lar Adblock">
-<!ENTITY filterset.g.warning "Sembla que s&apos;utilitza Filterset.G Aquest filtre quasi no s&apos;ha actualitzat en els últims anys i és una causa comú de problemes amb llocs web. Es recomana desinstal·lar Filterset.G ara.">
+<!ENTITY filterset.g.warning "Sembla que s'utilitza Filterset.G Aquest filtre quasi no s'ha actualitzat en els últims anys i és una causa comú de problemes amb llocs web. Es recomana desinstal·lar Filterset.G ara.">
 <!ENTITY filterset.g.moreinfo "Més informació">
 <!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
 <!ENTITY filterset.g.uninstall "Desinstal·lar Filterset.G">
