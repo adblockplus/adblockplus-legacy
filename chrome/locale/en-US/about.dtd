@@ -3,9 +3,9 @@
 <!ENTITY caption.title      "Adblock Plus">
 <!ENTITY version.title      "Version">
 <!ENTITY description        "
-  Adblock Plus allows you to decide what you don't want to see on the web.
-  You don't need to download all the ads and banners any more, if you
-  don't want them - tell Adblock Plus!
+  Adblock Plus allows you to decide what you want to see on the web.
+  You don't need to download adverts and banners any more; if you
+  don't want them - remove them with Adblock Plus!
 ">
 
 <!ENTITY homepage.label     "Adblock Plus homepage:">
