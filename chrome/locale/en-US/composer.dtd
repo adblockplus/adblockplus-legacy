@@ -3,10 +3,10 @@
 <!ENTITY advanced.label           "Advanced view">
 <!ENTITY basic.label              "Basic view">
 
-<!ENTITY disabled.warning         "Adblock Plus is currently disabled. You can still add filters but those will not be applied unless you [link]enable Adblock Plus[/link].">
+<!ENTITY disabled.warning         "Adblock Plus is currently disabled. You can still add filters but they will not be applied unless you [link]enable Adblock Plus[/link].">
 
 <!-- Note: the placeholder (%S) will be replaced by the name of the disabled filter group -->
-<!ENTITY groupDisabled.warning    "The filter group &quot;&#37;S&quot; that this filter should be added to is currently disabled. You can still add the filter but it will not be applied unless you [link]enable the filter group[/link].">
+<!ENTITY groupDisabled.warning    "The filter group &quot;&#37;S&quot; that this filter will be added to is currently disabled. You can still add the filter but it will not be applied unless you [link]enable the filter group[/link].">
 
 <!ENTITY filter.label             "New filter:">
 <!ENTITY filter.accesskey         "f">
@@ -17,9 +17,9 @@
 <!ENTITY type.whitelist.label     "Exception rule">
 <!ENTITY type.whitelist.accesskey "x">
 <!ENTITY pattern.label            "Look for pattern">
-<!ENTITY pattern.explanation      "The pattern can be any part of the address, symbol * acts as a wildcard. The filter will only be applied to addresses matching the pattern.">
-<!ENTITY regexp.warning           "The pattern you entered will be interpreted as a regular expression. Many regular expressions might slow down your browsing. If you didn't intend to use regular expressions, add a * symbol at the end of the pattern.">
-<!ENTITY shortpattern.warning     "The pattern you entered is too short to be optimized, many such patterns might slow down your browsing. It is recommended that you choose a longer string for this filter.">
+<!ENTITY pattern.explanation      "The pattern can be any part of the address, asterisks (*) act as wildcards. The filter will only be applied to addresses matching the pattern provided.">
+<!ENTITY regexp.warning           "The pattern you entered will be interpreted as a regular expression which cannot be efficiently processed by Adblock Plus and may slow down your browsing experience. If you didn't intend to use a regular expression, add a an asterisk (*) to the end of the pattern.">
+<!ENTITY shortpattern.warning     "The pattern you entered is too short to be optimized and may slow down your browsing experience. It is recommended that you choose a longer string for this filter to allow Adblock Plus to process the filter more efficiently.">
 <!ENTITY custom.pattern.label     "Custom:">
 <!ENTITY custom.pattern.accesskey "C">
 <!ENTITY anchors.label            "Accept pattern only:">
@@ -34,7 +34,7 @@
 <!ENTITY options.label            "Options">
 <!ENTITY domainRestriction.label      "Restrict to domain:">
 <!ENTITY domainRestriction.accesskey  "d">
-<!ENTITY domainRestriction.help       "Specify one or more domains separated by the symbol &quot;|&quot;, the filter will only be applied on these domains then. The symbol &quot;~&quot; before a domain name means that the filter should not be applied on that domain.">
+<!ENTITY domainRestriction.help       "Use this option to specify one or more domains separated by a bar line (|). The filter will only be applied on the domain(s) selected. A tilde (~) before a domain name indicates that the filter will not be applied on that domain.">
 <!ENTITY firstParty.label         "First-party only">
 <!ENTITY firstParty.accesskey     "r">
 <!ENTITY thirdParty.label         "Third-party only">
