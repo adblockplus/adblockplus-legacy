@@ -17,8 +17,8 @@
 <!ENTITY type.whitelist.label     "Exception rule">
 <!ENTITY type.whitelist.accesskey "x">
 <!ENTITY pattern.label            "Look for pattern">
-<!ENTITY pattern.explanation      "The pattern can be any part of the address, asterisks (*) act as wildcards. The filter will only be applied to addresses matching the pattern provided.">
-<!ENTITY regexp.warning           "The pattern you entered will be interpreted as a regular expression which cannot be efficiently processed by Adblock Plus and may slow down your browsing experience. If you didn't intend to use a regular expression, add a an asterisk (*) to the end of the pattern.">
+<!ENTITY pattern.explanation      "The pattern can be any part of the address; asterisks (*) act as wildcards. The filter will only be applied to addresses matching the pattern provided.">
+<!ENTITY regexp.warning           "The pattern you entered will be interpreted as a regular expression which cannot be efficiently processed by Adblock Plus and may slow down your browsing experience. If you didn't intend to use a regular expression, add an asterisk (*) to the end of the pattern.">
 <!ENTITY shortpattern.warning     "The pattern you entered is too short to be optimized and may slow down your browsing experience. It is recommended that you choose a longer string for this filter to allow Adblock Plus to process the filter more efficiently.">
 <!ENTITY custom.pattern.label     "Custom:">
 <!ENTITY custom.pattern.accesskey "C">
