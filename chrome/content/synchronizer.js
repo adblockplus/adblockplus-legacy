@@ -200,7 +200,7 @@ var synchronizer =
         let request = new XMLHttpRequest();
         request.open("GET", fallbackURL);
         request.overrideMimeType("text/plain");
-        request.channel.loadGroup = null;
+        request.mozBackgroundRequest = true;
         request.channel.loadFlags = request.channel.loadFlags |
                                     request.channel.INHIBIT_CACHING |
                                     request.channel.VALIDATE_ALWAYS;
