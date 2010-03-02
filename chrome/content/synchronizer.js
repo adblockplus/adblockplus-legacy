@@ -198,9 +198,9 @@ var synchronizer =
         fallbackURL = fallbackURL.replace(/%RESPONSESTATUS%/g, encodeURIComponent(responseStatus));
   
         let request = new XMLHttpRequest();
+        request.mozBackgroundRequest = true;
         request.open("GET", fallbackURL);
         request.overrideMimeType("text/plain");
-        request.mozBackgroundRequest = true;
         request.channel.loadFlags = request.channel.loadFlags |
                                     request.channel.INHIBIT_CACHING |
                                     request.channel.VALIDATE_ALWAYS;
@@ -305,6 +305,7 @@ var synchronizer =
 
     try {
       request = new XMLHttpRequest();
+      request.mozBackgroundRequest = true;
       request.open("GET", loadFrom);
     }
     catch (e) {
@@ -314,7 +315,6 @@ var synchronizer =
 
     try {
       request.overrideMimeType("text/plain");
-      request.mozBackgroundRequest = true;
       request.channel.loadFlags = request.channel.loadFlags |
                                   request.channel.INHIBIT_CACHING |
                                   request.channel.VALIDATE_ALWAYS;
