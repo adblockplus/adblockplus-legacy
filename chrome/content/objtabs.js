@@ -148,9 +148,8 @@ var objTabs =
     if (!this.objtabElement)
       return;
 
-    // Only open popup in active window, will steal focus otherwise
-    let activeWindow = windowWatcher.activeWindow;
-    if (activeWindow && activeWindow != this.objtabElement.ownerDocument.defaultView)
+    // Only open popup in focused window, will steal focus otherwise
+    if (!this.objtabElement.ownerDocument.getElementById("abp-hooks").isFocused)
       return;
 
     this.currentElementWindow.addEventListener("MozAfterPaint", objectWindowEventHandler, false);
