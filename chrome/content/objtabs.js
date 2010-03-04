@@ -172,6 +172,11 @@ var objTabs =
     {
       this._positionTab();
       this.objtabElement.style.opacity = "";
+      if (this._needPositionHack)
+      {
+        let dummy = this.objtabElement.boxObject.width;
+        this.objtabElement.moveTo(this.lastTabPos.x, this.lastTabPos.y);
+      }
     }, this);
   },
 
@@ -224,8 +229,19 @@ var objTabs =
     }
 
     let coords = this.getScreenCoords(this.currentElement);
-    let screenX = Math.round(Math.max(coords.left + coords.width - this.objtabElement.boxObject.width, 0));
-    let screenY = Math.round(Math.max(coords.top - this.objtabElement.boxObject.height, 0));
+    let screenX = coords.left + coords.width - this.objtabElement.boxObject.width;
+    let screenY = coords.top - this.objtabElement.boxObject.height;
+
+    // Restrict coordinates by the boundaries of the current window
+    let boundaries = this.getWindowScreenCoords(this.currentElementWindow);
+    screenX = Math.max(screenX, boundaries.left, 0);
+    screenY = Math.max(screenY, boundaries.top, 0);
+    screenX = Math.min(screenX, boundaries.left + boundaries.width - this.objtabElement.boxObject.width);
+    screenY = Math.min(screenY, boundaries.top + boundaries.height - this.objtabElement.boxObject.height);
+
+    // Round coordinates - it seems that Gecko is doing that internally as well
+    screenX = Math.round(screenX);
+    screenY = Math.round(screenY);
 
     if (this._needPositionHack)
     {
@@ -236,6 +252,7 @@ var objTabs =
       screenY += parentBox.screenY;
     }
 
+    this.lastTabPos = {x: screenX, y: screenY};
     this.objtabElement.moveTo(screenX, screenY);
   },
 
@@ -260,7 +277,32 @@ var objTabs =
       // Hack for Gecko 1.9.0/1.9.1 - recalculate screen position using
       // accessibility API
       let left = {}, top = {}, width = {}, height = {};
-      accessibleRetrieval.getAccessibleFor(this.currentElement).getBounds(left, top, width, height);
+      accessibleRetrieval.getAccessibleFor(element).getBounds(left, top, width, height);
+
+      return {left: left.value, top: top.value, width: width.value, height: height.value};
+    }
+  },
+
+  /**
+   * Retrieves screen position of a window.
+   */
+  getWindowScreenCoords: function(/**Window*/ wnd) /**nsIDOMClientRect*/
+  {
+    if ("mozInnerScreenX" in wnd)
+    {
+      // Gecko 1.9.2+
+      let factor = wnd.QueryInterface(Ci.nsIInterfaceRequestor)
+                      .getInterface(Ci.nsIDOMWindowUtils)
+                      .screenPixelsPerCSSPixel;
+      return {left: wnd.mozInnerScreenX * factor, top: wnd.mozInnerScreenY * factor,
+              width: wnd.innerWidth * factor, height: wnd.innerHeight * factor};
+    }
+    else
+    {
+      // Hack for Gecko 1.9.0/1.9.1 - recalculate screen position using
+      // accessibility API
+      let left = {}, top = {}, width = {}, height = {};
+      accessibleRetrieval.getAccessibleFor(wnd.document).getBounds(left, top, width, height);
 
       return {left: left.value, top: top.value, width: width.value, height: height.value};
     }
@@ -331,7 +373,14 @@ var objTabs =
       if (now >= this.hideTargetTime)
         this._hideTab();
       else if (this.hideTargetTime - now < this.HIDE_DELAY / 2)
+      {
         this.objtabElement.style.opacity = (this.hideTargetTime - now) * 2 / this.HIDE_DELAY;
+        if (this._needPositionHack)
+        {
+          let dummy = this.objtabElement.boxObject.width;
+          this.objtabElement.moveTo(this.lastTabPos.x, this.lastTabPos.y);
+        }
+      }
     }
   }
 };
