@@ -101,9 +101,27 @@ let abpHooks = E("abp-hooks");
  */
 let detachedSidebar = null;
 
+/**
+ * Will be true if the window is currently focused.
+ * @type Boolean
+ */
+let isFocused = false;
+
 abpInit();
 
 function abpInit() {
+  // Track window focus
+  window.addEventListener("focus", function(event)
+  {
+    if (event.target instanceof window.Window)
+      isFocused = true;
+  }, true);
+  window.addEventListener("blur", function(event)
+  {
+    if (event.target instanceof window.Window)
+      isFocused = false;
+  }, true);
+
   // Initialize app hooks
   for each (let hook in ["init", "getBrowser", "addTab", "getContextMenu", "getToolbox", "getDefaultToolbar", "toolbarInsertBefore"])
   {
@@ -111,6 +129,7 @@ function abpInit() {
     if (handler)
       abpHooks[hook] = new Function(handler);
   }
+  abpHooks.__defineGetter__("isFocused", function() isFocused);
 
   // Process preferences
   abpReloadPrefs();
