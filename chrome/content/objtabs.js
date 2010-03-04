@@ -159,14 +159,20 @@ var objTabs =
     this.currentElementWindow.addEventListener("unload", objectWindowEventHandler, false);
     this.currentElementWindow.addEventListener("blur", objectWindowEventHandler, false);
 
-    this.objtabElement.style.opacity = "";
     this.objtabElement.nodeData = this.currentElementData;
     this.objtabElement.addEventListener("mouseover", objectTabEventHander, false);
     this.objtabElement.addEventListener("mouseout", objectTabEventHander, false);
     this.objtabElement.addEventListener("click", objectTabEventHander, false);
     this.objtabElement.addEventListener("contextmenu", objectTabEventHander, false);
     this.objtabElement.addEventListener("popuphidden", objectTabEventHander, false);
-    this.objtabElement.openPopup(this.currentElement, "before_end", 0, 0, false, false);
+
+    this.objtabElement.style.opacity = "0";
+    this.objtabElement.openPopupAtScreen(0, 0, false);
+    runAsync(function()
+    {
+      this._positionTab();
+      this.objtabElement.style.opacity = "";
+    }, this);
   },
 
   /**
@@ -217,26 +223,47 @@ var objTabs =
       return;
     }
 
+    let coords = this.getScreenCoords(this.currentElement);
+    let screenX = Math.round(Math.max(coords.left + coords.width - this.objtabElement.boxObject.width, 0));
+    let screenY = Math.round(Math.max(coords.top - this.objtabElement.boxObject.height, 0));
+
     if (this._needPositionHack)
     {
-      // Hack for Gecko 1.9.0/1.9.1 - recalculate screen position using
-      // accessibility API
-      let x = {}, y = {}, width = {}, height = {};
-      accessibleRetrieval.getAccessibleFor(this.currentElement).getBounds(x, y, width, height);
-  
-      let screenX = Math.max(x.value + width.value - this.objtabElement.boxObject.width, 0);
-      let screenY = Math.max(y.value - this.objtabElement.boxObject.height, 0);
-
       // Distort screen coordinates in the right way, moveTo() is broken on
       // 1.9.0/1.9.1
       let parentBox = this.objtabElement.ownerDocument.documentElement.boxObject;
       screenX += parentBox.screenX;
       screenY += parentBox.screenY;
+    }
 
-      this.objtabElement.moveTo(screenX, screenY);
+    this.objtabElement.moveTo(screenX, screenY);
+  },
+
+  /**
+   * Retrieves screen position of an element.
+   */
+  getScreenCoords: function(/**Element*/ element) /**nsIDOMClientRect*/
+  {
+    let wnd = element.ownerDocument.defaultView;
+    if ("mozInnerScreenX" in wnd)
+    {
+      // Gecko 1.9.2+
+      let rect = element.getBoundingClientRect();
+      let factor = wnd.QueryInterface(Ci.nsIInterfaceRequestor)
+                      .getInterface(Ci.nsIDOMWindowUtils)
+                      .screenPixelsPerCSSPixel;
+      return {left: (wnd.mozInnerScreenX + rect.left) * factor, top: (wnd.mozInnerScreenY + rect.top) * factor,
+              width: rect.width * factor, height: rect.height * factor};
     }
     else
-      this.objtabElement.moveTo(-1, -1);
+    {
+      // Hack for Gecko 1.9.0/1.9.1 - recalculate screen position using
+      // accessibility API
+      let left = {}, top = {}, width = {}, height = {};
+      accessibleRetrieval.getAccessibleFor(this.currentElement).getBounds(left, top, width, height);
+
+      return {left: left.value, top: top.value, width: width.value, height: height.value};
+    }
   },
 
   /**

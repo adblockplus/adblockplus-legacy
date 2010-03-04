@@ -119,9 +119,8 @@ menuitem[default="true"] {
   padding: 0px;
 }
 #abp-objtab-inner {
-  border-color: black;
-  border-style: solid;
-  border-width: 1px 1px 0px 1px;
+  border: 1px solid black;
+  border-bottom-width: 0px;
   -moz-border-radius-topleft: 10px;
   -moz-border-radius-topright: 10px;
   background-color: white;
