@@ -127,13 +127,7 @@ var objTabs =
 
         // Only open popup in focused window, will steal focus otherwise
         if (objTab && (!hooks || hooks.isFocused))
-        {
-          this.objtabElement = objTab
-          this.currentElement = element;
-          this.currentElementData = data[1];
-          this.currentElementWindow = element.ownerDocument.defaultView;
-          this._showTab();
-        }
+          this._showTab(objTab, element, data[1]);
       }
     }
   },
@@ -154,8 +148,13 @@ var objTabs =
   /**
    * Makes the tab element visible.
    */
-  _showTab: function()
+  _showTab: function(/**Element*/ objTab, /**Element*/ element, /**RequestEntry*/ data)
   {
+    this.objtabElement = objTab
+    this.currentElement = element;
+    this.currentElementData = data;
+    this.currentElementWindow = element.ownerDocument.defaultView;
+
     this.currentElementWindow.addEventListener("MozAfterPaint", objectWindowEventHandler, false);
     this.currentElementWindow.addEventListener("unload", objectWindowEventHandler, false);
     this.currentElementWindow.addEventListener("blur", objectWindowEventHandler, false);
