@@ -109,10 +109,31 @@ var objTabs =
       let data = RequestList.getDataForNode(element, true);
       if (data)
       {
-        this.currentElement = element;
-        this.currentElementData = data[1];
-        this.currentElementWindow = element.ownerDocument.defaultView;
-        this._showTab();
+        let doc = element.ownerDocument.defaultView
+                         .QueryInterface(Ci.nsIInterfaceRequestor)
+                         .getInterface(Ci.nsIWebNavigation)
+                         .QueryInterface(Ci.nsIDocShellTreeItem)
+                         .rootTreeItem
+                         .QueryInterface(Ci.nsIInterfaceRequestor)
+                         .getInterface(Ci.nsIDOMWindow)
+                         .document;
+        let objTab = doc.getElementById("abp-objtab");
+        if (objTab && objTab.wrappedJSObject)
+          objTab = objTab.wrappedJSObject;
+  
+        let hooks = doc.getElementById("abp-hooks");
+        if (hooks && hooks.wrappedJSObject)
+          hooks = hooks.wrappedJSObject;
+
+        // Only open popup in focused window, will steal focus otherwise
+        if (objTab && (!hooks || hooks.isFocused))
+        {
+          this.objtabElement = objTab
+          this.currentElement = element;
+          this.currentElementData = data[1];
+          this.currentElementWindow = element.ownerDocument.defaultView;
+          this._showTab();
+        }
       }
     }
   },
@@ -135,23 +156,6 @@ var objTabs =
    */
   _showTab: function()
   {
-    this.objtabElement = this.currentElement.ownerDocument.defaultView
-                             .QueryInterface(Ci.nsIInterfaceRequestor)
-                             .getInterface(Ci.nsIWebNavigation)
-                             .QueryInterface(Ci.nsIDocShellTreeItem)
-                             .rootTreeItem
-                             .QueryInterface(Ci.nsIInterfaceRequestor)
-                             .getInterface(Ci.nsIDOMWindow)
-                             .document.getElementById("abp-objtab");
-    if (this.objtabElement.wrappedJSObject)
-      this.objtabElement = this.objtabElement.wrappedJSObject;
-    if (!this.objtabElement)
-      return;
-
-    // Only open popup in focused window, will steal focus otherwise
-    if (!this.objtabElement.ownerDocument.getElementById("abp-hooks").isFocused)
-      return;
-
     this.currentElementWindow.addEventListener("MozAfterPaint", objectWindowEventHandler, false);
     this.currentElementWindow.addEventListener("unload", objectWindowEventHandler, false);
     this.currentElementWindow.addEventListener("blur", objectWindowEventHandler, false);
