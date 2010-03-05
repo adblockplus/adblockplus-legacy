@@ -198,7 +198,7 @@
 
 <vbox id="listarea" flex="1">
   <stack id="listStack" flex="1">
-    <tree id="list" persist="closedSubscriptions" flex="1" seltype="multiple" hidecolumnpicker="true" enableColumnDrag="true">
+    <tree id="list" context="listitem-context" persist="closedSubscriptions" flex="1" seltype="multiple" hidecolumnpicker="true" enableColumnDrag="true">
       <treecols context="treecols-context">
         <treecol id="col-filter" label="&filter.column;" primary="true" flex="10" persist="width ordinal sortDirection hidden"/>
         <splitter class="tree-splitter"/>
@@ -211,7 +211,7 @@
         <treecol id="col-lasthit" label="&lasthit.column;" hidden="true" flex="4" persist="width ordinal sortDirection hidden"/>
       </treecols>
 
-      <treechildren tooltip="tree-tooltip" context="listitem-context" onclick="onListClick(event)" ondblclick="onListDblClick(event)" ondraggesture="onListDragGesture(event)"/>
+      <treechildren tooltip="tree-tooltip" onclick="onListClick(event)" ondblclick="onListDblClick(event)" ondraggesture="onListDragGesture(event)"/>
     </tree>
     <hbox id="listEditorParent" align="center" hidden="true">
       <textbox id="listEditor" class="tree-input" flex="1"/>
