@@ -268,6 +268,13 @@ function abpInit() {
     }
   }
 
+  // Some people actually switch off browser.frames.enabled and are surprised
+  // that things stop working...
+  window.QueryInterface(Ci.nsIInterfaceRequestor)
+        .getInterface(Ci.nsIWebNavigation)
+        .QueryInterface(Ci.nsIDocShell)
+        .allowSubframes = true;
+
   if ("init" in abpHooks)
     abpHooks.init();
 }
