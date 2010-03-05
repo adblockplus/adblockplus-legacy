@@ -116,7 +116,7 @@
     <description id="reattachButton" value="&reattach.label;" onclick="if (this.getAttribute('disabled') != 'true') detach(false)" hidden="true"/>
   </hbox>
 
-  <tree id="list" flex="1" seltype="multiple" enableColumnDrag="true"
+  <tree id="list" context="context" flex="1" seltype="multiple" enableColumnDrag="true"
         defaultSort="state descending" persist="defaultSort"
         onkeypress="if (event.keyCode == event.DOM_VK_RETURN || event.keyCode == event.DOM_VK_ENTER) doBlock()">
     <treecols>
@@ -133,7 +133,7 @@
       <treecol id="docDomain" label="&docDomain.label;" width="100" hidden="true" persist="width ordinal sortDirection hidden"/>
     </treecols>
 
-    <treechildren tooltip="tooltip" context="context"
+    <treechildren tooltip="tooltip"
                   onclick="handleClick(event)"
                   ondblclick="handleDblClick(event)"
                   noitemslabel="&noitems.label;"
