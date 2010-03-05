@@ -35,6 +35,15 @@
   persist="screenX screenY width height sizemode"
   onclose="document.getElementById('abp-command-sidebar').doCommand(); return false;">
 
+  <script type="application/x-javascript">
+    // Some people actually switch off browser.frames.enabled and are surprised
+    // that things stop working...
+    window.QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+          .getInterface(Components.interfaces.nsIWebNavigation)
+          .QueryInterface(Components.interfaces.nsIDocShell)
+          .allowSubframes = true;
+  </script>
+
   <keyset id="detached-keyset">
     <key keycode="VK_ESCAPE" command="abp-command-sidebar"/> 
     <key modifiers="accel" key="w" command="abp-command-sidebar"/> 
