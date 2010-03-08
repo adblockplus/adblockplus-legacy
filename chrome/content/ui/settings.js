@@ -1131,6 +1131,42 @@ function fillOptionsPopup()
 }
 
 /**
+ * Updates the state of copy/paste commands whenever selection changes.
+ */
+function updateCommands()
+{
+  // Retrieve selected items
+  let selected = treeView.getSelectedInfo(true);
+
+  // Check whether all selected items belong to the same subscription
+  let selectedSubscription = null;
+  for each (let [subscription, filter] in selected)
+  {
+    if (!selectedSubscription)
+      selectedSubscription = subscription;
+    else if (subscription != selectedSubscription)
+    {
+      // More than one subscription selected, ignoring it
+      selectedSubscription = null;
+      break;
+    }
+  }
+
+  // Check whether any filters have been selected and whether any of them can be removed
+  let hasFilters = selected.some(function([subscription, filter]) filter instanceof abp.Filter);
+  let hasRemovable = selected.some(function([subscription, filter]) subscription instanceof abp.SpecialSubscription && filter instanceof abp.Filter);
+
+  // Check whether clipboard contains text
+  let clipboard = Cc["@mozilla.org/widget/clipboard;1"].getService(Ci.nsIClipboard);
+  let hasFlavour = clipboard.hasDataMatchingFlavors(["text/unicode"], 1, clipboard.kGlobalClipboard);
+
+  E("copy-command").setAttribute("disabled", !hasFilters);
+  E("cut-command").setAttribute("disabled", !hasRemovable);
+  E("paste-command").setAttribute("disabled", !hasFlavour);
+  E("remove-command").setAttribute("disabled", !(hasRemovable || selectedSubscription instanceof abp.RegularSubscription));
+}
+
+/**
  * Updates the contents of the context menu, making sure the right
  * items are checked/enabled.
  */
@@ -1158,22 +1194,9 @@ function fillContext()
     }
   }
 
-  // Check whether any patterns have been selected and whether any of them can be removed
-  let hasFilters = selected.some(function(info)
-  {
-    let [subscription, filter] = info;
-    return filter instanceof abp.Filter;
-  });
-  let hasRemovable = selected.some(function(info)
-  {
-    let [subscription, filter] = info;
-    return subscription instanceof abp.SpecialSubscription && filter instanceof abp.Filter;
-  });
-  let activeFilters = selected.filter(function(info)
-  {
-    let [subscription, filter] = info;
-    return filter instanceof abp.ActiveFilter;
-  });
+  // Check whether any filters have been selected and which filters can be enabled/disabled
+  let hasFilters = selected.some(function([subscription, filter]) filter instanceof abp.Filter);
+  let activeFilters = selected.filter(function([subscription, filter]) filter instanceof abp.ActiveFilter);
 
   if (selectedSubscription instanceof abp.RegularSubscription)
   {
@@ -1195,15 +1218,6 @@ function fillContext()
 
   E("context-movegroupup").setAttribute("disabled", !selectedSubscription || treeView.isFirstSubscription(selectedSubscription));
   E("context-movegroupdown").setAttribute("disabled", !selectedSubscription || treeView.isLastSubscription(selectedSubscription));
-
-  let clipboard = Cc["@mozilla.org/widget/clipboard;1"].getService(Ci.nsIClipboard);
-
-  let hasFlavour = clipboard.hasDataMatchingFlavors(["text/unicode"], 1, clipboard.kGlobalClipboard);
-
-  E("copy-command").setAttribute("disabled", !hasFilters);
-  E("cut-command").setAttribute("disabled", !hasRemovable);
-  E("paste-command").setAttribute("disabled", !hasFlavour);
-  E("remove-command").setAttribute("disabled", !(hasRemovable || selectedSubscription instanceof abp.RegularSubscription));
 
   if (activeFilters.length || (selectedSubscription && !currentFilter))
   {

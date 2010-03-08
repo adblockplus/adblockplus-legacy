@@ -134,7 +134,7 @@
       </menupopup>
     </menu>
     <menu id="edit-menu" label="&edit.label;" accesskey="&edit.accesskey;">
-      <menupopup id="edit-popup" onpopupshowing="fillContext()">
+      <menupopup id="edit-popup">
         <menuitem id="cut" label="&cut.label;" accesskey="&cut.accesskey;" command="cut-command" key="cut-key"/>
         <menuitem id="copy" label="&copy.label;" accesskey="&copy.accesskey;" command="copy-command" key="copy-key"/>
         <menuitem id="paste" label="&paste.label;" accesskey="&paste.accesskey;" command="paste-command" key="paste-key"/>
@@ -198,7 +198,7 @@
 
 <vbox id="listarea" flex="1">
   <stack id="listStack" flex="1">
-    <tree id="list" context="listitem-context" persist="closedSubscriptions" flex="1" seltype="multiple" hidecolumnpicker="true" enableColumnDrag="true">
+    <tree id="list" onselect="updateCommands()" context="listitem-context" persist="closedSubscriptions" flex="1" seltype="multiple" hidecolumnpicker="true" enableColumnDrag="true">
       <treecols context="treecols-context">
         <treecol id="col-filter" label="&filter.column;" primary="true" flex="10" persist="width ordinal sortDirection hidden"/>
         <splitter class="tree-splitter"/>
