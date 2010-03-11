@@ -340,7 +340,7 @@ function getSubscriptionDescription(subscription)
     status += abp.getString("subscription_status_lastdownload_inprogress");
   else
   {
-    status += (subscription.lastDownload > 0 ? new Date(subscription.lastDownload * 1000).toLocaleFormat("%x %X") : abp.getString("subscription_status_lastdownload_unknown"));
+    status += (subscription.lastDownload > 0 ? formatTime(subscription.lastDownload * 1000) : abp.getString("subscription_status_lastdownload_unknown"));
     if (subscription instanceof abp.DownloadableSubscription && subscription.downloadStatus)
     {
       try {
@@ -398,6 +398,24 @@ function getDefaultDir()
     let fileLocator = Cc["@mozilla.org/file/directory_service;1"].getService(Ci.nsIProperties);
   
     return fileLocator.get("Desk", Ci.nsILocalFile);
+  }
+}
+
+/**
+ * Formats a unix time according to user's locale.
+ * @param {Integer} time  unix time in milliseconds
+ * @return {String} formatted date and time
+ */
+function formatTime(time)
+{
+  try
+  {
+    return new Date(time).toLocaleFormat("%x %X");
+  }
+  catch(e)
+  {
+    // toLocaleFormat might throw (bug 508783)
+    return new Date(time).toString();
   }
 }
 
@@ -1534,7 +1552,7 @@ let treeView = {
         if (col == "col-hitcount")
           return filter.hitCount;
         else
-          return (filter.lastHit ? new Date(filter.lastHit).toLocaleFormat("%x %X") : null);
+          return (filter.lastHit ? formatTime(filter.lastHit) : null);
       }
       else
         return null;
