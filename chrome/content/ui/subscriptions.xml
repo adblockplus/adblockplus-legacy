@@ -11,10 +11,6 @@
                 url="http://adblock-chinalist.googlecode.com/svn/trunk/adblock.txt"
                 homepage="http://code.google.com/p/adblock-chinalist/"
                 prefixes="zh"/>
-  <subscription title="Corset+EasyList (한국어)"
-                url="https://easylist-downloads.adblockplus.org/corset+easylist.txt"
-                homepage="http://brianyi.com/corset/"
-                prefixes="ko"/>
   <subscription title="EasyList Germany+EasyList (Deutsch)"
                 url="https://easylist-downloads.adblockplus.org/ares+easylist.txt"
                 homepage="http://easylist.adblockplus.org/"
