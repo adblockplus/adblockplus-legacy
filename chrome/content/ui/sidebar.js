@@ -40,6 +40,11 @@ var disabledWhitelistMatcher = new abp.Matcher();
 
 var abpHooks = null;
 
+/**
+ * Cached value of "enabled" preference, for onPrefChange.
+ */
+var oldEnabled = abp.prefs.enabled;
+
 function init() {
   var list = E("list");
   list.view = treeView;
@@ -90,6 +95,7 @@ function init() {
   reloadDisabledFilters();
   filterStorage.addFilterObserver(reloadDisabledFilters);
   filterStorage.addSubscriptionObserver(reloadDisabledFilters);
+  abp.prefs.addListener(onPrefChange);
 
   // Activate flasher
   list.addEventListener("select", onSelectionChange, false);
@@ -121,9 +127,23 @@ function cleanUp() {
   RequestList.removeListener(handleItemChange);
   filterStorage.removeFilterObserver(reloadDisabledFilters);
   filterStorage.removeSubscriptionObserver(reloadDisabledFilters);
+  abp.prefs.removeListener(onPrefChange);
 
   abpHooks.getBrowser().removeEventListener("select", handleTabChange, false);
   mainWin.removeEventListener("unload", mainUnload, false);
+}
+
+/**
+ * Tracks preference changes, calls reloadDisabledFilters whenever Adblock Plus
+ * is enabled/disabled.
+ */
+function onPrefChange()
+{
+  if (abp.prefs.enabled != oldEnabled)
+  {
+    oldEnabled = abp.prefs.enabled;
+    reloadDisabledFilters();
+  }
 }
 
 /**
@@ -135,15 +155,20 @@ function reloadDisabledFilters()
   disabledBlacklistMatcher.clear();
   disabledWhitelistMatcher.clear();
 
-  for each (let subscription in filterStorage.subscriptions)
+  if (abp.prefs.enabled)
   {
-    if (subscription.disabled)
-      continue;
-
-    for each (let filter in subscription.filters)
-      if (filter instanceof abp.RegExpFilter && filter.disabled)
-        (filter instanceof abp.BlockingFilter ? disabledBlacklistMatcher : disabledWhitelistMatcher).add(filter);
+    for each (let subscription in filterStorage.subscriptions)
+    {
+      if (subscription.disabled)
+        continue;
+  
+      for each (let filter in subscription.filters)
+        if (filter instanceof abp.RegExpFilter && filter.disabled)
+          (filter instanceof abp.BlockingFilter ? disabledBlacklistMatcher : disabledWhitelistMatcher).add(filter);
+    }
   }
+
+  treeView.setData(treeView.allData);
 }
 
 // Called whenever list selection changes - triggers flasher
@@ -972,6 +997,8 @@ var treeView = {
     this.allData = data;
     for each (let item in this.allData)
     {
+      if (item.filter instanceof abp.RegExpFilter && item.filter.disabled)
+        item.filter = null;
       if (!item.filter)
         item.filter = disabledWhitelistMatcher.matchesAny(item.location, item.typeDescr, item.docDomain, item.thirdParty);
       if (!item.filter)
