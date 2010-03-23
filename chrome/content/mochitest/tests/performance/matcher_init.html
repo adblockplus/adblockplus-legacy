@@ -2,10 +2,10 @@
 <html>
 <head>
   <title>Matcher initialization performance measurements</title>
+  <script type="application/x-javascript;version=1.7" src="common.js"></script>
   <script type="application/x-javascript;version=1.7" src="../common.js"></script>
   <script type="application/x-javascript;version=1.7" src="chrome://adblockplus/content/filterClasses.js"></script>
   <script type="application/x-javascript;version=1.7" src="chrome://adblockplus/content/matcher.js"></script>
-
 </head>
 <body>
   <p id="progress">Please wait while performance measurement is in progress... <span id="current"></span></p>
@@ -2539,44 +2539,22 @@
       "http://www.cnn.com/cnn_adspaces/3.0/homepage/main/bot1.120x90.ad"
     ];
 
-    let runCount = 20;
-    let currentRun = 0;
-    let results = [];
-    setTimeout(runNextTest, 0);
-
-    function runNextTest()
+    function runTest()
     {
-      if (++currentRun > runCount)
-      {
-        let text = "";
-        let sum = 0;
-        for (let i = 0; i < results.length; i++)
-        {
-          text += "Run no. " + (i + 1) + ": " + results[i] + " ms\n";
-          sum += results[i];
-        }
-
-        text += "\nAverage time: " + (sum/results.length).toFixed(1) + " ms";
-        document.getElementById("result").textContent = text;
-        return;
-      }
-
-      let startTime = Date.now();
-
       // Add everything to the same matcher, don't bother separating whitelist and blacklist
       let matcher = new Matcher();
       for each (let filter in filters)
         matcher.add(filter);
+    }
 
-      let endTime = Date.now();
-      results.push(endTime - startTime);
-
+    function cleanup()
+    {
       // Delete shortcuts added by the matcher
       for each (let filter in filters)
         delete filter.shortcut;
-
-      setTimeout(runNextTest, 0);
     }
+
+    runTests(runTest, cleanup);
   </script>
 </body>
 </html>
