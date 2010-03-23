@@ -612,8 +612,6 @@ abp.ElemHideFilter = ElemHideFilter;
  */
 ElemHideFilter.fromText = function(text, domain, tagName, attrRules, selector)
 {
-  domain = domain.replace(/^,+/, "").replace(/,+$/, "").replace(/,+/g, ",");
-
   if (!selector)
   {
     if (tagName == "*")
