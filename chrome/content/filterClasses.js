@@ -413,7 +413,7 @@ RegExpFilter.fromText = function(text)
   if (Filter.optionsRegExp.test(text))
   {
     options = RegExp.$1.toUpperCase().split(",");
-    text = text.replace(Filter.optionsRegExp, "");
+    text = RegExp.leftContext;
     for each (let option in options)
     {
       let value;
