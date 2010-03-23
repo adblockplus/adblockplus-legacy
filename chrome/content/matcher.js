@@ -162,9 +162,20 @@ Matcher.prototype = {
     if (Filter.regexpRegExp.test(text))
       return null;
 
-    text = text.replace(Filter.optionsRegExp, "").replace(/^@@/, "")
-               .replace(/^\|{1,2}/, "").replace(/\|$/, "")
-               .replace(/\^/g, "*").toLowerCase();
+    // Remove options
+    if (Filter.optionsRegExp.test(text))
+      text = RegExp.leftContext;
+
+    // Remove anchors
+    let pos = text.length - 1;
+    if (text[pos] == "|")
+      text = text.substr(0, pos);
+    if (text[0] == "|")
+      text = text.substr(1);
+    if (text[0] == "|")
+      text = text.substr(1);
+
+    text = text.replace(/\^/g, "*").toLowerCase();
 
     let len = Matcher.shortcutLength;
     let numCandidates = text.length - len + 1;
