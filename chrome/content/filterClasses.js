@@ -193,7 +193,7 @@ abp.CommentFilter = CommentFilter;
 /**
  * Abstract base class for filters that can get hits
  * @param {String} text see Filter()
- * @param {Array of String} domains  (optional) Domains that the filter is restricted to, e.g. ["foo.com", "bar.com", "~baz.com"]
+ * @param {String} domains  (optional) Domains that the filter is restricted to separated by domainSeparator e.g. "foo.com|bar.com|~baz.com"
  * @constructor
  * @augments Filter
  */
@@ -201,8 +201,84 @@ function ActiveFilter(text, domains)
 {
   Filter.call(this, text);
 
-  if (domains != null)
+  if (domains)
   {
+    this.domainSource = domains;
+    this.__defineGetter__("includeDomains", this._getIncludeDomains);
+    this.__defineGetter__("excludeDomains", this._getExcludeDomains);
+  }
+}
+ActiveFilter.prototype =
+{
+  __proto__: Filter.prototype,
+
+  /**
+   * Defines whether the filter is disabled
+   * @type Boolean
+   */
+  disabled: false,
+  /**
+   * Number of hits on the filter since the last reset
+   * @type Number
+   */
+  hitCount: 0,
+  /**
+   * Last time the filter had a hit (in milliseconds since the beginning of the epoch)
+   * @type Number
+   */
+  lastHit: 0,
+
+  /**
+   * String that the includeDomains and excludeDomains properties should be generated from
+   * @type String
+   */
+  domainSource: null,
+
+  /**
+   * Separator character used in domainSource property, must be overridden by subclasses
+   * @type String
+   */
+  domainSeparator: null,
+
+  /**
+   * Map containing domains that this filter should match on or null if the filter should match on all domains
+   * @type Object
+   */
+  includeDomains: null,
+  /**
+   * Map containing domains that this filter should not match on or null if the filter should match on all domains
+   * @type Object
+   */
+  excludeDomains: null,
+
+  /**
+   * Called first time includeDomains property is requested, triggers _generateDomains method.
+   */
+  _getIncludeDomains: function()
+  {
+    this._generateDomains();
+    return this.includeDomains;
+  },
+  /**
+   * Called first time excludeDomains property is requested, triggers _generateDomains method.
+   */
+  _getExcludeDomains: function()
+  {
+    this._generateDomains();
+    return this.excludeDomains;
+  },
+
+  /**
+   * Generates includeDomains and excludeDomains properties when one of them is requested for the first time.
+   */
+  _generateDomains: function()
+  {
+    let domains = this.domainSource.split(this.domainSeparator);
+
+    delete this.domainSource;
+    delete this.includeDomains;
+    delete this.excludeDomains;
+
     if (domains.length == 1 && domains[0][0] != "~")
     {
       // Fast track for the common one-domain scenario
@@ -229,38 +305,7 @@ function ActiveFilter(text, domains)
         this[hash][domain] = true;
       }
     }
-  }
-}
-ActiveFilter.prototype =
-{
-  __proto__: Filter.prototype,
-
-  /**
-   * Defines whether the filter is disabled
-   * @type Boolean
-   */
-  disabled: false,
-  /**
-   * Number of hits on the filter since the last reset
-   * @type Number
-   */
-  hitCount: 0,
-  /**
-   * Last time the filter had a hit (in milliseconds since the beginning of the epoch)
-   * @type Number
-   */
-  lastHit: 0,
-
-  /**
-   * Map containing domains that this filter should match on or null if the filter should match on all domains
-   * @type Object
-   */
-  includeDomains: null,
-  /**
-   * Map containing domains that this filter should not match on or null if the filter should match on all domains
-   * @type Object
-   */
-  excludeDomains: null,
+  },
 
   /**
    * Checks whether this filter is active on a domain.
@@ -340,7 +385,7 @@ abp.ActiveFilter = ActiveFilter;
  */
 function RegExpFilter(text, regexpSource, contentType, matchCase, domains, thirdParty)
 {
-  ActiveFilter.call(this, text, domains ? domains.split("|") : null);
+  ActiveFilter.call(this, text, domains);
 
   if (contentType != null)
     this.contentType = contentType;
@@ -364,6 +409,11 @@ function RegExpFilter(text, regexpSource, contentType, matchCase, domains, third
 RegExpFilter.prototype =
 {
   __proto__: ActiveFilter.prototype,
+
+  /**
+   * @see ActiveFilter.domainSeparator
+   */
+  domainSeparator: "|",
 
   /**
    * Expression from which a regular expression should be generated - for delayed creation of the regexp property
@@ -397,7 +447,7 @@ RegExpFilter.prototype =
   thirdParty: null,
 
   /**
-   * Generates regexp property when it is requested for the first time
+   * Generates regexp property when it is requested for the first time.
    * @return {RegExp}
    */
   _generateRegExp: function()
@@ -426,6 +476,7 @@ RegExpFilter.prototype =
     let regexp = new RegExp(source, this.matchCase ? "" : "i");
 
     delete this.regexp;
+    delete this.regexpSource;
     return (this.regexp = regexp);
   },
 
@@ -604,27 +655,20 @@ abp.WhitelistFilter = WhitelistFilter;
  */
 function ElemHideFilter(text, domains, selector)
 {
-  if (domains)
-    domains = domains.toUpperCase().split(",");
-  ActiveFilter.call(this, text, domains);
+  ActiveFilter.call(this, text, domains ? domains.toUpperCase() : null);
 
   if (domains)
-  {
-    if (domains.length == 1)
-    {
-      // Fast track for the common one-domain case
-      let domain = domains[0];
-      if (domain[0] != "~")
-        this.selectorDomain = domain.toLowerCase();
-    }
-    else
-      this.selectorDomain = domains.filter(function(domain) domain[0] != "~").join(",").toLowerCase();
-  }
+    this.selectorDomain = domains.replace(/,~[^,]+/g, "").replace(/^~[^,]+,?/, "").toLowerCase();
   this.selector = selector;
 }
 ElemHideFilter.prototype =
 {
   __proto__: ActiveFilter.prototype,
+
+  /**
+   * @see ActiveFilter.domainSeparator
+   */
+  domainSeparator: ",",
 
   /**
    * Host name or domain the filter should be restricted to (can be null for no restriction)
