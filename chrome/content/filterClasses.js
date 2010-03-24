@@ -426,7 +426,7 @@ RegExpFilter.fromText = function(text)
     for each (let option in options)
     {
       let value;
-      [option, value] = option.split("=");
+      [option, value] = option.split("=", 2);
       option = option.replace(/-/, "_");
       if (option in RegExpFilter.typeMap)
       {
@@ -462,17 +462,26 @@ RegExpFilter.fromText = function(text)
   }
   else
   {
-    regexp = text.replace(/\*+/g, "*")        // remove multiple wildcards
-                 .replace(/\^\|$/, "^")       // remove anchors following separator placeholder
-                 .replace(/(\W)/g, "\\$1")    // escape special symbols
-                 .replace(/\\\*/g, ".*")      // replace wildcards by .*
-                 // process separator placeholders (all ANSI charaters but alphanumeric characters and _%.-)
-                 .replace(/\\\^/g, "(?:[\\x00-\\x24\\x26-\\x2C\\x2F\\x3A-\\x40\\x5B-\\x5E\\x60\\x7B-\\x80]|$)")
-                 .replace(/^\\\|\\\|/, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?") // process extended anchor at expression start
-                 .replace(/^\\\|/, "^")       // process anchor at expression start
-                 .replace(/\\\|$/, "$")       // process anchor at expression end
-                 .replace(/^(\.\*)/,"")       // remove leading wildcards
-                 .replace(/(\.\*)$/,"");      // remove trailing wildcards 
+    // Remove multiple wildcards
+    regexp = text.replace(/\*+/g, "*");
+
+    // Remove leading wildcards
+    if (regexp[0] == "*")
+      regexp = regexp.substr(1);
+
+    // Remove trailing wildcards
+    let pos = regexp.length - 1;
+    if (regexp[pos] == "*")
+      regexp = regexp.substr(0, pos);
+
+    regexp = regexp.replace(/\^\|$/, "^")       // remove anchors following separator placeholder
+                   .replace(/\W/g, "\\$&")    // escape special symbols
+                   .replace(/\\\*/g, ".*")      // replace wildcards by .*
+                   // process separator placeholders (all ANSI charaters but alphanumeric characters and _%.-)
+                   .replace(/\\\^/g, "(?:[\\x00-\\x24\\x26-\\x2C\\x2F\\x3A-\\x40\\x5B-\\x5E\\x60\\x7B-\\x80]|$)")
+                   .replace(/^\\\|\\\|/, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?") // process extended anchor at expression start
+                   .replace(/^\\\|/, "^")       // process anchor at expression start
+                   .replace(/\\\|$/, "$");      // process anchor at expression end
   }
   if (regexp == "")
     regexp = ".*";
