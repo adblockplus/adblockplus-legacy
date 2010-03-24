@@ -203,22 +203,31 @@ function ActiveFilter(text, domains)
 
   if (domains != null)
   {
-    for each (let domain in domains)
+    if (domains.length == 1 && domains[0][0] != "~")
     {
-      if (domain == "")
-        continue;
-
-      let hash = "includeDomains";
-      if (domain[0] == "~")
+      // Fast track for the common one-domain scenario
+      this.includeDomains = {__proto__: null};
+      this.includeDomains[domains[0]] = true;
+    }
+    else
+    {
+      for each (let domain in domains)
       {
-        hash = "excludeDomains";
-        domain = domain.substr(1);
+        if (domain == "")
+          continue;
+  
+        let hash = "includeDomains";
+        if (domain[0] == "~")
+        {
+          hash = "excludeDomains";
+          domain = domain.substr(1);
+        }
+  
+        if (!this[hash])
+          this[hash] = {__proto__: null};
+  
+        this[hash][domain] = true;
       }
-
-      if (!this[hash])
-        this[hash] = {__proto__: null};
-
-      this[hash][domain] = true;
     }
   }
 }
@@ -574,7 +583,17 @@ function ElemHideFilter(text, domains, selector)
   ActiveFilter.call(this, text, domains);
 
   if (domains)
-    this.selectorDomain = domains.filter(function(domain) domain[0] != "~").join(",").toLowerCase();
+  {
+    if (domains.length == 1)
+    {
+      // Fast track for the common one-domain case
+      let domain = domains[0];
+      if (domain[0] != "~")
+        this.selectorDomain = domain.toLowerCase();
+    }
+    else
+      this.selectorDomain = domains.filter(function(domain) domain[0] != "~").join(",").toLowerCase();
+  }
   this.selector = selector;
 }
 ElemHideFilter.prototype =
