@@ -46,7 +46,7 @@
   <textbox id="version" flex="1" class="plain" readonly="true" tabindex="-1"/>
 </hbox>
 
-<groupbox id="mainGroup">
+<groupbox id="mainGroup" flex="1">
   <description id="description">
     &description;
   </description>
@@ -58,7 +58,7 @@
   <description id="author" value="Wladimir Palant"/>
 
   <description id="contributorsTitle" value="&contributors.label;"/>
-  <vbox id="contributorsBox">
+  <vbox id="contributorsBox" flex="1">
     <description value="Ahmad Zhafir - Malay translation"/>
     <description value="Ahmet Serkan Tıratacı - Turkish translation"/>
     <description value="Aigar Vals - Estonian translation"/>
