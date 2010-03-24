@@ -330,7 +330,7 @@ abp.ActiveFilter = ActiveFilter;
 /**
  * Abstract base class for RegExp-based filters
  * @param {String} text see Filter()
- * @param {String} regexp       regular expression this filter should use
+ * @param {String} regexpSource filter part that the regular expression should be build from
  * @param {Number} contentType  (optional) Content types the filter applies to, combination of values from RegExpFilter.typeMap
  * @param {Boolean} matchCase   (optional) Defines whether the filter should distinguish between lower and upper case letters
  * @param {String} domains      (optional) Domains that the filter is restricted to, e.g. "foo.com|bar.com|~baz.com"
@@ -338,7 +338,7 @@ abp.ActiveFilter = ActiveFilter;
  * @constructor
  * @augments ActiveFilter
  */
-function RegExpFilter(text, regexp, contentType, matchCase, domains, thirdParty)
+function RegExpFilter(text, regexpSource, contentType, matchCase, domains, thirdParty)
 {
   ActiveFilter.call(this, text, domains ? domains.split("|") : null);
 
@@ -349,12 +349,27 @@ function RegExpFilter(text, regexp, contentType, matchCase, domains, thirdParty)
   if (thirdParty != null)
     this.thirdParty = thirdParty;
 
-  this.regexp = new RegExp(regexp, this.matchCase ? "" : "i");
+  if (regexpSource[0] == "/" && regexpSource[regexpSource.length - 1] == "/")
+  {
+    // The filter is a regular expression - convert it immediately to catch syntax errors
+    this.regexp = new RegExp(regexpSource.substr(1, regexpSource.length - 2), this.matchCase ? "" : "i");
+  }
+  else
+  {
+    // No need to convert this filter to regular expression yet, do it on demand
+    this.regexpSource = regexpSource;
+    this.__defineGetter__("regexp", this._generateRegExp);
+  }
 }
 RegExpFilter.prototype =
 {
   __proto__: ActiveFilter.prototype,
 
+  /**
+   * Expression from which a regular expression should be generated - for delayed creation of the regexp property
+   * @type String
+   */
+  regexpSource: null,
   /**
    * Regular expression to be used when testing against this filter
    * @type RegExp
@@ -380,6 +395,39 @@ RegExpFilter.prototype =
    * @type Boolean
    */
   thirdParty: null,
+
+  /**
+   * Generates regexp property when it is requested for the first time
+   * @return {RegExp}
+   */
+  _generateRegExp: function()
+  {
+    // Remove multiple wildcards
+    let source = this.regexpSource.replace(/\*+/g, "*");
+
+    // Remove leading wildcards
+    if (source[0] == "*")
+      source = source.substr(1);
+
+    // Remove trailing wildcards
+    let pos = source.length - 1;
+    if (source[pos] == "*")
+      source = source.substr(0, pos);
+
+    source = source.replace(/\^\|$/, "^")       // remove anchors following separator placeholder
+                   .replace(/\W/g, "\\$&")    // escape special symbols
+                   .replace(/\\\*/g, ".*")      // replace wildcards by .*
+                   // process separator placeholders (all ANSI charaters but alphanumeric characters and _%.-)
+                   .replace(/\\\^/g, "(?:[\\x00-\\x24\\x26-\\x2C\\x2F\\x3A-\\x40\\x5B-\\x5E\\x60\\x7B-\\x80]|$)")
+                   .replace(/^\\\|\\\|/, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?") // process extended anchor at expression start
+                   .replace(/^\\\|/, "^")       // process anchor at expression start
+                   .replace(/\\\|$/, "$");      // process anchor at expression end
+
+    let regexp = new RegExp(source, this.matchCase ? "" : "i");
+
+    delete this.regexp;
+    return (this.regexp = regexp);
+  },
 
   /**
    * Tests whether the URL matches this filters
@@ -455,37 +503,6 @@ RegExpFilter.fromText = function(text)
     }
   }
 
-  let regexp;
-  if (text[0] == "/" && text[text.length - 1] == "/")   // filter is a regexp already
-  {
-    regexp = text.substr(1, text.length - 2);
-  }
-  else
-  {
-    // Remove multiple wildcards
-    regexp = text.replace(/\*+/g, "*");
-
-    // Remove leading wildcards
-    if (regexp[0] == "*")
-      regexp = regexp.substr(1);
-
-    // Remove trailing wildcards
-    let pos = regexp.length - 1;
-    if (regexp[pos] == "*")
-      regexp = regexp.substr(0, pos);
-
-    regexp = regexp.replace(/\^\|$/, "^")       // remove anchors following separator placeholder
-                   .replace(/\W/g, "\\$&")    // escape special symbols
-                   .replace(/\\\*/g, ".*")      // replace wildcards by .*
-                   // process separator placeholders (all ANSI charaters but alphanumeric characters and _%.-)
-                   .replace(/\\\^/g, "(?:[\\x00-\\x24\\x26-\\x2C\\x2F\\x3A-\\x40\\x5B-\\x5E\\x60\\x7B-\\x80]|$)")
-                   .replace(/^\\\|\\\|/, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?") // process extended anchor at expression start
-                   .replace(/^\\\|/, "^")       // process anchor at expression start
-                   .replace(/\\\|$/, "$");      // process anchor at expression end
-  }
-  if (regexp == "")
-    regexp = ".*";
-
   if (constructor == WhitelistFilter && (contentType == null || (contentType & RegExpFilter.typeMap.DOCUMENT)) &&
       (!options || options.indexOf("DOCUMENT") < 0) && !/^\|?[\w\-]+:/.test(text))
   {
@@ -497,7 +514,7 @@ RegExpFilter.fromText = function(text)
 
   try
   {
-    return new constructor(origText, regexp, contentType, matchCase, domains, thirdParty, collapse);
+    return new constructor(origText, text, contentType, matchCase, domains, thirdParty, collapse);
   }
   catch (e)
   {
@@ -529,7 +546,7 @@ RegExpFilter.typeMap = {
 /**
  * Class for blocking filters
  * @param {String} text see Filter()
- * @param {String} regexp see RegExpFilter()
+ * @param {String} regexpSource see RegExpFilter()
  * @param {Number} contentType see RegExpFilter()
  * @param {Boolean} matchCase see RegExpFilter()
  * @param {String} domains see RegExpFilter()
@@ -538,9 +555,9 @@ RegExpFilter.typeMap = {
  * @constructor
  * @augments RegExpFilter
  */
-function BlockingFilter(text, regexp, contentType, matchCase, domains, thirdParty, collapse)
+function BlockingFilter(text, regexpSource, contentType, matchCase, domains, thirdParty, collapse)
 {
-  RegExpFilter.call(this, text, regexp, contentType, matchCase, domains, thirdParty);
+  RegExpFilter.call(this, text, regexpSource, contentType, matchCase, domains, thirdParty);
 
   this.collapse = collapse;
 }
@@ -559,7 +576,7 @@ abp.BlockingFilter = BlockingFilter;
 /**
  * Class for whitelist filters
  * @param {String} text see Filter()
- * @param {String} regexp see RegExpFilter()
+ * @param {String} regexpSource see RegExpFilter()
  * @param {Number} contentType see RegExpFilter()
  * @param {Boolean} matchCase see RegExpFilter()
  * @param {String} domains see RegExpFilter()
@@ -567,9 +584,9 @@ abp.BlockingFilter = BlockingFilter;
  * @constructor
  * @augments RegExpFilter
  */
-function WhitelistFilter(text, regexp, contentType, matchCase, domains, thirdParty)
+function WhitelistFilter(text, regexpSource, contentType, matchCase, domains, thirdParty)
 {
-  RegExpFilter.call(this, text, regexp, contentType, matchCase, domains, thirdParty);
+  RegExpFilter.call(this, text, regexpSource, contentType, matchCase, domains, thirdParty);
 }
 WhitelistFilter.prototype =
 {
