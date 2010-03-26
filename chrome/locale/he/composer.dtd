@@ -2,23 +2,23 @@
 <!ENTITY accept.label "הוספת מסנן">
 <!ENTITY advanced.label "תצוגה מתקדמת">
 <!ENTITY basic.label "תצוגה בסיסית">
-<!ENTITY disabled.warning "Adblock Plus מנוטרל. ניתן לערוך את כל המסננים ברשימה, אבל זה לא יהיה מעשי עד שתאפשר אותו מחדש. [link]מאפשר את Adblock Plus[/link].">
-<!ENTITY groupDisabled.warning "סנן זה אשר אמור להיות מצורף לקבוצת הסינון &quot;&#37;S&quot; מנוטרל כרגע. עדיין ניתן להוסיף סנן זה אך הוא לא ייושם אל אם [link]קבוצת הסינון תאפשר[/link].">
+<!ENTITY disabled.warning "Adblock Plus מנוטרל. ניתן לערוך את כל המסננים ברשימה, אבל זה לא יהיה מעשי עד שיאפשר מחדש. [link]מאפשר את Adblock Plus[/link].">
+<!ENTITY groupDisabled.warning "מסנן זה אשר אמור להיות מצורף לקבוצת הסינון &quot;&#37;S&quot; מנוטרל כרגע. עדיין ניתן להוסיף מסנן זה אך הוא לא ייושם אלא אם [link]קבוצת הסינון תאפשר[/link].">
 <!ENTITY filter.label "מסנן חדש:">
 <!ENTITY filter.accesskey "מ">
-<!ENTITY preferences.label "מציג מסננים קיימים...">
+<!ENTITY preferences.label "הצגת המסננים הקיימים...">
 <!ENTITY preferences.accesskey "צ">
 <!ENTITY type.filter.label "מסנן חסימה">
 <!ENTITY type.filter.accesskey "ס">
 <!ENTITY type.whitelist.label "חוק חריג">
 <!ENTITY type.whitelist.accesskey "ק">
-<!ENTITY pattern.label "חפש אחר תבנית">
+<!ENTITY pattern.label "חיפוש אחר תבנית">
 <!ENTITY pattern.explanation "הדפוס יכול להיות כל חלק מהכתובת, סמל * משמש כתו חופשי שאחריו יכול לבוא כל תו אחר. המסנן יכול להחיל רק על כתובות המתאימות לתבנית.">
 <!ENTITY regexp.warning "הדפוס שהוזן יפורש כביטוי רגיל. ביטויים רגילים רבים עשויים להאט את הגלישה. אם אין כוונה להשתמש בביטויים רגילים, יש להוסיף את הסמל * בסוף התבנית.">
 <!ENTITY shortpattern.warning "הדפוס שהוזן קצר מדי בכדי להיות יעיל, דפוסים רבים מסוג זה עשויים להאט את הגלישה. מומלץ לבחור מחרוזת ארוכה יותר למסנן זה.">
-<!ENTITY custom.pattern.label "מותאם אישית:">
+<!ENTITY custom.pattern.label "מותאם:">
 <!ENTITY custom.pattern.accesskey "א">
-<!ENTITY anchors.label "הסכם לתבנית שרק:">
+<!ENTITY anchors.label "הסכמה לתבנית שרק:">
 <!ENTITY anchor.start.label "בתחילת הכתובת">
 <!ENTITY anchor.start.accesskey "ב">
 <!ENTITY anchor.start.flexible.label "בתחילת שם המתחם">
@@ -26,21 +26,21 @@
 <!ENTITY anchor.end.label "בסוף הכתובת">
 <!ENTITY anchor.end.accesskey "ף">
 <!ENTITY options.label "אפשרויות">
-<!ENTITY domainRestriction.label "הגבלה למתחם:">
+<!ENTITY domainRestriction.label "הגבלה למרחב:">
 <!ENTITY domainRestriction.accesskey "ג">
-<!ENTITY domainRestriction.help "מתחם אחד או יותר מופרדים על ידי הסמל &quot;|&quot;, המסנן יאפשר מתחמים אלו בלבד. הסמל &quot;~&quot; לפני שם המתחם משמעותו שמסנן זה מנוטרל על מתחם זה.">
+<!ENTITY domainRestriction.help "מרחב אחד או יותר מופרדים על ידי הסמל &quot;|&quot;, המסנן יאפשר מרחבים אלו בלבד. הסמל &quot;~&quot; לפני שם המרחב משמעותו שמסנן זה מנוטרל על מרחב זה.">
 <!ENTITY firstParty.label "צד-ראשון (יוצר) בלבד">
 <!ENTITY firstParty.accesskey "ד">
 <!ENTITY thirdParty.label "צד-שלישי בלבד">
 <!ENTITY thirdParty.accesskey "ש">
-<!ENTITY matchCase.label "התאם אותיות גדולות/קטנות">
-<!ENTITY matchCase.accesskey "ט">
-<!ENTITY types.label "החל על סוגים:">
+<!ENTITY matchCase.label "התאמת אותיות גדולות/קטנות">
+<!ENTITY matchCase.accesskey "ת">
+<!ENTITY types.label "החל על הסוגים:">
 <!ENTITY selectAllTypes.label "בחר הכל">
 <!ENTITY unselectAllTypes.label "לא לבחור דבר">
 <!ENTITY collapse.label "שמוט חסומים:">
 <!ENTITY collapse.accesskey "ו">
-<!ENTITY collapse.default.yes.label "השתמש בברירת מחדל (כן)">
-<!ENTITY collapse.default.no.label "השתמש בברירת מחדל (לא)">
+<!ENTITY collapse.default.yes.label "שימוש בברירת מחדל (כן)">
+<!ENTITY collapse.default.no.label "שימוש בברירת מחדל (לא)">
 <!ENTITY collapse.yes.label "כן">
 <!ENTITY collapse.no.label "לא">

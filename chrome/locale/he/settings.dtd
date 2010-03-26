@@ -1,22 +1,22 @@
-<!ENTITY dialog.title "Adblock Plus מאפייני">
+<!ENTITY dialog.title "Adblock Plus העדפות">
 <!ENTITY filters.label "מסננים">
 <!ENTITY filters.accesskey "מ">
-<!ENTITY add.label "הוסף מסנן">
+<!ENTITY add.label "הוספת מסנן">
 <!ENTITY add.accesskey "ס">
-<!ENTITY addsubscription.label "הוסף הרשמה למסננים">
-<!ENTITY addsubscription.accesskey "ף">
-<!ENTITY synchsubscriptions.label "עדכן את כל ההרשמות">
+<!ENTITY addsubscription.label "הוספת הרשמה למסננים">
+<!ENTITY addsubscription.accesskey "פ">
+<!ENTITY synchsubscriptions.label "עדכון כל ההרשמות">
 <!ENTITY synchsubscriptions.accesskey "ע">
 <!ENTITY import.label "ייבוא מסננים">
 <!ENTITY import.accesskey "ב">
-<!ENTITY export.label "יצוא מסננים מותאמים אישית">
+<!ENTITY export.label "ייצוא מסננים מותאמים אישית">
 <!ENTITY export.accesskey "צ">
-<!ENTITY clearall.label "הסר את כל המסננים המותאמים אישית">
+<!ENTITY clearall.label "הסרת כל המסננים המותאמים אישית">
 <!ENTITY clearall.accesskey "ה">
-<!ENTITY resethitcounts.label "אפס את כל מוני הלחיצות">
+<!ENTITY resethitcounts.label "אפוס כל מוני הלחיצות">
 <!ENTITY resethitcounts.accesskey "א">
-<!ENTITY edit.label "ערוך">
-<!ENTITY edit.accesskey "ר">
+<!ENTITY edit.label "עריכה">
+<!ENTITY edit.accesskey "כ">
 <!ENTITY cut.label "גזור">
 <!ENTITY cut.accesskey "ג">
 <!ENTITY copy.label "העתק">
@@ -41,15 +41,15 @@
 <!ENTITY sort.descending.accesskey "י">
 <!ENTITY options.label "אפשרויות">
 <!ENTITY options.accesskey "פ">
-<!ENTITY enable.label "אפשר את Adblock Plus">
+<!ENTITY enable.label "אפשור  Adblock Plus">
 <!ENTITY enable.accesskey "א">
-<!ENTITY showintoolbar.label "הצג בסרגל הכלים">
+<!ENTITY showintoolbar.label "הצגה בסרגל הכלים">
 <!ENTITY showintoolbar.accesskey "ל">
-<!ENTITY showinstatusbar.label "הצג בשורת המצב">
+<!ENTITY showinstatusbar.label "הצגה בשורת המצב">
 <!ENTITY showinstatusbar.accesskey "צ">
-<!ENTITY objecttabs.label "הצג לשוניות על ג&apos;אווה ופלאש">
+<!ENTITY objecttabs.label "הצגת לשוניות על ג'אווה ופלאש">
 <!ENTITY objecttabs.accesskey "ג">
-<!ENTITY collapse.label "השמט פריטים חסומים">
+<!ENTITY collapse.label "השמטת פריטים חסומים">
 <!ENTITY collapse.accesskey "ה">
 <!ENTITY help.label "עזרה">
 <!ENTITY help.accesskey "ע">
@@ -64,27 +64,27 @@
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "אודות Adblock Plus">
 <!ENTITY about.accesskey "א">
-<!ENTITY description "המסננים הבאים קובעים איזה כתובות אמורות להיחסם ואיזה להיות מורשות:">
+<!ENTITY description "המסננים הבאים קובעים איזה כתובות אמורות להיחסם ואיזה להיות מאפשרות:">
 <!ENTITY filter.column "חוק סינון">
 <!ENTITY filter.accesskey "נ">
-<!ENTITY slow.column "פילטרים אטיים">
-<!ENTITY slow.accesskey "פ">
-<!ENTITY enabled.column "מאופשר">
+<!ENTITY slow.column "מסננים אטיים">
+<!ENTITY slow.accesskey "ס">
+<!ENTITY enabled.column "מאפשר">
 <!ENTITY enabled.accesskey "ר">
 <!ENTITY hitcount.column "לחיצות">
 <!ENTITY hitcount.accesskey "ל">
 <!ENTITY lasthit.column "לחיצה אחרונה">
 <!ENTITY lasthit.accesskey "ח">
-<!ENTITY context.edit.label "ערוך מסנן">
-<!ENTITY context.resethitcount.label "אפס את כל מוני הלחיצות עבור מסנן">
-<!ENTITY context.synchsubscription.label "עדכן הרשמה כעת">
-<!ENTITY context.editsubscription.label "ערוך הרשמה">
-<!ENTITY context.moveup.label "הזז מסנן מעלה">
-<!ENTITY context.movedown.label "הזז מסנן מטה">
-<!ENTITY context.movegroupup.label "הזז קבוצה מעלה">
-<!ENTITY context.movegroupdown.label "הזז קבוצה מטה">
+<!ENTITY context.edit.label "עריכת מסנן">
+<!ENTITY context.resethitcount.label "אפוס את כל מוני הלחיצות עבור מסנן">
+<!ENTITY context.synchsubscription.label "עדכון ההרשמה כעת">
+<!ENTITY context.editsubscription.label "עריכת ההרשמה">
+<!ENTITY context.moveup.label "הזזת המסנן מעלה">
+<!ENTITY context.movedown.label "הזזת המסנן מטה">
+<!ENTITY context.movegroupup.label "הזזת הקבוצה מעלה">
+<!ENTITY context.movegroupdown.label "הזזת הקבוצה מטה">
 <!ENTITY context.enable.label "אפשר">
 <!ENTITY context.disable.label "נטרל">
 <!ENTITY apply.label "החל">
 <!ENTITY apply.accesskey "ח">
-<!ENTITY fennec.subscription.label "רישום מסננים">
+<!ENTITY fennec.subscription.label "הרשמת מסננים">

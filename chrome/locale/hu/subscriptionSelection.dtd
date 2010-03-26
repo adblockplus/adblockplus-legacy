@@ -1,3 +1,4 @@
+<!ENTITY dialog.title "Adblock Plus szűrő felvétele">
 <!ENTITY dialog.title.edit "Külső szűrő szerkesztése">
 <!ENTITY description.newInstall "Ahhoz, hogy az Adblock Plus hatékonyabb legyen, adjon hozzá szűrőket. Ezeket a szűrőket más Adblock Plus felhasználók készítettek szabad felhasználás céljából. A régiójának megfelelő szűrők már ki vannak választva.">
 <!ENTITY adblock.warning "Az Adblock Plus észlelte egy korábbi verzió, vagy az Adblock jelenlétét. Az Adblock és az Adblock Plus párhuzamos jelenléte problémákhoz vezethet. Ajánlott az Adblock eltávolítása.">

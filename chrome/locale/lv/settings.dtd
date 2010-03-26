@@ -1,0 +1,90 @@
+<!ENTITY dialog.title "Adblock Plus Iestatījumi">
+<!ENTITY filters.label "Filtri">
+<!ENTITY filters.accesskey "F">
+<!ENTITY add.label "Pievienot Filtru">
+<!ENTITY add.accesskey "A">
+<!ENTITY addsubscription.label "Pievienot filtra abonēšanu">
+<!ENTITY addsubscription.accesskey "s">
+<!ENTITY synchsubscriptions.label "Atjaunot visus abonementus">
+<!ENTITY synchsubscriptions.accesskey "d">
+<!ENTITY import.label "Importēt filtrus">
+<!ENTITY import.accesskey "m">
+<!ENTITY export.label "Eksportēt atseviškos filtrus">
+<!ENTITY export.accesskey "x">
+<!ENTITY clearall.label "Aizvākt visus atseviškos filtrus">
+<!ENTITY clearall.accesskey "l">
+<!ENTITY resethitcounts.label "Atiestatīt klikšķu statistiku">
+<!ENTITY resethitcounts.accesskey "R">
+<!ENTITY edit.label "Rediģēt">
+<!ENTITY edit.accesskey "E">
+<!ENTITY cut.label "Izgriezt">
+<!ENTITY cut.accesskey "t">
+<!ENTITY copy.label "Kopēt">
+<!ENTITY copy.accesskey "C">
+<!ENTITY paste.label "Ielīmēt">
+<!ENTITY paste.accesskey "P">
+<!ENTITY remove.label "Dzēst">
+<!ENTITY remove.accesskey "D">
+<!ENTITY menu.find.label "Meklēt">
+<!ENTITY menu.find.accesskey "F">
+<!ENTITY menu.findagain.label "Meklēt atkāroti">
+<!ENTITY menu.findagain.accesskey "g">
+<!ENTITY view.label "Skatīt">
+<!ENTITY view.accesskey "V">
+<!ENTITY sort.label "Kārtot pēc">
+<!ENTITY sort.accesskey "S">
+<!ENTITY sort.none.label "Nesakārtots">
+<!ENTITY sort.none.accesskey "U">
+<!ENTITY sort.ascending.label "A &gt; Z kārtošanas secība">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.descending.label "Z &gt; A kārtošanas secība">
+<!ENTITY sort.descending.accesskey "Z">
+<!ENTITY options.label "Iespējas">
+<!ENTITY options.accesskey "O">
+<!ENTITY enable.label "Iespējot Adblock Plus">
+<!ENTITY enable.accesskey "n">
+<!ENTITY showintoolbar.label "Rādīt rīkjoslā">
+<!ENTITY showintoolbar.accesskey "b">
+<!ENTITY showinstatusbar.label "Rādīt stāvokļa joslā">
+<!ENTITY showinstatusbar.accesskey "s">
+<!ENTITY objecttabs.label "Rādīt cilnes Flash un Java">
+<!ENTITY objecttabs.accesskey "t">
+<!ENTITY collapse.label "Savērst bloķētos elementus">
+<!ENTITY collapse.accesskey "l">
+<!ENTITY help.label "Palīdzība">
+<!ENTITY help.accesskey "H">
+<!ENTITY gettingStarted.label "Iesākumam">
+<!ENTITY gettingStarted.accesskey "s">
+<!ENTITY gettingStarted.url "http://adblockplus.org/en/getting_started">
+<!ENTITY faq.label "Biežāk Uzdotie Jautājumi">
+<!ENTITY faq.accesskey "F">
+<!ENTITY faq.url "http://adblockplus.org/en/faq">
+<!ENTITY filterdoc.label "Rakstīt Adblock Plus filtrus">
+<!ENTITY filterdoc.accesskey "r">
+<!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
+<!ENTITY about.label "Par Adblock Plus">
+<!ENTITY about.accesskey "b">
+<!ENTITY description "Šādi filtri nosaka, kurām adresēm ir jābūt bloķētām, un kādas ir atļautas:">
+<!ENTITY filter.column "Filtra noteikumi">
+<!ENTITY filter.accesskey "F">
+<!ENTITY slow.column "Lēni filtri">
+<!ENTITY slow.accesskey "w">
+<!ENTITY enabled.column "Iespējots">
+<!ENTITY enabled.accesskey "n">
+<!ENTITY hitcount.column "Klikšķi">
+<!ENTITY hitcount.accesskey "H">
+<!ENTITY lasthit.column "Pēdējai klikšķis">
+<!ENTITY lasthit.accesskey "L">
+<!ENTITY context.edit.label "Rediģēt filtru">
+<!ENTITY context.resethitcount.label "Atiestatīt klikšķu statistiku filtram">
+<!ENTITY context.synchsubscription.label "Atjaunot abonēšanu">
+<!ENTITY context.editsubscription.label "Rediģēt abonementu">
+<!ENTITY context.moveup.label "Pārvietot filtru augšup">
+<!ENTITY context.movedown.label "Pārvietot filtru lejup">
+<!ENTITY context.movegroupup.label "Pārvietot grupu augšup">
+<!ENTITY context.movegroupdown.label "Pārvietot grupu lejup">
+<!ENTITY context.enable.label "Iespējot">
+<!ENTITY context.disable.label "Atspējot">
+<!ENTITY apply.label "Apstiprināt">
+<!ENTITY apply.accesskey "p">
+<!ENTITY fennec.subscription.label "Filtra abonements">

@@ -1,15 +1,32 @@
+<!ENTITY dialog.title "Adicionar subscrição de filtro Adblock Plus">
 <!ENTITY dialog.title.edit "Editar subscrição de filtros">
+<!ENTITY description.newInstall "O Adblock Plus é mais eficaz se adicionar subscrição de filtros. As subscrições de filtros são fornecidas gratuitamente por outros utilizadores do Adblock Plus. A subscrição mais acertada para o seu idioma já está seleccionada.">
 <!ENTITY adblock.warning "O Adblock Plus detectou que o Adblock ou uma versão anterior do Adblock Plus está instalada. Correr o Adblock e o Adblock Plus em simultâneo pode causar problemas e deve ser evitado. É recomendável desinstalar o Adblock.">
 <!ENTITY adblock.uninstall "Desinstalar o Adblock">
 <!ENTITY filterset.g.warning "Parece utilizar o Filterset.G. Esta lista de filtros raramente é actualizada actualmente e é uma causa comum de problemas com websites. É recomendável desinstalar o Filterset.G agora.">
 <!ENTITY filterset.g.moreinfo "Mais informação">
 <!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
 <!ENTITY filterset.g.uninstall "Desinstalar o Filterset.G">
+<!ENTITY subscriptionSelector.label "Por favor escolha uma subscrição de filtros da lista:">
+<!ENTITY viewList.label "Ver filtros">
+<!ENTITY visitHomepage.label "Visitar página">
+<!ENTITY addSubscription.label "Adicionar subscrição">
+<!ENTITY saveSubscription.label "Guardar subscrição">
 <!ENTITY other.label "Adicionar outra subscrição">
 <!ENTITY other.accesskey "O">
+<!ENTITY list.download.failed "Adblock Plus não conseguiu recuperar a lista de subscrições.">
+<!ENTITY list.download.retry "Tentar novamente">
+<!ENTITY list.download.website "Visitar website">
+<!ENTITY list.website.url "http://adblockplus.org/en/subscriptions">
+<!ENTITY fromWeb.description "Por favor confirme que deseja adicionar esta subscrição de filtros. Pode alterar o título ou a localização da subscrição antes de adicioná-la.">
+<!ENTITY edit.description "Pode alterar o título ou localização da subscrição se necessário.">
+<!ENTITY external.description "Esta é uma subscrição de filtros externa; será actualizada pela extensão que criou a subscrição.">
 <!ENTITY title.label "Título da subscrição:">
 <!ENTITY title.accesskey "T">
 <!ENTITY location.label "Localização de lista de filtros:">
 <!ENTITY location.accesskey "L">
 <!ENTITY autodownload.label "Actualizar automaticamente">
 <!ENTITY autodownload.accesskey "Z">
+<!ENTITY supplementMessage "Esta subscrição de filtros deve ser usada em conjunto com a subscrição &quot;&#37;S&quot; que não está a usar neste momento.">
+<!ENTITY addMain.label "Adicionar subscrição de filtros &quot;&#37;S&quot; também">
+<!ENTITY addMain.accesskey "s">

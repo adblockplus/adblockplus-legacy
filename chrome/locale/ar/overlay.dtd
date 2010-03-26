@@ -16,7 +16,6 @@
 <!ENTITY opensidebar.accesskey "ج">
 <!ENTITY closesidebar.label "إغلاق العناصر المحجوبة">
 <!ENTITY closesidebar.accesskey "ج">
-<!ENTITY whitelist.site.label "تعطيل">
 <!ENTITY whitelist.page.label "تعطيل في هذه الصفحة فقط">
 <!ENTITY objecttab.title "منع">
 <!ENTITY objecttab.tooltip "اضغط هنا لمنع هذا العنصر مع آدبلوك بلاس">

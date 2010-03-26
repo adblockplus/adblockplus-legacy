@@ -1,3 +1,4 @@
+<!ENTITY dialog.title "Dodaj naročnino na filtre Adblock Plus">
 <!ENTITY dialog.title.edit "Uredi naročnino filtra">
 <!ENTITY description.newInstall "Da bi bil Adblock Plus kar najbolj učinkovit, dodajte naročnino na filtre. Te naročnine na filtre ponujajo drugi uporabniki Adblock Plusa brezplačno. Najprimernejše naročnine na filtre za vaš jezik so že izbrane.">
 <!ENTITY adblock.warning "Adblock Plus je zaznal, da je nameščen Adblock ali stara različica Adblock Plus. Vzporedno poganjanje Adblocka in Adblocka Plus lahko povzroča težave in ni priporočljivo. Priporočamo, da zdaj odstranite Adblock.">

@@ -87,3 +87,4 @@
 <!ENTITY context.disable.label "Inaktivera">
 <!ENTITY apply.label "Verkställ">
 <!ENTITY apply.accesskey "V">
+<!ENTITY fennec.subscription.label "Filterprenumeration">

@@ -8,6 +8,7 @@
 <!ENTITY context.image.label "Blokovat obrázek">
 <!ENTITY context.object.label "Blokovat objekt">
 <!ENTITY context.frame.label "Blokovat rámec">
+<!ENTITY context.media.label "Adblock Plus: Blokovat audio/video">
 <!ENTITY context.removeWhitelist.label "Adblock Plus: Znovu povolit na této stránce">
 <!ENTITY sidebar.title "Adblock Plus: Blokovatelné objekty na zobrazené stránce">
 <!ENTITY settings.label "Předvolby">
