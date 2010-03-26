@@ -31,27 +31,15 @@
 
 #mainGroup {
   margin-top: 15px;
+  width: 450px;
+  height: 400px;
+  overflow: auto;
 }
 
 #homepageTitle, #authorTitle, #contributorsTitle {
   font-weight: bold;
 }
 
-#description, #homepage, #author {
+#description, #homepage, #author, #developersBox, #designersBox, #subscriptionAuthorsBox {
   margin-bottom: 10px;
-}
-
-#description {
-  width: 450px;
-}
-
-#homepage {
-  color: #0000E0;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-#contributorsBox {
-  height: 200px;
-  overflow: auto;
 }
