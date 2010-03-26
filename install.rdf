@@ -12,6 +12,10 @@
   <em:creator>Wladimir Palant</em:creator>
   <em:homepageURL>http://adblockplus.org/</em:homepageURL>
 
+  <em:contributor>Rob Brown</em:contributor>
+  <em:contributor>Nickolay Ponomarev</em:contributor>
+  <em:contributor>Fabrice Desré</em:contributor>
+
 {{LOCALIZED}}
 
   <!-- Front End Integration Hooks (used by Extension Manager)-->
