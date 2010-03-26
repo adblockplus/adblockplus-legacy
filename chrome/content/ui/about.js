@@ -22,10 +22,7 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-function fillInVersion() {
-  var versionField = document.getElementById("version");
-  versionField.value = abp.getInstalledVersion();
-
-  // Work-around for bug 494901, change align attribute to ensure correct positioning
-  versionField.parentNode.setAttribute("align", "baseline");
+function fillInVersion()
+{
+  E("version").value = abp.getInstalledVersion();
 }
