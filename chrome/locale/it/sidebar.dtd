@@ -23,7 +23,9 @@
 <!ENTITY context.editfilter.label "Modifica il filtro in effetto">
 <!ENTITY context.whitelist.label "Aggiungi un'eccezione per l'elemento">
 <!ENTITY context.disablefilter.label "Disattiva il filtro --">
+<!-- Note: the placeholder (double-dash) will be replaced by the filter text -->
 <!ENTITY context.enablefilter.label "Riattiva il filtro --">
+<!-- Note: the placeholder (double-dash) will be replaced by the filter text -->
 <!ENTITY context.disablefilteronsite.label "Disattiva il filtro per --">
 <!ENTITY context.open.label "Apri in una nuova scheda">
 <!ENTITY context.flash.label "Fai lampeggiare il contorno dell'elemento selezionato">
