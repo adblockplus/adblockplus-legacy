@@ -8,7 +8,7 @@
 <!ENTITY filter.label "Sía">
 <!ENTITY state.label "Ríki">
 <!ENTITY size.label "Stærð">
-<!ENTITY docDomain.label "Frumkóði síðu">
+<!ENTITY docDomain.label "Netfang síðu">
 <!ENTITY noitems.label "Engir hlutir til að loka á">
 <!ENTITY whitelisted.label "Síða fyrir hvítlista">
 <!ENTITY tooltip.address.label "Netfang:">
@@ -16,7 +16,7 @@
 <!ENTITY tooltip.type.blocked "(stöðvað)">
 <!ENTITY tooltip.type.whitelisted "(hvítlisti)">
 <!ENTITY tooltip.size.label "Stærð:">
-<!ENTITY tooltip.docDomain.label "Frumkóði síðu:">
+<!ENTITY tooltip.docDomain.label "Netfang síðu:">
 <!ENTITY tooltip.filter.label "Sía í notkun:">
 <!ENTITY tooltip.filterSource.label "Sía frumkóða:">
 <!ENTITY context.block.label "Loka á þennan hlut">
@@ -27,6 +27,6 @@
 <!ENTITY context.disablefilteronsite.label "Aftengja síu fyrir --">
 <!ENTITY context.open.label "Opna í nýjum flipa">
 <!ENTITY context.flash.label "Rammi Flash hlutar">
-<!ENTITY context.copy.label "Afrita netfang hlutar">
+<!ENTITY context.copy.label "Afrita vefslóð hlutar">
 <!ENTITY context.copyFilter.label "Afrita síu">
 <!ENTITY context.selectAll.label "Velja allt">

@@ -1,3 +1,4 @@
+<!ENTITY dialog.title "添加 Adblock Plus 过滤规则订阅">
 <!ENTITY dialog.title.edit "编辑过滤规则订阅">
 <!ENTITY description.newInstall "要使 Adblock Plus 发挥最大功效，您应该添加规律规则订阅。这些规律规则订阅由其他 Adblock Plus 用户免费提供。大多数适用于您的语言的过滤过则订阅已经选择了。">
 <!ENTITY adblock.warning "Adblock Plus 检测出您已经安装了 Adblock 或旧版本的 Adblock Plus。同时运行 Adblock 和 Adblock Plus 会导致问题，应该避免此类问题发生。推荐现在卸载 Adblock。">

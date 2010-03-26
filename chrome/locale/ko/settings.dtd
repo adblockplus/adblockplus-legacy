@@ -1,19 +1,19 @@
-<!ENTITY dialog.title "Adblock Plus 설정">
+<!ENTITY dialog.title "설정">
 <!ENTITY filters.label "필터">
 <!ENTITY filters.accesskey "F">
 <!ENTITY add.label "필터 추가">
 <!ENTITY add.accesskey "A">
-<!ENTITY addsubscription.label "필터 표현식 추가">
+<!ENTITY addsubscription.label "구독 필터 추가">
 <!ENTITY addsubscription.accesskey "S">
-<!ENTITY synchsubscriptions.label "모든 표현식 업데이트">
+<!ENTITY synchsubscriptions.label "모든 구독 필터 업데이트">
 <!ENTITY synchsubscriptions.accesskey "D">
 <!ENTITY import.label "필터 가져오기">
 <!ENTITY import.accesskey "M">
-<!ENTITY export.label "필터 내보내기">
+<!ENTITY export.label "사용자 필터 내보내기">
 <!ENTITY export.accesskey "X">
-<!ENTITY clearall.label "모든 필터 제거">
+<!ENTITY clearall.label "모든 사용자 필터 제거">
 <!ENTITY clearall.accesskey "L">
-<!ENTITY resethitcounts.label "통계 초기화">
+<!ENTITY resethitcounts.label "필터 적용 횟수 초기화">
 <!ENTITY resethitcounts.accesskey "R">
 <!ENTITY edit.label "편집">
 <!ENTITY edit.accesskey "E">
@@ -31,25 +31,25 @@
 <!ENTITY menu.findagain.accesskey "G">
 <!ENTITY view.label "보기">
 <!ENTITY view.accesskey "V">
-<!ENTITY sort.label "정렬:">
+<!ENTITY sort.label "정렬">
 <!ENTITY sort.accesskey "S">
 <!ENTITY sort.none.label "정렬 안 함">
 <!ENTITY sort.none.accesskey "U">
-<!ENTITY sort.ascending.label "오름차순(A &gt; Z)">
+<!ENTITY sort.ascending.label "오름차순 (A ⇒ Z)">
 <!ENTITY sort.ascending.accesskey "A">
-<!ENTITY sort.descending.label "내림차순(Z &gt; A)">
+<!ENTITY sort.descending.label "내림차순 (Z ⇒ A)">
 <!ENTITY sort.descending.accesskey "Z">
 <!ENTITY options.label "옵션">
 <!ENTITY options.accesskey "O">
-<!ENTITY enable.label "Adblock Plus 사용하기">
+<!ENTITY enable.label "Adblock Plus 사용함">
 <!ENTITY enable.accesskey "N">
-<!ENTITY showintoolbar.label "도구 모음에 보이기">
+<!ENTITY showintoolbar.label "툴바에 아이콘 보이기">
 <!ENTITY showintoolbar.accesskey "B">
-<!ENTITY showinstatusbar.label "상태 표시줄에 보이기">
+<!ENTITY showinstatusbar.label "상태 표시줄에 아이콘 보이기">
 <!ENTITY showinstatusbar.accesskey "S">
-<!ENTITY objecttabs.label "플래쉬와 자바를 탭으로 보이기">
+<!ENTITY objecttabs.label "플래시/자바 차단 탭 표시">
 <!ENTITY objecttabs.accesskey "T">
-<!ENTITY collapse.label "차단된 항목 감추기">
+<!ENTITY collapse.label "차단된 요소의 영역 접기">
 <!ENTITY collapse.accesskey "L">
 <!ENTITY help.label "도움말">
 <!ENTITY help.accesskey "H">
@@ -59,34 +59,32 @@
 <!ENTITY faq.label "자주 묻는 질문">
 <!ENTITY faq.accesskey "F">
 <!ENTITY faq.url "http://adblockplus.org/en/faq">
-<!ENTITY filterdoc.label "Adblock Plus 필터 기록">
+<!ENTITY filterdoc.label "필터 작성 방법">
 <!ENTITY filterdoc.accesskey "R">
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
-<!ENTITY about.label "Adblock Plus에 대하여">
+<!ENTITY about.label "Adblock Plus 정보">
 <!ENTITY about.accesskey "B">
-<!ENTITY description "차단하고자 하는 주소를 추가하십시오.
-		일반적인 필터는 &apos;*&apos;을 사용할 수 있습니다.
-		고급 사용자는 정규표현식을 사용할 수 있습니다.(예: /banner\d+\.gif$/)">
-<!ENTITY filter.column "필터 규칙">
+<!ENTITY description "애드블록 플러스의 필터는 웹 콘텐트의 주소를 차단/허용하거나 페이지의 구성 요소를 숨길 수 있습니다.">
+<!ENTITY filter.column "필터">
 <!ENTITY filter.accesskey "F">
-<!ENTITY slow.column "느린 필터">
+<!ENTITY slow.column "느린 필터(!)">
 <!ENTITY slow.accesskey "w">
 <!ENTITY enabled.column "사용">
 <!ENTITY enabled.accesskey "n">
-<!ENTITY hitcount.column "히트">
+<!ENTITY hitcount.column "적용 횟수">
 <!ENTITY hitcount.accesskey "H">
-<!ENTITY lasthit.column "마지막 적용">
+<!ENTITY lasthit.column "마지막 적용 날짜">
 <!ENTITY lasthit.accesskey "L">
 <!ENTITY context.edit.label "필터 편집">
-<!ENTITY context.resethitcount.label "히트 통계 초기화">
-<!ENTITY context.synchsubscription.label "지금 필터 업데이트">
-<!ENTITY context.editsubscription.label "표현식 편집">
-<!ENTITY context.moveup.label "위로">
-<!ENTITY context.movedown.label "아래로">
-<!ENTITY context.movegroupup.label "그룹 위로">
-<!ENTITY context.movegroupdown.label "그룹 아래로">
-<!ENTITY context.enable.label "사용함">
-<!ENTITY context.disable.label "사용 안 함">
+<!ENTITY context.resethitcount.label "필터 적용 횟수 초기화">
+<!ENTITY context.synchsubscription.label "구독 필터 업데이트">
+<!ENTITY context.editsubscription.label "구독 필터 편집">
+<!ENTITY context.moveup.label "필터를 위로 이동">
+<!ENTITY context.movedown.label "필터를 아래로 이동">
+<!ENTITY context.movegroupup.label "그룹을 위로 이동">
+<!ENTITY context.movegroupdown.label "그룹을 아래로 이동">
+<!ENTITY context.enable.label "필터/그룹 사용함">
+<!ENTITY context.disable.label "필터/그룹 사용 안 함">
 <!ENTITY apply.label "적용">
 <!ENTITY apply.accesskey "P">
-<!ENTITY fennec.subscription.label "필터 표현식">
+<!ENTITY fennec.subscription.label "구독 필터">
