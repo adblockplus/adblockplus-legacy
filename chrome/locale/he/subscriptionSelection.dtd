@@ -1,22 +1,32 @@
+<!ENTITY dialog.title "הוספת הרשמות מסננים לAdblock Plus">
 <!ENTITY dialog.title.edit "ערוך הרשמה למסננים">
-<!ENTITY adblock.warning "Adblock Plus זיהה שAdblock או גרסה ישנה של Adblock Plus מותקנת. הרצת שתי הגרסאות במקביל יכולה לגרום לבעיות ואמורה להמנע.מומלץ למחוק את Adblock כעת.">
+<!ENTITY description.newInstall "Adblock Plus יהיה הכי יעיל אם יתווספו לו הרשמות מסננים. הרשמות המסננים מסופקים על ידי משתמשי Adblock Plus אחרים ללא שכר. ההרשמה ההולמת ביותר לשפתך נבחרה כבר.">
+<!ENTITY adblock.warning "Adblock Plus זיהה שAdblock או גרסה ישנה של Adblock Plus מותקנת. הרצת שתי הגרסאות במקביל יכולה לגרום לבעיות ואמורה להימנע.מומלץ למחוק את Adblock כעת.">
 <!ENTITY adblock.uninstall "הסרת Adblock">
 <!ENTITY filterset.g.warning "נראה שנעשה שימוש בהרחבה Filterset.G. רשימת מסננים זו בקושי תוחזקה בשנים האחרונות ולכן ישנן בעיות עם אתרים. מומלץ להסיר את Filterset.G כעת.">
 <!ENTITY filterset.g.moreinfo "מידע נוסף">
 <!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
 <!ENTITY filterset.g.uninstall "הסרת Filterset.G">
+<!ENTITY subscriptionSelector.label "יש לבחור הרשמת מסנן מהרשימה:">
 <!ENTITY viewList.label "הצגת מסננים">
 <!ENTITY visitHomepage.label "ביקור באתר הבית">
 <!ENTITY addSubscription.label "הוספת הרשמה">
 <!ENTITY saveSubscription.label "שמירת הרשמה">
-<!ENTITY other.label "הוסף הרשמה אחרת">
+<!ENTITY other.label "הוספת הרשמה אחרת">
 <!ENTITY other.accesskey "ס">
+<!ENTITY list.download.failed "Adblock Plus נכשל באיחזור רשימת ההרשמות.">
 <!ENTITY list.download.retry "נסה שנית">
 <!ENTITY list.download.website "הצגת האתר">
 <!ENTITY list.website.url "http://adblockplus.org/en/subscriptions">
-<!ENTITY title.label "כותרת הרשמה:">
+<!ENTITY fromWeb.description "יש לוודא הוספת מסנן הרשמה זה. ניתן לשנות את כותרת או מיקום ההרשמה לפני הוספתה.">
+<!ENTITY edit.description "ניתן לשנות את הכותרת או מיקום ההרשמה כנדרש.">
+<!ENTITY external.description "זה הוא מסנן הרשמה חיצוני; הוא יתעדכן בעזרת ההרחבה אשר ייצרה את ההרשמה.">
+<!ENTITY title.label "כותרת ההרשמה:">
 <!ENTITY title.accesskey "כ">
-<!ENTITY location.label "מיקום רשימת מסננים:">
+<!ENTITY location.label "מיקום רשימת המסננים:">
 <!ENTITY location.accesskey "מ">
-<!ENTITY autodownload.label "עדכון אוטומטי">
+<!ENTITY autodownload.label "עדכון מסננים אוטומטי">
 <!ENTITY autodownload.accesskey "ע">
+<!ENTITY supplementMessage "מסנן הרשמה זה נועד לשימוש עם מסנן ההרשמה &#37;S אשר לא נעשה בו שימוש עדיין.">
+<!ENTITY addMain.label "הוספת מסנן ההרשמה &#37;S גם כן">
+<!ENTITY addMain.accesskey "ש">

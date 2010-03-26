@@ -1,3 +1,4 @@
+<!ENTITY dialog.title "Odoberanie Add Adblock Plus filtrov">
 <!ENTITY dialog.title.edit "Upraviť povolenie filtra">
 <!ENTITY description.newInstall "Adblock Plus bude efektívnejší ak pridáte odber filtra. Odber filtrov sú voľne poskytované inými používateľmi Adblock Plus. Najvhodnejší odber pre váš jazyk je už zvolený.">
 <!ENTITY adblock.warning "Adblock Plus zistil, že máte nainštalovaný Adblock alebo staršiu verziu Adblock Plus. Súbežné používanie Adblock a Adblock Plus môže viesť k problémom a mali by ste sa tomu vyhnúť. Odporúčame, aby ste Adblock odinštalovali.">

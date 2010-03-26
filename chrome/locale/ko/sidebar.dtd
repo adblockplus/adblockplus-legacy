@@ -1,32 +1,32 @@
-<!ENTITY detached.title "Adblock Plus: 차단 가능한 항목 (제거됨)">
-<!ENTITY detach.label "창 분리">
-<!ENTITY reattach.label "창 통합">
-<!ENTITY search.label "검색:">
+<!ENTITY detached.title "차단 가능한 항목 (분리됨)">
+<!ENTITY detach.label "분리">
+<!ENTITY reattach.label "통합">
+<!ENTITY search.label "검색 (S)">
 <!ENTITY search.accesskey "S">
 <!ENTITY type.label "형식">
 <!ENTITY address.label "주소">
 <!ENTITY filter.label "필터">
 <!ENTITY state.label "상태">
 <!ENTITY size.label "크기">
-<!ENTITY docDomain.label "문서 원본">
+<!ENTITY docDomain.label "문서 위치">
 <!ENTITY noitems.label "차단 가능한 항목 없음">
-<!ENTITY whitelisted.label "차단 목록 페이지">
-<!ENTITY tooltip.address.label "주소:">
-<!ENTITY tooltip.type.label "형식:">
+<!ENTITY whitelisted.label "허용된 페이지">
+<!ENTITY tooltip.address.label "주소 :">
+<!ENTITY tooltip.type.label "형식 :">
 <!ENTITY tooltip.type.blocked "(차단됨)">
-<!ENTITY tooltip.type.whitelisted "(허용 목록)">
-<!ENTITY tooltip.size.label "크기:">
-<!ENTITY tooltip.docDomain.label "문서 원본:">
-<!ENTITY tooltip.filter.label "필터:">
-<!ENTITY tooltip.filterSource.label "필터 소스:">
-<!ENTITY context.block.label "이 항목 차단">
-<!ENTITY context.editfilter.label "유효한 필터 편집">
-<!ENTITY context.whitelist.label "예외 규칙 추가">
-<!ENTITY context.disablefilter.label "필터 금지 --">
-<!ENTITY context.enablefilter.label "필터 재시작 --">
-<!ENTITY context.disablefilteronsite.label "이 필터 사용 해제 --">
+<!ENTITY tooltip.type.whitelisted "(허용됨)">
+<!ENTITY tooltip.size.label "크기 :">
+<!ENTITY tooltip.docDomain.label "문서 위치 :">
+<!ENTITY tooltip.filter.label "필터 :">
+<!ENTITY tooltip.filterSource.label "그룹 :">
+<!ENTITY context.block.label "차단 필터 추가">
+<!ENTITY context.editfilter.label "필터 편집">
+<!ENTITY context.whitelist.label "허용 필터 추가">
+<!ENTITY context.disablefilter.label "필터 사용 안 함 : --">
+<!ENTITY context.enablefilter.label "필터 다시 사용함 : --">
+<!ENTITY context.disablefilteronsite.label "필터 적용 안 할 도메인 지정 : --">
 <!ENTITY context.open.label "새 탭으로 열기">
-<!ENTITY context.flash.label "플래쉬 항목의 테두리">
-<!ENTITY context.copy.label "항목 주소 복사">
+<!ENTITY context.flash.label "항목 테두리 깜빡임">
+<!ENTITY context.copy.label "주소 복사">
 <!ENTITY context.copyFilter.label "필터 복사">
 <!ENTITY context.selectAll.label "모두 선택">

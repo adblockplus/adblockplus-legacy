@@ -15,7 +15,7 @@
 <!ENTITY filterset.g.uninstall "Απεγκατάσταση της Filterset.G">
 <!ENTITY subscriptionSelector.label "Παρακαλώ επιλέξτε μια συνδρομή σε φίλτρα από την λίστα:">
 <!ENTITY viewList.label "Προβολή φίλτρων">
-<!ENTITY visitHomepage.label "Ιστοσελίδα του Adblock Plus">
+<!ENTITY visitHomepage.label "Ιστοσελίδα της συνδρομής">
 <!ENTITY addSubscription.label "Προσθήκη συνδρομής">
 <!ENTITY saveSubscription.label "Αποθήκευση συνδρομής">
 <!ENTITY other.label "Προσθήκη άλλης συνδρομής">
