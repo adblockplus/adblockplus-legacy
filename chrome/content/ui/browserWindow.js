@@ -51,7 +51,6 @@ let eventHandlers = [
   ["abp-object-menuitem", "command", function() { abpNode(nodeData); }],
   ["abp-media-menuitem", "command", function() { abpNode(nodeData); }],
   ["abp-frame-menuitem", "command", function() { abpNode(frameData); }],
-  ["abp-objtab", "click", function(event) { if (event.button == 0) abpNode(E("abp-objtab").nodeData); }],
   ["abp-removeWhitelist-menuitem", "command", function() { removeWhitelist(); }]
 ];
 
@@ -101,27 +100,9 @@ let abpHooks = E("abp-hooks");
  */
 let detachedSidebar = null;
 
-/**
- * Will be true if the window is currently focused.
- * @type Boolean
- */
-let isFocused = false;
-
 abpInit();
 
 function abpInit() {
-  // Track window focus
-  window.addEventListener("focus", function(event)
-  {
-    if (event.target instanceof window.Window)
-      isFocused = true;
-  }, true);
-  window.addEventListener("blur", function(event)
-  {
-    if (event.target instanceof window.Window)
-      isFocused = false;
-  }, true);
-
   // Initialize app hooks
   for each (let hook in ["init", "getBrowser", "addTab", "getContextMenu", "getToolbox", "getDefaultToolbar", "toolbarInsertBefore"])
   {
@@ -129,7 +110,18 @@ function abpInit() {
     if (handler)
       abpHooks[hook] = new Function(handler);
   }
-  abpHooks.__defineGetter__("isFocused", function() isFocused);
+  abpHooks.initObjTab = function(objTab)
+  {
+    objTab.addEventListener("click", function(event)
+    {
+      if (event.isTrusted && event.button == 0)
+      {
+        event.preventDefault();
+        event.stopPropagation();
+        abpNode(objTab.nodeData);
+      }
+    }, true);
+  };
 
   // Process preferences
   abpReloadPrefs();
