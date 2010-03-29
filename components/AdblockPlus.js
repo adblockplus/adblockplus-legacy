@@ -322,7 +322,7 @@ const abp =
    * Version comparator instance.
    * @type nsIVersionComparator
    */
-  versionComparator: versionComparator,
+  get versionComparator() versionComparator,
 
   /**
    * Initializes the component, called on application startup.
