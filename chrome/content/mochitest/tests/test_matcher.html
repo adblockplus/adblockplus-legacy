@@ -24,17 +24,19 @@
     {
       expected.push(null);
 
-      let filter = Filter.fromText(text);
-      let result = [];
-      for each (let shortcut in expected)
+      for each (let filter in [Filter.fromText(text), Filter.fromText("@@" + text)])
       {
-        result.push(matcher.findShortcut(filter.text));
-        if (shortcut)
-          matcher.add(Filter.fromText(shortcut));
+        let result = [];
+        for each (let shortcut in expected)
+        {
+          result.push(matcher.findShortcut(filter.text));
+          if (shortcut)
+            matcher.add(Filter.fromText(shortcut));
+        }
+  
+        is(result.join("\n"), expected.join("\n"), "Shortcut candidates for " + filter.text);
+        matcher.clear();
       }
-
-      is(result.join("\n"), expected.join("\n"), "Shortcut candidates for " + text);
-      matcher.clear();
     }
     function checkMatch(filters, location, contentType, docDomain, thirdParty, expected)
     {
