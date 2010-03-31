@@ -166,6 +166,10 @@ Matcher.prototype = {
     if (Filter.optionsRegExp.test(text))
       text = RegExp.leftContext;
 
+    // Remove whitelist marker
+    if (text.substr(0, 2) == "@@")
+      text = text.substr(2);
+
     // Remove anchors
     let pos = text.length - 1;
     if (text[pos] == "|")
