@@ -231,7 +231,31 @@ function abpInit() {
 
     // Show subscriptions dialog if the user doesn't have any subscriptions yet
     if (prefs.lastVersion != prefs.currentVersion)
-      abp.runAsync(showSubscriptions);
+    {
+      if ("nsISessionStore" in Ci)
+      {
+        // Have to wait for session to be restored
+        let observer = {
+          QueryInterface: XPCOMUtils.generateQI([Ci.nsIObserver]),
+          observe: function(subject, topic, data)
+          {
+            observerService.removeObserver(observer, "sessionstore-windows-restored");
+            timer.cancel();
+            timer = null;
+            showSubscriptions();
+          }
+        };
+
+        let observerService = Cc["@mozilla.org/observer-service;1"].getService(Ci.nsIObserverService);
+        observerService.addObserver(observer, "sessionstore-windows-restored", false);
+
+        // Just in case, don't wait more than a second
+        let timer = Cc['@mozilla.org/timer;1'].createInstance(Ci.nsITimer);
+        timer.init(observer, 1000, Ci.nsITimer.TYPE_ONE_SHOT);
+      }
+      else
+        abp.runAsync(showSubscriptions);
+    }
   }
 
   // Window-specific first run actions
