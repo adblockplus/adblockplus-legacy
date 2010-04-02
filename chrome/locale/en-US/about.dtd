@@ -13,7 +13,7 @@
 <!ENTITY author.label       "Author:">
 <!ENTITY contributors.label "Contributors:">
 
-<!ENTITY developers.label   "Development:">
-<!ENTITY designers.label    "Graphics:">
-<!ENTITY subscriptionAuthors.label    "Filter subscription maintainers:">
+<!ENTITY developers.label   "Developers:">
+<!ENTITY designers.label    "Graphic designers:">
+<!ENTITY subscriptionAuthors.label    "Filter subscription authors:">
 <!ENTITY translators.label  "Translators:">
