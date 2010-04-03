@@ -376,8 +376,8 @@ var objTabs =
     function intersectRect(rect, wnd)
     {
       let doc = wnd.document;
-      wndWidth = doc.documentElement.clientWidth;
-      wndHeight = doc.documentElement.clientHeight;
+      let wndWidth = doc.documentElement.clientWidth;
+      let wndHeight = doc.documentElement.clientHeight;
       if (doc.compatMode == "BackCompat") // clientHeight will be bogus in quirks mode
         wndHeight = doc.documentElement.offsetHeight - wnd.scrollMaxY;
   
