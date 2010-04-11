@@ -122,6 +122,7 @@ function init()
     let items = list.menupopup.childNodes;
     let selectedItem = null;
     let selectedPrefix = null;
+    let matchCount = 0;
     for (let i = 0; i < items.length; i++)
     {
       let item = items[i];
@@ -140,6 +141,21 @@ function init()
         {
           selectedItem = item;
           selectedPrefix = prefix;
+          matchCount = 1;
+        }
+        else if (selectedPrefix && selectedPrefix.length == prefix.length)
+        {
+          matchCount++;
+
+          // If multiple items have a matching prefix of the same length:
+          // Select one of the items randomly, probability should be the same
+          // for all items. So we replace the previous match here with
+          // probability 1/N (N being the number of matches).
+          if (Math.random() * matchCount < 1)
+          {
+            selectedItem = item;
+            selectedPrefix = prefix;
+          }
         }
       }
     }
