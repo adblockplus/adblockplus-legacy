@@ -518,7 +518,7 @@ function handleLinkClick(/**Event*/ event)
   }
 
   // Open dialog
-  if (isFennec)
+  if (!isFennec)
   {
     var subscription = {url: url, title: title, disabled: false, external: false, autoDownload: true,
                         mainSubscriptionTitle: mainSubscriptionTitle, mainSubscriptionURL: mainSubscriptionURL};
