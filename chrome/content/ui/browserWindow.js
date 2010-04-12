@@ -104,7 +104,7 @@ abpInit();
 
 function abpInit() {
   // Initialize app hooks
-  for each (let hook in ["init", "getBrowser", "addTab", "getContextMenu", "getToolbox", "getDefaultToolbar", "toolbarInsertBefore"])
+  for each (let hook in ["getBrowser", "addTab", "getContextMenu", "getToolbox", "getDefaultToolbar", "toolbarInsertBefore"])
   {
     let handler = abpHooks.getAttribute(hook);
     if (handler)
@@ -290,9 +290,6 @@ function abpInit() {
         .getInterface(Ci.nsIWebNavigation)
         .QueryInterface(Ci.nsIDocShell)
         .allowSubframes = true;
-
-  if ("init" in abpHooks)
-    abpHooks.init();
 }
 
 function abpUnload()
@@ -521,8 +518,7 @@ function handleLinkClick(/**Event*/ event)
   }
 
   // Open dialog
-  let appInfo = Cc["@mozilla.org/xre/app-info;1"].getService(Ci.nsIXULAppInfo);
-  if (appInfo.ID != "{a23983c0-fd0e-11dc-95ff-0800200c9a66}")
+  if (isFennec)
   {
     var subscription = {url: url, title: title, disabled: false, external: false, autoDownload: true,
                         mainSubscriptionTitle: mainSubscriptionTitle, mainSubscriptionURL: mainSubscriptionURL};
