@@ -21,6 +21,7 @@
    - the Initial Developer. All Rights Reserved.
    -
    - Contributor(s):
+   -  Wladimir Palant
    -
    - ***** END LICENSE BLOCK ***** -->
 
@@ -30,19 +31,8 @@
   <!-- Window extensions -->
   <window id="main-window">
     <box id="abp-hooks"
-      init="
-        let loader = Cc['@mozilla.org/moz/jssubscript-loader;1'].getService(Ci.mozIJSSubScriptLoader);
-        loader.loadSubScript('chrome://adblockplus/content/ui/fennecOverlay.js');
-      "
       getBrowser="return window.getBrowser();"
-      addTab="
-        /* delay to work around bug 531071 */
-        var url = arguments[0];
-        Cc['@mozilla.org/timer;1'].createInstance(Ci.nsITimer)
-                                  .initWithCallback(function()
-        {
-          window.BrowserUI.newTab(url);
-        }, 100, Ci.nsITimer.TYPE_ONE_SHOT);"
+      addTab="abp.runAsync(window.BrowserUI.newTab, window.BrowserUI, arguments[0]);"
       getContextMenu="return null"
       getToolbox="return null"
       getDefaultToolbar="return null"/>
