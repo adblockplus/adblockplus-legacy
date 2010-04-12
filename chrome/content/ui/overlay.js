@@ -22,15 +22,25 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-window.addEventListener("load", function()
 {
-  // Abuse sandboxes so get an execution context for our code
-  let sandbox = new Components.utils.Sandbox(window);
-  sandbox.window = window;
-  sandbox.document = document;
+  let appInfo = Components.classes["@mozilla.org/xre/app-info;1"]
+                          .getService(Components.interfaces.nsIXULAppInfo);
+  let isFennec = (appInfo.ID == "{a23983c0-fd0e-11dc-95ff-0800200c9a66}");
 
-  let loader = Components.classes["@mozilla.org/moz/jssubscript-loader;1"]
-                         .getService(Components.interfaces.mozIJSSubScriptLoader)
-  loader.loadSubScript("chrome://adblockplus/content/ui/utils.js", sandbox);
-  loader.loadSubScript("chrome://adblockplus/content/ui/browserWindow.js", sandbox);
-}, false);
+  // Use UIReady event to initialize in Fennec (bug 531071)
+  window.addEventListener(isFennec ? "UIReady" : "load", function()
+  {
+    // Abuse sandboxes so get an execution context for our code
+    let sandbox = new Components.utils.Sandbox(window);
+    sandbox.window = window;
+    sandbox.document = document;
+    sandbox.isFennec = isFennec;
+  
+    let loader = Components.classes["@mozilla.org/moz/jssubscript-loader;1"]
+                           .getService(Components.interfaces.mozIJSSubScriptLoader)
+    loader.loadSubScript("chrome://adblockplus/content/ui/utils.js", sandbox);
+    loader.loadSubScript("chrome://adblockplus/content/ui/browserWindow.js", sandbox);
+    if (isFennec)
+      loader.loadSubScript("chrome://adblockplus/content/ui/fennecOverlay.js", sandbox);
+  }, false);
+}
