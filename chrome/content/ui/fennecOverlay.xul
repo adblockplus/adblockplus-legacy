@@ -37,4 +37,12 @@
       getToolbox="return null"
       getDefaultToolbar="return null"/>
   </window>
+
+  <!-- Identity container - trash bin for site-related info for now -->
+  <vbox id="identity-container">
+    <hbox id="abp-site-info" align="center">
+      <image id="abp-status-image"/>
+      <label id="abp-status-text"/>
+    </hbox>
+  </vbox>
 </overlay>
