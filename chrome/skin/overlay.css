@@ -62,13 +62,17 @@ menuitem[default="true"] {
 #abp-toolbarbutton {
   list-style-image: url("abp-status.png");
   -moz-image-region: rect(0px, 24px, 24px, 0px);
-  width: auto;
 }
 #abp-toolbarbutton[abpstate="disabled"] {
   -moz-image-region: rect(24px, 24px, 48px, 0px);
 }
 #abp-toolbarbutton[abpstate="whitelisted"] {
   -moz-image-region: rect(48px, 24px, 72px, 0px);
+}
+
+#abp-toolbarbutton > toolbarbutton {
+  /* Argh, Songbird defines image region directly on the anonymous toolbarbutton element */
+  -moz-image-region: inherit !important;
 }
 
 #abp-tooltip {
