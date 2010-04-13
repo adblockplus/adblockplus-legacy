@@ -87,6 +87,18 @@ function init() {
       suggestions[4] = suggestions[3];
     }
 
+    try
+    {
+      let effectiveTLD = Cc["@mozilla.org/network/effective-tld-service;1"].getService(Ci.nsIEffectiveTLDService);
+      suggestions[5] = effectiveTLD.getBaseDomainFromHost(url.host) + "^";
+      if (suggestions[5] != suggestions[4])
+        addSuggestion(suggestions[5]);
+    }
+    catch (e)
+    {
+      suggestions[5] = suggestions[5];
+    }
+
     E("patternGroup").value = (prefs.composer_default in suggestions ? suggestions[prefs.composer_default] : suggestions[1]);
   }
   catch (e)
