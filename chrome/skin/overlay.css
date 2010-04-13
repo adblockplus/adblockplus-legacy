@@ -59,15 +59,23 @@ menuitem[default="true"] {
   font-weight: bold;
 }
 
-#abp-toolbarbutton {
+#abp-toolbarbutton,
+#abp-status-image {
   list-style-image: url("abp-status.png");
   -moz-image-region: rect(0px, 24px, 24px, 0px);
 }
-#abp-toolbarbutton[abpstate="disabled"] {
+#abp-toolbarbutton[abpstate="disabled"],
+#abp-status-image[abpstate="disabled"] {
   -moz-image-region: rect(24px, 24px, 48px, 0px);
 }
-#abp-toolbarbutton[abpstate="whitelisted"] {
+#abp-toolbarbutton[abpstate="whitelisted"],
+#abp-status-image[abpstate="disabled_site"] {
   -moz-image-region: rect(48px, 24px, 72px, 0px);
+}
+
+#abp-status-image {
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 #abp-toolbarbutton > toolbarbutton {

@@ -145,6 +145,79 @@ function initFennecSubscriptionDialog(url, title)
   E("abp-subscription-btn-ok").focus();
 }
 
+function updateFennecStatusUI()
+{
+  E("abp-site-info").addEventListener("click", toggleFennecWhitelist, false);
+
+  let status = "disabled";
+  let host = null;
+  if (abp.prefs.enabled)
+  {
+    status = "enabled";
+    let location = getCurrentLocation();
+    if (location instanceof Ci.nsIURL && abp.policy.isBlockableScheme(location))
+    {
+      try
+      {
+        host = location.host.replace(/^www\./, "");
+      } catch (e) {}
+    }
+
+    if (host && abp.policy.isWhitelisted(location.spec))
+      status = "disabled_site";
+    else if (host)
+      status = "enabled_site";
+  }
+
+  let statusText = abp.getString("fennec_status_" + status);
+  if (host)
+    statusText = statusText.replace(/%S/g, host);
+  E("abp-status-text").textContent = statusText;
+  E("abp-status-image").setAttribute("abpstate", status);
+}
+
+function toggleFennecWhitelist()
+{
+  if (!abp.prefs.enabled)
+    return;
+
+  let location = getCurrentLocation();
+  if (location instanceof Ci.nsIURL && abp.policy.isBlockableScheme(location))
+  {
+    try
+    {
+      host = location.host.replace(/^www\./, "");
+    } catch (e) {}
+  }
+
+  if (!host)
+    return;
+
+  if (abp.policy.isWhitelisted(location.spec))
+    removeWhitelist();
+  else
+    toggleFilter(abp.Filter.fromText("@@||" + host + "^$document"));
+
+  updateFennecStatusUI();
+}
+
+if (typeof window.IdentityHandler == "function" && typeof window.IdentityHandler.prototype.show == "function")
+{
+  // HACK: Hook IdentityHandler.show() to init our UI
+  let oldShow = window.IdentityHandler.prototype.show;
+  window.IdentityHandler.prototype.show = function()
+  {
+    try
+    {
+      updateFennecStatusUI();
+    }
+    finally
+    {
+      oldShow.apply(this, arguments);
+    }
+  }
+}
+
 abp.runAsync(function() abp.init());
 
 E("addons-list").addEventListener("AddonOptionsLoad", onCreateOptions, false);
