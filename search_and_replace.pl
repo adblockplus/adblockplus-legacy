@@ -2,8 +2,17 @@
 
 use strict;
 
-die "Usage: $^X $0 <regexp> <replaceBy>\n" unless @ARGV >= 2;
+my $exec = 0;
+for (my $i = 0; $i < @ARGV; $i++)
+{
+  if ($ARGV[$i] eq "-e")
+  {
+    $exec = 1;
+    splice(@ARGV, $i--, 1);
+  }
+}
 
+die "Usage: $^X $0 [-e] <regexp> <replaceBy>\n" unless @ARGV >= 2;
 my ($from, $to) = @ARGV;
 
 doDir('.');
@@ -39,7 +48,15 @@ sub doFile
   binmode(FILE);
   local $/;
   my $data = <FILE>;
-  my $count = ($data =~ s/$from/$to/g);
+  my $count;
+  if ($exec)
+  {
+    $count = ($data =~ s/$from/$to/gee);
+  }
+  else
+  {
+    $count = ($data =~ s/$from/$to/g);
+  }
   close(FILE);
 
   if ($count)
