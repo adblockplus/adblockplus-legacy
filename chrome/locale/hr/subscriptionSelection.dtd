@@ -1,10 +1,32 @@
+<!ENTITY dialog.title "Add Adblock Plus pretplate na filtere">
 <!ENTITY dialog.title.edit "Uredi pretplatu na filter">
+<!ENTITY description.newInstall "Adblock Plus će biti najučinkovitiji ako dodate pretplate na filtere. Pretplate na filtere su osigurane od strane drugih korisnika Adblock Plusa, potpuno besplatno. Najprikladnija pretplata za vaš jezik je već odabrana.">
+<!ENTITY adblock.warning "Adblock Plus je otkrio da imate instaliran Adblock ili staru verziju Adblock Plusa. Paralelno korištenje Adblocka i Adblock Plusa može prouzročiti probleme i treba ga izbjegavati. Preporučamo da uklonite Adblock sada.">
+<!ENTITY adblock.uninstall "Ukloniti Adblock">
+<!ENTITY filterset.g.warning "Čini se da koristite Filterset.G. Ta lista filtera je rijetko održavana zadnjih godina i česti je uzork problema sa web stranicama. preporučamo da uklonite Filterset.G sada.">
+<!ENTITY filterset.g.moreinfo "Više informacija">
 <!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
+<!ENTITY filterset.g.uninstall "Ukloniti Filterset.G">
+<!ENTITY subscriptionSelector.label "Molimo odaberite pretplatu na filter sa popisa:">
+<!ENTITY viewList.label "Pogledati filtere">
+<!ENTITY visitHomepage.label "Posjetite početnu stranicu">
+<!ENTITY addSubscription.label "Dodati pretplatu">
+<!ENTITY saveSubscription.label "Spremiti pretplatu">
 <!ENTITY other.label "Dodajte drugu pretplatu">
 <!ENTITY other.accesskey "g">
+<!ENTITY list.download.failed "Adblock Plus nij uspio vratiti popis pretplata">
+<!ENTITY list.download.retry "Pokušajte ponovno">
+<!ENTITY list.download.website "Pogledati stranicu">
+<!ENTITY list.website.url "http://adblockplus.org/en/subscriptions">
+<!ENTITY fromWeb.description "Molimo potvrdite da želite dodati ovu pretlatu na filter. Možete promijeniti naziv ili lokaciju pretplate prije nego što je dodate.">
+<!ENTITY edit.description "Možete promijeniti naziv ili lokaciju pretplate po potrebi.">
+<!ENTITY external.description "Ovo je vanjska pretplata na filter; biti će osvježena od strane dodatka koji je stvorio pretplatu.">
 <!ENTITY title.label "Naslov pretplate:">
 <!ENTITY title.accesskey "p">
 <!ENTITY location.label "Mjesto popisa filtera:">
 <!ENTITY location.accesskey "j">
 <!ENTITY autodownload.label "Automatski ažuriraj">
 <!ENTITY autodownload.accesskey "m">
+<!ENTITY supplementMessage "Ova pretplata na filter je namjenjena korištenju sa pretplatom na filter &quot;&#37;S&quot; koju još ne koristite.">
+<!ENTITY addMain.label "Također dodajte pretplatu na filter &quot;&#37;S&amp;quot">
+<!ENTITY addMain.accesskey "s">
