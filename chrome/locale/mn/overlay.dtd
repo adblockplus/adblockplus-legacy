@@ -15,7 +15,7 @@
 <!ENTITY opensidebar.accesskey "Х">
 <!ENTITY closesidebar.label "Хашигдах зүйлсийг хаах">
 <!ENTITY closesidebar.accesskey "Х">
-<!ENTITY whitelist.site.label "Хаах нь --">
+<!ENTITY whitelist.site.label "Хаах нь ?1?">
 <!ENTITY whitelist.page.label "Зөвхөн уг хуудсанд хаах">
 <!ENTITY objecttab.title "Хаших">
 <!ENTITY objecttab.tooltip "Энд дарвал уг объектийг Adblock Plus-аар хаших болно">

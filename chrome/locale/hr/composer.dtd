@@ -3,7 +3,7 @@
 <!ENTITY advanced.label "Napredni pregled">
 <!ENTITY basic.label "osnovni pregled">
 <!ENTITY disabled.warning "Adblock Plus je trenutno onemogućen. Možete dodavati filtere ali se oni neće primjenjivati ako ne [link]omogućite Adblock Plus[/link].">
-<!ENTITY groupDisabled.warning "Grupa filtera &quot;&#37;S&quot; kojoj će ovaj filter biti dodan je trenutno onemogućena. Sveedno možete dodati filter ali on neće biti primjenjen ako ne  [link]omogućite grupu filtera[/link].">
+<!ENTITY groupDisabled.warning "Grupa filtera &quot;?1?&quot; kojoj će ovaj filter biti dodan je trenutno onemogućena. Sveedno možete dodati filter ali on neće biti primjenjen ako ne  [link]omogućite grupu filtera[/link].">
 <!ENTITY filter.label "Novi filter">
 <!ENTITY filter.accesskey "f">
 <!ENTITY preferences.label "Prikaži postojeće filtere">

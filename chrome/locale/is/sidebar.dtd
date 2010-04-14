@@ -22,9 +22,9 @@
 <!ENTITY context.block.label "Loka á þennan hlut">
 <!ENTITY context.editfilter.label "Breyta núverandi síu">
 <!ENTITY context.whitelist.label "Bæta við undantekningu fyrir hlut">
-<!ENTITY context.disablefilter.label "Aftengja síu --">
-<!ENTITY context.enablefilter.label "Virkja aftur síu --">
-<!ENTITY context.disablefilteronsite.label "Aftengja síu fyrir --">
+<!ENTITY context.disablefilter.label "Aftengja síu ?1?">
+<!ENTITY context.enablefilter.label "Virkja aftur síu ?1?">
+<!ENTITY context.disablefilteronsite.label "Aftengja síu fyrir ?1?">
 <!ENTITY context.open.label "Opna í nýjum flipa">
 <!ENTITY context.flash.label "Rammi Flash hlutar">
 <!ENTITY context.copy.label "Afrita vefslóð hlutar">

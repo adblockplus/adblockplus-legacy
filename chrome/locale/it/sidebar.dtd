@@ -22,11 +22,11 @@
 <!ENTITY context.block.label "Blocca questo elemento">
 <!ENTITY context.editfilter.label "Modifica il filtro in effetto">
 <!ENTITY context.whitelist.label "Aggiungi un'eccezione per l'elemento">
-<!ENTITY context.disablefilter.label "Disattiva il filtro --">
+<!ENTITY context.disablefilter.label "Disattiva il filtro ?1?">
 <!-- Note: the placeholder (double-dash) will be replaced by the filter text -->
-<!ENTITY context.enablefilter.label "Riattiva il filtro --">
+<!ENTITY context.enablefilter.label "Riattiva il filtro ?1?">
 <!-- Note: the placeholder (double-dash) will be replaced by the filter text -->
-<!ENTITY context.disablefilteronsite.label "Disattiva il filtro per --">
+<!ENTITY context.disablefilteronsite.label "Disattiva il filtro per ?1?">
 <!ENTITY context.open.label "Apri in una nuova scheda">
 <!ENTITY context.flash.label "Fai lampeggiare il contorno dell'elemento selezionato">
 <!ENTITY context.copy.label "Copia l'indirizzo web dell'elemento">

@@ -27,6 +27,6 @@
 <!ENTITY location.accesskey "l">
 <!ENTITY autodownload.label "Filters automatisch bijwerken">
 <!ENTITY autodownload.accesskey "t">
-<!ENTITY supplementMessage "Dit filterabonnement is bedoeld om samen gebruikt te worden met het filterabonnement “&#37;S”, dat u nog niet gebruikt.">
-<!ENTITY addMain.label "Filterabonnement “&#37;S” ook toevoegen">
+<!ENTITY supplementMessage "Dit filterabonnement is bedoeld om samen gebruikt te worden met het filterabonnement “?1?”, dat u nog niet gebruikt.">
+<!ENTITY addMain.label "Filterabonnement “?1?” ook toevoegen">
 <!ENTITY addMain.accesskey "k">

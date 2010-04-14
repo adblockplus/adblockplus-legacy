@@ -3,7 +3,7 @@
 <!ENTITY advanced.label "고급 보기">
 <!ENTITY basic.label "기본 보기">
 <!ENTITY disabled.warning "현재 Adblock Plus 사용 안 함 : 필터 추가 가능 + 필터 적용 안 함 [link]⇔ Adblock Plus 사용함[/link]">
-<!ENTITY groupDisabled.warning "현재 &quot;&#37;S&quot; 그룹 사용 안 함 : 필터 추가 가능 + 필터 적용 안 함 [link]⇔ 이 그룹 사용함[/link]">
+<!ENTITY groupDisabled.warning "현재 &quot;?1?&quot; 그룹 사용 안 함 : 필터 추가 가능 + 필터 적용 안 함 [link]⇔ 이 그룹 사용함[/link]">
 <!ENTITY filter.label "새 필터">
 <!ENTITY filter.accesskey "f">
 <!ENTITY preferences.label "필터 목록에서 주소 편집">

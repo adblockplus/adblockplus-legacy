@@ -4,7 +4,7 @@
 <!ENTITY basic.label "Eenvoudig">
 <!ENTITY disabled.warning "Adblock Plus is momenteel uitgeschakeld. U kunt nog wel filters toevoegen, maar ze worden niet toegepast tenzij u [link]Adblock Plus weer inschakelt[/link].">
 <!--  Note: This access key should usually be the same as anchor.start.flexible.accesskey. It is the same checkbox with different label depending on suggested filter. -->
-<!ENTITY groupDisabled.warning "De filtergroep “&#37;S” waaraan dit filter wordt toegevoegd is momenteel uitgeschakeld. U kunt het filter nog wel toevoegen maar het wordt niet toegepast tenzij u [link]de filtergroep inschakelt[/link].">
+<!ENTITY groupDisabled.warning "De filtergroep “?1?” waaraan dit filter wordt toegevoegd is momenteel uitgeschakeld. U kunt het filter nog wel toevoegen maar het wordt niet toegepast tenzij u [link]de filtergroep inschakelt[/link].">
 <!ENTITY filter.label "Nieuw filter:">
 <!ENTITY filter.accesskey "N">
 <!ENTITY preferences.label "Bestaande filters weergeven…">

@@ -27,6 +27,6 @@
 <!ENTITY location.accesskey "Л">
 <!ENTITY autodownload.label "Аутоматско ажурирање">
 <!ENTITY autodownload.accesskey "А">
-<!ENTITY supplementMessage "Ова претплата на филтер је предвиђена за коришћење са филтером „&#37;S” који још увек не користите.">
-<!ENTITY addMain.label "Додај и претплату на филтер „&#37;S”">
+<!ENTITY supplementMessage "Ова претплата на филтер је предвиђена за коришћење са филтером „?1?” који још увек не користите.">
+<!ENTITY addMain.label "Додај и претплату на филтер „?1?”">
 <!ENTITY addMain.accesskey "о">

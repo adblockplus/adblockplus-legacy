@@ -17,7 +17,7 @@
 <!ENTITY opensidebar.accesskey "b">
 <!ENTITY closesidebar.label "Cerrar elementos bloqueables">
 <!ENTITY closesidebar.accesskey "b">
-<!ENTITY whitelist.site.label "Deshabilitar en --">
+<!ENTITY whitelist.site.label "Deshabilitar en ?1?">
 <!ENTITY whitelist.page.label "Deshabilitar solamente en esta página">
 <!ENTITY objecttab.title "Bloquear">
 <!ENTITY objecttab.tooltip "Clic acá para bloquear este objeto con Adblock Plus">

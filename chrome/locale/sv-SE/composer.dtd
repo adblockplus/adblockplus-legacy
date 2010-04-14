@@ -3,7 +3,7 @@
 <!ENTITY advanced.label "Avancerat">
 <!ENTITY basic.label "Standard">
 <!ENTITY disabled.warning "Adblock Plus är inaktiverad. Du kan lägga till filter men kan inte användas förrän du [link]aktiverar Adblock Plus[/link].">
-<!ENTITY groupDisabled.warning "Filtergruppen &quot;&#37;S&quot; som detta filter skall läggas till i är f.n. inaktiverat. Du kan lägga till det men kommer inte att användas förrän du [link]aktiverar denna filtergrupp.[/link].">
+<!ENTITY groupDisabled.warning "Filtergruppen &quot;?1?&quot; som detta filter skall läggas till i är f.n. inaktiverat. Du kan lägga till det men kommer inte att användas förrän du [link]aktiverar denna filtergrupp.[/link].">
 <!ENTITY filter.label "Nytt filter:">
 <!ENTITY filter.accesskey "N">
 <!ENTITY preferences.label "Visa filter...">

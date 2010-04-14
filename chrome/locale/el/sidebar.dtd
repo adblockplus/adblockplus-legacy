@@ -22,9 +22,9 @@
 <!ENTITY context.block.label "Φραγή του στοιχείου">
 <!ENTITY context.editfilter.label "Επεξεργασία του φίλτρου εν δράση">
 <!ENTITY context.whitelist.label "Προσθήκη κανόνα εξαίρεσης για το στοιχείο">
-<!ENTITY context.disablefilter.label "Απενεργοποίηση φίλτρου --">
-<!ENTITY context.enablefilter.label "Ενεργοποίηση φίλτρου --">
-<!ENTITY context.disablefilteronsite.label "Απενεργοποίηση του φίλτρου στο --">
+<!ENTITY context.disablefilter.label "Απενεργοποίηση φίλτρου ?1?">
+<!ENTITY context.enablefilter.label "Ενεργοποίηση φίλτρου ?1?">
+<!ENTITY context.disablefilteronsite.label "Απενεργοποίηση του φίλτρου στο ?1?">
 <!ENTITY context.open.label "Άνοιγμα σε νέα καρτέλα">
 <!ENTITY context.flash.label "Πλαίσιο στοιχείου Flash">
 <!ENTITY context.copy.label "Αντιγραφή τοποθεσίας του στοιχείου">

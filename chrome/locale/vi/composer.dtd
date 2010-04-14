@@ -3,7 +3,7 @@
 <!ENTITY advanced.label "Hiển thị nâng cao">
 <!ENTITY basic.label "Hiển thị cơ bản">
 <!ENTITY disabled.warning "Adblock Plus hiện đang bị vô hiệu hóa. Bạn vẫn có thể thêm các bộ lọc nhưng chúng sẽ không được áp dụng trừ khi bạn [link]kích hoạt Adblock Plus[/link].">
-<!ENTITY groupDisabled.warning "Nhóm bộ lọc &quot;&#37;S&quot;, mà bộ lọc này nên được đưa vào, hiện đang bị vô hiệu hóa. Bạn vẫn có thể thêm các bộ lọc nhưng chúng sẽ không được áp dụng trừ khi bạn [link]kích hoạt nhóm bộ lọc[/link].">
+<!ENTITY groupDisabled.warning "Nhóm bộ lọc &quot;?1?&quot;, mà bộ lọc này nên được đưa vào, hiện đang bị vô hiệu hóa. Bạn vẫn có thể thêm các bộ lọc nhưng chúng sẽ không được áp dụng trừ khi bạn [link]kích hoạt nhóm bộ lọc[/link].">
 <!ENTITY filter.label "Bộ lọc mới:">
 <!ENTITY filter.accesskey "l">
 <!ENTITY preferences.label "Hiện các bộ lọc đang có...">

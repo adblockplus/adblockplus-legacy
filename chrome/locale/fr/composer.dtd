@@ -3,7 +3,7 @@
 <!ENTITY advanced.label "Affichage avancé">
 <!ENTITY basic.label "Affichage standard">
 <!ENTITY disabled.warning "Adblock Plus est actuellement désactivée. Vous pouvez continuer à ajouter des filtres mais ils ne seront pas appliqués tant que vous n&apos;aurez pas [link]activé Adblock Plus[/link].">
-<!ENTITY groupDisabled.warning "Le groupe de filtres &quot;&#37;S&quot; auquel le filtre devrait être ajouté est actuellement désactivé. Vous pouvez l&apos;ajouter tout de même mais il ne sera pas appliqué tant que vous n&apos;aurez pas [link]activé le groupe de filtres[/link].">
+<!ENTITY groupDisabled.warning "Le groupe de filtres &quot;?1?&quot; auquel le filtre devrait être ajouté est actuellement désactivé. Vous pouvez l&apos;ajouter tout de même mais il ne sera pas appliqué tant que vous n&apos;aurez pas [link]activé le groupe de filtres[/link].">
 <!ENTITY filter.label "Nouveau filtre :">
 <!ENTITY filter.accesskey "f">
 <!ENTITY preferences.label "Afficher les filtres existants…">

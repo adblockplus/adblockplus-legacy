@@ -27,6 +27,6 @@
 <!ENTITY location.accesskey "U">
 <!ENTITY autodownload.label "Actualizar automáticamente">
 <!ENTITY autodownload.accesskey "A">
-<!ENTITY supplementMessage "Esta suscripción está diseñada para ser usada conjuntamente con la suscripción de filtros &quot;&#37;S&quot;, que aún no agregaste.">
-<!ENTITY addMain.label "Agregá también la suscripción de filtros &quot;&#37;S&quot;.">
+<!ENTITY supplementMessage "Esta suscripción está diseñada para ser usada conjuntamente con la suscripción de filtros &quot;?1?&quot;, que aún no agregaste.">
+<!ENTITY addMain.label "Agregá también la suscripción de filtros &quot;?1?&quot;.">
 <!ENTITY addMain.accesskey "s">
