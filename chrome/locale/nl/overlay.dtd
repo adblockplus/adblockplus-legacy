@@ -1,14 +1,15 @@
 <!ENTITY status.tooltip "Status:">
-<!ENTITY blocked.tooltip "Geblokkeerde onderdelen:">
+<!ENTITY blocked.tooltip "Geblokkeerde onderdelen op deze pagina:">
 <!ENTITY filters.tooltip "Meest actieve filters:">
 <!ENTITY menuitem.label "Adblock Plus voorkeuren">
 <!ENTITY menuitem.accesskey "A">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY view.blockableItems.label "Adblock Plus: Blokkeerbare onderdelen">
-<!ENTITY context.image.label "Afbeelding blokkeren">
-<!ENTITY context.object.label "Object blokkeren">
-<!ENTITY context.frame.label "Deelvenster blokkeren">
-<!ENTITY context.removeWhitelist.label "Adblock Plus: inschakelen op deze pagina">
+<!ENTITY context.image.label "Adblock Plus: Afbeelding blokkeren">
+<!ENTITY context.object.label "Adblock Plus: Object blokkeren">
+<!ENTITY context.frame.label "Adblock Plus: Deelvenster blokkeren">
+<!ENTITY context.media.label "Adblock Plus: Audio/video blokkeren">
+<!ENTITY context.removeWhitelist.label "Adblock Plus: Opnieuw inschakelen op deze pagina">
 <!ENTITY sidebar.title "Blokkeerbare onderdelen op deze pagina">
 <!ENTITY settings.label "Voorkeuren">
 <!ENTITY settings.accesskey "V">
@@ -20,5 +21,5 @@
 <!ENTITY closesidebar.accesskey "B">
 <!ENTITY whitelist.site.label "Uitschakelen op --">
 <!ENTITY whitelist.page.label "Alleen op deze pagina uitschakelen">
-<!ENTITY objecttab.title "Blokkeer">
+<!ENTITY objecttab.title "Blokkeren">
 <!ENTITY objecttab.tooltip "Klik hier om dit object te blokkeren met Adblock Plus">

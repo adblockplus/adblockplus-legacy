@@ -1,15 +1,32 @@
-<!ENTITY dialog.title.edit "Filter abonnement wijzigen">
-<!ENTITY adblock.warning "Adblock Plus heeft gevonden dat Adblock of een oudere versie van Adblock Plus geïnstalleerd is. Het tegelijk gebruiken van Adblock en Adblock Plus kan problemen veroorzaken en moet worden vermeden. Het is aangereden dat u Adblock nu de-installeerd.">
-<!ENTITY adblock.uninstall "Adblock de-installeren">
-<!ENTITY filterset.g.warning "Het lijkt erop dat u Filterset.G gebruikt. Deze filterlijst is de afgelopen jaren nauwelijks bijgehouden en is een veel voorkomende oorzaak van problemen met websites. Het is aangereden dat u Filterset.G nu de-installeerd.">
+<!ENTITY dialog.title "Adblock Plus filterabonnement toevoegen">
+<!ENTITY dialog.title.edit "Filterabonnement bewerken">
+<!ENTITY description.newInstall "Adblock Plus werkt het beste als u een filterabonnement toevoegt. Filterabonnementen worden gratis door andere gebruikers van Adblock Plus aangeboden. Het voor uw taal meest geschikte abonnement is al geselecteerd.">
+<!ENTITY adblock.warning "Adblock Plus heeft gedetecteerd dat Adblock of een oudere versie van Adblock Plus is geïnstalleerd. Het tegelijkertijd gebruiken van Adblock en Adblock Plus kan problemen veroorzaken en moet worden vermeden. Het wordt aangeraden Adblock nu te deïnstalleren.">
+<!ENTITY adblock.uninstall "Adblock deïnstalleren">
+<!ENTITY filterset.g.warning "Het lijkt erop dat u Filterset.G gebruikt. Deze filterlijst is de afgelopen jaren nauwelijks bijgehouden en is een veel voorkomende oorzaak van problemen met websites. Het wordt aangeraden Filterset.G nu te deïnstalleren.">
 <!ENTITY filterset.g.moreinfo "Meer informatie">
 <!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
-<!ENTITY filterset.g.uninstall "Filterset.G de-installeren">
+<!ENTITY filterset.g.uninstall "Filterset.G deïnstalleren">
+<!ENTITY subscriptionSelector.label "Kies a.u.b. een filterabonnement uit de lijst:">
+<!ENTITY viewList.label "Filters bekijken">
+<!ENTITY visitHomepage.label "Startpagina bezoeken">
+<!ENTITY addSubscription.label "Abonneren">
+<!ENTITY saveSubscription.label "Abonnement opslaan">
 <!ENTITY other.label "Een ander abonnement toevoegen">
 <!ENTITY other.accesskey "E">
-<!ENTITY title.label "Abonnementnaam:">
-<!ENTITY title.accesskey "B">
-<!ENTITY location.label "Filterlijst locatie:">
-<!ENTITY location.accesskey "L">
-<!ENTITY autodownload.label "Automatisch bijwerken">
-<!ENTITY autodownload.accesskey "T">
+<!ENTITY list.download.failed "Adblock Plus kan de lijst met abonnementne niet ophalen.">
+<!ENTITY list.download.retry "Opnieuw proberen">
+<!ENTITY list.download.website "Website bekijken">
+<!ENTITY list.website.url "http://adblockplus.org/en/subscriptions">
+<!ENTITY fromWeb.description "Bevestig a.u.b. dat u dit filterabonnement wilt toevoegen. U kunt de abonnementstitel of -locatie wijzigen voor toevoegen.">
+<!ENTITY edit.description "U kunt de abonnementstitel of -locatie naar believen wijzigen.">
+<!ENTITY external.description "Dit is een extern filterabonnement; het wordt bijgewerkt door de extensie die dit abonnement heeft aangemaakt.">
+<!ENTITY title.label "Abonnementstitel:">
+<!ENTITY title.accesskey "b">
+<!ENTITY location.label "Filterlijstlocatie:">
+<!ENTITY location.accesskey "l">
+<!ENTITY autodownload.label "Filters automatisch bijwerken">
+<!ENTITY autodownload.accesskey "t">
+<!ENTITY supplementMessage "Dit filterabonnement is bedoeld om samen gebruikt te worden met het filterabonnement “&#37;S”, dat u nog niet gebruikt.">
+<!ENTITY addMain.label "Filterabonnement “&#37;S” ook toevoegen">
+<!ENTITY addMain.accesskey "k">
