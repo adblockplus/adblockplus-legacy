@@ -3,7 +3,7 @@
 <!ENTITY advanced.label "進階檢視">
 <!ENTITY basic.label "基本檢視">
 <!ENTITY disabled.warning "Adblock Plus 目前已停用。您還是可以新增過濾條件，但不會有任何作用，除非您[link]啟用 Adblock Plus[/link]。">
-<!ENTITY groupDisabled.warning "此過濾條件應加到過濾條件組 &quot;&#37;S&quot; 中，但該過濾條件組目前已停用。您還是可以新增過濾條件，但不會有任何作用，除非您[link]啟用該過濾條件組[/link]。">
+<!ENTITY groupDisabled.warning "此過濾條件應加到過濾條件組 &quot;?1?&quot; 中，但該過濾條件組目前已停用。您還是可以新增過濾條件，但不會有任何作用，除非您[link]啟用該過濾條件組[/link]。">
 <!ENTITY filter.label "新過濾條件:">
 <!ENTITY filter.accesskey "f">
 <!ENTITY preferences.label "顯示已有的條件...">

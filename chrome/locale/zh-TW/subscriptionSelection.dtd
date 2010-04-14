@@ -27,6 +27,6 @@
 <!ENTITY location.accesskey "L">
 <!ENTITY autodownload.label "自動更新">
 <!ENTITY autodownload.accesskey "P">
-<!ENTITY supplementMessage "該過濾條件集需要同時使用您未訂閱的條件集「&#37;S」。">
-<!ENTITY addMain.label "一併訂閱「&#37;S」條件集">
+<!ENTITY supplementMessage "該過濾條件集需要同時使用您未訂閱的條件集「?1?」。">
+<!ENTITY addMain.label "一併訂閱「?1?」條件集">
 <!ENTITY addMain.accesskey "s">

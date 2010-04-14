@@ -17,7 +17,7 @@
 <!ENTITY opensidebar.accesskey "B">
 <!ENTITY closesidebar.label "차단 가능한 항목 닫기 (B)">
 <!ENTITY closesidebar.accesskey "B">
-<!ENTITY whitelist.site.label "사이트 허용 : --">
+<!ENTITY whitelist.site.label "사이트 허용 : ?1?">
 <!ENTITY whitelist.page.label "현재 페이지만 허용">
 <!ENTITY objecttab.title "차단">
 <!ENTITY objecttab.tooltip "Adblock Plus로 이 객체를 차단하려면 차단 탭을 누르십시오.">

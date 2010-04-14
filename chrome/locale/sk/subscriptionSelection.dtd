@@ -27,6 +27,6 @@
 <!ENTITY location.accesskey "M">
 <!ENTITY autodownload.label "Automatická aktualizácia">
 <!ENTITY autodownload.accesskey "T">
-<!ENTITY supplementMessage "Tento filter odberu je určený pre použitie s filtrom odberu &quot;&#37;S&quot;ktorý ešte nepoužívate.">
-<!ENTITY addMain.label "Pridať tiež filter odberu &quot;&#37;S&quot;">
+<!ENTITY supplementMessage "Tento filter odberu je určený pre použitie s filtrom odberu &quot;?1?&quot;ktorý ešte nepoužívate.">
+<!ENTITY addMain.label "Pridať tiež filter odberu &quot;?1?&quot;">
 <!ENTITY addMain.accesskey "o">

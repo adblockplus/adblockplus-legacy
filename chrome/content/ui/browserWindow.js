@@ -622,7 +622,7 @@ function abpFillTooltip(event)
         return [subscriptions + 1, filters];
     }, [0, 0]);
 
-    statusStr = statusStr.replace(/--/, activeSubscriptions).replace(/--/, activeFilters);
+    statusStr = statusStr.replace(/\?1\?/, activeSubscriptions).replace(/\?2\?/, activeFilters);
   }
   statusDescr.setAttribute("value", statusStr);
 
@@ -661,12 +661,12 @@ function abpFillTooltip(event)
     }
 
     let blockedStr = abp.getString("blocked_count_tooltip");
-    blockedStr = blockedStr.replace(/--/, blocked).replace(/--/, itemsCount);
+    blockedStr = blockedStr.replace(/\?1\?/, blocked).replace(/\?2\?/, itemsCount);
 
     if (whitelisted + hidden)
     {
       blockedStr += " " + abp.getString("blocked_count_addendum");
-      blockedStr = blockedStr.replace(/--/, whitelisted).replace(/--/, hidden);
+      blockedStr = blockedStr.replace(/\?1\?/, whitelisted).replace(/\?2\?/, hidden);
     }
 
     E("abp-tooltip-blocked").setAttribute("value", blockedStr);
@@ -784,7 +784,7 @@ function abpFillPopup(event) {
 
       siteWhitelist = abp.Filter.fromText("@@||" + host + "^$document");
       whitelistItemSite.setAttribute("checked", siteWhitelist.subscriptions.length && !siteWhitelist.disabled);
-      whitelistItemSite.setAttribute("label", whitelistItemSite.getAttribute("labeltempl").replace(/--/, host));
+      whitelistItemSite.setAttribute("label", whitelistItemSite.getAttribute("labeltempl").replace(/\?1\?/, host));
       whitelistItemSite.hidden = false;
 
       pageWhitelist = abp.Filter.fromText("@@|" + location.spec + ending + "$document");
@@ -795,7 +795,7 @@ function abpFillPopup(event) {
     {
       siteWhitelist = abp.Filter.fromText("@@|" + location.spec + "|");
       whitelistItemSite.setAttribute("checked", siteWhitelist.subscriptions.length && !siteWhitelist.disabled);
-      whitelistItemSite.setAttribute("label", whitelistItemSite.getAttribute("labeltempl").replace(/--/, location.spec.replace(/^mailto:/, "")));
+      whitelistItemSite.setAttribute("label", whitelistItemSite.getAttribute("labeltempl").replace(/\?1\?/, location.spec.replace(/^mailto:/, "")));
       whitelistItemSite.hidden = false;
     }
   }

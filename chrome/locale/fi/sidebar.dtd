@@ -22,9 +22,9 @@
 <!ENTITY context.block.label "Estä elementti">
 <!ENTITY context.editfilter.label "Muokkaa suodatinta">
 <!ENTITY context.whitelist.label "Lisää poikkeusehto">
-<!ENTITY context.disablefilter.label "Poista käytöstä suodatin: --">
-<!ENTITY context.enablefilter.label "Palauta suodatin: --">
-<!ENTITY context.disablefilteronsite.label "Poista tämä suodatin käytöstä osoiteessa --">
+<!ENTITY context.disablefilter.label "Poista käytöstä suodatin: ?1?">
+<!ENTITY context.enablefilter.label "Palauta suodatin: ?1?">
+<!ENTITY context.disablefilteronsite.label "Poista tämä suodatin käytöstä osoiteessa ?1?">
 <!ENTITY context.open.label "Avaa uuteen välilehteen">
 <!ENTITY context.flash.label "Välkytä reunoja">
 <!ENTITY context.copy.label "Kopioi osoite">

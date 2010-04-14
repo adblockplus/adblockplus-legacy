@@ -27,6 +27,6 @@
 <!ENTITY location.accesskey "מ">
 <!ENTITY autodownload.label "עדכון מסננים אוטומטי">
 <!ENTITY autodownload.accesskey "ע">
-<!ENTITY supplementMessage "מסנן הרשמה זה נועד לשימוש עם מסנן ההרשמה &#37;S אשר לא נעשה בו שימוש עדיין.">
-<!ENTITY addMain.label "הוספת מסנן ההרשמה &#37;S גם כן">
+<!ENTITY supplementMessage "מסנן הרשמה זה נועד לשימוש עם מסנן ההרשמה ?1? אשר לא נעשה בו שימוש עדיין.">
+<!ENTITY addMain.label "הוספת מסנן ההרשמה ?1? גם כן">
 <!ENTITY addMain.accesskey "ש">

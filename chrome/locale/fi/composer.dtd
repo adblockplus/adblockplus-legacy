@@ -3,7 +3,7 @@
 <!ENTITY advanced.label "Näytä lisää">
 <!ENTITY basic.label "Näytä vähemmän">
 <!ENTITY disabled.warning "Adblock Plus on tällä hetkellä poistettu käytöstä. Voit silti lisätä suodattimia mutta ne otetaan käyttöön vasta kun, [link]otat Adblockin Plussan käyttöön[/link].">
-<!ENTITY groupDisabled.warning "Suodatinryhmä &quot;&#37;S&quot;, johon tämä suodatin tulisi lisätä on poistettu käytöstä. Voit silti lisätä tämän suodattimen mutta sitä ei oteta käyttöön ellet [link]ota suodatinryhmää käyttöön[/link].">
+<!ENTITY groupDisabled.warning "Suodatinryhmä &quot;?1?&quot;, johon tämä suodatin tulisi lisätä on poistettu käytöstä. Voit silti lisätä tämän suodattimen mutta sitä ei oteta käyttöön ellet [link]ota suodatinryhmää käyttöön[/link].">
 <!ENTITY filter.label "Uusi suodatin:">
 <!ENTITY filter.accesskey "U">
 <!ENTITY preferences.label "Näytä nykyiset suodattimet...">

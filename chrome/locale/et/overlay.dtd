@@ -15,7 +15,7 @@
 <!ENTITY opensidebar.accesskey "O">
 <!ENTITY closesidebar.label "Sulge blokeeritavad objektid">
 <!ENTITY closesidebar.accesskey "O">
-<!ENTITY whitelist.site.label "Sulge --">
+<!ENTITY whitelist.site.label "Sulge ?1?">
 <!ENTITY whitelist.page.label "Sulge ainult sellel lehel">
 <!ENTITY objecttab.title "Blokeeri">
 <!ENTITY objecttab.tooltip "Vajuta siia, et blokeerida selle objekti Adblock Plusiga">

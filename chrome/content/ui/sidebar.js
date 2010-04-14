@@ -361,7 +361,7 @@ function fillInContext(/**Event*/ e)
     let filter = item.filter;
     let menuItem = E(filter.disabled ? "contextEnableFilter" : "contextDisableFilter");
     menuItem.filter = filter;
-    menuItem.setAttribute("label", menuItem.getAttribute("labeltempl").replace(/--/, filter.text));
+    menuItem.setAttribute("label", menuItem.getAttribute("labeltempl").replace(/\?1\?/, filter.text));
     menuItem.hidden = false;
 
     if (filter instanceof abp.ActiveFilter && !filter.disabled && filter.subscriptions.length && !filter.subscriptions.some(function(subscription) !(subscription instanceof abp.SpecialSubscription)))
@@ -378,7 +378,7 @@ function fillInContext(/**Event*/ e)
         menuItem.item = item;
         menuItem.filter = filter;
         menuItem.domain = domain;
-        menuItem.setAttribute("label", menuItem.getAttribute("labeltempl").replace(/--/, domain));
+        menuItem.setAttribute("label", menuItem.getAttribute("labeltempl").replace(/\?1\?/, domain));
         menuItem.hidden = false;
       }
     }

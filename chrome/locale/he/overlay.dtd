@@ -17,7 +17,7 @@
 <!ENTITY opensidebar.accesskey "ר">
 <!ENTITY closesidebar.label "סגירת הרשימה של הפריטים לחסימה">
 <!ENTITY closesidebar.accesskey "ר">
-<!ENTITY whitelist.site.label "נטרול ב --">
+<!ENTITY whitelist.site.label "נטרול ב ?1?">
 <!ENTITY whitelist.page.label "נטרול בעמוד הזה בלבד">
 <!ENTITY objecttab.title "חסימה">
 <!ENTITY objecttab.tooltip "לחץ כאן לחסימת פריט זה עם Adblock Plus">

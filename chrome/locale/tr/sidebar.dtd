@@ -22,9 +22,9 @@
 <!ENTITY context.block.label "Bu öğeyi engelle">
 <!ENTITY context.editfilter.label "Yürürlükteki süzgeci düzelt">
 <!ENTITY context.whitelist.label "Öğeye ayrıcalık tanı">
-<!ENTITY context.disablefilter.label "Süzgeci devre dışı bırak --">
-<!ENTITY context.enablefilter.label "Süzgeci devreye sok --">
-<!ENTITY context.disablefilteronsite.label "Bu süzgeci burada kullanma --">
+<!ENTITY context.disablefilter.label "Süzgeci devre dışı bırak ?1?">
+<!ENTITY context.enablefilter.label "Süzgeci devreye sok ?1?">
+<!ENTITY context.disablefilteronsite.label "Bu süzgeci burada kullanma ?1?">
 <!ENTITY context.open.label "Yeni sekmede aç">
 <!ENTITY context.flash.label "Flash öğesinin sınırları">
 <!ENTITY context.copy.label "Öğenin konumunu kopyala">

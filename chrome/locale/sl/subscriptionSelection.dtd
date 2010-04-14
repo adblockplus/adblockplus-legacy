@@ -27,6 +27,6 @@
 <!ENTITY location.accesskey "M">
 <!ENTITY autodownload.label "Samodejno posodobi">
 <!ENTITY autodownload.accesskey "S">
-<!ENTITY supplementMessage "Naročnina na filter je mišljena za rabo z naročnino na filter &#37;S, ki je še ne uporabljate.">
-<!ENTITY addMain.label "Dodaj tudi naročnino na filter &#37;S">
+<!ENTITY supplementMessage "Naročnina na filter je mišljena za rabo z naročnino na filter ?1?, ki je še ne uporabljate.">
+<!ENTITY addMain.label "Dodaj tudi naročnino na filter ?1?">
 <!ENTITY addMain.accesskey "d">

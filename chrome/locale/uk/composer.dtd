@@ -3,7 +3,7 @@
 <!ENTITY advanced.label "Складний вигляд">
 <!ENTITY basic.label "Простий вигляд">
 <!ENTITY disabled.warning "Adblock Plus наразі вимкнений. Ви все одно можете додавати фільтри, але вони не застосуються. Хіба що ви можете [link]увімкнути Adblock Plus[/link].">
-<!ENTITY groupDisabled.warning "Група фільтрів &quot;&#37;S&quot; до котрої додається цей фільтр наразі вимкнена. Ви можете все одно додати його, але він не буде застосований. Хіба що ви можете [link]увімкнути групу фільтрів[/link].">
+<!ENTITY groupDisabled.warning "Група фільтрів &quot;?1?&quot; до котрої додається цей фільтр наразі вимкнена. Ви можете все одно додати його, але він не буде застосований. Хіба що ви можете [link]увімкнути групу фільтрів[/link].">
 <!ENTITY filter.label "Новий фільтр:">
 <!ENTITY filter.accesskey "ф">
 <!ENTITY preferences.label "Показати існуючі фільтри…">

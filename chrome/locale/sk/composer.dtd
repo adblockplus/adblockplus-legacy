@@ -3,7 +3,7 @@
 <!ENTITY advanced.label "Pokročilý náhľad">
 <!ENTITY basic.label "Jednoduchý náhľad">
 <!ENTITY disabled.warning "Adblock Plus je aktuálne vypnutý. Môžete pridávať filtre, ale tie nebudú aplikované pokiaľ [link]nezapnete Adblock Plus[/link].">
-<!ENTITY groupDisabled.warning "Skupina filtrov &quot;&#37;S&quot;, ktorá mala tento filter pridať, je aktuálne vypnutá. Stále ho však môžete pridať, ale nebude aplikovaný skôr, než [link]zapnete skupinu filtrov[/link].">
+<!ENTITY groupDisabled.warning "Skupina filtrov &quot;?1?&quot;, ktorá mala tento filter pridať, je aktuálne vypnutá. Stále ho však môžete pridať, ale nebude aplikovaný skôr, než [link]zapnete skupinu filtrov[/link].">
 <!ENTITY filter.label "Nový filter:">
 <!ENTITY filter.accesskey "f">
 <!ENTITY preferences.label "Zobraziť existujúce filtre...">

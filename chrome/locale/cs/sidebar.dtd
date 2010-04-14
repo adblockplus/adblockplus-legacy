@@ -22,9 +22,9 @@
 <!ENTITY context.block.label "Blokovat tento objekt">
 <!ENTITY context.editfilter.label "Upravit příslušný filtr">
 <!ENTITY context.whitelist.label "Přidat výjimku pro tento objekt">
-<!ENTITY context.disablefilter.label "Zakázat filtr --">
-<!ENTITY context.enablefilter.label "Opět povolit filtr --">
-<!ENTITY context.disablefilteronsite.label "Zakázat tento filtr na --">
+<!ENTITY context.disablefilter.label "Zakázat filtr ?1?">
+<!ENTITY context.enablefilter.label "Opět povolit filtr ?1?">
+<!ENTITY context.disablefilteronsite.label "Zakázat tento filtr na ?1?">
 <!ENTITY context.open.label "Otevřít v novém panelu">
 <!ENTITY context.flash.label "Blikání obrysu objektu">
 <!ENTITY context.copy.label "Kopírovat adresu objektu">

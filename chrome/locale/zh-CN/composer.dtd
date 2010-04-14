@@ -3,7 +3,7 @@
 <!ENTITY advanced.label "高级视图">
 <!ENTITY basic.label "基本视图">
 <!ENTITY disabled.warning "Adblock Plus 目前处于禁用状态。您可以继续添加过滤规则，但是这些规则无法生效。[link]启用 Adblock Plus[/link].">
-<!ENTITY groupDisabled.warning "该过滤规则将被添加到过滤规则组 group &quot;&#37;S&quot;，该组目前是禁用状态。 您仍然可以添加该过滤规则，但是该规则不会被应用，除非您启用它。[link]启用过滤器分组[/link].">
+<!ENTITY groupDisabled.warning "该过滤规则将被添加到过滤规则组 group &quot;?1?&quot;，该组目前是禁用状态。 您仍然可以添加该过滤规则，但是该规则不会被应用，除非您启用它。[link]启用过滤器分组[/link].">
 <!ENTITY filter.label "新建过滤规则:">
 <!ENTITY filter.accesskey "f">
 <!ENTITY preferences.label "显示现有过滤规则...">
