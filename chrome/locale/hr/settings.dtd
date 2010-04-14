@@ -29,6 +29,16 @@
 <!ENTITY menu.find.accesskey "T">
 <!ENTITY menu.findagain.label "Ponovno traži">
 <!ENTITY menu.findagain.accesskey "n">
+<!ENTITY view.label "Pogledati">
+<!ENTITY view.accesskey "V">
+<!ENTITY sort.label "Posložiti po">
+<!ENTITY sort.accesskey "S">
+<!ENTITY sort.none.label "Neposloženo">
+<!ENTITY sort.none.accesskey "U">
+<!ENTITY sort.ascending.label "A &gt; Z red slaganja">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.descending.label "Z &gt; A red slaganja">
+<!ENTITY sort.descending.accesskey "Z">
 <!ENTITY options.label "Opcije">
 <!ENTITY options.accesskey "O">
 <!ENTITY enable.label "Omogući Adblock Plus">
@@ -43,6 +53,9 @@
 <!ENTITY collapse.accesskey "e">
 <!ENTITY help.label "Pomoć">
 <!ENTITY help.accesskey "ć">
+<!ENTITY gettingStarted.label "Kako početi">
+<!ENTITY gettingStarted.accesskey "s">
+<!ENTITY gettingStarted.url "http://adblockplus.org/en/getting_started">
 <!ENTITY faq.label "Često postavljana pitanja">
 <!ENTITY faq.accesskey "t">
 <!ENTITY faq.url "http://adblockplus.org/en/faq">
@@ -53,9 +66,16 @@
 <!ENTITY about.accesskey "O">
 <!ENTITY description "Dodajte adrese koje želite blokirati, za prijedloge provjerite padajući popis.
 Možete koristiti * kao joker da bi kreirali još općenitije filtere. Napredni korisnici mogu koristiti regularne izraze kao /banner\d+\.gif$/.">
+<!ENTITY filter.column "Pravilo filtera">
+<!ENTITY filter.accesskey "F">
+<!ENTITY slow.column "Spori filteri">
+<!ENTITY slow.accesskey "w">
 <!ENTITY enabled.column "Omogućeno">
+<!ENTITY enabled.accesskey "n">
 <!ENTITY hitcount.column "Pogoci">
+<!ENTITY hitcount.accesskey "H">
 <!ENTITY lasthit.column "Posljednji pogodak">
+<!ENTITY lasthit.accesskey "L">
 <!ENTITY context.edit.label "Uredi filter">
 <!ENTITY context.resethitcount.label "Vrati izvornu statistiku pogodaka za filter">
 <!ENTITY context.synchsubscription.label "Ažuriraj pretplatu sada">
@@ -64,5 +84,8 @@ Možete koristiti * kao joker da bi kreirali još općenitije filtere. Napredni 
 <!ENTITY context.movedown.label "Pomakni prema dolje">
 <!ENTITY context.movegroupup.label "Pomakni grupu prema gore">
 <!ENTITY context.movegroupdown.label "Pomakni grupu prema dolje">
+<!ENTITY context.enable.label "Omogućiti">
+<!ENTITY context.disable.label "Onemogućiti">
 <!ENTITY apply.label "Primijeni">
 <!ENTITY apply.accesskey "P">
+<!ENTITY fennec.subscription.label "Pretplate na filtere">

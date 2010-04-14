@@ -35,17 +35,17 @@
 <!ENTITY sort.accesskey "С">
 <!ENTITY sort.none.label "Несортирано">
 <!ENTITY sort.none.accesskey "е">
-<!ENTITY sort.ascending.label "A &gt; Z">
-<!ENTITY sort.ascending.accesskey "A">
-<!ENTITY sort.descending.label "Z &gt; A">
-<!ENTITY sort.descending.accesskey "Z">
+<!ENTITY sort.ascending.label "Од А до Ш">
+<!ENTITY sort.ascending.accesskey "А">
+<!ENTITY sort.descending.label "Од Ш до А">
+<!ENTITY sort.descending.accesskey "Ш">
 <!ENTITY options.label "Опције">
 <!ENTITY options.accesskey "О">
 <!ENTITY enable.label "Укључи Adblock Plus">
 <!ENTITY enable.accesskey "У">
-<!ENTITY showintoolbar.label "Прикажи у алатној траци">
+<!ENTITY showintoolbar.label "Прикажи у траци са алаткама">
 <!ENTITY showintoolbar.accesskey "т">
-<!ENTITY showinstatusbar.label "Прикажи у статусној линији">
+<!ENTITY showinstatusbar.label "Прикажи у статусној траци">
 <!ENTITY showinstatusbar.accesskey "с">
 <!ENTITY objecttabs.label "Прикажи језичак на Flash и Java објектима">
 <!ENTITY objecttabs.accesskey "к">
@@ -87,3 +87,4 @@
 <!ENTITY context.disable.label "Искључи">
 <!ENTITY apply.label "Примени">
 <!ENTITY apply.accesskey "и">
+<!ENTITY fennec.subscription.label "Претплата на филтере">

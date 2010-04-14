@@ -3,9 +3,13 @@
 <!ENTITY filters.tooltip "Najaktivniji filteri:">
 <!ENTITY menuitem.label "Adblock Plus">
 <!ENTITY menuitem.accesskey "b">
+<!ENTITY toolbarbutton.label "Adblock Plus">
+<!ENTITY view.blockableItems.label "Adblock Plus: Stavke koje se mogu blokirati">
 <!ENTITY context.image.label "Blokiraj sliku s Adblock">
 <!ENTITY context.object.label "Blokiraj objekt s Adblock">
 <!ENTITY context.frame.label "Blokiraj okvir s Adblock">
+<!ENTITY context.media.label "Adblock Plus: Blokirati audio/video">
+<!ENTITY context.removeWhitelist.label "Adblock Plus: Ponovno omogućiti na ovoj stranici">
 <!ENTITY sidebar.title "Stavke koje se mogu blokirati na trenutnoj stranici">
 <!ENTITY settings.label "Postavke">
 <!ENTITY settings.accesskey "t">
