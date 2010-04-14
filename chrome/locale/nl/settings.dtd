@@ -3,15 +3,15 @@
 <!ENTITY filters.accesskey "F">
 <!ENTITY add.label "Filter toevoegen">
 <!ENTITY add.accesskey "g">
-<!ENTITY addsubscription.label "Abonnement toevoegen">
+<!ENTITY addsubscription.label "Filterabonnement toevoegen">
 <!ENTITY addsubscription.accesskey "t">
-<!ENTITY synchsubscriptions.label "Abonnementen bijwerken">
+<!ENTITY synchsubscriptions.label "Alle abonnementen bijwerken">
 <!ENTITY synchsubscriptions.accesskey "A">
 <!ENTITY import.label "Filters importeren">
 <!ENTITY import.accesskey "i">
-<!ENTITY export.label "Filters exporteren">
+<!ENTITY export.label "Aangepaste filters exporteren">
 <!ENTITY export.accesskey "x">
-<!ENTITY clearall.label "Eigen filters verwijderen">
+<!ENTITY clearall.label "Alle aangepaste filters verwijderen">
 <!ENTITY clearall.accesskey "v">
 <!ENTITY resethitcounts.label "Trefstatistieken herstellen">
 <!ENTITY resethitcounts.accesskey "r">
@@ -31,23 +31,23 @@
 <!ENTITY menu.findagain.accesskey "w">
 <!ENTITY view.label "Beeld">
 <!ENTITY view.accesskey "l">
-<!ENTITY sort.label "Sorteer op">
+<!ENTITY sort.label "Sorteren op">
 <!ENTITY sort.accesskey "S">
 <!ENTITY sort.none.label "Ongesorteerd">
 <!ENTITY sort.none.accesskey "O">
-<!ENTITY sort.ascending.label "Oplopend gesorteerd">
-<!ENTITY sort.ascending.accesskey "p">
-<!ENTITY sort.descending.label "Aflopend gesorteerd">
-<!ENTITY sort.descending.accesskey "A">
+<!ENTITY sort.ascending.label "A &gt; Z sortering">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.descending.label "Z &gt; A sortering">
+<!ENTITY sort.descending.accesskey "Z">
 <!ENTITY options.label "Opties">
 <!ENTITY options.accesskey "O">
 <!ENTITY enable.label "Adblock Plus inschakelen">
 <!ENTITY enable.accesskey "A">
-<!ENTITY showintoolbar.label "Toon in werkbalk">
+<!ENTITY showintoolbar.label "In werkbalk weergeven">
 <!ENTITY showintoolbar.accesskey "w">
-<!ENTITY showinstatusbar.label "Toon in statusbalk">
+<!ENTITY showinstatusbar.label "In statusbalk weergeven">
 <!ENTITY showinstatusbar.accesskey "s">
-<!ENTITY objecttabs.label "Tabs laten zien op Flash en Java">
+<!ENTITY objecttabs.label "Tabbladen weergeven op Flash en Java">
 <!ENTITY objecttabs.accesskey "T">
 <!ENTITY collapse.label "Geblokkeerde elementen inklappen">
 <!ENTITY collapse.accesskey "G">
@@ -75,15 +75,16 @@
 <!ENTITY hitcount.accesskey "T">
 <!ENTITY lasthit.column "Laatste treffer">
 <!ENTITY lasthit.accesskey "L">
-<!ENTITY context.edit.label "Filter wijzigen">
+<!ENTITY context.edit.label "Filter bewerken">
 <!ENTITY context.resethitcount.label "Trefstatistieken voor filter herstellen">
 <!ENTITY context.synchsubscription.label "Abonnement nu bijwerken">
-<!ENTITY context.editsubscription.label "Abonnement wijzigen">
-<!ENTITY context.moveup.label "Omhoog verplaatsen">
-<!ENTITY context.movedown.label "Omlaag verplaatsen">
+<!ENTITY context.editsubscription.label "Abonnement bewerken">
+<!ENTITY context.moveup.label "Filter omhoog verplaatsen">
+<!ENTITY context.movedown.label "Filter omlaag verplaatsen">
 <!ENTITY context.movegroupup.label "Groep omhoog verplaatsen">
 <!ENTITY context.movegroupdown.label "Groep omlaag verplaatsen">
 <!ENTITY context.enable.label "Inschakelen">
 <!ENTITY context.disable.label "Uitschakelen">
 <!ENTITY apply.label "Toepassen">
 <!ENTITY apply.accesskey "T">
+<!ENTITY fennec.subscription.label "Filterabonnement">
