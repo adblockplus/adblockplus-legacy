@@ -16,7 +16,7 @@
 <!ENTITY opensidebar.accesskey "B">
 <!ENTITY closesidebar.label "Blokkearbere ûnderdielen slute">
 <!ENTITY closesidebar.accesskey "B">
-<!ENTITY whitelist.site.label "Utskeakelje op --">
+<!ENTITY whitelist.site.label "Utskeakelje op ?1?">
 <!ENTITY whitelist.page.label "Allinnich op dizze side útskeakelje">
 <!ENTITY objecttab.title "Blokkearje">
 <!ENTITY objecttab.tooltip "Klik hjir om dit objekt te blokkearjen mei Adblock Plus">

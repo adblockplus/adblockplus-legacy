@@ -16,7 +16,7 @@
 <!ENTITY opensidebar.accesskey "ไ">
 <!ENTITY closesidebar.label "ปิดรายการที่บล็อกได้">
 <!ENTITY closesidebar.accesskey "ไ">
-<!ENTITY whitelist.site.label "ปิดการใช้งาน --">
+<!ENTITY whitelist.site.label "ปิดการใช้งาน ?1?">
 <!ENTITY whitelist.page.label "ปิดการใช้งานเฉพาะหน้านี้">
 <!ENTITY objecttab.title "บล็อก">
 <!ENTITY objecttab.tooltip "คลิกที่นี่เพื่อบล็อกวัตถุนี้ด้วย Adblock Plus">

@@ -31,6 +31,6 @@
 <!ENTITY location.accesskey "L">
 <!ENTITY autodownload.label "Uppfæra sjálfvirkt">
 <!ENTITY autodownload.accesskey "U">
-<!ENTITY supplementMessage "Þessi síu áskrift er ætluð til þess að vera notuð með síu áskrift &quot;&#37;S&quot; sem þú hefur ekki ennþá bætt við.">
-<!ENTITY addMain.label "Bættu einnig við síu áskrift &quot;&#37;S&quot;">
+<!ENTITY supplementMessage "Þessi síu áskrift er ætluð til þess að vera notuð með síu áskrift &quot;?1?&quot; sem þú hefur ekki ennþá bætt við.">
+<!ENTITY addMain.label "Bættu einnig við síu áskrift &quot;?1?&quot;">
 <!ENTITY addMain.accesskey "s">

@@ -16,7 +16,7 @@
 <!ENTITY opensidebar.accesskey "m">
 <!ENTITY closesidebar.label "Đóng các mục có thể chặn được">
 <!ENTITY closesidebar.accesskey "m">
-<!ENTITY whitelist.site.label "Vô hiệu hóa trên --">
+<!ENTITY whitelist.site.label "Vô hiệu hóa trên ?1?">
 <!ENTITY whitelist.page.label "Chỉ vô hiệu hóa trên trang này">
 <!ENTITY objecttab.title "Chặn">
 <!ENTITY objecttab.tooltip "Nhấn vào đây để chặn đối tượng này với Adblock Plus">

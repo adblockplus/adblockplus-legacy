@@ -22,9 +22,9 @@
 <!ENTITY context.block.label "חסימת פריט זה">
 <!ENTITY context.editfilter.label "עריכת המסנן שמשפיע">
 <!ENTITY context.whitelist.label "הוספת כלל חריג עבור פריט">
-<!ENTITY context.disablefilter.label "נטרול המסנן --">
-<!ENTITY context.enablefilter.label "אפשור המסנן מחדש --">
-<!ENTITY context.disablefilteronsite.label "נטרול מסנן זה ב --">
+<!ENTITY context.disablefilter.label "נטרול המסנן ?1?">
+<!ENTITY context.enablefilter.label "אפשור המסנן מחדש ?1?">
+<!ENTITY context.disablefilteronsite.label "נטרול מסנן זה ב ?1?">
 <!ENTITY context.open.label "פתיחה בלשונית חדשה">
 <!ENTITY context.flash.label "גבולות פריט הפלאש">
 <!ENTITY context.copy.label "העתקת כתובת הפריט">

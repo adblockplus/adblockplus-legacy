@@ -13,7 +13,7 @@
 <!ENTITY opensidebar.accesskey "B">
 <!ENTITY closesidebar.label "Užverti blokuojamus elementus">
 <!ENTITY closesidebar.accesskey "B">
-<!ENTITY whitelist.site.label "Išjungti --">
+<!ENTITY whitelist.site.label "Išjungti ?1?">
 <!ENTITY whitelist.page.label "Išjungti šiam tinklalapiui">
 <!ENTITY objecttab.title "Blokuoti">
 <!ENTITY objecttab.tooltip "Spragtelkite čia norėdami užblokuoti šį objektą su „Adblock Plus“">

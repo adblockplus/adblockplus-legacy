@@ -27,6 +27,6 @@
 <!ENTITY location.accesskey "L">
 <!ENTITY autodownload.label "自动更新">
 <!ENTITY autodownload.accesskey "P">
-<!ENTITY supplementMessage "该规律规则订阅意味着该订阅将与您未添加的过滤规则订阅 &quot;&#37;S&quot; 一起使用。">
-<!ENTITY addMain.label "同时添加过滤规则订阅&quot;&#37;S&quot;">
+<!ENTITY supplementMessage "该规律规则订阅意味着该订阅将与您未添加的过滤规则订阅 &quot;?1?&quot; 一起使用。">
+<!ENTITY addMain.label "同时添加过滤规则订阅&quot;?1?&quot;">
 <!ENTITY addMain.accesskey "s">

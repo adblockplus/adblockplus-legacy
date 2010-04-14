@@ -27,6 +27,6 @@
 <!ENTITY location.accesskey "F">
 <!ENTITY autodownload.label "Uppdatera automatiskt">
 <!ENTITY autodownload.accesskey "a">
-<!ENTITY supplementMessage "Denna filterprenumeration bör användas med filterprenumeration &quot;&#37;S&quot; som för närvarande ej används.">
-<!ENTITY addMain.label "Lägg till filterprenumeration &quot;&#37;S&quot; också">
+<!ENTITY supplementMessage "Denna filterprenumeration bör användas med filterprenumeration &quot;?1?&quot; som för närvarande ej används.">
+<!ENTITY addMain.label "Lägg till filterprenumeration &quot;?1?&quot; också">
 <!ENTITY addMain.accesskey "s">

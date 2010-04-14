@@ -16,7 +16,7 @@
 <!ENTITY opensidebar.accesskey "B">
 <!ENTITY closesidebar.label "Tutup item yang boleh disekat">
 <!ENTITY closesidebar.accesskey "B">
-<!ENTITY whitelist.site.label "Matikan pada --">
+<!ENTITY whitelist.site.label "Matikan pada ?1?">
 <!ENTITY whitelist.page.label "Matikan pada halaman ini sahaja">
 <!ENTITY objecttab.title "Sekat">
 <!ENTITY objecttab.tooltip "Klik di sini untuk mennyekat objek ini dengan Adblock Plus">

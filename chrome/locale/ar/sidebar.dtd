@@ -22,9 +22,9 @@
 <!ENTITY context.block.label "حجب هذا العنصر">
 <!ENTITY context.editfilter.label "تعديل الفلتر الفعال">
 <!ENTITY context.whitelist.label "إضافة قانون استثنائي إلى هذا العنصر">
-<!ENTITY context.disablefilter.label "تعطيل الفلتر --">
-<!ENTITY context.enablefilter.label "إعادة تفعيل الفلتر --">
-<!ENTITY context.disablefilteronsite.label "تعطيل هذا الفلتر على --">
+<!ENTITY context.disablefilter.label "تعطيل الفلتر ?1?">
+<!ENTITY context.enablefilter.label "إعادة تفعيل الفلتر ?1?">
+<!ENTITY context.disablefilteronsite.label "تعطيل هذا الفلتر على ?1?">
 <!ENTITY context.open.label "فتح في تبويب جديد">
 <!ENTITY context.flash.label "إضاءة حواف العنصر">
 <!ENTITY context.copy.label "نسخ عنوان العنصر">

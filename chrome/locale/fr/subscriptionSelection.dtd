@@ -27,6 +27,6 @@
 <!ENTITY location.accesskey "E">
 <!ENTITY autodownload.label "Mettre à jour automatiquement">
 <!ENTITY autodownload.accesskey "M">
-<!ENTITY supplementMessage "Cet abonnement est prévu pour être utilisé avec l'abonnement &quot;&#37;S&quot; que vous n'utilisez pas encore.">
-<!ENTITY addMain.label "Ajouter également l'abonnement &quot;&#37;S&quot;">
+<!ENTITY supplementMessage "Cet abonnement est prévu pour être utilisé avec l'abonnement &quot;?1?&quot; que vous n'utilisez pas encore.">
+<!ENTITY addMain.label "Ajouter également l'abonnement &quot;?1?&quot;">
 <!ENTITY addMain.accesskey "a">

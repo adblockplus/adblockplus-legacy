@@ -6,5 +6,5 @@
 <!ENTITY settings.label "Lehentasunak">
 <!ENTITY opensidebar.label "Ireki elementu blokeagarriak">
 <!ENTITY closesidebar.label "Itxi elementu blokeagarriak">
-<!ENTITY whitelist.site.label "Ezgaitu --">
+<!ENTITY whitelist.site.label "Ezgaitu ?1?">
 <!ENTITY whitelist.page.label "Ezgaitu orri honetan soilik">

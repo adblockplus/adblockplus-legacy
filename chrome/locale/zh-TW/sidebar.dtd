@@ -22,9 +22,9 @@
 <!ENTITY context.block.label "阻擋此項目">
 <!ENTITY context.editfilter.label "編輯作用中的條件">
 <!ENTITY context.whitelist.label "將此項目加為例外規則">
-<!ENTITY context.disablefilter.label "停用過濾條件 --">
-<!ENTITY context.enablefilter.label "重新啟用過濾條件 --">
-<!ENTITY context.disablefilteronsite.label "停用此條件 --">
+<!ENTITY context.disablefilter.label "停用過濾條件 ?1?">
+<!ENTITY context.enablefilter.label "重新啟用過濾條件 ?1?">
+<!ENTITY context.disablefilteronsite.label "停用此條件 ?1?">
 <!ENTITY context.open.label "於新分頁開啟">
 <!ENTITY context.flash.label "Flash 物件框線">
 <!ENTITY context.copy.label "複製項目位址">

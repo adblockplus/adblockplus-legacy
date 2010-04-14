@@ -22,9 +22,9 @@
 <!ENTITY context.block.label "Ֆիլտրել այս տարրը">
 <!ENTITY context.editfilter.label "Խմբագրել Ազդող ֆիլտրը">
 <!ENTITY context.whitelist.label "Այս տարրի համար Բացառություն ավելացնել">
-<!ENTITY context.disablefilter.label "Անջատել ֆիլտրը --">
-<!ENTITY context.enablefilter.label "Վերակտիվացնել ֆիլտրը --">
-<!ENTITY context.disablefilteronsite.label "Արգելել այս ֆիլտրը -- -ում">
+<!ENTITY context.disablefilter.label "Անջատել ֆիլտրը ?1?">
+<!ENTITY context.enablefilter.label "Վերակտիվացնել ֆիլտրը ?1?">
+<!ENTITY context.disablefilteronsite.label "Արգելել այս ֆիլտրը ?1? -ում">
 <!ENTITY context.open.label "Բացել նոր Թաբում">
 <!ENTITY context.flash.label "Ցույց տալ օբյեկտը էջում">
 <!ENTITY context.copy.label "Կրկնել տարրի հասցեն">

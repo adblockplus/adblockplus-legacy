@@ -3,7 +3,7 @@
 <!ENTITY advanced.label "Avanzate &gt;&gt;">
 <!ENTITY basic.label "&lt;&lt; Generali">
 <!ENTITY disabled.warning "Adblock Plus è attualmente disattivata. È comunque possibile aggiungere filtri, ma questi verranno applicati solo dopo la [link]riattivazione di Adblock Plus[/link]">
-<!ENTITY groupDisabled.warning "Il gruppo di filtri &quot;&#37;S&quot; al quale bisognerebbe aggiungere il filtro è attualmente disattivato. È comunque possibile aggiungere il filtro, ma questo verrà applicato solo dopo la [link]riattivazione del gruppo di filtri[/link]">
+<!ENTITY groupDisabled.warning "Il gruppo di filtri &quot;?1?&quot; al quale bisognerebbe aggiungere il filtro è attualmente disattivato. È comunque possibile aggiungere il filtro, ma questo verrà applicato solo dopo la [link]riattivazione del gruppo di filtri[/link]">
 <!ENTITY filter.label "Nuovo filtro:">
 <!ENTITY filter.accesskey "N">
 <!ENTITY preferences.label "Mostra i filtri esistenti…">

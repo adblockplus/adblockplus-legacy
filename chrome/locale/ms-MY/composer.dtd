@@ -3,7 +3,7 @@
 <!ENTITY advanced.label "Paparan mahir">
 <!ENTITY basic.label "Paparan biasa">
 <!ENTITY disabled.warning "Adblock Plus sedang dinyahaktifkan. Anda masih boleh menambah penapis tetapi tambahan anda tidak akan aktif sehingga anda [link]aktifkan Adblock Plus[/link].">
-<!ENTITY groupDisabled.warning "Kumpulan penapis &quot;&#37;S&quot; bahawa penapis ini sedah nyah aktif. Anda masih boleh menambah penapis tetapi penapis tersebut tidak akan digunakan kecuali anda [link]aktifkan kumpulan penapis[/link].">
+<!ENTITY groupDisabled.warning "Kumpulan penapis &quot;?1?&quot; bahawa penapis ini sedah nyah aktif. Anda masih boleh menambah penapis tetapi penapis tersebut tidak akan digunakan kecuali anda [link]aktifkan kumpulan penapis[/link].">
 <!ENTITY filter.label "Penapis baru:">
 <!ENTITY filter.accesskey "r">
 <!ENTITY preferences.label "Papar penapis sedia ada...">

@@ -27,6 +27,6 @@
 <!ENTITY location.accesskey "L">
 <!ENTITY autodownload.label "Posta ao día automática">
 <!ENTITY autodownload.accesskey "P">
-<!ENTITY supplementMessage "Esta subscrición de filtro está feita para ser usada en conxunto coa subscrición de filtro &quot;&#37;S&quot; que non engadiu aínda.">
-<!ENTITY addMain.label "Engadir tamén subscrición de filtro &quot;&#37;S&quot;">
+<!ENTITY supplementMessage "Esta subscrición de filtro está feita para ser usada en conxunto coa subscrición de filtro &quot;?1?&quot; que non engadiu aínda.">
+<!ENTITY addMain.label "Engadir tamén subscrición de filtro &quot;?1?&quot;">
 <!ENTITY addMain.accesskey "s">

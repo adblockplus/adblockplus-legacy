@@ -22,9 +22,9 @@
 <!ENTITY context.block.label "Blokiraj ta element">
 <!ENTITY context.editfilter.label "Uredi trenutni filter">
 <!ENTITY context.whitelist.label "Dodaj pravilo izjem za element">
-<!ENTITY context.disablefilter.label "Onemogoči filter --">
-<!ENTITY context.enablefilter.label "Ponovno omogoči filter --">
-<!ENTITY context.disablefilteronsite.label "Onemogoči ta filter na --">
+<!ENTITY context.disablefilter.label "Onemogoči filter ?1?">
+<!ENTITY context.enablefilter.label "Ponovno omogoči filter ?1?">
+<!ENTITY context.disablefilteronsite.label "Onemogoči ta filter na ?1?">
 <!ENTITY context.open.label "Odpri v novem zavihku">
 <!ENTITY context.flash.label "Obrobe elementa naj utripajo">
 <!ENTITY context.copy.label "Kopiraj naslov elementa">

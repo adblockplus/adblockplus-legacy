@@ -324,7 +324,7 @@ function getSubscriptionDescription(subscription)
     return result;
 
   if (subscription instanceof abp.DownloadableSubscription && subscription.upgradeRequired)
-    result.push(abp.getString("subscription_wrong_version").replace(/--/, subscription.requiredVersion));
+    result.push(abp.getString("subscription_wrong_version").replace(/\?1\?/, subscription.requiredVersion));
 
   if (subscription instanceof abp.DownloadableSubscription)
     result.push(abp.getString("subscription_source") + " " + subscription.url);
@@ -516,7 +516,7 @@ function importList()
       let minVersion = RegExp.$1;
       let warning = "";
       if (minVersion && abp.versionComparator.compare(minVersion, abp.getInstalledVersion()) > 0)
-        warning = abp.getString("import_filters_wrong_version").replace(/--/, minVersion) + "\n\n";
+        warning = abp.getString("import_filters_wrong_version").replace(/\?1\?/, minVersion) + "\n\n";
 
       let promptService = Cc["@mozilla.org/embedcomp/prompt-service;1"].getService(Ci.nsIPromptService);
       let flags = promptService.BUTTON_TITLE_IS_STRING * promptService.BUTTON_POS_0 +

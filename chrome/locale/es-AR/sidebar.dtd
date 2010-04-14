@@ -22,9 +22,9 @@
 <!ENTITY context.block.label "Bloquear este elemento">
 <!ENTITY context.editfilter.label "Editar filtro en efecto">
 <!ENTITY context.whitelist.label "Agregar regla de excepción a este elemento">
-<!ENTITY context.disablefilter.label "Deshabilitar filtro --">
-<!ENTITY context.enablefilter.label "Rehabilitar filtro --">
-<!ENTITY context.disablefilteronsite.label "Deshabilitar este filtro en --">
+<!ENTITY context.disablefilter.label "Deshabilitar filtro ?1?">
+<!ENTITY context.enablefilter.label "Rehabilitar filtro ?1?">
+<!ENTITY context.disablefilteronsite.label "Deshabilitar este filtro en ?1?">
 <!ENTITY context.open.label "Abrir en nueva pestaña">
 <!ENTITY context.flash.label "Bordes de los elementos flash">
 <!ENTITY context.copy.label "Copiar dirección del elemento">

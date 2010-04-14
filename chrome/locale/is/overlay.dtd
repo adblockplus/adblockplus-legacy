@@ -17,7 +17,7 @@
 <!ENTITY opensidebar.accesskey "l">
 <!ENTITY closesidebar.label "Loka hlutum">
 <!ENTITY closesidebar.accesskey "l">
-<!ENTITY whitelist.site.label "Gera óvirkt á --">
+<!ENTITY whitelist.site.label "Gera óvirkt á ?1?">
 <!ENTITY whitelist.page.label "Gera óvirkt aðeins á þessari síðu">
 <!ENTITY objecttab.title "Loka á">
 <!ENTITY objecttab.tooltip "Smelltu hér til að loka á þennan hlut með Adblock Plus">

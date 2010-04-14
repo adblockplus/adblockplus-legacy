@@ -28,12 +28,12 @@
 <!ENTITY context.block.label      "Block this item">
 <!ENTITY context.editfilter.label "Edit filter in effect">
 <!ENTITY context.whitelist.label  "Add exception rule for item">
-<!-- Note: the placeholder (double-dash) will be replaced by the filter text -->
-<!ENTITY context.disablefilter.label  "Disable filter --">
-<!-- Note: the placeholder (double-dash) will be replaced by the filter text -->
-<!ENTITY context.enablefilter.label   "Re-enable filter --">
-<!-- Note: the placeholder (double-dash) will be replaced by the domain name of the current page -->
-<!ENTITY context.disablefilteronsite.label  "Disable this filter on --">
+<!-- Note: the placeholder ?1? will be replaced by the filter text -->
+<!ENTITY context.disablefilter.label  "Disable filter ?1?">
+<!-- Note: the placeholder ?1? will be replaced by the filter text -->
+<!ENTITY context.enablefilter.label   "Re-enable filter ?1?">
+<!-- Note: the placeholder ?1? will be replaced by the domain name of the current page -->
+<!ENTITY context.disablefilteronsite.label  "Disable this filter on ?1?">
 <!ENTITY context.open.label       "Open in New Tab">
 <!ENTITY context.flash.label      "Flash item's borders">
 <!ENTITY context.copy.label       "Copy item's address">

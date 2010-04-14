@@ -31,6 +31,6 @@ diversos sitios web. Le recomendamos que desinstale Filterset.G ahora.">
 <!ENTITY location.accesskey "U">
 <!ENTITY autodownload.label "Actualizar automáticamente">
 <!ENTITY autodownload.accesskey "z">
-<!ENTITY supplementMessage "Esta suscripción de filtros está pensada para usarse junto a la suscripción &quot;&#37;S&quot; que usted aún no ha instalado.">
-<!ENTITY addMain.label "Añadir también la suscripción &quot;&#37;S&quot;.">
+<!ENTITY supplementMessage "Esta suscripción de filtros está pensada para usarse junto a la suscripción &quot;?1?&quot; que usted aún no ha instalado.">
+<!ENTITY addMain.label "Añadir también la suscripción &quot;?1?&quot;.">
 <!ENTITY addMain.accesskey "ñ">

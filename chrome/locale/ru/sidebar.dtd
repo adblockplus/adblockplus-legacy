@@ -27,9 +27,9 @@
 <!ENTITY context.block.label      "Заблокировать элемент">
 <!ENTITY context.editfilter.label "Отредактировать примененный фильтр">
 <!ENTITY context.whitelist.label  "Добавить исключение для элемента">
-<!ENTITY context.disablefilter.label  "Отключить фильтр --">
-<!ENTITY context.enablefilter.label   "Включить обратно фильтр --">
-<!ENTITY context.disablefilteronsite.label  "Отключить фильтр на --">
+<!ENTITY context.disablefilter.label  "Отключить фильтр ?1?">
+<!ENTITY context.enablefilter.label   "Включить обратно фильтр ?1?">
+<!ENTITY context.disablefilteronsite.label  "Отключить фильтр на ?1?">
 <!ENTITY context.open.label       "Открыть в новой вкладке">
 <!ENTITY context.flash.label      "Показать расположение элемента">
 <!ENTITY context.copy.label       "Копировать адрес">

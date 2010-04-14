@@ -22,9 +22,9 @@
 <!ENTITY context.block.label "Bloquear este tema">
 <!ENTITY context.editfilter.label "Editar o filtro en vigor">
 <!ENTITY context.whitelist.label "Engadir excepción para o tema">
-<!ENTITY context.disablefilter.label "Desactivar filtro --">
-<!ENTITY context.enablefilter.label "Activar filtro --">
-<!ENTITY context.disablefilteronsite.label "Desactivar este filtro en --">
+<!ENTITY context.disablefilter.label "Desactivar filtro ?1?">
+<!ENTITY context.enablefilter.label "Activar filtro ?1?">
+<!ENTITY context.disablefilteronsite.label "Desactivar este filtro en ?1?">
 <!ENTITY context.open.label "Abrir nun novo separador">
 <!ENTITY context.flash.label "Bordos do tema Flash">
 <!ENTITY context.copy.label "Copiar o enderezo do tema">

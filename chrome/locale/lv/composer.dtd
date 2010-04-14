@@ -4,7 +4,7 @@
 <!ENTITY basic.label "Pamata skatījums">
 <!ENTITY disabled.warning "Adblock Plus šobrīd ir atspējots. Jūs joprojām varat pievienot filtrus, bet tie netiks piemēroti tik ilgi, kamēr jūs [link] neiespējosiet Adblock Plus [/ link].">
 <!-- Note: the placeholder (%S) will be replaced by the name of the disabled filter group -->
-<!ENTITY groupDisabled.warning "Filtrs grupa &quot;&#37;S&quot; kurai šis filtrs būs jāpievieno pašlaik ir atspējota. Jūs joprojām varat pievienot filtru, taču tas nav piemērojams, kamēr jūs [link] neiespējosiet filtra grupu [/link].">
+<!ENTITY groupDisabled.warning "Filtrs grupa &quot;?1?&quot; kurai šis filtrs būs jāpievieno pašlaik ir atspējota. Jūs joprojām varat pievienot filtru, taču tas nav piemērojams, kamēr jūs [link] neiespējosiet filtra grupu [/link].">
 <!ENTITY filter.label "Jauns filtrs:">
 <!ENTITY filter.accesskey "f">
 <!ENTITY preferences.label "Rādīt esošos filtrus...">
