@@ -491,7 +491,7 @@ RegExpFilter.prototype =
   matches: function(location, contentType, docDomain, thirdParty)
   {
     return (this.regexp.test(location) &&
-            (RegExpFilter.typeMap[contentType] & this.contentType) != 0 &&
+            (RegExpFilter.typeMap[contentType] & this.contentType) == RegExpFilter.typeMap[contentType] &&
             (this.thirdParty == null || this.thirdParty == thirdParty) &&
             this.isActiveOnDomain(docDomain));
   }
@@ -536,7 +536,11 @@ RegExpFilter.fromText = function(text)
       else if (option[0] == "~" && option.substr(1) in RegExpFilter.typeMap)
       {
         if (contentType == null)
+        {
           contentType = 0x7FFFFFFF;
+          if (constructor == WhitelistFilter && !/^\|?[\w\-]+:/.test(text))
+            contentType &= ~RegExpFilter.typeMap.DOCUMENT;
+        }
         contentType &= ~RegExpFilter.typeMap[option.substr(1)];
       }
       else if (option == "MATCH_CASE")
@@ -554,13 +558,10 @@ RegExpFilter.fromText = function(text)
     }
   }
 
-  if (constructor == WhitelistFilter && (contentType == null || (contentType & RegExpFilter.typeMap.DOCUMENT)) &&
-      (!options || options.indexOf("DOCUMENT") < 0) && !/^\|?[\w\-]+:/.test(text))
+  if (constructor == WhitelistFilter && contentType == null && !/^\|?[\w\-]+:/.test(text))
   {
     // Exception filters shouldn't apply to pages by default unless they start with a protocol name
-    if (contentType == null)
-      contentType = 0x7FFFFFFF;
-    contentType &= ~RegExpFilter.typeMap.DOCUMENT;
+    contentType = 0x7FFFFFFF & ~RegExpFilter.typeMap.DOCUMENT;
   }
 
   try
@@ -583,7 +584,6 @@ RegExpFilter.typeMap = {
   STYLESHEET: 8,
   OBJECT: 16,
   SUBDOCUMENT: 32,
-  DOCUMENT: 64,
   BACKGROUND: 256,
   XBL: 512,
   PING: 1024,
@@ -591,7 +591,11 @@ RegExpFilter.typeMap = {
   OBJECT_SUBREQUEST: 4096,
   DTD: 8192,
   MEDIA: 16384,
-  FONT: 32768
+  FONT: 32768,
+
+  BLOCKING: 0x40000000,
+  ELEMHIDE: 0x20000000,
+  DOCUMENT: 0x40000000 | 0x20000000,
 };
 
 /**
