@@ -16,7 +16,7 @@
 <!ENTITY opensidebar.accesskey "п">
 <!ENTITY closesidebar.label "Закрити список елементів">
 <!ENTITY closesidebar.accesskey "п">
-<!ENTITY whitelist.site.label "Вимкнути: на --">
+<!ENTITY whitelist.site.label "Вимкнути: на ?1?">
 <!ENTITY whitelist.page.label "Вимкнути: тільки на цій сторінці">
 <!ENTITY objecttab.title "Заблокувати">
 <!ENTITY objecttab.tooltip "Натисніть тут, щоб заблокувати цей об’єкт">

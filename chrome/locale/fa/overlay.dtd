@@ -13,7 +13,7 @@
 <!ENTITY opensidebar.accesskey "ق">
 <!ENTITY closesidebar.label "بستن موارد قابل ردکردن">
 <!ENTITY closesidebar.accesskey "ق">
-<!ENTITY whitelist.site.label "غيرفعال در --">
+<!ENTITY whitelist.site.label "غيرفعال در ?1?">
 <!ENTITY whitelist.page.label "غيرفعال فقط در اين صفحه">
 <!ENTITY objecttab.title "مسدود کردن">
 <!ENTITY objecttab.tooltip "جهت مسدود کردن با Adblock Plus اینجا کلیک کنید">

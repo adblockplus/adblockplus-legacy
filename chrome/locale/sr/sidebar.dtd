@@ -22,9 +22,9 @@
 <!ENTITY context.block.label "Блокирај ову ставку">
 <!ENTITY context.editfilter.label "Уреди коришћени филтер">
 <!ENTITY context.whitelist.label "Додај изузетак за ставку">
-<!ENTITY context.disablefilter.label "Искључи филтер --">
-<!ENTITY context.enablefilter.label "Поново укључи филтер --">
-<!ENTITY context.disablefilteronsite.label "Искључи овај филтер на --">
+<!ENTITY context.disablefilter.label "Искључи филтер ?1?">
+<!ENTITY context.enablefilter.label "Поново укључи филтер ?1?">
+<!ENTITY context.disablefilteronsite.label "Искључи овај филтер на ?1?">
 <!ENTITY context.open.label "Отвори на новом листу">
 <!ENTITY context.flash.label "Осветли границе ставке">
 <!ENTITY context.copy.label "Умножи адресу ставке">

@@ -24,8 +24,8 @@
 <!ENTITY closesidebar.label     "Close blockable items">
 <!-- Note: This access key should usually be the same as opensidebar.accesskey. It is the same menu item with different label depending on whether the sidebar is currently open.-->
 <!ENTITY closesidebar.accesskey "b">
-<!-- Note: the placeholder (double-dash) will be replaced by the domain name of the current page -->
-<!ENTITY whitelist.site.label   "Disable on --">
+<!-- Note: the placeholder ?1? will be replaced by the domain name of the current page -->
+<!ENTITY whitelist.site.label   "Disable on ?1?">
 <!ENTITY whitelist.page.label   "Disable on this page only">
 
 <!ENTITY objecttab.title        "Block">

@@ -22,9 +22,9 @@
 <!ENTITY context.block.label "Chặn mục này">
 <!ENTITY context.editfilter.label "Chỉnh sửa bộ lọc đang chặn">
 <!ENTITY context.whitelist.label "Thêm quy luật ngoại lệ cho mục">
-<!ENTITY context.disablefilter.label "Vô hiệu hóa bộ lọc --">
-<!ENTITY context.enablefilter.label "Kích hoạt lại bộ lọc --">
-<!ENTITY context.disablefilteronsite.label "Vô hiệu hóa bộ lọc này trên --">
+<!ENTITY context.disablefilter.label "Vô hiệu hóa bộ lọc ?1?">
+<!ENTITY context.enablefilter.label "Kích hoạt lại bộ lọc ?1?">
+<!ENTITY context.disablefilteronsite.label "Vô hiệu hóa bộ lọc này trên ?1?">
 <!ENTITY context.open.label "Mở trong Thẻ Mới">
 <!ENTITY context.flash.label "Nhấp nháy quanh viền của mục này">
 <!ENTITY context.copy.label "Chép địa chỉ của mục này">

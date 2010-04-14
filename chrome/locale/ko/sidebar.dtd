@@ -22,9 +22,9 @@
 <!ENTITY context.block.label "차단 필터 추가">
 <!ENTITY context.editfilter.label "필터 편집">
 <!ENTITY context.whitelist.label "허용 필터 추가">
-<!ENTITY context.disablefilter.label "필터 사용 안 함 : --">
-<!ENTITY context.enablefilter.label "필터 다시 사용함 : --">
-<!ENTITY context.disablefilteronsite.label "필터 적용 안 할 도메인 지정 : --">
+<!ENTITY context.disablefilter.label "필터 사용 안 함 : ?1?">
+<!ENTITY context.enablefilter.label "필터 다시 사용함 : ?1?">
+<!ENTITY context.disablefilteronsite.label "필터 적용 안 할 도메인 지정 : ?1?">
 <!ENTITY context.open.label "새 탭으로 열기">
 <!ENTITY context.flash.label "항목 테두리 깜빡임">
 <!ENTITY context.copy.label "주소 복사">

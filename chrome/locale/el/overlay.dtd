@@ -17,7 +17,7 @@
 <!ENTITY opensidebar.accesskey "α">
 <!ENTITY closesidebar.label "Κλείσιμο των φιλτραρισμένων στοιχείων">
 <!ENTITY closesidebar.accesskey "α">
-<!ENTITY whitelist.site.label "Απενεργοποίηση στο --">
+<!ENTITY whitelist.site.label "Απενεργοποίηση στο ?1?">
 <!ENTITY whitelist.page.label "Απενεργοποίηση σε αυτή τη σελίδα μόνο">
 <!ENTITY objecttab.title "Φραγή">
 <!ENTITY objecttab.tooltip "Κλικ εδώ για να φιλτράρετε αυτό το αντικείμενο με το Adblock Plus">

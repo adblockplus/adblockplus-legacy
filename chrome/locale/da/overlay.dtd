@@ -16,7 +16,7 @@
 <!ENTITY opensidebar.accesskey "b">
 <!ENTITY closesidebar.label "Luk blokérbare elementer">
 <!ENTITY closesidebar.accesskey "b">
-<!ENTITY whitelist.site.label "Slå fra på --">
+<!ENTITY whitelist.site.label "Slå fra på ?1?">
 <!ENTITY whitelist.page.label "Slå fra på denne ene side">
 <!ENTITY objecttab.title "Bloker">
 <!ENTITY objecttab.tooltip "Klik her for at blokere dette objekt med Adblock Plus">

@@ -22,9 +22,9 @@
 <!ENTITY context.block.label "Заблокувати елемент">
 <!ENTITY context.editfilter.label "Відредагувати застосований фільтр">
 <!ENTITY context.whitelist.label "Вказати елемент як виняток">
-<!ENTITY context.disablefilter.label "Вимкнути фільтр --">
-<!ENTITY context.enablefilter.label "Знов увімкнути фільтр --">
-<!ENTITY context.disablefilteronsite.label "Вимкнути цей фільтр на --">
+<!ENTITY context.disablefilter.label "Вимкнути фільтр ?1?">
+<!ENTITY context.enablefilter.label "Знов увімкнути фільтр ?1?">
+<!ENTITY context.disablefilteronsite.label "Вимкнути цей фільтр на ?1?">
 <!ENTITY context.open.label "Відкрити в новій вкладці">
 <!ENTITY context.flash.label "Показати розташування елементу">
 <!ENTITY context.copy.label "Копіювати адресу">

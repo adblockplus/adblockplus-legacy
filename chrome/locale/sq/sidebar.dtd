@@ -17,9 +17,9 @@
 <!ENTITY tooltip.filterSource.label "Burimi i filtruesit:">
 <!ENTITY context.block.label "Blloko këtë send">
 <!ENTITY context.editfilter.label "Vendos filtruesin në veprim">
-<!ENTITY context.disablefilter.label "Çaktivizo filtruesin --">
-<!ENTITY context.enablefilter.label "Ri mundëso filtruesin --">
-<!ENTITY context.disablefilteronsite.label "Pamundëso filtruesin në --">
+<!ENTITY context.disablefilter.label "Çaktivizo filtruesin ?1?">
+<!ENTITY context.enablefilter.label "Ri mundëso filtruesin ?1?">
+<!ENTITY context.disablefilteronsite.label "Pamundëso filtruesin në ?1?">
 <!ENTITY context.open.label "Hape një një lidhje të re">
 <!ENTITY context.copy.label "Kopjo adresën e elementit">
 <!ENTITY context.copyFilter.label "Kopjo filtruesin">

@@ -13,7 +13,7 @@
 <!ENTITY opensidebar.accesskey "B">
 <!ENTITY closesidebar.label "ತಡೆಹಿಡಿಯಬಹುದಾದ ವಸ್ತುಗಳನ್ನು ಮುಚ್ಚು">
 <!ENTITY closesidebar.accesskey "B">
-<!ENTITY whitelist.site.label "-- ಅಲ್ಲಿ ನಿಷ್ಕ್ರಿಯಗೊಳಿಸು">
+<!ENTITY whitelist.site.label "?1? ಅಲ್ಲಿ ನಿಷ್ಕ್ರಿಯಗೊಳಿಸು">
 <!ENTITY whitelist.page.label "ಈ ಪುಟದಲ್ಲಿ ಮಾತ್ರ ನಿಷ್ಕ್ರಿಯಗೊಳಿಸು">
 <!ENTITY objecttab.title "ತಡೆ ಹಿಡಿ">
 <!ENTITY objecttab.tooltip "ಈ ವಸ್ತುವನ್ನು ಆಡ್‌ಬ್ಲಾಕ್ ಪ್ಲಸ್‌ ಮೂಲಕ ತಡೆಹಿಡಿಯಲು ಇಲ್ಲ್ಲಿ ಕ್ಲಿಕ್ ಮಾಡಿ">

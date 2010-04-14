@@ -429,7 +429,7 @@ function setCustomSubscription(title, url, mainSubscriptionTitle, mainSubscripti
       showElements(messageElement, addMainCheckbox);
 
     let beforeLink, afterLink;
-    if (/(.*)%S(.*)/.test(messageElement.getAttribute("_textTemplate")))
+    if (/(.*)\?1\?(.*)/.test(messageElement.getAttribute("_textTemplate")))
       [beforeLink, afterLink] = [RegExp.$1, RegExp.$2, RegExp.$3];
     else
       [beforeLink, afterLink] = [messageElement.getAttribute("_textTemplate"), ""];
@@ -447,7 +447,7 @@ function setCustomSubscription(title, url, mainSubscriptionTitle, mainSubscripti
     
     addMainCheckbox.value = mainSubscriptionURL;
     addMainCheckbox.setAttribute("_mainSubscriptionTitle", mainSubscriptionTitle)
-    addMainCheckbox.label = addMainCheckbox.getAttribute("_labelTemplate").replace(/%S/g, mainSubscriptionTitle);
+    addMainCheckbox.label = addMainCheckbox.getAttribute("_labelTemplate").replace(/\?1\?/g, mainSubscriptionTitle);
     addMainCheckbox.accessKey = addMainCheckbox.accessKey;
   }
   else if (!messageElement.hidden)

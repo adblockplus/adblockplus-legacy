@@ -3,7 +3,7 @@
 <!ENTITY advanced.label "Rozšířené zobrazení">
 <!ENTITY basic.label "Základní zobrazení">
 <!ENTITY disabled.warning "Adblock Plus je momentálně zakázán. Můžete stále přidávat filtry, ale nebudou aplikovány dokud [link]nepovolíte Adblock Plus[/link].">
-<!ENTITY groupDisabled.warning "Skupina filtrů &quot;&#37;S&quot;, do které chcete přidat tento filtr, je momentálně zakázaná. Filtr můžete přidat, ale nebude aplikován, dokud [link]nepovolíte skupinu filtrů[/link].">
+<!ENTITY groupDisabled.warning "Skupina filtrů &quot;?1?&quot;, do které chcete přidat tento filtr, je momentálně zakázaná. Filtr můžete přidat, ale nebude aplikován, dokud [link]nepovolíte skupinu filtrů[/link].">
 <!ENTITY filter.label "Nový filtr:">
 <!ENTITY filter.accesskey "f">
 <!ENTITY preferences.label "Zobrazit existující filtry...">

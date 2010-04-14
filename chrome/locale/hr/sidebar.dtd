@@ -22,9 +22,9 @@
 <!ENTITY context.block.label "Blokiraj ovu stavku">
 <!ENTITY context.editfilter.label "Uredi filter u upotrebi">
 <!ENTITY context.whitelist.label "Dodaj pravilo izuzimanja za stavku">
-<!ENTITY context.disablefilter.label "Onemogućiti filter --">
-<!ENTITY context.enablefilter.label "Ponovno omogućiti filter --">
-<!ENTITY context.disablefilteronsite.label "Onemogućiti ovaj filter na --">
+<!ENTITY context.disablefilter.label "Onemogućiti filter ?1?">
+<!ENTITY context.enablefilter.label "Ponovno omogućiti filter ?1?">
+<!ENTITY context.disablefilteronsite.label "Onemogućiti ovaj filter na ?1?">
 <!ENTITY context.open.label "Otvori u novoj kartici">
 <!ENTITY context.flash.label "Osvijetli granice stavke">
 <!ENTITY context.copy.label "Kopiraj adresu stavke">

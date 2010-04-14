@@ -27,6 +27,6 @@
 <!ENTITY location.accesskey "L">
 <!ENTITY autodownload.label "자동 업데이트 (P)">
 <!ENTITY autodownload.accesskey "P">
-<!ENTITY supplementMessage "위에서 선택한 구독 필터는 &quot;&#37;S&quot;와(과) 함께 사용할 것을 권장합니다.">
-<!ENTITY addMain.label "&quot;&#37;S&quot; 구독 필터도 함께 추가">
+<!ENTITY supplementMessage "위에서 선택한 구독 필터는 &quot;?1?&quot;와(과) 함께 사용할 것을 권장합니다.">
+<!ENTITY addMain.label "&quot;?1?&quot; 구독 필터도 함께 추가">
 <!ENTITY addMain.accesskey "s">

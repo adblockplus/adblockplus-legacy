@@ -17,7 +17,7 @@
 <!ENTITY opensidebar.accesskey "b">
 <!ENTITY closesidebar.label "Zatvori stavke koje se mogu blokirati">
 <!ENTITY closesidebar.accesskey "b">
-<!ENTITY whitelist.site.label "Onemogući na --">
+<!ENTITY whitelist.site.label "Onemogući na ?1?">
 <!ENTITY whitelist.page.label "Onemogući samo na ovoj stranici">
 <!ENTITY objecttab.title "Blokiraj">
 <!ENTITY objecttab.tooltip "Kliknite ovdje da biste ovaj objekt blokirali s Adblock Plus">

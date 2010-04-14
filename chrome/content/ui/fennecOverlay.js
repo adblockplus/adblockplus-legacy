@@ -171,7 +171,7 @@ function updateFennecStatusUI()
 
   let statusText = abp.getString("fennec_status_" + status);
   if (host)
-    statusText = statusText.replace(/%S/g, host);
+    statusText = statusText.replace(/\?1\?/g, host);
   E("abp-status-text").textContent = statusText;
   E("abp-status-image").setAttribute("abpstate", status);
 }

@@ -27,6 +27,6 @@
 <!ENTITY location.accesskey "L">
 <!ENTITY autodownload.label "Actualizar automaticamente">
 <!ENTITY autodownload.accesskey "Z">
-<!ENTITY supplementMessage "Esta subscrição de filtros deve ser usada em conjunto com a subscrição &quot;&#37;S&quot; que não está a usar neste momento.">
-<!ENTITY addMain.label "Adicionar subscrição de filtros &quot;&#37;S&quot; também">
+<!ENTITY supplementMessage "Esta subscrição de filtros deve ser usada em conjunto com a subscrição &quot;?1?&quot; que não está a usar neste momento.">
+<!ENTITY addMain.label "Adicionar subscrição de filtros &quot;?1?&quot; também">
 <!ENTITY addMain.accesskey "s">

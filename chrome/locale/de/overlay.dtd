@@ -21,7 +21,7 @@
 <!ENTITY opensidebar.accesskey  "B">
 <!ENTITY closesidebar.label     "Blockierbare Elemente schließen">
 <!ENTITY closesidebar.accesskey "B">
-<!ENTITY whitelist.site.label   "Deaktivieren: auf --">
+<!ENTITY whitelist.site.label   "Deaktivieren: auf ?1?">
 <!ENTITY whitelist.page.label   "Deaktivieren: nur auf dieser Seite">
 
 <!ENTITY objecttab.title        "Blockieren">

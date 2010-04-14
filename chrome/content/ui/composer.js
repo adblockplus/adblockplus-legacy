@@ -278,7 +278,7 @@ function generateLinkText(element, replacement)
 {
   let template = element.getAttribute("textTemplate");
   if (typeof replacement != "undefined")
-    template = template.replace(/%S/g, replacement)
+    template = template.replace(/\?1\?/g, replacement)
 
   let beforeLink, linkText, afterLink;
   if (/(.*)\[link\](.*)\[\/link\](.*)/.test(template))

@@ -3,7 +3,7 @@
 <!ENTITY advanced.label "عرض متقدم">
 <!ENTITY basic.label "عرض أساسي">
 <!ENTITY disabled.warning "آدبلوك بلس معطل حالياً. ما زال يمكنك إضافة الفلاتر و لكن لن يتم تطبيقهم إلا إذا قمت [link]بتفعيل آدبلوك بلس[/link].">
-<!ENTITY groupDisabled.warning "إن مجموعة الفلاتر &quot;&#37;S&quot; التي تنوي إضافة هذا الفلتر إليها معطلة حالياً. يمكنك إضافة هذا الفلتر ولكنه لن يكون فعالاً إلا في حال [link]تفعيل مجموعة الفلاتر[/link].">
+<!ENTITY groupDisabled.warning "إن مجموعة الفلاتر &quot;?1?&quot; التي تنوي إضافة هذا الفلتر إليها معطلة حالياً. يمكنك إضافة هذا الفلتر ولكنه لن يكون فعالاً إلا في حال [link]تفعيل مجموعة الفلاتر[/link].">
 <!ENTITY filter.label "فلتر جديد :">
 <!ENTITY filter.accesskey "ف">
 <!ENTITY preferences.label "عرض الفلاتر الموجودة...">
