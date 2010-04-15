@@ -12,3 +12,8 @@
 <!ENTITY homepage.url       "http://adblockplus.org/">
 <!ENTITY author.label       "Разработчик:">
 <!ENTITY contributors.label "Другие участники:">
+
+<!ENTITY developers.label   "Разработчики:">
+<!ENTITY designers.label    "Дизайнеры:">
+<!ENTITY subscriptionAuthors.label    "Авторы списков фильтров:">
+<!ENTITY translators.label  "Переводчики:">
