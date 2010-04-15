@@ -163,7 +163,7 @@ function updateFennecStatusUI()
       } catch (e) {}
     }
 
-    if (host && abp.policy.isWhitelisted(location.spec, "DOCUMENT"))
+    if (host && abp.policy.isWhitelisted(location.spec))
       status = "disabled_site";
     else if (host)
       status = "enabled_site";
@@ -193,7 +193,7 @@ function toggleFennecWhitelist()
   if (!host)
     return;
 
-  if (abp.policy.isWhitelisted(location.spec, "DOCUMENT"))
+  if (abp.policy.isWhitelisted(location.spec))
     removeWhitelist();
   else
     toggleFilter(abp.Filter.fromText("@@||" + host + "^$document"));

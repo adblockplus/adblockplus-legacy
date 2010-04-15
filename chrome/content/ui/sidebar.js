@@ -844,11 +844,11 @@ var treeView = {
         return "";
 
       if (col == "filter") {
-        var filter = abp.policy.isWindowWhitelisted(window.content, "DOCUMENT");
+        var filter = abp.policy.isWindowWhitelisted(window.content);
         return filter ? filter.text : "";
       }
 
-      return (abp.policy.isWindowWhitelisted(window.content, "DOCUMENT") ? this.whitelistDummy : this.itemsDummy);
+      return (abp.policy.isWindowWhitelisted(window.content) ? this.whitelistDummy : this.itemsDummy);
     }
   },
 
@@ -888,7 +888,7 @@ var treeView = {
       properties.AppendElement(this.atoms["dummy-true"]);
 
       state = "state-filtered";
-      if (this.data && abp.policy.isWindowWhitelisted(window.content, "DOCUMENT"))
+      if (this.data && abp.policy.isWindowWhitelisted(window.content))
         state = "state-whitelisted";
     }
     properties.AppendElement(this.atoms[state]);
@@ -1152,7 +1152,7 @@ var treeView = {
     if (!this.data || this.data.length)
       return null;
 
-    var filter = abp.policy.isWindowWhitelisted(window.content, "DOCUMENT");
+    var filter = abp.policy.isWindowWhitelisted(window.content);
     if (filter)
       return {tooltip: this.whitelistDummyTooltip, filter: filter};
     else
