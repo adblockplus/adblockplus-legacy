@@ -158,9 +158,21 @@ var policy =
     if (contentType != this.type.OBJECT && (node instanceof Ci.nsIDOMHTMLObjectElement || node instanceof Ci.nsIDOMHTMLEmbedElement))
       contentType = this.type.OBJECT;
 
-    let docDomain = this.getHostname(this.getOriginWindow(wnd).location.href);
+    let originWindow = this.getOriginWindow(wnd);
+    let wndLocation = originWindow.location.href;
+    let docDomain = this.getHostname(wndLocation);
     if (!match && contentType == this.type.ELEMHIDE)
     {
+      match = whitelistMatcher.matchesAny(wndLocation, "ELEMHIDE", docDomain, false);
+      if (match)
+      {
+        filterStorage.increaseHitCount(match);
+
+        let data = RequestList.getDataForWindow(wnd);
+        data.addNode(wnd.document, contentType, docDomain, false, wndLocation, match);
+        return true;
+      }
+
       match = location;
       locationText = match.text.replace(/^.*?#/, '#');
       location = locationText;
@@ -304,16 +316,17 @@ var policy =
    * @param url {String}
    * @return {Boolean}
    */
-  isWhitelisted: function(url) {
+  isWhitelisted: function(url)
+  {
     return whitelistMatcher.matchesAny(url, "DOCUMENT", this.getHostname(url), false);
   },
 
   /**
-   * Checks whether the page loaded in a window is whitelisted.
+   * Retrieves the location of a window.
    * @param wnd {nsIDOMWindow}
-   * @return {Boolean}
+   * @return {String} window location or null on failure
    */
-  isWindowWhitelisted: function(wnd)
+  getWindowLocation: function(wnd)
   {
     if ("name" in wnd && wnd.name == "messagepane")
     {
@@ -335,25 +348,35 @@ var policy =
   
         if ("currentHeaderData" in mailWnd && "content-base" in mailWnd.currentHeaderData)
         {
-          return this.isWhitelisted(mailWnd.currentHeaderData["content-base"].headerValue);
+          return mailWnd.currentHeaderData["content-base"].headerValue;
         }
         else if ("currentHeaderData" in mailWnd && "from" in mailWnd.currentHeaderData)
         {
           let emailAddress = headerParser.extractHeaderAddressMailboxes(mailWnd.currentHeaderData.from.headerValue);
           if (emailAddress)
-          {
-            emailAddress = 'mailto:' + emailAddress.replace(/^[\s"]+/, "").replace(/[\s"]+$/, "").replace(/\s/g, '%20');
-            return this.isWhitelisted(emailAddress);
-          }
+            return 'mailto:' + emailAddress.replace(/^[\s"]+/, "").replace(/[\s"]+$/, "").replace(/\s/g, '%20');
         }
       } catch(e) {}
     }
     else
     {
       // Firefox branch
-      return this.isWhitelisted(wnd.location.href);
+      return wnd.location.href;
     }
-    return null;
+  },
+
+  /**
+   * Checks whether the page loaded in a window is whitelisted.
+   * @param wnd {nsIDOMWindow}
+   * @return {Filter} matching exception rule or null if not whitelisted
+   */
+  isWindowWhitelisted: function(wnd)
+  {
+    let location = this.getWindowLocation(wnd);
+    if (!location)
+      return null;
+
+    return this.isWhitelisted(location);
   },
 
   /**
