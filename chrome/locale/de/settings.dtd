@@ -5,7 +5,7 @@
 
 <!ENTITY add.label                  "Filter hinzufügen">
 <!ENTITY add.accesskey              "Z">
-<!ENTITY addsubscription.label      "Filter-Abonnement hinzufügen">
+<!ENTITY addsubscription.label      "Filterabonnement hinzufügen">
 <!ENTITY addsubscription.accesskey  "B">
 <!ENTITY synchsubscriptions.label       "Filter für alle Abonnements herunterladen">
 <!ENTITY synchsubscriptions.accesskey   "N">
@@ -100,3 +100,5 @@
 
 <!ENTITY apply.label                "Anwenden">
 <!ENTITY apply.accesskey            "W">
+
+<!ENTITY fennec.subscription.label  "Filterabonnement">
