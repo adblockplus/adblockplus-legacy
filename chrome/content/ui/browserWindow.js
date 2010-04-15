@@ -306,7 +306,7 @@ function abpReloadPrefs() {
   if (state == "active")
   {
     let location = getCurrentLocation();
-    if (location && abp.policy.isWhitelisted(location.spec, "DOCUMENT"))
+    if (location && abp.policy.isWhitelisted(location.spec))
       state = "whitelisted";
   }
 
@@ -884,7 +884,7 @@ function removeWhitelist()
   let location = getCurrentLocation();
   let filter = null;
   if (location)
-    filter = abp.policy.isWhitelisted(location.spec, "DOCUMENT");
+    filter = abp.policy.isWhitelisted(location.spec);
   if (filter && filter.subscriptions.length && !filter.disabled)
     toggleFilter(filter);
 }
@@ -989,7 +989,7 @@ function abpCheckContext() {
   E("abp-frame-menuitem").hidden = (frameData == null);
 
   let location = getCurrentLocation();
-  E("abp-removeWhitelist-menuitem").hidden = (!location || !abp.policy.isWhitelisted(location.spec, "DOCUMENT"));
+  E("abp-removeWhitelist-menuitem").hidden = (!location || !abp.policy.isWhitelisted(location.spec));
 }
 
 // Bring up the settings dialog for the node the context menu was referring to

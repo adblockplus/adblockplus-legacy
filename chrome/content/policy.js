@@ -138,7 +138,7 @@ var policy =
     var locationText = location.spec;
     if (!match && prefs.enabled)
     {
-      match = this.isWindowWhitelisted(topWnd, contentType == this.type.ELEMHIDE ? "ELEMHIDE" : "BLOCKING");
+      match = this.isWindowWhitelisted(topWnd);
       if (match)
       {
         filterStorage.increaseHitCount(match);
@@ -302,20 +302,18 @@ var policy =
   /**
    * Checks whether a page is whitelisted.
    * @param url {String}
-   * @param type {String} "ELEMHIDE", "BLOCKING" or "DOCUMENT" depending on the type of whitelisting to look for
    * @return {Boolean}
    */
-  isWhitelisted: function(url, type) {
-    return whitelistMatcher.matchesAny(url, type, this.getHostname(url), false);
+  isWhitelisted: function(url) {
+    return whitelistMatcher.matchesAny(url, "DOCUMENT", this.getHostname(url), false);
   },
 
   /**
    * Checks whether the page loaded in a window is whitelisted.
    * @param wnd {nsIDOMWindow}
-   * @param type {String} "ELEMHIDE", "BLOCKING" or "DOCUMENT" depending on the type of whitelisting to look for
    * @return {Boolean}
    */
-  isWindowWhitelisted: function(wnd, type)
+  isWindowWhitelisted: function(wnd)
   {
     if ("name" in wnd && wnd.name == "messagepane")
     {
@@ -337,7 +335,7 @@ var policy =
   
         if ("currentHeaderData" in mailWnd && "content-base" in mailWnd.currentHeaderData)
         {
-          return this.isWhitelisted(mailWnd.currentHeaderData["content-base"].headerValue, type);
+          return this.isWhitelisted(mailWnd.currentHeaderData["content-base"].headerValue);
         }
         else if ("currentHeaderData" in mailWnd && "from" in mailWnd.currentHeaderData)
         {
@@ -345,7 +343,7 @@ var policy =
           if (emailAddress)
           {
             emailAddress = 'mailto:' + emailAddress.replace(/^[\s"]+/, "").replace(/[\s"]+$/, "").replace(/\s/g, '%20');
-            return this.isWhitelisted(emailAddress, type);
+            return this.isWhitelisted(emailAddress);
           }
         }
       } catch(e) {}
@@ -353,7 +351,7 @@ var policy =
     else
     {
       // Firefox branch
-      return this.isWhitelisted(wnd.location.href, type);
+      return this.isWhitelisted(wnd.location.href);
     }
     return null;
   },
