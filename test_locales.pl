@@ -70,4 +70,5 @@ LocaleTester::testLocales(
   mustDiffer => \@mustDiffer,
   mustEqual => \@mustEqual,
   ignoreUntranslated => \@ignoreUntranslated,
+  lengthRestrictions => \%lengthRestrictions,
 );
