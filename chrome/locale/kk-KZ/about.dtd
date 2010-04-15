@@ -8,3 +8,7 @@
 <!ENTITY homepage.url "http://adblockplus.org/en/">
 <!ENTITY author.label "Авторы:">
 <!ENTITY contributors.label "Үлес қосушылар:">
+<!ENTITY developers.label "Жасағандар:">
+<!ENTITY designers.label "Графиканы жасағандар:">
+<!ENTITY subscriptionAuthors.label "Сүзгі жазылуларын жасағандар:">
+<!ENTITY translators.label "Аудармашылар:">

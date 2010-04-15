@@ -6,3 +6,7 @@
 <!ENTITY homepage.url "http://adblockplus.org/">
 <!ENTITY author.label "Schrijver:">
 <!ENTITY contributors.label "Medewerkers:">
+<!ENTITY developers.label "Ontwikkelaars:">
+<!ENTITY designers.label "Grafisch ontwerpers:">
+<!ENTITY subscriptionAuthors.label "Filterabonnementschrijvers:">
+<!ENTITY translators.label "Vertalers:">
