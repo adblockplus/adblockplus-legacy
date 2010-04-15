@@ -8,6 +8,7 @@
 <!ENTITY context.image.label "Resmi engelle">
 <!ENTITY context.object.label "Nesneyi engelle">
 <!ENTITY context.frame.label "Çerçeveyi engelle">
+<!ENTITY context.media.label "Adblock Plus: Ses/Video engelle">
 <!ENTITY context.removeWhitelist.label "Adblock Plus: Bu sayfada devreye sok">
 <!ENTITY sidebar.title "Bu sayfadaki engellenebilecek öğeler">
 <!ENTITY settings.label "Tercihler">
@@ -16,6 +17,7 @@
 <!ENTITY opensidebar.accesskey "E">
 <!ENTITY closesidebar.label "Engellenebilecek öğeleri gizle">
 <!ENTITY closesidebar.accesskey "E">
-<!ENTITY whitelist.page.label "Bu sayfada devre dışı kal">
+<!ENTITY whitelist.site.label "?1? sitesinde devre dışı kal">
+<!ENTITY whitelist.page.label "Sadece bu sayfada devre dışı kal">
 <!ENTITY objecttab.title "Engelle">
 <!ENTITY objecttab.tooltip "Bu nesneyi Adblock Plus ile engellemek için buraya tıklayın.">

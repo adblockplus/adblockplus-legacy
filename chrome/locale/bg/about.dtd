@@ -5,5 +5,10 @@
 Вече не е необходимо да изтегляте всички реклами и банери,
 ако не ги искате - кажете на Adblock Plus!">
 <!ENTITY homepage.label "Страница на Adblock Plus:">
+<!ENTITY homepage.url "http://adblockplus.org/en/">
 <!ENTITY author.label "Автор:">
 <!ENTITY contributors.label "Сътрудници:">
+<!ENTITY developers.label "Разработчици:">
+<!ENTITY designers.label "Графични дизайнери:">
+<!ENTITY subscriptionAuthors.label "Автори на филтъра за абонаменти:">
+<!ENTITY translators.label "Преводачи:">

@@ -8,6 +8,7 @@
 <!ENTITY context.image.label "Adblock Plus: Суретті блоктау">
 <!ENTITY context.object.label "Adblock Plus: Объектті блоктау">
 <!ENTITY context.frame.label "Adblock Plus: Фреймді блоктау">
+<!ENTITY context.media.label "Adblock Plus: Аудио/Видеоны блоктау">
 <!ENTITY context.removeWhitelist.label "Adblock Plus: Осы парақта қайта қосу">
 <!ENTITY sidebar.title "Ағымдағы парақ құрамасы">
 <!ENTITY settings.label "Баптаулары">

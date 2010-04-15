@@ -76,7 +76,7 @@
 <!ENTITY lasthit.column "Son isabet">
 <!ENTITY lasthit.accesskey "i">
 <!ENTITY context.edit.label "Süzgeci düzenle">
-<!ENTITY context.resethitcount.label "İstabet istatistiği sıfırlanacak olan süzgeç:">
+<!ENTITY context.resethitcount.label "İsabet istatistiği sıfırlanacak süzgeç:">
 <!ENTITY context.synchsubscription.label "Aboneliği eşle">
 <!ENTITY context.editsubscription.label "Aboneliği düzenle">
 <!ENTITY context.moveup.label "Yukarıya taşı">
@@ -87,3 +87,4 @@
 <!ENTITY context.disable.label "Devreden çıkar">
 <!ENTITY apply.label "Uygula">
 <!ENTITY apply.accesskey "u">
+<!ENTITY fennec.subscription.label "Süzgeç aboneliği">
