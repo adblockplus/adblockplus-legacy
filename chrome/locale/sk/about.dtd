@@ -7,3 +7,7 @@
 <!ENTITY homepage.url "http://adblockplus.org/">
 <!ENTITY author.label "Autor:">
 <!ENTITY contributors.label "Prispievatelia:">
+<!ENTITY developers.label "Vývojári:">
+<!ENTITY designers.label "Grafický dizajnéri:">
+<!ENTITY subscriptionAuthors.label "Autori povolení filtrov:">
+<!ENTITY translators.label "Prekladatalia:">

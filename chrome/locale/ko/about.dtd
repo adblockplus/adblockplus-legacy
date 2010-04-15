@@ -6,3 +6,7 @@
 <!ENTITY homepage.url "http://adblockplus.org">
 <!ENTITY author.label "개발자">
 <!ENTITY contributors.label "공헌자">
+<!ENTITY developers.label "개발자">
+<!ENTITY designers.label "그래픽 디자이너">
+<!ENTITY subscriptionAuthors.label "구독 필터 유지자">
+<!ENTITY translators.label "번역가">

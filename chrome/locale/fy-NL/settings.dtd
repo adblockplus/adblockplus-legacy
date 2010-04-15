@@ -7,9 +7,9 @@
 <!ENTITY addsubscription.accesskey "A">
 <!ENTITY synchsubscriptions.label "Alle abonneminten bywurkje">
 <!ENTITY synchsubscriptions.accesskey "l">
-<!ENTITY import.label "Filters Ymportearje">
+<!ENTITY import.label "Filters ymportearje">
 <!ENTITY import.accesskey "Y">
-<!ENTITY export.label "Filters Eksportearje">
+<!ENTITY export.label "Filters eksportearje">
 <!ENTITY export.accesskey "E">
 <!ENTITY clearall.label "Alle filters fuortsmite">
 <!ENTITY clearall.accesskey "f">
@@ -27,7 +27,7 @@
 <!ENTITY remove.accesskey "F">
 <!ENTITY menu.find.label "Sykje">
 <!ENTITY menu.find.accesskey "S">
-<!ENTITY menu.findagain.label "Op &apos;e nij sykje">
+<!ENTITY menu.findagain.label "Op 'e nij sykje">
 <!ENTITY menu.findagain.accesskey "O">
 <!ENTITY view.label "Byld">
 <!ENTITY view.accesskey "B">
@@ -43,11 +43,11 @@
 <!ENTITY options.accesskey "O">
 <!ENTITY enable.label "Adblock Plus ynskeakelje">
 <!ENTITY enable.accesskey "y">
-<!ENTITY showintoolbar.label "Lit sjen yn arkbalke">
+<!ENTITY showintoolbar.label "Toane yn arkbalke">
 <!ENTITY showintoolbar.accesskey "a">
-<!ENTITY showinstatusbar.label "Lit sjen yn steatbalke">
+<!ENTITY showinstatusbar.label "Toane yn steatbalke">
 <!ENTITY showinstatusbar.accesskey "s">
-<!ENTITY objecttabs.label "Tabs sjen litte op Flash en Java">
+<!ENTITY objecttabs.label "Ljepblêden sjen litte op Flash en Java">
 <!ENTITY objecttabs.accesskey "T">
 <!ENTITY collapse.label "Blokkearre eleminten ynklappe">
 <!ENTITY collapse.accesskey "B">
@@ -64,7 +64,7 @@
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Oer Adblock Plus">
 <!ENTITY about.accesskey "A">
-<!ENTITY description "Foech it adres ta dat jo blokkearje wolle, sjoch de karlist foar foarstellen. Jo kinne in * as jokerteken brûke foar mear algemiene filters. Erfaren brûkers kinne reguliere ekspresjes brûke, lykas /banner\d+\.gif$/.">
+<!ENTITY description "Foech it adres ta dat jo blokkearje wolle, sjoch de karlist foar foarstellen. Jo kinne in * as jokerteken brûke foar mear algemiene filters. Betûfte brûkers kinne reguliere ekspresjes brûke, lykas /banner\d+\.gif$/.">
 <!ENTITY filter.column "Filterrigel">
 <!ENTITY filter.accesskey "F">
 <!ENTITY slow.column "Langsame filters">
@@ -87,3 +87,4 @@
 <!ENTITY context.disable.label "Utskeakelje">
 <!ENTITY apply.label "Tapasse">
 <!ENTITY apply.accesskey "T">
+<!ENTITY fennec.subscription.label "Filterabonnemint">

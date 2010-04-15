@@ -1,16 +1,32 @@
 <!ENTITY dialog.title "Thêm bộ lọc trọn gói cho Adblock Plus">
 <!ENTITY dialog.title.edit "Chỉnh sửa bộ lọc trọn gói">
+<!ENTITY description.newInstall "Adblock Plus sẽ có hiệu quả nhất khi bạn cài một bộ lọc trọn gói. Bộ lọc trọn gói được cung cấp miễn phí bởi những người dùng Adblock Plus khác. Bộ lọc phù hợp nhất cho ngôn ngữ của bạn đã được chọn sẵn.">
 <!ENTITY adblock.warning "Adblock Plus nhận thấy Adblock hoặc một phiên bản cũ của Adblock Plus đã được cài. Chạy song song Adblock và Adblock Plus có thể gây ra vấn đề, cho nên hãy tránh làm vậy. Lời khuyên là bạn hãy gỡ bỏ Adblock ngay bây giờ.">
 <!ENTITY adblock.uninstall "Gỡ bỏ Adblock">
 <!ENTITY filterset.g.warning "Có vẻ như bạn đang dùng Filterset.G. Danh sách bộ lọc này đã không được duy trì trong suốt vài năm qua và là một nguyên nhân gây ra vấn đề với các trang web. Lời khuyên là bạn hãy gỡ bỏ Filterset.G ngay bây giờ.">
 <!ENTITY filterset.g.moreinfo "Thêm thông tin">
 <!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
 <!ENTITY filterset.g.uninstall "Gỡ bỏ Filterset.G">
+<!ENTITY subscriptionSelector.label "Vui lòng chọn một bộ lọc trọn gói từ danh sách:">
+<!ENTITY viewList.label "Xem bộ lọc">
+<!ENTITY visitHomepage.label "Vào trang chủ">
+<!ENTITY addSubscription.label "Thêm bộ trọn gói">
+<!ENTITY saveSubscription.label "Lưu bộ trọn gói">
 <!ENTITY other.label "Thêm bộ lọc trọn gói khác">
 <!ENTITY other.accesskey "T">
+<!ENTITY list.download.failed "Adblock Plus không thể lấy danh sách bộ lọc trọn gói.">
+<!ENTITY list.download.retry "Thử lại">
+<!ENTITY list.download.website "Xem trang web">
+<!ENTITY list.website.url "http://code.google.com/p/adblockplus-vietnam/">
+<!ENTITY fromWeb.description "Vui lòng xác nhận rằng bạn muốn thêm bộ lọc trọn gói này. Bạn có thể thay đổi tiêu đề hoặc địa chỉ trước khi thêm nó.">
+<!ENTITY edit.description "Bạn có thể thay đổi tiêu đề hoặc địa chỉ của bộ trọn gói nếu cần.">
+<!ENTITY external.description "Đây là bộ lọc trọn gói bên ngoài; nó sẽ được cập nhật bởi phần mở rộng tạo ra nó.">
 <!ENTITY title.label "Tiêu đề của bộ trọn gói:">
 <!ENTITY title.accesskey "T">
 <!ENTITY location.label "Địa chỉ của danh sách bộ lọc:">
 <!ENTITY location.accesskey "a">
 <!ENTITY autodownload.label "Cập nhật tự động">
 <!ENTITY autodownload.accesskey "C">
+<!ENTITY supplementMessage "Bộ lọc trọn gói này chỉ nên dùng kèm với bộ lọc trọn gói &quot;?1?&quot; - cái mà bạn chưa sử dụng.">
+<!ENTITY addMain.label "Kèm thêm bộ lọc trọn gói &quot;?1?&quot;">
+<!ENTITY addMain.accesskey "g">

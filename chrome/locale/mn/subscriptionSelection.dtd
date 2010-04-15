@@ -6,8 +6,14 @@
 <!ENTITY filterset.g.moreinfo "Илүү мэдээлэл">
 <!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
 <!ENTITY filterset.g.uninstall "Filterset.G-г устгах">
+<!ENTITY viewList.label "Шүүлтүүрүүд харах">
+<!ENTITY visitHomepage.label "Үндсэн хуудсанд зочлох">
+<!ENTITY addSubscription.label "Мэдээлэгч нэмэх">
+<!ENTITY saveSubscription.label "Мэдээлэгч хадгалах">
 <!ENTITY other.label "Өөр мэдээлэгч нэмэх">
 <!ENTITY other.accesskey "Ө">
+<!ENTITY list.download.retry "Дахиж оролдох">
+<!ENTITY list.download.website "Вэбсайтыг харах">
 <!ENTITY title.label "Мэдээлэгчийн гарчиг:">
 <!ENTITY title.accesskey "Г">
 <!ENTITY location.label "Шүүлтүүрийн жагсаалтын байршил:">

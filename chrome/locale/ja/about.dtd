@@ -9,3 +9,7 @@
 <!ENTITY homepage.url "http://adblockplus.org/">
 <!ENTITY author.label "製作者:">
 <!ENTITY contributors.label "貢献者:">
+<!ENTITY developers.label "開発者:">
+<!ENTITY designers.label "グラフィックデザイナー:">
+<!ENTITY subscriptionAuthors.label "同期フィルター作者:">
+<!ENTITY translators.label "翻訳者:">

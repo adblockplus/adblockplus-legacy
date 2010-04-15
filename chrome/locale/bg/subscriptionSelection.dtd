@@ -1,0 +1,24 @@
+<!ENTITY dialog.title "Добавяне на абонамет за филтъра за Adblock Плюс">
+<!ENTITY dialog.title.edit "Редактиране на абонамета за филтъра">
+<!ENTITY adblock.uninstall "Деинсталирай Adblock">
+<!ENTITY filterset.g.moreinfo "Още информация">
+<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
+<!ENTITY filterset.g.uninstall "Деинсталирай Filterset.G">
+<!ENTITY subscriptionSelector.label "Моля избете абонамент за филтър от списъка:">
+<!ENTITY viewList.label "Покажи филтрите">
+<!ENTITY visitHomepage.label "Посетете началната страница">
+<!ENTITY addSubscription.label "Добави абонамент">
+<!ENTITY saveSubscription.label "Запиши абонамента">
+<!ENTITY other.label "Добави друг абонамент">
+<!ENTITY other.accesskey "д">
+<!ENTITY list.download.failed "Adblock Плюс не успя да извлече списък с абонаменти.">
+<!ENTITY list.download.retry "Опитайте отново">
+<!ENTITY list.download.website "Покажи уебсайта">
+<!ENTITY list.website.url "http://adblockplus.org/en/subscriptions">
+<!ENTITY fromWeb.description "Моля, потвърдете, че желаете да добавите този абонамент за филтър. Може да промените заглавието или местоположението преди да го добавите.">
+<!ENTITY edit.description "Може да променяте заглавието или местоположението на абонамента колкото е необходимя.">
+<!ENTITY title.label "Заглавие на абонамента:">
+<!ENTITY location.label "Местоположение на списъка с филтрите:">
+<!ENTITY location.accesskey "л">
+<!ENTITY autodownload.label "Автоматично обновявай филтрите">
+<!ENTITY autodownload.accesskey "а">
