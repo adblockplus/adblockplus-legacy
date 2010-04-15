@@ -1,3 +1,4 @@
+<!ENTITY dialog.title "Add Adblock Plus – zestawy filtrów">
 <!ENTITY dialog.title.edit "Edycja zestawów filtrów">
 <!ENTITY description.newInstall "Dla Adblock Plusa najbardziej efektywnym sposobem pozyskania filtrów jest dodanie subskrypcji zestawu filtrów. Znajdujące się w rozwijanym menu zestawy filtrów są udostępniane przez innych użytkowników Adblock Plusa za darmo. Najodpowiedniejsze zestawy filtrów dla Twojego języka są wyróżnione.">
 <!ENTITY adblock.warning "Wykryto, że jest zainstalowany Adblock lub starsza wersja Adblock Plusa. Uruchomienie obu rozszerzeń równocześnie może spowodować problemy i należy tego unikać. Zaleca się odinstalowanie Adblocka.">

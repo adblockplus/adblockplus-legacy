@@ -7,3 +7,7 @@
 <!ENTITY homepage.url "http://adblockplus.org/">
 <!ENTITY author.label "מחבר:">
 <!ENTITY contributors.label "תורמים:">
+<!ENTITY developers.label "מפתחים:">
+<!ENTITY designers.label "מעצבים גרפיים:">
+<!ENTITY subscriptionAuthors.label "מחברי ההרשמה למסננים:">
+<!ENTITY translators.label "מתרגמים:">
