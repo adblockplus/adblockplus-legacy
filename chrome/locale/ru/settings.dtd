@@ -100,3 +100,5 @@
 
 <!ENTITY apply.label                "Применить">
 <!ENTITY apply.accesskey            "р">
+
+<!ENTITY fennec.subscription.label  "Подписка на список фильтров">
