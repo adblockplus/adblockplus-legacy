@@ -591,7 +591,9 @@ RegExpFilter.typeMap = {
   OBJECT_SUBREQUEST: 4096,
   DTD: 8192,
   MEDIA: 16384,
-  FONT: 32768
+  FONT: 32768,
+
+  ELEMHIDE: 0x40000000
 };
 
 /**
