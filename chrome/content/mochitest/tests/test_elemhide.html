@@ -79,7 +79,7 @@
 
       if (currentTest >= tests.length - 1)
       {
-        if (++currentRun <= 3)
+        if (++currentRun <= 5)
         {
           currentTest = -1;
           runNextTest();
@@ -101,13 +101,17 @@
         abp.whitelistMatcher.add(abp.Filter.fromText("@@|chrome://mochikit/$document"));
       else if (currentRun == 3)
         abp.whitelistMatcher.add(abp.Filter.fromText("@@|chrome://mochikit/$~document"));
+      else if (currentRun == 4)
+        abp.whitelistMatcher.add(abp.Filter.fromText("@@|chrome://mochikit/$elemhide"));
+      else if (currentRun == 5)
+        abp.whitelistMatcher.add(abp.Filter.fromText("@@||localhost^$elemhide"));
 
       // Reset the loaded document
       let body = document.getElementById("frame").contentDocument.body;
       body.innerHTML = body.innerHTML;
 
-      if (currentRun == 2)
-        expected = "visible visible";   // Second run is whitelisted, nothing should be hidden
+      if (currentRun == 2 || currentRun == 5)
+        expected = "visible visible";   // Second and fifth runs are whitelisted, nothing should be hidden
 
       setTimeout(function()
       {
