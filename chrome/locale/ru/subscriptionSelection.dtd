@@ -1,4 +1,12 @@
 <!ENTITY dialog.title               "Добавить подписку для Adblock Plus">
+<!ENTITY dialog.title.edit          "Редактировать подписку">
+
+<!ENTITY description.newInstall     "
+  Adblock Plus будет работать наиболее эффективно, если вы добавите подписку на
+  список фильтров. Эти списки фильтров предоставляются бесплатно другими
+  пользователями Adblock Plus. Самая подходящая подписка для вашего языка уже
+  выбрана.
+">
 
 <!ENTITY adblock.warning            "
   Adblock Plus обнаружил, что в этом приложении установлен Adblock или старая версия
@@ -16,13 +24,33 @@
 <!ENTITY filterset.g.moreinfo.url   "http://adblockplus.org/en/faq_project#filterset.g">
 <!ENTITY filterset.g.uninstall      "Удалить Filterset.G">
 
+<!ENTITY subscriptionSelector.label "Пожалуйста, выберите подписку из списка:">
+
+<!ENTITY viewList.label             "Просмотреть фильтры">
+<!ENTITY visitHomepage.label        "Посетить домашнюю страницу списка">
+
+<!ENTITY addSubscription.label      "Добавить подписку">
+<!ENTITY saveSubscription.label     "Сохранить изменения">
+
+<!ENTITY list.download.failed       "При скачивании списка подписок произошла ошибка.">
+<!ENTITY list.download.retry        "Попробовать еще раз">
+<!ENTITY list.download.website      "Открыть страницу с подписками">
+<!ENTITY list.website.url           "http://adblockplus.org/en/subscriptions">
+
 <!ENTITY other.label                "Добавить другую подписку">
 <!ENTITY other.accesskey            "б">
 
-<!ENTITY dialog.title.edit               "Редактировать подписку">
+<!ENTITY fromWeb.description        "Пожалуйста, подтвердите, что вы действительно хотите добавить подписку на этот список фильтров. Вы можете изменить название и адрес подписки перед добавлением.">
+<!ENTITY edit.description           "Вы можете изменить название и адрес подписки по надобности.">
+<!ENTITY external.description       "Это внешняя подписка, эти фильтры обновляются расширением, которое добавило эту подписку.">
+
 <!ENTITY location.label             "Адрес списка фильтров:">
 <!ENTITY location.accesskey         "д">
 <!ENTITY title.label                "Название подписки:">
 <!ENTITY title.accesskey            "з">
 <!ENTITY autodownload.label         "Обновлять автоматически">
 <!ENTITY autodownload.accesskey     "т">
+
+<!ENTITY supplementMessage          "Этот список фильтров должен использоваться в комбинации со списком фильтров &quot;?1?&quot;, который вы не используете.">
+<!ENTITY addMain.label              "Добавить подписку на список фильтров &quot;?1?&quot;">
+<!ENTITY addMain.accesskey          "в">
