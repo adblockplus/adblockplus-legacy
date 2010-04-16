@@ -34,7 +34,11 @@
     <commandset id="abp-commandset"/>
     <box id="abp-hooks"
       getBrowser="return window.gBrowser;"
-      addTab="window.gBrowser.loadOneTab(arguments[0], null, null, null, false);"
+      addTab="
+        if (arguments[1] &amp;&amp; 'openNewTabWith' in window)
+          window.openNewTabWith(arguments[0], window.content.document, null, arguments[1], false);
+        else
+          window.gBrowser.loadOneTab(arguments[0], null, null, null, false);"
       getContextMenu="return E('contentAreaContextMenu');"
       getToolbox="return E('navigator-toolbox')"
       getDefaultToolbar="return E('nav-bar');"/>
