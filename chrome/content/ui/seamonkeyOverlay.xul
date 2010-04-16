@@ -34,7 +34,11 @@
     <commandset id="abp-commandset"/>
     <box id="abp-hooks"
       getBrowser="return window.gBrowser;"
-      addTab="window.gBrowser.addTab(arguments[0], null, null, true);"
+      addTab="
+        if (arguments[1] &amp;&amp; 'openNewTabWith' in window)
+          window.openNewTabWith(arguments[0], window.content.document, arguments[1].shiftKey);
+        else
+          window.gBrowser.addTab(arguments[0], null, null, true);"
       getContextMenu="return E('contentAreaContextMenu');"
       getToolbox="return E('navigator-toolbox')"
       getDefaultToolbar="return E('PersonalToolbar');"  toolbarInsertBefore="return E('bookmarks-button');"/>

@@ -441,16 +441,18 @@ const abp =
 
   /**
    * Opens a URL in the browser window. If browser window isn't passed as parameter,
-   * this function attempts to find a browser window.
+   * this function attempts to find a browser window. If an event is passed in
+   * it should be passed in to the browser if possible (will e.g. open a tab in
+   * background depending on modifiers keys).
    */
-  loadInBrowser: function(/**String*/ url, /**Window*/ currentWindow)
+  loadInBrowser: function(/**String*/ url, /**Window*/ currentWindow, /**Event*/ event)
   {
     currentWindow = currentWindow ||
                     windowMediator.getMostRecentWindow("navigator:browser") ||
                     windowMediator.getMostRecentWindow("Songbird:Main") ||
                     windowMediator.getMostRecentWindow("emusic:window");
     let abpHooks = currentWindow ? currentWindow.document.getElementById("abp-hooks") : null;
-    if (!abpHooks || !abpHooks.addTab || abpHooks.addTab(url) === false)
+    if (!abpHooks || !abpHooks.addTab || abpHooks.addTab(url, event) === false)
     {
       let protocolService = Cc["@mozilla.org/uriloader/external-protocol-service;1"].getService(Ci.nsIExternalProtocolService);
       protocolService.loadURI(makeURL(url), null);

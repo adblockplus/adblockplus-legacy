@@ -410,7 +410,7 @@ function handleClick(event)
   }
   else if (event.button == 1)
   {
-    openInTab(item);
+    openInTab(item, event);
     event.preventDefault();
   }
 }
@@ -430,14 +430,14 @@ function handleDblClick(event)
 /**
  * Opens the item in a new tab.
  */
-function openInTab(item)
+function openInTab(item, /**Event*/ event)
 {
   if (!item)
     item = treeView.getSelectedItem();
   if (!item || item.typeDescr == "ELEMHIDE")
     return;
 
-  abp.loadInBrowser(item.location, mainWin);
+  abp.loadInBrowser(item.location, mainWin, event);
 }
 
 function doBlock() {
