@@ -147,7 +147,14 @@ function initFennecSubscriptionDialog(url, title)
 
 function updateFennecStatusUI()
 {
-  E("abp-site-info").addEventListener("click", toggleFennecWhitelist, false);
+  let siteInfo1 = E("abp-site-info1");
+  let siteInfo2 = E("abp-site-info2");
+  if (siteInfo1 && siteInfo2)
+    siteInfo2.parentNode.removeChild(siteInfo2);
+
+  let siteInfo = siteInfo1 || siteInfo2;
+
+  siteInfo.addEventListener("click", toggleFennecWhitelist, false);
 
   let status = "disabled";
   let host = null;
@@ -172,8 +179,12 @@ function updateFennecStatusUI()
   let statusText = abp.getString("fennec_status_" + status);
   if (host)
     statusText = statusText.replace(/\?1\?/g, host);
-  E("abp-status-text").textContent = statusText;
-  E("abp-status-image").setAttribute("abpstate", status);
+
+  if (siteInfo == siteInfo1)
+    siteInfo.setAttribute("title", statusText);
+  else
+    E("abp-status-text").textContent = statusText;
+  siteInfo.setAttribute("abpstate", status);
 }
 
 function toggleFennecWhitelist()
