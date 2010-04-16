@@ -38,9 +38,14 @@
       getDefaultToolbar="return null"/>
   </window>
 
-  <!-- Identity container - trash bin for site-related info for now -->
+  <!-- Page actions container - Fennec 1.1+ -->
+  <hbox id="pageactions-container">
+    <pageaction id="abp-site-info1" class="abp-site-info" image=""/>
+  </hbox>
+
+  <!-- Identity container - trash bin for site-related info in Fennec 1.0 -->
   <vbox id="identity-container">
-    <hbox id="abp-site-info" align="center">
+    <hbox id="abp-site-info2" class="abp-site-info" align="center">
       <image id="abp-status-image"/>
       <label id="abp-status-text"/>
     </hbox>
