@@ -581,7 +581,9 @@ function exportList()
           let filterVersion;
           if (filter instanceof abp.RegExpFilter)
           {
-            if (/^(?:@@)?\|\|/.test(filter.text) || (!abp.Filter.regexpRegExp.test(filter.text) && /\^/.test(filter.text)))
+            if (filter.contentType & abp.RegExpFilter.typeMap.ELEMHIDE)
+              filterVersion = "1.2";
+            else if (/^(?:@@)?\|\|/.test(filter.text) || (!abp.Filter.regexpRegExp.test(filter.text) && /\^/.test(filter.text)))
               filterVersion = "1.1";
             else if (filter.includeDomains != null || filter.excludeDomains != null)
               filterVersion = "1.0.1";
