@@ -7,3 +7,7 @@ Ja no has de descarregar tots els anuncis i pancartes, si no els vols - digues-h
 <!ENTITY homepage.url "http://adblockplus.org/">
 <!ENTITY author.label "Autor">
 <!ENTITY contributors.label "Contribuïdors:">
+<!ENTITY developers.label "Desenvolupadors/es:">
+<!ENTITY designers.label "Dissenyadors/es gràfics:">
+<!ENTITY subscriptionAuthors.label "Autors/es del filtre de subscripció:">
+<!ENTITY translators.label "Traductors/es:">
