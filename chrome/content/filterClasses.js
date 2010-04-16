@@ -536,7 +536,7 @@ RegExpFilter.fromText = function(text)
       else if (option[0] == "~" && option.substr(1) in RegExpFilter.typeMap)
       {
         if (contentType == null)
-          contentType = 0x7FFFFFFF;
+          contentType = RegExpFilter.prototype.contentType;
         contentType &= ~RegExpFilter.typeMap[option.substr(1)];
       }
       else if (option == "MATCH_CASE")
@@ -559,7 +559,7 @@ RegExpFilter.fromText = function(text)
   {
     // Exception filters shouldn't apply to pages by default unless they start with a protocol name
     if (contentType == null)
-      contentType = 0x7FFFFFFF;
+      contentType = RegExpFilter.prototype.contentType;
     contentType &= ~RegExpFilter.typeMap.DOCUMENT;
   }
 
@@ -595,6 +595,9 @@ RegExpFilter.typeMap = {
 
   ELEMHIDE: 0x40000000
 };
+
+// ELEMHIDE option shouldn't be there by default
+RegExpFilter.prototype.contentType &= ~RegExpFilter.typeMap.ELEMHIDE;
 
 /**
  * Class for blocking filters
