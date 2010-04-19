@@ -20,10 +20,8 @@
 <!ENTITY custom.pattern.accesskey "P">
 <!ENTITY anchors.label "Accetta modelli solo:">
 <!ENTITY anchor.start.label "all'inizio dell'indirizzo web">
-<!-- Note: the placeholder (%S) will be replaced by the name of the disabled filter group -->
 <!ENTITY anchor.start.accesskey "i">
 <!ENTITY anchor.start.flexible.label "all'inizio del nome del dominio">
-<!-- Note: This access key should usually be the same as anchor.start.flexible.accesskey. It is the same checkbox with different label depending on suggested filter. -->
 <!ENTITY anchor.start.flexible.accesskey "i">
 <!ENTITY anchor.end.label "alla fine dell'indirizzo web">
 <!ENTITY anchor.end.accesskey "f">

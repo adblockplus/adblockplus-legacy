@@ -16,9 +16,7 @@
 <!ENTITY opensidebar.label "Apri gli elementi bloccabili">
 <!ENTITY opensidebar.accesskey "b">
 <!ENTITY closesidebar.label "Chiudi gli elementi bloccabili">
-<!--  Note: This access key should usually be the same as closesidebar.accesskey. It is the same menu item with different label depending on whether the sidebar is currently open. -->
 <!ENTITY closesidebar.accesskey "b">
-<!--  Note: This access key should usually be the same as opensidebar.accesskey. It is the same menu item with different label depending on whether the sidebar is currently open. -->
 <!ENTITY whitelist.site.label "Disattiva per ?1?">
 <!ENTITY whitelist.page.label "Disattiva solo per la pagina attuale">
 <!ENTITY objecttab.title "Blocca">
