@@ -14,10 +14,8 @@
 <!ENTITY settings.label "Voorkeuren">
 <!ENTITY settings.accesskey "V">
 <!ENTITY opensidebar.label "Blokkeerbare onderdelen open">
-<!--  Note: This access key should usually be the same as closesidebar.accesskey. It is the same menu item with different label depending on whether the sidebar is currently open. -->
 <!ENTITY opensidebar.accesskey "B">
 <!ENTITY closesidebar.label "Blokkeerbare onderdelen sluiten">
-<!--  Note: This access key should usually be the same as opensidebar.accesskey. It is the same menu item with different label depending on whether the sidebar is currently open. -->
 <!ENTITY closesidebar.accesskey "B">
 <!ENTITY whitelist.site.label "Uitschakelen op ?1?">
 <!ENTITY whitelist.page.label "Alleen op deze pagina uitschakelen">

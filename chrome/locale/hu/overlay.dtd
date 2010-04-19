@@ -14,12 +14,9 @@
 <!ENTITY settings.label "Beállítások">
 <!ENTITY settings.accesskey "B">
 <!ENTITY opensidebar.label "Blokkolható objektumok megjelenítése">
-<!--  Note: This access key should usually be the same as closesidebar.accesskey. It is the same menu item with different label depending on whether the sidebar is currently open. -->
 <!ENTITY opensidebar.accesskey "j">
 <!ENTITY closesidebar.label "Blokkolható objektumok elrejtése">
-<!-- Note: This access key should usually be the same as opensidebar.accesskey. It is the same menu item with different label depending on whether the sidebar is currently open.-->
 <!ENTITY closesidebar.accesskey "j">
-<!-- Note: the placeholder (double-dash) will be replaced by the domain name of the current page -->
 <!ENTITY whitelist.site.label "Szűrés tiltása itt: ?1?">
 <!ENTITY whitelist.page.label "Szűrés tiltása csak ezen az aloldalon">
 <!ENTITY objecttab.title "Blokkolás">
