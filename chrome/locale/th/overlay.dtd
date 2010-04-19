@@ -8,6 +8,7 @@
 <!ENTITY context.image.label "Adblock รูปภาพ">
 <!ENTITY context.object.label "Adblock สิ่งของ">
 <!ENTITY context.frame.label "Adblock กรอบความ">
+<!ENTITY context.media.label "Adblock Plus: บล็อกเสียง/วีดิทัศน์">
 <!ENTITY context.removeWhitelist.label "Adblock Plus: เปิดใช้งานอีกครั้งในหน้านี้">
 <!ENTITY sidebar.title "รายการที่บล็อกได้ในหน้าล่าสุด">
 <!ENTITY settings.label "ปรับแต่ง">

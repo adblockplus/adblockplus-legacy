@@ -6,3 +6,7 @@
 <!ENTITY homepage.url "http://adblockplus.org/en/">
 <!ENTITY author.label "ผู้พัฒนา:">
 <!ENTITY contributors.label "ผู้ร่วมสมทบงาน:">
+<!ENTITY developers.label "ผู้พัฒนา:">
+<!ENTITY designers.label "ผู้ออกแบบกราฟิก:">
+<!ENTITY subscriptionAuthors.label "เจ้าของนามข้างท้ายตัวกรอง:">
+<!ENTITY translators.label "ผู้แปล:">
