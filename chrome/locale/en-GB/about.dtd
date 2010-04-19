@@ -1,8 +1,12 @@
 <!ENTITY dialog.title "About Adblock Plus">
 <!ENTITY caption.title "Adblock Plus">
 <!ENTITY version.title "Version">
-<!ENTITY description "Adblock Plus allows you to decide what you don&apos;t want to see on the web. 	You don&apos;t need to download all the ads and banners any more. If you don&apos;t want them - tell Adblock Plus!">
+<!ENTITY description "Adblock Plus allows you to decide what you don't want to see on the web. 	You don't need to download all the ads and banners any more. If you don't want them - tell Adblock Plus!">
 <!ENTITY homepage.label "Adblock Plus homepage:">
 <!ENTITY homepage.url "http://adblockplus.org/en/">
 <!ENTITY author.label "Author:">
 <!ENTITY contributors.label "Contributors:">
+<!ENTITY developers.label "Developers:">
+<!ENTITY designers.label "Graphic designers:">
+<!ENTITY subscriptionAuthors.label "Filter subscription authors:">
+<!ENTITY translators.label "Translators:">

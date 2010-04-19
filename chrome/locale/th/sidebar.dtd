@@ -23,7 +23,7 @@
 <!ENTITY context.editfilter.label "แก้ไขตัวกรองที่มีผล">
 <!ENTITY context.whitelist.label "เพิ่มข้อยกเว้นสำหรับรายการ">
 <!ENTITY context.disablefilter.label "ปิดตัวกรอง ?1?">
-<!ENTITY context.enablefilter.label "เปิดตัวกรองอีกครั้ง ?1?">
+<!ENTITY context.enablefilter.label "เปิดตัวกรอง ?1? อีกครั้ง">
 <!ENTITY context.disablefilteronsite.label "ปิดตัวกรองนี้บน ?1?">
 <!ENTITY context.open.label "เปิดในแท็บใหม่">
 <!ENTITY context.flash.label "ขอบของรายการแฟลช">
