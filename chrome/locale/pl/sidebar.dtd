@@ -22,11 +22,8 @@
 <!ENTITY context.block.label "Zablokuj ten element">
 <!ENTITY context.editfilter.label "Edytuj filtr w rzeczywistości">
 <!ENTITY context.whitelist.label "Dodaj regułę wyjątku dla elementu">
-<!-- Note: the placeholder (double-dash) will be replaced by the filter text -->
 <!ENTITY context.disablefilter.label "Wyłącz filtr ?1?">
-<!-- Note: the placeholder (double-dash) will be replaced by the filter text -->
 <!ENTITY context.enablefilter.label "Włącz filtr ?1?">
-<!-- Note: the placeholder (double-dash) will be replaced by the domain name of the current page -->
 <!ENTITY context.disablefilteronsite.label "Wyłącz ten filtr na ?1?">
 <!ENTITY context.open.label "Otwórz w nowej karcie">
 <!ENTITY context.flash.label "Pokaż element w mrugającej ramce">

@@ -27,8 +27,6 @@
 <!ENTITY location.accesskey "l">
 <!ENTITY autodownload.label "Update automatically">
 <!ENTITY autodownload.accesskey "p">
-<!-- Note: the placeholder (?1?) will be replaced by the name of the filter subscription required -->
 <!ENTITY supplementMessage "This filter subscription is meant to be used with the filter subscription &quot;?1?&quot; which you are not using yet.">
-<!-- Note: the placeholder (?1?) will be replaced by the name of the filter subscription required -->
 <!ENTITY addMain.label "Add filter subscription &quot;?1?&quot; as well">
 <!ENTITY addMain.accesskey "s">
