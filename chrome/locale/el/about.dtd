@@ -1,12 +1,14 @@
 <!ENTITY dialog.title "Σχετικά με το Adblock Plus">
 <!ENTITY caption.title "Adblock Plus">
 <!ENTITY version.title "Έκδοση">
-<!ENTITY description "
-	Με το Adblock Plus σας δίνεται η δυνατότητα να αποφασίζετε εσείς τι θέλετε να βλέπετε και τι όχι στις ιστοσελίδες.
+<!ENTITY description "Με το Adblock Plus σας δίνεται η δυνατότητα να αποφασίζετε εσείς τι θέλετε να βλέπετε και τι όχι στις ιστοσελίδες.
 	Δεν χρειάζεται να βλέπετε διαφημίσεις πλέον αν δεν το θέλετε!
-	Απλά ενημερώστε το Adblock Plus!
-">
+	Απλά ενημερώστε το Adblock Plus!">
 <!ENTITY homepage.label "Ιστοσελίδα:">
 <!ENTITY homepage.url "http://adblockplus.org/en/">
 <!ENTITY author.label "Δημιουργός:">
 <!ENTITY contributors.label "Συντελεστές:">
+<!ENTITY developers.label "Προγραμματιστές:">
+<!ENTITY designers.label "Σχεδιαστές γραφικών:">
+<!ENTITY subscriptionAuthors.label "Συγγραφείς κανόνων φίλτρων:">
+<!ENTITY translators.label "Μεταφραστές:">
