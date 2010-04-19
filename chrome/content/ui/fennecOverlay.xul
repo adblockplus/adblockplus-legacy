@@ -40,7 +40,7 @@
 
   <!-- Page actions container - Fennec 1.1+ -->
   <hbox id="pageactions-container">
-    <pageaction id="abp-site-info1" class="abp-site-info" image=""/>
+    <pageaction id="abp-site-info1" class="abp-site-info"/>
   </hbox>
 
   <!-- Identity container - trash bin for site-related info in Fennec 1.0 -->
