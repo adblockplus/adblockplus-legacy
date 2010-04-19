@@ -78,6 +78,12 @@ menuitem[default="true"] {
   margin-right: 10px;
 }
 
+#abp-site-info1 .pageaction-image {
+  width: 32px;
+  height: 32px;
+  padding: 4px;
+}
+
 #abp-toolbarbutton > toolbarbutton {
   /* Argh, Songbird defines image region directly on the anonymous toolbarbutton element */
   -moz-image-region: inherit !important;
