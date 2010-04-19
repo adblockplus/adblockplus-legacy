@@ -3,7 +3,6 @@
 <!ENTITY advanced.label "Ընդլայնված տեսք">
 <!ENTITY basic.label "Պարզ տեսք">
 <!ENTITY disabled.warning "«Adblock Plus»ը անջատված է: Դուք կարող եք ավելացնել ֆիլտրեր, բայց դրանց գործելու համար պետք է [link]միացնել «Adblock Plus»ը[/link]:">
-<!--  Note: This access key should usually be the same as anchor.start.flexible.accesskey. It is the same checkbox with different label depending on suggested filter. -->
 <!ENTITY groupDisabled.warning "Ֆիլտրերի &quot;?1?&quot; խումբը, որին այս ֆիլտրը ավելացվում է միացած չէ. Ֆիլտրը միևնույն է կարող է ավելացնել, բայց նրա կիրառման համար պետք է [link]միացնել ֆիլտրի խումբը[/link]:">
 <!ENTITY filter.label "Նոր Ֆիլտր.">
 <!ENTITY filter.accesskey "ֆ">
@@ -21,7 +20,6 @@
 <!ENTITY custom.pattern.accesskey "փ">
 <!ENTITY anchors.label "Շաբլոններն ընդունել միայն.">
 <!ENTITY anchor.start.label "հասցեի սկզբում">
-<!--  Note: This access key should usually be the same as anchor.start.accesskey. It is the same checkbox with different label depending on suggested filter. -->
 <!ENTITY anchor.start.accesskey "ս">
 <!ENTITY anchor.start.flexible.label "դոմեյնի անվան սկզբում">
 <!ENTITY anchor.start.flexible.accesskey "ս">

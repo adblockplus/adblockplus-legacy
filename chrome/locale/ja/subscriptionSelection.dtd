@@ -39,8 +39,6 @@
 <!ENTITY location.accesskey "L">
 <!ENTITY autodownload.label "自動更新にする">
 <!ENTITY autodownload.accesskey "P">
-<!-- Note: the placeholder (%S) will be replaced by the name of the filter subscription required -->
 <!ENTITY supplementMessage "この同期フィルタは &quot;?1?&quot; との併用が推奨されています。">
-<!-- Note: the placeholder (%S) will be replaced by the name of the filter subscription required -->
 <!ENTITY addMain.label " &quot;?1?&quot; も追加する">
 <!ENTITY addMain.accesskey "s">

@@ -14,10 +14,8 @@
 <!ENTITY settings.label "設定">
 <!ENTITY settings.accesskey "F">
 <!ENTITY opensidebar.label "ブロック対象一覧を開く">
-<!-- Note: This access key should usually be the same as closesidebar.accesskey. It is the same menu item with different label depending on whether the sidebar is currently open.-->
 <!ENTITY opensidebar.accesskey "B">
 <!ENTITY closesidebar.label "ブロック対象一覧を閉じる">
-<!-- Note: This access key should usually be the same as opensidebar.accesskey. It is the same menu item with different label depending on whether the sidebar is currently open.-->
 <!ENTITY closesidebar.accesskey "B">
 <!ENTITY whitelist.site.label "?1? では無効にする">
 <!ENTITY whitelist.page.label "このページでは無効にする">

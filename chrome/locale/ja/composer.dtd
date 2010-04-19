@@ -3,7 +3,6 @@
 <!ENTITY advanced.label "詳細表示">
 <!ENTITY basic.label "簡易表示">
 <!ENTITY disabled.warning "Adblock Plus は現在無効です。フィルタを追加することはできますが適用されません。 [link]Adblock Plus を有効にする[/link] ">
-<!-- Note: This access key should usually be the same as anchor.start.flexible.accesskey. It is the same checkbox with different label depending on suggested filter.-->
 <!ENTITY groupDisabled.warning "このフィルタを追加するフィルタグループ &quot;?1?&quot; は現在、無効となっています。フィルタを追加することはできますが適用されません。 [link]フィルタグループを有効にする[/link] ">
 <!ENTITY filter.label "新規フィルタ：">
 <!ENTITY filter.accesskey "f">
@@ -21,7 +20,6 @@
 <!ENTITY custom.pattern.accesskey "C">
 <!ENTITY anchors.label "パターン限定対応：">
 <!ENTITY anchor.start.label "アドレスの先頭">
-<!-- Note: This access key should usually be the same as anchor.start.accesskey. It is the same checkbox with different label depending on suggested filter.-->
 <!ENTITY anchor.start.accesskey "g">
 <!ENTITY anchor.start.flexible.label "ドメインの先頭">
 <!ENTITY anchor.start.flexible.accesskey "g">

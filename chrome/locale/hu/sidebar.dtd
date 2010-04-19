@@ -22,11 +22,8 @@
 <!ENTITY context.block.label "Objektum blokkolása">
 <!ENTITY context.editfilter.label "Alkalmazott szűrő szerkesztése">
 <!ENTITY context.whitelist.label "Kivétel megadása objektumhoz">
-<!-- Note: the placeholder (double-dash) will be replaced by the filter text -->
 <!ENTITY context.disablefilter.label "Szűrő letiltása ?1?">
-<!-- Note: the placeholder (double-dash) will be replaced by the filter text -->
 <!ENTITY context.enablefilter.label "Szűrő engedélyezése ?1?">
-<!-- Note: the placeholder (double-dash) will be replaced by the domain name of the current page -->
 <!ENTITY context.disablefilteronsite.label "Szűrő letiltása itt: ?1?">
 <!ENTITY context.open.label "Megnyitás új fülön">
 <!ENTITY context.flash.label "Objektum széleinek villogtatása">
