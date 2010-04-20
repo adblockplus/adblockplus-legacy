@@ -46,13 +46,14 @@
       <description id="abp-tooltip-blocked" hidden="true"/>
       <label id="abp-tooltip-filters-label" value="&filters.tooltip;" hidden="true"/>
       <vbox id="abp-tooltip-filters" hidden="true"/>
+      <description id="abp-tooltip-more-filters" value="…" hidden="true"/>
     </tooltip>
 
     <!-- Icon's context menu -->
     <popup id="abp-status-popup">
       <menuitem id="abp-status-opensidebar" label="&opensidebar.label;" accesskey="&opensidebar.accesskey;" key="abp-key-sidebar" command="abp-command-sidebar"/>
       <menuitem id="abp-status-closesidebar" label="&closesidebar.label;" accesskey="&closesidebar.accesskey;" key="abp-key-sidebar" command="abp-command-sidebar"/>
-      <menuitem id="abp-status-settings" label="&settings.label;..." accesskey="&settings.accesskey;" key="abp-key-settings" command="abp-command-settings"/>
+      <menuitem id="abp-status-settings" label="&settings.label;…" accesskey="&settings.accesskey;" key="abp-key-settings" command="abp-command-settings"/>
       <menuseparator id="abp-status-whitelist-sep"/>
       <menuitem id="abp-status-whitelistsite" labeltempl="&whitelist.site.label;" type="checkbox" command="abp-command-togglesitewhitelist"/>
       <menuitem id="abp-status-whitelistpage" label="&whitelist.page.label;" type="checkbox" command="abp-command-togglepagewhitelist"/>
@@ -94,16 +95,16 @@
   <box id="abp-hooks" objtabtext="&objecttab.title;" objtabtooltip="&objecttab.tooltip;"/>
 
   <!-- Tools menu -->
-  <menuitem id="abp-menuitem" label="&menuitem.label;..." accesskey="&menuitem.accesskey;" key="abp-key-settings" command="abp-command-settings"/>
+  <menuitem id="abp-menuitem" label="&menuitem.label;…" accesskey="&menuitem.accesskey;" key="abp-key-settings" command="abp-command-settings"/>
 
   <!-- View menu -->
   <menuitem id="abp-blockableitems" label="&view.blockableItems.label;" type="checkbox" autocheck="false" key="abp-key-sidebar" command="abp-command-sidebar"/>
 
   <!-- Context menu -->
-  <menuitem id="abp-image-menuitem" label="&context.image.label;..." hidden="true"/>
-  <menuitem id="abp-object-menuitem" label="&context.object.label;..." hidden="true"/>
-  <menuitem id="abp-media-menuitem" label="&context.media.label;..." hidden="true"/>
-  <menuitem id="abp-frame-menuitem" label="&context.frame.label;..." hidden="true"/>
+  <menuitem id="abp-image-menuitem" label="&context.image.label;…" hidden="true"/>
+  <menuitem id="abp-object-menuitem" label="&context.object.label;…" hidden="true"/>
+  <menuitem id="abp-media-menuitem" label="&context.media.label;…" hidden="true"/>
+  <menuitem id="abp-frame-menuitem" label="&context.frame.label;…" hidden="true"/>
   <menuitem id="abp-removeWhitelist-menuitem" label="&context.removeWhitelist.label;" hidden="true"/>
 
   <!-- Fake sidebar -->
