@@ -691,17 +691,12 @@ function abpFillTooltip(event)
         descr.setAttribute("value", activeFilters[i] + " (" + filterCount[activeFilters[i]] + ")");
         filtersContainer.appendChild(descr);
       }
-      if (activeFilters.length > 3)
-      {
-        let descr = document.createElement("description");
-        descr.setAttribute("value", "...");
-        filtersContainer.appendChild(descr);
-      }
     }
   }
 
   E("abp-tooltip-filters-label").hidden = (activeFilters.length == 0);
   E("abp-tooltip-filters").hidden = (activeFilters.length == 0);
+  E("abp-tooltip-more-filters").hidden = (activeFilters.length <= 3);
 }
 
 /**
