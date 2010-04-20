@@ -45,7 +45,7 @@
   ondialogaccept="applyChanges(); return true;"
   ondialogextra2="treeView.startEditor(true)"
   buttons="accept,cancel,extra2"
-  buttonlabelextra2="&add.label;..."
+  buttonlabelextra2="&add.label;…"
   buttonaccesskeyextra2="&add.accesskey;"
   width="600"
   height="450"
@@ -97,9 +97,9 @@
 <popupset id="abpPopups">
   <popup id="listitem-context" onpopupshowing="return fillContext()">
     <menuitem id="context-synchsubscription" label="&context.synchsubscription.label;" oncommand="synchSubscription(event.shiftKey)" key="synchsubscription-key" />
-    <menuitem id="context-editsubscription" label="&context.editsubscription.label;..." oncommand="editFilter('subscription')" key="edit-key"/>
+    <menuitem id="context-editsubscription" label="&context.editsubscription.label;…" oncommand="editFilter('subscription')" key="edit-key"/>
     <menuitem id="context-edit" label="&context.edit.label;" oncommand="editFilter('filter')" key="edit-key"/>
-    <menuitem id="context-resethitcount" label="&context.resethitcount.label;..." oncommand="resetHitCounts(false)"/>
+    <menuitem id="context-resethitcount" label="&context.resethitcount.label;…" oncommand="resetHitCounts(false)"/>
     <menuitem id="context-moveup" label="&context.moveup.label;" oncommand="treeView.moveFilter(true)" key="moveup-key"/>
     <menuitem id="context-movedown" label="&context.movedown.label;" oncommand="treeView.moveFilter(false)" key="movedown-key"/>
     <menuseparator/>
@@ -121,16 +121,16 @@
   <menubar id="menu" onpopupshowing="treeView.stopEditor(true, true);">
     <menu id="filters-menu" label="&filters.label;" accesskey="&filters.accesskey;">
       <menupopup id="filters-popup" onpopupshowing="fillFiltersPopup()">
-        <menuitem id="addfilter" label="&add.label;..." accesskey="&add.accesskey;" key="addfilter-key" oncommand="treeView.startEditor(true)"/>
+        <menuitem id="addfilter" label="&add.label;…" accesskey="&add.accesskey;" key="addfilter-key" oncommand="treeView.startEditor(true)"/>
         <menuseparator/>
-        <menuitem id="addsubscription" label="&addsubscription.label;..." accesskey="&addsubscription.accesskey;" command="addsubscription-command"/>
+        <menuitem id="addsubscription" label="&addsubscription.label;…" accesskey="&addsubscription.accesskey;" command="addsubscription-command"/>
         <menuitem id="synchsubscriptions" label="&synchsubscriptions.label;" accesskey="&synchsubscriptions.accesskey;" key="synchsubscriptions-key" command="synchsubscriptions-command"/>
         <menuseparator/>
-        <menuitem id="import" label="&import.label;..." accesskey="&import.accesskey;" key="import-key" command="import-command"/>
-        <menuitem id="export" label="&export.label;..." accesskey="&export.accesskey;" key="export-key" command="export-command"/>
-        <menuitem id="clearall" label="&clearall.label;..." accesskey="&clearall.accesskey;" oncommand="clearList()"/>
+        <menuitem id="import" label="&import.label;…" accesskey="&import.accesskey;" key="import-key" command="import-command"/>
+        <menuitem id="export" label="&export.label;…" accesskey="&export.accesskey;" key="export-key" command="export-command"/>
+        <menuitem id="clearall" label="&clearall.label;…" accesskey="&clearall.accesskey;" oncommand="clearList()"/>
         <menuseparator/>
-        <menuitem id="resethitcounts" label="&resethitcounts.label;..." accesskey="&resethitcounts.accesskey;" oncommand="resetHitCounts(true)"/>
+        <menuitem id="resethitcounts" label="&resethitcounts.label;…" accesskey="&resethitcounts.accesskey;" oncommand="resetHitCounts(true)"/>
       </menupopup>
     </menu>
     <menu id="edit-menu" label="&edit.label;" accesskey="&edit.accesskey;">
@@ -140,7 +140,7 @@
         <menuitem id="paste" label="&paste.label;" accesskey="&paste.accesskey;" command="paste-command" key="paste-key"/>
         <menuitem id="remove" label="&remove.label;" accesskey="&remove.accesskey;" command="remove-command" key="remove-key"/>
         <menuseparator/>
-        <menuitem id="find" label="&menu.find.label;..." accesskey="&menu.find.accesskey;" command="find-command" key="find-key"/>
+        <menuitem id="find" label="&menu.find.label;…" accesskey="&menu.find.accesskey;" command="find-command" key="find-key"/>
         <menuitem id="find-again" label="&menu.findagain.label;" accesskey="&menu.findagain.accesskey;" command="find-again-command" key="find-again-key"/>
       </menupopup>
     </menu>
@@ -184,7 +184,7 @@
         <menuitem id="faqLink" label="&faq.label;" accesskey="&faq.accesskey;" oncommand="abp.loadInBrowser('&faq.url;')"/>
         <menuitem id="filtersLink" label="&filterdoc.label;" accesskey="&filterdoc.accesskey;" oncommand="abp.loadInBrowser('&filterdoc.url;')"/>
         <menuseparator/>
-        <menuitem id="aboutAbp" label="&about.label;..." accesskey="&about.accesskey;" oncommand="openAbout()"/>
+        <menuitem id="aboutAbp" label="&about.label;…" accesskey="&about.accesskey;" oncommand="openAbout()"/>
       </menupopup>
     </menu>
   </menubar>
