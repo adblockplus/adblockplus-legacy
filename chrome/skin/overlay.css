@@ -76,6 +76,7 @@ menuitem[default="true"] {
   -moz-image-region: rect(48px, 24px, 72px, 0px);
 }
 
+/* Thunderbird-specific toolbar icon styles */
 #header-view-toolbar > #abp-toolbarbutton
 {
   -moz-appearance: dualbutton;
@@ -86,6 +87,12 @@ menuitem[default="true"] {
 #header-view-toolbar > #abp-toolbarbutton .toolbarbutton-text
 {
   display: none;
+}
+
+/* SeaMonkey expects the icon to be rather large, add margin */
+#mail-toolbox #abp-toolbarbutton .toolbarbutton-icon
+{
+  margin-top: 5px;
 }
 
 #abp-status-image {
