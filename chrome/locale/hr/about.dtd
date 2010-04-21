@@ -7,3 +7,7 @@ Više ne morate preuzeti sve oglase i banere, ako ih ne želite - recite Adblock
 <!ENTITY homepage.url "http://adblockplus.org/">
 <!ENTITY author.label "Autor:">
 <!ENTITY contributors.label "Oni koji su pridonijeli:">
+<!ENTITY developers.label "Razvojni tim:">
+<!ENTITY designers.label "Grafički dizajneri:">
+<!ENTITY subscriptionAuthors.label "Autori pretplata na filtere:">
+<!ENTITY translators.label "Prevoditelji:">

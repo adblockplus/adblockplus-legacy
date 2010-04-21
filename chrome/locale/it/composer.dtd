@@ -3,6 +3,31 @@
 <!ENTITY advanced.label "Avanzate &gt;&gt;">
 <!ENTITY basic.label "&lt;&lt; Generali">
 <!ENTITY disabled.warning "Adblock Plus è attualmente disattivata. È comunque possibile aggiungere filtri, ma questi verranno applicati solo dopo la [link]riattivazione di Adblock Plus[/link]">
+<!--  ***** BEGIN LICENSE BLOCK *****
+	 - Version: MPL 1.1
+	 -
+	 - The contents of this file are subject to the Mozilla Public License Version
+	 - 1.1 (the "License"); you may not use this file except in compliance with
+	 - the License. You may obtain a copy of the License at
+	 - http://www.mozilla.org/MPL/
+	 -
+	 - Software distributed under the License is distributed on an "AS IS" basis,
+	 - WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+	 - for the specific language governing rights and limitations under the
+	 - License.
+	 -
+	 - The Original Code is Adblock Plus.
+	 -
+	 - The Initial Developer of the Original Code is
+	 - Wladimir Palant.
+	 - Portions created by the Initial Developer are Copyright (C) 2006-2009
+	 - the Initial Developer. All Rights Reserved.
+	 -
+	 - Contributor(s):
+	 -
+	 - ***** END LICENSE BLOCK ***** 
+ 
+-->
 <!ENTITY groupDisabled.warning "Il gruppo di filtri &quot;?1?&quot; al quale bisognerebbe aggiungere il filtro è attualmente disattivato. È comunque possibile aggiungere il filtro, ma questo verrà applicato solo dopo la [link]riattivazione del gruppo di filtri[/link]">
 <!ENTITY filter.label "Nuovo filtro:">
 <!ENTITY filter.accesskey "N">
@@ -13,17 +38,17 @@
 <!ENTITY type.whitelist.label "Eccezioni">
 <!ENTITY type.whitelist.accesskey "E">
 <!ENTITY pattern.label "Modelli">
-<!ENTITY pattern.explanation "Il modello può corrispondere a qualsiasi parte dell'indirizzo web, il carattere * corrisponde ad un carattere jolly. Il filtro verrà applicato ai soli indirizzi web corrispondenti al modello">
+<!ENTITY pattern.explanation "Il modello può corrispondere a qualsiasi parte dell&apos;indirizzo web, il carattere * corrisponde ad un carattere jolly. Il filtro verrà applicato ai soli indirizzi web corrispondenti al modello">
 <!ENTITY regexp.warning "Il modello inserito verrà interpretato come espressione regolare. Un numero eccessivo di tali modelli potrebbe rallentare la navigazione. Se non si intende utilizzare le espressioni regolari aggiungere il carattere * alla fine del modello">
 <!ENTITY shortpattern.warning "Il modello inserito è troppo breve per essere ottimizzato. Un numero eccessivo di tali modelli potrebbe rallentare la navigazione. Sarebbe preferibile utilizzare una stringa più lunga">
 <!ENTITY custom.pattern.label "Personalizza:">
 <!ENTITY custom.pattern.accesskey "P">
 <!ENTITY anchors.label "Accetta modelli solo:">
-<!ENTITY anchor.start.label "all'inizio dell'indirizzo web">
+<!ENTITY anchor.start.label "all&apos;inizio dell&apos;indirizzo web">
 <!ENTITY anchor.start.accesskey "i">
-<!ENTITY anchor.start.flexible.label "all'inizio del nome del dominio">
+<!ENTITY anchor.start.flexible.label "all&apos;inizio del nome del dominio">
 <!ENTITY anchor.start.flexible.accesskey "i">
-<!ENTITY anchor.end.label "alla fine dell'indirizzo web">
+<!ENTITY anchor.end.label "alla fine dell&apos;indirizzo web">
 <!ENTITY anchor.end.accesskey "f">
 <!ENTITY options.label "Opzioni">
 <!ENTITY domainRestriction.label "Limita al dominio qui sotto">
