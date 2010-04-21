@@ -25,7 +25,6 @@
    - ***** END LICENSE BLOCK ***** -->
 
 <?xul-overlay href="chrome://adblockplus/content/ui/overlayGeneral.xul"?>
-<?xml-stylesheet href="chrome://adblockplus/skin/seaMonkeyHack.css" type="text/css"?>
 
 <overlay id="abp-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
   <!-- Window extensions -->
