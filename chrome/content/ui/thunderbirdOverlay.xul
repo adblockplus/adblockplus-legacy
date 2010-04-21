@@ -33,9 +33,10 @@
     <keyset id="abp-keyset"/>
     <commandset id="abp-commandset"/>
     <box id="abp-hooks" getBrowser="return window.messageContent;"
+      addTab="E('tabmail').openTab('contentTab', {contentPage: arguments[0]});"
       getContextMenu="return E('messagePaneContext');"
       getToolbox="return E('mail-toolbox')"
-      getDefaultToolbar="return E('msgToolbar');" toolbarInsertBefore="return E('button-junk');"/>
+      getDefaultToolbar="return E('mail-bar3');" toolbarInsertBefore="return E('button-tag');"/>
   </window>
 
   <!-- Status bar -->
