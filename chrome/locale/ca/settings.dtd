@@ -87,3 +87,4 @@
 <!ENTITY context.disable.label "Desactiva">
 <!ENTITY apply.label "Aplicar">
 <!ENTITY apply.accesskey "A">
+<!ENTITY fennec.subscription.label "Subcripció de filtre">

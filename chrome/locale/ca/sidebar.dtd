@@ -18,13 +18,15 @@
 <!ENTITY tooltip.size.label "Mida">
 <!ENTITY tooltip.docDomain.label "Font del document:">
 <!ENTITY tooltip.filter.label "Filtre actiu">
-<!ENTITY tooltip.filterSource.label "Filtre d&apos;origen">
+<!ENTITY tooltip.filterSource.label "Filtre d'origen">
 <!ENTITY context.block.label "Bloqueja aquest element">
 <!ENTITY context.editfilter.label "Editar filtre actiu">
-<!ENTITY context.whitelist.label "Afegeix regla d&apos;excepció per l&apos;element">
+<!ENTITY context.whitelist.label "Afegeix regla d'excepció per l'element">
+<!ENTITY context.disablefilter.label "Desactivar filtre ?1?">
+<!ENTITY context.enablefilter.label "Reactivar filtre ?1?">
 <!ENTITY context.disablefilteronsite.label "Desactiva aquest filtre a ?1?">
 <!ENTITY context.open.label "Obrir en una nova pestanya">
-<!ENTITY context.flash.label "Pampalluguejar vores de l&apos;element">
-<!ENTITY context.copy.label "Copia l&apos;adreça de l&apos;element">
+<!ENTITY context.flash.label "Pampalluguejar vores de l'element">
+<!ENTITY context.copy.label "Copia l'adreça de l'element">
 <!ENTITY context.copyFilter.label "Copia Filtre">
 <!ENTITY context.selectAll.label "Selecciona tots">
