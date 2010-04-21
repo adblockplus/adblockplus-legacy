@@ -26,8 +26,8 @@ foreach my $locale (readdir(LOCALES))
   foreach my $file (<chrome/locale/$locale/*.dtd>)
   {
     my $data = readFile($file);
-    $data =~ s/\r//g;                   # Normalize newlines
-    $data =~ s/^\s*<!--.*-->\s*\n*//gm; # Remove pointless comments
+    $data =~ s/\r//g;                         # Normalize newlines
+    $data =~ s/[^\S\n]*<!--.*-->\s*?\n*//gs;  # Remove pointless comments
     writeFile($file, $data);
   }
 }
