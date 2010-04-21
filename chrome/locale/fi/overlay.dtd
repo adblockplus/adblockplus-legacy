@@ -5,9 +5,10 @@
 <!ENTITY menuitem.accesskey "d">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY view.blockableItems.label "Adblock Plus: Estettävät elementit">
-<!ENTITY context.image.label "Estä kuva Adblockilla">
-<!ENTITY context.object.label "Estä kohde Adblockilla">
-<!ENTITY context.frame.label "Estä kehys Adblockilla">
+<!ENTITY context.image.label "Adblock Plus: Estä kuva">
+<!ENTITY context.object.label "Adblock Plus: Estä kohde">
+<!ENTITY context.frame.label "Adblock Plus: Estä kehys">
+<!ENTITY context.media.label "Adblock Plus: Estä ääni/kuva">
 <!ENTITY context.removeWhitelist.label "Adblock Plus: Ota tämä sivu uudestaan käyttöön">
 <!ENTITY sidebar.title "Estettävät elementit avoimella sivulla">
 <!ENTITY settings.label "Asetukset">

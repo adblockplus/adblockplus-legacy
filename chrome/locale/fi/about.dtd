@@ -6,3 +6,7 @@
 <!ENTITY homepage.url "http://adblockplus.org/">
 <!ENTITY author.label "Tekijä:">
 <!ENTITY contributors.label "Avustajat:">
+<!ENTITY developers.label "Kehittäjät:">
+<!ENTITY designers.label "Graafiset suunnitelijat:">
+<!ENTITY subscriptionAuthors.label "Suodatintilausten tekijät:">
+<!ENTITY translators.label "Kääntäjät:">
