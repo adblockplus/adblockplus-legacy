@@ -9,8 +9,6 @@ overlay   chrome://webrunner/content/webrunner.xul chrome://adblockplus/content/
 content   adblockplus jar:chrome/adblockplus.jar!/content/
 skin      adblockplus classic/1.0 jar:chrome/adblockplus.jar!/skin/
 style     chrome://global/content/customizeToolbar.xul  chrome://adblockplus/skin/overlay.css
-style     chrome://adblockplus/content/ui/seamonkeyOverlay.xul chrome://adblockplus/skin/seaMonkeyHack.css application={92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}
-style     chrome://adblockplus/content/ui/mailOverlay.xul chrome://adblockplus/skin/seaMonkeyHack.css application={92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}
 locale    adblockplus {{LOCALE}} jar:chrome/adblockplus.jar!/locale/{{LOCALE}}/
 
 # Hack to prevent .Net Framework Assistant from messing up the browser
