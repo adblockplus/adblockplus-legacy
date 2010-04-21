@@ -447,11 +447,19 @@ const abp =
    */
   loadInBrowser: function(/**String*/ url, /**Window*/ currentWindow, /**Event*/ event)
   {
-    currentWindow = currentWindow ||
-                    windowMediator.getMostRecentWindow("navigator:browser") ||
-                    windowMediator.getMostRecentWindow("Songbird:Main") ||
-                    windowMediator.getMostRecentWindow("emusic:window");
     let abpHooks = currentWindow ? currentWindow.document.getElementById("abp-hooks") : null;
+    if (!abpHooks || !abpHooks.addTab)
+    {
+      let enumerator = windowMediator.getZOrderDOMWindowEnumerator(null, true);
+      while (enumerator.hasMoreElements())
+      {
+        let window = enumerator.getNext().QueryInterface(Ci.nsIDOMWindow);
+        abpHooks = window.document.getElementById("abp-hooks");
+        if (abpHooks && abpHooks.addTab)
+          break;
+      }
+    }
+
     if (abpHooks && abpHooks.addTab)
       abpHooks.addTab(url, event);
     else
