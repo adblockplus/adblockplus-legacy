@@ -36,7 +36,7 @@
       addTab="let tabmail = E('tabmail');return (tabmail ? tabmail.openTab('contentTab', {contentPage: arguments[0]}) : false);"
       getContextMenu="return E('messagePaneContext');"
       getToolbox="return E('mail-toolbox')"
-      getDefaultToolbar="return E('mail-bar2') || E('msgToolbar');" toolbarInsertBefore="return E('button-junk');"/>
+      getDefaultToolbar="return E('mail-bar3') || E('msgToolbar');" toolbarInsertBefore="return E('button-tag') || E('button-junk');"/>
   </window>
 
   <!-- Status bar -->
