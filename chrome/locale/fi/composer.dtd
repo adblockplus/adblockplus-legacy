@@ -12,7 +12,7 @@
 <!ENTITY type.filter.accesskey "E">
 <!ENTITY type.whitelist.label "Sallimisehto">
 <!ENTITY type.whitelist.accesskey "S">
-<!ENTITY pattern.label "Etsi merkkijonoa">
+<!ENTITY pattern.label "Merkkijonon löytäminen">
 <!ENTITY pattern.explanation "Merkkijono voi olla mikä tahansa osoitteen osa. Merkki * toimii jokerimerkkinä. Suodatin toimii vain osoitteissa, joita merkkijono vastaa.">
 <!ENTITY regexp.warning "Syöttämäsi merkkijono tulkitaan säännölliseksi lausekkeeksi. Monet säännölliset lausekkeet saattavat hidastaa selailua. Jos tarkoituksena ei ollut käyttää säännöllistä lauseketta, lisää merkki * lauseen loppuun.">
 <!ENTITY shortpattern.warning "Syöttämäsi merkkijono on liian lyhyt optimoitavaksi. Useat tällaiset merkkijonot saattavat hidastaa selailua. On suositeltavaa, että valitset tälle suodattimelle pidemmän merkkijonon.">
