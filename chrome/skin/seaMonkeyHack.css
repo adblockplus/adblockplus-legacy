@@ -28,14 +28,3 @@
 {
   margin-top: 5px;
 }
-#abp-toolbarbutton > .toolbarbutton-menubutton-stack > .toolbarbutton-menubutton-dropmarker
-{
-  margin-bottom: 0px;
-}
-@-moz-document domain("mail")
-{
-  #abp-toolbarbutton .toolbarbutton-menubutton-button
-  {
-    -moz-box-orient: vertical;
-  }
-}
