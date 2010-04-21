@@ -31,17 +31,20 @@
 
 toolbar[iconsize="small"] #abp-toolbarbutton,
 #PersonalToolbar #abp-toolbarbutton,
+#header-view-toolbar > #abp-toolbarbutton,
 #abp-status {
   list-style-image: url("abp-status-16.png");
   -moz-image-region: rect(0px, 16px, 16px, 0px);
 }
 toolbar[iconsize="small"] #abp-toolbarbutton[abpstate="disabled"],
 #PersonalToolbar #abp-toolbarbutton[abpstate="disabled"],
+#header-view-toolbar > #abp-toolbarbutton[abpstate="disabled"],
 #abp-status[abpstate="disabled"] {
   -moz-image-region: rect(16px, 16px, 32px, 0px);
 }
 toolbar[iconsize="small"] #abp-toolbarbutton[abpstate="whitelisted"],
 #PersonalToolbar #abp-toolbarbutton[abpstate="whitelisted"],
+#header-view-toolbar > #abp-toolbarbutton[abpstate="whitelisted"],
 #abp-status[abpstate="whitelisted"] {
   -moz-image-region: rect(32px, 16px, 48px, 0px);
 }
@@ -71,6 +74,18 @@ menuitem[default="true"] {
 #abp-toolbarbutton[abpstate="whitelisted"],
 .abp-site-info[abpstate="disabled_site"] {
   -moz-image-region: rect(48px, 24px, 72px, 0px);
+}
+
+#header-view-toolbar > #abp-toolbarbutton
+{
+  -moz-appearance: dualbutton;
+  padding: 0px !important;
+}
+
+/* Hide toolbar icon text in Thunderbird to save space */
+#header-view-toolbar > #abp-toolbarbutton .toolbarbutton-text
+{
+  display: none;
 }
 
 #abp-status-image {

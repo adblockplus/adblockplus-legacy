@@ -45,10 +45,10 @@
   </statusbar> 
 
   <!-- Toolbar -->
-  <toolbarpalette id="MailToolbarPalette">
-    <toolbarbutton id="abp-toolbarbutton" type="menu-button" insertafter="button-junk"
-        class="chromeclass-toolbar-additional toolbarbutton-1"/>
-  </toolbarpalette>
+  <toolbar id="header-view-toolbar">
+    <toolbarbutton id="abp-toolbarbutton" type="menu-button" insertbefore="hdrReplyButton"
+        class="toolbarbutton-1 msgHeaderView-button"/>
+  </toolbar>
 
   <!-- Tools menu -->
   <menupopup id="taskPopup">
