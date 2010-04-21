@@ -35,12 +35,7 @@
       return currentTime;
     }
 
-    let ourLoadGroup;
-    with (new XMLHttpRequest())
-    {
-        open("GET", "http://foo/bar");
-        ourLoadGroup = channel.loadGroup;
-    }
+    let outstandingRequests = 0;
 
     function runScheduledTasks(maxHours)
     {
@@ -67,7 +62,7 @@
                                .currentThread;
         let loopStartTime = oldNow();
 
-        while (ourLoadGroup.requests.hasMoreElements() || thread.hasPendingEvents())
+        while (outstandingRequests > 0 || thread.hasPendingEvents())
         {
           thread.processNextEvent(true);
 
@@ -112,21 +107,21 @@
     var oldXMLHttp = XMLHttpRequest;
     XMLHttpRequest = function()
     {
+      let inner = new oldXMLHttp();
+
       return {
-        __proto__: new oldXMLHttp(),
-        get channel()
+        __proto__: inner,
+        send: function()
         {
-          var result = {
-            get loadGroup()
-            {
-              return this.__proto__.loadGroup;
-            },
-            set loadGroup(val)
-            {
-            }
-          };
-          result.__proto__ = this.__proto__.channel;
-          return result;
+          outstandingRequests++;
+          function finished()
+          {
+            outstandingRequests--;
+          }
+          inner.addEventListener("load", finished, false);
+          inner.addEventListener("error", finished, false);
+
+          inner.send.apply(inner, arguments);
         }
       }
     }
