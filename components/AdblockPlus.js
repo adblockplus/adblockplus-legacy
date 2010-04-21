@@ -452,7 +452,9 @@ const abp =
                     windowMediator.getMostRecentWindow("Songbird:Main") ||
                     windowMediator.getMostRecentWindow("emusic:window");
     let abpHooks = currentWindow ? currentWindow.document.getElementById("abp-hooks") : null;
-    if (!abpHooks || !abpHooks.addTab || abpHooks.addTab(url, event) === false)
+    if (abpHooks && abpHooks.addTab)
+      abpHooks.addTab(url, event);
+    else
     {
       let protocolService = Cc["@mozilla.org/uriloader/external-protocol-service;1"].getService(Ci.nsIExternalProtocolService);
       protocolService.loadURI(makeURL(url), null);
