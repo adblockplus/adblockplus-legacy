@@ -1,0 +1,23 @@
+<!ENTITY status.tooltip "Статус:">
+<!ENTITY blocked.tooltip "Блокирани предмети от тази страница:">
+<!ENTITY filters.tooltip "Най активни филтри:">
+<!ENTITY menuitem.label "Adblock Плюс Настройки">
+<!ENTITY menuitem.accesskey "b">
+<!ENTITY toolbarbutton.label "Adblock Плюс">
+<!ENTITY view.blockableItems.label "Adblock Плюс: Блокирани Предмети">
+<!ENTITY context.image.label "Adblock Плюс: Блокирани Картинки">
+<!ENTITY context.object.label "Adblock Плюс:Блокирани Обекти">
+<!ENTITY context.frame.label "Adblock Плюс:Блокирани Фреймове">
+<!ENTITY context.media.label "Adblock Плюс: Блокирани аудио/видео">
+<!ENTITY context.removeWhitelist.label "Adblock Плюс: Пусни за тази страница">
+<!ENTITY sidebar.title "Блокирани предмети на тази страница">
+<!ENTITY settings.label "Настройки">
+<!ENTITY settings.accesskey "f">
+<!ENTITY opensidebar.label "Отвори блокирани предмети">
+<!ENTITY opensidebar.accesskey "b">
+<!ENTITY closesidebar.label "Затвори блокирани предмети">
+<!ENTITY closesidebar.accesskey "b">
+<!ENTITY whitelist.site.label "Забрани на ?1?">
+<!ENTITY whitelist.page.label "Забрани на тази страница само">
+<!ENTITY objecttab.title "Блокирай">
+<!ENTITY objecttab.tooltip "Щракни тук за да блокираш този обект със Adblock Плюс">
