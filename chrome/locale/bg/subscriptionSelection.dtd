@@ -1,24 +1,32 @@
-<!ENTITY dialog.title "Добавяне на абонамет за филтъра за Adblock Плюс">
-<!ENTITY dialog.title.edit "Редактиране на абонамета за филтъра">
+<!ENTITY dialog.title "Добавяне на абонамент за филтъра за Adblock Плюс">
+<!ENTITY dialog.title.edit "Редактиране на абонамента за филтъра">
+<!ENTITY description.newInstall "Adblock Плюс ще бъде най-ефективен, ако добавите филтър абонамент. Филтър абонаментите са предоставени от други потребители на Adblock Плюс безплатно. Най-подходящ абонамент за вашият език е вече избран.">
+<!ENTITY adblock.warning "Adblock Плюс е открил, че Adblock или стара версия на Adblock Плюс е инсталирана вече. Работещи двете програми Adblock и Adblock Плюс заедно може да предизвикат проблеми и трябва да се избягва едновременната им работа. Препоръчително е да деинсталирате Adblock сега.">
 <!ENTITY adblock.uninstall "Деинсталирай Adblock">
+<!ENTITY filterset.g.warning "Изглежда, че използвате Filterset.G. Този филтър и списък е в поддръжка от последните няколко години и е честа причина за проблемите с уеб сайтовете. Препоръчително е да деинсталирате Filterset.G сега.">
 <!ENTITY filterset.g.moreinfo "Още информация">
 <!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
 <!ENTITY filterset.g.uninstall "Деинсталирай Filterset.G">
-<!ENTITY subscriptionSelector.label "Моля избете абонамент за филтър от списъка:">
+<!ENTITY subscriptionSelector.label "Моля изберете абонамент за филтър от списъка:">
 <!ENTITY viewList.label "Покажи филтрите">
 <!ENTITY visitHomepage.label "Посетете началната страница">
 <!ENTITY addSubscription.label "Добави абонамент">
 <!ENTITY saveSubscription.label "Запиши абонамента">
 <!ENTITY other.label "Добави друг абонамент">
-<!ENTITY other.accesskey "д">
+<!ENTITY other.accesskey "f">
 <!ENTITY list.download.failed "Adblock Плюс не успя да извлече списък с абонаменти.">
 <!ENTITY list.download.retry "Опитайте отново">
 <!ENTITY list.download.website "Покажи уебсайта">
 <!ENTITY list.website.url "http://adblockplus.org/en/subscriptions">
 <!ENTITY fromWeb.description "Моля, потвърдете, че желаете да добавите този абонамент за филтър. Може да промените заглавието или местоположението преди да го добавите.">
-<!ENTITY edit.description "Може да променяте заглавието или местоположението на абонамента колкото е необходимя.">
+<!ENTITY edit.description "Може да променяте заглавието или местоположението на абонамента колкото е необходимо.">
+<!ENTITY external.description "Това е външен абонамент филтър, той ще бъде актуализиран с разширението което е създадено от този абонамент.">
 <!ENTITY title.label "Заглавие на абонамента:">
+<!ENTITY title.accesskey "t">
 <!ENTITY location.label "Местоположение на списъка с филтрите:">
-<!ENTITY location.accesskey "л">
+<!ENTITY location.accesskey "l">
 <!ENTITY autodownload.label "Автоматично обновявай филтрите">
-<!ENTITY autodownload.accesskey "а">
+<!ENTITY autodownload.accesskey "p">
+<!ENTITY supplementMessage "Този филтър абонамент е предназначен да се използва с филтър подписка &quot;?1?&quot; Които не използвате все още.">
+<!ENTITY addMain.label "Добави абонамент филтър &quot;?1?&quot;">
+<!ENTITY addMain.accesskey "s">
