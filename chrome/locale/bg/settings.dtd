@@ -1,0 +1,90 @@
+<!ENTITY dialog.title "Adblock Plus Настройки">
+<!ENTITY filters.label "Филтри">
+<!ENTITY filters.accesskey "F">
+<!ENTITY add.label "Добави Филтър">
+<!ENTITY add.accesskey "A">
+<!ENTITY addsubscription.label "Добави абонамент за филтър">
+<!ENTITY addsubscription.accesskey "s">
+<!ENTITY synchsubscriptions.label "Обнови всички абонаменти">
+<!ENTITY synchsubscriptions.accesskey "d">
+<!ENTITY import.label "Вмъкни филтри">
+<!ENTITY import.accesskey "m">
+<!ENTITY export.label "Изнеси Потребителски филтри">
+<!ENTITY export.accesskey "x">
+<!ENTITY clearall.label "Премахване на всички потребителски филтри">
+<!ENTITY clearall.accesskey "i">
+<!ENTITY resethitcounts.label "Нулиране на хит статистиката">
+<!ENTITY resethitcounts.accesskey "R">
+<!ENTITY edit.label "Промени">
+<!ENTITY edit.accesskey "E">
+<!ENTITY cut.label "Изрежи">
+<!ENTITY cut.accesskey "t">
+<!ENTITY copy.label "Копирай">
+<!ENTITY copy.accesskey "C">
+<!ENTITY paste.label "Постави">
+<!ENTITY paste.accesskey "P">
+<!ENTITY remove.label "Изтрий">
+<!ENTITY remove.accesskey "D">
+<!ENTITY menu.find.label "Намери">
+<!ENTITY menu.find.accesskey "F">
+<!ENTITY menu.findagain.label "Намери отново">
+<!ENTITY menu.findagain.accesskey "g">
+<!ENTITY view.label "Изглед">
+<!ENTITY view.accesskey "V">
+<!ENTITY sort.label "Сортирай по">
+<!ENTITY sort.accesskey "S">
+<!ENTITY sort.none.label "Несортирани">
+<!ENTITY sort.none.accesskey "U">
+<!ENTITY sort.ascending.label "А &gt; Я сортиране">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.descending.label "Я &gt; А Сортиране">
+<!ENTITY sort.descending.accesskey "Z">
+<!ENTITY options.label "Настройки">
+<!ENTITY options.accesskey "O">
+<!ENTITY enable.label "Включи  Adblock Плюс">
+<!ENTITY enable.accesskey "n">
+<!ENTITY showintoolbar.label "Покажи в лентата с инструменти">
+<!ENTITY showintoolbar.accesskey "b">
+<!ENTITY showinstatusbar.label "Покажи в лентата на състоянието">
+<!ENTITY showinstatusbar.accesskey "s">
+<!ENTITY objecttabs.label "Покажи разделите за Flash и Java">
+<!ENTITY objecttabs.accesskey "t">
+<!ENTITY collapse.label "Свиване на блокираните елементи">
+<!ENTITY collapse.accesskey "I">
+<!ENTITY help.label "Помощ">
+<!ENTITY help.accesskey "H">
+<!ENTITY gettingStarted.label "Как да започнем">
+<!ENTITY gettingStarted.accesskey "s">
+<!ENTITY gettingStarted.url "http://adblockplus.org/en/getting_started">
+<!ENTITY faq.label "Често Задавани Въпроси">
+<!ENTITY faq.accesskey "F">
+<!ENTITY faq.url "http://adblockplus.org/en/faq">
+<!ENTITY filterdoc.label "Писане Adblock Плюс филтри">
+<!ENTITY filterdoc.accesskey "r">
+<!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
+<!ENTITY about.label "Относно Adblock Плюс">
+<!ENTITY about.accesskey "b">
+<!ENTITY description "Следните филтри определиха кои адреси да бъдат блокирани и кои от тях трябва да се разрешат:">
+<!ENTITY filter.column "Филтър правило">
+<!ENTITY filter.accesskey "F">
+<!ENTITY slow.column "Покажи филтри">
+<!ENTITY slow.accesskey "w">
+<!ENTITY enabled.column "Включен">
+<!ENTITY enabled.accesskey "n">
+<!ENTITY hitcount.column "Посещения">
+<!ENTITY hitcount.accesskey "H">
+<!ENTITY lasthit.column "Последни Посещения">
+<!ENTITY lasthit.accesskey "L">
+<!ENTITY context.edit.label "Промени филтър">
+<!ENTITY context.resethitcount.label "Нулирай хит статистика за филтър">
+<!ENTITY context.synchsubscription.label "Обнови абонамента сега">
+<!ENTITY context.editsubscription.label "Промени абонамента">
+<!ENTITY context.moveup.label "Премести филтъра нагоре">
+<!ENTITY context.movedown.label "Премести филтъра надолу">
+<!ENTITY context.movegroupup.label "Премести групата нагоре">
+<!ENTITY context.movegroupdown.label "Премести групата надолу">
+<!ENTITY context.enable.label "Разреши">
+<!ENTITY context.disable.label "Забрани">
+<!ENTITY apply.label "Приложи">
+<!ENTITY apply.accesskey "p">
+<!ENTITY fennec.subscription.label "Филтър абонамент">
