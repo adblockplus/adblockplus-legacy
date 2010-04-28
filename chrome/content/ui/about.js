@@ -34,60 +34,63 @@ function init()
 {
   E("version").value = abp.getInstalledVersion();
 
+  let ioService = Cc["@mozilla.org/network/io-service;1"].getService(Ci.nsIIOService);
   if (typeof AddonManager != "undefined")
   {
-    let addon = AddonManager.getAddon(addonId, function(addon)
+    let addon = AddonManager.getAddonByID(addonID, function(addon)
     {
-      setContributors(addon.contributors, addon.translators);
+      loadInstallManifest(ioService.newURI(addon.getResourceURL("install.rdf"), null, null));
     });
   }
   else
   {
     let extensionManager = Cc["@mozilla.org/extensions/manager;1"].getService(Ci.nsIExtensionManager);
-    let ioService = Cc["@mozilla.org/network/io-service;1"].getService(Ci.nsIIOService);
     let installLocation = extensionManager.getInstallLocation(addonID);
     let installManifestFile = installLocation.getItemFile(addonID, "install.rdf");
-    let installManifestURI = ioService.newFileURI(installManifestFile);
+    loadInstallManifest(ioService.newFileURI(installManifestFile));
+  }
+}
 
-    let rdf = Cc["@mozilla.org/rdf/rdf-service;1"].getService(Ci.nsIRDFService);
-    let ds = rdf.GetDataSource(installManifestURI.spec);
-    let root = rdf.GetResource("urn:mozilla:install-manifest");
+function loadInstallManifest(installManifestURI)
+{
+  let rdf = Cc["@mozilla.org/rdf/rdf-service;1"].getService(Ci.nsIRDFService);
+  let ds = rdf.GetDataSource(installManifestURI.spec);
+  let root = rdf.GetResource("urn:mozilla:install-manifest");
 
-    function emResource(prop)
-    {
-      return rdf.GetResource("http://www.mozilla.org/2004/em-rdf#" + prop);
-    }
+  function emResource(prop)
+  {
+    return rdf.GetResource("http://www.mozilla.org/2004/em-rdf#" + prop);
+  }
 
-    function getTargets(prop)
-    {
-      let targets = ds.GetTargets(root, emResource(prop), true);
-      let result = [];
-      while (targets.hasMoreElements())
-        result.push(targets.getNext().QueryInterface(Ci.nsIRDFLiteral).Value);
-      return result;
-    }
+  function getTargets(prop)
+  {
+    let targets = ds.GetTargets(root, emResource(prop), true);
+    let result = [];
+    while (targets.hasMoreElements())
+      result.push(targets.getNext().QueryInterface(Ci.nsIRDFLiteral).Value);
+    return result;
+  }
 
-    function dataSourceLoaded()
-    {
-      setContributors(getTargets("contributor"), getTargets("translator"));
-    }
+  function dataSourceLoaded()
+  {
+    setContributors(getTargets("contributor"), getTargets("translator"));
+  }
 
-    if (ds instanceof Ci.nsIRDFRemoteDataSource && ds.loaded)
-      dataSourceLoaded();
-    else
-    {
-      let sink = ds.QueryInterface(Ci.nsIRDFXMLSink);
-      sink.addXMLSinkObserver({
-        onBeginLoad: function() {},
-        onInterrupt: function() {},
-        onResume: function() {},
-        onEndLoad: function() {
-          sink.removeXMLSinkObserver(this);
-          dataSourceLoaded();
-        },
-        onError: function() {},
-      });
-    }
+  if (ds instanceof Ci.nsIRDFRemoteDataSource && ds.loaded)
+    dataSourceLoaded();
+  else
+  {
+    let sink = ds.QueryInterface(Ci.nsIRDFXMLSink);
+    sink.addXMLSinkObserver({
+      onBeginLoad: function() {},
+      onInterrupt: function() {},
+      onResume: function() {},
+      onEndLoad: function() {
+        sink.removeXMLSinkObserver(this);
+        dataSourceLoaded();
+      },
+      onError: function() {},
+    });
   }
 }
 
