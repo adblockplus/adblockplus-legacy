@@ -13,20 +13,20 @@
 <!ENTITY addSubscription.label "Добави абонамент">
 <!ENTITY saveSubscription.label "Запиши абонамента">
 <!ENTITY other.label "Добави друг абонамент">
-<!ENTITY other.accesskey "f">
+<!ENTITY other.accesskey "Д">
 <!ENTITY list.download.failed "Adblock Плюс не успя да извлече списък с абонаменти.">
 <!ENTITY list.download.retry "Опитайте отново">
-<!ENTITY list.download.website "Покажи уебсайта">
+<!ENTITY list.download.website "Покажи сайтът">
 <!ENTITY list.website.url "http://adblockplus.org/en/subscriptions">
 <!ENTITY fromWeb.description "Моля, потвърдете, че желаете да добавите този абонамент за филтър. Може да промените заглавието или местоположението преди да го добавите.">
 <!ENTITY edit.description "Може да променяте заглавието или местоположението на абонамента колкото е необходимо.">
 <!ENTITY external.description "Това е външен абонамент филтър, той ще бъде актуализиран с разширението което е създадено от този абонамент.">
 <!ENTITY title.label "Заглавие на абонамента:">
-<!ENTITY title.accesskey "t">
+<!ENTITY title.accesskey "З">
 <!ENTITY location.label "Местоположение на списъка с филтрите:">
-<!ENTITY location.accesskey "l">
+<!ENTITY location.accesskey "М">
 <!ENTITY autodownload.label "Автоматично обновявай филтрите">
-<!ENTITY autodownload.accesskey "p">
+<!ENTITY autodownload.accesskey "А">
 <!ENTITY supplementMessage "Този филтър абонамент е предназначен да се използва с филтър подписка &quot;?1?&quot; Които не използвате все още.">
 <!ENTITY addMain.label "Добави абонамент филтър &quot;?1?&quot;">
-<!ENTITY addMain.accesskey "s">
+<!ENTITY addMain.accesskey "Д">
