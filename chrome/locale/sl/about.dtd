@@ -6,3 +6,7 @@
 <!ENTITY homepage.url "http://adblockplus.org/">
 <!ENTITY author.label "Avtor:">
 <!ENTITY contributors.label "Avtorji prispevkov:">
+<!ENTITY developers.label "Razvijalci:">
+<!ENTITY designers.label "Grafični oblikovalci:">
+<!ENTITY subscriptionAuthors.label "Avtorji naročnin na filtre:">
+<!ENTITY translators.label "Prevajalci:">
