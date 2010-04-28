@@ -2,7 +2,7 @@
 <!ENTITY detach.label "Отдели">
 <!ENTITY reattach.label "Свържи отново">
 <!ENTITY search.label "Търси:">
-<!ENTITY search.accesskey "S">
+<!ENTITY search.accesskey "Т">
 <!ENTITY type.label "Тип">
 <!ENTITY address.label "Адрес">
 <!ENTITY filter.label "Филтър">
