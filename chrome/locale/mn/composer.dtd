@@ -3,6 +3,7 @@
 <!ENTITY advanced.label "Дэвшмэл харагдац">
 <!ENTITY basic.label "Үндсэн харагдац">
 <!ENTITY disabled.warning "Adblock Plus нь одоогоор хаалттай байна.  Та шүүлтүүр нэмж чадах боловч хэрэгжихгүй байх болно. [link]Adblock Plus-ийг нээх[/link].">
+<!ENTITY groupDisabled.warning "Шүүх бүлэг &quot;?1?&quot; нь одоогоор хаалттай шүүлтүүр рүү нэмэгдсэн байна. Та шүүлтүүрийг оруулсан боловч [link]шүүх бүлгийг нээх[/link] үйлдлийг хийгээгүй.">
 <!ENTITY filter.label "Шинэ шүүлтүүр:">
 <!ENTITY filter.accesskey "ш">
 <!ENTITY preferences.label "Байгаа шүүлтүүрүүдийг харах...">
@@ -13,13 +14,15 @@
 <!ENTITY type.whitelist.accesskey "Ү">
 <!ENTITY pattern.label "Эсгүүрийн байдал">
 <!ENTITY pattern.explanation "Эсгүүр нь хаягийн аль нэг хэсэг, * тэмдэг шиг байж болно. Энэ шүүлтүүр нь зөвхөн энэ эсгүүртэй холбогдох хаяг дээр хэрэгжинэ.">
-<!ENTITY regexp.warning "Эсгүүр нь энгийн илэрхийлэл шиг байж болно. Хэт их энгийн илэрхийлэл нь ажиллагааг удаашруулж болзошгүй. If you didn&apos;t intend to use regular expressions, add a * symbol at the end of the pattern.">
+<!ENTITY regexp.warning "Эсгүүр нь энгийн илэрхийлэл шиг байж болно. Хэт их энгийн илэрхийлэл нь ажиллагааг удаашруулж болзошгүй. If you didn't intend to use regular expressions, add a * symbol at the end of the pattern.">
 <!ENTITY shortpattern.warning "The pattern you entered is too short to be optimized, many such patterns might slow down your browsing. It is recommended that you choose a longer string for this filter.">
 <!ENTITY custom.pattern.label "Тусгай:">
 <!ENTITY custom.pattern.accesskey "Т">
 <!ENTITY anchors.label "Эсгүүрийг зөвхөн зөвшөөрөх нь:">
 <!ENTITY anchor.start.label "хаягийн эхлэлд">
 <!ENTITY anchor.start.accesskey "э">
+<!ENTITY anchor.start.flexible.label "Домайн нэрийн эхлэлд">
+<!ENTITY anchor.start.flexible.accesskey "н">
 <!ENTITY anchor.end.label "хаягийн төгсгөлд">
 <!ENTITY anchor.end.accesskey "Д">
 <!ENTITY options.label "Сонголтууд">

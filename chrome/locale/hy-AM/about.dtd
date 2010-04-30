@@ -9,3 +9,7 @@
 <!ENTITY homepage.url "http://adblockplus.org/en/">
 <!ENTITY author.label "Հեղինակ.">
 <!ENTITY contributors.label "Մասնակիցներ.">
+<!ENTITY developers.label "Նախագծողներ:">
+<!ENTITY designers.label "Գրաֆիկական Դիզայն:">
+<!ENTITY subscriptionAuthors.label "Ֆիլտրերի բաժանորդագրությունների հեղինակներ:">
+<!ENTITY translators.label "Թարգմանիչներ:">
