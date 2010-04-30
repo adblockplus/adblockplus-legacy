@@ -24,63 +24,42 @@
 
 /**
  * @fileOverview Manages synchronization of filter subscriptions.
- * This file is included from AdblockPlus.js.
  */
 
+var EXPORTED_SYMBOLS = ["Synchronizer"];
+
+const Cc = Components.classes;
+const Ci = Components.interfaces;
+const Cr = Components.results;
+const Cu = Components.utils;
+
+let baseURL = Cc["@adblockplus.org/abp/private;1"].getService(Ci.nsIURI);
+
+Cu.import("resource://gre/modules/XPCOMUtils.jsm");
+Cu.import(baseURL.spec + "TimeLine.jsm");
+Cu.import(baseURL.spec + "Utils.jsm");
+Cu.import(baseURL.spec + "FilterStorage.jsm");
+Cu.import(baseURL.spec + "FilterClasses.jsm");
+Cu.import(baseURL.spec + "SubscriptionClasses.jsm");
+Cu.import(baseURL.spec + "Prefs.jsm");
+
 var XMLHttpRequest = Components.Constructor("@mozilla.org/xmlextras/xmlhttprequest;1", "nsIJSXMLHttpRequest");
+
+let timer = null;
+
+/**
+ * Map of subscriptions currently being downloaded, all currently downloaded
+ * URLs are keys of that map.
+ */
+let executing = {__proto__: null};
 
 /**
  * This object is responsible for downloading filter subscriptions whenever
  * necessary.
  * @class
  */
-var synchronizer =
+var Synchronizer =
 {
-  /**
-   * Map of subscriptions currently being downloaded, all currently downloaded
-   * URLs are keys of that map.
-   */
-  executing: {__proto__: null},
-
-  /**
-   * Initializes synchronizer so that it checks hourly whether any subscriptions
-   * need to be downloaded.
-   */
-  init: function()
-  {
-    let me = this;
-    let callback = function()
-    {
-      me.timer.delay = 3600000;
-      me.checkSubscriptions();
-    };
-
-    this.timer = Cc["@mozilla.org/timer;1"].createInstance(Ci.nsITimer);
-    this.timer.initWithCallback(callback, 300000, Ci.nsITimer.TYPE_REPEATING_SLACK);
-  },
-
-  /**
-   * Checks whether any subscriptions need to be downloaded and starts the download
-   * if necessary.
-   */
-  checkSubscriptions: function()
-  {
-    let time = Date.now()/1000;
-    for each (let subscription in filterStorage.subscriptions)
-    {
-      if (!(subscription instanceof DownloadableSubscription) || !subscription.autoDownload)
-        continue;
-  
-      if (subscription.expires > time)
-        continue;
-
-      // Get the number of hours since last download
-      let interval = (time - subscription.lastDownload) / 3600;
-      if (interval >= prefs.synchronizationinterval)
-        synchronizer.execute(subscription, false);
-    }
-  },
-
   /**
    * Checks whether a subscription is currently being downloaded.
    * @param {String} url  URL of the subscription
@@ -88,139 +67,7 @@ var synchronizer =
    */
   isExecuting: function(url)
   {
-    return url in this.executing;
-  },
-
-  /**
-   * Extracts a list of filters from text returned by a server.
-   * @param {DownloadableSubscription} subscription  subscription the info should be placed into
-   * @param {String} text server response
-   * @param {Function} errorCallback function to be called on error
-   * @return {Array of Filter}
-   */
-  readFilters: function(subscription, text, errorCallback)
-  {
-    let lines = text.split(/[\r\n]+/);
-    if (!/\[Adblock(?:\s*Plus\s*([\d\.]+)?)?\]/i.test(lines[0]))
-    {
-      errorCallback("synchronize_invalid_data");
-      return null;
-    }
-    let minVersion = RegExp.$1;
-
-    for (let i = 0; i < lines.length; i++)
-    {
-      if (/!\s*checksum[\s\-:]+([\w\+\/]+)/i.test(lines[i]))
-      {
-        lines.splice(i, 1);
-        let checksumExpected = RegExp.$1;
-        let checksum = generateChecksum(lines);
-
-        if (checksum && checksum != checksumExpected)
-        {
-          errorCallback("synchronize_checksum_mismatch");
-          return null;
-        }
-
-        break;
-      }
-    }
-
-    delete subscription.requiredVersion;
-    delete subscription.upgradeRequired;
-    if (minVersion)
-    {
-      subscription.requiredVersion = minVersion;
-      if (abp.versionComparator.compare(minVersion, abp.getInstalledVersion()) > 0)
-        subscription.upgradeRequired = true;
-    }
-
-    lines.shift();
-    let result = [];
-    for each (let line in lines)
-    {
-      let filter = Filter.fromText(normalizeFilter(line));
-      if (filter)
-        result.push(filter);
-    }
-
-    return result;
-  },
-
-  /**
-   * Handles an error during a subscription download.
-   * @param {DownloadableSubscription} subscription  subscription that failed to download
-   * @param {Integer} channelStatus result code of the download channel
-   * @param {String} responseStatus result code as received from server
-   * @param {String} downloadURL the URL used for download
-   * @param {String} error error ID in global.properties
-   * @param {Boolean} isBaseLocation false if the subscription was downloaded from a location specified in X-Alternative-Locations header
-   * @param {Boolean} manual  true for a manually started download (should not trigger fallback requests)
-   */
-  setError: function(subscription, error, channelStatus, responseStatus, downloadURL, isBaseLocation, manual)
-  {
-    // If download from an alternative location failed, reset the list of
-    // alternative locations - have to get an updated list from base location.
-    if (!isBaseLocation)
-      subscription.alternativeLocations = null;
-
-    try {
-      Cu.reportError("Adblock Plus: Downloading filter subscription " + subscription.title + " failed (" + abp.getString(error) + ")\n" +
-                     "Download address: " + downloadURL + "\n" +
-                     "Channel status: " + channelStatus + "\n" +
-                     "Server response: " + responseStatus);
-    } catch(e) {}
-
-    subscription.lastDownload = parseInt(Date.now() / 1000);
-    subscription.downloadStatus = error;
-
-    // Request fallback URL if necessary - for automatic updates only
-    if (!manual)
-    {
-      if (error == "synchronize_checksum_mismatch")
-      {
-        // No fallback for successful download with checksum mismatch, reset error counter
-        subscription.errors = 0;
-      }
-      else
-        subscription.errors++;
-  
-      if (subscription.errors >= prefs.subscriptions_fallbackerrors && /^https?:\/\//i.test(subscription.url))
-      {
-        subscription.errors = 0;
-  
-        let fallbackURL = prefs.subscriptions_fallbackurl;
-        fallbackURL = fallbackURL.replace(/%VERSION%/g, encodeURIComponent(abp.getInstalledVersion()));
-        fallbackURL = fallbackURL.replace(/%SUBSCRIPTION%/g, encodeURIComponent(subscription.url));
-        fallbackURL = fallbackURL.replace(/%URL%/g, encodeURIComponent(downloadURL));
-        fallbackURL = fallbackURL.replace(/%ERROR%/g, encodeURIComponent(error));
-        fallbackURL = fallbackURL.replace(/%CHANNELSTATUS%/g, encodeURIComponent(channelStatus));
-        fallbackURL = fallbackURL.replace(/%RESPONSESTATUS%/g, encodeURIComponent(responseStatus));
-  
-        let request = new XMLHttpRequest();
-        request.mozBackgroundRequest = true;
-        request.open("GET", fallbackURL);
-        request.overrideMimeType("text/plain");
-        request.channel.loadFlags = request.channel.loadFlags |
-                                    request.channel.INHIBIT_CACHING |
-                                    request.channel.VALIDATE_ALWAYS;
-        request.onload = function(ev)
-        {
-          if (/^301\s+(\S+)/.test(request.responseText))  // Moved permanently    
-            subscription.nextURL = RegExp.$1;
-          else if (/^410\b/.test(request.responseText))   // Gone
-          {
-            subscription.autoDownload = false;
-            filterStorage.triggerSubscriptionObservers("updateinfo", [subscription]);
-          }
-          filterStorage.saveToDisk();
-        }
-        request.send(null);
-      }
-    }
-
-    filterStorage.triggerSubscriptionObservers("updateinfo", [subscription]);
-    filterStorage.saveToDisk();
+    return url in executing;
   },
 
   /**
@@ -232,14 +79,14 @@ var synchronizer =
   execute: function(subscription, manual, forceDownload)
   {
     let url = subscription.url;
-    if (url in this.executing)
+    if (url in executing)
       return;
 
     let newURL = subscription.nextURL;
     let hadTemporaryRedirect = false;
     subscription.nextURL = null;
 
-    let curVersion = abp.getInstalledVersion();
+    let curVersion = Utils.addonVersion;
     let loadFrom = newURL;
     let isBaseLocation = true;
     if (!loadFrom)
@@ -289,26 +136,29 @@ var synchronizer =
     loadFrom = loadFrom.replace(/%VERSION%/, "ABP" + curVersion);
 
     let request = null;
-    let me = this;
     function errorCallback(error)
     {
       let channelStatus = -1;
-      try {
+      try
+      {
         channelStatus = request.channel.status;
       } catch (e) {}
       let responseStatus = "";
-      try {
+      try
+      {
         responseStatus = request.channel.QueryInterface(Ci.nsIHttpChannel).responseStatus;
       } catch (e) {}
-      me.setError(subscription, error, channelStatus, responseStatus, loadFrom, isBaseLocation, manual);
+      setError(subscription, error, channelStatus, responseStatus, loadFrom, isBaseLocation, manual);
     }
 
-    try {
+    try
+    {
       request = new XMLHttpRequest();
       request.mozBackgroundRequest = true;
       request.open("GET", loadFrom);
     }
-    catch (e) {
+    catch (e)
+    {
       errorCallback("synchronize_invalid_url");
       return;
     }
@@ -327,7 +177,7 @@ var synchronizer =
       var oldEventSink = null;
       request.channel.notificationCallbacks =
       {
-        QueryInterface: XPCOMUtils.generateQI([Ci.nsIChannelEventSink]),
+        QueryInterface: XPCOMUtils.generateQI([Ci.nsIInterfaceRequestor, Ci.nsIChannelEventSink]),
 
         getInterface: function(iid)
         {
@@ -346,10 +196,12 @@ var synchronizer =
         {
           if (isBaseLocation && !hadTemporaryRedirect && oldChannel instanceof Ci.nsIHttpChannel)
           {
-            try {
+            try
+            {
               subscription.alternativeLocations = oldChannel.getResponseHeader("X-Alternative-Locations");
             }
-            catch (e) {
+            catch (e)
+            {
               subscription.alternativeLocations = null;
             }
           }
@@ -363,15 +215,18 @@ var synchronizer =
             oldEventSink.onChannelRedirect(oldChannel, newChannel, flags);
         }
       }
-    } catch (e) {}
+    }
+    catch (e)
+    {
+      Cu.reportError(e)
+    }
 
     if (subscription.lastModified && !forceDownload)
       request.setRequestHeader("If-Modified-Since", subscription.lastModified);
-      this.request = request;
 
     request.onerror = function(ev)
     {
-      delete me.executing[url];
+      delete executing[url];
       try {
         request.channel.notificationCallbacks = null;
       } catch (e) {}
@@ -381,7 +236,7 @@ var synchronizer =
 
     request.onload = function(ev)
     {
-      delete me.executing[url];
+      delete executing[url];
       try {
         request.channel.notificationCallbacks = null;
       } catch (e) {}
@@ -396,7 +251,7 @@ var synchronizer =
       let newFilters = null;
       if (request.status != 304)
       {
-        newFilters = me.readFilters(subscription, request.responseText, errorCallback);
+        newFilters = readFilters(subscription, request.responseText, errorCallback);
         if (!newFilters)
           return;
 
@@ -405,11 +260,11 @@ var synchronizer =
 
       if (isBaseLocation && !hadTemporaryRedirect)
         subscription.alternativeLocations = request.getResponseHeader("X-Alternative-Locations");
-      subscription.lastDownload = parseInt(Date.now() / 1000);
+      subscription.lastDownload = Math.round(Date.now() / 1000);
       subscription.downloadStatus = "synchronize_ok";
       subscription.errors = 0;
 
-      let expires = parseInt(new Date(request.getResponseHeader("Expires")).getTime() / 1000) || 0;
+      let expires = Math.round(new Date(request.getResponseHeader("Expires")).getTime() / 1000) || 0;
       for each (let filter in newFilters)
       {
         if (filter instanceof CommentFilter && /\bExpires\s*(?::|after)\s*(\d+)\s*(h)?/i.test(filter.text))
@@ -435,9 +290,9 @@ var synchronizer =
 
       if (isBaseLocation && newURL && newURL != url)
       {
-        let listed = (subscription.url in filterStorage.knownSubscriptions);
+        let listed = (subscription.url in FilterStorage.knownSubscriptions);
         if (listed)
-          filterStorage.removeSubscription(subscription);
+          FilterStorage.removeSubscription(subscription);
 
         url = newURL;
 
@@ -452,30 +307,206 @@ var synchronizer =
         subscription = newSubscription;
         subscription.url = url;
 
-        if (!(subscription.url in filterStorage.knownSubscriptions) && listed)
-          filterStorage.addSubscription(subscription);
+        if (!(subscription.url in FilterStorage.knownSubscriptions) && listed)
+          FilterStorage.addSubscription(subscription);
       }
 
       if (newFilters)
-        filterStorage.updateSubscriptionFilters(subscription, newFilters);
+        FilterStorage.updateSubscriptionFilters(subscription, newFilters);
       else
-        filterStorage.triggerSubscriptionObservers("updateinfo", [subscription]);
+        FilterStorage.triggerSubscriptionObservers("updateinfo", [subscription]);
       delete subscription.oldSubscription;
 
-      filterStorage.saveToDisk();
+      FilterStorage.saveToDisk();
     };
 
-    this.executing[url] = true;
-    filterStorage.triggerSubscriptionObservers("updateinfo", [subscription]);
+    executing[url] = true;
+    FilterStorage.triggerSubscriptionObservers("updateinfo", [subscription]);
 
-    try {
+    try
+    {
       request.send(null);
     }
-    catch (e) {
-      delete me.executing[url];
+    catch (e)
+    {
+      delete executing[url];
       errorCallback("synchronize_connection_error");
       return;
     }
   }
 };
-abp.synchronizer = synchronizer;
+
+/**
+ * Called when the module loads, initializes subscription synchronization
+ */
+function init()
+{
+  TimeLine.enter("Entered Synchronizer.jsm init()");
+
+  let callback = function()
+  {
+    timer.delay = 3600000;
+    checkSubscriptions();
+  };
+
+  timer = Cc["@mozilla.org/timer;1"].createInstance(Ci.nsITimer);
+  timer.initWithCallback(callback, 300000, Ci.nsITimer.TYPE_REPEATING_SLACK);
+
+  TimeLine.leave("Synchronizer.jsm init() done");
+}
+
+/**
+ * Checks whether any subscriptions need to be downloaded and starts the download
+ * if necessary.
+ */
+function checkSubscriptions()
+{
+  let time = Date.now() / 1000;
+  for each (let subscription in FilterStorage.subscriptions)
+  {
+    if (!(subscription instanceof DownloadableSubscription) || !subscription.autoDownload)
+      continue;
+
+    if (subscription.expires > time)
+      continue;
+
+    // Get the number of hours since last download
+    let interval = (time - subscription.lastDownload) / 3600;
+    if (interval >= Prefs.synchronizationinterval)
+      Synchronizer.execute(subscription, false);
+  }
+}
+
+/**
+ * Extracts a list of filters from text returned by a server.
+ * @param {DownloadableSubscription} subscription  subscription the info should be placed into
+ * @param {String} text server response
+ * @param {Function} errorCallback function to be called on error
+ * @return {Array of Filter}
+ */
+function readFilters(subscription, text, errorCallback)
+{
+  let lines = text.split(/[\r\n]+/);
+  if (!/\[Adblock(?:\s*Plus\s*([\d\.]+)?)?\]/i.test(lines[0]))
+  {
+    errorCallback("synchronize_invalid_data");
+    return null;
+  }
+  let minVersion = RegExp.$1;
+
+  for (let i = 0; i < lines.length; i++)
+  {
+    if (/!\s*checksum[\s\-:]+([\w\+\/]+)/i.test(lines[i]))
+    {
+      lines.splice(i, 1);
+      let checksumExpected = RegExp.$1;
+      let checksum = Utils.generateChecksum(lines);
+
+      if (checksum && checksum != checksumExpected)
+      {
+        errorCallback("synchronize_checksum_mismatch");
+        return null;
+      }
+
+      break;
+    }
+  }
+
+  delete subscription.requiredVersion;
+  delete subscription.upgradeRequired;
+  if (minVersion)
+  {
+    subscription.requiredVersion = minVersion;
+    if (Utils.versionComparator.compare(minVersion, Utils.addonVersion) > 0)
+      subscription.upgradeRequired = true;
+  }
+
+  lines.shift();
+  let result = [];
+  for each (let line in lines)
+  {
+    let filter = Filter.fromText(Filter.normalize(line));
+    if (filter)
+      result.push(filter);
+  }
+
+  return result;
+}
+
+/**
+ * Handles an error during a subscription download.
+ * @param {DownloadableSubscription} subscription  subscription that failed to download
+ * @param {Integer} channelStatus result code of the download channel
+ * @param {String} responseStatus result code as received from server
+ * @param {String} downloadURL the URL used for download
+ * @param {String} error error ID in global.properties
+ * @param {Boolean} isBaseLocation false if the subscription was downloaded from a location specified in X-Alternative-Locations header
+ * @param {Boolean} manual  true for a manually started download (should not trigger fallback requests)
+ */
+function setError(subscription, error, channelStatus, responseStatus, downloadURL, isBaseLocation, manual)
+{
+  // If download from an alternative location failed, reset the list of
+  // alternative locations - have to get an updated list from base location.
+  if (!isBaseLocation)
+    subscription.alternativeLocations = null;
+
+  try {
+    Cu.reportError("Adblock Plus: Downloading filter subscription " + subscription.title + " failed (" + Utils.getString(error) + ")\n" +
+                   "Download address: " + downloadURL + "\n" +
+                   "Channel status: " + channelStatus + "\n" +
+                   "Server response: " + responseStatus);
+  } catch(e) {}
+
+  subscription.lastDownload = Math.round(Date.now() / 1000);
+  subscription.downloadStatus = error;
+
+  // Request fallback URL if necessary - for automatic updates only
+  if (!manual)
+  {
+    if (error == "synchronize_checksum_mismatch")
+    {
+      // No fallback for successful download with checksum mismatch, reset error counter
+      subscription.errors = 0;
+    }
+    else
+      subscription.errors++;
+
+    if (subscription.errors >= Prefs.subscriptions_fallbackerrors && /^https?:\/\//i.test(subscription.url))
+    {
+      subscription.errors = 0;
+
+      let fallbackURL = Prefs.subscriptions_fallbackurl;
+      fallbackURL = fallbackURL.replace(/%VERSION%/g, encodeURIComponent(Utils.addonVersion));
+      fallbackURL = fallbackURL.replace(/%SUBSCRIPTION%/g, encodeURIComponent(subscription.url));
+      fallbackURL = fallbackURL.replace(/%URL%/g, encodeURIComponent(downloadURL));
+      fallbackURL = fallbackURL.replace(/%ERROR%/g, encodeURIComponent(error));
+      fallbackURL = fallbackURL.replace(/%CHANNELSTATUS%/g, encodeURIComponent(channelStatus));
+      fallbackURL = fallbackURL.replace(/%RESPONSESTATUS%/g, encodeURIComponent(responseStatus));
+
+      let request = new XMLHttpRequest();
+      request.mozBackgroundRequest = true;
+      request.open("GET", fallbackURL);
+      request.overrideMimeType("text/plain");
+      request.channel.loadFlags = request.channel.loadFlags |
+                                  request.channel.INHIBIT_CACHING |
+                                  request.channel.VALIDATE_ALWAYS;
+      request.onload = function(ev)
+      {
+        if (/^301\s+(\S+)/.test(request.responseText))  // Moved permanently    
+          subscription.nextURL = RegExp.$1;
+        else if (/^410\b/.test(request.responseText))   // Gone
+        {
+          subscription.autoDownload = false;
+          FilterStorage.triggerSubscriptionObservers("updateinfo", [subscription]);
+        }
+        FilterStorage.saveToDisk();
+      }
+      request.send(null);
+    }
+  }
+
+  FilterStorage.triggerSubscriptionObservers("updateinfo", [subscription]);
+  FilterStorage.saveToDisk();
+}
+
+init();

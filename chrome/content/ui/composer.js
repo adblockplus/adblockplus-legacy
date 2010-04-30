@@ -34,7 +34,7 @@ function init() {
 
   [wnd, item] = window.arguments;
 
-  E("filterType").value = (!item.filter || item.filter.disabled || item.filter instanceof abp.WhitelistFilter ? "filterlist" : "whitelist");
+  E("filterType").value = (!item.filter || item.filter.disabled || item.filter instanceof WhitelistFilter ? "filterlist" : "whitelist");
   E("customPattern").value = item.location;
 
   let insertionPoint = E("customPatternBox");
@@ -99,7 +99,7 @@ function init() {
       suggestions[5] = suggestions[5];
     }
 
-    E("patternGroup").value = (prefs.composer_default in suggestions ? suggestions[prefs.composer_default] : suggestions[1]);
+    E("patternGroup").value = (Prefs.composer_default in suggestions ? suggestions[Prefs.composer_default] : suggestions[1]);
   }
   catch (e)
   {
@@ -107,13 +107,13 @@ function init() {
     addSuggestion(item.location);
     E("patternGroup").value = "";
   }
-  if (prefs.composer_default == 0)
+  if (Prefs.composer_default == 0)
     E("customPattern").focus();
   else
     E("patternGroup").focus();
 
   let types = [];
-  for (let type in abp.policy.localizedDescr)
+  for (let type in Policy.localizedDescr)
   {
     types.push(parseInt(type));
   }
@@ -140,12 +140,12 @@ function init() {
   let typeGroup = E("typeGroup");
   for each (let type in types)
   {
-    if (type == abp.policy.type.ELEMHIDE)
+    if (type == Policy.type.ELEMHIDE)
       continue;
 
     let typeNode = document.createElement("checkbox");
-    typeNode.setAttribute("value", abp.policy.typeDescr[type].toLowerCase());
-    typeNode.setAttribute("label", abp.policy.localizedDescr[type].toLowerCase());
+    typeNode.setAttribute("value", Policy.typeDescr[type].toLowerCase());
+    typeNode.setAttribute("label", Policy.localizedDescr[type].toLowerCase());
     typeNode.setAttribute("checked", "true");
     if (item.type == type)
       typeNode.setAttribute("disabled", "true");
@@ -154,13 +154,13 @@ function init() {
   }
 
   let collapseDefault = E("collapseDefault");
-  collapseDefault.label = collapseDefault.getAttribute(prefs.fastcollapse ? "label_no" : "label_yes");
+  collapseDefault.label = collapseDefault.getAttribute(Prefs.fastcollapse ? "label_no" : "label_yes");
   E("collapse").value = "";
   E("collapse").setAttribute("label", collapseDefault.label);
 
   let warning = E("disabledWarning");
   generateLinkText(warning);
-  warning.hidden = prefs.enabled;
+  warning.hidden = Prefs.enabled;
 
   updatePatternSelection();
 }
@@ -234,18 +234,18 @@ function updateFilter()
       filter += "$" + options.join(",");
   }
 
-  filter = abp.normalizeFilter(filter);
-  E("regexpWarning").hidden = !abp.Filter.regexpRegExp.test(filter);
+  filter = Filter.normalize(filter);
+  E("regexpWarning").hidden = !Filter.regexpRegExp.test(filter);
 
   let hasShortcut = true;
-  let compiledFilter = abp.Filter.fromText(filter);
+  let compiledFilter = Filter.fromText(filter);
   if (E("regexpWarning").hidden)
   {
     let matcher = null;
-    if (compiledFilter instanceof abp.BlockingFilter)
-      matcher = abp.blacklistMatcher;
-    if (compiledFilter instanceof abp.WhitelistFilter)
-      matcher = abp.whitelistMatcher;
+    if (compiledFilter instanceof BlockingFilter)
+      matcher = blacklistMatcher;
+    if (compiledFilter instanceof WhitelistFilter)
+      matcher = whitelistMatcher;
     if (matcher && !matcher.findShortcut(compiledFilter.text))
       hasShortcut = false;
   }
@@ -256,8 +256,8 @@ function updateFilter()
   if (E("disabledWarning").hidden)
   {
     let subscription = null;
-    for each (let s in filterStorage.subscriptions)
-      if (s instanceof abp.SpecialSubscription && s.isFilterAllowed(compiledFilter) && (!subscription || s.priority > subscription.priority))
+    for each (let s in FilterStorage.subscriptions)
+      if (s instanceof SpecialSubscription && s.isFilterAllowed(compiledFilter) && (!subscription || s.priority > subscription.priority))
         subscription = s;
 
     let warning = E("groupDisabledWarning");
@@ -313,7 +313,7 @@ function updatePatternSelection()
 
   function testFilter(/**String*/ filter) /**Boolean*/
   {
-    return abp.RegExpFilter.fromText(filter).matches(item.location, item.typeDescr, item.docDomain, item.thirdParty);
+    return RegExpFilter.fromText(filter).matches(item.location, item.typeDescr, item.docDomain, item.thirdParty);
   }
 
   let anchorStartCheckbox = E("anchorStart");
@@ -344,19 +344,19 @@ function updateCustomPattern()
 }
 
 function addFilter() {
-  let filter = abp.Filter.fromText(document.getElementById("filter").value);
+  let filter = Filter.fromText(document.getElementById("filter").value);
 
   if (filter.disabled)
   {
     filter.disabled = false;
-    filterStorage.triggerFilterObservers("enable", [filter]);
+    FilterStorage.triggerFilterObservers("enable", [filter]);
   }
 
-  filterStorage.addFilter(filter);
-  filterStorage.saveToDisk();
+  FilterStorage.addFilter(filter);
+  FilterStorage.saveToDisk();
 
   if (wnd && !wnd.closed)
-    abp.policy.refilterWindow(wnd);
+    Policy.refilterWindow(wnd);
 
   return true;
 }
@@ -392,20 +392,20 @@ function disableElement(element, disable, valueProperty, disabledValue) {
 }
 
 function openPreferences() {
-  abp.openSettingsDialog(item.location, E("filter").value);
+  Utils.openSettingsDialog(item.location, E("filter").value);
 }
 
 function doEnable() {
-  prefs.enabled = true;
-  prefs.save();
+  Prefs.enabled = true;
+  Prefs.save();
   E("disabledWarning").hidden = true;
 }
 
 function enableSubscription(subscription)
 {
   subscription.disabled = false;
-  filterStorage.triggerSubscriptionObservers("enable", [subscription]);
-  filterStorage.saveToDisk();
+  FilterStorage.triggerSubscriptionObservers("enable", [subscription]);
+  FilterStorage.saveToDisk();
   E("groupDisabledWarning").hidden = true;
 }
 

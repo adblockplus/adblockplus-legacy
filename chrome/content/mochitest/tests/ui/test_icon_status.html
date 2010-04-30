@@ -8,6 +8,7 @@
   <script type="text/javascript" src="/content/MochiKit/MochiKit.js"></script>
   <script type="text/javascript" src="/content/tests/SimpleTest/SimpleTest.js"></script>        
 
+  <script type="application/x-javascript;version=1.7" src="../common.js"></script>
   <script type="application/x-javascript;version=1.7" src="common.js"></script>
 </head>
 <body>
@@ -18,7 +19,13 @@
 
   <pre id="test">
   <script type="application/x-javascript;version=1.7">
-    let abp = Components.classes["@mozilla.org/adblockplus;1"].createInstance().wrappedJSObject;
+    prepareFilterComponents(true);
+    preparePrefs();
+
+    FilterStorage.addSubscription(Subscription.fromURL("~fl~"));
+    FilterStorage.addSubscription(Subscription.fromURL("~wl~"));
+    FilterStorage.addSubscription(Subscription.fromURL("~il~"));
+    FilterStorage.addSubscription(Subscription.fromURL("~eh~"));
 
     let tests = [
       createToolbarTest(testEnabled),
@@ -32,10 +39,10 @@
 
     function testEnabled(element)
     {
-      if (!abp.prefs.enabled)
+      if (!Prefs.enabled)
       {
-        abp.prefs.enabled = true;
-        abp.prefs.save();
+        Prefs.enabled = true;
+        Prefs.save();
       }
       setTimeout(function()
       {
@@ -46,10 +53,10 @@
 
     function testDisabled(element)
     {
-      if (abp.prefs.enabled)
+      if (Prefs.enabled)
       {
-        abp.prefs.enabled = false;
-        abp.prefs.save();
+        Prefs.enabled = false;
+        Prefs.save();
       }
       setTimeout(function()
       {
@@ -60,16 +67,16 @@
 
     function testWhitelisted(element)
     {
-      abp.filterStorage.addFilter(abp.Filter.fromText("@@|chrome://mochikit/$document"));
-      if (!abp.prefs.enabled)
+      FilterStorage.addFilter(Filter.fromText("@@|chrome://mochikit/$document"));
+      if (!Prefs.enabled)
       {
-        abp.prefs.enabled = true;
-        abp.prefs.save();
+        Prefs.enabled = true;
+        Prefs.save();
       }
       setTimeout(function()
       {
         is(element.getAttribute("abpstate"), "whitelisted", "Checking icon state with site whitelisting");
-        abp.filterStorage.removeFilter(abp.Filter.fromText("@@|chrome://mochikit/$document"));
+        FilterStorage.removeFilter(Filter.fromText("@@|chrome://mochikit/$document"));
         runNextTest();
       }, 0);
     }
@@ -80,7 +87,7 @@
       {
         let icon = getBrowserWindow().document.getElementById("abp-toolbarbutton");
         if (icon)
-          testFunction(icon, function() { abp.prefs.showintoolbar = oldShowInToolbar; });
+          testFunction(icon, function() { Prefs.showintoolbar = oldShowInToolbar; });
         else
           ok(false, "Toolbar icon not found in browser");
       };
@@ -109,35 +116,19 @@
 
     function start()
     {
-      window.addEventListener("unload", stop, false);
-
-      abp.prefs.enabled = true;
-
-      // Make sure status bar and toolbar icons are shown
-      abp.prefs.showintoolbar = false;
-      abp.prefs.showinstatusbar = false;
-      abp.prefs.save();
+      Prefs.enabled = true;
+      Prefs.showintoolbar = false;
+      Prefs.showinstatusbar = false;
+      Prefs.save();
       setTimeout(function()
       {
-        abp.prefs.showintoolbar = true;
-        abp.prefs.showinstatusbar = true;
-        abp.prefs.save();
+        Prefs.showintoolbar = true;
+        Prefs.showinstatusbar = true;
+        Prefs.save();
 
         setTimeout(runNextTest, 0);
       }, 0);
     }
-
-    function stop()
-    {
-      abp.prefs.enabled = oldEnabled;
-      abp.prefs.showintoolbar = oldShowInToolbar;
-      abp.prefs.showinstatusbar = oldShowInStatusbar;
-      abp.prefs.save();
-    }
-
-    let oldEnabled = abp.prefs.enabled;
-    let oldShowInToolbar = abp.prefs.showintoolbar;
-    let oldShowInStatusbar = abp.prefs.showinstatusbar;
 
     SimpleTest.waitForExplicitFinish();
     addLoadEvent(start);

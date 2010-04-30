@@ -19,7 +19,8 @@
 
   <pre id="test">
   <script type="application/x-javascript;version=1.7">
-    let abp = Components.classes["@mozilla.org/adblockplus;1"].createInstance().wrappedJSObject;
+    prepareFilterComponents();
+    preparePrefs();
 
     let tests = [
       [[], "visible visible"],
@@ -90,21 +91,21 @@
       }
 
       currentTest++;
-      abp.elemhide.clear();
-      abp.whitelistMatcher.clear();
+      ElemHide.clear();
+      whitelistMatcher.clear();
 
       let [filters, expected] = tests[currentTest];
       for each (let filter in filters)
-        abp.elemhide.add(abp.Filter.fromText(filter));
-      abp.elemhide.apply();
+        ElemHide.add(Filter.fromText(filter));
+      ElemHide.apply();
       if (currentRun == 2)
-        abp.whitelistMatcher.add(abp.Filter.fromText("@@|chrome://mochikit/$document"));
+        whitelistMatcher.add(Filter.fromText("@@|chrome://mochikit/$document"));
       else if (currentRun == 3)
-        abp.whitelistMatcher.add(abp.Filter.fromText("@@|chrome://mochikit/$~document"));
+        whitelistMatcher.add(Filter.fromText("@@|chrome://mochikit/$~document"));
       else if (currentRun == 4)
-        abp.whitelistMatcher.add(abp.Filter.fromText("@@|chrome://mochikit/$elemhide"));
+        whitelistMatcher.add(Filter.fromText("@@|chrome://mochikit/$elemhide"));
       else if (currentRun == 5)
-        abp.whitelistMatcher.add(abp.Filter.fromText("@@||localhost^$elemhide"));
+        whitelistMatcher.add(Filter.fromText("@@||localhost^$elemhide"));
 
       // Reset the loaded document
       let body = document.getElementById("frame").contentDocument.body;
@@ -136,7 +137,6 @@
         response.bodyOutputStream.write(body, body.length);
       });
 
-      abp.prefs.enabled = true;
       currentRun = 1;
 
       let frame = document.getElementById("frame");
@@ -146,13 +146,9 @@
     function stop()
     {
       server.stop();
-
-      abp.filterStorage.triggerSubscriptionObservers("reload", abp.filterStorage.subscriptions);
-      abp.prefs.enabled = oldEnabled;
     }
 
     let server = new nsHttpServer();
-    let oldEnabled = abp.prefs.enabled;
     SimpleTest.waitForExplicitFinish();
     addLoadEvent(start);
   </script>

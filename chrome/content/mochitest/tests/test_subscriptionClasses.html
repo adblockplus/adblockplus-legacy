@@ -9,8 +9,6 @@
   <script type="text/javascript" src="/content/tests/SimpleTest/SimpleTest.js"></script>        
 
   <script type="application/x-javascript;version=1.7" src="common.js"></script>
-  <script type="application/x-javascript;version=1.7" src="chrome://adblockplus/content/filterClasses.js"></script>
-  <script type="application/x-javascript;version=1.7" src="chrome://adblockplus/content/subscriptionClasses.js"></script>
 </head>
 <body>
   <p id="display"></p>
@@ -19,6 +17,8 @@
   </div>
   <pre id="test">
   <script type="application/x-javascript;version=1.7">
+    prepareFilterComponents();
+
     function compareSubscription(url, expected, postInit)
     {
       expected.push("[Subscription]")
@@ -43,11 +43,11 @@
       is(subscription.toString(), subscription2.toString(), url + " deserialization");
     }
 
-    is(typeof abp.Subscription, "function", "typeof abp.Subscription");
-    is(typeof abp.SpecialSubscription, "function", "typeof abp.SpecialSubscription");
-    is(typeof abp.RegularSubscription, "function", "typeof abp.RegularSubscription");
-    is(typeof abp.ExternalSubscription, "function", "typeof abp.ExternalSubscription");
-    is(typeof abp.DownloadableSubscription, "function", "typeof abp.DownloadableSubscription");
+    is(typeof Subscription, "function", "typeof Subscription");
+    is(typeof SpecialSubscription, "function", "typeof SpecialSubscription");
+    is(typeof RegularSubscription, "function", "typeof RegularSubscription");
+    is(typeof ExternalSubscription, "function", "typeof ExternalSubscription");
+    is(typeof DownloadableSubscription, "function", "typeof DownloadableSubscription");
 
     compareSubscription("~il~", ["url=~il~"]);
     compareSubscription("http://test/default", ["url=http://test/default", "title=http://test/default"]);

@@ -24,8 +24,19 @@
 
 /**
  * @fileOverview Definition of Subscription class and its subclasses.
- * This file is included from AdblockPlus.js.
  */
+
+var EXPORTED_SYMBOLS = ["Subscription", "SpecialSubscription", "RegularSubscription", "ExternalSubscription", "DownloadableSubscription"];
+
+const Cc = Components.classes;
+const Ci = Components.interfaces;
+const Cr = Components.results;
+const Cu = Components.utils;
+
+let baseURL = Cc["@adblockplus.org/abp/private;1"].getService(Ci.nsIURI);
+
+Cu.import(baseURL.spec + "Utils.jsm");
+Cu.import(baseURL.spec + "FilterClasses.jsm");
 
 /**
  * Abstract base class for filter subscriptions
@@ -84,7 +95,6 @@ Subscription.prototype =
     return buffer.join("\n");
   }
 };
-abp.Subscription = Subscription;
 
 /**
  * Cache for known filter subscriptions, maps URL to subscription objects.
@@ -109,7 +119,7 @@ Subscription.fromURL = function(url)
     try
     {
       // Test URL for validity
-      url = ioService.newURI(url, null, null).spec;
+      url = Utils.ioService.newURI(url, null, null).spec;
       return new DownloadableSubscription(url, null);
     }
     catch (e)
@@ -139,7 +149,7 @@ Subscription.fromObject = function(obj)
       try
       {
         // Test URL for validity
-        obj.url = ioService.newURI(obj.url, null, null).spec;
+        obj.url = Utils.ioService.newURI(obj.url, null, null).spec;
       }
       catch (e)
       {
@@ -162,7 +172,7 @@ Subscription.fromObject = function(obj)
       if ("requiredVersion" in obj)
       {
         result.requiredVersion = obj.requiredVersion;
-        if (abp.versionComparator.compare(result.requiredVersion, abp.getInstalledVersion()) > 0)
+        if (Utils.versionComparator.compare(result.requiredVersion, Utils.addonVersion) > 0)
           result.upgradeRequired = true;
       }
       if ("alternativeLocations" in obj)
@@ -224,7 +234,7 @@ SpecialSubscription.prototype =
    */
   get title()
   {
-    return abp.getString(this._titleID);
+    return Utils.getString(this._titleID);
   },
 
   /**
@@ -247,7 +257,6 @@ SpecialSubscription.prototype =
     return false;
   }
 };
-abp.SpecialSubscription = SpecialSubscription;
 
 SpecialSubscription.map = {
   __proto__: null,
@@ -297,7 +306,6 @@ RegularSubscription.prototype =
       buffer.push("lastDownload=" + this.lastDownload);
   }
 };
-abp.RegularSubscription = RegularSubscription;
 
 /**
  * Class for filter subscriptions updated by externally (by other extension)
@@ -323,7 +331,6 @@ ExternalSubscription.prototype =
     buffer.push("external=true");
   }
 };
-abp.ExternalSubscription = ExternalSubscription;
 
 /**
  * Class for filter subscriptions updated by externally (by other extension)
@@ -419,4 +426,3 @@ DownloadableSubscription.prototype =
       buffer.push("alternativeLocations=" + this.alternativeLocations);
   }
 };
-abp.DownloadableSubscription = DownloadableSubscription;

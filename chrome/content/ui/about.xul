@@ -52,7 +52,7 @@
   </description>
 
   <description id="homepageTitle" value="&homepage.label;"/>
-  <description id="homepage" class="text-link" value="&homepage.url;" onclick="abp.loadInBrowser(this.getAttribute('value'))"/>
+  <description id="homepage" class="text-link" value="&homepage.url;" onclick="Utils.loadInBrowser(this.getAttribute('value'))"/>
 
   <description id="authorTitle" value="&author.label;"/>
   <description id="author" value="Wladimir Palant"/>

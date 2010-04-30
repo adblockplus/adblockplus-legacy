@@ -19,7 +19,9 @@
 
   <pre id="test">
   <script type="application/x-javascript;version=1.7">
-    let abp = Components.classes["@mozilla.org/adblockplus;1"].createInstance().wrappedJSObject;
+    Cu.import(baseURL.spec + "RequestList.jsm");
+    prepareFilterComponents();
+    preparePrefs();
 
     let tests = [
       [
@@ -214,17 +216,17 @@
 
       let [body, expectedURL, expectedType, expectedDomain, expectedThirdParty] = tests[currentTest];
 
-      abp.blacklistMatcher.clear();
-      abp.whitelistMatcher.clear();
+      blacklistMatcher.clear();
+      whitelistMatcher.clear();
 
       if (currentStage > 1)
-        abp.blacklistMatcher.add(abp.Filter.fromText(expectedURL));
+        blacklistMatcher.add(Filter.fromText(expectedURL));
       if (currentStage == 3)
-        abp.whitelistMatcher.add(abp.Filter.fromText("@@|chrome://mochikit/$document"));
+        whitelistMatcher.add(Filter.fromText("@@|chrome://mochikit/$document"));
       if (currentStage == 4)
-        abp.whitelistMatcher.add(abp.Filter.fromText("@@|chrome://mochikit/$~document"));
+        whitelistMatcher.add(Filter.fromText("@@|chrome://mochikit/$~document"));
       if (currentStage == 5)
-        abp.whitelistMatcher.add(abp.Filter.fromText("@@|http://127.0.0.1:1234/test|"));
+        whitelistMatcher.add(Filter.fromText("@@|http://127.0.0.1:1234/test|"));
 
       serverHit = false;
       server.registerPathHandler(expectedURL.replace(/http:\/\/[^\/]+/, ""), function(metadata, response)
@@ -278,7 +280,7 @@
 
     function start()
     {
-      abp.RequestList.addListener(onPolicyHit);
+      RequestList.addListener(onPolicyHit);
 
       window.addEventListener("unload", stop, false);
       server.start(1234);
@@ -300,22 +302,17 @@
         response.bodyOutputStream.write(body, body.length);
       });
 
-      abp.prefs.enabled = true;
       runNextTest();
     }
 
     function stop()
     {
-      abp.RequestList.removeListener(onPolicyHit);
+      RequestList.removeListener(onPolicyHit);
 
       server.stop();
-
-      abp.filterStorage.triggerSubscriptionObservers("reload", abp.filterStorage.subscriptions);
-      abp.prefs.enabled = oldEnabled;
     }
 
     let server = new nsHttpServer();
-    let oldEnabled = abp.prefs.enabled;
     SimpleTest.waitForExplicitFinish();
     addLoadEvent(start);
   </script>

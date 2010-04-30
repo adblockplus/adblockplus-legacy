@@ -24,8 +24,19 @@
 
 /**
  * @fileOverview Stores Adblock Plus data to be attached to a window.
- * This file is included from AdblockPlus.js.
  */
+
+var EXPORTED_SYMBOLS = ["RequestList"];
+
+const Cc = Components.classes;
+const Ci = Components.interfaces;
+const Cr = Components.results;
+const Cu = Components.utils;
+
+let baseURL = Cc["@adblockplus.org/abp/private;1"].getService(Ci.nsIURI);
+
+Cu.import(baseURL.spec + "Utils.jsm");
+Utils.runAsync(Cu.import, null, baseURL.spec + "ContentPolicy.jsm");  // import delayed to avoid circular imports
 
 const dataSeed = Math.random();    // Make sure our properties have randomized names
 const docDataProp = "abpDocData" + dataSeed;
@@ -38,8 +49,6 @@ function RequestList(wnd) {
   this.urls = {__proto__: null};
   this.install(wnd);
 }
-abp.RequestList = RequestList;
-abp.DataContainer = RequestList;    // For sake of ABP Watcher
 
 RequestList.prototype = {
   entries: null,
@@ -262,7 +271,7 @@ RequestList.getDataForNode = function(node, noParent)
     let entryKey = node.getUserData(nodeDataProp);
     if (entryKey)
     {
-      let wnd = getWindow(node);
+      let wnd = Utils.getWindow(node);
       let data = (wnd ? RequestList.getDataForWindow(wnd, true) : null);
       if (data && entryKey in data.entries)
         return [node, data.entries[entryKey]];
@@ -409,12 +418,12 @@ RequestEntry.prototype =
    * String representation of the content type, e.g. "subdocument"
    * @type String
    */
-  get typeDescr() policy.typeDescr[this.type],
+  get typeDescr() Policy.typeDescr[this.type],
   /**
    * User-visible localized representation of the content type, e.g. "frame"
    * @type String
    */
-  get localizedDescr() policy.localizedDescr[this.type],
+  get localizedDescr() Policy.localizedDescr[this.type],
 
   /**
    * Adds a new document element to be associated with this request.

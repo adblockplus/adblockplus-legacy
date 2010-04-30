@@ -10,6 +10,7 @@ content   adblockplus jar:chrome/adblockplus.jar!/content/
 skin      adblockplus classic/1.0 jar:chrome/adblockplus.jar!/skin/
 style     chrome://global/content/customizeToolbar.xul  chrome://adblockplus/skin/overlay.css
 locale    adblockplus {{LOCALE}} jar:chrome/adblockplus.jar!/locale/{{LOCALE}}/
+content   adblockplus-modules modules/
 
 # Hack to prevent .Net Framework Assistant from messing up the browser
 override chrome://dotnetassistant/content/bootstrap.xul data:text/xml,<nada/>

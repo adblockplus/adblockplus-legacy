@@ -30,8 +30,7 @@ const metaMask = 8;
 
 let accelMask = ctrlMask;
 try {
-  let prefService = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefBranch);
-  let accelKey = prefService.getIntPref("ui.key.accelKey");
+  let accelKey = Utils.prefService.getIntPref("ui.key.accelKey");
   if (accelKey == Ci.nsIDOMKeyEvent.DOM_VK_META)
     accelMask = metaMask;
   else if (accelKey == Ci.nsIDOMKeyEvent.DOM_VK_ALT)
@@ -110,8 +109,8 @@ function init()
   }
 
   // Install listeners
-  filterStorage.addFilterObserver(onFilterChange);
-  filterStorage.addSubscriptionObserver(onSubscriptionChange);
+  FilterStorage.addFilterObserver(onFilterChange);
+  FilterStorage.addSubscriptionObserver(onSubscriptionChange);
 
   // Capture keypress events - need to get them before the tree does
   E("listStack").addEventListener("keypress", onListKeyPress, true);
@@ -187,8 +186,8 @@ function selectFilter(filter)
  */
 function cleanUp()
 {
-  filterStorage.removeFilterObserver(onFilterChange);
-  filterStorage.removeSubscriptionObserver(onSubscriptionChange);
+  FilterStorage.removeFilterObserver(onFilterChange);
+  FilterStorage.removeSubscriptionObserver(onSubscriptionChange);
 }
 
 /**
@@ -238,7 +237,7 @@ function getSubscriptionByURL(url)
   }
   else
   {
-    let result = abp.Subscription.fromURL(url);
+    let result = Subscription.fromURL(url);
     if (!result || "_isWrapper" in result)
       return result;
 
@@ -284,9 +283,9 @@ function createFilterWrapper(filter)
  */
 function ensureFilterShortcut(/**Filter*/ filter)
 {
-  if (filter instanceof abp.RegExpFilter && !filter.shortcut)
+  if (filter instanceof RegExpFilter && !filter.shortcut)
   {
-    let matcher = (filter instanceof abp.BlockingFilter ? abp.blacklistMatcher : abp.whitelistMatcher);
+    let matcher = (filter instanceof BlockingFilter ? blacklistMatcher : whitelistMatcher);
     filter.shortcut = matcher.findShortcut(filter.text);
   }
 }
@@ -303,7 +302,7 @@ function getFilterByText(text)
     return filterWrappers[text];
   else
   {
-    let result = abp.Filter.fromText(text);
+    let result = Filter.fromText(text);
     ensureFilterShortcut(result);
     return result;
   }
@@ -320,36 +319,36 @@ function getSubscriptionDescription(subscription)
 {
   let result = [];
 
-  if (!(subscription instanceof abp.RegularSubscription))
+  if (!(subscription instanceof RegularSubscription))
     return result;
 
-  if (subscription instanceof abp.DownloadableSubscription && subscription.upgradeRequired)
-    result.push(abp.getString("subscription_wrong_version").replace(/\?1\?/, subscription.requiredVersion));
+  if (subscription instanceof DownloadableSubscription && subscription.upgradeRequired)
+    result.push(Utils.getString("subscription_wrong_version").replace(/\?1\?/, subscription.requiredVersion));
 
-  if (subscription instanceof abp.DownloadableSubscription)
-    result.push(abp.getString("subscription_source") + " " + subscription.url);
+  if (subscription instanceof DownloadableSubscription)
+    result.push(Utils.getString("subscription_source") + " " + subscription.url);
 
   let status = "";
-  if (subscription instanceof abp.ExternalSubscription)
-    status += abp.getString("subscription_status_externaldownload");
+  if (subscription instanceof ExternalSubscription)
+    status += Utils.getString("subscription_status_externaldownload");
   else
-    status += (subscription.autoDownload ? abp.getString("subscription_status_autodownload") : abp.getString("subscription_status_manualdownload"));
+    status += (subscription.autoDownload ? Utils.getString("subscription_status_autodownload") : Utils.getString("subscription_status_manualdownload"));
 
-  status += "; " + abp.getString("subscription_status_lastdownload") + " ";
-  if (synchronizer.isExecuting(subscription.url))
-    status += abp.getString("subscription_status_lastdownload_inprogress");
+  status += "; " + Utils.getString("subscription_status_lastdownload") + " ";
+  if (Synchronizer.isExecuting(subscription.url))
+    status += Utils.getString("subscription_status_lastdownload_inprogress");
   else
   {
-    status += (subscription.lastDownload > 0 ? formatTime(subscription.lastDownload * 1000) : abp.getString("subscription_status_lastdownload_unknown"));
-    if (subscription instanceof abp.DownloadableSubscription && subscription.downloadStatus)
+    status += (subscription.lastDownload > 0 ? formatTime(subscription.lastDownload * 1000) : Utils.getString("subscription_status_lastdownload_unknown"));
+    if (subscription instanceof DownloadableSubscription && subscription.downloadStatus)
     {
       try {
-        status += " (" + abp.getString(subscription.downloadStatus) + ")";
+        status += " (" + Utils.getString(subscription.downloadStatus) + ")";
       } catch (e) {}
     }
   }
 
-  result.push(abp.getString("subscription_status") + " " + status);
+  result.push(Utils.getString("subscription_status") + " " + status);
   return result;
 }
 
@@ -358,7 +357,7 @@ function getSubscriptionDescription(subscription)
  */
 function clearList()
 {
-  if (abp.confirm(window, abp.getString("clearall_warning")))
+  if (Utils.confirm(window, Utils.getString("clearall_warning")))
     treeView.removeUserFilters();
 }
 
@@ -368,12 +367,12 @@ function clearList()
  */
 function resetHitCounts(resetAll)
 {
-  if (resetAll && abp.confirm(window, abp.getString("resethitcounts_warning")))
-    filterStorage.resetHitCounts(null);
-  else if (!resetAll && abp.confirm(window, abp.getString("resethitcounts_selected_warning")))
+  if (resetAll && Utils.confirm(window, Utils.getString("resethitcounts_warning")))
+    FilterStorage.resetHitCounts(null);
+  else if (!resetAll && Utils.confirm(window, Utils.getString("resethitcounts_selected_warning")))
   {
     let filters = treeView.getSelectedFilters(false);
-    filterStorage.resetHitCounts(filters.map(function(filter)
+    FilterStorage.resetHitCounts(filters.map(function(filter)
     {
       return ("_isWrapper" in filter ? filter.__proto__ : filter);
     }));
@@ -390,7 +389,7 @@ function getDefaultDir()
   // Copied from Firefox: getTargetFile() in contentAreaUtils.js
   try
   {
-    return prefService.getComplexValue("browser.download.lastDir", Ci.nsILocalFile);
+    return Utils.prefService.getComplexValue("browser.download.lastDir", Ci.nsILocalFile);
   }
   catch (e)
   {
@@ -430,7 +429,7 @@ function saveDefaultDir(dir)
   // Copied from Firefox: getTargetFile() in contentAreaUtils.js
   try
   {
-    prefService.setComplexValue("browser.download.lastDir", Ci.nsILocalFile, dir);
+    Utils.prefService.setComplexValue("browser.download.lastDir", Ci.nsILocalFile, dir);
   } catch(e) {};
 }
 
@@ -449,12 +448,12 @@ function addFilters(filters)
     if (/!\s*checksum[\s\-:]+([\w\+\/]+)/i.test(text))
       continue;
 
-    text = abp.normalizeFilter(text);
+    text = Filter.normalize(text);
     if (!text)
       continue;
 
     let filter = getFilterByText(text);
-    if (filter instanceof abp.CommentFilter)
+    if (filter instanceof CommentFilter)
       commentQueue.push(filter);
     else
     {
@@ -485,7 +484,7 @@ function addFilters(filters)
 function importList()
 {
   let picker = Cc["@mozilla.org/filepicker;1"].createInstance(Ci.nsIFilePicker);
-  picker.init(window, abp.getString("import_filters_title"), picker.modeOpen);
+  picker.init(window, Utils.getString("import_filters_title"), picker.modeOpen);
   picker.appendFilters(picker.filterText);
   picker.appendFilters(picker.filterAll);
 
@@ -506,25 +505,25 @@ function importList()
     let lines = [];
     let line = {value: null};
     while (stream.readLine(line))
-      lines.push(abp.normalizeFilter(line.value));
+      lines.push(Filter.normalize(line.value));
     if (line.value)
-      lines.push(abp.normalizeFilter(line.value));
+      lines.push(Filter.normalize(line.value));
     stream.close();
 
     if (/\[Adblock(?:\s*Plus\s*([\d\.]+)?)?\]/i.test(lines[0]))
     {
       let minVersion = RegExp.$1;
       let warning = "";
-      if (minVersion && abp.versionComparator.compare(minVersion, abp.getInstalledVersion()) > 0)
-        warning = abp.getString("import_filters_wrong_version").replace(/\?1\?/, minVersion) + "\n\n";
+      if (minVersion && Utils.versionComparator.compare(minVersion, Utils.addonVersion) > 0)
+        warning = Utils.getString("import_filters_wrong_version").replace(/\?1\?/, minVersion) + "\n\n";
 
       let promptService = Cc["@mozilla.org/embedcomp/prompt-service;1"].getService(Ci.nsIPromptService);
       let flags = promptService.BUTTON_TITLE_IS_STRING * promptService.BUTTON_POS_0 +
                   promptService.BUTTON_TITLE_CANCEL * promptService.BUTTON_POS_1 +
                   promptService.BUTTON_TITLE_IS_STRING * promptService.BUTTON_POS_2;
-      let result = promptService.confirmEx(window, abp.getString("import_filters_title"),
-        warning + abp.getString("import_filters_warning"), flags, abp.getString("overwrite"),
-        null, abp.getString("append"), null, {});
+      let result = promptService.confirmEx(window, Utils.getString("import_filters_title"),
+        warning + Utils.getString("import_filters_warning"), flags, Utils.getString("overwrite"),
+        null, Utils.getString("append"), null, {});
       if (result == 1)
         return;
 
@@ -536,7 +535,7 @@ function importList()
       treeView.ensureSelection(0);
     }
     else 
-      abp.alert(window, abp.getString("invalid_filters_file"));
+      Utils.alert(window, Utils.getString("invalid_filters_file"));
   }
 }
 
@@ -549,7 +548,7 @@ function exportList()
     return;
 
   let picker = Cc["@mozilla.org/filepicker;1"].createInstance(Ci.nsIFilePicker);
-  picker.init(window, abp.getString("export_filters_title"), picker.modeSave);
+  picker.init(window, Utils.getString("export_filters_title"), picker.modeSave);
   picker.defaultExtension = ".txt";
   picker.appendFilters(picker.filterText);
   picker.appendFilters(picker.filterAll);
@@ -561,29 +560,29 @@ function exportList()
   if (picker.show() != picker.returnCancel)
   {
     saveDefaultDir(picker.file.parent.QueryInterface(Ci.nsILocalFile));
-    let lineBreak = abp.getLineBreak();
+    let lineBreak = Utils.getLineBreak();
 
     let list = ["[Adblock]"];
     let minVersion = "0";
     for each (let subscription in treeView.subscriptions)
     {
-      if (subscription instanceof abp.SpecialSubscription)
+      if (subscription instanceof SpecialSubscription)
       {
         for each (let filter in subscription.filters)
         {
           // Skip checksums
-          if (filter instanceof abp.CommentFilter && /!\s*checksum[\s\-:]+([\w\+\/]+)/i.test(filter.text))
+          if (filter instanceof CommentFilter && /!\s*checksum[\s\-:]+([\w\+\/]+)/i.test(filter.text))
             continue;
 
           list.push(filter.text);
 
           // Find version requirements of this filter
           let filterVersion;
-          if (filter instanceof abp.RegExpFilter)
+          if (filter instanceof RegExpFilter)
           {
-            if (filter.contentType & abp.RegExpFilter.typeMap.ELEMHIDE)
+            if (filter.contentType & RegExpFilter.typeMap.ELEMHIDE)
               filterVersion = "1.2";
-            else if (/^(?:@@)?\|\|/.test(filter.text) || (!abp.Filter.regexpRegExp.test(filter.text) && /\^/.test(filter.text)))
+            else if (/^(?:@@)?\|\|/.test(filter.text) || (!Filter.regexpRegExp.test(filter.text) && /\^/.test(filter.text)))
               filterVersion = "1.1";
             else if (filter.includeDomains != null || filter.excludeDomains != null)
               filterVersion = "1.0.1";
@@ -591,14 +590,14 @@ function exportList()
               filterVersion = "1.0";
             else if (filter.collapse != null)
               filterVersion = "0.7.5";
-            else if (abp.Filter.optionsRegExp.test(filter.text))
+            else if (Filter.optionsRegExp.test(filter.text))
               filterVersion = "0.7.1";
             else if (/^(?:@@)?\|/.test(filter.text) || /\|$/.test(filter.text))
               filterVersion = "0.6.1.2";
             else
               filterVersion = "0";
           }
-          else if (filter instanceof abp.ElemHideFilter)
+          else if (filter instanceof ElemHideFilter)
           {
             if (filter.excludeDomains != null)
               filterVersion = "1.1";
@@ -611,7 +610,7 @@ function exportList()
             filterVersion = "0";
           
           // Adjust version requirements of the complete filter set
-          if (filterVersion != "0" && abp.versionComparator.compare(minVersion, filterVersion) < 0)
+          if (filterVersion != "0" && Utils.versionComparator.compare(minVersion, filterVersion) < 0)
             minVersion = filterVersion;
         }
       }
@@ -619,7 +618,7 @@ function exportList()
 
     if (minVersion != "0")
     {
-      if (abp.versionComparator.compare(minVersion, "0.7.1") >= 0)
+      if (Utils.versionComparator.compare(minVersion, "0.7.1") >= 0)
         list[0] = "[Adblock Plus " + minVersion + "]";
       else
         list[0] = "(Adblock Plus " + minVersion + " or higher required) " + list[0];
@@ -628,7 +627,7 @@ function exportList()
     list.push("");
 
     // Insert checksum
-    let checksum = abp.generateChecksum(list);
+    let checksum = Utils.generateChecksum(list);
     if (checksum)
       list.splice(1, 0, "! Checksum: " + checksum);
 
@@ -647,7 +646,7 @@ function exportList()
     catch (e)
     {
       dump("Adblock Plus: error writing to file: " + e + "\n");
-      abp.alert(window, abp.getString("filters_write_error"));
+      Utils.alert(window, Utils.getString("filters_write_error"));
     }
   }
 }
@@ -713,7 +712,7 @@ function onListClick(/**Event*/ e)
   let [subscription, filter] = treeView.getRowInfo(row.value);
   if (subscription && !filter)
     treeView.toggleDisabled([subscription]);
-  else if (filter instanceof abp.ActiveFilter)
+  else if (filter instanceof ActiveFilter)
     treeView.toggleDisabled([filter]);
 }
 
@@ -744,7 +743,7 @@ function onListDragGesture(/**Event*/ e)
 
 /**
  * Filter observer
- * @see filterStorage.addFilterObserver()
+ * @see FilterStorage.addFilterObserver()
  */
 function onFilterChange(/**String*/ action, /**Array of Filter*/ filters, additionalData)
 {
@@ -800,7 +799,7 @@ function onFilterChange(/**String*/ action, /**Array of Filter*/ filters, additi
 
 /**
  * Subscription observer
- * @see filterStorage.addSubscriptionObserver()
+ * @see FilterStorage.addSubscriptionObserver()
  */
 function onSubscriptionChange(/**String*/ action, /**Array of Subscription*/ subscriptions)
 {
@@ -889,7 +888,7 @@ function editFilter(type) /**Boolean*/
     return false;
   }
 
-  if (type != "filter" && subscription instanceof abp.RegularSubscription)
+  if (type != "filter" && subscription instanceof RegularSubscription)
     editSubscription(subscription);
   else
     treeView.startEditor(false);
@@ -932,8 +931,8 @@ function editSubscription(/**Subscription*/ subscription)
   
     treeView.invalidateSubscriptionInfo(newSubscription);
 
-    if (newSubscription instanceof abp.DownloadableSubscription && !newSubscription.lastDownload)
-      synchronizer.execute(newSubscription.__proto__, false);
+    if (newSubscription instanceof DownloadableSubscription && !newSubscription.lastDownload)
+      Synchronizer.execute(newSubscription.__proto__, false);
   }
 
   if (changed)
@@ -954,7 +953,7 @@ function removeFilters(allowSubscriptions)
   let found = false;
   for each (let [subscription, filter] in selected)
   {
-    if (subscription instanceof abp.SpecialSubscription && filter instanceof abp.Filter)
+    if (subscription instanceof SpecialSubscription && filter instanceof Filter)
     {
       treeView.removeFilter(subscription, filter);
       found = true;
@@ -976,7 +975,7 @@ function removeFilters(allowSubscriptions)
         return;
     }
 
-    if (selectedSubscription && selectedSubscription instanceof abp.RegularSubscription && abp.confirm(window, abp.getString("remove_subscription_warning")))
+    if (selectedSubscription && selectedSubscription instanceof RegularSubscription && Utils.confirm(window, Utils.getString("remove_subscription_warning")))
       treeView.removeSubscription(selectedSubscription);
   }
 }
@@ -989,7 +988,7 @@ function toggleDisabled()
   // Look for selected filters first
   let selected = treeView.getSelectedFilters(true).filter(function(filter)
   {
-    return filter instanceof abp.ActiveFilter;
+    return filter instanceof ActiveFilter;
   });
 
   if (selected.length)
@@ -1013,7 +1012,7 @@ function copyToClipboard()
     return;
 
   let clipboardHelper = Cc["@mozilla.org/widget/clipboardhelper;1"].getService(Ci.nsIClipboardHelper);
-  let lineBreak = abp.getLineBreak();
+  let lineBreak = Utils.getLineBreak();
   clipboardHelper.copyString(selected.map(function(filter)
   {
     return filter.text;
@@ -1056,8 +1055,8 @@ function pasteFromClipboard() {
 function synchSubscription(/**Boolean*/ forceDownload)
 {
   let [subscription, filter] = treeView.getRowInfo(treeView.selection.currentIndex);
-  if (subscription instanceof abp.DownloadableSubscription)
-    synchronizer.execute(subscription.__proto__, true, forceDownload);
+  if (subscription instanceof DownloadableSubscription)
+    Synchronizer.execute(subscription.__proto__, true, forceDownload);
 }
 
 /**
@@ -1066,8 +1065,8 @@ function synchSubscription(/**Boolean*/ forceDownload)
 function synchAllSubscriptions(/**Boolean*/ forceDownload)
 {
   for each (let subscription in treeView.subscriptions)
-    if (subscription instanceof abp.DownloadableSubscription)
-      synchronizer.execute(subscription.__proto__, true, forceDownload);
+    if (subscription instanceof DownloadableSubscription)
+      Synchronizer.execute(subscription.__proto__, true, forceDownload);
 }
 
 /**
@@ -1143,11 +1142,11 @@ function setSortOrder(order)
  */
 function fillOptionsPopup()
 {
-  E("abp-enabled").setAttribute("checked", prefs.enabled);
-  E("frameobjects").setAttribute("checked", prefs.frameobjects);
-  E("slowcollapse").setAttribute("checked", !prefs.fastcollapse);
-  E("showintoolbar").setAttribute("checked", prefs.showintoolbar);
-  E("showinstatusbar").setAttribute("checked", prefs.showinstatusbar);
+  E("abp-enabled").setAttribute("checked", Prefs.enabled);
+  E("frameobjects").setAttribute("checked", Prefs.frameobjects);
+  E("slowcollapse").setAttribute("checked", !Prefs.fastcollapse);
+  E("showintoolbar").setAttribute("checked", Prefs.showintoolbar);
+  E("showinstatusbar").setAttribute("checked", Prefs.showinstatusbar);
 }
 
 /**
@@ -1173,8 +1172,8 @@ function updateCommands()
   }
 
   // Check whether any filters have been selected and whether any of them can be removed
-  let hasFilters = selected.some(function([subscription, filter]) filter instanceof abp.Filter);
-  let hasRemovable = selected.some(function([subscription, filter]) subscription instanceof abp.SpecialSubscription && filter instanceof abp.Filter);
+  let hasFilters = selected.some(function([subscription, filter]) filter instanceof Filter);
+  let hasRemovable = selected.some(function([subscription, filter]) subscription instanceof SpecialSubscription && filter instanceof Filter);
 
   // Check whether clipboard contains text
   let clipboard = Cc["@mozilla.org/widget/clipboard;1"].getService(Ci.nsIClipboard);
@@ -1183,7 +1182,7 @@ function updateCommands()
   E("copy-command").setAttribute("disabled", !hasFilters);
   E("cut-command").setAttribute("disabled", !hasRemovable);
   E("paste-command").setAttribute("disabled", !hasFlavour);
-  E("remove-command").setAttribute("disabled", !(hasRemovable || selectedSubscription instanceof abp.RegularSubscription));
+  E("remove-command").setAttribute("disabled", !(hasRemovable || selectedSubscription instanceof RegularSubscription));
 }
 
 /**
@@ -1215,10 +1214,10 @@ function fillContext()
   }
 
   // Check whether any filters have been selected and which filters can be enabled/disabled
-  let hasFilters = selected.some(function([subscription, filter]) filter instanceof abp.Filter);
-  let activeFilters = selected.filter(function([subscription, filter]) filter instanceof abp.ActiveFilter);
+  let hasFilters = selected.some(function([subscription, filter]) filter instanceof Filter);
+  let activeFilters = selected.filter(function([subscription, filter]) filter instanceof ActiveFilter);
 
-  if (selectedSubscription instanceof abp.RegularSubscription)
+  if (selectedSubscription instanceof RegularSubscription)
   {
     E("context-editsubscription").hidden = false;
     E("context-edit").hidden = true;
@@ -1227,14 +1226,14 @@ function fillContext()
   {
     E("context-editsubscription").hidden = true;
     E("context-edit").hidden = false;
-    E("context-edit").setAttribute("disabled", !(currentSubscription instanceof abp.SpecialSubscription && currentFilter instanceof abp.Filter));
+    E("context-edit").setAttribute("disabled", !(currentSubscription instanceof SpecialSubscription && currentFilter instanceof Filter));
   }
 
-  E("context-synchsubscription").setAttribute("disabled", !(selectedSubscription instanceof abp.DownloadableSubscription));
+  E("context-synchsubscription").setAttribute("disabled", !(selectedSubscription instanceof DownloadableSubscription));
   E("context-resethitcount").setAttribute("disabled", !hasFilters);
 
-  E("context-moveup").setAttribute("disabled", !(currentSubscription instanceof abp.SpecialSubscription && currentFilter instanceof abp.Filter && !treeView.isSorted() && currentSubscription._sortedFilters.indexOf(currentFilter) > 0));
-  E("context-movedown").setAttribute("disabled", !(currentSubscription instanceof abp.SpecialSubscription && currentFilter instanceof abp.Filter && !treeView.isSorted() && currentSubscription._sortedFilters.indexOf(currentFilter) < currentSubscription._sortedFilters.length - 1));
+  E("context-moveup").setAttribute("disabled", !(currentSubscription instanceof SpecialSubscription && currentFilter instanceof Filter && !treeView.isSorted() && currentSubscription._sortedFilters.indexOf(currentFilter) > 0));
+  E("context-movedown").setAttribute("disabled", !(currentSubscription instanceof SpecialSubscription && currentFilter instanceof Filter && !treeView.isSorted() && currentSubscription._sortedFilters.indexOf(currentFilter) < currentSubscription._sortedFilters.length - 1));
 
   E("context-movegroupup").setAttribute("disabled", !selectedSubscription || treeView.isFirstSubscription(selectedSubscription));
   E("context-movegroupdown").setAttribute("disabled", !selectedSubscription || treeView.isLastSubscription(selectedSubscription));
@@ -1258,12 +1257,12 @@ function fillContext()
 
 /**
  * Toggles the value of a boolean preference.
- * @param {String} pref preference name (prefs object property)
+ * @param {String} pref preference name (Prefs object property)
  */
 function togglePref(pref)
 {
-  prefs[pref] = !prefs[pref];
-  prefs.save();
+  Prefs[pref] = !Prefs[pref];
+  Prefs.save();
 }
 
 /**
@@ -1288,11 +1287,11 @@ function showTreeTooltip(/**Event*/ event) /**Boolean*/
   let [subscription, filter] = treeView.getRowInfo(row.value);
   if (row.value && col.value && col.value.id == "col-slow" && treeView.getCellText(row.value, col.value))
   {
-    E("tree-tooltip").setAttribute("label", abp.getString("filter_regexp_tooltip"));
+    E("tree-tooltip").setAttribute("label", Utils.getString("filter_regexp_tooltip"));
     return true;
   }
 
-  if (filter instanceof abp.InvalidFilter && filter.reason)
+  if (filter instanceof InvalidFilter && filter.reason)
   {
     E("tree-tooltip").setAttribute("label", filter.reason);
     return true;
@@ -1346,8 +1345,8 @@ function compareText(/**Filter*/ filter1, /**Filter*/ filter2)
  */
 function compareSlow(/**Filter*/ filter1, /**Filter*/ filter2)
 {
-  let isSlow1 = (filter1 instanceof abp.RegExpFilter && !filter1.disabled && !filter1.shortcut ? 1 : 0);
-  let isSlow2 = (filter2 instanceof abp.RegExpFilter && !filter2.disabled && !filter2.shortcut ? 1 : 0);
+  let isSlow1 = (filter1 instanceof RegExpFilter && !filter1.disabled && !filter1.shortcut ? 1 : 0);
+  let isSlow2 = (filter2 instanceof RegExpFilter && !filter2.disabled && !filter2.shortcut ? 1 : 0);
   return isSlow1 - isSlow2;
 }
 
@@ -1357,8 +1356,8 @@ function compareSlow(/**Filter*/ filter1, /**Filter*/ filter2)
  */
 function compareEnabled(/**Filter*/ filter1, /**Filter*/ filter2)
 {
-  let hasEnabled1 = (filter1 instanceof abp.ActiveFilter ? 1 : 0);
-  let hasEnabled2 = (filter2 instanceof abp.ActiveFilter ? 1 : 0);
+  let hasEnabled1 = (filter1 instanceof ActiveFilter ? 1 : 0);
+  let hasEnabled2 = (filter2 instanceof ActiveFilter ? 1 : 0);
   if (hasEnabled1 != hasEnabled2)
     return hasEnabled1 - hasEnabled2;
   else if (hasEnabled1 && filter1.disabled != filter2.disabled)
@@ -1372,8 +1371,8 @@ function compareEnabled(/**Filter*/ filter1, /**Filter*/ filter2)
  */
 function compareHitCount(/**Filter*/ filter1, /**Filter*/ filter2)
 {
-  let hasHitCount1 = (filter1 instanceof abp.ActiveFilter ? 1 : 0);
-  let hasHitCount2 = (filter2 instanceof abp.ActiveFilter ? 1 : 0);
+  let hasHitCount1 = (filter1 instanceof ActiveFilter ? 1 : 0);
+  let hasHitCount2 = (filter2 instanceof ActiveFilter ? 1 : 0);
   if (hasHitCount1 != hasHitCount2)
     return hasHitCount1 - hasHitCount2;
   else if (hasHitCount1)
@@ -1387,8 +1386,8 @@ function compareHitCount(/**Filter*/ filter1, /**Filter*/ filter2)
  */
 function compareLastHit(/**Filter*/ filter1, /**Filter*/ filter2)
 {
-  let hasLastHit1 = (filter1 instanceof abp.ActiveFilter ? 1 : 0);
-  let hasLastHit2 = (filter2 instanceof abp.ActiveFilter ? 1 : 0);
+  let hasLastHit1 = (filter1 instanceof ActiveFilter ? 1 : 0);
+  let hasLastHit2 = (filter2 instanceof ActiveFilter ? 1 : 0);
   if (hasLastHit1 != hasLastHit2)
     return hasLastHit1 - hasLastHit2;
   else if (hasLastHit1)
@@ -1472,7 +1471,7 @@ let treeView = {
     }
 
     // Copy the subscription list, we don't want to apply our changes immediately
-    this.subscriptions = filterStorage.subscriptions.map(createSubscriptionWrapper);
+    this.subscriptions = FilterStorage.subscriptions.map(createSubscriptionWrapper);
 
     this.closed = {__proto__: null};
     let closed = this.boxObject.treeBody.parentNode.getAttribute("closedSubscriptions");
@@ -1516,7 +1515,7 @@ let treeView = {
     for each (let subscription in this.subscriptions)
     {
       // Special subscriptions are only shown if they aren't empty
-      if (subscription instanceof abp.SpecialSubscription && subscription._sortedFilters.length == 0)
+      if (subscription instanceof SpecialSubscription && subscription._sortedFilters.length == 0)
         continue;
 
       count++;
@@ -1543,13 +1542,13 @@ let treeView = {
     if (!subscription)
       return null;
 
-    if (filter instanceof abp.Filter)
+    if (filter instanceof Filter)
     {
       if (col == "col-filter")
         return filter.text;
       else if (col == "col-slow")
-        return (filter instanceof abp.RegExpFilter && !filter.shortcut && !filter.disabled && !subscription.disabled ? "!" : null);
-      else if (filter instanceof abp.ActiveFilter)
+        return (filter instanceof RegExpFilter && !filter.shortcut && !filter.disabled && !subscription.disabled ? "!" : null);
+      else if (filter instanceof ActiveFilter)
       {
         if (col == "col-hitcount")
           return filter.hitCount;
@@ -1562,7 +1561,7 @@ let treeView = {
     else if (col != "col-filter")
       return null;
     else if (!filter)
-      return (subscription instanceof abp.RegularSubscription ? this.titlePrefix : "") + subscription.title;
+      return (subscription instanceof RegularSubscription ? this.titlePrefix : "") + subscription.title;
     else
       return filter;
   },
@@ -1583,29 +1582,29 @@ let treeView = {
 
     properties.AppendElement(this.atoms["selected-" + this.selection.isSelected(row)]);
     properties.AppendElement(this.atoms["subscription-" + !filter]);
-    properties.AppendElement(this.atoms["filter-" + (filter instanceof abp.Filter)]);
-    properties.AppendElement(this.atoms["filter-regexp-" + (filter instanceof abp.RegExpFilter && !filter.shortcut)]);
+    properties.AppendElement(this.atoms["filter-" + (filter instanceof Filter)]);
+    properties.AppendElement(this.atoms["filter-regexp-" + (filter instanceof RegExpFilter && !filter.shortcut)]);
     properties.AppendElement(this.atoms["description-" + (typeof filter == "string")]);
-    properties.AppendElement(this.atoms["subscription-special-" + (subscription instanceof abp.SpecialSubscription)]);
-    properties.AppendElement(this.atoms["subscription-external-" + (subscription instanceof abp.ExternalSubscription)]);
-    properties.AppendElement(this.atoms["subscription-autoDownload-" + (subscription instanceof abp.DownloadableSubscription && subscription.autoDownload)]);
+    properties.AppendElement(this.atoms["subscription-special-" + (subscription instanceof SpecialSubscription)]);
+    properties.AppendElement(this.atoms["subscription-external-" + (subscription instanceof ExternalSubscription)]);
+    properties.AppendElement(this.atoms["subscription-autoDownload-" + (subscription instanceof DownloadableSubscription && subscription.autoDownload)]);
     properties.AppendElement(this.atoms["subscription-disabled-" + subscription.disabled]);
-    properties.AppendElement(this.atoms["subscription-upgradeRequired-" + (subscription instanceof abp.DownloadableSubscription && subscription.upgradeRequired)]);
-    properties.AppendElement(this.atoms["subscription-dummy-" + (subscription instanceof abp.Subscription && subscription.url == "~dummy~")]);
-    if (filter instanceof abp.Filter)
+    properties.AppendElement(this.atoms["subscription-upgradeRequired-" + (subscription instanceof DownloadableSubscription && subscription.upgradeRequired)]);
+    properties.AppendElement(this.atoms["subscription-dummy-" + (subscription instanceof Subscription && subscription.url == "~dummy~")]);
+    if (filter instanceof Filter)
     {
-      if (filter instanceof abp.ActiveFilter)
+      if (filter instanceof ActiveFilter)
         properties.AppendElement(this.atoms["filter-disabled-" + filter.disabled]);
 
-      if (filter instanceof abp.CommentFilter)
+      if (filter instanceof CommentFilter)
         properties.AppendElement(this.atoms["type-comment"]);
-      else if (filter instanceof abp.BlockingFilter)
+      else if (filter instanceof BlockingFilter)
         properties.AppendElement(this.atoms["type-filterlist"]);
-      else if (filter instanceof abp.WhitelistFilter)
+      else if (filter instanceof WhitelistFilter)
         properties.AppendElement(this.atoms["type-whitelist"]);
-      else if (filter instanceof abp.ElemHideFilter)
+      else if (filter instanceof ElemHideFilter)
         properties.AppendElement(this.atoms["type-elemhide"]);
-      else if (filter instanceof abp.InvalidFilter)
+      else if (filter instanceof InvalidFilter)
         properties.AppendElement(this.atoms["type-invalid"]);
     }
   },
@@ -1723,7 +1722,7 @@ let treeView = {
     if (this.dragFilter)
     {
       // Dragging a filter
-      return filter && subscription instanceof abp.SpecialSubscription && subscription.isFilterAllowed(this.dragFilter);
+      return filter && subscription instanceof SpecialSubscription && subscription.isFilterAllowed(this.dragFilter);
     }
     else
     {
@@ -1745,7 +1744,7 @@ let treeView = {
     if (this.dragFilter)
     {
       // Dragging a filter
-      if (!(filter && subscription instanceof abp.SpecialSubscription && subscription.isFilterAllowed(this.dragFilter)))
+      if (!(filter && subscription instanceof SpecialSubscription && subscription.isFilterAllowed(this.dragFilter)))
         return;
 
       let oldSubscription = this.dragSubscription;
@@ -1870,7 +1869,7 @@ let treeView = {
    * @type String
    * @const
    */
-  titlePrefix: abp.getString("subscription_description") + " ",
+  titlePrefix: Utils.getString("subscription_description") + " ",
 
   /**
    * Map of atoms being used as col/row/cell properties, String => nsIAtom
@@ -1913,7 +1912,7 @@ let treeView = {
    */
   getSubscriptionRowCount: function(/**Subscription*/ subscription) /**Integer*/
   {
-    if (subscription instanceof abp.SpecialSubscription && subscription._sortedFilters.length == 0)
+    if (subscription instanceof SpecialSubscription && subscription._sortedFilters.length == 0)
       return 0;
 
     if (subscription.url in this.closed)
@@ -1936,7 +1935,7 @@ let treeView = {
     for each (let subscription in this.subscriptions)
     {
       // Special subscriptions are only shown if they aren't empty
-      if (subscription instanceof abp.SpecialSubscription && subscription._sortedFilters.length == 0)
+      if (subscription instanceof SpecialSubscription && subscription._sortedFilters.length == 0)
         continue;
 
       // Check whether the subscription row has been requested
@@ -1975,7 +1974,7 @@ let treeView = {
       return info[1];
     }).filter(function(filter)
     {
-      return filter instanceof abp.Filter;
+      return filter instanceof Filter;
     });
   },
 
@@ -2119,7 +2118,7 @@ let treeView = {
       let followingFilter = null;
       for (let i = filters.length - 1; i >= 0; i--)
       {
-        if (filters[i] instanceof abp.CommentFilter)
+        if (filters[i] instanceof CommentFilter)
           filters[i] = { __proto__: followingFilter, _origFilter: filters[i] };
         else
           followingFilter = filters[i];
@@ -2224,7 +2223,7 @@ let treeView = {
   hasUserFilters: function() /**Boolean*/
   {
     for each (let subscription in this.subscriptions)
-      if (subscription instanceof abp.SpecialSubscription && subscription._sortedFilters.length)
+      if (subscription instanceof SpecialSubscription && subscription._sortedFilters.length)
         return true;
 
     return false;
@@ -2237,7 +2236,7 @@ let treeView = {
   {
     for each (let subscription in this.subscriptions)
     {
-      if (subscription instanceof abp.SpecialSubscription && subscription._sortedFilters.length == 0)
+      if (subscription instanceof SpecialSubscription && subscription._sortedFilters.length == 0)
         continue;
 
       return (subscription == search);
@@ -2253,7 +2252,7 @@ let treeView = {
     for (let i = this.subscriptions.length - 1; i >= 0; i--)
     {
       let subscription = this.subscriptions[i];
-      if (subscription instanceof abp.SpecialSubscription && subscription._sortedFilters.length == 0)
+      if (subscription instanceof SpecialSubscription && subscription._sortedFilters.length == 0)
         continue;
 
       return (subscription == search);
@@ -2275,7 +2274,7 @@ let treeView = {
     {
       for each (let s in this.subscriptions)
       {
-        if (s instanceof abp.SpecialSubscription && s.isFilterAllowed(filter))
+        if (s instanceof SpecialSubscription && s.isFilterAllowed(filter))
         {
           if (s._sortedFilters.indexOf(filter) >= 0 || s.filters.indexOf(filter) >= 0)
           {
@@ -2314,7 +2313,7 @@ let treeView = {
       insertPosition = subscription.filters.length;
 
       // Insert before the comments at the end
-      while (insertPosition > 0 && subscription.filters[insertPosition - 1] instanceof abp.CommentFilter && !(filter instanceof abp.CommentFilter))
+      while (insertPosition > 0 && subscription.filters[insertPosition - 1] instanceof CommentFilter && !(filter instanceof CommentFilter))
         insertPosition--;
       if (insertPosition == 0)
         insertPosition = subscription.filters.length;
@@ -2334,7 +2333,7 @@ let treeView = {
 
     let parentRow = this.getSubscriptionRow(subscription);
 
-    if (subscription instanceof abp.SpecialSubscription && subscription._sortedFilters.length == 1)
+    if (subscription instanceof SpecialSubscription && subscription._sortedFilters.length == 1)
     {
       this.boxObject.rowCountChanged(parentRow, this.getSubscriptionRowCount(subscription));
     }
@@ -2386,7 +2385,7 @@ let treeView = {
     {
       for each (let subscription in this.subscriptions)
       {
-        if (!(subscription instanceof abp.SpecialSubscription))
+        if (!(subscription instanceof SpecialSubscription))
           continue;
 
         this.removeFilter(subscription, filter);
@@ -2418,7 +2417,7 @@ let treeView = {
     else
       subscription._sortedFilters = subscription.filters;
 
-    if (subscription instanceof abp.SpecialSubscription && subscription._sortedFilters.length == 0)
+    if (subscription instanceof SpecialSubscription && subscription._sortedFilters.length == 0)
     {
       // Empty special subscriptions aren't shown, remove everything
       this.boxObject.rowCountChanged(parentRow, -rowCount);
@@ -2462,7 +2461,7 @@ let treeView = {
   {
     let oldRow = this.selection.currentIndex;
     let [subscription, filter] = this.getRowInfo(oldRow);
-    if (this.isSorted() || !(filter instanceof abp.Filter) || !(subscription instanceof abp.SpecialSubscription))
+    if (this.isSorted() || !(filter instanceof Filter) || !(subscription instanceof SpecialSubscription))
       return;
 
     let oldIndex = subscription.filters.indexOf(filter);
@@ -2509,7 +2508,7 @@ let treeView = {
       newIndex = (up ? newIndex - 1 : newIndex + 1);
       if (newIndex < 0 || newIndex >= this.subscriptions.length)
         return;
-    } while (this.subscriptions[newIndex] instanceof abp.SpecialSubscription && this.subscriptions[newIndex]._sortedFilters.length == 0);
+    } while (this.subscriptions[newIndex] instanceof SpecialSubscription && this.subscriptions[newIndex]._sortedFilters.length == 0);
 
     [this.subscriptions[oldIndex], this.subscriptions[newIndex]] = [this.subscriptions[newIndex], this.subscriptions[oldIndex]];
 
@@ -2528,18 +2527,18 @@ let treeView = {
     let [subscription, filter] = this.getRowInfo(row);
     if (!subscription)
       return;
-    if (filter instanceof abp.Filter && !(subscription instanceof abp.SpecialSubscription))
+    if (filter instanceof Filter && !(subscription instanceof SpecialSubscription))
       return;
-    if (filter instanceof abp.Filter && !(filter instanceof abp.CommentFilter) && this.isSorted())
+    if (filter instanceof Filter && !(filter instanceof CommentFilter) && this.isSorted())
       return;
 
-    if (!(filter instanceof abp.Filter))
+    if (!(filter instanceof Filter))
       filter = null;
 
     let array = Cc["@mozilla.org/supports-array;1"].createInstance(Ci.nsISupportsArray);
     let transferable = Cc["@mozilla.org/widget/transferable;1"].createInstance(Ci.nsITransferable);
     let data = Cc["@mozilla.org/supports-string;1"].createInstance(Ci.nsISupportsString);
-    if (filter instanceof abp.Filter)
+    if (filter instanceof Filter)
       data.data = filter.text;
     else
       data.data = subscription.title;
@@ -2574,10 +2573,10 @@ let treeView = {
     let newValue;
     for each (let item in items)
     {
-      if (!(item instanceof abp.ActiveFilter || item instanceof abp.Subscription))
+      if (!(item instanceof ActiveFilter || item instanceof Subscription))
         return;
 
-      if (item instanceof abp.ActiveFilter)
+      if (item instanceof ActiveFilter)
         item = this.ensureFilterWrapper(item);
 
       if (typeof newValue == "undefined")
@@ -2585,7 +2584,7 @@ let treeView = {
 
       if (!newValue)
       {
-        if (item instanceof abp.Subscription)
+        if (item instanceof Subscription)
         {
           for each (let filter in item._sortedFilters)
             ensureFilterShortcut(filter);
@@ -2663,7 +2662,7 @@ let treeView = {
   {
     for each (let subscription in this.subscriptions)
     {
-      if (subscription instanceof abp.SpecialSubscription && subscription._sortedFilters.length > 0)
+      if (subscription instanceof SpecialSubscription && subscription._sortedFilters.length > 0)
       {
         let row = this.getSubscriptionRow(subscription);
         let count = this.getSubscriptionRowCount(subscription);
@@ -2685,10 +2684,10 @@ let treeView = {
   {
     try
     {
-      abp.filterListener.batchMode = true;
+      FilterListener.batchMode = true;
 
       let oldSubscriptions = {__proto__: null};
-      for each (let subscription in filterStorage.subscriptions)
+      for each (let subscription in FilterStorage.subscriptions)
         oldSubscriptions[subscription.url] = true;
 
       let newSubscriptions = {__proto__: null};
@@ -2717,7 +2716,7 @@ let treeView = {
             if (filter.disabled != filter.__proto__.disabled)
             {
               filter.__proto__.disabled = filter.disabled;
-              filterStorage.triggerFilterObservers(filter.disabled ? "disable" : "enable", [filter.__proto__]);
+              FilterStorage.triggerFilterObservers(filter.disabled ? "disable" : "enable", [filter.__proto__]);
             }
             subscription.filters[i] = filter.__proto__;
             hadWrappers = true;
@@ -2739,14 +2738,14 @@ let treeView = {
         }
 
         if (!(subscription.url in oldSubscriptions))
-          filterStorage.addSubscription(subscription.__proto__);
+          FilterStorage.addSubscription(subscription.__proto__);
         else if (filtersChanged)
-          filterStorage.updateSubscriptionFilters(subscription.__proto__, subscription.filters);
+          FilterStorage.updateSubscriptionFilters(subscription.__proto__, subscription.filters);
         else if (changed)
         {
-          filterStorage.triggerSubscriptionObservers("updateinfo", [subscription.__proto__]);
+          FilterStorage.triggerSubscriptionObservers("updateinfo", [subscription.__proto__]);
           if (disableChanged)
-            filterStorage.triggerSubscriptionObservers(subscription.disabled ? "disable" : "enable", [subscription.__proto__]);
+            FilterStorage.triggerSubscriptionObservers(subscription.disabled ? "disable" : "enable", [subscription.__proto__]);
         }
 
         // Even if the filters didn't change, their ordering might have
@@ -2767,19 +2766,19 @@ let treeView = {
 
       filterWrappers = {__proto__: null};
 
-      for each (let subscription in filterStorage.subscriptions.slice())
+      for each (let subscription in FilterStorage.subscriptions.slice())
         if (!(subscription.url in newSubscriptions))
-          filterStorage.removeSubscription(subscription);
+          FilterStorage.removeSubscription(subscription);
 
       // Make sure that filter storage has the subscriptions in correct order,
       // replace subscriptions list without triggering observers.
-      filterStorage.subscriptions = subscriptions;
+      FilterStorage.subscriptions = subscriptions;
 
-      filterStorage.saveToDisk();
+      FilterStorage.saveToDisk();
     }
     finally
     {
-      abp.filterListener.batchMode = false;
+      FilterListener.batchMode = false;
     }
   },
 
@@ -2974,10 +2973,10 @@ let treeView = {
 
     let row = this.selection.currentIndex;
     let [subscription, filter] = this.getRowInfo(row);
-    if (!(subscription instanceof abp.SpecialSubscription) || !(filter instanceof abp.Filter))
+    if (!(subscription instanceof SpecialSubscription) || !(filter instanceof Filter))
     {
-      let dummySubscription = new abp.Subscription("~dummy~");
-      dummySubscription.title = abp.getString("new_filter_group_title");
+      let dummySubscription = new Subscription("~dummy~");
+      dummySubscription.title = Utils.getString("new_filter_group_title");
       dummySubscription.filters.push(" ");
       dummySubscription = createSubscriptionWrapper(dummySubscription);
 
@@ -3060,7 +3059,7 @@ let treeView = {
     this.editor.field.removeEventListener("blur", this.editorBlurHandler, false);
 
     let insert = (this.editorDummy != null);
-    if (this.editorDummy instanceof abp.Subscription)
+    if (this.editorDummy instanceof Subscription)
     {
       let rowCount = this.getSubscriptionRowCount(this.editorDummy);
       this.subscriptions.shift();
@@ -3082,8 +3081,8 @@ let treeView = {
       this.boxObject.treeBody.parentNode.focus();
 
     let [subscription, filter] = this.getRowInfo(this.editedRow);
-    let text = abp.normalizeFilter(this.editor.value);
-    if (save && text && (insert || !(filter instanceof abp.Filter) || text != filter.text))
+    let text = Filter.normalize(this.editor.value);
+    if (save && text && (insert || !(filter instanceof Filter) || text != filter.text))
     {
       let newFilter = getFilterByText(text);
       if (filter && subscription.isFilterAllowed(newFilter))

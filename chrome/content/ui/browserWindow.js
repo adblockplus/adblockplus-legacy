@@ -24,8 +24,6 @@
 
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 
-var RequestList = abp.RequestList;
-
 /**
  * List of event handers to be registered. For each event handler the element ID,
  * event and the actual event handler are listed.
@@ -35,7 +33,7 @@ let eventHandlers = [
   ["abp-tooltip", "popupshowing", abpFillTooltip],
   ["abp-status-popup", "popupshowing", abpFillPopup],
   ["abp-toolbar-popup", "popupshowing", abpFillPopup],
-  ["abp-command-settings", "command", function() { abp.openSettingsDialog(); }],
+  ["abp-command-settings", "command", function() { Utils.openSettingsDialog(); }],
   ["abp-command-sidebar", "command", toggleSidebar],
   ["abp-command-togglesitewhitelist", "command", function() { toggleFilter(siteWhitelist); }],
   ["abp-command-togglepagewhitelist", "command", function() { toggleFilter(pageWhitelist); }],
@@ -57,7 +55,7 @@ let eventHandlers = [
 /**
  * Stores the current value of showintoolbar preference (to detect changes).
  */
-let currentlyShowingInToolbar = prefs.showintoolbar;
+let currentlyShowingInToolbar = Prefs.showintoolbar;
 
 /**
  * Filter corresponding with "disable on site" menu item (set in abpFillPopup()).
@@ -183,9 +181,9 @@ function abpInit() {
       paletteButtonIDs[id].addEventListener(event, handler, false);
   }
 
-  prefs.addListener(abpReloadPrefs);
-  filterStorage.addFilterObserver(abpReloadPrefs);
-  filterStorage.addSubscriptionObserver(abpReloadPrefs);
+  Prefs.addListener(abpReloadPrefs);
+  FilterStorage.addFilterObserver(abpReloadPrefs);
+  FilterStorage.addSubscriptionObserver(abpReloadPrefs);
 
   let browser = abpHooks.getBrowser();
   browser.addEventListener("click", handleLinkClick, true);
@@ -204,9 +202,9 @@ function abpInit() {
   // Make sure we always configure keys but don't let them break anything
   try {
     // Configure keys
-    for (var key in prefs)
+    for (var key in Prefs)
       if (key.match(/(.*)_key$/))
-        abpConfigureKey(RegExp.$1, prefs[key]);
+        abpConfigureKey(RegExp.$1, Prefs[key]);
   } catch(e) {}
 
   // Install context menu handler
@@ -224,13 +222,13 @@ function abpInit() {
   }
 
   // First run actions
-  if (!("doneFirstRunActions" in prefs))
+  if (!("doneFirstRunActions" in Prefs))
   {
     // Don't repeat first run actions if new window is opened
-    prefs.doneFirstRunActions = true;
+    Prefs.doneFirstRunActions = true;
 
     // Show subscriptions dialog if the user doesn't have any subscriptions yet
-    if (prefs.lastVersion != prefs.currentVersion)
+    if (Prefs.lastVersion != Prefs.currentVersion)
     {
       if ("nsISessionStore" in Ci)
       {
@@ -254,33 +252,33 @@ function abpInit() {
         timer.init(observer, 1000, Ci.nsITimer.TYPE_ONE_SHOT);
       }
       else
-        abp.runAsync(showSubscriptions);
+        Utils.runAsync(showSubscriptions);
     }
   }
 
   // Window-specific first run actions
-  if (!("doneFirstRunActions " + window.location.href in prefs))
+  if (!("doneFirstRunActions " + window.location.href in Prefs))
   {
     // Don't repeat first run actions for this window any more
-    prefs["doneFirstRunActions " + window.location.href] = true;
+    Prefs["doneFirstRunActions " + window.location.href] = true;
 
     let lastVersion = abpHooks.getAttribute("currentVersion") || "0.0";
-    if (lastVersion != prefs.currentVersion)
+    if (lastVersion != Prefs.currentVersion)
     {
-      abpHooks.setAttribute("currentVersion", prefs.currentVersion);
+      abpHooks.setAttribute("currentVersion", Prefs.currentVersion);
       document.persist("abp-hooks", "currentVersion");
 
-      let needInstall = (abp.versionComparator.compare(lastVersion, "0.0") <= 0);
+      let needInstall = (Utils.versionComparator.compare(lastVersion, "0.0") <= 0);
       if (!needInstall)
       {
         // Before version 1.1 we didn't add toolbar icon in SeaMonkey, do it now
-        needInstall = abp.versionComparator.compare(lastVersion, "1.1") < 0 &&
+        needInstall = Utils.versionComparator.compare(lastVersion, "1.1") < 0 &&
                       Cc["@mozilla.org/xre/app-info;1"].getService(Ci.nsIXULAppInfo).ID == "{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}";
       }
 
       // Add ABP icon to toolbar if necessary
       if (needInstall)
-        abp.runAsync(abpInstallInToolbar);
+        Utils.runAsync(abpInstallInToolbar);
     }
   }
 
@@ -294,19 +292,19 @@ function abpInit() {
 
 function abpUnload()
 {
-  prefs.removeListener(abpReloadPrefs);
-  filterStorage.removeFilterObserver(abpReloadPrefs);
-  filterStorage.removeSubscriptionObserver(abpReloadPrefs);
+  Prefs.removeListener(abpReloadPrefs);
+  FilterStorage.removeFilterObserver(abpReloadPrefs);
+  FilterStorage.removeSubscriptionObserver(abpReloadPrefs);
   abpHooks.getBrowser().removeProgressListener(progressListener);
 }
 
 function abpReloadPrefs() {
-  var state = (prefs.enabled ? "active" : "disabled");
+  var state = (Prefs.enabled ? "active" : "disabled");
 
   if (state == "active")
   {
     let location = getCurrentLocation();
-    if (location && abp.policy.isWhitelisted(location.spec))
+    if (location && Policy.isWhitelisted(location.spec))
       state = "whitelisted";
   }
 
@@ -319,18 +317,18 @@ function abpReloadPrefs() {
       return;
 
     if (element.tagName == "statusbarpanel")
-      element.hidden = !prefs.showinstatusbar;
+      element.hidden = !Prefs.showinstatusbar;
     else
-      element.hidden = !prefs.showintoolbar;
+      element.hidden = !Prefs.showintoolbar;
 
     // HACKHACK: Show status bar icon instead of toolbar icon if the application doesn't have a toolbar icon
     if (element.hidden && element.tagName == "statusbarpanel" && !abpHooks.getDefaultToolbar)
-      element.hidden = !prefs.showintoolbar;
+      element.hidden = !Prefs.showintoolbar;
 
-    if (currentlyShowingInToolbar != prefs.showintoolbar)
+    if (currentlyShowingInToolbar != Prefs.showintoolbar)
       abpInstallInToolbar();
 
-    currentlyShowingInToolbar = prefs.showintoolbar;
+    currentlyShowingInToolbar = Prefs.showintoolbar;
 
     element.setAttribute("abpstate", state);
   };
@@ -338,7 +336,7 @@ function abpReloadPrefs() {
   var status = E("abp-status");
   updateElement(status);
   if (status) {
-    if (prefs.defaultstatusbaraction == 0)
+    if (Prefs.defaultstatusbaraction == 0)
       status.setAttribute("popup", status.getAttribute("context"));
     else
       status.removeAttribute("popup");
@@ -347,7 +345,7 @@ function abpReloadPrefs() {
   var button = E("abp-toolbarbutton");
   updateElement(button);
   if (button) {
-    if (button.hasAttribute("context") && prefs.defaulttoolbaraction == 0)
+    if (button.hasAttribute("context") && Prefs.defaulttoolbaraction == 0)
     {
       button.setAttribute("popup", button.getAttribute("context"));
       button.removeAttribute("type");
@@ -366,7 +364,7 @@ function abpReloadPrefs() {
 function shouldHideImageManager()
 {
   let result = false;
-  if (prefs.hideimagemanager && "@mozilla.org/permissionmanager;1" in Cc)
+  if (Prefs.hideimagemanager && "@mozilla.org/permissionmanager;1" in Cc)
   {
     try
     {
@@ -503,14 +501,14 @@ function handleLinkClick(/**Event*/ event)
   }
 
   // Verify that the URL is valid
-  url = abp.makeURL(url);
+  url = Utils.makeURI(url);
   if (!url || (url.scheme != "http" && url.scheme != "https" && url.scheme != "ftp"))
     return;
   url = url.spec;
 
   if (mainSubscriptionURL)
   {
-    mainSubscriptionURL = abp.makeURL(mainSubscriptionURL);
+    mainSubscriptionURL = Utils.makeURI(mainSubscriptionURL);
     if (!mainSubscriptionURL || (mainSubscriptionURL.scheme != "http" && mainSubscriptionURL.scheme != "https" && mainSubscriptionURL.scheme != "ftp"))
       mainSubscriptionURL = mainSubscriptionTitle = null;
     else
@@ -574,17 +572,14 @@ function abpInstallInToolbar()
  */
 function showSubscriptions()
 {
-  // In Fennec we might not be initialized yet
-  abp.init();
-
   // Don't annoy the user if he has a subscription already
-  let hasSubscriptions = filterStorage.subscriptions.some(function(subscription) subscription instanceof abp.DownloadableSubscription);
+  let hasSubscriptions = FilterStorage.subscriptions.some(function(subscription) subscription instanceof DownloadableSubscription);
   if (hasSubscriptions)
     return;
 
   // Only show the list if this is the first run or the user has no filters
-  let hasFilters = filterStorage.subscriptions.some(function(subscription) subscription.filters.length);
-  if (hasFilters && abp.versionComparator.compare(prefs.lastVersion, "0.0") > 0)
+  let hasFilters = FilterStorage.subscriptions.some(function(subscription) subscription.filters.length);
+  if (hasFilters && Utils.versionComparator.compare(Prefs.lastVersion, "0.0") > 0)
     return;
 
   if (!abpHooks.addTab || abpHooks.addTab("chrome://adblockplus/content/ui/subscriptionSelection.xul") === false)
@@ -600,23 +595,23 @@ function abpFillTooltip(event)
   }
 
   let type = (document.tooltipNode && document.tooltipNode.id == "abp-toolbarbutton" ? "toolbar" : "statusbar");
-  let action = parseInt(prefs["default" + type + "action"]);
+  let action = parseInt(Prefs["default" + type + "action"]);
   if (isNaN(action))
     action = -1;
 
   let actionDescr = E("abp-tooltip-action");
   actionDescr.hidden = (action < 0 || action > 3);
   if (!actionDescr.hidden)
-    actionDescr.setAttribute("value", abp.getString("action" + action + "_tooltip"));
+    actionDescr.setAttribute("value", Utils.getString("action" + action + "_tooltip"));
 
   let state = event.target.getAttribute("curstate");
   let statusDescr = E("abp-tooltip-status");
-  let statusStr = abp.getString(state + "_tooltip");
+  let statusStr = Utils.getString(state + "_tooltip");
   if (state == "active")
   {
-    let [activeSubscriptions, activeFilters] = abp.filterStorage.subscriptions.reduce(function([subscriptions, filters], current)
+    let [activeSubscriptions, activeFilters] = FilterStorage.subscriptions.reduce(function([subscriptions, filters], current)
     {
-      if (current instanceof abp.SpecialSubscription)
+      if (current instanceof SpecialSubscription)
         return [subscriptions, filters + current.filters.length];
       else
         return [subscriptions + 1, filters];
@@ -641,16 +636,16 @@ function abpFillTooltip(event)
     for each (let location in data.getAllLocations())
     {
       let filter = location.filter;
-      if (filter && filter instanceof abp.ElemHideFilter)
+      if (filter && filter instanceof ElemHideFilter)
         hidden++;
       else
         itemsCount++;
 
       if (filter)
       {
-        if (filter instanceof abp.BlockingFilter)
+        if (filter instanceof BlockingFilter)
           blocked++;
-        else if (filter instanceof abp.WhitelistFilter)
+        else if (filter instanceof WhitelistFilter)
           whitelisted++;
 
         if (filter.text in filterCount)
@@ -660,12 +655,12 @@ function abpFillTooltip(event)
       }
     }
 
-    let blockedStr = abp.getString("blocked_count_tooltip");
+    let blockedStr = Utils.getString("blocked_count_tooltip");
     blockedStr = blockedStr.replace(/\?1\?/, blocked).replace(/\?2\?/, itemsCount);
 
     if (whitelisted + hidden)
     {
-      blockedStr += " " + abp.getString("blocked_count_addendum");
+      blockedStr += " " + Utils.getString("blocked_count_addendum");
       blockedStr = blockedStr.replace(/\?1\?/, whitelisted).replace(/\?2\?/, hidden);
     }
 
@@ -707,7 +702,7 @@ function getCurrentLocation() /**nsIURI*/
   if ("currentHeaderData" in window && "content-base" in window.currentHeaderData)
   {
     // Thunderbird blog entry
-    return abp.unwrapURL(window.currentHeaderData["content-base"].headerValue);
+    return Utils.unwrapURL(window.currentHeaderData["content-base"].headerValue);
   }
   else if ("currentHeaderData" in window && "from" in window.currentHeaderData)
   {
@@ -716,7 +711,7 @@ function getCurrentLocation() /**nsIURI*/
     {
       let headerParser = Cc["@mozilla.org/messenger/headerparser;1"].getService(Ci.nsIMsgHeaderParser);
       let emailAddress = headerParser.extractHeaderAddressMailboxes(window.currentHeaderData.from.headerValue);
-      return abp.makeURL("mailto:" + emailAddress.replace(/^[\s"]+/, "").replace(/[\s"]+$/, "").replace(/\s/g, "%20"));
+      return Utils.makeURI("mailto:" + emailAddress.replace(/^[\s"]+/, "").replace(/[\s"]+$/, "").replace(/\s/g, "%20"));
     }
     catch(e)
     {
@@ -726,7 +721,7 @@ function getCurrentLocation() /**nsIURI*/
   else
   {
     // Regular browser
-    return abp.unwrapURL(abpHooks.getBrowser().contentWindow.location.href);
+    return Utils.unwrapURL(abpHooks.getBrowser().contentWindow.location.href);
   }
 }
 
@@ -758,7 +753,7 @@ function abpFillPopup(event) {
     whitelistSeparator = whitelistSeparator.nextSibling;
 
   let location = getCurrentLocation();
-  if (location && abp.policy.isBlockableScheme(location))
+  if (location && Policy.isBlockableScheme(location))
   {
     let host = null;
     try
@@ -777,18 +772,18 @@ function abpFillPopup(event) {
         ending = "?";
       }
 
-      siteWhitelist = abp.Filter.fromText("@@||" + host + "^$document");
+      siteWhitelist = Filter.fromText("@@||" + host + "^$document");
       whitelistItemSite.setAttribute("checked", siteWhitelist.subscriptions.length && !siteWhitelist.disabled);
       whitelistItemSite.setAttribute("label", whitelistItemSite.getAttribute("labeltempl").replace(/\?1\?/, host));
       whitelistItemSite.hidden = false;
 
-      pageWhitelist = abp.Filter.fromText("@@|" + location.spec + ending + "$document");
+      pageWhitelist = Filter.fromText("@@|" + location.spec + ending + "$document");
       whitelistItemPage.setAttribute("checked", pageWhitelist.subscriptions.length && !pageWhitelist.disabled);
       whitelistItemPage.hidden = false;
     }
     else
     {
-      siteWhitelist = abp.Filter.fromText("@@|" + location.spec + "|");
+      siteWhitelist = Filter.fromText("@@|" + location.spec + "|");
       whitelistItemSite.setAttribute("checked", siteWhitelist.subscriptions.length && !siteWhitelist.disabled);
       whitelistItemSite.setAttribute("label", whitelistItemSite.getAttribute("labeltempl").replace(/\?1\?/, location.spec.replace(/^mailto:/, "")));
       whitelistItemSite.hidden = false;
@@ -796,13 +791,13 @@ function abpFillPopup(event) {
   }
   whitelistSeparator.hidden = whitelistItemSite.hidden && whitelistItemPage.hidden;
 
-  elements.enabled.setAttribute("checked", prefs.enabled);
-  elements.frameobjects.setAttribute("checked", prefs.frameobjects);
-  elements.slowcollapse.setAttribute("checked", !prefs.fastcollapse);
-  elements.showintoolbar.setAttribute("checked", prefs.showintoolbar);
-  elements.showinstatusbar.setAttribute("checked", prefs.showinstatusbar);
+  elements.enabled.setAttribute("checked", Prefs.enabled);
+  elements.frameobjects.setAttribute("checked", Prefs.frameobjects);
+  elements.slowcollapse.setAttribute("checked", !Prefs.fastcollapse);
+  elements.showintoolbar.setAttribute("checked", Prefs.showintoolbar);
+  elements.showinstatusbar.setAttribute("checked", Prefs.showinstatusbar);
 
-  var defAction = (popup.tagName == "menupopup" || document.popupNode.id == "abp-toolbarbutton" ? prefs.defaulttoolbaraction : prefs.defaultstatusbaraction);
+  var defAction = (popup.tagName == "menupopup" || document.popupNode.id == "abp-toolbarbutton" ? Prefs.defaulttoolbaraction : Prefs.defaultstatusbaraction);
   elements.opensidebar.setAttribute("default", defAction == 1);
   elements.closesidebar.setAttribute("default", defAction == 1);
   elements.settings.setAttribute("default", defAction == 2);
@@ -828,7 +823,7 @@ function toggleSidebar()
   else
   {
     var sidebar = E("abp-sidebar");
-    if (sidebar && (!prefs.detachsidebar || !sidebar.hidden))
+    if (sidebar && (!Prefs.detachsidebar || !sidebar.hidden))
     {
       E("abp-sidebar-splitter").hidden = !sidebar.hidden;
       E("abp-sidebar-browser").setAttribute("src", sidebar.hidden ? "chrome://adblockplus/content/ui/sidebar.xul" : "about:blank");
@@ -847,8 +842,8 @@ function toggleSidebar()
 
 // Toggles the value of a boolean pref
 function abpTogglePref(pref) {
-  prefs[pref] = !prefs[pref];
-  prefs.save();
+  Prefs[pref] = !Prefs[pref];
+  Prefs.save();
 }
 
 /**
@@ -858,17 +853,17 @@ function toggleFilter(/**Filter*/ filter)
 {
   if (filter.subscriptions.length)
   {
-    if (filter.disabled || filter.subscriptions.some(function(subscription) !(subscription instanceof abp.SpecialSubscription)))
+    if (filter.disabled || filter.subscriptions.some(function(subscription) !(subscription instanceof SpecialSubscription)))
     {
       filter.disabled = !filter.disabled;
-      filterStorage.triggerFilterObservers(filter.disabled ? "disable" : "enable", [filter]);
+      FilterStorage.triggerFilterObservers(filter.disabled ? "disable" : "enable", [filter]);
     }
     else
-      filterStorage.removeFilter(filter);
+      FilterStorage.removeFilter(filter);
   }
   else
-    filterStorage.addFilter(filter);
-  filterStorage.saveToDisk();
+    FilterStorage.addFilter(filter);
+  FilterStorage.saveToDisk();
 }
 
 /**
@@ -879,7 +874,7 @@ function removeWhitelist()
   let location = getCurrentLocation();
   let filter = null;
   if (location)
-    filter = abp.policy.isWhitelisted(location.spec);
+    filter = Policy.isWhitelisted(location.spec);
   if (filter && filter.subscriptions.length && !filter.disabled)
     toggleFilter(filter);
 }
@@ -887,16 +882,16 @@ function removeWhitelist()
 // Handle clicks on the Adblock statusbar panel
 function abpClickHandler(e) {
   if (e.button == 0)
-    abpExecuteAction(prefs.defaultstatusbaraction);
+    abpExecuteAction(Prefs.defaultstatusbaraction);
   else if (e.button == 1)
     abpTogglePref("enabled");
 }
 
 function abpCommandHandler(e) {
-  if (prefs.defaulttoolbaraction == 0)
+  if (Prefs.defaulttoolbaraction == 0)
     e.target.open = true;
   else
-    abpExecuteAction(prefs.defaulttoolbaraction);
+    abpExecuteAction(Prefs.defaulttoolbaraction);
 }
 
 // Executes default action for statusbar/toolbar by its number
@@ -904,7 +899,7 @@ function abpExecuteAction(action) {
   if (action == 1)
     toggleSidebar();
   else if (action == 2)
-    abp.openSettingsDialog();
+    Utils.openSettingsDialog();
   else if (action == 3)
     abpTogglePref("enabled");
 }
@@ -915,7 +910,7 @@ function abpImageStyle(computedStyle, property) {
   if (value instanceof Ci.nsIDOMCSSValueList && value.length >= 1)
     value = value[0];
   if (value instanceof Ci.nsIDOMCSSPrimitiveValue && value.primitiveType == Ci.nsIDOMCSSPrimitiveValue.CSS_URI)
-    return abp.unwrapURL(value.getStringValue()).spec;
+    return Utils.unwrapURL(value.getStringValue()).spec;
 
   return null;
 }
@@ -959,7 +954,7 @@ function abpCheckContext() {
           var style = wnd.getComputedStyle(imageNode, "");
           bgImage = abpImageStyle(style, "background-image") || abpImageStyle(style, "list-style-image");
           if (bgImage) {
-            backgroundData = wndData.getLocation(abp.policy.type.BACKGROUND, bgImage);
+            backgroundData = wndData.getLocation(Policy.type.BACKGROUND, bgImage);
             if (backgroundData && backgroundData.filter)
               backgroundData = null;
           }
@@ -984,7 +979,7 @@ function abpCheckContext() {
   E("abp-frame-menuitem").hidden = (frameData == null);
 
   let location = getCurrentLocation();
-  E("abp-removeWhitelist-menuitem").hidden = (!location || !abp.policy.isWhitelisted(location.spec));
+  E("abp-removeWhitelist-menuitem").hidden = (!location || !Policy.isWhitelisted(location.spec));
 }
 
 // Bring up the settings dialog for the node the context menu was referring to

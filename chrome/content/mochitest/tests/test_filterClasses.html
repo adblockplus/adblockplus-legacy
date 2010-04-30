@@ -9,9 +9,6 @@
   <script type="text/javascript" src="/content/tests/SimpleTest/SimpleTest.js"></script>        
 
   <script type="application/x-javascript;version=1.7" src="common.js"></script>
-  <script type="application/x-javascript;version=1.7" src="chrome://adblockplus/content/filterClasses.js"></script>
-  <script type="application/x-javascript;version=1.7" src="chrome://adblockplus/content/filterStorage.js"></script>
-  <script type="application/x-javascript;version=1.7" src="chrome://adblockplus/content/matcher.js"></script>
 </head>
 <body>
   <p id="display"></p>
@@ -20,25 +17,25 @@
   </div>
   <pre id="test">
   <script type="application/x-javascript;version=1.7">
-    // Make sure not to trigger fallback code on format version changes
-    filterStorage.fileProperties.version = filterStorage.formatVersion;
+    Cu.import(baseURL.spec + "Utils.jsm");
+    prepareFilterComponents();
 
     function serializeFilter(filter)
     {
       // Filter serialization only writes out essential properties, need to do a full serialization here
       let result = [];
       result.push("text=" + filter.text);
-      if (filter instanceof abp.InvalidFilter)
+      if (filter instanceof InvalidFilter)
       {
         result.push("type=invalid");
         if (filter.reason)
           result.push("hasReason");
       }
-      else if (filter instanceof abp.CommentFilter)
+      else if (filter instanceof CommentFilter)
       {
         result.push("type=comment");
       }
-      else if (filter instanceof abp.ActiveFilter)
+      else if (filter instanceof ActiveFilter)
       {
         result.push("disabled=" + filter.disabled);
         result.push("lastHit=" + filter.lastHit);
@@ -57,7 +54,7 @@
         }
         result.push("domains=" + domains.sort().join("|"));
 
-        if (filter instanceof abp.RegExpFilter)
+        if (filter instanceof RegExpFilter)
         {
           result.push("regexp=" + filter.regexp.source);
           if (filter.shortcut)
@@ -66,17 +63,17 @@
           result.push("matchCase=" + filter.matchCase);
 
           result.push("thirdParty=" + filter.thirdParty);
-          if (filter instanceof abp.BlockingFilter)
+          if (filter instanceof BlockingFilter)
           {
             result.push("type=filterlist");
             result.push("collapse=" + filter.collapse);
           }
-          else if (filter instanceof abp.WhitelistFilter)
+          else if (filter instanceof WhitelistFilter)
           {
             result.push("type=whitelist");
           }
         }
-        else if (filter instanceof abp.ElemHideFilter)
+        else if (filter instanceof ElemHideFilter)
         {
           result.push("type=elemhide");
           result.push("selectorDomain=" + (filter.selectorDomain || ""));
@@ -160,14 +157,14 @@
       is(serializeFilter(filter).join("\n"), serializeFilter(filter2).join("\n"), text + " deserialization");
     }
 
-    is(typeof abp.Filter, "function", "typeof abp.Filter");
-    is(typeof abp.InvalidFilter, "function", "typeof abp.InvalidFilter");
-    is(typeof abp.CommentFilter, "function", "typeof abp.CommentFilter");
-    is(typeof abp.ActiveFilter, "function", "typeof abp.ActiveFilter");
-    is(typeof abp.RegExpFilter, "function", "typeof abp.RegExpFilter");
-    is(typeof abp.BlockingFilter, "function", "typeof abp.BlockingFilter");
-    is(typeof abp.WhitelistFilter, "function", "typeof abp.WhitelistFilter");
-    is(typeof abp.ElemHideFilter, "function", "typeof abp.ElemHideFilter");
+    is(typeof Filter, "function", "typeof Filter");
+    is(typeof InvalidFilter, "function", "typeof InvalidFilter");
+    is(typeof CommentFilter, "function", "typeof CommentFilter");
+    is(typeof ActiveFilter, "function", "typeof ActiveFilter");
+    is(typeof RegExpFilter, "function", "typeof RegExpFilter");
+    is(typeof BlockingFilter, "function", "typeof BlockingFilter");
+    is(typeof WhitelistFilter, "function", "typeof WhitelistFilter");
+    is(typeof ElemHideFilter, "function", "typeof ElemHideFilter");
 
     compareFilter("!asdf", ["type=comment", "text=!asdf"]);
     compareFilter("/??/", ["type=invalid", "text=/??/", "hasReason"]);
@@ -175,13 +172,13 @@
     compareFilter("#dd(asd)(ddd)", ["type=invalid", "text=#dd(asd)(ddd)", "hasReason"]);
     {
       let result = Filter.fromText("#dd(asd)(ddd)").reason;
-      is(result, "filter_elemhide_duplicate_id", "#dd(asd)(ddd).reason");
+      is(result, Utils.getString("filter_elemhide_duplicate_id"), "#dd(asd)(ddd).reason");
     }
 
     compareFilter("#*", ["type=invalid", "text=#*", "hasReason"]);
     {
       let result = Filter.fromText("#*").reason;
-      is(result, "filter_elemhide_nocriteria", "#*.reason");
+      is(result, Utils.getString("filter_elemhide_nocriteria"), "#*.reason");
     }
 
     compareFilter("blabla", ["type=filterlist", "text=blabla", "regexp=blabla"]);

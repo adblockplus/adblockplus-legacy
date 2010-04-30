@@ -18,7 +18,18 @@
   </div>
   <pre id="test">
   <script type="application/x-javascript;version=1.7">
-    let abp = Components.classes["@mozilla.org/adblockplus;1"].createInstance().wrappedJSObject;
+    Cu.import(baseURL.spec + "RequestList.jsm");
+    prepareFilterComponents();
+    preparePrefs();
+
+    let wrapNodeArray = Cc['@mozilla.org/array;1'].createInstance(Ci.nsIMutableArray);
+    function wrapNode(node)
+    {
+      wrapNodeArray.appendElement(node, false);
+      let result = wrapNodeArray.queryElementAt(0, Ci.nsISupports);
+      wrapNodeArray.removeElementAt(0);
+      return result;
+    }
 
     let tests = [
       ["test1", "", sameAddressNodes1],
@@ -37,8 +48,6 @@
     {
       window.addEventListener("unload", stop, false);
       server.start(1234);
-
-      abp.prefs.enabled = true;
 
       server.registerPathHandler("/test1", function(metadata, response)
       {
@@ -103,7 +112,7 @@
 
     function sameAddressNodes1()
     {
-      let frameData = abp.RequestList.getDataForWindow(abp.wrapNode(window.frames[0]), true);
+      let frameData = RequestList.getDataForWindow(wrapNode(window.frames[0]), true);
       ok(frameData, "Frame has data associated with it");
 
       let entries = frameData.getAllLocations();
@@ -118,7 +127,7 @@
 
     function sameAddressNodes2()
     {
-      let frameData = abp.RequestList.getDataForWindow(abp.wrapNode(window.frames[0]), true);
+      let frameData = RequestList.getDataForWindow(wrapNode(window.frames[0]), true);
       ok(frameData, "Frame has data associated with it");
 
       let entries = frameData.getAllLocations();
@@ -133,7 +142,7 @@
 
     function sameAddressNodes3()
     {
-      let frameData = abp.RequestList.getDataForWindow(abp.wrapNode(window.frames[0]), true);
+      let frameData = RequestList.getDataForWindow(wrapNode(window.frames[0]), true);
       ok(frameData, "Frame has data associated with it");
 
       let entries = frameData.getAllLocations();
@@ -148,7 +157,7 @@
 
     function sameAddressNodes4(event)
     {
-      let frameData = abp.RequestList.getDataForWindow(abp.wrapNode(window.frames[0]), true);
+      let frameData = RequestList.getDataForWindow(wrapNode(window.frames[0]), true);
       ok(frameData, "Frame has data associated with it");
 
       let entries = frameData.getAllLocations();
@@ -167,7 +176,7 @@
 
     function differentAddressNodes1()
     {
-      let frameData = abp.RequestList.getDataForWindow(abp.wrapNode(window.frames[0]), true);
+      let frameData = RequestList.getDataForWindow(wrapNode(window.frames[0]), true);
       ok(frameData, "Frame has data associated with it");
 
       let entries = frameData.getAllLocations();
@@ -183,7 +192,7 @@
 
     function differentAddressNodes2()
     {
-      let frameData = abp.RequestList.getDataForWindow(abp.wrapNode(window.frames[0]), true);
+      let frameData = RequestList.getDataForWindow(wrapNode(window.frames[0]), true);
       ok(frameData, "Frame has data associated with it");
 
       let entries = frameData.getAllLocations();
@@ -199,7 +208,7 @@
 
     function differentAddressNodes3()
     {
-      let frameData = abp.RequestList.getDataForWindow(abp.wrapNode(window.frames[0]), true);
+      let frameData = RequestList.getDataForWindow(wrapNode(window.frames[0]), true);
       ok(frameData, "Frame has data associated with it");
 
       let entries = frameData.getAllLocations();
@@ -215,7 +224,7 @@
 
     function differentAddressNodes4()
     {
-      let frameData = abp.RequestList.getDataForWindow(abp.wrapNode(window.frames[0]), true);
+      let frameData = RequestList.getDataForWindow(wrapNode(window.frames[0]), true);
       ok(frameData, "Frame has data associated with it");
 
       let entries = frameData.getAllLocations();
@@ -236,12 +245,9 @@
     function stop()
     {
       server.stop();
-
-      abp.prefs.enabled = oldEnabled;
     }
 
     let server = new nsHttpServer();
-    let oldEnabled = abp.prefs.enabled;
     SimpleTest.waitForExplicitFinish();
     addLoadEvent(start);
   </script>

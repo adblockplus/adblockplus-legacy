@@ -4,7 +4,6 @@
   <title>Filter initialization performance measurements</title>
   <script type="application/x-javascript;version=1.7" src="common.js"></script>
   <script type="application/x-javascript;version=1.7" src="../common.js"></script>
-  <script type="application/x-javascript;version=1.7" src="chrome://adblockplus/content/filterClasses.js"></script>
 </head>
 <body>
   <p id="progress">Please wait while performance measurement is in progress... <span id="current"></span></p>
@@ -12,6 +11,8 @@
   <pre id="result"></pre>
 
   <script type="application/x-javascript;version=1.7">
+    prepareFilterComponents();
+
     let filters = [
       "! Checksum: D9WOmVox9uh2SWX6Dg5tGg",
       "!",

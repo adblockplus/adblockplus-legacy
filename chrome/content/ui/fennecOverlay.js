@@ -36,18 +36,17 @@ function onCreateOptions(event)
   }, false);
 
   updateSubscriptionList();
-  abp.filterStorage.addSubscriptionObserver(updateSubscriptionList);
+  FilterStorage.addSubscriptionObserver(updateSubscriptionList);
 
   window.addEventListener("unload", function()
   {
-    abp.filterStorage.removeSubscriptionObserver(updateSubscriptionList);
+    FilterStorage.removeSubscriptionObserver(updateSubscriptionList);
   }, false);
 }
 
 function updateSubscriptionList()
 {
-  let filterStorage = abp.filterStorage;
-  let currentSubscription = filterStorage.subscriptions.filter(function(subscription) subscription instanceof abp.DownloadableSubscription);
+  let currentSubscription = FilterStorage.subscriptions.filter(function(subscription) subscription instanceof DownloadableSubscription);
   currentSubscription = (currentSubscription.length ? currentSubscription[0] : null);
   
   let xhr = Cc["@mozilla.org/xmlextras/xmlhttprequest;1"].createInstance(Ci.nsIJSXMLHttpRequest);
@@ -81,22 +80,21 @@ function updateSubscriptionList()
   
 function setSubscription(url, title)
 {
-  let filterStorage = abp.filterStorage;
-  let currentSubscription = filterStorage.subscriptions.filter(function(subscription) subscription instanceof abp.DownloadableSubscription);
+  let currentSubscription = FilterStorage.subscriptions.filter(function(subscription) subscription instanceof DownloadableSubscription);
   currentSubscription = (currentSubscription.length ? currentSubscription[0] : null);
   if (currentSubscription && currentSubscription.url == url)
     return;
 
   // We only allow one subscription, remove existing one before adding
   if (currentSubscription)
-    filterStorage.removeSubscription(currentSubscription);
+    FilterStorage.removeSubscription(currentSubscription);
 
-  currentSubscription = abp.Subscription.fromURL(url);
+  currentSubscription = Subscription.fromURL(url);
   currentSubscription.title = title;
 
-  filterStorage.addSubscription(currentSubscription);
-  abp.synchronizer.execute(currentSubscription, false);
-  filterStorage.saveToDisk();
+  FilterStorage.addSubscription(currentSubscription);
+  Synchronizer.execute(currentSubscription, false);
+  FilterStorage.saveToDisk();
 }
 
 function initFennecSubscriptionDialog(url, title)
@@ -158,11 +156,11 @@ function updateFennecStatusUI()
 
   let status = "disabled";
   let host = null;
-  if (abp.prefs.enabled)
+  if (Prefs.enabled)
   {
     status = "enabled";
     let location = getCurrentLocation();
-    if (location instanceof Ci.nsIURL && abp.policy.isBlockableScheme(location))
+    if (location instanceof Ci.nsIURL && Policy.isBlockableScheme(location))
     {
       try
       {
@@ -170,13 +168,13 @@ function updateFennecStatusUI()
       } catch (e) {}
     }
 
-    if (host && abp.policy.isWhitelisted(location.spec))
+    if (host && Policy.isWhitelisted(location.spec))
       status = "disabled_site";
     else if (host)
       status = "enabled_site";
   }
 
-  let statusText = abp.getString("fennec_status_" + status);
+  let statusText = Utils.getString("fennec_status_" + status);
   if (host)
     statusText = statusText.replace(/\?1\?/g, host);
 
@@ -189,11 +187,11 @@ function updateFennecStatusUI()
 
 function toggleFennecWhitelist()
 {
-  if (!abp.prefs.enabled)
+  if (!Prefs.enabled)
     return;
 
   let location = getCurrentLocation();
-  if (location instanceof Ci.nsIURL && abp.policy.isBlockableScheme(location))
+  if (location instanceof Ci.nsIURL && Policy.isBlockableScheme(location))
   {
     try
     {
@@ -204,10 +202,10 @@ function toggleFennecWhitelist()
   if (!host)
     return;
 
-  if (abp.policy.isWhitelisted(location.spec))
+  if (Policy.isWhitelisted(location.spec))
     removeWhitelist();
   else
-    toggleFilter(abp.Filter.fromText("@@||" + host + "^$document"));
+    toggleFilter(Filter.fromText("@@||" + host + "^$document"));
 
   updateFennecStatusUI();
 }
@@ -228,7 +226,5 @@ if (typeof window.IdentityHandler == "function" && typeof window.IdentityHandler
     }
   }
 }
-
-abp.runAsync(function() abp.init());
 
 E("addons-list").addEventListener("AddonOptionsLoad", onCreateOptions, false);

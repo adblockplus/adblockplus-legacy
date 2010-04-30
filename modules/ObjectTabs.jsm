@@ -24,10 +24,20 @@
 
 /**
  * @fileOverview Code responsible for showing and hiding object tabs.
- * This file is included from AdblockPlus.js.
  */
 
-XPCOMUtils.defineLazyServiceGetter(this, "accessibleRetrieval", "@mozilla.org/accessibleRetrieval;1", "nsIAccessibleRetrieval");
+var EXPORTED_SYMBOLS = ["objectMouseEventHander"];
+
+const Cc = Components.classes;
+const Ci = Components.interfaces;
+const Cr = Components.results;
+const Cu = Components.utils;
+
+let baseURL = Cc["@adblockplus.org/abp/private;1"].getService(Ci.nsIURI);
+
+Cu.import(baseURL.spec + "Utils.jsm");
+Cu.import(baseURL.spec + "Prefs.jsm");
+Cu.import(baseURL.spec + "RequestList.jsm");
 
 /**
  * Class responsible for showing and hiding object tabs.
@@ -126,7 +136,7 @@ var objTabs =
    */
   get _objectOverlapsBorder()
   {
-    let result = (abp.versionComparator.compare(
+    let result = (Utils.versionComparator.compare(
                         Cc["@mozilla.org/xre/app-info;1"].getService(Ci.nsIXULAppInfo).platformVersion,
                         "1.9.2") < 0);
     this.__defineGetter__("_objectOverlapsBorder", function() result);
@@ -155,10 +165,10 @@ var objTabs =
         this.objTabClassVisibleBottom = String.fromCharCode.apply(String, rnd.slice(20, 40));
         this.objTabClassHidden = String.fromCharCode.apply(String, rnd.slice(40, 60));
 
-        let url = makeURL("data:text/css," + encodeURIComponent(data.replace(/%%CLASSVISIBLETOP%%/g, this.objTabClassVisibleTop)
-                                                                    .replace(/%%CLASSVISIBLEBOTTOM%%/g, this.objTabClassVisibleBottom)
-                                                                    .replace(/%%CLASSHIDDEN%%/g, this.objTabClassHidden)));
-        styleService.loadAndRegisterSheet(url, Ci.nsIStyleSheetService.USER_SHEET);
+        let url = Utils.makeURI("data:text/css," + encodeURIComponent(data.replace(/%%CLASSVISIBLETOP%%/g, this.objTabClassVisibleTop)
+                                                                          .replace(/%%CLASSVISIBLEBOTTOM%%/g, this.objTabClassVisibleBottom)
+                                                                          .replace(/%%CLASSHIDDEN%%/g, this.objTabClassHidden)));
+        Utils.styleService.loadAndRegisterSheet(url, Ci.nsIStyleSheetService.USER_SHEET);
 
         this.initializing = false;
         this.initialized = true;
@@ -169,7 +179,7 @@ var objTabs =
 
       // Load CSS asynchronously
       try {
-        let request = new XMLHttpRequest();
+        let request = Cc["@mozilla.org/xmlextras/xmlhttprequest;1"].createInstance(Ci.nsIJSXMLHttpRequest);
         request.open("GET", "chrome://adblockplus/content/objtabs.css");
         request.overrideMimeType("text/plain");
 
@@ -193,7 +203,7 @@ var objTabs =
    */
   showTabFor: function(/**Element*/ element)
   {
-    if (!prefs.frameobjects)
+    if (!Prefs.frameobjects)
       return;
 
     if (this.hideTimer)
@@ -480,5 +490,3 @@ function objectTabEventHander(/**Event*/ event)
   else if (event.type == "mouseout")
     objTabs.hideTabFor(objTabs.currentElement);
 }
-
-abp.objTabs = objTabs;
