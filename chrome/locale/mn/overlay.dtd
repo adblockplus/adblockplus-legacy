@@ -8,6 +8,8 @@
 <!ENTITY context.image.label "Adblock Зураг">
 <!ENTITY context.object.label "Adblock Объект">
 <!ENTITY context.frame.label "Adblock Хүрээ">
+<!ENTITY context.media.label "Adblock: Дуу/видео">
+<!ENTITY context.removeWhitelist.label "Adblock: Уг хуудсанд дахин нээх">
 <!ENTITY sidebar.title "Тухайн хуудас дахь хашигдаж болох зүйлс">
 <!ENTITY settings.label "Тохиргоонууд">
 <!ENTITY settings.accesskey "Т">
