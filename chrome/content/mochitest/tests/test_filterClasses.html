@@ -167,6 +167,8 @@
     is(typeof ElemHideFilter, "function", "typeof ElemHideFilter");
 
     compareFilter("!asdf", ["type=comment", "text=!asdf"]);
+    compareFilter("!foo#bar", ["type=comment", "text=!foo#bar"]);
+    compareFilter("!foo##bar", ["type=comment", "text=!foo##bar"]);
     compareFilter("/??/", ["type=invalid", "text=/??/", "hasReason"]);
 
     compareFilter("#dd(asd)(ddd)", ["type=invalid", "text=#dd(asd)(ddd)", "hasReason"]);
