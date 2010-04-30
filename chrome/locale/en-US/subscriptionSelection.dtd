@@ -8,13 +8,6 @@
   selected.
 ">
 
-<!ENTITY adblock.warning            "
-  Adblock Plus has detected that Adblock or an old version of Adblock Plus is
-  installed. Running both Adblock and Adblock Plus in parallel can cause
-  problems and should be avoided. It is recommended that you uninstall Adblock now.
-">
-<!ENTITY adblock.uninstall          "Uninstall Adblock">
-
 <!ENTITY subscriptionSelector.label "Please choose a filter subscription from the list:">
 
 <!ENTITY viewList.label             "View filters">
