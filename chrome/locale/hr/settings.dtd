@@ -30,11 +30,11 @@
 <!ENTITY menu.findagain.label "Ponovno traži">
 <!ENTITY menu.findagain.accesskey "n">
 <!ENTITY view.label "Pogledati">
-<!ENTITY view.accesskey "V">
+<!ENTITY view.accesskey "g">
 <!ENTITY sort.label "Posložiti po">
 <!ENTITY sort.accesskey "S">
 <!ENTITY sort.none.label "Neposloženo">
-<!ENTITY sort.none.accesskey "U">
+<!ENTITY sort.none.accesskey "N">
 <!ENTITY sort.ascending.label "A &gt; Z red slaganja">
 <!ENTITY sort.ascending.accesskey "A">
 <!ENTITY sort.descending.label "Z &gt; A red slaganja">
@@ -54,7 +54,7 @@
 <!ENTITY help.label "Pomoć">
 <!ENTITY help.accesskey "ć">
 <!ENTITY gettingStarted.label "Kako početi">
-<!ENTITY gettingStarted.accesskey "s">
+<!ENTITY gettingStarted.accesskey "p">
 <!ENTITY gettingStarted.url "http://adblockplus.org/en/getting_started">
 <!ENTITY faq.label "Često postavljana pitanja">
 <!ENTITY faq.accesskey "t">
