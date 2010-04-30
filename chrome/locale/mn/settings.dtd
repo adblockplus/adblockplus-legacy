@@ -69,6 +69,8 @@
 		энгийн илэрхийлэл (regexpression) ашиглаж чадна. Ж: /banner\d+\.gif$/.">
 <!ENTITY filter.column "Шүүх дүрэм">
 <!ENTITY filter.accesskey "Ш">
+<!ENTITY slow.column "Удаан шүүлтүүрүүд">
+<!ENTITY slow.accesskey "У">
 <!ENTITY enabled.column "Идэвхтэй">
 <!ENTITY enabled.accesskey "И">
 <!ENTITY hitcount.column "Хандалт">
@@ -87,3 +89,4 @@
 <!ENTITY context.disable.label "Хаах">
 <!ENTITY apply.label "Хэрэглэх">
 <!ENTITY apply.accesskey "Г">
+<!ENTITY fennec.subscription.label "Шүүх мэдээлэгч">

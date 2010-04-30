@@ -1,16 +1,32 @@
 <!ENTITY dialog.title "أهلاً بك في آدبلوك بلاس">
 <!ENTITY dialog.title.edit "تعديل اشتراك فلتر">
+<!ENTITY description.newInstall "سيكون آدبلوك بلس أكثر فعالية ان قمت بإضافة اشتراك فلاتر. اشتراكات الفلاتر تقدم مجانا من قبل مستخدمين آخرين لآدبلوك بلس. الاشتراك الأكثر ملائمة للغتك مختار أصلا">
 <!ENTITY adblock.warning "قام آدبلوك بلس بتحديد أن &quot;آدبلوك&quot; أو نسخة قديمة من &quot;آدبلوك بلس&quot; منصبة. تشغيل &quot;آدبلوك&quot; و &quot;آدبلوك بلس&quot; معاً يمكن أن يسبب مشاكل و يجب تجنبه. ننصحك بإزالة &quot;آدبلوك&quot; الآن.">
 <!ENTITY adblock.uninstall "إزالة آدبلوك.">
 <!ENTITY filterset.g.warning "يبدو أنك تستخدم Filterset.G، بالكاد تم تطوير هذا الفلتر في السنوات الماضية لذلك فهو يسبب المشاكل مع مواقع الويب، يفضل إزالته الآن.">
 <!ENTITY filterset.g.moreinfo "معلومات إضافية">
 <!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
 <!ENTITY filterset.g.uninstall "إزالة Filterset.G">
+<!ENTITY subscriptionSelector.label "الرجاء اختيار اشتراك فلتر من القائمة:">
+<!ENTITY viewList.label "عرض فلاتر">
+<!ENTITY visitHomepage.label "زيارة الصفحة الرئيسية">
+<!ENTITY addSubscription.label "إضافة اشتراك">
+<!ENTITY saveSubscription.label "حفظ اشتراك">
 <!ENTITY other.label "إضافة اشتراك آخر">
 <!ENTITY other.accesskey "آ">
+<!ENTITY list.download.failed "فشل آدبلوك بلس في جلب قائمة الاشتراكات">
+<!ENTITY list.download.retry "إعادة المحاولة">
+<!ENTITY list.download.website "عرض الموقع">
+<!ENTITY list.website.url "http://adblockplus.org/en/subscriptions Copy">
+<!ENTITY fromWeb.description "الرجاء تأكيد رغبتك في إضافة اشتراك الفلتر هذا. يمكنك أن تغير عنوان أو موقع الاشتراك قبل اضافته.">
+<!ENTITY edit.description "تستطيع تغيير عنوان أو موقع هذا الاشتراك حسب الحاجة">
+<!ENTITY external.description "ان اشتراك الفلتر هذا خارجي وسيتم تحديثه من قبل الإضافة التي أنشأته">
 <!ENTITY title.label "عنوان الاشتراك">
 <!ENTITY title.accesskey "ع">
 <!ENTITY location.label "موقع قائمة الفلاتر">
 <!ENTITY location.accesskey "م">
 <!ENTITY autodownload.label "تحديث أوتوماتيكي">
 <!ENTITY autodownload.accesskey "ث">
+<!ENTITY supplementMessage "اشتراك الفلتر هذا يجب أن يستخدم مع اشتراك الفلتر &quot;?1?&quot; والذي لم تستعمله بعد">
+<!ENTITY addMain.label "إضافة اشتراك الفلتر &quot;?1?&quot; أيضا">
+<!ENTITY addMain.accesskey "ش">
