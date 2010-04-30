@@ -11,18 +11,18 @@
 <!ENTITY type.filter.label "Blokirani filter">
 <!ENTITY type.filter.accesskey "B">
 <!ENTITY type.whitelist.label "Iznimka">
-<!ENTITY type.whitelist.accesskey "x">
+<!ENTITY type.whitelist.accesskey "m">
 <!ENTITY pattern.label "Traži ponavljajući uzorak">
 <!ENTITY pattern.explanation "uzorak može biti bilo koji dio adrese, asterisk (*) služi kao zamjena. Filter će biti primjenjen na adrese koje se poklapaju sa naznačenim uzorkom.">
 <!ENTITY regexp.warning "Uzorak koji ste unijeli biti će protumačen kao obični izraz kojeg Adblock Plus ne može efikasno obraditi i može usporiti vaše surfanje. Ako niste namjeravali koristiti obični izra, dodajte asterisk (*) na kraju uzorka.">
 <!ENTITY shortpattern.warning "Uneseni uzorak je prekratak za optimizaciju i može usporiti vaše surfanje. Preporučamo da odaberete duži niz za ovaj filter kako biste omogućili da Adblock Plus efikasnije obradi taj filter.">
 <!ENTITY custom.pattern.label "Prilagođeno:">
-<!ENTITY custom.pattern.accesskey "C">
+<!ENTITY custom.pattern.accesskey "l">
 <!ENTITY anchors.label "Prihvati samo uzorak:">
 <!ENTITY anchor.start.label "na početku adrese">
-<!ENTITY anchor.start.accesskey "g">
+<!ENTITY anchor.start.accesskey "p">
 <!ENTITY anchor.start.flexible.label "na početku naziva domene">
-<!ENTITY anchor.start.flexible.accesskey "g">
+<!ENTITY anchor.start.flexible.accesskey "p">
 <!ENTITY anchor.end.label "na kraju adrese">
 <!ENTITY anchor.end.accesskey "n">
 <!ENTITY options.label "Postavke">
@@ -34,12 +34,12 @@
 <!ENTITY thirdParty.label "Samo third-party">
 <!ENTITY thirdParty.accesskey "T">
 <!ENTITY matchCase.label "Točan izraz">
-<!ENTITY matchCase.accesskey "M">
+<!ENTITY matchCase.accesskey "z">
 <!ENTITY types.label "Primjeniti na tipove:">
 <!ENTITY selectAllTypes.label "Odabrati sve">
 <!ENTITY unselectAllTypes.label "Nijedan odabrati">
 <!ENTITY collapse.label "Sažeti blokirano:">
-<!ENTITY collapse.accesskey "f">
+<!ENTITY collapse.accesskey "S">
 <!ENTITY collapse.default.yes.label "Koristiti općenito (da)">
 <!ENTITY collapse.default.no.label "Koriatiti općenito (ne)">
 <!ENTITY collapse.yes.label "Da">

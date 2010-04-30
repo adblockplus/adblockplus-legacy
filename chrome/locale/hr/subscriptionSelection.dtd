@@ -29,4 +29,4 @@
 <!ENTITY autodownload.accesskey "m">
 <!ENTITY supplementMessage "Ova pretplata na filter je namjenjena korištenju sa pretplatom na filter &quot;?1?&quot; koju još ne koristite.">
 <!ENTITY addMain.label "Također dodajte pretplatu na filter &quot;?1?&amp;quot">
-<!ENTITY addMain.accesskey "s">
+<!ENTITY addMain.accesskey "d">
