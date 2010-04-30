@@ -39,8 +39,6 @@ let closing = false;
 let subscriptionListLoading = false;
 let appLocale = "en-US";
 
-let adblockID = "{34274bf4-1d97-a289-e984-17e546307e4f}";
-
 function init()
 {
   if (window.arguments  && window.arguments.length)
@@ -159,10 +157,6 @@ function init()
       }
     }
     list.selectedItem = selectedItem;
-
-    // Warn if Adblock is installed
-    if (isExtensionActive(adblockID))
-      E("adblock-warning").hidden = false;
   }
 
   // Only resize if we are a chrome window (not loaded into a browser tab)
@@ -577,57 +571,4 @@ function onDialogCancel()
   message += " " + Utils.getString("subscription_notAdded_warning_addendum");
   closing = Utils.confirm(window, message);
   return closing;
-}
-
-function uninstallExtension(id)
-{
-  let extensionManager = Cc["@mozilla.org/extensions/manager;1"].getService(Ci.nsIExtensionManager);
-  if (extensionManager.getItemForID(id))
-  {
-    let location = extensionManager.getInstallLocation(id);
-    if (location && !location.canAccess)
-    {
-      // Cannot uninstall, need to disable
-      extensionManager.disableItem(id);
-    }
-    else
-    {
-      extensionManager.uninstallItem(id);
-    }
-  }
-}
-
-function isExtensionActive(id)
-{
-  if (!("@mozilla.org/extensions/manager;1" in Cc))
-    return false;
-
-  let extensionManager = Cc["@mozilla.org/extensions/manager;1"].getService(Ci.nsIExtensionManager);
-
-  // First check whether the extension is installed
-  if (!extensionManager.getItemForID(id))
-    return false;
-
-  let ds = extensionManager.datasource;
-  let rdfService = Cc["@mozilla.org/rdf/rdf-service;1"].getService(Ci.nsIRDFService);
-  let source = rdfService.GetResource("urn:mozilla:item:" + id);
-
-  // Check whether extension is disabled
-  let link = rdfService.GetResource("http://www.mozilla.org/2004/em-rdf#isDisabled");
-  let target = ds.GetTarget(source, link, true);
-  if (target instanceof Ci.nsIRDFLiteral && target.Value == "true")
-    return false;
-
-  // Check whether an operation is pending for the extension
-  link = rdfService.GetResource("http://www.mozilla.org/2004/em-rdf#opType");
-  if (ds.GetTarget(source, link, false))
-    return false;
-
-  return true;
-}
-
-function uninstallAdblock()
-{
-  uninstallExtension(adblockID);
-  E("adblock-warning").hidden = true;
 }
