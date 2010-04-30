@@ -6,17 +6,22 @@
 <!ENTITY filterset.g.moreinfo "Илүү мэдээлэл">
 <!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
 <!ENTITY filterset.g.uninstall "Filterset.G-г устгах">
+<!ENTITY subscriptionSelector.label "Жагсаалтаас шүүх мэдээлэгч сонгоно уу:">
 <!ENTITY viewList.label "Шүүлтүүрүүд харах">
 <!ENTITY visitHomepage.label "Үндсэн хуудсанд зочлох">
 <!ENTITY addSubscription.label "Мэдээлэгч нэмэх">
 <!ENTITY saveSubscription.label "Мэдээлэгч хадгалах">
 <!ENTITY other.label "Өөр мэдээлэгч нэмэх">
 <!ENTITY other.accesskey "Ө">
+<!ENTITY list.download.failed "Adblock Plus нь мэдээлэгчийн жагсаалтыг татаж чадсангүй.">
 <!ENTITY list.download.retry "Дахиж оролдох">
 <!ENTITY list.download.website "Вэбсайтыг харах">
+<!ENTITY list.website.url "http://adblockplus.org/en/subscriptions">
 <!ENTITY title.label "Мэдээлэгчийн гарчиг:">
 <!ENTITY title.accesskey "Г">
 <!ENTITY location.label "Шүүлтүүрийн жагсаалтын байршил:">
 <!ENTITY location.accesskey "Б">
 <!ENTITY autodownload.label "Автоматаар шинэчлэх">
 <!ENTITY autodownload.accesskey "В">
+<!ENTITY addMain.label "Шүүх мэдээлэгч &quot;?1?&quot; нэмэх">
+<!ENTITY addMain.accesskey "Ш">

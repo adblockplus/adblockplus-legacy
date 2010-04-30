@@ -1,12 +1,14 @@
 <!ENTITY dialog.title "Adblock Plus-ийн тухай">
 <!ENTITY caption.title "Adblock Plus">
 <!ENTITY version.title "Хувилбар">
-<!ENTITY description "
-	Adblock Plus нь вэб хуудас дээр таны харахыг хүсэхгүй байгааг тань шийдэж өгнө.
+<!ENTITY description "Adblock Plus нь вэб хуудас дээр таны харахыг хүсэхгүй байгааг тань шийдэж өгнө.
 	Хэрэв та хүсээгүй зүйлсээ Adblock Plus-д хэлснээр, тэдгээр сурталчилгаа, баннер
-	болон бусад зүйлсийг татах хэрэггүй болно!
-">
+	болон бусад зүйлсийг татах хэрэггүй болно!">
 <!ENTITY homepage.label "Adblock Plus-ийн вэб хуудас:">
 <!ENTITY homepage.url "http://adblockplus.org/">
 <!ENTITY author.label "Зохиогч:">
 <!ENTITY contributors.label "Дэмжигчид:">
+<!ENTITY developers.label "Хөгжүүлэгчид:">
+<!ENTITY designers.label "График дизайнерүүд:">
+<!ENTITY subscriptionAuthors.label "Шүүх мэдээлэгч үүсгэгчид:">
+<!ENTITY translators.label "Орчуулагчид:">
