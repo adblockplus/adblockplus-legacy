@@ -7,41 +7,79 @@ if (typeof Cr == "undefined")
 if (typeof Cu == "undefined")
   eval("const Cu = Components.utils");
 
-Cu.import("resource://gre/modules/XPCOMUtils.jsm");
-
-// Always overwrite defineLazyServiceGetter - the default one will get the object wrapped and fail
-XPCOMUtils.defineLazyServiceGetter = function XPCU_defineLazyServiceGetter(obj, prop, contract, iface)
-{
-  obj.__defineGetter__(prop, function XPCU_serviceGetter()
-  {
-    delete obj[prop];
-    return obj[prop] = Cc[contract].getService(Ci[iface]);
-  });
-};
-
-XPCOMUtils.defineLazyServiceGetter(this, "versionComparator", "@mozilla.org/xpcom/version-comparator;1", "nsIVersionComparator");
-
-var abp = {
-  getString: function(name)
-  {
-    return name;
-  },
-  getInstalledVersion: function()
-  {
-    return "1.5";
-  },
-  getLineBreak: function()
-  {
-    return "\r\n";
-  },
-  versionComparator: versionComparator
-};
-const ioService = Cc["@mozilla.org/network/io-service;1"].getService(Ci.nsIIOService);
+let baseURL = Cc["@adblockplus.org/abp/private;1"].getService(Ci.nsIURI);
 
 var geckoVersion = Cc["@mozilla.org/xre/app-info;1"].getService(Ci.nsIXULAppInfo).platformVersion;
 function compareGeckoVersion(version)
 {
-  return versionComparator.compare(geckoVersion, version);
+  Cu.import(baseURL.spec + "Utils.jsm");
+  return Utils.versionComparator.compare(geckoVersion, version);
+}
+
+function prepareFilterComponents(keepObservers)
+{
+  Cu.import(baseURL.spec + "FilterClasses.jsm");
+  Cu.import(baseURL.spec + "SubscriptionClasses.jsm");
+  Cu.import(baseURL.spec + "FilterStorage.jsm");
+  Cu.import(baseURL.spec + "Matcher.jsm");
+  Cu.import(baseURL.spec + "ElemHide.jsm");
+  Cu.import(baseURL.spec + "FilterListener.jsm");
+
+  let oldSubscriptions = FilterStorage.subscriptions;
+  let oldStorageKnown = FilterStorage.knownSubscriptions;
+  let oldSubscriptionsKnown = Subscription.knownSubscriptions;
+  let oldFiltersKnown = Subscription.knownSubscriptions;
+  let oldSubscriptionObservers = FilterStorage.__parent__.subscriptionObservers;
+  let oldFilterObservers = FilterStorage.__parent__.filterObservers;
+  let oldSourceFile = FilterStorage.__parent__.sourceFile;
+
+  FilterStorage.subscriptions = [];
+  FilterStorage.knownSubscriptions = {__proto__: null};
+  Subscription.knownSubscriptions = {__proto__: null};
+  Filter.knownFilters = {__proto__: null};
+  if (!keepObservers)
+  {
+    FilterStorage.__parent__.subscriptionObservers = [];
+    FilterStorage.__parent__.filterObservers = [];
+    FilterStorage.__parent__.sourceFile = null;
+  }
+
+  blacklistMatcher.clear();
+  whitelistMatcher.clear();
+  ElemHide.clear();
+
+  window.addEventListener("unload", function()
+  {
+    FilterStorage.subscriptions = oldSubscriptions;
+    FilterStorage.knownSubscriptions = oldStorageKnown;
+    Subscription.knownSubscriptions = oldSubscriptionsKnown;
+    Subscription.knownSubscriptions = oldFiltersKnown;
+    FilterStorage.__parent__.subscriptionObservers = oldSubscriptionObservers;
+    FilterStorage.__parent__.filterObservers = oldFilterObservers;
+    FilterStorage.__parent__.sourceFile = oldSourceFile;
+
+    FilterStorage.triggerSubscriptionObservers("reload", FilterStorage.subscriptions);
+  }, false);
+}
+
+function preparePrefs()
+{
+  Cu.import(baseURL.spec + "Prefs.jsm");
+
+  let backup = {__proto__: null};
+  for (let pref in Prefs)
+  {
+    if (Prefs.getDefault(pref) !== null)
+      backup[pref] = Prefs[pref];
+  }
+  Prefs.enabled = true;
+
+  window.addEventListener("unload", function()
+  {
+    for (let pref in backup)
+      Prefs[pref] = backup[pref];
+    Prefs.save();
+  }, false);
 }
 
 function showProfilingData(debuggerService)
@@ -144,6 +182,3 @@ if (/[?&]profiler/i.test(location.href))
   debuggerService.flags |= debuggerService.COLLECT_PROFILE_DATA;
   debuggerService.clearProfileData();
 }
-
-// Stub for a function that's used for profiling startup
-var timeLine = {log: function() {}, enter: function() {}, leave: function() {}};

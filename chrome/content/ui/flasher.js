@@ -36,7 +36,7 @@ var flasher = {
     if (!nodes || !nodes.length)
       return;
 
-    if (prefs.flash_scrolltoitem && ("document" in nodes[0] || nodes[0].ownerDocument)) {
+    if (Prefs.flash_scrolltoitem && ("document" in nodes[0] || nodes[0].ownerDocument)) {
       // Ensure that at least one node is visible when flashing
       var wnd = ("document" in nodes[0] ? nodes[0] : nodes[0].ownerDocument.defaultView);
       try {

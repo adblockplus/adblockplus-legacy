@@ -52,7 +52,7 @@ let fastFindBrowser =
     setSelectionModeAndRepaint: function() {},
     collapseSelection: function() {}
   },
-  currentURI: abp.makeURL("http://example.com/"),
+  currentURI: Utils.makeURI("http://example.com/"),
   contentWindow: {
     focus: function()
     {

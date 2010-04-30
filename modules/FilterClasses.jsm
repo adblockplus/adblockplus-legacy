@@ -24,8 +24,18 @@
 
 /**
  * @fileOverview Definition of Filter class and its subclasses.
- * This file is included from AdblockPlus.js.
  */
+
+var EXPORTED_SYMBOLS = ["Filter", "InvalidFilter", "CommentFilter", "ActiveFilter", "RegExpFilter", "BlockingFilter", "WhitelistFilter", "ElemHideFilter"];
+
+const Cc = Components.classes;
+const Ci = Components.interfaces;
+const Cr = Components.results;
+const Cu = Components.utils;
+
+let baseURL = Cc["@adblockplus.org/abp/private;1"].getService(Ci.nsIURI);
+
+Cu.import(baseURL.spec + "Utils.jsm");
 
 /**
  * Abstract base class for filters
@@ -67,7 +77,6 @@ Filter.prototype =
     return this.text;
   }
 };
-abp.Filter = Filter;
 
 /**
  * Cache for known filters, maps string representation to filter objects.
@@ -140,6 +149,34 @@ Filter.fromObject = function(obj)
 }
 
 /**
+ * Removes unnecessary whitespaces from filter text, will only return null if
+ * the input parameter is null.
+ */
+Filter.normalize = function(/**String*/ text) /**String*/
+{
+  if (!text)
+    return text;
+
+  // Remove line breaks and such
+  text = text.replace(/[^\S ]/g, "");
+
+  if (/^\s*!/.test(text)) {
+    // Don't remove spaces inside comments
+    return text.replace(/^\s+/, "").replace(/\s+$/, "");
+  }
+  else if (Filter.elemhideRegExp.test(text)) {
+    // Special treatment for element hiding filters, right side is allowed to contain spaces
+    /^(.*?)(#+)(.*)$/.test(text);   // .split(..., 2) will cut off the end of the string
+    var domain = RegExp.$1;
+    var separator = RegExp.$2;
+    var selector = RegExp.$3;
+    return domain.replace(/\s/g, "") + separator + selector.replace(/^\s+/, "").replace(/\s+$/, "");
+  }
+  else
+    return text.replace(/\s/g, "");
+}
+
+/**
  * Class for invalid filters
  * @param {String} text see Filter()
  * @param {String} reason Reason why this filter is invalid
@@ -167,7 +204,6 @@ InvalidFilter.prototype =
    */
   serialize: function(buffer) {}
 };
-abp.InvalidFilter = InvalidFilter;
 
 /**
  * Class for comments
@@ -188,7 +224,6 @@ CommentFilter.prototype =
    */
   serialize: function(buffer) {}
 };
-abp.CommentFilter = CommentFilter;
 
 /**
  * Abstract base class for filters that can get hits
@@ -370,7 +405,6 @@ ActiveFilter.prototype =
     }
   }
 };
-abp.ActiveFilter = ActiveFilter;
 
 /**
  * Abstract base class for RegExp-based filters
@@ -496,7 +530,6 @@ RegExpFilter.prototype =
             this.isActiveOnDomain(docDomain));
   }
 };
-abp.RegExpFilter = RegExpFilter;
 
 /**
  * Creates a RegExp filter from its text representation
@@ -627,7 +660,6 @@ BlockingFilter.prototype =
    */
   collapse: null
 };
-abp.BlockingFilter = BlockingFilter;
 
 /**
  * Class for whitelist filters
@@ -648,7 +680,6 @@ WhitelistFilter.prototype =
 {
   __proto__: RegExpFilter.prototype
 }
-abp.WhitelistFilter = WhitelistFilter;
 
 /**
  * Class for element hiding filters
@@ -692,7 +723,6 @@ ElemHideFilter.prototype =
    */
   key: null
 };
-abp.ElemHideFilter = ElemHideFilter;
 
 /**
  * Creates an element hiding filter from a pre-parsed text representation
@@ -724,7 +754,7 @@ ElemHideFilter.fromText = function(text, domain, tagName, attrRules, selector)
         }
         else {
           if (id)
-            return new InvalidFilter(text, abp.getString("filter_elemhide_duplicate_id"));
+            return new InvalidFilter(text, Utils.getString("filter_elemhide_duplicate_id"));
           else
             id = rule;
         }
@@ -736,7 +766,7 @@ ElemHideFilter.fromText = function(text, domain, tagName, attrRules, selector)
     else if (tagName || additional)
       selector = tagName + additional;
     else
-      return new InvalidFilter(text, abp.getString("filter_elemhide_nocriteria"));
+      return new InvalidFilter(text, Utils.getString("filter_elemhide_nocriteria"));
   }
   return new ElemHideFilter(text, domain, selector);
 }

@@ -22,9 +22,6 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-var effectiveTLD = Cc["@mozilla.org/network/effective-tld-service;1"].getService(Ci.nsIEffectiveTLDService);
-var RequestList = abp.RequestList;
-
 // Main browser window
 var mainWin = parent;
 
@@ -35,22 +32,22 @@ var cacheSession = null;
 var noFlash = false;
 
 // Matchers for disabled filters
-var disabledBlacklistMatcher = new abp.Matcher();
-var disabledWhitelistMatcher = new abp.Matcher();
+var disabledBlacklistMatcher = new Matcher();
+var disabledWhitelistMatcher = new Matcher();
 
 var abpHooks = null;
 
 /**
  * Cached value of "enabled" preference, for onPrefChange.
  */
-var oldEnabled = abp.prefs.enabled;
+var oldEnabled = Prefs.enabled;
 
 function init() {
   var list = E("list");
   list.view = treeView;
 
   // Restore previous state
-  var params = abp.getParams();
+  var params = Utils.getParams();
   if (params && params.filter)
   {
     E("searchField").value = params.filter;
@@ -93,9 +90,9 @@ function init() {
 
   // Initialize matchers for disabled filters
   reloadDisabledFilters();
-  filterStorage.addFilterObserver(reloadDisabledFilters);
-  filterStorage.addSubscriptionObserver(reloadDisabledFilters);
-  abp.prefs.addListener(onPrefChange);
+  FilterStorage.addFilterObserver(reloadDisabledFilters);
+  FilterStorage.addSubscriptionObserver(reloadDisabledFilters);
+  Prefs.addListener(onPrefChange);
 
   // Activate flasher
   list.addEventListener("select", onSelectionChange, false);
@@ -120,14 +117,11 @@ function mainUnload() {
 
 // To be called on unload
 function cleanUp() {
-  if (!abp)
-    return;
-
   flasher.stop();
   RequestList.removeListener(handleItemChange);
-  filterStorage.removeFilterObserver(reloadDisabledFilters);
-  filterStorage.removeSubscriptionObserver(reloadDisabledFilters);
-  abp.prefs.removeListener(onPrefChange);
+  FilterStorage.removeFilterObserver(reloadDisabledFilters);
+  FilterStorage.removeSubscriptionObserver(reloadDisabledFilters);
+  Prefs.removeListener(onPrefChange);
 
   abpHooks.getBrowser().removeEventListener("select", handleTabChange, false);
   mainWin.removeEventListener("unload", mainUnload, false);
@@ -139,9 +133,9 @@ function cleanUp() {
  */
 function onPrefChange()
 {
-  if (abp.prefs.enabled != oldEnabled)
+  if (Prefs.enabled != oldEnabled)
   {
-    oldEnabled = abp.prefs.enabled;
+    oldEnabled = Prefs.enabled;
     reloadDisabledFilters();
   }
 }
@@ -155,16 +149,16 @@ function reloadDisabledFilters()
   disabledBlacklistMatcher.clear();
   disabledWhitelistMatcher.clear();
 
-  if (abp.prefs.enabled)
+  if (Prefs.enabled)
   {
-    for each (let subscription in filterStorage.subscriptions)
+    for each (let subscription in FilterStorage.subscriptions)
     {
       if (subscription.disabled)
         continue;
   
       for each (let filter in subscription.filters)
-        if (filter instanceof abp.RegExpFilter && filter.disabled)
-          (filter instanceof abp.BlockingFilter ? disabledBlacklistMatcher : disabledWhitelistMatcher).add(filter);
+        if (filter instanceof RegExpFilter && filter.disabled)
+          (filter instanceof BlockingFilter ? disabledBlacklistMatcher : disabledWhitelistMatcher).add(filter);
     }
   }
 
@@ -272,7 +266,7 @@ function fillInTooltip(e) {
     setMultilineContent(E("tooltipAddress"), item.location);
   
     var type = item.localizedDescr;
-    if (filter && filter instanceof abp.WhitelistFilter)
+    if (filter && filter instanceof WhitelistFilter)
       type += " " + E("tooltipType").getAttribute("whitelisted");
     else if (filter && item.typeDescr != "ELEMHIDE")
       type += " " + E("tooltipType").getAttribute("filtered");
@@ -297,9 +291,9 @@ function fillInTooltip(e) {
     }
   }
 
-  var showPreview = prefs.previewimages && !("tooltip" in item);
+  var showPreview = Prefs.previewimages && !("tooltip" in item);
   showPreview = showPreview && (item.typeDescr == "IMAGE" || item.typeDescr == "BACKGROUND");
-  showPreview = showPreview && (!item.filter || item.filter instanceof abp.WhitelistFilter);
+  showPreview = showPreview && (!item.filter || item.filter instanceof WhitelistFilter);
   if (showPreview) {
     // Check whether image is in cache (stolen from ImgLikeOpera)
     if (!cacheSession) {
@@ -364,12 +358,12 @@ function fillInContext(/**Event*/ e)
     menuItem.setAttribute("label", menuItem.getAttribute("labeltempl").replace(/\?1\?/, filter.text));
     menuItem.hidden = false;
 
-    if (filter instanceof abp.ActiveFilter && !filter.disabled && filter.subscriptions.length && !filter.subscriptions.some(function(subscription) !(subscription instanceof abp.SpecialSubscription)))
+    if (filter instanceof ActiveFilter && !filter.disabled && filter.subscriptions.length && !filter.subscriptions.some(function(subscription) !(subscription instanceof SpecialSubscription)))
     {
       let domain = null;
       try {
         domain = content.location.host;
-        domain = effectiveTLD.getBaseDomainFromHost(domain);
+        domain = Utils.effectiveTLD.getBaseDomainFromHost(domain);
       } catch (e) {}
 
       if (domain && !filter.isActiveOnlyOnDomain(domain))
@@ -384,12 +378,12 @@ function fillInContext(/**Event*/ e)
     }
   }
 
-  E("contextWhitelist").hidden = ("tooltip" in item || !item.filter || item.filter.disabled || item.filter instanceof abp.WhitelistFilter || item.typeDescr == "ELEMHIDE");
+  E("contextWhitelist").hidden = ("tooltip" in item || !item.filter || item.filter.disabled || item.filter instanceof WhitelistFilter || item.typeDescr == "ELEMHIDE");
   E("contextBlock").hidden = !E("contextWhitelist").hidden;
   E("contextBlock").setAttribute("disabled", "filter" in item && item.filter && !item.filter.disabled);
   E("contextEditFilter").setAttribute("disabled", !("filter" in item && item.filter));
   E("contextOpen").setAttribute("disabled", "tooltip" in item || item.typeDescr == "ELEMHIDE");
-  E("contextFlash").setAttribute("disabled", "tooltip" in item || !(item.typeDescr in visual) || (item.filter && !item.filter.disabled && !(item.filter instanceof abp.WhitelistFilter)));
+  E("contextFlash").setAttribute("disabled", "tooltip" in item || !(item.typeDescr in visual) || (item.filter && !item.filter.disabled && !(item.filter instanceof WhitelistFilter)));
   E("contextCopyFilter").setAttribute("disabled", !allItems.some(function(item) {return "filter" in item && item.filter}));
 
   return true;
@@ -437,13 +431,10 @@ function openInTab(item, /**Event*/ event)
   if (!item || item.typeDescr == "ELEMHIDE")
     return;
 
-  abp.loadInBrowser(item.location, mainWin, event);
+  Utils.loadInBrowser(item.location, mainWin, event);
 }
 
 function doBlock() {
-  if (!abp)
-    return;
-
   var item = treeView.getSelectedItem();
   if (!item || item.typeDescr == "ELEMHIDE")
     return;
@@ -452,16 +443,13 @@ function doBlock() {
   if ("filter" in item && item.filter && !item.filter.disabled)
     filter = item.filter;
 
-  if (filter && filter instanceof abp.WhitelistFilter)
+  if (filter && filter instanceof WhitelistFilter)
     return;
 
   openDialog("chrome://adblockplus/content/ui/composer.xul", "_blank", "chrome,centerscreen,resizable,dialog=no,dependent", window.content, item);
 }
 
 function editFilter() {
-  if (!abp)
-    return;
-
   var item = treeView.getSelectedItem();
   if (treeView.data && !treeView.data.length)
     item = treeView.getDummyTooltip();
@@ -472,16 +460,13 @@ function editFilter() {
   if (!("location") in item)
     item.location = undefined
 
-  abp.openSettingsDialog(item.location, item.filter);
+  Utils.openSettingsDialog(item.location, item.filter);
 }
 
 function enableFilter(filter, enable) {
-  if (!abp)
-    return;
-
   filter.disabled = !enable;
-  filterStorage.triggerFilterObservers(enable ? "enable" : "disable", [filter]);
-  filterStorage.saveToDisk();
+  FilterStorage.triggerFilterObservers(enable ? "enable" : "disable", [filter]);
+  FilterStorage.saveToDisk();
 
   treeView.boxObject.invalidate();
 }
@@ -494,9 +479,9 @@ function disableOnSite(item, /**Filter*/ filter, /**String*/ domain)
   // Generate text for new filter that excludes current domain
   domain = domain.toUpperCase();
   let text = filter.text;
-  if (filter instanceof abp.RegExpFilter)
+  if (filter instanceof RegExpFilter)
   {
-    if (abp.Filter.optionsRegExp.test(text))
+    if (Filter.optionsRegExp.test(text))
     {
       let found = false;
       let options = RegExp.$1.toUpperCase().split(",");
@@ -514,12 +499,12 @@ function disableOnSite(item, /**Filter*/ filter, /**String*/ domain)
       if (!found)
         options.push("DOMAIN=~" + domain);
 
-      text = text.replace(abp.Filter.optionsRegExp, "$" + options.join(",").toLowerCase());
+      text = text.replace(Filter.optionsRegExp, "$" + options.join(",").toLowerCase());
     }
     else
       text += "$domain=~" + domain.toLowerCase();
   }
-  else if (filter instanceof abp.ElemHideFilter)
+  else if (filter instanceof ElemHideFilter)
   {
     if (/^([^#]+)(#.*)/.test(text))
     {
@@ -536,19 +521,19 @@ function disableOnSite(item, /**Filter*/ filter, /**String*/ domain)
     return;   // Just in case, shouldn't happen
 
   // Insert new filter before the old one and remove the old one then
-  let newFilter = abp.Filter.fromText(text);
+  let newFilter = Filter.fromText(text);
   if (newFilter.disabled && newFilter.subscriptions.length)
   {
     newFilter.disabled = false;
-    filterStorage.triggerFilterObservers("enable", [newFilter]);
+    FilterStorage.triggerFilterObservers("enable", [newFilter]);
   }
   else if (!newFilter.subscriptions.length)
   {
     newFilter.disabled = false;
-    filterStorage.addFilter(newFilter, filter);
+    FilterStorage.addFilter(newFilter, filter);
   }
-  filterStorage.removeFilter(filter);
-  filterStorage.saveToDisk();
+  FilterStorage.removeFilter(filter);
+  FilterStorage.saveToDisk();
 
   // Update display
   item.filter = null;
@@ -556,21 +541,15 @@ function disableOnSite(item, /**Filter*/ filter, /**String*/ domain)
 }
 
 function copyToClipboard() {
-  if (!abp)
-    return;
-
   var items = treeView.getAllSelectedItems();
   if (!items.length)
     return;
 
   var clipboardHelper = Cc["@mozilla.org/widget/clipboardhelper;1"].getService(Ci.nsIClipboardHelper);
-  clipboardHelper.copyString(items.map(function(item) {return item.location}).join(abp.getLineBreak()));
+  clipboardHelper.copyString(items.map(function(item) {return item.location}).join(Utils.getLineBreak()));
 }
 
 function copyFilter() {
-  if (!abp)
-    return;
-
   var items = treeView.getAllSelectedItems().filter(function(item) {return item.filter});
   if (treeView.data && !treeView.data.length)
     items = [treeView.getDummyTooltip()];
@@ -579,13 +558,10 @@ function copyFilter() {
     return;
 
   var clipboardHelper = Cc["@mozilla.org/widget/clipboardhelper;1"].getService(Ci.nsIClipboardHelper);
-  clipboardHelper.copyString(items.map(function(item) {return item.filter.text}).join(abp.getLineBreak()));
+  clipboardHelper.copyString(items.map(function(item) {return item.filter.text}).join(Utils.getLineBreak()));
 }
 
 function selectAll() {
-  if (!abp)
-    return;
-
   treeView.selectAll();
 }
 
@@ -604,7 +580,7 @@ function saveState() {
     focus: (focused ? focused.id : null),
     position: position
   };
-  abp.setParams(params);
+  Utils.setParams(params);
 }
 
 // closes the sidebar
@@ -616,13 +592,10 @@ function doClose()
 // detaches/reattaches the sidebar
 function detach(doDetach)
 {
-  if (!abp)
-    return;
-
   saveState();
 
   // Store variables locally, global variables will go away when we are closed
-  let myPrefs = prefs;
+  let myPrefs = Prefs;
   let myMainWin = mainWin;
 
   // Close sidebar and open detached window
@@ -637,7 +610,7 @@ function detach(doDetach)
 // Returns items size in the document if available
 function getItemSize(item)
 {
-  if (item.filter && !item.filter.disabled && item.filter instanceof abp.BlockingFilter)
+  if (item.filter && !item.filter.disabled && item.filter instanceof BlockingFilter)
     return null;
 
   for each (let node in item.nodes)
@@ -687,8 +660,8 @@ function compareFilter(item1, item2) {
 }
 
 function compareState(item1, item2) {
-  var state1 = (!item1.filter ? 0 : (item1.filter.disabled ? 1 : (item1.filter instanceof abp.WhitelistFilter ? 2 : 3)));
-  var state2 = (!item2.filter ? 0 : (item2.filter.disabled ? 1 : (item2.filter instanceof abp.WhitelistFilter ? 2 : 3)));
+  var state1 = (!item1.filter ? 0 : (item1.filter.disabled ? 1 : (item1.filter instanceof WhitelistFilter ? 2 : 3)));
+  var state2 = (!item2.filter ? 0 : (item2.filter.disabled ? 1 : (item2.filter instanceof WhitelistFilter ? 2 : 3)));
   return state1 - state2;
 }
 
@@ -766,8 +739,8 @@ var treeView = {
       this.atoms[atom + "-false"] = atomService.getAtom(atom + "-false");
     }
 
-    this.itemsDummyTooltip = abp.getString("no_blocking_suggestions");
-    this.whitelistDummyTooltip = abp.getString("whitelisted_page");
+    this.itemsDummyTooltip = Utils.getString("no_blocking_suggestions");
+    this.whitelistDummyTooltip = Utils.getString("whitelisted_page");
 
     // Check current sort direction
     var cols = document.getElementsByTagName("treecol");
@@ -844,11 +817,11 @@ var treeView = {
         return "";
 
       if (col == "filter") {
-        var filter = abp.policy.isWindowWhitelisted(window.content);
+        var filter = Policy.isWindowWhitelisted(window.content);
         return filter ? filter.text : "";
       }
 
-      return (abp.policy.isWindowWhitelisted(window.content) ? this.whitelistDummy : this.itemsDummy);
+      return (Policy.isWindowWhitelisted(window.content) ? this.whitelistDummy : this.itemsDummy);
     }
   },
 
@@ -876,11 +849,11 @@ var treeView = {
       state = "state-regular";
       if (filter && !filter.disabled)
       {
-        if (filter instanceof abp.WhitelistFilter)
+        if (filter instanceof WhitelistFilter)
           state = "state-whitelisted";
-        else if (filter instanceof abp.BlockingFilter)
+        else if (filter instanceof BlockingFilter)
           state = "state-filtered";
-        else if (filter instanceof abp.ElemHideFilter)
+        else if (filter instanceof ElemHideFilter)
           state = "state-hidden";
       }
     }
@@ -888,7 +861,7 @@ var treeView = {
       properties.AppendElement(this.atoms["dummy-true"]);
 
       state = "state-filtered";
-      if (this.data && abp.policy.isWindowWhitelisted(window.content))
+      if (this.data && Policy.isWindowWhitelisted(window.content))
         state = "state-whitelisted";
     }
     properties.AppendElement(this.atoms[state]);
@@ -997,7 +970,7 @@ var treeView = {
     this.allData = data;
     for each (let item in this.allData)
     {
-      if (item.filter instanceof abp.RegExpFilter && item.filter.disabled)
+      if (item.filter instanceof RegExpFilter && item.filter.disabled)
         item.filter = null;
       if (!item.filter)
         item.filter = disabledWhitelistMatcher.matchesAny(item.location, item.typeDescr, item.docDomain, item.thirdParty);
@@ -1152,7 +1125,7 @@ var treeView = {
     if (!this.data || this.data.length)
       return null;
 
-    var filter = abp.policy.isWindowWhitelisted(window.content);
+    var filter = Policy.isWindowWhitelisted(window.content);
     if (filter)
       return {tooltip: this.whitelistDummyTooltip, filter: filter};
     else
