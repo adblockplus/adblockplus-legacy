@@ -577,6 +577,9 @@ function uninstallExtension(id)
 
 function isExtensionActive(id)
 {
+  if (!("@mozilla.org/extensions/manager;1" in Cc))
+    return false;
+
   let extensionManager = Cc["@mozilla.org/extensions/manager;1"].getService(Ci.nsIExtensionManager);
 
   // First check whether the extension is installed
