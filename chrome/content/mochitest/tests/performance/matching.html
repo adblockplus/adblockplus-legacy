@@ -4,8 +4,6 @@
   <title>Filter matching performance measurements</title>
   <script type="application/x-javascript;version=1.7" src="common.js"></script>
   <script type="application/x-javascript;version=1.7" src="../common.js"></script>
-  <script type="application/x-javascript;version=1.7" src="chrome://adblockplus/content/filterClasses.js"></script>
-  <script type="application/x-javascript;version=1.7" src="chrome://adblockplus/content/matcher.js"></script>
 </head>
 <body>
   <p id="progress">Please wait while performance measurement is in progress... <span id="current"></span></p>
@@ -13,6 +11,8 @@
   <pre id="result"></pre>
 
   <script type="application/x-javascript;version=1.7">
+    prepareFilterComponents();
+
     let filters = [
       "&ad_type_id=",
       "-ad.html",

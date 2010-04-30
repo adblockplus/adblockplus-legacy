@@ -24,46 +24,53 @@
 
 /**
  * @fileOverview Element hiding implementation.
- * This file is included from AdblockPlus.js.
  */
 
-XPCOMUtils.defineLazyServiceGetter(this, "styleService", "@mozilla.org/content/style-sheet-service;1", "nsIStyleSheetService");
+var EXPORTED_SYMBOLS = ["ElemHide"];
+
+const Cc = Components.classes;
+const Ci = Components.interfaces;
+const Cr = Components.results;
+const Cu = Components.utils;
+
+let baseURL = Cc["@adblockplus.org/abp/private;1"].getService(Ci.nsIURI);
+
+Cu.import("resource://gre/modules/XPCOMUtils.jsm");
+Cu.import(baseURL.spec + "Utils.jsm");
+Cu.import(baseURL.spec + "Prefs.jsm");
+Cu.import(baseURL.spec + "ContentPolicy.jsm");
+Cu.import(baseURL.spec + "TimeLine.jsm");
+
+/**
+ * List of known filters
+ * @type Array of ElemHideFilter
+ */
+let filters = [];
+
+/**
+ * Lookup table, has keys for all filters already added
+ * @type Object
+ */
+let knownFilters = {__proto__: null};
+
+/**
+ * Lookup table for filters by their associated key
+ * @type Object
+ */
+let keys = {__proto__: null};
+
+/**
+ * Currently applied stylesheet URL
+ * @type nsIURI
+ */
+let styleURL = null;
 
 /**
  * Element hiding component
  * @class
  */
-var elemhide =
+var ElemHide =
 {
-  /**
-   * Class ID for the protocol handler.
-   */
-  protoCID: Components.ID("{e3823970-1546-11de-8c30-0800200c9a66}"),
-
-  /**
-   * List of known filters
-   * @type Array of ElemHideFilter
-   */
-  filters: [],
-
-  /**
-   * Lookup table, has keys for all filters already added
-   * @type Object
-   */
-  knownFilters: {__proto__: null},
-
-  /**
-   * Lookup table for filters by their associated key
-   * @type Object
-   */
-  keys: {__proto__: null},
-
-  /**
-   * Currently applied stylesheet URL
-   * @type nsIURI
-   */
-  url: null,
-
   /**
    * Indicates whether filters have been added or removed since the last apply() call.
    * @type Boolean
@@ -71,27 +78,15 @@ var elemhide =
   isDirty: false,
 
   /**
-   * Initialization function, should be called after policy initialization.
-   */
-  init: function()
-  {
-    try {
-      let compMgr = Components.manager.QueryInterface(Ci.nsIComponentRegistrar);
-      compMgr.registerFactory(this.protoCID, "Element hiding hit registration protocol handler", "@mozilla.org/network/protocol;1?name=" + this.scheme, this);
-      policy.whitelistSchemes[this.scheme] = true;
-    } catch (e) {}
-  },
-
-  /**
    * Removes all known filters
    */
   clear: function()
   {
-    this.filters = [];
-    this.knownFilters= {__proto__: null};
-    this.keys = {__proto__: null};
-    this.isDirty = false;
-    this.unapply();
+    filters = [];
+    knownFilters= {__proto__: null};
+    keys = {__proto__: null};
+    ElemHide.isDirty = false;
+    ElemHide.unapply();
   },
 
   /**
@@ -100,18 +95,18 @@ var elemhide =
    */
   add: function(filter)
   {
-    if (filter.text in this.knownFilters)
+    if (filter.text in knownFilters)
       return;
 
-    this.filters.push(filter);
+    filters.push(filter);
 
     do {
       filter.key = Math.random().toFixed(15).substr(5);
-    } while (filter.key in this.keys);
+    } while (filter.key in keys);
 
-    this.keys[filter.key] = filter;
-    this.knownFilters[filter.text] = true;
-    this.isDirty = true;
+    keys[filter.key] = filter;
+    knownFilters[filter.text] = true;
+    ElemHide.isDirty = true;
   },
 
   /**
@@ -120,16 +115,16 @@ var elemhide =
    */
   remove: function(filter)
   {
-    if (!(filter.text in this.knownFilters))
+    if (!(filter.text in knownFilters))
       return;
 
-    let i = this.filters.indexOf(filter);
-    if (i >= 0)
-      this.filters.splice(i, 1);
+    let index = filters.indexOf(filter);
+    if (index >= 0)
+      filters.splice(index, 1);
 
-    delete this.keys[filter.key];
-    delete this.knownFilters[filter.text];
-    this.isDirty = true;
+    delete keys[filter.key];
+    delete knownFilters[filter.text];
+    ElemHide.isDirty = true;
   },
 
   /**
@@ -138,25 +133,25 @@ var elemhide =
   apply: function()
   {
     // Return immediately if nothing to do
-    if (!this.url && (!prefs.enabled || !this.filters.length))
+    if (!styleURL && (!Prefs.enabled || !filters.length))
       return;
 
-    timeLine.enter("Entered elemhide.apply()");
-    this.unapply();
-    timeLine.log("elemhide.unapply() finished");
+    TimeLine.enter("Entered ElemHide.apply()");
+    ElemHide.unapply();
+    TimeLine.log("ElemHide.unapply() finished");
 
-    this.isDirty = false;
+    ElemHide.isDirty = false;
 
-    if (!prefs.enabled)
+    if (!Prefs.enabled)
     {
-      timeLine.leave("elemhide.apply() done (disabled)");
+      TimeLine.leave("ElemHide.apply() done (disabled)");
       return;
     }
 
     // Grouping selectors by domains
-    timeLine.log("start grouping selectors");
+    TimeLine.log("start grouping selectors");
     let domains = {__proto__: null};
-    for each (var filter in this.filters)
+    for each (var filter in filters)
     {
       let domain = filter.selectorDomain || "";
 
@@ -170,12 +165,12 @@ var elemhide =
       }
       list[filter.selector] = filter.key;
     }
-    timeLine.log("done grouping selectors");
+    TimeLine.log("done grouping selectors");
 
     // Joining domains list
-    timeLine.log("start building CSS data");
+    TimeLine.log("start building CSS data");
     let cssData = "";
-    let cssTemplate = "-moz-binding: url(" + this.scheme + "://%ID%/#dummy) !important;";
+    let cssTemplate = "-moz-binding: url(" + ElemHidePrivate.scheme + "://%ID%/#dummy) !important;";
 
     for (let domain in domains)
     {
@@ -195,19 +190,19 @@ var elemhide =
                   + '}\n';
       }
     }
-    timeLine.log("done building CSS data");
+    TimeLine.log("done building CSS data");
 
     // Creating new stylesheet
     if (cssData)
     {
-      timeLine.log("start inserting stylesheet");
+      TimeLine.log("start inserting stylesheet");
       try {
-        this.url = ioService.newURI("data:text/css;charset=utf8,/*** Adblock Plus ***/" + encodeURIComponent("\n" + cssData), null, null);
-        styleService.loadAndRegisterSheet(this.url, styleService.USER_SHEET);
+        styleURL = Utils.ioService.newURI("data:text/css;charset=utf8,/*** Adblock Plus ***/" + encodeURIComponent("\n" + cssData), null, null);
+        Utils.styleService.loadAndRegisterSheet(styleURL, Ci.nsIStyleSheetService.USER_SHEET);
       } catch(e) {};
-      timeLine.log("done inserting stylesheet");
+      TimeLine.log("done inserting stylesheet");
     }
-    timeLine.leave("elemhide.apply() done");
+    TimeLine.leave("ElemHide.apply() done");
   },
 
   /**
@@ -215,13 +210,23 @@ var elemhide =
    */
   unapply: function()
   {
-    if (this.url) {
+    if (styleURL) {
       try {
-        styleService.unregisterSheet(this.url, styleService.USER_SHEET);
+        Utils.styleService.unregisterSheet(styleURL, Ci.nsIStyleSheetService.USER_SHEET);
       } catch (e) {}
-      this.url = null;
+      styleURL = null;
     }
-  },
+  }
+};
+
+/**
+ * Private nsIProtocolHandler implementation
+ * @class
+ */
+var ElemHidePrivate =
+{
+  classID: Components.ID("{55fb7be0-1dd2-11b2-98e6-9e97caf8ba67}"),
+  classDescription: "Element hiding hit registration protocol handler",
 
   //
   // Factory implementation
@@ -238,6 +243,7 @@ var elemhide =
   //
   // Protocol handler implementation
   //
+
   defaultPort: -1,
   protocolFlags: Ci.nsIProtocolHandler.URI_STD |
                  Ci.nsIProtocolHandler.URI_DANGEROUS_TO_LOAD |
@@ -263,8 +269,11 @@ var elemhide =
 
   QueryInterface: XPCOMUtils.generateQI([Ci.nsIFactory, Ci.nsIProtocolHandler])
 };
-abp.elemhide = elemhide;
 
+/**
+ * Channel returning data for element hiding hits.
+ * @class
+ */
 function HitRegistrationChannel(uri, key)
 {
   this.key = key;
@@ -288,18 +297,18 @@ HitRegistrationChannel.prototype = {
   asyncOpen: function(listener, context)
   {
     let data = "<bindings xmlns='http://www.mozilla.org/xbl'><binding id='dummy'/></bindings>";
-    let filter = elemhide.keys[this.key];
+    let filter = keys[this.key];
     if (filter)
     {
-      let wnd = getRequestWindow(this);
-      if (wnd && wnd.document && !policy.processNode(wnd, wnd.document, policy.type.ELEMHIDE, filter))
+      let wnd = Utils.getRequestWindow(this);
+      if (wnd && wnd.document && !Policy.processNode(wnd, wnd.document, Policy.type.ELEMHIDE, filter))
         data = "<nada/>";
     }
 
     let stream = Cc["@mozilla.org/io/string-input-stream;1"].createInstance(Ci.nsIStringInputStream);
     stream.setData(data, data.length);
 
-    runAsync(function()
+    Utils.runAsync(function()
     {
       try {
         listener.onStartRequest(this, context);
@@ -336,3 +345,20 @@ HitRegistrationChannel.prototype = {
 
   QueryInterface: XPCOMUtils.generateQI([Ci.nsIChannel, Ci.nsIRequest])
 };
+
+function init()
+{
+  TimeLine.enter("Entered ElemHide.jsm init()");
+  Prefs.addListener(ElemHide.apply);
+
+  TimeLine.log("done adding prefs listener");
+
+  TimeLine.log("registering component");
+  let registrar = Components.manager.QueryInterface(Ci.nsIComponentRegistrar);
+  registrar.registerFactory(ElemHidePrivate.classID, ElemHidePrivate.classDescription,
+      "@mozilla.org/network/protocol;1?name=" + ElemHidePrivate.scheme, ElemHidePrivate);
+  Policy.whitelistSchemes[ElemHidePrivate.scheme] = true;
+  TimeLine.leave("ElemHide.jsm init() done");
+}
+
+init();

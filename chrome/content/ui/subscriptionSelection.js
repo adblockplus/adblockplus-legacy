@@ -40,7 +40,6 @@ let subscriptionListLoading = false;
 let appLocale = "en-US";
 
 let adblockID = "{34274bf4-1d97-a289-e984-17e546307e4f}";
-let filtersetG = "filtersetg@updater";
 
 function init()
 {
@@ -80,22 +79,22 @@ function init()
   E("subscriptionsBox").hidden = E("all-subscriptions-container").hidden
     = E("subscriptionInfo").hidden = editMode;
 
-  E("fromWebText").hidden = !editMode || source instanceof abp.Subscription;
-  E("editText").hidden = !(source instanceof abp.Subscription) || source instanceof abp.ExternalSubscription;
-  E("externalText").hidden = !(source instanceof abp.ExternalSubscription);
+  E("fromWebText").hidden = !editMode || source instanceof Subscription;
+  E("editText").hidden = !(source instanceof Subscription) || source instanceof ExternalSubscription;
+  E("externalText").hidden = !(source instanceof ExternalSubscription);
   E("differentSubscription").hidden = !editMode;
   document.documentElement.getButton("extra2").hidden = editMode;
 
   setCustomSubscription(source.title, source.url,
                         source.mainSubscriptionTitle, source.mainSubscriptionURL);
 
-  if (source instanceof abp.Subscription)
+  if (source instanceof Subscription)
   {
     document.title = document.documentElement.getAttribute("edittitle");
     document.documentElement.getButton("accept").setAttribute("label", document.documentElement.getAttribute("buttonlabelacceptedit"))
   }
 
-  if (source instanceof abp.ExternalSubscription)
+  if (source instanceof ExternalSubscription)
   {
     E("location").setAttribute("disabled", "true");
     E("autoDownload").setAttribute("disabled", "true");
@@ -161,18 +160,9 @@ function init()
     }
     list.selectedItem = selectedItem;
 
-    // Warn if Adblock or Filterset.G Updater are installed
+    // Warn if Adblock is installed
     if (isExtensionActive(adblockID))
       E("adblock-warning").hidden = false;
-  
-    if (isExtensionActive(filtersetG))
-      E("filtersetg-warning").hidden = false;
-  
-    if ("Filterset.G" in filterStorage.knownSubscriptions &&
-        !filterStorage.knownSubscriptions["Filterset.G"].disabled)
-    {
-      E("filtersetg-warning").hidden = false;
-    }
   }
 
   // Only resize if we are a chrome window (not loaded into a browser tab)
@@ -319,7 +309,7 @@ function loadSubscriptionList()
     }
   };
 
-  request.open("GET", abp.prefs.subscriptions_listurl);
+  request.open("GET", Prefs.subscriptions_listurl);
   request.onerror = errorHandler;
   request.onload = successHandler;
   request.send(null);
@@ -440,7 +430,7 @@ function setCustomSubscription(title, url, mainSubscriptionTitle, mainSubscripti
     let link = document.createElement("label");
     link.className = "text-link";
     link.setAttribute("tooltiptext", mainSubscriptionURL);
-    link.addEventListener("click", function() abp.loadInBrowser(mainSubscriptionURL), false);
+    link.addEventListener("click", function() Utils.loadInBrowser(mainSubscriptionURL), false);
     link.textContent = mainSubscriptionTitle;
     messageElement.appendChild(link);
     messageElement.appendChild(document.createTextNode(afterLink));
@@ -472,7 +462,7 @@ function validateURL(url)
   } catch (e) {}
 
   // Is this a valid URL?
-  let uri = abp.makeURL(url);
+  let uri = Utils.makeURI(url);
   if (uri)
     return uri.spec;
 
@@ -494,11 +484,11 @@ function addSubscription()
   else
   {
     url = E("location").value;
-    if (!(source instanceof abp.ExternalSubscription))
+    if (!(source instanceof ExternalSubscription))
       url = validateURL(url);
     if (!url)
     {
-      abp.alert(window, abp.getString("subscription_invalid_location"));
+      Utils.alert(window, Utils.getString("subscription_invalid_location"));
       E("location").focus();
       return false;
     }
@@ -524,24 +514,56 @@ function addSubscription()
 
   if (autoAdd)
   {
-    abp.addSubscription(result.url, result.title, result.autoDownload, result.disabled);
+    doAddSubscription(result.url, result.title, result.autoDownload, result.disabled);
     if ("mainSubscriptionURL" in result)
-      abp.addSubscription(result.mainSubscriptionURL, result.mainSubscriptionTitle, result.autoDownload, result.disabled);
+      doAddSubscription(result.mainSubscriptionURL, result.mainSubscriptionTitle, result.autoDownload, result.disabled);
   }
 
   closing = true;
   return true;
 }
 
+/**
+ * Adds a new subscription to the list.
+ */
+function doAddSubscription(/**String*/ url, /**String*/ title, /**Boolean*/ autoDownload, /**Boolean*/ disabled)
+{
+  if (typeof autoDownload == "undefined")
+    autoDownload = true;
+  if (typeof disabled == "undefined")
+    disabled = false;
+
+  let subscription = Subscription.fromURL(url);
+  if (!subscription)
+    return;
+
+  FilterStorage.addSubscription(subscription);
+
+  if (disabled != subscription.disabled)
+  {
+    subscription.disabled = disabled;
+    FilterStorage.triggerSubscriptionObservers(disabled ? "disable" : "enable", [subscription]);
+  }
+
+  subscription.title = title;
+  if (subscription instanceof DownloadableSubscription)
+    subscription.autoDownload = autoDownload;
+  FilterStorage.triggerSubscriptionObservers("updateinfo", [subscription]);
+
+  if (subscription instanceof DownloadableSubscription && !subscription.lastDownload)
+    Synchronizer.execute(subscription);
+  FilterStorage.saveToDisk();
+}
+
 function hasSubscription(url)
 {
-  return abp.filterStorage.subscriptions.some(function(subscription) subscription instanceof abp.DownloadableSubscription && subscription.url == url);
+  return FilterStorage.subscriptions.some(function(subscription) subscription instanceof DownloadableSubscription && subscription.url == url);
 }
 
 function checkUnload()
 {
   if (newInstall && !closing)
-    return abp.getString("subscription_notAdded_warning");
+    return Utils.getString("subscription_notAdded_warning");
 
   return undefined;
 }
@@ -552,8 +574,8 @@ function onDialogCancel()
   if (!message)
     return true;
 
-  message += " " + abp.getString("subscription_notAdded_warning_addendum");
-  closing = abp.confirm(window, message);
+  message += " " + Utils.getString("subscription_notAdded_warning_addendum");
+  closing = Utils.confirm(window, message);
   return closing;
 }
 
@@ -608,19 +630,4 @@ function uninstallAdblock()
 {
   uninstallExtension(adblockID);
   E("adblock-warning").hidden = true;
-}
-
-function uninstallFiltersetG()
-{
-  // Disable further updates
-  abp.denyFiltersetG = true;
-
-  // Uninstall extension
-  uninstallExtension(filtersetG);
-
-  // Remove filter subscription
-  if ("Filterset.G" in filterStorage.knownSubscriptions)
-    filterStorage.removeSubscription(filterStorage.knownSubscriptions["Filterset.G"]);
-
-  E("filtersetg-warning").hidden = true;
 }

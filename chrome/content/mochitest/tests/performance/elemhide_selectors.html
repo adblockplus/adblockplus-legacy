@@ -2,6 +2,8 @@
 <html>
 <head>
   <title>Element hiding performance measurements</title>
+
+  <script type="application/x-javascript;version=1.7" src="../common.js"></script>
 </head>
 <body>
   <p id="progress">Please wait while performance measurement is in progress... <span id="current"></span></p>
@@ -11,7 +13,8 @@
   <pre id="result"></pre>
 
   <script type="application/x-javascript;version=1.7">
-    let abp = Components.classes["@mozilla.org/adblockplus;1"].createInstance().wrappedJSObject;
+    prepareFilterComponents();
+    preparePrefs();
 
     let selectors = ['#foo', '.foo', '*#foo', '*.foo', '[id="foo"]', '*[id="foo"]', '[class~="foo"]', '*[class~="foo"]', '[id^="foo"]', '[id*="foo"]', '[id$="foo"]'];
     let currentSelector = -1;
@@ -48,15 +51,15 @@
           document.getElementById("current").textContent = "Processing selector " + (currentSelector + 1) + " out of " + selectors.length;
 
         count = 0;
-        abp.elemhide.clear();
+        ElemHide.clear();
       }
       else
       {
         let max = count + 50;
         for (; count < max; count++)
-          abp.elemhide.add(abp.Filter.fromText("mochikit##" + selectors[currentSelector].replace("foo", "foo" + count)));
+          ElemHide.add(Filter.fromText("mochikit##" + selectors[currentSelector].replace("foo", "foo" + count)));
       }
-      abp.elemhide.apply();
+      ElemHide.apply();
 
       startTime = Date.now();
       document.getElementById("frame").contentWindow.location.href = "elemhide_selectors_testdata.html";
