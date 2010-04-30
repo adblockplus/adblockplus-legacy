@@ -24,8 +24,17 @@
 
 /**
  * @fileOverview Matcher class implementing matching addresses against a list of filters.
- * This file is included from AdblockPlus.js.
  */
+
+var EXPORTED_SYMBOLS = ["Matcher", "whitelistMatcher", "blacklistMatcher"];
+
+const Cc = Components.classes;
+const Ci = Components.interfaces;
+const Cr = Components.results;
+const Cu = Components.utils;
+
+let baseURL = Cc["@adblockplus.org/abp/private;1"].getService(Ci.nsIURI);
+Cu.import(baseURL.spec + "FilterClasses.jsm");
 
 /**
  * Blacklist/whitelist filter matching
@@ -252,18 +261,15 @@ Matcher.prototype = {
     return result;
   }
 };
-abp.Matcher = Matcher;
 
 /**
  * Matcher instance for blocking filters
  * @type Matcher
  */
 var blacklistMatcher = new Matcher();
-abp.blacklistMatcher = blacklistMatcher;
 
 /**
  * Matcher instance for exception rules
  * @type Matcher
  */
 var whitelistMatcher = new Matcher();
-abp.whitelistMatcher = whitelistMatcher;

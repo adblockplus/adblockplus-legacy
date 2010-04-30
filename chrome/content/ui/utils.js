@@ -27,13 +27,17 @@ const Ci = Components.interfaces;
 const Cr = Components.results;
 const Cu = Components.utils;
 
-const abp = Components.classes["@mozilla.org/adblockplus;1"].createInstance().wrappedJSObject;
-const prefs = abp.prefs;
-const filterStorage = abp.filterStorage;
-const synchronizer = abp.synchronizer;
-
-// Make sure to initialize preferences if they aren't at this point (Fennec)
-prefs.init();
+let baseURL = Cc["@adblockplus.org/abp/private;1"].getService(Ci.nsIURI);
+Cu.import(baseURL.spec + "ContentPolicy.jsm");
+Cu.import(baseURL.spec + "FilterClasses.jsm");
+Cu.import(baseURL.spec + "FilterListener.jsm");
+Cu.import(baseURL.spec + "FilterStorage.jsm");
+Cu.import(baseURL.spec + "Matcher.jsm");
+Cu.import(baseURL.spec + "Prefs.jsm");
+Cu.import(baseURL.spec + "RequestList.jsm");
+Cu.import(baseURL.spec + "SubscriptionClasses.jsm");
+Cu.import(baseURL.spec + "Synchronizer.jsm");
+Cu.import(baseURL.spec + "Utils.jsm");
 
 /**
  * Shortcut for document.getElementById(id)

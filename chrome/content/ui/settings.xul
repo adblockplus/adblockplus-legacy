@@ -180,9 +180,9 @@
     </menu>
     <menu id="help-menu" label="&help.label;" accesskey="&help.accesskey;">
       <menupopup id="help-popup">
-        <menuitem id="gettingStartedLink" label="&gettingStarted.label;" accesskey="&gettingStarted.accesskey;" oncommand="abp.loadInBrowser('&gettingStarted.url;')"/>
-        <menuitem id="faqLink" label="&faq.label;" accesskey="&faq.accesskey;" oncommand="abp.loadInBrowser('&faq.url;')"/>
-        <menuitem id="filtersLink" label="&filterdoc.label;" accesskey="&filterdoc.accesskey;" oncommand="abp.loadInBrowser('&filterdoc.url;')"/>
+        <menuitem id="gettingStartedLink" label="&gettingStarted.label;" accesskey="&gettingStarted.accesskey;" oncommand="Utils.loadInBrowser('&gettingStarted.url;')"/>
+        <menuitem id="faqLink" label="&faq.label;" accesskey="&faq.accesskey;" oncommand="Utils.loadInBrowser('&faq.url;')"/>
+        <menuitem id="filtersLink" label="&filterdoc.label;" accesskey="&filterdoc.accesskey;" oncommand="Utils.loadInBrowser('&filterdoc.url;')"/>
         <menuseparator/>
         <menuitem id="aboutAbp" label="&about.label;…" accesskey="&about.accesskey;" oncommand="openAbout()"/>
       </menupopup>

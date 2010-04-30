@@ -10,10 +10,6 @@
 
   <meta http-equiv="Content-Type" value="text/html; charset=utf-8"/>
   <script type="application/x-javascript;version=1.7" src="common.js"></script>
-  <script type="application/x-javascript;version=1.7" src="chrome://adblockplus/content/filterClasses.js"></script>
-  <script type="application/x-javascript;version=1.7" src="chrome://adblockplus/content/subscriptionClasses.js"></script>
-  <script type="application/x-javascript;version=1.7" src="chrome://adblockplus/content/filterStorage.js"></script>
-  <script type="application/x-javascript;version=1.7" src="chrome://adblockplus/content/matcher.js"></script>
 </head>
 <body>
   <p id="display"></p>
@@ -4597,16 +4593,17 @@ zeit.de#DIV(class$=_ads)
   </div>
   <pre id="test">
   <script type="application/x-javascript;version=1.7">
+    Cu.import(baseURL.spec + "Utils.jsm");
+    prepareFilterComponents();
+    preparePrefs();
+
+    Prefs.patternsbackups = 0;
+    Prefs.patternsbackupinterval = 24;
+
     if (/[?&]profiler/i.test(location.href))
       document.getElementById("display").innerHTML = '<p><a href="?">Run this test without profiler</a></p>';
     else
       document.getElementById("display").innerHTML = '<p><a href="?profiler">Run this test with profiler</a></p>';
-
-    var prefs = {
-      patternsbackups: 0,
-      patternsbackupinterval: 24,
-      prefList: {}
-    };
 
     let testData = "";
     for (let child = document.getElementById("filterData").firstChild; child; child = child.nextSibling)
@@ -4614,9 +4611,9 @@ zeit.de#DIV(class$=_ads)
     testData = testData.replace(/\s+$/, "");
 
     // Make sure not to trigger fallback code on format version changes
-    testData = "version=" + filterStorage.formatVersion + "\n" + testData;
+    testData = "version=" + FilterStorage.__parent__.formatVersion + "\n" + testData;
 
-    let tempFile = dirService.get("TmpD", Components.interfaces.nsIFile);
+    let tempFile = Utils.dirService.get("TmpD", Components.interfaces.nsIFile);
     tempFile.append("temp_patterns.ini");
     tempFile.createUnique(tempFile.NORMAL_FILE_TYPE, 0666);
 
@@ -4632,18 +4629,18 @@ zeit.de#DIV(class$=_ads)
       stream.close();
     }
 
-    prefs.patternsfile = tempFile.path;
+    Prefs.patternsfile = tempFile.path;
 
     {
       let startTime = Date.now();
-      filterStorage.loadFromDisk();
+      FilterStorage.loadFromDisk();
       let endTime = Date.now();
       ok(true, "Time to load filters: " + (endTime - startTime) + "ms");
     }
 
     {
       let startTime = Date.now();
-      filterStorage.saveToDisk();
+      FilterStorage.saveToDisk();
       let endTime = Date.now();
       ok(true, "Time to save filters: " + (endTime - startTime) + "ms");
     }
@@ -4701,29 +4698,29 @@ zeit.de#DIV(class$=_ads)
       is(canonize(result), canonize(testData), "Read/write result");
     }
 
-    for each (let subscription in filterStorage.subscriptions.filter(function (subscription) {return !(subscription instanceof SpecialSubscription)}))
+    for each (let subscription in FilterStorage.subscriptions.filter(function (subscription) {return !(subscription instanceof SpecialSubscription)}))
     {
-      filterStorage.removeSubscription(subscription);
+      FilterStorage.removeSubscription(subscription);
     }
     let backupFile1 = tempFile.clone();
     backupFile1.leafName = backupFile1.leafName.replace(/\.ini$/, "-backup1.ini");
 
-    filterStorage.saveToDisk();
+    FilterStorage.saveToDisk();
     ok(!backupFile1.exists(), "Backup not created with patternsbackups = 0");
 
-    prefs.patternsbackups = 2;
-    filterStorage.saveToDisk();
+    Prefs.patternsbackups = 2;
+    FilterStorage.saveToDisk();
     ok(backupFile1.exists(), "Backup created with patternsbackups = 2");
 
     backupFile1.lastModifiedTime -= 10000;
     let oldModifiedTime = backupFile1.lastModifiedTime;
-    filterStorage.saveToDisk();
+    FilterStorage.saveToDisk();
     backupFile1 = backupFile1.clone();  // File parameters are cached, clone to prevent this
     is(backupFile1.lastModifiedTime, oldModifiedTime, "Backup not overwritten if it is only 10 seconds old");
 
     backupFile1.lastModifiedTime -= 40*60*60*1000;
     oldModifiedTime = backupFile1.lastModifiedTime;
-    filterStorage.saveToDisk();
+    FilterStorage.saveToDisk();
     backupFile1 = backupFile1.clone();  // File parameters are cached, clone to prevent this
     isnot(backupFile1.lastModifiedTime, oldModifiedTime, "Backup overwritten if it is 40 hours old");
 
@@ -4733,13 +4730,13 @@ zeit.de#DIV(class$=_ads)
 
     backupFile1.lastModifiedTime -= 20000;
     oldModifiedTime = backupFile2.lastModifiedTime;
-    filterStorage.saveToDisk();
+    FilterStorage.saveToDisk();
     backupFile2 = backupFile2.clone();  // File parameters are cached, clone to prevent this
     is(backupFile2.lastModifiedTime, oldModifiedTime, "Second backup not overwritten if first one is only 20 seconds old");
 
     backupFile1.lastModifiedTime -= 25*60*60*1000;
     oldModifiedTime = backupFile2.lastModifiedTime;
-    filterStorage.saveToDisk();
+    FilterStorage.saveToDisk();
     backupFile2 = backupFile2.clone();  // File parameters are cached, clone to prevent this
     isnot(backupFile2.lastModifiedTime, oldModifiedTime, "Second backup overwritten if first one is 25 hours old");
 

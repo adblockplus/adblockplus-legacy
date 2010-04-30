@@ -10,11 +10,6 @@
 
   <script type="application/x-javascript;version=1.7" src="../httpd.js"></script>
   <script type="application/x-javascript;version=1.7" src="common.js"></script>
-  <script type="application/x-javascript;version=1.7" src="chrome://adblockplus/content/utils.js"></script>
-  <script type="application/x-javascript;version=1.7" src="chrome://adblockplus/content/filterClasses.js"></script>
-  <script type="application/x-javascript;version=1.7" src="chrome://adblockplus/content/subscriptionClasses.js"></script>
-  <script type="application/x-javascript;version=1.7" src="chrome://adblockplus/content/filterStorage.js"></script>
-  <script type="application/x-javascript;version=1.7" src="chrome://adblockplus/content/synchronizer.js"></script>
 
 </head>
 <body>
@@ -25,15 +20,23 @@
 
   <pre id="test">
   <script type="application/x-javascript;version=1.7">
+    Cu.import(baseURL.spec + "Utils.jsm");
+    Cu.import(baseURL.spec + "Synchronizer.jsm");
+    Cu.import(baseURL.spec + "FilterStorage.jsm");
+    Cu.import(baseURL.spec + "SubscriptionClasses.jsm");
+    prepareFilterComponents();
+    preparePrefs();
+
     let currentTime = 20000 * 24 * 60 * 60 * 1000;
     let startTime = 0;
     let scheduledTasks = [];
 
-    let oldNow = Date.now;
-    Date.now = function()
+    let oldRandom = Synchronizer.__parent__.Math.random;
+    let oldNow = Synchronizer.__parent__.Date.now;
+    Synchronizer.__parent__.Date.now = function()
     {
       return currentTime;
-    }
+    };
 
     let outstandingRequests = 0;
 
@@ -57,16 +60,14 @@
         nextTask.handler();
 
         // Let all asynchronous actions finish
-        let thread = Components.classes["@mozilla.org/thread-manager;1"]
-                               .getService(Components.interfaces.nsIThreadManager)
-                               .currentThread;
-        let loopStartTime = oldNow();
+        let thread = Utils.threadManager.currentThread;
+        let loopStartTime = Date.now();
 
         while (outstandingRequests > 0 || thread.hasPendingEvents())
         {
           thread.processNextEvent(true);
 
-          if (oldNow() - loopStartTime > 5000)
+          if (Date.now() - loopStartTime > 5000)
           {
             ok(false, "Synchronizer stuck downloading subscriptions");
             return;
@@ -82,30 +83,26 @@
       currentTime = endTime;
     }
 
-    let prefs = {
-      synchronizationinterval: 3,
-      subscriptions_fallbackerrors: 7,
-      subscriptions_fallbackurl: "http://127.0.0.1:1234/fallback?%SUBSCRIPTION%&%URL%&%CHANNELSTATUS%&%RESPONSESTATUS%"
-    };
+    Prefs.synchronizationinterval = 3;
+    Prefs.subscriptions_fallbackerrors = 7;
+    Prefs.subscriptions_fallbackurl = "http://127.0.0.1:1234/fallback?%SUBSCRIPTION%&%URL%&%CHANNELSTATUS%&%RESPONSESTATUS%";
 
     {
-      synchronizer.init();
-
-      let timer = {__proto__: synchronizer.timer};
+      let timer = {__proto__: Synchronizer.__parent__.timer};
       let callback = timer.callback;
       timer.handler = function() { callback.notify(timer); };
       timer.nextExecution = currentTime + timer.delay;
 
       scheduledTasks.push(timer);
 
-      synchronizer.timer.cancel();
-      synchronizer.timer = timer;
+      Synchronizer.__parent__.timer.cancel();
+      Synchronizer.__parent__.timer = timer;
     }
 
-    // Prevent synchronizer from changing the load group of its requests,
-    // we need it to recognize when all requests are done.
-    var oldXMLHttp = XMLHttpRequest;
-    XMLHttpRequest = function()
+    // Track requests initiated by Synchronizer object by hooking its
+    // XMLHttpRequest constructor.
+    let oldXMLHttp = Synchronizer.__parent__.XMLHttpRequest;
+    Synchronizer.__parent__.XMLHttpRequest = function()
     {
       let inner = new oldXMLHttp();
 
@@ -125,6 +122,15 @@
         }
       }
     }
+
+    // Make sure to restore everything when this document unloads
+    window.addEventListener("unload", function()
+    {
+      Synchronizer.__parent__.Date.now = oldNow;
+      Synchronizer.__parent__.XMLHttpRequest = oldXMLHttp;
+      Synchronizer.__parent__.Math.random = oldRandom;
+      Synchronizer.__parent__.init();
+    }, false);
 
     let server = new nsHttpServer();
 
@@ -217,17 +223,17 @@
 
     function resetSubscriptions()
     {
-      filterStorage.removeSubscription(subscription1);
-      filterStorage.removeSubscription(subscription2);
-      filterStorage.removeSubscription(subscription3);
-      filterStorage.addSubscription(subscription1);
-      filterStorage.addSubscription(subscription2);
+      FilterStorage.removeSubscription(subscription1);
+      FilterStorage.removeSubscription(subscription2);
+      FilterStorage.removeSubscription(subscription3);
+      FilterStorage.addSubscription(subscription1);
+      FilterStorage.addSubscription(subscription2);
       subscription2.autoDownload = false;
     }
 
     function compareSubscriptions(test, expectedSubscriptions)
     {
-      let result = filterStorage.subscriptions.map(function(subscription) subscription.url).join("\n");
+      let result = FilterStorage.subscriptions.map(function(subscription) subscription.url).join("\n");
       let expected = expectedSubscriptions.map(function(subscription) subscription.url).join("\n");
       is(result, expected, test);
       requests = [];
@@ -236,18 +242,17 @@
 
     function runTests()
     {
-      is(typeof synchronizer, "object", "typeof synchronizer");
-      is(typeof abp.synchronizer, "object", "typeof abp.synchronizer");
+      is(typeof Synchronizer, "object", "typeof Synchronizer");
 
       server.registerPathHandler("/subscription1", getSubscription);
       server.registerPathHandler("/subscription2", getSubscription);
       server.registerPathHandler("/subscription3", getSubscription);
       server.registerPathHandler("/fallback", fallbackHandler);
 
-      filterStorage.addSubscription(subscription1);
+      FilterStorage.addSubscription(subscription1);
 
       subscription2.autoDownload = false;
-      filterStorage.addSubscription(subscription2);
+      FilterStorage.addSubscription(subscription2);
 
       //
       // General subscription download testing
@@ -634,14 +639,13 @@
       subscriptionBody = "[Adblock]\nfoo\nbar\n";
       let alternativeLocations = subscription2.url + ";q=0.5," + subscription3.url + ";q=2";
       subscriptionExtraHeaders = function() [["X-Alternative-Locations", alternativeLocations]];
-      let oldRandom = Math.random;
       
       runScheduledTasks(6);
       is(subscription1.downloadStatus, "synchronize_ok", "= symbols after checksum are ignored");
       is(subscription1.alternativeLocations, alternativeLocations, "Alternative locations header processed on download");
 
       requests = [];
-      Math.random = function() 0;
+      Synchronizer.__parent__.Math.random = function() 0;
       runScheduledTasks(9);
       compareRequests("Base URL should be chosen if Math.random() returns 0", [
         "300000: GET /subscription1",
@@ -650,7 +654,7 @@
       ]);
 
       requests = [];
-      Math.random = function() 0.28;
+      Synchronizer.__parent__.Math.random = function() 0.28;
       runScheduledTasks(9);
       compareRequests("Base URL should be chosen if Math.random() returns 0.28", [
         "300000: GET /subscription1",
@@ -659,7 +663,7 @@
       ]);
 
       requests = [];
-      Math.random = function() 0.29;
+      Synchronizer.__parent__.Math.random = function() 0.29;
       runScheduledTasks(9);
       compareRequests("First alternative should be chosen if Math.random() returns 0.29", [
         "300000: GET /subscription2",
@@ -668,7 +672,7 @@
       ]);
 
       requests = [];
-      Math.random = function() 0.42;
+      Synchronizer.__parent__.Math.random = function() 0.42;
       runScheduledTasks(9);
       compareRequests("First alternative should be chosen if Math.random() returns 0.42", [
         "300000: GET /subscription2",
@@ -677,7 +681,7 @@
       ]);
 
       requests = [];
-      Math.random = function() 0.43;
+      Synchronizer.__parent__.Math.random = function() 0.43;
       runScheduledTasks(9);
       compareRequests("Second alternative should be chosen if Math.random() returns 0.43", [
         "300000: GET /subscription3",
@@ -686,7 +690,7 @@
       ]);
 
       requests = [];
-      Math.random = function() 0.99;
+      Synchronizer.__parent__.Math.random = function() 0.99;
       runScheduledTasks(9);
       compareRequests("Second alternative should be chosen if Math.random() returns 0.99", [
         "300000: GET /subscription3",
@@ -695,17 +699,17 @@
       ]);
 
       subscriptionStatus = [404, "Not Found"];
-      Math.random = function() 0;
+      Synchronizer.__parent__.Math.random = function() 0;
       runScheduledTasks(3);
       is(subscription1.alternativeLocations, alternativeLocations, "Alternative locations shouldn't be reset on download failure for base URL");
 
-      Math.random = function() 0.99;
+      Synchronizer.__parent__.Math.random = function() 0.99;
       runScheduledTasks(3);
       is(subscription1.alternativeLocations, null, "Alternative locations should be reset on download failure for alternative URL");
 
       requests = [];
       subscriptionStatus = [200, "OK"];
-      Math.random = function() 0.99;
+      Synchronizer.__parent__.Math.random = function() 0.99;
       runScheduledTasks(9);
       compareRequests("Alternative locations should be used again one the base URL returns a new list", [
         "300000: GET /subscription1",
@@ -715,7 +719,7 @@
 
       server.registerPathHandler("/subscription1", commentRedirectHandler);
       redirectURL = subscription2.url;
-      Math.random = function() 0;
+      Synchronizer.__parent__.Math.random = function() 0;
       runScheduledTasks(3);
       is(subscription1.nextURL, subscription2.url, "Redirect comment accepted from base URL");
       subscription1.nextURL = null;
@@ -723,13 +727,13 @@
 
       server.registerPathHandler("/subscription3", commentRedirectHandler);
       redirectURL = subscription2.url;
-      Math.random = function() 0.99;
+      Synchronizer.__parent__.Math.random = function() 0.99;
       runScheduledTasks(3);
       is(subscription1.nextURL, null, "Redirect comment ignored from alternative URL");
 
       server.registerPathHandler("/subscription3", redirectHandler);
       redirectURL = subscription2.url;
-      Math.random = function() 0.99;
+      Synchronizer.__parent__.Math.random = function() 0.99;
       redirectPermanent = true;
       runScheduledTasks(3);
       compareSubscriptions("Subscriptions after redirect from alternative URL", [subscription1, subscription2]);
@@ -737,7 +741,7 @@
 
       server.registerPathHandler("/subscription1", redirectHandler);
       redirectURL = subscription2.url;
-      Math.random = function() 0;
+      Synchronizer.__parent__.Math.random = function() 0;
       redirectPermanent = true;
       runScheduledTasks(3);
       compareSubscriptions("Subscriptions after redirect from base URL", [subscription2]);
@@ -747,7 +751,7 @@
         function(metadata) [["X-Alternative-Locations", metadata.path == "/subscription1" ? subscription2.url : subscription1.url]];
       server.registerPathHandler("/subscription1", redirectHandler);
       redirectURL = subscription2.url;
-      Math.random = function() 0;
+      Synchronizer.__parent__.Math.random = function() 0;
       redirectPermanent = false;
       runScheduledTasks(3);
       is(subscription1.alternativeLocations, subscription2.url, "Alternative locations not taken over from redirect target on temporary redirect");
@@ -756,7 +760,7 @@
 
       server.registerPathHandler("/subscription1", redirectHandler);
       redirectURL = subscription2.url;
-      Math.random = function() 0;
+      Synchronizer.__parent__.Math.random = function() 0;
       redirectPermanent = true;
       runScheduledTasks(3);
       is(subscription1.alternativeLocations, subscription1.url, "Alternative locations taken over from redirect target on permanent redirect");
@@ -765,7 +769,6 @@
 
       subscriptionExtraHeaders = null;
       redirectExtraHeaders = null;
-      Math.random = oldRandom;
 
       // @TODO: If-Modified-Since
     }

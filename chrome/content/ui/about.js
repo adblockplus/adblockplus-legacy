@@ -28,16 +28,14 @@ try
 }
 catch (e) {}
 
-const addonID = "{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}";
-
 function init()
 {
-  E("version").value = abp.getInstalledVersion();
+  E("version").value = Utils.addonVersion;
 
   let ioService = Cc["@mozilla.org/network/io-service;1"].getService(Ci.nsIIOService);
   if (typeof AddonManager != "undefined")
   {
-    let addon = AddonManager.getAddonByID(addonID, function(addon)
+    let addon = AddonManager.getAddonByID(Utils.addonID, function(addon)
     {
       loadInstallManifest(ioService.newURI(addon.getResourceURL("install.rdf"), null, null));
     });
@@ -45,8 +43,8 @@ function init()
   else
   {
     let extensionManager = Cc["@mozilla.org/extensions/manager;1"].getService(Ci.nsIExtensionManager);
-    let installLocation = extensionManager.getInstallLocation(addonID);
-    let installManifestFile = installLocation.getItemFile(addonID, "install.rdf");
+    let installLocation = extensionManager.getInstallLocation(Utils.addonID);
+    let installManifestFile = installLocation.getItemFile(Utils.addonID, "install.rdf");
     loadInstallManifest(ioService.newFileURI(installManifestFile));
   }
 }
