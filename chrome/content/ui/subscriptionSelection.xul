@@ -51,10 +51,6 @@
 
 <scrollbox id="content-scroll" orient="vertical" flex="1">
   <description id="description-newInstall">&description.newInstall;</description>
-  <hbox id="adblock-warning" align="center" hidden="true">
-    <button id="adblock-uninstall" label="&adblock.uninstall;" oncommand="uninstallAdblock()"/>
-    <description flex="1">&adblock.warning;</description>
-  </hbox>
   
   <vbox id="subscriptionsBox">
     <label control="subscriptions">&subscriptionSelector.label;</label>
