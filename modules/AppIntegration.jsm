@@ -190,7 +190,7 @@ function removeWindow()
 
 /**
  * Class providing various functions related to application windows.
- * @class
+ * @constructor
  */
 function WindowWrapper(window, hooks)
 {

@@ -272,7 +272,7 @@ var ElemHidePrivate =
 
 /**
  * Channel returning data for element hiding hits.
- * @class
+ * @constructor
  */
 function HitRegistrationChannel(uri, key)
 {
