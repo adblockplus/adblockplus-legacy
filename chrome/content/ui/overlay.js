@@ -23,24 +23,32 @@
  * ***** END LICENSE BLOCK ***** */
 
 {
-  let appInfo = Components.classes["@mozilla.org/xre/app-info;1"]
-                          .getService(Components.interfaces.nsIXULAppInfo);
-  let isFennec = (appInfo.ID == "{a23983c0-fd0e-11dc-95ff-0800200c9a66}");
+  let Cc = Components.classes;
+  let Ci = Components.interfaces;
+  let Cr = Components.results;
+  let Cu = Components.utils;
 
   // Use UIReady event to initialize in Fennec (bug 531071)
-  window.addEventListener(isFennec ? "UIReady" : "load", function()
+  let isFennec = (Cc["@mozilla.org/xre/app-info;1"].getService(Ci.nsIXULAppInfo).ID == "{a23983c0-fd0e-11dc-95ff-0800200c9a66}");
+  let eventName = isFennec ? "UIReady" : "load";
+
+  window.addEventListener(eventName, function()
   {
-    // Abuse sandboxes so get an execution context for our code
-    let sandbox = new Components.utils.Sandbox(window);
-    sandbox.window = window;
-    sandbox.document = document;
-    sandbox.isFennec = isFennec;
-  
-    let loader = Components.classes["@mozilla.org/moz/jssubscript-loader;1"]
-                           .getService(Components.interfaces.mozIJSSubScriptLoader)
-    loader.loadSubScript("chrome://adblockplus/content/ui/utils.js", sandbox);
-    loader.loadSubScript("chrome://adblockplus/content/ui/browserWindow.js", sandbox);
-    if (isFennec)
-      loader.loadSubScript("chrome://adblockplus/content/ui/fennecOverlay.js", sandbox);
+    window.removeEventListener(eventName, arguments.callee, false);
+
+    let modules = {};
+    if (!("@adblockplus.org/abp/private;1" in Cc))
+    {
+      // Force initialization (in Fennec we won't be initialized at this point)
+      let chromeRegistry = Cc["@mozilla.org/chrome/chrome-registry;1"].getService(Ci.nsIChromeRegistry);
+      let ioService = Cc["@mozilla.org/network/io-service;1"].getService(Ci.nsIIOService);
+      let bootstrapURL = chromeRegistry.convertChromeURL(ioService.newURI("chrome://adblockplus-modules/content/Bootstrap.jsm", null, null));
+      Cu.import(bootstrapURL.spec, modules);
+      modules.Bootstrap.init();
+    }
+
+    let baseURL = Cc["@adblockplus.org/abp/private;1"].getService(Ci.nsIURI);
+    Cu.import(baseURL.spec + "AppIntegration.jsm", modules);
+    modules.AppIntegration.addWindow(window);
   }, false);
 }

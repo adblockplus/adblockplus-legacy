@@ -31,8 +31,8 @@
   <!-- Window extensions -->
   <window id="main-window">
     <box id="abp-hooks"
-      getBrowser="return window.getBrowser();"
-      addTab="Utils.runAsync(window.BrowserUI.newTab, window.BrowserUI, arguments[0]);"
+      getBrowser="return this.window.getBrowser();"
+      addTab="Utils.runAsync(this.window.BrowserUI.newTab, this.window.BrowserUI, arguments[0]);"
       getContextMenu="return null"
       getToolbox="return null"
       getDefaultToolbar="return null"/>

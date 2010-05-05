@@ -32,8 +32,8 @@
     <popupset id="abp-popupset"/>
     <keyset id="abp-keyset"/>
     <commandset id="abp-commandset"/>
-    <box id="abp-hooks" getBrowser="return E('browser_content');"
-      getContextMenu="return E('popup_content');"/>
+    <box id="abp-hooks" getBrowser="return this.E('browser_content');"
+      getContextMenu="return this.E('popup_content');"/>
   </window>
 
   <!-- Status bar -->

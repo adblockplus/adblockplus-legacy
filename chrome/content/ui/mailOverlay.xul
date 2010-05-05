@@ -32,11 +32,11 @@
     <popupset id="abp-popupset"/>
     <keyset id="abp-keyset"/>
     <commandset id="abp-commandset"/>
-    <box id="abp-hooks" getBrowser="return window.messageContent;"
-      addTab="window.openNewTabWith(arguments[0], (arguments[1] ? window.content.document : null), (arguments[1] ? arguments[1].shiftKey : false));"
-      getContextMenu="return E('messagePaneContext');"
-      getToolbox="return E('mail-toolbox')"
-      getDefaultToolbar="return E('msgToolbar');" toolbarInsertBefore="return E('button-junk');"/>
+    <box id="abp-hooks" getBrowser="return this.window.messageContent;"
+      addTab="this.window.openNewTabWith(arguments[0], (arguments[1] ? this.window.content.document : null), (arguments[1] ? arguments[1].shiftKey : false));"
+      getContextMenu="return this.E('messagePaneContext');"
+      getToolbox="return this.E('mail-toolbox')"
+      getDefaultToolbar="return this.E('msgToolbar');" toolbarInsertBefore="return this.E('button-junk');"/>
   </window>
 
   <!-- Status bar -->
