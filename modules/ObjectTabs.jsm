@@ -273,7 +273,7 @@ var objTabs =
     this.objtabElement.setAttribute("class", this.objTabClassHidden);
     this.objtabElement.style.setProperty("opacity", "1", "important");
     this.objtabElement.nodeData = data;
-    hooks.initObjTab(this.objtabElement);
+    this.objtabElement.hooks = hooks;
 
     this.currentElement = element;
 
@@ -290,6 +290,7 @@ var objTabs =
     // Register mouse listeners on the object tab
     this.objtabElement.addEventListener("mouseover", objectTabEventHander, false);
     this.objtabElement.addEventListener("mouseout", objectTabEventHander, false);
+    this.objtabElement.addEventListener("click", objectTabEventHander, true);
 
     // Insert the tab into the document and adjust its position
     doc.documentElement.appendChild(this.objtabElement);
@@ -437,6 +438,14 @@ var objTabs =
     return rect;
   },
 
+  doBlock: function()
+  {
+    Cu.import(baseURL.spec + "AppIntegration.jsm");
+    let wrapper = AppIntegration.getWrapperForWindow(this.objtabElement.hooks.ownerDocument.defaultView);
+    if (wrapper)
+      wrapper.blockItem(this.objtabElement.nodeData);
+  },
+
   /**
    * Called whenever a timer fires.
    */
@@ -464,6 +473,9 @@ var objTabs =
  */
 function objectMouseEventHander(/**Event*/ event)
 {
+  if (!event.isTrusted)
+    return;
+
   if (event.type == "mouseover")
     objTabs.showTabFor(event.target);
   else if (event.type == "mouseout")
@@ -475,6 +487,9 @@ function objectMouseEventHander(/**Event*/ event)
  */
 function objectWindowEventHandler(/**Event*/ event)
 {
+  if (!event.isTrusted)
+    return;
+
   // Don't trigger update too often, avoid overusing CPU on frequent page updates
   if (event.type == "MozAfterPaint" && Date.now() - objTabs.prevPositionUpdate > 20)
     objTabs._positionTab();
@@ -485,7 +500,17 @@ function objectWindowEventHandler(/**Event*/ event)
  */
 function objectTabEventHander(/**Event*/ event)
 {
-  if (event.type == "mouseover")
+  if (!event.isTrusted)
+    return;
+
+  if (event.type == "click" && event.button == 0)
+  {
+    event.preventDefault();
+    event.stopPropagation();
+
+    objTabs.doBlock();
+  }
+  else if (event.type == "mouseover")
     objTabs.showTabFor(objTabs.currentElement);
   else if (event.type == "mouseout")
     objTabs.hideTabFor(objTabs.currentElement);

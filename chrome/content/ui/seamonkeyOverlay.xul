@@ -33,15 +33,15 @@
     <keyset id="abp-keyset"/>
     <commandset id="abp-commandset"/>
     <box id="abp-hooks"
-      getBrowser="return window.gBrowser;"
+      getBrowser="return this.window.gBrowser;"
       addTab="
-        if (arguments[1] &amp;&amp; 'openNewTabWith' in window)
-          window.openNewTabWith(arguments[0], window.content.document, arguments[1].shiftKey);
+        if (arguments[1] &amp;&amp; 'openNewTabWith' in this.window)
+          this.window.openNewTabWith(arguments[0], this.window.content.document, arguments[1].shiftKey);
         else
-          window.gBrowser.addTab(arguments[0], null, null, true);"
-      getContextMenu="return E('contentAreaContextMenu');"
-      getToolbox="return E('navigator-toolbox')"
-      getDefaultToolbar="return E('PersonalToolbar');"  toolbarInsertBefore="return E('bookmarks-button');"/>
+          this.window.gBrowser.addTab(arguments[0], null, null, true);"
+      getContextMenu="return this.E('contentAreaContextMenu');"
+      getToolbox="return this.E('navigator-toolbox')"
+      getDefaultToolbar="return this.E('PersonalToolbar');"  toolbarInsertBefore="return this.E('bookmarks-button');"/>
   </window>
 
   <!-- Status bar -->

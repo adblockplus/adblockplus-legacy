@@ -33,15 +33,15 @@
     <keyset id="abp-keyset"/>
     <commandset id="abp-commandset"/>
     <box id="abp-hooks"
-      getBrowser="return window.gBrowser;"
+      getBrowser="return this.window.gBrowser;"
       addTab="
-        if (arguments[1] &amp;&amp; 'openNewTabWith' in window)
-          window.openNewTabWith(arguments[0], window.content.document, null, arguments[1], false);
+        if (arguments[1] &amp;&amp; 'openNewTabWith' in this.window)
+          this.window.openNewTabWith(arguments[0], this.window.content.document, null, arguments[1], false);
         else
-          window.gBrowser.loadOneTab(arguments[0], null, null, null, false);"
-      getContextMenu="return E('contentAreaContextMenu');"
-      getToolbox="return E('navigator-toolbox')"
-      getDefaultToolbar="return E('nav-bar');"/>
+          this.window.gBrowser.loadOneTab(arguments[0], null, null, null, false);"
+      getContextMenu="return this.E('contentAreaContextMenu');"
+      getToolbox="return this.E('navigator-toolbox')"
+      getDefaultToolbar="return this.E('nav-bar');"/>
   </window>
 
   <!-- Songbird window -->

@@ -36,7 +36,7 @@ const Cu = Components.utils;
 let baseURL = Cc["@adblockplus.org/abp/private;1"].getService(Ci.nsIURI);
 
 Cu.import(baseURL.spec + "Utils.jsm");
-Utils.runAsync(Cu.import, null, baseURL.spec + "ContentPolicy.jsm");  // import delayed to avoid circular imports
+Utils.runAsync(Cu.import, Cu, baseURL.spec + "ContentPolicy.jsm");  // delay to avoid circular imports
 
 const dataSeed = Math.random();    // Make sure our properties have randomized names
 const docDataProp = "abpDocData" + dataSeed;
