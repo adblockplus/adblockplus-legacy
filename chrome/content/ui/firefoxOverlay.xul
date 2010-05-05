@@ -50,8 +50,8 @@
     <keyset id="abp-keyset"/>
     <commandset id="abp-commandset"/>
     <box id="abp-hooks"
-      getBrowser="return window.gBrowser;"
-      addTab="window.gBrowser.loadOneTab(arguments[0], null, null, null, false);"
+      getBrowser="return this.window.gBrowser;"
+      addTab="this.window.gBrowser.loadOneTab(arguments[0], null, null, null, false);"
       getContextMenu="return this.E('contentAreaContextMenu');"
       getToolbox="return this.E('navigator-toolbox')"
       getDefaultToolbar="return this.E('nav-bar');"/>
