@@ -50,7 +50,7 @@
     </tooltip>
 
     <!-- Icon's context menu -->
-    <popup id="abp-status-popup">
+    <menupopup id="abp-status-popup">
       <menuitem id="abp-status-opensidebar" label="&opensidebar.label;" accesskey="&opensidebar.accesskey;" key="abp-key-sidebar" command="abp-command-sidebar"/>
       <menuitem id="abp-status-closesidebar" label="&closesidebar.label;" accesskey="&closesidebar.accesskey;" key="abp-key-sidebar" command="abp-command-sidebar"/>
       <menuitem id="abp-status-settings" label="&settings.label;…" accesskey="&settings.accesskey;" key="abp-key-settings" command="abp-command-settings"/>
@@ -68,7 +68,7 @@
         </menupopup>
       </menu>
       <menuitem id="abp-status-enabled" label="&enable.label;" accesskey="&enable.accesskey;" type="checkbox" key="abp-key-enable" command="abp-command-enable"/>
-    </popup>
+    </menupopup>
   </popupset>
   <keyset id="abp-keyset"/>
   <commandset id="abp-commandset">
@@ -88,9 +88,7 @@
       context="abp-status-popup" tooltip="abp-tooltip"/>
 
   <toolbarbutton id="abp-toolbarbutton" label="&toolbarbutton.label;"
-      tooltip="abp-tooltip" context="abp-status-popup">
-    <menupopup id="abp-toolbar-popup"/>
-  </toolbarbutton>
+      tooltip="abp-tooltip" context="abp-status-popup"/>
 
   <box id="abp-hooks" objtabtext="&objecttab.title;" objtabtooltip="&objecttab.tooltip;"/>
 
