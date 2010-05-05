@@ -94,13 +94,6 @@ let savePrefMethods = {
 var Prefs =
 {
   /**
-   * Old value of the "currentVersion" preference - version of Adblock Plus used
-   * on previous browser start.
-   * @type String
-   */
-  lastVersion: null,
-
-  /**
    * Will be set to true if the user enters private browsing mode.
    * @type Boolean
    */
@@ -244,16 +237,6 @@ function init()
   TimeLine.log("loading actual pref values");
   reload();
   TimeLine.log("done loading pref values");
-
-  // Update lastVersion pref if necessary
-  TimeLine.log("initializing current version");
-  Prefs.lastVersion = Prefs.currentVersion;
-  if (Prefs.currentVersion != Utils.addonVersion)
-  {
-    Prefs.currentVersion = Utils.addonVersion;
-    Prefs.save();
-  }
-  TimeLine.log("done initializing current version");
 
   // Register observers
   TimeLine.log("registering observers");
