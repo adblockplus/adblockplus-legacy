@@ -15,6 +15,7 @@ system("hg", "clone", "https://hg.adblockplus.org/jsdoc-toolkit/") unless -e "js
          '-d=' . $target,
          '-a',
          '-p',
+         '-x=js,jsm',
          'modules/', 'components/Initializer.js');
 
 $0 = "jsdoc-toolkit/jsrun.pl";
