@@ -16,6 +16,14 @@ function compareGeckoVersion(version)
   return Utils.versionComparator.compare(geckoVersion, version);
 }
 
+function getGlobalForObject(obj)
+{
+  if ("getGlobalForObject" in Cu)
+    return Cu.getGlobalForObject(obj);  // Gecko 1.9.3 and higher
+  else
+    return obj.__parent__;              // Gecko 1.9.0/1.9.1/1.9.2
+}
+
 function prepareFilterComponents(keepObservers)
 {
   Cu.import(baseURL.spec + "FilterClasses.jsm");
@@ -25,13 +33,14 @@ function prepareFilterComponents(keepObservers)
   Cu.import(baseURL.spec + "ElemHide.jsm");
   Cu.import(baseURL.spec + "FilterListener.jsm");
 
+  let FilterStorageGlobal = getGlobalForObject(FilterStorage);
   let oldSubscriptions = FilterStorage.subscriptions;
   let oldStorageKnown = FilterStorage.knownSubscriptions;
   let oldSubscriptionsKnown = Subscription.knownSubscriptions;
   let oldFiltersKnown = Subscription.knownSubscriptions;
-  let oldSubscriptionObservers = FilterStorage.__parent__.subscriptionObservers;
-  let oldFilterObservers = FilterStorage.__parent__.filterObservers;
-  let oldSourceFile = FilterStorage.__parent__.sourceFile;
+  let oldSubscriptionObservers = FilterStorageGlobal.subscriptionObservers;
+  let oldFilterObservers = FilterStorageGlobal.filterObservers;
+  let oldSourceFile = FilterStorageGlobal.sourceFile;
 
   FilterStorage.subscriptions = [];
   FilterStorage.knownSubscriptions = {__proto__: null};
@@ -39,9 +48,9 @@ function prepareFilterComponents(keepObservers)
   Filter.knownFilters = {__proto__: null};
   if (!keepObservers)
   {
-    FilterStorage.__parent__.subscriptionObservers = [];
-    FilterStorage.__parent__.filterObservers = [];
-    FilterStorage.__parent__.sourceFile = null;
+    FilterStorageGlobal.subscriptionObservers = [];
+    FilterStorageGlobal.filterObservers = [];
+    FilterStorageGlobal.sourceFile = null;
   }
 
   blacklistMatcher.clear();
@@ -54,9 +63,9 @@ function prepareFilterComponents(keepObservers)
     FilterStorage.knownSubscriptions = oldStorageKnown;
     Subscription.knownSubscriptions = oldSubscriptionsKnown;
     Subscription.knownSubscriptions = oldFiltersKnown;
-    FilterStorage.__parent__.subscriptionObservers = oldSubscriptionObservers;
-    FilterStorage.__parent__.filterObservers = oldFilterObservers;
-    FilterStorage.__parent__.sourceFile = oldSourceFile;
+    FilterStorageGlobal.subscriptionObservers = oldSubscriptionObservers;
+    FilterStorageGlobal.filterObservers = oldFilterObservers;
+    FilterStorageGlobal.sourceFile = oldSourceFile;
 
     FilterStorage.triggerSubscriptionObservers("reload", FilterStorage.subscriptions);
   }, false);
