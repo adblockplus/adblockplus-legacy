@@ -50,21 +50,21 @@
       ],
       [
         '<div style="background-image: url(test.gif)"></div>',
-        "http://127.0.0.1:1234/test.gif", "background", "127.0.0.1", false
+        "http://127.0.0.1:1234/test.gif", "image", "127.0.0.1", false
       ],
       [
         '<div style="cursor: url(test.gif), pointer"></div>',
-        "http://127.0.0.1:1234/test.gif", "background", "127.0.0.1", false
+        "http://127.0.0.1:1234/test.gif", "image", "127.0.0.1", false
       ],
       [
         <ol>
           <li style="list-style-image: url(test.gif)">foo</li>
         </ol>,
-        "http://127.0.0.1:1234/test.gif", "background", "127.0.0.1", false
+        "http://127.0.0.1:1234/test.gif", "image", "127.0.0.1", false
       ],
       [
         '<style>div:before { content: url(test.gif); }</style><div>foo</div>',
-        "http://127.0.0.1:1234/test.gif", "background", "127.0.0.1", false
+        "http://127.0.0.1:1234/test.gif", "image", "127.0.0.1", false
       ],
       [
         '<embed type="image/gif" src="test.gif"></embed>',
@@ -84,7 +84,7 @@
         <window xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
           <image style="list-style-image: url(test.gif)"/>
         </window>,
-        "http://127.0.0.1:1234/test.gif", "background", "127.0.0.1", false
+        "http://127.0.0.1:1234/test.gif", "image", "127.0.0.1", false
       ],
       [
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -192,8 +192,6 @@
       {
         // Ignore duplicate policy calls (possible due to prefetching)
         let [prevWnd, prevType, prevData, prevLocation] = policyHits[policyHits.length - 1];
-        if (prevType == "background") // Prefetched images are misinterpreted as background images
-          prevType = "image";
         if (prevWnd == wnd && prevType == type && prevData == data && prevLocation == location)
           policyHits.pop();
       }

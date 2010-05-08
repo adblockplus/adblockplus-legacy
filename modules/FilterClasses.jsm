@@ -617,7 +617,6 @@ RegExpFilter.typeMap = {
   OBJECT: 16,
   SUBDOCUMENT: 32,
   DOCUMENT: 64,
-  BACKGROUND: 256,
   XBL: 512,
   PING: 1024,
   XMLHTTPREQUEST: 2048,
@@ -625,6 +624,8 @@ RegExpFilter.typeMap = {
   DTD: 8192,
   MEDIA: 16384,
   FONT: 32768,
+
+  BACKGROUND: 4,    // Backwards compat, same as IMAGE
 
   ELEMHIDE: 0x40000000
 };
