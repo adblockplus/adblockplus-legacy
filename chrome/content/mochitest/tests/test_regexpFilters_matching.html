@@ -98,9 +98,9 @@
     testMatch("abc$subdocument", "http://abc/adf", "IMAGE", null, false, false);
     testMatch("abc$subdocument", "http://abc/adf", "SUBDOCUMENT", null, false, true);
     testMatch("abc$~subdocument", "http://abc/adf", "SUBDOCUMENT", null, false, false);
-    testMatch("abc$background", "http://abc/adf", "IMAGE", null, false, false);
-    testMatch("abc$background", "http://abc/adf", "BACKGROUND", null, false, true);
-    testMatch("abc$~background", "http://abc/adf", "BACKGROUND", null, false, false);
+    testMatch("abc$background", "http://abc/adf", "OBJECT", null, false, false);
+    testMatch("abc$background", "http://abc/adf", "IMAGE", null, false, true);
+    testMatch("abc$~background", "http://abc/adf", "IMAGE", null, false, false);
     testMatch("abc$xbl", "http://abc/adf", "IMAGE", null, false, false);
     testMatch("abc$xbl", "http://abc/adf", "XBL", null, false, true);
     testMatch("abc$~xbl", "http://abc/adf", "XBL", null, false, false);
