@@ -214,6 +214,12 @@
     compareFilter("bla$~match-case,~script,~other,~third-party,domain=~bar.com", ["type=filterlist", "text=bla$~match-case,~script,~other,~third-party,domain=~bar.com", "regexp=bla", "contentType=" + (allTypes & ~(t.ELEMHIDE | t.SCRIPT | t.OTHER)), "thirdParty=false", "domains=~BAR.COM"]);
     compareFilter("@@bla$match-case,script,other,third-party,domain=foo.com|bar.com|~bar.foo.com|~foo.bar.com", ["type=whitelist", "text=@@bla$match-case,script,other,third-party,domain=foo.com|bar.com|~bar.foo.com|~foo.bar.com", "regexp=bla", "matchCase=true", "contentType=" + (t.SCRIPT | t.OTHER), "thirdParty=true", "domains=BAR.COM|FOO.COM|~BAR.FOO.COM|~FOO.BAR.COM"]);
 
+    // background and image should be the same for backwards compatibility
+    compareFilter("bla$image", ["type=filterlist", "text=bla$image", "regexp=bla", "contentType=" + (t.IMAGE)]);
+    compareFilter("bla$background", ["type=filterlist", "text=bla$background", "regexp=bla", "contentType=" + (t.IMAGE)]);
+    compareFilter("bla$~image", ["type=filterlist", "text=bla$~image", "regexp=bla", "contentType=" + (allTypes & ~(t.IMAGE | t.ELEMHIDE))]);
+    compareFilter("bla$~background", ["type=filterlist", "text=bla$~background", "regexp=bla", "contentType=" + (allTypes & ~(t.IMAGE | t.ELEMHIDE))]);
+
     compareFilter("@@bla$~script,~other", ["type=whitelist", "text=@@bla$~script,~other", "regexp=bla", "contentType=" + (allTypes & ~(t.ELEMHIDE | t.DOCUMENT | t.SCRIPT | t.OTHER))]);
     compareFilter("@@http://bla$~script,~other", ["type=whitelist", "text=@@http://bla$~script,~other", "regexp=http\\:\\/\\/bla", "contentType=" + (allTypes & ~(t.ELEMHIDE | t.SCRIPT | t.OTHER))]);
     compareFilter("@@|ftp://bla$~script,~other", ["type=whitelist", "text=@@|ftp://bla$~script,~other", "regexp=^ftp\\:\\/\\/bla", "contentType=" + (allTypes & ~(t.ELEMHIDE | t.SCRIPT | t.OTHER))]);

@@ -129,10 +129,6 @@ var Policy =
     if (contentType == Policy.type.OBJECT_SUBREQUEST && node instanceof Ci.nsIDOMElement)
       node = node.ownerDocument;
 
-    // Fix type for background images
-    if (contentType == Policy.type.IMAGE && node.nodeType == Ci.nsIDOMNode.DOCUMENT_NODE)
-      contentType = Policy.type.BACKGROUND;
-
     // Fix type for objects misrepresented as frames or images
     if (contentType != Policy.type.OBJECT && (node instanceof Ci.nsIDOMHTMLObjectElement || node instanceof Ci.nsIDOMHTMLEmbedElement))
       contentType = Policy.type.OBJECT;
@@ -375,10 +371,6 @@ function init()
       Policy.localizedDescr[id] = Utils.getString("type_label_" + typeName.toLowerCase());
     }
   }
-
-  Policy.type.BACKGROUND = 0xFFFE;
-  Policy.typeDescr[0xFFFE] = "BACKGROUND";
-  Policy.localizedDescr[0xFFFE] = Utils.getString("type_label_background");
 
   Policy.type.ELEMHIDE = 0xFFFD;
   Policy.typeDescr[0xFFFD] = "ELEMHIDE";
