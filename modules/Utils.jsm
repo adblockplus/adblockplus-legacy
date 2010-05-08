@@ -133,7 +133,7 @@ var Utils =
    */
   getWindow: function(/**Node*/ node)
   {
-    if (node instanceof Ci.nsIDOMElement)
+    if (node instanceof Ci.nsIDOMNode && node.ownerDocument)
       node = node.ownerDocument;
   
     if (node instanceof Ci.nsIDOMDocumentView)
