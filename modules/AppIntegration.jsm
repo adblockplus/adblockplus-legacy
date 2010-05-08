@@ -1077,7 +1077,7 @@ WindowWrapper.prototype =
             let bgImage = extractImageURL(style, "background-image") || extractImageURL(style, "list-style-image");
             if (bgImage)
             {
-              let data = wndData.getLocation(Policy.type.BACKGROUND, bgImage);
+              let data = wndData.getLocation(Policy.type.IMAGE, bgImage);
               if (data && !data.filter)
               {
                 this.backgroundData = data;
