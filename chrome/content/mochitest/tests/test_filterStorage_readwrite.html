@@ -4611,7 +4611,7 @@ zeit.de#DIV(class$=_ads)
     testData = testData.replace(/\s+$/, "");
 
     // Make sure not to trigger fallback code on format version changes
-    testData = "version=" + FilterStorage.__parent__.formatVersion + "\n" + testData;
+    testData = "version=" + getGlobalForObject(FilterStorage).formatVersion + "\n" + testData;
 
     let tempFile = Utils.dirService.get("TmpD", Components.interfaces.nsIFile);
     tempFile.append("temp_patterns.ini");

@@ -31,9 +31,10 @@
     let startTime = 0;
     let scheduledTasks = [];
 
-    let oldRandom = Synchronizer.__parent__.Math.random;
-    let oldNow = Synchronizer.__parent__.Date.now;
-    Synchronizer.__parent__.Date.now = function()
+    let SynchronizerGlobal = getGlobalForObject(Synchronizer);
+    let oldRandom = SynchronizerGlobal.Math.random;
+    let oldNow = SynchronizerGlobal.Date.now;
+    SynchronizerGlobal.Date.now = function()
     {
       return currentTime;
     };
@@ -88,21 +89,21 @@
     Prefs.subscriptions_fallbackurl = "http://127.0.0.1:1234/fallback?%SUBSCRIPTION%&%URL%&%CHANNELSTATUS%&%RESPONSESTATUS%";
 
     {
-      let timer = {__proto__: Synchronizer.__parent__.timer};
+      let timer = {__proto__: SynchronizerGlobal.timer};
       let callback = timer.callback;
       timer.handler = function() { callback.notify(timer); };
       timer.nextExecution = currentTime + timer.delay;
 
       scheduledTasks.push(timer);
 
-      Synchronizer.__parent__.timer.cancel();
-      Synchronizer.__parent__.timer = timer;
+      SynchronizerGlobal.timer.cancel();
+      SynchronizerGlobal.timer = timer;
     }
 
     // Track requests initiated by Synchronizer object by hooking its
     // XMLHttpRequest constructor.
-    let oldXMLHttp = Synchronizer.__parent__.XMLHttpRequest;
-    Synchronizer.__parent__.XMLHttpRequest = function()
+    let oldXMLHttp = SynchronizerGlobal.XMLHttpRequest;
+    SynchronizerGlobal.XMLHttpRequest = function()
     {
       let inner = new oldXMLHttp();
 
@@ -126,10 +127,10 @@
     // Make sure to restore everything when this document unloads
     window.addEventListener("unload", function()
     {
-      Synchronizer.__parent__.Date.now = oldNow;
-      Synchronizer.__parent__.XMLHttpRequest = oldXMLHttp;
-      Synchronizer.__parent__.Math.random = oldRandom;
-      Synchronizer.__parent__.init();
+      SynchronizerGlobal.Date.now = oldNow;
+      SynchronizerGlobal.XMLHttpRequest = oldXMLHttp;
+      SynchronizerGlobal.Math.random = oldRandom;
+      SynchronizerGlobal.init();
     }, false);
 
     let server = new nsHttpServer();
@@ -645,7 +646,7 @@
       is(subscription1.alternativeLocations, alternativeLocations, "Alternative locations header processed on download");
 
       requests = [];
-      Synchronizer.__parent__.Math.random = function() 0;
+      SynchronizerGlobal.Math.random = function() 0;
       runScheduledTasks(9);
       compareRequests("Base URL should be chosen if Math.random() returns 0", [
         "300000: GET /subscription1",
@@ -654,7 +655,7 @@
       ]);
 
       requests = [];
-      Synchronizer.__parent__.Math.random = function() 0.28;
+      SynchronizerGlobal.Math.random = function() 0.28;
       runScheduledTasks(9);
       compareRequests("Base URL should be chosen if Math.random() returns 0.28", [
         "300000: GET /subscription1",
@@ -663,7 +664,7 @@
       ]);
 
       requests = [];
-      Synchronizer.__parent__.Math.random = function() 0.29;
+      SynchronizerGlobal.Math.random = function() 0.29;
       runScheduledTasks(9);
       compareRequests("First alternative should be chosen if Math.random() returns 0.29", [
         "300000: GET /subscription2",
@@ -672,7 +673,7 @@
       ]);
 
       requests = [];
-      Synchronizer.__parent__.Math.random = function() 0.42;
+      SynchronizerGlobal.Math.random = function() 0.42;
       runScheduledTasks(9);
       compareRequests("First alternative should be chosen if Math.random() returns 0.42", [
         "300000: GET /subscription2",
@@ -681,7 +682,7 @@
       ]);
 
       requests = [];
-      Synchronizer.__parent__.Math.random = function() 0.43;
+      SynchronizerGlobal.Math.random = function() 0.43;
       runScheduledTasks(9);
       compareRequests("Second alternative should be chosen if Math.random() returns 0.43", [
         "300000: GET /subscription3",
@@ -690,7 +691,7 @@
       ]);
 
       requests = [];
-      Synchronizer.__parent__.Math.random = function() 0.99;
+      SynchronizerGlobal.Math.random = function() 0.99;
       runScheduledTasks(9);
       compareRequests("Second alternative should be chosen if Math.random() returns 0.99", [
         "300000: GET /subscription3",
@@ -699,17 +700,17 @@
       ]);
 
       subscriptionStatus = [404, "Not Found"];
-      Synchronizer.__parent__.Math.random = function() 0;
+      SynchronizerGlobal.Math.random = function() 0;
       runScheduledTasks(3);
       is(subscription1.alternativeLocations, alternativeLocations, "Alternative locations shouldn't be reset on download failure for base URL");
 
-      Synchronizer.__parent__.Math.random = function() 0.99;
+      SynchronizerGlobal.Math.random = function() 0.99;
       runScheduledTasks(3);
       is(subscription1.alternativeLocations, null, "Alternative locations should be reset on download failure for alternative URL");
 
       requests = [];
       subscriptionStatus = [200, "OK"];
-      Synchronizer.__parent__.Math.random = function() 0.99;
+      SynchronizerGlobal.Math.random = function() 0.99;
       runScheduledTasks(9);
       compareRequests("Alternative locations should be used again one the base URL returns a new list", [
         "300000: GET /subscription1",
@@ -719,7 +720,7 @@
 
       server.registerPathHandler("/subscription1", commentRedirectHandler);
       redirectURL = subscription2.url;
-      Synchronizer.__parent__.Math.random = function() 0;
+      SynchronizerGlobal.Math.random = function() 0;
       runScheduledTasks(3);
       is(subscription1.nextURL, subscription2.url, "Redirect comment accepted from base URL");
       subscription1.nextURL = null;
@@ -727,13 +728,13 @@
 
       server.registerPathHandler("/subscription3", commentRedirectHandler);
       redirectURL = subscription2.url;
-      Synchronizer.__parent__.Math.random = function() 0.99;
+      SynchronizerGlobal.Math.random = function() 0.99;
       runScheduledTasks(3);
       is(subscription1.nextURL, null, "Redirect comment ignored from alternative URL");
 
       server.registerPathHandler("/subscription3", redirectHandler);
       redirectURL = subscription2.url;
-      Synchronizer.__parent__.Math.random = function() 0.99;
+      SynchronizerGlobal.Math.random = function() 0.99;
       redirectPermanent = true;
       runScheduledTasks(3);
       compareSubscriptions("Subscriptions after redirect from alternative URL", [subscription1, subscription2]);
@@ -741,7 +742,7 @@
 
       server.registerPathHandler("/subscription1", redirectHandler);
       redirectURL = subscription2.url;
-      Synchronizer.__parent__.Math.random = function() 0;
+      SynchronizerGlobal.Math.random = function() 0;
       redirectPermanent = true;
       runScheduledTasks(3);
       compareSubscriptions("Subscriptions after redirect from base URL", [subscription2]);
@@ -751,7 +752,7 @@
         function(metadata) [["X-Alternative-Locations", metadata.path == "/subscription1" ? subscription2.url : subscription1.url]];
       server.registerPathHandler("/subscription1", redirectHandler);
       redirectURL = subscription2.url;
-      Synchronizer.__parent__.Math.random = function() 0;
+      SynchronizerGlobal.Math.random = function() 0;
       redirectPermanent = false;
       runScheduledTasks(3);
       is(subscription1.alternativeLocations, subscription2.url, "Alternative locations not taken over from redirect target on temporary redirect");
@@ -760,7 +761,7 @@
 
       server.registerPathHandler("/subscription1", redirectHandler);
       redirectURL = subscription2.url;
-      Synchronizer.__parent__.Math.random = function() 0;
+      SynchronizerGlobal.Math.random = function() 0;
       redirectPermanent = true;
       runScheduledTasks(3);
       is(subscription1.alternativeLocations, subscription1.url, "Alternative locations taken over from redirect target on permanent redirect");
