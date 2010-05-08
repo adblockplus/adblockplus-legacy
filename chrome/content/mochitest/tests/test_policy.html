@@ -45,7 +45,7 @@
         "http://127.0.0.1:1234/test.gif", "image", "127.0.0.1", false
       ],
       [
-        '<iframe src="about:blank"></iframe><script>frames[0].document.body.innerHTML = \'<input type="image" src="test.gif">\';<' + '/script>',
+        '<iframe src="about:blank"></iframe><script>window.addEventListener("DOMContentLoaded", function() {frames[0].document.body.innerHTML = \'<input type="image" src="test.gif">\';}, false);<' + '/script>',
         "http://127.0.0.1:1234/test.gif", "image", "127.0.0.1", false
       ],
       [
