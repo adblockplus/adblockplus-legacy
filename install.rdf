@@ -11,6 +11,7 @@
   <em:description>{{DESCRIPTION}}</em:description>
   <em:creator>Wladimir Palant</em:creator>
   <em:homepageURL>http://adblockplus.org/</em:homepageURL>
+  <em:type>2</em:type>
 
   <em:contributor>Rob Brown</em:contributor>
   <em:contributor>Nickolay Ponomarev</em:contributor>
