@@ -78,6 +78,46 @@ var ElemHide =
   isDirty: false,
 
   /**
+   * Called on module startup.
+   */
+  startup: function()
+  {
+    TimeLine.enter("Entered ElemHide.startup()");
+    Prefs.addListener(ElemHide.apply);
+  
+    TimeLine.log("done adding prefs listener");
+  
+    TimeLine.log("registering component");
+    let registrar = Components.manager.QueryInterface(Ci.nsIComponentRegistrar);
+    registrar.registerFactory(ElemHidePrivate.classID, ElemHidePrivate.classDescription,
+        "@mozilla.org/network/protocol;1?name=" + ElemHidePrivate.scheme, ElemHidePrivate);
+    Policy.whitelistSchemes[ElemHidePrivate.scheme] = true;
+    TimeLine.leave("ElemHide.startup() done");
+  },
+
+  /**
+   * Called on module shutdown.
+   */
+  shutdown: function(/**Boolean*/ cleanup)
+  {
+    if (cleanup)
+    {
+      TimeLine.enter("Entered ElemHide.shutdown()");
+
+      Prefs.removeListener(ElemHide.apply);
+
+      let registrar = Components.manager.QueryInterface(Ci.nsIComponentRegistrar);
+      registrar.unregisterFactory(ElemHidePrivate.classID, ElemHidePrivate);
+
+      delete Policy.whitelistSchemes[ElemHidePrivate.scheme];
+
+      ElemHide.clear();
+
+      TimeLine.leave("ElemHide.shutdown() done");
+    }
+  },
+
+  /**
    * Removes all known filters
    */
   clear: function()
@@ -345,20 +385,3 @@ HitRegistrationChannel.prototype = {
 
   QueryInterface: XPCOMUtils.generateQI([Ci.nsIChannel, Ci.nsIRequest])
 };
-
-function init()
-{
-  TimeLine.enter("Entered ElemHide.jsm init()");
-  Prefs.addListener(ElemHide.apply);
-
-  TimeLine.log("done adding prefs listener");
-
-  TimeLine.log("registering component");
-  let registrar = Components.manager.QueryInterface(Ci.nsIComponentRegistrar);
-  registrar.registerFactory(ElemHidePrivate.classID, ElemHidePrivate.classDescription,
-      "@mozilla.org/network/protocol;1?name=" + ElemHidePrivate.scheme, ElemHidePrivate);
-  Policy.whitelistSchemes[ElemHidePrivate.scheme] = true;
-  TimeLine.leave("ElemHide.jsm init() done");
-}
-
-init();

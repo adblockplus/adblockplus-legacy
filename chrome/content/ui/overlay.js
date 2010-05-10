@@ -44,7 +44,7 @@
       let ioService = Cc["@mozilla.org/network/io-service;1"].getService(Ci.nsIIOService);
       let bootstrapURL = chromeRegistry.convertChromeURL(ioService.newURI("chrome://adblockplus-modules/content/Bootstrap.jsm", null, null));
       Cu.import(bootstrapURL.spec, modules);
-      modules.Bootstrap.init();
+      modules.Bootstrap.startup();
     }
 
     let baseURL = Cc["@adblockplus.org/abp/private;1"].getService(Ci.nsIURI);

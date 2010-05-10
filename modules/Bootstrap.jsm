@@ -42,45 +42,57 @@ if (publicURL instanceof Ci.nsIMutable)
 let baseURL = publicURL.clone().QueryInterface(Ci.nsIURL);
 baseURL.fileName = "";
 
+const cidPublic = Components.ID("5e447bce-1dd2-11b2-b151-ec21c2b6a135");
+const contractIDPublic = "@adblockplus.org/abp/public;1";
+
+const cidPrivate = Components.ID("2f1e0288-1dd2-11b2-bbfe-d7b8a982508e");
+const contractIDPrivate = "@adblockplus.org/abp/private;1";
+
+let factoryPublic = {
+  createInstance: function(outer, iid)
+  {
+    if (outer)
+      throw Cr.NS_ERROR_NO_AGGREGATION;
+    return publicURL.QueryInterface(iid);
+  }
+};
+
+let factoryPrivate = {
+  createInstance: function(outer, iid)
+  {
+    if (outer)
+      throw Cr.NS_ERROR_NO_AGGREGATION;
+    return baseURL.QueryInterface(iid);
+  }
+};
+
 Cu.import(baseURL.spec + "TimeLine.jsm");
 
-var initialized = false;
+let modules = [
+  baseURL.spec + "Prefs.jsm",
+  baseURL.spec + "FilterStorage.jsm",
+  baseURL.spec + "ContentPolicy.jsm",
+  baseURL.spec + "ElemHide.jsm",
+  baseURL.spec + "FilterListener.jsm",
+  baseURL.spec + "Synchronizer.jsm"
+];
+
+let initialized = false;
 
 var Bootstrap =
 {
-  init: function()
+  /**
+   * Initializes add-on, loads and initializes all modules.
+   */
+  startup: function()
   {
     if (initialized)
       return;
     initialized = true;
 
-    TimeLine.enter("Entered Bootstrap.jsm init()");
+    TimeLine.enter("Entered Bootstrap.startup()");
   
     // Register component to allow retrieving private and public URL
-    
-    const cidPublic = Components.ID("5e447bce-1dd2-11b2-b151-ec21c2b6a135");
-    const contractIDPublic = "@adblockplus.org/abp/public;1";
-    
-    const cidPrivate = Components.ID("2f1e0288-1dd2-11b2-bbfe-d7b8a982508e");
-    const contractIDPrivate = "@adblockplus.org/abp/private;1";
-    
-    let factoryPublic = {
-      createInstance: function(outer, iid)
-      {
-        if (outer)
-          throw Cr.NS_ERROR_NO_AGGREGATION;
-        return publicURL.QueryInterface(iid);
-      }
-    };
-    
-    let factoryPrivate = {
-      createInstance: function(outer, iid)
-      {
-        if (outer)
-          throw Cr.NS_ERROR_NO_AGGREGATION;
-        return baseURL.QueryInterface(iid);
-      }
-    };
     
     let registrar = Components.manager.QueryInterface(Ci.nsIComponentRegistrar);
     registrar.registerFactory(cidPublic, "Adblock Plus public module URL", contractIDPublic, factoryPublic);
@@ -88,27 +100,116 @@ var Bootstrap =
   
     TimeLine.log("done registering URL components");
   
-    // Pull modules to initialize Adblock Plus functionality
+    // Load and initialize modules
   
     TimeLine.log("started initializing modules");
   
-    Cu.import(baseURL.spec + "Prefs.jsm");
-    Cu.import(baseURL.spec + "FilterStorage.jsm");
-    Cu.import(baseURL.spec + "ContentPolicy.jsm");
-    Cu.import(baseURL.spec + "ElemHide.jsm");
-    Cu.import(baseURL.spec + "FilterListener.jsm");
-    Cu.import(baseURL.spec + "Synchronizer.jsm");
+    for each (let url in modules)
+      this.loadModule(url);
   
-    TimeLine.leave("Bootstrap.jsm init() done");
+    TimeLine.leave("Bootstrap.startup() done");
   },
 
-  shutdown: function()
+  /**
+   * Shuts down add-on.
+   * @param {Boolean} cleanup  should be true if shutdown isn't due to application exiting, will revert all hooks from the application.
+   */
+  shutdown: function(cleanup)
   {
     if (!initialized)
       return;
-    initialized = false;
 
-    FilterStorage.saveToDisk();
-    Prefs.shutdown();
+    if (cleanup)
+      initialized = false;
+
+    TimeLine.enter("Entered Bootstrap.shutdown()");
+
+    if (cleanup)
+    {
+      // Unregister components
+      
+      let registrar = Components.manager.QueryInterface(Ci.nsIComponentRegistrar);
+      registrar.unregisterFactory(cidPublic, factoryPublic);
+      registrar.unregisterFactory(cidPrivate, factoryPrivate);
+    
+      TimeLine.log("done unregistering URL components");
+    }
+
+    // Shut down modules
+
+    TimeLine.log("started shutting down modules");
+
+    for each (let url in modules)
+      this.unloadModule(url, cleanup);
+
+    TimeLine.leave("Bootstrap.shutdown() done");
+  },
+
+  /**
+   * Loads and initializes a module.
+   */
+  loadModule: function(/**String*/ url)
+  {
+    let module = {};
+    try
+    {
+      Cu.import(url, module);
+    }
+    catch (e)
+    {
+      Cu.reportError("Adblock Plus: Failed to load module " + url + ": " + e);
+    }
+
+    for each (let obj in module)
+    {
+      if ("startup" in obj)
+      {
+        try
+        {
+          obj.startup();
+        }
+        catch (e)
+        {
+          Cu.reportError("Adblock Plus: Calling method startup() for module " + url + " failed: " + e);
+        }
+        return;
+      }
+    }
+
+    Cu.reportError("Adblock Plus: No exported object with startup() method found for module " + url);
+  },
+
+  /**
+   * Shuts down and unloads a module (ok, unloading isn't currently possible, see bug 564674).
+   */
+  unloadModule: function(/**String*/ url, /**Boolean*/ cleanup)
+  {
+    let module = {};
+    try
+    {
+      Cu.import(url, module);
+    }
+    catch (e)
+    {
+      Cu.reportError("Adblock Plus: Failed to load module " + url + ": " + e);
+    }
+
+    for each (let obj in module)
+    {
+      if ("shutdown" in obj)
+      {
+        try
+        {
+          obj.shutdown(cleanup);
+        }
+        catch (e)
+        {
+          Cu.reportError("Adblock Plus: Calling method shutdown() for module " + url + " failed: " + e);
+        }
+        return;
+      }
+    }
+
+    Cu.reportError("Adblock Plus: No exported object with shutdown() method found for module " + url);
   }
 };
