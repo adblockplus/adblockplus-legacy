@@ -130,7 +130,7 @@
       SynchronizerGlobal.Date.now = oldNow;
       SynchronizerGlobal.XMLHttpRequest = oldXMLHttp;
       SynchronizerGlobal.Math.random = oldRandom;
-      SynchronizerGlobal.init();
+      Synchronizer.startup();
     }, false);
 
     let server = new nsHttpServer();
