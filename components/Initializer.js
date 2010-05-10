@@ -74,12 +74,16 @@ Initializer.prototype =
           let ioService = Cc["@mozilla.org/network/io-service;1"].getService(Ci.nsIIOService);
           let bootstrapURL = chromeRegistry.convertChromeURL(ioService.newURI("chrome://adblockplus-modules/content/Bootstrap.jsm", null, null));
           Cu.import(bootstrapURL.spec);
-          Bootstrap.init();
+          Bootstrap.startup();
         }
         break;
       case "quit-application":
-        if (typeof Bootstrap != "undefined")
-          Bootstrap.shutdown();
+        if ("@adblockplus.org/abp/private;1" in Cc)
+        {
+          let baseURL = Cc["@adblockplus.org/abp/private;1"].getService(Ci.nsIURI);
+          Cu.import(baseURL.spec + "Bootstrap.jsm");
+          Bootstrap.shutdown(false);
+        }
         break;
     }
   }

@@ -76,7 +76,7 @@ var FilterStorage =
    * Map of properties listed in the filter storage file before the sections
    * start. Right now this should be only the format version.
    */
-  fileProperties: {},
+  fileProperties: {__proto__: null},
 
   /**
    * List of filter subscriptions containing all filters
@@ -89,6 +89,38 @@ var FilterStorage =
    * @type Object
    */
   knownSubscriptions: {__proto__: null},
+
+  /**
+   * Called on module startup.
+   */
+  startup: function()
+  {
+    TimeLine.enter("Entered FilterStorage.startup()");
+    FilterStorage.loadFromDisk();
+    Cc["@mozilla.org/observer-service;1"].getService(Ci.nsIObserverService)
+                                         .addObserver(FilterStoragePrivate, "browser:purge-session-history", true);
+    TimeLine.leave("FilterStorage.startup() done");
+  },
+
+  /**
+   * Called on module shutdown.
+   */
+  shutdown: function(/**Boolean*/ cleanup)
+  {
+    TimeLine.enter("Entered FilterStorage.shutdown()");
+    FilterStorage.saveToDisk();
+    if (cleanup)
+    {
+      Cc["@mozilla.org/observer-service;1"].getService(Ci.nsIObserverService)
+                                           .removeObserver(FilterStoragePrivate, "browser:purge-session-history");
+      subscriptionObservers = [];
+      filterObservers = [];
+      FilterStorage.fileProperties = {__proto__: null};
+      FilterStorage.subscriptions = [];
+      FilterStorage.knownSubscriptions = {__proto__: null};
+    }
+    TimeLine.leave("FilterStorage.shutdown() done");
+  },
 
   /**
    * Adds an observer for subscription changes (addition, deletion)
@@ -613,18 +645,6 @@ var FilterStoragePrivate =
 };
 
 /**
- * Triggers initialization when the module loads, e.g. triggers the initial load from disk.
- */
-function init()
-{
-  TimeLine.enter("Entered FilterStorage.jsm init()");
-  FilterStorage.loadFromDisk();
-  Cc["@mozilla.org/observer-service;1"].getService(Ci.nsIObserverService)
-                                       .addObserver(FilterStoragePrivate, "browser:purge-session-history", true);
-  TimeLine.leave("FilterStorage.jsm init() done");
-}
-
-/**
  * Joins subscription's filters to the subscription without any notifications.
  * @param {Subscription} subscription filter subscription that should be connected to its filters
  */
@@ -746,5 +766,3 @@ function parseIniFile(/**nsIUnicharLineInputStream*/ stream) /**Array of String*
   }
   return userFilters;
 }
-
-init();

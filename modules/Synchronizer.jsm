@@ -61,6 +61,43 @@ let executing = {__proto__: null};
 var Synchronizer =
 {
   /**
+   * Called on module startup.
+   */
+  startup: function()
+  {
+    TimeLine.enter("Entered Synchronizer.startup()");
+  
+    let callback = function()
+    {
+      timer.delay = 3600000;
+      checkSubscriptions();
+    };
+  
+    timer = Cc["@mozilla.org/timer;1"].createInstance(Ci.nsITimer);
+    timer.initWithCallback(callback, 300000, Ci.nsITimer.TYPE_REPEATING_SLACK);
+  
+    TimeLine.leave("Synchronizer.startup() done");
+  },
+
+  /**
+   * Called on module shutdown.
+   */
+  shutdown: function(/**Boolean*/ cleanup)
+  {
+    if (cleanup)
+    {
+      TimeLine.enter("Entered Synchronizer.shutdown()");
+
+      timer.cancel();
+      timer = null;
+
+      executing = {__proto__: null};
+
+      TimeLine.leave("Synchronizer.shutdown() done");
+    }
+  },
+
+  /**
    * Checks whether a subscription is currently being downloaded.
    * @param {String} url  URL of the subscription
    * @return {Boolean}
@@ -337,25 +374,6 @@ var Synchronizer =
 };
 
 /**
- * Called when the module loads, initializes subscription synchronization
- */
-function init()
-{
-  TimeLine.enter("Entered Synchronizer.jsm init()");
-
-  let callback = function()
-  {
-    timer.delay = 3600000;
-    checkSubscriptions();
-  };
-
-  timer = Cc["@mozilla.org/timer;1"].createInstance(Ci.nsITimer);
-  timer.initWithCallback(callback, 300000, Ci.nsITimer.TYPE_REPEATING_SLACK);
-
-  TimeLine.leave("Synchronizer.jsm init() done");
-}
-
-/**
  * Checks whether any subscriptions need to be downloaded and starts the download
  * if necessary.
  */
@@ -508,5 +526,3 @@ function setError(subscription, error, channelStatus, responseStatus, downloadUR
   FilterStorage.triggerSubscriptionObservers("updateinfo", [subscription]);
   FilterStorage.saveToDisk();
 }
-
-init();
