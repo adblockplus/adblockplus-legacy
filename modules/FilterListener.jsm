@@ -56,6 +56,43 @@ let batchMode = false;
 var FilterListener =
 {
   /**
+   * Called on module initialization, registers listeners for FilterStorage changes
+   */
+  startup: function()
+  {
+    TimeLine.enter("Entered FilterListener.startup()");
+  
+    onSubscriptionChange("reload", FilterStorage.subscriptions);
+    TimeLine.log("done initializing data structures");
+  
+    TimeLine.log("adding observers");
+    FilterStorage.addSubscriptionObserver(onSubscriptionChange);
+    FilterStorage.addFilterObserver(onFilterChange);
+  
+    TimeLine.leave("FilterListener.startup() done");
+  },
+
+  /**
+   * Called on module shutdown.
+   */
+  shutdown: function(/**Boolean*/ cleanup)
+  {
+    if (cleanup)
+    {
+      TimeLine.enter("Entered FilterListener.shutdown()");
+
+      FilterStorage.removeSubscriptionObserver(onSubscriptionChange);
+      FilterStorage.removeFilterObserver(onFilterChange);
+
+      blacklistMatcher.clear();
+      whitelistMatcher.clear();
+      ElemHide.clear();
+
+      TimeLine.leave("FilterListener.shutdown() done");
+    }
+  },
+
+  /**
    * Set to true when executing many changes, changes will only be fully applied after this variable is set to false again.
    * @type Boolean
    */
@@ -70,23 +107,6 @@ var FilterListener =
       ElemHide.apply();
   }
 };
-
-/**
- * Called on module initialization, registers listeners for FilterStorage changes
- */
-function init()
-{
-  TimeLine.enter("Entered FilterListener.jsm init()");
-
-  onSubscriptionChange("reload", FilterStorage.subscriptions);
-  TimeLine.log("done initializing data structures");
-
-  TimeLine.log("adding observers");
-  FilterStorage.addSubscriptionObserver(onSubscriptionChange);
-  FilterStorage.addFilterObserver(onFilterChange);
-
-  TimeLine.leave("FilterListener.jsm init() done");
-}
 
 /**
  * Notifies Matcher instances or ElemHide object about a new filter
@@ -216,5 +236,3 @@ function onFilterChange(action, filters)
       ElemHide.apply();
   }
 }
-
-init();

@@ -64,6 +64,12 @@ const nonVisualTypes = ["SCRIPT", "STYLESHEET", "XBL", "PING", "XMLHTTPREQUEST",
 let collapsedClass = "";
 
 /**
+ * URL of the global stylesheet used to collapse elements.
+ * @type nsIURI
+ */
+let collapseStyle = null;
+
+/**
  * Public policy checking functions and auxiliary objects
  * @class
  */
@@ -98,6 +104,102 @@ var Policy =
    * @type Object
    */
   whitelistSchemes: {},
+
+  /**
+   * Called on module startup.
+   */
+  startup: function()
+  {
+    TimeLine.enter("Entered ContentPolicy.startup()");
+  
+    // type constant by type description and type description by type constant
+    var iface = Ci.nsIContentPolicy;
+    for each (let typeName in contentTypes)
+    {
+      if ("TYPE_" + typeName in iface)
+      {
+        let id = iface["TYPE_" + typeName];
+        Policy.type[typeName] = id;
+        Policy.typeDescr[id] = typeName;
+        Policy.localizedDescr[id] = Utils.getString("type_label_" + typeName.toLowerCase());
+      }
+    }
+  
+    Policy.type.ELEMHIDE = 0xFFFD;
+    Policy.typeDescr[0xFFFD] = "ELEMHIDE";
+    Policy.localizedDescr[0xFFFD] = Utils.getString("type_label_elemhide");
+  
+    for each (let type in nonVisualTypes)
+      Policy.nonVisual[Policy.type[type]] = true;
+  
+    // whitelisted URL schemes
+    for each (var scheme in Prefs.whitelistschemes.toLowerCase().split(" "))
+      Policy.whitelistSchemes[scheme] = true;
+  
+    TimeLine.log("done initializing types");
+  
+    // Generate class identifier used to collapse node and register corresponding
+    // stylesheet.
+    TimeLine.log("registering global stylesheet");
+  
+    let offset = "a".charCodeAt(0);
+    for (let i = 0; i < 20; i++)
+      collapsedClass +=  String.fromCharCode(offset + Math.random() * 26);
+  
+    collapseStyle = Utils.makeURI("data:text/css," +
+                                  encodeURIComponent("." + collapsedClass +
+                                  "{-moz-binding: url(chrome://global/content/bindings/general.xml#foobarbazdummy) !important;}"));
+    Utils.styleService.loadAndRegisterSheet(collapseStyle, Ci.nsIStyleSheetService.USER_SHEET);
+    TimeLine.log("done registering stylesheet");
+  
+    // Register our content policy
+    TimeLine.log("registering component");
+  
+    let registrar = Components.manager.QueryInterface(Ci.nsIComponentRegistrar);
+    registrar.registerFactory(PolicyPrivate.classID, PolicyPrivate.classDescription, PolicyPrivate.contractID, PolicyPrivate);
+  
+    let catMan = Utils.categoryManager;
+    for each (let category in PolicyPrivate.xpcom_categories)
+      catMan.addCategoryEntry(category, PolicyPrivate.classDescription, PolicyPrivate.contractID, false, true);
+    TimeLine.leave("ContentPolicy.startup() done");
+  },
+
+  /**
+   * Called on module shutdown.
+   */
+  shutdown: function(/**Boolean*/ cleanup)
+  {
+    if (cleanup)
+    {
+      TimeLine.enter("Entered ContentPolicy.shutdown()");
+
+      let catMan = Utils.categoryManager;
+      for each (let category in PolicyPrivate.xpcom_categories)
+        catMan.deleteCategoryEntry(category, PolicyPrivate.classDescription, false);
+
+      Utils.runAsync(function()
+      {
+        // Remove component asynchronously, otherwise nsContentPolicy won't know
+        // which component to remove from the list
+        let registrar = Components.manager.QueryInterface(Ci.nsIComponentRegistrar);
+        registrar.unregisterFactory(PolicyPrivate.classID, PolicyPrivate);
+      });
+
+      TimeLine.log("done unregistering component");
+
+      Utils.styleService.unregisterSheet(collapseStyle, Ci.nsIStyleSheetService.USER_SHEET);
+      TimeLine.log("done removing stylesheet");
+
+      collapsedClass = "";
+      Policy.type = {};
+      Policy.typeDescr = {};
+      Policy.localizedDescr = {};
+      Policy.nonVisual = {};
+      Policy.whitelistSchemes = {};
+
+      TimeLine.leave("ContentPolicy.shutdown() done");
+    }
+  },
 
   /**
    * Checks whether a node should be blocked, hides it if necessary
@@ -352,66 +454,6 @@ var PolicyPrivate =
 };
 
 /**
- * Initialization function called when the module loads, initializes the
- * necessary variables.
- */
-function init()
-{
-  TimeLine.enter("Entered ContentPolicy.jsm init()");
-
-  // type constant by type description and type description by type constant
-  var iface = Ci.nsIContentPolicy;
-  for each (let typeName in contentTypes)
-  {
-    if ("TYPE_" + typeName in iface)
-    {
-      let id = iface["TYPE_" + typeName];
-      Policy.type[typeName] = id;
-      Policy.typeDescr[id] = typeName;
-      Policy.localizedDescr[id] = Utils.getString("type_label_" + typeName.toLowerCase());
-    }
-  }
-
-  Policy.type.ELEMHIDE = 0xFFFD;
-  Policy.typeDescr[0xFFFD] = "ELEMHIDE";
-  Policy.localizedDescr[0xFFFD] = Utils.getString("type_label_elemhide");
-
-  for each (let type in nonVisualTypes)
-    Policy.nonVisual[Policy.type[type]] = true;
-
-  // whitelisted URL schemes
-  for each (var scheme in Prefs.whitelistschemes.toLowerCase().split(" "))
-    Policy.whitelistSchemes[scheme] = true;
-
-  TimeLine.log("done initializing types");
-
-  // Generate class identifier used to collapse node and register corresponding
-  // stylesheet.
-  TimeLine.log("registering global stylesheet");
-
-  let offset = "a".charCodeAt(0);
-  for (let i = 0; i < 20; i++)
-    collapsedClass +=  String.fromCharCode(offset + Math.random() * 26);
-
-  let collapseStyle = Utils.makeURI("data:text/css," +
-                               encodeURIComponent("." + collapsedClass +
-                               "{-moz-binding: url(chrome://global/content/bindings/general.xml#foobarbazdummy) !important;}"));
-  Utils.styleService.loadAndRegisterSheet(collapseStyle, Ci.nsIStyleSheetService.USER_SHEET);
-  TimeLine.log("done registering stylesheet");
-
-  // Register our content policy
-  TimeLine.log("registering component");
-
-  let registrar = Components.manager.QueryInterface(Ci.nsIComponentRegistrar);
-  registrar.registerFactory(PolicyPrivate.classID, PolicyPrivate.classDescription, PolicyPrivate.contractID, PolicyPrivate);
-
-  let catMan = Utils.categoryManager;
-  for each (let category in PolicyPrivate.xpcom_categories)
-    catMan.addCategoryEntry(category, PolicyPrivate.classDescription, PolicyPrivate.contractID, false, true);
-  TimeLine.leave("ContentPolicy.jsm init() done");
-}
-
-/**
  * Nodes scheduled for post-processing (might be null).
  * @type Array of Node
  */
@@ -599,5 +641,3 @@ function refilterWindow(/**Window*/ wnd, /**Integer*/ start)
 
   wndData.notifyListeners("invalidate", data);
 }
-
-init();

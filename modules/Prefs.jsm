@@ -100,10 +100,50 @@ var Prefs =
   privateBrowsing: false,
 
   /**
-   * Called during browser shutdown.
+   * Called on module startup.
    */
-  shutdown: function()
+  startup: function()
   {
+    TimeLine.enter("Entered Prefs.startup()");
+  
+    // Initialize prefs list
+    let defaultBranch = Utils.prefService.getDefaultBranch(prefRoot);
+    let types = {};
+    types[Ci.nsIPrefBranch.PREF_INT] = "getIntPref";
+    types[Ci.nsIPrefBranch.PREF_BOOL] = "getBoolPref";
+    types[Ci.nsIPrefBranch.PREF_STRING] = "getCharPref";
+  
+    for each (let name in defaultBranch.getChildList("", {}))
+    {
+      let type = defaultBranch.getPrefType(name);
+      let method = (type in types ? types[type] : types[Ci.nsIPrefBranch.PREF_STRING]);
+  
+      try {
+        defaultPrefs[name] = defaultBranch[method](name);
+      } catch(e) {}
+    }
+  
+    TimeLine.log("done loading defaults");
+  
+    // Initial prefs loading
+    TimeLine.log("loading actual pref values");
+    reload();
+    TimeLine.log("done loading pref values");
+  
+    // Register observers
+    TimeLine.log("registering observers");
+    registerObservers();
+  
+    TimeLine.leave("Prefs.startup() done");
+  },
+
+  /**
+   * Called on module shutdown.
+   */
+  shutdown: function(/**Boolean*/ cleanup)
+  {
+    TimeLine.enter("Entered Prefs.shutdown()");
+
     if (willBeUninstalled)
     {
       // Make sure that a new installation after uninstall will be treated like
@@ -112,6 +152,16 @@ var Prefs =
         branch.clearUserPref("currentVersion");
       } catch(e) {}
     }
+
+    if (cleanup)
+    {
+      TimeLine.log("unregistering observers");
+      unregisterObservers();
+      listeners = [];
+      defaultPrefs = {__proto__: null};
+    }
+
+    TimeLine.leave("Prefs.shutdown() done");
   },
 
   /**
@@ -208,44 +258,6 @@ var PrefsPrivate =
 }
 
 /**
- * Called when the module loads, initializes the Prefs object.
- */
-function init()
-{
-  TimeLine.enter("Entered Prefs.jsm init()");
-
-  // Initialize prefs list
-  let defaultBranch = Utils.prefService.getDefaultBranch(prefRoot);
-  let types = {};
-  types[Ci.nsIPrefBranch.PREF_INT] = "getIntPref";
-  types[Ci.nsIPrefBranch.PREF_BOOL] = "getBoolPref";
-  types[Ci.nsIPrefBranch.PREF_STRING] = "getCharPref";
-
-  for each (let name in defaultBranch.getChildList("", {}))
-  {
-    let type = defaultBranch.getPrefType(name);
-    let method = (type in types ? types[type] : types[Ci.nsIPrefBranch.PREF_STRING]);
-
-    try {
-      defaultPrefs[name] = defaultBranch[method](name);
-    } catch(e) {}
-  }
-
-  TimeLine.log("done loading defaults");
-
-  // Initial prefs loading
-  TimeLine.log("loading actual pref values");
-  reload();
-  TimeLine.log("done loading pref values");
-
-  // Register observers
-  TimeLine.log("registering observers");
-  registerObservers();
-
-  TimeLine.leave("Prefs.jsm init() done");
-}
-
-/**
  * Adds observers to keep various properties of Prefs object updated.
  */
 function registerObservers()
@@ -275,6 +287,24 @@ function registerObservers()
       Cu.reportError(e);
     }
   }
+}
+
+/**
+ * Removes observers.
+ */
+function unregisterObservers()
+{
+  try {
+    branch.QueryInterface(Ci.nsIPrefBranchInternal)
+          .removeObserver("", PrefsPrivate);
+  }
+  catch (e) {
+    Cu.reportError(e);
+  }
+
+  let observerService = Cc["@mozilla.org/observer-service;1"].getService(Ci.nsIObserverService);
+  observerService.removeObserver(PrefsPrivate, "em-action-requested");
+  observerService.removeObserver(PrefsPrivate, "private-browsing");
 }
 
 /**
@@ -326,5 +356,3 @@ function reload()
   for each (let listener in listeners)
     listener();
 }
-
-init();
