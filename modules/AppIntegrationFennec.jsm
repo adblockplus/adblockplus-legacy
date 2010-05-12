@@ -45,6 +45,10 @@ Cu.import(baseURL.spec + "SubscriptionClasses.jsm");
 Cu.import(baseURL.spec + "Synchronizer.jsm");
 Utils.runAsync(Cu.import, Cu, baseURL.spec + "AppIntegration.jsm"); // delay to avoid circular imports
 
+/**
+ * Fennec-specific app integration functions.
+ * @class
+ */
 var AppIntegrationFennec =
 {
   initWindow: function(wrapper)

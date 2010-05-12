@@ -80,6 +80,7 @@ function init()
 
 /**
  * Exported app integration functions.
+ * @class
  */
 var AppIntegration =
 {
