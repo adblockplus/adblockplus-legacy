@@ -79,6 +79,10 @@ let modules = [
 
 let initialized = false;
 
+/**
+ * Allows starting up and shutting down Adblock Plus functions.
+ * @class
+ */
 var Bootstrap =
 {
   /**
