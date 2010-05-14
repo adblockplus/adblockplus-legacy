@@ -507,7 +507,7 @@ WindowWrapper.prototype =
     let status = this.E("abp-status");
     if (status)
     {
-      updateElement(status);
+      updateElement.call(this, status);
       if (Prefs.defaultstatusbaraction == 0)
         status.setAttribute("popup", status.getAttribute("context"));
       else
@@ -517,7 +517,7 @@ WindowWrapper.prototype =
     let button = this.E("abp-toolbarbutton");
     if (button)
     {
-      updateElement(button);
+      updateElement.call(this, button);
       if (button.hasAttribute("context") && Prefs.defaulttoolbaraction == 0)
       {
         button.setAttribute("popup", button.getAttribute("context"));
@@ -527,7 +527,7 @@ WindowWrapper.prototype =
         button.removeAttribute("popup");
     }
   
-    updateElement(this.getPaletteButton());
+    updateElement.call(this, this.getPaletteButton());
   },
 
   /**
