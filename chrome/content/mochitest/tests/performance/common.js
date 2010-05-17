@@ -1,4 +1,4 @@
-function runTests(testFunc, cleanupFunc)
+function runTests(testFunc, cleanupFunc, finalizeFunc)
 {
   const minRuns = 15;
   const maxRuns = 400;
@@ -21,6 +21,8 @@ function runTests(testFunc, cleanupFunc)
           text += "Run no. " + (i + 1) + ": " + results[i] + " ms\n";
 
         document.getElementById("result").textContent = text;
+        if (typeof finalizeFunc == "function")
+          finalizeFunc();
         return;
       }
     }
