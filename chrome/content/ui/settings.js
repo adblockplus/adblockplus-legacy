@@ -23,6 +23,7 @@
  * ***** END LICENSE BLOCK ***** */
 
 let dragService = Cc["@mozilla.org/widget/dragservice;1"].getService(Ci.nsIDragService);
+let dateFormatter = Cc["@mozilla.org/intl/scriptabledateformat;1"].getService(Ci.nsIScriptableDateFormat);
 
 const altMask = 2;
 const ctrlMask = 4;
@@ -409,12 +410,17 @@ function formatTime(time)
 {
   try
   {
-    return new Date(time).toLocaleFormat("%x %X");
+    let date = new Date(time);
+    return dateFormatter.FormatDateTime("", Ci.nsIScriptableDateFormat.dateFormatShort,
+                                        Ci.nsIScriptableDateFormat.timeFormatNoSeconds,
+                                        date.getFullYear(), date.getMonth() + 1, date.getDate(),
+                                        date.getHours(), date.getMinutes(), date.getSeconds());
   }
   catch(e)
   {
-    // toLocaleFormat might throw (bug 508783)
-    return new Date(time).toString();
+    // Make sure to return even on errors
+    Cu.reportError(e);
+    return "";
   }
 }
 
