@@ -1042,6 +1042,13 @@ WindowWrapper.prototype =
   {
     let contextMenu = this.getContextMenu();
     let target = this.window.document.popupNode;
+    if (target instanceof Ci.nsIDOMHTMLMapElement || target instanceof Ci.nsIDOMHTMLAreaElement)
+    {
+      // HTML image maps will usually receive events when the mouse pointer is
+      // over a different element, get the real event target.
+      let rect = target.getClientRects()[0];
+      target = target.ownerDocument.elementFromPoint(Math.max(rect.left, 0), Math.max(rect.top, 0));
+    }
 
     let nodeType = null;
     this.backgroundData = null;
