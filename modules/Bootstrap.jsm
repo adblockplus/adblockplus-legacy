@@ -33,6 +33,8 @@ const Ci = Components.interfaces;
 const Cr = Components.results;
 const Cu = Components.utils;
 
+Cu.import("resource://gre/modules/XPCOMUtils.jsm");
+
 let chromeRegistry = Cc["@mozilla.org/chrome/chrome-registry;1"].getService(Ci.nsIChromeRegistry);
 let ioService = Cc["@mozilla.org/network/io-service;1"].getService(Ci.nsIIOService);
 let publicURL = chromeRegistry.convertChromeURL(ioService.newURI("chrome://adblockplus-modules/content/Public.jsm", null, null));
@@ -68,7 +70,7 @@ let factoryPrivate = {
 
 Cu.import(baseURL.spec + "TimeLine.jsm");
 
-let modules = [
+let defaultModules = [
   baseURL.spec + "Prefs.jsm",
   baseURL.spec + "FilterStorage.jsm",
   baseURL.spec + "ContentPolicy.jsm",
@@ -76,6 +78,8 @@ let modules = [
   baseURL.spec + "FilterListener.jsm",
   baseURL.spec + "Synchronizer.jsm"
 ];
+
+let loadedModules = {__proto__: null};
 
 let initialized = false;
 
@@ -106,10 +110,24 @@ var Bootstrap =
   
     // Load and initialize modules
   
-    TimeLine.log("started initializing modules");
+    TimeLine.log("started initializing default modules");
   
-    for each (let url in modules)
-      this.loadModule(url);
+    for each (let url in defaultModules)
+      Bootstrap.loadModule(url);
+
+    TimeLine.log("initializing additional modules");
+
+    let categoryManager = Cc["@mozilla.org/categorymanager;1"].getService(Ci.nsICategoryManager);
+    let enumerator = categoryManager.enumerateCategory("adblock-plus-module-location");
+    while (enumerator.hasMoreElements())
+    {
+      let uri = enumerator.getNext().QueryInterface(Ci.nsISupportsCString).data;
+      Bootstrap.loadModule(uri);
+    }
+
+/*    let observerService = Cc["@mozilla.org/observer-service;1"].getService(Ci.nsIObserverService);
+    observerService.addObserver(BootstrapPrivate, "xpcom-category-entry-added", true);
+    observerService.addObserver(BootstrapPrivate, "xpcom-category-entry-removed", true);*/
   
     TimeLine.leave("Bootstrap.startup() done");
   },
@@ -137,14 +155,22 @@ var Bootstrap =
       registrar.unregisterFactory(cidPrivate, factoryPrivate);
     
       TimeLine.log("done unregistering URL components");
+
+      // Remove category observer
+
+      let observerService = Cc["@mozilla.org/observer-service;1"].getService(Ci.nsIObserverService);
+      observerService.removeObserver(BootstrapPrivate, "xpcom-category-entry-added");
+      observerService.removeObserver(BootstrapPrivate, "xpcom-category-entry-removed");
+
+      TimeLine.log("done removing category observer");
     }
 
     // Shut down modules
 
     TimeLine.log("started shutting down modules");
 
-    for each (let url in modules)
-      this.unloadModule(url, cleanup);
+    for (let url in loadedModules)
+      Bootstrap.unloadModule(url, cleanup);
 
     TimeLine.leave("Bootstrap.shutdown() done");
   },
@@ -154,6 +180,9 @@ var Bootstrap =
    */
   loadModule: function(/**String*/ url)
   {
+    if (url in loadedModules)
+      return;
+
     let module = {};
     try
     {
@@ -162,6 +191,7 @@ var Bootstrap =
     catch (e)
     {
       Cu.reportError("Adblock Plus: Failed to load module " + url + ": " + e);
+      return;
     }
 
     for each (let obj in module)
@@ -171,6 +201,7 @@ var Bootstrap =
         try
         {
           obj.startup();
+          loadedModules[url] = obj;
         }
         catch (e)
         {
@@ -188,32 +219,51 @@ var Bootstrap =
    */
   unloadModule: function(/**String*/ url, /**Boolean*/ cleanup)
   {
-    let module = {};
-    try
-    {
-      Cu.import(url, module);
-    }
-    catch (e)
-    {
-      Cu.reportError("Adblock Plus: Failed to load module " + url + ": " + e);
-    }
+    if (!(url in loadedModules))
+      return;
 
-    for each (let obj in module)
+    let obj = loadedModules[url];
+    if (cleanup)
+      delete loadedModules[url];
+
+    if ("shutdown" in obj)
     {
-      if ("shutdown" in obj)
+      try
       {
-        try
-        {
-          obj.shutdown(cleanup);
-        }
-        catch (e)
-        {
-          Cu.reportError("Adblock Plus: Calling method shutdown() for module " + url + " failed: " + e);
-        }
-        return;
+        obj.shutdown(cleanup);
       }
+      catch (e)
+      {
+        Cu.reportError("Adblock Plus: Calling method shutdown() for module " + url + " failed: " + e);
+      }
+      return;
     }
 
     Cu.reportError("Adblock Plus: No exported object with shutdown() method found for module " + url);
+  }
+};
+
+/**
+ * Observer called on modules category changes.
+ * @class
+ */
+var BootstrapPrivate =
+{
+  QueryInterface: XPCOMUtils.generateQI([Ci.nsIObserver, Ci.nsISupportsWeakReference]),
+
+  observe: function(subject, topic, data)
+  {
+    if (data != "adblock-plus-module-location")
+      return;
+
+    switch (topic)
+    {
+      case "xpcom-category-entry-added":
+        Bootstrap.loadModule(subject.QueryInterface(Ci.nsISupportsCString).data);
+        break;
+      case "xpcom-category-entry-removed":
+        Bootstrap.unloadModule(subject.QueryInterface(Ci.nsISupportsCString).data, true);
+        break;
+    }
   }
 };
