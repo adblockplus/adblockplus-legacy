@@ -1,12 +1,6 @@
 <!ENTITY dialog.title "Engadir subscrición de filtros Adblock Plus">
 <!ENTITY dialog.title.edit "Editar filtro de subscrición">
 <!ENTITY description.newInstall "Para que Adblock Plus sexa máis eficaz ten que engadir unha subscrición de filtro. Estas subscricións de filtro son proporcionadas gratis por outros usuarios de Adblock Plus. As subscricións de filtro máis axeitadas para o seu idioma xa están seleccionadas.">
-<!ENTITY adblock.warning "Adblock Plus detectou que está instalado Adblock ou unha versión antiga de Adblock Plus. Executar Adblock Plus e Adblock en paralelo pode causar problemas e debe evitarse. Recoméndase desinstalar Adblock.">
-<!ENTITY adblock.uninstall "Desinstalar Adblock">
-<!ENTITY filterset.g.warning "Parece que utiliza Filterset.G. Esta lista de filtros apenas se mantivo nos últimos anos e é unha causa de problemas cos sitios da Rede. Recoméndase desinstalar Filterset.G.">
-<!ENTITY filterset.g.moreinfo "Máis información">
-<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
-<!ENTITY filterset.g.uninstall "Desinstalar Filterset.G">
 <!ENTITY subscriptionSelector.label "Por favor, escolla unha subscrición de filtro da lista:">
 <!ENTITY viewList.label "Ver filtros">
 <!ENTITY visitHomepage.label "Visite a páxina de inicio">

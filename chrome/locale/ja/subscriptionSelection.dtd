@@ -5,20 +5,6 @@
 	以下のフィルタは有志によって作成され無償で提供されています。
 	あなたが使っている言語に最も適したものが選択されています。
 ">
-<!ENTITY adblock.warning "
-	Adblock Plus が Adblock 、あるいは Adblock Plus の古いバージョンがインストールされて
-	いるのを検出しました。 Adblock と Adblock Plus を並行して機能させるのは問題を引き起こす
-	ことになりますので避けるべきです。 今すぐ Adblock のアンインストールをお勧めします。
-">
-<!ENTITY adblock.uninstall "Adblock アンストール">
-<!ENTITY filterset.g.warning "
-	Filterset.G を使用していると思われます。このフィルタ・リストは過去数年の間かろうじて
-	維持されている状態でウェブサイトに関する問題の共通の原因となっています。今すぐ Filterset.G
-	のアンインストールをお勧めします。
-">
-<!ENTITY filterset.g.moreinfo "詳細情報">
-<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
-<!ENTITY filterset.g.uninstall "Filterset.G アンインストール">
 <!ENTITY subscriptionSelector.label "リストから同期フィルタを選択してください：">
 <!ENTITY viewList.label "内容を確認する">
 <!ENTITY visitHomepage.label "ホームページ">

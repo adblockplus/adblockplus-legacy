@@ -1,12 +1,6 @@
 <!ENTITY dialog.title "הוספת הרשמות מסננים לAdblock Plus">
 <!ENTITY dialog.title.edit "ערוך הרשמה למסננים">
 <!ENTITY description.newInstall "Adblock Plus יהיה הכי יעיל אם יתווספו לו הרשמות מסננים. הרשמות המסננים מסופקים על ידי משתמשי Adblock Plus אחרים ללא שכר. ההרשמה ההולמת ביותר לשפתך נבחרה כבר.">
-<!ENTITY adblock.warning "Adblock Plus זיהה שAdblock או גרסה ישנה של Adblock Plus מותקנת. הרצת שתי הגרסאות במקביל יכולה לגרום לבעיות ואמורה להימנע.מומלץ למחוק את Adblock כעת.">
-<!ENTITY adblock.uninstall "הסרת Adblock">
-<!ENTITY filterset.g.warning "נראה שנעשה שימוש בהרחבה Filterset.G. רשימת מסננים זו בקושי תוחזקה בשנים האחרונות ולכן ישנן בעיות עם אתרים. מומלץ להסיר את Filterset.G כעת.">
-<!ENTITY filterset.g.moreinfo "מידע נוסף">
-<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
-<!ENTITY filterset.g.uninstall "הסרת Filterset.G">
 <!ENTITY subscriptionSelector.label "יש לבחור הרשמת מסנן מהרשימה:">
 <!ENTITY viewList.label "הצגת מסננים">
 <!ENTITY visitHomepage.label "ביקור באתר הבית">

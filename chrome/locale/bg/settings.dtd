@@ -13,8 +13,8 @@
 <!ENTITY export.accesskey "И">
 <!ENTITY clearall.label "Премахване на всички потребителски филтри">
 <!ENTITY clearall.accesskey "П">
-<!ENTITY resethitcounts.label "Нулиране на хит статистиката">
-<!ENTITY resethitcounts.accesskey "Н">
+<!ENTITY resethitcounts.label "Рестарт на хит статистиката">
+<!ENTITY resethitcounts.accesskey "Р">
 <!ENTITY edit.label "Промени">
 <!ENTITY edit.accesskey "П">
 <!ENTITY cut.label "Изрежи">
@@ -47,7 +47,7 @@
 <!ENTITY showintoolbar.accesskey "П">
 <!ENTITY showinstatusbar.label "Покажи в лентата на състоянието">
 <!ENTITY showinstatusbar.accesskey "П">
-<!ENTITY objecttabs.label "Покажи разделите за Flash и Java">
+<!ENTITY objecttabs.label "Покажи разделите за Флаш и Java">
 <!ENTITY objecttabs.accesskey "П">
 <!ENTITY collapse.label "Свиване на блокираните елементи">
 <!ENTITY collapse.accesskey "С">
@@ -59,7 +59,7 @@
 <!ENTITY faq.label "Често Задавани Въпроси">
 <!ENTITY faq.accesskey "Ч">
 <!ENTITY faq.url "http://adblockplus.org/en/faq">
-<!ENTITY filterdoc.label "Писане Adblock Плюс филтри">
+<!ENTITY filterdoc.label "Писане на Adblock Плюс филтри">
 <!ENTITY filterdoc.accesskey "П">
 <!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Относно Adblock Плюс">
@@ -76,7 +76,7 @@
 <!ENTITY lasthit.column "Последни Посещения">
 <!ENTITY lasthit.accesskey "П">
 <!ENTITY context.edit.label "Промени филтър">
-<!ENTITY context.resethitcount.label "Нулирай хит статистика за филтър">
+<!ENTITY context.resethitcount.label "Рестарт хит статистика за филтър">
 <!ENTITY context.synchsubscription.label "Обнови абонамента сега">
 <!ENTITY context.editsubscription.label "Промени абонамента">
 <!ENTITY context.moveup.label "Премести филтъра нагоре">

@@ -5,20 +5,6 @@
 	Ֆիլտրերի բաժանարդոգրությունները տրամադրվում են «Adblock Plus»-ի օգտագործողների կողմից
 	անվճար: Ձեր լեզվին ամենահամապատասխան բաժանարդոգրությունը արդեն ընտրված է:
 ">
-<!ENTITY adblock.warning "
-	«Adblock Plus»-ից բացի ձեր համակարգում տեղադրված է Adblock կամ 
-	«Adblock Plus»-ի հին տարբերակ: Դրանց զուգահեռ օգտագործումը կարող է 
-	խնդիրներ առաջացնել: Խորհուրդ է տրվում հեռացնել Adblock -ը:
-">
-<!ENTITY adblock.uninstall "Հեռացնել Adblock">
-<!ENTITY filterset.g.warning "
-	Դուք օգտագործում եք Filterset.G. Այս ցանկին վերջին տարիներին 
-	քիչ է փոփոխվումում և այն առաջացնում է մեծ քանակով խնդիրներ կայքերի հետ: 
-	Խորհուրդ է տրվում հեռացնել այդ ցանկը:
-">
-<!ENTITY filterset.g.moreinfo "Ավել տեղեկություն">
-<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
-<!ENTITY filterset.g.uninstall "Հեռացնել Filterset.G-ն">
 <!ENTITY subscriptionSelector.label "Ընտրեք ֆիլտրի բաժանարդոգրություն ցուցակից`">
 <!ENTITY viewList.label "Նայել ֆիլտրերը">
 <!ENTITY visitHomepage.label "Այցելել կայք">

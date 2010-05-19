@@ -1,10 +1,4 @@
 <!ENTITY dialog.title.edit "Rediger filter-abonnement">
-<!ENTITY adblock.warning "Adblock Plus har bemærket at Adblock eller en ældre version af Adblock Plus er installeret. Brug af både Adblock og Adblock Plus samtidig kan forårsage problemer og bør undgås. Det anbefales at du afinstallerer Adblock nu.">
-<!ENTITY adblock.uninstall "Afinstaller Adblock">
-<!ENTITY filterset.g.warning "Det ser ud til at du bruger Filterset.G. Denne filterliste er knapt blevet vedligeholdt de seneste par år og er en almindelig årsag til problemer med websider. Det anbefales at du afinstallerer Filterset.G nu.">
-<!ENTITY filterset.g.moreinfo "Mere information">
-<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
-<!ENTITY filterset.g.uninstall "Afinstaller Filterset.G">
 <!ENTITY other.label "Tilføj endnu et abonnement">
 <!ENTITY other.accesskey "T">
 <!ENTITY title.label "Abonnement-titel:">
