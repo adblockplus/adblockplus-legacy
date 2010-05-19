@@ -1,13 +1,9 @@
 <!ENTITY dialog.title "O rozšírení Adblock Plus">
-<!ENTITY caption.title "Adblock Plus">
 <!ENTITY version.title "Verzia">
 <!ENTITY description "Adblock Plus vám umožní rozhodnúť sa, čo si neprajete zobrazovať na stránkach.
 	Nepotrebujete preberať všetky reklamy a titulky, ak ich nechcete - povedzte to Adblock Plus!">
 <!ENTITY homepage.label "Domovská stránka Adblock Plus:">
-<!ENTITY homepage.url "http://adblockplus.org/">
 <!ENTITY author.label "Autor:">
 <!ENTITY contributors.label "Prispievatelia:">
-<!ENTITY developers.label "Vývojári:">
-<!ENTITY designers.label "Grafický dizajnéri:">
 <!ENTITY subscriptionAuthors.label "Autori povolení filtrov:">
 <!ENTITY translators.label "Prekladatalia:">

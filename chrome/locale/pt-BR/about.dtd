@@ -1,5 +1,4 @@
 <!ENTITY dialog.title "Sobre o Adblock Plus">
-<!ENTITY caption.title "Adblock Plus">
 <!ENTITY version.title "Versão">
 <!ENTITY description "
 	O Adblock Plus permite a você decidir o que você não quer ver na internet.
@@ -7,6 +6,5 @@
 	não os quer - diga ao Adblock Plus!
 ">
 <!ENTITY homepage.label "Página do Adblock Plus:">
-<!ENTITY homepage.url "http://adblockplus.org/">
 <!ENTITY author.label "Autor:">
 <!ENTITY contributors.label "Colaboradores:">

@@ -1,12 +1,8 @@
 <!ENTITY dialog.title "Adblock Plus - Tietoja">
-<!ENTITY caption.title "Adblock Plus">
 <!ENTITY version.title "Versio">
 <!ENTITY description "Adblock Plussan avulla voit päättää, mitkä osat verkkosivuista näkyvät sinulle. Jos sinua ei kiinnosta nähdä mainoksia ja bannereita, Adblock Plussan avulla on kuin niitä ei ikinä olisi ollutkaan!">
 <!ENTITY homepage.label "Adblock Plussan kotisivu:">
-<!ENTITY homepage.url "http://adblockplus.org/">
 <!ENTITY author.label "Tekijä:">
 <!ENTITY contributors.label "Avustajat:">
-<!ENTITY developers.label "Kehittäjät:">
-<!ENTITY designers.label "Graafiset suunnitelijat:">
 <!ENTITY subscriptionAuthors.label "Suodatintilausten tekijät:">
 <!ENTITY translators.label "Kääntäjät:">

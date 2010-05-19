@@ -1,12 +1,8 @@
 <!ENTITY dialog.title "Over Adblock Plus">
-<!ENTITY caption.title "Adblock Plus">
 <!ENTITY version.title "Versie">
 <!ENTITY description "Adblock Plus laat u zelf beslissen wat u niet wilt zien op het internet. Voortaan hoeft u geen reclames en banners meer te downloaden; als u ze niet wilt zien - verwijder ze met Adblock Plus!">
 <!ENTITY homepage.label "Adblock Plus website:">
-<!ENTITY homepage.url "http://adblockplus.org/">
 <!ENTITY author.label "Schrijver:">
 <!ENTITY contributors.label "Medewerkers:">
-<!ENTITY developers.label "Ontwikkelaars:">
-<!ENTITY designers.label "Grafisch ontwerpers:">
 <!ENTITY subscriptionAuthors.label "Filterabonnementschrijvers:">
 <!ENTITY translators.label "Vertalers:">
