@@ -1,12 +1,6 @@
 <!ENTITY dialog.title "Add Adblock Plus – zestawy filtrów">
 <!ENTITY dialog.title.edit "Edycja zestawów filtrów">
 <!ENTITY description.newInstall "Dla Adblock Plusa najbardziej efektywnym sposobem pozyskania filtrów jest dodanie subskrypcji zestawu filtrów. Znajdujące się w rozwijanym menu zestawy filtrów są udostępniane przez innych użytkowników Adblock Plusa za darmo. Najodpowiedniejsze zestawy filtrów dla Twojego języka są wyróżnione.">
-<!ENTITY adblock.warning "Wykryto, że jest zainstalowany Adblock lub starsza wersja Adblock Plusa. Uruchomienie obu rozszerzeń równocześnie może spowodować problemy i należy tego unikać. Zaleca się odinstalowanie Adblocka.">
-<!ENTITY adblock.uninstall "Odinstaluj Adblocka">
-<!ENTITY filterset.g.warning "Wygląda na to, że używasz zestawu Filterset.G. Ten zestaw filtrów jest rzadko aktualizowany i zazwyczaj jest przyczyną problemów z witrynami. Zaleca się odinstalowanie Filterset.G.">
-<!ENTITY filterset.g.moreinfo "Więcej informacji">
-<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
-<!ENTITY filterset.g.uninstall "Odinstaluj Filterset.G">
 <!ENTITY subscriptionSelector.label "Wybierz z listy zestaw filtrów:">
 <!ENTITY viewList.label "Zobacz filtry">
 <!ENTITY visitHomepage.label "Przejdź na stronę zestawu">

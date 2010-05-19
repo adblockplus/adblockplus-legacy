@@ -1,12 +1,6 @@
 <!ENTITY dialog.title "Претплата на филтере Adblock Plus-а">
 <!ENTITY dialog.title.edit "Уређивање претплате на филтер">
 <!ENTITY description.newInstall "Adblock Plus ће бити најучинковитији ако додате претплату на филтер. Претплате на филтере бесплатно омогућавају други корисници Adblock Plus-а. Одабрана је претплата која је најприкладнија вашем језику.">
-<!ENTITY adblock.warning "Adblock Plus је детектовао да на вашем систему постоји Adblock или старије издање Adblock Plus-а. Истовремено коришћење Adblock и Adblock Plus-а може изазвати проблеме. Препоручено је да уклоните Adblock одмах.">
-<!ENTITY adblock.uninstall "Уклони Adblock">
-<!ENTITY filterset.g.warning "Изгледа да користите Filterset.G. Овај филтер се више не ажурира и често изазива проблеме са интернет странама. Препоручено је да уклоните Filterset.G одмах.">
-<!ENTITY filterset.g.moreinfo "Више информација">
-<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
-<!ENTITY filterset.g.uninstall "Уклони Filterset.G">
 <!ENTITY subscriptionSelector.label "Изаберите једну претплату на филтер са списка:">
 <!ENTITY viewList.label "Погледај филтере">
 <!ENTITY visitHomepage.label "Посети матичну страницу">

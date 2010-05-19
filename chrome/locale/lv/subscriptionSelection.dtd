@@ -1,12 +1,6 @@
 <!ENTITY dialog.title "Pievienot Adblock Plus filtra abonementu">
 <!ENTITY dialog.title.edit "Rediģēt filtra abonementu">
 <!ENTITY description.newInstall "  Adblock Plus būs visefektīgākais, ja jūs pievienosiet filtru abonementu.  Filtru abonementus bez maksas sniedz citi Adblock Plus lietotāji. Vispiemērotākais abonements Jūsu valodā jau ir izvēlēts.">
-<!ENTITY adblock.warning "  Adblock Plus ir konstatējis, ka ir uzstādīta Adblock vai vecā Adblock Plus versija. Gan Adblock un Adblock Plus vienlaicīga darbība var radīt  problēmām un no tā ir jāizvairās. Ieteicams nekavējoties atinstalēt Adblock.">
-<!ENTITY adblock.uninstall "Atinstalēt Adblock">
-<!ENTITY filterset.g.warning "  Šķiet, ka jūs izmantojat Filterset.G. Šis filtru saraksts ir tik tikko  saglabts pēdējos gados, un izraisa kopējas problēmas ar interneta  vietnēm. Ieteicams nekavējoties atinstalēt Filterset.G.">
-<!ENTITY filterset.g.moreinfo "Vairāk informācijas">
-<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
-<!ENTITY filterset.g.uninstall "Atinstalēt Filterset.G">
 <!ENTITY subscriptionSelector.label "Lūdzu, izvēlieties filtru abonementu no saraksta:">
 <!ENTITY viewList.label "Skatīt filtrus">
 <!ENTITY visitHomepage.label "Apmeklēt mājaslapu">

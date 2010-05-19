@@ -1,12 +1,6 @@
 <!ENTITY dialog.title "Dodaj naročnino na filtre Adblock Plus">
 <!ENTITY dialog.title.edit "Uredi naročnino filtra">
 <!ENTITY description.newInstall "Da bi bil Adblock Plus kar najbolj učinkovit, dodajte naročnino na filtre. Te naročnine na filtre ponujajo drugi uporabniki Adblock Plusa brezplačno. Najprimernejše naročnine na filtre za vaš jezik so že izbrane.">
-<!ENTITY adblock.warning "Adblock Plus je zaznal, da je nameščen Adblock ali stara različica Adblock Plus. Vzporedno poganjanje Adblocka in Adblocka Plus lahko povzroča težave in ni priporočljivo. Priporočamo, da zdaj odstranite Adblock.">
-<!ENTITY adblock.uninstall "Odstrani Adblock">
-<!ENTITY filterset.g.warning "Zdi se, da uporabljate Filterset.G. Ta seznam filtrov je komaj vzdrževan zadnja leta in je pogost razlog težav s spletnimi mesti. Priporočamo, da zdaj odstranite Filterset.G.">
-<!ENTITY filterset.g.moreinfo "Več informacij">
-<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
-<!ENTITY filterset.g.uninstall "Odstrani Filterset.g">
 <!ENTITY subscriptionSelector.label "Izberite naročnino na filter s seznama:">
 <!ENTITY viewList.label "Pokaži filtre">
 <!ENTITY visitHomepage.label "Obišči domačo stran">
