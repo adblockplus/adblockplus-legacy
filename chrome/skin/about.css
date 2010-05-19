@@ -24,22 +24,26 @@
 
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
-#title {
+#title
+{
   font-size: 400%;
   font-weight: bold;
 }
 
-#mainGroup {
+#mainGroup
+{
   margin-top: 15px;
   width: 450px;
   height: 400px;
   overflow: auto;
 }
 
-#homepageTitle, #authorTitle, #contributorsTitle {
+#homepageTitle, #authorsTitle, #contributorsTitle, #subscriptionAuthorsTitle, #translatorsTitle
+{
   font-weight: bold;
 }
 
-#description, #homepage, #author, #developersBox, #designersBox, #subscriptionAuthorsBox {
+#description, #homepage, #authorsBox, #contributorsBox, #subscriptionAuthorsBox
+{
   margin-bottom: 10px;
 }
