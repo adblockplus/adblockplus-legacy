@@ -58,10 +58,12 @@ my @ignoreUntranslated = (
   quotemeta("ehh:composer:nodes-tree.class.label"),
   quotemeta("ehh:composer:nodes-tree.id.label"),
   quotemeta("ehh:global:noabp_warning_title"),
+  quotemeta("ehh:meta:name"),
 );
 
 my %lengthRestrictions = (
   'abp:meta:description.short' => 250,
+  'ehh:meta:description.short' => 250,
 );
  
 LocaleTester::testLocales(
