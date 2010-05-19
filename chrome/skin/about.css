@@ -24,6 +24,15 @@
 
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
+#mainBox
+{
+  visibility: hidden;
+}
+#mainBox[loaded]
+{
+  visibility: visible;
+}
+
 #title
 {
   font-size: 400%;

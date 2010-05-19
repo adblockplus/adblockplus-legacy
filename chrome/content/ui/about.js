@@ -30,8 +30,6 @@ catch (e) {}
 
 function init()
 {
-  E("version").value = Utils.addonVersion;
-
   let ioService = Cc["@mozilla.org/network/io-service;1"].getService(Ci.nsIIOService);
   if (typeof AddonManager != "undefined")
   {
@@ -71,7 +69,9 @@ function loadInstallManifest(installManifestURI)
 
   function dataSourceLoaded()
   {
-    setContributors(getTargets("homepageURL")[0], getTargets("creator"), getTargets("contributor"), getTargets("translator"));
+    setExtensionData(getTargets("name")[0], getTargets("version")[0],
+                     getTargets("homepageURL")[0], getTargets("creator"),
+                     getTargets("contributor"), getTargets("translator"));
   }
 
   if (ds instanceof Ci.nsIRDFRemoteDataSource && ds.loaded)
@@ -104,13 +104,15 @@ function cmpNoCase(a, b)
     return 0;
 }
 
-function setContributors(homepage, authors, contributors, translators)
+function setExtensionData(name, version, homepage, authors, contributors, translators)
 {
   authors.sort(cmpNoCase);
   contributors.sort(cmpNoCase);
   translators.sort(cmpNoCase);
 
-  E("homepage").setAttribute("value", homepage);
+  E("title").value = name;
+  E("version").value = version;
+  E("homepage").value = homepage;
   E("authors").textContent = authors.join(", ");
   E("contributors").textContent = contributors.join(", ");
   E("translators").textContent = translators.join(", ");
@@ -149,4 +151,6 @@ function setSubscriptionAuthors()
 
   list.sort(cmpNoCase)
   E("subscriptionAuthors").textContent = list.join(", ");
+
+  E("mainBox").setAttribute("loaded", "true");
 }
