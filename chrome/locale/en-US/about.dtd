@@ -1,6 +1,5 @@
 <!ENTITY dialog.title       "About Adblock Plus">
 
-<!ENTITY caption.title      "Adblock Plus">
 <!ENTITY version.title      "Version">
 <!ENTITY description        "
   Adblock Plus allows you to decide what you want to see on the web.
