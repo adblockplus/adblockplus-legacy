@@ -71,7 +71,7 @@ function loadInstallManifest(installManifestURI)
 
   function dataSourceLoaded()
   {
-    setContributors(getTargets("contributor"), getTargets("translator"));
+    setContributors(getTargets("creator"), getTargets("contributor"), getTargets("translator"));
   }
 
   if (ds instanceof Ci.nsIRDFRemoteDataSource && ds.loaded)
@@ -104,12 +104,14 @@ function cmpNoCase(a, b)
     return 0;
 }
 
-function setContributors(contributors, translators)
+function setContributors(authors, contributors, translators)
 {
+  authors.sort(cmpNoCase);
   contributors.sort(cmpNoCase);
   translators.sort(cmpNoCase);
 
-  E("developers").textContent = contributors.join(", ");
+  E("authors").textContent = authors.join(", ");
+  E("contributors").textContent = contributors.join(", ");
   E("translators").textContent = translators.join(", ");
 
   let request = new XMLHttpRequest();

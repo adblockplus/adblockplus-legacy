@@ -54,29 +54,24 @@
   <description id="homepageTitle" value="&homepage.label;"/>
   <description id="homepage" class="text-link" value="&homepage.url;" onclick="Utils.loadInBrowser(this.getAttribute('value'))"/>
 
-  <description id="authorTitle" value="&author.label;"/>
-  <description id="author" value="Wladimir Palant"/>
-
-  <description id="contributorsTitle" value="&contributors.label;"/>
-
-  <vbox id="developersBox" align="top">
-    <label control="developers" value="&developers.label;"/>
-    <description id="developers" flex="1"/>
+  <vbox id="authorsBox" align="top">
+    <label id="authorsTitle" control="authors" value="&author.label;"/>
+    <description id="authors"/>
   </vbox>
 
-  <vbox id="designersBox" align="top">
-    <label control="designers" value="&designers.label;"/>
-    <description id="designers" flex="1">Claude Lespagnol aka Efdur, Kevin Keller</description>
+  <vbox id="contributorsBox" align="top">
+    <label id="contributorsTitle" control="contributors" value="&contributors.label;"/>
+    <description id="contributors"/>
   </vbox>
 
   <vbox id="subscriptionAuthorsBox" align="top">
-    <label control="subscriptionAuthors" value="&subscriptionAuthors.label;"/>
-    <description id="subscriptionAuthors" flex="1"/>
+    <label id="subscriptionAuthorsTitle" control="subscriptionAuthors" value="&subscriptionAuthors.label;"/>
+    <description id="subscriptionAuthors"/>
   </vbox>
 
   <vbox id="translatorsBox">
-    <label control="translators" value="&translators.label;"/>
-    <description id="translators" flex="1"/>
+    <label id="translatorsTitle" control="translators" value="&translators.label;"/>
+    <description id="translators"/>
   </vbox>
 </groupbox>
 
