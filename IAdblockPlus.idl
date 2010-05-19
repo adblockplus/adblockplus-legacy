@@ -84,8 +84,7 @@ interface IAdblockPlusSubscription: nsISupports
   /**
    * Retrieves a list of subscription's patterns
    */
-  void getPatterns(out unsigned long length,
-                   [retval, array, size_is(length)] out wstring patterns);
+  void getPatterns([retval, array, size_is(length)] out wstring patterns);
 };
 
 [scriptable, uuid(6e70a4b4-bef8-b0b3-25a2-62146012352b)]
@@ -118,13 +117,11 @@ interface IAdblockPlus : nsISupports
    * @param id        subscription identifier
    * @param title     subscription title
    * @param patterns  array containing subscription's patterns
-   * @param length    length of patterns array
    * @return          true if the subscription was updated or false if the
    *                  update failed
    */
   boolean updateExternalSubscription(in AString id, in AUTF8String title,
-                                     [array, size_is(length), const] in wstring patterns,
-                                     in unsigned long length);
+                                     [array, const] in wstring patterns);
 
   /**
    * Removes an external subscription.
@@ -139,9 +136,8 @@ interface IAdblockPlus : nsISupports
    * Adds user-defined patterns to the filter list.
    *
    * @param patterns  array of patterns to be added
-   * @param length    length of the patterns array
    */
-  void addPatterns([array, size_is(length)] in wstring patterns, in unsigned long length);
+  void addPatterns([array] in wstring patterns);
 
   /**
    * Removes user-defined patterns from the filter list.
@@ -149,7 +145,7 @@ interface IAdblockPlus : nsISupports
    * @param patterns  array of patterns to be removed
    * @param length    length of the patterns array
    */
-  void removePatterns([array, size_is(length)] in wstring patterns, in unsigned long length);
+  void removePatterns([array] in wstring patterns);
 
   /**
    * Returns the installed version of Adblock Plus.

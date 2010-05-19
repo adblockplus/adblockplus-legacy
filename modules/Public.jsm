@@ -80,7 +80,7 @@ var AdblockPlus =
   /**
    * Updates an external subscription and creates it if necessary
    */
-  updateExternalSubscription: function(/**String*/ id, /**String*/ title, /**Array of Filter*/ filters, /**Integer*/ length) /**Boolean*/
+  updateExternalSubscription: function(/**String*/ id, /**String*/ title, /**Array of Filter*/ filters) /**Boolean*/
   {
     // Don't allow valid URLs as IDs for external subscriptions
     if (Utils.makeURI(id))
@@ -130,7 +130,7 @@ var AdblockPlus =
   /**
    * Adds user-defined filters to the list
    */
-  addPatterns: function(/**Array of String*/ filters, /**Integer*/ length)
+  addPatterns: function(/**Array of String*/ filters)
   {
     for each (let filter in filters)
     {
@@ -144,7 +144,7 @@ var AdblockPlus =
   /**
    * Removes user-defined filters from the list
    */
-  removePatterns: function(/**Array of String*/ filters, /**Integer*/ length)
+  removePatterns: function(/**Array of String*/ filters)
   {
     for each (let filter in filters)
     {
