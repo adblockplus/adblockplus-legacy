@@ -10,7 +10,7 @@
   <em:name>{{NAME}}</em:name>
   <em:description>{{DESCRIPTION}}</em:description>
   <em:creator>Wladimir Palant</em:creator>
-  <em:homepageURL>http://adblockplus.org/</em:homepageURL>
+  <em:homepageURL>{{HOMEPAGE}}</em:homepageURL>
   <em:type>2</em:type>
 
   <em:contributor>Claude Lespagnol aka Efdur</em:contributor>
