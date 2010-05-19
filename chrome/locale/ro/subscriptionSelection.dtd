@@ -1,16 +1,26 @@
 <!ENTITY dialog.title "Adăugare abonamente pentru filtre Adblock Plus">
 <!ENTITY dialog.title.edit "Editare abonament filtre">
-<!ENTITY adblock.warning "Se pare că Adblock sau o versiune mai veche Adblock Plus este instalată, ceea ce poate cauza probleme. Este recomandabil să dezinstalaţi Adblock.">
-<!ENTITY adblock.uninstall "Dezinstaleză Adblock">
-<!ENTITY filterset.g.warning "Se pare că Filterset.G este instalat, ceea ce poate cauza probleme, dearece filtrele sunt învechite şi în multe cazuri greşite. Este recomandabil să dezinstalaţi Filterset.G acum.">
-<!ENTITY filterset.g.moreinfo "Informţii suplimentare">
-<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
-<!ENTITY filterset.g.uninstall "Dezinstalează Filterset.G">
+<!ENTITY description.newInstall "Adblock Plus este foarte efectiv atunci când folosiţi abonamente filtre. Aceste abonamente sunt oferite gratuit de către alţi utilizatori Adblock Plus. Programul a selectat automat cel mai potrivit abonament pentru limba dvs.">
+<!ENTITY subscriptionSelector.label "Alegeţi un abonamente filtre din listă:">
+<!ENTITY viewList.label "Vizualizare filtre">
+<!ENTITY visitHomepage.label "Vizualizare pagina de start">
+<!ENTITY addSubscription.label "Adaugă abonament">
+<!ENTITY saveSubscription.label "Salvează abonament">
 <!ENTITY other.label "Adaugă alt abonament">
-<!ENTITY other.accesskey "t">
+<!ENTITY other.accesskey "l">
+<!ENTITY list.download.failed "Eroare la descărcarea listei de abonamente.">
+<!ENTITY list.download.retry "Încearcă din nou">
+<!ENTITY list.download.website "Arată pagina web">
+<!ENTITY list.website.url "http://adblockplus.org/en/subscriptions">
+<!ENTITY fromWeb.description "Confirmaţi adăugarea acestui abonament filtre. Puteţi schimba titlul sau localizarea înainte de a-l adăuga.">
+<!ENTITY edit.description "Puteţi schimba titlul sau localizarea dacă este necesar.">
+<!ENTITY external.description "Acest abonament este extern; el va fi actualizat de către suplimentul care l-a creat.">
 <!ENTITY title.label "Titlul abonamentului:">
 <!ENTITY title.accesskey "T">
 <!ENTITY location.label "Locaţia listei de filtre:">
 <!ENTITY location.accesskey "L">
 <!ENTITY autodownload.label "Actualizare automată">
 <!ENTITY autodownload.accesskey "c">
+<!ENTITY supplementMessage "Acest abonament trebuie folosit împreună cu abonamentul &quot;?1?&quot;,pe care nu îl folosiţi încă">
+<!ENTITY addMain.label "Adaugă şi abonamentul &quot;?1?&quot;">
+<!ENTITY addMain.accesskey "d">

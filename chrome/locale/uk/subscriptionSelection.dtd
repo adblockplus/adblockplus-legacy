@@ -1,12 +1,6 @@
 <!ENTITY dialog.title "Додати підписку на фільтри Adblock Plus">
 <!ENTITY dialog.title.edit "Редагувати підписку">
 <!ENTITY description.newInstall "Adblok Plus буде найефективніший якщо ви додасте фільтрову підписку. Фільтрові підписки надаються іншими користувачами Adblock Plus безплатно. Найбільш підходящі для вашої мови підписки вже вибрані.">
-<!ENTITY adblock.warning "Adblock Plus помітив що встановлено Adblock чи стару версію Adblock Plus. Паралельне використання Adblock та Adblock Plus может спричинити проблеми ти тому цього слід уникати. Рекомендуємо вам зараз вилучити Adblock.">
-<!ENTITY adblock.uninstall "Вилучити Adblock">
-<!ENTITY filterset.g.warning "Схоже що ви використовуєте Filterset.G. Цей список фільтрів ледве підтримується останні кілька років і є основною причиною проблем з веб-сайтами. Радимо вам вилучити зараз Filterset.G">
-<!ENTITY filterset.g.moreinfo "Докладніше">
-<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
-<!ENTITY filterset.g.uninstall "Вилучити Filterset.G">
 <!ENTITY subscriptionSelector.label "Будь ласка виберіть фільтрову підписку з переліку:">
 <!ENTITY viewList.label "Глянути фільтри">
 <!ENTITY visitHomepage.label "Відвідати домашню сторінку">

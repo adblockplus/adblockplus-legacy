@@ -1,12 +1,6 @@
 <!ENTITY dialog.title "Přidat sadu cizích filtrů Adblock Plus">
 <!ENTITY dialog.title.edit "Upravit sadu cizích filtrů">
 <!ENTITY description.newInstall "Adblock Plus bude fungovat nejefektivněji, pokud přidáte cizí sadu filtrů. Cizí sady vytváří zdarma ostatní uživatelé Adblocku Plus. Nejvhodnější sada pro váš jazyk byla již vybrána.">
-<!ENTITY adblock.warning "Adblock Plus zjistil, že je nainstalován Adblock nebo starší verze Adblocku Plus. Používání Adblocku a Adblocku Plus zároveň může způsobovat problémy a je lepší se tomu vyhnout. Je doporučeno, abyste nyní odinstalovali Adblock.">
-<!ENTITY adblock.uninstall "Odinstalovat Adblock">
-<!ENTITY filterset.g.warning "Zdá se, že používáte Filterset.G. Tento seznam filtrů nebyl v poslední době téměř spravován a je častým zdrojem problémů s webovými stránkami. Je doporučeno, abyste není odinstalovali Filterset.G.">
-<!ENTITY filterset.g.moreinfo "Více informací">
-<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
-<!ENTITY filterset.g.uninstall "Odinstalovat Filterset.G">
 <!ENTITY subscriptionSelector.label "Prosím vyberte cizí sadu filtrů ze seznamu:">
 <!ENTITY viewList.label "Zobrazit pravidla">
 <!ENTITY visitHomepage.label "Navštívit domovskou stránku">

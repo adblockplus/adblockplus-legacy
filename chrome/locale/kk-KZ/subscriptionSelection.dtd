@@ -1,16 +1,6 @@
 <!ENTITY dialog.title "Adblock Plus фильтрлерге жазылуды қосу">
 <!ENTITY dialog.title.edit "Фильтрге жазылуды түзету">
 <!ENTITY description.newInstall "Adblock Plus сүзгі жазылуы қосылса пайдалы болады.Басқа Adblock Plus пайдаланушылары ұсынған сүзгілер тегін. Тіліңіз үшін сәйкес келетін сүзгілер таңдаулы тұр.">
-<!ENTITY adblock.warning "Adblock Plus бұл бағдарламада Adblock немесе Adblock Plus ескі нұсқасы қолданылып
-	тұрғанын анықтады. Adblock пен Adblock Plus бірге қолдану мәселелерді тұғызуы мүмкін.
-	Оларды болдырмау үшін Adblock өшіру ұсынылады.">
-<!ENTITY adblock.uninstall "Adblock өшіру">
-<!ENTITY filterset.g.warning "Сіз Filterset.G қолданатын сияқтысыз. Бұл фильтрлер тізімі бірнеше жыл
-	жаңартылмады, және көп мәселелердің көзі болды.
-	Мәселелерді болдырмау үшін Filterset.G өшіру ұсынылады.">
-<!ENTITY filterset.g.moreinfo "Көбірек білу">
-<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
-<!ENTITY filterset.g.uninstall "Filterset.G өшіру">
 <!ENTITY subscriptionSelector.label "Тізімнен сүзгіге жазылуды таңдаңыз:">
 <!ENTITY viewList.label "Сүзгілерді қарап шығу">
 <!ENTITY visitHomepage.label "Үй парағын шолу">

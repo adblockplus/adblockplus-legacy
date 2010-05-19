@@ -1,12 +1,6 @@
 <!ENTITY dialog.title "Lägg till Adblock Plus filterprenumeration">
 <!ENTITY dialog.title.edit "Ändra filterprenumeration">
 <!ENTITY description.newInstall "Adblock Plus är mest effektiv om du lägger till en filterprenumeration. Filterprenumerationer underhålls kostnadsfritt av andra användare. Den mest användbara prenumerationen för ditt språk är redan valt.">
-<!ENTITY adblock.warning "Adblock Plus har upptäckt en tidigare version av Adblock Plus eller Adblock. Att köra Adblock och Adblock Plus samtidigt kan orsaka problem och bör undvikas. Vi rekommenderar att du avinstallerar Adblock nu.">
-<!ENTITY adblock.uninstall "Avinstallera Adblock">
-<!ENTITY filterset.g.warning "Det verkar som om du andvänder Filterset.G. Denna filterlista har knappt uppdaterats de senaste åren och har återkommande orsakat problem med hemsidor. Vi rekommenderar att du avinstallerar Filterset.G nu.">
-<!ENTITY filterset.g.moreinfo "Mer information">
-<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
-<!ENTITY filterset.g.uninstall "Avinstallera Filterset.G">
 <!ENTITY subscriptionSelector.label "Vänligen välj en filterprenumeration från listan:">
 <!ENTITY viewList.label "Visa filter">
 <!ENTITY visitHomepage.label "Besök hemsidan">

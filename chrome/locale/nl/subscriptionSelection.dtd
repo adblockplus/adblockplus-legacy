@@ -1,12 +1,6 @@
 <!ENTITY dialog.title "Adblock Plus filterabonnement toevoegen">
 <!ENTITY dialog.title.edit "Filterabonnement bewerken">
 <!ENTITY description.newInstall "Adblock Plus werkt het beste als u een filterabonnement toevoegt. Filterabonnementen worden gratis door andere gebruikers van Adblock Plus aangeboden. Het voor uw taal meest geschikte abonnement is al geselecteerd.">
-<!ENTITY adblock.warning "Adblock Plus heeft gedetecteerd dat Adblock of een oudere versie van Adblock Plus is geïnstalleerd. Het tegelijkertijd gebruiken van Adblock en Adblock Plus kan problemen veroorzaken en moet worden vermeden. Het wordt aangeraden Adblock nu te deïnstalleren.">
-<!ENTITY adblock.uninstall "Adblock deïnstalleren">
-<!ENTITY filterset.g.warning "Het lijkt erop dat u Filterset.G gebruikt. Deze filterlijst is de afgelopen jaren nauwelijks bijgehouden en is een veel voorkomende oorzaak van problemen met websites. Het wordt aangeraden Filterset.G nu te deïnstalleren.">
-<!ENTITY filterset.g.moreinfo "Meer informatie">
-<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
-<!ENTITY filterset.g.uninstall "Filterset.G deïnstalleren">
 <!ENTITY subscriptionSelector.label "Kies a.u.b. een filterabonnement uit de lijst:">
 <!ENTITY viewList.label "Filters bekijken">
 <!ENTITY visitHomepage.label "Startpagina bezoeken">

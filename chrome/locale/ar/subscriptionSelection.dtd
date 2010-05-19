@@ -1,12 +1,6 @@
 <!ENTITY dialog.title "أهلاً بك في آدبلوك بلاس">
 <!ENTITY dialog.title.edit "تعديل اشتراك فلتر">
 <!ENTITY description.newInstall "سيكون آدبلوك بلس أكثر فعالية ان قمت بإضافة اشتراك فلاتر. اشتراكات الفلاتر تقدم مجانا من قبل مستخدمين آخرين لآدبلوك بلس. الاشتراك الأكثر ملائمة للغتك مختار أصلا">
-<!ENTITY adblock.warning "قام آدبلوك بلس بتحديد أن &quot;آدبلوك&quot; أو نسخة قديمة من &quot;آدبلوك بلس&quot; منصبة. تشغيل &quot;آدبلوك&quot; و &quot;آدبلوك بلس&quot; معاً يمكن أن يسبب مشاكل و يجب تجنبه. ننصحك بإزالة &quot;آدبلوك&quot; الآن.">
-<!ENTITY adblock.uninstall "إزالة آدبلوك.">
-<!ENTITY filterset.g.warning "يبدو أنك تستخدم Filterset.G، بالكاد تم تطوير هذا الفلتر في السنوات الماضية لذلك فهو يسبب المشاكل مع مواقع الويب، يفضل إزالته الآن.">
-<!ENTITY filterset.g.moreinfo "معلومات إضافية">
-<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
-<!ENTITY filterset.g.uninstall "إزالة Filterset.G">
 <!ENTITY subscriptionSelector.label "الرجاء اختيار اشتراك فلتر من القائمة:">
 <!ENTITY viewList.label "عرض فلاتر">
 <!ENTITY visitHomepage.label "زيارة الصفحة الرئيسية">

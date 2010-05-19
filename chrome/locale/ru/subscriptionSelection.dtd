@@ -8,22 +8,6 @@
   выбрана.
 ">
 
-<!ENTITY adblock.warning            "
-  Adblock Plus обнаружил, что в этом приложении установлен Adblock или старая версия
-  Adblock Plus. Параллельное использование Adblock и Adblock Plus может вызвать проблемы.
-  Во избежание проблем рекомендуется удалить Adblock.
-">
-<!ENTITY adblock.uninstall          "Удалить Adblock">
-
-<!ENTITY filterset.g.warning        "
-  Похоже, что Вы используете Filterset.G. Этот список фильтров последние несколько лет
-  почти не поддерживался и часто является источником проблем на веб-сайтах.
-  Во избежание проблем рекомендуется удалить Filterset.G.
-">
-<!ENTITY filterset.g.moreinfo       "Дополнительная информация">
-<!ENTITY filterset.g.moreinfo.url   "http://adblockplus.org/en/faq_project#filterset.g">
-<!ENTITY filterset.g.uninstall      "Удалить Filterset.G">
-
 <!ENTITY subscriptionSelector.label "Пожалуйста, выберите подписку из списка:">
 
 <!ENTITY viewList.label             "Просмотреть фильтры">
