@@ -1,6 +1,5 @@
 <!ENTITY dialog.title       "О Adblock Plus">
 
-<!ENTITY caption.title      "Adblock Plus">
 <!ENTITY version.title      "Версия">
 <!ENTITY description        "
   С Adblock Plus Вы можете сами решать, что Вы хотите видеть в интернете,
@@ -9,11 +8,8 @@
 ">
 
 <!ENTITY homepage.label     "Домашняя страница проекта:">
-<!ENTITY homepage.url       "http://adblockplus.org/">
 <!ENTITY author.label       "Разработчик:">
 <!ENTITY contributors.label "Другие участники:">
 
-<!ENTITY developers.label   "Разработчики:">
-<!ENTITY designers.label    "Дизайнеры:">
 <!ENTITY subscriptionAuthors.label    "Авторы списков фильтров:">
 <!ENTITY translators.label  "Переводчики:">

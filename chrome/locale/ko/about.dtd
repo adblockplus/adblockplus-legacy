@@ -1,12 +1,8 @@
 <!ENTITY dialog.title "Adblock Plus 정보">
-<!ENTITY caption.title "Adblock Plus">
 <!ENTITY version.title "버전">
 <!ENTITY description "Adblock Plus(애드블록 플러스)는 보기 싫은 광고를 제거하여 더욱 빠르고 쾌적한 인터넷 환경을 만들어줍니다. 성가신 광고가 있다면 이젠 Adblock Plus와 함께 하십시오.">
 <!ENTITY homepage.label "홈페이지">
-<!ENTITY homepage.url "http://adblockplus.org">
 <!ENTITY author.label "개발자">
 <!ENTITY contributors.label "공헌자">
-<!ENTITY developers.label "개발자">
-<!ENTITY designers.label "그래픽 디자이너">
 <!ENTITY subscriptionAuthors.label "구독 필터 유지자">
 <!ENTITY translators.label "번역가">

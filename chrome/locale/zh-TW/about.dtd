@@ -1,14 +1,10 @@
 <!ENTITY dialog.title "關於 Adblock Plus">
-<!ENTITY caption.title "Adblock Plus">
 <!ENTITY version.title "版本">
 <!ENTITY description "Adblock Plus 讓您自行決定甚麼東西才能出現在畫面上，
 	再也不用浪費時間下載礙眼的廣告。
 	討人厭的廣告佔滿網頁？ — 讓 Adblock Plus 幫您解決！">
 <!ENTITY homepage.label "Adblock Plus 首頁:">
-<!ENTITY homepage.url "http://adblockplus.org/">
 <!ENTITY author.label "程式作者:">
 <!ENTITY contributors.label "貢獻者:">
-<!ENTITY developers.label "開發者:">
-<!ENTITY designers.label "圖形設計:">
 <!ENTITY subscriptionAuthors.label "過濾條件集作者:">
 <!ENTITY translators.label "翻譯者:">

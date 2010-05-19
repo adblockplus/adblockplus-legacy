@@ -1,12 +1,8 @@
 <!ENTITY dialog.title "عن آدبلوك بلاس">
-<!ENTITY caption.title "Adblock Plus">
 <!ENTITY version.title "الإصدار">
 <!ENTITY description "آدبلوك بلاس سيسمح لك بمنع ما لا تريد عرضه في مواقع الويب، فلن تضطر لتحميل الإعلانات بعد الآن، إذا لم ترغب بذلك فعلاً، فقط أخبر آدبلوك بلاس">
 <!ENTITY homepage.label "الصفحة الرئيسية لآدبلوك بلاس">
-<!ENTITY homepage.url "http://adblockplus.org/">
 <!ENTITY author.label "المنفذ">
 <!ENTITY contributors.label "المتطوعين">
-<!ENTITY developers.label "مطورين:">
-<!ENTITY designers.label "مصممي الجرافيكس:">
 <!ENTITY subscriptionAuthors.label "مؤلفو اشتراكات الفلاتر:">
 <!ENTITY translators.label "المترجمون:">

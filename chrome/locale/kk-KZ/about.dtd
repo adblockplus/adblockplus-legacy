@@ -1,14 +1,10 @@
 <!ENTITY dialog.title "Adblock Plus туралы">
-<!ENTITY caption.title "Adblock Plus">
 <!ENTITY version.title "Нұсқасы">
 <!ENTITY description "Adblock Plus көмегімен сіз Интернеттен тек өзіңіз көргіңіз келетін
 	ақпаратты таңдайсыз. Жарнамалық баннерлердің керегі не? Оларды
 	жүктеуге уақыт кетірмеңіз - Adblock Plus сізге көмектеседі!">
 <!ENTITY homepage.label "Adblock Plus үй парағы:">
-<!ENTITY homepage.url "http://adblockplus.org/en/">
 <!ENTITY author.label "Авторы:">
 <!ENTITY contributors.label "Үлес қосушылар:">
-<!ENTITY developers.label "Жасағандар:">
-<!ENTITY designers.label "Графиканы жасағандар:">
 <!ENTITY subscriptionAuthors.label "Сүзгі жазылуларын жасағандар:">
 <!ENTITY translators.label "Аудармашылар:">
