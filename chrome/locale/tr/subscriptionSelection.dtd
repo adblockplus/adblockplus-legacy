@@ -1,12 +1,6 @@
 <!ENTITY dialog.title "Adblock Plus süzgeç aboneliği ekle">
 <!ENTITY dialog.title.edit "Süzgeç aboneliklerini düzenle">
 <!ENTITY description.newInstall "Adblock Plus herhangi bir süzgeç aboneliğiyle birlikte en etkin şekilde kullanılır. Bu abonelikler diğer Adblock Plus kullanıcıları tarafından ücretsiz sunulmaktadır. Dilinize en uygun abonelik seçilmiş durumda.">
-<!ENTITY adblock.warning "Adblock Plus, Adblock ya da Adblock Plus'un eski bir sürümünün kurulu olduğunu farketti. Aynı anda Adblock ve Adblock Plus'ı kullanmak sorunlara neden olabileceğinden bundan kaçınılmalıdır. Şimdi Adblock'u kaldırmanız tavsiye edilir.">
-<!ENTITY adblock.uninstall "Adblock'u kaldır">
-<!ENTITY filterset.g.warning "Filterset.G'yi kullandığınız anlaşılıyor. Bu süzgeç son birkaç yıldır pek fazla geliştirilmedi ve sitelerde sorun yaratıyor. Şimdi Filterset.G'yi kaldırmanız tavsiye edilir.">
-<!ENTITY filterset.g.moreinfo "Daha fazla bilgi">
-<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
-<!ENTITY filterset.g.uninstall "Filterset.G'yi kaldır">
 <!ENTITY subscriptionSelector.label "Lütfen listeden bir süzgeç aboneliği seçin:">
 <!ENTITY viewList.label "Süzgeçlere bak">
 <!ENTITY visitHomepage.label "Ana sayfaya git">

@@ -6,3 +6,7 @@
 <!ENTITY homepage.url "http://adblockplus.org/">
 <!ENTITY author.label "Autor:">
 <!ENTITY contributors.label "Contributori:">
+<!ENTITY developers.label "Programatori:">
+<!ENTITY designers.label "Designeri grafică:">
+<!ENTITY subscriptionAuthors.label "Autori abonamente filtre:">
+<!ENTITY translators.label "Traducători:">

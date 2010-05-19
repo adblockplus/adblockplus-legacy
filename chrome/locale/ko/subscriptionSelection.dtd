@@ -1,12 +1,6 @@
 <!ENTITY dialog.title "구독 필터 추가">
 <!ENTITY dialog.title.edit "구독 필터 편집">
 <!ENTITY description.newInstall "구독 필터는 주기적으로 업데이트되는 필터 목록을 통해 광고를 효율적으로 차단할 수 있는 편리함을 제공합니다.">
-<!ENTITY adblock.warning "Adblock 또는 Adblock Plus 구버전을 찾았습니다. Adblock과 Adblock Plus를 함께 설치하면 문제가 발생할 수 있으니 Adblock 제거를 권장합니다.">
-<!ENTITY adblock.uninstall "Adblock Plus 제거">
-<!ENTITY filterset.g.warning "Filterset.G를 사용 중입니다. 이 구독 필터는 현재 관리되지 않아 웹 사이트 방문 시 문제가 발생할 수 있습니다. Filterset.G 제거를 권장합니다.">
-<!ENTITY filterset.g.moreinfo "더 많은 정보">
-<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
-<!ENTITY filterset.g.uninstall "Filterset.G 제거">
 <!ENTITY subscriptionSelector.label "목록에서 구독할 필터를 선택하거나 이름/위치를 직접 입력하십시오.">
 <!ENTITY viewList.label "필터 보기">
 <!ENTITY visitHomepage.label "홈페이지">

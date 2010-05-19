@@ -3,16 +3,6 @@
 <!ENTITY description.newInstall "Το Adblock Plus θα είναι πιο αποτελεσματικό αν γίνετε συνδρομητής σε μια λίστα φίλτρων.
 	Οι λίστες φίλτρων παρέχονται από χρήστες του Adblock Plus χωρίς κόστος.
 	Η καταλληλότερη συνδρομή για την γλώσσα σας έχει ήδη επιλεγεί.">
-<!ENTITY adblock.warning "Το Adblock Plus ανίχνευσε πως το Adblock ή μια παλαιότερη έκδοση του Adblock Plus είναι 
-	εγκατεστημένο. Η παράλληλη χρήση του Adblock και του Adblock Plus μπορεί να προκαλέσει 
-	προβλήματα και έτσι πρέπει να αποφεύγεται. Προτείνεται η απεγκατάσταση του Adblock.">
-<!ENTITY adblock.uninstall "Απεγκατάσταση του Adblock">
-<!ENTITY filterset.g.warning "Χρησιμοποιείτε την Filterset.G. Αυτή η λίστα φίλτρων συντηρείται ελάχιστα
-	τα τελευταία χρόνια και είναι συχνή αιτία σε προβλήματα που εμφανίζονται σε
-	ιστοσελίδες. Προτείνεται να απεγκαταστήσετε την λίστα Filterset.G.">
-<!ENTITY filterset.g.moreinfo "Περισσότερες πληροφορίες">
-<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
-<!ENTITY filterset.g.uninstall "Απεγκατάσταση της Filterset.G">
 <!ENTITY subscriptionSelector.label "Παρακαλώ επιλέξτε μια συνδρομή σε φίλτρα από την λίστα:">
 <!ENTITY viewList.label "Προβολή φίλτρων">
 <!ENTITY visitHomepage.label "Ιστοσελίδα της συνδρομής">

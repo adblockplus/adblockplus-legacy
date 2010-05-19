@@ -1,11 +1,5 @@
 <!ENTITY dialog.title "Adblock Plus-д тавтай морил">
 <!ENTITY dialog.title.edit "Шүүлтүүрийн мэдээлэгч засах">
-<!ENTITY adblock.warning "Adblock Plus нь хуучин Adblock Plus эсвэл энэ Adblock хувилбарыг суулгасныг илрүүллээ.  Adblock болон Adblock Plus нь зэрэгцэн ажиллавал хүндрэл үүсгэж болзошгүй.  Adblock-ийг устгахыг зөвлөж байна.">
-<!ENTITY adblock.uninstall "Adblovk-ийг устгах">
-<!ENTITY filterset.g.warning "It seems that you use Filterset.G. This filter list has been barely maintained in the last few years and is a common cause of problems with web sites. It is recommended that you uninstall Filterset.G now.">
-<!ENTITY filterset.g.moreinfo "Илүү мэдээлэл">
-<!ENTITY filterset.g.moreinfo.url "http://adblockplus.org/en/faq_project#filterset.g">
-<!ENTITY filterset.g.uninstall "Filterset.G-г устгах">
 <!ENTITY subscriptionSelector.label "Жагсаалтаас шүүх мэдээлэгч сонгоно уу:">
 <!ENTITY viewList.label "Шүүлтүүрүүд харах">
 <!ENTITY visitHomepage.label "Үндсэн хуудсанд зочлох">
