@@ -1,5 +1,4 @@
 <!ENTITY dialog.title "Tentang Adblock Plus">
-<!ENTITY caption.title "Adblock Plus">
 <!ENTITY version.title "Versi">
 <!ENTITY description "
 	Adblock Plus membolehkan Anda untuk memilih apa yang tidak harus dilihat pada situs.
@@ -7,6 +6,5 @@
 	- katakan Adblock Plus!
 ">
 <!ENTITY homepage.label "Situs Adblock Plus:">
-<!ENTITY homepage.url "http://adblockplus.org/en/">
 <!ENTITY author.label "Pembuat:">
 <!ENTITY contributors.label "Para Kontributor:">

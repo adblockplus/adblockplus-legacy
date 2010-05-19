@@ -1,12 +1,8 @@
 <!ENTITY dialog.title "Verbo do Adblock Plus">
-<!ENTITY caption.title "Adblock Plus">
 <!ENTITY version.title "Versión">
 <!ENTITY description "Adblock Plus permítelle decidir o que vostede non desexa ver na Rede. Non necesita descargar todos os anuncios, cando non queira velos - avise a Adblock Plus!">
 <!ENTITY homepage.label "Páxina oficial do Adblock Plus">
-<!ENTITY homepage.url "http://adblockplus.org/">
 <!ENTITY author.label "Autor:">
 <!ENTITY contributors.label "Colaboradores:">
-<!ENTITY developers.label "Desenvolvedores:">
-<!ENTITY designers.label "Deseñadores gráficos:">
 <!ENTITY subscriptionAuthors.label "Autores das subscricións de filtros:">
 <!ENTITY translators.label "Tradutores:">

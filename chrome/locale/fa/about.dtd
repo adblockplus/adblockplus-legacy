@@ -1,9 +1,7 @@
 <!ENTITY dialog.title "Adblock Plus درباره">
-<!ENTITY caption.title "Adblock Plus">
 <!ENTITY version.title "نسخه">
 <!ENTITY description "Adblock Plus به شما اجازه برای تصمیم‌گیری در موارد قابل مشاهده در وب را می‌دهد.
 	دیگر لازم نیست که تمام تصویرها و موارد تبلیغاتی را بر خلاف میل شما دریافت شوند٬ این امر را به Adblock Plus واگزار کنید!">
 <!ENTITY homepage.label "صفحه خانگی Adblock Plus:">
-<!ENTITY homepage.url "http://adblockplus.org/">
 <!ENTITY author.label "نويسنده:">
 <!ENTITY contributors.label "همکاران:">
