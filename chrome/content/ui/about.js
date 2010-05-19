@@ -71,7 +71,7 @@ function loadInstallManifest(installManifestURI)
 
   function dataSourceLoaded()
   {
-    setContributors(getTargets("creator"), getTargets("contributor"), getTargets("translator"));
+    setContributors(getTargets("homepageURL")[0], getTargets("creator"), getTargets("contributor"), getTargets("translator"));
   }
 
   if (ds instanceof Ci.nsIRDFRemoteDataSource && ds.loaded)
@@ -104,12 +104,13 @@ function cmpNoCase(a, b)
     return 0;
 }
 
-function setContributors(authors, contributors, translators)
+function setContributors(homepage, authors, contributors, translators)
 {
   authors.sort(cmpNoCase);
   contributors.sort(cmpNoCase);
   translators.sort(cmpNoCase);
 
+  E("homepage").setAttribute("value", homepage);
   E("authors").textContent = authors.join(", ");
   E("contributors").textContent = contributors.join(", ");
   E("translators").textContent = translators.join(", ");
