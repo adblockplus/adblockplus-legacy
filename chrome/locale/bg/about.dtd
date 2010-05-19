@@ -1,12 +1,8 @@
 <!ENTITY dialog.title "Относно Adblock Плюс">
-<!ENTITY caption.title "Adblock Плюс">
 <!ENTITY version.title "Версия">
 <!ENTITY description "Adblock Плюс Ви позволява да решите какво не искате да виждате в Интернет. Вече не е необходимо да изтегляте всички реклами и банери, ако не ги искате - премахнете ги с Adblock Plus!">
 <!ENTITY homepage.label "Страница на Adblock Плюс:">
-<!ENTITY homepage.url "http://adblockplus.org/en/">
 <!ENTITY author.label "Автор:">
 <!ENTITY contributors.label "Сътрудници:">
-<!ENTITY developers.label "Разработчици:">
-<!ENTITY designers.label "Графични дизайнери:">
 <!ENTITY subscriptionAuthors.label "Автори на филтъра за абонаменти:">
 <!ENTITY translators.label "Преводачи:">

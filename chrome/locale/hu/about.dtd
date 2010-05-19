@@ -1,12 +1,8 @@
 <!ENTITY dialog.title "Az Adblock Plus névjegye">
-<!ENTITY caption.title "Adblock Plus">
 <!ENTITY version.title "Verzió">
 <!ENTITY description "Az Adblock Plus segítségével eldöntheti, mit nem szeretne látni a weboldalakon. Nem kell többé letölteni a sok reklámot és banner-t, csak bízza az Adblock Plus-ra!">
 <!ENTITY homepage.label "Az Adblock Plus honlapja:">
-<!ENTITY homepage.url "http://adblockplus.org/">
 <!ENTITY author.label "Készítette:">
 <!ENTITY contributors.label "Közreműködtek:">
-<!ENTITY developers.label "Fejlesztők:">
-<!ENTITY designers.label "Grafika:">
 <!ENTITY subscriptionAuthors.label "Külső szűrők készítői:">
 <!ENTITY translators.label "Fordítók:">

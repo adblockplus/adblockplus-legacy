@@ -1,7 +1,7 @@
 <!ENTITY dialog.title "Sottoscrizione di filtri di Adblock Plus">
 <!ENTITY dialog.title.edit "Modifica della sottoscrizione di filtri">
 <!ENTITY description.newInstall "
-    Grazie per aver installato Adblock Plus, che permette di eliminare il 99&#37; di pubblicità e banner in internet. Per filtrare
+		Grazie per aver installato Adblock Plus, che permette di eliminare il 99&#37; di pubblicità e banner in internet. Per filtrare
 	efficacemente pubblicità e banner è necessaria una buona serie di filtri. È possibile selezionare qui sotto una delle
 	sottoscrizioni di liste di filtri mantenute da terzi: quella più appropriata per nazione viene evidenziata (è possibile in 
 	seguito aggiungere manualmente ulteriori/propri filtri così come disattivare/eliminare le sottoscrizioni quando necessario)

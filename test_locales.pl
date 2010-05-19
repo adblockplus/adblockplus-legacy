@@ -55,6 +55,7 @@ my @ignoreUntranslated = (
   quotemeta("abp:settings:filters.label"),
   quotemeta("abp:sidebar:filter.label"),
   quotemeta("abp:meta:name"),
+  quotemeta("abp:meta:homepage"),
   quotemeta("ehh:composer:nodes-tree.class.label"),
   quotemeta("ehh:composer:nodes-tree.id.label"),
   quotemeta("ehh:global:noabp_warning_title"),

@@ -1,12 +1,8 @@
 <!ENTITY dialog.title "Adblock Plus Hakkında">
-<!ENTITY caption.title "Adblock Plus">
 <!ENTITY version.title "Sürüm">
 <!ENTITY description "Adblock Plus size internette neyi görmek istediğinize karar verme şansı sunar. Artık reklamları ve tanıtımları izlemek zorunda değilsiniz. Görmek istemediklerinizi Adblock Plus'a bildirin yeter!">
 <!ENTITY homepage.label "Adblock Plus ana sayfası:">
-<!ENTITY homepage.url "http://adblockplus.org/">
 <!ENTITY author.label "Yazar:">
 <!ENTITY contributors.label "Katkıda bulunanlar:">
-<!ENTITY developers.label "Geliştiriciler:">
-<!ENTITY designers.label "Grafik tasarımcılar:">
 <!ENTITY subscriptionAuthors.label "Süzgeç aboneliği yazarları:">
 <!ENTITY translators.label "Çevirmenler:">
