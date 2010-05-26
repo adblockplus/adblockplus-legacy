@@ -203,6 +203,7 @@ function WindowWrapper(window, hooks)
     this.fixupMenus();
     this.configureKeys();
     this.initContextMenu();
+    this.updateState();
 
     // Some people actually switch off browser.frames.enabled and are surprised
     // that things stop working...
