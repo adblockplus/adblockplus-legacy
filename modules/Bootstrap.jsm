@@ -125,9 +125,9 @@ var Bootstrap =
       Bootstrap.loadModule(uri);
     }
 
-/*    let observerService = Cc["@mozilla.org/observer-service;1"].getService(Ci.nsIObserverService);
+    let observerService = Cc["@mozilla.org/observer-service;1"].getService(Ci.nsIObserverService);
     observerService.addObserver(BootstrapPrivate, "xpcom-category-entry-added", true);
-    observerService.addObserver(BootstrapPrivate, "xpcom-category-entry-removed", true);*/
+    observerService.addObserver(BootstrapPrivate, "xpcom-category-entry-removed", true);
   
     TimeLine.leave("Bootstrap.startup() done");
   },
