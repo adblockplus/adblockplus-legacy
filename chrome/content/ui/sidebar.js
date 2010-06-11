@@ -426,12 +426,12 @@ function handleDblClick(event)
  */
 function openInTab(item, /**Event*/ event)
 {
-  if (!item)
-    item = treeView.getSelectedItem();
-  if (!item || item.typeDescr == "ELEMHIDE")
-    return;
-
-  Utils.loadInBrowser(item.location, mainWin, event);
+  let items = (item ? [item] : treeView.getAllSelectedItems());
+  for each (let item in items)
+  {
+    if (item && item.typeDescr != "ELEMHIDE")
+      Utils.loadInBrowser(item.location, mainWin, event);
+  }
 }
 
 function doBlock() {
