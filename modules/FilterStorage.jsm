@@ -404,13 +404,23 @@ var FilterStorage =
 
     TimeLine.log("done locating patterns.ini file");
 
+    let realSourceFile = sourceFile;
+    if (!realSourceFile || !realSourceFile.exists())
+    {
+      // patterns.ini doesn't exist - but maybe we have a default one?
+      let patternsURL = Utils.ioService.newURI("chrome://adblockplus-defaults/content/patterns.ini", null, null);
+      patternsURL = Utils.chromeRegistry.convertChromeURL(patternsURL);
+      if (patternsURL instanceof Ci.nsIFileURL)
+        realSourceFile = patternsURL.file;
+    }
+
     let stream = null;
     try
     {
-      if (sourceFile && sourceFile.exists())
+      if (realSourceFile && realSourceFile.exists())
       {
-        var fileStream = Cc["@mozilla.org/network/file-input-stream;1"].createInstance(Ci.nsIFileInputStream);
-        fileStream.init(sourceFile, 0x01, 0444, 0);
+        let fileStream = Cc["@mozilla.org/network/file-input-stream;1"].createInstance(Ci.nsIFileInputStream);
+        fileStream.init(realSourceFile, 0x01, 0444, 0);
 
         stream = Cc["@mozilla.org/intl/converter-input-stream;1"].createInstance(Ci.nsIConverterInputStream);
         stream.init(fileStream, "UTF-8", 16384, Ci.nsIConverterInputStream.DEFAULT_REPLACEMENT_CHARACTER);
@@ -419,7 +429,7 @@ var FilterStorage =
     }
     catch (e)
     {
-      dump("Adblock Plus: Failed to read filters from file " + sourceFile.path + ": " + e + "\n");
+      dump("Adblock Plus: Failed to read filters from file " + realSourceFile.path + ": " + e + "\n");
       stream = null;
     }
 
