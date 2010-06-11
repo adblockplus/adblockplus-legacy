@@ -136,7 +136,14 @@ var AdblockPlus =
     {
       filter = Filter.fromText(Filter.normalize(filter));
       if (filter)
+      {
+        if (filter.disabled)
+        {
+          filter.disabled = false;
+          FilterStorage.triggerFilterObservers("enable", [filter]);
+        }
         FilterStorage.addFilter(filter);
+      }
     }
     FilterStorage.saveToDisk();
   },
