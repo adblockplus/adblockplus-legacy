@@ -223,12 +223,9 @@ function onFilterChange(action, filters)
     {
       filters = filters.filter(function(filter)
       {
-        for each (let subscription in filter.subscriptions)
-        {
-          if (!(subscription instanceof SpecialSubscription) || subscription.disabled)
-            return false;
-        }
-        return true;
+        // For "add" only consider filters that have enabled subscriptions, for
+        // "remove" those that don't have any.
+        return ((action == "add") == filter.subscriptions.some(function(subscription) !subscription.disabled));
       });
     }
     filters.forEach(method);
