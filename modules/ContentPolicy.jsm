@@ -532,8 +532,11 @@ function getOriginWindow(/**Window*/ wnd) /**Window*/
   while (wnd != wnd.parent)
   {
     let uri = Utils.makeURI(wnd.location.href);
-    if (uri.spec != "about:blank" && !Utils.netUtils.URIChainHasFlags(uri, Ci.nsIProtocolHandler.URI_INHERITS_SECURITY_CONTEXT))
+    if (uri.spec != "about:blank" && uri.spec != "moz-safe-about:blank" &&
+        !Utils.netUtils.URIChainHasFlags(uri, Ci.nsIProtocolHandler.URI_INHERITS_SECURITY_CONTEXT))
+    {
       break;
+    }
     wnd = wnd.parent;
   }
   return wnd;
