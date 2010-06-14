@@ -134,6 +134,17 @@
     FilterStorage.triggerSubscriptionObservers("enable", [subscription]);
     checkKnownFilters("enable subscription", {blacklist: [filter1], whitelist: [filter2]});
 
+    subscription.disabled = true;
+    FilterStorage.triggerSubscriptionObservers("disable", [subscription]);
+    checkKnownFilters("disable subscription", {blacklist: [filter1]});
+    FilterStorage.addFilter(filter2);
+    checkKnownFilters("add filter2", {blacklist: [filter1], whitelist: [filter2]});
+    FilterStorage.removeFilter(filter2);
+    checkKnownFilters("remove filter2", {blacklist: [filter1]});
+    subscription.disabled = false;
+    FilterStorage.triggerSubscriptionObservers("enable", [subscription]);
+    checkKnownFilters("enable subscription", {blacklist: [filter1], whitelist: [filter2]});
+
     let subscription2 = Subscription.fromURL("~fl~");
     subscription2.disabled = true;
     FilterStorage.triggerSubscriptionObservers("disable", [subscription2]);
