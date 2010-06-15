@@ -13,6 +13,11 @@ locale    adblockplus {{LOCALE}} jar:chrome/adblockplus.jar!/locale/{{LOCALE}}/
 content   adblockplus-modules modules/
 content   adblockplus-defaults defaults/
 
+# Component registration
+component d32a3c00-4ed3-11de-8a39-0800200c9a66 components\Initializer.js
+contract @adblockplus.org/abp/startup;1 d32a3c00-4ed3-11de-8a39-0800200c9a66
+category profile-after-change @adblockplus.org/abp/startup;1 @adblockplus.org/abp/startup;1
+
 # Hack to prevent .Net Framework Assistant from messing up the browser
 override chrome://dotnetassistant/content/bootstrap.xul data:text/xml,<nada/>
 
