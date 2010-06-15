@@ -63,9 +63,10 @@ Initializer.prototype =
       case "app-startup":
         let observerService = Cc["@mozilla.org/observer-service;1"].getService(Ci.nsIObserverService);
         observerService.addObserver(this, "profile-after-change", true);
-        observerService.addObserver(this, "quit-application", true);
         break;
       case "profile-after-change":
+        observerService.addObserver(this, "quit-application", true);
+
         // Don't init in Fennec, initialization will happen when UI is ready
         let appInfo = Cc["@mozilla.org/xre/app-info;1"].getService(Ci.nsIXULAppInfo);
         if (appInfo.ID != "{a23983c0-fd0e-11dc-95ff-0800200c9a66}")
