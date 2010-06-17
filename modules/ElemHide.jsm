@@ -293,9 +293,8 @@ var ElemHidePrivate =
 
   newURI: function(spec, originCharset, baseURI)
   {
-    var url = Cc["@mozilla.org/network/standard-url;1"].createInstance(Ci.nsIStandardURL);
-    url.init(Ci.nsIStandardURL.URLTYPE_STANDARD,
-              0, spec, originCharset, baseURI);
+    let url = Cc["@mozilla.org/network/simple-uri;1"].createInstance(Ci.nsIURI);
+    url.spec = spec;
     return url;
   },
 
