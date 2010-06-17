@@ -58,10 +58,10 @@ Initializer.prototype =
 
   observe: function(subject, topic, data)
   {
+    let observerService = Cc["@mozilla.org/observer-service;1"].getService(Ci.nsIObserverService);
     switch (topic)
     {
       case "app-startup":
-        let observerService = Cc["@mozilla.org/observer-service;1"].getService(Ci.nsIObserverService);
         observerService.addObserver(this, "profile-after-change", true);
         break;
       case "profile-after-change":
@@ -79,6 +79,8 @@ Initializer.prototype =
         }
         break;
       case "quit-application":
+        observerService.removeObserver(this, "profile-after-change");
+        observerService.removeObserver(this, "quit-application");
         if ("@adblockplus.org/abp/private;1" in Cc)
         {
           let baseURL = Cc["@adblockplus.org/abp/private;1"].getService(Ci.nsIURI);
