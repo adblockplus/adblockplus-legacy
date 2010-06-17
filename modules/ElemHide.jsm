@@ -285,7 +285,8 @@ var ElemHidePrivate =
   //
 
   defaultPort: -1,
-  protocolFlags: Ci.nsIProtocolHandler.URI_STD |
+  protocolFlags: Ci.nsIProtocolHandler.URI_NORELATIVE |
+                 Ci.nsIProtocolHandler.URI_NOAUTH |
                  Ci.nsIProtocolHandler.URI_DANGEROUS_TO_LOAD |
                  Ci.nsIProtocolHandler.URI_NON_PERSISTABLE,
   scheme: "abp-elemhidehit-" + Math.random().toFixed(15).substr(5),
