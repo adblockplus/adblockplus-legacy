@@ -210,7 +210,7 @@ var ElemHide =
     // Joining domains list
     TimeLine.log("start building CSS data");
     let cssData = "";
-    let cssTemplate = "-moz-binding: url(" + ElemHidePrivate.scheme + "://%ID%/#dummy) !important;";
+    let cssTemplate = "-moz-binding: url(" + ElemHidePrivate.scheme + ":%ID%#dummy) !important;";
 
     for (let domain in domains)
     {
@@ -301,7 +301,7 @@ var ElemHidePrivate =
 
   newChannel: function(uri)
   {
-    if (!/:\/+(\d+)\//.test(uri.spec))
+    if (!/:(\d+)/.test(uri.spec))
       throw Cr.NS_ERROR_FAILURE;
 
     return new HitRegistrationChannel(uri, RegExp.$1);
