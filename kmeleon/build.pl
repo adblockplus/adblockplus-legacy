@@ -2,7 +2,7 @@
 
 use strict;
 use warnings;
-use lib qw(../..);
+use lib qw(../buildtools);
 use Packager;
 
 my %params = ();
@@ -17,10 +17,11 @@ if (@ARGV && $ARGV[0] =~ /^\+/)
 my $pkg = Packager->new(\%params);
 $pkg->readVersion('../version');
 
-my $GECKO_DIR = 'c:/gecko_sdk';
+my $KMELEON_SRC = 'c:/kmeleon_src';
+my $GECKO_DIR = 'c:/kmeleon_src/mozilla/mozilla/dist';
 my $CCFLAGS = '-O1 -W3 -LD -MT -DXP_WIN';
 my $LDFLAGS = '-DLL -NODEFAULTLIB -NOLOGO -PDB:../adblockplus.pdb';
-my @INCLUDE_DIRS = ('c:/kmeleon_src', "$GECKO_DIR/include");
+my @INCLUDE_DIRS = ("$KMELEON_SRC/src", map {"$GECKO_DIR/include/$_"} qw(caps dom gfx imglib2 js layout necko nspr pref string webbrwsr widget xpcom xpconnect));
 my @LIB_DIRS = ("$GECKO_DIR/lib");
 my @SOURCE_FILES = <*.cpp>;
 my @LIBS = qw(libcmt.lib kernel32.lib user32.lib gdi32.lib comctl32.lib nspr4.lib plds4.lib plc4.lib xpcom.lib xpcomglue_s.lib embed_base_s.lib js3250.lib);
