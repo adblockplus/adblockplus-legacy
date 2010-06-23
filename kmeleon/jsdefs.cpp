@@ -24,27 +24,27 @@
 
 #include "adblockplus.h"
 JSFunctionSpec window_methods[] = {
-  {"alert", JSAlert, 1, 0, 0},
-  {"setIcon", JSSetIcon, 1, 0, 0},
-  {"hideStatusBar", JSHideStatusBar, 1, 0, 0},
-  {"openTab", JSOpenTab, 2, 0, 0},
-  {"resetContextMenu", JSResetContextMenu, 0, 0, 0},
-  {"addContextMenuItem", JSAddContextMenuItem, 1, 0, 0},
-  {"createCommandID", JSCreateCommandID, 0, 0, 0},
-  {"createPopupMenu", JSCreatePopupMenu, 0, 0, 0},
-  {"addMenuItem", JSAddMenuItem, 7, 0, 0},
-  {"getHWND", JSGetHWND, 1, 0, 0},
-  {"subclassDialogWindow", JSSubclassDialogWindow, 1, 0, 0},
-  {"addRootListener", JSAddRootListener, 3, 0, 0},
-  {"removeRootListener", JSRemoveRootListener, 3, 0, 0},
-  {"focusWindow", JSFocusWindow, 1, 0, 0},
-  {"setTopmostWindow", JSSetTopmostWindow, 1, 0, 0},
-  {"showToolbarContext", JSShowToolbarContext, 1, 0, 0},
-  {NULL},
+  {"alert", JSAlert, 1, JSPROP_ENUMERATE|JSPROP_READONLY|JSPROP_PERMANENT, 0},
+  {"setIcon", JSSetIcon, 1, JSPROP_ENUMERATE|JSPROP_READONLY|JSPROP_PERMANENT, 0},
+  {"hideStatusBar", JSHideStatusBar, 1, JSPROP_ENUMERATE|JSPROP_READONLY|JSPROP_PERMANENT, 0},
+  {"openTab", JSOpenTab, 2, JSPROP_ENUMERATE|JSPROP_READONLY|JSPROP_PERMANENT, 0},
+  {"resetContextMenu", JSResetContextMenu, 0, JSPROP_ENUMERATE|JSPROP_READONLY|JSPROP_PERMANENT, 0},
+  {"addContextMenuItem", JSAddContextMenuItem, 1, JSPROP_ENUMERATE|JSPROP_READONLY|JSPROP_PERMANENT, 0},
+  {"createCommandID", JSCreateCommandID, 0, JSPROP_ENUMERATE|JSPROP_READONLY|JSPROP_PERMANENT, 0},
+  {"createPopupMenu", JSCreatePopupMenu, 0, JSPROP_ENUMERATE|JSPROP_READONLY|JSPROP_PERMANENT, 0},
+  {"addMenuItem", JSAddMenuItem, 7, JSPROP_ENUMERATE|JSPROP_READONLY|JSPROP_PERMANENT, 0},
+  {"getHWND", JSGetHWND, 1, JSPROP_ENUMERATE|JSPROP_READONLY|JSPROP_PERMANENT, 0},
+  {"subclassDialogWindow", JSSubclassDialogWindow, 1, JSPROP_ENUMERATE|JSPROP_READONLY|JSPROP_PERMANENT, 0},
+  {"addRootListener", JSAddRootListener, 3, JSPROP_ENUMERATE|JSPROP_READONLY|JSPROP_PERMANENT, 0},
+  {"removeRootListener", JSRemoveRootListener, 3, JSPROP_ENUMERATE|JSPROP_READONLY|JSPROP_PERMANENT, 0},
+  {"focusWindow", JSFocusWindow, 1, JSPROP_ENUMERATE|JSPROP_READONLY|JSPROP_PERMANENT, 0},
+  {"setTopmostWindow", JSSetTopmostWindow, 1, JSPROP_ENUMERATE|JSPROP_READONLY|JSPROP_PERMANENT, 0},
+  {"showToolbarContext", JSShowToolbarContext, 1, JSPROP_ENUMERATE|JSPROP_READONLY|JSPROP_PERMANENT, 0},
+  {nsnull, nsnull, 0, 0, 0},
 };
 JSPropertySpec window_properties[] = {
-  {"scriptable", 2, JSPROP_READONLY|JSPROP_PERMANENT, JSGetScriptable, nsnull},
-  {NULL},
+  {"scriptable", 2, JSPROP_ENUMERATE|JSPROP_READONLY|JSPROP_PERMANENT, JSGetScriptable, nsnull},
+  {nsnull, 0, 0, nsnull, nsnull},
 };
 
 WORD context_commands[] = {
