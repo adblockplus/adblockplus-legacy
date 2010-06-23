@@ -18,24 +18,25 @@ function _notifyLoadListeners() {
     _loadListeners[i].call(window);
 }
 
-var _timers = [];
+var _timers = {last: 0};
 function setInterval(callback, delay) {
   var timer = Components.classes["@mozilla.org/timer;1"]
                         .createInstance(Components.interfaces.nsITimer);
   timer.init({observe: callback}, delay, Components.interfaces.nsITimer.TYPE_REPEATING_SLACK);
-  _timers.push(timer);
+  _timers[++_timers.last] = timer;
 }
 function setTimeout(callback, delay) {
+  var index = ++_timers.last;
   var timer = Components.classes["@mozilla.org/timer;1"]
                         .createInstance(Components.interfaces.nsITimer);
   timer.init({
-    observe: function(){
-      delete _timers[this.index];
+    observe: function() {
       callback();
-    },
-    index: _timers.length
+      delete _timers[index];
+      timer = null;
+    }
   }, delay, Components.interfaces.nsITimer.TYPE_ONE_SHOT);
-  _timers.push(timer);
+  _timers[index] = timer;
 }
 
 function delayedOpenTab(url)
