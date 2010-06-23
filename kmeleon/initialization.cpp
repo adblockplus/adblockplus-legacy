@@ -148,9 +148,13 @@ PRBool CreateFakeBrowserWindow(JSContext* cx, JSObject* parent, nsIPrincipal* sy
   }
   JS_SetGlobalObject(cx, obj);
 
-  if (!JS_DefineFunctions(cx, obj, window_methods)) {
-    JS_ReportError(cx, "Adblock Plus: Failed to attach native methods to fake browser window");
-    return PR_FALSE;
+  // Have to loop through the methods manually because JS_DefineFunctions won't do anything for some reason
+  for (JSFunctionSpec *fs = window_methods; fs->name; fs++) {
+    JSFunction *fun = JS_DefineFunction(cx, obj, fs->name, fs->call, fs->nargs, fs->flags);
+    if (!fun) {
+      JS_ReportError(cx, "Adblock Plus: Failed to attach native methods to fake browser window");
+      return PR_FALSE;
+    }
   }
 
   if (!JS_DefineProperties(cx, obj, window_properties)) {
