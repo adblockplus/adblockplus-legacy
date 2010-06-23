@@ -39,7 +39,7 @@ function init()
   {
     let addon = AddonManager.getAddonByID(addonID, function(addon)
     {
-      loadInstallManifest(ioService.newURI(addon.getResourceURL("install.rdf"), null, null));
+      loadInstallManifest(addon.getResourceURI("install.rdf"));
     });
   }
   else
