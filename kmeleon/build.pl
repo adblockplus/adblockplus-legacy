@@ -19,12 +19,12 @@ $pkg->readVersion('../version');
 
 my $KMELEON_SRC = 'c:/kmeleon_src';
 my $GECKO_DIR = 'c:/kmeleon_src/mozilla/mozilla/dist';
-my $CCFLAGS = '-O1 -W3 -LD -MT -DXP_WIN';
+my $CCFLAGS = '-O1 -W3 -LD -MT -DXP_WIN -Zc:wchar_t-';
 my $LDFLAGS = '-DLL -NODEFAULTLIB -NOLOGO -PDB:../adblockplus.pdb';
-my @INCLUDE_DIRS = ("$KMELEON_SRC/src", map {"$GECKO_DIR/include/$_"} qw(caps dom gfx imglib2 js layout necko nspr pref string webbrwsr widget xpcom xpconnect));
+my @INCLUDE_DIRS = ("$KMELEON_SRC/src", map {"$GECKO_DIR/include/$_"} qw(caps content dom gfx imglib2 js layout necko nspr pref string webbrwsr widget xpcom xpconnect));
 my @LIB_DIRS = ("$GECKO_DIR/lib");
 my @SOURCE_FILES = <*.cpp>;
-my @LIBS = qw(libcmt.lib kernel32.lib user32.lib gdi32.lib comctl32.lib nspr4.lib plds4.lib plc4.lib xpcom.lib xpcomglue_s.lib embed_base_s.lib js3250.lib);
+my @LIBS = qw(libcmt.lib kernel32.lib user32.lib gdi32.lib comctl32.lib nspr4.lib plds4.lib plc4.lib xpcom.lib xpcomglue_s.lib embed_base_s.lib unicharutil_external_s.lib js3250.lib);
 
 $params{locales} = \@ARGV if @ARGV;
 $params{locales} = ["en-US"] unless exists $params{locales};

@@ -77,7 +77,7 @@ void ShowContextMenu(HWND hWnd, PRBool status) {
     jsval arg = (status ? JSVAL_TRUE : JSVAL_FALSE);
     jsval retval;
     if (JS_CallFunctionName(cx, overlay, "buildContextMenu", 1, &arg, &retval)) {
-      HMENU hMenu = NS_REINTERPRET_CAST(HMENU, JSVAL_TO_INT(retval));
+      HMENU hMenu = reinterpret_cast<HMENU>(JSVAL_TO_INT(retval));
 
       POINT pt;
       GetCursorPos(&pt);

@@ -57,7 +57,7 @@ WORD context_commands[] = {
  * JavaScript callbacks *
  ************************/
  
-JSBool JS_DLL_CALLBACK JSAlert(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
+JSBool JSAlert(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
   *rval = JSVAL_VOID;
 
   JSString* message;
@@ -68,7 +68,7 @@ JSBool JS_DLL_CALLBACK JSAlert(JSContext* cx, JSObject* obj, uintN argc, jsval* 
   return JS_TRUE;
 }
 
-JSBool JS_DLL_CALLBACK JSSetIcon(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
+JSBool JSSetIcon(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
   *rval = JSVAL_VOID;
 
   if (argc == 1)
@@ -81,7 +81,7 @@ JSBool JS_DLL_CALLBACK JSSetIcon(JSContext* cx, JSObject* obj, uintN argc, jsval
   return JS_TRUE;
 }
 
-JSBool JS_DLL_CALLBACK JSHideStatusBar(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
+JSBool JSHideStatusBar(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
   *rval = JSVAL_VOID;
 
   if (argc == 1)
@@ -90,7 +90,7 @@ JSBool JS_DLL_CALLBACK JSHideStatusBar(JSContext* cx, JSObject* obj, uintN argc,
   return JS_TRUE;
 }
 
-JSBool JS_DLL_CALLBACK JSOpenTab(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
+JSBool JSOpenTab(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
   *rval = JSVAL_VOID;
 
   char* url;
@@ -108,7 +108,7 @@ TCHAR* menus[] = {_T("DocumentPopup"), _T("DocumentImagePopup"), _T("TextPopup")
                   _T("FrameLinkPopup"), _T("FrameImageLinkPopup"), _T("FrameImagePopup"),
                   NULL};
 
-JSBool JS_DLL_CALLBACK JSResetContextMenu(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
+JSBool JSResetContextMenu(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
   *rval = JSVAL_VOID;
 
   for (int i = 0; menus[i]; i++) {
@@ -126,7 +126,7 @@ JSBool JS_DLL_CALLBACK JSResetContextMenu(JSContext* cx, JSObject* obj, uintN ar
   return JS_TRUE;
 }
 
-JSBool JS_DLL_CALLBACK JSAddContextMenuItem(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
+JSBool JSAddContextMenuItem(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
   *rval = JSVAL_VOID;
 
   int32 item;
@@ -162,20 +162,20 @@ JSBool JS_DLL_CALLBACK JSAddContextMenuItem(JSContext* cx, JSObject* obj, uintN 
   return JS_TRUE;
 }
 
-JSBool JS_DLL_CALLBACK JSCreateCommandID(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
+JSBool JSCreateCommandID(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
   *rval = INT_TO_JSVAL(kFuncs->GetCommandIDs(1));
 
   return JS_TRUE;
 }
 
-JSBool JS_DLL_CALLBACK JSCreatePopupMenu(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
+JSBool JSCreatePopupMenu(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
   HMENU ret = CreatePopupMenu();
   *rval = INT_TO_JSVAL(ret);
 
   return JS_TRUE;
 }
 
-JSBool JS_DLL_CALLBACK JSAddMenuItem(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
+JSBool JSAddMenuItem(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
   *rval = JSVAL_VOID;
 
   int32 menu;
@@ -209,7 +209,7 @@ JSBool JS_DLL_CALLBACK JSAddMenuItem(JSContext* cx, JSObject* obj, uintN argc, j
   return JS_TRUE;
 }
 
-JSBool JS_DLL_CALLBACK JSGetHWND(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
+JSBool JSGetHWND(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
   *rval = JSVAL_NULL;
 
   if (argc != 1) {
@@ -230,7 +230,7 @@ JSBool JS_DLL_CALLBACK JSGetHWND(JSContext* cx, JSObject* obj, uintN argc, jsval
   return JS_TRUE;
 }
 
-JSBool JS_DLL_CALLBACK JSSubclassDialogWindow(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
+JSBool JSSubclassDialogWindow(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
   *rval = JSVAL_VOID;
 
   int32 wnd;
@@ -242,7 +242,7 @@ JSBool JS_DLL_CALLBACK JSSubclassDialogWindow(JSContext* cx, JSObject* obj, uint
   return JS_TRUE;
 }
 
-JSBool JS_DLL_CALLBACK JSAddRootListener(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
+JSBool JSAddRootListener(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
   *rval = JSVAL_VOID;
 
   JSObject* wndObject;
@@ -259,11 +259,11 @@ JSBool JS_DLL_CALLBACK JSAddRootListener(JSContext* cx, JSObject* obj, uintN arg
   if (rootWnd == nsnull)
     return NS_ERROR_FAILURE;
 
-  nsCOMPtr<nsIChromeEventHandler> chromeHandler = rootWnd->GetChromeEventHandler();
-  if (chromeHandler == nsnull)
+  nsCOMPtr<nsPIDOMEventTarget> privateTarget = rootWnd->GetChromeEventHandler();
+  if (privateTarget == nsnull)
     return NS_ERROR_FAILURE;
 
-  nsCOMPtr<nsIDOMEventTarget> target = do_QueryInterface(chromeHandler);
+  nsCOMPtr<nsIDOMEventTarget> target = do_QueryInterface(privateTarget);
   if (target == nsnull)
     return NS_ERROR_FAILURE;
 
@@ -271,7 +271,7 @@ JSBool JS_DLL_CALLBACK JSAddRootListener(JSContext* cx, JSObject* obj, uintN arg
   return JS_TRUE;
 }
 
-JSBool JS_DLL_CALLBACK JSRemoveRootListener(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
+JSBool JSRemoveRootListener(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
   *rval = JSVAL_VOID;
 
   JSObject* wndObject;
@@ -288,11 +288,11 @@ JSBool JS_DLL_CALLBACK JSRemoveRootListener(JSContext* cx, JSObject* obj, uintN 
   if (rootWnd == nsnull)
     return NS_ERROR_FAILURE;
 
-  nsCOMPtr<nsIChromeEventHandler> chromeHandler = rootWnd->GetChromeEventHandler();
-  if (chromeHandler == nsnull)
+  nsCOMPtr<nsPIDOMEventTarget> privateTarget = rootWnd->GetChromeEventHandler();
+  if (privateTarget == nsnull)
     return NS_ERROR_FAILURE;
 
-  nsCOMPtr<nsIDOMEventTarget> target = do_QueryInterface(chromeHandler);
+  nsCOMPtr<nsIDOMEventTarget> target = do_QueryInterface(privateTarget);
   if (target == nsnull)
     return NS_ERROR_FAILURE;
 
@@ -300,7 +300,7 @@ JSBool JS_DLL_CALLBACK JSRemoveRootListener(JSContext* cx, JSObject* obj, uintN 
   return JS_TRUE;
 }
 
-JSBool JS_DLL_CALLBACK JSFocusWindow(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
+JSBool JSFocusWindow(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
   *rval = JSVAL_VOID;
 
   int32 wnd;
@@ -311,7 +311,7 @@ JSBool JS_DLL_CALLBACK JSFocusWindow(JSContext* cx, JSObject* obj, uintN argc, j
   return JS_TRUE;
 }
 
-JSBool JS_DLL_CALLBACK JSSetTopmostWindow(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
+JSBool JSSetTopmostWindow(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
   *rval = JSVAL_VOID;
 
   int32 wnd;
@@ -322,7 +322,7 @@ JSBool JS_DLL_CALLBACK JSSetTopmostWindow(JSContext* cx, JSObject* obj, uintN ar
   return JS_TRUE;
 }
 
-JSBool JS_DLL_CALLBACK JSShowToolbarContext(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
+JSBool JSShowToolbarContext(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval) {
   *rval = JSVAL_VOID;
 
   int32 wnd;
@@ -334,7 +334,7 @@ JSBool JS_DLL_CALLBACK JSShowToolbarContext(JSContext* cx, JSObject* obj, uintN 
   return JS_TRUE;
 }
 
-JSBool JS_DLL_CALLBACK JSGetScriptable(JSContext *cx, JSObject *obj, jsval id, jsval *vp) {
+JSBool JSGetScriptable(JSContext *cx, JSObject *obj, jsval id, jsval *vp) {
   nsresult rv;
 
   nsCOMPtr<nsIXPConnect> xpc = do_GetService(nsIXPConnect::GetCID());

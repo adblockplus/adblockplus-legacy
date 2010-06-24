@@ -57,7 +57,7 @@ abpJSContextHolder::~abpJSContextHolder() {
   }
 }
 
-JS_STATIC_DLL_CALLBACK(void) Reporter(JSContext *cx, const char *message, JSErrorReport *rep) {
+void Reporter(JSContext *cx, const char *message, JSErrorReport *rep) {
   nsresult rv;
 
   nsCOMPtr<nsIConsoleService> consoleService = do_GetService(NS_CONSOLESERVICE_CONTRACTID);
@@ -65,13 +65,11 @@ JS_STATIC_DLL_CALLBACK(void) Reporter(JSContext *cx, const char *message, JSErro
   if (consoleService == nsnull || errorObject == nsnull)
     return;
 
-  nsString messageUni(NS_ConvertASCIItoUTF16(message+0));
-  nsString fileUni(NS_ConvertASCIItoUTF16(rep->filename));
   PRUint32 column = rep->uctokenptr - rep->uclinebuf;
 
-  rv = errorObject->Init(messageUni.get(),
-                         fileUni.get(),
-                         NS_REINTERPRET_CAST(const PRUnichar*, rep->uclinebuf),
+  rv = errorObject->Init(NS_ConvertASCIItoUTF16(message).BeginReading(),
+                         NS_ConvertASCIItoUTF16(rep->filename).BeginReading(),
+                         reinterpret_cast<const PRUnichar*>(rep->uclinebuf),
                          rep->lineno, column, rep->flags, "XPConnect JavaScript");
   if (NS_FAILED(rv))
     return;

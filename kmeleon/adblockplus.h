@@ -43,8 +43,8 @@
 #include "nsIXPConnect.h"
 #include "nsIDOMEvent.h"
 #include "nsIDOMEventTarget.h"
+#include "nsPIDOMEventTarget.h"
 #include "nsIDOMEventListener.h"
-#include "nsIChromeEventHandler.h"
 #include "nsIURI.h"
 #include "nsIXPCScriptable.h"
 #include "nsIPrefService.h"
@@ -53,6 +53,7 @@
 #include "nsIScriptError.h"
 #include "nsIScriptSecurityManager.h"
 #include "nsIPrincipal.h"
+#include "imgIContainer.h"
 #include "imgIRequest.h"
 #include "imgILoader.h"
 #include "imgIDecoderObserver.h"
@@ -129,9 +130,9 @@ protected:
     if (entries + 1 > bufSize) {
       bufSize += 8;
       if (buffer == nsnull)
-        buffer = NS_STATIC_CAST(entryType*, PR_Malloc(bufSize * sizeof(entryType)));
+        buffer = static_cast<entryType*>(PR_Malloc(bufSize * sizeof(entryType)));
       else
-        buffer = NS_STATIC_CAST(entryType*, PR_Realloc(buffer, bufSize * sizeof(entryType)));
+        buffer = static_cast<entryType*>(PR_Realloc(buffer, bufSize * sizeof(entryType)));
     }
 
     buffer[entries].used = PR_TRUE;
@@ -309,26 +310,26 @@ PRBool CreateFakeBrowserWindow(JSContext* cx, JSObject* parent, nsIPrincipal* sy
 extern JSFunctionSpec window_methods[];
 extern JSPropertySpec window_properties[];
 
-JSBool JS_DLL_CALLBACK JSAlert(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
-JSBool JS_DLL_CALLBACK JSSetIcon(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
-JSBool JS_DLL_CALLBACK JSHideStatusBar(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
-JSBool JS_DLL_CALLBACK JSOpenTab(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
-JSBool JS_DLL_CALLBACK JSResetContextMenu(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
-JSBool JS_DLL_CALLBACK JSAddContextMenuItem(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
-JSBool JS_DLL_CALLBACK JSCreateCommandID(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
-JSBool JS_DLL_CALLBACK JSCreatePopupMenu(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
-JSBool JS_DLL_CALLBACK JSAddMenuItem(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
-JSBool JS_DLL_CALLBACK JSGetHWND(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
-JSBool JS_DLL_CALLBACK JSSubclassDialogWindow(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
-JSBool JS_DLL_CALLBACK JSAddRootListener(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
-JSBool JS_DLL_CALLBACK JSRemoveRootListener(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
-JSBool JS_DLL_CALLBACK JSFocusWindow(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
-JSBool JS_DLL_CALLBACK JSSetTopmostWindow(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
-JSBool JS_DLL_CALLBACK JSShowToolbarContext(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
-JSBool JS_DLL_CALLBACK JSGetScriptable(JSContext *cx, JSObject *obj, jsval id, jsval *vp);
+static JSBool JSAlert(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
+static JSBool JSSetIcon(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
+static JSBool JSHideStatusBar(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
+static JSBool JSOpenTab(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
+static JSBool JSResetContextMenu(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
+static JSBool JSAddContextMenuItem(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
+static JSBool JSCreateCommandID(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
+static JSBool JSCreatePopupMenu(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
+static JSBool JSAddMenuItem(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
+static JSBool JSGetHWND(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
+static JSBool JSSubclassDialogWindow(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
+static JSBool JSAddRootListener(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
+static JSBool JSRemoveRootListener(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
+static JSBool JSFocusWindow(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
+static JSBool JSSetTopmostWindow(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
+static JSBool JSShowToolbarContext(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
+static JSBool JSGetScriptable(JSContext *cx, JSObject *obj, jsval id, jsval *vp);
 
 // jstools.cpp
-JS_STATIC_DLL_CALLBACK(void) Reporter(JSContext *cx, const char *message, JSErrorReport *rep);
+static void Reporter(JSContext *cx, const char *message, JSErrorReport *rep);
 
 // listener.cpp
 extern nsCOMPtr<abpListener> listener;
