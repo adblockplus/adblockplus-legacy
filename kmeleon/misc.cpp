@@ -24,17 +24,31 @@
 
 #include "adblockplus.h"
 
-JSObject* UnwrapJSObject(nsISupports* native) {
-  nsCOMPtr<nsIXPConnectWrappedJS> holder = do_QueryInterface(native);
-  if (holder == nsnull)
-    return nsnull;
+JSBool CallModuleMethod(char* methodName, uintN argc, jsval* argv, jsval* retval, ArgsInitCallback callback, void* data)
+{
+  jsval localResult;
+  if (!retval)
+    retval = &localResult;
 
-  JSObject* innerObj;
-  nsresult rv = holder->GetJSObject(&innerObj);
-  if (NS_FAILED(rv))
-    return nsnull;
+  nsCOMPtr<xpcIJSModuleLoader> moduleLoader = do_GetService("@mozilla.org/moz/jsloader;1");
+  if (!moduleLoader)
+    return JS_FALSE;
 
-  return innerObj;
+  nsresult rv;
+  JSObject* globalObj;
+  rv = moduleLoader->ImportInto(NS_LITERAL_CSTRING("resource:///modules/adblockplus/AppIntegrationKMeleon.jsm"), nsnull, nsnull, &globalObj);
+  if (NS_FAILED(rv) || !globalObj)
+    return JS_FALSE;
+
+  abpJSContextHolder holder;
+  JSContext* cx = holder.get();
+  if (!cx)
+    return JS_FALSE;
+
+  if (callback && !callback(cx, globalObj, argv, data))
+    return JS_FALSE;
+
+  return JS_CallFunctionName(cx, globalObj, methodName, argc, argv, retval);
 }
 
 nsISupports* UnwrapNative(JSContext* cx, JSObject* obj) {
@@ -69,20 +83,17 @@ void OpenTab(const char* url, HWND hWnd) {
     kFuncs->SendMessage("layers", PLUGIN_NAME, "AddLayersToWindow", (LONG)"1", (LONG)url);
 }
 
-void ShowContextMenu(HWND hWnd, PRBool status) {
-  abpJSContextHolder holder;
-  JSObject* overlay = UnwrapJSObject(fakeBrowserWindow);
-  JSContext* cx = holder.get();
-  if (cx != nsnull && overlay != nsnull) {
-    jsval arg = (status ? JSVAL_TRUE : JSVAL_FALSE);
-    jsval retval;
-    if (JS_CallFunctionName(cx, overlay, "buildContextMenu", 1, &arg, &retval)) {
-      HMENU hMenu = reinterpret_cast<HMENU>(JSVAL_TO_INT(retval));
+void ShowContextMenu(HWND hWnd, PRBool status)
+{
+  jsval arg = (status ? JSVAL_TRUE : JSVAL_FALSE);
+  jsval retval;
+  if (CallModuleMethod("buildContextMenu", 1, &arg, &retval))
+  {
+    HMENU hMenu = reinterpret_cast<HMENU>(JSVAL_TO_INT(retval));
 
-      POINT pt;
-      GetCursorPos(&pt);
-      TrackPopupMenu(hMenu, TPM_LEFTALIGN, pt.x, pt.y, 0, hWnd, NULL);
-    }
+    POINT pt;
+    GetCursorPos(&pt);
+    TrackPopupMenu(hMenu, TPM_LEFTALIGN, pt.x, pt.y, 0, hWnd, NULL);
   }
 }
 
