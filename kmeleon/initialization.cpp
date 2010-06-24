@@ -135,7 +135,7 @@ PRBool CreateFakeBrowserWindow(JSContext* cx, JSObject* parent, nsIPrincipal* sy
     JS_ReportError(cx, "Adblock Plus: Coult not retrieve nsIXPConnect - wrong Gecko version?");
     return PR_FALSE;
   }
-  rv = xpc->FlagSystemFilenamePrefix("adblockplus.dll/");
+  rv = xpc->FlagSystemFilenamePrefix("adblockplus.dll/", PR_TRUE);
   if (NS_FAILED(rv)) {
     JS_ReportError(cx, "Adblock Plus: Failed to enable protection for inline JavaScript");
     return PR_FALSE;
