@@ -23,7 +23,7 @@
  * ***** END LICENSE BLOCK ***** */
 
 #include "adblockplus.h"
-JSFunctionSpec window_methods[] = {
+JSFunctionSpec module_functions[] = {
   {"alert", JSAlert, 1, JSPROP_ENUMERATE|JSPROP_READONLY|JSPROP_PERMANENT, 0},
   {"setIcon", JSSetIcon, 1, JSPROP_ENUMERATE|JSPROP_READONLY|JSPROP_PERMANENT, 0},
   {"hideStatusBar", JSHideStatusBar, 1, JSPROP_ENUMERATE|JSPROP_READONLY|JSPROP_PERMANENT, 0},
@@ -41,10 +41,6 @@ JSFunctionSpec window_methods[] = {
   {"setTopmostWindow", JSSetTopmostWindow, 1, JSPROP_ENUMERATE|JSPROP_READONLY|JSPROP_PERMANENT, 0},
   {"showToolbarContext", JSShowToolbarContext, 1, JSPROP_ENUMERATE|JSPROP_READONLY|JSPROP_PERMANENT, 0},
   {nsnull, nsnull, 0, 0, 0},
-};
-JSPropertySpec window_properties[] = {
-  {"scriptable", 2, JSPROP_ENUMERATE|JSPROP_READONLY|JSPROP_PERMANENT, JSGetScriptable, nsnull},
-  {nsnull, 0, 0, nsnull, nsnull},
 };
 
 WORD context_commands[] = {
@@ -331,26 +327,5 @@ JSBool JSShowToolbarContext(JSContext* cx, JSObject* obj, uintN argc, jsval* arg
 
   ShowContextMenu((HWND)wnd, PR_FALSE);
 
-  return JS_TRUE;
-}
-
-JSBool JSGetScriptable(JSContext *cx, JSObject *obj, jsval id, jsval *vp) {
-  nsresult rv;
-
-  nsCOMPtr<nsIXPConnect> xpc = do_GetService(nsIXPConnect::GetCID());
-  if (xpc == nsnull)
-    return JS_FALSE;
-
-  nsCOMPtr<nsIXPConnectJSObjectHolder> wrapperHolder;
-  rv = xpc->WrapNative(cx, JS_GetParent(cx, obj), scriptable, NS_GET_IID(nsISupports), getter_AddRefs(wrapperHolder));
-  if (NS_FAILED(rv))
-    return JS_FALSE;
-
-  JSObject* result;
-  rv = wrapperHolder->GetJSObject(&result);
-  if (NS_FAILED(rv))
-    return JS_FALSE;
-
-  *vp = OBJECT_TO_JSVAL(result);
   return JS_TRUE;
 }

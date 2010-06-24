@@ -41,34 +41,6 @@ mkdir('tmp', 0755) or die "Failed to create directory tmp: $!";
 $pkg->cp($_, "tmp/$_") foreach @SOURCE_FILES;
 $pkg->cp('adblockplus.h', 'tmp/adblockplus.h');
 
-open(INCLUDES, ">tmp/inline_scripts.cpp");
-print INCLUDES "char* includes[] = {\n";
-foreach my $include (sort <*.js>)
-{
-  next if $include eq "adblockplus_extra.js";
-
-  local $/;
-
-  open(FILE, $include);
-  my $inline_script = <FILE>;
-  close(FILE);
-
-  # Format string for macro definition
-  $inline_script =~ s/([\\"])/\\$1/g;
-  $inline_script =~ s/\r//g;
-  $inline_script =~ s/\n/\\n/g;
-  $inline_script =~ s/\t/\\t/g;
-
-  # Replace charset mark
-  my $charset = ($params{locales}[0] eq "ru-RU" ? "windows-1251" : ($params{locales}[0] eq "pl-PL" ? "windows-1250" : "iso-8859-1"));
-  $inline_script =~ s/\{\{CHARSET\}\}/$charset/g;
-
-  print INCLUDES qq(  "adblockplus.dll/$include", "$inline_script",\n);
-}
-print INCLUDES "  0\n};\n";
-close(INCLUDES);
-push @SOURCE_FILES, "inline_scripts.cpp";
-
 chdir('tmp');
 system("cl $CCFLAGS $includes @SOURCE_FILES @LIBS -Feadblockplus.dll -link $LDFLAGS $libs") && exit;
 system("mv -f adblockplus.dll ..") && exit;
@@ -81,7 +53,7 @@ chdir('../kmeleon');
 $pkg->rm_rec('tmp');
 mkdir('tmp', 0755) or die "Failed to create directory tmp: $!";
 
-$pkg->cp_rec("../$_", "tmp/$_") foreach ('components', 'defaults');
+$pkg->cp_rec("../defaults", "tmp/defaults");
 
 mkdir('tmp/chrome', 0755) or die "Failed to create directory tmp/chrome: $!";
 system("mv -f ../chrome/adblockplus.jar tmp/chrome/adblockplus.jar");
@@ -94,6 +66,8 @@ system("mv -f ../chrome/adblockplus.jar tmp/chrome/adblockplus.jar");
   close(FILE);
 
   $manifest =~ s/jar:chrome\//jar:/g;
+  $manifest =~ s/(\s)modules\//$1..\/modules\/adblockplus\//g;
+  $manifest =~ s/(\s)(defaults\/)/$1..\/$2/g;
 
   open(FILE, ">tmp/adblockplus.manifest");
   print FILE $manifest;
@@ -110,10 +84,14 @@ system("mv -f adblockplus.dll tmp/kplugins/adblockplus.dll");
 mkdir("tmp/macros", 0755) or die "Failed to created directory tmp/macros: $!";
 $pkg->cp("adblockplus.kmm", "tmp/macros/adblockplus.kmm");
 
+mkdir("tmp/modules", 0755) or die "Failed to created directory tmp/modules: $!";
+$pkg->cp_rec("../modules", "tmp/modules/adblockplus");
+$pkg->cp("AppIntegrationKMeleon.jsm", "tmp/modules/adblockplus/AppIntegrationKMeleon.jsm");
+
 chdir('tmp');
 
 unlink("../$output_file");
-print `zip -rX9 ../$output_file kplugins chrome components defaults macros`;
+system('zip', '-rX9', "../$output_file", qw(kplugins chrome defaults macros modules));
 
 chdir('..');
 $pkg->rm_rec('tmp');

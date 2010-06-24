@@ -32,69 +32,54 @@
 #define MOZILLA_STRICT_API
 #include "nsISupports.h"
 #include "nsCOMPtr.h"
-#include "nsComponentManagerUtils.h"
-#include "nsServiceManagerUtils.h"
-#include "nsIInterfaceRequestorUtils.h"
 #include "nsIObserver.h"
-#include "nsIDOMWindow.h"
-#include "nsIDOMWindowInternal.h"
 #include "nsPIDOMWindow.h"
 #include "nsIEmbeddingSiteWindow.h"
 #include "nsIXPConnect.h"
+#include "xpcIJSModuleLoader.h"
 #include "nsIDOMEvent.h"
 #include "nsIDOMEventTarget.h"
 #include "nsPIDOMEventTarget.h"
 #include "nsIDOMEventListener.h"
 #include "nsIURI.h"
-#include "nsIXPCScriptable.h"
 #include "nsIPrefService.h"
 #include "nsIPrefBranch.h"
 #include "nsIConsoleService.h"
 #include "nsIScriptError.h"
-#include "nsIScriptSecurityManager.h"
-#include "nsIPrincipal.h"
 #include "imgIContainer.h"
 #include "imgIRequest.h"
 #include "imgILoader.h"
 #include "imgIDecoderObserver.h"
 #include "gfxIImageFrame.h"
 #include "nsIIOService.h"
-#include "nsIComponentRegistrar.h"
-#include "nsIProperties.h"
-#include "nsDirectoryServiceDefs.h"
-#include "nsILocalFile.h"
 #include "nsIJSContextStack.h"
-#include "nsXPCOM.h"
 #include "nsEmbedString.h"
 #include "jsapi.h"
 #include "prmem.h"
+#include "nsNetUtil.h"
 
 #define PLUGIN_NAME "Adblock Plus " ABP_VERSION
-#define ADBLOCKPLUS_CONTRACTID "@mozilla.org/adblockplus;1"
 
 enum {CMD_PREFERENCES, CMD_LISTALL, CMD_TOGGLEENABLED, CMD_IMAGE, CMD_OBJECT, CMD_FRAME, CMD_SEPARATOR, CMD_TOOLBAR, CMD_STATUSBAR, NUM_COMMANDS};
 enum {LABEL_CONTEXT_IMAGE, LABEL_CONTEXT_OBJECT, LABEL_CONTEXT_FRAME, NUM_LABELS};
 
-class abpScriptable : public nsIXPCScriptable {
-public:
-  NS_DECL_ISUPPORTS
-  NS_DECL_NSIXPCSCRIPTABLE
-};
-
-class abpListener : public nsIDOMEventListener {
+class abpListener : public nsIDOMEventListener
+{
 public:
   NS_DECL_ISUPPORTS
   NS_DECL_NSIDOMEVENTLISTENER
 };
 
-class abpImgObserver : public imgIDecoderObserver {
+class abpImgObserver : public imgIDecoderObserver
+{
 public:
   NS_DECL_ISUPPORTS
   NS_DECL_IMGIDECODEROBSERVER
   NS_DECL_IMGICONTAINEROBSERVER
 };
 
-class abpJSContextHolder {
+class abpJSContextHolder
+{
 public:
   abpJSContextHolder();
   ~abpJSContextHolder();
@@ -298,17 +283,13 @@ extern nsCOMPtr<abpImgObserver> imgObserver;
 // initialization.cpp
 extern abpToolbarDataList toolbarList;
 extern abpStatusBarList statusbarList;
-extern nsCOMPtr<nsIDOMWindowInternal> fakeBrowserWindow;
 extern WORD cmdBase;
 extern char labelValues[NUM_LABELS][100];
 
 PRBool Load();
-JSObject* GetComponentObject(JSContext* cx);
-PRBool CreateFakeBrowserWindow(JSContext* cx, JSObject* parent, nsIPrincipal* systemPrincipal);
 
 // jsdefs.cpp
-extern JSFunctionSpec window_methods[];
-extern JSPropertySpec window_properties[];
+extern JSFunctionSpec module_functions[];
 
 static JSBool JSAlert(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
 static JSBool JSSetIcon(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
@@ -326,7 +307,6 @@ static JSBool JSRemoveRootListener(JSContext* cx, JSObject* obj, uintN argc, jsv
 static JSBool JSFocusWindow(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
 static JSBool JSSetTopmostWindow(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
 static JSBool JSShowToolbarContext(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval);
-static JSBool JSGetScriptable(JSContext *cx, JSObject *obj, jsval id, jsval *vp);
 
 // jstools.cpp
 static void Reporter(JSContext *cx, const char *message, JSErrorReport *rep);
@@ -335,7 +315,8 @@ static void Reporter(JSContext *cx, const char *message, JSErrorReport *rep);
 extern nsCOMPtr<abpListener> listener;
 
 // misc.cpp
-JSObject* UnwrapJSObject(nsISupports* native);
+typedef JSBool (*ArgsInitCallback)(JSContext* cx, JSObject* globalObj, jsval* args, void* data);
+JSBool CallModuleMethod(char* methodName, uintN argc, jsval* argv, jsval* retval = nsnull, ArgsInitCallback callback = nsnull, void* data = nsnull);
 nsISupports* UnwrapNative(JSContext* cx, JSObject* obj);
 void OpenTab(const char* url, HWND hWnd);
 void ShowContextMenu(HWND hWnd, PRBool status);
@@ -360,9 +341,3 @@ void ReadAccelerator(nsIPrefBranch* branch, const char* pref, const char* comman
 void LoadImage();
 void DoneLoadingImage();
 INT CommandByName(LPCSTR action);
-
-// scriptable.cpp
-extern nsCOMPtr<abpScriptable> scriptable;
-
-// inline_scripts.cpp
-extern char* includes[];

@@ -32,32 +32,34 @@ NS_IMPL_ISUPPORTS1(abpListener, nsIDOMEventListener)
  * nsIDOMEventListener implementation *
  **************************************/
 
-nsresult abpListener::HandleEvent(nsIDOMEvent* event) {
+JSBool InitEventArgs(JSContext* cx, JSObject* globalObj, jsval* args, void* data)
+{
   nsresult rv;
-
-  abpJSContextHolder holder;
-  JSObject* overlay = UnwrapJSObject(fakeBrowserWindow);
-  JSContext* cx = holder.get();
-  if (cx == nsnull || overlay == nsnull)
-    return NS_ERROR_FAILURE;
+  nsCOMPtr<nsIDOMEvent> event(reinterpret_cast<nsIDOMEvent*>(data));
 
   nsCOMPtr<nsIXPConnect> xpc = do_GetService(nsIXPConnect::GetCID());
-  if (xpc == nsnull)
-    return NS_ERROR_FAILURE;
+  if (!xpc)
+    return JS_FALSE;
 
   nsCOMPtr<nsIXPConnectJSObjectHolder> wrapperHolder;
-  rv = xpc->WrapNative(cx, JS_GetParent(cx, overlay), event, NS_GET_IID(nsIDOMEvent), getter_AddRefs(wrapperHolder));
+  rv = xpc->WrapNative(cx, globalObj, event, NS_GET_IID(nsIDOMEvent), getter_AddRefs(wrapperHolder));
   if (NS_FAILED(rv))
-    return rv;
+    return JS_FALSE;
 
   JSObject* jsObj;
   rv = wrapperHolder->GetJSObject(&jsObj);
   if (NS_FAILED(rv))
-    return rv;
+    return JS_FALSE;
 
-  jsval arg = OBJECT_TO_JSVAL(jsObj);
-  jsval retval;  
-  JS_CallFunctionName(cx, overlay, "onEvent", 1, &arg, &retval);
+  args[0] = OBJECT_TO_JSVAL(jsObj);
+  return JS_TRUE;
+}
+
+nsresult abpListener::HandleEvent(nsIDOMEvent* event)
+{
+  jsval arg;
+  if (!CallModuleMethod("onEvent", 1, &arg, nsnull, InitEventArgs, reinterpret_cast<void*>(event)))
+    return NS_ERROR_FAILURE;
 
   return NS_OK;
 }
