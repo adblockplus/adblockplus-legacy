@@ -81,6 +81,17 @@ var Utils =
   },
 
   /**
+   * Returns version of the Gecko platform
+   */
+  get platformVersion()
+  {
+    let appInfo = Cc["@mozilla.org/xre/app-info;1"].getService(Ci.nsIXULAppInfo);
+    let platformVersion = appInfo.platformVersion;
+    Utils.__defineGetter__("platformVersion", function() platformVersion);
+    return Utils.platformVersion;
+  },
+
+  /**
    * Retrieves a string from global.properties string bundle, will throw if string isn't found.
    * 
    * @param {String} name  string name

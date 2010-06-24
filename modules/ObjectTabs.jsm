@@ -136,9 +136,7 @@ var objTabs =
    */
   get _objectOverlapsBorder()
   {
-    let result = (Utils.versionComparator.compare(
-                        Cc["@mozilla.org/xre/app-info;1"].getService(Ci.nsIXULAppInfo).platformVersion,
-                        "1.9.2") < 0);
+    let result = (Utils.versionComparator.compare(Utils.platformVersion, "1.9.2") < 0);
     this.__defineGetter__("_objectOverlapsBorder", function() result);
     return result;
   },
