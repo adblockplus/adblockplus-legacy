@@ -129,7 +129,7 @@ NS_METHOD abpScriptable::Construct(nsIXPConnectWrappedNative* wrapper, JSContext
 NS_METHOD abpScriptable::HasInstance(nsIXPConnectWrappedNative* wrapper, JSContext* cx, JSObject* obj, jsval val, PRBool* bp, PRBool* _retval) {
   return NS_ERROR_NOT_IMPLEMENTED;
 }
-NS_METHOD abpScriptable::Mark(nsIXPConnectWrappedNative* wrapper, JSContext* cx, JSObject* obj, void* arg, PRUint32* _retval) {
+NS_METHOD abpScriptable::Trace(nsIXPConnectWrappedNative* wrapper, JSTracer* trc, JSObject* obj) {
   return NS_ERROR_NOT_IMPLEMENTED;
 }
 NS_METHOD abpScriptable::Equality(nsIXPConnectWrappedNative* wrapper, JSContext* cx, JSObject* obj, jsval val, PRBool* _retval) {
@@ -139,5 +139,8 @@ NS_METHOD abpScriptable::OuterObject(nsIXPConnectWrappedNative* wrapper, JSConte
   return NS_ERROR_NOT_IMPLEMENTED;
 }
 NS_METHOD abpScriptable::InnerObject(nsIXPConnectWrappedNative* wrapper, JSContext* cx, JSObject* obj, JSObject** _retval) {
+  return NS_ERROR_NOT_IMPLEMENTED;
+}
+NS_METHOD abpScriptable::PostCreatePrototype(JSContext* cx, JSObject* proto) {
   return NS_ERROR_NOT_IMPLEMENTED;
 }
