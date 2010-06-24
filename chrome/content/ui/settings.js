@@ -67,7 +67,7 @@ function init()
   applyBtn.hidden = false;
 
   // Convert menubar into toolbar on Mac OS X
-  let isMac = (Cc["@mozilla.org/xre/app-info;1"].getService(Ci.nsIXULRuntime).OS == "Darwin");
+  let isMac = ("@mozilla.org/xre/app-info;1" in Cc && Cc["@mozilla.org/xre/app-info;1"].getService(Ci.nsIXULRuntime).OS == "Darwin");
   if (isMac)
   {
     function copyAttributes(from, to)
