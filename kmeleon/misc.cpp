@@ -85,9 +85,12 @@ void OpenTab(const char* url, HWND hWnd) {
 
 void ShowContextMenu(HWND hWnd, PRBool status)
 {
-  jsval arg = (status ? JSVAL_TRUE : JSVAL_FALSE);
+  jsval args[] = {
+    INT_TO_JSVAL(hWnd),
+    status ? JSVAL_TRUE : JSVAL_FALSE
+  };
   jsval retval;
-  if (CallModuleMethod("buildContextMenu", 1, &arg, &retval))
+  if (CallModuleMethod("buildContextMenu", 2, args, &retval))
   {
     HMENU hMenu = reinterpret_cast<HMENU>(JSVAL_TO_INT(retval));
 
