@@ -107,6 +107,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         (wParam == cmdBase + CMD_TOOLBAR || wParam == cmdBase + CMD_STATUSBAR))
     {
       jsval args[] = {
+          INT_TO_JSVAL(hWnd),
           wParam == cmdBase + CMD_STATUSBAR ? JSVAL_TRUE : JSVAL_FALSE,
           notifyHeader->code == (UINT)TTN_NEEDTEXTW ? JSVAL_TRUE : JSVAL_FALSE
       };
