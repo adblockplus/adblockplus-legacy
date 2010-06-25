@@ -111,11 +111,17 @@ void Quit() {
 void Create(HWND parent) {
   statusbarList.addStatusBar(parent);
   origWndProc = SubclassWindow(parent, &WndProc);
+
+  jsval arg = INT_TO_JSVAL((int32)parent);
+  CallModuleMethod("onBrowserWindowOpened", 1, &arg);
 }
 
 void Close(HWND parent) {
   toolbarList.removeWindow(parent);
   statusbarList.removeStatusBar(parent);
+
+  jsval arg = INT_TO_JSVAL((int32)parent);
+  CallModuleMethod("onBrowserWindowClosed", 1, &arg);
 }
 
 void Config(HWND parent) {
