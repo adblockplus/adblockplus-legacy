@@ -43,11 +43,6 @@ function init()
 {
   if (window.arguments  && window.arguments.length)
   {
-    // In K-Meleon we might get the arguments wrapped
-    for (var i = 0; i < window.arguments.length; i++)
-      if (window.arguments[i] && "wrappedJSObject" in window.arguments[i])
-        window.arguments[i] = window.arguments[i].wrappedJSObject;
-
     newInstall = false;
     [source, result] = window.arguments;
     if (window.arguments.length > 2 && window.arguments[2])
