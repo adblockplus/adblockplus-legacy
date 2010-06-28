@@ -59,8 +59,27 @@ Utils.__defineGetter__("platformVersion", function() "1.9.1");
 Cu.import("resource:///modules/adblockplus/AppIntegration.jsm");
 Cu.import("resource:///modules/adblockplus/Prefs.jsm");
 
-let windowWatcher = Components.classes["@mozilla.org/embedcomp/window-watcher;1"]
-                              .getService(Components.interfaces.nsIWindowWatcher);
+let windowWatcher = Cc["@mozilla.org/embedcomp/window-watcher;1"].getService(Ci.nsIWindowWatcher);
+
+// Detect OEM locale to be used - yes, K-Meleon still doesn't support Unicode
+let unicodeConverter = Cc["@mozilla.org/intl/scriptableunicodeconverter"].createInstance(Ci.nsIScriptableUnicodeConverter);
+unicodeConverter.charset = "iso-8859-1";
+try
+{
+  let xulRegistry = Cc["@mozilla.org/chrome/chrome-registry;1"].getService(Ci.nsIXULChromeRegistry);
+  let locale = xulRegistry.getSelectedLocale("adblockplus");
+  if (locale == "ru")
+    unicodeConverter.charset = "windows-1251";
+  else if (locale == "pl")
+    unicodeConverter.charset = "windows-1250";
+}
+catch(e){}
+
+function convertUIString(str)
+{
+  str = str.replace(/\u2026/g, '...');
+  return unicodeConverter.ConvertFromUnicode(str);
+}
 
 // Register quit observer to shut down Bootstrap.jsm when necessary
 {
@@ -78,6 +97,17 @@ let windowWatcher = Components.classes["@mozilla.org/embedcomp/window-watcher;1"
     QueryInterface: XPCOMUtils.generateQI([Ci.nsIObserver, Ci.nsISupportsWeakReference]),
   };
   observerService.addObserver(observer, "quit-application", true);
+}
+
+/**
+ * Load overlay document with all elements AppIntegration expects.
+ */
+var overlay = null;
+{
+  let request = Cc["@mozilla.org/xmlextras/xmlhttprequest;1"].createInstance(Ci.nsIXMLHttpRequest);
+  request.open("GET", "chrome://adblockplus/content/ui/overlayGeneral.xul", false);
+  request.send(null);
+  overlay = request.responseXML;
 }
 
 /**
@@ -189,10 +219,7 @@ FakeWindow.prototype =
     id: null,
     hasAttribute: function() true
   },
-  popupNode:
-  {
-    id: null
-  },
+  popupNode: null,
 
   get document() this,
 
@@ -201,7 +228,12 @@ FakeWindow.prototype =
     if (id == "abp-hooks")
       return hooks;
 
-    return null;
+    return overlay.querySelector('[id="' + id + '"]');
+  },
+
+  createElement: function(tagName)
+  {
+    return overlay.createElement(tagName);
   },
 
   listeners: {__proto__: null},
@@ -230,6 +262,17 @@ FakeWindow.prototype =
     let params = Array.prototype.slice.call(arguments, 1);
     for each (let listener in this.listeners[eventType])
       listener.apply(this, params);
+  },
+
+  triggerOverlayEvent: function(id, eventType)
+  {
+    let element = this.getElementById(id);
+    if (!element)
+      return;
+
+    let event = overlay.createEvent("UIEvents");
+    event.initUIEvent(eventType, false, true, null, 0);
+    element.dispatchEvent(event);
   },
 
   addProgressListener: function(listener)
@@ -266,7 +309,7 @@ FakeWindow.prototype =
 
   getContextMenu: function()
   {
-    return null;
+    return this.getElementById("abp-overlay-general");
   },
 };
 
@@ -302,15 +345,15 @@ function onCommand(command, hWnd, id)
   else if (command == "enable")
     wnd.wrapper.executeAction(3);
   else if (command == "image")
-    triggerEvent("abp-image-menuitem", "command");
+    wnd.triggerOverlayEvent("abp-image-menuitem", "command");
   else if (command == "object")
-    triggerEvent("abp-object-menuitem", "command");
+    wnd.triggerOverlayEvent("abp-object-menuitem", "command");
   else if (command == "frame")
-    triggerEvent("abp-frame-menuitem", "command");
+    wnd.triggerOverlayEvent("abp-frame-menuitem", "command");
   else if (command == "toolbar")
-    triggerEvent("abp-toolbarbutton", "command");
+    wnd.triggerOverlayEvent("abp-toolbarbutton", "command");
   else if (command == "statusbar")
-    triggerEvent("abp-status", "click", {button: 0});
+    wnd.triggerOverlayEvent("abp-status", "click", {button: 0});
   else if (command == "menu")
     triggerMenuItem(id);
 }
@@ -333,9 +376,42 @@ function onDialogMove(hWnd)
 {
 }
 
+let contextMenuItems = [
+  "abp-removeWhitelist-menuitem",
+  "abp-frame-menuitem",
+  "abp-object-menuitem",
+  "abp-media-menuitem",
+  "abp-image-menuitem"
+];
+
 function onEvent(event)
 {
-  if (event.type == "focus" && event.target instanceof Components.interfaces.nsIDOMDocument)
+  if (event.type == "contextmenu")
+  {
+    let tab = event.target.ownerDocument.defaultView.QueryInterface(Ci.nsIInterfaceRequestor)
+                     .getInterface(Ci.nsIWebNavigation)
+                     .QueryInterface(Ci.nsIDocShellTreeItem)
+                     .rootTreeItem
+                     .QueryInterface(Ci.nsIInterfaceRequestor)
+                     .getInterface(Ci.nsIDOMWindow);
+    let wnd = windows.getWindowForTab(tab);
+    if (wnd)
+    {
+      resetContextMenu();
+
+      wnd.popupNode = event.target;
+      wnd.wrapper.updateContextMenu();
+      wnd.popupNode = null;
+
+      for (let i = 0; i < contextMenuItems.length; i++)
+      {
+        let element = wnd.getElementById(contextMenuItems[i]);
+        if (!element.hidden)
+          addContextMenuItem(i, convertUIString(element.getAttribute("label")));
+      }
+    }
+  }
+  else if (event.type == "focus" && event.target instanceof Components.interfaces.nsIDOMDocument)
   {
     let tab = event.target.defaultView;
     let wnd = windows.getWindowForTab(tab);
@@ -372,8 +448,9 @@ function buildContextMenu(hWnd, status)
   if (!wnd)
     return null;
 
-  wnd.popupNode.id = (status ? "abp-status" : "abp-toolbarbutton");
+  wnd.popupNode = {id: status ? "abp-status" : "abp-toolbarbutton"};
   wnd.wrapper.fillPopup({getAttribute: function() "abp-toolbar-popup"});
+  wnd.popupNode = null;
 
   return addMenuItems(overlayContextMenu);
 }
