@@ -27,13 +27,6 @@
 abpToolbarDataList toolbarList;
 abpStatusBarList statusbarList;
 WORD cmdBase = 0;
-char labelValues[NUM_LABELS][100];
-
-char* context_labels[] = {
-  "context.image...",
-  "context.object...",
-  "context.frame...",
-};
 
 PRBool Load() {
   nsresult rv;

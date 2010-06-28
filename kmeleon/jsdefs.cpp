@@ -44,9 +44,11 @@ JSFunctionSpec module_functions[] = {
 };
 
 WORD context_commands[] = {
-  CMD_IMAGE,
+  CMD_DISABLE_WHITELIST,
+  CMD_FRAME,
   CMD_OBJECT,
-  CMD_FRAME
+  CMD_MEDIA,
+  CMD_IMAGE
 };
 
 /************************
@@ -126,11 +128,9 @@ JSBool JSAddContextMenuItem(JSContext* cx, JSObject* obj, uintN argc, jsval* arg
   *rval = JSVAL_VOID;
 
   int32 item;
-  if (!JS_ConvertArguments(cx, argc, argv, "j", &item))
+  char* label;
+  if (!JS_ConvertArguments(cx, argc, argv, "js", &item, &label))
     return JS_FALSE;
-
-  if (item < 0 || item >= NUM_LABELS)
-    return JS_TRUE;
 
   MENUITEMINFO info = {0};
   info.cbSize = sizeof info;
@@ -152,7 +152,8 @@ JSBool JSAddContextMenuItem(JSContext* cx, JSObject* obj, uintN argc, jsval* arg
         if (GetMenuItemInfo(hMenu, 0, TRUE, &info) && !(info.fType & MFT_OWNERDRAW))
           drawFlag = MF_STRING;
       }
-      AppendMenuA(hMenu, drawFlag, cmdBase + context_commands[item], labelValues[item]);
+
+      AppendMenuA(hMenu, drawFlag, cmdBase + context_commands[item], label);
     }
   }
   return JS_TRUE;
