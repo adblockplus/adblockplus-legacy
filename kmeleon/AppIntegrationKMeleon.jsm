@@ -108,6 +108,10 @@ var overlay = null;
   request.open("GET", "chrome://adblockplus/content/ui/overlayGeneral.xul", false);
   request.send(null);
   overlay = request.responseXML;
+
+  let sidebarElement = overlay.querySelector('[id="abp-sidebar"]');
+  if (sidebarElement)
+    sidebarElement.parentNode.removeChild(sidebarElement);
 }
 
 /**
