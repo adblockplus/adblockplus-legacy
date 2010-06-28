@@ -44,7 +44,7 @@ JSFunctionSpec module_functions[] = {
 };
 
 WORD context_commands[] = {
-  CMD_DISABLE_WHITELIST,
+  CMD_REMOVE_WHITELIST,
   CMD_FRAME,
   CMD_OBJECT,
   CMD_MEDIA,
