@@ -61,14 +61,20 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
       case CMD_TOGGLEENABLED:
         commandName = "enable";
         break;
-      case CMD_IMAGE:
-        commandName = "image";
+      case CMD_DISABLE_WHITELIST:
+        commandName = "disableWhitelist";
+        break;
+      case CMD_FRAME:
+        commandName = "frame";
         break;
       case CMD_OBJECT:
         commandName = "object";
         break;
-      case CMD_FRAME:
-        commandName = "frame";
+      case CMD_MEDIA:
+        commandName = "media";
+        break;
+      case CMD_IMAGE:
+        commandName = "image";
         break;
       case CMD_TOOLBAR:
         commandName = "toolbar";
@@ -83,7 +89,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     }
 
     jsval args[] = {JSVAL_FALSE, INT_TO_JSVAL(hWnd), INT_TO_JSVAL(LOWORD(wParam))};
-    CallModuleMethod("onCommand", 3, args, nsnull, InitCommandArgs, reinterpret_cast<char*>(commandName));
+    CallModuleMethod("onCommand", 4, args, nsnull, InitCommandArgs, reinterpret_cast<char*>(commandName));
 
     if (done)
       return TRUE;
