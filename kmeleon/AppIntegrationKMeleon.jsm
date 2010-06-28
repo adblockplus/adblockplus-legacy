@@ -287,6 +287,23 @@ FakeWindow.prototype =
   get contentWindow() this.currentTab || {location: {href: "about:blank"}},
   get location() this.contentWindow.location,
 
+  openDialog: function(url, windowName, features)
+  {
+    let params = null;
+    if (arguments.length > 3)
+    {
+      params = Cc["@mozilla.org/array;1"].createInstance(Components.interfaces.nsIMutableArray);
+      for (let i = 3; i < arguments.length; i++)
+      {
+        let variant = Cc["@mozilla.org/variant;1"].createInstance(Ci.nsIWritableVariant);
+        variant.setAsInterface(Ci.nsIVariant, arguments[i]);
+        params.appendElement(variant, false);
+      }
+    }
+
+    return windowWatcher.openWindow(null, url, windowName, features, params);
+  },
+
   setCurrentTab: function(tab)
   {
     if (tab == this.currentTab)
@@ -344,12 +361,16 @@ function onCommand(command, hWnd, id)
     wnd.wrapper.executeAction(2);
   else if (command == "enable")
     wnd.wrapper.executeAction(3);
-  else if (command == "image")
-    wnd.triggerOverlayEvent("abp-image-menuitem", "command");
-  else if (command == "object")
-    wnd.triggerOverlayEvent("abp-object-menuitem", "command");
+  else if (command == "removeWhitelist")
+    wnd.triggerOverlayEvent("abp-removeWhitelist-menuitem", "command");
   else if (command == "frame")
     wnd.triggerOverlayEvent("abp-frame-menuitem", "command");
+  else if (command == "object")
+    wnd.triggerOverlayEvent("abp-object-menuitem", "command");
+  else if (command == "media")
+    wnd.triggerOverlayEvent("abp-media-menuitem", "command");
+  else if (command == "image")
+    wnd.triggerOverlayEvent("abp-image-menuitem", "command");
   else if (command == "toolbar")
     wnd.triggerOverlayEvent("abp-toolbarbutton", "command");
   else if (command == "statusbar")
