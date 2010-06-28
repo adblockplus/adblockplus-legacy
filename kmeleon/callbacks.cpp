@@ -61,8 +61,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
       case CMD_TOGGLEENABLED:
         commandName = "enable";
         break;
-      case CMD_DISABLE_WHITELIST:
-        commandName = "disableWhitelist";
+      case CMD_REMOVE_WHITELIST:
+        commandName = "removeWhitelist";
         break;
       case CMD_FRAME:
         commandName = "frame";
