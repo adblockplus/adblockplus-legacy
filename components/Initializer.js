@@ -92,4 +92,7 @@ Initializer.prototype =
   }
 };
 
-var NSGetModule = XPCOMUtils.generateNSGetModule([Initializer]);
+if (XPCOMUtils.generateNSGetFactory)
+  var NSGetFactory = XPCOMUtils.generateNSGetFactory([Initializer]);
+else
+  var NSGetModule = XPCOMUtils.generateNSGetModule([Initializer]);
