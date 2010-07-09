@@ -10,6 +10,15 @@ content   adblockplus jar:chrome/adblockplus.jar!/content/
 skin      adblockplus classic/1.0 jar:chrome/adblockplus.jar!/skin/
 style     chrome://global/content/customizeToolbar.xul  chrome://adblockplus/skin/overlay.css
 locale    adblockplus {{LOCALE}} jar:chrome/adblockplus.jar!/locale/{{LOCALE}}/
+ 
+# Component registration
+component {d32a3c00-4ed3-11de-8a39-0800200c9a66} components/AdblockPlus.js
+contract @adblockplus.org/abp/startup;1 {d32a3c00-4ed3-11de-8a39-0800200c9a66}
+category profile-after-change @adblockplus.org/abp/startup;1 @adblockplus.org/abp/startup;1
+component {259c2980-505f-11de-8a39-0800200c9a66} components/AdblockPlus.js
+contract @mozilla.org/adblockplus;1 {259c2980-505f-11de-8a39-0800200c9a66}
+category content-policy @mozilla.org/adblockplus;1 @mozilla.org/adblockplus;1
+category net-channel-event-sinks @mozilla.org/adblockplus;1 @mozilla.org/adblockplus;1
 
 # Hack to prevent .Net Framework Assistant from messing up the browser
 override chrome://dotnetassistant/content/bootstrap.xul data:text/xml,<nada/>

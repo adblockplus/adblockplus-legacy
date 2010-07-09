@@ -77,20 +77,21 @@ Initializer.prototype =
 
   observe: function(subject, topic, data)
   {
+    let observerService = Cc["@mozilla.org/observer-service;1"].getService(Ci.nsIObserverService);
     switch (topic)
     {
       case "app-startup":
-        let observerService = Cc["@mozilla.org/observer-service;1"].getService(Ci.nsIObserverService);
         observerService.addObserver(this, "profile-after-change", true);
-        observerService.addObserver(this, "quit-application", true);
         break;
       case "profile-after-change":
         // delayed init for Fennec
+        observerService.addObserver(this, "quit-application", true);
         let appInfo = Cc["@mozilla.org/xre/app-info;1"].getService(Ci.nsIXULAppInfo);
         if (appInfo.ID != "{a23983c0-fd0e-11dc-95ff-0800200c9a66}")
           abp.init();
         break;
       case "quit-application":
+        observerService.removeObserver(this, "quit-application");
         abp.shutdown();
         break;
     }
@@ -498,7 +499,10 @@ abp.wrappedJSObject = abp;
  */
 function ABPComponent() {}
 ABPComponent.prototype = abp;
-var NSGetModule = XPCOMUtils.generateNSGetModule([Initializer, ABPComponent]);
+if (XPCOMUtils.generateNSGetFactory)
+  var NSGetFactory = XPCOMUtils.generateNSGetFactory([Initializer, ABPComponent]);
+else
+  var NSGetModule = XPCOMUtils.generateNSGetModule([Initializer, ABPComponent]);
 
 /*
  * Loading additional files
