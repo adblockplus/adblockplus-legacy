@@ -90,7 +90,7 @@
       </grid>
     </tooltip>
 
-    <popup id="context" onpopupshowing="return fillInContext(event)">
+    <menupopup id="context" onpopupshowing="return fillInContext(event)">
       <menuitem id="contextBlock" label="&context.block.label;…" oncommand="doBlock()" key="block-key"/>
       <menuitem id="contextWhitelist" label="&context.whitelist.label;…" oncommand="doBlock()" key="block-key"/>
       <menuitem id="contextEditFilter" label="&context.editfilter.label;…" oncommand="editFilter()"/>
@@ -104,7 +104,7 @@
       <menuitem id="contextCopyFilter" label="&context.copyFilter.label;" oncommand="copyFilter()"/>
       <menuseparator id="contextSelectSep"/>
       <menuitem id="contextSelectAll" label="&context.selectAll.label;" command="selectAll-command" key="selectAll-key"/>
-    </popup>
+    </menupopup>
   </popupset>
 
   <hbox>
