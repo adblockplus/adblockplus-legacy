@@ -66,13 +66,13 @@
   </menupopup>
 
   <!-- Context menu -->
-  <popup id="contentAreaContextMenu">
+  <menupopup id="contentAreaContextMenu">
     <menuitem id="abp-image-menuitem"/>
     <menuitem id="abp-object-menuitem"/>
     <menuitem id="abp-media-menuitem"/>
     <menuitem id="abp-frame-menuitem"/>
     <menuitem id="abp-removeWhitelist-menuitem"/>
-  </popup>
+  </menupopup>
 
   <!-- Fake sidebar -->
   <vbox id="appcontent">

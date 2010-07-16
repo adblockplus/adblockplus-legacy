@@ -95,7 +95,7 @@
 </commandset>
 
 <popupset id="abpPopups">
-  <popup id="listitem-context" onpopupshowing="return fillContext()">
+  <menupopup id="listitem-context" onpopupshowing="return fillContext()">
     <menuitem id="context-synchsubscription" label="&context.synchsubscription.label;" oncommand="synchSubscription(event.shiftKey)" key="synchsubscription-key" />
     <menuitem id="context-editsubscription" label="&context.editsubscription.label;…" oncommand="editFilter('subscription')" key="edit-key"/>
     <menuitem id="context-edit" label="&context.edit.label;" oncommand="editFilter('filter')" key="edit-key"/>
@@ -112,8 +112,8 @@
     <menuseparator/>
     <menuitem id="context-movegroupup" label="&context.movegroupup.label;" oncommand="treeView.moveSubscription(true)" key="movegroupup-key"/>
     <menuitem id="context-movegroupdown" label="&context.movegroupdown.label;" oncommand="treeView.moveSubscription(false)" key="movegroupdown-key"/>
-  </popup>
-  <popup id="treecols-context" onpopupshowing="fillViewPopup('context-')"/>
+  </menupopup>
+  <menupopup id="treecols-context" onpopupshowing="fillViewPopup('context-')"/>
   <tooltip id="tree-tooltip" onpopupshowing="return showTreeTooltip(event)"/>
 </popupset>
 
