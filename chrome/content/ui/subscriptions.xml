@@ -39,7 +39,7 @@
                 prefixes="ro"
                 author="MenetZ"/>
   <subscription title="RuAdList (русский, українська)"
-                url="http://ruadlist.googlecode.com/svn/trunk/adblock.txt"
+                url="https://ruadlist.googlecode.com/svn/trunk/adblock.txt"
                 homepage="http://code.google.com/p/ruadlist/"
                 prefixes="ru,uk"
                 author="Lain_13"/>
