@@ -19,7 +19,7 @@
                 prefixes="de"
                 author="Ares2, Erunno, MonztA"/>
   <subscription title="Fanboy's List (English)"
-                url="http://www.fanboy.co.nz/adblock/fanboy-adblocklist-current-expanded.txt"
+                url="https://secure.fanboy.co.nz/fanboy-adblock.txt"
                 homepage="http://www.fanboy.co.nz/adblock/"
                 prefixes="en"
                 author="fanboy, Hubird, Nitrox"/>
