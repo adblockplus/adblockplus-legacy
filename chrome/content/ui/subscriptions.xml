@@ -24,7 +24,7 @@
                 prefixes="en"
                 author="fanboy, Hubird, Nitrox"/>
   <subscription title="Filter von Dr.Evil (Deutsch)"
-                url="http://adblock.maltekraus.de/adblock.txt"
+                url="https://adblock.maltekraus.de/adblock.txt"
                 homepage="http://www.camp-firefox.de/forum/viewtopic.php?t=55998"
                 prefixes="de"
                 author="Dr.Evil"/>
