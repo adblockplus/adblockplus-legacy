@@ -156,7 +156,15 @@ var Policy =
     TimeLine.log("registering component");
   
     let registrar = Components.manager.QueryInterface(Ci.nsIComponentRegistrar);
-    registrar.registerFactory(PolicyPrivate.classID, PolicyPrivate.classDescription, PolicyPrivate.contractID, PolicyPrivate);
+    try
+    {
+      registrar.registerFactory(PolicyPrivate.classID, PolicyPrivate.classDescription, PolicyPrivate.contractID, PolicyPrivate);
+    }
+    catch (e)
+    {
+      // Don't stop on errors - the factory might already be registered
+      Cu.reportError(e);
+    }
   
     let catMan = Utils.categoryManager;
     for each (let category in PolicyPrivate.xpcom_categories)
