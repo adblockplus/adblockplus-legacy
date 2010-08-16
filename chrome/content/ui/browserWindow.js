@@ -444,7 +444,7 @@ function handleLinkClick(/**Event*/ event)
 
   // Search the link associated with the click
   let link = event.target;
-  while (link && !(link instanceof Ci.nsIDOMNSHTMLAnchorElement))
+  while (link && !(link instanceof Ci.nsIDOMHTMLAnchorElement))
     link = link.parentNode;
 
   if (!link || !/^abp:\/*subscribe\/*\?(.*)/i.test(link.href))  /**/
