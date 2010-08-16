@@ -14,7 +14,7 @@
                 prefixes="zh"
                 author="Gythialy"/>
   <subscription title="EasyList Germany+EasyList (Deutsch)"
-                url="https://easylist-downloads.adblockplus.org/ares+easylist.txt"
+                url="https://easylist-downloads.adblockplus.org/easylistgermany+easylist.txt"
                 homepage="http://easylist.adblockplus.org/"
                 prefixes="de"
                 author="Ares2, Erunno, MonztA"/>
