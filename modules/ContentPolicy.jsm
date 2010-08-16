@@ -400,6 +400,7 @@ var PolicyPrivate =
   // nsIChannelEventSink interface implementation
   //
 
+  // Old (Gecko 1.9.x) version
   onChannelRedirect: function(oldChannel, newChannel, flags)
   {
     try {
@@ -447,6 +448,15 @@ var PolicyPrivate =
       // We shouldn't throw exceptions here - this will prevent the redirect.
       Cu.reportError(e);
     }
+  },
+
+  // New (Gecko 2.0) version
+  asyncOnChannelRedirect: function(oldChannel, newChannel, flags, callback)
+  {
+    this.onChannelRedirect(oldChannel, newChannel, flags);
+
+    // If onChannelRedirect didn't throw an exception indicate success
+    callback.onRedirectVerifyCallback(Cr.NS_OK);
   },
 
   //

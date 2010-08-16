@@ -229,6 +229,7 @@ var Synchronizer =
           return (oldNotifications ? oldNotifications.QueryInterface(iid) : null);
         },
 
+        // Old (Gecko 1.9.x) version
         onChannelRedirect: function(oldChannel, newChannel, flags)
         {
           if (isBaseLocation && !hadTemporaryRedirect && oldChannel instanceof Ci.nsIHttpChannel)
@@ -250,6 +251,15 @@ var Synchronizer =
 
           if (oldEventSink)
             oldEventSink.onChannelRedirect(oldChannel, newChannel, flags);
+        },
+
+        // New (Gecko 2.0) version
+        asyncOnChannelRedirect: function(oldChannel, newChannel, flags, callback)
+        {
+          this.onChannelRedirect(oldChannel, newChannel, flags);
+      
+          // If onChannelRedirect didn't throw an exception indicate success
+          callback.onRedirectVerifyCallback(Cr.NS_OK);
         }
       }
     }
