@@ -38,6 +38,7 @@ let suppressResize = true;
 let closing = false;
 let subscriptionListLoading = false;
 let appLocale = "en-US";
+let otherButton = null;
 
 function init()
 {
@@ -76,7 +77,35 @@ function init()
   E("editText").hidden = !(source instanceof Subscription) || source instanceof ExternalSubscription;
   E("externalText").hidden = !(source instanceof ExternalSubscription);
   E("differentSubscription").hidden = !editMode;
-  document.documentElement.getButton("extra2").hidden = editMode;
+
+  otherButton = document.documentElement.getButton("extra2");
+  if (!editMode)
+  {
+    // Transform the button into a text link
+    let link = document.createElement("label");
+    link.setAttribute("id", "otherButton");
+    link.setAttribute("class", "text-link");
+    link.setAttribute("value", otherButton.label);
+    link.setAttribute("accesskey", otherButton.accessKey);
+    link.setAttribute("control", "otherButton")
+
+    let handler = new Function("event", document.documentElement.getAttribute("ondialogextra2"));
+    link.addEventListener("command", handler, false);
+    link.addEventListener("click", handler, false);
+    link.addEventListener("keypress", function(event)
+    {
+      if (event.keyCode == event.DOM_VK_ENTER || event.keyCode == event.DOM_VK_RETURN)
+      {
+        this.doCommand();
+        event.preventDefault();
+      }
+    }, false);
+
+    otherButton.parentNode.setAttribute("align", "center");
+    otherButton.parentNode.replaceChild(link, otherButton);
+    otherButton = link;
+  }
+  otherButton.hidden = editMode;
 
   setCustomSubscription(source.title, source.url,
                         source.mainSubscriptionTitle, source.mainSubscriptionURL);
@@ -224,7 +253,7 @@ function onSelectionChange()
     collapseElements(container, inputFields);
 
   // Make sure to hide "Add different subscription button" if we are already in that mode
-  document.documentElement.getButton("extra2").hidden = !selectedSubscription;
+  otherButton.hidden = !selectedSubscription;
 
   if (!selectedSubscription)
   {
