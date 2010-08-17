@@ -38,8 +38,8 @@
                 homepage="http://www.picpoc.ro/"
                 prefixes="ro"
                 author="MenetZ"/>
-  <subscription title="RuAdList (русский, українська)"
-                url="https://ruadlist.googlecode.com/svn/trunk/adblock.txt"
+  <subscription title="RuAdList+EasyList (русский, українська)"
+                url="https://easylist-downloads.adblockplus.org/ruadlist+easylist.txt"
                 homepage="http://code.google.com/p/ruadlist/"
                 prefixes="ru,uk"
                 author="Lain_13"/>
