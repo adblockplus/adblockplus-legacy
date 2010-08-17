@@ -12,7 +12,7 @@
 <!ENTITY visitHomepage.label "查看主页">
 <!ENTITY addSubscription.label "添加订阅">
 <!ENTITY saveSubscription.label "保存订阅">
-<!ENTITY other.label "添加订阅">
+<!ENTITY other.label "其他订阅">
 <!ENTITY other.accesskey "f">
 <!ENTITY list.download.failed "获取订阅列表失败。">
 <!ENTITY list.download.retry "重试">
