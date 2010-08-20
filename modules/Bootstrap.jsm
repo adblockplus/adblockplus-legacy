@@ -35,15 +35,32 @@ const Cu = Components.utils;
 
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 
-let chromeRegistry = Cc["@mozilla.org/chrome/chrome-registry;1"].getService(Ci.nsIChromeRegistry);
+let chromeSupported = true;
 let ioService = Cc["@mozilla.org/network/io-service;1"].getService(Ci.nsIIOService);
-let publicURL = chromeRegistry.convertChromeURL(ioService.newURI("chrome://adblockplus-modules/content/Public.jsm", null, null));
-if (publicURL instanceof Ci.nsIMutable)
-  publicURL.mutable = false;
-
+let publicURL = ioService.newURI("chrome://adblockplus-modules/content/Public.jsm", null, null);
 let baseURL = publicURL.clone().QueryInterface(Ci.nsIURL);
 baseURL.fileName = "";
 
+try
+{
+  // Gecko 2.0 and higher - chrome URLs can be loaded directly
+  Cu.import(baseURL.spec + "TimeLine.jsm");
+}
+catch (e)
+{
+  // Gecko 1.9.x - have to convert chrome URLs to file URLs first
+  let chromeRegistry = Cc["@mozilla.org/chrome/chrome-registry;1"].getService(Ci.nsIChromeRegistry);
+  publicURL = chromeRegistry.convertChromeURL(publicURL);
+  baseURL = chromeRegistry.convertChromeURL(baseURL);
+  Cu.import(baseURL.spec + "TimeLine.jsm");
+  chromeSupported = false;
+}
+
+if (publicURL instanceof Ci.nsIMutable)
+  publicURL.mutable = false;
+if (baseURL instanceof Ci.nsIMutable)
+  baseURL.mutable = false;
+    
 const cidPublic = Components.ID("5e447bce-1dd2-11b2-b151-ec21c2b6a135");
 const contractIDPublic = "@adblockplus.org/abp/public;1";
 
@@ -67,8 +84,6 @@ let factoryPrivate = {
     return baseURL.QueryInterface(iid);
   }
 };
-
-Cu.import(baseURL.spec + "TimeLine.jsm");
 
 let defaultModules = [
   baseURL.spec + "Prefs.jsm",
