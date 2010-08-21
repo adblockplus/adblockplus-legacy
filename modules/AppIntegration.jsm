@@ -1039,8 +1039,11 @@ WindowWrapper.prototype =
    * Updates context menu, in particularly controls the visibility of context
    * menu items like "Block image".
    */
-  updateContextMenu: function()
+  updateContextMenu: function(event)
   {
+    if (event.eventPhase != event.AT_TARGET)
+      return;
+
     let contextMenu = this.getContextMenu();
     let target = this.window.document.popupNode;
     if (target instanceof Ci.nsIDOMHTMLMapElement || target instanceof Ci.nsIDOMHTMLAreaElement)
