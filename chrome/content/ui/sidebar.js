@@ -22,11 +22,13 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
+Cu.import("resource://gre/modules/XPCOMUtils.jsm");
+
 // Main browser window
 var mainWin = parent;
 
 // The window handler currently in use
-var wndData = null;
+var requestNotifier = null;
 
 var cacheSession = null;
 var noFlash = false;
@@ -36,6 +38,8 @@ var disabledBlacklistMatcher = new Matcher();
 var disabledWhitelistMatcher = new Matcher();
 
 var abpHooks = null;
+
+let lastSelectionProp = "abpSelected" + RequestNotifier.getDataSeed();
 
 /**
  * Cached value of "enabled" preference, for onPrefChange.
@@ -85,9 +89,6 @@ function init() {
   abpHooks = mainWin.document.getElementById("abp-hooks");
   window.__defineGetter__("content", function() {return abpHooks.getBrowser().contentWindow;});
 
-  // Install item listener
-  RequestList.addListener(handleItemChange);
-
   // Initialize matchers for disabled filters
   reloadDisabledFilters();
   FilterStorage.addFilterObserver(reloadDisabledFilters);
@@ -97,17 +98,11 @@ function init() {
   // Activate flasher
   list.addEventListener("select", onSelectionChange, false);
 
-  // Retrieve data for the window
-  wndData = RequestList.getDataForWindow(window.content);
-  treeView.setData(wndData.getAllLocations());
-  if (wndData.lastSelection) {
-    noFlash = true;
-    treeView.selectItem(wndData.lastSelection);
-    noFlash = false;
-  }
+  // Initialize data
+  handleLocationChange();
 
-  // Install a handler for tab changes
-  abpHooks.getBrowser().addEventListener("select", handleTabChange, false);
+  // Install a progress listener to catch location changes
+  abpHooks.getBrowser().addProgressListener(progressListener);
 }
 
 // To be called for a detached window when the main window has been closed
@@ -118,12 +113,12 @@ function mainUnload() {
 // To be called on unload
 function cleanUp() {
   flasher.stop();
-  RequestList.removeListener(handleItemChange);
+  requestNotifier.shutdown();
   FilterStorage.removeFilterObserver(reloadDisabledFilters);
   FilterStorage.removeSubscriptionObserver(reloadDisabledFilters);
   Prefs.removeListener(onPrefChange);
 
-  abpHooks.getBrowser().removeEventListener("select", handleTabChange, false);
+  abpHooks.getBrowser().removeProgressListener(progressListener);
   mainWin.removeEventListener("unload", mainUnload, false);
 }
 
@@ -162,7 +157,7 @@ function reloadDisabledFilters()
     }
   }
 
-  treeView.setData(treeView.allData);
+  treeView.updateFilters();
 }
 
 // Called whenever list selection changes - triggers flasher
@@ -172,52 +167,30 @@ function onSelectionChange() {
     E("copy-command").removeAttribute("disabled");
   else
     E("copy-command").setAttribute("disabled", "true");
-  if (item && wndData)
-    wndData.lastSelection = item;
+
+  if (item && window.content)
+  {
+    let key = item.location + " " + item.type + " " + item.docDomain;
+    window.content.document.setUserData(lastSelectionProp, key, null);
+    treeView.itemToSelect = null;
+  }
 
   if (!noFlash)
     flasher.flash(item ? item.nodes : null);
 }
 
-function handleItemChange(wnd, type, data, item) {
-  // Check whether this applies to us
-  if (wnd != window.content)
-    return;
+function handleLocationChange()
+{
+  if (requestNotifier)
+    requestNotifier.shutdown();
 
-  // Maybe we got called twice
-  if (type == "select" && data == wndData)
-    return;
-
-  // If adding something from a new data container - select it
-  if (type == "add" && data != wndData)
-    type = "select";
-
-  var i;
-  var filterSuggestions = E("suggestionsList");
-  if (type == "clear") {
-    // Current document has been unloaded, clear list
-    wndData = null;
-    treeView.setData([]);
-  }
-  else if (type == "select" || type == "refresh") {
-    // We moved to a different document, reload list
-    wndData = data;
-    treeView.setData(wndData.getAllLocations());
-  }
-  else if (type == "invalidate")
-    treeView.boxObject.invalidate();
-  else if (type == "add")
-    treeView.addItem(item);
-}
-
-function handleTabChange() {
-  wndData = RequestList.getDataForWindow(window.content);
-  treeView.setData(wndData.getAllLocations());
-  if (wndData.lastSelection) {
-    noFlash = true;
-    treeView.selectItem(wndData.lastSelection);
-    noFlash = false;
-  }
+  treeView.clearData();
+  treeView.itemToSelect = window.content.document.getUserData(lastSelectionProp);
+  requestNotifier = new RequestNotifier(window.content, function(wnd, node, item, scanComplete)
+  {
+    if (item)
+      treeView.addItem(node, item, scanComplete);
+  });
 }
 
 // Fills a box with text splitting it up into multiple lines if necessary
@@ -446,7 +419,7 @@ function doBlock() {
   if (filter && filter instanceof WhitelistFilter)
     return;
 
-  openDialog("chrome://adblockplus/content/ui/composer.xul", "_blank", "chrome,centerscreen,resizable,dialog=no,dependent", window.content, item);
+  openDialog("chrome://adblockplus/content/ui/composer.xul", "_blank", "chrome,centerscreen,resizable,dialog=no,dependent", item.nodes, item.__proto__);
 }
 
 function editFilter() {
@@ -696,6 +669,16 @@ function createSortWithFallback(cmpFunc, fallbackFunc, desc) {
   }
 }
 
+var progressListener =
+{
+  onLocationChange: function() handleLocationChange(),
+  onProgressChange: function() {},
+  onSecurityChange: function() {},
+  onStateChange: function() {},
+  onStatusChange: function() {},
+  QueryInterface: XPCOMUtils.generateQI([Ci.nsIWebProgressListener, Ci.nsISupportsWeakReference])
+};
+
 // Item list's tree view object
 var treeView = {
   //
@@ -941,6 +924,7 @@ var treeView = {
   filter: "",
   data: null,
   allData: [],
+  dataMap: {__proto__: null},
   sortColumn: null,
   sortProc: null,
   resortTimeout: null,
@@ -948,6 +932,7 @@ var treeView = {
   whitelistDummy: null,
   itemsDummyTooltip: null,
   whitelistDummyTooltip: null,
+  itemToSelect: null,
 
   sortProcs: {
     address: sortByAddress,
@@ -964,27 +949,39 @@ var treeView = {
     docDomainDesc: createSortWithFallback(compareDocDomain, sortByAddress, true)
   },
 
-  setData: function(data) {
+  clearData: function(data) {
     var oldRows = this.rowCount;
 
-    this.allData = data;
-    for each (let item in this.allData)
-    {
-      if (item.filter instanceof RegExpFilter && item.filter.disabled)
-        item.filter = null;
-      if (!item.filter)
-        item.filter = disabledWhitelistMatcher.matchesAny(item.location, item.typeDescr, item.docDomain, item.thirdParty);
-      if (!item.filter)
-        item.filter = disabledBlacklistMatcher.matchesAny(item.location, item.typeDescr, item.docDomain, item.thirdParty);
-    }
+    this.allData = [];
+    this.dataMap = {__proto__: null};
     this.refilter();
 
     this.boxObject.rowCountChanged(0, -oldRows);
     this.boxObject.rowCountChanged(0, this.rowCount);
   },
 
-  addItem: function(item) {
+  addItem: function(/**Node*/ node, /**RequestEntry*/ item, /**Boolean*/ scanComplete)
+  {
+    // Merge duplicate entries
+    let key = item.location + " " + item.type + " " + item.docDomain;
+    if (key in this.dataMap)
+    {
+      // We know this item already - take over the filter if any and be done with it
+      let existing = this.dataMap[key];
+      if (item.filter)
+        existing.filter = item.filter;
+
+      existing.nodes.push(node);
+      this.invalidateItem(existing);
+      return;
+    }
+
+    // Add new item to the list
+    item = {__proto__: item, nodes: [node]};
     this.allData.push(item);
+    this.dataMap[key] = item;
+
+    // Show disabled filters if no other filter applies
     if (!item.filter)
       item.filter = disabledWhitelistMatcher.matchesAny(item.location, item.typeDescr, item.docDomain, item.thirdParty);
     if (!item.filter)
@@ -993,7 +990,7 @@ var treeView = {
     if (!this.matchesFilter(item))
       return;
 
-    var index = -1;
+    let index = -1;
     if (this.sortProc && this.sortColumn && this.sortColumn.id == "size")
     {
       // Sorting by size requires accessing content document, and that's
@@ -1025,6 +1022,29 @@ var treeView = {
       this.boxObject.invalidateRow(0);
     else
       this.boxObject.rowCountChanged(index, 1);
+
+    if (this.itemToSelect == key)
+    {
+      this.selection.select(index);
+      this.boxObject.ensureRowIsVisible(index);
+      this.itemToSelect = null;
+    }
+    else if (!scanComplete && this.selection.currentIndex >= 0) // Keep selected row visible while scanning
+      this.boxObject.ensureRowIsVisible(this.selection.currentIndex);
+  },
+
+  updateFilters: function()
+  {
+    for each (let item in this.allData)
+    {
+      if (item.filter instanceof RegExpFilter && item.filter.disabled)
+        delete item.filter;
+      if (!item.filter)
+        item.filter = disabledWhitelistMatcher.matchesAny(item.location, item.typeDescr, item.docDomain, item.thirdParty);
+      if (!item.filter)
+        item.filter = disabledBlacklistMatcher.matchesAny(item.location, item.typeDescr, item.docDomain, item.thirdParty);
+    }
+    this.refilter();
   },
 
   /**
@@ -1132,16 +1152,10 @@ var treeView = {
       return {tooltip: this.itemsDummyTooltip};
   },
 
-  selectItem: function(item) {
-    var row = -1;
-    for (var i = 0; row < 0 && i < this.data.length; i++)
-      if (this.data[i] == item)
-        row = i;
-
-    if (row < 0 )
-      return;
-
-    this.selection.select(row);
-    this.boxObject.ensureRowIsVisible(row);
+  invalidateItem: function(item)
+  {
+    let row = this.data.indexOf(item);
+    if (row >= 0)
+      this.boxObject.invalidateRow(row);
   }
 }

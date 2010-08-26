@@ -22,12 +22,12 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-let wnd = null;
+let nodes = null;
 let item = null;
 let advancedMode = false;
 
 function init() {
-  [wnd, item] = window.arguments;
+  [nodes, item] = window.arguments;
 
   E("filterType").value = (!item.filter || item.filter.disabled || item.filter instanceof WhitelistFilter ? "filterlist" : "whitelist");
   E("customPattern").value = item.location;
@@ -350,8 +350,8 @@ function addFilter() {
   FilterStorage.addFilter(filter);
   FilterStorage.saveToDisk();
 
-  if (wnd && !wnd.closed)
-    Policy.refilterWindow(wnd);
+  if (nodes)
+    Policy.refilterNodes(nodes, item);
 
   return true;
 }
