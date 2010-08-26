@@ -19,7 +19,7 @@
 
   <pre id="test">
   <script type="application/x-javascript;version=1.7">
-    Cu.import(baseURL.spec + "RequestList.jsm");
+    Cu.import(baseURL.spec + "RequestNotifier.jsm");
     prepareFilterComponents();
     preparePrefs();
 
@@ -168,12 +168,25 @@
       ]);
     }
 
+    if (compareGeckoVersion("2.0a") >= 0)
+    {
+      // Remote XUL has been disabled in Gecko 2.0, don't test it any more
+      tests = tests.filter(function(test)
+      {
+        let body = test[0];
+        if (body instanceof XML)
+          body = body.toXMLString();
+        return (body.indexOf("there.is.only.xul") < 0);
+      });
+    }
+
     // TODO: '<' + 'script>new Worker("test.js");<' + '/script>'
     // Web workers need special treatment, no way to ensure that web worker loads before the page is loaded.
 
     let currentTest = 0;
     let currentStage = 0;
 
+    let requestNotifier = null;
     let policyHits = [];
     let serverHit = false;
     let stageDescriptions = {
@@ -184,18 +197,18 @@
       5: "running with filter %S and exception only applicable for frame",
     };
 
-    function onPolicyHit(wnd, type, data, location)
+    function onPolicyHit(wnd, node, item, scanComplete)
     {
-      if (wnd != top || type != "add" || location.location == "http://127.0.0.1:1234/test")
+      if (wnd != top || item.location == "http://127.0.0.1:1234/test")
         return;
       if (policyHits.length > 0)
       {
         // Ignore duplicate policy calls (possible due to prefetching)
-        let [prevWnd, prevType, prevData, prevLocation] = policyHits[policyHits.length - 1];
-        if (prevWnd == wnd && prevType == type && prevData == data && prevLocation == location)
+        let [prevWnd, prevNode, prevItem] = policyHits[policyHits.length - 1];
+        if (prevWnd == wnd && prevItem.location == item.location && prevItem.type == item.type &&  prevItem.docDomain == item.docDomain)
           policyHits.pop();
       }
-      policyHits.push([wnd, type, data, location]);
+      policyHits.push([wnd, node, item]);
     }
 
     function runNextTest()
@@ -256,17 +269,17 @@
         is(policyHits.length, 1, "Number of policy hits for " + body + " (" + stageDescription + ")");
         if (policyHits.length == 1)
         {
-          let [wnd, type, data, hit] = policyHits[0];
+          let [wnd, node, item] = policyHits[0];
 
-          is(hit.location, expectedURL, "Checking request URL");
+          is(item.location, expectedURL, "Checking request URL");
 
           expectedStatus = (currentStage == 1 ? "allowed" : "blocked");
-          let actualStatus = (hit.filter ? "blocked" : "allowed");
+          let actualStatus = (item.filter ? "blocked" : "allowed");
 
           is(actualStatus, expectedStatus, "Checking whether request was blocked (" + stageDescription + ")");
-          is (hit.typeDescr.toLowerCase(), expectedType, "Checking whether request type was determined correctly (" + stageDescription + ")");
-          is (hit.thirdParty, expectedThirdParty, "Checking whether third-party flag was set correctly (" + stageDescription + ")");
-          is (hit.docDomain, expectedDomain, "Checking whether document domain was set correctly (" + stageDescription + ")");
+          is (item.typeDescr.toLowerCase(), expectedType, "Checking whether request type was determined correctly (" + stageDescription + ")");
+          is (item.thirdParty, expectedThirdParty, "Checking whether third-party flag was set correctly (" + stageDescription + ")");
+          is (item.docDomain, expectedDomain, "Checking whether document domain was set correctly (" + stageDescription + ")");
         }
       }
 
@@ -278,7 +291,7 @@
 
     function start()
     {
-      RequestList.addListener(onPolicyHit);
+      requestNotifier = new RequestNotifier(null, onPolicyHit);
 
       window.addEventListener("unload", stop, false);
       server.start(1234);
@@ -305,7 +318,7 @@
 
     function stop()
     {
-      RequestList.removeListener(onPolicyHit);
+      requestNotifier.shutdown();
 
       server.stop();
     }

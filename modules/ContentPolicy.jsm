@@ -43,7 +43,7 @@ Cu.import(baseURL.spec + "FilterStorage.jsm");
 Cu.import(baseURL.spec + "FilterClasses.jsm");
 Cu.import(baseURL.spec + "Matcher.jsm");
 Cu.import(baseURL.spec + "ObjectTabs.jsm");
-Cu.import(baseURL.spec + "RequestList.jsm");
+Cu.import(baseURL.spec + "RequestNotifier.jsm");
 
 /**
  * List of explicitly supported content types
@@ -169,6 +169,9 @@ var Policy =
     let catMan = Utils.categoryManager;
     for each (let category in PolicyPrivate.xpcom_categories)
       catMan.addCategoryEntry(category, PolicyPrivate.classDescription, PolicyPrivate.contractID, false, true);
+
+    Utils.observerService.addObserver(PolicyPrivate, "http-on-modify-request", true);
+
     TimeLine.leave("ContentPolicy.startup() done");
   },
 
@@ -192,6 +195,8 @@ var Policy =
         let registrar = Components.manager.QueryInterface(Ci.nsIComponentRegistrar);
         registrar.unregisterFactory(PolicyPrivate.classID, PolicyPrivate);
       });
+
+      Utils.observerService.removeObserver(PolicyPrivate, "http-on-modify-request");
 
       TimeLine.log("done unregistering component");
 
@@ -254,8 +259,7 @@ var Policy =
       {
         FilterStorage.increaseHitCount(match);
 
-        let data = RequestList.getDataForWindow(wnd);
-        data.addNode(wnd.document, contentType, docDomain, false, wndLocation, match);
+        RequestNotifier.addNodeData(wnd.document, topWnd, contentType, docDomain, false, wndLocation, match);
         return true;
       }
 
@@ -266,8 +270,6 @@ var Policy =
       if (!match.isActiveOnDomain(docDomain))
         return true;
     }
-
-    let data = RequestList.getDataForWindow(wnd);
 
     let thirdParty = (contentType == Policy.type.ELEMHIDE ? false : isThirdParty(location, docDomain));
 
@@ -293,7 +295,7 @@ var Policy =
     }
 
     // Store node data
-    data.addNode(node, contentType, docDomain, thirdParty, locationText, match);
+    RequestNotifier.addNodeData(node, topWnd, contentType, docDomain, thirdParty, locationText, match);
     if (match)
       FilterStorage.increaseHitCount(match);
 
@@ -336,11 +338,16 @@ var Policy =
 
 
   /**
-   * Asynchronously re-checks filters for all elements of a window.
+   * Asynchronously re-checks filters for given nodes.
    */
-  refilterWindow: function(/**Window*/ wnd)
+  refilterNodes: function(/**Node[]*/ nodes, /**RequestEntry*/ entry)
   {
-    Utils.runAsync(refilterWindow, this, wnd, 0);
+    // Ignore nodes that have been blocked already
+    if (entry.filter && !(entry.filter instanceof WhitelistFilter))
+      return;
+
+    for each (let node in nodes)
+      Utils.runAsync(refilterNode, this, node, entry);
   }
 };
 
@@ -359,7 +366,8 @@ var PolicyPrivate =
   // nsISupports interface implementation
   //
 
-  QueryInterface: XPCOMUtils.generateQI([Ci.nsIContentPolicy, Ci.nsIChannelEventSink, Ci.nsIFactory]),
+  QueryInterface: XPCOMUtils.generateQI([Ci.nsIContentPolicy, Ci.nsIObserver,
+    Ci.nsIChannelEventSink, Ci.nsIFactory, Ci.nsISupportsWeakReference]),
 
   //
   // nsIContentPolicy interface implementation
@@ -388,12 +396,35 @@ var PolicyPrivate =
     if (!(contentType in Policy.typeDescr))
       contentType = Policy.type.OTHER;
 
-    return (Policy.processNode(wnd, node, contentType, location, false) ? Ci.nsIContentPolicy.ACCEPT : Ci.nsIContentPolicy.REJECT_REQUEST);
+    let result = Policy.processNode(wnd, node, contentType, location, false);
+    if (result)
+    {
+      // We didn't block this request so we will probably see it again in
+      // http-on-modify-request. Keep it so that we can associate it with the
+      // channel there - will be needed in case of redirect.
+      this.previousRequest = [wnd, node, contentType, location];
+    }
+    return (result ? Ci.nsIContentPolicy.ACCEPT : Ci.nsIContentPolicy.REJECT_REQUEST);
   },
 
   shouldProcess: function(contentType, contentLocation, requestOrigin, insecNode, mimeType, extra)
   {
     return Ci.nsIContentPolicy.ACCEPT;
+  },
+
+  //
+  // nsIObserver interface implementation
+  //
+  observe: function(subject, topic, data)
+  {
+    if (topic == "http-on-modify-request" && subject instanceof Ci.nsIHttpChannel &&
+        this.previousRequest && subject.URI == this.previousRequest[3] &&
+        subject instanceof Ci.nsIWritablePropertyBag)
+    {
+      // We just handled a content policy call for this request - associate
+      // the data with the channel so that we can find it in case of a redirect.
+      subject.setProperty("abpRequestData", this.previousRequest);
+    }
   },
 
   //
@@ -415,32 +446,28 @@ var PolicyPrivate =
       if (!oldLocation || !newLocation || oldLocation == newLocation)
         return;
 
-      // Look for the request both in the origin window and in its parent (for frames)
-      let contexts = [Utils.getRequestWindow(newChannel)];
-      if (!contexts[0])
-        contexts.pop();
-      else if (contexts[0] && contexts[0].parent != contexts[0])
-        contexts.push(contexts[0].parent);
-
-      let info = null;
-      for each (let context in contexts)
+      // Try to retrieve previously stored request data from the channel
+      let requestData = null;
+      try
       {
-        // Did we record the original request in its own window?
-        let data = RequestList.getDataForWindow(context, true);
-        if (data)
-          info = data.getURLInfo(oldLocation);
+        if (oldChannel instanceof Ci.nsIWritablePropertyBag)
+          requestData = oldChannel.getProperty("abpRequestData");
+      }
+      catch(e) {}  // Ignore exceptions due to non-existing property
+      if (!requestData)
+        return;
+      oldChannel.deleteProperty("abpRequestData");
 
-        if (info)
-        {
-          let nodes = info.nodes;
-          let node = (nodes.length > 0 ? nodes[nodes.length - 1] : context.document);
-
-          // HACK: NS_BINDING_ABORTED would be proper error code to throw but this will show up in error console (bug 287107)
-          if (!Policy.processNode(context, node, info.type, newChannel.URI))
-            throw Cr.NS_BASE_STREAM_WOULD_BLOCK;
-          else
-            return;
-        }
+      // HACK: NS_BINDING_ABORTED would be proper error code to throw but this will show up in error console (bug 287107)
+      requestData[3] = newChannel.URI;
+      if (!Policy.processNode(requestData[0], requestData[1], requestData[2], requestData[3], false))
+        throw Cr.NS_BASE_STREAM_WOULD_BLOCK;
+      else
+      {
+        // We allowed the request to proceed, associate the data with the new channel
+        if (newChannel instanceof Ci.nsIWritablePropertyBag)
+          newChannel.getProperty("abpRequestData", requestData);
+        return;
       }
     }
     catch (e if (e != Cr.NS_BASE_STREAM_WOULD_BLOCK))
@@ -629,36 +656,18 @@ function isThirdParty(/**nsIURI*/location, /**String*/ docDomain) /**Boolean*/
 }
 
 /**
- * Re-checks elements in a window starting at a particular index.
+ * Re-checks filters on an element.
  */
-function refilterWindow(/**Window*/ wnd, /**Integer*/ start)
+function refilterNode(/**Node*/ node, /**RequestEntry*/ entry)
 {
-  if (wnd.closed)
+  let wnd = Utils.getWindow(node);
+  if (!wnd || wnd.closed)
     return;
 
-  var wndData = RequestList.getDataForWindow(wnd);
-  var data = wndData.getAllLocations();
-  for (var i = start; i < data.length; i++) {
-    if (i - start >= 20) {
-      // Allow events to process
-      Utils.runAsync(refilterWindow, this, wnd, i);
-      return;
-    }
-
-    if (!data[i].filter || data[i].filter instanceof WhitelistFilter)
-    {
-      let nodes = data[i].clearNodes();
-      for each (let node in nodes)
-      {
-        if (data[i].type == Policy.type.OBJECT)
-        {
-          node.removeEventListener("mouseover", objectMouseEventHander, true);
-          node.removeEventListener("mouseout", objectMouseEventHander, true);
-        }
-        Policy.processNode(wnd, node, data[i].type, Utils.makeURI(data[i].location), true);
-      }
-    }
+  if (entry.type == Policy.type.OBJECT)
+  {
+    node.removeEventListener("mouseover", objectMouseEventHander, true);
+    node.removeEventListener("mouseout", objectMouseEventHander, true);
   }
-
-  wndData.notifyListeners("invalidate", data);
+  Policy.processNode(wnd, node, entry.type, Utils.makeURI(entry.location), true);
 }
