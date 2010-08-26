@@ -379,6 +379,7 @@ var Utils =
 
 // Getters for common services, this should be replaced by Services.jsm in future
 
+XPCOMUtils.defineLazyServiceGetter(Utils, "observerService", "@mozilla.org/observer-service;1", "nsIObserverService");
 XPCOMUtils.defineLazyServiceGetter(Utils, "categoryManager", "@mozilla.org/categorymanager;1", "nsICategoryManager");
 XPCOMUtils.defineLazyServiceGetter(Utils, "ioService", "@mozilla.org/network/io-service;1", "nsIIOService");
 XPCOMUtils.defineLazyServiceGetter(Utils, "dirService", "@mozilla.org/file/directory_service;1", "nsIProperties");

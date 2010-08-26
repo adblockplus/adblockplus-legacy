@@ -34,7 +34,7 @@ Cu.import(baseURL.spec + "FilterListener.jsm");
 Cu.import(baseURL.spec + "FilterStorage.jsm");
 Cu.import(baseURL.spec + "Matcher.jsm");
 Cu.import(baseURL.spec + "Prefs.jsm");
-Cu.import(baseURL.spec + "RequestList.jsm");
+Cu.import(baseURL.spec + "RequestNotifier.jsm");
 Cu.import(baseURL.spec + "SubscriptionClasses.jsm");
 Cu.import(baseURL.spec + "Synchronizer.jsm");
 Cu.import(baseURL.spec + "Utils.jsm");

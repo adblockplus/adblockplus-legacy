@@ -37,7 +37,13 @@ let baseURL = Cc["@adblockplus.org/abp/private;1"].getService(Ci.nsIURI);
 
 Cu.import(baseURL.spec + "Utils.jsm");
 Cu.import(baseURL.spec + "Prefs.jsm");
-Cu.import(baseURL.spec + "RequestList.jsm");
+Cu.import(baseURL.spec + "RequestNotifier.jsm");
+
+// Run asynchronously to prevent cyclic module loads
+Utils.runAsync(function()
+{
+  Cu.import(baseURL.spec + "ContentPolicy.jsm");
+});
 
 /**
  * Class responsible for showing and hiding object tabs.
@@ -217,7 +223,7 @@ var objTabs =
     {
       this._hideTab();
 
-      let data = RequestList.getDataForNode(element, true);
+      let data = RequestNotifier.getDataForNode(element, true, Policy.type.OBJECT);
       if (data)
       {
         let doc = element.ownerDocument.defaultView
@@ -441,7 +447,7 @@ var objTabs =
     Cu.import(baseURL.spec + "AppIntegration.jsm");
     let wrapper = AppIntegration.getWrapperForWindow(this.objtabElement.hooks.ownerDocument.defaultView);
     if (wrapper)
-      wrapper.blockItem(this.objtabElement.nodeData);
+      wrapper.blockItem(this.currentElement, this.objtabElement.nodeData);
   },
 
   /**
