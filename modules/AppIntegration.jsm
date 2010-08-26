@@ -43,7 +43,7 @@ Cu.import(baseURL.spec + "ContentPolicy.jsm");
 Cu.import(baseURL.spec + "FilterStorage.jsm");
 Cu.import(baseURL.spec + "FilterClasses.jsm");
 Cu.import(baseURL.spec + "SubscriptionClasses.jsm");
-Cu.import(baseURL.spec + "RequestList.jsm");
+Cu.import(baseURL.spec + "RequestNotifier.jsm");
 
 /**
  * Flag used to trigger special behavior for Fennec.
@@ -262,6 +262,10 @@ WindowWrapper.prototype =
    */
   nodeData: null,
   /**
+   * The document node that nodeData belongs to.
+   */
+  currentNode: null,
+  /**
    * Data associated with the background image currently under mouse pointer (set in updateContextMenu()).
    * @type RequestEntry
    */
@@ -271,6 +275,10 @@ WindowWrapper.prototype =
    * @type RequestEntry
    */
   frameData: null,
+  /**
+   * The frame that frameData belongs to.
+   */
+  currentFrame: null,
 
   /**
    * Window of the detached list of blockable items (might be null or closed).
@@ -783,53 +791,29 @@ WindowWrapper.prototype =
     this.E("abp-tooltip-blocked").hidden = (this.state != "active");
     if (this.state == "active")
     {
-      let data = RequestList.getDataForWindow(this.getBrowser().contentWindow);
-  
-      let itemsCount = 0;
-      let blocked = 0;
-      let hidden = 0;
-      let whitelisted = 0;
-      let filterCount = {__proto__: null};
-      for each (let location in data.getAllLocations())
-      {
-        let filter = location.filter;
-        if (filter && filter instanceof ElemHideFilter)
-          hidden++;
-        else
-          itemsCount++;
-  
-        if (filter)
-        {
-          if (filter instanceof BlockingFilter)
-            blocked++;
-          else if (filter instanceof WhitelistFilter)
-            whitelisted++;
-  
-          if (filter.text in filterCount)
-            filterCount[filter.text]++;
-          else
-            filterCount[filter.text] = 1;
-        }
-      }
+      let stats = RequestNotifier.getWindowStatistics(this.getBrowser().contentWindow);
   
       let blockedStr = Utils.getString("blocked_count_tooltip");
-      blockedStr = blockedStr.replace(/\?1\?/, blocked).replace(/\?2\?/, itemsCount);
+      blockedStr = blockedStr.replace(/\?1\?/, stats ? stats.blocked : 0).replace(/\?2\?/, stats ? stats.items : 0);
   
-      if (whitelisted + hidden)
+      if (stats && stats.whitelisted + stats.hidden)
       {
         blockedStr += " " + Utils.getString("blocked_count_addendum");
-        blockedStr = blockedStr.replace(/\?1\?/, whitelisted).replace(/\?2\?/, hidden);
+        blockedStr = blockedStr.replace(/\?1\?/, stats.whitelisted).replace(/\?2\?/, stats.hidden);
       }
   
       this.E("abp-tooltip-blocked").setAttribute("value", blockedStr);
-  
-      let filterSort = function(a, b)
+
+      if (stats)
       {
-        return filterCount[b] - filterCount[a];
-      };
-      for (let filter in filterCount)
-        activeFilters.push(filter);
-      activeFilters = activeFilters.sort(filterSort);
+        let filterSort = function(a, b)
+        {
+          return stats.filters[b] - stats.filters[a];
+        };
+        for (let filter in stats.filters)
+          activeFilters.push(filter);
+        activeFilters = activeFilters.sort(filterSort);
+      }
   
       if (activeFilters.length > 0)
       {
@@ -840,7 +824,7 @@ WindowWrapper.prototype =
         for (let i = 0; i < activeFilters.length && i < 3; i++)
         {
           let descr = filtersContainer.ownerDocument.createElement("description");
-          descr.setAttribute("value", activeFilters[i] + " (" + filterCount[activeFilters[i]] + ")");
+          descr.setAttribute("value", activeFilters[i] + " (" + stats.filters[activeFilters[i]] + ")");
           filtersContainer.appendChild(descr);
         }
       }
@@ -1055,26 +1039,28 @@ WindowWrapper.prototype =
     }
 
     let nodeType = null;
+    this.nodeData = null;
+    this.currentNode = null;
     this.backgroundData = null;
     this.frameData = null;
+    this.currentFrame = null;
     if (target)
     {
       // Lookup the node in our stored data
-      let data = RequestList.getDataForNode(target);
+      let data = RequestNotifier.getDataForNode(target);
       if (data && !data[1].filter)
       {
-        this.nodeData = data[1];
+        [this.currentNode, this.nodeData] = data;
         nodeType = this.nodeData.typeDescr;
       }
   
       let wnd = Utils.getWindow(target);
-      let wndData = (wnd ? RequestList.getDataForWindow(wnd) : null);
 
       if (wnd.frameElement)
       {
-        let data = RequestList.getDataForNode(wnd.frameElement, true);
+        let data = RequestNotifier.getDataForNode(wnd.frameElement, true);
         if (data && !data[1].filter)
-          this.frameData = data[1];
+          [this.currentFrame, this.frameData] = data;
       }
 
       if (nodeType != "IMAGE")
@@ -1089,10 +1075,10 @@ WindowWrapper.prototype =
             let bgImage = extractImageURL(style, "background-image") || extractImageURL(style, "list-style-image");
             if (bgImage)
             {
-              let data = wndData.getLocation(Policy.type.IMAGE, bgImage);
-              if (data && !data.filter)
+              let data = RequestNotifier.getDataForNode(wnd.document, true, Policy.type.IMAGE, bgImage);
+              if (data && !data[1].filter)
               {
-                this.backgroundData = data;
+                this.backgroundData = data[1];
                 break;
               }
             }
@@ -1123,12 +1109,12 @@ WindowWrapper.prototype =
   /**
    * Brings up the filter composer dialog to block an item.
    */
-  blockItem: function(/**RequestEntry*/ item)
+  blockItem: function(/**Node*/ node, /**RequestEntry*/ item)
   {
     if (!item)
       return;
 
-    this.window.openDialog("chrome://adblockplus/content/ui/composer.xul", "_blank", "chrome,centerscreen,resizable,dialog=no,dependent", this.getBrowser().contentWindow, item);
+    this.window.openDialog("chrome://adblockplus/content/ui/composer.xul", "_blank", "chrome,centerscreen,resizable,dialog=no,dependent", [node], item);
   }
 };
 
@@ -1153,10 +1139,10 @@ WindowWrapper.prototype.eventHandlers = [
   ["abp-toolbarbutton", "command", WindowWrapper.prototype.handleToolbarCommand],
   ["abp-toolbarbutton", "click", WindowWrapper.prototype.handleToolbarClick],
   ["abp-status", "click", WindowWrapper.prototype.handleStatusClick],
-  ["abp-image-menuitem", "command", function() { this.blockItem(this.backgroundData || this.nodeData); }],
-  ["abp-object-menuitem", "command", function() { this.blockItem(this.nodeData); }],
-  ["abp-media-menuitem", "command", function() { this.blockItem(this.nodeData); }],
-  ["abp-frame-menuitem", "command", function() { this.blockItem(this.frameData); }],
+  ["abp-image-menuitem", "command", function() { this.backgroundData ? this.blockItem(null, this.backgroundData) : this.blockItem(this.currentNode, this.nodeData); }],
+  ["abp-object-menuitem", "command", function() { this.blockItem(this.currentNode, this.nodeData); }],
+  ["abp-media-menuitem", "command", function() { this.blockItem(this.currentNode, this.nodeData); }],
+  ["abp-frame-menuitem", "command", function() { this.blockItem(this.currentFrame, this.frameData); }],
   ["abp-removeWhitelist-menuitem", "command", WindowWrapper.prototype.removeWhitelist]
 ];
 
