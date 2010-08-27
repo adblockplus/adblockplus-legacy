@@ -43,6 +43,16 @@ Cu.import(baseURL.spec + "FilterClasses.jsm");
 Cu.import(baseURL.spec + "SubscriptionClasses.jsm");
 Cu.import(baseURL.spec + "Prefs.jsm");
 
+const MILLISECONDS_IN_SECOND = 1000;
+const SECONDS_IN_MINUTE = 60;
+const SECONDS_IN_HOUR = 60 * SECONDS_IN_MINUTE;
+const SECONDS_IN_DAY = 24 * SECONDS_IN_HOUR;
+const INITIAL_DELAY = 6 * SECONDS_IN_MINUTE;
+const CHECK_INTERVAL = SECONDS_IN_HOUR;
+const MIN_EXPIRATION_INTERVAL = 1 * SECONDS_IN_DAY;
+const MAX_EXPIRATION_INTERVAL = 14 * SECONDS_IN_DAY;
+const MAX_ABSENSE_INTERVAL = 1 * SECONDS_IN_DAY;
+
 var XMLHttpRequest = Components.Constructor("@mozilla.org/xmlextras/xmlhttprequest;1", "nsIJSXMLHttpRequest");
 
 let timer = null;
@@ -69,12 +79,12 @@ var Synchronizer =
   
     let callback = function()
     {
-      timer.delay = 3600000;
+      timer.delay = CHECK_INTERVAL * MILLISECONDS_IN_SECOND;
       checkSubscriptions();
     };
   
     timer = Cc["@mozilla.org/timer;1"].createInstance(Ci.nsITimer);
-    timer.initWithCallback(callback, 300000, Ci.nsITimer.TYPE_REPEATING_SLACK);
+    timer.initWithCallback(callback, INITIAL_DELAY * MILLISECONDS_IN_SECOND, Ci.nsITimer.TYPE_REPEATING_SLACK);
   
     TimeLine.leave("Synchronizer.startup() done");
   },
@@ -307,33 +317,39 @@ var Synchronizer =
 
       if (isBaseLocation && !hadTemporaryRedirect)
         subscription.alternativeLocations = request.getResponseHeader("X-Alternative-Locations");
-      subscription.lastDownload = Math.round(Date.now() / 1000);
+      subscription.lastDownload = Math.round(Date.now() / MILLISECONDS_IN_SECOND);
       subscription.downloadStatus = "synchronize_ok";
       subscription.errors = 0;
 
-      let expires = Math.round(new Date(request.getResponseHeader("Expires")).getTime() / 1000) || 0;
-      for each (let filter in newFilters)
+      // Expiration header is relative to server time - use Date header if it exists, otherwise local time
+      let now = Math.round((new Date(request.getResponseHeader("Date")).getTime() || Date.now()) / MILLISECONDS_IN_SECOND);
+      let expires = Math.round(new Date(request.getResponseHeader("Expires")).getTime() / MILLISECONDS_IN_SECOND) || 0;
+      let expirationInterval = (expires ? expires - now : 0);
+      for each (let filter in newFilters || subscription.filters)
       {
         if (filter instanceof CommentFilter && /\bExpires\s*(?::|after)\s*(\d+)\s*(h)?/i.test(filter.text))
         {
-          var hours = parseInt(RegExp.$1);
-          if (!RegExp.$2)
-            hours *= 24;
-          if (hours > 0)
-          {
-            let time = subscription.lastDownload + hours * 3600;
-            if (time > expires)
-              expires = time;
-          }
+          let interval = parseInt(RegExp.$1);
+          if (RegExp.$2)
+            interval *= SECONDS_IN_HOUR;
+          else
+            interval *= SECONDS_IN_DAY;
+
+          if (interval > expirationInterval)
+            expirationInterval = interval;
         }
         if (isBaseLocation && filter instanceof CommentFilter && /\bRedirect(?:\s*:\s*|\s+to\s+|\s+)(\S+)/i.test(filter.text))
           subscription.nextURL = RegExp.$1;
       }
-      subscription.expires = (expires > subscription.lastDownload ? expires : 0);
 
-      // Expiration date shouldn't be more than two weeks in the future
-      if (subscription.expires - subscription.lastDownload > 14*24*3600)
-        subscription.expires = subscription.lastDownload + 14*24*3600;
+      // Expiration interval should be within allowed range
+      expirationInterval = Math.min(Math.max(expirationInterval, MIN_EXPIRATION_INTERVAL), MAX_EXPIRATION_INTERVAL);
+
+      // Hard expiration: download immediately after twice the expiration interval
+      subscription.expires = (subscription.lastDownload + expirationInterval * 2);
+
+      // Soft expiration: use random interval factor between 0.8 and 1.2
+      subscription.softExpiration = (subscription.lastDownload + Math.round(expirationInterval * (Math.random() * 0.4 + 0.8)));
 
       if (isBaseLocation && newURL && newURL != url)
       {
@@ -389,19 +405,45 @@ var Synchronizer =
  */
 function checkSubscriptions()
 {
-  let time = Date.now() / 1000;
+  let hadDownloads = false;
+  let time = Math.round(Date.now() / MILLISECONDS_IN_SECOND);
   for each (let subscription in FilterStorage.subscriptions)
   {
     if (!(subscription instanceof DownloadableSubscription) || !subscription.autoDownload)
       continue;
 
-    if (subscription.expires > time)
+    if (subscription.lastCheck && time - subscription.lastCheck > MAX_ABSENSE_INTERVAL)
+    {
+      // No checks for a long time interval - user must have been offline, e.g.
+      // during a weekend. Increase soft expiration to prevent load peaks on the
+      // server.
+      subscription.softExpiration += time - subscription.lastCheck;
+    }
+    subscription.lastCheck = time;
+
+    // Sanity check: do expiration times make sense? Make sure people changing
+    // system clock don't get stuck with outdated subscriptions.
+    if (subscription.expires - time > MAX_EXPIRATION_INTERVAL)
+      subscription.expires = time + MAX_EXPIRATION_INTERVAL;
+    if (subscription.softExpiration - time > MAX_EXPIRATION_INTERVAL)
+      subscription.softExpiration = time + MAX_EXPIRATION_INTERVAL;
+
+    if (subscription.softExpiration > time && subscription.expires > time)
       continue;
 
-    // Get the number of hours since last download
-    let interval = (time - subscription.lastDownload) / 3600;
+    // Do not retry downloads more often than synchronizationinterval pref dictates
+    let interval = (time - subscription.lastDownload) / SECONDS_IN_HOUR;
     if (interval >= Prefs.synchronizationinterval)
+    {
+      hadDownloads = true;
       Synchronizer.execute(subscription, false);
+    }
+  }
+
+  if (!hadDownloads)
+  {
+    // We didn't kick off any downloads - still save changes to lastCheck & Co.
+    FilterStorage.saveToDisk();
   }
 }
 
@@ -485,7 +527,7 @@ function setError(subscription, error, channelStatus, responseStatus, downloadUR
                    "Server response: " + responseStatus);
   } catch(e) {}
 
-  subscription.lastDownload = Math.round(Date.now() / 1000);
+  subscription.lastDownload = Math.round(Date.now() / MILLISECONDS_IN_SECOND);
   subscription.downloadStatus = error;
 
   // Request fallback URL if necessary - for automatic updates only
