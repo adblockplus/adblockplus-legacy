@@ -165,8 +165,12 @@ Subscription.fromObject = function(obj)
         result.downloadStatus = obj.downloadStatus;
       if ("lastModified" in obj)
         result.lastModified = obj.lastModified;
+      if ("lastCheck" in obj)
+        result.lastCheck = parseInt(obj.lastCheck) || 0;
       if ("expires" in obj)
         result.expires = parseInt(obj.expires) || 0;
+      if ("softExpiration" in obj)
+        result.softExpiration = parseInt(obj.softExpiration) || 0;
       if ("errors" in obj)
         result.errors = parseInt(obj.errors) || 0;
       if ("requiredVersion" in obj)
@@ -290,7 +294,7 @@ RegularSubscription.prototype =
   title: null,
 
   /**
-   * Time of the last subscription download (in milliseconds since the beginning of the epoch)
+   * Time of the last subscription download (in seconds since the beginning of the epoch)
    * @type Number
    */
   lastDownload: 0,
@@ -372,10 +376,24 @@ DownloadableSubscription.prototype =
   lastModified: null,
 
   /**
-   * Expiration time of the filter subscription (in milliseconds since the beginning of the epoch)
+   * Time when the subscription was considered for an update last time (in seconds
+   * since the beginning of the epoch). This will be used to increase softExpiration
+   * if the user doesn't use Adblock Plus for some time.
+   * @type Number
+   */
+  lastCheck: 0,
+
+  /**
+   * Hard expiration time of the filter subscription (in seconds since the beginning of the epoch)
    * @type Number
    */
   expires: 0,
+
+  /**
+   * Soft expiration time of the filter subscription (in seconds since the beginning of the epoch)
+   * @type Number
+   */
+  softExpiration: 0,
 
   /**
    * Number of download failures since last success
@@ -416,8 +434,12 @@ DownloadableSubscription.prototype =
       buffer.push("downloadStatus=" + this.downloadStatus);
     if (this.lastModified)
       buffer.push("lastModified=" + this.lastModified);
+    if (this.lastCheck)
+      buffer.push("lastCheck=" + this.lastCheck);
     if (this.expires)
       buffer.push("expires=" + this.expires);
+    if (this.softExpiration)
+      buffer.push("softExpiration=" + this.softExpiration);
     if (this.errors)
       buffer.push("errors=" + this.errors);
     if (this.requiredVersion)
