@@ -56,7 +56,7 @@
       subscription.title = "test";
     });
     compareSubscription("http://test/non_default", ["url=http://test/non_default", "title=test", "nextURL=http://test2/", "autoDownload=false",
-                                                    "disabled=true", "lastDownload=12", "expires=20", "downloadStatus=foo", "lastModified=bar",
+                                                    "disabled=true", "lastDownload=12", "lastCheck=16", "softExpiration=18", "expires=20", "downloadStatus=foo", "lastModified=bar",
                                                     "errors=3", "requiredVersion=0.6", "alternativeLocations=http://foo/;q=0.5,http://bar/;q=2"], function(subscription)
     {
       subscription.title = "test";
@@ -64,6 +64,8 @@
       subscription.autoDownload = false;
       subscription.disabled = true;
       subscription.lastDownload = 12;
+      subscription.lastCheck = 16;
+      subscription.softExpiration = 18;
       subscription.expires = 20;
       subscription.downloadStatus = "foo";
       subscription.lastModified = "bar";
