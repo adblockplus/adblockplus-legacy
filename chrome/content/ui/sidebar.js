@@ -413,13 +413,13 @@ function doBlock() {
     return;
 
   var filter = null;
-  if ("filter" in item && item.filter && !item.filter.disabled)
+  if (item.filter && !item.filter.disabled)
     filter = item.filter;
 
   if (filter && filter instanceof WhitelistFilter)
     return;
 
-  openDialog("chrome://adblockplus/content/ui/composer.xul", "_blank", "chrome,centerscreen,resizable,dialog=no,dependent", item.nodes, item.__proto__);
+  openDialog("chrome://adblockplus/content/ui/composer.xul", "_blank", "chrome,centerscreen,resizable,dialog=no,dependent", item.nodes, item.orig);
 }
 
 function editFilter() {
@@ -977,7 +977,8 @@ var treeView = {
     }
 
     // Add new item to the list
-    item = {__proto__: item, nodes: [node]};
+    // Store original item in orig property - reading out prototype is messed up in Gecko 1.9.2
+    item = {__proto__: item, orig: item, nodes: [node]};
     this.allData.push(item);
     this.dataMap[key] = item;
 
