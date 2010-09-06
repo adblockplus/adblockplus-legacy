@@ -259,8 +259,8 @@ function fillInTooltip(e) {
       let sourceElement = E("tooltipFilterSource");
       while (sourceElement.firstChild)
         sourceElement.removeChild(sourceElement.firstChild);
-      for each (let subscription in subscriptions)
-        setMultilineContent(sourceElement, subscription.title, true);
+      for (let i = 0; i < subscriptions.length; i++)
+        setMultilineContent(sourceElement, subscriptions[i].title, true);
     }
   }
 
