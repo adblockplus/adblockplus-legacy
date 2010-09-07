@@ -37,7 +37,7 @@
                 url="https://easylist-downloads.adblockplus.org/rolist+easylist.txt"
                 homepage="http://www.picpoc.ro/"
                 prefixes="ro"
-                author="MenetZ"/>
+                author="MenetZ, Zoso"/>
   <subscription title="RuAdList+EasyList (русский, українська)"
                 url="https://easylist-downloads.adblockplus.org/ruadlist+easylist.txt"
                 homepage="http://code.google.com/p/ruadlist/"
