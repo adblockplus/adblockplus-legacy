@@ -92,6 +92,12 @@ var ElemHide =
     registrar.registerFactory(ElemHidePrivate.classID, ElemHidePrivate.classDescription,
         "@mozilla.org/network/protocol;1?name=" + ElemHidePrivate.scheme, ElemHidePrivate);
     Policy.whitelistSchemes[ElemHidePrivate.scheme] = true;
+
+    // Register a resource: protocol substitution as an alias for our custom
+    // protocol, this will allow stylesheet service to create URLs faster.
+    let resProtocol = Cc["@mozilla.org/network/protocol;1?name=resource"].getService(Ci.nsIResProtocolHandler);
+    resProtocol.setSubstitution(ElemHidePrivate.resourcePrefix, ElemHidePrivate.newURI("abp-elemhidehit:", null, null));
+
     TimeLine.leave("ElemHide.startup() done");
   },
 
@@ -110,6 +116,9 @@ var ElemHide =
       registrar.unregisterFactory(ElemHidePrivate.classID, ElemHidePrivate);
 
       delete Policy.whitelistSchemes[ElemHidePrivate.scheme];
+
+      let resProtocol = Cc["@mozilla.org/network/protocol;1?name=resource"].getService(Ci.nsIResProtocolHandler);
+      resProtocol.setSubstitution(ElemHidePrivate.resourcePrefix, null);
 
       ElemHide.clear();
 
@@ -210,7 +219,7 @@ var ElemHide =
     // Joining domains list
     TimeLine.log("start building CSS data");
     let cssData = "";
-    let cssTemplate = "-moz-binding: url(" + ElemHidePrivate.scheme + ":%ID%#dummy) !important;";
+    let cssTemplate = "-moz-binding: url(resource://" + ElemHidePrivate.resourcePrefix + "/%ID%#dummy) !important;";
 
     for (let domain in domains)
     {
@@ -267,6 +276,7 @@ var ElemHidePrivate =
 {
   classID: Components.ID("{55fb7be0-1dd2-11b2-98e6-9e97caf8ba67}"),
   classDescription: "Element hiding hit registration protocol handler",
+  resourcePrefix: "abp-elemhidehit-" + Math.random().toFixed(15).substr(5),
 
   //
   // Factory implementation
@@ -285,23 +295,24 @@ var ElemHidePrivate =
   //
 
   defaultPort: -1,
-  protocolFlags: Ci.nsIProtocolHandler.URI_NORELATIVE |
+  protocolFlags: Ci.nsIProtocolHandler.URI_STD |
                  Ci.nsIProtocolHandler.URI_NOAUTH |
                  Ci.nsIProtocolHandler.URI_DANGEROUS_TO_LOAD |
-                 Ci.nsIProtocolHandler.URI_NON_PERSISTABLE,
+                 Ci.nsIProtocolHandler.URI_NON_PERSISTABLE |
+                 Ci.nsIProtocolHandler.URI_IS_LOCAL_RESOURCE,
   scheme: "abp-elemhidehit",
   allowPort: function() {return false},
 
   newURI: function(spec, originCharset, baseURI)
   {
-    let url = Cc["@mozilla.org/network/simple-uri;1"].createInstance(Ci.nsIURI);
-    url.spec = spec;
+    let url = Cc["@mozilla.org/network/standard-url;1"].createInstance(Ci.nsIStandardURL);
+    url.init(Ci.nsIStandardURL.URLTYPE_NO_AUTHORITY, -1, spec, originCharset, baseURI);
     return url;
   },
 
   newChannel: function(uri)
   {
-    if (!/:(\d+)/.test(uri.spec))
+    if (!/^\/*(\d+)/.test(uri.path))  /**/
       throw Cr.NS_ERROR_FAILURE;
 
     return new HitRegistrationChannel(uri, RegExp.$1);
@@ -336,6 +347,23 @@ HitRegistrationChannel.prototype = {
 
   asyncOpen: function(listener, context)
   {
+    let stream = this.open();
+    Utils.runAsync(function()
+    {
+      try {
+        listener.onStartRequest(this, context);
+      } catch(e) {}
+      try {
+        listener.onDataAvailable(this, context, stream, 0, stream.available());
+      } catch(e) {}
+      try {
+        listener.onStopRequest(this, context, Cr.NS_OK);
+      } catch(e) {}
+    }, this);
+  },
+
+  open: function()
+  {
     let data = "<bindings xmlns='http://www.mozilla.org/xbl'><binding id='dummy'/></bindings>";
     let filter = keys[this.key];
     if (filter)
@@ -347,24 +375,7 @@ HitRegistrationChannel.prototype = {
 
     let stream = Cc["@mozilla.org/io/string-input-stream;1"].createInstance(Ci.nsIStringInputStream);
     stream.setData(data, data.length);
-
-    Utils.runAsync(function()
-    {
-      try {
-        listener.onStartRequest(this, context);
-      } catch(e) {}
-      try {
-        listener.onDataAvailable(this, context, stream, 0, data.length);
-      } catch(e) {}
-      try {
-        listener.onStopRequest(this, context, Cr.NS_OK);
-      } catch(e) {}
-    }, this);
-  },
-
-  open: function()
-  {
-    throw Cr.NS_ERROR_NOT_IMPLEMENTED;
+    return stream;
   },
   isPending: function()
   {
