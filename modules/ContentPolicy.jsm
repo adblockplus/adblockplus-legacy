@@ -176,45 +176,6 @@ var Policy =
   },
 
   /**
-   * Called on module shutdown.
-   */
-  shutdown: function(/**Boolean*/ cleanup)
-  {
-    if (cleanup)
-    {
-      TimeLine.enter("Entered ContentPolicy.shutdown()");
-
-      let catMan = Utils.categoryManager;
-      for each (let category in PolicyPrivate.xpcom_categories)
-        catMan.deleteCategoryEntry(category, PolicyPrivate.classDescription, false);
-
-      Utils.runAsync(function()
-      {
-        // Remove component asynchronously, otherwise nsContentPolicy won't know
-        // which component to remove from the list
-        let registrar = Components.manager.QueryInterface(Ci.nsIComponentRegistrar);
-        registrar.unregisterFactory(PolicyPrivate.classID, PolicyPrivate);
-      });
-
-      Utils.observerService.removeObserver(PolicyPrivate, "http-on-modify-request");
-
-      TimeLine.log("done unregistering component");
-
-      Utils.styleService.unregisterSheet(collapseStyle, Ci.nsIStyleSheetService.USER_SHEET);
-      TimeLine.log("done removing stylesheet");
-
-      collapsedClass = "";
-      Policy.type = {};
-      Policy.typeDescr = {};
-      Policy.localizedDescr = {};
-      Policy.nonVisual = {};
-      Policy.whitelistSchemes = {};
-
-      TimeLine.leave("ContentPolicy.shutdown() done");
-    }
-  },
-
-  /**
    * Checks whether a node should be blocked, hides it if necessary
    * @param wnd {nsIDOMWindow}
    * @param node {nsIDOMElement}

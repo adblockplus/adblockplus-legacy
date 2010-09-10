@@ -102,31 +102,6 @@ var ElemHide =
   },
 
   /**
-   * Called on module shutdown.
-   */
-  shutdown: function(/**Boolean*/ cleanup)
-  {
-    if (cleanup)
-    {
-      TimeLine.enter("Entered ElemHide.shutdown()");
-
-      Prefs.removeListener(ElemHide.apply);
-
-      let registrar = Components.manager.QueryInterface(Ci.nsIComponentRegistrar);
-      registrar.unregisterFactory(ElemHidePrivate.classID, ElemHidePrivate);
-
-      delete Policy.whitelistSchemes[ElemHidePrivate.scheme];
-
-      let resProtocol = Cc["@mozilla.org/network/protocol;1?name=resource"].getService(Ci.nsIResProtocolHandler);
-      resProtocol.setSubstitution(ElemHidePrivate.resourcePrefix, null);
-
-      ElemHide.clear();
-
-      TimeLine.leave("ElemHide.shutdown() done");
-    }
-  },
-
-  /**
    * Removes all known filters
    */
   clear: function()

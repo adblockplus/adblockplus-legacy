@@ -140,7 +140,7 @@ var Prefs =
   /**
    * Called on module shutdown.
    */
-  shutdown: function(/**Boolean*/ cleanup)
+  shutdown: function()
   {
     TimeLine.enter("Entered Prefs.shutdown()");
 
@@ -151,14 +151,6 @@ var Prefs =
       try {
         branch.clearUserPref("currentVersion");
       } catch(e) {}
-    }
-
-    if (cleanup)
-    {
-      TimeLine.log("unregistering observers");
-      unregisterObservers();
-      listeners = [];
-      defaultPrefs = {__proto__: null};
     }
 
     TimeLine.leave("Prefs.shutdown() done");

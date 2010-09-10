@@ -73,26 +73,6 @@ var FilterListener =
   },
 
   /**
-   * Called on module shutdown.
-   */
-  shutdown: function(/**Boolean*/ cleanup)
-  {
-    if (cleanup)
-    {
-      TimeLine.enter("Entered FilterListener.shutdown()");
-
-      FilterStorage.removeSubscriptionObserver(onSubscriptionChange);
-      FilterStorage.removeFilterObserver(onFilterChange);
-
-      blacklistMatcher.clear();
-      whitelistMatcher.clear();
-      ElemHide.clear();
-
-      TimeLine.leave("FilterListener.shutdown() done");
-    }
-  },
-
-  /**
    * Set to true when executing many changes, changes will only be fully applied after this variable is set to false again.
    * @type Boolean
    */
