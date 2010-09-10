@@ -90,24 +90,6 @@ var Synchronizer =
   },
 
   /**
-   * Called on module shutdown.
-   */
-  shutdown: function(/**Boolean*/ cleanup)
-  {
-    if (cleanup)
-    {
-      TimeLine.enter("Entered Synchronizer.shutdown()");
-
-      timer.cancel();
-      timer = null;
-
-      executing = {__proto__: null};
-
-      TimeLine.leave("Synchronizer.shutdown() done");
-    }
-  },
-
-  /**
    * Checks whether a subscription is currently being downloaded.
    * @param {String} url  URL of the subscription
    * @return {Boolean}
