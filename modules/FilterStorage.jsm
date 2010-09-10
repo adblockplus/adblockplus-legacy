@@ -105,20 +105,10 @@ var FilterStorage =
   /**
    * Called on module shutdown.
    */
-  shutdown: function(/**Boolean*/ cleanup)
+  shutdown: function()
   {
     TimeLine.enter("Entered FilterStorage.shutdown()");
     FilterStorage.saveToDisk();
-    if (cleanup)
-    {
-      Cc["@mozilla.org/observer-service;1"].getService(Ci.nsIObserverService)
-                                           .removeObserver(FilterStoragePrivate, "browser:purge-session-history");
-      subscriptionObservers = [];
-      filterObservers = [];
-      FilterStorage.fileProperties = {__proto__: null};
-      FilterStorage.subscriptions = [];
-      FilterStorage.knownSubscriptions = {__proto__: null};
-    }
     TimeLine.leave("FilterStorage.shutdown() done");
   },
 
