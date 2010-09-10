@@ -149,43 +149,17 @@ var Bootstrap =
 
   /**
    * Shuts down add-on.
-   * @param {Boolean} cleanup  should be true if shutdown isn't due to application exiting, will revert all hooks from the application.
    */
-  shutdown: function(cleanup)
+  shutdown: function()
   {
     if (!initialized)
       return;
 
-    if (cleanup)
-      initialized = false;
-
     TimeLine.enter("Entered Bootstrap.shutdown()");
 
-    if (cleanup)
-    {
-      // Unregister components
-      
-      let registrar = Components.manager.QueryInterface(Ci.nsIComponentRegistrar);
-      registrar.unregisterFactory(cidPublic, factoryPublic);
-      registrar.unregisterFactory(cidPrivate, factoryPrivate);
-    
-      TimeLine.log("done unregistering URL components");
-
-      // Remove category observer
-
-      let observerService = Cc["@mozilla.org/observer-service;1"].getService(Ci.nsIObserverService);
-      observerService.removeObserver(BootstrapPrivate, "xpcom-category-entry-added");
-      observerService.removeObserver(BootstrapPrivate, "xpcom-category-entry-removed");
-
-      TimeLine.log("done removing category observer");
-    }
-
     // Shut down modules
-
-    TimeLine.log("started shutting down modules");
-
     for (let url in loadedModules)
-      Bootstrap.unloadModule(url, cleanup);
+      Bootstrap.shutdownModule(url);
 
     TimeLine.leave("Bootstrap.shutdown() done");
   },
@@ -230,22 +204,19 @@ var Bootstrap =
   },
 
   /**
-   * Shuts down and unloads a module (ok, unloading isn't currently possible, see bug 564674).
+   * Shuts down a module.
    */
-  unloadModule: function(/**String*/ url, /**Boolean*/ cleanup)
+  shutdownModule: function(/**String*/ url)
   {
     if (!(url in loadedModules))
       return;
 
     let obj = loadedModules[url];
-    if (cleanup)
-      delete loadedModules[url];
-
     if ("shutdown" in obj)
     {
       try
       {
-        obj.shutdown(cleanup);
+        obj.shutdown();
       }
       catch (e)
       {
@@ -253,8 +224,6 @@ var Bootstrap =
       }
       return;
     }
-
-    Cu.reportError("Adblock Plus: No exported object with shutdown() method found for module " + url);
   }
 };
 
