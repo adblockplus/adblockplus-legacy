@@ -289,7 +289,7 @@ var ElemHidePrivate =
                  Ci.nsIProtocolHandler.URI_NOAUTH |
                  Ci.nsIProtocolHandler.URI_DANGEROUS_TO_LOAD |
                  Ci.nsIProtocolHandler.URI_NON_PERSISTABLE,
-  scheme: "abp-elemhidehit-" + Math.random().toFixed(15).substr(5),
+  scheme: "abp-elemhidehit",
   allowPort: function() {return false},
 
   newURI: function(spec, originCharset, baseURI)
