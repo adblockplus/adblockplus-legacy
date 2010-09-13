@@ -521,6 +521,10 @@ var FilterStorage =
     // Save filter data
     for each (let subscription in FilterStorage.subscriptions)
     {
+      // Do not persist external subscriptions
+      if (subscription instanceof ExternalSubscription)
+        continue;
+
       for each (let filter in subscription.filters)
       {
         if (!(filter.text in saved))
@@ -538,6 +542,10 @@ var FilterStorage =
     // Save subscriptions
     for each (let subscription in FilterStorage.subscriptions)
     {
+      // Do not persist external subscriptions
+      if (subscription instanceof ExternalSubscription)
+        continue;
+
       buf.push("");
       subscription.serialize(buf);
       if (subscription.filters.length)
