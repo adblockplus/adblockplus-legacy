@@ -1483,7 +1483,8 @@ let treeView = {
     let closed = this.boxObject.treeBody.parentNode.getAttribute("closedSubscriptions");
     if (closed)
       for each (let id in closed.split(" "))
-        this.closed[id] = true;
+        if (id in FilterStorage.knownSubscriptions)
+          this.closed[id] = true;
 
     // Check current sort direction
     let cols = document.getElementsByTagName("treecol");
