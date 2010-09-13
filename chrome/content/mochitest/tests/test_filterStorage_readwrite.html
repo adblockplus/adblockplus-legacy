@@ -4593,6 +4593,61 @@ zeit.de#DIV(class$=_ads)
   </div>
   <pre id="test">
   <script type="application/x-javascript;version=1.7">
+    function readFile(file)
+    {
+      let fileStream = Components.classes["@mozilla.org/network/file-input-stream;1"]
+                         .createInstance(Components.interfaces.nsIFileInputStream);
+      fileStream.init(file, 0x01, 0444, 0);
+
+      let stream = Components.classes["@mozilla.org/intl/converter-input-stream;1"]
+                         .createInstance(Components.interfaces.nsIConverterInputStream);
+      stream.init(fileStream, "UTF-8", 16384, Components.interfaces.nsIConverterInputStream.DEFAULT_REPLACEMENT_CHARACTER);
+
+      let result = "";
+      let data = {};
+      while (stream.readString(0xFFFFFF, data))
+        result += data.value;
+
+      stream.close();
+
+      return result;
+    }
+
+    function canonize(data)
+    {
+      let curSection = null;
+      let sections = [];
+      for each (let line in (data + "\n[end]").split(/[\r\n]+/))
+      {
+        if (/^\[.*\]$/.test(line))
+        {
+          if (curSection)
+            sections.push(curSection);
+
+          curSection = {header: line, data: []};
+        }
+        else if (curSection && /\S/.test(line))
+          curSection.data.push(line);
+      }
+      for each (let section in sections)
+      {
+        section.key = section.header + " " + section.data[0];
+        section.data.sort();
+      }
+      sections.sort(function(a, b)
+      {
+        if (a.key < b.key)
+          return -1;
+        else if (a.key > b.key)
+          return 1;
+        else
+          return 0;
+      });
+      return sections.map(function(section) {
+        return [section.header].concat(section.data).join("\n");
+      }).join("\n");
+    }
+
     Cu.import(baseURL.spec + "Utils.jsm");
     prepareFilterComponents();
     preparePrefs();
@@ -4645,58 +4700,20 @@ zeit.de#DIV(class$=_ads)
       ok(true, "Time to save filters: " + (endTime - startTime) + "ms");
     }
 
+    is(canonize(readFile(tempFile)), canonize(testData), "Read/write result");
+
+    Cu.import(baseURL.spec + "Public.jsm");
+    AdblockPlus.updateExternalSubscription("external subscription ID", "External subscription", ["foo", "bar"]);
+
+    let externalSubscriptions = FilterStorage.subscriptions.filter(function (subscription) subscription instanceof ExternalSubscription);
+    is(externalSubscriptions.length, 1, "updateExternalSubscription added an external subscription to the list");
+    if (externalSubscriptions.length == 1)
     {
-      let fileStream = Components.classes["@mozilla.org/network/file-input-stream;1"]
-                         .createInstance(Components.interfaces.nsIFileInputStream);
-      fileStream.init(tempFile, 0x01, 0444, 0);
-
-      let stream = Components.classes["@mozilla.org/intl/converter-input-stream;1"]
-                         .createInstance(Components.interfaces.nsIConverterInputStream);
-      stream.init(fileStream, "UTF-8", 16384, Components.interfaces.nsIConverterInputStream.DEFAULT_REPLACEMENT_CHARACTER);
-
-      let result = "";
-      let data = {};
-      while (stream.readString(0xFFFFFF, data))
-        result += data.value;
-
-      stream.close();
-
-      function canonize(data)
-      {
-        let curSection = null;
-        let sections = [];
-        for each (let line in (data + "\n[end]").split(/[\r\n]+/))
-        {
-          if (/^\[.*\]$/.test(line))
-          {
-            if (curSection)
-              sections.push(curSection);
-
-            curSection = {header: line, data: []};
-          }
-          else if (curSection && /\S/.test(line))
-            curSection.data.push(line);
-        }
-        for each (let section in sections)
-        {
-          section.key = section.header + " " + section.data[0];
-          section.data.sort();
-        }
-        sections.sort(function(a, b)
-        {
-          if (a.key < b.key)
-            return -1;
-          else if (a.key > b.key)
-            return 1;
-          else
-            return 0;
-        });
-        return sections.map(function(section) {
-          return [section.header].concat(section.data).join("\n");
-        }).join("\n");
-      }
-      is(canonize(result), canonize(testData), "Read/write result");
+      is(externalSubscriptions[0].url, "external subscription ID", "ID of external subscription was set correctly");
+      is(externalSubscriptions[0].filters.length, 2, "External subscription has two filters");
     }
+    FilterStorage.saveToDisk();
+    is(canonize(readFile(tempFile)), canonize(testData), "External subscription wasn't saved to disk");
 
     for each (let subscription in FilterStorage.subscriptions.filter(function (subscription) {return !(subscription instanceof SpecialSubscription)}))
     {
