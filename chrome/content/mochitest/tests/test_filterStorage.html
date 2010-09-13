@@ -23,14 +23,14 @@
 
     function compareSubscriptionObservers(test, list)
     {
-      let result = getGlobalForObject(FilterStorage).subscriptionObservers.map(function(observer) {return observer.name}).join("\n");
+      let result = FilterStorageGlobal.subscriptionObservers.map(function(observer) {return observer.name}).join("\n");
       let expected = list.map(function(observer) {return observer.name}).join("\n");
       is(result, expected, test);
     }
 
     function compareFilterObservers(test, list)
     {
-      let result = getGlobalForObject(FilterStorage).filterObservers.map(function(observer) {return observer.name}).join("\n");
+      let result = FilterStorageGlobal.filterObservers.map(function(observer) {return observer.name}).join("\n");
       let expected = list.map(function(observer) {return observer.name}).join("\n");
       is(result, expected, test);
     }
