@@ -46,7 +46,7 @@
         }
         result[matcher == blacklistMatcher ? "blacklist" : "whitelist"] = filters;
       }
-      result.elemhide = getGlobalForObject(ElemHide).filters;
+      result.elemhide = ElemHideGlobal.filters;
 
       function canonize(obj)
       {

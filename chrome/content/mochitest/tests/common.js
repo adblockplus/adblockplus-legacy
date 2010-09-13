@@ -16,24 +16,15 @@ function compareGeckoVersion(version)
   return Utils.versionComparator.compare(geckoVersion, version);
 }
 
-function getGlobalForObject(obj)
-{
-  if ("getGlobalForObject" in Cu)
-    return Cu.getGlobalForObject(obj);  // Gecko 1.9.3 and higher
-  else
-    return obj.__parent__;              // Gecko 1.9.0/1.9.1/1.9.2
-}
-
 function prepareFilterComponents(keepObservers)
 {
   Cu.import(baseURL.spec + "FilterClasses.jsm");
   Cu.import(baseURL.spec + "SubscriptionClasses.jsm");
-  Cu.import(baseURL.spec + "FilterStorage.jsm");
+  window.FilterStorageGlobal = Cu.import(baseURL.spec + "FilterStorage.jsm");
   Cu.import(baseURL.spec + "Matcher.jsm");
-  Cu.import(baseURL.spec + "ElemHide.jsm");
+  window.ElemHideGlobal = Cu.import(baseURL.spec + "ElemHide.jsm");
   Cu.import(baseURL.spec + "FilterListener.jsm");
 
-  let FilterStorageGlobal = getGlobalForObject(FilterStorage);
   let oldSubscriptions = FilterStorage.subscriptions;
   let oldStorageKnown = FilterStorage.knownSubscriptions;
   let oldSubscriptionsKnown = Subscription.knownSubscriptions;
