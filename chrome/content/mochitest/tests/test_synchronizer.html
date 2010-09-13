@@ -21,9 +21,7 @@
   <pre id="test">
   <script type="application/x-javascript;version=1.7">
     Cu.import(baseURL.spec + "Utils.jsm");
-    Cu.import(baseURL.spec + "Synchronizer.jsm");
-    Cu.import(baseURL.spec + "FilterStorage.jsm");
-    Cu.import(baseURL.spec + "SubscriptionClasses.jsm");
+    let SynchronizerGlobal = Cu.import(baseURL.spec + "Synchronizer.jsm");
     prepareFilterComponents();
     preparePrefs();
 
@@ -31,7 +29,6 @@
     let startTime = 0;
     let scheduledTasks = [];
 
-    let SynchronizerGlobal = getGlobalForObject(Synchronizer);
     let oldRandom = SynchronizerGlobal.Math.random;
     let oldNow = SynchronizerGlobal.Date.now;
     SynchronizerGlobal.Date.now = function()
