@@ -112,7 +112,8 @@ interface IAdblockPlus : nsISupports
   /**
    * Adds an external subscription or updates subscription's patterns if it
    * already exists. It will fail to update the subscription if it exists
-   * but doesn't have the external attribute set.
+   * but doesn't have the external attribute set. External subscriptions will
+   * not be persisted and should be re-added on each browser start.
    *
    * @param id        subscription identifier
    * @param title     subscription title
