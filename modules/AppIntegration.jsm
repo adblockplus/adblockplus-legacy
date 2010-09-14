@@ -528,12 +528,9 @@ WindowWrapper.prototype =
     {
       updateElement.call(this, button);
       if (button.hasAttribute("context") && Prefs.defaulttoolbaraction == 0)
-      {
-        button.setAttribute("popup", button.getAttribute("context"));
-        button.removeAttribute("type");
-      }
+        button.setAttribute("type", "menu");
       else
-        button.removeAttribute("popup");
+        button.setAttribute("type", "menu-button");
     }
   
     updateElement.call(this, this.getPaletteButton());
