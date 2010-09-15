@@ -312,7 +312,7 @@ HitRegistrationChannel.prototype = {
   contentCharset: "utf-8",
   contentLength: 0,
   contentType: "text/xml",
-  owner: null,
+  owner: Utils.systemPrincipal,
   securityInfo: null,
   notificationCallbacks: null,
   loadFlags: 0,
