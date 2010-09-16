@@ -23,6 +23,7 @@ pref("extensions.adblockplus.hideimagemanager", true);
 pref("extensions.adblockplus.subscriptions_listurl", "https://adblockplus.org/subscriptions.xml");
 pref("extensions.adblockplus.subscriptions_fallbackurl", "https://adblockplus.org/getSubscription?version=%VERSION%&url=%SUBSCRIPTION%&downloadURL=%URL%&error=%ERROR%&channelStatus=%CHANNELSTATUS%&responseStatus=%RESPONSESTATUS%");
 pref("extensions.adblockplus.subscriptions_fallbackerrors", 5);
+pref("extensions.adblockplus.documentation_link", "https://adblockplus.org/redirect?link=%LINK%&lang=%LANG%");
 pref("extensions.adblockplus.savestats", true);
 pref("extensions.adblockplus.composer_default", 2);
 pref("extensions.adblockplus.clearStatsOnHistoryPurge", true);
