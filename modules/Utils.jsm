@@ -33,6 +33,7 @@ const Ci = Components.interfaces;
 const Cr = Components.results;
 const Cu = Components.utils;
 
+let baseURL = Cc["@adblockplus.org/abp/private;1"].getService(Ci.nsIURI);
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 
 let sidebarParams = null;
@@ -78,6 +79,24 @@ var Utils =
     let id = appInfo.ID;
     Utils.__defineGetter__("appID", function() id);
     return Utils.appID;
+  },
+
+  /**
+   * Returns the user interface locale selected for adblockplus chrome package.
+   */
+  get appLocale()
+  {
+    let locale = "en-US";
+    try
+    {
+      locale = Utils.chromeRegistry.getSelectedLocale("adblockplus");
+    }
+    catch (e)
+    {
+      Cu.reportError(e);
+    }
+    Utils.__defineGetter__("appLocale", function() locale);
+    return Utils.appLocale;
   },
 
   /**
@@ -359,6 +378,19 @@ var Utils =
   },
 
   /**
+   * Opens a pre-defined documentation link in the browser window. This will
+   * send the UI language to adblockplus.org so that the correct language
+   * version of the page can be selected.
+   */
+  loadDocLink: function(/**String*/ linkID)
+  {
+    Cu.import(baseURL.spec + "Prefs.jsm");
+
+    let link = Prefs.documentation_link.replace(/%LINK%/g, linkID).replace(/%LANG%/g, Utils.appLocale);
+    Utils.loadInBrowser(link);
+  },
+
+  /**
    * Saves sidebar state before detaching/reattaching
    */
   setParams: function(params)
@@ -392,7 +424,7 @@ XPCOMUtils.defineLazyServiceGetter(Utils, "prefService", "@mozilla.org/preferenc
 XPCOMUtils.defineLazyServiceGetter(Utils, "versionComparator", "@mozilla.org/xpcom/version-comparator;1", "nsIVersionComparator");
 XPCOMUtils.defineLazyServiceGetter(Utils, "windowMediator", "@mozilla.org/appshell/window-mediator;1", "nsIWindowMediator");
 XPCOMUtils.defineLazyServiceGetter(Utils, "windowWatcher", "@mozilla.org/embedcomp/window-watcher;1", "nsIWindowWatcher");
-XPCOMUtils.defineLazyServiceGetter(Utils, "chromeRegistry", "@mozilla.org/chrome/chrome-registry;1", "nsIChromeRegistry");
+XPCOMUtils.defineLazyServiceGetter(Utils, "chromeRegistry", "@mozilla.org/chrome/chrome-registry;1", "nsIXULChromeRegistry");
 XPCOMUtils.defineLazyServiceGetter(Utils, "systemPrincipal", "@mozilla.org/systemprincipal;1", "nsIPrincipal");
 
 if ("@mozilla.org/messenger/headerparser;1" in Cc)
