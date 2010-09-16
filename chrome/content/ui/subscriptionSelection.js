@@ -37,7 +37,6 @@ let suppressResize = true;
 
 let closing = false;
 let subscriptionListLoading = false;
-let appLocale = "en-US";
 let otherButton = null;
 
 function init()
@@ -125,16 +124,6 @@ function init()
   else
     E("autoDownload").checked = source.autoDownload;
 
-  // Find filter subscription suggestion based on user's browser locale
-  try
-  {
-    appLocale = Cc["@mozilla.org/chrome/chrome-registry;1"].getService(Ci.nsIXULChromeRegistry).getSelectedLocale("adblockplus");
-  }
-  catch (e)
-  {
-    Cu.reportError(e);
-  }
-
   initialized = true;
 
   if (!editMode)
@@ -154,7 +143,7 @@ function init()
       if (!selectedItem)
         selectedItem = item;
   
-      let prefix = checkPrefixMatch(prefixes, appLocale);
+      let prefix = checkPrefixMatch(prefixes, Utils.appLocale);
       if (prefix)
       {
         item.setAttribute("class", "localeMatch");
@@ -384,7 +373,7 @@ function addSubscriptions(list, parent, level, parentTitle, parentURL)
       let title = document.createElement("description");
       if (isFirst)
       {
-        if (checkPrefixMatch(node.getAttribute("prefixes"), appLocale))
+        if (checkPrefixMatch(node.getAttribute("prefixes"), Utils.appLocale))
           title.setAttribute("class", "title localeMatch");
         else
           title.setAttribute("class", "title");

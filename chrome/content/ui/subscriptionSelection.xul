@@ -72,7 +72,7 @@
       <description value="&list.download.failed;"/>
       <hbox>
         <button label="&list.download.retry;" oncommand="reloadSubscriptionList()"/>
-        <button label="&list.download.website;" _url="&list.website.url;" oncommand="Utils.loadInBrowser(this.getAttribute('_url'))"/>
+        <button label="&list.download.website;" oncommand="Utils.loadDocLink('subscriptions')"/>
       </hbox>
     </vbox>
   </deck>
