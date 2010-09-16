@@ -22,7 +22,6 @@
 <!ENTITY list.download.failed       "Adblock Plus failed to retrieve the list of subscriptions.">
 <!ENTITY list.download.retry        "Try again">
 <!ENTITY list.download.website      "View website">
-<!ENTITY list.website.url           "http://adblockplus.org/en/subscriptions">
 
 <!ENTITY fromWeb.description        "Please confirm that you want to add this filter subscription. You can change the subscription title or location before adding it.">
 <!ENTITY edit.description           "You can change the subscription title or location as necessary.">
