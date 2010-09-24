@@ -51,9 +51,9 @@
 
     <!-- Icon's context menu -->
     <menupopup id="abp-status-popup">
+      <menuitem id="abp-status-sendReport" label="&sendReport.label;…" accesskey="&sendReport.accesskey;" key="abp-key-sendReport" command="abp-command-sendReport"/>
       <menuitem id="abp-status-opensidebar" label="&opensidebar.label;" accesskey="&opensidebar.accesskey;" key="abp-key-sidebar" command="abp-command-sidebar"/>
       <menuitem id="abp-status-closesidebar" label="&closesidebar.label;" accesskey="&closesidebar.accesskey;" key="abp-key-sidebar" command="abp-command-sidebar"/>
-      <menuitem id="abp-status-sendReport" label="&sendReport.label;…" accesskey="&sendReport.accesskey;" key="abp-key-sendReport" command="abp-command-sendReport"/>
       <menuitem id="abp-status-settings" label="&settings.label;…" accesskey="&settings.accesskey;" key="abp-key-settings" command="abp-command-settings"/>
       <menuseparator id="abp-status-whitelist-sep"/>
       <menuitem id="abp-status-whitelistsite" labeltempl="&whitelist.site.label;" type="checkbox" command="abp-command-togglesitewhitelist"/>
