@@ -11,6 +11,7 @@ pref("extensions.adblockplus.synchronizationinterval", 24);
 pref("extensions.adblockplus.defaulttoolbaraction", 1);
 pref("extensions.adblockplus.defaultstatusbaraction", 2);
 pref("extensions.adblockplus.sidebar_key", "Accel Shift V");
+pref("extensions.adblockplus.sendReport_key", "");
 pref("extensions.adblockplus.settings_key", "Accel Shift E");
 pref("extensions.adblockplus.enable_key", "");
 pref("extensions.adblockplus.flash_scrolltoitem", true);
@@ -27,4 +28,4 @@ pref("extensions.adblockplus.documentation_link", "https://adblockplus.org/redir
 pref("extensions.adblockplus.savestats", true);
 pref("extensions.adblockplus.composer_default", 2);
 pref("extensions.adblockplus.clearStatsOnHistoryPurge", true);
-pref("extensions.{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}.description", "chrome://adblockplus/locale/global.properties");
+pref("extensions.adblockplus.report_submiturl", "https://reports.adblockplus.org/submitReport?version=1&guid=%GUID%&lang=%LANG%");
