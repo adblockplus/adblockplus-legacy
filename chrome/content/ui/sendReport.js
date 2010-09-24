@@ -32,6 +32,7 @@ let reportData =
     <application name={Utils.appInfo.name} vendor={Utils.appInfo.vendor} version={Utils.appInfo.version} userAgent={window.navigator.userAgent}/>
     <platform name="Gecko" version={Utils.appInfo.platformVersion} build={Utils.appInfo.platformBuildID}/>
     <options>
+      <option id="enabled">{Prefs.enabled}</option>
       <option id="objecttabs">{Prefs.frameobjects}</option>
       <option id="collapse">{!Prefs.fastcollapse}</option>
       <option id="privateBrowsing">{Prefs.privateBrowsing}</option>
