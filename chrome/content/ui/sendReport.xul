@@ -57,7 +57,7 @@
                      M 395,0 l 5,15 l -5,15 l -195,0 l 5,-15 l -5,-15 z
                      M 595,0 l 5,15 l -5,15 l -195,0 l 5,-15 l -5,-15 z
                      M 795,0 l 5,15 l -5,15 l -195,0 l 5,-15 l -5,-15 z"
-                  fill="none" stroke-width="1" xbl:inherits="stroke=textColor"/>-->
+                  fill="none" stroke-width="1" xbl:inherits="stroke=textColor"/>
   
             <text x="110" y="15" xbl:inherits="class=label1Class,fill=textColor">&typeSelector.heading;</text>
             <path d="M 10,16 l 2,-2 l 4,5 l 10,-12 l -10,16 z" stroke="none" xbl:inherits="class=label1Class,fill=textColor"/>
