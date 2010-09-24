@@ -75,8 +75,7 @@ var Utils =
    */
   get appID()
   {
-    let appInfo = Cc["@mozilla.org/xre/app-info;1"].getService(Ci.nsIXULAppInfo);
-    let id = appInfo.ID;
+    let id = Utils.appInfo.ID;
     Utils.__defineGetter__("appID", function() id);
     return Utils.appID;
   },
@@ -104,8 +103,7 @@ var Utils =
    */
   get platformVersion()
   {
-    let appInfo = Cc["@mozilla.org/xre/app-info;1"].getService(Ci.nsIXULAppInfo);
-    let platformVersion = appInfo.platformVersion;
+    let platformVersion = Utils.appInfo.platformVersion;
     Utils.__defineGetter__("platformVersion", function() platformVersion);
     return Utils.platformVersion;
   },
@@ -413,6 +411,7 @@ var Utils =
 
 XPCOMUtils.defineLazyServiceGetter(Utils, "observerService", "@mozilla.org/observer-service;1", "nsIObserverService");
 XPCOMUtils.defineLazyServiceGetter(Utils, "categoryManager", "@mozilla.org/categorymanager;1", "nsICategoryManager");
+XPCOMUtils.defineLazyServiceGetter(Utils, "appInfo", "@mozilla.org/xre/app-info;1", "nsIXULAppInfo");
 XPCOMUtils.defineLazyServiceGetter(Utils, "ioService", "@mozilla.org/network/io-service;1", "nsIIOService");
 XPCOMUtils.defineLazyServiceGetter(Utils, "dirService", "@mozilla.org/file/directory_service;1", "nsIProperties");
 XPCOMUtils.defineLazyServiceGetter(Utils, "threadManager", "@mozilla.org/thread-manager;1", "nsIThreadManager");

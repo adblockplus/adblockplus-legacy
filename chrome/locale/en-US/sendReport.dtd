@@ -1,0 +1,75 @@
+<!ENTITY wizard.title                   "Issue reporter">
+
+<!ENTITY dataCollector.heading          "Welcome to issue reporter">
+<!ENTITY dataCollector.description      "Please wait a few moments while Adblock Plus is gathering required data.">
+
+<!ENTITY typeSelector.heading           "Select issue type">
+
+<!ENTITY typeSelector.description       "
+  This window will guide you through the necessary steps to submit an Adblock
+  Plus issue report. First, please select the type of issue you are experiencing
+  on this page:
+">
+
+<!ENTITY typeSelector.falsePositive.label       "Adblock Plus is blocking too much">
+<!ENTITY typeSelector.falsePositive.accesskey   "m">
+<!ENTITY typeSelector.falsePositive.description "
+  Select this option if important content is missing on this page, the page displays
+  in the wrong way or is not functioning properly. You can verify that Adblock
+  Plus is reponsible for this issue by disabling it temporarily.
+">
+
+<!ENTITY typeSelector.falseNegative.label       "Adblock Plus doesn't block an advertisement">
+<!ENTITY typeSelector.falseNegative.accesskey   "v">
+<!ENTITY typeSelector.falseNegative.description "
+  Select this option if an advertisement is displayed on this page despite
+  Adblock Plus being enabled.
+">
+
+<!ENTITY typeSelector.other.label               "Other issue">
+<!ENTITY typeSelector.other.accesskey           "t">
+<!ENTITY typeSelector.other.description         "
+  Select this option if you suspect an issue with Adblock Plus itself rather
+  than its filters.
+">
+
+<!ENTITY screenshot.heading           "Attach screenshot">
+
+<!ENTITY screenshot.description       "
+  The same page can look differently for different people. It might help us
+  understand the problem if you attach an image to your report. You can remove
+  areas containing sensitive information as well as mark the areas where the
+  problem becomes obvious. Simply click the corresponding button and select
+  an area on the image with your mouse.
+">
+
+<!ENTITY screenshot.attach.label      "Attach page image to report">
+<!ENTITY screenshot.attach.accesskey  "t">
+<!ENTITY screenshot.mark.label        "Mark the problem">
+<!ENTITY screenshot.mark.accesskey    "M">
+<!ENTITY screenshot.remove.label      "Remove sensitive data">
+<!ENTITY screenshot.remove.accesskey  "R">
+<!ENTITY screenshot.undo.label        "Undo">
+<!ENTITY screenshot.undo.accesskey    "U">
+
+<!ENTITY commentPage.heading          "Enter comment">
+
+<!ENTITY commentPage.description      "
+  Below you have the opportunity to enter a comment to help us understand the issue.
+  This step is optional but recommended if the issue isn't absolutely obvious.
+  You can also review the report data before it is sent.
+">
+
+<!ENTITY comment.label                "Comment:">
+<!ENTITY comment.accesskey            "C">
+<!ENTITY comment.lengthWarning        "The length of your comment exceeds 1000 characters. Only the first 1000 characters will be sent.">
+
+<!ENTITY showData.label               "Show report data">
+<!ENTITY data.label                   "Report data:">
+<!ENTITY data.accesskey               "p">
+
+<!ENTITY sendPage.heading             "Send report">
+<!ENTITY sendPage.description         "Please wait while Adblock Plus is submitting your report.">
+
+<!ENTITY copyLink.label               "Copy report link">
+<!ENTITY copyLink.accesskey           "C">

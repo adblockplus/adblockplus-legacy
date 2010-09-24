@@ -1,0 +1,93 @@
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Adblock Plus.
+ *
+ * The Initial Developer of the Original Code is
+ * Wladimir Palant.
+ * Portions created by the Initial Developer are Copyright (C) 2006-2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+@namespace svg url("http://www.w3.org/2000/svg");
+
+.wizard-header
+{
+  -moz-binding: url(chrome://adblockplus/content/ui/sendReport.xul#headerBinding);
+  padding: 10px 5px !important;
+}
+
+row > label
+{
+  margin: 0px;
+  padding: 5px 0px;
+  text-align: center;
+  min-width: 1px;
+}
+
+progressmeter
+{
+  margin-top: 100px;
+}
+
+.radioDescription
+{
+  -moz-margin-start: 32px;
+}
+
+radio, checkbox, label
+{
+  margin-top: 15px;
+}
+
+#screenshotButtons
+{
+  margin-top: 10px;
+}
+
+#screenshotBox
+{
+  overflow-y: scroll;
+}
+
+
+#commentLengthWarning
+{
+  color: red;
+}
+
+#commentLengthWarning[visible="false"]
+{
+  visibility: hidden;
+}
+
+svg|text
+{
+  font-size: 15px;
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+
+svg|text.active
+{
+  font-weight: bold;
+}
+
+svg|path.outstanding
+{
+  display: none;
+}
