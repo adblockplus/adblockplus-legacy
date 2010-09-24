@@ -129,9 +129,7 @@ function initCanvas()
   imageCanvas.width = imageCanvas.offsetWidth;
   imageContext = imageCanvas.getContext("2d");
   let wndWidth = contentWindow.document.documentElement.offsetWidth;
-  let wndHeight = contentWindow.document.documentElement.offsetHeight;
-  if (contentWindow.document instanceof HTMLDocument) // Yeah, quirks mode
-    wndHeight = Math.max(wndHeight, contentWindow.document.body.offsetHeight);
+  let wndHeight = contentWindow.document.documentElement.scrollHeight;
 
   // Copy scaled screenshot of the webpage. We scale the webpage by width
   // but leave 10px on each side for easier selecting.
