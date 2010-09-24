@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+
+<!-- ***** BEGIN LICENSE BLOCK *****
+   - Version: MPL 1.1
+   -
+   - The contents of this file are subject to the Mozilla Public License Version
+   - 1.1 (the "License"); you may not use this file except in compliance with
+   - the License. You may obtain a copy of the License at
+   - http://www.mozilla.org/MPL/
+   -
+   - Software distributed under the License is distributed on an "AS IS" basis,
+   - WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+   - for the specific language governing rights and limitations under the
+   - License.
+   -
+   - The Original Code is Adblock Plus.
+   -
+   - The Initial Developer of the Original Code is
+   - Wladimir Palant.
+   - Portions created by the Initial Developer are Copyright (C) 2006-2010
+   - the Initial Developer. All Rights Reserved.
+   -
+   - Contributor(s):
+   -
+   - ***** END LICENSE BLOCK ***** -->
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://global/skin/tree.css" type="text/css"?>
+<?xml-stylesheet href="chrome://adblockplus/skin/sendReport.css" type="text/css"?>
+
+<!DOCTYPE dialog SYSTEM "chrome://adblockplus/locale/sendReport.dtd">
+
+<wizard
+  xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+  title="&wizard.title;"
+  id="abpSendReportWizard"
+  onload="initWizard();"
+  width="800"
+  height="550"
+  windowtype="abp:sendReport">
+
+<script type="application/x-javascript;version=1.7" src="utils.js"/>
+<script type="application/x-javascript;version=1.7" src="sendReport.js"/>
+
+<keyset id="wizardKeys">
+  <key id="undoKey" modifiers="accel" key="Z" oncommand="if (document.documentElement.currentPage.id == 'screenshotPage') undoImageOperation();"/>
+</keyset>
+
+<box hidden="true">
+  <xbl:bindings id="headerBindings" xmlns:xbl="http://www.mozilla.org/xbl">
+    <xbl:binding id="headerBinding">
+      <xbl:content orient="vertical">
+        <deck xbl:inherits="selectedIndex=viewIndex">
+          <description class="wizard-header-label" xbl:inherits="value=label"/>
+          <svg xmlns="http://www.w3.org/2000/svg" version="1.1" baseProfile="full" viewBox="-5 -5 810 40" preserveAspectRatio="none" height="40">
+            <path d="M 195,0 l 5,15 l -5,15 l -195,0 l 0,-30 z
+                     M 395,0 l 5,15 l -5,15 l -195,0 l 5,-15 l -5,-15 z
+                     M 595,0 l 5,15 l -5,15 l -195,0 l 5,-15 l -5,-15 z
+                     M 795,0 l 5,15 l -5,15 l -195,0 l 5,-15 l -5,-15 z"
+                  fill="none" stroke-width="1" xbl:inherits="stroke=textColor"/>-->
+  
+            <text x="110" y="15" xbl:inherits="class=label1Class,fill=textColor">&typeSelector.heading;</text>
+            <path d="M 10,16 l 2,-2 l 4,5 l 10,-12 l -10,16 z" stroke="none" xbl:inherits="class=label1Class,fill=textColor"/>
+  
+            <text x="310" y="15" xbl:inherits="class=label2Class,fill=textColor">&screenshot.heading;</text>
+            <path d="M 210,16 l 2,-2 l 4,5 l 10,-12 l -10,16 z" stroke="none" xbl:inherits="class=label2Class,fill=textColor"/>
+  
+            <text x="510" y="15" xbl:inherits="class=label3Class,fill=textColor">&commentPage.heading;</text>
+            <path d="M 410,16 l 2,-2 l 4,5 l 10,-12 l -10,16 z" stroke="none" xbl:inherits="class=label3Class,fill=textColor"/>
+  
+            <text x="710" y="15" xbl:inherits="class=label4Class,fill=textColor">&sendPage.heading;</text>
+            <path d="M 610,16 l 2,-2 l 4,5 l 10,-12 l -10,16 z" stroke="none" xbl:inherits="class=label4Class,fill=textColor"/>
+          </svg>
+        </deck>
+      </xbl:content>
+    </xbl:binding>
+  </xbl:bindings>
+</box>
+
+<wizardpage id="dataCollectorPage" label="&dataCollector.heading;" onpageshow="initDataCollectorPage();">
+  <description>&dataCollector.description;</description>
+
+  <progressmeter mode="undetermined"/>
+</wizardpage>
+
+<wizardpage id="typeSelectorPage" label="&typeSelector.heading;" onpageshow="initTypeSelectorPage();">
+  <description>&typeSelector.description;</description>
+
+  <radiogroup id="typeGroup" oncommand="typeSelectionUpdated();">
+    <radio id="typeFalsePositive" value="false positive" label="&typeSelector.falsePositive.label;" accesskey="&typeSelector.falsePositive.accesskey;"/>
+    <description class="radioDescription">&typeSelector.falsePositive.description;</description>
+    <radio id="typeFalseNegative" value="false negative" label="&typeSelector.falseNegative.label;" accesskey="&typeSelector.falseNegative.accesskey;"/>
+    <description class="radioDescription">&typeSelector.falseNegative.description;</description>
+    <radio id="typeOther" value="other" label="&typeSelector.other.label;" accesskey="&typeSelector.other.accesskey;"/>
+    <description class="radioDescription">&typeSelector.other.description;</description>
+  </radiogroup>
+</wizardpage>
+
+<wizardpage id="screenshotPage" label="&screenshot.heading;" onpageshow="initScreenshotPage();">
+  <description>&screenshot.description;</description>
+
+  <checkbox id="screenshotCheckbox" checked="true" label="&screenshot.attach.label;" accesskey="&screenshot.attach.accesskey;" oncommand="enableCanvas(this.checked);"/>
+  <hbox id="screenshotButtons" pack="end">
+    <button id="screenshotMarkButton" type="radio" group="selectionType" oncommand="setImageSelectionType('mark');" checked="true" label="&screenshot.mark.label;" accesskey="&screenshot.mark.accesskey;"/>
+    <button id="screenshotRemoveButton" type="radio" group="selectionType" oncommand="setImageSelectionType('remove');" label="&screenshot.remove.label;" accesskey="&screenshot.remove.accesskey;"/>
+    <button id="screenshotUndoButton" oncommand="undoImageOperation();" disabled="true" label="&screenshot.undo.label;" accesskey="&screenshot.undo.accesskey;"/>
+  </hbox>
+  <vbox id="screenshotBox" flex="1">
+    <canvas xmlns="http://www.w3.org/1999/xhtml" id="screenshotCanvas" onmousedown="imageStartSelection(event);" onmouseup="imageStopSelection(event);" onmouseout="imageStopSelection(event);" onmousemove="imageUpdateSelection(event);"/>
+  </vbox>
+</wizardpage>
+
+<wizardpage id="commentPage" label="&commentPage.heading;" onpageshow="initCommentPage();">
+  <description>&commentPage.description;</description>
+
+  <label control="comment" value="&comment.label;" accesskey="&comment.accesskey;"/>
+  <textbox id="comment" multiline="true" flex="1" oninput="checkCommentLength()"/>
+  <description id="commentLengthWarning" visible="false">&comment.lengthWarning;</description>
+
+  <deck id="dataDeck" selectedIndex="0" flex="2">
+    <vbox pack="top">
+      <label class="text-link" value="&showData.label;" onclick="E('dataDeck').selectedIndex = 1;E('data').focus();"/>
+    </vbox>
+    <vbox>
+      <label control="data" value="&data.label;" accesskey="&data.accesskey;"/>
+      <textbox id="data" readonly="true" multiline="true" wrap="off" flex="1"/>
+    </vbox>
+  </deck>
+</wizardpage>
+
+<wizardpage id="sendPage" label="&sendPage.heading;" onpageshow="initSendPage();">
+  <description>&sendPage.description;</description>
+
+  <progressmeter id="sendReportProgress" mode="undetermined"/>
+
+  <iframe id="result" type="content" flex="1" hidden="true" onclick="processLinkClick(event);"/>
+
+  <hbox id="copyLinkBox" pack="end" hidden="true">
+    <button id="copyLink" disabled="true" label="&copyLink.label;" accesskey="&copyLink.accesskey;" oncommand="copyLink(this.getAttribute('url'));"/>
+  </hbox>
+</wizardpage>
+
+</wizard>

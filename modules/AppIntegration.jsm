@@ -911,7 +911,19 @@ WindowWrapper.prototype =
   },
 
   /**
-   * Test whether blockable items list is currently open.
+   * Opens report wizard for the current page.
+   */
+  openReportDialog: function()
+  {
+    let wnd = Utils.windowMediator.getMostRecentWindow("abp:sendReport");
+    if (wnd)
+      wnd.focus();
+    else
+      this.window.openDialog("chrome://adblockplus/content/ui/sendReport.xul", "_blank", "chrome,centerscreen", this.window.content);
+  },
+
+  /**
+   * Tests whether blockable items list is currently open.
    */
   isSidebarOpen: function() /**Boolean*/
   {
@@ -1124,6 +1136,7 @@ WindowWrapper.prototype.eventHandlers = [
   ["abp-tooltip", "popupshowing", WindowWrapper.prototype.fillTooltip],
   ["abp-status-popup", "popupshowing", WindowWrapper.prototype.fillPopup],
   ["abp-toolbar-popup", "popupshowing", WindowWrapper.prototype.fillPopup],
+  ["abp-command-sendReport", "command", WindowWrapper.prototype.openReportDialog],
   ["abp-command-settings", "command", function() {Utils.openSettingsDialog();}],
   ["abp-command-sidebar", "command", WindowWrapper.prototype.toggleSidebar],
   ["abp-command-togglesitewhitelist", "command", function() { AppIntegration.toggleFilter(this.siteWhitelist); }],
