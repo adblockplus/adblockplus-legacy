@@ -97,11 +97,14 @@ function initDataCollectorPage()
       requestNotifier.shutdown();
 
       let wndStats = RequestNotifier.getWindowStatistics(contentWindow);
-      for (let f in wndStats.filters)
+      if (wndStats)
       {
-        let filter = Filter.fromText(f)
-        let hitCount = wndStats.filters[f];
-        filters.appendChild(<filter text={filter.text} subscriptions={filter.subscriptions.map(function(s) s.url).join(" ")} hitCount={hitCount}/>);
+        for (let f in wndStats.filters)
+        {
+          let filter = Filter.fromText(f)
+          let hitCount = wndStats.filters[f];
+          filters.appendChild(<filter text={filter.text} subscriptions={filter.subscriptions.map(function(s) s.url).join(" ")} hitCount={hitCount}/>);
+        }
       }
 
       for (let i = 0; i < FilterStorage.subscriptions.length; i++)
