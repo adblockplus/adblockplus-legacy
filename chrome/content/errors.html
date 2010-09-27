@@ -52,6 +52,7 @@
     messages = messages.filter(function(message)
     {
       return (message instanceof Components.interfaces.nsIScriptError &&
+          !/^https?:/i.test(message.sourceName) &&
           (/adblock/i.test(message.errorMessage) || /adblock/i.test(message.sourceName)));
     });
 
