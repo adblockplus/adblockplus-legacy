@@ -207,6 +207,7 @@ function finishInitialization()
   if (messages.length > 10)   // Only the last 10 messages
     messages = messages.slice(messages.length - 10, messages.length);
 
+  let errors = reportData.errors;
   for (let i = 0; i < messages.length; i++)
   {
     let message = messages[i];
@@ -225,7 +226,7 @@ function finishInitialization()
 
     let errorXML = <error type={message.flags & Ci.nsIScriptError.warningFlag ? "warning" : "error"}
                           text={text} file={file} line={message.lineNumber} column={message.columnNumber} sourceLine={sourceLine}/>;
-    reportData.errors.appendChild(errorXML);
+    errors.appendChild(errorXML);
   }
 
   // All done, go to next page
