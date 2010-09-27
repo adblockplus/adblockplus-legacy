@@ -201,6 +201,7 @@ function finishInitialization()
   messages = messages.filter(function(message)
   {
     return (message instanceof Ci.nsIScriptError &&
+        !/^https?:/i.test(message.sourceName) &&
         (/adblock/i.test(message.errorMessage) || /adblock/i.test(message.sourceName)));
   });
   if (messages.length > 10)   // Only the last 10 messages
