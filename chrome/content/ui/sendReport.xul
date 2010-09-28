@@ -37,6 +37,7 @@
   onload="initWizard();"
   width="800"
   height="550"
+  sendbuttonlabel="&sendButton.label;"
   windowtype="abp:sendReport">
 
 <script type="application/x-javascript;version=1.7" src="utils.js"/>
