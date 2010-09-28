@@ -165,6 +165,8 @@ Subscription.fromObject = function(obj)
         result.downloadStatus = obj.downloadStatus;
       if ("lastModified" in obj)
         result.lastModified = obj.lastModified;
+      if ("lastSuccess" in obj)
+        result.lastSuccess = parseInt(obj.lastSuccess) || 0;
       if ("lastCheck" in obj)
         result.lastCheck = parseInt(obj.lastCheck) || 0;
       if ("expires" in obj)
@@ -376,6 +378,12 @@ DownloadableSubscription.prototype =
   lastModified: null,
 
   /**
+   * Time of the last successful download (in seconds since the beginning of the
+   * epoch).
+   */
+  lastSuccess: 0,
+
+  /**
    * Time when the subscription was considered for an update last time (in seconds
    * since the beginning of the epoch). This will be used to increase softExpiration
    * if the user doesn't use Adblock Plus for some time.
@@ -434,6 +442,8 @@ DownloadableSubscription.prototype =
       buffer.push("downloadStatus=" + this.downloadStatus);
     if (this.lastModified)
       buffer.push("lastModified=" + this.lastModified);
+    if (this.lastSuccess)
+      buffer.push("lastSuccess=" + this.lastSuccess);
     if (this.lastCheck)
       buffer.push("lastCheck=" + this.lastCheck);
     if (this.expires)
