@@ -166,7 +166,7 @@ function initCanvas()
   imageCanvas = E("screenshotCanvas");
   imageCanvas.width = imageCanvas.offsetWidth;
   imageContext = imageCanvas.getContext("2d");
-  let wndWidth = contentWindow.document.documentElement.offsetWidth;
+  let wndWidth = contentWindow.document.documentElement.scrollWidth;
   let wndHeight = contentWindow.document.documentElement.scrollHeight;
 
   // Copy scaled screenshot of the webpage. We scale the webpage by width
