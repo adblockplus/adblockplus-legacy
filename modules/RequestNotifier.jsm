@@ -105,11 +105,13 @@ else
  * complete only new requests for this window will be reported.
  * @param {Window} wnd  window to attach the notifier to
  * @param {Function} listener  listener to be called whenever a new request is found
+ * @param {Object} [listenerObj]  "this" pointer to be used when calling the listener
  */
-function RequestNotifier(wnd, listener)
+function RequestNotifier(wnd, listener, listenerObj)
 {
   this.window = wnd;
   this.listener = listener;
+  this.listenerObj = listenerObj || null;
   activeNotifiers.push(this);
   if (wnd)
     this.startScan(wnd);
@@ -131,6 +133,12 @@ RequestNotifier.prototype =
   listener: null,
 
   /**
+   * "this" pointer to be used when calling the listener.
+   * @type Object
+   */
+  listenerObj: null,
+
+  /**
    * Will be set to true once the initial window scan is complete.
    * @type Boolean
    */
@@ -142,8 +150,9 @@ RequestNotifier.prototype =
    */
   shutdown: function()
   {
-    this.window = null;
-    this.listener = null;
+    delete this.window;
+    delete this.listener;
+    delete this.listenerObj;
 
     for (let i = activeNotifiers.length - 1; i >= 0; i--)
       if (activeNotifiers[i] == this)
@@ -155,7 +164,7 @@ RequestNotifier.prototype =
    */
   notifyListener: function(/**Window*/ wnd, /**Node*/ node, /**RequestEntry*/ entry)
   {
-    this.listener(wnd, node, entry, this.scanComplete);
+    this.listener.call(this.listenerObj, wnd, node, entry, this.scanComplete);
   },
 
   /**
