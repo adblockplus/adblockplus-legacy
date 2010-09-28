@@ -54,6 +54,31 @@ function initWizard()
 {
   // Make sure no issue type is selected by default
   E("typeGroup").selectedItem = null;
+  document.documentElement.addEventListener("pageshow", updateNextButton, false);
+}
+
+function updateNextButton()
+{
+  let nextButton = document.documentElement.getButton("next");
+  if (!nextButton)
+    return;
+
+  if (document.documentElement.currentPage.id == "commentPage")
+  {
+    if (!nextButton.hasAttribute("_origLabel"))
+    {
+      nextButton.setAttribute("_origLabel", nextButton.getAttribute("label"));
+      nextButton.setAttribute("label", document.documentElement.getAttribute("sendbuttonlabel"));
+    }
+  }
+  else
+  {
+    if (nextButton.hasAttribute("_origLabel"))
+    {
+      nextButton.setAttribute("label", nextButton.getAttribute("_origLabel"));
+      nextButton.removeAttribute("_origLabel");
+    }
+  }
 }
 
 function initDataCollectorPage()
