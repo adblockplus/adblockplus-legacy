@@ -241,16 +241,35 @@ function finishInitialization()
   if (messages.length > 10)   // Only the last 10 messages
     messages = messages.slice(messages.length - 10, messages.length);
 
+  // Censor app and profile paths in error messages
+  let censored = {__proto__: null};
+  let pathList = [["ProfD", "%PROFILE%"], ["GreD", "%GRE%"], ["CurProcD", "%APP%"]];
+  for (let i = 0; i < pathList.length; i++)
+  {
+    let [pathID, placeholder] = pathList[i];
+    try
+    {
+      let file = Utils.dirService.get(pathID, Ci.nsIFile);
+      censored[file.path.replace(/[\\\/]+$/, '')] = placeholder;
+      let uri = Utils.ioService.newFileURI(file);
+      censored[uri.spec.replace(/[\\\/]+$/, '')] = placeholder;
+    } catch(e) {}
+  }
+
   let errors = reportData.errors;
   for (let i = 0; i < messages.length; i++)
   {
     let message = messages[i];
 
     let text = message.errorMessage;
+    for (let path in censored)
+      text = text.replace(path, censored[path], "gi");
     if (text.length > 256)
       text = text.substr(0, 256) + "...";
 
     let file = message.sourceName;
+    for (let path in censored)
+      file = file.replace(path, censored[path], "gi");
     if (file.length > 256)
       file = file.substr(0, 256) + "...";
 
