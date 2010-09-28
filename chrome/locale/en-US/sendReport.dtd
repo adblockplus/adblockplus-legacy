@@ -3,6 +3,7 @@
 <!ENTITY dataCollector.heading          "Welcome to issue reporter">
 <!ENTITY dataCollector.description      "Please wait a few moments while Adblock Plus is gathering required data.">
 
+<!-- Please keep typeSelector.heading short - it is shown in the progress bar, not much space there -->
 <!ENTITY typeSelector.heading           "Select issue type">
 
 <!ENTITY typeSelector.description       "
@@ -33,6 +34,7 @@
   than its filters.
 ">
 
+<!-- Please keep screenshot.heading short - it is shown in the progress bar, not much space there -->
 <!ENTITY screenshot.heading           "Attach screenshot">
 
 <!ENTITY screenshot.description       "
@@ -52,6 +54,7 @@
 <!ENTITY screenshot.undo.label        "Undo">
 <!ENTITY screenshot.undo.accesskey    "U">
 
+<!-- Please keep commentPage.heading short - it is shown in the progress bar, not much space there -->
 <!ENTITY commentPage.heading          "Enter comment">
 
 <!ENTITY commentPage.description      "
@@ -64,10 +67,13 @@
 <!ENTITY comment.accesskey            "C">
 <!ENTITY comment.lengthWarning        "The length of your comment exceeds 1000 characters. Only the first 1000 characters will be sent.">
 
+<!ENTITY sendButton.label             "Send report">
+
 <!ENTITY showData.label               "Show report data">
 <!ENTITY data.label                   "Report data:">
 <!ENTITY data.accesskey               "p">
 
+<!-- Please keep sendPage.heading short - it is shown in the progress bar, not much space there -->
 <!ENTITY sendPage.heading             "Send report">
 <!ENTITY sendPage.description         "Please wait while Adblock Plus is submitting your report.">
 
