@@ -534,6 +534,7 @@ function reportSent(event)
     E("copyLinkBox").hidden = false;
 
     document.documentElement.getButton("finish").disabled = false;
+    document.documentElement.getButton("cancel").disabled = true;
     setProgress(5);
   }
 }
