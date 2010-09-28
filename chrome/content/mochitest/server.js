@@ -77,8 +77,8 @@ function makeTagFunc(tagName)
     // if attr is an object, write attributes
     if (attrs && typeof attrs == 'object') {
       startChildren = 1;
-      for (var [key,value] in attrs) {
-        var val = "" + value;
+      for (var key in attrs) {
+        var val = "" + attrs[key];
         response += " " + key + '="' + val.replace('"','&quot;') + '"';
       }
     }
@@ -370,7 +370,8 @@ function linksToListItems(links)
 {
   var response = "";
   var children = "";
-  for (var [link, value] in links) {
+  for (var link in links) {
+    var value = links[link];
     var classVal = (!isTest(link) && !(value instanceof Object))
       ? "non-test invisible"
       : "test";
@@ -403,7 +404,8 @@ function linksToListItems(links)
 function linksToTableRows(links)
 {
   var response = "";
-  for (var [link, value] in links) {
+  for (var link in links) {
+    var value = links[link];
     var classVal = (!isTest(link) && !(value instanceof Object))
       ? "non-test invisible"
       : "";
@@ -420,7 +422,8 @@ function linksToTableRows(links)
 }
 
 function arrayOfTestFiles(linkArray, fileArray, testPattern) {
-  for (var [link, value] in linkArray) {
+  for (var link in linkArray) {
+    var value = linkArray[link];
     if (value instanceof Object) {
       arrayOfTestFiles(value, fileArray, testPattern);
     } else if (isTest(link, testPattern)) {

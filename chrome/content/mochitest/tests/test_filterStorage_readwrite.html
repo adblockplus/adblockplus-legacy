@@ -4703,13 +4703,13 @@ zeit.de#DIV(class$=_ads)
     is(canonize(readFile(tempFile)), canonize(testData), "Read/write result");
 
     Cu.import(baseURL.spec + "Public.jsm");
-    AdblockPlus.updateExternalSubscription("external subscription ID", "External subscription", ["foo", "bar"]);
+    AdblockPlus.updateExternalSubscription("~external~external subscription ID", "External subscription", ["foo", "bar"]);
 
     let externalSubscriptions = FilterStorage.subscriptions.filter(function (subscription) subscription instanceof ExternalSubscription);
     is(externalSubscriptions.length, 1, "updateExternalSubscription added an external subscription to the list");
     if (externalSubscriptions.length == 1)
     {
-      is(externalSubscriptions[0].url, "external subscription ID", "ID of external subscription was set correctly");
+      is(externalSubscriptions[0].url, "~external~external subscription ID", "ID of external subscription was set correctly");
       is(externalSubscriptions[0].filters.length, 2, "External subscription has two filters");
     }
     FilterStorage.saveToDisk();
