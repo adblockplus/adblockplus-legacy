@@ -44,7 +44,7 @@
 <script type="application/x-javascript;version=1.7" src="sendReport.js"/>
 
 <keyset id="wizardKeys">
-  <key id="undoKey" modifiers="accel" key="Z" oncommand="if (document.documentElement.currentPage.id == 'screenshotPage') undoImageOperation();"/>
+  <key id="undoKey" modifiers="accel" key="Z" oncommand="if (document.documentElement.currentPage.id == 'screenshotPage') screenshotDataSource.undo();"/>
 </keyset>
 
 <box hidden="true">
@@ -100,14 +100,14 @@
 <wizardpage id="screenshotPage" label="&screenshot.heading;" onpageshow="initScreenshotPage();">
   <description>&screenshot.description;</description>
 
-  <checkbox id="screenshotCheckbox" checked="true" label="&screenshot.attach.label;" accesskey="&screenshot.attach.accesskey;" oncommand="enableCanvas(this.checked);"/>
+  <checkbox id="screenshotCheckbox" checked="true" label="&screenshot.attach.label;" accesskey="&screenshot.attach.accesskey;" oncommand="screenshotDataSource.enabled = this.checked;"/>
   <hbox id="screenshotButtons" pack="end">
-    <button id="screenshotMarkButton" type="radio" group="selectionType" oncommand="setImageSelectionType('mark');" checked="true" label="&screenshot.mark.label;" accesskey="&screenshot.mark.accesskey;"/>
-    <button id="screenshotRemoveButton" type="radio" group="selectionType" oncommand="setImageSelectionType('remove');" label="&screenshot.remove.label;" accesskey="&screenshot.remove.accesskey;"/>
-    <button id="screenshotUndoButton" oncommand="undoImageOperation();" disabled="true" label="&screenshot.undo.label;" accesskey="&screenshot.undo.accesskey;"/>
+    <button id="screenshotMarkButton" type="radio" group="selectionType" oncommand="screenshotDataSource.selectionType = 'mark';" checked="true" label="&screenshot.mark.label;" accesskey="&screenshot.mark.accesskey;"/>
+    <button id="screenshotRemoveButton" type="radio" group="selectionType" oncommand="screenshotDataSource.selectionType = 'remove';" label="&screenshot.remove.label;" accesskey="&screenshot.remove.accesskey;"/>
+    <button id="screenshotUndoButton" oncommand="screenshotDataSource.undo();" disabled="true" label="&screenshot.undo.label;" accesskey="&screenshot.undo.accesskey;"/>
   </hbox>
   <vbox id="screenshotBox" flex="1">
-    <canvas xmlns="http://www.w3.org/1999/xhtml" id="screenshotCanvas" onmousedown="imageStartSelection(event);" onmouseup="imageStopSelection(event);" onmouseout="imageStopSelection(event);" onmousemove="imageUpdateSelection(event);"/>
+    <canvas xmlns="http://www.w3.org/1999/xhtml" id="screenshotCanvas" onmousedown="screenshotDataSource.startSelection(event);" onmouseup="screenshotDataSource.stopSelection(event);" onmouseout="screenshotDataSource.stopSelection(event);" onmousemove="screenshotDataSource.updateSelection(event);"/>
   </vbox>
 </wizardpage>
 
