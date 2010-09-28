@@ -107,15 +107,24 @@ function initDataCollectorPage()
         }
       }
 
+      let now = Math.round(Date.now() / 1000);
       for (let i = 0; i < FilterStorage.subscriptions.length; i++)
       {
         let subscription = FilterStorage.subscriptions[i];
         if (subscription.disabled || !(subscription instanceof RegularSubscription))
           continue;
 
-        let subscriptionXML = <subscription id={subscription.url} lastDownload={subscription.lastDownload}/>;
+        let subscriptionXML = <subscription id={subscription.url}/>;
+        if (subscription.lastDownload)
+          subscriptionXML.@lastDownloadAttempt = subscription.lastDownload - now;
         if (subscription instanceof DownloadableSubscription)
         {
+          if (subscription.lastSuccess)
+            subscriptionXML.@lastDownloadSuccess = subscription.lastSuccess - now;
+          if (subscription.softExpiration)
+            subscriptionXML.@softExpiration = subscription.softExpiration - now;
+          if (subscription.expires)
+            subscriptionXML.@hardExpiration = subscription.expires - now;
           subscriptionXML.@autoDownloadEnabled = subscription.autoDownload;
           subscriptionXML.@downloadStatus = subscription.downloadStatus;
         }
