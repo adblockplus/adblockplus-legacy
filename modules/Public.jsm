@@ -40,6 +40,8 @@ Cu.import(baseURL.spec + "FilterStorage.jsm");
 Cu.import(baseURL.spec + "FilterClasses.jsm");
 Cu.import(baseURL.spec + "SubscriptionClasses.jsm");
 
+const externalPrefix = "~external~";
+
 /**
  * Class implementing public Adblock Plus API
  * @class
@@ -80,18 +82,13 @@ var AdblockPlus =
   /**
    * Updates an external subscription and creates it if necessary
    */
-  updateExternalSubscription: function(/**String*/ id, /**String*/ title, /**Array of Filter*/ filters) /**Boolean*/
+  updateExternalSubscription: function(/**String*/ id, /**String*/ title, /**Array of Filter*/ filters) /**String*/
   {
-    // Don't allow valid URLs as IDs for external subscriptions
-    if (Utils.makeURI(id))
-      return false;
-
+    if (id.substr(0, externalPrefix.length) != externalPrefix)
+      id = externalPrefix + id;
     let subscription = Subscription.fromURL(id);
     if (!subscription)
       subscription = new ExternalSubscription(id, title);
-
-    if (!(subscription instanceof ExternalSubscription))
-      return false;
 
     subscription.lastDownload = parseInt(new Date().getTime() / 1000);
 
@@ -112,7 +109,7 @@ var AdblockPlus =
     }
     FilterStorage.saveToDisk();
 
-    return true;
+    return id;
   },
 
   /**
@@ -120,7 +117,9 @@ var AdblockPlus =
    */
   removeExternalSubscription: function(/**String*/ id) /**Boolean*/
   {
-    if (!(id in FilterStorage.knownSubscriptions && FilterStorage.knownSubscriptions[id] instanceof ExternalSubscription))
+    if (id.substr(0, externalPrefix.length) != externalPrefix)
+      id = externalPrefix + id;
+    if (!(id in FilterStorage.knownSubscriptions))
       return false;
 
     FilterStorage.removeSubscription(FilterStorage.knownSubscriptions[id]);
