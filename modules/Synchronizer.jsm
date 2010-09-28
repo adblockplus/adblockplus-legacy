@@ -299,7 +299,7 @@ var Synchronizer =
 
       if (isBaseLocation && !hadTemporaryRedirect)
         subscription.alternativeLocations = request.getResponseHeader("X-Alternative-Locations");
-      subscription.lastDownload = Math.round(Date.now() / MILLISECONDS_IN_SECOND);
+      subscription.lastSuccess = subscription.lastDownload = Math.round(Date.now() / MILLISECONDS_IN_SECOND);
       subscription.downloadStatus = "synchronize_ok";
       subscription.errors = 0;
 
