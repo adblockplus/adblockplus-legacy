@@ -118,10 +118,10 @@ interface IAdblockPlus : nsISupports
    * @param id        subscription identifier
    * @param title     subscription title
    * @param patterns  array containing subscription's patterns
-   * @return          true if the subscription was updated or false if the
-   *                  update failed
+   * @return          effective ID of the subscription (might not be identical to
+   *                  the id parameter)
    */
-  boolean updateExternalSubscription(in AString id, in AUTF8String title,
+  wstring updateExternalSubscription(in AString id, in AUTF8String title,
                                      [array, const] in wstring patterns);
 
   /**
