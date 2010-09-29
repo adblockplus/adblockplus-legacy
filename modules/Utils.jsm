@@ -389,6 +389,29 @@ var Utils =
   },
 
   /**
+   * Formats a unix time according to user's locale.
+   * @param {Integer} time  unix time in milliseconds
+   * @return {String} formatted date and time
+   */
+  formatTime: function(time)
+  {
+    try
+    {
+      let date = new Date(time);
+      return Utils.dateFormatter.FormatDateTime("", Ci.nsIScriptableDateFormat.dateFormatShort,
+                                                Ci.nsIScriptableDateFormat.timeFormatNoSeconds,
+                                                date.getFullYear(), date.getMonth() + 1, date.getDate(),
+                                                date.getHours(), date.getMinutes(), date.getSeconds());
+    }
+    catch(e)
+    {
+      // Make sure to return even on errors
+      Cu.reportError(e);
+      return "";
+    }
+  },
+
+  /**
    * Saves sidebar state before detaching/reattaching
    */
   setParams: function(params)
@@ -425,6 +448,7 @@ XPCOMUtils.defineLazyServiceGetter(Utils, "windowMediator", "@mozilla.org/appshe
 XPCOMUtils.defineLazyServiceGetter(Utils, "windowWatcher", "@mozilla.org/embedcomp/window-watcher;1", "nsIWindowWatcher");
 XPCOMUtils.defineLazyServiceGetter(Utils, "chromeRegistry", "@mozilla.org/chrome/chrome-registry;1", "nsIXULChromeRegistry");
 XPCOMUtils.defineLazyServiceGetter(Utils, "systemPrincipal", "@mozilla.org/systemprincipal;1", "nsIPrincipal");
+XPCOMUtils.defineLazyServiceGetter(Utils, "dateFormatter", "@mozilla.org/intl/scriptabledateformat;1", "nsIScriptableDateFormat");
 
 if ("@mozilla.org/messenger/headerparser;1" in Cc)
   XPCOMUtils.defineLazyServiceGetter(Utils, "headerParser", "@mozilla.org/messenger/headerparser;1", "nsIMsgHeaderParser");

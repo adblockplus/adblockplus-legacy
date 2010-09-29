@@ -82,6 +82,22 @@
     <radio id="typeOther" value="other" label="&typeSelector.other.label;" accesskey="&typeSelector.other.accesskey;"/>
     <description class="radioDescription">&typeSelector.other.description;</description>
   </radiogroup>
+
+  <groupbox id="recentReports" flex="1">
+    <caption label="&recentReports.label;"/>
+    <grid flex="1" id="recentReportsList">
+      <columns>
+        <column flex="2"/>
+        <column flex="1"/>
+        <column/>
+      </columns>
+      <rows id="recentReportsRows" onclick="reportsListDataSource.handleClick(event);"/>
+    </grid>
+
+    <hbox pack="start">
+      <button label="&recentReports.clear.label;" accesskey="&recentReports.clear.accesskey;" oncommand="reportsListDataSource.clear();"/>
+    </hbox>
+  </groupbox>
 </wizardpage>
 
 <wizardpage id="screenshotPage" label="&screenshot.heading;" onpageshow="initScreenshotPage();">
