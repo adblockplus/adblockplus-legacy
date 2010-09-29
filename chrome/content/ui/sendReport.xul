@@ -55,9 +55,9 @@
           <description class="wizard-header-label" xbl:inherits="value=label"/>
           <progressbar id="progressBar" style="-moz-binding: url(progressBar.xml#progressBar);">
             <label id="typeSelectorHeader" class="progressLabel" value="&typeSelector.heading;" crop="end"/>
-            <label id="screenshotHeader" class="progressLabel" value="&screenshot.heading;"/>
-            <label id="commentPageHeader" class="progressLabel" value="&commentPage.heading;"/>
-            <label id="sendPageHeader" class="progressLabel" value="&sendPage.heading;"/>
+            <label id="screenshotHeader" class="progressLabel" value="&screenshot.heading;" crop="end"/>
+            <label id="commentPageHeader" class="progressLabel" value="&commentPage.heading;" crop="end"/>
+            <label id="sendPageHeader" class="progressLabel" value="&sendPage.heading;" crop="end"/>
           </progressbar>
         </deck>
       </xbl:content>
