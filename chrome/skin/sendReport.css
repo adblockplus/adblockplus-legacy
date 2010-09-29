@@ -23,20 +23,24 @@
  * ***** END LICENSE BLOCK ***** */
 
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
-@namespace svg url("http://www.w3.org/2000/svg");
 
 .wizard-header
 {
-  -moz-binding: url(chrome://adblockplus/content/ui/sendReport.xul#headerBinding);
+  -moz-binding: url(chrome://adblockplus/content/ui/sendReport.xul#headerBinding) !important;
   padding: 10px 5px !important;
 }
 
-row > label
+.progressLabel
 {
-  margin: 0px;
-  padding: 5px 0px;
+  margin: 5px 0px;
   text-align: center;
-  min-width: 1px;
+  font-size: 110%;
+  font-weight: normal;
+}
+
+.progressLabel.active
+{
+  font-weight: bold;
 }
 
 progressmeter
@@ -64,7 +68,6 @@ radio, checkbox, label
   overflow-y: scroll;
 }
 
-
 #commentLengthWarning
 {
   color: red;
@@ -73,21 +76,4 @@ radio, checkbox, label
 #commentLengthWarning[visible="false"]
 {
   visibility: hidden;
-}
-
-svg|text
-{
-  font-size: 15px;
-  text-anchor: middle;
-  dominant-baseline: middle;
-}
-
-svg|text.active
-{
-  font-weight: bold;
-}
-
-svg|path.outstanding
-{
-  display: none;
 }
