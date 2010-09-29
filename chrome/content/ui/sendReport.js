@@ -173,6 +173,11 @@ let screenshotDataSource =
     this._callback = callback;
     this._canvas = E("screenshotCanvas");
     this._canvas.width = this._canvas.offsetWidth;
+
+    // Do not resize canvas any more (no idea why Gecko requires both to be set)
+    this._canvas.parentNode.style.MozBoxAlign = "center";
+    this._canvas.parentNode.align = "center";
+
     this._context = this._canvas.getContext("2d");
     let wndWidth = wnd.document.documentElement.scrollWidth;
     let wndHeight = wnd.document.documentElement.scrollHeight;
@@ -534,30 +539,12 @@ function initDataCollectorPage()
   initNextDataSource();
 }
 
-function setProgress(index)
-{
-  let header = document.getAnonymousElementByAttribute(document.documentElement, "class", "wizard-header");
-  if (!header)
-    return;   // Oops
-
-  header.setAttribute("textColor", window.getComputedStyle(header, "").color);
-  for (let i = 1; i <= 4; i++)
-  {
-    let classes = [];
-    if (i < index)
-      classes.push("done");
-    else
-      classes.push("outstanding");
-    if (i == index)
-      classes.push("active");
-    header.setAttribute("label" + i + "Class", classes.join(" "));
-  }
-  header.setAttribute("viewIndex", "1");
-}
-
 function initTypeSelectorPage()
 {
-  setProgress(1);
+  E("progressBar").activeItem = E("typeSelectorHeader");
+  let header = document.getAnonymousElementByAttribute(document.documentElement, "class", "wizard-header");
+  if (header)
+    header.setAttribute("viewIndex", "1");
 
   document.documentElement.canRewind = false;
   typeSelectionUpdated();
@@ -573,12 +560,12 @@ function typeSelectionUpdated()
 
 function initScreenshotPage()
 {
-  setProgress(2);
+  E("progressBar").activeItem = E("screenshotHeader");
 }
 
 function initCommentPage()
 {
-  setProgress(3);
+  E("progressBar").activeItem = E("commentPageHeader");
 
   screenshotDataSource.exportData();
 
@@ -595,7 +582,7 @@ function checkCommentLength()
 
 function initSendPage()
 {
-  setProgress(4);
+  E("progressBar").activeItem = E("sendPageHeader");
 
   reportData.comment = E("comment").value.substr(0, 1000);
 
@@ -667,7 +654,7 @@ function reportSent(event)
 
     document.documentElement.getButton("finish").disabled = false;
     document.documentElement.getButton("cancel").disabled = true;
-    setProgress(5);
+    E("progressBar").activeItemComplete = true;
   }
 }
 
