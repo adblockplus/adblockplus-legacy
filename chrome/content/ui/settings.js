@@ -23,7 +23,6 @@
  * ***** END LICENSE BLOCK ***** */
 
 let dragService = Cc["@mozilla.org/widget/dragservice;1"].getService(Ci.nsIDragService);
-let dateFormatter = Cc["@mozilla.org/intl/scriptabledateformat;1"].getService(Ci.nsIScriptableDateFormat);
 
 const altMask = 2;
 const ctrlMask = 4;
@@ -340,7 +339,7 @@ function getSubscriptionDescription(subscription)
     status += Utils.getString("subscription_status_lastdownload_inprogress");
   else
   {
-    status += (subscription.lastDownload > 0 ? formatTime(subscription.lastDownload * 1000) : Utils.getString("subscription_status_lastdownload_unknown"));
+    status += (subscription.lastDownload > 0 ? Utils.formatTime(subscription.lastDownload * 1000) : Utils.getString("subscription_status_lastdownload_unknown"));
     if (subscription instanceof DownloadableSubscription && subscription.downloadStatus)
     {
       try {
@@ -398,29 +397,6 @@ function getDefaultDir()
     let fileLocator = Cc["@mozilla.org/file/directory_service;1"].getService(Ci.nsIProperties);
   
     return fileLocator.get("Desk", Ci.nsILocalFile);
-  }
-}
-
-/**
- * Formats a unix time according to user's locale.
- * @param {Integer} time  unix time in milliseconds
- * @return {String} formatted date and time
- */
-function formatTime(time)
-{
-  try
-  {
-    let date = new Date(time);
-    return dateFormatter.FormatDateTime("", Ci.nsIScriptableDateFormat.dateFormatShort,
-                                        Ci.nsIScriptableDateFormat.timeFormatNoSeconds,
-                                        date.getFullYear(), date.getMonth() + 1, date.getDate(),
-                                        date.getHours(), date.getMinutes(), date.getSeconds());
-  }
-  catch(e)
-  {
-    // Make sure to return even on errors
-    Cu.reportError(e);
-    return "";
   }
 }
 
@@ -1560,7 +1536,7 @@ let treeView = {
         if (col == "col-hitcount")
           return filter.hitCount;
         else
-          return (filter.lastHit ? formatTime(filter.lastHit) : null);
+          return (filter.lastHit ? Utils.formatTime(filter.lastHit) : null);
       }
       else
         return null;

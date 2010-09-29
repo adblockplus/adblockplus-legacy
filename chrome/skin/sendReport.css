@@ -58,6 +58,16 @@ radio, checkbox, label
   margin-top: 15px;
 }
 
+#recentReports
+{
+  margin-top: 15px;
+}
+
+#recentReportsList
+{
+  overflow: auto;
+}
+
 #screenshotButtons
 {
   margin-top: 10px;
