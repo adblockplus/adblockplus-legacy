@@ -53,25 +53,12 @@
       <xbl:content orient="vertical">
         <deck xbl:inherits="selectedIndex=viewIndex">
           <description class="wizard-header-label" xbl:inherits="value=label"/>
-          <svg xmlns="http://www.w3.org/2000/svg" version="1.1" baseProfile="full" viewBox="-5 -5 810 40" preserveAspectRatio="none" height="40">
-            <path d="M 195,0 l 5,15 l -5,15 l -195,0 l 0,-30 z
-                     M 395,0 l 5,15 l -5,15 l -195,0 l 5,-15 l -5,-15 z
-                     M 595,0 l 5,15 l -5,15 l -195,0 l 5,-15 l -5,-15 z
-                     M 795,0 l 5,15 l -5,15 l -195,0 l 5,-15 l -5,-15 z"
-                  fill="none" stroke-width="1" xbl:inherits="stroke=textColor"/>
-  
-            <text x="110" y="15" xbl:inherits="class=label1Class,fill=textColor">&typeSelector.heading;</text>
-            <path d="M 10,16 l 2,-2 l 4,5 l 10,-12 l -10,16 z" stroke="none" xbl:inherits="class=label1Class,fill=textColor"/>
-  
-            <text x="310" y="15" xbl:inherits="class=label2Class,fill=textColor">&screenshot.heading;</text>
-            <path d="M 210,16 l 2,-2 l 4,5 l 10,-12 l -10,16 z" stroke="none" xbl:inherits="class=label2Class,fill=textColor"/>
-  
-            <text x="510" y="15" xbl:inherits="class=label3Class,fill=textColor">&commentPage.heading;</text>
-            <path d="M 410,16 l 2,-2 l 4,5 l 10,-12 l -10,16 z" stroke="none" xbl:inherits="class=label3Class,fill=textColor"/>
-  
-            <text x="710" y="15" xbl:inherits="class=label4Class,fill=textColor">&sendPage.heading;</text>
-            <path d="M 610,16 l 2,-2 l 4,5 l 10,-12 l -10,16 z" stroke="none" xbl:inherits="class=label4Class,fill=textColor"/>
-          </svg>
+          <progressbar id="progressBar" style="-moz-binding: url(progressBar.xml#progressBar);">
+            <label id="typeSelectorHeader" class="progressLabel" value="&typeSelector.heading;" crop="end"/>
+            <label id="screenshotHeader" class="progressLabel" value="&screenshot.heading;"/>
+            <label id="commentPageHeader" class="progressLabel" value="&commentPage.heading;"/>
+            <label id="sendPageHeader" class="progressLabel" value="&sendPage.heading;"/>
+          </progressbar>
         </deck>
       </xbl:content>
     </xbl:binding>
