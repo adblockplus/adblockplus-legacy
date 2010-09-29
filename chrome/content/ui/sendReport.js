@@ -730,7 +730,16 @@ function typeSelectionUpdated()
   let selection = E("typeGroup").selectedItem;
   document.documentElement.canAdvance = (selection != null);
   if (selection)
+  {
+    if (reportData.@type != selection.value)
+    {
+      E("screenshotCheckbox").checked = (selection.value != "other");
+      E("screenshotCheckbox").doCommand();
+      E("extensionsCheckbox").checked = (selection.value == "other");
+      E("extensionsCheckbox").doCommand();
+    }
     reportData.@type = selection.value;
+  }
 }
 
 function initScreenshotPage()
