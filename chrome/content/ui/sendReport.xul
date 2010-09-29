@@ -118,12 +118,14 @@
   <description>&commentPage.description;</description>
 
   <label control="comment" value="&comment.label;" accesskey="&comment.accesskey;"/>
-  <textbox id="comment" multiline="true" flex="1" oninput="checkCommentLength()"/>
+  <textbox id="comment" multiline="true" flex="1" oninput="updateComment();"/>
   <description id="commentLengthWarning" visible="false">&comment.lengthWarning;</description>
+
+  <checkbox label="&attachExtensions.label;" accesskey="&attachExtensions.accesskey;" oncommand="updateExtensions(this.checked);"/>
 
   <deck id="dataDeck" selectedIndex="0" flex="2">
     <vbox pack="top">
-      <label class="text-link" value="&showData.label;" onclick="E('dataDeck').selectedIndex = 1;E('data').focus();"/>
+      <label class="text-link" value="&showData.label;" onclick="showDataField();"/>
     </vbox>
     <vbox>
       <label control="data" value="&data.label;" accesskey="&data.accesskey;"/>
