@@ -29,3 +29,4 @@ pref("extensions.adblockplus.savestats", true);
 pref("extensions.adblockplus.composer_default", 2);
 pref("extensions.adblockplus.clearStatsOnHistoryPurge", true);
 pref("extensions.adblockplus.report_submiturl", "https://reports.adblockplus.org/submitReport?version=1&guid=%GUID%&lang=%LANG%");
+pref("extensions.adblockplus.recentReports", "[]");

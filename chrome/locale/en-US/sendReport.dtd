@@ -34,6 +34,10 @@
   than its filters.
 ">
 
+<!ENTITY recentReports.label                    "Your recently submitted reports">
+<!ENTITY recentReports.clear.label              "Remove all reports">
+<!ENTITY recentReports.clear.accesskey          "R">
+
 <!-- Please keep screenshot.heading short - it is shown in the progress bar, not much space there -->
 <!ENTITY screenshot.heading           "Attach screenshot">
 
