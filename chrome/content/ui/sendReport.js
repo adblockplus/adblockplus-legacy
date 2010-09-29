@@ -48,6 +48,104 @@ let reportData =
 // Data collectors
 //
 
+let reportsListDataSource =
+{
+  json: Cc["@mozilla.org/dom/json;1"].createInstance(Ci.nsIJSON),
+  list: [],
+
+  collectData: function(wnd, callback)
+  {
+    let data = null;
+    try
+    {
+      data = this.json.decode(Prefs.recentReports);
+    }
+    catch (e)
+    {
+      Cu.reportError(e);
+    }
+
+    if (data && "length" in data)
+    {
+      for (let i = 0; i < data.length; i++)
+      {
+        let entry = data[i];
+        if (typeof entry.reportURL == "string" && entry.reportURL &&
+            typeof entry.time == "number" && Date.now() - entry.time < 30*24*60*60)
+        {
+          let newEntry = {site: null, reportURL: entry.reportURL, time: entry.time};
+          if (typeof entry.site == "string" && entry.site)
+            newEntry.site = entry.site;
+          this.list.push(newEntry);
+        }
+      }
+    }
+
+    if (this.list.length > 10)
+      this.list.splice(10);
+
+    E("recentReports").hidden = !this.list.length;
+    if (this.list.length)
+    {
+      let rows = E("recentReportsRows")
+      for (let i = 0; i < this.list.length; i++)
+      {
+        let entry = this.list[i];
+        let row = document.createElement("row");
+
+        let link = document.createElement("description");
+        link.setAttribute("class", "text-link");
+        link.setAttribute("url", entry.reportURL);
+        link.textContent = entry.reportURL.replace(/^.*\/(?=[^\/])/, "");
+        row.appendChild(link);
+
+        let site = document.createElement("description");
+        if (entry.site)
+          site.textContent = entry.site;
+        row.appendChild(site);
+
+        let time = document.createElement("description");
+        time.textContent = Utils.formatTime(entry.time);
+        row.appendChild(time);
+
+        rows.appendChild(row);
+      }
+    }
+
+    callback();
+  },
+
+  addReport: function(site, reportURL)
+  {
+    this.list.unshift({site: site, reportURL: reportURL, time: Date.now()});
+    try
+    {
+      Prefs.recentReports = this.json.encode(this.list);
+      Prefs.save();
+    }
+    catch (e)
+    {
+      Cu.reportError(e);
+    }
+  },
+
+  clear: function()
+  {
+    this.list = [];
+    Prefs.recentReports = this.json.encode(this.list);
+    Prefs.save();
+    E("recentReports").hidden = true;
+  },
+
+  handleClick: function(event)
+  {
+    if (event.button != 0 || !event.target || !event.target.hasAttribute("url"))
+      return;
+
+    Utils.loadInBrowser(event.target.getAttribute("url"), null, event);
+  }
+};
+
 let requestsDataSource =
 {
   requests: reportData.requests,
@@ -129,7 +227,7 @@ let subscriptionsDataSource =
       if (subscription.disabled || !(subscription instanceof RegularSubscription))
         continue;
 
-      let subscriptionXML = <subscription id={subscription.url}/>;
+      let subscriptionXML = <subscription id={subscription.url} disabledFilters={subscription.filters.filter(function(filter) filter instanceof ActiveFilter && filter.disabled).length}/>;
       if (subscription.lastDownload)
         subscriptionXML.@lastDownloadAttempt = subscription.lastDownload - now;
       if (subscription instanceof DownloadableSubscription)
@@ -390,8 +488,16 @@ let screenshotDataSource =
 
 let framesDataSource =
 {
+  site: null,
+
   collectData: function(wnd, callback)
   {
+    try
+    {
+      this.site = wnd.location.hostname;
+    }
+    catch (e) {}
+
     reportData.window.@url = censorURL(wnd.location.href);
     this.scanFrames(wnd, reportData.window);
 
@@ -479,7 +585,7 @@ let errorsDataSource =
   }
 };
 
-let dataCollectors = [requestsDataSource, filtersDataSource, subscriptionsDataSource,
+let dataCollectors = [reportsListDataSource, requestsDataSource, filtersDataSource, subscriptionsDataSource,
                       screenshotDataSource, framesDataSource, errorsDataSource];
 
 //
@@ -649,6 +755,9 @@ function reportSent(event)
       let button = E("copyLink");
       button.setAttribute("url", link);
       button.removeAttribute("disabled");
+
+      if (!Prefs.privateBrowsing)
+        reportsListDataSource.addReport(framesDataSource.site, link);
     } catch (e) {}
     E("copyLinkBox").hidden = false;
 
@@ -667,7 +776,7 @@ function processLinkClick(event)
     link = link.parentNode;
 
   if (link && (link.protocol == "http:" || link.protocol == "https:"))
-    Utils.loadInBrowser(link.href);
+    Utils.loadInBrowser(link.href, null, event);
 }
 
 function copyLink(url)
