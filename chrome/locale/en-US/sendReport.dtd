@@ -71,6 +71,9 @@
 <!ENTITY comment.accesskey            "C">
 <!ENTITY comment.lengthWarning        "The length of your comment exceeds 1000 characters. Only the first 1000 characters will be sent.">
 
+<!ENTITY attachExtensions.label       "Attach list of active extensions to the report (in case extension conflict is the reason)">
+<!ENTITY attachExtensions.accesskey   "x">
+
 <!ENTITY sendButton.label             "Send report">
 
 <!ENTITY showData.label               "Show report data">

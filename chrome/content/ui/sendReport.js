@@ -71,7 +71,7 @@ let reportsListDataSource =
       {
         let entry = data[i];
         if (typeof entry.reportURL == "string" && entry.reportURL &&
-            typeof entry.time == "number" && Date.now() - entry.time < 30*24*60*60)
+            typeof entry.time == "number" && Date.now() - entry.time < 30*24*60*60*1000)
         {
           let newEntry = {site: null, reportURL: entry.reportURL, time: entry.time};
           if (typeof entry.site == "string" && entry.site)
@@ -590,8 +590,72 @@ let errorsDataSource =
   }
 };
 
+let extensionsDataSource =
+{
+  data: <extensions/>,
+
+  collectData: function(wnd, callback)
+  {
+    let AddonManager = null;
+    try
+    {
+      let namespace = {};
+      Cu.import("resource://gre/modules/AddonManager.jsm", namespace);
+      AddonManager = namespace.AddonManager;
+    } catch (e) {}
+
+    if (AddonManager)
+    {
+      // Gecko 2.0
+      let me = this;
+      AddonManager.getAddonsByTypes(["extension", "plugin"], function(items)
+      {
+        for (let i = 0; i < items.length; i++)
+        {
+          let item = items[i];
+          if (!item.isActive)
+            continue;
+          me.data.appendChild(<extension id={item.id} name={item.name} type={item.type} version={item.version}/>);
+        }
+        callback();
+      });
+    }
+    else
+    {
+      // Gecko 1.9.x
+      let extensionManager = Cc["@mozilla.org/extensions/manager;1"].getService(Ci.nsIExtensionManager);
+    	let ds = extensionManager.datasource;
+      let rdfService = Cc["@mozilla.org/rdf/rdf-service;1"].getService(Ci.nsIRDFService);
+      let list = {};
+      let items = extensionManager.getItemList(Ci.nsIUpdateItem.TYPE_EXTENSION | Ci.nsIUpdateItem.TYPE_PLUGIN, {});
+      for (let i = 0; i < items.length; i++)
+      {
+        let item = items[i];
+
+        // Check whether extension is disabled - yuk...
+        let source = rdfService.GetResource("urn:mozilla:item:" + item.id);
+        let link = rdfService.GetResource("http://www.mozilla.org/2004/em-rdf#isDisabled");
+        let target = ds.GetTarget(source, link, true);
+      	if (target instanceof Ci.nsIRDFLiteral && target.Value == "true")
+      		continue;
+
+        this.data.appendChild(<extension id={item.id} name={item.name} type={item.type == Ci.nsIUpdateItem.TYPE_EXTENSION ? "extension" : "plugin"} version={item.version}/>);
+      }
+      callback();
+    }
+  },
+
+  exportData: function(doExport)
+  {
+    if (doExport)
+      reportData.extensions = this.data;
+    else
+      delete reportData.extensions;
+  }
+};
+
 let dataCollectors = [reportsListDataSource, requestsDataSource, filtersDataSource, subscriptionsDataSource,
-                      screenshotDataSource, framesDataSource, errorsDataSource];
+                      screenshotDataSource, framesDataSource, errorsDataSource, extensionsDataSource];
 
 //
 // Wizard logic
@@ -679,23 +743,58 @@ function initCommentPage()
   E("progressBar").activeItem = E("commentPageHeader");
 
   screenshotDataSource.exportData();
-
-  let dataField = E("data");
-  dataField.value = reportData.toXMLString();
-  dataField.setSelectionRange(0, 0);
+  updateDataField();
 }
 
-function checkCommentLength()
+function showDataField()
+{
+  E('dataDeck').selectedIndex = 1;
+  updateDataField();
+  E('data').focus();
+}
+
+let _dataFieldUpdateTimeout = null;
+
+function _updateDataField()
+{
+  let dataField = E("data");
+  let [selectionStart, selectionEnd] = [dataField.selectionStart, dataField.selectionEnd];
+  dataField.value = reportData.toXMLString();
+  dataField.setSelectionRange(selectionStart, selectionEnd);
+}
+
+function updateDataField()
+{
+  // Don't do anything if data field is hidden
+  if (E('dataDeck').selectedIndex != 1)
+    return;
+
+  if (_dataFieldUpdateTimeout)
+  {
+    window.clearTimeout(_dataFieldUpdateTimeout);
+    _dataFieldUpdateTimeout = null;
+  }
+
+  _dataFieldUpdateTimeout = window.setTimeout(_updateDataField, 200);
+}
+
+function updateComment()
 {
   let value = E("comment").value;
+  reportData.comment = value.substr(0, 1000);
   E("commentLengthWarning").setAttribute("visible", value.length > 1000);
+  updateDataField();
+}
+
+function updateExtensions(attach)
+{
+  extensionsDataSource.exportData(attach);
+  updateDataField();
 }
 
 function initSendPage()
 {
   E("progressBar").activeItem = E("sendPageHeader");
-
-  reportData.comment = E("comment").value.substr(0, 1000);
 
   document.documentElement.canRewind = false;
   document.documentElement.getButton("finish").disabled = true;
