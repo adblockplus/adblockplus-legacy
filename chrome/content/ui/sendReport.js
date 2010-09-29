@@ -495,8 +495,13 @@ let framesDataSource =
     try
     {
       this.site = wnd.location.hostname;
+      if (this.site)
+        document.title += " (" + this.site + ")";
     }
-    catch (e) {}
+    catch (e)
+    {
+      // Expected exception - not all URL schemes have a host name
+    }
 
     reportData.window.@url = censorURL(wnd.location.href);
     this.scanFrames(wnd, reportData.window);
