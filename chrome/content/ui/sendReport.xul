@@ -121,7 +121,7 @@
   <textbox id="comment" multiline="true" flex="1" oninput="updateComment();"/>
   <description id="commentLengthWarning" visible="false">&comment.lengthWarning;</description>
 
-  <checkbox label="&attachExtensions.label;" accesskey="&attachExtensions.accesskey;" oncommand="updateExtensions(this.checked);"/>
+  <checkbox id="extensionsCheckbox" label="&attachExtensions.label;" accesskey="&attachExtensions.accesskey;" oncommand="updateExtensions(this.checked);"/>
 
   <deck id="dataDeck" selectedIndex="0" flex="2">
     <vbox pack="top">
