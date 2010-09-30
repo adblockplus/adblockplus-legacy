@@ -45,7 +45,7 @@
   display: none;
 }
 
-#disabledWarning, #groupDisabledWarning, #regexpWarning, #shortpatternWarning {
+#disabledWarning, #groupDisabledWarning, #regexpWarning, #shortpatternWarning, #matchWarning {
   color: #E00000;
 }
 
