@@ -248,6 +248,8 @@ function updateFilter()
   }
   E("shortpatternWarning").hidden = hasShortcut;
 
+  E("matchWarning").hidden = compiledFilter instanceof RegExpFilter && compiledFilter.matches(item.location, item.typeDescr, item.docDomain, item.thirdParty);
+
   E("filter").value = filter;
 
   if (E("disabledWarning").hidden)

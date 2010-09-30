@@ -79,6 +79,7 @@
         <description id="patternExplanation">&pattern.explanation;</description>
         <description id="regexpWarning" hidden="true">&regexp.warning;</description>
         <description id="shortpatternWarning" hidden="true">&shortpattern.warning;</description>
+        <description id="matchWarning" hidden="true">&match.warning;</description>
         <hbox id="customPatternBox">
           <radio id="customPatternRadio" label="&custom.pattern.label;" accesskey="&custom.pattern.accesskey;" value="" control="customPattern"/>
           <textbox id="customPattern" flex="1" oninput="updateCustomPattern()"/>
