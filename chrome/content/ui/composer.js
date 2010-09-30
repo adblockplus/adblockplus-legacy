@@ -26,7 +26,8 @@ let nodes = null;
 let item = null;
 let advancedMode = false;
 
-function init() {
+function init()
+{
   [nodes, item] = window.arguments;
 
   E("filterType").value = (!item.filter || item.filter.disabled || item.filter instanceof WhitelistFilter ? "filterlist" : "whitelist");
@@ -35,11 +36,16 @@ function init() {
   let insertionPoint = E("customPatternBox");
   let addSuggestion = function(address)
   {
+    // Always drop protocol and www. from the suggestion
+    address = address.replace(/^[\w\-]+:\/+(?:www\.)?/, "");
+
     let suggestion = document.createElement("radio");
     suggestion.setAttribute("value", address);
     suggestion.setAttribute("label", address);
     suggestion.setAttribute("crop", "center");
     insertionPoint.parentNode.insertBefore(suggestion, insertionPoint);
+
+    return address;
   }
 
   let ioService = Cc["@mozilla.org/network/io-service;1"].getService(Ci.nsIIOService);
@@ -51,31 +57,26 @@ function init() {
                        .QueryInterface(Ci.nsIURL);
     let suffix = (url.query ? "?*" : "");
     url.query = "";
-    suggestions[1] = url.spec + suffix;
-    addSuggestion(suggestions[1]);
+    suggestions[1] = addSuggestion(url.spec + suffix);
 
     let parentURL = ioService.newURI(url.fileName == "" ? ".." : ".", null, url);
     if (!parentURL.equals(url))
-    {
-      suggestions[2] = parentURL.spec + "*";
-      addSuggestion(suggestions[2]);
-    }
+      suggestions[2] = addSuggestion(parentURL.spec + "*");
     else
       suggestions[2] = suggestions[1];
 
     let rootURL = ioService.newURI("/", null, url);
     if (!rootURL.equals(parentURL) && !rootURL.equals(url))
-    {
-      suggestions[3] = rootURL.spec + "*";
-      addSuggestion(suggestions[3]);
-    }
+      suggestions[3] = addSuggestion(rootURL.spec + "*");
     else
       suggestions[3] = suggestions[2];
 
     try
     {
-      suggestions[4] = url.host.replace(/^www\./, "") + "^";
-      addSuggestion(suggestions[4]);
+      if (url.port > 0)
+        suggestions[4] = addSuggestion(url.host.replace(/^www\./, "") + "^");
+      else
+        suggestions[4] = suggestions[3];
     }
     catch (e)
     {
@@ -85,13 +86,14 @@ function init() {
     try
     {
       let effectiveTLD = Cc["@mozilla.org/network/effective-tld-service;1"].getService(Ci.nsIEffectiveTLDService);
-      suggestions[5] = effectiveTLD.getBaseDomainFromHost(url.host) + "^";
-      if (suggestions[5] != suggestions[4])
-        addSuggestion(suggestions[5]);
+      let host = url.host;
+      let baseDomain = effectiveTLD.getBaseDomainFromHost(host);
+      if (baseDomain != host.replace(/^www\./, ""))
+        suggestions[5] = addSuggestion(baseDomain + "^");
     }
     catch (e)
     {
-      suggestions[5] = suggestions[5];
+      suggestions[5] = suggestions[4];
     }
 
     E("patternGroup").value = (Prefs.composer_default in suggestions ? suggestions[Prefs.composer_default] : suggestions[1]);
