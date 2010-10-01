@@ -401,10 +401,12 @@ let screenshotDataSource =
     // Abort selection already in progress
     this.abortSelection();
   
+    let boxObject = document.getBoxObjectFor(this._canvas);
+    let [x, y] = [event.screenX - boxObject.screenX, event.screenY - boxObject.screenY];
     this._currentData = {
       data: null,
-      anchorX: event.layerX,
-      anchorY: event.layerY,
+      anchorX: x,
+      anchorY: y,
       currentX: -1,
       currentY: -1
     };
@@ -412,36 +414,38 @@ let screenshotDataSource =
   
     document.addEventListener("keypress", this.handleKeyPress, true);
   },
-  
+
   updateSelection: function(event)
   {
     if (event.button != 0 || !this._currentData)
       return;
-  
-    if (this._currentData.currentX == event.layerX && this._currentData.currentY == event.layerY)
+
+    let boxObject = document.getBoxObjectFor(this._canvas);
+    let [x, y] = [event.screenX - boxObject.screenX, event.screenY - boxObject.screenY];
+    if (this._currentData.currentX == x && this._currentData.currentY == y)
       return;
-  
+
     if (this._currentData.data)
     {
       this._context.putImageData(this._currentData.data,
         Math.min(this._currentData.anchorX, this._currentData.currentX),
         Math.min(this._currentData.anchorY, this._currentData.currentY));
     }
-  
-    this._currentData.currentX = event.layerX;
-    this._currentData.currentY = event.layerY;
-  
+
+    this._currentData.currentX = x;
+    this._currentData.currentY = y;
+
     let left = Math.min(this._currentData.anchorX, this._currentData.currentX);
     let right = Math.max(this._currentData.anchorX, this._currentData.currentX);
     let top = Math.min(this._currentData.anchorY, this._currentData.currentY);
     let bottom = Math.max(this._currentData.anchorY, this._currentData.currentY);
-  
+
     let minDiff = (this._selectionType == "mark" ? 3 : 1);
     if (right - left >= minDiff && bottom - top >= minDiff)
       this._currentData.data = this._context.getImageData(left, top, right - left, bottom - top);
     else
       this._currentData.data = null;
-  
+
     if (this._selectionType == "mark")
     {
       // all coordinates need to be moved 1.5px inwards to get the desired result
@@ -455,7 +459,7 @@ let screenshotDataSource =
     else if (this._selectionType == "remove")
       this._context.fillRect(left, top, right - left, bottom - top);
   },
-  
+
   stopSelection: function(event)
   {
     if (event.button != 0 || !this._currentData)
