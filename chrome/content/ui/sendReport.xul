@@ -83,21 +83,26 @@
     <description class="radioDescription">&typeSelector.other.description;</description>
   </radiogroup>
 
-  <groupbox id="recentReports" flex="1">
-    <caption label="&recentReports.label;"/>
-    <grid flex="1" id="recentReportsList">
-      <columns>
-        <column flex="2"/>
-        <column flex="1"/>
-        <column/>
-      </columns>
-      <rows id="recentReportsRows" onclick="reportsListDataSource.handleClick(event);"/>
-    </grid>
-
-    <hbox pack="start">
-      <button label="&recentReports.clear.label;" accesskey="&recentReports.clear.accesskey;" oncommand="reportsListDataSource.clear();"/>
-    </hbox>
-  </groupbox>
+  <deck id="recentReports" currentIndex="0" flex="1">
+    <vbox pack="end">
+      <label class="text-link" value="&showRecentReports.label;" onclick="E('recentReports').selectedIndex = 1;"/>
+    </vbox>
+    <groupbox flex="1">
+      <caption label="&recentReports.label;"/>
+      <grid flex="1" id="recentReportsList">
+        <columns>
+          <column flex="2"/>
+          <column flex="1"/>
+          <column/>
+        </columns>
+        <rows id="recentReportsRows" onclick="reportsListDataSource.handleClick(event);"/>
+      </grid>
+  
+      <hbox pack="start">
+        <button label="&recentReports.clear.label;" accesskey="&recentReports.clear.accesskey;" oncommand="reportsListDataSource.clear();"/>
+      </hbox>
+    </groupbox>
+  </deck>
 </wizardpage>
 
 <wizardpage id="screenshotPage" label="&screenshot.heading;" onpageshow="initScreenshotPage();">
@@ -124,7 +129,7 @@
   <checkbox id="extensionsCheckbox" label="&attachExtensions.label;" accesskey="&attachExtensions.accesskey;" oncommand="updateExtensions(this.checked);"/>
 
   <deck id="dataDeck" selectedIndex="0" flex="2">
-    <vbox pack="top">
+    <vbox pack="start">
       <label class="text-link" value="&showData.label;" onclick="showDataField();"/>
     </vbox>
     <vbox>
