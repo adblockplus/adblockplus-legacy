@@ -51,7 +51,7 @@
   </commandset>
 
   <popupset id="sidebarPopups">
-    <tooltip id="tooltip" orient="vertical" onpopupshowing="return fillInTooltip(event)">
+    <tooltip id="tooltip" orient="vertical" onpopupshowing="return fillInTooltip(E('treechildren').mCachedMousePosition || event)">
       <description id="tooltipDummy"/>
       <hbox id="tooltipPreviewBox" pack="start">
         <image id="tooltipPreview" validate="never"/>
@@ -133,7 +133,9 @@
       <treecol id="docDomain" label="&docDomain.label;" width="100" hidden="true" persist="width ordinal sortDirection hidden"/>
     </treecols>
 
-    <treechildren tooltip="tooltip"
+    <treechildren id="treechildren"
+                  tooltip="tooltip"
+                  onmousemove="this.mCachedMousePosition = event;"
                   onclick="handleClick(event)"
                   ondblclick="handleDblClick(event)"
                   noitemslabel="&noitems.label;"
