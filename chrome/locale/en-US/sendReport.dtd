@@ -34,6 +34,7 @@
   than its filters.
 ">
 
+<!ENTITY showRecentReports.label                "Show recently submitted reports">
 <!ENTITY recentReports.label                    "Your recently submitted reports">
 <!ENTITY recentReports.clear.label              "Remove all reports">
 <!ENTITY recentReports.clear.accesskey          "R">
