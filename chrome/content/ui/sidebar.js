@@ -33,9 +33,8 @@ var requestNotifier = null;
 var cacheSession = null;
 var noFlash = false;
 
-// Matchers for disabled filters
-var disabledBlacklistMatcher = new Matcher();
-var disabledWhitelistMatcher = new Matcher();
+// Matcher for disabled filters
+var disabledMatcher = new CombinedMatcher();
 
 var abpHooks = null;
 
@@ -89,7 +88,7 @@ function init() {
   abpHooks = mainWin.document.getElementById("abp-hooks");
   window.__defineGetter__("content", function() {return abpHooks.getBrowser().contentWindow;});
 
-  // Initialize matchers for disabled filters
+  // Initialize matcher for disabled filters
   reloadDisabledFilters();
   FilterStorage.addFilterObserver(reloadDisabledFilters);
   FilterStorage.addSubscriptionObserver(reloadDisabledFilters);
@@ -136,13 +135,12 @@ function onPrefChange()
 }
 
 /**
- * Updates matchers for disabled filters (global disabledBlacklistMatcher and
- * disabledWhitelistMatcher variables), called on each filter change.
+ * Updates matcher for disabled filters (global disabledMatcher variable),
+ * called on each filter change.
  */
 function reloadDisabledFilters()
 {
-  disabledBlacklistMatcher.clear();
-  disabledWhitelistMatcher.clear();
+  disabledMatcher.clear();
 
   if (Prefs.enabled)
   {
@@ -153,7 +151,7 @@ function reloadDisabledFilters()
   
       for each (let filter in subscription.filters)
         if (filter instanceof RegExpFilter && filter.disabled)
-          (filter instanceof BlockingFilter ? disabledBlacklistMatcher : disabledWhitelistMatcher).add(filter);
+          disabledMatcher.add(filter);
     }
   }
 
@@ -984,9 +982,7 @@ var treeView = {
 
     // Show disabled filters if no other filter applies
     if (!item.filter)
-      item.filter = disabledWhitelistMatcher.matchesAny(item.location, item.typeDescr, item.docDomain, item.thirdParty);
-    if (!item.filter)
-      item.filter = disabledBlacklistMatcher.matchesAny(item.location, item.typeDescr, item.docDomain, item.thirdParty);
+      item.filter = disabledMatcher.matchesAny(item.location, item.typeDescr, item.docDomain, item.thirdParty);
 
     if (!this.matchesFilter(item))
       return;
@@ -1041,9 +1037,7 @@ var treeView = {
       if (item.filter instanceof RegExpFilter && item.filter.disabled)
         delete item.filter;
       if (!item.filter)
-        item.filter = disabledWhitelistMatcher.matchesAny(item.location, item.typeDescr, item.docDomain, item.thirdParty);
-      if (!item.filter)
-        item.filter = disabledBlacklistMatcher.matchesAny(item.location, item.typeDescr, item.docDomain, item.thirdParty);
+        item.filter = disabledMatcher.matchesAny(item.location, item.typeDescr, item.docDomain, item.thirdParty);
     }
     this.refilter();
   },

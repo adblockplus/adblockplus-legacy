@@ -59,10 +59,9 @@
     }
 
     is(typeof Matcher, "function", "typeof Matcher");
-    is(typeof blacklistMatcher, "object", "typeof blacklistMatcher");
-    is(typeof whitelistMatcher, "object", "typeof whitelistMatcher");
-    ok(blacklistMatcher instanceof Matcher, "blacklistMatcher is a Matcher instance");
-    ok(whitelistMatcher instanceof Matcher, "whitelistMatcher is a Matcher instance");
+    is(typeof CombinedMatcher, "function", "typeof CombinedMatcher");
+    is(typeof defaultMatcher, "object", "typeof defaultMatcher");
+    ok(defaultMatcher instanceof CombinedMatcher, "defaultMatcher is a CombinedMatcher instance");
 
     let matcher = new Matcher();
 
@@ -151,6 +150,7 @@
     checkMatch(["abc$domain=foo.com", "cba$domain=bar.com", "ccc$domain=~foo.com|~bar.com"], "http://ccc/def", "IMAGE", "baz.com", false, "ccc$domain=~foo.com|~bar.com");
 
     // Testing whether result cache messes up results
+    matcher = new CombinedMatcher();
     matcher.add(Filter.fromText("abc$image"));
     matcher.add(Filter.fromText("abc$script"));
     matcher.add(Filter.fromText("abc$~image,~script,~document"));

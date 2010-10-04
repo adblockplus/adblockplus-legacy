@@ -28,7 +28,7 @@
     function checkKnownFilters(text, expected)
     {
       let result = {};
-      for each (let matcher in [blacklistMatcher, whitelistMatcher])
+      for each (let matcher in [defaultMatcher.blacklist, defaultMatcher.whitelist])
       {
         let filters = [];
         for each (let filter in matcher.regexps)
@@ -44,7 +44,7 @@
             is(filter.shortcut, shortcut, "Shortcut of filter " + filter.text);
           filters.push(filter);
         }
-        result[matcher == blacklistMatcher ? "blacklist" : "whitelist"] = filters;
+        result[matcher == defaultMatcher.blacklist ? "blacklist" : "whitelist"] = filters;
       }
       result.elemhide = ElemHideGlobal.filters;
 

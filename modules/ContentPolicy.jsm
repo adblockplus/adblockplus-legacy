@@ -215,8 +215,8 @@ var Policy =
     let docDomain = getHostname(wndLocation);
     if (!match && contentType == Policy.type.ELEMHIDE)
     {
-      match = whitelistMatcher.matchesAny(wndLocation, "ELEMHIDE", docDomain, false);
-      if (match)
+      match = defaultMatcher.matchesAny(wndLocation, "ELEMHIDE", docDomain, false);
+      if (match && match instanceof WhitelistFilter)
       {
         FilterStorage.increaseHitCount(match);
 
@@ -236,10 +236,7 @@ var Policy =
 
     if (!match && Prefs.enabled)
     {
-      match = whitelistMatcher.matchesAny(locationText, Policy.typeDescr[contentType] || "", docDomain, thirdParty);
-      if (match == null)
-        match = blacklistMatcher.matchesAny(locationText, Policy.typeDescr[contentType] || "", docDomain, thirdParty);
-
+      match = defaultMatcher.matchesAny(locationText, Policy.typeDescr[contentType] || "", docDomain, thirdParty);
       if (match instanceof BlockingFilter && node instanceof Ci.nsIDOMElement && !(contentType in Policy.nonVisual))
       {
         let prefCollapse = (match.collapse != null ? match.collapse : !Prefs.fastcollapse);
@@ -276,11 +273,12 @@ var Policy =
   /**
    * Checks whether a page is whitelisted.
    * @param url {String}
-   * @return {Boolean}
+   * @return {Filter} filter that matched the URL or null if not whitelisted
    */
   isWhitelisted: function(url)
   {
-    return whitelistMatcher.matchesAny(url, "DOCUMENT", getHostname(url), false);
+    let result = defaultMatcher.matchesAny(url, "DOCUMENT", getHostname(url), false);
+    return (result instanceof WhitelistFilter ? result : null);
   },
 
   /**
