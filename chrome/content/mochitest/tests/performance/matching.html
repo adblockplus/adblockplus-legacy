@@ -24,8 +24,6 @@
 
     let filters = null;
     let addresses = null;
-    let blacklistMatcher = null;
-    let whitelistMatcher = null;
 
     window.onload = function()
     {
@@ -60,15 +58,9 @@
       document.getElementById("result").textContent = "";
       document.getElementById("progress").style.display = "";
 
-      blacklistMatcher = new Matcher();
-      whitelistMatcher = new Matcher();
+      defaultMatcher.clear();
       for each (let filter in filters)
-      {
-        if (filter instanceof WhitelistFilter)
-          whitelistMatcher.add(filter);
-        else
-          blacklistMatcher.add(filter);
-      }
+        defaultMatcher.add(filter);
 
       runTests(runTest, cleanup, finalize);
     }
@@ -76,22 +68,15 @@
     function runTest()
     {
       for each (let address in addresses)
-      {
-        blacklistMatcher.matchesAny(address, "IMAGE", null, false);
-        whitelistMatcher.matchesAny(address, "IMAGE", null, false);
-      }
+        defaultMatcher.matchesAny(address, "IMAGE", null, false);
     }
 
     function cleanup()
     {
       // Add and remove a dummy filter to clear matcher's cache
       let dummy = Filter.fromText("foobar");
-      blacklistMatcher.add(dummy);
-      blacklistMatcher.remove(dummy);
-
-      dummy = Filter.fromText("@@foobar");
-      whitelistMatcher.add(dummy);
-      whitelistMatcher.remove(dummy);
+      defaultMatcher.add(dummy);
+      defaultMatcher.remove(dummy);
     }
 
     function finalize()
@@ -102,8 +87,6 @@
       document.getElementById("startButton").disabled = false;
       filters = null;
       addresses = null;
-      blacklistMatcher = null;
-      whitelistMatcher = null;
     }
   </script>
 </body>

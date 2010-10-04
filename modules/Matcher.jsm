@@ -26,7 +26,7 @@
  * @fileOverview Matcher class implementing matching addresses against a list of filters.
  */
 
-var EXPORTED_SYMBOLS = ["Matcher", "whitelistMatcher", "blacklistMatcher"];
+var EXPORTED_SYMBOLS = ["Matcher", "CombinedMatcher", "defaultMatcher"];
 
 const Cc = Components.classes;
 const Ci = Components.interfaces;
@@ -50,12 +50,6 @@ function Matcher()
  * @type Number
  */
 Matcher.shortcutLength = 8;
-
-/**
- * Maximal number of matching cache entries to be kept
- * @type Number
- */
-Matcher.maxCacheEntries = 1000;
 
 Matcher.prototype = {
   /**
@@ -83,18 +77,6 @@ Matcher.prototype = {
   knownFilters: null,
 
   /**
-   * Lookup table of previous matchesAny results
-   * @type Object
-   */
-  resultCache: null,
-
-  /**
-   * Number of entries in resultCache
-   * @type Number
-   */
-  cacheEntries: 0,
-
-  /**
    * Removes all known filters
    */
   clear: function()
@@ -103,8 +85,6 @@ Matcher.prototype = {
     this.hasShortcuts = false;
     this.regexps = [];
     this.knownFilters = {__proto__: null};
-    this.resultCache = {__proto__: null};
-    this.cacheEntries = 0;
   },
 
   /**
@@ -128,11 +108,6 @@ Matcher.prototype = {
       this.regexps.push(filter);
 
     this.knownFilters[filter.text] = true;
-    if (this.cacheEntries > 0)
-    {
-      this.resultCache = {__proto__: null};
-      this.cacheEntries = 0;
-    }
   },
 
   /**
@@ -154,11 +129,6 @@ Matcher.prototype = {
     }
 
     delete this.knownFilters[filter.text];
-    if (this.cacheEntries > 0)
-    {
-      this.resultCache = {__proto__: null};
-      this.cacheEntries = 0;
-    }
   },
 
   /**
@@ -203,9 +173,14 @@ Matcher.prototype = {
   },
 
   /**
-   * Same as matchesAny but bypasses result cache
+   * Tests whether the URL matches any of the known filters
+   * @param {String} location URL to be tested
+   * @param {String} contentType content type identifier of the URL
+   * @param {String} docDomain domain name of the document that loads the URL
+   * @param {Boolean} thirdParty should be true if the URL is a third-party request
+   * @return {RegExpFilter} matching filter or null
    */
-  matchesAnyInternal: function(location, contentType, docDomain, thirdParty)
+  matchesAny: function(location, contentType, docDomain, thirdParty)
   {
     if (this.hasShortcuts)
     {
@@ -231,15 +206,161 @@ Matcher.prototype = {
         return filter;
 
     return null;
+  }
+};
+
+/**
+ * Combines a matcher for blocking and exception rules, automatically sorts
+ * rules into two Matcher instances.
+ * @constructor
+ */
+function CombinedMatcher()
+{
+  this.blacklist = new Matcher();
+  this.whitelist = new Matcher();
+  this.resultCache = {__proto__: null};
+}
+
+/**
+ * Maximal number of matching cache entries to be kept
+ * @type Number
+ */
+CombinedMatcher.maxCacheEntries = 1000;
+
+CombinedMatcher.prototype =
+{
+  /**
+   * Matcher for blocking rules.
+   * @type Matcher
+   */
+  blacklist: null,
+
+  /**
+   * Matcher for exception rules.
+   * @type Matcher
+   */
+  whitelist: null,
+
+  /**
+   * Lookup table of previous matchesAny results
+   * @type Object
+   */
+  resultCache: null,
+
+  /**
+   * Number of entries in resultCache
+   * @type Number
+   */
+  cacheEntries: 0,
+
+  /**
+   * @see Matcher#clear
+   */
+  clear: function()
+  {
+    this.blacklist.clear();
+    this.whitelist.clear();
+    this.resultCache = {__proto__: null};
+    this.cacheEntries = 0;
   },
 
   /**
-   * Tests whether the URL matches any of the known filters
-   * @param {String} location URL to be tested
-   * @param {String} contentType content type identifier of the URL
-   * @param {String} docDomain domain name of the document that loads the URL
-   * @param {Boolean} thirdParty should be true if the URL is a third-party request
-   * @return {RegExpFilter} matching filter or null
+   * @see Matcher#add
+   */
+  add: function(filter)
+  {
+    if (filter instanceof WhitelistFilter)
+      this.whitelist.add(filter);
+    else
+      this.blacklist.add(filter);
+
+    if (this.cacheEntries > 0)
+    {
+      this.resultCache = {__proto__: null};
+      this.cacheEntries = 0;
+    }
+  },
+
+  /**
+   * @see Matcher#remove
+   */
+  remove: function(filter)
+  {
+    if (filter instanceof WhitelistFilter)
+      this.whitelist.remove(filter);
+    else
+      this.blacklist.remove(filter);
+
+    if (this.cacheEntries > 0)
+    {
+      this.resultCache = {__proto__: null};
+      this.cacheEntries = 0;
+    }
+  },
+
+  /**
+   * @see Matcher#findShortcut
+   */
+  findShortcut: function(text)
+  {
+    if (text.substr(0, 2) == "@@")
+      return this.whitelist.findShortcut(text);
+    else
+      return this.blacklist.findShortcut(text);
+  },
+
+  /**
+   * Optimized filter matching testing both whitelist and blacklist matchers
+   * simultaneously. For parameters see Matcher.matchesAny().
+   * @see Matcher#matchesAny
+   */
+  matchesAnyInternal: function(location, contentType, docDomain, thirdParty)
+  {
+    let blacklistHit = null;
+    if (this.whitelist.hasShortcuts || this.blacklist.hasShortcuts)
+    {
+      // Optimized matching using shortcuts
+      let hashWhite = this.whitelist.shortcutHash;
+      let hashBlack = this.blacklist.shortcutHash;
+
+      let text = location.toLowerCase();
+      let len = Matcher.shortcutLength;
+      let endPos = text.length - len + 1;
+      for (let i = 0; i <= endPos; i++)
+      {
+        let substr = text.substr(i, len);
+        if (substr in hashWhite)
+        {
+          let filter = hashWhite[substr];
+          if (filter.matches(location, contentType, docDomain, thirdParty))
+            return filter;
+        }
+        if (substr in hashBlack)
+        {
+          let filter = hashBlack[substr];
+          if (filter.matches(location, contentType, docDomain, thirdParty))
+            blacklistHit = filter;
+        }
+      }
+    }
+
+    // Slow matching for filters without shortcut
+    for each (let filter in this.whitelist.regexps)
+      if (filter.matches(location, contentType, docDomain, thirdParty))
+        return filter;
+
+    if (blacklistHit)
+      return blacklistHit;
+
+    for each (let filter in this.blacklist.regexps)
+      if (filter.matches(location, contentType, docDomain, thirdParty))
+        return filter;
+
+    return null;
+  },
+
+  /**
+   * @see Matcher#matchesAny
    */
   matchesAny: function(location, contentType, docDomain, thirdParty)
   {
@@ -249,7 +370,7 @@ Matcher.prototype = {
 
     let result = this.matchesAnyInternal(location, contentType, docDomain, thirdParty);
 
-    if (this.cacheEntries >= Matcher.maxCacheEntries)
+    if (this.cacheEntries >= CombinedMatcher.maxCacheEntries)
     {
       this.resultCache = {__proto__: null};
       this.cacheEntries = 0;
@@ -260,16 +381,11 @@ Matcher.prototype = {
 
     return result;
   }
-};
+}
+
 
 /**
- * Matcher instance for blocking filters
- * @type Matcher
+ * Shared CombinedMatcher instance that should usually be used.
+ * @type CombinedMatcher
  */
-var blacklistMatcher = new Matcher();
-
-/**
- * Matcher instance for exception rules
- * @type Matcher
- */
-var whitelistMatcher = new Matcher();
+var defaultMatcher = new CombinedMatcher();
