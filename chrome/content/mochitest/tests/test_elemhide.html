@@ -92,20 +92,20 @@
 
       currentTest++;
       ElemHide.clear();
-      whitelistMatcher.clear();
+      defaultMatcher.clear();
 
       let [filters, expected] = tests[currentTest];
       for each (let filter in filters)
         ElemHide.add(Filter.fromText(filter));
       ElemHide.apply();
       if (currentRun == 2)
-        whitelistMatcher.add(Filter.fromText("@@|chrome://mochikit/$document"));
+        defaultMatcher.add(Filter.fromText("@@|chrome://mochikit/$document"));
       else if (currentRun == 3)
-        whitelistMatcher.add(Filter.fromText("@@|chrome://mochikit/$~document"));
+        defaultMatcher.add(Filter.fromText("@@|chrome://mochikit/$~document"));
       else if (currentRun == 4)
-        whitelistMatcher.add(Filter.fromText("@@|chrome://mochikit/$elemhide"));
+        defaultMatcher.add(Filter.fromText("@@|chrome://mochikit/$elemhide"));
       else if (currentRun == 5)
-        whitelistMatcher.add(Filter.fromText("@@||localhost^$elemhide"));
+        defaultMatcher.add(Filter.fromText("@@||localhost^$elemhide"));
 
       // Reset the loaded document
       let body = document.getElementById("frame").contentDocument.body;

@@ -44,8 +44,7 @@ function prepareFilterComponents(keepObservers)
     FilterStorageGlobal.sourceFile = null;
   }
 
-  blacklistMatcher.clear();
-  whitelistMatcher.clear();
+  defaultMatcher.clear();
   ElemHide.clear();
 
   window.addEventListener("unload", function()

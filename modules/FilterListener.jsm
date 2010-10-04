@@ -98,10 +98,8 @@ function addFilter(filter)
   if (!(filter instanceof ActiveFilter) || filter.disabled || (subscriptionFilter && filter.subscriptions.some(subscriptionFilter)))
     return;
 
-  if (filter instanceof BlockingFilter)
-    blacklistMatcher.add(filter);
-  else if (filter instanceof WhitelistFilter)
-    whitelistMatcher.add(filter);
+  if (filter instanceof RegExpFilter)
+    defaultMatcher.add(filter);
   else if (filter instanceof ElemHideFilter)
     ElemHide.add(filter);
 }
@@ -116,10 +114,8 @@ function removeFilter(filter)
   if (!(filter instanceof ActiveFilter) || (subscriptionFilter && filter.subscriptions.some(subscriptionFilter)))
     return;
 
-  if (filter instanceof BlockingFilter)
-    blacklistMatcher.remove(filter);
-  else if (filter instanceof WhitelistFilter)
-    whitelistMatcher.remove(filter);
+  if (filter instanceof RegExpFilter)
+    defaultMatcher.remove(filter);
   else if (filter instanceof ElemHideFilter)
     ElemHide.remove(filter);
 }
@@ -176,8 +172,7 @@ function onSubscriptionChange(action, subscriptions)
   }
   else if (action == "reload")
   {
-    blacklistMatcher.clear();
-    whitelistMatcher.clear();
+    defaultMatcher.clear();
     ElemHide.clear();
     for each (let subscription in subscriptions)
       if (!subscription.disabled)

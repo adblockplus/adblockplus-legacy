@@ -50,7 +50,7 @@
     function runTest()
     {
       // Add everything to the same matcher, don't bother separating whitelist and blacklist
-      let matcher = new Matcher();
+      let matcher = new CombinedMatcher();
       for each (let filter in filters)
         matcher.add(filter);
     }
