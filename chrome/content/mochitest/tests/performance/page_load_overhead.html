@@ -22,6 +22,7 @@
   <script type="application/x-javascript;version=1.7">
     Cu.import(baseURL.spec + "Utils.jsm");
     Cu.import(baseURL.spec + "ContentPolicy.jsm");
+    var PolicyPrivate = Cu.import(baseURL.spec + "ContentPolicy.jsm", null).PolicyPrivate;
 
     prepareFilterComponents();
 
@@ -81,7 +82,8 @@
       }
       else
       {
-        Policy.shutdown(true);
+        for each (let category in PolicyPrivate.xpcom_categories)
+          Utils.categoryManager.deleteCategoryEntry(category, PolicyPrivate.classDescription, false);
       }
 
       server.start(1234);
@@ -114,7 +116,9 @@
       ElemHide.clear();
 
       server.stop();
-      Policy.startup();
+
+      for each (let category in PolicyPrivate.xpcom_categories)
+        Utils.categoryManager.addCategoryEntry(category, PolicyPrivate.classDescription, PolicyPrivate.contractID, false, true);
 
       document.getElementById("progress").style.display = "none";
       document.getElementById("enableABP").disabled = false;
