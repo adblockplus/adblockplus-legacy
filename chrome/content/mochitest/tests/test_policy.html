@@ -227,17 +227,16 @@
 
       let [body, expectedURL, expectedType, expectedDomain, expectedThirdParty] = tests[currentTest];
 
-      blacklistMatcher.clear();
-      whitelistMatcher.clear();
+      defaultMatcher.clear();
 
       if (currentStage > 1)
-        blacklistMatcher.add(Filter.fromText(expectedURL));
+        defaultMatcher.add(Filter.fromText(expectedURL));
       if (currentStage == 3)
-        whitelistMatcher.add(Filter.fromText("@@|chrome://mochikit/$document"));
+        defaultMatcher.add(Filter.fromText("@@|chrome://mochikit/$document"));
       if (currentStage == 4)
-        whitelistMatcher.add(Filter.fromText("@@|chrome://mochikit/$~document"));
+        defaultMatcher.add(Filter.fromText("@@|chrome://mochikit/$~document"));
       if (currentStage == 5)
-        whitelistMatcher.add(Filter.fromText("@@|http://127.0.0.1:1234/test|"));
+        defaultMatcher.add(Filter.fromText("@@|http://127.0.0.1:1234/test|"));
 
       serverHit = false;
       server.registerPathHandler(expectedURL.replace(/http:\/\/[^\/]+/, ""), function(metadata, response)

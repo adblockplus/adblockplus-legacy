@@ -238,12 +238,7 @@ function updateFilter()
   let compiledFilter = Filter.fromText(filter);
   if (E("regexpWarning").hidden)
   {
-    let matcher = null;
-    if (compiledFilter instanceof BlockingFilter)
-      matcher = blacklistMatcher;
-    if (compiledFilter instanceof WhitelistFilter)
-      matcher = whitelistMatcher;
-    if (matcher && !matcher.findShortcut(compiledFilter.text))
+    if (compiledFilter instanceof RegExpFilter && !defaultMatcher.findShortcut(compiledFilter.text))
       hasShortcut = false;
   }
   E("shortpatternWarning").hidden = hasShortcut;

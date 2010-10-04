@@ -72,10 +72,8 @@
                                                               .map(function(text) Filter.fromText(text));
         for each (let filter in filters)
         {
-          if (filter instanceof BlockingFilter)
-            blacklistMatcher.add(filter);
-          else if (filter instanceof WhitelistFilter)
-            whitelistMatcher.add(filter);
+          if (filter instanceof RegExpFilter)
+            defaultMatcher.add(filter);
           else if (filter instanceof ElemHideFilter)
             ElemHide.add(filter);
         }
@@ -112,8 +110,7 @@
 
     function finalize()
     {
-      blacklistMatcher.clear();
-      whitelistMatcher.clear();
+      defaultMatcher.clear();
       ElemHide.clear();
 
       server.stop();

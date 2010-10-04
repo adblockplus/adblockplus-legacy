@@ -284,10 +284,7 @@ function createFilterWrapper(filter)
 function ensureFilterShortcut(/**Filter*/ filter)
 {
   if (filter instanceof RegExpFilter && !filter.shortcut)
-  {
-    let matcher = (filter instanceof BlockingFilter ? blacklistMatcher : whitelistMatcher);
-    filter.shortcut = matcher.findShortcut(filter.text);
-  }
+    filter.shortcut = defaultMatcher.findShortcut(filter.text);
 }
 
 /**
