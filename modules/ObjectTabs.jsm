@@ -352,7 +352,8 @@ var objTabs =
   _positionTab: function()
   {
     // Test whether element is still in document
-    if (!this.currentElement.offsetWidth || !this.currentElement.offsetHeight)
+    if (!this.currentElement.offsetWidth || !this.currentElement.offsetHeight ||
+        !this.ownerDocument || !this.ownerDocument.defaultView || !this.ownerDocument.documentElement)
     {
       this._hideTab();
       return;
