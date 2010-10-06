@@ -122,8 +122,12 @@
 <wizardpage id="commentPage" label="&commentPage.heading;" onpageshow="initCommentPage();">
   <description>&commentPage.description;</description>
 
-  <label control="comment" value="&comment.label;" accesskey="&comment.accesskey;"/>
+  <label class="topLabel" control="comment" value="&comment.label;" accesskey="&comment.accesskey;"/>
   <textbox id="comment" multiline="true" flex="1" oninput="updateComment();"/>
+  <hbox align="baseline">
+    <label control="email" value="&email.label;" accesskey="&email.accesskey;"/>
+    <textbox id="email" flex="1" maxlength="200" oninput="updateEmail();"/>
+  </hbox>
   <description id="commentLengthWarning" visible="false">&comment.lengthWarning;</description>
 
   <checkbox id="extensionsCheckbox" label="&attachExtensions.label;" accesskey="&attachExtensions.accesskey;" oncommand="updateExtensions(this.checked);"/>
