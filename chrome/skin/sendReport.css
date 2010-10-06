@@ -53,7 +53,7 @@ progressmeter
   -moz-margin-start: 32px;
 }
 
-radio, checkbox, label
+radio, checkbox, .topLabel, #dataDeck
 {
   margin-top: 15px;
 }
