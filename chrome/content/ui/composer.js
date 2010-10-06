@@ -73,10 +73,22 @@ function init()
 
     try
     {
-      if (url.port > 0)
-        suggestions[4] = addSuggestion(url.host.replace(/^www\./, "") + "^");
-      else
-        suggestions[4] = suggestions[3];
+      suggestions[4] = addSuggestion(url.host.replace(/^www\./, "") + "^");
+
+      // Prefer example.com^ to example.com/*
+      let undesired = suggestions[4].replace(/\^$/, "/*");
+      for (let i = 0; i < suggestions.length - 1; i++)
+        if (suggestions[i] == undesired)
+          suggestions[i] = suggestions[4];
+
+      for (let child = insertionPoint.parentNode.firstChild; child; child = child.nextSibling)
+      {
+        if (child.localName == "radio" && child.getAttribute("value") == undesired)
+        {
+          child.parentNode.removeChild(child);
+          break;
+        }
+      }
     }
     catch (e)
     {
@@ -90,6 +102,8 @@ function init()
       let baseDomain = effectiveTLD.getBaseDomainFromHost(host);
       if (baseDomain != host.replace(/^www\./, ""))
         suggestions[5] = addSuggestion(baseDomain + "^");
+      else
+        suggestions[5] = suggestions[4];
     }
     catch (e)
     {
