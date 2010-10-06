@@ -142,7 +142,7 @@ let reportsListDataSource =
     if (event.button != 0 || !event.target || !event.target.hasAttribute("url"))
       return;
 
-    Utils.loadInBrowser(event.target.getAttribute("url"), null, event);
+    Utils.loadInBrowser(event.target.getAttribute("url"));
   }
 };
 
@@ -799,6 +799,12 @@ function updateComment()
   updateDataField();
 }
 
+function updateEmail()
+{
+  reportData.email = E("email").value.replace(/\@/g, " at ").replace(/\./g, " dot ");
+  updateDataField();
+}
+
 function updateExtensions(attach)
 {
   extensionsDataSource.exportData(attach);
@@ -893,7 +899,7 @@ function processLinkClick(event)
     link = link.parentNode;
 
   if (link && (link.protocol == "http:" || link.protocol == "https:"))
-    Utils.loadInBrowser(link.href, null, event);
+    Utils.loadInBrowser(link.href);
 }
 
 function copyLink(url)
