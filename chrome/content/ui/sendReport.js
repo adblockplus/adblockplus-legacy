@@ -508,6 +508,8 @@ let framesDataSource =
     }
 
     reportData.window.@url = censorURL(wnd.location.href);
+    if (wnd.opener && wnd.opener.location.href)
+      reportData.window.@opener = censorURL(wnd.opener.location.href);
     this.scanFrames(wnd, reportData.window);
 
     callback();
