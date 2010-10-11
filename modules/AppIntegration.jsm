@@ -775,8 +775,10 @@ WindowWrapper.prototype =
       {
         if (current instanceof SpecialSubscription)
           return [subscriptions, filters + current.filters.length];
-        else
+        else if (!current.disabled)
           return [subscriptions + 1, filters];
+        else
+          return [subscriptions, filters]
       }, [0, 0]);
   
       statusStr = statusStr.replace(/\?1\?/, activeSubscriptions).replace(/\?2\?/, activeFilters);
