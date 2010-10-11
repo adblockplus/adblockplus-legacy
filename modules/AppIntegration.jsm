@@ -774,7 +774,7 @@ WindowWrapper.prototype =
       let [activeSubscriptions, activeFilters] = FilterStorage.subscriptions.reduce(function([subscriptions, filters], current)
       {
         if (current instanceof SpecialSubscription)
-          return [subscriptions, filters + current.filters.length];
+          return [subscriptions, filters + current.filters.filter(function(filter) !filter.disabled).length];
         else if (!current.disabled)
           return [subscriptions + 1, filters];
         else
