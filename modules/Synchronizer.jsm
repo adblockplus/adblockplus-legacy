@@ -119,8 +119,9 @@ var Synchronizer =
     let loadFrom = newURL;
     let isBaseLocation = true;
     if (!loadFrom)
-    {
       loadFrom = url;
+    if (loadFrom == url)
+    {
       if (subscription.alternativeLocations)
       {
         // We have alternative download locations, choose one. "Regular"
@@ -161,6 +162,11 @@ var Synchronizer =
 
         isBaseLocation = (loadFrom == url);
       }
+    }
+    else
+    {
+      // Ignore modification date if we are downloading from a different location
+      forceDownload = true;
     }
     loadFrom = loadFrom.replace(/%VERSION%/, "ABP" + curVersion);
 
