@@ -848,10 +848,12 @@ function reportSent(event)
     result = request.responseText;
   } catch (e) {}
 
+  result = result.replace(/%CONFIRMATION%/g, encodeHTML(E("result").getAttribute("confirmationMessage")));
+  result = result.replace(/%KNOWNISSUE%/g, encodeHTML(E("result").getAttribute("knownIssueMessage")));
+
   if (!success)
   {
-    errorMessage = errorMessage.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-    errorMessage = "<h1 style=\"color: red;\">" + errorMessage + "</h1>";
+    errorMessage = "<h1 style=\"color: red;\">" + encodeHTML(errorMessage) + "</h1>";
 
     let regexp = /<body\b[^<>]*>/;
     if (regexp.test(result))
@@ -913,4 +915,9 @@ function copyLink(url)
 function censorURL(url)
 {
   return url.replace(/([?;&\/#][^?;&\/#]+?=)[^?;&\/#]+/g, "$1*");
+}
+
+function encodeHTML(str)
+{
+  return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 }

@@ -86,6 +86,8 @@
 <!-- Please keep sendPage.heading short - it is shown in the progress bar, not much space there -->
 <!ENTITY sendPage.heading             "Send report">
 <!ENTITY sendPage.description         "Please wait while Adblock Plus is submitting your report.">
+<!ENTITY sendPage.confirmation        "Your report has been saved. You can access it under the following address:">
+<!ENTITY sendPage.knownIssue          "The issue you reported is probably already known. More information:">
 
 <!ENTITY copyLink.label               "Copy report link">
 <!ENTITY copyLink.accesskey           "C">

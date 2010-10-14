@@ -148,7 +148,8 @@
 
   <progressmeter id="sendReportProgress" mode="undetermined"/>
 
-  <iframe id="result" type="content" flex="1" hidden="true" onclick="processLinkClick(event);"/>
+  <iframe id="result" type="content" flex="1" hidden="true" onclick="processLinkClick(event);"
+          confirmationMessage="&sendPage.confirmation;" knownIssueMessage="&sendPage.knownIssue;"/>
 
   <hbox id="copyLinkBox" pack="end" hidden="true">
     <button id="copyLink" disabled="true" label="&copyLink.label;" accesskey="&copyLink.accesskey;" oncommand="copyLink(this.getAttribute('url'));"/>
