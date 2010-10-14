@@ -298,13 +298,12 @@ var objTabs =
 
     // Insert the tab into the document and adjust its position
     doc.documentElement.appendChild(this.objtabElement);
-    this._positionTab();
-
     if (!this.positionTimer)
     {
       this.positionTimer = Cc["@mozilla.org/timer;1"].createInstance(Ci.nsITimer);
       this.positionTimer.init(this, 200, Ci.nsITimer.TYPE_REPEATING_SLACK);
     }
+    this._positionTab();
   },
 
   /**
@@ -352,8 +351,9 @@ var objTabs =
   _positionTab: function()
   {
     // Test whether element is still in document
+    let elementDoc = this.currentElement.ownerDocument;
     if (!this.currentElement.offsetWidth || !this.currentElement.offsetHeight ||
-        !this.ownerDocument || !this.ownerDocument.defaultView || !this.ownerDocument.documentElement)
+        !elementDoc || !elementDoc.defaultView || !elementDoc.documentElement)
     {
       this._hideTab();
       return;
