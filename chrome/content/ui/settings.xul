@@ -75,7 +75,7 @@
 
 <commandset id="abpCommands">
   <command id="addsubscription-command" oncommand="editSubscription(null)"/>
-  <command id="synchsubscriptions-command" oncommand="synchAllSubscriptions(false)"/>
+  <command id="synchsubscriptions-command" oncommand="synchAllSubscriptions()"/>
   <command id="import-command" oncommand="importList()"/>
   <command id="export-command" oncommand="exportList()"/>
   <command id="selectall-command" oncommand="treeView.selection.selectAll()"/>
@@ -90,7 +90,7 @@
 
 <popupset id="abpPopups">
   <menupopup id="listitem-context" onpopupshowing="return fillContext()">
-    <menuitem id="context-synchsubscription" label="&context.synchsubscription.label;" oncommand="synchSubscription(event.shiftKey)" key="synchsubscription-key" />
+    <menuitem id="context-synchsubscription" label="&context.synchsubscription.label;" oncommand="synchSubscription()" key="synchsubscription-key" />
     <menuitem id="context-editsubscription" label="&context.editsubscription.label;…" oncommand="editFilter('subscription')" key="edit-key"/>
     <menuitem id="context-edit" label="&context.edit.label;" oncommand="editFilter('filter')" key="edit-key"/>
     <menuitem id="context-resethitcount" label="&context.resethitcount.label;…" oncommand="resetHitCounts(false)"/>

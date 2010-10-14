@@ -1031,21 +1031,21 @@ function pasteFromClipboard() {
 /**
  * Starts synchronization of the currently selected subscription
  */
-function synchSubscription(/**Boolean*/ forceDownload)
+function synchSubscription()
 {
   let [subscription, filter] = treeView.getRowInfo(treeView.selection.currentIndex);
   if (subscription instanceof DownloadableSubscription)
-    Synchronizer.execute(subscription.__proto__, true, forceDownload);
+    Synchronizer.execute(subscription.__proto__, true, true);
 }
 
 /**
  * Starts synchronization for all subscriptions
  */
-function synchAllSubscriptions(/**Boolean*/ forceDownload)
+function synchAllSubscriptions()
 {
   for each (let subscription in treeView.subscriptions)
     if (subscription instanceof DownloadableSubscription)
-      Synchronizer.execute(subscription.__proto__, true, forceDownload);
+      Synchronizer.execute(subscription.__proto__, true, true);
 }
 
 /**
