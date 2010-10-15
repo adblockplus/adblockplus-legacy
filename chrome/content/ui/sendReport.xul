@@ -146,7 +146,14 @@
 </wizardpage>
 
 <wizardpage id="sendPage" label="&sendPage.heading;" onpageshow="initSendPage();">
-  <description id="sendReportMessage">&sendPage.description;</description>
+  <description id="sendReportMessage">&sendPage.waitMessage;</description>
+
+  <vbox id="sendReportErrorBox" align="end" hidden="true">
+    <description id="sendReportError" textTemplate="&sendPage.errorMessage;">
+      <label id="sendReportErrorLinks" class="text-link" onclick="Utils.loadDocLink('reporter_connect_issue');"/>
+    </description>
+    <button id="sendRetryButton" label="&sendPage.retry.label;" oncommand="initSendPage();"/>
+  </vbox>
 
   <progressmeter id="sendReportProgress" mode="undetermined"/>
 

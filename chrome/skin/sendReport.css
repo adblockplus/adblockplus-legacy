@@ -87,3 +87,19 @@ radio, checkbox, .topLabel, #dataDeck
 {
   visibility: hidden;
 }
+
+#sendReportError
+{
+  color: red;
+  font-size: 150%;
+}
+
+#sendReportErrorLinks
+{
+  margin: 0px;
+}
+
+#sendReportErrorBox
+{
+  margin-bottom: 10px;
+}
