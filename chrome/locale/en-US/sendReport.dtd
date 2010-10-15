@@ -82,6 +82,7 @@
 <!ENTITY showData.label               "Show report data">
 <!ENTITY data.label                   "Report data:">
 <!ENTITY data.accesskey               "p">
+<!ENTITY privacyPolicy.label          "Privacy policy">
 
 <!-- Please keep sendPage.heading short - it is shown in the progress bar, not much space there -->
 <!ENTITY sendPage.heading             "Send report">
