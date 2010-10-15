@@ -900,8 +900,10 @@ function reportSent(event)
   frame.docShell.allowPlugins = false;
   frame.docShell.allowSubframes = false;
 
-  E("result").setAttribute("src", "data:text/html," + encodeURIComponent(result));
-  E("result").hidden = false;
+  frame.setAttribute("src", "data:text/html," + encodeURIComponent(result));
+  frame.hidden = false;
+
+  E("sendReportMessage").hidden = true;
 
   if (success)
   {
