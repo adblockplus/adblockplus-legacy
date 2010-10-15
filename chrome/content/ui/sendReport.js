@@ -726,8 +726,12 @@ function initDataCollectorPage()
       progressMeter.value = progress;
     }
 
+    // Continue with the next data source, asynchronously to allow progress meter to update
     let dataSource = dataCollectors.shift();
-    dataSource.collectData(contentWindow, initNextDataSource);
+    Utils.runAsync(function()
+    {
+      dataSource.collectData(contentWindow, initNextDataSource);
+    });
   };
 
   initNextDataSource();
