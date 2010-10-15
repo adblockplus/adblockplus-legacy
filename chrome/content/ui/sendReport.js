@@ -672,6 +672,10 @@ function initWizard()
   // Make sure no issue type is selected by default
   E("typeGroup").selectedItem = null;
   document.documentElement.addEventListener("pageshow", updateNextButton, false);
+
+  // Move privacy link
+  let extraButton = document.documentElement.getButton("extra1");
+  extraButton.parentNode.insertBefore(E("privacyLink"), extraButton);
 }
 
 function updateNextButton()
