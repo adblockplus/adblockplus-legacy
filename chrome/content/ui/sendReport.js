@@ -839,9 +839,25 @@ function initSendPage()
   request.open("POST", url);
   request.setRequestHeader("Content-Type", "text/xml");
   request.setRequestHeader("X-Adblock-Plus", "1");
-  request.onload = reportSent;
-  request.onerror = reportSent;
+  request.addEventListener("load", reportSent, false);
+  request.addEventListener("error", reportSent, false);
+  if ("upload" in request && request.upload)
+    request.upload.addEventListener("progress", updateReportProgress, false);
   request.send(reportData.toXMLString());
+}
+
+function updateReportProgress(event)
+{
+  if (!event.lengthComputable)
+    return;
+
+  let progress = Math.round(event.loaded / event.total * 100);
+  if (progress > 0)
+  {
+    let progressMeter = E("sendReportProgress");
+    progressMeter.mode = "determined";
+    progressMeter.value = progress;
+  }
 }
 
 function reportSent(event)
