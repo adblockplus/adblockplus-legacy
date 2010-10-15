@@ -80,7 +80,7 @@
           </row>
           <row id="tooltipFilterRow" align="top">
             <label value="&tooltip.filter.label;"/>
-            <vbox id="tooltipFilter"/>
+            <vbox id="tooltipFilter" disabledText="&tooltip.filter.disabled;"/>
           </row>
           <row id="tooltipFilterSourceRow" align="top">
             <label value="&tooltip.filterSource.label;"/>
