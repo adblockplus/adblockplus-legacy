@@ -867,8 +867,22 @@ function reportSent(event)
   let errorMessage = Utils.getString("synchronize_connection_error");
   try
   {
-    success = (request.status == 200);
-    errorMessage = request.status + " " + request.statusText;
+    let status = request.channel.status;
+    if (Components.isSuccessCode(status))
+    {
+      success = (request.status == 200 || request.status == 0);
+      errorMessage = request.status + " " + request.statusText;
+    }
+    else
+    {
+      errorMessage = "0x" + status.toString(16);
+
+      // Try to find the name for the status code
+      let exception = Cc["@mozilla.org/js/xpc/Exception;1"].createInstance(Ci.nsIXPCException);
+      exception.initialize(null, status, null, null, null, null);
+      if (exception.name)
+        errorMessage = exception.name;
+    }
   } catch (e) {}
 
   let result = "";
@@ -886,7 +900,7 @@ function reportSent(event)
 
     let regexp = /<body\b[^<>]*>/;
     if (regexp.test(result))
-      result = result.replace(regexp, "$0" + errorMessage);
+      result = result.replace(regexp, "$&" + errorMessage);
     else
       result = errorMessage + result;
   }
