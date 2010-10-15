@@ -70,7 +70,7 @@
 <wizardpage id="dataCollectorPage" label="&dataCollector.heading;" onpageshow="initDataCollectorPage();">
   <description>&dataCollector.description;</description>
 
-  <progressmeter mode="undetermined"/>
+  <progressmeter id="dataCollectorProgress" mode="undetermined"/>
 </wizardpage>
 
 <wizardpage id="typeSelectorPage" label="&typeSelector.heading;" onpageshow="initTypeSelectorPage();">
