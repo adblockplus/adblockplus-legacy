@@ -63,6 +63,8 @@
       </xbl:content>
     </xbl:binding>
   </xbl:bindings>
+
+  <label id="privacyLink" class="text-link" value="&privacyPolicy.label;" onclick="Utils.loadDocLink('reporter_privacy');"/>
 </box>
 
 <wizardpage id="dataCollectorPage" label="&dataCollector.heading;" onpageshow="initDataCollectorPage();">
