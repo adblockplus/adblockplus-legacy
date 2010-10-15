@@ -146,7 +146,7 @@
 </wizardpage>
 
 <wizardpage id="sendPage" label="&sendPage.heading;" onpageshow="initSendPage();">
-  <description>&sendPage.description;</description>
+  <description id="sendReportMessage">&sendPage.description;</description>
 
   <progressmeter id="sendReportProgress" mode="undetermined"/>
 
