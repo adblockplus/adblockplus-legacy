@@ -707,6 +707,7 @@ function initDataCollectorPage()
   document.documentElement.canAdvance = false;
 
   let contentWindow = window.arguments[0];
+  let totalSteps = dataCollectors.length;
   let initNextDataSource = function()
   {
     if (!dataCollectors.length)
@@ -715,6 +716,14 @@ function initDataCollectorPage()
       document.documentElement.canAdvance = true;
       document.documentElement.advance();
       return;
+    }
+
+    let progress = (totalSteps - dataCollectors.length) / totalSteps * 100;
+    if (progress > 0)
+    {
+      let progressMeter = E("dataCollectorProgress");
+      progressMeter.mode = "determined";
+      progressMeter.value = progress;
     }
 
     let dataSource = dataCollectors.shift();
