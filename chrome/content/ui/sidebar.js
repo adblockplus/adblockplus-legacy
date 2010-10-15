@@ -217,7 +217,7 @@ function fillInTooltip(e) {
   if (!item)
     return false;
 
-  let filter = ("filter" in item && item.filter && !item.filter.disabled ? item.filter : null);
+  let filter = ("filter" in item && item.filter ? item.filter : null);
   let size = ("tooltip" in item ? null : getItemSize(item));
   let subscriptions = (filter ? filter.subscriptions.filter(function(subscription) { return !subscription.disabled; }) : []);
 
@@ -251,7 +251,16 @@ function fillInTooltip(e) {
 
   if (filter)
   {
-    setMultilineContent(E("tooltipFilter"), filter.text);
+    let filterField = E("tooltipFilter");
+    setMultilineContent(filterField, filter.text);
+    if (filter.disabled)
+    {
+      let disabledText = document.createElement("description");
+      disabledText.className = "disabledTextLabel";
+      disabledText.textContent = filterField.getAttribute("disabledText");
+      filterField.appendChild(disabledText);
+    }
+
     if (subscriptions.length)
     {
       let sourceElement = E("tooltipFilterSource");

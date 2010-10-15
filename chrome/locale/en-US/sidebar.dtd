@@ -23,6 +23,7 @@
 <!ENTITY tooltip.size.label       "Size:">
 <!ENTITY tooltip.docDomain.label  "Document source:">
 <!ENTITY tooltip.filter.label     "Filter in effect:">
+<!ENTITY tooltip.filter.disabled  "(disabled)">
 <!ENTITY tooltip.filterSource.label "Filter source:">
 
 <!ENTITY context.block.label      "Block this item">
