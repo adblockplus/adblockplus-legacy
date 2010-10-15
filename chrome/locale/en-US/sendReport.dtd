@@ -1,4 +1,5 @@
 <!ENTITY wizard.title                   "Issue reporter">
+<!ENTITY privacyPolicy.label            "Privacy policy">
 
 <!ENTITY dataCollector.heading          "Welcome to issue reporter">
 <!ENTITY dataCollector.description      "Please wait a few moments while Adblock Plus is gathering required data.">
@@ -82,13 +83,16 @@
 <!ENTITY showData.label               "Show report data">
 <!ENTITY data.label                   "Report data:">
 <!ENTITY data.accesskey               "p">
-<!ENTITY privacyPolicy.label          "Privacy policy">
 
 <!-- Please keep sendPage.heading short - it is shown in the progress bar, not much space there -->
 <!ENTITY sendPage.heading             "Send report">
-<!ENTITY sendPage.description         "Please wait while Adblock Plus is submitting your report.">
+<!ENTITY sendPage.waitMessage         "Please wait while Adblock Plus is submitting your report.">
 <!ENTITY sendPage.confirmation        "Your report has been saved. You can access it under the following address:">
 <!ENTITY sendPage.knownIssue          "The issue you reported is probably already known. More information:">
+
+<!-- Note: the placeholder ?1? will be replaced by the error code -->
+<!ENTITY sendPage.errorMessage        "Sending report failed with error code &quot;?1?&quot;. Please make sure you are connected to the Internet and retry. If the problem persists please ask for assistance in [link]the forum[/link].">
+<!ENTITY sendPage.retry.label         "Send again">
 
 <!ENTITY copyLink.label               "Copy report link">
 <!ENTITY copyLink.accesskey           "C">

@@ -830,6 +830,12 @@ function initSendPage()
 {
   E("progressBar").activeItem = E("sendPageHeader");
 
+  E("result").hidden = true;
+  E("sendReportErrorBox").hidden = true;
+  E("sendReportMessage").hidden = false;
+  E("sendReportProgress").hidden = false;
+  E("sendReportProgress").mode = "undetermined";
+
   document.documentElement.canRewind = false;
   document.documentElement.getButton("finish").disabled = true;
 
@@ -896,13 +902,31 @@ function reportSent(event)
 
   if (!success)
   {
-    errorMessage = "<h1 style=\"color: red;\">" + encodeHTML(errorMessage) + "</h1>";
-
-    let regexp = /<body\b[^<>]*>/;
-    if (regexp.test(result))
-      result = result.replace(regexp, "$&" + errorMessage);
+    let errorElement = E("sendReportError");
+    let template = errorElement.getAttribute("textTemplate");
+    if (typeof replacement != "undefined")
+      template = template.replace(/\?1\?/g, replacement)
+  
+    let beforeLink, linkText, afterLink;
+    if (/(.*)\[link\](.*)\[\/link\](.*)/.test(template))
+      [beforeLink, linkText, afterLink] = [RegExp.$1, RegExp.$2, RegExp.$3];
     else
-      result = errorMessage + result;
+      [beforeLink, linkText, afterLink] = ["", template, ""];
+
+    beforeLink = beforeLink.replace(/\?1\?/g, errorMessage);
+    afterLink = afterLink.replace(/\?1\?/g, errorMessage);
+  
+    while (errorElement.firstChild && errorElement.firstChild.nodeType != Node.ELEMENT_NODE)
+      errorElement.removeChild(errorElement.firstChild);
+    while (errorElement.lastChild && errorElement.lastChild.nodeType != Node.ELEMENT_NODE)
+      errorElement.removeChild(errorElement.lastChild);
+  
+    if (errorElement.firstChild)
+      errorElement.firstChild.textContent = linkText;
+    errorElement.insertBefore(document.createTextNode(beforeLink), errorElement.firstChild);
+    errorElement.appendChild(document.createTextNode(afterLink));
+
+    E("sendReportErrorBox").hidden = false;
   }
 
   E("sendReportProgress").hidden = true;
