@@ -38,6 +38,7 @@
   width="800"
   height="550"
   sendbuttonlabel="&sendButton.label;"
+  sendbuttonaccesskey="&sendButton.accesskey;"
   windowtype="abp:sendReport">
 
 <script type="application/x-javascript;version=1.7" src="utils.js"/>
@@ -67,13 +68,13 @@
   <label id="privacyLink" class="text-link" value="&privacyPolicy.label;" onclick="Utils.loadDocLink('reporter_privacy');"/>
 </box>
 
-<wizardpage id="dataCollectorPage" label="&dataCollector.heading;" onpageshow="initDataCollectorPage();">
+<wizardpage id="dataCollectorPage" pageid="dataCollector" next="typeSelector" label="&dataCollector.heading;" onpageshow="initDataCollectorPage();">
   <description>&dataCollector.description;</description>
 
   <progressmeter id="dataCollectorProgress" mode="undetermined"/>
 </wizardpage>
 
-<wizardpage id="typeSelectorPage" label="&typeSelector.heading;" onpageshow="initTypeSelectorPage();">
+<wizardpage id="typeSelectorPage" pageid="typeSelector" next="screenshot" label="&typeSelector.heading;" onpageshow="initTypeSelectorPage();">
   <description>&typeSelector.description;</description>
 
   <radiogroup id="typeGroup" oncommand="typeSelectionUpdated();">
@@ -107,7 +108,62 @@
   </deck>
 </wizardpage>
 
-<wizardpage id="screenshotPage" label="&screenshot.heading;" onpageshow="initScreenshotPage();">
+<wizardpage id="issuesPage" pageid="issues" next="screenshot" onpageshow="initIssuesPage();" reloadButtonLabel="&reloadButton.label;" reloadButtonAccesskey="&reloadButton.accesskey;">
+  <description>&issues.description;</description>
+
+  <vbox id="issuesBox" flex="1">
+    <groupbox id="issuesWhitelistBox" hidden="true">
+      <description>&issues.whitelist.description;</description>
+      <hbox pack="end">
+        <button label="&issues.whitelist.remove.label;" oncommand="issuesDataSource.removeWhitelist();"/>
+      </hbox>
+    </groupbox>
+    <groupbox id="issuesDisabledBox" hidden="true">
+      <description>&issues.disabled.description;</description>
+      <hbox pack="end">
+        <button label="&issues.disabled.enable.label;" oncommand="issuesDataSource.enable();"/>
+      </hbox>
+    </groupbox>
+    <groupbox id="issuesNoFiltersBox" hidden="true">
+      <description>&issues.nofilters.description;</description>
+    </groupbox>
+    <groupbox id="issuesNoSubscriptionsBox" hidden="true">
+      <description>&issues.nosubscriptions.description;</description>
+      <hbox pack="end">
+        <button label="&issues.nosubscriptions.add.label;" oncommand="issuesDataSource.addSubscription();"/>
+      </hbox>
+    </groupbox>
+    <groupbox id="issuesOwnFiltersBox" hidden="true">
+      <description>&issues.ownfilters.description;</description>
+      <hbox id="issuesOwnFiltersTemplate" align="center" hidden="true">
+        <description flex="1" crop="end"/>
+        <button label="&issues.ownfilters.disable.label;" oncommand="issuesDataSource.disableFilter(this.parentNode);"/>
+      </hbox>
+      <vbox id="issuesOwnFilters"/>
+    </groupbox>
+    <groupbox id="issuesDisabledSubscriptionsBox" hidden="true">
+      <description>&issues.disabledgroups.description;</description>
+      <hbox id="issuesDisabledSubscriptionsTemplate" align="center" hidden="true">
+        <description flex="1" crop="end"/>
+        <button label="&issues.disabledgroups.enable.label;" oncommand="issuesDataSource.enableSubscription(this.parentNode);"/>
+      </hbox>
+      <vbox id="issuesDisabledSubscriptions"/>
+    </groupbox>
+    <groupbox id="issuesDisabledFiltersBox" hidden="true">
+      <description>&issues.disabledfilters.description;</description>
+      <hbox id="issuesDisabledFiltersTemplate" align="center" hidden="true">
+        <description flex="1" crop="end"/>
+        <button label="&issues.disabledfilters.enable.label;" oncommand="issuesDataSource.enableFilter(this.parentNode);"/>
+      </hbox>
+      <vbox id="issuesDisabledFilters"/>
+    </groupbox>
+  </vbox>
+
+  <checkbox id="issuesOverride" label="&issues.override.label;" accesskey="&issues.override.accesskey;" oncommand="updateIssuesOverride();"/>
+  <description id="issuesChangeMessage" hidden="true">&issues.change.description;</description>
+</wizardpage>
+
+<wizardpage id="screenshotPage" pageid="screenshot" next="comment" label="&screenshot.heading;" onpageshow="initScreenshotPage();">
   <description>&screenshot.description;</description>
 
   <checkbox id="screenshotCheckbox" checked="true" label="&screenshot.attach.label;" accesskey="&screenshot.attach.accesskey;" oncommand="screenshotDataSource.enabled = this.checked;"/>
@@ -121,7 +177,7 @@
   </vbox>
 </wizardpage>
 
-<wizardpage id="commentPage" label="&commentPage.heading;" onpageshow="initCommentPage();">
+<wizardpage id="commentPage" pageid="comment" next="send" label="&commentPage.heading;" onpageshow="initCommentPage();">
   <description>&commentPage.description;</description>
 
   <label class="topLabel" control="comment" value="&comment.label;" accesskey="&comment.accesskey;"/>
@@ -145,7 +201,7 @@
   </deck>
 </wizardpage>
 
-<wizardpage id="sendPage" label="&sendPage.heading;" onpageshow="initSendPage();">
+<wizardpage id="sendPage" pageid="send" label="&sendPage.heading;" onpageshow="initSendPage();">
   <description id="sendReportMessage">&sendPage.waitMessage;</description>
 
   <vbox id="sendReportErrorBox" align="end" hidden="true">
