@@ -754,7 +754,7 @@ let issuesDataSource =
   {
     if (type == "other")
     {
-      E("typeSelectorPage").next = "screenshot";
+      E("typeSelectorPage").next = "typeWarning";
       return;
     }
 
@@ -1079,6 +1079,35 @@ function updateIssuesOverride()
   document.documentElement.canAdvance = E("issuesOverride").checked;
 }
 
+function initTypeWarningPage()
+{
+  updateIssuesOverride();
+
+  let textElement = E("typeWarningText");
+  let template = textElement.textContent.replace(/[\r\n\s]+/g, " ");
+
+  let beforeLink, linkText, afterLink;
+  if (/(.*)\[link\](.*)\[\/link\](.*)/.test(template))
+    [beforeLink, linkText, afterLink] = [RegExp.$1, RegExp.$2, RegExp.$3];
+  else
+    [beforeLink, linkText, afterLink] = ["", template, ""];
+
+  while (textElement.firstChild && textElement.firstChild.nodeType != Node.ELEMENT_NODE)
+    textElement.removeChild(textElement.firstChild);
+  while (textElement.lastChild && textElement.lastChild.nodeType != Node.ELEMENT_NODE)
+    textElement.removeChild(textElement.lastChild);
+
+  if (textElement.firstChild)
+    textElement.firstChild.textContent = linkText;
+  textElement.insertBefore(document.createTextNode(beforeLink), textElement.firstChild);
+  textElement.appendChild(document.createTextNode(afterLink));
+}
+
+function updateTypeWarningOverride()
+{
+  document.documentElement.canAdvance = E("typeWarningOverride").checked;
+}
+
 function initScreenshotPage()
 {
   E("progressBar").activeItem = E("screenshotHeader");
@@ -1221,9 +1250,7 @@ function reportSent(event)
   if (!success)
   {
     let errorElement = E("sendReportError");
-    let template = errorElement.getAttribute("textTemplate");
-    if (typeof replacement != "undefined")
-      template = template.replace(/\?1\?/g, replacement)
+    let template = errorElement.getAttribute("textTemplate").replace(/[\r\n\s]+/g, " ");
   
     let beforeLink, linkText, afterLink;
     if (/(.*)\[link\](.*)\[\/link\](.*)/.test(template))
