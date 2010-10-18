@@ -94,6 +94,17 @@
   and submit report if the issue hasn't been resolved.
 ">
 
+<!ENTITY typeWarning.description                "
+  You indicated that you want to report a general issue with Adblock Plus rather
+  than a problem with the filters. Please note that such issues are best reported
+  in the [link]Adblock Plus forum[/link]. You should only report here to add
+  more data to an already existing issue report, nobody will notice your report
+  unless you give them the link to it (you can copy this link in the last step).
+">
+
+<!ENTITY typeWarning.override.label             "I understand and want to submit the report anyway">
+<!ENTITY typeWarning.override.accesskey         "s">
+
 <!ENTITY reloadButton.label                     "Reload page">
 <!ENTITY reloadButton.accesskey                 "R">
 
@@ -149,7 +160,11 @@
 <!ENTITY sendPage.knownIssue          "The issue you reported is probably already known. More information:">
 
 <!-- Note: the placeholder ?1? will be replaced by the error code -->
-<!ENTITY sendPage.errorMessage        "Sending report failed with error code &quot;?1?&quot;. Please make sure you are connected to the Internet and retry. If the problem persists please ask for assistance in [link]the forum[/link].">
+<!ENTITY sendPage.errorMessage        "
+  Sending report failed with error code &quot;?1?&quot;. Please make sure you are
+  connected to the Internet and retry. If the problem persists please ask for
+  assistance in the [link]Adblock Plus forum[/link].
+">
 <!ENTITY sendPage.retry.label         "Send again">
 
 <!ENTITY copyLink.label               "Copy report link">

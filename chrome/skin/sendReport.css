@@ -104,7 +104,7 @@ radio, checkbox, .topLabel, #dataDeck
   font-size: 150%;
 }
 
-#sendReportErrorLinks
+#sendReportErrorLinks, #typeWarningTextLink
 {
   margin: 0px;
 }
