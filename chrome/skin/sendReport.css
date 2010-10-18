@@ -68,6 +68,16 @@ radio, checkbox, .topLabel, #dataDeck
   overflow: auto;
 }
 
+#issuesBox
+{
+  overflow: auto;
+}
+
+#issuesChangeMessage
+{
+  color: red;
+}
+
 #screenshotButtons
 {
   margin-top: 10px;

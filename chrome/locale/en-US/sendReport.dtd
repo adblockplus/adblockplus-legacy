@@ -40,6 +40,63 @@
 <!ENTITY recentReports.clear.label              "Remove all reports">
 <!ENTITY recentReports.clear.accesskey          "R">
 
+<!ENTITY issues.description                     "
+  Adblock Plus detected issues in your configuration that might be responsible
+  for this issue or will make investigating the issue difficult.
+">
+
+<!ENTITY issues.whitelist.description           "
+  Adblock Plus is disabled on the page you are reporting. Even if you disabled
+  Adblock Plus to prevent the issue from occurring, please re-enable it and
+  reload the page before submitting the report. Otherwise the report won't have
+  all the required data.
+">
+<!ENTITY issues.whitelist.remove.label          "Re-enable Adblock Plus on this page">
+
+<!ENTITY issues.disabled.description            "
+  Adblock Plus is disabled, it will not block anything until re-enabled.
+">
+<!ENTITY issues.disabled.enable.label           "Enable Adblock Plus">
+
+<!ENTITY issues.nofilters.description           "
+  Adblock Plus isn't blocking anything on the current page. The issue you are
+  observing is most likely unrelated to Adblock Plus.
+">
+
+<!ENTITY issues.nosubscriptions.description     "
+  You do not seem to be subscribed to any of the pre-made filter lists. Without
+  a filter subscription you have to add filters yourself, otherwise nothing will
+  be blocked.
+">
+<!ENTITY issues.nosubscriptions.add.label       "Add filter subscription">
+
+<!ENTITY issues.ownfilters.description          "
+  Some of the filters applied on this page are your own filters. Please disable
+  the filters that might have caused the issue:
+">
+<!ENTITY issues.ownfilters.disable.label        "Disable filter">
+
+<!ENTITY issues.disabledgroups.description      "
+  The following filter subscriptions / filter groups are disabled but might have
+  an effect on this page:
+">
+<!ENTITY issues.disabledgroups.enable.label     "Enable filter subscription / filter group">
+
+<!ENTITY issues.disabledfilters.description     "
+  The following filters are disabled but might have an effect on this page:
+">
+<!ENTITY issues.disabledfilters.enable.label    "Enable filter">
+
+<!ENTITY issues.override.label                  "The configuration is correct, continue with the report">
+<!ENTITY issues.override.accesskey              "c">
+<!ENTITY issues.change.description              "
+  Your configuration has been changed. Please reload the page to test the changes
+  and submit report if the issue hasn't been resolved.
+">
+
+<!ENTITY reloadButton.label                     "Reload page">
+<!ENTITY reloadButton.accesskey                 "R">
+
 <!-- Please keep screenshot.heading short - it is shown in the progress bar, not much space there -->
 <!ENTITY screenshot.heading           "Attach screenshot">
 
@@ -79,6 +136,7 @@
 <!ENTITY attachExtensions.accesskey   "x">
 
 <!ENTITY sendButton.label             "Send report">
+<!ENTITY sendButton.accesskey         "n">
 
 <!ENTITY showData.label               "Show report data">
 <!ENTITY data.label                   "Report data:">

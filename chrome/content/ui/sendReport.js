@@ -149,6 +149,7 @@ let reportsListDataSource =
 let requestsDataSource =
 {
   requests: reportData.requests,
+  origRequests: [],
   requestNotifier: null,
   callback: null,
 
@@ -185,6 +186,7 @@ let requestsDataSource =
       }
 
       this.requests.appendChild(requestXML);
+      this.origRequests.push(entry);
     }
 
     if (scanComplete)
@@ -198,6 +200,8 @@ let requestsDataSource =
 
 let filtersDataSource =
 {
+  origFilters: [],
+
   collectData: function(wnd, callback)
   {
     let wndStats = RequestNotifier.getWindowStatistics(wnd);
@@ -209,6 +213,7 @@ let filtersDataSource =
         let filter = Filter.fromText(f)
         let hitCount = wndStats.filters[f];
         filters.appendChild(<filter text={filter.text} subscriptions={filter.subscriptions.map(function(s) s.url).join(" ")} hitCount={hitCount}/>);
+        this.origFilters.push(filter);
       }
     }
     callback();
@@ -660,8 +665,301 @@ let extensionsDataSource =
   }
 };
 
+let issuesDataSource =
+{
+  contentWnd: null,
+  isEnabled: Prefs.enabled,
+  whitelistFilter: null,
+  disabledFilters: [],
+  disabledSubscriptions: [],
+  ownFilters: [],
+  numSubscriptions: FilterStorage.subscriptions.filter(function(subscription) subscription instanceof DownloadableSubscription).length,
+  numAppliedFilters: 0,
+
+  collectData: function(wnd, callback)
+  {
+    this.contentWnd = wnd;
+    this.whitelistFilter = Policy.isWindowWhitelisted(wnd);
+
+    if (!this.whitelistFilter && this.isEnabled)
+    {
+      // Find disabled filters in active subscriptions matching any of the requests
+      let disabledMatcher = new CombinedMatcher();
+      for each (let subscription in FilterStorage.subscriptions)
+      {
+        if (subscription.disabled)
+          continue;
+    
+        for each (let filter in subscription.filters)
+          if (filter instanceof BlockingFilter && filter.disabled)
+            disabledMatcher.add(filter);
+      }
+
+      let seenFilters = {__proto__: null};
+      for each (let request in requestsDataSource.origRequests)
+      {
+        if (request.filter)
+          continue;
+
+        let filter = disabledMatcher.matchesAny(request.location, request.typeDescr, request.docDomain, request.thirdParty);
+        if (filter && !(filter.text in seenFilters))
+        {
+          this.disabledFilters.push(filter);
+          seenFilters[filter.text] = true;
+        }
+      }
+
+      // Find disabled subscriptions with filters matching any of the requests
+      let seenSubscriptions = {__proto__: null};
+      for each (let subscription in FilterStorage.subscriptions)
+      {
+        if (!subscription.disabled)
+          continue;
+
+        disabledMatcher.clear();
+        for each (let filter in subscription.filters)
+          if (filter instanceof BlockingFilter)
+            disabledMatcher.add(filter);
+
+        for each (let request in requestsDataSource.origRequests)
+        {
+          if (request.filter)
+            continue;
+  
+          let filter = disabledMatcher.matchesAny(request.location, request.typeDescr, request.docDomain, request.thirdParty);
+          if (filter && !(subscription.url in seenSubscriptions))
+          {
+            this.disabledSubscriptions.push(subscription);
+            seenSubscriptions[subscription.text] = true;
+            break;
+          }
+        }
+      }
+
+      for each (let filter in filtersDataSource.origFilters)
+      {
+        if (filter instanceof WhitelistFilter)
+          continue;
+
+        this.numAppliedFilters++;
+        if (filter.subscriptions.some(function(subscription) subscription instanceof SpecialSubscription))
+          this.ownFilters.push(filter);
+      }
+    }
+
+    callback();
+  },
+
+  updateIssues: function(type)
+  {
+    if (type == "other")
+    {
+      E("typeSelectorPage").next = "screenshot";
+      return;
+    }
+
+    E("issuesWhitelistBox").hidden = !this.whitelistFilter;
+    E("issuesDisabledBox").hidden = this.isEnabled;
+    E("issuesNoFiltersBox").hidden = (type != "false positive" || this.numAppliedFilters > 0);
+    E("issuesNoSubscriptionsBox").hidden = (type != "false negative" || this.numAppliedFilters > 0 || this.numSubscriptions > 0);
+
+    let ownFiltersBox = E("issuesOwnFilters");
+    if (this.ownFilters.length && !ownFiltersBox.firstChild)
+    {
+      let template = E("issuesOwnFiltersTemplate");
+      for each (let filter in this.ownFilters)
+      {
+        let element = template.cloneNode(true);
+        element.removeAttribute("id");
+        element.removeAttribute("hidden");
+        element.firstChild.setAttribute("value", filter.text);
+        element.firstChild.setAttribute("tooltiptext", filter.text);
+        element.abpFilter = filter;
+        ownFiltersBox.appendChild(element);
+      }
+    }
+    E("issuesOwnFiltersBox").hidden = (type != "false positive" || this.ownFilters.length == 0);
+
+    let disabledSubscriptionsBox = E("issuesDisabledSubscriptions");
+    if (this.disabledSubscriptions.length && !disabledSubscriptionsBox.firstChild)
+    {
+      let template = E("issuesDisabledSubscriptionsTemplate");
+      for each (let subscription in this.disabledSubscriptions)
+      {
+        let element = template.cloneNode(true);
+        element.removeAttribute("id");
+        element.removeAttribute("hidden");
+        element.firstChild.setAttribute("value", subscription.title);
+        element.setAttribute("tooltiptext", subscription instanceof DownloadableSubscription ? subscription.url : subscription.title);
+        element.abpSubscription = subscription;
+        disabledSubscriptionsBox.appendChild(element);
+      }
+    }
+    E("issuesDisabledSubscriptionsBox").hidden = (type != "false negative" || this.disabledSubscriptions.length == 0);
+
+    let disabledFiltersBox = E("issuesDisabledFilters");
+    if (this.disabledFilters.length && !disabledFiltersBox.firstChild)
+    {
+      let template = E("issuesDisabledFiltersTemplate");
+      for each (let filter in this.disabledFilters)
+      {
+        let element = template.cloneNode(true);
+        element.removeAttribute("id");
+        element.removeAttribute("hidden");
+        element.firstChild.setAttribute("value", filter.text);
+        element.setAttribute("tooltiptext", filter.text);
+        element.abpFilter = filter;
+        disabledFiltersBox.appendChild(element);
+      }
+    }
+    E("issuesDisabledFiltersBox").hidden = (type != "false negative" || this.disabledFilters.length == 0);
+
+    // Don't allow sending report if the page is whitelisted - we need the data
+    E("issuesOverride").hidden = !E("issuesWhitelistBox").hidden;
+
+    if (E("issuesWhitelistBox").hidden && E("issuesDisabledBox").hidden &&
+        E("issuesNoFiltersBox").hidden && E("issuesNoSubscriptionsBox").hidden &&
+        E("issuesOwnFiltersBox").hidden && E("issuesDisabledFiltersBox").hidden &&
+        E("issuesDisabledSubscriptionsBox").hidden)
+    {
+      E("typeSelectorPage").next = "screenshot";
+    }
+    else
+    {
+      E("typeSelectorPage").next = "issues";
+    }
+  },
+
+  forceReload: function()
+  {
+    // User changed configuration, don't allow sending report now - page needs
+    // to be reloaded
+    E("issuesOverride").hidden = true;
+    E("issuesChangeMessage").hidden = false;
+    document.documentElement.canRewind = false;
+    document.documentElement.canAdvance = true;
+
+    let contentWnd = this.contentWnd;
+    let nextButton = document.documentElement.getButton("next");
+    nextButton.label = E("issuesPage").getAttribute("reloadButtonLabel");
+    nextButton.accessKey = E("issuesPage").getAttribute("reloadButtonAccesskey");
+    document.documentElement.addEventListener("wizardnext", function(event)
+    {
+      event.preventDefault();
+      event.stopPropagation();
+      window.close();
+      contentWnd.location.reload();
+    }, true);
+  },
+
+  removeWhitelist: function()
+  {
+    if (this.whitelistFilter && this.whitelistFilter.subscriptions.length && !this.whitelistFilter.disabled)
+    {
+      this.whitelistFilter.disabled = true;
+      FilterStorage.triggerFilterObservers("disable", [this.whitelistFilter]);
+    }
+    E("issuesWhitelistBox").hidden = true;
+    this.forceReload();
+  },
+
+  enable: function()
+  {
+    Prefs.enabled = true;
+    Prefs.save();
+    E("issuesDisabledBox").hidden = true;
+    this.forceReload();
+  },
+
+  addSubscription: function()
+  {
+    let result = {};
+    openDialog("subscriptionSelection.xul", "_blank", "chrome,centerscreen,modal,resizable,dialog=no", null, result);
+    if (!("url" in result))
+      return;
+
+    let subscriptionResults = [[result.url, result.title]];
+    if ("mainSubscriptionURL" in result)
+      subscriptionResults.push([result.mainSubscriptionURL, result.mainSubscriptionTitle]); 
+
+    for each (let [url, title] in subscriptionResults)
+    {
+      let subscription = Subscription.fromURL(url);
+      if (!subscription)
+        continue;
+    
+      FilterStorage.addSubscription(subscription);
+
+      if (subscription.disabled)
+      {
+        subscription.disabled = false;
+        FilterStorage.triggerSubscriptionObservers("enable", [subscription]);
+      }
+
+      subscription.title = title;
+      if (subscription instanceof DownloadableSubscription)
+        subscription.autoDownload = result.autoDownload;
+      FilterStorage.triggerSubscriptionObservers("updateinfo", [subscription]);
+    
+      if (subscription instanceof DownloadableSubscription && !subscription.lastDownload)
+        Synchronizer.execute(subscription);
+    }
+    FilterStorage.saveToDisk();
+
+    E("issuesNoSubscriptionsBox").hidden = true;
+    this.forceReload();
+  },
+
+  disableFilter: function(node)
+  {
+    let filter = node.abpFilter;
+    if (filter && filter.subscriptions.length && !filter.disabled)
+    {
+      filter.disabled = true;
+      FilterStorage.triggerFilterObservers("disable", [filter]);
+    }
+
+    node.parentNode.removeChild(node);
+    if (!E("issuesOwnFilters").firstChild)
+      E("issuesOwnFiltersBox").hidden = true;
+    this.forceReload();
+  },
+
+  enableFilter: function(node)
+  {
+    let filter = node.abpFilter;
+    if (filter && filter.subscriptions.length && filter.disabled)
+    {
+      filter.disabled = false;
+      FilterStorage.triggerFilterObservers("enable", [filter]);
+    }
+
+    node.parentNode.removeChild(node);
+    if (!E("issuesDisabledFilters").firstChild)
+      E("issuesDisabledFiltersBox").hidden = true;
+    this.forceReload();
+  },
+
+
+  enableSubscription: function(node)
+  {
+    let subscription = node.abpSubscription;
+    if (subscription && subscription.disabled)
+    {
+      subscription.disabled = false;
+      FilterStorage.triggerSubscriptionObservers("enable", [subscription]);
+    }
+
+    node.parentNode.removeChild(node);
+    if (!E("issuesDisabledSubscriptions").firstChild)
+      E("issuesDisabledSubscriptionsBox").hidden = true;
+    this.forceReload();
+  }
+};
+
 let dataCollectors = [reportsListDataSource, requestsDataSource, filtersDataSource, subscriptionsDataSource,
-                      screenshotDataSource, framesDataSource, errorsDataSource, extensionsDataSource];
+                      screenshotDataSource, framesDataSource, errorsDataSource, extensionsDataSource,
+                      issuesDataSource];
 
 //
 // Wizard logic
@@ -690,6 +988,8 @@ function updateNextButton()
     {
       nextButton.setAttribute("_origLabel", nextButton.getAttribute("label"));
       nextButton.setAttribute("label", document.documentElement.getAttribute("sendbuttonlabel"));
+      nextButton.setAttribute("_origAccessKey", nextButton.getAttribute("accesskey"));
+      nextButton.setAttribute("accesskey", document.documentElement.getAttribute("sendbuttonaccesskey"));
     }
   }
   else
@@ -698,6 +998,8 @@ function updateNextButton()
     {
       nextButton.setAttribute("label", nextButton.getAttribute("_origLabel"));
       nextButton.removeAttribute("_origLabel");
+      nextButton.setAttribute("accesskey", nextButton.getAttribute("_origAccessKey"));
+      nextButton.removeAttribute("_origAccessKey");
     }
   }
 }
@@ -762,7 +1064,19 @@ function typeSelectionUpdated()
       E("extensionsCheckbox").doCommand();
     }
     reportData.@type = selection.value;
+
+    issuesDataSource.updateIssues(selection.value);
   }
+}
+
+function initIssuesPage()
+{
+  updateIssuesOverride();
+}
+
+function updateIssuesOverride()
+{
+  document.documentElement.canAdvance = E("issuesOverride").checked;
 }
 
 function initScreenshotPage()
