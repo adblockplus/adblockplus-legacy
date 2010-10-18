@@ -163,6 +163,15 @@
   <description id="issuesChangeMessage" hidden="true">&issues.change.description;</description>
 </wizardpage>
 
+<wizardpage id="typeWarningPage" pageid="typeWarning" next="screenshot" onpageshow="initTypeWarningPage();">
+  <description id="typeWarningText">
+    &typeWarning.description;
+    <label id="typeWarningTextLink" class="text-link" onclick="Utils.loadDocLink('reporter_other_link');"/>
+  </description>
+
+  <checkbox id="typeWarningOverride" label="&typeWarning.override.label;" accesskey="&typeWarning.override.accesskey;" oncommand="updateTypeWarningOverride();"/>
+</wizardpage>
+
 <wizardpage id="screenshotPage" pageid="screenshot" next="comment" label="&screenshot.heading;" onpageshow="initScreenshotPage();">
   <description>&screenshot.description;</description>
 
