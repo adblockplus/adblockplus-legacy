@@ -36,6 +36,10 @@ var noFlash = false;
 // Matcher for disabled filters
 var disabledMatcher = new CombinedMatcher();
 
+// Cached string values
+var docDomainThirdParty = null;
+var docDomainFirstParty = null;
+
 var abpHooks = null;
 
 let lastSelectionProp = "abpSelected" + RequestNotifier.getDataSeed();
@@ -46,6 +50,9 @@ let lastSelectionProp = "abpSelected" + RequestNotifier.getDataSeed();
 var oldEnabled = Prefs.enabled;
 
 function init() {
+  docDomainThirdParty = document.documentElement.getAttribute("docDomainThirdParty");
+  docDomainFirstParty = document.documentElement.getAttribute("docDomainFirstParty");
+
   var list = E("list");
   list.view = treeView;
 
@@ -246,7 +253,7 @@ function fillInTooltip(e) {
     if (size)
       E("tooltipSize").setAttribute("value", size.join(" x "));
 
-    E("tooltipDocDomain").setAttribute("value", item.docDomain);
+    E("tooltipDocDomain").setAttribute("value", item.docDomain + " " + (item.thirdParty ? docDomainThirdParty : docDomainFirstParty));
   }
 
   if (filter)
@@ -660,6 +667,10 @@ function compareDocDomain(item1, item2)
     return -1;
   else if (item1.docDomain > item2.docDomain)
     return 1;
+  else if (item1.thirdParty && !item2.thirdParty)
+    return -1;
+  else if (!item1.thirdParty && item2.thirdParty)
+    return 1;
   else
     return 0;
 }
@@ -797,7 +808,7 @@ var treeView = {
         return (size ? size.join(" x ") : "");
       }
       else if (col == "docDomain")
-        return this.data[row].docDomain;
+        return this.data[row].docDomain + " " + (this.data[row].thirdParty ? docDomainThirdParty : docDomainFirstParty);
       else
         return this.data[row].location;
     }
@@ -1076,7 +1087,10 @@ var treeView = {
 
     return (item.location.toLowerCase().indexOf(this.filter) >= 0 ||
             (item.filter && item.filter.text.toLowerCase().indexOf(this.filter) >= 0) ||
-            item.localizedDescr.toLowerCase().indexOf(this.filter) >= 0);
+            item.localizedDescr.toLowerCase().indexOf(this.filter) >= 0 ||
+            (item.docDomain && item.docDomain.toLowerCase().indexOf(this.filter) >= 0) ||
+            (item.docDomain && item.thirdParty && docDomainThirdParty.toLowerCase().indexOf(this.filter) >= 0) ||
+            (item.docDomain && !item.thirdParty && docDomainFirstParty.toLowerCase().indexOf(this.filter) >= 0));
   },
 
   setFilter: function(filter) {
