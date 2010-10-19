@@ -12,6 +12,8 @@
 <!ENTITY state.label              "State">
 <!ENTITY size.label               "Size">
 <!ENTITY docDomain.label          "Document source">
+<!ENTITY docDomain.thirdParty     "(third party)">
+<!ENTITY docDomain.firstParty     "(first party)">
 
 <!ENTITY noitems.label            "No blockable items">
 <!ENTITY whitelisted.label        "Whitelisted page">
