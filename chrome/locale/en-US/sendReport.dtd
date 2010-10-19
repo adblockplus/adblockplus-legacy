@@ -118,7 +118,7 @@
   a section of the image with your mouse.
 ">
 
-<!ENTITY screenshot.attach.label      "Attach page image to the report">
+<!ENTITY screenshot.attach.label      "Attach a page image to the report">
 <!ENTITY screenshot.attach.accesskey  "t">
 <!ENTITY screenshot.mark.label        "Mark the problem">
 <!ENTITY screenshot.mark.accesskey    "M">
