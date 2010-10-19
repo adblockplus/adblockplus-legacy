@@ -46,9 +46,9 @@
 ">
 
 <!ENTITY issues.whitelist.description           "
-  Adblock Plus is disabled on the page you are reporting. Even if you disabled
-  Adblock Plus to prevent the issue from occurring, please re-enable it and
-  reload the page before submitting the report to gather the required data.
+  Adblock Plus is currently disabled on the page you are reporting. Please re-enable
+  it and reload the page before submitting the report to assist the investigation of
+  this issue.
 ">
 <!ENTITY issues.whitelist.remove.label          "Re-enable Adblock Plus on this page">
 
