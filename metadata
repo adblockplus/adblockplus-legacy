@@ -1,0 +1,35 @@
+[general]
+id={d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}
+basename=adblockplus
+branchname=ADBLOCK_PLUS
+version=1.3b
+author=Wladimir Palant
+contributor=Claude Lespagnol aka Efdur
+contributor=Nickolay Ponomarev
+contributor=Kevin Keller
+contributor=Fabrice Desré
+icon=chrome://adblockplus/skin/adblockplus.png
+about=chrome://adblockplus/content/ui/about.xul
+options=chrome://adblockplus/content/ui/settings.xul
+
+[homepage]
+default=http://adblockplus.org/
+ar=http://adblockplus.org/ar/
+de=http://adblockplus.org/de/
+en=http://adblockplus.org/en/
+es=http://adblockplus.org/es/
+fr=http://adblockplus.org/fr/
+he=http://adblockplus.org/he/
+ko=http://adblockplus.org/ko/
+ru=http://adblockplus.org/ru/
+
+[compat]
+firefox=3.0.12/4.0b8pre
+seamonkey=2.0/2.1b2
+thunderbird=3.0/3.3a1pre
+songbird=1.4.0/1.9.0a
+midbrowser=0.2/0.3
+#emusic=1.0/1.0.0.*
+conkeror=0.1/100.0
+prism=1.0b1/1.0.*
+fennec=1.0/1.1.*
