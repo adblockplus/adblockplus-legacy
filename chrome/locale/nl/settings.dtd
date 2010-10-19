@@ -55,13 +55,10 @@
 <!ENTITY help.accesskey "H">
 <!ENTITY gettingStarted.label "Aan de slag">
 <!ENTITY gettingStarted.accesskey "s">
-<!ENTITY gettingStarted.url "http://adblockplus.org/en/getting_started">
 <!ENTITY faq.label "Veelgestelde vragen">
 <!ENTITY faq.accesskey "V">
-<!ENTITY faq.url "http://adblockplus.org/en/faq">
 <!ENTITY filterdoc.label "Het schrijven van Adblock Plus filters">
 <!ENTITY filterdoc.accesskey "H">
-<!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Over Adblock Plus">
 <!ENTITY about.accesskey "A">
 <!ENTITY description "De volgende filters bepalen welke adressen geblokkeerd worden en welke worden toegestaan:">

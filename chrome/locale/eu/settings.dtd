@@ -26,7 +26,6 @@
 <!ENTITY collapse.label "Tolestu blokeatutako elementuak">
 <!ENTITY help.label "Laguntza">
 <!ENTITY help.accesskey "L">
-<!ENTITY faq.url "http://adblockplus.org/en/faq">
 <!ENTITY enabled.column "Gaituta">
 <!ENTITY context.edit.label "Editatu iragazkia">
 <!ENTITY context.synchsubscription.label "Eguneratu harpidetza orain">

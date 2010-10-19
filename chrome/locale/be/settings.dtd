@@ -45,10 +45,8 @@
 <!ENTITY help.accesskey "Д">
 <!ENTITY faq.label "Пытаньні й адказы">
 <!ENTITY faq.accesskey "П">
-<!ENTITY faq.url "http://adblockplus.org/en/faq">
 <!ENTITY filterdoc.label "Напісаньне фільтраў для Adblock Plus">
 <!ENTITY filterdoc.accesskey "Н">
-<!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Пра Adblock Plus">
 <!ENTITY about.accesskey "Р">
 <!ENTITY description "Дадайце адрасы, якія Вы жадаеце заблякаваць, ці вылучце іх з выпаднага сьпісу. Вы можаце ўжываць * для таго, каб ствараць агульныя правілы. Прасунутыя карыстальнікі могуць карыстацца рэгульрнымі выразамі кшталту /banner\d+\.gif$/.">

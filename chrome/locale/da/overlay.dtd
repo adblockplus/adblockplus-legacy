@@ -8,6 +8,7 @@
 <!ENTITY context.image.label "Adblock Billede">
 <!ENTITY context.object.label "Adblock Objekt">
 <!ENTITY context.frame.label "Adblock Ramme">
+<!ENTITY context.media.label "Adblock Plus: Bloker audio/video">
 <!ENTITY context.removeWhitelist.label "Adblock Plus: Gen-aktivér på denne side">
 <!ENTITY sidebar.title "Blokérbare elementer på nuværende side">
 <!ENTITY settings.label "Præferencer">

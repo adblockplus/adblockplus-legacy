@@ -13,7 +13,6 @@
 <!ENTITY list.download.failed "It is Adblock Plus net slagge om de list mei abonneminten te krijen.">
 <!ENTITY list.download.retry "Op 'e nij besykje">
 <!ENTITY list.download.website "Toan webstee">
-<!ENTITY list.website.url "http://adblockplus.org/en/subscriptions">
 <!ENTITY fromWeb.description "Befestigje asjobleaft dat jo dit filterabonnemint tafoegje wolle. Jo kinne de abonneminttitel of lokaasje wizigje foardat jo it tafoegje.">
 <!ENTITY edit.description "Jo kinne de abonneminttitel of lokaasje wizigje as jo wolle.">
 <!ENTITY external.description "Dit is een ekstern filterabonnemint; it sil fernijd wurde by de útwreiding dy't dit abonnemint makke hat.">

@@ -55,13 +55,10 @@
 <!ENTITY help.accesskey "H">
 <!ENTITY gettingStarted.label "新手入门">
 <!ENTITY gettingStarted.accesskey "s">
-<!ENTITY gettingStarted.url "http://adblockplus.org/en/getting_started">
 <!ENTITY faq.label "常见问题">
 <!ENTITY faq.accesskey "F">
-<!ENTITY faq.url "http://adblockplus.org/en/faq">
 <!ENTITY filterdoc.label "Adblock Plus 过滤规则写法">
 <!ENTITY filterdoc.accesskey "R">
-<!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "关于Adblock Plus">
 <!ENTITY about.accesskey "B">
 <!ENTITY description "添加你想过滤的地址，建议检查下拉列表。

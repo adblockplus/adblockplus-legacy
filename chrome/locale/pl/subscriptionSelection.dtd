@@ -11,7 +11,6 @@
 <!ENTITY list.download.failed "Nie udało się pobrać listy zestawów.">
 <!ENTITY list.download.retry "Spróbuj jeszcze raz">
 <!ENTITY list.download.website "Zobacz witrynę">
-<!ENTITY list.website.url "http://adblockplus.org/en/subscriptions">
 <!ENTITY fromWeb.description "Potwierdź zamiar dodania tego zestawu filtrów. Przed dodaniem zestawu możesz zmienić jego nazwę lub lokalizację.">
 <!ENTITY edit.description "Jeśli zachodzi potrzeba, możesz zmienić nazwę lub lokalizację zestawu.">
 <!ENTITY external.description "To jest zewnętrzny zestaw filtrów. Zestaw będzie aktualizowany przez rozszerzenie za pomocą, którego został utworzony.">

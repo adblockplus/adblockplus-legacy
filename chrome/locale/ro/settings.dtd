@@ -55,13 +55,10 @@
 <!ENTITY help.accesskey "A">
 <!ENTITY gettingStarted.label "Ghidul începătorului">
 <!ENTITY gettingStarted.accesskey "G">
-<!ENTITY gettingStarted.url "http://adblockplus.org/en/getting_started">
 <!ENTITY faq.label "Întrebări frecvente (FAQ)">
 <!ENTITY faq.accesskey "Q">
-<!ENTITY faq.url "http://adblockplus.org/en/faq">
 <!ENTITY filterdoc.label "Sfaturi scriere filtre Adblock Plus">
 <!ENTITY filterdoc.accesskey "f">
-<!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Despre Adblock Plus">
 <!ENTITY about.accesskey "D">
 <!ENTITY description "Adăugaţi adresele pe care doriţi să le blocaţi; puteţi alege din lista derulantă. Pentru a crea filtre generice, folosiţi caracterul * ca joker. Utilizatorii avansaţi pot folosi expresii, ca de exemplu /banner\d+\.gif$/.">

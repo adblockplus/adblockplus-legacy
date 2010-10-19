@@ -37,9 +37,7 @@
 <!ENTITY help.accesskey "H">
 <!ENTITY faq.label "Ceisteanna Coitianta">
 <!ENTITY faq.accesskey "F">
-<!ENTITY faq.url "http://adblockplus.org/en/faq">
 <!ENTITY filterdoc.accesskey "R">
-<!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Maidir le Adblock Plus">
 <!ENTITY about.accesskey "B">
 <!ENTITY enabled.column "Cumasaithe">

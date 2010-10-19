@@ -15,7 +15,6 @@
 <!ENTITY list.download.failed "リスト取得に失敗しました。">
 <!ENTITY list.download.retry "再試行">
 <!ENTITY list.download.website "ウェブサイトで見る">
-<!ENTITY list.website.url "http://adblockplus.org/en/subscriptions">
 <!ENTITY fromWeb.description "追加する同期フィルタを確認してください。保存する前に名前と場所を変更できます。">
 <!ENTITY edit.description "必要に応じて変更できます。名前と場所を入力することで上記以外の同期フィルタも使えます。">
 <!ENTITY external.description "これは外部同期フィルタです。このフィルタを設定した外部アドオンによって更新されます">

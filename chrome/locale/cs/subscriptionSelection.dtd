@@ -11,7 +11,6 @@
 <!ENTITY list.download.failed "Adblocku Plus se nepodařilo získat seznam cizích sad filtrů.">
 <!ENTITY list.download.retry "Zkusit znovu">
 <!ENTITY list.download.website "Zobrazit webovou stránku">
-<!ENTITY list.website.url "http://adblockplus.org/en/subscriptions">
 <!ENTITY fromWeb.description "Prosím potvrďte, že chcete přidat tuto cizí sadu filtrů. Můžete změnít její titulek nebo umístění před jejím přidáním.">
 <!ENTITY edit.description "Pokud to bude nutné, můžete změnit titulek nebo umístění cizí sady filtrů.">
 <!ENTITY external.description "Toto je cizí sada filtrů přidaná jiným rozšířením; o její aktualizaci se bude starat rozšíření, které ji přidalo.">

@@ -55,13 +55,10 @@
 <!ENTITY help.accesskey "p">
 <!ENTITY gettingStarted.label "Bắt đầu">
 <!ENTITY gettingStarted.accesskey "B">
-<!ENTITY gettingStarted.url "http://adblockplus.org/en/getting_started">
 <!ENTITY faq.label "Câu hỏi Thường gặp">
 <!ENTITY faq.accesskey "C">
-<!ENTITY faq.url "http://adblockplus.org/en/faq">
 <!ENTITY filterdoc.label "Hướng dẫn viết bộ lọc cho Adblock Plus">
 <!ENTITY filterdoc.accesskey "H">
-<!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Giới thiệu Adblock Plus">
 <!ENTITY about.accesskey "G">
 <!ENTITY description "Những bộ lọc sau xác định những địa chỉ nào sẽ bị chặn và những địa chỉ nào sẽ được cho phép:">

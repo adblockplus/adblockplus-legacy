@@ -55,13 +55,10 @@
 <!ENTITY help.accesskey "H">
 <!ENTITY gettingStarted.label "Kom godt i gang (engelsk)">
 <!ENTITY gettingStarted.accesskey "a">
-<!ENTITY gettingStarted.url "http://adblockplus.org/en/getting_started">
 <!ENTITY faq.label "Ofte Stillede Spørgsmål">
 <!ENTITY faq.accesskey "f">
-<!ENTITY faq.url "http://adblockplus.org/en/faq">
 <!ENTITY filterdoc.label "Skriver Adblock Plus filtre">
 <!ENTITY filterdoc.accesskey "R">
-<!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Om Adblock Plus">
 <!ENTITY about.accesskey "B">
 <!ENTITY description "Følgende filtre afgør hvilke adresser der skal blokeres og hvilke der skal tillades:">
@@ -87,3 +84,4 @@
 <!ENTITY context.disable.label "Deaktiver">
 <!ENTITY apply.label "Anvend">
 <!ENTITY apply.accesskey "v">
+<!ENTITY fennec.subscription.label "Filterabonnement">

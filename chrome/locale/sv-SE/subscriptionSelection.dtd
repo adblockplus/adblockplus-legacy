@@ -11,7 +11,6 @@
 <!ENTITY list.download.failed "Adblock Plus kunde inte hämta listan med filterprenumerationer.">
 <!ENTITY list.download.retry "Försök igen">
 <!ENTITY list.download.website "Visa webbsidan">
-<!ENTITY list.website.url "http://adblockplus.org/en/subscriptions">
 <!ENTITY fromWeb.description "Vänligen godkänn att du vill lägga till denna filterprenumeration. Du kan ändra titel eller plats innan du lägger till den.">
 <!ENTITY edit.description "Om du önskar kan du ändra titel eller plats för filterprenumerationen.">
 <!ENTITY external.description "Detta är en externa filterprenumeration och kommer uppdateras av tillägget som skapat den.">

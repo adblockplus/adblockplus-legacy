@@ -45,10 +45,8 @@
 <!ENTITY help.accesskey "H">
 <!ENTITY faq.label "Hyppig stilte spørsmål">
 <!ENTITY faq.accesskey "H">
-<!ENTITY faq.url "http://adblockplus.org/en/faq">
 <!ENTITY filterdoc.label "Opprett Adblock Plus filtre">
 <!ENTITY filterdoc.accesskey "R">
-<!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Om Adblock Plus">
 <!ENTITY about.accesskey "O">
 <!ENTITY description "Legg til adressene du vil blokkere. For forslag, se rullegardinlisten. Du kan bruke * som jokertegn for å lage mer dekkende filtre. Avanserte brukere kan bruke uttrykk som /banner\d+\.gif$/.">

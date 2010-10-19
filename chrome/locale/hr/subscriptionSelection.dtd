@@ -11,7 +11,6 @@
 <!ENTITY list.download.failed "Adblock Plus nij uspio vratiti popis pretplata">
 <!ENTITY list.download.retry "Pokušajte ponovno">
 <!ENTITY list.download.website "Pogledati stranicu">
-<!ENTITY list.website.url "http://adblockplus.org/en/subscriptions">
 <!ENTITY fromWeb.description "Molimo potvrdite da želite dodati ovu pretlatu na filter. Možete promijeniti naziv ili lokaciju pretplate prije nego što je dodate.">
 <!ENTITY edit.description "Možete promijeniti naziv ili lokaciju pretplate po potrebi.">
 <!ENTITY external.description "Ovo je vanjska pretplata na filter; biti će osvježena od strane dodatka koji je stvorio pretplatu.">

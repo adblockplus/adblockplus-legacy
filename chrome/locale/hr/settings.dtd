@@ -55,13 +55,10 @@
 <!ENTITY help.accesskey "ć">
 <!ENTITY gettingStarted.label "Kako početi">
 <!ENTITY gettingStarted.accesskey "p">
-<!ENTITY gettingStarted.url "http://adblockplus.org/en/getting_started">
 <!ENTITY faq.label "Često postavljana pitanja">
 <!ENTITY faq.accesskey "t">
-<!ENTITY faq.url "http://adblockplus.org/en/faq">
 <!ENTITY filterdoc.label "Pisanje Adblock Plus filtera">
 <!ENTITY filterdoc.accesskey "i">
-<!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "O Adblock Plus">
 <!ENTITY about.accesskey "O">
 <!ENTITY description "Dodajte adrese koje želite blokirati, za prijedloge provjerite padajući popis.
