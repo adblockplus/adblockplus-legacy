@@ -55,13 +55,10 @@
 <!ENTITY help.accesskey "O">
 <!ENTITY gettingStarted.label "Alkuun pääseminen">
 <!ENTITY gettingStarted.accesskey "l">
-<!ENTITY gettingStarted.url "http://adblockplus.org/en/getting_started">
 <!ENTITY faq.label "Usein kysytyt kysymykset (FAQ)">
 <!ENTITY faq.accesskey "U">
-<!ENTITY faq.url "http://www.mozilla.fi/wiki/Adblock_Plus">
 <!ENTITY filterdoc.label "Adblock Plus -suodattimien kirjoittamisesta">
 <!ENTITY filterdoc.accesskey "A">
-<!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Tietoja Adblock Plussasta">
 <!ENTITY about.accesskey "T">
 <!ENTITY description "Seuraavat suodattimet määrittelevät sen, mitkä osoitteet estetään ja mitkä sallitaan:">

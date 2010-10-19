@@ -11,7 +11,6 @@
 <!ENTITY list.download.failed "取回過濾條件集清單失敗。">
 <!ENTITY list.download.retry "再試一次">
 <!ENTITY list.download.website "瀏覽網站">
-<!ENTITY list.website.url "http://adblockplus.org/en/subscriptions">
 <!ENTITY fromWeb.description "請確認您要訂閱的過濾條件集。訂閱前您可以變更條件集標題或位址。">
 <!ENTITY edit.description "您需要的話可以變更條件集標題或位址。">
 <!ENTITY external.description "這次一份外部過濾條件集，這份條件集會由擴充套件建立並更新。">

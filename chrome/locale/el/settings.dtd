@@ -55,13 +55,10 @@
 <!ENTITY help.accesskey "Β">
 <!ENTITY gettingStarted.label "Γρήγορη εκκίνηση">
 <!ENTITY gettingStarted.accesskey "γ">
-<!ENTITY gettingStarted.url "http://adblockplus.org/en/getting_started">
 <!ENTITY faq.label "Συχνές ερωτήσεις">
 <!ENTITY faq.accesskey "ε">
-<!ENTITY faq.url "http://adblockplus.org/en/faq">
 <!ENTITY filterdoc.label "Συγγραφή φίλτρων">
 <!ENTITY filterdoc.accesskey "Σ">
-<!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Περί">
 <!ENTITY about.accesskey "Π">
 <!ENTITY description "Τα παρακάτω φίλτρα καθορίζουν το ποιες διευθύνσεις θα φιλτράρονται και ποιες όχι:">

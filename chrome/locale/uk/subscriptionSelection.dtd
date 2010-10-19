@@ -11,7 +11,6 @@
 <!ENTITY list.download.failed "Adblock Plus не зміг отримати перелік підписок">
 <!ENTITY list.download.retry "Спробувати ще раз">
 <!ENTITY list.download.website "Глянути сайт">
-<!ENTITY list.website.url "http://adblockplus.org/en/subscriptions">
 <!ENTITY fromWeb.description "Будь ласка підтвердіть що ви бажаєте додати цю фільтрову підписку. Ви можете змінити назву чи знаходження перед додаванням.">
 <!ENTITY edit.description "Ви можете змінити назву чи знаходження підписки якщо потрібно.">
 <!ENTITY external.description "Це зовнішня фільтрова підписка. Вона буде оновлюватись додатком що створив цю підписку.">

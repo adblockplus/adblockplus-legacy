@@ -55,13 +55,10 @@
 <!ENTITY help.accesskey "A">
 <!ENTITY gettingStarted.label "Pour commencer">
 <!ENTITY gettingStarted.accesskey "m">
-<!ENTITY gettingStarted.url "http://adblockplus.org/fr/getting_started">
 <!ENTITY faq.label "Foire Aux Questions">
 <!ENTITY faq.accesskey "F">
-<!ENTITY faq.url "http://adblockplus.org/fr/faq">
 <!ENTITY filterdoc.label "Créer des filtres Adblock Plus">
 <!ENTITY filterdoc.accesskey "C">
-<!ENTITY filterdoc.url "http://adblockplus.org/fr/filters">
 <!ENTITY about.label "À propos d&apos;Adblock Plus">
 <!ENTITY about.accesskey "A">
 <!ENTITY description "Les filtres suivants indiquent les adresses qui devront être bloquées et celles qui devront être autorisées :">

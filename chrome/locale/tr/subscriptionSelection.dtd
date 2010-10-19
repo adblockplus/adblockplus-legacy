@@ -11,7 +11,6 @@
 <!ENTITY list.download.failed "Adblock Plus abonelik listesini alamadı">
 <!ENTITY list.download.retry "Yeniden dene">
 <!ENTITY list.download.website "Siteye git">
-<!ENTITY list.website.url "http://adblockplus.org/en/subscriptions">
 <!ENTITY fromWeb.description "Lütfen bu süzgeç aboneliğini eklemek istediğinizi teyit edin. Eklemeden önce abonelik adını ve konumunu değiştirebilirsiniz.">
 <!ENTITY edit.description "Abonelik adını ve konumunu gerekirse değiştirebilirsiniz.">
 <!ENTITY external.description "Bu harici bir süzgeç aboneliği ve aboneliği başlatan eklenti tarafından güncellenecek.">

@@ -19,8 +19,6 @@
 <!ENTITY list.download.failed       "При скачивании списка подписок произошла ошибка.">
 <!ENTITY list.download.retry        "Попробовать еще раз">
 <!ENTITY list.download.website      "Открыть страницу с подписками">
-<!ENTITY list.website.url           "http://adblockplus.org/en/subscriptions">
-
 <!ENTITY other.label                "Добавить другую подписку">
 <!ENTITY other.accesskey            "б">
 

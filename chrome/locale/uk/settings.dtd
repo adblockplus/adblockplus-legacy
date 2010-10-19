@@ -55,13 +55,10 @@
 <!ENTITY help.accesskey "о">
 <!ENTITY gettingStarted.label "Початківцям">
 <!ENTITY gettingStarted.accesskey "П">
-<!ENTITY gettingStarted.url "http://adblockplus.org/en/getting_started">
 <!ENTITY faq.label "Питання, що часто ставляться (англійською)">
 <!ENTITY faq.accesskey "и">
-<!ENTITY faq.url "http://adblockplus.org/en/faq">
 <!ENTITY filterdoc.label "Складання фільтрів для Adblock Plus (англійською)">
 <!ENTITY filterdoc.accesskey "а">
-<!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Про Adblock Plus">
 <!ENTITY about.accesskey "о">
 <!ENTITY description "Наступні фільтри визначають які адреси блокуються та які дозволяються:">

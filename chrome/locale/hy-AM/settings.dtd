@@ -55,13 +55,10 @@
 <!ENTITY help.accesskey "Օ">
 <!ENTITY gettingStarted.label "Սկսել">
 <!ENTITY gettingStarted.accesskey "ե">
-<!ENTITY gettingStarted.url "http://adblockplus.org/en/getting_started">
 <!ENTITY faq.label "Հաճախակի Տրվող Հարցեր">
 <!ENTITY faq.accesskey "Հ">
-<!ENTITY faq.url "http://adblockplus.org/en/faq">
 <!ENTITY filterdoc.label "Ինչպե՞ս գրել ֆիլտրեր">
 <!ENTITY filterdoc.accesskey "չ">
-<!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "«Adblock Plus»ի մասին">
 <!ENTITY about.accesskey "ի">
 <!ENTITY description "

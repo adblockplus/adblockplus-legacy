@@ -11,7 +11,6 @@
 <!ENTITY list.download.failed "Adblock Plus kan de lijst met abonnementne niet ophalen.">
 <!ENTITY list.download.retry "Opnieuw proberen">
 <!ENTITY list.download.website "Website bekijken">
-<!ENTITY list.website.url "http://adblockplus.org/en/subscriptions">
 <!ENTITY fromWeb.description "Bevestig a.u.b. dat u dit filterabonnement wilt toevoegen. U kunt de abonnementstitel of -locatie wijzigen voor toevoegen.">
 <!ENTITY edit.description "U kunt de abonnementstitel of -locatie naar believen wijzigen.">
 <!ENTITY external.description "Dit is een extern filterabonnement; het wordt bijgewerkt door de extensie die dit abonnement heeft aangemaakt.">

@@ -1,0 +1,43 @@
+<!ENTITY dialog.title "Agordoj de Adblock Plus">
+<!ENTITY edit.label "Modifi">
+<!ENTITY edit.accesskey "M">
+<!ENTITY cut.label "Eltondi">
+<!ENTITY cut.accesskey "t">
+<!ENTITY copy.label "Kopii">
+<!ENTITY copy.accesskey "K">
+<!ENTITY paste.label "Alglui">
+<!ENTITY paste.accesskey "A">
+<!ENTITY remove.label "Forviŝi">
+<!ENTITY remove.accesskey "F">
+<!ENTITY menu.find.label "Serĉi">
+<!ENTITY menu.find.accesskey "S">
+<!ENTITY menu.findagain.label "Serĉi denove">
+<!ENTITY menu.findagain.accesskey "e">
+<!ENTITY view.label "Vidi">
+<!ENTITY view.accesskey "V">
+<!ENTITY sort.label "Ordigi laŭ">
+<!ENTITY sort.accesskey "O">
+<!ENTITY sort.none.label "Nenio">
+<!ENTITY sort.none.accesskey "N">
+<!ENTITY enable.label "Ŝalti Adblock Plus">
+<!ENTITY enable.accesskey "a">
+<!ENTITY showintoolbar.label "Vidigi en ilarstrio">
+<!ENTITY showintoolbar.accesskey "i">
+<!ENTITY showinstatusbar.label "Vidigi en statstrio">
+<!ENTITY showinstatusbar.accesskey "s">
+<!ENTITY collapse.label "Maletendi blokitajn elementojn">
+<!ENTITY collapse.accesskey "l">
+<!ENTITY help.label "Helpo">
+<!ENTITY help.accesskey "h">
+<!ENTITY faq.label "Oftaj demandoj">
+<!ENTITY faq.accesskey "O">
+<!ENTITY about.label "Pri Adblock Plus">
+<!ENTITY about.accesskey "p">
+<!ENTITY enabled.column "Ŝaltita">
+<!ENTITY enabled.accesskey "a">
+<!ENTITY hitcount.column "Trafoj">
+<!ENTITY hitcount.accesskey "T">
+<!ENTITY lasthit.column "Lasta trafo">
+<!ENTITY lasthit.accesskey "L">
+<!ENTITY context.enable.label "Ŝalti">
+<!ENTITY context.disable.label "Malŝalti">

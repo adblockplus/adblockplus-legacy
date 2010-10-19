@@ -1,4 +1,4 @@
-<!ENTITY detached.title "차단 가능한 항목 (분리됨)">
+<!ENTITY detached.title "차단 가능 목록 (분리됨)">
 <!ENTITY detach.label "분리">
 <!ENTITY reattach.label "통합">
 <!ENTITY search.label "검색 (S)">

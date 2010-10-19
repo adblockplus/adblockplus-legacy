@@ -11,7 +11,6 @@
 <!ENTITY list.download.failed "Fallo na recuperación da lista de subscricións.">
 <!ENTITY list.download.retry "Ténteo de novo">
 <!ENTITY list.download.website "Ver sitio web">
-<!ENTITY list.website.url "http://adblockplus.org/en/subscriptions">
 <!ENTITY fromWeb.description "Por favor, confirme que quere engadir esa subscrición de filtro. Pode cambiar o título ou a situación da subscrición antes de engadila.">
 <!ENTITY edit.description "Pode cambiar o título ou a situación da subscrición se fose necesario.">
 <!ENTITY external.description "Esta é unha subscrición de filtro externa, a lista de filtros será actualizada pola extensión que creou esta subscrición.">

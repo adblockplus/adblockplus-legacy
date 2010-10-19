@@ -4,3 +4,5 @@
 <!ENTITY homepage.label "Adblock Plus hjemmeside:">
 <!ENTITY author.label "Forfatter:">
 <!ENTITY contributors.label "Bidragydere:">
+<!ENTITY subscriptionAuthors.label "Filtrer abonnements-forfattere:">
+<!ENTITY translators.label "Oversættere:">

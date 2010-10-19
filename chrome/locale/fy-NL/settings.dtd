@@ -55,13 +55,10 @@
 <!ENTITY help.accesskey "H">
 <!ENTITY gettingStarted.label "Starte mei Adblock Plus">
 <!ENTITY gettingStarted.accesskey "S">
-<!ENTITY gettingStarted.url "http://adblockplus.org/en/getting_started">
 <!ENTITY faq.label "Meaststelde fragen">
 <!ENTITY faq.accesskey "f">
-<!ENTITY faq.url "http://adblockplus.org/en/faq">
 <!ENTITY filterdoc.label "It skriuwen fan Adblock Plus filters">
 <!ENTITY filterdoc.accesskey "I">
-<!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Oer Adblock Plus">
 <!ENTITY about.accesskey "A">
 <!ENTITY description "Foech it adres ta dat jo blokkearje wolle, sjoch de karlist foar foarstellen. Jo kinne in * as jokerteken brûke foar mear algemiene filters. Betûfte brûkers kinne reguliere ekspresjes brûke, lykas /banner\d+\.gif$/.">
