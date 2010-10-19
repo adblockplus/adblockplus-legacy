@@ -1081,9 +1081,12 @@ function updateIssuesOverride()
 
 function initTypeWarningPage()
 {
-  updateIssuesOverride();
+  updateTypeWarningOverride();
 
   let textElement = E("typeWarningText");
+  if ("abpInitialized" in textElement)
+    return;
+
   let template = textElement.textContent.replace(/[\r\n\s]+/g, " ");
 
   let beforeLink, linkText, afterLink;
@@ -1101,6 +1104,7 @@ function initTypeWarningPage()
     textElement.firstChild.textContent = linkText;
   textElement.insertBefore(document.createTextNode(beforeLink), textElement.firstChild);
   textElement.appendChild(document.createTextNode(afterLink));
+  textElement.abpInitialized = true;
 }
 
 function updateTypeWarningOverride()
