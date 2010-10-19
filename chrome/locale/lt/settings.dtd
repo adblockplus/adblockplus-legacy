@@ -45,10 +45,8 @@
 <!ENTITY help.accesskey "G">
 <!ENTITY faq.label "Dažnai užduodami klausimai">
 <!ENTITY faq.accesskey "D">
-<!ENTITY faq.url "http://adblockplus.org/en/faq">
 <!ENTITY filterdoc.label "Kaip rašyti „Adblock Plus“ filtrus">
 <!ENTITY filterdoc.accesskey "f">
-<!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Apie „Adblock Plus“">
 <!ENTITY about.accesskey "A">
 <!ENTITY description "Pridėkite adresus, kuriuos norite blokuoti. Norėdami gauti pasiūlymus, peržiūrėkite išskleidžiamąjį sąrašą. Galite pridėti „*“ kaip pakaitos simbolį norėdami sukurti bendresnius filtrus. Patyrę naudotojai gali naudoti reguliariuosius reiškinius, tokius kaip „/banner\d+\.gif$/“.">

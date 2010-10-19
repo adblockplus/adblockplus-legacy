@@ -11,7 +11,6 @@
 <!ENTITY list.download.failed "Adblock Plus zlyhal pri získavaní zoznamu odberov.">
 <!ENTITY list.download.retry "Skúsiť znova">
 <!ENTITY list.download.website "Zobraziť webovú stránku">
-<!ENTITY list.website.url "http://adblockplus.org/en/subscriptions">
 <!ENTITY fromWeb.description "Prosím, potvrďte, že chcete pridať tento filter odberu.">
 <!ENTITY edit.description "Môžete zmeniť názov odberu alebo umiestnenie ak je to potrebné.">
 <!ENTITY external.description "Toto je externý filter odberu;bude aktualizovaný podľa prípony, ktorý vytvoril tento odber.">

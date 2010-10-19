@@ -11,7 +11,6 @@
 <!ENTITY list.download.failed "Adblock Plus ha fallat en trobar la llista de les subscripcions.">
 <!ENTITY list.download.retry "Torna-ho a provar">
 <!ENTITY list.download.website "Veure pàgina web">
-<!ENTITY list.website.url "http://adblockplus.org/en/subscriptions">
 <!ENTITY fromWeb.description "Si us plau confirma que vols afegir aquesta subscripció de filtre.Pots canviar el títol de la subscripció o la localització abans d'afegir-la.">
 <!ENTITY edit.description "Pots canviar el títol o localització segons sigui necessari.">
 <!ENTITY external.description "Aquesta és una subscripció de filtre externa; serà actualitzada per l'extensió que l'ha creada.">

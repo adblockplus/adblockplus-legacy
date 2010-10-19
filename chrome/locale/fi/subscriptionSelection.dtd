@@ -11,7 +11,6 @@
 <!ENTITY list.download.failed "Adblock Plus ei kyennyt hakemaan suodatinlistaa.">
 <!ENTITY list.download.retry "Kokeile uudestaan">
 <!ENTITY list.download.website "Näytä verkkosivu">
-<!ENTITY list.website.url "http://adblockplus.org/en/subscriptions">
 <!ENTITY fromWeb.description "Varmista tämän suodatintilauksen lisääminen. Ennnen tilauksen lisäämistä voit muuttaa tilauksen nimen ja sijainnin.">
 <!ENTITY edit.description "Voit muuttaa tilauksen nimen ja sijainnin, jos tarpeellista.">
 <!ENTITY external.description "Tämä on ulkoinen suodatintilaus; sitä päivittää tilauksen tekijän laajennus.">

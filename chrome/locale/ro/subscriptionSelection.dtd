@@ -11,7 +11,6 @@
 <!ENTITY list.download.failed "Eroare la descărcarea listei de abonamente.">
 <!ENTITY list.download.retry "Încearcă din nou">
 <!ENTITY list.download.website "Arată pagina web">
-<!ENTITY list.website.url "http://adblockplus.org/en/subscriptions">
 <!ENTITY fromWeb.description "Confirmaţi adăugarea acestui abonament filtre. Puteţi schimba titlul sau localizarea înainte de a-l adăuga.">
 <!ENTITY edit.description "Puteţi schimba titlul sau localizarea dacă este necesar.">
 <!ENTITY external.description "Acest abonament este extern; el va fi actualizat de către suplimentul care l-a creat.">
@@ -21,6 +20,6 @@
 <!ENTITY location.accesskey "L">
 <!ENTITY autodownload.label "Actualizare automată">
 <!ENTITY autodownload.accesskey "c">
-<!ENTITY supplementMessage "Acest abonament trebuie folosit împreună cu abonamentul &quot;?1?&quot;,pe care nu îl folosiţi încă">
-<!ENTITY addMain.label "Adaugă şi abonamentul &quot;?1?&quot;">
+<!ENTITY supplementMessage "Acest abonament trebuie folosit împreună cu abonamentul ?1?,pe care nu îl folosiţi încă.">
+<!ENTITY addMain.label "Adaugă şi abonamentul ?1?">
 <!ENTITY addMain.accesskey "d">

@@ -11,7 +11,6 @@
 <!ENTITY list.download.failed "Adblock Plus ไม่สามารถกู้คืนรายการนามข้างท้ายได้">
 <!ENTITY list.download.retry "ลองอีกครั้ง">
 <!ENTITY list.download.website "ดูเว็บไซต์">
-<!ENTITY list.website.url "http://adblockplus.org/en/subscriptions">
 <!ENTITY fromWeb.description "กรุณายืนยันว่าคุณต้องการเพิ่มนามข้างท้ายตัวกรองนี้ คุณสามารถเปลี่ยนหัวเรื่องนามข้างท้ายหรือตำแหน่งก่อนเพิ่มเข้ามาได้">
 <!ENTITY edit.description "คุณสามารถเปลี่ยนหัวเรื่องนามข้างท้ายหรือตำแหน่งตามความจำเป็น">
 <!ENTITY external.description "นี่คือนามข้างท้ายตัวกรองภายนอก มันจะอัปเดตโดยใช้ส่วนเสริมที่สร้างนามข้างท้ายนี้">

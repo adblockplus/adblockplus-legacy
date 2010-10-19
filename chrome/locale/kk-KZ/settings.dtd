@@ -55,13 +55,10 @@
 <!ENTITY help.accesskey "м">
 <!ENTITY gettingStarted.label "Бастау">
 <!ENTITY gettingStarted.accesskey "Б">
-<!ENTITY gettingStarted.url "http://adblockplus.org/en/getting_started">
 <!ENTITY faq.label "Жиі қойылатын сұрақтар">
 <!ENTITY faq.accesskey "Ж">
-<!ENTITY faq.url "http://adblockplus.org/en/faq">
 <!ENTITY filterdoc.label "Adblock Plus фильтрлерін жасау">
 <!ENTITY filterdoc.accesskey "с">
-<!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Adblock Plus туралы">
 <!ENTITY about.accesskey "т">
 <!ENTITY description "Келесі фильтрлер қай адрестер блокталатынын және қай адрестер өткізілетінін анықтайды:">

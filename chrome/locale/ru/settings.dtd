@@ -64,13 +64,10 @@
 
 <!ENTITY gettingStarted.label       "Первые шаги (английский)">
 <!ENTITY gettingStarted.accesskey   "ш">
-<!ENTITY gettingStarted.url         "http://adblockplus.org/en/getting_started">
 <!ENTITY faq.label                  "Часто задаваемые вопросы (английский)">
 <!ENTITY faq.accesskey              "Ч">
-<!ENTITY faq.url                    "http://adblockplus.org/en/faq">
 <!ENTITY filterdoc.label            "Составление фильтров для Adblock Plus (английский)">
 <!ENTITY filterdoc.accesskey        "т">
-<!ENTITY filterdoc.url              "http://adblockplus.org/en/filters">
 <!ENTITY about.label                "О Adblock Plus">
 <!ENTITY about.accesskey            "О">
 

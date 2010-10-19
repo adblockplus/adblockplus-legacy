@@ -16,7 +16,6 @@
 <!ENTITY list.download.failed "Recupero della lista di sottoscrizioni non riuscito">
 <!ENTITY list.download.retry "Riprova">
 <!ENTITY list.download.website "Visita il sito web delle sottoscrizioni">
-<!ENTITY list.website.url "http://adblockplus.org/en/subscriptions">
 <!ENTITY fromWeb.description "Confermare l&apos;aggiunta della sottoscrizione di filtri. È possibile modificare il titolo della sottoscrizione oppure l&apos;URL/percorso della lista dei filtri prima di aggiungere">
 <!ENTITY edit.description "È possibile modificare il titolo della sottoscrizione oppure l&apos;URL/percorso della lista dei filtri">
 <!ENTITY external.description "Questa è una sottoscrizione esterna, la relativa lista dei filtri sarà mantenuta aggiornata dall&apos;estensione che ha creato questa sottoscrizione">

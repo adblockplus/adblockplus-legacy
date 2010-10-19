@@ -11,7 +11,6 @@
 <!ENTITY list.download.failed "Adblock Плюс не успя да изтегли списък с абонаменти.">
 <!ENTITY list.download.retry "Опитайте отново">
 <!ENTITY list.download.website "Покажи сайтът">
-<!ENTITY list.website.url "http://adblockplus.org/en/subscriptions">
 <!ENTITY fromWeb.description "Моля, потвърдете, че желаете да добавите този абонамент за този филтър. Може да промените заглавието или местоположението преди да го добавите.">
 <!ENTITY edit.description "Може да променяте заглавието или местоположението на абонамента колкото е необходимо.">
 <!ENTITY external.description "Това е външен абонамент за филтър, той ще бъде актуализиран с разширението което е създадено от този абонамент.">

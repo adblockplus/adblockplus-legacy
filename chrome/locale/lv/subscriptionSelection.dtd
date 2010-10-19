@@ -11,7 +11,6 @@
 <!ENTITY list.download.failed "Adblock Plus neizdevās ielādēt abonentu sarakstu.">
 <!ENTITY list.download.retry "Mēģiniet vēlreiz">
 <!ENTITY list.download.website "Skatīt tīmekļa vietni">
-<!ENTITY list.website.url "http://adblockplus.org/en/subscriptions">
 <!ENTITY fromWeb.description "Lūdzu, apstipriniet, ka vēlaties pievienot šī filtra abonementu. Jūs varat mainīt abonementa nosaukumu vai atrašanās vietu pirms pievienošanas.">
 <!ENTITY edit.description "Nepieciešamības gadījumā Jūs varat mainīt abonementa nosaukumu vai atrašanās vietu.">
 <!ENTITY external.description "Tas ir ārējā filtra abonements, tas tiks atjaunināts ar paplašinājumu, kas ir izveidojis šo abonementu.">

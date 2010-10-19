@@ -55,13 +55,10 @@
 <!ENTITY help.accesskey "م">
 <!ENTITY gettingStarted.label "ابدأ هنا">
 <!ENTITY gettingStarted.accesskey "د">
-<!ENTITY gettingStarted.url "http://adblockplus.org/en/getting_started">
 <!ENTITY faq.label "الأسئلة الشائعة">
 <!ENTITY faq.accesskey "س">
-<!ENTITY faq.url "http://adblockplus.org/en/faq">
 <!ENTITY filterdoc.label "كتابة فلاتر لآدبلوك بلاس">
 <!ENTITY filterdoc.accesskey "ك">
-<!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "عن آدبلوك بلاس">
 <!ENTITY about.accesskey "ع">
 <!ENTITY description "أضف العناوين التي ترغب بحجبها، و للاقتراحات انظر القائمة المنسدلة.

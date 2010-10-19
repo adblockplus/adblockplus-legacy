@@ -1,0 +1,46 @@
+<!ENTITY dialog.title "Ouzhpenn ur reolenn silabl Adblock Plus">
+<!ENTITY accept.label "Ouzhpenn ar sil">
+<!ENTITY advanced.label "Diskouez ouzhpenn">
+<!ENTITY basic.label "Diskouez a-reizh">
+<!ENTITY disabled.warning "Diweredekaet eo Adblock Plus a-vremañ. Gallout a rit kenderc'hel ouzhpenn siloù met ne labourint ket kement ne vo ket gweredekaet [link]Adblock Plus[/link].">
+<!ENTITY groupDisabled.warning "Ar strollad sil &quot;?1?&quot; e-lec'h e vefe bet lakaet ar sil a zo diweredekaet a-vremañ. Gallout a rit ouzhpenn anezhañ met ne labouro ket kement ne vo ket [link]gweredekaet ar strollad sil[/link].">
+<!ENTITY filter.label "Sil nevez :">
+<!ENTITY filter.accesskey "f">
+<!ENTITY preferences.label "Diskouez ar siloù a zo...">
+<!ENTITY preferences.accesskey "S">
+<!ENTITY type.filter.label "Sil stankañ">
+<!ENTITY type.filter.accesskey "B">
+<!ENTITY type.whitelist.label "Reolenn direizhadenn">
+<!ENTITY type.whitelist.accesskey "x">
+<!ENTITY pattern.label "Kinnig kinkladurioù">
+<!ENTITY pattern.explanation "Ar c'hinkladur a c'hall bezañ ul lodenn ar chomlec'h, ar simbol * o c'hoari ar roll joker. Ne labouro ket ar sil nemetken gant chomlec'hioù kenglotañ gant ar c'hinkladur.">
+<!ENTITY regexp.warning "Ar c'hinkladur hoc'h eus diskouezet a vo troet e-giz ur jedad a-reizh. Un niver vras jedadoù a-reizh a c'horreko hoc'h merdeiñ. Ma n'hoc'h eus ket c'hoant implij jedadoù a-reizh, Ouzhpennit un * √† er in ar c'hinkladur.">
+<!ENTITY shortpattern.warning "Ret vihan eo ar c'hinkladur hoc'h eus diskouezet evit bezañ gwellaet, un niver vras gant stummoù kinkladur-se a c'horreko hoc'h merdeiñ. Gwelloc'h eo evideoc'h da zibab ur chadenn arouezenn hiroc'h evit ar sil-se.">
+<!ENTITY custom.pattern.label "Personnelaat :">
+<!ENTITY custom.pattern.accesskey "C">
+<!ENTITY anchors.label "A-duaat ar c'hinkladur nemetken :">
+<!ENTITY anchor.start.label "e penn ar chomlec'h">
+<!ENTITY anchor.start.accesskey "g">
+<!ENTITY anchor.start.flexible.label "e penn anv domani">
+<!ENTITY anchor.start.flexible.accesskey "g">
+<!ENTITY anchor.end.label "en dibenn chomlec'h">
+<!ENTITY anchor.end.accesskey "n">
+<!ENTITY options.label "Dibaboù">
+<!ENTITY domainRestriction.label "Strizhañ en anv domani :">
+<!ENTITY domainRestriction.accesskey "d">
+<!ENTITY domainRestriction.help "Resisaat unan pe meur domani distaget gant an arouezenn ¬´ | ¬ª, ne labouro ket ar sil nemet gant anv domani resiset. An arouezenn ¬´ ~ ¬ª a-raok un anv domani a dalvez ne vo ket ret bezañ da labour war an domani-se.">
+<!ENTITY firstParty.label "Dont diwar ar memes domani nemetken">
+<!ENTITY firstParty.accesskey "r">
+<!ENTITY thirdParty.label "Dont diwar domanioù all nemetken">
+<!ENTITY thirdParty.accesskey "T">
+<!ENTITY matchCase.label "Kizidig gant torret">
+<!ENTITY matchCase.accesskey "M">
+<!ENTITY types.label "Lakaat d'ar furmoù da heul :">
+<!ENTITY selectAllTypes.label "Diuzañ pep tra">
+<!ENTITY unselectAllTypes.label "Diuzañ netra">
+<!ENTITY collapse.label "Adimplij elfenn frankiz silet :">
+<!ENTITY collapse.accesskey "l">
+<!ENTITY collapse.default.yes.label "Implij an emzalc'h da skouer (ya)">
+<!ENTITY collapse.default.no.label "Implij an emzalc'h da skouer (ket)">
+<!ENTITY collapse.yes.label "Ya">
+<!ENTITY collapse.no.label "Ket">

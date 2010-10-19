@@ -11,7 +11,6 @@
 <!ENTITY list.download.failed "Adblock Plus không thể lấy danh sách bộ lọc trọn gói.">
 <!ENTITY list.download.retry "Thử lại">
 <!ENTITY list.download.website "Xem trang web">
-<!ENTITY list.website.url "http://code.google.com/p/adblockplus-vietnam/">
 <!ENTITY fromWeb.description "Vui lòng xác nhận rằng bạn muốn thêm bộ lọc trọn gói này. Bạn có thể thay đổi tiêu đề hoặc địa chỉ trước khi thêm nó.">
 <!ENTITY edit.description "Bạn có thể thay đổi tiêu đề hoặc địa chỉ của bộ trọn gói nếu cần.">
 <!ENTITY external.description "Đây là bộ lọc trọn gói bên ngoài; nó sẽ được cập nhật bởi phần mở rộng tạo ra nó.">

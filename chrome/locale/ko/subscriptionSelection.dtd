@@ -1,6 +1,6 @@
 <!ENTITY dialog.title "구독 필터 추가">
 <!ENTITY dialog.title.edit "구독 필터 편집">
-<!ENTITY description.newInstall "구독 필터는 주기적으로 업데이트되는 필터 목록을 통해 광고를 효율적으로 차단할 수 있는 편리함을 제공합니다.">
+<!ENTITY description.newInstall "구독 필터는 주기적으로 업데이트되는 필터 목록이므로 광고를 효율적으로 차단할 수 있는 편리함을 제공합니다.">
 <!ENTITY subscriptionSelector.label "목록에서 구독할 필터를 선택하거나 이름/위치를 직접 입력하십시오.">
 <!ENTITY viewList.label "필터 보기">
 <!ENTITY visitHomepage.label "홈페이지">
@@ -11,7 +11,6 @@
 <!ENTITY list.download.failed "구독 필터 목록의 검색 실패">
 <!ENTITY list.download.retry "재시도">
 <!ENTITY list.download.website "웹 사이트">
-<!ENTITY list.website.url "http://adblockplus.org/en/subscriptions">
 <!ENTITY fromWeb.description "추가하고자 한 구독 필터인지 확인하십시오. 추가하기 전에 이름 또는 위치를 변경할 수 있습니다.">
 <!ENTITY edit.description "구독 필터의 이름 또는 위치를 변경할 수 있습니다.">
 <!ENTITY external.description "외부 구독 필터입니다. 이 구독 필터에 의해 필터 목록이 주기적으로 업데이트됩니다.">

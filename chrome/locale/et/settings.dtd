@@ -55,13 +55,10 @@
 <!ENTITY help.accesskey "A">
 <!ENTITY gettingStarted.label "info Adblock Plusist">
 <!ENTITY gettingStarted.accesskey "i">
-<!ENTITY gettingStarted.url "http://adblockplus.org/en/getting_started">
 <!ENTITY faq.label "Korduma Kippuvad Küsimused">
 <!ENTITY faq.accesskey "K">
-<!ENTITY faq.url "http://adblockplus.org/en/faq">
 <!ENTITY filterdoc.label "Kirjutamas Adblock Plusi filtreid">
 <!ENTITY filterdoc.accesskey "m">
-<!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Teavet">
 <!ENTITY about.accesskey "v">
 <!ENTITY description "Lisa aadresse mida sa soovid blokeerida, soovituseks vaata nimekirja.

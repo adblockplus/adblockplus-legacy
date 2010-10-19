@@ -13,7 +13,6 @@
 <!ENTITY list.download.failed "Το Adblock Plus απέτυχε να λάβει την λίστα με τις συνδρομές.">
 <!ENTITY list.download.retry "Προσπαθήστε ξανά">
 <!ENTITY list.download.website "Προβολή της ιστοσελίδας">
-<!ENTITY list.website.url "http://adblockplus.org/en/subscriptions">
 <!ENTITY fromWeb.description "Παρακαλώ επιβεβαιώστε ότι θέλετε να προσθέσετε αυτή την λίστα φίλτρων. Μπορείτε να τροποποιήσετε τον τίτλο ή την τοποθεσία πριν την προσθήκη.">
 <!ENTITY edit.description "Μπορείτε ν' αλλάξετε τον τίτλο της συνδρομής ή την τοποθεσία όπως σας βολεύει.">
 <!ENTITY external.description "Αυτή η λίστα φίλτρων προέρχεται από τρίτους· θα ενημερωθεί από το πρόσθετο που την δημιούργησε.">

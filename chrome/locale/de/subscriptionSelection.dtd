@@ -22,8 +22,6 @@
 <!ENTITY list.download.failed       "Adblock Plus konnte die Liste der Filterabonnements nicht herunterladen.">
 <!ENTITY list.download.retry        "Nochmal versuchen">
 <!ENTITY list.download.website      "Zur Webseite wechseln">
-<!ENTITY list.website.url           "http://adblockplus.org/de/subscriptions">
-
 <!ENTITY fromWeb.description        "Bitte bestätigen Sie, dass Sie dieses Filterabonnement hinzufügen möchten. Die Bezeichnung und Adresse der Abonnements können vor dem Hinzufügen geändert werden.">
 <!ENTITY edit.description           "Bitte ändern Sie die Bezeichnung und Adresse der Abonnements wie erforderlich.">
 <!ENTITY external.description       "Das ist ein externes Filterabonnement, es wird von der Erweiterung aktualisiert, die es erstellt hat.">
