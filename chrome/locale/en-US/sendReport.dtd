@@ -137,7 +137,7 @@
   You can also review the report data before it is sent.
 ">
 
-<!ENTITY comment.label                "Comment:">
+<!ENTITY comment.label                "Comment (optional):">
 <!ENTITY comment.accesskey            "C">
 <!ENTITY comment.lengthWarning        "The length of your comment exceeds 1000 characters. Only the first 1000 characters will be sent.">
 <!ENTITY email.label                  "Email for further inquiries (optional):">
