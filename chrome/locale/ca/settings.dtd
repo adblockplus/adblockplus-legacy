@@ -55,13 +55,10 @@
 <!ENTITY help.accesskey "u">
 <!ENTITY gettingStarted.label "Començant">
 <!ENTITY gettingStarted.accesskey "C">
-<!ENTITY gettingStarted.url "http://adblockplus.org/en/getting_started">
 <!ENTITY faq.label "Preguntes més demanades (FAQ)">
 <!ENTITY faq.accesskey "F">
-<!ENTITY faq.url "http://adblockplus.org/en/faq">
 <!ENTITY filterdoc.label "Escrivint filtres de Adblock Plus">
 <!ENTITY filterdoc.accesskey "E">
-<!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Sobre Adblock Plus">
 <!ENTITY about.accesskey "B">
 <!ENTITY description "Afegeix les adreces que desitgis bloquejar, per suggerències comprova la llista desplegable. Pots utilitzar * com a comodí per crear filtres més generals. Usuaris avançats poden utilitzar expressions regulars com /banner\d+\.gif$/.">

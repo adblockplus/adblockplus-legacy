@@ -11,7 +11,6 @@
 <!ENTITY list.download.failed "Hiba a szűrők betöltésekor.">
 <!ENTITY list.download.retry "Próbálja újra">
 <!ENTITY list.download.website "Weboldal megtekintése">
-<!ENTITY list.website.url "http://adblockplus.org/en/subscriptions">
 <!ENTITY fromWeb.description "Kérem erősítse meg a szűrő hozzáadását. Módosíthatja a szűrő címét és helyét a hozzáadás előtt.">
 <!ENTITY edit.description "Ha szükséges, módosíthatja a szűrők címét ill. helyét.">
 <!ENTITY external.description "Ez egy külső szűrő. A szűrő frissítését az a kiterjesztés végzi el, amelyik a szűrőt létrehozta.">

@@ -49,13 +49,10 @@
 <!ENTITY help.accesskey "H">
 <!ENTITY gettingStarted.label "Fillo">
 <!ENTITY gettingStarted.accesskey "s">
-<!ENTITY gettingStarted.url "http://adblockplus.org/getting_started">
 <!ENTITY faq.label "Pyetje e zakonshme">
 <!ENTITY faq.accesskey "F">
-<!ENTITY faq.url "http://adblockplus.org/en/faq">
 <!ENTITY filterdoc.label "Duke shkruar filtruesit e Adblock Plus">
 <!ENTITY filterdoc.accesskey "R">
-<!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Rreth Adblock Plus">
 <!ENTITY about.accesskey "B">
 <!ENTITY filter.column "Rregulla e filtrimit">

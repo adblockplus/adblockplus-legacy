@@ -55,13 +55,10 @@
 <!ENTITY help.accesskey "t">
 <!ENTITY gettingStarted.label "Sedia untuk mengguna">
 <!ENTITY gettingStarted.accesskey "S">
-<!ENTITY gettingStarted.url "http://adblockplus.org/en/getting_started">
 <!ENTITY faq.label "Soalan yang selalu ditanya">
 <!ENTITY faq.accesskey "A">
-<!ENTITY faq.url "http://adblockplus.org/en/faq">
 <!ENTITY filterdoc.label "Menulis penapis Adblock Plus">
 <!ENTITY filterdoc.accesskey "N">
-<!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Perihal Adblock Plus">
 <!ENTITY about.accesskey "P">
 <!ENTITY description "Tambah alamat yang anda ingin sekat, untuk cadangan semak senarai dropdown. Anda boleh guna * sebagai kad liar untuk mencipta penapis yang lebih am. Pengguna pakar boleh menggunakan ungkapan biasa seperti /banner\d+\.gif$/.">

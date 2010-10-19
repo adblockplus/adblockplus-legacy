@@ -10,7 +10,6 @@
 <!ENTITY list.download.failed "Adblock Plus нь мэдээлэгчийн жагсаалтыг татаж чадсангүй.">
 <!ENTITY list.download.retry "Дахиж оролдох">
 <!ENTITY list.download.website "Вэбсайтыг харах">
-<!ENTITY list.website.url "http://adblockplus.org/en/subscriptions">
 <!ENTITY title.label "Мэдээлэгчийн гарчиг:">
 <!ENTITY title.accesskey "Г">
 <!ENTITY location.label "Шүүлтүүрийн жагсаалтын байршил:">

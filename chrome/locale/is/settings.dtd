@@ -55,13 +55,10 @@
 <!ENTITY help.accesskey "H">
 <!ENTITY gettingStarted.label "Byrja notkun">
 <!ENTITY gettingStarted.accesskey "n">
-<!ENTITY gettingStarted.url "http://adblockplus.org/en/getting_started">
 <!ENTITY faq.label "Oft spurðar spurningar">
 <!ENTITY faq.accesskey "O">
-<!ENTITY faq.url "http://adblockplus.org/en/faq">
 <!ENTITY filterdoc.label "Hvernig á að búa til Adblock Plus síur">
 <!ENTITY filterdoc.accesskey "v">
-<!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Um Adblock Plus">
 <!ENTITY about.accesskey "B">
 <!ENTITY description "Eftirfarandi síur ákvarða hvaða netföng á að loka á og hvaða netföng eigi að leyfa:">

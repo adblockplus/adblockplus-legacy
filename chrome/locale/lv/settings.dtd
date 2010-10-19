@@ -55,13 +55,10 @@
 <!ENTITY help.accesskey "H">
 <!ENTITY gettingStarted.label "Iesākumam">
 <!ENTITY gettingStarted.accesskey "s">
-<!ENTITY gettingStarted.url "http://adblockplus.org/en/getting_started">
 <!ENTITY faq.label "Biežāk Uzdotie Jautājumi">
 <!ENTITY faq.accesskey "F">
-<!ENTITY faq.url "http://adblockplus.org/en/faq">
 <!ENTITY filterdoc.label "Rakstīt Adblock Plus filtrus">
 <!ENTITY filterdoc.accesskey "r">
-<!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "Par Adblock Plus">
 <!ENTITY about.accesskey "b">
 <!ENTITY description "Šādi filtri nosaka, kurām adresēm ir jābūt bloķētām, un kādas ir atļautas:">

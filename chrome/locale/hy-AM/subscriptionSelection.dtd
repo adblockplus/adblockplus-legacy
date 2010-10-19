@@ -15,7 +15,6 @@
 <!ENTITY list.download.failed "«Adblock Plus»-ը չկարողացավ բեռնել ֆիլտրերի բաժանարդոգրությունների ցուցակը">
 <!ENTITY list.download.retry "Կրկին Փորձել">
 <!ENTITY list.download.website "Այցելել կայք">
-<!ENTITY list.website.url "http://adblockplus.org/en/subscriptions">
 <!ENTITY fromWeb.description "Հաստատեք որ ցանկանում եք ավելացնել բաժանորդագրություն: Դուք կարող եք փողել բաժանորդագրության վերնագիրը կամ հասցեն միչև ավելացնելը:">
 <!ENTITY edit.description "Դուք կարող եք փողել բաժանորդագրության վերնագիրը կամ հասցեն ըստ անհրաժեշտության">
 <!ENTITY external.description "Սա արտաքին ֆիլտրի բաժանարդոգրություն է. այն թարմացնելու է ավելացումը(add-on) որը ստեղծել է այն:">

@@ -11,7 +11,6 @@
 <!ENTITY list.download.failed "فشل آدبلوك بلس في جلب قائمة الاشتراكات">
 <!ENTITY list.download.retry "إعادة المحاولة">
 <!ENTITY list.download.website "عرض الموقع">
-<!ENTITY list.website.url "http://adblockplus.org/en/subscriptions Copy">
 <!ENTITY fromWeb.description "الرجاء تأكيد رغبتك في إضافة اشتراك الفلتر هذا. يمكنك أن تغير عنوان أو موقع الاشتراك قبل اضافته.">
 <!ENTITY edit.description "تستطيع تغيير عنوان أو موقع هذا الاشتراك حسب الحاجة">
 <!ENTITY external.description "ان اشتراك الفلتر هذا خارجي وسيتم تحديثه من قبل الإضافة التي أنشأته">

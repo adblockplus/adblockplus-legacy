@@ -55,13 +55,10 @@
 <!ENTITY help.accesskey "v">
 <!ENTITY gettingStarted.label "Začínáme">
 <!ENTITY gettingStarted.accesskey "Z">
-<!ENTITY gettingStarted.url "http://adblockplus.org/en/getting_started">
 <!ENTITY faq.label "Často kladené dotazy (FAQ)">
 <!ENTITY faq.accesskey "q">
-<!ENTITY faq.url "http://adblockplus.org/en/faq">
 <!ENTITY filterdoc.label "Psaní Adblock Plus filtrů">
 <!ENTITY filterdoc.accesskey "f">
-<!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "O doplňku Adblock Plus">
 <!ENTITY about.accesskey "o">
 <!ENTITY description "Následující filtry rozhodují, které adresy budou blokovány a které budou povoleny:">

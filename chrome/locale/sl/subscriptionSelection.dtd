@@ -11,7 +11,6 @@
 <!ENTITY list.download.failed "Pridobivanje seznama naročnin ni uspelo.">
 <!ENTITY list.download.retry "Poskusi znova">
 <!ENTITY list.download.website "Pokaži spletno mesto">
-<!ENTITY list.website.url "http://adblockplus.org/en/subscriptions">
 <!ENTITY fromWeb.description "Potrdite, da želite dodati to naročnino na filter. Naslov ali kraj naročnine lahko spremenite še pred dodajanjem.">
 <!ENTITY edit.description "Po potrebi lahko spremenite naslov ali mesto naročnine.">
 <!ENTITY external.description "To je zunanja naročnina na filter, seznam filtrov bo posodobljen z razširitvijo, ki je ustvarila to naročnino.">

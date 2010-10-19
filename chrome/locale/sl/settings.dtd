@@ -55,13 +55,10 @@
 <!ENTITY help.accesskey "m">
 <!ENTITY gettingStarted.label "Prvi koraki">
 <!ENTITY gettingStarted.accesskey "k">
-<!ENTITY gettingStarted.url "http://adblockplus.org/en/getting_started">
 <!ENTITY faq.label "Pogosto zastavljena vprašanja">
 <!ENTITY faq.accesskey "P">
-<!ENTITY faq.url "http://adblockplus.org/en/faq">
 <!ENTITY filterdoc.label "Pisanje filtrov Adblock Plus">
 <!ENTITY filterdoc.accesskey "s">
-<!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "O Adblock Plus">
 <!ENTITY about.accesskey "b">
 <!ENTITY description "Dodajte naslove, ki bi jih radi blokirali, za nasvete preverite seznamsko polje. Uporabite lahko * za izdelavo bolj splošnih filtrov. Napredni uporabniki lahko uporabite regularne izraze kot je /banner\d+\.gif$/.">

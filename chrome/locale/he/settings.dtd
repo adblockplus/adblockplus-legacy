@@ -47,7 +47,7 @@
 <!ENTITY showintoolbar.accesskey "ל">
 <!ENTITY showinstatusbar.label "הצגה בשורת המצב">
 <!ENTITY showinstatusbar.accesskey "צ">
-<!ENTITY objecttabs.label "הצגת לשוניות על ג'אווה ופלאש">
+<!ENTITY objecttabs.label "הצגת לשוניות על פלאש וג'אווה">
 <!ENTITY objecttabs.accesskey "ג">
 <!ENTITY collapse.label "השמטת פריטים חסומים">
 <!ENTITY collapse.accesskey "ה">
@@ -55,13 +55,10 @@
 <!ENTITY help.accesskey "ע">
 <!ENTITY gettingStarted.label "התחלה">
 <!ENTITY gettingStarted.accesskey "ת">
-<!ENTITY gettingStarted.url "http://adblockplus.org/en/getting_started">
 <!ENTITY faq.label "שאלות נפוצות (אנגלית)">
 <!ENTITY faq.accesskey "ש">
-<!ENTITY faq.url "http://adblockplus.org/en/faq">
 <!ENTITY filterdoc.label "כתיבת מסננים ל-Adblock Plus (אנגלית)">
 <!ENTITY filterdoc.accesskey "מ">
-<!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "אודות Adblock Plus">
 <!ENTITY about.accesskey "א">
 <!ENTITY description "המסננים הבאים קובעים איזה כתובות אמורות להיחסם ואיזה להיות מאפשרות:">

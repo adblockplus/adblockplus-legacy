@@ -11,7 +11,6 @@
 <!ENTITY list.download.failed "Adblock Plus жазылулар тізімін жүктеп ала алмаған.">
 <!ENTITY list.download.retry "Қайтадан көру">
 <!ENTITY list.download.website "Веб сайтты шолу">
-<!ENTITY list.website.url "http://adblockplus.org/en/subscriptions">
 <!ENTITY fromWeb.description "Сүзгі жазылуын қосуды растаңыз. Қосу алдында оның атауын не орналасуын өзгерте аласыз.">
 <!ENTITY edit.description "Керек болса, жазылудың атауын не орналасуын өзгерте аласыз.">
 <!ENTITY external.description "Бұл сыртқы сүзгі жазылуы; ол жасаған аддонмен жаңартылуы тиіс.">

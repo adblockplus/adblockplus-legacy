@@ -55,13 +55,10 @@
 <!ENTITY help.accesskey "ห">
 <!ENTITY gettingStarted.label "เริ่มต้นใช้งาน">
 <!ENTITY gettingStarted.accesskey "ร">
-<!ENTITY gettingStarted.url "http://adblockplus.org/en/getting_started">
 <!ENTITY faq.label "คำถามพบบ่อย">
 <!ENTITY faq.accesskey "พ">
-<!ENTITY faq.url "http://adblockplus.org/en/faq">
 <!ENTITY filterdoc.label "การเขียนตัวกรอง Adblock Plus">
 <!ENTITY filterdoc.accesskey "ข">
-<!ENTITY filterdoc.url "http://adblockplus.org/en/filters">
 <!ENTITY about.label "เกี่ยวกับ Adblock Plus">
 <!ENTITY about.accesskey "ก">
 <!ENTITY description "ตัวกรองต่อไปนี้ระบุว่าที่อยู่ใดควรจะถูกบล็อกและที่อยู่ใดควรให้ผ่าน:">
