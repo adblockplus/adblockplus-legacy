@@ -674,7 +674,7 @@ let issuesDataSource =
   disabledSubscriptions: [],
   ownFilters: [],
   numSubscriptions: FilterStorage.subscriptions.filter(function(subscription) subscription instanceof DownloadableSubscription).length,
-  numAppliedFilters: 0,
+  numAppliedFilters: Infinity,
 
   collectData: function(wnd, callback)
   {
@@ -736,6 +736,7 @@ let issuesDataSource =
         }
       }
 
+      this.numAppliedFilters = 0;
       for each (let filter in filtersDataSource.origFilters)
       {
         if (filter instanceof WhitelistFilter)
