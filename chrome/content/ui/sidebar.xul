@@ -33,7 +33,9 @@
   xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
   id="abp-sidebar"
   onload="init()"
-  onunload="cleanUp()">
+  onunload="cleanUp()"
+  docDomainThirdParty="&docDomain.thirdParty;"
+  docDomainFirstParty="&docDomain.firstParty;">
 
   <script type="application/x-javascript;version=1.7" src="utils.js"/>
   <script type="application/x-javascript;version=1.7" src="sidebar.js"/>
