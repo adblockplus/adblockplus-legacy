@@ -29,7 +29,7 @@
 <!ENTITY title.label                "Bezeichnung des Abonnements:">
 <!ENTITY title.accesskey            "z">
 <!ENTITY location.label             "Adresse der Filterliste:">
-<!ENTITY location.accesskey         "d">
+<!ENTITY location.accesskey         "r">
 <!ENTITY autodownload.label         "Automatisch aktualisieren">
 <!ENTITY autodownload.accesskey     "t">
 
