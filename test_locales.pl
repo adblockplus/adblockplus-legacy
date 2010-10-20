@@ -27,6 +27,10 @@ my @mustDiffer = (
   ['abp:settings:gettingStarted.accesskey', 'abp:settings:faq.accesskey', 'abp:settings:filterdoc.accesskey', 'abp:settings:about.accesskey'],
   ['abp:subscriptionSelection:other.accesskey', 'abp:subscriptionSelection:title.accesskey', 'abp:subscriptionSelection:location.accesskey', 'abp:subscriptionSelection:autodownload.accesskey', 'abp:subscriptionSelection:addMain.accesskey'],
   ['abp:composer:filter.accesskey', 'abp:composer:preferences.accesskey', 'abp:composer:type.filter.accesskey', 'abp:composer:type.whitelist.accesskey', 'abp:composer:custom.pattern.accesskey', 'abp:composer:anchor.start.accesskey', 'abp:composer:anchor.end.accesskey', 'abp:composer:domainRestriction.accesskey', 'abp:composer:firstParty.accesskey', 'abp:composer:thirdParty.accesskey', 'abp:composer:matchCase.accesskey', 'abp:composer:collapse.accesskey'],
+  ['abp:sendReport:typeSelector.falsePositive.accesskey', 'abp:sendReport:typeSelector.falseNegative.accesskey', 'abp:sendReport:typeSelector.other.accesskey', 'abp:sendReport:recentReports.clear.accesskey'],
+  ['abp:sendReport:typeWarning.override.accesskey', 'abp:sendReport:reloadButton.accesskey'],
+  ['abp:sendReport:screenshot.attach.accesskey', 'abp:sendReport:screenshot.mark.accesskey', 'abp:sendReport:screenshot.remove.accesskey', 'abp:sendReport:screenshot.undo.accesskey'],
+  ['abp:sendReport:comment.accesskey', 'abp:sendReport:email.accesskey', 'abp:sendReport:attachExtensions.accesskey', 'abp:sendReport:sendButton.accesskey', 'abp:sendReport:data.accesskey'],
   ['ehh:global:command.select.key', 'ehh:global:command.wider.key', 'ehh:global:command.narrower.key', 'ehh:global:command.quit.key', 'ehh:global:command.blinkElement.key', 'ehh:global:command.viewSource.key', 'ehh:global:command.viewSourceWindow.key', 'ehh:global:command.showMenu.key'],
 );
 
