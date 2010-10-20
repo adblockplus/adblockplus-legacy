@@ -17,6 +17,7 @@
 <!ENTITY pattern.explanation      "Das Muster kann ein beliebiger Teil der Adresse sein, das Zeichen '*' kann dabei als Jokerzeichen verwendet werden. Der Filter wird nur auf Adressen angewandt, die auf das Muster passen.">
 <!ENTITY regexp.warning           "Das Muster, das Sie eingegeben haben, wird als regulärer Ausdruck interpretiert. Zu viele reguläre Ausdrücke könnten Ihren Browser verlangsamen. Falls Sie nicht beabsichtigt haben, reguläre Ausdrücke zu verwenden, fügen Sie einfach das Symbol '*' am Ende des Musters an.">
 <!ENTITY shortpattern.warning     "Das Muster, das Sie eingegeben haben, ist zu kurz zum Optimieren. Zu viele solche Muster könnten Ihren Browser verlangsamen. Es ist deshalb empfehlenswert, nach Möglichkeit einen längeren Muster für diesen Filter zu verwenden.">
+<!ENTITY match.warning            "Das Muster, das Sie eingegeben haben, passt nicht mehr zu der Adresse, für die der Filter erstellt werden soll. Es wird keinen Einfluss mehr auf diese Adresse haben.">
 <!ENTITY custom.pattern.label     "Benutzerdefiniert:">
 <!ENTITY custom.pattern.accesskey "n">
 <!ENTITY anchors.label            "Muster nur akzeptieren:">
