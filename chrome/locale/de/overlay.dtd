@@ -16,8 +16,10 @@
 
 <!ENTITY sidebar.title          "Elemente der geöffneten Seite">
 
+<!ENTITY sendReport.label       "Fehler auf dieser Seite melden">
+<!ENTITY sendReport.accesskey   "F">
 <!ENTITY settings.label         "Einstellungen">
-<!ENTITY settings.accesskey     "T">
+<!ENTITY settings.accesskey     "t">
 <!ENTITY opensidebar.label      "Blockierbare Elemente öffnen">
 <!ENTITY opensidebar.accesskey  "B">
 <!ENTITY closesidebar.label     "Blockierbare Elemente schließen">
