@@ -8,8 +8,8 @@
 <!ENTITY typeSelector.heading           "Fehlerart wählen">
 
 <!ENTITY typeSelector.description       "
-  Dieser Assistent wird Sie durch die nötigen Schritte zum Melden eines Adblock Plus
-  Fehlers leiten. Zuerst wählen Sie bitte die Art des Fehlers, den Sie auf dieser Seite
+  Dieser Assistent wird Sie durch die nötigen Schritte zum Melden eines Adblock Plus-Fehlers
+  leiten. Zuerst wählen Sie bitte die Art des Fehlers, den Sie auf dieser Seite
   beobachten:
 ">
 
@@ -135,7 +135,7 @@
 <!ENTITY commentPage.description      "
   Unten können Sie einen Kommentar eingeben, um uns zu helfen, das Problem zu verstehen.
   Das ist zwar optional, ist jedoch empfohlen, falls das Problem nicht offensichtlich ist.
-  Sie können auf die Daten Ihres Berichts überprüfen, bevor sie gesendet werden.
+  Sie können auch die Daten Ihres Berichts überprüfen, bevor sie gesendet werden.
 ">
 
 <!ENTITY comment.label                "Kommentar (optional):">
@@ -144,7 +144,7 @@
 <!ENTITY email.label                  "Email-Adresse für zusätzliche Nachfragen (optional):">
 <!ENTITY email.accesskey              "m">
 
-<!ENTITY attachExtensions.label       "Liste aktiver Erweiterungen anhängen für den Fall, dass das Problem von einer anderen Erweiterung verursacht ist">
+<!ENTITY attachExtensions.label       "Liste aktiver Erweiterungen anhängen für den Fall, dass das Problem von einer anderen Erweiterung verursacht wird">
 <!ENTITY attachExtensions.accesskey   "w">
 
 <!ENTITY sendButton.label             "Bericht absenden">
