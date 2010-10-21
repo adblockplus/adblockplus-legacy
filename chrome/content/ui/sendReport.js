@@ -1288,7 +1288,7 @@ function reportSent(event)
   frame.docShell.allowPlugins = false;
   frame.docShell.allowSubframes = false;
 
-  frame.setAttribute("src", "data:text/html," + encodeURIComponent(result));
+  frame.setAttribute("src", "data:text/html;charset=utf-8," + encodeURIComponent(result));
   frame.hidden = false;
 
   E("sendReportMessage").hidden = true;
