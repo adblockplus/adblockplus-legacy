@@ -282,24 +282,6 @@ function registerObservers()
 }
 
 /**
- * Removes observers.
- */
-function unregisterObservers()
-{
-  try {
-    branch.QueryInterface(Ci.nsIPrefBranchInternal)
-          .removeObserver("", PrefsPrivate);
-  }
-  catch (e) {
-    Cu.reportError(e);
-  }
-
-  let observerService = Cc["@mozilla.org/observer-service;1"].getService(Ci.nsIObserverService);
-  observerService.removeObserver(PrefsPrivate, "em-action-requested");
-  observerService.removeObserver(PrefsPrivate, "private-browsing");
-}
-
-/**
  * Reloads a preference and stores it as a property of Prefs object.
  */
 function reloadPref(/**String*/ pref)
