@@ -9,6 +9,8 @@
 <!ENTITY state.label "Κατάσταση">
 <!ENTITY size.label "Μέγεθος">
 <!ENTITY docDomain.label "Πηγή εγγράφου">
+<!ENTITY docDomain.thirdParty "(τρίτων)">
+<!ENTITY docDomain.firstParty "(πρωτεύον)">
 <!ENTITY noitems.label "Δεν υπάρχουν στοιχεία προς φιλτράρισμα">
 <!ENTITY whitelisted.label "Η σελίδα ανήκει στην άσπρη λίστα">
 <!ENTITY tooltip.address.label "Διεύθυνση:">
@@ -18,6 +20,7 @@
 <!ENTITY tooltip.size.label "Μέγεθος:">
 <!ENTITY tooltip.docDomain.label "Πηγή εγγράφου:">
 <!ENTITY tooltip.filter.label "Φίλτρο εν δράση:">
+<!ENTITY tooltip.filter.disabled "(απενεργοποιημένο)">
 <!ENTITY tooltip.filterSource.label "Πηγή φίλτρου:">
 <!ENTITY context.block.label "Φραγή του στοιχείου">
 <!ENTITY context.editfilter.label "Επεξεργασία του φίλτρου εν δράση">

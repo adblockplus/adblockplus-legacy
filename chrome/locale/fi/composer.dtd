@@ -16,6 +16,7 @@
 <!ENTITY pattern.explanation "Merkkijono voi olla mikä tahansa osoitteen osa. Merkki * toimii jokerimerkkinä. Suodatin toimii vain osoitteissa, joita merkkijono vastaa.">
 <!ENTITY regexp.warning "Syöttämäsi merkkijono tulkitaan säännölliseksi lausekkeeksi. Monet säännölliset lausekkeet saattavat hidastaa selailua. Jos tarkoituksena ei ollut käyttää säännöllistä lauseketta, lisää merkki * lauseen loppuun.">
 <!ENTITY shortpattern.warning "Syöttämäsi merkkijono on liian lyhyt optimoitavaksi. Useat tällaiset merkkijonot saattavat hidastaa selailua. On suositeltavaa, että valitset tälle suodattimelle pidemmän merkkijonon.">
+<!ENTITY match.warning "Syöttämäsi merkkijono ei enää täsmää estettävän/sallittavan osoitteen kanssa; se ei vaikuta kyseiseen osoitteeseen.">
 <!ENTITY custom.pattern.label "Oma muokkaus:">
 <!ENTITY custom.pattern.accesskey "O">
 <!ENTITY anchors.label "Hyväksy merkkijono vain:">

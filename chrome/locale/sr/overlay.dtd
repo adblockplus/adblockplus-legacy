@@ -11,6 +11,8 @@
 <!ENTITY context.media.label "Блокирај аудио/видео">
 <!ENTITY context.removeWhitelist.label "Поново укључи на овој страни">
 <!ENTITY sidebar.title "Ставке које се могу блокирати на овој страни">
+<!ENTITY sendReport.label "Пријави проблеме на овој страници">
+<!ENTITY sendReport.accesskey "П">
 <!ENTITY settings.label "Подешавања">
 <!ENTITY settings.accesskey "д">
 <!ENTITY opensidebar.label "Отвори ставке које се могу блокирати">

@@ -16,6 +16,7 @@
 <!ENTITY pattern.explanation "El patrón puede ser cualquier parte de la dirección, el carácter * actúa como comodín. El filtro sólo se aplicará a las direcciones que se correspondan con el patrón.">
 <!ENTITY regexp.warning "El patrón que ha introducido se interpretará como expresión regular. Si usa muchas expresiones regulares su navegación podría volverse más lenta. Si no quería usar una expresión regular, añada un carácter * al final del patrón.">
 <!ENTITY shortpattern.warning "El patrón que ha introducido es demasiado corto para ser optimizado, si usa muchos patrones como este su navegación podría volverse más lenta. Se le recomienda elegir una cadena más larga para este filtro.">
+<!ENTITY match.warning "El patrón introducido no coincide con la dirección a bloquear o incluir en la lista blanca, y no tendrá ningún efecto sobre ella.">
 <!ENTITY custom.pattern.label "Personalizar:">
 <!ENTITY custom.pattern.accesskey "P">
 <!ENTITY anchors.label "Sólo aceptar patrones:">

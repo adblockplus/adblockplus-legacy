@@ -16,6 +16,7 @@
 <!ENTITY pattern.explanation "Het patroon kan ieder gedeelte zijn van het adres, waarbij een asterisk (*) as wildcard geldt. Het filter wordt alleen toegepast op adressen die met het patroon overeenkomen.">
 <!ENTITY regexp.warning "Het patroon dat u heeft gegeven zal worden behandeld als een reguliere expressie. Deze kunnen niet efficiënt worden verwerkt door Adblock Plus en kunnen uw browser traag maken. Als het niet uw bedoeling was een reguliere expressie te schrijven, voeg dan een asterisk (*) aan het eind van het patroon toe.">
 <!ENTITY shortpattern.warning "Het patroon dat u heeft gegeven is te kort om te worden geoptimaliseerd en kan uw browser traag maken. U kunt beter een langere regel voor dit filter kiezen, zodat Adblock Plus het filter efficiënter kan toepassen.">
+<!ENTITY match.warning "Het door u ingegeven patroon komt niet meer overeen met het te blokkeren/op de witte lijst te plaatsen adres en zal er geen effect op hebben.">
 <!ENTITY custom.pattern.label "Aangepast:">
 <!ENTITY custom.pattern.accesskey "A">
 <!ENTITY anchors.label "Alleen patronen accepteren:">

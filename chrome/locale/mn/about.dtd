@@ -1,7 +1,10 @@
 <!ENTITY dialog.title "Adblock Plus-ийн тухай">
 <!ENTITY version.title "Хувилбар">
 <!ENTITY description "Adblock Plus нь вэб хуудас дээр таны харахыг хүсэхгүй байгааг тань шийдэж өгнө.
+
+
 	Хэрэв та хүсээгүй зүйлсээ Adblock Plus-д хэлснээр, тэдгээр сурталчилгаа, баннер
+
 	болон бусад зүйлсийг татах хэрэггүй болно!">
 <!ENTITY homepage.label "Adblock Plus-ийн вэб хуудас:">
 <!ENTITY author.label "Зохиогч:">

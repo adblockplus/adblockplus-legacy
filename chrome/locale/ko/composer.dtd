@@ -16,6 +16,7 @@
 <!ENTITY pattern.explanation "패턴과 일치하는 주소에만 필터가 적용되며, 패턴은 일치하는 주소를 찾는 텍스트 문자열로서 필터에 반영됩니다.">
 <!ENTITY regexp.warning "[느린 필터] 패턴 끝에 와일드카드(*)가 없으면 정규 표현식으로 해석되며, 웹 페이지를 불러오는 속도가 느려짐.">
 <!ENTITY shortpattern.warning "[느린 필터] 패턴의 길이가 너무 짧으면 필터가 비효율적으로 처리되며, 웹 페이지를 불러오는 속도가 느려짐.">
+<!ENTITY match.warning "입력한 패턴은 더 이상 차단/허용된 주소와 일치하지 않고, 주소에 영향을 미치지 않습니다.">
 <!ENTITY custom.pattern.label "사용자 정의 (C)">
 <!ENTITY custom.pattern.accesskey "C">
 <!ENTITY anchors.label "패턴 일치 조건 :">

@@ -11,6 +11,8 @@
 <!ENTITY context.media.label "Adblock Plus: 阻擋影音">
 <!ENTITY context.removeWhitelist.label "Adblock Plus: 此頁不設為白名單">
 <!ENTITY sidebar.title "本頁可阻擋項目">
+<!ENTITY sendReport.label "回報此頁面錯誤">
+<!ENTITY sendReport.accesskey "R">
 <!ENTITY settings.label "偏好設定">
 <!ENTITY settings.accesskey "F">
 <!ENTITY opensidebar.label "開啟可阻擋項目">

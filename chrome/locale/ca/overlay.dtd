@@ -11,6 +11,8 @@
 <!ENTITY context.media.label "Adblock Plus: Bloqueja àudio/vídeo">
 <!ENTITY context.removeWhitelist.label "Adblock Plus:Rehabilita aquesta pàgina">
 <!ENTITY sidebar.title "Elements bloquejables a la pàgina actual">
+<!ENTITY sendReport.label "Informa sobre la pàgina">
+<!ENTITY sendReport.accesskey "I">
 <!ENTITY settings.label "Preferències">
 <!ENTITY settings.accesskey "P">
 <!ENTITY opensidebar.label "Obre elements bloquejables">
