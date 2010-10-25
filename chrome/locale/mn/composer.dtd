@@ -16,6 +16,7 @@
 <!ENTITY pattern.explanation "Эсгүүр нь хаягийн аль нэг хэсэг, * тэмдэг шиг байж болно. Энэ шүүлтүүр нь зөвхөн энэ эсгүүртэй холбогдох хаяг дээр хэрэгжинэ.">
 <!ENTITY regexp.warning "Эсгүүр нь энгийн илэрхийлэл шиг байж болно. Хэт их энгийн илэрхийлэл нь ажиллагааг удаашруулж болзошгүй. If you didn't intend to use regular expressions, add a * symbol at the end of the pattern.">
 <!ENTITY shortpattern.warning "The pattern you entered is too short to be optimized, many such patterns might slow down your browsing. It is recommended that you choose a longer string for this filter.">
+<!ENTITY match.warning "Таны оруулсан эсгүүрт таарах хаагдсан/зөвшөөрөгдсөн хаяг удаан хугацаанд олдоогүй бөгөөд энд нөлөө үзүүлэхгүй байна.">
 <!ENTITY custom.pattern.label "Тусгай:">
 <!ENTITY custom.pattern.accesskey "Т">
 <!ENTITY anchors.label "Эсгүүрийг зөвхөн зөвшөөрөх нь:">

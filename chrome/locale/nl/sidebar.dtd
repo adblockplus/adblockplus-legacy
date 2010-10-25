@@ -9,6 +9,8 @@
 <!ENTITY state.label "Status">
 <!ENTITY size.label "Grootte">
 <!ENTITY docDomain.label "Documentbron">
+<!ENTITY docDomain.thirdParty "(derden)">
+<!ENTITY docDomain.firstParty "(rechtstreeks)">
 <!ENTITY noitems.label "Geen blokkeerbare onderdelen">
 <!ENTITY whitelisted.label "Toegestane pagina">
 <!ENTITY tooltip.address.label "Adres:">
@@ -18,6 +20,7 @@
 <!ENTITY tooltip.size.label "Grootte:">
 <!ENTITY tooltip.docDomain.label "Documentbron:">
 <!ENTITY tooltip.filter.label "Toegepast filter:">
+<!ENTITY tooltip.filter.disabled "(uitgeschakeld)">
 <!ENTITY tooltip.filterSource.label "Filterbron:">
 <!ENTITY context.block.label "Dit onderdeel blokkeren">
 <!ENTITY context.editfilter.label "Toegepast filter bewerken">

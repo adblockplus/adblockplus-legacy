@@ -62,7 +62,10 @@
 <!ENTITY about.label "Teavet">
 <!ENTITY about.accesskey "v">
 <!ENTITY description "Lisa aadresse mida sa soovid blokeerida, soovituseks vaata nimekirja.
+
+
 Sa saad kasutada * et luua rohkem üldiseid filtreid. Edasijõudnud kasutajad saavad
+
 kasutada regulaarseid väljendeid.">
 <!ENTITY filter.column "Filtri reegel">
 <!ENTITY filter.accesskey "F">

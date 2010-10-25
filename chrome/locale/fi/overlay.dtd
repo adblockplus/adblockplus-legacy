@@ -11,6 +11,8 @@
 <!ENTITY context.media.label "Adblock Plus: Estä ääni/kuva">
 <!ENTITY context.removeWhitelist.label "Adblock Plus: Ota tämä sivu uudestaan käyttöön">
 <!ENTITY sidebar.title "Estettävät elementit avoimella sivulla">
+<!ENTITY sendReport.label "Raportoi ongelma tällä sivulla">
+<!ENTITY sendReport.accesskey "R">
 <!ENTITY settings.label "Asetukset">
 <!ENTITY settings.accesskey "A">
 <!ENTITY opensidebar.label "Näytä elementit">

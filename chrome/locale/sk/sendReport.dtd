@@ -1,0 +1,73 @@
+<!ENTITY wizard.title "Reportér problémov">
+<!ENTITY privacyPolicy.label "Ochrana súkromia">
+<!ENTITY dataCollector.heading "Vitajte v správcovi problémov">
+<!ENTITY dataCollector.description "Počkajte, prosím, kým Adblock Plus zhrnie požadované údaje.">
+<!ENTITY typeSelector.heading "Zvoliť typ problému">
+<!ENTITY typeSelector.description "Toto okno vám pomôže s výkladom požiadaviek Adblock Plus na hlásenie problémov. Najprv zvoľte typ problému, ktorý ste zistili na stránke:">
+<!ENTITY typeSelector.falsePositive.label "Adblock Plus blokuje priveľa">
+<!ENTITY typeSelector.falsePositive.accesskey "v">
+<!ENTITY typeSelector.falsePositive.description "Túto možnosť vyberte, ak stránka postráda dôležitý obsah, nesprávne sa zobrazuje alebo zlyháva funkčnosť. Môžete určiť, či je Adblock Plus príčinou problému jeho dočasným vypnutím.">
+<!ENTITY typeSelector.falseNegative.label "Adblock Plus neblokuje reklamy">
+<!ENTITY typeSelector.falseNegative.accesskey "r">
+<!ENTITY typeSelector.falseNegative.description "Vyberte túto možnosť ak sa reklamy zobrazujú napriek zapnutému Adblock Plus.">
+<!ENTITY typeSelector.other.label "Iné problémy">
+<!ENTITY typeSelector.other.accesskey "n">
+<!ENTITY typeSelector.other.description "Vyberte túto možnosť ak máte podozrenie na problém s Adblock Plus skôr než na jeho filtre.">
+<!ENTITY showRecentReports.label "Zobraziť nedávno potvrdené správy">
+<!ENTITY recentReports.label "Vaše nedávno potvrdené správy">
+<!ENTITY recentReports.clear.label "Odstrániť všetky správy">
+<!ENTITY recentReports.clear.accesskey "h">
+<!ENTITY issues.description "Adblock Plus zistil problém s vašou konfiguráciou, ktorý by mohol byť zodpovedný za daný problém alebo robí zistenie problému ťažším.">
+<!ENTITY issues.whitelist.description "Adblock Plus je na stránke, ktorú chcete ohlásiť, vypnutý. Zapnite ho, prosím, znova a opäť načítajte stránku skôr, než potvrdíte hlásenie.">
+<!ENTITY issues.whitelist.remove.label "Zapnúť opäť Adblock Plus na tejto stránke">
+<!ENTITY issues.disabled.description "Adblock Plus je vypnutý, v danom stave nebude nič blokovať.">
+<!ENTITY issues.disabled.enable.label "Zapnúť Adblock Plus">
+<!ENTITY issues.nofilters.description "Adblock Plus neblokuje nič na aktuálnej stránke. Problém, ktorý pozorujete pravdepodobne nesúvisí s Adblock Plus.">
+<!ENTITY issues.nosubscriptions.description "Neodvolávajte sa na odoberaný predpripravený zoznam filtrov, ktorý automaticky odstraňuje neznámy obsah z webovej stránky.">
+<!ENTITY issues.nosubscriptions.add.label "Pridať odber filtra">
+<!ENTITY issues.ownfilters.description "Niektoré filtre aplikované na tejto stránke sú definované používateľom. Vypnite filtre, ktoré by mohli spôsobovať problém:">
+<!ENTITY issues.ownfilters.disable.label "Vypnúť filter">
+<!ENTITY issues.disabledgroups.description "Nasledujúce odbery filtrov / skupiny filtrov sú vypnuté, ešte je možné, že by mali mali účinok na tejto stránke:">
+<!ENTITY issues.disabledgroups.enable.label "Zapnúť odber filtra / skupinu filtrov">
+<!ENTITY issues.disabledfilters.description "Nasledujúce filtre sú vypnuté, ešte je možné, že by mali mali účinok na tejto stránke:">
+<!ENTITY issues.disabledfilters.enable.label "Zapnúť filter">
+<!ENTITY issues.override.label "Nastavenie je správne, pokračovať so správou">
+<!ENTITY issues.override.accesskey "v">
+<!ENTITY issues.change.description "Nastavenie bolo zmenené. Opäť načítajte stránku na otestovanie zmien a potvrďte správu ak problém nebol odstránený.">
+<!ENTITY typeWarning.description "Naznačili ste, že chcete ohlásiť všeobecný problém s Adblock Plus radšej ako problém s filtrami. Všimnite si, že tieto otázky sa lepšie riešia na [link]fórume Adblock Plus[/link]. Mali by ste použiť reportér problémov pre doplnenie  existujúcej diskusie, inak si nikto nevšimne vašu správu skôr, než ju poskytnete na danom odkaze. Automaticky vygenerovaný odkaz bude poskytnutý po potvrdení správy.">
+<!ENTITY typeWarning.override.label "Rozumiem a chcem potvrdiť správu">
+<!ENTITY typeWarning.override.accesskey "m">
+<!ENTITY reloadButton.label "Opäť načítať stránku">
+<!ENTITY reloadButton.accesskey "O">
+<!ENTITY screenshot.heading "Pripojiť screenshot">
+<!ENTITY screenshot.description "Rovnaká stránka vyzerá rozdielne pre rôznych ľudí. Môže nám pomôcť pochopiť problém, ak priložíte k správe screenshot. Môžete odstrániť časť s citlivými údajmi, ak označíte len časť, kde je problém zrejmý. Kliknite na tlačidlo a vyberte časť obrázka.">
+<!ENTITY screenshot.attach.label "Pripojiť obrázok stránky ku správu">
+<!ENTITY screenshot.attach.accesskey "j">
+<!ENTITY screenshot.mark.label "Označiť problém">
+<!ENTITY screenshot.mark.accesskey "z">
+<!ENTITY screenshot.remove.label "Odstrániť citlivé údaje">
+<!ENTITY screenshot.remove.accesskey "R">
+<!ENTITY screenshot.undo.label "Späť">
+<!ENTITY screenshot.undo.accesskey "S">
+<!ENTITY commentPage.heading "Vložiť komentár">
+<!ENTITY commentPage.description "Textové pole nižšie vám umožňuje vložiť komentár pre vysvetlenie daného problému. Tento krok je nepovinný, ale odporúčame ho ak problém nie je jasný. Môžete tiež posúdiť správu skôr, než ju odošlete.">
+<!ENTITY comment.label "Komentár (nepovinné):">
+<!ENTITY comment.accesskey "r">
+<!ENTITY comment.lengthWarning "Dĺžka váško komentára prevyšuje 1000 znakov. Bude odoslaných len prvých 1000 znakov.">
+<!ENTITY email.label "Email pre ďalšie informácie (nepovinné):">
+<!ENTITY email.accesskey "m">
+<!ENTITY attachExtensions.label "Priložiť zoznam aktívnych rozšírení k tejto správe pre prípad, že rozšírenie spôsobuje tento problém">
+<!ENTITY attachExtensions.accesskey "z">
+<!ENTITY sendButton.label "Poslať správu">
+<!ENTITY sendButton.accesskey "l">
+<!ENTITY showData.label "Zobraziť údaje správy">
+<!ENTITY data.label "Údaje správy:">
+<!ENTITY data.accesskey "d">
+<!ENTITY sendPage.heading "Poslať správu">
+<!ENTITY sendPage.waitMessage "Počkajte, prosím, kým Adblock Plus potvrdí vašu správu.">
+<!ENTITY sendPage.confirmation "Vaša správa bola uložená. Môžete ju sprístupniť na tejto adrese:">
+<!ENTITY sendPage.knownIssue "Problém, ktorý ste ohlásili je pravdepodobne známy. Viac informácií:">
+<!ENTITY sendPage.errorMessage "Pokus o zaslanie správy zlyhal s kódom chyby &quot;?1?&quot;. Presvedčte sa, či ste pripojený na internet a skúste to znova. Ak problém pretrváva, požiadajte o pomoc na [link]fórume Adblock Plus[/link].">
+<!ENTITY sendPage.retry.label "Poslať znova">
+<!ENTITY copyLink.label "Kopírovať odkaz správy">
+<!ENTITY copyLink.accesskey "K">

@@ -9,6 +9,8 @@
 <!ENTITY state.label "상태">
 <!ENTITY size.label "크기">
 <!ENTITY docDomain.label "문서 위치">
+<!ENTITY docDomain.thirdParty "(서드 파티)">
+<!ENTITY docDomain.firstParty "(퍼스트 파티)">
 <!ENTITY noitems.label "차단 가능한 항목 없음">
 <!ENTITY whitelisted.label "허용된 페이지">
 <!ENTITY tooltip.address.label "주소 :">
@@ -18,6 +20,7 @@
 <!ENTITY tooltip.size.label "크기 :">
 <!ENTITY tooltip.docDomain.label "문서 위치 :">
 <!ENTITY tooltip.filter.label "필터 :">
+<!ENTITY tooltip.filter.disabled "(사용 안 함)">
 <!ENTITY tooltip.filterSource.label "그룹 :">
 <!ENTITY context.block.label "차단 필터 추가">
 <!ENTITY context.editfilter.label "필터 편집">

@@ -16,6 +16,7 @@
 <!ENTITY pattern.explanation "Vzor může být jakákoli část adresy, znak * funguje jako divoká karta. Filtr bude aplikován pouze na adresy odpovídající vzoru.">
 <!ENTITY regexp.warning "Vzor, který jste zadali, bude interpretován jako regulární výraz. Mnoho regulárních výrazů může zpomalit vaše prohlížení stránek. Pokud jste nechěli použít regulární výraz, přidejte znak * na konec vzoru.">
 <!ENTITY shortpattern.warning "Vzor, který jste zadali, je příliš krátký, aby mohl být optimalizován. Mnoho takových výrazů může zpomalit vaše prohlížení stránek. Je doporučeno, abyste pro tento filtr zadali delší řetězec.">
+<!ENTITY match.warning "Vzor, který jste zadali, už neodpovídá adrese, kterou chcete zablokovat/povolit a nebude na ni tedy mít žádný účinek.">
 <!ENTITY custom.pattern.label "Vlastní:">
 <!ENTITY custom.pattern.accesskey "n">
 <!ENTITY anchors.label "Povolit vzor pouze:">

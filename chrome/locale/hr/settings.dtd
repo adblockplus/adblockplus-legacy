@@ -62,6 +62,8 @@
 <!ENTITY about.label "O Adblock Plus">
 <!ENTITY about.accesskey "O">
 <!ENTITY description "Dodajte adrese koje želite blokirati, za prijedloge provjerite padajući popis.
+
+
 Možete koristiti * kao joker da bi kreirali još općenitije filtere. Napredni korisnici mogu koristiti regularne izraze kao /banner\d+\.gif$/.">
 <!ENTITY filter.column "Pravilo filtera">
 <!ENTITY filter.accesskey "F">

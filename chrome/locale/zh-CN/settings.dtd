@@ -62,7 +62,10 @@
 <!ENTITY about.label "关于Adblock Plus">
 <!ENTITY about.accesskey "B">
 <!ENTITY description "添加你想过滤的地址，建议检查下拉列表。
+
+
 		你可以使用*作为通配符来创建更通用的过滤规则。
+
 		高级用户可以使用象 /banner\d+\.gif$/ 这样的正则表达式。">
 <!ENTITY filter.column "过滤规则">
 <!ENTITY filter.accesskey "F">

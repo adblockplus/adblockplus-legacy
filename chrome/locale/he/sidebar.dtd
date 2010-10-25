@@ -9,6 +9,8 @@
 <!ENTITY state.label "מצב">
 <!ENTITY size.label "גודל">
 <!ENTITY docDomain.label "מקור המסמך">
+<!ENTITY docDomain.thirdParty "(צד שלישי)">
+<!ENTITY docDomain.firstParty "(צד ראשון)">
 <!ENTITY noitems.label "אין פריטים הניתנים לחסימה">
 <!ENTITY whitelisted.label "העמוד נמצא ברשימה הלבנה">
 <!ENTITY tooltip.address.label "כתובת:">
@@ -18,6 +20,7 @@
 <!ENTITY tooltip.size.label "גודל:">
 <!ENTITY tooltip.docDomain.label "מקור המסמך:">
 <!ENTITY tooltip.filter.label "השפעת המסנן:">
+<!ENTITY tooltip.filter.disabled "(מנוטרל)">
 <!ENTITY tooltip.filterSource.label "מקור מסנן">
 <!ENTITY context.block.label "חסימת פריט זה">
 <!ENTITY context.editfilter.label "עריכת המסנן שמשפיע">

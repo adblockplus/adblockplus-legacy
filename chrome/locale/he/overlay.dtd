@@ -8,9 +8,11 @@
 <!ENTITY context.image.label "Adblock Plus: חסימת תמונה">
 <!ENTITY context.object.label "Adblock Plus: חסימת פריט">
 <!ENTITY context.frame.label "Adblock Plus: חסימת מסגרת (פריים)">
-<!ENTITY context.media.label "Adblock Plus: חסימת ווידאו\אודיו">
-<!ENTITY context.removeWhitelist.label "Adblock Plus: מאפשר מחדש בעמוד זה">
+<!ENTITY context.media.label "Adblock Plus: חסימת ווידאו/אודיו">
+<!ENTITY context.removeWhitelist.label "Adblock Plus: מאופשר מחדש בעמוד זה">
 <!ENTITY sidebar.title "פריטים לחסימה בעמוד הנוכחי">
+<!ENTITY sendReport.label "דיווח בעיות בעמוד זה">
+<!ENTITY sendReport.accesskey "ד">
 <!ENTITY settings.label "העדפות">
 <!ENTITY settings.accesskey "ע">
 <!ENTITY opensidebar.label "פתיחת רשימת הפריטים לחסימה">
@@ -20,4 +22,4 @@
 <!ENTITY whitelist.site.label "נטרול ב ?1?">
 <!ENTITY whitelist.page.label "נטרול בעמוד הזה בלבד">
 <!ENTITY objecttab.title "חסימה">
-<!ENTITY objecttab.tooltip "לחץ כאן לחסימת פריט זה עם Adblock Plus">
+<!ENTITY objecttab.tooltip "לחיצה כאן לחסימת פריט זה עם Adblock Plus">

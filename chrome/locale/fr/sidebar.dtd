@@ -9,6 +9,8 @@
 <!ENTITY state.label "État">
 <!ENTITY size.label "Taille">
 <!ENTITY docDomain.label "Source du document">
+<!ENTITY docDomain.thirdParty "(troisième partie)">
+<!ENTITY docDomain.firstParty "(première partie)">
 <!ENTITY noitems.label "Aucun élément filtrable">
 <!ENTITY whitelisted.label "Page dans la liste blanche">
 <!ENTITY tooltip.address.label "Adresse :">
@@ -18,6 +20,7 @@
 <!ENTITY tooltip.size.label "Taille :">
 <!ENTITY tooltip.docDomain.label "Source du document :">
 <!ENTITY tooltip.filter.label "Filtre utilisé :">
+<!ENTITY tooltip.filter.disabled "(désactivé)">
 <!ENTITY tooltip.filterSource.label "Source du filtre :">
 <!ENTITY context.block.label "Bloquer cet élément">
 <!ENTITY context.editfilter.label "Modifier le filtre actif">
