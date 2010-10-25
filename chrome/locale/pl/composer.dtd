@@ -16,6 +16,7 @@
 <!ENTITY pattern.explanation "Wzorzec może składać się z dowolnej części adresu i symbolu * działającego jako wieloznacznik. Filtr będzie działał tylko na stronach o adresie pasującym do wzorca.">
 <!ENTITY regexp.warning "Wprowadzony wzorzec będzie interpretowany jako wyrażenie regularne. Wiele wyrażeń regularnych może spowalniać przeglądanie Internetu. Jeśli nie zamierzasz używać wyrażeń regularnych, dodaj na końcu wzorca wieloznacznik *.">
 <!ENTITY shortpattern.warning "Wprowadzony wzorzec jest za krótki, by go zoptymalizować. Duża liczba takich wzorców może spowalniać przeglądanie Internetu. Zaleca się wybrać dla tego filtru nieco dłuższy ciąg znaków.">
+<!ENTITY match.warning "Wprowadzony wzorzec już nie pasuje do blokowanego/dozwolonego adresu i nie będzie dawał żadnych efektów.">
 <!ENTITY custom.pattern.label "Dostosuj:">
 <!ENTITY custom.pattern.accesskey "D">
 <!ENTITY anchors.label "Akceptuj wzorzec tylko:">

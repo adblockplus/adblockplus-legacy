@@ -9,6 +9,8 @@
 <!ENTITY state.label "Stav">
 <!ENTITY size.label "Veľkosť">
 <!ENTITY docDomain.label "Zdroj dokumentu">
+<!ENTITY docDomain.thirdParty "(tretia strana)">
+<!ENTITY docDomain.firstParty "(prvá strana)">
 <!ENTITY noitems.label "Neblokovateľné položky">
 <!ENTITY whitelisted.label "Povolené stránky">
 <!ENTITY tooltip.address.label "Adresa:">
@@ -18,6 +20,7 @@
 <!ENTITY tooltip.size.label "Veľkosť:">
 <!ENTITY tooltip.docDomain.label "Zdroj dokumentu:">
 <!ENTITY tooltip.filter.label "Platný filter:">
+<!ENTITY tooltip.filter.disabled "(vypnutý)">
 <!ENTITY tooltip.filterSource.label "Zdroj filtra:">
 <!ENTITY context.block.label "Blokovať túto položku">
 <!ENTITY context.editfilter.label "Upraviť filter v skutočnosti">

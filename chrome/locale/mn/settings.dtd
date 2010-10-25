@@ -62,7 +62,10 @@
 <!ENTITY about.label "Adblock Plus-ийн тухай">
 <!ENTITY about.accesskey "Т">
 <!ENTITY description "Хашихыг хүссэн хаягаа нэмэхдээ, доош унжих жагсаалтаас авч боломжтой.
+
+
 		Та * ашиглан илүү ерөнхий шүүлтүүр үүсгэж болно. Илүү хэрэглэгчид
+
 		энгийн илэрхийлэл (regexpression) ашиглаж чадна. Ж: /banner\d+\.gif$/.">
 <!ENTITY filter.column "Шүүх дүрэм">
 <!ENTITY filter.accesskey "Ш">

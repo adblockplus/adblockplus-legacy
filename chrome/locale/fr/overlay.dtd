@@ -11,6 +11,8 @@
 <!ENTITY context.media.label "Bloquer les vidéo/audio avec Adblock">
 <!ENTITY context.removeWhitelist.label "Adblock Plus : activer à nouveau pour cette page">
 <!ENTITY sidebar.title "Éléments filtrables dans la page courante">
+<!ENTITY sendReport.label "Rapporter un problème sur cette page">
+<!ENTITY sendReport.accesskey "R">
 <!ENTITY settings.label "Préférences">
 <!ENTITY settings.accesskey "P">
 <!ENTITY opensidebar.label "Ouvrir la liste des éléments filtrables">

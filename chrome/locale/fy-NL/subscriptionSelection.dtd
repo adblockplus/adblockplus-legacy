@@ -1,7 +1,10 @@
 <!ENTITY dialog.title "Foegje Adblock Plus filterabonnemint ta">
 <!ENTITY dialog.title.edit "Filter abonnemint wizigje">
 <!ENTITY description.newInstall "Adblock Plus sil it meast effektyf wêze as jo in filterabonnemint tafoegje.
+
+
 	Filterabonneminten wurde oanlevere troch oare Adblock Plus brûkers hielendal fergees.
+
 	It meast fan tapassing achte abonnnemint foar jo taal is al selektearre.">
 <!ENTITY subscriptionSelector.label "Kies asjobleaft in filterabonnemint út de list:">
 <!ENTITY viewList.label "Toan filters">

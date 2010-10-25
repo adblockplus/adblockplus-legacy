@@ -1,0 +1,73 @@
+<!ENTITY wizard.title "Signalement de problèmes">
+<!ENTITY privacyPolicy.label "Politique de confidentialité">
+<!ENTITY dataCollector.heading "Bienvenue dans l'assistant de signalement de problèmes">
+<!ENTITY dataCollector.description "Veuillez patienter quelques instants pendant qu'Adblock Plus réunit les données nécessaires.">
+<!ENTITY typeSelector.heading "Choisir le type de problème">
+<!ENTITY typeSelector.description "Cette fenêtre vous guidera à travers les étapes nécessaires à la soumission d'un problème Adblock Plus. Dans un premier temps, veuillez choisir le type de problème rencontré sur cette page :">
+<!ENTITY typeSelector.falsePositive.label "Adblock Plus bloque trop">
+<!ENTITY typeSelector.falsePositive.accesskey "t">
+<!ENTITY typeSelector.falsePositive.description "Choisissez ceci si le contenu de la page est sévèrement tronqué, est mal affiché ou ne fonctionne pas correctement. Vous pouvez vérifier si Adblock Plus en est la cause en la désactivant temporairement.">
+<!ENTITY typeSelector.falseNegative.label "Adblock Plus ne bloque pas une publicité">
+<!ENTITY typeSelector.falseNegative.accesskey "b">
+<!ENTITY typeSelector.falseNegative.description "Choisissez ceci si une publicité est tout de même affichée bien qu'Adblock soit activée.">
+<!ENTITY typeSelector.other.label "Autre problème">
+<!ENTITY typeSelector.other.accesskey "A">
+<!ENTITY typeSelector.other.description "Choisissez ceci si vous pensez qu'Adblock Plus elle-même est la cause du problème plutôt que ses filtres.">
+<!ENTITY showRecentReports.label "Afficher les signalements soumis récemment">
+<!ENTITY recentReports.label "Vos signalements récents">
+<!ENTITY recentReports.clear.label "Supprimer tous les signalements">
+<!ENTITY recentReports.clear.accesskey "S">
+<!ENTITY issues.description "Adblock Plus a détecté que votre configuration est mal paramétrée, cela pourrait être la cause du problème ou rendra la recherche de solution de ce signalement difficile.">
+<!ENTITY issues.whitelist.description "Adblock Plus est actuellement désactivée sur la page que vous signalez. Veuillez l'activer à nouveau et actualiser la page avant de soumettre le signalement pour qu'une recherche de solutions soit entamée.">
+<!ENTITY issues.whitelist.remove.label "Activer à nouveau Adblock Plus sur cette page">
+<!ENTITY issues.disabled.description "Adblock Plus est désactivée, elle ne bloquera rien dans cet état.">
+<!ENTITY issues.disabled.enable.label "Activer Adblock Plus">
+<!ENTITY issues.nofilters.description "Adblock Plus ne bloque rien sur la page courante. Le problème que vous observez n'est probablement pas à mettre en relation avec Adblock Plus.">
+<!ENTITY issues.nosubscriptions.description "Vous ne semblez pas être abonné à une liste de filtres prédéfinis qui suppriment automatiquement des contenus indésirables de sites Web.">
+<!ENTITY issues.nosubscriptions.add.label "Ajouter un abonnement">
+<!ENTITY issues.ownfilters.description "Certains des filtres utilisés sur cette page sont des filtres définis par l'utilisateur. Veuillez désactiver les filtres qui ont pourraient avoir été à l'origine du problème :">
+<!ENTITY issues.ownfilters.disable.label "Désactiver le filtre">
+<!ENTITY issues.disabledgroups.description "Les abonnements/groupes de filtres suivants sont désactivés, ils ne peuvent pas encore avoir d'effet sur cette page :">
+<!ENTITY issues.disabledgroups.enable.label "Activer l'abonnement/le groupe de filtres">
+<!ENTITY issues.disabledfilters.description "Les filtres suivants sont désactivés, ils ne peuvent pas encore avoir d'effet sur cette page :">
+<!ENTITY issues.disabledfilters.enable.label "Activer le filtre">
+<!ENTITY issues.override.label "La configuration est correcte, continuer avec le signalement">
+<!ENTITY issues.override.accesskey "c">
+<!ENTITY issues.change.description "Votre configuration a été modifiée. Veuillez actualiser la page pour tester les modifications et soumettez un signalement si le problème n'a pas été résolu en effectuant ce changement.">
+<!ENTITY typeWarning.description "Vous avez indiqué que vous souhaitez soumettre un problème général avec Adblock Plus plutôt qu'un problème de filtres. Veuillez prendre note que ce type de problèmes est plutôt à signaler dans le [link]forum d'Adblock Plus[/link]. Vous devriez uniquement utiliser la soumission de signalement pour ajouter un point à une discussion existante, puisque personne ne pourra en prendre connaissance tant que vous ne fournissez pas le lien pointant vers la discussion. Le lien automatiquement généré sera fourni après la soumission.">
+<!ENTITY typeWarning.override.label "Je comprends et souhaite soumettre le signalement tout de même">
+<!ENTITY typeWarning.override.accesskey "s">
+<!ENTITY reloadButton.label "Actualiser la page">
+<!ENTITY reloadButton.accesskey "A">
+<!ENTITY screenshot.heading "Joindre une copie d'écran">
+<!ENTITY screenshot.description "La même page peut s'afficher différemment pour différentes personnes. Cela pourrait être utile de joindre une copie d'écran à votre signalement. Vous pouvez enlever les parties contenant des informations sensibles et mettre en évidence les zones où le problème est visible. Pour cela, cliquez sur le bouton correspondant et sélectionnez une zone de l'image avec votre souris.">
+<!ENTITY screenshot.attach.label "Joindre une image de la page au signalement">
+<!ENTITY screenshot.attach.accesskey "j">
+<!ENTITY screenshot.mark.label "Mettre en évidence le problème">
+<!ENTITY screenshot.mark.accesskey "M">
+<!ENTITY screenshot.remove.label "Supprimer les données sensibles">
+<!ENTITY screenshot.remove.accesskey "S">
+<!ENTITY screenshot.undo.label "Annuler avant qu'il ne soit envoyé.">
+<!ENTITY screenshot.undo.accesskey "n">
+<!ENTITY commentPage.heading "Commentaire">
+<!ENTITY commentPage.description "Le champ ci-dessous vous permet de saisir un commentaire pour nous aider à comprendre le problème. Cette étape est facultative mais recommandée si le problème n'est pas évident à détecter. Vous pouvez également revoir les données du signalement">
+<!ENTITY comment.label "Commentaire (facultatif) :">
+<!ENTITY comment.accesskey "C">
+<!ENTITY comment.lengthWarning "Votre commentaire comporte plus de 1000 caractères. Uniquement les 1000 premiers caractères seront envoyés.">
+<!ENTITY email.label "Courriel pour demande de renseignements supplémentaires (facultatif) :">
+<!ENTITY email.accesskey "o">
+<!ENTITY attachExtensions.label "Joindre une liste d'extensions actives au signalement au cas où il y aurait un problème de conflit d'extension">
+<!ENTITY attachExtensions.accesskey "x">
+<!ENTITY sendButton.label "Envoyer le signalement">
+<!ENTITY sendButton.accesskey "y">
+<!ENTITY showData.label "Afficher les données du signalement">
+<!ENTITY data.label "Données du signalement :">
+<!ENTITY data.accesskey "D">
+<!ENTITY sendPage.heading "Envoyer le signalement">
+<!ENTITY sendPage.waitMessage "Veuillez patienter pendant qu'Adblock Plus soumet votre signalement.">
+<!ENTITY sendPage.confirmation "Votre signalement a été envoyé. Vous pouvez y accéder à l'adresse suivante :">
+<!ENTITY sendPage.knownIssue "Le problème que vous signalez est probablement déjà connu. Davantage d'informations :">
+<!ENTITY sendPage.errorMessage "Une tentative d'envoi du signalement a échoué avec le code erreur &quot;?1?&quot;. Veuillez vérifier que vous êtes bien connecté à Internet et réessayez. Si le problème persiste, veuillez demander assistance dans le [link]forum d'Adblock Plus[/link].">
+<!ENTITY sendPage.retry.label "Envoyer à nouveau">
+<!ENTITY copyLink.label "Copier le lien du signalement">
+<!ENTITY copyLink.accesskey "p">

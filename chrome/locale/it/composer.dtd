@@ -16,6 +16,7 @@
 <!ENTITY pattern.explanation "Il modello può corrispondere a qualsiasi parte dell&apos;indirizzo web, il carattere * corrisponde ad un carattere jolly. Il filtro verrà applicato ai soli indirizzi web corrispondenti al modello">
 <!ENTITY regexp.warning "Il modello inserito verrà interpretato come espressione regolare. Un numero eccessivo di tali modelli potrebbe rallentare la navigazione. Se non si intende utilizzare le espressioni regolari aggiungere il carattere * alla fine del modello">
 <!ENTITY shortpattern.warning "Il modello inserito è troppo breve per essere ottimizzato. Un numero eccessivo di tali modelli potrebbe rallentare la navigazione. Sarebbe preferibile utilizzare una stringa più lunga">
+<!ENTITY match.warning "Il modello inserito non corrisponde più all&apos;indirizzo web da bloccare/permettere e non avrà quindi alcun effetto">
 <!ENTITY custom.pattern.label "Personalizza:">
 <!ENTITY custom.pattern.accesskey "P">
 <!ENTITY anchors.label "Accetta modelli solo:">

@@ -50,8 +50,12 @@
 <!ENTITY about.label "درباره Adblock Plus">
 <!ENTITY about.accesskey "د">
 <!ENTITY description "برای رد کردن نشانی‌ها٬ آنها را به این فهرست اضافه کنید.
+
+
 		برای استفاده از لیست‌های عمومی از ستاره استفاده کنید.
+
 کاربران پیشرفته می‌توانند از عبارات مرتب استفاده کنند٬ مانند:
+
 		/banner\d+\.gif$/">
 <!ENTITY enabled.column "فعال‌">
 <!ENTITY hitcount.column "استفاده شده">

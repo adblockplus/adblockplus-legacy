@@ -9,6 +9,8 @@
 <!ENTITY state.label "Статус">
 <!ENTITY size.label "Величина">
 <!ENTITY docDomain.label "Извор документа">
+<!ENTITY docDomain.thirdParty "(трећа страна)">
+<!ENTITY docDomain.firstParty "(прва страна)">
 <!ENTITY noitems.label "Нема ставки за блокирање">
 <!ENTITY whitelisted.label "Бела листа">
 <!ENTITY tooltip.address.label "Адреса:">
@@ -18,6 +20,7 @@
 <!ENTITY tooltip.size.label "Величина:">
 <!ENTITY tooltip.docDomain.label "Извор документа:">
 <!ENTITY tooltip.filter.label "Коришћени филтер:">
+<!ENTITY tooltip.filter.disabled "(онемогућено)">
 <!ENTITY tooltip.filterSource.label "Извор филтера:">
 <!ENTITY context.block.label "Блокирај ову ставку">
 <!ENTITY context.editfilter.label "Уреди коришћени филтер">

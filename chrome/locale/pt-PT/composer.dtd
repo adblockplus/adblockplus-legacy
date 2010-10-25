@@ -16,6 +16,7 @@
 <!ENTITY pattern.explanation "O padrão pode ser qualquer parte do endereço, o asterisco (*) funciona como wildcard. O filtro apenas será aplicado a endereços que correspondam ao padrão.">
 <!ENTITY regexp.warning "O padrão inserido será interpretado como expressão regular. A utilização de demasiadas expressões regulares poderá lentificar o browser. Se não pretendia utilizar expressões regulares adicione um asterisco (*) no final do padrão.">
 <!ENTITY shortpattern.warning "O padrão inserido é demasiado curto para ser optimizado. A utilização de demasiados padrões poderá lentificar o browser. É recomendável a utilização de expressões mais longas para este filtro.">
+<!ENTITY match.warning "O padrão que inseriu já não corresponde ao endereço a ser bloqueado/ desbloqueado e não surtirá efeito.">
 <!ENTITY custom.pattern.label "Personalização:">
 <!ENTITY custom.pattern.accesskey "P">
 <!ENTITY anchors.label "Aceitar o padrão apenas:">

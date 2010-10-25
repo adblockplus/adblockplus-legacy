@@ -11,6 +11,8 @@
 <!ENTITY context.media.label "Adblock: Дуу/видео">
 <!ENTITY context.removeWhitelist.label "Adblock: Уг хуудсанд дахин нээх">
 <!ENTITY sidebar.title "Тухайн хуудас дахь хашигдаж болох зүйлс">
+<!ENTITY sendReport.label "Энэ хуудас дахь асуудлыг мэдэгдэх">
+<!ENTITY sendReport.accesskey "М">
 <!ENTITY settings.label "Тохиргоонууд">
 <!ENTITY settings.accesskey "Т">
 <!ENTITY opensidebar.label "Хашигдах зүйлсийг нээх">

@@ -62,7 +62,10 @@
 <!ENTITY about.label "O rozšírení Adblock Plus">
 <!ENTITY about.accesskey "O">
 <!ENTITY description "Pridať adresu,ktorú chcete blokovať, návrhy skontrolujte v rozbaľovacej ponuke.
+
+
 		Môžete použiť * ako divokú kartu na vytvorenie všeobecných filtrov. Pokročilí používatelia môžu
+
 		použiť regulárne výrazy ako /banner\d+\.gif$/.">
 <!ENTITY filter.column "Pravidlo filtra">
 <!ENTITY filter.accesskey "f">

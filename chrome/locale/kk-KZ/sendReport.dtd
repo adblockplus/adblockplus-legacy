@@ -1,0 +1,36 @@
+<!ENTITY wizard.title "Хабарлаушы">
+<!ENTITY privacyPolicy.label "Жекелік саясаиы">
+<!ENTITY dataCollector.heading "Мәселелер туралы хабарлауға қош келдіңіз">
+<!ENTITY dataCollector.description "Adblock Plus керек ақпаратты жинағанша, күте тұрыңыз.">
+<!ENTITY typeSelector.heading "Мәселе түрін таңдаңыз">
+<!ENTITY typeSelector.falsePositive.label "Adblock Plus тым көп блоктайды">
+<!ENTITY typeSelector.falsePositive.accesskey "т">
+<!ENTITY typeSelector.falseNegative.label "Adblock Plus жарнаманы блоктамайды">
+<!ENTITY typeSelector.falseNegative.accesskey "м">
+<!ENTITY typeSelector.other.label "Басқа мәселе">
+<!ENTITY typeSelector.other.accesskey "с">
+<!ENTITY showRecentReports.label "Соңғы жіберілген хабарламаларды қарау">
+<!ENTITY recentReports.label "Сіздің соңғы жіберген хабарламаларыңыз">
+<!ENTITY recentReports.clear.label "Барлық хабарламаларды өшіру">
+<!ENTITY recentReports.clear.accesskey "ш">
+<!ENTITY issues.whitelist.remove.label "Adblock Plus осы парақта қайта қосу">
+<!ENTITY issues.disabled.description "Adblock Plus қазір сөндірулі тұр, сондықтан ол ешнәрсені блоктамайды.">
+<!ENTITY issues.disabled.enable.label "Adblock Plus іске қосу">
+<!ENTITY issues.nofilters.description "Adblock Plus бұл парақта ешнәрсені блоктап тұрған жоқ. Бұл мәселе Adblock Plus-ке байланысты емес сияқты.">
+<!ENTITY issues.nosubscriptions.add.label "Фильтрлерге жазылуды қосу">
+<!ENTITY issues.ownfilters.disable.label "Фильтрді сөндіру">
+<!ENTITY issues.disabledfilters.enable.label "Фильтрді іске қосу">
+<!ENTITY reloadButton.label "Парақты қайта жүктеу">
+<!ENTITY reloadButton.accesskey "р">
+<!ENTITY screenshot.heading "Скриншотты қосып жіберу">
+<!ENTITY screenshot.attach.label "Парақ скриншотын хабарламаға қосып жіберу">
+<!ENTITY screenshot.attach.accesskey "т">
+<!ENTITY screenshot.undo.label "Болдырмау">
+<!ENTITY sendButton.label "Хабарламаны жіберу">
+<!ENTITY sendButton.accesskey "н">
+<!ENTITY showData.label "Хабарлама мәліметін көрсету">
+<!ENTITY data.label "Хабарлама мәліметі:">
+<!ENTITY data.accesskey "м">
+<!ENTITY sendPage.heading "Хабарламаны жіберу">
+<!ENTITY sendPage.waitMessage "Adblock Plus хабарламаңызды жібергенше күте тұрыңыз.">
+<!ENTITY sendPage.confirmation "Хабарламаңыз сақталды. Оны келесі адрестен көре аласыз:">

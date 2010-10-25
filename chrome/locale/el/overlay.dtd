@@ -11,6 +11,8 @@
 <!ENTITY context.media.label "Adblock Plus: φραγή ήχου/βίντεο">
 <!ENTITY context.removeWhitelist.label "Adblock Plus: Ενεργοποίηση σ' αυτή την σελίδα">
 <!ENTITY sidebar.title "Στοιχεία προς φιλτράρισμα στην τρέχουσα σελίδα">
+<!ENTITY sendReport.label "Αναφορά προβλήματος σε αυτή την σελίδα">
+<!ENTITY sendReport.accesskey "ρ">
 <!ENTITY settings.label "Προτιμήσεις">
 <!ENTITY settings.accesskey "Π">
 <!ENTITY opensidebar.label "Άνοιγμα των φιλτραρισμένων στοιχείων">

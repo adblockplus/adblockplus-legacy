@@ -9,6 +9,8 @@
 <!ENTITY state.label "Stan">
 <!ENTITY size.label "Rozmiar">
 <!ENTITY docDomain.label "Źródło dokumentu">
+<!ENTITY docDomain.thirdParty "(trzecia część)">
+<!ENTITY docDomain.firstParty "(pierwsza część)">
 <!ENTITY noitems.label "Elementy nieblokowalne">
 <!ENTITY whitelisted.label "Nieblokowana strona">
 <!ENTITY tooltip.address.label "Adres:">
@@ -18,6 +20,7 @@
 <!ENTITY tooltip.size.label "Rozmiar:">
 <!ENTITY tooltip.docDomain.label "Źródło dokumentu:">
 <!ENTITY tooltip.filter.label "Działające filtry:">
+<!ENTITY tooltip.filter.disabled "(wyłączony)">
 <!ENTITY tooltip.filterSource.label "Źródło filtra:">
 <!ENTITY context.block.label "Zablokuj ten element">
 <!ENTITY context.editfilter.label "Edytuj filtr w rzeczywistości">
