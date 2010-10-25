@@ -9,6 +9,8 @@
 <!ENTITY state.label "Estat">
 <!ENTITY size.label "Mida">
 <!ENTITY docDomain.label "Font del document">
+<!ENTITY docDomain.thirdParty "(tercers)">
+<!ENTITY docDomain.firstParty "(primers)">
 <!ENTITY noitems.label "Elements no bloquejables">
 <!ENTITY whitelisted.label "Pàgina a la llista de permesos">
 <!ENTITY tooltip.address.label "Adreça">
@@ -18,6 +20,7 @@
 <!ENTITY tooltip.size.label "Mida">
 <!ENTITY tooltip.docDomain.label "Font del document:">
 <!ENTITY tooltip.filter.label "Filtre actiu">
+<!ENTITY tooltip.filter.disabled "(desactivat)">
 <!ENTITY tooltip.filterSource.label "Filtre d'origen">
 <!ENTITY context.block.label "Bloqueja aquest element">
 <!ENTITY context.editfilter.label "Editar filtre actiu">

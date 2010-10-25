@@ -16,6 +16,7 @@
 <!ENTITY pattern.explanation "El patró pot ser qualsevol part de l'adreça, el símbol ^ serveix de comodí. El filtre només s'aplicarà a adreces que concordin amb el filtre">
 <!ENTITY regexp.warning "El patró que s'ha entrat serà interpretat com una expressió regular. Massa expressions regulars poden alentir la navegació. Si no es volia utilitzar una expressió regular, afegir el símbol ^ al final del patró.">
 <!ENTITY shortpattern.warning "El patró entrat es massa curt per ser optimitzat, massa patrons d'aquest tipus poden alentir la navegació. Es recomana una cadena de text més llarga per aquest filtre.">
+<!ENTITY match.warning "El patró entrat ja no concorda amb l'adreça a bloquejar/acceptar i no tindrà cap efecte.">
 <!ENTITY custom.pattern.label "Personalitzar:">
 <!ENTITY custom.pattern.accesskey "P">
 <!ENTITY anchors.label "Accepta només un patró:">

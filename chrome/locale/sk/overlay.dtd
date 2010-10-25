@@ -11,6 +11,8 @@
 <!ENTITY context.media.label "Adblock Plus: Blokovať audio/video">
 <!ENTITY context.removeWhitelist.label "Adblock Plus: Znovu zapnúť túto stránku">
 <!ENTITY sidebar.title "Blokovateľné položky na aktuálnej stránke">
+<!ENTITY sendReport.label "Ohlásiť problém na tejto stránke">
+<!ENTITY sendReport.accesskey "O">
 <!ENTITY settings.label "Nastavenia">
 <!ENTITY settings.accesskey "N">
 <!ENTITY opensidebar.label "Otvoriť blokovateľné položky">

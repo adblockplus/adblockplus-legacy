@@ -9,8 +9,10 @@
 <!ENTITY state.label "Állapot">
 <!ENTITY size.label "Méret">
 <!ENTITY docDomain.label "Dokumentum forrás">
+<!ENTITY docDomain.thirdParty "(3. fél)">
+<!ENTITY docDomain.firstParty "(első fél)">
 <!ENTITY noitems.label "Nincs blokkolható objektum">
-<!ENTITY whitelisted.label "A cím &apos;fehér listán&apos; van">
+<!ENTITY whitelisted.label "A cím 'fehér listán' van">
 <!ENTITY tooltip.address.label "Cím:">
 <!ENTITY tooltip.type.label "Típus:">
 <!ENTITY tooltip.type.blocked "(blokkolva)">
@@ -18,6 +20,7 @@
 <!ENTITY tooltip.size.label "Méret:">
 <!ENTITY tooltip.docDomain.label "Dokumentum forrás:">
 <!ENTITY tooltip.filter.label "Alkalmazott szűrők:">
+<!ENTITY tooltip.filter.disabled "(letiltva)">
 <!ENTITY tooltip.filterSource.label "Szűrő forrása:">
 <!ENTITY context.block.label "Objektum blokkolása">
 <!ENTITY context.editfilter.label "Alkalmazott szűrő szerkesztése">

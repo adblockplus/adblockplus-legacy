@@ -11,6 +11,8 @@
 <!ENTITY context.media.label "Zablokuj wideo/audio">
 <!ENTITY context.removeWhitelist.label "Włącz ponownie na tej stronie">
 <!ENTITY sidebar.title "Blokowalne elementy na aktywnej stronie">
+<!ENTITY sendReport.label "Zgłoś problem na tej stronie">
+<!ENTITY sendReport.accesskey "Z">
 <!ENTITY settings.label "Ustawienia">
 <!ENTITY settings.accesskey "U">
 <!ENTITY opensidebar.label "Otwórz listę blokowalnych elementów">

@@ -11,6 +11,8 @@
 <!ENTITY context.media.label "Adblock Plus: Аудио/Видеоны блоктау">
 <!ENTITY context.removeWhitelist.label "Adblock Plus: Осы парақта қайта қосу">
 <!ENTITY sidebar.title "Ағымдағы парақ құрамасы">
+<!ENTITY sendReport.label "Бұл парақтағы мәселе туралы хабарлау">
+<!ENTITY sendReport.accesskey "х">
 <!ENTITY settings.label "Баптаулары">
 <!ENTITY settings.accesskey "т">
 <!ENTITY opensidebar.label "Блокталған құраманы ашу">

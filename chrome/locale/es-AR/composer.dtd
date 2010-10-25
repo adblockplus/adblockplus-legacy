@@ -16,6 +16,7 @@
 <!ENTITY pattern.explanation "El patrón puede ser cualquier parte de la dirección. El asterisco (&quot;*&quot;) funciona como un comodín. El filtro sólo será aplicado a aquellas direcciones que que coincidan con el patrón.">
 <!ENTITY regexp.warning "El patrón que ingresés será interpretado como una expresión constante. Demasiadas expresiones constantes podrían ralentizar tu navegación web. Si no preferís usar expresiones constantes, agregá un asterisco (&quot;*&quot;) al final del patrón.">
 <!ENTITY shortpattern.warning "El patrón que ingresaste es demasiado corto para poder ser optimizado. Varios patrones similares podrían ralentizar tu navegación web. Te recomendamos que elijas una cadena más larga para este filtro.">
+<!ENTITY match.warning "El patrón que ingresaste no coincide más con la dirección bloqueada o segura, y no surtirá ningún efecto.">
 <!ENTITY custom.pattern.label "Personalizado:">
 <!ENTITY custom.pattern.accesskey "P">
 <!ENTITY anchors.label "Aceptar solamente patrón:">

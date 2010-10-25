@@ -1,9 +1,14 @@
 <!ENTITY dialog.title "Adblock Plus 同期フィルタの追加">
 <!ENTITY dialog.title.edit "同期フィルタを編集">
 <!ENTITY description.newInstall "
+
+
 	Adblock Plus では同期フィルタを使うと効果的です。
+
 	以下のフィルタは有志によって作成され無償で提供されています。
+
 	あなたが使っている言語に最も適したものが選択されています。
+
 ">
 <!ENTITY subscriptionSelector.label "リストから同期フィルタを選択してください：">
 <!ENTITY viewList.label "内容を確認する">

@@ -16,6 +16,7 @@
 <!ENTITY pattern.explanation "Le motif peut être une partie de l&apos;adresse, le symbole * jouant le rôle de joker. Le filtre ne sera appliqué qu&apos;aux adresses coïncidant avec le motif.">
 <!ENTITY regexp.warning "Le motif que vous avez indiqué sera interprété comme une expression régulière. Un grand nombre d&apos;expressions régulières ralentira votre navigation. Si vous ne souhaitiez pas utiliser des expressions régulières, veuillez ajouter un * à la fin du motif.">
 <!ENTITY shortpattern.warning "Le motif que vous avez indiqué est trop court pour être optimisé, un grand nombre de ce genre de motifs ralentira votre navigation. Nous vous recommandons de choisir une chaîne de caractères plus longue pour ce filtre.">
+<!ENTITY match.warning "Le motif que vous avez saisi ne correspondra plus à l'adresse devant être bloquée/autorisée et n'aura plus aucun effet sur elle.">
 <!ENTITY custom.pattern.label "Personnaliser :">
 <!ENTITY custom.pattern.accesskey "P">
 <!ENTITY anchors.label "Accepter le motif uniquement :">

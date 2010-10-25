@@ -13,7 +13,7 @@
 <!ENTITY list.download.website "웹 사이트">
 <!ENTITY fromWeb.description "추가하고자 한 구독 필터인지 확인하십시오. 추가하기 전에 이름 또는 위치를 변경할 수 있습니다.">
 <!ENTITY edit.description "구독 필터의 이름 또는 위치를 변경할 수 있습니다.">
-<!ENTITY external.description "외부 구독 필터입니다. 이 구독 필터에 의해 필터 목록이 주기적으로 업데이트됩니다.">
+<!ENTITY external.description "외부 구독 필터입니다. 이 구독 필터를 생성한 부가 기능에 의해 필터 목록이 주기적으로 업데이트됩니다.">
 <!ENTITY title.label "이름 (T)">
 <!ENTITY title.accesskey "T">
 <!ENTITY location.label "위치 (L)">

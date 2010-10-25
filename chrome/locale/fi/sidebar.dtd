@@ -9,6 +9,8 @@
 <!ENTITY state.label "Tila">
 <!ENTITY size.label "Koko">
 <!ENTITY docDomain.label "Dokumentin lähde">
+<!ENTITY docDomain.thirdParty "(kolmas osapuoli)">
+<!ENTITY docDomain.firstParty "(ensimmäinen osapuoli)">
 <!ENTITY noitems.label "Ei estettäviä elementtejä">
 <!ENTITY whitelisted.label "Sallittu sivu">
 <!ENTITY tooltip.address.label "Osoite:">
@@ -18,6 +20,7 @@
 <!ENTITY tooltip.size.label "Koko:">
 <!ENTITY tooltip.docDomain.label "Dokumentin lähde:">
 <!ENTITY tooltip.filter.label "Vaikuttava suodatin:">
+<!ENTITY tooltip.filter.disabled "(poistettu käytöstä)">
 <!ENTITY tooltip.filterSource.label "Suodattimen lähde:">
 <!ENTITY context.block.label "Estä elementti">
 <!ENTITY context.editfilter.label "Muokkaa suodatinta">

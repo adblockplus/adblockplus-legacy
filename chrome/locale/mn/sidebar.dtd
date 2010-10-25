@@ -9,6 +9,8 @@
 <!ENTITY state.label "Нөхцөл">
 <!ENTITY size.label "Хэмжээ">
 <!ENTITY docDomain.label "Баримтын эх">
+<!ENTITY docDomain.thirdParty "(гурав дахь хэсэг)">
+<!ENTITY docDomain.firstParty "(эхний хэсэг)">
 <!ENTITY noitems.label "Хашигдах зүйлс алга">
 <!ENTITY whitelisted.label "Цагаанжагсаалтын хуудас">
 <!ENTITY tooltip.address.label "Хаяг:">
@@ -18,6 +20,7 @@
 <!ENTITY tooltip.size.label "Хэмжээ:">
 <!ENTITY tooltip.docDomain.label "Баримтын эх:">
 <!ENTITY tooltip.filter.label "Эффектийн шүүлтүүр:">
+<!ENTITY tooltip.filter.disabled "(идэвхгүй)">
 <!ENTITY tooltip.filterSource.label "Шүүлтүүрийн эх:">
 <!ENTITY context.block.label "Уг зүйлийг хаших">
 <!ENTITY context.editfilter.label "Эффектийн шүүлтүүрийг засах">
