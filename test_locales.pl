@@ -31,7 +31,17 @@ my @mustDiffer = (
   ['abp:sendReport:typeWarning.override.accesskey', 'abp:sendReport:reloadButton.accesskey'],
   ['abp:sendReport:screenshot.attach.accesskey', 'abp:sendReport:screenshot.mark.accesskey', 'abp:sendReport:screenshot.remove.accesskey', 'abp:sendReport:screenshot.undo.accesskey'],
   ['abp:sendReport:comment.accesskey', 'abp:sendReport:email.accesskey', 'abp:sendReport:attachExtensions.accesskey', 'abp:sendReport:sendButton.accesskey', 'abp:sendReport:data.accesskey'],
-  ['ehh:global:command.select.key', 'ehh:global:command.wider.key', 'ehh:global:command.narrower.key', 'ehh:global:command.quit.key', 'ehh:global:command.blinkElement.key', 'ehh:global:command.viewSource.key', 'ehh:global:command.viewSourceWindow.key', 'ehh:global:command.showMenu.key'],
+  [
+    'ehh:global:command.select.key', 'ehh:global:command.select.alternativeKey',
+    'ehh:global:command.wider.key', 'ehh:global:command.wider.alternativeKey',
+    'ehh:global:command.narrower.key', 'ehh:global:command.narrower.alternativeKey',
+    'ehh:global:command.lock.key', 'ehh:global:command.lock.alternativeKey',
+    'ehh:global:command.quit.key', 'ehh:global:command.quit.alternativeKey',
+    'ehh:global:command.blinkElement.key', 'ehh:global:command.blinkElement.alternativeKey',
+    'ehh:global:command.viewSource.key', 'ehh:global:command.viewSource.alternativeKey',
+    'ehh:global:command.viewSourceWindow.key', 'ehh:global:command.viewSourceWindow.alternativeKey',
+    'ehh:global:command.showMenu.key', 'ehh:global:command.showMenu.alternativeKey',
+  ],
 );
 
 my @mustEqual = (
