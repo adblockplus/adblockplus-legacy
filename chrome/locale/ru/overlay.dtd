@@ -16,6 +16,8 @@
 
 <!ENTITY sidebar.title          "Элементы открытой страницы">
 
+<!ENTITY sendReport.label       "Сообщить о проблеме на этой странице">
+<!ENTITY sendReport.accesskey   "С">
 <!ENTITY settings.label         "Установки">
 <!ENTITY settings.accesskey     "т">
 <!ENTITY opensidebar.label      "Открыть список элементов">

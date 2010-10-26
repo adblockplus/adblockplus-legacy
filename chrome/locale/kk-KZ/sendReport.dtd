@@ -3,23 +3,39 @@
 <!ENTITY dataCollector.heading "Мәселелер туралы хабарлауға қош келдіңіз">
 <!ENTITY dataCollector.description "Adblock Plus керек ақпаратты жинағанша, күте тұрыңыз.">
 <!ENTITY typeSelector.heading "Мәселе түрін таңдаңыз">
+<!ENTITY typeSelector.description "Бұл терезе сізге Adblock Plus мәселесі туралы хабарламаны дайындауға көмектеседі. Біріншіден, бұл парақта кездескен мәселе түрін таңдаңыз:">
 <!ENTITY typeSelector.falsePositive.label "Adblock Plus тым көп блоктайды">
 <!ENTITY typeSelector.falsePositive.accesskey "т">
+<!ENTITY typeSelector.falsePositive.description "Парақта маңызды құрама жоқ болса, қате көрсетілсе не дұрыс істемесе, бұл опцияны таңдаңыз. Ол мәселе Adblock Plus салдарынан пайда болатынын тексеру үшін, оны уақытша сөндіріңіз.">
 <!ENTITY typeSelector.falseNegative.label "Adblock Plus жарнаманы блоктамайды">
 <!ENTITY typeSelector.falseNegative.accesskey "м">
+<!ENTITY typeSelector.falseNegative.description "Егер Adblock Plus қосулы тұрса, ал жарнама сонда да көрсетілсе, бұл опцияны таңдаңыз.">
 <!ENTITY typeSelector.other.label "Басқа мәселе">
 <!ENTITY typeSelector.other.accesskey "с">
+<!ENTITY typeSelector.other.description "Егер мәселе Adblock Plus өзімен, оның фильтлерімен емес болып тұр деп ойласаңыз, бұл опцияны таңдаңыз.">
 <!ENTITY showRecentReports.label "Соңғы жіберілген хабарламаларды қарау">
 <!ENTITY recentReports.label "Сіздің соңғы жіберген хабарламаларыңыз">
 <!ENTITY recentReports.clear.label "Барлық хабарламаларды өшіру">
 <!ENTITY recentReports.clear.accesskey "ш">
+<!ENTITY issues.description "Adblock Plus бұл мәселе үшін жауапты бола алатын, немесе тергеуді қиындататын сіздің баптауларыңызды анықтады.">
+<!ENTITY issues.whitelist.description "Хабарлап тұрған парағыңыз үшін Adblock Plus қазір сөндірілген. Мәселені анықтауға көмектесу үшін, хабарламаны жіберу алдында оны іске қосып, парақты қайта жүктеңіз.">
 <!ENTITY issues.whitelist.remove.label "Adblock Plus осы парақта қайта қосу">
 <!ENTITY issues.disabled.description "Adblock Plus қазір сөндірулі тұр, сондықтан ол ешнәрсені блоктамайды.">
 <!ENTITY issues.disabled.enable.label "Adblock Plus іске қосу">
 <!ENTITY issues.nofilters.description "Adblock Plus бұл парақта ешнәрсені блоктап тұрған жоқ. Бұл мәселе Adblock Plus-ке байланысты емес сияқты.">
+<!ENTITY issues.nosubscriptions.description "Веб сайттардан керек емес құраманы өшіретін алдын-ала әзірленген фильтрлердің біреуіне де жазылмаған сияқтысыз.">
 <!ENTITY issues.nosubscriptions.add.label "Фильтрлерге жазылуды қосу">
+<!ENTITY issues.ownfilters.description "Бұл параққа іске асырылған кейбір фильтрлерді сіз қолмен көрсеткенсіз. Мәселені туғызуы мүмкін фильтрлерді сөндіріңіз:">
 <!ENTITY issues.ownfilters.disable.label "Фильтрді сөндіру">
+<!ENTITY issues.disabledgroups.description "Келесі фильтрлер/тізімдер сөндірілген, бірақ олар ағымдағы параққа өз әсерлерін тигізуі мүмкін:">
+<!ENTITY issues.disabledgroups.enable.label "Фильтрге жазылу/фильтрлер тобын іске қосу">
+<!ENTITY issues.disabledfilters.description "Келесі фильтрлер сөндірілген, бірақ олар ағымдағы параққа өз әсерлерін тигізуі мүмкін:">
 <!ENTITY issues.disabledfilters.enable.label "Фильтрді іске қосу">
+<!ENTITY issues.override.label "Баптаулар дұрыс, хабарламаны жалғастыру">
+<!ENTITY issues.override.accesskey "ы">
+<!ENTITY issues.change.description "Баптауларыңыз өзгертілді. Парақты қайта жүктеп, өзгерістерді сынап көріңіз, егер олар қайталанатын болса, хабарламаны жіберіңіз.">
+<!ENTITY typeWarning.override.label "Мен түсініп тұрмын, және хабарламаны жібергім келеді">
+<!ENTITY typeWarning.override.accesskey "к">
 <!ENTITY reloadButton.label "Парақты қайта жүктеу">
 <!ENTITY reloadButton.accesskey "р">
 <!ENTITY screenshot.heading "Скриншотты қосып жіберу">
@@ -34,3 +50,6 @@
 <!ENTITY sendPage.heading "Хабарламаны жіберу">
 <!ENTITY sendPage.waitMessage "Adblock Plus хабарламаңызды жібергенше күте тұрыңыз.">
 <!ENTITY sendPage.confirmation "Хабарламаңыз сақталды. Оны келесі адрестен көре аласыз:">
+<!ENTITY sendPage.retry.label "Қайта жіберу">
+<!ENTITY copyLink.label "Хабарлама сілтемесін көшіру">
+<!ENTITY copyLink.accesskey "к">

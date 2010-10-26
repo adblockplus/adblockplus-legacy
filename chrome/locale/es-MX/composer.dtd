@@ -5,11 +5,11 @@
 <!ENTITY disabled.warning "Adblock Plus se encuentra deshabilitado. Puedes continuar agregando filtros pero no seran aplicados hasta que [link]habilites Adblock Plus[/link].">
 <!ENTITY groupDisabled.warning "El filtro grupal &quot;?1?&quot; al cual este filtro se agregara se encuentra deshabilitado. Puedes continuar agregando filtros pero no seran aplicados hasta que [link]Habilites Adblock Plus[/link].">
 <!ENTITY filter.label "Nuevo filtro:">
-<!ENTITY filter.accesskey "f">
+<!ENTITY filter.accesskey "N">
 <!ENTITY preferences.label "Mostrar filtros existentes...">
 <!ENTITY preferences.accesskey "S">
 <!ENTITY type.filter.label "Filtro de bloqueo">
-<!ENTITY type.filter.accesskey "B">
+<!ENTITY type.filter.accesskey "b">
 <!ENTITY type.whitelist.label "Regla de excepción">
 <!ENTITY type.whitelist.accesskey "x">
 <!ENTITY pattern.label "Buscar un patron">
@@ -18,28 +18,29 @@
 <!ENTITY shortpattern.warning "El patron que ha ingresado es muy corto para ser optimizado y podria relentizar su experiencia al navegar. Es recomendable que elija una cadena mas larga para este filtro para permitir a Adblock Plus procesar el filtro con mayor eficacia.">
 <!ENTITY match.warning "El patron que ha ingresado ya no concuerda con la direccion a ser Bloqueada/Permitida y no tendra efecto en la misma.">
 <!ENTITY custom.pattern.label "Personalizado:">
-<!ENTITY custom.pattern.accesskey "C">
+<!ENTITY custom.pattern.accesskey "P">
 <!ENTITY anchors.label "Aceptar solo patrones:">
 <!ENTITY anchor.start.label "al principio de la dirección">
-<!ENTITY anchor.start.accesskey "g">
+<!ENTITY anchor.start.accesskey "i">
 <!ENTITY anchor.start.flexible.label "al principio del nombre de dominio">
 <!ENTITY anchor.start.flexible.accesskey "g">
 <!ENTITY anchor.end.label "al final de la dirección">
-<!ENTITY anchor.end.accesskey "n">
+<!ENTITY anchor.end.accesskey "f">
 <!ENTITY options.label "Opciones">
 <!ENTITY domainRestriction.label "Restringir al dominio:">
-<!ENTITY domainRestriction.accesskey "d">
+<!ENTITY domainRestriction.accesskey "R">
 <!ENTITY domainRestriction.help "Use esta opcion para espeficar uno o mas dominios separados por una barra (|). El filtro solo se aplicara en dominio(s) seleccionados. Una tilde (~) antes del nombre del dominio indica que el filtro no se aplicará en ese dominio.">
-<!ENTITY firstParty.accesskey "r">
+<!ENTITY firstParty.label "Solo propietarios">
+<!ENTITY firstParty.accesskey "d">
 <!ENTITY thirdParty.label "Solo terceros">
-<!ENTITY thirdParty.accesskey "T">
+<!ENTITY thirdParty.accesskey "t">
 <!ENTITY matchCase.label "Coincidir Mayus/Minus">
-<!ENTITY matchCase.accesskey "M">
+<!ENTITY matchCase.accesskey "C">
 <!ENTITY types.label "Se aplica a tipos:">
 <!ENTITY selectAllTypes.label "Seleccionar todos">
 <!ENTITY unselectAllTypes.label "Seleccionar ninguno">
 <!ENTITY collapse.label "Colapso bloqueado">
-<!ENTITY collapse.accesskey "l">
+<!ENTITY collapse.accesskey "o">
 <!ENTITY collapse.default.yes.label "Usar por defecto (si)">
 <!ENTITY collapse.default.no.label "Usar por defecto (no)">
 <!ENTITY collapse.yes.label "Si">
