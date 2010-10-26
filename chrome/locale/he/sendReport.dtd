@@ -5,7 +5,7 @@
 <!ENTITY typeSelector.heading "בחירת סוג הבעיה">
 <!ENTITY typeSelector.description "חלון זה ידריך אתכם דרך הצעדים הדרושים להזנת דיווח בעיה עבור Adblock Plus. ראשית, יש לבחור בבקשה את סוג הבעיה אשר אתם חווים בעמוד זה:">
 <!ENTITY typeSelector.falsePositive.label "Adblock Plus חוסם יותר מדי">
-<!ENTITY typeSelector.falsePositive.accesskey "ח">
+<!ENTITY typeSelector.falsePositive.accesskey "מ">
 <!ENTITY typeSelector.falsePositive.description "בחירת אפשרות זו אם חסר בעמוד תוכן חשוב או שמוצג בצורה לא נכונה או כושל לתפקד כראוי. ניתן לקבוע האם Adblock Plus הוא הגורם לבעיה על ידי נטרולו זמנית.">
 <!ENTITY typeSelector.falseNegative.label "Adblock Plus לא חוסם פרסומות">
 <!ENTITY typeSelector.falseNegative.accesskey "ל">
@@ -38,7 +38,7 @@
 <!ENTITY typeWarning.override.label "אני מבין ורוצה לשלוח את הדיווח בכל זאת">
 <!ENTITY typeWarning.override.accesskey "א">
 <!ENTITY reloadButton.label "רענון העמוד">
-<!ENTITY reloadButton.accesskey "ט">
+<!ENTITY reloadButton.accesskey "ע">
 <!ENTITY screenshot.heading "צילום מסך מצורף">
 <!ENTITY screenshot.description "עמוד זהה יכול להראות שונה לאנשים שונים. אם תצורף תמונת מסך לדיווח, זה אולי יעזור לנו להבין את הבעיה. ניתן להסיר חלקים המכילים מידע רגיש וכמו כן לסמן אזורים שבהם הבעיה מובחנת. כדי לעשות זאת יש ללחוץ על כפתור ההתכתבות ולבחור עם העכבר חלק מהתמונה.">
 <!ENTITY screenshot.attach.label "צרף תמונת דף לדוח">
