@@ -11,7 +11,7 @@
 <!ENTITY context.media.label "Adblock Plus: videó/audió blokkolása">
 <!ENTITY context.removeWhitelist.label "Adblock Plus: Újra-engedélyezés ezen az oldalon">
 <!ENTITY sidebar.title "Blokkolható objektumok">
-<!ENTITY sendReport.label "Eredmény közlése az oldalon">
+<!ENTITY sendReport.label "Hibás webhely bejelentése">
 <!ENTITY sendReport.accesskey "y">
 <!ENTITY settings.label "Beállítások">
 <!ENTITY settings.accesskey "B">
