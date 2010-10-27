@@ -391,11 +391,12 @@ var objTabs =
     // Restrict rectangle coordinates by the boundaries of a window's client area
     function intersectRect(rect, wnd)
     {
+      // Cannot use wnd.innerWidth/Height because they won't account for scrollbars
       let doc = wnd.document;
       let wndWidth = doc.documentElement.clientWidth;
       let wndHeight = doc.documentElement.clientHeight;
       if (doc.compatMode == "BackCompat") // clientHeight will be bogus in quirks mode
-        wndHeight = doc.documentElement.offsetHeight - wnd.scrollMaxY;
+        wndHeight = Math.max(doc.documentElement.offsetHeight, doc.body.offsetHeight) - wnd.scrollMaxY - 1;
   
       rect.left = Math.max(rect.left, 0);
       rect.top = Math.max(rect.top, 0);
