@@ -13,7 +13,7 @@
 <!ENTITY size.label               "Größe">
 <!ENTITY docDomain.label          "Ursprungsdomain">
 <!ENTITY docDomain.thirdParty     "(Anfrage zu einer Drittseite)">
-<!ENTITY docDomain.firstParty     "(Anfrage zur derselben Domain)">
+<!ENTITY docDomain.firstParty     "(Anfrage zu derselben Domain)">
 
 <!ENTITY noitems.label            "Keine Elemente zu blockieren">
 <!ENTITY whitelisted.label        "Deaktiviert auf dieser Seite">
