@@ -222,20 +222,18 @@ var Utils =
    */
   getRequestWindow: function(/**nsIChannel*/ channel) /**nsIDOMWindow*/
   {
-    let callbacks = [];
-    if (channel.notificationCallbacks)
-      callbacks.push(channel.notificationCallbacks);
-    if (channel.loadGroup && channel.loadGroup.notificationCallbacks)
-      callbacks.push(channel.loadGroup.notificationCallbacks);
-  
-    for each (let callback in callbacks)
+    try
     {
-      try {
-        // For Gecko 1.9.1
+      if (channel.notificationCallbacks)
         return callback.getInterface(Ci.nsILoadContext).associatedWindow;
-      } catch(e) {}
-    }
+    } catch(e) {}
   
+    try
+    {
+      if (channel.loadGroup && channel.loadGroup.notificationCallbacks)
+        return channel.loadGroup.notificationCallbacks.getInterface(Ci.nsILoadContext).associatedWindow;
+    } catch(e) {}
+
     return null;
   },
 
