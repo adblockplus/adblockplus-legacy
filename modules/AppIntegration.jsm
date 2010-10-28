@@ -73,7 +73,11 @@ function init()
   reloadPrefs();
 
   // Listen for pref and filters changes
-  Prefs.addListener(reloadPrefs);
+  Prefs.addListener(function(name)
+  {
+    if (name == "enabled" || name == "showintoolbar" || name == "showinstatusbar" || name == "defaulttoolbaraction" || name == "defaultstatusbaraction")
+      reloadPrefs();
+  });
   FilterStorage.addFilterObserver(reloadPrefs);
   FilterStorage.addSubscriptionObserver(reloadPrefs);
 }
@@ -102,7 +106,6 @@ var AppIntegration =
       if (Prefs.currentVersion != Utils.addonVersion)
       {
         Prefs.currentVersion = Utils.addonVersion;
-        Prefs.save();
   
         if ("nsISessionStore" in Ci)
         {
@@ -153,7 +156,6 @@ var AppIntegration =
   togglePref: function(/**String*/ pref)
   {
     Prefs[pref] = !Prefs[pref];
-    Prefs.save();
   },
   
   /**

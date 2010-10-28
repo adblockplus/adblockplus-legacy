@@ -121,7 +121,6 @@ let reportsListDataSource =
     try
     {
       Prefs.recentReports = this.json.encode(this.list);
-      Prefs.save();
     }
     catch (e)
     {
@@ -133,7 +132,6 @@ let reportsListDataSource =
   {
     this.list = [];
     Prefs.recentReports = this.json.encode(this.list);
-    Prefs.save();
     E("recentReports").hidden = true;
   },
 
@@ -867,7 +865,6 @@ let issuesDataSource =
   enable: function()
   {
     Prefs.enabled = true;
-    Prefs.save();
     E("issuesDisabledBox").hidden = true;
     this.forceReload();
   },
