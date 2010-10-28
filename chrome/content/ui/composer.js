@@ -405,7 +405,6 @@ function openPreferences() {
 
 function doEnable() {
   Prefs.enabled = true;
-  Prefs.save();
   E("disabledWarning").hidden = true;
 }
 
