@@ -68,7 +68,7 @@ function preparePrefs()
   let backup = {__proto__: null};
   for (let pref in Prefs)
   {
-    if (Prefs.getDefault(pref) !== null)
+    if (Prefs.__lookupSetter__(pref))
       backup[pref] = Prefs[pref];
   }
   Prefs.enabled = true;
@@ -77,7 +77,6 @@ function preparePrefs()
   {
     for (let pref in backup)
       Prefs[pref] = backup[pref];
-    Prefs.save();
   }, false);
 }
 

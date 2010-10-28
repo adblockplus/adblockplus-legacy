@@ -387,7 +387,12 @@ var FilterStorage =
 
     sourceFile = getFileByPath(Prefs.patternsfile);
     if (!sourceFile)
-      sourceFile = getFileByPath(Prefs.getDefault("patternsfile"));
+    {
+      try
+      {
+        sourceFile = getFileByPath(Prefs.getDefaultBranch.getCharPref("patternsfile"));
+      } catch(e) {}
+    }
 
     if (!sourceFile)
       dump("Adblock Plus: Failed to resolve filter file location from extensions.adblockplus.patternsfile preference\n");
