@@ -112,7 +112,7 @@
   <hbox>
     <hbox align="center" flex="1">
       <label value="&search.label;" accesskey="&search.accesskey;" control="searchField"/>
-      <textbox id="searchField" flex="1" type="timed" timeout="500" oncommand="treeView.setFilter(this.value)"/>
+      <textbox id="searchField" flex="1" type="search" oncommand="treeView.setFilter(this.value)"/>
     </hbox>
     <description id="detachButton" value="&detach.label;" onclick="detach(true)"/>
     <description id="reattachButton" value="&reattach.label;" onclick="if (this.getAttribute('disabled') != 'true') detach(false)" hidden="true"/>
