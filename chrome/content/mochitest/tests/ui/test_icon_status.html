@@ -40,10 +40,7 @@
     function testEnabled(element)
     {
       if (!Prefs.enabled)
-      {
         Prefs.enabled = true;
-        Prefs.save();
-      }
       setTimeout(function()
       {
         is(element.getAttribute("abpstate"), "active", "Checking icon state when Adblock Plus is enabled");
@@ -54,10 +51,7 @@
     function testDisabled(element)
     {
       if (Prefs.enabled)
-      {
         Prefs.enabled = false;
-        Prefs.save();
-      }
       setTimeout(function()
       {
         is(element.getAttribute("abpstate"), "disabled", "Checking icon state when Adblock Plus is disabled");
@@ -69,10 +63,7 @@
     {
       FilterStorage.addFilter(Filter.fromText("@@|chrome://mochikit/$document"));
       if (!Prefs.enabled)
-      {
         Prefs.enabled = true;
-        Prefs.save();
-      }
       setTimeout(function()
       {
         is(element.getAttribute("abpstate"), "whitelisted", "Checking icon state with site whitelisting");
@@ -119,12 +110,10 @@
       Prefs.enabled = true;
       Prefs.showintoolbar = false;
       Prefs.showinstatusbar = false;
-      Prefs.save();
       setTimeout(function()
       {
         Prefs.showintoolbar = true;
         Prefs.showinstatusbar = true;
-        Prefs.save();
 
         setTimeout(runNextTest, 0);
       }, 0);

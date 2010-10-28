@@ -1241,7 +1241,6 @@ function fillContext()
 function togglePref(pref)
 {
   Prefs[pref] = !Prefs[pref];
-  Prefs.save();
 }
 
 /**

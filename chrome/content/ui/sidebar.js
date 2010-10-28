@@ -44,11 +44,6 @@ var abpHooks = null;
 
 let lastSelectionProp = "abpSelected" + RequestNotifier.getDataSeed();
 
-/**
- * Cached value of "enabled" preference, for onPrefChange.
- */
-var oldEnabled = Prefs.enabled;
-
 function init() {
   docDomainThirdParty = document.documentElement.getAttribute("docDomainThirdParty");
   docDomainFirstParty = document.documentElement.getAttribute("docDomainFirstParty");
@@ -132,13 +127,10 @@ function cleanUp() {
  * Tracks preference changes, calls reloadDisabledFilters whenever Adblock Plus
  * is enabled/disabled.
  */
-function onPrefChange()
+function onPrefChange(name)
 {
-  if (Prefs.enabled != oldEnabled)
-  {
-    oldEnabled = Prefs.enabled;
+  if (name == "enabled")
     reloadDisabledFilters();
-  }
 }
 
 /**
@@ -589,9 +581,6 @@ function detach(doDetach)
   myMainWin.document.getElementById("abp-command-sidebar").doCommand();
   myPrefs.detachsidebar = doDetach;
   myMainWin.document.getElementById("abp-command-sidebar").doCommand();
-
-  // Save setting
-  myPrefs.save();
 }
 
 // Returns items size in the document if available

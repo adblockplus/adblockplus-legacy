@@ -55,36 +55,10 @@ let willBeUninstalled = false;
 let branch = Utils.prefService.getBranch(prefRoot);
 
 /**
- * Maps preferences to their default values.
- * @type Object
- */
-let defaultPrefs = {__proto__: null};
-
-/**
- * List of listeners to be notified whenever preferences are reloaded
+ * List of listeners to be notified whenever preferences are updated
  * @type Array of Function
  */
 let listeners = [];
-
-/**
- * nsIPrefBranch methods used to load prefererences, mapped by JavaScript type
- * @type Object
- */
-let loadPrefMethods = {
-  string: "getCharPref",
-  boolean: "getBoolPref",
-  number: "getIntPref",
-};
-
-/**
- * nsIPrefBranch methods used to save prefererences, mapped by JavaScript type
- * @type Object
- */
-let savePrefMethods = {
-  string: "setCharPref",
-  boolean: "setBoolPref",
-  number: "setIntPref",
-};
 
 /**
  * This object allows easy access to Adblock Plus preferences, all defined
@@ -107,34 +81,45 @@ var Prefs =
     TimeLine.enter("Entered Prefs.startup()");
   
     // Initialize prefs list
-    let defaultBranch = Utils.prefService.getDefaultBranch(prefRoot);
-    let types = {};
-    types[Ci.nsIPrefBranch.PREF_INT] = "getIntPref";
-    types[Ci.nsIPrefBranch.PREF_BOOL] = "getBoolPref";
-    types[Ci.nsIPrefBranch.PREF_STRING] = "getCharPref";
-  
+    let defaultBranch = this.getDefaultBranch();
     for each (let name in defaultBranch.getChildList("", {}))
     {
       let type = defaultBranch.getPrefType(name);
-      let method = (type in types ? types[type] : types[Ci.nsIPrefBranch.PREF_STRING]);
-  
-      try {
-        defaultPrefs[name] = defaultBranch[method](name);
-      } catch(e) {}
+      switch (type)
+      {
+        case Ci.nsIPrefBranch.PREF_INT:
+          PrefsPrivate.defineIntegerProperty(name);
+          break;
+        case Ci.nsIPrefBranch.PREF_BOOL:
+          PrefsPrivate.defineBooleanProperty(name);
+          break;
+        case Ci.nsIPrefBranch.PREF_STRING:
+          PrefsPrivate.defineStringProperty(name);
+          break;
+      }
+      if ("_update_" + name in PrefsPrivate)
+        PrefsPrivate["_update_" + name]();
     }
-  
-    TimeLine.log("done loading defaults");
-  
-    // Initial prefs loading
-    TimeLine.log("loading actual pref values");
-    reload();
-    TimeLine.log("done loading pref values");
+
+    // Always disable object tabs in Fennec, they aren't usable
+    if (Utils.appID == "{a23983c0-fd0e-11dc-95ff-0800200c9a66}")
+      Prefs.frameobjects = false;
+
+    TimeLine.log("done loading initial values");
   
     // Register observers
     TimeLine.log("registering observers");
     registerObservers();
   
     TimeLine.leave("Prefs.startup() done");
+  },
+
+  /**
+   * Retrieves the preferences branch containing default preference values.
+   */
+  getDefaultBranch: function() /**nsIPreferenceBranch*/
+  {
+    return Utils.prefService.getDefaultBranch(prefRoot);
   },
 
   /**
@@ -154,41 +139,6 @@ var Prefs =
     }
 
     TimeLine.leave("Prefs.shutdown() done");
-  },
-
-  /**
-   * Retrieves the default value of a preference, will return null if the
-   * preference doesn't exist.
-   */
-  getDefault: function(/**String*/ pref)
-  {
-    return (pref in defaultPrefs ? defaultPrefs[pref] : null);
-  },
-
-  /**
-   * Saves all object properties back to preferences
-   */
-  save: function()
-  {
-    try
-    {
-      PrefsPrivate.ignorePrefChanges = true;
-      for (let pref in defaultPrefs)
-        savePref(pref);
-    }
-    finally
-    {
-      PrefsPrivate.ignorePrefChanges = false;
-    }
-
-    // Make sure to save the prefs on disk (and if we don't - at least reload the prefs)
-    try
-    {
-      Utils.prefService.savePrefFile(null);
-    }
-    catch(e) {}  
-
-    reload();
   },
 
   /**
@@ -218,12 +168,134 @@ var Prefs =
  */
 var PrefsPrivate =
 {
- /**
- * If set to true notifications about preference changes will no longer cause
- * a reload. This is to prevent unnecessary reloads while saving.
- * @type Boolean
- */
- ignorePrefChanges: false,
+  /**
+   * If set to true notifications about preference changes will no longer cause
+   * a reload. This is to prevent unnecessary reloads while saving.
+   * @type Boolean
+   */
+  ignorePrefChanges: false,
+
+  /**
+   * Sets up getter/setter on Prefs object for an integer preference.
+   */
+  defineIntegerProperty: function(/**String*/ name)
+  {
+    let value = 0;
+    PrefsPrivate["_update_" + name] = function()
+    {
+      try
+      {
+        value = branch.getIntPref(name);
+        triggerListeners(name);
+      }
+      catch(e)
+      {
+        Cu.reportError(e);
+      }
+    }
+    Prefs.__defineGetter__(name, function() value);
+    Prefs.__defineSetter__(name, function(newValue)
+    {
+      try
+      {
+        PrefsPrivate.ignorePrefChanges = true;
+        branch.setIntPref(name, newValue);
+        value = newValue;
+        triggerListeners(name);
+      }
+      catch(e)
+      {
+        Cu.reportError(e);
+      }
+      finally
+      {
+        PrefsPrivate.ignorePrefChanges = false;
+      }
+      return value;
+    });
+  },
+
+  /**
+   * Sets up getter/setter on Prefs object for a boolean preference.
+   */
+  defineBooleanProperty: function(/**String*/ name)
+  {
+    let value = false;
+    PrefsPrivate["_update_" + name] = function()
+    {
+      try
+      {
+        value = branch.getBoolPref(name);
+        triggerListeners(name);
+      }
+      catch(e)
+      {
+        Cu.reportError(e);
+      }
+    }
+    Prefs.__defineGetter__(name, function() value);
+    Prefs.__defineSetter__(name, function(newValue)
+    {
+      try
+      {
+        PrefsPrivate.ignorePrefChanges = true;
+        branch.setBoolPref(name, newValue);
+        value = newValue;
+        triggerListeners(name);
+      }
+      catch(e)
+      {
+        Cu.reportError(e);
+      }
+      finally
+      {
+        PrefsPrivate.ignorePrefChanges = false;
+      }
+      return value;
+    });
+  },
+
+  /**
+   * Sets up getter/setter on Prefs object for a string preference.
+   */
+  defineStringProperty: function(/**String*/ name)
+  {
+    let value = "";
+    PrefsPrivate["_update_" + name] = function()
+    {
+      try
+      {
+        value = branch.getComplexValue(name, Ci.nsISupportsString).data;
+        triggerListeners(name);
+      }
+      catch(e)
+      {
+        Cu.reportError(e);
+      }
+    }
+    Prefs.__defineGetter__(name, function() value);
+    Prefs.__defineSetter__(name, function(newValue)
+    {
+      try
+      {
+        PrefsPrivate.ignorePrefChanges = true;
+        let str = Cc["@mozilla.org/supports-string;1"].createInstance(Ci.nsISupportsString);
+        str.data = newValue;
+        branch.setComplexValue(name, Ci.nsISupportsString, str);
+        value = newValue;
+        triggerListeners(name);
+      }
+      catch(e)
+      {
+        Cu.reportError(e);
+      }
+      finally
+      {
+        PrefsPrivate.ignorePrefChanges = false;
+      }
+      return value;
+    });
+  },
 
   /**
    * nsIObserver implementation
@@ -242,8 +314,8 @@ var PrefsPrivate =
       if (subject instanceof Ci.nsIUpdateItem && subject.id == Utils.addonID)
         willBeUninstalled = (data == "item-uninstalled");
     }
-    else if (!this.ignorePrefChanges)
-      reload();
+    else if (topic == "nsPref:changed" && !this.ignorePrefChanges && "_update_" + data in PrefsPrivate)
+      PrefsPrivate["_update_" + data]();
   },
 
   QueryInterface: XPCOMUtils.generateQI([Ci.nsISupportsWeakReference, Ci.nsIObserver])
@@ -282,51 +354,10 @@ function registerObservers()
 }
 
 /**
- * Reloads a preference and stores it as a property of Prefs object.
+ * Triggers preference listeners whenever a preference is changed.
  */
-function reloadPref(/**String*/ pref)
+function triggerListeners(/**String*/ name)
 {
-  let defaultValue = defaultPrefs[pref];
-  try
-  {
-    Prefs[pref] = branch[loadPrefMethods[typeof defaultValue]](pref);
-  }
-  catch (e)
-  {
-    this[pref] = defaultValue;
-  }
-}
-
-/**
- * Saves a property of the Prefs object into the corresponding preference.
- */
-function savePref(/**String*/ pref)
-{
-  let defaultValue = defaultPrefs[pref];
-  try
-  {
-    branch[savePrefMethods[typeof defaultValue]](pref, Prefs[pref]);
-  }
-  catch (e)
-  {
-    Cu.reportError(e);
-  }
-}
-
-/**
- * Reloads all preferences on change an notifies listeners.
- */
-function reload()
-{
-  // Load data from prefs.js
-  for (let pref in defaultPrefs)
-    reloadPref(pref);
-
-  // Always disable object tabs in Fennec, they aren't usable
-  if (Utils.appID == "{a23983c0-fd0e-11dc-95ff-0800200c9a66}")
-    Prefs.frameobjects = false;
-
-  // Fire pref listeners
   for each (let listener in listeners)
-    listener();
+    listener(name);
 }

@@ -83,7 +83,11 @@ var ElemHide =
   startup: function()
   {
     TimeLine.enter("Entered ElemHide.startup()");
-    Prefs.addListener(ElemHide.apply);
+    Prefs.addListener(function(name)
+    {
+      if (name == "enabled")
+        ElemHide.apply();
+    });
   
     TimeLine.log("done adding prefs listener");
   
