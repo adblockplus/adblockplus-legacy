@@ -234,11 +234,6 @@ var Utils =
         // For Gecko 1.9.1
         return callback.getInterface(Ci.nsILoadContext).associatedWindow;
       } catch(e) {}
-  
-      try {
-        // For Gecko 1.9.0
-        return callback.getInterface(Ci.nsIDOMWindow);
-      } catch(e) {}
     }
   
     return null;
