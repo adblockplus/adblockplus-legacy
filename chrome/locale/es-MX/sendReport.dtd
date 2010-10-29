@@ -5,10 +5,10 @@
 <!ENTITY typeSelector.heading "Elija tipo de error">
 <!ENTITY typeSelector.description "Esta ventana lo guiara con pasos, necesarios para el envio de un reporte de problemas de Adblock Plus. Primero, por favor seleccione el tipo de problema que esta experimentando en esta pagina:">
 <!ENTITY typeSelector.falsePositive.label "Adblock Plus esta bloqueando demasiado">
-<!ENTITY typeSelector.falsePositive.accesskey "m">
+<!ENTITY typeSelector.falsePositive.accesskey "A">
 <!ENTITY typeSelector.falsePositive.description "Seleccione esta opción si la pagina carece de contenido importante, muestra incorrectamente o falla al funcionar como debe. Puede determinar si Adblock Plus es el causante del problema deshabilitandolo temporalmente.">
 <!ENTITY typeSelector.falseNegative.label "Adblock Plus no bloquea una publicidad">
-<!ENTITY typeSelector.falseNegative.accesskey "u">
+<!ENTITY typeSelector.falseNegative.accesskey "b">
 <!ENTITY typeSelector.falseNegative.description "Seleccione esta opción si una publicidad continua mostrandose a pesar que Adblock Plus se encuentra habilitado.">
 <!ENTITY typeSelector.other.label "Otro problema">
 <!ENTITY typeSelector.other.accesskey "O">
@@ -16,7 +16,7 @@
 <!ENTITY showRecentReports.label "Mostrar reportes enviados recientemente">
 <!ENTITY recentReports.label "Tus reportes recientemente enviados">
 <!ENTITY recentReports.clear.label "Quitar todos los reportes">
-<!ENTITY recentReports.clear.accesskey "t">
+<!ENTITY recentReports.clear.accesskey "Q">
 <!ENTITY issues.description "Adblock Plus ha detectado problemas con su configuracion que puede ser la causa de este problema o que podria dificultar la investigacion del problema.">
 <!ENTITY issues.whitelist.description "Adblock Plus se encuentra deshabilitado en la pagina que esta reportando. Por favor vuelva a habilitarlo y recargue la pagina antes de presentar el el informe para ayudar a la investigación de este tema.">
 <!ENTITY issues.whitelist.remove.label "Re-habilitar Adblock Plus en esta pagina">
@@ -31,12 +31,12 @@
 <!ENTITY issues.disabledgroups.enable.label "Habilitar subscripcion/Grupo de filtros">
 <!ENTITY issues.disabledfilters.description "Los siguientes filtros estan deshabilitados, aun asi pueden tener efectos en esta pagina:">
 <!ENTITY issues.disabledfilters.enable.label "Habilitar filtro">
-<!ENTITY issues.override.label "La configuracion es correcta, continue con el reporte">
-<!ENTITY issues.override.accesskey "c">
+<!ENTITY issues.override.label "La configuración es correcta, continue con el reporte">
+<!ENTITY issues.override.accesskey "L">
 <!ENTITY issues.change.description "Su configuracion ha sido cambiada. Por favor recargue la pagina para probar los cambios y presentar un reporte si el problema no ha sido resuelto por las alteraciones.">
 <!ENTITY typeWarning.description "Ha indicado que desea reportar un problema general con Adblock Plus en lugar de un problema con los filtros. Por favor tenga en cuenta que estos problemas son mejor reportados en el [link]Foro de Adblock Plus[/link]. Solo deberia usar el reportero de problemas para complementar una discución existente, ya que nadie se percatara de su informe a menos que se les proporcione el enlace a la misma. El enlace generado automaticamente sera proporcionado despues de presentar el reporte respectivo.">
 <!ENTITY typeWarning.override.label "Entiendo y deseo presentar el reporte de todos modos">
-<!ENTITY typeWarning.override.accesskey "e">
+<!ENTITY typeWarning.override.accesskey "E">
 <!ENTITY reloadButton.label "Recargar pagina">
 <!ENTITY reloadButton.accesskey "R">
 <!ENTITY screenshot.heading "Adjuntar captura de pantalla">
@@ -46,25 +46,25 @@
 <!ENTITY screenshot.mark.label "Marcar el problema">
 <!ENTITY screenshot.mark.accesskey "M">
 <!ENTITY screenshot.remove.label "Quitar datos sensitivos/privados">
-<!ENTITY screenshot.remove.accesskey "E">
+<!ENTITY screenshot.remove.accesskey "u">
 <!ENTITY screenshot.undo.label "Deshacer">
 <!ENTITY screenshot.undo.accesskey "D">
 <!ENTITY commentPage.heading "Comentar">
 <!ENTITY commentPage.description "El campo de texto a continuación le permite escribir un comentario para ayudarnos a entender el problema. Este paso es opcional pero recomendado si el problema no es obvio. Puede tambien revisar el reporte de datos antes de que sea enviado.">
 <!ENTITY comment.label "Comentario (opcional):">
-<!ENTITY comment.accesskey "C">
+<!ENTITY comment.accesskey "n">
 <!ENTITY comment.lengthWarning "El tamaño de su comentario excede los 1000 caracteres. Solo los primeros 1000 caracteres seran enviados.">
-<!ENTITY email.label "Correo Electrónico para futuras investaciones (opcional):">
+<!ENTITY email.label "Correo Electrónico para futuras investigaciones (opcional):">
 <!ENTITY email.accesskey "r">
-<!ENTITY attachExtensions.label "Adjuntar una lista de extensiones activas a el repote en caso de que un conflicto de comeplementos sea la causa del problema">
-<!ENTITY attachExtensions.accesskey "x">
+<!ENTITY attachExtensions.label "Adjuntar una lista de extensiones activas a el repote en caso de que un conflicto de complementos sea la causa del problema">
+<!ENTITY attachExtensions.accesskey "d">
 <!ENTITY sendButton.label "Enviar reporte">
-<!ENTITY sendButton.accesskey "n">
+<!ENTITY sendButton.accesskey "v">
 <!ENTITY showData.label "Mostrar datos del reporte">
 <!ENTITY data.label "Datos de Reporte">
-<!ENTITY data.accesskey "D">
+<!ENTITY data.accesskey "t">
 <!ENTITY sendPage.heading "Enviar reporte">
-<!ENTITY sendPage.waitMessage "Por favor espere mientras Adblock Plus envia su reporte.">
+<!ENTITY sendPage.waitMessage "Por favor espere mientras Adblock Plus envía su reporte.">
 <!ENTITY sendPage.confirmation "Su reporte ha sido salvado. Puede acceder al mismo en la siguiente direccion:">
 <!ENTITY sendPage.knownIssue "El problema que ha reportado probablemente ya sea conocido. Mas información:">
 <!ENTITY sendPage.errorMessage "Un intento de enviar el reporte ha fallado con el codigo de error &quot;?1?&quot;. Por favor asegúrese de que se encuentra conectado a internet y vuelva a intentarlo. Si el problema persiste por favor solicite asistencia en el [link]Foro de Adblock Plus[/link].">

@@ -2,21 +2,21 @@
 <!ENTITY filters.label "Filtros">
 <!ENTITY filters.accesskey "F">
 <!ENTITY add.label "Agregar filtro">
-<!ENTITY add.accesskey "A">
-<!ENTITY addsubscription.label "Agregar subscricpion de filtro">
-<!ENTITY addsubscription.accesskey "S">
+<!ENTITY add.accesskey "g">
+<!ENTITY addsubscription.label "Agregar suscripción de filtro">
+<!ENTITY addsubscription.accesskey "l">
 <!ENTITY synchsubscriptions.label "Actualizar todas las suscripciones">
 <!ENTITY synchsubscriptions.accesskey "z">
 <!ENTITY import.label "Importar filtros">
-<!ENTITY import.accesskey "m">
+<!ENTITY import.accesskey "I">
 <!ENTITY export.label "Exportar filtros personalizados">
-<!ENTITY export.accesskey "X">
+<!ENTITY export.accesskey "x">
 <!ENTITY clearall.label "Quitar todos los filtros personalizados">
-<!ENTITY clearall.accesskey "L">
+<!ENTITY clearall.accesskey "Q">
 <!ENTITY resethitcounts.label "Restablecer contador de filtros">
 <!ENTITY resethitcounts.accesskey "R">
 <!ENTITY edit.label "Editar">
-<!ENTITY edit.accesskey "E">
+<!ENTITY edit.accesskey "d">
 <!ENTITY cut.label "Cortar">
 <!ENTITY cut.accesskey "t">
 <!ENTITY copy.label "Copiar">
@@ -24,15 +24,15 @@
 <!ENTITY paste.label "Pegar">
 <!ENTITY paste.accesskey "P">
 <!ENTITY remove.label "Eliminar">
-<!ENTITY remove.accesskey "l">
+<!ENTITY remove.accesskey "E">
 <!ENTITY menu.find.label "Buscar">
 <!ENTITY menu.find.accesskey "B">
 <!ENTITY menu.findagain.label "Buscar de nuevo">
-<!ENTITY menu.findagain.accesskey "q">
+<!ENTITY menu.findagain.accesskey "u">
 <!ENTITY view.label "Ver">
 <!ENTITY view.accesskey "V">
 <!ENTITY sort.label "Ordenar por">
-<!ENTITY sort.accesskey "L">
+<!ENTITY sort.accesskey "p">
 <!ENTITY sort.none.label "Sin clasificar">
 <!ENTITY sort.none.accesskey "S">
 <!ENTITY sort.ascending.label "Ordernar de la A &gt; Z">
@@ -42,36 +42,36 @@
 <!ENTITY options.label "Opciones">
 <!ENTITY options.accesskey "O">
 <!ENTITY enable.label "Habilitar Adblock Plus">
-<!ENTITY enable.accesskey "H">
+<!ENTITY enable.accesskey "k">
 <!ENTITY showintoolbar.label "Mostrar barra de herramientas">
-<!ENTITY showintoolbar.accesskey "M">
+<!ENTITY showintoolbar.accesskey "h">
 <!ENTITY showinstatusbar.label "Mostrar en la barra de estado">
-<!ENTITY showinstatusbar.accesskey "d">
+<!ENTITY showinstatusbar.accesskey "M">
 <!ENTITY objecttabs.label "Mostrar pestañas sobre Flash y Java">
-<!ENTITY objecttabs.accesskey "M">
+<!ENTITY objecttabs.accesskey "ñ">
 <!ENTITY collapse.label "Colapsar elementos bloqueados">
-<!ENTITY collapse.accesskey "C">
+<!ENTITY collapse.accesskey "b">
 <!ENTITY help.label "Ayuda">
-<!ENTITY help.accesskey "Y">
+<!ENTITY help.accesskey "y">
 <!ENTITY gettingStarted.label "Primeros pasos">
-<!ENTITY gettingStarted.accesskey "I">
+<!ENTITY gettingStarted.accesskey "P">
 <!ENTITY faq.label "Preguntas y Respuestas frecuentes">
-<!ENTITY faq.accesskey "P">
+<!ENTITY faq.accesskey "f">
 <!ENTITY filterdoc.label "Escribiendo filtros de Adblock Plus">
-<!ENTITY filterdoc.accesskey "E">
+<!ENTITY filterdoc.accesskey "n">
 <!ENTITY about.label "Acerca de Adblock Plus">
-<!ENTITY about.accesskey "A">
+<!ENTITY about.accesskey "k">
 <!ENTITY description "El siguiente filtro determina que dirección debe ser bloqueada y cuales deben ser permitidas:">
 <!ENTITY filter.column "Regla de filtro">
-<!ENTITY filter.accesskey "R">
+<!ENTITY filter.accesskey "f">
 <!ENTITY slow.column "Filtros lentos">
 <!ENTITY slow.accesskey "e">
 <!ENTITY enabled.column "Habilitado">
-<!ENTITY enabled.accesskey "v">
+<!ENTITY enabled.accesskey "o">
 <!ENTITY hitcount.column "Contador">
 <!ENTITY hitcount.accesskey "C">
-<!ENTITY lasthit.column "Ultima uso">
-<!ENTITY lasthit.accesskey "u">
+<!ENTITY lasthit.column "Ultima visita">
+<!ENTITY lasthit.accesskey "U">
 <!ENTITY context.edit.label "Editar filtro">
 <!ENTITY context.resethitcount.label "Restablecer contador de visitas del filtro">
 <!ENTITY context.synchsubscription.label "Actualizar suscripción ahora">
@@ -83,5 +83,5 @@
 <!ENTITY context.enable.label "Habilitar">
 <!ENTITY context.disable.label "Deshabilitar">
 <!ENTITY apply.label "Aplicar">
-<!ENTITY apply.accesskey "p">
+<!ENTITY apply.accesskey "l">
 <!ENTITY fennec.subscription.label "Subscripción de filtros">
