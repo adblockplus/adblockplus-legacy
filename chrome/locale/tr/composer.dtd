@@ -16,6 +16,7 @@
 <!ENTITY pattern.explanation "Bu örnek adresin herhangi bir bölümü olabilir ve * işareti joker görevi yapar. Süzgeç sadece örneğe uyan adreslere uygulanacak.">
 <!ENTITY regexp.warning "Girdiğiniz örnek düzenli ifade olarak yorumlanacak. Çok fazla düzenli ifade, taramayı yavaşlatabilir. Gerçekten düzenli ifade kullanmak istediğinizden emin değilseniz örneğin sonuna * işareti koyun.">
 <!ENTITY shortpattern.warning "Girdiğiniz örnek en iyileştirmek için çok kısa ve bu tür örnekler taramayı yavaşlatabilir. Bu süzgeç için daha uzun bir satır seçmeniz tavsiye edilir.">
+<!ENTITY match.warning "Girdiğiniz örnek artık engellenecek olan veya kara listeden çıkarılacak adresle uyuşmuyor ve üzerinde hiçbir etkisi olmayacak.">
 <!ENTITY custom.pattern.label "Özel:">
 <!ENTITY custom.pattern.accesskey "z">
 <!ENTITY anchors.label "Örneği sadece burada kabul et:">

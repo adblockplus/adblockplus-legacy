@@ -1,0 +1,11 @@
+<!ENTITY wizard.title "Sorun bildirici">
+<!ENTITY privacyPolicy.label "Gizlilik politikası">
+<!ENTITY dataCollector.heading "Sorun bildiriciye hoş geldiniz">
+<!ENTITY dataCollector.description "Adblock Plus eklentisinin gerekli bilgileri toplaması için lütfen biraz bekleyin.">
+<!ENTITY typeSelector.heading "Sorun türünü seçin">
+<!ENTITY typeSelector.falsePositive.label "Adblock Plus çok fazla engelleme yapıyor">
+<!ENTITY typeSelector.falsePositive.accesskey "f">
+<!ENTITY typeSelector.other.label "Başka bir sorun">
+<!ENTITY typeSelector.other.accesskey "b">
+<!ENTITY showRecentReports.label "Yakında gönderilen bildirimleri göster">
+<!ENTITY recentReports.label "Yakında gönderdiğiniz bildirimler">

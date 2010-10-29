@@ -1,11 +1,6 @@
 <!ENTITY dialog.title "Συνδρομές φίλτρων του Adblock Plus">
 <!ENTITY dialog.title.edit "Επεξεργασία συνδρομής">
-<!ENTITY description.newInstall "Το Adblock Plus θα είναι πιο αποτελεσματικό αν γίνετε συνδρομητής σε μια λίστα φίλτρων.
-
-
-	Οι λίστες φίλτρων παρέχονται από χρήστες του Adblock Plus χωρίς κόστος.
-
-	Η καταλληλότερη συνδρομή για την γλώσσα σας έχει ήδη επιλεγεί.">
+<!ENTITY description.newInstall "Το Adblock Plus θα είναι πιο αποτελεσματικό αν γίνετε συνδρομητής σε μια λίστα φίλτρων. Οι λίστες φίλτρων παρέχονται από χρήστες του Adblock Plus χωρίς κόστος. Η καταλληλότερη συνδρομή για την γλώσσα σας έχει ήδη επιλεγεί.">
 <!ENTITY subscriptionSelector.label "Παρακαλώ επιλέξτε μια συνδρομή σε φίλτρα από την λίστα:">
 <!ENTITY viewList.label "Προβολή φίλτρων">
 <!ENTITY visitHomepage.label "Ιστοσελίδα της συνδρομής">
@@ -27,4 +22,4 @@
 <!ENTITY autodownload.accesskey "Α">
 <!ENTITY supplementMessage "Αυτή η συνδρομή φίλτρων μπορεί να χρησιμοποιηθεί μαζί με την συνδρομή &quot;?1?&quot; την οποία δεν χρησιμοποιείτε.">
 <!ENTITY addMain.label "Προσθήκη και της συνδρομής φίλτρων &quot;?1?&quot;">
-<!ENTITY addMain.accesskey "σ">
+<!ENTITY addMain.accesskey "θ">
