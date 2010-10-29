@@ -14,12 +14,12 @@
 <!ENTITY fromWeb.description "Por favor confirme que desea agregar esta subscripción de filtro. Usted puede cambiar el titulo de la subscripción o la localización antes de agregarla.">
 <!ENTITY edit.description "Puede cambiar el titulo o la localización de la subscripción a su nececidad.">
 <!ENTITY external.description "Esta es una subscripción de filtro externa; La misma sera actualizada por la extensión que creó la misma.">
-<!ENTITY title.label "Titulo de la Subscripción:">
+<!ENTITY title.label "Titulo de la Suscripción:">
 <!ENTITY title.accesskey "T">
 <!ENTITY location.label "Ubicación de la lista de filtros:">
 <!ENTITY location.accesskey "U">
-<!ENTITY autodownload.label "Actualizar filtros automaticamente">
-<!ENTITY autodownload.accesskey "z">
-<!ENTITY supplementMessage "Esta subscripcion de filtros esta orientada a ser usada con la subscripcion de filtro &quot;?1?&quot; la cual aun no esta usando.">
-<!ENTITY addMain.label "Agregar subscripción de filtro &quot;?1?&quot; también">
+<!ENTITY autodownload.label "Actualizar filtros automáticamente">
+<!ENTITY autodownload.accesskey "A">
+<!ENTITY supplementMessage "Esta suscripción de filtros esta orientada a ser usada con la subscripcion de filtro &quot;?1?&quot; la cual aun no esta usando.">
+<!ENTITY addMain.label "Agregar suscripción de filtro &quot;?1?&quot; también">
 <!ENTITY addMain.accesskey "g">

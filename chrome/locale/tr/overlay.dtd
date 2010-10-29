@@ -11,6 +11,8 @@
 <!ENTITY context.media.label "Adblock Plus: Ses/Video engelle">
 <!ENTITY context.removeWhitelist.label "Adblock Plus: Bu sayfada devreye sok">
 <!ENTITY sidebar.title "Bu sayfadaki engellenebilecek öğeler">
+<!ENTITY sendReport.label "Bu sayfadaki sorunu bildir">
+<!ENTITY sendReport.accesskey "b">
 <!ENTITY settings.label "Tercihler">
 <!ENTITY settings.accesskey "T">
 <!ENTITY opensidebar.label "Engellenebilecek öğeleri göster">

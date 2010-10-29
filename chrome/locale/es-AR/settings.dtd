@@ -19,7 +19,7 @@
 <!ENTITY edit.accesskey "E">
 <!ENTITY cut.label "Cortar">
 <!ENTITY cut.accesskey "t">
-<!ENTITY copy.label "Copy">
+<!ENTITY copy.label "Copiar">
 <!ENTITY copy.accesskey "C">
 <!ENTITY paste.label "Pegar">
 <!ENTITY paste.accesskey "P">
@@ -42,7 +42,7 @@
 <!ENTITY options.label "Opciones">
 <!ENTITY options.accesskey "O">
 <!ENTITY enable.label "Habilitar Adblock Plus">
-<!ENTITY enable.accesskey "H">
+<!ENTITY enable.accesskey "k">
 <!ENTITY showintoolbar.label "Mostrar en la barra de herramientas">
 <!ENTITY showintoolbar.accesskey "h">
 <!ENTITY showinstatusbar.label "Mostrar en la barra de estado">

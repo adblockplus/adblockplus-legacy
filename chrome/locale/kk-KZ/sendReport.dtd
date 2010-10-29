@@ -34,14 +34,30 @@
 <!ENTITY issues.override.label "Баптаулар дұрыс, хабарламаны жалғастыру">
 <!ENTITY issues.override.accesskey "ы">
 <!ENTITY issues.change.description "Баптауларыңыз өзгертілді. Парақты қайта жүктеп, өзгерістерді сынап көріңіз, егер олар қайталанатын болса, хабарламаны жіберіңіз.">
+<!ENTITY typeWarning.description "Сіз хабарламаны Adblock Plus-пен болған мәселе, фильтрлермен емес деп белгіледіңіз. Ондай мәселелер жөнінде [link]Adblock Plus форумына[/link] хабарлау жөн. Осы хабарлаушыны тек форумдағы темаға толықтыру ретінде қолданыңыз, яғни, хабарламаңыздың сілтемесін бермесеңіз, оны ешкім де байқамайды. Автожасалған сілтеме хабарламаны жіберуден кейін қолжетерлік болады.">
 <!ENTITY typeWarning.override.label "Мен түсініп тұрмын, және хабарламаны жібергім келеді">
 <!ENTITY typeWarning.override.accesskey "к">
 <!ENTITY reloadButton.label "Парақты қайта жүктеу">
 <!ENTITY reloadButton.accesskey "р">
 <!ENTITY screenshot.heading "Скриншотты қосып жіберу">
+<!ENTITY screenshot.description "Бірдей парақ әр түрлі адамдар үшін әр түрлі көрінуі мүмкін. Скриншотты қосып жіберсеңіз, ол бізге көмектесуі мүмкін. Жеке ақпаратыңыз бар бөлігін өшіріп, мәселе пайда болған аймақтарды белгілей аласыз. Ол үшін төмендегі батырманы басып, тышқанмен керек аймақты таңдаңыз.">
 <!ENTITY screenshot.attach.label "Парақ скриншотын хабарламаға қосып жіберу">
 <!ENTITY screenshot.attach.accesskey "т">
+<!ENTITY screenshot.mark.label "Хабарламаны белгілеу">
+<!ENTITY screenshot.mark.accesskey "г">
+<!ENTITY screenshot.remove.label "Жеке ақпаратты өшіру">
+<!ENTITY screenshot.remove.accesskey "п">
 <!ENTITY screenshot.undo.label "Болдырмау">
+<!ENTITY screenshot.undo.accesskey "о">
+<!ENTITY commentPage.heading "Түсіндірмені енгізу">
+<!ENTITY commentPage.description "Төмендегі мәтін өрісіне мәселені түсіндіретін түсіндірмені жаза аласыз. Бұл қадам тиісті емес, бірақ мәселе күрделі болса, көмегі тиеді. Жіберу алдында мәліметті тексере аласыз.">
+<!ENTITY comment.label "Түсіндірме (тиісті емес):">
+<!ENTITY comment.accesskey "и">
+<!ENTITY comment.lengthWarning "Түсіндірмеңіздің ұзындығы 1000 таңбадан асты. Тек алғашқы 1000 таңба жіберіледі.">
+<!ENTITY email.label "Кейінгі тергеулер үшін эл. пошта (тиісті емес):">
+<!ENTITY email.accesskey "ш">
+<!ENTITY attachExtensions.label "Белсенді кеңейтулер тізімін жіберу, мүмкін, өзара мәселелер пайда болған шығар">
+<!ENTITY attachExtensions.accesskey "с">
 <!ENTITY sendButton.label "Хабарламаны жіберу">
 <!ENTITY sendButton.accesskey "н">
 <!ENTITY showData.label "Хабарлама мәліметін көрсету">
@@ -50,6 +66,8 @@
 <!ENTITY sendPage.heading "Хабарламаны жіберу">
 <!ENTITY sendPage.waitMessage "Adblock Plus хабарламаңызды жібергенше күте тұрыңыз.">
 <!ENTITY sendPage.confirmation "Хабарламаңыз сақталды. Оны келесі адрестен көре аласыз:">
+<!ENTITY sendPage.knownIssue "Сіз хабарлаған мәселе белгілі сияқты. Көбірек біліңіз:">
+<!ENTITY sendPage.errorMessage "Хабарламаны жіберу талабы &quot;?1?&quot; қате кодымен аяқталды. Интернетпен байланысыңызды тексеріп, қайталаңыз. Егер ол көмектеспесе, [link]Adblock Plus форумынан[/link] көмек сұраңыз.">
 <!ENTITY sendPage.retry.label "Қайта жіберу">
 <!ENTITY copyLink.label "Хабарлама сілтемесін көшіру">
 <!ENTITY copyLink.accesskey "к">

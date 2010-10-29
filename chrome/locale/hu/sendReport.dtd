@@ -11,7 +11,7 @@
 <!ENTITY typeSelector.falseNegative.accesskey "r">
 <!ENTITY typeSelector.falseNegative.description "Válassza ezt a lehetőséget, ha reklámok jelennek meg az oldalon annak ellenére, hogy az Adblock Plus engedélyezve van.">
 <!ENTITY typeSelector.other.label "Egyéb">
-<!ENTITY typeSelector.other.accesskey "E">
+<!ENTITY typeSelector.other.accesskey "g">
 <!ENTITY typeSelector.other.description "Válassza ezt a lehetőséget, ha Ön szerint a probléma magával az Adblock Plus-szal van és nem a szűrőkkel.">
 <!ENTITY showRecentReports.label "Legutóbb beküldött jelentések">
 <!ENTITY recentReports.label "Legutóbb beküldött jelentések">
@@ -55,7 +55,7 @@
 <!ENTITY comment.accesskey "M">
 <!ENTITY comment.lengthWarning "A megjegyzés hossza meghaladja az 1000 karaktert. Csak az első 1000 karakter lesz elküldve.">
 <!ENTITY email.label "Emailcím további kérdésekhez (nem kötelező):">
-<!ENTITY email.accesskey "m">
+<!ENTITY email.accesskey "E">
 <!ENTITY attachExtensions.label "Engedélyezett kiterjesztések listájának csatolása, arra az esetre, ha a kiterjesztések közti ütközésekből adódik a probléma">
 <!ENTITY attachExtensions.accesskey "i">
 <!ENTITY sendButton.label "Jelentés küldése">
