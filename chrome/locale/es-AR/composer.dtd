@@ -7,7 +7,7 @@
 <!ENTITY filter.label "Nuevo filtro:">
 <!ENTITY filter.accesskey "f">
 <!ENTITY preferences.label "Mostrar filtros existentes...">
-<!ENTITY preferences.accesskey "M">
+<!ENTITY preferences.accesskey "o">
 <!ENTITY type.filter.label "Filtros de bloqueo">
 <!ENTITY type.filter.accesskey "b">
 <!ENTITY type.whitelist.label "Regla de excepción">
@@ -25,13 +25,13 @@
 <!ENTITY anchor.start.flexible.label "al comienzo del nombre de dominio">
 <!ENTITY anchor.start.flexible.accesskey "c">
 <!ENTITY anchor.end.label "al final de la dirección">
-<!ENTITY anchor.end.accesskey "f">
+<!ENTITY anchor.end.accesskey "n">
 <!ENTITY options.label "Opciones">
 <!ENTITY domainRestriction.label "Restringir al dominio:">
 <!ENTITY domainRestriction.accesskey "d">
 <!ENTITY domainRestriction.help "Especificá uno o más dominios, separados por el símbolo tubería &quot;|&quot;, así el filtro se aplica solamente sobre estos dominios. El símbolo ñuflo &quot;~&quot; antes de un nombre de dominio significa que el filtro no se aplicaría sobre ese dominio.">
 <!ENTITY firstParty.label "Solamente personal">
-<!ENTITY firstParty.accesskey "p">
+<!ENTITY firstParty.accesskey "e">
 <!ENTITY thirdParty.label "Solamente de terceros">
 <!ENTITY thirdParty.accesskey "t">
 <!ENTITY matchCase.label "Coincidir mayúsculas">

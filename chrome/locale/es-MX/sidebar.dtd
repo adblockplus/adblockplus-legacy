@@ -13,7 +13,7 @@
 <!ENTITY docDomain.firstParty "(propietario)">
 <!ENTITY noitems.label "No hay elementos bloqueables">
 <!ENTITY whitelisted.label "Pagina de lista de Permitidos">
-<!ENTITY tooltip.address.label "Direccion:">
+<!ENTITY tooltip.address.label "Dirección:">
 <!ENTITY tooltip.type.label "Tipo:">
 <!ENTITY tooltip.type.blocked "(bloqueado)">
 <!ENTITY tooltip.type.whitelisted "(permitido)">

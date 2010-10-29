@@ -55,7 +55,7 @@
 <!ENTITY comment.accesskey "C">
 <!ENTITY comment.lengthWarning "La longitud de tu comentario excede los 1.000 caracteres. Sólo los primeros 1.000 caracteres serán enviados.">
 <!ENTITY email.label "Correo electrónico para mayores detalles (opcional):">
-<!ENTITY email.accesskey "C">
+<!ENTITY email.accesskey "l">
 <!ENTITY attachExtensions.label "Adjuntar una lista de las extensiones activas al informe, en caso de que sea alguno de los agregados el causante del problema.">
 <!ENTITY attachExtensions.accesskey "x">
 <!ENTITY sendButton.label "Enviar informe">
