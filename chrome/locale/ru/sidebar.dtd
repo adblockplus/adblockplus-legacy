@@ -12,6 +12,8 @@
 <!ENTITY state.label              "Статус">
 <!ENTITY size.label               "Размер">
 <!ENTITY docDomain.label          "Домен страницы">
+<!ENTITY docDomain.thirdParty     "(запрос с другого сайта)">
+<!ENTITY docDomain.firstParty     "(запрос с того же сайта)">
 
 <!ENTITY noitems.label            "Блокировать нечего">
 <!ENTITY whitelisted.label        "Отключен на этой странице">
@@ -22,6 +24,7 @@
 <!ENTITY tooltip.size.label       "Размер:">
 <!ENTITY tooltip.docDomain.label  "Домен страницы:">
 <!ENTITY tooltip.filter.label     "Применен фильтр:">
+<!ENTITY tooltip.filter.disabled  "(отключен)">
 <!ENTITY tooltip.filterSource.label "Источник фильтра:">
 
 <!ENTITY context.block.label      "Заблокировать элемент">
