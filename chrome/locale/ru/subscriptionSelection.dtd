@@ -33,6 +33,6 @@
 <!ENTITY autodownload.label         "Обновлять автоматически">
 <!ENTITY autodownload.accesskey     "т">
 
-<!ENTITY supplementMessage          "Этот список фильтров должен использоваться в комбинации со списком фильтров &quot;?1?&quot;, который вы не используете.">
-<!ENTITY addMain.label              "Добавить подписку на список фильтров &quot;?1?&quot;">
+<!ENTITY supplementMessage          "Этот список фильтров должен использоваться в комбинации со списком фильтров «?1?», который вы не используете.">
+<!ENTITY addMain.label              "Добавить подписку на список фильтров «?1?»">
 <!ENTITY addMain.accesskey          "в">
