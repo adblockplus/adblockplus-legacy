@@ -16,7 +16,7 @@
 <!ENTITY showRecentReports.label "Zobraziť nedávno potvrdené správy">
 <!ENTITY recentReports.label "Vaše nedávno potvrdené správy">
 <!ENTITY recentReports.clear.label "Odstrániť všetky správy">
-<!ENTITY recentReports.clear.accesskey "h">
+<!ENTITY recentReports.clear.accesskey "t">
 <!ENTITY issues.description "Adblock Plus zistil problém s vašou konfiguráciou, ktorý by mohol byť zodpovedný za daný problém alebo robí zistenie problému ťažším.">
 <!ENTITY issues.whitelist.description "Adblock Plus je na stránke, ktorú chcete ohlásiť, vypnutý. Zapnite ho, prosím, znova a opäť načítajte stránku skôr, než potvrdíte hlásenie.">
 <!ENTITY issues.whitelist.remove.label "Zapnúť opäť Adblock Plus na tejto stránke">

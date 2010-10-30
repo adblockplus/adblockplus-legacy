@@ -16,6 +16,7 @@
 <!ENTITY pattern.explanation "Vzorec je lahko kateri koli del naslova, simbol * velja kot poljuben znak. Filter bo le za naslove, ki ustrezajo vzorcu.">
 <!ENTITY regexp.warning "Vneseni vzorec bo obravnavan kot regularni izraz. Številni regularni izrazi lahko upočasnijo vaše brskanje. Če ne nameravate uporabljati regularnih izrazov, dodajte simbol * na konec vzorca.">
 <!ENTITY shortpattern.warning "Vzorec, ki ste ga vnesli, je prekratek za optimizacijo, številni tovrstni vzorci lahko upočasnijo vaše brskanje. Priporočamo, da izberete daljši niz za ta filter.">
+<!ENTITY match.warning "Vzorec, ki ste ga vnesli, se ne ujema z naslovom, ki ga želite blokirati in zato ne bo vplival nanj.">
 <!ENTITY custom.pattern.label "Po meri:">
 <!ENTITY custom.pattern.accesskey "m">
 <!ENTITY anchors.label "Sprejmi le vzorec:">
