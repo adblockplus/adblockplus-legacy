@@ -141,7 +141,7 @@
 <!ENTITY email.label                  "Адрес электронной почты для дополнительных вопросов (необязательно):">
 <!ENTITY email.accesskey              "д">
 
-<!ENTITY attachExtensions.label       "Прикрепить список активных расширений к сообщению на случай, если проблема вызвана конфликтом расширений">
+<!ENTITY attachExtensions.label       "Прикрепить список включенных расширений к сообщению на случай, если проблема вызвана конфликтом расширений">
 <!ENTITY attachExtensions.accesskey   "р">
 
 <!ENTITY sendButton.label             "Отправить сообщение">
