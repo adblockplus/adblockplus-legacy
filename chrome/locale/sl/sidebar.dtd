@@ -9,6 +9,8 @@
 <!ENTITY state.label "Stanje">
 <!ENTITY size.label "Velikost">
 <!ENTITY docDomain.label "Vir dokumenta">
+<!ENTITY docDomain.thirdParty "(tretja stran)">
+<!ENTITY docDomain.firstParty "(prva stran)">
 <!ENTITY noitems.label "Ni elementov blokiranja">
 <!ENTITY whitelisted.label "Dovoljena stran">
 <!ENTITY tooltip.address.label "Naslov:">
@@ -18,6 +20,7 @@
 <!ENTITY tooltip.size.label "Velikost:">
 <!ENTITY tooltip.docDomain.label "Vir dokumenta:">
 <!ENTITY tooltip.filter.label "Trenutni filter:">
+<!ENTITY tooltip.filter.disabled "(onemogočeno)">
 <!ENTITY tooltip.filterSource.label "Vir filtra:">
 <!ENTITY context.block.label "Blokiraj ta element">
 <!ENTITY context.editfilter.label "Uredi trenutni filter">

@@ -11,6 +11,8 @@
 <!ENTITY context.media.label "Adblock Plus: Blokiraj zvok/video">
 <!ENTITY context.removeWhitelist.label "Adblock Plus - ponovno omogoči na tej strani">
 <!ENTITY sidebar.title "Elementi blokad na trenutni strani">
+<!ENTITY sendReport.label "Javite težavo na tej strani">
+<!ENTITY sendReport.accesskey "J">
 <!ENTITY settings.label "Nastavitve">
 <!ENTITY settings.accesskey "N">
 <!ENTITY opensidebar.label "Odpri elemente blokad">
