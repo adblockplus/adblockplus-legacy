@@ -1,0 +1,170 @@
+<!ENTITY wizard.title                   "Сообщить о проблеме">
+<!ENTITY privacyPolicy.label            "Правила конфиденциальности">
+
+<!ENTITY dataCollector.heading          "Добро пожаловать в ассистент отправления сообщения">
+<!ENTITY dataCollector.description      "Пожалуйста, подождите несколько секунд, пока Adblock Plus собирает нужные данные.">
+
+<!-- Please keep typeSelector.heading short - it is shown in the progress bar, not much space there -->
+<!ENTITY typeSelector.heading           "Выбор типа проблемы">
+
+<!ENTITY typeSelector.description       "
+  Этот ассистент поможет вам отправить сообщение о проблеме с Adblock Plus.
+  Сначала выберите, пожалуйста, тип проблемы, с которой вы столкнулись на
+  этой странице:
+">
+
+<!ENTITY typeSelector.falsePositive.label       "Adblock Plus блокирует слишком многое">
+<!ENTITY typeSelector.falsePositive.accesskey   "м">
+<!ENTITY typeSelector.falsePositive.description "
+  Выберите этот вариант, если на странице отсутствует важные части содержания,
+  если она отображается неправильно или часть ее функциональности не работает.
+  Вы можете проверить, является ли Adblock Plus источником проблемы, временно
+  отключив его.
+">
+
+<!ENTITY typeSelector.falseNegative.label       "Adblock Plus не блокирует рекламу">
+<!ENTITY typeSelector.falseNegative.accesskey   "р">
+<!ENTITY typeSelector.falseNegative.description "
+  Выберите этот вариант, если на странице показывается реклама, несмотря на то,
+  что Adblock Plus включен.
+">
+
+<!ENTITY typeSelector.other.label               "Другая проблема">
+<!ENTITY typeSelector.other.accesskey           "Д">
+<!ENTITY typeSelector.other.description         "
+  Выберите этот вариант, если вы подозреваете проблему с самим расширением
+  Adblock Plus, а не с его фильтрами.
+">
+
+<!ENTITY showRecentReports.label                "Показать недавно отправленные сообщения">
+<!ENTITY recentReports.label                    "Ваши недавно отправленные сообщения">
+<!ENTITY recentReports.clear.label              "Удалить все сообщения">
+<!ENTITY recentReports.clear.accesskey          "л">
+
+<!ENTITY issues.description                     "
+  Adblock Plus обнаружил проблемы в ваших настройках, которые, возможно, вызвали
+  данную проблему или усложнят рассмотрение вашего сообщения.
+">
+
+<!ENTITY issues.whitelist.description           "
+  Adblock Plus отключен на странице, о которой вы собираетесь сообщить. Пожалуйста,
+  включите Adblock Plus и обновите страницу, прежде чем посылать сообщение.
+  Это поможет рассмотрению Вашего сообщения.
+">
+<!ENTITY issues.whitelist.remove.label          "Включить Adblock Plus на этой странице">
+
+<!ENTITY issues.disabled.description            "
+  Adblock Plus отключен и ничего не блокирует в этом состоянии.
+">
+<!ENTITY issues.disabled.enable.label           "Включить Adblock Plus">
+
+<!ENTITY issues.nofilters.description           "
+  Adblock Plus ничего не блокирует на этой странице. Скорее всего, проблема,
+  которую вы наблюдаете, не связана с Adblock Plus.
+">
+
+<!ENTITY issues.nosubscriptions.description     "
+  Вы не подписаны ни на один из готовых списков фильтров, которые автоматически
+  блокируют нежелательные элементы страниц.
+">
+<!ENTITY issues.nosubscriptions.add.label       "Добавить подписку">
+
+<!ENTITY issues.ownfilters.description          "
+  Некоторые фильтры, которые применяются на этой странице, Вы добавили сами.
+  Пожалуйста, отключите фильтры, которые могли вызвать эту проблему:
+">
+<!ENTITY issues.ownfilters.disable.label        "Отключить фильтр">
+
+<!ENTITY issues.disabledgroups.description      "
+  Следующие подписки / группы фильтров отключены, но могли бы повлиять на эту страницу:
+">
+<!ENTITY issues.disabledgroups.enable.label     "Включить подписку / группу фильтров">
+
+<!ENTITY issues.disabledfilters.description     "
+  Следующие фильтры отключены, но могли бы повлиять на эту страницу:
+">
+<!ENTITY issues.disabledfilters.enable.label    "Включить фильтр">
+
+<!ENTITY issues.override.label                  "Настройки в порядке, продолжить с отправлением сообщения">
+<!ENTITY issues.override.accesskey              "п">
+<!ENTITY issues.change.description              "
+  Ваши настройки изменились. Пожалуйста, обновите страницу, чтобы проверить
+  изменения, и отправьте сообщение, если проблема не разрешилась.
+">
+
+<!ENTITY typeWarning.description                "
+  Вы указали, что хотите сообщить о проблеме с Adblock Plus, а не с его фильтрами.
+  Пожалуйста, учтите, что о таких проблемах лучше сообщать на
+  [link]форуме Adblock Plus[/link]. Ассистент отправления сообщения следует
+  использовать лишь для добавления информации к обсуждению на форуме, поскольку
+  никто не увидит Ваше сообщение, если не оставить ссылку на него в форуме. Вы
+  получите автоматически созданную ссылку после отправления сообщения.
+">
+
+<!ENTITY typeWarning.override.label             "Я понял и хочу тем не менее отправить сообщение">
+<!ENTITY typeWarning.override.accesskey         "п">
+
+<!ENTITY reloadButton.label                     "Обновить страницу">
+<!ENTITY reloadButton.accesskey                 "н">
+
+<!-- Please keep screenshot.heading short - it is shown in the progress bar, not much space there -->
+<!ENTITY screenshot.heading           "Прикрепление снимка экрана">
+
+<!ENTITY screenshot.description       "
+  Одна и та же страница может выглядеть по-разному для разных людей. Снимок экрана
+  может помочь нам понять проблему. Вы можете удалить конфиденциальные части снимка
+  или, наоборот, пометить область снимка, в которой проявляется проблема. Для этого
+  нажмите на соответствующую кнопку и выберите мышкой часть снимка.
+">
+
+<!ENTITY screenshot.attach.label      "Прикрепить снимок экрана к сообщению">
+<!ENTITY screenshot.attach.accesskey  "к">
+<!ENTITY screenshot.mark.label        "Пометить проблему">
+<!ENTITY screenshot.mark.accesskey    "п">
+<!ENTITY screenshot.remove.label      "Удалить конфиденциальные данные">
+<!ENTITY screenshot.remove.accesskey  "д">
+<!ENTITY screenshot.undo.label        "Отменить">
+<!ENTITY screenshot.undo.accesskey    "О">
+
+<!-- Please keep commentPage.heading short - it is shown in the progress bar, not much space there -->
+<!ENTITY commentPage.heading          "Ввод комментария">
+
+<!ENTITY commentPage.description      "
+  Внизу вы можете ввести комментарий, чтобы помочь нам понять проблему.
+  Это опционально, но рекомендуется для неочевидных проблем.
+  Вы можете также проверить данные Вашего сообщения, прежде чем они будут
+  посланы.
+">
+
+<!ENTITY comment.label                "Комментарий (опционально):">
+<!ENTITY comment.accesskey            "К">
+<!ENTITY comment.lengthWarning        "Длина Вашего комментария превышает 1000 символов. Только первые 1000 символов будут отправлены.">
+<!ENTITY email.label                  "Адрес электронной почты для дополнительных вопросов (опционально):">
+<!ENTITY email.accesskey              "д">
+
+<!ENTITY attachExtensions.label       "Прикрепить список активных расширений к сообщению на случай, если проблема вызвана конфликтом расширений">
+<!ENTITY attachExtensions.accesskey   "р">
+
+<!ENTITY sendButton.label             "Отправить сообщение">
+<!ENTITY sendButton.accesskey         "п">
+
+<!ENTITY showData.label               "Показать данные сообщения">
+<!ENTITY data.label                   "Данные сообщения:">
+<!ENTITY data.accesskey               "н">
+
+<!-- Please keep sendPage.heading short - it is shown in the progress bar, not much space there -->
+<!ENTITY sendPage.heading             "Отправление сообщения">
+<!ENTITY sendPage.waitMessage         "Пожалуйста, подождите, пока Adblock Plus отправляет Ваше сообщение.">
+<!ENTITY sendPage.confirmation        "Ваше сообщение сохранено. Вы можете просмотреть его по следующей ссылке:">
+<!ENTITY sendPage.knownIssue          "Проблема, о которой вы сообщили, возможно, уже известна. Дополнительная информация:">
+
+<!-- Note: the placeholder ?1? will be replaced by the error code -->
+<!ENTITY sendPage.errorMessage        "
+  Отправление сообщение не удалось из-за ошибки &quot;?1?&quot;. Пожалуйста,
+  удостоверьтесь, что Ваше интернет соединение работает, и попробуйте еще раз.
+  Если проблема остается, обратитесь в [link]форум Adblock Plus[/link].
+">
+<!ENTITY sendPage.retry.label         "Отправить еще раз">
+
+<!ENTITY copyLink.label               "Скопировать ссылку на сообщение">
+<!ENTITY copyLink.accesskey           "к">
