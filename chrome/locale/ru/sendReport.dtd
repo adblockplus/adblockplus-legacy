@@ -1,14 +1,14 @@
 <!ENTITY wizard.title                   "Сообщить о проблеме">
 <!ENTITY privacyPolicy.label            "Правила конфиденциальности">
 
-<!ENTITY dataCollector.heading          "Добро пожаловать в помощник отправки сообщения">
+<!ENTITY dataCollector.heading          "Добро пожаловать в мастер отправки сообщения">
 <!ENTITY dataCollector.description      "Пожалуйста, подождите несколько секунд, пока Adblock Plus собирает нужные данные.">
 
 <!-- Please keep typeSelector.heading short - it is shown in the progress bar, not much space there -->
 <!ENTITY typeSelector.heading           "Выбор типа проблемы">
 
 <!ENTITY typeSelector.description       "
-  Это окно поможет вам отправить сообщение о проблеме с Adblock Plus.
+  Мастер поможет вам отправить сообщение о проблеме с Adblock Plus.
   Пожалуйста, укажите на этой странице тип проблемы, с которой вы столкнулись:
 ">
 
@@ -94,7 +94,7 @@
 <!ENTITY typeWarning.description                "
   Вы указали, что хотите сообщить о проблеме в Adblock Plus, а не в его фильтрах.
   Пожалуйста, учтите, что о таких проблемах лучше сообщать на
-  [link]форуме Adblock Plus[/link]. Помощник отправки сообщения следует
+  [link]форуме Adblock Plus[/link]. Мастер отправки сообщения следует
   использовать лишь для добавления информации к обсуждению на форуме, поскольку
   никто не увидит ваше сообщение, если не оставить на него ссылку. Вы
   получите автоматически созданную ссылку после отправки сообщения.
