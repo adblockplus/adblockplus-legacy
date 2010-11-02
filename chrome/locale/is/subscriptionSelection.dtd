@@ -7,17 +7,17 @@
 <!ENTITY addSubscription.label "Bæta við áskrift">
 <!ENTITY saveSubscription.label "Vista áskrift">
 <!ENTITY other.label "Bæta við öðruvísi áskrift">
-<!ENTITY other.accesskey "T">
-<!ENTITY list.download.failed "Gat ekki náð í lista af áskriftum">
+<!ENTITY other.accesskey "f">
+<!ENTITY list.download.failed "Adblock Plus gat ekki náð í lista af áskriftum.">
 <!ENTITY list.download.retry "Reyndu aftur">
 <!ENTITY list.download.website "Skoða vefsvæði">
 <!ENTITY fromWeb.description "Staðfestu að þú viljir bæta við þessari síu áskrift. Þú getur breytt titlinum eða staðsetningu áður en þú bætir við.">
 <!ENTITY edit.description "Þú getur breytt titli eða staðsetningu ef nauðsynlegt er.">
-<!ENTITY external.description "Þetta er utanáliggjandi síu áskrift, síulistinn verður uppfærður af viðbótinni sem bjó til þessa áskrift.">
+<!ENTITY external.description "Þetta er utanáliggjandi síu áskrift; síulistinn verður uppfærður af viðbótinni sem bjó til þessa áskrift.">
 <!ENTITY title.label "Áskriftartitill:">
-<!ENTITY title.accesskey "T">
+<!ENTITY title.accesskey "t">
 <!ENTITY location.label "Staðsetning síulista:">
-<!ENTITY location.accesskey "L">
+<!ENTITY location.accesskey "l">
 <!ENTITY autodownload.label "Uppfæra sjálfvirkt">
 <!ENTITY autodownload.accesskey "U">
 <!ENTITY supplementMessage "Þessi síu áskrift er ætluð til þess að vera notuð með síu áskrift &quot;?1?&quot; sem þú hefur ekki ennþá bætt við.">

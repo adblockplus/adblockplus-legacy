@@ -11,6 +11,8 @@
 <!ENTITY context.media.label "Adblock Plus: Блокувати аудіо/відео">
 <!ENTITY context.removeWhitelist.label "Adblock Plus: Знов увімкнути для цієї сторінки">
 <!ENTITY sidebar.title "Елементи відкритої сторінки">
+<!ENTITY sendReport.label "Повідомити про проблеми на сторінці">
+<!ENTITY sendReport.accesskey "с">
 <!ENTITY settings.label "Налаштування">
 <!ENTITY settings.accesskey "ш">
 <!ENTITY opensidebar.label "Відкрити список елементів">

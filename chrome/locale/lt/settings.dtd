@@ -29,6 +29,16 @@
 <!ENTITY menu.find.accesskey "A">
 <!ENTITY menu.findagain.label "Rasti vėl">
 <!ENTITY menu.findagain.accesskey "V">
+<!ENTITY view.label "Rodymas">
+<!ENTITY view.accesskey "R">
+<!ENTITY sort.label "Rikiuoti pagal">
+<!ENTITY sort.accesskey "k">
+<!ENTITY sort.none.label "Nerikiuojama">
+<!ENTITY sort.none.accesskey "N">
+<!ENTITY sort.ascending.label "Rikiavimo tvarka „A &gt; Z“">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.descending.label "Rikiavimo tvarka „Z &gt; A“">
+<!ENTITY sort.descending.accesskey "Z">
 <!ENTITY options.label "Pasirinktys">
 <!ENTITY options.accesskey "P">
 <!ENTITY enable.label "Įjungti „Adblock Plus“">

@@ -1,0 +1,73 @@
+<!ENTITY wizard.title "докладчик на проблеми">
+<!ENTITY privacyPolicy.label "Защита на личните данни">
+<!ENTITY dataCollector.heading "Добре дошли в докладчика на проблеми">
+<!ENTITY dataCollector.description "Моля, изчакайте няколко секунди, докато събeрe Adblock Plus необходимите данни.">
+<!ENTITY typeSelector.heading "Изберете тип на проблема">
+<!ENTITY typeSelector.description "Този прозорец ще ви преведе през стъпките, необходими за подаване на доклад за Adblock Plus  проблем. Първо, моля изберете вида на проблема, който сте срещнали на тази страница:">
+<!ENTITY typeSelector.falsePositive.label "Adblock Plus блокира твърде много">
+<!ENTITY typeSelector.falsePositive.accesskey "м">
+<!ENTITY typeSelector.falsePositive.description "Изберете тази настройка, ако на страницата липсва важно съдържание, показана е некоректно или не функционира правилно. Може да определите дали Adblock Plus е причина за проблема, като временно го изключите.">
+<!ENTITY typeSelector.falseNegative.label "Adblock Plus не блокира реклама">
+<!ENTITY typeSelector.falseNegative.accesskey "р">
+<!ENTITY typeSelector.falseNegative.description "Изберете тази настройка, ако се показва реклама въпреки, че Adblock Plus е включен.">
+<!ENTITY typeSelector.other.label "Друг проблем">
+<!ENTITY typeSelector.other.accesskey "у">
+<!ENTITY typeSelector.other.description "Изберете тази настройка, ако подозирате, че проблемът е с Adblock Plus, а не с филтрите му.">
+<!ENTITY showRecentReports.label "Покажи наскоро представените доклади">
+<!ENTITY recentReports.label "Вашите наскоро представените доклади">
+<!ENTITY recentReports.clear.label "Премахни всички доклади">
+<!ENTITY recentReports.clear.accesskey "н">
+<!ENTITY issues.description "Adblock Plus откри проблеми с вашата конфигурация, които може да причиняват този проблем или ще затрудни доклада за разследването.">
+<!ENTITY issues.whitelist.description "В момента Adblock Plus е изключен за страницата, която докладвате. Моля активирайте повторно и презаредете страницата преди да изпратите доклада за да помогнете за откриване на проблема.">
+<!ENTITY issues.whitelist.remove.label "Повторно активиране на Adblock Plus на тази страница">
+<!ENTITY issues.disabled.description "Adblock Plus е изключен - няма да блокира нищо в неговото текущо състояние.">
+<!ENTITY issues.disabled.enable.label "Включи Adblock Plus">
+<!ENTITY issues.nofilters.description "Adblock Plus не блокира нищо на текущата страница. Наблюдавания проблем най-вероятно не е свързан с Adblock Plus.">
+<!ENTITY issues.nosubscriptions.description "Изглежда не сте абонирани за някои от предварително направени списъци с филтри, които автоматично премахват нежеланото съдържание от страниците.">
+<!ENTITY issues.nosubscriptions.add.label "Добавяне на абонамент за филтър">
+<!ENTITY issues.ownfilters.description "Някои от филтрите, приложени на тази страница са дефинирани от потребителя. Моля, деактивирайте филтрите, които може да причиняват проблема:">
+<!ENTITY issues.ownfilters.disable.label "Изключване на филтър">
+<!ENTITY issues.disabledgroups.description "Следните абонаменти за филтри/групи филтри са изключени. Все пак биха могли да имат ефект върху тази страница:">
+<!ENTITY issues.disabledgroups.enable.label "Включване на абонамент за филтър/ група филтри">
+<!ENTITY issues.disabledfilters.description "Следните филтри са изключени, но въпреки това може да окажат влияние на тази страница:">
+<!ENTITY issues.disabledfilters.enable.label "Включи филтъра">
+<!ENTITY issues.override.label "Конфигурацията е правилно, продължаване с доклада">
+<!ENTITY issues.override.accesskey "п">
+<!ENTITY issues.change.description "Вашата конфигурация е променена. Моля, презаредете страницата, за да тествате промените и да представите доклад, ако въпросът не бъде уреден от промените.">
+<!ENTITY typeWarning.description "Посочили сте, че искате да съобщите за общ проблем с Adblock Plus, а не проблем с филтрите. Моля, обърнете внимание, че тези въпроси са най-докладвани във [link]форума на Adblock Plus[/link]. Трябва да използвате докладчика на проблеми за допълване на съществуваща дискусия, тъй като никой няма да забележи вашия доклад, докато не предоставите връзка към него. Автоматично генерирана връзка ще бъде предоставена след предоставянето на доклада.">
+<!ENTITY typeWarning.override.label "Разбирам и все пак искам да представя доклада">
+<!ENTITY typeWarning.override.accesskey "п">
+<!ENTITY reloadButton.label "Презареждане на страницата">
+<!ENTITY reloadButton.accesskey "з">
+<!ENTITY screenshot.heading "Прикачете екранна снимка">
+<!ENTITY screenshot.description "Същата страница може да изглежда различно за различни хора. Това може да ни помогне да разберем проблема, ако прикачите снимка на екрана към вашия доклад. Можете да премахнете частите, съдържащи чувствителна информация, както и зони, в които проблемът се забелязва. За да направите това натиснете съответния бутон и изберете частта от изображението с мишката.">
+<!ENTITY screenshot.attach.label "Прикачване на изображение на страницата към доклада">
+<!ENTITY screenshot.attach.accesskey "и">
+<!ENTITY screenshot.mark.label "Маркиране на проблема">
+<!ENTITY screenshot.mark.accesskey "М">
+<!ENTITY screenshot.remove.label "Премахване на чувствителните данни">
+<!ENTITY screenshot.remove.accesskey "р">
+<!ENTITY screenshot.undo.label "Отмяна">
+<!ENTITY screenshot.undo.accesskey "О">
+<!ENTITY commentPage.heading "Въвеждане на коментар">
+<!ENTITY commentPage.description "Полето по-долу ви позволява да въведете коментар да ни помогне да разберем проблема. Тази стъпка не е задължителна, но се препоръчва, ако проблемът не е очевиден. Можете също да прегледате данните от доклада, преди да е изпратен.">
+<!ENTITY comment.label "Коментар (по избор)">
+<!ENTITY comment.accesskey "К">
+<!ENTITY comment.lengthWarning "Дължината на коментара надвишава 1000 знака. Само първите 1000 знака ще бъдат изпратени.">
+<!ENTITY email.label "Email за други разследвания (по избор):">
+<!ENTITY email.accesskey "m">
+<!ENTITY attachExtensions.label "Прилагане на списък с активните разширения към доклада при добавяне на конфликти, причиняващи проблема">
+<!ENTITY attachExtensions.accesskey "ш">
+<!ENTITY sendButton.label "Изпращане на доклада">
+<!ENTITY sendButton.accesskey "п">
+<!ENTITY showData.label "Показване на докладваните данни">
+<!ENTITY data.label "Докладвани данни:">
+<!ENTITY data.accesskey "д">
+<!ENTITY sendPage.heading "Изпрати доклада">
+<!ENTITY sendPage.waitMessage "Моля, изчакайте докато Adblock Plus представя Вашия отчет.">
+<!ENTITY sendPage.confirmation "Отчетът Ви е запазен. Можете да го намерите на следния адрес:">
+<!ENTITY sendPage.knownIssue "Докладваният от Вас проблем вероятно вече е известен. За повече информация:">
+<!ENTITY sendPage.errorMessage "Опитът за изпращане на доклада се провали с код на грешка &quot;?1?&quot;. Моля, уверете се, че сте свързани с интернет и повторете. Ако проблемът продължи, моля потърсете помощ в [link]форума на Adblock Plus[/link].">
+<!ENTITY sendPage.retry.label "Изпращане отново">
+<!ENTITY copyLink.label "Копиране на линка на доклада">
+<!ENTITY copyLink.accesskey "К">

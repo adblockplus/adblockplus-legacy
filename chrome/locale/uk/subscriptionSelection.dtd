@@ -15,11 +15,11 @@
 <!ENTITY edit.description "Ви можете змінити назву чи знаходження підписки якщо потрібно.">
 <!ENTITY external.description "Це зовнішня фільтрова підписка. Вона буде оновлюватись додатком що створив цю підписку.">
 <!ENTITY title.label "Назва підписки:">
-<!ENTITY title.accesskey "а">
+<!ENTITY title.accesskey "Н">
 <!ENTITY location.label "Адреса списку фільтрів:">
 <!ENTITY location.accesskey "е">
 <!ENTITY autodownload.label "Оновлювати автоматично">
-<!ENTITY autodownload.accesskey "о">
-<!ENTITY supplementMessage "Ця фільтрова підписка призначеня для використання в парі з фільтровою підпискою «?1?», котру ви наразі не використовуєте.">
+<!ENTITY autodownload.accesskey "а">
+<!ENTITY supplementMessage "Ця фільтрова підписка призначена для використання в парі з фільтровою підпискою «?1?», котру ви наразі не використовуєте.">
 <!ENTITY addMain.label "Додати також фільтрову підписку «?1?»">
 <!ENTITY addMain.accesskey "Д">

@@ -1,0 +1,28 @@
+<!ENTITY wizard.title "Raportare problemă">
+<!ENTITY privacyPolicy.label "Politica de confidenţialitate">
+<!ENTITY dataCollector.heading "Bine aţi venit la propgramul de raportat probleme">
+<!ENTITY dataCollector.description "Aşteptaţi un moment până ce Adblock Plus adună datele necesare.">
+<!ENTITY typeSelector.heading "Alegeţi tipul problemei">
+<!ENTITY typeSelector.description "Această fereastră vă ghidează prin paşii necesari raportării unei probleme Adblock Plus. Pentru început, alegeţi tipul problemei întâlnite pe pagina curentă:">
+<!ENTITY typeSelector.falsePositive.label "Adblock Plus blochează prea mult">
+<!ENTITY typeSelector.falsePositive.accesskey "m">
+<!ENTITY typeSelector.falsePositive.description "Alegeţi această opţiune dacă pagina este afişată incorect sau nu funţionează cum trebuie atunci când Adblock Plus este activ. Verificaţi dacă Adblock Plus este sursa problemei prin dezactivarea temporară a suplimentului.">
+<!ENTITY typeSelector.falseNegative.label "Adblock Plus nu blochează o reclamă">
+<!ENTITY typeSelector.falseNegative.accesskey "r">
+<!ENTITY typeSelector.other.label "Alegeţi această opţiune dacă pagina conţine reclame chiar şi când Adblock Plus este activ.">
+<!ENTITY typeSelector.other.accesskey "Altă problemă">
+<!ENTITY typeSelector.other.description "t">
+<!ENTITY showRecentReports.label "Arată rapoartele trimise recent">
+<!ENTITY recentReports.label "Rapoartele trimise recent">
+<!ENTITY recentReports.clear.label "Şterge toate rapoartele">
+<!ENTITY recentReports.clear.accesskey "g">
+<!ENTITY issues.description "Adblock Plus a detectat inconsistenţe în configuraţie care pot fi cauza problemei, sau care pot îngreuna trimitearea raportului.">
+<!ENTITY issues.whitelist.description "Adblock Plus este inactiv pe pagina curentă. Pentru a ajuta la investigarea problemei, activaţi Adblock Plus şi reîncărcaţi pagina înainte de a trimite un raport.">
+<!ENTITY issues.whitelist.remove.label "Reactivează Adblock Plus pe pagina curentă">
+<!ENTITY issues.disabled.description "Adblock Plus este inactiv şi nu va bloca nimic în starea curentă.">
+<!ENTITY issues.disabled.enable.label "Activează Adblock Plus">
+<!ENTITY issues.nofilters.description "Adblock Plus nu blochează nimic în pagina curentă. Problema pe care o aveţi nu are probabil nici o legătură cu Adblock Plus.">
+<!ENTITY issues.nosubscriptions.description "Se pare că nu sunteţi abonat la nici o listă de filtre predefinită.">
+<!ENTITY issues.nosubscriptions.add.label "Adaugă abonament filtre">
+<!ENTITY issues.ownfilters.description "Câteva din filtrele aplicate pe această pagină sunt definite de către utilizator. Dezactivaţi filtrele următoare, care sunt probabil cauza problemei:">
+<!ENTITY issues.ownfilters.disable.label "Dezactivează filtră">

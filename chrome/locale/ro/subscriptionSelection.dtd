@@ -7,7 +7,7 @@
 <!ENTITY addSubscription.label "Adaugă abonament">
 <!ENTITY saveSubscription.label "Salvează abonament">
 <!ENTITY other.label "Adaugă alt abonament">
-<!ENTITY other.accesskey "l">
+<!ENTITY other.accesskey "g">
 <!ENTITY list.download.failed "Eroare la descărcarea listei de abonamente.">
 <!ENTITY list.download.retry "Încearcă din nou">
 <!ENTITY list.download.website "Arată pagina web">

@@ -11,6 +11,8 @@
 <!ENTITY context.media.label "过滤视频/音频(Adblock Plus)">
 <!ENTITY context.removeWhitelist.label "Adblock Plus: 在此页面上重新启用">
 <!ENTITY sidebar.title "本页可过滤的项目">
+<!ENTITY sendReport.label "报告该页面上的问题">
+<!ENTITY sendReport.accesskey "R">
 <!ENTITY settings.label "首选项">
 <!ENTITY settings.accesskey "F">
 <!ENTITY opensidebar.label "打开可过滤项目">

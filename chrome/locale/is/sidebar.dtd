@@ -9,6 +9,8 @@
 <!ENTITY state.label "Ríki">
 <!ENTITY size.label "Stærð">
 <!ENTITY docDomain.label "Netfang síðu">
+<!ENTITY docDomain.thirdParty "(þriðja aðila)">
+<!ENTITY docDomain.firstParty "(frumaðili)">
 <!ENTITY noitems.label "Engir hlutir til að loka á">
 <!ENTITY whitelisted.label "Síða fyrir hvítlista">
 <!ENTITY tooltip.address.label "Netfang:">
@@ -18,6 +20,7 @@
 <!ENTITY tooltip.size.label "Stærð:">
 <!ENTITY tooltip.docDomain.label "Netfang síðu:">
 <!ENTITY tooltip.filter.label "Sía í notkun:">
+<!ENTITY tooltip.filter.disabled "(óvirkt)">
 <!ENTITY tooltip.filterSource.label "Sía frumkóða:">
 <!ENTITY context.block.label "Loka á þennan hlut">
 <!ENTITY context.editfilter.label "Breyta núverandi síu">
