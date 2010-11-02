@@ -7,7 +7,7 @@
 <!ENTITY addSubscription.label "Lägg till filterprenumeration">
 <!ENTITY saveSubscription.label "Spara filterprenumeration">
 <!ENTITY other.label "Lägg till en ny prenumeration">
-<!ENTITY other.accesskey "t">
+<!ENTITY other.accesskey "L">
 <!ENTITY list.download.failed "Adblock Plus kunde inte hämta listan med filterprenumerationer.">
 <!ENTITY list.download.retry "Försök igen">
 <!ENTITY list.download.website "Visa webbsidan">
