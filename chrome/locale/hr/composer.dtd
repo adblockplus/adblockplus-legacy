@@ -7,7 +7,7 @@
 <!ENTITY filter.label "Novi filter">
 <!ENTITY filter.accesskey "f">
 <!ENTITY preferences.label "Prikaži postojeće filtere">
-<!ENTITY preferences.accesskey "S">
+<!ENTITY preferences.accesskey "k">
 <!ENTITY type.filter.label "Blokirani filter">
 <!ENTITY type.filter.accesskey "B">
 <!ENTITY type.whitelist.label "Iznimka">
