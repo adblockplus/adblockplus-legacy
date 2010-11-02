@@ -4,7 +4,7 @@
 <!ENTITY add.label "Добави Филтър">
 <!ENTITY add.accesskey "Д">
 <!ENTITY addsubscription.label "Добави абонамент за филтър">
-<!ENTITY addsubscription.accesskey "Д">
+<!ENTITY addsubscription.accesskey "б">
 <!ENTITY synchsubscriptions.label "Обнови всички абонаменти">
 <!ENTITY synchsubscriptions.accesskey "О">
 <!ENTITY import.label "Вмъкни филтри">
@@ -16,9 +16,9 @@
 <!ENTITY resethitcounts.label "Рестарт на хит статистиката">
 <!ENTITY resethitcounts.accesskey "Р">
 <!ENTITY edit.label "Промени">
-<!ENTITY edit.accesskey "П">
+<!ENTITY edit.accesskey "м">
 <!ENTITY cut.label "Изрежи">
-<!ENTITY cut.accesskey "И">
+<!ENTITY cut.accesskey "р">
 <!ENTITY copy.label "Копирай">
 <!ENTITY copy.accesskey "К">
 <!ENTITY paste.label "Постави">
@@ -28,7 +28,7 @@
 <!ENTITY menu.find.label "Намери">
 <!ENTITY menu.find.accesskey "Н">
 <!ENTITY menu.findagain.label "Намери отново">
-<!ENTITY menu.findagain.accesskey "Н">
+<!ENTITY menu.findagain.accesskey "т">
 <!ENTITY view.label "Изглед">
 <!ENTITY view.accesskey "И">
 <!ENTITY sort.label "Сортирай по">
@@ -44,9 +44,9 @@
 <!ENTITY enable.label "Включи  Adblock Плюс">
 <!ENTITY enable.accesskey "В">
 <!ENTITY showintoolbar.label "Покажи в лентата с инструменти">
-<!ENTITY showintoolbar.accesskey "П">
+<!ENTITY showintoolbar.accesskey "л">
 <!ENTITY showinstatusbar.label "Покажи в лентата на състоянието">
-<!ENTITY showinstatusbar.accesskey "П">
+<!ENTITY showinstatusbar.accesskey "т">
 <!ENTITY objecttabs.label "Покажи разделите за Флаш и Java">
 <!ENTITY objecttabs.accesskey "П">
 <!ENTITY collapse.label "Свиване на блокираните елементи">
@@ -65,11 +65,11 @@
 <!ENTITY filter.column "Филтър правило">
 <!ENTITY filter.accesskey "Ф">
 <!ENTITY slow.column "Покажи филтри">
-<!ENTITY slow.accesskey "П">
+<!ENTITY slow.accesskey "ж">
 <!ENTITY enabled.column "Включен">
 <!ENTITY enabled.accesskey "В">
 <!ENTITY hitcount.column "Посещения">
-<!ENTITY hitcount.accesskey "П">
+<!ENTITY hitcount.accesskey "щ">
 <!ENTITY lasthit.column "Последни Посещения">
 <!ENTITY lasthit.accesskey "П">
 <!ENTITY context.edit.label "Промени филтър">
@@ -83,5 +83,5 @@
 <!ENTITY context.enable.label "Разреши">
 <!ENTITY context.disable.label "Забрани">
 <!ENTITY apply.label "Приложи">
-<!ENTITY apply.accesskey "П">
+<!ENTITY apply.accesskey "л">
 <!ENTITY fennec.subscription.label "Филтър абонамент">
