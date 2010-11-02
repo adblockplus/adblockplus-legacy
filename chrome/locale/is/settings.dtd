@@ -4,7 +4,7 @@
 <!ENTITY add.label "Bæta við síu">
 <!ENTITY add.accesskey "t">
 <!ENTITY addsubscription.label "Bæta við síuáskrift">
-<!ENTITY addsubscription.accesskey "S">
+<!ENTITY addsubscription.accesskey "s">
 <!ENTITY synchsubscriptions.label "Uppfæra allar áskriftir">
 <!ENTITY synchsubscriptions.accesskey "U">
 <!ENTITY import.label "Flytja inn síur">
@@ -12,7 +12,7 @@
 <!ENTITY export.label "Flytja út síur">
 <!ENTITY export.accesskey "y">
 <!ENTITY clearall.label "Fjarlægja allar síur">
-<!ENTITY clearall.accesskey "L">
+<!ENTITY clearall.accesskey "l">
 <!ENTITY resethitcounts.label "Endurstilla talningar">
 <!ENTITY resethitcounts.accesskey "E">
 <!ENTITY edit.label "Breyta">
@@ -50,7 +50,7 @@
 <!ENTITY objecttabs.label "Sýna flipa fyrir Flass og Java">
 <!ENTITY objecttabs.accesskey "f">
 <!ENTITY collapse.label "Fella saman lokaða hluti">
-<!ENTITY collapse.accesskey "L">
+<!ENTITY collapse.accesskey "l">
 <!ENTITY help.label "Hjálp">
 <!ENTITY help.accesskey "H">
 <!ENTITY gettingStarted.label "Byrja notkun">
@@ -60,7 +60,7 @@
 <!ENTITY filterdoc.label "Hvernig á að búa til Adblock Plus síur">
 <!ENTITY filterdoc.accesskey "v">
 <!ENTITY about.label "Um Adblock Plus">
-<!ENTITY about.accesskey "B">
+<!ENTITY about.accesskey "b">
 <!ENTITY description "Eftirfarandi síur ákvarða hvaða netföng á að loka á og hvaða netföng eigi að leyfa:">
 <!ENTITY filter.column "Síu regla">
 <!ENTITY filter.accesskey "g">

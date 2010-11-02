@@ -9,6 +9,8 @@
 <!ENTITY state.label "Stav">
 <!ENTITY size.label "Velikost">
 <!ENTITY docDomain.label "Zdroj dokumentu">
+<!ENTITY docDomain.thirdParty "(externí)">
+<!ENTITY docDomain.firstParty "(vlastní)">
 <!ENTITY noitems.label "Nic nebylo zablokováno">
 <!ENTITY whitelisted.label "Adresa je na bílé listině">
 <!ENTITY tooltip.address.label "Adresa:">
@@ -18,6 +20,7 @@
 <!ENTITY tooltip.size.label "Velikost:">
 <!ENTITY tooltip.docDomain.label "Zdroj dokumentu:">
 <!ENTITY tooltip.filter.label "Použité filtry:">
+<!ENTITY tooltip.filter.disabled "(zakázaný)">
 <!ENTITY tooltip.filterSource.label "Zdroj filtru:">
 <!ENTITY context.block.label "Blokovat tento objekt">
 <!ENTITY context.editfilter.label "Upravit příslušný filtr">

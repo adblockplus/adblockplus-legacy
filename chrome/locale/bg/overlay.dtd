@@ -11,6 +11,8 @@
 <!ENTITY context.media.label "Adblock Плюс: Блокирани аудио/видео">
 <!ENTITY context.removeWhitelist.label "Adblock Плюс: Пусни за тази страница">
 <!ENTITY sidebar.title "Блокирани предмети на тази страница">
+<!ENTITY sendReport.label "Докладване на проблем на тази страница">
+<!ENTITY sendReport.accesskey "Д">
 <!ENTITY settings.label "Настройки">
 <!ENTITY settings.accesskey "Н">
 <!ENTITY opensidebar.label "Отвори блокирани предмети">

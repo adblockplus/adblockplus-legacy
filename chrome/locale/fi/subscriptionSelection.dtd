@@ -17,9 +17,9 @@
 <!ENTITY title.label "Tilauksen nimi:">
 <!ENTITY title.accesskey "T">
 <!ENTITY location.label "Listan sijainti:">
-<!ENTITY location.accesskey "L">
+<!ENTITY location.accesskey "i">
 <!ENTITY autodownload.label "Päivitä automaattisesti">
 <!ENTITY autodownload.accesskey "a">
 <!ENTITY supplementMessage "Tätä suodatintilausta on tarkoitus käyttää suodatintilauksen &quot;?1?&quot; kanssa, jota et vielä käytä.">
-<!ENTITY addMain.label "Lisäa myös suodatintilaus &quot;?1?&quot;">
-<!ENTITY addMain.accesskey "L">
+<!ENTITY addMain.label "Lisää myös suodatintilaus &quot;?1?&quot;">
+<!ENTITY addMain.accesskey "m">

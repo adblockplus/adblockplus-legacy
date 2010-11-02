@@ -13,9 +13,10 @@
 <!ENTITY type.whitelist.label "Frávikregla">
 <!ENTITY type.whitelist.accesskey "F">
 <!ENTITY pattern.label "Leita að mynstri">
-<!ENTITY pattern.explanation "Mynstrið getur verið hvaða hluti sem er í netfanginu, táknið * virkar sem algildisstafur. Síunni verður aðeins beitt á þau netföng sem passa við mynstrið.">
+<!ENTITY pattern.explanation "Mynstrið getur verið hvaða hluti sem er í netfanginu; táknið (*) virkar sem algildisstafur. Síunni verður aðeins beitt á þau netföng sem passa við mynstrið.">
 <!ENTITY regexp.warning "Mynstrið sem þú slóst inn verður túlkað sem regluleg segð. Margar reglulegar segðir gætu haft þau áhrif að hægja á vöfrun. Ef þú ætlar ekki að nota reglulega segðir, bættu þá * tákni við enda mynstursins.">
 <!ENTITY shortpattern.warning "Mynstrið sem þú slóst inn er of stutt til að hægt sé að nota það, of mörg svona mynstur geta hægt á vöfrun. Mælt er með að þú notir lengri streng fyrir þessa síu.">
+<!ENTITY match.warning "Mynstrið sem þú slóst inn passar ekki ekki við veffangið sem á að loka á/hvítlista og mun ekki hafa nein áhrif á það.">
 <!ENTITY custom.pattern.label "Sérsnið:">
 <!ENTITY custom.pattern.accesskey "n">
 <!ENTITY anchors.label "Aðeins samþykkja mynstur:">
@@ -28,7 +29,7 @@
 <!ENTITY options.label "Valkostir">
 <!ENTITY domainRestriction.label "Takmarka við lén:">
 <!ENTITY domainRestriction.accesskey "T">
-<!ENTITY domainRestriction.help "Sláðu inn eitt eða fleiri lén aðskilið með tákninu &quot;|&quot;, sían verður aðeins beitt á þessi lén. Táknið &quot;~&quot; fyrir framan lén þýðir að ekki ætti að beita síunni á það lén.">
+<!ENTITY domainRestriction.help "Sláðu inn eitt eða fleiri lén aðskilið með tákninu (|). Sían verður aðeins beitt á þessi lén. Táknið (~) fyrir framan lén þýðir að ekki ætti að beita síunni á það lén.">
 <!ENTITY firstParty.label "Aðeins fyrsta aðila">
 <!ENTITY firstParty.accesskey "r">
 <!ENTITY thirdParty.label "Aðeins þriðja aðila">

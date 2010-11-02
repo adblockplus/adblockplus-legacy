@@ -11,6 +11,8 @@
 <!ENTITY context.media.label "Adblock Plus: blochează audio/video">
 <!ENTITY context.removeWhitelist.label "Adblock Plus: reactivează în pagina curentă">
 <!ENTITY sidebar.title "Adblock Plus: elemente blocabile în pagină">
+<!ENTITY sendReport.label "Raportează probleme pe această pagină">
+<!ENTITY sendReport.accesskey "R">
 <!ENTITY settings.label "Particularizare">
 <!ENTITY settings.accesskey "P">
 <!ENTITY opensidebar.label "Deschide lista elementelor blocabile">

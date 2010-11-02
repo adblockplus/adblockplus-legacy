@@ -1,4 +1,4 @@
-<!ENTITY wizard.title "Reportar problema">
+<!ENTITY wizard.title "Reportero de problemas">
 <!ENTITY privacyPolicy.label "Política de Privacidad">
 <!ENTITY dataCollector.heading "Bienvenido al reportero de problemas">
 <!ENTITY dataCollector.description "Por favor espere un momento mientras Adblock Plus reúne los datos necesarios.">
@@ -17,13 +17,13 @@
 <!ENTITY recentReports.label "Tus reportes recientemente enviados">
 <!ENTITY recentReports.clear.label "Quitar todos los reportes">
 <!ENTITY recentReports.clear.accesskey "Q">
-<!ENTITY issues.description "Adblock Plus ha detectado problemas con su configuracion que puede ser la causa de este problema o que podria dificultar la investigacion del problema.">
+<!ENTITY issues.description "Adblock Plus ha detectado problemas con su configuración que puede ser la causa de este problema o que podria dificultar la investigación del problema.">
 <!ENTITY issues.whitelist.description "Adblock Plus se encuentra deshabilitado en la pagina que esta reportando. Por favor vuelva a habilitarlo y recargue la pagina antes de presentar el el informe para ayudar a la investigación de este tema.">
 <!ENTITY issues.whitelist.remove.label "Re-habilitar Adblock Plus en esta pagina">
 <!ENTITY issues.disabled.description "Adblock Plus esta deshabilitado, no bloqueara nada en su estado actual.">
 <!ENTITY issues.disabled.enable.label "Habilitar Adblock Plus">
 <!ENTITY issues.nofilters.description "Adblock Plus no esta bloqueando nada en la pagina actual. El problema que esta observando es probable que no se encuentre relacionado a Adblock Plus.">
-<!ENTITY issues.nosubscriptions.description "Usted no parece estar suscrito a ninguna lista de filtro pre-desarrollado que automaticamente remueve contenido no deseado de los sitios web.">
+<!ENTITY issues.nosubscriptions.description "Usted no parece estar suscrito a ninguna lista de filtro pre-desarrollado que automáticamente remueve contenido no deseado de los sitios web.">
 <!ENTITY issues.nosubscriptions.add.label "Agregar filtro de suscripción">
 <!ENTITY issues.ownfilters.description "Alguno de los filtros aplicados en esta pagina se encuentran definidos por el usuarios. Por favor deshabilite los filtros que pueden causar el problema.">
 <!ENTITY issues.ownfilters.disable.label "Deshablitar filtro">
@@ -33,8 +33,8 @@
 <!ENTITY issues.disabledfilters.enable.label "Habilitar filtro">
 <!ENTITY issues.override.label "La configuración es correcta, continue con el reporte">
 <!ENTITY issues.override.accesskey "L">
-<!ENTITY issues.change.description "Su configuracion ha sido cambiada. Por favor recargue la pagina para probar los cambios y presentar un reporte si el problema no ha sido resuelto por las alteraciones.">
-<!ENTITY typeWarning.description "Ha indicado que desea reportar un problema general con Adblock Plus en lugar de un problema con los filtros. Por favor tenga en cuenta que estos problemas son mejor reportados en el [link]Foro de Adblock Plus[/link]. Solo deberia usar el reportero de problemas para complementar una discución existente, ya que nadie se percatara de su informe a menos que se les proporcione el enlace a la misma. El enlace generado automaticamente sera proporcionado despues de presentar el reporte respectivo.">
+<!ENTITY issues.change.description "Su configuración ha sido cambiada. Por favor recargue la pagina para probar los cambios y presentar un reporte si el problema no ha sido resuelto por las alteraciones.">
+<!ENTITY typeWarning.description "Ha indicado que desea reportar un problema general con Adblock Plus en lugar de un problema con los filtros. Por favor tenga en cuenta que estos problemas son mejor reportados en el [link]Foro de Adblock Plus[/link]. Solo deberia usar el reportero de problemas para complementar una discución existente, ya que nadie se percatara de su informe a menos que se les proporcione el enlace a la misma. El enlace generado automáticamente sera proporcionado despues de presentar el reporte respectivo.">
 <!ENTITY typeWarning.override.label "Entiendo y deseo presentar el reporte de todos modos">
 <!ENTITY typeWarning.override.accesskey "E">
 <!ENTITY reloadButton.label "Recargar pagina">
@@ -67,7 +67,7 @@
 <!ENTITY sendPage.waitMessage "Por favor espere mientras Adblock Plus envía su reporte.">
 <!ENTITY sendPage.confirmation "Su reporte ha sido salvado. Puede acceder al mismo en la siguiente direccion:">
 <!ENTITY sendPage.knownIssue "El problema que ha reportado probablemente ya sea conocido. Mas información:">
-<!ENTITY sendPage.errorMessage "Un intento de enviar el reporte ha fallado con el codigo de error &quot;?1?&quot;. Por favor asegúrese de que se encuentra conectado a internet y vuelva a intentarlo. Si el problema persiste por favor solicite asistencia en el [link]Foro de Adblock Plus[/link].">
+<!ENTITY sendPage.errorMessage "Un intento de enviar el reporte ha fallado con el código de error &quot;?1?&quot;. Por favor asegúrese de que se encuentra conectado a internet y vuelva a intentarlo. Si el problema persiste por favor solicite asistencia en el [link]Foro de Adblock Plus[/link].">
 <!ENTITY sendPage.retry.label "Enviar otra vez">
 <!ENTITY copyLink.label "Copiar dirección del reporte">
 <!ENTITY copyLink.accesskey "C">

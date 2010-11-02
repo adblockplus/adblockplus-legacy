@@ -1,6 +1,14 @@
+<!ENTITY dialog.title "Pridėti „Adblock Plus“ filtro prenumeratą">
 <!ENTITY dialog.title.edit "Redaguoti filtrų prenumeratą">
+<!ENTITY subscriptionSelector.label "Pasirinkite filtro prenumeratą iš šio sąrašo:">
+<!ENTITY viewList.label "Rodyti filtrus">
+<!ENTITY visitHomepage.label "Aplankyti tinklalapį">
+<!ENTITY addSubscription.label "Pridėti prenumeratą">
+<!ENTITY saveSubscription.label "Išsaugoti prenumeratą">
 <!ENTITY other.label "Pridėti kitą prenumeratą">
 <!ENTITY other.accesskey "T">
+<!ENTITY list.download.retry "Bandyti dar">
+<!ENTITY list.download.website "Rodyti tinklalapį">
 <!ENTITY title.label "Prenumeratos pavadinimas:">
 <!ENTITY title.accesskey "P">
 <!ENTITY location.label "Filtrų sąrašo vieta:">

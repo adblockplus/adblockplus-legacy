@@ -1,6 +1,6 @@
 <!ENTITY detached.title "Adblock Плюс: Блокирани продукти (отделени)">
 <!ENTITY detach.label "Отдели">
-<!ENTITY reattach.label "Свържи отново">
+<!ENTITY reattach.label "Прикачи отново">
 <!ENTITY search.label "Търси:">
 <!ENTITY search.accesskey "Т">
 <!ENTITY type.label "Тип">
@@ -9,6 +9,8 @@
 <!ENTITY state.label "Състояние">
 <!ENTITY size.label "Размер">
 <!ENTITY docDomain.label "Източник на документа">
+<!ENTITY docDomain.thirdParty "(трета страна)">
+<!ENTITY docDomain.firstParty "Основни">
 <!ENTITY noitems.label "Няма блокирани продукти">
 <!ENTITY whitelisted.label "Разрешена странница">
 <!ENTITY tooltip.address.label "Адрес:">
@@ -18,9 +20,10 @@
 <!ENTITY tooltip.size.label "Размер:">
 <!ENTITY tooltip.docDomain.label "Източник на документа:">
 <!ENTITY tooltip.filter.label "Филтър в сила:">
+<!ENTITY tooltip.filter.disabled "(изключен)">
 <!ENTITY tooltip.filterSource.label "Източник на филтъра">
 <!ENTITY context.block.label "Блокирай този продукт">
-<!ENTITY context.editfilter.label "Редактиране на филтърът в сила:">
+<!ENTITY context.editfilter.label "Редактиране на филтъра в сила:">
 <!ENTITY context.whitelist.label "Добави изключващо правило за продукта">
 <!ENTITY context.disablefilter.label "Да изключа ли филтър ?1?">
 <!ENTITY context.enablefilter.label "Повторно включване на филтъра ?1?">

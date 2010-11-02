@@ -16,6 +16,7 @@
 <!ENTITY pattern.explanation "It patroan kin elk part fan it adres wêze, symboal * wurket as joker. It filter sil allinnich tapast wurde op adressen neffens it patroan.">
 <!ENTITY regexp.warning "It patroan dy&apos;t jo opjûn hawwe sil ynterpretearre wurde as reguliere ekspresje. In protte reguliere ekspresjes kinne it sneupjen fertrage. As jo net fan plan wienen om reguliere ekspresje te brûken, foegje in symboal * ta oan it ein fan it patroan.">
 <!ENTITY shortpattern.warning "It patroan dy&apos;t jo opjûn hawwe is te koart om te optimalisearjen, in protte reguliere ekspresje kinne it sneupjen fertrage. It wurdt oanret dat jo in langere útdrukking kieze foar dit filter.">
+<!ENTITY match.warning "It patroan dy't jo opjûn hawwe is net lyk oan it adres om te blokkearjen/wytlisten en sil gjin effekt op it hawwe.">
 <!ENTITY custom.pattern.label "Oanpast:">
 <!ENTITY custom.pattern.accesskey "O">
 <!ENTITY anchors.label "Akseptearje allinnich patroan:">

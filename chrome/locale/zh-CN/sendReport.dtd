@@ -1,0 +1,84 @@
+<!ENTITY wizard.title "问题报告">
+<!ENTITY privacyPolicy.label "隐私策略">
+<!ENTITY dataCollector.heading "欢迎使用问题报告系统">
+<!ENTITY dataCollector.description "Adblock Plus 收集所需数据时请稍等片刻。">
+<!ENTITY typeSelector.heading "选择问题类型">
+<!ENTITY typeSelector.description "本窗口将通过一系列的步骤来引导您提交 Adblock Plus 问题报告。首先，请选择问题类型：">
+<!ENTITY typeSelector.falsePositive.label "Adblock Plus 过滤了太多元素">
+<!ENTITY typeSelector.falsePositive.accesskey "m">
+<!ENTITY typeSelector.falsePositive.description "如果页面缺少重要内容、显示不正常或者功能不正常，请选择此选项。您可以通过临时禁用 Adblock Plus 来检测问题是否为 Adblock Plus 所致。">
+<!ENTITY typeSelector.falseNegative.label "Adblock Plus 不能过滤广告">
+<!ENTITY typeSelector.falseNegative.accesskey "v">
+<!ENTITY typeSelector.falseNegative.description "如果 Adblock Plus 处于启用状态，仍然显示广告，请选择此选项。">
+<!ENTITY typeSelector.other.label "其他问题">
+<!ENTITY typeSelector.other.accesskey "t">
+<!ENTITY typeSelector.other.description "如果您怀疑问题出在 Adblock Plus 自身而不是过滤规则，请选择此选项。">
+<!ENTITY showRecentReports.label "显示目前已提交的报告">
+<!ENTITY recentReports.label "您目前已提交的报告">
+<!ENTITY recentReports.clear.label "移除所有报告">
+<!ENTITY recentReports.clear.accesskey "R">
+<!ENTITY issues.description "Adblock Plus 已经检测出您的设置可能导致该问题或致使报告困于调研。">
+<!ENTITY issues.whitelist.description "Adblock Plus 在您正在报告的页面上是禁用的。请在提交报告来帮助调研该问题之前重新启用 Adblock Plus 并重新载入页面。">
+<!ENTITY issues.whitelist.remove.label "在该页上重新启用 Adblock Plus">
+<!ENTITY issues.disabled.description "Adblock Plus 已禁用，当前状态下 Adblock Plus 不会过滤任何元素。
+
+
+	Adblock Plus is disabled, it will not block anything in its current state.">
+<!ENTITY issues.disabled.enable.label "启用 Adblock Plus">
+<!ENTITY issues.nofilters.description "Adblock Plus 在当前页面上未过滤任何元素。您遇到的问题很可能与 Adblock Plus 无关。">
+<!ENTITY issues.nosubscriptions.description "您不能显示已订阅的任何预置过滤规则列表。">
+<!ENTITY issues.nosubscriptions.add.label "添加过滤规则订阅">
+<!ENTITY issues.ownfilters.description "有些应用到该页面的过滤规则是用户自定义的。请禁用这些可能导致问题的过滤规则：">
+<!ENTITY issues.ownfilters.disable.label "禁用过滤规则">
+<!ENTITY issues.disabledgroups.description "如下过滤规则订阅 / 过滤过则组处于禁用状态，但是他们可能对该页面有效：">
+<!ENTITY issues.disabledgroups.enable.label "启用过滤规则订阅 / 过滤规则组">
+<!ENTITY issues.disabledfilters.description "如下过滤规则处于禁用状态，但是他们可能在该页面上有效：">
+<!ENTITY issues.disabledfilters.enable.label "启用过滤规则">
+<!ENTITY issues.override.label "设置正确，继续报告">
+<!ENTITY issues.override.accesskey "c">
+<!ENTITY issues.change.description "您的设置已更改。请重新载入页面来测试更改，如果问题依旧没有解决请提交报告。">
+<!ENTITY typeWarning.description "您已经表明您想要报告 Adblock Plus 的通用问题而不是过滤规则的问题。请注意这类问题最好报告之 [link]Adblock Plus forum[/link]。您应该仅仅使用问题报告系统来补充一个存在的讨论，如果您不提供链接，很可能没人会注意到您的报告。提交报告之后会提供给您自动创建的链接。">
+<!ENTITY typeWarning.override.label "我了解并仍然希望提交报告">
+<!ENTITY typeWarning.override.accesskey "s">
+<!ENTITY reloadButton.label "重新载入页面">
+<!ENTITY reloadButton.accesskey "R">
+<!ENTITY screenshot.heading "附加截图">
+<!ENTITY screenshot.description "同样的页面，不同的人可能见到的并不同。如果您在报告中附加了截图，它可能帮助我们了解问题。您可以移除敏感信息的区域也可以标记出问题区域。点击相应的按钮并用鼠标在图片上选择区域即可。
+click the corresponding button and select a section of the image with your mouse.">
+<!ENTITY screenshot.attach.label "为报告附加页面图片">
+<!ENTITY screenshot.attach.accesskey "t">
+<!ENTITY screenshot.mark.label "标记问题">
+<!ENTITY screenshot.mark.accesskey "M">
+<!ENTITY screenshot.remove.label "移除敏感数据">
+<!ENTITY screenshot.remove.accesskey "R">
+<!ENTITY screenshot.undo.label "撤销">
+<!ENTITY screenshot.undo.accesskey "U">
+<!ENTITY commentPage.heading "输入注释">
+<!ENTITY commentPage.description "以下文本区允许您输入一些注释来帮助我们更好地理解该问题。该步骤虽然是可选的，但是如果问题不是那么显而易见的话，我们推荐您输入一些注释。您可以在发送之前再检查一下报告的数据。">
+<!ENTITY comment.label "注释 (可选):">
+<!ENTITY comment.accesskey "C">
+<!ENTITY comment.lengthWarning "您输入的注释长度超过 1000 个字符。只有前 1000 个字符会被发送出去。">
+<!ENTITY email.label "Email (可选):">
+<!ENTITY email.accesskey "m">
+<!ENTITY attachExtensions.label "在报告中附加扩展列表，用于附件组件冲突造成的问题">
+<!ENTITY attachExtensions.accesskey "x">
+<!ENTITY sendButton.label "发送报告">
+<!ENTITY sendButton.accesskey "n">
+<!ENTITY showData.label "显示报告数据">
+<!ENTITY data.label "报告数据:">
+<!ENTITY data.accesskey "p">
+<!ENTITY sendPage.heading "发送报告">
+<!ENTITY sendPage.waitMessage "Adblock Plus 正在提交您的报告，请稍等。">
+<!ENTITY sendPage.confirmation "您的报告已保存。您可以通过如下地址访问：">
+<!ENTITY sendPage.knownIssue "您提交的问题可能是个已知问题。详情：">
+<!ENTITY sendPage.errorMessage "发送报告失败，错误码 &quot;?1?&quot;。 请确保您已连接互联网并重试。如果问题依旧，请到 [link]Adblock Plus forum[/link] 寻求帮助。 
+
+
+	An attempt to send the report failed with error code &quot;?1?&quot;. Please ensure you are
+
+	connected to the Internet and retry. If the problem persists please request
+
+	assistance in the [link]Adblock Plus forum[/link].">
+<!ENTITY sendPage.retry.label "再次发送">
+<!ENTITY copyLink.label "复制报告链接">
+<!ENTITY copyLink.accesskey "C">
