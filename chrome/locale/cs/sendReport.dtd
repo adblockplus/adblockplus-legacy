@@ -48,7 +48,7 @@
 <!ENTITY screenshot.remove.label "Odstranit důvěrné údaje">
 <!ENTITY screenshot.remove.accesskey "O">
 <!ENTITY screenshot.undo.label "Zpět">
-<!ENTITY screenshot.undo.accesskey "p">
+<!ENTITY screenshot.undo.accesskey "Z">
 <!ENTITY commentPage.heading "Vložit komentář">
 <!ENTITY commentPage.description "Do textového pole níže můžete vložit komentář vysvětlující problém, který hlásíte. Tento krok není povinný, ale je doporučený, pokud problém není jednoznačně viditelný. Můžete také prohlédnout data hlášení před jejich odesláním.">
 <!ENTITY comment.label "Komentář (nepovinný)">
