@@ -7,11 +7,11 @@
 <!ENTITY filter.label "Нов Филтър:">
 <!ENTITY filter.accesskey "Ф">
 <!ENTITY preferences.label "Покажи съществуващите филтри...">
-<!ENTITY preferences.accesskey "П">
+<!ENTITY preferences.accesskey "щ">
 <!ENTITY type.filter.label "Блокиране на филтър">
 <!ENTITY type.filter.accesskey "Б">
 <!ENTITY type.whitelist.label "Изключение от правилото">
-<!ENTITY type.whitelist.accesskey "И">
+<!ENTITY type.whitelist.accesskey "к">
 <!ENTITY pattern.label "Търсете модел">
 <!ENTITY pattern.explanation "Моделът може да бъде част от адрес; звездичка (*) да действа като заместващи символи. Филтърът ще се прилага само за адресите, отговарящи на предвидения образец.">
 <!ENTITY regexp.warning "Моделът който сте въвели ще бъде интерпретиран като регулярен израз, които не могат да бъдат ефективно обработени с Adblock Плюс и могат да забавят твоят браузър. Ако не възнамерявате да използвате регулярен израз, добавете звездичка (*) към края на модела.">
@@ -21,11 +21,11 @@
 <!ENTITY custom.pattern.accesskey "И">
 <!ENTITY anchors.label "Приемам само модел:">
 <!ENTITY anchor.start.label "в началото на адреса">
-<!ENTITY anchor.start.accesskey "в">
+<!ENTITY anchor.start.accesskey "ч">
 <!ENTITY anchor.start.flexible.label "в началото на домейн името">
-<!ENTITY anchor.start.flexible.accesskey "в">
+<!ENTITY anchor.start.flexible.accesskey "ч">
 <!ENTITY anchor.end.label "в края на адреса">
-<!ENTITY anchor.end.accesskey "в">
+<!ENTITY anchor.end.accesskey "р">
 <!ENTITY options.label "Настройки">
 <!ENTITY domainRestriction.label "Ограничаване на домейн:">
 <!ENTITY domainRestriction.accesskey "О">
@@ -35,7 +35,7 @@
 <!ENTITY thirdParty.label "Трети страни само">
 <!ENTITY thirdParty.accesskey "т">
 <!ENTITY matchCase.label "Съвпадение на регистъра">
-<!ENTITY matchCase.accesskey "с">
+<!ENTITY matchCase.accesskey "г">
 <!ENTITY types.label "Прилага за типове:">
 <!ENTITY selectAllTypes.label "Избери всички">
 <!ENTITY unselectAllTypes.label "Не избирай нищо">
