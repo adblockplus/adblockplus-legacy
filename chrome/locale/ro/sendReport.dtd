@@ -10,8 +10,8 @@
 <!ENTITY typeSelector.falseNegative.label "Adblock Plus nu blochează o reclamă">
 <!ENTITY typeSelector.falseNegative.accesskey "r">
 <!ENTITY typeSelector.other.label "Alegeţi această opţiune dacă pagina conţine reclame chiar şi când Adblock Plus este activ.">
-<!ENTITY typeSelector.other.accesskey "Altă problemă">
-<!ENTITY typeSelector.other.description "t">
+<!ENTITY typeSelector.other.description "Altă problemă">
+<!ENTITY typeSelector.other.accesskey "t">
 <!ENTITY showRecentReports.label "Arată rapoartele trimise recent">
 <!ENTITY recentReports.label "Rapoartele trimise recent">
 <!ENTITY recentReports.clear.label "Şterge toate rapoartele">
