@@ -41,7 +41,8 @@
           this.window.gBrowser.loadOneTab(arguments[0], null, null, null, false);"
       getContextMenu="return this.E('contentAreaContextMenu');"
       getToolbox="return this.E('navigator-toolbox')"
-      getDefaultToolbar="return this.E('addon-bar') || this.E('nav-bar');"/>
+      getDefaultToolbar="return this.E('addon-bar') || this.E('nav-bar');"
+      unhideToolbar="return this.E('addon-bar')"/>
   </window>
 
   <!-- Songbird window -->
