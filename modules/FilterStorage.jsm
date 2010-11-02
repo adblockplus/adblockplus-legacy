@@ -635,6 +635,8 @@ var FilterStoragePrivate =
     {
       FilterStorage.resetHitCounts();
       FilterStorage.saveToDisk();
+
+      Prefs.recentReports = "[]";
     }
   },
   QueryInterface: XPCOMUtils.generateQI([Ci.nsISupportsWeakReference, Ci.nsIObserver])
