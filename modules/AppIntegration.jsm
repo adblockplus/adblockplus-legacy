@@ -239,7 +239,7 @@ WindowWrapper.prototype =
    * Methods that can be defined at attributes of the hooks element.
    * @type Array of String
    */
-  customMethods: ["getBrowser", "addTab", "getContextMenu", "getToolbox", "getDefaultToolbar", "toolbarInsertBefore"],
+  customMethods: ["getBrowser", "addTab", "getContextMenu", "getToolbox", "getDefaultToolbar", "toolbarInsertBefore", "unhideToolbar"],
 
   /**
    * Progress listener used to watch for location changes, if any.
@@ -646,6 +646,12 @@ WindowWrapper.prototype =
 
     toolbar.setAttribute("currentset", toolbar.currentSet);
     this.window.document.persist(toolbar.id, "currentset");
+
+    if (this.unhideToolbar && this.unhideToolbar())
+    {
+      toolbar.setAttribute("collapsed", "false");
+      this.window.document.persist(toolbar.id, "collapsed");
+    }
   },
 
   /**
