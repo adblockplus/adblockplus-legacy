@@ -6,7 +6,7 @@
 	Filterabonneminten wurde oanlevere troch oare Adblock Plus brûkers hielendal fergees.
 
 	It meast fan tapassing achte abonnnemint foar jo taal is al selektearre.">
-<!ENTITY subscriptionSelector.label "Kies asjobleaft in filterabonnemint út de list:">
+<!ENTITY subscriptionSelector.label "Kies in filterabonnemint út de list:">
 <!ENTITY viewList.label "Toan filters">
 <!ENTITY visitHomepage.label "Besykje thússide">
 <!ENTITY addSubscription.label "Abonnemint tafoegje">
@@ -24,7 +24,7 @@
 <!ENTITY location.label "Filterlist lokaasje:">
 <!ENTITY location.accesskey "L">
 <!ENTITY autodownload.label "Automatysk bywurkje">
-<!ENTITY autodownload.accesskey "T">
+<!ENTITY autodownload.accesskey "A">
 <!ENTITY supplementMessage "Dit filterabonnemint is bedoeld om brûkt te wurden mei it filterabonnemint &quot;?1?&quot; dy't jo no noch net brûke.">
 <!ENTITY addMain.label "Filterabonnemint &quot;?1?&quot; ek tafoegje">
-<!ENTITY addMain.accesskey "a">
+<!ENTITY addMain.accesskey "F">

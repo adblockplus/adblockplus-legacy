@@ -1,0 +1,73 @@
+<!ENTITY wizard.title "Poročilo o težavah">
+<!ENTITY privacyPolicy.label "Politika zasebnosti">
+<!ENTITY dataCollector.heading "Dobrodošli v poročanje o težavah">
+<!ENTITY dataCollector.description "Počakajte nekaj trenutkov, da Adblock Plus zbere potrebne podatke.">
+<!ENTITY typeSelector.heading "Izberite vrsto težave">
+<!ENTITY typeSelector.description "To okno vas vodi po korakih do oddaje poročila o težavi z Adblock Plus. Najprej izberite vrsto težave, s katero ste se srečali na tej strani:">
+<!ENTITY typeSelector.falsePositive.label "Adblock Plus blokira preveč stvari">
+<!ENTITY typeSelector.falsePositive.accesskey "r">
+<!ENTITY typeSelector.falsePositive.description "Izberite to možnost, če strani manjka pomembna vsebina, če se prikaže nepravilno ali ne deluje pravilno. Določite lahko, ali je Adblock Plus kriv težav, tako da ga začasno izključite.">
+<!ENTITY typeSelector.falseNegative.label "Adblock Plus ne blokira oglasa">
+<!ENTITY typeSelector.falseNegative.accesskey "k">
+<!ENTITY typeSelector.falseNegative.description "Izberite to možnost, če je oglas prikazan kljub temu, da je Adblock Plus omogočen.">
+<!ENTITY typeSelector.other.label "Druga težava">
+<!ENTITY typeSelector.other.accesskey "t">
+<!ENTITY typeSelector.other.description "Izberite to možnost, če sumite na težavo v Adblock Plus in ne v njegovih filtrih.">
+<!ENTITY showRecentReports.label "Pokaži nedavno poslana poročila">
+<!ENTITY recentReports.label "Vaša nedavno poslana poročila">
+<!ENTITY recentReports.clear.label "Odstrani vsa poročila">
+<!ENTITY recentReports.clear.accesskey "d">
+<!ENTITY issues.description "Adblock Plus je zaznal težave z vašo konfiguracijo, ki so lahko krive za to težavo ali pa bodo raziskovanje poročila otežile.">
+<!ENTITY issues.whitelist.description "Adblock Plus je trenutno na strani, o kateri poročate, onemogočen. Ponovno ga omogočite in ponovno naložite stran, preden pošljete poročilo za preiskovanje te težave.">
+<!ENTITY issues.whitelist.remove.label "Ponovno omogoči Adblock Plus na tej strani">
+<!ENTITY issues.disabled.description "Adblock Plus je onemogoče, v trenutnem stanju ne more blokirati ničesar.">
+<!ENTITY issues.disabled.enable.label "Omogoči Adblock Plus">
+<!ENTITY issues.nofilters.description "Adblock Plus ne blokira ničesar na trenutni strani. Težava, ki jo zaznavate, morda ni povezana z Adblock Plus.">
+<!ENTITY issues.nosubscriptions.description "Kot kaže, niste naročeni na noben seznam filtrov, ki samodejno odstranijo neželene vsebine s spletnih strani.">
+<!ENTITY issues.nosubscriptions.add.label "Dodaj naročnino na filter">
+<!ENTITY issues.ownfilters.description "Nekateri filtri, uporabljeni na tej strani, so uporabniško določeni. Onemogočite filtre, ki so lahko krivi za to težavo:">
+<!ENTITY issues.ownfilters.disable.label "Onemogoči filter">
+<!ENTITY issues.disabledgroups.description "Naslednje naročnine na filtre/skupine filtrov so onemogočene, čeprav lahko vplivajo na prikaz te strani:">
+<!ENTITY issues.disabledgroups.enable.label "Omogoči naročnino na filter / skupino filtrov">
+<!ENTITY issues.disabledfilters.description "Naslednji filtri so onemogočeni, čeprav lahko vplivajo na prikaz te strani:">
+<!ENTITY issues.disabledfilters.enable.label "Omogoči filter">
+<!ENTITY issues.override.label "Konfiguracija je pravilna, nadaljuj s poročilom">
+<!ENTITY issues.override.accesskey "f">
+<!ENTITY issues.change.description "Vaša konfiguracija je bila spremenjena. Ponovno naložite stran in preizkusite težave ter pošljite poročilo, če se s spremembami težava ni odpravila.">
+<!ENTITY typeWarning.description "Nakazali ste, da želite poročati o splošni težavi z Adblock Plus, ne pa o težavi s filtri. Upoštevajte, da je o takšnih težavah najbolje poročati na [link]forumu Adblock Plus[/link]. Poročanje o težavah uporabite le za podporo obstoječe razprave, saj sicer nihče ne bo opazil vašega poročila, razen če ne podate povezavo nanj. Samodejno ustvarjena povezava bo na voljo po pošiljanju poročila.">
+<!ENTITY typeWarning.override.label "Razumem in želim vseeno oddati poročilo">
+<!ENTITY typeWarning.override.accesskey "ž">
+<!ENTITY reloadButton.label "Ponovno naloži stran">
+<!ENTITY reloadButton.accesskey "n">
+<!ENTITY screenshot.heading "Priloži sliko">
+<!ENTITY screenshot.description "Isto stran lahko različni uporabniki vidijo drugače. Včasih pomaga, če poročilu pripnete slikovni posnetek strani. Odstranite lahko dele strani z zasebnimi podatki, pa tudi označite območja, kjer se težava opazi. Kliknite ustrezni gumb in izberite del slike z miško.">
+<!ENTITY screenshot.attach.label "Poročilu priloži sliko strani">
+<!ENTITY screenshot.attach.accesskey "s">
+<!ENTITY screenshot.mark.label "Označi težavo">
+<!ENTITY screenshot.mark.accesskey "t">
+<!ENTITY screenshot.remove.label "Odstrani občutljive podatke">
+<!ENTITY screenshot.remove.accesskey "b">
+<!ENTITY screenshot.undo.label "Razveljavi">
+<!ENTITY screenshot.undo.accesskey "z">
+<!ENTITY commentPage.heading "Vnesite komentar">
+<!ENTITY commentPage.description "Spodnje polje z besedilom omogoča vnos komentarja, ki nam pomaga razumeti težavo. To je neobvezno, vendar priporočamo, če težava ni očitna. Pred pošiljanjem si lahko še enkrat ogledate podatke poročila.">
+<!ENTITY comment.label "Komentar (neobvezno):">
+<!ENTITY comment.accesskey "K">
+<!ENTITY comment.lengthWarning "Dolžina vašega komentarja presega 1000 znakov. Poslanih bo le prvih 1000 znakov.">
+<!ENTITY email.label "E-naslov za dodatna vprašanja (neobvezno):">
+<!ENTITY email.accesskey "d">
+<!ENTITY attachExtensions.label "Poročilu priložite seznam aktivnih razširitev, če je vzrok težave spor z dodatkom">
+<!ENTITY attachExtensions.accesskey "l">
+<!ENTITY sendButton.label "Pošlji poročilo">
+<!ENTITY sendButton.accesskey "š">
+<!ENTITY showData.label "Pokaži podatke poročila">
+<!ENTITY data.label "Podatki poročila:">
+<!ENTITY data.accesskey "p">
+<!ENTITY sendPage.heading "Pošlji poročilo">
+<!ENTITY sendPage.waitMessage "Počakajte, dokler Adblock Plus pošilja vaše poročilo.">
+<!ENTITY sendPage.confirmation "Vaše poročilo je shranjeno. Do njega lahko dostopate na naslednjem naslovu:">
+<!ENTITY sendPage.knownIssue "Težava, ki ste jo javili, je najbrž že znana. Več podatkov:">
+<!ENTITY sendPage.errorMessage "Poskus pošiljanja poročila je bil neuspešen s kodo napake &quot;?1?&quot;. Zagotovite, da ste povezani v splet in poskusite znova. Če težave ni konec, poiščite pomoč na [link]forumu Adblock Plus[/link].">
+<!ENTITY sendPage.retry.label "Pošlji znova">
+<!ENTITY copyLink.label "Kopiraj povezavo poročila">
+<!ENTITY copyLink.accesskey "v">

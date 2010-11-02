@@ -3,10 +3,16 @@
 <!ENTITY filters.tooltip "Aktyviausi filtrai:">
 <!ENTITY menuitem.label "„Adblock Plus“">
 <!ENTITY menuitem.accesskey "A">
+<!ENTITY toolbarbutton.label "„Adblock Plus“">
+<!ENTITY view.blockableItems.label "„Adblock Plus“: blokuojami elementai">
 <!ENTITY context.image.label "Blokuoti paveikslėlį">
 <!ENTITY context.object.label "Blokuoti objektą">
 <!ENTITY context.frame.label "Blokuoti kadrą">
+<!ENTITY context.media.label "„Adblock Plus“: blokuoti audio/video">
+<!ENTITY context.removeWhitelist.label "„Adblock Plus“: iš naujo įjungti šiame puslapyje">
 <!ENTITY sidebar.title "Blokuojami elementai dabartiniame tinklalapyje">
+<!ENTITY sendReport.label "Pranešti apie problemą šiame puslapyje">
+<!ENTITY sendReport.accesskey "R">
 <!ENTITY settings.label "Nustatymai">
 <!ENTITY settings.accesskey "N">
 <!ENTITY opensidebar.label "Atverti blokuojamus elementus">

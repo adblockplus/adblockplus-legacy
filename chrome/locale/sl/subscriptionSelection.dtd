@@ -22,4 +22,4 @@
 <!ENTITY autodownload.accesskey "S">
 <!ENTITY supplementMessage "Naročnina na filter je mišljena za rabo z naročnino na filter ?1?, ki je še ne uporabljate.">
 <!ENTITY addMain.label "Dodaj tudi naročnino na filter ?1?">
-<!ENTITY addMain.accesskey "d">
+<!ENTITY addMain.accesskey "f">
