@@ -7,7 +7,7 @@
 <!ENTITY addSubscription.label "Thêm bộ trọn gói">
 <!ENTITY saveSubscription.label "Lưu bộ trọn gói">
 <!ENTITY other.label "Thêm bộ lọc trọn gói khác">
-<!ENTITY other.accesskey "T">
+<!ENTITY other.accesskey "b">
 <!ENTITY list.download.failed "Adblock Plus không thể lấy danh sách bộ lọc trọn gói.">
 <!ENTITY list.download.retry "Thử lại">
 <!ENTITY list.download.website "Xem trang web">
