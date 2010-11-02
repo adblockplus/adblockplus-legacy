@@ -16,6 +16,7 @@
 <!ENTITY pattern.explanation "模式可以使地址的任意部分，符号 * 是通配符。过滤规则将仅应用到匹配模式的地址上。">
 <!ENTITY regexp.warning "您输入的模式将以正则表达式解释。过多的正的表达式会降低您浏览的速度。如果您不希望使用正则表达式，请在模式末尾添加一个 * 的符号。">
 <!ENTITY shortpattern.warning "您输入的模式太短儿不能被优化，过多这样的模式会降低您浏览的速度。推荐您为该过滤规则选择一个长些的字符串。">
+<!ENTITY match.warning "您输入的模式不匹配过滤/白名单的地址，该模式将不会有效。">
 <!ENTITY custom.pattern.label "自定义:">
 <!ENTITY custom.pattern.accesskey "C">
 <!ENTITY anchors.label "仅接受模式:">

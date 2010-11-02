@@ -9,6 +9,8 @@
 <!ENTITY state.label "สถานะ">
 <!ENTITY size.label "ขนาด">
 <!ENTITY docDomain.label "แหล่งที่มาเอกสาร">
+<!ENTITY docDomain.thirdParty "(เทิร์ดปาร์ตี้)">
+<!ENTITY docDomain.firstParty "(เฟิร์สปาร์ตี้)">
 <!ENTITY noitems.label "ไม่มีรายการที่บล็อคได้">
 <!ENTITY whitelisted.label "หน้าที่ถูกขึ้นบัญชีขาว">
 <!ENTITY tooltip.address.label "ที่อยู่:">
@@ -18,6 +20,7 @@
 <!ENTITY tooltip.size.label "ขนาด:">
 <!ENTITY tooltip.docDomain.label "แหล่งที่มาเอกสาร:">
 <!ENTITY tooltip.filter.label "เป็นผลมาจากตัวกรอง:">
+<!ENTITY tooltip.filter.disabled "(ปิดการใช้งาน)">
 <!ENTITY tooltip.filterSource.label "ตัวกรองแหล่งที่มา:">
 <!ENTITY context.block.label "บล็อครายการนี้">
 <!ENTITY context.editfilter.label "แก้ไขตัวกรองที่มีผล">

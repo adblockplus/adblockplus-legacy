@@ -16,6 +16,7 @@
 <!ENTITY pattern.explanation "Filtrul va fi aplicat doar adreselor care corespund modelului definit mai jos, în care simbolul * acţionează ca joker.">
 <!ENTITY regexp.warning "Modelul introdus va fi interpretată ca o expresie regulată, ceea ce poate cauza încetinirea navigării. Dacă nu doriţi să folosiţi expresii regulate, introduceţi * la sfârşitul modelului.">
 <!ENTITY shortpattern.warning "Modelul introdus este prea scurt pentru a fi optimizat, ceea ce poate cauza încetinirea navigării. Este recomandabil să introduceţi modele mai mai lungi.">
+<!ENTITY match.warning "Modelul introdus nu mai corespunde adresei care trebuie blocată/deblocată şi de aceea nu va avea nici un efect asupra paginii curente.">
 <!ENTITY custom.pattern.label "model individual:">
 <!ENTITY custom.pattern.accesskey "i">
 <!ENTITY anchors.label "Foloseşte modelul introdus doar:">

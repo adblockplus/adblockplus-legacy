@@ -4,3 +4,5 @@
 <!ENTITY homepage.label "„Adblock Plus“ pradžios tinklalapis:">
 <!ENTITY author.label "Autorius:">
 <!ENTITY contributors.label "Prisidėjo:">
+<!ENTITY subscriptionAuthors.label "Filtro prenumeratos autoriai:">
+<!ENTITY translators.label "Vertėjai:">

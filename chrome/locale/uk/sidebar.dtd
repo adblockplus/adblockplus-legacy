@@ -9,6 +9,8 @@
 <!ENTITY state.label "Статус">
 <!ENTITY size.label "Розмір">
 <!ENTITY docDomain.label "Джерело документа">
+<!ENTITY docDomain.thirdParty "(запит з іншого сайта)">
+<!ENTITY docDomain.firstParty "(запит з того ж сайта)">
 <!ENTITY noitems.label "Блокувати нічого">
 <!ENTITY whitelisted.label "Дозволений на цій сторінці">
 <!ENTITY tooltip.address.label "Адреса:">
@@ -18,6 +20,7 @@
 <!ENTITY tooltip.size.label "Розмір:">
 <!ENTITY tooltip.docDomain.label "Джерело документа:">
 <!ENTITY tooltip.filter.label "Застосований фільтр:">
+<!ENTITY tooltip.filter.disabled "(вимкнено)">
 <!ENTITY tooltip.filterSource.label "Джерело фільтра:">
 <!ENTITY context.block.label "Заблокувати елемент">
 <!ENTITY context.editfilter.label "Відредагувати застосований фільтр">
