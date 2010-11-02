@@ -7,7 +7,7 @@
 <!ENTITY addSubscription.label "Tilføj abonnement">
 <!ENTITY saveSubscription.label "Gem abonnement">
 <!ENTITY other.label "Tilføj endnu et abonnement">
-<!ENTITY other.accesskey "T">
+<!ENTITY other.accesskey "f">
 <!ENTITY list.download.failed "Adblock Plus kunne ikke hente listen over abonnementer.">
 <!ENTITY list.download.retry "Prøv igen">
 <!ENTITY list.download.website "Se hjemmeside">
