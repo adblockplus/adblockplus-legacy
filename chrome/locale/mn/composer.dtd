@@ -23,7 +23,7 @@
 <!ENTITY anchor.start.label "хаягийн эхлэлд">
 <!ENTITY anchor.start.accesskey "э">
 <!ENTITY anchor.start.flexible.label "Домайн нэрийн эхлэлд">
-<!ENTITY anchor.start.flexible.accesskey "н">
+<!ENTITY anchor.start.flexible.accesskey "э">
 <!ENTITY anchor.end.label "хаягийн төгсгөлд">
 <!ENTITY anchor.end.accesskey "Д">
 <!ENTITY options.label "Сонголтууд">
