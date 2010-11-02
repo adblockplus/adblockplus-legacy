@@ -70,7 +70,7 @@ Možete koristiti * kao joker da bi kreirali još općenitije filtere. Napredni 
 <!ENTITY slow.column "Spori filteri">
 <!ENTITY slow.accesskey "w">
 <!ENTITY enabled.column "Omogućeno">
-<!ENTITY enabled.accesskey "n">
+<!ENTITY enabled.accesskey "m">
 <!ENTITY hitcount.column "Pogoci">
 <!ENTITY hitcount.accesskey "H">
 <!ENTITY lasthit.column "Posljednji pogodak">
