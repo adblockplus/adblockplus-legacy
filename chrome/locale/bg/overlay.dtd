@@ -14,11 +14,11 @@
 <!ENTITY sendReport.label "Докладване на проблем на тази страница">
 <!ENTITY sendReport.accesskey "Д">
 <!ENTITY settings.label "Настройки">
-<!ENTITY settings.accesskey "Н">
+<!ENTITY settings.accesskey "с">
 <!ENTITY opensidebar.label "Отвори блокирани предмети">
-<!ENTITY opensidebar.accesskey "О">
+<!ENTITY opensidebar.accesskey "б">
 <!ENTITY closesidebar.label "Затвори блокирани предмети">
-<!ENTITY closesidebar.accesskey "З">
+<!ENTITY closesidebar.accesskey "б">
 <!ENTITY whitelist.site.label "Забрани на ?1?">
 <!ENTITY whitelist.page.label "Забрани на тази страница само">
 <!ENTITY objecttab.title "Блокирай">
