@@ -44,6 +44,7 @@ baseURL.fileName = "";
 try
 {
   // Gecko 2.0 and higher - chrome URLs can be loaded directly
+  Cu.import(baseURL.spec + "Utils.jsm");
   Cu.import(baseURL.spec + "TimeLine.jsm");
 }
 catch (e)
@@ -52,6 +53,7 @@ catch (e)
   let chromeRegistry = Cc["@mozilla.org/chrome/chrome-registry;1"].getService(Ci.nsIChromeRegistry);
   publicURL = chromeRegistry.convertChromeURL(publicURL);
   baseURL = chromeRegistry.convertChromeURL(baseURL);
+  Cu.import(baseURL.spec + "Utils.jsm");
   Cu.import(baseURL.spec + "TimeLine.jsm");
   chromeSupported = false;
 }
