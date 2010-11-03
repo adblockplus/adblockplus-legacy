@@ -291,11 +291,13 @@ function loadSubscriptionList()
     return;
 
   E("all-subscriptions-container").selectedIndex = 0;
+  E("all-subscriptions-loading").hidden = false;
 
   let request = new XMLHttpRequest();
   let errorHandler = function()
   {
     E("all-subscriptions-container").selectedIndex = 2;
+    E("all-subscriptions-loading").hidden = true;
   };
   let successHandler = function()
   {
@@ -332,6 +334,7 @@ function processSubscriptionList(doc)
 
   addSubscriptions(list, doc.documentElement, 0, null, null);
   E("all-subscriptions-container").selectedIndex = 1;
+  E("all-subscriptions-loading").hidden = true;
 }
 
 function addSubscriptions(list, parent, level, parentTitle, parentURL)
