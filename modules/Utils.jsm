@@ -33,7 +33,6 @@ const Ci = Components.interfaces;
 const Cr = Components.results;
 const Cu = Components.utils;
 
-let baseURL = Cc["@adblockplus.org/abp/private;1"].getService(Ci.nsIURI);
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 
 let sidebarParams = null;
@@ -375,6 +374,7 @@ var Utils =
    */
   loadDocLink: function(/**String*/ linkID)
   {
+    let baseURL = Cc["@adblockplus.org/abp/private;1"].getService(Ci.nsIURI);
     Cu.import(baseURL.spec + "Prefs.jsm");
 
     let link = Prefs.documentation_link.replace(/%LINK%/g, linkID).replace(/%LANG%/g, Utils.appLocale);
