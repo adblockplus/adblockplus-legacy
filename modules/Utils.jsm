@@ -349,12 +349,21 @@ var Utils =
     if (!abpHooks || !abpHooks.addTab)
     {
       let enumerator = Utils.windowMediator.getZOrderDOMWindowEnumerator(null, true);
+      if (!enumerator.hasMoreElements())
+      {
+        // On Linux the list returned will be empty, see bug 156333. Fall back to random order.
+        enumerator = Utils.windowMediator.getEnumerator(null);
+      }
       while (enumerator.hasMoreElements())
       {
         let window = enumerator.getNext().QueryInterface(Ci.nsIDOMWindow);
         abpHooks = window.document.getElementById("abp-hooks");
         if (abpHooks && abpHooks.addTab)
+        {
+          if (!currentWindow)
+            window.focus();
           break;
+        }
       }
     }
 
