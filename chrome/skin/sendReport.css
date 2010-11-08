@@ -65,7 +65,8 @@ radio, checkbox, .topLabel, #dataDeck
 
 #recentReportsList
 {
-  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 #issuesBox
