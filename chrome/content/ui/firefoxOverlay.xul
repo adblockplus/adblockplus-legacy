@@ -66,7 +66,7 @@
   <!-- Toolbar -->
   <toolbarpalette id="BrowserToolbarPalette">
     <toolbarbutton id="abp-toolbarbutton" type="menu-button" insertbefore="print-button"
-        class="toolbarbutton-1 chromeclass-toolbar-additional" orient="horizontal"/>
+        class="toolbarbutton-1 chromeclass-toolbar-additional"/>
   </toolbarpalette>
 
   <!-- Tools menu -->
