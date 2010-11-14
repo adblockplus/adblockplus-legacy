@@ -76,6 +76,12 @@ menuitem[default="true"] {
   -moz-image-region: rect(48px, 24px, 72px, 0px);
 }
 
+/* Hack: force the label to be displayed below icon for type="menu" */
+#abp-toolbarbutton[type="menu"]
+{
+  -moz-binding: url("chrome://global/content/bindings/toolbarbutton.xml#menu-vertical");
+}
+
 /* Thunderbird-specific toolbar icon styles */
 #header-view-toolbar > #abp-toolbarbutton
 {
