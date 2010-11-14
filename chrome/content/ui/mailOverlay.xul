@@ -32,7 +32,7 @@
     <popupset id="abp-popupset"/>
     <keyset id="abp-keyset"/>
     <commandset id="abp-commandset"/>
-    <box id="abp-hooks" getBrowser="return this.window.messageContent;"
+    <box id="abp-hooks" getBrowser="return this.window.getMessageBrowser();"
       addTab="this.window.openNewTabWith(arguments[0], (arguments[1] ? this.window.content.document : null), (arguments[1] ? arguments[1].shiftKey : false));"
       getContextMenu="return this.E('messagePaneContext');"
       getToolbox="return this.E('mail-toolbox')"
