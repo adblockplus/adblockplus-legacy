@@ -513,6 +513,8 @@ let framesDataSource =
     reportData.window.@url = censorURL(wnd.location.href);
     if (wnd.opener && wnd.opener.location.href)
       reportData.window.@opener = censorURL(wnd.opener.location.href);
+    if (wnd.document.referrer)
+      reportData.window.@referrer = censorURL(wnd.document.referrer);
     this.scanFrames(wnd, reportData.window);
 
     callback();
