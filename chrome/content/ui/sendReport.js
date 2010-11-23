@@ -815,8 +815,13 @@ let issuesDataSource =
     }
     E("issuesDisabledFiltersBox").hidden = (type != "false negative" || this.disabledFilters.length == 0);
 
-    // Don't allow sending report if the page is whitelisted - we need the data
-    E("issuesOverride").hidden = !E("issuesWhitelistBox").hidden;
+    // Don't allow sending report if the page is whitelisted - we need the data.
+    // Also disallow reports without matching filters or without subscriptions,
+    // subscription authors cannot do anything about those.
+    E("issuesOverride").hidden = !E("issuesWhitelistBox").hidden ||
+                                 !E("issuesDisabledBox").hidden ||
+                                 !E("issuesNoFiltersBox").hidden ||
+                                 !E("issuesNoSubscriptionsBox").hidden;
 
     if (E("issuesWhitelistBox").hidden && E("issuesDisabledBox").hidden &&
         E("issuesNoFiltersBox").hidden && E("issuesNoSubscriptionsBox").hidden &&
