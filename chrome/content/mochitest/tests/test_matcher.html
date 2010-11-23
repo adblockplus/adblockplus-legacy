@@ -21,19 +21,22 @@
 
     function compareShortcuts(text, expected)
     {
-      expected.push(null);
-
       for each (let filter in [Filter.fromText(text), Filter.fromText("@@" + text)])
       {
         let result = [];
-        for each (let shortcut in expected)
+        for each (let dummy in expected)
         {
-          result.push(matcher.findShortcut(filter.text));
+          shortcut = matcher.findShortcut(filter.text);
+          result.push(shortcut);
           if (shortcut)
-            matcher.add(Filter.fromText(shortcut));
+          {
+            let dummyFilter = Filter.fromText('^' + shortcut + '^');
+            dummyFilter.filterCount = Infinity;
+            matcher.add(dummyFilter);
+          }
         }
   
-        is(result.join("\n"), expected.join("\n"), "Shortcut candidates for " + filter.text);
+        is(result.join(", "), expected.join(", "), "Shortcut candidates for " + filter.text);
         matcher.clear();
       }
     }
@@ -67,30 +70,22 @@
 
     compareShortcuts("*", []);
     compareShortcuts("asdf", []);
-    compareShortcuts("asdf1234", ["asdf1234"]);
-    compareShortcuts("asdf12345", ["asdf1234", "sdf12345"]);
-    compareShortcuts("asdf123456", ["sdf12345", "df123456", "asdf1234"]);
-    compareShortcuts("asdf123456a", ["sdf12345", "df123456", "asdf1234", "f123456a"]);
-    compareShortcuts("asdf123456as", ["df123456", "f123456a", "sdf12345", "123456as", "asdf1234"]);
-    compareShortcuts("asdf*1234", []);
-    compareShortcuts("asdf1234*5678", ["asdf1234"]);
-    compareShortcuts("asdf12345*678", ["sdf12345", "asdf1234"]);
-    compareShortcuts("asdf1234*d*qwer5678", ["asdf1234", "qwer5678"]);
-    compareShortcuts("asdf^1234", []);
-    compareShortcuts("asdf1234^5678", ["asdf1234"]);
-    compareShortcuts("asdf12345^678", ["sdf12345", "asdf1234"]);
-    compareShortcuts("asdf1234^d^qwer5678", ["asdf1234", "qwer5678"]);
-    compareShortcuts("|asdf1234", ["asdf1234"]);
-    compareShortcuts("asdf1234|", ["asdf1234"]);
-    compareShortcuts("|asdf12345|", ["asdf1234", "sdf12345"]);
-    compareShortcuts("asdf|1234", ["asdf|123", "sdf|1234"]);
-    compareShortcuts("||asdf1234", ["asdf1234"]);
-    compareShortcuts("||asdf12345|", ["asdf1234", "sdf12345"]);
-    compareShortcuts("/foo/", []);
-    compareShortcuts("/foobarbar/", []);
-    compareShortcuts("*/foo/", []);
-    compareShortcuts("*/foobarbar/", ["foobarba", "oobarbar", "/foobarb", "obarbar/"]);
-    compareShortcuts("^/foobarbar/", ["foobarba", "oobarbar", "/foobarb", "obarbar/"]);
+    compareShortcuts("/asdf/", []);
+    compareShortcuts("/asdf1234", []);
+    compareShortcuts("/asdf/1234", ["asdf"]);
+    compareShortcuts("/asdf/1234^", ["asdf", "1234"]);
+    compareShortcuts("/asdf/123456^", ["123456", "asdf"]);
+    compareShortcuts("^asdf^1234^56as^", ["asdf", "1234", "56as"]);
+    compareShortcuts("*asdf/1234^", ["1234"]);
+    compareShortcuts("|asdf,1234*", ["asdf"]);
+    compareShortcuts("||domain.example^", ["example", "domain"]);
+    compareShortcuts("&asdf=1234|", ["asdf", "1234"]);
+    compareShortcuts("^foo%2Ebar^", ["foo%2ebar"]);
+    compareShortcuts("^aSdF^1234", ["asdf"]);
+    compareShortcuts("_asdf_1234_", ["asdf", "1234"]);
+    compareShortcuts("+asdf-1234=", ["asdf", "1234"]);
+    compareShortcuts("/123^ad2&ad&", ["123", "ad2"]);
+    compareShortcuts("/123^ad2&ad$script,domain=example.com", ["123", "ad2"]);
 
     checkMatch([], "http://abc/def", "IMAGE", null, false, null);
     checkMatch(["abc"], "http://abc/def", "IMAGE", null, false, "abc");
