@@ -450,6 +450,11 @@ RegExpFilter.prototype =
   domainSeparator: "|",
 
   /**
+   * Number of filters contained in this filter group
+   * @type Integer
+   */
+  filterCount: 1,
+  /**
    * Expression from which a regular expression should be generated - for delayed creation of the regexp property
    * @type String
    */
@@ -515,19 +520,34 @@ RegExpFilter.prototype =
   },
 
   /**
-   * Tests whether the URL matches this filters
+   * Tests whether the URL matches this filter
    * @param {String} location URL to be tested
    * @param {String} contentType content type identifier of the URL
    * @param {String} docDomain domain name of the document that loads the URL
    * @param {Boolean} thirdParty should be true if the URL is a third-party request
-   * @return {Boolean}
+   * @return {RegExpFilter} this filter in case of a match or null
    */
   matches: function(location, contentType, docDomain, thirdParty)
   {
-    return (this.regexp.test(location) &&
-            (RegExpFilter.typeMap[contentType] & this.contentType) != 0 &&
-            (this.thirdParty == null || this.thirdParty == thirdParty) &&
-            this.isActiveOnDomain(docDomain));
+    if (this.regexp.test(location) &&
+        (RegExpFilter.typeMap[contentType] & this.contentType) != 0 &&
+        (this.thirdParty == null || this.thirdParty == thirdParty) &&
+        this.isActiveOnDomain(docDomain))
+    {
+      return this;
+    }
+
+    return null;
+  },
+
+  /**
+   * Adds a filter to this filter group
+   * @param {RegExpFilter} filter to be added
+   * @return {RegExpFilterGroup} the combined filter group
+   */
+  pushFilter: function(filter)
+  {
+    return new RegExpFilterGroup(this, filter);
   }
 };
 
@@ -770,4 +790,54 @@ ElemHideFilter.fromText = function(text, domain, tagName, attrRules, selector)
       return new InvalidFilter(text, Utils.getString("filter_elemhide_nocriteria"));
   }
   return new ElemHideFilter(text, domain, selector);
+}
+
+function RegExpFilterGroup(filter1, filter2)
+{
+  this.filters = [filter1, filter2];
+}
+RegExpFilterGroup.prototype = {
+  /**
+   * Filters contained in this filter group.
+   * @type Array of RegExpFilter
+   */
+  filters: null,
+
+  /**
+   * Number of filters contained in this filter group
+   * @type Integer
+   */
+  filterCount: 2,
+
+  /**
+   * Tests whether the URL matches any of the filters
+   * @param {String} location URL to be tested
+   * @param {String} contentType content type identifier of the URL
+   * @param {String} docDomain domain name of the document that loads the URL
+   * @param {Boolean} thirdParty should be true if the URL is a third-party request
+   * @return {RegExpFilter} the filter matching the URL or null if none of the filters match
+   */
+  matches: function(location, contentType, docDomain, thirdParty)
+  {
+    for (let i = 0, l = this.filters.length; i < l; i++)
+    {
+      let result = this.filters[i].matches(location, contentType, docDomain, thirdParty);
+      if (result)
+        return result;
+    }
+
+    return null;
+  },
+
+  /**
+   * Adds a filter to this filter group
+   * @param {RegExpFilter} filter to be added
+   * @return {RegExpFilterGroup} the combined filter group
+   */
+  pushFilter: function(filter)
+  {
+    this.filters.push(filter);
+    this.count++;
+    return this;
+  }
 }
