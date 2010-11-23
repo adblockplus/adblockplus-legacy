@@ -45,12 +45,6 @@ function Matcher()
   this.clear();
 }
 
-/**
- * Length of a filter shortcut
- * @type Number
- */
-Matcher.shortcutLength = 8;
-
 Matcher.prototype = {
   /**
    * Lookup table for filters by their shortcut
@@ -96,12 +90,16 @@ Matcher.prototype = {
     if (filter.text in this.knownFilters)
       return;
 
-    // Look for a suitable shortcut if the current can't be used
-    if (!filter.shortcut || filter.shortcut in this.shortcutHash)
+    // Look for a suitable shortcut if the filter doesn't have one
+    if (!filter.shortcut)
       filter.shortcut = this.findShortcut(filter.text);
 
-    if (filter.shortcut) {
-      this.shortcutHash[filter.shortcut] = filter;
+    if (filter.shortcut)
+    {
+      if (filter.shortcut in this.shortcutHash)
+        this.shortcutHash[filter.shortcut] = this.shortcutHash[filter.shortcut].pushFilter(filter);
+      else
+        this.shortcutHash[filter.shortcut] = filter;
       this.hasShortcuts = true;
     }
     else 
@@ -120,7 +118,17 @@ Matcher.prototype = {
       return;
 
     if (filter.shortcut)
-      delete this.shortcutHash[filter.shortcut];
+    {
+      if ("filters" in this.shortcutHash[filter.shortcut])
+      {
+        list = this.shortcutHash[filter.shortcut].filters;
+        for (let i = 0, l = list.length; i < l; i++)
+          if (i == filter)
+            list.splice(i--, 1);
+      }
+      else
+        delete this.shortcutHash[filter.shortcut];
+    }
     else
     {
       let i = this.regexps.indexOf(filter);
@@ -149,27 +157,26 @@ Matcher.prototype = {
     if (text.substr(0, 2) == "@@")
       text = text.substr(2);
 
-    // Remove anchors
-    let pos = text.length - 1;
-    if (text[pos] == "|")
-      text = text.substr(0, pos);
-    if (text[0] == "|")
-      text = text.substr(1);
-    if (text[0] == "|")
-      text = text.substr(1);
+    let candidates = text.toLowerCase().match(/[^a-z0-9%*][a-z0-9%]{3,}(?=[^a-z0-9%*])/g);
+    if (!candidates)
+      return null;
 
-    text = text.replace(/\^/g, "*").toLowerCase();
-
-    let len = Matcher.shortcutLength;
-    let numCandidates = text.length - len + 1;
-    let startingPoint = Math.floor((text.length - len) / 2);
-    for (let i = 0, j = 0; i < numCandidates; i++, (j > 0 ? j = -j : j = -j + 1))
+    let hash = this.shortcutHash;
+    let result = null;
+    let resultCount = Infinity;
+    let resultLength = 0;
+    for (let i = 0, l = candidates.length; i < l; i++)
     {
-      let candidate = text.substr(startingPoint + j, len);
-      if (candidate.indexOf("*") < 0 && !(candidate in this.shortcutHash))
-        return candidate;
+      let candidate = candidates[i].substr(1);
+      let count = candidate in hash ? hash[candidate].filterCount : 0;
+      if (count < resultCount || (count == resultCount && candidate.length > resultLength))
+      {
+        result = candidate;
+        resultCount = count;
+        resultLength = candidate.length;
+      }
     }
-    return null;
+    return result;
   },
 
   /**
@@ -185,17 +192,18 @@ Matcher.prototype = {
     if (this.hasShortcuts)
     {
       // Optimized matching using shortcuts
-      let text = location.toLowerCase();
-      let len = Matcher.shortcutLength;
-      let endPos = text.length - len + 1;
-      for (let i = 0; i <= endPos; i++)
+      let candidates = location.toLowerCase().match(/[a-z0-9%]{3,}/g);
+      if (candidates)
       {
-        let substr = text.substr(i, len);
-        if (substr in this.shortcutHash)
+        for (let i = 0, l = candidates.length; i < l; i++)
         {
-          let filter = this.shortcutHash[substr];
-          if (filter.matches(location, contentType, docDomain, thirdParty))
-            return filter;
+          let substr = candidates[i];
+          if (substr in this.shortcutHash)
+          {
+            let result = this.shortcutHash[substr].matches(location, contentType, docDomain, thirdParty);
+            if (result)
+              return result;
+          }
         }
       }
     }
@@ -323,23 +331,24 @@ CombinedMatcher.prototype =
       let hashWhite = this.whitelist.shortcutHash;
       let hashBlack = this.blacklist.shortcutHash;
 
-      let text = location.toLowerCase();
-      let len = Matcher.shortcutLength;
-      let endPos = text.length - len + 1;
-      for (let i = 0; i <= endPos; i++)
+      let candidates = location.toLowerCase().match(/[a-z0-9%]{3,}/g);
+      if (candidates)
       {
-        let substr = text.substr(i, len);
-        if (substr in hashWhite)
+        for (let i = 0, l = candidates.length; i < l; i++)
         {
-          let filter = hashWhite[substr];
-          if (filter.matches(location, contentType, docDomain, thirdParty))
-            return filter;
-        }
-        if (substr in hashBlack)
-        {
-          let filter = hashBlack[substr];
-          if (filter.matches(location, contentType, docDomain, thirdParty))
-            blacklistHit = filter;
+          let substr = candidates[i];
+          if (substr in hashWhite)
+          {
+            let result = hashWhite[substr].matches(location, contentType, docDomain, thirdParty);
+            if (result)
+              return result;
+          }
+          if (substr in hashBlack)
+          {
+            let result = hashBlack[substr].matches(location, contentType, docDomain, thirdParty);
+            if (result)
+              blacklistHit = result;
+          }
         }
       }
     }
