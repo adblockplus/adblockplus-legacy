@@ -61,7 +61,7 @@
 <!ENTITY filterdoc.accesskey "R">
 <!ENTITY about.label "Adblock Plus 정보">
 <!ENTITY about.accesskey "B">
-<!ENTITY description "애드블록 플러스의 필터는 웹 콘텐츠에 대한 요청을 차단/허용하거나 페이지의 HTML 요소를 숨길 수 있습니다.">
+<!ENTITY description "애드블록 플러스의 필터는 콘텐츠에 대한 요청을 차단/허용하거나 웹 페이지의 HTML 요소를 숨길 수 있습니다.">
 <!ENTITY filter.column "필터">
 <!ENTITY filter.accesskey "F">
 <!ENTITY slow.column "느린 필터(!)">
