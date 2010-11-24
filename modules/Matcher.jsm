@@ -123,7 +123,7 @@ Matcher.prototype = {
       {
         list = this.shortcutHash[filter.shortcut].filters;
         for (let i = 0, l = list.length; i < l; i++)
-          if (i == filter)
+          if (list[i] == filter)
             list.splice(i--, 1);
       }
       else
