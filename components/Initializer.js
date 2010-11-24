@@ -88,7 +88,10 @@ Initializer.prototype =
         }
         break;
       case "quit-application":
-        observerService.removeObserver(this, "profile-after-change");
+        try {
+          // This will fail if component was added via chrome.manifest (Gecko 2.0)
+          observerService.removeObserver(this, "profile-after-change");
+        }catch(e) {}
         observerService.removeObserver(this, "quit-application");
         if ("@adblockplus.org/abp/private;1" in Cc)
         {
