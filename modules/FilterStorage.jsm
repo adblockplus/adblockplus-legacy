@@ -79,6 +79,12 @@ var FilterStorage =
   fileProperties: {__proto__: null},
 
   /**
+   * Will be set to true if there were changes since the data was saved/loaded
+   * last time.
+   */
+  isDirty: false,
+
+  /**
    * List of filter subscriptions containing all filters
    * @type Array of Subscription
    */
@@ -108,7 +114,8 @@ var FilterStorage =
   shutdown: function()
   {
     TimeLine.enter("Entered FilterStorage.shutdown()");
-    FilterStorage.saveToDisk();
+    if (FilterStorage.isDirty)
+      FilterStorage.saveToDisk();
     TimeLine.leave("FilterStorage.shutdown() done");
   },
 
@@ -142,6 +149,7 @@ var FilterStorage =
    */
   triggerSubscriptionObservers: function(action, subscriptions)
   {
+    FilterStorage.isDirty = true;
     for each (let observer in subscriptionObservers)
       observer(action, subscriptions);
   },
@@ -154,6 +162,7 @@ var FilterStorage =
    */
   triggerFilterObservers: function(action, filters, additionalData)
   {
+    FilterStorage.isDirty = true;
     for each (let observer in filterObservers)
       observer(action, filters, additionalData);
   },
@@ -461,6 +470,7 @@ var FilterStorage =
 
     TimeLine.log("load complete, calling observers");
     FilterStorage.triggerSubscriptionObservers("reload", FilterStorage.subscriptions);
+    FilterStorage.isDirty = false;
     TimeLine.leave("FilterStorage.loadFromDisk() done");
   },
 
@@ -619,6 +629,7 @@ var FilterStorage =
 
     tempFile.moveTo(sourceFile.parent, sourceFile.leafName);
     TimeLine.log("created backups and renamed temp file");
+    FilterStorage.isDirty = false;
     TimeLine.leave("FilterStorage.saveToDisk() done");
   }
 };
