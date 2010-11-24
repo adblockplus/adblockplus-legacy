@@ -8,9 +8,11 @@
 <!ENTITY context.image.label "صورة آدبلوك">
 <!ENTITY context.object.label "عنصر آدبلوك">
 <!ENTITY context.frame.label "إطار آدبلوك">
-<!ENTITY context.media.label "آدبلوك بلس : حجب أوديو\فيديو">
+<!ENTITY context.media.label "آدبلوك بلس : حجب أوديوفيديو">
 <!ENTITY context.removeWhitelist.label "آدبلوك بلس : إعادة التفعيل في هذه الصفحة">
 <!ENTITY sidebar.title "العناصر المحجوبة في الصفحة الحالية">
+<!ENTITY sendReport.label "التبليغ عن خطأ في هذه الصفحة">
+<!ENTITY sendReport.accesskey "ت">
 <!ENTITY settings.label "تفضيلات">
 <!ENTITY settings.accesskey "ض">
 <!ENTITY opensidebar.label "فتح العناصر المحجوبة">

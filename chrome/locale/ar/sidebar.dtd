@@ -9,6 +9,8 @@
 <!ENTITY state.label "الحالة">
 <!ENTITY size.label "الحجم">
 <!ENTITY docDomain.label "مصدر الملف">
+<!ENTITY docDomain.thirdParty "(طرف خارجي)">
+<!ENTITY docDomain.firstParty "(طرف داخلي)">
 <!ENTITY noitems.label "لا عناصر محجوبة">
 <!ENTITY whitelisted.label "صفحة موثوقة">
 <!ENTITY tooltip.address.label "العنوان">
@@ -18,6 +20,7 @@
 <!ENTITY tooltip.size.label "الحجم:">
 <!ENTITY tooltip.docDomain.label "مصدر الملف:">
 <!ENTITY tooltip.filter.label "الفلتر الفعال">
+<!ENTITY tooltip.filter.disabled "(معطل)">
 <!ENTITY tooltip.filterSource.label "مصدر الفلتر:">
 <!ENTITY context.block.label "حجب هذا العنصر">
 <!ENTITY context.editfilter.label "تعديل الفلتر الفعال">
