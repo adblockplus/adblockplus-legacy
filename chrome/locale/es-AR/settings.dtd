@@ -33,7 +33,7 @@
 <!ENTITY view.accesskey "V">
 <!ENTITY sort.label "Ordenar por">
 <!ENTITY sort.accesskey "O">
-<!ENTITY sort.none.label "Desordenar">
+<!ENTITY sort.none.label "Desordenado">
 <!ENTITY sort.none.accesskey "D">
 <!ENTITY sort.ascending.label "Ordenar de la &quot;A&quot; a la &quot;Z&quot;">
 <!ENTITY sort.ascending.accesskey "A">
@@ -53,11 +53,11 @@
 <!ENTITY collapse.accesskey "l">
 <!ENTITY help.label "Ayuda">
 <!ENTITY help.accesskey "y">
-<!ENTITY gettingStarted.label "Cómo comenzar (en inglés)">
+<!ENTITY gettingStarted.label "Cómo comenzar">
 <!ENTITY gettingStarted.accesskey "C">
-<!ENTITY faq.label "Preguntas frecuentes (en inglés)">
+<!ENTITY faq.label "Preguntas frecuentes">
 <!ENTITY faq.accesskey "P">
-<!ENTITY filterdoc.label "Escribir filtros de Adblock Plus (en inglés)">
+<!ENTITY filterdoc.label "Escribir filtros de Adblock Plus">
 <!ENTITY filterdoc.accesskey "E">
 <!ENTITY about.label "Acerca de Adblock Plus">
 <!ENTITY about.accesskey "A">

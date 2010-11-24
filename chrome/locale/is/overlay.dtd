@@ -12,6 +12,7 @@
 <!ENTITY context.removeWhitelist.label "Adblock Plus: Endurvirkja á þessari síðu">
 <!ENTITY sidebar.title "Hlutir á núverandi síðu sem hægt er að loka á">
 <!ENTITY sendReport.label "Tilkynna vandamál á þessari síðu">
+<!ENTITY sendReport.accesskey "r">
 <!ENTITY settings.label "Stillingar">
 <!ENTITY settings.accesskey "S">
 <!ENTITY opensidebar.label "Skoða hluti">
