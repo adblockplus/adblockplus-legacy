@@ -62,11 +62,11 @@
 <!ENTITY help.label                 "Справка">
 <!ENTITY help.accesskey             "С">
 
-<!ENTITY gettingStarted.label       "Первые шаги (английский)">
+<!ENTITY gettingStarted.label       "Первые шаги">
 <!ENTITY gettingStarted.accesskey   "ш">
-<!ENTITY faq.label                  "Часто задаваемые вопросы (английский)">
+<!ENTITY faq.label                  "Часто задаваемые вопросы">
 <!ENTITY faq.accesskey              "Ч">
-<!ENTITY filterdoc.label            "Составление фильтров для Adblock Plus (английский)">
+<!ENTITY filterdoc.label            "Составление фильтров для Adblock Plus">
 <!ENTITY filterdoc.accesskey        "т">
 <!ENTITY about.label                "О Adblock Plus">
 <!ENTITY about.accesskey            "О">
