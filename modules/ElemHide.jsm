@@ -94,13 +94,7 @@ var ElemHide =
     TimeLine.log("registering component");
     let registrar = Components.manager.QueryInterface(Ci.nsIComponentRegistrar);
     registrar.registerFactory(ElemHidePrivate.classID, ElemHidePrivate.classDescription,
-        "@mozilla.org/network/protocol;1?name=" + ElemHidePrivate.scheme, ElemHidePrivate);
-    Policy.whitelistSchemes[ElemHidePrivate.scheme] = true;
-
-    // Register a resource: protocol substitution as an alias for our custom
-    // protocol, this will allow stylesheet service to create URLs faster.
-    let resProtocol = Cc["@mozilla.org/network/protocol;1?name=resource"].getService(Ci.nsIResProtocolHandler);
-    resProtocol.setSubstitution(ElemHidePrivate.resourcePrefix, ElemHidePrivate.newURI("abp-elemhidehit:", null, null));
+        "@mozilla.org/network/protocol/about;1?what=" + ElemHidePrivate.aboutPrefix, ElemHidePrivate);
 
     TimeLine.leave("ElemHide.startup() done");
   },
@@ -198,7 +192,7 @@ var ElemHide =
     // Joining domains list
     TimeLine.log("start building CSS data");
     let cssData = "";
-    let cssTemplate = "-moz-binding: url(resource://" + ElemHidePrivate.resourcePrefix + "/%ID%#dummy) !important;";
+    let cssTemplate = "-moz-binding: url(about:" + ElemHidePrivate.aboutPrefix + "?%ID%#dummy) !important;";
 
     for (let domain in domains)
     {
@@ -248,14 +242,14 @@ var ElemHide =
 };
 
 /**
- * Private nsIProtocolHandler implementation
+ * Private nsIAboutModule implementation
  * @class
  */
 var ElemHidePrivate =
 {
   classID: Components.ID("{55fb7be0-1dd2-11b2-98e6-9e97caf8ba67}"),
   classDescription: "Element hiding hit registration protocol handler",
-  resourcePrefix: "abp-elemhidehit-" + Math.random().toFixed(15).substr(5),
+  aboutPrefix: "abp-elemhidehit",
 
   //
   // Factory implementation
@@ -270,34 +264,23 @@ var ElemHidePrivate =
   },
 
   //
-  // Protocol handler implementation
+  // About module implementation
   //
 
-  defaultPort: -1,
-  protocolFlags: Ci.nsIProtocolHandler.URI_STD |
-                 Ci.nsIProtocolHandler.URI_NOAUTH |
-                 Ci.nsIProtocolHandler.URI_DANGEROUS_TO_LOAD |
-                 Ci.nsIProtocolHandler.URI_NON_PERSISTABLE |
-                 Ci.nsIProtocolHandler.URI_IS_LOCAL_RESOURCE,
-  scheme: "abp-elemhidehit",
-  allowPort: function() {return false},
-
-  newURI: function(spec, originCharset, baseURI)
+  getURIFlags: function(uri)
   {
-    let url = Cc["@mozilla.org/network/standard-url;1"].createInstance(Ci.nsIStandardURL);
-    url.init(Ci.nsIStandardURL.URLTYPE_NO_AUTHORITY, -1, spec, originCharset, baseURI);
-    return url;
+    return Ci.nsIAboutModule.HIDE_FROM_ABOUTABOUT;
   },
 
   newChannel: function(uri)
   {
-    if (!/^\/*(\d+)/.test(uri.path))  /**/
+    if (!/\?(\d+)/.test(uri.path))
       throw Cr.NS_ERROR_FAILURE;
 
     return new HitRegistrationChannel(uri, RegExp.$1);
   },
 
-  QueryInterface: XPCOMUtils.generateQI([Ci.nsIFactory, Ci.nsIProtocolHandler])
+  QueryInterface: XPCOMUtils.generateQI([Ci.nsIFactory, Ci.nsIAboutModule])
 };
 
 /**
