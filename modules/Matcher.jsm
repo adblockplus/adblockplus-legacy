@@ -102,7 +102,7 @@ Matcher.prototype = {
         this.shortcutHash[filter.shortcut] = filter;
       this.hasShortcuts = true;
     }
-    else 
+    else
       this.regexps.push(filter);
 
     this.knownFilters[filter.text] = true;
@@ -163,7 +163,7 @@ Matcher.prototype = {
 
     let hash = this.shortcutHash;
     let result = null;
-    let resultCount = Infinity;
+    let resultCount = 0xFFFFFF;
     let resultLength = 0;
     for (let i = 0, l = candidates.length; i < l; i++)
     {
@@ -384,7 +384,7 @@ CombinedMatcher.prototype =
       this.resultCache = {__proto__: null};
       this.cacheEntries = 0;
     }
-  
+
     this.resultCache[key] = result;
     this.cacheEntries++;
 
