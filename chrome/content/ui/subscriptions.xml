@@ -23,6 +23,11 @@
                 homepage="http://www.fanboy.co.nz/adblock/"
                 prefixes="en"
                 author="fanboy, Nitrox"/>
+  <subscription title="Filter von Dr.Evil (Deutsch)"
+                url="https://adblock.maltekraus.de/adblock.txt"
+                homepage="http://www.camp-firefox.de/forum/viewtopic.php?t=55998"
+                prefixes="de"
+                author="Dr.Evil"/>
   <subscription title="Liste FR+EasyList (français)"
                 url="https://easylist-downloads.adblockplus.org/liste_fr+easylist.txt"
                 homepage="http://forums.lanik.us/viewforum.php?f=91"
