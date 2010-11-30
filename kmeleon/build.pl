@@ -15,7 +15,7 @@ if (@ARGV && $ARGV[0] =~ /^\+/)
 }
 
 my $pkg = Packager->new(\%params);
-$pkg->readVersion('../version');
+$pkg->readMetadata('../metadata');
 
 my $KMELEON_SRC = 'c:/kmeleon_src';
 my $GECKO_DIR = 'c:/kmeleon_src/mozilla/mozilla/dist';
