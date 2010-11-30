@@ -1,15 +1,16 @@
 #!/usr/bin/perl
 
 use strict;
+use lib qw(../buildtools);
+use Packager;
 
-open(VERSION, "../version");
-my $version = <VERSION>;
-$version =~ s/[^\w\.]//gs;
-close(VERSION);
+my $pkg = Packager->new();
+$pkg->readMetadata('../metadata');
+my $version = $pkg->{version};
 
-my @locales = qw(en-US de-DE ru-RU fr-FR es-ES it-IT pl-PL);
+my @locales = qw(en-US de ru fr es it pl);
 foreach my $locale (@locales) {
-  system("$^X build.pl adblockplus-kmeleon-$version-$locale.zip $locale");
+  system($^X, "build.pl", "adblockplus-kmeleon-$version-$locale.zip", $locale);
 }
 
-system("$^X build.pl adblockplus-kmeleon-$version.zip @locales");
+system($^X, "build.pl", "adblockplus-kmeleon-$version.zip", @locales);
