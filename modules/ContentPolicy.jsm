@@ -175,6 +175,11 @@ var Policy =
     TimeLine.leave("ContentPolicy.startup() done");
   },
 
+  shutdown: function()
+  {
+    PolicyPrivate.previousRequest = null;
+  },
+
   /**
    * Checks whether a node should be blocked, hides it if necessary
    * @param wnd {nsIDOMWindow}
@@ -361,7 +366,7 @@ var PolicyPrivate =
       // We didn't block this request so we will probably see it again in
       // http-on-modify-request. Keep it so that we can associate it with the
       // channel there - will be needed in case of redirect.
-      this.previousRequest = [wnd, node, contentType, location];
+      PolicyPrivate.previousRequest = [wnd, node, contentType, location];
     }
     return (result ? Ci.nsIContentPolicy.ACCEPT : Ci.nsIContentPolicy.REJECT_REQUEST);
   },
@@ -377,12 +382,13 @@ var PolicyPrivate =
   observe: function(subject, topic, data)
   {
     if (topic == "http-on-modify-request" && subject instanceof Ci.nsIHttpChannel &&
-        this.previousRequest && subject.URI == this.previousRequest[3] &&
+        PolicyPrivate.previousRequest && subject.URI == PolicyPrivate.previousRequest[3] &&
         subject instanceof Ci.nsIWritablePropertyBag)
     {
       // We just handled a content policy call for this request - associate
       // the data with the channel so that we can find it in case of a redirect.
-      subject.setProperty("abpRequestData", this.previousRequest);
+      subject.setProperty("abpRequestData", PolicyPrivate.previousRequest);
+      PolicyPrivate.previousRequest = null;
     }
   },
 
