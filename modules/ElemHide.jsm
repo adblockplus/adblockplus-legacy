@@ -332,7 +332,7 @@ HitRegistrationChannel.prototype = {
     {
       let wnd = Utils.getRequestWindow(this);
       if (wnd && wnd.document && !Policy.processNode(wnd, wnd.document, Policy.type.ELEMHIDE, filter))
-        data = "<nada/>";
+        data = "<bindings xmlns='http://www.mozilla.org/xbl'/>";
     }
 
     let stream = Cc["@mozilla.org/io/string-input-stream;1"].createInstance(Ci.nsIStringInputStream);
