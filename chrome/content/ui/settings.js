@@ -22,8 +22,6 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-let dragService = Cc["@mozilla.org/widget/dragservice;1"].getService(Ci.nsIDragService);
-
 const altMask = 2;
 const ctrlMask = 4;
 const metaMask = 8;
@@ -713,11 +711,19 @@ function onListDblClick(/**Event*/ e)
 }
 
 /**
- * Handles draggesture event on the filter list, starts drag&drop session.
+ * Handles dragstart event on the filter list
  */
-function onListDragGesture(/**Event*/ e)
+function onListDragStart(/**Event*/ e)
 {
-  treeView.startDrag(treeView.boxObject.getRowAt(e.clientX, e.clientY));
+  treeView.startDrag(treeView.boxObject.getRowAt(e.clientX, e.clientY), e);
+}
+
+/**
+ * Handles dragend event on the filter list
+ */
+function onListDragEnd(/**Event*/ e)
+{
+  treeView.finishDrag();
 }
 
 /**
@@ -1690,8 +1696,7 @@ let treeView = {
 
   canDrop: function(row, orientation)
   {
-    let session = dragService.getCurrentSession();
-    if (!session || session.sourceNode != this.boxObject.treeBody || !this.dragSubscription || orientation == nsITreeView.DROP_ON)
+    if (!this.dragSubscription || orientation == nsITreeView.DROP_ON)
       return false;
 
     let [subscription, filter] = this.getRowInfo(row);
@@ -1712,8 +1717,7 @@ let treeView = {
 
   drop: function(row, orientation)
   {
-    let session = dragService.getCurrentSession();
-    if (!session || session.sourceNode != this.boxObject.treeBody || !this.dragSubscription || orientation == nsITreeView.DROP_ON)
+    if (!this.dragSubscription || orientation == nsITreeView.DROP_ON)
       return;
 
     let [subscription, filter] = this.getRowInfo(row);
@@ -2501,7 +2505,7 @@ let treeView = {
 
   dragSubscription: null,
   dragFilter: null,
-  startDrag: function(row)
+  startDrag: function(row, e)
   {
     let [subscription, filter] = this.getRowInfo(row);
     if (!subscription)
@@ -2518,29 +2522,20 @@ let treeView = {
     let transferable = Cc["@mozilla.org/widget/transferable;1"].createInstance(Ci.nsITransferable);
     let data = Cc["@mozilla.org/supports-string;1"].createInstance(Ci.nsISupportsString);
     if (filter instanceof Filter)
-      data.data = filter.text;
+      e.dataTransfer.setData("text/plain", filter.text);
     else
-      data.data = subscription.title;
-    transferable.setTransferData("text/unicode", data, data.data.length * 2);
-    array.AppendElement(transferable);
-
-    let region = Cc["@mozilla.org/gfx/region;1"].createInstance(Ci.nsIScriptableRegion);
-    region.init();
-    let x = {};
-    let y = {};
-    let width = {};
-    let height = {};
-    let col = this.boxObject.columns.getPrimaryColumn();
-    this.boxObject.getCoordsForCellItem(row, col, "text", x, y, width, height);
-    region.setToRect(x.value, y.value, width.value, height.value);
+      e.dataTransfer.setData("text/plain", subscription.title);
 
     this.dragSubscription = subscription;
     this.dragFilter = filter;
 
-    // This will throw an exception if the user cancels D&D
-    try {
-      dragService.invokeDragSession(this.boxObject.treeBody, array, region, dragService.DRAGDROP_ACTION_MOVE);
-    } catch(e) {}
+    e.stopPropagation();
+  },
+
+  finishDrag: function()
+  {
+    this.dragSubscription = null;
+    this.dragFilter = null;
   },
 
   /**
