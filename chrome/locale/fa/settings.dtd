@@ -1,21 +1,21 @@
-<!ENTITY dialog.title "تنظيمات Adblock Plus">
-<!ENTITY filters.label "فيلترها">
-<!ENTITY filters.accesskey "ه">
-<!ENTITY add.label "افزودن فيلتر">
+<!ENTITY dialog.title "ترجبحات فوق تبلیغ شکن">
+<!ENTITY filters.label "پالایه ها">
+<!ENTITY filters.accesskey "پ">
+<!ENTITY add.label "افزودن افزودن پالایه">
 <!ENTITY add.accesskey "ز">
-<!ENTITY addsubscription.label "اشتراک فيلتر">
+<!ENTITY addsubscription.label "اشتراک پالایه">
 <!ENTITY addsubscription.accesskey "ش">
-<!ENTITY synchsubscriptions.label "به‌روزرساني اشتراک‌ها">
+<!ENTITY synchsubscriptions.label "بروز رساني اشتراک‌ها">
 <!ENTITY synchsubscriptions.accesskey "ک">
-<!ENTITY import.label "واردکردن فيلترها">
+<!ENTITY import.label "وارد کردن پالایه ها">
 <!ENTITY import.accesskey "د">
-<!ENTITY export.label "صادرکردن فيلترها">
+<!ENTITY export.label "صادر کردن پالایه ها">
 <!ENTITY export.accesskey "ف">
-<!ENTITY clearall.label "حذف فيلترها">
+<!ENTITY clearall.label "حذف پالایه ها">
 <!ENTITY clearall.accesskey "ح">
-<!ENTITY resethitcounts.label "بازگشت آمار استفاده">
+<!ENTITY resethitcounts.label "باز نشانی آمار برخورد">
 <!ENTITY resethitcounts.accesskey "س">
-<!ENTITY edit.label "ويرايش">
+<!ENTITY edit.label "ویرایش">
 <!ENTITY edit.accesskey "ش">
 <!ENTITY cut.label "برش">
 <!ENTITY cut.accesskey "ر">
@@ -25,48 +25,63 @@
 <!ENTITY paste.accesskey "گ">
 <!ENTITY remove.label "حذف">
 <!ENTITY remove.accesskey "ذ">
-<!ENTITY menu.find.label "يافتن">
+<!ENTITY menu.find.label "یافتن">
 <!ENTITY menu.find.accesskey "ف">
-<!ENTITY menu.findagain.label "يافتن مجدد">
+<!ENTITY menu.findagain.label "یافتن مجدد">
 <!ENTITY menu.findagain.accesskey "م">
-<!ENTITY options.label "تنظيمات">
-<!ENTITY options.accesskey "ظ">
-<!ENTITY enable.label "فعال‌کردن Adblock Plus">
+<!ENTITY view.label "نما">
+<!ENTITY view.accesskey "د">
+<!ENTITY sort.label "مرتب کردن بر اساس">
+<!ENTITY sort.accesskey "س">
+<!ENTITY sort.none.label "نا مرتب">
+<!ENTITY sort.none.accesskey "ن">
+<!ENTITY sort.ascending.label "ترتیب حروف الف با از ابتدا">
+<!ENTITY sort.ascending.accesskey "ا">
+<!ENTITY sort.descending.label "ترتیب حروف الف با از انتها">
+<!ENTITY sort.descending.accesskey "ت">
+<!ENTITY options.label "گزینه ها">
+<!ENTITY options.accesskey "گ">
+<!ENTITY enable.label "فعال‌کردن فوق تبلیغ شکن">
 <!ENTITY enable.accesskey "ع">
-<!ENTITY showintoolbar.label "نمايش در نوارابزار">
+<!ENTITY showintoolbar.label "نمایش در نوار ابزار">
 <!ENTITY showintoolbar.accesskey "ب">
-<!ENTITY showinstatusbar.label "نمايش در نواروضعيت">
+<!ENTITY showinstatusbar.label "نمایش در نوار وضعیت">
 <!ENTITY showinstatusbar.accesskey "و">
-<!ENTITY objecttabs.label "نمایش برگه در موارد Flash و Java">
-<!ENTITY objecttabs.accesskey "J">
-<!ENTITY collapse.label "نمایش موارد ردشده">
+<!ENTITY objecttabs.label "نمایش زبانه در موارد فلش و جاوا">
+<!ENTITY objecttabs.accesskey "ج">
+<!ENTITY collapse.label "نمایش موارد رد شده">
 <!ENTITY collapse.accesskey "م">
 <!ENTITY help.label "راهنما">
 <!ENTITY help.accesskey "ن">
-<!ENTITY faq.label "سوالات طرح شده">
-<!ENTITY faq.accesskey "ش">
-<!ENTITY filterdoc.label "نوشتن فیلترهای Adblock Plus">
-<!ENTITY filterdoc.accesskey "P">
-<!ENTITY about.label "درباره Adblock Plus">
+<!ENTITY gettingStarted.label "شروع">
+<!ENTITY gettingStarted.accesskey "ش">
+<!ENTITY faq.label "سوالات سوالات متداول">
+<!ENTITY faq.accesskey "ل">
+<!ENTITY filterdoc.label "نوشتن پالایه فوق تبلیغ شکن">
+<!ENTITY filterdoc.accesskey "پ">
+<!ENTITY about.label "درباره فوق تبلیغ شکن">
 <!ENTITY about.accesskey "د">
-<!ENTITY description "برای رد کردن نشانی‌ها٬ آنها را به این فهرست اضافه کنید.
-
-
-		برای استفاده از لیست‌های عمومی از ستاره استفاده کنید.
-
-کاربران پیشرفته می‌توانند از عبارات مرتب استفاده کنند٬ مانند:
-
-		/banner\d+\.gif$/">
+<!ENTITY description "پالایه های جاری معین می کنند که کدام نشانی باید مسدود شود و کدام باید اجازه داده شود:">
+<!ENTITY filter.column "قواعد پالایش">
+<!ENTITY filter.accesskey "ق">
+<!ENTITY slow.column "نمایش پالایه ها">
+<!ENTITY slow.accesskey "ن">
 <!ENTITY enabled.column "فعال‌">
-<!ENTITY hitcount.column "استفاده شده">
-<!ENTITY lasthit.column "آخرين استفاده">
-<!ENTITY context.edit.label "ويرايش فيلتر">
+<!ENTITY enabled.accesskey "ع">
+<!ENTITY hitcount.column "برخورد ها">
+<!ENTITY hitcount.accesskey "خ">
+<!ENTITY lasthit.column "آخرین برخورد">
+<!ENTITY lasthit.accesskey "ر">
+<!ENTITY context.edit.label "ویرایش پالایه">
 <!ENTITY context.resethitcount.label "برگشت آمار استفاده">
-<!ENTITY context.synchsubscription.label "به‌روزرساني اشتراک">
-<!ENTITY context.editsubscription.label "ويريش اشتراک">
+<!ENTITY context.synchsubscription.label "بروز رسانی اشتراک">
+<!ENTITY context.editsubscription.label "ویرایش اشتراک">
 <!ENTITY context.moveup.label "بالا‌بردن">
-<!ENTITY context.movedown.label "پائين‌بردن">
+<!ENTITY context.movedown.label "پایین‌بردن">
 <!ENTITY context.movegroupup.label "بالا‌بردن گروه">
-<!ENTITY context.movegroupdown.label "پائين‌بردن گروه">
+<!ENTITY context.movegroupdown.label "پایین‌بردن گروه">
+<!ENTITY context.enable.label "فعال">
+<!ENTITY context.disable.label "غیر فعال">
 <!ENTITY apply.label "انجام دادن">
 <!ENTITY apply.accesskey "ج">
+<!ENTITY fennec.subscription.label "اشتراک پالایه">

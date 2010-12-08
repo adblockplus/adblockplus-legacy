@@ -9,6 +9,8 @@
 <!ENTITY state.label "Վիճակը">
 <!ENTITY size.label "Չափը">
 <!ENTITY docDomain.label "Աշխատանքի աղբյուրը">
+<!ENTITY docDomain.thirdParty "(երրորդ կողմի)">
+<!ENTITY docDomain.firstParty "(ուղիղ աղբյուր)">
 <!ENTITY noitems.label "Ֆիլտրվվող տարրեր չկան">
 <!ENTITY whitelisted.label "Բացառություն">
 <!ENTITY tooltip.address.label "Հասցեն`">
@@ -18,6 +20,7 @@
 <!ENTITY tooltip.size.label "Չափը`">
 <!ENTITY tooltip.docDomain.label "Աշխատանքի աղբյուրը`">
 <!ENTITY tooltip.filter.label "Ազդող ֆիլտրը`">
+<!ENTITY tooltip.filter.disabled "(անջատված)">
 <!ENTITY tooltip.filterSource.label "Ֆիլտրի աղբյուրը`">
 <!ENTITY context.block.label "Ֆիլտրել այս տարրը">
 <!ENTITY context.editfilter.label "Խմբագրել Ազդող ֆիլտրը">
