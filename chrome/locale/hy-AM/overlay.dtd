@@ -11,6 +11,8 @@
 <!ENTITY context.media.label "Adblock` Ֆիլտրել Աուդիո/Վիդեո">
 <!ENTITY context.removeWhitelist.label "Adblock Plus: Վերակտիվացնել այս էջում">
 <!ENTITY sidebar.title "Այս էջի ֆիլտրվող տարրերը">
+<!ENTITY sendReport.label "Տեղեկացնել այս էջի պրոբլեմի մասին">
+<!ENTITY sendReport.accesskey "R">
 <!ENTITY settings.label "Նախընտրանքներ">
 <!ENTITY settings.accesskey "Ն">
 <!ENTITY opensidebar.label "Բացել ֆիլտրվող տարրերը">
