@@ -205,7 +205,7 @@
         <treecol id="col-lasthit" label="&lasthit.column;" hidden="true" flex="4" persist="width ordinal sortDirection hidden"/>
       </treecols>
 
-      <treechildren id="treechildren" tooltip="tree-tooltip" onmousemove="this.mCachedMousePosition = event;" onclick="onListClick(event)" ondblclick="onListDblClick(event)" ondraggesture="onListDragGesture(event)"/>
+      <treechildren id="treechildren" tooltip="tree-tooltip" onmousemove="this.mCachedMousePosition = event;" onclick="onListClick(event)" ondblclick="onListDblClick(event)" ondragstart="onListDragStart(event);" ondragend="onListDragEnd(event);"/>
     </tree>
     <hbox id="listEditorParent" align="center" hidden="true">
       <textbox id="listEditor" class="tree-input" flex="1"/>
