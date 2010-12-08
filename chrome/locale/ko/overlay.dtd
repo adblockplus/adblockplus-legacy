@@ -1,5 +1,5 @@
 <!ENTITY status.tooltip "상태">
-<!ENTITY blocked.tooltip "현재 페이지에 적용된 규칙">
+<!ENTITY blocked.tooltip "현재 페이지에 적용된 필터">
 <!ENTITY filters.tooltip "적용된 주요 필터">
 <!ENTITY menuitem.label "필터 설정">
 <!ENTITY menuitem.accesskey "B">
@@ -9,8 +9,8 @@
 <!ENTITY context.object.label "Adblock Plus : 객체 차단">
 <!ENTITY context.frame.label "Adblock Plus : 프레임 차단">
 <!ENTITY context.media.label "Adblock Plus : 비디오/오디오 차단">
-<!ENTITY context.removeWhitelist.label "Adblock Plus : 페이지 허용 필터 삭제">
-<!ENTITY sidebar.title "현재 페이지에서 차단 가능한 항목">
+<!ENTITY context.removeWhitelist.label "Adblock Plus : 사이트/페이지 허용 필터 삭제">
+<!ENTITY sidebar.title "현재 페이지의 차단 가능한 항목">
 <!ENTITY sendReport.label "현재 페이지의 문제 보고">
 <!ENTITY sendReport.accesskey "R">
 <!ENTITY settings.label "필터 설정">
@@ -20,6 +20,6 @@
 <!ENTITY closesidebar.label "차단 가능 목록 닫기 (B)">
 <!ENTITY closesidebar.accesskey "B">
 <!ENTITY whitelist.site.label "사이트 허용 : ?1?">
-<!ENTITY whitelist.page.label "현재 페이지만 허용">
+<!ENTITY whitelist.page.label "현재 페이지 허용">
 <!ENTITY objecttab.title "차단">
 <!ENTITY objecttab.tooltip "이 객체를 차단하려면 차단 탭을 누르십시오.">
