@@ -9,7 +9,7 @@
 <!ENTITY preferences.label "نمایش پالایه های موجود...">
 <!ENTITY preferences.accesskey "ش">
 <!ENTITY type.filter.label "پالایه مسدود کننده">
-<!ENTITY type.filter.accesskey "م">
+<!ENTITY type.filter.accesskey "س">
 <!ENTITY type.whitelist.label "قاعده استثنا">
 <!ENTITY type.whitelist.accesskey "ث">
 <!ENTITY pattern.label "جستجو برای الگوی">
