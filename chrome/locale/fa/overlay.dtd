@@ -12,7 +12,7 @@
 <!ENTITY context.removeWhitelist.label "فوق تبلیغ شکن: فعال شدن مجدد در این صفحه">
 <!ENTITY sidebar.title "موارد قابل مسدود شدن در صفحه جاری">
 <!ENTITY sendReport.label "گزارش مشکل در این صفحه">
-<!ENTITY sendReport.accesskey "گ">
+<!ENTITY sendReport.accesskey "ص">
 <!ENTITY settings.label "ترجیحات">
 <!ENTITY settings.accesskey "ج">
 <!ENTITY opensidebar.label "باز کردن موارد قابل ردکردن">

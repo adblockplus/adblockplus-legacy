@@ -20,6 +20,6 @@
 <!ENTITY location.accesskey "ف">
 <!ENTITY autodownload.label "بروز رسانی خودکار">
 <!ENTITY autodownload.accesskey "خ">
-<!ENTITY supplementMessage "This filter subscription is meant to be used with the filter subscription &quot;?1?&quot; which you are not using yet.">
-<!ENTITY addMain.label "Add filter subscription &quot;?1?&quot; as well">
-<!ENTITY addMain.accesskey "s">
+<!ENTITY supplementMessage "این اشتراک پالایه به معنی آن است که با اشتراک پالایه &quot;?1?&quot; استفاده می شود که شما هنوز در آن مشترک نشده اید.">
+<!ENTITY addMain.label "افزودن اشتراک پالایه &quot;?1?&quot; همچنین">
+<!ENTITY addMain.accesskey "چ">
