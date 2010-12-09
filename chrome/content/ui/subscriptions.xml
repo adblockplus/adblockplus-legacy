@@ -8,6 +8,11 @@
                 homepage="http://easylist.adblockplus.org/"
                 prefixes="en"
                 author="Michael, Ares2, Erunno, Khrin, MonztA"/>
+  <subscription title="Bulgarian list+EasyList (български)"
+                url="https://easylist-downloads.adblockplus.org/bulgarian_list+easylist.txt"
+                homepage="http://stanev.org/abp/"
+                prefixes="bg"
+                author="None"/>
   <subscription title="ChinaList (汉语)"
                 url="http://adblock-chinalist.googlecode.com/svn/trunk/adblock.txt"
                 homepage="http://code.google.com/p/adblock-chinalist/"
