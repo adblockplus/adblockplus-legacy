@@ -10,11 +10,11 @@
 <!ENTITY import.label "وارد کردن پالایه ها">
 <!ENTITY import.accesskey "د">
 <!ENTITY export.label "صادر کردن پالایه ها">
-<!ENTITY export.accesskey "ف">
+<!ENTITY export.accesskey "ص">
 <!ENTITY clearall.label "حذف پالایه ها">
 <!ENTITY clearall.accesskey "ح">
 <!ENTITY resethitcounts.label "باز نشانی آمار برخورد">
-<!ENTITY resethitcounts.accesskey "س">
+<!ENTITY resethitcounts.accesskey "ی">
 <!ENTITY edit.label "ویرایش">
 <!ENTITY edit.accesskey "ش">
 <!ENTITY cut.label "برش">
@@ -30,11 +30,11 @@
 <!ENTITY menu.findagain.label "یافتن مجدد">
 <!ENTITY menu.findagain.accesskey "م">
 <!ENTITY view.label "نما">
-<!ENTITY view.accesskey "د">
+<!ENTITY view.accesskey "م">
 <!ENTITY sort.label "مرتب کردن بر اساس">
 <!ENTITY sort.accesskey "س">
 <!ENTITY sort.none.label "نا مرتب">
-<!ENTITY sort.none.accesskey "ن">
+<!ENTITY sort.none.accesskey "ر">
 <!ENTITY sort.ascending.label "ترتیب حروف الف با از ابتدا">
 <!ENTITY sort.ascending.accesskey "ا">
 <!ENTITY sort.descending.label "ترتیب حروف الف با از انتها">
@@ -71,7 +71,7 @@
 <!ENTITY hitcount.column "برخورد ها">
 <!ENTITY hitcount.accesskey "خ">
 <!ENTITY lasthit.column "آخرین برخورد">
-<!ENTITY lasthit.accesskey "ر">
+<!ENTITY lasthit.accesskey "و">
 <!ENTITY context.edit.label "ویرایش پالایه">
 <!ENTITY context.resethitcount.label "برگشت آمار استفاده">
 <!ENTITY context.synchsubscription.label "بروز رسانی اشتراک">
