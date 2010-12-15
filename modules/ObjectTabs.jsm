@@ -172,7 +172,7 @@ var objTabs =
         let url = Utils.makeURI("data:text/css," + encodeURIComponent(data.replace(/%%CLASSVISIBLETOP%%/g, this.objTabClassVisibleTop)
                                                                           .replace(/%%CLASSVISIBLEBOTTOM%%/g, this.objTabClassVisibleBottom)
                                                                           .replace(/%%CLASSHIDDEN%%/g, this.objTabClassHidden)));
-        Utils.styleService.loadAndRegisterSheet(url, Ci.nsIStyleSheetService.USER_SHEET);
+        Utils.styleService.loadAndRegisterSheet(url, Ci.nsIStyleSheetService.AGENT_SHEET);
 
         this.initializing = false;
         this.initialized = true;
