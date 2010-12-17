@@ -121,7 +121,7 @@ Matcher.prototype = {
     {
       if ("filters" in this.shortcutHash[filter.shortcut])
       {
-        list = this.shortcutHash[filter.shortcut].filters;
+        let list = this.shortcutHash[filter.shortcut].filters;
         for (let i = 0, l = list.length; i < l; i++)
           if (list[i] == filter)
             list.splice(i--, 1);
