@@ -202,8 +202,7 @@ var Synchronizer =
       request.overrideMimeType("text/plain");
       request.channel.loadFlags = request.channel.loadFlags |
                                   request.channel.INHIBIT_CACHING |
-                                  request.channel.VALIDATE_ALWAYS |
-                                  request.channel.LOAD_ANONYMOUS;
+                                  request.channel.VALIDATE_ALWAYS;
 
       // Override redirect limit from preferences, user might have set it to 1
       if (request.channel instanceof Ci.nsIHttpChannel)
