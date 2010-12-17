@@ -43,11 +43,6 @@
                 homepage="http://code.google.com/p/ruadlist/"
                 prefixes="ru,uk"
                 author="Lain_13"/>
-  <subscription title="Việt Nam List+EasyList (Việt)"
-                url="https://easylist-downloads.adblockplus.org/abpvn+easylist.txt"
-                homepage="http://code.google.com/p/adblockplus-vietnam/"
-                prefixes="vi"
-                author="NGUYỄN Mạnh Hùng"/>
   <subscription title="&other.label;…"
                 url=""
                 homepage=""
