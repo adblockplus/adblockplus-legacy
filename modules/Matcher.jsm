@@ -92,7 +92,7 @@ Matcher.prototype = {
 
     // Look for a suitable shortcut if the filter doesn't have one
     if (!filter.shortcut)
-      filter.shortcut = this.findShortcut(filter.text);
+      filter.shortcut = this.findShortcut(filter);
 
     if (filter.shortcut)
     {
@@ -144,10 +144,14 @@ Matcher.prototype = {
    * @param {String} text text representation of the filter
    * @return {String} shortcut or null
    */
-  findShortcut: function(text)
+  findShortcut: function(filter)
   {
+    // For donottrack filters use "donottrack" as keyword if nothing else matches
+    let defaultResult = (filter.contentType & RegExpFilter.typeMap.DONOTTRACK ? "donottrack" : null);
+
+    let text = filter.text;
     if (Filter.regexpRegExp.test(text))
-      return null;
+      return defaultResult;
 
     // Remove options
     if (Filter.optionsRegExp.test(text))
@@ -159,10 +163,10 @@ Matcher.prototype = {
 
     let candidates = text.toLowerCase().match(/[^a-z0-9%*][a-z0-9%]{3,}(?=[^a-z0-9%*])/g);
     if (!candidates)
-      return null;
+      return defaultResult;
 
     let hash = this.shortcutHash;
-    let result = null;
+    let result = defaultResult;
     let resultCount = 0xFFFFFF;
     let resultLength = 0;
     for (let i = 0, l = candidates.length; i < l; i++)
@@ -193,6 +197,8 @@ Matcher.prototype = {
     {
       // Optimized matching using shortcuts
       let candidates = location.toLowerCase().match(/[a-z0-9%]{3,}/g);
+      if (contentType == "DONOTTRACK")
+        candidates.unshift("donottrack");
       if (candidates)
       {
         for (let i = 0, l = candidates.length; i < l; i++)
@@ -309,12 +315,12 @@ CombinedMatcher.prototype =
   /**
    * @see Matcher#findShortcut
    */
-  findShortcut: function(text)
+  findShortcut: function(filter)
   {
-    if (text.substr(0, 2) == "@@")
-      return this.whitelist.findShortcut(text);
+    if (filter instanceof WhitelistFilter)
+      return this.whitelist.findShortcut(filter);
     else
-      return this.blacklist.findShortcut(text);
+      return this.blacklist.findShortcut(filter);
   },
 
   /**
@@ -332,6 +338,8 @@ CombinedMatcher.prototype =
       let hashBlack = this.blacklist.shortcutHash;
 
       let candidates = location.toLowerCase().match(/[a-z0-9%]{3,}/g);
+      if (contentType == "DONOTTRACK")
+        candidates.unshift("donottrack");
       if (candidates)
       {
         for (let i = 0, l = candidates.length; i < l; i++)
