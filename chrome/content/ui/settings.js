@@ -282,7 +282,7 @@ function createFilterWrapper(filter)
 function ensureFilterShortcut(/**Filter*/ filter)
 {
   if (filter instanceof RegExpFilter && !filter.shortcut)
-    filter.shortcut = defaultMatcher.findShortcut(filter.text);
+    filter.shortcut = defaultMatcher.findShortcut(filter);
 }
 
 /**
