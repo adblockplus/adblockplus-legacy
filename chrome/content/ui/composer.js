@@ -252,7 +252,7 @@ function updateFilter()
   let compiledFilter = Filter.fromText(filter);
   if (E("regexpWarning").hidden)
   {
-    if (compiledFilter instanceof RegExpFilter && !defaultMatcher.findShortcut(compiledFilter.text))
+    if (compiledFilter instanceof RegExpFilter && !defaultMatcher.findShortcut(compiledFilter))
       hasShortcut = false;
   }
   E("shortpatternWarning").hidden = hasShortcut;

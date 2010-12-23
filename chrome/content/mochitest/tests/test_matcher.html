@@ -26,7 +26,7 @@
         let result = [];
         for each (let dummy in expected)
         {
-          shortcut = matcher.findShortcut(filter.text);
+          shortcut = matcher.findShortcut(filter);
           result.push(shortcut);
           if (shortcut)
           {
@@ -86,6 +86,8 @@
     compareShortcuts("+asdf-1234=", ["asdf", "1234"]);
     compareShortcuts("/123^ad2&ad&", ["123", "ad2"]);
     compareShortcuts("/123^ad2&ad$script,domain=example.com", ["123", "ad2"]);
+    compareShortcuts("^foobar^$donottrack", ["foobar"]);
+    compareShortcuts("*$donottrack", ["donottrack"]);
 
     checkMatch([], "http://abc/def", "IMAGE", null, false, null);
     checkMatch(["abc"], "http://abc/def", "IMAGE", null, false, "abc");
@@ -143,6 +145,12 @@
     checkMatch(["abc$domain=foo.com", "cba$domain=bar.com", "ccc$domain=~foo.com|~bar.com"], "http://abc/def", "IMAGE", "bar.com", false, null);
     checkMatch(["abc$domain=foo.com", "cba$domain=bar.com", "ccc$domain=~foo.com|~bar.com"], "http://abc/def", "IMAGE", "baz.com", false, null);
     checkMatch(["abc$domain=foo.com", "cba$domain=bar.com", "ccc$domain=~foo.com|~bar.com"], "http://ccc/def", "IMAGE", "baz.com", false, "ccc$domain=~foo.com|~bar.com");
+    checkMatch(["*$image"], "http://ccc/def", "DONOTTRACK", "example.com", false, null);
+    checkMatch(["*$donottrack"], "http://ccc/def", "DONOTTRACK", "example.com", false, "*$donottrack");
+    checkMatch(["*$donottrack"], "http://ccc/def", "DONOTTRACK", "example.com", false, "*$donottrack");
+    checkMatch(["*$donottrack"], "http://ccc/def", "IMAGE", "example.com", false, null);
+    checkMatch(["*$donottrack,third-party"], "http://ccc/def", "DONOTTRACK", "example.com", true, "*$donottrack,third-party");
+    checkMatch(["*$donottrack,third-party"], "http://ccc/def", "DONOTTRACK", "example.com", false, null);
 
     // Testing whether result cache messes up results
     matcher = new CombinedMatcher();
