@@ -381,8 +381,17 @@ var PolicyPrivate =
   //
   observe: function(subject, topic, data)
   {
-    if (topic == "http-on-modify-request" && subject instanceof Ci.nsIHttpChannel &&
-        PolicyPrivate.previousRequest && subject.URI == PolicyPrivate.previousRequest[3] &&
+    if (topic != "http-on-modify-request"  || !(subject instanceof Ci.nsIHttpChannel))
+      return;
+
+    let match = defaultMatcher.matchesAny(subject.URI.spec, "DONOTTRACK", null, false);
+    if (match && match instanceof BlockingFilter)
+    {
+      FilterStorage.increaseHitCount(match);
+      subject.setRequestHeader("X-Do-Not-Track", "1", false);
+    }
+
+    if (PolicyPrivate.previousRequest && subject.URI == PolicyPrivate.previousRequest[3] &&
         subject instanceof Ci.nsIWritablePropertyBag)
     {
       // We just handled a content policy call for this request - associate
