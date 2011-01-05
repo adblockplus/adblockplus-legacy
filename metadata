@@ -24,7 +24,7 @@ ko=http://adblockplus.org/ko/
 ru=http://adblockplus.org/ru/
 
 [compat]
-firefox=3.5/4.0b10pre
+firefox=3.5/4.0.*
 seamonkey=2.0/2.1b2
 thunderbird=3.0/3.3a1pre
 songbird=1.9.0a/1.10.0a
