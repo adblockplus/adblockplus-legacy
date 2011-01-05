@@ -149,7 +149,7 @@ var Policy =
     collapseStyle = Utils.makeURI("data:text/css," +
                                   encodeURIComponent("." + collapsedClass +
                                   "{-moz-binding: url(chrome://global/content/bindings/general.xml#foobarbazdummy) !important;}"));
-    Utils.styleService.loadAndRegisterSheet(collapseStyle, Ci.nsIStyleSheetService.AGENT_SHEET);
+    Utils.styleService.loadAndRegisterSheet(collapseStyle, Ci.nsIStyleSheetService.USER_SHEET);
     TimeLine.log("done registering stylesheet");
   
     // Register our content policy

@@ -220,7 +220,7 @@ var ElemHide =
       TimeLine.log("start inserting stylesheet");
       try {
         styleURL = Utils.ioService.newURI("data:text/css;charset=utf8,/*** Adblock Plus ***/" + encodeURIComponent("\n" + cssData), null, null);
-        Utils.styleService.loadAndRegisterSheet(styleURL, Ci.nsIStyleSheetService.AGENT_SHEET);
+        Utils.styleService.loadAndRegisterSheet(styleURL, Ci.nsIStyleSheetService.USER_SHEET);
       } catch(e) {};
       TimeLine.log("done inserting stylesheet");
     }
@@ -234,7 +234,7 @@ var ElemHide =
   {
     if (styleURL) {
       try {
-        Utils.styleService.unregisterSheet(styleURL, Ci.nsIStyleSheetService.AGENT_SHEET);
+        Utils.styleService.unregisterSheet(styleURL, Ci.nsIStyleSheetService.USER_SHEET);
       } catch (e) {}
       styleURL = null;
     }
