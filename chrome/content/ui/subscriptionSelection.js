@@ -23,6 +23,7 @@
  * ***** END LICENSE BLOCK ***** */
 
 let newInstall = true;
+let savedDialogFlex = null;
 let editMode = true;
 let autoAdd = false;
 let source = null;
@@ -63,6 +64,20 @@ function init()
   {
     if (typeof source.mainSubscriptionURL == "undefined")
       source.mainSubscriptionURL = source.mainSubscriptionTitle = null;
+  }
+
+  if (newInstall)
+  {
+    // HACK: We will remove dialog content box flex if a subscription is
+    // selected, need to find the content box and save it flex value.
+    let docContent = document.getAnonymousNodes(document.documentElement);
+    docContent = (docContent && docContent.length ? docContent[0] : null);
+    if (docContent && docContent.hasAttribute("class") &&
+        /\bdialog-content-box\b/.test(docContent.getAttribute("class")) &&
+        docContent.hasAttribute("flex"))
+    {
+      savedDialogFlex = [docContent, docContent.getAttribute("flex")]
+    }
   }
 
   E("description-newInstall").hidden = !newInstall;
@@ -248,6 +263,15 @@ function onSelectionChange()
   {
     loadSubscriptionList();
     E("title").focus();
+  }
+
+  if (savedDialogFlex)
+  {
+    let [docContent, flex] = savedDialogFlex;
+    if (selectedSubscription)
+      docContent.removeAttribute("flex");
+    else
+      docContent.setAttribute("flex", flex);
   }
 
   updateSubscriptionInfo();
