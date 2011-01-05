@@ -36,11 +36,6 @@ dialog[newInstall]
   background-position: 95% 5%;
 }
 
-dialog[newInstall] > .dialog-content-box
-{
-  max-height: 300px;
-}
-
 #description-newInstall,
 #adblock-warning,
 #filtersetg-warning
