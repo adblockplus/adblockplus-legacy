@@ -92,7 +92,7 @@
   <toolbarbutton id="abp-toolbarbutton" label="&toolbarbutton.label;"
       tooltip="abp-tooltip" context="abp-status-popup"/>
 
-  <box id="abp-hooks" objtabtext="&objecttab.title;" objtabtooltip="&objecttab.tooltip;"/>
+  <box id="abp-hooks" objtabtext="&objecttab.title;…" objtabtooltip="&objecttab.tooltip;"/>
 
   <!-- Tools menu -->
   <menuitem id="abp-menuitem" label="&menuitem.label;…" accesskey="&menuitem.accesskey;" key="abp-key-settings" command="abp-command-settings"/>
