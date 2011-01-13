@@ -500,7 +500,7 @@ RegExpFilter.prototype =
 
     // Remove trailing wildcards
     let pos = source.length - 1;
-    if (source[pos] == "*")
+    if (pos >= 0 && source[pos] == "*")
       source = source.substr(0, pos);
 
     source = source.replace(/\^\|$/, "^")       // remove anchors following separator placeholder
