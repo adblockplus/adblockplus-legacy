@@ -384,11 +384,14 @@ var PolicyPrivate =
     if (topic != "http-on-modify-request"  || !(subject instanceof Ci.nsIHttpChannel))
       return;
 
-    let match = defaultMatcher.matchesAny(subject.URI.spec, "DONOTTRACK", null, false);
-    if (match && match instanceof BlockingFilter)
+    if (Prefs.enabled)
     {
-      FilterStorage.increaseHitCount(match);
-      subject.setRequestHeader("X-Do-Not-Track", "1", false);
+      let match = defaultMatcher.matchesAny(subject.URI.spec, "DONOTTRACK", null, false);
+      if (match && match instanceof BlockingFilter)
+      {
+        FilterStorage.increaseHitCount(match);
+        subject.setRequestHeader("X-Do-Not-Track", "1", false);
+      }
     }
 
     if (PolicyPrivate.previousRequest && subject.URI == PolicyPrivate.previousRequest[3] &&
