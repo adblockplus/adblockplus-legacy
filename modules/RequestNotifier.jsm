@@ -51,52 +51,20 @@ const wndStatProp = "abpWindowStats" + dataSeed;
  */
 let activeNotifiers = [];
 
-let attachData;
-let retrieveData;
-if (Utils.versionComparator.compare(Utils.platformVersion, "1.9.2") >= 0)
+function attachData(node, prop, data)
 {
-  // Gecko 1.9.2 and higher - the sane branch
-  attachData = function(node, prop, data)
-  {
-    node.setUserData(prop, data, null);
-  }
-  retrieveData = function(node, prop)
-  {
-    return node.getUserData(prop);
-  }
+  node.setUserData(prop, data, null);
 }
-else
+function retrieveData(node, prop)
 {
-  // Gecko 1.9.0/1.9.1 - the insane branch. User data will fail to save anything
-  // more complicated than a string, due to wrappers/permissions issues. Have
-  // to use event handlers :-(
-  var tempData = null;
-  attachData = function(node, prop, data)
+  if (typeof XPCNativeWrapper != "undefined" && node.wrappedJSObject)
   {
-    node.setUserData(prop, true, null);
-    node.addEventListener(prop, function()
-    {
-      tempData = data;
-    }, true);
-    node = null;
+    // Rewrap node into a shallow XPCNativeWrapper. Otherwise we will get
+    // our object wrapped causing weird permission exceptions in Gecko 1.9.1
+    // and failed equality comparisons in Gecko 1.9.2.
+    node = new XPCNativeWrapper(node, "getUserData()");
   }
-  retrieveData = function(node, prop)
-  {
-    if (!node.getUserData(prop))
-      return null;
-
-    let doc = (node.nodeType == node.DOCUMENT_NODE ? node : node.ownerDocument);
-    if (!doc)
-      return null;
-
-    let event = doc.createEvent("Events");
-    event.initEvent(prop, false, false);
-    node.dispatchEvent(event);
-
-    let result = tempData;
-    tempData = null;
-    return result;
-  }
+  return node.getUserData(prop);
 }
 
 /**
