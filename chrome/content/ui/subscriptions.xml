@@ -35,7 +35,7 @@
                 author="Lian"/>
   <subscription title="ROList+EasyList (românesc)"
                 url="https://easylist-downloads.adblockplus.org/rolist+easylist.txt"
-                homepage="http://www.picpoc.ro/"
+                homepage="http://www.zoso.ro/rolist"
                 prefixes="ro"
                 author="MenetZ, Zoso"/>
   <subscription title="RuAdList+EasyList (русский, українська)"
