@@ -1292,6 +1292,7 @@ function reportSent(event)
   E("sendReportProgress").hidden = true;
 
   let frame = E("result");
+  frame.hidden = false;
   frame.docShell.allowAuth = false;
   frame.docShell.allowJavascript = false;
   frame.docShell.allowMetaRedirects = false;
@@ -1299,7 +1300,6 @@ function reportSent(event)
   frame.docShell.allowSubframes = false;
 
   frame.setAttribute("src", "data:text/html;charset=utf-8," + encodeURIComponent(result));
-  frame.hidden = false;
 
   E("sendReportMessage").hidden = true;
 
