@@ -631,7 +631,7 @@ let extensionsDataSource =
         callback();
       });
     }
-    else
+    else if ("@mozilla.org/extensions/manager;1" in Cc)
     {
       // Gecko 1.9.x
       let extensionManager = Cc["@mozilla.org/extensions/manager;1"].getService(Ci.nsIExtensionManager);
@@ -652,6 +652,12 @@ let extensionsDataSource =
 
         this.data.appendChild(<extension id={item.id} name={item.name} type={item.type == Ci.nsIUpdateItem.TYPE_EXTENSION ? "extension" : "plugin"} version={item.version}/>);
       }
+      callback();
+    }
+    else
+    {
+      // No add-on manager, no extension manager - we must be running in K-Meleon.
+      // Skip this step.
       callback();
     }
   },
