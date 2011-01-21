@@ -38,7 +38,7 @@ function init()
       loadInstallManifest(addon.getResourceURI("install.rdf"), addon.name, addon.homepageURL);
     });
   }
-  else
+  else if ("@mozilla.org/extensions/manager;1" in Cc)
   {
     let extensionManager = Cc["@mozilla.org/extensions/manager;1"].getService(Ci.nsIExtensionManager);
     let rdf = Cc["@mozilla.org/rdf/rdf-service;1"].getService(Ci.nsIRDFService);
@@ -61,6 +61,13 @@ function init()
     let installLocation = extensionManager.getInstallLocation(Utils.addonID);
     let installManifestFile = installLocation.getItemFile(Utils.addonID, "install.rdf");
     loadInstallManifest(ioService.newFileURI(installManifestFile), getTarget("name"), getTarget("homepageURL"));
+  }
+  else
+  {
+    // No add-on manager, no extension manager - we must be running in K-Meleon.
+    // Load Manifest.jsm as last solution.
+    Cu.import(baseURL.spec + "Manifest.jsm");
+    setExtensionData(manifest.name, manifest.version, manifest.homepage, [manifest.creator], manifest.contributors, manifest.translators);
   }
 }
 
