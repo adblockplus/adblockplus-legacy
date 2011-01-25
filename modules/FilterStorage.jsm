@@ -49,12 +49,6 @@ Cu.import(baseURL.spec + "TimeLine.jsm");
 const formatVersion = 3;
 
 /**
- * File that the filter list has been loaded from and should be saved to
- * @type nsIFile
- */
-let sourceFile = null;
-
-/**
  * List of observers for subscription changes (addition, deletion)
  * @type Array of function(String, Array of Subscription)
  */
@@ -72,6 +66,12 @@ let filterObservers = [];
  */
 var FilterStorage =
 {
+  /**
+   * File that the filter list has been loaded from and should be saved to
+   * @type nsIFile
+   */
+  sourceFile: null,
+
   /**
    * Map of properties listed in the filter storage file before the sections
    * start. Right now this should be only the format version.
@@ -394,21 +394,21 @@ var FilterStorage =
       return null;
     }
 
-    sourceFile = getFileByPath(Prefs.patternsfile);
-    if (!sourceFile)
+    FilterStorage.sourceFile = getFileByPath(Prefs.patternsfile);
+    if (!FilterStorage.sourceFile)
     {
       try
       {
-        sourceFile = getFileByPath(Prefs.getDefaultBranch.getCharPref("patternsfile"));
+        FilterStorage.sourceFile = getFileByPath(Prefs.getDefaultBranch.getCharPref("patternsfile"));
       } catch(e) {}
     }
 
-    if (!sourceFile)
+    if (!FilterStorage.sourceFile)
       dump("Adblock Plus: Failed to resolve filter file location from extensions.adblockplus.patternsfile preference\n");
 
     TimeLine.log("done locating patterns.ini file");
 
-    let realSourceFile = sourceFile;
+    let realSourceFile = FilterStorage.sourceFile;
     if (!realSourceFile || !realSourceFile.exists())
     {
       // patterns.ini doesn't exist - but maybe we have a default one?
@@ -479,21 +479,21 @@ var FilterStorage =
    */
   saveToDisk: function()
   {
-    if (!sourceFile)
+    if (!FilterStorage.sourceFile)
       return;
 
     TimeLine.enter("Entered FilterStorage.saveToDisk()");
 
     try {
-      sourceFile.normalize();
+      FilterStorage.sourceFile.normalize();
     } catch (e) {}
 
     // Make sure the file's parent directory exists
     try {
-      sourceFile.parent.create(Ci.nsIFile.DIRECTORY_TYPE, 0755);
+      FilterStorage.sourceFile.parent.create(Ci.nsIFile.DIRECTORY_TYPE, 0755);
     } catch (e) {}
 
-    let tempFile = sourceFile.clone();
+    let tempFile = FilterStorage.sourceFile.clone();
     tempFile.leafName += "-temp";
     let stream;
     try {
@@ -588,9 +588,9 @@ var FilterStorage =
     }
     TimeLine.log("finalized file write");
 
-    if (sourceFile.exists()) {
+    if (FilterStorage.sourceFile.exists()) {
       // Check whether we need to backup the file
-      let part1 = sourceFile.leafName;
+      let part1 = FilterStorage.sourceFile.leafName;
       let part2 = "";
       if (/^(.*)(\.\w+)$/.test(part1))
       {
@@ -601,7 +601,7 @@ var FilterStorage =
       let doBackup = (Prefs.patternsbackups > 0);
       if (doBackup)
       {
-        let lastBackup = sourceFile.clone();
+        let lastBackup = FilterStorage.sourceFile.clone();
         lastBackup.leafName = part1 + "-backup1" + part2;
         if (lastBackup.exists() && (Date.now() - lastBackup.lastModifiedTime) / 3600000 < Prefs.patternsbackupinterval)
           doBackup = false;
@@ -609,7 +609,7 @@ var FilterStorage =
 
       if (doBackup)
       {
-        let backupFile = sourceFile.clone();
+        let backupFile = FilterStorage.sourceFile.clone();
         backupFile.leafName = part1 + "-backup" + Prefs.patternsbackups + part2;
 
         // Remove oldest backup
@@ -627,7 +627,7 @@ var FilterStorage =
       }
     }
 
-    tempFile.moveTo(sourceFile.parent, sourceFile.leafName);
+    tempFile.moveTo(FilterStorage.sourceFile.parent, FilterStorage.sourceFile.leafName);
     TimeLine.log("created backups and renamed temp file");
     FilterStorage.isDirty = false;
     TimeLine.leave("FilterStorage.saveToDisk() done");
