@@ -224,6 +224,18 @@ var ElemHide =
         return;
       }
 
+      let buf = [];
+      let maxBufLen = 128;
+      function writeString(str)
+      {
+        buf.push(str);
+        if (buf.length >= maxBufLen)
+        {
+          stream.writeString(buf.join(""));
+          buf.splice(0, buf.length);
+        }
+      }
+
       let cssTemplate = "-moz-binding: url(about:" + ElemHidePrivate.aboutPrefix + "?%ID%#dummy) !important;";
       for (let domain in domains)
       {
@@ -231,19 +243,21 @@ var ElemHide =
         let list = domains[domain];
 
         if (domain)
-          stream.writeString('@-moz-document domain("' + domain.split(",").join('"),domain("') + '"){\n');
+          writeString('@-moz-document domain("' + domain.split(",").join('"),domain("') + '"){\n');
         else
         {
           // Only allow unqualified rules on a few protocols to prevent them from blocking chrome
-          stream.writeString('@-moz-document url-prefix("http://"),url-prefix("https://"),'
+          writeString('@-moz-document url-prefix("http://"),url-prefix("https://"),'
                     + 'url-prefix("mailbox://"),url-prefix("imap://"),'
                     + 'url-prefix("news://"),url-prefix("snews://"){\n');
         }
 
         for (let selector in list)
-          stream.writeString(selector + "{" + cssTemplate.replace("%ID%", list[selector]) + "}\n");
-        stream.writeString('}\n');
+          writeString(selector + "{" + cssTemplate.replace("%ID%", list[selector]) + "}\n");
+        writeString('}\n');
       }
+      if (buf.length)
+        stream.writeString(buf.join(""));
       stream.close();
       tempFile.moveTo(styleURL.file.parent, styleURL.file.leafName);
       TimeLine.log("done writing CSS data");
