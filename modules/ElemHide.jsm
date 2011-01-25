@@ -39,6 +39,7 @@ Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 Cu.import(baseURL.spec + "Utils.jsm");
 Cu.import(baseURL.spec + "Prefs.jsm");
 Cu.import(baseURL.spec + "ContentPolicy.jsm");
+Cu.import(baseURL.spec + "FilterStorage.jsm");
 Cu.import(baseURL.spec + "TimeLine.jsm");
 
 /**
@@ -78,6 +79,12 @@ var ElemHide =
   isDirty: false,
 
   /**
+   * Inidicates whether the element hiding stylesheet is currently applied.
+   * @type Boolean
+   */
+  applied: false,
+
+  /**
    * Called on module startup.
    */
   startup: function()
@@ -90,7 +97,12 @@ var ElemHide =
     });
   
     TimeLine.log("done adding prefs listener");
-  
+
+    let styleFile = FilterStorage.sourceFile.parent.clone();
+    styleFile.append("elemhide.css");
+    styleURL = Utils.ioService.newFileURI(styleFile).QueryInterface(Ci.nsIFileURL);
+    TimeLine.log("done determining stylesheet URL");
+
     TimeLine.log("registering component");
     let registrar = Components.manager.QueryInterface(Ci.nsIComponentRegistrar);
     registrar.registerFactory(ElemHidePrivate.classID, ElemHidePrivate.classDescription,
@@ -154,75 +166,99 @@ var ElemHide =
    */
   apply: function()
   {
-    // Return immediately if nothing to do
-    if (!styleURL && (!Prefs.enabled || !filters.length))
-      return;
-
     TimeLine.enter("Entered ElemHide.apply()");
-    ElemHide.unapply();
+
+    if (ElemHide.applied)
+      ElemHide.unapply();
     TimeLine.log("ElemHide.unapply() finished");
 
-    ElemHide.isDirty = false;
-
-    if (!Prefs.enabled)
+    // Return immediately if nothing to do
+    if (!Prefs.enabled || !filters.length)
     {
-      TimeLine.leave("ElemHide.apply() done (disabled)");
+      TimeLine.leave("ElemHide.apply() done (disabled/no filters)");
       return;
     }
 
-    // Grouping selectors by domains
-    TimeLine.log("start grouping selectors");
-    let domains = {__proto__: null};
-    for each (var filter in filters)
+    // CSS file doesn't need to be rewritten if nothing changed (e.g. we
+    // were disabled and reenabled)
+    if (ElemHide.isDirty)
     {
-      let domain = filter.selectorDomain || "";
+      ElemHide.isDirty = false;
 
-      let list;
-      if (domain in domains)
-        list = domains[domain];
-      else
+      // Grouping selectors by domains
+      TimeLine.log("start grouping selectors");
+      let domains = {__proto__: null};
+      for each (var filter in filters)
       {
-        list = {__proto__: null};
-        domains[domain] = list;
+        let domain = filter.selectorDomain || "";
+
+        let list;
+        if (domain in domains)
+          list = domains[domain];
+        else
+        {
+          list = {__proto__: null};
+          domains[domain] = list;
+        }
+        list[filter.selector] = filter.key;
       }
-      list[filter.selector] = filter.key;
-    }
-    TimeLine.log("done grouping selectors");
+      TimeLine.log("done grouping selectors");
 
-    // Joining domains list
-    TimeLine.log("start building CSS data");
-    let cssData = "";
-    let cssTemplate = "-moz-binding: url(about:" + ElemHidePrivate.aboutPrefix + "?%ID%#dummy) !important;";
+      // Writing out domains list
+      TimeLine.log("start writing CSS data");
+      let tempFile = styleURL.file.clone();
+      tempFile.leafName += "-temp";
+      let stream;
+      try
+      {
+        let fileStream = Cc["@mozilla.org/network/file-output-stream;1"].createInstance(Ci.nsIFileOutputStream);
+        fileStream.init(tempFile, 0x02 | 0x08 | 0x20, 0644, 0);
 
-    for (let domain in domains)
-    {
-      let rules = [];
-      let list = domains[domain];
-      for (let selector in list)
-        rules.push(selector + "{" + cssTemplate.replace("%ID%", list[selector]) + "}\n");
-
-      if (domain)
-        cssData += '@-moz-document domain("' + domain.split(",").join('"),domain("') + '"){\n' + rules.join('') + '}\n';
-      else {
-        // Only allow unqualified rules on a few protocols to prevent them from blocking chrome
-        cssData += '@-moz-document url-prefix("http://"),url-prefix("https://"),'
-                  + 'url-prefix("mailbox://"),url-prefix("imap://"),'
-                  + 'url-prefix("news://"),url-prefix("snews://"){\n'
-                    + rules.join('')
-                  + '}\n';
+        stream = Cc["@mozilla.org/intl/converter-output-stream;1"].createInstance(Ci.nsIConverterOutputStream);
+        stream.init(fileStream, "UTF-8", 16384, Ci.nsIConverterInputStream.DEFAULT_REPLACEMENT_CHARACTER);
       }
-    }
-    TimeLine.log("done building CSS data");
+      catch (e)
+      {
+        Cu.reportError(e);
+        TimeLine.leave("ElemHide.apply() done (error)");
+        return;
+      }
 
-    // Creating new stylesheet
-    if (cssData)
+      let cssTemplate = "-moz-binding: url(about:" + ElemHidePrivate.aboutPrefix + "?%ID%#dummy) !important;";
+      for (let domain in domains)
+      {
+        let rules = [];
+        let list = domains[domain];
+
+        if (domain)
+          stream.writeString('@-moz-document domain("' + domain.split(",").join('"),domain("') + '"){\n');
+        else
+        {
+          // Only allow unqualified rules on a few protocols to prevent them from blocking chrome
+          stream.writeString('@-moz-document url-prefix("http://"),url-prefix("https://"),'
+                    + 'url-prefix("mailbox://"),url-prefix("imap://"),'
+                    + 'url-prefix("news://"),url-prefix("snews://"){\n');
+        }
+
+        for (let selector in list)
+          stream.writeString(selector + "{" + cssTemplate.replace("%ID%", list[selector]) + "}\n");
+        stream.writeString('}\n');
+      }
+      stream.close();
+      tempFile.moveTo(styleURL.file.parent, styleURL.file.leafName);
+      TimeLine.log("done writing CSS data");
+    }
+
+    // Inserting new stylesheet
+    TimeLine.log("start inserting stylesheet");
+    try
     {
-      TimeLine.log("start inserting stylesheet");
-      try {
-        styleURL = Utils.ioService.newURI("data:text/css;charset=utf8,/*** Adblock Plus ***/" + encodeURIComponent("\n" + cssData), null, null);
-        Utils.styleService.loadAndRegisterSheet(styleURL, Ci.nsIStyleSheetService.USER_SHEET);
-      } catch(e) {};
-      TimeLine.log("done inserting stylesheet");
+      Utils.styleService.loadAndRegisterSheet(styleURL, Ci.nsIStyleSheetService.USER_SHEET);
+      ElemHide.applied = true;
+    }
+    catch (e)
+    {
+      Cu.reportError(e);
     }
     TimeLine.leave("ElemHide.apply() done");
   },
@@ -232,11 +268,17 @@ var ElemHide =
    */
   unapply: function()
   {
-    if (styleURL) {
-      try {
+    if (ElemHide.applied)
+    {
+      try
+      {
         Utils.styleService.unregisterSheet(styleURL, Ci.nsIStyleSheetService.USER_SHEET);
-      } catch (e) {}
-      styleURL = null;
+      }
+      catch (e)
+      {
+        Cu.reportError(e);
+      }
+      ElemHide.applied = false;
     }
   }
 };
