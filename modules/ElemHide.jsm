@@ -206,18 +206,16 @@ var ElemHide =
 
       // Writing out domains list
       TimeLine.log("start writing CSS data");
-      let tempFile = styleURL.file.clone();
-      tempFile.leafName += "-temp";
       let stream;
       try
       {
-        stream = Cc["@mozilla.org/network/file-output-stream;1"].createInstance(Ci.nsIFileOutputStream);
-        stream.init(tempFile, 0x02 | 0x08 | 0x20, 0644, 0);
+        stream = Cc["@mozilla.org/network/safe-file-output-stream;1"].createInstance(Ci.nsIFileOutputStream);
+        stream.init(styleURL.file, 0x02 | 0x08 | 0x20, 0644, 0);
       }
       catch (e)
       {
         Cu.reportError(e);
-        TimeLine.leave("ElemHide.apply() done (error)");
+        TimeLine.leave("ElemHide.apply() done (error opening file)");
         return;
       }
 
@@ -259,8 +257,19 @@ var ElemHide =
         writeString('}\n');
       }
       writeString("", true);
-      stream.close();
-      tempFile.moveTo(styleURL.file.parent, styleURL.file.leafName);
+      try
+      {
+        if (stream instanceof Ci.nsISafeOutputStream)
+          stream.finish();
+        else
+          stream.close();
+      }
+      catch(e)
+      {
+        Cu.reportError(e);
+        TimeLine.leave("ElemHide.apply() done (error closing file)");
+        return;
+      }
       TimeLine.log("done writing CSS data");
     }
 
