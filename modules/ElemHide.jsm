@@ -211,11 +211,8 @@ var ElemHide =
       let stream;
       try
       {
-        let fileStream = Cc["@mozilla.org/network/file-output-stream;1"].createInstance(Ci.nsIFileOutputStream);
-        fileStream.init(tempFile, 0x02 | 0x08 | 0x20, 0644, 0);
-
-        stream = Cc["@mozilla.org/intl/converter-output-stream;1"].createInstance(Ci.nsIConverterOutputStream);
-        stream.init(fileStream, "UTF-8", 16384, Ci.nsIConverterInputStream.DEFAULT_REPLACEMENT_CHARACTER);
+        stream = Cc["@mozilla.org/network/file-output-stream;1"].createInstance(Ci.nsIFileOutputStream);
+        stream.init(tempFile, 0x02 | 0x08 | 0x20, 0644, 0);
       }
       catch (e)
       {
@@ -225,13 +222,18 @@ var ElemHide =
       }
 
       let buf = [];
-      let maxBufLen = 128;
-      function writeString(str)
+      let maxBufLen = 1024;
+      function escapeChar(match)
+      {
+        return "\\" + match.charCodeAt(0).toString(16) + " ";
+      }
+      function writeString(str, forceWrite)
       {
         buf.push(str);
-        if (buf.length >= maxBufLen)
+        if (buf.length >= maxBufLen || forceWrite)
         {
-          stream.writeString(buf.join(""));
+          let output = buf.join("").replace(/[^\x01-\x7F]/g, escapeChar);
+          stream.write(output, output.length);
           buf.splice(0, buf.length);
         }
       }
@@ -256,8 +258,7 @@ var ElemHide =
           writeString(selector + "{" + cssTemplate.replace("%ID%", list[selector]) + "}\n");
         writeString('}\n');
       }
-      if (buf.length)
-        stream.writeString(buf.join(""));
+      writeString("", true);
       stream.close();
       tempFile.moveTo(styleURL.file.parent, styleURL.file.leafName);
       TimeLine.log("done writing CSS data");
