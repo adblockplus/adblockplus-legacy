@@ -259,10 +259,7 @@ var ElemHide =
       writeString("", true);
       try
       {
-        if (stream instanceof Ci.nsISafeOutputStream)
-          stream.finish();
-        else
-          stream.close();
+        stream.QueryInterface(Ci.nsISafeOutputStream).finish();
       }
       catch(e)
       {
