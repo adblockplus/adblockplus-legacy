@@ -495,16 +495,18 @@ var FilterStorage =
 
     let tempFile = FilterStorage.sourceFile.clone();
     tempFile.leafName += "-temp";
-    let stream;
+    let fileStream, stream;
     try {
-      let fileStream = Cc["@mozilla.org/network/file-output-stream;1"].createInstance(Ci.nsIFileOutputStream);
+      fileStream = Cc["@mozilla.org/network/safe-file-output-stream;1"].createInstance(Ci.nsIFileOutputStream);
       fileStream.init(tempFile, 0x02 | 0x08 | 0x20, 0644, 0);
 
       stream = Cc["@mozilla.org/intl/converter-output-stream;1"].createInstance(Ci.nsIConverterOutputStream);
       stream.init(fileStream, "UTF-8", 16384, Ci.nsIConverterInputStream.DEFAULT_REPLACEMENT_CHARACTER);
     }
-    catch (e) {
-      dump("Adblock Plus: failed to create file " + tempFile.path + ": " + e + "\n");
+    catch (e)
+    {
+      Cu.reportError(e);
+      TimeLine.leave("FilterStorage.saveToDisk() done (error opening file)");
       return;
     }
 
@@ -515,20 +517,8 @@ var FilterStorage =
     let lineBreak = Utils.getLineBreak();
     function writeBuffer()
     {
-      try {
-        stream.writeString(buf.join(lineBreak) + lineBreak);
-        buf = [];
-        return true;
-      }
-      catch (e) {
-        stream.close();
-        dump("Adblock Plus: failed to write to file " + tempFile.path + ": " + e + "\n");
-        try {
-          tempFile.remove(false);
-        }
-        catch (e2) {}
-        return false;
-      }
+      stream.writeString(buf.join(lineBreak) + lineBreak);
+      buf.splice(0, buf.length);
     }
 
     let saved = {__proto__: null};
@@ -546,9 +536,8 @@ var FilterStorage =
         {
           filter.serialize(buf);
           saved[filter.text] = filter;
-
-          if (buf.length > maxBufLength && !writeBuffer())
-            return;
+          if (buf.length > maxBufLength)
+            writeBuffer();
         }
       }
     }
@@ -568,22 +557,21 @@ var FilterStorage =
         buf.push("", "[Subscription filters]")
         subscription.serializeFilters(buf);
       }
-
-      if (buf.length > maxBufLength && !writeBuffer())
-        return;
+      if (buf.length > maxBufLength)
+        writeBuffer();
     }
     TimeLine.log("saved subscription data");
 
-    try {
+    try
+    {
       stream.writeString(buf.join(lineBreak) + lineBreak);
-      stream.close();
+      stream.flush();
+      fileStream.QueryInterface(Ci.nsISafeOutputStream).finish();
     }
-    catch (e) {
-      dump("Adblock Plus: failed to close file " + tempFile.path + ": " + e + "\n");
-      try {
-        tempFile.remove(false);
-      }
-      catch (e2) {}
+    catch (e)
+    {
+      Cu.reportError(e);
+      TimeLine.leave("FilterStorage.saveToDisk() done (error closing file)");
       return;
     }
     TimeLine.log("finalized file write");
