@@ -36,17 +36,6 @@ try {
 } catch(e) {}
 
 /**
- * Location to be pre-set after initialization, as passed to setLocation().
- * @type String
- */
-let initWithLocation = null;
-/**
- * Filter to be selected after initialization, as passed to selectFilter().
- * @type Filter
- */
-let initWithFilter = null;
-
-/**
  * Initialization function, called when the window is loaded.
  */
 function init()
@@ -131,29 +120,15 @@ function init()
   // Set the focus to the input field by default
   E("list").focus();
 
-  // Fire post-load handlers
-  let e = document.createEvent("Events");
-  e.initEvent("post-load", false, false);
-  window.dispatchEvent(e);
-
   // Execute these actions delayed to work around bug 489881
-  setTimeout(function()
+  Utils.runAsync(function()
   {
-    if (initWithLocation)
-    {
-      treeView.editorDummyInit = initWithLocation;
-      treeView.selectRow(0);
-      if (!initWithFilter)
-        treeView.startEditor(true);
-    }
-    if (initWithFilter)
-    {
-      treeView.selectFilter(getFilterByText(initWithFilter.text));
-      E("list").focus();
-    }
-    if (!initWithLocation && !initWithFilter)
-      treeView.ensureSelection(0);
-  }, 0);
+    treeView.ensureSelection(0);
+
+    let e = document.createEvent("Events");
+    e.initEvent("post-load", false, false);
+    window.dispatchEvent(e);
+  });
 }
 
 /**
@@ -164,7 +139,7 @@ function init()
  */
 function setLocation(location)
 {
-  initWithLocation = location;
+  treeView.editorDummyInit = location;
 }
 
 /**
@@ -176,7 +151,8 @@ function setLocation(location)
  */
 function selectFilter(filter)
 {
-  initWithFilter = filter;
+  treeView.selectFilter(getFilterByText(filter.text));
+  E("list").focus();
 }
 
 /**
