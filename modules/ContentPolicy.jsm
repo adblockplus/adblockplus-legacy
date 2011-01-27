@@ -390,7 +390,7 @@ var PolicyPrivate =
       if (match && match instanceof BlockingFilter)
       {
         FilterStorage.increaseHitCount(match);
-        subject.setRequestHeader("X-Do-Not-Track", "1", false);
+        subject.setRequestHeader("DNT", "1", false);
       }
     }
 
