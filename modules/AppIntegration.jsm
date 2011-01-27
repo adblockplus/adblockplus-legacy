@@ -543,13 +543,76 @@ WindowWrapper.prototype =
    */
   configureKeys: function()
   {
+    let validModifiers =
+    {
+      accel: "accel",
+      ctrl: "control",
+      control: "control",
+      shift: "shift",
+      alt: "alt",
+      meta: "meta",
+      __proto__: null
+    };
+
+    try
+    {
+      let accelKey = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefBranch).getIntPref("ui.key.accelKey");
+      if (accelKey == Ci.nsIDOMKeyEvent.DOM_VK_CONTROL)
+        validModifiers.ctrl = validModifiers.control = "accel";
+      else if (accelKey == Ci.nsIDOMKeyEvent.DOM_VK_ALT)
+        validModifiers.alt = "accel";
+      else if (accelKey == Ci.nsIDOMKeyEvent.DOM_VK_META)
+        validModifiers.meta = "accel";
+    }
+    catch(e)
+    {
+      Cu.reportError(e);
+    }
+
+    // Find which hotkeys are already taken, convert them to canonical form
+    let existing = {};
+    let keys = this.window.document.getElementsByTagName("key");
+    for (let i = 0; i < keys.length; i++)
+    {
+      let key = keys[i];
+      let keyChar = key.getAttribute("key");
+      let keyCode = key.getAttribute("keycode");
+      if (!keyChar && !keyCode)
+        continue;
+
+      let modifiers = [];
+      let seenModifier = {__proto__: null};
+      let keyModifiers = key.getAttribute("modifiers");
+      if (keyModifiers)
+      {
+        for each (let modifier in keyModifiers.match(/\w+/g))
+        {
+          modifier = modifier.toLowerCase();
+          if (!(modifier in validModifiers))
+            continue;
+
+          modifier = validModifiers[modifier];
+          if (modifier in seenModifier)
+            continue;
+
+          seenModifier[modifier] = true;
+          modifiers.push(modifier);
+        }
+        modifiers.sort();
+
+        let canonical = modifiers.concat([(keyChar || keyCode).toUpperCase()]).join(" ");
+        existing[canonical] = true;
+      }
+    }
+
+    // Define our keys
     for (let pref in Prefs)
     {
-      if (pref.match(/_key$/))
+      if (/_key$/.test(pref) && typeof Prefs[pref] == "string")
       {
         try
         {
-          this.configureKey(RegExp.leftContext, Prefs[pref]);
+          this.configureKey(RegExp.leftContext, Prefs[pref], validModifiers, existing);
         }
         catch (e)
         {
@@ -562,37 +625,45 @@ WindowWrapper.prototype =
   /**
    * Sets a hotkey to the value defined in preferences.
    */
-  configureKey: function(/**String*/ id, /**String*/ value)
+  configureKey: function(/**String*/ id, /**String*/ value, /**Object*/ validModifiers, /**Object*/ existing)
   {
-    let validModifiers =
-    {
-      accel: "accel",
-      ctrl: "control",
-      control: "control",
-      shift: "shift",
-      alt: "alt",
-      meta: "meta"
-    };
-  
     let command = this.E("abp-command-" + id);
     if (!command)
       return;
   
-    let modifiers = [];
-    let keychar = null;
-    let keycode = null;
-    for each (let part in value.split(/\s+/))
+    for each (let variant in value.split(/\s*,\s*/))
     {
-      if (part.toLowerCase() in validModifiers)
-        modifiers.push(validModifiers[part.toLowerCase()]);
-      else if (part.length == 1)
-        keychar = part;
-      else if ("DOM_VK_" + part.toUpperCase() in Ci.nsIDOMKeyEvent)
-        keycode = "VK_" + part.toUpperCase();
-    }
-  
-    if (keychar || keycode)
-    {
+      if (!variant)
+        continue;
+
+      let modifiers = [];
+      let seenModifier = {__proto__: null};
+      let keychar = null;
+      let keycode = null;
+      for each (let part in variant.split(/\s+/))
+      {
+        if (part.toLowerCase() in validModifiers)
+        {
+          if (part in seenModifier)
+            continue;
+
+          seenModifier[part] = true;
+          modifiers.push(validModifiers[part.toLowerCase()]);
+        }
+        else if (part.length == 1)
+          keychar = part.toUpperCase();
+        else if ("DOM_VK_" + part.toUpperCase() in Ci.nsIDOMKeyEvent)
+          keycode = "VK_" + part.toUpperCase();
+      }
+
+      if (!keychar && !keycode)
+        continue;
+
+      modifiers.sort();
+      let canonical = modifiers.concat([keychar || keycode]).join(" ");
+      if (canonical in existing)
+        continue;
+
       let element = this.window.document.createElement("key");
       element.setAttribute("id", "abp-key-" + id);
       element.setAttribute("command", "abp-command-" + id);
@@ -601,7 +672,7 @@ WindowWrapper.prototype =
       else
         element.setAttribute("keycode", keycode);
       element.setAttribute("modifiers", modifiers.join(","));
-  
+
       this.E("abp-keyset").appendChild(element);
     }
   },
