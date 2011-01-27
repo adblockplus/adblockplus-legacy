@@ -12,7 +12,7 @@ pref("extensions.adblockplus.defaulttoolbaraction", 0);
 pref("extensions.adblockplus.defaultstatusbaraction", 0);
 pref("extensions.adblockplus.sidebar_key", "Accel Shift V");
 pref("extensions.adblockplus.sendReport_key", "");
-pref("extensions.adblockplus.settings_key", "Accel Shift E");
+pref("extensions.adblockplus.settings_key", "Accel Shift E, Accel Shift F");
 pref("extensions.adblockplus.enable_key", "");
 pref("extensions.adblockplus.flash_scrolltoitem", true);
 pref("extensions.adblockplus.previewimages", true);
