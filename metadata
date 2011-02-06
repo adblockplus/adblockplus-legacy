@@ -25,7 +25,7 @@ ru=http://adblockplus.org/ru/
 
 [compat]
 firefox=3.5/4.0.*
-seamonkey=2.0/2.1b2
+seamonkey=2.0/2.1b3
 thunderbird=3.0/3.3a3pre
 songbird=1.9.0a/1.10.0a
 conkeror=0.1/100.0
