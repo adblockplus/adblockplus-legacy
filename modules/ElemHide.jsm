@@ -125,12 +125,13 @@ var ElemHide =
     if (filter.text in knownFilters)
       return;
 
+    let key;
     do {
-      filter.key = Math.random().toFixed(15).substr(5);
-    } while (filter.key in keys);
+      key = Math.random().toFixed(15).substr(5);
+    } while (key in keys);
 
-    keys[filter.key] = filter;
-    knownFilters[filter.text] = true;
+    keys[key] = filter;
+    knownFilters[filter.text] = key;
     ElemHide.isDirty = true;
   },
 
@@ -143,7 +144,8 @@ var ElemHide =
     if (!(filter.text in knownFilters))
       return;
 
-    delete keys[filter.key];
+    let key = knownFilters[filter.text];
+    delete keys[key];
     delete knownFilters[filter.text];
     ElemHide.isDirty = true;
   },
@@ -176,8 +178,9 @@ var ElemHide =
       TimeLine.log("start grouping selectors");
       let domains = {__proto__: null};
       let hasFilters = false;
-      for each (var filter in keys)
+      for (let key in keys)
       {
+        let filter = keys[key];
         let domain = filter.selectorDomain || "";
 
         let list;
@@ -188,7 +191,7 @@ var ElemHide =
           list = {__proto__: null};
           domains[domain] = list;
         }
-        list[filter.selector] = filter.key;
+        list[filter.selector] = key;
         hasFilters = true;
       }
       TimeLine.log("done grouping selectors");
