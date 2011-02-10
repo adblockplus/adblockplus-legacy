@@ -81,7 +81,7 @@ var Prefs =
     TimeLine.enter("Entered Prefs.startup()");
   
     // Initialize prefs list
-    let defaultBranch = this.getDefaultBranch();
+    let defaultBranch = this.defaultBranch;
     for each (let name in defaultBranch.getChildList("", {}))
     {
       let type = defaultBranch.getPrefType(name);
@@ -117,7 +117,7 @@ var Prefs =
   /**
    * Retrieves the preferences branch containing default preference values.
    */
-  getDefaultBranch: function() /**nsIPreferenceBranch*/
+  get defaultBranch() /**nsIPreferenceBranch*/
   {
     return Utils.prefService.getDefaultBranch(prefRoot);
   },
