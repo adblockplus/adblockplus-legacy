@@ -98,7 +98,7 @@ var ElemHide =
   
     TimeLine.log("done adding prefs listener");
 
-    let styleFile = FilterStorage.sourceFile.parent.clone();
+    let styleFile = Utils.resolveFilePath(Prefs.data_directory);
     styleFile.append("elemhide.css");
     styleURL = Utils.ioService.newFileURI(styleFile).QueryInterface(Ci.nsIFileURL);
     TimeLine.log("done determining stylesheet URL");

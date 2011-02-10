@@ -414,6 +414,33 @@ var Utils =
   },
 
   /**
+   * Tries to interpret a file path as an absolute path or a path relative to
+   * user's profile. Returns a file or null on failure.
+   */
+  resolveFilePath: function(/**String*/ path) /**nsIFile*/
+  {
+    if (!path)
+      return null;
+
+    try {
+      // Assume an absolute path first
+      let file = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsILocalFile);
+      file.initWithPath(path);
+      return file;
+    } catch (e) {}
+
+    try {
+      // Try relative path now
+      let profileDir = Utils.dirService.get("ProfD", Ci.nsIFile);
+      let file = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsILocalFile);
+      file.setRelativeDescriptor(profileDir, path);
+      return file;
+    } catch (e) {}
+
+    return null;
+  },
+
+  /**
    * Saves sidebar state before detaching/reattaching
    */
   setParams: function(params)

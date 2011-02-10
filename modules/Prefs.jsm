@@ -115,6 +115,20 @@ var Prefs =
   },
 
   /**
+   * Backwards compatibility, this pref is optional
+   */
+  get patternsfile() /**String*/
+  {
+    let result = null;
+    try
+    {
+      result = branch.getCharPref("patternsfile");
+    } catch(e) {}
+    this.__defineGetter__("patternsfile", function() result);
+    return this.patternsfile;
+  },
+
+  /**
    * Retrieves the preferences branch containing default preference values.
    */
   get defaultBranch() /**nsIPreferenceBranch*/

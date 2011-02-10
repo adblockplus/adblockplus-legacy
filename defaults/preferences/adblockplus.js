@@ -16,7 +16,7 @@ pref("extensions.adblockplus.settings_key", "Accel Shift E, Accel Shift F, Accel
 pref("extensions.adblockplus.enable_key", "");
 pref("extensions.adblockplus.flash_scrolltoitem", true);
 pref("extensions.adblockplus.previewimages", true);
-pref("extensions.adblockplus.patternsfile", "adblockplus/patterns.ini");
+pref("extensions.adblockplus.data_directory", "adblockplus");
 pref("extensions.adblockplus.patternsbackups", 5);
 pref("extensions.adblockplus.patternsbackupinterval", 24);
 pref("extensions.adblockplus.whitelistschemes", "about chrome file irc moz-safe-about news resource snews x-jsd addbook cid imap mailbox nntp pop data javascript moz-icon");
