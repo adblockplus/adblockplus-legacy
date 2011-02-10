@@ -737,13 +737,7 @@ ElemHideFilter.prototype =
    * CSS selector for the HTML elements that should be hidden
    * @type String
    */
-  selector: null,
-
-  /**
-   * Random key associated with the filter - used to register hits from element hiding filters
-   * @type String
-   */
-  key: null
+  selector: null
 };
 
 /**
