@@ -53,12 +53,6 @@ Matcher.prototype = {
   shortcutHash: null,
 
   /**
-   * Should be true if shortcutHash has any entries
-   * @type Boolean
-   */
-  hasShortcuts: false,
-
-  /**
    * Filters without a shortcut
    * @type Array of RegExpFilter
    */
@@ -76,7 +70,6 @@ Matcher.prototype = {
   clear: function()
   {
     this.shortcutHash = {__proto__: null};
-    this.hasShortcuts = false;
     this.regexps = [];
     this.knownFilters = {__proto__: null};
   },
@@ -100,7 +93,6 @@ Matcher.prototype = {
         this.shortcutHash[filter.shortcut] = this.shortcutHash[filter.shortcut].pushFilter(filter);
       else
         this.shortcutHash[filter.shortcut] = filter;
-      this.hasShortcuts = true;
     }
     else
       this.regexps.push(filter);
@@ -193,23 +185,20 @@ Matcher.prototype = {
    */
   matchesAny: function(location, contentType, docDomain, thirdParty)
   {
-    if (this.hasShortcuts)
+    // Optimized matching using shortcuts
+    let candidates = location.toLowerCase().match(/[a-z0-9%]{3,}/g);
+    if (contentType == "DONOTTRACK")
+      candidates.unshift("donottrack");
+    if (candidates)
     {
-      // Optimized matching using shortcuts
-      let candidates = location.toLowerCase().match(/[a-z0-9%]{3,}/g);
-      if (contentType == "DONOTTRACK")
-        candidates.unshift("donottrack");
-      if (candidates)
+      for (let i = 0, l = candidates.length; i < l; i++)
       {
-        for (let i = 0, l = candidates.length; i < l; i++)
+        let substr = candidates[i];
+        if (substr in this.shortcutHash)
         {
-          let substr = candidates[i];
-          if (substr in this.shortcutHash)
-          {
-            let result = this.shortcutHash[substr].matches(location, contentType, docDomain, thirdParty);
-            if (result)
-              return result;
-          }
+          let result = this.shortcutHash[substr].matches(location, contentType, docDomain, thirdParty);
+          if (result)
+            return result;
         }
       }
     }
@@ -331,32 +320,30 @@ CombinedMatcher.prototype =
   matchesAnyInternal: function(location, contentType, docDomain, thirdParty)
   {
     let blacklistHit = null;
-    if (this.whitelist.hasShortcuts || this.blacklist.hasShortcuts)
-    {
-      // Optimized matching using shortcuts
-      let hashWhite = this.whitelist.shortcutHash;
-      let hashBlack = this.blacklist.shortcutHash;
 
-      let candidates = location.toLowerCase().match(/[a-z0-9%]{3,}/g);
-      if (contentType == "DONOTTRACK")
-        candidates.unshift("donottrack");
-      if (candidates)
+    // Optimized matching using shortcuts
+    let hashWhite = this.whitelist.shortcutHash;
+    let hashBlack = this.blacklist.shortcutHash;
+
+    let candidates = location.toLowerCase().match(/[a-z0-9%]{3,}/g);
+    if (contentType == "DONOTTRACK")
+      candidates.unshift("donottrack");
+    if (candidates)
+    {
+      for (let i = 0, l = candidates.length; i < l; i++)
       {
-        for (let i = 0, l = candidates.length; i < l; i++)
+        let substr = candidates[i];
+        if (substr in hashWhite)
         {
-          let substr = candidates[i];
-          if (substr in hashWhite)
-          {
-            let result = hashWhite[substr].matches(location, contentType, docDomain, thirdParty);
-            if (result)
-              return result;
-          }
-          if (substr in hashBlack)
-          {
-            let result = hashBlack[substr].matches(location, contentType, docDomain, thirdParty);
-            if (result)
-              blacklistHit = result;
-          }
+          let result = hashWhite[substr].matches(location, contentType, docDomain, thirdParty);
+          if (result)
+            return result;
+        }
+        if (substr in hashBlack)
+        {
+          let result = hashBlack[substr].matches(location, contentType, docDomain, thirdParty);
+          if (result)
+            blacklistHit = result;
         }
       }
     }
