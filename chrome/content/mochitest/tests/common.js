@@ -66,10 +66,13 @@ function preparePrefs()
   Cu.import(baseURL.spec + "Prefs.jsm");
 
   let backup = {__proto__: null};
+  let getters = {__proto__: null}
   for (let pref in Prefs)
   {
     if (Prefs.__lookupSetter__(pref))
       backup[pref] = Prefs[pref];
+    else if (Prefs.__lookupGetter__(pref))
+      getters[pref] = Prefs.__lookupGetter__(pref);
   }
   Prefs.enabled = true;
 
@@ -77,6 +80,8 @@ function preparePrefs()
   {
     for (let pref in backup)
       Prefs[pref] = backup[pref];
+    for (let pref in getters)
+      Prefs.__defineGetter__(pref, getters[pref]);
   }, false);
 }
 
