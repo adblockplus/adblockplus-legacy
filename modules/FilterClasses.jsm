@@ -109,11 +109,11 @@ Filter.optionsRegExp = /\$(~?[\w\-]+(?:=[^,\s]+)?(?:,~?[\w\-]+(?:=[^,\s]+)?)*)$/
  */
 Filter.fromText = function(text)
 {
-  if (!/\S/.test(text))
-    return null;
-
   if (text in Filter.knownFilters)
     return Filter.knownFilters[text];
+
+  if (!/\S/.test(text))
+    return null;
 
   let ret;
   if (Filter.elemhideRegExp.test(text))
