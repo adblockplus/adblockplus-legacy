@@ -40,19 +40,20 @@ Cu.import(baseURL.spec + "Utils.jsm");
 Cu.import(baseURL.spec + "Prefs.jsm");
 Cu.import(baseURL.spec + "ContentPolicy.jsm");
 Cu.import(baseURL.spec + "FilterStorage.jsm");
+Cu.import(baseURL.spec + "FilterClasses.jsm");
 Cu.import(baseURL.spec + "TimeLine.jsm");
 
 /**
- * Lookup table, has keys for all filters already added
+ * Lookup table, keys of the filters by filter text
  * @type Object
  */
-let knownFilters = {__proto__: null};
+let keyByFilter = {__proto__: null};
 
 /**
- * Lookup table for filters by their associated key
+ * Lookup table, filters by their associated key
  * @type Object
  */
-let keys = {__proto__: null};
+let filterByKey = {__proto__: null};
 
 /**
  * Currently applied stylesheet URL
@@ -110,8 +111,8 @@ var ElemHide =
    */
   clear: function()
   {
-    knownFilters= {__proto__: null};
-    keys = {__proto__: null};
+    keyByFilter = {__proto__: null};
+    filterByKey = {__proto__: null};
     ElemHide.isDirty = false;
     ElemHide.unapply();
   },
@@ -122,16 +123,16 @@ var ElemHide =
    */
   add: function(filter)
   {
-    if (filter.text in knownFilters)
+    if (filter.text in keyByFilter)
       return;
 
     let key;
     do {
       key = Math.random().toFixed(15).substr(5);
-    } while (key in keys);
+    } while (key in filterByKey);
 
-    keys[key] = filter;
-    knownFilters[filter.text] = key;
+    filterByKey[key] = filter.text;
+    keyByFilter[filter.text] = key;
     ElemHide.isDirty = true;
   },
 
@@ -141,12 +142,12 @@ var ElemHide =
    */
   remove: function(filter)
   {
-    if (!(filter.text in knownFilters))
+    if (!(filter.text in keyByFilter))
       return;
 
-    let key = knownFilters[filter.text];
-    delete keys[key];
-    delete knownFilters[filter.text];
+    let key = keyByFilter[filter.text];
+    delete filterByKey[key];
+    delete keyByFilter[filter.text];
     ElemHide.isDirty = true;
   },
 
@@ -178,9 +179,9 @@ var ElemHide =
       TimeLine.log("start grouping selectors");
       let domains = {__proto__: null};
       let hasFilters = false;
-      for (let key in keys)
+      for (let key in filterByKey)
       {
-        let filter = keys[key];
+        let filter = Filter.fromText(filterByKey[key]);
         let domain = filter.selectorDomain || "";
 
         let list;
@@ -388,11 +389,10 @@ HitRegistrationChannel.prototype = {
   open: function()
   {
     let data = "<bindings xmlns='http://www.mozilla.org/xbl'><binding id='dummy'/></bindings>";
-    let filter = keys[this.key];
-    if (filter)
+    if (this.key in filterByKey)
     {
       let wnd = Utils.getRequestWindow(this);
-      if (wnd && wnd.document && !Policy.processNode(wnd, wnd.document, Policy.type.ELEMHIDE, filter))
+      if (wnd && wnd.document && !Policy.processNode(wnd, wnd.document, Policy.type.ELEMHIDE, Filter.fromText(filterByKey[this.key])))
         data = "<bindings xmlns='http://www.mozilla.org/xbl'/>";
     }
 
