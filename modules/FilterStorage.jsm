@@ -399,7 +399,7 @@ var FilterStorage =
     {
       try
       {
-        FilterStorage.sourceFile = getFileByPath(Prefs.getDefaultBranch.getCharPref("patternsfile"));
+        FilterStorage.sourceFile = getFileByPath(Prefs.defaultBranch.getCharPref("patternsfile"));
       } catch(e) {}
     }
 
