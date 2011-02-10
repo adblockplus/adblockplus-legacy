@@ -43,12 +43,6 @@ Cu.import(baseURL.spec + "FilterStorage.jsm");
 Cu.import(baseURL.spec + "TimeLine.jsm");
 
 /**
- * List of known filters
- * @type Array of ElemHideFilter
- */
-let filters = [];
-
-/**
  * Lookup table, has keys for all filters already added
  * @type Object
  */
@@ -116,7 +110,6 @@ var ElemHide =
    */
   clear: function()
   {
-    filters = [];
     knownFilters= {__proto__: null};
     keys = {__proto__: null};
     ElemHide.isDirty = false;
@@ -131,8 +124,6 @@ var ElemHide =
   {
     if (filter.text in knownFilters)
       return;
-
-    filters.push(filter);
 
     do {
       filter.key = Math.random().toFixed(15).substr(5);
@@ -152,10 +143,6 @@ var ElemHide =
     if (!(filter.text in knownFilters))
       return;
 
-    let index = filters.indexOf(filter);
-    if (index >= 0)
-      filters.splice(index, 1);
-
     delete keys[filter.key];
     delete knownFilters[filter.text];
     ElemHide.isDirty = true;
@@ -172,10 +159,10 @@ var ElemHide =
       ElemHide.unapply();
     TimeLine.log("ElemHide.unapply() finished");
 
-    // Return immediately if nothing to do
-    if (!Prefs.enabled || !filters.length)
+    // Return immediately if disabled
+    if (!Prefs.enabled)
     {
-      TimeLine.leave("ElemHide.apply() done (disabled/no filters)");
+      TimeLine.leave("ElemHide.apply() done (disabled)");
       return;
     }
 
@@ -188,7 +175,8 @@ var ElemHide =
       // Grouping selectors by domains
       TimeLine.log("start grouping selectors");
       let domains = {__proto__: null};
-      for each (var filter in filters)
+      let hasFilters = false;
+      for each (var filter in keys)
       {
         let domain = filter.selectorDomain || "";
 
@@ -201,8 +189,15 @@ var ElemHide =
           domains[domain] = list;
         }
         list[filter.selector] = filter.key;
+        hasFilters = true;
       }
       TimeLine.log("done grouping selectors");
+
+      if (!hasFilters)
+      {
+        TimeLine.leave("ElemHide.apply() done (no filters)");
+        return;
+      }
 
       // Writing out domains list
       TimeLine.log("start writing CSS data");
