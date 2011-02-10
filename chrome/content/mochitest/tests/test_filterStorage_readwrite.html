@@ -4684,7 +4684,7 @@ zeit.de#DIV(class$=_ads)
       stream.close();
     }
 
-    Prefs.patternsfile = tempFile.path;
+    Prefs.__defineGetter__("patternsfile", function() tempFile.path);
 
     {
       let startTime = Date.now();
