@@ -371,35 +371,26 @@ var FilterStorage =
     FilterStorage.subscriptions = [];
     FilterStorage.knownSubscriptions = {__proto__: null};
 
-    function getFileByPath(path)
+    if (Prefs.patternsfile)
     {
-      if (!path)
-        return null;
-
-      try {
-        // Assume an absolute path first
-        let file = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsILocalFile);
-        file.initWithPath(path);
-        return file;
-      } catch (e) {}
-
-      try {
-        // Try relative path now
-        let profileDir = Utils.dirService.get("ProfD", Ci.nsIFile);
-        let file = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsILocalFile);
-        file.setRelativeDescriptor(profileDir, path);
-        return file;
-      } catch (e) {}
-
-      return null;
+      // Override in place, use it instead of placing the file in the regular data dir
+      FilterStorage.sourceFile = Utils.resolveFilePath(Prefs.patternsfile);
     }
-
-    FilterStorage.sourceFile = getFileByPath(Prefs.patternsfile);
     if (!FilterStorage.sourceFile)
     {
+      // Place the file in the data dir
+      FilterStorage.sourceFile = Utils.resolveFilePath(Prefs.data_directory);
+      if (FilterStorage.sourceFile)
+        FilterStorage.sourceFile.append("patterns.ini");
+    }
+    if (!FilterStorage.sourceFile)
+    {
+      // Data directory pref misconfigured? Try the default value
       try
       {
-        FilterStorage.sourceFile = getFileByPath(Prefs.defaultBranch.getCharPref("patternsfile"));
+        FilterStorage.sourceFile = Utils.resolveFilePath(Prefs.defaultBranch.getCharPref("data_directory"));
+        if (FilterStorage.sourceFile)
+          FilterStorage.sourceFile.append("patterns.ini");
       } catch(e) {}
     }
 
