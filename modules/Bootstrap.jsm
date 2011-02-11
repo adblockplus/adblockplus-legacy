@@ -89,10 +89,8 @@ let factoryPrivate = {
 
 let defaultModules = [
   baseURL.spec + "Prefs.jsm",
-  baseURL.spec + "FilterStorage.jsm",
-  baseURL.spec + "ContentPolicy.jsm",
-  baseURL.spec + "ElemHide.jsm",
   baseURL.spec + "FilterListener.jsm",
+  baseURL.spec + "ContentPolicy.jsm",
   baseURL.spec + "Synchronizer.jsm"
 ];
 
