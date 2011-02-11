@@ -21,16 +21,9 @@
 
     prepareFilterComponents();
 
-    function compareSubscriptionObservers(test, list)
+    function compareObservers(test, list)
     {
-      let result = FilterStorageGlobal.subscriptionObservers.map(function(observer) {return observer.name}).join("\n");
-      let expected = list.map(function(observer) {return observer.name}).join("\n");
-      is(result, expected, test);
-    }
-
-    function compareFilterObservers(test, list)
-    {
-      let result = FilterStorageGlobal.filterObservers.map(function(observer) {return observer.name}).join("\n");
+      let result = FilterStorageGlobal.observers.map(function(observer) {return observer.name}).join("\n");
       let expected = list.map(function(observer) {return observer.name}).join("\n");
       is(result, expected, test);
     }
@@ -81,16 +74,16 @@
       let subscription3 = Subscription.fromURL("http://test3/");
 
       compareSubscriptionList("No subscriptions", []);
-      compareSubscriptionObservers("No observers", []);
+      compareObservers("No observers", []);
 
       FilterStorage.addSubscription(subscription1);
       compareSubscriptionList("add(test1)", [subscription1]);
 
-      FilterStorage.addSubscriptionObserver(observer1);
-      compareSubscriptionObservers("addSubscriptionObserver(observer1)", [observer1]);
+      FilterStorage.addObserver(observer1);
+      compareObservers("addObserver(observer1)", [observer1]);
 
-      FilterStorage.addSubscriptionObserver(observer1);
-      compareSubscriptionObservers("addSubscriptionObserver(observer1) again", [observer1]);
+      FilterStorage.addObserver(observer1);
+      compareObservers("addObserver(observer1) again", [observer1]);
 
       FilterStorage.addSubscription(subscription1);
       compareSubscriptionList("add(test1) again", [subscription1]);
@@ -98,11 +91,11 @@
       FilterStorage.removeSubscription(subscription2);
       compareSubscriptionList("remove(test2)", [subscription1]);
 
-      FilterStorage.addSubscriptionObserver(observer2);
-      compareSubscriptionObservers("addSubscriptionObserver(observer2)", [observer1, observer2]);
+      FilterStorage.addObserver(observer2);
+      compareObservers("addObserver(observer2)", [observer1, observer2]);
 
-      FilterStorage.removeSubscriptionObserver(observer1);
-      compareSubscriptionObservers("removeSubscriptionObserver(observer1)", [observer2]);
+      FilterStorage.removeObserver(observer1);
+      compareObservers("removeObserver(observer1)", [observer2]);
 
       FilterStorage.addSubscription(subscription2, true);
       compareSubscriptionList("add(test2) silent", [subscription1, subscription2]);
@@ -110,17 +103,17 @@
       FilterStorage.addSubscription(subscription3);
       compareSubscriptionList("add(test3)", [subscription1, subscription2, subscription3]);
 
-      FilterStorage.addSubscriptionObserver(observer3);
-      compareSubscriptionObservers("addSubscriptionObserver(observer3)", [observer2, observer3]);
+      FilterStorage.addObserver(observer3);
+      compareObservers("addObserver(observer3)", [observer2, observer3]);
 
       FilterStorage.removeSubscription(subscription1, true);
       compareSubscriptionList("remove(test1) silent", [subscription2, subscription3]);
 
-      FilterStorage.addSubscriptionObserver(observer1);
-      compareSubscriptionObservers("addSubscriptionObserver(observer1)", [observer2, observer3, observer1]);
+      FilterStorage.addObserver(observer1);
+      compareObservers("addObserver(observer1)", [observer2, observer3, observer1]);
 
-      FilterStorage.removeSubscriptionObserver(observer3);
-      compareSubscriptionObservers("removeSubscriptionObserver(observer3)", [observer2, observer1]);
+      FilterStorage.removeObserver(observer3);
+      compareObservers("removeObserver(observer3)", [observer2, observer1]);
 
       FilterStorage.removeSubscription(subscription1);
       compareSubscriptionList("remove(test1) again", [subscription2, subscription3]);
@@ -134,16 +127,16 @@
       FilterStorage.removeSubscription(subscription3);
       compareSubscriptionList("remove(test3) again", [subscription2, subscription1]);
 
-      is(observed1, "add http://test1/\nremove http://test3/\n", "observed1");
-      is(observed2, "add http://test3/\nadd http://test1/\nremove http://test3/\n", "observed2");
+      is(observed1, "subscriptions add http://test1/\nsubscriptions remove http://test3/\n", "observed1");
+      is(observed2, "subscriptions add http://test3/\nsubscriptions add http://test1/\nsubscriptions remove http://test3/\n", "observed2");
       is(observed3, "", "observed3");
 
       FilterStorage.removeSubscription(subscription1);
       FilterStorage.removeSubscription(subscription2);
       FilterStorage.removeSubscription(subscription3);
-      FilterStorage.removeSubscriptionObserver(observer1);
-      FilterStorage.removeSubscriptionObserver(observer2);
-      FilterStorage.removeSubscriptionObserver(observer3);
+      FilterStorage.removeObserver(observer1);
+      FilterStorage.removeObserver(observer2);
+      FilterStorage.removeObserver(observer3);
     }
 
     function testFilters()
@@ -156,16 +149,16 @@
       let observer3 = function filter_observer3(action, filters) { observed3 += action + " " + filters.map(function(filter) {return filter.text;}).join(" ") + "\n"; }
 
       compareFiltersList("No filters", [[],[],[],[]]);
-      compareFilterObservers("No observers", []);
+      compareObservers("No observers", []);
 
       FilterStorage.addFilter(Filter.fromText("foo"));
       compareFiltersList("add(foo)", [["foo"],[],[],[]]);
 
-      FilterStorage.addFilterObserver(observer1);
-      compareFilterObservers("addFilterObserver(observer1)", [observer1]);
+      FilterStorage.addObserver(observer1);
+      compareObservers("addObserver(observer1)", [observer1]);
 
-      FilterStorage.addFilterObserver(observer1);
-      compareFilterObservers("addFilterObserver(observer1) again", [observer1]);
+      FilterStorage.addObserver(observer1);
+      compareObservers("addObserver(observer1) again", [observer1]);
 
       FilterStorage.addFilter(Filter.fromText("bar"));
       compareFiltersList("add(bar)", [["foo", "bar"],[],[],[]]);
@@ -173,11 +166,11 @@
       FilterStorage.removeFilter(Filter.fromText("foobar"));
       compareFiltersList("remove(foobar)", [["foo", "bar"],[],[],[]]);
 
-      FilterStorage.addFilterObserver(observer2);
-      compareFilterObservers("addFilterObserver(observer2)", [observer1, observer2]);
+      FilterStorage.addObserver(observer2);
+      compareObservers("addObserver(observer2)", [observer1, observer2]);
 
-      FilterStorage.removeFilterObserver(observer1);
-      compareFilterObservers("removeFilterObserver(observer1)", [observer2]);
+      FilterStorage.removeObserver(observer1);
+      compareObservers("removeObserver(observer1)", [observer2]);
 
       FilterStorage.addFilter(Filter.fromText("@@ddd"));
       compareFiltersList("add(@@ddd)", [["foo", "bar"],["@@ddd"],[],[]]);
@@ -185,8 +178,8 @@
       FilterStorage.addFilter(Filter.fromText("!foobar"));
       compareFiltersList("add(!foobar)", [["foo", "bar", "!foobar"],["@@ddd"],[],[]]);
 
-      FilterStorage.addFilterObserver(observer3);
-      compareFilterObservers("addFilterObserver(observer3)", [observer2, observer3]);
+      FilterStorage.addObserver(observer3);
+      compareObservers("addObserver(observer3)", [observer2, observer3]);
 
       FilterStorage.removeFilter(Filter.fromText("bar"));
       compareFiltersList("remove(bar)", [["foo", "!foobar"],["@@ddd"],[],[]]);
@@ -194,11 +187,11 @@
       FilterStorage.removeFilter(Filter.fromText("@@ddd"));
       compareFiltersList("remove(@@ddd)", [["foo", "!foobar"],[],[],[]]);
 
-      FilterStorage.addFilterObserver(observer1);
-      compareFilterObservers("addFilterObserver(observer1)", [observer2, observer3, observer1]);
+      FilterStorage.addObserver(observer1);
+      compareObservers("addObserver(observer1)", [observer2, observer3, observer1]);
 
-      FilterStorage.removeFilterObserver(observer3);
-      compareFilterObservers("removeFilterObserver(observer3)", [observer2, observer1]);
+      FilterStorage.removeObserver(observer3);
+      compareObservers("removeObserver(observer3)", [observer2, observer1]);
 
       FilterStorage.addFilter(Filter.fromText("foo#bar"));
       compareFiltersList("add(foo#bar)", [["foo", "!foobar"],[],[],["foo#bar"]]);
@@ -209,13 +202,13 @@
       FilterStorage.addFilter(Filter.fromText("@@asdf"));
       compareFiltersList("add(@asdf/)", [["foo", "!foobar"],["@@asdf"],["/??/"],["foo#bar"]]);
 
-      is(observed1, "add bar\nadd foo#bar\nadd /??/\nadd @@asdf\n", "observed1");
-      is(observed2, "add @@ddd\nadd !foobar\nremove bar\nremove @@ddd\nadd foo#bar\nadd /??/\nadd @@asdf\n", "observed2");
-      is(observed3, "remove bar\nremove @@ddd\n", "observed3");
+      is(observed1, "filters add bar\nfilters add foo#bar\nfilters add /??/\nfilters add @@asdf\n", "observed1");
+      is(observed2, "filters add @@ddd\nfilters add !foobar\nfilters remove bar\nfilters remove @@ddd\nfilters add foo#bar\nfilters add /??/\nfilters add @@asdf\n", "observed2");
+      is(observed3, "filters remove bar\nfilters remove @@ddd\n", "observed3");
 
-      FilterStorage.removeFilterObserver(observer1);
-      FilterStorage.removeFilterObserver(observer2);
-      FilterStorage.removeFilterObserver(observer3);
+      FilterStorage.removeObserver(observer1);
+      FilterStorage.removeObserver(observer2);
+      FilterStorage.removeObserver(observer3);
 
       // Tests for adding filters before a particular filter
 

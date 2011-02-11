@@ -78,8 +78,7 @@ function init()
     if (name == "enabled" || name == "showintoolbar" || name == "showinstatusbar" || name == "defaulttoolbaraction" || name == "defaultstatusbaraction")
       reloadPrefs();
   });
-  FilterStorage.addFilterObserver(reloadPrefs);
-  FilterStorage.addSubscriptionObserver(reloadPrefs);
+  FilterStorage.addObserver(reloadPrefs);
 }
 
 /**
@@ -168,7 +167,7 @@ var AppIntegration =
       if (filter.disabled || filter.subscriptions.some(function(subscription) !(subscription instanceof SpecialSubscription)))
       {
         filter.disabled = !filter.disabled;
-        FilterStorage.triggerFilterObservers(filter.disabled ? "disable" : "enable", [filter]);
+        FilterStorage.triggerObservers(filter.disabled ? "filters disable" : "filters enable", [filter]);
       }
       else
         FilterStorage.removeFilter(filter);
