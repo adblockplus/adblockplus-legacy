@@ -32,14 +32,14 @@
       {
         let matcher = defaultMatcher[type]
         let filters = [];
-        for (let shortcut in matcher.shortcutHash)
+        for (let keyword in matcher.filterByKeyword)
         {
-          let entry = matcher.shortcutHash[shortcut];
+          let entry = matcher.filterByKeyword[keyword];
           let list = (typeof entry == "string" ? [Filter.fromText(entry)] : entry.map(function(text) Filter.fromText(text)));
           for each (let filter in list)
           {
-            if (matcher.getShortcutForFilter(filter) != shortcut)
-              is(matcher.getShortcutForFilter(filter), shortcut, "Shortcut of filter " + filter.text);
+            if (matcher.getKeywordForFilter(filter) != keyword)
+              is(matcher.getKeywordForFilter(filter), keyword, "Keyword of filter " + filter.text);
             filters.push(filter);
           }
         }
