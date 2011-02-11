@@ -759,12 +759,6 @@ function onFilterChange(/**String*/ action, /**Array of Filter*/ filters, additi
  */
 function onSubscriptionChange(/**String*/ action, /**Array of Subscription*/ subscriptions)
 {
-  if (action == "reload")
-  {
-    // TODO: reinit?
-    return;
-  }
-
   for each (let subscription in subscriptions)
   {
     subscription = getSubscriptionByURL(subscription.url);
