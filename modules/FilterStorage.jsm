@@ -114,7 +114,12 @@ var FilterStorage =
 
   /**
    * Calls observers after a change
-   * @param {String} action change code ("add", "remove", "enable", "disable", "update", "updateinfo", "reload")
+   * @param {String} action change code ("subscriptions add",
+   *                 "subscriptions remove", "subscriptions enable",
+   *                 "subscriptions disable", "subscriptions update",
+   *                 "subscriptions updateinfo", "subscriptions reload",
+   *                 "filters add", "filters remove", "enable",
+   *                 "filters disable", "filters hit")
    * @param {Array} items items that the change applies to
    * @param additionalData optional additional data, depends on change code
    */
