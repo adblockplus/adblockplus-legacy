@@ -51,6 +51,24 @@
 
       is(result, expected, "match(" + location + ", " + contentType + ", " + docDomain + ", " + (thirdParty ? "third-party" : "first-party") + ") with:\n" + filters.join("\n"));
       matcher.clear();
+
+      for (let i = 0; i < 2; i++)
+      {
+        for each (let filter in filters)
+          combinedMatcher.add(Filter.fromText(filter));
+
+        let result = combinedMatcher.matchesAny(location, contentType, docDomain, thirdParty);
+        if (result)
+          result = result.text;
+
+        is(result, expected, "combinedMatch(" + location + ", " + contentType + ", " + docDomain + ", " + (thirdParty ? "third-party" : "first-party") + ") with:\n" + filters.join("\n"));
+
+        // For next run: add whitelisting filters
+        filters = filters.map(function(text) "@@" + text);
+        if (expected)
+          expected = "@@" + expected;
+      }
+      combinedMatcher.clear();
     }
     function cacheCheck(location, contentType, docDomain, thirdParty, expected)
     {
@@ -67,6 +85,7 @@
     ok(defaultMatcher instanceof CombinedMatcher, "defaultMatcher is a CombinedMatcher instance");
 
     let matcher = new Matcher();
+    let combinedMatcher = new CombinedMatcher();
 
     compareShortcuts("*", []);
     compareShortcuts("asdf", []);
