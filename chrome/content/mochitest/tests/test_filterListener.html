@@ -31,17 +31,15 @@
       for each (let matcher in [defaultMatcher.blacklist, defaultMatcher.whitelist])
       {
         let filters = [];
-        for each (let filter in matcher.regexps)
-        {
-          is(matcher.getShortcutForFilter(filter), null, "Shortcut of filter " + filter.text);
-          filters.push(filter);
-        }
         for (let shortcut in matcher.shortcutHash)
         {
-          let filter = matcher.shortcutHash[shortcut];
-          if (matcher.getShortcutForFilter(filter) != shortcut)
-            is(matcher.getShortcutForFilter(filter), shortcut, "Shortcut of filter " + filter.text);
-          filters.push(filter);
+          let entry = matcher.shortcutHash[shortcut];
+          for each (let filter in ("filters" in entry ? entry.filters : [entry]))
+          {
+            if (matcher.getShortcutForFilter(filter) != shortcut)
+              is(matcher.getShortcutForFilter(filter), shortcut, "Shortcut of filter " + filter.text);
+            filters.push(filter);
+          }
         }
         result[matcher == defaultMatcher.blacklist ? "blacklist" : "whitelist"] = filters;
       }
