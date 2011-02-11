@@ -35,7 +35,6 @@ const Cu = Components.utils;
 
 let baseURL = Cc["@adblockplus.org/abp/private;1"].getService(Ci.nsIURI);
 
-Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 Cu.import(baseURL.spec + "Utils.jsm");
 Cu.import(baseURL.spec + "Prefs.jsm");
 Cu.import(baseURL.spec + "FilterClasses.jsm");
@@ -95,29 +94,6 @@ var FilterStorage =
    * @type Object
    */
   knownSubscriptions: {__proto__: null},
-
-  /**
-   * Called on module startup.
-   */
-  startup: function()
-  {
-    TimeLine.enter("Entered FilterStorage.startup()");
-    FilterStorage.loadFromDisk();
-    Cc["@mozilla.org/observer-service;1"].getService(Ci.nsIObserverService)
-                                         .addObserver(FilterStoragePrivate, "browser:purge-session-history", true);
-    TimeLine.leave("FilterStorage.startup() done");
-  },
-
-  /**
-   * Called on module shutdown.
-   */
-  shutdown: function()
-  {
-    TimeLine.enter("Entered FilterStorage.shutdown()");
-    if (FilterStorage.isDirty)
-      FilterStorage.saveToDisk();
-    TimeLine.leave("FilterStorage.shutdown() done");
-  },
 
   /**
    * Adds an observer for subscription changes (addition, deletion)
@@ -611,25 +587,6 @@ var FilterStorage =
     FilterStorage.isDirty = false;
     TimeLine.leave("FilterStorage.saveToDisk() done");
   }
-};
-
-/**
- * Private nsIObserver implementation.
- * @class
- */
-var FilterStoragePrivate =
-{
-  observe: function(subject, topic, data)
-  {
-    if (topic == "browser:purge-session-history" && Prefs.clearStatsOnHistoryPurge)
-    {
-      FilterStorage.resetHitCounts();
-      FilterStorage.saveToDisk();
-
-      Prefs.recentReports = "[]";
-    }
-  },
-  QueryInterface: XPCOMUtils.generateQI([Ci.nsISupportsWeakReference, Ci.nsIObserver])
 };
 
 /**
