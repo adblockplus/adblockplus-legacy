@@ -357,7 +357,7 @@ function addFilter() {
   if (filter.disabled)
   {
     filter.disabled = false;
-    FilterStorage.triggerFilterObservers("enable", [filter]);
+    FilterStorage.triggerObservers("filters enable", [filter]);
   }
 
   FilterStorage.addFilter(filter);
@@ -411,7 +411,7 @@ function doEnable() {
 function enableSubscription(subscription)
 {
   subscription.disabled = false;
-  FilterStorage.triggerSubscriptionObservers("enable", [subscription]);
+  FilterStorage.triggerObservers("subscriptions enable", [subscription]);
   FilterStorage.saveToDisk();
   E("groupDisabledWarning").hidden = true;
 }

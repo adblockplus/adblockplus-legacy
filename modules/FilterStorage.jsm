@@ -48,16 +48,10 @@ Cu.import(baseURL.spec + "TimeLine.jsm");
 const formatVersion = 3;
 
 /**
- * List of observers for subscription changes (addition, deletion)
- * @type Array of function(String, Array of Subscription)
+ * List of observers for filter and subscription changes (addition, deletion)
+ * @type Array of function(String, Array)
  */
-let subscriptionObservers = [];
-
-/**
- * List of observers for filter changes (addition, deletion)
- * @type Array of function(String, Array of Filter)
- */
-let filterObservers = [];
+let observers = [];
 
 /**
  * This class reads user's filters from disk, manages them in memory and writes them back.
@@ -96,74 +90,39 @@ var FilterStorage =
   knownSubscriptions: {__proto__: null},
 
   /**
-   * Adds an observer for subscription changes (addition, deletion)
-   * @param {function(String, Array of Subscription)} observer
+   * Adds an observer for filter and subscription changes (addition, deletion)
+   * @param {function(String, Array)} observer
    */
-  addSubscriptionObserver: function(observer)
+  addObserver: function(observer)
   {
-    if (subscriptionObservers.indexOf(observer) >= 0)
+    if (observers.indexOf(observer) >= 0)
       return;
 
-    subscriptionObservers.push(observer);
+    observers.push(observer);
   },
 
   /**
-   * Removes a subscription observer previosly added with addSubscriptionObserver
-   * @param {function(String, Array of Subscription)} observer
+   * Removes an observer previosly added with addObserver
+   * @param {function(String, Array)} observer
    */
-  removeSubscriptionObserver: function(observer)
+  removeObserver: function(observer)
   {
-    let index = subscriptionObservers.indexOf(observer);
+    let index = observers.indexOf(observer);
     if (index >= 0)
-      subscriptionObservers.splice(index, 1);
+      observers.splice(index, 1);
   },
 
   /**
-   * Calls subscription observers after a change
+   * Calls observers after a change
    * @param {String} action change code ("add", "remove", "enable", "disable", "update", "updateinfo", "reload")
-   * @param {Array of Subscription} subscriptions subscriptions the change applies to
-   */
-  triggerSubscriptionObservers: function(action, subscriptions)
-  {
-    FilterStorage.isDirty = true;
-    for each (let observer in subscriptionObservers)
-      observer(action, subscriptions);
-  },
-
-  /**
-   * Calls filter observers after a change
-   * @param {String} action change code ("add", "remove", "enable", "disable", "hit")
-   * @param {Array of Filter} filters the change applies to
+   * @param {Array} items items that the change applies to
    * @param additionalData optional additional data, depends on change code
    */
-  triggerFilterObservers: function(action, filters, additionalData)
+  triggerObservers: function(action, items, additionalData)
   {
     FilterStorage.isDirty = true;
-    for each (let observer in filterObservers)
-      observer(action, filters, additionalData);
-  },
-
-  /**
-   * Adds an observer for filter changes (addition, deletion)
-   * @param {function(String, Array of Filter)} observer
-   */
-  addFilterObserver: function(observer)
-  {
-    if (filterObservers.indexOf(observer) >= 0)
-      return;
-
-    filterObservers.push(observer);
-  },
-
-  /**
-   * Removes a filter observer previosly added with addFilterObserver
-   * @param {function(String, Array of Filter)} observer
-   */
-  removeFilterObserver: function(observer)
-  {
-    let index = filterObservers.indexOf(observer);
-    if (index >= 0)
-      filterObservers.splice(index, 1);
+    for each (let observer in observers)
+      observer(action, items, additionalData);
   },
 
   /**
@@ -181,7 +140,7 @@ var FilterStorage =
     addSubscriptionFilters(subscription);
 
     if (!silent)
-      FilterStorage.triggerSubscriptionObservers("add", [subscription]);
+      FilterStorage.triggerObservers("subscriptions add", [subscription]);
   },
 
   /**
@@ -200,7 +159,7 @@ var FilterStorage =
         FilterStorage.subscriptions.splice(i--, 1);
         delete FilterStorage.knownSubscriptions[subscription.url];
         if (!silent)
-          FilterStorage.triggerSubscriptionObservers("remove", [subscription]);
+          FilterStorage.triggerObservers("subscriptions remove", [subscription]);
         return;
       }
     }
@@ -217,14 +176,14 @@ var FilterStorage =
     subscription.oldFilters = subscription.filters;
     subscription.filters = filters;
     addSubscriptionFilters(subscription);
-    FilterStorage.triggerSubscriptionObservers("update", [subscription]);
+    FilterStorage.triggerObservers("subscriptions update", [subscription]);
     delete subscription.oldFilters;
 
     // Do not keep empty subscriptions disabled
     if (subscription instanceof SpecialSubscription && !subscription.filters.length && subscription.disabled)
     {
       subscription.disabled = false;
-      FilterStorage.triggerSubscriptionObservers("enable", [subscription]);
+      FilterStorage.triggerObservers("subscriptions enable", [subscription]);
     }
   },
 
@@ -265,7 +224,7 @@ var FilterStorage =
     else
       subscription.filters.push(filter);
     if (!silent)
-      FilterStorage.triggerFilterObservers("add", [filter], insertBefore);
+      FilterStorage.triggerObservers("filters add", [filter], insertBefore);
   },
 
   /**
@@ -287,14 +246,14 @@ var FilterStorage =
             filter.subscriptions.splice(i, 1);
             subscription.filters.splice(j, 1);
             if (!silent)
-              FilterStorage.triggerFilterObservers("remove", [filter]);
+              FilterStorage.triggerObservers("filters remove", [filter]);
 
             // Do not keep empty subscriptions disabled
             if (!subscription.filters.length && subscription.disabled)
             {
               subscription.disabled = false;
               if (!silent)
-                FilterStorage.triggerSubscriptionObservers("enable", [subscription]);
+                FilterStorage.triggerObservers("subscriptions enable", [subscription]);
             }
             return;
           }
@@ -314,7 +273,7 @@ var FilterStorage =
 
     filter.hitCount++;
     filter.lastHit = Date.now();
-    FilterStorage.triggerFilterObservers("hit", [filter]);
+    FilterStorage.triggerObservers("filters hit", [filter]);
   },
 
   /**
@@ -334,7 +293,7 @@ var FilterStorage =
       filter.hitCount = 0;
       filter.lastHit = 0;
     }
-    FilterStorage.triggerFilterObservers("hit", filters);
+    FilterStorage.triggerObservers("filters hit", filters);
   },
 
   /**
@@ -436,7 +395,7 @@ var FilterStorage =
     }
 
     TimeLine.log("load complete, calling observers");
-    FilterStorage.triggerSubscriptionObservers("reload", FilterStorage.subscriptions);
+    FilterStorage.triggerObservers("subscriptions reload", FilterStorage.subscriptions);
     FilterStorage.isDirty = false;
     TimeLine.leave("FilterStorage.loadFromDisk() done");
   },

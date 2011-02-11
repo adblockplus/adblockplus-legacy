@@ -95,9 +95,8 @@ function init()
     viewContext.appendChild(viewMenu.firstChild);
   }
 
-  // Install listeners
-  FilterStorage.addFilterObserver(onFilterChange);
-  FilterStorage.addSubscriptionObserver(onSubscriptionChange);
+  // Install listener
+  FilterStorage.addObserver(onFilterStorageChange);
 
   // Capture keypress events - need to get them before the tree does
   E("listStack").addEventListener("keypress", onListKeyPress, true);
@@ -160,8 +159,7 @@ function selectFilter(filter)
  */
 function cleanUp()
 {
-  FilterStorage.removeFilterObserver(onFilterChange);
-  FilterStorage.removeSubscriptionObserver(onSubscriptionChange);
+  FilterStorage.removeObserver(onFilterStorageChange);
 }
 
 /**
@@ -690,8 +688,19 @@ function onListDragEnd(/**Event*/ e)
 }
 
 /**
- * Filter observer
- * @see FilterStorage.addFilterObserver()
+ * Observer for filter storage changes, calls onFilterChange or onSubscriptionChange
+ * @see FilterStorage.addObserver()
+ */
+function onFilterStorageChange(/**String*/ action, /**Array*/ items, additionalData)
+{
+  if (/^filters (.*)/.test(action))
+    onFilterChange(RegExp.$1, items, additionalData);
+  else if (/^subscriptions (.*)/.test(action))
+    onSubscriptionChange(RegExp.$1, items, additionalData);
+}
+
+/**
+ * Filter change observer
  */
 function onFilterChange(/**String*/ action, /**Array of Filter*/ filters, additionalData)
 {
@@ -746,8 +755,7 @@ function onFilterChange(/**String*/ action, /**Array of Filter*/ filters, additi
 }
 
 /**
- * Subscription observer
- * @see FilterStorage.addSubscriptionObserver()
+ * Subscription change observer
  */
 function onSubscriptionChange(/**String*/ action, /**Array of Subscription*/ subscriptions)
 {
@@ -2642,7 +2650,7 @@ let treeView = {
             if (filter.disabled != filter.__proto__.disabled)
             {
               filter.__proto__.disabled = filter.disabled;
-              FilterStorage.triggerFilterObservers(filter.disabled ? "disable" : "enable", [filter.__proto__]);
+              FilterStorage.triggerObservers(filter.disabled ? "filters disable" : "filters enable", [filter.__proto__]);
             }
             subscription.filters[i] = filter.__proto__;
             hadWrappers = true;
@@ -2669,9 +2677,9 @@ let treeView = {
           FilterStorage.updateSubscriptionFilters(subscription.__proto__, subscription.filters);
         else if (changed)
         {
-          FilterStorage.triggerSubscriptionObservers("updateinfo", [subscription.__proto__]);
+          FilterStorage.triggerObservers("subscriptions updateinfo", [subscription.__proto__]);
           if (disableChanged)
-            FilterStorage.triggerSubscriptionObservers(subscription.disabled ? "disable" : "enable", [subscription.__proto__]);
+            FilterStorage.triggerObservers(subscription.disabled ? "subscriptions disable" : "subscriptions enable", [subscription.__proto__]);
         }
 
         // Even if the filters didn't change, their ordering might have

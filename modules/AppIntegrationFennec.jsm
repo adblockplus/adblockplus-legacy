@@ -137,13 +137,17 @@ function onCreateOptions(wrapper, event)
       setSubscription(menu.value, menu.label);
   }, false);
 
-  let updateFunction = function() updateSubscriptionList(wrapper);
+  let updateFunction = function(action, items)
+  {
+    if (/^subscriptions\b/.test(action))
+      updateSubscriptionList(wrapper);
+  }
   updateFunction();
-  FilterStorage.addSubscriptionObserver(updateFunction);
+  FilterStorage.addObserver(updateFunction);
 
   wrapper.window.addEventListener("unload", function()
   {
-    FilterStorage.removeSubscriptionObserver(updateFunction);
+    FilterStorage.removeObserver(updateFunction);
   }, false);
 }
 

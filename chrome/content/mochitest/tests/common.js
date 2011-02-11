@@ -29,8 +29,7 @@ function prepareFilterComponents(keepObservers)
   let oldStorageKnown = FilterStorage.knownSubscriptions;
   let oldSubscriptionsKnown = Subscription.knownSubscriptions;
   let oldFiltersKnown = Filter.knownFilters;
-  let oldSubscriptionObservers = FilterStorageGlobal.subscriptionObservers;
-  let oldFilterObservers = FilterStorageGlobal.filterObservers;
+  let oldObservers = FilterStorageGlobal.observers;
   let oldSourceFile = FilterStorageGlobal.sourceFile;
 
   FilterStorage.subscriptions = [];
@@ -39,8 +38,7 @@ function prepareFilterComponents(keepObservers)
   Filter.knownFilters = {__proto__: null};
   if (!keepObservers)
   {
-    FilterStorageGlobal.subscriptionObservers = [];
-    FilterStorageGlobal.filterObservers = [];
+    FilterStorageGlobal.observers = [];
     FilterStorageGlobal.sourceFile = null;
   }
 
@@ -53,11 +51,10 @@ function prepareFilterComponents(keepObservers)
     FilterStorage.knownSubscriptions = oldStorageKnown;
     Subscription.knownSubscriptions = oldSubscriptionsKnown;
     Filter.knownFilters = oldFiltersKnown;
-    FilterStorageGlobal.subscriptionObservers = oldSubscriptionObservers;
-    FilterStorageGlobal.filterObservers = oldFilterObservers;
+    FilterStorageGlobal.observers = oldObservers;
     FilterStorageGlobal.sourceFile = oldSourceFile;
 
-    FilterStorage.triggerSubscriptionObservers("reload", FilterStorage.subscriptions);
+    FilterStorage.triggerObservers("reload subscriptions", FilterStorage.subscriptions);
   }, false);
 }
 

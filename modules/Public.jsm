@@ -139,7 +139,7 @@ var AdblockPlus =
         if (filter.disabled)
         {
           filter.disabled = false;
-          FilterStorage.triggerFilterObservers("enable", [filter]);
+          FilterStorage.triggerObservers("filters enable", [filter]);
         }
         FilterStorage.addFilter(filter);
       }

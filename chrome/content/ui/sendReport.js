@@ -869,7 +869,7 @@ let issuesDataSource =
     if (this.whitelistFilter && this.whitelistFilter.subscriptions.length && !this.whitelistFilter.disabled)
     {
       this.whitelistFilter.disabled = true;
-      FilterStorage.triggerFilterObservers("disable", [this.whitelistFilter]);
+      FilterStorage.triggerObservers("filters disable", [this.whitelistFilter]);
     }
     E("issuesWhitelistBox").hidden = true;
     this.forceReload();
@@ -904,13 +904,13 @@ let issuesDataSource =
       if (subscription.disabled)
       {
         subscription.disabled = false;
-        FilterStorage.triggerSubscriptionObservers("enable", [subscription]);
+        FilterStorage.triggerObservers("subscriptions enable", [subscription]);
       }
 
       subscription.title = title;
       if (subscription instanceof DownloadableSubscription)
         subscription.autoDownload = result.autoDownload;
-      FilterStorage.triggerSubscriptionObservers("updateinfo", [subscription]);
+      FilterStorage.triggerObservers("subscriptions updateinfo", [subscription]);
     
       if (subscription instanceof DownloadableSubscription && !subscription.lastDownload)
         Synchronizer.execute(subscription);
@@ -927,7 +927,7 @@ let issuesDataSource =
     if (filter && filter.subscriptions.length && !filter.disabled)
     {
       filter.disabled = true;
-      FilterStorage.triggerFilterObservers("disable", [filter]);
+      FilterStorage.triggerObservers("filters disable", [filter]);
     }
 
     node.parentNode.removeChild(node);
@@ -942,7 +942,7 @@ let issuesDataSource =
     if (filter && filter.subscriptions.length && filter.disabled)
     {
       filter.disabled = false;
-      FilterStorage.triggerFilterObservers("enable", [filter]);
+      FilterStorage.triggerObservers("filters enable", [filter]);
     }
 
     node.parentNode.removeChild(node);
@@ -958,7 +958,7 @@ let issuesDataSource =
     if (subscription && subscription.disabled)
     {
       subscription.disabled = false;
-      FilterStorage.triggerSubscriptionObservers("enable", [subscription]);
+      FilterStorage.triggerObservers("subscriptions enable", [subscription]);
     }
 
     node.parentNode.removeChild(node);

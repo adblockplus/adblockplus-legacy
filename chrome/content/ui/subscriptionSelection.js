@@ -576,13 +576,13 @@ function doAddSubscription(/**String*/ url, /**String*/ title, /**Boolean*/ auto
   if (disabled != subscription.disabled)
   {
     subscription.disabled = disabled;
-    FilterStorage.triggerSubscriptionObservers(disabled ? "disable" : "enable", [subscription]);
+    FilterStorage.triggerObservers(disabled ? "subscriptions disable" : "subscriptions enable", [subscription]);
   }
 
   subscription.title = title;
   if (subscription instanceof DownloadableSubscription)
     subscription.autoDownload = autoDownload;
-  FilterStorage.triggerSubscriptionObservers("updateinfo", [subscription]);
+  FilterStorage.triggerObservers("subscriptions updateinfo", [subscription]);
 
   if (subscription instanceof DownloadableSubscription && !subscription.lastDownload)
     Synchronizer.execute(subscription);
