@@ -70,8 +70,13 @@ var FilterListener =
     onSubscriptionChange("reload", FilterStorage.subscriptions);
     TimeLine.log("done initializing data structures");
 
-    FilterStorage.addSubscriptionObserver(onSubscriptionChange);
-    FilterStorage.addFilterObserver(onFilterChange);
+    FilterStorage.addObserver(function(action, items)
+    {
+      if (/^filters (.*)/.test(action))
+        onFilterChange(RegExp.$1, items);
+      else if (/^subscriptions (.*)/.test(action))
+        onSubscriptionChange(RegExp.$1, items);
+    });
     Utils.observerService.addObserver(FilterListenerPrivate, "browser:purge-session-history", true);
     TimeLine.log("done adding observers");
 
