@@ -54,7 +54,7 @@ function prepareFilterComponents(keepObservers)
     FilterStorageGlobal.observers = oldObservers;
     FilterStorageGlobal.sourceFile = oldSourceFile;
 
-    FilterStorage.triggerObservers("reload subscriptions", FilterStorage.subscriptions);
+    FilterStorage.triggerObservers("load");
   }, false);
 }
 
