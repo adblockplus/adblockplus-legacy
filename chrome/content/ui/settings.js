@@ -253,15 +253,6 @@ function createFilterWrapper(filter)
 }
 
 /**
- * Makes sure shortcut is initialized for the filter.
- */
-function ensureFilterShortcut(/**Filter*/ filter)
-{
-  if (filter instanceof RegExpFilter && !filter.shortcut)
-    filter.shortcut = defaultMatcher.findShortcut(filter);
-}
-
-/**
  * Retrieves a filter by its text (might be a filter wrapper).
  *
  * @param {String} text text representation of the filter
@@ -272,11 +263,7 @@ function getFilterByText(text)
   if (text in filterWrappers)
     return filterWrappers[text];
   else
-  {
-    let result = Filter.fromText(text);
-    ensureFilterShortcut(result);
-    return result;
-  }
+    return Filter.fromText(text);
 }
 
 /**
@@ -1305,8 +1292,8 @@ function compareText(/**Filter*/ filter1, /**Filter*/ filter2)
  */
 function compareSlow(/**Filter*/ filter1, /**Filter*/ filter2)
 {
-  let isSlow1 = (filter1 instanceof RegExpFilter && !filter1.disabled && !filter1.shortcut ? 1 : 0);
-  let isSlow2 = (filter2 instanceof RegExpFilter && !filter2.disabled && !filter2.shortcut ? 1 : 0);
+  let isSlow1 = filter1 instanceof RegExpFilter && defaultMatcher.isSlowFilter(filter1);
+  let isSlow2 = filter2 instanceof RegExpFilter && defaultMatcher.isSlowFilter(filter2);
   return isSlow1 - isSlow2;
 }
 
@@ -1508,7 +1495,7 @@ let treeView = {
       if (col == "col-filter")
         return filter.text;
       else if (col == "col-slow")
-        return (filter instanceof RegExpFilter && !filter.shortcut && !filter.disabled && !subscription.disabled ? "!" : null);
+        return (filter instanceof RegExpFilter && defaultMatcher.isSlowFilter(filter) ? "!" : null);
       else if (filter instanceof ActiveFilter)
       {
         if (col == "col-hitcount")
@@ -1544,7 +1531,7 @@ let treeView = {
     properties.AppendElement(this.atoms["selected-" + this.selection.isSelected(row)]);
     properties.AppendElement(this.atoms["subscription-" + !filter]);
     properties.AppendElement(this.atoms["filter-" + (filter instanceof Filter)]);
-    properties.AppendElement(this.atoms["filter-regexp-" + (filter instanceof RegExpFilter && !filter.shortcut)]);
+    properties.AppendElement(this.atoms["filter-regexp-" + (filter instanceof RegExpFilter && defaultMatcher.isSlowFilter(filter))]);
     properties.AppendElement(this.atoms["description-" + (typeof filter == "string")]);
     properties.AppendElement(this.atoms["subscription-special-" + (subscription instanceof SpecialSubscription)]);
     properties.AppendElement(this.atoms["subscription-external-" + (subscription instanceof ExternalSubscription)]);
@@ -2531,17 +2518,6 @@ let treeView = {
 
       if (typeof newValue == "undefined")
         newValue = !item.disabled;
-
-      if (!newValue)
-      {
-        if (item instanceof Subscription)
-        {
-          for each (let filter in item._sortedFilters)
-            ensureFilterShortcut(filter);
-        }
-        else
-          ensureFilterShortcut(item);
-      }
 
       item.disabled = newValue;
     }
