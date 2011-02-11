@@ -33,20 +33,21 @@
         let filters = [];
         for each (let filter in matcher.regexps)
         {
-          if (filter.shortcut)
-            is(filter.shortcut, null, "Shortcut of filter " + filter.text);
+          is(matcher.getShortcutForFilter(filter), null, "Shortcut of filter " + filter.text);
           filters.push(filter);
         }
         for (let shortcut in matcher.shortcutHash)
         {
           let filter = matcher.shortcutHash[shortcut];
-          if (filter.shortcut != shortcut)
-            is(filter.shortcut, shortcut, "Shortcut of filter " + filter.text);
+          if (matcher.getShortcutForFilter(filter) != shortcut)
+            is(matcher.getShortcutForFilter(filter), shortcut, "Shortcut of filter " + filter.text);
           filters.push(filter);
         }
         result[matcher == defaultMatcher.blacklist ? "blacklist" : "whitelist"] = filters;
       }
-      result.elemhide = ElemHideGlobal.filters;
+      result.elemhide = [];
+      for (let key in ElemHideGlobal.filterByKey)
+        result.elemhide.push(Filter.fromText(ElemHideGlobal.filterByKey[key]));
 
       function canonize(obj)
       {

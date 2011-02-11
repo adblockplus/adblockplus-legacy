@@ -465,11 +465,6 @@ RegExpFilter.prototype =
    */
   regexp: null,
   /**
-   * 8 character string identifying this filter for faster matching
-   * @type String
-   */
-  shortcut: null,
-  /**
    * Content types the filter applies to, combination of values from RegExpFilter.typeMap
    * @type Number
    */
