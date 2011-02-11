@@ -53,12 +53,6 @@ Matcher.prototype = {
   shortcutHash: null,
 
   /**
-   * Filters without a shortcut
-   * @type Array of RegExpFilter
-   */
-  regexps: null,
-
-  /**
    * Lookup table, has keys for all filters already added
    * @type Object
    */
@@ -70,7 +64,6 @@ Matcher.prototype = {
   clear: function()
   {
     this.shortcutHash = {__proto__: null};
-    this.regexps = [];
     this.knownFilters = {__proto__: null};
   },
 
@@ -85,15 +78,10 @@ Matcher.prototype = {
 
     // Look for a suitable shortcut if the filter doesn't have one
     let shortcut = this.findShortcut(filter);
-    if (shortcut)
-    {
-      if (shortcut in this.shortcutHash)
-        this.shortcutHash[shortcut] = this.shortcutHash[shortcut].pushFilter(filter);
-      else
-        this.shortcutHash[shortcut] = filter;
-    }
+    if (shortcut in this.shortcutHash)
+      this.shortcutHash[shortcut] = this.shortcutHash[shortcut].pushFilter(filter);
     else
-      this.regexps.push(filter);
+      this.shortcutHash[shortcut] = filter;
 
     this.knownFilters[filter.text] = shortcut;
   },
@@ -108,24 +96,15 @@ Matcher.prototype = {
       return;
 
     let shortcut = this.knownFilters[filter.text];
-    if (shortcut)
+    if ("filters" in this.shortcutHash[shortcut])
     {
-      if ("filters" in this.shortcutHash[shortcut])
-      {
-        let list = this.shortcutHash[shortcut].filters;
-        for (let i = 0, l = list.length; i < l; i++)
-          if (list[i] == filter)
-            list.splice(i--, 1);
-      }
-      else
-        delete this.shortcutHash[shortcut];
+      let list = this.shortcutHash[shortcut].filters;
+      for (let i = 0, l = list.length; i < l; i++)
+        if (list[i] == filter)
+          list.splice(i--, 1);
     }
     else
-    {
-      let i = this.regexps.indexOf(filter);
-      if (i >= 0)
-        this.regexps.splice(i, 1);
-    }
+      delete this.shortcutHash[shortcut];
 
     delete this.knownFilters[filter.text];
   },
@@ -138,7 +117,7 @@ Matcher.prototype = {
   findShortcut: function(filter)
   {
     // For donottrack filters use "donottrack" as keyword if nothing else matches
-    let defaultResult = (filter.contentType & RegExpFilter.typeMap.DONOTTRACK ? "donottrack" : null);
+    let defaultResult = (filter.contentType & RegExpFilter.typeMap.DONOTTRACK ? "donottrack" : "");
 
     let text = filter.text;
     if (Filter.regexpRegExp.test(text))
@@ -203,28 +182,23 @@ Matcher.prototype = {
    */
   matchesAny: function(location, contentType, docDomain, thirdParty)
   {
-    // Optimized matching using shortcuts
     let candidates = location.toLowerCase().match(/[a-z0-9%]{3,}/g);
+    if (candidates === null)
+      candidates = [];
     if (contentType == "DONOTTRACK")
       candidates.unshift("donottrack");
-    if (candidates)
+    else
+      candidates.push("");
+    for (let i = 0, l = candidates.length; i < l; i++)
     {
-      for (let i = 0, l = candidates.length; i < l; i++)
+      let substr = candidates[i];
+      if (substr in this.shortcutHash)
       {
-        let substr = candidates[i];
-        if (substr in this.shortcutHash)
-        {
-          let result = this.shortcutHash[substr].matches(location, contentType, docDomain, thirdParty);
-          if (result)
-            return result;
-        }
+        let result = this.shortcutHash[substr].matches(location, contentType, docDomain, thirdParty);
+        if (result)
+          return result;
       }
     }
-
-    // Slow matching for filters without shortcut
-    for each (let filter in this.regexps)
-      if (filter.matches(location, contentType, docDomain, thirdParty))
-        return filter;
 
     return null;
   }
@@ -371,48 +345,34 @@ CombinedMatcher.prototype =
    */
   matchesAnyInternal: function(location, contentType, docDomain, thirdParty)
   {
-    let blacklistHit = null;
-
-    // Optimized matching using shortcuts
-    let hashWhite = this.whitelist.shortcutHash;
-    let hashBlack = this.blacklist.shortcutHash;
-
     let candidates = location.toLowerCase().match(/[a-z0-9%]{3,}/g);
+    if (candidates === null)
+      candidates = [];
     if (contentType == "DONOTTRACK")
       candidates.unshift("donottrack");
-    if (candidates)
+    else
+      candidates.push("");
+
+    let blacklistHit = null;
+    let hashWhite = this.whitelist.shortcutHash;
+    let hashBlack = this.blacklist.shortcutHash;
+    for (let i = 0, l = candidates.length; i < l; i++)
     {
-      for (let i = 0, l = candidates.length; i < l; i++)
+      let substr = candidates[i];
+      if (substr in hashWhite)
       {
-        let substr = candidates[i];
-        if (substr in hashWhite)
-        {
-          let result = hashWhite[substr].matches(location, contentType, docDomain, thirdParty);
-          if (result)
-            return result;
-        }
-        if (substr in hashBlack)
-        {
-          let result = hashBlack[substr].matches(location, contentType, docDomain, thirdParty);
-          if (result)
-            blacklistHit = result;
-        }
+        let result = hashWhite[substr].matches(location, contentType, docDomain, thirdParty);
+        if (result)
+          return result;
+      }
+      if (blacklistHit === null && substr in hashBlack)
+      {
+        let result = hashBlack[substr].matches(location, contentType, docDomain, thirdParty);
+        if (result)
+          blacklistHit = result;
       }
     }
-
-    // Slow matching for filters without shortcut
-    for each (let filter in this.whitelist.regexps)
-      if (filter.matches(location, contentType, docDomain, thirdParty))
-        return filter;
-
-    if (blacklistHit)
-      return blacklistHit;
-
-    for each (let filter in this.blacklist.regexps)
-      if (filter.matches(location, contentType, docDomain, thirdParty))
-        return filter;
-
-    return null;
+    return blacklistHit;
   },
 
   /**
