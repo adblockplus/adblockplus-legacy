@@ -28,7 +28,7 @@ function prepareFilterComponents(keepObservers)
   let oldSubscriptions = FilterStorage.subscriptions;
   let oldStorageKnown = FilterStorage.knownSubscriptions;
   let oldSubscriptionsKnown = Subscription.knownSubscriptions;
-  let oldFiltersKnown = Subscription.knownSubscriptions;
+  let oldFiltersKnown = Filter.knownFilters;
   let oldSubscriptionObservers = FilterStorageGlobal.subscriptionObservers;
   let oldFilterObservers = FilterStorageGlobal.filterObservers;
   let oldSourceFile = FilterStorageGlobal.sourceFile;
@@ -52,7 +52,7 @@ function prepareFilterComponents(keepObservers)
     FilterStorage.subscriptions = oldSubscriptions;
     FilterStorage.knownSubscriptions = oldStorageKnown;
     Subscription.knownSubscriptions = oldSubscriptionsKnown;
-    Subscription.knownSubscriptions = oldFiltersKnown;
+    Filter.knownFilters = oldFiltersKnown;
     FilterStorageGlobal.subscriptionObservers = oldSubscriptionObservers;
     FilterStorageGlobal.filterObservers = oldFilterObservers;
     FilterStorageGlobal.sourceFile = oldSourceFile;
