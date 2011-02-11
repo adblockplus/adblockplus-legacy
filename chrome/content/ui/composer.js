@@ -248,14 +248,14 @@ function updateFilter()
   filter = Filter.normalize(filter);
   E("regexpWarning").hidden = !Filter.regexpRegExp.test(filter);
 
-  let hasShortcut = true;
+  let isSlow = false;
   let compiledFilter = Filter.fromText(filter);
   if (E("regexpWarning").hidden)
   {
     if (compiledFilter instanceof RegExpFilter && defaultMatcher.isSlowFilter(compiledFilter))
-      hasShortcut = false;
+      isSlow = true;
   }
-  E("shortpatternWarning").hidden = hasShortcut;
+  E("shortpatternWarning").hidden = !isSlow;
 
   E("matchWarning").hidden = compiledFilter instanceof RegExpFilter && compiledFilter.matches(item.location, item.typeDescr, item.docDomain, item.thirdParty);
 
