@@ -72,12 +72,6 @@ var FilterStorage =
   fileProperties: {__proto__: null},
 
   /**
-   * Will be set to true if there were changes since the data was saved/loaded
-   * last time.
-   */
-  isDirty: false,
-
-  /**
    * List of filter subscriptions containing all filters
    * @type Array of Subscription
    */
@@ -114,10 +108,10 @@ var FilterStorage =
 
   /**
    * Calls observers after a change
-   * @param {String} action change code ("subscriptions add",
-   *                 "subscriptions remove", "subscriptions enable",
-   *                 "subscriptions disable", "subscriptions update",
-   *                 "subscriptions updateinfo", "subscriptions reload",
+   * @param {String} action change code ("load", "beforesave", "save",
+   *                 "subscriptions add", "subscriptions remove",
+   *                 "subscriptions enable", "subscriptions disable",
+   *                 "subscriptions update", "subscriptions updateinfo",
    *                 "filters add", "filters remove", "enable",
    *                 "filters disable", "filters hit")
    * @param {Array} items items that the change applies to
@@ -125,7 +119,6 @@ var FilterStorage =
    */
   triggerObservers: function(action, items, additionalData)
   {
-    FilterStorage.isDirty = true;
     for each (let observer in observers)
       observer(action, items, additionalData);
   },
@@ -400,8 +393,7 @@ var FilterStorage =
     }
 
     TimeLine.log("load complete, calling observers");
-    FilterStorage.triggerObservers("subscriptions reload", FilterStorage.subscriptions);
-    FilterStorage.isDirty = false;
+    FilterStorage.triggerObservers("load");
     TimeLine.leave("FilterStorage.loadFromDisk() done");
   },
 
@@ -415,6 +407,7 @@ var FilterStorage =
 
     TimeLine.enter("Entered FilterStorage.saveToDisk()");
 
+    FilterStorage.triggerObservers("beforesave");
     try {
       FilterStorage.sourceFile.normalize();
     } catch (e) {}
@@ -548,7 +541,7 @@ var FilterStorage =
 
     tempFile.moveTo(FilterStorage.sourceFile.parent, FilterStorage.sourceFile.leafName);
     TimeLine.log("created backups and renamed temp file");
-    FilterStorage.isDirty = false;
+    FilterStorage.triggerObservers("save");
     TimeLine.leave("FilterStorage.saveToDisk() done");
   }
 };
