@@ -82,9 +82,9 @@ var ElemHide =
   /**
    * Called on module startup.
    */
-  startup: function()
+  init: function()
   {
-    TimeLine.enter("Entered ElemHide.startup()");
+    TimeLine.enter("Entered ElemHide.init()");
     Prefs.addListener(function(name)
     {
       if (name == "enabled")
@@ -103,7 +103,7 @@ var ElemHide =
     registrar.registerFactory(ElemHidePrivate.classID, ElemHidePrivate.classDescription,
         "@mozilla.org/network/protocol/about;1?what=" + ElemHidePrivate.aboutPrefix, ElemHidePrivate);
 
-    TimeLine.leave("ElemHide.startup() done");
+    TimeLine.leave("ElemHide.init() done");
   },
 
   /**
