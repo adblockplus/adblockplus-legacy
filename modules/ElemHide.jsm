@@ -181,7 +181,7 @@ var ElemHide =
       let hasFilters = false;
       for (let key in filterByKey)
       {
-        let filter = Filter.fromText(filterByKey[key]);
+        let filter = Filter.knownFilters[filterByKey[key]];
         let domain = filter.selectorDomain || "";
 
         let list;
@@ -392,7 +392,7 @@ HitRegistrationChannel.prototype = {
     if (this.key in filterByKey)
     {
       let wnd = Utils.getRequestWindow(this);
-      if (wnd && wnd.document && !Policy.processNode(wnd, wnd.document, Policy.type.ELEMHIDE, Filter.fromText(filterByKey[this.key])))
+      if (wnd && wnd.document && !Policy.processNode(wnd, wnd.document, Policy.type.ELEMHIDE, Filter.knownFilters[filterByKey[this.key]]))
         data = "<bindings xmlns='http://www.mozilla.org/xbl'/>";
     }
 

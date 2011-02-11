@@ -76,13 +76,20 @@ Matcher.prototype = {
     if (filter.text in this.knownFilters)
       return;
 
-    // Look for a suitable shortcut if the filter doesn't have one
+    // Look for a suitable shortcut
     let shortcut = this.findShortcut(filter);
-    if (shortcut in this.shortcutHash)
-      this.shortcutHash[shortcut] = this.shortcutHash[shortcut].pushFilter(filter);
-    else
-      this.shortcutHash[shortcut] = filter;
-
+    switch (typeof this.shortcutHash[shortcut])
+    {
+      case "undefined":
+        this.shortcutHash[shortcut] = filter.text;
+        break;
+      case "string":
+        this.shortcutHash[shortcut] = [this.shortcutHash[shortcut], filter.text];
+        break;
+      default:
+        this.shortcutHash[shortcut].push(filter.text);
+        break;
+    }
     this.knownFilters[filter.text] = shortcut;
   },
 
@@ -96,15 +103,15 @@ Matcher.prototype = {
       return;
 
     let shortcut = this.knownFilters[filter.text];
-    if ("filters" in this.shortcutHash[shortcut])
+    let list = this.shortcutHash[shortcut];
+    if (typeof list == "string")
+      delete this.shortcutHash[shortcut];
+    else
     {
-      let list = this.shortcutHash[shortcut].filters;
       for (let i = 0, l = list.length; i < l; i++)
-        if (list[i] == filter)
+        if (list[i] == filter.text)
           list.splice(i--, 1);
     }
-    else
-      delete this.shortcutHash[shortcut];
 
     delete this.knownFilters[filter.text];
   },
@@ -142,7 +149,19 @@ Matcher.prototype = {
     for (let i = 0, l = candidates.length; i < l; i++)
     {
       let candidate = candidates[i].substr(1);
-      let count = candidate in hash ? hash[candidate].filterCount : 0;
+      let count;
+      switch (typeof hash[candidate])
+      {
+        case "undefined":
+          count = 0;
+          break;
+        case "string":
+          count = 1;
+          break;
+        default:
+          count = hash[candidate].length;
+          break;
+      }
       if (count < resultCount || (count == resultCount && candidate.length > resultLength))
       {
         result = candidate;
@@ -173,6 +192,29 @@ Matcher.prototype = {
   },
 
   /**
+   * Checks whether the entries for a particular shortcut match a URL
+   */
+  _checkEntryMatch: function(shortcut, location, contentType, docDomain, thirdParty)
+  {
+    let list = this.shortcutHash[shortcut];
+    if (typeof list == "string")
+    {
+      let filter = Filter.knownFilters[list];
+      return (filter.matches(location, contentType, docDomain, thirdParty) ? filter : null);
+    }
+    else
+    {
+      for (let i = 0, l = list.length; i < l; i++)
+      {
+        let filter = Filter.knownFilters[list[i]];
+        if (filter.matches(location, contentType, docDomain, thirdParty))
+          return filter;
+      }
+      return null;
+    }
+  },
+
+  /**
    * Tests whether the URL matches any of the known filters
    * @param {String} location URL to be tested
    * @param {String} contentType content type identifier of the URL
@@ -194,7 +236,7 @@ Matcher.prototype = {
       let substr = candidates[i];
       if (substr in this.shortcutHash)
       {
-        let result = this.shortcutHash[substr].matches(location, contentType, docDomain, thirdParty);
+        let result = this._checkEntryMatch(substr, location, contentType, docDomain, thirdParty);
         if (result)
           return result;
       }
@@ -354,23 +396,17 @@ CombinedMatcher.prototype =
       candidates.push("");
 
     let blacklistHit = null;
-    let hashWhite = this.whitelist.shortcutHash;
-    let hashBlack = this.blacklist.shortcutHash;
     for (let i = 0, l = candidates.length; i < l; i++)
     {
       let substr = candidates[i];
-      if (substr in hashWhite)
+      if (substr in this.whitelist.shortcutHash)
       {
-        let result = hashWhite[substr].matches(location, contentType, docDomain, thirdParty);
+        let result = this.whitelist._checkEntryMatch(substr, location, contentType, docDomain, thirdParty);
         if (result)
           return result;
       }
-      if (blacklistHit === null && substr in hashBlack)
-      {
-        let result = hashBlack[substr].matches(location, contentType, docDomain, thirdParty);
-        if (result)
-          blacklistHit = result;
-      }
+      if (substr in this.blacklist.shortcutHash && blacklistHit === null)
+        blacklistHit = this.blacklist._checkEntryMatch(substr, location, contentType, docDomain, thirdParty);
     }
     return blacklistHit;
   },
