@@ -28,20 +28,22 @@
     function checkKnownFilters(text, expected)
     {
       let result = {};
-      for each (let matcher in [defaultMatcher.blacklist, defaultMatcher.whitelist])
+      for each (let type in ["blacklist", "whitelist"])
       {
+        let matcher = defaultMatcher[type]
         let filters = [];
         for (let shortcut in matcher.shortcutHash)
         {
           let entry = matcher.shortcutHash[shortcut];
-          for each (let filter in ("filters" in entry ? entry.filters : [entry]))
+          let list = (typeof entry == "string" ? [Filter.fromText(entry)] : entry.map(function(text) Filter.fromText(text)));
+          for each (let filter in list)
           {
             if (matcher.getShortcutForFilter(filter) != shortcut)
               is(matcher.getShortcutForFilter(filter), shortcut, "Shortcut of filter " + filter.text);
             filters.push(filter);
           }
         }
-        result[matcher == defaultMatcher.blacklist ? "blacklist" : "whitelist"] = filters;
+        result[type] = filters;
       }
       result.elemhide = [];
       for (let key in ElemHideGlobal.filterByKey)
