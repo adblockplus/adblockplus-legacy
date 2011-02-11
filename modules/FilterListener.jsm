@@ -34,12 +34,14 @@ const Cr = Components.results;
 const Cu = Components.utils;
 
 let baseURL = Cc["@adblockplus.org/abp/private;1"].getService(Ci.nsIURI);
+Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 Cu.import(baseURL.spec + "TimeLine.jsm");
 Cu.import(baseURL.spec + "FilterStorage.jsm");
 Cu.import(baseURL.spec + "ElemHide.jsm");
 Cu.import(baseURL.spec + "Matcher.jsm");
 Cu.import(baseURL.spec + "FilterClasses.jsm");
 Cu.import(baseURL.spec + "SubscriptionClasses.jsm");
+Cu.import(baseURL.spec + "Utils.jsm");
 
 let subscriptionFilter = null;
 
@@ -61,15 +63,31 @@ var FilterListener =
   startup: function()
   {
     TimeLine.enter("Entered FilterListener.startup()");
-  
+
+    FilterStorage.loadFromDisk();
+    ElemHide.init();
+
     onSubscriptionChange("reload", FilterStorage.subscriptions);
     TimeLine.log("done initializing data structures");
-  
-    TimeLine.log("adding observers");
+
     FilterStorage.addSubscriptionObserver(onSubscriptionChange);
     FilterStorage.addFilterObserver(onFilterChange);
-  
+    Utils.observerService.addObserver(FilterListenerPrivate, "browser:purge-session-history", true);
+    TimeLine.log("done adding observers");
+
     TimeLine.leave("FilterListener.startup() done");
+  },
+
+  /**
+   * Called on module shutdown.
+   */
+  shutdown: function()
+  {
+    TimeLine.enter("Entered FilterListener.shutdown()");
+    if (FilterStorage.isDirty)
+      FilterStorage.saveToDisk();
+    Utils.observerService.removeObserver(FilterListenerPrivate, "browser:purge-session-history");
+    TimeLine.leave("FilterListener.shutdown() done");
   },
 
   /**
@@ -86,6 +104,25 @@ var FilterListener =
     if (!batchMode && ElemHide.isDirty)
       ElemHide.apply();
   }
+};
+
+/**
+ * Private nsIObserver implementation.
+ * @class
+ */
+var FilterListenerPrivate =
+{
+  observe: function(subject, topic, data)
+  {
+    if (topic == "browser:purge-session-history" && Prefs.clearStatsOnHistoryPurge)
+    {
+      FilterStorage.resetHitCounts();
+      FilterStorage.saveToDisk();
+
+      Prefs.recentReports = "[]";
+    }
+  },
+  QueryInterface: XPCOMUtils.generateQI([Ci.nsISupportsWeakReference, Ci.nsIObserver])
 };
 
 /**
