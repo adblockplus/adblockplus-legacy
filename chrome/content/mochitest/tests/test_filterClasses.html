@@ -107,7 +107,7 @@
       }
       if (type == "whitelist" || type == "filterlist")
       {
-        addProperty("contentType", 0x7FFFFFFF & ~RegExpFilter.typeMap.ELEMHIDE);
+        addProperty("contentType", 0x7FFFFFFF & ~(RegExpFilter.typeMap.ELEMHIDE | RegExpFilter.typeMap.DONOTTRACK));
         addProperty("matchCase", "false");
         addProperty("thirdParty", "null");
         addProperty("domains", "");
@@ -203,30 +203,33 @@
     compareFilter("|*asd|f*d**dd*|", ["type=filterlist", "text=|*asd|f*d**dd*|", "regexp=^.*asd\\|f.*d.*dd.*$"]);
     compareFilter("dd[]{}$%<>&()d", ["type=filterlist", "text=dd[]{}$%<>&()d", "regexp=dd\\[\\]\\{\\}\\$\\%\\<\\>\\&\\(\\)d"]);
 
-    compareFilter("@@/ddd|f?a[s]d/", ["type=whitelist", "text=@@/ddd|f?a[s]d/", "regexp=ddd|f?a[s]d", "contentType=" + (allTypes & ~(t.ELEMHIDE | t.DOCUMENT))]);
-    compareFilter("@@*asdf*d**dd*", ["type=whitelist", "text=@@*asdf*d**dd*", "regexp=asdf.*d.*dd", "contentType=" + (allTypes & ~(t.ELEMHIDE | t.DOCUMENT))]);
-    compareFilter("@@|*asd|f*d**dd*|", ["type=whitelist", "text=@@|*asd|f*d**dd*|", "regexp=^.*asd\\|f.*d.*dd.*$", "contentType=" + (allTypes & ~(t.ELEMHIDE | t.DOCUMENT))]);
-    compareFilter("@@dd[]{}$%<>&()d", ["type=whitelist", "text=@@dd[]{}$%<>&()d", "regexp=dd\\[\\]\\{\\}\\$\\%\\<\\>\\&\\(\\)d", "contentType=" + (allTypes & ~(t.ELEMHIDE | t.DOCUMENT))]);
+    compareFilter("@@/ddd|f?a[s]d/", ["type=whitelist", "text=@@/ddd|f?a[s]d/", "regexp=ddd|f?a[s]d", "contentType=" + (allTypes & ~(t.ELEMHIDE | t.DONOTTRACK | t.DOCUMENT))]);
+    compareFilter("@@*asdf*d**dd*", ["type=whitelist", "text=@@*asdf*d**dd*", "regexp=asdf.*d.*dd", "contentType=" + (allTypes & ~(t.ELEMHIDE | t.DONOTTRACK | t.DOCUMENT))]);
+    compareFilter("@@|*asd|f*d**dd*|", ["type=whitelist", "text=@@|*asd|f*d**dd*|", "regexp=^.*asd\\|f.*d.*dd.*$", "contentType=" + (allTypes & ~(t.ELEMHIDE | t.DONOTTRACK | t.DOCUMENT))]);
+    compareFilter("@@dd[]{}$%<>&()d", ["type=whitelist", "text=@@dd[]{}$%<>&()d", "regexp=dd\\[\\]\\{\\}\\$\\%\\<\\>\\&\\(\\)d", "contentType=" + (allTypes & ~(t.ELEMHIDE | t.DONOTTRACK | t.DOCUMENT))]);
 
     compareFilter("bla$match-case,script,other,third-party,domain=foo.com", ["type=filterlist", "text=bla$match-case,script,other,third-party,domain=foo.com", "regexp=bla", "matchCase=true", "contentType=" + (t.SCRIPT | t.OTHER), "thirdParty=true", "domains=FOO.COM"]);
-    compareFilter("bla$~match-case,~script,~other,~third-party,domain=~bar.com", ["type=filterlist", "text=bla$~match-case,~script,~other,~third-party,domain=~bar.com", "regexp=bla", "contentType=" + (allTypes & ~(t.ELEMHIDE | t.SCRIPT | t.OTHER)), "thirdParty=false", "domains=~BAR.COM"]);
+    compareFilter("bla$~match-case,~script,~other,~third-party,domain=~bar.com", ["type=filterlist", "text=bla$~match-case,~script,~other,~third-party,domain=~bar.com", "regexp=bla", "contentType=" + (allTypes & ~(t.ELEMHIDE | t.DONOTTRACK | t.SCRIPT | t.OTHER)), "thirdParty=false", "domains=~BAR.COM"]);
     compareFilter("@@bla$match-case,script,other,third-party,domain=foo.com|bar.com|~bar.foo.com|~foo.bar.com", ["type=whitelist", "text=@@bla$match-case,script,other,third-party,domain=foo.com|bar.com|~bar.foo.com|~foo.bar.com", "regexp=bla", "matchCase=true", "contentType=" + (t.SCRIPT | t.OTHER), "thirdParty=true", "domains=BAR.COM|FOO.COM|~BAR.FOO.COM|~FOO.BAR.COM"]);
 
     // background and image should be the same for backwards compatibility
     compareFilter("bla$image", ["type=filterlist", "text=bla$image", "regexp=bla", "contentType=" + (t.IMAGE)]);
     compareFilter("bla$background", ["type=filterlist", "text=bla$background", "regexp=bla", "contentType=" + (t.IMAGE)]);
-    compareFilter("bla$~image", ["type=filterlist", "text=bla$~image", "regexp=bla", "contentType=" + (allTypes & ~(t.IMAGE | t.ELEMHIDE))]);
-    compareFilter("bla$~background", ["type=filterlist", "text=bla$~background", "regexp=bla", "contentType=" + (allTypes & ~(t.IMAGE | t.ELEMHIDE))]);
+    compareFilter("bla$~image", ["type=filterlist", "text=bla$~image", "regexp=bla", "contentType=" + (allTypes & ~(t.IMAGE | t.ELEMHIDE | t.DONOTTRACK))]);
+    compareFilter("bla$~background", ["type=filterlist", "text=bla$~background", "regexp=bla", "contentType=" + (allTypes & ~(t.IMAGE | t.ELEMHIDE | t.DONOTTRACK))]);
 
-    compareFilter("@@bla$~script,~other", ["type=whitelist", "text=@@bla$~script,~other", "regexp=bla", "contentType=" + (allTypes & ~(t.ELEMHIDE | t.DOCUMENT | t.SCRIPT | t.OTHER))]);
-    compareFilter("@@http://bla$~script,~other", ["type=whitelist", "text=@@http://bla$~script,~other", "regexp=http\\:\\/\\/bla", "contentType=" + (allTypes & ~(t.ELEMHIDE | t.SCRIPT | t.OTHER))]);
-    compareFilter("@@|ftp://bla$~script,~other", ["type=whitelist", "text=@@|ftp://bla$~script,~other", "regexp=^ftp\\:\\/\\/bla", "contentType=" + (allTypes & ~(t.ELEMHIDE | t.SCRIPT | t.OTHER))]);
-    compareFilter("@@bla$~script,~other,document", ["type=whitelist", "text=@@bla$~script,~other,document", "regexp=bla", "contentType=" +  (allTypes & ~(t.ELEMHIDE | t.SCRIPT | t.OTHER))]);
-    compareFilter("@@bla$~script,~other,~document", ["type=whitelist", "text=@@bla$~script,~other,~document", "regexp=bla", "contentType=" + (allTypes & ~(t.ELEMHIDE | t.DOCUMENT | t.SCRIPT | t.OTHER))]);
+    compareFilter("@@bla$~script,~other", ["type=whitelist", "text=@@bla$~script,~other", "regexp=bla", "contentType=" + (allTypes & ~(t.ELEMHIDE | t.DONOTTRACK | t.DOCUMENT | t.SCRIPT | t.OTHER))]);
+    compareFilter("@@http://bla$~script,~other", ["type=whitelist", "text=@@http://bla$~script,~other", "regexp=http\\:\\/\\/bla", "contentType=" + (allTypes & ~(t.ELEMHIDE | t.DONOTTRACK | t.SCRIPT | t.OTHER))]);
+    compareFilter("@@|ftp://bla$~script,~other", ["type=whitelist", "text=@@|ftp://bla$~script,~other", "regexp=^ftp\\:\\/\\/bla", "contentType=" + (allTypes & ~(t.ELEMHIDE | t.DONOTTRACK | t.SCRIPT | t.OTHER))]);
+    compareFilter("@@bla$~script,~other,document", ["type=whitelist", "text=@@bla$~script,~other,document", "regexp=bla", "contentType=" +  (allTypes & ~(t.ELEMHIDE | t.DONOTTRACK | t.SCRIPT | t.OTHER))]);
+    compareFilter("@@bla$~script,~other,~document", ["type=whitelist", "text=@@bla$~script,~other,~document", "regexp=bla", "contentType=" + (allTypes & ~(t.ELEMHIDE | t.DONOTTRACK | t.DOCUMENT | t.SCRIPT | t.OTHER))]);
     compareFilter("@@bla$document", ["type=whitelist", "text=@@bla$document", "regexp=bla", "contentType=" + t.DOCUMENT]);
-    compareFilter("@@bla$~script,~other,elemhide", ["type=whitelist", "text=@@bla$~script,~other,elemhide", "regexp=bla", "contentType=" +  (allTypes & ~(t.DOCUMENT | t.SCRIPT | t.OTHER))]);
-    compareFilter("@@bla$~script,~other,~elemhide", ["type=whitelist", "text=@@bla$~script,~other,~elemhide", "regexp=bla", "contentType=" + (allTypes & ~(t.ELEMHIDE | t.DOCUMENT | t.SCRIPT | t.OTHER))]);
+    compareFilter("@@bla$~script,~other,elemhide", ["type=whitelist", "text=@@bla$~script,~other,elemhide", "regexp=bla", "contentType=" +  (allTypes & ~(t.DONOTTRACK | t.DOCUMENT | t.SCRIPT | t.OTHER))]);
+    compareFilter("@@bla$~script,~other,~elemhide", ["type=whitelist", "text=@@bla$~script,~other,~elemhide", "regexp=bla", "contentType=" + (allTypes & ~(t.ELEMHIDE | t.DONOTTRACK | t.DOCUMENT | t.SCRIPT | t.OTHER))]);
     compareFilter("@@bla$elemhide", ["type=whitelist", "text=@@bla$elemhide", "regexp=bla", "contentType=" + t.ELEMHIDE]);
+    compareFilter("@@bla$~script,~other,donottrack", ["type=whitelist", "text=@@bla$~script,~other,donottrack", "regexp=bla", "contentType=" +  (allTypes & ~(t.ELEMHIDE | t.DOCUMENT | t.SCRIPT | t.OTHER))]);
+    compareFilter("@@bla$~script,~other,~donottrack", ["type=whitelist", "text=@@bla$~script,~other,~donottrack", "regexp=bla", "contentType=" + (allTypes & ~(t.ELEMHIDE | t.DONOTTRACK | t.DOCUMENT | t.SCRIPT | t.OTHER))]);
+    compareFilter("@@bla$donottrack", ["type=whitelist", "text=@@bla$donottrack", "regexp=bla", "contentType=" + t.DONOTTRACK]);
 
     compareFilter("#ddd", ["type=elemhide", "text=#ddd", "selector=ddd"]);
     compareFilter("#ddd(fff)", ["type=elemhide", "text=#ddd(fff)", "selector=ddd.fff,ddd#fff"]);
