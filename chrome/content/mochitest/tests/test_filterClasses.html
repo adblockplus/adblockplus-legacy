@@ -57,8 +57,6 @@
         if (filter instanceof RegExpFilter)
         {
           result.push("regexp=" + filter.regexp.source);
-          if (filter.shortcut)
-            result.push("hasShortcut");
           result.push("contentType=" + filter.contentType);
           result.push("matchCase=" + filter.matchCase);
 

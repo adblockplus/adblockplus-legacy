@@ -84,20 +84,18 @@ Matcher.prototype = {
       return;
 
     // Look for a suitable shortcut if the filter doesn't have one
-    if (!filter.shortcut)
-      filter.shortcut = this.findShortcut(filter);
-
-    if (filter.shortcut)
+    let shortcut = this.findShortcut(filter);
+    if (shortcut)
     {
-      if (filter.shortcut in this.shortcutHash)
-        this.shortcutHash[filter.shortcut] = this.shortcutHash[filter.shortcut].pushFilter(filter);
+      if (shortcut in this.shortcutHash)
+        this.shortcutHash[shortcut] = this.shortcutHash[shortcut].pushFilter(filter);
       else
-        this.shortcutHash[filter.shortcut] = filter;
+        this.shortcutHash[shortcut] = filter;
     }
     else
       this.regexps.push(filter);
 
-    this.knownFilters[filter.text] = true;
+    this.knownFilters[filter.text] = shortcut;
   },
 
   /**
@@ -109,17 +107,18 @@ Matcher.prototype = {
     if (!(filter.text in this.knownFilters))
       return;
 
-    if (filter.shortcut)
+    let shortcut = this.knownFilters[filter.text];
+    if (shortcut)
     {
-      if ("filters" in this.shortcutHash[filter.shortcut])
+      if ("filters" in this.shortcutHash[shortcut])
       {
-        let list = this.shortcutHash[filter.shortcut].filters;
+        let list = this.shortcutHash[shortcut].filters;
         for (let i = 0, l = list.length; i < l; i++)
           if (list[i] == filter)
             list.splice(i--, 1);
       }
       else
-        delete this.shortcutHash[filter.shortcut];
+        delete this.shortcutHash[shortcut];
     }
     else
     {
@@ -173,6 +172,25 @@ Matcher.prototype = {
       }
     }
     return result;
+  },
+
+  /**
+   * Checks whether a particular filter is being matched against.
+   */
+  hasFilter: function(/**RegExpFilter*/ filter) /**Boolean*/
+  {
+    return (filter.text in this.knownFilters);
+  },
+
+  /**
+   * Returns the shortcut used for a filter, null for unknown filters.
+   */
+  getShortcutForFilter: function(/**RegExpFilter*/ filter) /**String*/
+  {
+    if (filter.text in this.knownFilters)
+      return this.knownFilters[filter.text];
+    else
+      return null;
   },
 
   /**
@@ -310,6 +328,40 @@ CombinedMatcher.prototype =
       return this.whitelist.findShortcut(filter);
     else
       return this.blacklist.findShortcut(filter);
+  },
+
+  /**
+   * @see Matcher#hasFilter
+   */
+  hasFilter: function(filter)
+  {
+    if (filter instanceof WhitelistFilter)
+      return this.whitelist.hasFilter(filter);
+    else
+      return this.blacklist.hasFilter(filter);
+  },
+
+  /**
+   * @see Matcher#getShortcutForFilter
+   */
+  getShortcutForFilter: function(filter)
+  {
+    if (filter instanceof WhitelistFilter)
+      return this.whitelist.getShortcutForFilter(filter);
+    else
+      return this.blacklist.getShortcutForFilter(filter);
+  },
+
+  /**
+   * Checks whether a particular filter is slow
+   */
+  isSlowFilter: function(/**RegExpFilter*/ filter) /**Boolean*/
+  {
+    let matcher = (filter instanceof WhitelistFilter ? this.whitelist : this.blacklist);
+    if (matcher.hasFilter(filter))
+      return !matcher.getShortcutForFilter(filter);
+    else
+      return !matcher.findShortcut(filter);
   },
 
   /**
