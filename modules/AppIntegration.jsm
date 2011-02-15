@@ -976,7 +976,7 @@ WindowWrapper.prototype =
     }
     whitelistSeparator.hidden = whitelistItemSite.hidden && whitelistItemPage.hidden;
   
-    this.E(prefix + "enabled").setAttribute("checked", Prefs.enabled);
+    this.E(prefix + "disabled").setAttribute("checked", !Prefs.enabled);
     this.E(prefix + "frameobjects").setAttribute("checked", Prefs.frameobjects);
     this.E(prefix + "slowcollapse").setAttribute("checked", !Prefs.fastcollapse);
     this.E(prefix + "showintoolbar").setAttribute("checked", Prefs.showintoolbar);
@@ -988,7 +988,7 @@ WindowWrapper.prototype =
     this.E(prefix + "opensidebar").setAttribute("default", defAction == 1);
     this.E(prefix + "closesidebar").setAttribute("default", defAction == 1);
     this.E(prefix + "settings").setAttribute("default", defAction == 2);
-    this.E(prefix + "enabled").setAttribute("default", defAction == 3);
+    this.E(prefix + "disabled").setAttribute("default", defAction == 3);
   },
 
   /**
