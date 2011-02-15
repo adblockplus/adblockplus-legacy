@@ -323,14 +323,14 @@ var ElemHide =
     ElemHide.__defineGetter__("keyByFilter", function()
     {
       let result = {__proto__: null};
-      for (let k in this.filterByKey)
-        result[this.filterByKey[k]] = k;
-      return this.keyByFilter = result;
+      for (let k in filterByKey)
+        result[filterByKey[k]] = k;
+      return ElemHide.keyByFilter = result;
     });
     ElemHide.__defineSetter__("keyByFilter", function(value)
     {
-      delete this.keyByFilter;
-      return this.keyByFilter = value;
+      delete ElemHide.keyByFilter;
+      return ElemHide.keyByFilter = value;
     });
   }
 };
