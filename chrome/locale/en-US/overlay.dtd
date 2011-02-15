@@ -29,6 +29,7 @@
 <!-- Note: the placeholder ?1? will be replaced by the domain name of the current page -->
 <!ENTITY whitelist.site.label   "Disable on ?1?">
 <!ENTITY whitelist.page.label   "Disable on this page only">
+<!ENTITY disable.label          "Disable everywhere">
 
 <!ENTITY objecttab.title        "Block">
 <!ENTITY objecttab.tooltip      "Click here to block this object with Adblock Plus">

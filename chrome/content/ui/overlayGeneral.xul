@@ -58,6 +58,7 @@
       <menuseparator id="abp-status-whitelist-sep"/>
       <menuitem id="abp-status-whitelistsite" labeltempl="&whitelist.site.label;" type="checkbox" command="abp-command-togglesitewhitelist"/>
       <menuitem id="abp-status-whitelistpage" label="&whitelist.page.label;" type="checkbox" command="abp-command-togglepagewhitelist"/>
+      <menuitem id="abp-status-disabled" label="&disable.label;" type="checkbox" key="abp-key-enable" command="abp-command-enable"/>
       <menuseparator/>
       <menu id="abp-status-options" label="&options.label;" accesskey="&options.accesskey;">
         <menupopup id="abp-status-options-popup">
@@ -68,7 +69,6 @@
           <menuitem id="abp-status-showinstatusbar" label="&showinstatusbar.label;" accesskey="&showinstatusbar.accesskey;" type="checkbox" command="abp-command-toggleshowinstatusbar"/>
         </menupopup>
       </menu>
-      <menuitem id="abp-status-enabled" label="&enable.label;" accesskey="&enable.accesskey;" type="checkbox" key="abp-key-enable" command="abp-command-enable"/>
     </menupopup>
   </popupset>
   <keyset id="abp-keyset"/>
