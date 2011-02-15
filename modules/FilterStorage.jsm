@@ -329,7 +329,7 @@ var FilterStorage =
     }
 
     if (!FilterStorage.sourceFile)
-      dump("Adblock Plus: Failed to resolve filter file location from extensions.adblockplus.patternsfile preference\n");
+      Cu.reportError("Adblock Plus: Failed to resolve filter file location from extensions.adblockplus.patternsfile preference");
 
     TimeLine.log("done locating patterns.ini file");
 
@@ -358,7 +358,8 @@ var FilterStorage =
     }
     catch (e)
     {
-      dump("Adblock Plus: Failed to read filters from file " + realSourceFile.path + ": " + e + "\n");
+      Cu.reportError("Adblock Plus: Failed to read filters from file " + realSourceFile.path);
+      Cu.reportError(e);
       stream = null;
     }
 
