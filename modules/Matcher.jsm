@@ -243,6 +243,45 @@ Matcher.prototype = {
     }
 
     return null;
+  },
+
+  /**
+   * Stores current state in a JSON'able object.
+   */
+  toCache: function(/**Object*/ cache)
+  {
+    cache.filterByKeyword = this.filterByKeyword;
+  },
+
+  /**
+   * Restores current state from an object.
+   */
+  fromCache: function(/**Object*/ cache)
+  {
+    this.filterByKeyword = cache.filterByKeyword;
+    this.filterByKeyword.__proto__ = null;
+
+    // We don't want to initialize keywordByFilter yet, do it when it is needed
+    delete this.keywordByFilter;
+    this.__defineGetter__("keywordByFilter", function()
+    {
+      let result = {__proto__: null};
+      for (let k in this.filterByKeyword)
+      {
+        let list = this.filterByKeyword[k];
+        if (typeof list == "string")
+          result[list] = k;
+        else
+          for (let i = 0, l = list.length; i < l; i++)
+            result[list[i]] = k;
+      }
+      return this.keywordByFilter = result;
+    });
+    this.__defineSetter__("keywordByFilter", function(value)
+    {
+      delete this.keywordByFilter;
+      return this.keywordByFilter = value;
+    });
   }
 };
 
@@ -432,6 +471,25 @@ CombinedMatcher.prototype =
     this.cacheEntries++;
 
     return result;
+  },
+
+  /**
+   * Stores current state in a JSON'able object.
+   */
+  toCache: function(/**Object*/ cache)
+  {
+    cache.matcher = {whitelist: {}, blacklist: {}};
+    this.whitelist.toCache(cache.matcher.whitelist);
+    this.blacklist.toCache(cache.matcher.blacklist);
+  },
+
+  /**
+   * Restores current state from an object.
+   */
+  fromCache: function(/**Object*/ cache)
+  {
+    this.whitelist.fromCache(cache.matcher.whitelist);
+    this.blacklist.fromCache(cache.matcher.blacklist);
   }
 }
 

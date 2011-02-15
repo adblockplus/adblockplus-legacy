@@ -41,9 +41,15 @@ Cu.import(baseURL.spec + "ElemHide.jsm");
 Cu.import(baseURL.spec + "Matcher.jsm");
 Cu.import(baseURL.spec + "FilterClasses.jsm");
 Cu.import(baseURL.spec + "SubscriptionClasses.jsm");
+Cu.import(baseURL.spec + "Prefs.jsm");
 Cu.import(baseURL.spec + "Utils.jsm");
 
 let subscriptionFilter = null;
+
+/**
+ * Version of the data cache file, files with different version will be ignored.
+ */
+const cacheVersion = 1;
 
 /**
  * Value of the FilterListener.batchMode property.
@@ -81,7 +87,90 @@ var FilterListener =
     });
 
     ElemHide.init();
-    FilterStorage.loadFromDisk();
+
+    let initialized = false;
+    let cacheFile = Utils.resolveFilePath(Prefs.data_directory);
+    cacheFile.append("cache.js");
+    if (cacheFile.exists())
+    {
+      // Yay, fast startup!
+      try
+      {
+        TimeLine.log("Loading cache file");
+        let stream = Cc["@mozilla.org/network/file-input-stream;1"].createInstance(Ci.nsIFileInputStream);
+        stream.init(cacheFile, 0x01, 0444, 0);
+
+        let json = Cc["@mozilla.org/dom/json;1"].createInstance(Ci.nsIJSON);
+        let cache = json.decodeFromStream(stream, "UTF-8");
+
+        stream.close();
+
+        if (cache.version == cacheVersion)
+        {
+          defaultMatcher.fromCache(cache);
+          ElemHide.fromCache(cache);
+        }
+
+        // We still need to load patterns.ini if certain properties are accessed
+        var loadDone = false;
+        function trapProperty(obj, prop)
+        {
+          var origValue = obj[prop];
+          delete obj[prop];
+          obj.__defineGetter__(prop, function()
+          {
+            delete obj[prop];
+            obj[prop] = origValue;
+            if (!loadDone)
+            {
+              TimeLine.enter("Entered delayed FilterStorage init");
+              loadDone = true;
+              FilterStorage.loadFromDisk(true);
+              TimeLine.log("done loading file");
+
+              if (FilterStorage.fileProperties.cacheTimestamp != cache.timestamp)
+              {
+                // Oops, the file we loaded doesn't match the cache,
+                // reinitialize everything
+                TimeLine.log("Reinitializing data structures");
+                FilterStorage.triggerObservers("load");
+              }
+              TimeLine.leave("Delayed FilterStorage init done");
+            }
+            return obj[prop];
+          });
+          obj.__defineSetter__(prop, function(value)
+          {
+            delete obj[prop];
+            return obj[prop] = value;
+          });
+        }
+
+        for each (let prop in ["fileProperties", "subscriptions", "knownSubscriptions",
+                               "addSubscription", "removeSubscription", "updateSubscriptionFilters",
+                               "addFilter", "removeFilter", "increaseHitCount", "resetHitCounts"])
+        {
+          trapProperty(FilterStorage, prop);
+        }
+        trapProperty(Filter, "fromText");
+        trapProperty(Filter, "knownFilters");
+        trapProperty(Subscription, "fromURL");
+        trapProperty(Subscription, "knownSubscriptions");
+
+        initialized = true;
+        TimeLine.log("Done loading cache file");
+
+        ElemHide.apply();
+      }
+      catch (e)
+      {
+        Cu.reportError(e);
+      }
+    }
+
+    // If we failed to restore from cache - load patterns.ini
+    if (!initialized)
+      FilterStorage.loadFromDisk();
 
     TimeLine.log("done initializing data structures");
 
@@ -276,6 +365,36 @@ function onGenericChange(action)
       if (!subscription.disabled)
         subscription.filters.forEach(addFilter);
     flushElemHide();
+  }
+  else if (action == "beforesave")
+  {
+    let cache = {version: cacheVersion, timestamp: Date.now()};
+    defaultMatcher.toCache(cache);
+    ElemHide.toCache(cache);
+
+    let cacheFile = Utils.resolveFilePath(Prefs.data_directory);
+    cacheFile.append("cache.js");
+
+    try
+    {
+      let fileStream = Cc["@mozilla.org/network/file-output-stream;1"].createInstance(Ci.nsIFileOutputStream);
+      fileStream.init(cacheFile, 0x02 | 0x08 | 0x20, 0644, 0);
+
+      let stream = Cc["@mozilla.org/intl/converter-output-stream;1"].createInstance(Ci.nsIConverterOutputStream);
+      stream.init(fileStream, "UTF-8", 16384, Ci.nsIConverterInputStream.DEFAULT_REPLACEMENT_CHARACTER);
+
+      // nsIJSON.encodeToStream would have been better but it is broken, see bug 633934
+      let json = Cc["@mozilla.org/dom/json;1"].createInstance(Ci.nsIJSON);
+      stream.writeString(json.encode(cache));
+      stream.close();
+
+      FilterStorage.fileProperties.cacheTimestamp = cache.timestamp;
+    }
+    catch(e)
+    {
+      delete FilterStorage.fileProperties.cacheTimestamp;
+      Cu.reportError(e);
+    }
   }
   else if (action == "save")
     isDirty = false;
