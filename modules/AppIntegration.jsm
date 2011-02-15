@@ -673,6 +673,7 @@ WindowWrapper.prototype =
       element.setAttribute("modifiers", modifiers.join(","));
 
       this.E("abp-keyset").appendChild(element);
+      return;
     }
   },
 
