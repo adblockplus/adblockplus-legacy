@@ -302,9 +302,6 @@ var FilterStorage =
   {
     TimeLine.enter("Entered FilterStorage.loadFromDisk()");
 
-    FilterStorage.subscriptions = [];
-    FilterStorage.knownSubscriptions = {__proto__: null};
-
     if (Prefs.patternsfile)
     {
       // Override in place, use it instead of placing the file in the regular data dir
@@ -343,32 +340,59 @@ var FilterStorage =
         realSourceFile = patternsURL.file;
     }
 
-    let stream = null;
-    try
-    {
-      if (realSourceFile && realSourceFile.exists())
-      {
-        let fileStream = Cc["@mozilla.org/network/file-input-stream;1"].createInstance(Ci.nsIFileInputStream);
-        fileStream.init(realSourceFile, 0x01, 0444, 0);
-
-        stream = Cc["@mozilla.org/intl/converter-input-stream;1"].createInstance(Ci.nsIConverterInputStream);
-        stream.init(fileStream, "UTF-8", 16384, Ci.nsIConverterInputStream.DEFAULT_REPLACEMENT_CHARACTER);
-        stream = stream.QueryInterface(Ci.nsIUnicharLineInputStream);
-      }
-    }
-    catch (e)
-    {
-      Cu.reportError("Adblock Plus: Failed to read filters from file " + realSourceFile.path);
-      Cu.reportError(e);
-      stream = null;
-    }
-
     let userFilters = null;
-    if (stream)
+    let backup = 0;
+    while (true)
     {
-      userFilters = parseIniFile(stream);
+      FilterStorage.subscriptions = [];
+      FilterStorage.knownSubscriptions = {__proto__: null};
 
-      stream.close();
+      try
+      {
+        if (realSourceFile && realSourceFile.exists())
+        {
+          let fileStream = Cc["@mozilla.org/network/file-input-stream;1"].createInstance(Ci.nsIFileInputStream);
+          fileStream.init(realSourceFile, 0x01, 0444, 0);
+
+          let stream = Cc["@mozilla.org/intl/converter-input-stream;1"].createInstance(Ci.nsIConverterInputStream);
+          stream.init(fileStream, "UTF-8", 16384, 0);
+          stream = stream.QueryInterface(Ci.nsIUnicharLineInputStream);
+
+          userFilters = parseIniFile(stream);
+          stream.close();
+
+          if (!FilterStorage.subscriptions.length)
+          {
+            // No filter subscriptions in the file, this isn't right.
+            throw "No data in the file";
+          }
+        }
+
+        // We either successfully loaded filters or the source file doesn't exist
+        // (already past last backup?). Either way, we should exit the loop now.
+        break;
+      }
+      catch (e)
+      {
+        Cu.reportError("Adblock Plus: Failed to read filters from file " + realSourceFile.path);
+        Cu.reportError(e);
+      }
+
+      // We failed loading filters, let's try next backup file
+      realSourceFile = FilterStorage.sourceFile;
+      if (realSourceFile)
+      {
+        let part1 = realSourceFile.leafName;
+        let part2 = "";
+        if (/^(.*)(\.\w+)$/.test(part1))
+        {
+          part1 = RegExp.$1;
+          part2 = RegExp.$2;
+        }
+
+        realSourceFile = realSourceFile.clone();
+        realSourceFile.leafName = part1 + "-backup" + (++backup) + part2;
+      }
     }
 
     TimeLine.log("done parsing file");
