@@ -39,14 +39,12 @@ toolbar[iconsize="small"] #abp-toolbarbutton,
 toolbar[iconsize="small"] #abp-toolbarbutton[abpstate="disabled"],
 #PersonalToolbar #abp-toolbarbutton[abpstate="disabled"],
 #header-view-toolbar > #abp-toolbarbutton[abpstate="disabled"],
-#abp-status[abpstate="disabled"] {
-  -moz-image-region: rect(16px, 16px, 32px, 0px);
-}
+#abp-status[abpstate="disabled"],
 toolbar[iconsize="small"] #abp-toolbarbutton[abpstate="whitelisted"],
 #PersonalToolbar #abp-toolbarbutton[abpstate="whitelisted"],
 #header-view-toolbar > #abp-toolbarbutton[abpstate="whitelisted"],
 #abp-status[abpstate="whitelisted"] {
-  -moz-image-region: rect(32px, 16px, 48px, 0px);
+  -moz-image-region: rect(16px, 16px, 32px, 0px);
 }
 
 #abp-toolbar-popup {
@@ -68,12 +66,10 @@ menuitem[default="true"] {
   -moz-image-region: rect(0px, 24px, 24px, 0px);
 }
 #abp-toolbarbutton[abpstate="disabled"],
-.abp-site-info[abpstate="disabled"] {
-  -moz-image-region: rect(24px, 24px, 48px, 0px);
-}
 #abp-toolbarbutton[abpstate="whitelisted"],
+.abp-site-info[abpstate="disabled"],
 .abp-site-info[abpstate="disabled_site"] {
-  -moz-image-region: rect(48px, 24px, 72px, 0px);
+  -moz-image-region: rect(24px, 24px, 48px, 0px);
 }
 
 /* Hack: force the label to be displayed below icon for type="menu" */

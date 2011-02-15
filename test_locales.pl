@@ -17,7 +17,7 @@ my %paths = (
 );
 
 my @mustDiffer = (
-  ['abp:overlay:opensidebar.accesskey', 'abp:overlay:sendReport.accesskey', 'abp:overlay:settings.accesskey', 'abp:settings:options.accesskey', 'abp:settings:enable.accesskey', 'ehh:overlay:selectelement.accesskey'],
+  ['abp:overlay:opensidebar.accesskey', 'abp:overlay:sendReport.accesskey', 'abp:overlay:settings.accesskey', 'abp:settings:options.accesskey', 'ehh:overlay:selectelement.accesskey'],
   ['abp:settings:filters.accesskey', 'abp:settings:edit.accesskey', 'abp:settings:view.accesskey', 'abp:settings:options.accesskey', 'abp:settings:help.accesskey', 'abp:settings:add.accesskey', 'abp:settings:apply.accesskey'],
   ['abp:settings:add.accesskey', 'abp:settings:addsubscription.accesskey', 'abp:settings:synchsubscriptions.accesskey', 'abp:settings:import.accesskey', 'abp:settings:export.accesskey', 'abp:settings:clearall.accesskey', 'abp:settings:resethitcounts.accesskey'],
   ['abp:settings:cut.accesskey', 'abp:settings:copy.accesskey', 'abp:settings:paste.accesskey', 'abp:settings:remove.accesskey', 'abp:settings:menu.find.accesskey', 'abp:settings:menu.findagain.accesskey'],
