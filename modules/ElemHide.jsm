@@ -44,12 +44,6 @@ Cu.import(baseURL.spec + "FilterClasses.jsm");
 Cu.import(baseURL.spec + "TimeLine.jsm");
 
 /**
- * Lookup table, keys of the filters by filter text
- * @type Object
- */
-let keyByFilter = {__proto__: null};
-
-/**
  * Lookup table, filters by their associated key
  * @type Object
  */
@@ -78,6 +72,12 @@ var ElemHide =
    * @type Boolean
    */
   applied: false,
+
+  /**
+   * Lookup table, keys of the filters by filter text
+   * @type Object
+   */
+  keyByFilter: {__proto__: null},
 
   /**
    * Called on module startup.
@@ -111,8 +111,8 @@ var ElemHide =
    */
   clear: function()
   {
-    keyByFilter = {__proto__: null};
     filterByKey = {__proto__: null};
+    ElemHide.keyByFilter = {__proto__: null};
     ElemHide.isDirty = false;
     ElemHide.unapply();
   },
@@ -123,7 +123,7 @@ var ElemHide =
    */
   add: function(filter)
   {
-    if (filter.text in keyByFilter)
+    if (filter.text in ElemHide.keyByFilter)
       return;
 
     let key;
@@ -132,7 +132,7 @@ var ElemHide =
     } while (key in filterByKey);
 
     filterByKey[key] = filter.text;
-    keyByFilter[filter.text] = key;
+    ElemHide.keyByFilter[filter.text] = key;
     ElemHide.isDirty = true;
   },
 
@@ -142,12 +142,12 @@ var ElemHide =
    */
   remove: function(filter)
   {
-    if (!(filter.text in keyByFilter))
+    if (!(filter.text in ElemHide.keyByFilter))
       return;
 
-    let key = keyByFilter[filter.text];
+    let key = ElemHide.keyByFilter[filter.text];
     delete filterByKey[key];
-    delete keyByFilter[filter.text];
+    delete ElemHide.keyByFilter[filter.text];
     ElemHide.isDirty = true;
   },
 
@@ -300,6 +300,38 @@ var ElemHide =
       }
       ElemHide.applied = false;
     }
+  },
+
+  /**
+   * Stores current state in a JSON'able object.
+   */
+  toCache: function(/**Object*/ cache)
+  {
+    cache.elemhide = {filterByKey: filterByKey};
+  },
+
+  /**
+   * Restores current state from an object.
+   */
+  fromCache: function(/**Object*/ cache)
+  {
+    filterByKey = cache.elemhide.filterByKey;
+    filterByKey.__proto__ = null;
+
+    // We don't want to initialize keyByFilter yet, do it when it is needed
+    delete ElemHide.keyByFilter;
+    ElemHide.__defineGetter__("keyByFilter", function()
+    {
+      let result = {__proto__: null};
+      for (let k in this.filterByKey)
+        result[this.filterByKey[k]] = k;
+      return this.keyByFilter = result;
+    });
+    ElemHide.__defineSetter__("keyByFilter", function(value)
+    {
+      delete this.keyByFilter;
+      return this.keyByFilter = value;
+    });
   }
 };
 
