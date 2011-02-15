@@ -296,8 +296,9 @@ var FilterStorage =
 
   /**
    * Loads all subscriptions from the disk
+   * @param {Boolean} silent  if true, no observers will be triggered (to be used when data is already initialized)
    */
-  loadFromDisk: function()
+  loadFromDisk: function(silent)
   {
     TimeLine.enter("Entered FilterStorage.loadFromDisk()");
 
@@ -393,7 +394,8 @@ var FilterStorage =
     }
 
     TimeLine.log("load complete, calling observers");
-    FilterStorage.triggerObservers("load");
+    if (!silent)
+      FilterStorage.triggerObservers("load");
     TimeLine.leave("FilterStorage.loadFromDisk() done");
   },
 
@@ -438,6 +440,8 @@ var FilterStorage =
 
     const maxBufLength = 1024;
     let buf = ["# Adblock Plus preferences", "version=" + formatVersion];
+    if ("cacheTimestamp" in FilterStorage.fileProperties)
+      buf.push("cacheTimestamp=" + FilterStorage.fileProperties.cacheTimestamp);
     let lineBreak = Utils.getLineBreak();
     function writeBuffer()
     {
