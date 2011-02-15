@@ -282,6 +282,12 @@ var Policy =
    */
   isWhitelisted: function(url)
   {
+    // Do not allow whitelisting about:. We get a check for about: during
+    // startup, it should be dealt with fast - without checking filters which
+    // might load patterns.ini.
+    if (/^(moz-safe-)?about:/.test(url))
+      return null;
+
     let result = defaultMatcher.matchesAny(url, "DOCUMENT", getHostname(url), false);
     return (result instanceof WhitelistFilter ? result : null);
   },
