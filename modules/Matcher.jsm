@@ -108,9 +108,13 @@ Matcher.prototype = {
       delete this.filterByKeyword[keyword];
     else
     {
-      for (let i = 0, l = list.length; i < l; i++)
-        if (list[i] == filter.text)
-          list.splice(i--, 1);
+      let index = list.indexOf(filter.text);
+      if (index >= 0)
+      {
+        list.splice(index, 1);
+        if (list.length == 1)
+          this.filterByKeyword[keyword] = list[0];
+      }
     }
 
     delete this.keywordByFilter[filter.text];
