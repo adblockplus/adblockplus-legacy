@@ -933,10 +933,6 @@ WindowWrapper.prototype =
     let whitelistItemPage = this.E(prefix + "whitelistpage");
     whitelistItemSite.hidden = whitelistItemPage.hidden = true;
   
-    let whitelistSeparator = whitelistItemPage.nextSibling;
-    while (whitelistSeparator.nodeType != whitelistSeparator.ELEMENT_NODE)
-      whitelistSeparator = whitelistSeparator.nextSibling;
-  
     let location = this.getCurrentLocation();
     if (location && Policy.isBlockableScheme(location))
     {
@@ -974,7 +970,6 @@ WindowWrapper.prototype =
         whitelistItemSite.hidden = false;
       }
     }
-    whitelistSeparator.hidden = whitelistItemSite.hidden && whitelistItemPage.hidden;
   
     this.E(prefix + "disabled").setAttribute("checked", !Prefs.enabled);
     this.E(prefix + "frameobjects").setAttribute("checked", Prefs.frameobjects);
