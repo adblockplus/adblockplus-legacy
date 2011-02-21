@@ -210,7 +210,7 @@ let filtersDataSource =
       {
         let filter = Filter.fromText(f)
         let hitCount = wndStats.filters[f];
-        filters.appendChild(<filter text={filter.text} subscriptions={filter.subscriptions.map(function(s) s.url).join(" ")} hitCount={hitCount}/>);
+        filters.appendChild(<filter text={filter.text} subscriptions={filter.subscriptions.filter(function(s) !s.disabled).map(function(s) s.url).join(" ")} hitCount={hitCount}/>);
         this.origFilters.push(filter);
       }
     }
