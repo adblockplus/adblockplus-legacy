@@ -205,6 +205,12 @@ var ElemHide =
 
       // Writing out domains list
       TimeLine.log("start writing CSS data");
+
+      try {
+        // Make sure the file's parent directory exists
+        styleURL.file.parent.create(Ci.nsIFile.DIRECTORY_TYPE, 0755);
+      } catch (e) {}
+
       let stream;
       try
       {
