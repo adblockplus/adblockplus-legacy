@@ -375,6 +375,11 @@ function onGenericChange(action)
     let cacheFile = Utils.resolveFilePath(Prefs.data_directory);
     cacheFile.append("cache.js");
 
+    try {
+      // Make sure the file's parent directory exists
+      cacheFile.parent.create(Ci.nsIFile.DIRECTORY_TYPE, 0755);
+    } catch (e) {}
+
     try
     {
       let fileStream = Cc["@mozilla.org/network/file-output-stream;1"].createInstance(Ci.nsIFileOutputStream);
