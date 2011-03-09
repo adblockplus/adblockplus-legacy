@@ -505,8 +505,14 @@ WindowWrapper.prototype =
       if (element.tagName == "statusbarpanel")
         element.hidden = !Prefs.showinstatusbar;
       else
+      {
         element.hidden = !Prefs.showintoolbar;
-  
+        if (element.hasAttribute("context") && Prefs.defaulttoolbaraction == 0)
+          element.setAttribute("type", "menu");
+        else
+          element.setAttribute("type", "menu-button");
+      }
+
       // HACKHACK: Show status bar icon instead of toolbar icon if the application doesn't have a toolbar icon
       if (element.hidden && element.tagName == "statusbarpanel" && !this.getDefaultToolbar)
         element.hidden = !Prefs.showintoolbar;
@@ -526,13 +532,7 @@ WindowWrapper.prototype =
     
     let button = this.E("abp-toolbarbutton");
     if (button)
-    {
       updateElement.call(this, button);
-      if (button.hasAttribute("context") && Prefs.defaulttoolbaraction == 0)
-        button.setAttribute("type", "menu");
-      else
-        button.setAttribute("type", "menu-button");
-    }
   
     updateElement.call(this, this.getPaletteButton());
   },
