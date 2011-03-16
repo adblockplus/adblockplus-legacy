@@ -206,13 +206,7 @@ function setSubscription(url, title)
 
 function updateFennecStatusUI(wrapper)
 {
-  let siteInfo1 = wrapper.E("abp-site-info1");
-  let siteInfo2 = wrapper.E("abp-site-info2");
-  if (siteInfo1 && siteInfo2)
-    siteInfo2.parentNode.removeChild(siteInfo2);
-
-  let siteInfo = siteInfo1 || siteInfo2;
-
+  let siteInfo = wrapper.E("abp-site-info");
   siteInfo.addEventListener("click", toggleFennecWhitelist, false);
 
   let status = "disabled";
@@ -239,10 +233,7 @@ function updateFennecStatusUI(wrapper)
   if (host)
     statusText = statusText.replace(/\?1\?/g, host);
 
-  if (siteInfo == siteInfo1)
-    siteInfo.setAttribute("title", statusText);
-  else
-    wrapper.E("abp-status-text").textContent = statusText;
+  siteInfo.setAttribute("title", statusText);
   siteInfo.setAttribute("abpstate", status);
 }
 

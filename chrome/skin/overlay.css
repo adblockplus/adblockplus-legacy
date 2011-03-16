@@ -61,14 +61,14 @@ menuitem[default="true"] {
 }
 
 #abp-toolbarbutton,
-.abp-site-info {
+#abp-site-info {
   list-style-image: url("abp-status.png");
   -moz-image-region: rect(0px, 24px, 24px, 0px);
 }
 #abp-toolbarbutton[abpstate="disabled"],
 #abp-toolbarbutton[abpstate="whitelisted"],
-.abp-site-info[abpstate="disabled"],
-.abp-site-info[abpstate="disabled_site"] {
+#abp-site-info[abpstate="disabled"],
+#abp-site-info[abpstate="disabled_site"] {
   -moz-image-region: rect(24px, 24px, 48px, 0px);
 }
 
@@ -106,7 +106,7 @@ toolbar[mode="full"] #abp-toolbarbutton[type="menu"]
   margin-right: 10px;
 }
 
-#abp-site-info1 .pageaction-image {
+#abp-site-info .pageaction-image {
   width: 32px;
   height: 32px;
   padding: 4px;
