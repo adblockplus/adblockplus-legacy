@@ -738,7 +738,7 @@ WindowWrapper.prototype =
     let link = event.target;
     while (link && !(link instanceof Ci.nsIDOMHTMLAnchorElement))
       link = link.parentNode;
-  
+
     if (!link || !/^abp:\/*subscribe\/*\?(.*)/i.test(link.href))  /**/
       return;
   
