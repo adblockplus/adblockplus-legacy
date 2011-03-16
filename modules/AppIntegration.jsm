@@ -430,7 +430,7 @@ WindowWrapper.prototype =
     else
     {
       // Regular browser
-      return Utils.unwrapURL(this.getBrowser().contentWindow.location.href);
+      return Utils.unwrapURL(this.getBrowser().currentURI.clone());
     }
   },
 
