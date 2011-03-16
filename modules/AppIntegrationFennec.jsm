@@ -142,7 +142,7 @@ function onCreateOptions(wrapper, event)
     if (/^subscriptions\b/.test(action))
       updateSubscriptionList(wrapper);
   }
-  updateFunction();
+  updateFunction("subscriptions");
   FilterStorage.addObserver(updateFunction);
 
   wrapper.window.addEventListener("unload", function()
