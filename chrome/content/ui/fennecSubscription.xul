@@ -71,8 +71,8 @@
 </vbox>
 
 <hbox class="prompt-buttons">
-   <button id="abp-subscription-btn-ok" class="button-dark" label="&ok.label;" command="abp-subscription-cmd-ok"/>
-   <button class="button-dark" label="&cancel.label;" command="abp-subscription-cmd-cancel"/>
+   <button id="abp-subscription-btn-ok" class="prompt-button" label="&ok.label;" command="abp-subscription-cmd-ok"/>
+   <button class="prompt-button" label="&cancel.label;" command="abp-subscription-cmd-cancel"/>
 </hbox>
 
 </dialog>
