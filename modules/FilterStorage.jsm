@@ -108,7 +108,7 @@ var FilterStorage =
 
   /**
    * Calls observers after a change
-   * @param {String} action change code ("load", "beforesave", "save",
+   * @param {String} action change code ("load", "beforesave", "save", "elemhideupdate",
    *                 "subscriptions add", "subscriptions remove",
    *                 "subscriptions enable", "subscriptions disable",
    *                 "subscriptions update", "subscriptions updateinfo",
