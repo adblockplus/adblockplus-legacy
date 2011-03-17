@@ -160,13 +160,33 @@ var Utils =
    */
   getWindow: function(/**Node*/ node)
   {
-    if (node instanceof Ci.nsIDOMNode && node.ownerDocument)
+    if ("ownerDocument" in node && node.ownerDocument)
       node = node.ownerDocument;
   
-    if (node instanceof Ci.nsIDOMDocumentView)
+    if ("defaultView" in node)
       return node.defaultView;
   
     return null;
+  },
+
+  /**
+   * If the window doesn't have its own security context (e.g. about:blank or
+   * data: URL) walks up the parent chain until a window is found that has a
+   * security context.
+   */
+  getOriginWindow: function(/**Window*/ wnd) /**Window*/
+  {
+    while (wnd != wnd.parent)
+    {
+      let uri = Utils.makeURI(wnd.location.href);
+      if (uri.spec != "about:blank" && uri.spec != "moz-safe-about:blank" &&
+          !Utils.netUtils.URIChainHasFlags(uri, Ci.nsIProtocolHandler.URI_INHERITS_SECURITY_CONTEXT))
+      {
+        break;
+      }
+      wnd = wnd.parent;
+    }
+    return wnd;
   },
 
   /**
@@ -456,6 +476,66 @@ var Utils =
     let ret = sidebarParams;
     sidebarParams = null;
     return ret;
+  },
+
+  /**
+   * Randomly generated class for collapsed nodes.
+   * @type String
+   */
+  collapsedClass: null,
+
+  /**
+   * Nodes scheduled for post-processing (might be null).
+   * @type Array of Node
+   */
+  scheduledNodes: null,
+
+  /**
+   * Schedules a node for post-processing.
+   */
+  schedulePostProcess: function(node)
+  {
+    if (Utils.scheduledNodes)
+      Utils.scheduledNodes.push(node);
+    else
+    {
+      Utils.scheduledNodes = [node];
+      Utils.runAsync(Utils.postProcessNodes);
+    }
+  },
+
+  /**
+   * Processes nodes scheduled for post-processing (typically hides them).
+   */
+  postProcessNodes: function()
+  {
+    let nodes = Utils.scheduledNodes;
+    Utils.scheduledNodes = null;
+
+    for each (let node in nodes)
+    {
+      // adjust frameset's cols/rows for frames
+      let parentNode = node.parentNode;
+      if (parentNode && parentNode instanceof Ci.nsIDOMHTMLFrameSetElement)
+      {
+        let hasCols = (parentNode.cols && parentNode.cols.indexOf(",") > 0);
+        let hasRows = (parentNode.rows && parentNode.rows.indexOf(",") > 0);
+        if ((hasCols || hasRows) && !(hasCols && hasRows))
+        {
+          let index = -1;
+          for (let frame = node; frame; frame = frame.previousSibling)
+            if (frame instanceof Ci.nsIDOMHTMLFrameElement || frame instanceof Ci.nsIDOMHTMLFrameSetElement)
+              index++;
+
+          let property = (hasCols ? "cols" : "rows");
+          let weights = parentNode[property].split(",");
+          weights[index] = "0";
+          parentNode[property] = weights.join(",");
+        }
+      }
+      else
+        node.className += " " + Utils.collapsedClass;
+    }
   }
 };
 
@@ -478,6 +558,8 @@ XPCOMUtils.defineLazyServiceGetter(Utils, "windowWatcher", "@mozilla.org/embedco
 XPCOMUtils.defineLazyServiceGetter(Utils, "chromeRegistry", "@mozilla.org/chrome/chrome-registry;1", "nsIXULChromeRegistry");
 XPCOMUtils.defineLazyServiceGetter(Utils, "systemPrincipal", "@mozilla.org/systemprincipal;1", "nsIPrincipal");
 XPCOMUtils.defineLazyServiceGetter(Utils, "dateFormatter", "@mozilla.org/intl/scriptabledateformat;1", "nsIScriptableDateFormat");
+XPCOMUtils.defineLazyServiceGetter(Utils, "childMessageManager", "@mozilla.org/childprocessmessagemanager;1", "nsISyncMessageSender");
+XPCOMUtils.defineLazyServiceGetter(Utils, "parentMessageManager", "@mozilla.org/parentprocessmessagemanager;1", "nsIFrameMessageManager");
 
 if ("@mozilla.org/messenger/headerparser;1" in Cc)
   XPCOMUtils.defineLazyServiceGetter(Utils, "headerParser", "@mozilla.org/messenger/headerparser;1", "nsIMsgHeaderParser");
