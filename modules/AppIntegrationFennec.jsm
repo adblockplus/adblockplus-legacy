@@ -140,7 +140,13 @@ var AppIntegrationFennec =
       {
         let tab = wrapper.window.Browser.getTabFromChrome(event.originalTarget);
         tab.browser.messageManager.loadFrameScript("chrome://adblockplus/content/fennecContent.js", true);
-      }, false)
+      }, false);
+
+      // Get notified about abp: link clicks for this window
+      wrapper.window.messageManager.addMessageListener("AdblockPlus:LinkClick", function(message)
+      {
+        wrapper.handleLinkClick(null, message.json);
+      });
     }
 
     if (typeof wrapper.window.IdentityHandler == "function" && typeof wrapper.window.IdentityHandler.prototype.show == "function")

@@ -726,25 +726,35 @@ WindowWrapper.prototype =
   },
 
   /**
-   * Handles browser clicks to intercept clicks on abp: links.
+   * Handles browser clicks to intercept clicks on abp: links. This can be
+   * called either with an event object or with the link target (if it is the
+   * former then link target will be retrieved from event target).
    */
-  handleLinkClick: function (/**Event*/ event)
+  handleLinkClick: function (/**Event*/ event, /**String*/ linkTarget)
   {
-    // Ignore right-clicks
-    if (event.button == 2)
-      return;
-  
-    // Search the link associated with the click
-    let link = event.target;
-    while (link && !(link instanceof Ci.nsIDOMHTMLAnchorElement))
-      link = link.parentNode;
+    if (event)
+    {
+      // Ignore right-clicks
+      if (event.button == 2)
+        return;
 
-    if (!link || !/^abp:\/*subscribe\/*\?(.*)/i.test(link.href))  /**/
+      // Search the link associated with the click
+      let link = event.target;
+      while (link && !(link instanceof Ci.nsIDOMHTMLAnchorElement))
+        link = link.parentNode;
+
+      if (!link || link.protocol != "abp:")
+        return;
+
+      // This is our link - make sure the browser doesn't handle it
+      event.preventDefault();
+      event.stopPropagation();
+
+      linkTarget = link.href;
+    }
+
+    if (!/^abp:\/*subscribe\/*\?(.*)/i.test(linkTarget))  /**/
       return;
-  
-    // This is our link - make sure the browser doesn't handle it
-    event.preventDefault();
-    event.stopPropagation();
   
     // Decode URL parameters
     let title = null;
@@ -1299,6 +1309,9 @@ function showSubscriptions()
   // Only show the list if this is the first run or the user has no filters
   let hasFilters = FilterStorage.subscriptions.some(function(subscription) subscription.filters.length);
   if (hasFilters && Utils.versionComparator.compare(Prefs.lastVersion, "0.0") > 0)
+    return;
+
+  if (isFennec)
     return;
 
   if (wrapper && wrapper.addTab)
