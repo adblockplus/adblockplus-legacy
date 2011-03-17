@@ -66,7 +66,7 @@ function init()
       source.mainSubscriptionURL = source.mainSubscriptionTitle = null;
   }
 
-  if (newInstall)
+  if (newInstall && Utils.appID != "{a23983c0-fd0e-11dc-95ff-0800200c9a66}")
   {
     // HACK: We will remove dialog content box flex if a subscription is
     // selected, need to find the content box and save it flex value.
@@ -101,7 +101,9 @@ function init()
     link.setAttribute("class", "text-link");
     link.setAttribute("value", otherButton.label);
     link.setAttribute("accesskey", otherButton.accessKey);
-    link.setAttribute("control", "otherButton")
+    link.setAttribute("control", "otherButton");
+    link.setAttribute("flex", "1");
+    link.setAttribute("crop", "end");
 
     let handler = new Function("event", document.documentElement.getAttribute("ondialogextra2"));
     link.addEventListener("command", handler, false);
@@ -401,9 +403,9 @@ function addSubscriptions(list, parent, level, parentTitle, parentURL)
       if (isFirst)
       {
         if (checkPrefixMatch(node.getAttribute("prefixes"), Utils.appLocale))
-          title.setAttribute("class", "title localeMatch");
+          title.setAttribute("class", "subscriptionTitle localeMatch");
         else
-          title.setAttribute("class", "title");
+          title.setAttribute("class", "subscriptionTitle");
         title.textContent = node.getAttribute("title");
         mainTitle = variant.getAttribute("title");
         mainURL = variant.getAttribute("url");
