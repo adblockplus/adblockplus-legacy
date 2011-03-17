@@ -22,71 +22,16 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
+@import url("chrome://browser/skin/platform.css");
+
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
 dialog
 {
-  min-width: 550px;
+  min-width: 0px;
 }
 
-dialog[newInstall]
+#all-subscriptions-container
 {
-  background-image: url(abp-icon-big.png);
-  background-repeat: no-repeat;
-  background-position: 95% 5%;
-}
-
-#description-newInstall,
-#adblock-warning,
-#filtersetg-warning
-{
-  margin-bottom: 10px;
-}
-
-*[invisible="true"]
-{
-  visibility: hidden;
-}
-
-#adblock-warning,
-#filtersetg-warning,
-#supplementMessage
-{
-  color: #F00000;
-}
-
-.localeMatch
-{
-  font-weight: bold;
-}
-
-#all-subscriptions-loading
-{
-  margin: 50px;
-}
-
-#all-subscriptions
-{
-  min-height: 200px;
-}
-#all-subscriptions  > richlistitem > .variant
-{
-  width: 200px;
-}
-#all-subscriptions > richlistitem:not(:first-child) > .subscriptionTitle,
-#all-subscriptions > richlistitem:not(:first-child) > .subscriptionTitle + .variant
-{
-  border-top: 1px dashed black;
-  margin-top: 0px;
-  padding-top: 4px;
-}
-
-#supplementMessage
-{
-  margin-top: 5px;
-}
-#supplementMessage > label
-{
-  margin-left: 0px;
-  margin-right: 0px;
+  font-size: 60%;
 }
