@@ -1311,9 +1311,6 @@ function showSubscriptions()
   if (hasFilters && Utils.versionComparator.compare(Prefs.lastVersion, "0.0") > 0)
     return;
 
-  if (isFennec)
-    return;
-
   if (wrapper && wrapper.addTab)
   {
     wrapper.addTab("chrome://adblockplus/content/ui/subscriptionSelection.xul");
