@@ -45,6 +45,83 @@ Cu.import(baseURL.spec + "SubscriptionClasses.jsm");
 Cu.import(baseURL.spec + "Synchronizer.jsm");
 Utils.runAsync(Cu.import, Cu, baseURL.spec + "AppIntegration.jsm"); // delay to avoid circular imports
 
+let PolicyPrivate = Cu.import(baseURL.spec + "ContentPolicy.jsm", null).PolicyPrivate;
+
+/**
+ * Fake DOM window class, useful when information received from a remote process
+ * needs to be passed on to the content policy.
+ * @constructor
+ */
+function FakeWindow(/**String*/ location, /**FakeNode*/ document, /**FakeWindow*/ top)
+{
+  this._location = location;
+  this._top = top;
+  this.document = document;
+}
+FakeWindow.prototype =
+{
+  get location() this,
+  get href() this._location,
+  get top() this._top || this
+}
+
+/**
+ * Fake DOM node class, useful when information received from a remote process
+ * needs to be passed on to the content policy.
+ * @constructor
+ */
+function FakeNode(/**String*/ wndLocation, /**String*/ topLocation)
+{
+  let topWnd = new FakeWindow(topLocation, this, null);
+  this.defaultView = new FakeWindow(wndLocation, this, topWnd);
+}
+FakeNode.prototype =
+{
+  get ownerDocument() this,
+  getUserData: function() {return null},
+  setUserData: function() {}
+}
+
+let needPostProcess = false;
+
+/**
+ * Function temporarily replacing Utils.schedulePostProcess() function, will set
+ * needPostProcess variable instead of actually scheduling post-processing (for
+ * the case that post-processing has to be done in a remote process).
+ */
+function postProcessReplacement(node)
+{
+  needPostProcess = true;
+}
+
+try
+{
+  Utils.parentMessageManager.addMessageListener("AdblockPlus:Policy:shouldLoad", function(message)
+  {
+    // Replace Utils.schedulePostProcess() to learn whether our node is scheduled for post-processing
+    let oldPostProcess = Utils.schedulePostProcess;
+    needPostProcess = false;
+    Utils.schedulePostProcess = postProcessReplacement;
+
+    try
+    {
+      let data = message.json;
+      let fakeNode = new FakeNode(data.wndLocation, data.topLocation);
+      let result = PolicyPrivate.shouldLoad(data.contentType, data.contentLocation, null, fakeNode);
+      return {value: result, postProcess: needPostProcess};
+    }
+    catch (e)
+    {
+      Cu.reportError(e);
+    }
+    finally
+    {
+      Utils.schedulePostProcess = oldPostProcess;
+    }
+  });
+} catch(e) {}   // Ignore errors if we are not running in a multi-process setup
+
+
 /**
  * Fennec-specific app integration functions.
  * @class
@@ -53,6 +130,19 @@ var AppIntegrationFennec =
 {
   initWindow: function(wrapper)
   {
+    if ("messageManager" in wrapper.window)
+    {
+      // Multi-process setup - we need to inject our content script into all tabs
+      let browsers = wrapper.window.Browser.browsers;
+      for (let i = 0; i < browsers.length; i++)
+        browsers[i].messageManager.loadFrameScript("chrome://adblockplus/content/fennecContent.js", true);
+      wrapper.E("tabs").addEventListener("TabOpen", function(event)
+      {
+        let tab = wrapper.window.Browser.getTabFromChrome(event.originalTarget);
+        tab.browser.messageManager.loadFrameScript("chrome://adblockplus/content/fennecContent.js", true);
+      }, false)
+    }
+
     if (typeof wrapper.window.IdentityHandler == "function" && typeof wrapper.window.IdentityHandler.prototype.show == "function")
     {
       // HACK: Hook IdentityHandler.show() to init our UI

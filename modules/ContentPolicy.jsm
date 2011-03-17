@@ -58,18 +58,6 @@ const contentTypes = ["OTHER", "SCRIPT", "IMAGE", "STYLESHEET", "OBJECT", "SUBDO
 const nonVisualTypes = ["SCRIPT", "STYLESHEET", "XBL", "PING", "XMLHTTPREQUEST", "OBJECT_SUBREQUEST", "DTD", "FONT"];
 
 /**
- * Randomly generated class for collapsed nodes.
- * @type String
- */
-let collapsedClass = "";
-
-/**
- * URL of the global stylesheet used to collapse elements.
- * @type nsIURI
- */
-let collapseStyle = null;
-
-/**
  * Public policy checking functions and auxiliary objects
  * @class
  */
@@ -143,12 +131,13 @@ var Policy =
     TimeLine.log("registering global stylesheet");
   
     let offset = "a".charCodeAt(0);
+    Utils.collapsedClass = "";
     for (let i = 0; i < 20; i++)
-      collapsedClass +=  String.fromCharCode(offset + Math.random() * 26);
+      Utils.collapsedClass +=  String.fromCharCode(offset + Math.random() * 26);
   
-    collapseStyle = Utils.makeURI("data:text/css," +
-                                  encodeURIComponent("." + collapsedClass +
-                                  "{-moz-binding: url(chrome://global/content/bindings/general.xml#foobarbazdummy) !important;}"));
+    let collapseStyle = Utils.makeURI("data:text/css," +
+                                      encodeURIComponent("." + Utils.collapsedClass +
+                                      "{-moz-binding: url(chrome://global/content/bindings/general.xml#foobarbazdummy) !important;}"));
     Utils.styleService.loadAndRegisterSheet(collapseStyle, Ci.nsIStyleSheetService.USER_SHEET);
     TimeLine.log("done registering stylesheet");
   
@@ -215,7 +204,7 @@ var Policy =
       contentType = Policy.type.OBJECT;
 
     let locationText = location.spec;
-    let originWindow = getOriginWindow(wnd);
+    let originWindow = Utils.getOriginWindow(wnd);
     let wndLocation = originWindow.location.href;
     let docDomain = getHostname(wndLocation);
     if (!match && contentType == Policy.type.ELEMHIDE)
@@ -242,11 +231,11 @@ var Policy =
     if (!match && Prefs.enabled)
     {
       match = defaultMatcher.matchesAny(locationText, Policy.typeDescr[contentType] || "", docDomain, thirdParty);
-      if (match instanceof BlockingFilter && node instanceof Ci.nsIDOMElement && !(contentType in Policy.nonVisual))
+      if (match instanceof BlockingFilter && node.ownerDocument && !(contentType in Policy.nonVisual))
       {
         let prefCollapse = (match.collapse != null ? match.collapse : !Prefs.fastcollapse);
         if (collapse || prefCollapse)
-          schedulePostProcess(node);
+          Utils.schedulePostProcess(node);
       }
 
       // Track mouse events for objects
@@ -482,60 +471,6 @@ var PolicyPrivate =
 };
 
 /**
- * Nodes scheduled for post-processing (might be null).
- * @type Array of Node
- */
-let scheduledNodes = null;
-
-/**
- * Schedules a node for post-processing.
- */
-function schedulePostProcess(node)
-{
-  if (scheduledNodes)
-    scheduledNodes.push(node);
-  else
-  {
-    scheduledNodes = [node];
-    Utils.runAsync(postProcessNodes);
-  }
-}
-
-/**
- * Processes nodes scheduled for post-processing (typically hides them).
- */
-function postProcessNodes()
-{
-  let nodes = scheduledNodes;
-  scheduledNodes = null;
-
-  for each (let node in nodes)
-  {
-    // adjust frameset's cols/rows for frames
-    let parentNode = node.parentNode;
-    if (parentNode && parentNode instanceof Ci.nsIDOMHTMLFrameSetElement)
-    {
-      let hasCols = (parentNode.cols && parentNode.cols.indexOf(",") > 0);
-      let hasRows = (parentNode.rows && parentNode.rows.indexOf(",") > 0);
-      if ((hasCols || hasRows) && !(hasCols && hasRows))
-      {
-        let index = -1;
-        for (let frame = node; frame; frame = frame.previousSibling)
-          if (frame instanceof Ci.nsIDOMHTMLFrameElement || frame instanceof Ci.nsIDOMHTMLFrameSetElement)
-            index++;
-    
-        let property = (hasCols ? "cols" : "rows");
-        let weights = parentNode[property].split(",");
-        weights[index] = "0";
-        parentNode[property] = weights.join(",");
-      }
-    }
-    else
-      node.className += " " + collapsedClass;
-  }
-}
-
-/**
  * Extracts the hostname from a URL (might return null).
  */
 function getHostname(/**String*/ url) /**String*/
@@ -548,26 +483,6 @@ function getHostname(/**String*/ url) /**String*/
   {
     return null;
   }
-}
-
-/**
- * If the window doesn't have its own security context (e.g. about:blank or
- * data: URL) walks up the parent chain until a window is found that has a
- * security context.
- */
-function getOriginWindow(/**Window*/ wnd) /**Window*/
-{
-  while (wnd != wnd.parent)
-  {
-    let uri = Utils.makeURI(wnd.location.href);
-    if (uri.spec != "about:blank" && uri.spec != "moz-safe-about:blank" &&
-        !Utils.netUtils.URIChainHasFlags(uri, Ci.nsIProtocolHandler.URI_INHERITS_SECURITY_CONTEXT))
-    {
-      break;
-    }
-    wnd = wnd.parent;
-  }
-  return wnd;
 }
 
 /**
