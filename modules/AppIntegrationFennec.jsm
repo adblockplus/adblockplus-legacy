@@ -39,6 +39,7 @@ let baseURL = Cc["@adblockplus.org/abp/private;1"].getService(Ci.nsIURI);
 Cu.import(baseURL.spec + "Utils.jsm");
 Cu.import(baseURL.spec + "Prefs.jsm");
 Cu.import(baseURL.spec + "ContentPolicy.jsm");
+Cu.import(baseURL.spec + "ElemHide.jsm");
 Cu.import(baseURL.spec + "FilterStorage.jsm");
 Cu.import(baseURL.spec + "FilterClasses.jsm");
 Cu.import(baseURL.spec + "SubscriptionClasses.jsm");
@@ -118,6 +119,38 @@ try
     {
       Utils.schedulePostProcess = oldPostProcess;
     }
+  });
+
+  Utils.parentMessageManager.addMessageListener("AdblockPlus:ElemHide:styleURL", function(message)
+  {
+    return ElemHide.styleURL;
+  });
+
+  Utils.parentMessageManager.addMessageListener("AdblockPlus:ElemHide:checkHit", function(message)
+  {
+    try
+    {
+      let data = message.json;
+      let filter = ElemHide.getFilterByKey(data.key);
+      if (!filter)
+        return false;
+
+      let fakeNode = new FakeNode(data.wndLocation, data.topLocation);
+      return !Policy.processNode(fakeNode.defaultView, fakeNode, Policy.type.ELEMHIDE, filter);
+    }
+    catch (e)
+    {
+      Cu.reportError(e);
+    }
+
+    return ElemHide.styleURL;
+  });
+
+  // Trigger update in child processes if elemhide stylesheet changes
+  FilterStorage.addObserver(function(action)
+  {
+    if (action == "elemhideupdate")
+      Utils.parentMessageManager.sendAsyncMessage("AdblockPlus:ElemHide:updateStyleURL", ElemHide.styleURL);
   });
 } catch(e) {}   // Ignore errors if we are not running in a multi-process setup
 

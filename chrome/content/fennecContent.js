@@ -25,6 +25,8 @@
 
 if (!("@adblockplus.org/abp/policy;1" in Components.classes))
   Components.utils.import("chrome://adblockplus-modules/content/ContentPolicyRemote.jsm");
+if (!("@mozilla.org/network/protocol/about;1?what=abp-elemhidehit" in Components.classes))
+  Components.utils.import("chrome://adblockplus-modules/content/ElemHideRemote.jsm");
 
 addEventListener("click", function(event)
 {
