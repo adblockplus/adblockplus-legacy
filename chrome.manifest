@@ -8,7 +8,8 @@ overlay   chrome://emusic/content/startup.xul chrome://adblockplus/content/ui/fi
 overlay   chrome://webrunner/content/webrunner.xul chrome://adblockplus/content/ui/prismOverlay.xul application=prism@developer.mozilla.org
 content   adblockplus jar:chrome/adblockplus.jar!/content/
 skin      adblockplus classic/1.0 jar:chrome/adblockplus.jar!/skin/
-style     chrome://global/content/customizeToolbar.xul  chrome://adblockplus/skin/overlay.css
+style     chrome://global/content/customizeToolbar.xul chrome://adblockplus/skin/overlay.css
+style     chrome://adblockplus/content/ui/subscriptionSelection.xul chrome://adblockplus/skin/subscriptionSelectionFennec.css application={a23983c0-fd0e-11dc-95ff-0800200c9a66}
 locale    adblockplus {{LOCALE}} jar:chrome/adblockplus.jar!/locale/{{LOCALE}}/
 content   adblockplus-modules modules/
 content   adblockplus-defaults defaults/
