@@ -390,7 +390,7 @@ var ElemHidePrivate =
 
   getURIFlags: function(uri)
   {
-    return Ci.nsIAboutModule.HIDE_FROM_ABOUTABOUT;
+    return ("HIDE_FROM_ABOUTABOUT" in Ci.nsIAboutModule ? Ci.nsIAboutModule.HIDE_FROM_ABOUTABOUT : 0);
   },
 
   newChannel: function(uri)
