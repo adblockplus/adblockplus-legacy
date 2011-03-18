@@ -1,6 +1,6 @@
-<!ENTITY dialog.title "Adblock Plus 정보">
+<!ENTITY dialog.title "애드블록 플러스 정보">
 <!ENTITY version.title "버전">
-<!ENTITY description "Adblock Plus(애드블록 플러스)는 보기 싫은 광고를 제거하여 더욱 빠르고 쾌적한 인터넷 환경을 만들어줍니다. 성가신 광고가 있다면 이젠 Adblock Plus와 함께 하십시오.">
+<!ENTITY description "애드블록 플러스는 보기 싫은 광고를 차단하여 더욱 빠르고 쾌적한 인터넷을 만들어줍니다. 성가신 광고가 있다면 이제 애드블록 플러스와 함께 하십시오.">
 <!ENTITY homepage.label "홈페이지">
 <!ENTITY author.label "개발자">
 <!ENTITY contributors.label "공헌자">

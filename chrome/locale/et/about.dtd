@@ -1,9 +1,8 @@
-<!ENTITY dialog.title "Adblock Plusist">
+<!ENTITY dialog.title "Adblock Plusi teave">
 <!ENTITY version.title "Versioon">
-<!ENTITY description "Adblock Plus lubab sul otsustada, mida sa tahad internetis näha ning 
-
-
-kui soovid Internetis liigelda reklaamivabalt, siis räägi sellest Adblock Plusile!">
+<!ENTITY description "Adblock Plus võimaldab sul ise otsustada, mida sa soovid veebis näha. Sul pole vaja enam reklaame ega bännereid alla laadida; kui sa neid ei soovi, siis lihtsalt eemalda need Adblock Plusi abil.">
 <!ENTITY homepage.label "Adblock Plusi koduleht:">
 <!ENTITY author.label "Autor:">
-<!ENTITY contributors.label "Kaastöötajad:">
+<!ENTITY contributors.label "Kaasaaitajad:">
+<!ENTITY subscriptionAuthors.label "Filtrite tellimuste osa autorid:">
+<!ENTITY translators.label "Tõlkijad:">

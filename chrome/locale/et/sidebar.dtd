@@ -1,30 +1,35 @@
-<!ENTITY detached.title "Adblock Plus: Blokeeritavad objektid (lahtised)">
-<!ENTITY detach.label "Ava">
-<!ENTITY reattach.label "Kinnita">
-<!ENTITY search.label "Otsi:">
-<!ENTITY search.accesskey "S">
+<!ENTITY detached.title "Adblock Plus: Blokeeritavad elemendid (lahti haagitud)">
+<!ENTITY detach.label "Haagi lahti">
+<!ENTITY reattach.label "Haagi tagasi">
+<!ENTITY search.label "Otsing:">
+<!ENTITY search.accesskey "s">
 <!ENTITY type.label "Tüüp">
-<!ENTITY address.label "Address">
+<!ENTITY address.label "Aadress">
 <!ENTITY filter.label "Filter">
-<!ENTITY state.label "Seisukord">
+<!ENTITY state.label "Olek">
 <!ENTITY size.label "Suurus">
-<!ENTITY noitems.label "Blokeeritavaid objekte pole">
-<!ENTITY whitelisted.label "Hea nimekiri">
+<!ENTITY docDomain.label "Dokumendi allikas">
+<!ENTITY docDomain.thirdParty "(väljaspoolt)">
+<!ENTITY docDomain.firstParty "(põhileht)">
+<!ENTITY noitems.label "Blokeeritavaid elemendid puuduvad">
+<!ENTITY whitelisted.label "Lehekülg on valges nimekirjas">
 <!ENTITY tooltip.address.label "Aadress:">
 <!ENTITY tooltip.type.label "Tüüp:">
 <!ENTITY tooltip.type.blocked "(blokeeritud)">
 <!ENTITY tooltip.type.whitelisted "(valges nimekirjas)">
 <!ENTITY tooltip.size.label "Suurus:">
-<!ENTITY tooltip.filter.label "Filtreid effektis:">
-<!ENTITY tooltip.filterSource.label "Filtri päritolu:">
-<!ENTITY context.block.label "Blokeeri selle objekti">
-<!ENTITY context.editfilter.label "Muuda filtrit efektis">
-<!ENTITY context.whitelist.label "Lisa objektile erandliku reegeli">
-<!ENTITY context.disablefilter.label "Keela filetr">
-<!ENTITY context.enablefilter.label "Luba filter">
-<!ENTITY context.disablefilteronsite.label "Keela filter">
-<!ENTITY context.open.label "Ava uues tabis">
-<!ENTITY context.flash.label "Flashi objekti ääred">
-<!ENTITY context.copy.label "Kopeeri objekti aadress">
+<!ENTITY tooltip.docDomain.label "Dokumendi allikas:">
+<!ENTITY tooltip.filter.label "Kehtiv filter:">
+<!ENTITY tooltip.filter.disabled "(keelatud)">
+<!ENTITY tooltip.filterSource.label "Filtri asukoht:">
+<!ENTITY context.block.label "Blokeeri see element">
+<!ENTITY context.editfilter.label "Muuda kehtivat filtrit">
+<!ENTITY context.whitelist.label "Lisa antud elemendile erandi reegel">
+<!ENTITY context.disablefilter.label "Keela filter ?1?">
+<!ENTITY context.enablefilter.label "Luba taas filter ?1?">
+<!ENTITY context.disablefilteronsite.label "Keela see filter domeenis ?1?">
+<!ENTITY context.open.label "Ava uuel kaardil">
+<!ENTITY context.flash.label "Flash elemendi piirid">
+<!ENTITY context.copy.label "Kopeeri elemendi aadress">
 <!ENTITY context.copyFilter.label "Kopeeri filter">
 <!ENTITY context.selectAll.label "Vali kõik">

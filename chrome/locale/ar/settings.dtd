@@ -62,8 +62,6 @@
 <!ENTITY about.label "عن آدبلوك بلاس">
 <!ENTITY about.accesskey "ع">
 <!ENTITY description "أضف العناوين التي ترغب بحجبها، و للاقتراحات انظر القائمة المنسدلة.
-
-
 يمكنك أن تستعمل الرمز * لإنشاء فلاتر عامة. المستخدمين المتقدمين يمكنهم استخدام بعض التعبيرات النظامية مثل /banner\d+\.gif$/">
 <!ENTITY filter.column "قانون الفلتر">
 <!ENTITY filter.accesskey "ف">
