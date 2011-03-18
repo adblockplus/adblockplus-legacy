@@ -80,6 +80,17 @@ var Utils =
   },
 
   /**
+   * Returns whether we are running in Fennec, for Fennec-specific hacks
+   * @type Boolean
+   */
+  get isFennec()
+  {
+    let result = (this.appID == "{a23983c0-fd0e-11dc-95ff-0800200c9a66}");
+    Utils.__defineGetter__("isFennec", function() result);
+    return result;
+  },
+
+  /**
    * Returns the user interface locale selected for adblockplus chrome package.
    */
   get appLocale()
