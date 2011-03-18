@@ -50,6 +50,51 @@ function init()
       window.hasSubscription = window.arguments[2];
   }
 
+  if (newInstall && Utils.isFennec)
+  {
+    // HACK: In Fennec 4.0 menulist elements won't work "by themselves". We
+    // have to go to the top level and trigger MenuListHelperUI manually.
+    let topWnd = window.QueryInterface(Ci.nsIInterfaceRequestor)
+                       .getInterface(Ci.nsIWebNavigation)
+                       .QueryInterface(Ci.nsIDocShellTreeItem)
+                       .rootTreeItem
+                       .QueryInterface(Ci.nsIInterfaceRequestor)
+                       .getInterface(Ci.nsIDOMWindow);
+    if (topWnd.wrappedJSObject)
+      topWnd = topWnd.wrappedJSObject;
+
+    let menulist = E("subscriptions");
+    if ("MenuListHelperUI" in topWnd && menulist.parentNode.localName != "stack")
+    {
+      // Add a layer on top of the menulist to handle clicks, menulist clicks
+      // are otherwise ignored and cannot be intercepted
+      let stack = document.createElement("stack");
+      menulist.parentNode.replaceChild(stack, menulist);
+      stack.appendChild(menulist);
+
+      let clickLayer = document.createElement("hbox");
+      stack.appendChild(clickLayer);
+
+      clickLayer.addEventListener("click", function(event)
+      {
+        if (event.button == 0 && !menulist.disabled && menulist.itemCount)
+        {
+          menulist.focus();
+          topWnd.MenuListHelperUI.show(menulist);
+        }
+      }, true);
+
+      // menulist needs to be initialized after being moved, re-run init() later
+      Utils.runAsync(init);
+      return;
+    }
+
+    // The template is being displayed as a list item, remove it
+    let subscriptionsTemplate = E("subscriptionsTemplate");
+    if (subscriptionsTemplate && subscriptionsTemplate.parentNode)
+      subscriptionsTemplate.parentNode.removeChild(subscriptionsTemplate);
+  }
+
   if (!result)
   {
     result = {};
