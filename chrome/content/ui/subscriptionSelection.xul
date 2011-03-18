@@ -56,7 +56,7 @@
     <label control="subscriptions">&subscriptionSelector.label;</label>
     <menulist id="subscriptions" label=" " onselect="onSelectionChange()">
       <menupopup datasources="subscriptions.xml" ref="*" querytype="xml">
-        <template>
+        <template id="subscriptionsTemplate">
           <menuitem uri="?" label="?title" value="?url" _url="?url" _homepage="?homepage" _prefixes="?prefixes"/>
         </template>
       </menupopup>
