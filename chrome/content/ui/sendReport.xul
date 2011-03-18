@@ -133,6 +133,12 @@
         <button label="&issues.nosubscriptions.add.label;" oncommand="issuesDataSource.addSubscription();"/>
       </hbox>
     </groupbox>
+    <groupbox id="issuesSubscriptionCountBox" hidden="true">
+      <description>&issues.subscriptionCount.description;</description>
+      <hbox pack="end">
+        <button label="&issues.openPreferences.label;" oncommand="Utils.openSettingsDialog();window.close();"/>
+      </hbox>
+    </groupbox>
     <groupbox id="issuesOwnFiltersBox" hidden="true">
       <description>&issues.ownfilters.description;</description>
       <hbox id="issuesOwnFiltersTemplate" align="center" hidden="true">
