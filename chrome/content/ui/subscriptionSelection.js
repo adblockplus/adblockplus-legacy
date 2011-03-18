@@ -93,6 +93,16 @@ function init()
     let subscriptionsTemplate = E("subscriptionsTemplate");
     if (subscriptionsTemplate && subscriptionsTemplate.parentNode)
       subscriptionsTemplate.parentNode.removeChild(subscriptionsTemplate);
+
+    // window.close() closes the entire window (bug 642604), make sure to close
+    // only a single tab instead.
+    if ("BrowserUI" in topWnd)
+    {
+      window.close = function()
+      {
+        topWnd.BrowserUI.closeTab();
+      };
+    }
   }
 
   if (!result)
