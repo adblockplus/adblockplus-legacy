@@ -155,3 +155,11 @@ toolbar[mode="full"] #abp-toolbarbutton[type="menu"]
 #abp-sidebar-close:hover:active {
   -moz-image-region: rect(0px, 42px, 14px, 28px);
 }
+
+.abp-recommendbutton
+{
+  margin-top: 20px;
+  margin-left: 40px;
+  margin-right: 40px;
+  list-style-image: url("data:image/gif;base64,R0lGODlhEAAQAKIAAGF5rEVinmB4q%2Bvu9G2EtP%2F%2F%2FztZmAAAACH5BAAAAAAALAAAAAAQABAAAAM4WLrcCibKGYGiWN4sxt6Y9xWZAZpkdp6R06bTIMpvucLUbeNKQPxAggIY6AWBw1%2BxAClJLI7oIgEAOw%3D%3D");
+}
