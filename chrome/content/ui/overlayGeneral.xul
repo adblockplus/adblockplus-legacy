@@ -69,6 +69,8 @@
           <menuitem id="abp-status-showinstatusbar" label="&showinstatusbar.label;" accesskey="&showinstatusbar.accesskey;" type="checkbox" command="abp-command-toggleshowinstatusbar"/>
         </menupopup>
       </menu>
+
+      <button id="abp-status-recommendbutton" class="abp-recommendbutton" label="&recommend.label;" command="abp-command-recommend"/>
     </menupopup>
   </popupset>
   <keyset id="abp-keyset"/>
@@ -84,6 +86,7 @@
     <command id="abp-command-toggleshowintoolbar"/>
     <command id="abp-command-toggleshowinstatusbar"/>
     <command id="abp-command-enable" oncommand="//"/>
+    <command id="abp-command-recommend"/>
   </commandset>
 
   <statusbarpanel id="abp-status" class="statusbarpanel-iconic"
