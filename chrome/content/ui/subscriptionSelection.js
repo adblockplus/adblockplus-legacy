@@ -66,7 +66,7 @@ function init()
       source.mainSubscriptionURL = source.mainSubscriptionTitle = null;
   }
 
-  if (newInstall && Utils.appID != "{a23983c0-fd0e-11dc-95ff-0800200c9a66}")
+  if (newInstall && !Utils.isFennec)
   {
     // HACK: We will remove dialog content box flex if a subscription is
     // selected, need to find the content box and save it flex value.

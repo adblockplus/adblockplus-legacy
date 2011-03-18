@@ -45,12 +45,7 @@ Cu.import(baseURL.spec + "FilterClasses.jsm");
 Cu.import(baseURL.spec + "SubscriptionClasses.jsm");
 Cu.import(baseURL.spec + "RequestNotifier.jsm");
 
-/**
- * Flag used to trigger special behavior for Fennec.
- * @type Boolean
- */
-let isFennec = (Utils.appID == "{a23983c0-fd0e-11dc-95ff-0800200c9a66}");
-if (isFennec)
+if (Utils.isFennec)
   Cu.import(baseURL.spec + "AppIntegrationFennec.jsm");
 
 /**
@@ -199,7 +194,7 @@ function WindowWrapper(window, hooks)
   this.window = window;
 
   this.initializeHooks(hooks);
-  if (!isFennec)
+  if (!Utils.isFennec)
   {
     this.fixupMenus();
     this.configureKeys();
@@ -213,11 +208,11 @@ function WindowWrapper(window, hooks)
           .QueryInterface(Ci.nsIDocShell)
           .allowSubframes = true;
   }
-  this.registerEventListeners(!isFennec);
+  this.registerEventListeners(!Utils.isFennec);
   this.executeFirstRunActions();
 
   // Custom initialization for Fennec
-  if (isFennec)
+  if (Utils.isFennec)
     AppIntegrationFennec.initWindow(this);
 }
 WindowWrapper.prototype =
@@ -820,7 +815,7 @@ WindowWrapper.prototype =
     }
   
     // Open dialog
-    if (!isFennec)
+    if (!Utils.isFennec)
     {
       let subscription = {url: url, title: title, disabled: false, external: false, autoDownload: true,
                           mainSubscriptionTitle: mainSubscriptionTitle, mainSubscriptionURL: mainSubscriptionURL};

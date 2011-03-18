@@ -102,7 +102,7 @@ var Prefs =
     }
 
     // Always disable object tabs in Fennec, they aren't usable
-    if (Utils.appID == "{a23983c0-fd0e-11dc-95ff-0800200c9a66}")
+    if (Utils.isFennec)
       Prefs.frameobjects = false;
 
     TimeLine.log("done loading initial values");
