@@ -1,22 +1,25 @@
 <!ENTITY status.tooltip "Status:">
 <!ENTITY blocked.tooltip "Item yang disekat pada laman ini:">
 <!ENTITY filters.tooltip "Penapis yang paling aktif:">
-<!ENTITY menuitem.label "Adblock Plus">
-<!ENTITY menuitem.accesskey "B">
+<!ENTITY menuitem.label "Pilihan Adblock Plus">
+<!ENTITY menuitem.accesskey "P">
 <!ENTITY toolbarbutton.label "Adblock Plus">
-<!ENTITY view.blockableItems.label "Adblock Plus: Item yang boleh dihalang">
-<!ENTITY context.image.label "Imej Adblock">
-<!ENTITY context.object.label "Objek Adblock">
-<!ENTITY context.frame.label "Bingkai Adblock">
-<!ENTITY context.removeWhitelist.label "Adblock Plus: Aktifkan semula pada halaman ini">
-<!ENTITY sidebar.title "Item yang boleh dihalang pada halaman semasa">
+<!ENTITY view.blockableItems.label "Adblock Plus: Item yang boleh disekat">
+<!ENTITY context.image.label "Adblock Plus: Sekat imej">
+<!ENTITY context.object.label "Adblock Plus: Sekat objek">
+<!ENTITY context.frame.label "Adblock Plus: Sekat bingkai">
+<!ENTITY context.media.label "Adblock Plus: Sekat audio/video">
+<!ENTITY context.removeWhitelist.label "Adblock Plus: Aktifkan semula pada laman ini">
+<!ENTITY sidebar.title "Item yang boleh disekat pada laman semasa">
+<!ENTITY sendReport.label "Lapor isu pada laman ini">
+<!ENTITY sendReport.accesskey "L">
 <!ENTITY settings.label "Tatarajah">
 <!ENTITY settings.accesskey "T">
 <!ENTITY opensidebar.label "Buka item yang boleh disekat">
 <!ENTITY opensidebar.accesskey "B">
 <!ENTITY closesidebar.label "Tutup item yang boleh disekat">
 <!ENTITY closesidebar.accesskey "B">
-<!ENTITY whitelist.site.label "Matikan pada ?1?">
-<!ENTITY whitelist.page.label "Matikan pada halaman ini sahaja">
+<!ENTITY whitelist.site.label "Nyahaktifkan pada ?1?">
+<!ENTITY whitelist.page.label "Nyahaktifkan pada laman ini sahaja">
 <!ENTITY objecttab.title "Sekat">
-<!ENTITY objecttab.tooltip "Klik di sini untuk mennyekat objek ini dengan Adblock Plus">
+<!ENTITY objecttab.tooltip "Klik di sini untuk menyekat objek ini dengan Adblock Plus">

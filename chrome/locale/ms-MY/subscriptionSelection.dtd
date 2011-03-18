@@ -1,10 +1,25 @@
-<!ENTITY dialog.title "Selamat datang ke Adblock Plus">
+<!ENTITY dialog.title "Tambah langganan penapis Adblock Plus">
 <!ENTITY dialog.title.edit "Ubah deskripsi penapis">
+<!ENTITY description.newInstall "Adblock Plus paling berkesan jika anda menambah langganan penapis. Langganan penapis dibekalkan pengguna Adblock Plus lain secara percuma. Langganan yang paling sesuai dengan bahasa anda telah pun dipilih.">
+<!ENTITY subscriptionSelector.label "Sila pilih langganan penapis dalam senarai berikut:">
+<!ENTITY viewList.label "Papar penapis">
+<!ENTITY visitHomepage.label "Lawat laman web Adblock Plus">
+<!ENTITY addSubscription.label "Tambah langganan">
+<!ENTITY saveSubscription.label "Simpan langganan">
 <!ENTITY other.label "Tambah langganan lain">
 <!ENTITY other.accesskey "T">
+<!ENTITY list.download.failed "Adblock Plus gagal memuat-turun senarai langganan.">
+<!ENTITY list.download.retry "Cuba lagi">
+<!ENTITY list.download.website "Papar laman web">
+<!ENTITY fromWeb.description "Sila pastikan anda mahu menambah langganan penapis ini. Anda boleh mengubah tajuk langganan atau lokasi sebelum menambahnya.">
+<!ENTITY edit.description "Anda boleh mengubah tajuk langganan atau lokasi mengikut keperluan.">
+<!ENTITY external.description "Ini adalah langganan penapis luaran; ia akan dikemaskinikan oleh extension yang mewujudkan langganan ini.">
 <!ENTITY title.label "Tajuk langganan">
-<!ENTITY title.accesskey "T">
+<!ENTITY title.accesskey "j">
 <!ENTITY location.label "Lokasi senarai penapis:">
-<!ENTITY location.accesskey "L">
-<!ENTITY autodownload.label "Kemaskini automatik">
+<!ENTITY location.accesskey "o">
+<!ENTITY autodownload.label "Kemaskini penapis secara automatik">
 <!ENTITY autodownload.accesskey "K">
+<!ENTITY supplementMessage "Langganan penapis ini bertujuan untuk digunakan bersama langganan penapis &quot;?1?&quot; yang tidak digunakan oleh anda lagi.">
+<!ENTITY addMain.label "Tambah langganan penapis &quot;?1?&quot; juga">
+<!ENTITY addMain.accesskey "b">
