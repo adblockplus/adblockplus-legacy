@@ -1004,6 +1004,14 @@ WindowWrapper.prototype =
   },
 
   /**
+   * Opens Facebook's recommend page.
+   */
+  recommend: function()
+  {
+    this.window.open("http://www.facebook.com/share.php?u=http%3A%2F%2Fadblockplus.org%2F&t=Adblock%20Plus", "_blank", "width=550,height=350");
+  },
+
+  /**
    * Tests whether blockable items list is currently open.
    */
   isSidebarOpen: function() /**Boolean*/
@@ -1227,6 +1235,7 @@ WindowWrapper.prototype.eventHandlers = [
   ["abp-command-toggleshowintoolbar", "command", function() { AppIntegration.togglePref("showintoolbar"); }],
   ["abp-command-toggleshowinstatusbar", "command", function() { AppIntegration.togglePref("showinstatusbar"); }],
   ["abp-command-enable", "command", function() { AppIntegration.togglePref("enabled"); }],
+  ["abp-command-recommend", "command", WindowWrapper.prototype.recommend],
   ["abp-toolbarbutton", "command", WindowWrapper.prototype.handleToolbarCommand],
   ["abp-toolbarbutton", "click", WindowWrapper.prototype.handleToolbarClick],
   ["abp-status", "click", WindowWrapper.prototype.handleStatusClick],
