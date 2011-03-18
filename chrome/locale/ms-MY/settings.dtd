@@ -1,86 +1,87 @@
 <!ENTITY dialog.title "Tatarajah Adblock Plus">
 <!ENTITY filters.label "Penapis">
-<!ENTITY filters.accesskey "i">
+<!ENTITY filters.accesskey "P">
 <!ENTITY add.label "Tambah penapis">
-<!ENTITY add.accesskey "s">
+<!ENTITY add.accesskey "T">
 <!ENTITY addsubscription.label "Tambah langganan penapis">
-<!ENTITY addsubscription.accesskey "L">
+<!ENTITY addsubscription.accesskey "a">
 <!ENTITY synchsubscriptions.label "Kemaskini semua langganan">
 <!ENTITY synchsubscriptions.accesskey "K">
 <!ENTITY import.label "Import penapis">
-<!ENTITY import.accesskey "I">
+<!ENTITY import.accesskey "m">
 <!ENTITY export.label "Eksport penapis">
 <!ENTITY export.accesskey "E">
 <!ENTITY clearall.label "Buang semua penapis">
 <!ENTITY clearall.accesskey "B">
-<!ENTITY resethitcounts.label "Set semula pembilang hit">
-<!ENTITY resethitcounts.accesskey "a">
+<!ENTITY resethitcounts.label "Reset semula pembilang hit">
+<!ENTITY resethitcounts.accesskey "R">
 <!ENTITY edit.label "Ubah">
 <!ENTITY edit.accesskey "U">
 <!ENTITY cut.label "Potong">
-<!ENTITY cut.accesskey "N">
+<!ENTITY cut.accesskey "t">
 <!ENTITY copy.label "Salin">
-<!ENTITY copy.accesskey "A">
+<!ENTITY copy.accesskey "S">
 <!ENTITY paste.label "Tampal">
-<!ENTITY paste.accesskey "l">
+<!ENTITY paste.accesskey "m">
 <!ENTITY remove.label "Padam">
-<!ENTITY remove.accesskey "D">
-<!ENTITY menu.find.label "Gelintar">
-<!ENTITY menu.find.accesskey "R">
-<!ENTITY menu.findagain.label "Gelintar lagi">
-<!ENTITY menu.findagain.accesskey "G">
+<!ENTITY remove.accesskey "d">
+<!ENTITY menu.find.label "Cari">
+<!ENTITY menu.find.accesskey "C">
+<!ENTITY menu.findagain.label "Cari lagi">
+<!ENTITY menu.findagain.accesskey "g">
 <!ENTITY view.label "Papar">
-<!ENTITY view.accesskey "P">
+<!ENTITY view.accesskey "r">
 <!ENTITY sort.label "Susun dengan">
-<!ENTITY sort.accesskey "e">
+<!ENTITY sort.accesskey "S">
 <!ENTITY sort.none.label "Tidak disusun">
-<!ENTITY sort.none.accesskey "K">
+<!ENTITY sort.none.accesskey "T">
 <!ENTITY sort.ascending.label "Susunan A &gt; Z">
 <!ENTITY sort.ascending.accesskey "A">
 <!ENTITY sort.descending.label "Susunan Z &gt; A">
 <!ENTITY sort.descending.accesskey "Z">
-<!ENTITY options.label "Opsyen">
-<!ENTITY options.accesskey "Y">
+<!ENTITY options.label "Pilihan">
+<!ENTITY options.accesskey "n">
 <!ENTITY enable.label "Aktifkan Adblock Plus">
-<!ENTITY enable.accesskey "f">
+<!ENTITY enable.accesskey "A">
 <!ENTITY showintoolbar.label "Paparkan di bar alatan">
-<!ENTITY showintoolbar.accesskey "B">
+<!ENTITY showintoolbar.accesskey "n">
 <!ENTITY showinstatusbar.label "Paparkan di bar status">
-<!ENTITY showinstatusbar.accesskey "R">
+<!ENTITY showinstatusbar.accesskey "s">
 <!ENTITY objecttabs.label "Paparkan tab pada Flash dan Java">
-<!ENTITY objecttabs.accesskey "T">
+<!ENTITY objecttabs.accesskey "t">
 <!ENTITY collapse.label "Jatuhkan semua elemen yang disekat">
 <!ENTITY collapse.accesskey "J">
 <!ENTITY help.label "Bantuan">
-<!ENTITY help.accesskey "t">
-<!ENTITY gettingStarted.label "Sedia untuk mengguna">
-<!ENTITY gettingStarted.accesskey "S">
-<!ENTITY faq.label "Soalan yang selalu ditanya">
-<!ENTITY faq.accesskey "A">
+<!ENTITY help.accesskey "B">
+<!ENTITY gettingStarted.label "Persediaan untuk mengguna">
+<!ENTITY gettingStarted.accesskey "s">
+<!ENTITY faq.label "Soalan kerap ditanya">
+<!ENTITY faq.accesskey "o">
 <!ENTITY filterdoc.label "Menulis penapis Adblock Plus">
-<!ENTITY filterdoc.accesskey "N">
+<!ENTITY filterdoc.accesskey "u">
 <!ENTITY about.label "Perihal Adblock Plus">
-<!ENTITY about.accesskey "P">
-<!ENTITY description "Tambah alamat yang anda ingin sekat, untuk cadangan semak senarai dropdown. Anda boleh guna * sebagai kad liar untuk mencipta penapis yang lebih am. Pengguna pakar boleh menggunakan ungkapan biasa seperti /banner\d+\.gif$/.">
+<!ENTITY about.accesskey "A">
+<!ENTITY description "Penapis berikut menentukan alamat mana yang perlu disekat dan mana yang perlu dibenarkan:">
 <!ENTITY filter.column "Peraturan penapis">
-<!ENTITY filter.accesskey "F">
+<!ENTITY filter.accesskey "r">
 <!ENTITY slow.column "Lambatkan penapis">
-<!ENTITY slow.accesskey "W">
+<!ENTITY slow.accesskey "L">
 <!ENTITY enabled.column "Diaktifkan">
-<!ENTITY enabled.accesskey "n">
+<!ENTITY enabled.accesskey "D">
 <!ENTITY hitcount.column "Hit">
 <!ENTITY hitcount.accesskey "H">
 <!ENTITY lasthit.column "Hit terakhir">
-<!ENTITY lasthit.accesskey "L">
+<!ENTITY lasthit.accesskey "e">
 <!ENTITY context.edit.label "Ubah penapis">
-<!ENTITY context.resethitcount.label "Set semua statistik hit untuk penapis">
+<!ENTITY context.resethitcount.label "Reset semua statistik hit untuk penapis">
 <!ENTITY context.synchsubscription.label "Kemaskini langganan sekarang">
 <!ENTITY context.editsubscription.label "Ubah langganan">
-<!ENTITY context.moveup.label "Pindah ke atas">
-<!ENTITY context.movedown.label "Pindah ke bawah">
+<!ENTITY context.moveup.label "Pindah penapis ke atas">
+<!ENTITY context.movedown.label "Pindah penapis ke bawah">
 <!ENTITY context.movegroupup.label "Pindah kumpulan ke atas">
 <!ENTITY context.movegroupdown.label "Pindah kumpulan ke bawah">
 <!ENTITY context.enable.label "Aktifkan">
 <!ENTITY context.disable.label "Nyahaktifkan">
 <!ENTITY apply.label "Hidupkan">
 <!ENTITY apply.accesskey "H">
+<!ENTITY fennec.subscription.label "Langganan penapis">

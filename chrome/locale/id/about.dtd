@@ -1,14 +1,9 @@
 <!ENTITY dialog.title "Tentang Adblock Plus">
 <!ENTITY version.title "Versi">
 <!ENTITY description "
-
-
 	Adblock Plus membolehkan Anda untuk memilih apa yang tidak harus dilihat pada situs.
-
 	Anda tidak perlu mendownload semua iklan dan banner, Jika Anda tidak menginginkannya
-
 	- katakan Adblock Plus!
-
 ">
 <!ENTITY homepage.label "Situs Adblock Plus:">
 <!ENTITY author.label "Pembuat:">

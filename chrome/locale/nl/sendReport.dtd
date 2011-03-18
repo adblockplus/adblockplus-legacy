@@ -56,7 +56,7 @@
 <!ENTITY comment.lengthWarning "De lengte van uw opmerking overschrijdt 1000 karakters. Alleen de eerste 1000 karakters worden verzonden.">
 <!ENTITY email.label "E-mailadres voor verdere vragen (optioneel):">
 <!ENTITY email.accesskey "m">
-<!ENTITY attachExtensions.label "Voeg een lijst met actieve extensies toe aan het rapport voor het geval conflicteren add-ons de oorzaak van het probleem zijn">
+<!ENTITY attachExtensions.label "Voeg een lijst met actieve extensies toe aan het rapport voor het geval conflicterende add-ons de oorzaak van het probleem zijn">
 <!ENTITY attachExtensions.accesskey "x">
 <!ENTITY sendButton.label "Rapport verzenden">
 <!ENTITY sendButton.accesskey "z">
@@ -67,7 +67,7 @@
 <!ENTITY sendPage.waitMessage "Wacht a.u.b. terwijl Adblock Plus uw rapport indient.">
 <!ENTITY sendPage.confirmation "Uw rapport is opgeslagen. U kunt het bekijken op het volgende adres:">
 <!ENTITY sendPage.knownIssue "Het doro u gemelde probleem is waarschijnlijk al bekend. Meer informatie:">
-<!ENTITY sendPage.errorMessage "De poging om het rapport te verzenden is mislukt met foutcode ‘?1?’. Controleer a.u.b. uw internetverbinding en probeer het opnieuw. Als het probleem aanhoudt vraag dan a.u.b. om hulp op het [link]Adblock Plus-forum[/link].">
+<!ENTITY sendPage.errorMessage "De poging om het rapport te verzenden is mislukt met foutcode ‘?1?’. Controleer a.u.b. uw internetverbinding en probeer het opnieuw. Als het probleem aanhoudt, vraag dan a.u.b. om hulp op het [link]Adblock Plus-forum[/link].">
 <!ENTITY sendPage.retry.label "Opnieuw verzenden">
 <!ENTITY copyLink.label "Rapportkoppeling kopiëren">
 <!ENTITY copyLink.accesskey "k">
