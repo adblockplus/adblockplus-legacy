@@ -769,6 +769,7 @@ let issuesDataSource =
     E("issuesDisabledBox").hidden = this.isEnabled;
     E("issuesNoFiltersBox").hidden = (type != "false positive" || this.numAppliedFilters > 0);
     E("issuesNoSubscriptionsBox").hidden = (type != "false negative" || this.numAppliedFilters > 0 || this.numSubscriptions > 0);
+    E("issuesSubscriptionCountBox").hidden = (this.numSubscriptions < 5);
 
     let ownFiltersBox = E("issuesOwnFilters");
     if (this.ownFilters.length && !ownFiltersBox.firstChild)
@@ -827,12 +828,13 @@ let issuesDataSource =
     E("issuesOverride").hidden = !E("issuesWhitelistBox").hidden ||
                                  !E("issuesDisabledBox").hidden ||
                                  !E("issuesNoFiltersBox").hidden ||
-                                 !E("issuesNoSubscriptionsBox").hidden;
+                                 !E("issuesNoSubscriptionsBox").hidden ||
+                                 !E("issuesSubscriptionCountBox").hidden;
 
     if (E("issuesWhitelistBox").hidden && E("issuesDisabledBox").hidden &&
         E("issuesNoFiltersBox").hidden && E("issuesNoSubscriptionsBox").hidden &&
         E("issuesOwnFiltersBox").hidden && E("issuesDisabledFiltersBox").hidden &&
-        E("issuesDisabledSubscriptionsBox").hidden)
+        E("issuesDisabledSubscriptionsBox").hidden && E("issuesSubscriptionCountBox").hidden)
     {
       E("typeSelectorPage").next = "screenshot";
     }
