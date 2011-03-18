@@ -1,34 +1,25 @@
-<!ENTITY dialog.title "Adblock Plus 同期フィルタの追加">
-<!ENTITY dialog.title.edit "同期フィルタを編集">
-<!ENTITY description.newInstall "
-
-
-	Adblock Plus では同期フィルタを使うと効果的です。
-
-	以下のフィルタは有志によって作成され無償で提供されています。
-
-	あなたが使っている言語に最も適したものが選択されています。
-
-">
-<!ENTITY subscriptionSelector.label "リストから同期フィルタを選択してください：">
-<!ENTITY viewList.label "内容を確認する">
-<!ENTITY visitHomepage.label "ホームページ">
-<!ENTITY addSubscription.label "追加">
-<!ENTITY saveSubscription.label "保存">
-<!ENTITY other.label "上記以外を追加">
+<!ENTITY dialog.title "購読フィルタを追加">
+<!ENTITY dialog.title.edit "購読フィルタを編集">
+<!ENTITY description.newInstall "他の Adblock Plus ユーザーにより無償で提供されている購読フィルタを追加すると、効果的に使うことができます。使用言語に適した購読フィルタは既に選択されています。">
+<!ENTITY subscriptionSelector.label "リストから購読フィルタを選択してください：">
+<!ENTITY viewList.label "フィルタ内容を見る">
+<!ENTITY visitHomepage.label "ホームページに移動">
+<!ENTITY addSubscription.label "購読フィルタを追加">
+<!ENTITY saveSubscription.label "購読フィルタを保存">
+<!ENTITY other.label "他の購読フィルタを追加">
 <!ENTITY other.accesskey "f">
-<!ENTITY list.download.failed "リスト取得に失敗しました。">
+<!ENTITY list.download.failed "購読フィルタのダウンロードに失敗。">
 <!ENTITY list.download.retry "再試行">
 <!ENTITY list.download.website "ウェブサイトで見る">
-<!ENTITY fromWeb.description "追加する同期フィルタを確認してください。保存する前に名前と場所を変更できます。">
-<!ENTITY edit.description "必要に応じて変更できます。名前と場所を入力することで上記以外の同期フィルタも使えます。">
-<!ENTITY external.description "これは外部同期フィルタです。このフィルタを設定した外部アドオンによって更新されます">
-<!ENTITY title.label "名前:">
-<!ENTITY title.accesskey "T">
-<!ENTITY location.label "場所:">
-<!ENTITY location.accesskey "L">
-<!ENTITY autodownload.label "自動更新にする">
-<!ENTITY autodownload.accesskey "P">
-<!ENTITY supplementMessage "この同期フィルタは &quot;?1?&quot; との併用が推奨されています。">
-<!ENTITY addMain.label " &quot;?1?&quot; も追加する">
+<!ENTITY fromWeb.description "追加する購読フィルタを確認してください。購読フィルタの名前と場所は変更できます。">
+<!ENTITY edit.description "必要に応じて購読フィルタの名前と場所を変更可能です">
+<!ENTITY external.description "外部の購読フィルタです。この購読フィルタを作成した外部アドオンにより更新されます">
+<!ENTITY title.label "購読フィルタ名：">
+<!ENTITY title.accesskey "t">
+<!ENTITY location.label "購読フィルタの場所：">
+<!ENTITY location.accesskey "l">
+<!ENTITY autodownload.label "自動更新する">
+<!ENTITY autodownload.accesskey "p">
+<!ENTITY supplementMessage "この購読フィルタは &quot;?1?&quot; と併用することが前提になっています。">
+<!ENTITY addMain.label "購読フィルタ &quot;?1?&quot; も追加する">
 <!ENTITY addMain.accesskey "s">
