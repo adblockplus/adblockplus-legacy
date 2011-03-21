@@ -989,6 +989,23 @@ WindowWrapper.prototype =
     this.E(prefix + "closesidebar").setAttribute("default", defAction == 1);
     this.E(prefix + "settings").setAttribute("default", defAction == 2);
     this.E(prefix + "disabled").setAttribute("default", defAction == 3);
+
+    // Only show "Recommend" button to Facebook users, we don't want to advertise Facebook
+    this.E(prefix + "recommendbutton").hidden = true;
+    let cookieManager = Cc["@mozilla.org/cookiemanager;1"].getService(Ci.nsICookieManager2);
+    if ("getCookiesFromHost" in cookieManager)
+    {
+      let enumerator = cookieManager.getCookiesFromHost("facebook.com");
+      while (enumerator.hasMoreElements())
+      {
+        let cookie = enumerator.getNext().QueryInterface(Ci.nsICookie);
+        if (cookie.name == "lu")
+        {
+          this.E(prefix + "recommendbutton").hidden = false;
+          break;
+        }
+      }
+    }
   },
 
   /**
