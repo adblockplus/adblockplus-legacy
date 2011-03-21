@@ -59,6 +59,9 @@
 <!ENTITY objecttabs.accesskey       "B">
 <!ENTITY collapse.label             "Platz von blockierten Elementen freigeben">
 <!ENTITY collapse.accesskey         "F">
+<!ENTITY sync.label                 "Adblock Plus-Einstellungen synchonisieren">
+<!ENTITY sync.accesskey             "y">
+
 <!ENTITY help.label                 "Hilfe">
 <!ENTITY help.accesskey             "H">
 
