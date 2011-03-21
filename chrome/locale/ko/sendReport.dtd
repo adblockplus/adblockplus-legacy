@@ -18,13 +18,15 @@
 <!ENTITY recentReports.clear.label "모든 보고서 제거">
 <!ENTITY recentReports.clear.accesskey "R">
 <!ENTITY issues.description "이 문제에 영향을 줄 수 있는 설정 또는 자료 조사를 어렵게 하는 요인을 탐지했습니다.">
-<!ENTITY issues.whitelist.description "현재 페이지에 허용 필터를 적용하여 콘텐츠가 차단되지 않았습니다. 현재 페이지에 적용된 허용 필터를 사용하지 않는 상태에서 웹 페이지를 다시 불러오십시오.">
+<!ENTITY issues.whitelist.description "현재 페이지에 허용 필터를 적용하여 콘텐츠가 차단되지 않았습니다. 현재 페이지에 적용된 허용 필터의 사용을 중지한 상태에서 웹 페이지를 다시 불러오십시오.">
 <!ENTITY issues.whitelist.remove.label "사이트/페이지 허용 필터를 사용 중지">
 <!ENTITY issues.disabled.description "애드블록 플러스를 사용하지 않는 상태이므로 아무것도 차단하지 않습니다.">
 <!ENTITY issues.disabled.enable.label "애드블록 플러스 사용">
 <!ENTITY issues.nofilters.description "이 문제는 애드블록 플러스가 아무것도 차단하지 않은 상태에서 발생해서 애드블록 플러스와 관련이 없습니다.">
 <!ENTITY issues.nosubscriptions.description "웹 사이트의 원하지 않는 광고를 자동 차단하는 구독 필터를 추가하지 않았습니다.">
 <!ENTITY issues.nosubscriptions.add.label "구독 필터 추가">
+<!ENTITY issues.subscriptionCount.description "너무 많은 구독 필터를 구독하고 있습니다. 이 설정은 더 많은 문제를 발생시킬 수 있기 때문에 권장하지 않습니다. 또한 필요한 조치를 취할 구독 필터 유지자가 명확하지 않기 때문에 이 문제 보고를 받아들일 수 없습니다. 실제로 필요한 구독 필터를 제외한 모든 구독 필터를 제거하고, 그런 후에도 문제가 발생하는지를 테스트하십시오.">
+<!ENTITY issues.openPreferences.label "필터 설정 열기">
 <!ENTITY issues.ownfilters.description "현재 페이지에 적용된 필터의 일부는 사용자가 지정했습니다. 이 문제에 영향을 줄 수 있는 사용자 필터는 사용하지 마십시오.">
 <!ENTITY issues.ownfilters.disable.label "필터 사용 중지">
 <!ENTITY issues.disabledgroups.description "다음 구독 필터/필터 그룹을 사용하지 않지만 이 페이지에 영향을 줄 수 있습니다.">
@@ -47,10 +49,10 @@
 <!ENTITY screenshot.mark.accesskey "M">
 <!ENTITY screenshot.remove.label "민감한 영역 숨김">
 <!ENTITY screenshot.remove.accesskey "R">
-<!ENTITY screenshot.undo.label "되돌림">
+<!ENTITY screenshot.undo.label "되돌리기">
 <!ENTITY screenshot.undo.accesskey "U">
 <!ENTITY commentPage.heading "보고 내용 입력">
-<!ENTITY commentPage.description "모든 언어로 입력 가능 + 웹 페이지 주소(URL) : 평소 사용하거나 설명하기 쉬운 언어로 보고할 내용을 입력하십시오. 그런 후 주소 표시줄의 웹 페이지 주소(URL)를 복사해 입력한 내용 아래에 반드시 붙여넣으십시오.">
+<!ENTITY commentPage.description "모든 언어로 입력 가능 + 페이지 전체 URL : 평소 사용하거나 설명하기 쉬운 언어로 보고할 내용을 입력하십시오. 그런 후 주소 표시줄의 페이지 전체 URL을 복사해 입력한 내용 아래에 반드시 붙여넣으십시오.">
 <!ENTITY comment.label "보고 내용 (필수 항목) :">
 <!ENTITY comment.accesskey "C">
 <!ENTITY comment.lengthWarning "설명의 길이가 1000자를 초과하여 1000자까지만 전송됩니다.">

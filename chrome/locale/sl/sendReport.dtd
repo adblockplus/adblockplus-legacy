@@ -25,6 +25,8 @@
 <!ENTITY issues.nofilters.description "Adblock Plus ne blokira ničesar na trenutni strani. Težava, ki jo zaznavate, morda ni povezana z Adblock Plus.">
 <!ENTITY issues.nosubscriptions.description "Kot kaže, niste naročeni na noben seznam filtrov, ki samodejno odstranijo neželene vsebine s spletnih strani.">
 <!ENTITY issues.nosubscriptions.add.label "Dodaj naročnino na filter">
+<!ENTITY issues.subscriptionCount.description "Zdi se, da ste naročeni na preveč filtrov. Takšna nastavitev ni priporočena, saj je možnost težav veliko večja. Prav tako ne moremo obdelati vašega poročila o napaki, saj ni jasno, kateri avtor naročnine na filtre mora narediti popravke. Prosimo, da odstranite vse nepotrebne naročnine na filtre in preizkusite, če še vedno prihaja do napake.">
+<!ENTITY issues.openPreferences.label "Odpri nastavitve filtra">
 <!ENTITY issues.ownfilters.description "Nekateri filtri, uporabljeni na tej strani, so uporabniško določeni. Onemogočite filtre, ki so lahko krivi za to težavo:">
 <!ENTITY issues.ownfilters.disable.label "Onemogoči filter">
 <!ENTITY issues.disabledgroups.description "Naslednje naročnine na filtre/skupine filtrov so onemogočene, čeprav lahko vplivajo na prikaz te strani:">

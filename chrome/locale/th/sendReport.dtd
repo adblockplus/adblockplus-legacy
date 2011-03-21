@@ -25,6 +25,8 @@
 <!ENTITY issues.nofilters.description "Adblock Plus ไม่ได้บล็อกสิ่งใดเลยในหน้านี้ ปัญหาที่คุณรายงานไม่น่าจะเกี่ยวกับ Adblock Plus">
 <!ENTITY issues.nosubscriptions.description "คุณไม่ได้เขียนคำอธิบายรายชื่อตัวกรองซึ่งลบเนื้อหาที่ไม่ต้องการออกจากเว็บไซต์โดยอัตโนมัติ">
 <!ENTITY issues.nosubscriptions.add.label "เพิ่มคำอธิบายตัวกรอง">
+<!ENTITY issues.subscriptionCount.description "ดูเหมือนว่าคุณจะรับข้อมูลจากตัวกรองมากเกินไป การติดตั้งนี้จึงไม่แนะนำเพราะอาจทำให้มีปัญหามาก เราจะไม่รับรายงานปัญหาจากคุณเพราะไม่ทราบว่าปัญหามาจากตัวกรองตัวใด กรุณาลบออกเหลือแต่ตัวที่จำเป็นและทดสอบดูว่าปัญหาเกิดจากตัวใด">
+<!ENTITY issues.openPreferences.label "เปิดการปรับแต่งตัวกรอง">
 <!ENTITY issues.ownfilters.description "ตัวกรองบางตัวที่ใช้ในหน้านี้เป็นของผู้ใช้ กรุณาปิดตัวกรองที่อาจก่อให้เปิดปัญหา:">
 <!ENTITY issues.ownfilters.disable.label "ปิดใช้งานตัวกรอง">
 <!ENTITY issues.disabledgroups.description "คำอธิบายตัวกรองหรือกลุ่มของตัวกรองต่อไปนี้ปิดใช้งานแล้ว อาจจะส่งผลกระทบต่อหน้านี้:">

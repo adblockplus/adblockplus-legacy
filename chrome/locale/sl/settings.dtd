@@ -51,6 +51,8 @@
 <!ENTITY objecttabs.accesskey "z">
 <!ENTITY collapse.label "Zloži blokirane elemente">
 <!ENTITY collapse.accesskey "l">
+<!ENTITY sync.label "Sinhroniziraj nastavitve Adblock Plus">
+<!ENTITY sync.accesskey "h">
 <!ENTITY help.label "Pomoč">
 <!ENTITY help.accesskey "m">
 <!ENTITY gettingStarted.label "Prvi koraki">

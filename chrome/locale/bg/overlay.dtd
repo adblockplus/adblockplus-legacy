@@ -21,5 +21,7 @@
 <!ENTITY closesidebar.accesskey "б">
 <!ENTITY whitelist.site.label "Забрани на ?1?">
 <!ENTITY whitelist.page.label "Забрани на тази страница само">
+<!ENTITY disable.label "Забрани навсякъде">
+<!ENTITY recommend.label "Препоръчай ни във Facebook">
 <!ENTITY objecttab.title "Блокирай">
 <!ENTITY objecttab.tooltip "Щракни тук за да блокираш този обект със Adblock Плюс">

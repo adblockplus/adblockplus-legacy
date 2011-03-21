@@ -51,6 +51,8 @@
 <!ENTITY objecttabs.accesskey "f">
 <!ENTITY collapse.label "Fella saman lokaða hluti">
 <!ENTITY collapse.accesskey "l">
+<!ENTITY sync.label "Samstilla Adblock Plus stillingar">
+<!ENTITY sync.accesskey "m">
 <!ENTITY help.label "Hjálp">
 <!ENTITY help.accesskey "H">
 <!ENTITY gettingStarted.label "Byrja notkun">
