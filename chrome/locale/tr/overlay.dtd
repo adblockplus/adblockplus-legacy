@@ -21,5 +21,7 @@
 <!ENTITY closesidebar.accesskey "E">
 <!ENTITY whitelist.site.label "?1? sitesinde devre dışı kal">
 <!ENTITY whitelist.page.label "Sadece bu sayfada devre dışı kal">
+<!ENTITY disable.label "Her yerde devre dışı kal">
+<!ENTITY recommend.label "Facebook'ta tavsiye et">
 <!ENTITY objecttab.title "Engelle">
 <!ENTITY objecttab.tooltip "Bu nesneyi Adblock Plus ile engellemek için buraya tıklayın.">

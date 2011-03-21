@@ -21,5 +21,7 @@
 <!ENTITY closesidebar.accesskey "b">
 <!ENTITY whitelist.site.label "Disattiva per ?1?">
 <!ENTITY whitelist.page.label "Disattiva solo per la pagina attuale">
+<!ENTITY disable.label "Disattiva per tutte le pagine">
+<!ENTITY recommend.label " Condividi AdblockPlus su Facebook">
 <!ENTITY objecttab.title "Blocca">
 <!ENTITY objecttab.tooltip "Fare clic qui per bloccare l&apos;oggetto con Adblock Plus">

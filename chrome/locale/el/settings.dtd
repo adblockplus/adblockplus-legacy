@@ -51,6 +51,8 @@
 <!ENTITY objecttabs.accesskey "α">
 <!ENTITY collapse.label "Σύμπτυξη φιλτραρισμένων στοιχείων">
 <!ENTITY collapse.accesskey "Σ">
+<!ENTITY sync.label "Συγχρονισμός των ρυθμίσεων του Adblock Plus">
+<!ENTITY sync.accesskey "χ">
 <!ENTITY help.label "Βοήθεια">
 <!ENTITY help.accesskey "Β">
 <!ENTITY gettingStarted.label "Γρήγορη εκκίνηση">

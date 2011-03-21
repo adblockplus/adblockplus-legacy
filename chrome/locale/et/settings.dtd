@@ -3,7 +3,7 @@
 <!ENTITY filters.accesskey "F">
 <!ENTITY add.label "Lisa filter">
 <!ENTITY add.accesskey "i">
-<!ENTITY addsubscription.label "Lisa filtri tellimus">
+<!ENTITY addsubscription.label "Lisa filtrite tellimus">
 <!ENTITY addsubscription.accesskey "s">
 <!ENTITY synchsubscriptions.label "Uuenda kõiki tellimusi">
 <!ENTITY synchsubscriptions.accesskey "d">
@@ -51,6 +51,8 @@
 <!ENTITY objecttabs.accesskey "t">
 <!ENTITY collapse.label "Ahenda blokeeritavad elemendid">
 <!ENTITY collapse.accesskey "l">
+<!ENTITY sync.label "Sünkroniseeri Adblock Plus sätted">
+<!ENTITY sync.accesskey "k">
 <!ENTITY help.label "Abi">
 <!ENTITY help.accesskey "b">
 <!ENTITY gettingStarted.label "Alustamine">

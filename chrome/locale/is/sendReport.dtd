@@ -26,6 +26,8 @@ með því að gera það óvirkt tímabundið.">
 <!ENTITY issues.nofilters.description "Adblock Plus er ekki að loka á neitt á núverandi síðu. Vandamálið sem þú ert að	sjá er líklega ótengt Adblock Plus.">
 <!ENTITY issues.nosubscriptions.description "Þú ert ekki áskrifandi að neinum af forskilgreindum síulistum sem fjarlægja sjálfvirkt óæskilegt efni frá vefsvæðum.">
 <!ENTITY issues.nosubscriptions.add.label "Bæta við síuáskrift">
+<!ENTITY issues.subscriptionCount.description "Svo virðist sem þú sért áskrifandi að of mörgum síuáskriftum. Ekki er mælt með þessu þar sem líklegt er að vandamál verði of mörg. Ekki er heldur hægt að taka á móti tilkynningu um villu vegna þess að ekki er augljóst hvaða síu þarf að laga. Vinsamlega fjarlægðu allar síur nema þær allra nauðsynlegustu og prófaðu aftur hvort vandamálið sé enn til staðar.">
+<!ENTITY issues.openPreferences.label "Opna síuvalkosti">
 <!ENTITY issues.ownfilters.description "Sumar af síunum sem eru virkar á þessari síðu eru stilltar af notanda. Vinsamlega gerðu þær síur óvirkar sem hugsanlega gætu hafa valdið vandræðunum:">
 <!ENTITY issues.ownfilters.disable.label "Slökkva á síu">
 <!ENTITY issues.disabledgroups.description "Eftirfarandi síuáskriftir / síuhópar eru óvirkar, samt sem áður gætu þær haft haft áhrif á þessari síðu:">

@@ -25,6 +25,8 @@
 <!ENTITY issues.nofilters.description "Na aktualnej stronie Adblock Plus nic nie blokuje. Obserwowany problem najprawdopodobniej nie jest związany z Adblock Plusem.">
 <!ENTITY issues.nosubscriptions.description "Wygląda na to, że nie subskrybujesz żądnej gotowej listy filtrów, które automatycznie usuwają niepożądaną zawartość ze stron internetowych.">
 <!ENTITY issues.nosubscriptions.add.label "Subskrybuj filtry">
+<!ENTITY issues.subscriptionCount.description "Wydaje się, że wybrano subskrypcje zbyt dużej liczby filtrów. Nie jest to zalecane, ponieważ zwiększy prawdopodobieństwo wystąpienia problemów. Jeśli w związku z tym wystąpią problemy, nie będziemy przyjmowali zgłoszeń tych problemów, ponieważ nie będziemy w stanie rozpoznać autora filtrów i powiadomić go, by podjął odpowiednie działania. Usuń wszystkie subskrybowane filtry i sprawdź czy problem nadal występuje.">
+<!ENTITY issues.openPreferences.label "Otwórz ustawienia filtra">
 <!ENTITY issues.ownfilters.description "Część filtrów stosowanych na tej stronie jest zdefiniowanych przez ciebie. Wyłącz filtry, które mogły spowodować problem:">
 <!ENTITY issues.ownfilters.disable.label "Wyłącz filtr">
 <!ENTITY issues.disabledgroups.description "Następujące subskrypcje filtrów/grupy filtrów są wyłączone, ale mogą oddziaływać na tę stronę:">

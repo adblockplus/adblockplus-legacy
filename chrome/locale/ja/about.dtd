@@ -1,6 +1,6 @@
 <!ENTITY dialog.title "Adblock Plus について">
 <!ENTITY version.title "バージョン">
-<!ENTITY description "Adblock Plus を使えばウェブ上で何が見たいか自分で決めることができます。もうこれ以上、広告やバナーをダウンロードする必要はありません。不要なものは Adblock Plus で消してしまいましょう !">
+<!ENTITY description "Adblock Plus を使えばウェブ上で何を見るか自分で決めることができます。広告やバナーをこれ以上ダウンロードする必要はありません !">
 <!ENTITY homepage.label "Adblock Plus ホームページ：">
 <!ENTITY author.label "作者：">
 <!ENTITY contributors.label "貢献者：">

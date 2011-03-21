@@ -25,6 +25,8 @@
 <!ENTITY issues.nofilters.description "Adblock Plus neblokuje nič na aktuálnej stránke. Problém, ktorý pozorujete pravdepodobne nesúvisí s Adblock Plus.">
 <!ENTITY issues.nosubscriptions.description "Neodvolávajte sa na odoberaný predpripravený zoznam filtrov, ktorý automaticky odstraňuje neznámy obsah z webovej stránky.">
 <!ENTITY issues.nosubscriptions.add.label "Pridať odber filtra">
+<!ENTITY issues.subscriptionCount.description "Zdá sa, že máte príliš veľa odberov filtrov. Toto nastavenie nie je odporúčané, pretože pravdepodobnosť výskytu problému je vyššia. Taktiež nemôžeme prijať vašu správu o probléme, pretože nie je jasné, ktorý autor odberu filtra potrebuje prijať opatrenie. Prosím, odstráňte všetky odbery, okrem naozaj nevyhnutných, a otestujte, či problém pretrváva.">
+<!ENTITY issues.openPreferences.label "Otvoriť nastavenia filtra">
 <!ENTITY issues.ownfilters.description "Niektoré filtre aplikované na tejto stránke sú definované používateľom. Vypnite filtre, ktoré by mohli spôsobovať problém:">
 <!ENTITY issues.ownfilters.disable.label "Vypnúť filter">
 <!ENTITY issues.disabledgroups.description "Nasledujúce odbery filtrov / skupiny filtrov sú vypnuté, ešte je možné, že by mali mali účinok na tejto stránke:">

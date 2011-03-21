@@ -1,4 +1,4 @@
-<!ENTITY status.tooltip "状態：">
+<!ENTITY status.tooltip "ステータス：">
 <!ENTITY blocked.tooltip "ブロック済項目：">
 <!ENTITY filters.tooltip "有効なフィルタ：">
 <!ENTITY menuitem.label "Adblock Plus 設定">
@@ -10,16 +10,18 @@
 <!ENTITY context.frame.label "Adblock Plus：フレームをブロック">
 <!ENTITY context.media.label "Adblock Plus：ビデオ／オーディオをブロック">
 <!ENTITY context.removeWhitelist.label "Adblock Plus：このページで有効に戻す">
-<!ENTITY sidebar.title "現在のページでのブロック可能項目">
+<!ENTITY sidebar.title "このページでブロック可能な項目">
 <!ENTITY sendReport.label "このページの問題を報告">
 <!ENTITY sendReport.accesskey "R">
 <!ENTITY settings.label "設定">
-<!ENTITY settings.accesskey "F">
+<!ENTITY settings.accesskey "f">
 <!ENTITY opensidebar.label "ブロック可能項目一覧を開く">
-<!ENTITY opensidebar.accesskey "B">
+<!ENTITY opensidebar.accesskey "b">
 <!ENTITY closesidebar.label "ブロック可能項目一覧を閉じる">
-<!ENTITY closesidebar.accesskey "B">
+<!ENTITY closesidebar.accesskey "b">
 <!ENTITY whitelist.site.label "?1? で無効">
 <!ENTITY whitelist.page.label "このページのみで無効">
+<!ENTITY disable.label "全ページで無効">
+<!ENTITY recommend.label "Facebook で勧める">
 <!ENTITY objecttab.title "ブロックする">
 <!ENTITY objecttab.tooltip "クリックして Adblock Plus でオブジェクトをブロック">

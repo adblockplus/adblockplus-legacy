@@ -45,12 +45,14 @@
 <!ENTITY enable.accesskey "P">
 <!ENTITY showintoolbar.label "Visualizza nella barra degli strumenti">
 <!ENTITY showintoolbar.accesskey "b">
-<!ENTITY showinstatusbar.label "Visualizza nella barra di stato">
+<!ENTITY showinstatusbar.label "Visualizza nella barra dei componenti aggiuntivi">
 <!ENTITY showinstatusbar.accesskey "s">
 <!ENTITY objecttabs.label "Mostra linguetta per elementi Flash e Java">
 <!ENTITY objecttabs.accesskey "t">
 <!ENTITY collapse.label "Nascondi elementi bloccati">
 <!ENTITY collapse.accesskey "e">
+<!ENTITY sync.label "Sincronizza le impostazioni di Adblock Plus">
+<!ENTITY sync.accesskey "k">
 <!ENTITY help.label "?">
 <!ENTITY help.accesskey "?">
 <!ENTITY gettingStarted.label "Come iniziare">

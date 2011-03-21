@@ -1,4 +1,4 @@
-<!ENTITY dialog.title "Adblock Plus フィルタルールを追加">
+<!ENTITY dialog.title "Adblock Plus フィルタを追加">
 <!ENTITY accept.label "フィルタを追加">
 <!ENTITY advanced.label "詳細表示">
 <!ENTITY basic.label "基本表示">
@@ -6,15 +6,15 @@
 <!ENTITY groupDisabled.warning "現在、追加先のフィルタグループ &quot;?1?&quot; は無効になっています。フィルタを追加することはできますが [link]フィルタグループを有効にする[/link] まで適用されません。">
 <!ENTITY filter.label "新規フィルタ：">
 <!ENTITY filter.accesskey "f">
-<!ENTITY preferences.label "既存のフィルタを表示...">
+<!ENTITY preferences.label "既存のフィルタを表示…">
 <!ENTITY preferences.accesskey "S">
 <!ENTITY type.filter.label "ブロックフィルタ">
 <!ENTITY type.filter.accesskey "B">
 <!ENTITY type.whitelist.label "ホワイトリスト">
 <!ENTITY type.whitelist.accesskey "x">
 <!ENTITY pattern.label "パターンを探す">
-<!ENTITY pattern.explanation "パターンはアドレスの一部で、アスタリスク（＊）をワイルドカードとして使用することができます。フィルタはパターンに一致するアドレスにのみ適用されます。">
-<!ENTITY regexp.warning "入力したパターンは Adblock Plus が効率よく処理できず、ブラウジング速度低下の原因になる正規表現として解釈されます。もし正規表現を使用するつもりではなかった場合、パターン末尾にアスタリスク（＊）を追加して問題を回避して下さい。">
+<!ENTITY pattern.explanation "パターンとはアドレスの任意の一部のことです。アスタリスク（＊）をワイルドカードとして使用することもできます。フィルタはパターンに一致するアドレスにのみ適用されます。">
+<!ENTITY regexp.warning "入力されたパターンは Adblock Plus が効率よく処理できず、ブラウジング速度低下の原因になる正規表現として解釈されています。もし、正規表現の使用を意図していなかった場合はパターン末尾にアスタリスク（＊）を追加して回避策を講じて下さい。">
 <!ENTITY shortpattern.warning "入力したパターンが短過ぎる為に最適化できず、ブラウジング速度が低下することがあります。Adblock Plus で効率的に処理するためには、より長い文字列を選ぶことが推奨されます">
 <!ENTITY match.warning "入力したパターンはアドレスに一致しないので意味がありません">
 <!ENTITY custom.pattern.label "自作：">
@@ -41,7 +41,7 @@
 <!ENTITY unselectAllTypes.label "選択解除">
 <!ENTITY collapse.label "ブロック後の空白スペースを消す：">
 <!ENTITY collapse.accesskey "l">
-<!ENTITY collapse.default.yes.label "デフォルト使用（はい）">
-<!ENTITY collapse.default.no.label "デフォルト使用（いいえ）">
+<!ENTITY collapse.default.yes.label "デフォルト（はい）">
+<!ENTITY collapse.default.no.label "デフォルト（いいえ）">
 <!ENTITY collapse.yes.label "はい">
 <!ENTITY collapse.no.label "いいえ">

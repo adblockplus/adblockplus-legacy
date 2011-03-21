@@ -21,5 +21,7 @@
 <!ENTITY closesidebar.accesskey "B">
 <!ENTITY whitelist.site.label "Wyłącz blokowanie na ?1?">
 <!ENTITY whitelist.page.label "Wyłącz blokowanie tylko na tej stronie">
+<!ENTITY disable.label "Wyłącz wszędzie">
+<!ENTITY recommend.label "Poleć nas na Facebooku">
 <!ENTITY objecttab.title "Zablokuj">
 <!ENTITY objecttab.tooltip "Kliknij tutaj, aby zablokować ten obiekt">

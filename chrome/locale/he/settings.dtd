@@ -51,6 +51,8 @@
 <!ENTITY objecttabs.accesskey "ג">
 <!ENTITY collapse.label "צמצום הפריטים החסומים">
 <!ENTITY collapse.accesskey "ה">
+<!ENTITY sync.label "סנכרון הגדרות Adblock Plus">
+<!ENTITY sync.accesskey "כ">
 <!ENTITY help.label "עזרה">
 <!ENTITY help.accesskey "ע">
 <!ENTITY gettingStarted.label "התחלה">
