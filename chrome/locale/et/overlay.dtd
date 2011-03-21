@@ -21,5 +21,7 @@
 <!ENTITY closesidebar.accesskey "b">
 <!ENTITY whitelist.site.label "Keela domeenis ?1?">
 <!ENTITY whitelist.page.label "Keela ainult antud lehel">
+<!ENTITY disable.label "Keela kõikjal">
+<!ENTITY recommend.label "Soovita meid Facebookis">
 <!ENTITY objecttab.title "Blokeeri">
 <!ENTITY objecttab.tooltip "Klõpsa siia selle objekti blokeerimiseks Adblock Plusi abil">

@@ -51,6 +51,8 @@
 <!ENTITY objecttabs.accesskey "J">
 <!ENTITY collapse.label "Öğeleri kapat">
 <!ENTITY collapse.accesskey "T">
+<!ENTITY sync.label "Adblock Plus ayarlarını eşitle">
+<!ENTITY sync.accesskey "e">
 <!ENTITY help.label "Yardım">
 <!ENTITY help.accesskey "A">
 <!ENTITY gettingStarted.label "İlk adım">

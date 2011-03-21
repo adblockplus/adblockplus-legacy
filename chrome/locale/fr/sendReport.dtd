@@ -25,6 +25,8 @@
 <!ENTITY issues.nofilters.description "Adblock Plus ne bloque rien sur la page courante. Le problème que vous observez n'est probablement pas à mettre en relation avec Adblock Plus.">
 <!ENTITY issues.nosubscriptions.description "Vous ne semblez pas être abonné à une liste de filtres prédéfinis qui suppriment automatiquement des contenus indésirables de sites Web.">
 <!ENTITY issues.nosubscriptions.add.label "Ajouter un abonnement">
+<!ENTITY issues.subscriptionCount.description "Il semblerait que vous soyez abonné(e) à trop de listes de filtres. Cette configuration n'est pas recommandée car elle augmentera la probabilité de rencontrer des problèmes. Nous ne pouvons également pas accepter votre signalement parce qu'il n'est pas facile de définir quel auteur d'abonnement doit entreprendre quelque chose. Veuillez supprimer tous les abonnements exceptés ceux qui sont absolument nécessaires et vérifier si le problème se produit encore.">
+<!ENTITY issues.openPreferences.label "Ouvrir les préférences de filtre">
 <!ENTITY issues.ownfilters.description "Certains des filtres utilisés sur cette page sont des filtres définis par l'utilisateur. Veuillez désactiver les filtres qui ont pourraient avoir été à l'origine du problème :">
 <!ENTITY issues.ownfilters.disable.label "Désactiver le filtre">
 <!ENTITY issues.disabledgroups.description "Les abonnements/groupes de filtres suivants sont désactivés, ils ne peuvent pas encore avoir d'effet sur cette page :">

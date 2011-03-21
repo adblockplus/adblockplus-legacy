@@ -51,6 +51,8 @@
 <!ENTITY objecttabs.accesskey "K">
 <!ENTITY collapse.label "Romahduta estetyt elementit">
 <!ENTITY collapse.accesskey "R">
+<!ENTITY sync.label "Synkronoi Adblock Plussan asetukset">
+<!ENTITY sync.accesskey "S">
 <!ENTITY help.label "Ohje">
 <!ENTITY help.accesskey "O">
 <!ENTITY gettingStarted.label "Alkuun pääseminen">

@@ -25,6 +25,8 @@
 <!ENTITY issues.nofilters.description "Adblock Plus ei estä mitään tällä sivulla. Kohdattu ongelma on todennäköisesti riippumaton Adblock Plussasta.">
 <!ENTITY issues.nosubscriptions.description "Näyttäisi siltä, että et ole tilannut yhtään valmiiksi tehtyä suodatinlistaa, jotka poistavat automaattisesti sivuilta epämieluisaa sisältöä.">
 <!ENTITY issues.nosubscriptions.add.label "Lisää suodatintilaus">
+<!ENTITY issues.subscriptionCount.description "Näyttäisi siltä, että liian monta suodatintilausta on tilattuna. Tällainen järjestely ei ole suositeltavaa, sillä se nostaa ongelmien todennäköisyyttä. Emme voi hyväksyä ongelmaraporttia, koska jää epäselväksi kenen suodatintilauksen tekijän on ryhdyttävä korjaustoimiin. Poista kaikki paitsi välttämättömät suodatintilaukset ja kokeile esiintyykö ongelma yhä.">
+<!ENTITY issues.openPreferences.label "Avaa suodatinasetukset">
 <!ENTITY issues.ownfilters.description "Osa tämän sivun suodattimista on käyttäjän määrittelemiä. Poista käytöstä suodattimet, jotka saattavat aiheuttaa ongelmia:">
 <!ENTITY issues.ownfilters.disable.label "Poista suodatin käytöstä">
 <!ENTITY issues.disabledgroups.description "Seuraavat suodatintilaukset / suodatinryhmät ovat poistettu käytöstä mutta niillä saatta silti olla vaikutusta tällä sivulla:">

@@ -51,6 +51,8 @@
 <!ENTITY objecttabs.accesskey "T">
 <!ENTITY collapse.label "Geblokkeerde elementen inklappen">
 <!ENTITY collapse.accesskey "G">
+<!ENTITY sync.label "Synchroniseer Adblock Plus instellingen">
+<!ENTITY sync.accesskey "c">
 <!ENTITY help.label "Help">
 <!ENTITY help.accesskey "H">
 <!ENTITY gettingStarted.label "Aan de slag">

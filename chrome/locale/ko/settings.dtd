@@ -43,14 +43,16 @@
 <!ENTITY options.accesskey "O">
 <!ENTITY enable.label "애드블록 플러스 사용">
 <!ENTITY enable.accesskey "N">
-<!ENTITY showintoolbar.label "툴바에 아이콘 표시">
+<!ENTITY showintoolbar.label "툴바에 아이콘 보이기">
 <!ENTITY showintoolbar.accesskey "B">
-<!ENTITY showinstatusbar.label "상태 표시줄에 아이콘 표시">
+<!ENTITY showinstatusbar.label "상태 표시줄에 아이콘 보이기">
 <!ENTITY showinstatusbar.accesskey "S">
 <!ENTITY objecttabs.label "플래시/자바에 차단 탭 표시">
 <!ENTITY objecttabs.accesskey "T">
 <!ENTITY collapse.label "차단된 요소의 영역 숨기기">
 <!ENTITY collapse.accesskey "L">
+<!ENTITY sync.label "애드블록 플러스 설정 동기화">
+<!ENTITY sync.accesskey "c">
 <!ENTITY help.label "도움말">
 <!ENTITY help.accesskey "H">
 <!ENTITY gettingStarted.label "시작하기">

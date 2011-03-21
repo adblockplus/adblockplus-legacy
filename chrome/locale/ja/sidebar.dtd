@@ -8,7 +8,7 @@
 <!ENTITY filter.label "フィルタ">
 <!ENTITY state.label "状態">
 <!ENTITY size.label "サイズ">
-<!ENTITY docDomain.label "ドキュメントソース">
+<!ENTITY docDomain.label "ドキュメントのソース">
 <!ENTITY docDomain.thirdParty "（サードパーティ）">
 <!ENTITY docDomain.firstParty "（ファーストパーティ）">
 <!ENTITY noitems.label "ブロック可能項目はありません">
@@ -18,7 +18,7 @@
 <!ENTITY tooltip.type.blocked "（ブロック）">
 <!ENTITY tooltip.type.whitelisted "（ホワイトリスト）">
 <!ENTITY tooltip.size.label "サイズ：">
-<!ENTITY tooltip.docDomain.label "ドキュメントソース：">
+<!ENTITY tooltip.docDomain.label "ドキュメントのソース：">
 <!ENTITY tooltip.filter.label "有効なフィルタ：">
 <!ENTITY tooltip.filter.disabled "（無効）">
 <!ENTITY tooltip.filterSource.label "フィルタのソース：">

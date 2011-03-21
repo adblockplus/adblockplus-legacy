@@ -21,5 +21,7 @@
 <!ENTITY closesidebar.accesskey "e">
 <!ENTITY whitelist.site.label "Onemogoči na ?1?">
 <!ENTITY whitelist.page.label "Onemogoči samo na tej strani">
+<!ENTITY disable.label "Onemogoči povsod">
+<!ENTITY recommend.label "Priporočite nas na Facebooku">
 <!ENTITY objecttab.title "Blokiraj">
 <!ENTITY objecttab.tooltip "Kliknite sem za blokiranje tega predmeta z Adblock Plus">
