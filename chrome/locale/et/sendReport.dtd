@@ -25,10 +25,12 @@
 <!ENTITY issues.nofilters.description "Adblock Plus ei blokeeri praegusel lehel midagi. See probleem ei ole tõenäoliselt Adblock Plusiga seotud.">
 <!ENTITY issues.nosubscriptions.description "Sa ei paista olevat tellinud ühtegi filtrite nimekirja, mis eemaldavad automaatselt veebilehtedelt soovimata sisu.">
 <!ENTITY issues.nosubscriptions.add.label "Lisa filtrite tellimus">
+<!ENTITY issues.subscriptionCount.description "Paistab, et sul on liiga palju filtrite tellimusi. Selline seadistus ei ole soovitatav, sest vigade tekkimise tõenäosus on nüüd palju suurem. Me ei saa ka vastu võta sinu probleemist teatamise aruannet, sest pole selge, millise filtrite tellimuse autor peab selle probleemiga tegelema. Palun kustuta kõik filtrite tellimused ja jäta alles ainult hädavajalikud ning kontrolli, kas probleem on ikka veel alles.">
+<!ENTITY issues.openPreferences.label "Ava filtri sätted">
 <!ENTITY issues.ownfilters.description "Mõned sellel lehel kehtivad filtrid on loonud kasutaja. Palun keela need filtrid mis võiksid põhjustada seda probleemi:">
 <!ENTITY issues.ownfilters.disable.label "Keela filter">
 <!ENTITY issues.disabledgroups.description "Järgnevad filtrite tellimused/filtrigrupid on keelatud, ent nad võivad siiski veel sellel lehel toimida:">
-<!ENTITY issues.disabledgroups.enable.label "Luba filtri tellimus/filtrigrupp">
+<!ENTITY issues.disabledgroups.enable.label "Luba filtrite tellimus/filtrigrupp">
 <!ENTITY issues.disabledfilters.description "Järgnevad filtrid on keelatud, ent nad võivad siiski veel sellel lehel toimida:">
 <!ENTITY issues.disabledfilters.enable.label "Luba filter">
 <!ENTITY issues.override.label "Antud seadistus on õige. Jätka aruandmist">

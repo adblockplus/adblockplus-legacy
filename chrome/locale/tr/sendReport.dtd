@@ -3,9 +3,73 @@
 <!ENTITY dataCollector.heading "Sorun bildiriciye hoş geldiniz">
 <!ENTITY dataCollector.description "Adblock Plus eklentisinin gerekli bilgileri toplaması için lütfen biraz bekleyin.">
 <!ENTITY typeSelector.heading "Sorun türünü seçin">
+<!ENTITY typeSelector.description "Bu pencere Adblock Plus sorun bildirimi göndermek için gerekli adımların atılmasında size rehberlik edecek. Önce bu sayfada ne tür sorun yaşadığınızı seçin:">
 <!ENTITY typeSelector.falsePositive.label "Adblock Plus çok fazla engelleme yapıyor">
 <!ENTITY typeSelector.falsePositive.accesskey "f">
+<!ENTITY typeSelector.falsePositive.description "Sayfanın önemli içeriği hiç görünmüyorsa, yanlış görünüyorsa veya sayfa düzgün işlemiyorsa bu seçeneği seçin. Sorun kaynağının Adblock Plus olup olmadığını eklentiyi geçici olarak devre dışı bırakıp belirleyebilirsiniz.">
+<!ENTITY typeSelector.falseNegative.label "Adblock Plus reklamın birini engellemiyor">
+<!ENTITY typeSelector.falseNegative.accesskey "m">
+<!ENTITY typeSelector.falseNegative.description "Adblock Plus devrede olmasına rağmen reklamın biri görünüyorsa bu seçeneği seçin.">
 <!ENTITY typeSelector.other.label "Başka bir sorun">
 <!ENTITY typeSelector.other.accesskey "b">
+<!ENTITY typeSelector.other.description "Sorunun süzgeçlerinden çok Adblock Plus'ın kendisinden kaynaklandığından şüpheleniyorsanız bu seçeneği seçin.">
 <!ENTITY showRecentReports.label "Yakında gönderilen bildirimleri göster">
 <!ENTITY recentReports.label "Yakında gönderdiğiniz bildirimler">
+<!ENTITY recentReports.clear.label "Tüm bildirimleri sil">
+<!ENTITY recentReports.clear.accesskey "r">
+<!ENTITY issues.description "Adblock Plus yapılandırmanızda bu sorunun nedeni olabilecek veya bildirimi incelemeyi güçleştirecek sorunlar keşfetti.">
+<!ENTITY issues.whitelist.description "Adblock Plus bildirimde bulunduğunuz sayfada devre dışı. Bu sorunun incelenmesine yardım etmek için bildirim göndermeden önce eklentiyi devreye sokun ve sayfayı yeniden yükleyin.">
+<!ENTITY issues.whitelist.remove.label "Adblock Plus'u bu sayfada devreye sok">
+<!ENTITY issues.disabled.description "Adblock Plus devre dışı ve şu anki durumunda hiçbir şeyi engellemeyecek.">
+<!ENTITY issues.disabled.enable.label "Adblock Plus'ı etkinleştir">
+<!ENTITY issues.nofilters.description "Adblock Plus bu sayfada hiçbir şeyi engellemiyor. Gözlemlediğiniz sorun büyük olasılıkla Adblock Plus ile ilgisiz.">
+<!ENTITY issues.nosubscriptions.description "Sitelerdeki istenmeyen içeriği yok eden önceden hazırlanmış süzgeç listelerinden herhangi birine abone olmuş değilsiniz.">
+<!ENTITY issues.nosubscriptions.add.label "Süzgeç aboneliği ekle">
+<!ENTITY issues.subscriptionCount.description "Çok fazla süzgeç listesine abone olduğunuz görülüyor. Böyle yapmanız tavsiye edilmez çünkü bu, sorun çıkma olasılığını daha da arttırır. Ayrıca hangi süzgeç aboneliği yazarının hatayı düzeltmesi gerektiği belirsiz olduğundan hata bildiriminizi kabul edemeyiz. Sadece gerçekten gerekli olan süzgeç abonelikleri dışında kalanlardan çıkın ve sorunun hâlâ yaşanıp yaşanmadığına bakın.">
+<!ENTITY issues.openPreferences.label "Süzgeç tercihlerini aç">
+<!ENTITY issues.ownfilters.description "Bu sayfada uygulanan süzgeçlerin bazıları kullanıcı tarafından tanımlanmış. Lütfen soruna neden olmuş olabilecek süzgeçleri devre dışı bırakın:">
+<!ENTITY issues.ownfilters.disable.label "Süzgeci devre dışı bırak">
+<!ENTITY issues.disabledgroups.description "Bu sayfada etkisi olabilecek aşağıdaki abonelikler ve süzgeç grupları devre dışı bırakıldı:">
+<!ENTITY issues.disabledgroups.enable.label "Süzgeç aboneliğini veya grubunu devreye sok">
+<!ENTITY issues.disabledfilters.description "Bu sayfada etkisi olabilecek aşağıdaki süzgeçler devre dışı bırakıldı:">
+<!ENTITY issues.disabledfilters.enable.label "Süzgeci devreye sok">
+<!ENTITY issues.override.label "Yapılandırma doğru, bildirime devam et">
+<!ENTITY issues.override.accesskey "d">
+<!ENTITY issues.change.description "Yapılandırmanız değişti. Lütfen değişiklikleri sınamak için sayfayı yeniden yükleyin ve yapılan değişiklikler sorunu gidermediyse hatayı bildirin.">
+<!ENTITY typeWarning.description "Süzgeçlerle ilgili bir sorun değil de Adblock Plus ile ilgili genel bir sorun bildiriminde bulunmak istediğinizi belirttiniz. Lütfen böyle sorunların en iyi bildirim yerinin [link]Adblock Plus forumu[/link] olduğu aklınızda olsun. Siz bağlantı vermediğiniz sürece kimse bildiriminizi görmeyeceği için sorun bildiriciyi sadece mevcut bir tartışmaya katkı sağlamak için kullanmalısınız.">
+<!ENTITY typeWarning.override.label "Anlıyorum ve ne olursa olsun bildirimi göndermek istiyorum">
+<!ENTITY typeWarning.override.accesskey "s">
+<!ENTITY reloadButton.label "Sayfayı tazele">
+<!ENTITY reloadButton.accesskey "t">
+<!ENTITY screenshot.heading "Ekran görüntüsü ekle">
+<!ENTITY screenshot.description "Aynı sayfa farklı kişilerce farklı biçimde görülebilir. Bildirime ekran görüntüsü eklemeniz sorunu anlamamıza yardımcı olabilir. Hassas bilgilerin olduğu bölümleri silebilirsiniz ve sorunun görünür olduğu yerleri işaretleyebilirsiniz. Bunu yapmak için ilgili düğmeye basın ve resimde bir bölümü farenizle seçin.">
+<!ENTITY screenshot.attach.label "Bildirime sayfa resmi ekle">
+<!ENTITY screenshot.attach.accesskey "f">
+<!ENTITY screenshot.mark.label "Sorunu işaretle">
+<!ENTITY screenshot.mark.accesskey "a">
+<!ENTITY screenshot.remove.label "Hassas veriyi sil">
+<!ENTITY screenshot.remove.accesskey "v">
+<!ENTITY screenshot.undo.label "Geri al">
+<!ENTITY screenshot.undo.accesskey "g">
+<!ENTITY commentPage.heading "Yorum ekle">
+<!ENTITY commentPage.description "Aşağıdaki metin alanı sorunu anlamamız için yorum yazmanıza olanak tanır. Bu adım isteğe bağlıdır ancak sorun açık değilse tavsiye edilir. Ayrıca bildirimi göndermeden önce gözden geçirebilirsiniz.">
+<!ENTITY comment.label "Yorum (isteğe bağlı):">
+<!ENTITY comment.accesskey "o">
+<!ENTITY comment.lengthWarning "Yorumunuzun uzunluğu 1000 karakteri aşıyor. Sadece ilk 1000 karakter gönderilecek.">
+<!ENTITY email.label "Daha fazla bilgi almamız için e-posta adresi (isteğe bağlı):">
+<!ENTITY email.accesskey "d">
+<!ENTITY attachExtensions.label "Sorun kaynağının eklenti uyumsuzluğu olup olmadığının belirlenmesi için etkin eklentilerin listesini bildirime ekle">
+<!ENTITY attachExtensions.accesskey "u">
+<!ENTITY sendButton.label "Bildirimi gönder">
+<!ENTITY sendButton.accesskey "b">
+<!ENTITY showData.label "Bildirim verisini göster">
+<!ENTITY data.label "Bildirim verisi:">
+<!ENTITY data.accesskey "v">
+<!ENTITY sendPage.heading "Bildirimi gönder">
+<!ENTITY sendPage.waitMessage "Lüftfen Adblock Plus bildirimi gönderirken bekleyin.">
+<!ENTITY sendPage.confirmation "Bildiriminiz kaydedildi ve ona aşağıdaki adresten ulaşabilirsiniz:">
+<!ENTITY sendPage.knownIssue "Bildirdiğiniz sorun büyük olasılıkla biliniyor. Daha fazla bilgi:">
+<!ENTITY sendPage.errorMessage "Hata bildirimi gönderme girişiminiz &quot;?1?&quot; hata koduyla başarısız oldu. Lütfen internete bağlı olduğunuzdan emin olun ve yeniden deneyin. Sorun devam ederse lütfen [link]Adblock Plus forumunda[/link] yardım isteyin.">
+<!ENTITY sendPage.retry.label "Yeniden gönder">
+<!ENTITY copyLink.label "Bildirimi bağlantısını kopyala">
+<!ENTITY copyLink.accesskey "k">

@@ -1,7 +1,7 @@
 <!ENTITY wizard.title "Пријављивање грешака">
 <!ENTITY privacyPolicy.label "Политика приватности">
 <!ENTITY dataCollector.heading "Добродошли у пријављивање грешака">
-<!ENTITY dataCollector.description "Сачекајте пар тренутака док Adblock Plus набави потребне податке.">
+<!ENTITY dataCollector.description "Сачекајте неколико тренутака док Adblock Plus набави потребне податке.">
 <!ENTITY typeSelector.heading "Изаберите врсту проблема">
 <!ENTITY typeSelector.description "Овај прозор ће Вас водити кроз кораке за решавање проблема у Adblock Plus-у и њихово пријављивање. За почетак, изаберите врсту проблема на који сте наишли на овој страници:">
 <!ENTITY typeSelector.falsePositive.label "Adblock Plus блокира превише">
@@ -22,9 +22,11 @@
 <!ENTITY issues.whitelist.remove.label "Омогући Adblock Plus на овој страници">
 <!ENTITY issues.disabled.description "Adblock Plus је онемогућен, па неће ништа блокирати.">
 <!ENTITY issues.disabled.enable.label "Омогући Adblock Plus">
-<!ENTITY issues.nofilters.description "Adblock Plus не блокира ништа на тренутној страници. Овај проблем, највероватније, није повезан са са Adblock Plus-ом.">
+<!ENTITY issues.nofilters.description "Adblock Plus не блокира ништа на тренутној страници. Овај проблем највероватније није повезан са са Adblock Plus-ом.">
 <!ENTITY issues.nosubscriptions.description "Изгледа да нисте претплаћени ни на један списак филтера који аутоматски уклањају нежељени садржај са страница.">
 <!ENTITY issues.nosubscriptions.add.label "Додај претплату на филтер">
+<!ENTITY issues.subscriptionCount.description "Изгледа да сте се претплатили на превише филтера. То није препоручљиво, јер повећава вероватноћу да настану проблеми. Поред тоаг, не можемо да прихватимо ваш извештај о грешкама, јер је нејасно која претплата на филтер садржи грешку. Молимо вас да уклоните све непотребне претплате на филтере и проверите да ли још увек има проблема.">
+<!ENTITY issues.openPreferences.label "Отвори подешавања филтера">
 <!ENTITY issues.ownfilters.description "Неке филтере примењене на овој страници су створили корисници. Онемогућите оне за које мислите да би могли бити узрок проблема.">
 <!ENTITY issues.ownfilters.disable.label "Онемогући филтер">
 <!ENTITY issues.disabledgroups.description "Следећа претплата на филтер/група филтера је искључена, јер можда има утицаја на страницу:">
@@ -40,7 +42,7 @@
 <!ENTITY reloadButton.label "Поново учитај страницу">
 <!ENTITY reloadButton.accesskey "П">
 <!ENTITY screenshot.heading "Приложи снимак">
-<!ENTITY screenshot.description "Иста страница може да изгледа различито код различитих људи. Много би значило да прилоите снима проблема који пријављујете. Можете да уклоните или замаскирате приватне информације. Да бисте то учинилим кликните одговарајуће дугме и мишем изаберите жељени део слике.">
+<!ENTITY screenshot.description "Иста страница може да изгледа различито код различитих људи. Много би значило да прилоите снима проблема који пријављујете. Можете да уклоните или замаскирате приватне информације. Да бисте то учинили, кликните одговарајуће дугме и мишем изаберите жељени део слике.">
 <!ENTITY screenshot.attach.label "Приложи снимак странице уз извештај">
 <!ENTITY screenshot.attach.accesskey "с">
 <!ENTITY screenshot.mark.label "Означи проблем">

@@ -25,6 +25,8 @@
 <!ENTITY issues.nofilters.description "Adblock Plus blokkeert niets op de huidige pagina. Het door u ervaren probleem hangt hoogstwaarschijnlijk niet samen met Adblock Plus.">
 <!ENTITY issues.nosubscriptions.description "Het lijkt er op dat u geen abonnement heeft op een filterlijst die automatisch ongewenste inhoud van websites verwijdert.">
 <!ENTITY issues.nosubscriptions.add.label "Filterabonnement toevoegen">
+<!ENTITY issues.subscriptionCount.description "Het lijkt er op dat u op te veel filterabonnementen geabonneerd bent. Dit is niet aanbevolen, want het verhoogt de kans op problemen. Wij kunnen ook geen probleemmeldingen accepteren, omdat het niet duidelijk is van welk filterabonnement de auteur actie dient te ondernemen. Verwijder alstublieft alle filterabonnementen op de hoogst nodige na en controleer of het probleem dan nog steeds optreedt.">
+<!ENTITY issues.openPreferences.label "Open filtervoorkeuren">
 <!ENTITY issues.ownfilters.description "Enkele van de op deze pagina toegepaste filters zijn door een gebruiker gedefinieerd. Schakel a.u.b. de filters uit die mogelijk het probleem hebben veroorzaakt:">
 <!ENTITY issues.ownfilters.disable.label "Filter uitschakelen">
 <!ENTITY issues.disabledgroups.description "De volgende filterabonnementen / filtergroepen zijn uitgeschakeld, maar ze hebben mogelijk wel een effect op deze pagina:">

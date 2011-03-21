@@ -21,5 +21,7 @@
 <!ENTITY closesidebar.accesskey "B">
 <!ENTITY whitelist.site.label "Vypnúť na ?1?">
 <!ENTITY whitelist.page.label "Vypnúť len na tejto stránke">
+<!ENTITY disable.label "Vypnúť všade">
+<!ENTITY recommend.label "Odporúčajte nás na Facebook">
 <!ENTITY objecttab.title "Blokovať">
 <!ENTITY objecttab.tooltip "Kliknúť sem pre blokovanie tohto objektu s Adblock Plus">

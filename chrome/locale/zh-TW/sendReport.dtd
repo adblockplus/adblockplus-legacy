@@ -30,6 +30,8 @@
 	您回報的錯誤可能和 Adblock Plus 無關。">
 <!ENTITY issues.nosubscriptions.description "您似乎沒有訂閱任何過濾條件集，訂閱過濾條件集可自動移除與網頁內容無關的廣告。">
 <!ENTITY issues.nosubscriptions.add.label "訂閱過濾條件集">
+<!ENTITY issues.subscriptionCount.description "您似乎訂閱了過多的過濾條件集。我們不建議這麼做，因為這可能會增加發生錯誤的機率。同時我們無法接受您的錯誤回報，因為很難分辨是哪個條件集出了問題。請移除不重要的過濾條件集後再測試一次，看看錯誤是否仍會發生。">
+<!ENTITY issues.openPreferences.label "開啟過濾條件設定視窗">
 <!ENTITY issues.ownfilters.description "該頁面的某些過濾條件是您自己手動設定的。
 	請停用這些過濾條件，這很可能就是導致錯誤發生的原因:">
 <!ENTITY issues.ownfilters.disable.label "停用過濾條件">

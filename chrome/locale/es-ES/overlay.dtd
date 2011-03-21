@@ -20,6 +20,8 @@
 <!ENTITY closesidebar.label "Cerrar ventana elementos bloqueables">
 <!ENTITY closesidebar.accesskey "v">
 <!ENTITY whitelist.site.label "Desactivar en ?1?">
-<!ENTITY whitelist.page.label "Deshabilitar sólo en esta página">
+<!ENTITY whitelist.page.label "Desactivar sólo en esta página">
+<!ENTITY disable.label "Desactivar globalmente">
+<!ENTITY recommend.label "Recomendarnos en Facebook">
 <!ENTITY objecttab.title "Bloquear">
 <!ENTITY objecttab.tooltip "Pulse aquí para bloquear este objeto con Adblock Plus">

@@ -51,6 +51,8 @@
 <!ENTITY objecttabs.accesskey "к">
 <!ENTITY collapse.label "Сажми блокиране елементе">
 <!ENTITY collapse.accesskey "б">
+<!ENTITY sync.label "Подешавања усклађивања Adblock Plus-а">
+<!ENTITY sync.accesskey "у">
 <!ENTITY help.label "Помоћ">
 <!ENTITY help.accesskey "П">
 <!ENTITY gettingStarted.label "Како почети">

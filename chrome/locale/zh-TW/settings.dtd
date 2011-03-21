@@ -51,6 +51,8 @@
 <!ENTITY objecttabs.accesskey "T">
 <!ENTITY collapse.label "釋放物件所佔用的空間">
 <!ENTITY collapse.accesskey "L">
+<!ENTITY sync.label "同步 Adblock 設定值">
+<!ENTITY sync.accesskey "c">
 <!ENTITY help.label "說明">
 <!ENTITY help.accesskey "H">
 <!ENTITY gettingStarted.label "新手上路 (英文網頁)">
