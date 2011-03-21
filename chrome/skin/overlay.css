@@ -158,6 +158,7 @@ toolbar[mode="full"] #abp-toolbarbutton[type="menu"]
 
 .abp-recommendbutton
 {
+  font-size: 80%;
   margin-top: 20px;
   margin-left: 40px;
   margin-right: 40px;
