@@ -69,6 +69,16 @@
 ">
 <!ENTITY issues.nosubscriptions.add.label       "Filterabonnement hinzufügen">
 
+<!ENTITY issues.subscriptionCount.description   "
+  Es scheint, dass Sie zu viele Filterlisten abonniert haben. Das ist nicht
+  empfohlen, weil die Wahrscheinlichkeit von Problemen dadurch sehr stark
+  ansteigt. Wir können außerdem Ihren Fehlerbericht nicht annehmen, weil unklar
+  ist, welche Filterliste für das Problem verantwortlich ist. Bitte entfernen
+  Sie alle bis auf die wirklich notwendigen Filterabonnements und überprüfen
+  Sie dann, ob das Problem immer noch auftritt.
+">
+<!ENTITY issues.openPreferences.label           "Filtereinstellungen öffnen">
+
 <!ENTITY issues.ownfilters.description          "
   Einige der Filter, die auf dieser Seite angewandt wurden, sind benutzerdefiniert.
   Bitte deaktivieren Sie Filter, die das Problem verursacht haben könnten:
