@@ -1,7 +1,7 @@
-<!ENTITY detached.title "Adblock Plus：ブロック項目（別ウィンドウ）">
+<!ENTITY detached.title "Adblock Plus:ブロック項目（別ウィンドウ）">
 <!ENTITY detach.label "別ウィンドウ表示">
 <!ENTITY reattach.label "ウィンドウ内表示">
-<!ENTITY search.label "検索：">
+<!ENTITY search.label "検索:">
 <!ENTITY search.accesskey "S">
 <!ENTITY type.label "種別">
 <!ENTITY address.label "アドレス">
@@ -13,15 +13,15 @@
 <!ENTITY docDomain.firstParty "（ファーストパーティ）">
 <!ENTITY noitems.label "ブロック可能項目はありません">
 <!ENTITY whitelisted.label "ホワイトリストに登録されたページです">
-<!ENTITY tooltip.address.label "アドレス：">
-<!ENTITY tooltip.type.label "種別：">
+<!ENTITY tooltip.address.label "アドレス:">
+<!ENTITY tooltip.type.label "種別:">
 <!ENTITY tooltip.type.blocked "（ブロック）">
 <!ENTITY tooltip.type.whitelisted "（ホワイトリスト）">
-<!ENTITY tooltip.size.label "サイズ：">
-<!ENTITY tooltip.docDomain.label "ドキュメントのソース：">
-<!ENTITY tooltip.filter.label "有効なフィルタ：">
+<!ENTITY tooltip.size.label "サイズ:">
+<!ENTITY tooltip.docDomain.label "ドキュメントのソース:">
+<!ENTITY tooltip.filter.label "有効なフィルタ:">
 <!ENTITY tooltip.filter.disabled "（無効）">
-<!ENTITY tooltip.filterSource.label "フィルタのソース：">
+<!ENTITY tooltip.filterSource.label "フィルタのソース:">
 <!ENTITY context.block.label "この項目をブロック">
 <!ENTITY context.editfilter.label "フィルタを編集">
 <!ENTITY context.whitelist.label "ホワイトリストに追加">

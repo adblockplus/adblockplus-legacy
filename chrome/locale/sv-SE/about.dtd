@@ -1,6 +1,8 @@
 <!ENTITY dialog.title "Om Adblock Plus">
 <!ENTITY version.title "Version">
-<!ENTITY description "Med Adblock Plus kan DU välja vad du vill se och inte se på när du surfar. Vill du inte se annonser eller reklam när du surfar? Du ställer enkelt in Adblock Plus att sortera bort det du inte vill se!!">
+<!ENTITY description "Med Adblock Plus kan DU välja vad du vill se och inte vill se när du surfar. Vill du inte se annonser eller reklam när du surfar? Du ställer enkelt in Adblock Plus att sortera bort det du inte vill se!">
 <!ENTITY homepage.label "Adblock Plus hemsida:">
-<!ENTITY author.label "Författare:">
+<!ENTITY author.label "Skapat av:">
 <!ENTITY contributors.label "Bidragsgivare:">
+<!ENTITY subscriptionAuthors.label "Filterprenumerationsskapare:">
+<!ENTITY translators.label "Översättare:">
