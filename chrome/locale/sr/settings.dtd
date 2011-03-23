@@ -2,19 +2,19 @@
 <!ENTITY filters.label "Филтери">
 <!ENTITY filters.accesskey "Ф">
 <!ENTITY add.label "Додај филтер">
-<!ENTITY add.accesskey "а">
+<!ENTITY add.accesskey "Д">
 <!ENTITY addsubscription.label "Додај претплату на филтер">
-<!ENTITY addsubscription.accesskey "л">
+<!ENTITY addsubscription.accesskey "п">
 <!ENTITY synchsubscriptions.label "Ажурирај све претплате">
-<!ENTITY synchsubscriptions.accesskey "ј">
+<!ENTITY synchsubscriptions.accesskey "с">
 <!ENTITY import.label "Увези филтере">
-<!ENTITY import.accesskey "з">
+<!ENTITY import.accesskey "у">
 <!ENTITY export.label "Извези прилагођене филтере">
-<!ENTITY export.accesskey "г">
+<!ENTITY export.accesskey "и">
 <!ENTITY clearall.label "Уклони све прилагођене филтере">
-<!ENTITY clearall.accesskey "е">
+<!ENTITY clearall.accesskey "к">
 <!ENTITY resethitcounts.label "Поништи статистику погодака">
-<!ENTITY resethitcounts.accesskey "д">
+<!ENTITY resethitcounts.accesskey "с">
 <!ENTITY edit.label "Уређивање">
 <!ENTITY edit.accesskey "У">
 <!ENTITY cut.label "Исеци">
@@ -23,7 +23,7 @@
 <!ENTITY copy.accesskey "м">
 <!ENTITY paste.label "Убаци">
 <!ENTITY paste.accesskey "б">
-<!ENTITY remove.label "Обриши">
+<!ENTITY remove.label "Избриши">
 <!ENTITY remove.accesskey "р">
 <!ENTITY menu.find.label "Нађи">
 <!ENTITY menu.find.accesskey "н">
@@ -33,16 +33,16 @@
 <!ENTITY view.accesskey "р">
 <!ENTITY sort.label "Сортирај по">
 <!ENTITY sort.accesskey "С">
-<!ENTITY sort.none.label "Несортирано">
+<!ENTITY sort.none.label "Непоређано">
 <!ENTITY sort.none.accesskey "е">
 <!ENTITY sort.ascending.label "Од А до Ш">
 <!ENTITY sort.ascending.accesskey "А">
 <!ENTITY sort.descending.label "Од Ш до А">
 <!ENTITY sort.descending.accesskey "Ш">
 <!ENTITY options.label "Опције">
-<!ENTITY options.accesskey "О">
-<!ENTITY enable.label "Укључи Adblock Plus">
-<!ENTITY enable.accesskey "У">
+<!ENTITY options.accesskey "п">
+<!ENTITY enable.label "Омогући Adblock Plus">
+<!ENTITY enable.accesskey "О">
 <!ENTITY showintoolbar.label "Прикажи у траци са алаткама">
 <!ENTITY showintoolbar.accesskey "т">
 <!ENTITY showinstatusbar.label "Прикажи у статусној траци">

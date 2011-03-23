@@ -25,6 +25,8 @@
 <!ENTITY issues.nofilters.description "Adblock Plus tidak menyekat apa-apa pada laman semasa. Isu yang diperhatikan ini kemungkinan besar tidak berkaitan dengan Adblock Plus.">
 <!ENTITY issues.nosubscriptions.description "Anda didapati tidak melanggan mana-mana penapis yang direka khas untuk membuang isi yang tidak diperlukan pada laman web secara automatik.">
 <!ENTITY issues.nosubscriptions.add.label "Tambah langganan penapis">
+<!ENTITY issues.subscriptionCount.description "Didapati anda melanggan terlalu banyak langganan penapis. Ini tidak disyorkan kerana ia mungkin akan mewujudkan masalah. Kami juga tidak dapat menerima laporan anda kerana ia kurang jelas penulis langganan penapis mana yang perlu mengambil tindakan. Sila buang semua langganan penapis kecuali yang diperlukan dan uji samada masalah masih berterusan.">
+<!ENTITY issues.openPreferences.label "Buka tatarajah penapis">
 <!ENTITY issues.ownfilters.description "Sebahagian penapis yang digunakan pada laman ini ditentukan pengguna. Sila nyahaktifkan penapis tersebut yang mungkin menyebabkan isu itu.">
 <!ENTITY issues.ownfilters.disable.label "Nyahaktifkan penapis">
 <!ENTITY issues.disabledgroups.description "Langganan penapis/kumpulan penapis berikut telah dinyahaktifkan, tetapi ia mungkin masih membawa kesan pada laman ini:">

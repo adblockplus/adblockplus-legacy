@@ -1,5 +1,5 @@
 <!ENTITY status.tooltip "상태">
-<!ENTITY blocked.tooltip "현재 페이지에 적용된 필터 개수">
+<!ENTITY blocked.tooltip "적용된 필터 개수">
 <!ENTITY filters.tooltip "적용된 주요 필터">
 <!ENTITY menuitem.label "필터 설정">
 <!ENTITY menuitem.accesskey "B">
@@ -9,7 +9,7 @@
 <!ENTITY context.object.label "애드블록 플러스 : 객체 차단">
 <!ENTITY context.frame.label "애드블록 플러스 : 프레임 차단">
 <!ENTITY context.media.label "애드블록 플러스 : 비디오/오디오 차단">
-<!ENTITY context.removeWhitelist.label "애드블록 플러스 : 사이트/페이지에서 다시 사용">
+<!ENTITY context.removeWhitelist.label "애드블록 플러스 : 사이트/페이지 허용 해제">
 <!ENTITY sidebar.title "현재 페이지의 차단 가능한 항목">
 <!ENTITY sendReport.label "현재 페이지의 문제 보고">
 <!ENTITY sendReport.accesskey "R">
@@ -19,9 +19,9 @@
 <!ENTITY opensidebar.accesskey "B">
 <!ENTITY closesidebar.label "차단 가능 목록 닫기 (B)">
 <!ENTITY closesidebar.accesskey "B">
-<!ENTITY whitelist.site.label "사용 중지 : ?1?">
-<!ENTITY whitelist.page.label "사용 중지 : 현재 페이지">
-<!ENTITY disable.label "사용 중지 : 모든 사이트">
+<!ENTITY whitelist.site.label "사이트 허용 : ?1?">
+<!ENTITY whitelist.page.label "현재 페이지 허용">
+<!ENTITY disable.label "사용 중지">
 <!ENTITY recommend.label "페이스북으로 추천하기">
 <!ENTITY objecttab.title "차단">
 <!ENTITY objecttab.tooltip "이 객체를 차단하려면 차단 탭을 클릭하십시오.">

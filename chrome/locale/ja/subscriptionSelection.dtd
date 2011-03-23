@@ -1,7 +1,7 @@
 <!ENTITY dialog.title "購読フィルタを追加">
 <!ENTITY dialog.title.edit "購読フィルタを編集">
-<!ENTITY description.newInstall "他の Adblock Plus ユーザーが無償提供している購読フィルタを追加すると、より効果的に使うことができます。使用言語に適した購読フィルタは既に選択されています。">
-<!ENTITY subscriptionSelector.label "リストから購読フィルタを選択してください：">
+<!ENTITY description.newInstall "他の Adblock Plus ユーザーが無償提供している購読フィルタを追加すると、更に効果的に使うことができます。使用言語に適した購読フィルタは既に選択されています。">
+<!ENTITY subscriptionSelector.label "リストから購読フィルタを選択してください:">
 <!ENTITY viewList.label "フィルタ内容を見る">
 <!ENTITY visitHomepage.label "ホームページに移動">
 <!ENTITY addSubscription.label "購読フィルタを追加">
@@ -14,9 +14,9 @@
 <!ENTITY fromWeb.description "追加する購読フィルタを確認してください。購読フィルタの名前と場所は変更できます。">
 <!ENTITY edit.description "必要に応じて購読フィルタの名前と場所を変更可能です">
 <!ENTITY external.description "外部の購読フィルタです。この購読フィルタを作成した外部アドオンにより更新されます">
-<!ENTITY title.label "購読フィルタ名：">
+<!ENTITY title.label "購読フィルタ名:">
 <!ENTITY title.accesskey "t">
-<!ENTITY location.label "購読フィルタの場所：">
+<!ENTITY location.label "購読フィルタの場所:">
 <!ENTITY location.accesskey "l">
 <!ENTITY autodownload.label "自動更新する">
 <!ENTITY autodownload.accesskey "p">

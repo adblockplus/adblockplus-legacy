@@ -1,0 +1,10 @@
+<!ENTITY dialog.title "Adblock Plus ਵਿਚ ਨਵਾਂ ਫਿਲਟਰ ਰੂਲ ਪਾਓ">
+<!ENTITY accept.label "ਨਾਵਾਨ ਫਿਲਟਰ">
+<!ENTITY advanced.label "ਅਡਵਾਂਸਡ ਵਿਯੂ">
+<!ENTITY basic.label "ਬੇਸਿਕ ਵਿਯੂ">
+<!ENTITY disabled.warning "Adblock Plus  ਇਸ ਸਮੇਂ ਚਾਲੂ ਨਹੀਂ ਹੈ | ਤੁਸੀਂ ਹਾਲੇ ਵੀ ਨਵੇਂ ਫਿਲਟਰ ਪਾ ਸਕਦੇ ਹੋ ਪਰ ਓਹ ਉਦੋਂ ਤਕ ਨਹੀਂ ਚਲਨਗੇ ਜਦ ਤਦ ਤੁਸੀਂ ਫੇਰ [link]Adblock Plus ਚਾਲੂ ਨਹੀਂ ਕਰਦੇ[/link] |">
+<!ENTITY groupDisabled.warning "&quot;?1?&quot; ਫਿਲਟਰ ਗਰੁਪ ਜਿਸ ਵਿਚ ਇਹ ਫਿਲਟਰ ਪਾਇਆ ਜਾਏਗਾ ਇਸ ਸਾਮਜ ਬੰਦ ਚਾਲੂ ਨਹੀਂ ਹੈ | ਤੁਸੀਂ ਹਾਲੇ ਵੀ ਫਿਲਟਰ ਪਾ ਸਕਦੇ ਹੋ ਹੋ ਪਰ ਓਹ ਉਸ ਸਮੇਂ ਤਕ ਚਚਾਲੂ ਨਹੀਂ ਹੋਵੇਗਾ ਜਦ ਤਕ ਤੁਸੀਂ [link] ਫਿਲਟਰ ਗਰੁਪ ਚਾਲੂ ਨਹੀਂ ਕਰਦੇ [/link] |">
+<!ENTITY filter.label "ਨਵਾਂ ਫਿਲਟਰ">
+<!ENTITY filter.accesskey "ਫ">
+<!ENTITY preferences.accesskey "ਸ">
+<!ENTITY type.filter.accesskey "ਬ">
