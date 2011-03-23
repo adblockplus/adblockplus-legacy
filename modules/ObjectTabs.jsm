@@ -226,18 +226,7 @@ var objTabs =
       let data = RequestNotifier.getDataForNode(element, true, Policy.type.OBJECT);
       if (data)
       {
-        let doc = element.ownerDocument.defaultView
-                         .QueryInterface(Ci.nsIInterfaceRequestor)
-                         .getInterface(Ci.nsIWebNavigation)
-                         .QueryInterface(Ci.nsIDocShellTreeItem)
-                         .rootTreeItem
-                         .QueryInterface(Ci.nsIInterfaceRequestor)
-                         .getInterface(Ci.nsIDOMWindow)
-                         .document;
-        let hooks = doc.getElementById("abp-hooks");
-        if (hooks && hooks.wrappedJSObject)
-          hooks = hooks.wrappedJSObject;
-
+        let hooks = this.getHooksForElement(element);
         if (hooks)
         {
           if (this.initialized)
@@ -247,6 +236,26 @@ var objTabs =
         }
       }
     }
+  },
+
+  /**
+   * Looks up the chrome window containing an element and returns abp-hooks
+   * element for this window if any.
+   */
+  getHooksForElement: function(/**Element*/ element) /**Element*/
+  {
+    let doc = element.ownerDocument.defaultView
+                     .QueryInterface(Ci.nsIInterfaceRequestor)
+                     .getInterface(Ci.nsIWebNavigation)
+                     .QueryInterface(Ci.nsIDocShellTreeItem)
+                     .rootTreeItem
+                     .QueryInterface(Ci.nsIInterfaceRequestor)
+                     .getInterface(Ci.nsIDOMWindow)
+                     .document;
+    let hooks = doc.getElementById("abp-hooks");
+    if (hooks && hooks.wrappedJSObject)
+      hooks = hooks.wrappedJSObject;
+    return hooks;
   },
 
   /**
