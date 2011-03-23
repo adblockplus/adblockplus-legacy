@@ -1,23 +1,27 @@
 <!ENTITY status.tooltip "Status:">
 <!ENTITY blocked.tooltip "Blockerade objekt på denna sida:">
 <!ENTITY filters.tooltip "Mest aktiva filter:">
-<!ENTITY menuitem.label "Adblock Plus inställningar">
+<!ENTITY menuitem.label "Inställningar för Adblock Plus">
 <!ENTITY menuitem.accesskey "A">
 <!ENTITY toolbarbutton.label "Adblock Plus">
-<!ENTITY view.blockableItems.label "Adblock Plus: Blockerbara poster">
-<!ENTITY context.image.label "Adblock Bild">
-<!ENTITY context.object.label "Adblock Objekt">
-<!ENTITY context.frame.label "Adblock Ram">
-<!ENTITY context.media.label "Adblock Plus: Blockera audio/video">
+<!ENTITY view.blockableItems.label "Adblock Plus: Blockerbara objekt">
+<!ENTITY context.image.label "Adblock Plus: Blockera bild">
+<!ENTITY context.object.label "Adblock Plus: Blockera objekt">
+<!ENTITY context.frame.label "Adblock Plus: Blockera ram">
+<!ENTITY context.media.label "Adblock Plus: Blockera ljud/video">
 <!ENTITY context.removeWhitelist.label "Adblock Plus: Återaktivera på denna sida">
-<!ENTITY sidebar.title "Objekt att blockera på denna sida">
+<!ENTITY sidebar.title "Blockerbara objekt på denna sida">
+<!ENTITY sendReport.label "Rapportera problem på denna sida">
+<!ENTITY sendReport.accesskey "R">
 <!ENTITY settings.label "Inställningar">
 <!ENTITY settings.accesskey "I">
-<!ENTITY opensidebar.label "Öppna objekt att blockera">
-<!ENTITY opensidebar.accesskey "B">
-<!ENTITY closesidebar.label "Stäng objekt att blockera">
-<!ENTITY closesidebar.accesskey "B">
+<!ENTITY opensidebar.label "Visa lista över blockerbara objekt">
+<!ENTITY opensidebar.accesskey "b">
+<!ENTITY closesidebar.label "Stäng listan över blockerbara objekt">
+<!ENTITY closesidebar.accesskey "b">
 <!ENTITY whitelist.site.label "Använd inte på ?1?">
 <!ENTITY whitelist.page.label "Använd inte på denna sida">
+<!ENTITY disable.label "Inaktivera för alla domäner">
+<!ENTITY recommend.label "Rekommendera oss på Facebook">
 <!ENTITY objecttab.title "Blockera">
 <!ENTITY objecttab.tooltip "Klicka här för att blockera detta objekt med Adblock Plus">

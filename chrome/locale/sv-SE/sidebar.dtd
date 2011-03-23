@@ -1,6 +1,6 @@
-<!ENTITY detached.title "Adblock Plus: Objekt att blockera (avskiljd)">
-<!ENTITY detach.label "Avskilj">
-<!ENTITY reattach.label "Sätt ihop">
+<!ENTITY detached.title "Adblock Plus: Blockeringsbara objekt (frånkopplad)">
+<!ENTITY detach.label "Koppla från">
+<!ENTITY reattach.label "Koppla ihop">
 <!ENTITY search.label "Sök:">
 <!ENTITY search.accesskey "ö">
 <!ENTITY type.label "Typ">
@@ -9,24 +9,27 @@
 <!ENTITY state.label "Tillstånd">
 <!ENTITY size.label "Storlek">
 <!ENTITY docDomain.label "Dokumentkälla">
+<!ENTITY docDomain.thirdParty "(tredje part)">
+<!ENTITY docDomain.firstParty "(första part)">
 <!ENTITY noitems.label "Inget att blockera">
-<!ENTITY whitelisted.label "Vitlistad sida">
+<!ENTITY whitelisted.label "Undantagen sida">
 <!ENTITY tooltip.address.label "Adress:">
 <!ENTITY tooltip.type.label "Typ:">
 <!ENTITY tooltip.type.blocked "(blockerad)">
-<!ENTITY tooltip.type.whitelisted "(vitlistad)">
+<!ENTITY tooltip.type.whitelisted "(undantagen)">
 <!ENTITY tooltip.size.label "Storlek:">
 <!ENTITY tooltip.docDomain.label "Dokumentkälla:">
 <!ENTITY tooltip.filter.label "Filter som används:">
+<!ENTITY tooltip.filter.disabled "(inaktiverat)">
 <!ENTITY tooltip.filterSource.label "Filterkälla:">
 <!ENTITY context.block.label "Blockera detta objekt">
 <!ENTITY context.editfilter.label "Blockeringsfilter är på">
 <!ENTITY context.whitelist.label "Lägg till undantag för objekt">
-<!ENTITY context.disablefilter.label "Inaktivera filter ?1?">
-<!ENTITY context.enablefilter.label "Re-aktivera filter ?1?">
+<!ENTITY context.disablefilter.label "Inaktivera filtret ?1?">
+<!ENTITY context.enablefilter.label "Återaktivera filtret ?1?">
 <!ENTITY context.disablefilteronsite.label "Inaktivera detta filter på ?1?">
 <!ENTITY context.open.label "Öppna i ny flik">
 <!ENTITY context.flash.label "Markera objektets ram">
 <!ENTITY context.copy.label "Kopiera objektets adress">
 <!ENTITY context.copyFilter.label "Kopiera filter">
-<!ENTITY context.selectAll.label "Välj alla">
+<!ENTITY context.selectAll.label "Markera alla">

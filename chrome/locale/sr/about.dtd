@@ -1,8 +1,8 @@
 <!ENTITY dialog.title "О Adblock Plus-у">
 <!ENTITY version.title "издање">
 <!ENTITY description "Adblock Plus вам дозвољава да изаберете што желите да видите на мрежи.
-Више није потребно да преузимате све оне банере и рекламе; уколико их не желите, ту је Adblock Plus.">
-<!ENTITY homepage.label "Интернетса страна Adblock Plus-а:">
+Више није потребно да преузимате све оне банере и рекламе. уколико их не желите... Ту је Adblock Plus!">
+<!ENTITY homepage.label "матична страница:">
 <!ENTITY author.label "Аутор:">
 <!ENTITY contributors.label "Сарадници:">
 <!ENTITY subscriptionAuthors.label "Аутори претплата на филтере:">
