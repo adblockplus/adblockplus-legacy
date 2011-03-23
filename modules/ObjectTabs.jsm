@@ -238,7 +238,6 @@ var objTabs =
         if (hooks && hooks.wrappedJSObject)
           hooks = hooks.wrappedJSObject;
 
-        // Only open popup in focused window, will steal focus otherwise
         if (hooks)
         {
           if (this.initialized)
