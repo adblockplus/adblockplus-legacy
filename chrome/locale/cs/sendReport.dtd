@@ -25,6 +25,8 @@
 <!ENTITY issues.nofilters.description "Adblock Plus na aktuální stránce nic neblokuje. Problém, který chcete nahlásit, není s největší pravděpodobností způsoben Adblockem Plus.">
 <!ENTITY issues.nosubscriptions.description "Zdá se, že nejste přihlášeni k odběru žádných cizích sad filtrů, které automaticky odstraňují nežádoucí obsah z webových stránek.">
 <!ENTITY issues.nosubscriptions.add.label "Přidat sadu cizích filtrů">
+<!ENTITY issues.subscriptionCount.description "Vypadá to, že jste přihlášeni k odběru příliš mnoha sad cizích filtrů. Toto nastavení není doporučeno, protože výrazně zvyšuje pravděpodobnost výskytu problémů. Zároveň nelze přijmout vaše hlášení, protože není jasné, který z autorů sad cizích filtrů je za zodpovědný. Odhlašte se prosím z odběru všech nepotřebných sad cizích filtrů a vyzkoušejte, zda se problém vyskytuje i poté.">
+<!ENTITY issues.openPreferences.label "Otevřít předvolby filtrů">
 <!ENTITY issues.ownfilters.description "Některé filtry použité na této stránce jsou vytvořené vámi. Zakažte prosím filtry, které mohly způsobit problém:">
 <!ENTITY issues.ownfilters.disable.label "Zakázat filtr">
 <!ENTITY issues.disabledgroups.description "Následující sady cizích filtrů / skupiny filtrů jsou zakázány, přesto můžou mít vliv na tuto stránku:">

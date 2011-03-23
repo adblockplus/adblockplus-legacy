@@ -51,6 +51,8 @@
 <!ENTITY objecttabs.accesskey "t">
 <!ENTITY collapse.label "Jatuhkan semua elemen yang disekat">
 <!ENTITY collapse.accesskey "J">
+<!ENTITY sync.label "Sync tatacara Adblock Plus">
+<!ENTITY sync.accesskey "c">
 <!ENTITY help.label "Bantuan">
 <!ENTITY help.accesskey "B">
 <!ENTITY gettingStarted.label "Persediaan untuk mengguna">

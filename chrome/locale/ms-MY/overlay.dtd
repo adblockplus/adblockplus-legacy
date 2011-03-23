@@ -21,5 +21,7 @@
 <!ENTITY closesidebar.accesskey "B">
 <!ENTITY whitelist.site.label "Nyahaktifkan pada ?1?">
 <!ENTITY whitelist.page.label "Nyahaktifkan pada laman ini sahaja">
+<!ENTITY disable.label "Nyahaktif di semua tempat">
+<!ENTITY recommend.label "Sarankan kami di Facebook">
 <!ENTITY objecttab.title "Sekat">
 <!ENTITY objecttab.tooltip "Klik di sini untuk menyekat objek ini dengan Adblock Plus">

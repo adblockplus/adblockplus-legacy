@@ -52,7 +52,7 @@
 <!ENTITY collapse.label "Свиване на блокираните елементи">
 <!ENTITY collapse.accesskey "С">
 <!ENTITY sync.label "Синхронизирай Настройките за Adblock Plus">
-<!ENTITY sync.accesskey "с">
+<!ENTITY sync.accesskey "х">
 <!ENTITY help.label "Помощ">
 <!ENTITY help.accesskey "П">
 <!ENTITY gettingStarted.label "Как да започнем">
