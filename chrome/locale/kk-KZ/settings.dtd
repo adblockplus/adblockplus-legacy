@@ -51,6 +51,8 @@
 <!ENTITY objecttabs.accesskey "д">
 <!ENTITY collapse.label "Блокталған құраманы жинау">
 <!ENTITY collapse.accesskey "ж">
+<!ENTITY sync.label "Adblock Plus баптауларын Sync ішіне қосу">
+<!ENTITY sync.accesskey "ш">
 <!ENTITY help.label "Көмек">
 <!ENTITY help.accesskey "м">
 <!ENTITY gettingStarted.label "Бастау">

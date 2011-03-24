@@ -21,5 +21,7 @@
 <!ENTITY closesidebar.accesskey "l">
 <!ENTITY whitelist.site.label "Dezactivează Adblock Plus pe ?1?">
 <!ENTITY whitelist.page.label "Dezactivează Adblock Plus doar pe pagina curentă">
+<!ENTITY disable.label "Dezactivează peste tot">
+<!ENTITY recommend.label "Recomandă pe Facebook">
 <!ENTITY objecttab.title "Blochează">
 <!ENTITY objecttab.tooltip "Click aici pentru a bloca obiectul utilizând Adblock Plus">

@@ -51,6 +51,8 @@
 <!ENTITY objecttabs.accesskey "p">
 <!ENTITY collapse.label "Ascunde elementele blocate">
 <!ENTITY collapse.accesskey "c">
+<!ENTITY sync.label "Sincronizează setările Adblock Plus">
+<!ENTITY sync.accesskey "c">
 <!ENTITY help.label "Ajutor">
 <!ENTITY help.accesskey "A">
 <!ENTITY gettingStarted.label "Ghidul începătorului">
