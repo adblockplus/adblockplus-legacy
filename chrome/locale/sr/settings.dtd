@@ -6,7 +6,7 @@
 <!ENTITY addsubscription.label "Додај претплату на филтер">
 <!ENTITY addsubscription.accesskey "п">
 <!ENTITY synchsubscriptions.label "Ажурирај све претплате">
-<!ENTITY synchsubscriptions.accesskey "с">
+<!ENTITY synchsubscriptions.accesskey "р">
 <!ENTITY import.label "Увези филтере">
 <!ENTITY import.accesskey "у">
 <!ENTITY export.label "Извези прилагођене филтере">
@@ -24,7 +24,7 @@
 <!ENTITY paste.label "Убаци">
 <!ENTITY paste.accesskey "б">
 <!ENTITY remove.label "Избриши">
-<!ENTITY remove.accesskey "р">
+<!ENTITY remove.accesskey "ш">
 <!ENTITY menu.find.label "Нађи">
 <!ENTITY menu.find.accesskey "н">
 <!ENTITY menu.findagain.label "Тражи поново">

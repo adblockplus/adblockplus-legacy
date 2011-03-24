@@ -12,7 +12,7 @@
 <!ENTITY context.removeWhitelist.label "Поново укључи на овој страници">
 <!ENTITY sidebar.title "Ставке које се могу блокирати на овој страници">
 <!ENTITY sendReport.label "Пријави проблеме на овој страници">
-<!ENTITY sendReport.accesskey "П">
+<!ENTITY sendReport.accesskey "И">
 <!ENTITY settings.label "Подешавања">
 <!ENTITY settings.accesskey "д">
 <!ENTITY opensidebar.label "Отвори ставке које се могу блокирати">
