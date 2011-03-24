@@ -518,7 +518,9 @@ function exportList()
           let filterVersion;
           if (filter instanceof RegExpFilter)
           {
-            if (filter.contentType & RegExpFilter.typeMap.ELEMHIDE)
+            if (filter.contentType & RegExpFilter.typeMap.DONOTTRACK)
+              filterVersion = "1.3.5";
+            else if (filter.contentType & RegExpFilter.typeMap.ELEMHIDE)
               filterVersion = "1.2";
             else if (/^(?:@@)?\|\|/.test(filter.text) || (!Filter.regexpRegExp.test(filter.text) && /\^/.test(filter.text)))
               filterVersion = "1.1";
