@@ -146,11 +146,20 @@ try
     return ElemHide.styleURL;
   });
 
-  // Trigger update in child processes if elemhide stylesheet changes
+  // Trigger update in child processes if elemhide stylesheet or matcher data change
   FilterStorage.addObserver(function(action)
   {
     if (action == "elemhideupdate")
       Utils.parentMessageManager.sendAsyncMessage("AdblockPlus:ElemHide:updateStyleURL", ElemHide.styleURL);
+    else if (/^(filters|subscriptions) (add|remove|enable|disable|update)$/.test(action))
+      Utils.parentMessageManager.sendAsyncMessage("AdblockPlus:Matcher:clearCache");
+  });
+
+  // Trigger update in child processes if enable or fastcollapse preferences change
+  Prefs.addListener(function(name)
+  {
+    if (name == "enabled" || name == "fastcollapse")
+      Utils.parentMessageManager.sendAsyncMessage("AdblockPlus:Matcher:clearCache");
   });
 } catch(e) {}   // Ignore errors if we are not running in a multi-process setup
 
