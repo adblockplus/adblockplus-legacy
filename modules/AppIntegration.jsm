@@ -975,6 +975,8 @@ WindowWrapper.prototype =
         whitelistItemSite.hidden = false;
       }
     }
+
+    this.E("abp-command-sendReport").setAttribute("disabled", !location || !Policy.isBlockableScheme(location) || location.scheme == "mailto");
   
     this.E(prefix + "disabled").setAttribute("checked", !Prefs.enabled);
     this.E(prefix + "frameobjects").setAttribute("checked", Prefs.frameobjects);
