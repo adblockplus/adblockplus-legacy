@@ -1019,7 +1019,7 @@ WindowWrapper.prototype =
     if (wnd)
       wnd.focus();
     else
-      this.window.openDialog("chrome://adblockplus/content/ui/sendReport.xul", "_blank", "chrome,centerscreen,resizable=no", this.window.content);
+      this.window.openDialog("chrome://adblockplus/content/ui/sendReport.xul", "_blank", "chrome,centerscreen,resizable=no", this.window.content, this.getCurrentLocation());
   },
 
   /**

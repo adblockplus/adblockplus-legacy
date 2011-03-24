@@ -53,7 +53,7 @@ let reportsListDataSource =
   json: Cc["@mozilla.org/dom/json;1"].createInstance(Ci.nsIJSON),
   list: [],
 
-  collectData: function(wnd, callback)
+  collectData: function(wnd, windowURI, callback)
   {
     let data = null;
     try
@@ -151,7 +151,7 @@ let requestsDataSource =
   requestNotifier: null,
   callback: null,
 
-  collectData: function(wnd, callback)
+  collectData: function(wnd, windowURI, callback)
   {
     this.callback = callback;
     this.requestNotifier = new RequestNotifier(wnd, this.onRequestFound, this);
@@ -200,7 +200,7 @@ let filtersDataSource =
 {
   origFilters: [],
 
-  collectData: function(wnd, callback)
+  collectData: function(wnd, windowURI, callback)
   {
     let wndStats = RequestNotifier.getWindowStatistics(wnd);
     if (wndStats)
@@ -220,7 +220,7 @@ let filtersDataSource =
 
 let subscriptionsDataSource =
 {
-  collectData: function(wnd, callback)
+  collectData: function(wnd, windowURI, callback)
   {
     let subscriptions = reportData.subscriptions;
     let now = Math.round(Date.now() / 1000);
@@ -269,7 +269,7 @@ let screenshotDataSource =
   _currentData: null,
   _undoQueue: [],
 
-  collectData: function(wnd, callback)
+  collectData: function(wnd, windowURI, callback)
   {
     this._callback = callback;
     this._canvas = E("screenshotCanvas");
@@ -497,11 +497,11 @@ let framesDataSource =
 {
   site: null,
 
-  collectData: function(wnd, callback)
+  collectData: function(wnd, windowURI, callback)
   {
     try
     {
-      this.site = wnd.location.hostname;
+      this.site = windowURI.host;
       if (this.site)
         document.title += " (" + this.site + ")";
     }
@@ -510,7 +510,7 @@ let framesDataSource =
       // Expected exception - not all URL schemes have a host name
     }
 
-    reportData.window.@url = censorURL(wnd.location.href);
+    reportData.window.@url = censorURL(windowURI ? windowURI.spec : wnd.location.href);
     if (wnd.opener && wnd.opener.location.href)
       reportData.window.@opener = censorURL(wnd.opener.location.href);
     if (wnd.document.referrer)
@@ -542,7 +542,7 @@ let framesDataSource =
 
 let errorsDataSource =
 {
-  collectData: function(wnd, callback)
+  collectData: function(wnd, windowURI, callback)
   {
     let messages = {};
     Cc["@mozilla.org/consoleservice;1"].getService(Ci.nsIConsoleService).getMessageArray(messages, {});
@@ -605,7 +605,7 @@ let extensionsDataSource =
 {
   data: <extensions/>,
 
-  collectData: function(wnd, callback)
+  collectData: function(wnd, windowURI, callback)
   {
     let AddonManager = null;
     try
@@ -682,7 +682,7 @@ let issuesDataSource =
   numSubscriptions: FilterStorage.subscriptions.filter(function(subscription) subscription instanceof DownloadableSubscription).length,
   numAppliedFilters: Infinity,
 
-  collectData: function(wnd, callback)
+  collectData: function(wnd, windowURI, callback)
   {
     this.contentWnd = wnd;
     this.whitelistFilter = Policy.isWindowWhitelisted(wnd);
@@ -1022,6 +1022,7 @@ function initDataCollectorPage()
   document.documentElement.canAdvance = false;
 
   let contentWindow = window.arguments[0];
+  let windowURI = window.arguments[1];
   let totalSteps = dataCollectors.length;
   let initNextDataSource = function()
   {
@@ -1045,7 +1046,7 @@ function initDataCollectorPage()
     let dataSource = dataCollectors.shift();
     Utils.runAsync(function()
     {
-      dataSource.collectData(contentWindow, initNextDataSource);
+      dataSource.collectData(contentWindow, windowURI, initNextDataSource);
     });
   };
 
