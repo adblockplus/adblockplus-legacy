@@ -26,7 +26,7 @@
  * @fileOverview Module containing a bunch of utility functions.
  */
 
-var EXPORTED_SYMBOLS = ["Utils"];
+var EXPORTED_SYMBOLS = ["Utils", "Cache"];
 
 const Cc = Components.classes;
 const Ci = Components.interfaces;
@@ -549,6 +549,70 @@ var Utils =
     }
   }
 };
+
+/**
+ * A cache with a fixed capacity, newer entries replace entries that have been
+ * stored first.
+ * @constructor
+ */
+function Cache(/**Integer*/ size)
+{
+  this._ringBuffer = new Array(size);
+  this.data = {__proto__: null};
+}
+Cache.prototype =
+{
+  /**
+   * Ring buffer storing hash keys, allows determining which keys need to be
+   * evicted.
+   * @type Array
+   */
+  _ringBuffer: null,
+
+  /**
+   * Index in the ring buffer to be written next.
+   * @type Integer
+   */
+  _bufferIndex: 0,
+
+  /**
+   * Cache data, maps values to the keys. Read-only access, for writing use
+   * add() method.
+   * @type Object
+   */
+  data: null,
+
+  /**
+   * Adds a key and the corresponding value to the cache.
+   */
+  add: function(/**String*/ key, value)
+  {
+    if (!(key in this.data))
+    {
+      // This is a new key - we need to add it to the ring buffer and evict
+      // another entry instead.
+      let oldKey = this._ringBuffer[this._bufferIndex];
+      if (typeof oldKey != "undefined")
+        delete this.data[oldKey];
+      this._ringBuffer[this._bufferIndex] = key;
+
+      this._bufferIndex++;
+      if (this._bufferIndex >= this._ringBuffer.length)
+        this._bufferIndex = 0;
+    }
+
+    this.data[key] = value;
+  },
+
+  /**
+   * Clears cache contents.
+   */
+  clear: function()
+  {
+    this._ringBuffer = new Array(this._ringBuffer.length);
+    this.data = {__proto__: null};
+  }
+}
 
 // Getters for common services, this should be replaced by Services.jsm in future
 

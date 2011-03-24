@@ -48,6 +48,8 @@ var PolicyRemote =
   contractID: "@adblockplus.org/abp/policy-remote;1",
   xpcom_categories: ["content-policy", "net-channel-event-sinks"],
 
+  cache: new Cache(512),
+
   startup: function()
   {
     let registrar = Components.manager.QueryInterface(Ci.nsIComponentRegistrar);
@@ -78,6 +80,12 @@ var PolicyRemote =
                                       encodeURIComponent("." + Utils.collapsedClass +
                                       "{-moz-binding: url(chrome://global/content/bindings/general.xml#foobarbazdummy) !important;}"));
     Utils.styleService.loadAndRegisterSheet(collapseStyle, Ci.nsIStyleSheetService.USER_SHEET);
+
+    // Get notified if we need to invalidate our matching cache
+    Utils.childMessageManager.addMessageListener("AdblockPlus:Matcher:clearCache", function(message)
+    {
+      PolicyRemote.cache.clear();
+    });
   },
 
   //
@@ -102,11 +110,20 @@ var PolicyRemote =
       return Ci.nsIContentPolicy.ACCEPT;
 
     wnd = Utils.getOriginWindow(wnd);
-    let result = Utils.childMessageManager.sendSyncMessage("AdblockPlus:Policy:shouldLoad", {
+
+    let wndLocation = wnd.location.href;
+    let topLocation = wnd.top.location.href;
+    let key = contentType + " " + contentLocation.spec + " " + wndLocation + " " + topLocation;
+    if (!(key in this.cache.data))
+    {
+      this.cache.add(key, Utils.childMessageManager.sendSyncMessage("AdblockPlus:Policy:shouldLoad", {
               contentType: contentType,
               contentLocation: contentLocation.spec,
               wndLocation: wnd.location.href,
-              topLocation: wnd.top.location.href})[0];
+              topLocation: wnd.top.location.href})[0]);
+    }
+
+    let result = this.cache.data[key];
     if (result.value == Ci.nsIContentPolicy.ACCEPT)
     {
       // We didn't block this request so we will probably see it again in
