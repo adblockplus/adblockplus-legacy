@@ -36,6 +36,12 @@ dialog[newInstall]
   background-position: 95% 5%;
 }
 
+dialog[newInstall] .dialog-content-box,
+dialog[newInstall] #content-scroll
+{
+  min-height: 150px;
+}
+
 #description-newInstall,
 #adblock-warning,
 #filtersetg-warning
