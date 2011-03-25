@@ -52,7 +52,7 @@
 <!ENTITY collapse.label "Ukrywaj zablokowane elementy">
 <!ENTITY collapse.accesskey "U">
 <!ENTITY sync.label "Synchronizuj ustawienia Adblock Plusa">
-<!ENTITY sync.accesskey "N">
+<!ENTITY sync.accesskey "S">
 <!ENTITY help.label "Pomoc">
 <!ENTITY help.accesskey "P">
 <!ENTITY gettingStarted.label "Wprowadzenie">
