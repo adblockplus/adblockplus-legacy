@@ -52,7 +52,7 @@
 <!ENTITY collapse.label "Ascunde elementele blocate">
 <!ENTITY collapse.accesskey "c">
 <!ENTITY sync.label "Sincronizează setările Adblock Plus">
-<!ENTITY sync.accesskey "c">
+<!ENTITY sync.accesskey "n">
 <!ENTITY help.label "Ajutor">
 <!ENTITY help.accesskey "A">
 <!ENTITY gettingStarted.label "Ghidul începătorului">
