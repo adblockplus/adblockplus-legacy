@@ -54,7 +54,7 @@
 <!ENTITY sync.label "Подешавања усклађивања Adblock Plus-а">
 <!ENTITY sync.accesskey "у">
 <!ENTITY help.label "Помоћ">
-<!ENTITY help.accesskey "П">
+<!ENTITY help.accesskey "ћ">
 <!ENTITY gettingStarted.label "Како почети">
 <!ENTITY gettingStarted.accesskey "К">
 <!ENTITY faq.label "Најчешће постављана питања">
@@ -68,7 +68,7 @@
 <!ENTITY filter.accesskey "ф">
 <!ENTITY slow.column "Спори филтери">
 <!ENTITY slow.accesskey "п">
-<!ENTITY enabled.column "Укључен">
+<!ENTITY enabled.column "Омогућен">
 <!ENTITY enabled.accesskey "н">
 <!ENTITY hitcount.column "Број погодака">
 <!ENTITY hitcount.accesskey "ј">

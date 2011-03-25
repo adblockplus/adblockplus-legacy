@@ -25,6 +25,8 @@
 <!ENTITY issues.nofilters.description "Adblock Plus לא חוסם דבר בעמוד הנוכחי. הבעיה אשר מבחינים קרוב לוודאי איננה קשורה ל-Adblock Plus.">
 <!ENTITY issues.nosubscriptions.description "נראה שאינכם רשומים לשום מסנן שהוכן מראש אשר מופיע ברשימה שמסיר אוטומטית תוכן לא רצוי מאתרי אינטרנט.">
 <!ENTITY issues.nosubscriptions.add.label "הוספת תיאור למסנן">
+<!ENTITY issues.subscriptionCount.description "נראה שאתם רשומים ליותר מדי הרשמות מסננים. מערך זה איננו מומלץ מכיוון שזה יגרום לסיכוי לבעיות להיות הרבה יותר גבוה. אנחנו גם לא נוכל לקבל את דיווחי הבעיות שלכם מכיוון שלא ברור איזה מחבר הרשמות מסנן צריך לנקוט בפעולה. אנא הסירו את כל הרשמות המסננים פרט לאלו שבאמת נחוצות ובדקו האם אז הבעיה עדיין מתרחשת.">
+<!ENTITY issues.openPreferences.label "פתיחת העדפות סינון">
 <!ENTITY issues.ownfilters.description "חלק מהמסננים שחלים על עמוד זה הם מוגדרי-משתמש. יש לנטרל את המסננים אשר אולי הם הגורמים לבעיה:">
 <!ENTITY issues.ownfilters.disable.label "נטרול מסנן">
 <!ENTITY issues.disabledgroups.description "קבוצות ההרשמה/המסננים הבאות מנוטרלות, לפי שעה אולי יש להם השפעה על עמוד זה:">
