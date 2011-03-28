@@ -199,7 +199,9 @@ function WindowWrapper(window, hooks)
     this.fixupMenus();
     this.configureKeys();
     this.initContextMenu();
-    this.updateState();
+
+    // Update state asynchronously, the Thunderbird window won't be initialized yet for non-default window layouts
+    Utils.runAsync(this.updateState, this);
 
     // Some people actually switch off browser.frames.enabled and are surprised
     // that things stop working...
