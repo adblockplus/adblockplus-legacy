@@ -43,6 +43,7 @@ function init()
     suggestion.setAttribute("value", address);
     suggestion.setAttribute("label", address);
     suggestion.setAttribute("crop", "center");
+    suggestion.setAttribute("class", "suggestion");
     insertionPoint.parentNode.insertBefore(suggestion, insertionPoint);
 
     return address;

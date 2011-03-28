@@ -71,6 +71,18 @@ deck, deck * {
   min-width: 30px;
 }
 
+/*
+ * Force left-to-right everywhere where we are displaying addresses
+ */
+treechildren:-moz-locale-dir(rtl)::-moz-tree-cell(col-filter, type-invalid),
+treechildren:-moz-locale-dir(rtl)::-moz-tree-cell(col-filter, type-whitelist),
+treechildren:-moz-locale-dir(rtl)::-moz-tree-cell(col-filter, type-filterlist),
+treechildren:-moz-locale-dir(rtl)::-moz-tree-cell(col-filter, type-elemhide)
+{
+  direction: ltr;
+  text-align: end;
+}
+
 treechildren::-moz-tree-cell-text(col-filter, description-true, selected-false) {
   font-size: 80%;
   color: #808080;
