@@ -200,8 +200,16 @@ function WindowWrapper(window, hooks)
     this.configureKeys();
     this.initContextMenu();
 
-    // Update state asynchronously, the Thunderbird window won't be initialized yet for non-default window layouts
-    Utils.runAsync(this.updateState, this);
+    let browser = this.getBrowser();
+    if (browser && browser.currentURI)
+    {
+      this.updateState();
+    }
+    else
+    {
+      // Update state asynchronously, the Thunderbird window won't be initialized yet for non-default window layouts
+      Utils.runAsync(this.updateState, this);
+    }
 
     // Some people actually switch off browser.frames.enabled and are surprised
     // that things stop working...
