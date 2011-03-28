@@ -25,7 +25,7 @@
 <!ENTITY issues.nofilters.description "Adblock Plus は現在のページで何もブロックしていないので、お気付きの問題は恐らく Adblock Plus と関係ありません">
 <!ENTITY issues.nosubscriptions.description "ウェブサイトの不要なコンテンツを自動削除する購読フィルタを、まだ購読されていないようです">
 <!ENTITY issues.nosubscriptions.add.label "購読フィルタを追加">
-<!ENTITY issues.subscriptionCount.description "購読フィルタが多過ぎです。どの購読フィルタ作者がこの問題に対処すべきか不明なので、レポートを受理できません。本当に必要な購読フィルタ以外を削除し、問題が再現するか確認して下さい。">
+<!ENTITY issues.subscriptionCount.description "購読フィルタが多過ぎです。どの購読フィルタ作者がこの問題に対処すべきか不明なので、レポートを受理できません。本当に必要な購読フィルタ以外を削除し、問題が再現するか確認してください。">
 <!ENTITY issues.openPreferences.label "設定画面">
 <!ENTITY issues.ownfilters.description "このページに適用されているフィルタに自作フィルタが含まれています。それらフィルタが問題を起こしている可能性があるので無効にしてください:">
 <!ENTITY issues.ownfilters.disable.label "フィルタを無効にする">
@@ -69,7 +69,7 @@
 <!ENTITY sendPage.waitMessage "Adblock Plus がレポートを提出する間、しばらくお待ちください">
 <!ENTITY sendPage.confirmation "あなたのレポートは保存されました。次のアドレスでアクセスできます:">
 <!ENTITY sendPage.knownIssue "あなたのレポートはおそらく既知の問題です。詳しい情報:">
-<!ENTITY sendPage.errorMessage "レポート送信がエラーコード &quot;?1?&quot; で失敗しました。インターネットに接続されているか確認し再試行して下さい。問題が解決しない場合は [link]Adblock Plus フォーラム[/link] で助けを求めてください。">
+<!ENTITY sendPage.errorMessage "レポート送信がエラーコード &quot;?1?&quot; で失敗しました。インターネットに接続されているか確認し再試行してください。問題が解決しない場合は [link]Adblock Plus フォーラム[/link] で助けを求めてください。">
 <!ENTITY sendPage.retry.label "再送信">
 <!ENTITY copyLink.label "レポートへのリンクをコピー">
 <!ENTITY copyLink.accesskey "C">

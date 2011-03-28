@@ -63,7 +63,7 @@
 <!ENTITY filterdoc.accesskey "r">
 <!ENTITY about.label "Adblock Plus について">
 <!ENTITY about.accesskey "b">
-<!ENTITY description "次のフィルタでブロック対象が定義されます:">
+<!ENTITY description "以下のフィルタでブロック対象を定義します:">
 <!ENTITY filter.column "フィルタのルール">
 <!ENTITY filter.accesskey "F">
 <!ENTITY slow.column "遅いフィルタ">

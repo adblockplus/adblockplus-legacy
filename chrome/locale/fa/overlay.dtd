@@ -21,5 +21,7 @@
 <!ENTITY closesidebar.accesskey "ق">
 <!ENTITY whitelist.site.label "غیرفعال در ?1?">
 <!ENTITY whitelist.page.label "غیرفعال فقط در این صفحه">
+<!ENTITY disable.label "غیر فعال کردن در همه جا">
+<!ENTITY recommend.label "ما را در فیس بوک پیشنهاد دهید.">
 <!ENTITY objecttab.title "مسدود کردن">
 <!ENTITY objecttab.tooltip "جهت مسدود کردن با فوق تبلیغ شکن اینجا کلیک کنید">

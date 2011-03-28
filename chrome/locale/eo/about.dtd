@@ -1,4 +1,8 @@
 <!ENTITY dialog.title "Pri Adblock Plus">
 <!ENTITY version.title "Versio">
+<!ENTITY description "Adblock Plus permesas al vi decidi, kion vi volas vidi en la reto. Vi ne plu bezonas elŝuti anoncojn kaj reklamrubandojn; se vi ne volas ilin - forigu ilin per Adblock Plus!">
+<!ENTITY homepage.label "Hejmpaĝo Adblock Plus:">
 <!ENTITY author.label "Aŭtoro:">
 <!ENTITY contributors.label "Kontribuintoj:">
+<!ENTITY subscriptionAuthors.label "Aŭtoroj de filtrilabonoj:">
+<!ENTITY translators.label "Tradukintoj:">
