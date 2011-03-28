@@ -996,17 +996,20 @@ WindowWrapper.prototype =
 
     // Only show "Recommend" button to Facebook users, we don't want to advertise Facebook
     this.E(prefix + "recommendbutton").hidden = true;
-    let cookieManager = Cc["@mozilla.org/cookiemanager;1"].getService(Ci.nsICookieManager2);
-    if ("getCookiesFromHost" in cookieManager)
+    if (!this.E("abp-hooks").hasAttribute("forceHideRecommend"))
     {
-      let enumerator = cookieManager.getCookiesFromHost("facebook.com");
-      while (enumerator.hasMoreElements())
+      let cookieManager = Cc["@mozilla.org/cookiemanager;1"].getService(Ci.nsICookieManager2);
+      if ("getCookiesFromHost" in cookieManager)
       {
-        let cookie = enumerator.getNext().QueryInterface(Ci.nsICookie);
-        if (cookie.name == "lu")
+        let enumerator = cookieManager.getCookiesFromHost("facebook.com");
+        while (enumerator.hasMoreElements())
         {
-          this.E(prefix + "recommendbutton").hidden = false;
-          break;
+          let cookie = enumerator.getNext().QueryInterface(Ci.nsICookie);
+          if (cookie.name == "lu")
+          {
+            this.E(prefix + "recommendbutton").hidden = false;
+            break;
+          }
         }
       }
     }
@@ -1030,6 +1033,20 @@ WindowWrapper.prototype =
   recommend: function()
   {
     this.window.open("http://www.facebook.com/share.php?u=http%3A%2F%2Fadblockplus.org%2F&t=Adblock%20Plus", "_blank", "width=550,height=350");
+  },
+
+  /**
+   * Hide recommend button and persist this choice.
+   */
+  recommendHide: function(event)
+  {
+    let hooks = this.E("abp-hooks");
+    hooks.setAttribute("forceHideRecommend", "true");
+    this.window.document.persist(hooks.id, "forceHideRecommend");
+
+    for each (let button in [this.E("abp-status-recommendbutton"), this.E("abp-toolbar-recommendbutton")])
+      if (button)
+        button.hidden = true;
   },
 
   /**
@@ -1257,6 +1274,7 @@ WindowWrapper.prototype.eventHandlers = [
   ["abp-command-toggleshowinstatusbar", "command", function() { AppIntegration.togglePref("showinstatusbar"); }],
   ["abp-command-enable", "command", function() { AppIntegration.togglePref("enabled"); }],
   ["abp-command-recommend", "command", WindowWrapper.prototype.recommend],
+  ["abp-command-recommend-hide", "command", WindowWrapper.prototype.recommendHide],
   ["abp-toolbarbutton", "command", WindowWrapper.prototype.handleToolbarCommand],
   ["abp-toolbarbutton", "click", WindowWrapper.prototype.handleToolbarClick],
   ["abp-status", "click", WindowWrapper.prototype.handleStatusClick],

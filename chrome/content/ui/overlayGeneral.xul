@@ -70,7 +70,10 @@
         </menupopup>
       </menu>
 
-      <button id="abp-status-recommendbutton" class="abp-recommendbutton" label="&recommend.label;" command="abp-command-recommend"/>
+      <hbox class="abp-recommendbutton" id="abp-status-recommendbutton" pack="center">
+        <button class="abp-recommendbutton-btn" label="&recommend.label;" command="abp-command-recommend" flex="1"/>
+        <toolbarbutton class="abp-recommendbutton-close" command="abp-command-recommend-hide" tooltiptext="&closesidebar.label;"/>
+      </hbox>
     </menupopup>
   </popupset>
   <keyset id="abp-keyset"/>
@@ -87,6 +90,7 @@
     <command id="abp-command-toggleshowinstatusbar"/>
     <command id="abp-command-enable" oncommand="//"/>
     <command id="abp-command-recommend"/>
+    <command id="abp-command-recommend-hide"/>
   </commandset>
 
   <statusbarpanel id="abp-status" class="statusbarpanel-iconic"
