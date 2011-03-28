@@ -99,6 +99,14 @@ radio, checkbox, .topLabel, #dataDeck
   visibility: hidden;
 }
 
+/*
+ * Force left-to-right everywhere where we are displaying addresses
+ */
+#data:-moz-locale-dir(rtl)
+{
+  direction: ltr;
+}
+
 #sendReportError
 {
   color: red;

@@ -23,6 +23,17 @@
  * ***** END LICENSE BLOCK ***** */
 
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+@namespace html url("http://www.w3.org/1999/xhtml");
+
+/*
+ * Force left-to-right everywhere where we are displaying addresses
+ */
+.suggestion > .radio-label-box:-moz-locale-dir(rtl),
+html|*.textbox-input:-moz-locale-dir(rtl)
+{
+  direction: ltr;
+  text-align: end;
+}
 
 #patternGroup {
   overflow: auto;

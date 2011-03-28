@@ -1264,6 +1264,7 @@ function reportSent(event)
 
   result = result.replace(/%CONFIRMATION%/g, encodeHTML(E("result").getAttribute("confirmationMessage")));
   result = result.replace(/%KNOWNISSUE%/g, encodeHTML(E("result").getAttribute("knownIssueMessage")));
+  result = result.replace(/(<html)\b/, '$1 dir="' + window.getComputedStyle(document.documentElement).direction + '"');
 
   if (!success)
   {
