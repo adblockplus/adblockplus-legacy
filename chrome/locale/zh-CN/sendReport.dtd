@@ -26,6 +26,8 @@
 <!ENTITY issues.nofilters.description "Adblock Plus 在当前页面上未过滤任何元素。您遇到的问题很可能与 Adblock Plus 无关。">
 <!ENTITY issues.nosubscriptions.description "您不能显示已订阅的任何预置过滤规则列表。">
 <!ENTITY issues.nosubscriptions.add.label "添加过滤规则订阅">
+<!ENTITY issues.subscriptionCount.description "您有太多的过滤规则订阅。我们不推荐使用过多的过滤规则订阅，因为这可能会带来很多问题。很抱歉，我们不能接受您的问题报告，因为我们不清楚过滤规则订阅的作者所需要采取的动作。请移除非必要的过滤规则订阅，然后再测试一下问题是否依然存在。">
+<!ENTITY issues.openPreferences.label "打开过滤规则选项">
 <!ENTITY issues.ownfilters.description "有些应用到该页面的过滤规则是用户自定义的。请禁用这些可能导致问题的过滤规则：">
 <!ENTITY issues.ownfilters.disable.label "禁用过滤规则">
 <!ENTITY issues.disabledgroups.description "如下过滤规则订阅 / 过滤过则组处于禁用状态，但是他们可能对该页面有效：">

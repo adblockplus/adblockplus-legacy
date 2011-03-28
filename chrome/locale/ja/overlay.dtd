@@ -1,5 +1,5 @@
 <!ENTITY status.tooltip "ステータス:">
-<!ENTITY blocked.tooltip "ブロック済項目:">
+<!ENTITY blocked.tooltip "ブロック済み項目:">
 <!ENTITY filters.tooltip "有効なフィルタ:">
 <!ENTITY menuitem.label "Adblock Plus 設定">
 <!ENTITY menuitem.accesskey "b">

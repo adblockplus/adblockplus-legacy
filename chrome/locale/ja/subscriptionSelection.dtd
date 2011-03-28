@@ -1,6 +1,6 @@
 <!ENTITY dialog.title "購読フィルタを追加">
 <!ENTITY dialog.title.edit "購読フィルタを編集">
-<!ENTITY description.newInstall "他の Adblock Plus ユーザーが無償提供している購読フィルタを追加すると、更に効果的に使うことができます。使用言語に適した購読フィルタは既に選択されています。">
+<!ENTITY description.newInstall "他の Adblock Plus ユーザが無償提供している購読フィルタを追加すると、更に効果的に使うことができます。使用言語に適した購読フィルタは既に選択されています。">
 <!ENTITY subscriptionSelector.label "リストから購読フィルタを選択してください:">
 <!ENTITY viewList.label "フィルタ内容を見る">
 <!ENTITY visitHomepage.label "ホームページに移動">

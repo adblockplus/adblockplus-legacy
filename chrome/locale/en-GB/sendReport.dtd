@@ -29,6 +29,8 @@
 <!ENTITY issues.nofilters.description "Adblock Plus isn't blocking anything on the current page. The issue you are observing is probably unrelated to Adblock Plus.">
 <!ENTITY issues.nosubscriptions.description "You do not appear to be subscribed to any of the pre-made filter lists that automatically remove unwanted content from websites.">
 <!ENTITY issues.nosubscriptions.add.label "Add filter subscription">
+<!ENTITY issues.subscriptionCount.description "It seems that you are subscribed to too many filter subscriptions. This setup is not recommended because it will make the likeliness of issues much higher. We also cannot accept your issue report because it is unclear which filter subscription author needs to take action. Please remove all but the really necessary filter subscriptions and test whether the issue still occurs then.">
+<!ENTITY issues.openPreferences.label "Open filter preferences">
 <!ENTITY issues.ownfilters.description "Some of the filters applied on this page are user-defined. Please disable
 	the filters that might have caused the issue:">
 <!ENTITY issues.ownfilters.disable.label "Disable filter">

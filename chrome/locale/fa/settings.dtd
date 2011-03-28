@@ -51,6 +51,8 @@
 <!ENTITY objecttabs.accesskey "ج">
 <!ENTITY collapse.label "نمایش موارد رد شده">
 <!ENTITY collapse.accesskey "م">
+<!ENTITY sync.label "همگام سازی تنظیمات فوق تبلیغ شکن">
+<!ENTITY sync.accesskey "ظ">
 <!ENTITY help.label "راهنما">
 <!ENTITY help.accesskey "ن">
 <!ENTITY gettingStarted.label "شروع">
