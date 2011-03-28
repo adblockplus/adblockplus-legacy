@@ -679,7 +679,7 @@ let issuesDataSource =
   disabledFilters: [],
   disabledSubscriptions: [],
   ownFilters: [],
-  numSubscriptions: FilterStorage.subscriptions.filter(function(subscription) subscription instanceof DownloadableSubscription).length,
+  numSubscriptions: FilterStorage.subscriptions.filter(function(subscription) subscription instanceof DownloadableSubscription && !subscription.disabled).length,
   numAppliedFilters: Infinity,
 
   collectData: function(wnd, windowURI, callback)
