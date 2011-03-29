@@ -158,6 +158,10 @@ var PolicyRemote =
       // the data with the channel so that we can find it in case of a redirect.
       subject.setProperty("abpRequestData", PolicyRemote.previousRequest);
       PolicyRemote.previousRequest = null;
+
+      // Add our listener to remove the data again once the request is done
+      if (subject instanceof Ci.nsITraceableChannel)
+        new TraceableChannelCleanup(subject);
     }
   },
 
@@ -169,40 +173,34 @@ var PolicyRemote =
   {
     try
     {
-      let oldLocation = null;
+      // Try to retrieve previously stored request data from the channel
+      let requestData;
+      if (oldChannel instanceof Ci.nsIWritablePropertyBag)
+      {
+        try
+        {
+          requestData = oldChannel.getProperty("abpRequestData");
+        }
+        catch(e)
+        {
+          // No data attached, ignore this redirect
+          return;
+        }
+      }
+
       let newLocation = null;
       try
       {
-        oldLocation = oldChannel.originalURI.spec;
-        newLocation = newChannel.URI.spec;
-      }
-      catch(e2) {}
-
-      if (!oldLocation || !newLocation || oldLocation == newLocation)
+        newLocation = newChannel.URI;
+      } catch(e2) {}
+      if (!newLocation)
         return;
-
-      // Try to retrieve previously stored request data from the channel
-      let requestData = null;
-      try
-      {
-        if (oldChannel instanceof Ci.nsIWritablePropertyBag)
-          requestData = oldChannel.getProperty("abpRequestData");
-      }
-      catch(e) {}  // Ignore exceptions due to non-existing property
-      if (!requestData)
-        return;
-      oldChannel.deleteProperty("abpRequestData");
 
       // HACK: NS_BINDING_ABORTED would be proper error code to throw but this will show up in error console (bug 287107)
-      if (PolicyRemote.shouldLoad(requestData[1], newChannel.URI, null, requestData[0]) != Ci.nsIContentPolicy.ACCEPT)
+      if (PolicyRemote.shouldLoad(requestData[1], newLocation, null, requestData[0]) != Ci.nsIContentPolicy.ACCEPT)
         throw Cr.NS_BASE_STREAM_WOULD_BLOCK;
       else
-      {
-        // We allowed the request to proceed, associate the data with the new channel
-        if (newChannel instanceof Ci.nsIWritablePropertyBag)
-          newChannel.getProperty("abpRequestData", requestData);
         return;
-      }
     }
     catch (e if (e != Cr.NS_BASE_STREAM_WOULD_BLOCK))
     {

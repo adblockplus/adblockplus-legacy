@@ -361,7 +361,7 @@ var PolicyPrivate =
       // We didn't block this request so we will probably see it again in
       // http-on-modify-request. Keep it so that we can associate it with the
       // channel there - will be needed in case of redirect.
-      PolicyPrivate.previousRequest = [wnd, node, contentType, location];
+      PolicyPrivate.previousRequest = [node, contentType, location];
     }
     return (result ? Ci.nsIContentPolicy.ACCEPT : Ci.nsIContentPolicy.REJECT_REQUEST);
   },
@@ -389,13 +389,17 @@ var PolicyPrivate =
       }
     }
 
-    if (PolicyPrivate.previousRequest && subject.URI == PolicyPrivate.previousRequest[3] &&
+    if (PolicyPrivate.previousRequest && subject.URI == PolicyPrivate.previousRequest[2] &&
         subject instanceof Ci.nsIWritablePropertyBag)
     {
       // We just handled a content policy call for this request - associate
       // the data with the channel so that we can find it in case of a redirect.
       subject.setProperty("abpRequestData", PolicyPrivate.previousRequest);
       PolicyPrivate.previousRequest = null;
+
+      // Add our listener to remove the data again once the request is done
+      if (subject instanceof Ci.nsITraceableChannel)
+        new TraceableChannelCleanup(subject);
     }
   },
 
@@ -406,41 +410,36 @@ var PolicyPrivate =
   // Old (Gecko 1.9.x) version
   onChannelRedirect: function(oldChannel, newChannel, flags)
   {
-    try {
-      let oldLocation = null;
-      let newLocation = null;
-      try {
-        oldLocation = oldChannel.originalURI.spec;
-        newLocation = newChannel.URI.spec;
-      }
-      catch(e2) {}
-
-      if (!oldLocation || !newLocation || oldLocation == newLocation)
-        return;
-
+    try
+    {
       // Try to retrieve previously stored request data from the channel
-      let requestData = null;
+      let requestData;
+      if (oldChannel instanceof Ci.nsIWritablePropertyBag)
+      {
+        try
+        {
+          requestData = oldChannel.getProperty("abpRequestData");
+        }
+        catch(e)
+        {
+          // No data attached, ignore this redirect
+          return;
+        }
+      }
+
+      let newLocation = null;
       try
       {
-        if (oldChannel instanceof Ci.nsIWritablePropertyBag)
-          requestData = oldChannel.getProperty("abpRequestData");
-      }
-      catch(e) {}  // Ignore exceptions due to non-existing property
-      if (!requestData)
+        newLocation = newChannel.URI;
+      } catch(e2) {}
+      if (!newLocation)
         return;
-      oldChannel.deleteProperty("abpRequestData");
 
       // HACK: NS_BINDING_ABORTED would be proper error code to throw but this will show up in error console (bug 287107)
-      requestData[3] = newChannel.URI;
-      if (!Policy.processNode(requestData[0], requestData[1], requestData[2], requestData[3], false))
+      if (!Policy.processNode(Utils.getWindow(requestData[0]), requestData[0], requestData[1], newLocation, false))
         throw Cr.NS_BASE_STREAM_WOULD_BLOCK;
       else
-      {
-        // We allowed the request to proceed, associate the data with the new channel
-        if (newChannel instanceof Ci.nsIWritablePropertyBag)
-          newChannel.getProperty("abpRequestData", requestData);
         return;
-      }
     }
     catch (e if (e != Cr.NS_BASE_STREAM_WOULD_BLOCK))
     {
