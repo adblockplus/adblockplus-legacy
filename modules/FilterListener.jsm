@@ -105,62 +105,53 @@ var FilterListener =
 
         stream.close();
 
-        if (cache.version == cacheVersion)
+        if (cache.version == cacheVersion && cache.patternsTimestamp == FilterStorage.sourceFile.clone().lastModifiedTime)
         {
           defaultMatcher.fromCache(cache);
           ElemHide.fromCache(cache);
-        }
 
-        // We still need to load patterns.ini if certain properties are accessed
-        var loadDone = false;
-        function trapProperty(obj, prop)
-        {
-          var origValue = obj[prop];
-          delete obj[prop];
-          obj.__defineGetter__(prop, function()
+          // We still need to load patterns.ini if certain properties are accessed
+          var loadDone = false;
+          function trapProperty(obj, prop)
           {
+            var origValue = obj[prop];
             delete obj[prop];
-            obj[prop] = origValue;
-            if (!loadDone)
+            obj.__defineGetter__(prop, function()
             {
-              TimeLine.enter("Entered delayed FilterStorage init");
-              loadDone = true;
-              FilterStorage.loadFromDisk(true);
-              TimeLine.log("done loading file");
-
-              if (FilterStorage.fileProperties.cacheTimestamp != cache.timestamp)
+              delete obj[prop];
+              obj[prop] = origValue;
+              if (!loadDone)
               {
-                // Oops, the file we loaded doesn't match the cache,
-                // reinitialize everything
-                TimeLine.log("Reinitializing data structures");
-                FilterStorage.triggerObservers("load");
+                TimeLine.enter("Entered delayed FilterStorage init");
+                loadDone = true;
+                FilterStorage.loadFromDisk(true);
+                TimeLine.leave("Delayed FilterStorage init done");
               }
-              TimeLine.leave("Delayed FilterStorage init done");
-            }
-            return obj[prop];
-          });
-          obj.__defineSetter__(prop, function(value)
+              return obj[prop];
+            });
+            obj.__defineSetter__(prop, function(value)
+            {
+              delete obj[prop];
+              return obj[prop] = value;
+            });
+          }
+
+          for each (let prop in ["fileProperties", "subscriptions", "knownSubscriptions",
+                                 "addSubscription", "removeSubscription", "updateSubscriptionFilters",
+                                 "addFilter", "removeFilter", "increaseHitCount", "resetHitCounts"])
           {
-            delete obj[prop];
-            return obj[prop] = value;
-          });
+            trapProperty(FilterStorage, prop);
+          }
+          trapProperty(Filter, "fromText");
+          trapProperty(Filter, "knownFilters");
+          trapProperty(Subscription, "fromURL");
+          trapProperty(Subscription, "knownSubscriptions");
+
+          initialized = true;
+          TimeLine.log("Done loading cache file");
+
+          ElemHide.apply();
         }
-
-        for each (let prop in ["fileProperties", "subscriptions", "knownSubscriptions",
-                               "addSubscription", "removeSubscription", "updateSubscriptionFilters",
-                               "addFilter", "removeFilter", "increaseHitCount", "resetHitCounts"])
-        {
-          trapProperty(FilterStorage, prop);
-        }
-        trapProperty(Filter, "fromText");
-        trapProperty(Filter, "knownFilters");
-        trapProperty(Subscription, "fromURL");
-        trapProperty(Subscription, "knownSubscriptions");
-
-        initialized = true;
-        TimeLine.log("Done loading cache file");
-
-        ElemHide.apply();
       }
       catch (e)
       {
@@ -366,9 +357,11 @@ function onGenericChange(action)
         subscription.filters.forEach(addFilter);
     flushElemHide();
   }
-  else if (action == "beforesave")
+  else if (action == "save")
   {
-    let cache = {version: cacheVersion, timestamp: Date.now()};
+    isDirty = false;
+
+    let cache = {version: cacheVersion, patternsTimestamp: FilterStorage.sourceFile.clone().lastModifiedTime};
     defaultMatcher.toCache(cache);
     ElemHide.toCache(cache);
 
@@ -392,8 +385,6 @@ function onGenericChange(action)
       let json = Cc["@mozilla.org/dom/json;1"].createInstance(Ci.nsIJSON);
       stream.writeString(json.encode(cache));
       stream.close();
-
-      FilterStorage.fileProperties.cacheTimestamp = cache.timestamp;
     }
     catch(e)
     {
@@ -401,6 +392,4 @@ function onGenericChange(action)
       Cu.reportError(e);
     }
   }
-  else if (action == "save")
-    isDirty = false;
 }
