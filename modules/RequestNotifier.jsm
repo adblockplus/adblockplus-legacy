@@ -53,9 +53,9 @@ let activeNotifiers = [];
 
 let attachData;
 let retrieveData;
-if (Utils.versionComparator.compare(Utils.platformVersion, "1.9.2") >= 0)
+if (Utils.versionComparator.compare(Utils.platformVersion, "1.9.2.13") >= 0)
 {
-  // Gecko 1.9.2 and higher - the sane branch
+  // Gecko 1.9.2.13 and higher - the sane branch
   attachData = function(node, prop, data)
   {
     node.setUserData(prop, data, null);
@@ -79,7 +79,6 @@ else
   var tempData = null;
   attachData = function(node, prop, data)
   {
-    node.setUserData(prop, true, null);
     node.addEventListener(prop, function()
     {
       tempData = data;
@@ -88,9 +87,6 @@ else
   }
   retrieveData = function(node, prop)
   {
-    if (!node.getUserData(prop))
-      return null;
-
     let doc = (node.nodeType == node.DOCUMENT_NODE ? node : node.ownerDocument);
     if (!doc)
       return null;
