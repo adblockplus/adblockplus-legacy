@@ -1109,7 +1109,11 @@ WindowWrapper.prototype =
     if (location)
       filter = Policy.isWhitelisted(location.spec);
     if (filter && filter.subscriptions.length && !filter.disabled)
+    {
       AppIntegration.toggleFilter(filter);
+      return true;
+    }
+    return false;
   },
 
   /**
@@ -1135,7 +1139,7 @@ WindowWrapper.prototype =
       return;
 
     if (event.button == 1)
-      AppIntegration.togglePref("enabled"); 
+      this.executeAction(3);
   },
 
   /**
@@ -1149,7 +1153,7 @@ WindowWrapper.prototype =
     if (event.button == 0)
       this.executeAction(Prefs.defaultstatusbaraction);
     else if (event.button == 1)
-      AppIntegration.togglePref("enabled"); 
+      this.executeAction(3);
   },
 
   // Executes default action for statusbar/toolbar by its number
@@ -1160,7 +1164,12 @@ WindowWrapper.prototype =
     else if (action == 2)
       Utils.openSettingsDialog();
     else if (action == 3)
-      AppIntegration.togglePref("enabled");
+    {
+      // If there is a whitelisting rule for current page - remove it (reenable).
+      // Otherwise flip "enabled" pref.
+      if (!this.removeWhitelist())
+        AppIntegration.togglePref("enabled");
+    }
   },
 
   /**
