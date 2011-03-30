@@ -10,7 +10,7 @@
 <!ENTITY import.label "Importi filtrilojn">
 <!ENTITY import.accesskey "m">
 <!ENTITY export.label "Eksporti proprajn filtrilojn">
-<!ENTITY export.accesskey "E">
+<!ENTITY export.accesskey "p">
 <!ENTITY clearall.label "Forigi ĉiuj proprajn filtrilojn">
 <!ENTITY clearall.accesskey "o">
 <!ENTITY resethitcounts.label "Remeti trafostatistikon">
@@ -42,7 +42,7 @@
 <!ENTITY options.label "Opcioj">
 <!ENTITY options.accesskey "O">
 <!ENTITY enable.label "Ebligi Adblock Plus">
-<!ENTITY enable.accesskey "l">
+<!ENTITY enable.accesskey "c">
 <!ENTITY showintoolbar.label "Vidigi en ilobreto">
 <!ENTITY showintoolbar.accesskey "i">
 <!ENTITY showinstatusbar.label "Vidigi en statstrio">
@@ -69,7 +69,7 @@
 <!ENTITY slow.column "Malrapidaj filtriloj">
 <!ENTITY slow.accesskey "m">
 <!ENTITY enabled.column "Ebligita">
-<!ENTITY enabled.accesskey "a">
+<!ENTITY enabled.accesskey "i">
 <!ENTITY hitcount.column "Trafoj">
 <!ENTITY hitcount.accesskey "T">
 <!ENTITY lasthit.column "Lasta trafo">

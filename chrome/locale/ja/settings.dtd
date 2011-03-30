@@ -47,7 +47,7 @@
 <!ENTITY showintoolbar.accesskey "b">
 <!ENTITY showinstatusbar.label "ステータスバー表示">
 <!ENTITY showinstatusbar.accesskey "s">
-<!ENTITY objecttabs.label "Flash と Java のタブを表示">
+<!ENTITY objecttabs.label "Flash と Java でタブを表示">
 <!ENTITY objecttabs.accesskey "t">
 <!ENTITY collapse.label "ブロック後の空白スペースを消す">
 <!ENTITY collapse.accesskey "l">
@@ -66,7 +66,7 @@
 <!ENTITY description "以下のフィルタでブロック対象を定義します:">
 <!ENTITY filter.column "フィルタのルール">
 <!ENTITY filter.accesskey "F">
-<!ENTITY slow.column "遅いフィルタ">
+<!ENTITY slow.column "低速フィルタ">
 <!ENTITY slow.accesskey "w">
 <!ENTITY enabled.column "有効">
 <!ENTITY enabled.accesskey "n">
