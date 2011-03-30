@@ -660,17 +660,26 @@ TraceableChannelCleanup.prototype =
 
   onStartRequest: function(request, context)
   {
-    this.originalListener.onStartRequest(request, context);
+    try
+    {
+      this.originalListener.onStartRequest(request, context);
+    } catch(e) {}   // Errors from original listener shouldn't show up
   },
 
   onDataAvailable: function(request, context, inputStream, offset, count)
   {
-    this.originalListener.onDataAvailable(request, context, inputStream, offset, count);
+    try
+    {
+      this.originalListener.onDataAvailable(request, context, inputStream, offset, count);
+    } catch(e) {}   // Errors from original listener shouldn't show up
   },
 
   onStopRequest: function(request, context, statusCode)
   {
-    this.originalListener.onStopRequest(request, context, statusCode);
+    try
+    {
+      this.originalListener.onStopRequest(request, context, statusCode);
+    } catch(e) {}   // Errors from original listener shouldn't show up
     this.cleanup(request);
   },
 
