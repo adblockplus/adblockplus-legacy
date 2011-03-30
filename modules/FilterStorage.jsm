@@ -63,7 +63,38 @@ var FilterStorage =
    * File that the filter list has been loaded from and should be saved to
    * @type nsIFile
    */
-  sourceFile: null,
+  get sourceFile()
+  {
+    let file = null;
+    if (Prefs.patternsfile)
+    {
+      // Override in place, use it instead of placing the file in the regular data dir
+      file = Utils.resolveFilePath(Prefs.patternsfile);
+    }
+    if (!file)
+    {
+      // Place the file in the data dir
+      file = Utils.resolveFilePath(Prefs.data_directory);
+      if (file)
+        file.append("patterns.ini");
+    }
+    if (!file)
+    {
+      // Data directory pref misconfigured? Try the default value
+      try
+      {
+        file = Utils.resolveFilePath(Prefs.defaultBranch.getCharPref("data_directory"));
+        if (file)
+          FilterStorage.sourceFile.append("patterns.ini");
+      } catch(e) {}
+    }
+
+    if (!file)
+      Cu.reportError("Adblock Plus: Failed to resolve filter file location from extensions.adblockplus.patternsfile preference");
+
+    this.__defineGetter__("sourceFile", function() file);
+    return this.sourceFile;
+  },
 
   /**
    * Map of properties listed in the filter storage file before the sections
@@ -108,7 +139,7 @@ var FilterStorage =
 
   /**
    * Calls observers after a change
-   * @param {String} action change code ("load", "beforesave", "save", "elemhideupdate",
+   * @param {String} action change code ("load", "save", "elemhideupdate",
    *                 "subscriptions add", "subscriptions remove",
    *                 "subscriptions enable", "subscriptions disable",
    *                 "subscriptions update", "subscriptions updateinfo",
@@ -302,34 +333,6 @@ var FilterStorage =
   {
     TimeLine.enter("Entered FilterStorage.loadFromDisk()");
 
-    if (Prefs.patternsfile)
-    {
-      // Override in place, use it instead of placing the file in the regular data dir
-      FilterStorage.sourceFile = Utils.resolveFilePath(Prefs.patternsfile);
-    }
-    if (!FilterStorage.sourceFile)
-    {
-      // Place the file in the data dir
-      FilterStorage.sourceFile = Utils.resolveFilePath(Prefs.data_directory);
-      if (FilterStorage.sourceFile)
-        FilterStorage.sourceFile.append("patterns.ini");
-    }
-    if (!FilterStorage.sourceFile)
-    {
-      // Data directory pref misconfigured? Try the default value
-      try
-      {
-        FilterStorage.sourceFile = Utils.resolveFilePath(Prefs.defaultBranch.getCharPref("data_directory"));
-        if (FilterStorage.sourceFile)
-          FilterStorage.sourceFile.append("patterns.ini");
-      } catch(e) {}
-    }
-
-    if (!FilterStorage.sourceFile)
-      Cu.reportError("Adblock Plus: Failed to resolve filter file location from extensions.adblockplus.patternsfile preference");
-
-    TimeLine.log("done locating patterns.ini file");
-
     let realSourceFile = FilterStorage.sourceFile;
     if (!realSourceFile || !realSourceFile.exists())
     {
@@ -434,7 +437,6 @@ var FilterStorage =
 
     TimeLine.enter("Entered FilterStorage.saveToDisk()");
 
-    FilterStorage.triggerObservers("beforesave");
     try {
       FilterStorage.sourceFile.normalize();
     } catch (e) {}
@@ -465,8 +467,6 @@ var FilterStorage =
 
     const maxBufLength = 1024;
     let buf = ["# Adblock Plus preferences", "version=" + formatVersion];
-    if ("cacheTimestamp" in FilterStorage.fileProperties)
-      buf.push("cacheTimestamp=" + FilterStorage.fileProperties.cacheTimestamp);
     let lineBreak = Utils.getLineBreak();
     function writeBuffer()
     {
