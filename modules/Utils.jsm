@@ -660,18 +660,12 @@ TraceableChannelCleanup.prototype =
 
   onStartRequest: function(request, context)
   {
-    try
-    {
-      this.originalListener.onStartRequest(request, context);
-    } catch(e) {}   // Errors from original listener shouldn't show up
+    this.originalListener.onStartRequest(request, context);
   },
 
   onDataAvailable: function(request, context, inputStream, offset, count)
   {
-    try
-    {
-      this.originalListener.onDataAvailable(request, context, inputStream, offset, count);
-    } catch(e) {}   // Errors from original listener shouldn't show up
+    this.originalListener.onDataAvailable(request, context, inputStream, offset, count);
   },
 
   onStopRequest: function(request, context, statusCode)
@@ -679,8 +673,11 @@ TraceableChannelCleanup.prototype =
     try
     {
       this.originalListener.onStopRequest(request, context, statusCode);
-    } catch(e) {}   // Errors from original listener shouldn't show up
-    this.cleanup(request);
+    }
+    finally
+    {
+      this.cleanup(request);
+    }
   },
 
   QueryInterface: XPCOMUtils.generateQI([Ci.nsIStreamListener, Ci.nsIRequestObserver])
