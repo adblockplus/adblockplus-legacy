@@ -4684,7 +4684,7 @@ zeit.de#DIV(class$=_ads)
       stream.close();
     }
 
-    Prefs.__defineGetter__("patternsfile", function() tempFile.path);
+    FilterStorage.__defineGetter__("sourceFile", function() tempFile.clone());
 
     {
       let startTime = Date.now();

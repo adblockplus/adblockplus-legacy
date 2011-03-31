@@ -30,7 +30,7 @@ function prepareFilterComponents(keepObservers)
   let oldSubscriptionsKnown = Subscription.knownSubscriptions;
   let oldFiltersKnown = Filter.knownFilters;
   let oldObservers = FilterStorageGlobal.observers;
-  let oldSourceFile = FilterStorageGlobal.sourceFile;
+  let oldSourceFile = FilterStorage.__lookupGetter__("sourceFile");
 
   FilterStorage.subscriptions = [];
   FilterStorage.knownSubscriptions = {__proto__: null};
@@ -39,7 +39,6 @@ function prepareFilterComponents(keepObservers)
   if (!keepObservers)
   {
     FilterStorageGlobal.observers = [];
-    FilterStorageGlobal.sourceFile = null;
   }
 
   defaultMatcher.clear();
@@ -52,7 +51,7 @@ function prepareFilterComponents(keepObservers)
     Subscription.knownSubscriptions = oldSubscriptionsKnown;
     Filter.knownFilters = oldFiltersKnown;
     FilterStorageGlobal.observers = oldObservers;
-    FilterStorageGlobal.sourceFile = oldSourceFile;
+    FilterStorage.__defineGetter__("sourceFile", oldSourceFile);
 
     FilterStorage.triggerObservers("load");
   }, false);
