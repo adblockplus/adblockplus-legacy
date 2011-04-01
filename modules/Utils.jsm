@@ -660,12 +660,26 @@ TraceableChannelCleanup.prototype =
 
   onStartRequest: function(request, context)
   {
-    this.originalListener.onStartRequest(request, context);
+    try
+    {
+      this.originalListener.onStartRequest(request, context);
+    }
+    catch (e)
+    {
+      request.cancel(e.result);
+    }
   },
 
   onDataAvailable: function(request, context, inputStream, offset, count)
   {
-    this.originalListener.onDataAvailable(request, context, inputStream, offset, count);
+    try
+    {
+      this.originalListener.onDataAvailable(request, context, inputStream, offset, count);
+    }
+    catch (e)
+    {
+      request.cancel(e.result);
+    }
   },
 
   onStopRequest: function(request, context, statusCode)
@@ -673,6 +687,10 @@ TraceableChannelCleanup.prototype =
     try
     {
       this.originalListener.onStopRequest(request, context, statusCode);
+    }
+    catch (e)
+    {
+      // No point cancelling the channel when it is done already
     }
     finally
     {
