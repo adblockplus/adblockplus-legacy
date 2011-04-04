@@ -1,0 +1,89 @@
+<!ENTITY dialog.title "Nastajenja Adblock Plus">
+<!ENTITY filters.label "Filtry">
+<!ENTITY filters.accesskey "F">
+<!ENTITY add.label "Filter přidać">
+<!ENTITY add.accesskey "d">
+<!ENTITY addsubscription.label "Filtrowy abonement přidać">
+<!ENTITY addsubscription.accesskey "b">
+<!ENTITY synchsubscriptions.label "Wšě abonomenty aktualizować">
+<!ENTITY synchsubscriptions.accesskey "a">
+<!ENTITY import.label "Filtry importować">
+<!ENTITY import.accesskey "m">
+<!ENTITY export.label "Swójske filtry eksportować">
+<!ENTITY export.accesskey "w">
+<!ENTITY clearall.label "Wšě swójske filtry wotstronić">
+<!ENTITY clearall.accesskey "l">
+<!ENTITY resethitcounts.label "Statistiku wotpowědnikow wróćo stajić">
+<!ENTITY resethitcounts.accesskey "S">
+<!ENTITY edit.label "Wobdźěłać">
+<!ENTITY edit.accesskey "W">
+<!ENTITY cut.label "Wutřihać">
+<!ENTITY cut.accesskey "t">
+<!ENTITY copy.label "Kopěrować">
+<!ENTITY copy.accesskey "K">
+<!ENTITY paste.label "Zasunyć">
+<!ENTITY paste.accesskey "Z">
+<!ENTITY remove.label "Hašeć">
+<!ENTITY remove.accesskey "H">
+<!ENTITY menu.find.label "Pytać">
+<!ENTITY menu.find.accesskey "P">
+<!ENTITY menu.findagain.label "Dale pytać">
+<!ENTITY menu.findagain.accesskey "l">
+<!ENTITY view.label "Napohlad">
+<!ENTITY view.accesskey "N">
+<!ENTITY sort.label "Sortěrować po">
+<!ENTITY sort.accesskey "S">
+<!ENTITY sort.none.label "Njesortěrowany">
+<!ENTITY sort.none.accesskey "R">
+<!ENTITY sort.ascending.label "Porjad A &gt; Z">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.descending.label "Porjad Z &gt; A">
+<!ENTITY sort.descending.accesskey "Z">
+<!ENTITY options.label "Opcije">
+<!ENTITY options.accesskey "O">
+<!ENTITY enable.label "Adblock Plus zmóžnić">
+<!ENTITY enable.accesskey "m">
+<!ENTITY showintoolbar.label "W gratowej lajsće pokazać">
+<!ENTITY showintoolbar.accesskey "g">
+<!ENTITY showinstatusbar.label "W statusowej lajsće pokazać">
+<!ENTITY showinstatusbar.accesskey "s">
+<!ENTITY objecttabs.label "Rajtarki wo Flash a Java pokazać">
+<!ENTITY objecttabs.accesskey "v">
+<!ENTITY collapse.label "Zablokowane elementy fałdować">
+<!ENTITY collapse.accesskey "f">
+<!ENTITY sync.label "Nastajenja Adblock Plus synchronizować">
+<!ENTITY sync.accesskey "c">
+<!ENTITY help.label "Pomoc">
+<!ENTITY help.accesskey "P">
+<!ENTITY gettingStarted.label "Prěnje kroki">
+<!ENTITY gettingStarted.accesskey "k">
+<!ENTITY faq.label "Časte prašenja">
+<!ENTITY faq.accesskey "T">
+<!ENTITY filterdoc.label "Pisanje filtrow Adblock Plus">
+<!ENTITY filterdoc.accesskey "i">
+<!ENTITY about.label "Wo Adblock Plus">
+<!ENTITY about.accesskey "b">
+<!ENTITY description "Slědowace filtry postajeja, kotre adresy maja so blokować a kotre maja so dowolić:">
+<!ENTITY filter.column "Filtrowe prawidło">
+<!ENTITY filter.accesskey "F">
+<!ENTITY slow.column "Pomałe filtry">
+<!ENTITY slow.accesskey "o">
+<!ENTITY enabled.column "Zmóžnjeny">
+<!ENTITY enabled.accesskey "m">
+<!ENTITY hitcount.column "Wotpowědniki">
+<!ENTITY hitcount.accesskey "W">
+<!ENTITY lasthit.column "Posledni wotpowědnik">
+<!ENTITY lasthit.accesskey "P">
+<!ENTITY context.edit.label "Filter wobdźěłać">
+<!ENTITY context.resethitcount.label "Statistiku wotpowědnikow za filter wróćo stajić">
+<!ENTITY context.synchsubscription.label "Abonement nětko aktualizować">
+<!ENTITY context.editsubscription.label "Abonement wobdźěłać">
+<!ENTITY context.moveup.label "Filter horje přesunyć">
+<!ENTITY context.movedown.label "Filter dele přesunyć">
+<!ENTITY context.movegroupup.label "Skupinu horje přesunyć">
+<!ENTITY context.movegroupdown.label "Skupinu dele přesunyć">
+<!ENTITY context.enable.label "Zmóžnić">
+<!ENTITY context.disable.label "Znjemóžnić">
+<!ENTITY apply.label "Nałožić">
+<!ENTITY apply.accesskey "a">
+<!ENTITY fennec.subscription.label "Filtrowy abonement">

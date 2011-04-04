@@ -51,6 +51,8 @@
 <!ENTITY objecttabs.accesskey "t">
 <!ENTITY collapse.label "Thu gọn các phần tử bị chặn">
 <!ENTITY collapse.accesskey "u">
+<!ENTITY sync.label "Đồng bộ thiết lập Adblock Plus">
+<!ENTITY sync.accesskey "o">
 <!ENTITY help.label "Trợ giúp">
 <!ENTITY help.accesskey "p">
 <!ENTITY gettingStarted.label "Bắt đầu">

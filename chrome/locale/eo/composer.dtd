@@ -22,7 +22,7 @@
 <!ENTITY anchors.label "Akcepti modelon nur:">
 <!ENTITY anchor.start.label "en la komenco de la adreso">
 <!ENTITY anchor.start.accesskey "k">
-<!ENTITY anchor.start.flexible.label "en la komenco de la retregiono">
+<!ENTITY anchor.start.flexible.label "en la komenco de la retregiona nomo">
 <!ENTITY anchor.start.flexible.accesskey "k">
 <!ENTITY anchor.end.label "en la fino de la adreso">
 <!ENTITY anchor.end.accesskey "f">
