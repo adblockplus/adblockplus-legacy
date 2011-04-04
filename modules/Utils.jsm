@@ -664,7 +664,7 @@ TraceableChannelCleanup.prototype =
     {
       this.originalListener.onStartRequest(request, context);
     }
-    catch (e)
+    catch (e if e instanceof Ci.nsIException)
     {
       request.cancel(e.result);
     }
@@ -676,7 +676,7 @@ TraceableChannelCleanup.prototype =
     {
       this.originalListener.onDataAvailable(request, context, inputStream, offset, count);
     }
-    catch (e)
+    catch (e if e instanceof Ci.nsIException)
     {
       request.cancel(e.result);
     }
@@ -688,7 +688,7 @@ TraceableChannelCleanup.prototype =
     {
       this.originalListener.onStopRequest(request, context, statusCode);
     }
-    catch (e)
+    catch (e if e instanceof Ci.nsIException)
     {
       // No point cancelling the channel when it is done already
     }
