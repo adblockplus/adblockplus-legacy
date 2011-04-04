@@ -51,6 +51,8 @@
 <!ENTITY objecttabs.accesskey "կ">
 <!ENTITY collapse.label "Թաքցնել արգելված տարրերը">
 <!ENTITY collapse.accesskey "ք">
+<!ENTITY sync.label "Սինքրոնացնել Adblock Plus-ի նախընտրանքները">
+<!ENTITY sync.accesskey "Ս">
 <!ENTITY help.label "Օգնություն">
 <!ENTITY help.accesskey "Օ">
 <!ENTITY gettingStarted.label "Սկսել">

@@ -21,5 +21,7 @@
 <!ENTITY closesidebar.accesskey "տ">
 <!ENTITY whitelist.site.label "Անջատել ?1?-ում">
 <!ENTITY whitelist.page.label "Անջատել միայն այս էջի համար">
+<!ENTITY disable.label "Անջատել ամենուր">
+<!ENTITY recommend.label "Խորհուրդ տալ մեզ Ֆեյսբուքում">
 <!ENTITY objecttab.title "Ֆիլտրել">
 <!ENTITY objecttab.tooltip "Սեղմել «Adblock Plus»ով այս օբյեկտը ֆիլտրելու համար">

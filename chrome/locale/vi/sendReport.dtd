@@ -1,0 +1,75 @@
+<!ENTITY wizard.title "Trình báo cáo lỗi">
+<!ENTITY privacyPolicy.label "Chính sách riêng tư">
+<!ENTITY dataCollector.heading "Chào mừng đến với trình báo cáo vấn đề">
+<!ENTITY dataCollector.description "Vui lòng đợi một lát trong khi Adblock Plus thu thập dữ liệu cần thiết.">
+<!ENTITY typeSelector.heading "Chọn kiểu vấn đề">
+<!ENTITY typeSelector.description "Cửa sổ này sẽ hướng dẫn bạn qua các bước cần thiết cho việc gửi lên một báo cáo vấn đề của Adblock Plus. Trước tiên, hãy chọn kiểu vấn đề mà bạn đang gặp trên trang này:">
+<!ENTITY typeSelector.falsePositive.label "Adblock Plus chặn quá nhiều">
+<!ENTITY typeSelector.falsePositive.accesskey "A">
+<!ENTITY typeSelector.falsePositive.description "Chọn tùy chọn này nếu trang thiếu nội dung quan trọng, hiển thị không chính xác hoặc không vận hành đúng. Bạn có thể xác định xem Adblock Plus có phải là nguyên nhân không bằng cách tạm thời vô hiệu hóa nó.">
+<!ENTITY typeSelector.falseNegative.label "Adblock Plus không chặn một quảng cáo">
+<!ENTITY typeSelector.falseNegative.accesskey "k">
+<!ENTITY typeSelector.falseNegative.description "Chọn tùy chọn này nếu một quảng cáo vẫn hiển thị cho dù Adblock Plus đang được bật.">
+<!ENTITY typeSelector.other.label "Vấn đề khác">
+<!ENTITY typeSelector.other.accesskey "V">
+<!ENTITY typeSelector.other.description "Chọn tùy chọn này nếu bạn nghi ngờ một vấn đề với bản thân Adblock Plus hơn là do bộ lọc của nó.">
+<!ENTITY showRecentReports.label "Hiện các báo cáo được gửi lên gần đây">
+<!ENTITY recentReports.label "Các báo cáo được gửi lên gần đây của bạn">
+<!ENTITY recentReports.clear.label "Xóa tất cả báo cáo">
+<!ENTITY recentReports.clear.accesskey "X">
+<!ENTITY issues.description "Adblock Plus nhận thấy vấn đề với cấu hình của bạn, điều có thể chịu trách nhiệm cho vấn đề hoặc làm cho việc kiểm tra báo cáo khó khăn hơn.">
+<!ENTITY issues.whitelist.description "Adblock Plus hiện đang bị tắt trên trang mà bạn báo cáo. Vui lòng bật nó lại và tải lại trang trước khi gửi báo cáo.">
+<!ENTITY issues.whitelist.remove.label "Bật lại Adblock Plus trên trang này">
+<!ENTITY issues.disabled.description "Adblock Plus đang bị tắt, nó sẽ không chặn bất kì thứ gì trong tình trạng hiện tại.">
+<!ENTITY issues.disabled.enable.label "Bật Adblock Plus">
+<!ENTITY issues.nofilters.description "Adblock Plus đang không chặn bất kì thứ gì trên trang hiện tại. Vấn đề mà bạn theo dõi có vẻ như không liên quan tới Adblock Plus.">
+<!ENTITY issues.nosubscriptions.description "Có vẻ như bạn không đăng kí dùng bất kì danh sách bộ lọc tạo sẵn nào.">
+<!ENTITY issues.nosubscriptions.add.label "Thêm bộ lọc trọn gói">
+<!ENTITY issues.subscriptionCount.description "Có vẻ như bạn đăng kí dùng quá nhiều bộ lọc trọn gói. Thiết lập này không được khuyến khích vì nó làm khả năng xảy ra vấn đề cao hơn. Chúng tôi cũng không thể chấp nhận báo cáo vấn đề của bạn vì không cho thấy rõ tác giả bộ lọc trọn gói nào cần hành động. Vui lòng xóa tất cả và để lại các bộ lọc trọn gói cần thiết rồi kiểm tra thử xem vấn đề còn không.">
+<!ENTITY issues.openPreferences.label "Mở tùy chỉnh bộ lọc">
+<!ENTITY issues.ownfilters.description "Một số bộ lọc áp dụng trên trang này do người dùng tự tạo ra. Vui lòng vô hiệu hóa các bộ lọc có thể đã gây ra vấn đề này:">
+<!ENTITY issues.ownfilters.disable.label "Vô hiệu hóa bộ lọc">
+<!ENTITY issues.disabledgroups.description "Bộ lọc trọn gói/nhóm bộ lọc sau đã bị vô hiệu hóa, song chúng có thể vẫn gây ảnh hưởng tới trang này:">
+<!ENTITY issues.disabledgroups.enable.label "Kích hoạt bộ lọc trọn gói/nhóm bộ lọc">
+<!ENTITY issues.disabledfilters.description "Các bộ lọc sau đã bị vô hiệu hóa, song chúng có thể vẫn gây ảnh hưởng tới trang này:">
+<!ENTITY issues.disabledfilters.enable.label "Kích hoạt bộ lọc">
+<!ENTITY issues.override.label "Cấu hình này đúng rồi, hãy tiếp tục báo cáo">
+<!ENTITY issues.override.accesskey "C">
+<!ENTITY issues.change.description "Cấu hình của bạn đã được thay đổi. Vui lòng tải lại trang để kiểm tra thay đổi và gửi lên một báo cáo nếu vấn đề vẫn chưa được giải quyết sau sự điều chỉnh.">
+<!ENTITY typeWarning.description "Bạn cho biết rằng bạn muốn báo cáo một vấn đề thông thường của Adblock Plus chứ không phải là bộ lọc. Vui lòng lưu ý rằng các vấn đề đó tốt hơn nên được báo cáo trong [link]diễn đàn Adblock Plus[/link]. Bạn chỉ nên dùng trình báo cáo vấn đề để bổ sung các thảo luận đang mở, vì không ai chú ý tới báo cáo của bạn trừ khi bạn cung cấp cho họ một liên kết tới nó. Liên kết được tự động tạo ra sẽ được cung cấp sau khi gửi lên báo cáo.">
+<!ENTITY typeWarning.override.label "Tôi hiểu và vẫn muốn gửi báo cáo">
+<!ENTITY typeWarning.override.accesskey "u">
+<!ENTITY reloadButton.label "Tải lại trang">
+<!ENTITY reloadButton.accesskey "a">
+<!ENTITY screenshot.heading "Đính kèm ảnh chụp">
+<!ENTITY screenshot.description "Cùng một trang có thể trông khác đối với nhiều người khác nhau. Chúng tôi có thể hiểu vấn đề hơn nếu bạn đính kèm một ảnh chụp màn hình vào báo cáo. Bạn có thể xóa các phần chứa thông tin nhạy cảm cũng như đánh dấu các vùng dễ nhận thấy vấn đề. Để làm việc đó, nhấn chuột vào nút liên quan và chọn vùng hình ảnh bằng chuột của bạn.">
+<!ENTITY screenshot.attach.label "Đính kèm ảnh chụp trang vào báo cáo">
+<!ENTITY screenshot.attach.accesskey "k">
+<!ENTITY screenshot.mark.label "Đánh dấu vấn đề">
+<!ENTITY screenshot.mark.accesskey "u">
+<!ENTITY screenshot.remove.label "Xóa dữ liệu nhạy cảm">
+<!ENTITY screenshot.remove.accesskey "y">
+<!ENTITY screenshot.undo.label "Hoàn tác">
+<!ENTITY screenshot.undo.accesskey "H">
+<!ENTITY commentPage.heading "Điền bình luận">
+<!ENTITY commentPage.description "Trường văn bản bên dưới cho phép bạn điền bình luận để giúp chúng tôi hiểu vấn đề. Bước này chỉ là phụ nhưng được khuyến khích nếu vấn đề không rõ ràng. Bạn cũng có thể xem lại dữ liệu báo cáo trước khi gửi.">
+<!ENTITY comment.label "Bình luận (phụ):">
+<!ENTITY comment.accesskey "B">
+<!ENTITY comment.lengthWarning "Độ dài bình luận của bạn vượt qua 1000 kí tự. Chỉ 1000 kí tự đầu tiên sẽ được gửi đi.">
+<!ENTITY email.label "Email để trao đổi thêm (phụ):">
+<!ENTITY email.accesskey "E">
+<!ENTITY attachExtensions.label "Đính kèm danh sách các phần mở rộng đang dùng vào báo cáo trong trường hợp xung đột tiện ích là nguyên nhân của vấn đề">
+<!ENTITY attachExtensions.accesskey "x">
+<!ENTITY sendButton.label "Gửi báo cáo">
+<!ENTITY sendButton.accesskey "G">
+<!ENTITY showData.label "Hiện dữ liệu báo cáo">
+<!ENTITY data.label "Dữ liệu báo cáo:">
+<!ENTITY data.accesskey "D">
+<!ENTITY sendPage.heading "Gửi báo cáo">
+<!ENTITY sendPage.waitMessage "Vui lòng đợi trong khi Adblock Plus đang gửi lên báo cáo của bạn.">
+<!ENTITY sendPage.confirmation "Báo cáo của bạn đã được lưu. Bạn có thể truy cập nó tại địa chỉ sau:">
+<!ENTITY sendPage.knownIssue "Vấn đề mà bạn báo cáo có thể đã được biết. Thông tin thêm:">
+<!ENTITY sendPage.errorMessage "Một nỗ lực gửi báo cáo bị thất bại với mã lỗi &quot;?1?&quot;. Vui lòng chắc chắn rằng bạn đã được kết nối Internet rồi thử lại. Nếu vấn đề vẫn còn, vui lòng yêu cầu trợ giúp trên [link]diễn đàn Adblock Plus[/link].">
+<!ENTITY sendPage.retry.label "Gửi lại">
+<!ENTITY copyLink.label "Chép liên kết báo cáo">
+<!ENTITY copyLink.accesskey "C">
