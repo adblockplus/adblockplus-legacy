@@ -55,6 +55,32 @@ function prepareFilterComponents(keepObservers)
 
     FilterStorage.triggerObservers("load");
   }, false);
+
+  try
+  {
+    // Disable timeline functions, they slow down tests otherwise
+    Cu.import(baseURL.spec + "TimeLine.jsm");
+
+    let oldTimelineLog = TimeLine.log;
+    let oldTimelineEnter = TimeLine.enter;
+    let oldTimelineLeave = TimeLine.leave;
+
+    TimeLine.log = function(){};
+    TimeLine.enter = function(){};
+    TimeLine.leave = function(){};
+
+    window.addEventListener("unload", function()
+    {
+      TimeLine.log = oldTimelineLog;
+      TimeLine.enter = oldTimelineEnter;
+      TimeLine.leave = oldTimelineLeave;
+    }, false);
+  }
+  catch(e)
+  {
+    // TimeLine module might not be present, catch exceptions
+    alert(e);
+  }
 }
 
 function preparePrefs()
