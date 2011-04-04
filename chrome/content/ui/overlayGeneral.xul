@@ -72,7 +72,7 @@
 
       <hbox class="abp-recommendbutton" id="abp-status-recommendbutton" pack="center">
         <button class="abp-recommendbutton-btn" label="&recommend.label;" command="abp-command-recommend" flex="1"/>
-        <toolbarbutton class="abp-recommendbutton-close" command="abp-command-recommend-hide" tooltiptext="&closesidebar.label;"/>
+        <toolbarbutton class="abp-recommendbutton-close" command="abp-command-recommend-hide"/>
       </hbox>
     </menupopup>
   </popupset>
