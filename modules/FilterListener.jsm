@@ -179,7 +179,6 @@ var FilterListener =
     TimeLine.enter("Entered FilterListener.shutdown()");
     if (isDirty)
       FilterStorage.saveToDisk();
-    Utils.observerService.removeObserver(FilterListenerPrivate, "browser:purge-session-history");
     TimeLine.leave("FilterListener.shutdown() done");
   },
 
