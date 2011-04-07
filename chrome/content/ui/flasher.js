@@ -98,17 +98,25 @@ var flasher = {
     }
   },
 
-  setOutline: function(value) {
+  setOutline: function(outline, offset)
+  {
     for (var i = 0; i < this.nodes.length; i++)
+    {
       if ("style" in this.nodes[i])
-        this.nodes[i].style.outline = value;
+      {
+        this.nodes[i].style.outline = outline;
+        this.nodes[i].style.outlineOffset = offset;
+      }
+    }
   },
 
-  switchOn: function() {
-    this.setOutline("#CC0000 dotted 2px");
+  switchOn: function()
+  {
+    this.setOutline("#CC0000 dotted 2px", "-2px");
   },
 
-  switchOff: function() {
-    this.setOutline("none");
+  switchOff: function()
+  {
+    this.setOutline("", "");
   }
 };
