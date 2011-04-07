@@ -82,7 +82,7 @@ else
     node.addEventListener(prop, function()
     {
       tempData = data;
-    }, true);
+    }, false);
     node = null;
   }
   retrieveData = function(node, prop)
