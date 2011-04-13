@@ -51,7 +51,7 @@ var TimeLine = {
       return;
 
     let now = Date.now();
-    let diff = lastTimeStamp ? (now - lastTimeStamp) : "first event";
+    let diff = lastTimeStamp ? Math.round(now - lastTimeStamp) : "first event";
     lastTimeStamp = now;
 
     // Indent message depending on current nesting level
@@ -88,7 +88,7 @@ var TimeLine = {
     if (nestingCounter <= 0)
     {
       if (firstTimeStamp !== null)
-        dump("ABP timeline: Total time elapsed: " + (Date.now() - firstTimeStamp) + "\n");
+        dump("ABP timeline: Total time elapsed: " + Math.round(Date.now() - firstTimeStamp) + "\n");
       firstTimeStamp = null;
       lastTimeStamp = null;
     }
