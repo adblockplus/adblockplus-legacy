@@ -90,6 +90,7 @@
   </menupopup>
 
   <!-- Fake sidebar -->
+  <statuspanel id="statusbar-display" fixed="true"/>  <!-- Make sure not to resize this element -->
   <vbox id="appcontent">
     <splitter id="abp-sidebar-splitter"/>
     <vbox id="abp-sidebar"/>
