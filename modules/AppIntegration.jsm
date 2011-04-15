@@ -576,12 +576,12 @@ WindowWrapper.prototype =
 
       let validModifiers =
       {
-        accel: "accel",
-        ctrl: "control",
-        control: "control",
-        shift: "shift",
-        alt: "alt",
-        meta: "meta",
+        accel: 1,
+        shift: 2,
+        ctrl: 4,
+        control: 4,
+        alt: 8,
+        meta: 16,
         __proto__: null
       };
 
@@ -589,11 +589,11 @@ WindowWrapper.prototype =
       {
         let accelKey = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefBranch).getIntPref("ui.key.accelKey");
         if (accelKey == Ci.nsIDOMKeyEvent.DOM_VK_CONTROL)
-          validModifiers.ctrl = validModifiers.control = "accel";
+          validModifiers.ctrl = validModifiers.control = validModifiers.accel;
         else if (accelKey == Ci.nsIDOMKeyEvent.DOM_VK_ALT)
-          validModifiers.alt = "accel";
+          validModifiers.alt = validModifiers.accel;
         else if (accelKey == Ci.nsIDOMKeyEvent.DOM_VK_META)
-          validModifiers.meta = "accel";
+          validModifiers.meta = validModifiers.accel;
       }
       catch(e)
       {
@@ -611,27 +611,18 @@ WindowWrapper.prototype =
         if (!keyChar && !keyCode)
           continue;
 
-        let modifiers = [];
-        let seenModifier = {__proto__: null};
+        let modifiers = 0;
         let keyModifiers = key.getAttribute("modifiers");
         if (keyModifiers)
         {
           for each (let modifier in keyModifiers.match(/\w+/g))
           {
             modifier = modifier.toLowerCase();
-            if (!(modifier in validModifiers))
-              continue;
-
-            modifier = validModifiers[modifier];
-            if (modifier in seenModifier)
-              continue;
-
-            seenModifier[modifier] = true;
-            modifiers.push(modifier);
+            if (modifier in validModifiers)
+              modifiers |= validModifiers[modifier]
           }
-          modifiers.sort();
 
-          let canonical = modifiers.concat([(keyChar || keyCode).toUpperCase()]).join(" ");
+          let canonical = modifiers + " " + (keyChar || keyCode).toUpperCase();
           existing[canonical] = true;
         }
       }
@@ -659,7 +650,7 @@ WindowWrapper.prototype =
     // Add elements for all configured hotkeys
     for (let id in hotkeys)
     {
-      let [keychar, keycode, modifiers] = hotkeys[id];
+      let [keychar, keycode, modifierString] = hotkeys[id];
 
       let element = this.window.document.createElement("key");
       element.setAttribute("id", "abp-key-" + id);
@@ -668,7 +659,7 @@ WindowWrapper.prototype =
         element.setAttribute("key", keychar);
       else
         element.setAttribute("keycode", keycode);
-      element.setAttribute("modifiers", modifiers.join(","));
+      element.setAttribute("modifiers", modifierString);
 
       this.E("abp-keyset").appendChild(element);
     }
@@ -688,20 +679,13 @@ WindowWrapper.prototype =
       if (!variant)
         continue;
 
-      let modifiers = [];
-      let seenModifier = {__proto__: null};
+      let modifiers = 0;
       let keychar = null;
       let keycode = null;
       for each (let part in variant.split(/\s+/))
       {
         if (part.toLowerCase() in validModifiers)
-        {
-          if (part in seenModifier)
-            continue;
-
-          seenModifier[part] = true;
-          modifiers.push(validModifiers[part.toLowerCase()]);
-        }
+          modifiers |= validModifiers[part.toLowerCase()];
         else if (part.length == 1)
           keychar = part.toUpperCase();
         else if ("DOM_VK_" + part.toUpperCase() in Ci.nsIDOMKeyEvent)
@@ -711,12 +695,20 @@ WindowWrapper.prototype =
       if (!keychar && !keycode)
         continue;
 
-      modifiers.sort();
-      let canonical = modifiers.concat([keychar || keycode]).join(" ");
+      let canonical = modifiers + " " + (keychar || keycode);
       if (canonical in existing)
         continue;
 
-      return [keychar, keycode, modifiers];
+      let modifierString = "";
+      for each (let modifier in ["accel", "shift", "control", "alt", "meta"])
+      {
+        if (modifiers & validModifiers[modifier])
+        {
+          modifierString += modifier + " ";
+          modifiers &= ~validModifiers[modifier];
+        }
+      }
+      return [keychar, keycode, modifierString];
     }
     return null;
   },
