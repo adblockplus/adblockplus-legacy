@@ -61,6 +61,11 @@ let wrappers = [];
 let currentlyShowingInToolbar = Prefs.showintoolbar;
 
 /**
+ * Stores the selected hotkeys, initialized when the first browser window opens.
+ */
+let hotkeys = null;
+
+/**
  * Initializes app integration module
  */
 function init()
@@ -565,89 +570,114 @@ WindowWrapper.prototype =
    */
   configureKeys: function()
   {
-    let validModifiers =
+    if (!hotkeys)
     {
-      accel: "accel",
-      ctrl: "control",
-      control: "control",
-      shift: "shift",
-      alt: "alt",
-      meta: "meta",
-      __proto__: null
-    };
+      hotkeys = {__proto__: null};
 
-    try
-    {
-      let accelKey = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefBranch).getIntPref("ui.key.accelKey");
-      if (accelKey == Ci.nsIDOMKeyEvent.DOM_VK_CONTROL)
-        validModifiers.ctrl = validModifiers.control = "accel";
-      else if (accelKey == Ci.nsIDOMKeyEvent.DOM_VK_ALT)
-        validModifiers.alt = "accel";
-      else if (accelKey == Ci.nsIDOMKeyEvent.DOM_VK_META)
-        validModifiers.meta = "accel";
-    }
-    catch(e)
-    {
-      Cu.reportError(e);
-    }
-
-    // Find which hotkeys are already taken, convert them to canonical form
-    let existing = {};
-    let keys = this.window.document.getElementsByTagName("key");
-    for (let i = 0; i < keys.length; i++)
-    {
-      let key = keys[i];
-      let keyChar = key.getAttribute("key");
-      let keyCode = key.getAttribute("keycode");
-      if (!keyChar && !keyCode)
-        continue;
-
-      let modifiers = [];
-      let seenModifier = {__proto__: null};
-      let keyModifiers = key.getAttribute("modifiers");
-      if (keyModifiers)
+      let validModifiers =
       {
-        for each (let modifier in keyModifiers.match(/\w+/g))
+        accel: "accel",
+        ctrl: "control",
+        control: "control",
+        shift: "shift",
+        alt: "alt",
+        meta: "meta",
+        __proto__: null
+      };
+
+      try
+      {
+        let accelKey = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefBranch).getIntPref("ui.key.accelKey");
+        if (accelKey == Ci.nsIDOMKeyEvent.DOM_VK_CONTROL)
+          validModifiers.ctrl = validModifiers.control = "accel";
+        else if (accelKey == Ci.nsIDOMKeyEvent.DOM_VK_ALT)
+          validModifiers.alt = "accel";
+        else if (accelKey == Ci.nsIDOMKeyEvent.DOM_VK_META)
+          validModifiers.meta = "accel";
+      }
+      catch(e)
+      {
+        Cu.reportError(e);
+      }
+
+      // Find which hotkeys are already taken, convert them to canonical form
+      let existing = {};
+      let keys = this.window.document.getElementsByTagName("key");
+      for (let i = 0; i < keys.length; i++)
+      {
+        let key = keys[i];
+        let keyChar = key.getAttribute("key");
+        let keyCode = key.getAttribute("keycode");
+        if (!keyChar && !keyCode)
+          continue;
+
+        let modifiers = [];
+        let seenModifier = {__proto__: null};
+        let keyModifiers = key.getAttribute("modifiers");
+        if (keyModifiers)
         {
-          modifier = modifier.toLowerCase();
-          if (!(modifier in validModifiers))
-            continue;
+          for each (let modifier in keyModifiers.match(/\w+/g))
+          {
+            modifier = modifier.toLowerCase();
+            if (!(modifier in validModifiers))
+              continue;
 
-          modifier = validModifiers[modifier];
-          if (modifier in seenModifier)
-            continue;
+            modifier = validModifiers[modifier];
+            if (modifier in seenModifier)
+              continue;
 
-          seenModifier[modifier] = true;
-          modifiers.push(modifier);
+            seenModifier[modifier] = true;
+            modifiers.push(modifier);
+          }
+          modifiers.sort();
+
+          let canonical = modifiers.concat([(keyChar || keyCode).toUpperCase()]).join(" ");
+          existing[canonical] = true;
         }
-        modifiers.sort();
+      }
 
-        let canonical = modifiers.concat([(keyChar || keyCode).toUpperCase()]).join(" ");
-        existing[canonical] = true;
+      // Find available keys for our prefs
+      for (let pref in Prefs)
+      {
+        if (/_key$/.test(pref) && typeof Prefs[pref] == "string")
+        {
+          try
+          {
+            let id = RegExp.leftContext;
+            let result = this.findAvailableKey(id, Prefs[pref], validModifiers, existing);
+            if (result)
+              hotkeys[id] = result;
+          }
+          catch (e)
+          {
+            Cu.reportError(e);
+          }
+        }
       }
     }
 
-    // Define our keys
-    for (let pref in Prefs)
+    // Add elements for all configured hotkeys
+    for (let id in hotkeys)
     {
-      if (/_key$/.test(pref) && typeof Prefs[pref] == "string")
-      {
-        try
-        {
-          this.configureKey(RegExp.leftContext, Prefs[pref], validModifiers, existing);
-        }
-        catch (e)
-        {
-          Cu.reportError(e);
-        }
-      }
+      let [keychar, keycode, modifiers] = hotkeys[id];
+
+      let element = this.window.document.createElement("key");
+      element.setAttribute("id", "abp-key-" + id);
+      element.setAttribute("command", "abp-command-" + id);
+      if (keychar)
+        element.setAttribute("key", keychar);
+      else
+        element.setAttribute("keycode", keycode);
+      element.setAttribute("modifiers", modifiers.join(","));
+
+      this.E("abp-keyset").appendChild(element);
     }
   },
 
   /**
-   * Sets a hotkey to the value defined in preferences.
+   * Finds an available hotkey for a value defined in preferences.
    */
-  configureKey: function(/**String*/ id, /**String*/ value, /**Object*/ validModifiers, /**Object*/ existing)
+  findAvailableKey: function(/**String*/ id, /**String*/ value, /**Object*/ validModifiers, /**Object*/ existing) /**Array*/
   {
     let command = this.E("abp-command-" + id);
     if (!command)
@@ -686,18 +716,9 @@ WindowWrapper.prototype =
       if (canonical in existing)
         continue;
 
-      let element = this.window.document.createElement("key");
-      element.setAttribute("id", "abp-key-" + id);
-      element.setAttribute("command", "abp-command-" + id);
-      if (keychar)
-        element.setAttribute("key", keychar);
-      else
-        element.setAttribute("keycode", keycode);
-      element.setAttribute("modifiers", modifiers.join(","));
-
-      this.E("abp-keyset").appendChild(element);
-      return;
+      return [keychar, keycode, modifiers];
     }
+    return null;
   },
 
   /**
