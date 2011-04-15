@@ -37,6 +37,7 @@ const Cu = Components.utils;
 let baseURL = Cc["@adblockplus.org/abp/private;1"].getService(Ci.nsIURI);
 
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
+Cu.import(baseURL.spec + "TimeLine.jsm");
 Cu.import(baseURL.spec + "Utils.jsm");
 Cu.import(baseURL.spec + "Prefs.jsm");
 Cu.import(baseURL.spec + "ContentPolicy.jsm");
@@ -90,7 +91,8 @@ var AppIntegration =
     let hooks = window.document.getElementById("abp-hooks");
     if (!hooks)
       return;
-  
+
+    TimeLine.enter("Entered AppIntegration.addWindow()")
     // Execute first-run actions
     if (!("lastVersion" in Prefs))
     {
@@ -127,9 +129,11 @@ var AppIntegration =
           Utils.runAsync(showSubscriptions);
       }
     }
+    TimeLine.log("App-wide first-run actions done")
 
     let wrapper = new WindowWrapper(window, hooks);
     wrappers.push(wrapper);
+    TimeLine.leave("AppIntegration.addWindow() done")
   },
 
   /**
@@ -191,14 +195,22 @@ function removeWindow()
  */
 function WindowWrapper(window, hooks)
 {
+  TimeLine.enter("Entered WindowWrapper constructor")
   this.window = window;
 
   this.initializeHooks(hooks);
+  TimeLine.log("Hooks element initialized")
+
   if (!Utils.isFennec)
   {
     this.fixupMenus();
+    TimeLine.log("Context menu copying done")
+
     this.configureKeys();
+    TimeLine.log("Shortcut keys configured")
+
     this.initContextMenu();
+    TimeLine.log("Context menu initialized")
 
     let browser = this.getBrowser();
     if (browser && browser.currentURI)
@@ -210,6 +222,7 @@ function WindowWrapper(window, hooks)
       // Update state asynchronously, the Thunderbird window won't be initialized yet for non-default window layouts
       Utils.runAsync(this.updateState, this);
     }
+    TimeLine.log("Icon state updated")
 
     // Some people actually switch off browser.frames.enabled and are surprised
     // that things stop working...
@@ -219,11 +232,16 @@ function WindowWrapper(window, hooks)
           .allowSubframes = true;
   }
   this.registerEventListeners(!Utils.isFennec);
+  TimeLine.log("Added event listeners")
+
   this.executeFirstRunActions();
+  TimeLine.log("Window-specific first-run actions done")
 
   // Custom initialization for Fennec
   if (Utils.isFennec)
     AppIntegrationFennec.initWindow(this);
+
+  TimeLine.leave("WindowWrapper constructor done")
 }
 WindowWrapper.prototype =
 {
