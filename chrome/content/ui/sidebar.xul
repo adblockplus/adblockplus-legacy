@@ -133,8 +133,9 @@
       <treecol id="size" label="&size.label;" width="60" hidden="true" persist="width ordinal sortDirection hidden"/>
       <splitter class="tree-splitter"/>
       <treecol id="docDomain" label="&docDomain.label;" width="100" hidden="true" persist="width ordinal sortDirection hidden"/>
+      <splitter class="tree-splitter"/>
+      <treecol id="filterSource" label="&filterSource.label;" width="100" hidden="true" persist="width ordinal sortDirection hidden"/>
     </treecols>
-
     <treechildren id="treechildren"
                   tooltip="tooltip"
                   onclick="handleClick(event)"
