@@ -156,7 +156,7 @@ function init()
       continue;
 
     let typeNode = document.createElement("checkbox");
-    typeNode.setAttribute("value", Policy.typeDescr[type].toLowerCase());
+    typeNode.setAttribute("value", Policy.typeDescr[type].toLowerCase().replace(/\_/g, "-"));
     typeNode.setAttribute("label", Policy.localizedDescr[type].toLowerCase());
     typeNode.setAttribute("checked", "true");
     if (item.type == type)
