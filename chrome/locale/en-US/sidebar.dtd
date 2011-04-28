@@ -5,19 +5,17 @@
 
 <!ENTITY search.label             "Search:">
 <!ENTITY search.accesskey         "S">
-
 <!ENTITY type.label               "Type">
 <!ENTITY address.label            "Address">
 <!ENTITY filter.label             "Filter">
 <!ENTITY state.label              "State">
 <!ENTITY size.label               "Size">
+<!ENTITY filterSource.label       "Source">
 <!ENTITY docDomain.label          "Document source">
 <!ENTITY docDomain.thirdParty     "(third party)">
 <!ENTITY docDomain.firstParty     "(first party)">
-
 <!ENTITY noitems.label            "No blockable items">
 <!ENTITY whitelisted.label        "Whitelisted page">
-
 <!ENTITY tooltip.address.label    "Address:">
 <!ENTITY tooltip.type.label       "Type:">
 <!ENTITY tooltip.type.blocked     "(blocked)">

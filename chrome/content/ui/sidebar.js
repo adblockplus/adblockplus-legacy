@@ -661,10 +661,35 @@ function compareDocDomain(item1, item2)
   else
     return 0;
 }
+function compareFilterSource(item1, item2) {
+  if (item1.filter==null && item2.filter==null)
+    return 0;
+  else if (item1.filter==null && item2.filter!=null)
+    return -1;
+  else if (item1.filter!=null && item2.filter==null)
+    return 1;
+
+  var subs1 = item1.filter.subscriptions;
+  var subs2 = item2.filter.subscriptions;
+
+  for (var i=0; i<subs1.length && i<subs2.length; ++i) {
+	if (subs1[i].title < subs2[i].title)
+	  return -1;
+	else if (subs1[i].title > subs2[i].title)
+	  return 1;
+  }
+
+  var diff = subs1.length - subs2.length;
+  if (diff < 0)
+    return -1;
+  else if (diff > 0)
+    return 1;
+  else
+    return 0;
+}
 
 function createSortWithFallback(cmpFunc, fallbackFunc, desc) {
   var factor = (desc ? -1 : 1);
-
   return function(item1, item2) {
     var ret = cmpFunc(item1, item2);
     if (ret == 0)
@@ -709,15 +734,12 @@ var treeView = {
   setTree: function(boxObject) {
     if (!boxObject)
       return;
-
     this.boxObject = boxObject;
     this.itemsDummy = boxObject.treeBody.getAttribute("noitemslabel");
     this.whitelistDummy = boxObject.treeBody.getAttribute("whitelistedlabel");
-
-    var stringAtoms = ["col-address", "col-type", "col-filter", "col-state", "col-size", "col-docDomain", "state-regular", "state-filtered", "state-whitelisted", "state-hidden"];
+    var stringAtoms = ["col-address", "col-type", "col-filter", "col-state", "col-size", "col-docDomain", "col-filterSource", "state-regular", "state-filtered", "state-whitelisted", "state-hidden"];
     var boolAtoms = ["selected", "dummy", "filter-disabled"];
     var atomService = Cc["@mozilla.org/atom-service;1"].getService(Ci.nsIAtomService);
-
     this.atoms = {};
     for each (let atom in stringAtoms)
       this.atoms[atom] = atomService.getAtom(atom);
@@ -770,21 +792,16 @@ var treeView = {
     // Prevent a reference through closures
     boxObject = null;
   },
-
   get rowCount() {
     return (this.data && this.data.length ? this.data.length : 1);
   },
-
   getCellText: function(row, col) {
     col = col.id;
-
-    if (col != "type" && col != "address" && col != "filter" && col != "size" && col != "docDomain")
+    if (col != "type" && col != "address" && col != "filter" && col != "size" && col != "docDomain" && col != "filterSource")
       return "";
-
     if (this.data && this.data.length) {
       if (row >= this.data.length)
         return "";
-
       if (col == "type")
         return this.data[row].localizedDescr;
       else if (col == "filter")
@@ -796,6 +813,18 @@ var treeView = {
       }
       else if (col == "docDomain")
         return this.data[row].docDomain + " " + (this.data[row].thirdParty ? docDomainThirdParty : docDomainFirstParty);
+      else if (col == "filterSource") {
+        if (!this.data[row].filter)
+          return "";
+        var subs = this.data[row].filter.subscriptions;
+        if (subs.length == 0)
+          return "";
+
+        var val = subs[0].title;
+        for (var idx=1; idx<subs.length; ++idx)
+          val += (", "  + subs[idx].title);
+        return val;
+	  }
       else
         return this.data[row].location;
     }
@@ -803,7 +832,6 @@ var treeView = {
       // Empty list, show dummy
       if (row > 0 || (col != "address" && col != "filter"))
         return "";
-
       if (col == "filter") {
         var filter = Policy.isWindowWhitelisted(window.content);
         return filter ? filter.text : "";
@@ -951,12 +979,12 @@ var treeView = {
     size: createSortWithFallback(compareSize, sortByAddress, false),
     sizeDesc: createSortWithFallback(compareSize, sortByAddress, true),
     docDomain: createSortWithFallback(compareDocDomain, sortByAddress, false),
-    docDomainDesc: createSortWithFallback(compareDocDomain, sortByAddress, true)
+    docDomainDesc: createSortWithFallback(compareDocDomain, sortByAddress, true),
+    filterSource: createSortWithFallback(compareFilterSource, sortByAddress, false),
+    filterSourceDesc: createSortWithFallback(compareFilterSource, sortByAddress, true)
   },
-
   clearData: function(data) {
     var oldRows = this.rowCount;
-
     this.allData = [];
     this.dataMap = {__proto__: null};
     this.refilter();
