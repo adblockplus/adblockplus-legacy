@@ -10,7 +10,7 @@
 <!ENTITY filter.label             "Filter">
 <!ENTITY state.label              "State">
 <!ENTITY size.label               "Size">
-<!ENTITY filterSource.label       "Source">
+<!ENTITY filterSource.label       "Filter source">
 <!ENTITY docDomain.label          "Document source">
 <!ENTITY docDomain.thirdParty     "(third party)">
 <!ENTITY docDomain.firstParty     "(first party)">

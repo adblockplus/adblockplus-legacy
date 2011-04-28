@@ -661,28 +661,14 @@ function compareDocDomain(item1, item2)
   else
     return 0;
 }
-function compareFilterSource(item1, item2) {
-  if (item1.filter==null && item2.filter==null)
-    return 0;
-  else if (item1.filter==null && item2.filter!=null)
+
+function compareFilterSource(item1, item2)
+{
+  let subs1 = item1.filter ? item1.filter.subscriptions.map(function(s) s.title).join(", ") : "";
+  let subs2 = item2.filter ? item2.filter.subscriptions.map(function(s) s.title).join(", ") : "";
+  if (subs1 < subs2)
     return -1;
-  else if (item1.filter!=null && item2.filter==null)
-    return 1;
-
-  var subs1 = item1.filter.subscriptions;
-  var subs2 = item2.filter.subscriptions;
-
-  for (var i=0; i<subs1.length && i<subs2.length; ++i) {
-	if (subs1[i].title < subs2[i].title)
-	  return -1;
-	else if (subs1[i].title > subs2[i].title)
-	  return 1;
-  }
-
-  var diff = subs1.length - subs2.length;
-  if (diff < 0)
-    return -1;
-  else if (diff > 0)
+  else if (subs1 > subs2)
     return 1;
   else
     return 0;
@@ -813,18 +799,13 @@ var treeView = {
       }
       else if (col == "docDomain")
         return this.data[row].docDomain + " " + (this.data[row].thirdParty ? docDomainThirdParty : docDomainFirstParty);
-      else if (col == "filterSource") {
+      else if (col == "filterSource")
+      {
         if (!this.data[row].filter)
           return "";
-        var subs = this.data[row].filter.subscriptions;
-        if (subs.length == 0)
-          return "";
 
-        var val = subs[0].title;
-        for (var idx=1; idx<subs.length; ++idx)
-          val += (", "  + subs[idx].title);
-        return val;
-	  }
+        return this.data[row].filter.subscriptions.map(function(s) s.title).join(", ");
+      }
       else
         return this.data[row].location;
     }
