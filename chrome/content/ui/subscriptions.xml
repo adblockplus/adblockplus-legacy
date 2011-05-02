@@ -13,8 +13,8 @@
                 homepage="http://stanev.org/abp/"
                 prefixes="bg"
                 author="Александър Станев"/>
-  <subscription title="ChinaList (汉语)"
-                url="http://adblock-chinalist.googlecode.com/svn/trunk/adblock.txt"
+  <subscription title="ChinaList+EasyList (汉语)"
+                url="https://easylist-downloads.adblockplus.org/chinalist+easylist.txt"
                 homepage="http://code.google.com/p/adblock-chinalist/"
                 prefixes="zh"
                 author="Gythialy"/>
