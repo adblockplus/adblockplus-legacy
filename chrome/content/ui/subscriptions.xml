@@ -13,7 +13,7 @@
                 homepage="http://stanev.org/abp/"
                 prefixes="bg"
                 author="Александър Станев"/>
-  <subscription title="ChinaList+EasyList (汉语)"
+  <subscription title="ChinaList+EasyList (中文)"
                 url="https://easylist-downloads.adblockplus.org/chinalist+easylist.txt"
                 homepage="http://code.google.com/p/adblock-chinalist/"
                 prefixes="zh"
