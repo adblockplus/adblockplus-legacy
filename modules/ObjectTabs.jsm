@@ -263,7 +263,7 @@ var objTabs =
    */
   hideTabFor: function(/**Element*/ element)
   {
-    if (element != this.currentElement)
+    if (element != this.currentElement || this.hideTimer)
       return;
 
     this.hideTargetTime = Date.now() + this.HIDE_DELAY;
