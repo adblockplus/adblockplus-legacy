@@ -21,5 +21,7 @@
 <!ENTITY closesidebar.accesskey "ج">
 <!ENTITY whitelist.site.label "تعطيل على ?1?">
 <!ENTITY whitelist.page.label "تعطيل في هذه الصفحة فقط">
+<!ENTITY disable.label "تعطيل في جميع الأماكن">
+<!ENTITY recommend.label "انصح بنا على الفيسبوك">
 <!ENTITY objecttab.title "منع">
 <!ENTITY objecttab.tooltip "اضغط هنا لمنع هذا العنصر مع آدبلوك بلاس">

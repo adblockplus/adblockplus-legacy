@@ -3,7 +3,7 @@
 <!ENTITY filters.accesskey "F">
 <!ENTITY add.label "Adicionar filtro">
 <!ENTITY add.accesskey "D">
-<!ENTITY addsubscription.label "Adicionar inscrição de filtro">
+<!ENTITY addsubscription.label "Adicionar inscrição de filtros">
 <!ENTITY addsubscription.accesskey "A">
 <!ENTITY synchsubscriptions.label "Atualizar todas as inscrições">
 <!ENTITY synchsubscriptions.accesskey "T">
@@ -25,10 +25,10 @@
 <!ENTITY paste.accesskey "o">
 <!ENTITY remove.label "Excluir">
 <!ENTITY remove.accesskey "x">
-<!ENTITY menu.find.label "Procurar">
-<!ENTITY menu.find.accesskey "P">
-<!ENTITY menu.findagain.label "Procurar Novamente">
-<!ENTITY menu.findagain.accesskey "N">
+<!ENTITY menu.find.label "Localizar">
+<!ENTITY menu.find.accesskey "z">
+<!ENTITY menu.findagain.label "Localizar novamente">
+<!ENTITY menu.findagain.accesskey "n">
 <!ENTITY view.label "Visualizar">
 <!ENTITY view.accesskey "V">
 <!ENTITY sort.label "Organizar por">
@@ -43,20 +43,22 @@
 <!ENTITY options.accesskey "O">
 <!ENTITY enable.label "Ativar o Adblock Plus">
 <!ENTITY enable.accesskey "A">
-<!ENTITY showintoolbar.label "Mostrar na Barra de Ferramentas">
-<!ENTITY showintoolbar.accesskey "F">
+<!ENTITY showintoolbar.label "Mostrar na barra de ferramentas">
+<!ENTITY showintoolbar.accesskey "f">
 <!ENTITY showinstatusbar.label "Mostrar na barra de status">
 <!ENTITY showinstatusbar.accesskey "M">
 <!ENTITY objecttabs.label "Mostrar abas em Flash e Java">
 <!ENTITY objecttabs.accesskey "J">
 <!ENTITY collapse.label "Comprimir elementos bloqueados">
 <!ENTITY collapse.accesskey "C">
+<!ENTITY sync.label "Sincronizar configurações do Adblock Plus">
+<!ENTITY sync.accesskey "c">
 <!ENTITY help.label "Ajuda">
 <!ENTITY help.accesskey "U">
 <!ENTITY gettingStarted.label "Aprendendo a usar">
 <!ENTITY gettingStarted.accesskey "u">
-<!ENTITY faq.label "Perguntas Mais Frequentes">
-<!ENTITY faq.accesskey "F">
+<!ENTITY faq.label "Perguntas mais frequentes">
+<!ENTITY faq.accesskey "f">
 <!ENTITY filterdoc.label "Criando filtros para o Adblock Plus">
 <!ENTITY filterdoc.accesskey "C">
 <!ENTITY about.label "Sobre o Adblock Plus">
@@ -84,3 +86,4 @@
 <!ENTITY context.disable.label "Desativar">
 <!ENTITY apply.label "Aplicar">
 <!ENTITY apply.accesskey "A">
+<!ENTITY fennec.subscription.label "Inscrição de filtros">

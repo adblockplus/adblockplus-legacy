@@ -1,0 +1,13 @@
+<!ENTITY wizard.title "Informador de problemas">
+<!ENTITY privacyPolicy.label "Política de privacidade">
+<!ENTITY dataCollector.heading "Benvinda ao Informador de problemas">
+<!ENTITY dataCollector.description "Agarde uns intres mentres Adblock Plus reúne os datos necesarios.">
+<!ENTITY typeSelector.heading "Seleccione o tipo de problema">
+<!ENTITY typeSelector.description "Esta xanela vai guiarlle a través dos pasos necesarios para a presentación dun informe de problema Adblock Plus. Primeiro, seleccione o tipo de problema que atopou nesta páxina:">
+<!ENTITY typeSelector.falsePositive.label "Adblock Plus está bloqueado demais">
+<!ENTITY typeSelector.falsePositive.accesskey "m">
+<!ENTITY typeSelector.falsePositive.description "Seleccione esta opción se a páxina non ten contido importante, se amosa incorrectamente ou non funciona correctamente. Pode determinar se Adblock Plus é a causa do problema desactivándoo temporalmente.">
+<!ENTITY typeSelector.falseNegative.label "Adblock Plus non bloquea a publicidade">
+<!ENTITY typeSelector.falseNegative.accesskey "v">
+<!ENTITY typeSelector.falseNegative.description "Escolla esta opción se aparece un anuncio, a pesar de estar activado Adblock Plus.">
+<!ENTITY typeSelector.other.label "Outro problema">

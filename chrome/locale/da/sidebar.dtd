@@ -1,4 +1,4 @@
-<!ENTITY detached.title "Adblock Plus blokérbare elementer (frakoblet)">
+<!ENTITY detached.title "Adblock Plus blokérbare emner (frakoblet)">
 <!ENTITY detach.label "Frakobl">
 <!ENTITY reattach.label "Gentilkobl">
 <!ENTITY search.label "Søg:">
@@ -8,7 +8,9 @@
 <!ENTITY filter.label "Filter">
 <!ENTITY state.label "Tilstand">
 <!ENTITY size.label "Størrelse">
-<!ENTITY docDomain.label "Dokument-kilde">
+<!ENTITY docDomain.label "Dokumentkilde">
+<!ENTITY docDomain.thirdParty "(tredjeparts)">
+<!ENTITY docDomain.firstParty "(førsteparts)">
 <!ENTITY noitems.label "Ingen blokérbare emner">
 <!ENTITY whitelisted.label "Hvidlistet side">
 <!ENTITY tooltip.address.label "Adresse:">
@@ -16,17 +18,18 @@
 <!ENTITY tooltip.type.blocked "(blokeret)">
 <!ENTITY tooltip.type.whitelisted "(hvidlistet)">
 <!ENTITY tooltip.size.label "Størrelse:">
-<!ENTITY tooltip.docDomain.label "Dokument-kilde:">
+<!ENTITY tooltip.docDomain.label "Dokumentkilde:">
 <!ENTITY tooltip.filter.label "Fungerende filter:">
-<!ENTITY tooltip.filterSource.label "Filter kilde:">
-<!ENTITY context.block.label "Blokér dette element">
-<!ENTITY context.editfilter.label "Redigér nuværende filter">
-<!ENTITY context.whitelist.label "Tilføj undtagelsesregel for element">
+<!ENTITY tooltip.filter.disabled "(deaktiveret)">
+<!ENTITY tooltip.filterSource.label "Filterkilde:">
+<!ENTITY context.block.label "Blokér dette emne">
+<!ENTITY context.editfilter.label "Redigér aktuelt filter">
+<!ENTITY context.whitelist.label "Tilføj undtagelsesregel for emne">
 <!ENTITY context.disablefilter.label "Deaktiver filter ?1?">
-<!ENTITY context.enablefilter.label "Gen-aktiver filter ?1?">
+<!ENTITY context.enablefilter.label "Genaktiver filter ?1?">
 <!ENTITY context.disablefilteronsite.label "Deaktiver dette filter på ?1?">
 <!ENTITY context.open.label "Åbn i nyt faneblad">
-<!ENTITY context.flash.label "Blink med elementets kanter">
-<!ENTITY context.copy.label "Kopier elementets adresse">
+<!ENTITY context.flash.label "Fremhæv emnets kanter">
+<!ENTITY context.copy.label "Kopier emnets adresse">
 <!ENTITY context.copyFilter.label "Kopier filter">
 <!ENTITY context.selectAll.label "Vælg alle">

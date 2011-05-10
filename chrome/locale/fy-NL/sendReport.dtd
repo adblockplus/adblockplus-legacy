@@ -25,6 +25,8 @@
 <!ENTITY issues.nofilters.description "Adblock Plus blokkearret no neat op dizze side. It probleem dat jo sjogge hat wierskienlik neat fan dwaan mei Adblock Plus.">
 <!ENTITY issues.nosubscriptions.description "It liket der op dat jo net abonnearre binne op ien fan de yn-it-foar makke filterlisten dy't automatysk net-winske ynhâld fan websteeën fuortsmyt.">
 <!ENTITY issues.nosubscriptions.add.label "Foegje filterabonnemint ta">
+<!ENTITY issues.subscriptionCount.description "It liket as jo abonnearre binne op te folle filters. Dizze opset is net oanrikkemandearre omdat it wierskienlik faker problemen feroarsaakje kin. Wy kinne ek jo probleemrapport net akseptearje omdat it net dúdlik is hokker filterabonnemint auteur aksje ûndernimme moat. Helje alle net needsaaklike filters fuort en test oft de problemen wer barre.">
+<!ENTITY issues.openPreferences.label "Iepenje filteropsjes">
 <!ENTITY issues.ownfilters.description "Sommige fan de filters tapast op dizze side binne brûker-definiearre. Skeakel de filters út dy't miskien dit probleem feroarsake hawwe:">
 <!ENTITY issues.ownfilters.disable.label "Filter útskeakelje">
 <!ENTITY issues.disabledgroups.description "De folgjende filterabonneminten/filtergroepen binne útskeakele, dochs it kin wêze dat se effekt hawwe op dizze side:">

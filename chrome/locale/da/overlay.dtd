@@ -4,13 +4,15 @@
 <!ENTITY menuitem.label "Adblock Plus indstillinger">
 <!ENTITY menuitem.accesskey "A">
 <!ENTITY toolbarbutton.label "Adblock Plus">
-<!ENTITY view.blockableItems.label "Adblock Plus: Blokérbare elementer">
-<!ENTITY context.image.label "Adblock Billede">
-<!ENTITY context.object.label "Adblock Objekt">
-<!ENTITY context.frame.label "Adblock Ramme">
+<!ENTITY view.blockableItems.label "Adblock Plus: Blokérbare emner">
+<!ENTITY context.image.label "Adblock billede">
+<!ENTITY context.object.label "Adblock objekt">
+<!ENTITY context.frame.label "Adblock ramme">
 <!ENTITY context.media.label "Adblock Plus: Bloker audio/video">
 <!ENTITY context.removeWhitelist.label "Adblock Plus: Gen-aktivér på denne side">
-<!ENTITY sidebar.title "Blokérbare elementer på nuværende side">
+<!ENTITY sidebar.title "Blokérbare elementer på aktuel side">
+<!ENTITY sendReport.label "Rapporter problem">
+<!ENTITY sendReport.accesskey "R">
 <!ENTITY settings.label "Præferencer">
 <!ENTITY settings.accesskey "F">
 <!ENTITY opensidebar.label "Åbn blokérbare elementer">
@@ -18,6 +20,8 @@
 <!ENTITY closesidebar.label "Luk blokérbare elementer">
 <!ENTITY closesidebar.accesskey "b">
 <!ENTITY whitelist.site.label "Slå fra på ?1?">
-<!ENTITY whitelist.page.label "Slå fra på denne ene side">
+<!ENTITY whitelist.page.label "Slå fra på denne side">
+<!ENTITY disable.label "Deaktiver overalt">
+<!ENTITY recommend.label "Anbefal os på Facebook">
 <!ENTITY objecttab.title "Bloker">
 <!ENTITY objecttab.tooltip "Klik her for at blokere dette objekt med Adblock Plus">

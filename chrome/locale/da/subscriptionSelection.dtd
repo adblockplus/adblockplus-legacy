@@ -1,7 +1,7 @@
 <!ENTITY dialog.title "Tilføj Adblock Plus filterabonnement">
-<!ENTITY dialog.title.edit "Rediger filter-abonnement">
-<!ENTITY description.newInstall "Adblock Plus er mest effektivt hvis du tilføjer et filterabonnement. Filterabonnementer leveres gratis af andre Adblock Plus-brugere. Det mest passende abonnement for dit sprog er allerede valgt.">
-<!ENTITY subscriptionSelector.label "Vælg venligst et filterabonnement fra listen:">
+<!ENTITY dialog.title.edit "Rediger filterabonnement">
+<!ENTITY description.newInstall "Adblock Plus er mest effektivt hvis du tilføjer et filterabonnement. Abonnementer leveres gratis af andre Adblock Plus-brugere. Det bedst passende abonnement for dit sprog er allerede valgt.">
+<!ENTITY subscriptionSelector.label "Vælg et filterabonnement fra listen:">
 <!ENTITY viewList.label "Vis filtre">
 <!ENTITY visitHomepage.label "Besøg hjemmeside">
 <!ENTITY addSubscription.label "Tilføj abonnement">
@@ -11,15 +11,15 @@
 <!ENTITY list.download.failed "Adblock Plus kunne ikke hente listen over abonnementer.">
 <!ENTITY list.download.retry "Prøv igen">
 <!ENTITY list.download.website "Se hjemmeside">
-<!ENTITY fromWeb.description "Bekræft venligst at du ønsker at tilføje dette abonnement. Du kan ændre titel eller plaacering på abonnementet før det tliføjes.">
-<!ENTITY edit.description "Du kan ændre titel eller placering af abonnementet som nødvendigt.">
-<!ENTITY external.description "Dette er et eksternt filterabonnement; det vil blive opdateret af den tilføjelse som har oprettet dette abonnement.">
-<!ENTITY title.label "Abonnement-titel:">
+<!ENTITY fromWeb.description "Bekræft at du ønsker at tilføje dette abonnement. Du kan ændre titel eller placering på abonnementet før det tilføjes.">
+<!ENTITY edit.description "Du kan ændre abonnementstitel eller placering efter behov.">
+<!ENTITY external.description "Dette er et eksternt filterabonnement; det opdateres af tilføjelsen der har oprettet abonnementet.">
+<!ENTITY title.label "Abonnementstitel:">
 <!ENTITY title.accesskey "T">
-<!ENTITY location.label "Filterliste-placering:">
+<!ENTITY location.label "Filterliste placering:">
 <!ENTITY location.accesskey "L">
 <!ENTITY autodownload.label "Opdater automatisk">
 <!ENTITY autodownload.accesskey "P">
-<!ENTITY supplementMessage "Dette filterabonnement er beregnet på at blive brugt med filterabonnementet &quot;?1?&quot; hvilket du endnu ikke bruger.">
+<!ENTITY supplementMessage "Dette filterabonnement er beregnet til brug sammen med filterabonnementet &quot;?1?&quot; som du endnu ikke bruger.">
 <!ENTITY addMain.label "Tilføj også filterabonnement &quot;?1?&quot;.">
 <!ENTITY addMain.accesskey "s">
