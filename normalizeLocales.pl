@@ -19,6 +19,7 @@ foreach my $locale (readdir(LOCALES))
   {
     my $data = readFile($file);
     $data =~ s/\r//g;                   # Normalize newlines
+    $data =~ s/\n+/\n/g;                # Remove empty lines
     $data =~ s/^\s*#.*\n*//gm;          # Remove pointless comments
     writeFile($file, $data);
   }
@@ -27,6 +28,7 @@ foreach my $locale (readdir(LOCALES))
   {
     my $data = readFile($file);
     $data =~ s/\r//g;                         # Normalize newlines
+    $data =~ s/\n+/\n/g;                      # Remove empty lines
     $data =~ s/[^\S\n]*<!--.*?-->\s*?\n*//gs; # Remove pointless comments
     writeFile($file, $data);
   }

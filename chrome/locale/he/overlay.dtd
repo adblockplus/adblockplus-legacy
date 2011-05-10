@@ -21,5 +21,7 @@
 <!ENTITY closesidebar.accesskey "ר">
 <!ENTITY whitelist.site.label "נטרול ב ?1?">
 <!ENTITY whitelist.page.label "נטרול בעמוד הזה בלבד">
+<!ENTITY disable.label "נטרול בכל מקום">
+<!ENTITY recommend.label "המלץ עלינו ב-Facebook">
 <!ENTITY objecttab.title "חסימה">
 <!ENTITY objecttab.tooltip "לחיצה כאן לחסימת פריט זה עם Adblock Plus">

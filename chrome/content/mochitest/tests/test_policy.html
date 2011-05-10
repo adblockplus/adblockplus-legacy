@@ -124,6 +124,14 @@
         '<?xml-stylesheet href="test.css" type="text/css"?><window xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"/>',
         "http://127.0.0.1:1234/test.css", "stylesheet", "127.0.0.1", false
       ],
+      [
+        '<img src="redirect.gif">',
+        "http://127.0.0.1:1234/test.gif", "image", "127.0.0.1", false
+      ],
+      [
+        '<img src="redirect2.gif">',
+        "http://127.0.0.1:1234/test.gif", "image", "127.0.0.1", false
+      ],
     ];
 
     if (window.navigator.mimeTypes["application/x-shockwave-flash"] && window.navigator.mimeTypes["application/x-shockwave-flash"].enabledPlugin)
@@ -199,8 +207,14 @@
 
     function onPolicyHit(wnd, node, item, scanComplete)
     {
-      if (wnd != top || item.location == "http://127.0.0.1:1234/test")
+      if (wnd != top ||
+          item.location == "http://127.0.0.1:1234/test" ||
+          item.location == "http://127.0.0.1:1234/redirect.gif" ||
+          item.location == "http://127.0.0.1:1234/redirect2.gif")
+      {
         return;
+      }
+
       if (policyHits.length > 0)
       {
         // Ignore duplicate policy calls (possible due to prefetching)
@@ -239,6 +253,16 @@
         defaultMatcher.add(Filter.fromText("@@|http://127.0.0.1:1234/test|"));
 
       serverHit = false;
+      server.registerPathHandler("/redirect.gif", function(metadata, response)
+      {
+        response.setStatusLine("1.1", "302", "Moved Temporarily");
+        response.setHeader("Location", "http://127.0.0.1:1234/test.gif");
+      });
+      server.registerPathHandler("/redirect2.gif", function(metadata, response)
+      {
+        response.setStatusLine("1.1", "302", "Moved Temporarily");
+        response.setHeader("Location", "http://127.0.0.1:1234/redirect.gif");
+      });
       server.registerPathHandler(expectedURL.replace(/http:\/\/[^\/]+/, ""), function(metadata, response)
       {
         serverHit = true;

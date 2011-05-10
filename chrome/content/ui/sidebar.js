@@ -15,7 +15,7 @@
  *
  * The Initial Developer of the Original Code is
  * Wladimir Palant.
- * Portions created by the Initial Developer are Copyright (C) 2006-2010
+ * Portions created by the Initial Developer are Copyright (C) 2006-2011
  * the Initial Developer. All Rights Reserved.
  *
  * Contributor(s):
@@ -92,8 +92,7 @@ function init() {
 
   // Initialize matcher for disabled filters
   reloadDisabledFilters();
-  FilterStorage.addFilterObserver(reloadDisabledFilters);
-  FilterStorage.addSubscriptionObserver(reloadDisabledFilters);
+  FilterStorage.addObserver(reloadDisabledFilters);
   Prefs.addListener(onPrefChange);
 
   // Activate flasher
@@ -115,8 +114,7 @@ function mainUnload() {
 function cleanUp() {
   flasher.stop();
   requestNotifier.shutdown();
-  FilterStorage.removeFilterObserver(reloadDisabledFilters);
-  FilterStorage.removeSubscriptionObserver(reloadDisabledFilters);
+  FilterStorage.removeObserver(reloadDisabledFilters);
   Prefs.removeListener(onPrefChange);
 
   abpHooks.getBrowser().removeProgressListener(progressListener);
@@ -444,7 +442,7 @@ function editFilter() {
 
 function enableFilter(filter, enable) {
   filter.disabled = !enable;
-  FilterStorage.triggerFilterObservers(enable ? "enable" : "disable", [filter]);
+  FilterStorage.triggerObservers(enable ? "filters enable" : "filters disable", [filter]);
   FilterStorage.saveToDisk();
 
   treeView.boxObject.invalidate();
@@ -504,7 +502,7 @@ function disableOnSite(item, /**Filter*/ filter, /**String*/ domain)
   if (newFilter.disabled && newFilter.subscriptions.length)
   {
     newFilter.disabled = false;
-    FilterStorage.triggerFilterObservers("enable", [newFilter]);
+    FilterStorage.triggerObservers("filters enable", [newFilter]);
   }
   else if (!newFilter.subscriptions.length)
   {

@@ -1,21 +1,22 @@
-<!ENTITY dialog.title "Lägg till Adblock Plus filterregel">
+<!ENTITY dialog.title "Lägg till filterregel för Adblock Plus">
 <!ENTITY accept.label "Lägg till filter">
 <!ENTITY advanced.label "Avancerat">
 <!ENTITY basic.label "Standard">
-<!ENTITY disabled.warning "Adblock Plus är inaktiverad. Du kan lägga till filter men kan inte användas förrän du [link]aktiverar Adblock Plus[/link].">
-<!ENTITY groupDisabled.warning "Filtergruppen &quot;?1?&quot; som detta filter skall läggas till i är f.n. inaktiverat. Du kan lägga till det men kommer inte att användas förrän du [link]aktiverar denna filtergrupp.[/link].">
+<!ENTITY disabled.warning "Adblock Plus är inaktiverat. Du kan lägga till filter, men kan inte använda dem förrän du [link]aktiverar Adblock Plus[/link].">
+<!ENTITY groupDisabled.warning "Filtergruppen &quot;?1?&quot;, som detta filter skall läggas till i, är f.n. inaktiverat. Du kan lägga till det, men det kommer inte att användas förrän du [link]aktiverar denna filtergrupp.[/link].">
 <!ENTITY filter.label "Nytt filter:">
 <!ENTITY filter.accesskey "N">
-<!ENTITY preferences.label "Visa filter...">
+<!ENTITY preferences.label "Visa filter…">
 <!ENTITY preferences.accesskey "s">
 <!ENTITY type.filter.label "Blockerande filter">
-<!ENTITY type.filter.accesskey "k">
+<!ENTITY type.filter.accesskey "c">
 <!ENTITY type.whitelist.label "Regel för undantag">
 <!ENTITY type.whitelist.accesskey "u">
 <!ENTITY pattern.label "Sök efter mönster">
-<!ENTITY pattern.explanation "Mönster är en del av en adress, symbolen * är jokertecken. Filtret används endast på adresser som matchas mot mönstret.">
-<!ENTITY regexp.warning "Mönstret du angett hanteras som ett reguljärt uttryck. Många reguljära uttryck kan göra din surfning långsam. Om du inte avsåg att använda reguljära uttruck, lägg till ett *-tecken i slutet av mönstret.">
+<!ENTITY pattern.explanation "Mönster är en del av en adress, symbolen * är jokertecken. Filtret används endast på adresser som matchar mönstret.">
+<!ENTITY regexp.warning "Mönstret du angivit hanteras som ett reguljärt uttryck. Många reguljära uttryck kan göra din surfning långsam. Om du inte avsåg att använda reguljära uttruck, lägg till ett *-tecken i slutet av mönstret.">
 <!ENTITY shortpattern.warning "Detta mönster är för kort för optimal prestanda och för många sådana mönster kan göra din surfning långsam. Det rekommenderas att använda längre strängar för detta filter.">
+<!ENTITY match.warning "Mönstret du har angivit matchar inte längre adressen som skall blockeras/undantas och kommer därför inte att påverka den.">
 <!ENTITY custom.pattern.label "Eget:">
 <!ENTITY custom.pattern.accesskey "E">
 <!ENTITY anchors.label "Acceptera endast mönster:">
@@ -28,17 +29,17 @@
 <!ENTITY options.label "Inställningar">
 <!ENTITY domainRestriction.label "Begränsa till domän:">
 <!ENTITY domainRestriction.accesskey "d">
-<!ENTITY domainRestriction.help "Ange en eller flera domäner separerade med tecknet &quot;|&quot; för att begränsa användning på endast dessa domäner. Tecknet &quot;~&quot; framför en domän anger att filter ej kommer att användas för denna domän.">
-<!ENTITY firstParty.label "Endast första-part">
+<!ENTITY domainRestriction.help "Ange en eller flera domäner avgränsade med lodrätt streck (|). Filtret kommer endast att tillämpas på dessa domäner. Tilde-tecknet (~) framför en domän anger att filtret inte kommer att användas för den domänen.">
+<!ENTITY firstParty.label "Endast första part">
 <!ENTITY firstParty.accesskey "f">
-<!ENTITY thirdParty.label "Endast tredje-part">
+<!ENTITY thirdParty.label "Endast tredje part">
 <!ENTITY thirdParty.accesskey "j">
-<!ENTITY matchCase.label "Matcha versaler/gemener">
-<!ENTITY matchCase.accesskey "M">
+<!ENTITY matchCase.label "Skiftlägeskänslig">
+<!ENTITY matchCase.accesskey "k">
 <!ENTITY types.label "Verkställ för:">
-<!ENTITY selectAllTypes.label "Välj alla">
-<!ENTITY unselectAllTypes.label "Välj ingen">
-<!ENTITY collapse.label "Göm blockerat:">
+<!ENTITY selectAllTypes.label "Markera alla">
+<!ENTITY unselectAllTypes.label "Avmarkera alla">
+<!ENTITY collapse.label "Dölj blockerade:">
 <!ENTITY collapse.accesskey "l">
 <!ENTITY collapse.default.yes.label "Standard (ja)">
 <!ENTITY collapse.default.no.label "Standard (nej)">

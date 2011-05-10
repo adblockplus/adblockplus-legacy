@@ -25,6 +25,8 @@
 <!ENTITY issues.nofilters.description "Adblock Plus nu blochează nimic în pagina curentă. Problema pe care o aveţi nu are probabil nici o legătură cu Adblock Plus.">
 <!ENTITY issues.nosubscriptions.description "Se pare că nu sunteţi abonat la nici o listă de filtre predefinită.">
 <!ENTITY issues.nosubscriptions.add.label "Adaugă abonament filtre">
+<!ENTITY issues.subscriptionCount.description "Se pare că sunteţi abonat la prea multe abonamente de filtru, ceea ce nu este recomandat, deoarece va cauza probabil probleme în viitor. De asemenea, nu poate accepta raportul problemă, deoarece nu este clar care dintre autorii abonamentelor trebuie să ia măsuri. Vă rugăm să păstraţi doar abonamentele absolut necesare şi să încercaţi dacă problema persistă.">
+<!ENTITY issues.openPreferences.label "Deschide preferinţe filtre">
 <!ENTITY issues.ownfilters.description "Câteva din filtrele aplicate pe această pagină sunt definite de către utilizator. Dezactivaţi filtrele următoare, care sunt probabil cauza problemei:">
 <!ENTITY issues.ownfilters.disable.label "Dezactivează filtre">
 <!ENTITY issues.disabledgroups.description "Grupurile de filtre sau abonamentele următoare sunt inactive, deşi ar putea să aibă efect pe pagina curentă:">

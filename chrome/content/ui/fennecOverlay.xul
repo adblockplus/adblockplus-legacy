@@ -17,7 +17,7 @@
    -
    - The Initial Developer of the Original Code is
    - Fabrice Desré.
-   - Portions created by the Initial Developer are Copyright (C) 2006-2010
+   - Portions created by the Initial Developer are Copyright (C) 2006-2011
    - the Initial Developer. All Rights Reserved.
    -
    - Contributor(s):
@@ -38,16 +38,8 @@
       getDefaultToolbar="return null"/>
   </window>
 
-  <!-- Page actions container - Fennec 1.1+ -->
+  <!-- Page actions container -->
   <hbox id="pageactions-container">
-    <pageaction id="abp-site-info1" class="abp-site-info"/>
+    <pageaction id="abp-site-info"/>
   </hbox>
-
-  <!-- Identity container - trash bin for site-related info in Fennec 1.0 -->
-  <vbox id="identity-container">
-    <hbox id="abp-site-info2" class="abp-site-info" align="center">
-      <image id="abp-status-image"/>
-      <label id="abp-status-text"/>
-    </hbox>
-  </vbox>
 </overlay>

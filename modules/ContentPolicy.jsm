@@ -15,7 +15,7 @@
  *
  * The Initial Developer of the Original Code is
  * Wladimir Palant.
- * Portions created by the Initial Developer are Copyright (C) 2006-2010
+ * Portions created by the Initial Developer are Copyright (C) 2006-2011
  * the Initial Developer. All Rights Reserved.
  *
  * Contributor(s):
@@ -56,18 +56,6 @@ const contentTypes = ["OTHER", "SCRIPT", "IMAGE", "STYLESHEET", "OBJECT", "SUBDO
  * @type Array of String
  */
 const nonVisualTypes = ["SCRIPT", "STYLESHEET", "XBL", "PING", "XMLHTTPREQUEST", "OBJECT_SUBREQUEST", "DTD", "FONT"];
-
-/**
- * Randomly generated class for collapsed nodes.
- * @type String
- */
-let collapsedClass = "";
-
-/**
- * URL of the global stylesheet used to collapse elements.
- * @type nsIURI
- */
-let collapseStyle = null;
 
 /**
  * Public policy checking functions and auxiliary objects
@@ -143,12 +131,13 @@ var Policy =
     TimeLine.log("registering global stylesheet");
   
     let offset = "a".charCodeAt(0);
+    Utils.collapsedClass = "";
     for (let i = 0; i < 20; i++)
-      collapsedClass +=  String.fromCharCode(offset + Math.random() * 26);
+      Utils.collapsedClass +=  String.fromCharCode(offset + Math.random() * 26);
   
-    collapseStyle = Utils.makeURI("data:text/css," +
-                                  encodeURIComponent("." + collapsedClass +
-                                  "{-moz-binding: url(chrome://global/content/bindings/general.xml#foobarbazdummy) !important;}"));
+    let collapseStyle = Utils.makeURI("data:text/css," +
+                                      encodeURIComponent("." + Utils.collapsedClass +
+                                      "{-moz-binding: url(chrome://global/content/bindings/general.xml#foobarbazdummy) !important;}"));
     Utils.styleService.loadAndRegisterSheet(collapseStyle, Ci.nsIStyleSheetService.USER_SHEET);
     TimeLine.log("done registering stylesheet");
   
@@ -215,7 +204,7 @@ var Policy =
       contentType = Policy.type.OBJECT;
 
     let locationText = location.spec;
-    let originWindow = getOriginWindow(wnd);
+    let originWindow = Utils.getOriginWindow(wnd);
     let wndLocation = originWindow.location.href;
     let docDomain = getHostname(wndLocation);
     if (!match && contentType == Policy.type.ELEMHIDE)
@@ -242,11 +231,11 @@ var Policy =
     if (!match && Prefs.enabled)
     {
       match = defaultMatcher.matchesAny(locationText, Policy.typeDescr[contentType] || "", docDomain, thirdParty);
-      if (match instanceof BlockingFilter && node instanceof Ci.nsIDOMElement && !(contentType in Policy.nonVisual))
+      if (match instanceof BlockingFilter && node.ownerDocument && !(contentType in Policy.nonVisual))
       {
         let prefCollapse = (match.collapse != null ? match.collapse : !Prefs.fastcollapse);
         if (collapse || prefCollapse)
-          schedulePostProcess(node);
+          Utils.schedulePostProcess(node);
       }
 
       // Track mouse events for objects
@@ -282,6 +271,12 @@ var Policy =
    */
   isWhitelisted: function(url)
   {
+    // Do not allow whitelisting about:. We get a check for about: during
+    // startup, it should be dealt with fast - without checking filters which
+    // might load patterns.ini.
+    if (/^(moz-safe-)?about:/.test(url))
+      return null;
+
     let result = defaultMatcher.matchesAny(url, "DOCUMENT", getHostname(url), false);
     return (result instanceof WhitelistFilter ? result : null);
   },
@@ -366,7 +361,7 @@ var PolicyPrivate =
       // We didn't block this request so we will probably see it again in
       // http-on-modify-request. Keep it so that we can associate it with the
       // channel there - will be needed in case of redirect.
-      PolicyPrivate.previousRequest = [wnd, node, contentType, location];
+      PolicyPrivate.previousRequest = [node, contentType, location];
     }
     return (result ? Ci.nsIContentPolicy.ACCEPT : Ci.nsIContentPolicy.REJECT_REQUEST);
   },
@@ -381,14 +376,37 @@ var PolicyPrivate =
   //
   observe: function(subject, topic, data)
   {
-    if (topic == "http-on-modify-request" && subject instanceof Ci.nsIHttpChannel &&
-        PolicyPrivate.previousRequest && subject.URI == PolicyPrivate.previousRequest[3] &&
+    if (topic != "http-on-modify-request"  || !(subject instanceof Ci.nsIHttpChannel))
+      return;
+
+    if (Prefs.enabled)
+    {
+      let match = defaultMatcher.matchesAny(subject.URI.spec, "DONOTTRACK", null, false);
+      if (match && match instanceof BlockingFilter)
+      {
+        FilterStorage.increaseHitCount(match);
+        subject.setRequestHeader("DNT", "1", false);
+
+        // Bug 23845 - Some routers are broken and cannot handle DNT header
+        // following Connection header. Make sure Connection header is last.
+        // We can assume that Connection header is always present (bug 92006).
+        let connection = subject.getRequestHeader("Connection");
+        subject.setRequestHeader("Connection", null, false);
+        subject.setRequestHeader("Connection", connection, false);
+      }
+    }
+
+    if (PolicyPrivate.previousRequest && subject.URI == PolicyPrivate.previousRequest[2] &&
         subject instanceof Ci.nsIWritablePropertyBag)
     {
       // We just handled a content policy call for this request - associate
       // the data with the channel so that we can find it in case of a redirect.
       subject.setProperty("abpRequestData", PolicyPrivate.previousRequest);
       PolicyPrivate.previousRequest = null;
+
+      // Add our listener to remove the data again once the request is done
+      if (subject instanceof Ci.nsITraceableChannel)
+        new TraceableChannelCleanup(subject);
     }
   },
 
@@ -399,41 +417,36 @@ var PolicyPrivate =
   // Old (Gecko 1.9.x) version
   onChannelRedirect: function(oldChannel, newChannel, flags)
   {
-    try {
-      let oldLocation = null;
-      let newLocation = null;
-      try {
-        oldLocation = oldChannel.originalURI.spec;
-        newLocation = newChannel.URI.spec;
-      }
-      catch(e2) {}
-
-      if (!oldLocation || !newLocation || oldLocation == newLocation)
-        return;
-
+    try
+    {
       // Try to retrieve previously stored request data from the channel
-      let requestData = null;
+      let requestData;
+      if (oldChannel instanceof Ci.nsIWritablePropertyBag)
+      {
+        try
+        {
+          requestData = oldChannel.getProperty("abpRequestData");
+        }
+        catch(e)
+        {
+          // No data attached, ignore this redirect
+          return;
+        }
+      }
+
+      let newLocation = null;
       try
       {
-        if (oldChannel instanceof Ci.nsIWritablePropertyBag)
-          requestData = oldChannel.getProperty("abpRequestData");
-      }
-      catch(e) {}  // Ignore exceptions due to non-existing property
-      if (!requestData)
+        newLocation = newChannel.URI;
+      } catch(e2) {}
+      if (!newLocation)
         return;
-      oldChannel.deleteProperty("abpRequestData");
 
       // HACK: NS_BINDING_ABORTED would be proper error code to throw but this will show up in error console (bug 287107)
-      requestData[3] = newChannel.URI;
-      if (!Policy.processNode(requestData[0], requestData[1], requestData[2], requestData[3], false))
+      if (!Policy.processNode(Utils.getWindow(requestData[0]), requestData[0], requestData[1], newLocation, false))
         throw Cr.NS_BASE_STREAM_WOULD_BLOCK;
       else
-      {
-        // We allowed the request to proceed, associate the data with the new channel
-        if (newChannel instanceof Ci.nsIWritablePropertyBag)
-          newChannel.getProperty("abpRequestData", requestData);
         return;
-      }
     }
     catch (e if (e != Cr.NS_BASE_STREAM_WOULD_BLOCK))
     {
@@ -464,60 +477,6 @@ var PolicyPrivate =
 };
 
 /**
- * Nodes scheduled for post-processing (might be null).
- * @type Array of Node
- */
-let scheduledNodes = null;
-
-/**
- * Schedules a node for post-processing.
- */
-function schedulePostProcess(node)
-{
-  if (scheduledNodes)
-    scheduledNodes.push(node);
-  else
-  {
-    scheduledNodes = [node];
-    Utils.runAsync(postProcessNodes);
-  }
-}
-
-/**
- * Processes nodes scheduled for post-processing (typically hides them).
- */
-function postProcessNodes()
-{
-  let nodes = scheduledNodes;
-  scheduledNodes = null;
-
-  for each (let node in nodes)
-  {
-    // adjust frameset's cols/rows for frames
-    let parentNode = node.parentNode;
-    if (parentNode && parentNode instanceof Ci.nsIDOMHTMLFrameSetElement)
-    {
-      let hasCols = (parentNode.cols && parentNode.cols.indexOf(",") > 0);
-      let hasRows = (parentNode.rows && parentNode.rows.indexOf(",") > 0);
-      if ((hasCols || hasRows) && !(hasCols && hasRows))
-      {
-        let index = -1;
-        for (let frame = node; frame; frame = frame.previousSibling)
-          if (frame instanceof Ci.nsIDOMHTMLFrameElement || frame instanceof Ci.nsIDOMHTMLFrameSetElement)
-            index++;
-    
-        let property = (hasCols ? "cols" : "rows");
-        let weights = parentNode[property].split(",");
-        weights[index] = "0";
-        parentNode[property] = weights.join(",");
-      }
-    }
-    else
-      node.className += " " + collapsedClass;
-  }
-}
-
-/**
  * Extracts the hostname from a URL (might return null).
  */
 function getHostname(/**String*/ url) /**String*/
@@ -530,26 +489,6 @@ function getHostname(/**String*/ url) /**String*/
   {
     return null;
   }
-}
-
-/**
- * If the window doesn't have its own security context (e.g. about:blank or
- * data: URL) walks up the parent chain until a window is found that has a
- * security context.
- */
-function getOriginWindow(/**Window*/ wnd) /**Window*/
-{
-  while (wnd != wnd.parent)
-  {
-    let uri = Utils.makeURI(wnd.location.href);
-    if (uri.spec != "about:blank" && uri.spec != "moz-safe-about:blank" &&
-        !Utils.netUtils.URIChainHasFlags(uri, Ci.nsIProtocolHandler.URI_INHERITS_SECURITY_CONTEXT))
-    {
-      break;
-    }
-    wnd = wnd.parent;
-  }
-  return wnd;
 }
 
 /**

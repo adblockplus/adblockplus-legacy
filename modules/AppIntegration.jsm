@@ -15,7 +15,7 @@
  *
  * The Initial Developer of the Original Code is
  * Wladimir Palant.
- * Portions created by the Initial Developer are Copyright (C) 2006-2010
+ * Portions created by the Initial Developer are Copyright (C) 2006-2011
  * the Initial Developer. All Rights Reserved.
  *
  * Contributor(s):
@@ -37,6 +37,7 @@ const Cu = Components.utils;
 let baseURL = Cc["@adblockplus.org/abp/private;1"].getService(Ci.nsIURI);
 
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
+Cu.import(baseURL.spec + "TimeLine.jsm");
 Cu.import(baseURL.spec + "Utils.jsm");
 Cu.import(baseURL.spec + "Prefs.jsm");
 Cu.import(baseURL.spec + "ContentPolicy.jsm");
@@ -45,12 +46,7 @@ Cu.import(baseURL.spec + "FilterClasses.jsm");
 Cu.import(baseURL.spec + "SubscriptionClasses.jsm");
 Cu.import(baseURL.spec + "RequestNotifier.jsm");
 
-/**
- * Flag used to trigger special behavior for Fennec.
- * @type Boolean
- */
-let isFennec = (Utils.appID == "{a23983c0-fd0e-11dc-95ff-0800200c9a66}");
-if (isFennec)
+if (Utils.isFennec)
   Cu.import(baseURL.spec + "AppIntegrationFennec.jsm");
 
 /**
@@ -63,6 +59,11 @@ let wrappers = [];
  * Stores the current value of showintoolbar preference (to detect changes).
  */
 let currentlyShowingInToolbar = Prefs.showintoolbar;
+
+/**
+ * Stores the selected hotkeys, initialized when the first browser window opens.
+ */
+let hotkeys = null;
 
 /**
  * Initializes app integration module
@@ -78,8 +79,7 @@ function init()
     if (name == "enabled" || name == "showintoolbar" || name == "showinstatusbar" || name == "defaulttoolbaraction" || name == "defaultstatusbaraction")
       reloadPrefs();
   });
-  FilterStorage.addFilterObserver(reloadPrefs);
-  FilterStorage.addSubscriptionObserver(reloadPrefs);
+  FilterStorage.addObserver(reloadPrefs);
 }
 
 /**
@@ -96,7 +96,8 @@ var AppIntegration =
     let hooks = window.document.getElementById("abp-hooks");
     if (!hooks)
       return;
-  
+
+    TimeLine.enter("Entered AppIntegration.addWindow()")
     // Execute first-run actions
     if (!("lastVersion" in Prefs))
     {
@@ -133,9 +134,11 @@ var AppIntegration =
           Utils.runAsync(showSubscriptions);
       }
     }
+    TimeLine.log("App-wide first-run actions done")
 
     let wrapper = new WindowWrapper(window, hooks);
     wrappers.push(wrapper);
+    TimeLine.leave("AppIntegration.addWindow() done")
   },
 
   /**
@@ -168,7 +171,7 @@ var AppIntegration =
       if (filter.disabled || filter.subscriptions.some(function(subscription) !(subscription instanceof SpecialSubscription)))
       {
         filter.disabled = !filter.disabled;
-        FilterStorage.triggerFilterObservers(filter.disabled ? "disable" : "enable", [filter]);
+        FilterStorage.triggerObservers(filter.disabled ? "filters disable" : "filters enable", [filter]);
       }
       else
         FilterStorage.removeFilter(filter);
@@ -197,15 +200,34 @@ function removeWindow()
  */
 function WindowWrapper(window, hooks)
 {
+  TimeLine.enter("Entered WindowWrapper constructor")
   this.window = window;
 
   this.initializeHooks(hooks);
-  if (!isFennec)
+  TimeLine.log("Hooks element initialized")
+
+  if (!Utils.isFennec)
   {
     this.fixupMenus();
+    TimeLine.log("Context menu copying done")
+
     this.configureKeys();
+    TimeLine.log("Shortcut keys configured")
+
     this.initContextMenu();
-    this.updateState();
+    TimeLine.log("Context menu initialized")
+
+    let browser = this.getBrowser();
+    if (browser && browser.currentURI)
+    {
+      this.updateState();
+    }
+    else
+    {
+      // Update state asynchronously, the Thunderbird window won't be initialized yet for non-default window layouts
+      Utils.runAsync(this.updateState, this);
+    }
+    TimeLine.log("Icon state updated")
 
     // Some people actually switch off browser.frames.enabled and are surprised
     // that things stop working...
@@ -214,12 +236,17 @@ function WindowWrapper(window, hooks)
           .QueryInterface(Ci.nsIDocShell)
           .allowSubframes = true;
   }
-  this.registerEventListeners(!isFennec);
+  this.registerEventListeners(!Utils.isFennec);
+  TimeLine.log("Added event listeners")
+
   this.executeFirstRunActions();
+  TimeLine.log("Window-specific first-run actions done")
 
   // Custom initialization for Fennec
-  if (isFennec)
+  if (Utils.isFennec)
     AppIntegrationFennec.initWindow(this);
+
+  TimeLine.leave("WindowWrapper constructor done")
 }
 WindowWrapper.prototype =
 {
@@ -431,7 +458,7 @@ WindowWrapper.prototype =
     else
     {
       // Regular browser
-      return Utils.unwrapURL(this.getBrowser().contentWindow.location.href);
+      return Utils.unwrapURL(this.getBrowser().currentURI.clone());
     }
   },
 
@@ -506,8 +533,14 @@ WindowWrapper.prototype =
       if (element.tagName == "statusbarpanel")
         element.hidden = !Prefs.showinstatusbar;
       else
+      {
         element.hidden = !Prefs.showintoolbar;
-  
+        if (element.hasAttribute("context") && Prefs.defaulttoolbaraction == 0)
+          element.setAttribute("type", "menu");
+        else
+          element.setAttribute("type", "menu-button");
+      }
+
       // HACKHACK: Show status bar icon instead of toolbar icon if the application doesn't have a toolbar icon
       if (element.hidden && element.tagName == "statusbarpanel" && !this.getDefaultToolbar)
         element.hidden = !Prefs.showintoolbar;
@@ -527,13 +560,7 @@ WindowWrapper.prototype =
     
     let button = this.E("abp-toolbarbutton");
     if (button)
-    {
       updateElement.call(this, button);
-      if (button.hasAttribute("context") && Prefs.defaulttoolbaraction == 0)
-        button.setAttribute("type", "menu");
-      else
-        button.setAttribute("type", "menu-button");
-    }
   
     updateElement.call(this, this.getPaletteButton());
   },
@@ -543,56 +570,88 @@ WindowWrapper.prototype =
    */
   configureKeys: function()
   {
-    for (let pref in Prefs)
+    if (!hotkeys)
     {
-      if (pref.match(/_key$/))
+      hotkeys = {__proto__: null};
+
+      let validModifiers =
       {
-        try
+        accel: 1,
+        shift: 2,
+        ctrl: 4,
+        control: 4,
+        alt: 8,
+        meta: 16,
+        __proto__: null
+      };
+
+      try
+      {
+        let accelKey = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefBranch).getIntPref("ui.key.accelKey");
+        if (accelKey == Ci.nsIDOMKeyEvent.DOM_VK_CONTROL)
+          validModifiers.ctrl = validModifiers.control = validModifiers.accel;
+        else if (accelKey == Ci.nsIDOMKeyEvent.DOM_VK_ALT)
+          validModifiers.alt = validModifiers.accel;
+        else if (accelKey == Ci.nsIDOMKeyEvent.DOM_VK_META)
+          validModifiers.meta = validModifiers.accel;
+      }
+      catch(e)
+      {
+        Cu.reportError(e);
+      }
+
+      // Find which hotkeys are already taken, convert them to canonical form
+      let existing = {};
+      let keys = this.window.document.getElementsByTagName("key");
+      for (let i = 0; i < keys.length; i++)
+      {
+        let key = keys[i];
+        let keyChar = key.getAttribute("key");
+        let keyCode = key.getAttribute("keycode");
+        if (!keyChar && !keyCode)
+          continue;
+
+        let modifiers = 0;
+        let keyModifiers = key.getAttribute("modifiers");
+        if (keyModifiers)
         {
-          this.configureKey(RegExp.leftContext, Prefs[pref]);
+          for each (let modifier in keyModifiers.match(/\w+/g))
+          {
+            modifier = modifier.toLowerCase();
+            if (modifier in validModifiers)
+              modifiers |= validModifiers[modifier]
+          }
+
+          let canonical = modifiers + " " + (keyChar || keyCode).toUpperCase();
+          existing[canonical] = true;
         }
-        catch (e)
+      }
+
+      // Find available keys for our prefs
+      for (let pref in Prefs)
+      {
+        if (/_key$/.test(pref) && typeof Prefs[pref] == "string")
         {
-          Cu.reportError(e);
+          try
+          {
+            let id = RegExp.leftContext;
+            let result = this.findAvailableKey(id, Prefs[pref], validModifiers, existing);
+            if (result)
+              hotkeys[id] = result;
+          }
+          catch (e)
+          {
+            Cu.reportError(e);
+          }
         }
       }
     }
-  },
 
-  /**
-   * Sets a hotkey to the value defined in preferences.
-   */
-  configureKey: function(/**String*/ id, /**String*/ value)
-  {
-    let validModifiers =
+    // Add elements for all configured hotkeys
+    for (let id in hotkeys)
     {
-      accel: "accel",
-      ctrl: "control",
-      control: "control",
-      shift: "shift",
-      alt: "alt",
-      meta: "meta"
-    };
-  
-    let command = this.E("abp-command-" + id);
-    if (!command)
-      return;
-  
-    let modifiers = [];
-    let keychar = null;
-    let keycode = null;
-    for each (let part in value.split(/\s+/))
-    {
-      if (part.toLowerCase() in validModifiers)
-        modifiers.push(validModifiers[part.toLowerCase()]);
-      else if (part.length == 1)
-        keychar = part;
-      else if ("DOM_VK_" + part.toUpperCase() in Ci.nsIDOMKeyEvent)
-        keycode = "VK_" + part.toUpperCase();
-    }
-  
-    if (keychar || keycode)
-    {
+      let [keychar, keycode, modifierString] = hotkeys[id];
+
       let element = this.window.document.createElement("key");
       element.setAttribute("id", "abp-key-" + id);
       element.setAttribute("command", "abp-command-" + id);
@@ -600,10 +659,58 @@ WindowWrapper.prototype =
         element.setAttribute("key", keychar);
       else
         element.setAttribute("keycode", keycode);
-      element.setAttribute("modifiers", modifiers.join(","));
-  
+      element.setAttribute("modifiers", modifierString);
+
       this.E("abp-keyset").appendChild(element);
     }
+  },
+
+  /**
+   * Finds an available hotkey for a value defined in preferences.
+   */
+  findAvailableKey: function(/**String*/ id, /**String*/ value, /**Object*/ validModifiers, /**Object*/ existing) /**Array*/
+  {
+    let command = this.E("abp-command-" + id);
+    if (!command)
+      return;
+  
+    for each (let variant in value.split(/\s*,\s*/))
+    {
+      if (!variant)
+        continue;
+
+      let modifiers = 0;
+      let keychar = null;
+      let keycode = null;
+      for each (let part in variant.split(/\s+/))
+      {
+        if (part.toLowerCase() in validModifiers)
+          modifiers |= validModifiers[part.toLowerCase()];
+        else if (part.length == 1)
+          keychar = part.toUpperCase();
+        else if ("DOM_VK_" + part.toUpperCase() in Ci.nsIDOMKeyEvent)
+          keycode = "VK_" + part.toUpperCase();
+      }
+
+      if (!keychar && !keycode)
+        continue;
+
+      let canonical = modifiers + " " + (keychar || keycode);
+      if (canonical in existing)
+        continue;
+
+      let modifierString = "";
+      for each (let modifier in ["accel", "shift", "control", "alt", "meta"])
+      {
+        if (modifiers & validModifiers[modifier])
+        {
+          modifierString += modifier + " ";
+          modifiers &= ~validModifiers[modifier];
+        }
+      }
+      return [keychar, keycode, modifierString];
+    }
+    return null;
   },
 
   /**
@@ -655,25 +762,35 @@ WindowWrapper.prototype =
   },
 
   /**
-   * Handles browser clicks to intercept clicks on abp: links.
+   * Handles browser clicks to intercept clicks on abp: links. This can be
+   * called either with an event object or with the link target (if it is the
+   * former then link target will be retrieved from event target).
    */
-  handleLinkClick: function (/**Event*/ event)
+  handleLinkClick: function (/**Event*/ event, /**String*/ linkTarget)
   {
-    // Ignore right-clicks
-    if (event.button == 2)
+    if (event)
+    {
+      // Ignore right-clicks
+      if (event.button == 2)
+        return;
+
+      // Search the link associated with the click
+      let link = event.target;
+      while (link && !(link instanceof Ci.nsIDOMHTMLAnchorElement))
+        link = link.parentNode;
+
+      if (!link || link.protocol != "abp:")
+        return;
+
+      // This is our link - make sure the browser doesn't handle it
+      event.preventDefault();
+      event.stopPropagation();
+
+      linkTarget = link.href;
+    }
+
+    if (!/^abp:\/*subscribe\/*\?(.*)/i.test(linkTarget))  /**/
       return;
-  
-    // Search the link associated with the click
-    let link = event.target;
-    while (link && !(link instanceof Ci.nsIDOMHTMLAnchorElement))
-      link = link.parentNode;
-  
-    if (!link || !/^abp:\/*subscribe\/*\?(.*)/i.test(link.href))  /**/
-      return;
-  
-    // This is our link - make sure the browser doesn't handle it
-    event.preventDefault();
-    event.stopPropagation();
   
     // Decode URL parameters
     let title = null;
@@ -739,7 +856,7 @@ WindowWrapper.prototype =
     }
   
     // Open dialog
-    if (!isFennec)
+    if (!Utils.isFennec)
     {
       let subscription = {url: url, title: title, disabled: false, external: false, autoDownload: true,
                           mainSubscriptionTitle: mainSubscriptionTitle, mainSubscriptionURL: mainSubscriptionURL};
@@ -862,10 +979,6 @@ WindowWrapper.prototype =
     let whitelistItemPage = this.E(prefix + "whitelistpage");
     whitelistItemSite.hidden = whitelistItemPage.hidden = true;
   
-    let whitelistSeparator = whitelistItemPage.nextSibling;
-    while (whitelistSeparator.nodeType != whitelistSeparator.ELEMENT_NODE)
-      whitelistSeparator = whitelistSeparator.nextSibling;
-  
     let location = this.getCurrentLocation();
     if (location && Policy.isBlockableScheme(location))
     {
@@ -903,9 +1016,10 @@ WindowWrapper.prototype =
         whitelistItemSite.hidden = false;
       }
     }
-    whitelistSeparator.hidden = whitelistItemSite.hidden && whitelistItemPage.hidden;
+
+    this.E("abp-command-sendReport").setAttribute("disabled", !location || !Policy.isBlockableScheme(location) || location.scheme == "mailto");
   
-    this.E(prefix + "enabled").setAttribute("checked", Prefs.enabled);
+    this.E(prefix + "disabled").setAttribute("checked", !Prefs.enabled);
     this.E(prefix + "frameobjects").setAttribute("checked", Prefs.frameobjects);
     this.E(prefix + "slowcollapse").setAttribute("checked", !Prefs.fastcollapse);
     this.E(prefix + "showintoolbar").setAttribute("checked", Prefs.showintoolbar);
@@ -917,7 +1031,27 @@ WindowWrapper.prototype =
     this.E(prefix + "opensidebar").setAttribute("default", defAction == 1);
     this.E(prefix + "closesidebar").setAttribute("default", defAction == 1);
     this.E(prefix + "settings").setAttribute("default", defAction == 2);
-    this.E(prefix + "enabled").setAttribute("default", defAction == 3);
+    this.E(prefix + "disabled").setAttribute("default", defAction == 3);
+
+    // Only show "Recommend" button to Facebook users, we don't want to advertise Facebook
+    this.E(prefix + "recommendbutton").hidden = true;
+    if (!this.E("abp-hooks").hasAttribute("forceHideRecommend"))
+    {
+      let cookieManager = Cc["@mozilla.org/cookiemanager;1"].getService(Ci.nsICookieManager2);
+      if ("getCookiesFromHost" in cookieManager)
+      {
+        let enumerator = cookieManager.getCookiesFromHost("facebook.com");
+        while (enumerator.hasMoreElements())
+        {
+          let cookie = enumerator.getNext().QueryInterface(Ci.nsICookie);
+          if (cookie.name == "lu")
+          {
+            this.E(prefix + "recommendbutton").hidden = false;
+            break;
+          }
+        }
+      }
+    }
   },
 
   /**
@@ -929,7 +1063,29 @@ WindowWrapper.prototype =
     if (wnd)
       wnd.focus();
     else
-      this.window.openDialog("chrome://adblockplus/content/ui/sendReport.xul", "_blank", "chrome,centerscreen,resizable=no", this.window.content);
+      this.window.openDialog("chrome://adblockplus/content/ui/sendReport.xul", "_blank", "chrome,centerscreen,resizable=no", this.window.content, this.getCurrentLocation());
+  },
+
+  /**
+   * Opens Facebook's recommend page.
+   */
+  recommend: function()
+  {
+    this.window.open("http://www.facebook.com/share.php?u=http%3A%2F%2Fadblockplus.org%2F&t=Adblock%20Plus", "_blank", "width=550,height=350");
+  },
+
+  /**
+   * Hide recommend button and persist this choice.
+   */
+  recommendHide: function(event)
+  {
+    let hooks = this.E("abp-hooks");
+    hooks.setAttribute("forceHideRecommend", "true");
+    this.window.document.persist(hooks.id, "forceHideRecommend");
+
+    for each (let button in [this.E("abp-status-recommendbutton"), this.E("abp-toolbar-recommendbutton")])
+      if (button)
+        button.hidden = true;
   },
 
   /**
@@ -984,7 +1140,11 @@ WindowWrapper.prototype =
     if (location)
       filter = Policy.isWhitelisted(location.spec);
     if (filter && filter.subscriptions.length && !filter.disabled)
+    {
       AppIntegration.toggleFilter(filter);
+      return true;
+    }
+    return false;
   },
 
   /**
@@ -1010,7 +1170,7 @@ WindowWrapper.prototype =
       return;
 
     if (event.button == 1)
-      AppIntegration.togglePref("enabled"); 
+      this.executeAction(3);
   },
 
   /**
@@ -1024,7 +1184,7 @@ WindowWrapper.prototype =
     if (event.button == 0)
       this.executeAction(Prefs.defaultstatusbaraction);
     else if (event.button == 1)
-      AppIntegration.togglePref("enabled"); 
+      this.executeAction(3);
   },
 
   // Executes default action for statusbar/toolbar by its number
@@ -1035,7 +1195,12 @@ WindowWrapper.prototype =
     else if (action == 2)
       Utils.openSettingsDialog();
     else if (action == 3)
-      AppIntegration.togglePref("enabled");
+    {
+      // If there is a whitelisting rule for current page - remove it (reenable).
+      // Otherwise flip "enabled" pref.
+      if (!this.removeWhitelist())
+        AppIntegration.togglePref("enabled");
+    }
   },
 
   /**
@@ -1156,6 +1321,8 @@ WindowWrapper.prototype.eventHandlers = [
   ["abp-command-toggleshowintoolbar", "command", function() { AppIntegration.togglePref("showintoolbar"); }],
   ["abp-command-toggleshowinstatusbar", "command", function() { AppIntegration.togglePref("showinstatusbar"); }],
   ["abp-command-enable", "command", function() { AppIntegration.togglePref("enabled"); }],
+  ["abp-command-recommend", "command", WindowWrapper.prototype.recommend],
+  ["abp-command-recommend-hide", "command", WindowWrapper.prototype.recommendHide],
   ["abp-toolbarbutton", "command", WindowWrapper.prototype.handleToolbarCommand],
   ["abp-toolbarbutton", "click", WindowWrapper.prototype.handleToolbarClick],
   ["abp-status", "click", WindowWrapper.prototype.handleStatusClick],

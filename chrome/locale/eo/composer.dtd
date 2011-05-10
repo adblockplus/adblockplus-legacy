@@ -1,0 +1,47 @@
+<!ENTITY dialog.title "Aldoni filtrilregulon al Adblock Plus">
+<!ENTITY accept.label "Aldoni filtrilon">
+<!ENTITY advanced.label "Detala vido">
+<!ENTITY basic.label "Baza vido">
+<!ENTITY disabled.warning "Addblock Plus estas nun malebligita. Vi povas ankoraŭ aldoni filtrilojn, sed ili ne estos aplikataj, escepte, se vi [link]ebligas Adblock Plus[/link].">
+<!ENTITY groupDisabled.warning "La grupo de filtriloj &quot;?1?&quot;, al kiu ĉi tiu filtrilo estu aldonata, estas nun malebligita. Vi povas ankoraŭ aldoni la filtrilon, sed ĝi ne estos aplikata, escepte, se vi [link]ebligas la grupon de filtriloj[/link].">
+<!ENTITY filter.label "Nova filtrilo:">
+<!ENTITY filter.accesskey "v">
+<!ENTITY preferences.label "Montri ekzistantajn filtrilojn…">
+<!ENTITY preferences.accesskey "e">
+<!ENTITY type.filter.label "Blokanta filtrilo">
+<!ENTITY type.filter.accesskey "B">
+<!ENTITY type.whitelist.label "Esceptoregulo">
+<!ENTITY type.whitelist.accesskey "c">
+<!ENTITY pattern.label "Serĉi modelon">
+<!ENTITY pattern.explanation "La modelo povas esti parto de la adreso; asteriskoj (*) funkcias kiel ĵokeroj. La filtrilo estos nur aplikata al adresoj, kiuj konformas kun la specifita modelo.">
+<!ENTITY regexp.warning "La modelo, kiun vi enigis, estos interpretata kiel regula esprimo, kiu ne povas esti traktata oer Adblock Plus kaj povas malrapidigi vian retumadon. Se vi ne intencas uzi regulan esprimon, aldonu asteriskon (*) al la fino de la modelo.">
+<!ENTITY shortpattern.warning "La modelo, kiun vi enigis, estas tro mallonga por optimigo kaj povas malrapidigi vian retumadon. Rekomendiĝas, ke vi elektas pli longan signoĉenon por ĉi tiu filtrilo por permesi Adblock Plus trakti la filtrilon pli efike.">
+<!ENTITY match.warning "La modelo, kiun vi enigis, ne plu konformas kun la adreso, kiu estu blokata/transprenata en la blankan liston kaj ne havos efikon al ĝi.">
+<!ENTITY custom.pattern.label "Propraj:">
+<!ENTITY custom.pattern.accesskey "P">
+<!ENTITY anchors.label "Akcepti modelon nur:">
+<!ENTITY anchor.start.label "en la komenco de la adreso">
+<!ENTITY anchor.start.accesskey "k">
+<!ENTITY anchor.start.flexible.label "en la komenco de la retregiona nomo">
+<!ENTITY anchor.start.flexible.accesskey "k">
+<!ENTITY anchor.end.label "en la fino de la adreso">
+<!ENTITY anchor.end.accesskey "f">
+<!ENTITY options.label "Opcioj">
+<!ENTITY domainRestriction.label "Limigi al retregiono:">
+<!ENTITY domainRestriction.accesskey "L">
+<!ENTITY domainRestriction.help "Uzu ĉi tiun opcion por specifi unu retregionon aŭ plurajn retregionojn, separitajn per strekosignon (|). La filtrilo estos nur aplikata al elektitaj retregionoj. Tildo (~) antaŭ retregiona nomo indikas, ke la filtrilo ne estos aplikata al tiu retregiono.">
+<!ENTITY firstParty.label "Nur de unua liveranto">
+<!ENTITY firstParty.accesskey "u">
+<!ENTITY thirdParty.label "Nur de tria liveranto">
+<!ENTITY thirdParty.accesskey "t">
+<!ENTITY matchCase.label "Atenti usklecon">
+<!ENTITY matchCase.accesskey "A">
+<!ENTITY types.label "Apliki al tipoj:">
+<!ENTITY selectAllTypes.label "Elekti ĉion">
+<!ENTITY unselectAllTypes.label "Elekti neniun">
+<!ENTITY collapse.label "Maletendi blokitajn:">
+<!ENTITY collapse.accesskey "M">
+<!ENTITY collapse.default.yes.label "Uzi defaŭlton (jes)">
+<!ENTITY collapse.default.no.label "Uzi defaŭlton (ne)">
+<!ENTITY collapse.yes.label "Jes">
+<!ENTITY collapse.no.label "Ne">

@@ -1,21 +1,27 @@
 <!ENTITY status.tooltip "Olek:">
-<!ENTITY blocked.tooltip "Blokeeritud objektid sellel lehel:">
+<!ENTITY blocked.tooltip "Blokeeritud elemendid antud lehel:">
 <!ENTITY filters.tooltip "Kõige aktiivsemad filtrid:">
-<!ENTITY menuitem.label "Adblock Plus">
-<!ENTITY menuitem.accesskey "c">
+<!ENTITY menuitem.label "Adblock Plusi sätted">
+<!ENTITY menuitem.accesskey "b">
 <!ENTITY toolbarbutton.label "Adblock Plus">
-<!ENTITY view.blockableItems.label "Adblock Plus: Blokeeritavad objektid">
-<!ENTITY context.image.label "Adblocki Pilt">
-<!ENTITY context.object.label "Adblocki Objekt">
-<!ENTITY context.frame.label "Adblocki Kaader">
-<!ENTITY sidebar.title "Blokeeritavad objektid sellel lehel">
-<!ENTITY settings.label "Seaded">
+<!ENTITY view.blockableItems.label "Adblock Plus: Blokeeritavad elemendid">
+<!ENTITY context.image.label "Adblock Plus: Blokeeri pilt">
+<!ENTITY context.object.label "Adblock Plus: Blokeeri objekt">
+<!ENTITY context.frame.label "Adblock Plus: Blokeeri raam">
+<!ENTITY context.media.label "Adblock Plus: Blokeeri audio/video">
+<!ENTITY context.removeWhitelist.label "Adblock Plus: Luba uuesti antud lehel">
+<!ENTITY sidebar.title "Blokeeritavad elemendid antud lehel">
+<!ENTITY sendReport.label "Teata probleemist antud lehel">
+<!ENTITY sendReport.accesskey "T">
+<!ENTITY settings.label "Sätted">
 <!ENTITY settings.accesskey "S">
-<!ENTITY opensidebar.label "Ava blokeeritavad objektid">
-<!ENTITY opensidebar.accesskey "O">
-<!ENTITY closesidebar.label "Sulge blokeeritavad objektid">
-<!ENTITY closesidebar.accesskey "O">
-<!ENTITY whitelist.site.label "Sulge ?1?">
-<!ENTITY whitelist.page.label "Sulge ainult sellel lehel">
+<!ENTITY opensidebar.label "Ava blokeeritavad elemendid">
+<!ENTITY opensidebar.accesskey "b">
+<!ENTITY closesidebar.label "Sulge blokeeritavad elemendid">
+<!ENTITY closesidebar.accesskey "b">
+<!ENTITY whitelist.site.label "Keela domeenis ?1?">
+<!ENTITY whitelist.page.label "Keela ainult antud lehel">
+<!ENTITY disable.label "Keela kõikjal">
+<!ENTITY recommend.label "Soovita meid Facebookis">
 <!ENTITY objecttab.title "Blokeeri">
-<!ENTITY objecttab.tooltip "Vajuta siia, et blokeerida selle objekti Adblock Plusiga">
+<!ENTITY objecttab.tooltip "Klõpsa siia selle objekti blokeerimiseks Adblock Plusi abil">

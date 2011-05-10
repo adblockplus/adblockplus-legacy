@@ -25,6 +25,8 @@
 <!ENTITY issues.nofilters.description "Az Adblock Plus jelenleg nem blokkol semmit az aktuális oldalon. A tapasztalt hibajelenség valószínűleg nem köthető az Adblock Plus-hoz.">
 <!ENTITY issues.nosubscriptions.description "Úgy tűnik, hogy nincs feliratkozva egyetlen előre elkészített szűrőlistára sem, amellyel automatikusan eltávolíthatja a nem kívánt tartalmakat a webhelyekről.">
 <!ENTITY issues.nosubscriptions.add.label "Feliratkozás szűrőre">
+<!ENTITY issues.subscriptionCount.description "Úgy tűnik, hogy túl sok szűrőre van feliratkozva. Ez azért nem ajánlott, mivel ilyenkor gyakrabban fordulnak elő problémák. Emiatt nem fogadhatjuk el a hiba bejelentését, mivel nem tisztázott, hogy melyik szűrő készítőjének kell továbbítani. Kérem távolítsa el azokat a szűrőket, amelyek nem feltétlenül szükségesek és próbálja meg újra előidézni a hibajelenséget.">
+<!ENTITY issues.openPreferences.label "Szűrő beállítások megnyitása">
 <!ENTITY issues.ownfilters.description "Ezen az oldalon néhány alkalmazott szűrőt a felhasználó definiált. Kérem tiltsa le az alábbi szűrők közül azokat, amelyeket a problémát okozhatták.">
 <!ENTITY issues.ownfilters.disable.label "Szűrő letiltása">
 <!ENTITY issues.disabledgroups.description "Az alábbi szűrő listák/csoportok le vannak tiltva, de hatással lehetnének az alábbi oldalra:">

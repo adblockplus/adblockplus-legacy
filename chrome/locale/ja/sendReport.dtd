@@ -1,0 +1,75 @@
+<!ENTITY wizard.title "問題レポーター">
+<!ENTITY privacyPolicy.label "プライバシー ポリシー">
+<!ENTITY dataCollector.heading "問題レポーターへようこそ">
+<!ENTITY dataCollector.description "Adblock Plus が必要なデータを集めるまで、しばらくお待ちください">
+<!ENTITY typeSelector.heading "問題種別を選択">
+<!ENTITY typeSelector.description "問題の報告に必要なステップを案内します。まず最初に、遭遇した問題の種別を選択してください:">
+<!ENTITY typeSelector.falsePositive.label "Adblock Plus のブロックが過剰">
+<!ENTITY typeSelector.falsePositive.accesskey "m">
+<!ENTITY typeSelector.falsePositive.description "あるべきコンテンツがない、表示が不適切、あるいはフィルタが正しく機能していない場合はこのオプションを選択してください。一時的に Adblock Plus を無効にしてみることで、原因が Adblock Plus かどうか確かめることができます。">
+<!ENTITY typeSelector.falseNegative.label "Adblock Plus が広告をブロックしていない">
+<!ENTITY typeSelector.falseNegative.accesskey "v">
+<!ENTITY typeSelector.falseNegative.description "Adblock Plus が有効でも広告が表示される場合、このオプションを選択">
+<!ENTITY typeSelector.other.label "その他の問題">
+<!ENTITY typeSelector.other.accesskey "t">
+<!ENTITY typeSelector.other.description "フィルタではなく Adblock Plus 自体の問題が疑われる場合はこのオプションを選択">
+<!ENTITY showRecentReports.label "最近送信したレポートを表示">
+<!ENTITY recentReports.label "最近送信したレポート">
+<!ENTITY recentReports.clear.label "すべてのレポートを削除">
+<!ENTITY recentReports.clear.accesskey "R">
+<!ENTITY issues.description "Adblock Plus はこの問題に関係する、もしくは調査を困難にする設定を発見しました">
+<!ENTITY issues.whitelist.description "報告しようとしているページで Adblock Plus が無効になっています。調査の妨げになるので Adblock Plus を有効に戻し、再読み込みしてからレポートを提出してください。">
+<!ENTITY issues.whitelist.remove.label "このページで Adblock Plus を有効に戻す">
+<!ENTITY issues.disabled.description "Adblock Plus が無効なので、何もブロックされません">
+<!ENTITY issues.disabled.enable.label "Adblock Plus を有効にする">
+<!ENTITY issues.nofilters.description "Adblock Plus は現在のページで何もブロックしていないので、お気付きの問題は恐らく Adblock Plus と関係ありません">
+<!ENTITY issues.nosubscriptions.description "ウェブサイトの不要なコンテンツを自動削除する購読フィルタを、まだ購読されていないようです">
+<!ENTITY issues.nosubscriptions.add.label "購読フィルタを追加">
+<!ENTITY issues.subscriptionCount.description "購読フィルタが多過ぎです。どの購読フィルタ作者がこの問題に対処すべきか不明なので、レポートを受理できません。本当に必要な購読フィルタ以外を削除し、問題が再現するか確認してください。">
+<!ENTITY issues.openPreferences.label "設定画面">
+<!ENTITY issues.ownfilters.description "このページに適用されているフィルタに自作フィルタが含まれています。それらフィルタが問題を起こしている可能性があるので無効にしてください:">
+<!ENTITY issues.ownfilters.disable.label "フィルタを無効にする">
+<!ENTITY issues.disabledgroups.description "次の購読フィルタ／グループフィルタは無効になっていますが、このページに影響があったかもしれません:">
+<!ENTITY issues.disabledgroups.enable.label "購読フィルタ／グループフィルタを有効にする">
+<!ENTITY issues.disabledfilters.description "次のフィルタは無効になっていますが、このページに影響があったかもしれません:">
+<!ENTITY issues.disabledfilters.enable.label "フィルタを有効にする">
+<!ENTITY issues.override.label "設定は正しいので、レポートを継続します">
+<!ENTITY issues.override.accesskey "c">
+<!ENTITY issues.change.description "設定が変更されました。変更を確認する為にページを再読み込みし、もし問題が解決しなければレポートを提出してください">
+<!ENTITY typeWarning.description "フィルタについてではなく Adblock Plus 全般の問題をレポートしようとしています。本来このような問題は [link]Adblock Plus フォーラム[/link] でレポートすべきです。また、問題レポートへのリンクを自ら提供しない限り誰もあなたのレポートに気付かないので、既存の議論を補完するためだけに使用してください。レポートへのリンクはレポート送信後に自動生成されます。">
+<!ENTITY typeWarning.override.label "理解した上で、レポートを提出したい">
+<!ENTITY typeWarning.override.accesskey "s">
+<!ENTITY reloadButton.label "ページを再読み込みする">
+<!ENTITY reloadButton.accesskey "R">
+<!ENTITY screenshot.heading "スクリーンショットを添付">
+<!ENTITY screenshot.description "同じページでも別の人には異なって表示されることがあるので、スクリーンショットは問題の把握に役立つちます。ボタンをクリックし、スクリーンショット上でドラッグすることにより、問題箇所に印をつけたり個人情報を隠したりすることができます。">
+<!ENTITY screenshot.attach.label "レポートにページのスクリーンショットを添付">
+<!ENTITY screenshot.attach.accesskey "t">
+<!ENTITY screenshot.mark.label "問題に印をつける">
+<!ENTITY screenshot.mark.accesskey "M">
+<!ENTITY screenshot.remove.label "個人情報を隠す">
+<!ENTITY screenshot.remove.accesskey "R">
+<!ENTITY screenshot.undo.label "元に戻す">
+<!ENTITY screenshot.undo.accesskey "U">
+<!ENTITY commentPage.heading "コメントを入力">
+<!ENTITY commentPage.description "このステップはオプションですが、問題の説明を書き残すことができます。自明な場合以外に使用にしてください。送信前にレポートのデータを再検討することもできます。">
+<!ENTITY comment.label "コメント（オプション）:">
+<!ENTITY comment.accesskey "C">
+<!ENTITY comment.lengthWarning "コメントが 1000 文字を超えているので先頭から 1000 文字だけ送信されます">
+<!ENTITY email.label "より詳細な質問が必要な場合に使うメールアドレス（オプション）:">
+<!ENTITY email.accesskey "m">
+<!ENTITY attachExtensions.label "原因がアドオンの衝突にある場合に備え、有効なアドオンのリストをレポートに添付">
+<!ENTITY attachExtensions.accesskey "x">
+<!ENTITY sendButton.label "レポートを送信">
+<!ENTITY sendButton.accesskey "n">
+<!ENTITY showData.label "レポートデータを表示">
+<!ENTITY data.label "レポートデータ:">
+<!ENTITY data.accesskey "p">
+<!ENTITY sendPage.heading "レポートを送信">
+<!ENTITY sendPage.waitMessage "Adblock Plus がレポートを提出する間、しばらくお待ちください">
+<!ENTITY sendPage.confirmation "あなたのレポートは保存されました。次のアドレスでアクセスできます:">
+<!ENTITY sendPage.knownIssue "あなたのレポートはおそらく既知の問題です。詳しい情報:">
+<!ENTITY sendPage.errorMessage "レポート送信がエラーコード &quot;?1?&quot; で失敗しました。インターネットに接続されているか確認し再試行してください。問題が解決しない場合は [link]Adblock Plus フォーラム[/link] で助けを求めてください。">
+<!ENTITY sendPage.retry.label "再送信">
+<!ENTITY copyLink.label "レポートへのリンクをコピー">
+<!ENTITY copyLink.accesskey "C">

@@ -59,6 +59,8 @@
 <!ENTITY objecttabs.accesskey       "t">
 <!ENTITY collapse.label             "Collapse blocked elements">
 <!ENTITY collapse.accesskey         "l">
+<!ENTITY sync.label                 "Sync Adblock Plus settings">
+<!ENTITY sync.accesskey             "c">
 
 <!ENTITY help.label                 "Help">
 <!ENTITY help.accesskey             "H">

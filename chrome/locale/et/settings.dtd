@@ -1,89 +1,89 @@
-<!ENTITY dialog.title "Adblock Plusi Seaded">
+<!ENTITY dialog.title "Adblock Plusi sätted">
 <!ENTITY filters.label "Filtrid">
 <!ENTITY filters.accesskey "F">
 <!ENTITY add.label "Lisa filter">
-<!ENTITY add.accesskey "L">
-<!ENTITY addsubscription.label "Lisa filtri tellimuse">
-<!ENTITY addsubscription.accesskey "t">
-<!ENTITY synchsubscriptions.label "Uuenda kõik tellimused">
+<!ENTITY add.accesskey "i">
+<!ENTITY addsubscription.label "Lisa filtrite tellimus">
+<!ENTITY addsubscription.accesskey "s">
+<!ENTITY synchsubscriptions.label "Uuenda kõiki tellimusi">
 <!ENTITY synchsubscriptions.accesskey "d">
 <!ENTITY import.label "Impordi filtreid">
-<!ENTITY import.accesskey "I">
-<!ENTITY export.label "Ekspordi filreid">
-<!ENTITY export.accesskey "s">
-<!ENTITY clearall.label "Eemalda kõik filtrid">
-<!ENTITY clearall.accesskey "m">
+<!ENTITY import.accesskey "m">
+<!ENTITY export.label "Ekspordi isetehtud filtrid">
+<!ENTITY export.accesskey "k">
+<!ENTITY clearall.label "Kustuta kõik isetehtud filtrid">
+<!ENTITY clearall.accesskey "u">
 <!ENTITY resethitcounts.label "Nulli tabamuste statistika">
 <!ENTITY resethitcounts.accesskey "N">
-<!ENTITY edit.label "Muuda">
-<!ENTITY edit.accesskey "d">
+<!ENTITY edit.label "Redigeerimine">
+<!ENTITY edit.accesskey "R">
 <!ENTITY cut.label "Lõika">
-<!ENTITY cut.accesskey "i">
+<!ENTITY cut.accesskey "L">
 <!ENTITY copy.label "Kopeeri">
-<!ENTITY copy.accesskey "r">
-<!ENTITY paste.label "Kleebi">
-<!ENTITY paste.accesskey "b">
+<!ENTITY copy.accesskey "K">
+<!ENTITY paste.label "Aseta">
+<!ENTITY paste.accesskey "A">
 <!ENTITY remove.label "Kustuta">
-<!ENTITY remove.accesskey "t">
+<!ENTITY remove.accesskey "u">
 <!ENTITY menu.find.label "Otsi">
 <!ENTITY menu.find.accesskey "O">
 <!ENTITY menu.findagain.label "Otsi uuesti">
-<!ENTITY menu.findagain.accesskey "S">
-<!ENTITY view.label "Vaata">
+<!ENTITY menu.findagain.accesskey "e">
+<!ENTITY view.label "Vaade">
 <!ENTITY view.accesskey "V">
-<!ENTITY sort.label "Sorteeri">
+<!ENTITY sort.label "Sortimine">
 <!ENTITY sort.accesskey "S">
-<!ENTITY sort.none.label "Sorteerimata">
-<!ENTITY sort.none.accesskey "e">
-<!ENTITY sort.ascending.label "Sorteeri A-st Z-ni">
+<!ENTITY sort.none.label "Sortimata">
+<!ENTITY sort.none.accesskey "o">
+<!ENTITY sort.ascending.label "A &gt; Z sortimiskord">
 <!ENTITY sort.ascending.accesskey "A">
-<!ENTITY sort.descending.label "Sorteeri Z-st A-ni">
+<!ENTITY sort.descending.label "Z &gt; A sortimiskord">
 <!ENTITY sort.descending.accesskey "Z">
 <!ENTITY options.label "Valikud">
-<!ENTITY options.accesskey "k">
-<!ENTITY enable.label "Võimalda Adblock Plusi">
-<!ENTITY enable.accesskey "P">
-<!ENTITY showintoolbar.label "Näita tööristaribas">
-<!ENTITY showintoolbar.accesskey "ä">
-<!ENTITY showinstatusbar.label "Näita seisundi ribas">
-<!ENTITY showinstatusbar.accesskey "r">
-<!ENTITY objecttabs.label "Näita tabbe Flashis ja Javas">
-<!ENTITY objecttabs.accesskey "J">
-<!ENTITY collapse.label "Sulge blokeeritud elemendid">
-<!ENTITY collapse.accesskey "e">
+<!ENTITY options.accesskey "a">
+<!ENTITY enable.label "Luba Adblock Plus">
+<!ENTITY enable.accesskey "u">
+<!ENTITY showintoolbar.label "Näita tööriistade menüüs">
+<!ENTITY showintoolbar.accesskey "i">
+<!ENTITY showinstatusbar.label "Näita olekuribal">
+<!ENTITY showinstatusbar.accesskey "o">
+<!ENTITY objecttabs.label "Näita Flash ja Java objektidel sakke">
+<!ENTITY objecttabs.accesskey "t">
+<!ENTITY collapse.label "Ahenda blokeeritavad elemendid">
+<!ENTITY collapse.accesskey "l">
+<!ENTITY sync.label "Sünkroniseeri Adblock Plus sätted">
+<!ENTITY sync.accesskey "k">
 <!ENTITY help.label "Abi">
-<!ENTITY help.accesskey "A">
-<!ENTITY gettingStarted.label "info Adblock Plusist">
-<!ENTITY gettingStarted.accesskey "i">
-<!ENTITY faq.label "Korduma Kippuvad Küsimused">
-<!ENTITY faq.accesskey "K">
-<!ENTITY filterdoc.label "Kirjutamas Adblock Plusi filtreid">
-<!ENTITY filterdoc.accesskey "m">
-<!ENTITY about.label "Teavet">
-<!ENTITY about.accesskey "v">
-<!ENTITY description "Lisa aadresse mida sa soovid blokeerida, soovituseks vaata nimekirja.
-
-
-Sa saad kasutada * et luua rohkem üldiseid filtreid. Edasijõudnud kasutajad saavad
-
-kasutada regulaarseid väljendeid.">
+<!ENTITY help.accesskey "b">
+<!ENTITY gettingStarted.label "Alustamine">
+<!ENTITY gettingStarted.accesskey "s">
+<!ENTITY faq.label "Korduma kippuvad küsimused">
+<!ENTITY faq.accesskey "o">
+<!ENTITY filterdoc.label "Adblock Plus filtrite kirjutamine">
+<!ENTITY filterdoc.accesskey "r">
+<!ENTITY about.label "Adblock Plusi teave">
+<!ENTITY about.accesskey "b">
+<!ENTITY description "Alljärgnevad filtrid määravad, millised aadressid tuleks blokeerida ja millised lubada:">
 <!ENTITY filter.column "Filtri reegel">
 <!ENTITY filter.accesskey "F">
+<!ENTITY slow.column "Aeglased filtrid">
+<!ENTITY slow.accesskey "e">
 <!ENTITY enabled.column "Lubatud">
-<!ENTITY enabled.accesskey "d">
+<!ENTITY enabled.accesskey "u">
 <!ENTITY hitcount.column "Tabamusi">
-<!ENTITY hitcount.accesskey "m">
+<!ENTITY hitcount.accesskey "T">
 <!ENTITY lasthit.column "Viimane tabamus">
-<!ENTITY lasthit.accesskey "u">
+<!ENTITY lasthit.accesskey "V">
 <!ENTITY context.edit.label "Muuda filtrit">
-<!ENTITY context.resethitcount.label "Nulli">
-<!ENTITY context.synchsubscription.label "Uuenda tellimust nüüd">
+<!ENTITY context.resethitcount.label "Nulli filtri tabamuste loendur">
+<!ENTITY context.synchsubscription.label "Uuenda tellimust">
 <!ENTITY context.editsubscription.label "Muuda tellimust">
-<!ENTITY context.moveup.label "Liiguta üles">
-<!ENTITY context.movedown.label "Liiguta alla">
+<!ENTITY context.moveup.label "Liiguta filter üles">
+<!ENTITY context.movedown.label "Liiguta filter alla">
 <!ENTITY context.movegroupup.label "Liiguta grupp üles">
 <!ENTITY context.movegroupdown.label "Liiguta grupp alla">
 <!ENTITY context.enable.label "Luba">
 <!ENTITY context.disable.label "Keela">
 <!ENTITY apply.label "Rakenda">
-<!ENTITY apply.accesskey "R">
+<!ENTITY apply.accesskey "k">
+<!ENTITY fennec.subscription.label "Filtri tellimus">

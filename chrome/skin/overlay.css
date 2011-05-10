@@ -15,7 +15,7 @@
  *
  * The Initial Developer of the Original Code is
  * Wladimir Palant.
- * Portions created by the Initial Developer are Copyright (C) 2006-2010
+ * Portions created by the Initial Developer are Copyright (C) 2006-2011
  * the Initial Developer. All Rights Reserved.
  *
  * Contributor(s):
@@ -39,14 +39,12 @@ toolbar[iconsize="small"] #abp-toolbarbutton,
 toolbar[iconsize="small"] #abp-toolbarbutton[abpstate="disabled"],
 #PersonalToolbar #abp-toolbarbutton[abpstate="disabled"],
 #header-view-toolbar > #abp-toolbarbutton[abpstate="disabled"],
-#abp-status[abpstate="disabled"] {
-  -moz-image-region: rect(16px, 16px, 32px, 0px);
-}
+#abp-status[abpstate="disabled"],
 toolbar[iconsize="small"] #abp-toolbarbutton[abpstate="whitelisted"],
 #PersonalToolbar #abp-toolbarbutton[abpstate="whitelisted"],
 #header-view-toolbar > #abp-toolbarbutton[abpstate="whitelisted"],
 #abp-status[abpstate="whitelisted"] {
-  -moz-image-region: rect(32px, 16px, 48px, 0px);
+  -moz-image-region: rect(16px, 16px, 32px, 0px);
 }
 
 #abp-toolbar-popup {
@@ -63,17 +61,15 @@ menuitem[default="true"] {
 }
 
 #abp-toolbarbutton,
-.abp-site-info {
+#abp-site-info {
   list-style-image: url("abp-status.png");
   -moz-image-region: rect(0px, 24px, 24px, 0px);
 }
 #abp-toolbarbutton[abpstate="disabled"],
-.abp-site-info[abpstate="disabled"] {
-  -moz-image-region: rect(24px, 24px, 48px, 0px);
-}
 #abp-toolbarbutton[abpstate="whitelisted"],
-.abp-site-info[abpstate="disabled_site"] {
-  -moz-image-region: rect(48px, 24px, 72px, 0px);
+#abp-site-info[abpstate="disabled"],
+#abp-site-info[abpstate="disabled_site"] {
+  -moz-image-region: rect(24px, 24px, 48px, 0px);
 }
 
 /* Hack: force the label to be displayed below icon for type="menu" */
@@ -110,7 +106,7 @@ toolbar[mode="full"] #abp-toolbarbutton[type="menu"]
   margin-right: 10px;
 }
 
-#abp-site-info1 .pageaction-image {
+#abp-site-info .pageaction-image {
   width: 32px;
   height: 32px;
   padding: 4px;
@@ -158,4 +154,37 @@ toolbar[mode="full"] #abp-toolbarbutton[type="menu"]
 
 #abp-sidebar-close:hover:active {
   -moz-image-region: rect(0px, 42px, 14px, 28px);
+}
+
+.abp-recommendbutton
+{
+  opacity: 0.7;
+  margin-top: 20px;
+}
+
+.abp-recommendbutton:hover
+{
+  opacity: 1;
+}
+
+.abp-recommendbutton-btn
+{
+  font-size: 80%;
+  margin-left: 40px;
+  margin-right: 40px;
+  list-style-image: url("data:image/gif;base64,R0lGODlhEAAQAKIAAGF5rEVinmB4q%2Bvu9G2EtP%2F%2F%2FztZmAAAACH5BAAAAAAALAAAAAAQABAAAAM4WLrcCibKGYGiWN4sxt6Y9xWZAZpkdp6R06bTIMpvucLUbeNKQPxAggIY6AWBw1%2BxAClJLI7oIgEAOw%3D%3D");
+}
+
+.abp-recommendbutton-close
+{
+  border-style: none !important;
+  -moz-user-focus: normal;
+  list-style-image: url("close.png");
+  -moz-appearance: none;
+  -moz-image-region: rect(0px, 14px, 14px, 0px);
+}
+
+.abp-recommendbutton-close:hover
+{
+  -moz-image-region: rect(0px, 28px, 14px, 14px);
 }

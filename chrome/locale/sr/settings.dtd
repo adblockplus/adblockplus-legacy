@@ -2,19 +2,19 @@
 <!ENTITY filters.label "Филтери">
 <!ENTITY filters.accesskey "Ф">
 <!ENTITY add.label "Додај филтер">
-<!ENTITY add.accesskey "а">
+<!ENTITY add.accesskey "Д">
 <!ENTITY addsubscription.label "Додај претплату на филтер">
-<!ENTITY addsubscription.accesskey "л">
+<!ENTITY addsubscription.accesskey "п">
 <!ENTITY synchsubscriptions.label "Ажурирај све претплате">
-<!ENTITY synchsubscriptions.accesskey "ј">
+<!ENTITY synchsubscriptions.accesskey "р">
 <!ENTITY import.label "Увези филтере">
-<!ENTITY import.accesskey "з">
+<!ENTITY import.accesskey "у">
 <!ENTITY export.label "Извези прилагођене филтере">
-<!ENTITY export.accesskey "г">
+<!ENTITY export.accesskey "и">
 <!ENTITY clearall.label "Уклони све прилагођене филтере">
-<!ENTITY clearall.accesskey "е">
+<!ENTITY clearall.accesskey "к">
 <!ENTITY resethitcounts.label "Поништи статистику погодака">
-<!ENTITY resethitcounts.accesskey "д">
+<!ENTITY resethitcounts.accesskey "с">
 <!ENTITY edit.label "Уређивање">
 <!ENTITY edit.accesskey "У">
 <!ENTITY cut.label "Исеци">
@@ -23,8 +23,8 @@
 <!ENTITY copy.accesskey "м">
 <!ENTITY paste.label "Убаци">
 <!ENTITY paste.accesskey "б">
-<!ENTITY remove.label "Обриши">
-<!ENTITY remove.accesskey "р">
+<!ENTITY remove.label "Избриши">
+<!ENTITY remove.accesskey "ш">
 <!ENTITY menu.find.label "Нађи">
 <!ENTITY menu.find.accesskey "н">
 <!ENTITY menu.findagain.label "Тражи поново">
@@ -33,16 +33,16 @@
 <!ENTITY view.accesskey "р">
 <!ENTITY sort.label "Сортирај по">
 <!ENTITY sort.accesskey "С">
-<!ENTITY sort.none.label "Несортирано">
+<!ENTITY sort.none.label "Непоређано">
 <!ENTITY sort.none.accesskey "е">
 <!ENTITY sort.ascending.label "Од А до Ш">
 <!ENTITY sort.ascending.accesskey "А">
 <!ENTITY sort.descending.label "Од Ш до А">
 <!ENTITY sort.descending.accesskey "Ш">
 <!ENTITY options.label "Опције">
-<!ENTITY options.accesskey "О">
-<!ENTITY enable.label "Укључи Adblock Plus">
-<!ENTITY enable.accesskey "У">
+<!ENTITY options.accesskey "п">
+<!ENTITY enable.label "Омогући Adblock Plus">
+<!ENTITY enable.accesskey "О">
 <!ENTITY showintoolbar.label "Прикажи у траци са алаткама">
 <!ENTITY showintoolbar.accesskey "т">
 <!ENTITY showinstatusbar.label "Прикажи у статусној траци">
@@ -51,8 +51,10 @@
 <!ENTITY objecttabs.accesskey "к">
 <!ENTITY collapse.label "Сажми блокиране елементе">
 <!ENTITY collapse.accesskey "б">
+<!ENTITY sync.label "Подешавања усклађивања Adblock Plus-а">
+<!ENTITY sync.accesskey "у">
 <!ENTITY help.label "Помоћ">
-<!ENTITY help.accesskey "П">
+<!ENTITY help.accesskey "ћ">
 <!ENTITY gettingStarted.label "Како почети">
 <!ENTITY gettingStarted.accesskey "К">
 <!ENTITY faq.label "Најчешће постављана питања">
@@ -66,7 +68,7 @@
 <!ENTITY filter.accesskey "ф">
 <!ENTITY slow.column "Спори филтери">
 <!ENTITY slow.accesskey "п">
-<!ENTITY enabled.column "Укључен">
+<!ENTITY enabled.column "Омогућен">
 <!ENTITY enabled.accesskey "н">
 <!ENTITY hitcount.column "Број погодака">
 <!ENTITY hitcount.accesskey "ј">

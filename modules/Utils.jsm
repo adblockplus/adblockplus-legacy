@@ -15,7 +15,7 @@
  *
  * The Initial Developer of the Original Code is
  * Wladimir Palant.
- * Portions created by the Initial Developer are Copyright (C) 2006-2010
+ * Portions created by the Initial Developer are Copyright (C) 2006-2011
  * the Initial Developer. All Rights Reserved.
  *
  * Contributor(s):
@@ -26,7 +26,7 @@
  * @fileOverview Module containing a bunch of utility functions.
  */
 
-var EXPORTED_SYMBOLS = ["Utils"];
+var EXPORTED_SYMBOLS = ["Utils", "Cache", "TraceableChannelCleanup"];
 
 const Cc = Components.classes;
 const Ci = Components.interfaces;
@@ -77,6 +77,17 @@ var Utils =
     let id = Utils.appInfo.ID;
     Utils.__defineGetter__("appID", function() id);
     return Utils.appID;
+  },
+
+  /**
+   * Returns whether we are running in Fennec, for Fennec-specific hacks
+   * @type Boolean
+   */
+  get isFennec()
+  {
+    let result = (this.appID == "{a23983c0-fd0e-11dc-95ff-0800200c9a66}");
+    Utils.__defineGetter__("isFennec", function() result);
+    return result;
   },
 
   /**
@@ -160,13 +171,33 @@ var Utils =
    */
   getWindow: function(/**Node*/ node)
   {
-    if (node instanceof Ci.nsIDOMNode && node.ownerDocument)
+    if ("ownerDocument" in node && node.ownerDocument)
       node = node.ownerDocument;
   
-    if (node instanceof Ci.nsIDOMDocumentView)
+    if ("defaultView" in node)
       return node.defaultView;
   
     return null;
+  },
+
+  /**
+   * If the window doesn't have its own security context (e.g. about:blank or
+   * data: URL) walks up the parent chain until a window is found that has a
+   * security context.
+   */
+  getOriginWindow: function(/**Window*/ wnd) /**Window*/
+  {
+    while (wnd != wnd.parent)
+    {
+      let uri = Utils.makeURI(wnd.location.href);
+      if (uri.spec != "about:blank" && uri.spec != "moz-safe-about:blank" &&
+          !Utils.netUtils.URIChainHasFlags(uri, Ci.nsIProtocolHandler.URI_INHERITS_SECURITY_CONTEXT))
+      {
+        break;
+      }
+      wnd = wnd.parent;
+    }
+    return wnd;
   },
 
   /**
@@ -414,6 +445,33 @@ var Utils =
   },
 
   /**
+   * Tries to interpret a file path as an absolute path or a path relative to
+   * user's profile. Returns a file or null on failure.
+   */
+  resolveFilePath: function(/**String*/ path) /**nsIFile*/
+  {
+    if (!path)
+      return null;
+
+    try {
+      // Assume an absolute path first
+      let file = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsILocalFile);
+      file.initWithPath(path);
+      return file;
+    } catch (e) {}
+
+    try {
+      // Try relative path now
+      let profileDir = Utils.dirService.get("ProfD", Ci.nsIFile);
+      let file = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsILocalFile);
+      file.setRelativeDescriptor(profileDir, path);
+      return file;
+    } catch (e) {}
+
+    return null;
+  },
+
+  /**
    * Saves sidebar state before detaching/reattaching
    */
   setParams: function(params)
@@ -429,8 +487,219 @@ var Utils =
     let ret = sidebarParams;
     sidebarParams = null;
     return ret;
+  },
+
+  /**
+   * Randomly generated class for collapsed nodes.
+   * @type String
+   */
+  collapsedClass: null,
+
+  /**
+   * Nodes scheduled for post-processing (might be null).
+   * @type Array of Node
+   */
+  scheduledNodes: null,
+
+  /**
+   * Schedules a node for post-processing.
+   */
+  schedulePostProcess: function(node)
+  {
+    if (Utils.scheduledNodes)
+      Utils.scheduledNodes.push(node);
+    else
+    {
+      Utils.scheduledNodes = [node];
+      Utils.runAsync(Utils.postProcessNodes);
+    }
+  },
+
+  /**
+   * Processes nodes scheduled for post-processing (typically hides them).
+   */
+  postProcessNodes: function()
+  {
+    let nodes = Utils.scheduledNodes;
+    Utils.scheduledNodes = null;
+
+    for each (let node in nodes)
+    {
+      // adjust frameset's cols/rows for frames
+      let parentNode = node.parentNode;
+      if (parentNode && parentNode instanceof Ci.nsIDOMHTMLFrameSetElement)
+      {
+        let hasCols = (parentNode.cols && parentNode.cols.indexOf(",") > 0);
+        let hasRows = (parentNode.rows && parentNode.rows.indexOf(",") > 0);
+        if ((hasCols || hasRows) && !(hasCols && hasRows))
+        {
+          let index = -1;
+          for (let frame = node; frame; frame = frame.previousSibling)
+            if (frame instanceof Ci.nsIDOMHTMLFrameElement || frame instanceof Ci.nsIDOMHTMLFrameSetElement)
+              index++;
+
+          let property = (hasCols ? "cols" : "rows");
+          let weights = parentNode[property].split(",");
+          weights[index] = "0";
+          parentNode[property] = weights.join(",");
+        }
+      }
+      else
+        node.className += " " + Utils.collapsedClass;
+    }
   }
 };
+
+/**
+ * A cache with a fixed capacity, newer entries replace entries that have been
+ * stored first.
+ * @constructor
+ */
+function Cache(/**Integer*/ size)
+{
+  this._ringBuffer = new Array(size);
+  this.data = {__proto__: null};
+}
+Cache.prototype =
+{
+  /**
+   * Ring buffer storing hash keys, allows determining which keys need to be
+   * evicted.
+   * @type Array
+   */
+  _ringBuffer: null,
+
+  /**
+   * Index in the ring buffer to be written next.
+   * @type Integer
+   */
+  _bufferIndex: 0,
+
+  /**
+   * Cache data, maps values to the keys. Read-only access, for writing use
+   * add() method.
+   * @type Object
+   */
+  data: null,
+
+  /**
+   * Adds a key and the corresponding value to the cache.
+   */
+  add: function(/**String*/ key, value)
+  {
+    if (!(key in this.data))
+    {
+      // This is a new key - we need to add it to the ring buffer and evict
+      // another entry instead.
+      let oldKey = this._ringBuffer[this._bufferIndex];
+      if (typeof oldKey != "undefined")
+        delete this.data[oldKey];
+      this._ringBuffer[this._bufferIndex] = key;
+
+      this._bufferIndex++;
+      if (this._bufferIndex >= this._ringBuffer.length)
+        this._bufferIndex = 0;
+    }
+
+    this.data[key] = value;
+  },
+
+  /**
+   * Clears cache contents.
+   */
+  clear: function()
+  {
+    this._ringBuffer = new Array(this._ringBuffer.length);
+    this.data = {__proto__: null};
+  }
+}
+
+/**
+ * An object that will attach itself as a listener to a traceable channel and
+ * remove Adblock Plus data once that channel is done.
+ * @constructor
+ */
+function TraceableChannelCleanup(request)
+{
+  // This has to run asynchronously due to bug 646370, nsHttpChannel triggers
+  // http-on-modify-request observers before setting listener!
+  Utils.runAsync(this.attach, this, request);
+}
+TraceableChannelCleanup.prototype =
+{
+  originalListener: null,
+
+  attach: function(request)
+  {
+    if (request.isPending())
+    {
+      try
+      {
+        this.originalListener = request.setNewListener(this);
+      }
+      catch (e if e.result == Cr.NS_ERROR_NOT_IMPLEMENTED)
+      {
+        // Bug 646373 :-( Remove data even though this means that we won't be
+        // able to block redirects.
+        this.cleanup(request);
+      }
+    }
+    else
+      this.cleanup(request);
+  },
+
+  cleanup: function(request)
+  {
+    try
+    {
+      if (request instanceof Ci.nsIWritablePropertyBag)
+        request.deleteProperty("abpRequestData");
+    }
+    catch(e) {} // Ignore errors due to missing property
+  },
+
+  onStartRequest: function(request, context)
+  {
+    try
+    {
+      this.originalListener.onStartRequest(request, context);
+    }
+    catch (e if e instanceof Ci.nsIException)
+    {
+      request.cancel(e.result);
+    }
+  },
+
+  onDataAvailable: function(request, context, inputStream, offset, count)
+  {
+    try
+    {
+      this.originalListener.onDataAvailable(request, context, inputStream, offset, count);
+    }
+    catch (e if e instanceof Ci.nsIException)
+    {
+      request.cancel(e.result);
+    }
+  },
+
+  onStopRequest: function(request, context, statusCode)
+  {
+    try
+    {
+      this.originalListener.onStopRequest(request, context, statusCode);
+    }
+    catch (e if e instanceof Ci.nsIException)
+    {
+      // No point cancelling the channel when it is done already
+    }
+    finally
+    {
+      this.cleanup(request);
+    }
+  },
+
+  QueryInterface: XPCOMUtils.generateQI([Ci.nsIStreamListener, Ci.nsIRequestObserver])
+}
 
 // Getters for common services, this should be replaced by Services.jsm in future
 
@@ -451,6 +720,8 @@ XPCOMUtils.defineLazyServiceGetter(Utils, "windowWatcher", "@mozilla.org/embedco
 XPCOMUtils.defineLazyServiceGetter(Utils, "chromeRegistry", "@mozilla.org/chrome/chrome-registry;1", "nsIXULChromeRegistry");
 XPCOMUtils.defineLazyServiceGetter(Utils, "systemPrincipal", "@mozilla.org/systemprincipal;1", "nsIPrincipal");
 XPCOMUtils.defineLazyServiceGetter(Utils, "dateFormatter", "@mozilla.org/intl/scriptabledateformat;1", "nsIScriptableDateFormat");
+XPCOMUtils.defineLazyServiceGetter(Utils, "childMessageManager", "@mozilla.org/childprocessmessagemanager;1", "nsISyncMessageSender");
+XPCOMUtils.defineLazyServiceGetter(Utils, "parentMessageManager", "@mozilla.org/parentprocessmessagemanager;1", "nsIFrameMessageManager");
 
 if ("@mozilla.org/messenger/headerparser;1" in Cc)
   XPCOMUtils.defineLazyServiceGetter(Utils, "headerParser", "@mozilla.org/messenger/headerparser;1", "nsIMsgHeaderParser");

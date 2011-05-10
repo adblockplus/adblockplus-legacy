@@ -9,6 +9,8 @@
 <!ENTITY state.label "Tình trạng">
 <!ENTITY size.label "Kích thước">
 <!ENTITY docDomain.label "Nguồn tài liệu">
+<!ENTITY docDomain.thirdParty "(bên thứ ba)">
+<!ENTITY docDomain.firstParty "(bên thứ nhất)">
 <!ENTITY noitems.label "Không có mục nào có thể chặn được">
 <!ENTITY whitelisted.label "Trang nằm trong sổ trắng">
 <!ENTITY tooltip.address.label "Địa chỉ:">
@@ -18,6 +20,7 @@
 <!ENTITY tooltip.size.label "Kích thước:">
 <!ENTITY tooltip.docDomain.label "Nguồn tài liệu:">
 <!ENTITY tooltip.filter.label "Bộ lọc đang chặn:">
+<!ENTITY tooltip.filter.disabled "(bị vô hiệu hóa)">
 <!ENTITY tooltip.filterSource.label "Nguồn bộ lọc:">
 <!ENTITY context.block.label "Chặn mục này">
 <!ENTITY context.editfilter.label "Chỉnh sửa bộ lọc đang chặn">

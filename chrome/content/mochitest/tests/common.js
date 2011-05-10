@@ -28,10 +28,9 @@ function prepareFilterComponents(keepObservers)
   let oldSubscriptions = FilterStorage.subscriptions;
   let oldStorageKnown = FilterStorage.knownSubscriptions;
   let oldSubscriptionsKnown = Subscription.knownSubscriptions;
-  let oldFiltersKnown = Subscription.knownSubscriptions;
-  let oldSubscriptionObservers = FilterStorageGlobal.subscriptionObservers;
-  let oldFilterObservers = FilterStorageGlobal.filterObservers;
-  let oldSourceFile = FilterStorageGlobal.sourceFile;
+  let oldFiltersKnown = Filter.knownFilters;
+  let oldObservers = FilterStorageGlobal.observers;
+  let oldSourceFile = FilterStorage.__lookupGetter__("sourceFile");
 
   FilterStorage.subscriptions = [];
   FilterStorage.knownSubscriptions = {__proto__: null};
@@ -39,9 +38,7 @@ function prepareFilterComponents(keepObservers)
   Filter.knownFilters = {__proto__: null};
   if (!keepObservers)
   {
-    FilterStorageGlobal.subscriptionObservers = [];
-    FilterStorageGlobal.filterObservers = [];
-    FilterStorageGlobal.sourceFile = null;
+    FilterStorageGlobal.observers = [];
   }
 
   defaultMatcher.clear();
@@ -52,13 +49,38 @@ function prepareFilterComponents(keepObservers)
     FilterStorage.subscriptions = oldSubscriptions;
     FilterStorage.knownSubscriptions = oldStorageKnown;
     Subscription.knownSubscriptions = oldSubscriptionsKnown;
-    Subscription.knownSubscriptions = oldFiltersKnown;
-    FilterStorageGlobal.subscriptionObservers = oldSubscriptionObservers;
-    FilterStorageGlobal.filterObservers = oldFilterObservers;
-    FilterStorageGlobal.sourceFile = oldSourceFile;
+    Filter.knownFilters = oldFiltersKnown;
+    FilterStorageGlobal.observers = oldObservers;
+    FilterStorage.__defineGetter__("sourceFile", oldSourceFile);
 
-    FilterStorage.triggerSubscriptionObservers("reload", FilterStorage.subscriptions);
+    FilterStorage.triggerObservers("load");
   }, false);
+
+  try
+  {
+    // Disable timeline functions, they slow down tests otherwise
+    Cu.import(baseURL.spec + "TimeLine.jsm");
+
+    let oldTimelineLog = TimeLine.log;
+    let oldTimelineEnter = TimeLine.enter;
+    let oldTimelineLeave = TimeLine.leave;
+
+    TimeLine.log = function(){};
+    TimeLine.enter = function(){};
+    TimeLine.leave = function(){};
+
+    window.addEventListener("unload", function()
+    {
+      TimeLine.log = oldTimelineLog;
+      TimeLine.enter = oldTimelineEnter;
+      TimeLine.leave = oldTimelineLeave;
+    }, false);
+  }
+  catch(e)
+  {
+    // TimeLine module might not be present, catch exceptions
+    alert(e);
+  }
 }
 
 function preparePrefs()
@@ -66,10 +88,13 @@ function preparePrefs()
   Cu.import(baseURL.spec + "Prefs.jsm");
 
   let backup = {__proto__: null};
+  let getters = {__proto__: null}
   for (let pref in Prefs)
   {
     if (Prefs.__lookupSetter__(pref))
       backup[pref] = Prefs[pref];
+    else if (Prefs.__lookupGetter__(pref))
+      getters[pref] = Prefs.__lookupGetter__(pref);
   }
   Prefs.enabled = true;
 
@@ -77,6 +102,8 @@ function preparePrefs()
   {
     for (let pref in backup)
       Prefs[pref] = backup[pref];
+    for (let pref in getters)
+      Prefs.__defineGetter__(pref, getters[pref]);
   }, false);
 }
 

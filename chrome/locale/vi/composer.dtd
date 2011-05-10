@@ -16,6 +16,7 @@
 <!ENTITY pattern.explanation "Mẫu có thể là bất kì phần nào của địa chỉ, biểu tượng * được dùng như một mặt nạ. Bộ lọc sẽ chỉ được áp dụng cho những địa chỉ phù hợp với mẫu.">
 <!ENTITY regexp.warning "Mẫu bạn gõ vào sẽ được xem là biểu thức quy tắc. Nhiều biểu thức quy tắc có thể làm chậm việc duyệt web của bạn. Nếu bạn không định dùng biểu thức quy tắc, hãy thêm một biểu tượng * ở cuối mẫu.">
 <!ENTITY shortpattern.warning "Mẫu bạn gõ vào quá ngắn để tối ưu hóa, nhiều mẫu như vậy có thể làm chậm việc duyệt web của bạn. Lời khuyên là bạn hãy chọn một chuỗi dài hơn cho bộ lọc này.">
+<!ENTITY match.warning "Mẫu mà bạn điền vào không còn khớp với địa chỉ cần được chặn/đưa vào danh sách trắng và sẽ không có ảnh hưởng đến nó.">
 <!ENTITY custom.pattern.label "Tùy biến:">
 <!ENTITY custom.pattern.accesskey "y">
 <!ENTITY anchors.label "Chỉ chấp nhận mẫu:">

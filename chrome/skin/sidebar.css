@@ -15,7 +15,7 @@
  *
  * The Initial Developer of the Original Code is
  * Wladimir Palant.
- * Portions created by the Initial Developer are Copyright (C) 2006-2010
+ * Portions created by the Initial Developer are Copyright (C) 2006-2011
  * the Initial Developer. All Rights Reserved.
  *
  * Contributor(s):
@@ -65,7 +65,18 @@ tooltip {
 }
 
 #size {
-  text-align: right;
+  text-align: end;
+}
+
+/*
+ * Force left-to-right everywhere where we are displaying addresses
+ */
+treechildren:-moz-locale-dir(rtl)::-moz-tree-cell(col-filter),
+treechildren:-moz-locale-dir(rtl)::-moz-tree-cell(col-address),
+treechildren:-moz-locale-dir(rtl)::-moz-tree-cell(col-size)
+{
+  direction: ltr;
+  text-align: end;
 }
 
 .disabledTextLabel

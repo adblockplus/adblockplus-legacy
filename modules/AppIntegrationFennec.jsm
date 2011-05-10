@@ -15,7 +15,7 @@
  *
  * The Initial Developer of the Original Code is
  * Fabrice Desré.
- * Portions created by the Initial Developer are Copyright (C) 2006-2010
+ * Portions created by the Initial Developer are Copyright (C) 2006-2011
  * the Initial Developer. All Rights Reserved.
  *
  * Contributor(s):
@@ -39,11 +39,130 @@ let baseURL = Cc["@adblockplus.org/abp/private;1"].getService(Ci.nsIURI);
 Cu.import(baseURL.spec + "Utils.jsm");
 Cu.import(baseURL.spec + "Prefs.jsm");
 Cu.import(baseURL.spec + "ContentPolicy.jsm");
+Cu.import(baseURL.spec + "ElemHide.jsm");
 Cu.import(baseURL.spec + "FilterStorage.jsm");
 Cu.import(baseURL.spec + "FilterClasses.jsm");
 Cu.import(baseURL.spec + "SubscriptionClasses.jsm");
 Cu.import(baseURL.spec + "Synchronizer.jsm");
 Utils.runAsync(Cu.import, Cu, baseURL.spec + "AppIntegration.jsm"); // delay to avoid circular imports
+
+let PolicyPrivate = Cu.import(baseURL.spec + "ContentPolicy.jsm", null).PolicyPrivate;
+
+/**
+ * Fake DOM window class, useful when information received from a remote process
+ * needs to be passed on to the content policy.
+ * @constructor
+ */
+function FakeWindow(/**String*/ location, /**FakeNode*/ document, /**FakeWindow*/ top)
+{
+  this._location = location;
+  this._top = top;
+  this.document = document;
+}
+FakeWindow.prototype =
+{
+  get location() this,
+  get href() this._location,
+  get top() this._top || this
+}
+
+/**
+ * Fake DOM node class, useful when information received from a remote process
+ * needs to be passed on to the content policy.
+ * @constructor
+ */
+function FakeNode(/**String*/ wndLocation, /**String*/ topLocation)
+{
+  let topWnd = new FakeWindow(topLocation, this, null);
+  this.defaultView = new FakeWindow(wndLocation, this, topWnd);
+}
+FakeNode.prototype =
+{
+  get ownerDocument() this,
+  getUserData: function() {return null},
+  setUserData: function() {}
+}
+
+let needPostProcess = false;
+
+/**
+ * Function temporarily replacing Utils.schedulePostProcess() function, will set
+ * needPostProcess variable instead of actually scheduling post-processing (for
+ * the case that post-processing has to be done in a remote process).
+ */
+function postProcessReplacement(node)
+{
+  needPostProcess = true;
+}
+
+try
+{
+  Utils.parentMessageManager.addMessageListener("AdblockPlus:Policy:shouldLoad", function(message)
+  {
+    // Replace Utils.schedulePostProcess() to learn whether our node is scheduled for post-processing
+    let oldPostProcess = Utils.schedulePostProcess;
+    needPostProcess = false;
+    Utils.schedulePostProcess = postProcessReplacement;
+
+    try
+    {
+      let data = message.json;
+      let fakeNode = new FakeNode(data.wndLocation, data.topLocation);
+      let result = PolicyPrivate.shouldLoad(data.contentType, data.contentLocation, null, fakeNode);
+      return {value: result, postProcess: needPostProcess};
+    }
+    catch (e)
+    {
+      Cu.reportError(e);
+    }
+    finally
+    {
+      Utils.schedulePostProcess = oldPostProcess;
+    }
+  });
+
+  Utils.parentMessageManager.addMessageListener("AdblockPlus:ElemHide:styleURL", function(message)
+  {
+    return ElemHide.styleURL;
+  });
+
+  Utils.parentMessageManager.addMessageListener("AdblockPlus:ElemHide:checkHit", function(message)
+  {
+    try
+    {
+      let data = message.json;
+      let filter = ElemHide.getFilterByKey(data.key);
+      if (!filter)
+        return false;
+
+      let fakeNode = new FakeNode(data.wndLocation, data.topLocation);
+      return !Policy.processNode(fakeNode.defaultView, fakeNode, Policy.type.ELEMHIDE, filter);
+    }
+    catch (e)
+    {
+      Cu.reportError(e);
+    }
+
+    return ElemHide.styleURL;
+  });
+
+  // Trigger update in child processes if elemhide stylesheet or matcher data change
+  FilterStorage.addObserver(function(action)
+  {
+    if (action == "elemhideupdate")
+      Utils.parentMessageManager.sendAsyncMessage("AdblockPlus:ElemHide:updateStyleURL", ElemHide.styleURL);
+    else if (/^(filters|subscriptions) (add|remove|enable|disable|update)$/.test(action))
+      Utils.parentMessageManager.sendAsyncMessage("AdblockPlus:Matcher:clearCache");
+  });
+
+  // Trigger update in child processes if enable or fastcollapse preferences change
+  Prefs.addListener(function(name)
+  {
+    if (name == "enabled" || name == "fastcollapse")
+      Utils.parentMessageManager.sendAsyncMessage("AdblockPlus:Matcher:clearCache");
+  });
+} catch(e) {}   // Ignore errors if we are not running in a multi-process setup
+
 
 /**
  * Fennec-specific app integration functions.
@@ -53,6 +172,25 @@ var AppIntegrationFennec =
 {
   initWindow: function(wrapper)
   {
+    if ("messageManager" in wrapper.window)
+    {
+      // Multi-process setup - we need to inject our content script into all tabs
+      let browsers = wrapper.window.Browser.browsers;
+      for (let i = 0; i < browsers.length; i++)
+        browsers[i].messageManager.loadFrameScript("chrome://adblockplus/content/fennecContent.js", true);
+      wrapper.E("tabs").addEventListener("TabOpen", function(event)
+      {
+        let tab = wrapper.window.Browser.getTabFromChrome(event.originalTarget);
+        tab.browser.messageManager.loadFrameScript("chrome://adblockplus/content/fennecContent.js", true);
+      }, false);
+
+      // Get notified about abp: link clicks for this window
+      wrapper.window.messageManager.addMessageListener("AdblockPlus:LinkClick", function(message)
+      {
+        wrapper.handleLinkClick(null, message.json);
+      });
+    }
+
     if (typeof wrapper.window.IdentityHandler == "function" && typeof wrapper.window.IdentityHandler.prototype.show == "function")
     {
       // HACK: Hook IdentityHandler.show() to init our UI
@@ -137,13 +275,17 @@ function onCreateOptions(wrapper, event)
       setSubscription(menu.value, menu.label);
   }, false);
 
-  let updateFunction = function() updateSubscriptionList(wrapper);
-  updateFunction();
-  FilterStorage.addSubscriptionObserver(updateFunction);
+  let updateFunction = function(action, items)
+  {
+    if (/^subscriptions\b/.test(action))
+      updateSubscriptionList(wrapper);
+  }
+  updateFunction("subscriptions");
+  FilterStorage.addObserver(updateFunction);
 
   wrapper.window.addEventListener("unload", function()
   {
-    FilterStorage.removeSubscriptionObserver(updateFunction);
+    FilterStorage.removeObserver(updateFunction);
   }, false);
 }
 
@@ -202,13 +344,7 @@ function setSubscription(url, title)
 
 function updateFennecStatusUI(wrapper)
 {
-  let siteInfo1 = wrapper.E("abp-site-info1");
-  let siteInfo2 = wrapper.E("abp-site-info2");
-  if (siteInfo1 && siteInfo2)
-    siteInfo2.parentNode.removeChild(siteInfo2);
-
-  let siteInfo = siteInfo1 || siteInfo2;
-
+  let siteInfo = wrapper.E("abp-site-info");
   siteInfo.addEventListener("click", toggleFennecWhitelist, false);
 
   let status = "disabled";
@@ -235,10 +371,7 @@ function updateFennecStatusUI(wrapper)
   if (host)
     statusText = statusText.replace(/\?1\?/g, host);
 
-  if (siteInfo == siteInfo1)
-    siteInfo.setAttribute("title", statusText);
-  else
-    wrapper.E("abp-status-text").textContent = statusText;
+  siteInfo.setAttribute("title", statusText);
   siteInfo.setAttribute("abpstate", status);
 }
 

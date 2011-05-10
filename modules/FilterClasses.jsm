@@ -15,7 +15,7 @@
  *
  * The Initial Developer of the Original Code is
  * Wladimir Palant.
- * Portions created by the Initial Developer are Copyright (C) 2006-2010
+ * Portions created by the Initial Developer are Copyright (C) 2006-2011
  * the Initial Developer. All Rights Reserved.
  *
  * Contributor(s):
@@ -109,11 +109,11 @@ Filter.optionsRegExp = /\$(~?[\w\-]+(?:=[^,\s]+)?(?:,~?[\w\-]+(?:=[^,\s]+)?)*)$/
  */
 Filter.fromText = function(text)
 {
-  if (!/\S/.test(text))
-    return null;
-
   if (text in Filter.knownFilters)
     return Filter.knownFilters[text];
+
+  if (!/\S/.test(text))
+    return null;
 
   let ret;
   if (Filter.elemhideRegExp.test(text))
@@ -460,11 +460,6 @@ RegExpFilter.prototype =
    */
   regexp: null,
   /**
-   * 8 character string identifying this filter for faster matching
-   * @type String
-   */
-  shortcut: null,
-  /**
    * Content types the filter applies to, combination of values from RegExpFilter.typeMap
    * @type Number
    */
@@ -503,7 +498,7 @@ RegExpFilter.prototype =
                    .replace(/\\\*/g, ".*")      // replace wildcards by .*
                    // process separator placeholders (all ANSI charaters but alphanumeric characters and _%.-)
                    .replace(/\\\^/g, "(?:[\\x00-\\x24\\x26-\\x2C\\x2F\\x3A-\\x40\\x5B-\\x5E\\x60\\x7B-\\x80]|$)")
-                   .replace(/^\\\|\\\|/, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?") // process extended anchor at expression start
+                   .replace(/^\\\|\\\|/, "^[\\w\\-]+:\\/+(?!\\/)(?:[^.\\/]+\\.)*?") // process extended anchor at expression start
                    .replace(/^\\\|/, "^")       // process anchor at expression start
                    .replace(/\\\|$/, "$");      // process anchor at expression end
 
@@ -515,19 +510,24 @@ RegExpFilter.prototype =
   },
 
   /**
-   * Tests whether the URL matches this filters
+   * Tests whether the URL matches this filter
    * @param {String} location URL to be tested
    * @param {String} contentType content type identifier of the URL
    * @param {String} docDomain domain name of the document that loads the URL
    * @param {Boolean} thirdParty should be true if the URL is a third-party request
-   * @return {Boolean}
+   * @return {Boolean} true in case of a match
    */
   matches: function(location, contentType, docDomain, thirdParty)
   {
-    return (this.regexp.test(location) &&
-            (RegExpFilter.typeMap[contentType] & this.contentType) != 0 &&
-            (this.thirdParty == null || this.thirdParty == thirdParty) &&
-            this.isActiveOnDomain(docDomain));
+    if (this.regexp.test(location) &&
+        (RegExpFilter.typeMap[contentType] & this.contentType) != 0 &&
+        (this.thirdParty == null || this.thirdParty == thirdParty) &&
+        this.isActiveOnDomain(docDomain))
+    {
+      return true;
+    }
+
+    return false;
   }
 };
 
@@ -627,11 +627,12 @@ RegExpFilter.typeMap = {
 
   BACKGROUND: 4,    // Backwards compat, same as IMAGE
 
+  DONOTTRACK: 0x20000000,
   ELEMHIDE: 0x40000000
 };
 
-// ELEMHIDE option shouldn't be there by default
-RegExpFilter.prototype.contentType &= ~RegExpFilter.typeMap.ELEMHIDE;
+// ELEMHIDE and DONOTTRACK option shouldn't be there by default
+RegExpFilter.prototype.contentType &= ~(RegExpFilter.typeMap.ELEMHIDE | RegExpFilter.typeMap.DONOTTRACK);
 
 /**
  * Class for blocking filters
@@ -716,13 +717,7 @@ ElemHideFilter.prototype =
    * CSS selector for the HTML elements that should be hidden
    * @type String
    */
-  selector: null,
-
-  /**
-   * Random key associated with the filter - used to register hits from element hiding filters
-   * @type String
-   */
-  key: null
+  selector: null
 };
 
 /**

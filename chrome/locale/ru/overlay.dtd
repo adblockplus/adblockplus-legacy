@@ -24,8 +24,10 @@
 <!ENTITY opensidebar.accesskey  "п">
 <!ENTITY closesidebar.label     "Закрыть список элементов">
 <!ENTITY closesidebar.accesskey "п">
-<!ENTITY whitelist.site.label   "Отключить: на ?1?">
-<!ENTITY whitelist.page.label   "Отключить: только на этой странице">
+<!ENTITY whitelist.site.label   "Отключить на ?1?">
+<!ENTITY whitelist.page.label   "Отключить только на этой странице">
+<!ENTITY disable.label          "Отключить везде">
+<!ENTITY recommend.label        "Порекомендуйте нас на Facebook">
 
 <!ENTITY objecttab.title        "Блокировать">
 <!ENTITY objecttab.tooltip      "Нажмите здесь, чтобы Adblock Plus заблокировал этот объект">

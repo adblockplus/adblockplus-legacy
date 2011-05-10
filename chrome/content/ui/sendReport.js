@@ -15,7 +15,7 @@
  *
  * The Initial Developer of the Original Code is
  * Wladimir Palant.
- * Portions created by the Initial Developer are Copyright (C) 2006-2010
+ * Portions created by the Initial Developer are Copyright (C) 2006-2011
  * the Initial Developer. All Rights Reserved.
  *
  * Contributor(s):
@@ -53,7 +53,7 @@ let reportsListDataSource =
   json: Cc["@mozilla.org/dom/json;1"].createInstance(Ci.nsIJSON),
   list: [],
 
-  collectData: function(wnd, callback)
+  collectData: function(wnd, windowURI, callback)
   {
     let data = null;
     try
@@ -151,7 +151,7 @@ let requestsDataSource =
   requestNotifier: null,
   callback: null,
 
-  collectData: function(wnd, callback)
+  collectData: function(wnd, windowURI, callback)
   {
     this.callback = callback;
     this.requestNotifier = new RequestNotifier(wnd, this.onRequestFound, this);
@@ -200,7 +200,7 @@ let filtersDataSource =
 {
   origFilters: [],
 
-  collectData: function(wnd, callback)
+  collectData: function(wnd, windowURI, callback)
   {
     let wndStats = RequestNotifier.getWindowStatistics(wnd);
     if (wndStats)
@@ -210,7 +210,7 @@ let filtersDataSource =
       {
         let filter = Filter.fromText(f)
         let hitCount = wndStats.filters[f];
-        filters.appendChild(<filter text={filter.text} subscriptions={filter.subscriptions.map(function(s) s.url).join(" ")} hitCount={hitCount}/>);
+        filters.appendChild(<filter text={filter.text} subscriptions={filter.subscriptions.filter(function(s) !s.disabled).map(function(s) s.url).join(" ")} hitCount={hitCount}/>);
         this.origFilters.push(filter);
       }
     }
@@ -220,7 +220,7 @@ let filtersDataSource =
 
 let subscriptionsDataSource =
 {
-  collectData: function(wnd, callback)
+  collectData: function(wnd, windowURI, callback)
   {
     let subscriptions = reportData.subscriptions;
     let now = Math.round(Date.now() / 1000);
@@ -269,7 +269,7 @@ let screenshotDataSource =
   _currentData: null,
   _undoQueue: [],
 
-  collectData: function(wnd, callback)
+  collectData: function(wnd, windowURI, callback)
   {
     this._callback = callback;
     this._canvas = E("screenshotCanvas");
@@ -497,11 +497,11 @@ let framesDataSource =
 {
   site: null,
 
-  collectData: function(wnd, callback)
+  collectData: function(wnd, windowURI, callback)
   {
     try
     {
-      this.site = wnd.location.hostname;
+      this.site = windowURI.host;
       if (this.site)
         document.title += " (" + this.site + ")";
     }
@@ -510,7 +510,7 @@ let framesDataSource =
       // Expected exception - not all URL schemes have a host name
     }
 
-    reportData.window.@url = censorURL(wnd.location.href);
+    reportData.window.@url = censorURL(windowURI ? windowURI.spec : wnd.location.href);
     if (wnd.opener && wnd.opener.location.href)
       reportData.window.@opener = censorURL(wnd.opener.location.href);
     if (wnd.document.referrer)
@@ -542,7 +542,7 @@ let framesDataSource =
 
 let errorsDataSource =
 {
-  collectData: function(wnd, callback)
+  collectData: function(wnd, windowURI, callback)
   {
     let messages = {};
     Cc["@mozilla.org/consoleservice;1"].getService(Ci.nsIConsoleService).getMessageArray(messages, {});
@@ -605,7 +605,7 @@ let extensionsDataSource =
 {
   data: <extensions/>,
 
-  collectData: function(wnd, callback)
+  collectData: function(wnd, windowURI, callback)
   {
     let AddonManager = null;
     try
@@ -679,10 +679,10 @@ let issuesDataSource =
   disabledFilters: [],
   disabledSubscriptions: [],
   ownFilters: [],
-  numSubscriptions: FilterStorage.subscriptions.filter(function(subscription) subscription instanceof DownloadableSubscription).length,
+  numSubscriptions: FilterStorage.subscriptions.filter(function(subscription) subscription instanceof DownloadableSubscription && !subscription.disabled).length,
   numAppliedFilters: Infinity,
 
-  collectData: function(wnd, callback)
+  collectData: function(wnd, windowURI, callback)
   {
     this.contentWnd = wnd;
     this.whitelistFilter = Policy.isWindowWhitelisted(wnd);
@@ -769,6 +769,7 @@ let issuesDataSource =
     E("issuesDisabledBox").hidden = this.isEnabled;
     E("issuesNoFiltersBox").hidden = (type != "false positive" || this.numAppliedFilters > 0);
     E("issuesNoSubscriptionsBox").hidden = (type != "false negative" || this.numAppliedFilters > 0 || this.numSubscriptions > 0);
+    E("issuesSubscriptionCountBox").hidden = (this.numSubscriptions < 5);
 
     let ownFiltersBox = E("issuesOwnFilters");
     if (this.ownFilters.length && !ownFiltersBox.firstChild)
@@ -827,12 +828,13 @@ let issuesDataSource =
     E("issuesOverride").hidden = !E("issuesWhitelistBox").hidden ||
                                  !E("issuesDisabledBox").hidden ||
                                  !E("issuesNoFiltersBox").hidden ||
-                                 !E("issuesNoSubscriptionsBox").hidden;
+                                 !E("issuesNoSubscriptionsBox").hidden ||
+                                 !E("issuesSubscriptionCountBox").hidden;
 
     if (E("issuesWhitelistBox").hidden && E("issuesDisabledBox").hidden &&
         E("issuesNoFiltersBox").hidden && E("issuesNoSubscriptionsBox").hidden &&
         E("issuesOwnFiltersBox").hidden && E("issuesDisabledFiltersBox").hidden &&
-        E("issuesDisabledSubscriptionsBox").hidden)
+        E("issuesDisabledSubscriptionsBox").hidden && E("issuesSubscriptionCountBox").hidden)
     {
       E("typeSelectorPage").next = "screenshot";
     }
@@ -869,7 +871,7 @@ let issuesDataSource =
     if (this.whitelistFilter && this.whitelistFilter.subscriptions.length && !this.whitelistFilter.disabled)
     {
       this.whitelistFilter.disabled = true;
-      FilterStorage.triggerFilterObservers("disable", [this.whitelistFilter]);
+      FilterStorage.triggerObservers("filters disable", [this.whitelistFilter]);
     }
     E("issuesWhitelistBox").hidden = true;
     this.forceReload();
@@ -904,13 +906,13 @@ let issuesDataSource =
       if (subscription.disabled)
       {
         subscription.disabled = false;
-        FilterStorage.triggerSubscriptionObservers("enable", [subscription]);
+        FilterStorage.triggerObservers("subscriptions enable", [subscription]);
       }
 
       subscription.title = title;
       if (subscription instanceof DownloadableSubscription)
         subscription.autoDownload = result.autoDownload;
-      FilterStorage.triggerSubscriptionObservers("updateinfo", [subscription]);
+      FilterStorage.triggerObservers("subscriptions updateinfo", [subscription]);
     
       if (subscription instanceof DownloadableSubscription && !subscription.lastDownload)
         Synchronizer.execute(subscription);
@@ -927,7 +929,7 @@ let issuesDataSource =
     if (filter && filter.subscriptions.length && !filter.disabled)
     {
       filter.disabled = true;
-      FilterStorage.triggerFilterObservers("disable", [filter]);
+      FilterStorage.triggerObservers("filters disable", [filter]);
     }
 
     node.parentNode.removeChild(node);
@@ -942,7 +944,7 @@ let issuesDataSource =
     if (filter && filter.subscriptions.length && filter.disabled)
     {
       filter.disabled = false;
-      FilterStorage.triggerFilterObservers("enable", [filter]);
+      FilterStorage.triggerObservers("filters enable", [filter]);
     }
 
     node.parentNode.removeChild(node);
@@ -958,7 +960,7 @@ let issuesDataSource =
     if (subscription && subscription.disabled)
     {
       subscription.disabled = false;
-      FilterStorage.triggerSubscriptionObservers("enable", [subscription]);
+      FilterStorage.triggerObservers("subscriptions enable", [subscription]);
     }
 
     node.parentNode.removeChild(node);
@@ -1020,6 +1022,7 @@ function initDataCollectorPage()
   document.documentElement.canAdvance = false;
 
   let contentWindow = window.arguments[0];
+  let windowURI = window.arguments[1];
   let totalSteps = dataCollectors.length;
   let initNextDataSource = function()
   {
@@ -1043,7 +1046,7 @@ function initDataCollectorPage()
     let dataSource = dataCollectors.shift();
     Utils.runAsync(function()
     {
-      dataSource.collectData(contentWindow, initNextDataSource);
+      dataSource.collectData(contentWindow, windowURI, initNextDataSource);
     });
   };
 
@@ -1261,6 +1264,7 @@ function reportSent(event)
 
   result = result.replace(/%CONFIRMATION%/g, encodeHTML(E("result").getAttribute("confirmationMessage")));
   result = result.replace(/%KNOWNISSUE%/g, encodeHTML(E("result").getAttribute("knownIssueMessage")));
+  result = result.replace(/(<html)\b/, '$1 dir="' + window.getComputedStyle(document.documentElement, "").direction + '"');
 
   if (!success)
   {

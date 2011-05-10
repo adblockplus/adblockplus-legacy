@@ -59,6 +59,9 @@
 <!ENTITY objecttabs.accesskey       "я">
 <!ENTITY collapse.label             "Сворачивать заблокированные элементы">
 <!ENTITY collapse.accesskey         "в">
+<!ENTITY sync.label                 "Синхронизировать настройки Adblock Plus">
+<!ENTITY sync.accesskey             "х">
+
 <!ENTITY help.label                 "Справка">
 <!ENTITY help.accesskey             "С">
 

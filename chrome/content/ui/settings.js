@@ -15,7 +15,7 @@
  *
  * The Initial Developer of the Original Code is
  * Wladimir Palant.
- * Portions created by the Initial Developer are Copyright (C) 2006-2010
+ * Portions created by the Initial Developer are Copyright (C) 2006-2011
  * the Initial Developer. All Rights Reserved.
  *
  * Contributor(s):
@@ -34,17 +34,6 @@ try {
   else if (accelKey == Ci.nsIDOMKeyEvent.DOM_VK_ALT)
     accelMask = altMask;
 } catch(e) {}
-
-/**
- * Location to be pre-set after initialization, as passed to setLocation().
- * @type String
- */
-let initWithLocation = null;
-/**
- * Filter to be selected after initialization, as passed to selectFilter().
- * @type Filter
- */
-let initWithFilter = null;
 
 /**
  * Initialization function, called when the window is loaded.
@@ -106,9 +95,8 @@ function init()
     viewContext.appendChild(viewMenu.firstChild);
   }
 
-  // Install listeners
-  FilterStorage.addFilterObserver(onFilterChange);
-  FilterStorage.addSubscriptionObserver(onSubscriptionChange);
+  // Install listener
+  FilterStorage.addObserver(onFilterStorageChange);
 
   // Capture keypress events - need to get them before the tree does
   E("listStack").addEventListener("keypress", onListKeyPress, true);
@@ -131,29 +119,15 @@ function init()
   // Set the focus to the input field by default
   E("list").focus();
 
-  // Fire post-load handlers
-  let e = document.createEvent("Events");
-  e.initEvent("post-load", false, false);
-  window.dispatchEvent(e);
-
   // Execute these actions delayed to work around bug 489881
-  setTimeout(function()
+  Utils.runAsync(function()
   {
-    if (initWithLocation)
-    {
-      treeView.editorDummyInit = initWithLocation;
-      treeView.selectRow(0);
-      if (!initWithFilter)
-        treeView.startEditor(true);
-    }
-    if (initWithFilter)
-    {
-      treeView.selectFilter(getFilterByText(initWithFilter.text));
-      E("list").focus();
-    }
-    if (!initWithLocation && !initWithFilter)
-      treeView.ensureSelection(0);
-  }, 0);
+    treeView.ensureSelection(0);
+
+    let e = document.createEvent("Events");
+    e.initEvent("post-load", false, false);
+    window.dispatchEvent(e);
+  });
 }
 
 /**
@@ -164,7 +138,7 @@ function init()
  */
 function setLocation(location)
 {
-  initWithLocation = location;
+  treeView.editorDummyInit = location;
 }
 
 /**
@@ -176,7 +150,8 @@ function setLocation(location)
  */
 function selectFilter(filter)
 {
-  initWithFilter = filter;
+  treeView.selectFilter(getFilterByText(filter.text));
+  E("list").focus();
 }
 
 /**
@@ -184,8 +159,7 @@ function selectFilter(filter)
  */
 function cleanUp()
 {
-  FilterStorage.removeFilterObserver(onFilterChange);
-  FilterStorage.removeSubscriptionObserver(onSubscriptionChange);
+  FilterStorage.removeObserver(onFilterStorageChange);
 }
 
 /**
@@ -277,15 +251,6 @@ function createFilterWrapper(filter)
 }
 
 /**
- * Makes sure shortcut is initialized for the filter.
- */
-function ensureFilterShortcut(/**Filter*/ filter)
-{
-  if (filter instanceof RegExpFilter && !filter.shortcut)
-    filter.shortcut = defaultMatcher.findShortcut(filter.text);
-}
-
-/**
  * Retrieves a filter by its text (might be a filter wrapper).
  *
  * @param {String} text text representation of the filter
@@ -296,11 +261,7 @@ function getFilterByText(text)
   if (text in filterWrappers)
     return filterWrappers[text];
   else
-  {
-    let result = Filter.fromText(text);
-    ensureFilterShortcut(result);
-    return result;
-  }
+    return Filter.fromText(text);
 }
 
 /**
@@ -557,7 +518,9 @@ function exportList()
           let filterVersion;
           if (filter instanceof RegExpFilter)
           {
-            if (filter.contentType & RegExpFilter.typeMap.ELEMHIDE)
+            if (filter.contentType & RegExpFilter.typeMap.DONOTTRACK)
+              filterVersion = "1.3.5";
+            else if (filter.contentType & RegExpFilter.typeMap.ELEMHIDE)
               filterVersion = "1.2";
             else if (/^(?:@@)?\|\|/.test(filter.text) || (!Filter.regexpRegExp.test(filter.text) && /\^/.test(filter.text)))
               filterVersion = "1.1";
@@ -727,8 +690,19 @@ function onListDragEnd(/**Event*/ e)
 }
 
 /**
- * Filter observer
- * @see FilterStorage.addFilterObserver()
+ * Observer for filter storage changes, calls onFilterChange or onSubscriptionChange
+ * @see FilterStorage.addObserver()
+ */
+function onFilterStorageChange(/**String*/ action, /**Array*/ items, additionalData)
+{
+  if (/^filters (.*)/.test(action))
+    onFilterChange(RegExp.$1, items, additionalData);
+  else if (/^subscriptions (.*)/.test(action))
+    onSubscriptionChange(RegExp.$1, items, additionalData);
+}
+
+/**
+ * Filter change observer
  */
 function onFilterChange(/**String*/ action, /**Array of Filter*/ filters, additionalData)
 {
@@ -783,17 +757,10 @@ function onFilterChange(/**String*/ action, /**Array of Filter*/ filters, additi
 }
 
 /**
- * Subscription observer
- * @see FilterStorage.addSubscriptionObserver()
+ * Subscription change observer
  */
 function onSubscriptionChange(/**String*/ action, /**Array of Subscription*/ subscriptions)
 {
-  if (action == "reload")
-  {
-    // TODO: reinit?
-    return;
-  }
-
   for each (let subscription in subscriptions)
   {
     subscription = getSubscriptionByURL(subscription.url);
@@ -1329,8 +1296,8 @@ function compareText(/**Filter*/ filter1, /**Filter*/ filter2)
  */
 function compareSlow(/**Filter*/ filter1, /**Filter*/ filter2)
 {
-  let isSlow1 = (filter1 instanceof RegExpFilter && !filter1.disabled && !filter1.shortcut ? 1 : 0);
-  let isSlow2 = (filter2 instanceof RegExpFilter && !filter2.disabled && !filter2.shortcut ? 1 : 0);
+  let isSlow1 = filter1 instanceof RegExpFilter && defaultMatcher.isSlowFilter(filter1);
+  let isSlow2 = filter2 instanceof RegExpFilter && defaultMatcher.isSlowFilter(filter2);
   return isSlow1 - isSlow2;
 }
 
@@ -1532,7 +1499,7 @@ let treeView = {
       if (col == "col-filter")
         return filter.text;
       else if (col == "col-slow")
-        return (filter instanceof RegExpFilter && !filter.shortcut && !filter.disabled && !subscription.disabled ? "!" : null);
+        return (filter instanceof RegExpFilter && defaultMatcher.isSlowFilter(filter) ? "!" : null);
       else if (filter instanceof ActiveFilter)
       {
         if (col == "col-hitcount")
@@ -1568,7 +1535,7 @@ let treeView = {
     properties.AppendElement(this.atoms["selected-" + this.selection.isSelected(row)]);
     properties.AppendElement(this.atoms["subscription-" + !filter]);
     properties.AppendElement(this.atoms["filter-" + (filter instanceof Filter)]);
-    properties.AppendElement(this.atoms["filter-regexp-" + (filter instanceof RegExpFilter && !filter.shortcut)]);
+    properties.AppendElement(this.atoms["filter-regexp-" + (filter instanceof RegExpFilter && defaultMatcher.isSlowFilter(filter))]);
     properties.AppendElement(this.atoms["description-" + (typeof filter == "string")]);
     properties.AppendElement(this.atoms["subscription-special-" + (subscription instanceof SpecialSubscription)]);
     properties.AppendElement(this.atoms["subscription-external-" + (subscription instanceof ExternalSubscription)]);
@@ -2556,17 +2523,6 @@ let treeView = {
       if (typeof newValue == "undefined")
         newValue = !item.disabled;
 
-      if (!newValue)
-      {
-        if (item instanceof Subscription)
-        {
-          for each (let filter in item._sortedFilters)
-            ensureFilterShortcut(filter);
-        }
-        else
-          ensureFilterShortcut(item);
-      }
-
       item.disabled = newValue;
     }
 
@@ -2690,7 +2646,7 @@ let treeView = {
             if (filter.disabled != filter.__proto__.disabled)
             {
               filter.__proto__.disabled = filter.disabled;
-              FilterStorage.triggerFilterObservers(filter.disabled ? "disable" : "enable", [filter.__proto__]);
+              FilterStorage.triggerObservers(filter.disabled ? "filters disable" : "filters enable", [filter.__proto__]);
             }
             subscription.filters[i] = filter.__proto__;
             hadWrappers = true;
@@ -2717,9 +2673,9 @@ let treeView = {
           FilterStorage.updateSubscriptionFilters(subscription.__proto__, subscription.filters);
         else if (changed)
         {
-          FilterStorage.triggerSubscriptionObservers("updateinfo", [subscription.__proto__]);
+          FilterStorage.triggerObservers("subscriptions updateinfo", [subscription.__proto__]);
           if (disableChanged)
-            FilterStorage.triggerSubscriptionObservers(subscription.disabled ? "disable" : "enable", [subscription.__proto__]);
+            FilterStorage.triggerObservers(subscription.disabled ? "subscriptions disable" : "subscriptions enable", [subscription.__proto__]);
         }
 
         // Even if the filters didn't change, their ordering might have

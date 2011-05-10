@@ -25,6 +25,8 @@
 <!ENTITY issues.nofilters.description "Adblock Plus no està bloquejant res a la pàgina actual. El problema que notes és més probable que no estigui relacionat amb Adblock Plus.">
 <!ENTITY issues.nosubscriptions.description "No sembles estar subscrit a qualsevol de les llistes de filtres pre-fets que eliminen automàticament els continguts no desitjats de les pàgines web.">
 <!ENTITY issues.nosubscriptions.add.label "Afegeix filtre de subscripció">
+<!ENTITY issues.subscriptionCount.description "Sembla que estàs subscrit a massa subscripcions de filtres. Aquesta configuració no és recomanable perquè farà que la probabilitat de problemes augmenti. Tampoc podem acceptar el teu informe de problemes perquè no està clar que l'autor del filtre de subscripció hagi de prendre mesures. Si us plau, treu totes les subscripcions de filtre fins que quedin només les realment necessàries i comprova si el problema persisteix llavors.">
+<!ENTITY issues.openPreferences.label "Obre preferències de filtre">
 <!ENTITY issues.ownfilters.description "Alguns dels filtres aplicats en aquesta pàgina són definits per l'usuari/a. Si us plau, desactiva els filtres que podrien haver causat el problema:">
 <!ENTITY issues.ownfilters.disable.label "Desactiva filtre">
 <!ENTITY issues.disabledgroups.description "Els següents filtres/grups de filtres als quals estàs subscrits estan deshabilitats, tot i així podrien tenir algun efecte en aquesta pàgina:">

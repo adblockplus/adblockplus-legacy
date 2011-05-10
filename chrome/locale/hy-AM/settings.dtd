@@ -51,6 +51,8 @@
 <!ENTITY objecttabs.accesskey "կ">
 <!ENTITY collapse.label "Թաքցնել արգելված տարրերը">
 <!ENTITY collapse.accesskey "ք">
+<!ENTITY sync.label "Սինքրոնացնել Adblock Plus-ի նախընտրանքները">
+<!ENTITY sync.accesskey "Ս">
 <!ENTITY help.label "Օգնություն">
 <!ENTITY help.accesskey "Օ">
 <!ENTITY gettingStarted.label "Սկսել">
@@ -62,24 +64,9 @@
 <!ENTITY about.label "«Adblock Plus»ի մասին">
 <!ENTITY about.accesskey "ի">
 <!ENTITY description "
-
-
-
-
-
-
 		Ավելացրեք հասցեն, որը ուզում եք ֆիլտրել:
-
-
-
 		Ընդհանուր ազդեցության ֆիլտրերի համար կարելի է օգտագործել * ցանկացած սիմվոլների հաջորդականության փոխարեն: 
-
-
-
 		Փորձառու օգտագործողները կարող են օգտագործել ռեգուլյար արտահայտություններ օրինակ. /banner\d+\.gif$/:
-
-
-
 ">
 <!ENTITY filter.column "Ֆիլտր">
 <!ENTITY filter.accesskey "լ">

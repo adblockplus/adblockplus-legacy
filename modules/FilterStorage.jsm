@@ -15,7 +15,7 @@
  *
  * The Initial Developer of the Original Code is
  * Wladimir Palant.
- * Portions created by the Initial Developer are Copyright (C) 2006-2010
+ * Portions created by the Initial Developer are Copyright (C) 2006-2011
  * the Initial Developer. All Rights Reserved.
  *
  * Contributor(s):
@@ -35,7 +35,6 @@ const Cu = Components.utils;
 
 let baseURL = Cc["@adblockplus.org/abp/private;1"].getService(Ci.nsIURI);
 
-Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 Cu.import(baseURL.spec + "Utils.jsm");
 Cu.import(baseURL.spec + "Prefs.jsm");
 Cu.import(baseURL.spec + "FilterClasses.jsm");
@@ -49,22 +48,10 @@ Cu.import(baseURL.spec + "TimeLine.jsm");
 const formatVersion = 3;
 
 /**
- * File that the filter list has been loaded from and should be saved to
- * @type nsIFile
+ * List of observers for filter and subscription changes (addition, deletion)
+ * @type Array of function(String, Array)
  */
-let sourceFile = null;
-
-/**
- * List of observers for subscription changes (addition, deletion)
- * @type Array of function(String, Array of Subscription)
- */
-let subscriptionObservers = [];
-
-/**
- * List of observers for filter changes (addition, deletion)
- * @type Array of function(String, Array of Filter)
- */
-let filterObservers = [];
+let observers = [];
 
 /**
  * This class reads user's filters from disk, manages them in memory and writes them back.
@@ -72,6 +59,43 @@ let filterObservers = [];
  */
 var FilterStorage =
 {
+  /**
+   * File that the filter list has been loaded from and should be saved to
+   * @type nsIFile
+   */
+  get sourceFile()
+  {
+    let file = null;
+    if (Prefs.patternsfile)
+    {
+      // Override in place, use it instead of placing the file in the regular data dir
+      file = Utils.resolveFilePath(Prefs.patternsfile);
+    }
+    if (!file)
+    {
+      // Place the file in the data dir
+      file = Utils.resolveFilePath(Prefs.data_directory);
+      if (file)
+        file.append("patterns.ini");
+    }
+    if (!file)
+    {
+      // Data directory pref misconfigured? Try the default value
+      try
+      {
+        file = Utils.resolveFilePath(Prefs.defaultBranch.getCharPref("data_directory"));
+        if (file)
+          FilterStorage.sourceFile.append("patterns.ini");
+      } catch(e) {}
+    }
+
+    if (!file)
+      Cu.reportError("Adblock Plus: Failed to resolve filter file location from extensions.adblockplus.patternsfile preference");
+
+    this.__defineGetter__("sourceFile", function() file);
+    return this.sourceFile;
+  },
+
   /**
    * Map of properties listed in the filter storage file before the sections
    * start. Right now this should be only the format version.
@@ -91,94 +115,43 @@ var FilterStorage =
   knownSubscriptions: {__proto__: null},
 
   /**
-   * Called on module startup.
+   * Adds an observer for filter and subscription changes (addition, deletion)
+   * @param {function(String, Array)} observer
    */
-  startup: function()
+  addObserver: function(observer)
   {
-    TimeLine.enter("Entered FilterStorage.startup()");
-    FilterStorage.loadFromDisk();
-    Cc["@mozilla.org/observer-service;1"].getService(Ci.nsIObserverService)
-                                         .addObserver(FilterStoragePrivate, "browser:purge-session-history", true);
-    TimeLine.leave("FilterStorage.startup() done");
-  },
-
-  /**
-   * Called on module shutdown.
-   */
-  shutdown: function()
-  {
-    TimeLine.enter("Entered FilterStorage.shutdown()");
-    FilterStorage.saveToDisk();
-    TimeLine.leave("FilterStorage.shutdown() done");
-  },
-
-  /**
-   * Adds an observer for subscription changes (addition, deletion)
-   * @param {function(String, Array of Subscription)} observer
-   */
-  addSubscriptionObserver: function(observer)
-  {
-    if (subscriptionObservers.indexOf(observer) >= 0)
+    if (observers.indexOf(observer) >= 0)
       return;
 
-    subscriptionObservers.push(observer);
+    observers.push(observer);
   },
 
   /**
-   * Removes a subscription observer previosly added with addSubscriptionObserver
-   * @param {function(String, Array of Subscription)} observer
+   * Removes an observer previosly added with addObserver
+   * @param {function(String, Array)} observer
    */
-  removeSubscriptionObserver: function(observer)
+  removeObserver: function(observer)
   {
-    let index = subscriptionObservers.indexOf(observer);
+    let index = observers.indexOf(observer);
     if (index >= 0)
-      subscriptionObservers.splice(index, 1);
+      observers.splice(index, 1);
   },
 
   /**
-   * Calls subscription observers after a change
-   * @param {String} action change code ("add", "remove", "enable", "disable", "update", "updateinfo", "reload")
-   * @param {Array of Subscription} subscriptions subscriptions the change applies to
-   */
-  triggerSubscriptionObservers: function(action, subscriptions)
-  {
-    for each (let observer in subscriptionObservers)
-      observer(action, subscriptions);
-  },
-
-  /**
-   * Calls filter observers after a change
-   * @param {String} action change code ("add", "remove", "enable", "disable", "hit")
-   * @param {Array of Filter} filters the change applies to
+   * Calls observers after a change
+   * @param {String} action change code ("load", "save", "elemhideupdate",
+   *                 "subscriptions add", "subscriptions remove",
+   *                 "subscriptions enable", "subscriptions disable",
+   *                 "subscriptions update", "subscriptions updateinfo",
+   *                 "filters add", "filters remove", "enable",
+   *                 "filters disable", "filters hit")
+   * @param {Array} items items that the change applies to
    * @param additionalData optional additional data, depends on change code
    */
-  triggerFilterObservers: function(action, filters, additionalData)
+  triggerObservers: function(action, items, additionalData)
   {
-    for each (let observer in filterObservers)
-      observer(action, filters, additionalData);
-  },
-
-  /**
-   * Adds an observer for filter changes (addition, deletion)
-   * @param {function(String, Array of Filter)} observer
-   */
-  addFilterObserver: function(observer)
-  {
-    if (filterObservers.indexOf(observer) >= 0)
-      return;
-
-    filterObservers.push(observer);
-  },
-
-  /**
-   * Removes a filter observer previosly added with addFilterObserver
-   * @param {function(String, Array of Filter)} observer
-   */
-  removeFilterObserver: function(observer)
-  {
-    let index = filterObservers.indexOf(observer);
-    if (index >= 0)
-      filterObservers.splice(index, 1);
+    for each (let observer in observers)
+      observer(action, items, additionalData);
   },
 
   /**
@@ -196,7 +169,7 @@ var FilterStorage =
     addSubscriptionFilters(subscription);
 
     if (!silent)
-      FilterStorage.triggerSubscriptionObservers("add", [subscription]);
+      FilterStorage.triggerObservers("subscriptions add", [subscription]);
   },
 
   /**
@@ -215,7 +188,7 @@ var FilterStorage =
         FilterStorage.subscriptions.splice(i--, 1);
         delete FilterStorage.knownSubscriptions[subscription.url];
         if (!silent)
-          FilterStorage.triggerSubscriptionObservers("remove", [subscription]);
+          FilterStorage.triggerObservers("subscriptions remove", [subscription]);
         return;
       }
     }
@@ -232,14 +205,14 @@ var FilterStorage =
     subscription.oldFilters = subscription.filters;
     subscription.filters = filters;
     addSubscriptionFilters(subscription);
-    FilterStorage.triggerSubscriptionObservers("update", [subscription]);
+    FilterStorage.triggerObservers("subscriptions update", [subscription]);
     delete subscription.oldFilters;
 
     // Do not keep empty subscriptions disabled
     if (subscription instanceof SpecialSubscription && !subscription.filters.length && subscription.disabled)
     {
       subscription.disabled = false;
-      FilterStorage.triggerSubscriptionObservers("enable", [subscription]);
+      FilterStorage.triggerObservers("subscriptions enable", [subscription]);
     }
   },
 
@@ -280,7 +253,7 @@ var FilterStorage =
     else
       subscription.filters.push(filter);
     if (!silent)
-      FilterStorage.triggerFilterObservers("add", [filter], insertBefore);
+      FilterStorage.triggerObservers("filters add", [filter], insertBefore);
   },
 
   /**
@@ -302,14 +275,14 @@ var FilterStorage =
             filter.subscriptions.splice(i, 1);
             subscription.filters.splice(j, 1);
             if (!silent)
-              FilterStorage.triggerFilterObservers("remove", [filter]);
+              FilterStorage.triggerObservers("filters remove", [filter]);
 
             // Do not keep empty subscriptions disabled
             if (!subscription.filters.length && subscription.disabled)
             {
               subscription.disabled = false;
               if (!silent)
-                FilterStorage.triggerSubscriptionObservers("enable", [subscription]);
+                FilterStorage.triggerObservers("subscriptions enable", [subscription]);
             }
             return;
           }
@@ -329,7 +302,7 @@ var FilterStorage =
 
     filter.hitCount++;
     filter.lastHit = Date.now();
-    FilterStorage.triggerFilterObservers("hit", [filter]);
+    FilterStorage.triggerObservers("filters hit", [filter]);
   },
 
   /**
@@ -349,57 +322,18 @@ var FilterStorage =
       filter.hitCount = 0;
       filter.lastHit = 0;
     }
-    FilterStorage.triggerFilterObservers("hit", filters);
+    FilterStorage.triggerObservers("filters hit", filters);
   },
 
   /**
    * Loads all subscriptions from the disk
+   * @param {Boolean} silent  if true, no observers will be triggered (to be used when data is already initialized)
    */
-  loadFromDisk: function()
+  loadFromDisk: function(silent)
   {
     TimeLine.enter("Entered FilterStorage.loadFromDisk()");
 
-    FilterStorage.subscriptions = [];
-    FilterStorage.knownSubscriptions = {__proto__: null};
-
-    function getFileByPath(path)
-    {
-      if (!path)
-        return null;
-
-      try {
-        // Assume an absolute path first
-        let file = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsILocalFile);
-        file.initWithPath(path);
-        return file;
-      } catch (e) {}
-
-      try {
-        // Try relative path now
-        let profileDir = Utils.dirService.get("ProfD", Ci.nsIFile);
-        let file = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsILocalFile);
-        file.setRelativeDescriptor(profileDir, path);
-        return file;
-      } catch (e) {}
-
-      return null;
-    }
-
-    sourceFile = getFileByPath(Prefs.patternsfile);
-    if (!sourceFile)
-    {
-      try
-      {
-        sourceFile = getFileByPath(Prefs.getDefaultBranch.getCharPref("patternsfile"));
-      } catch(e) {}
-    }
-
-    if (!sourceFile)
-      dump("Adblock Plus: Failed to resolve filter file location from extensions.adblockplus.patternsfile preference\n");
-
-    TimeLine.log("done locating patterns.ini file");
-
-    let realSourceFile = sourceFile;
+    let realSourceFile = FilterStorage.sourceFile;
     if (!realSourceFile || !realSourceFile.exists())
     {
       // patterns.ini doesn't exist - but maybe we have a default one?
@@ -409,31 +343,59 @@ var FilterStorage =
         realSourceFile = patternsURL.file;
     }
 
-    let stream = null;
-    try
-    {
-      if (realSourceFile && realSourceFile.exists())
-      {
-        let fileStream = Cc["@mozilla.org/network/file-input-stream;1"].createInstance(Ci.nsIFileInputStream);
-        fileStream.init(realSourceFile, 0x01, 0444, 0);
-
-        stream = Cc["@mozilla.org/intl/converter-input-stream;1"].createInstance(Ci.nsIConverterInputStream);
-        stream.init(fileStream, "UTF-8", 16384, Ci.nsIConverterInputStream.DEFAULT_REPLACEMENT_CHARACTER);
-        stream = stream.QueryInterface(Ci.nsIUnicharLineInputStream);
-      }
-    }
-    catch (e)
-    {
-      dump("Adblock Plus: Failed to read filters from file " + realSourceFile.path + ": " + e + "\n");
-      stream = null;
-    }
-
     let userFilters = null;
-    if (stream)
+    let backup = 0;
+    while (true)
     {
-      userFilters = parseIniFile(stream);
+      FilterStorage.subscriptions = [];
+      FilterStorage.knownSubscriptions = {__proto__: null};
 
-      stream.close();
+      try
+      {
+        if (realSourceFile && realSourceFile.exists())
+        {
+          let fileStream = Cc["@mozilla.org/network/file-input-stream;1"].createInstance(Ci.nsIFileInputStream);
+          fileStream.init(realSourceFile, 0x01, 0444, 0);
+
+          let stream = Cc["@mozilla.org/intl/converter-input-stream;1"].createInstance(Ci.nsIConverterInputStream);
+          stream.init(fileStream, "UTF-8", 16384, 0);
+          stream = stream.QueryInterface(Ci.nsIUnicharLineInputStream);
+
+          userFilters = parseIniFile(stream);
+          stream.close();
+
+          if (!FilterStorage.subscriptions.length)
+          {
+            // No filter subscriptions in the file, this isn't right.
+            throw "No data in the file";
+          }
+        }
+
+        // We either successfully loaded filters or the source file doesn't exist
+        // (already past last backup?). Either way, we should exit the loop now.
+        break;
+      }
+      catch (e)
+      {
+        Cu.reportError("Adblock Plus: Failed to read filters from file " + realSourceFile.path);
+        Cu.reportError(e);
+      }
+
+      // We failed loading filters, let's try next backup file
+      realSourceFile = FilterStorage.sourceFile;
+      if (realSourceFile)
+      {
+        let part1 = realSourceFile.leafName;
+        let part2 = "";
+        if (/^(.*)(\.\w+)$/.test(part1))
+        {
+          part1 = RegExp.$1;
+          part2 = RegExp.$2;
+        }
+
+        realSourceFile = realSourceFile.clone();
+        realSourceFile.leafName = part1 + "-backup" + (++backup) + part2;
+      }
     }
 
     TimeLine.log("done parsing file");
@@ -460,7 +422,8 @@ var FilterStorage =
     }
 
     TimeLine.log("load complete, calling observers");
-    FilterStorage.triggerSubscriptionObservers("reload", FilterStorage.subscriptions);
+    if (!silent)
+      FilterStorage.triggerObservers("load");
     TimeLine.leave("FilterStorage.loadFromDisk() done");
   },
 
@@ -469,32 +432,34 @@ var FilterStorage =
    */
   saveToDisk: function()
   {
-    if (!sourceFile)
+    if (!FilterStorage.sourceFile)
       return;
 
     TimeLine.enter("Entered FilterStorage.saveToDisk()");
 
     try {
-      sourceFile.normalize();
+      FilterStorage.sourceFile.normalize();
     } catch (e) {}
 
     // Make sure the file's parent directory exists
     try {
-      sourceFile.parent.create(Ci.nsIFile.DIRECTORY_TYPE, 0755);
+      FilterStorage.sourceFile.parent.create(Ci.nsIFile.DIRECTORY_TYPE, 0755);
     } catch (e) {}
 
-    let tempFile = sourceFile.clone();
+    let tempFile = FilterStorage.sourceFile.clone();
     tempFile.leafName += "-temp";
-    let stream;
+    let fileStream, stream;
     try {
-      let fileStream = Cc["@mozilla.org/network/file-output-stream;1"].createInstance(Ci.nsIFileOutputStream);
+      fileStream = Cc["@mozilla.org/network/safe-file-output-stream;1"].createInstance(Ci.nsIFileOutputStream);
       fileStream.init(tempFile, 0x02 | 0x08 | 0x20, 0644, 0);
 
       stream = Cc["@mozilla.org/intl/converter-output-stream;1"].createInstance(Ci.nsIConverterOutputStream);
       stream.init(fileStream, "UTF-8", 16384, Ci.nsIConverterInputStream.DEFAULT_REPLACEMENT_CHARACTER);
     }
-    catch (e) {
-      dump("Adblock Plus: failed to create file " + tempFile.path + ": " + e + "\n");
+    catch (e)
+    {
+      Cu.reportError(e);
+      TimeLine.leave("FilterStorage.saveToDisk() done (error opening file)");
       return;
     }
 
@@ -505,20 +470,8 @@ var FilterStorage =
     let lineBreak = Utils.getLineBreak();
     function writeBuffer()
     {
-      try {
-        stream.writeString(buf.join(lineBreak) + lineBreak);
-        buf = [];
-        return true;
-      }
-      catch (e) {
-        stream.close();
-        dump("Adblock Plus: failed to write to file " + tempFile.path + ": " + e + "\n");
-        try {
-          tempFile.remove(false);
-        }
-        catch (e2) {}
-        return false;
-      }
+      stream.writeString(buf.join(lineBreak) + lineBreak);
+      buf.splice(0, buf.length);
     }
 
     let saved = {__proto__: null};
@@ -536,9 +489,8 @@ var FilterStorage =
         {
           filter.serialize(buf);
           saved[filter.text] = filter;
-
-          if (buf.length > maxBufLength && !writeBuffer())
-            return;
+          if (buf.length > maxBufLength)
+            writeBuffer();
         }
       }
     }
@@ -558,29 +510,28 @@ var FilterStorage =
         buf.push("", "[Subscription filters]")
         subscription.serializeFilters(buf);
       }
-
-      if (buf.length > maxBufLength && !writeBuffer())
-        return;
+      if (buf.length > maxBufLength)
+        writeBuffer();
     }
     TimeLine.log("saved subscription data");
 
-    try {
+    try
+    {
       stream.writeString(buf.join(lineBreak) + lineBreak);
-      stream.close();
+      stream.flush();
+      fileStream.QueryInterface(Ci.nsISafeOutputStream).finish();
     }
-    catch (e) {
-      dump("Adblock Plus: failed to close file " + tempFile.path + ": " + e + "\n");
-      try {
-        tempFile.remove(false);
-      }
-      catch (e2) {}
+    catch (e)
+    {
+      Cu.reportError(e);
+      TimeLine.leave("FilterStorage.saveToDisk() done (error closing file)");
       return;
     }
     TimeLine.log("finalized file write");
 
-    if (sourceFile.exists()) {
+    if (FilterStorage.sourceFile.exists()) {
       // Check whether we need to backup the file
-      let part1 = sourceFile.leafName;
+      let part1 = FilterStorage.sourceFile.leafName;
       let part2 = "";
       if (/^(.*)(\.\w+)$/.test(part1))
       {
@@ -591,7 +542,7 @@ var FilterStorage =
       let doBackup = (Prefs.patternsbackups > 0);
       if (doBackup)
       {
-        let lastBackup = sourceFile.clone();
+        let lastBackup = FilterStorage.sourceFile.clone();
         lastBackup.leafName = part1 + "-backup1" + part2;
         if (lastBackup.exists() && (Date.now() - lastBackup.lastModifiedTime) / 3600000 < Prefs.patternsbackupinterval)
           doBackup = false;
@@ -599,7 +550,7 @@ var FilterStorage =
 
       if (doBackup)
       {
-        let backupFile = sourceFile.clone();
+        let backupFile = FilterStorage.sourceFile.clone();
         backupFile.leafName = part1 + "-backup" + Prefs.patternsbackups + part2;
 
         // Remove oldest backup
@@ -617,29 +568,11 @@ var FilterStorage =
       }
     }
 
-    tempFile.moveTo(sourceFile.parent, sourceFile.leafName);
+    tempFile.moveTo(FilterStorage.sourceFile.parent, FilterStorage.sourceFile.leafName);
     TimeLine.log("created backups and renamed temp file");
+    FilterStorage.triggerObservers("save");
     TimeLine.leave("FilterStorage.saveToDisk() done");
   }
-};
-
-/**
- * Private nsIObserver implementation.
- * @class
- */
-var FilterStoragePrivate =
-{
-  observe: function(subject, topic, data)
-  {
-    if (topic == "browser:purge-session-history" && Prefs.clearStatsOnHistoryPurge)
-    {
-      FilterStorage.resetHitCounts();
-      FilterStorage.saveToDisk();
-
-      Prefs.recentReports = "[]";
-    }
-  },
-  QueryInterface: XPCOMUtils.generateQI([Ci.nsISupportsWeakReference, Ci.nsIObserver])
 };
 
 /**

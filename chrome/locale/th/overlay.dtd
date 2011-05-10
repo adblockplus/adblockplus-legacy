@@ -21,5 +21,7 @@
 <!ENTITY closesidebar.accesskey "ไ">
 <!ENTITY whitelist.site.label "ปิดการใช้งาน ?1?">
 <!ENTITY whitelist.page.label "ปิดการใช้งานเฉพาะหน้านี้">
+<!ENTITY disable.label "ปิดการใช้งานทุกที่">
+<!ENTITY recommend.label "แนะนำเราใน Facebook">
 <!ENTITY objecttab.title "บล็อก">
 <!ENTITY objecttab.tooltip "คลิกที่นี่เพื่อบล็อกวัตถุนี้ด้วย Adblock Plus">

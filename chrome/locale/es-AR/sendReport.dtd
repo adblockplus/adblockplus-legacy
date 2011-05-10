@@ -25,6 +25,8 @@
 <!ENTITY issues.nofilters.description "Adblock Plus no está bloqueando nada de la página actual. Este problema específico probablemente no tenga que ver con Adblock Plus.">
 <!ENTITY issues.nosubscriptions.description "Parece que no estás suscripto a ninguna de las listas de filtro preestablecidas que automáticamente quita contenido no deseado de sitios web.">
 <!ENTITY issues.nosubscriptions.add.label "Agregar suscripción de filtro">
+<!ENTITY issues.subscriptionCount.description "Parece que estás suscripto a demasiadas suscripciones de filtros. Esta configuración no es recomendada, ya que potenciará sobre manera la aparición de problemas. Tampoco podemos aceptar tu reporte por inconvenientes, porque no quedaría claro qué autor de todos esos filtros es el que debe corregir algo. Por favor, quitá todas las suscripciones de filtros, dejando sólo las que considerés elementales, y luego fijate si el problema continúa.">
+<!ENTITY issues.openPreferences.label "Abrir configuración de filtros">
 <!ENTITY issues.ownfilters.description "Algunos de los filtros aplicados en esta página están definidos por el usuario. Por favor, deshabilitá los filtros que podría causar el inconveniente:">
 <!ENTITY issues.ownfilters.disable.label "Deshabilitar filtro">
 <!ENTITY issues.disabledgroups.description "Las siguientes suscripciones de filtros / grupos de filtros están deshabilitados, aunque aún podrían tener algún efecto sobre esta página web:">

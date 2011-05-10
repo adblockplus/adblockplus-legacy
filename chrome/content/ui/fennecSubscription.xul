@@ -17,7 +17,7 @@
    -
    - The Initial Developer of the Original Code is
    - Wladimir Palant.
-   - Portions created by the Initial Developer are Copyright (C) 2006-2010
+   - Portions created by the Initial Developer are Copyright (C) 2006-2011
    - the Initial Developer. All Rights Reserved.
    -
    - Contributor(s):
@@ -26,7 +26,6 @@
    - ***** END LICENSE BLOCK ***** -->
 
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
-<?xml-stylesheet href="chrome://adblockplus/skin/subscription.css" type="text/css"?>
 
 <!DOCTYPE dialog [
 <!ENTITY % subst SYSTEM "chrome://adblockplus/locale/subscriptionSelection.dtd">
@@ -48,30 +47,32 @@
   <command id="abp-subscription-cmd-cancel" oncommand="document.getElementById('abpEditSubscription').close();"/>
 </commandset>
 
-<label value="&dialog.title;"/>
+<vbox class="prompt-header">
+  <label value="&dialog.title;"/>
 
-<grid class="prompt-message">
-  <columns>
-    <column/>
-    <column flex="1"/> 
-  </columns>
-  <rows>
-    <row align="center">
-      <label value="&title.label;" control="abp-subscription-title"/>
-      <description id="abp-subscription-title"/>
-    </row>
-    <row>
-      <label value="&location.label;" control="abp-subscription-url"/>
-      <scrollbox orient="vertical">
-         <description id="abp-subscription-url"/>
-      </scrollbox>
-    </row>
-  </rows>
-</grid>
+  <grid class="prompt-message">
+    <columns>
+      <column/>
+      <column flex="1"/>
+    </columns>
+    <rows>
+      <row align="center">
+        <label value="&title.label;" control="abp-subscription-title"/>
+        <description id="abp-subscription-title"/>
+      </row>
+      <row>
+        <label value="&location.label;" control="abp-subscription-url"/>
+        <scrollbox orient="vertical">
+           <description id="abp-subscription-url"/>
+        </scrollbox>
+      </row>
+    </rows>
+  </grid>
+</vbox>
 
-<hbox>
-   <button id="abp-subscription-btn-ok" class="button-dark" label="&ok.label;" command="abp-subscription-cmd-ok"/>
-   <button class="button-dark" label="&cancel.label;" command="abp-subscription-cmd-cancel"/>
+<hbox class="prompt-buttons">
+   <button id="abp-subscription-btn-ok" class="prompt-button" label="&ok.label;" command="abp-subscription-cmd-ok"/>
+   <button class="prompt-button" label="&cancel.label;" command="abp-subscription-cmd-cancel"/>
 </hbox>
 
 </dialog>

@@ -15,7 +15,7 @@
  *
  * The Initial Developer of the Original Code is
  * Wladimir Palant.
- * Portions created by the Initial Developer are Copyright (C) 2006-2010
+ * Portions created by the Initial Developer are Copyright (C) 2006-2011
  * the Initial Developer. All Rights Reserved.
  *
  * Contributor(s):
@@ -365,14 +365,14 @@ var Synchronizer =
       if (newFilters)
         FilterStorage.updateSubscriptionFilters(subscription, newFilters);
       else
-        FilterStorage.triggerSubscriptionObservers("updateinfo", [subscription]);
+        FilterStorage.triggerObservers("subscriptions updateinfo", [subscription]);
       delete subscription.oldSubscription;
 
       FilterStorage.saveToDisk();
     };
 
     executing[url] = true;
-    FilterStorage.triggerSubscriptionObservers("updateinfo", [subscription]);
+    FilterStorage.triggerObservers("subscriptions updateinfo", [subscription]);
 
     try
     {
@@ -555,7 +555,7 @@ function setError(subscription, error, channelStatus, responseStatus, downloadUR
         else if (/^410\b/.test(request.responseText))   // Gone
         {
           subscription.autoDownload = false;
-          FilterStorage.triggerSubscriptionObservers("updateinfo", [subscription]);
+          FilterStorage.triggerObservers("subscriptions updateinfo", [subscription]);
         }
         FilterStorage.saveToDisk();
       }
@@ -563,6 +563,6 @@ function setError(subscription, error, channelStatus, responseStatus, downloadUR
     }
   }
 
-  FilterStorage.triggerSubscriptionObservers("updateinfo", [subscription]);
+  FilterStorage.triggerObservers("subscriptions updateinfo", [subscription]);
   FilterStorage.saveToDisk();
 }

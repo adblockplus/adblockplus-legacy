@@ -21,5 +21,7 @@
 <!ENTITY closesidebar.accesskey "B">
 <!ENTITY whitelist.site.label "此網域設為白名單: ?1?">
 <!ENTITY whitelist.page.label "只將此頁面設為白名單">
+<!ENTITY disable.label "全部設為白名單">
+<!ENTITY recommend.label "在 Facebook 上給我們建議">
 <!ENTITY objecttab.title "封鎖">
 <!ENTITY objecttab.tooltip "請按這裡用 Adblock Plus 封鎖此物件">

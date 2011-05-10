@@ -1,46 +1,47 @@
 <!ENTITY dialog.title "Adblock Plus フィルタを追加">
-<!ENTITY accept.label "フィルタ追加">
+<!ENTITY accept.label "フィルタを追加">
 <!ENTITY advanced.label "詳細表示">
-<!ENTITY basic.label "簡易表示">
-<!ENTITY disabled.warning "Adblock Plus は現在無効です。フィルタを追加することはできますが適用されません。 [link]Adblock Plus を有効にする[/link] ">
-<!ENTITY groupDisabled.warning "このフィルタを追加するフィルタグループ &quot;?1?&quot; は現在、無効となっています。フィルタを追加することはできますが適用されません。 [link]フィルタグループを有効にする[/link] ">
-<!ENTITY filter.label "新規フィルタ：">
+<!ENTITY basic.label "基本表示">
+<!ENTITY disabled.warning "現在 Adblock Plus は無効になっています。フィルタを追加することはできますが [link]Adblock Plus を有効にする[/link] まで適用されません。">
+<!ENTITY groupDisabled.warning "現在、追加先のフィルタグループ &quot;?1?&quot; は無効になっています。フィルタを追加することはできますが [link]フィルタグループを有効にする[/link] まで適用されません。">
+<!ENTITY filter.label "新規フィルタ:">
 <!ENTITY filter.accesskey "f">
-<!ENTITY preferences.label "既存のフィルタを表示...">
+<!ENTITY preferences.label "既存のフィルタを表示…">
 <!ENTITY preferences.accesskey "S">
 <!ENTITY type.filter.label "ブロックフィルタ">
 <!ENTITY type.filter.accesskey "B">
 <!ENTITY type.whitelist.label "ホワイトリスト">
 <!ENTITY type.whitelist.accesskey "x">
 <!ENTITY pattern.label "パターンを探す">
-<!ENTITY pattern.explanation "アドレスの一部をパターンとして使用します。シンボル * はワイルドカードの役割をします。パターンに一致するアドレスにだけフィルタが適用されます。">
-<!ENTITY regexp.warning "入力されたパターンは正規表現として認識されます。正規表現を多用しすぎるとブラウジングが遅くなる可能性があります。正規表現を使用するつもりでなければパターンの終わりに * シンボルを加えてください。">
-<!ENTITY shortpattern.warning "入力されたパターンは最適化に必要な文字数に達していません。このようなパターンを多用しすぎるとブラウジングが遅くなる可能性があります。より長い文字列が推奨されます。">
-<!ENTITY custom.pattern.label "カスタム：">
+<!ENTITY pattern.explanation "パターンとはアドレスの任意の一部のことです。アスタリスク（＊）をワイルドカードとして使用することもできます。フィルタはパターンに一致するアドレスにのみ適用されます。">
+<!ENTITY regexp.warning "入力されたパターンは Adblock Plus が効率よく処理できず、ブラウジング速度低下の原因になる正規表現として解釈されています。もし、正規表現の使用を意図していなかった場合はパターン末尾にアスタリスク（＊）を追加して回避策を講じて下さい。">
+<!ENTITY shortpattern.warning "入力したパターンが短過ぎる為に最適化できず、ブラウジング速度が低下することがあります。Adblock Plus で効率的に処理するためには、より長い文字列を選ぶことが推奨されます">
+<!ENTITY match.warning "入力したパターンはアドレスに一致しないので意味がありません">
+<!ENTITY custom.pattern.label "自作:">
 <!ENTITY custom.pattern.accesskey "C">
-<!ENTITY anchors.label "パターン限定対応：">
-<!ENTITY anchor.start.label "アドレスの先頭">
+<!ENTITY anchors.label "パターン適用条件:">
+<!ENTITY anchor.start.label "アドレス先頭に一致">
 <!ENTITY anchor.start.accesskey "g">
-<!ENTITY anchor.start.flexible.label "ドメインの先頭">
+<!ENTITY anchor.start.flexible.label "ドメイン名先頭に一致">
 <!ENTITY anchor.start.flexible.accesskey "g">
-<!ENTITY anchor.end.label "アドレスの最後">
+<!ENTITY anchor.end.label "アドレス末尾に一致">
 <!ENTITY anchor.end.accesskey "n">
 <!ENTITY options.label "オプション">
-<!ENTITY domainRestriction.label "ドメイン制限：">
+<!ENTITY domainRestriction.label "ドメイン制限:">
 <!ENTITY domainRestriction.accesskey "d">
-<!ENTITY domainRestriction.help "シンボル 「 | 」 によって分けられる一つ以上のドメインを指定してください。フィルタはそのドメインにのみ適用されることになります。ドメイン名の前のシンボル 「 ~」 はフィルタがそのドメインでは適用されないことを意味します。">
-<!ENTITY firstParty.label "現在のサイト内のみ適用">
+<!ENTITY domainRestriction.help "フィルタ適用対象のドメインを限定することができます。複数指定したい場合は縦線（｜）で分けて下さい。ドメイン名の前にチルダ（～）を置くと、条件を反転（否定条件）させることができます">
+<!ENTITY firstParty.label "ファーストパーティ限定">
 <!ENTITY firstParty.accesskey "r">
-<!ENTITY thirdParty.label "サードパーティのみ適用">
+<!ENTITY thirdParty.label "サードパーティ限定">
 <!ENTITY thirdParty.accesskey "T">
-<!ENTITY matchCase.label "大文字/小文字を区別">
+<!ENTITY matchCase.label "大文字小文字を区別">
 <!ENTITY matchCase.accesskey "M">
-<!ENTITY types.label "種別適用：">
+<!ENTITY types.label "適用種別：">
 <!ENTITY selectAllTypes.label "すべて選択">
-<!ENTITY unselectAllTypes.label "すべて選択解除">
-<!ENTITY collapse.label "折りたたみブロック：">
+<!ENTITY unselectAllTypes.label "選択解除">
+<!ENTITY collapse.label "ブロック後の空白スペースを消す:">
 <!ENTITY collapse.accesskey "l">
-<!ENTITY collapse.default.yes.label "デフォルト使用（はい）">
-<!ENTITY collapse.default.no.label "デフォルト使用（いいえ）">
+<!ENTITY collapse.default.yes.label "デフォルト（はい）">
+<!ENTITY collapse.default.no.label "デフォルト（いいえ）">
 <!ENTITY collapse.yes.label "はい">
 <!ENTITY collapse.no.label "いいえ">

@@ -21,5 +21,7 @@
 <!ENTITY closesidebar.accesskey "у">
 <!ENTITY whitelist.site.label "Келесі үшін сөндіру: ?1?">
 <!ENTITY whitelist.page.label "Тек осы парақ үшін сөндіру">
+<!ENTITY disable.label "Әр жерде сөндіру">
+<!ENTITY recommend.label "Бізді Facebook-те ұсыну">
 <!ENTITY objecttab.title "Блоктау">
 <!ENTITY objecttab.tooltip "Adblock Plus көмегімен осы объектті блоктау үшін шертіңіз">

@@ -15,7 +15,7 @@
  *
  * The Initial Developer of the Original Code is
  * Wladimir Palant.
- * Portions created by the Initial Developer are Copyright (C) 2006-2010
+ * Portions created by the Initial Developer are Copyright (C) 2006-2011
  * the Initial Developer. All Rights Reserved.
  *
  * Contributor(s):
@@ -39,25 +39,15 @@ Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 Cu.import(baseURL.spec + "Utils.jsm");
 Cu.import(baseURL.spec + "Prefs.jsm");
 Cu.import(baseURL.spec + "ContentPolicy.jsm");
+Cu.import(baseURL.spec + "FilterStorage.jsm");
+Cu.import(baseURL.spec + "FilterClasses.jsm");
 Cu.import(baseURL.spec + "TimeLine.jsm");
 
 /**
- * List of known filters
- * @type Array of ElemHideFilter
- */
-let filters = [];
-
-/**
- * Lookup table, has keys for all filters already added
+ * Lookup table, filters by their associated key
  * @type Object
  */
-let knownFilters = {__proto__: null};
-
-/**
- * Lookup table for filters by their associated key
- * @type Object
- */
-let keys = {__proto__: null};
+let filterByKey = {__proto__: null};
 
 /**
  * Currently applied stylesheet URL
@@ -78,11 +68,23 @@ var ElemHide =
   isDirty: false,
 
   /**
+   * Inidicates whether the element hiding stylesheet is currently applied.
+   * @type Boolean
+   */
+  applied: false,
+
+  /**
+   * Lookup table, keys of the filters by filter text
+   * @type Object
+   */
+  keyByFilter: {__proto__: null},
+
+  /**
    * Called on module startup.
    */
-  startup: function()
+  init: function()
   {
-    TimeLine.enter("Entered ElemHide.startup()");
+    TimeLine.enter("Entered ElemHide.init()");
     Prefs.addListener(function(name)
     {
       if (name == "enabled")
@@ -90,13 +92,18 @@ var ElemHide =
     });
   
     TimeLine.log("done adding prefs listener");
-  
+
+    let styleFile = Utils.resolveFilePath(Prefs.data_directory);
+    styleFile.append("elemhide.css");
+    styleURL = Utils.ioService.newFileURI(styleFile).QueryInterface(Ci.nsIFileURL);
+    TimeLine.log("done determining stylesheet URL");
+
     TimeLine.log("registering component");
     let registrar = Components.manager.QueryInterface(Ci.nsIComponentRegistrar);
     registrar.registerFactory(ElemHidePrivate.classID, ElemHidePrivate.classDescription,
         "@mozilla.org/network/protocol/about;1?what=" + ElemHidePrivate.aboutPrefix, ElemHidePrivate);
 
-    TimeLine.leave("ElemHide.startup() done");
+    TimeLine.leave("ElemHide.init() done");
   },
 
   /**
@@ -104,9 +111,8 @@ var ElemHide =
    */
   clear: function()
   {
-    filters = [];
-    knownFilters= {__proto__: null};
-    keys = {__proto__: null};
+    filterByKey = {__proto__: null};
+    ElemHide.keyByFilter = {__proto__: null};
     ElemHide.isDirty = false;
     ElemHide.unapply();
   },
@@ -117,17 +123,16 @@ var ElemHide =
    */
   add: function(filter)
   {
-    if (filter.text in knownFilters)
+    if (filter.text in ElemHide.keyByFilter)
       return;
 
-    filters.push(filter);
-
+    let key;
     do {
-      filter.key = Math.random().toFixed(15).substr(5);
-    } while (filter.key in keys);
+      key = Math.random().toFixed(15).substr(5);
+    } while (key in filterByKey);
 
-    keys[filter.key] = filter;
-    knownFilters[filter.text] = true;
+    filterByKey[key] = filter.text;
+    ElemHide.keyByFilter[filter.text] = key;
     ElemHide.isDirty = true;
   },
 
@@ -137,15 +142,12 @@ var ElemHide =
    */
   remove: function(filter)
   {
-    if (!(filter.text in knownFilters))
+    if (!(filter.text in ElemHide.keyByFilter))
       return;
 
-    let index = filters.indexOf(filter);
-    if (index >= 0)
-      filters.splice(index, 1);
-
-    delete keys[filter.key];
-    delete knownFilters[filter.text];
+    let key = ElemHide.keyByFilter[filter.text];
+    delete filterByKey[key];
+    delete ElemHide.keyByFilter[filter.text];
     ElemHide.isDirty = true;
   },
 
@@ -154,77 +156,144 @@ var ElemHide =
    */
   apply: function()
   {
-    // Return immediately if nothing to do
-    if (!styleURL && (!Prefs.enabled || !filters.length))
-      return;
-
     TimeLine.enter("Entered ElemHide.apply()");
-    ElemHide.unapply();
+
+    if (ElemHide.applied)
+      ElemHide.unapply();
     TimeLine.log("ElemHide.unapply() finished");
 
-    ElemHide.isDirty = false;
-
-    if (!Prefs.enabled)
+    try
     {
-      TimeLine.leave("ElemHide.apply() done (disabled)");
-      return;
-    }
-
-    // Grouping selectors by domains
-    TimeLine.log("start grouping selectors");
-    let domains = {__proto__: null};
-    for each (var filter in filters)
-    {
-      let domain = filter.selectorDomain || "";
-
-      let list;
-      if (domain in domains)
-        list = domains[domain];
-      else
+      // Return immediately if disabled
+      if (!Prefs.enabled)
       {
-        list = {__proto__: null};
-        domains[domain] = list;
+        TimeLine.leave("ElemHide.apply() done (disabled)");
+        return;
       }
-      list[filter.selector] = filter.key;
-    }
-    TimeLine.log("done grouping selectors");
 
-    // Joining domains list
-    TimeLine.log("start building CSS data");
-    let cssData = "";
-    let cssTemplate = "-moz-binding: url(about:" + ElemHidePrivate.aboutPrefix + "?%ID%#dummy) !important;";
+      // CSS file doesn't need to be rewritten if nothing changed (e.g. we
+      // were disabled and reenabled)
+      if (ElemHide.isDirty)
+      {
+        ElemHide.isDirty = false;
 
-    for (let domain in domains)
-    {
-      let rules = [];
-      let list = domains[domain];
-      for (let selector in list)
-        rules.push(selector + "{" + cssTemplate.replace("%ID%", list[selector]) + "}\n");
+        // Grouping selectors by domains
+        TimeLine.log("start grouping selectors");
+        let domains = {__proto__: null};
+        let hasFilters = false;
+        for (let key in filterByKey)
+        {
+          let filter = Filter.knownFilters[filterByKey[key]];
+          let domain = filter.selectorDomain || "";
 
-      if (domain)
-        cssData += '@-moz-document domain("' + domain.split(",").join('"),domain("') + '"){\n' + rules.join('') + '}\n';
-      else {
-        // Only allow unqualified rules on a few protocols to prevent them from blocking chrome
-        cssData += '@-moz-document url-prefix("http://"),url-prefix("https://"),'
-                  + 'url-prefix("mailbox://"),url-prefix("imap://"),'
-                  + 'url-prefix("news://"),url-prefix("snews://"){\n'
-                    + rules.join('')
-                  + '}\n';
+          let list;
+          if (domain in domains)
+            list = domains[domain];
+          else
+          {
+            list = {__proto__: null};
+            domains[domain] = list;
+          }
+          list[filter.selector] = key;
+          hasFilters = true;
+        }
+        TimeLine.log("done grouping selectors");
+
+        if (!hasFilters)
+        {
+          TimeLine.leave("ElemHide.apply() done (no filters)");
+          return;
+        }
+
+        // Writing out domains list
+        TimeLine.log("start writing CSS data");
+
+        try {
+          // Make sure the file's parent directory exists
+          styleURL.file.parent.create(Ci.nsIFile.DIRECTORY_TYPE, 0755);
+        } catch (e) {}
+
+        let stream;
+        try
+        {
+          stream = Cc["@mozilla.org/network/safe-file-output-stream;1"].createInstance(Ci.nsIFileOutputStream);
+          stream.init(styleURL.file, 0x02 | 0x08 | 0x20, 0644, 0);
+        }
+        catch (e)
+        {
+          Cu.reportError(e);
+          TimeLine.leave("ElemHide.apply() done (error opening file)");
+          return;
+        }
+
+        let buf = [];
+        let maxBufLen = 1024;
+        function escapeChar(match)
+        {
+          return "\\" + match.charCodeAt(0).toString(16) + " ";
+        }
+        function writeString(str, forceWrite)
+        {
+          buf.push(str);
+          if (buf.length >= maxBufLen || forceWrite)
+          {
+            let output = buf.join("").replace(/[^\x01-\x7F]/g, escapeChar);
+            stream.write(output, output.length);
+            buf.splice(0, buf.length);
+          }
+        }
+
+        let cssTemplate = "-moz-binding: url(about:" + ElemHidePrivate.aboutPrefix + "?%ID%#dummy) !important;";
+        for (let domain in domains)
+        {
+          let rules = [];
+          let list = domains[domain];
+
+          if (domain)
+            writeString('@-moz-document domain("' + domain.split(",").join('"),domain("') + '"){\n');
+          else
+          {
+            // Only allow unqualified rules on a few protocols to prevent them from blocking chrome
+            writeString('@-moz-document url-prefix("http://"),url-prefix("https://"),'
+                      + 'url-prefix("mailbox://"),url-prefix("imap://"),'
+                      + 'url-prefix("news://"),url-prefix("snews://"){\n');
+          }
+
+          for (let selector in list)
+            writeString(selector + "{" + cssTemplate.replace("%ID%", list[selector]) + "}\n");
+          writeString('}\n');
+        }
+        writeString("", true);
+        try
+        {
+          stream.QueryInterface(Ci.nsISafeOutputStream).finish();
+        }
+        catch(e)
+        {
+          Cu.reportError(e);
+          TimeLine.leave("ElemHide.apply() done (error closing file)");
+          return;
+        }
+        TimeLine.log("done writing CSS data");
       }
-    }
-    TimeLine.log("done building CSS data");
 
-    // Creating new stylesheet
-    if (cssData)
-    {
+      // Inserting new stylesheet
       TimeLine.log("start inserting stylesheet");
-      try {
-        styleURL = Utils.ioService.newURI("data:text/css;charset=utf8,/*** Adblock Plus ***/" + encodeURIComponent("\n" + cssData), null, null);
+      try
+      {
         Utils.styleService.loadAndRegisterSheet(styleURL, Ci.nsIStyleSheetService.USER_SHEET);
-      } catch(e) {};
-      TimeLine.log("done inserting stylesheet");
+        ElemHide.applied = true;
+      }
+      catch (e)
+      {
+        Cu.reportError(e);
+      }
+      TimeLine.leave("ElemHide.apply() done");
     }
-    TimeLine.leave("ElemHide.apply() done");
+    finally
+    {
+      FilterStorage.triggerObservers("elemhideupdate");
+    }
   },
 
   /**
@@ -232,12 +301,64 @@ var ElemHide =
    */
   unapply: function()
   {
-    if (styleURL) {
-      try {
+    if (ElemHide.applied)
+    {
+      try
+      {
         Utils.styleService.unregisterSheet(styleURL, Ci.nsIStyleSheetService.USER_SHEET);
-      } catch (e) {}
-      styleURL = null;
+      }
+      catch (e)
+      {
+        Cu.reportError(e);
+      }
+      ElemHide.applied = false;
     }
+  },
+
+  /**
+   * Retrieves the currently applied stylesheet URL
+   * @type String
+   */
+  get styleURL() ElemHide.applied ? styleURL.spec : null,
+
+  /**
+   * Retrieves an element hiding filter by the corresponding protocol key
+   */
+  getFilterByKey: function(/**String*/ key) /**Filter*/
+  {
+    return (key in filterByKey ? Filter.knownFilters[filterByKey[key]] : null);
+  },
+
+  /**
+   * Stores current state in a JSON'able object.
+   */
+  toCache: function(/**Object*/ cache)
+  {
+    cache.elemhide = {filterByKey: filterByKey};
+  },
+
+  /**
+   * Restores current state from an object.
+   */
+  fromCache: function(/**Object*/ cache)
+  {
+    filterByKey = cache.elemhide.filterByKey;
+    filterByKey.__proto__ = null;
+
+    // We don't want to initialize keyByFilter yet, do it when it is needed
+    delete ElemHide.keyByFilter;
+    ElemHide.__defineGetter__("keyByFilter", function()
+    {
+      let result = {__proto__: null};
+      for (let k in filterByKey)
+        result[filterByKey[k]] = k;
+      return ElemHide.keyByFilter = result;
+    });
+    ElemHide.__defineSetter__("keyByFilter", function(value)
+    {
+      delete ElemHide.keyByFilter;
+      return ElemHide.keyByFilter = value;
+    });
   }
 };
 
@@ -269,7 +390,7 @@ var ElemHidePrivate =
 
   getURIFlags: function(uri)
   {
-    return Ci.nsIAboutModule.HIDE_FROM_ABOUTABOUT;
+    return ("HIDE_FROM_ABOUTABOUT" in Ci.nsIAboutModule ? Ci.nsIAboutModule.HIDE_FROM_ABOUTABOUT : 0);
   },
 
   newChannel: function(uri)
@@ -327,11 +448,10 @@ HitRegistrationChannel.prototype = {
   open: function()
   {
     let data = "<bindings xmlns='http://www.mozilla.org/xbl'><binding id='dummy'/></bindings>";
-    let filter = keys[this.key];
-    if (filter)
+    if (this.key in filterByKey)
     {
       let wnd = Utils.getRequestWindow(this);
-      if (wnd && wnd.document && !Policy.processNode(wnd, wnd.document, Policy.type.ELEMHIDE, filter))
+      if (wnd && wnd.document && !Policy.processNode(wnd, wnd.document, Policy.type.ELEMHIDE, Filter.knownFilters[filterByKey[this.key]]))
         data = "<bindings xmlns='http://www.mozilla.org/xbl'/>";
     }
 

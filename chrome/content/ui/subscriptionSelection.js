@@ -15,7 +15,7 @@
  *
  * The Initial Developer of the Original Code is
  * Wladimir Palant.
- * Portions created by the Initial Developer are Copyright (C) 2006-2010
+ * Portions created by the Initial Developer are Copyright (C) 2006-2011
  * the Initial Developer. All Rights Reserved.
  *
  * Contributor(s):
@@ -50,6 +50,61 @@ function init()
       window.hasSubscription = window.arguments[2];
   }
 
+  if (newInstall && Utils.isFennec)
+  {
+    // HACK: In Fennec 4.0 menulist elements won't work "by themselves". We
+    // have to go to the top level and trigger MenuListHelperUI manually.
+    let topWnd = window.QueryInterface(Ci.nsIInterfaceRequestor)
+                       .getInterface(Ci.nsIWebNavigation)
+                       .QueryInterface(Ci.nsIDocShellTreeItem)
+                       .rootTreeItem
+                       .QueryInterface(Ci.nsIInterfaceRequestor)
+                       .getInterface(Ci.nsIDOMWindow);
+    if (topWnd.wrappedJSObject)
+      topWnd = topWnd.wrappedJSObject;
+
+    let menulist = E("subscriptions");
+    if ("MenuListHelperUI" in topWnd && menulist.parentNode.localName != "stack")
+    {
+      // Add a layer on top of the menulist to handle clicks, menulist clicks
+      // are otherwise ignored and cannot be intercepted
+      let stack = document.createElement("stack");
+      menulist.parentNode.replaceChild(stack, menulist);
+      stack.appendChild(menulist);
+
+      let clickLayer = document.createElement("hbox");
+      stack.appendChild(clickLayer);
+
+      clickLayer.addEventListener("click", function(event)
+      {
+        if (event.button == 0 && !menulist.disabled && menulist.itemCount)
+        {
+          menulist.focus();
+          topWnd.MenuListHelperUI.show(menulist);
+        }
+      }, true);
+
+      // menulist needs to be initialized after being moved, re-run init() later
+      Utils.runAsync(init);
+      return;
+    }
+
+    // The template is being displayed as a list item, remove it
+    let subscriptionsTemplate = E("subscriptionsTemplate");
+    if (subscriptionsTemplate && subscriptionsTemplate.parentNode)
+      subscriptionsTemplate.parentNode.removeChild(subscriptionsTemplate);
+
+    // window.close() closes the entire window (bug 642604), make sure to close
+    // only a single tab instead.
+    if ("BrowserUI" in topWnd)
+    {
+      window.close = function()
+      {
+        topWnd.BrowserUI.closeTab();
+      };
+    }
+  }
+
   if (!result)
   {
     result = {};
@@ -66,7 +121,7 @@ function init()
       source.mainSubscriptionURL = source.mainSubscriptionTitle = null;
   }
 
-  if (newInstall)
+  if (newInstall && !Utils.isFennec)
   {
     // HACK: We will remove dialog content box flex if a subscription is
     // selected, need to find the content box and save it flex value.
@@ -101,7 +156,9 @@ function init()
     link.setAttribute("class", "text-link");
     link.setAttribute("value", otherButton.label);
     link.setAttribute("accesskey", otherButton.accessKey);
-    link.setAttribute("control", "otherButton")
+    link.setAttribute("control", "otherButton");
+    link.setAttribute("flex", "1");
+    link.setAttribute("crop", "end");
 
     let handler = new Function("event", document.documentElement.getAttribute("ondialogextra2"));
     link.addEventListener("command", handler, false);
@@ -401,9 +458,9 @@ function addSubscriptions(list, parent, level, parentTitle, parentURL)
       if (isFirst)
       {
         if (checkPrefixMatch(node.getAttribute("prefixes"), Utils.appLocale))
-          title.setAttribute("class", "title localeMatch");
+          title.setAttribute("class", "subscriptionTitle localeMatch");
         else
-          title.setAttribute("class", "title");
+          title.setAttribute("class", "subscriptionTitle");
         title.textContent = node.getAttribute("title");
         mainTitle = variant.getAttribute("title");
         mainURL = variant.getAttribute("url");
@@ -576,13 +633,13 @@ function doAddSubscription(/**String*/ url, /**String*/ title, /**Boolean*/ auto
   if (disabled != subscription.disabled)
   {
     subscription.disabled = disabled;
-    FilterStorage.triggerSubscriptionObservers(disabled ? "disable" : "enable", [subscription]);
+    FilterStorage.triggerObservers(disabled ? "subscriptions disable" : "subscriptions enable", [subscription]);
   }
 
   subscription.title = title;
   if (subscription instanceof DownloadableSubscription)
     subscription.autoDownload = autoDownload;
-  FilterStorage.triggerSubscriptionObservers("updateinfo", [subscription]);
+  FilterStorage.triggerObservers("subscriptions updateinfo", [subscription]);
 
   if (subscription instanceof DownloadableSubscription && !subscription.lastDownload)
     Synchronizer.execute(subscription);

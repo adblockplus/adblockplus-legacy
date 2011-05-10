@@ -51,6 +51,8 @@
 <!ENTITY objecttabs.accesskey "F">
 <!ENTITY collapse.label "Blokkolt objektumok összecsukása">
 <!ENTITY collapse.accesskey "m">
+<!ENTITY sync.label "Adblock Plus beállítások szinkronizálása">
+<!ENTITY sync.accesskey "z">
 <!ENTITY help.label "Súgó">
 <!ENTITY help.accesskey "g">
 <!ENTITY gettingStarted.label "Első lépések">

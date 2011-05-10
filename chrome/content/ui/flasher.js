@@ -15,7 +15,7 @@
  *
  * The Initial Developer of the Original Code is
  * Wladimir Palant.
- * Portions created by the Initial Developer are Copyright (C) 2006-2010
+ * Portions created by the Initial Developer are Copyright (C) 2006-2011
  * the Initial Developer. All Rights Reserved.
  *
  * Contributor(s):
@@ -98,17 +98,25 @@ var flasher = {
     }
   },
 
-  setOutline: function(value) {
+  setOutline: function(outline, offset)
+  {
     for (var i = 0; i < this.nodes.length; i++)
+    {
       if ("style" in this.nodes[i])
-        this.nodes[i].style.outline = value;
+      {
+        this.nodes[i].style.outline = outline;
+        this.nodes[i].style.outlineOffset = offset;
+      }
+    }
   },
 
-  switchOn: function() {
-    this.setOutline("#CC0000 dotted 2px");
+  switchOn: function()
+  {
+    this.setOutline("#CC0000 dotted 2px", "-2px");
   },
 
-  switchOff: function() {
-    this.setOutline("none");
+  switchOff: function()
+  {
+    this.setOutline("", "");
   }
 };

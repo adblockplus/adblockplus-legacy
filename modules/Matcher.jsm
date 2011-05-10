@@ -15,7 +15,7 @@
  *
  * The Initial Developer of the Original Code is
  * Wladimir Palant.
- * Portions created by the Initial Developer are Copyright (C) 2006-2010
+ * Portions created by the Initial Developer are Copyright (C) 2006-2011
  * the Initial Developer. All Rights Reserved.
  *
  * Contributor(s):
@@ -45,46 +45,26 @@ function Matcher()
   this.clear();
 }
 
-/**
- * Length of a filter shortcut
- * @type Number
- */
-Matcher.shortcutLength = 8;
-
 Matcher.prototype = {
   /**
-   * Lookup table for filters by their shortcut
+   * Lookup table for filters by their associated keyword
    * @type Object
    */
-  shortcutHash: null,
+  filterByKeyword: null,
 
   /**
-   * Should be true if shortcutHash has any entries
-   * @type Boolean
-   */
-  hasShortcuts: false,
-
-  /**
-   * Filters without a shortcut
-   * @type Array of RegExpFilter
-   */
-  regexps: null,
-
-  /**
-   * Lookup table, has keys for all filters already added
+   * Lookup table for keywords by the filter text
    * @type Object
    */
-  knownFilters: null,
+  keywordByFilter: null,
 
   /**
    * Removes all known filters
    */
   clear: function()
   {
-    this.shortcutHash = {__proto__: null};
-    this.hasShortcuts = false;
-    this.regexps = [];
-    this.knownFilters = {__proto__: null};
+    this.filterByKeyword = {__proto__: null};
+    this.keywordByFilter = {__proto__: null};
   },
 
   /**
@@ -93,21 +73,24 @@ Matcher.prototype = {
    */
   add: function(filter)
   {
-    if (filter.text in this.knownFilters)
+    if (filter.text in this.keywordByFilter)
       return;
 
-    // Look for a suitable shortcut if the current can't be used
-    if (!filter.shortcut || filter.shortcut in this.shortcutHash)
-      filter.shortcut = this.findShortcut(filter.text);
-
-    if (filter.shortcut) {
-      this.shortcutHash[filter.shortcut] = filter;
-      this.hasShortcuts = true;
+    // Look for a suitable keyword
+    let keyword = this.findKeyword(filter);
+    switch (typeof this.filterByKeyword[keyword])
+    {
+      case "undefined":
+        this.filterByKeyword[keyword] = filter.text;
+        break;
+      case "string":
+        this.filterByKeyword[keyword] = [this.filterByKeyword[keyword], filter.text];
+        break;
+      default:
+        this.filterByKeyword[keyword].push(filter.text);
+        break;
     }
-    else 
-      this.regexps.push(filter);
-
-    this.knownFilters[filter.text] = true;
+    this.keywordByFilter[filter.text] = keyword;
   },
 
   /**
@@ -116,30 +99,40 @@ Matcher.prototype = {
    */
   remove: function(filter)
   {
-    if (!(filter.text in this.knownFilters))
+    if (!(filter.text in this.keywordByFilter))
       return;
 
-    if (filter.shortcut)
-      delete this.shortcutHash[filter.shortcut];
+    let keyword = this.keywordByFilter[filter.text];
+    let list = this.filterByKeyword[keyword];
+    if (typeof list == "string")
+      delete this.filterByKeyword[keyword];
     else
     {
-      let i = this.regexps.indexOf(filter);
-      if (i >= 0)
-        this.regexps.splice(i, 1);
+      let index = list.indexOf(filter.text);
+      if (index >= 0)
+      {
+        list.splice(index, 1);
+        if (list.length == 1)
+          this.filterByKeyword[keyword] = list[0];
+      }
     }
 
-    delete this.knownFilters[filter.text];
+    delete this.keywordByFilter[filter.text];
   },
 
   /**
-   * Looks up a free shortcut for a filter
+   * Chooses a keyword to be associated with the filter
    * @param {String} text text representation of the filter
-   * @return {String} shortcut or null
+   * @return {String} keyword (might be empty string)
    */
-  findShortcut: function(text)
+  findKeyword: function(filter)
   {
+    // For donottrack filters use "donottrack" as keyword if nothing else matches
+    let defaultResult = (filter.contentType & RegExpFilter.typeMap.DONOTTRACK ? "donottrack" : "");
+
+    let text = filter.text;
     if (Filter.regexpRegExp.test(text))
-      return null;
+      return defaultResult;
 
     // Remove options
     if (Filter.optionsRegExp.test(text))
@@ -149,27 +142,80 @@ Matcher.prototype = {
     if (text.substr(0, 2) == "@@")
       text = text.substr(2);
 
-    // Remove anchors
-    let pos = text.length - 1;
-    if (text[pos] == "|")
-      text = text.substr(0, pos);
-    if (text[0] == "|")
-      text = text.substr(1);
-    if (text[0] == "|")
-      text = text.substr(1);
+    let candidates = text.toLowerCase().match(/[^a-z0-9%*][a-z0-9%]{3,}(?=[^a-z0-9%*])/g);
+    if (!candidates)
+      return defaultResult;
 
-    text = text.replace(/\^/g, "*").toLowerCase();
-
-    let len = Matcher.shortcutLength;
-    let numCandidates = text.length - len + 1;
-    let startingPoint = Math.floor((text.length - len) / 2);
-    for (let i = 0, j = 0; i < numCandidates; i++, (j > 0 ? j = -j : j = -j + 1))
+    let hash = this.filterByKeyword;
+    let result = defaultResult;
+    let resultCount = 0xFFFFFF;
+    let resultLength = 0;
+    for (let i = 0, l = candidates.length; i < l; i++)
     {
-      let candidate = text.substr(startingPoint + j, len);
-      if (candidate.indexOf("*") < 0 && !(candidate in this.shortcutHash))
-        return candidate;
+      let candidate = candidates[i].substr(1);
+      let count;
+      switch (typeof hash[candidate])
+      {
+        case "undefined":
+          count = 0;
+          break;
+        case "string":
+          count = 1;
+          break;
+        default:
+          count = hash[candidate].length;
+          break;
+      }
+      if (count < resultCount || (count == resultCount && candidate.length > resultLength))
+      {
+        result = candidate;
+        resultCount = count;
+        resultLength = candidate.length;
+      }
     }
-    return null;
+    return result;
+  },
+
+  /**
+   * Checks whether a particular filter is being matched against.
+   */
+  hasFilter: function(/**RegExpFilter*/ filter) /**Boolean*/
+  {
+    return (filter.text in this.keywordByFilter);
+  },
+
+  /**
+   * Returns the keyword used for a filter, null for unknown filters.
+   */
+  getKeywordForFilter: function(/**RegExpFilter*/ filter) /**String*/
+  {
+    if (filter.text in this.keywordByFilter)
+      return this.keywordByFilter[filter.text];
+    else
+      return null;
+  },
+
+  /**
+   * Checks whether the entries for a particular keyword match a URL
+   */
+  _checkEntryMatch: function(keyword, location, contentType, docDomain, thirdParty)
+  {
+    let list = this.filterByKeyword[keyword];
+    if (typeof list == "string")
+    {
+      let filter = Filter.knownFilters[list];
+      return (filter.matches(location, contentType, docDomain, thirdParty) ? filter : null);
+    }
+    else
+    {
+      for (let i = 0, l = list.length; i < l; i++)
+      {
+        let filter = Filter.knownFilters[list[i]];
+        if (filter.matches(location, contentType, docDomain, thirdParty))
+          return filter;
+      }
+      return null;
+    }
   },
 
   /**
@@ -182,30 +228,64 @@ Matcher.prototype = {
    */
   matchesAny: function(location, contentType, docDomain, thirdParty)
   {
-    if (this.hasShortcuts)
+    let candidates = location.toLowerCase().match(/[a-z0-9%]{3,}/g);
+    if (candidates === null)
+      candidates = [];
+    if (contentType == "DONOTTRACK")
+      candidates.unshift("donottrack");
+    else
+      candidates.push("");
+    for (let i = 0, l = candidates.length; i < l; i++)
     {
-      // Optimized matching using shortcuts
-      let text = location.toLowerCase();
-      let len = Matcher.shortcutLength;
-      let endPos = text.length - len + 1;
-      for (let i = 0; i <= endPos; i++)
+      let substr = candidates[i];
+      if (substr in this.filterByKeyword)
       {
-        let substr = text.substr(i, len);
-        if (substr in this.shortcutHash)
-        {
-          let filter = this.shortcutHash[substr];
-          if (filter.matches(location, contentType, docDomain, thirdParty))
-            return filter;
-        }
+        let result = this._checkEntryMatch(substr, location, contentType, docDomain, thirdParty);
+        if (result)
+          return result;
       }
     }
 
-    // Slow matching for filters without shortcut
-    for each (let filter in this.regexps)
-      if (filter.matches(location, contentType, docDomain, thirdParty))
-        return filter;
-
     return null;
+  },
+
+  /**
+   * Stores current state in a JSON'able object.
+   */
+  toCache: function(/**Object*/ cache)
+  {
+    cache.filterByKeyword = this.filterByKeyword;
+  },
+
+  /**
+   * Restores current state from an object.
+   */
+  fromCache: function(/**Object*/ cache)
+  {
+    this.filterByKeyword = cache.filterByKeyword;
+    this.filterByKeyword.__proto__ = null;
+
+    // We don't want to initialize keywordByFilter yet, do it when it is needed
+    delete this.keywordByFilter;
+    this.__defineGetter__("keywordByFilter", function()
+    {
+      let result = {__proto__: null};
+      for (let k in this.filterByKeyword)
+      {
+        let list = this.filterByKeyword[k];
+        if (typeof list == "string")
+          result[list] = k;
+        else
+          for (let i = 0, l = list.length; i < l; i++)
+            result[list[i]] = k;
+      }
+      return this.keywordByFilter = result;
+    });
+    this.__defineSetter__("keywordByFilter", function(value)
+    {
+      delete this.keywordByFilter;
+      return this.keywordByFilter = value;
+    });
   }
 };
 
@@ -299,14 +379,48 @@ CombinedMatcher.prototype =
   },
 
   /**
-   * @see Matcher#findShortcut
+   * @see Matcher#findKeyword
    */
-  findShortcut: function(text)
+  findKeyword: function(filter)
   {
-    if (text.substr(0, 2) == "@@")
-      return this.whitelist.findShortcut(text);
+    if (filter instanceof WhitelistFilter)
+      return this.whitelist.findKeyword(filter);
     else
-      return this.blacklist.findShortcut(text);
+      return this.blacklist.findKeyword(filter);
+  },
+
+  /**
+   * @see Matcher#hasFilter
+   */
+  hasFilter: function(filter)
+  {
+    if (filter instanceof WhitelistFilter)
+      return this.whitelist.hasFilter(filter);
+    else
+      return this.blacklist.hasFilter(filter);
+  },
+
+  /**
+   * @see Matcher#getKeywordForFilter
+   */
+  getKeywordForFilter: function(filter)
+  {
+    if (filter instanceof WhitelistFilter)
+      return this.whitelist.getKeywordForFilter(filter);
+    else
+      return this.blacklist.getKeywordForFilter(filter);
+  },
+
+  /**
+   * Checks whether a particular filter is slow
+   */
+  isSlowFilter: function(/**RegExpFilter*/ filter) /**Boolean*/
+  {
+    let matcher = (filter instanceof WhitelistFilter ? this.whitelist : this.blacklist);
+    if (matcher.hasFilter(filter))
+      return !matcher.getKeywordForFilter(filter);
+    else
+      return !matcher.findKeyword(filter);
   },
 
   /**
@@ -316,47 +430,28 @@ CombinedMatcher.prototype =
    */
   matchesAnyInternal: function(location, contentType, docDomain, thirdParty)
   {
+    let candidates = location.toLowerCase().match(/[a-z0-9%]{3,}/g);
+    if (candidates === null)
+      candidates = [];
+    if (contentType == "DONOTTRACK")
+      candidates.unshift("donottrack");
+    else
+      candidates.push("");
+
     let blacklistHit = null;
-    if (this.whitelist.hasShortcuts || this.blacklist.hasShortcuts)
+    for (let i = 0, l = candidates.length; i < l; i++)
     {
-      // Optimized matching using shortcuts
-      let hashWhite = this.whitelist.shortcutHash;
-      let hashBlack = this.blacklist.shortcutHash;
-
-      let text = location.toLowerCase();
-      let len = Matcher.shortcutLength;
-      let endPos = text.length - len + 1;
-      for (let i = 0; i <= endPos; i++)
+      let substr = candidates[i];
+      if (substr in this.whitelist.filterByKeyword)
       {
-        let substr = text.substr(i, len);
-        if (substr in hashWhite)
-        {
-          let filter = hashWhite[substr];
-          if (filter.matches(location, contentType, docDomain, thirdParty))
-            return filter;
-        }
-        if (substr in hashBlack)
-        {
-          let filter = hashBlack[substr];
-          if (filter.matches(location, contentType, docDomain, thirdParty))
-            blacklistHit = filter;
-        }
+        let result = this.whitelist._checkEntryMatch(substr, location, contentType, docDomain, thirdParty);
+        if (result)
+          return result;
       }
+      if (substr in this.blacklist.filterByKeyword && blacklistHit === null)
+        blacklistHit = this.blacklist._checkEntryMatch(substr, location, contentType, docDomain, thirdParty);
     }
-
-    // Slow matching for filters without shortcut
-    for each (let filter in this.whitelist.regexps)
-      if (filter.matches(location, contentType, docDomain, thirdParty))
-        return filter;
-
-    if (blacklistHit)
-      return blacklistHit;
-
-    for each (let filter in this.blacklist.regexps)
-      if (filter.matches(location, contentType, docDomain, thirdParty))
-        return filter;
-
-    return null;
+    return blacklistHit;
   },
 
   /**
@@ -375,11 +470,30 @@ CombinedMatcher.prototype =
       this.resultCache = {__proto__: null};
       this.cacheEntries = 0;
     }
-  
+
     this.resultCache[key] = result;
     this.cacheEntries++;
 
     return result;
+  },
+
+  /**
+   * Stores current state in a JSON'able object.
+   */
+  toCache: function(/**Object*/ cache)
+  {
+    cache.matcher = {whitelist: {}, blacklist: {}};
+    this.whitelist.toCache(cache.matcher.whitelist);
+    this.blacklist.toCache(cache.matcher.blacklist);
+  },
+
+  /**
+   * Restores current state from an object.
+   */
+  fromCache: function(/**Object*/ cache)
+  {
+    this.whitelist.fromCache(cache.matcher.whitelist);
+    this.blacklist.fromCache(cache.matcher.blacklist);
   }
 }
 

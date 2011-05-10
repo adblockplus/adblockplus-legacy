@@ -15,7 +15,7 @@
  *
  * The Initial Developer of the Original Code is
  * Wladimir Palant.
- * Portions created by the Initial Developer are Copyright (C) 2006-2010
+ * Portions created by the Initial Developer are Copyright (C) 2006-2011
  * the Initial Developer. All Rights Reserved.
  *
  * Contributor(s):
@@ -43,6 +43,7 @@ function init()
     suggestion.setAttribute("value", address);
     suggestion.setAttribute("label", address);
     suggestion.setAttribute("crop", "center");
+    suggestion.setAttribute("class", "suggestion");
     insertionPoint.parentNode.insertBefore(suggestion, insertionPoint);
 
     return address;
@@ -248,14 +249,14 @@ function updateFilter()
   filter = Filter.normalize(filter);
   E("regexpWarning").hidden = !Filter.regexpRegExp.test(filter);
 
-  let hasShortcut = true;
+  let isSlow = false;
   let compiledFilter = Filter.fromText(filter);
   if (E("regexpWarning").hidden)
   {
-    if (compiledFilter instanceof RegExpFilter && !defaultMatcher.findShortcut(compiledFilter.text))
-      hasShortcut = false;
+    if (compiledFilter instanceof RegExpFilter && defaultMatcher.isSlowFilter(compiledFilter))
+      isSlow = true;
   }
-  E("shortpatternWarning").hidden = hasShortcut;
+  E("shortpatternWarning").hidden = !isSlow;
 
   E("matchWarning").hidden = compiledFilter instanceof RegExpFilter && compiledFilter.matches(item.location, item.typeDescr, item.docDomain, item.thirdParty);
 
@@ -357,7 +358,7 @@ function addFilter() {
   if (filter.disabled)
   {
     filter.disabled = false;
-    FilterStorage.triggerFilterObservers("enable", [filter]);
+    FilterStorage.triggerObservers("filters enable", [filter]);
   }
 
   FilterStorage.addFilter(filter);
@@ -411,7 +412,7 @@ function doEnable() {
 function enableSubscription(subscription)
 {
   subscription.disabled = false;
-  FilterStorage.triggerSubscriptionObservers("enable", [subscription]);
+  FilterStorage.triggerObservers("subscriptions enable", [subscription]);
   FilterStorage.saveToDisk();
   E("groupDisabledWarning").hidden = true;
 }
