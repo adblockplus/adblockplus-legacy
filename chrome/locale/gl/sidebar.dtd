@@ -18,6 +18,7 @@
 <!ENTITY tooltip.size.label "Tamaño:">
 <!ENTITY tooltip.docDomain.label "Documento fonte:">
 <!ENTITY tooltip.filter.label "Filtro en vigor:">
+<!ENTITY tooltip.filter.disabled "(Desactivado)">
 <!ENTITY tooltip.filterSource.label "Fonte do filtro:">
 <!ENTITY context.block.label "Bloquear este tema">
 <!ENTITY context.editfilter.label "Editar o filtro en vigor">

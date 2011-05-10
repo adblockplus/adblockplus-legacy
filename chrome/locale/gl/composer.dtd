@@ -16,6 +16,7 @@
 <!ENTITY pattern.explanation "A pauta pode ser calquera parte da dirección, o símbolo * actúa como comodín. O filtro só se aplicará ás direccións coincidentes coa pauta.">
 <!ENTITY regexp.warning "A pauta que introduciu interprétase como unha expresión regular, e usar moitas podería retardar a navegación. Se non ten a intención de utilizar expresións regulares, engada un símbolo * ao final da pauta.">
 <!ENTITY shortpattern.warning "A pauta que introduciu é demasiado curta para ser optimizada, de haber moitas pautas así podería retardarse a navegación. Recoméndase que vostede elixa unha cadea máis longa para este filtro.">
+<!ENTITY match.warning "O patrón que inseriu non coincide co enderezo a ser bloqueado ou posto na lista branca e non terá ningún efecto.">
 <!ENTITY custom.pattern.label "Personalizado:">
 <!ENTITY custom.pattern.accesskey "P">
 <!ENTITY anchors.label "Acepte só a pauta:">

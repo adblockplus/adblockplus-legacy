@@ -21,5 +21,7 @@
 <!ENTITY closesidebar.accesskey "B">
 <!ENTITY whitelist.site.label "Utskeakelje op ?1?">
 <!ENTITY whitelist.page.label "Allinnich op dizze side útskeakelje">
+<!ENTITY disable.label "Oeral útskeakelje">
+<!ENTITY recommend.label "Rekommandearje ús oan op Facebook">
 <!ENTITY objecttab.title "Blokkearje">
 <!ENTITY objecttab.tooltip "Klik hjir om dit objekt te blokkearjen mei Adblock Plus">
