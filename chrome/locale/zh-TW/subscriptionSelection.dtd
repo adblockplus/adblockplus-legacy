@@ -13,7 +13,7 @@
 <!ENTITY list.download.website "瀏覽網站">
 <!ENTITY fromWeb.description "請確認您要訂閱的過濾條件集。訂閱前您可以變更條件集標題或位址。">
 <!ENTITY edit.description "您需要的話可以變更條件集標題或位址。">
-<!ENTITY external.description "這次一份外部過濾條件集，這份條件集會由擴充套件建立並更新。">
+<!ENTITY external.description "這是一份外部過濾條件集，這份條件集會由擴充套件建立並更新。">
 <!ENTITY title.label "訂閱項目名稱:">
 <!ENTITY title.accesskey "T">
 <!ENTITY location.label "過濾條件集位址:">

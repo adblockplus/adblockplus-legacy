@@ -1,9 +1,9 @@
 <!ENTITY dialog.title "Tilføj Adblock Plus filterregel">
 <!ENTITY accept.label "Tilføj filter">
 <!ENTITY advanced.label "Avanceret visning">
-<!ENTITY basic.label "Grundlæggende visning">
-<!ENTITY disabled.warning "Adblock Plus er i øjeblikket deaktiveret. Du kan stadig tilføje filtre men disse vil ikke blive benyttet med mindre du [link]aktiverer Adblock Plus[/link].">
-<!ENTITY groupDisabled.warning "Filtergruppen &quot;?1?&quot; som dette filer skal tilføjes til er deaktiveret i øjeblikket. Du kan stadig tilføje filteret men det vil ikke blive benyttet med mindre du [link]aktiverer filtergruppen[/link].">
+<!ENTITY basic.label "Enkel visning">
+<!ENTITY disabled.warning "Adblock Plus er deaktiveret. Du kan stadig tilføje filtre men disse vil ikke anvendes med mindre du [link]aktiverer Adblock Plus[/link].">
+<!ENTITY groupDisabled.warning "Filtergruppen &quot;?1?&quot; som dette filter skal føjes til er deaktiveret. Du kan stadig tilføje filteret men det vil ikke anvendes med mindre du [link]aktiverer filtergruppen[/link].">
 <!ENTITY filter.label "Nyt filter:">
 <!ENTITY filter.accesskey "N">
 <!ENTITY preferences.label "Vis eksisterende filtre...">
@@ -16,6 +16,7 @@
 <!ENTITY pattern.explanation "Mønsteret kan være enhver del af adressen, tegnet * bruges som jokertegn. Filteret vil kun blive benyttet på adresser der matcher mønsteret.">
 <!ENTITY regexp.warning "Det indtastede mønster vil blive fortolket som et regulært udtryk. Mange regulære udtryk kan gøre din browser langsommere. Hvis det ikke var din intention at bruge regulære udtryk, tilføj et * tegn i slutningen af mønsteret.">
 <!ENTITY shortpattern.warning "Det indtastede mønster er for kort til at blive optimeret, mange sådanne mønstre kan gøre din browser langsommere. Det anbefales at du vælger en længere streng for dette filter.">
+<!ENTITY match.warning "Det angivne mønster matcher ikke længere den blokerede/hvidlistede adresse og har ingen effekt.">
 <!ENTITY custom.pattern.label "Brugerdefineret:">
 <!ENTITY custom.pattern.accesskey "r">
 <!ENTITY anchors.label "Accepter kun mønster:">

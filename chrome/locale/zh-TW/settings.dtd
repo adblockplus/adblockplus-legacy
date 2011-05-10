@@ -11,7 +11,7 @@
 <!ENTITY import.accesskey "M">
 <!ENTITY export.label "匯出過濾條件">
 <!ENTITY export.accesskey "X">
-<!ENTITY clearall.label "刪除所有過濾條件">
+<!ENTITY clearall.label "刪除所有自訂條件">
 <!ENTITY clearall.accesskey "L">
 <!ENTITY resethitcounts.label "重設命中統計資料">
 <!ENTITY resethitcounts.accesskey "R">

@@ -2,7 +2,7 @@
 <!ENTITY blocked.tooltip "此頁已封鎖項目:">
 <!ENTITY filters.tooltip "最常用的條件:">
 <!ENTITY menuitem.label "Adblock Plus 偏好設定">
-<!ENTITY menuitem.accesskey "B">
+<!ENTITY menuitem.accesskey "b">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY view.blockableItems.label "Adblock Plus: 可阻擋項目">
 <!ENTITY context.image.label "Adblock Plus: 阻擋圖片">
@@ -14,14 +14,14 @@
 <!ENTITY sendReport.label "回報此頁面錯誤">
 <!ENTITY sendReport.accesskey "R">
 <!ENTITY settings.label "偏好設定">
-<!ENTITY settings.accesskey "F">
+<!ENTITY settings.accesskey "f">
 <!ENTITY opensidebar.label "開啟可阻擋項目">
-<!ENTITY opensidebar.accesskey "B">
+<!ENTITY opensidebar.accesskey "b">
 <!ENTITY closesidebar.label "關閉可阻擋項目">
-<!ENTITY closesidebar.accesskey "B">
+<!ENTITY closesidebar.accesskey "b">
 <!ENTITY whitelist.site.label "此網域設為白名單: ?1?">
 <!ENTITY whitelist.page.label "只將此頁面設為白名單">
-<!ENTITY disable.label "全部設為白名單">
+<!ENTITY disable.label "全部停用">
 <!ENTITY recommend.label "在 Facebook 上給我們建議">
 <!ENTITY objecttab.title "封鎖">
 <!ENTITY objecttab.tooltip "請按這裡用 Adblock Plus 封鎖此物件">

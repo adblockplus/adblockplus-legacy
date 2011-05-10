@@ -51,6 +51,8 @@
 <!ENTITY objecttabs.accesskey "ت">
 <!ENTITY collapse.label "بسط العناصر المحجوبة">
 <!ENTITY collapse.accesskey "ط">
+<!ENTITY sync.label "مزامنة إعدادات آدبلوك بلس">
+<!ENTITY sync.accesskey "ز">
 <!ENTITY help.label "مساعدة">
 <!ENTITY help.accesskey "م">
 <!ENTITY gettingStarted.label "ابدأ هنا">

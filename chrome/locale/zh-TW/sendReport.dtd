@@ -46,7 +46,7 @@
 <!ENTITY issues.change.description "您的設定值已變更。請重新載入頁面測試錯誤是否仍然存在，
 	若錯誤依舊存在，則必須傳送錯誤報告。">
 <!ENTITY typeWarning.description "您表示您要回報的錯誤是 Adblock Plus 本身的錯誤而非過濾條件引起的錯誤。
-	請注意，這類程式錯誤最好是到 [link]Adblock Plus 討論區[/link] 上回報。
+	請注意，這類程式錯誤最好能到 [link]Adblock Plus 討論區[/link] 上回報。
 	本回報器對這類錯誤只能用於討論區中已存在文章的補充說明，
 	您必須在 Adblock Plus 討論區的文章中貼上這次回報的錯誤報告連結，否則無人會發現此錯誤報告。
 	錯誤報告連結在傳送成功之後會自動產生。">

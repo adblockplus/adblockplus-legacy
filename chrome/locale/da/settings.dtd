@@ -3,7 +3,7 @@
 <!ENTITY filters.accesskey "F">
 <!ENTITY add.label "Tilføj filter">
 <!ENTITY add.accesskey "T">
-<!ENTITY addsubscription.label "Tilføj filter-abonnement">
+<!ENTITY addsubscription.label "Tilføj filterabonnement">
 <!ENTITY addsubscription.accesskey "B">
 <!ENTITY synchsubscriptions.label "Opdater alle abonnementer">
 <!ENTITY synchsubscriptions.accesskey "d">
@@ -13,7 +13,7 @@
 <!ENTITY export.accesskey "P">
 <!ENTITY clearall.label "Fjern alle brugerdefinerede filtre">
 <!ENTITY clearall.accesskey "L">
-<!ENTITY resethitcounts.label "Nulstil hit-statistikker">
+<!ENTITY resethitcounts.label "Nulstil hit statistikker">
 <!ENTITY resethitcounts.accesskey "N">
 <!ENTITY edit.label "Rediger">
 <!ENTITY edit.accesskey "R">
@@ -35,33 +35,35 @@
 <!ENTITY sort.accesskey "S">
 <!ENTITY sort.none.label "Usorteret">
 <!ENTITY sort.none.accesskey "U">
-<!ENTITY sort.ascending.label "A &gt; Z sorteringsorden">
+<!ENTITY sort.ascending.label "A &gt; Z">
 <!ENTITY sort.ascending.accesskey "A">
-<!ENTITY sort.descending.label "Z &gt; A sorteringsorden">
+<!ENTITY sort.descending.label "Z &gt; A">
 <!ENTITY sort.descending.accesskey "Z">
 <!ENTITY options.label "Indstillinger">
 <!ENTITY options.accesskey "d">
-<!ENTITY enable.label "Slå Adblock Plus til">
+<!ENTITY enable.label "Aktiver Adblock Plus">
 <!ENTITY enable.accesskey "I">
-<!ENTITY showintoolbar.label "Vis i værktøjslinje">
+<!ENTITY showintoolbar.label "Vis på værktøjslinje">
 <!ENTITY showintoolbar.accesskey "V">
-<!ENTITY showinstatusbar.label "Vis i statuslinje">
+<!ENTITY showinstatusbar.label "Vis på statuslinje">
 <!ENTITY showinstatusbar.accesskey "s">
 <!ENTITY objecttabs.label "Vis faner på Flash og Java">
 <!ENTITY objecttabs.accesskey "J">
-<!ENTITY collapse.label "Sammenklap blokerede elementer">
+<!ENTITY collapse.label "Sammenfold blokerede emner">
 <!ENTITY collapse.accesskey "m">
+<!ENTITY sync.label "Synk Adblock Plus indstillinger">
+<!ENTITY sync.accesskey "k">
 <!ENTITY help.label "Hjælp">
 <!ENTITY help.accesskey "H">
-<!ENTITY gettingStarted.label "Kom godt i gang (engelsk)">
+<!ENTITY gettingStarted.label "Start her (engelsk)">
 <!ENTITY gettingStarted.accesskey "a">
-<!ENTITY faq.label "Ofte Stillede Spørgsmål">
+<!ENTITY faq.label "Ofte stillede spørgsmål">
 <!ENTITY faq.accesskey "f">
 <!ENTITY filterdoc.label "Skriver Adblock Plus filtre">
 <!ENTITY filterdoc.accesskey "R">
 <!ENTITY about.label "Om Adblock Plus">
 <!ENTITY about.accesskey "B">
-<!ENTITY description "Følgende filtre afgør hvilke adresser der skal blokeres og hvilke der skal tillades:">
+<!ENTITY description "Følgende filtre afgør hvilke adresser der blokeres og hvilke der tillades:">
 <!ENTITY filter.column "Filterregel">
 <!ENTITY filter.accesskey "F">
 <!ENTITY slow.column "Langsomme filtre">
@@ -73,7 +75,7 @@
 <!ENTITY lasthit.column "Seneste hit">
 <!ENTITY lasthit.accesskey "i">
 <!ENTITY context.edit.label "Redigér filter">
-<!ENTITY context.resethitcount.label "Nulstil hitsstatistik for filter">
+<!ENTITY context.resethitcount.label "Nulstil hitstatistik for filter">
 <!ENTITY context.synchsubscription.label "Opdatér abonnement nu">
 <!ENTITY context.editsubscription.label "Redigér abonnement">
 <!ENTITY context.moveup.label "Flyt filter op">
