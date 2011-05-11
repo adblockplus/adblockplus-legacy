@@ -52,7 +52,7 @@
   <!-- Toolbar -->
   <toolbarpalette id="BrowserToolbarPalette">
     <toolbarbutton id="abp-toolbarbutton" type="menu-button" pack="end"
-        class="toolbarbutton-1 chromeclass-toolbar-additional"/>
+        class="toolbarbutton-1"/>
   </toolbarpalette>
 
   <!-- Tools menu -->
