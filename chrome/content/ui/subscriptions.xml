@@ -30,7 +30,7 @@
                 author="fanboy, Nitrox"/>
   <subscription title="Liste FR+EasyList (français)"
                 url="https://easylist-downloads.adblockplus.org/liste_fr+easylist.txt"
-                homepage="http://lian.info.tm/"
+                homepage="http://adblock-listefr.com/"
                 prefixes="fr"
                 author="Lian"/>
   <subscription title="ROList+EasyList (românesc)"
