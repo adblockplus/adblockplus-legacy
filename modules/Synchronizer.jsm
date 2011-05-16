@@ -107,6 +107,13 @@ var Synchronizer =
    */
   execute: function(subscription, manual, forceDownload)
   {
+    // Delay execution, SeaMonkey 2.1 won't fire request's event handlers
+    // otherwise if the window that called us is closed.
+    Utils.runAsync(this.executeInternal, this, subscription, manual, forceDownload);
+  },
+
+  executeInternal: function(subscription, manual, forceDownload)
+  {
     let url = subscription.url;
     if (url in executing)
       return;
