@@ -204,13 +204,33 @@ Matcher.prototype = {
     if (typeof list == "string")
     {
       let filter = Filter.knownFilters[list];
+      if (!filter)
+      {
+        // Something is wrong, we probably shouldn't have this filter in the first place
+        delete this.filterByKeyword[keyword];
+        return null;
+      }
       return (filter.matches(location, contentType, docDomain, thirdParty) ? filter : null);
     }
     else
     {
-      for (let i = 0, l = list.length; i < l; i++)
+      for (let i = 0; i < list.length; i++)
       {
         let filter = Filter.knownFilters[list[i]];
+        if (!filter)
+        {
+          // Something is wrong, we probably shouldn't have this filter in the first place
+          if (list.length == 1)
+          {
+            delete this.filterByKeyword[keyword];
+            return null;
+          }
+          else
+          {
+            list.splice(i--, 1);
+            continue;
+          }
+        }
         if (filter.matches(location, contentType, docDomain, thirdParty))
           return filter;
       }
