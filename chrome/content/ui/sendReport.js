@@ -366,7 +366,10 @@ let screenshotDataSource =
   exportData: function()
   {
     if (this.enabled)
+    {
       reportData.screenshot = this._canvas.toDataURL();
+      reportData.screenshot.@edited = (this._undoQueue.length ? 'true' : 'false');
+    }
     else
       delete reportData.screenshot;
   },
