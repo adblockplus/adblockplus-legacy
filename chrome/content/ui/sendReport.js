@@ -150,6 +150,7 @@ let requestsDataSource =
   origRequests: [],
   requestNotifier: null,
   callback: null,
+  nodeByKey: {__proto__: null},
 
   collectData: function(wnd, windowURI, callback)
   {
@@ -161,8 +162,23 @@ let requestsDataSource =
   {
     if (entry)
     {
-      let requestXML = <request location={censorURL(entry.location)} type={entry.typeDescr}
-                        docDomain={entry.docDomain} thirdParty={entry.thirdParty}/>;
+      let key = entry.location + " " + entry.typeDescr + " " + entry.docDomain;
+      let requestXML
+      if (key in this.nodeByKey)
+      {
+        requestXML = this.nodeByKey[key];
+        requestXML.@count = parseInt(requestXML.@count, 10) + 1;
+      }
+      else
+      {
+        requestXML = <request location={censorURL(entry.location)}
+                              type={entry.typeDescr}
+                              docDomain={entry.docDomain}
+                              thirdParty={entry.thirdParty}
+                              count="1"/>;
+        this.nodeByKey[key] = requestXML;
+        this.requests.appendChild(requestXML);
+      }
 
       // Location is meaningless for element hiding hits
       if (entry.filter && entry.filter instanceof ElemHideFilter)
@@ -182,8 +198,6 @@ let requestsDataSource =
           requestXML.@size = node.offsetWidth + "x" + node.offsetHeight;
         } catch(e) {}
       }
-
-      this.requests.appendChild(requestXML);
       this.origRequests.push(entry);
     }
 
