@@ -1039,7 +1039,7 @@ function initDataCollectorPage()
   document.documentElement.canAdvance = false;
 
   let contentWindow = window.arguments[0];
-  let windowURI = window.arguments[1];
+  let windowURI = (window.arguments[1] instanceof Ci.nsIURI ? window.arguments[1] : null);
   let totalSteps = dataCollectors.length;
   let initNextDataSource = function()
   {
