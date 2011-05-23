@@ -30,9 +30,9 @@
 <!ENTITY domainRestriction.label "지정된 도메인에만 적용(D) :">
 <!ENTITY domainRestriction.accesskey "d">
 <!ENTITY domainRestriction.help "1. 파이프 기호(|)를 이용해 여러 도메인에 적용 (예시 : site1.com|site2.net). 2. 물결 기호(~)를 이용해 필터를 적용하지 않을 도메인 지정 (예시 : ~site.com)">
-<!ENTITY firstParty.label "제3자 요청에만 적용">
+<!ENTITY firstParty.label "제1자 요청에만 적용">
 <!ENTITY firstParty.accesskey "r">
-<!ENTITY thirdParty.label "제1자 요청에만 적용">
+<!ENTITY thirdParty.label "제3자 요청에만 적용">
 <!ENTITY thirdParty.accesskey "T">
 <!ENTITY matchCase.label "대/소문자 구분">
 <!ENTITY matchCase.accesskey "M">

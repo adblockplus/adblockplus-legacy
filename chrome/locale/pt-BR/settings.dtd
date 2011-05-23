@@ -52,7 +52,7 @@
 <!ENTITY collapse.label "Comprimir elementos bloqueados">
 <!ENTITY collapse.accesskey "C">
 <!ENTITY sync.label "Sincronizar configurações do Adblock Plus">
-<!ENTITY sync.accesskey "c">
+<!ENTITY sync.accesskey "i">
 <!ENTITY help.label "Ajuda">
 <!ENTITY help.accesskey "U">
 <!ENTITY gettingStarted.label "Aprendendo a usar">
