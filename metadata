@@ -2,7 +2,7 @@
 id={d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}
 basename=adblockplus
 branchname=ADBLOCK_PLUS
-version=1.3.7
+version=1.3.8
 author=Wladimir Palant
 icon=chrome://adblockplus/skin/adblockplus.png
 about=chrome://adblockplus/content/ui/about.xul
