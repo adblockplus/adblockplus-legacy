@@ -47,7 +47,7 @@
 <!ENTITY showintoolbar.accesskey "B">
 <!ENTITY showinstatusbar.label "顯示狀態列圖示">
 <!ENTITY showinstatusbar.accesskey "S">
-<!ENTITY objecttabs.label "Flash 和 Java 物件上顯示頁籤">
+<!ENTITY objecttabs.label "在 Flash 和 Java 物件上顯示頁籤">
 <!ENTITY objecttabs.accesskey "T">
 <!ENTITY collapse.label "釋放物件所佔用的空間">
 <!ENTITY collapse.accesskey "L">
