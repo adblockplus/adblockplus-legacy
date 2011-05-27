@@ -326,15 +326,12 @@ function onFilterChange(action, filters)
     subscriptionFilter = null;
 
     let method = (action == "add" || action == "enable" ? addFilter : removeFilter);
-    if (action != "enable" && action != "disable")
+    filters = filters.filter(function(filter)
     {
-      filters = filters.filter(function(filter)
-      {
-        // For "add" only consider filters that have enabled subscriptions, for
-        // "remove" those that don't have any.
-        return ((action == "add") == filter.subscriptions.some(function(subscription) !subscription.disabled));
-      });
-    }
+      // For "remove" only consider filters that don't have any enabled
+      // subscriptions, for other actions the filter that have them.
+      return ((action != "remove") == filter.subscriptions.some(function(subscription) !subscription.disabled));
+    });
     filters.forEach(method);
     flushElemHide();
   }
