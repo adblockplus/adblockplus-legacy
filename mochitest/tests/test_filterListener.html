@@ -96,6 +96,13 @@
     FilterStorage.removeFilter(filter4);
     checkKnownFilters("remove filter4", {elemhide: [filter3]});
 
+    filter2.disabled = false;
+    FilterStorage.triggerObservers("filters enable", [filter2]);
+    checkKnownFilters("enable filter2 while not in list", {elemhide: [filter3]});
+    filter2.disabled = true;
+    FilterStorage.triggerObservers("filters disable", [filter2]);
+    checkKnownFilters("disable filter2 while not in list", {elemhide: [filter3]});
+
     let subscription = Subscription.fromURL("http://test1/");
     subscription.filters = [filter1, filter2, filter3, filter4];
 
