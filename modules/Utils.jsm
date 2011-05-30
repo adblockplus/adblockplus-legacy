@@ -208,7 +208,7 @@ var Utils =
   {
     if (!(url instanceof Ci.nsIURI))
       url = Utils.makeURI(url);
-  
+
     if (url instanceof Ci.nsINestedURI)
       return url.innermostURI;
     else

@@ -277,6 +277,11 @@ var Policy =
     if (/^(moz-safe-)?about:/.test(url))
       return null;
 
+    // Ignore fragment identifier
+    let index = url.indexOf("#");
+    if (index >= 0)
+      url = url.substring(0, index);
+
     let result = defaultMatcher.matchesAny(url, "DOCUMENT", getHostname(url), false);
     return (result instanceof WhitelistFilter ? result : null);
   },
