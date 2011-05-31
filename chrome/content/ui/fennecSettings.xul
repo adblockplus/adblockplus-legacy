@@ -33,4 +33,5 @@
   </setting>
   <setting pref="extensions.adblockplus.fastcollapse" type="bool" title="&collapse.label;"
            inverted="true"/>
+  <setting id="adblockplus-sync" type="bool" title="&sync.label;"/>
 </vbox>

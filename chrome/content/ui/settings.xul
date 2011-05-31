@@ -167,6 +167,7 @@
         <menuseparator/>
         <menuitem id="frameobjects" label="&objecttabs.label;" accesskey="&objecttabs.accesskey;" type="checkbox" oncommand="togglePref('frameobjects')"/>
         <menuitem id="slowcollapse" label="&collapse.label;" accesskey="&collapse.accesskey;" type="checkbox" oncommand="togglePref('fastcollapse')"/>
+        <menuitem id="sync" label="&sync.label;" accesskey="&sync.accesskey;" type="checkbox" oncommand="toggleSync();"/>
         <menuseparator/>
         <menuitem id="showintoolbar" label="&showintoolbar.label;" accesskey="&showintoolbar.accesskey;" type="checkbox" oncommand="togglePref('showintoolbar')"/>
         <menuitem id="showinstatusbar" label="&showinstatusbar.label;" accesskey="&showinstatusbar.accesskey;" type="checkbox" oncommand="togglePref('showinstatusbar')"/>
