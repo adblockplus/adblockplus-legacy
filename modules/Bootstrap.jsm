@@ -91,7 +91,8 @@ let defaultModules = [
   baseURL.spec + "Prefs.jsm",
   baseURL.spec + "FilterListener.jsm",
   baseURL.spec + "ContentPolicy.jsm",
-  baseURL.spec + "Synchronizer.jsm"
+  baseURL.spec + "Synchronizer.jsm",
+  baseURL.spec + "Sync.jsm"
 ];
 
 let loadedModules = {__proto__: null};
