@@ -1099,6 +1099,10 @@ function fillOptionsPopup()
   E("slowcollapse").setAttribute("checked", !Prefs.fastcollapse);
   E("showintoolbar").setAttribute("checked", Prefs.showintoolbar);
   E("showinstatusbar").setAttribute("checked", Prefs.showinstatusbar);
+
+  let syncEngine = Sync.getEngine();
+  E("sync").hidden = !syncEngine;
+  E("sync").setAttribute("checked", syncEngine && syncEngine.enabled);
 }
 
 /**
@@ -1214,6 +1218,15 @@ function fillContext()
 function togglePref(pref)
 {
   Prefs[pref] = !Prefs[pref];
+}
+
+/**
+ * Toggles the pref for the Adblock Plus sync engine.
+ */
+function toggleSync()
+{
+  let syncEngine = Sync.getEngine();
+  syncEngine.enabled = !syncEngine.enabled;
 }
 
 /**

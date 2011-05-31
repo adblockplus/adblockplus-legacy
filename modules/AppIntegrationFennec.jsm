@@ -44,6 +44,7 @@ Cu.import(baseURL.spec + "FilterStorage.jsm");
 Cu.import(baseURL.spec + "FilterClasses.jsm");
 Cu.import(baseURL.spec + "SubscriptionClasses.jsm");
 Cu.import(baseURL.spec + "Synchronizer.jsm");
+Cu.import(baseURL.spec + "Sync.jsm");
 Utils.runAsync(Cu.import, Cu, baseURL.spec + "AppIntegration.jsm"); // delay to avoid circular imports
 
 let PolicyPrivate = Cu.import(baseURL.spec + "ContentPolicy.jsm", null).PolicyPrivate;
@@ -274,6 +275,12 @@ function onCreateOptions(wrapper, event)
     if (menu.value)
       setSubscription(menu.value, menu.label);
   }, false);
+
+  let syncSetting = wrapper.E("adblockplus-sync");
+  let syncEngine = Sync.getEngine();
+  syncSetting.hidden = !syncEngine;
+  syncSetting.value = syncEngine.enabled;
+  wrapper.E("adblockplus-sync").addEventListener("command", AppIntegration.toggleSync, false);
 
   let updateFunction = function(action, items)
   {

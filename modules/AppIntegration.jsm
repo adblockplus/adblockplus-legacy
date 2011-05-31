@@ -45,6 +45,7 @@ Cu.import(baseURL.spec + "FilterStorage.jsm");
 Cu.import(baseURL.spec + "FilterClasses.jsm");
 Cu.import(baseURL.spec + "SubscriptionClasses.jsm");
 Cu.import(baseURL.spec + "RequestNotifier.jsm");
+Cu.import(baseURL.spec + "Sync.jsm");
 
 if (Utils.isFennec)
   Cu.import(baseURL.spec + "AppIntegrationFennec.jsm");
@@ -159,6 +160,15 @@ var AppIntegration =
   togglePref: function(/**String*/ pref)
   {
     Prefs[pref] = !Prefs[pref];
+  },
+
+  /**
+   * Toggles the pref for the Adblock Plus sync engine.
+   */
+  toggleSync: function()
+  {
+    let syncEngine = Sync.getEngine();
+    syncEngine.enabled = !syncEngine.enabled;
   },
   
   /**
@@ -1025,6 +1035,10 @@ WindowWrapper.prototype =
     this.E(prefix + "showintoolbar").setAttribute("checked", Prefs.showintoolbar);
     this.E(prefix + "showinstatusbar").setAttribute("checked", Prefs.showinstatusbar);
   
+    let syncEngine = Sync.getEngine();
+    this.E(prefix + "sync").hidden = !syncEngine;
+    this.E(prefix + "sync").setAttribute("checked", syncEngine && syncEngine.enabled);
+
     let defAction = (prefix == "abp-toolbar-" || this.window.document.popupNode.id == "abp-toolbarbutton" ?
                      Prefs.defaulttoolbaraction :
                      Prefs.defaultstatusbaraction);
@@ -1318,6 +1332,7 @@ WindowWrapper.prototype.eventHandlers = [
   ["abp-command-togglepagewhitelist", "command", function() { AppIntegration.toggleFilter(this.pageWhitelist); }],
   ["abp-command-toggleobjtabs", "command", function() { AppIntegration.togglePref("frameobjects"); }],
   ["abp-command-togglecollapse", "command", function() { AppIntegration.togglePref("fastcollapse"); }],
+  ["abp-command-togglesync", "command", AppIntegration.toggleSync],
   ["abp-command-toggleshowintoolbar", "command", function() { AppIntegration.togglePref("showintoolbar"); }],
   ["abp-command-toggleshowinstatusbar", "command", function() { AppIntegration.togglePref("showinstatusbar"); }],
   ["abp-command-enable", "command", function() { AppIntegration.togglePref("enabled"); }],
