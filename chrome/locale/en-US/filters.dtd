@@ -1,0 +1,26 @@
+<!ENTITY dialog.title                         "Adblock Plus Filter Preferences">
+
+<!ENTITY subscriptions.group.label            "Filter subscriptions">
+
+<!ENTITY addSubscription.label                "Add filter subscription">
+<!ENTITY addSubscription.accesskey            "f">
+
+<!ENTITY noSubscriptions.text                 "
+  You haven't added any filter subscriptions yet. Adblock Plus won't block
+  anything without filters, please use &quot;Add filter subscription&quot; to
+  add some.
+">
+<!ENTITY subscription.homepage.label          "Homepage">
+<!ENTITY subscription.source.label            "Filter list">
+<!ENTITY subscription.enabled.label           "Enabled">
+<!ENTITY subscription.lastDownload.label      "Last download:">
+<!ENTITY subscription.lastDownload.inProgress "Downloading…">
+<!ENTITY subscription.lastDownload.unknown    "N/A">
+<!ENTITY subscription.lastDownload.invalidURL "Failed, not a valid address">
+<!ENTITY subscription.lastDownload.connectionError "Failed, download failure">
+<!ENTITY subscription.lastDownload.invalidData "Failed, not a valid filters list">
+<!ENTITY subscription.lastDownload.checksumMismatch "Failed, checksum mismatch">
+<!ENTITY subscription.lastDownload.success    "Success">
+<!ENTITY subscription.actions.label           "Actions">
+
+<!ENTITY close.label                          "Close">
