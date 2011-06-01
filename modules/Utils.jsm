@@ -328,6 +328,26 @@ var Utils =
   },
 
   /**
+   * Opens filter preferences dialog or focuses an already open dialog.
+   */
+  openFiltersDialog: function()
+  {
+    var dlg = Utils.windowMediator.getMostRecentWindow("abp:filters");
+    if (dlg)
+    {
+      try
+      {
+        dlg.focus();
+      }
+      catch (e) {}
+    }
+    else
+    {
+      Utils.windowWatcher.openWindow(null, "chrome://adblockplus/content/ui/filters.xul", "_blank", "chrome,centerscreen,resizable,dialog=no", null);
+    }
+  },
+
+  /**
    * Opens preferences dialog or focused already open dialog.
    * @param {String} location  (optional) filter suggestion
    * @param {Filter} filter    (optional) filter to be selected

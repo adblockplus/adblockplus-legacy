@@ -50,11 +50,6 @@
         class="toolbarbutton-1"/>
   </toolbarpalette>
 
-  <!-- Tools menu -->
-  <menupopup id="taskPopup">
-    <menuitem id="abp-menuitem" insertafter="downloadmgr,javaScriptConsole"/>
-  </menupopup>
-
   <!-- Context menu -->
   <menupopup id="messagePaneContext">
     <menuitem id="abp-image-menuitem"/>

@@ -41,11 +41,6 @@
     <statusbarpanel id="abp-status" mousethrough="never" insertbefore="button_commands"/>
   </statusbar>
 
-  <!-- Tools menu -->
-  <menupopup id="popup_tools">
-    <menuitem id="abp-menuitem" insertbefore="menuitem_console"/>
-  </menupopup>
-
   <!-- Context menu -->
   <menupopup id="popup_content"> 
     <menuitem id="abp-image-menuitem"/>

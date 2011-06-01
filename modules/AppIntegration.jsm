@@ -1044,7 +1044,7 @@ WindowWrapper.prototype =
                      Prefs.defaultstatusbaraction);
     this.E(prefix + "opensidebar").setAttribute("default", defAction == 1);
     this.E(prefix + "closesidebar").setAttribute("default", defAction == 1);
-    this.E(prefix + "settings").setAttribute("default", defAction == 2);
+    this.E(prefix + "filters").setAttribute("default", defAction == 2);
     this.E(prefix + "disabled").setAttribute("default", defAction == 3);
 
     // Only show "Recommend" button to Facebook users, we don't want to advertise Facebook
@@ -1207,7 +1207,7 @@ WindowWrapper.prototype =
     if (action == 1)
       this.toggleSidebar();
     else if (action == 2)
-      Utils.openSettingsDialog();
+      Utils.openFiltersDialog();
     else if (action == 3)
     {
       // If there is a whitelisting rule for current page - remove it (reenable).
@@ -1326,6 +1326,7 @@ WindowWrapper.prototype.eventHandlers = [
   ["abp-status-popup", "popupshowing", WindowWrapper.prototype.fillPopup],
   ["abp-toolbar-popup", "popupshowing", WindowWrapper.prototype.fillPopup],
   ["abp-command-sendReport", "command", WindowWrapper.prototype.openReportDialog],
+  ["abp-command-filters", "command", function() {Utils.openFiltersDialog();}],
   ["abp-command-settings", "command", function() {Utils.openSettingsDialog();}],
   ["abp-command-sidebar", "command", WindowWrapper.prototype.toggleSidebar],
   ["abp-command-togglesitewhitelist", "command", function() { AppIntegration.toggleFilter(this.siteWhitelist); }],

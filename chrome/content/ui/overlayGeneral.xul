@@ -54,7 +54,8 @@
       <menuitem id="abp-status-sendReport" label="&sendReport.label;…" accesskey="&sendReport.accesskey;" key="abp-key-sendReport" command="abp-command-sendReport"/>
       <menuitem id="abp-status-opensidebar" label="&opensidebar.label;" accesskey="&opensidebar.accesskey;" key="abp-key-sidebar" command="abp-command-sidebar"/>
       <menuitem id="abp-status-closesidebar" label="&closesidebar.label;" accesskey="&closesidebar.accesskey;" key="abp-key-sidebar" command="abp-command-sidebar"/>
-      <menuitem id="abp-status-settings" label="&settings.label;…" accesskey="&settings.accesskey;" key="abp-key-settings" command="abp-command-settings"/>
+      <menuitem id="abp-status-filters" label="&filters.label;…" accesskey="&filters.accesskey;" key="abp-key-filters" command="abp-command-filters"/>
+      <menuitem id="abp-status-settings" label="&settings.label;…" accesskey="&settings.accesskey;" command="abp-command-settings"/>
       <menuseparator id="abp-status-whitelist-sep"/>
       <menuitem id="abp-status-whitelistsite" labeltempl="&whitelist.site.label;" type="checkbox" command="abp-command-togglesitewhitelist"/>
       <menuitem id="abp-status-whitelistpage" label="&whitelist.page.label;" type="checkbox" command="abp-command-togglepagewhitelist"/>
@@ -81,6 +82,7 @@
   <commandset id="abp-commandset">
     <!-- Dummy oncommand attributes are work-arounds for bug 371900 -->
     <command id="abp-command-sendReport" oncommand="//"/>
+    <command id="abp-command-filters" oncommand="//"/>
     <command id="abp-command-settings" oncommand="//"/>
     <command id="abp-command-sidebar" oncommand="//"/>
     <command id="abp-command-togglesitewhitelist"/>
@@ -102,9 +104,6 @@
       tooltip="abp-tooltip" context="abp-status-popup"/>
 
   <box id="abp-hooks" objtabtext="&objecttab.title;…" objtabtooltip="&objecttab.tooltip;"/>
-
-  <!-- Tools menu -->
-  <menuitem id="abp-menuitem" label="&menuitem.label;…" accesskey="&menuitem.accesskey;" key="abp-key-settings" command="abp-command-settings"/>
 
   <!-- View menu -->
   <menuitem id="abp-blockableitems" label="&view.blockableItems.label;" type="checkbox" autocheck="false" key="abp-key-sidebar" command="abp-command-sidebar"/>
