@@ -23,14 +23,21 @@
  * ***** END LICENSE BLOCK ***** */
 
 /**
+ * Document element containing the template for filter subscription entries.
+ * @type Node
+ */
+let subscriptionTemplate = null;
+
+/**
  * Initialization function, called when the window is loaded.
  */
 function init()
 {
+  subscriptionTemplate = E("subscriptionTemplate");
+  reloadSubscriptions();
+
   // Install listener
   FilterNotifier.addListener(onChange);
-
-  reloadSubscriptions();
 }
 
 function cleanUp()
@@ -71,7 +78,7 @@ function reloadSubscriptions()
 function addSubscription(/**Subscription*/ subscription, /**Node*/ insertBefore) /**Node*/
 {
   subscription.downloadInProgress = Synchronizer.isExecuting(subscription.url)
-  let node = processTemplate(E("subscriptionTemplate"), subscription);
+  let node = processTemplate(subscriptionTemplate, subscription);
   delete subscription.downloadInProgress;
 
   if (insertBefore)
@@ -92,6 +99,7 @@ function processTemplate(/**Node*/ template, /**Object*/ data) /**Node*/
   let result = template.cloneNode(true);
   result.removeAttribute("id");
   result.removeAttribute("hidden");
+  result._data = data;
 
   // Resolve any attributes of the for attr="{obj.foo}"
   let conditionals = [];
@@ -133,9 +141,56 @@ function processTemplate(/**Node*/ template, /**Object*/ data) /**Node*/
     }
     node.parentNode.replaceChild(fragment, node);
   }
+
   return result;
 }
 
-function onChange()
+function updateTemplate(/**Node*/ template, /**Node*/ node)
 {
+  if (!("_data" in node))
+    return;
+  let newChild = processTemplate(template.firstChild, node._data);
+  node.replaceChild(newChild, node.firstChild);
+}
+
+function getDataForNode(/**Node*/ node) /**Object*/
+{
+  while (node)
+  {
+    if ("_data" in node)
+      return node._data;
+    node = node.parentNode;
+  }
+  return null;
+}
+
+function getNodeForData(/**Node*/ parent, /**Object*/ data) /**Node*/
+{
+  for (let child = parent.firstChild; child; child = child.nextSibling)
+    if ("_data" in child && child._data == data)
+      return child;
+  return null;
+}
+
+function onChange(action, item, newValue, oldValue)
+{
+  switch (action)
+  {
+    case "subscription.disabled":
+      let subscriptionNode = getNodeForData(E("subscriptions"), item);
+      if (subscriptionNode)
+      {
+        updateTemplate(subscriptionTemplate, subscriptionNode);
+        if (!document.commandDispatcher.focusedElement)
+          E("subscriptions").focus();
+      }
+      break;
+  }
+}
+
+function updateSubscriptionDisabled(checkbox)
+{
+  let subscription = getDataForNode(checkbox);
+  if (subscription)
+    subscription.disabled = !checkbox.checked;
 }

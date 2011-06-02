@@ -57,51 +57,53 @@
       <description flex="1">&noSubscriptions.text;</description>
     </richlistitem>
     <richlistitem id="subscriptionTemplate" class="subscription" hidden="true" orient="vertical">
-      <hbox align="center">
-        <description value="{obj.title}"/>
-        <description value=" ("/>
-        <if condition="{!!obj.homepage}">
-          <description class="text-link" value="&subscription.homepage.label;"
-            _url="{obj.homepage}" tooltiptext="{obj.homepage}"
-            onclick="Utils.loadInBrowser(this.getAttribute('_url'))"/>
-          <description value=", "/>
-        </if>
-        <description class="text-link" value="&subscription.source.label;"
-          _url="{obj.url}" tooltiptext="{obj.url}"
-          onclick="Utils.loadInBrowser(this.getAttribute('_url'))"/>
-        <description value=")"/>
-        <spacer flex="1"/>
-        <checkbox label="&subscription.enabled.label;" checked="{obj.disabled ? 'false' : 'true'}"/>
-      </hbox>
-      <hbox align="center">
-        <description value="&subscription.lastDownload.label;"/>
-        <description value=" "/>
-        <if condition="{!!obj.downloadInProgress}">
-          <description value="&subscription.lastDownload.inProgress;"/>
-        <elif condition="{!obj.lastDownload}"/>
-          <description value="&subscription.lastDownload.unknown;"/>
-        <else/>
-          <description value="{formatTime(obj.lastDownload * 1000)}"/>
-          <description value=" "/>
-          <if condition="{obj.downloadStatus}">
-            <description value=" ("/>
-            <if condition="{obj.downloadStatus == 'synchronize_invalid_url'}">
-              <description value="&subscription.lastDownload.invalidURL;"/>
-            <elif condition="{obj.downloadStatus == 'synchronize_connection_error'}"/>
-              <description value="&subscription.lastDownload.connectionError;"/>
-            <elif condition="{obj.downloadStatus == 'synchronize_invalid_data'}"/>
-              <description value="&subscription.lastDownload.invalidData;"/>
-            <elif condition="{obj.downloadStatus == 'synchronize_checksum_mismatch'}"/>
-              <description value="&subscription.lastDownload.checksumMismatch;"/>
-            <else/>   <!-- synchronize_ok -->
-              <description value="&subscription.lastDownload.success;"/>
-            </if>
-            <description value=")"/>
+      <vbox>
+        <hbox align="center">
+          <description value="{obj.title}"/>
+          <description value=" ("/>
+          <if condition="{!!obj.homepage}">
+            <description class="text-link" value="&subscription.homepage.label;"
+              _url="{obj.homepage}" tooltiptext="{obj.homepage}"
+              onclick="Utils.loadInBrowser(this.getAttribute('_url'))"/>
+            <description value=", "/>
           </if>
-        </if>
-        <spacer flex="1"/>
-        <button type="menu" label="&subscription.actions.label;…"/>
-      </hbox>
+          <description class="text-link" value="&subscription.source.label;"
+            _url="{obj.url}" tooltiptext="{obj.url}"
+            onclick="Utils.loadInBrowser(this.getAttribute('_url'))"/>
+          <description value=")"/>
+          <spacer flex="1"/>
+          <checkbox label="&subscription.enabled.label;" checked="{obj.disabled ? 'false' : 'true'}" oncommand="updateSubscriptionDisabled(this);"/>
+        </hbox>
+        <hbox align="center">
+          <description value="&subscription.lastDownload.label;"/>
+          <description value=" "/>
+          <if condition="{!!obj.downloadInProgress}">
+            <description value="&subscription.lastDownload.inProgress;"/>
+          <elif condition="{!obj.lastDownload}"/>
+            <description value="&subscription.lastDownload.unknown;"/>
+          <else/>
+            <description value="{formatTime(obj.lastDownload * 1000)}"/>
+            <description value=" "/>
+            <if condition="{obj.downloadStatus}">
+              <description value=" ("/>
+              <if condition="{obj.downloadStatus == 'synchronize_invalid_url'}">
+                <description value="&subscription.lastDownload.invalidURL;"/>
+              <elif condition="{obj.downloadStatus == 'synchronize_connection_error'}"/>
+                <description value="&subscription.lastDownload.connectionError;"/>
+              <elif condition="{obj.downloadStatus == 'synchronize_invalid_data'}"/>
+                <description value="&subscription.lastDownload.invalidData;"/>
+              <elif condition="{obj.downloadStatus == 'synchronize_checksum_mismatch'}"/>
+                <description value="&subscription.lastDownload.checksumMismatch;"/>
+              <else/>   <!-- synchronize_ok -->
+                <description value="&subscription.lastDownload.success;"/>
+              </if>
+              <description value=")"/>
+            </if>
+          </if>
+          <spacer flex="1"/>
+          <button type="menu" label="&subscription.actions.label;…"/>
+        </hbox>
+      </vbox>
     </richlistitem>
   </richlistbox>
 </groupbox>
