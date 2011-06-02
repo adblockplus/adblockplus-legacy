@@ -57,7 +57,7 @@
       <description flex="1">&noSubscriptions.text;</description>
     </richlistitem>
     <richlistitem id="subscriptionTemplate" class="subscription" hidden="true" orient="vertical">
-      <hbox>
+      <hbox align="center">
         <description value="{obj.title}"/>
         <description value=" ("/>
         <if condition="{!!obj.homepage}">
@@ -73,7 +73,7 @@
         <spacer flex="1"/>
         <checkbox label="&subscription.enabled.label;" checked="{obj.disabled ? 'false' : 'true'}"/>
       </hbox>
-      <hbox>
+      <hbox align="center">
         <description value="&subscription.lastDownload.label;"/>
         <description value=" "/>
         <if condition="{!!obj.downloadInProgress}">
