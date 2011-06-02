@@ -71,8 +71,9 @@ var FilterNotifier =
    * Notifies listeners about an event
    * @param {String} action event code ("load", "save", "elemhideupdate",
    *                 "subscription.add", "subscription.remove",
-   *                 "subscription.disabled",
-   *                 "subscription.update", "subscription.updateinfo",
+   *                 "subscription.disabled", "subscription.title",
+   *                 "subscription.lastDownload", "subscription.downloadStatus",
+   *                 "subscription.homepage", "subscription.update",
    *                 "filter.add", "filter.remove", "filter.disabled",
    *                 "filter.hitCount", "filter.lastHit")
    * @param {Subscription|Filter} item item that the change applies to

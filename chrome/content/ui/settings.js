@@ -793,7 +793,9 @@ function onSubscriptionChange(/**String*/ action, /**Subscription*/ subscription
       treeView.resortSubscription(subscription);
       treeView.invalidateSubscription(subscription, oldCount);
       break;
-    case "updateinfo":
+    case "title":
+    case "lastDownload":
+    case "downloadStatus":
       if ("oldSubscription" in subscription)
       {
         treeView.removeSubscription(getSubscriptionByURL(subscription.oldSubscription.url));
@@ -2625,7 +2627,6 @@ let treeView = {
       let subscriptions = [];
       for each (let subscription in this.subscriptions)
       {
-        let changed = false;
         subscription.__proto__.disabled = subscription.disabled;
         for (let key in subscription)
         {
@@ -2633,7 +2634,6 @@ let treeView = {
           {
             subscription.__proto__[key] = subscription[key];
             delete subscription[key];
-            changed = true;
           }
         }
 
@@ -2669,8 +2669,6 @@ let treeView = {
           FilterStorage.addSubscription(subscription.__proto__);
         else if (filtersChanged)
           FilterStorage.updateSubscriptionFilters(subscription.__proto__, subscription.filters);
-        else if (changed)
-          FilterNotifier.triggerListeners("subscription.updateinfo", subscription.__proto__);
 
         // Even if the filters didn't change, their ordering might have
         // changed. Replace filters on the original subscription without

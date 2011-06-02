@@ -176,11 +176,18 @@ function onChange(action, item, newValue, oldValue)
 {
   switch (action)
   {
+    case "subscription.title":
     case "subscription.disabled":
+    case "subscription.homepage":
+    case "subscription.lastDownload":
+    case "subscription.downloadStatus":
       let subscriptionNode = getNodeForData(E("subscriptions"), item);
       if (subscriptionNode)
       {
+        item.downloadInProgress = Synchronizer.isExecuting(item.url)
         updateTemplate(subscriptionTemplate, subscriptionNode);
+        delete item.downloadInProgress;
+
         if (!document.commandDispatcher.focusedElement)
           E("subscriptions").focus();
       }

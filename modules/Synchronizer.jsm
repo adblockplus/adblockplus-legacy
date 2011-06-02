@@ -401,15 +401,13 @@ var Synchronizer =
 
       if (newFilters)
         FilterStorage.updateSubscriptionFilters(subscription, newFilters);
-      else
-        FilterNotifier.triggerListeners("subscription.updateinfo", subscription);
       delete subscription.oldSubscription;
 
       FilterStorage.saveToDisk();
     };
 
     executing[url] = true;
-    FilterNotifier.triggerListeners("subscription.updateinfo", subscription);
+    FilterNotifier.triggerListeners("subscription.downloadStatus", subscription);
 
     try
     {
@@ -590,16 +588,12 @@ function setError(subscription, error, channelStatus, responseStatus, downloadUR
         if (/^301\s+(\S+)/.test(request.responseText))  // Moved permanently    
           subscription.nextURL = RegExp.$1;
         else if (/^410\b/.test(request.responseText))   // Gone
-        {
           subscription.autoDownload = false;
-          FilterNotifier.triggerListeners("subscription.updateinfo", subscription);
-        }
         FilterStorage.saveToDisk();
       }
       request.send(null);
     }
   }
 
-  FilterNotifier.triggerListeners("subscription.updateinfo", subscription);
   FilterStorage.saveToDisk();
 }
