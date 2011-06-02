@@ -184,6 +184,8 @@ Subscription.fromObject = function(obj)
       if ("alternativeLocations" in obj)
         result.alternativeLocations = obj.alternativeLocations;
     }
+    if ("homepage" in obj)
+      result.homepage = obj.homepage;
     if ("lastDownload" in obj)
       result.lastDownload = parseInt(obj.lastDownload) || 0;
   }
@@ -296,6 +298,12 @@ RegularSubscription.prototype =
   title: null,
 
   /**
+   * Filter subscription homepage if known
+   * @type String
+   */
+  homepage: null,
+
+  /**
    * Time of the last subscription download (in seconds since the beginning of the epoch)
    * @type Number
    */
@@ -308,6 +316,8 @@ RegularSubscription.prototype =
   {
     Subscription.prototype.serialize.call(this, buffer);
     buffer.push("title=" + this.title);
+    if (this.homepage)
+      buffer.push("homepage=" + this.homepage);
     if (this.lastDownload)
       buffer.push("lastDownload=" + this.lastDownload);
   }
