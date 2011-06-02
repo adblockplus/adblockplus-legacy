@@ -96,7 +96,7 @@ function init()
   }
 
   // Install listener
-  FilterStorage.addObserver(onFilterStorageChange);
+  FilterNotifier.addListener(onFilterStorageChange);
 
   // Capture keypress events - need to get them before the tree does
   E("listStack").addEventListener("keypress", onListKeyPress, true);
@@ -159,7 +159,7 @@ function selectFilter(filter)
  */
 function cleanUp()
 {
-  FilterStorage.removeObserver(onFilterStorageChange);
+  FilterNotifier.removeListener(onFilterStorageChange);
 }
 
 /**
@@ -691,20 +691,20 @@ function onListDragEnd(/**Event*/ e)
 
 /**
  * Observer for filter storage changes, calls onFilterChange or onSubscriptionChange
- * @see FilterStorage.addObserver()
+ * @see FilterNotifier.addListener()
  */
-function onFilterStorageChange(/**String*/ action, /**Array*/ items, additionalData)
+function onFilterStorageChange(/**String*/ action, /**Object*/ item, newValue, oldValue)
 {
-  if (/^filters (.*)/.test(action))
-    onFilterChange(RegExp.$1, items, additionalData);
-  else if (/^subscriptions (.*)/.test(action))
-    onSubscriptionChange(RegExp.$1, items, additionalData);
+  if (/^filter\.(.*)/.test(action))
+    onFilterChange(RegExp.$1, item, newValue, oldValue);
+  else if (/^subscription\.(.*)/.test(action))
+    onSubscriptionChange(RegExp.$1, item, newValue, oldValue);
 }
 
 /**
  * Filter change observer
  */
-function onFilterChange(/**String*/ action, /**Array of Filter*/ filters, additionalData)
+function onFilterChange(/**String*/ action, /**Filter*/ filter, newValue, oldValue)
 {
   switch (action)
   {
@@ -713,11 +713,8 @@ function onFilterChange(/**String*/ action, /**Array of Filter*/ filters, additi
       // the subscription didn't create its subscription.filters copy yet,
       // an update batch makes sure that everything is invalidated.
       treeView.boxObject.beginUpdateBatch();
-      for each (let filter in filters)
-      {
-        let insertBefore = (additionalData ? getFilterByText(additionalData.text) : null);
-        treeView.addFilter(getFilterByText(filter.text), null, insertBefore, true);
-      }
+      let insertBefore = (newValue ? getFilterByText(newValue.text) : null);
+      treeView.addFilter(getFilterByText(filter.text), null, insertBefore, true);
       treeView.boxObject.endUpdateBatch();
       return;
     case "remove":
@@ -725,22 +722,24 @@ function onFilterChange(/**String*/ action, /**Array of Filter*/ filters, additi
       // the subscription didn't create its subscription.filters copy yet,
       // an update batch makes sure that everything is invalidated.
       treeView.boxObject.beginUpdateBatch();
-      for each (let filter in filters)
-        treeView.removeFilter(null, getFilterByText(filter.text));
+      treeView.removeFilter(null, getFilterByText(filter.text));
       treeView.boxObject.endUpdateBatch();
       return;
-    case "enable":
-    case "disable":
+    case "disabled":
       // Remove existing changes to "disabled" property
-      for each (let filter in filters)
+      filter = getFilterByText(filter.text);
+      if ("_isWrapper" in filter && filter.hasOwnProperty("disabled"))
+        delete filter.disabled;
+      break;
+    case "hitCount":
+      if (E("col-hitcount").hidden)
       {
-        filter = getFilterByText(filter.text);
-        if ("_isWrapper" in filter && filter.hasOwnProperty("disabled"))
-          delete filter.disabled;
+        // The data isn't visible, no need to invalidate
+        return;
       }
       break;
-    case "hit":
-      if (E("col-hitcount").hidden && E("col-lasthit").hidden)
+    case "lastHit":
+      if (E("col-lasthit").hidden)
       {
         // The data isn't visible, no need to invalidate
         return;
@@ -750,80 +749,69 @@ function onFilterChange(/**String*/ action, /**Array of Filter*/ filters, additi
       return;
   }
 
-  if (filters.length == 1)
-    treeView.invalidateFilter(getFilterByText(filters[0].text));
-  else
-    treeView.boxObject.invalidate();
+  treeView.invalidateFilter(getFilterByText(filter));
 }
 
 /**
  * Subscription change observer
  */
-function onSubscriptionChange(/**String*/ action, /**Array of Subscription*/ subscriptions)
+function onSubscriptionChange(/**String*/ action, /**Subscription*/ subscription)
 {
-  for each (let subscription in subscriptions)
+  subscription = getSubscriptionByURL(subscription.url);
+  switch (action)
   {
-    subscription = getSubscriptionByURL(subscription.url);
-    switch (action)
-    {
-      case "add":
-        treeView.addSubscription(subscription, true);
-        break;
-      case "remove":
-        treeView.removeSubscription(subscription);
-        break;
-      case "enable":
-      case "disable":
-        // Remove existing changes to "disabled" property
-        delete subscription.disabled;
-        treeView.invalidateSubscription(subscription);
-        break;
-      case "update":
-        if ("oldSubscription" in subscription)
+    case "add":
+      treeView.addSubscription(subscription, true);
+      break;
+    case "remove":
+      treeView.removeSubscription(subscription);
+      break;
+    case "disabled":
+      // Remove existing changes to "disabled" property
+      delete subscription.disabled;
+      treeView.invalidateSubscription(subscription);
+      break;
+    case "update":
+      if ("oldSubscription" in subscription)
+      {
+        treeView.removeSubscription(getSubscriptionByURL(subscription.oldSubscription.url));
+        delete subscriptionWrappers[subscription.oldSubscription.url];
+        if (treeView.subscriptions.indexOf(subscription) < 0)
         {
-          treeView.removeSubscription(getSubscriptionByURL(subscription.oldSubscription.url));
-          delete subscriptionWrappers[subscription.oldSubscription.url];
-          if (treeView.subscriptions.indexOf(subscription) < 0)
-          {
-            treeView.addSubscription(subscription, true);
-            break;
-          }
+          treeView.addSubscription(subscription, true);
+          break;
         }
-        let oldCount = treeView.getSubscriptionRowCount(subscription);
+      }
+      let oldCount = treeView.getSubscriptionRowCount(subscription);
 
-        delete subscription.filters;
-        subscription.filters = subscription.filters.map(function(filter)
-        {
-          return getFilterByText(filter.text);
-        });
+      delete subscription.filters;
+      subscription.filters = subscription.filters.map(function(filter)
+      {
+        return getFilterByText(filter.text);
+      });
 
-        treeView.resortSubscription(subscription);
-        treeView.invalidateSubscription(subscription, oldCount);
-        break;
-      case "updateinfo":
-        if ("oldSubscription" in subscription)
+      treeView.resortSubscription(subscription);
+      treeView.invalidateSubscription(subscription, oldCount);
+      break;
+    case "updateinfo":
+      if ("oldSubscription" in subscription)
+      {
+        treeView.removeSubscription(getSubscriptionByURL(subscription.oldSubscription.url));
+        delete subscriptionWrappers[subscription.oldSubscription.url];
+        if (treeView.subscriptions.indexOf(subscription) < 0)
         {
-          treeView.removeSubscription(getSubscriptionByURL(subscription.oldSubscription.url));
-          delete subscriptionWrappers[subscription.oldSubscription.url];
-          if (treeView.subscriptions.indexOf(subscription) < 0)
-          {
-            treeView.addSubscription(subscription, true);
-            break;
-          }
+          treeView.addSubscription(subscription, true);
+          break;
         }
-        treeView.invalidateSubscriptionInfo(subscription);
-        break;
-    }
+      }
+      treeView.invalidateSubscriptionInfo(subscription);
+      break;
   }
 
   // Date.toLocaleFormat() doesn't handle Unicode properly if called directly from XPCOM (bug 441370)
   setTimeout(function()
   {
-    for each (let subscription in subscriptions)
-    {
-      subscription = getSubscriptionByURL(subscription.url);
-      treeView.invalidateSubscriptionInfo(subscription);
-    }
+    treeView.invalidateSubscriptionInfo(subscription);
   }, 0);
 }
 
@@ -2638,7 +2626,7 @@ let treeView = {
       for each (let subscription in this.subscriptions)
       {
         let changed = false;
-        let disableChanged = (subscription.disabled != subscription.__proto__.disabled);
+        subscription.__proto__.disabled = subscription.disabled;
         for (let key in subscription)
         {
           if (subscription.hasOwnProperty(key) && key[0] != "_" && key != "filters")
@@ -2657,10 +2645,7 @@ let treeView = {
           if ("_isWrapper" in filter)
           {
             if (filter.disabled != filter.__proto__.disabled)
-            {
               filter.__proto__.disabled = filter.disabled;
-              FilterStorage.triggerObservers(filter.disabled ? "filters disable" : "filters enable", [filter.__proto__]);
-            }
             subscription.filters[i] = filter.__proto__;
             hadWrappers = true;
           }
@@ -2685,11 +2670,7 @@ let treeView = {
         else if (filtersChanged)
           FilterStorage.updateSubscriptionFilters(subscription.__proto__, subscription.filters);
         else if (changed)
-        {
-          FilterStorage.triggerObservers("subscriptions updateinfo", [subscription.__proto__]);
-          if (disableChanged)
-            FilterStorage.triggerObservers(subscription.disabled ? "subscriptions disable" : "subscriptions enable", [subscription.__proto__]);
-        }
+          FilterNotifier.triggerListeners("subscription.updateinfo", subscription.__proto__);
 
         // Even if the filters didn't change, their ordering might have
         // changed. Replace filters on the original subscription without

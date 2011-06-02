@@ -37,6 +37,7 @@ let baseURL = Cc["@adblockplus.org/abp/private;1"].getService(Ci.nsIURI);
 
 Cu.import(baseURL.spec + "Utils.jsm");
 Cu.import(baseURL.spec + "FilterClasses.jsm");
+Cu.import(baseURL.spec + "FilterNotifier.jsm");
 
 /**
  * Abstract base class for filter subscriptions
@@ -64,11 +65,23 @@ Subscription.prototype =
    */
   filters: null,
 
+  _disabled: false,
+
   /**
    * Defines whether the filters in the subscription should be disabled
    * @type Boolean
    */
-  disabled: false,
+  get disabled() this._disabled,
+  set disabled(value)
+  {
+    if (value != this._disabled)
+    {
+      let oldValue = this._disabled;
+      this._disabled = value;
+      FilterNotifier.triggerListeners("subscription.disabled", this, value, oldValue);
+    }
+    return this._disabled;
+  },
 
   /**
    * Serializes the filter to an array of strings for writing out on the disk.
@@ -78,7 +91,7 @@ Subscription.prototype =
   {
     buffer.push("[Subscription]");
     buffer.push("url=" + this.url);
-    if (this.disabled)
+    if (this._disabled)
       buffer.push("disabled=true");
   },
 
@@ -190,7 +203,7 @@ Subscription.fromObject = function(obj)
       result.lastDownload = parseInt(obj.lastDownload) || 0;
   }
   if ("disabled" in obj)
-    result.disabled = (obj.disabled == "true");
+    result._disabled = (obj.disabled == "true");
 
   return result;
 }

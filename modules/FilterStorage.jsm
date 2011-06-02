@@ -39,6 +39,7 @@ Cu.import(baseURL.spec + "Utils.jsm");
 Cu.import(baseURL.spec + "Prefs.jsm");
 Cu.import(baseURL.spec + "FilterClasses.jsm");
 Cu.import(baseURL.spec + "SubscriptionClasses.jsm");
+Cu.import(baseURL.spec + "FilterNotifier.jsm");
 Cu.import(baseURL.spec + "TimeLine.jsm");
 
 /**
@@ -46,12 +47,6 @@ Cu.import(baseURL.spec + "TimeLine.jsm");
  * @type Integer
  */
 const formatVersion = 3;
-
-/**
- * List of observers for filter and subscription changes (addition, deletion)
- * @type Array of function(String, Array)
- */
-let observers = [];
 
 /**
  * This class reads user's filters from disk, manages them in memory and writes them back.
@@ -115,49 +110,9 @@ var FilterStorage =
   knownSubscriptions: {__proto__: null},
 
   /**
-   * Adds an observer for filter and subscription changes (addition, deletion)
-   * @param {function(String, Array)} observer
-   */
-  addObserver: function(observer)
-  {
-    if (observers.indexOf(observer) >= 0)
-      return;
-
-    observers.push(observer);
-  },
-
-  /**
-   * Removes an observer previosly added with addObserver
-   * @param {function(String, Array)} observer
-   */
-  removeObserver: function(observer)
-  {
-    let index = observers.indexOf(observer);
-    if (index >= 0)
-      observers.splice(index, 1);
-  },
-
-  /**
-   * Calls observers after a change
-   * @param {String} action change code ("load", "save", "elemhideupdate",
-   *                 "subscriptions add", "subscriptions remove",
-   *                 "subscriptions enable", "subscriptions disable",
-   *                 "subscriptions update", "subscriptions updateinfo",
-   *                 "filters add", "filters remove", "enable",
-   *                 "filters disable", "filters hit")
-   * @param {Array} items items that the change applies to
-   * @param additionalData optional additional data, depends on change code
-   */
-  triggerObservers: function(action, items, additionalData)
-  {
-    for each (let observer in observers)
-      observer(action, items, additionalData);
-  },
-
-  /**
    * Adds a filter subscription to the list
    * @param {Subscription} subscription filter subscription to be added
-   * @param {Boolean} silent  if true, no observers will be triggered (to be used when filter list is reloaded)
+   * @param {Boolean} silent  if true, no listeners will be triggered (to be used when filter list is reloaded)
    */
   addSubscription: function(subscription, silent)
   {
@@ -169,13 +124,13 @@ var FilterStorage =
     addSubscriptionFilters(subscription);
 
     if (!silent)
-      FilterStorage.triggerObservers("subscriptions add", [subscription]);
+      FilterNotifier.triggerListeners("subscription.add", subscription);
   },
 
   /**
    * Removes a filter subscription from the list
    * @param {Subscription} subscription filter subscription to be removed
-   * @param {Boolean} silent  if true, no observers will be triggered (to be used when filter list is reloaded)
+   * @param {Boolean} silent  if true, no listeners will be triggered (to be used when filter list is reloaded)
    */
   removeSubscription: function(subscription, silent)
   {
@@ -188,7 +143,7 @@ var FilterStorage =
         FilterStorage.subscriptions.splice(i--, 1);
         delete FilterStorage.knownSubscriptions[subscription.url];
         if (!silent)
-          FilterStorage.triggerObservers("subscriptions remove", [subscription]);
+          FilterNotifier.triggerListeners("subscription.remove", subscription);
         return;
       }
     }
@@ -205,22 +160,19 @@ var FilterStorage =
     subscription.oldFilters = subscription.filters;
     subscription.filters = filters;
     addSubscriptionFilters(subscription);
-    FilterStorage.triggerObservers("subscriptions update", [subscription]);
+    FilterNotifier.triggerListeners("subscription.update", subscription);
     delete subscription.oldFilters;
 
     // Do not keep empty subscriptions disabled
     if (subscription instanceof SpecialSubscription && !subscription.filters.length && subscription.disabled)
-    {
       subscription.disabled = false;
-      FilterStorage.triggerObservers("subscriptions enable", [subscription]);
-    }
   },
 
   /**
    * Adds a user-defined filter to the list
    * @param {Filter} filter
    * @param {Filter} insertBefore   filter to insert before (if possible)
-   * @param {Boolean} silent  if true, no observers will be triggered (to be used when filter list is reloaded)
+   * @param {Boolean} silent  if true, no listeners will be triggered (to be used when filter list is reloaded)
    */
   addFilter: function(filter, insertBefore, silent)
   {
@@ -253,15 +205,14 @@ var FilterStorage =
     else
       subscription.filters.push(filter);
     if (!silent)
-      FilterStorage.triggerObservers("filters add", [filter], insertBefore);
+      FilterNotifier.triggerListeners("filter.add", filter, insertBefore);
   },
 
   /**
    * Removes a user-defined filter from the list
    * @param {Filter} filter
-   * @param {Boolean} silent  if true, no observers will be triggered (to be used when filter list is reloaded)
    */
-  removeFilter: function(filter, silent)
+  removeFilter: function(filter)
   {
     for (let i = 0; i < filter.subscriptions.length; i++)
     {
@@ -274,16 +225,11 @@ var FilterStorage =
           {
             filter.subscriptions.splice(i, 1);
             subscription.filters.splice(j, 1);
-            if (!silent)
-              FilterStorage.triggerObservers("filters remove", [filter]);
+            FilterNotifier.triggerListeners("filter.remove", filter);
 
             // Do not keep empty subscriptions disabled
             if (!subscription.filters.length && subscription.disabled)
-            {
               subscription.disabled = false;
-              if (!silent)
-                FilterStorage.triggerObservers("subscriptions enable", [subscription]);
-            }
             return;
           }
         }
@@ -302,7 +248,6 @@ var FilterStorage =
 
     filter.hitCount++;
     filter.lastHit = Date.now();
-    FilterStorage.triggerObservers("filters hit", [filter]);
   },
 
   /**
@@ -322,12 +267,11 @@ var FilterStorage =
       filter.hitCount = 0;
       filter.lastHit = 0;
     }
-    FilterStorage.triggerObservers("filters hit", filters);
   },
 
   /**
    * Loads all subscriptions from the disk
-   * @param {Boolean} silent  if true, no observers will be triggered (to be used when data is already initialized)
+   * @param {Boolean} silent  if true, no listeners will be triggered (to be used when data is already initialized)
    */
   loadFromDisk: function(silent)
   {
@@ -423,7 +367,7 @@ var FilterStorage =
 
     TimeLine.log("load complete, calling observers");
     if (!silent)
-      FilterStorage.triggerObservers("load");
+      FilterNotifier.triggerListeners("load");
     TimeLine.leave("FilterStorage.loadFromDisk() done");
   },
 
@@ -570,7 +514,7 @@ var FilterStorage =
 
     tempFile.moveTo(FilterStorage.sourceFile.parent, FilterStorage.sourceFile.leafName);
     TimeLine.log("created backups and renamed temp file");
-    FilterStorage.triggerObservers("save");
+    FilterNotifier.triggerListeners("save");
     TimeLine.leave("FilterStorage.saveToDisk() done");
   }
 };

@@ -354,12 +354,7 @@ function updateCustomPattern()
 
 function addFilter() {
   let filter = Filter.fromText(document.getElementById("filter").value);
-
-  if (filter.disabled)
-  {
-    filter.disabled = false;
-    FilterStorage.triggerObservers("filters enable", [filter]);
-  }
+  filter.disabled = false;
 
   FilterStorage.addFilter(filter);
   FilterStorage.saveToDisk();
@@ -412,7 +407,6 @@ function doEnable() {
 function enableSubscription(subscription)
 {
   subscription.disabled = false;
-  FilterStorage.triggerObservers("subscriptions enable", [subscription]);
   FilterStorage.saveToDisk();
   E("groupDisabledWarning").hidden = true;
 }

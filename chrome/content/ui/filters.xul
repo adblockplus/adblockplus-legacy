@@ -34,7 +34,7 @@
   title="&dialog.title;"
   id="abpFiltersWindow"
   onload="init()"
-  onunload="shutdown()"
+  onunload="cleanUp()"
   buttons="accept"
   width="600"
   height="450"

@@ -92,7 +92,7 @@ function init() {
 
   // Initialize matcher for disabled filters
   reloadDisabledFilters();
-  FilterStorage.addObserver(reloadDisabledFilters);
+  FilterNotifier.addListener(reloadDisabledFilters);
   Prefs.addListener(onPrefChange);
 
   // Activate flasher
@@ -114,7 +114,7 @@ function mainUnload() {
 function cleanUp() {
   flasher.stop();
   requestNotifier.shutdown();
-  FilterStorage.removeObserver(reloadDisabledFilters);
+  FilterNotifier.removeListener(reloadDisabledFilters);
   Prefs.removeListener(onPrefChange);
 
   abpHooks.getBrowser().removeProgressListener(progressListener);
@@ -131,12 +131,25 @@ function onPrefChange(name)
     reloadDisabledFilters();
 }
 
+let reloadDisabledScheduled = false;
+
 /**
  * Updates matcher for disabled filters (global disabledMatcher variable),
- * called on each filter change.
+ * called on each filter change. Execute delayed to prevent multiple subsequent
+ * invocations.
  */
 function reloadDisabledFilters()
 {
+  if (reloadDisabledScheduled)
+    return;
+
+  Utils.runAsync(reloadDisabledFiltersInternal);
+  reloadDisabledScheduled = true;
+}
+
+function reloadDisabledFiltersInternal()
+{
+  reloadDisabledScheduled = false;
   disabledMatcher.clear();
 
   if (Prefs.enabled)
@@ -442,7 +455,6 @@ function editFilter() {
 
 function enableFilter(filter, enable) {
   filter.disabled = !enable;
-  FilterStorage.triggerObservers(enable ? "filters enable" : "filters disable", [filter]);
   FilterStorage.saveToDisk();
 
   treeView.boxObject.invalidate();
@@ -500,10 +512,7 @@ function disableOnSite(item, /**Filter*/ filter, /**String*/ domain)
   // Insert new filter before the old one and remove the old one then
   let newFilter = Filter.fromText(text);
   if (newFilter.disabled && newFilter.subscriptions.length)
-  {
     newFilter.disabled = false;
-    FilterStorage.triggerObservers("filters enable", [newFilter]);
-  }
   else if (!newFilter.subscriptions.length)
   {
     newFilter.disabled = false;

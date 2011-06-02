@@ -28,15 +28,15 @@
 function init()
 {
   // Install listener
-  FilterStorage.addObserver(onChange);
+  FilterNotifier.addListener(onChange);
 
   reloadSubscriptions();
 }
 
-function shutdown()
+function cleanUp()
 {
   // Remove listener
-  FilterStorage.removeObserver(onChange);
+  FilterNotifier.removeListener(onChange);
 }
 
 function reloadSubscriptions()
