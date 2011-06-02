@@ -336,8 +336,6 @@ var Synchronizer =
           if (interval > expirationInterval)
             expirationInterval = interval;
         }
-        if (isBaseLocation && filter instanceof CommentFilter && /\bRedirect(?:\s*:\s*|\s+to\s+|\s+)(\S+)/i.test(filter.text))
-          subscription.nextURL = RegExp.$1;
       }
 
       // Expiration interval should be within allowed range
@@ -348,6 +346,37 @@ var Synchronizer =
 
       // Soft expiration: use random interval factor between 0.8 and 1.2
       subscription.softExpiration = (subscription.lastDownload + Math.round(expirationInterval * (Math.random() * 0.4 + 0.8)));
+
+      // Process some special filters and remove them
+      if (newFilters)
+      {
+        for (let i = 0; i < newFilters.length; i++)
+        {
+          let filter = newFilters[i];
+          if (filter instanceof CommentFilter && /^!\s*(\w+)\s*:\s*(.*)/.test(filter.text))
+          {
+            let keyword = RegExp.$1.toLowerCase();
+            let value = RegExp.$2;
+            let known = true;
+            if (keyword == "redirect")
+            {
+              if (isBaseLocation && value != url)
+                subscription.nextURL = value;
+            }
+            else if (keyword == "homepage")
+            {
+              let uri = Utils.makeURI(value);
+              if (uri && (uri.scheme == "http" || uri.scheme == "https"))
+                subscription.homepage = uri.spec;
+            }
+            else
+              known = false;
+
+            if (known)
+              newFilters.splice(i--, 1);
+          }
+        }
+      }
 
       if (isBaseLocation && newURL && newURL != url)
       {
