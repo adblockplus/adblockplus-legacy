@@ -175,7 +175,7 @@ Subscription.fromObject = function(obj)
       if ("nextURL" in obj)
         result.nextURL = obj.nextURL;
       if ("downloadStatus" in obj)
-        result.downloadStatus = obj.downloadStatus;
+        result._downloadStatus = obj.downloadStatus;
       if ("lastModified" in obj)
         result.lastModified = obj.lastModified;
       if ("lastSuccess" in obj)
@@ -198,9 +198,9 @@ Subscription.fromObject = function(obj)
         result.alternativeLocations = obj.alternativeLocations;
     }
     if ("homepage" in obj)
-      result.homepage = obj.homepage;
+      result._homepage = obj.homepage;
     if ("lastDownload" in obj)
-      result.lastDownload = parseInt(obj.lastDownload) || 0;
+      result._lastDownload = parseInt(obj.lastDownload) || 0;
   }
   if ("disabled" in obj)
     result._disabled = (obj.disabled == "true");
@@ -298,29 +298,63 @@ function RegularSubscription(url, title)
 {
   Subscription.call(this, url);
 
-  this.title = title || url;
+  this._title = title || url;
 }
 RegularSubscription.prototype =
 {
   __proto__: Subscription.prototype,
 
+  _title: null,
+  _homepage: null,
+  _lastDownload: 0,
+
   /**
    * Title of the filter subscription
    * @type String
    */
-  title: null,
+  get title() this._title,
+  set title(value)
+  {
+    if (value != this._title)
+    {
+      let oldValue = this._title;
+      this._title = value;
+      FilterNotifier.triggerListeners("subscription.title", this, value, oldValue);
+    }
+    return this._title;
+  },
 
   /**
    * Filter subscription homepage if known
    * @type String
    */
-  homepage: null,
+  get homepage() this._homepage,
+  set homepage(value)
+  {
+    if (value != this._homepage)
+    {
+      let oldValue = this._homepage;
+      this._homepage = value;
+      FilterNotifier.triggerListeners("subscription.homepage", this, value, oldValue);
+    }
+    return this._homepage;
+  },
 
   /**
    * Time of the last subscription download (in seconds since the beginning of the epoch)
    * @type Number
    */
-  lastDownload: 0,
+  get lastDownload() this._lastDownload,
+  set lastDownload(value)
+  {
+    if (value != this._lastDownload)
+    {
+      let oldValue = this._lastDownload;
+      this._lastDownload = value;
+      FilterNotifier.triggerListeners("subscription.lastDownload", this, value, oldValue);
+    }
+    return this._lastDownload;
+  },
 
   /**
    * See Subscription.serialize()
@@ -328,11 +362,11 @@ RegularSubscription.prototype =
   serialize: function(buffer)
   {
     Subscription.prototype.serialize.call(this, buffer);
-    buffer.push("title=" + this.title);
-    if (this.homepage)
-      buffer.push("homepage=" + this.homepage);
-    if (this.lastDownload)
-      buffer.push("lastDownload=" + this.lastDownload);
+    buffer.push("title=" + this._title);
+    if (this._homepage)
+      buffer.push("homepage=" + this._homepage);
+    if (this._lastDownload)
+      buffer.push("lastDownload=" + this._lastDownload);
   }
 };
 
@@ -376,6 +410,8 @@ DownloadableSubscription.prototype =
 {
   __proto__: RegularSubscription.prototype,
 
+  _downloadStatus: null,
+
   /**
    * Defines whether the subscription should be downloaded automatically
    * @type Boolean
@@ -392,7 +428,17 @@ DownloadableSubscription.prototype =
    * Status of the last download (ID of a string)
    * @type String
    */
-  downloadStatus: null,
+  get downloadStatus() this._downloadStatus,
+  set downloadStatus(value)
+  {
+    if (value != this._downloadStatus)
+    {
+      let oldValue = this._downloadStatus;
+      this._downloadStatus = value;
+      FilterNotifier.triggerListeners("subscription.downloadStatus", this, value, oldValue);
+    }
+    return this._downloadStatus;
+  },
 
   /**
    * Value of the Last-Modified header returned by the server on last download

@@ -921,7 +921,6 @@ let issuesDataSource =
       subscription.title = title;
       if (subscription instanceof DownloadableSubscription)
         subscription.autoDownload = result.autoDownload;
-      FilterNotifier.triggerListeners("subscription.updateinfo", subscription);
     
       if (subscription instanceof DownloadableSubscription && !subscription.lastDownload)
         Synchronizer.execute(subscription);

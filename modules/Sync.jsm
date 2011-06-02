@@ -241,12 +241,10 @@ ABPStore.prototype =
         {
           // Only change local subscription if there were no changes, otherwise dismiss remote changes
           subscription.disabled = remoteSubscription.disabled;
-          if (subscription instanceof DownloadableSubscription && (subscription.title != remoteSubscription.title ||
-                                                                   subscription.autoDownload != remoteSubscription.autoDownload))
+          if (subscription instanceof DownloadableSubscription)
           {
             subscription.title = remoteSubscription.title;
             subscription.autoDownload = remoteSubscription.autoDownload;
-            FilterNotifier.triggerListeners("subscription.updateinfo", subscription);
           }
         }
       }
@@ -436,7 +434,7 @@ ABPTracker.prototype =
       case "subscription.add":
       case "subscription.remove":
       case "subscription.disabled":
-      case "subscription.updateinfo":
+      case "subscription.title":
         this.addPrivateChange("subscription " + item.url);
         break;
       case "filter.add":
