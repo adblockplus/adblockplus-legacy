@@ -42,6 +42,7 @@ Cu.import(baseURL.spec + "Utils.jsm");
 Cu.import(baseURL.spec + "Prefs.jsm");
 Cu.import(baseURL.spec + "ContentPolicy.jsm");
 Cu.import(baseURL.spec + "FilterStorage.jsm");
+Cu.import(baseURL.spec + "FilterNotifier.jsm");
 Cu.import(baseURL.spec + "FilterClasses.jsm");
 Cu.import(baseURL.spec + "SubscriptionClasses.jsm");
 Cu.import(baseURL.spec + "RequestNotifier.jsm");
@@ -80,7 +81,11 @@ function init()
     if (name == "enabled" || name == "showintoolbar" || name == "showinstatusbar" || name == "defaulttoolbaraction" || name == "defaultstatusbaraction")
       reloadPrefs();
   });
-  FilterStorage.addObserver(reloadPrefs);
+  FilterNotifier.addListener(function(action)
+  {
+    if (/^(filter|subscription)\.(add|remove|disabled|update)$/.test(action))
+      reloadPrefs();
+  });
 }
 
 /**
@@ -179,10 +184,7 @@ var AppIntegration =
     if (filter.subscriptions.length)
     {
       if (filter.disabled || filter.subscriptions.some(function(subscription) !(subscription instanceof SpecialSubscription)))
-      {
         filter.disabled = !filter.disabled;
-        FilterStorage.triggerObservers(filter.disabled ? "filters disable" : "filters enable", [filter]);
-      }
       else
         FilterStorage.removeFilter(filter);
     }

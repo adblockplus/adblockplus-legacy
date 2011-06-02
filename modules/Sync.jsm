@@ -40,6 +40,7 @@ Cu.import(baseURL.spec + "Utils.jsm");
 Cu.import(baseURL.spec + "FilterStorage.jsm");
 Cu.import(baseURL.spec + "SubscriptionClasses.jsm");
 Cu.import(baseURL.spec + "FilterClasses.jsm");
+Cu.import(baseURL.spec + "FilterNotifier.jsm");
 Cu.import(baseURL.spec + "Synchronizer.jsm");
 
 /**
@@ -239,18 +240,13 @@ ABPStore.prototype =
         if (!trackerInstance.didSubscriptionChange(remoteSubscription))
         {
           // Only change local subscription if there were no changes, otherwise dismiss remote changes
-          if (subscription.disabled != remoteSubscription.disabled)
-          {
-            subscription.disabled = remoteSubscription.disabled;
-            FilterStorage.triggerObservers(subscription.disabled ? "subscriptions disable" : "subscriptions enable", [subscription]);
-          }
-
+          subscription.disabled = remoteSubscription.disabled;
           if (subscription instanceof DownloadableSubscription && (subscription.title != remoteSubscription.title ||
                                                                    subscription.autoDownload != remoteSubscription.autoDownload))
           {
             subscription.title = remoteSubscription.title;
             subscription.autoDownload = remoteSubscription.autoDownload;
-            FilterStorage.triggerObservers("subscriptions updateinfo", [subscription]);
+            FilterNotifier.triggerListeners("subscription.updateinfo", subscription);
           }
         }
       }
@@ -299,11 +295,8 @@ ABPStore.prototype =
         if (filter.subscriptions.some(function(subscription) subscription instanceof SpecialSubscription))
         {
           // Filter might have been changed remotely
-          if (filter instanceof ActiveFilter && filter.disabled != remoteFilter.disabled)
-          {
+          if (filter instanceof ActiveFilter)
             filter.disabled = remoteFilter.disabled;
-            FilterStorage.triggerObservers(filter.disabled ? "filters disable" : "filters enable", [filter]);
-          }
         }
         else
         {
@@ -386,12 +379,12 @@ ABPTracker.prototype =
 
   startTracking: function()
   {
-    FilterStorage.addObserver(this.onChange);
+    FilterNotifier.addListener(this.onChange);
   },
 
   stopTracking: function()
   {
-    FilterStorage.removeObserver(this.onChange);
+    FilterNotifier.removeListener(this.onChange);
   },
 
   clearPrivateChanges: function()
@@ -420,42 +413,37 @@ ABPTracker.prototype =
     return ("filter " + filter.text) in this.privateTracker.changedIDs;
   },
 
-  onChange: function(action, items)
+  onChange: function(action, item)
   {
-    for each (let item in items)
+    switch (action)
     {
-      switch (action)
-      {
-        case "subscriptions update":
-          if ("oldSubscription" in item)
-          {
-            // Subscription moved to a new address
-            this.addPrivateChange("subscription " + item.url);
-            this.addPrivateChange("subscription " + item.oldSubscription.url);
-          }
-          else if (item instanceof SpecialSubscription)
-          {
-            // User's filters changed via Preferences window
-            for each (let filter in item.filters)
-              this.addPrivateChange("filter " + filter.text);
-            for each (let filter in item.oldFilters)
-              this.addPrivateChange("filter " + filter.text);
-          }
-          break;
-        case "subscriptions add":
-        case "subscriptions remove":
-        case "subscriptions enable":
-        case "subscriptions disable":
-        case "subscriptions updateinfo":
+      case "subscription.update":
+        if ("oldSubscription" in item)
+        {
+          // Subscription moved to a new address
           this.addPrivateChange("subscription " + item.url);
-          break;
-        case "filters add":
-        case "filters remove":
-        case "filters enable":
-        case "filters disable":
-          this.addPrivateChange("filter " + item.text);
-          break;
-      }
+          this.addPrivateChange("subscription " + item.oldSubscription.url);
+        }
+        else if (item instanceof SpecialSubscription)
+        {
+          // User's filters changed via Preferences window
+          for each (let filter in item.filters)
+            this.addPrivateChange("filter " + filter.text);
+          for each (let filter in item.oldFilters)
+            this.addPrivateChange("filter " + filter.text);
+        }
+        break;
+      case "subscription.add":
+      case "subscription.remove":
+      case "subscription.disabled":
+      case "subscription.updateinfo":
+        this.addPrivateChange("subscription " + item.url);
+        break;
+      case "filter.add":
+      case "filter.remove":
+      case "filter.disabled":
+        this.addPrivateChange("filter " + item.text);
+        break;
     }
   }
 };

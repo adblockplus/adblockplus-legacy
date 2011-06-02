@@ -39,6 +39,7 @@ Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 Cu.import(baseURL.spec + "TimeLine.jsm");
 Cu.import(baseURL.spec + "Utils.jsm");
 Cu.import(baseURL.spec + "FilterStorage.jsm");
+Cu.import(baseURL.spec + "FilterNotifier.jsm");
 Cu.import(baseURL.spec + "FilterClasses.jsm");
 Cu.import(baseURL.spec + "SubscriptionClasses.jsm");
 Cu.import(baseURL.spec + "Prefs.jsm");
@@ -401,14 +402,14 @@ var Synchronizer =
       if (newFilters)
         FilterStorage.updateSubscriptionFilters(subscription, newFilters);
       else
-        FilterStorage.triggerObservers("subscriptions updateinfo", [subscription]);
+        FilterNotifier.triggerListeners("subscription.updateinfo", subscription);
       delete subscription.oldSubscription;
 
       FilterStorage.saveToDisk();
     };
 
     executing[url] = true;
-    FilterStorage.triggerObservers("subscriptions updateinfo", [subscription]);
+    FilterNotifier.triggerListeners("subscription.updateinfo", subscription);
 
     try
     {
@@ -591,7 +592,7 @@ function setError(subscription, error, channelStatus, responseStatus, downloadUR
         else if (/^410\b/.test(request.responseText))   // Gone
         {
           subscription.autoDownload = false;
-          FilterStorage.triggerObservers("subscriptions updateinfo", [subscription]);
+          FilterNotifier.triggerListeners("subscription.updateinfo", subscription);
         }
         FilterStorage.saveToDisk();
       }
@@ -599,6 +600,6 @@ function setError(subscription, error, channelStatus, responseStatus, downloadUR
     }
   }
 
-  FilterStorage.triggerObservers("subscriptions updateinfo", [subscription]);
+  FilterNotifier.triggerListeners("subscription.updateinfo", subscription);
   FilterStorage.saveToDisk();
 }

@@ -885,11 +885,8 @@ let issuesDataSource =
 
   removeWhitelist: function()
   {
-    if (this.whitelistFilter && this.whitelistFilter.subscriptions.length && !this.whitelistFilter.disabled)
-    {
+    if (this.whitelistFilter && this.whitelistFilter.subscriptions.length)
       this.whitelistFilter.disabled = true;
-      FilterStorage.triggerObservers("filters disable", [this.whitelistFilter]);
-    }
     E("issuesWhitelistBox").hidden = true;
     this.forceReload();
   },
@@ -920,16 +917,11 @@ let issuesDataSource =
     
       FilterStorage.addSubscription(subscription);
 
-      if (subscription.disabled)
-      {
-        subscription.disabled = false;
-        FilterStorage.triggerObservers("subscriptions enable", [subscription]);
-      }
-
+      subscription.disabled = false;
       subscription.title = title;
       if (subscription instanceof DownloadableSubscription)
         subscription.autoDownload = result.autoDownload;
-      FilterStorage.triggerObservers("subscriptions updateinfo", [subscription]);
+      FilterNotifier.triggerListeners("subscription.updateinfo", subscription);
     
       if (subscription instanceof DownloadableSubscription && !subscription.lastDownload)
         Synchronizer.execute(subscription);
@@ -943,11 +935,8 @@ let issuesDataSource =
   disableFilter: function(node)
   {
     let filter = node.abpFilter;
-    if (filter && filter.subscriptions.length && !filter.disabled)
-    {
+    if (filter && filter.subscriptions.length)
       filter.disabled = true;
-      FilterStorage.triggerObservers("filters disable", [filter]);
-    }
 
     node.parentNode.removeChild(node);
     if (!E("issuesOwnFilters").firstChild)
@@ -958,11 +947,8 @@ let issuesDataSource =
   enableFilter: function(node)
   {
     let filter = node.abpFilter;
-    if (filter && filter.subscriptions.length && filter.disabled)
-    {
+    if (filter && filter.subscriptions.length)
       filter.disabled = false;
-      FilterStorage.triggerObservers("filters enable", [filter]);
-    }
 
     node.parentNode.removeChild(node);
     if (!E("issuesDisabledFilters").firstChild)
@@ -974,11 +960,8 @@ let issuesDataSource =
   enableSubscription: function(node)
   {
     let subscription = node.abpSubscription;
-    if (subscription && subscription.disabled)
-    {
+    if (subscription)
       subscription.disabled = false;
-      FilterStorage.triggerObservers("subscriptions enable", [subscription]);
-    }
 
     node.parentNode.removeChild(node);
     if (!E("issuesDisabledSubscriptions").firstChild)
