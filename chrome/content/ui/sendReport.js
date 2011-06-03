@@ -255,7 +255,6 @@ let subscriptionsDataSource =
           subscriptionXML.@softExpiration = subscription.softExpiration - now;
         if (subscription.expires)
           subscriptionXML.@hardExpiration = subscription.expires - now;
-        subscriptionXML.@autoDownloadEnabled = subscription.autoDownload;
         subscriptionXML.@downloadStatus = subscription.downloadStatus;
       }
       subscriptions.appendChild(subscriptionXML);
@@ -919,8 +918,6 @@ let issuesDataSource =
 
       subscription.disabled = false;
       subscription.title = title;
-      if (subscription instanceof DownloadableSubscription)
-        subscription.autoDownload = result.autoDownload;
     
       if (subscription instanceof DownloadableSubscription && !subscription.lastDownload)
         Synchronizer.execute(subscription);
