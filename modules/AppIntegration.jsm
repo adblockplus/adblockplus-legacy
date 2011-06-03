@@ -870,7 +870,7 @@ WindowWrapper.prototype =
     // Open dialog
     if (!Utils.isFennec)
     {
-      let subscription = {url: url, title: title, disabled: false, external: false, autoDownload: true,
+      let subscription = {url: url, title: title, disabled: false, external: false,
                           mainSubscriptionTitle: mainSubscriptionTitle, mainSubscriptionURL: mainSubscriptionURL};
       this.window.openDialog("chrome://adblockplus/content/ui/subscriptionSelection.xul", "_blank",
                              "chrome,centerscreen,resizable,dialog=no", subscription, null);

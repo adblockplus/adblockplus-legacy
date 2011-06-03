@@ -113,7 +113,7 @@ function init()
   if (!source)
   {
     editMode = false;
-    source = {title: "", url: "", disabled: false, external: false, autoDownload: true, mainSubscriptionTitle: null, mainSubscriptionURL: null};
+    source = {title: "", url: "", disabled: false, external: false, mainSubscriptionTitle: null, mainSubscriptionURL: null};
   }
   else
   {
@@ -188,13 +188,7 @@ function init()
   }
 
   if (source instanceof ExternalSubscription)
-  {
     E("location").setAttribute("disabled", "true");
-    E("autoDownload").setAttribute("disabled", "true");
-    E("autoDownload").checked = true;
-  }
-  else
-    E("autoDownload").checked = source.autoDownload;
 
   initialized = true;
 
@@ -565,12 +559,10 @@ function addSubscription()
   let list = E("subscriptions");
   let url;
   let title;
-  let autoDownload;
   if (list.value)
   {
     url = list.value;
     title = list.label;
-    autoDownload = true;
   }
   else
   {
@@ -587,13 +579,10 @@ function addSubscription()
     title = E("title").value.replace(/^\s+/, "").replace(/\s+$/, "");
     if (!title)
       title = url;
-
-    autoDownload = E("autoDownload").checked;
   }
 
   result.url = url;
   result.title = title;
-  result.autoDownload = autoDownload;
   result.disabled = source.disabled;
 
   let addMainCheckbox = E("addMainSubscription")
@@ -605,9 +594,9 @@ function addSubscription()
 
   if (autoAdd)
   {
-    doAddSubscription(result.url, result.title, result.autoDownload, result.disabled);
+    doAddSubscription(result.url, result.title, result.disabled);
     if ("mainSubscriptionURL" in result)
-      doAddSubscription(result.mainSubscriptionURL, result.mainSubscriptionTitle, result.autoDownload, result.disabled);
+      doAddSubscription(result.mainSubscriptionURL, result.mainSubscriptionTitle, result.disabled);
   }
 
   closing = true;
@@ -617,10 +606,8 @@ function addSubscription()
 /**
  * Adds a new subscription to the list.
  */
-function doAddSubscription(/**String*/ url, /**String*/ title, /**Boolean*/ autoDownload, /**Boolean*/ disabled)
+function doAddSubscription(/**String*/ url, /**String*/ title, /**Boolean*/ disabled)
 {
-  if (typeof autoDownload == "undefined")
-    autoDownload = true;
   if (typeof disabled == "undefined")
     disabled = false;
 
@@ -632,8 +619,6 @@ function doAddSubscription(/**String*/ url, /**String*/ title, /**Boolean*/ auto
 
   subscription.disabled = disabled;
   subscription.title = title;
-  if (subscription instanceof DownloadableSubscription)
-    subscription.autoDownload = autoDownload;
 
   if (subscription instanceof DownloadableSubscription && !subscription.lastDownload)
     Synchronizer.execute(subscription);

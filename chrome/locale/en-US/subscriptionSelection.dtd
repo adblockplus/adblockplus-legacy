@@ -31,8 +31,6 @@
 <!ENTITY title.accesskey            "t">
 <!ENTITY location.label             "Filter list location:">
 <!ENTITY location.accesskey         "l">
-<!ENTITY autodownload.label         "Update filters automatically">
-<!ENTITY autodownload.accesskey     "p">
 
 <!-- Note: the placeholder (?1?) will be replaced by the name of the filter subscription required -->
 <!ENTITY supplementMessage          "This filter subscription is meant to be used with the filter subscription &quot;?1?&quot; which you are not using yet.">

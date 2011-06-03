@@ -287,8 +287,6 @@ function getSubscriptionDescription(subscription)
   let status = "";
   if (subscription instanceof ExternalSubscription)
     status += Utils.getString("subscription_status_externaldownload");
-  else
-    status += (subscription.autoDownload ? Utils.getString("subscription_status_autodownload") : Utils.getString("subscription_status_manualdownload"));
 
   status += "; " + Utils.getString("subscription_status_lastdownload") + " ";
   if (Synchronizer.isExecuting(subscription.url))
@@ -869,7 +867,6 @@ function editSubscription(/**Subscription*/ subscription)
   
     newSubscription.title = title;
     newSubscription.disabled = result.disabled;
-    newSubscription.autoDownload = result.autoDownload;
   
     treeView.invalidateSubscriptionInfo(newSubscription);
 
@@ -1412,7 +1409,7 @@ let treeView = {
     this.boxObject = boxObject;
 
     let stringAtoms = ["col-filter", "col-enabled", "col-hitcount", "col-lasthit", "type-comment", "type-filterlist", "type-whitelist", "type-elemhide", "type-invalid"];
-    let boolAtoms = ["selected", "dummy", "subscription", "description", "filter", "filter-regexp", "subscription-special", "subscription-external", "subscription-autoDownload", "subscription-disabled", "subscription-upgradeRequired", "subscription-dummy", "filter-disabled"];
+    let boolAtoms = ["selected", "dummy", "subscription", "description", "filter", "filter-regexp", "subscription-special", "subscription-external", "subscription-disabled", "subscription-upgradeRequired", "subscription-dummy", "filter-disabled"];
     let atomService = Cc["@mozilla.org/atom-service;1"].getService(Ci.nsIAtomService);
 
     this.atoms = {};
@@ -1542,7 +1539,6 @@ let treeView = {
     properties.AppendElement(this.atoms["description-" + (typeof filter == "string")]);
     properties.AppendElement(this.atoms["subscription-special-" + (subscription instanceof SpecialSubscription)]);
     properties.AppendElement(this.atoms["subscription-external-" + (subscription instanceof ExternalSubscription)]);
-    properties.AppendElement(this.atoms["subscription-autoDownload-" + (subscription instanceof DownloadableSubscription && subscription.autoDownload)]);
     properties.AppendElement(this.atoms["subscription-disabled-" + subscription.disabled]);
     properties.AppendElement(this.atoms["subscription-upgradeRequired-" + (subscription instanceof DownloadableSubscription && subscription.upgradeRequired)]);
     properties.AppendElement(this.atoms["subscription-dummy-" + (subscription instanceof Subscription && subscription.url == "~dummy~")]);

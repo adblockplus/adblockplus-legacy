@@ -170,8 +170,6 @@ Subscription.fromObject = function(obj)
       }
 
       result = new DownloadableSubscription(obj.url, obj.title);
-      if ("autoDownload" in obj)
-        result.autoDownload = (obj.autoDownload == "true");
       if ("nextURL" in obj)
         result.nextURL = obj.nextURL;
       if ("downloadStatus" in obj)
@@ -413,12 +411,6 @@ DownloadableSubscription.prototype =
   _downloadStatus: null,
 
   /**
-   * Defines whether the subscription should be downloaded automatically
-   * @type Boolean
-   */
-  autoDownload: true,
-
-  /**
    * Next URL the downloaded should be attempted from (in case of redirects)
    * @type String
    */
@@ -503,8 +495,6 @@ DownloadableSubscription.prototype =
   serialize: function(buffer)
   {
     RegularSubscription.prototype.serialize.call(this, buffer);
-    if (!this.autoDownload)
-      buffer.push("autoDownload=false");
     if (this.nextURL)
       buffer.push("nextURL=" + this.nextURL);
     if (this.downloadStatus)

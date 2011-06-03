@@ -197,10 +197,7 @@ ABPStore.prototype =
           }
         }
         else
-        {
           subscriptionEntry.title = subscription.title;
-          subscriptionEntry.autoDownload = subscription.autoDownload;
-        }
         record.cleartext.subscriptions.push(subscriptionEntry);
       }
 
@@ -242,10 +239,7 @@ ABPStore.prototype =
           // Only change local subscription if there were no changes, otherwise dismiss remote changes
           subscription.disabled = remoteSubscription.disabled;
           if (subscription instanceof DownloadableSubscription)
-          {
             subscription.title = remoteSubscription.title;
-            subscription.autoDownload = remoteSubscription.autoDownload;
-          }
         }
       }
       else if (!trackerInstance.didSubscriptionChange(remoteSubscription))
@@ -259,7 +253,6 @@ ABPStore.prototype =
         if (subscription instanceof DownloadableSubscription)
         {
           subscription.title = remoteSubscription.title;
-          subscription.autoDownload = remoteSubscription.autoDownload;
           FilterStorage.addSubscription(subscription);
           Synchronizer.execute(subscription);
         }

@@ -432,7 +432,7 @@ function checkSubscriptions()
   let time = Math.round(Date.now() / MILLISECONDS_IN_SECOND);
   for each (let subscription in FilterStorage.subscriptions)
   {
-    if (!(subscription instanceof DownloadableSubscription) || !subscription.autoDownload)
+    if (!(subscription instanceof DownloadableSubscription))
       continue;
 
     if (subscription.lastCheck && time - subscription.lastCheck > MAX_ABSENSE_INTERVAL)
@@ -585,10 +585,22 @@ function setError(subscription, error, channelStatus, responseStatus, downloadUR
                                   request.channel.VALIDATE_ALWAYS;
       request.onload = function(ev)
       {
+        if (!(subscription.url in FilterStorage.knownSubscriptions))
+          return;
+
         if (/^301\s+(\S+)/.test(request.responseText))  // Moved permanently    
           subscription.nextURL = RegExp.$1;
         else if (/^410\b/.test(request.responseText))   // Gone
-          subscription.autoDownload = false;
+        {
+          let data = "[Adblock]\n" + subscription.filters.map(function(f) f.text).join("\n");
+          let url = "data:text/plain," + encodeURIComponent(data);
+          let newSubscription = Subscription.fromURL(url);
+          newSubscription.title = subscription.title;
+          newSubscription.disabled = subscription.disabled;
+          FilterStorage.removeSubscription(subscription);
+          FilterStorage.addSubscription(newSubscription);
+          Synchronizer.execute(newSubscription);
+        }
         FilterStorage.saveToDisk();
       }
       request.send(null);

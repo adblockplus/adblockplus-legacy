@@ -93,8 +93,6 @@
   
     <label value="&location.label;" accesskey="&location.accesskey;" control="location"/>
     <textbox id="location"/>
-
-    <checkbox id="autoDownload" label="&autodownload.label;" accesskey="&autodownload.accesskey;"/>
   </groupbox>
 
   <description id="supplementMessage" hidden="true" _textTemplate="&supplementMessage;">&supplementMessage;</description>

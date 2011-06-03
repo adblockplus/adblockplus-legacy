@@ -186,7 +186,7 @@ function createSubscriptionWrapper(/**Subscription*/ subscription) /**IAdblockPl
     url: subscription.url,
     special: subscription instanceof SpecialSubscription,
     title: subscription.title,
-    autoDownload: subscription instanceof DownloadableSubscription && subscription.autoDownload,
+    autoDownload: true,
     disabled: subscription.disabled,
     external: subscription instanceof ExternalSubscription,
     lastDownload: subscription instanceof RegularSubscription ? subscription.lastDownload : 0,
