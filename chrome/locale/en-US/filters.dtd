@@ -1,6 +1,6 @@
 <!ENTITY dialog.title                         "Adblock Plus Filter Preferences">
 
-<!ENTITY subscriptions.group.label            "Filter subscriptions">
+<!ENTITY subscriptions.tab.label              "Filter subscriptions">
 
 <!ENTITY addSubscription.label                "Add filter subscription">
 <!ENTITY addSubscription.accesskey            "f">
