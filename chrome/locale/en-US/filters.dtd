@@ -22,6 +22,12 @@
 <!ENTITY subscription.lastDownload.invalidData "Failed, not a valid filters list">
 <!ENTITY subscription.lastDownload.checksumMismatch "Failed, checksum mismatch">
 <!ENTITY subscription.lastDownload.success    "Success">
+
 <!ENTITY subscription.actions.label           "Actions">
+<!ENTITY subscription.update.label            "Update filters">
+<!ENTITY subscription.editTitle.label         "Edit title">
+<!ENTITY subscription.delete.label            "Delete">
+<!ENTITY subscription.moveUp.label            "Move up">
+<!ENTITY subscription.moveDown.label          "Move down">
 
 <!ENTITY close.label                          "Close">

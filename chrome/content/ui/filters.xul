@@ -46,6 +46,14 @@
 <script type="application/x-javascript;version=1.7" src="filters.js"/>
 <script type="application/x-javascript;version=1.7" src="findbar.js"/>
 
+<keyset id="filtersKeyset">
+  <key id="subscription-editTitle-key" keycode="VK_F2"/>
+  <key id="subscription-update-key" key="T" modifiers="accel"/>
+  <key id="subscription-delete-key" keycode="VK_DELETE"/>
+  <key id="subscription-moveUp-key" keycode="VK_UP" modifiers="accel"/>
+  <key id="subscription-moveDown-key" keycode="VK_DOWN" modifiers="accel"/>
+</keyset>
+
 <tabbox id="tabs" flex="1">
   <tabs>
     <tab label="&subscriptions.tab.label;"/>
@@ -62,7 +70,8 @@
           <description flex="1">&noSubscriptions.text;</description>
         </richlistitem>
         <richlistitem id="subscriptionTemplate" class="subscription" hidden="true" orient="vertical"
-            onmousedown="this._wasSelected = (this.parentNode.selectedItem == this);">
+            onmousedown="this._wasSelected = (this.parentNode.selectedItem == this);"
+            oncontextmenu="openSubscriptionMenu(this);">
           <vbox>
             <hbox align="center">
               <deck class="titleBox" flex="1" selectedIndex="0">
@@ -115,7 +124,16 @@
                 </if>
               </if>
               <spacer flex="1"/>
-              <button type="menu" label="&subscription.actions.label;…"/>
+              <button class="actionButton" type="menu" label="&subscription.actions.label;…">
+                <menupopup>
+                  <menuitem label="&subscription.update.label;…" key="subscription-update-key"/>
+                  <menuitem label="&subscription.editTitle.label;…" key="subscription-editTitle-key"/>
+                  <menuitem label="&subscription.delete.label;…" key="subscription-delete-key"/>
+                  <menuseparator/>
+                  <menuitem label="&subscription.moveUp.label;…" key="subscription-moveUp-key"/>
+                  <menuitem label="&subscription.moveDown.label;…" key="subscription-moveDown-key"/>
+                </menupopup>
+              </button>
             </hbox>
           </vbox>
         </richlistitem>

@@ -353,3 +353,11 @@ function titleEditorKeyPress(/**Event*/ event)
     titleEditorEnd(false);
   }
 }
+
+/**
+ * Opens the context menu for a subscription node.
+ */
+function openSubscriptionMenu(/**Node*/ node)
+{
+  node.getElementsByClassName("actionButton")[0].open = true;
+}
