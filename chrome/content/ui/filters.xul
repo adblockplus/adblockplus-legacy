@@ -72,7 +72,7 @@
                   <if condition="{isExternal}">
                     <description value="&subscription.external.label;"/>
                   <else/>
-                    <if condition="{!!subscription.homepage}">
+                    <if condition="{subscription.homepage}">
                       <description class="text-link" value="&subscription.homepage.label;"
                         _url="{subscription.homepage}" tooltiptext="{subscription.homepage}"
                         onclick="if (event.button == 0) { event.stopPropagation();Utils.loadInBrowser(this.getAttribute('_url')); }"/>
