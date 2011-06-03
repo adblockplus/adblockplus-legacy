@@ -86,10 +86,11 @@ function reloadSubscriptions()
  */
 function addSubscription(/**Subscription*/ subscription, /**Node*/ insertBefore) /**Node*/
 {
-  subscription.downloadInProgress = Synchronizer.isExecuting(subscription.url)
-  let node = processTemplate(subscriptionTemplate, subscription);
-  delete subscription.downloadInProgress;
-
+  let node = processTemplate(subscriptionTemplate, {
+    __proto__: null,
+    subscription: subscription,
+    downloading: Synchronizer.isExecuting(subscription.url)
+  });
   if (insertBefore)
     E("subscriptions").insertBefore(node, insertBefore);
   else
@@ -104,7 +105,8 @@ function processTemplate(/**Node*/ template, /**Object*/ data) /**Node*/
 {
   // Use a sandbox to resolve attributes (for convenience, not security)
   let sandbox = Cu.Sandbox(window);
-  sandbox.obj = data;
+  for (let key in data)
+    sandbox[key] = data[key];
   sandbox.formatTime = Utils.formatTime;
 
   // Clone template but remove id/hidden attributes from it
@@ -200,10 +202,10 @@ function getDataForNode(/**Node*/ node) /**Object*/
  * Returns a node that has been generated from a template using a particular
  * data object.
  */
-function getNodeForData(/**Node*/ parent, /**Object*/ data) /**Node*/
+function getNodeForData(/**Node*/ parent, /**String*/ property, /**Object*/ data) /**Node*/
 {
   for (let child = parent.firstChild; child; child = child.nextSibling)
-    if ("_data" in child && child._data == data)
+    if ("_data" in child && property in child._data && child._data[property] == data)
       return child;
   return null;
 }
@@ -221,12 +223,11 @@ function onChange(action, item, newValue, oldValue)
     case "subscription.homepage":
     case "subscription.lastDownload":
     case "subscription.downloadStatus":
-      let subscriptionNode = getNodeForData(E("subscriptions"), item);
+      let subscriptionNode = getNodeForData(E("subscriptions"), "subscription", item);
       if (subscriptionNode)
       {
-        item.downloadInProgress = Synchronizer.isExecuting(item.url)
+        subscriptionNode._data.downloading = Synchronizer.isExecuting(item.url)
         updateTemplate(subscriptionTemplate, subscriptionNode);
-        delete item.downloadInProgress;
 
         if (!document.commandDispatcher.focusedElement)
           E("subscriptions").focus();
@@ -249,9 +250,9 @@ function subscriptionsKeyPress(event)
  */
 function updateSubscriptionDisabled(/**Element*/checkbox)
 {
-  let subscription = getDataForNode(checkbox);
-  if (subscription)
-    subscription.disabled = !checkbox.checked;
+  let data = getDataForNode(checkbox);
+  if (data)
+    data.subscription.disabled = !checkbox.checked;
 }
 
 /**
@@ -277,7 +278,7 @@ function titleEditorStart(node, checkSelection)
 
   subscriptionNode.getElementsByClassName("titleBox")[0].selectedIndex = 1;
   let editor = subscriptionNode.getElementsByClassName("titleEditor")[0];
-  editor.value = subscriptionNode._data.title;
+  editor.value = subscriptionNode._data.subscription.title;
   subscriptionEdited = subscriptionNode;
   editor.focus();
 }
@@ -301,8 +302,9 @@ function titleEditorEnd(save)
     newTitle = newTitle.replace(/^\s+/, "").replace(/\s+$/, "");
   }
 
-  if (newTitle && newTitle != subscriptionNode._data.title)
-    subscriptionNode._data.title = newTitle;
+  let subscription = subscriptionNode._data.subscription
+  if (newTitle && newTitle != subscription.title)
+    subscription.title = newTitle;
   else
   {
     subscriptionNode.getElementsByClassName("titleBox")[0].selectedIndex = 0;
