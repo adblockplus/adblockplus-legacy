@@ -67,42 +67,42 @@
             <hbox align="center">
               <deck class="titleBox" flex="1" selectedIndex="0">
                 <hbox pack="start" onclick="titleEditorStart(this, true);">
-                  <description value="{obj.title}"/>
+                  <description value="{subscription.title}"/>
                   <description value=" ("/>
-                  <if condition="{!!obj.homepage}">
+                  <if condition="{!!subscription.homepage}">
                     <description class="text-link" value="&subscription.homepage.label;"
-                      _url="{obj.homepage}" tooltiptext="{obj.homepage}"
+                      _url="{subscription.homepage}" tooltiptext="{subscription.homepage}"
                       onclick="event.stopPropagation();Utils.loadInBrowser(this.getAttribute('_url'));"/>
                     <description value=", "/>
                   </if>
                   <description class="text-link" value="&subscription.source.label;"
-                    _url="{obj.url}" tooltiptext="{obj.url}"
+                    _url="{subscription.url}" tooltiptext="{subscription.url}"
                     onclick="event.stopPropagation();Utils.loadInBrowser(this.getAttribute('_url'));"/>
                   <description value=")"/>
                 </hbox>
                 <textbox class="titleEditor" onkeypress="titleEditorKeyPress(event);" onblur="titleEditorEnd(true);"/>
               </deck>
-              <checkbox label="&subscription.enabled.label;" checked="{obj.disabled ? 'false' : 'true'}" oncommand="updateSubscriptionDisabled(this);"/>
+              <checkbox label="&subscription.enabled.label;" checked="{subscription.disabled ? 'false' : 'true'}" oncommand="updateSubscriptionDisabled(this);"/>
             </hbox>
             <hbox align="center">
               <description value="&subscription.lastDownload.label;"/>
               <description value=" "/>
-              <if condition="{!!obj.downloadInProgress}">
+              <if condition="{downloading}">
                 <description value="&subscription.lastDownload.inProgress;"/>
-              <elif condition="{!obj.lastDownload}"/>
+              <elif condition="{!subscription.lastDownload}"/>
                 <description value="&subscription.lastDownload.unknown;"/>
               <else/>
-                <description value="{formatTime(obj.lastDownload * 1000)}"/>
+                <description value="{formatTime(subscription.lastDownload * 1000)}"/>
                 <description value=" "/>
-                <if condition="{obj.downloadStatus}">
+                <if condition="{subscription.downloadStatus}">
                   <description value=" ("/>
-                  <if condition="{obj.downloadStatus == 'synchronize_invalid_url'}">
+                  <if condition="{subscription.downloadStatus == 'synchronize_invalid_url'}">
                     <description value="&subscription.lastDownload.invalidURL;"/>
-                  <elif condition="{obj.downloadStatus == 'synchronize_connection_error'}"/>
+                  <elif condition="{subscription.downloadStatus == 'synchronize_connection_error'}"/>
                     <description value="&subscription.lastDownload.connectionError;"/>
-                  <elif condition="{obj.downloadStatus == 'synchronize_invalid_data'}"/>
+                  <elif condition="{subscription.downloadStatus == 'synchronize_invalid_data'}"/>
                     <description value="&subscription.lastDownload.invalidData;"/>
-                  <elif condition="{obj.downloadStatus == 'synchronize_checksum_mismatch'}"/>
+                  <elif condition="{subscription.downloadStatus == 'synchronize_checksum_mismatch'}"/>
                     <description value="&subscription.lastDownload.checksumMismatch;"/>
                   <else/>   <!-- synchronize_ok -->
                     <description value="&subscription.lastDownload.success;"/>
