@@ -260,12 +260,19 @@ function onChange(action, item, newValue, oldValue)
 }
 
 /**
- * Processes keypress events on the subscriptions list.
+ * Checks whether the subscriptions list is focused.
  */
-function subscriptionsKeyPress(event)
+function isFocusOnSubscriptions()
 {
-  if (event.keyCode == event.DOM_VK_F2)
-    titleEditorStart(E("subscriptions").selectedItem);
+  let focused = document.commandDispatcher.focusedElement;
+  let list = E("subscriptions");
+  while (focused)
+  {
+    if (focused == list)
+      return true;
+    focused = focused.parentNode;
+  }
+  return false;
 }
 
 /**
