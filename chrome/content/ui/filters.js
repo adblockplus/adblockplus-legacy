@@ -66,7 +66,7 @@ function reloadSubscriptions()
   if (subscriptions.length)
   {
     for each (let subscription in subscriptions)
-      addSubscription(subscription, null);
+      addSubscriptionToList(subscription, null);
 
     // Set the focus to the subscriptions list by default
     let listElement = E("subscriptions");
@@ -84,7 +84,7 @@ function reloadSubscriptions()
 /**
  * Adds a filter subscription to the list.
  */
-function addSubscription(/**Subscription*/ subscription, /**Node*/ insertBefore) /**Node*/
+function addSubscriptionToList(/**Subscription*/ subscription, /**Node*/ insertBefore) /**Node*/
 {
   let node = processTemplate(subscriptionTemplate, {
     __proto__: null,
@@ -229,9 +229,10 @@ function onChange(action, item, newValue, oldValue)
         let insertBefore = null;
         if (index < FilterStorage.subscriptions.length - 1)
           insertBefore = getNodeForData(E("subscriptions"), "subscription", FilterStorage.subscriptions[index + 1]);
-        addSubscription(item, insertBefore);
+        addSubscriptionToList(item, insertBefore);
         E("noSubscriptions").hidden = true;
       }
+      subscriptionUpdateCommands();
       break;
     case "subscription.remove":
       let node = getNodeForData(E("subscriptions"), "subscription", item);
@@ -240,6 +241,7 @@ function onChange(action, item, newValue, oldValue)
         node.parentNode.removeChild(node);
         E("noSubscriptions").hidden = Array.prototype.some.call(E("subscriptions").childNodes, function(n) !n.id);
       }
+      subscriptionUpdateCommands();
       break;
     case "subscription.title":
     case "subscription.disabled":
@@ -255,6 +257,7 @@ function onChange(action, item, newValue, oldValue)
         if (!document.commandDispatcher.focusedElement)
           E("subscriptions").focus();
       }
+      subscriptionUpdateCommands();
       break;
   }
 }
@@ -283,6 +286,25 @@ function updateSubscriptionDisabled(/**Element*/checkbox)
   let data = getDataForNode(checkbox);
   if (data)
     data.subscription.disabled = !checkbox.checked;
+}
+
+/**
+ * Triggers update of the filter subscription corresponding with a list item.
+ */
+function updateSubscription(/**Node*/ node)
+{
+  let subscription = node._data.subscription;
+  if (subscription instanceof DownloadableSubscription)
+    Synchronizer.execute(subscription, true, true);
+}
+
+/**
+ * Removes a filter subscription from the list.
+ */
+function removeSubscription(/**Node*/ node)
+{
+  if ("_data" in node && node._data.subscription && Utils.confirm(window, Utils.getString("remove_subscription_warning")))
+    FilterStorage.removeSubscription(node._data.subscription);
 }
 
 /**
@@ -367,4 +389,16 @@ function titleEditorKeyPress(/**Event*/ event)
 function openSubscriptionMenu(/**Node*/ node)
 {
   node.getElementsByClassName("actionButton")[0].open = true;
+}
+
+/**
+ * Updates subscription commands when the selected subscription changes.
+ */
+function subscriptionUpdateCommands()
+{
+  let data = getDataForNode(E("subscriptions").selectedItem);
+  let subscription = (data ? data.subscription : null)
+  E("subscription-update-command").setAttribute("disabled", !subscription ||
+      !(subscription instanceof DownloadableSubscription) ||
+      Synchronizer.isExecuting(subscription.url));
 }
