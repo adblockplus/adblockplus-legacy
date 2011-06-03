@@ -62,7 +62,7 @@ function reloadSubscriptions()
   remove.map(function(child) child.parentNode.removeChild(child));
 
   // Now add all subscriptions
-  let subscriptions = FilterStorage.subscriptions.filter(function(subscription) !(subscription instanceof SpecialSubscription));
+  let subscriptions = FilterStorage.subscriptions.filter(function(subscription) subscription instanceof RegularSubscription);
   if (subscriptions.length)
   {
     for each (let subscription in subscriptions)
@@ -217,8 +217,30 @@ function getNodeForData(/**Node*/ parent, /**String*/ property, /**Object*/ data
  */
 function onChange(action, item, newValue, oldValue)
 {
+  if (/^subscription\./.test(action) && !(item instanceof RegularSubscription))
+    return;
+
   switch (action)
   {
+    case "subscription.add":
+      let index = FilterStorage.subscriptions.indexOf(item);
+      if (index >= 0)
+      {
+        let insertBefore = null;
+        if (index < FilterStorage.subscriptions.length - 1)
+          insertBefore = getNodeForData(E("subscriptions"), "subscription", FilterStorage.subscriptions[index + 1]);
+        addSubscription(item, insertBefore);
+        E("noSubscriptions").hidden = true;
+      }
+      break;
+    case "subscription.remove":
+      let node = getNodeForData(E("subscriptions"), "subscription", item);
+      if (node)
+      {
+        node.parentNode.removeChild(node);
+        E("noSubscriptions").hidden = Array.prototype.some.call(E("subscriptions").childNodes, function(n) !n.id);
+      }
+      break;
     case "subscription.title":
     case "subscription.disabled":
     case "subscription.homepage":
