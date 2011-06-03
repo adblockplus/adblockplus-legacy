@@ -89,6 +89,7 @@ function addSubscription(/**Subscription*/ subscription, /**Node*/ insertBefore)
   let node = processTemplate(subscriptionTemplate, {
     __proto__: null,
     subscription: subscription,
+    isExternal: subscription instanceof ExternalSubscription,
     downloading: Synchronizer.isExecuting(subscription.url)
   });
   if (insertBefore)

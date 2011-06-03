@@ -11,6 +11,7 @@
   add some.
 ">
 <!ENTITY subscription.homepage.label          "Homepage">
+<!ENTITY subscription.external.label          "Updated by another extension">
 <!ENTITY subscription.source.label            "Filter list">
 <!ENTITY subscription.enabled.label           "Enabled">
 <!ENTITY subscription.lastDownload.label      "Last download:">
