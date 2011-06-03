@@ -66,7 +66,7 @@
           <vbox>
             <hbox align="center">
               <deck class="titleBox" flex="1" selectedIndex="0">
-                <hbox pack="start" onclick="titleEditorStart(this, true);">
+                <hbox pack="start" onclick="if (event.button == 0) titleEditorStart(this, true);">
                   <description value="{subscription.title}"/>
                   <description value=" ("/>
                   <if condition="{isExternal}">
@@ -75,12 +75,12 @@
                     <if condition="{!!subscription.homepage}">
                       <description class="text-link" value="&subscription.homepage.label;"
                         _url="{subscription.homepage}" tooltiptext="{subscription.homepage}"
-                        onclick="event.stopPropagation();Utils.loadInBrowser(this.getAttribute('_url'));"/>
+                        onclick="if (event.button == 0) { event.stopPropagation();Utils.loadInBrowser(this.getAttribute('_url')); }"/>
                       <description value=", "/>
                     </if>
                     <description class="text-link" value="&subscription.source.label;"
                       _url="{subscription.url}" tooltiptext="{subscription.url}"
-                      onclick="event.stopPropagation();Utils.loadInBrowser(this.getAttribute('_url'));"/>
+                      onclick="if (event.button == 0) { event.stopPropagation();Utils.loadInBrowser(this.getAttribute('_url')); }"/>
                   </if>
                   <description value=")"/>
                 </hbox>
