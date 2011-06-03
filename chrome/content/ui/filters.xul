@@ -56,26 +56,32 @@
         <button label="&addSubscription.label;…" accesskey="&addSubscription.accesskey;"/>
       </hbox>
 
-      <richlistbox id="subscriptions" flex="1">
+      <richlistbox id="subscriptions" flex="1" onkeypress="subscriptionsKeyPress(event);"
+          onselect="if (this.selectedItem != subscriptionEdited) titleEditorEnd(true);">
         <richlistitem id="noSubscriptions" flex="1" hidden="true" orient="vertical">
           <description flex="1">&noSubscriptions.text;</description>
         </richlistitem>
-        <richlistitem id="subscriptionTemplate" class="subscription" hidden="true" orient="vertical">
+        <richlistitem id="subscriptionTemplate" class="subscription" hidden="true" orient="vertical"
+            onmousedown="this._wasSelected = (this.parentNode.selectedItem == this);">
           <vbox>
             <hbox align="center">
-              <description value="{obj.title}"/>
-              <description value=" ("/>
-              <if condition="{!!obj.homepage}">
-                <description class="text-link" value="&subscription.homepage.label;"
-                  _url="{obj.homepage}" tooltiptext="{obj.homepage}"
-                  onclick="Utils.loadInBrowser(this.getAttribute('_url'))"/>
-                <description value=", "/>
-              </if>
-              <description class="text-link" value="&subscription.source.label;"
-                _url="{obj.url}" tooltiptext="{obj.url}"
-                onclick="Utils.loadInBrowser(this.getAttribute('_url'))"/>
-              <description value=")"/>
-              <spacer flex="1"/>
+              <deck class="titleBox" flex="1" selectedIndex="0">
+                <hbox pack="start" onclick="titleEditorStart(this, true);">
+                  <description value="{obj.title}"/>
+                  <description value=" ("/>
+                  <if condition="{!!obj.homepage}">
+                    <description class="text-link" value="&subscription.homepage.label;"
+                      _url="{obj.homepage}" tooltiptext="{obj.homepage}"
+                      onclick="event.stopPropagation();Utils.loadInBrowser(this.getAttribute('_url'));"/>
+                    <description value=", "/>
+                  </if>
+                  <description class="text-link" value="&subscription.source.label;"
+                    _url="{obj.url}" tooltiptext="{obj.url}"
+                    onclick="event.stopPropagation();Utils.loadInBrowser(this.getAttribute('_url'));"/>
+                  <description value=")"/>
+                </hbox>
+                <textbox class="titleEditor" onkeypress="titleEditorKeyPress(event);" onblur="titleEditorEnd(true);"/>
+              </deck>
               <checkbox label="&subscription.enabled.label;" checked="{obj.disabled ? 'false' : 'true'}" oncommand="updateSubscriptionDisabled(this);"/>
             </hbox>
             <hbox align="center">

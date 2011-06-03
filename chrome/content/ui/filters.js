@@ -40,12 +40,18 @@ function init()
   FilterNotifier.addListener(onChange);
 }
 
+/**
+ * Cleanup function, called before the window is closed.
+ */
 function cleanUp()
 {
   // Remove listener
   FilterNotifier.removeListener(onChange);
 }
 
+/**
+ * Fills the subscriptions list.
+ */
 function reloadSubscriptions()
 {
   // Remove existing entries if any
@@ -75,6 +81,9 @@ function reloadSubscriptions()
   E("noSubscriptions").hidden = subscriptions.length;
 }
 
+/**
+ * Adds a filter subscription to the list.
+ */
 function addSubscription(/**Subscription*/ subscription, /**Node*/ insertBefore) /**Node*/
 {
   subscription.downloadInProgress = Synchronizer.isExecuting(subscription.url)
@@ -88,6 +97,9 @@ function addSubscription(/**Subscription*/ subscription, /**Node*/ insertBefore)
   return node;
 }
 
+/**
+ * Processes a template node using given data object.
+ */
 function processTemplate(/**Node*/ template, /**Object*/ data) /**Node*/
 {
   // Use a sandbox to resolve attributes (for convenience, not security)
@@ -145,25 +157,49 @@ function processTemplate(/**Node*/ template, /**Object*/ data) /**Node*/
   return result;
 }
 
+/**
+ * Updates first child of a processed template if the underlying data changed.
+ */
 function updateTemplate(/**Node*/ template, /**Node*/ node)
 {
   if (!("_data" in node))
     return;
   let newChild = processTemplate(template.firstChild, node._data);
+  delete newChild._data;
   node.replaceChild(newChild, node.firstChild);
 }
 
-function getDataForNode(/**Node*/ node) /**Object*/
+/**
+ * Walks up the parent chain for a node until the node corresponding with a
+ * template is found.
+ */
+function getDataNode(/**Node*/ node) /**Node*/
 {
   while (node)
   {
     if ("_data" in node)
-      return node._data;
+      return node;
     node = node.parentNode;
   }
   return null;
 }
 
+/**
+ * Returns the data used to generate the node from a template.
+ */
+function getDataForNode(/**Node*/ node) /**Object*/
+{
+  node = getDataNode(node);
+  if (node)
+    return node._data;
+  else
+    return null;
+}
+
+/**
+ * Returns a node that has been generated from a template using a particular
+ * data object.
+ */
 function getNodeForData(/**Node*/ parent, /**Object*/ data) /**Node*/
 {
   for (let child = parent.firstChild; child; child = child.nextSibling)
@@ -172,6 +208,10 @@ function getNodeForData(/**Node*/ parent, /**Object*/ data) /**Node*/
   return null;
 }
 
+/**
+ * Filter/subscriptions change processing.
+ * @see FilterNotifier.addListener()
+ */
 function onChange(action, item, newValue, oldValue)
 {
   switch (action)
@@ -195,9 +235,96 @@ function onChange(action, item, newValue, oldValue)
   }
 }
 
-function updateSubscriptionDisabled(checkbox)
+/**
+ * Processes keypress events on the subscriptions list.
+ */
+function subscriptionsKeyPress(event)
+{
+  if (event.keyCode == event.DOM_VK_F2)
+    titleEditorStart(E("subscriptions").selectedItem);
+}
+
+/**
+ * Updates Subscription.disabled field depending on checkbox value.
+ */
+function updateSubscriptionDisabled(/**Element*/checkbox)
 {
   let subscription = getDataForNode(checkbox);
   if (subscription)
     subscription.disabled = !checkbox.checked;
+}
+
+/**
+ * List item corresponding with the currently edited subscription if any.
+ * @type Node
+ */
+let subscriptionEdited = null;
+
+/**
+ * Starts editing of a subscription title.
+ * @param {Node} node subscription list entry or a child node
+ * @param {Boolean} [checkSelection] if true the editor will not start if the
+ *        item was selected in the preceding mousedown event
+ */
+function titleEditorStart(node, checkSelection)
+{
+  if (subscriptionEdited)
+    titleEditorEnd(true);
+
+  let subscriptionNode = getDataNode(node);
+  if (!subscriptionNode || (checkSelection && !subscriptionNode._wasSelected))
+    return;
+
+  subscriptionNode.getElementsByClassName("titleBox")[0].selectedIndex = 1;
+  let editor = subscriptionNode.getElementsByClassName("titleEditor")[0];
+  editor.value = subscriptionNode._data.title;
+  subscriptionEdited = subscriptionNode;
+  editor.focus();
+}
+
+/**
+ * Stops editing of a subscription title.
+ * @param {Boolean} save if true the entered value will be saved, otherwise dismissed
+ */
+function titleEditorEnd(save)
+{
+  if (!subscriptionEdited)
+    return;
+
+  let subscriptionNode = subscriptionEdited;
+  subscriptionEdited = null;
+
+  let newTitle = null;
+  if (save)
+  {
+    newTitle = subscriptionNode.getElementsByClassName("titleEditor")[0].value;
+    newTitle = newTitle.replace(/^\s+/, "").replace(/\s+$/, "");
+  }
+
+  if (newTitle && newTitle != subscriptionNode._data.title)
+    subscriptionNode._data.title = newTitle;
+  else
+  {
+    subscriptionNode.getElementsByClassName("titleBox")[0].selectedIndex = 0;
+    E("subscriptions").focus();
+  }
+}
+
+/**
+ * Processes keypress events on the subscription title editor field.
+ */
+function titleEditorKeyPress(/**Event*/ event)
+{
+  if (event.keyCode == event.DOM_VK_RETURN || event.keyCode == event.DOM_VK_ENTER)
+  {
+    event.preventDefault();
+    event.stopPropagation();
+    titleEditorEnd(true);
+  }
+  else if (event.keyCode == event.DOM_VK_CANCEL || event.keyCode == event.DOM_VK_ESCAPE)
+  {
+    event.preventDefault();
+    event.stopPropagation();
+    titleEditorEnd(false);
+  }
 }
