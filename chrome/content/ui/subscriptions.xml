@@ -8,6 +8,11 @@
                 homepage="http://easylist.adblockplus.org/"
                 prefixes="en"
                 author="Michael, Ares2, Erunno, Khrin, MonztA"/>
+  <subscription title="ABPindo+EasyList (Bahasa Indonesia)"
+                url="https://easylist-downloads.adblockplus.org/abpindo+easylist.txt"
+                homepage="http://indonesianfilter.blogspot.com/"
+                prefixes="id"
+                author="None"/>
   <subscription title="Bulgarian list+EasyList (български)"
                 url="https://easylist-downloads.adblockplus.org/bulgarian_list+easylist.txt"
                 homepage="http://stanev.org/abp/"
