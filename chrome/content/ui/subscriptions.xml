@@ -10,7 +10,7 @@
                 url="https://easylist-downloads.adblockplus.org/abpindo+easylist.txt"
                 homepage="http://indonesianfilter.blogspot.com/"
                 prefixes="id"
-                author="None"/>
+                author="heradhis"/>
   <subscription title="Bulgarian list+EasyList (български)"
                 url="https://easylist-downloads.adblockplus.org/bulgarian_list+easylist.txt"
                 homepage="http://stanev.org/abp/"
