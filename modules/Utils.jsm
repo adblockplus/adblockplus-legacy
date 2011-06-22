@@ -255,7 +255,7 @@ var Utils =
     try
     {
       if (channel.notificationCallbacks)
-        return callback.getInterface(Ci.nsILoadContext).associatedWindow;
+        return channel.notificationCallbacks.getInterface(Ci.nsILoadContext).associatedWindow;
     } catch(e) {}
   
     try
