@@ -26,6 +26,8 @@ fr=http://adblockplus.org/fr/
 he=http://adblockplus.org/he/
 ko=http://adblockplus.org/ko/
 ru=http://adblockplus.org/ru/
+zh-CN=https://adblockplus.org/zh_CN/
+zh-TW=https://adblockplus.org/zh_TW/
 
 [compat]
 firefox=3.5/7.0a1
