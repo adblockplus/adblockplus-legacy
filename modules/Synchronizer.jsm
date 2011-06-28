@@ -232,7 +232,10 @@ var Synchronizer =
             return this;
           }
     
-          return (oldNotifications ? oldNotifications.QueryInterface(iid) : null);
+          if (oldNotifications)
+            return oldNotifications.QueryInterface(iid);
+          else
+            throw Cr.NS_ERROR_NO_INTERFACE;
         },
 
         // Old (Gecko 1.9.x) version
