@@ -150,6 +150,32 @@ var FilterStorage =
   },
 
   /**
+   * Moves a subscription in the list to a new position.
+   * @param {Subscription} subscription filter subscription to be moved
+   * @param {Subscription} [insertBefore] filter subscription to insert before
+   *        (if omitted the subscription will be put at the end of the list)
+   */
+  moveSubscription: function(subscription, insertBefore)
+  {
+    let currentPos = FilterStorage.subscriptions.indexOf(subscription);
+    if (currentPos < 0)
+      return;
+
+    let newPos = insertBefore ? FilterStorage.subscriptions.indexOf(insertBefore) : -1;
+    if (newPos < 0)
+      newPos = FilterStorage.subscriptions.length;
+
+    if (currentPos < newPos)
+      newPos--;
+    if (currentPos == newPos)
+      return;
+
+    FilterStorage.subscriptions.splice(currentPos, 1);
+    FilterStorage.subscriptions.splice(newPos, 0, subscription);
+    FilterNotifier.triggerListeners("subscription.move", subscription);
+  },
+
+  /**
    * Replaces the list of filters in a subscription by a new list
    * @param {Subscription} subscription filter subscription to be updated
    * @param {Array of Filter} filters new filter lsit
