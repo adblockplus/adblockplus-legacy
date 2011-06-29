@@ -22,6 +22,19 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
+const altMask = 2;
+const ctrlMask = 4;
+const metaMask = 8;
+
+let accelMask = ctrlMask;
+try {
+  let accelKey = Utils.prefService.getIntPref("ui.key.accelKey");
+  if (accelKey == Ci.nsIDOMKeyEvent.DOM_VK_META)
+    accelMask = metaMask;
+  else if (accelKey == Ci.nsIDOMKeyEvent.DOM_VK_ALT)
+    accelMask = altMask;
+} catch(e) {}
+
 /**
  * Document element containing the template for filter subscription entries.
  * @type Node
@@ -223,6 +236,7 @@ function onChange(action, item, newValue, oldValue)
   switch (action)
   {
     case "subscription.add":
+    {
       let index = FilterStorage.subscriptions.indexOf(item);
       if (index >= 0)
       {
@@ -234,7 +248,9 @@ function onChange(action, item, newValue, oldValue)
       }
       subscriptionUpdateCommands();
       break;
+    }
     case "subscription.remove":
+    {
       let node = getNodeForData(E("subscriptions"), "subscription", item);
       if (node)
       {
@@ -242,12 +258,29 @@ function onChange(action, item, newValue, oldValue)
         E("noSubscriptions").hidden = Array.prototype.some.call(E("subscriptions").childNodes, function(n) !n.id);
       }
       subscriptionUpdateCommands();
+      break
+    }
+    case "subscription.move":
+    {
+      let node = getNodeForData(E("subscriptions"), "subscription", item);
+      if (node)
+      {
+        node.parentNode.removeChild(node);
+        let index = FilterStorage.subscriptions.indexOf(item);
+        let insertBeforeSubscription = (index + 1 < FilterStorage.subscriptions.length ? FilterStorage.subscriptions[index + 1] : null);
+        let insertBefore = insertBeforeSubscription ? getNodeForData(E("subscriptions"), "subscription", insertBeforeSubscription) : null;
+        E("subscriptions").insertBefore(node, insertBefore);
+        E("subscriptions").ensureElementIsVisible(node);
+      }
+      subscriptionUpdateCommands();
       break;
+    }
     case "subscription.title":
     case "subscription.disabled":
     case "subscription.homepage":
     case "subscription.lastDownload":
     case "subscription.downloadStatus":
+    {
       let subscriptionNode = getNodeForData(E("subscriptions"), "subscription", item);
       if (subscriptionNode)
       {
@@ -259,6 +292,7 @@ function onChange(action, item, newValue, oldValue)
       }
       subscriptionUpdateCommands();
       break;
+    }
   }
 }
 
@@ -396,9 +430,159 @@ function openSubscriptionMenu(/**Node*/ node)
  */
 function subscriptionUpdateCommands()
 {
-  let data = getDataForNode(E("subscriptions").selectedItem);
+  let node = E("subscriptions").selectedItem;
+  let data = getDataForNode(node);
   let subscription = (data ? data.subscription : null)
   E("subscription-update-command").setAttribute("disabled", !subscription ||
       !(subscription instanceof DownloadableSubscription) ||
       Synchronizer.isExecuting(subscription.url));
+  E("subscription-moveUp-command").setAttribute("disabled", !subscription ||
+      !node || !node.previousSibling || !!node.previousSibling.id);
+  E("subscription-moveDown-command").setAttribute("disabled", !subscription ||
+      !node || !node.nextSibling || !!node.nextSibling.id);
+}
+
+/**
+ * Called when a key is pressed on the subscription list.
+ */
+function subscriptionListKeyPress(/**Event*/ event)
+{
+  let modifiers = 0;
+  if (event.altKey)
+    modifiers |= altMask;
+  if (event.ctrlKey)
+    modifiers |= ctrlMask;
+  if (event.metaKey)
+    modifiers |= metaMask;
+
+  if (event.keyCode == Ci.nsIDOMKeyEvent.DOM_VK_UP && modifiers == accelMask)
+  {
+    E("subscription-moveUp-command").doCommand();
+    event.preventDefault();
+    event.stopPropagation();
+  }
+  else if (event.keyCode == Ci.nsIDOMKeyEvent.DOM_VK_DOWN && modifiers == accelMask)
+  {
+    E("subscription-moveDown-command").doCommand();
+    event.preventDefault();
+    event.stopPropagation();
+  }
+}
+
+/**
+ * Moves a filter subscription one line up.
+ */
+function moveSubscriptionUp(/**Node*/ node)
+{
+  node = getDataNode(node);
+  let data = getDataForNode(node);
+  if (!data)
+    return;
+
+  let previousData = getDataForNode(node.previousSibling);
+  if (!previousData)
+    return;
+
+  FilterStorage.moveSubscription(data.subscription, previousData.subscription);
+}
+
+/**
+ * Moves a filter subscription one line down.
+ */
+function moveSubscriptionDown(/**Node*/ node)
+{
+  node = getDataNode(node);
+  let data = getDataForNode(node);
+  if (!data)
+    return;
+
+  let nextNode = node.nextSibling
+  if (!getDataForNode(nextNode))
+    return;
+
+  let nextData = getDataForNode(nextNode.nextSibling);
+  FilterStorage.moveSubscription(data.subscription, nextData ? nextData.subscription : null);
+}
+
+/**
+ * Subscription currently being dragged if any.
+ * @type Subscription
+ */
+let dragSubscription = null;
+
+/**
+ * Called when a subscription entry is dragged.
+ */
+function startSubscriptionDrag(/**Event*/ event, /**Node*/ node)
+{
+  let data = getDataForNode(node);
+  if (!data)
+    return;
+
+  event.dataTransfer.setData("text/x-moz-url", data.subscription.url);
+  event.dataTransfer.setData("text/plain", data.subscription.title);
+  dragSubscription = data.subscription;
+  event.stopPropagation();
+}
+
+/**
+ * Called when something is dragged over a subscription entry or subscriptions list.
+ */
+function subscriptionDragOver(/**Event*/ event)
+{
+  // Ignore if not dragging a subscription
+  if (!dragSubscription)
+    return;
+
+  // Don't allow dragging onto a scroll bar
+  for (let node = event.originalTarget; node; node = node.parentNode)
+    if (node.localName == "scrollbar")
+      return;
+
+  // Don't allow dragging onto element's borders
+  let target = event.originalTarget;
+  while (target && target.localName != "richlistitem")
+    target = target.parentNode;
+  if (!target)
+    target = event.originalTarget;
+
+  let styles = window.getComputedStyle(target, null);
+  let rect = target.getBoundingClientRect();
+  if (event.clientX < rect.left + parseInt(styles.borderLeftWidth, 10) ||
+      event.clientY < rect.top + parseInt(styles.borderTopWidth, 10) ||
+      event.clientX > rect.right - parseInt(styles.borderRightWidth, 10) - 1 ||
+      event.clientY > rect.bottom - parseInt(styles.borderBottomWidth, 10) - 1)
+  {
+    return;
+  }
+
+  event.preventDefault();
+  event.stopPropagation();
+}
+
+/**
+ * Called when something is dropped on a subscription entry or subscriptions list.
+ */
+function dropSubscription(/**Event*/ event, /**Node*/ node)
+{
+  if (!dragSubscription)
+    return;
+
+  // When dragging down we need to insert after the drop node, otherwise before it.
+  node = getDataNode(node);
+  let dragNode = getNodeForData(E("subscriptions"), "subscription", dragSubscription);
+  if (node && (node.compareDocumentPosition(dragNode) & node.DOCUMENT_POSITION_PRECEDING))
+    node = node.nextSibling;
+
+  let data = getDataForNode(node);
+  FilterStorage.moveSubscription(dragSubscription, data ? data.subscription : null);
+  event.stopPropagation();
+}
+
+/**
+ * Called when the drag operation for a subscription is finished.
+ */
+function endSubscriptionDrag()
+{
+  dragSubscription = null;
 }
