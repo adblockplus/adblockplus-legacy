@@ -5,6 +5,10 @@
 <!ENTITY addSubscription.label                "Add filter subscription">
 <!ENTITY addSubscription.accesskey            "f">
 
+<!ENTITY addSubscriptionAdd.label             "Add">
+<!ENTITY addSubscriptionCancel.label          "Cancel">
+<!ENTITY addSubscriptionOther.label           "Add a different subscription">
+
 <!ENTITY noSubscriptions.text                 "
   You haven't added any filter subscriptions yet. Adblock Plus won't block
   anything without filters, please use &quot;Add filter subscription&quot; to

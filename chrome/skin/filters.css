@@ -29,6 +29,11 @@
   font-style: italic;
 }
 
+.localeMatch
+{
+  font-weight: bold;
+}
+
 .subscription
 {
   padding: 5px;

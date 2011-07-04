@@ -586,3 +586,142 @@ function endSubscriptionDrag()
 {
   dragSubscription = null;
 }
+
+/**
+ * Starts selection of a filter subscription to add.
+ */
+function selectSubscription(/**Event*/ event)
+{
+  let panel = E("selectSubscriptionPanel");
+  let list = E("selectSubscription");
+  let template = E("selectSubscriptionTemplate");
+  let parent = list.menupopup;
+
+  if (panel.state == "open")
+  {
+    list.focus();
+    return;
+  }
+
+  // Remove existing entries if any
+  while (parent.lastChild)
+    parent.removeChild(parent.lastChild);
+
+  // Load data
+  let request = new XMLHttpRequest();
+  request.open("GET", "subscriptions.xml");
+  request.onload = function()
+  {
+    // Avoid race condition if two downloads are started in parallel
+    if (panel.state == "open")
+      return;
+
+    // Add subscription entries to the list
+    let subscriptions = request.responseXML.getElementsByTagName("subscription");
+    let selectedItem = null;
+    for (let i = 0; i < subscriptions.length; i++)
+    {
+      let subscription = subscriptions[i];
+      let url = subscription.getAttribute("url");
+      if (!url || url in FilterStorage.knownSubscriptions)
+        continue;
+
+      let localePrefix = checkPrefixMatch(subscription.getAttribute("prefixes"));
+      let node = processTemplate(template, {
+        __proto__: null,
+        node: subscription,
+        localePrefix: localePrefix
+      });
+      parent.appendChild(node);
+
+      if (localePrefix && (!selectedItem || getDataForNode(selectedItem).localePrefix.length < localePrefix.length))
+        selectedItem = node;
+    }
+    list.selectedItem = selectedItem || parent.firstChild;
+
+    // Show panel and focus list
+    let position = (Utils.versionComparator.compare(Utils.platformVersion, "2.0") < 0 ? "after_end" : "bottomcenter topleft");
+    panel.openPopup(E("selectSubscriptionButton"), position, 0, 0, false, false, event);
+    Utils.runAsync(list.focus, list);
+  };
+  request.send();
+}
+
+/**
+ * Adds filter subscription that is selected.
+ */
+function selectSubscriptionAdd()
+{
+  E("selectSubscriptionPanel").hidePopup();
+
+  let data = getDataForNode(E("selectSubscription").selectedItem);
+  if (!data)
+    return;
+
+  let subscription = Subscription.fromURL(data.node.getAttribute("url"));
+  if (!subscription)
+    return;
+
+  FilterStorage.addSubscription(subscription);
+  subscription.disabled = false;
+  subscription.title = data.node.getAttribute("title");
+  subscription.homepage = data.node.getAttribute("homepage");
+
+  // Make sure the subscription is visible and selected
+  let list = E("subscriptions");
+  let node = getNodeForData(list, "subscription", subscription);
+  if (node)
+  {
+    list.ensureElementIsVisible(node);
+    list.selectedItem = node;
+    list.focus();
+  }
+
+  // Trigger download if necessary
+  if (subscription instanceof DownloadableSubscription && !subscription.lastDownload)
+    Synchronizer.execute(subscription);
+  FilterStorage.saveToDisk();
+}
+
+/**
+ * Called if the user chooses to view the complete subscriptions list.
+ */
+function selectSubscriptionOther()
+{
+  E("selectSubscriptionPanel").hidePopup();
+  window.openDialog("subscriptionSelection.xul", "_blank", "chrome,centerscreen,modal,resizable,dialog=no", null, null);
+}
+
+/**
+ * Checks whether any of the prefixes listed match the application locale,
+ * returns matching prefix if any.
+ */
+function checkPrefixMatch(/**String*/ prefixes) /**String*/
+{
+  if (!prefixes)
+    return null;
+
+  let appLocale = Utils.appLocale;
+  for each (let prefix in prefixes.split(/,/))
+    if (new RegExp("^" + prefix + "\\b").test(appLocale))
+      return prefix;
+
+  return null;
+}
+
+/**
+ * Called for keys pressed on the subscription selection panel.
+ */
+function selectSubscriptionKeyPress(/**Event*/ event)
+{
+  // Buttons and text links handle Enter key themselves
+  if (event.target.localName == "button" ||event.target.localName == "label")
+    return;
+
+  if (event.keyCode == event.DOM_VK_RETURN || event.keyCode == event.DOM_VK_ENTER)
+  {
+    // This shouldn't accept our dialog, only the panel
+    event.preventDefault();
+    E("selectSubscriptionAccept").doCommand();
+  }
+}
