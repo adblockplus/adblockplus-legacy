@@ -65,6 +65,12 @@
     oncommand="if (isFocusOnSubscriptions()) moveSubscriptionUp(E('subscriptions').selectedItem);"/>
   <command id="subscription-moveDown-command"
     oncommand="if (isFocusOnSubscriptions()) moveSubscriptionDown(E('subscriptions').selectedItem);"/>
+  <command id="subscription-add-command"
+    oncommand="selectSubscription(event);"/>
+  <command id="subscription-addSelected-command"
+    oncommand="selectSubscriptionAdd();"/>
+  <command id="subscription-addOther-command"
+    oncommand="selectSubscriptionOther();"/>
 </commandset>
 
 <tabbox id="tabs" flex="1">
@@ -74,8 +80,26 @@
   <tabpanels flex="1">
     <tabpanel id="subscriptionsTab" orient="vertical" flex="1">
       <hbox pack="end">
-        <button label="&addSubscription.label;…" accesskey="&addSubscription.accesskey;"/>
+        <button id="selectSubscriptionButton" label="&addSubscription.label;…" accesskey="&addSubscription.accesskey;" command="subscription-add-command"/>
       </hbox>
+
+      <panel id="selectSubscriptionPanel" type="arrow" position="bottomcenter topleft"
+             orient="vertical" onkeypress="selectSubscriptionKeyPress(event);">
+        <menuitem id="selectSubscriptionTemplate" hidden="true"
+          class="{localePrefix ? 'localeMatch' : ''}"
+          label="{node.getAttribute('title')}"
+          value="{node.getAttribute('url')}"/>
+        <menulist id="selectSubscription">
+          <menupopup/>
+        </menulist>
+        <hbox align="baseline">
+          <label class="text-link" value="&addSubscriptionOther.label;" command="subscription-addOther-command"/>
+          <spacer flex="1"/>
+          <button id="selectSubscriptionAccept" default="true" label="&addSubscriptionAdd.label;" command="subscription-addSelected-command"/>
+          <spacer flex="1"/>
+          <button label="&addSubscriptionCancel.label;" oncommand="E('selectSubscriptionPanel').hidePopup();"/>
+        </hbox>
+      </panel>
 
       <richlistbox id="subscriptions" flex="1"
           onselect="subscriptionUpdateCommands();if (this.selectedItem != subscriptionEdited) titleEditorEnd(true);"
