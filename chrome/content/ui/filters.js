@@ -618,7 +618,6 @@ function selectSubscription(/**Event*/ event)
 
     // Add subscription entries to the list
     let subscriptions = request.responseXML.getElementsByTagName("subscription");
-    let selectedItem = null;
     for (let i = 0; i < subscriptions.length; i++)
     {
       let subscription = subscriptions[i];
@@ -626,18 +625,16 @@ function selectSubscription(/**Event*/ event)
       if (!url || url in FilterStorage.knownSubscriptions)
         continue;
 
-      let localePrefix = checkPrefixMatch(subscription.getAttribute("prefixes"));
+      let localePrefix = Utils.checkLocalePrefixMatch(subscription.getAttribute("prefixes"));
       let node = processTemplate(template, {
         __proto__: null,
         node: subscription,
         localePrefix: localePrefix
       });
       parent.appendChild(node);
-
-      if (localePrefix && (!selectedItem || getDataForNode(selectedItem).localePrefix.length < localePrefix.length))
-        selectedItem = node;
     }
-    list.selectedItem = selectedItem || parent.firstChild;
+    let selectedNode = Utils.chooseFilterSubscription(subscriptions);
+    list.selectedItem = getNodeForData(parent, "node", selectedNode) || parent.firstChild;
 
     // Show panel and focus list
     let position = (Utils.versionComparator.compare(Utils.platformVersion, "2.0") < 0 ? "after_end" : "bottomcenter topleft");
@@ -690,23 +687,6 @@ function selectSubscriptionOther()
 {
   E("selectSubscriptionPanel").hidePopup();
   window.openDialog("subscriptionSelection.xul", "_blank", "chrome,centerscreen,modal,resizable,dialog=no", null, null);
-}
-
-/**
- * Checks whether any of the prefixes listed match the application locale,
- * returns matching prefix if any.
- */
-function checkPrefixMatch(/**String*/ prefixes) /**String*/
-{
-  if (!prefixes)
-    return null;
-
-  let appLocale = Utils.appLocale;
-  for each (let prefix in prefixes.split(/,/))
-    if (new RegExp("^" + prefix + "\\b").test(appLocale))
-      return prefix;
-
-  return null;
 }
 
 /**

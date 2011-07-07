@@ -46,6 +46,7 @@ Cu.import(baseURL.spec + "FilterNotifier.jsm");
 Cu.import(baseURL.spec + "FilterClasses.jsm");
 Cu.import(baseURL.spec + "SubscriptionClasses.jsm");
 Cu.import(baseURL.spec + "RequestNotifier.jsm");
+Cu.import(baseURL.spec + "Synchronizer.jsm");
 Cu.import(baseURL.spec + "Sync.jsm");
 
 if (Utils.isFennec)
@@ -125,7 +126,7 @@ var AppIntegration =
               observerService.removeObserver(observer, "sessionstore-windows-restored");
               timer.cancel();
               timer = null;
-              showSubscriptions();
+              addSubscription();
             }
           };
   
@@ -137,7 +138,7 @@ var AppIntegration =
           timer.init(observer, 1000, Ci.nsITimer.TYPE_ONE_SHOT);
         }
         else
-          Utils.runAsync(showSubscriptions);
+          addSubscription();
       }
     }
     TimeLine.log("App-wide first-run actions done")
@@ -1403,33 +1404,53 @@ function shouldHideImageManager()
 }
 
 /**
- * Executed on first run, presents the user with a list of filter subscriptions
- * and allows choosing one.
+ * Executed on first run, adds a filter subscription and notifies that user
+ * about that.
  */
-function showSubscriptions()
+function addSubscription()
 {
-  let wrapper = (wrappers.length ? wrappers[0] : null);
-
-  // Don't annoy the user if he has a subscription already
+  // Don't do anything if the user has a subscription already
   let hasSubscriptions = FilterStorage.subscriptions.some(function(subscription) subscription instanceof DownloadableSubscription);
   if (hasSubscriptions)
     return;
 
-  // Only show the list if this is the first run or the user has no filters
+  // Only add subscription if this is the first run or the user has no filters
   let hasFilters = FilterStorage.subscriptions.some(function(subscription) subscription.filters.length);
   if (hasFilters && Utils.versionComparator.compare(Prefs.lastVersion, "0.0") > 0)
     return;
 
-  if (wrapper && wrapper.addTab)
+  // Load subscriptions data
+  let request = Cc["@mozilla.org/xmlextras/xmlhttprequest;1"].createInstance(Ci.nsIJSXMLHttpRequest);
+  request.open("GET", "chrome://adblockplus/content/ui/subscriptions.xml");
+  request.onload = function()
   {
-    wrapper.addTab("chrome://adblockplus/content/ui/subscriptionSelection.xul");
-  }
-  else
-  {
-    Utils.windowWatcher.openWindow(wrapper ? wrapper.window : null,
-                                   "chrome://adblockplus/content/ui/subscriptionSelection.xul",
-                                   "_blank", "chrome,centerscreen,resizable,dialog=no", null);
-  }
+    let node = Utils.chooseFilterSubscription(request.responseXML.getElementsByTagName("subscription"));
+    let subscription = (node ? Subscription.fromURL(node.getAttribute("url")) : null);
+    if (subscription)
+    {
+      FilterStorage.addSubscription(subscription);
+      subscription.disabled = false;
+      subscription.title = node.getAttribute("title");
+      subscription.homepage = node.getAttribute("homepage");
+      if (subscription instanceof DownloadableSubscription && !subscription.lastDownload)
+        Synchronizer.execute(subscription);
+      FilterStorage.saveToDisk();
+
+      // Notify user
+      let wrapper = (wrappers.length ? wrappers[0] : null);
+      if (wrapper && wrapper.addTab)
+      {
+        wrapper.addTab("chrome://adblockplus/content/ui/firstRun.xul");
+      }
+      else
+      {
+        Utils.windowWatcher.openWindow(wrapper ? wrapper.window : null,
+                                       "chrome://adblockplus/content/ui/firstRun.xul",
+                                       "_blank", "chrome,centerscreen,resizable,dialog=no", null);
+      }
+    }
+  };
+  request.send();
 }
 
 /**
