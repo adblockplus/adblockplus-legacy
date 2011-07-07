@@ -492,6 +492,65 @@ var Utils =
   },
 
   /**
+   * Checks whether any of the prefixes listed match the application locale,
+   * returns matching prefix if any.
+   */
+  checkLocalePrefixMatch: function(/**String*/ prefixes) /**String*/
+  {
+    if (!prefixes)
+      return null;
+
+    let appLocale = Utils.appLocale;
+    for each (let prefix in prefixes.split(/,/))
+      if (new RegExp("^" + prefix + "\\b").test(appLocale))
+        return prefix;
+
+    return null;
+  },
+
+  /**
+   * Chooses the best filter subscription for user's language.
+   */
+  chooseFilterSubscription: function(/**NodeList*/ subscriptions) /**Node*/
+  {
+    let selectedItem = null;
+    let selectedPrefix = null;
+    let matchCount = 0;
+    for (let i = 0; i < subscriptions.length; i++)
+    {
+      let subscription = subscriptions[i];
+      if (!selectedItem)
+        selectedItem = subscription;
+
+      let prefix = Utils.checkLocalePrefixMatch(subscription.getAttribute("prefixes"));
+      if (prefix)
+      {
+        if (!selectedPrefix || selectedPrefix.length < prefix.length)
+        {
+          selectedItem = subscription;
+          selectedPrefix = prefix;
+          matchCount = 1;
+        }
+        else if (selectedPrefix && selectedPrefix.length == prefix.length)
+        {
+          matchCount++;
+
+          // If multiple items have a matching prefix of the same length:
+          // Select one of the items randomly, probability should be the same
+          // for all items. So we replace the previous match here with
+          // probability 1/N (N being the number of matches).
+          if (Math.random() * matchCount < 1)
+          {
+            selectedItem = subscription;
+            selectedPrefix = prefix;
+          }
+        }
+      }
+    }
+    return selectedItem;
+  },
+
+  /**
    * Saves sidebar state before detaching/reattaching
    */
   setParams: function(params)

@@ -1,0 +1,14 @@
+<!ENTITY dialog.title               "Adblock Plus is now set up">
+
+<!ENTITY description1               "
+  Adblock Plus has been set up successfully. The following filter subscription
+  has been added to block advertisements automatically:
+">
+
+<!ENTITY visitHomepage.label        "Visit list home page">
+
+<!ENTITY description2               "
+  You can change this choice at any time by going to [link]Filter Preferences[/link].
+">
+
+<!ENTITY filterPreferences.label    "Open Filter Preferences">
