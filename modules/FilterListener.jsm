@@ -383,13 +383,20 @@ function onGenericChange(action)
       let fileStream = Cc["@mozilla.org/network/file-output-stream;1"].createInstance(Ci.nsIFileOutputStream);
       fileStream.init(cacheFile, 0x02 | 0x08 | 0x20, 0644, 0);
 
-      let stream = Cc["@mozilla.org/intl/converter-output-stream;1"].createInstance(Ci.nsIConverterOutputStream);
-      stream.init(fileStream, "UTF-8", 16384, Ci.nsIConverterInputStream.DEFAULT_REPLACEMENT_CHARACTER);
-
-      // nsIJSON.encodeToStream would have been better but it is broken, see bug 633934
       let json = Cc["@mozilla.org/dom/json;1"].createInstance(Ci.nsIJSON);
-      stream.writeString(json.encode(cache));
-      stream.close();
+      if (Utils.versionComparator.compare(Utils.platformVersion, "5.0") >= 0)
+      {
+        json.encodeToStream(fileStream, "UTF-8", false, cache);
+        fileStream.close();
+      }
+      else
+      {
+        // nsIJSON.encodeToStream is broken in Gecko 4.0 and below, see bug 633934
+        let stream = Cc["@mozilla.org/intl/converter-output-stream;1"].createInstance(Ci.nsIConverterOutputStream);
+        stream.init(fileStream, "UTF-8", 16384, Ci.nsIConverterInputStream.DEFAULT_REPLACEMENT_CHARACTER);
+        stream.writeString(json.encode(cache));
+        stream.close();
+      }
     }
     catch(e)
     {
