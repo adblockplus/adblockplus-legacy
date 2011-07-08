@@ -283,7 +283,7 @@ function fillInTooltip(e) {
 
   var showPreview = Prefs.previewimages && !("tooltip" in item);
   showPreview = showPreview && item.typeDescr == "IMAGE";
-  showPreview = showPreview && (!item.filter || item.filter instanceof WhitelistFilter);
+  showPreview = showPreview && (!item.filter || item.filter.disabled || item.filter instanceof WhitelistFilter);
   if (showPreview) {
     // Check whether image is in cache (stolen from ImgLikeOpera)
     if (!cacheSession) {
