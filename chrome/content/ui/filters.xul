@@ -93,7 +93,7 @@
           <menupopup/>
         </menulist>
         <hbox align="baseline">
-          <label class="text-link" value="&addSubscriptionOther.label;" command="subscription-addOther-command"/>
+          <label class="text-link" value="&addSubscriptionOther.label;" onclick="E('subscription-addOther-command').doCommand();"/>
           <spacer flex="1"/>
           <button id="selectSubscriptionAccept" default="true" label="&addSubscriptionAdd.label;" command="subscription-addSelected-command"/>
           <spacer flex="1"/>
