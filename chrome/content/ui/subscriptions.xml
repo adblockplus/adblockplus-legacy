@@ -1,7 +1,5 @@
 <?xml version="1.0"?>
 
-<!DOCTYPE subscriptions SYSTEM "chrome://adblockplus/locale/subscriptionSelection.dtd">
-
 <subscriptions>
   <subscription title="EasyList (English)"
                 url="https://easylist-downloads.adblockplus.org/easylist.txt"
@@ -53,9 +51,4 @@
                 homepage="http://code.google.com/p/ruadlist/"
                 prefixes="ru,uk"
                 author="Lain_13"/>
-  <subscription title="&other.label;…"
-                url=""
-                homepage=""
-                prefixes=""
-                author=""/>
 </subscriptions>
