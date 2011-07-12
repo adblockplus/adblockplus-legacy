@@ -40,14 +40,18 @@
   <script type="application/x-javascript;version=1.7" src="utils.js"/>
   <script type="application/x-javascript;version=1.7" src="firstRun.js"/>
 
-  <description>&description1;</description>
+  <description>&confirmation;</description>
+
+  <description class="section">&advancedSection;</description>
+
+  <description>&listSelection1;</description>
 
   <vbox id="listNameContainer">
     <description id="listName"/>
     <label class="text-link" id="listHomepage" value="&visitHomepage.label;" onclick="Utils.loadInBrowser(this.getAttribute('_url'))"/>
   </vbox>
 
-  <description id="changeDescription" _textTemplate="&description2;">
+  <description id="changeDescription" _textTemplate="&listSelection2;">
     <label class="text-link" onclick="Utils.openFiltersDialog();"/>
   </description>
 
