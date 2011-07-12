@@ -33,6 +33,12 @@
   font-size: 130%;
 }
 
+.section
+{
+  margin-top: 20px;
+  font-weight: bold;
+}
+
 #changeDescription > .text-link
 {
   margin: 0px;
@@ -40,6 +46,5 @@
 
 #listNameContainer
 {
-  margin-left: 40px;
-  margin-right: 40px;
+  margin: 10px 40px;
 }
