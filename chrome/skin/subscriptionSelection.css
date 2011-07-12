@@ -26,27 +26,7 @@
 
 dialog
 {
-  min-width: 550px;
-}
-
-dialog[newInstall]
-{
-  background-image: url(abp-icon-big.png);
-  background-repeat: no-repeat;
-  background-position: 95% 5%;
-}
-
-dialog[newInstall] .dialog-content-box,
-dialog[newInstall] #content-scroll
-{
-  min-height: 150px;
-}
-
-#description-newInstall,
-#adblock-warning,
-#filtersetg-warning
-{
-  margin-bottom: 10px;
+  width: 550px;
 }
 
 *[invisible="true"]
@@ -54,8 +34,6 @@ dialog[newInstall] #content-scroll
   visibility: hidden;
 }
 
-#adblock-warning,
-#filtersetg-warning,
 #supplementMessage
 {
   color: #F00000;
