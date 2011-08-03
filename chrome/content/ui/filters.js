@@ -34,7 +34,7 @@ function init()
 /**
  * Called whenever the currently selected tab changes.
  */
-function onTabChange(tabbox)
+function onTabChange(/**Element*/ tabbox)
 {
   SubscriptionActions.updateCommands();
 
@@ -44,6 +44,31 @@ function onTabChange(tabbox)
     if (panel)
       panel.getElementsByClassName("initialFocus")[0].focus();
   });
+}
+
+/**
+ * Called whenever the selected subscription changes.
+ */
+function onSelectionChange(/**Element*/ list)
+{
+  SubscriptionActions.updateCommands();
+  list.focus();
+
+  // Take elements of the previously selected item out of the tab order
+  if ("previousSelection" in list && list.previousSelection)
+  {
+    let elements = list.previousSelection.getElementsByClassName("tabable");
+    for (let i = 0; i < elements.length; i++)
+      elements[i].setAttribute("tabindex", "-1");
+  }
+  // Put elements of the selected item into tab order
+  if (list.selectedItem)
+  {
+    let elements = list.selectedItem.getElementsByClassName("tabable");
+    for (let i = 0; i < elements.length; i++)
+      elements[i].removeAttribute("tabindex");
+  }
+  list.previousSelection = list.selectedItem;
 }
 
 /**
