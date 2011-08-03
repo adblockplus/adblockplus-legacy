@@ -72,8 +72,8 @@
     oncommand="SelectSubscription.chooseOther();"/>
 </commandset>
 
-<tabbox id="tabs" flex="1" onselect="onTabChange(this);">
-  <tabs>
+<tabbox id="tabs" flex="1">
+  <tabs onselect="onTabChange(this.parentNode);">
     <tab label="&subscriptions.tab.label;"/>
     <tab label="&filters.tab.label;"/>
   </tabs>
