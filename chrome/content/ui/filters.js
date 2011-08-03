@@ -420,9 +420,9 @@ function titleEditorKeyPress(/**Event*/ event)
 /**
  * Opens the context menu for a subscription node.
  */
-function openSubscriptionMenu(/**Node*/ node)
+function openSubscriptionMenu(/**Event*/ event, /**Node*/ node)
 {
-  node.getElementsByClassName("actionButton")[0].open = true;
+  node.getElementsByClassName("actionMenu")[0].openPopup(null, "after_pointer", event.clientX, event.clientY, true, false, event);
 }
 
 /**
