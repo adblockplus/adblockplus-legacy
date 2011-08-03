@@ -496,7 +496,13 @@ var SubscriptionActions =
     if (event.metaKey)
       modifiers |= this._metaMask;
 
-    if (event.keyCode == Ci.nsIDOMKeyEvent.DOM_VK_UP && modifiers == this._accelMask)
+    if (event.charCode == Ci.nsIDOMKeyEvent.DOM_VK_SPACE && modifiers == 0)
+    {
+      let data = Templater.getDataForNode(this.selectedItem);
+      if (data)
+        data.subscription.disabled = !data.subscription.disabled;
+    }
+    else if (event.keyCode == Ci.nsIDOMKeyEvent.DOM_VK_UP && modifiers == this._accelMask)
     {
       E("subscription-moveUp-command").doCommand();
       event.preventDefault();
