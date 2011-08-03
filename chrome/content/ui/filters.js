@@ -38,7 +38,8 @@ function onTabChange(tabbox)
 {
   SubscriptionActions.updateCommands();
 
-  Utils.runAsync(function(){
+  Utils.runAsync(function()
+  {
     let panel = tabbox.selectedPanel;
     if (panel)
       panel.getElementsByClassName("initialFocus")[0].focus();
