@@ -184,6 +184,12 @@ var ElemHide =
         for (let key in filterByKey)
         {
           let filter = Filter.knownFilters[filterByKey[key]];
+          if (!filter)
+          {
+            // Something is wrong, we probably shouldn't have this filter in the first place
+            delete filterByKey[key];
+            continue;
+          }
           let domain = filter.selectorDomain || "";
 
           let list;
