@@ -43,12 +43,14 @@ Cu.import(baseURL.spec + "FilterNotifier.jsm");
  * Abstract base class for filter subscriptions
  *
  * @param {String} url    download location of the subscription
+ * @param {String} [title]  title of the filter subscription
  * @constructor
  */
-function Subscription(url)
+function Subscription(url, title)
 {
   this.url = url;
   this.filters = [];
+  this._title = title || Utils.getString("newGroup_title");
   Subscription.knownSubscriptions[url] = this;
 }
 Subscription.prototype =
@@ -65,7 +67,24 @@ Subscription.prototype =
    */
   filters: null,
 
+  _title: null,
   _disabled: false,
+
+  /**
+   * Title of the filter subscription
+   * @type String
+   */
+  get title() this._title,
+  set title(value)
+  {
+    if (value != this._title)
+    {
+      let oldValue = this._title;
+      this._title = value;
+      FilterNotifier.triggerListeners("subscription.title", this, value, oldValue);
+    }
+    return this._title;
+  },
 
   /**
    * Defines whether the filters in the subscription should be disabled
@@ -91,6 +110,7 @@ Subscription.prototype =
   {
     buffer.push("[Subscription]");
     buffer.push("url=" + this.url);
+    buffer.push("title=" + this._title);
     if (this._disabled)
       buffer.push("disabled=true");
   },
@@ -125,20 +145,15 @@ Subscription.fromURL = function(url)
   if (url in Subscription.knownSubscriptions)
     return Subscription.knownSubscriptions[url];
 
-  if (url in SpecialSubscription.map && SpecialSubscription.map[url] instanceof Array)
-    return new SpecialSubscription(url);
-  else
+  try
   {
-    try
-    {
-      // Test URL for validity
-      url = Utils.ioService.newURI(url, null, null).spec;
-      return new DownloadableSubscription(url, null);
-    }
-    catch (e)
-    {
-      return null;
-    }
+    // Test URL for validity
+    url = Utils.ioService.newURI(url, null, null).spec;
+    return new DownloadableSubscription(url, null);
+  }
+  catch (e)
+  {
+    return new SpecialSubscription(url);
   }
 }
 
@@ -151,54 +166,60 @@ Subscription.fromURL = function(url)
 Subscription.fromObject = function(obj)
 {
   let result;
-  if (obj.url in SpecialSubscription.map && SpecialSubscription.map[obj.url] instanceof Array)
-    result = new SpecialSubscription(obj.url);
-  else
+  try
   {
-    if ("external" in obj && obj.external == "true")
-      result = new ExternalSubscription(obj.url, obj.title);
-    else
-    {
-      try
-      {
-        // Test URL for validity
-        obj.url = Utils.ioService.newURI(obj.url, null, null).spec;
-      }
-      catch (e)
-      {
-        return null;
-      }
+    obj.url = Utils.ioService.newURI(obj.url, null, null).spec;
 
-      result = new DownloadableSubscription(obj.url, obj.title);
-      if ("nextURL" in obj)
-        result.nextURL = obj.nextURL;
-      if ("downloadStatus" in obj)
-        result._downloadStatus = obj.downloadStatus;
-      if ("lastModified" in obj)
-        result.lastModified = obj.lastModified;
-      if ("lastSuccess" in obj)
-        result.lastSuccess = parseInt(obj.lastSuccess) || 0;
-      if ("lastCheck" in obj)
-        result.lastCheck = parseInt(obj.lastCheck) || 0;
-      if ("expires" in obj)
-        result.expires = parseInt(obj.expires) || 0;
-      if ("softExpiration" in obj)
-        result.softExpiration = parseInt(obj.softExpiration) || 0;
-      if ("errors" in obj)
-        result.errors = parseInt(obj.errors) || 0;
-      if ("requiredVersion" in obj)
-      {
-        result.requiredVersion = obj.requiredVersion;
-        if (Utils.versionComparator.compare(result.requiredVersion, Utils.addonVersion) > 0)
-          result.upgradeRequired = true;
-      }
-      if ("alternativeLocations" in obj)
-        result.alternativeLocations = obj.alternativeLocations;
+    // URL is valid - this is a downloadable subscription
+    result = new DownloadableSubscription(obj.url, obj.title);
+    if ("nextURL" in obj)
+      result.nextURL = obj.nextURL;
+    if ("downloadStatus" in obj)
+      result._downloadStatus = obj.downloadStatus;
+    if ("lastModified" in obj)
+      result.lastModified = obj.lastModified;
+    if ("lastSuccess" in obj)
+      result.lastSuccess = parseInt(obj.lastSuccess) || 0;
+    if ("lastCheck" in obj)
+      result.lastCheck = parseInt(obj.lastCheck) || 0;
+    if ("expires" in obj)
+      result.expires = parseInt(obj.expires) || 0;
+    if ("softExpiration" in obj)
+      result.softExpiration = parseInt(obj.softExpiration) || 0;
+    if ("errors" in obj)
+      result.errors = parseInt(obj.errors) || 0;
+    if ("requiredVersion" in obj)
+    {
+      result.requiredVersion = obj.requiredVersion;
+      if (Utils.versionComparator.compare(result.requiredVersion, Utils.addonVersion) > 0)
+        result.upgradeRequired = true;
     }
+    if ("alternativeLocations" in obj)
+      result.alternativeLocations = obj.alternativeLocations;
     if ("homepage" in obj)
       result._homepage = obj.homepage;
     if ("lastDownload" in obj)
       result._lastDownload = parseInt(obj.lastDownload) || 0;
+  }
+  catch (e)
+  {
+    // Invalid URL - custom filter group
+    if (!("title" in obj))
+    {
+      // Backwards compatibility - titles and filter types were originally
+      // determined by group identifier.
+      if (obj.url == "~wl~")
+        obj.defaults = "whitelist";
+      else if (obj.url == "~fl~")
+        obj.defaults = "blocking";
+      else if (obj.url == "~eh~")
+        obj.defaults = "elemhide";
+      if ("defaults" in obj)
+        obj.title = Utils.getString(obj.defaults + "Group_title");
+    }
+    result = new SpecialSubscription(obj.url, obj.title);
+    if ("defaults" in obj)
+      result.defaults = obj.defaults.split(" ");
   }
   if ("disabled" in obj)
     result._disabled = (obj.disabled == "true");
@@ -209,118 +230,117 @@ Subscription.fromObject = function(obj)
 /**
  * Class for special filter subscriptions (user's filters)
  * @param {String} url see Subscription()
+ * @param {String} [title]  see Subscription()
  * @constructor
  * @augments Subscription
  */
-function SpecialSubscription(url)
+function SpecialSubscription(url, title)
 {
-  Subscription.call(this, url);
-
-  let data = SpecialSubscription.map[url];
-  this._titleID = data[0];
-  this._priority = data[1];
-  this.filterTypes = data.slice(2);
+  Subscription.call(this, url, title);
 }
 SpecialSubscription.prototype =
 {
   __proto__: Subscription.prototype,
 
   /**
-   * ID of the string that should be used as the title of this subscription
-   * @type String
+   * Filter types that should be added to this subscription by default
+   * (entries should correspond to keys in SpecialSubscription.defaultsMap).
+   * @type Array of String
    */
-  _titleID: null,
+  defaults: null,
 
   /**
-   * Priority when adding new filters that are accepted by multiple subscriptions
-   * @type Integer
-   */
-  _priority: null,
-
-  /**
-   * Priority based on which new filters are added to a subscription if multiple
-   * subscriptions are possible
-   * @type Integer
-   */
-  get priority()
-  {
-    return this._priority;
-  },
-
-  /**
-   * Title of the subscription (read-only)
-   * @type String
-   */
-  get title()
-  {
-    return Utils.getString(this._titleID);
-  },
-
-  /**
-   * Filter classes that can be added to this subscription
-   * @type Array of Function
-   */
-  filterTypes: null,
-
-  /**
-   * Tests whether a filter is allowed to be added to this subscription
+   * Tests whether a filter should be added to this group by default
    * @param {Filter} filter filter to be tested
    * @return {Boolean}
    */
-  isFilterAllowed: function(filter)
+  isDefaultFor: function(filter)
   {
-    for each (let type in this.filterTypes)
-      if (filter instanceof type)
-        return true;
+    if (this.defaults && this.defaults.length)
+    {
+      for each (let type in this.defaults)
+      {
+        if (filter instanceof SpecialSubscription.defaultsMap[type])
+          return true;
+        if (!(filter instanceof ActiveFilter) && type == "blacklist")
+          return true;
+      }
+    }
 
     return false;
+  },
+
+  /**
+   * See Subscription.serialize()
+   */
+  serialize: function(buffer)
+  {
+    Subscription.prototype.serialize.call(this, buffer);
+    if (this.defaults && this.defaults.length)
+      buffer.push("defaults=" + this.defaults.filter(function(type) type in SpecialSubscription.defaultsMap).join(" "));
+    if (this._lastDownload)
+      buffer.push("lastDownload=" + this._lastDownload);
   }
 };
 
-SpecialSubscription.map = {
+SpecialSubscription.defaultsMap = {
   __proto__: null,
-  "~il~": ["invalid_description", 1, InvalidFilter, CommentFilter],
-  "~wl~": ["whitelist_description", 3, WhitelistFilter, CommentFilter],
-  "~fl~": ["filterlist_description", 4, BlockingFilter, CommentFilter],
-  "~eh~": ["elemhide_description", 2, ElemHideFilter, CommentFilter]
+  "whitelist": WhitelistFilter,
+  "blocking": BlockingFilter,
+  "elemhide": ElemHideFilter
+};
+
+/**
+ * Creates a new user-defined filter group.
+ * @param {String} [title]  title of the new filter group
+ * @result {SpecialSubscription}
+ */
+SpecialSubscription.create = function(title)
+{
+  let url;
+  do
+  {
+    url = "~user~" + Math.round(Math.random()*1000000);
+  } while (url in Subscription.knownSubscriptions);
+  return new SpecialSubscription(url, title)
+};
+
+/**
+ * Creates a new user-defined filter group and adds the given filter to it.
+ * This group will act as the default group for this filter type.
+ */
+SpecialSubscription.createForFilter = function(/**Filter*/ filter) /**SpecialSubscription*/
+{
+  let subscription = SpecialSubscription.create();
+  subscription.filters.push(filter);
+  for (let type in SpecialSubscription.defaultsMap)
+  {
+    if (filter instanceof SpecialSubscription.defaultsMap[type])
+      subscription.defaults = [type];
+  }
+  if (!subscription.defaults)
+    subscription.defaults = ["blocking"];
+  subscription.title = Utils.getString(subscription.defaults[0] + "Group_title");
+  return subscription;
 };
 
 /**
  * Abstract base class for regular filter subscriptions (both internally and externally updated)
  * @param {String} url    see Subscription()
- * @param {String} title  (optional) title of the filter subscription
+ * @param {String} [title]  see Subscription()
  * @constructor
  * @augments Subscription
  */
 function RegularSubscription(url, title)
 {
-  Subscription.call(this, url);
-
-  this._title = title || url;
+  Subscription.call(this, url, title || url);
 }
 RegularSubscription.prototype =
 {
   __proto__: Subscription.prototype,
 
-  _title: null,
   _homepage: null,
   _lastDownload: 0,
-
-  /**
-   * Title of the filter subscription
-   * @type String
-   */
-  get title() this._title,
-  set title(value)
-  {
-    if (value != this._title)
-    {
-      let oldValue = this._title;
-      this._title = value;
-      FilterNotifier.triggerListeners("subscription.title", this, value, oldValue);
-    }
-    return this._title;
-  },
 
   /**
    * Filter subscription homepage if known
@@ -360,7 +380,6 @@ RegularSubscription.prototype =
   serialize: function(buffer)
   {
     Subscription.prototype.serialize.call(this, buffer);
-    buffer.push("title=" + this._title);
     if (this._homepage)
       buffer.push("homepage=" + this._homepage);
     if (this._lastDownload)
@@ -371,7 +390,7 @@ RegularSubscription.prototype =
 /**
  * Class for filter subscriptions updated by externally (by other extension)
  * @param {String} url    see Subscription()
- * @param {String} title  see RegularSubscription()
+ * @param {String} [title]  see Subscription()
  * @constructor
  * @augments RegularSubscription
  */
@@ -388,15 +407,14 @@ ExternalSubscription.prototype =
    */
   serialize: function(buffer)
   {
-    RegularSubscription.prototype.serialize.call(this, buffer);
-    buffer.push("external=true");
+    throw "Unexpected call, external subscriptions should not be serialized";
   }
 };
 
 /**
  * Class for filter subscriptions updated by externally (by other extension)
- * @param {String} url    see Subscription()
- * @param {String} title  see RegularSubscription()
+ * @param {String} url  see Subscription()
+ * @param {String} [title]  see Subscription()
  * @constructor
  * @augments RegularSubscription
  */
