@@ -28,6 +28,21 @@
 function init()
 {
   new ListManager(E("subscriptions"), E("subscriptionTemplate"), RegularSubscription, SubscriptionActions.updateCommands);
+  new ListManager(E("groups"), E("groupTemplate"), SpecialSubscription, SubscriptionActions.updateCommands);
+}
+
+/**
+ * Called whenever the currently selected tab changes.
+ */
+function onTabChange(tabbox)
+{
+  SubscriptionActions.updateCommands();
+
+  Utils.runAsync(function(){
+    let panel = tabbox.selectedPanel;
+    if (panel)
+      panel.getElementsByClassName("initialFocus")[0].focus();
+  });
 }
 
 /**
@@ -223,9 +238,6 @@ ListManager.prototype =
     {
       for each (let subscription in subscriptions)
         this.addSubscription(subscription, null);
-
-      // Set the focus to the subscriptions list by default
-      this._list.focus();
 
       // Make sure first list item is selected after list initialization
       Utils.runAsync(function()
