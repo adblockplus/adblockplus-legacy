@@ -618,6 +618,7 @@ function selectSubscription(/**Event*/ event)
 
     // Add subscription entries to the list
     let subscriptions = request.responseXML.getElementsByTagName("subscription");
+    let listedSubscriptions = [];
     for (let i = 0; i < subscriptions.length; i++)
     {
       let subscription = subscriptions[i];
@@ -632,8 +633,9 @@ function selectSubscription(/**Event*/ event)
         localePrefix: localePrefix
       });
       parent.appendChild(node);
+      listedSubscriptions.push(subscription);
     }
-    let selectedNode = Utils.chooseFilterSubscription(subscriptions);
+    let selectedNode = Utils.chooseFilterSubscription(listedSubscriptions);
     list.selectedItem = getNodeForData(parent, "node", selectedNode) || parent.firstChild;
 
     // Show panel and focus list
