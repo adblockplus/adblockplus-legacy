@@ -72,9 +72,10 @@
     oncommand="SelectSubscription.chooseOther();"/>
 </commandset>
 
-<tabbox id="tabs" flex="1" onselect="SubscriptionActions.updateCommands();">
+<tabbox id="tabs" flex="1" onselect="onTabChange(this);">
   <tabs>
     <tab label="&subscriptions.tab.label;"/>
+    <tab label="&filters.tab.label;"/>
   </tabs>
   <tabpanels flex="1">
     <tabpanel id="subscriptionsTab" orient="vertical" flex="1">
@@ -173,13 +174,55 @@
         </vbox>
       </richlistitem>
 
-      <richlistbox id="subscriptions" flex="1"
+      <richlistbox id="subscriptions" class="initialFocus" flex="1"
           onselect="SubscriptionActions.updateCommands();if (this.selectedItem != TitleEditor.subscriptionEdited) TitleEditor.end(true);"
           ondragover="SubscriptionActions.dragOver(event);"
           ondrop="SubscriptionActions.drop(event, null);"
           onkeypress="SubscriptionActions.keyPress(event);">
-        <richlistitem id="noSubscriptions" flex="1" hidden="true" orient="vertical">
+        <richlistitem id="noSubscriptions" flex="1" orient="vertical">
           <description flex="1">&noSubscriptions.text;</description>
+        </richlistitem>
+      </richlistbox>
+    </tabpanel>
+    <tabpanel id="filtersTab" orient="vertical" flex="1">
+      <hbox pack="end">
+        <button id="addGroupButton" label="&addGroup.label;…" accesskey="&addGroup.accesskey;" command="group-add-command"/>
+      </hbox>
+
+      <richlistitem id="groupTemplate" class="subscription" hidden="true" orient="vertical"
+          onmousedown="this._wasSelected = (this.parentNode.selectedItem == this);"
+          ondragstart="SubscriptionActions.startDrag(event, this);"
+          ondragend="SubscriptionActions.endDrag();"
+          ondragover="SubscriptionActions.dragOver(event);"
+          ondrop="SubscriptionActions.drop(event, this);"
+          oncontextmenu="SubscriptionActions.openMenu(event, this);">
+        <vbox>
+          <hbox align="center">
+            <deck class="titleBox" flex="1" selectedIndex="0">
+              <description value="{subscription.title}"/>
+              <textbox class="titleEditor" onkeypress="TitleEditor.keyPress(event);" onblur="TitleEditor.end(true);"/>
+            </deck>
+            <checkbox label="&subscription.enabled.label;" checked="{subscription.disabled ? 'false' : 'true'}" oncommand="SubscriptionActions.setDisabled(this, !this.checked);"/>
+            <button class="actionButton" type="menu" label="&subscription.actions.label;…">
+              <menupopup class="actionMenu">
+                <menuitem label="&subscription.editTitle.label;…" key="subscription-editTitle-key" command="subscription-editTitle-command"/>
+                <menuitem label="&subscription.delete.label;…" key="subscription-delete-key" command="subscription-delete-command"/>
+                <menuseparator/>
+                <menuitem label="&subscription.moveUp.label;" key="subscription-moveUp-key" command="subscription-moveUp-command"/>
+                <menuitem label="&subscription.moveDown.label;" key="subscription-moveDown-key" command="subscription-moveDown-command"/>
+              </menupopup>
+            </button>
+          </hbox>
+        </vbox>
+      </richlistitem>
+
+      <richlistbox id="groups" class="initialFocus" flex="1"
+          onselect="SubscriptionActions.updateCommands();if (this.selectedItem != TitleEditor.subscriptionEdited) TitleEditor.end(true);"
+          ondragover="SubscriptionActions.dragOver(event);"
+          ondrop="SubscriptionActions.drop(event, null);"
+          onkeypress="SubscriptionActions.keyPress(event);">
+        <richlistitem id="noFilters" flex="1" orient="vertical">
+          <description flex="1">&noFilters.text;</description>
         </richlistitem>
       </richlistbox>
     </tabpanel>

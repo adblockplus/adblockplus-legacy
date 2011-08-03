@@ -1,6 +1,7 @@
 <!ENTITY dialog.title                         "Adblock Plus Filter Preferences">
 
 <!ENTITY subscriptions.tab.label              "Filter subscriptions">
+<!ENTITY filters.tab.label                    "Custom filters">
 
 <!ENTITY addSubscription.label                "Add filter subscription">
 <!ENTITY addSubscription.accesskey            "f">
@@ -33,5 +34,12 @@
 <!ENTITY subscription.delete.label            "Delete">
 <!ENTITY subscription.moveUp.label            "Move up">
 <!ENTITY subscription.moveDown.label          "Move down">
+
+<!ENTITY addGroup.label                       "Add filter group">
+<!ENTITY addGroup.accesskey                   "g">
+
+<!ENTITY noFilters.text                       "
+  You don't have any custom filters yet.
+">
 
 <!ENTITY close.label                          "Close">
