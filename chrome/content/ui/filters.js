@@ -665,6 +665,7 @@ var TitleEditor =
     subscriptionNode.getElementsByClassName("titleBox")[0].selectedIndex = 1;
     let editor = subscriptionNode.getElementsByClassName("titleEditor")[0];
     editor.value = Templater.getDataForNode(subscriptionNode).subscription.title;
+    editor.setSelectionRange(0, editor.value.length);
     this.subscriptionEdited = subscriptionNode;
     editor.focus();
   },
