@@ -437,6 +437,25 @@ var SubscriptionActions =
   },
 
   /**
+   * Adds a new filter group and allows the user to change its title.
+   */
+  addGroup: function()
+  {
+    let subscription = SpecialSubscription.create();
+    FilterStorage.addSubscription(subscription);
+
+    let list = E("groups");
+    let node = Templater.getNodeForData(list, "subscription", subscription);
+    if (node)
+    {
+      list.focus();
+      list.ensureElementIsVisible(node);
+      list.selectedItem = node;
+      this.editTitle();
+    }
+  },
+
+  /**
    * Moves a filter subscription one line up.
    */
   moveUp: function(/**Node*/ node)

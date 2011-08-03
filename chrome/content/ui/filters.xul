@@ -54,22 +54,15 @@
 </keyset>
 
 <commandset id="filtersCommandset">
-  <command id="subscription-update-command"
-    oncommand="SubscriptionActions.updateFilters();"/>
-  <command id="subscription-editTitle-command"
-    oncommand="SubscriptionActions.editTitle();"/>
-  <command id="subscription-delete-command"
-    oncommand="SubscriptionActions.remove();"/>
-  <command id="subscription-moveUp-command"
-    oncommand="SubscriptionActions.moveUp();"/>
-  <command id="subscription-moveDown-command"
-    oncommand="SubscriptionActions.moveDown();"/>
-  <command id="subscription-add-command"
-    oncommand="SelectSubscription.start(event);"/>
-  <command id="subscription-addSelected-command"
-    oncommand="SelectSubscription.add();"/>
-  <command id="subscription-addOther-command"
-    oncommand="SelectSubscription.chooseOther();"/>
+  <command id="subscription-update-command" oncommand="SubscriptionActions.updateFilters();"/>
+  <command id="subscription-editTitle-command" oncommand="SubscriptionActions.editTitle();"/>
+  <command id="subscription-delete-command" oncommand="SubscriptionActions.remove();"/>
+  <command id="subscription-moveUp-command" oncommand="SubscriptionActions.moveUp();"/>
+  <command id="subscription-moveDown-command" oncommand="SubscriptionActions.moveDown();"/>
+  <command id="subscription-add-command" oncommand="SelectSubscription.start(event);"/>
+  <command id="subscription-addSelected-command" oncommand="SelectSubscription.add();"/>
+  <command id="subscription-addOther-command" oncommand="SelectSubscription.chooseOther();"/>
+  <command id="group-add-command" oncommand="SubscriptionActions.addGroup();"/>
 </commandset>
 
 <tabbox id="tabs" flex="1">
@@ -186,7 +179,7 @@
     </tabpanel>
     <tabpanel id="filtersTab" orient="vertical" flex="1">
       <hbox pack="end">
-        <button id="addGroupButton" label="&addGroup.label;…" accesskey="&addGroup.accesskey;" command="group-add-command"/>
+        <button id="addGroupButton" label="&addGroup.label;" accesskey="&addGroup.accesskey;" command="group-add-command"/>
       </hbox>
 
       <richlistitem id="groupTemplate" class="subscription" hidden="true" orient="vertical"
