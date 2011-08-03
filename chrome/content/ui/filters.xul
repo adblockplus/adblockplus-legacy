@@ -115,7 +115,7 @@
             ondragend="endSubscriptionDrag();"
             ondragover="subscriptionDragOver(event);"
             ondrop="dropSubscription(event, this);"
-            oncontextmenu="openSubscriptionMenu(this);">
+            oncontextmenu="openSubscriptionMenu(event, this);">
           <vbox>
             <hbox align="center">
               <deck class="titleBox" flex="1" selectedIndex="0">
@@ -169,7 +169,7 @@
               </if>
               <spacer flex="1"/>
               <button class="actionButton" type="menu" label="&subscription.actions.label;…">
-                <menupopup>
+                <menupopup class="actionMenu">
                   <menuitem label="&subscription.update.label;" key="subscription-update-key" command="subscription-update-command"/>
                   <menuitem label="&subscription.editTitle.label;…" key="subscription-editTitle-key" command="subscription-editTitle-command"/>
                   <menuitem label="&subscription.delete.label;…" key="subscription-delete-key" command="subscription-delete-command"/>
