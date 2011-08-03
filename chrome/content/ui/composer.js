@@ -264,11 +264,7 @@ function updateFilter()
 
   if (E("disabledWarning").hidden)
   {
-    let subscription = null;
-    for each (let s in FilterStorage.subscriptions)
-      if (s instanceof SpecialSubscription && s.isFilterAllowed(compiledFilter) && (!subscription || s.priority > subscription.priority))
-        subscription = s;
-
+    let subscription = FilterStorage.getGroupForFilter(compiledFilter);
     let warning = E("groupDisabledWarning");
     if (subscription && subscription.disabled)
     {

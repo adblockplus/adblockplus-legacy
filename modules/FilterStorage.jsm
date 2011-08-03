@@ -46,7 +46,7 @@ Cu.import(baseURL.spec + "TimeLine.jsm");
  * Version number of the filter storage file format.
  * @type Integer
  */
-const formatVersion = 3;
+const formatVersion = 4;
 
 /**
  * This class reads user's filters from disk, manages them in memory and writes them back.
@@ -108,6 +108,18 @@ var FilterStorage =
    * @type Object
    */
   knownSubscriptions: {__proto__: null},
+
+  /**
+   * Finds the filter group that a filter should be added to by default. Will
+   * return null if this group doesn't exist yet.
+   */
+  getGroupForFilter: function(/**Filter*/ filter) /**SpecialSubscription*/
+  {
+    for each (let subscription in FilterStorage.subscriptions)
+      if (subscription instanceof SpecialSubscription && subscription.isDefaultFor(filter))
+        return subscription;
+    return null;
+  },
 
   /**
    * Adds a filter subscription to the list
@@ -202,24 +214,14 @@ var FilterStorage =
    */
   addFilter: function(filter, insertBefore, silent)
   {
-    let subscription = null;
+    let subscription = FilterStorage.getGroupForFilter(filter);
     if (!subscription)
     {
-      for each (let s in FilterStorage.subscriptions)
-      {
-        if (s instanceof SpecialSubscription && s.isFilterAllowed(filter))
-        {
-          if (s.filters.indexOf(filter) >= 0)
-            return;
-
-          if (!subscription || s.priority > subscription.priority)
-            subscription = s;
-        }
-      }
-    }
-
-    if (!subscription)
+      // No group for this filter exists, create one
+      subscription = SpecialSubscription.createForFilter(filter);
+      this.addSubscription(subscription);
       return;
+    }
 
     let insertIndex = -1;
     if (insertBefore)
@@ -370,14 +372,14 @@ var FilterStorage =
 
     TimeLine.log("done parsing file");
 
-    // Add missing special subscriptions if necessary
+    // Old special groups might have been converted, remove them if they are empty
     for each (let specialSubscription in ["~il~", "~wl~", "~fl~", "~eh~"])
     {
-      if (!(specialSubscription in FilterStorage.knownSubscriptions))
+      if (specialSubscription in FilterStorage.knownSubscriptions)
       {
         let subscription = Subscription.fromURL(specialSubscription);
-        if (subscription)
-          FilterStorage.addSubscription(subscription, true);
+        if (subscription.filters.length == 0)
+          FilterStorage.removeSubscription(subscription, true);
       }
     }
 
