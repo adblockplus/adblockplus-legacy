@@ -300,9 +300,18 @@ ListManager.prototype =
         let node = Templater.getNodeForData(this._list, "subscription", item);
         if (node)
         {
+          let newSelection = node.nextSibling || node.previousSibling;
           node.parentNode.removeChild(node);
           if (!this._list.firstChild)
+          {
             this._list.appendChild(this._placeholder);
+            this._list.selectedItem = this._placeholder;
+          }
+          else if (newSelection)
+          {
+            this._list.ensureElementIsVisible(newSelection);
+            this._list.selectedItem = newSelection;
+          }
           this._listener();
         }
         break
