@@ -124,7 +124,8 @@
               </hbox>
               <textbox class="titleEditor" onkeypress="TitleEditor.keyPress(event);" onblur="TitleEditor.end(true);"/>
             </deck>
-            <checkbox label="&subscription.enabled.label;" checked="{subscription.disabled ? 'false' : 'true'}" oncommand="SubscriptionActions.setDisabled(this, !this.checked);"/>
+            <checkbox label="&subscription.enabled.label;" class="tabable" tabindex="-1"
+              checked="{subscription.disabled ? 'false' : 'true'}" oncommand="SubscriptionActions.setDisabled(this, !this.checked);"/>
           </hbox>
           <hbox align="center">
             <description value="&subscription.lastDownload.label;"/>
@@ -153,7 +154,7 @@
               </if>
             </if>
             <spacer flex="1"/>
-            <button class="actionButton" type="menu" label="&subscription.actions.label;…">
+            <button class="actionButton tabable" type="menu" label="&subscription.actions.label;…" tabindex="-1">
               <menupopup class="actionMenu">
                 <menuitem label="&subscription.update.label;" key="subscription-update-key" command="subscription-update-command"/>
                 <menuitem label="&subscription.editTitle.label;…" key="subscription-editTitle-key" command="subscription-editTitle-command"/>
@@ -168,7 +169,7 @@
       </richlistitem>
 
       <richlistbox id="subscriptions" class="initialFocus" flex="1"
-          onselect="SubscriptionActions.updateCommands();if (this.selectedItem != TitleEditor.subscriptionEdited) TitleEditor.end(true);"
+          onselect="onSelectionChange(this);"
           ondragover="SubscriptionActions.dragOver(event);"
           ondrop="SubscriptionActions.drop(event, null);"
           onkeypress="SubscriptionActions.keyPress(event);">
@@ -195,8 +196,9 @@
               <description value="{subscription.title}"/>
               <textbox class="titleEditor" onkeypress="TitleEditor.keyPress(event);" onblur="TitleEditor.end(true);"/>
             </deck>
-            <checkbox label="&subscription.enabled.label;" checked="{subscription.disabled ? 'false' : 'true'}" oncommand="SubscriptionActions.setDisabled(this, !this.checked);"/>
-            <button class="actionButton" type="menu" label="&subscription.actions.label;…">
+            <checkbox label="&subscription.enabled.label;" class="tabable" tabindex="-1"
+              checked="{subscription.disabled ? 'false' : 'true'}" oncommand="SubscriptionActions.setDisabled(this, !this.checked);"/>
+            <button class="actionButton tabable" type="menu" label="&subscription.actions.label;…" tabindex="-1">
               <menupopup class="actionMenu">
                 <menuitem label="&subscription.editTitle.label;…" key="subscription-editTitle-key" command="subscription-editTitle-command"/>
                 <menuitem label="&subscription.delete.label;…" key="subscription-delete-key" command="subscription-delete-command"/>
@@ -210,7 +212,7 @@
       </richlistitem>
 
       <richlistbox id="groups" class="initialFocus" flex="1"
-          onselect="SubscriptionActions.updateCommands();if (this.selectedItem != TitleEditor.subscriptionEdited) TitleEditor.end(true);"
+          onselect="onSelectionChange(this);"
           ondragover="SubscriptionActions.dragOver(event);"
           ondrop="SubscriptionActions.drop(event, null);"
           onkeypress="SubscriptionActions.keyPress(event);">
