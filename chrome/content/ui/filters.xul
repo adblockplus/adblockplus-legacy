@@ -101,7 +101,7 @@
           ondragover="SubscriptionActions.dragOver(event);"
           ondrop="SubscriptionActions.drop(event, this);"
           oncontextmenu="SubscriptionActions.openMenu(event, this);">
-        <vbox>
+        <vbox class="{subscription.disabled ? 'disabled' : ''}">
           <hbox align="center">
             <deck class="titleBox" flex="1" selectedIndex="0">
               <hbox pack="start" onclick="if (event.button == 0) TitleEditor.start(this, true);">
@@ -189,7 +189,7 @@
           ondragover="SubscriptionActions.dragOver(event);"
           ondrop="SubscriptionActions.drop(event, this);"
           oncontextmenu="SubscriptionActions.openMenu(event, this);">
-        <vbox>
+        <vbox class="{subscription.disabled ? 'disabled' : ''}">
           <hbox align="center">
             <deck class="titleBox" flex="1" selectedIndex="0">
               <description value="{subscription.title}"/>
