@@ -684,16 +684,17 @@ var TitleEditor =
    */
   keyPress: function(/**Event*/ event)
   {
+    // Prevent any key presses from triggering outside actions
+    event.stopPropagation();
+
     if (event.keyCode == event.DOM_VK_RETURN || event.keyCode == event.DOM_VK_ENTER)
     {
       event.preventDefault();
-      event.stopPropagation();
       this.end(true);
     }
     else if (event.keyCode == event.DOM_VK_CANCEL || event.keyCode == event.DOM_VK_ESCAPE)
     {
       event.preventDefault();
-      event.stopPropagation();
       this.end(false);
     }
   }
