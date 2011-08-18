@@ -31,7 +31,7 @@ zh-TW=https://adblockplus.org/zh_TW/
 
 [compat]
 firefox=3.5/9.0a1
-seamonkey=2.0/2.5a1
+seamonkey=2.0/2.6a1
 thunderbird=3.0/9.0a1
 songbird=1.9.0a/1.11.0a
 conkeror=0.1/100.0
