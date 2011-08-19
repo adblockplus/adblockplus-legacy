@@ -116,6 +116,7 @@ function cleanUp() {
   requestNotifier.shutdown();
   FilterStorage.removeObserver(reloadDisabledFilters);
   Prefs.removeListener(onPrefChange);
+  E("list").view = null;
 
   abpHooks.getBrowser().removeProgressListener(progressListener);
   mainWin.removeEventListener("unload", mainUnload, false);
