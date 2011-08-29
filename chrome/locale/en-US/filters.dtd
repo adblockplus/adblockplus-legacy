@@ -32,6 +32,7 @@
 <!ENTITY subscription.update.label            "Update filters">
 <!ENTITY subscription.editTitle.label         "Edit title">
 <!ENTITY subscription.delete.label            "Delete">
+<!ENTITY subscription.showHideFilters.label   "Show/hide filters">
 <!ENTITY subscription.moveUp.label            "Move up">
 <!ENTITY subscription.moveDown.label          "Move down">
 
@@ -41,5 +42,19 @@
 <!ENTITY noFilters.text                       "
   You don't have any custom filters yet.
 ">
+
+<!ENTITY filter.column                        "Filter rule">
+<!ENTITY filter.accesskey                     "F">
+<!ENTITY slow.column                          "Slow filters">
+<!ENTITY slow.accesskey                       "w">
+<!ENTITY enabled.column                       "Enabled">
+<!ENTITY enabled.accesskey                    "n">
+<!ENTITY hitcount.column                      "Hits">
+<!ENTITY hitcount.accesskey                   "H">
+<!ENTITY lasthit.column                       "Last hit">
+<!ENTITY lasthit.accesskey                    "L">
+
+<!ENTITY noGroupSelected.text                 "You need to select a filter group before its filters can be displayed.">
+<!ENTITY noFiltersInGroup.text                "The selected group is empty">
 
 <!ENTITY close.label                          "Close">

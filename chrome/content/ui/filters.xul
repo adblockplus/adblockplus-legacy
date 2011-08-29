@@ -35,7 +35,7 @@
   id="abpFiltersWindow"
   onload="init()"
   buttons="accept"
-  width="600"
+  width="950"
   height="450"
   buttonlabelaccept="&close.label;"
   persist="screenX screenY width height sizemode"
@@ -49,6 +49,7 @@
   <key id="subscription-update-key" key="T" modifiers="accel" command="subscription-update-command"/>
   <key id="subscription-editTitle-key" keycode="VK_F2" command="subscription-editTitle-command"/>
   <key id="subscription-delete-key" keycode="VK_DELETE" command="subscription-delete-command"/>
+  <key id="subscription-showHideFilters-key" key="F" modifiers="accel" command="subscription-showHideFilters-command"/>
   <key id="subscription-moveUp-key" keycode="VK_UP" modifiers="accel"/>
   <key id="subscription-moveDown-key" keycode="VK_DOWN" modifiers="accel"/>
 </keyset>
@@ -57,6 +58,7 @@
   <command id="subscription-update-command" oncommand="SubscriptionActions.updateFilters();"/>
   <command id="subscription-editTitle-command" oncommand="SubscriptionActions.editTitle();"/>
   <command id="subscription-delete-command" oncommand="SubscriptionActions.remove();"/>
+  <command id="subscription-showHideFilters-command" oncommand="E('filtersGrippy').doCommand();"/>
   <command id="subscription-moveUp-command" oncommand="SubscriptionActions.moveUp();"/>
   <command id="subscription-moveDown-command" oncommand="SubscriptionActions.moveDown();"/>
   <command id="subscription-add-command" oncommand="SelectSubscription.start(event);"/>
@@ -65,163 +67,192 @@
   <command id="group-add-command" oncommand="SubscriptionActions.addGroup();"/>
 </commandset>
 
-<tabbox id="tabs" flex="1">
-  <tabs onselect="onTabChange(this.parentNode);">
-    <tab label="&subscriptions.tab.label;"/>
-    <tab label="&filters.tab.label;"/>
-  </tabs>
-  <tabpanels flex="1">
-    <tabpanel id="subscriptionsTab" orient="vertical" flex="1">
-      <hbox pack="end">
-        <button id="selectSubscriptionButton" label="&addSubscription.label;…" accesskey="&addSubscription.accesskey;" command="subscription-add-command"/>
-      </hbox>
-
-      <panel id="selectSubscriptionPanel" type="arrow" position="bottomcenter topleft"
-             orient="vertical" onkeypress="SelectSubscription.keyPress(event);">
-        <menuitem id="selectSubscriptionTemplate" hidden="true"
-          class="{localePrefix ? 'localeMatch' : ''}"
-          label="{node.getAttribute('title')}"
-          value="{node.getAttribute('url')}"/>
-        <menulist id="selectSubscription">
-          <menupopup/>
-        </menulist>
-        <hbox align="baseline">
-          <label class="text-link" value="&addSubscriptionOther.label;" onclick="E('subscription-addOther-command').doCommand();"/>
-          <spacer flex="1"/>
-          <button id="selectSubscriptionAccept" default="true" label="&addSubscriptionAdd.label;" command="subscription-addSelected-command"/>
-          <spacer flex="1"/>
-          <button label="&addSubscriptionCancel.label;" oncommand="E('selectSubscriptionPanel').hidePopup();"/>
+<hbox flex="1">
+  <tabbox id="tabs" flex="1">
+    <tabs onselect="onTabChange(this.parentNode);">
+      <tab label="&subscriptions.tab.label;"/>
+      <tab label="&filters.tab.label;"/>
+    </tabs>
+    <tabpanels flex="1">
+      <tabpanel id="subscriptionsTab" orient="vertical" flex="1">
+        <hbox pack="end">
+          <button id="selectSubscriptionButton" label="&addSubscription.label;…" accesskey="&addSubscription.accesskey;" command="subscription-add-command"/>
         </hbox>
-      </panel>
 
-      <richlistitem id="subscriptionTemplate" class="subscription" hidden="true" orient="vertical"
-          onmousedown="this._wasSelected = (this.parentNode.selectedItem == this);"
-          ondragstart="SubscriptionActions.startDrag(event, this);"
-          ondragend="SubscriptionActions.endDrag();"
-          ondragover="SubscriptionActions.dragOver(event);"
-          ondrop="SubscriptionActions.drop(event, this);"
-          oncontextmenu="SubscriptionActions.openMenu(event, this);">
-        <vbox class="{subscription.disabled ? 'disabled' : ''}">
-          <hbox align="center">
-            <deck class="titleBox" flex="1" selectedIndex="0">
-              <hbox pack="start" onclick="if (event.button == 0) TitleEditor.start(this, true);">
-                <description value="{subscription.title}"/>
-                <description value=" ("/>
-                <if condition="{isExternal}">
-                  <description value="&subscription.external.label;"/>
-                <else/>
-                  <if condition="{subscription.homepage}">
-                    <description class="text-link" value="&subscription.homepage.label;"
-                      _url="{subscription.homepage}" tooltiptext="{subscription.homepage}"
-                      onclick="if (event.button == 0) { event.stopPropagation();Utils.loadInBrowser(this.getAttribute('_url')); }"/>
-                    <description value=", "/>
-                  </if>
-                  <description class="text-link" value="&subscription.source.label;"
-                    _url="{subscription.url}" tooltiptext="{subscription.url}"
-                    onclick="if (event.button == 0) { event.stopPropagation();Utils.loadInBrowser(this.getAttribute('_url')); }"/>
-                </if>
-                <description value=")"/>
-              </hbox>
-              <textbox class="titleEditor" onkeypress="TitleEditor.keyPress(event);" onblur="TitleEditor.end(true);"/>
-            </deck>
-            <checkbox label="&subscription.enabled.label;" class="tabable" tabindex="-1"
-              checked="{subscription.disabled ? 'false' : 'true'}" oncommand="SubscriptionActions.setDisabled(this, !this.checked);"/>
-          </hbox>
-          <hbox align="center">
-            <description value="&subscription.lastDownload.label;"/>
-            <description value=" "/>
-            <if condition="{downloading}">
-              <description value="&subscription.lastDownload.inProgress;"/>
-            <elif condition="{!subscription.lastDownload}"/>
-              <description value="&subscription.lastDownload.unknown;"/>
-            <else/>
-              <description value="{formatTime(subscription.lastDownload * 1000)}"/>
-              <description value=" "/>
-              <if condition="{subscription.downloadStatus}">
-                <description value=" ("/>
-                <if condition="{subscription.downloadStatus == 'synchronize_invalid_url'}">
-                  <description value="&subscription.lastDownload.invalidURL;"/>
-                <elif condition="{subscription.downloadStatus == 'synchronize_connection_error'}"/>
-                  <description value="&subscription.lastDownload.connectionError;"/>
-                <elif condition="{subscription.downloadStatus == 'synchronize_invalid_data'}"/>
-                  <description value="&subscription.lastDownload.invalidData;"/>
-                <elif condition="{subscription.downloadStatus == 'synchronize_checksum_mismatch'}"/>
-                  <description value="&subscription.lastDownload.checksumMismatch;"/>
-                <else/>   <!-- synchronize_ok -->
-                  <description value="&subscription.lastDownload.success;"/>
-                </if>
-                <description value=")"/>
-              </if>
-            </if>
+        <panel id="selectSubscriptionPanel" type="arrow" position="bottomcenter topleft"
+               orient="vertical" onkeypress="SelectSubscription.keyPress(event);">
+          <menuitem id="selectSubscriptionTemplate" hidden="true"
+            class="{localePrefix ? 'localeMatch' : ''}"
+            label="{node.getAttribute('title')}"
+            value="{node.getAttribute('url')}"/>
+          <menulist id="selectSubscription">
+            <menupopup/>
+          </menulist>
+          <hbox align="baseline">
+            <label class="text-link" value="&addSubscriptionOther.label;" onclick="E('subscription-addOther-command').doCommand();"/>
             <spacer flex="1"/>
-            <button class="actionButton tabable" type="menu" label="&subscription.actions.label;…" tabindex="-1">
-              <menupopup class="actionMenu">
-                <menuitem label="&subscription.update.label;" key="subscription-update-key" command="subscription-update-command"/>
-                <menuitem label="&subscription.editTitle.label;…" key="subscription-editTitle-key" command="subscription-editTitle-command"/>
-                <menuitem label="&subscription.delete.label;…" key="subscription-delete-key" command="subscription-delete-command"/>
-                <menuseparator/>
-                <menuitem label="&subscription.moveUp.label;" key="subscription-moveUp-key" command="subscription-moveUp-command"/>
-                <menuitem label="&subscription.moveDown.label;" key="subscription-moveDown-key" command="subscription-moveDown-command"/>
-              </menupopup>
-            </button>
+            <button id="selectSubscriptionAccept" default="true" label="&addSubscriptionAdd.label;" command="subscription-addSelected-command"/>
+            <spacer flex="1"/>
+            <button label="&addSubscriptionCancel.label;" oncommand="E('selectSubscriptionPanel').hidePopup();"/>
           </hbox>
-        </vbox>
-      </richlistitem>
+        </panel>
 
-      <richlistbox id="subscriptions" class="initialFocus" flex="1"
-          onselect="onSelectionChange(this);"
-          ondragover="SubscriptionActions.dragOver(event);"
-          ondrop="SubscriptionActions.drop(event, null);"
-          onkeypress="SubscriptionActions.keyPress(event);">
-        <richlistitem id="noSubscriptions" flex="1" orient="vertical">
-          <description flex="1">&noSubscriptions.text;</description>
+        <richlistitem id="subscriptionTemplate" class="subscription" hidden="true" orient="vertical"
+            onmousedown="this._wasSelected = (this.parentNode.selectedItem == this);"
+            ondragstart="SubscriptionActions.startDrag(event, this);"
+            ondragend="SubscriptionActions.endDrag();"
+            ondragover="SubscriptionActions.dragOver(event);"
+            ondrop="SubscriptionActions.drop(event, this);"
+            oncontextmenu="SubscriptionActions.openMenu(event, this);">
+          <vbox class="{subscription.disabled ? 'disabled' : ''}">
+            <hbox align="center">
+              <deck class="titleBox" flex="1" selectedIndex="0">
+                <description onclick="if (event.button == 0) TitleEditor.start(this, true);">
+                  <description value="{subscription.title}" flex="1" crop="end"/>
+                  <hbox align="baseline">
+                    <description value=" ("/>
+                    <if condition="{isExternal}">
+                      <description value="&subscription.external.label;"/>
+                    <else/>
+                      <if condition="{subscription.homepage}">
+                        <description class="text-link" value="&subscription.homepage.label;"
+                          _url="{subscription.homepage}" tooltiptext="{subscription.homepage}"
+                          onclick="if (event.button == 0) { event.stopPropagation();Utils.loadInBrowser(this.getAttribute('_url')); }"/>
+                        <description value=", "/>
+                      </if>
+                      <description class="text-link" value="&subscription.source.label;"
+                        _url="{subscription.url}" tooltiptext="{subscription.url}"
+                        onclick="if (event.button == 0) { event.stopPropagation();Utils.loadInBrowser(this.getAttribute('_url')); }"/>
+                    </if>
+                    <description value=")"/>
+                  </hbox>
+                </description>
+                <textbox class="titleEditor" onkeypress="TitleEditor.keyPress(event);" onblur="TitleEditor.end(true);"/>
+              </deck>
+              <checkbox label="&subscription.enabled.label;" class="tabable" tabindex="-1"
+                checked="{subscription.disabled ? 'false' : 'true'}" oncommand="SubscriptionActions.setDisabled(this, !this.checked);"/>
+            </hbox>
+            <hbox align="center">
+              <description flex="1">
+                <description value="&subscription.lastDownload.label;"/>
+                <description value=" "/>
+                <if condition="{downloading}">
+                  <description value="&subscription.lastDownload.inProgress;"/>
+                <elif condition="{!subscription.lastDownload}"/>
+                  <description value="&subscription.lastDownload.unknown;"/>
+                <else/>
+                  <description value="{formatTime(subscription.lastDownload * 1000)}"/>
+                  <description value=" "/>
+                  <if condition="{subscription.downloadStatus}">
+                    <hbox>
+                      <description value=" ("/>
+                      <if condition="{subscription.downloadStatus == 'synchronize_invalid_url'}">
+                        <description value="&subscription.lastDownload.invalidURL;"/>
+                      <elif condition="{subscription.downloadStatus == 'synchronize_connection_error'}"/>
+                        <description value="&subscription.lastDownload.connectionError;"/>
+                      <elif condition="{subscription.downloadStatus == 'synchronize_invalid_data'}"/>
+                        <description value="&subscription.lastDownload.invalidData;"/>
+                      <elif condition="{subscription.downloadStatus == 'synchronize_checksum_mismatch'}"/>
+                        <description value="&subscription.lastDownload.checksumMismatch;"/>
+                      <else/>   <!-- synchronize_ok -->
+                        <description value="&subscription.lastDownload.success;"/>
+                      </if>
+                      <description value=")"/>
+                    </hbox>
+                  </if>
+                </if>
+              </description>
+              <spacer flex="1"/>
+              <button class="actionButton tabable" type="menu" label="&subscription.actions.label;…" tabindex="-1">
+                <menupopup class="actionMenu">
+                  <menuitem label="&subscription.update.label;" key="subscription-update-key" command="subscription-update-command"/>
+                  <menuitem label="&subscription.editTitle.label;…" key="subscription-editTitle-key" command="subscription-editTitle-command"/>
+                  <menuitem label="&subscription.delete.label;…" key="subscription-delete-key" command="subscription-delete-command"/>
+                  <menuitem label="&subscription.showHideFilters.label;" key="subscription-showHideFilters-key" command="subscription-showHideFilters-command"/>
+                  <menuseparator/>
+                  <menuitem label="&subscription.moveUp.label;" key="subscription-moveUp-key" command="subscription-moveUp-command"/>
+                  <menuitem label="&subscription.moveDown.label;" key="subscription-moveDown-key" command="subscription-moveDown-command"/>
+                </menupopup>
+              </button>
+            </hbox>
+          </vbox>
         </richlistitem>
-      </richlistbox>
-    </tabpanel>
-    <tabpanel id="filtersTab" orient="vertical" flex="1">
-      <hbox pack="end">
-        <button id="addGroupButton" label="&addGroup.label;" accesskey="&addGroup.accesskey;" command="group-add-command"/>
-      </hbox>
 
-      <richlistitem id="groupTemplate" class="subscription" hidden="true" orient="vertical"
-          onmousedown="this._wasSelected = (this.parentNode.selectedItem == this);"
-          ondragstart="SubscriptionActions.startDrag(event, this);"
-          ondragend="SubscriptionActions.endDrag();"
-          ondragover="SubscriptionActions.dragOver(event);"
-          ondrop="SubscriptionActions.drop(event, this);"
-          oncontextmenu="SubscriptionActions.openMenu(event, this);">
-        <vbox class="{subscription.disabled ? 'disabled' : ''}">
-          <hbox align="center">
-            <deck class="titleBox" flex="1" selectedIndex="0">
-              <description value="{subscription.title}"/>
-              <textbox class="titleEditor" onkeypress="TitleEditor.keyPress(event);" onblur="TitleEditor.end(true);"/>
-            </deck>
-            <checkbox label="&subscription.enabled.label;" class="tabable" tabindex="-1"
-              checked="{subscription.disabled ? 'false' : 'true'}" oncommand="SubscriptionActions.setDisabled(this, !this.checked);"/>
-            <button class="actionButton tabable" type="menu" label="&subscription.actions.label;…" tabindex="-1">
-              <menupopup class="actionMenu">
-                <menuitem label="&subscription.editTitle.label;…" key="subscription-editTitle-key" command="subscription-editTitle-command"/>
-                <menuitem label="&subscription.delete.label;…" key="subscription-delete-key" command="subscription-delete-command"/>
-                <menuseparator/>
-                <menuitem label="&subscription.moveUp.label;" key="subscription-moveUp-key" command="subscription-moveUp-command"/>
-                <menuitem label="&subscription.moveDown.label;" key="subscription-moveDown-key" command="subscription-moveDown-command"/>
-              </menupopup>
-            </button>
-          </hbox>
-        </vbox>
-      </richlistitem>
+        <richlistbox id="subscriptions" class="initialFocus" flex="1"
+            onselect="onSelectionChange(this);"
+            ondragover="SubscriptionActions.dragOver(event);"
+            ondrop="SubscriptionActions.drop(event, null);"
+            onkeypress="SubscriptionActions.keyPress(event);">
+          <richlistitem id="noSubscriptions" flex="1" orient="vertical">
+            <description flex="1">&noSubscriptions.text;</description>
+          </richlistitem>
+        </richlistbox>
+      </tabpanel>
+      <tabpanel id="filtersTab" orient="vertical" flex="1">
+        <hbox pack="end">
+          <button id="addGroupButton" label="&addGroup.label;…" accesskey="&addGroup.accesskey;" command="group-add-command"/>
+        </hbox>
 
-      <richlistbox id="groups" class="initialFocus" flex="1"
-          onselect="onSelectionChange(this);"
-          ondragover="SubscriptionActions.dragOver(event);"
-          ondrop="SubscriptionActions.drop(event, null);"
-          onkeypress="SubscriptionActions.keyPress(event);">
-        <richlistitem id="noFilters" flex="1" orient="vertical">
-          <description flex="1">&noFilters.text;</description>
+        <richlistitem id="groupTemplate" class="subscription" hidden="true" orient="vertical"
+            onmousedown="this._wasSelected = (this.parentNode.selectedItem == this);"
+            ondragstart="SubscriptionActions.startDrag(event, this);"
+            ondragend="SubscriptionActions.endDrag();"
+            ondragover="SubscriptionActions.dragOver(event);"
+            ondrop="SubscriptionActions.drop(event, this);"
+            oncontextmenu="SubscriptionActions.openMenu(event, this);">
+          <vbox class="{subscription.disabled ? 'disabled' : ''}">
+            <hbox align="center">
+              <deck class="titleBox" flex="1" selectedIndex="0">
+                <description value="{subscription.title}" crop="end"/>
+                <textbox class="titleEditor" onkeypress="TitleEditor.keyPress(event);" onblur="TitleEditor.end(true);"/>
+              </deck>
+              <checkbox label="&subscription.enabled.label;" class="tabable" tabindex="-1"
+                checked="{subscription.disabled ? 'false' : 'true'}" oncommand="SubscriptionActions.setDisabled(this, !this.checked);"/>
+              <button class="actionButton tabable" type="menu" label="&subscription.actions.label;…" tabindex="-1">
+                <menupopup class="actionMenu">
+                  <menuitem label="&subscription.editTitle.label;…" key="subscription-editTitle-key" command="subscription-editTitle-command"/>
+                  <menuitem label="&subscription.delete.label;…" key="subscription-delete-key" command="subscription-delete-command"/>
+                  <menuseparator/>
+                  <menuitem label="&subscription.moveUp.label;" key="subscription-moveUp-key" command="subscription-moveUp-command"/>
+                  <menuitem label="&subscription.moveDown.label;" key="subscription-moveDown-key" command="subscription-moveDown-command"/>
+                </menupopup>
+              </button>
+            </hbox>
+          </vbox>
         </richlistitem>
-      </richlistbox>
-    </tabpanel>
-  </tabpanels>
-</tabbox>
+
+        <richlistbox id="groups" class="initialFocus" flex="1"
+            onselect="onSelectionChange(this);"
+            ondragover="SubscriptionActions.dragOver(event);"
+            ondrop="SubscriptionActions.drop(event, null);"
+            onkeypress="SubscriptionActions.keyPress(event);">
+          <richlistitem id="noFilters" flex="1" orient="vertical">
+            <description flex="1">&noFilters.text;</description>
+          </richlistitem>
+        </richlistbox>
+      </tabpanel>
+    </tabpanels>
+  </tabbox>
+
+  <splitter id="filtersSplitter" persist="state" orient="horizontal" collapse="after" state="collapsed" oncommand="onShowHideFilters();">
+    <grippy id="filtersGrippy"/>
+  </splitter>
+
+  <tree id="filtersTree" persist="height" width="500" editable="true" seltype="multiple" enableColumnDrag="true">
+    <treecols context="treecols-context">
+      <treecol id="col-filter" label="&filter.column;" flex="10" persist="width ordinal sortDirection hidden"/>
+      <splitter class="tree-splitter"/>
+      <treecol id="col-slow" label="!" flex="0" width="16" persist="width ordinal sortDirection hidden"/>
+      <splitter class="tree-splitter"/>
+      <treecol id="col-enabled" label="&enabled.column;" cycler="true" flex="0" persist="width ordinal sortDirection hidden"/>
+      <splitter class="tree-splitter"/>
+      <treecol id="col-hitcount" label="&hitcount.column;" flex="0" persist="width ordinal sortDirection hidden"/>
+      <splitter class="tree-splitter"/>
+      <treecol id="col-lasthit" label="&lasthit.column;" hidden="true" flex="4" persist="width ordinal sortDirection hidden"/>
+    </treecols>
+
+    <treechildren id="filtersTreeChildren" noGroupText="&noGroupSelected.text;" noFiltersText="&noFiltersInGroup.text;"/>
+  </tree>
+</hbox>
 
 </dialog>
