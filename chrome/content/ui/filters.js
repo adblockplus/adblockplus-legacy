@@ -29,6 +29,7 @@ function init()
 {
   new ListManager(E("subscriptions"), E("subscriptionTemplate"), RegularSubscription, SubscriptionActions.updateCommands);
   new ListManager(E("groups"), E("groupTemplate"), SpecialSubscription, SubscriptionActions.updateCommands);
+  E("filtersTree").view = FiltersView;
 }
 
 /**
@@ -37,6 +38,7 @@ function init()
 function onTabChange(/**Element*/ tabbox)
 {
   SubscriptionActions.updateCommands();
+  updateSelectedSubscription();
 
   Utils.runAsync(function()
   {
@@ -52,6 +54,7 @@ function onTabChange(/**Element*/ tabbox)
 function onSelectionChange(/**Element*/ list)
 {
   SubscriptionActions.updateCommands();
+  updateSelectedSubscription();
   list.focus();
 
   // Take elements of the previously selected item out of the tab order
@@ -69,6 +72,32 @@ function onSelectionChange(/**Element*/ list)
       elements[i].removeAttribute("tabindex");
   }
   list.previousSelection = list.selectedItem;
+}
+
+/**
+ * Called whenever the filters list is shown/hidden.
+ */
+function onShowHideFilters()
+{
+  if (FiltersView.visible)
+    FiltersView.refresh();
+}
+
+/**
+ * Updates filter list when selected subscription changes.
+ */
+function updateSelectedSubscription()
+{
+  let panel = E("tabs").selectedPanel;
+  if (!panel)
+    return;
+
+  let list = panel.getElementsByTagName("richlistbox")[0];
+  if (!list)
+    return;
+
+  let data = Templater.getDataForNode(list.selectedItem);
+  FiltersView.subscription = (data ? data.subscription : null);
 }
 
 /**
@@ -880,4 +909,241 @@ var SelectSubscription =
       E("selectSubscriptionAccept").doCommand();
     }
   }
+};
+
+Cu.import("resource://gre/modules/XPCOMUtils.jsm");
+
+/**
+ * nsITreeView implementation to display filters of a particular filter
+ * subscription.
+ * @class
+ */
+var FiltersView =
+{
+  /**
+   * Box object of the tree that this view is attached to.
+   * @type nsITreeBoxObject
+   */
+  boxObject: null,
+
+  /**
+   * "Filter" to be displayed if no filter group is selected.
+   */
+  noGroupDummy: null,
+
+  /**
+   * Map of used cell properties to the corresponding nsIAtom representations.
+   */
+  atoms: null,
+
+  /**
+   * "Filter" to be displayed if the selected group is empty.
+   */
+  noFiltersDummy: null,
+
+  /**
+   * Displayed list of filters, might be sorted.
+   * @type Filter[]
+   */
+  data: [],
+
+  /**
+   * Tests whether the tree is currently visible.
+   */
+  get visible()
+  {
+    return this.boxObject && !this.boxObject.treeBody.parentNode.collapsed;
+  },
+
+  _subscription: 0,
+
+  /**
+   * Filter subscription being displayed.
+   * @type Subscription
+   */
+  get subscription() this._subscription,
+  set subscription(value)
+  {
+    if (value == this._subscription)
+      return;
+
+    this._subscription = value;
+    if (this.visible)
+      this.refresh();
+  },
+
+  /**
+   * Updates internal view data after a filter subscription change.
+   */
+  refresh: function()
+  {
+    let oldCount = this.rowCount;
+    if (this._subscription)
+    {
+      if (this._subscription.filters.length)
+        this.data = this._subscription.filters.slice();
+      else
+        this.data = [this.noFiltersDummy]
+    }
+    else
+      this.data = [this.noGroupDummy];
+
+    this.boxObject.rowCountChanged(0, -oldCount);
+    this.boxObject.rowCountChanged(0, this.rowCount);
+    if (this.rowCount)
+      this.selection.select(0);
+  },
+
+  QueryInterface: XPCOMUtils.generateQI([Ci.nsITreeView]),
+
+  setTree: function(boxObject)
+  {
+    this.boxObject = boxObject;
+    if (this.boxObject)
+    {
+      this.noGroupDummy = {text: this.boxObject.treeBody.getAttribute("noGroupText"), dummy: true};
+      this.noFiltersDummy = {text: this.boxObject.treeBody.getAttribute("noFiltersText"), dummy: true};
+    }
+
+    let atomService = Cc["@mozilla.org/atom-service;1"].getService(Ci.nsIAtomService);
+    let stringAtoms = ["col-filter", "col-enabled", "col-hitcount", "col-lasthit", "type-comment", "type-filterlist", "type-whitelist", "type-elemhide", "type-invalid"];
+    let boolAtoms = ["selected", "dummy", "slow", "disabled"];
+
+    this.atoms = {};
+    for each (let atom in stringAtoms)
+      this.atoms[atom] = atomService.getAtom(atom);
+    for each (let atom in boolAtoms)
+    {
+      this.atoms[atom + "-true"] = atomService.getAtom(atom + "-true");
+      this.atoms[atom + "-false"] = atomService.getAtom(atom + "-false");
+    }
+  },
+
+  selection: null,
+
+  get rowCount() this.data.length,
+
+  getCellText: function(row, col)
+  {
+    if (row < 0 || row >= this.data.length)
+      return null;
+
+    col = col.id;
+    if (col != "col-filter" && col != "col-slow" && col != "col-hitcount" && col != "col-lasthit")
+      return null;
+
+    let filter = this.data[row];
+    if (col == "col-filter")
+      return filter.text;
+    else if (col == "col-slow")
+      return (filter instanceof RegExpFilter && defaultMatcher.isSlowFilter(filter) ? "!" : null);
+    else if (filter instanceof ActiveFilter)
+    {
+      if (col == "col-hitcount")
+        return filter.hitCount;
+      else
+        return (filter.lastHit ? Utils.formatTime(filter.lastHit) : null);
+    }
+    else
+      return null;
+  },
+
+  getColumnProperties: function(col, properties)
+  {
+    col = col.id;
+
+    if (col in this.atoms)
+      properties.AppendElement(this.atoms[col]);
+  },
+
+  getRowProperties: function(row, properties)
+  {
+    if (row < 0 || row >= this.data.length)
+      return;
+
+    let filter = this.data[row];
+    properties.AppendElement(this.atoms["selected-" + this.selection.isSelected(row)]);
+    properties.AppendElement(this.atoms["slow-" + (filter instanceof RegExpFilter && defaultMatcher.isSlowFilter(filter))]);
+    if (filter instanceof ActiveFilter)
+      properties.AppendElement(this.atoms["disabled-" + filter.disabled]);
+    properties.AppendElement(this.atoms["dummy-" + ("dummy" in filter)]);
+
+    if (filter instanceof CommentFilter)
+      properties.AppendElement(this.atoms["type-comment"]);
+    else if (filter instanceof BlockingFilter)
+      properties.AppendElement(this.atoms["type-filterlist"]);
+    else if (filter instanceof WhitelistFilter)
+      properties.AppendElement(this.atoms["type-whitelist"]);
+    else if (filter instanceof ElemHideFilter)
+      properties.AppendElement(this.atoms["type-elemhide"]);
+    else if (filter instanceof InvalidFilter)
+      properties.AppendElement(this.atoms["type-invalid"]);
+  },
+
+  getCellProperties: function(row, col, properties)
+  {
+    this.getColumnProperties(col, properties);
+    this.getRowProperties(row, properties);
+  },
+
+  cycleHeader: function(col)
+  {
+    // TODO
+  },
+
+  isSorted: function()
+  {
+    // TODO
+    return false;
+  },
+
+  canDrop: function(row, orientation)
+  {
+    // TODO
+    return false;
+  },
+
+  drop: function(row, orientation)
+  {
+    // TODO
+  },
+
+  isEditable: function(row, col)
+  {
+    if (row < 0 || row >= this.data.length)
+      return null;
+
+    let filter = this.data[row];
+    if (col.id == "col-filter")
+      return !("dummy" in filter);
+    else
+      return false;
+  },
+
+  setCellText: function(row, col, value)
+  {
+    // TODO
+  },
+
+  cycleCell: function(row, col)
+  {
+    // TODO
+  },
+
+  isContainer: function(row) false,
+  isContainerOpen: function(row) false,
+  isContainerEmpty: function(row) true,
+  getLevel: function(row) 0,
+  getParentIndex: function(row) -1,
+  hasNextSibling: function(row, afterRow) false,
+  toggleOpenState: function(row) {},
+  getProgressMode: function() null,
+  getImageSrc: function() null,
+  isSeparator: function() false,
+  performAction: function() {},
+  performActionOnRow: function() {},
+  performActionOnCell: function() {},
+  getCellValue: function() null,
+  setCellValue: function() {},
+  selectionChanged: function() {},
 };
