@@ -921,6 +921,106 @@ Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 var FiltersView =
 {
   /**
+   * Initialization function.
+   */
+  init: function()
+  {
+    if (this.sortProcs)
+      return;
+
+    function compareText(/**Filter*/ filter1, /**Filter*/ filter2)
+    {
+      if (filter1.text < filter2.text)
+        return -1;
+      else if (filter1.text > filter2.text)
+        return 1;
+      else
+        return 0;
+    }
+    function compareSlow(/**Filter*/ filter1, /**Filter*/ filter2)
+    {
+      let isSlow1 = filter1 instanceof RegExpFilter && defaultMatcher.isSlowFilter(filter1);
+      let isSlow2 = filter2 instanceof RegExpFilter && defaultMatcher.isSlowFilter(filter2);
+      return isSlow1 - isSlow2;
+    }
+    function compareEnabled(/**Filter*/ filter1, /**Filter*/ filter2)
+    {
+      let hasEnabled1 = (filter1 instanceof ActiveFilter ? 1 : 0);
+      let hasEnabled2 = (filter2 instanceof ActiveFilter ? 1 : 0);
+      if (hasEnabled1 != hasEnabled2)
+        return hasEnabled1 - hasEnabled2;
+      else if (hasEnabled1 && filter1.disabled != filter2.disabled)
+        return (filter1.disabled ? -1 : 1);
+      else
+        return 0;
+    }
+    function compareHitCount(/**Filter*/ filter1, /**Filter*/ filter2)
+    {
+      let hasHitCount1 = (filter1 instanceof ActiveFilter ? 1 : 0);
+      let hasHitCount2 = (filter2 instanceof ActiveFilter ? 1 : 0);
+      if (hasHitCount1 != hasHitCount2)
+        return hasHitCount1 - hasHitCount2;
+      else if (hasHitCount1)
+        return filter1.hitCount - filter2.hitCount;
+      else
+        return 0;
+    }
+    function compareLastHit(/**Filter*/ filter1, /**Filter*/ filter2)
+    {
+      let hasLastHit1 = (filter1 instanceof ActiveFilter ? 1 : 0);
+      let hasLastHit2 = (filter2 instanceof ActiveFilter ? 1 : 0);
+      if (hasLastHit1 != hasLastHit2)
+        return hasLastHit1 - hasLastHit2;
+      else if (hasLastHit1)
+        return filter1.lastHit - filter2.lastHit;
+      else
+        return 0;
+    }
+
+    /**
+     * Creates a sort function from a primary and a secondary comparison function.
+     * @param {Function} cmpFunc  comparison function to be called first
+     * @param {Function} fallbackFunc  (optional) comparison function to be called if primary function returns 0
+     * @param {Boolean} desc  if true, the result of the primary function (not the secondary function) will be reversed - sorting in descending order
+     * @result {Function} comparison function to be used
+     */
+    function createSortFunction(cmpFunc, fallbackFunc, desc)
+    {
+      let factor = (desc ? -1 : 1);
+
+      return function(filter1, filter2)
+      {
+        // Comment replacements without prototype always go last
+        let isLast1 = (filter1.__proto__ == null);
+        let isLast2 = (filter2.__proto__ == null);
+        if (isLast1)
+          return (isLast2 ? 0 : 1)
+        else if (isLast2)
+          return -1;
+
+        let ret = cmpFunc(filter1, filter2);
+        if (ret == 0 && fallbackFunc)
+          return fallbackFunc(filter1, filter2);
+        else
+          return factor * ret;
+      }
+    }
+
+    this.sortProcs = {
+      filter: createSortFunction(compareText, null, false),
+      filterDesc: createSortFunction(compareText, null, true),
+      slow: createSortFunction(compareSlow, compareText, true),
+      slowDesc: createSortFunction(compareSlow, compareText, false),
+      enabled: createSortFunction(compareEnabled, compareText, false),
+      enabledDesc: createSortFunction(compareEnabled, compareText, true),
+      hitcount: createSortFunction(compareHitCount, compareText, false),
+      hitcountDesc: createSortFunction(compareHitCount, compareText, true),
+      lasthit: createSortFunction(compareLastHit, compareText, false),
+      lasthitDesc: createSortFunction(compareLastHit, compareText, true)
+    };
+  },
+
+  /**
    * Box object of the tree that this view is attached to.
    * @type nsITreeBoxObject
    */
@@ -978,15 +1078,7 @@ var FiltersView =
   refresh: function()
   {
     let oldCount = this.rowCount;
-    if (this._subscription)
-    {
-      if (this._subscription.filters.length)
-        this.data = this._subscription.filters.slice();
-      else
-        this.data = [this.noFiltersDummy]
-    }
-    else
-      this.data = [this.noGroupDummy];
+    this.updateData();
 
     this.boxObject.rowCountChanged(0, -oldCount);
     this.boxObject.rowCountChanged(0, this.rowCount);
@@ -994,10 +1086,104 @@ var FiltersView =
       this.selection.select(0);
   },
 
+  /**
+   * Map of comparison functions by column ID  or column ID + "Desc" for
+   * descending sort order.
+   * @const
+   */
+  sortProcs: null,
+
+  /**
+   * Column that the list is currently sorted on.
+   * @type Element
+   */
+  sortColumn: null,
+
+  /**
+   * Sorting function currently in use.
+   * @type Function
+   */
+  sortProc: null,
+
+  /**
+   * Resorts the list.
+   * @param {String} col ID of the column to sort on. If null, the natural order is restored.
+   * @param {String} direction "ascending" or "descending", if null the sort order is toggled.
+   */
+  sortBy: function(col, direction)
+  {
+    let newSortColumn = null;
+    if (col)
+    {
+      newSortColumn = this.boxObject.columns.getNamedColumn(col).element;
+      if (!direction)
+      {
+        if (this.sortColumn == newSortColumn)
+          direction = (newSortColumn.getAttribute("sortDirection") == "ascending" ? "descending" : "ascending");
+        else
+          direction = "ascending";
+      }
+    }
+
+    if (this.sortColumn && this.sortColumn != newSortColumn)
+      this.sortColumn.removeAttribute("sortDirection");
+
+    this.sortColumn = newSortColumn;
+    if (this.sortColumn)
+    {
+      this.sortColumn.setAttribute("sortDirection", direction);
+      this.sortProc = this.sortProcs[col.replace(/^col-/, "") + (direction == "descending" ? "Desc" : "")];
+    }
+    else
+      this.sortProc = null;
+
+    if (this.data.length > 1)
+    {
+      this.updateData();
+      this.boxObject.invalidate();
+    }
+  },
+
+  /**
+   * Updates value of data property on sorting or filter subscription changes.
+   */
+  updateData: function()
+  {
+    if (this._subscription && this._subscription.filters.length)
+    {
+      this.data = this._subscription.filters.slice();
+      if (this.sortProc)
+      {
+        // Hide comments in the list, they should be sorted like the filter following them
+        let followingFilter = null;
+        for (let i = this.data.length - 1; i >= 0; i--)
+        {
+          if (this.data[i] instanceof CommentFilter)
+            this.data[i] = { __proto__: followingFilter, _origFilter: this.data[i] };
+          else
+            followingFilter = this.data[i];
+        }
+
+        this.data.sort(this.sortProc);
+
+        // Restore comments
+        for (let i = 0; i < this.data.length; i++)
+          if ("_origFilter" in this.data[i])
+            this.data[i] = this.data[i]._origFilter;
+      }
+    }
+    else if (this._subscription)
+      this.data = [this.noFiltersDummy]
+    else
+      this.data = [this.noGroupDummy];
+  },
+
   QueryInterface: XPCOMUtils.generateQI([Ci.nsITreeView]),
 
   setTree: function(boxObject)
   {
+    this.init();
+
     this.boxObject = boxObject;
     if (this.boxObject)
     {
@@ -1017,6 +1203,11 @@ var FiltersView =
       this.atoms[atom + "-true"] = atomService.getAtom(atom + "-true");
       this.atoms[atom + "-false"] = atomService.getAtom(atom + "-false");
     }
+
+    let columns = this.boxObject.columns;
+    for (let i = 0; i < columns.length; i++)
+      if (columns[i].element.hasAttribute("sortDirection"))
+        this.sortBy(columns[i].id, columns[i].element.getAttribute("sortDirection"));
   },
 
   selection: null,
@@ -1041,7 +1232,7 @@ var FiltersView =
     {
       if (col == "col-hitcount")
         return filter.hitCount;
-      else
+      else if (col == "col-lasthit")
         return (filter.lastHit ? Utils.formatTime(filter.lastHit) : null);
     }
     else
@@ -1088,7 +1279,13 @@ var FiltersView =
 
   cycleHeader: function(col)
   {
-    // TODO
+    let oldDirection = col.element.getAttribute("sortDirection");
+    if (oldDirection == "ascending")
+      this.sortBy(col.id, "descending");
+    else if (oldDirection == "descending")
+      this.sortBy(null, null);
+    else
+      this.sortBy(col.id, "ascending");
   },
 
   isSorted: function()
