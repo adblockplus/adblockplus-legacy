@@ -100,6 +100,13 @@ treechildren:-moz-locale-dir(rtl)::-moz-tree-cell(col-filter, type-elemhide)
   text-align: end;
 }
 
+treechildren::-moz-tree-twisty
+{
+  /* Prevent indentation in the primary column */
+  width: 0px;
+}
+
+
 treechildren::-moz-tree-cell-text(col-filter, dummy-true)
 {
   font-style: italic;
