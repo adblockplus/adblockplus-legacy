@@ -188,3 +188,14 @@ toolbar[mode="full"] #abp-toolbarbutton[type="menu"]
 {
   -moz-image-region: rect(0px, 28px, 14px, 14px);
 }
+
+#abp-survey-message > .title
+{
+  font-weight: bold;
+  font-size: 130%;
+}
+
+#abp-survey-message > .note
+{
+  font-size: 80%;
+}
