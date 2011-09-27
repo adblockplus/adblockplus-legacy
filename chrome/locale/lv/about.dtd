@@ -1,6 +1,10 @@
 <!ENTITY dialog.title "Par Adblock Plus">
 <!ENTITY version.title "Versija">
-<!ENTITY description "  Adblock Plus ļauj jums izlemt, ko vēlaties redzēt Internetā.  Jums vairs nav nepieciešams lejupielādēt reklāmu un reklāmkarogus, ja jūs  nevēlaties tos - aizvāciet ar Adblock Plus!">
-<!ENTITY homepage.label "Adblock Plus mājaslapa:">
-<!ENTITY author.label "Autori:">
-<!ENTITY contributors.label "Atbalstītāji:">
+<!ENTITY description "Adblock Plus ļauj Jums izlemt, ko Jūs vēlaties redzēt internetā.
+  Jums vairs nevajag lejupielādēt reklāmas un banerus; ja jūs tos
+  nevēlaties - noņemiet tos ar Adblock Plus!">
+<!ENTITY homepage.label "Adblock Plus mājas lapa:">
+<!ENTITY author.label "Autors:">
+<!ENTITY contributors.label "Ieguldītāji:">
+<!ENTITY subscriptionAuthors.label "Filtru abonementu autori:">
+<!ENTITY translators.label "Tulkotāji:">

@@ -9,8 +9,8 @@
 <!ENTITY state.label "상태">
 <!ENTITY size.label "크기">
 <!ENTITY docDomain.label "문서 위치">
-<!ENTITY docDomain.thirdParty "(제3자 요청)">
-<!ENTITY docDomain.firstParty "(제1자 요청)">
+<!ENTITY docDomain.thirdParty "(외부 요청)">
+<!ENTITY docDomain.firstParty "(내부 요청)">
 <!ENTITY noitems.label "차단 가능한 항목 없음">
 <!ENTITY whitelisted.label "허용된 페이지">
 <!ENTITY tooltip.address.label "주소 :">

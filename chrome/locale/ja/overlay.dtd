@@ -11,7 +11,7 @@
 <!ENTITY context.media.label "Adblock Plus:ビデオ／オーディオをブロック">
 <!ENTITY context.removeWhitelist.label "Adblock Plus:このページで有効に戻す">
 <!ENTITY sidebar.title "このページでブロック可能な項目">
-<!ENTITY sendReport.label "このページの問題を報告">
+<!ENTITY sendReport.label "このページの不具合を報告">
 <!ENTITY sendReport.accesskey "R">
 <!ENTITY settings.label "設定">
 <!ENTITY settings.accesskey "f">
