@@ -240,9 +240,9 @@
 
   <tree id="filtersTree" persist="height" width="500" editable="true" seltype="multiple" enableColumnDrag="true">
     <treecols context="treecols-context">
-      <treecol id="col-filter" label="&filter.column;" ignoreincolumnpicker="true" flex="10" persist="width ordinal sortDirection hidden"/>
+      <treecol id="col-filter" label="&filter.column;" primary="true" flex="10" persist="width ordinal sortDirection hidden"/>
       <splitter class="tree-splitter"/>
-      <treecol id="col-slow" label="!" flex="0" width="16" persist="width ordinal sortDirection hidden"/>
+      <treecol id="col-slow" label="!" display="&slow.column;" flex="0" width="16" persist="width ordinal sortDirection hidden"/>
       <splitter class="tree-splitter"/>
       <treecol id="col-enabled" label="&enabled.column;" cycler="true" flex="0" persist="width ordinal sortDirection hidden"/>
       <splitter class="tree-splitter"/>
