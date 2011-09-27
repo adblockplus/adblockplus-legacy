@@ -1,5 +1,9 @@
+<!ENTITY dialog.title "Shtim rregulli filtrimi ne Adblock Plus">
+<!ENTITY accept.label "Shto filtrin">
 <!ENTITY advanced.label "Pamja e avancuar">
 <!ENTITY basic.label "Pamja e zakonshme">
+<!ENTITY disabled.warning "Aktualisht Adblock Plus eshte i bllokuar. Ju mund te shtoni filtra por ata nuk do te aplikohen deri sa ju te [link]aktivizoni Adblock Plus[/link].">
+<!ENTITY groupDisabled.warning "Grupi i filtrave &quot;?1?&quot; ku do te shtohet ky filter eshte aktualisht i bllokuar. Ju mund ta shtoni filtrin por nuk do te aplikohet deri sa ju te [link]aktivizoni kete grup filtrash[/link].">
 <!ENTITY filter.label "Filtrues i ri:">
 <!ENTITY filter.accesskey "f">
 <!ENTITY preferences.label "Trego filtruesit ekzistues...">
@@ -8,22 +12,34 @@
 <!ENTITY type.filter.accesskey "B">
 <!ENTITY type.whitelist.label "Mos përfill">
 <!ENTITY type.whitelist.accesskey "x">
+<!ENTITY pattern.label "Shiko per model">
+<!ENTITY pattern.explanation "Modeli mund te jete cfaredo pjese e adreses; yjet (*) veprojne si pergjithesues. Filtri do ti aplikohet vetem adresave te cilat perputhen me modelin e dhene.">
+<!ENTITY regexp.warning "Modeli qe ju dhate do te interpretohet si nje shprehje e rregullt e cila nuk mund te perpunohet sakte nga Adblock Plus dhe mund te ngadalesoje lundrimin tuaj. Nese ju nuk deshironi te perdorni nje shprehje te rregullt, shtoni nje yll (*) ne fund te modelit.">
+<!ENTITY shortpattern.warning "Modeli qe ju dhate eshte shume i shkurter per te qene optimal dhe mund te ngadalesoje lundrimin tuaj. Rekomandohet qe ju te zgjidhni nje fjale me te gjate per kete filter, ne menyre qe te lejoni Adblock Plus te perpunoje filtrin ne menyre me efikase.">
+<!ENTITY match.warning "Modeli qe ju dhate nuk perputhet me adresen e cila do te bllokohet/lejohet dhe nuk do te kete asnje efekt.">
 <!ENTITY custom.pattern.label "Përshtatja:">
 <!ENTITY custom.pattern.accesskey "C">
+<!ENTITY anchors.label "Prano modelin vetem:">
+<!ENTITY anchor.start.label "ne fillimin e adreses">
 <!ENTITY anchor.start.accesskey "g">
+<!ENTITY anchor.start.flexible.label "ne fillimin e emrit te domain">
 <!ENTITY anchor.start.flexible.accesskey "g">
 <!ENTITY anchor.end.label "në fund të adresës">
 <!ENTITY anchor.end.accesskey "n">
 <!ENTITY options.label "Mundësitë">
+<!ENTITY domainRestriction.label "Vetem ne domain:">
 <!ENTITY domainRestriction.accesskey "d">
+<!ENTITY domainRestriction.help "Ky funksion perdoret per te percaktuar nje ose me shume domain te ndare nga nje vije (|). Filtri do ti aplikohet vetem domain(eve) te perzgjedhur. Nje tilde (~) perpara emrit te domain tregon qe filtri nuk do te aplikohet ne kete domain.">
 <!ENTITY firstParty.label "Vetëm pjesa e parë">
 <!ENTITY firstParty.accesskey "r">
 <!ENTITY thirdParty.label "Vetëm pjesa e tretë">
 <!ENTITY thirdParty.accesskey "T">
+<!ENTITY matchCase.label "Sipas germave:">
 <!ENTITY matchCase.accesskey "M">
 <!ENTITY types.label "Apliko në llojet:">
 <!ENTITY selectAllTypes.label "Selekto të gjitha">
 <!ENTITY unselectAllTypes.label "Mos selekto asnjë">
+<!ENTITY collapse.label "Mbyll te bllokuarat:">
 <!ENTITY collapse.accesskey "I">
 <!ENTITY collapse.default.yes.label "Përdor të parazgjedhurën (po):">
 <!ENTITY collapse.default.no.label "Përdor të parazgjedhurën (jo):">
