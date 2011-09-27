@@ -1,6 +1,6 @@
 <!ENTITY dialog.title "Adblock Plus süzgeç aboneliği ekle">
 <!ENTITY dialog.title.edit "Süzgeç aboneliklerini düzenle">
-<!ENTITY description.newInstall "Adblock Plus herhangi bir süzgeç aboneliğiyle birlikte en etkin şekilde kullanılır. Bu abonelikler diğer Adblock Plus kullanıcıları tarafından ücretsiz sunulmaktadır. Dilinize en uygun abonelik seçilmiş durumda.">
+<!ENTITY description.newInstall "Adblock Plus herhangi bir süzgeç aboneliğiyle birlikte en etkin şekilde kullanılır. Bu abonelikler diğer Adblock Plus kullanıcıları tarafından ücretsiz sunulmaktadır. Dilinize en uygun abonelik, halihazırda seçilmiş durumdadır.">
 <!ENTITY subscriptionSelector.label "Lütfen listeden bir süzgeç aboneliği seçin:">
 <!ENTITY viewList.label "Süzgeçlere bak">
 <!ENTITY visitHomepage.label "Ana sayfaya git">
