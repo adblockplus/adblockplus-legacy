@@ -1,6 +1,6 @@
 <!ENTITY dialog.title "애드블록 플러스 정보">
 <!ENTITY version.title "버전">
-<!ENTITY description "애드블록 플러스는 콘텐츠 이용을 방해하고 성가신 광고를 차단하여 더욱 빠르고 쾌적한 인터넷을 만들어줍니다. 참고로 현존하는 애드블록 플러스와 예전에 폐기된 애드블록은 전혀 다른 확장 프로그램입니다.">
+<!ENTITY description "애드블록 플러스는 콘텐츠 이용을 방해하고 불건전한 광고를 차단하여 빠르고 쾌적한 인터넷을 만들어줍니다. 애드블록 플러스 프로젝트의 목적은 광고를 차단/허용하여 인터넷을 변화시키는 것입니다!">
 <!ENTITY homepage.label "홈페이지">
 <!ENTITY author.label "개발자">
 <!ENTITY contributors.label "공헌자">

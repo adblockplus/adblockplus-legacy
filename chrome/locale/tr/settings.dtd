@@ -63,7 +63,7 @@
 <!ENTITY filterdoc.accesskey "z">
 <!ENTITY about.label "Adblock Plus hakkında">
 <!ENTITY about.accesskey "O">
-<!ENTITY description "Engellemek istediğiniz adresleri yazın. Öneriler için açılır menüye bakın. Daha genel süzgeçler tanımlamak için * işaretini kullanabilirsiniz. İleri düzeyde bilgiye sahip kullanıcılar düzenli ifadelere de (ör. /reklam\d+\.gif$/) başvurabilirler.">
+<!ENTITY description "Engellemek istediğiniz adresleri yazın. Öneriler için açılır menüye bakın. Daha genel süzgeçler tanımlamak için * işaretini kullanabilirsiniz. İleri düzeyde bilgiye sahip kullanıcılar düzenli ifadelere de (ör. /reklamd+.gif$/) başvurabilirler.">
 <!ENTITY filter.column "Süzgeç kuralı">
 <!ENTITY filter.accesskey "k">
 <!ENTITY slow.column "Süzgeçleri göster">
