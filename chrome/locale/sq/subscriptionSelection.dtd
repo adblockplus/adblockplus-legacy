@@ -1,6 +1,25 @@
-<!ENTITY other.accesskey "f">
+<!ENTITY dialog.title "Shto abonim filtri ne Adblock Plus">
+<!ENTITY dialog.title.edit "Modifiko abonim filtri">
+<!ENTITY description.newInstall "Adblock Plus do te jete me efikas nese ju shtoni abonime ne filtra. Abonimet ne filtra jane dhene falas nga perdorues te tjere te Adblock Plus. Abonimi me i pershtatshem per gjuhen tuaj eshte zgjedhur.">
+<!ENTITY subscriptionSelector.label "Ju lutem zgjidhni nje abonim ne filter nga lista:">
+<!ENTITY viewList.label "Shiko filtrat">
+<!ENTITY visitHomepage.label "Vizito  faqen web">
+<!ENTITY addSubscription.label "Shto abonim">
+<!ENTITY saveSubscription.label "Ruaj abonimin">
+<!ENTITY other.label "Shto nje abonim tjeter">
+<!ENTITY other.accesskey "J">
+<!ENTITY list.download.failed "Adblock Plus nuk arriti te gjeje listen e abonimeve.">
+<!ENTITY list.download.retry "Provoni perseri">
+<!ENTITY list.download.website "Shikoni faqen web">
+<!ENTITY fromWeb.description "Ju lutem konfirmoni qe ju deshironi te shtoni kete abonim ne filter. Ju mund te ndryshoni titullin ose vendndodhjen e abonimit perpara se ta shtoni ate.">
+<!ENTITY edit.description "Ju mund te ndryshoni titullin e abonimit ose vendndodhjen sipas deshires.">
+<!ENTITY external.description "Ky eshte nje abonim ne nje filter te jashtem; do te marre te dhenat me te fundit nga moduli i cili e krijoi kete abonim.">
+<!ENTITY title.label "Titulli i abonimit:">
 <!ENTITY title.accesskey "T">
 <!ENTITY location.label "Vendi i listës së filtruesit">
 <!ENTITY location.accesskey "L">
 <!ENTITY autodownload.label "Fresko Automatikisht">
-<!ENTITY autodownload.accesskey "P">
+<!ENTITY autodownload.accesskey "F">
+<!ENTITY supplementMessage "Abonimi ne filter eshte menduar qe te perdoret me abonimin &quot;?1?&quot; te cilin ju nuk jeni duke e perdorur aktualisht.">
+<!ENTITY addMain.label "Shtoje edhe abonimin &quot;?1?&quot; gjithashtu">
+<!ENTITY addMain.accesskey "s">

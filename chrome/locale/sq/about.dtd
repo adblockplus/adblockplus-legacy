@@ -4,3 +4,5 @@
 <!ENTITY homepage.label "Adblock Plus internet faqja">
 <!ENTITY author.label "Autori">
 <!ENTITY contributors.label "Kontribuuesit">
+<!ENTITY subscriptionAuthors.label "Filtrim i autoreve sipas abonimit:">
+<!ENTITY translators.label "Perkthyesit:">

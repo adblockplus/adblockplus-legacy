@@ -43,15 +43,15 @@
 <!ENTITY options.accesskey "O">
 <!ENTITY enable.label "啟用 Adblock Plus">
 <!ENTITY enable.accesskey "N">
-<!ENTITY showintoolbar.label "顯示工具列按鈕">
+<!ENTITY showintoolbar.label "在工具列顯示">
 <!ENTITY showintoolbar.accesskey "B">
-<!ENTITY showinstatusbar.label "顯示狀態列圖示">
+<!ENTITY showinstatusbar.label "在狀態列顯示">
 <!ENTITY showinstatusbar.accesskey "S">
 <!ENTITY objecttabs.label "在 Flash 和 Java 物件上顯示頁籤">
 <!ENTITY objecttabs.accesskey "T">
-<!ENTITY collapse.label "釋放物件所佔用的空間">
+<!ENTITY collapse.label "折疊已阻擋元素">
 <!ENTITY collapse.accesskey "L">
-<!ENTITY sync.label "同步 Adblock 設定值">
+<!ENTITY sync.label "同步 Adblock Plus 設定值">
 <!ENTITY sync.accesskey "c">
 <!ENTITY help.label "說明">
 <!ENTITY help.accesskey "H">
