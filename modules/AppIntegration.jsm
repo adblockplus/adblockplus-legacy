@@ -1422,7 +1422,7 @@ function addSubscription()
   // Load subscriptions data
   let request = Cc["@mozilla.org/xmlextras/xmlhttprequest;1"].createInstance(Ci.nsIJSXMLHttpRequest);
   request.open("GET", "chrome://adblockplus/content/ui/subscriptions.xml");
-  request.onload = function()
+  request.addEventListener("load", function()
   {
     let node = Utils.chooseFilterSubscription(request.responseXML.getElementsByTagName("subscription"));
     let subscription = (node ? Subscription.fromURL(node.getAttribute("url")) : null);
@@ -1449,7 +1449,7 @@ function addSubscription()
                                        "_blank", "chrome,centerscreen,resizable,dialog=no", null);
       }
     }
-  };
+  }, false);
   request.send();
 }
 

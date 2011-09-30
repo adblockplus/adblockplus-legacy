@@ -280,7 +280,7 @@ var Synchronizer =
     if (subscription.lastModified && !forceDownload)
       request.setRequestHeader("If-Modified-Since", subscription.lastModified);
 
-    request.onerror = function(ev)
+    request.addEventListener("error", function(ev)
     {
       delete executing[url];
       try {
@@ -288,9 +288,9 @@ var Synchronizer =
       } catch (e) {}
 
       errorCallback("synchronize_connection_error");
-    };
+    }, false);
 
-    request.onload = function(ev)
+    request.addEventListener("load", function(ev)
     {
       delete executing[url];
       try {
@@ -407,7 +407,7 @@ var Synchronizer =
       delete subscription.oldSubscription;
 
       FilterStorage.saveToDisk();
-    };
+    }, false);
 
     executing[url] = true;
     FilterNotifier.triggerListeners("subscription.downloadStatus", subscription);
@@ -586,7 +586,7 @@ function setError(subscription, error, channelStatus, responseStatus, downloadUR
       request.channel.loadFlags = request.channel.loadFlags |
                                   request.channel.INHIBIT_CACHING |
                                   request.channel.VALIDATE_ALWAYS;
-      request.onload = function(ev)
+      request.addEventListener("load", function(ev)
       {
         if (!(subscription.url in FilterStorage.knownSubscriptions))
           return;
@@ -605,7 +605,7 @@ function setError(subscription, error, channelStatus, responseStatus, downloadUR
           Synchronizer.execute(newSubscription);
         }
         FilterStorage.saveToDisk();
-      }
+      }, false);
       request.send(null);
     }
   }

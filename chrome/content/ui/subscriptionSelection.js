@@ -105,8 +105,8 @@ function loadSubscriptionList()
   };
 
   request.open("GET", Prefs.subscriptions_listurl);
-  request.onerror = errorHandler;
-  request.onload = successHandler;
+  request.addEventListener("error", errorHandler, false);
+  request.addEventListener("load", successHandler, false);
   request.send(null);
 
   subscriptionListLoading = true;
