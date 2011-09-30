@@ -188,10 +188,10 @@ var objTabs =
         request.overrideMimeType("text/plain");
 
         let me = this;
-        request.onload = function()
+        request.addEventListener("load", function()
         {
           processCSSData.call(me, request.responseText);
-        }
+        }, false);
         request.send(null);
       }
       catch (e)

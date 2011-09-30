@@ -143,7 +143,7 @@ function setExtensionData(name, version, homepage, authors, contributors, transl
 
   let request = new XMLHttpRequest();
   request.open("GET", "chrome://adblockplus/content/ui/subscriptions.xml");
-  request.onload = setSubscriptionAuthors;
+  request.addEventListener("load", setSubscriptionAuthors, false);
   request.send(null);
 }
 
