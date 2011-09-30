@@ -279,7 +279,7 @@ var Synchronizer =
     if (subscription.lastModified && !forceDownload)
       request.setRequestHeader("If-Modified-Since", subscription.lastModified);
 
-    request.onerror = function(ev)
+    request.addEventListener("error", function(ev)
     {
       delete executing[url];
       try {
@@ -287,9 +287,9 @@ var Synchronizer =
       } catch (e) {}
 
       errorCallback("synchronize_connection_error");
-    };
+    }, false);
 
-    request.onload = function(ev)
+    request.addEventListener("load", function(ev)
     {
       delete executing[url];
       try {
@@ -379,7 +379,7 @@ var Synchronizer =
       delete subscription.oldSubscription;
 
       FilterStorage.saveToDisk();
-    };
+    }, false);
 
     executing[url] = true;
     FilterStorage.triggerObservers("subscriptions updateinfo", [subscription]);
@@ -558,7 +558,7 @@ function setError(subscription, error, channelStatus, responseStatus, downloadUR
       request.channel.loadFlags = request.channel.loadFlags |
                                   request.channel.INHIBIT_CACHING |
                                   request.channel.VALIDATE_ALWAYS;
-      request.onload = function(ev)
+      request.addEventListener("load", function(ev)
       {
         if (/^301\s+(\S+)/.test(request.responseText))  // Moved permanently    
           subscription.nextURL = RegExp.$1;
@@ -568,7 +568,7 @@ function setError(subscription, error, channelStatus, responseStatus, downloadUR
           FilterStorage.triggerObservers("subscriptions updateinfo", [subscription]);
         }
         FilterStorage.saveToDisk();
-      }
+      }, false);
       request.send(null);
     }
   }
