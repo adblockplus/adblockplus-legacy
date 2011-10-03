@@ -150,6 +150,8 @@ function init()
   E("firstParty").hidden = thirdParty;
 
   let typeGroup = E("typeGroup");
+  let defaultTypes = RegExpFilter.prototype.contentType & ~RegExpFilter.typeMap.DOCUMENT;
+  let isDefaultType = (RegExpFilter.typeMap[item.typeDescr] & defaultTypes) != 0;
   for each (let type in types)
   {
     if (type == Policy.type.ELEMHIDE)
@@ -158,7 +160,12 @@ function init()
     let typeNode = document.createElement("checkbox");
     typeNode.setAttribute("value", Policy.typeDescr[type].toLowerCase().replace(/\_/g, "-"));
     typeNode.setAttribute("label", Policy.localizedDescr[type].toLowerCase());
-    typeNode.setAttribute("checked", "true");
+
+    let typeMask = RegExpFilter.typeMap[Policy.typeDescr[type]];
+    typeNode._defaultType = (typeMask & defaultTypes) != 0;
+    if ((isDefaultType && typeNode._defaultType) || (!isDefaultType && item.type == type))
+      typeNode.setAttribute("checked", "true");
+
     if (item.type == type)
       typeNode.setAttribute("disabled", "true");
     typeNode.addEventListener("command", updateFilter, false);
@@ -223,27 +230,38 @@ function updateFilter()
 
     let enabledTypes = [];
     let disabledTypes = [];
+    let forceEnabledTypes = [];
     for (let typeNode = E("typeGroup").firstChild; typeNode; typeNode = typeNode.nextSibling)
     {
       let value = typeNode.getAttribute("value");
       if (value == "document")
         disableElement(typeNode, type != "whitelist", "checked", false);
 
-      if (value != "document" || !typeNode.disabled)
+      if (!typeNode._defaultType)
       {
-        if (typeNode.checked)
-          enabledTypes.push(value);
-        else
-          disabledTypes.push("~" + value);
+        if (typeNode.getAttribute("checked") == "true")
+          forceEnabledTypes.push(value);
       }
+      else if (typeNode.getAttribute("checked") == "true")
+        enabledTypes.push(value);
+      else
+        disabledTypes.push("~" + value);
     }
-    if (disabledTypes.length < enabledTypes.length)
+    if (!forceEnabledTypes.length && disabledTypes.length < enabledTypes.length)
       options.push.apply(options, disabledTypes);
     else
       options.push.apply(options, enabledTypes);
+    options.push.apply(options, forceEnabledTypes);
 
     if (options.length)
       filter += "$" + options.join(",");
+  }
+  else
+  {
+    let defaultTypes = RegExpFilter.prototype.contentType & ~RegExpFilter.typeMap.DOCUMENT;
+    let isDefaultType = (RegExpFilter.typeMap[item.typeDescr] & defaultTypes) != 0;
+    if (!isDefaultType)
+      filter += "$" + item.typeDescr.toLowerCase().replace(/\_/g, "-");
   }
 
   filter = Filter.normalize(filter);
@@ -318,7 +336,7 @@ function updatePatternSelection()
 
   function testFilter(/**String*/ filter) /**Boolean*/
   {
-    return RegExpFilter.fromText(filter).matches(item.location, item.typeDescr, item.docDomain, item.thirdParty);
+    return RegExpFilter.fromText(filter + "$" + item.typeDescr).matches(item.location, item.typeDescr, item.docDomain, item.thirdParty);
   }
 
   let anchorStartCheckbox = E("anchorStart");
@@ -374,17 +392,18 @@ function setAdvancedMode(mode) {
 }
 
 function disableElement(element, disable, valueProperty, disabledValue) {
-  if (element.disabled == disable)
+  if ((element.getAttribute("disabled") == "true") == disable)
     return;
 
-  element.disabled = disable;
   if (disable)
   {
+    element.setAttribute("disabled", "true");
     element._abpStoredValue = element[valueProperty];
     element[valueProperty] = disabledValue;
   }
   else
   {
+    element.removeAttribute("disabled");
     if ("_abpStoredValue" in element)
       element[valueProperty] = element._abpStoredValue;
     delete element._abpStoredValue;

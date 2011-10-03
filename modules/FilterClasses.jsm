@@ -664,12 +664,13 @@ RegExpFilter.typeMap = {
 
   BACKGROUND: 4,    // Backwards compat, same as IMAGE
 
+  POPUP: 0x10000000,
   DONOTTRACK: 0x20000000,
   ELEMHIDE: 0x40000000
 };
 
-// ELEMHIDE and DONOTTRACK option shouldn't be there by default
-RegExpFilter.prototype.contentType &= ~(RegExpFilter.typeMap.ELEMHIDE | RegExpFilter.typeMap.DONOTTRACK);
+// ELEMHIDE, DONOTTRACK, POPUP option shouldn't be there by default
+RegExpFilter.prototype.contentType &= ~(RegExpFilter.typeMap.ELEMHIDE | RegExpFilter.typeMap.DONOTTRACK | RegExpFilter.typeMap.POPUP);
 
 /**
  * Class for blocking filters

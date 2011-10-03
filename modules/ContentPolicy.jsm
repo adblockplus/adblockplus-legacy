@@ -117,6 +117,10 @@ var Policy =
     Policy.typeDescr[0xFFFD] = "ELEMHIDE";
     Policy.localizedDescr[0xFFFD] = Utils.getString("type_label_elemhide");
   
+    Policy.type.POPUP = 0xFFFE;
+    Policy.typeDescr[0xFFFE] = "POPUP";
+    Policy.localizedDescr[0xFFFE] = Utils.getString("type_label_popup");
+
     for each (let type in nonVisualTypes)
       Policy.nonVisual[Policy.type[type]] = true;
   
@@ -160,6 +164,7 @@ var Policy =
       catMan.addCategoryEntry(category, PolicyPrivate.classDescription, PolicyPrivate.contractID, false, true);
 
     Utils.observerService.addObserver(PolicyPrivate, "http-on-modify-request", true);
+    Utils.observerService.addObserver(PolicyPrivate, "content-document-global-created", true);
 
     TimeLine.leave("ContentPolicy.startup() done");
   },
@@ -381,39 +386,58 @@ var PolicyPrivate =
   //
   observe: function(subject, topic, data)
   {
-    if (topic != "http-on-modify-request"  || !(subject instanceof Ci.nsIHttpChannel))
-      return;
-
-    if (Prefs.enabled)
+    switch (topic)
     {
-      let match = defaultMatcher.matchesAny(subject.URI.spec, "DONOTTRACK", null, false);
-      if (match && match instanceof BlockingFilter)
+      case "content-document-global-created":
       {
-        FilterStorage.increaseHitCount(match);
-        subject.setRequestHeader("DNT", "1", false);
+        if (!(subject instanceof Ci.nsIDOMWindow) || !subject.opener)
+          return;
 
-        // Bug 23845 - Some routers are broken and cannot handle DNT header
-        // following Connection header. Make sure Connection header is last.
-        try
+        if (!Policy.processNode(subject.opener, subject.opener.document, Policy.type.POPUP, Utils.makeURI(subject.location.href), false))
         {
-          let connection = subject.getRequestHeader("Connection");
-          subject.setRequestHeader("Connection", null, false);
-          subject.setRequestHeader("Connection", connection, false);
-        } catch(e) {}
+          subject.stop();
+          Utils.runAsync(subject.close, subject);
+        }
+        break;
       }
-    }
+      case "http-on-modify-request":
+      {
+        if (!(subject instanceof Ci.nsIHttpChannel))
+          return;
 
-    if (PolicyPrivate.previousRequest && subject.URI == PolicyPrivate.previousRequest[2] &&
-        subject instanceof Ci.nsIWritablePropertyBag)
-    {
-      // We just handled a content policy call for this request - associate
-      // the data with the channel so that we can find it in case of a redirect.
-      subject.setProperty("abpRequestData", PolicyPrivate.previousRequest);
-      PolicyPrivate.previousRequest = null;
+        if (Prefs.enabled)
+        {
+          let match = defaultMatcher.matchesAny(subject.URI.spec, "DONOTTRACK", null, false);
+          if (match && match instanceof BlockingFilter)
+          {
+            FilterStorage.increaseHitCount(match);
+            subject.setRequestHeader("DNT", "1", false);
 
-      // Add our listener to remove the data again once the request is done
-      if (subject instanceof Ci.nsITraceableChannel)
-        new TraceableChannelCleanup(subject);
+            // Bug 23845 - Some routers are broken and cannot handle DNT header
+            // following Connection header. Make sure Connection header is last.
+            try
+            {
+              let connection = subject.getRequestHeader("Connection");
+              subject.setRequestHeader("Connection", null, false);
+              subject.setRequestHeader("Connection", connection, false);
+            } catch(e) {}
+          }
+        }
+
+        if (PolicyPrivate.previousRequest && subject.URI == PolicyPrivate.previousRequest[2] &&
+            subject instanceof Ci.nsIWritablePropertyBag)
+        {
+          // We just handled a content policy call for this request - associate
+          // the data with the channel so that we can find it in case of a redirect.
+          subject.setProperty("abpRequestData", PolicyPrivate.previousRequest);
+          PolicyPrivate.previousRequest = null;
+
+          // Add our listener to remove the data again once the request is done
+          if (subject instanceof Ci.nsITraceableChannel)
+            new TraceableChannelCleanup(subject);
+        }
+        break;
+      }
     }
   },
 
