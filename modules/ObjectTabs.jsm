@@ -136,18 +136,6 @@ var objTabs =
   hideTargetTime: 0,
 
   /**
-   * Will be true for Gecko 1.9/1.9.1, objects occupy the entire element
-   * space there including border and padding.
-   * @type Boolean
-   */
-  get _objectOverlapsBorder()
-  {
-    let result = (Utils.versionComparator.compare(Utils.platformVersion, "1.9.2") < 0);
-    this.__defineGetter__("_objectOverlapsBorder", function() result);
-    return result;
-  },
-
-  /**
    * Initializes object tabs (generates random classes and registers stylesheet).
    */
   _initCSS: function()
@@ -415,15 +403,13 @@ var objTabs =
     let rect = element.getBoundingClientRect();
     let wnd = element.ownerDocument.defaultView;
 
-    let offsets = [0, 0, 0, 0];
-    if (!this._objectOverlapsBorder)
-    {
-      let style = wnd.getComputedStyle(element, null);
-      offsets[0] = parseFloat(style.borderLeftWidth) + parseFloat(style.paddingLeft);
-      offsets[1] = parseFloat(style.borderTopWidth) + parseFloat(style.paddingTop);
-      offsets[2] = parseFloat(style.borderRightWidth) + parseFloat(style.paddingRight);
-      offsets[3] = parseFloat(style.borderBottomWidth) + parseFloat(style.paddingBottom);
-    }
+    let style = wnd.getComputedStyle(element, null);
+    let offsets = [
+      parseFloat(style.borderLeftWidth) + parseFloat(style.paddingLeft),
+      parseFloat(style.borderTopWidth) + parseFloat(style.paddingTop),
+      parseFloat(style.borderRightWidth) + parseFloat(style.paddingRight),
+      parseFloat(style.borderBottomWidth) + parseFloat(style.paddingBottom)
+    ];
 
     rect = {left: rect.left + offsets[0], top: rect.top + offsets[1],
             right: rect.right - offsets[2], bottom: rect.bottom - offsets[3]};
