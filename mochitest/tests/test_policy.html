@@ -160,21 +160,15 @@
       ]);
     }
 
-    if (compareGeckoVersion("1.9.1b3") >= 0)
-    {
-      tests.push([
-        '<style type="text/css">@font-face { font-family: Test; src: url("test.otf"); } html { font-family: Test; }</style>',
-        "http://127.0.0.1:1234/test.otf", "font", "127.0.0.1", false
-      ]);
-    }
+    tests.push([
+      '<style type="text/css">@font-face { font-family: Test; src: url("test.otf"); } html { font-family: Test; }</style>',
+      "http://127.0.0.1:1234/test.otf", "font", "127.0.0.1", false
+    ]);
 
-    if (compareGeckoVersion("1.9.1") >= 0)
-    {
-      tests.push([
-        '<script>var xmlDoc = document.implementation.createDocument(null, "root", null);xmlDoc.async = false;xmlDoc.load("test.xml")</' + 'script>',
-        "http://127.0.0.1:1234/test.xml", "xmlhttprequest", "127.0.0.1", false
-      ]);
-    }
+    tests.push([
+      '<script>var xmlDoc = document.implementation.createDocument(null, "root", null);xmlDoc.async = false;xmlDoc.load("test.xml")</' + 'script>',
+      "http://127.0.0.1:1234/test.xml", "xmlhttprequest", "127.0.0.1", false
+    ]);
 
     if (compareGeckoVersion("2.0a") >= 0)
     {
