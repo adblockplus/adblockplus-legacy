@@ -384,7 +384,7 @@ var PolicyPrivate =
   //
   // nsIObserver interface implementation
   //
-  observe: function(subject, topic, data)
+  observe: function(subject, topic, data, additional)
   {
     switch (topic)
     {
@@ -393,10 +393,22 @@ var PolicyPrivate =
         if (!(subject instanceof Ci.nsIDOMWindow) || !subject.opener)
           return;
 
-        if (!Policy.processNode(subject.opener, subject.opener.document, Policy.type.POPUP, Utils.makeURI(subject.location.href), false))
+        let uri = additional || Utils.makeURI(subject.location.href);
+        if (!Policy.processNode(subject.opener, subject.opener.document, Policy.type.POPUP, uri, false))
         {
           subject.stop();
           Utils.runAsync(subject.close, subject);
+        }
+        else if (uri.spec == "about:blank")
+        {
+          // An about:blank pop-up most likely means that a load will be
+          // initiated synchronously. Set a flag for our "http-on-modify-request"
+          // handler.
+          PolicyPrivate.expectingPopupLoad = true;
+          Utils.runAsync(function()
+          {
+            PolicyPrivate.expectingPopupLoad = false;
+          });
         }
         break;
       }
@@ -436,6 +448,14 @@ var PolicyPrivate =
           if (subject instanceof Ci.nsITraceableChannel)
             new TraceableChannelCleanup(subject);
         }
+
+        if (PolicyPrivate.expectingPopupLoad)
+        {
+          let wnd = Utils.getRequestWindow(subject);
+          if (wnd && wnd.opener && wnd.location.href == "about:blank")
+            PolicyPrivate.observe(wnd, "content-document-global-created", null, subject.URI);
+        }
+
         break;
       }
     }
