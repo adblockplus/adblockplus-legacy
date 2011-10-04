@@ -68,6 +68,7 @@ var PolicyRemote =
       catMan.addCategoryEntry(category, PolicyRemote.classDescription, PolicyRemote.contractID, false, true);
 
     Utils.observerService.addObserver(PolicyRemote, "http-on-modify-request", true);
+    Utils.observerService.addObserver(PolicyRemote, "content-document-global-created", true);
 
     // Generate class identifier used to collapse node and register corresponding
     // stylesheet.
@@ -144,24 +145,73 @@ var PolicyRemote =
   //
   // nsIObserver interface implementation
   //
-  observe: function(subject, topic, data)
+  observe: function(subject, topic, data, additional)
   {
-    if (topic != "http-on-modify-request"  || !(subject instanceof Ci.nsIHttpChannel))
-      return;
-
-    // TODO: Do-not-track header
-
-    if (PolicyRemote.previousRequest && subject.URI == PolicyRemote.previousRequest[2] &&
-        subject instanceof Ci.nsIWritablePropertyBag)
+    switch (topic)
     {
-      // We just handled a content policy call for this request - associate
-      // the data with the channel so that we can find it in case of a redirect.
-      subject.setProperty("abpRequestData", PolicyRemote.previousRequest);
-      PolicyRemote.previousRequest = null;
+      case "content-document-global-created":
+      {
+        if (!(subject instanceof Ci.nsIDOMWindow) || !subject.opener)
+          return;
 
-      // Add our listener to remove the data again once the request is done
-      if (subject instanceof Ci.nsITraceableChannel)
-        new TraceableChannelCleanup(subject);
+        let uri = additional || Utils.makeURI(subject.location.href);
+        if (PolicyRemote.shouldLoad(0xFFFE /*Policy.type.POPUP*/, uri, null, subject.opener.document, null, null) != Ci.nsIContentPolicy.ACCEPT)
+        {
+          subject.stop();
+          Utils.runAsync(subject.close, subject);
+        }
+        else if (uri.spec == "about:blank")
+        {
+          // An about:blank pop-up most likely means that a load will be
+          // initiated synchronously. Set a flag for our "http-on-modify-request"
+          // handler.
+          PolicyRemote.expectingPopupLoad = true;
+          Utils.runAsync(function()
+          {
+            PolicyRemote.expectingPopupLoad = false;
+          });
+        }
+
+        break;
+      }
+      case "http-on-modify-request":
+      {
+        if (!(subject instanceof Ci.nsIHttpChannel))
+          return;
+
+        // TODO: Do-not-track header
+
+        if (PolicyRemote.previousRequest && subject.URI == PolicyRemote.previousRequest[2] &&
+            subject instanceof Ci.nsIWritablePropertyBag)
+        {
+          // We just handled a content policy call for this request - associate
+          // the data with the channel so that we can find it in case of a redirect.
+          subject.setProperty("abpRequestData", PolicyRemote.previousRequest);
+          PolicyRemote.previousRequest = null;
+
+          // Add our listener to remove the data again once the request is done
+          if (subject instanceof Ci.nsITraceableChannel)
+          {
+            try
+            {
+              new TraceableChannelCleanup(subject);
+            }
+            catch (e)
+            {
+              Cu.reportError(e);
+            }
+          }
+        }
+
+        if (PolicyRemote.expectingPopupLoad)
+        {
+          let wnd = Utils.getRequestWindow(subject);
+          if (wnd && wnd.opener && wnd.location.href == "about:blank")
+            PolicyRemote.observe(wnd, "content-document-global-created", null, subject.URI);
+        }
+
+        break;
+      }
     }
   },
 
