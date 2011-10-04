@@ -37,10 +37,8 @@
       addTab="
         if (arguments[1] &amp;&amp; 'openNewTabWith' in this.window)
           this.window.openNewTabWith(arguments[0], this.window.content.document, arguments[1].shiftKey);
-        else if ('loadOneTab' in this.window.gBrowser)  /* SeaMonkey 2.1 */
-          this.window.gBrowser.loadOneTab(arguments[0], {inBackground: false});
-        else  /* SeaMonkey 2.0 */
-          this.window.gBrowser.addTab(arguments[0], null, null, true);"
+        else
+          this.window.gBrowser.loadOneTab(arguments[0], {inBackground: false});"
       getContextMenu="return this.E('contentAreaContextMenu');"
       getToolbox="return this.E('navigator-toolbox')"
       getDefaultToolbar="return this.E('PersonalToolbar');"  toolbarInsertBefore="return this.E('bookmarks-button');"/>
