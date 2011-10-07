@@ -457,9 +457,8 @@ function checkSubscriptions()
     if (subscription.softExpiration > time && subscription.expires > time)
       continue;
 
-    // Do not retry downloads more often than synchronizationinterval pref dictates
-    let interval = (time - subscription.lastDownload) / SECONDS_IN_HOUR;
-    if (interval >= Prefs.synchronizationinterval)
+    // Do not retry downloads more often than MIN_EXPIRATION_INTERVAL
+    if (time - subscription.lastDownload >= MIN_EXPIRATION_INTERVAL)
     {
       hadDownloads = true;
       Synchronizer.execute(subscription, false);
