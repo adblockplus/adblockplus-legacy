@@ -168,7 +168,7 @@ function init()
 
     if (item.type == type)
       typeNode.setAttribute("disabled", "true");
-    typeNode.addEventListener("command", updateFilter, false);
+    typeNode.addEventListener("command", function() checkboxUpdated(this), false);
     typeGroup.appendChild(typeNode);
   }
 
@@ -182,6 +182,12 @@ function init()
   warning.hidden = Prefs.enabled;
 
   updatePatternSelection();
+}
+
+function checkboxUpdated(checkbox)
+{
+  checkbox._lastChange = Date.now();
+  updateFilter();
 }
 
 function updateFilter()
@@ -212,21 +218,21 @@ function updateFilter()
     {
       let domainRestriction = E("domainRestriction").value.replace(/[,\s]/g, "").replace(/\.+$/, "");
       if (domainRestriction)
-        options.push("domain=" + domainRestriction);
+        options.push([E("domainRestrictionEnabled")._lastChange || 0, "domain=" + domainRestriction]);
     }
 
     if (E("firstParty").checked)
-      options.push("~third-party");
+      options.push([E("firstParty")._lastChange || 0, "~third-party"]);
     if (E("thirdParty").checked)
-      options.push("third-party");
+      options.push([E("thirdParty")._lastChange || 0, "third-party"]);
 
     if (E("matchCase").checked)
-      options.push("match-case");
+      options.push([E("matchCase")._lastChange || 0, "match-case"]);
 
     let collapse = E("collapse");
     disableElement(collapse, type == "whitelist", "value", "");
     if (collapse.value != "")
-      options.push(collapse.value);
+      options.push([collapse._lastChange, collapse.value]);
 
     let enabledTypes = [];
     let disabledTypes = [];
@@ -240,12 +246,12 @@ function updateFilter()
       if (!typeNode._defaultType)
       {
         if (typeNode.getAttribute("checked") == "true")
-          forceEnabledTypes.push(value);
+          forceEnabledTypes.push([typeNode._lastChange || 0, value]);
       }
       else if (typeNode.getAttribute("checked") == "true")
-        enabledTypes.push(value);
+        enabledTypes.push([typeNode._lastChange || 0, value]);
       else
-        disabledTypes.push("~" + value);
+        disabledTypes.push([typeNode._lastChange || 0, "~" + value]);
     }
     if (!forceEnabledTypes.length && disabledTypes.length < enabledTypes.length)
       options.push.apply(options, disabledTypes);
@@ -254,7 +260,10 @@ function updateFilter()
     options.push.apply(options, forceEnabledTypes);
 
     if (options.length)
-      filter += "$" + options.join(",");
+    {
+      options.sort(function(a, b) a[0] - b[0]);
+      filter += "$" + options.map(function(o) o[1]).join(",");
+    }
   }
   else
   {
