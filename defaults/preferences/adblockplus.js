@@ -7,7 +7,6 @@ pref("extensions.adblockplus.fastcollapse", false);
 pref("extensions.adblockplus.showintoolbar", true);
 pref("extensions.adblockplus.showinstatusbar", false);
 pref("extensions.adblockplus.detachsidebar", false);
-pref("extensions.adblockplus.synchronizationinterval", 24);
 pref("extensions.adblockplus.defaulttoolbaraction", 0);
 pref("extensions.adblockplus.defaultstatusbaraction", 0);
 pref("extensions.adblockplus.sidebar_key", "Accel Shift V");
