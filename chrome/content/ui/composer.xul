@@ -97,11 +97,11 @@
     </groupbox>
     <groupbox id="options">
       <caption label="&options.label;"/>
-      <checkbox id="firstParty" label="&firstParty.label;" accesskey="&firstParty.accesskey;" oncommand="updateFilter()"/>
-      <checkbox id="thirdParty" label="&thirdParty.label;" accesskey="&thirdParty.accesskey;" oncommand="updateFilter()"/>
-      <checkbox id="matchCase" label="&matchCase.label;" accesskey="&matchCase.accesskey;" oncommand="updateFilter()"/>
+      <checkbox id="firstParty" label="&firstParty.label;" accesskey="&firstParty.accesskey;" oncommand="checkboxUpdated(this);"/>
+      <checkbox id="thirdParty" label="&thirdParty.label;" accesskey="&thirdParty.accesskey;" oncommand="checkboxUpdated(this);"/>
+      <checkbox id="matchCase" label="&matchCase.label;" accesskey="&matchCase.accesskey;" oncommand="checkboxUpdated(this);"/>
       <hbox align="baseline">
-        <checkbox id="domainRestrictionEnabled" label="&domainRestriction.label;" accesskey="&domainRestriction.accesskey;" oncommand="updateFilter()"/>
+        <checkbox id="domainRestrictionEnabled" label="&domainRestriction.label;" accesskey="&domainRestriction.accesskey;" oncommand="checkboxUpdated(this);"/>
         <description class="help" value="?" tooltip="domainRestrictionHelp"/>
       </hbox>
       <textbox id="domainRestriction" oninput="updateFilter()"/>
