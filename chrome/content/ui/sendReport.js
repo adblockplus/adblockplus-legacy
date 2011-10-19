@@ -224,7 +224,7 @@ let filtersDataSource =
       {
         let filter = Filter.fromText(f)
         let hitCount = wndStats.filters[f];
-        filters.appendChild(<filter text={filter.text} subscriptions={filter.subscriptions.filter(function(s) !s.disabled).map(function(s) s.url).join(" ")} hitCount={hitCount}/>);
+        filters.appendChild(<filter text={filter.text} subscriptions={filter.subscriptions.filter(subscriptionsDataSource.subscriptionFilter).map(function(s) s.url).join(" ")} hitCount={hitCount}/>);
         this.origFilters.push(filter);
       }
     }
@@ -234,6 +234,15 @@ let filtersDataSource =
 
 let subscriptionsDataSource =
 {
+  subscriptionFilter: function(s)
+  {
+    if (s.disabled || !(s instanceof RegularSubscription))
+      return false;
+    if (s instanceof DownloadableSubscription && !/^(http|https|ftp):/i.test(s.url))
+      return false;
+    return true;
+  },
+
   collectData: function(wnd, windowURI, callback)
   {
     let subscriptions = reportData.subscriptions;
@@ -241,7 +250,7 @@ let subscriptionsDataSource =
     for (let i = 0; i < FilterStorage.subscriptions.length; i++)
     {
       let subscription = FilterStorage.subscriptions[i];
-      if (subscription.disabled || !(subscription instanceof RegularSubscription))
+      if (!this.subscriptionFilter(subscription))
         continue;
 
       let subscriptionXML = <subscription id={subscription.url} disabledFilters={subscription.filters.filter(function(filter) filter instanceof ActiveFilter && filter.disabled).length}/>;
@@ -695,8 +704,16 @@ let issuesDataSource =
   disabledFilters: [],
   disabledSubscriptions: [],
   ownFilters: [],
-  numSubscriptions: FilterStorage.subscriptions.filter(function(subscription) subscription instanceof DownloadableSubscription && !subscription.disabled).length,
+  get numSubscriptions() FilterStorage.subscriptions.filter(this.subscriptionFilter).length,
   numAppliedFilters: Infinity,
+
+  subscriptionFilter: function(s)
+  {
+    if (s instanceof DownloadableSubscription)
+      return subscriptionsDataSource.subscriptionFilter(s);
+    else
+      return false;
+  },
 
   collectData: function(wnd, windowURI, callback)
   {
