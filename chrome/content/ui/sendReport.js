@@ -50,7 +50,6 @@ let reportData =
 
 let reportsListDataSource =
 {
-  json: Cc["@mozilla.org/dom/json;1"].createInstance(Ci.nsIJSON),
   list: [],
 
   collectData: function(wnd, windowURI, callback)
@@ -58,7 +57,7 @@ let reportsListDataSource =
     let data = null;
     try
     {
-      data = this.json.decode(Prefs.recentReports);
+      data = JSON.parse(Prefs.recentReports);
     }
     catch (e)
     {
@@ -120,7 +119,7 @@ let reportsListDataSource =
     this.list.unshift({site: site, reportURL: reportURL, time: Date.now()});
     try
     {
-      Prefs.recentReports = this.json.encode(this.list);
+      Prefs.recentReports = JSON.stringify(this.list);
     }
     catch (e)
     {
@@ -131,7 +130,7 @@ let reportsListDataSource =
   clear: function()
   {
     this.list = [];
-    Prefs.recentReports = this.json.encode(this.list);
+    Prefs.recentReports = JSON.stringify(this.list);
     E("recentReports").hidden = true;
   },
 
