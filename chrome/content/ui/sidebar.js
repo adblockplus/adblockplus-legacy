@@ -805,7 +805,7 @@ var treeView = {
         if (!this.data[row].filter)
           return "";
 
-        return this.data[row].filter.subscriptions.map(function(s) s.title).join(", ");
+        return this.data[row].filter.subscriptions.filter(function(s) !s.disabled).map(function(s) s.title).join(", ");
       }
       else
         return this.data[row].location;
