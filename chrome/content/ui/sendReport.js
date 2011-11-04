@@ -703,7 +703,7 @@ let issuesDataSource =
   disabledFilters: [],
   disabledSubscriptions: [],
   ownFilters: [],
-  get numSubscriptions() FilterStorage.subscriptions.filter(this.subscriptionFilter).length,
+  numSubscriptions: 0,
   numAppliedFilters: Infinity,
 
   subscriptionFilter: function(s)
@@ -774,6 +774,7 @@ let issuesDataSource =
         }
       }
 
+      this.numSubscriptions = FilterStorage.subscriptions.filter(this.subscriptionFilter).length;
       this.numAppliedFilters = 0;
       for each (let filter in filtersDataSource.origFilters)
       {
