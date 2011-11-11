@@ -112,16 +112,24 @@ var PolicyRemote =
 
     wnd = Utils.getOriginWindow(wnd);
 
-    let wndLocation = wnd.location.href;
-    let topLocation = wnd.top.location.href;
-    let key = contentType + " " + contentLocation.spec + " " + wndLocation + " " + topLocation;
+    let locations = [];
+    let testWnd = wnd;
+    while (true)
+    {
+      locations.push(testWnd.location.href);
+      if (testWnd.parent == testWnd)
+        break;
+      else
+        testWnd = testWnd.parent;
+    }
+
+    let key = contentType + " " + contentLocation.spec + " " + locations.join(" ");
     if (!(key in this.cache.data))
     {
       this.cache.add(key, Utils.childMessageManager.sendSyncMessage("AdblockPlus:Policy:shouldLoad", {
               contentType: contentType,
               contentLocation: contentLocation.spec,
-              wndLocation: wnd.location.href,
-              topLocation: wnd.top.location.href})[0]);
+              locations: locations})[0]);
     }
 
     let result = this.cache.data[key];
