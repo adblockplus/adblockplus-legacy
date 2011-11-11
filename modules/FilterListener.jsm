@@ -50,7 +50,7 @@ let subscriptionFilter = null;
 /**
  * Version of the data cache file, files with different version will be ignored.
  */
-const cacheVersion = 1;
+const cacheVersion = 2;
 
 /**
  * Value of the FilterListener.batchMode property.

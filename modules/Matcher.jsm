@@ -318,6 +318,7 @@ function CombinedMatcher()
 {
   this.blacklist = new Matcher();
   this.whitelist = new Matcher();
+  this.keys = {__proto__: null};
   this.resultCache = {__proto__: null};
 }
 
@@ -342,6 +343,12 @@ CombinedMatcher.prototype =
   whitelist: null,
 
   /**
+   * Exception rules that are limited by public keys, mapped by the corresponding keys.
+   * @type Object
+   */
+  keys: null,
+
+  /**
    * Lookup table of previous matchesAny results
    * @type Object
    */
@@ -360,6 +367,7 @@ CombinedMatcher.prototype =
   {
     this.blacklist.clear();
     this.whitelist.clear();
+    this.keys = {__proto__: null};
     this.resultCache = {__proto__: null};
     this.cacheEntries = 0;
   },
@@ -370,7 +378,15 @@ CombinedMatcher.prototype =
   add: function(filter)
   {
     if (filter instanceof WhitelistFilter)
-      this.whitelist.add(filter);
+    {
+      if (filter.siteKeys)
+      {
+        for (let i = 0; i < filter.siteKeys.length; i++)
+          this.keys[filter.siteKeys[i]] = filter.text;
+      }
+      else
+        this.whitelist.add(filter);
+    }
     else
       this.blacklist.add(filter);
 
@@ -387,7 +403,15 @@ CombinedMatcher.prototype =
   remove: function(filter)
   {
     if (filter instanceof WhitelistFilter)
-      this.whitelist.remove(filter);
+    {
+      if (filter.siteKeys)
+      {
+        for (let i = 0; i < filter.siteKeys; i++)
+          delete this.keys[filter.siteKeys[i]];
+      }
+      else
+        this.whitelist.remove(filter);
+    }
     else
       this.blacklist.remove(filter);
 
@@ -498,11 +522,29 @@ CombinedMatcher.prototype =
   },
 
   /**
+   * Looks up whether any filters match the given website key.
+   */
+  matchesByKey: function(/**String*/ location, /**String*/ key, /**String*/ docDomain)
+  {
+    key = key.toUpperCase();
+    if (key in this.keys)
+    {
+      let filter = Filter.knownFilters[this.keys[key]];
+      if (filter && filter.matches(location, "DOCUMENT", docDomain, false))
+        return filter;
+      else
+        return null;
+    }
+    else
+      return null;
+  },
+
+  /**
    * Stores current state in a JSON'able object.
    */
   toCache: function(/**Object*/ cache)
   {
-    cache.matcher = {whitelist: {}, blacklist: {}};
+    cache.matcher = {whitelist: {}, blacklist: {}, keys: this.keys};
     this.whitelist.toCache(cache.matcher.whitelist);
     this.blacklist.toCache(cache.matcher.blacklist);
   },
@@ -514,9 +556,9 @@ CombinedMatcher.prototype =
   {
     this.whitelist.fromCache(cache.matcher.whitelist);
     this.blacklist.fromCache(cache.matcher.blacklist);
+    this.keys = cache.matcher.keys;
   }
 }
-
 
 /**
  * Shared CombinedMatcher instance that should usually be used.
