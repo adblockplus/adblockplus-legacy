@@ -522,7 +522,7 @@ function exportList()
               filterVersion = "1.2";
             else if (/^(?:@@)?\|\|/.test(filter.text) || (!Filter.regexpRegExp.test(filter.text) && /\^/.test(filter.text)))
               filterVersion = "1.1";
-            else if (filter.includeDomains != null || filter.excludeDomains != null)
+            else if (filter.domains != null)
               filterVersion = "1.0.1";
             else if (filter.thirdParty != null)
               filterVersion = "1.0";
@@ -537,7 +537,13 @@ function exportList()
           }
           else if (filter instanceof ElemHideFilter)
           {
-            if (filter.excludeDomains != null)
+            let hasExcludes = false;
+            if (filter.domains)
+              for (let domain in filter.domains)
+                if (domain != "" && filter.domains[domain] == false)
+                  hasExcludes = true;
+
+            if (hasExcludes)
               filterVersion = "1.1";
             else if (/^#([\w\-]+|\*)(?:\(([\w\-]+)\))?$/.test(filter.text))
               filterVersion = "0.6.1";
