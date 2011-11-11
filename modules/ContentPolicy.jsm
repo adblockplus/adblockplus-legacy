@@ -200,7 +200,30 @@ var Policy =
       {
         let testWndLocation = getWindowLocation(testWnd);
         match = Policy.isWhitelisted(testWndLocation);
-        if (match && match instanceof WhitelistFilter)
+
+        if (!(match instanceof WhitelistFilter))
+        {
+          let keydata = (testWnd.document && testWnd.document.documentElement ? testWnd.document.documentElement.getAttribute("data-adblockkey") : null);
+          if (keydata && keydata.indexOf("_") >= 0)
+          {
+            let [key, signature] = keydata.split("_", 2);
+            let keyMatch = defaultMatcher.matchesByKey(testWndLocation, key.replace(/=/g, ""), docDomain);
+            if (keyMatch && Utils.crypto)
+            {
+              // Website specifies a key that we know but is the signature valid?
+              let uri = Utils.makeURI(testWndLocation);
+              let params = [
+                uri.path.replace(/#.*/, ""),  // REQUEST_URI
+                uri.asciiHost,                // HTTP_HOST
+                Utils.httpProtocol.userAgent  // HTTP_USER_AGENT
+              ];
+              if (Utils.verifySignature(key, signature, params.join("\0")))
+                match = keyMatch;
+            }
+          }
+        }
+
+        if (match instanceof WhitelistFilter)
         {
           FilterStorage.increaseHitCount(match);
           RequestNotifier.addNodeData(testWnd.document, topWnd, Policy.type.DOCUMENT, getHostname(testWndLocation), false, testWndLocation, match);
@@ -230,8 +253,8 @@ var Policy =
       {
         let testWndLocation = getWindowLocation(testWnd);
         let testDocDomain = getHostname(testWndLocation);
-        match = defaultMatcher.matchesAny(getWindowLocation(testWnd), "ELEMHIDE", testDocDomain, false);
-        if (match && match instanceof WhitelistFilter)
+        match = defaultMatcher.matchesAny(testWndLocation, "ELEMHIDE", testDocDomain, false);
+        if (match instanceof WhitelistFilter)
         {
           FilterStorage.increaseHitCount(match);
           RequestNotifier.addNodeData(testWnd.document, topWnd, contentType, testDocDomain, false, testWndLocation, match);
