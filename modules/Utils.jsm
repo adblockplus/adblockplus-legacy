@@ -679,6 +679,11 @@ var Utils =
       cache.data[cacheKey] = true;
       return true;
     }
+    catch (e)
+    {
+      Cu.reportError(e);
+      return false;
+    }
     finally
     {
       if (keyInfo && !keyInfo.isNull())
