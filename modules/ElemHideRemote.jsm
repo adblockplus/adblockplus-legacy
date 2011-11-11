@@ -151,13 +151,25 @@ HitRegistrationChannel.prototype = {
   {
     let data = "<bindings xmlns='http://www.mozilla.org/xbl'><binding id='dummy'/></bindings>";
     let wnd = Utils.getRequestWindow(this);
+
     if (wnd)
     {
       wnd = Utils.getOriginWindow(wnd);
+
+      let locations = [];
+      let testWnd = wnd;
+      while (true)
+      {
+        locations.push(testWnd.location.href);
+        if (testWnd.parent == testWnd)
+          break;
+        else
+          testWnd = testWnd.parent;
+      }
+
       let result = Utils.childMessageManager.sendSyncMessage("AdblockPlus:ElemHide:checkHit", {
                 key: this.key,
-                wndLocation: wnd.location.href,
-                topLocation: wnd.top.location.href})[0];
+                locations: locations})[0];
       if (result)
         data = "<bindings xmlns='http://www.mozilla.org/xbl'/>";
     }
