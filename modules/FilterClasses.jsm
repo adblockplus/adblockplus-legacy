@@ -529,17 +529,18 @@ RegExpFilter.prototype =
  */
 RegExpFilter.fromText = function(text)
 {
-  let constructor = BlockingFilter;
+  let blocking = true;
   let origText = text;
   if (text.indexOf("@@") == 0)
   {
-    constructor = WhitelistFilter;
+    blocking = false;
     text = text.substr(2);
   }
 
   let contentType = null;
   let matchCase = null;
   let domains = null;
+  let siteKeys = null;
   let thirdParty = null;
   let collapse = null;
   let options;
@@ -576,10 +577,12 @@ RegExpFilter.fromText = function(text)
         collapse = true;
       else if (option == "~COLLAPSE")
         collapse = false;
+      else if (option == "SITEKEY" && typeof value != "undefined")
+        siteKeys = value.split(/\|/);
     }
   }
 
-  if (constructor == WhitelistFilter && (contentType == null || (contentType & RegExpFilter.typeMap.DOCUMENT)) &&
+  if (!blocking && (contentType == null || (contentType & RegExpFilter.typeMap.DOCUMENT)) &&
       (!options || options.indexOf("DOCUMENT") < 0) && !/^\|?[\w\-]+:/.test(text))
   {
     // Exception filters shouldn't apply to pages by default unless they start with a protocol name
@@ -587,10 +590,15 @@ RegExpFilter.fromText = function(text)
       contentType = RegExpFilter.prototype.contentType;
     contentType &= ~RegExpFilter.typeMap.DOCUMENT;
   }
+  if (!blocking && siteKeys)
+    contentType = RegExpFilter.typeMap.DOCUMENT;
 
   try
   {
-    return new constructor(origText, text, contentType, matchCase, domains, thirdParty, collapse);
+    if (blocking)
+      return new BlockingFilter(origText, text, contentType, matchCase, domains, thirdParty, collapse);
+    else
+      return new WhitelistFilter(origText, text, contentType, matchCase, domains, thirdParty, siteKeys);
   }
   catch (e)
   {
@@ -664,16 +672,26 @@ BlockingFilter.prototype =
  * @param {Boolean} matchCase see RegExpFilter()
  * @param {String} domains see RegExpFilter()
  * @param {Boolean} thirdParty see RegExpFilter()
+ * @param {String[]} siteKeys public keys of websites that this filter should apply to
  * @constructor
  * @augments RegExpFilter
  */
-function WhitelistFilter(text, regexpSource, contentType, matchCase, domains, thirdParty)
+function WhitelistFilter(text, regexpSource, contentType, matchCase, domains, thirdParty, siteKeys)
 {
   RegExpFilter.call(this, text, regexpSource, contentType, matchCase, domains, thirdParty);
+
+  if (siteKeys != null)
+    this.siteKeys = siteKeys;
 }
 WhitelistFilter.prototype =
 {
-  __proto__: RegExpFilter.prototype
+  __proto__: RegExpFilter.prototype,
+
+  /**
+   * List of public keys of websites that this filter should apply to
+   * @type String[]
+   */
+  siteKeys: null
 }
 
 /**

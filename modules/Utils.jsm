@@ -547,6 +547,68 @@ var Utils =
       else
         node.className += " " + Utils.collapsedClass;
     }
+  },
+
+  /**
+   * Verifies RSA signature. The public key and signature should be base64-encoded.
+   */
+  verifySignature: function(/**String*/ key, /**String*/ signature, /**String*/ data) /**Boolean*/
+  {
+    if (!Utils.crypto)
+      return false;
+
+    // Maybe we did the same check recently, look it up in the cache
+    if (!("_cache" in Utils.verifySignature))
+      Utils.verifySignature._cache = new Cache(5);
+    let cache = Utils.verifySignature._cache;
+    let cacheKey = key + " " + signature + " " + data;
+    if (cacheKey in cache.data)
+      return cache.data[cacheKey];
+    else
+      cache.add(cacheKey, false);
+
+    let keyInfo, pubKey, context;
+    try
+    {
+      let keyItem = Utils.crypto.getSECItem(atob(key));
+      keyInfo = Utils.crypto.SECKEY_DecodeDERSubjectPublicKeyInfo(keyItem.address());
+      if (keyInfo.isNull())
+        throw new Error("SECKEY_DecodeDERSubjectPublicKeyInfo failed");
+
+      pubKey = Utils.crypto.SECKEY_ExtractPublicKey(keyInfo);
+      if (pubKey.isNull())
+        throw new Error("SECKEY_ExtractPublicKey failed");
+
+      let signatureItem = Utils.crypto.getSECItem(atob(signature));
+
+      context = Utils.crypto.VFY_CreateContext(pubKey, signatureItem.address(), Utils.crypto.SEC_OID_ISO_SHA_WITH_RSA_SIGNATURE, null);
+      if (context.isNull())
+        return false;   // This could happen if the signature is invalid
+
+      let error = Utils.crypto.VFY_Begin(context);
+      if (error < 0)
+        throw new Error("VFY_Begin failed");
+
+      error = Utils.crypto.VFY_Update(context, data, data.length);
+      if (error < 0)
+        throw new Error("VFY_Update failed");
+
+      error = Utils.crypto.VFY_End(context);
+      if (error < 0)
+        return false;
+
+      cache.data[cacheKey] = true;
+      return true;
+    }
+    finally
+    {
+      if (keyInfo && !keyInfo.isNull())
+        Utils.crypto.SECKEY_DestroySubjectPublicKeyInfo(keyInfo);
+      if (pubKey && !pubKey.isNull())
+        Utils.crypto.SECKEY_DestroyPublicKey(pubKey);
+      if (context && !context.isNull())
+        Utils.crypto.VFY_DestroyContext(context, true);
+    }
   }
 };
 
@@ -722,6 +784,159 @@ XPCOMUtils.defineLazyServiceGetter(Utils, "systemPrincipal", "@mozilla.org/syste
 XPCOMUtils.defineLazyServiceGetter(Utils, "dateFormatter", "@mozilla.org/intl/scriptabledateformat;1", "nsIScriptableDateFormat");
 XPCOMUtils.defineLazyServiceGetter(Utils, "childMessageManager", "@mozilla.org/childprocessmessagemanager;1", "nsISyncMessageSender");
 XPCOMUtils.defineLazyServiceGetter(Utils, "parentMessageManager", "@mozilla.org/parentprocessmessagemanager;1", "nsIFrameMessageManager");
+XPCOMUtils.defineLazyServiceGetter(Utils, "httpProtocol", "@mozilla.org/network/protocol;1?name=http", "nsIHttpProtocolHandler");
+XPCOMUtils.defineLazyGetter(Utils, "crypto", function()
+{
+  try
+  {
+    let ctypes = Components.utils.import("resource://gre/modules/ctypes.jsm", null).ctypes;
+
+    let nsslib = ctypes.open(ctypes.libraryName("nss3"));
+
+    let result = {};
+
+    // seccomon.h
+    result.siUTF8String = 14;
+
+    // secoidt.h
+    result.SEC_OID_ISO_SHA_WITH_RSA_SIGNATURE = 15;
+
+    // The following types are opaque to us
+    result.VFYContext = ctypes.void_t;
+    result.SECKEYPublicKey = ctypes.void_t;
+    result.CERTSubjectPublicKeyInfo = ctypes.void_t;
+
+    /*
+     * seccomon.h
+     * struct SECItemStr {
+     *   SECItemType type;
+     *   unsigned char *data;
+     *   unsigned int len;
+     * };
+     */
+    result.SECItem = ctypes.StructType("SECItem", [
+      {type: ctypes.int},
+      {data: ctypes.unsigned_char.ptr},
+      {len: ctypes.int}
+    ]);
+
+    /*
+     * cryptohi.h
+     * extern VFYContext *VFY_CreateContext(SECKEYPublicKey *key, SECItem *sig,
+     *                                      SECOidTag sigAlg, void *wincx);
+     */
+    result.VFY_CreateContext = nsslib.declare(
+      "VFY_CreateContext",
+      ctypes.default_abi, result.VFYContext.ptr,
+      result.SECKEYPublicKey.ptr,
+      result.SECItem.ptr,
+      ctypes.int,
+      ctypes.voidptr_t
+    );
+
+    /*
+     * cryptohi.h
+     * extern void VFY_DestroyContext(VFYContext *cx, PRBool freeit);
+     */
+    result.VFY_DestroyContext = nsslib.declare(
+      "VFY_DestroyContext",
+      ctypes.default_abi, ctypes.void_t,
+      result.VFYContext.ptr,
+      ctypes.bool
+    );
+
+    /*
+     * cryptohi.h
+     * extern SECStatus VFY_Begin(VFYContext *cx);
+     */
+    result.VFY_Begin = nsslib.declare("VFY_Begin",
+      ctypes.default_abi, ctypes.int,
+      result.VFYContext.ptr
+    );
+
+    /*
+     * cryptohi.h
+     * extern SECStatus VFY_Update(VFYContext *cx, const unsigned char *input,
+     *                             unsigned int inputLen);
+     */
+    result.VFY_Update = nsslib.declare(
+      "VFY_Update",
+      ctypes.default_abi, ctypes.int,
+      result.VFYContext.ptr,
+      ctypes.unsigned_char.ptr,
+      ctypes.int
+    );
+
+    /*
+     * cryptohi.h
+     * extern SECStatus VFY_End(VFYContext *cx);
+     */
+    result.VFY_End = nsslib.declare(
+      "VFY_End",
+      ctypes.default_abi, ctypes.int,
+      result.VFYContext.ptr
+    );
+
+    /*
+     * keyhi.h
+     * extern CERTSubjectPublicKeyInfo *
+     * SECKEY_DecodeDERSubjectPublicKeyInfo(SECItem *spkider);
+     */
+    result.SECKEY_DecodeDERSubjectPublicKeyInfo = nsslib.declare(
+      "SECKEY_DecodeDERSubjectPublicKeyInfo",
+      ctypes.default_abi, result.CERTSubjectPublicKeyInfo.ptr,
+      result.SECItem.ptr
+    );
+
+    /*
+     * keyhi.h
+     * extern void SECKEY_DestroySubjectPublicKeyInfo(CERTSubjectPublicKeyInfo *spki);
+     */
+    result.SECKEY_DestroySubjectPublicKeyInfo = nsslib.declare(
+      "SECKEY_DestroySubjectPublicKeyInfo",
+      ctypes.default_abi, ctypes.void_t,
+      result.CERTSubjectPublicKeyInfo.ptr
+    );
+
+    /*
+     * keyhi.h
+     * extern SECKEYPublicKey *
+     * SECKEY_ExtractPublicKey(CERTSubjectPublicKeyInfo *);
+     */
+    result.SECKEY_ExtractPublicKey = nsslib.declare(
+      "SECKEY_ExtractPublicKey",
+      ctypes.default_abi, result.SECKEYPublicKey.ptr,
+      result.CERTSubjectPublicKeyInfo.ptr
+    );
+
+    /*
+     * keyhi.h
+     * extern void SECKEY_DestroyPublicKey(SECKEYPublicKey *key);
+     */
+    result.SECKEY_DestroyPublicKey = nsslib.declare(
+      "SECKEY_DestroyPublicKey",
+      ctypes.default_abi, ctypes.void_t,
+      result.SECKEYPublicKey.ptr
+    );
+
+    // Convenience method
+    result.getSECItem = function(data)
+    {
+      var dataArray = new ctypes.ArrayType(ctypes.unsigned_char, data.length)();
+      for (let i = 0; i < data.length; i++)
+        dataArray[i] = data.charCodeAt(i) % 256;
+      return new result.SECItem(result.siUTF8String, dataArray, dataArray.length);
+    };
+
+    return result;
+  }
+  catch (e)
+  {
+    Cu.reportError(e);
+    // Expected, ctypes isn't supported in Gecko 1.9.2
+    return null;
+  }
+});
 
 if ("@mozilla.org/messenger/headerparser;1" in Cc)
   XPCOMUtils.defineLazyServiceGetter(Utils, "headerParser", "@mozilla.org/messenger/headerparser;1", "nsIMsgHeaderParser");
