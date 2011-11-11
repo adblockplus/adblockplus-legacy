@@ -208,6 +208,8 @@
       {
         return;
       }
+      if (item.filter instanceof WhitelistFilter)
+        return;
 
       if (policyHits.length > 0)
       {
@@ -274,15 +276,15 @@
 
       let [body, expectedURL, expectedType, expectedDomain, expectedThirdParty] = tests[currentTest];
 
+      let stageDescription = stageDescriptions[currentStage];
+      if (stageDescription.indexOf("%S") >= 0)
+        stageDescription = stageDescription.replace("%S", expectedURL);
+
       let expectedStatus = "allowed";
-      if (currentStage == 3)
-        is(policyHits.length, 0, "Number of policy hits for " + body + " with site whitelisting");
+      if (currentStage == 3 || currentStage == 5)
+        is(policyHits.length, 0, "Number of policy hits for " + body + " (" + stageDescription + ")");
       else
       {
-        let stageDescription = stageDescriptions[currentStage];
-        if (stageDescription.indexOf("%S") >= 0)
-          stageDescription = stageDescription.replace("%S", expectedURL);
-
         is(policyHits.length, 1, "Number of policy hits for " + body + " (" + stageDescription + ")");
         if (policyHits.length == 1)
         {

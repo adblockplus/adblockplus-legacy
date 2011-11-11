@@ -189,14 +189,28 @@ var Policy =
     if (!topWnd || !topWnd.location || !topWnd.location.href)
       return true;
 
+    let originWindow = Utils.getOriginWindow(wnd);
+    let wndLocation = originWindow.location.href;
+    let docDomain = getHostname(wndLocation);
     let match = null;
     if (!match && Prefs.enabled)
     {
-      match = Policy.isWindowWhitelisted(topWnd);
-      if (match)
+      let testWnd = wnd;
+      while (true)
       {
-        FilterStorage.increaseHitCount(match);
-        return true;
+        let testWndLocation = getWindowLocation(testWnd);
+        match = Policy.isWhitelisted(testWndLocation);
+        if (match && match instanceof WhitelistFilter)
+        {
+          FilterStorage.increaseHitCount(match);
+          RequestNotifier.addNodeData(testWnd.document, topWnd, Policy.type.DOCUMENT, getHostname(testWndLocation), false, testWndLocation, match);
+          return true;
+        }
+
+        if (testWnd.parent == testWnd)
+          break;
+        else
+          testWnd = testWnd.parent;
       }
     }
 
@@ -209,18 +223,25 @@ var Policy =
       contentType = Policy.type.OBJECT;
 
     let locationText = location.spec;
-    let originWindow = Utils.getOriginWindow(wnd);
-    let wndLocation = originWindow.location.href;
-    let docDomain = getHostname(wndLocation);
     if (!match && contentType == Policy.type.ELEMHIDE)
     {
-      match = defaultMatcher.matchesAny(wndLocation, "ELEMHIDE", docDomain, false);
-      if (match && match instanceof WhitelistFilter)
+      let testWnd = wnd;
+      while (true)
       {
-        FilterStorage.increaseHitCount(match);
+        let testWndLocation = getWindowLocation(testWnd);
+        let testDocDomain = getHostname(testWndLocation);
+        match = defaultMatcher.matchesAny(getWindowLocation(testWnd), "ELEMHIDE", testDocDomain, false);
+        if (match && match instanceof WhitelistFilter)
+        {
+          FilterStorage.increaseHitCount(match);
+          RequestNotifier.addNodeData(testWnd.document, topWnd, contentType, testDocDomain, false, testWndLocation, match);
+          return true;
+        }
 
-        RequestNotifier.addNodeData(wnd.document, topWnd, contentType, docDomain, false, wndLocation, match);
-        return true;
+        if (testWnd.parent == testWnd)
+          break;
+        else
+          testWnd = testWnd.parent;
       }
 
       match = location;
@@ -279,7 +300,7 @@ var Policy =
     // Do not allow whitelisting about:. We get a check for about: during
     // startup, it should be dealt with fast - without checking filters which
     // might load patterns.ini.
-    if (/^(moz-safe-)?about:/.test(url))
+    if (!url || /^(moz-safe-)?about:/.test(url))
       return null;
 
     // Ignore fragment identifier
@@ -298,11 +319,7 @@ var Policy =
    */
   isWindowWhitelisted: function(wnd)
   {
-    let location = getWindowLocation(wnd);
-    if (!location)
-      return null;
-
-    return Policy.isWhitelisted(location);
+    return Policy.isWhitelisted(getWindowLocation(wnd));
   },
 
 
