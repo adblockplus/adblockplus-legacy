@@ -239,8 +239,7 @@ function ActiveFilter(text, domains)
   if (domains)
   {
     this.domainSource = domains;
-    this.__defineGetter__("includeDomains", this._getIncludeDomains);
-    this.__defineGetter__("excludeDomains", this._getExcludeDomains);
+    this.__defineGetter__("domains", this._getDomains);
   }
 }
 ActiveFilter.prototype =
@@ -264,7 +263,7 @@ ActiveFilter.prototype =
   lastHit: 0,
 
   /**
-   * String that the includeDomains and excludeDomains properties should be generated from
+   * String that the domains property should be generated from
    * @type String
    */
   domainSource: null,
@@ -276,69 +275,63 @@ ActiveFilter.prototype =
   domainSeparator: null,
 
   /**
-   * Map containing domains that this filter should match on or null if the filter should match on all domains
+   * Map containing domains that this filter should match on/not match on or null if the filter should match on all domains
    * @type Object
    */
-  includeDomains: null,
-  /**
-   * Map containing domains that this filter should not match on or null if the filter should match on all domains
-   * @type Object
-   */
-  excludeDomains: null,
+  domains: null,
 
   /**
-   * Called first time includeDomains property is requested, triggers _generateDomains method.
+   * Called first time domains property is requested, triggers _generateDomains method.
    */
-  _getIncludeDomains: function()
+  _getDomains: function()
   {
     this._generateDomains();
-    return this.includeDomains;
-  },
-  /**
-   * Called first time excludeDomains property is requested, triggers _generateDomains method.
-   */
-  _getExcludeDomains: function()
-  {
-    this._generateDomains();
-    return this.excludeDomains;
+    return this.domains;
   },
 
   /**
-   * Generates includeDomains and excludeDomains properties when one of them is requested for the first time.
+   * Generates domains property when it is requested for the first time.
    */
   _generateDomains: function()
   {
     let domains = this.domainSource.split(this.domainSeparator);
 
     delete this.domainSource;
-    delete this.includeDomains;
-    delete this.excludeDomains;
+    delete this.domains;
 
     if (domains.length == 1 && domains[0][0] != "~")
     {
       // Fast track for the common one-domain scenario
-      this.includeDomains = {__proto__: null};
-      this.includeDomains[domains[0]] = true;
+      this.domains = {__proto__: null, "": false};
+      this.domains[domains[0]] = true;
     }
     else
     {
-      for each (let domain in domains)
+      let hasIncludes = false;
+      for (let i = 0; i < domains.length; i++)
       {
+        let domain = domains[i];
         if (domain == "")
           continue;
   
-        let hash = "includeDomains";
+        let include;
         if (domain[0] == "~")
         {
-          hash = "excludeDomains";
+          include = false;
           domain = domain.substr(1);
         }
+        else
+        {
+          include = true;
+          hasIncludes = true;
+        }
   
-        if (!this[hash])
-          this[hash] = {__proto__: null};
+        if (!this.domains)
+          this.domains = {__proto__: null};
   
-        this[hash][domain] = true;
+        this.domains[domain] = include;
       }
+      this.domains[""] = !hasIncludes;
     }
   },
 
@@ -347,28 +340,27 @@ ActiveFilter.prototype =
    */
   isActiveOnDomain: function(/**String*/ docDomain) /**Boolean*/
   {
+    // If no domains are set the rule matches everywhere
+    if (!this.domains)
+      return true;
+
     // If the document has no host name, match only if the filter isn't restricted to specific domains
     if (!docDomain)
-      return (!this.includeDomains);
-
-    if (!this.includeDomains && !this.excludeDomains)
-      return true;
+      return this.domains[""];
 
     docDomain = docDomain.replace(/\.+$/, "").toUpperCase();
 
     while (true)
     {
-      if (this.includeDomains && docDomain in this.includeDomains)
-        return true;
-      if (this.excludeDomains && docDomain in this.excludeDomains)
-        return false;
+      if (docDomain in this.domains)
+        return this.domains[docDomain];
 
       let nextDot = docDomain.indexOf(".");
       if (nextDot < 0)
         break;
       docDomain = docDomain.substr(nextDot + 1);
     }
-    return (this.includeDomains == null);
+    return this.domains[""];
   },
 
   /**
@@ -376,13 +368,13 @@ ActiveFilter.prototype =
    */
   isActiveOnlyOnDomain: function(/**String*/ docDomain) /**Boolean*/
   {
-    if (!docDomain || !this.includeDomains)
+    if (!docDomain || !this.domains || this.domains[""])
       return false;
 
     docDomain = docDomain.replace(/\.+$/, "").toUpperCase();
 
-    for (let domain in this.includeDomains)
-      if (domain != docDomain && (domain.length <= docDomain.length || domain.indexOf("." + docDomain) != domain.length - docDomain.length - 1))
+    for (let domain in this.domains)
+      if (this.domains[domain] && domain != docDomain && (domain.length <= docDomain.length || domain.indexOf("." + docDomain) != domain.length - docDomain.length - 1))
         return false;
 
     return true;
