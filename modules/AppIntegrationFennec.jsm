@@ -55,17 +55,19 @@ let PolicyPrivate = Cu.import(baseURL.spec + "ContentPolicy.jsm", null).PolicyPr
  * needs to be passed on to the content policy.
  * @constructor
  */
-function FakeWindow(/**String*/ location, /**FakeNode*/ document, /**FakeWindow*/ top)
+function FakeWindow(/**String*/ location, /**FakeNode*/ document, /**FakeWindow*/ parent, /**FakeWindow*/ top)
 {
   this._location = location;
-  this._top = top;
+  this._parent = (parent || this);
+  this._top = (top || this);
   this.document = document;
 }
 FakeWindow.prototype =
 {
   get location() this,
   get href() this._location,
-  get top() this._top || this
+  get parent() this._parent,
+  get top() this._top
 }
 
 /**
@@ -73,13 +75,22 @@ FakeWindow.prototype =
  * needs to be passed on to the content policy.
  * @constructor
  */
-function FakeNode(/**String*/ wndLocation, /**String*/ topLocation)
+function FakeNode(/**String[]*/ locations)
 {
-  let topWnd = new FakeWindow(topLocation, this, null);
-  this.defaultView = new FakeWindow(wndLocation, this, topWnd);
+  let parentWindow = null;
+  let topWindow = null;
+  while (locations.length)
+  {
+    let wnd = new FakeWindow(locations.pop(), this, parentWindow, topWindow);
+    parentWindow = wnd;
+    if (!topWindow)
+      topWindow = wnd;
+  }
+  this.defaultView = parentWindow;
 }
 FakeNode.prototype =
 {
+  defaultView: null,
   get ownerDocument() this,
   getUserData: function() {return null},
   setUserData: function() {}
@@ -109,7 +120,7 @@ try
     try
     {
       let data = message.json;
-      let fakeNode = new FakeNode(data.wndLocation, data.topLocation);
+      let fakeNode = new FakeNode(data.locations);
       let result = PolicyPrivate.shouldLoad(data.contentType, data.contentLocation, null, fakeNode);
       return {value: result, postProcess: needPostProcess};
     }
@@ -137,7 +148,7 @@ try
       if (!filter)
         return false;
 
-      let fakeNode = new FakeNode(data.wndLocation, data.topLocation);
+      let fakeNode = new FakeNode(data.locations);
       return !Policy.processNode(fakeNode.defaultView, fakeNode, Policy.type.ELEMHIDE, filter);
     }
     catch (e)

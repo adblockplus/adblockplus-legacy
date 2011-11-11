@@ -111,7 +111,7 @@
       let body = document.getElementById("frame").contentDocument.body;
       body.innerHTML = body.innerHTML;
 
-      if (currentRun == 2 || currentRun == 5)
+      if (currentRun == 2 || currentRun == 4 || currentRun == 5)
         expected = "visible visible";   // Second and fifth runs are whitelisted, nothing should be hidden
 
       body.offsetHeight;    // force reflow
