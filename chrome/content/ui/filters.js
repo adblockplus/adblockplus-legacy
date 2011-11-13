@@ -1145,6 +1145,25 @@ var FiltersView =
   },
 
   /**
+   * Changes sort current order for the tree. Sorts by filter column if the list is unsorted.
+   * @param {String} order  either "ascending" or "descending"
+   */
+  setSortOrder: function(sortOrder)
+  {
+    let col = (this.sortColumn ? this.sortColumn.id : "col-filter");
+    this.sortBy(col, sortOrder);
+  },
+
+  /**
+   * Toggles the visibility of a tree column.
+   */
+  toggleColumn: function(/**String*/ id)
+  {
+    let col = E(id);
+    col.setAttribute("hidden", col.hidden ? "false" : "true");
+  },
+
+  /**
    * Updates value of data property on sorting or filter subscription changes.
    */
   updateData: function()
@@ -1178,6 +1197,29 @@ var FiltersView =
       this.data = [this.noGroupDummy];
   },
 
+  /**
+   * Fills the context menu of the filters columns.
+   */
+  fillColumnPopup: function()
+  {
+    E("filters-view-filter").setAttribute("checked", !E("col-filter").hidden);
+    E("filters-view-slow").setAttribute("checked", !E("col-slow").hidden);
+    E("filters-view-enabled").setAttribute("checked", !E("col-enabled").hidden);
+    E("filters-view-hitcount").setAttribute("checked", !E("col-hitcount").hidden);
+    E("filters-view-lasthit").setAttribute("checked", !E("col-lasthit").hidden);
+
+    let sortColumn = this.sortColumn;
+    let sortColumnID = (sortColumn ? sortColumn.id : null);
+    let sortDir = (sortColumn ? sortColumn.getAttribute("sortDirection") : "natural");
+    E("filters-sort-none").setAttribute("checked", sortColumn == null);
+    E("filters-sort-filter").setAttribute("checked", sortColumnID == "col-filter");
+    E("filters-sort-enabled").setAttribute("checked", sortColumnID == "col-enabled");
+    E("filters-sort-hitcount").setAttribute("checked", sortColumnID == "col-hitcount");
+    E("filters-sort-lasthit").setAttribute("checked", sortColumnID == "col-lasthit");
+    E("filters-sort-asc").setAttribute("checked", sortDir == "ascending");
+    E("filters-sort-desc").setAttribute("checked", sortDir == "descending");
+  },
+
   QueryInterface: XPCOMUtils.generateQI([Ci.nsITreeView]),
 
   setTree: function(boxObject)
@@ -1189,25 +1231,25 @@ var FiltersView =
     {
       this.noGroupDummy = {text: this.boxObject.treeBody.getAttribute("noGroupText"), dummy: true};
       this.noFiltersDummy = {text: this.boxObject.treeBody.getAttribute("noFiltersText"), dummy: true};
+
+      let atomService = Cc["@mozilla.org/atom-service;1"].getService(Ci.nsIAtomService);
+      let stringAtoms = ["col-filter", "col-enabled", "col-hitcount", "col-lasthit", "type-comment", "type-filterlist", "type-whitelist", "type-elemhide", "type-invalid"];
+      let boolAtoms = ["selected", "dummy", "slow", "disabled"];
+
+      this.atoms = {};
+      for each (let atom in stringAtoms)
+        this.atoms[atom] = atomService.getAtom(atom);
+      for each (let atom in boolAtoms)
+      {
+        this.atoms[atom + "-true"] = atomService.getAtom(atom + "-true");
+        this.atoms[atom + "-false"] = atomService.getAtom(atom + "-false");
+      }
+
+      let columns = this.boxObject.columns;
+      for (let i = 0; i < columns.length; i++)
+        if (columns[i].element.hasAttribute("sortDirection"))
+          this.sortBy(columns[i].id, columns[i].element.getAttribute("sortDirection"));
     }
-
-    let atomService = Cc["@mozilla.org/atom-service;1"].getService(Ci.nsIAtomService);
-    let stringAtoms = ["col-filter", "col-enabled", "col-hitcount", "col-lasthit", "type-comment", "type-filterlist", "type-whitelist", "type-elemhide", "type-invalid"];
-    let boolAtoms = ["selected", "dummy", "slow", "disabled"];
-
-    this.atoms = {};
-    for each (let atom in stringAtoms)
-      this.atoms[atom] = atomService.getAtom(atom);
-    for each (let atom in boolAtoms)
-    {
-      this.atoms[atom + "-true"] = atomService.getAtom(atom + "-true");
-      this.atoms[atom + "-false"] = atomService.getAtom(atom + "-false");
-    }
-
-    let columns = this.boxObject.columns;
-    for (let i = 0; i < columns.length; i++)
-      if (columns[i].element.hasAttribute("sortDirection"))
-        this.sortBy(columns[i].id, columns[i].element.getAttribute("sortDirection"));
   },
 
   selection: null,

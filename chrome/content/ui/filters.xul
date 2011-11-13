@@ -67,6 +67,30 @@
   <command id="group-add-command" oncommand="SubscriptionActions.addGroup();"/>
 </commandset>
 
+<popupset id="filtersPopupset">
+  <menupopup id="filters-view-menu" onpopupshowing="FiltersView.fillColumnPopup();">
+    <menuitem id="filters-view-filter" label="&filter.column;" accesskey="&filter.accesskey;" type="checkbox" disabled="true"/>
+    <menuitem id="filters-view-slow" label="&slow.column;" accesskey="&slow.accesskey;" type="checkbox" oncommand="FiltersView.toggleColumn('col-slow')"/>
+    <menuitem id="filters-view-enabled" label="&enabled.column;" accesskey="&enabled.accesskey;" type="checkbox" oncommand="FiltersView.toggleColumn('col-enabled')"/>
+    <menuitem id="filters-view-hitcount" label="&hitcount.column;" accesskey="&hitcount.accesskey;" type="checkbox" oncommand="FiltersView.toggleColumn('col-hitcount')"/>
+    <menuitem id="filters-view-lasthit" label="&lasthit.column;" accesskey="&lasthit.accesskey;" type="checkbox" oncommand="FiltersView.toggleColumn('col-lasthit')"/>
+    <menuseparator/>
+    <menu id="filters-sort-menu" label="&sort.label;" accesskey="&sort.accesskey;">
+      <menupopup id="filters-sort-popup">
+        <menuitem id="filters-sort-none" label="&sort.none.label;" accesskey="&sort.none.accesskey;" type="radio" name="sortColumn" oncommand="FiltersView.sortBy(null)"/>
+        <menuitem id="filters-sort-filter" label="&filter.column;" accesskey="&filter.accesskey;" type="radio" name="sortColumn" oncommand="FiltersView.sortBy('col-filter')"/>
+        <menuitem id="filters-sort-slow" label="&slow.column;" accesskey="&slow.accesskey;" type="radio" name="sortColumn" oncommand="FiltersView.sortBy('col-slow')"/>
+        <menuitem id="filters-sort-enabled" label="&enabled.column;" accesskey="&enabled.accesskey;" type="radio" name="sortColumn" oncommand="FiltersView.sortBy('col-enabled')"/>
+        <menuitem id="filters-sort-hitcount" label="&hitcount.column;" accesskey="&hitcount.accesskey;" type="radio" name="sortColumn" oncommand="FiltersView.sortBy('col-hitcount')"/>
+        <menuitem id="filters-sort-lasthit" label="&lasthit.column;" accesskey="&lasthit.accesskey;" type="radio" name="sortColumn" oncommand="FiltersView.sortBy('col-lasthit')"/>
+        <menuseparator/>
+        <menuitem id="filters-sort-asc" label="&sort.ascending.label;" accesskey="&sort.ascending.accesskey;" type="radio" name="sortOrder" oncommand="FiltersView.setSortOrder('ascending')"/>
+        <menuitem id="filters-sort-desc" label="&sort.descending.label;" accesskey="&sort.descending.accesskey;" type="radio" name="sortOrder" oncommand="FiltersView.setSortOrder('descending')"/>
+      </menupopup>
+    </menu>
+  </menupopup>
+</popupset>
+
 <hbox flex="1">
   <tabbox id="tabs" flex="1">
     <tabs onselect="onTabChange(this.parentNode);">
@@ -238,9 +262,9 @@
     <grippy id="filtersGrippy"/>
   </splitter>
 
-  <tree id="filtersTree" persist="height" width="500" editable="true" seltype="multiple" enableColumnDrag="true">
-    <treecols context="treecols-context">
-      <treecol id="col-filter" label="&filter.column;" primary="true" flex="10" persist="width ordinal sortDirection hidden"/>
+  <tree id="filtersTree" persist="height" width="500" editable="true" seltype="multiple" enableColumnDrag="true" hidecolumnpicker="true">
+    <treecols context="filters-view-menu">
+      <treecol id="col-filter" label="&filter.column;" flex="10" persist="width ordinal sortDirection hidden"/>
       <splitter class="tree-splitter"/>
       <treecol id="col-slow" label="!" display="&slow.column;" flex="0" width="16" persist="width ordinal sortDirection hidden"/>
       <splitter class="tree-splitter"/>
