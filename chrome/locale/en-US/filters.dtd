@@ -54,6 +54,15 @@
 <!ENTITY lasthit.column                       "Last hit">
 <!ENTITY lasthit.accesskey                    "L">
 
+<!ENTITY sort.label                           "Sort by">
+<!ENTITY sort.accesskey                       "S">
+<!ENTITY sort.none.label                      "Unsorted">
+<!ENTITY sort.none.accesskey                  "U">
+<!ENTITY sort.ascending.label                 "A > Z sort order">
+<!ENTITY sort.ascending.accesskey             "A">
+<!ENTITY sort.descending.label                "Z > A sort order">
+<!ENTITY sort.descending.accesskey            "Z">
+
 <!ENTITY noGroupSelected.text                 "You need to select a filter group before its filters can be displayed.">
 <!ENTITY noFiltersInGroup.text                "The selected group is empty">
 
