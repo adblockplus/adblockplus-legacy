@@ -52,6 +52,7 @@
   <key id="subscription-showHideFilters-key" key="V" modifiers="accel" command="subscription-showHideFilters-command"/>
   <key id="subscription-moveUp-key" keycode="VK_UP" modifiers="accel"/>
   <key id="subscription-moveDown-key" keycode="VK_DOWN" modifiers="accel"/>
+  <key id="filters-selectAll-key" key="A" modifiers="accel" command="filters-selectAll-command"/>
 </keyset>
 
 <commandset id="filtersCommandset">
@@ -65,6 +66,7 @@
   <command id="subscription-addSelected-command" oncommand="SelectSubscription.add();"/>
   <command id="subscription-addOther-command" oncommand="SelectSubscription.chooseOther();"/>
   <command id="group-add-command" oncommand="SubscriptionActions.addGroup();"/>
+  <command id="filters-selectAll-command" oncommand="if (FiltersView.focused) FiltersView.selectAll();"/>
 </commandset>
 
 <popupset id="filtersPopupset">

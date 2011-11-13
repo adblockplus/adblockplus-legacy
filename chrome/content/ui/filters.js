@@ -1060,6 +1060,21 @@ var FiltersView =
     return this.boxObject && !this.boxObject.treeBody.parentNode.collapsed;
   },
 
+  /**
+   * Tests whether the tree is currently focused.
+   */
+  get focused()
+  {
+    let focused = document.commandDispatcher.focusedElement;
+    while (focused)
+    {
+      if ("treeBoxObject" in focused && focused.treeBoxObject == this.boxObject)
+        return true;
+      focused = focused.parentNode;
+    }
+    return false;
+  },
+
   _subscription: 0,
 
   /**
@@ -1191,6 +1206,14 @@ var FiltersView =
         filters[i].disabled = newValue;
       this.boxObject.endUpdateBatch();
     }
+  },
+
+  /**
+   * Selects all entries in the list.
+   */
+  selectAll: function()
+  {
+    this.selection.selectAll();
   },
 
   /**
