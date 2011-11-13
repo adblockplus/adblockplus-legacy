@@ -1425,7 +1425,9 @@ var FiltersView =
   isEditable: function(row, col)
   {
     if (row < 0 || row >= this.data.length)
-      return null;
+      return false;
+    if (!(this._subscription instanceof SpecialSubscription))
+      return false;
 
     let filter = this.data[row];
     if (col.id == "col-filter")
