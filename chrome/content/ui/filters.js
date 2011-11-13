@@ -405,6 +405,11 @@ ListManager.prototype =
         }
         break;
       }
+      case "filter.disabled":
+      {
+        FiltersView.updateFilter(item);
+        break;
+      }
     }
   }
 };
@@ -1164,6 +1169,31 @@ var FiltersView =
   },
 
   /**
+   * Enables or disables all filters in the current selection.
+   */
+  selectionToggleDisabled: function()
+  {
+    let filters = [];
+    for (let i = 0; i < this.selection.getRangeCount(); i++)
+    {
+      let min = {};
+      let max = {};
+      this.selection.getRangeAt(i, min, max);
+      for (let j = min.value; j <= max.value; j++)
+        if (j >= 0 && j < this.data.length && this.data[j] instanceof ActiveFilter)
+          filters.push(this.data[j]);
+    }
+    if (filters.length)
+    {
+      this.boxObject.beginUpdateBatch();
+      let newValue = !filters[0].disabled;
+      for (let i = 0; i < filters.length; i++)
+        filters[i].disabled = newValue;
+      this.boxObject.endUpdateBatch();
+    }
+  },
+
+  /**
    * Updates value of data property on sorting or filter subscription changes.
    */
   updateData: function()
@@ -1198,6 +1228,20 @@ var FiltersView =
   },
 
   /**
+   * Called when a filter property is changed to update the view.
+   */
+  updateFilter: function(filter)
+  {
+    let index = -1;
+    do
+    {
+      index = this.data.indexOf(filter, index + 1);
+      if (index >= 0)
+        this.boxObject.invalidateRow(index);
+    } while (index >= 0);
+  },
+
+  /**
    * Fills the context menu of the filters columns.
    */
   fillColumnPopup: function()
@@ -1218,6 +1262,15 @@ var FiltersView =
     E("filters-sort-lasthit").setAttribute("checked", sortColumnID == "col-lasthit");
     E("filters-sort-asc").setAttribute("checked", sortDir == "ascending");
     E("filters-sort-desc").setAttribute("checked", sortDir == "descending");
+  },
+
+  /**
+   * Called whenever a key is pressed on the list.
+   */
+  onKeyPress: function(/**Event*/ event)
+  {
+    if (event.charCode == " ".charCodeAt(0) && !E("col-enabled").hidden)
+      this.selectionToggleDisabled();
   },
 
   QueryInterface: XPCOMUtils.generateQI([Ci.nsITreeView]),
@@ -1332,8 +1385,7 @@ var FiltersView =
 
   isSorted: function()
   {
-    // TODO
-    return false;
+    return (this.sortProc != null);
   },
 
   canDrop: function(row, orientation)
@@ -1366,7 +1418,12 @@ var FiltersView =
 
   cycleCell: function(row, col)
   {
-    // TODO
+    if (row < 0 || row >= this.data.length || col.id != "col-enabled")
+      return null;
+
+    let filter = this.data[row];
+    if (filter instanceof ActiveFilter)
+      filter.disabled = !filter.disabled;
   },
 
   isContainer: function(row) false,

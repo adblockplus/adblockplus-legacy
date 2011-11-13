@@ -262,7 +262,14 @@
     <grippy id="filtersGrippy"/>
   </splitter>
 
-  <tree id="filtersTree" persist="height" width="500" editable="true" seltype="multiple" enableColumnDrag="true" hidecolumnpicker="true">
+  <tree id="filtersTree"
+      persist="height"
+      width="500"
+      editable="true"
+      seltype="multiple"
+      enableColumnDrag="true"
+      hidecolumnpicker="true"
+      onkeypress="FiltersView.onKeyPress(event);">
     <treecols context="filters-view-menu">
       <treecol id="col-filter" label="&filter.column;" flex="10" persist="width ordinal sortDirection hidden"/>
       <splitter class="tree-splitter"/>
@@ -275,7 +282,9 @@
       <treecol id="col-lasthit" label="&lasthit.column;" hidden="true" flex="4" persist="width ordinal sortDirection hidden"/>
     </treecols>
 
-    <treechildren id="filtersTreeChildren" noGroupText="&noGroupSelected.text;" noFiltersText="&noFiltersInGroup.text;"/>
+    <treechildren id="filtersTreeChildren"
+        noGroupText="&noGroupSelected.text;"
+        noFiltersText="&noFiltersInGroup.text;"/>
   </tree>
 </hbox>
 
