@@ -1032,6 +1032,12 @@ var FiltersView =
   boxObject: null,
 
   /**
+   * <tree> element that the view is attached to.
+   * @type XULElement
+   */
+  get treeElement() this.boxObject ? this.boxObject.treeBody.parentNode : null,
+
+  /**
    * "Filter" to be displayed if no filter group is selected.
    */
   noGroupDummy: null,
@@ -1057,7 +1063,7 @@ var FiltersView =
    */
   get visible()
   {
-    return this.boxObject && !this.boxObject.treeBody.parentNode.collapsed;
+    return this.boxObject && !this.treeElement.collapsed;
   },
 
   /**
@@ -1214,6 +1220,14 @@ var FiltersView =
   selectAll: function()
   {
     this.selection.selectAll();
+  },
+
+  /**
+   * Starts editing the current filter.
+   */
+  startEditing: function()
+  {
+    this.treeElement.startEditing(this.selection.currentIndex, this.boxObject.columns.getNamedColumn("col-filter"));
   },
 
   /**

@@ -47,12 +47,12 @@
 
 <keyset id="filtersKeyset">
   <key id="subscription-update-key" key="T" modifiers="accel" command="subscription-update-command"/>
-  <key id="subscription-editTitle-key" keycode="VK_F2" command="subscription-editTitle-command"/>
+  <key id="edit-key" keycode="VK_F2" oncommand="E(FiltersView.focused ? 'filters-edit-command' : 'subscription-editTitle-command').doCommand();"/>
   <key id="subscription-delete-key" keycode="VK_DELETE" command="subscription-delete-command"/>
   <key id="subscription-showHideFilters-key" key="V" modifiers="accel" command="subscription-showHideFilters-command"/>
   <key id="subscription-moveUp-key" keycode="VK_UP" modifiers="accel"/>
   <key id="subscription-moveDown-key" keycode="VK_DOWN" modifiers="accel"/>
-  <key id="filters-selectAll-key" key="A" modifiers="accel" command="filters-selectAll-command"/>
+  <key id="filters-selectAll-key" key="A" modifiers="accel" oncommand="if (FiltersView.focused) E('filters-selectAll-command').doCommand();"/>
 </keyset>
 
 <commandset id="filtersCommandset">
@@ -66,7 +66,8 @@
   <command id="subscription-addSelected-command" oncommand="SelectSubscription.add();"/>
   <command id="subscription-addOther-command" oncommand="SelectSubscription.chooseOther();"/>
   <command id="group-add-command" oncommand="SubscriptionActions.addGroup();"/>
-  <command id="filters-selectAll-command" oncommand="if (FiltersView.focused) FiltersView.selectAll();"/>
+  <command id="filters-selectAll-command" oncommand="FiltersView.selectAll();"/>
+  <command id="filters-edit-command" oncommand="FiltersView.startEditing();"/>
 </commandset>
 
 <popupset id="filtersPopupset">
@@ -192,7 +193,7 @@
               <button class="actionButton tabable" type="menu" label="&subscription.actions.label;…" tabindex="-1">
                 <menupopup class="actionMenu">
                   <menuitem label="&subscription.update.label;" key="subscription-update-key" command="subscription-update-command"/>
-                  <menuitem label="&subscription.editTitle.label;…" key="subscription-editTitle-key" command="subscription-editTitle-command"/>
+                  <menuitem label="&subscription.editTitle.label;…" key="edit-key" command="subscription-editTitle-command"/>
                   <menuitem label="&subscription.delete.label;…" key="subscription-delete-key" command="subscription-delete-command"/>
                   <menuitem label="&subscription.showHideFilters.label;" key="subscription-showHideFilters-key" command="subscription-showHideFilters-command"/>
                   <menuseparator/>
@@ -236,7 +237,7 @@
                 checked="{subscription.disabled ? 'false' : 'true'}" oncommand="SubscriptionActions.setDisabled(this, !this.checked);"/>
               <button class="actionButton tabable" type="menu" label="&subscription.actions.label;…" tabindex="-1">
                 <menupopup class="actionMenu">
-                  <menuitem label="&subscription.editTitle.label;…" key="subscription-editTitle-key" command="subscription-editTitle-command"/>
+                  <menuitem label="&subscription.editTitle.label;…" key="edit-key" command="subscription-editTitle-command"/>
                   <menuitem label="&subscription.delete.label;…" key="subscription-delete-key" command="subscription-delete-command"/>
                   <menuseparator/>
                   <menuitem label="&subscription.moveUp.label;" key="subscription-moveUp-key" command="subscription-moveUp-command"/>
