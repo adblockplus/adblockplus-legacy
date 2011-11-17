@@ -138,7 +138,7 @@ var PolicyRemote =
       // We didn't block this request so we will probably see it again in
       // http-on-modify-request. Keep it so that we can associate it with the
       // channel there - will be needed in case of redirect.
-      PolicyRemote.previousRequest = [node, contentType, Utils.unwrapURL(contentLocation)];
+      PolicyRemote.previousRequest = [Utils.unwrapURL(contentLocation), contentType];
     }
     else if (result.postProcess)
       Utils.schedulePostProcess(node);
@@ -189,26 +189,13 @@ var PolicyRemote =
 
         // TODO: Do-not-track header
 
-        if (PolicyRemote.previousRequest && subject.URI == PolicyRemote.previousRequest[2] &&
+        if (PolicyRemote.previousRequest && subject.URI == PolicyRemote.previousRequest[0] &&
             subject instanceof Ci.nsIWritablePropertyBag)
         {
           // We just handled a content policy call for this request - associate
           // the data with the channel so that we can find it in case of a redirect.
-          subject.setProperty("abpRequestData", PolicyRemote.previousRequest);
+          subject.setProperty("abpRequestType", PolicyRemote.previousRequest[1]);
           PolicyRemote.previousRequest = null;
-
-          // Add our listener to remove the data again once the request is done
-          if (subject instanceof Ci.nsITraceableChannel)
-          {
-            try
-            {
-              new TraceableChannelCleanup(subject);
-            }
-            catch (e)
-            {
-              Cu.reportError(e);
-            }
-          }
         }
 
         if (PolicyRemote.expectingPopupLoad)
@@ -232,12 +219,12 @@ var PolicyRemote =
     try
     {
       // Try to retrieve previously stored request data from the channel
-      let requestData;
+      let contentType;
       if (oldChannel instanceof Ci.nsIWritablePropertyBag)
       {
         try
         {
-          requestData = oldChannel.getProperty("abpRequestData");
+          contentType = oldChannel.getProperty("abpRequestType");
         }
         catch(e)
         {
@@ -254,8 +241,12 @@ var PolicyRemote =
       if (!newLocation)
         return;
 
+      let wnd = Utils.getRequestWindow(newChannel);
+      if (!wnd)
+        return;
+
       // HACK: NS_BINDING_ABORTED would be proper error code to throw but this will show up in error console (bug 287107)
-      if (PolicyRemote.shouldLoad(requestData[1], newLocation, null, requestData[0]) != Ci.nsIContentPolicy.ACCEPT)
+      if (PolicyRemote.shouldLoad(contentType, newLocation, null, wnd.document) != Ci.nsIContentPolicy.ACCEPT)
         throw Cr.NS_BASE_STREAM_WOULD_BLOCK;
       else
         return;
