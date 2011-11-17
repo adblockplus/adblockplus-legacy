@@ -278,16 +278,16 @@ function onSubscriptionChange(action, subscription, newValue, oldValue)
 {
   isDirty = true;
 
-  if (action != "add" && action != "remove" && action != "disabled" && action != "update")
+  if (action != "added" && action != "removed" && action != "disabled" && action != "updated")
     return;
 
-  if (action != "remove" && !(subscription.url in FilterStorage.knownSubscriptions))
+  if (action != "removed" && !(subscription.url in FilterStorage.knownSubscriptions))
   {
     // Ignore updates for subscriptions not in the list
     return;
   }
 
-  if ((action == "add" || action == "remove" || action == "update") && subscription.disabled)
+  if ((action == "added" || action == "removed" || action == "updated") && subscription.disabled)
   {
     // Ignore adding/removing/updating of disabled subscriptions
     return;
@@ -298,14 +298,14 @@ function onSubscriptionChange(action, subscription, newValue, oldValue)
     return s != subscription && !subscription.disabled;
   }
 
-  if (action == "add" || action == "remove" ||
+  if (action == "added" || action == "removed" ||
       action == "disabled")
   {
-    let method = (action == "add" || (action == "disabled" && newValue == false) ? addFilter : removeFilter);
+    let method = (action == "added" || (action == "disabled" && newValue == false) ? addFilter : removeFilter);
     if (subscription.filters)
       subscription.filters.forEach(method);
   }
-  else if (action == "update")
+  else if (action == "updated")
   {
     subscription.oldFilters.forEach(removeFilter);
     subscription.filters.forEach(addFilter);
@@ -322,16 +322,16 @@ function onFilterChange(action, filter, newValue, oldValue)
 {
   isDirty = true;
 
-  if (action != "add" && action != "remove" && action != "disabled")
+  if (action != "added" && action != "removed" && action != "disabled")
     return;
 
-  if ((action == "add" || action == "remove") && filter.disabled)
+  if ((action == "added" || action == "removed") && filter.disabled)
   {
     // Ignore adding/removing of disabled filters
     return;
   }
 
-  if (action != "remove" && !filter.subscriptions.some(function(subscription) !subscription.disabled))
+  if (action != "removed" && !filter.subscriptions.some(function(subscription) !subscription.disabled))
   {
     // Ignore filters that aren't listed in any enabled subscriptions
     return;
@@ -339,7 +339,7 @@ function onFilterChange(action, filter, newValue, oldValue)
 
   subscriptionFilter = null;
 
-  if (action == "add" || (action == "disabled" && newValue == false))
+  if (action == "added" || (action == "disabled" && newValue == false))
     addFilter(filter);
   else
     removeFilter(filter);

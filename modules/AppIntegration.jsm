@@ -84,7 +84,7 @@ function init()
   });
   FilterNotifier.addListener(function(action)
   {
-    if (/^(filter|subscription)\.(add|remove|disabled|update)$/.test(action))
+    if (/^(filter|subscription)\.(added|removed|disabled|updated)$/.test(action))
       reloadPrefs();
   });
 }

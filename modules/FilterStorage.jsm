@@ -136,7 +136,7 @@ var FilterStorage =
     addSubscriptionFilters(subscription);
 
     if (!silent)
-      FilterNotifier.triggerListeners("subscription.add", subscription);
+      FilterNotifier.triggerListeners("subscription.added", subscription);
   },
 
   /**
@@ -155,7 +155,7 @@ var FilterStorage =
         FilterStorage.subscriptions.splice(i--, 1);
         delete FilterStorage.knownSubscriptions[subscription.url];
         if (!silent)
-          FilterNotifier.triggerListeners("subscription.remove", subscription);
+          FilterNotifier.triggerListeners("subscription.removed", subscription);
         return;
       }
     }
@@ -184,7 +184,7 @@ var FilterStorage =
 
     FilterStorage.subscriptions.splice(currentPos, 1);
     FilterStorage.subscriptions.splice(newPos, 0, subscription);
-    FilterNotifier.triggerListeners("subscription.move", subscription);
+    FilterNotifier.triggerListeners("subscription.moved", subscription);
   },
 
   /**
@@ -198,7 +198,7 @@ var FilterStorage =
     subscription.oldFilters = subscription.filters;
     subscription.filters = filters;
     addSubscriptionFilters(subscription);
-    FilterNotifier.triggerListeners("subscription.update", subscription);
+    FilterNotifier.triggerListeners("subscription.updated", subscription);
     delete subscription.oldFilters;
 
     // Do not keep empty subscriptions disabled
@@ -209,12 +209,14 @@ var FilterStorage =
   /**
    * Adds a user-defined filter to the list
    * @param {Filter} filter
-   * @param {Filter} insertBefore   filter to insert before (if possible)
+   * @param {SpecialSubscription} [subscription] particular group that the filter should be added to
+   * @param {Integer} [position] position within the subscription at which the filter should be added
    * @param {Boolean} silent  if true, no listeners will be triggered (to be used when filter list is reloaded)
    */
-  addFilter: function(filter, insertBefore, silent)
+  addFilter: function(filter, subscription, position, silent)
   {
-    let subscription = FilterStorage.getGroupForFilter(filter);
+    if (!subscription)
+      subscription = FilterStorage.getGroupForFilter(filter);
     if (!subscription)
     {
       // No group for this filter exists, create one
@@ -223,42 +225,59 @@ var FilterStorage =
       return;
     }
 
-    let insertIndex = -1;
-    if (insertBefore)
-      insertIndex = subscription.filters.indexOf(insertBefore);
+    if (typeof position == "undefined")
+      position = subscription.filters.length;
 
-    filter.subscriptions.push(subscription);
-    if (insertIndex >= 0)
-      subscription.filters.splice(insertIndex, 0, filter);
-    else
-      subscription.filters.push(filter);
+    if (filter.subscriptions.indexOf(subscription) < 0)
+      filter.subscriptions.push(subscription);
+    subscription.filters.splice(position, 0, filter);
     if (!silent)
-      FilterNotifier.triggerListeners("filter.add", filter, insertBefore);
+      FilterNotifier.triggerListeners("filter.added", filter, subscription, position);
   },
 
   /**
    * Removes a user-defined filter from the list
    * @param {Filter} filter
+   * @param {SpecialSubscription} [subscription] a particular filter group that
+   *      the filter should be removed from (if ommited will be removed from all subscriptions)
+   * @param {Integer} [position]  position inside the filter group at which the
+   *      filter should be removed (if ommited all instances will be removed)
    */
-  removeFilter: function(filter)
+  removeFilter: function(filter, subscription, position)
   {
-    for (let i = 0; i < filter.subscriptions.length; i++)
+    let subscriptions = (subscription ? [subscription] : filter.subscriptions.slice());
+    for (let i = 0; i < subscriptions.length; i++)
     {
-      let subscription = filter.subscriptions[i];
+      let subscription = subscriptions[i];
       if (subscription instanceof SpecialSubscription)
       {
-        for (let j = 0; j < subscription.filters.length; j++)
+        let positions = [];
+        if (typeof position == "undefined")
         {
-          if (subscription.filters[j].text == filter.text)
+          let index = -1;
+          do
           {
-            filter.subscriptions.splice(i, 1);
-            subscription.filters.splice(j, 1);
-            FilterNotifier.triggerListeners("filter.remove", filter);
+            index = subscription.filters.indexOf(filter, index + 1);
+            if (index >= 0)
+              positions.push(index);
+          } while (index >= 0);
+        }
+        else
+          positions.push(position);
 
-            // Do not keep empty subscriptions disabled
-            if (!subscription.filters.length && subscription.disabled)
-              subscription.disabled = false;
-            return;
+        for (let j = positions.length - 1; j >= 0; j--)
+        {
+          let position = positions[j];
+          if (subscription.filters[position] == filter)
+          {
+            subscription.filters.splice(position, 1);
+            if (subscription.filters.indexOf(filter) < 0)
+            {
+              let index = filter.subscriptions.indexOf(subscription);
+              if (index >= 0)
+                filter.subscriptions.splice(index, 1);
+            }
+            FilterNotifier.triggerListeners("filter.removed", filter, subscription, position);
           }
         }
       }
@@ -389,7 +408,7 @@ var FilterStorage =
       {
         filter = Filter.fromText(filter);
         if (filter)
-          FilterStorage.addFilter(filter, null, true);
+          FilterStorage.addFilter(filter, null, undefined, true);
       }
     }
 
