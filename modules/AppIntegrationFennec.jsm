@@ -164,7 +164,7 @@ try
   {
     if (action == "elemhideupdate")
       Utils.parentMessageManager.sendAsyncMessage("AdblockPlus:ElemHide:updateStyleURL", ElemHide.styleURL);
-    else if (/^(filter|subscription)\.(add|remove|disabled|update)$/.test(action))
+    else if (/^(filter|subscription)\.(added|removed|disabled|updated)$/.test(action))
       Utils.parentMessageManager.sendAsyncMessage("AdblockPlus:Matcher:clearCache");
   });
 

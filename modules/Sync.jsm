@@ -408,7 +408,7 @@ ABPTracker.prototype =
   {
     switch (action)
     {
-      case "subscription.update":
+      case "subscription.updated":
         if ("oldSubscription" in item)
         {
           // Subscription moved to a new address
@@ -424,14 +424,14 @@ ABPTracker.prototype =
             this.addPrivateChange("filter " + filter.text);
         }
         break;
-      case "subscription.add":
-      case "subscription.remove":
+      case "subscription.added":
+      case "subscription.removed":
       case "subscription.disabled":
       case "subscription.title":
         this.addPrivateChange("subscription " + item.url);
         break;
-      case "filter.add":
-      case "filter.remove":
+      case "filter.added":
+      case "filter.removed":
       case "filter.disabled":
         this.addPrivateChange("filter " + item.text);
         break;

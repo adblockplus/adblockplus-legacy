@@ -327,14 +327,14 @@ ListManager.prototype =
    * Subscriptions change processing.
    * @see FilterNotifier.addListener()
    */
-  _onChange: function(action, item, newValue, oldValue)
+  _onChange: function(action, item, param1, param2)
   {
-    if (/^subscription\./.test(action) && !(item instanceof this._classFilter))
+    if (!(item instanceof this._classFilter))
       return;
 
     switch (action)
     {
-      case "subscription.add":
+      case "subscription.added":
       {
         let index = FilterStorage.subscriptions.indexOf(item);
         if (index >= 0)
@@ -349,7 +349,7 @@ ListManager.prototype =
         }
         break;
       }
-      case "subscription.remove":
+      case "subscription.removed":
       {
         let node = Templater.getNodeForData(this._list, "subscription", item);
         if (node)
@@ -370,7 +370,7 @@ ListManager.prototype =
         }
         break
       }
-      case "subscription.move":
+      case "subscription.moved":
       {
         let node = Templater.getNodeForData(this._list, "subscription", item);
         if (node)
@@ -403,11 +403,6 @@ ListManager.prototype =
             this._list.focus();
           this._listener();
         }
-        break;
-      }
-      case "filter.disabled":
-      {
-        FiltersView.updateFilter(item);
         break;
       }
     }
@@ -954,8 +949,8 @@ var FiltersView =
       let hasEnabled2 = (filter2 instanceof ActiveFilter ? 1 : 0);
       if (hasEnabled1 != hasEnabled2)
         return hasEnabled1 - hasEnabled2;
-      else if (hasEnabled1 && filter1.disabled != filter2.disabled)
-        return (filter1.disabled ? -1 : 1);
+      else if (hasEnabled1)
+        return (filter2.disabled - filter1.disabled);
       else
         return 0;
     }
@@ -993,19 +988,19 @@ var FiltersView =
     {
       let factor = (desc ? -1 : 1);
 
-      return function(filter1, filter2)
+      return function(entry1, entry2)
       {
-        // Comment replacements without prototype always go last
-        let isLast1 = (filter1.__proto__ == null);
-        let isLast2 = (filter2.__proto__ == null);
+        // Comment replacements not bound to a filter always go last
+        let isLast1 = ("origFilter" in entry1 && entry1.filter == null);
+        let isLast2 = ("origFilter" in entry2 && entry2.filter == null);
         if (isLast1)
           return (isLast2 ? 0 : 1)
         else if (isLast2)
           return -1;
 
-        let ret = cmpFunc(filter1, filter2);
+        let ret = cmpFunc(entry1.filter, entry2.filter);
         if (ret == 0 && fallbackFunc)
-          return fallbackFunc(filter1, filter2);
+          return fallbackFunc(entry1.filter, entry2.filter);
         else
           return factor * ret;
       }
@@ -1023,6 +1018,49 @@ var FiltersView =
       lasthit: createSortFunction(compareLastHit, compareText, false),
       lasthitDesc: createSortFunction(compareLastHit, compareText, true)
     };
+
+    let me = this;
+    let proxy = function()
+    {
+      return me._onChange.apply(me, arguments);
+    };
+    FilterNotifier.addListener(proxy);
+    window.addEventListener("unload", function()
+    {
+      FilterNotifier.removeListener(proxy);
+    }, false);
+  },
+
+  /**
+   * Filter change processing.
+   * @see FilterNotifier.addListener()
+   */
+  _onChange: function(action, item, param1, param2)
+  {
+    switch (action)
+    {
+      case "filter.disabled":
+      {
+        FiltersView.updateFilter(item);
+        break;
+      }
+      case "filter.added":
+      {
+        let subscription = param1;
+        let position = param2;
+        if (subscription == FiltersView._subscription)
+          FiltersView.addFilterAt(position, item);
+        break;
+      }
+      case "filter.removed":
+      {
+        let subscription = param1;
+        let position = param2;
+        if (subscription == FiltersView._subscription)
+          FiltersView.removeFilterAt(position);
+        break;
+      }
+    }
   },
 
   /**
@@ -1201,8 +1239,8 @@ var FiltersView =
       let max = {};
       this.selection.getRangeAt(i, min, max);
       for (let j = min.value; j <= max.value; j++)
-        if (j >= 0 && j < this.data.length && this.data[j] instanceof ActiveFilter)
-          filters.push(this.data[j]);
+        if (j >= 0 && j < this.data.length && this.data[j].filter instanceof ActiveFilter)
+          filters.push(this.data[j].filter);
     }
     if (filters.length)
     {
@@ -1237,25 +1275,33 @@ var FiltersView =
   {
     if (this._subscription && this._subscription.filters.length)
     {
-      this.data = this._subscription.filters.slice();
+      this.data = this._subscription.filters.map(function(f, i) ({index: i, filter: f}));
       if (this.sortProc)
       {
         // Hide comments in the list, they should be sorted like the filter following them
         let followingFilter = null;
         for (let i = this.data.length - 1; i >= 0; i--)
         {
-          if (this.data[i] instanceof CommentFilter)
-            this.data[i] = { __proto__: followingFilter, _origFilter: this.data[i] };
+          if (this.data[i].filter instanceof CommentFilter)
+          {
+            this.data[i].origFilter = this.data[i].filter;
+            this.data[i].filter = followingFilter;
+          }
           else
-            followingFilter = this.data[i];
+            followingFilter = this.data[i].filter;
         }
 
         this.data.sort(this.sortProc);
 
         // Restore comments
         for (let i = 0; i < this.data.length; i++)
-          if ("_origFilter" in this.data[i])
-            this.data[i] = this.data[i]._origFilter;
+        {
+          if ("origFilter" in this.data[i])
+          {
+            this.data[i].filter = this.data[i].origFilter;
+            delete this.data[i].origFilter;
+          }
+        }
       }
     }
     else if (this._subscription)
@@ -1265,17 +1311,60 @@ var FiltersView =
   },
 
   /**
-   * Called when a filter property is changed to update the view.
+   * Called to update the view when a filter property is changed.
    */
-  updateFilter: function(filter)
+  updateFilter: function(/**Filter*/ filter)
   {
-    let index = -1;
-    do
+    for (let i = 0; i < this.data.length; i++)
+      if (this.data[i].filter == filter)
+        this.boxObject.invalidateRow(i);
+  },
+
+  /**
+   * Called if a filter has been inserted at the specified position.
+   */
+  addFilterAt: function(/**Integer*/ position, /**Filter*/ filter)
+  {
+    if (this.sortProc)
     {
-      index = this.data.indexOf(filter, index + 1);
-      if (index >= 0)
-        this.boxObject.invalidateRow(index);
-    } while (index >= 0);
+      this.updateData();
+      for (let i = 0; i < this.data.length; i++)
+      {
+        if (this.data[i].index == position)
+        {
+          position = i;
+          break;
+        }
+      }
+    }
+    else
+    {
+      for (let i = 0; i < this.data.length; i++)
+        if (this.data[i].index >= position)
+          this.data[i].index++;
+      this.data.splice(position, 0, {index: position, filter: filter});
+    }
+    this.boxObject.rowCountChanged(position, 1);
+    this.selection.select(position);
+    this.boxObject.ensureRowIsVisible(position);
+  },
+
+  /**
+   * Called if a filter has been removed at the specified position.
+   */
+  removeFilterAt: function(/**Integer*/ position)
+  {
+    for (let i = 0; i < this.data.length; i++)
+    {
+      if (this.data[i].index == position)
+      {
+        this.data.splice(i, 1);
+        this.boxObject.rowCountChanged(i, -1);
+        i--;
+      }
+      else if (this.data[i].index > position)
+        this.data[i].index--;
+    }
   },
 
   /**
@@ -1319,8 +1408,8 @@ var FiltersView =
     this.boxObject = boxObject;
     if (this.boxObject)
     {
-      this.noGroupDummy = {text: this.boxObject.treeBody.getAttribute("noGroupText"), dummy: true};
-      this.noFiltersDummy = {text: this.boxObject.treeBody.getAttribute("noFiltersText"), dummy: true};
+      this.noGroupDummy = {index: 0, filter: {text: this.boxObject.treeBody.getAttribute("noGroupText"), dummy: true}};
+      this.noFiltersDummy = {index: 0, filter: {text: this.boxObject.treeBody.getAttribute("noFiltersText"), dummy: true}};
 
       let atomService = Cc["@mozilla.org/atom-service;1"].getService(Ci.nsIAtomService);
       let stringAtoms = ["col-filter", "col-enabled", "col-hitcount", "col-lasthit", "type-comment", "type-filterlist", "type-whitelist", "type-elemhide", "type-invalid"];
@@ -1355,7 +1444,7 @@ var FiltersView =
     if (col != "col-filter" && col != "col-slow" && col != "col-hitcount" && col != "col-lasthit")
       return null;
 
-    let filter = this.data[row];
+    let filter = this.data[row].filter;
     if (col == "col-filter")
       return filter.text;
     else if (col == "col-slow")
@@ -1384,7 +1473,7 @@ var FiltersView =
     if (row < 0 || row >= this.data.length)
       return;
 
-    let filter = this.data[row];
+    let filter = this.data[row].filter;
     properties.AppendElement(this.atoms["selected-" + this.selection.isSelected(row)]);
     properties.AppendElement(this.atoms["slow-" + (filter instanceof RegExpFilter && defaultMatcher.isSlowFilter(filter))]);
     if (filter instanceof ActiveFilter)
@@ -1443,7 +1532,7 @@ var FiltersView =
     if (!(this._subscription instanceof SpecialSubscription))
       return false;
 
-    let filter = this.data[row];
+    let filter = this.data[row].filter;
     if (col.id == "col-filter")
       return !("dummy" in filter);
     else
@@ -1452,7 +1541,18 @@ var FiltersView =
 
   setCellText: function(row, col, value)
   {
-    // TODO
+    if (row < 0 || row >= this.data.length || col.id != "col-filter")
+      return;
+
+    let oldFilter = this.data[row].filter;
+    let position = this.data[row].index;
+    value = Filter.normalize(value);
+    if (!value || value == oldFilter.text)
+      return;
+
+    let newFilter = Filter.fromText(value);
+    FilterStorage.removeFilter(oldFilter, this._subscription, position);
+    FilterStorage.addFilter(newFilter, this._subscription, position);
   },
 
   cycleCell: function(row, col)
@@ -1460,7 +1560,7 @@ var FiltersView =
     if (row < 0 || row >= this.data.length || col.id != "col-enabled")
       return null;
 
-    let filter = this.data[row];
+    let filter = this.data[row].filter;
     if (filter instanceof ActiveFilter)
       filter.disabled = !filter.disabled;
   },

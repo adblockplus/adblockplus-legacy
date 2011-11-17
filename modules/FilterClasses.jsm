@@ -144,7 +144,7 @@ Filter.fromObject = function(obj)
     if ("hitCount" in obj)
       ret._hitCount = parseInt(obj.hitCount) || 0;
     if ("lastHit" in obj)
-      ret._lastHit = parseInt(obj._lastHit) || 0;
+      ret._lastHit = parseInt(obj.lastHit) || 0;
   }
   return ret;
 }
@@ -587,8 +587,13 @@ RegExpFilter.fromText = function(text)
     text = RegExp.leftContext;
     for each (let option in options)
     {
-      let value;
-      [option, value] = option.split("=", 2);
+      let value = null;
+      let separatorIndex = option.indexOf("=");
+      if (separatorIndex >= 0)
+      {
+        value = option.substr(separatorIndex + 1);
+        option = option.substr(0, separatorIndex);
+      }
       option = option.replace(/-/, "_");
       if (option in RegExpFilter.typeMap)
       {
