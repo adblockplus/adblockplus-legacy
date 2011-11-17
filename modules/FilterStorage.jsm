@@ -216,7 +216,11 @@ var FilterStorage =
   addFilter: function(filter, subscription, position, silent)
   {
     if (!subscription)
+    {
+      if (filter.subscriptions.some(function(s) s instanceof SpecialSubscription))
+        return;   // No need to add
       subscription = FilterStorage.getGroupForFilter(filter);
+    }
     if (!subscription)
     {
       // No group for this filter exists, create one
