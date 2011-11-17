@@ -1076,19 +1076,24 @@ var FiltersView =
   get treeElement() this.boxObject ? this.boxObject.treeBody.parentNode : null,
 
   /**
-   * "Filter" to be displayed if no filter group is selected.
-   */
-  noGroupDummy: null,
-
-  /**
    * Map of used cell properties to the corresponding nsIAtom representations.
    */
   atoms: null,
 
   /**
+   * "Filter" to be displayed if no filter group is selected.
+   */
+  noGroupDummy: null,
+
+  /**
    * "Filter" to be displayed if the selected group is empty.
    */
   noFiltersDummy: null,
+
+  /**
+   * "Filter" to be displayed for a new filter being edited.
+   */
+  editDummy: null,
 
   /**
    * Displayed list of filters, might be sorted.
@@ -1269,6 +1274,46 @@ var FiltersView =
   },
 
   /**
+   * Starts editing a new filter at the current position.
+   */
+  insertFilter: function()
+  {
+    if (!(this._subscription instanceof SpecialSubscription))
+      return;
+
+    let position = this.selection.currentIndex;
+    if (position < 0)
+      position = 0;
+    if (position >= this.data.length)
+      position = this.data.length - 1;
+
+    this.editDummy.index = (position < this.data.length ? this.data[position].index : this.data.length - 1);
+    this.data.splice(position, 0, this.editDummy);
+    this.boxObject.rowCountChanged(position, 1);
+    this.selection.currentIndex = position;
+    this.boxObject.ensureRowIsVisible(position);
+    this.startEditing();
+
+    let origIndex = this.selection.currentIndex;
+    let tree = this.treeElement;
+    let me = this;
+    let listener = function(event)
+    {
+      if (event.attrName == "editing" && tree.editingRow < 0)
+      {
+        tree.removeEventListener("DOMAttrModified", listener, false);
+        if (me.data[position] == me.editDummy)
+        {
+          me.data.splice(position, 1);
+          me.boxObject.rowCountChanged(position, -1);
+          me.selection.currentIndex = origIndex;
+        }
+      }
+    }
+    tree.addEventListener("DOMAttrModified", listener, false);
+  },
+
+  /**
    * Deletes selected filters.
    */
   deleteSelected: function()
@@ -1443,6 +1488,7 @@ var FiltersView =
     {
       this.noGroupDummy = {index: 0, filter: {text: this.boxObject.treeBody.getAttribute("noGroupText"), dummy: true}};
       this.noFiltersDummy = {index: 0, filter: {text: this.boxObject.treeBody.getAttribute("noFiltersText"), dummy: true}};
+      this.editDummy = {filter: {text: ""}};
 
       let atomService = Cc["@mozilla.org/atom-service;1"].getService(Ci.nsIAtomService);
       let stringAtoms = ["col-filter", "col-enabled", "col-hitcount", "col-lasthit", "type-comment", "type-filterlist", "type-whitelist", "type-elemhide", "type-invalid"];
@@ -1584,7 +1630,13 @@ var FiltersView =
       return;
 
     let newFilter = Filter.fromText(value);
-    FilterStorage.removeFilter(oldFilter, this._subscription, position);
+    if (this.data[row] == this.editDummy)
+    {
+      this.data.splice(row, 1);
+      this.boxObject.rowCountChanged(row, -1);
+    }
+    else
+      FilterStorage.removeFilter(oldFilter, this._subscription, position);
     FilterStorage.addFilter(newFilter, this._subscription, position);
   },
 
