@@ -26,7 +26,7 @@
  * @fileOverview Module containing a bunch of utility functions.
  */
 
-var EXPORTED_SYMBOLS = ["Utils", "Cache", "TraceableChannelCleanup"];
+var EXPORTED_SYMBOLS = ["Utils", "Cache"];
 
 const Cc = Components.classes;
 const Ci = Components.interfaces;
@@ -758,93 +758,6 @@ Cache.prototype =
     this._ringBuffer = new Array(this._ringBuffer.length);
     this.data = {__proto__: null};
   }
-}
-
-/**
- * An object that will attach itself as a listener to a traceable channel and
- * remove Adblock Plus data once that channel is done.
- * @constructor
- */
-function TraceableChannelCleanup(request)
-{
-  // This has to run asynchronously due to bug 646370, nsHttpChannel triggers
-  // http-on-modify-request observers before setting listener!
-  Utils.runAsync(this.attach, this, request);
-}
-TraceableChannelCleanup.prototype =
-{
-  originalListener: null,
-
-  attach: function(request)
-  {
-    if (request.isPending())
-    {
-      try
-      {
-        this.originalListener = request.setNewListener(this);
-      }
-      catch (e if e.result == Cr.NS_ERROR_NOT_IMPLEMENTED)
-      {
-        // Bug 646373 :-( Remove data even though this means that we won't be
-        // able to block redirects.
-        this.cleanup(request);
-      }
-    }
-    else
-      this.cleanup(request);
-  },
-
-  cleanup: function(request)
-  {
-    try
-    {
-      if (request instanceof Ci.nsIWritablePropertyBag)
-        request.deleteProperty("abpRequestData");
-    }
-    catch(e) {} // Ignore errors due to missing property
-  },
-
-  onStartRequest: function(request, context)
-  {
-    try
-    {
-      this.originalListener.onStartRequest(request, context);
-    }
-    catch (e if e instanceof Ci.nsIException)
-    {
-      request.cancel(e.result);
-    }
-  },
-
-  onDataAvailable: function(request, context, inputStream, offset, count)
-  {
-    try
-    {
-      this.originalListener.onDataAvailable(request, context, inputStream, offset, count);
-    }
-    catch (e if e instanceof Ci.nsIException)
-    {
-      request.cancel(e.result);
-    }
-  },
-
-  onStopRequest: function(request, context, statusCode)
-  {
-    try
-    {
-      this.originalListener.onStopRequest(request, context, statusCode);
-    }
-    catch (e if e instanceof Ci.nsIException)
-    {
-      // No point cancelling the channel when it is done already
-    }
-    finally
-    {
-      this.cleanup(request);
-    }
-  },
-
-  QueryInterface: XPCOMUtils.generateQI([Ci.nsIStreamListener, Ci.nsIRequestObserver])
 }
 
 // Getters for common services, this should be replaced by Services.jsm in future
