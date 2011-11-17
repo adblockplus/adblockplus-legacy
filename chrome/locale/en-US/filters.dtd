@@ -66,4 +66,6 @@
 <!ENTITY noGroupSelected.text                 "You need to select a filter group before its filters can be displayed.">
 <!ENTITY noFiltersInGroup.text                "The selected group is empty">
 
+<!ENTITY filters.remove.warning               "Do you really want to remove all selected filters?">
+
 <!ENTITY close.label                          "Close">

@@ -1041,23 +1041,23 @@ var FiltersView =
     {
       case "filter.disabled":
       {
-        FiltersView.updateFilter(item);
+        this.updateFilter(item);
         break;
       }
       case "filter.added":
       {
         let subscription = param1;
         let position = param2;
-        if (subscription == FiltersView._subscription)
-          FiltersView.addFilterAt(position, item);
+        if (subscription == this._subscription)
+          this.addFilterAt(position, item);
         break;
       }
       case "filter.removed":
       {
         let subscription = param1;
         let position = param2;
-        if (subscription == FiltersView._subscription)
-          FiltersView.removeFilterAt(position);
+        if (subscription == this._subscription)
+          this.removeFilterAt(position);
         break;
       }
     }
@@ -1266,6 +1266,39 @@ var FiltersView =
   startEditing: function()
   {
     this.treeElement.startEditing(this.selection.currentIndex, this.boxObject.columns.getNamedColumn("col-filter"));
+  },
+
+  /**
+   * Deletes selected filters.
+   */
+  deleteSelected: function()
+  {
+    if (!(this._subscription instanceof SpecialSubscription))
+      return;
+
+    let items = [];
+    let oldIndex = this.selection.currentIndex;
+    for (let i = 0; i < this.selection.getRangeCount(); i++)
+    {
+      let min = {};
+      let max = {};
+      this.selection.getRangeAt(i, min, max);
+      for (let j = min.value; j <= max.value; j++)
+        if (j >= 0 && j < this.data.length)
+          items.push(this.data[j]);
+    }
+    items.sort(function(entry1, entry2) entry2.index - entry1.index);
+
+    if (items.length == 0 || (items.length >= 2 && !Utils.confirm(window, this.treeElement.getAttribute("_removewarning"))))
+      return;
+
+    for (let i = 0; i < items.length; i++)
+      FilterStorage.removeFilter(items[i].filter, this._subscription, items[i].index);
+
+    if (oldIndex >= this.data.length)
+      oldIndex = this.data.length - 1;
+    this.selection.select(oldIndex);
+    this.boxObject.ensureRowIsVisible(oldIndex);
   },
 
   /**

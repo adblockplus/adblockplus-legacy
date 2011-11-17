@@ -48,7 +48,7 @@
 <keyset id="filtersKeyset">
   <key id="subscription-update-key" key="T" modifiers="accel" command="subscription-update-command"/>
   <key id="edit-key" keycode="VK_F2" oncommand="E(FiltersView.focused ? 'filters-edit-command' : 'subscription-editTitle-command').doCommand();"/>
-  <key id="subscription-delete-key" keycode="VK_DELETE" command="subscription-delete-command"/>
+  <key id="subscription-delete-key" keycode="VK_DELETE" oncommand="E(FiltersView.focused ? 'filters-delete-command' : 'subscription-delete-command').doCommand();"/>
   <key id="subscription-showHideFilters-key" key="V" modifiers="accel" command="subscription-showHideFilters-command"/>
   <key id="subscription-moveUp-key" keycode="VK_UP" modifiers="accel"/>
   <key id="subscription-moveDown-key" keycode="VK_DOWN" modifiers="accel"/>
@@ -68,6 +68,7 @@
   <command id="group-add-command" oncommand="SubscriptionActions.addGroup();"/>
   <command id="filters-selectAll-command" oncommand="FiltersView.selectAll();"/>
   <command id="filters-edit-command" oncommand="FiltersView.startEditing();"/>
+  <command id="filters-delete-command" oncommand="FiltersView.deleteSelected();"/>
 </commandset>
 
 <popupset id="filtersPopupset">
@@ -272,7 +273,8 @@
       seltype="multiple"
       enableColumnDrag="true"
       hidecolumnpicker="true"
-      onkeypress="FiltersView.onKeyPress(event);">
+      onkeypress="FiltersView.onKeyPress(event);"
+      _removewarning="&filters.remove.warning;">
     <treecols context="filters-view-menu">
       <treecol id="col-filter" label="&filter.column;" flex="10" persist="width ordinal sortDirection hidden"/>
       <splitter class="tree-splitter"/>
