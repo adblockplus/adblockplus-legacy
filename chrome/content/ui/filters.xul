@@ -154,7 +154,7 @@
                     <description value=")"/>
                   </hbox>
                 </description>
-                <textbox class="titleEditor" onkeypress="TitleEditor.keyPress(event);" onblur="TitleEditor.end(true);"/>
+                <textbox class="titleEditor" onkeypress="TitleEditor.keyPress(event);" onblur="TitleEditor.end(true);" onselect="event.stopPropagation();"/>
               </deck>
               <checkbox label="&subscription.enabled.label;" class="tabable" tabindex="-1"
                 checked="{subscription.disabled ? 'false' : 'true'}" oncommand="SubscriptionActions.setDisabled(this, !this.checked);"/>
