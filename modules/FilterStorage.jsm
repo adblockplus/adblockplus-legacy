@@ -289,6 +289,27 @@ var FilterStorage =
   },
 
   /**
+   * Moves a user-defined filter to a new position
+   * @param {Filter} filter
+   * @param {SpecialSubscription} subscription filter group where the filter is located
+   * @param {Integer} oldPosition current position of the filter
+   * @param {Integer} newPosition new position of the filter
+   */
+  moveFilter: function(filter, subscription, oldPosition, newPosition)
+  {
+    if (!(subscription instanceof SpecialSubscription) || subscription.filters[oldPosition] != filter)
+      return;
+
+    newPosition = Math.min(Math.max(newPosition, 0), subscription.filters.length - 1);
+    if (oldPosition == newPosition)
+      return;
+
+    subscription.filters.splice(oldPosition, 1);
+    subscription.filters.splice(newPosition, 0, filter);
+    FilterNotifier.triggerListeners("filter.moved", filter, subscription, oldPosition, newPosition);
+  },
+
+  /**
    * Increases the hit count for a filter by one
    * @param {Filter} filter
    */

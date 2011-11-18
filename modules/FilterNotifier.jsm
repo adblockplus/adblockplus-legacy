@@ -74,15 +74,13 @@ var FilterNotifier =
    *                 "subscription.disabled", "subscription.title",
    *                 "subscription.lastDownload", "subscription.downloadStatus",
    *                 "subscription.homepage", "subscription.updated",
-   *                 "filter.added", "filter.removed", "filter.disabled",
-   *                 "filter.hitCount", "filter.lastHit")
+   *                 "filter.added", "filter.removed", "filter.moved",
+   *                 "filter.disabled", "filter.hitCount", "filter.lastHit")
    * @param {Subscription|Filter} item item that the change applies to
-   * @param [newValue] new value of the changed property
-   * @param [oldValue] old value of the changed property
    */
-  triggerListeners: function(action, item, newValue, oldValue)
+  triggerListeners: function(action, item, param1, param2, param3)
   {
     for each (let listener in listeners)
-      listener(action, item, newValue, oldValue);
+      listener(action, item, param1, param2, param3);
   }
 };
