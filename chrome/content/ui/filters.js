@@ -1287,7 +1287,13 @@ var FiltersView =
     if (position >= this.data.length)
       position = this.data.length - 1;
 
-    this.editDummy.index = (position < this.data.length ? this.data[position].index : this.data.length - 1);
+    if (this.data.length == 1 && this.data[0].filter.dummy)
+    {
+      this.data.splice(0, 1);
+      this.boxObject.rowCountChanged(0, -1);
+    }
+
+    this.editDummy.index = (position < this.data.length ? this.data[position].index : Math.max(this.data.length - 1, 0));
     this.data.splice(position, 0, this.editDummy);
     this.boxObject.rowCountChanged(position, 1);
     this.selection.currentIndex = position;
@@ -1307,6 +1313,13 @@ var FiltersView =
           me.data.splice(position, 1);
           me.boxObject.rowCountChanged(position, -1);
           me.selection.currentIndex = origIndex;
+
+          if (me.data.length == 0)
+          {
+            me.updateData();
+            me.boxObject.rowCountChanged(0, me.data.length);
+            me.selection.select(0);
+          }
         }
       }
     }
@@ -1403,6 +1416,12 @@ var FiltersView =
    */
   addFilterAt: function(/**Integer*/ position, /**Filter*/ filter)
   {
+    if (this.data.length == 1 && this.data[0].filter.dummy)
+    {
+      this.data.splice(0, 1);
+      this.boxObject.rowCountChanged(0, -1);
+    }
+
     if (this.sortProc)
     {
       this.updateData();
@@ -1432,16 +1451,25 @@ var FiltersView =
    */
   removeFilterAt: function(/**Integer*/ position)
   {
-    for (let i = 0; i < this.data.length; i++)
+    if (this._subscription.filters.length == 0)
     {
-      if (this.data[i].index == position)
+      this.updateData();
+      this.boxObject.invalidate();
+      this.selection.select(0);
+    }
+    else
+    {
+      for (let i = 0; i < this.data.length; i++)
       {
-        this.data.splice(i, 1);
-        this.boxObject.rowCountChanged(i, -1);
-        i--;
+        if (this.data[i].index == position)
+        {
+          this.data.splice(i, 1);
+          this.boxObject.rowCountChanged(i, -1);
+          i--;
+        }
+        else if (this.data[i].index > position)
+          this.data[i].index--;
       }
-      else if (this.data[i].index > position)
-        this.data[i].index--;
     }
   },
 
