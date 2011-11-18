@@ -1396,7 +1396,7 @@ var FiltersView =
     if (newPos < 0)
       return;
 
-    items.sort(function(entry1, entry2) entry2.index - entry1.index);
+    items.sort(function(entry1, entry2) entry1.index - entry2.index);
     for (let i = 0; i < items.length; i++)
       FilterStorage.moveFilter(items[i].filter, this._subscription, items[i].index, newPos++);
     this.selection.rangedSelect(newPos - items.length, newPos - 1, false);
@@ -1418,7 +1418,7 @@ var FiltersView =
     if (newPos >= this.data.length)
       return;
 
-    items.sort(function(entry1, entry2) entry2.index - entry1.index);
+    items.sort(function(entry1, entry2) entry1.index - entry2.index);
     for (let i = items.length - 1; i >= 0; i--)
       FilterStorage.moveFilter(items[i].filter, this._subscription, items[i].index, newPos--);
     this.selection.rangedSelect(newPos + 1, newPos + items.length, false);
@@ -1548,8 +1548,8 @@ var FiltersView =
     {
       if (this.data[i].index == oldPosition)
         this.data[i].index = newPosition;
-      else if (dir * this.data[i].index > dir * oldPosition && dir * this.data[i].index < dir * newPosition)
-        this.data[i].index += dir;
+      else if (dir * this.data[i].index > dir * oldPosition && dir * this.data[i].index <= dir * newPosition)
+        this.data[i].index -= dir;
     }
 
     if (!this.sortProc)
