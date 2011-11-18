@@ -50,8 +50,8 @@
   <key id="edit-key" keycode="VK_F2" oncommand="E(FiltersView.focused ? 'filters-edit-command' : 'subscription-editTitle-command').doCommand();"/>
   <key id="delete-key" keycode="VK_DELETE" oncommand="E(FiltersView.focused ? 'filters-delete-command' : 'subscription-delete-command').doCommand();"/>
   <key id="subscription-showHideFilters-key" key="V" modifiers="accel" command="subscription-showHideFilters-command"/>
-  <key id="subscription-moveUp-key" keycode="VK_UP" modifiers="accel"/>
-  <key id="subscription-moveDown-key" keycode="VK_DOWN" modifiers="accel"/>
+  <key id="moveUp-key" keycode="VK_UP" modifiers="accel"/>
+  <key id="moveDown-key" keycode="VK_DOWN" modifiers="accel"/>
   <key id="filters-insert-key" keycode="VK_INSERT" oncommand="if (FiltersView.focused) E('filters-insert-command').doCommand();"/>
   <key id="filters-selectAll-key" key="A" modifiers="accel" oncommand="if (FiltersView.focused) E('filters-selectAll-command').doCommand();"/>
 </keyset>
@@ -71,6 +71,8 @@
   <command id="filters-edit-command" oncommand="FiltersView.startEditing();"/>
   <command id="filters-insert-command" oncommand="FiltersView.insertFilter();"/>
   <command id="filters-delete-command" oncommand="FiltersView.deleteSelected();"/>
+  <command id="filters-moveUp-command" oncommand="FiltersView.moveUp();"/>
+  <command id="filters-moveDown-command" oncommand="FiltersView.moveDown();"/>
 </commandset>
 
 <popupset id="filtersPopupset">
@@ -200,8 +202,8 @@
                   <menuitem label="&subscription.delete.label;…" key="delete-key" command="subscription-delete-command"/>
                   <menuitem label="&subscription.showHideFilters.label;" key="subscription-showHideFilters-key" command="subscription-showHideFilters-command"/>
                   <menuseparator/>
-                  <menuitem label="&subscription.moveUp.label;" key="subscription-moveUp-key" command="subscription-moveUp-command"/>
-                  <menuitem label="&subscription.moveDown.label;" key="subscription-moveDown-key" command="subscription-moveDown-command"/>
+                  <menuitem label="&subscription.moveUp.label;" key="moveUp-key" command="subscription-moveUp-command"/>
+                  <menuitem label="&subscription.moveDown.label;" key="moveDown-key" command="subscription-moveDown-command"/>
                 </menupopup>
               </button>
             </hbox>
@@ -243,8 +245,8 @@
                   <menuitem label="&subscription.editTitle.label;…" key="edit-key" command="subscription-editTitle-command"/>
                   <menuitem label="&subscription.delete.label;…" key="delete-key" command="subscription-delete-command"/>
                   <menuseparator/>
-                  <menuitem label="&subscription.moveUp.label;" key="subscription-moveUp-key" command="subscription-moveUp-command"/>
-                  <menuitem label="&subscription.moveDown.label;" key="subscription-moveDown-key" command="subscription-moveDown-command"/>
+                  <menuitem label="&subscription.moveUp.label;" key="moveUp-key" command="subscription-moveUp-command"/>
+                  <menuitem label="&subscription.moveDown.label;" key="moveDown-key" command="subscription-moveDown-command"/>
                 </menupopup>
               </button>
             </hbox>
@@ -268,31 +270,31 @@
     <grippy id="filtersGrippy"/>
   </splitter>
 
-  <tree id="filtersTree"
-      persist="height"
-      width="500"
-      editable="true"
-      seltype="multiple"
-      enableColumnDrag="true"
-      hidecolumnpicker="true"
-      onkeypress="FiltersView.onKeyPress(event);"
-      _removewarning="&filters.remove.warning;">
-    <treecols context="filters-view-menu">
-      <treecol id="col-filter" label="&filter.column;" flex="10" persist="width ordinal sortDirection hidden"/>
-      <splitter class="tree-splitter"/>
-      <treecol id="col-slow" label="!" display="&slow.column;" flex="0" width="16" persist="width ordinal sortDirection hidden"/>
-      <splitter class="tree-splitter"/>
-      <treecol id="col-enabled" label="&enabled.column;" cycler="true" flex="0" persist="width ordinal sortDirection hidden"/>
-      <splitter class="tree-splitter"/>
-      <treecol id="col-hitcount" label="&hitcount.column;" flex="0" persist="width ordinal sortDirection hidden"/>
-      <splitter class="tree-splitter"/>
-      <treecol id="col-lasthit" label="&lasthit.column;" hidden="true" flex="4" persist="width ordinal sortDirection hidden"/>
-    </treecols>
+  <hbox persist="width" width="500">
+    <tree id="filtersTree"
+        flex="1"
+        editable="true"
+        seltype="multiple"
+        enableColumnDrag="true"
+        hidecolumnpicker="true"
+        _removewarning="&filters.remove.warning;">
+      <treecols context="filters-view-menu">
+        <treecol id="col-filter" label="&filter.column;" flex="10" persist="width ordinal sortDirection hidden"/>
+        <splitter class="tree-splitter"/>
+        <treecol id="col-slow" label="!" display="&slow.column;" flex="0" width="16" persist="width ordinal sortDirection hidden"/>
+        <splitter class="tree-splitter"/>
+        <treecol id="col-enabled" label="&enabled.column;" cycler="true" flex="0" persist="width ordinal sortDirection hidden"/>
+        <splitter class="tree-splitter"/>
+        <treecol id="col-hitcount" label="&hitcount.column;" flex="0" persist="width ordinal sortDirection hidden"/>
+        <splitter class="tree-splitter"/>
+        <treecol id="col-lasthit" label="&lasthit.column;" hidden="true" flex="4" persist="width ordinal sortDirection hidden"/>
+      </treecols>
 
-    <treechildren id="filtersTreeChildren"
-        noGroupText="&noGroupSelected.text;"
-        noFiltersText="&noFiltersInGroup.text;"/>
-  </tree>
+      <treechildren id="filtersTreeChildren"
+          noGroupText="&noGroupSelected.text;"
+          noFiltersText="&noFiltersInGroup.text;"/>
+    </tree>
+  </hbox>
 </hbox>
 
 </dialog>

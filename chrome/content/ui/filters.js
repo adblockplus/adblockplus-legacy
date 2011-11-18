@@ -591,7 +591,7 @@ var SubscriptionActions =
     if (event.metaKey)
       modifiers |= this._metaMask;
 
-    if (event.charCode == Ci.nsIDOMKeyEvent.DOM_VK_SPACE && modifiers == 0)
+    if (event.charCode == " ".charCodeAt(0) && modifiers == 0)
     {
       let data = Templater.getDataForNode(this.selectedItem);
       if (data)
@@ -1035,7 +1035,7 @@ var FiltersView =
    * Filter change processing.
    * @see FilterNotifier.addListener()
    */
-  _onChange: function(action, item, param1, param2)
+  _onChange: function(action, item, param1, param2, param3)
   {
     switch (action)
     {
@@ -1058,6 +1058,15 @@ var FiltersView =
         let position = param2;
         if (subscription == this._subscription)
           this.removeFilterAt(position);
+        break;
+      }
+      case "filter.moved":
+      {
+        let subscription = param1;
+        let oldPosition = param2;
+        let newPosition = param3;
+        if (subscription == this._subscription)
+          this.moveFilterAt(oldPosition, newPosition);
         break;
       }
     }
@@ -1111,6 +1120,7 @@ var FiltersView =
 
   /**
    * Tests whether the tree is currently focused.
+   * @type Boolean
    */
   get focused()
   {
@@ -1122,6 +1132,35 @@ var FiltersView =
       focused = focused.parentNode;
     }
     return false;
+  },
+
+  /**
+   * Checks whether the list is currently empty (regardless of dummy entries).
+   * @type Boolean
+   */
+  get isEmpty()
+  {
+    return !this._subscription || !this._subscription.filters.length;
+  },
+
+  /**
+   * Returns items that are currently selected in the list.
+   * @type Object[]
+   */
+  get selectedItems()
+  {
+    let items = []
+    let oldIndex = this.selection.currentIndex;
+    for (let i = 0; i < this.selection.getRangeCount(); i++)
+    {
+      let min = {};
+      let max = {};
+      this.selection.getRangeAt(i, min, max);
+      for (let j = min.value; j <= max.value; j++)
+        if (j >= 0 && j < this.data.length)
+          items.push(this.data[j]);
+    }
+    return items;
   },
 
   _subscription: 0,
@@ -1237,22 +1276,13 @@ var FiltersView =
    */
   selectionToggleDisabled: function()
   {
-    let filters = [];
-    for (let i = 0; i < this.selection.getRangeCount(); i++)
-    {
-      let min = {};
-      let max = {};
-      this.selection.getRangeAt(i, min, max);
-      for (let j = min.value; j <= max.value; j++)
-        if (j >= 0 && j < this.data.length && this.data[j].filter instanceof ActiveFilter)
-          filters.push(this.data[j].filter);
-    }
-    if (filters.length)
+    let items = this.selectedItems.filter(function(i) i.filter instanceof ActiveFilter);
+    if (items.length)
     {
       this.boxObject.beginUpdateBatch();
-      let newValue = !filters[0].disabled;
-      for (let i = 0; i < filters.length; i++)
-        filters[i].disabled = newValue;
+      let newValue = !items[0].filter.disabled;
+      for (let i = 0; i < items.length; i++)
+        items[i].filter.disabled = newValue;
       this.boxObject.endUpdateBatch();
     }
   },
@@ -1287,7 +1317,7 @@ var FiltersView =
     if (position >= this.data.length)
       position = this.data.length - 1;
 
-    if (this.data.length == 1 && this.data[0].filter.dummy)
+    if (this.isEmpty && this.data.length)
     {
       this.data.splice(0, 1);
       this.boxObject.rowCountChanged(0, -1);
@@ -1334,17 +1364,8 @@ var FiltersView =
     if (!(this._subscription instanceof SpecialSubscription))
       return;
 
-    let items = [];
     let oldIndex = this.selection.currentIndex;
-    for (let i = 0; i < this.selection.getRangeCount(); i++)
-    {
-      let min = {};
-      let max = {};
-      this.selection.getRangeAt(i, min, max);
-      for (let j = min.value; j <= max.value; j++)
-        if (j >= 0 && j < this.data.length)
-          items.push(this.data[j]);
-    }
+    let items = this.selectedItems;
     items.sort(function(entry1, entry2) entry2.index - entry1.index);
 
     if (items.length == 0 || (items.length >= 2 && !Utils.confirm(window, this.treeElement.getAttribute("_removewarning"))))
@@ -1357,6 +1378,50 @@ var FiltersView =
       oldIndex = this.data.length - 1;
     this.selection.select(oldIndex);
     this.boxObject.ensureRowIsVisible(oldIndex);
+  },
+
+  /**
+   * Moves selected filters one line up.
+   */
+  moveUp: function()
+  {
+    if (!(this._subscription instanceof SpecialSubscription) || this.isEmpty || this.sortProc)
+      return;
+
+    let items = this.selectedItems;
+    if (!items.length)
+      return;
+
+    let newPos = items[0].index - 1;
+    if (newPos < 0)
+      return;
+
+    items.sort(function(entry1, entry2) entry2.index - entry1.index);
+    for (let i = 0; i < items.length; i++)
+      FilterStorage.moveFilter(items[i].filter, this._subscription, items[i].index, newPos++);
+    this.selection.rangedSelect(newPos - items.length, newPos - 1, false);
+  },
+
+  /**
+   * Moves selected filters one line down.
+   */
+  moveDown: function()
+  {
+    if (!(this._subscription instanceof SpecialSubscription) || this.isEmpty || this.sortProc)
+      return;
+
+    let items = this.selectedItems;
+    if (!items.length)
+      return;
+
+    let newPos = items[items.length - 1].index + 1;
+    if (newPos >= this.data.length)
+      return;
+
+    items.sort(function(entry1, entry2) entry2.index - entry1.index);
+    for (let i = items.length - 1; i >= 0; i--)
+      FilterStorage.moveFilter(items[i].filter, this._subscription, items[i].index, newPos--);
+    this.selection.rangedSelect(newPos + 1, newPos + items.length, false);
   },
 
   /**
@@ -1451,7 +1516,7 @@ var FiltersView =
    */
   removeFilterAt: function(/**Integer*/ position)
   {
-    if (this._subscription.filters.length == 0)
+    if (this.isEmpty)
     {
       this.updateData();
       this.boxObject.invalidate();
@@ -1470,6 +1535,29 @@ var FiltersView =
         else if (this.data[i].index > position)
           this.data[i].index--;
       }
+    }
+  },
+
+  /**
+   * Called if a filter has been moved within the list.
+   */
+  moveFilterAt: function(/**Integer*/ oldPosition, /**Integer*/ newPosition)
+  {
+    let dir = (oldPosition < newPosition ? 1 : -1);
+    for (let i = 0; i < this.data.length; i++)
+    {
+      if (this.data[i].index == oldPosition)
+        this.data[i].index = newPosition;
+      else if (dir * this.data[i].index > dir * oldPosition && dir * this.data[i].index < dir * newPosition)
+        this.data[i].index += dir;
+    }
+
+    if (!this.sortProc)
+    {
+      let item = this.data[oldPosition];
+      this.data.splice(oldPosition, 1);
+      this.data.splice(newPosition, 0, item);
+      this.boxObject.invalidateRange(Math.min(oldPosition, newPosition), Math.max(oldPosition, newPosition));
     }
   },
 
@@ -1499,10 +1587,30 @@ var FiltersView =
   /**
    * Called whenever a key is pressed on the list.
    */
-  onKeyPress: function(/**Event*/ event)
+  keyPress: function(/**Event*/ event)
   {
-    if (event.charCode == " ".charCodeAt(0) && !E("col-enabled").hidden)
+    let modifiers = 0;
+    if (event.altKey)
+      modifiers |= SubscriptionActions._altMask;
+    if (event.ctrlKey)
+      modifiers |= SubscriptionActions._ctrlMask;
+    if (event.metaKey)
+      modifiers |= SubscriptionActions._metaMask;
+
+    if (event.charCode == " ".charCodeAt(0) && modifiers == 0 && !E("col-enabled").hidden)
       this.selectionToggleDisabled();
+    else if (event.keyCode == Ci.nsIDOMKeyEvent.DOM_VK_UP && modifiers == SubscriptionActions._accelMask)
+    {
+      E("filters-moveUp-command").doCommand();
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    else if (event.keyCode == Ci.nsIDOMKeyEvent.DOM_VK_DOWN && modifiers == SubscriptionActions._accelMask)
+    {
+      E("filters-moveDown-command").doCommand();
+      event.preventDefault();
+      event.stopPropagation();
+    }
   },
 
   QueryInterface: XPCOMUtils.generateQI([Ci.nsITreeView]),
@@ -1510,8 +1618,8 @@ var FiltersView =
   setTree: function(boxObject)
   {
     this.init();
-
     this.boxObject = boxObject;
+
     if (this.boxObject)
     {
       this.noGroupDummy = {index: 0, filter: {text: this.boxObject.treeBody.getAttribute("noGroupText"), dummy: true}};
@@ -1535,6 +1643,11 @@ var FiltersView =
       for (let i = 0; i < columns.length; i++)
         if (columns[i].element.hasAttribute("sortDirection"))
           this.sortBy(columns[i].id, columns[i].element.getAttribute("sortDirection"));
+
+      this.treeElement.parentNode.addEventListener("keypress", function(event)
+      {
+        FiltersView.keyPress(event);
+      }, true);
     }
   },
 
