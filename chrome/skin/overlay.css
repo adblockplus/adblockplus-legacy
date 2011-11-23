@@ -156,26 +156,19 @@ toolbar[mode="full"] #abp-toolbarbutton[type="menu"]
   -moz-image-region: rect(0px, 42px, 14px, 28px);
 }
 
-.abp-recommendbutton
+.abp-contributebutton
 {
-  opacity: 0.7;
   margin-top: 20px;
 }
 
-.abp-recommendbutton:hover
-{
-  opacity: 1;
-}
-
-.abp-recommendbutton-btn
+.abp-contributebutton-btn
 {
   font-size: 80%;
   margin-left: 40px;
   margin-right: 40px;
-  list-style-image: url("data:image/gif;base64,R0lGODlhEAAQAKIAAGF5rEVinmB4q%2Bvu9G2EtP%2F%2F%2FztZmAAAACH5BAAAAAAALAAAAAAQABAAAAM4WLrcCibKGYGiWN4sxt6Y9xWZAZpkdp6R06bTIMpvucLUbeNKQPxAggIY6AWBw1%2BxAClJLI7oIgEAOw%3D%3D");
 }
 
-.abp-recommendbutton-close
+.abp-contributebutton-close
 {
   border-style: none !important;
   -moz-user-focus: normal;
@@ -184,7 +177,7 @@ toolbar[mode="full"] #abp-toolbarbutton[type="menu"]
   -moz-image-region: rect(0px, 14px, 14px, 0px);
 }
 
-.abp-recommendbutton-close:hover
+.abp-contributebutton-close:hover
 {
   -moz-image-region: rect(0px, 28px, 14px, 14px);
 }

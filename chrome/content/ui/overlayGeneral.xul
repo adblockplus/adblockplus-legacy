@@ -72,9 +72,9 @@
         </menupopup>
       </menu>
 
-      <hbox class="abp-recommendbutton" id="abp-status-recommendbutton" pack="center">
-        <button class="abp-recommendbutton-btn" label="&recommend.label;" command="abp-command-recommend" flex="1"/>
-        <toolbarbutton class="abp-recommendbutton-close" command="abp-command-recommend-hide"/>
+      <hbox class="abp-contributebutton" id="abp-status-contributebutton" pack="center" persist="hidden">
+        <button class="abp-contributebutton-btn" label="&contribute.label;" command="abp-command-contribute" flex="1"/>
+        <toolbarbutton class="abp-contributebutton-close" command="abp-command-contribute-hide"/>
       </hbox>
     </menupopup>
   </popupset>
@@ -93,8 +93,8 @@
     <command id="abp-command-toggleshowintoolbar"/>
     <command id="abp-command-toggleshowinstatusbar"/>
     <command id="abp-command-enable" oncommand="//"/>
-    <command id="abp-command-recommend"/>
-    <command id="abp-command-recommend-hide"/>
+    <command id="abp-command-contribute"/>
+    <command id="abp-command-contribute-hide"/>
   </commandset>
 
   <statusbarpanel id="abp-status" class="statusbarpanel-iconic"
