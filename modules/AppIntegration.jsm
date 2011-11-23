@@ -1049,26 +1049,6 @@ WindowWrapper.prototype =
     this.E(prefix + "closesidebar").setAttribute("default", defAction == 1);
     this.E(prefix + "filters").setAttribute("default", defAction == 2);
     this.E(prefix + "disabled").setAttribute("default", defAction == 3);
-
-    // Only show "Recommend" button to Facebook users, we don't want to advertise Facebook
-    this.E(prefix + "recommendbutton").hidden = true;
-    if (!this.E("abp-hooks").hasAttribute("forceHideRecommend"))
-    {
-      let cookieManager = Cc["@mozilla.org/cookiemanager;1"].getService(Ci.nsICookieManager2);
-      if ("getCookiesFromHost" in cookieManager)
-      {
-        let enumerator = cookieManager.getCookiesFromHost("facebook.com");
-        while (enumerator.hasMoreElements())
-        {
-          let cookie = enumerator.getNext().QueryInterface(Ci.nsICookie);
-          if (cookie.name == "lu")
-          {
-            this.E(prefix + "recommendbutton").hidden = false;
-            break;
-          }
-        }
-      }
-    }
   },
 
   /**
@@ -1084,25 +1064,26 @@ WindowWrapper.prototype =
   },
 
   /**
-   * Opens Facebook's recommend page.
+   * Opens our contribution page.
    */
-  recommend: function()
+  openContributePage: function()
   {
-    this.window.open("http://www.facebook.com/share.php?u=http%3A%2F%2Fadblockplus.org%2F&t=Adblock%20Plus", "_blank", "width=550,height=350");
+    Utils.loadDocLink("contribute");
   },
 
   /**
-   * Hide recommend button and persist this choice.
+   * Hide contribute button and persist this choice.
    */
-  recommendHide: function(event)
+  hideContributeButton: function(event)
   {
-    let hooks = this.E("abp-hooks");
-    hooks.setAttribute("forceHideRecommend", "true");
-    this.window.document.persist(hooks.id, "forceHideRecommend");
-
-    for each (let button in [this.E("abp-status-recommendbutton"), this.E("abp-toolbar-recommendbutton")])
+    for each (let button in [this.E("abp-status-contributebutton"), this.E("abp-toolbar-contributebutton")])
+    {
       if (button)
-        button.hidden = true;
+      {
+        button.setAttribute("hidden", "true");
+        this.window.document.persist(button.id, "hidden");
+      }
+    }
   },
 
   /**
@@ -1340,8 +1321,8 @@ WindowWrapper.prototype.eventHandlers = [
   ["abp-command-toggleshowintoolbar", "command", function() { AppIntegration.togglePref("showintoolbar"); }],
   ["abp-command-toggleshowinstatusbar", "command", function() { AppIntegration.togglePref("showinstatusbar"); }],
   ["abp-command-enable", "command", function() { AppIntegration.togglePref("enabled"); }],
-  ["abp-command-recommend", "command", WindowWrapper.prototype.recommend],
-  ["abp-command-recommend-hide", "command", WindowWrapper.prototype.recommendHide],
+  ["abp-command-contribute", "command", WindowWrapper.prototype.openContributePage],
+  ["abp-command-contribute-hide", "command", WindowWrapper.prototype.hideContributeButton],
   ["abp-toolbarbutton", "command", WindowWrapper.prototype.handleToolbarCommand],
   ["abp-toolbarbutton", "click", WindowWrapper.prototype.handleToolbarClick],
   ["abp-status", "click", WindowWrapper.prototype.handleStatusClick],
