@@ -320,10 +320,8 @@ var Policy =
    */
   isWhitelisted: function(url)
   {
-    // Do not allow whitelisting about:. We get a check for about: during
-    // startup, it should be dealt with fast - without checking filters which
-    // might load patterns.ini.
-    if (!url || /^(moz-safe-)?about:/.test(url))
+    // Do not apply exception rules to schemes on our whitelistschemes list.
+    if (!url || (/^([\w\-]+):/.test(url) && RegExp.$1 in Policy.whitelistSchemes))
       return null;
 
     // Ignore fragment identifier
