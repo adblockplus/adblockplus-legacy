@@ -50,7 +50,7 @@
     </tooltip>
 
     <!-- Icon's context menu -->
-    <menupopup id="abp-status-popup">
+    <menupopup id="abp-status-popup" context="">
       <menuitem id="abp-status-sendReport" label="&sendReport.label;…" accesskey="&sendReport.accesskey;" key="abp-key-sendReport" command="abp-command-sendReport"/>
       <menuitem id="abp-status-opensidebar" label="&opensidebar.label;" accesskey="&opensidebar.accesskey;" key="abp-key-sidebar" command="abp-command-sidebar"/>
       <menuitem id="abp-status-closesidebar" label="&closesidebar.label;" accesskey="&closesidebar.accesskey;" key="abp-key-sidebar" command="abp-command-sidebar"/>
