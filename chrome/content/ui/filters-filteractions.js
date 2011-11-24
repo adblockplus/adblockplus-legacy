@@ -176,6 +176,40 @@ var FilterActions =
   },
 
   /**
+   * Moves items to a different position in the list.
+   * @param {Array} items
+   * @param {Integer} offset  negative offsets move the items up, positive down
+   */
+  _moveItems: function(/**Array*/ items, /**Integer*/ offset)
+  {
+    if (!items.length)
+      return;
+
+    if (offset < 0)
+    {
+      items.sort(function(entry1, entry2) entry1.index - entry2.index);
+      let position = items[0].index - 1;
+      if (position < 0)
+        return;
+
+      for (let i = 0; i < items.length; i++)
+        FilterStorage.moveFilter(items[i].filter, FilterView._subscription, items[i].index, position++);
+      FilterView.selection.rangedSelect(position - items.length, position - 1, false);
+    }
+    else if (offset > 0)
+    {
+      items.sort(function(entry1, entry2) entry2.index - entry1.index);
+      let position = items[0].index + 1;
+      if (position >= FilterView.rowCount)
+        return;
+
+      for (let i = 0; i < items.length; i++)
+        FilterStorage.moveFilter(items[i].filter, FilterView._subscription, items[i].index, position--);
+      FilterView.selection.rangedSelect(position + 1, position + items.length, false);
+    }
+  },
+
+  /**
    * Moves selected filters one line up.
    */
   moveUp: function()
@@ -183,19 +217,7 @@ var FilterActions =
     if (!FilterView.editable || FilterView.isEmpty || FilterView.isSorted() || this.treeElement.editingColumn)
       return;
 
-    let items = FilterView.selectedItems;
-    if (!items.length)
-      return;
-
-    items.sort(function(entry1, entry2) entry1.index - entry2.index);
-
-    let newPos = items[0].index - 1;
-    if (newPos < 0)
-      return;
-
-    for (let i = 0; i < items.length; i++)
-      FilterStorage.moveFilter(items[i].filter, FilterView._subscription, items[i].index, newPos++);
-    FilterView.selection.rangedSelect(newPos - items.length, newPos - 1, false);
+    this._moveItems(FilterView.selectedItems, -1);
   },
 
   /**
@@ -206,19 +228,7 @@ var FilterActions =
     if (!FilterView.editable || FilterView.isEmpty || FilterView.isSorted() || this.treeElement.editingColumn)
       return;
 
-    let items = FilterView.selectedItems;
-    if (!items.length)
-      return;
-
-    items.sort(function(entry1, entry2) entry1.index - entry2.index);
-
-    let newPos = items[items.length - 1].index + 1;
-    if (newPos >= FilterView.data.length)
-      return;
-
-    for (let i = items.length - 1; i >= 0; i--)
-      FilterStorage.moveFilter(items[i].filter, FilterView._subscription, items[i].index, newPos--);
-    FilterView.selection.rangedSelect(newPos + 1, newPos + items.length, false);
+    this._moveItems(FilterView.selectedItems, 1);
   },
 
   /**
