@@ -29,7 +29,6 @@ function init()
 {
   new ListManager(E("subscriptions"), E("subscriptionTemplate"), RegularSubscription, SubscriptionActions.updateCommands);
   new ListManager(E("groups"), E("groupTemplate"), SpecialSubscription, SubscriptionActions.updateCommands);
-  E("filtersTree").view = FiltersView;
 }
 
 /**
@@ -79,8 +78,8 @@ function onSelectionChange(/**Element*/ list)
  */
 function onShowHideFilters()
 {
-  if (FiltersView.visible)
-    FiltersView.refresh();
+  if (FiltersActions.visible)
+    FilterView.refresh();
 }
 
 /**
@@ -97,7 +96,7 @@ function updateSelectedSubscription()
     return;
 
   let data = Templater.getDataForNode(list.selectedItem);
-  FiltersView.subscription = (data ? data.subscription : null);
+  FilterView.subscription = (data ? data.subscription : null);
 }
 
 /**

@@ -46,17 +46,18 @@
 <script type="application/x-javascript;version=1.7" src="filters-subscriptionview.js"/>
 <script type="application/x-javascript;version=1.7" src="filters-subscriptionactions.js"/>
 <script type="application/x-javascript;version=1.7" src="filters-filterview.js"/>
+<script type="application/x-javascript;version=1.7" src="filters-filteractions.js"/>
 <script type="application/x-javascript;version=1.7" src="findbar.js"/>
 
 <keyset id="filtersKeyset">
   <key id="subscription-update-key" key="T" modifiers="accel" command="subscription-update-command"/>
-  <key id="edit-key" keycode="VK_F2" oncommand="E(FiltersView.focused ? 'filters-edit-command' : 'subscription-editTitle-command').doCommand();"/>
-  <key id="delete-key" keycode="VK_DELETE" oncommand="E(FiltersView.focused ? 'filters-delete-command' : 'subscription-delete-command').doCommand();"/>
+  <key id="edit-key" keycode="VK_F2" oncommand="E(FilterActions.focused ? 'filters-edit-command' : 'subscription-editTitle-command').doCommand();"/>
+  <key id="delete-key" keycode="VK_DELETE" oncommand="E(FilterActions.focused ? 'filters-delete-command' : 'subscription-delete-command').doCommand();"/>
   <key id="subscription-showHideFilters-key" key="V" modifiers="accel" command="subscription-showHideFilters-command"/>
   <key id="moveUp-key" keycode="VK_UP" modifiers="accel"/>
   <key id="moveDown-key" keycode="VK_DOWN" modifiers="accel"/>
-  <key id="filters-insert-key" keycode="VK_INSERT" oncommand="if (FiltersView.focused) E('filters-insert-command').doCommand();"/>
-  <key id="filters-selectAll-key" key="A" modifiers="accel" oncommand="if (FiltersView.focused) E('filters-selectAll-command').doCommand();"/>
+  <key id="filters-insert-key" keycode="VK_INSERT" oncommand="if (FilterActions.focused) E('filters-insert-command').doCommand();"/>
+  <key id="filters-selectAll-key" key="A" modifiers="accel" oncommand="if (FilterActions.focused) E('filters-selectAll-command').doCommand();"/>
 </keyset>
 
 <commandset id="filtersCommandset">
@@ -70,33 +71,33 @@
   <command id="subscription-addSelected-command" oncommand="SelectSubscription.add();"/>
   <command id="subscription-addOther-command" oncommand="SelectSubscription.chooseOther();"/>
   <command id="group-add-command" oncommand="SubscriptionActions.addGroup();"/>
-  <command id="filters-selectAll-command" oncommand="FiltersView.selectAll();"/>
-  <command id="filters-edit-command" oncommand="FiltersView.startEditing();"/>
-  <command id="filters-insert-command" oncommand="FiltersView.insertFilter();"/>
-  <command id="filters-delete-command" oncommand="FiltersView.deleteSelected();"/>
-  <command id="filters-moveUp-command" oncommand="FiltersView.moveUp();"/>
-  <command id="filters-moveDown-command" oncommand="FiltersView.moveDown();"/>
+  <command id="filters-selectAll-command" oncommand="FilterActions.selectAll();"/>
+  <command id="filters-edit-command" oncommand="FilterActions.startEditing();"/>
+  <command id="filters-insert-command" oncommand="FilterActions.insertFilter();"/>
+  <command id="filters-delete-command" oncommand="FilterActions.deleteSelected();"/>
+  <command id="filters-moveUp-command" oncommand="FilterActions.moveUp();"/>
+  <command id="filters-moveDown-command" oncommand="FilterActions.moveDown();"/>
 </commandset>
 
 <popupset id="filtersPopupset">
-  <menupopup id="filters-view-menu" onpopupshowing="FiltersView.fillColumnPopup();">
+  <menupopup id="filters-view-menu" onpopupshowing="FilterActions.fillColumnPopup();">
     <menuitem id="filters-view-filter" label="&filter.column;" accesskey="&filter.accesskey;" type="checkbox" disabled="true"/>
-    <menuitem id="filters-view-slow" label="&slow.column;" accesskey="&slow.accesskey;" type="checkbox" oncommand="FiltersView.toggleColumn('col-slow')"/>
-    <menuitem id="filters-view-enabled" label="&enabled.column;" accesskey="&enabled.accesskey;" type="checkbox" oncommand="FiltersView.toggleColumn('col-enabled')"/>
-    <menuitem id="filters-view-hitcount" label="&hitcount.column;" accesskey="&hitcount.accesskey;" type="checkbox" oncommand="FiltersView.toggleColumn('col-hitcount')"/>
-    <menuitem id="filters-view-lasthit" label="&lasthit.column;" accesskey="&lasthit.accesskey;" type="checkbox" oncommand="FiltersView.toggleColumn('col-lasthit')"/>
+    <menuitem id="filters-view-slow" label="&slow.column;" accesskey="&slow.accesskey;" type="checkbox" oncommand="FilterActions.toggleColumn('col-slow')"/>
+    <menuitem id="filters-view-enabled" label="&enabled.column;" accesskey="&enabled.accesskey;" type="checkbox" oncommand="FilterActions.toggleColumn('col-enabled')"/>
+    <menuitem id="filters-view-hitcount" label="&hitcount.column;" accesskey="&hitcount.accesskey;" type="checkbox" oncommand="FilterActions.toggleColumn('col-hitcount')"/>
+    <menuitem id="filters-view-lasthit" label="&lasthit.column;" accesskey="&lasthit.accesskey;" type="checkbox" oncommand="FilterActions.toggleColumn('col-lasthit')"/>
     <menuseparator/>
     <menu id="filters-sort-menu" label="&sort.label;" accesskey="&sort.accesskey;">
       <menupopup id="filters-sort-popup">
-        <menuitem id="filters-sort-none" label="&sort.none.label;" accesskey="&sort.none.accesskey;" type="radio" name="sortColumn" oncommand="FiltersView.sortBy(null)"/>
-        <menuitem id="filters-sort-filter" label="&filter.column;" accesskey="&filter.accesskey;" type="radio" name="sortColumn" oncommand="FiltersView.sortBy('col-filter')"/>
-        <menuitem id="filters-sort-slow" label="&slow.column;" accesskey="&slow.accesskey;" type="radio" name="sortColumn" oncommand="FiltersView.sortBy('col-slow')"/>
-        <menuitem id="filters-sort-enabled" label="&enabled.column;" accesskey="&enabled.accesskey;" type="radio" name="sortColumn" oncommand="FiltersView.sortBy('col-enabled')"/>
-        <menuitem id="filters-sort-hitcount" label="&hitcount.column;" accesskey="&hitcount.accesskey;" type="radio" name="sortColumn" oncommand="FiltersView.sortBy('col-hitcount')"/>
-        <menuitem id="filters-sort-lasthit" label="&lasthit.column;" accesskey="&lasthit.accesskey;" type="radio" name="sortColumn" oncommand="FiltersView.sortBy('col-lasthit')"/>
+        <menuitem id="filters-sort-none" label="&sort.none.label;" accesskey="&sort.none.accesskey;" type="radio" name="sortColumn" oncommand="FilterView.sortBy(null)"/>
+        <menuitem id="filters-sort-filter" label="&filter.column;" accesskey="&filter.accesskey;" type="radio" name="sortColumn" oncommand="FilterView.sortBy('col-filter')"/>
+        <menuitem id="filters-sort-slow" label="&slow.column;" accesskey="&slow.accesskey;" type="radio" name="sortColumn" oncommand="FilterView.sortBy('col-slow')"/>
+        <menuitem id="filters-sort-enabled" label="&enabled.column;" accesskey="&enabled.accesskey;" type="radio" name="sortColumn" oncommand="FilterView.sortBy('col-enabled')"/>
+        <menuitem id="filters-sort-hitcount" label="&hitcount.column;" accesskey="&hitcount.accesskey;" type="radio" name="sortColumn" oncommand="FilterView.sortBy('col-hitcount')"/>
+        <menuitem id="filters-sort-lasthit" label="&lasthit.column;" accesskey="&lasthit.accesskey;" type="radio" name="sortColumn" oncommand="FilterView.sortBy('col-lasthit')"/>
         <menuseparator/>
-        <menuitem id="filters-sort-asc" label="&sort.ascending.label;" accesskey="&sort.ascending.accesskey;" type="radio" name="sortOrder" oncommand="FiltersView.setSortOrder('ascending')"/>
-        <menuitem id="filters-sort-desc" label="&sort.descending.label;" accesskey="&sort.descending.accesskey;" type="radio" name="sortOrder" oncommand="FiltersView.setSortOrder('descending')"/>
+        <menuitem id="filters-sort-asc" label="&sort.ascending.label;" accesskey="&sort.ascending.accesskey;" type="radio" name="sortOrder" oncommand="FilterActions.setSortOrder('ascending')"/>
+        <menuitem id="filters-sort-desc" label="&sort.descending.label;" accesskey="&sort.descending.accesskey;" type="radio" name="sortOrder" oncommand="FilterActions.setSortOrder('descending')"/>
       </menupopup>
     </menu>
   </menupopup>
