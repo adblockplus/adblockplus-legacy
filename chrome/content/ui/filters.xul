@@ -43,6 +43,9 @@
 
 <script type="application/x-javascript;version=1.7" src="utils.js"/>
 <script type="application/x-javascript;version=1.7" src="filters.js"/>
+<script type="application/x-javascript;version=1.7" src="filters-subscriptionview.js"/>
+<script type="application/x-javascript;version=1.7" src="filters-subscriptionactions.js"/>
+<script type="application/x-javascript;version=1.7" src="filters-filterview.js"/>
 <script type="application/x-javascript;version=1.7" src="findbar.js"/>
 
 <keyset id="filtersKeyset">
