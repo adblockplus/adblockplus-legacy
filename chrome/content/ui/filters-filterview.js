@@ -29,7 +29,7 @@ Cu.import("resource://gre/modules/XPCOMUtils.jsm");
  * subscription.
  * @class
  */
-var FiltersView =
+var FilterView =
 {
   /**
    * Initialization function.
@@ -190,12 +190,6 @@ var FiltersView =
   boxObject: null,
 
   /**
-   * <tree> element that the view is attached to.
-   * @type XULElement
-   */
-  get treeElement() this.boxObject ? this.boxObject.treeBody.parentNode : null,
-
-  /**
    * Map of used cell properties to the corresponding nsIAtom representations.
    */
   atoms: null,
@@ -222,28 +216,10 @@ var FiltersView =
   data: [],
 
   /**
-   * Tests whether the tree is currently visible.
+   * <tree> element that the view is attached to.
+   * @type XULElement
    */
-  get visible()
-  {
-    return this.boxObject && !this.treeElement.collapsed;
-  },
-
-  /**
-   * Tests whether the tree is currently focused.
-   * @type Boolean
-   */
-  get focused()
-  {
-    let focused = document.commandDispatcher.focusedElement;
-    while (focused)
-    {
-      if ("treeBoxObject" in focused && focused.treeBoxObject == this.boxObject)
-        return true;
-      focused = focused.parentNode;
-    }
-    return false;
-  },
+  get treeElement() this.boxObject ? this.boxObject.treeBody.parentNode : null,
 
   /**
    * Checks whether the list is currently empty (regardless of dummy entries).
@@ -252,6 +228,15 @@ var FiltersView =
   get isEmpty()
   {
     return !this._subscription || !this._subscription.filters.length;
+  },
+
+  /**
+   * Checks whether the filters in the view can be changed.
+   * @type Boolean
+   */
+  get editable()
+  {
+    return (FilterView._subscription instanceof SpecialSubscription);
   },
 
   /**
@@ -287,7 +272,7 @@ var FiltersView =
       return;
 
     this._subscription = value;
-    if (this.visible)
+    if (FilterActions.visible)
       this.refresh();
   },
 
@@ -296,13 +281,8 @@ var FiltersView =
    */
   refresh: function()
   {
-    let oldCount = this.rowCount;
     this.updateData();
-
-    this.boxObject.rowCountChanged(0, -oldCount);
-    this.boxObject.rowCountChanged(0, this.rowCount);
-    if (this.rowCount)
-      this.selection.select(0);
+    this.selectRow(0);
   },
 
   /**
@@ -364,175 +344,78 @@ var FiltersView =
   },
 
   /**
-   * Changes sort current order for the tree. Sorts by filter column if the list is unsorted.
-   * @param {String} order  either "ascending" or "descending"
+   * Inserts dummy entry into the list if necessary.
    */
-  setSortOrder: function(sortOrder)
+  addDummyRow: function()
   {
-    let col = (this.sortColumn ? this.sortColumn.id : "col-filter");
-    this.sortBy(col, sortOrder);
-  },
-
-  /**
-   * Toggles the visibility of a tree column.
-   */
-  toggleColumn: function(/**String*/ id)
-  {
-    let col = E(id);
-    col.setAttribute("hidden", col.hidden ? "false" : "true");
-  },
-
-  /**
-   * Enables or disables all filters in the current selection.
-   */
-  selectionToggleDisabled: function()
-  {
-    let items = this.selectedItems.filter(function(i) i.filter instanceof ActiveFilter);
-    if (items.length)
+    if (this.boxObject && this.data.length == 0)
     {
-      this.boxObject.beginUpdateBatch();
-      let newValue = !items[0].filter.disabled;
-      for (let i = 0; i < items.length; i++)
-        items[i].filter.disabled = newValue;
-      this.boxObject.endUpdateBatch();
+      if (this._subscription)
+        this.data.splice(0, 0, this.noFiltersDummy);
+      else
+        this.data.splice(0, 0, this.noGroupDummy);
+      this.boxObject.rowCountChanged(0, 1);
     }
   },
 
   /**
-   * Selects all entries in the list.
+   * Removes dummy entry from the list if present.
    */
-  selectAll: function()
+  removeDummyRow: function()
   {
-    this.selection.selectAll();
-  },
-
-  /**
-   * Starts editing the current filter.
-   */
-  startEditing: function()
-  {
-    this.treeElement.startEditing(this.selection.currentIndex, this.boxObject.columns.getNamedColumn("col-filter"));
-  },
-
-  /**
-   * Starts editing a new filter at the current position.
-   */
-  insertFilter: function()
-  {
-    if (!(this._subscription instanceof SpecialSubscription))
-      return;
-
-    let position = this.selection.currentIndex;
-    if (position < 0)
-      position = 0;
-    if (position >= this.data.length)
-      position = this.data.length - 1;
-
-    if (this.isEmpty && this.data.length)
+    if (this.boxObject && this.isEmpty && this.data.length)
     {
       this.data.splice(0, 1);
       this.boxObject.rowCountChanged(0, -1);
     }
+  },
 
-    this.editDummy.index = (position < this.data.length ? this.data[position].index : Math.max(this.data.length - 1, 0));
+  /**
+   * Inserts dummy row when a new filter is being edited.
+   */
+  insertEditDummy: function()
+  {
+    FilterView.removeDummyRow();
+    let position = this.selection.currentIndex;
+    if (position >= this.data.length)
+      position = this.data.length - 1;
+    if (position < 0)
+      position = 0;
+
+    this.editDummy.index = (position < this.data.length ? this.data[position].index : this.data.length);
+    this.editDummy.position = position;
     this.data.splice(position, 0, this.editDummy);
     this.boxObject.rowCountChanged(position, 1);
-    this.selection.currentIndex = position;
-    this.boxObject.ensureRowIsVisible(position);
-    this.startEditing();
+    this.selectRow(position);
+  },
 
-    let origIndex = this.selection.currentIndex;
-    let tree = this.treeElement;
-    let me = this;
-    let listener = function(event)
+  /**
+   * Removes dummy row once the edit is finished.
+   */
+  removeEditDummy: function()
+  {
+    let position = this.editDummy.position;
+    if (typeof position != "undefined" && position < this.data.length && this.data[position] == this.editDummy)
     {
-      if (event.attrName == "editing" && tree.editingRow < 0)
-      {
-        tree.removeEventListener("DOMAttrModified", listener, false);
-        if (me.data[position] == me.editDummy)
-        {
-          me.data.splice(position, 1);
-          me.boxObject.rowCountChanged(position, -1);
-          me.selection.currentIndex = origIndex;
+      this.data.splice(position, 1);
+      this.boxObject.rowCountChanged(position, -1);
+      FilterView.addDummyRow();
 
-          if (me.data.length == 0)
-          {
-            me.updateData();
-            me.boxObject.rowCountChanged(0, me.data.length);
-            me.selection.select(0);
-          }
-        }
-      }
+      this.selectRow(position);
     }
-    tree.addEventListener("DOMAttrModified", listener, false);
   },
 
   /**
-   * Deletes selected filters.
+   * Selects a row in the tree and makes sure it is visible.
    */
-  deleteSelected: function()
+  selectRow: function(row)
   {
-    if (!(this._subscription instanceof SpecialSubscription))
-      return;
-
-    let oldIndex = this.selection.currentIndex;
-    let items = this.selectedItems;
-    items.sort(function(entry1, entry2) entry2.index - entry1.index);
-
-    if (items.length == 0 || (items.length >= 2 && !Utils.confirm(window, this.treeElement.getAttribute("_removewarning"))))
-      return;
-
-    for (let i = 0; i < items.length; i++)
-      FilterStorage.removeFilter(items[i].filter, this._subscription, items[i].index);
-
-    if (oldIndex >= this.data.length)
-      oldIndex = this.data.length - 1;
-    this.selection.select(oldIndex);
-    this.boxObject.ensureRowIsVisible(oldIndex);
-  },
-
-  /**
-   * Moves selected filters one line up.
-   */
-  moveUp: function()
-  {
-    if (!(this._subscription instanceof SpecialSubscription) || this.isEmpty || this.sortProc)
-      return;
-
-    let items = this.selectedItems;
-    if (!items.length)
-      return;
-
-    let newPos = items[0].index - 1;
-    if (newPos < 0)
-      return;
-
-    items.sort(function(entry1, entry2) entry1.index - entry2.index);
-    for (let i = 0; i < items.length; i++)
-      FilterStorage.moveFilter(items[i].filter, this._subscription, items[i].index, newPos++);
-    this.selection.rangedSelect(newPos - items.length, newPos - 1, false);
-  },
-
-  /**
-   * Moves selected filters one line down.
-   */
-  moveDown: function()
-  {
-    if (!(this._subscription instanceof SpecialSubscription) || this.isEmpty || this.sortProc)
-      return;
-
-    let items = this.selectedItems;
-    if (!items.length)
-      return;
-
-    let newPos = items[items.length - 1].index + 1;
-    if (newPos >= this.data.length)
-      return;
-
-    items.sort(function(entry1, entry2) entry1.index - entry2.index);
-    for (let i = items.length - 1; i >= 0; i--)
-      FilterStorage.moveFilter(items[i].filter, this._subscription, items[i].index, newPos--);
-    this.selection.rangedSelect(newPos + 1, newPos + items.length, false);
+    if (this.selection)
+    {
+      row = Math.min(Math.max(row, 0), this.data.length - 1);
+      this.selection.select(row);
+      this.boxObject.ensureRowIsVisible(row);
+    }
   },
 
   /**
@@ -540,6 +423,7 @@ var FiltersView =
    */
   updateData: function()
   {
+    let oldCount = this.rowCount;
     if (this._subscription && this._subscription.filters.length)
     {
       this.data = this._subscription.filters.map(function(f, i) ({index: i, filter: f}));
@@ -571,10 +455,16 @@ var FiltersView =
         }
       }
     }
-    else if (this._subscription)
-      this.data = [this.noFiltersDummy]
     else
-      this.data = [this.noGroupDummy];
+      this.data = [];
+
+    if (oldCount != this.rowCount)
+    {
+      this.boxObject.rowCountChanged(0, -oldCount);
+      this.boxObject.rowCountChanged(0, this.rowCount);
+    }
+
+    this.addDummyRow();
   },
 
   /**
@@ -618,8 +508,7 @@ var FiltersView =
       this.data.splice(position, 0, {index: position, filter: filter});
     }
     this.boxObject.rowCountChanged(position, 1);
-    this.selection.select(position);
-    this.boxObject.ensureRowIsVisible(position);
+    this.selectRow(position);
   },
 
   /**
@@ -627,26 +516,18 @@ var FiltersView =
    */
   removeFilterAt: function(/**Integer*/ position)
   {
-    if (this.isEmpty)
+    for (let i = 0; i < this.data.length; i++)
     {
-      this.updateData();
-      this.boxObject.invalidate();
-      this.selection.select(0);
-    }
-    else
-    {
-      for (let i = 0; i < this.data.length; i++)
+      if (this.data[i].index == position)
       {
-        if (this.data[i].index == position)
-        {
-          this.data.splice(i, 1);
-          this.boxObject.rowCountChanged(i, -1);
-          i--;
-        }
-        else if (this.data[i].index > position)
-          this.data[i].index--;
+        this.data.splice(i, 1);
+        this.boxObject.rowCountChanged(i, -1);
+        i--;
       }
+      else if (this.data[i].index > position)
+        this.data[i].index--;
     }
+    this.addDummyRow();
   },
 
   /**
@@ -669,58 +550,6 @@ var FiltersView =
       this.data.splice(oldPosition, 1);
       this.data.splice(newPosition, 0, item);
       this.boxObject.invalidateRange(Math.min(oldPosition, newPosition), Math.max(oldPosition, newPosition));
-    }
-  },
-
-  /**
-   * Fills the context menu of the filters columns.
-   */
-  fillColumnPopup: function()
-  {
-    E("filters-view-filter").setAttribute("checked", !E("col-filter").hidden);
-    E("filters-view-slow").setAttribute("checked", !E("col-slow").hidden);
-    E("filters-view-enabled").setAttribute("checked", !E("col-enabled").hidden);
-    E("filters-view-hitcount").setAttribute("checked", !E("col-hitcount").hidden);
-    E("filters-view-lasthit").setAttribute("checked", !E("col-lasthit").hidden);
-
-    let sortColumn = this.sortColumn;
-    let sortColumnID = (sortColumn ? sortColumn.id : null);
-    let sortDir = (sortColumn ? sortColumn.getAttribute("sortDirection") : "natural");
-    E("filters-sort-none").setAttribute("checked", sortColumn == null);
-    E("filters-sort-filter").setAttribute("checked", sortColumnID == "col-filter");
-    E("filters-sort-enabled").setAttribute("checked", sortColumnID == "col-enabled");
-    E("filters-sort-hitcount").setAttribute("checked", sortColumnID == "col-hitcount");
-    E("filters-sort-lasthit").setAttribute("checked", sortColumnID == "col-lasthit");
-    E("filters-sort-asc").setAttribute("checked", sortDir == "ascending");
-    E("filters-sort-desc").setAttribute("checked", sortDir == "descending");
-  },
-
-  /**
-   * Called whenever a key is pressed on the list.
-   */
-  keyPress: function(/**Event*/ event)
-  {
-    let modifiers = 0;
-    if (event.altKey)
-      modifiers |= SubscriptionActions._altMask;
-    if (event.ctrlKey)
-      modifiers |= SubscriptionActions._ctrlMask;
-    if (event.metaKey)
-      modifiers |= SubscriptionActions._metaMask;
-
-    if (event.charCode == " ".charCodeAt(0) && modifiers == 0 && !E("col-enabled").hidden)
-      this.selectionToggleDisabled();
-    else if (event.keyCode == Ci.nsIDOMKeyEvent.DOM_VK_UP && modifiers == SubscriptionActions._accelMask)
-    {
-      E("filters-moveUp-command").doCommand();
-      event.preventDefault();
-      event.stopPropagation();
-    }
-    else if (event.keyCode == Ci.nsIDOMKeyEvent.DOM_VK_DOWN && modifiers == SubscriptionActions._accelMask)
-    {
-      E("filters-moveDown-command").doCommand();
-      event.preventDefault();
-      event.stopPropagation();
     }
   },
 
@@ -754,11 +583,6 @@ var FiltersView =
       for (let i = 0; i < columns.length; i++)
         if (columns[i].element.hasAttribute("sortDirection"))
           this.sortBy(columns[i].id, columns[i].element.getAttribute("sortDirection"));
-
-      this.treeElement.parentNode.addEventListener("keypress", function(event)
-      {
-        FiltersView.keyPress(event);
-      }, true);
     }
   },
 
@@ -860,7 +684,7 @@ var FiltersView =
   {
     if (row < 0 || row >= this.data.length)
       return false;
-    if (!(this._subscription instanceof SpecialSubscription))
+    if (!this.editable)
       return false;
 
     let filter = this.data[row].filter;
@@ -883,10 +707,7 @@ var FiltersView =
 
     let newFilter = Filter.fromText(value);
     if (this.data[row] == this.editDummy)
-    {
-      this.data.splice(row, 1);
-      this.boxObject.rowCountChanged(row, -1);
-    }
+      this.removeEditDummy();
     else
       FilterStorage.removeFilter(oldFilter, this._subscription, position);
     FilterStorage.addFilter(newFilter, this._subscription, position);
