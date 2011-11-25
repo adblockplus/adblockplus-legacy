@@ -296,7 +296,9 @@
 
       <treechildren id="filtersTreeChildren"
           noGroupText="&noGroupSelected.text;"
-          noFiltersText="&noFiltersInGroup.text;"/>
+          noFiltersText="&noFiltersInGroup.text;"
+          ondragstart="FilterActions.startDrag(event);"
+          ondragend="FilterActions.endDrag(event);"/>
     </tree>
   </hbox>
 </hbox>
