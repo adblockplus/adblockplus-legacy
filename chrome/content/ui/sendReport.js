@@ -1354,8 +1354,7 @@ function processLinkClick(event)
 
 function copyLink(url)
 {
-  let clipboardHelper = Cc["@mozilla.org/widget/clipboardhelper;1"].getService(Ci.nsIClipboardHelper);
-  clipboardHelper.copyString(url);
+  Utils.clipboardHelper.copyString(url);
 }
 
 function censorURL(url)

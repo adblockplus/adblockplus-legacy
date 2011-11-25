@@ -240,13 +240,24 @@ var FilterView =
   },
 
   /**
+   * Returns current item of the list.
+   * @type Object
+   */
+  get currentItem()
+  {
+    let index = this.selection.currentIndex;
+    if (index >= 0 && index < this.data.length)
+      return this.data[index];
+    return null;
+  },
+
+  /**
    * Returns items that are currently selected in the list.
    * @type Object[]
    */
   get selectedItems()
   {
     let items = []
-    let oldIndex = this.selection.currentIndex;
     for (let i = 0; i < this.selection.getRangeCount(); i++)
     {
       let min = {};
