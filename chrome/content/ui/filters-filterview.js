@@ -671,20 +671,23 @@ var FilterView =
 
   canDrop: function(row, orientation)
   {
-    // TODO
-    return false;
+    if (orientation == Ci.nsITreeView.DROP_ON || row < 0 || row >= this.data.length || !this.editable)
+      return false;
+
+    return FilterActions.canDrop(orientation == Ci.nsITreeView.DROP_BEFORE ? row : row + 1);
   },
 
   drop: function(row, orientation)
   {
-    // TODO
+    if (orientation == Ci.nsITreeView.DROP_ON || row < 0 || row >= this.data.length || !this.editable)
+      return;
+
+    return FilterActions.drop(orientation == Ci.nsITreeView.DROP_BEFORE ? row : row + 1);
   },
 
   isEditable: function(row, col)
   {
-    if (row < 0 || row >= this.data.length)
-      return false;
-    if (!this.editable)
+    if (row < 0 || row >= this.data.length || !this.editable)
       return false;
 
     let filter = this.data[row].filter;

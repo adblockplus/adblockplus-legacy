@@ -188,7 +188,7 @@ var FilterActions =
     if (offset < 0)
     {
       items.sort(function(entry1, entry2) entry1.index - entry2.index);
-      let position = items[0].index - 1;
+      let position = items[0].index + offset;
       if (position < 0)
         return;
 
@@ -199,7 +199,7 @@ var FilterActions =
     else if (offset > 0)
     {
       items.sort(function(entry1, entry2) entry2.index - entry1.index);
-      let position = items[0].index + 1;
+      let position = items[0].index + offset;
       if (position >= FilterView.rowCount)
         return;
 
@@ -281,6 +281,62 @@ var FilterActions =
       event.preventDefault();
       event.stopPropagation();
     }
+  },
+
+  dragItems: null,
+
+  /**
+   * Called whenever the user starts a drag operation.
+   */
+  startDrag: function(/**Event*/ event)
+  {
+    if (!FilterView.editable || FilterView.isEmpty || FilterView.isSorted() || this.treeElement.editingColumn)
+      return false;
+
+    let items = FilterView.selectedItems;
+    if (!items.length)
+      return;
+
+    items.sort(function(entry1, entry2) entry1.index - entry2.index);
+    event.dataTransfer.setData("text/plain", items.map(function(i) i.filter.text).join("\n"));
+    this.dragItems = items;
+    event.stopPropagation();
+  },
+
+  /**
+   * Called to check whether moving the items to the given position is possible.
+   */
+  canDrop: function(/**Integer*/ newPosition)
+  {
+    if (!this.dragItems)
+      return false;
+    if (newPosition < this.dragItems[0].index)
+      return true;
+    else if (newPosition > this.dragItems[this.dragItems.length - 1].index + 1)
+      return true;
+    else
+      return false;
+  },
+
+  /**
+   * Called when the user decides to drop the items.
+   */
+  drop: function(/**Integer*/ newPosition)
+  {
+    if (!this.dragItems)
+      return;
+    if (newPosition < this.dragItems[0].index)
+      this._moveItems(this.dragItems, newPosition - this.dragItems[0].index);
+    else if (newPosition > this.dragItems[this.dragItems.length - 1].index + 1)
+      this._moveItems(this.dragItems, newPosition - this.dragItems[this.dragItems.length - 1].index - 1);
+  },
+
+  /**
+   * Called whenever the a drag operation finishes.
+   */
+  endDrag: function(/**Event*/ event)
+  {
+    this.dragItems = null;
   }
 };
 
