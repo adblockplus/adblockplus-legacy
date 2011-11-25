@@ -290,9 +290,6 @@ var FilterActions =
    */
   startDrag: function(/**Event*/ event)
   {
-    if (!FilterView.editable || FilterView.isEmpty || FilterView.isSorted() || this.treeElement.editingColumn)
-      return false;
-
     let items = FilterView.selectedItems;
     if (!items.length)
       return;
@@ -308,13 +305,16 @@ var FilterActions =
    */
   canDrop: function(/**Integer*/ newPosition, /**nsIDOMDataTransfer*/ dataTransfer)
   {
-    if (!this.dragItems)
-    {
-      if (!FilterView.editable || this.treeElement.editingColumn)
-        return false;
+    if (!FilterView.editable || this.treeElement.editingColumn)
+      return false;
 
+    // If we aren't dragging items then maybe we got filters as plain text
+    if (!this.dragItems)
       return dataTransfer && dataTransfer.getData("text/plain");
-    }
+
+    if (FilterView.isEmpty || FilterView.isSorted())
+      return false;
+
     if (newPosition < this.dragItems[0].index)
       return true;
     else if (newPosition > this.dragItems[this.dragItems.length - 1].index + 1)
@@ -328,11 +328,12 @@ var FilterActions =
    */
   drop: function(/**Integer*/ newPosition, /**nsIDOMDataTransfer*/ dataTransfer)
   {
+    if (!FilterView.editable || this.treeElement.editingColumn)
+      return;
+
     if (!this.dragItems)
     {
-      if (!FilterView.editable || this.treeElement.editingColumn)
-        return;
-
+      // We got filters as plain text, insert them into the list
       let data = (dataTransfer ? dataTransfer.getData("text/plain") : null);
       if (data)
       {
@@ -346,6 +347,10 @@ var FilterActions =
       }
       return;
     }
+
+    if (FilterView.isEmpty || FilterView.isSorted())
+      return false;
+
     if (newPosition < this.dragItems[0].index)
       this._moveItems(this.dragItems, newPosition - this.dragItems[0].index);
     else if (newPosition > this.dragItems[this.dragItems.length - 1].index + 1)
