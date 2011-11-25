@@ -358,6 +358,24 @@ var FilterActions =
   endDrag: function(/**Event*/ event)
   {
     this.dragItems = null;
+  },
+
+  /**
+   * Called if filters have been dragged into a subscription and need to be removed.
+   */
+  removeDraggedFilters: function()
+  {
+    if (!this.dragItems)
+      return;
+
+    let oldIndex = FilterView.selection.currentIndex;
+    let items = this.dragItems;
+    items.sort(function(entry1, entry2) entry2.index - entry1.index);
+
+    for (let i = 0; i < items.length; i++)
+      FilterStorage.removeFilter(items[i].filter, FilterView._subscription, items[i].index);
+
+    FilterView.selectRow(oldIndex);
   }
 };
 
