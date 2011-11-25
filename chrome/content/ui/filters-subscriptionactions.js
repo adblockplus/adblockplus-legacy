@@ -250,10 +250,6 @@ var SubscriptionActions =
    */
   dragOver: function(/**Event*/ event)
   {
-    // Ignore if not dragging a subscription
-    if (!this.dragSubscription)
-      return;
-
     // Don't allow dragging onto a scroll bar
     for (let node = event.originalTarget; node; node = node.parentNode)
       if (node.localName == "scrollbar")
@@ -276,6 +272,14 @@ var SubscriptionActions =
       return;
     }
 
+    // If not dragging a subscription check whether we can accept plain text
+    if (!this.dragSubscription)
+    {
+      let data = Templater.getDataForNode(event.target);
+      if (!data || !(data.subscription instanceof SpecialSubscription) || !event.dataTransfer.getData("text/plain"))
+        return;
+    }
+
     event.preventDefault();
     event.stopPropagation();
   },
@@ -286,7 +290,23 @@ var SubscriptionActions =
   drop: function(/**Event*/ event, /**Node*/ node)
   {
     if (!this.dragSubscription)
+    {
+      // Not dragging a subscription, maybe this is plain text that we can add as filters?
+      let data = Templater.getDataForNode(node);
+      if (data && data.subscription instanceof SpecialSubscription)
+      {
+        let lines = event.dataTransfer.getData("text/plain").replace(/\r/g, "").split("\n");
+        for (let i = 0; i < lines.length; i++)
+        {
+          let filter = Filter.fromText(lines[i]);
+          if (filter)
+            FilterStorage.addFilter(filter, data.subscription);
+        }
+        FilterActions.removeDraggedFilters();
+        event.stopPropagation();
+      }
       return;
+    }
 
     // When dragging down we need to insert after the drop node, otherwise before it.
     node = Templater.getDataNode(node);
