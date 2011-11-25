@@ -155,6 +155,20 @@ var FilterActions =
   },
 
   /**
+   * Deletes items from the list.
+   */
+  deleteItems: function(/**Array*/ items)
+  {
+    let oldIndex = FilterView.selection.currentIndex;
+    items.sort(function(entry1, entry2) entry2.index - entry1.index);
+
+    for (let i = 0; i < items.length; i++)
+      FilterStorage.removeFilter(items[i].filter, FilterView._subscription, items[i].index);
+
+    FilterView.selectRow(oldIndex);
+  },
+
+  /**
    * Deletes selected filters.
    */
   deleteSelected: function()
@@ -162,17 +176,11 @@ var FilterActions =
     if (!FilterView.editable || this.treeElement.editingColumn)
       return;
 
-    let oldIndex = FilterView.selection.currentIndex;
     let items = FilterView.selectedItems;
-    items.sort(function(entry1, entry2) entry2.index - entry1.index);
-
     if (items.length == 0 || (items.length >= 2 && !Utils.confirm(window, this.treeElement.getAttribute("_removewarning"))))
       return;
 
-    for (let i = 0; i < items.length; i++)
-      FilterStorage.removeFilter(items[i].filter, FilterView._subscription, items[i].index);
-
-    FilterView.selectRow(oldIndex);
+    this.deleteItems(items)
   },
 
   /**
@@ -283,6 +291,60 @@ var FilterActions =
     }
   },
 
+  /**
+   * Copies selected items to clipboard and optionally removes them from the
+   * list after that.
+   */
+  copySelected: function(/**Boolean*/ keep)
+  {
+    let items = FilterView.selectedItems;
+    if (!items.length)
+      return;
+
+    items.sort(function(entry1, entry2) entry1.index - entry2.index);
+    let text = items.map(function(i) i.filter.text).join(Utils.getLineBreak());
+    Utils.clipboardHelper.copyString(text);
+
+    if (!keep && FilterView.editable && !this.treeElement.editingColumn)
+      this.deleteItems(items);
+  },
+
+  /**
+   * Pastes text from clipboard as filters at the current position.
+   */
+  paste: function()
+  {
+    if (!FilterView.editable || this.treeElement.editingColumn)
+      return;
+
+    let clipboard = Cc["@mozilla.org/widget/clipboard;1"].getService(Ci.nsIClipboard);
+    let transferable = Cc["@mozilla.org/widget/transferable;1"].createInstance(Ci.nsITransferable);
+    transferable.addDataFlavor("text/unicode");
+
+    let data;
+    try
+    {
+      data = {};
+      clipboard.getData(transferable, clipboard.kGlobalClipboard);
+      transferable.getTransferData("text/unicode", data, {});
+      data = data.value.QueryInterface(Ci.nsISupportsString).data;
+    }
+    catch (e) {
+      return;
+    }
+
+    let item = FilterView.currentItem;
+    let position = (item ? item.index : FilterView.data.length);
+
+    let lines = data.replace(/\r/g, "").split("\n");
+    for (let i = 0; i < lines.length; i++)
+    {
+      let filter = Filter.fromText(lines[i]);
+      if (filter)
+        FilterStorage.addFilter(filter, FilterView._subscription, position++);
+    }
+  },
+
   dragItems: null,
 
   /**
@@ -295,7 +357,7 @@ var FilterActions =
       return;
 
     items.sort(function(entry1, entry2) entry1.index - entry2.index);
-    event.dataTransfer.setData("text/plain", items.map(function(i) i.filter.text).join("\n"));
+    event.dataTransfer.setData("text/plain", items.map(function(i) i.filter.text).join(Utils.getLineBreak()));
     this.dragItems = items;
     event.stopPropagation();
   },
@@ -373,14 +435,7 @@ var FilterActions =
     if (!this.dragItems)
       return;
 
-    let oldIndex = FilterView.selection.currentIndex;
-    let items = this.dragItems;
-    items.sort(function(entry1, entry2) entry2.index - entry1.index);
-
-    for (let i = 0; i < items.length; i++)
-      FilterStorage.removeFilter(items[i].filter, FilterView._subscription, items[i].index);
-
-    FilterView.selectRow(oldIndex);
+    this.deleteItems(this.dragItems);
   }
 };
 

@@ -53,11 +53,14 @@
   <key id="subscription-update-key" key="T" modifiers="accel" command="subscription-update-command"/>
   <key id="edit-key" keycode="VK_F2" oncommand="E(FilterActions.focused ? 'filters-edit-command' : 'subscription-editTitle-command').doCommand();"/>
   <key id="delete-key" keycode="VK_DELETE" oncommand="E(FilterActions.focused ? 'filters-delete-command' : 'subscription-delete-command').doCommand();"/>
-  <key id="subscription-showHideFilters-key" key="V" modifiers="accel" command="subscription-showHideFilters-command"/>
+  <key id="subscription-showHideFilters-key" key="R" modifiers="accel" command="subscription-showHideFilters-command"/>
   <key id="moveUp-key" keycode="VK_UP" modifiers="accel"/>
   <key id="moveDown-key" keycode="VK_DOWN" modifiers="accel"/>
   <key id="filters-insert-key" keycode="VK_INSERT" oncommand="if (FilterActions.focused) E('filters-insert-command').doCommand();"/>
   <key id="filters-selectAll-key" key="A" modifiers="accel" oncommand="if (FilterActions.focused) E('filters-selectAll-command').doCommand();"/>
+  <key id="filters-copy-key" key="C" modifiers="accel" oncommand="if (FilterActions.focused) E('filters-copy-command').doCommand();"/>
+  <key id="filters-cut-key" key="X" modifiers="accel" oncommand="if (FilterActions.focused) E('filters-cut-command').doCommand();"/>
+  <key id="filters-paste-key" key="V" modifiers="accel" oncommand="if (FilterActions.focused) E('filters-paste-command').doCommand();"/>
 </keyset>
 
 <commandset id="filtersCommandset">
@@ -77,6 +80,9 @@
   <command id="filters-delete-command" oncommand="FilterActions.deleteSelected();"/>
   <command id="filters-moveUp-command" oncommand="FilterActions.moveUp();"/>
   <command id="filters-moveDown-command" oncommand="FilterActions.moveDown();"/>
+  <command id="filters-copy-command" oncommand="FilterActions.copySelected(true);"/>
+  <command id="filters-cut-command" oncommand="FilterActions.copySelected(false);"/>
+  <command id="filters-paste-command" oncommand="FilterActions.paste();"/>
 </commandset>
 
 <popupset id="filtersPopupset">
