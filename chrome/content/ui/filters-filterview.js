@@ -669,20 +669,24 @@ var FilterView =
     return (this.sortProc != null);
   },
 
-  canDrop: function(row, orientation)
+  canDrop: function(row, orientation, dataTransfer)
   {
     if (orientation == Ci.nsITreeView.DROP_ON || row < 0 || row >= this.data.length || !this.editable)
       return false;
 
-    return FilterActions.canDrop(orientation == Ci.nsITreeView.DROP_BEFORE ? row : row + 1);
+    let item = this.data[row];
+    let position = (orientation == Ci.nsITreeView.DROP_BEFORE ? item.index : item.index + 1);
+    return FilterActions.canDrop(position, dataTransfer);
   },
 
-  drop: function(row, orientation)
+  drop: function(row, orientation, dataTransfer)
   {
     if (orientation == Ci.nsITreeView.DROP_ON || row < 0 || row >= this.data.length || !this.editable)
       return;
 
-    return FilterActions.drop(orientation == Ci.nsITreeView.DROP_BEFORE ? row : row + 1);
+    let item = this.data[row];
+    let position = (orientation == Ci.nsITreeView.DROP_BEFORE ? item.index : item.index + 1);
+    return FilterActions.drop(position, dataTransfer);
   },
 
   isEditable: function(row, col)

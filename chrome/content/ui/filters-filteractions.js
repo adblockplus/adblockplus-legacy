@@ -306,10 +306,15 @@ var FilterActions =
   /**
    * Called to check whether moving the items to the given position is possible.
    */
-  canDrop: function(/**Integer*/ newPosition)
+  canDrop: function(/**Integer*/ newPosition, /**nsIDOMDataTransfer*/ dataTransfer)
   {
     if (!this.dragItems)
-      return false;
+    {
+      if (!FilterView.editable || this.treeElement.editingColumn)
+        return false;
+
+      return dataTransfer && dataTransfer.getData("text/plain");
+    }
     if (newPosition < this.dragItems[0].index)
       return true;
     else if (newPosition > this.dragItems[this.dragItems.length - 1].index + 1)
@@ -321,10 +326,26 @@ var FilterActions =
   /**
    * Called when the user decides to drop the items.
    */
-  drop: function(/**Integer*/ newPosition)
+  drop: function(/**Integer*/ newPosition, /**nsIDOMDataTransfer*/ dataTransfer)
   {
     if (!this.dragItems)
+    {
+      if (!FilterView.editable || this.treeElement.editingColumn)
+        return;
+
+      let data = (dataTransfer ? dataTransfer.getData("text/plain") : null);
+      if (data)
+      {
+        let lines = data.replace(/\r/g, "").split("\n");
+        for (let i = 0; i < lines.length; i++)
+        {
+          let filter = Filter.fromText(lines[i]);
+          if (filter)
+            FilterStorage.addFilter(filter, FilterView._subscription, newPosition++);
+        }
+      }
       return;
+    }
     if (newPosition < this.dragItems[0].index)
       this._moveItems(this.dragItems, newPosition - this.dragItems[0].index);
     else if (newPosition > this.dragItems[this.dragItems.length - 1].index + 1)
