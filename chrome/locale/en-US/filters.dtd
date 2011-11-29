@@ -43,6 +43,9 @@
   You don't have any custom filters yet.
 ">
 
+<!ENTITY addFilter.label                      "Add filter">
+<!ENTITY addFilter.accesskey                  "d">
+
 <!ENTITY filter.column                        "Filter rule">
 <!ENTITY filter.accesskey                     "F">
 <!ENTITY slow.column                          "Slow filters">
