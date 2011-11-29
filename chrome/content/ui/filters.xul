@@ -283,7 +283,7 @@
   <vbox persist="width" width="500">
     <hbox pack="end">
       <button id="filterActionButton" type="menu" label="&filter.actions.label;…">
-        <menupopup class="filterActionMenu">
+        <menupopup id="filterActionMenu">
           <menuitem label="&filter.edit.label;…" key="edit-key" command="filters-edit-command"/>
           <menuitem label="&filter.cut.label;" key="filters-cut-key" command="filters-cut-command"/>
           <menuitem label="&filter.copy.label;" key="filters-copy-key" command="filters-copy-command"/>
@@ -318,6 +318,7 @@
       </treecols>
 
       <treechildren id="filtersTreeChildren"
+          oncontextmenu="E('filterActionMenu').openPopup(null, 'after_pointer', event.clientX, event.clientY, true, false, event);"
           noGroupText="&noGroupSelected.text;"
           noFiltersText="&noFiltersInGroup.text;"
           ondragstart="FilterActions.startDrag(event);"
