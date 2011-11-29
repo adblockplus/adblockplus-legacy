@@ -469,8 +469,11 @@ var FilterView =
     else
       this.data = [];
 
-    this.boxObject.rowCountChanged(0, -oldCount);
-    this.boxObject.rowCountChanged(0, this.rowCount);
+    if (this.boxObject)
+    {
+      this.boxObject.rowCountChanged(0, -oldCount);
+      this.boxObject.rowCountChanged(0, this.rowCount);
+    }
 
     this.addDummyRow();
   },

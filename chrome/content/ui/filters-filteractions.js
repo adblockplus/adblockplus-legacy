@@ -267,6 +267,9 @@ var FilterActions =
    */
   keyPress: function(/**Event*/ event)
   {
+    if (event.target != E("filtersTree"))
+      return;
+
     let modifiers = 0;
     if (event.altKey)
       modifiers |= SubscriptionActions._altMask;
