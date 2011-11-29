@@ -282,6 +282,20 @@
 
   <vbox persist="width" width="500">
     <hbox pack="end">
+      <button id="filterActionButton" type="menu" label="&filter.actions.label;…">
+        <menupopup class="filterActionMenu">
+          <menuitem label="&filter.edit.label;…" key="edit-key" command="filters-edit-command"/>
+          <menuitem label="&filter.cut.label;" key="filters-cut-key" command="filters-cut-command"/>
+          <menuitem label="&filter.copy.label;" key="filters-copy-key" command="filters-copy-command"/>
+          <menuitem label="&filter.paste.label;" key="filters-paste-key" command="filters-paste-command"/>
+          <menuitem label="&filter.delete.label;" key="delete-key" command="filters-delete-command"/>
+          <menuseparator/>
+          <menuitem label="&filter.selectAll.label;" key="filters-selectAll-key" command="filters-selectAll-command"/>
+          <menuseparator/>
+          <menuitem label="&filter.moveUp.label;" key="moveUp-key" command="filters-moveUp-command"/>
+          <menuitem label="&filter.moveDown.label;" key="moveDown-key" command="filters-moveDown-command"/>
+        </menupopup>
+      </button>
       <button id="addFilterButton" label="&addFilter.label;…" accesskey="&addFilter.accesskey;" command="filters-add-command"/>
     </hbox>
     <tree id="filtersTree"

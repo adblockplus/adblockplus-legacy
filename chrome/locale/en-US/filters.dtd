@@ -46,6 +46,16 @@
 <!ENTITY addFilter.label                      "Add filter">
 <!ENTITY addFilter.accesskey                  "d">
 
+<!ENTITY filter.actions.label                 "Filter actions">
+<!ENTITY filter.edit.label                    "Edit">
+<!ENTITY filter.cut.label                     "Cut">
+<!ENTITY filter.copy.label                    "Copy">
+<!ENTITY filter.paste.label                   "Paste">
+<!ENTITY filter.delete.label                  "Delete">
+<!ENTITY filter.selectAll.label               "Select All">
+<!ENTITY filter.moveUp.label                  "Move up">
+<!ENTITY filter.moveDown.label                "Move down">
+
 <!ENTITY filter.column                        "Filter rule">
 <!ENTITY filter.accesskey                     "F">
 <!ENTITY slow.column                          "Slow filters">
