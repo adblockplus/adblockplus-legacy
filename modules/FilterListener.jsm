@@ -45,8 +45,6 @@ Cu.import(baseURL.spec + "SubscriptionClasses.jsm");
 Cu.import(baseURL.spec + "Prefs.jsm");
 Cu.import(baseURL.spec + "Utils.jsm");
 
-let subscriptionFilter = null;
-
 /**
  * Version of the data cache file, files with different version will be ignored.
  */
@@ -246,7 +244,14 @@ function flushElemHideInternal()
  */
 function addFilter(filter)
 {
-  if (!(filter instanceof ActiveFilter) || filter.disabled || (subscriptionFilter && filter.subscriptions.some(subscriptionFilter)))
+  if (!(filter instanceof ActiveFilter) || filter.disabled)
+    return;
+
+  let hasEnabled = false;
+  for (let i = 0; i < filter.subscriptions.length; i++)
+    if (!filter.subscriptions[i].disabled)
+      hasEnabled = true;
+  if (!hasEnabled)
     return;
 
   if (filter instanceof RegExpFilter)
@@ -262,8 +267,18 @@ function addFilter(filter)
  */
 function removeFilter(filter)
 {
-  if (!(filter instanceof ActiveFilter) || (subscriptionFilter && filter.subscriptions.some(subscriptionFilter)))
+  if (!(filter instanceof ActiveFilter))
     return;
+
+  if (!filter.disabled)
+  {
+    let hasEnabled = false;
+    for (let i = 0; i < filter.subscriptions.length; i++)
+      if (!filter.subscriptions[i].disabled)
+        hasEnabled = true;
+    if (hasEnabled)
+      return;
+  }
 
   if (filter instanceof RegExpFilter)
     defaultMatcher.remove(filter);
@@ -293,13 +308,7 @@ function onSubscriptionChange(action, subscription, newValue, oldValue)
     return;
   }
 
-  subscriptionFilter = function(s)
-  {
-    return s != subscription && !subscription.disabled;
-  }
-
-  if (action == "added" || action == "removed" ||
-      action == "disabled")
+  if (action == "added" || action == "removed" || action == "disabled")
   {
     let method = (action == "added" || (action == "disabled" && newValue == false) ? addFilter : removeFilter);
     if (subscription.filters)
@@ -310,7 +319,6 @@ function onSubscriptionChange(action, subscription, newValue, oldValue)
     subscription.oldFilters.forEach(removeFilter);
     subscription.filters.forEach(addFilter);
   }
-  subscriptionFilter = null;
 
   flushElemHide();
 }
@@ -330,14 +338,6 @@ function onFilterChange(action, filter, newValue, oldValue)
     // Ignore adding/removing of disabled filters
     return;
   }
-
-  if (action != "removed" && !filter.subscriptions.some(function(subscription) !subscription.disabled))
-  {
-    // Ignore filters that aren't listed in any enabled subscriptions
-    return;
-  }
-
-  subscriptionFilter = null;
 
   if (action == "added" || (action == "disabled" && newValue == false))
     addFilter(filter);
