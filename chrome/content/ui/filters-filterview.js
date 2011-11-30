@@ -150,6 +150,12 @@ var FilterView =
   {
     switch (action)
     {
+      case "subscription.updated":
+      {
+        if (item == this._subscription && FilterActions.visible)
+          this.refresh();
+        break;
+      }
       case "filter.disabled":
       {
         this.updateFilter(item);
