@@ -81,4 +81,21 @@
 
 <!ENTITY filters.remove.warning               "Do you really want to remove all selected filters?">
 
+<!ENTITY backupButton.label                   "Backup and Restore">
+<!ENTITY backupButton.accesskey               "B">
+
+<!ENTITY backup.label                         "Create new backup">
+<!-- Note: the placeholder ?1? will be replaced by date/time of the automatic backup -->
+<!ENTITY restore.default.label                "Restore backup from ?1?">
+<!ENTITY restore.own.label                    "Restore own backup">
+
+<!ENTITY backup.complete.title                "All filters and subscriptions">
+<!ENTITY backup.custom.title                  "Custom filters only">
+
+<!ENTITY backup.error                         "There was an error writing filters to the file. Make sure that the file isn't write protected or in use by another application.">
+<!ENTITY restore.error                        "The file's data could not be processed, maybe this isn't an Adblock Plus backup file?">
+<!ENTITY restore.complete.warning             "All your filter preferences will be replaced by the contents of the selected file. Do you want to proceeed?">
+<!ENTITY restore.custom.warning               "All your custom filters will be replaced by the contents of the selected file. Do you want to proceeed?">
+<!ENTITY restore.minVersion.warning           "Warning: the file has been created with a newer Adblock Plus version. You should update to the latest Adblock Plus version before restoring from this file.">
+
 <!ENTITY close.label                          "Close">

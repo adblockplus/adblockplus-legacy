@@ -125,7 +125,7 @@ var FilterListener =
               {
                 TimeLine.enter("Entered delayed FilterStorage init");
                 loadDone = true;
-                FilterStorage.loadFromDisk(true);
+                FilterStorage.loadFromDisk(null, true);
                 TimeLine.leave("Delayed FilterStorage init done");
               }
               return obj[prop];
