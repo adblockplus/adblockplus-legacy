@@ -55,6 +55,12 @@ const formatVersion = 4;
 var FilterStorage =
 {
   /**
+   * Version number of the patterns.ini format used.
+   * @type Integer
+   */
+  get formatVersion() formatVersion,
+
+  /**
    * File that the filter list has been loaded from and should be saved to
    * @type nsIFile
    */
@@ -343,20 +349,33 @@ var FilterStorage =
 
   /**
    * Loads all subscriptions from the disk
+   * @param {nsIFile} [sourceFile] File to read from
    * @param {Boolean} silent  if true, no listeners will be triggered (to be used when data is already initialized)
    */
-  loadFromDisk: function(silent)
+  loadFromDisk: function(sourceFile, silent)
   {
     TimeLine.enter("Entered FilterStorage.loadFromDisk()");
 
-    let realSourceFile = FilterStorage.sourceFile;
-    if (!realSourceFile || !realSourceFile.exists())
+    if (!silent)
     {
-      // patterns.ini doesn't exist - but maybe we have a default one?
-      let patternsURL = Utils.ioService.newURI("chrome://adblockplus-defaults/content/patterns.ini", null, null);
-      patternsURL = Utils.chromeRegistry.convertChromeURL(patternsURL);
-      if (patternsURL instanceof Ci.nsIFileURL)
-        realSourceFile = patternsURL.file;
+      Filter.knownFilters = {__proto__: null};
+      Subscription.knownSubscriptions = {__proto__: null};
+    }
+
+    let explicitFile = true;
+    if (!sourceFile)
+    {
+      sourceFile = FilterStorage.sourceFile;
+      explicitFile = false;
+
+      if (!sourceFile || !sourceFile.exists())
+      {
+        // patterns.ini doesn't exist - but maybe we have a default one?
+        let patternsURL = Utils.ioService.newURI("chrome://adblockplus-defaults/content/patterns.ini", null, null);
+        patternsURL = Utils.chromeRegistry.convertChromeURL(patternsURL);
+        if (patternsURL instanceof Ci.nsIFileURL)
+          sourceFile = patternsURL.file;
+      }
     }
 
     let userFilters = null;
@@ -368,10 +387,10 @@ var FilterStorage =
 
       try
       {
-        if (realSourceFile && realSourceFile.exists())
+        if (sourceFile && sourceFile.exists())
         {
           let fileStream = Cc["@mozilla.org/network/file-input-stream;1"].createInstance(Ci.nsIFileInputStream);
-          fileStream.init(realSourceFile, 0x01, 0444, 0);
+          fileStream.init(sourceFile, 0x01, 0444, 0);
 
           let stream = Cc["@mozilla.org/intl/converter-input-stream;1"].createInstance(Ci.nsIConverterInputStream);
           stream.init(fileStream, "UTF-8", 16384, 0);
@@ -393,25 +412,28 @@ var FilterStorage =
       }
       catch (e)
       {
-        Cu.reportError("Adblock Plus: Failed to read filters from file " + realSourceFile.path);
+        Cu.reportError("Adblock Plus: Failed to read filters from file " + sourceFile.path);
         Cu.reportError(e);
       }
 
-      // We failed loading filters, let's try next backup file
-      realSourceFile = FilterStorage.sourceFile;
-      if (realSourceFile)
-      {
-        let part1 = realSourceFile.leafName;
-        let part2 = "";
-        if (/^(.*)(\.\w+)$/.test(part1))
-        {
-          part1 = RegExp.$1;
-          part2 = RegExp.$2;
-        }
+      if (explicitFile)
+        break;
 
-        realSourceFile = realSourceFile.clone();
-        realSourceFile.leafName = part1 + "-backup" + (++backup) + part2;
+      // We failed loading filters, let's try next backup file
+      sourceFile = FilterStorage.sourceFile;
+      if (!sourceFile)
+        break;
+
+      let part1 = sourceFile.leafName;
+      let part2 = "";
+      if (/^(.*)(\.\w+)$/.test(part1))
+      {
+        part1 = RegExp.$1;
+        part2 = RegExp.$2;
       }
+
+      sourceFile = sourceFile.clone();
+      sourceFile.leafName = part1 + "-backup" + (++backup) + part2;
     }
 
     TimeLine.log("done parsing file");
@@ -445,24 +467,31 @@ var FilterStorage =
 
   /**
    * Saves all subscriptions back to disk
+   * @param {nsIFile} [targetFile] File to be written
    */
-  saveToDisk: function()
+  saveToDisk: function(targetFile)
   {
-    if (!FilterStorage.sourceFile)
+    let explicitFile = true;
+    if (!targetFile)
+    {
+      targetFile = FilterStorage.sourceFile;
+      explicitFile = false;
+    }
+    if (!targetFile)
       return;
 
     TimeLine.enter("Entered FilterStorage.saveToDisk()");
 
     try {
-      FilterStorage.sourceFile.normalize();
+      targetFile.normalize();
     } catch (e) {}
 
     // Make sure the file's parent directory exists
     try {
-      FilterStorage.sourceFile.parent.create(Ci.nsIFile.DIRECTORY_TYPE, 0755);
+      targetFile.parent.create(Ci.nsIFile.DIRECTORY_TYPE, 0755);
     } catch (e) {}
 
-    let tempFile = FilterStorage.sourceFile.clone();
+    let tempFile = targetFile.clone();
     tempFile.leafName += "-temp";
     let fileStream, stream;
     try {
@@ -545,9 +574,10 @@ var FilterStorage =
     }
     TimeLine.log("finalized file write");
 
-    if (FilterStorage.sourceFile.exists()) {
+    if (!explicitFile && targetFile.exists())
+    {
       // Check whether we need to backup the file
-      let part1 = FilterStorage.sourceFile.leafName;
+      let part1 = targetFile.leafName;
       let part2 = "";
       if (/^(.*)(\.\w+)$/.test(part1))
       {
@@ -558,7 +588,7 @@ var FilterStorage =
       let doBackup = (Prefs.patternsbackups > 0);
       if (doBackup)
       {
-        let lastBackup = FilterStorage.sourceFile.clone();
+        let lastBackup = targetFile.clone();
         lastBackup.leafName = part1 + "-backup1" + part2;
         if (lastBackup.exists() && (Date.now() - lastBackup.lastModifiedTime) / 3600000 < Prefs.patternsbackupinterval)
           doBackup = false;
@@ -566,7 +596,7 @@ var FilterStorage =
 
       if (doBackup)
       {
-        let backupFile = FilterStorage.sourceFile.clone();
+        let backupFile = targetFile.clone();
         backupFile.leafName = part1 + "-backup" + Prefs.patternsbackups + part2;
 
         // Remove oldest backup
@@ -583,11 +613,41 @@ var FilterStorage =
         }
       }
     }
+    else if (targetFile.exists())
+      targetFile.remove(false);
 
-    tempFile.moveTo(FilterStorage.sourceFile.parent, FilterStorage.sourceFile.leafName);
+    tempFile.moveTo(targetFile.parent, targetFile.leafName);
     TimeLine.log("created backups and renamed temp file");
-    FilterNotifier.triggerListeners("save");
+    if (!explicitFile)
+      FilterNotifier.triggerListeners("save");
     TimeLine.leave("FilterStorage.saveToDisk() done");
+  },
+
+  /**
+   * Returns the list of existing backup files.
+   */
+  getBackupFiles: function() /**nsIFile[]*/
+  {
+    let result = [];
+
+    let part1 = FilterStorage.sourceFile.leafName;
+    let part2 = "";
+    if (/^(.*)(\.\w+)$/.test(part1))
+    {
+      part1 = RegExp.$1;
+      part2 = RegExp.$2;
+    }
+
+    for (let i = 1; ; i++)
+    {
+      let file = FilterStorage.sourceFile.clone();
+      file.leafName = part1 + "-backup" + i + part2;
+      if (file.exists())
+        result.push(file);
+      else
+        break;
+    }
+    return result;
   }
 };
 

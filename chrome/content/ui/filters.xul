@@ -37,7 +37,6 @@
   buttons="accept"
   width="950"
   height="450"
-  buttonlabelaccept="&close.label;"
   persist="screenX screenY width height sizemode"
   windowtype="abp:filters">
 
@@ -47,6 +46,7 @@
 <script type="application/x-javascript;version=1.7" src="filters-subscriptionactions.js"/>
 <script type="application/x-javascript;version=1.7" src="filters-filterview.js"/>
 <script type="application/x-javascript;version=1.7" src="filters-filteractions.js"/>
+<script type="application/x-javascript;version=1.7" src="filters-backup.js"/>
 <script type="application/x-javascript;version=1.7" src="findbar.js"/>
 
 <keyset id="filtersKeyset">
@@ -325,6 +325,28 @@
           ondragend="FilterActions.endDrag(event);"/>
     </tree>
   </vbox>
+</hbox>
+
+<hbox id="buttons">
+  <button id="backupButton" type="menu"
+      label="&backupButton.label;" accesskey="&backupButton.accesskey;"
+      _backupDialogTitle="&backup.label;" _restoreDialogTitle="&restore.own.label;"
+      _fileFilterComplete="&backup.complete.title;" _fileFilterCustom="&backup.custom.title;"
+      _backupError="&backup.error;" _restoreError="&restore.error;"
+      _restoreCompleteWarning="&restore.complete.warning;" _restoreCustomWarning="&restore.custom.warning;"
+      _restoreVersionWarning="&restore.minVersion.warning;"
+      oncommand="if (event.target == this) Utils.runAsync(function() this.open = true, this);">
+    <menupopup onpopupshowing="Backup.fillRestorePopup();">
+      <menuitem label="&backup.label;…" oncommand="Backup.backupToFile();"/>
+      <menuseparator/>
+      <menuitem id="restoreBackupTemplate" label="&restore.default.label;" hidden="true"/>
+      <menuitem id="restoreOwnBackup" label="&restore.own.label;…" oncommand="Backup.restoreFromFile();"/>
+    </menupopup>
+  </button>
+
+  <spacer flex="1"/>
+
+  <button id="close" dlgtype="accept" label="&close.label;"/>
 </hbox>
 
 </dialog>

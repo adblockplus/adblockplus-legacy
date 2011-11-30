@@ -132,11 +132,16 @@ ListManager.prototype =
    */
   _onChange: function(action, item, param1, param2)
   {
-    if (!(item instanceof this._classFilter))
+    if (action != "load" && !(item instanceof this._classFilter))
       return;
 
     switch (action)
     {
+      case "load":
+      {
+        this.reload();
+        break;
+      }
       case "subscription.added":
       {
         let index = FilterStorage.subscriptions.indexOf(item);
