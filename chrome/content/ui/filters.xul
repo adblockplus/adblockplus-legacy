@@ -61,6 +61,8 @@
   <key id="filters-copy-key" key="C" modifiers="accel" oncommand="if (FilterActions.focused) E('filters-copy-command').doCommand();"/>
   <key id="filters-cut-key" key="X" modifiers="accel" oncommand="if (FilterActions.focused) E('filters-cut-command').doCommand();"/>
   <key id="filters-paste-key" key="V" modifiers="accel" oncommand="if (FilterActions.focused) E('filters-paste-command').doCommand();"/>
+  <key id="backup-key" key="E" modifiers="accel" oncommand="E('backup').doCommand();"/>
+  <key id="restore-key" key="I" modifiers="accel" oncommand="E('restoreOwnBackup').doCommand();"/>
 </keyset>
 
 <commandset id="filtersCommandset">
@@ -337,10 +339,10 @@
       _restoreVersionWarning="&restore.minVersion.warning;"
       oncommand="if (event.target == this) Utils.runAsync(function() this.open = true, this);">
     <menupopup onpopupshowing="Backup.fillRestorePopup();">
-      <menuitem label="&backup.label;…" oncommand="Backup.backupToFile();"/>
+      <menuitem id="backup" key="backup-key" label="&backup.label;…" oncommand="Backup.backupToFile();"/>
       <menuseparator/>
       <menuitem id="restoreBackupTemplate" label="&restore.default.label;" hidden="true"/>
-      <menuitem id="restoreOwnBackup" label="&restore.own.label;…" oncommand="Backup.restoreFromFile();"/>
+      <menuitem id="restoreOwnBackup" key="restore-key" label="&restore.own.label;…" oncommand="Backup.restoreFromFile();"/>
     </menupopup>
   </button>
 
