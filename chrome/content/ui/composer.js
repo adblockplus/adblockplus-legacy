@@ -291,11 +291,7 @@ function updateFilter()
 
   if (E("disabledWarning").hidden)
   {
-    let subscription = null;
-    for each (let s in FilterStorage.subscriptions)
-      if (s instanceof SpecialSubscription && s.isFilterAllowed(compiledFilter) && (!subscription || s.priority > subscription.priority))
-        subscription = s;
-
+    let subscription = FilterStorage.getGroupForFilter(compiledFilter);
     let warning = E("groupDisabledWarning");
     if (subscription && subscription.disabled)
     {
@@ -381,12 +377,7 @@ function updateCustomPattern()
 
 function addFilter() {
   let filter = Filter.fromText(document.getElementById("filter").value);
-
-  if (filter.disabled)
-  {
-    filter.disabled = false;
-    FilterStorage.triggerObservers("filters enable", [filter]);
-  }
+  filter.disabled = false;
 
   FilterStorage.addFilter(filter);
   FilterStorage.saveToDisk();
@@ -429,7 +420,7 @@ function disableElement(element, disable, valueProperty, disabledValue) {
 }
 
 function openPreferences() {
-  Utils.openSettingsDialog(item.location, E("filter").value);
+  Utils.openFiltersDialog(Filter.fromText(E("filter").value));
 }
 
 function doEnable() {
@@ -440,7 +431,6 @@ function doEnable() {
 function enableSubscription(subscription)
 {
   subscription.disabled = false;
-  FilterStorage.triggerObservers("subscriptions enable", [subscription]);
   FilterStorage.saveToDisk();
   E("groupDisabledWarning").hidden = true;
 }

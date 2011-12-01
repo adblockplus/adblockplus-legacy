@@ -18,6 +18,8 @@
 
 <!ENTITY sendReport.label       "Report issue on this page">
 <!ENTITY sendReport.accesskey   "R">
+<!ENTITY filters.label          "Filter preferences">
+<!ENTITY filters.accesskey      "F">
 <!ENTITY settings.label         "Preferences">
 <!ENTITY settings.accesskey     "f">
 <!ENTITY opensidebar.label      "Open blockable items">

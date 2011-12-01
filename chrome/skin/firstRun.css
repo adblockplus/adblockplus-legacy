@@ -22,16 +22,29 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-@import url("chrome://browser/skin/platform.css");
-
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
-dialog
+:root
 {
-  min-width: 0px;
+  max-width: 500px;
+  background-image: url(abp-icon-big.png);
+  background-repeat: no-repeat;
+  background-position: 95% 5%;
+  font-size: 130%;
 }
 
-#all-subscriptions-container
+.section
 {
-  font-size: 60%;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+#changeDescription > .text-link
+{
+  margin: 0px;
+}
+
+#listNameContainer
+{
+  margin: 10px 40px;
 }

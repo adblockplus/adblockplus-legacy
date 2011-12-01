@@ -36,6 +36,7 @@ const Cu = Components.utils;
 let baseURL = Cc["@adblockplus.org/abp/private;1"].getService(Ci.nsIURI);
 
 Cu.import(baseURL.spec + "Utils.jsm");
+Cu.import(baseURL.spec + "FilterNotifier.jsm");
 
 /**
  * Abstract base class for filters
@@ -139,11 +140,11 @@ Filter.fromObject = function(obj)
   if (ret instanceof ActiveFilter)
   {
     if ("disabled" in obj)
-      ret.disabled = (obj.disabled == "true");
+      ret._disabled = (obj.disabled == "true");
     if ("hitCount" in obj)
-      ret.hitCount = parseInt(obj.hitCount) || 0;
+      ret._hitCount = parseInt(obj.hitCount) || 0;
     if ("lastHit" in obj)
-      ret.lastHit = parseInt(obj.lastHit) || 0;
+      ret._lastHit = parseInt(obj.lastHit) || 0;
   }
   return ret;
 }
@@ -246,21 +247,57 @@ ActiveFilter.prototype =
 {
   __proto__: Filter.prototype,
 
+  _disabled: false,
+  _hitCount: 0,
+  _lastHit: 0,
+
   /**
    * Defines whether the filter is disabled
    * @type Boolean
    */
-  disabled: false,
+  get disabled() this._disabled,
+  set disabled(value)
+  {
+    if (value != this._disabled)
+    {
+      let oldValue = this._disabled;
+      this._disabled = value;
+      FilterNotifier.triggerListeners("filter.disabled", this, value, oldValue);
+    }
+    return this._disabled;
+  },
+
   /**
    * Number of hits on the filter since the last reset
    * @type Number
    */
-  hitCount: 0,
+  get hitCount() this._hitCount,
+  set hitCount(value)
+  {
+    if (value != this._hitCount)
+    {
+      let oldValue = this._hitCount;
+      this._hitCount = value;
+      FilterNotifier.triggerListeners("filter.hitCount", this, value, oldValue);
+    }
+    return this._hitCount;
+  },
+
   /**
    * Last time the filter had a hit (in milliseconds since the beginning of the epoch)
    * @type Number
    */
-  lastHit: 0,
+  get lastHit() this._lastHit,
+  set lastHit(value)
+  {
+    if (value != this._lastHit)
+    {
+      let oldValue = this._lastHit;
+      this._lastHit = value;
+      FilterNotifier.triggerListeners("filter.lastHit", this, value, oldValue);
+    }
+    return this._lastHit;
+  },
 
   /**
    * String that the domains property should be generated from
@@ -385,15 +422,15 @@ ActiveFilter.prototype =
    */
   serialize: function(buffer)
   {
-    if (this.disabled || this.hitCount || this.lastHit)
+    if (this._disabled || this._hitCount || this._lastHit)
     {
       Filter.prototype.serialize.call(this, buffer);
-      if (this.disabled)
+      if (this._disabled)
         buffer.push("disabled=true");
-      if (this.hitCount)
-        buffer.push("hitCount=" + this.hitCount);
-      if (this.lastHit)
-        buffer.push("lastHit=" + this.lastHit);
+      if (this._hitCount)
+        buffer.push("hitCount=" + this._hitCount);
+      if (this._lastHit)
+        buffer.push("lastHit=" + this._lastHit);
     }
   }
 };
@@ -550,8 +587,13 @@ RegExpFilter.fromText = function(text)
     text = RegExp.leftContext;
     for each (let option in options)
     {
-      let value;
-      [option, value] = option.split("=", 2);
+      let value = null;
+      let separatorIndex = option.indexOf("=");
+      if (separatorIndex >= 0)
+      {
+        value = option.substr(separatorIndex + 1);
+        option = option.substr(0, separatorIndex);
+      }
       option = option.replace(/-/, "_");
       if (option in RegExpFilter.typeMap)
       {

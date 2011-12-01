@@ -42,9 +42,11 @@ Cu.import(baseURL.spec + "Utils.jsm");
 Cu.import(baseURL.spec + "Prefs.jsm");
 Cu.import(baseURL.spec + "ContentPolicy.jsm");
 Cu.import(baseURL.spec + "FilterStorage.jsm");
+Cu.import(baseURL.spec + "FilterNotifier.jsm");
 Cu.import(baseURL.spec + "FilterClasses.jsm");
 Cu.import(baseURL.spec + "SubscriptionClasses.jsm");
 Cu.import(baseURL.spec + "RequestNotifier.jsm");
+Cu.import(baseURL.spec + "Synchronizer.jsm");
 Cu.import(baseURL.spec + "Sync.jsm");
 
 if (Utils.isFennec)
@@ -80,7 +82,11 @@ function init()
     if (name == "enabled" || name == "showintoolbar" || name == "showinstatusbar" || name == "defaulttoolbaraction" || name == "defaultstatusbaraction")
       reloadPrefs();
   });
-  FilterStorage.addObserver(reloadPrefs);
+  FilterNotifier.addListener(function(action)
+  {
+    if (/^(filter|subscription)\.(added|removed|disabled|updated)$/.test(action))
+      reloadPrefs();
+  });
 }
 
 /**
@@ -120,7 +126,7 @@ var AppIntegration =
               observerService.removeObserver(observer, "sessionstore-windows-restored");
               timer.cancel();
               timer = null;
-              showSubscriptions();
+              addSubscription();
             }
           };
   
@@ -132,7 +138,7 @@ var AppIntegration =
           timer.init(observer, 1000, Ci.nsITimer.TYPE_ONE_SHOT);
         }
         else
-          Utils.runAsync(showSubscriptions);
+          addSubscription();
       }
     }
     TimeLine.log("App-wide first-run actions done")
@@ -179,10 +185,7 @@ var AppIntegration =
     if (filter.subscriptions.length)
     {
       if (filter.disabled || filter.subscriptions.some(function(subscription) !(subscription instanceof SpecialSubscription)))
-      {
         filter.disabled = !filter.disabled;
-        FilterStorage.triggerObservers(filter.disabled ? "filters disable" : "filters enable", [filter]);
-      }
       else
         FilterStorage.removeFilter(filter);
     }
@@ -868,7 +871,7 @@ WindowWrapper.prototype =
     // Open dialog
     if (!Utils.isFennec)
     {
-      let subscription = {url: url, title: title, disabled: false, external: false, autoDownload: true,
+      let subscription = {url: url, title: title, disabled: false, external: false,
                           mainSubscriptionTitle: mainSubscriptionTitle, mainSubscriptionURL: mainSubscriptionURL};
       this.window.openDialog("chrome://adblockplus/content/ui/subscriptionSelection.xul", "_blank",
                              "chrome,centerscreen,resizable,dialog=no", subscription, null);
@@ -1044,7 +1047,7 @@ WindowWrapper.prototype =
                      Prefs.defaultstatusbaraction);
     this.E(prefix + "opensidebar").setAttribute("default", defAction == 1);
     this.E(prefix + "closesidebar").setAttribute("default", defAction == 1);
-    this.E(prefix + "settings").setAttribute("default", defAction == 2);
+    this.E(prefix + "filters").setAttribute("default", defAction == 2);
     this.E(prefix + "disabled").setAttribute("default", defAction == 3);
   },
 
@@ -1188,7 +1191,7 @@ WindowWrapper.prototype =
     if (action == 1)
       this.toggleSidebar();
     else if (action == 2)
-      Utils.openSettingsDialog();
+      Utils.openFiltersDialog();
     else if (action == 3)
     {
       // If there is a whitelisting rule for current page - remove it (reenable).
@@ -1307,7 +1310,7 @@ WindowWrapper.prototype.eventHandlers = [
   ["abp-status-popup", "popupshowing", WindowWrapper.prototype.fillPopup],
   ["abp-toolbar-popup", "popupshowing", WindowWrapper.prototype.fillPopup],
   ["abp-command-sendReport", "command", WindowWrapper.prototype.openReportDialog],
-  ["abp-command-settings", "command", function() {Utils.openSettingsDialog();}],
+  ["abp-command-filters", "command", function() {Utils.openFiltersDialog();}],
   ["abp-command-sidebar", "command", WindowWrapper.prototype.toggleSidebar],
   ["abp-command-togglesitewhitelist", "command", function() { AppIntegration.toggleFilter(this.siteWhitelist); }],
   ["abp-command-togglepagewhitelist", "command", function() { AppIntegration.toggleFilter(this.pageWhitelist); }],
@@ -1381,33 +1384,53 @@ function shouldHideImageManager()
 }
 
 /**
- * Executed on first run, presents the user with a list of filter subscriptions
- * and allows choosing one.
+ * Executed on first run, adds a filter subscription and notifies that user
+ * about that.
  */
-function showSubscriptions()
+function addSubscription()
 {
-  let wrapper = (wrappers.length ? wrappers[0] : null);
-
-  // Don't annoy the user if he has a subscription already
+  // Don't do anything if the user has a subscription already
   let hasSubscriptions = FilterStorage.subscriptions.some(function(subscription) subscription instanceof DownloadableSubscription);
   if (hasSubscriptions)
     return;
 
-  // Only show the list if this is the first run or the user has no filters
+  // Only add subscription if this is the first run or the user has no filters
   let hasFilters = FilterStorage.subscriptions.some(function(subscription) subscription.filters.length);
   if (hasFilters && Utils.versionComparator.compare(Prefs.lastVersion, "0.0") > 0)
     return;
 
-  if (wrapper && wrapper.addTab)
+  // Load subscriptions data
+  let request = Cc["@mozilla.org/xmlextras/xmlhttprequest;1"].createInstance(Ci.nsIJSXMLHttpRequest);
+  request.open("GET", "chrome://adblockplus/content/ui/subscriptions.xml");
+  request.addEventListener("load", function()
   {
-    wrapper.addTab("chrome://adblockplus/content/ui/subscriptionSelection.xul");
-  }
-  else
-  {
-    Utils.windowWatcher.openWindow(wrapper ? wrapper.window : null,
-                                   "chrome://adblockplus/content/ui/subscriptionSelection.xul",
-                                   "_blank", "chrome,centerscreen,resizable,dialog=no", null);
-  }
+    let node = Utils.chooseFilterSubscription(request.responseXML.getElementsByTagName("subscription"));
+    let subscription = (node ? Subscription.fromURL(node.getAttribute("url")) : null);
+    if (subscription)
+    {
+      FilterStorage.addSubscription(subscription);
+      subscription.disabled = false;
+      subscription.title = node.getAttribute("title");
+      subscription.homepage = node.getAttribute("homepage");
+      if (subscription instanceof DownloadableSubscription && !subscription.lastDownload)
+        Synchronizer.execute(subscription);
+      FilterStorage.saveToDisk();
+
+      // Notify user
+      let wrapper = (wrappers.length ? wrappers[0] : null);
+      if (wrapper && wrapper.addTab)
+      {
+        wrapper.addTab("chrome://adblockplus/content/ui/firstRun.xul");
+      }
+      else
+      {
+        Utils.windowWatcher.openWindow(wrapper ? wrapper.window : null,
+                                       "chrome://adblockplus/content/ui/firstRun.xul",
+                                       "_blank", "chrome,centerscreen,resizable,dialog=no", null);
+      }
+    }
+  }, false);
+  request.send();
 }
 
 /**

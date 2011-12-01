@@ -328,43 +328,24 @@ var Utils =
   },
 
   /**
-   * Opens preferences dialog or focused already open dialog.
-   * @param {String} location  (optional) filter suggestion
-   * @param {Filter} filter    (optional) filter to be selected
+   * Opens filter preferences dialog or focuses an already open dialog.
+   * @param {Filter} [filter]  filter to be selected
    */
-  openSettingsDialog: function(location, filter)
+  openFiltersDialog: function(filter)
   {
-    var dlg = Utils.windowMediator.getMostRecentWindow("abp:settings");
-    var func = function()
-    {
-      if (typeof location != "undefined")
-        dlg.setLocation(location);
-      if (typeof filter != "undefined")
-        dlg.selectFilter(filter);
-    }
-
+    var dlg = Utils.windowMediator.getMostRecentWindow("abp:filters");
     if (dlg)
     {
-      func();
-
       try
       {
         dlg.focus();
       }
       catch (e) {}
-
-      if (Utils.windowMediator.getMostRecentWindow(null) != dlg)
-      {
-        // There must be some modal dialog open
-        dlg = Utils.windowMediator.getMostRecentWindow("abp:subscriptionSelection") || Utils.windowMediator.getMostRecentWindow("abp:about");
-        if (dlg)
-          dlg.focus();
-      }
+      dlg.SubscriptionActions.selectFilter(filter);
     }
     else
     {
-      dlg = Utils.windowWatcher.openWindow(null, "chrome://adblockplus/content/ui/settings.xul", "_blank", "chrome,centerscreen,resizable,dialog=no", null);
-      dlg.addEventListener("post-load", func, false);
+      Utils.windowWatcher.openWindow(null, "chrome://adblockplus/content/ui/filters.xul", "_blank", "chrome,centerscreen,resizable,dialog=no", {wrappedJSObject: filter});
     }
   },
 
@@ -469,6 +450,65 @@ var Utils =
     } catch (e) {}
 
     return null;
+  },
+
+  /**
+   * Checks whether any of the prefixes listed match the application locale,
+   * returns matching prefix if any.
+   */
+  checkLocalePrefixMatch: function(/**String*/ prefixes) /**String*/
+  {
+    if (!prefixes)
+      return null;
+
+    let appLocale = Utils.appLocale;
+    for each (let prefix in prefixes.split(/,/))
+      if (new RegExp("^" + prefix + "\\b").test(appLocale))
+        return prefix;
+
+    return null;
+  },
+
+  /**
+   * Chooses the best filter subscription for user's language.
+   */
+  chooseFilterSubscription: function(/**NodeList*/ subscriptions) /**Node*/
+  {
+    let selectedItem = null;
+    let selectedPrefix = null;
+    let matchCount = 0;
+    for (let i = 0; i < subscriptions.length; i++)
+    {
+      let subscription = subscriptions[i];
+      if (!selectedItem)
+        selectedItem = subscription;
+
+      let prefix = Utils.checkLocalePrefixMatch(subscription.getAttribute("prefixes"));
+      if (prefix)
+      {
+        if (!selectedPrefix || selectedPrefix.length < prefix.length)
+        {
+          selectedItem = subscription;
+          selectedPrefix = prefix;
+          matchCount = 1;
+        }
+        else if (selectedPrefix && selectedPrefix.length == prefix.length)
+        {
+          matchCount++;
+
+          // If multiple items have a matching prefix of the same length:
+          // Select one of the items randomly, probability should be the same
+          // for all items. So we replace the previous match here with
+          // probability 1/N (N being the number of matches).
+          if (Math.random() * matchCount < 1)
+          {
+            selectedItem = subscription;
+            selectedPrefix = prefix;
+          }
+        }
+      }
+    }
+    return selectedItem;
   },
 
   /**
@@ -703,6 +743,7 @@ XPCOMUtils.defineLazyServiceGetter(Utils, "dateFormatter", "@mozilla.org/intl/sc
 XPCOMUtils.defineLazyServiceGetter(Utils, "childMessageManager", "@mozilla.org/childprocessmessagemanager;1", "nsISyncMessageSender");
 XPCOMUtils.defineLazyServiceGetter(Utils, "parentMessageManager", "@mozilla.org/parentprocessmessagemanager;1", "nsIFrameMessageManager");
 XPCOMUtils.defineLazyServiceGetter(Utils, "httpProtocol", "@mozilla.org/network/protocol;1?name=http", "nsIHttpProtocolHandler");
+XPCOMUtils.defineLazyServiceGetter(Utils, "clipboardHelper", "@mozilla.org/widget/clipboardhelper;1", "nsIClipboardHelper");
 XPCOMUtils.defineLazyGetter(Utils, "crypto", function()
 {
   try
