@@ -6,7 +6,7 @@ version=1.3.11a
 author=Wladimir Palant
 icon=chrome://adblockplus/skin/adblockplus.png
 about=chrome://adblockplus/content/ui/about.xul
-options=chrome://adblockplus/content/ui/settings.xul
+options=chrome://adblockplus/content/ui/filters.xul
 
 [contributors]
 1=Claude Lespagnol aka Efdur
