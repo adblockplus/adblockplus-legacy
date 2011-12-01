@@ -39,19 +39,14 @@ Cu.import(baseURL.spec + "Utils.jsm");
 Cu.import(baseURL.spec + "Prefs.jsm");
 Cu.import(baseURL.spec + "FilterClasses.jsm");
 Cu.import(baseURL.spec + "SubscriptionClasses.jsm");
+Cu.import(baseURL.spec + "FilterNotifier.jsm");
 Cu.import(baseURL.spec + "TimeLine.jsm");
 
 /**
  * Version number of the filter storage file format.
  * @type Integer
  */
-const formatVersion = 3;
-
-/**
- * List of observers for filter and subscription changes (addition, deletion)
- * @type Array of function(String, Array)
- */
-let observers = [];
+const formatVersion = 4;
 
 /**
  * This class reads user's filters from disk, manages them in memory and writes them back.
@@ -59,6 +54,12 @@ let observers = [];
  */
 var FilterStorage =
 {
+  /**
+   * Version number of the patterns.ini format used.
+   * @type Integer
+   */
+  get formatVersion() formatVersion,
+
   /**
    * File that the filter list has been loaded from and should be saved to
    * @type nsIFile
@@ -115,49 +116,21 @@ var FilterStorage =
   knownSubscriptions: {__proto__: null},
 
   /**
-   * Adds an observer for filter and subscription changes (addition, deletion)
-   * @param {function(String, Array)} observer
+   * Finds the filter group that a filter should be added to by default. Will
+   * return null if this group doesn't exist yet.
    */
-  addObserver: function(observer)
+  getGroupForFilter: function(/**Filter*/ filter) /**SpecialSubscription*/
   {
-    if (observers.indexOf(observer) >= 0)
-      return;
-
-    observers.push(observer);
-  },
-
-  /**
-   * Removes an observer previosly added with addObserver
-   * @param {function(String, Array)} observer
-   */
-  removeObserver: function(observer)
-  {
-    let index = observers.indexOf(observer);
-    if (index >= 0)
-      observers.splice(index, 1);
-  },
-
-  /**
-   * Calls observers after a change
-   * @param {String} action change code ("load", "save", "elemhideupdate",
-   *                 "subscriptions add", "subscriptions remove",
-   *                 "subscriptions enable", "subscriptions disable",
-   *                 "subscriptions update", "subscriptions updateinfo",
-   *                 "filters add", "filters remove", "enable",
-   *                 "filters disable", "filters hit")
-   * @param {Array} items items that the change applies to
-   * @param additionalData optional additional data, depends on change code
-   */
-  triggerObservers: function(action, items, additionalData)
-  {
-    for each (let observer in observers)
-      observer(action, items, additionalData);
+    for each (let subscription in FilterStorage.subscriptions)
+      if (subscription instanceof SpecialSubscription && subscription.isDefaultFor(filter))
+        return subscription;
+    return null;
   },
 
   /**
    * Adds a filter subscription to the list
    * @param {Subscription} subscription filter subscription to be added
-   * @param {Boolean} silent  if true, no observers will be triggered (to be used when filter list is reloaded)
+   * @param {Boolean} silent  if true, no listeners will be triggered (to be used when filter list is reloaded)
    */
   addSubscription: function(subscription, silent)
   {
@@ -169,13 +142,13 @@ var FilterStorage =
     addSubscriptionFilters(subscription);
 
     if (!silent)
-      FilterStorage.triggerObservers("subscriptions add", [subscription]);
+      FilterNotifier.triggerListeners("subscription.added", subscription);
   },
 
   /**
    * Removes a filter subscription from the list
    * @param {Subscription} subscription filter subscription to be removed
-   * @param {Boolean} silent  if true, no observers will be triggered (to be used when filter list is reloaded)
+   * @param {Boolean} silent  if true, no listeners will be triggered (to be used when filter list is reloaded)
    */
   removeSubscription: function(subscription, silent)
   {
@@ -188,10 +161,36 @@ var FilterStorage =
         FilterStorage.subscriptions.splice(i--, 1);
         delete FilterStorage.knownSubscriptions[subscription.url];
         if (!silent)
-          FilterStorage.triggerObservers("subscriptions remove", [subscription]);
+          FilterNotifier.triggerListeners("subscription.removed", subscription);
         return;
       }
     }
+  },
+
+  /**
+   * Moves a subscription in the list to a new position.
+   * @param {Subscription} subscription filter subscription to be moved
+   * @param {Subscription} [insertBefore] filter subscription to insert before
+   *        (if omitted the subscription will be put at the end of the list)
+   */
+  moveSubscription: function(subscription, insertBefore)
+  {
+    let currentPos = FilterStorage.subscriptions.indexOf(subscription);
+    if (currentPos < 0)
+      return;
+
+    let newPos = insertBefore ? FilterStorage.subscriptions.indexOf(insertBefore) : -1;
+    if (newPos < 0)
+      newPos = FilterStorage.subscriptions.length;
+
+    if (currentPos < newPos)
+      newPos--;
+    if (currentPos == newPos)
+      return;
+
+    FilterStorage.subscriptions.splice(currentPos, 1);
+    FilterStorage.subscriptions.splice(newPos, 0, subscription);
+    FilterNotifier.triggerListeners("subscription.moved", subscription);
   },
 
   /**
@@ -205,90 +204,115 @@ var FilterStorage =
     subscription.oldFilters = subscription.filters;
     subscription.filters = filters;
     addSubscriptionFilters(subscription);
-    FilterStorage.triggerObservers("subscriptions update", [subscription]);
+    FilterNotifier.triggerListeners("subscription.updated", subscription);
     delete subscription.oldFilters;
 
     // Do not keep empty subscriptions disabled
     if (subscription instanceof SpecialSubscription && !subscription.filters.length && subscription.disabled)
-    {
       subscription.disabled = false;
-      FilterStorage.triggerObservers("subscriptions enable", [subscription]);
-    }
   },
 
   /**
    * Adds a user-defined filter to the list
    * @param {Filter} filter
-   * @param {Filter} insertBefore   filter to insert before (if possible)
-   * @param {Boolean} silent  if true, no observers will be triggered (to be used when filter list is reloaded)
+   * @param {SpecialSubscription} [subscription] particular group that the filter should be added to
+   * @param {Integer} [position] position within the subscription at which the filter should be added
+   * @param {Boolean} silent  if true, no listeners will be triggered (to be used when filter list is reloaded)
    */
-  addFilter: function(filter, insertBefore, silent)
+  addFilter: function(filter, subscription, position, silent)
   {
-    let subscription = null;
     if (!subscription)
     {
-      for each (let s in FilterStorage.subscriptions)
-      {
-        if (s instanceof SpecialSubscription && s.isFilterAllowed(filter))
-        {
-          if (s.filters.indexOf(filter) >= 0)
-            return;
-
-          if (!subscription || s.priority > subscription.priority)
-            subscription = s;
-        }
-      }
+      if (filter.subscriptions.some(function(s) s instanceof SpecialSubscription))
+        return;   // No need to add
+      subscription = FilterStorage.getGroupForFilter(filter);
+    }
+    if (!subscription)
+    {
+      // No group for this filter exists, create one
+      subscription = SpecialSubscription.createForFilter(filter);
+      this.addSubscription(subscription);
+      return;
     }
 
-    if (!subscription)
-      return;
+    if (typeof position == "undefined")
+      position = subscription.filters.length;
 
-    let insertIndex = -1;
-    if (insertBefore)
-      insertIndex = subscription.filters.indexOf(insertBefore);
-
-    filter.subscriptions.push(subscription);
-    if (insertIndex >= 0)
-      subscription.filters.splice(insertIndex, 0, filter);
-    else
-      subscription.filters.push(filter);
+    if (filter.subscriptions.indexOf(subscription) < 0)
+      filter.subscriptions.push(subscription);
+    subscription.filters.splice(position, 0, filter);
     if (!silent)
-      FilterStorage.triggerObservers("filters add", [filter], insertBefore);
+      FilterNotifier.triggerListeners("filter.added", filter, subscription, position);
   },
 
   /**
    * Removes a user-defined filter from the list
    * @param {Filter} filter
-   * @param {Boolean} silent  if true, no observers will be triggered (to be used when filter list is reloaded)
+   * @param {SpecialSubscription} [subscription] a particular filter group that
+   *      the filter should be removed from (if ommited will be removed from all subscriptions)
+   * @param {Integer} [position]  position inside the filter group at which the
+   *      filter should be removed (if ommited all instances will be removed)
    */
-  removeFilter: function(filter, silent)
+  removeFilter: function(filter, subscription, position)
   {
-    for (let i = 0; i < filter.subscriptions.length; i++)
+    let subscriptions = (subscription ? [subscription] : filter.subscriptions.slice());
+    for (let i = 0; i < subscriptions.length; i++)
     {
-      let subscription = filter.subscriptions[i];
+      let subscription = subscriptions[i];
       if (subscription instanceof SpecialSubscription)
       {
-        for (let j = 0; j < subscription.filters.length; j++)
+        let positions = [];
+        if (typeof position == "undefined")
         {
-          if (subscription.filters[j].text == filter.text)
+          let index = -1;
+          do
           {
-            filter.subscriptions.splice(i, 1);
-            subscription.filters.splice(j, 1);
-            if (!silent)
-              FilterStorage.triggerObservers("filters remove", [filter]);
+            index = subscription.filters.indexOf(filter, index + 1);
+            if (index >= 0)
+              positions.push(index);
+          } while (index >= 0);
+        }
+        else
+          positions.push(position);
 
-            // Do not keep empty subscriptions disabled
-            if (!subscription.filters.length && subscription.disabled)
+        for (let j = positions.length - 1; j >= 0; j--)
+        {
+          let position = positions[j];
+          if (subscription.filters[position] == filter)
+          {
+            subscription.filters.splice(position, 1);
+            if (subscription.filters.indexOf(filter) < 0)
             {
-              subscription.disabled = false;
-              if (!silent)
-                FilterStorage.triggerObservers("subscriptions enable", [subscription]);
+              let index = filter.subscriptions.indexOf(subscription);
+              if (index >= 0)
+                filter.subscriptions.splice(index, 1);
             }
-            return;
+            FilterNotifier.triggerListeners("filter.removed", filter, subscription, position);
           }
         }
       }
     }
+  },
+
+  /**
+   * Moves a user-defined filter to a new position
+   * @param {Filter} filter
+   * @param {SpecialSubscription} subscription filter group where the filter is located
+   * @param {Integer} oldPosition current position of the filter
+   * @param {Integer} newPosition new position of the filter
+   */
+  moveFilter: function(filter, subscription, oldPosition, newPosition)
+  {
+    if (!(subscription instanceof SpecialSubscription) || subscription.filters[oldPosition] != filter)
+      return;
+
+    newPosition = Math.min(Math.max(newPosition, 0), subscription.filters.length - 1);
+    if (oldPosition == newPosition)
+      return;
+
+    subscription.filters.splice(oldPosition, 1);
+    subscription.filters.splice(newPosition, 0, filter);
+    FilterNotifier.triggerListeners("filter.moved", filter, subscription, oldPosition, newPosition);
   },
 
   /**
@@ -302,7 +326,6 @@ var FilterStorage =
 
     filter.hitCount++;
     filter.lastHit = Date.now();
-    FilterStorage.triggerObservers("filters hit", [filter]);
   },
 
   /**
@@ -322,25 +345,37 @@ var FilterStorage =
       filter.hitCount = 0;
       filter.lastHit = 0;
     }
-    FilterStorage.triggerObservers("filters hit", filters);
   },
 
   /**
    * Loads all subscriptions from the disk
-   * @param {Boolean} silent  if true, no observers will be triggered (to be used when data is already initialized)
+   * @param {nsIFile} [sourceFile] File to read from
+   * @param {Boolean} silent  if true, no listeners will be triggered (to be used when data is already initialized)
    */
-  loadFromDisk: function(silent)
+  loadFromDisk: function(sourceFile, silent)
   {
     TimeLine.enter("Entered FilterStorage.loadFromDisk()");
 
-    let realSourceFile = FilterStorage.sourceFile;
-    if (!realSourceFile || !realSourceFile.exists())
+    if (!silent)
     {
-      // patterns.ini doesn't exist - but maybe we have a default one?
-      let patternsURL = Utils.ioService.newURI("chrome://adblockplus-defaults/content/patterns.ini", null, null);
-      patternsURL = Utils.chromeRegistry.convertChromeURL(patternsURL);
-      if (patternsURL instanceof Ci.nsIFileURL)
-        realSourceFile = patternsURL.file;
+      Filter.knownFilters = {__proto__: null};
+      Subscription.knownSubscriptions = {__proto__: null};
+    }
+
+    let explicitFile = true;
+    if (!sourceFile)
+    {
+      sourceFile = FilterStorage.sourceFile;
+      explicitFile = false;
+
+      if (!sourceFile || !sourceFile.exists())
+      {
+        // patterns.ini doesn't exist - but maybe we have a default one?
+        let patternsURL = Utils.ioService.newURI("chrome://adblockplus-defaults/content/patterns.ini", null, null);
+        patternsURL = Utils.chromeRegistry.convertChromeURL(patternsURL);
+        if (patternsURL instanceof Ci.nsIFileURL)
+          sourceFile = patternsURL.file;
+      }
     }
 
     let userFilters = null;
@@ -352,10 +387,10 @@ var FilterStorage =
 
       try
       {
-        if (realSourceFile && realSourceFile.exists())
+        if (sourceFile && sourceFile.exists())
         {
           let fileStream = Cc["@mozilla.org/network/file-input-stream;1"].createInstance(Ci.nsIFileInputStream);
-          fileStream.init(realSourceFile, 0x01, 0444, 0);
+          fileStream.init(sourceFile, 0x01, 0444, 0);
 
           let stream = Cc["@mozilla.org/intl/converter-input-stream;1"].createInstance(Ci.nsIConverterInputStream);
           stream.init(fileStream, "UTF-8", 16384, 0);
@@ -377,37 +412,40 @@ var FilterStorage =
       }
       catch (e)
       {
-        Cu.reportError("Adblock Plus: Failed to read filters from file " + realSourceFile.path);
+        Cu.reportError("Adblock Plus: Failed to read filters from file " + sourceFile.path);
         Cu.reportError(e);
       }
 
-      // We failed loading filters, let's try next backup file
-      realSourceFile = FilterStorage.sourceFile;
-      if (realSourceFile)
-      {
-        let part1 = realSourceFile.leafName;
-        let part2 = "";
-        if (/^(.*)(\.\w+)$/.test(part1))
-        {
-          part1 = RegExp.$1;
-          part2 = RegExp.$2;
-        }
+      if (explicitFile)
+        break;
 
-        realSourceFile = realSourceFile.clone();
-        realSourceFile.leafName = part1 + "-backup" + (++backup) + part2;
+      // We failed loading filters, let's try next backup file
+      sourceFile = FilterStorage.sourceFile;
+      if (!sourceFile)
+        break;
+
+      let part1 = sourceFile.leafName;
+      let part2 = "";
+      if (/^(.*)(\.\w+)$/.test(part1))
+      {
+        part1 = RegExp.$1;
+        part2 = RegExp.$2;
       }
+
+      sourceFile = sourceFile.clone();
+      sourceFile.leafName = part1 + "-backup" + (++backup) + part2;
     }
 
     TimeLine.log("done parsing file");
 
-    // Add missing special subscriptions if necessary
+    // Old special groups might have been converted, remove them if they are empty
     for each (let specialSubscription in ["~il~", "~wl~", "~fl~", "~eh~"])
     {
-      if (!(specialSubscription in FilterStorage.knownSubscriptions))
+      if (specialSubscription in FilterStorage.knownSubscriptions)
       {
         let subscription = Subscription.fromURL(specialSubscription);
-        if (subscription)
-          FilterStorage.addSubscription(subscription, true);
+        if (subscription.filters.length == 0)
+          FilterStorage.removeSubscription(subscription, true);
       }
     }
 
@@ -417,36 +455,43 @@ var FilterStorage =
       {
         filter = Filter.fromText(filter);
         if (filter)
-          FilterStorage.addFilter(filter, null, true);
+          FilterStorage.addFilter(filter, null, undefined, true);
       }
     }
 
     TimeLine.log("load complete, calling observers");
     if (!silent)
-      FilterStorage.triggerObservers("load");
+      FilterNotifier.triggerListeners("load");
     TimeLine.leave("FilterStorage.loadFromDisk() done");
   },
 
   /**
    * Saves all subscriptions back to disk
+   * @param {nsIFile} [targetFile] File to be written
    */
-  saveToDisk: function()
+  saveToDisk: function(targetFile)
   {
-    if (!FilterStorage.sourceFile)
+    let explicitFile = true;
+    if (!targetFile)
+    {
+      targetFile = FilterStorage.sourceFile;
+      explicitFile = false;
+    }
+    if (!targetFile)
       return;
 
     TimeLine.enter("Entered FilterStorage.saveToDisk()");
 
     try {
-      FilterStorage.sourceFile.normalize();
+      targetFile.normalize();
     } catch (e) {}
 
     // Make sure the file's parent directory exists
     try {
-      FilterStorage.sourceFile.parent.create(Ci.nsIFile.DIRECTORY_TYPE, 0755);
+      targetFile.parent.create(Ci.nsIFile.DIRECTORY_TYPE, 0755);
     } catch (e) {}
 
-    let tempFile = FilterStorage.sourceFile.clone();
+    let tempFile = targetFile.clone();
     tempFile.leafName += "-temp";
     let fileStream, stream;
     try {
@@ -529,9 +574,10 @@ var FilterStorage =
     }
     TimeLine.log("finalized file write");
 
-    if (FilterStorage.sourceFile.exists()) {
+    if (!explicitFile && targetFile.exists())
+    {
       // Check whether we need to backup the file
-      let part1 = FilterStorage.sourceFile.leafName;
+      let part1 = targetFile.leafName;
       let part2 = "";
       if (/^(.*)(\.\w+)$/.test(part1))
       {
@@ -542,7 +588,7 @@ var FilterStorage =
       let doBackup = (Prefs.patternsbackups > 0);
       if (doBackup)
       {
-        let lastBackup = FilterStorage.sourceFile.clone();
+        let lastBackup = targetFile.clone();
         lastBackup.leafName = part1 + "-backup1" + part2;
         if (lastBackup.exists() && (Date.now() - lastBackup.lastModifiedTime) / 3600000 < Prefs.patternsbackupinterval)
           doBackup = false;
@@ -550,7 +596,7 @@ var FilterStorage =
 
       if (doBackup)
       {
-        let backupFile = FilterStorage.sourceFile.clone();
+        let backupFile = targetFile.clone();
         backupFile.leafName = part1 + "-backup" + Prefs.patternsbackups + part2;
 
         // Remove oldest backup
@@ -567,11 +613,41 @@ var FilterStorage =
         }
       }
     }
+    else if (targetFile.exists())
+      targetFile.remove(false);
 
-    tempFile.moveTo(FilterStorage.sourceFile.parent, FilterStorage.sourceFile.leafName);
+    tempFile.moveTo(targetFile.parent, targetFile.leafName);
     TimeLine.log("created backups and renamed temp file");
-    FilterStorage.triggerObservers("save");
+    if (!explicitFile)
+      FilterNotifier.triggerListeners("save");
     TimeLine.leave("FilterStorage.saveToDisk() done");
+  },
+
+  /**
+   * Returns the list of existing backup files.
+   */
+  getBackupFiles: function() /**nsIFile[]*/
+  {
+    let result = [];
+
+    let part1 = FilterStorage.sourceFile.leafName;
+    let part2 = "";
+    if (/^(.*)(\.\w+)$/.test(part1))
+    {
+      part1 = RegExp.$1;
+      part2 = RegExp.$2;
+    }
+
+    for (let i = 1; ; i++)
+    {
+      let file = FilterStorage.sourceFile.clone();
+      file.leafName = part1 + "-backup" + i + part2;
+      if (file.exists())
+        result.push(file);
+      else
+        break;
+    }
+    return result;
   }
 };
 

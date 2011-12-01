@@ -70,11 +70,6 @@
         class="toolbarbutton-1"/>
   </toolbarpalette>
 
-  <!-- Tools menu -->
-  <menupopup id="menu_ToolsPopup">
-    <menuitem id="abp-menuitem" insertafter="javascriptConsole"/>
-  </menupopup>
-
   <!-- View menu -->
   <menupopup id="menu_viewPopup">
     <menuitem id="abp-blockableitems" insertafter="viewSidebarMenuMenu"/>

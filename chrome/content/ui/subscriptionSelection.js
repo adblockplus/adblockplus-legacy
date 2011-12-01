@@ -22,323 +22,26 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-let newInstall = true;
-let savedDialogFlex = null;
-let editMode = true;
-let autoAdd = false;
-let source = null;
-let result = null;
-let initialized = false;
-
-/**
- * Suppresses window resizing while the window is loading or if the window is loaded in a browser tab.
- * @type Boolean
- */
-let suppressResize = true;
-
-let closing = false;
 let subscriptionListLoading = false;
-let otherButton = null;
 
 function init()
 {
-  if (window.arguments  && window.arguments.length)
+  if (window.arguments && window.arguments.length && window.arguments[0])
   {
-    newInstall = false;
-    [source, result] = window.arguments;
-    if (window.arguments.length > 2 && window.arguments[2])
-      window.hasSubscription = window.arguments[2];
-  }
+    let source = window.arguments[0];
+    setCustomSubscription(source.title, source.url,
+                          source.mainSubscriptionTitle, source.mainSubscriptionURL);
 
-  if (newInstall && Utils.isFennec)
-  {
-    // HACK: In Fennec 4.0 menulist elements won't work "by themselves". We
-    // have to go to the top level and trigger MenuListHelperUI manually.
-    let topWnd = window.QueryInterface(Ci.nsIInterfaceRequestor)
-                       .getInterface(Ci.nsIWebNavigation)
-                       .QueryInterface(Ci.nsIDocShellTreeItem)
-                       .rootTreeItem
-                       .QueryInterface(Ci.nsIInterfaceRequestor)
-                       .getInterface(Ci.nsIDOMWindow);
-    if (topWnd.wrappedJSObject)
-      topWnd = topWnd.wrappedJSObject;
-
-    let menulist = E("subscriptions");
-    if ("MenuListHelperUI" in topWnd && menulist.parentNode.localName != "stack")
-    {
-      // Add a layer on top of the menulist to handle clicks, menulist clicks
-      // are otherwise ignored and cannot be intercepted
-      let stack = document.createElement("stack");
-      menulist.parentNode.replaceChild(stack, menulist);
-      stack.appendChild(menulist);
-
-      let clickLayer = document.createElement("hbox");
-      stack.appendChild(clickLayer);
-
-      clickLayer.addEventListener("click", function(event)
-      {
-        if (event.button == 0 && !menulist.disabled && menulist.itemCount)
-        {
-          menulist.focus();
-          topWnd.MenuListHelperUI.show(menulist);
-        }
-      }, true);
-
-      // menulist needs to be initialized after being moved, re-run init() later
-      Utils.runAsync(init);
-      return;
-    }
-
-    // The template is being displayed as a list item, remove it
-    let subscriptionsTemplate = E("subscriptionsTemplate");
-    if (subscriptionsTemplate && subscriptionsTemplate.parentNode)
-      subscriptionsTemplate.parentNode.removeChild(subscriptionsTemplate);
-
-    // window.close() closes the entire window (bug 642604), make sure to close
-    // only a single tab instead.
-    if ("BrowserUI" in topWnd)
-    {
-      window.close = function()
-      {
-        topWnd.BrowserUI.closeTab();
-      };
-    }
-  }
-
-  if (!result)
-  {
-    result = {};
-    autoAdd = true;
-  }
-  if (!source)
-  {
-    editMode = false;
-    source = {title: "", url: "", disabled: false, external: false, autoDownload: true, mainSubscriptionTitle: null, mainSubscriptionURL: null};
+    E("all-subscriptions-container").hidden = true;
+    E("fromWebText").hidden = false;
   }
   else
-  {
-    if (typeof source.mainSubscriptionURL == "undefined")
-      source.mainSubscriptionURL = source.mainSubscriptionTitle = null;
-  }
-
-  if (newInstall && !Utils.isFennec)
-  {
-    // HACK: We will remove dialog content box flex if a subscription is
-    // selected, need to find the content box and save it flex value.
-    let docContent = document.getAnonymousNodes(document.documentElement);
-    docContent = (docContent && docContent.length ? docContent[0] : null);
-    if (docContent && docContent.hasAttribute("class") &&
-        /\bdialog-content-box\b/.test(docContent.getAttribute("class")) &&
-        docContent.hasAttribute("flex"))
-    {
-      savedDialogFlex = [docContent, docContent.getAttribute("flex")]
-    }
-  }
-
-  E("description-newInstall").hidden = !newInstall;
-  if (newInstall)
-    document.documentElement.setAttribute("newInstall", "true");
-
-  E("subscriptionsBox").hidden = E("all-subscriptions-container").hidden
-    = E("subscriptionInfo").hidden = editMode;
-
-  E("fromWebText").hidden = !editMode || source instanceof Subscription;
-  E("editText").hidden = !(source instanceof Subscription) || source instanceof ExternalSubscription;
-  E("externalText").hidden = !(source instanceof ExternalSubscription);
-  E("differentSubscription").hidden = !editMode;
-
-  otherButton = document.documentElement.getButton("extra2");
-  if (!editMode)
-  {
-    // Transform the button into a text link
-    let link = document.createElement("label");
-    link.setAttribute("id", "otherButton");
-    link.setAttribute("class", "text-link");
-    link.setAttribute("value", otherButton.label);
-    link.setAttribute("accesskey", otherButton.accessKey);
-    link.setAttribute("control", "otherButton");
-    link.setAttribute("flex", "1");
-    link.setAttribute("crop", "end");
-
-    let handler = new Function("event", document.documentElement.getAttribute("ondialogextra2"));
-    link.addEventListener("command", handler, false);
-    link.addEventListener("click", handler, false);
-    link.addEventListener("keypress", function(event)
-    {
-      if (event.keyCode == event.DOM_VK_ENTER || event.keyCode == event.DOM_VK_RETURN)
-      {
-        this.doCommand();
-        event.preventDefault();
-      }
-    }, false);
-
-    otherButton.parentNode.setAttribute("align", "center");
-    otherButton.parentNode.replaceChild(link, otherButton);
-    otherButton = link;
-  }
-  otherButton.hidden = editMode;
-
-  setCustomSubscription(source.title, source.url,
-                        source.mainSubscriptionTitle, source.mainSubscriptionURL);
-
-  if (source instanceof Subscription)
-  {
-    document.title = document.documentElement.getAttribute("edittitle");
-    document.documentElement.getButton("accept").setAttribute("label", document.documentElement.getAttribute("buttonlabelacceptedit"))
-  }
-
-  if (source instanceof ExternalSubscription)
-  {
-    E("location").setAttribute("disabled", "true");
-    E("autoDownload").setAttribute("disabled", "true");
-    E("autoDownload").checked = true;
-  }
-  else
-    E("autoDownload").checked = source.autoDownload;
-
-  initialized = true;
-
-  if (!editMode)
-  {
-    let list = E("subscriptions");
-    let items = list.menupopup.childNodes;
-    let selectedItem = null;
-    let selectedPrefix = null;
-    let matchCount = 0;
-    for (let i = 0; i < items.length; i++)
-    {
-      let item = items[i];
-      let prefixes = item.getAttribute("_prefixes");
-      if (!prefixes)
-        continue;
-  
-      if (!selectedItem)
-        selectedItem = item;
-  
-      let prefix = checkPrefixMatch(prefixes, Utils.appLocale);
-      if (prefix)
-      {
-        item.setAttribute("class", "localeMatch");
-        if (!selectedPrefix || selectedPrefix.length < prefix.length)
-        {
-          selectedItem = item;
-          selectedPrefix = prefix;
-          matchCount = 1;
-        }
-        else if (selectedPrefix && selectedPrefix.length == prefix.length)
-        {
-          matchCount++;
-
-          // If multiple items have a matching prefix of the same length:
-          // Select one of the items randomly, probability should be the same
-          // for all items. So we replace the previous match here with
-          // probability 1/N (N being the number of matches).
-          if (Math.random() * matchCount < 1)
-          {
-            selectedItem = item;
-            selectedPrefix = prefix;
-          }
-        }
-      }
-    }
-    list.selectedItem = selectedItem;
-  }
-
-  // Only resize if we are a chrome window (not loaded into a browser tab)
-  if (window.QueryInterface(Ci.nsIInterfaceRequestor).getInterface(Ci.nsIWebNavigation).QueryInterface(Ci.nsIDocShellTreeItem).itemType == Ci.nsIDocShellTreeItem.typeChrome)
-    suppressResize = false;
-}
-
-function checkPrefixMatch(prefixes, appLocale)
-{
-  if (!prefixes)
-    return null;
-
-  for each (let prefix in prefixes.split(/,/))
-    if (new RegExp("^" + prefix + "\\b").test(appLocale))
-      return prefix;
-
-  return null;
-}
-
-function collapseElements()
-{
-  if (!suppressResize && window.windowState == Ci.nsIDOMChromeWindow.STATE_NORMAL)
-  {
-    let diff = 0;
-    for (let i = 0; i < arguments.length; i++)
-      diff -= arguments[i].boxObject.height;
-    window.resizeBy(0, diff);
-    window.moveBy(0, -diff/2);
-  }
-  for (let i = 0; i < arguments.length; i++)
-    arguments[i].hidden = true;
-}
-
-function showElements()
-{
-  for (let i = 0; i < arguments.length; i++)
-    arguments[i].hidden = false;
-
-  let scrollBox = E("content-scroll").boxObject;
-  if (!suppressResize && window.windowState == Ci.nsIDOMChromeWindow.STATE_NORMAL && scrollBox instanceof Ci.nsIScrollBoxObject)
-  {
-    // Force reflow
-    for (let i = 0; i < arguments.length; i++)
-      arguments[i].boxObject.height;
-
-    let scrollHeight = {};
-    scrollBox.getScrolledSize({}, scrollHeight);
-    if (scrollHeight.value > scrollBox.height)
-    {
-      let diff = scrollHeight.value - scrollBox.height;
-      window.resizeBy(0, diff);
-      window.moveBy(0, -diff/2);
-    }
-  }
-}
-
-function onSelectionChange()
-{
-  if (!initialized)
-    return;
-
-  let selectedSubscription = E("subscriptions").value;
-
-  // Show/hide extra UI widgets for custom subscriptions, resize window appropriately
-  let container = E("all-subscriptions-container");
-  let inputFields = E("differentSubscription");
-  if (container.hidden && !selectedSubscription)
-    showElements(container, inputFields);
-  else if (!container.hidden && selectedSubscription)
-    collapseElements(container, inputFields);
-
-  // Make sure to hide "Add different subscription button" if we are already in that mode
-  otherButton.hidden = !selectedSubscription;
-
-  if (!selectedSubscription)
-  {
     loadSubscriptionList();
-    E("title").focus();
-  }
-
-  if (savedDialogFlex)
-  {
-    let [docContent, flex] = savedDialogFlex;
-    if (selectedSubscription)
-      docContent.removeAttribute("flex");
-    else
-      docContent.setAttribute("flex", flex);
-  }
-
-  updateSubscriptionInfo();
 }
 
 function updateSubscriptionInfo()
 {
-  let selectedSubscription = E("subscriptions").selectedItem;
-  if (!selectedSubscription.value)
-    selectedSubscription = E("all-subscriptions").selectedItem;
+  let selectedSubscription = E("all-subscriptions").selectedItem;
 
   E("subscriptionInfo").setAttribute("invisible", !selectedSubscription);
   if (selectedSubscription)
@@ -391,6 +94,8 @@ function loadSubscriptionList()
     try
     {
       processSubscriptionList(request.responseXML);
+      E("all-subscriptions").selectedIndex = 0;
+      E("all-subscriptions").focus();
     }
     catch (e)
     {
@@ -457,7 +162,7 @@ function addSubscriptions(list, parent, level, parentTitle, parentURL)
       let title = document.createElement("description");
       if (isFirst)
       {
-        if (checkPrefixMatch(node.getAttribute("prefixes"), Utils.appLocale))
+        if (Utils.checkLocalePrefixMatch(node.getAttribute("prefixes")))
           title.setAttribute("class", "subscriptionTitle localeMatch");
         else
           title.setAttribute("class", "subscriptionTitle");
@@ -485,7 +190,7 @@ function addSubscriptions(list, parent, level, parentTitle, parentURL)
   }
 }
 
-function onAllSelectionChange()
+function onSelectionChange()
 {
   let selectedItem = E("all-subscriptions").selectedItem;
   if (!selectedItem)
@@ -506,8 +211,8 @@ function setCustomSubscription(title, url, mainSubscriptionTitle, mainSubscripti
   let addMainCheckbox = E("addMainSubscription");
   if (mainSubscriptionURL && !hasSubscription(mainSubscriptionURL))
   {
-    if (messageElement.hidden)
-      showElements(messageElement, addMainCheckbox);
+    messageElement.removeAttribute("invisible");
+    addMainCheckbox.removeAttribute("invisible");
 
     let beforeLink, afterLink;
     if (/(.*)\?1\?(.*)/.test(messageElement.getAttribute("_textTemplate")))
@@ -531,18 +236,17 @@ function setCustomSubscription(title, url, mainSubscriptionTitle, mainSubscripti
     addMainCheckbox.label = addMainCheckbox.getAttribute("_labelTemplate").replace(/\?1\?/g, mainSubscriptionTitle);
     addMainCheckbox.accessKey = addMainCheckbox.accessKey;
   }
-  else if (!messageElement.hidden)
-    collapseElements(messageElement, addMainCheckbox);
-}
-
-function selectCustomSubscription()
-{
-  let list = E("subscriptions")
-  list.selectedItem = list.menupopup.lastChild;
+  else
+  {
+    messageElement.setAttribute("invisible", "true");
+    addMainCheckbox.setAttribute("invisible", "true");
+  }
 }
 
 function validateURL(url)
 {
+  if (!url)
+    return null;
   url = url.replace(/^\s+/, "").replace(/\s+$/, "");
 
   // Is this a file path?
@@ -562,84 +266,46 @@ function validateURL(url)
 
 function addSubscription()
 {
-  let list = E("subscriptions");
-  let url;
-  let title;
-  let autoDownload;
-  if (list.value)
+  let url = E("location").value;
+  url = validateURL(url);
+  if (!url)
   {
-    url = list.value;
-    title = list.label;
-    autoDownload = true;
-  }
-  else
-  {
-    url = E("location").value;
-    if (!(source instanceof ExternalSubscription))
-      url = validateURL(url);
-    if (!url)
-    {
-      Utils.alert(window, Utils.getString("subscription_invalid_location"));
-      E("location").focus();
-      return false;
-    }
-
-    title = E("title").value.replace(/^\s+/, "").replace(/\s+$/, "");
-    if (!title)
-      title = url;
-
-    autoDownload = E("autoDownload").checked;
+    Utils.alert(window, Utils.getString("subscription_invalid_location"));
+    E("location").focus();
+    return false;
   }
 
-  result.url = url;
-  result.title = title;
-  result.autoDownload = autoDownload;
-  result.disabled = source.disabled;
+  let title = E("title").value.replace(/^\s+/, "").replace(/\s+$/, "");
+  if (!title)
+    title = url;
+
+  doAddSubscription(url, title);
 
   let addMainCheckbox = E("addMainSubscription")
-  if (!addMainCheckbox.hidden && addMainCheckbox.checked)
+  if (addMainCheckbox.checked)
   {
-    result.mainSubscriptionTitle = addMainCheckbox.getAttribute("_mainSubscriptionTitle");
-    result.mainSubscriptionURL = addMainCheckbox.value;
+    let mainSubscriptionTitle = addMainCheckbox.getAttribute("_mainSubscriptionTitle");
+    let mainSubscriptionURL = validateURL(addMainCheckbox.value);
+    if (mainSubscriptionURL)
+      doAddSubscription(mainSubscriptionURL, mainSubscriptionTitle);
   }
 
-  if (autoAdd)
-  {
-    doAddSubscription(result.url, result.title, result.autoDownload, result.disabled);
-    if ("mainSubscriptionURL" in result)
-      doAddSubscription(result.mainSubscriptionURL, result.mainSubscriptionTitle, result.autoDownload, result.disabled);
-  }
-
-  closing = true;
   return true;
 }
 
 /**
  * Adds a new subscription to the list.
  */
-function doAddSubscription(/**String*/ url, /**String*/ title, /**Boolean*/ autoDownload, /**Boolean*/ disabled)
+function doAddSubscription(/**String*/ url, /**String*/ title)
 {
-  if (typeof autoDownload == "undefined")
-    autoDownload = true;
-  if (typeof disabled == "undefined")
-    disabled = false;
-
   let subscription = Subscription.fromURL(url);
   if (!subscription)
     return;
 
   FilterStorage.addSubscription(subscription);
 
-  if (disabled != subscription.disabled)
-  {
-    subscription.disabled = disabled;
-    FilterStorage.triggerObservers(disabled ? "subscriptions disable" : "subscriptions enable", [subscription]);
-  }
-
+  subscription.disabled = false;
   subscription.title = title;
-  if (subscription instanceof DownloadableSubscription)
-    subscription.autoDownload = autoDownload;
-  FilterStorage.triggerObservers("subscriptions updateinfo", [subscription]);
 
   if (subscription instanceof DownloadableSubscription && !subscription.lastDownload)
     Synchronizer.execute(subscription);
@@ -649,23 +315,4 @@ function doAddSubscription(/**String*/ url, /**String*/ title, /**Boolean*/ auto
 function hasSubscription(url)
 {
   return FilterStorage.subscriptions.some(function(subscription) subscription instanceof DownloadableSubscription && subscription.url == url);
-}
-
-function checkUnload()
-{
-  if (newInstall && !closing)
-    return Utils.getString("subscription_notAdded_warning");
-
-  return undefined;
-}
-
-function onDialogCancel()
-{
-  let message = checkUnload();
-  if (!message)
-    return true;
-
-  message += " " + Utils.getString("subscription_notAdded_warning_addendum");
-  closing = Utils.confirm(window, message);
-  return closing;
 }

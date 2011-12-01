@@ -39,7 +39,7 @@ Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 Cu.import(baseURL.spec + "Utils.jsm");
 Cu.import(baseURL.spec + "Prefs.jsm");
 Cu.import(baseURL.spec + "ContentPolicy.jsm");
-Cu.import(baseURL.spec + "FilterStorage.jsm");
+Cu.import(baseURL.spec + "FilterNotifier.jsm");
 Cu.import(baseURL.spec + "FilterClasses.jsm");
 Cu.import(baseURL.spec + "TimeLine.jsm");
 
@@ -298,7 +298,7 @@ var ElemHide =
     }
     finally
     {
-      FilterStorage.triggerObservers("elemhideupdate");
+      FilterNotifier.triggerListeners("elemhideupdate");
     }
   },
 

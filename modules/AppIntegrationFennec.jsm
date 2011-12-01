@@ -41,6 +41,7 @@ Cu.import(baseURL.spec + "Prefs.jsm");
 Cu.import(baseURL.spec + "ContentPolicy.jsm");
 Cu.import(baseURL.spec + "ElemHide.jsm");
 Cu.import(baseURL.spec + "FilterStorage.jsm");
+Cu.import(baseURL.spec + "FilterNotifier.jsm");
 Cu.import(baseURL.spec + "FilterClasses.jsm");
 Cu.import(baseURL.spec + "SubscriptionClasses.jsm");
 Cu.import(baseURL.spec + "Synchronizer.jsm");
@@ -159,11 +160,11 @@ try
   });
 
   // Trigger update in child processes if elemhide stylesheet or matcher data change
-  FilterStorage.addObserver(function(action)
+  FilterNotifier.addListener(function(action)
   {
     if (action == "elemhideupdate")
       Utils.parentMessageManager.sendAsyncMessage("AdblockPlus:ElemHide:updateStyleURL", ElemHide.styleURL);
-    else if (/^(filters|subscriptions) (add|remove|enable|disable|update)$/.test(action))
+    else if (/^(filter|subscription)\.(added|removed|disabled|updated)$/.test(action))
       Utils.parentMessageManager.sendAsyncMessage("AdblockPlus:Matcher:clearCache");
   });
 
@@ -295,15 +296,15 @@ function onCreateOptions(wrapper, event)
 
   let updateFunction = function(action, items)
   {
-    if (/^subscriptions\b/.test(action))
+    if (/^subscription\b/.test(action))
       updateSubscriptionList(wrapper);
   }
-  updateFunction("subscriptions");
-  FilterStorage.addObserver(updateFunction);
+  updateFunction("subscription");
+  FilterNotifier.addListener(updateFunction);
 
   wrapper.window.addEventListener("unload", function()
   {
-    FilterStorage.removeObserver(updateFunction);
+    FilterNotifier.removeListener(updateFunction);
   }, false);
 }
 

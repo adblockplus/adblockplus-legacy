@@ -39,6 +39,7 @@ Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 Cu.import(baseURL.spec + "TimeLine.jsm");
 Cu.import(baseURL.spec + "Utils.jsm");
 Cu.import(baseURL.spec + "FilterStorage.jsm");
+Cu.import(baseURL.spec + "FilterNotifier.jsm");
 Cu.import(baseURL.spec + "FilterClasses.jsm");
 Cu.import(baseURL.spec + "SubscriptionClasses.jsm");
 Cu.import(baseURL.spec + "Prefs.jsm");
@@ -403,15 +404,13 @@ var Synchronizer =
 
       if (newFilters)
         FilterStorage.updateSubscriptionFilters(subscription, newFilters);
-      else
-        FilterStorage.triggerObservers("subscriptions updateinfo", [subscription]);
       delete subscription.oldSubscription;
 
       FilterStorage.saveToDisk();
     }, false);
 
     executing[url] = true;
-    FilterStorage.triggerObservers("subscriptions updateinfo", [subscription]);
+    FilterNotifier.triggerListeners("subscription.downloadStatus", subscription);
 
     try
     {
@@ -436,7 +435,7 @@ function checkSubscriptions()
   let time = Math.round(Date.now() / MILLISECONDS_IN_SECOND);
   for each (let subscription in FilterStorage.subscriptions)
   {
-    if (!(subscription instanceof DownloadableSubscription) || !subscription.autoDownload)
+    if (!(subscription instanceof DownloadableSubscription))
       continue;
 
     if (subscription.lastCheck && time - subscription.lastCheck > MAX_ABSENSE_INTERVAL)
@@ -588,12 +587,21 @@ function setError(subscription, error, channelStatus, responseStatus, downloadUR
                                   request.channel.VALIDATE_ALWAYS;
       request.addEventListener("load", function(ev)
       {
+        if (!(subscription.url in FilterStorage.knownSubscriptions))
+          return;
+
         if (/^301\s+(\S+)/.test(request.responseText))  // Moved permanently    
           subscription.nextURL = RegExp.$1;
         else if (/^410\b/.test(request.responseText))   // Gone
         {
-          subscription.autoDownload = false;
-          FilterStorage.triggerObservers("subscriptions updateinfo", [subscription]);
+          let data = "[Adblock]\n" + subscription.filters.map(function(f) f.text).join("\n");
+          let url = "data:text/plain," + encodeURIComponent(data);
+          let newSubscription = Subscription.fromURL(url);
+          newSubscription.title = subscription.title;
+          newSubscription.disabled = subscription.disabled;
+          FilterStorage.removeSubscription(subscription);
+          FilterStorage.addSubscription(newSubscription);
+          Synchronizer.execute(newSubscription);
         }
         FilterStorage.saveToDisk();
       }, false);
@@ -601,6 +609,5 @@ function setError(subscription, error, channelStatus, responseStatus, downloadUR
     }
   }
 
-  FilterStorage.triggerObservers("subscriptions updateinfo", [subscription]);
   FilterStorage.saveToDisk();
 }
