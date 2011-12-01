@@ -256,6 +256,7 @@
                 <menupopup class="actionMenu">
                   <menuitem label="&subscription.editTitle.label;…" key="edit-key" command="subscription-editTitle-command"/>
                   <menuitem label="&subscription.delete.label;…" key="delete-key" command="subscription-delete-command"/>
+                  <menuitem label="&subscription.showHideFilters.label;" key="subscription-showHideFilters-key" command="subscription-showHideFilters-command"/>
                   <menuseparator/>
                   <menuitem label="&subscription.moveUp.label;" key="moveUp-key" command="subscription-moveUp-command"/>
                   <menuitem label="&subscription.moveDown.label;" key="moveDown-key" command="subscription-moveDown-command"/>
