@@ -329,8 +329,9 @@ var Utils =
 
   /**
    * Opens filter preferences dialog or focuses an already open dialog.
+   * @param {Filter} [filter]  filter to be selected
    */
-  openFiltersDialog: function()
+  openFiltersDialog: function(filter)
   {
     var dlg = Utils.windowMediator.getMostRecentWindow("abp:filters");
     if (dlg)
@@ -340,51 +341,11 @@ var Utils =
         dlg.focus();
       }
       catch (e) {}
+      dlg.SubscriptionActions.selectFilter(filter);
     }
     else
     {
-      Utils.windowWatcher.openWindow(null, "chrome://adblockplus/content/ui/filters.xul", "_blank", "chrome,centerscreen,resizable,dialog=no", null);
-    }
-  },
-
-  /**
-   * Opens preferences dialog or focused already open dialog.
-   * @param {String} location  (optional) filter suggestion
-   * @param {Filter} filter    (optional) filter to be selected
-   */
-  openSettingsDialog: function(location, filter)
-  {
-    var dlg = Utils.windowMediator.getMostRecentWindow("abp:settings");
-    var func = function()
-    {
-      if (typeof location != "undefined")
-        dlg.setLocation(location);
-      if (typeof filter != "undefined")
-        dlg.selectFilter(filter);
-    }
-
-    if (dlg)
-    {
-      func();
-
-      try
-      {
-        dlg.focus();
-      }
-      catch (e) {}
-
-      if (Utils.windowMediator.getMostRecentWindow(null) != dlg)
-      {
-        // There must be some modal dialog open
-        dlg = Utils.windowMediator.getMostRecentWindow("abp:subscriptionSelection") || Utils.windowMediator.getMostRecentWindow("abp:about");
-        if (dlg)
-          dlg.focus();
-      }
-    }
-    else
-    {
-      dlg = Utils.windowWatcher.openWindow(null, "chrome://adblockplus/content/ui/settings.xul", "_blank", "chrome,centerscreen,resizable,dialog=no", null);
-      dlg.addEventListener("post-load", func, false);
+      Utils.windowWatcher.openWindow(null, "chrome://adblockplus/content/ui/filters.xul", "_blank", "chrome,centerscreen,resizable,dialog=no", {wrappedJSObject: filter});
     }
   },
 

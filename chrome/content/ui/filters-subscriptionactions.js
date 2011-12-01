@@ -55,6 +55,36 @@ var SubscriptionActions =
   },
 
   /**
+   * Finds the subscription for a particular filter, selects it and selects the
+   * filter.
+   */
+  selectFilter: function(/**Filter*/ filter)
+  {
+    let node = null;
+    let tabIndex = -1;
+    let subscriptions = filter.subscriptions.slice();
+    subscriptions.sort(function(s1, s2) s1.disabled - s2.disabled);
+    for (let i = 0; i < subscriptions.length; i++)
+    {
+      let subscription = subscriptions[i];
+      let list = E(subscription instanceof SpecialSubscription ? "groups" : "subscriptions");
+      tabIndex = (subscription instanceof SpecialSubscription ? 1 : 0);
+      node = Templater.getNodeForData(list, "subscription", subscription);
+      if (node)
+        break;
+    }
+    if (node)
+    {
+      E("tabs").selectedIndex = tabIndex;
+      node.parentNode.ensureElementIsVisible(node);
+      node.parentNode.selectItem(node);
+      if (!FilterActions.visible)
+        E("subscription-showHideFilters-command").doCommand();
+      Utils.runAsync(FilterView.selectFilter, FilterView, filter);
+    }
+  },
+
+  /**
    * Updates subscription commands whenever the selected subscription changes.
    * Note: this method might be called with a wrong "this" value.
    */

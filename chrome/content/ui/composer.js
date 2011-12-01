@@ -420,7 +420,7 @@ function disableElement(element, disable, valueProperty, disabledValue) {
 }
 
 function openPreferences() {
-  Utils.openSettingsDialog(item.location, E("filter").value);
+  Utils.openFiltersDialog(Filter.fromText(E("filter").value));
 }
 
 function doEnable() {

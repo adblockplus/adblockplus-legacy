@@ -1311,7 +1311,6 @@ WindowWrapper.prototype.eventHandlers = [
   ["abp-toolbar-popup", "popupshowing", WindowWrapper.prototype.fillPopup],
   ["abp-command-sendReport", "command", WindowWrapper.prototype.openReportDialog],
   ["abp-command-filters", "command", function() {Utils.openFiltersDialog();}],
-  ["abp-command-settings", "command", function() {Utils.openSettingsDialog();}],
   ["abp-command-sidebar", "command", WindowWrapper.prototype.toggleSidebar],
   ["abp-command-togglesitewhitelist", "command", function() { AppIntegration.toggleFilter(this.siteWhitelist); }],
   ["abp-command-togglepagewhitelist", "command", function() { AppIntegration.toggleFilter(this.pageWhitelist); }],

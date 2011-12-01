@@ -52,7 +52,7 @@ var FilterActions =
    */
   get visible()
   {
-    return !this.treeElement.collapsed;
+    return !this.treeElement.parentNode.collapsed;
   },
 
   /**
