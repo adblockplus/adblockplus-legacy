@@ -440,7 +440,8 @@ function doBlock() {
   openDialog("chrome://adblockplus/content/ui/composer.xul", "_blank", "chrome,centerscreen,resizable,dialog=no,dependent", item.nodes, item.orig);
 }
 
-function editFilter() {
+function editFilter()
+{
   var item = treeView.getSelectedItem();
   if (treeView.data && !treeView.data.length)
     item = treeView.getDummyTooltip();
@@ -451,7 +452,7 @@ function editFilter() {
   if (!("location") in item)
     item.location = undefined
 
-  Utils.openSettingsDialog(item.location, item.filter);
+  Utils.openFiltersDialog(item.filter);
 }
 
 function enableFilter(filter, enable) {

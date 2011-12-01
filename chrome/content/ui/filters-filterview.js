@@ -436,6 +436,27 @@ var FilterView =
   },
 
   /**
+   * Finds a particular filter in the list and selects it.
+   */
+  selectFilter: function(/**Filter*/ filter)
+  {
+    let index = -1;
+    for (let i = 0; i < this.data.length; i++)
+    {
+      if (this.data[i].filter == filter)
+      {
+        index = i;
+        break;
+      }
+    }
+    if (index >= 0)
+    {
+      this.selectRow(index);
+      this.treeElement.focus();
+    }
+  },
+
+  /**
    * Updates value of data property on sorting or filter subscription changes.
    */
   updateData: function()

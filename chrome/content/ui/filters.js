@@ -29,6 +29,13 @@ function init()
 {
   new ListManager(E("subscriptions"), E("subscriptionTemplate"), RegularSubscription, SubscriptionActions.updateCommands);
   new ListManager(E("groups"), E("groupTemplate"), SpecialSubscription, SubscriptionActions.updateCommands);
+
+  if (window.arguments && window.arguments.length)
+  {
+    let filter = window.arguments[0].wrappedJSObject;
+    if (filter instanceof Filter)
+      Utils.runAsync(SubscriptionActions.selectFilter, SubscriptionActions, filter);
+  }
 }
 
 /**
@@ -78,7 +85,7 @@ function onSelectionChange(/**Element*/ list)
  */
 function onShowHideFilters()
 {
-  if (FiltersActions.visible)
+  if (FilterActions.visible)
     FilterView.refresh();
 }
 
