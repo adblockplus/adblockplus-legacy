@@ -117,7 +117,8 @@ ListManager.prototype =
       __proto__: null,
       subscription: subscription,
       isExternal: subscription instanceof ExternalSubscription,
-      downloading: Synchronizer.isExecuting(subscription.url)
+      downloading: Synchronizer.isExecuting(subscription.url),
+      disabledFilters: 0
     });
     if (insertBefore)
       this._list.insertBefore(node, insertBefore);
