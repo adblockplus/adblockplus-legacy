@@ -42,13 +42,21 @@
 
   <description>&confirmation;</description>
 
-  <description class="section">&advancedSection;</description>
+  <vbox class="sectionContainer">
+    <description class="sectionTitle">&advancedSection;</description>
 
-  <description>&listSelection1;</description>
+    <description>&listSelection1;</description>
 
-  <vbox id="listNameContainer">
-    <description id="listName"/>
-    <label class="text-link" id="listHomepage" value="&visitHomepage.label;" onclick="Utils.loadInBrowser(this.getAttribute('_url'))"/>
+    <vbox id="listNameContainer" hidden="true">
+      <description id="listName"/>
+      <label class="text-link" id="listHomepage" value="&visitHomepage.label;" onclick="Utils.loadInBrowser(this.getAttribute('_url'))"/>
+    </vbox>
+    <description id="listNone">&noList;</description>
+
+    <description id="acceptableAds" hidden="true">
+      &acceptableAds;
+      <label class="text-link" value="&readMore.label;" onclick="Utils.loadDocLink('acceptable_ads');"/>
+    </description>
   </vbox>
 
   <description id="changeDescription" _textTemplate="&listSelection2;">

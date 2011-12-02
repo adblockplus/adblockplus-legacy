@@ -26,15 +26,15 @@
  * Fills a list of filter groups and keeps it updated.
  * @param {Element} list  richlistbox element to be filled
  * @param {Node} template  template to use for the groups
- * @param {Object} classFilter  base class of the groups to display
+ * @param {Function} filter  filter to decide which lists should be included
  * @param {Function} listener  function to be called on changes
  * @constructor
  */
-function ListManager(list, template, classFilter, listener)
+function ListManager(list, template, filter, listener)
 {
   this._list = list;
   this._template = template;
-  this._classFilter = classFilter;
+  this._filter = filter;
   this._listener = listener || function(){};
 
   this._placeholder = this._list.firstChild;
@@ -67,9 +67,10 @@ ListManager.prototype =
    */
   _template: null,
   /**
-   * Base class of the groups to display.
+   * Filter function to decide which subscriptions should be included.
+   * @type Function
    */
-  _classFilter: null,
+  _filter: null,
   /**
    * Function to be called whenever list contents change.
    * @type Function
@@ -91,7 +92,7 @@ ListManager.prototype =
       this._list.removeChild(this._list.firstChild);
 
     // Now add all subscriptions
-    let subscriptions = FilterStorage.subscriptions.filter(function(subscription) subscription instanceof this._classFilter, this);
+    let subscriptions = FilterStorage.subscriptions.filter(this._filter, this);
     if (subscriptions.length)
     {
       for each (let subscription in subscriptions)
@@ -133,7 +134,10 @@ ListManager.prototype =
    */
   _onChange: function(action, item, param1, param2)
   {
-    if (action != "load" && !(item instanceof this._classFilter))
+    if ((action == "subscription.added" || action == "subscription.removed") && item.url == Prefs.subscriptions_exceptionsurl)
+      E("acceptableAds").checked = FilterStorage.subscriptions.some(function(s) s.url == Prefs.subscriptions_exceptionsurl);
+
+    if (action != "load" && !this._filter(item))
       return;
 
     switch (action)
@@ -217,3 +221,43 @@ ListManager.prototype =
     }
   }
 };
+
+/**
+ * Attaches list managers to the lists.
+ */
+ListManager.init = function()
+{
+  new ListManager(E("subscriptions"),
+                  E("subscriptionTemplate"),
+                  function(s) s instanceof RegularSubscription && s.url != Prefs.subscriptions_exceptionsurl,
+                  SubscriptionActions.updateCommands);
+  new ListManager(E("groups"),
+                  E("groupTemplate"),
+                  function(s) s instanceof SpecialSubscription,
+                  SubscriptionActions.updateCommands);
+  E("acceptableAds").checked = FilterStorage.subscriptions.some(function(s) s.url == Prefs.subscriptions_exceptionsurl);
+};
+
+/**
+ * Adds or removes filter subscription allowing acceptable ads.
+ */
+ListManager.allowAcceptableAds = function(/**Boolean*/ allow)
+{
+  let subscription = Subscription.fromURL(Prefs.subscriptions_exceptionsurl);
+  if (!subscription)
+    return;
+
+  subscription.disabled = false;
+  subscription.title = "Allow non-intrusive advertising";
+  if (allow)
+  {
+    FilterStorage.addSubscription(subscription);
+    if (subscription instanceof DownloadableSubscription && !subscription.lastDownload)
+      Synchronizer.execute(subscription);
+  }
+  else
+    FilterStorage.removeSubscription(subscription);
+  FilterStorage.saveToDisk();
+};
+
+window.addEventListener("load", ListManager.init, false);
