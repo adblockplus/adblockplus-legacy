@@ -245,6 +245,11 @@
             <description flex="1">&noSubscriptions.text;</description>
           </richlistitem>
         </richlistbox>
+
+        <hbox align="baseline">
+          <checkbox id="acceptableAds" label="&acceptableAds.label;" accesskey="&acceptableAds.accesskey;" oncommand="ListManager.allowAcceptableAds(this.checked);"/>
+          <label class="text-link" value="&readMore.label;" onclick="Utils.loadDocLink('acceptable_ads');"/>
+        </hbox>
       </tabpanel>
       <tabpanel id="filtersTab" orient="vertical" flex="1">
         <hbox pack="end">

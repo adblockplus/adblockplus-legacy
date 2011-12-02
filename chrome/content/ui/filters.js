@@ -27,9 +27,6 @@
  */
 function init()
 {
-  new ListManager(E("subscriptions"), E("subscriptionTemplate"), RegularSubscription, SubscriptionActions.updateCommands);
-  new ListManager(E("groups"), E("groupTemplate"), SpecialSubscription, SubscriptionActions.updateCommands);
-
   if (window.arguments && window.arguments.length)
   {
     let filter = window.arguments[0].wrappedJSObject;

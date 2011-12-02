@@ -51,16 +51,22 @@ function init()
 
   for each (let subscription in FilterStorage.subscriptions)
   {
-    if (subscription instanceof DownloadableSubscription)
+    if (subscription instanceof DownloadableSubscription && subscription.url != Prefs.subscriptions_exceptionsurl)
     {
       E("listName").textContent = subscription.title;
 
       let link = E("listHomepage");
       link.setAttribute("_url", subscription.homepage);
       link.setAttribute("tooltiptext", subscription.homepage);
+
+      E("listNameContainer").hidden = false;
+      E("listNone").hidden = true;
       break;
     }
   }
+
+  if (FilterStorage.subscriptions.some(function(s) s.url == Prefs.subscriptions_exceptionsurl))
+    E("acceptableAds").hidden = false;
 }
 
 function generateLinkText(element)

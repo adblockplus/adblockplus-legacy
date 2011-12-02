@@ -1409,48 +1409,84 @@ function shouldHideImageManager()
  */
 function addSubscription()
 {
-  // Don't do anything if the user has a subscription already
-  let hasSubscriptions = FilterStorage.subscriptions.some(function(subscription) subscription instanceof DownloadableSubscription);
-  if (hasSubscriptions)
-    return;
+  // Add "acceptable ads" subscription for new users and user updating from old ABP versions
+  let addAcceptable = (Utils.versionComparator.compare(Prefs.lastVersion, "2.0b.3269") < 0);
+  if (FilterStorage.subscriptions.some(function(subscription) subscription.url == Prefs.subscriptions_exceptionsurl))
+    addAcceptable = false;
+
+  // Don't add subscription if the user has a subscription already
+  let addSubscription = true;
+  if (FilterStorage.subscriptions.some(function(subscription) subscription instanceof DownloadableSubscription && subscription.url != Prefs.subscriptions_exceptionsurl))
+    addSubscription = false;
 
   // Only add subscription if this is the first run or the user has no filters
-  let hasFilters = FilterStorage.subscriptions.some(function(subscription) subscription.filters.length);
-  if (hasFilters && Utils.versionComparator.compare(Prefs.lastVersion, "0.0") > 0)
-    return;
-
-  // Load subscriptions data
-  let request = Cc["@mozilla.org/xmlextras/xmlhttprequest;1"].createInstance(Ci.nsIJSXMLHttpRequest);
-  request.open("GET", "chrome://adblockplus/content/ui/subscriptions.xml");
-  request.addEventListener("load", function()
+  if (addSubscription)
   {
-    let node = Utils.chooseFilterSubscription(request.responseXML.getElementsByTagName("subscription"));
-    let subscription = (node ? Subscription.fromURL(node.getAttribute("url")) : null);
+    let hasFilters = FilterStorage.subscriptions.some(function(subscription) subscription.filters.length);
+    if (hasFilters && Utils.versionComparator.compare(Prefs.lastVersion, "0.0") > 0)
+      addSubscription = false;
+  }
+
+  // Add "acceptable ads" subscription
+  if (addAcceptable)
+  {
+    let subscription = Subscription.fromURL(Prefs.subscriptions_exceptionsurl);
     if (subscription)
     {
+      subscription.title = "Allow non-intrusive advertising";
       FilterStorage.addSubscription(subscription);
-      subscription.disabled = false;
-      subscription.title = node.getAttribute("title");
-      subscription.homepage = node.getAttribute("homepage");
       if (subscription instanceof DownloadableSubscription && !subscription.lastDownload)
         Synchronizer.execute(subscription);
       FilterStorage.saveToDisk();
-
-      // Notify user
-      let wrapper = (wrappers.length ? wrappers[0] : null);
-      if (wrapper && wrapper.addTab)
-      {
-        wrapper.addTab("chrome://adblockplus/content/ui/firstRun.xul");
-      }
-      else
-      {
-        Utils.windowWatcher.openWindow(wrapper ? wrapper.window : null,
-                                       "chrome://adblockplus/content/ui/firstRun.xul",
-                                       "_blank", "chrome,centerscreen,resizable,dialog=no", null);
-      }
     }
-  }, false);
-  request.send();
+    else
+      addAcceptable = false;
+  }
+
+  if (!addSubscription && !addAcceptable)
+    return;
+
+  function notifyUser()
+  {
+    let wrapper = (wrappers.length ? wrappers[0] : null);
+    if (wrapper && wrapper.addTab)
+    {
+      wrapper.addTab("chrome://adblockplus/content/ui/firstRun.xul");
+    }
+    else
+    {
+      Utils.windowWatcher.openWindow(wrapper ? wrapper.window : null,
+                                     "chrome://adblockplus/content/ui/firstRun.xul",
+                                     "_blank", "chrome,centerscreen,resizable,dialog=no", null);
+    }
+  }
+
+  if (addSubscription)
+  {
+    // Load subscriptions data
+    let request = Cc["@mozilla.org/xmlextras/xmlhttprequest;1"].createInstance(Ci.nsIJSXMLHttpRequest);
+    request.open("GET", "chrome://adblockplus/content/ui/subscriptions.xml");
+    request.addEventListener("load", function()
+    {
+      let node = Utils.chooseFilterSubscription(request.responseXML.getElementsByTagName("subscription"));
+      let subscription = (node ? Subscription.fromURL(node.getAttribute("url")) : null);
+      if (subscription)
+      {
+        FilterStorage.addSubscription(subscription);
+        subscription.disabled = false;
+        subscription.title = node.getAttribute("title");
+        subscription.homepage = node.getAttribute("homepage");
+        if (subscription instanceof DownloadableSubscription && !subscription.lastDownload)
+          Synchronizer.execute(subscription);
+        FilterStorage.saveToDisk();
+
+        notifyUser();
+      }
+    }, false);
+    request.send();
+  }
+  else
+    notifyUser();
 }
 
 /**
