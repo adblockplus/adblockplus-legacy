@@ -46,22 +46,6 @@
 <!ENTITY sort.descending.label      "Z > A sort order">
 <!ENTITY sort.descending.accesskey  "Z">
 
-<!ENTITY options.label              "Options">
-<!ENTITY options.accesskey          "O">
-
-<!ENTITY enable.label               "Enable Adblock Plus">
-<!ENTITY enable.accesskey           "n">
-<!ENTITY showintoolbar.label        "Show in toolbar">
-<!ENTITY showintoolbar.accesskey    "b">
-<!ENTITY showinstatusbar.label      "Show in status bar">
-<!ENTITY showinstatusbar.accesskey  "s">
-<!ENTITY objecttabs.label           "Show tabs on Flash and Java">
-<!ENTITY objecttabs.accesskey       "t">
-<!ENTITY collapse.label             "Collapse blocked elements">
-<!ENTITY collapse.accesskey         "l">
-<!ENTITY sync.label                 "Sync Adblock Plus settings">
-<!ENTITY sync.accesskey             "c">
-
 <!ENTITY help.label                 "Help">
 <!ENTITY help.accesskey             "H">
 
