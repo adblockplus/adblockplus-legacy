@@ -98,4 +98,7 @@
 <!ENTITY restore.custom.warning               "All your custom filters will be replaced by the contents of the selected file. Do you want to proceeed?">
 <!ENTITY restore.minVersion.warning           "Warning: the file has been created with a newer Adblock Plus version. You should update to the latest Adblock Plus version before restoring from this file.">
 
+<!ENTITY find.label                           "Find">
+<!ENTITY find.accesskey                       "n">
+
 <!ENTITY close.label                          "Close">

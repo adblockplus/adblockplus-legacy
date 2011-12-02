@@ -162,3 +162,8 @@ treechildren::-moz-tree-image(col-slow, slow-true)
 {
   list-style-image: url(slow.png);
 }
+
+.findbar-highlight
+{
+  display: none;
+}
