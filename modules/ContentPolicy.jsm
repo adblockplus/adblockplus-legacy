@@ -196,10 +196,12 @@ var Policy =
     if (!match && Prefs.enabled)
     {
       let testWnd = wnd;
+      let parentWndLocation = getWindowLocation(testWnd);
       while (true)
       {
-        let testWndLocation = getWindowLocation(testWnd);
-        match = Policy.isWhitelisted(testWndLocation);
+        let testWndLocation = parentWndLocation;
+        parentWndLocation = (testWnd == testWnd.parent ? testWndLocation : getWindowLocation(testWnd.parent));
+        match = Policy.isWhitelisted(testWndLocation, parentWndLocation);
 
         if (!(match instanceof WhitelistFilter))
         {
@@ -249,11 +251,13 @@ var Policy =
     if (!match && contentType == Policy.type.ELEMHIDE)
     {
       let testWnd = wnd;
+      let parentWndLocation = getWindowLocation(testWnd);
       while (true)
       {
-        let testWndLocation = getWindowLocation(testWnd);
-        let testDocDomain = getHostname(testWndLocation);
-        match = defaultMatcher.matchesAny(testWndLocation, "ELEMHIDE", testDocDomain, false);
+        let testWndLocation = parentWndLocation;
+        parentWndLocation = (testWnd == testWnd.parent ? testWndLocation : getWindowLocation(testWnd.parent));
+        let parentDocDomain = getHostname(parentWndLocation);
+        match = defaultMatcher.matchesAny(testWndLocation, "ELEMHIDE", parentDocDomain, false);
         if (match instanceof WhitelistFilter)
         {
           FilterStorage.increaseHitCount(match);
@@ -315,21 +319,25 @@ var Policy =
 
   /**
    * Checks whether a page is whitelisted.
-   * @param url {String}
+   * @param {String} url
+   * @param {String} [parentUrl] location of the parent page
    * @return {Filter} filter that matched the URL or null if not whitelisted
    */
-  isWhitelisted: function(url)
+  isWhitelisted: function(url, parentUrl)
   {
     // Do not apply exception rules to schemes on our whitelistschemes list.
     if (!url || (/^([\w\-]+):/.test(url) && RegExp.$1 in Policy.whitelistSchemes))
       return null;
+
+    if (!parentUrl)
+      parentUrl = url;
 
     // Ignore fragment identifier
     let index = url.indexOf("#");
     if (index >= 0)
       url = url.substring(0, index);
 
-    let result = defaultMatcher.matchesAny(url, "DOCUMENT", getHostname(url), false);
+    let result = defaultMatcher.matchesAny(url, "DOCUMENT", getHostname(parentUrl), false);
     return (result instanceof WhitelistFilter ? result : null);
   },
 
