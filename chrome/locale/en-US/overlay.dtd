@@ -34,8 +34,6 @@
 <!ENTITY options.accesskey      "O">
 <!ENTITY contribute.label       "Contribute to Adblock Plus">
 
-<!ENTITY enable.label               "Enable Adblock Plus">
-<!ENTITY enable.accesskey           "n">
 <!ENTITY showintoolbar.label        "Show in toolbar">
 <!ENTITY showintoolbar.accesskey    "b">
 <!ENTITY showinstatusbar.label      "Show in status bar">
