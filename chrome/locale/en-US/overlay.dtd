@@ -20,8 +20,6 @@
 <!ENTITY sendReport.accesskey   "R">
 <!ENTITY filters.label          "Filter preferences">
 <!ENTITY filters.accesskey      "F">
-<!ENTITY settings.label         "Preferences">
-<!ENTITY settings.accesskey     "f">
 <!ENTITY opensidebar.label      "Open blockable items">
 <!-- Note: This access key should usually be the same as closesidebar.accesskey. It is the same menu item with different label depending on whether the sidebar is currently open.-->
 <!ENTITY opensidebar.accesskey  "b">
