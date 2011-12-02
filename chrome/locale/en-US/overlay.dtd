@@ -44,6 +44,8 @@
 <!ENTITY objecttabs.accesskey       "t">
 <!ENTITY hideplaceholders.label     "Hide placeholders of blocked elements">
 <!ENTITY hideplaceholders.accesskey "l">
+<!ENTITY counthits.label            "Count filter hits">
+<!ENTITY counthits.accesskey        "h">
 <!ENTITY sync.label                 "Sync Adblock Plus settings">
 <!ENTITY sync.accesskey             "c">
 
