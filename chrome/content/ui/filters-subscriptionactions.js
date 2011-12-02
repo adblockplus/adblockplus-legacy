@@ -269,6 +269,7 @@ var SubscriptionActions =
     if (!data)
       return;
 
+    event.dataTransfer.addElement(node);
     event.dataTransfer.setData("text/x-moz-url", data.subscription.url);
     event.dataTransfer.setData("text/plain", data.subscription.title);
     this.dragSubscription = data.subscription;
