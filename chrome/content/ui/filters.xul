@@ -47,7 +47,7 @@
 <script type="application/x-javascript;version=1.7" src="filters-filterview.js"/>
 <script type="application/x-javascript;version=1.7" src="filters-filteractions.js"/>
 <script type="application/x-javascript;version=1.7" src="filters-backup.js"/>
-<script type="application/x-javascript;version=1.7" src="findbar.js"/>
+<script type="application/x-javascript;version=1.7" src="filters-search.js"/>
 
 <keyset id="filtersKeyset">
   <key id="subscription-update-key" key="T" modifiers="accel" command="subscription-update-command"/>
@@ -63,6 +63,11 @@
   <key id="filters-paste-key" key="V" modifiers="accel" oncommand="if (FilterActions.focused) E('filters-paste-command').doCommand();"/>
   <key id="backup-key" key="E" modifiers="accel" oncommand="E('backup').doCommand();"/>
   <key id="restore-key" key="I" modifiers="accel" oncommand="E('restoreOwnBackup').doCommand();"/>
+  <key id="find-key" key="F" modifiers="accel" oncommand="if (FilterActions.visible) E('find-command').doCommand();"/>
+  <key id="find-again-key" key="G" modifiers="accel" oncommand="if (FilterActions.visible) E('find-again-command').doCommand();"/>
+  <key id="find-previous-key" key="G" modifiers="accel,shift" oncommand="if (FilterActions.visible) E('find-previous-command').doCommand();"/>
+  <key id="find-again-key2" keycode="VK_F3" oncommand="if (FilterActions.visible) E('find-again-command').doCommand();"/>
+  <key id="find-previous-key2" keycode="VK_F3" modifiers="shift" oncommand="if (FilterActions.visible) E('find-previous-command').doCommand();"/>
 </keyset>
 
 <commandset id="filtersCommandset">
@@ -85,6 +90,9 @@
   <command id="filters-copy-command" oncommand="FilterActions.copySelected(true);"/>
   <command id="filters-cut-command" oncommand="FilterActions.copySelected(false);"/>
   <command id="filters-paste-command" oncommand="FilterActions.paste();"/>
+  <command id="find-command" oncommand="E('findbar').startFind(E('findbar').FIND_NORMAL)"/>
+  <command id="find-again-command" oncommand="E('findbar').onFindAgainCommand(false)"/>
+  <command id="find-previous-command" oncommand="E('findbar').onFindAgainCommand(true)"/>
 </commandset>
 
 <popupset id="filtersPopupset">
@@ -285,6 +293,7 @@
 
   <vbox persist="width" width="500">
     <hbox pack="end">
+      <button id="findButton" label="&find.label;…" accesskey="&find.accesskey;" command="find-command"/>
       <button id="filterActionButton" type="menu" label="&filter.actions.label;…">
         <menupopup id="filterActionMenu">
           <menuitem label="&filter.edit.label;…" key="edit-key" command="filters-edit-command"/>
@@ -329,6 +338,8 @@
     </tree>
   </vbox>
 </hbox>
+
+<findbar id="findbar"/>
 
 <hbox id="buttons">
   <button id="backupButton" type="menu"
