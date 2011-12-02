@@ -26,12 +26,7 @@
 
 <?xml-stylesheet href="chrome://adblockplus/skin/overlay.css" type="text/css"?>
 
-<!DOCTYPE overlay [
-<!ENTITY % overlayDTD SYSTEM "chrome://adblockplus/locale/overlay.dtd">
-%overlayDTD;
-<!ENTITY % settingsDTD SYSTEM "chrome://adblockplus/locale/settings.dtd">
-%settingsDTD;
-]>
+<!DOCTYPE overlay SYSTEM "chrome://adblockplus/locale/overlay.dtd">
 
 <overlay id="abp-overlay-general" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
   <script type="application/x-javascript;version=1.7" src="overlay.js"/>  
