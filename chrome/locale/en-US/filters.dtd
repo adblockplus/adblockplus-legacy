@@ -55,6 +55,7 @@
 <!ENTITY filter.selectAll.label               "Select All">
 <!ENTITY filter.moveUp.label                  "Move up">
 <!ENTITY filter.moveDown.label                "Move down">
+<!ENTITY viewMenu.label                       "View">
 
 <!ENTITY filter.column                        "Filter rule">
 <!ENTITY filter.accesskey                     "F">
