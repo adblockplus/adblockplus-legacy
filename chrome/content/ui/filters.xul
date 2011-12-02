@@ -85,6 +85,7 @@
   <command id="filters-edit-command" oncommand="FilterActions.startEditing();"/>
   <command id="filters-add-command" oncommand="FilterActions.insertFilter();"/>
   <command id="filters-delete-command" oncommand="FilterActions.deleteSelected();"/>
+  <command id="filters-resetHitCounts-command" oncommand="FilterActions.resetHitCounts();"/>
   <command id="filters-moveUp-command" oncommand="FilterActions.moveUp();"/>
   <command id="filters-moveDown-command" oncommand="FilterActions.moveDown();"/>
   <command id="filters-copy-command" oncommand="FilterActions.copySelected(true);"/>
@@ -303,6 +304,7 @@
           <menuitem label="&filter.delete.label;" key="delete-key" command="filters-delete-command"/>
           <menuseparator/>
           <menuitem label="&filter.selectAll.label;" key="filters-selectAll-key" command="filters-selectAll-command"/>
+          <menuitem label="&filter.resetHitCounts.label;" command="filters-resetHitCounts-command"/>
           <menuseparator/>
           <menuitem label="&filter.moveUp.label;" key="moveUp-key" command="filters-moveUp-command"/>
           <menuitem label="&filter.moveDown.label;" key="moveDown-key" command="filters-moveDown-command"/>
