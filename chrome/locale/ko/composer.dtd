@@ -2,8 +2,8 @@
 <!ENTITY accept.label "추가">
 <!ENTITY advanced.label "고급 보기">
 <!ENTITY basic.label "기본 보기">
-<!ENTITY disabled.warning "애드블록 플러스가 사용 중지됨 : 필터 추가 가능 + 필터 적용 중지 [link]⇔ 애드블록 플러스 사용[/link]">
-<!ENTITY groupDisabled.warning "&quot;?1?&quot; 필터 그룹이 사용 중지됨 : 필터 추가 가능 + 필터 그룹 적용 중지 [link]⇔ 필터 그룹 사용[/link]">
+<!ENTITY disabled.warning "애드블록 플러스의 사용이 중지됨 : 필터 추가 가능 + 필터 적용 중지 ⇔ [link]애드블록 플러스 사용[/link]">
+<!ENTITY groupDisabled.warning "&quot;?1?&quot; 필터 그룹의 사용이 중지됨 : 필터 추가 가능 + 필터 그룹 적용 중지 ⇔ [link]필터 그룹 사용[/link]">
 <!ENTITY filter.label "새 필터">
 <!ENTITY filter.accesskey "f">
 <!ENTITY preferences.label "필터 목록">
@@ -14,9 +14,9 @@
 <!ENTITY type.whitelist.accesskey "x">
 <!ENTITY pattern.label "유형 찾기">
 <!ENTITY pattern.explanation "유형은 일치하는 주소를 검색하는 텍스트 문자열이며, 임의 문자(*)로 적용 범위를 조절할 수 있습니다.">
-<!ENTITY regexp.warning "[느린 필터] 패턴 끝에 임의 문자(*)가 없으면 정규 표현식으로 해석되며, 웹 페이지를 불러오는 속도가 느려짐.">
-<!ENTITY shortpattern.warning "[느린 필터] 패턴의 길이가 너무 짧으면 필터가 비효율적으로 처리되며, 웹 페이지를 불러오는 속도가 느려짐.">
-<!ENTITY match.warning "입력한 패턴과 일치하는 주소가 없으며, 차단/허용할 주소에 영향을 미치지 않음.">
+<!ENTITY regexp.warning "[느린 필터] 유형 끝에 임의 문자(*)가 없으면 정규 표현식으로 해석되며, 웹 페이지를 불러오는 속도가 느려짐.">
+<!ENTITY shortpattern.warning "[느린 필터] 유형의 길이가 너무 짧으면 필터가 비효율적으로 처리되며, 웹 페이지를 불러오는 속도가 느려짐.">
+<!ENTITY match.warning "입력한 유형과 일치하는 주소가 없으며, 차단/허용할 주소에 영향을 미치지 않음.">
 <!ENTITY custom.pattern.label "사용자 지정 (C)">
 <!ENTITY custom.pattern.accesskey "C">
 <!ENTITY anchors.label "유형 일치 조건 :">

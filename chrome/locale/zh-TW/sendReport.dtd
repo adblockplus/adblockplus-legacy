@@ -5,12 +5,12 @@
 <!ENTITY typeSelector.heading "選擇問題類型">
 <!ENTITY typeSelector.description "本視窗會一步步指導您傳送一份 Adblock Plus 錯誤報告。
 	首先，請先選擇您遇到的錯誤類型:">
-<!ENTITY typeSelector.falsePositive.label "Adblock Plus 擋了太多東西">
+<!ENTITY typeSelector.falsePositive.label "Adblock Plus 擋到不該擋的內容">
 <!ENTITY typeSelector.falsePositive.accesskey "m">
 <!ENTITY typeSelector.falsePositive.description "選擇此選項表示網頁缺少了主要內容、顯示錯誤或功能異常。
 	您可以暫時停用 Adblock Plus 後再試一次，若停用後問題消失，
 	則很可能就是 Adblock Plus 的問題。">
-<!ENTITY typeSelector.falseNegative.label "Adblock Plus 沒有擋掉廣告">
+<!ENTITY typeSelector.falseNegative.label "Adblock Plus 擋不住廣告">
 <!ENTITY typeSelector.falseNegative.accesskey "v">
 <!ENTITY typeSelector.falseNegative.description "選擇此選項表示雖然已啟用 Adblock Plus，但廣告依然顯示在網頁中。">
 <!ENTITY typeSelector.other.label "其他錯誤">
@@ -21,11 +21,13 @@
 <!ENTITY recentReports.clear.label "移除所有錯誤報告">
 <!ENTITY recentReports.clear.accesskey "R">
 <!ENTITY issues.description "Adblock Plus 偵測到某些設定值可能會造成該錯誤，或是影響分析結果。">
-<!ENTITY issues.whitelist.description "Adblock Plus 目前在您回報的頁面中停用。為了協助分析錯誤，在傳送錯誤報告前請重新啟用並重新載入該頁面。">
+<!ENTITY issues.whitelist.description "您回報的頁面在 Adblock Plus 暫時停用的清單（白名單）中。
+	為了協助分析錯誤，必須在傳送錯誤報告前重新啟用並重新載入該頁面。">
 <!ENTITY issues.whitelist.remove.label "重新啟用 Adblock Plus 於此頁面">
 <!ENTITY issues.disabled.description "Adblock Plus 已停用，目前狀態下不會阻擋任何網頁內容。">
 <!ENTITY issues.disabled.enable.label "啟用 Adblock Plus">
-<!ENTITY issues.nofilters.description "Adblock Plus 於此頁面沒有阻擋任何內容。您回報的錯誤可能和 Adblock Plus 無關。">
+<!ENTITY issues.nofilters.description "Adblock Plus 於此頁面沒有阻擋任何內容。
+	您回報的錯誤可能和 Adblock Plus 無關。">
 <!ENTITY issues.nosubscriptions.description "您似乎沒有訂閱任何過濾條件集，訂閱過濾條件集可自動移除與網頁內容無關的廣告。">
 <!ENTITY issues.nosubscriptions.add.label "訂閱過濾條件集">
 <!ENTITY issues.subscriptionCount.description "您似乎訂閱了過多的過濾條件集。我們不建議這麼做，因為這可能會增加發生錯誤的機率。同時我們無法接受您的錯誤回報，因為很難分辨是哪個條件集出了問題。請移除不重要的過濾條件集後再測試一次，看看錯誤是否仍會發生。">

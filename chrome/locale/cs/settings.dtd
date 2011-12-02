@@ -51,7 +51,7 @@
 <!ENTITY objecttabs.accesskey "o">
 <!ENTITY collapse.label "Minimalizovat blokované objekty">
 <!ENTITY collapse.accesskey "i">
-<!ENTITY sync.label "Synchronizovat nastavení Adbloku Plus">
+<!ENTITY sync.label "Nastavení synchronizace Adblocku Plus">
 <!ENTITY sync.accesskey "s">
 <!ENTITY help.label "Nápověda">
 <!ENTITY help.accesskey "v">

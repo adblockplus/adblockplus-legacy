@@ -1,10 +1,8 @@
-<!ENTITY dialog.title "Tentang Adblock Plus">
-<!ENTITY version.title "Versi">
-<!ENTITY description "
-	Adblock Plus membolehkan Anda untuk memilih apa yang tidak harus dilihat pada situs.
-	Anda tidak perlu mendownload semua iklan dan banner, Jika Anda tidak menginginkannya
-	- katakan Adblock Plus!
-">
-<!ENTITY homepage.label "Situs Adblock Plus:">
-<!ENTITY author.label "Pembuat:">
-<!ENTITY contributors.label "Para Kontributor:">
+<!ENTITY dialog.title "O Adblock Plus">
+<!ENTITY version.title "Wersja">
+<!ENTITY description "Adblock Plus pozwala decydować o tym, jak będą wyglądały strony w Twojej przeglądarce. Nie będzie już konieczności wczytywania wszystkich reklam i banerów. Jeśli nie chcesz ich oglądać - zleć to Adblock Plus!">
+<!ENTITY homepage.label "Strona domowa Adblock Plusa:">
+<!ENTITY author.label "Autor:">
+<!ENTITY contributors.label "Współtwórcy:">
+<!ENTITY subscriptionAuthors.label "Autorzy zestawów filtrów:">
+<!ENTITY translators.label "Tłumacze:">

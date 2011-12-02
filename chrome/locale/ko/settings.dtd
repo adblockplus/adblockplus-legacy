@@ -57,7 +57,7 @@
 <!ENTITY help.accesskey "H">
 <!ENTITY gettingStarted.label "시작하기">
 <!ENTITY gettingStarted.accesskey "s">
-<!ENTITY faq.label "자주 묻는 질문">
+<!ENTITY faq.label "자주 하는 질문">
 <!ENTITY faq.accesskey "F">
 <!ENTITY filterdoc.label "필터 작성 방법">
 <!ENTITY filterdoc.accesskey "R">

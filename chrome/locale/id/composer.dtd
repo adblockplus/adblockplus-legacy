@@ -1,43 +1,47 @@
-<!ENTITY dialog.title "Tambah aturan filter Adblock Plus">
-<!ENTITY accept.label "Tambah filter">
-<!ENTITY advanced.label "View lanjutan">
-<!ENTITY basic.label "View dasar">
-<!ENTITY disabled.warning "Adblock Plus sedang dimatikan. Anda tetap bisa menambahkan filter tapi tidak akan diaplikasikan kecuali Anda [link]Hidupkan Adblock Plus[/link].">
-<!ENTITY filter.label "Filter baru:">
+<!ENTITY dialog.title "Tworzenie reguły filtru">
+<!ENTITY accept.label "Dodaj filtr">
+<!ENTITY advanced.label "Widok zaawansowany">
+<!ENTITY basic.label "Widok podstawowy">
+<!ENTITY disabled.warning "Adblock Plus jest wyłączony. Można dodawać filtry, ale nie będą one działały do czasu [link]włączenia Adblock Plusa[/link].">
+<!ENTITY groupDisabled.warning "Grupa filtrów „?1?”, do której ten filtr powinien zostać dodany, jest wyłączona. Można dodać ten filtr, ale nie będzie działał do czasu [link]włączenia grupy[/link].">
+<!ENTITY filter.label "Nowy filtr:">
 <!ENTITY filter.accesskey "F">
-<!ENTITY preferences.label "Tunjukkan filter yang ada...">
-<!ENTITY preferences.accesskey "k">
-<!ENTITY type.filter.label "Pemblokiran Filter">
+<!ENTITY preferences.label "Wyświetl istniejące filtry…">
+<!ENTITY preferences.accesskey "S">
+<!ENTITY type.filter.label "Filtr blokujący">
 <!ENTITY type.filter.accesskey "B">
-<!ENTITY type.whitelist.label "Aturan pengecualian">
-<!ENTITY type.whitelist.accesskey "g">
-<!ENTITY pattern.label "Lihat pola">
-<!ENTITY pattern.explanation "Pola bisa diartikan untuk semua bagian dari alamat, simbol * sebagai wildcard. Filter hanya akan diaplikasikan ke alamat yang cocok dengan pola.">
-<!ENTITY regexp.warning "Pola yang Anda masukkan akan diartikan sebagai ekspresi biasa. Banyak ekspresi biasa bisa melambatkan browser Anda. Jika Anda tidak bermmaksud untuk memakai ekspresi biasa, tambahkan tanda * pada akhir pola.">
-<!ENTITY shortpattern.warning "Pola yang anda masukkan terlalu kecil untuk dioptimalkan, terlalu banyak pola bisa melambatkan browser Anda. Disarankan anda memilih string yang lebih panjang untuk filter ini.">
-<!ENTITY custom.pattern.label "Aturan Sendiri:">
-<!ENTITY custom.pattern.accesskey "t">
-<!ENTITY anchors.label "Pola yang disetujui saja:">
-<!ENTITY anchor.start.label "pada awal alamat">
-<!ENTITY anchor.start.accesskey "w">
-<!ENTITY anchor.end.label "pada akhir alamat">
-<!ENTITY anchor.end.accesskey "D">
-<!ENTITY options.label "Opsi">
-<!ENTITY domainRestriction.label "Terlarang ke domain:">
-<!ENTITY domainRestriction.accesskey "e">
-<!ENTITY domainRestriction.help "Spesifikasikan satu atau lebih domain yang dipisahkan oleh simbol &quot;|&quot;, kemudian filter hanya akan dipakai padadomain tersebut. Simbol &quot;~&quot; sebelum nama domain berarti filter tidak seharusnya dipakai pada domain itu.">
-<!ENTITY firstParty.label "Pihak pertama saja">
-<!ENTITY firstParty.accesskey "R">
-<!ENTITY thirdParty.label "Pihak ketiga saja">
-<!ENTITY thirdParty.accesskey "j">
-<!ENTITY matchCase.label "Case tepat">
-<!ENTITY matchCase.accesskey "p">
-<!ENTITY types.label "Dipakai untuk tipe:">
-<!ENTITY selectAllTypes.label "Pilih semua">
-<!ENTITY unselectAllTypes.label "Jangan pilih apapun">
-<!ENTITY collapse.label "Gabungkan yang diblok:">
-<!ENTITY collapse.accesskey "L">
-<!ENTITY collapse.default.yes.label "Gunakan biasa (ya)">
-<!ENTITY collapse.default.no.label "Gunakan biasa (tidak)">
-<!ENTITY collapse.yes.label "Ya">
-<!ENTITY collapse.no.label "Tidak">
+<!ENTITY type.whitelist.label "Reguła wyjątku">
+<!ENTITY type.whitelist.accesskey "W">
+<!ENTITY pattern.label "Wygląd wzorca">
+<!ENTITY pattern.explanation "Wzorzec może składać się z dowolnej części adresu i symbolu * działającego jako wieloznacznik. Filtr będzie działał tylko na stronach o adresie pasującym do wzorca.">
+<!ENTITY regexp.warning "Wprowadzony wzorzec będzie interpretowany jako wyrażenie regularne. Wiele wyrażeń regularnych może spowalniać przeglądanie Internetu. Jeśli nie zamierzasz używać wyrażeń regularnych, dodaj na końcu wzorca wieloznacznik *.">
+<!ENTITY shortpattern.warning "Wprowadzony wzorzec jest za krótki, by go zoptymalizować. Duża liczba takich wzorców może spowalniać przeglądanie Internetu. Zaleca się wybrać dla tego filtru nieco dłuższy ciąg znaków.">
+<!ENTITY match.warning "Wprowadzony wzorzec już nie pasuje do blokowanego/dozwolonego adresu i nie będzie dawał żadnych efektów.">
+<!ENTITY custom.pattern.label "Dostosuj:">
+<!ENTITY custom.pattern.accesskey "D">
+<!ENTITY anchors.label "Akceptuj wzorzec tylko:">
+<!ENTITY anchor.start.label "na początku adresu">
+<!ENTITY anchor.start.accesskey "o">
+<!ENTITY anchor.start.flexible.label "na początku nazwy domeny">
+<!ENTITY anchor.start.flexible.accesskey "o">
+<!ENTITY anchor.end.label "na końcu adresu">
+<!ENTITY anchor.end.accesskey "k">
+<!ENTITY options.label "Opcje">
+<!ENTITY domainRestriction.label "Ogranicz do domeny:">
+<!ENTITY domainRestriction.accesskey "r">
+<!ENTITY domainRestriction.help "Określ jedną lub więcej domen oddzielonych symbolem „|”. Filtr będzie stosowany tylko dla tych domen. Symbol „~” przed nazwą domeny oznacza, że filtr nie powinien być stosowany w tych domenach.">
+<!ENTITY firstParty.label "Tylko pierwsza część adresu">
+<!ENTITY firstParty.accesskey "e">
+<!ENTITY thirdParty.label "Tylko trzecia część adresu">
+<!ENTITY thirdParty.accesskey "t">
+<!ENTITY matchCase.label "Uwzględniaj wielkość liter">
+<!ENTITY matchCase.accesskey "U">
+<!ENTITY types.label "Zastosuj do typów:">
+<!ENTITY selectAllTypes.label "Zaznacz wszystko">
+<!ENTITY unselectAllTypes.label "Usuń zaznaczenie">
+<!ENTITY collapse.label "Zwiń zablokowane:">
+<!ENTITY collapse.accesskey "A">
+<!ENTITY collapse.default.yes.label "Domyślnie (tak)">
+<!ENTITY collapse.default.no.label "Domyślnie (nie)">
+<!ENTITY collapse.yes.label "Tak">
+<!ENTITY collapse.no.label "Nie">

@@ -1,47 +1,46 @@
-<!ENTITY dialog.title "Pievienot Adblock Plus filtra noteikumu">
+<!ENTITY dialog.title "Pievienot Adblock Plus filtra nosacījumu">
 <!ENTITY accept.label "Pievienot filtru">
-<!ENTITY advanced.label "Uzlabotais skats">
-<!ENTITY basic.label "Pamata skats">
-<!ENTITY disabled.warning "Adblock Plus šobrīd ir atspējots. Jūs joprojām varat pievienot filtrus, bet tie netiks pielietoti, ja vien Jūs [link]neiespējosiet Adblock Plus[/link].">
-<!ENTITY groupDisabled.warning "Filtru grupa &quot;?1?&quot;, kurai tiks pievienots šis filtrs pašlaik ir atspējota.Jūs joprojām varat pievienot filtrus, bet tie netiks pielietoti, ja vien Jūs [link]neiespējosiet filtru grupu[/link].">
+<!ENTITY advanced.label "Paplašināts skatījums">
+<!ENTITY basic.label "Pamata skatījums">
+<!ENTITY disabled.warning "Adblock Plus šobrīd ir atspējots. Jūs joprojām varat pievienot filtrus, bet tie netiks piemēroti tik ilgi, kamēr jūs [link] neiespējosiet Adblock Plus [/ link].">
+<!ENTITY groupDisabled.warning "Filtrs grupa &quot;?1?&quot; kurai šis filtrs būs jāpievieno pašlaik ir atspējota. Jūs joprojām varat pievienot filtru, taču tas nav piemērojams, kamēr jūs [link] neiespējosiet filtra grupu [/link].">
 <!ENTITY filter.label "Jauns filtrs:">
 <!ENTITY filter.accesskey "f">
 <!ENTITY preferences.label "Rādīt esošos filtrus...">
-<!ENTITY preferences.accesskey "e">
-<!ENTITY type.filter.label "Bloķējošais filtrs">
+<!ENTITY preferences.accesskey "S">
+<!ENTITY type.filter.label "Bloķēšanas filtrs">
 <!ENTITY type.filter.accesskey "B">
-<!ENTITY type.whitelist.label "Izņēmuma noteikums">
-<!ENTITY type.whitelist.accesskey "z">
-<!ENTITY pattern.label "Meklēt shēmu">
-<!ENTITY pattern.explanation "Shēma var būt jebkurā adreses daļā; zvaigznītes (*) funkcionē kā aizstājējzīmes. Filtrs tiks pielietots tikai adresēm, kas atbilst shēmai.">
-<!ENTITY regexp.warning "Jūsu ievadītā shēma tiks interpretēta kā regulārā izteiksme, kuru Adblock Plus nevar veiksmīgi apstrādāt un tā var palēnināt Jūsu pārlūkošanas pieredzi. Ja Jūs nevēlējāties izmantot regulāro izteiksme, pievienojiet zvaigznīti (*) shēmas galā.">
-<!ENTITY shortpattern.warning "Jūsu ievadītā shēma ir pārāk īsa, lai tiktu optimizēta un tā var palēnināt Jūsu pārlūkošanas pieredzi. Tiek rekomendēts izvēlēties garāku rindu šim filtram, lai Adblock Plus varētu to efektīvāk apstrādāt.">
-<!ENTITY match.warning "Jūsu ievadītā shēma vairs neatbilst bloķējamai/baltā saraksta adresei un tai uz to nebūs efekta.">
+<!ENTITY type.whitelist.label "Izņēmuma nosacījums">
+<!ENTITY type.whitelist.accesskey "x">
+<!ENTITY pattern.label "Meklēt paraugu">
+<!ENTITY pattern.explanation "Paraugs var būt jebkura daļa no adreses, zvaigznīte (*) darbojas kā aizstājējzīme. Filtrs var tikt piemērots tikai adresei, kas atbilst paredzētajam modelim.">
+<!ENTITY regexp.warning "Modelis jūs ievadījāt tiks interpretēts kā regulāra izteiksme, ko Adblock Plus nevar efektīvi apstrādāt un tas var palēnināt jūsu pārlūkošanu. Ja jūs neplānojat izmantot regulāra izteiksmi, pievienojiet zvaigznīti (*) parauga beigās.">
+<!ENTITY shortpattern.warning "Paraugs, kuru jūs ievadījāt, ir pārāk īss, lai būtu optimizēts un tas var palēnināt jūsu pārlūkošanu. Ieteicams izvēlēties garāku virkni šim filtram, lai Adblock Plus varētu apstrādāt filtru efektīvāk.">
 <!ENTITY custom.pattern.label "Pielāgots:">
-<!ENTITY custom.pattern.accesskey "P">
-<!ENTITY anchors.label "Akceptēt tikai shēmu:">
+<!ENTITY custom.pattern.accesskey "C">
+<!ENTITY anchors.label "Apstiprināt tiaki paraugus:">
 <!ENTITY anchor.start.label "adreses sākumā">
-<!ENTITY anchor.start.accesskey "s">
+<!ENTITY anchor.start.accesskey "g">
 <!ENTITY anchor.start.flexible.label "domēna vārda sākumā">
-<!ENTITY anchor.start.flexible.accesskey "s">
+<!ENTITY anchor.start.flexible.accesskey "g">
 <!ENTITY anchor.end.label "adreses beigās">
-<!ENTITY anchor.end.accesskey "d">
+<!ENTITY anchor.end.accesskey "n">
 <!ENTITY options.label "Opcijas">
-<!ENTITY domainRestriction.label "Ierobežot domēnā:">
-<!ENTITY domainRestriction.accesskey "I">
-<!ENTITY domainRestriction.help "Izmantojiet šo iespēju, lai norādītu vienu vai vairākus domēnus atdalītus ar joslu līniju (|). Filtrs tiks pielietots tikai norādītajiem domēniem. Tilde (~) pirms domēna norāda, ka filtrs netiks pielietots uz šo domēnu.">
-<!ENTITY firstParty.label "tikai pirmās-puses">
-<!ENTITY firstParty.accesskey "u">
-<!ENTITY thirdParty.label "tikai trešās-puses">
-<!ENTITY thirdParty.accesskey "t">
-<!ENTITY matchCase.label "Reģistr-jutīgs">
-<!ENTITY matchCase.accesskey "R">
+<!ENTITY domainRestriction.label "Ierobežot līdz domēnam:">
+<!ENTITY domainRestriction.accesskey "d">
+<!ENTITY domainRestriction.help "Izmantojiet šo opciju, lai precizētu vienu vai vairākus domēnus, atdalītus ar joslu līniju (|). Filtrs tiks attiecināts tikai uz izvēlēto domēnu(-iem). Tilde (~) pirms domēna vārda norāda, ka filtrs netiek piemērots attiecībā uz šo domēnu.">
+<!ENTITY firstParty.label "Tikai pirmās puses">
+<!ENTITY firstParty.accesskey "r">
+<!ENTITY thirdParty.label "Tikai trešās puses">
+<!ENTITY thirdParty.accesskey "T">
+<!ENTITY matchCase.label "Saderīgs gadījums">
+<!ENTITY matchCase.accesskey "M">
 <!ENTITY types.label "Pielietot tipiem:">
-<!ENTITY selectAllTypes.label "Iezīmēt visu">
-<!ENTITY unselectAllTypes.label "Neiezīmēt neko">
-<!ENTITY collapse.label "Sakļaut bloķētos:">
+<!ENTITY selectAllTypes.label "Izvēlēties visu">
+<!ENTITY unselectAllTypes.label "Izvēlēties nevienu ">
+<!ENTITY collapse.label "Collapse blocked:">
 <!ENTITY collapse.accesskey "l">
-<!ENTITY collapse.default.yes.label "Izmantot noklusējumu (jā)">
-<!ENTITY collapse.default.no.label "Izmantot noklusējumu (nē)">
+<!ENTITY collapse.default.yes.label "Lietot noklusēto vērtību (jā)">
+<!ENTITY collapse.default.no.label "Lietot noklusēto vērtību (nē)">
 <!ENTITY collapse.yes.label "Jā">
 <!ENTITY collapse.no.label "Nē">

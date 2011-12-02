@@ -1,5 +1,4 @@
 <!ENTITY status.tooltip "Gjendja:">
-<!ENTITY blocked.tooltip "Artikuj te bllokuar ne kete faqe:">
 <!ENTITY filters.tooltip "Filtruesit më aktivë:">
 <!ENTITY menuitem.label "Parapëlqimet e Adblock Plus">
 <!ENTITY menuitem.accesskey "B">
@@ -8,20 +7,13 @@
 <!ENTITY context.image.label "Adblock Plus: Figurat e bllokuara">
 <!ENTITY context.object.label "Adblock Plus: Objektet e bllokuara">
 <!ENTITY context.frame.label "Adblock Plus: Pjesët e bllokuara">
-<!ENTITY context.media.label "Adblock Plus: Bllokim audio/video">
 <!ENTITY context.removeWhitelist.label "Adblock Plus: Rilejo në këtë faqe">
-<!ENTITY sidebar.title "Artikuj qe mund te bllokohen ne kete faqe">
-<!ENTITY sendReport.label "Raportoni probleme ne kete faqe">
-<!ENTITY sendReport.accesskey "R">
 <!ENTITY settings.label "Parapëlqimet">
-<!ENTITY settings.accesskey "P">
+<!ENTITY settings.accesskey "F">
 <!ENTITY opensidebar.label "Hap elementet bllokuese">
 <!ENTITY opensidebar.accesskey "B">
 <!ENTITY closesidebar.label "Mbyll elementet bllokuese">
 <!ENTITY closesidebar.accesskey "B">
 <!ENTITY whitelist.site.label "Çaktivizo në ?1?">
 <!ENTITY whitelist.page.label "Çaktivizo vetëm në këtë faqe">
-<!ENTITY disable.label "Blloko gjithandej">
-<!ENTITY recommend.label "Na rekomandoni ne Facebook">
 <!ENTITY objecttab.title "Blloko">
-<!ENTITY objecttab.tooltip "Klikoni ketu per te bllokuar kete objekt me Adblock Plus">

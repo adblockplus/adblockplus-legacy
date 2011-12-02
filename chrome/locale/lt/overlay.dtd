@@ -1,25 +1,27 @@
 <!ENTITY status.tooltip "Būsena:">
 <!ENTITY blocked.tooltip "Šiame tinklalapyje užblokuoti elementai:">
 <!ENTITY filters.tooltip "Aktyviausi filtrai:">
-<!ENTITY menuitem.label "„Adblock Plus“">
+<!ENTITY menuitem.label "„Adblock Plus nustatymai“">
 <!ENTITY menuitem.accesskey "A">
 <!ENTITY toolbarbutton.label "„Adblock Plus“">
 <!ENTITY view.blockableItems.label "„Adblock Plus“: blokuojami elementai">
-<!ENTITY context.image.label "Blokuoti paveikslėlį">
-<!ENTITY context.object.label "Blokuoti objektą">
-<!ENTITY context.frame.label "Blokuoti kadrą">
+<!ENTITY context.image.label "„Adblock Plus“: Blokuoti paveikslėlį">
+<!ENTITY context.object.label "„Adblock Plus“: Blokuoti objektą">
+<!ENTITY context.frame.label "„Adblock Plus“: Blokuoti kadrą">
 <!ENTITY context.media.label "„Adblock Plus“: blokuoti audio/video">
 <!ENTITY context.removeWhitelist.label "„Adblock Plus“: iš naujo įjungti šiame puslapyje">
 <!ENTITY sidebar.title "Blokuojami elementai dabartiniame tinklalapyje">
 <!ENTITY sendReport.label "Pranešti apie problemą šiame puslapyje">
-<!ENTITY sendReport.accesskey "R">
+<!ENTITY sendReport.accesskey "r">
 <!ENTITY settings.label "Nustatymai">
 <!ENTITY settings.accesskey "N">
 <!ENTITY opensidebar.label "Atverti blokuojamus elementus">
-<!ENTITY opensidebar.accesskey "B">
+<!ENTITY opensidebar.accesskey "b">
 <!ENTITY closesidebar.label "Užverti blokuojamus elementus">
-<!ENTITY closesidebar.accesskey "B">
+<!ENTITY closesidebar.accesskey "b">
 <!ENTITY whitelist.site.label "Išjungti ?1?">
 <!ENTITY whitelist.page.label "Išjungti šiam tinklalapiui">
+<!ENTITY disable.label "Išjungti visur">
+<!ENTITY recommend.label "Rekomenduokite mus Facebook svetainėje">
 <!ENTITY objecttab.title "Blokuoti">
 <!ENTITY objecttab.tooltip "Spragtelkite čia norėdami užblokuoti šį objektą su „Adblock Plus“">
