@@ -42,8 +42,8 @@
 <!ENTITY showinstatusbar.accesskey  "s">
 <!ENTITY objecttabs.label           "Show tabs on Flash and Java">
 <!ENTITY objecttabs.accesskey       "t">
-<!ENTITY collapse.label             "Collapse blocked elements">
-<!ENTITY collapse.accesskey         "l">
+<!ENTITY hideplaceholders.label     "Hide placeholders of blocked elements">
+<!ENTITY hideplaceholders.accesskey "l">
 <!ENTITY sync.label                 "Sync Adblock Plus settings">
 <!ENTITY sync.accesskey             "c">
 
