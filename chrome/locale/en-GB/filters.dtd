@@ -1,0 +1,35 @@
+<!ENTITY filter.copy.label "Copy">
+<!ENTITY subscription.lastDownload.inProgress "Downloading...">
+<!ENTITY filter.cut.label "Cut">
+<!ENTITY sort.accesskey "S">
+<!ENTITY sort.descending.label "Z &amp;gt; A sort order">
+<!ENTITY addSubscription.label "Add filter subscription">
+<!ENTITY subscription.lastDownload.success "Success">
+<!ENTITY filter.delete.label "Delete">
+<!ENTITY find.label "Find">
+<!ENTITY sort.none.accesskey "U">
+<!ENTITY sort.ascending.label "A &amp;gt; Z sort order">
+<!ENTITY enabled.column "Enabled">
+<!ENTITY slow.column "Slow filters">
+<!ENTITY subscription.lastDownload.invalidURL "Failed: not a valid address">
+<!ENTITY subscription.lastDownload.invalidData "Failed: not a valid filters list">
+<!ENTITY subscription.lastDownload.label "Last download:">
+<!ENTITY hitcount.column "Hits">
+<!ENTITY filter.paste.label "Paste">
+<!ENTITY viewMenu.label "View">
+<!ENTITY subscription.lastDownload.checksumMismatch "Failed: checksum mismatch">
+<!ENTITY sort.label "Sort by">
+<!ENTITY subscription.lastDownload.unknown "N/A">
+<!ENTITY slow.accesskey "w">
+<!ENTITY addSubscriptionOther.label "Add a different subscription">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.none.label "Unsorted">
+<!ENTITY filter.column "Filter rule">
+<!ENTITY addFilter.label "Add filter">
+<!ENTITY subscription.lastDownload.connectionError "Failed: download failure">
+<!ENTITY hitcount.accesskey "H">
+<!ENTITY sort.descending.accesskey "Z">
+<!ENTITY lasthit.column "Last hit">
+<!ENTITY lasthit.accesskey "L">
+<!ENTITY filter.accesskey "F">
+<!ENTITY enabled.accesskey "n">

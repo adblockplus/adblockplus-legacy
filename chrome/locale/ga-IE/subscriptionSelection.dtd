@@ -1,9 +1,4 @@
-<!ENTITY dialog.title.edit "Déan eagarthóireacht ar síntiús an scagaire">
-<!ENTITY other.label "Cuir síntiús eile leis">
-<!ENTITY other.accesskey "T">
 <!ENTITY title.label "Teideal síntiús:">
 <!ENTITY title.accesskey "T">
 <!ENTITY location.label "Láthair réim an scagaire:">
 <!ENTITY location.accesskey "L">
-<!ENTITY autodownload.label "Uathnuashonraigh">
-<!ENTITY autodownload.accesskey "P">

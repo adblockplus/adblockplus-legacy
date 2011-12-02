@@ -1,0 +1,15 @@
+<!ENTITY filter.copy.label "පිටපත් කරන්න">
+<!ENTITY filter.cut.label "කපා හරිනවා">
+<!ENTITY sort.accesskey "S">
+<!ENTITY sort.none.accesskey "U">
+<!ENTITY sort.ascending.label "A &amp;gt; Z අනුපිළිවෙල">
+<!ENTITY filter.paste.label "අලවනවා">
+<!ENTITY viewMenu.label "පෙනීම">
+<!ENTITY slow.accesskey "W">
+<!ENTITY addSubscriptionOther.label "වෙනත් දායකත්වයක්">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY hitcount.accesskey "H">
+<!ENTITY sort.descending.accesskey "Z">
+<!ENTITY lasthit.accesskey "L">
+<!ENTITY filter.accesskey "F">
+<!ENTITY enabled.accesskey "n">

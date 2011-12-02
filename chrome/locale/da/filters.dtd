@@ -1,0 +1,35 @@
+<!ENTITY filter.copy.label "Kopier">
+<!ENTITY subscription.lastDownload.inProgress "Henter...">
+<!ENTITY filter.cut.label "Klip">
+<!ENTITY sort.accesskey "S">
+<!ENTITY sort.descending.label "Z &amp;gt; A">
+<!ENTITY addSubscription.label "Tilføj filterabonnement">
+<!ENTITY subscription.lastDownload.success "Succes">
+<!ENTITY filter.delete.label "Slet">
+<!ENTITY find.label "Find">
+<!ENTITY sort.none.accesskey "U">
+<!ENTITY sort.ascending.label "A &amp;gt; Z">
+<!ENTITY enabled.column "Slået til">
+<!ENTITY slow.column "Langsomme filtre">
+<!ENTITY subscription.lastDownload.invalidURL "Fejlede, ikke en gyldig adresse">
+<!ENTITY subscription.lastDownload.invalidData "Fejlede, ikke en gyldig liste over filtre">
+<!ENTITY subscription.lastDownload.label "Sidst hentet:">
+<!ENTITY hitcount.column "Hits">
+<!ENTITY filter.paste.label "Sæt ind">
+<!ENTITY viewMenu.label "Vis">
+<!ENTITY subscription.lastDownload.checksumMismatch "Fejlede, checksum matcher ikke">
+<!ENTITY sort.label "Sorter efter">
+<!ENTITY subscription.lastDownload.unknown "Ukendt">
+<!ENTITY slow.accesskey "o">
+<!ENTITY addSubscriptionOther.label "Tilføj endnu et abonnement">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.none.label "Usorteret">
+<!ENTITY filter.column "Filterregel">
+<!ENTITY addFilter.label "Tilføj filter">
+<!ENTITY subscription.lastDownload.connectionError "Fejlede, hentningsfejl">
+<!ENTITY hitcount.accesskey "H">
+<!ENTITY sort.descending.accesskey "Z">
+<!ENTITY lasthit.column "Seneste hit">
+<!ENTITY lasthit.accesskey "i">
+<!ENTITY filter.accesskey "F">
+<!ENTITY enabled.accesskey "l">

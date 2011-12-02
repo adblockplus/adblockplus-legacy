@@ -1,25 +1,16 @@
 <!ENTITY dialog.title "Ajouter un abonnement à une liste de filtres Adblock Plus">
-<!ENTITY dialog.title.edit "Modifier l'abonnement">
-<!ENTITY description.newInstall "Adblock Plus sera plus efficace si vous vous souscrivez à une liste de filtres. Les abonnements sont fournis gracieusement par d'autres utilisateurs d'Adblock Plus. L'abonnement le plus adapté à votre langue est d'ores et déjà sélectionné.">
 <!ENTITY subscriptionSelector.label "Veuillez choisir un abonnement dans la liste suivante :">
 <!ENTITY viewList.label "Afficher les filtres">
 <!ENTITY visitHomepage.label "Se rendre au site Web">
 <!ENTITY addSubscription.label "Ajouter l'abonnement">
-<!ENTITY saveSubscription.label "Enregistrer l'abonnement">
-<!ENTITY other.label "Ajouter un autre abonnement">
-<!ENTITY other.accesskey "t">
 <!ENTITY list.download.failed "Adblock Plus n'a pu récupérer la liste des abonnements.">
 <!ENTITY list.download.retry "Essayer à nouveau">
 <!ENTITY list.download.website "Afficher le site Web">
 <!ENTITY fromWeb.description "Veuillez confirmer que vous souhaitez ajouter cet abonnement. Vous pouvez modifier le titre et l'emplacement de l'abonnement avant de l'ajouter.">
-<!ENTITY edit.description "Vous pouvez modifier le titre et l'emplacement à votre convenance.">
-<!ENTITY external.description "Ceci est un abonnement externe ; il sera mis à jour par l'extension qui a créé cet abonnement.">
 <!ENTITY title.label "Nom de l'abonnement :">
 <!ENTITY title.accesskey "N">
 <!ENTITY location.label "Emplacement de la liste :">
 <!ENTITY location.accesskey "E">
-<!ENTITY autodownload.label "Mettre à jour automatiquement">
-<!ENTITY autodownload.accesskey "M">
 <!ENTITY supplementMessage "Cet abonnement est prévu pour être utilisé avec l'abonnement &quot;?1?&quot; que vous n'utilisez pas encore.">
 <!ENTITY addMain.label "Ajouter également l'abonnement &quot;?1?&quot;">
 <!ENTITY addMain.accesskey "a">

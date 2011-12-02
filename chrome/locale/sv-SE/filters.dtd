@@ -1,0 +1,35 @@
+<!ENTITY filter.copy.label "Kopiera">
+<!ENTITY subscription.lastDownload.inProgress "Laddar ner…">
+<!ENTITY filter.cut.label "Klipp ut">
+<!ENTITY sort.accesskey "t">
+<!ENTITY sort.descending.label "Sortera Ö &amp;gt; A">
+<!ENTITY addSubscription.label "Lägg till filterprenumeration">
+<!ENTITY subscription.lastDownload.success "Klart">
+<!ENTITY filter.delete.label "Ta bort">
+<!ENTITY find.label "Sök">
+<!ENTITY sort.none.accesskey "O">
+<!ENTITY sort.ascending.label "Sortera A &amp;gt; Ö">
+<!ENTITY enabled.column "På">
+<!ENTITY slow.column "Långsamma filter">
+<!ENTITY subscription.lastDownload.invalidURL "Ogiltig adress">
+<!ENTITY subscription.lastDownload.invalidData "Fel vid validering av filter">
+<!ENTITY subscription.lastDownload.label "Senast nerladdat:">
+<!ENTITY hitcount.column "Träffar">
+<!ENTITY filter.paste.label "Klistra in">
+<!ENTITY viewMenu.label "Visa">
+<!ENTITY subscription.lastDownload.checksumMismatch "Fel kontrollsumma">
+<!ENTITY sort.label "Sortering">
+<!ENTITY subscription.lastDownload.unknown "Okänt">
+<!ENTITY slow.accesskey "l">
+<!ENTITY addSubscriptionOther.label "Lägg till en ny prenumeration">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.none.label "Osorterad">
+<!ENTITY filter.column "Filterregler">
+<!ENTITY addFilter.label "Lägg till filter">
+<!ENTITY subscription.lastDownload.connectionError "Fel vid nerladdning">
+<!ENTITY hitcount.accesskey "ä">
+<!ENTITY sort.descending.accesskey "Ö">
+<!ENTITY lasthit.column "Senaste träff">
+<!ENTITY lasthit.accesskey "r">
+<!ENTITY filter.accesskey "F">
+<!ENTITY enabled.accesskey "å">

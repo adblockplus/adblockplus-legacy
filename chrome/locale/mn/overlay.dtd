@@ -13,8 +13,6 @@
 <!ENTITY sidebar.title "Тухайн хуудас дахь хашигдаж болох зүйлс">
 <!ENTITY sendReport.label "Энэ хуудас дахь асуудлыг мэдэгдэх">
 <!ENTITY sendReport.accesskey "М">
-<!ENTITY settings.label "Тохиргоонууд">
-<!ENTITY settings.accesskey "Т">
 <!ENTITY opensidebar.label "Хашигдах зүйлсийг нээх">
 <!ENTITY opensidebar.accesskey "Х">
 <!ENTITY closesidebar.label "Хашигдах зүйлсийг хаах">
@@ -23,3 +21,11 @@
 <!ENTITY whitelist.page.label "Зөвхөн уг хуудсанд хаах">
 <!ENTITY objecttab.title "Хаших">
 <!ENTITY objecttab.tooltip "Энд дарвал уг объектийг Adblock Plus-аар хаших болно">
+<!ENTITY showintoolbar.label "Хэрэгслийн мөрт харуулах">
+<!ENTITY options.label "Сонголтууд">
+<!ENTITY objecttabs.accesskey "Х">
+<!ENTITY showinstatusbar.label "Төлвийн мөрт харуулах">
+<!ENTITY showintoolbar.accesskey "М">
+<!ENTITY showinstatusbar.accesskey "Т">
+<!ENTITY objecttabs.label "Flash болон Java-д tab харуулах">
+<!ENTITY options.accesskey "О">

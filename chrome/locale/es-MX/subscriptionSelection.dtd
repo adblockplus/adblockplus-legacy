@@ -1,25 +1,16 @@
 <!ENTITY dialog.title "Agregar subcripción de filtro de Adblock Plus">
-<!ENTITY dialog.title.edit "Editar subscripción de filtro">
-<!ENTITY description.newInstall "Adblock plus sera mas efecto si le agrega una suscripción de filtro. Las subscripciones de filtro son provistas gratis por otros usuarios de Adblock Plus. La opción mas adecuada para tu idioma se encuentra seleccionada.">
 <!ENTITY subscriptionSelector.label "Por favor seleccione una subscripción de filtro de la lista:">
 <!ENTITY viewList.label "Ver filtros">
 <!ENTITY visitHomepage.label "Visitar pagina principal">
 <!ENTITY addSubscription.label "Agregar subscripción">
-<!ENTITY saveSubscription.label "Salvar subscripción">
-<!ENTITY other.label "Agregar otra suscripción diferente">
-<!ENTITY other.accesskey "o">
 <!ENTITY list.download.failed "Adblock Plus ha fallado al recuperar la lista de subscripciones.">
 <!ENTITY list.download.retry "Intente de nuevo">
 <!ENTITY list.download.website "Ver sitio web">
 <!ENTITY fromWeb.description "Por favor confirme que desea agregar esta subscripción de filtro. Usted puede cambiar el titulo de la subscripción o la localización antes de agregarla.">
-<!ENTITY edit.description "Puede cambiar el titulo o la localización de la subscripción a su nececidad.">
-<!ENTITY external.description "Esta es una subscripción de filtro externa; La misma sera actualizada por la extensión que creó la misma.">
 <!ENTITY title.label "Titulo de la Suscripción:">
 <!ENTITY title.accesskey "T">
 <!ENTITY location.label "Ubicación de la lista de filtros:">
 <!ENTITY location.accesskey "U">
-<!ENTITY autodownload.label "Actualizar filtros automáticamente">
-<!ENTITY autodownload.accesskey "A">
 <!ENTITY supplementMessage "Esta suscripción de filtros esta orientada a ser usada con la subscripcion de filtro &quot;?1?&quot; la cual aun no esta usando.">
 <!ENTITY addMain.label "Agregar suscripción de filtro &quot;?1?&quot; también">
 <!ENTITY addMain.accesskey "g">

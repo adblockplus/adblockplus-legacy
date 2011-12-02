@@ -8,8 +8,6 @@
 <!ENTITY context.object.label "Adblock Plus: Objektet e bllokuara">
 <!ENTITY context.frame.label "Adblock Plus: Pjesët e bllokuara">
 <!ENTITY context.removeWhitelist.label "Adblock Plus: Rilejo në këtë faqe">
-<!ENTITY settings.label "Parapëlqimet">
-<!ENTITY settings.accesskey "F">
 <!ENTITY opensidebar.label "Hap elementet bllokuese">
 <!ENTITY opensidebar.accesskey "B">
 <!ENTITY closesidebar.label "Mbyll elementet bllokuese">
@@ -17,3 +15,8 @@
 <!ENTITY whitelist.site.label "Çaktivizo në ?1?">
 <!ENTITY whitelist.page.label "Çaktivizo vetëm në këtë faqe">
 <!ENTITY objecttab.title "Blloko">
+<!ENTITY options.label "Mundësitë">
+<!ENTITY objecttabs.accesskey "T">
+<!ENTITY showintoolbar.accesskey "B">
+<!ENTITY showinstatusbar.accesskey "S">
+<!ENTITY options.accesskey "O">

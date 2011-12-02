@@ -13,8 +13,6 @@
 <!ENTITY sidebar.title "Bloķējamās vienības šajā lapā">
 <!ENTITY sendReport.label "Iesniegt ziņojumu par šo lapu">
 <!ENTITY sendReport.accesskey "z">
-<!ENTITY settings.label "Iestatījumi">
-<!ENTITY settings.accesskey "t">
 <!ENTITY opensidebar.label "Atvērt bloķējamās vienības">
 <!ENTITY opensidebar.accesskey "b">
 <!ENTITY closesidebar.label "Aizvērt bloķējamās vienības">
@@ -22,6 +20,13 @@
 <!ENTITY whitelist.site.label "Atspējot uz ?1?">
 <!ENTITY whitelist.page.label "Atspējot tikai šajā lapā">
 <!ENTITY disable.label "Atspējot visur">
-<!ENTITY recommend.label "Rekomendēt mūs Facebook">
 <!ENTITY objecttab.title "Bloķēt">
 <!ENTITY objecttab.tooltip "Klikšķini šeit, lai bloķētu šo objektu ar Adblock Plus">
+<!ENTITY showintoolbar.label "Rādīt rīkjoslā">
+<!ENTITY options.label "Iespējas">
+<!ENTITY objecttabs.accesskey "t">
+<!ENTITY showinstatusbar.label "Rādīt stāvokļa joslā">
+<!ENTITY showintoolbar.accesskey "b">
+<!ENTITY showinstatusbar.accesskey "s">
+<!ENTITY objecttabs.label "Rādīt cilnes Flash un Java">
+<!ENTITY options.accesskey "O">

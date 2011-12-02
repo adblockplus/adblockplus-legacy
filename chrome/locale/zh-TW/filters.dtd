@@ -1,0 +1,35 @@
+<!ENTITY filter.copy.label "複製">
+<!ENTITY subscription.lastDownload.inProgress "下載中...">
+<!ENTITY filter.cut.label "剪下">
+<!ENTITY sort.accesskey "S">
+<!ENTITY sort.descending.label "遞增排序 (Z &amp;gt; A)">
+<!ENTITY addSubscription.label "訂閱過濾條件集">
+<!ENTITY subscription.lastDownload.success "成功">
+<!ENTITY filter.delete.label "刪除">
+<!ENTITY find.label "尋找">
+<!ENTITY sort.none.accesskey "U">
+<!ENTITY sort.ascending.label "遞增排序 (A &amp;gt; Z)">
+<!ENTITY enabled.column "已啟用">
+<!ENTITY slow.column "緩慢過濾條件">
+<!ENTITY subscription.lastDownload.invalidURL "失敗，無效的位址">
+<!ENTITY subscription.lastDownload.invalidData "失敗，無效的過濾條件集">
+<!ENTITY subscription.lastDownload.label "最後下載日期:">
+<!ENTITY hitcount.column "命中次數">
+<!ENTITY filter.paste.label "貼上">
+<!ENTITY viewMenu.label "檢視">
+<!ENTITY subscription.lastDownload.checksumMismatch "失敗，檢查碼不符">
+<!ENTITY sort.label "排序">
+<!ENTITY subscription.lastDownload.unknown "N/A">
+<!ENTITY slow.accesskey "w">
+<!ENTITY addSubscriptionOther.label "新增其他訂閱來源">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.none.label "不排序">
+<!ENTITY filter.column "過濾規則">
+<!ENTITY addFilter.label "新增過濾條件">
+<!ENTITY subscription.lastDownload.connectionError "失敗，檔案下載失敗">
+<!ENTITY hitcount.accesskey "H">
+<!ENTITY sort.descending.accesskey "Z">
+<!ENTITY lasthit.column "最後使用">
+<!ENTITY lasthit.accesskey "L">
+<!ENTITY filter.accesskey "F">
+<!ENTITY enabled.accesskey "n">

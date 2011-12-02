@@ -18,8 +18,6 @@
 
 <!ENTITY sendReport.label       "Сообщить о проблеме на этой странице">
 <!ENTITY sendReport.accesskey   "С">
-<!ENTITY settings.label         "Установки">
-<!ENTITY settings.accesskey     "т">
 <!ENTITY opensidebar.label      "Открыть список элементов">
 <!ENTITY opensidebar.accesskey  "п">
 <!ENTITY closesidebar.label     "Закрыть список элементов">
@@ -27,7 +25,15 @@
 <!ENTITY whitelist.site.label   "Отключить на ?1?">
 <!ENTITY whitelist.page.label   "Отключить только на этой странице">
 <!ENTITY disable.label          "Отключить везде">
-<!ENTITY recommend.label        "Порекомендуйте нас на Facebook">
-
 <!ENTITY objecttab.title        "Блокировать">
 <!ENTITY objecttab.tooltip      "Нажмите здесь, чтобы Adblock Plus заблокировал этот объект">
+<!ENTITY sync.accesskey "х">
+<!ENTITY showintoolbar.label "Показывать в панели инструментов">
+<!ENTITY options.label "Настройки">
+<!ENTITY objecttabs.accesskey "я">
+<!ENTITY showinstatusbar.label "Показывать в строке состояния">
+<!ENTITY showintoolbar.accesskey "п">
+<!ENTITY showinstatusbar.accesskey "с">
+<!ENTITY sync.label "Синхронизировать настройки Adblock Plus">
+<!ENTITY objecttabs.label "Показывать ярлык на Flash и Java">
+<!ENTITY options.accesskey "Н">

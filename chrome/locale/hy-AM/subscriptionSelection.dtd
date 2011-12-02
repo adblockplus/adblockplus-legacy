@@ -1,29 +1,16 @@
 <!ENTITY dialog.title "Բարի գալուստ Adblock Plus">
-<!ENTITY dialog.title.edit "Խմբագրել բաժանորդագրությունները">
-<!ENTITY description.newInstall "
-	«Adblock Plus»-ը կլինի շատ էֆֆեկտիվ, եթե դուք ավելացնեք ֆիլտրերի բաժանարդոգրություն:
-	Ֆիլտրերի բաժանարդոգրությունները տրամադրվում են «Adblock Plus»-ի օգտագործողների կողմից
-	անվճար: Ձեր լեզվին ամենահամապատասխան բաժանարդոգրությունը արդեն ընտրված է:
-">
 <!ENTITY subscriptionSelector.label "Ընտրեք ֆիլտրի բաժանարդոգրություն ցուցակից`">
 <!ENTITY viewList.label "Նայել ֆիլտրերը">
 <!ENTITY visitHomepage.label "Այցելել կայք">
 <!ENTITY addSubscription.label "Ավելացնել բաժանորդագրություն">
-<!ENTITY saveSubscription.label "Պահպանել բաժանորդագրությունը">
-<!ENTITY other.label "Ավելացնել այլ բաժանորդագրություն">
-<!ENTITY other.accesskey "Ա">
 <!ENTITY list.download.failed "«Adblock Plus»-ը չկարողացավ բեռնել ֆիլտրերի բաժանարդոգրությունների ցուցակը">
 <!ENTITY list.download.retry "Կրկին Փորձել">
 <!ENTITY list.download.website "Այցելել կայք">
 <!ENTITY fromWeb.description "Հաստատեք որ ցանկանում եք ավելացնել բաժանորդագրություն: Դուք կարող եք փողել բաժանորդագրության վերնագիրը կամ հասցեն միչև ավելացնելը:">
-<!ENTITY edit.description "Դուք կարող եք փողել բաժանորդագրության վերնագիրը կամ հասցեն ըստ անհրաժեշտության">
-<!ENTITY external.description "Սա արտաքին ֆիլտրի բաժանարդոգրություն է. այն թարմացնելու է ավելացումը(add-on) որը ստեղծել է այն:">
 <!ENTITY title.label "Բաժանորդագրության ավանումը`">
 <!ENTITY title.accesskey "ա">
 <!ENTITY location.label "Ֆիլտրերի հասցեն`">
 <!ENTITY location.accesskey "հ">
-<!ENTITY autodownload.label "Ավտոմատ թարմացում">
-<!ENTITY autodownload.accesskey "թ">
 <!ENTITY supplementMessage "Այս ֆիլտրի բաժանարդոգրությունը հաճախ օգտագործվում է &quot;?1?&quot;-ի հետ, որը դուք չեք օգտագործում:">
 <!ENTITY addMain.label "Ավելացնել բաժանորդագրություն նաև &quot;?1?&quot; ֆիլտրին">
 <!ENTITY addMain.accesskey "ն">

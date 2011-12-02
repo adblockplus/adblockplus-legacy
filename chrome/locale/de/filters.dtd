@@ -1,0 +1,35 @@
+<!ENTITY filter.copy.label "Kopieren">
+<!ENTITY subscription.lastDownload.inProgress "Wird heruntergeladen...">
+<!ENTITY filter.cut.label "Ausschneiden">
+<!ENTITY sort.accesskey "S">
+<!ENTITY sort.descending.label "Absteigend">
+<!ENTITY addSubscription.label "Filterabonnement hinzufügen">
+<!ENTITY subscription.lastDownload.success "Erfolg">
+<!ENTITY filter.delete.label "Löschen">
+<!ENTITY find.label "Filter durchsuchen">
+<!ENTITY sort.none.accesskey "U">
+<!ENTITY sort.ascending.label "Aufsteigend">
+<!ENTITY enabled.column "Aktiv">
+<!ENTITY slow.column "Langsam">
+<!ENTITY subscription.lastDownload.invalidURL "Fehler, ungültige Adresse">
+<!ENTITY subscription.lastDownload.invalidData "Fehler, keine gültige Filterliste">
+<!ENTITY subscription.lastDownload.label "Zuletzt aktualisiert:">
+<!ENTITY hitcount.column "Treffer">
+<!ENTITY filter.paste.label "Einfügen">
+<!ENTITY viewMenu.label "Ansicht">
+<!ENTITY subscription.lastDownload.checksumMismatch "Fehler, Prüfsumme ist falsch, möglicherweise ein Übertragungsfehler">
+<!ENTITY sort.label "Sortieren">
+<!ENTITY subscription.lastDownload.unknown "Nie">
+<!ENTITY slow.accesskey "L">
+<!ENTITY addSubscriptionOther.label "Anderes Abonnement hinzufügen">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.none.label "Unsortiert">
+<!ENTITY filter.column "Filterregel">
+<!ENTITY addFilter.label "Filter hinzufügen">
+<!ENTITY subscription.lastDownload.connectionError "Fehler, Download fehlgeschlagen">
+<!ENTITY hitcount.accesskey "r">
+<!ENTITY sort.descending.accesskey "b">
+<!ENTITY lasthit.column "Letzter Treffer">
+<!ENTITY lasthit.accesskey "z">
+<!ENTITY filter.accesskey "F">
+<!ENTITY enabled.accesskey "k">

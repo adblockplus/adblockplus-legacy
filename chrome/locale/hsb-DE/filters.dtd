@@ -1,0 +1,35 @@
+<!ENTITY filter.copy.label "Kopěrować">
+<!ENTITY subscription.lastDownload.inProgress "Sćahuje so…">
+<!ENTITY filter.cut.label "Wutřihać">
+<!ENTITY sort.accesskey "S">
+<!ENTITY sort.descending.label "Porjad Z &amp;gt; A">
+<!ENTITY addSubscription.label "Filtrowy abonement přidać">
+<!ENTITY subscription.lastDownload.success "Wuspěch">
+<!ENTITY filter.delete.label "Hašeć">
+<!ENTITY find.label "Pytać">
+<!ENTITY sort.none.accesskey "R">
+<!ENTITY sort.ascending.label "Porjad A &amp;gt; Z">
+<!ENTITY enabled.column "Zmóžnjeny">
+<!ENTITY slow.column "Pomałe filtry">
+<!ENTITY subscription.lastDownload.invalidURL "Njeporadźiło, žana płaćiwa adresa">
+<!ENTITY subscription.lastDownload.invalidData "Njeporadźiło, žana płaćiwa filtrowa lisćina">
+<!ENTITY subscription.lastDownload.label "Poslednje sćehnjenje:">
+<!ENTITY hitcount.column "Wotpowědniki">
+<!ENTITY filter.paste.label "Zasunyć">
+<!ENTITY viewMenu.label "Napohlad">
+<!ENTITY subscription.lastDownload.checksumMismatch "Njeporadźiło, wopačna kontrolna suma">
+<!ENTITY sort.label "Sortěrować po">
+<!ENTITY subscription.lastDownload.unknown "Ničo k dispoziciji">
+<!ENTITY slow.accesskey "o">
+<!ENTITY addSubscriptionOther.label "Druhi abonement přidać">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.none.label "Njesortěrowany">
+<!ENTITY filter.column "Filtrowe prawidło">
+<!ENTITY addFilter.label "Filter přidać">
+<!ENTITY subscription.lastDownload.connectionError "Njeporadźiło, sćahowanski zmylk">
+<!ENTITY hitcount.accesskey "W">
+<!ENTITY sort.descending.accesskey "Z">
+<!ENTITY lasthit.column "Posledni wotpowědnik">
+<!ENTITY lasthit.accesskey "P">
+<!ENTITY filter.accesskey "F">
+<!ENTITY enabled.accesskey "m">

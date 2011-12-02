@@ -13,8 +13,6 @@
 <!ENTITY sidebar.title "موارد قابل مسدود شدن در صفحه جاری">
 <!ENTITY sendReport.label "گزارش مشکل در این صفحه">
 <!ENTITY sendReport.accesskey "ص">
-<!ENTITY settings.label "ترجیحات">
-<!ENTITY settings.accesskey "ج">
 <!ENTITY opensidebar.label "باز کردن موارد قابل ردکردن">
 <!ENTITY opensidebar.accesskey "ق">
 <!ENTITY closesidebar.label "بستن موارد قابل ردکردن">
@@ -22,6 +20,15 @@
 <!ENTITY whitelist.site.label "غیرفعال در ?1?">
 <!ENTITY whitelist.page.label "غیرفعال فقط در این صفحه">
 <!ENTITY disable.label "غیر فعال کردن در همه جا">
-<!ENTITY recommend.label "ما را در فیس بوک پیشنهاد دهید.">
 <!ENTITY objecttab.title "مسدود کردن">
 <!ENTITY objecttab.tooltip "جهت مسدود کردن با فوق تبلیغ شکن اینجا کلیک کنید">
+<!ENTITY sync.accesskey "ظ">
+<!ENTITY showintoolbar.label "نمایش در نوار ابزار">
+<!ENTITY options.label "گزینه ها">
+<!ENTITY objecttabs.accesskey "ج">
+<!ENTITY showinstatusbar.label "نمایش در نوار وضعیت">
+<!ENTITY showintoolbar.accesskey "ب">
+<!ENTITY showinstatusbar.accesskey "و">
+<!ENTITY sync.label "همگام سازی تنظیمات فوق تبلیغ شکن">
+<!ENTITY objecttabs.label "نمایش زبانه در موارد فلش و جاوا">
+<!ENTITY options.accesskey "گ">

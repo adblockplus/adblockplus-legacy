@@ -1,0 +1,35 @@
+<!ENTITY filter.copy.label "Kopírovat">
+<!ENTITY subscription.lastDownload.inProgress "Stahuji...">
+<!ENTITY filter.cut.label "Vyjmout">
+<!ENTITY sort.accesskey "S">
+<!ENTITY sort.descending.label "Sestupně (Z-A)">
+<!ENTITY addSubscription.label "Přidat cizí filtry">
+<!ENTITY subscription.lastDownload.success "Úspěch">
+<!ENTITY filter.delete.label "Smazat">
+<!ENTITY find.label "Najít">
+<!ENTITY sort.none.accesskey "N">
+<!ENTITY sort.ascending.label "Vzestupně (A-Z)">
+<!ENTITY enabled.column "Aktivní">
+<!ENTITY slow.column "Pomalé filtry">
+<!ENTITY subscription.lastDownload.invalidURL "Chyba, toto je nekorektní adresa.">
+<!ENTITY subscription.lastDownload.invalidData "Chyba, stažený soubor není souborem filtrů Adblock Plus">
+<!ENTITY subscription.lastDownload.label "Naposledy staženo:">
+<!ENTITY hitcount.column "Zásahy">
+<!ENTITY filter.paste.label "Vložit">
+<!ENTITY viewMenu.label "Zobrazit">
+<!ENTITY subscription.lastDownload.checksumMismatch "Chyba, neodpovídá kontrolní součet">
+<!ENTITY sort.label "Seřadit podle">
+<!ENTITY subscription.lastDownload.unknown "neznámo">
+<!ENTITY slow.accesskey "m">
+<!ENTITY addSubscriptionOther.label "Přidat další sadu cizích filtrů">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.none.label "Neřadit">
+<!ENTITY filter.column "Pravidlo filtru">
+<!ENTITY addFilter.label "Přidat filtr">
+<!ENTITY subscription.lastDownload.connectionError "Chyba, nepodařilo se stáhnout soubor">
+<!ENTITY hitcount.accesskey "h">
+<!ENTITY sort.descending.accesskey "Z">
+<!ENTITY lasthit.column "Poslední zásah">
+<!ENTITY lasthit.accesskey "l">
+<!ENTITY filter.accesskey "P">
+<!ENTITY enabled.accesskey "k">

@@ -1,25 +1,16 @@
 <!ENTITY dialog.title "Ouzhpenn ur c'houmanant en ul listenn siloù Adblock Plus">
-<!ENTITY dialog.title.edit "Cheñch ar c'houmanant">
-<!ENTITY description.newInstall "Ma c'houmanantit ouzh ul listenn siloù e vo efedusoc'h Adblock Plus. Roet eo ar c'houmanantoù gant implijourien all Adblock Plus. Ar c'houmanant ar muiañ reizh evit hor yezh a zo diuzet c'hoazh.">
 <!ENTITY subscriptionSelector.label "Diuzit ur c'houmanant el listenn da heul :">
 <!ENTITY viewList.label "Diskouez ar siloù">
 <!ENTITY visitHomepage.label "Mont el lec'hienn kenrouedad">
 <!ENTITY addSubscription.label "Ouzhpenn ar c'houmanant">
-<!ENTITY saveSubscription.label "Enrollañ ar c'houmanant">
-<!ENTITY other.label "Ouzhpenn ur c'houmanant all">
-<!ENTITY other.accesskey "f">
 <!ENTITY list.download.failed "N'hall ket Adblock Plus adtapout al listenn koumanantoù.">
 <!ENTITY list.download.retry "Adober endro">
 <!ENTITY list.download.website "Diskouez al lec'hienn kenrouedad">
 <!ENTITY fromWeb.description "C'hoant hoc'h eus ouzhpenn ar c'houmanant-se. Gallout a rit cheñch an titl hag al lec'hiadur koumanant a-raok ouzhpenn anezhañ.">
-<!ENTITY edit.description "Gallout a rit cheñch an titl hag al lec'hiadur e-giz hoc'h eus c'hoant.">
-<!ENTITY external.description "Ur c'houmanant er-maez eo ; hizivaet e vo anezhañ gant an astenn en deus krouet ar c'houmanant-se.">
 <!ENTITY title.label "Anv ar c'houmanant :">
 <!ENTITY title.accesskey "t">
 <!ENTITY location.label "Lec'hiadur al listenn :">
 <!ENTITY location.accesskey "l">
-<!ENTITY autodownload.label "Hizivaat emgefrek">
-<!ENTITY autodownload.accesskey "p">
 <!ENTITY supplementMessage "Ar c'houmanant-se a labour gant ar c'houmanant &quot;?1?&quot; n'eo ket implijet ganeoc'h c'hoazh.">
 <!ENTITY addMain.label "Ouzhpenn ivez ar c'houmanant &quot;?1?&quot;">
 <!ENTITY addMain.accesskey "s">

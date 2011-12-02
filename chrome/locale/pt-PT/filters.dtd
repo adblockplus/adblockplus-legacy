@@ -1,0 +1,35 @@
+<!ENTITY filter.copy.label "Copiar">
+<!ENTITY subscription.lastDownload.inProgress "A fazer download...">
+<!ENTITY filter.cut.label "Recortar">
+<!ENTITY sort.accesskey "O">
+<!ENTITY sort.descending.label "Organizar Z &amp;gt; A">
+<!ENTITY addSubscription.label "Adicionar subscrição de filtros">
+<!ENTITY subscription.lastDownload.success "Sucesso">
+<!ENTITY filter.delete.label "Excluir">
+<!ENTITY find.label "Localizar">
+<!ENTITY sort.none.accesskey "N">
+<!ENTITY sort.ascending.label "Organizar A &amp;gt; Z">
+<!ENTITY enabled.column "Activado">
+<!ENTITY slow.column "Filtros lentos">
+<!ENTITY subscription.lastDownload.invalidURL "Falhou, endereço inválido">
+<!ENTITY subscription.lastDownload.invalidData "Falhou, lista de filtros inválida">
+<!ENTITY subscription.lastDownload.label "Último download:">
+<!ENTITY hitcount.column "Contagem">
+<!ENTITY filter.paste.label "Colar">
+<!ENTITY viewMenu.label "Ver">
+<!ENTITY subscription.lastDownload.checksumMismatch "Falhou. Checksum errado.">
+<!ENTITY sort.label "Organizar por">
+<!ENTITY subscription.lastDownload.unknown "N/A">
+<!ENTITY slow.accesskey "l">
+<!ENTITY addSubscriptionOther.label "Adicionar outra subscrição">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.none.label "Não organizado">
+<!ENTITY filter.column "Regra de filtro">
+<!ENTITY addFilter.label "Adicionar filtro">
+<!ENTITY subscription.lastDownload.connectionError "Falhou, download inválido">
+<!ENTITY hitcount.accesskey "C">
+<!ENTITY sort.descending.accesskey "Z">
+<!ENTITY lasthit.column "Última utilização">
+<!ENTITY lasthit.accesskey "U">
+<!ENTITY filter.accesskey "F">
+<!ENTITY enabled.accesskey "t">

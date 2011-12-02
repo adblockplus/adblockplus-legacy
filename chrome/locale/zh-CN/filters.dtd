@@ -1,0 +1,35 @@
+<!ENTITY filter.copy.label "复制">
+<!ENTITY subscription.lastDownload.inProgress "下载中……">
+<!ENTITY filter.cut.label "剪切">
+<!ENTITY sort.accesskey "S">
+<!ENTITY sort.descending.label "Z &amp;gt; A 顺序">
+<!ENTITY addSubscription.label "添加过滤规则订阅">
+<!ENTITY subscription.lastDownload.success "成功">
+<!ENTITY filter.delete.label "删除">
+<!ENTITY find.label "查找">
+<!ENTITY sort.none.accesskey "U">
+<!ENTITY sort.ascending.label "A &amp;gt; Z 顺序">
+<!ENTITY enabled.column "启用">
+<!ENTITY slow.column "慢速过滤规则">
+<!ENTITY subscription.lastDownload.invalidURL "失败，不是有效地址">
+<!ENTITY subscription.lastDownload.invalidData "失败，不是有效的过滤规则列表">
+<!ENTITY subscription.lastDownload.label "最新下载:">
+<!ENTITY hitcount.column "计数">
+<!ENTITY filter.paste.label "粘贴">
+<!ENTITY viewMenu.label "查看">
+<!ENTITY subscription.lastDownload.checksumMismatch "失败，检验和不匹配">
+<!ENTITY sort.label "排序">
+<!ENTITY subscription.lastDownload.unknown "N/A">
+<!ENTITY slow.accesskey "w">
+<!ENTITY addSubscriptionOther.label "添加其他订阅">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.none.label "未排序">
+<!ENTITY filter.column "过滤规则">
+<!ENTITY addFilter.label "添加">
+<!ENTITY subscription.lastDownload.connectionError "失败，下载失败">
+<!ENTITY hitcount.accesskey "H">
+<!ENTITY sort.descending.accesskey "Z">
+<!ENTITY lasthit.column "最后匹配时间">
+<!ENTITY lasthit.accesskey "L">
+<!ENTITY filter.accesskey "F">
+<!ENTITY enabled.accesskey "n">

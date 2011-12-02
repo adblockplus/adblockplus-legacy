@@ -7,8 +7,6 @@
 <!ENTITY context.object.label "ವಸ್ತುವನ್ನು ಆಡ್‌ಬ್ಲಾಕ್ ಮಾಡು">
 <!ENTITY context.frame.label "ಫ್ರೇಮ್ ಅನ್ನು ಆಡ್‌ಬ್ಲಾಕ್ ಮಾಡು">
 <!ENTITY sidebar.title "ಈ ಪುಟದಲ್ಲಿನ ತಡೆಹಿಡಿಯಬಹುದಾದ ವಸ್ತುಗಳು">
-<!ENTITY settings.label "ಆದ್ಯತೆಗಳು">
-<!ENTITY settings.accesskey "F">
 <!ENTITY opensidebar.label "ತಡೆಹಿಡಿಯಬಹುದಾದ ವಸ್ತುಗಳನ್ನು ತೆರೆ">
 <!ENTITY opensidebar.accesskey "B">
 <!ENTITY closesidebar.label "ತಡೆಹಿಡಿಯಬಹುದಾದ ವಸ್ತುಗಳನ್ನು ಮುಚ್ಚು">

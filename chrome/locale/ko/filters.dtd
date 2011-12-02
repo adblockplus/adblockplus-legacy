@@ -1,0 +1,35 @@
+<!ENTITY filter.copy.label "복사">
+<!ENTITY subscription.lastDownload.inProgress "다운로드 중...">
+<!ENTITY filter.cut.label "잘라내기">
+<!ENTITY sort.accesskey "S">
+<!ENTITY sort.descending.label "내림차순 (Z ⇒ A)">
+<!ENTITY addSubscription.label "구독 필터 추가">
+<!ENTITY subscription.lastDownload.success "동기화 성공">
+<!ENTITY filter.delete.label "삭제">
+<!ENTITY find.label "찾기">
+<!ENTITY sort.none.accesskey "U">
+<!ENTITY sort.ascending.label "오름차순 (A ⇒ Z)">
+<!ENTITY enabled.column "사용">
+<!ENTITY slow.column "느린 필터(!)">
+<!ENTITY subscription.lastDownload.invalidURL "실패함 : 올바르지 않은 주소">
+<!ENTITY subscription.lastDownload.invalidData "실패함 : 올바르지 않은 필터">
+<!ENTITY subscription.lastDownload.label "마지막 다운로드 :">
+<!ENTITY hitcount.column "적용 횟수">
+<!ENTITY filter.paste.label "붙여넣기">
+<!ENTITY viewMenu.label "보기">
+<!ENTITY subscription.lastDownload.checksumMismatch "실패함 : 검사합 불일치">
+<!ENTITY sort.label "정렬">
+<!ENTITY subscription.lastDownload.unknown "알 수 없음">
+<!ENTITY slow.accesskey "w">
+<!ENTITY addSubscriptionOther.label "다른 구독 필터 추가 (F)">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.none.label "정렬 안 함">
+<!ENTITY filter.column "필터">
+<!ENTITY addFilter.label "필터 추가">
+<!ENTITY subscription.lastDownload.connectionError "실패함 : 다운로드 실패">
+<!ENTITY hitcount.accesskey "H">
+<!ENTITY sort.descending.accesskey "Z">
+<!ENTITY lasthit.column "마지막 적용 날짜">
+<!ENTITY lasthit.accesskey "L">
+<!ENTITY filter.accesskey "F">
+<!ENTITY enabled.accesskey "n">

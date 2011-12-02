@@ -3,8 +3,13 @@
 <!ENTITY context.object.label "Adblock Objektu">
 <!ENTITY context.frame.label "Adblock Markoa">
 <!ENTITY sidebar.title "Elementu blokeagarriak uneko orrialdean">
-<!ENTITY settings.label "Lehentasunak">
 <!ENTITY opensidebar.label "Ireki elementu blokeagarriak">
 <!ENTITY closesidebar.label "Itxi elementu blokeagarriak">
 <!ENTITY whitelist.site.label "Ezgaitu ?1?">
 <!ENTITY whitelist.page.label "Ezgaitu orri honetan soilik">
+<!ENTITY showintoolbar.label "Erakutsi tresna-barran">
+<!ENTITY options.label "Aukerak">
+<!ENTITY showinstatusbar.label "Erakutsi egoera-barran">
+<!ENTITY showintoolbar.accesskey "T">
+<!ENTITY objecttabs.label "Erakutsi fitxak Flash eta Javan">
+<!ENTITY options.accesskey "A">

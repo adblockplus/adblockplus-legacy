@@ -1,0 +1,35 @@
+<!ENTITY filter.copy.label "نسخ">
+<!ENTITY subscription.lastDownload.inProgress "جاري التحميل">
+<!ENTITY filter.cut.label "قص">
+<!ENTITY sort.accesskey "ب">
+<!ENTITY sort.descending.label "ترتيب أبجدي (Z &amp;gt; A)">
+<!ENTITY addSubscription.label "إضافة اشتراك إلى فلتر">
+<!ENTITY subscription.lastDownload.success "نجاح">
+<!ENTITY filter.delete.label "حذف">
+<!ENTITY find.label "بحث">
+<!ENTITY sort.none.accesskey "ر">
+<!ENTITY sort.ascending.label "ترتيب أبجدي (A &amp;gt; Z)">
+<!ENTITY enabled.column "مشغل">
+<!ENTITY slow.column "عرض الفلاتر">
+<!ENTITY subscription.lastDownload.invalidURL "فشل الأمر، ليس عنوان صحيح">
+<!ENTITY subscription.lastDownload.invalidData "فشل الأمر، ليست قائمة فلاتر صحيحة">
+<!ENTITY subscription.lastDownload.label "آخر تحميل">
+<!ENTITY hitcount.column "الضغطات">
+<!ENTITY filter.paste.label "لصق">
+<!ENTITY viewMenu.label "عرض">
+<!ENTITY subscription.lastDownload.checksumMismatch "فشل ، عدم تطابق المجموع الاختباري">
+<!ENTITY sort.label "ترتيب حسب">
+<!ENTITY subscription.lastDownload.unknown "غير متاح">
+<!ENTITY slow.accesskey "ع">
+<!ENTITY addSubscriptionOther.label "إضافة اشتراك آخر">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.none.label "غير مرتب">
+<!ENTITY filter.column "قانون الفلتر">
+<!ENTITY addFilter.label "إضافة فلتر">
+<!ENTITY subscription.lastDownload.connectionError "فشل الأمر بسبب فشل التحميل">
+<!ENTITY hitcount.accesskey "ض">
+<!ENTITY sort.descending.accesskey "Z">
+<!ENTITY lasthit.column "آخر ضغطة">
+<!ENTITY lasthit.accesskey "آ">
+<!ENTITY filter.accesskey "ف">
+<!ENTITY enabled.accesskey "غ">

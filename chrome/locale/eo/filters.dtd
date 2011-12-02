@@ -1,0 +1,35 @@
+<!ENTITY filter.copy.label "Kopii">
+<!ENTITY subscription.lastDownload.inProgress "Elŝutanta...">
+<!ENTITY filter.cut.label "Eltondi">
+<!ENTITY sort.accesskey "O">
+<!ENTITY sort.descending.label "Ordigo Z &amp;gt; A">
+<!ENTITY addSubscription.label "Aldoni filtrilabonon">
+<!ENTITY subscription.lastDownload.success "Sukceso">
+<!ENTITY filter.delete.label "Forviŝi">
+<!ENTITY find.label "Serĉi">
+<!ENTITY sort.none.accesskey "N">
+<!ENTITY sort.ascending.label "Ordigo A &amp;gt; Z">
+<!ENTITY enabled.column "Ebligita">
+<!ENTITY slow.column "Malrapidaj filtriloj">
+<!ENTITY subscription.lastDownload.invalidURL "Malsukcesis, tio ne estas valida adreso">
+<!ENTITY subscription.lastDownload.invalidData "Malsukcesis, tio ne estas listo de validaj filtriloj">
+<!ENTITY subscription.lastDownload.label "Lasta elŝuto:">
+<!ENTITY hitcount.column "Trafoj">
+<!ENTITY filter.paste.label "Alglui">
+<!ENTITY viewMenu.label "Vidi">
+<!ENTITY subscription.lastDownload.checksumMismatch "Malsukcesis, kontrolsuma miskongruo">
+<!ENTITY sort.label "Ordigi laŭ">
+<!ENTITY subscription.lastDownload.unknown "Neniu">
+<!ENTITY slow.accesskey "m">
+<!ENTITY addSubscriptionOther.label "Aldoni alian abonon">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.none.label "Nenio">
+<!ENTITY filter.column "Filtrilregulo">
+<!ENTITY addFilter.label "Aldoni filtrilon">
+<!ENTITY subscription.lastDownload.connectionError "Malsukcesis, elŝuta eraro">
+<!ENTITY hitcount.accesskey "T">
+<!ENTITY sort.descending.accesskey "Z">
+<!ENTITY lasthit.column "Lasta trafo">
+<!ENTITY lasthit.accesskey "L">
+<!ENTITY filter.accesskey "F">
+<!ENTITY enabled.accesskey "i">

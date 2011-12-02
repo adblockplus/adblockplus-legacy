@@ -7,8 +7,6 @@
 <!ENTITY context.object.label "დაბლოკე ობიექტი">
 <!ENTITY context.frame.label "დაბლოკე ფრეიმი">
 <!ENTITY sidebar.title "ამ web-გვერდის ბლოკირებადი ელემენტები">
-<!ENTITY settings.label "ოპციები">
-<!ENTITY settings.accesskey "А">
 <!ENTITY opensidebar.label "გახსენი ბლოკირებადი ელემენტები">
 <!ENTITY opensidebar.accesskey "И">
 <!ENTITY closesidebar.label "დახურე ბლოკირებადი ელემენტები">

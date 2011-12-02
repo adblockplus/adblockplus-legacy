@@ -13,8 +13,6 @@
 <!ENTITY sidebar.title "Bu sayfadaki engellenebilecek öğeler">
 <!ENTITY sendReport.label "Bu sayfadaki sorunu bildir">
 <!ENTITY sendReport.accesskey "b">
-<!ENTITY settings.label "Tercihler">
-<!ENTITY settings.accesskey "T">
 <!ENTITY opensidebar.label "Engellenebilecek öğeleri göster">
 <!ENTITY opensidebar.accesskey "E">
 <!ENTITY closesidebar.label "Engellenebilecek öğeleri gizle">
@@ -22,6 +20,15 @@
 <!ENTITY whitelist.site.label "?1? sitesinde devre dışı kal">
 <!ENTITY whitelist.page.label "Sadece bu sayfada devre dışı kal">
 <!ENTITY disable.label "Her yerde devre dışı kal">
-<!ENTITY recommend.label "Facebook'ta tavsiye et">
 <!ENTITY objecttab.title "Engelle">
 <!ENTITY objecttab.tooltip "Bu nesneyi Adblock Plus ile engellemek için buraya tıklayın.">
+<!ENTITY sync.accesskey "e">
+<!ENTITY showintoolbar.label "Araç çubuğunda göster">
+<!ENTITY options.label "Seçenekler">
+<!ENTITY objecttabs.accesskey "J">
+<!ENTITY showinstatusbar.label "Durum çubuğunda göster">
+<!ENTITY showintoolbar.accesskey "R">
+<!ENTITY showinstatusbar.accesskey "D">
+<!ENTITY sync.label "Adblock Plus ayarlarını eşitle">
+<!ENTITY objecttabs.label "Flash ve Java&amp;apos;yı kulakçıklarla belirt">
+<!ENTITY options.accesskey "S">

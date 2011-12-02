@@ -13,8 +13,6 @@
 <!ENTITY sidebar.title "Blokovateľné položky na aktuálnej stránke">
 <!ENTITY sendReport.label "Ohlásiť problém na tejto stránke">
 <!ENTITY sendReport.accesskey "O">
-<!ENTITY settings.label "Nastavenia">
-<!ENTITY settings.accesskey "N">
 <!ENTITY opensidebar.label "Otvoriť blokovateľné položky">
 <!ENTITY opensidebar.accesskey "b">
 <!ENTITY closesidebar.label "Zatvoriť blokovateľné položky">
@@ -22,6 +20,15 @@
 <!ENTITY whitelist.site.label "Vypnúť na ?1?">
 <!ENTITY whitelist.page.label "Vypnúť len na tejto stránke">
 <!ENTITY disable.label "Vypnúť všade">
-<!ENTITY recommend.label "Odporúčajte nás na Facebook">
 <!ENTITY objecttab.title "Blokovať">
 <!ENTITY objecttab.tooltip "Kliknúť sem pre blokovanie tohto objektu s Adblock Plus">
+<!ENTITY sync.accesskey "c">
+<!ENTITY showintoolbar.label "Zobraziť v paneli nástrojov">
+<!ENTITY options.label "Možnosti">
+<!ENTITY objecttabs.accesskey "F">
+<!ENTITY showinstatusbar.label "Zobraziť v stavovom riadku">
+<!ENTITY showintoolbar.accesskey "B">
+<!ENTITY showinstatusbar.accesskey "S">
+<!ENTITY sync.label "Synchronizovať nastavenia Adblock Plus">
+<!ENTITY objecttabs.label "Zobraziť karty pre Flash a Java">
+<!ENTITY options.accesskey "M">

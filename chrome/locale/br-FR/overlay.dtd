@@ -11,8 +11,6 @@
 <!ENTITY context.media.label "Stankañ videoù/son gant Adblock">
 <!ENTITY context.removeWhitelist.label "Adblock Plus : Gweredekaat adnevez evit ar bajenn-se">
 <!ENTITY sidebar.title "Elfennoù silabl er bajenn a-vremañ">
-<!ENTITY settings.label "Dibaboù gwellañ">
-<!ENTITY settings.accesskey "f">
 <!ENTITY opensidebar.label "Digeriñ al listenn elfennoù silabl">
 <!ENTITY opensidebar.accesskey "b">
 <!ENTITY closesidebar.label "Serriñ al listenn elfennoù silabl">
@@ -21,3 +19,11 @@
 <!ENTITY whitelist.page.label "Diweredekaat evit ar bajenn-se nemetken">
 <!ENTITY objecttab.title "Stankañ">
 <!ENTITY objecttab.tooltip "Klikañ amañ hag Adblock Plus a stanko an elfenn-se">
+<!ENTITY showintoolbar.label "Diskouez er barrenn ostilh">
+<!ENTITY options.label "Dibaboù">
+<!ENTITY objecttabs.accesskey "t">
+<!ENTITY showinstatusbar.label "Diskouez er barrenn stad">
+<!ENTITY showintoolbar.accesskey "b">
+<!ENTITY showinstatusbar.accesskey "s">
+<!ENTITY objecttabs.label "Diskouez un tikedenn evit Flash ha Java">
+<!ENTITY options.accesskey "O">

@@ -1,25 +1,16 @@
 <!ENTITY dialog.title "Filtrowy abonement Adblock Plus přidać">
-<!ENTITY dialog.title.edit "Filtrowy abonement wobdźěłać">
-<!ENTITY description.newInstall "Adblock Plus budźe najefektiwnišo, hdyž filtrowy abonement přidaće. Filtrowe abonementy steja so wot wužiwarjow Adblock Plus darmo k dispoziciji. Najpřihódniši abonement za wašu rěč je hižo wubrany.">
 <!ENTITY subscriptionSelector.label "Prošu wubjerće filtrowy abonement z lisćiny:">
 <!ENTITY viewList.label "Filtry sej wobhladać">
 <!ENTITY visitHomepage.label "Startowu stronu wopytać">
 <!ENTITY addSubscription.label "Abonement přidać">
-<!ENTITY saveSubscription.label "Abonement składować">
-<!ENTITY other.label "Druhi abonement přidać">
-<!ENTITY other.accesskey "u">
 <!ENTITY list.download.failed "Adblock Plus njemóžeše lisćiny abonementow wotwołać.">
 <!ENTITY list.download.retry "Hišće raz spytać">
 <!ENTITY list.download.website "Websydło sej wobhladać">
 <!ENTITY fromWeb.description "Prošu wobkrućće, zo chceće tutón filtrowy abonement přidać. Móžeće titul abo městno abonementa změnić, prjedy hač jón přidaće.">
-<!ENTITY edit.description "Móžeće titul abo městno abonementa, jeli je trjeba, změnić.">
-<!ENTITY external.description "To je eksterny filtrowy abonement; budźe so přez rozšěrjenje aktualizować, kotrež je tutón abonement wutworiło.">
 <!ENTITY title.label "Titul abonementa:">
 <!ENTITY title.accesskey "t">
 <!ENTITY location.label "Městno filtroweje lisćiny:">
 <!ENTITY location.accesskey "l">
-<!ENTITY autodownload.label "Filtry awtomatisce aktualizować">
-<!ENTITY autodownload.accesskey "a">
 <!ENTITY supplementMessage "Tutón filtrowy abonement je za to mysleny, so z filtrowym abonementom &quot;?1?&quot; wužiwać, kotryž hišće njewužiwaće.">
 <!ENTITY addMain.label "Filtrowy abonement &quot;?1?&quot; tež přidać">
 <!ENTITY addMain.accesskey "b">

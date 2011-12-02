@@ -13,8 +13,6 @@
 <!ENTITY sidebar.title "本页可过滤的项目">
 <!ENTITY sendReport.label "报告该页面上的问题">
 <!ENTITY sendReport.accesskey "R">
-<!ENTITY settings.label "首选项">
-<!ENTITY settings.accesskey "F">
 <!ENTITY opensidebar.label "打开可过滤项目">
 <!ENTITY opensidebar.accesskey "B">
 <!ENTITY closesidebar.label "关闭可过滤项目">
@@ -22,6 +20,15 @@
 <!ENTITY whitelist.site.label "在 ?1? 禁用Adblock Plus">
 <!ENTITY whitelist.page.label "仅在本页禁用Adblock Plus">
 <!ENTITY disable.label "完全禁用">
-<!ENTITY recommend.label "在 Facebook 上推荐我们">
 <!ENTITY objecttab.title "过滤">
 <!ENTITY objecttab.tooltip "点击这里使 Adblock Plus 过滤该对象">
+<!ENTITY sync.accesskey "c">
+<!ENTITY showintoolbar.label "在工具栏显示">
+<!ENTITY options.label "选项">
+<!ENTITY objecttabs.accesskey "T">
+<!ENTITY showinstatusbar.label "在状态栏显示图标">
+<!ENTITY showintoolbar.accesskey "B">
+<!ENTITY showinstatusbar.accesskey "S">
+<!ENTITY sync.label "同步 Adblock Plus 设置">
+<!ENTITY objecttabs.label "在Flash和Java上显示标签">
+<!ENTITY options.accesskey "O">

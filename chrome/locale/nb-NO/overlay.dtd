@@ -7,8 +7,6 @@
 <!ENTITY context.object.label "Adblock Objekt">
 <!ENTITY context.frame.label "Adblock Ramme">
 <!ENTITY sidebar.title "Elementer som kan blokkeres på denne siden">
-<!ENTITY settings.label "Innstillinger">
-<!ENTITY settings.accesskey "t">
 <!ENTITY opensidebar.label "Ãpne elementer som kan blokkeres">
 <!ENTITY opensidebar.accesskey "B">
 <!ENTITY closesidebar.label "Lukk elementer som kan blokkeres">
@@ -17,3 +15,11 @@
 <!ENTITY whitelist.page.label "Deaktiver på denne siden">
 <!ENTITY objecttab.title "Blokkér">
 <!ENTITY objecttab.tooltip "Trykk her for å blokkere dette objektet med Adblock Plus">
+<!ENTITY showintoolbar.label "Vis i verkøylinje">
+<!ENTITY options.label "Valg">
+<!ENTITY objecttabs.accesskey "f">
+<!ENTITY showinstatusbar.label "Vis i statuslinje">
+<!ENTITY showintoolbar.accesskey "V">
+<!ENTITY showinstatusbar.accesskey "t">
+<!ENTITY objecttabs.label "Vis fliker på Flash og Java">
+<!ENTITY options.accesskey "V">

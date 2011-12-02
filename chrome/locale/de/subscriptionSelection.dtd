@@ -1,38 +1,18 @@
 <!ENTITY dialog.title               "Filterabonnement für Adblock Plus hinzufügen">
-<!ENTITY dialog.title.edit          "Filterabonnement bearbeiten">
-
-<!ENTITY description.newInstall     "
-  Adblock Plus funktioniert am besten, wenn ein Filterabonnement hinzugefügt wird.
-  Filterabonnements werden von anderen Adblock Plus Nutzern kostenfrei zur
-  Verfügung gestellt. Das Filterabonnement, das zu Ihrer Sprache am besten passt,
-  ist bereits voreingestellt.
-">
-
 <!ENTITY subscriptionSelector.label "Bitte wählen Sie ein Filterabonnement aus der Liste aus:">
 
 <!ENTITY viewList.label             "Filter ansehen">
 <!ENTITY visitHomepage.label        "Webseite der Filterliste besuchen">
 
 <!ENTITY addSubscription.label      "Filterabonnement hinzufügen">
-<!ENTITY saveSubscription.label     "Änderungen speichern">
-
-<!ENTITY other.label                "Anderes Abonnement hinzufügen">
-<!ENTITY other.accesskey            "d">
- 
 <!ENTITY list.download.failed       "Adblock Plus konnte die Liste der Filterabonnements nicht herunterladen.">
 <!ENTITY list.download.retry        "Nochmal versuchen">
 <!ENTITY list.download.website      "Zur Webseite wechseln">
 <!ENTITY fromWeb.description        "Bitte bestätigen Sie, dass Sie dieses Filterabonnement hinzufügen möchten. Die Bezeichnung und Adresse der Abonnements können vor dem Hinzufügen geändert werden.">
-<!ENTITY edit.description           "Bitte ändern Sie die Bezeichnung und Adresse der Abonnements wie erforderlich.">
-<!ENTITY external.description       "Das ist ein externes Filterabonnement, es wird von der Erweiterung aktualisiert, die es erstellt hat.">
-
 <!ENTITY title.label                "Bezeichnung des Abonnements:">
 <!ENTITY title.accesskey            "z">
 <!ENTITY location.label             "Adresse der Filterliste:">
 <!ENTITY location.accesskey         "r">
-<!ENTITY autodownload.label         "Automatisch aktualisieren">
-<!ENTITY autodownload.accesskey     "t">
-
 <!ENTITY supplementMessage          "Dieses Filterabonnement sollte in Verbindung mit dem Filterabonnement &quot;?1?&quot; verwendet werden.">
 <!ENTITY addMain.label              "Filterabonnement &quot;?1?&quot; auch hinzufügen">
 <!ENTITY addMain.accesskey          "h">

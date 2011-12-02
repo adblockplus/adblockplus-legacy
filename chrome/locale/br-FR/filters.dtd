@@ -1,0 +1,35 @@
+<!ENTITY filter.copy.label "Kopiañ">
+<!ENTITY subscription.lastDownload.inProgress "O pellgargañ...">
+<!ENTITY filter.cut.label "Troc'hañ">
+<!ENTITY sort.accesskey "S">
+<!ENTITY sort.descending.label "Urzh Z &amp;gt; A">
+<!ENTITY addSubscription.label "Koumanantiñ el listenn siloù">
+<!ENTITY subscription.lastDownload.success "Trec'hadenn">
+<!ENTITY filter.delete.label "Skarzhañ kuit">
+<!ENTITY find.label "Klask">
+<!ENTITY sort.none.accesskey "U">
+<!ENTITY sort.ascending.label "Urzh A &amp;gt; Z">
+<!ENTITY enabled.column "Gweredekaet">
+<!ENTITY slow.column "Diskouez ar siloù">
+<!ENTITY subscription.lastDownload.invalidURL "Fazi, n'eo ket ur chomlec'h">
+<!ENTITY subscription.lastDownload.invalidData "Fazi, n'eo ket ul listenn siloù mat">
+<!ENTITY subscription.lastDownload.label "pellgargañ diwezhañ">
+<!ENTITY hitcount.column "Konter">
+<!ENTITY filter.paste.label "Pegañ">
+<!ENTITY viewMenu.label "Diskouez">
+<!ENTITY subscription.lastDownload.checksumMismatch "Fazi, n'eo ket ar memes checksum">
+<!ENTITY sort.label "Rummañ dre">
+<!ENTITY subscription.lastDownload.unknown "N/A">
+<!ENTITY slow.accesskey "w">
+<!ENTITY addSubscriptionOther.label "Ouzhpenn ur c'houmanant all">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.none.label "Na rummet">
+<!ENTITY filter.column "Reolenn silaj">
+<!ENTITY addFilter.label "Ouzhpenn ur sil">
+<!ENTITY subscription.lastDownload.connectionError "Fazi, pellgargañ torret">
+<!ENTITY hitcount.accesskey "H">
+<!ENTITY sort.descending.accesskey "Z">
+<!ENTITY lasthit.column "Implij diwezhañ">
+<!ENTITY lasthit.accesskey "L">
+<!ENTITY filter.accesskey "F">
+<!ENTITY enabled.accesskey "n">

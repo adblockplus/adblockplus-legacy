@@ -1,0 +1,35 @@
+<!ENTITY filter.copy.label "Kopiuj">
+<!ENTITY subscription.lastDownload.inProgress "Pobieranie…">
+<!ENTITY filter.cut.label "Wytnij">
+<!ENTITY sort.accesskey "S">
+<!ENTITY sort.descending.label "Kierunek sortowania Z &amp;gt; A">
+<!ENTITY addSubscription.label "Dodaj zestaw filtrów">
+<!ENTITY subscription.lastDownload.success "Zakończono">
+<!ENTITY filter.delete.label "Usuń">
+<!ENTITY find.label "Znajdź">
+<!ENTITY sort.none.accesskey "N">
+<!ENTITY sort.ascending.label "Kierunek sortowania A &amp;gt; Z">
+<!ENTITY enabled.column "Aktywny">
+<!ENTITY slow.column "Wolne filtry">
+<!ENTITY subscription.lastDownload.invalidURL "Nie powiodło się – nieprawidłowy adres">
+<!ENTITY subscription.lastDownload.invalidData "Nie powiodło się – nieprawidłowy zestaw filtrów">
+<!ENTITY subscription.lastDownload.label "Ostatnie pobieranie:">
+<!ENTITY hitcount.column "Użycie">
+<!ENTITY filter.paste.label "Wklej">
+<!ENTITY viewMenu.label "Widok">
+<!ENTITY subscription.lastDownload.checksumMismatch "Nie powiodło się – niepoprawna suma kontrolna">
+<!ENTITY sort.label "Sortuj wg">
+<!ENTITY subscription.lastDownload.unknown "nieznane">
+<!ENTITY slow.accesskey "W">
+<!ENTITY addSubscriptionOther.label "Wybierz inny zestaw">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.none.label "Nieposortowane">
+<!ENTITY filter.column "Reguła filtru">
+<!ENTITY addFilter.label "Dodaj filtr">
+<!ENTITY subscription.lastDownload.connectionError "Nie powiodło się – błąd pobierania">
+<!ENTITY hitcount.accesskey "U">
+<!ENTITY sort.descending.accesskey "Z">
+<!ENTITY lasthit.column "Ostatnie użycie">
+<!ENTITY lasthit.accesskey "O">
+<!ENTITY filter.accesskey "R">
+<!ENTITY enabled.accesskey "K">

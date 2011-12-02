@@ -13,8 +13,6 @@
 <!ENTITY sidebar.title "Blokowalne elementy na aktywnej stronie">
 <!ENTITY sendReport.label "Zgłoś problem na tej stronie">
 <!ENTITY sendReport.accesskey "Z">
-<!ENTITY settings.label "Ustawienia">
-<!ENTITY settings.accesskey "U">
 <!ENTITY opensidebar.label "Otwórz listę blokowalnych elementów">
 <!ENTITY opensidebar.accesskey "B">
 <!ENTITY closesidebar.label "Zamknij listę blokowalnych elementów">
@@ -22,6 +20,13 @@
 <!ENTITY whitelist.site.label "Wyłącz blokowanie na ?1?">
 <!ENTITY whitelist.page.label "Wyłącz blokowanie tylko na tej stronie">
 <!ENTITY disable.label "Wyłącz wszędzie">
-<!ENTITY recommend.label "Poleć nas na Facebooku">
 <!ENTITY objecttab.title "Zablokuj">
 <!ENTITY objecttab.tooltip "Kliknij tutaj, aby zablokować ten obiekt">
+<!ENTITY showintoolbar.label "Tunjukkan di toolbar">
+<!ENTITY options.label "Opsi">
+<!ENTITY objecttabs.accesskey "T">
+<!ENTITY showinstatusbar.label "Tunjukkan di status bar">
+<!ENTITY showintoolbar.accesskey "B">
+<!ENTITY showinstatusbar.accesskey "S">
+<!ENTITY objecttabs.label "Tunjukkan tab pada Flash dan Java">
+<!ENTITY options.accesskey "O">

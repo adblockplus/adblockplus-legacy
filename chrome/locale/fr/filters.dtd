@@ -1,0 +1,35 @@
+<!ENTITY filter.copy.label "Copier">
+<!ENTITY subscription.lastDownload.inProgress "Téléchargement en cours…">
+<!ENTITY filter.cut.label "Couper">
+<!ENTITY sort.accesskey "T">
+<!ENTITY sort.descending.label "Ordre de Z &amp;gt; A">
+<!ENTITY addSubscription.label "S&amp;apos;abonner à la liste de filtres">
+<!ENTITY subscription.lastDownload.success "Réussie">
+<!ENTITY filter.delete.label "Supprimer">
+<!ENTITY find.label "Rechercher">
+<!ENTITY sort.none.accesskey "N">
+<!ENTITY sort.ascending.label "Ordre de A &amp;gt; Z">
+<!ENTITY enabled.column "Activé">
+<!ENTITY slow.column "Afficher les filtres">
+<!ENTITY subscription.lastDownload.invalidURL "Échec, ceci n'est pas une adresse valide !">
+<!ENTITY subscription.lastDownload.invalidData "Échec, ceci n'est pas une liste de filtres valide !">
+<!ENTITY subscription.lastDownload.label "Dernière mise à jour :">
+<!ENTITY hitcount.column "Compteur">
+<!ENTITY filter.paste.label "Coller">
+<!ENTITY viewMenu.label "Affichage">
+<!ENTITY subscription.lastDownload.checksumMismatch "Échec, le checksum ne correspond pas !">
+<!ENTITY sort.label "Trier par">
+<!ENTITY subscription.lastDownload.unknown "Inconnu">
+<!ENTITY slow.accesskey "h">
+<!ENTITY addSubscriptionOther.label "Ajouter un autre abonnement">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.none.label "Non trié">
+<!ENTITY filter.column "Règle de filtrage">
+<!ENTITY addFilter.label "Ajouter un filtre">
+<!ENTITY subscription.lastDownload.connectionError "Échec, erreur lors du téléchargement !">
+<!ENTITY hitcount.accesskey "m">
+<!ENTITY sort.descending.accesskey "Z">
+<!ENTITY lasthit.column "Dernière utilisation">
+<!ENTITY lasthit.accesskey "D">
+<!ENTITY filter.accesskey "F">
+<!ENTITY enabled.accesskey "c">

@@ -13,8 +13,6 @@
 <!ENTITY sidebar.title "Hlutir á núverandi síðu sem hægt er að loka á">
 <!ENTITY sendReport.label "Tilkynna vandamál á þessari síðu">
 <!ENTITY sendReport.accesskey "r">
-<!ENTITY settings.label "Stillingar">
-<!ENTITY settings.accesskey "S">
 <!ENTITY opensidebar.label "Skoða hluti">
 <!ENTITY opensidebar.accesskey "l">
 <!ENTITY closesidebar.label "Loka hlutum">
@@ -22,6 +20,15 @@
 <!ENTITY whitelist.site.label "Gera óvirkt á ?1?">
 <!ENTITY whitelist.page.label "Gera óvirkt aðeins á þessari síðu">
 <!ENTITY disable.label "Slökkva á allstaðar">
-<!ENTITY recommend.label "Mæla með á Facebook">
 <!ENTITY objecttab.title "Loka á">
 <!ENTITY objecttab.tooltip "Smelltu hér til að loka á þennan hlut með Adblock Plus">
+<!ENTITY sync.accesskey "m">
+<!ENTITY showintoolbar.label "Sýna í tækjaslá">
+<!ENTITY options.label "Valkostir">
+<!ENTITY objecttabs.accesskey "f">
+<!ENTITY showinstatusbar.label "Sýna í stöðuslá">
+<!ENTITY showintoolbar.accesskey "t">
+<!ENTITY showinstatusbar.accesskey "S">
+<!ENTITY sync.label "Samstilla Adblock Plus stillingar">
+<!ENTITY objecttabs.label "Sýna flipa fyrir Flass og Java">
+<!ENTITY options.accesskey "V">

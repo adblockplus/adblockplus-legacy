@@ -13,8 +13,6 @@
 <!ENTITY sidebar.title "Blokeblaj elementoj sur la nuna paĝo">
 <!ENTITY sendReport.label "Raporti problemon pri ĉi tiu paĝo">
 <!ENTITY sendReport.accesskey "R">
-<!ENTITY settings.label "Agordoj">
-<!ENTITY settings.accesskey "A">
 <!ENTITY opensidebar.label "Malfermi blokeblajn elementojn">
 <!ENTITY opensidebar.accesskey "b">
 <!ENTITY closesidebar.label "Fermi blokeblajn elementojn">
@@ -22,6 +20,15 @@
 <!ENTITY whitelist.site.label "Malebligi sur ?1?">
 <!ENTITY whitelist.page.label "Malebligi nur sur ĉi tiu paĝo">
 <!ENTITY disable.label "Ĉie malebligi">
-<!ENTITY recommend.label "Rekomendi nin sur Facebook">
 <!ENTITY objecttab.title "Bloki">
 <!ENTITY objecttab.tooltip "Klaku ĉi tien por bloki ĉi tiun objekton per Adblock Plus">
+<!ENTITY sync.accesskey "S">
+<!ENTITY showintoolbar.label "Vidigi en ilobreto">
+<!ENTITY options.label "Opcioj">
+<!ENTITY objecttabs.accesskey "M">
+<!ENTITY showinstatusbar.label "Vidigi en statstrio">
+<!ENTITY showintoolbar.accesskey "i">
+<!ENTITY showinstatusbar.accesskey "g">
+<!ENTITY sync.label "Sinkronigi agordojn de Adblock Plus">
+<!ENTITY objecttabs.label "Montri langetojn de Flash kaj Ĝavo">
+<!ENTITY options.accesskey "O">

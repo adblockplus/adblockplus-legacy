@@ -13,8 +13,6 @@
 <!ENTITY sidebar.title "このページでブロック可能な項目">
 <!ENTITY sendReport.label "このページの問題を報告">
 <!ENTITY sendReport.accesskey "R">
-<!ENTITY settings.label "設定">
-<!ENTITY settings.accesskey "f">
 <!ENTITY opensidebar.label "ブロック可能項目一覧を開く">
 <!ENTITY opensidebar.accesskey "b">
 <!ENTITY closesidebar.label "ブロック可能項目一覧を閉じる">
@@ -22,6 +20,15 @@
 <!ENTITY whitelist.site.label "?1? で無効">
 <!ENTITY whitelist.page.label "このページのみで無効">
 <!ENTITY disable.label "全ページで無効">
-<!ENTITY recommend.label "Facebook で勧める">
 <!ENTITY objecttab.title "ブロックする">
 <!ENTITY objecttab.tooltip "クリックして Adblock Plus でオブジェクトをブロック">
+<!ENTITY sync.accesskey "c">
+<!ENTITY showintoolbar.label "ツールバー表示">
+<!ENTITY options.label "オプション">
+<!ENTITY objecttabs.accesskey "t">
+<!ENTITY showinstatusbar.label "ステータスバー表示">
+<!ENTITY showintoolbar.accesskey "b">
+<!ENTITY showinstatusbar.accesskey "s">
+<!ENTITY sync.label "同期設定">
+<!ENTITY objecttabs.label "Flash と Java でタブを表示">
+<!ENTITY options.accesskey "O">

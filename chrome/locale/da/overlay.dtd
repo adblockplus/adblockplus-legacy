@@ -13,8 +13,6 @@
 <!ENTITY sidebar.title "Blokérbare elementer på aktuel side">
 <!ENTITY sendReport.label "Rapporter problem">
 <!ENTITY sendReport.accesskey "R">
-<!ENTITY settings.label "Præferencer">
-<!ENTITY settings.accesskey "F">
 <!ENTITY opensidebar.label "Åbn blokérbare elementer">
 <!ENTITY opensidebar.accesskey "b">
 <!ENTITY closesidebar.label "Luk blokérbare elementer">
@@ -22,6 +20,15 @@
 <!ENTITY whitelist.site.label "Slå fra på ?1?">
 <!ENTITY whitelist.page.label "Slå fra på denne side">
 <!ENTITY disable.label "Deaktiver overalt">
-<!ENTITY recommend.label "Anbefal os på Facebook">
 <!ENTITY objecttab.title "Bloker">
 <!ENTITY objecttab.tooltip "Klik her for at blokere dette objekt med Adblock Plus">
+<!ENTITY sync.accesskey "k">
+<!ENTITY showintoolbar.label "Vis på værktøjslinje">
+<!ENTITY options.label "Indstillinger">
+<!ENTITY objecttabs.accesskey "J">
+<!ENTITY showinstatusbar.label "Vis på statuslinje">
+<!ENTITY showintoolbar.accesskey "V">
+<!ENTITY showinstatusbar.accesskey "s">
+<!ENTITY sync.label "Synk Adblock Plus indstillinger">
+<!ENTITY objecttabs.label "Vis faner på Flash og Java">
+<!ENTITY options.accesskey "d">

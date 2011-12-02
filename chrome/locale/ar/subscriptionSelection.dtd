@@ -1,25 +1,16 @@
 <!ENTITY dialog.title "أهلاً بك في آدبلوك بلس">
-<!ENTITY dialog.title.edit "تعديل اشتراك فلتر">
-<!ENTITY description.newInstall "سيكون آدبلوك بلس أكثر فعالية اذا قمت بإضافة اشتراك لفلاتر. اشتراكات الفلاتر تقدم مجانا من قبل مستخدمين آخرين لآدبلوك بلس. الاشتراك الأكثر ملائمة للغَتك مختار أصلا">
 <!ENTITY subscriptionSelector.label "الرجاء اختيار اشتراك فلتر من القائمة:">
 <!ENTITY viewList.label "عرض فلاتر">
 <!ENTITY visitHomepage.label "زيارة الصفحة الرئيسية">
 <!ENTITY addSubscription.label "إضافة اشتراك">
-<!ENTITY saveSubscription.label "حفظ اشتراك">
-<!ENTITY other.label "إضافة اشتراك آخر">
-<!ENTITY other.accesskey "ا">
 <!ENTITY list.download.failed "فشل آدبلوك بلس في جلب قائمة الاشتراكات">
 <!ENTITY list.download.retry "إعادة المحاولة">
 <!ENTITY list.download.website "عرض الموقع">
 <!ENTITY fromWeb.description "الرجاء التأكد من رغبتك في إضافة اشتراك الفلتر هذا. يمكنك أن تغير عنوان أو موقع الاشتراك قبل اضافته.">
-<!ENTITY edit.description "تستطيع تغيير عنوان أو موقع هذا الاشتراك حسب الحاجة">
-<!ENTITY external.description "ان اشتراك الفلتر هذا خارجي وسيتم تحديثه من قبل الإضافة الذي أنشأته">
 <!ENTITY title.label "عنوان الاشتراك">
 <!ENTITY title.accesskey "ع">
 <!ENTITY location.label "موقع قائمة الفلاتر">
 <!ENTITY location.accesskey "م">
-<!ENTITY autodownload.label "تحديث أوتوماتيكي">
-<!ENTITY autodownload.accesskey "ث">
 <!ENTITY supplementMessage "اشتراك الفلتر هذا يجب أن يستخدم مع اشتراك الفلتر &quot;?1?&quot; والذي لم تستعمله بعد">
 <!ENTITY addMain.label "إضافة اشتراك الفلتر &quot;?1?&quot; أيضا">
 <!ENTITY addMain.accesskey "ش">

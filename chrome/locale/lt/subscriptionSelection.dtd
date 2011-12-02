@@ -1,31 +1,16 @@
 <!ENTITY dialog.title "Pridėti „Adblock Plus“ filtro prenumeratą">
-<!ENTITY dialog.title.edit "Redaguoti filtrų prenumeratą">
-<!ENTITY description.newInstall "	Adblock Plus bus efektyviausias jei pridėsite filtrų prenumeratą. 
- 
-Filtrų prenumeratos tiekiamos Adblock Plus naudotojų visiškai 
- 
-nemokamai. Tinkamiausi filtrai jūsų kalbai jau yra
- 
-parinkti.">
 <!ENTITY subscriptionSelector.label "Pasirinkite filtro prenumeratą iš šio sąrašo:">
 <!ENTITY viewList.label "Rodyti filtrus">
 <!ENTITY visitHomepage.label "Aplankyti tinklalapį">
 <!ENTITY addSubscription.label "Pridėti prenumeratą">
-<!ENTITY saveSubscription.label "Išsaugoti prenumeratą">
-<!ENTITY other.label "Pridėti kitą prenumeratą">
-<!ENTITY other.accesskey "t">
 <!ENTITY list.download.failed "Adblock Plus nepavyko gauti prenumeratų sąrašo.">
 <!ENTITY list.download.retry "Bandyti dar">
 <!ENTITY list.download.website "Rodyti tinklalapį">
 <!ENTITY fromWeb.description "Patvirtinkite jog norite pridėti šią prenumeratą. Prieš įdedant prenumeratą jūs galite pakeisti jos pavadinimą ar vietą.">
-<!ENTITY edit.description "Jūs galite pakeisti prenumeratos vietą ir pavadinimą pagal skonį.">
-<!ENTITY external.description "Tai yra papildoma filtrų prenumerata; ją atnaujins ją sukūręs plėtinys.">
 <!ENTITY title.label "Prenumeratos pavadinimas:">
 <!ENTITY title.accesskey "P">
 <!ENTITY location.label "Filtrų sąrašo vieta:">
 <!ENTITY location.accesskey "v">
-<!ENTITY autodownload.label "Automatiškai atnaujinti">
-<!ENTITY autodownload.accesskey "A">
 <!ENTITY supplementMessage "Ši filtrų prenumerata skirta naudoti kartu su &quot;?1?&quot; filtrų prenumerata kurios jūs kol kas nenaudojate.">
 <!ENTITY addMain.label "Pridėti filtro prenumeratą &quot;?1?&quot;">
 <!ENTITY addMain.accesskey "p">

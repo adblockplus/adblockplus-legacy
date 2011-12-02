@@ -1,0 +1,35 @@
+<!ENTITY filter.copy.label "Copiar">
+<!ENTITY subscription.lastDownload.inProgress "Descargando...">
+<!ENTITY filter.cut.label "Cortar">
+<!ENTITY sort.accesskey "L">
+<!ENTITY sort.descending.label "Ordenar Z &amp;gt; A">
+<!ENTITY addSubscription.label "Añadir suscripción de filtros">
+<!ENTITY subscription.lastDownload.success "Correcto">
+<!ENTITY filter.delete.label "Eliminar">
+<!ENTITY find.label "Buscar">
+<!ENTITY sort.none.accesskey "S">
+<!ENTITY sort.ascending.label "Ordenar A &amp;gt; Z">
+<!ENTITY enabled.column "Activado">
+<!ENTITY slow.column "Filtros lentos">
+<!ENTITY subscription.lastDownload.invalidURL "Error: no es una dirección válida">
+<!ENTITY subscription.lastDownload.invalidData "Error: lista de filtros no válida">
+<!ENTITY subscription.lastDownload.label "Última descarga:">
+<!ENTITY hitcount.column "Contador">
+<!ENTITY filter.paste.label "Pegar">
+<!ENTITY viewMenu.label "Ver">
+<!ENTITY subscription.lastDownload.checksumMismatch "Error, el checksum no coincide">
+<!ENTITY sort.label "Listar">
+<!ENTITY subscription.lastDownload.unknown "N/D">
+<!ENTITY slow.accesskey "e">
+<!ENTITY addSubscriptionOther.label "Añadir otra suscripción">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.none.label "Sin ordenar">
+<!ENTITY filter.column "Regla de filtrado">
+<!ENTITY addFilter.label "Añadir filtro">
+<!ENTITY subscription.lastDownload.connectionError "Error: error de descarga">
+<!ENTITY hitcount.accesskey "C">
+<!ENTITY sort.descending.accesskey "Z">
+<!ENTITY lasthit.column "Último uso">
+<!ENTITY lasthit.accesskey "u">
+<!ENTITY filter.accesskey "R">
+<!ENTITY enabled.accesskey "v">

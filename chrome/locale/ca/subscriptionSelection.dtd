@@ -1,25 +1,16 @@
 <!ENTITY dialog.title "Afegeix la subscripció de filtre per a Adblock Plus">
-<!ENTITY dialog.title.edit "Edita subscripció del filtre">
-<!ENTITY description.newInstall "Adblock Plus serà més eficaç si s'afegeix un filtre de subscripció. Filtre subscripcions són proporcionats per altres usuaris de Adblock Plus gratis en el preu. La subscripció més adequat per al seu idioma ja està seleccionat.">
 <!ENTITY subscriptionSelector.label "Si us plau tria una subscripció de filtre a la llista:">
 <!ENTITY viewList.label "Veure filtres">
 <!ENTITY visitHomepage.label "Vista la pàgina web">
 <!ENTITY addSubscription.label "Afegeix subscripció">
-<!ENTITY saveSubscription.label "Salva subscripció">
-<!ENTITY other.label "Afegir una altra subscripció">
-<!ENTITY other.accesskey "A">
 <!ENTITY list.download.failed "Adblock Plus ha fallat en trobar la llista de les subscripcions.">
 <!ENTITY list.download.retry "Torna-ho a provar">
 <!ENTITY list.download.website "Veure pàgina web">
 <!ENTITY fromWeb.description "Si us plau confirma que vols afegir aquesta subscripció de filtre.Pots canviar el títol de la subscripció o la localització abans d'afegir-la.">
-<!ENTITY edit.description "Pots canviar el títol o localització segons sigui necessari.">
-<!ENTITY external.description "Aquesta és una subscripció de filtre externa; serà actualitzada per l'extensió que l'ha creada.">
 <!ENTITY title.label "Títol de la subscripció:">
 <!ENTITY title.accesskey "T">
 <!ENTITY location.label "Filtra la localització de la llista:">
 <!ENTITY location.accesskey "L">
-<!ENTITY autodownload.label "Actualitza automàticament">
-<!ENTITY autodownload.accesskey "Z">
 <!ENTITY supplementMessage "Aquesta subscripció de filtre s'ha de fer servir amb la subscripció de filtre &quot;?1?&quot; que encara no fas servir.">
 <!ENTITY addMain.label "Afegeix subscripció de filtre &quot;?1?&quot;">
 <!ENTITY addMain.accesskey "s">

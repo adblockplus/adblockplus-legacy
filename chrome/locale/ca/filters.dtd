@@ -1,0 +1,35 @@
+<!ENTITY filter.copy.label "Copia">
+<!ENTITY subscription.lastDownload.inProgress "Descarregant...">
+<!ENTITY filter.cut.label "Retalla">
+<!ENTITY sort.accesskey "O">
+<!ENTITY sort.descending.label "Ordre Z &amp;gt; A">
+<!ENTITY addSubscription.label "Afegir subscripció al filtre">
+<!ENTITY subscription.lastDownload.success "Èxit">
+<!ENTITY filter.delete.label "Suprimeix">
+<!ENTITY find.label "Cerca">
+<!ENTITY sort.none.accesskey "D">
+<!ENTITY sort.ascending.label "Ordre A &amp;gt; Z">
+<!ENTITY enabled.column "Activat">
+<!ENTITY slow.column "Filtres d&amp;apos;aminorament">
+<!ENTITY subscription.lastDownload.invalidURL "Fallada, no és una adreça vàlida">
+<!ENTITY subscription.lastDownload.invalidData "Fallada, no és una llista vàlida de filtres">
+<!ENTITY subscription.lastDownload.label "Ultima descàrrega">
+<!ENTITY hitcount.column "Encerts">
+<!ENTITY filter.paste.label "Enganxa">
+<!ENTITY viewMenu.label "Visualitza">
+<!ENTITY subscription.lastDownload.checksumMismatch "Error, el checksum no concorda">
+<!ENTITY sort.label "Ordena per">
+<!ENTITY subscription.lastDownload.unknown "N/A">
+<!ENTITY slow.accesskey "w">
+<!ENTITY addSubscriptionOther.label "Afegir una altra subscripció">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.none.label "Desordenat">
+<!ENTITY filter.column "Regla de filtre">
+<!ENTITY addFilter.label "Afegir filtre">
+<!ENTITY subscription.lastDownload.connectionError "Fallada, error en la descàrrega">
+<!ENTITY hitcount.accesskey "H">
+<!ENTITY sort.descending.accesskey "Z">
+<!ENTITY lasthit.column "Ultim encert">
+<!ENTITY lasthit.accesskey "L">
+<!ENTITY filter.accesskey "F">
+<!ENTITY enabled.accesskey "n">
