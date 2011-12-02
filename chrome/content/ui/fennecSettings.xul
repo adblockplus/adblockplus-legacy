@@ -25,9 +25,9 @@
    -
    - ***** END LICENSE BLOCK ***** -->
    
-<!DOCTYPE vbox SYSTEM "chrome://adblockplus/locale/settings.dtd">
+<!DOCTYPE vbox SYSTEM "chrome://adblockplus/locale/overlay.dtd">
 <vbox xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
-  <setting pref="extensions.adblockplus.enabled" type="bool" title="&enable.label;"/>
+  <setting pref="extensions.adblockplus.enabled" type="bool" inverted="true" title="&disable.label;"/>
   <setting type="control" title="&fennec.subscription.label;">
     <menulist id="adblockplus-subscription-list"/>
   </setting>
