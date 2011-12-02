@@ -29,7 +29,7 @@
 <!ENTITY options.label "خيارات">
 <!ENTITY domainRestriction.label "تقييد إلى نطاق:">
 <!ENTITY domainRestriction.accesskey "ق">
-<!ENTITY domainRestriction.help "حدد نطاق واحد أو أكثر مفصولة باستخدام الرمز &quot;|&quot;، سيطبق هذا الفلتر على هذه النطاقات فقط. وضع الرمز &quot;~&quot; قبل اسم نطاق يعني أن الفلتر يجب ألا يطبق على ذلك النطاق">
+<!ENTITY domainRestriction.help "حدد نطاق واحد أو أكثر مفصول بالرمز &quot;|&quot;، سيطبق هذا الفلتر على هذه النطاقات فقط. وضع الرمز &quot;~&quot; قبل اسم نطاق يعني أن الفلتر يجب ألا يطبق على ذلك النطاق">
 <!ENTITY firstParty.label "الطرف نفسه فقط">
 <!ENTITY firstParty.accesskey "ن">
 <!ENTITY thirdParty.label "أطراف أخرى فقط">

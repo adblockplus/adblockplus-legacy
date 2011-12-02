@@ -41,8 +41,8 @@
 <!ENTITY typeWarning.override.accesskey "s">
 <!ENTITY reloadButton.label "페이지 새로고침">
 <!ENTITY reloadButton.accesskey "R">
-<!ENTITY screenshot.heading "화면갈무리 첨부">
-<!ENTITY screenshot.description "문제 보고서에 화면갈무리를 첨부하면 문제를 이해하는데 도움이 됩니다. 문제 영역을 부각하기 위해 페이지 이미지에 표시를 하고, 민감한 정보 영역은 숨길 수 있습니다. 원하는 버튼을 누르고, 이미지에 마우스로 영역을 표시하십시오.">
+<!ENTITY screenshot.heading "화면 갈무리 첨부">
+<!ENTITY screenshot.description "같은 페이지도 다른 사람들에게는 다르게 보일 수 있습니다. 그래서 보고서에 화면 갈무리을 첨부하면 문제를 이해하는데 도움이 됩니다. 문제 영역을 부각하기 위해 페이지 이미지에 표시를 하고, 민감한 정보 영역은 숨길 수 있습니다. 원하는 버튼을 누르고, 이미지에 마우스로 영역을 표시하십시오.">
 <!ENTITY screenshot.attach.label "보고서에 페이지 이미지 첨부">
 <!ENTITY screenshot.attach.accesskey "t">
 <!ENTITY screenshot.mark.label "문제 영역 표시">
@@ -52,13 +52,13 @@
 <!ENTITY screenshot.undo.label "되돌리기">
 <!ENTITY screenshot.undo.accesskey "U">
 <!ENTITY commentPage.heading "보고 내용 입력">
-<!ENTITY commentPage.description "반드시 주소 입력줄의 웹 페이지 주소(URL)와 필터 문제의 설명을 보고 내용에 입력하십시오. 이 요건을 갖추지 않은 문제 보고서는 정상적으로 처리되지 않을 수 있습니다.">
-<!ENTITY comment.label "보고 내용 (필수 항목 - 웹 페이지 주소 + 필터 문제 설명) :">
+<!ENTITY commentPage.description "모든 언어로 입력 가능 + 페이지 전체 URL : 평소 사용하거나 설명하기 쉬운 언어로 보고할 내용을 입력하십시오. 그런 후 주소 표시줄의 페이지 전체 URL을 복사해 입력한 내용 아래에 반드시 붙여넣으십시오.">
+<!ENTITY comment.label "보고 내용 (필수 항목) :">
 <!ENTITY comment.accesskey "C">
 <!ENTITY comment.lengthWarning "설명의 길이가 1000자를 초과하여 1000자까지만 전송됩니다.">
-<!ENTITY email.label "이메일 주소 (추가 문의 및 처리 상태 통보)  :">
+<!ENTITY email.label "필터 유지자가 추가로 문의하고 처리 상태를 알려주기 위한 이메일 주소 (권장 항목) :">
 <!ENTITY email.accesskey "m">
-<!ENTITY attachExtensions.label "사용하고 있는 부가 프로그램 목록을 보고서에 추가 (다른 부가 프로그램과 충돌이 원인인 경우)">
+<!ENTITY attachExtensions.label "사용하고 있는 부가 프로그램의 목록을 보고서에 추가 (다른 부가 프로그램과 충돌이 원인인 경우)">
 <!ENTITY attachExtensions.accesskey "x">
 <!ENTITY sendButton.label "보고서 전송">
 <!ENTITY sendButton.accesskey "n">

@@ -13,10 +13,10 @@
 <!ENTITY type.whitelist.label "Hariç tutma kuralı">
 <!ENTITY type.whitelist.accesskey "h">
 <!ENTITY pattern.label "Aranacak örnek">
-<!ENTITY pattern.explanation "Bu örnek adresin herhangi bir bölümü olabilir ve (*) işareti joker görevi yapar. Süzgeç sadece örneğe uyan adreslere uygulanacaktır.">
-<!ENTITY regexp.warning "Girdiğiniz örnek düzenli ifade olarak yorumlanacaktır. Çok fazla düzenli ifade, taramayı yavaşlatabilir. Gerçekten düzenli ifade kullanmak istediğinizden emin değilseniz lütfen örneğin sonuna (*) işareti koyun.">
-<!ENTITY shortpattern.warning "Girdiğiniz örnek iyileştirme için çok kısa ve bu tür örnekler tarayıcı deneyiminizi yavaşlatabilir. Adblock Plus'ın daha etkin çalışabilmesi için bu süzgece yönelik daha uzun bir satır seçmeniz tavsiye edilir.">
-<!ENTITY match.warning "Girdiğiniz örnek artık engellenecek olan veya kara listeden çıkarılacak adresle uyuşmuyor ve üzerinde hiçbir etkisi olmayacaktır.">
+<!ENTITY pattern.explanation "Bu örnek adresin herhangi bir bölümü olabilir ve * işareti joker görevi yapar. Süzgeç sadece örneğe uyan adreslere uygulanacak.">
+<!ENTITY regexp.warning "Girdiğiniz örnek düzenli ifade olarak yorumlanacak. Çok fazla düzenli ifade, taramayı yavaşlatabilir. Gerçekten düzenli ifade kullanmak istediğinizden emin değilseniz örneğin sonuna * işareti koyun.">
+<!ENTITY shortpattern.warning "Girdiğiniz örnek en iyileştirmek için çok kısa ve bu tür örnekler taramayı yavaşlatabilir. Bu süzgeç için daha uzun bir satır seçmeniz tavsiye edilir.">
+<!ENTITY match.warning "Girdiğiniz örnek artık engellenecek olan veya kara listeden çıkarılacak adresle uyuşmuyor ve üzerinde hiçbir etkisi olmayacak.">
 <!ENTITY custom.pattern.label "Özel:">
 <!ENTITY custom.pattern.accesskey "z">
 <!ENTITY anchors.label "Örneği sadece burada kabul et:">

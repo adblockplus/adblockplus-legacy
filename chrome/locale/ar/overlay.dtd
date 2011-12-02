@@ -5,9 +5,9 @@
 <!ENTITY menuitem.accesskey "ب">
 <!ENTITY toolbarbutton.label "آدبلوك بلس">
 <!ENTITY view.blockableItems.label "آدبلوك بلس: العناصر المحجوبة">
-<!ENTITY context.image.label "صورة آدبلوك">
-<!ENTITY context.object.label "عنصر آدبلوك">
-<!ENTITY context.frame.label "إطار آدبلوك">
+<!ENTITY context.image.label "آدبلوك بلس : حجب صورة">
+<!ENTITY context.object.label "آدبلوك بلس : حجب عنصر">
+<!ENTITY context.frame.label "آدبلوك بلس : حجب إطار">
 <!ENTITY context.media.label "آدبلوك بلس : حجب أوديوفيديو">
 <!ENTITY context.removeWhitelist.label "آدبلوك بلس : إعادة التفعيل في هذه الصفحة">
 <!ENTITY sidebar.title "العناصر المحجوبة في الصفحة الحالية">
@@ -23,5 +23,5 @@
 <!ENTITY whitelist.page.label "تعطيل في هذه الصفحة فقط">
 <!ENTITY disable.label "تعطيل في جميع الأماكن">
 <!ENTITY recommend.label "انصح بنا على الفيسبوك">
-<!ENTITY objecttab.title "منع">
+<!ENTITY objecttab.title "أحجب">
 <!ENTITY objecttab.tooltip "اضغط هنا لمنع هذا العنصر مع آدبلوك بلاس">

@@ -7,7 +7,7 @@
 <!ENTITY typeSelector.falsePositive.label "Adblock Plus çok fazla engelleme yapıyor">
 <!ENTITY typeSelector.falsePositive.accesskey "f">
 <!ENTITY typeSelector.falsePositive.description "Sayfanın önemli içeriği hiç görünmüyorsa, yanlış görünüyorsa veya sayfa düzgün işlemiyorsa bu seçeneği seçin. Sorun kaynağının Adblock Plus olup olmadığını eklentiyi geçici olarak devre dışı bırakıp belirleyebilirsiniz.">
-<!ENTITY typeSelector.falseNegative.label "Adblock Plus reklamlardan birini engellemiyor">
+<!ENTITY typeSelector.falseNegative.label "Adblock Plus reklamın birini engellemiyor">
 <!ENTITY typeSelector.falseNegative.accesskey "m">
 <!ENTITY typeSelector.falseNegative.description "Adblock Plus devrede olmasına rağmen reklamın biri görünüyorsa bu seçeneği seçin.">
 <!ENTITY typeSelector.other.label "Başka bir sorun">
@@ -22,10 +22,10 @@
 <!ENTITY issues.whitelist.remove.label "Adblock Plus'u bu sayfada devreye sok">
 <!ENTITY issues.disabled.description "Adblock Plus devre dışı ve şu anki durumunda hiçbir şeyi engellemeyecek.">
 <!ENTITY issues.disabled.enable.label "Adblock Plus'ı etkinleştir">
-<!ENTITY issues.nofilters.description "Adblock Plus bu sayfada hiçbir şeyi engellemiyor. Gözlemlediğiniz sorun büyük olasılıkla Adblock Plus ile ilgisizdir.">
+<!ENTITY issues.nofilters.description "Adblock Plus bu sayfada hiçbir şeyi engellemiyor. Gözlemlediğiniz sorun büyük olasılıkla Adblock Plus ile ilgisiz.">
 <!ENTITY issues.nosubscriptions.description "Sitelerdeki istenmeyen içeriği yok eden önceden hazırlanmış süzgeç listelerinden herhangi birine abone olmuş değilsiniz.">
 <!ENTITY issues.nosubscriptions.add.label "Süzgeç aboneliği ekle">
-<!ENTITY issues.subscriptionCount.description "Çok fazla süzgeç listesine abone olduğunuz görülüyor. Bunu yapmanız tavsiye edilmez çünkü bu, sorun çıkma olasılığını daha da arttırır. Ayrıca hangi süzgeç aboneliği yazarının hatayı düzeltmesi gerektiği belirsiz olduğundan hata bildiriminizi kabul edemeyiz. Sadece gerçekten gerekli olan süzgeç abonelikleri dışında kalanlardan çıkın ve sorunun hâlâ yaşanıp yaşanmadığına bakın.">
+<!ENTITY issues.subscriptionCount.description "Çok fazla süzgeç listesine abone olduğunuz görülüyor. Böyle yapmanız tavsiye edilmez çünkü bu, sorun çıkma olasılığını daha da arttırır. Ayrıca hangi süzgeç aboneliği yazarının hatayı düzeltmesi gerektiği belirsiz olduğundan hata bildiriminizi kabul edemeyiz. Sadece gerçekten gerekli olan süzgeç abonelikleri dışında kalanlardan çıkın ve sorunun hâlâ yaşanıp yaşanmadığına bakın.">
 <!ENTITY issues.openPreferences.label "Süzgeç tercihlerini aç">
 <!ENTITY issues.ownfilters.description "Bu sayfada uygulanan süzgeçlerin bazıları kullanıcı tarafından tanımlanmış. Lütfen soruna neden olmuş olabilecek süzgeçleri devre dışı bırakın:">
 <!ENTITY issues.ownfilters.disable.label "Süzgeci devre dışı bırak">

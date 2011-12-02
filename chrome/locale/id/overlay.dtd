@@ -1,21 +1,27 @@
 <!ENTITY status.tooltip "Status:">
-<!ENTITY blocked.tooltip "Item yang diblok pada halaman ini:">
-<!ENTITY filters.tooltip "Filter yang paling aktif:">
-<!ENTITY menuitem.label "Preferensi Adblock Plus">
-<!ENTITY menuitem.accesskey "r">
+<!ENTITY blocked.tooltip "Zablokowane elementy na tej stronie:">
+<!ENTITY filters.tooltip "Najczęściej stosowane filtry:">
+<!ENTITY menuitem.label "Adblock Plus - ustawienia">
+<!ENTITY menuitem.accesskey "A">
 <!ENTITY toolbarbutton.label "Adblock Plus">
-<!ENTITY view.blockableItems.label "Adblock Plus: Item yang Diblok">
-<!ENTITY context.image.label "Gambar Adblock">
-<!ENTITY context.object.label "Obyek Adblock">
-<!ENTITY context.frame.label "Bingkai Adblock">
-<!ENTITY sidebar.title "Item yang bisa diblok pada halaman ini">
-<!ENTITY settings.label "Preferensi">
-<!ENTITY settings.accesskey "F">
-<!ENTITY opensidebar.label "Buka item yang bisa diblok">
+<!ENTITY view.blockableItems.label "Elementy blokowalne">
+<!ENTITY context.image.label "Zablokuj obrazek">
+<!ENTITY context.object.label "Zablokuj obiekt">
+<!ENTITY context.frame.label "Zablokuj ramkę">
+<!ENTITY context.media.label "Zablokuj wideo/audio">
+<!ENTITY context.removeWhitelist.label "Włącz ponownie na tej stronie">
+<!ENTITY sidebar.title "Blokowalne elementy na aktywnej stronie">
+<!ENTITY sendReport.label "Zgłoś problem na tej stronie">
+<!ENTITY sendReport.accesskey "Z">
+<!ENTITY settings.label "Ustawienia">
+<!ENTITY settings.accesskey "U">
+<!ENTITY opensidebar.label "Otwórz listę blokowalnych elementów">
 <!ENTITY opensidebar.accesskey "B">
-<!ENTITY closesidebar.label "Tutup item yang bisa diblok">
+<!ENTITY closesidebar.label "Zamknij listę blokowalnych elementów">
 <!ENTITY closesidebar.accesskey "B">
-<!ENTITY whitelist.site.label "Matikan pada ?1?">
-<!ENTITY whitelist.page.label "Matikan pada halaman ini saja">
-<!ENTITY objecttab.title "Blok">
-<!ENTITY objecttab.tooltip "Klik ini untuk memblok obyek ini dengan Adblock Plus">
+<!ENTITY whitelist.site.label "Wyłącz blokowanie na ?1?">
+<!ENTITY whitelist.page.label "Wyłącz blokowanie tylko na tej stronie">
+<!ENTITY disable.label "Wyłącz wszędzie">
+<!ENTITY recommend.label "Poleć nas na Facebooku">
+<!ENTITY objecttab.title "Zablokuj">
+<!ENTITY objecttab.tooltip "Kliknij tutaj, aby zablokować ten obiekt">

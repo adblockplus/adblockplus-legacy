@@ -2,19 +2,19 @@
 <!ENTITY filters.label "Filtrai">
 <!ENTITY filters.accesskey "F">
 <!ENTITY add.label "Pridėti filtrą">
-<!ENTITY add.accesskey "D">
+<!ENTITY add.accesskey "d">
 <!ENTITY addsubscription.label "Pridėti filtro prenumeratą">
 <!ENTITY addsubscription.accesskey "P">
 <!ENTITY synchsubscriptions.label "Atnaujinti visas prenumeratas">
 <!ENTITY synchsubscriptions.accesskey "u">
 <!ENTITY import.label "Importuoti filtrus">
-<!ENTITY import.accesskey "M">
+<!ENTITY import.accesskey "m">
 <!ENTITY export.label "Eksportuoti filtrus">
-<!ENTITY export.accesskey "K">
+<!ENTITY export.accesskey "k">
 <!ENTITY clearall.label "Pašalinti visus filtrus">
-<!ENTITY clearall.accesskey "L">
+<!ENTITY clearall.accesskey "l">
 <!ENTITY resethitcounts.label "Atstatyti aplankymų statistiką">
-<!ENTITY resethitcounts.accesskey "S">
+<!ENTITY resethitcounts.accesskey "s">
 <!ENTITY edit.label "Taisa">
 <!ENTITY edit.accesskey "T">
 <!ENTITY cut.label "Iškirpti">
@@ -26,9 +26,9 @@
 <!ENTITY remove.label "Pašalinti">
 <!ENTITY remove.accesskey "š">
 <!ENTITY menu.find.label "Rasti">
-<!ENTITY menu.find.accesskey "A">
+<!ENTITY menu.find.accesskey "a">
 <!ENTITY menu.findagain.label "Rasti vėl">
-<!ENTITY menu.findagain.accesskey "V">
+<!ENTITY menu.findagain.accesskey "v">
 <!ENTITY view.label "Rodymas">
 <!ENTITY view.accesskey "R">
 <!ENTITY sort.label "Rikiuoti pagal">
@@ -42,34 +42,48 @@
 <!ENTITY options.label "Pasirinktys">
 <!ENTITY options.accesskey "P">
 <!ENTITY enable.label "Įjungti „Adblock Plus“">
-<!ENTITY enable.accesskey "J">
+<!ENTITY enable.accesskey "j">
 <!ENTITY showintoolbar.label "Rodyti priemonių juostoje">
-<!ENTITY showintoolbar.accesskey "P">
+<!ENTITY showintoolbar.accesskey "p">
 <!ENTITY showinstatusbar.label "Rodyti būsenos juostoje">
-<!ENTITY showinstatusbar.accesskey "B">
+<!ENTITY showinstatusbar.accesskey "b">
 <!ENTITY objecttabs.label "Rodyti korteles Flash ir Java elementams">
 <!ENTITY objecttabs.accesskey "F">
 <!ENTITY collapse.label "Suskleisti užblokuotus elementus">
 <!ENTITY collapse.accesskey "S">
+<!ENTITY sync.label "Adblock Plus Sync nustatymai">
+<!ENTITY sync.accesskey "c">
 <!ENTITY help.label "Pagalba">
-<!ENTITY help.accesskey "G">
+<!ENTITY help.accesskey "g">
+<!ENTITY gettingStarted.label "Pradėti">
+<!ENTITY gettingStarted.accesskey "t">
 <!ENTITY faq.label "Dažnai užduodami klausimai">
 <!ENTITY faq.accesskey "D">
 <!ENTITY filterdoc.label "Kaip rašyti „Adblock Plus“ filtrus">
 <!ENTITY filterdoc.accesskey "f">
 <!ENTITY about.label "Apie „Adblock Plus“">
 <!ENTITY about.accesskey "A">
-<!ENTITY description "Pridėkite adresus, kuriuos norite blokuoti. Norėdami gauti pasiūlymus, peržiūrėkite išskleidžiamąjį sąrašą. Galite pridėti „*“ kaip pakaitos simbolį norėdami sukurti bendresnius filtrus. Patyrę naudotojai gali naudoti reguliariuosius reiškinius, tokius kaip „/banner\d+\.gif$/“.">
+<!ENTITY description "Pridėkite adresus, kuriuos norite blokuoti. Norėdami gauti pasiūlymus, peržiūrėkite išskleidžiamąjį sąrašą. Galite pridėti „*“ kaip pakaitos simbolį norėdami sukurti bendresnius filtrus. Patyrę naudotojai gali naudoti reguliariuosius reiškinius, tokius kaip „/bannerd+.gif$/“.">
+<!ENTITY filter.column "Filtro taisyklė">
+<!ENTITY filter.accesskey "F">
+<!ENTITY slow.column "Lėti filtrai">
+<!ENTITY slow.accesskey "w">
 <!ENTITY enabled.column "Įjungta">
-<!ENTITY hitcount.column "Aplankymai">
+<!ENTITY enabled.accesskey "n">
+<!ENTITY hitcount.column "Blokavimai">
+<!ENTITY hitcount.accesskey "H">
 <!ENTITY lasthit.column "Paskutinis blokavimas">
+<!ENTITY lasthit.accesskey "L">
 <!ENTITY context.edit.label "Redaguoti filtrą">
-<!ENTITY context.resethitcount.label "Atstatyti aplankymų statistiką filtrui">
+<!ENTITY context.resethitcount.label "Atstatyti ablokavimų statistiką filtrui">
 <!ENTITY context.synchsubscription.label "Atnaujinti prenumeratą">
 <!ENTITY context.editsubscription.label "Redaguoti prenumeratą">
 <!ENTITY context.moveup.label "Perkelti aukščiau">
 <!ENTITY context.movedown.label "Perkelti žemiau">
 <!ENTITY context.movegroupup.label "Perkelti grupę aukščiau">
 <!ENTITY context.movegroupdown.label "Perkelti grupę žemiau">
+<!ENTITY context.enable.label "Įjungti">
+<!ENTITY context.disable.label "Išjungti">
 <!ENTITY apply.label "Pritaikyti">
-<!ENTITY apply.accesskey "R">
+<!ENTITY apply.accesskey "r">
+<!ENTITY fennec.subscription.label "Filtro prenumerata">

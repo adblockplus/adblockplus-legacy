@@ -9,7 +9,7 @@
 <!ENTITY context.object.label "Adblock Plus: 阻擋物件">
 <!ENTITY context.frame.label "Adblock Plus: 阻擋頁框">
 <!ENTITY context.media.label "Adblock Plus: 阻擋影音">
-<!ENTITY context.removeWhitelist.label "Adblock Plus: 在此頁面重新啟用">
+<!ENTITY context.removeWhitelist.label "Adblock Plus: 此頁不設為白名單">
 <!ENTITY sidebar.title "本頁可阻擋項目">
 <!ENTITY sendReport.label "回報此頁面錯誤">
 <!ENTITY sendReport.accesskey "R">
@@ -19,8 +19,8 @@
 <!ENTITY opensidebar.accesskey "b">
 <!ENTITY closesidebar.label "關閉可阻擋項目">
 <!ENTITY closesidebar.accesskey "b">
-<!ENTITY whitelist.site.label "在此網域停用: ?1?">
-<!ENTITY whitelist.page.label "只在此頁面停用">
+<!ENTITY whitelist.site.label "此網域設為白名單: ?1?">
+<!ENTITY whitelist.page.label "只將此頁面設為白名單">
 <!ENTITY disable.label "全部停用">
 <!ENTITY recommend.label "在 Facebook 上給我們建議">
 <!ENTITY objecttab.title "封鎖">

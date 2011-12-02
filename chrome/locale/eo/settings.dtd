@@ -13,7 +13,7 @@
 <!ENTITY export.accesskey "p">
 <!ENTITY clearall.label "Forigi ĉiuj proprajn filtrilojn">
 <!ENTITY clearall.accesskey "o">
-<!ENTITY resethitcounts.label "Renuligi trafostatistikon">
+<!ENTITY resethitcounts.label "Remeti trafostatistikon">
 <!ENTITY resethitcounts.accesskey "t">
 <!ENTITY edit.label "Redakti">
 <!ENTITY edit.accesskey "R">

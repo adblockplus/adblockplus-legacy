@@ -11,7 +11,7 @@
 <!ENTITY import.accesskey "m">
 <!ENTITY export.label "フィルタをエクスポート">
 <!ENTITY export.accesskey "x">
-<!ENTITY clearall.label "全ての自作フィルタを削除">
+<!ENTITY clearall.label "全自作フィルタを削除">
 <!ENTITY clearall.accesskey "l">
 <!ENTITY resethitcounts.label "ヒット数をリセット">
 <!ENTITY resethitcounts.accesskey "R">
@@ -43,15 +43,15 @@
 <!ENTITY options.accesskey "O">
 <!ENTITY enable.label "Adblock Plus を有効にする">
 <!ENTITY enable.accesskey "n">
-<!ENTITY showintoolbar.label "ツールバーに表示">
+<!ENTITY showintoolbar.label "ツールバー表示">
 <!ENTITY showintoolbar.accesskey "b">
-<!ENTITY showinstatusbar.label "ステータスバーに表示">
+<!ENTITY showinstatusbar.label "ステータスバー表示">
 <!ENTITY showinstatusbar.accesskey "s">
 <!ENTITY objecttabs.label "Flash と Java でタブを表示">
 <!ENTITY objecttabs.accesskey "t">
-<!ENTITY collapse.label "ブロック後の空きスペースを残さずに詰める">
+<!ENTITY collapse.label "ブロック後の空白スペースを消す">
 <!ENTITY collapse.accesskey "l">
-<!ENTITY sync.label "Adblock Plus の設定を同期する">
+<!ENTITY sync.label "同期設定">
 <!ENTITY sync.accesskey "c">
 <!ENTITY help.label "ヘルプ">
 <!ENTITY help.accesskey "H">

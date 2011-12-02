@@ -43,23 +43,23 @@
 <!ENTITY options.accesskey "O">
 <!ENTITY enable.label "啟用 Adblock Plus">
 <!ENTITY enable.accesskey "N">
-<!ENTITY showintoolbar.label "在工具列顯示">
+<!ENTITY showintoolbar.label "顯示工具列按鈕">
 <!ENTITY showintoolbar.accesskey "B">
-<!ENTITY showinstatusbar.label "在狀態列顯示">
+<!ENTITY showinstatusbar.label "顯示狀態列圖示">
 <!ENTITY showinstatusbar.accesskey "S">
-<!ENTITY objecttabs.label "在 Flash 和 Java 物件上顯示頁籤">
+<!ENTITY objecttabs.label "Flash 和 Java 物件上顯示頁籤">
 <!ENTITY objecttabs.accesskey "T">
-<!ENTITY collapse.label "折疊已阻擋元素">
+<!ENTITY collapse.label "釋放已阻擋元素所佔用的空間">
 <!ENTITY collapse.accesskey "L">
-<!ENTITY sync.label "同步 Adblock Plus 設定值">
+<!ENTITY sync.label "同步 Adblock 設定值">
 <!ENTITY sync.accesskey "c">
 <!ENTITY help.label "說明">
 <!ENTITY help.accesskey "H">
-<!ENTITY gettingStarted.label "新手上路 (英文網頁)">
+<!ENTITY gettingStarted.label "新手上路">
 <!ENTITY gettingStarted.accesskey "s">
-<!ENTITY faq.label "常見問題集 (英文網頁)">
+<!ENTITY faq.label "常見問題集">
 <!ENTITY faq.accesskey "F">
-<!ENTITY filterdoc.label "如何撰寫過濾條件 (英文網頁)">
+<!ENTITY filterdoc.label "如何撰寫過濾條件">
 <!ENTITY filterdoc.accesskey "R">
 <!ENTITY about.label "關於 Adblock Plus">
 <!ENTITY about.accesskey "B">
@@ -70,7 +70,7 @@
 <!ENTITY slow.accesskey "w">
 <!ENTITY enabled.column "已啟用">
 <!ENTITY enabled.accesskey "n">
-<!ENTITY hitcount.column "命中數">
+<!ENTITY hitcount.column "命中次數">
 <!ENTITY hitcount.accesskey "H">
 <!ENTITY lasthit.column "最後使用">
 <!ENTITY lasthit.accesskey "L">

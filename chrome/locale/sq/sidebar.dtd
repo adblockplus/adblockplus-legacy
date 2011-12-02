@@ -1,18 +1,12 @@
-<!ENTITY detached.title "Adblock Plus: Artikuj qe mund te bllokohen (shekputur)">
-<!ENTITY detach.label "Shkeput">
-<!ENTITY reattach.label "Ri-bashkoni">
 <!ENTITY search.label "Kërko">
-<!ENTITY search.accesskey "K">
+<!ENTITY search.accesskey "S">
 <!ENTITY type.label "Lloji">
 <!ENTITY address.label "Adresa">
 <!ENTITY filter.label "Filtruesi">
 <!ENTITY state.label "Gjendja">
 <!ENTITY size.label "Madhësia">
 <!ENTITY docDomain.label "Burimi i dokumentit">
-<!ENTITY docDomain.thirdParty "(pale e trete)">
-<!ENTITY docDomain.firstParty "(pala kryesore)">
 <!ENTITY noitems.label "S'ka elemente bllokuese">
-<!ENTITY whitelisted.label "Faqja e listes se lejimit">
 <!ENTITY tooltip.address.label "Adresa:">
 <!ENTITY tooltip.type.label "Lloji:">
 <!ENTITY tooltip.type.blocked "(bllokuar)">
@@ -20,16 +14,13 @@
 <!ENTITY tooltip.size.label "Madhësia:">
 <!ENTITY tooltip.docDomain.label "Burimi i dokumentit:">
 <!ENTITY tooltip.filter.label "Filtruesi efektiv:">
-<!ENTITY tooltip.filter.disabled "(bllokuar)">
 <!ENTITY tooltip.filterSource.label "Burimi i filtruesit:">
 <!ENTITY context.block.label "Blloko këtë send">
 <!ENTITY context.editfilter.label "Vendos filtruesin në veprim">
-<!ENTITY context.whitelist.label "Shto rregull perjashtimi per artikullin">
 <!ENTITY context.disablefilter.label "Çaktivizo filtruesin ?1?">
 <!ENTITY context.enablefilter.label "Ri mundëso filtruesin ?1?">
 <!ENTITY context.disablefilteronsite.label "Pamundëso filtruesin në ?1?">
 <!ENTITY context.open.label "Hape një një lidhje të re">
-<!ENTITY context.flash.label "Pulso bordurat e artikullit">
 <!ENTITY context.copy.label "Kopjo adresën e elementit">
 <!ENTITY context.copyFilter.label "Kopjo filtruesin">
 <!ENTITY context.selectAll.label "Selekto të gjitha">

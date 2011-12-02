@@ -9,6 +9,8 @@
 <!ENTITY state.label "Būsena">
 <!ENTITY size.label "Dydis">
 <!ENTITY docDomain.label "Dokumento šaltinis">
+<!ENTITY docDomain.thirdParty "(trečioji šalis)">
+<!ENTITY docDomain.firstParty "(pagrindinis)">
 <!ENTITY noitems.label "Nėra blokuojamų elementų">
 <!ENTITY whitelisted.label "Tinklalapis, įtrauktas į išimtis">
 <!ENTITY tooltip.address.label "Adresas:">
@@ -30,4 +32,4 @@
 <!ENTITY context.flash.label "Paryškinti elemento rėmelį">
 <!ENTITY context.copy.label "Kopijuoti elemento adresą">
 <!ENTITY context.copyFilter.label "Kopijuoti filtrą">
-<!ENTITY context.selectAll.label "Viską pažymėti">
+<!ENTITY context.selectAll.label "Pažymėti viską">
