@@ -157,6 +157,8 @@ var FilterView =
         break;
       }
       case "filter.disabled":
+      case "filter.hitCount":
+      case "filter.lastHit":
       {
         this.updateFilter(item);
         break;

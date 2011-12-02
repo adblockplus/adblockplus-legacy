@@ -184,6 +184,19 @@ var FilterActions =
   },
 
   /**
+   * Resets hit counts of the selected filters.
+   */
+  resetHitCounts: function()
+  {
+    if (this.treeElement.editingColumn)
+      return;
+
+    let items = FilterView.selectedItems.filter(function(i) i.filter instanceof ActiveFilter);
+    if (items.length)
+      FilterStorage.resetHitCounts(items.map(function(i) i.filter));
+  },
+
+  /**
    * Moves items to a different position in the list.
    * @param {Array} items
    * @param {Integer} offset  negative offsets move the items up, positive down

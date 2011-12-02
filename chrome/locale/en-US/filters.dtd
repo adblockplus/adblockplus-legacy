@@ -53,6 +53,7 @@
 <!ENTITY filter.paste.label                   "Paste">
 <!ENTITY filter.delete.label                  "Delete">
 <!ENTITY filter.selectAll.label               "Select All">
+<!ENTITY filter.resetHitCounts.label          "Reset hit statistics">
 <!ENTITY filter.moveUp.label                  "Move up">
 <!ENTITY filter.moveDown.label                "Move down">
 <!ENTITY viewMenu.label                       "View">
