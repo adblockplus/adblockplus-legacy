@@ -40,6 +40,8 @@
 <!ENTITY showintoolbar.accesskey    "b">
 <!ENTITY showinstatusbar.label      "Show in status bar">
 <!ENTITY showinstatusbar.accesskey  "s">
+<!ENTITY showinaddonbar.label       "Show in add-on bar">
+<!ENTITY showinaddonbar.accesskey   "b">
 <!ENTITY objecttabs.label           "Show tabs on Flash and Java">
 <!ENTITY objecttabs.accesskey       "t">
 <!ENTITY hideplaceholders.label     "Hide placeholders of blocked elements">
