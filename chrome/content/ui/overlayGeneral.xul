@@ -59,6 +59,7 @@
         <menupopup id="abp-status-options-popup">
           <menuitem id="abp-status-frameobjects" label="&objecttabs.label;" accesskey="&objecttabs.accesskey;" type="checkbox" command="abp-command-toggleobjtabs"/>
           <menuitem id="abp-status-slowcollapse" label="&hideplaceholders.label;" accesskey="&hideplaceholders.accesskey;" type="checkbox" command="abp-command-togglecollapse"/>
+          <menuitem id="abp-status-savestats" label="&counthits.label;" accesskey="&counthits.accesskey;" type="checkbox" command="abp-command-togglesavestats"/>
           <menuitem id="abp-status-sync" label="&sync.label;" accesskey="&sync.accesskey;" type="checkbox" command="abp-command-togglesync"/>
           <menuseparator/>
           <menuitem id="abp-status-showintoolbar" label="&showintoolbar.label;" accesskey="&showintoolbar.accesskey;" type="checkbox" command="abp-command-toggleshowintoolbar"/>
@@ -83,6 +84,7 @@
     <command id="abp-command-togglepagewhitelist"/>
     <command id="abp-command-toggleobjtabs"/>
     <command id="abp-command-togglecollapse"/>
+    <command id="abp-command-togglesavestats"/>
     <command id="abp-command-togglesync"/>
     <command id="abp-command-toggleshowintoolbar"/>
     <command id="abp-command-toggleshowinstatusbar"/>

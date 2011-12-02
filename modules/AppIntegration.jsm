@@ -419,7 +419,7 @@ WindowWrapper.prototype =
       let element = this.E(id);
       if (element)
         element.addEventListener(event, handler, false);
-  
+
       if (id in paletteButtonIDs)
         paletteButtonIDs[id].addEventListener(event, handler, false);
     }
@@ -1035,6 +1035,7 @@ WindowWrapper.prototype =
     this.E(prefix + "disabled").setAttribute("checked", !Prefs.enabled);
     this.E(prefix + "frameobjects").setAttribute("checked", Prefs.frameobjects);
     this.E(prefix + "slowcollapse").setAttribute("checked", !Prefs.fastcollapse);
+    this.E(prefix + "savestats").setAttribute("checked", Prefs.savestats);
     this.E(prefix + "showintoolbar").setAttribute("checked", Prefs.showintoolbar);
     this.E(prefix + "showinstatusbar").setAttribute("checked", Prefs.showinstatusbar);
   
@@ -1143,6 +1144,24 @@ WindowWrapper.prototype =
       return true;
     }
     return false;
+  },
+
+  /**
+   * Toggles "Count filter hits" option.
+   */
+  toggleSaveStats: function()
+  {
+    if (Prefs.savestats)
+    {
+      if (!Utils.confirm(this.window, Utils.getString("clearStats_warning")))
+        return;
+
+      FilterStorage.resetHitCounts();
+      FilterStorage.saveToDisk();
+      Prefs.savestats = false;
+    }
+    else
+      Prefs.savestats = true;
   },
 
   /**
@@ -1316,6 +1335,7 @@ WindowWrapper.prototype.eventHandlers = [
   ["abp-command-togglepagewhitelist", "command", function() { AppIntegration.toggleFilter(this.pageWhitelist); }],
   ["abp-command-toggleobjtabs", "command", function() { AppIntegration.togglePref("frameobjects"); }],
   ["abp-command-togglecollapse", "command", function() { AppIntegration.togglePref("fastcollapse"); }],
+  ["abp-command-togglesavestats", "command", WindowWrapper.prototype.toggleSaveStats],
   ["abp-command-togglesync", "command", AppIntegration.toggleSync],
   ["abp-command-toggleshowintoolbar", "command", function() { AppIntegration.togglePref("showintoolbar"); }],
   ["abp-command-toggleshowinstatusbar", "command", function() { AppIntegration.togglePref("showinstatusbar"); }],
