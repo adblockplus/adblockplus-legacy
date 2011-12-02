@@ -27,6 +27,7 @@
 <!ENTITY subscription.lastDownload.invalidData "Failed, not a valid filters list">
 <!ENTITY subscription.lastDownload.checksumMismatch "Failed, checksum mismatch">
 <!ENTITY subscription.lastDownload.success    "Success">
+<!ENTITY subscription.minVersion.warning      "This filter subscription requires a newer Adblock Plus version, you should update to the latest Adblock Plus version.">
 
 <!ENTITY subscription.actions.label           "Actions">
 <!ENTITY subscription.update.label            "Update filters">

@@ -228,6 +228,7 @@
                 </menupopup>
               </button>
             </hbox>
+            <description class="warning" hidden="{!subscription.upgradeRequired}">&subscription.minVersion.warning;</description>
           </vbox>
         </richlistitem>
 
