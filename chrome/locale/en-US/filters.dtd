@@ -28,6 +28,8 @@
 <!ENTITY subscription.lastDownload.checksumMismatch "Failed, checksum mismatch">
 <!ENTITY subscription.lastDownload.success    "Success">
 <!ENTITY subscription.minVersion.warning      "This filter subscription requires a newer Adblock Plus version, you should update to the latest Adblock Plus version.">
+<!ENTITY subscription.disabledFilters.warning "Some filters in this subscription are disabled.">
+<!ENTITY subscription.disabledFilters.enable  "Enable disabled filters">
 
 <!ENTITY subscription.actions.label           "Actions">
 <!ENTITY subscription.update.label            "Update filters">
