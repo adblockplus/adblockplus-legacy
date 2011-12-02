@@ -13,8 +13,6 @@
 <!ENTITY sidebar.title "Blokuojami elementai dabartiniame tinklalapyje">
 <!ENTITY sendReport.label "Pranešti apie problemą šiame puslapyje">
 <!ENTITY sendReport.accesskey "r">
-<!ENTITY settings.label "Nustatymai">
-<!ENTITY settings.accesskey "N">
 <!ENTITY opensidebar.label "Atverti blokuojamus elementus">
 <!ENTITY opensidebar.accesskey "b">
 <!ENTITY closesidebar.label "Užverti blokuojamus elementus">
@@ -22,6 +20,15 @@
 <!ENTITY whitelist.site.label "Išjungti ?1?">
 <!ENTITY whitelist.page.label "Išjungti šiam tinklalapiui">
 <!ENTITY disable.label "Išjungti visur">
-<!ENTITY recommend.label "Rekomenduokite mus Facebook svetainėje">
 <!ENTITY objecttab.title "Blokuoti">
 <!ENTITY objecttab.tooltip "Spragtelkite čia norėdami užblokuoti šį objektą su „Adblock Plus“">
+<!ENTITY sync.accesskey "c">
+<!ENTITY showintoolbar.label "Rodyti priemonių juostoje">
+<!ENTITY options.label "Pasirinktys">
+<!ENTITY objecttabs.accesskey "F">
+<!ENTITY showinstatusbar.label "Rodyti būsenos juostoje">
+<!ENTITY showintoolbar.accesskey "p">
+<!ENTITY showinstatusbar.accesskey "b">
+<!ENTITY sync.label "Adblock Plus Sync nustatymai">
+<!ENTITY objecttabs.label "Rodyti korteles Flash ir Java elementams">
+<!ENTITY options.accesskey "P">

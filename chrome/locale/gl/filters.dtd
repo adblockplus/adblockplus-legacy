@@ -1,0 +1,35 @@
+<!ENTITY filter.copy.label "Copiar">
+<!ENTITY subscription.lastDownload.inProgress "Descargando...">
+<!ENTITY filter.cut.label "Cortar">
+<!ENTITY sort.accesskey "o">
+<!ENTITY sort.descending.label "Ordenar Z &amp;gt; A">
+<!ENTITY addSubscription.label "Engadir subscrición de filtros">
+<!ENTITY subscription.lastDownload.success "Valeu">
+<!ENTITY filter.delete.label "Borrar">
+<!ENTITY find.label "Atopar">
+<!ENTITY sort.none.accesskey "s">
+<!ENTITY sort.ascending.label "Ordenar A &amp;gt; Z">
+<!ENTITY enabled.column "Activada">
+<!ENTITY slow.column "Filtros lentos">
+<!ENTITY subscription.lastDownload.invalidURL "Fallou, non é unha dirección válida">
+<!ENTITY subscription.lastDownload.invalidData "Fallou, non é unha lista de filtros válida">
+<!ENTITY subscription.lastDownload.label "Última descarga:">
+<!ENTITY hitcount.column "Impactos">
+<!ENTITY filter.paste.label "Pegar">
+<!ENTITY viewMenu.label "Ver">
+<!ENTITY subscription.lastDownload.checksumMismatch "Fallou, a proba 'checksum' non cadrou">
+<!ENTITY sort.label "Ordenar por">
+<!ENTITY subscription.lastDownload.unknown "N/A">
+<!ENTITY slow.accesskey "n">
+<!ENTITY addSubscriptionOther.label "Engadir outra subscrición">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.none.label "Sen clasificar">
+<!ENTITY filter.column "Regra de filtro">
+<!ENTITY addFilter.label "Engadir filtro">
+<!ENTITY subscription.lastDownload.connectionError "Fallou, fracasou a descarga">
+<!ENTITY hitcount.accesskey "I">
+<!ENTITY sort.descending.accesskey "Z">
+<!ENTITY lasthit.column "Último impacto">
+<!ENTITY lasthit.accesskey "L">
+<!ENTITY filter.accesskey "F">
+<!ENTITY enabled.accesskey "c">

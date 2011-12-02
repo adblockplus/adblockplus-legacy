@@ -1,6 +1,3 @@
-<!ENTITY other.accesskey "f">
 <!ENTITY title.accesskey "T">
 <!ENTITY location.label "Vendi i listës së filtruesit">
 <!ENTITY location.accesskey "L">
-<!ENTITY autodownload.label "Fresko Automatikisht">
-<!ENTITY autodownload.accesskey "P">

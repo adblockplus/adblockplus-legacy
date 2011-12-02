@@ -13,8 +13,6 @@
 <!ENTITY sidebar.title "Éléments filtrables dans la page courante">
 <!ENTITY sendReport.label "Rapporter un problème sur cette page">
 <!ENTITY sendReport.accesskey "R">
-<!ENTITY settings.label "Préférences">
-<!ENTITY settings.accesskey "P">
 <!ENTITY opensidebar.label "Ouvrir la liste des éléments filtrables">
 <!ENTITY opensidebar.accesskey "m">
 <!ENTITY closesidebar.label "Fermer la liste des éléments filtrables">
@@ -22,6 +20,15 @@
 <!ENTITY whitelist.site.label "Désactiver pour ?1?">
 <!ENTITY whitelist.page.label "Désactiver pour cette page uniquement">
 <!ENTITY disable.label "Désactiver partout">
-<!ENTITY recommend.label "Nous recommander sur Facebook">
 <!ENTITY objecttab.title "Bloquer">
 <!ENTITY objecttab.tooltip "Cliquer ici afin qu'Adblock Plus bloque cet objet">
+<!ENTITY sync.accesskey "y">
+<!ENTITY showintoolbar.label "Afficher dans la barre d&amp;apos;outils">
+<!ENTITY options.label "Options">
+<!ENTITY objecttabs.accesskey "J">
+<!ENTITY showinstatusbar.label "Afficher dans la barre d&amp;apos;état">
+<!ENTITY showintoolbar.accesskey "o">
+<!ENTITY showinstatusbar.accesskey "n">
+<!ENTITY sync.label "Synchroniser les paramètres d'Adblock Plus">
+<!ENTITY objecttabs.label "Afficher une étiquette pour Flash et Java">
+<!ENTITY options.accesskey "O">

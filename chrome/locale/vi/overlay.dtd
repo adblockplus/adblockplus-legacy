@@ -13,8 +13,6 @@
 <!ENTITY sidebar.title "Các mục bị chặn trên trang hiện tại">
 <!ENTITY sendReport.label "Báo cáo vấn đề trên trang này">
 <!ENTITY sendReport.accesskey "B">
-<!ENTITY settings.label "Tùy chọn">
-<!ENTITY settings.accesskey "T">
 <!ENTITY opensidebar.label "Mở các mục có thể chặn được">
 <!ENTITY opensidebar.accesskey "m">
 <!ENTITY closesidebar.label "Đóng các mục có thể chặn được">
@@ -22,6 +20,15 @@
 <!ENTITY whitelist.site.label "Vô hiệu hóa trên ?1?">
 <!ENTITY whitelist.page.label "Chỉ vô hiệu hóa trên trang này">
 <!ENTITY disable.label "Vô hiệu hóa ở mọi nơi">
-<!ENTITY recommend.label "Giới thiệu chúng trên Facebook">
 <!ENTITY objecttab.title "Chặn">
 <!ENTITY objecttab.tooltip "Nhấn vào đây để chặn đối tượng này với Adblock Plus">
+<!ENTITY sync.accesskey "o">
+<!ENTITY showintoolbar.label "Hiện trong thanh công cụ">
+<!ENTITY options.label "Tùy chọn">
+<!ENTITY objecttabs.accesskey "t">
+<!ENTITY showinstatusbar.label "Hiện trong thanh trạng thái">
+<!ENTITY showintoolbar.accesskey "c">
+<!ENTITY showinstatusbar.accesskey "r">
+<!ENTITY sync.label "Đồng bộ thiết lập Adblock Plus">
+<!ENTITY objecttabs.label "Hiện thẻ trên Flash và Java">
+<!ENTITY options.accesskey "y">

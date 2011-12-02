@@ -1,0 +1,35 @@
+<!ENTITY filter.copy.label "Afrita">
+<!ENTITY subscription.lastDownload.inProgress "Hleður...">
+<!ENTITY filter.cut.label "Klippa">
+<!ENTITY sort.accesskey "f">
+<!ENTITY sort.descending.label "Ö &amp;gt; A röðun">
+<!ENTITY addSubscription.label "Bæta við síuáskrift">
+<!ENTITY subscription.lastDownload.success "Tókst">
+<!ENTITY filter.delete.label "Eyða">
+<!ENTITY find.label "Leita">
+<!ENTITY sort.none.accesskey "r">
+<!ENTITY sort.ascending.label "A &amp;gt; Ö röðun">
+<!ENTITY enabled.column "Virkt">
+<!ENTITY slow.column "Hægar síur">
+<!ENTITY subscription.lastDownload.invalidURL "Mistókst, ekki gilt netfang">
+<!ENTITY subscription.lastDownload.invalidData "Mistókst, ekki gildur síulisti">
+<!ENTITY subscription.lastDownload.label "Seinasta niðurhal:">
+<!ENTITY hitcount.column "Notkun">
+<!ENTITY filter.paste.label "Líma">
+<!ENTITY viewMenu.label "Skoða">
+<!ENTITY subscription.lastDownload.checksumMismatch "Mistókst, prófsumma stemmir ekki">
+<!ENTITY sort.label "Raða eftir">
+<!ENTITY subscription.lastDownload.unknown "Óþekkt">
+<!ENTITY slow.accesskey "æ">
+<!ENTITY addSubscriptionOther.label "Bæta við öðruvísi áskrift">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.none.label "Óraðað">
+<!ENTITY filter.column "Síu regla">
+<!ENTITY addFilter.label "Bæta við síu">
+<!ENTITY subscription.lastDownload.connectionError "Mistókst, gat ekki niðurhalað">
+<!ENTITY hitcount.accesskey "N">
+<!ENTITY sort.descending.accesskey "Ö">
+<!ENTITY lasthit.column "Seinast heimsótt">
+<!ENTITY lasthit.accesskey "h">
+<!ENTITY filter.accesskey "g">
+<!ENTITY enabled.accesskey "V">

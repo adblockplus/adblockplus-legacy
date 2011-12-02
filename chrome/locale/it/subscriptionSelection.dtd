@@ -1,30 +1,16 @@
 <!ENTITY dialog.title "Sottoscrizione di filtri di Adblock Plus">
-<!ENTITY dialog.title.edit "Modifica della sottoscrizione di filtri">
-<!ENTITY description.newInstall "
-		Grazie per aver installato Adblock Plus, che permette di eliminare il 99&#37; di pubblicità e banner in internet. Per filtrare
-	efficacemente pubblicità e banner è necessaria una buona serie di filtri. È possibile selezionare qui sotto una delle
-	sottoscrizioni di liste di filtri mantenute da terzi: quella più appropriata per nazione viene evidenziata (è possibile in 
-	seguito aggiungere manualmente ulteriori/propri filtri così come disattivare/eliminare le sottoscrizioni quando necessario)
-">
 <!ENTITY subscriptionSelector.label "Selezionare una sottoscrizione di filtri dalla seguente lista:">
 <!ENTITY viewList.label "Visualizza i filtri della sottoscrizione">
 <!ENTITY visitHomepage.label "Visita il sito web">
 <!ENTITY addSubscription.label "Aggiungi sottoscrizione">
-<!ENTITY saveSubscription.label "Salva la sottoscrizione">
-<!ENTITY other.label "Altre sottoscrizioni">
-<!ENTITY other.accesskey "e">
 <!ENTITY list.download.failed "Recupero della lista di sottoscrizioni non riuscito">
 <!ENTITY list.download.retry "Riprova">
 <!ENTITY list.download.website "Visita il sito web delle sottoscrizioni">
 <!ENTITY fromWeb.description "Confermare l&apos;aggiunta della sottoscrizione di filtri. È possibile modificare il titolo della sottoscrizione oppure l&apos;URL/percorso della lista dei filtri prima di aggiungere">
-<!ENTITY edit.description "È possibile modificare il titolo della sottoscrizione oppure l&apos;URL/percorso della lista dei filtri">
-<!ENTITY external.description "Questa è una sottoscrizione esterna, la relativa lista dei filtri sarà mantenuta aggiornata dall&apos;estensione che ha creato questa sottoscrizione">
 <!ENTITY title.label "Titolo della sottoscrizione:">
 <!ENTITY title.accesskey "T">
 <!ENTITY location.label "Indirizzo della lista dei filtri:">
 <!ENTITY location.accesskey "z">
-<!ENTITY autodownload.label "Aggiorna automaticamente">
-<!ENTITY autodownload.accesskey "A">
 <!ENTITY supplementMessage "Questa sottoscrizione di filtri verrà utilizzata insieme a quella chiamata &quot; ?1?&quot; (ancora non aggiunta).">
 <!ENTITY addMain.label "Aggiungere la sottoscrizione di filtri &quot; ?1?&quot;">
 <!ENTITY addMain.accesskey "s">

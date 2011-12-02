@@ -1,0 +1,35 @@
+<!ENTITY filter.copy.label "העתקה">
+<!ENTITY subscription.lastDownload.inProgress "מוריד...">
+<!ENTITY filter.cut.label "גזירה">
+<!ENTITY sort.accesskey "מ">
+<!ENTITY sort.descending.label "מיון מ- ת &amp;gt; עד א">
+<!ENTITY addSubscription.label "הוספת הרשמה למסננים">
+<!ENTITY subscription.lastDownload.success "הצליח">
+<!ENTITY filter.delete.label "מחיקה">
+<!ENTITY find.label "מצא">
+<!ENTITY sort.none.accesskey "ן">
+<!ENTITY sort.ascending.label "מיון מ- א &amp;gt; עד ת">
+<!ENTITY enabled.column "מאופשר">
+<!ENTITY slow.column "מסננים אטיים">
+<!ENTITY subscription.lastDownload.invalidURL "כשל, הכתובת שגויה">
+<!ENTITY subscription.lastDownload.invalidData "כשל, רשימת המסננים לא חוקית">
+<!ENTITY subscription.lastDownload.label "הורדה אחרונה:">
+<!ENTITY hitcount.column "לחיצות">
+<!ENTITY filter.paste.label "הדבקה">
+<!ENTITY viewMenu.label "תצוגה">
+<!ENTITY subscription.lastDownload.checksumMismatch "כשל, ביקורת הסיכום לתקינות לא התאימה בצורה טובה">
+<!ENTITY sort.label "מיון לפי">
+<!ENTITY subscription.lastDownload.unknown "לא זמין">
+<!ENTITY slow.accesskey "ס">
+<!ENTITY addSubscriptionOther.label "הוספת הרשמה אחרת">
+<!ENTITY sort.ascending.accesskey "מ">
+<!ENTITY sort.none.label "לא ממוין">
+<!ENTITY filter.column "חוק סינון">
+<!ENTITY addFilter.label "הוספת מסנן">
+<!ENTITY subscription.lastDownload.connectionError "כשל, ההורדה נכשלה">
+<!ENTITY hitcount.accesskey "ל">
+<!ENTITY sort.descending.accesskey "י">
+<!ENTITY lasthit.column "לחיצה אחרונה">
+<!ENTITY lasthit.accesskey "ח">
+<!ENTITY filter.accesskey "נ">
+<!ENTITY enabled.accesskey "ר">

@@ -18,8 +18,6 @@
 
 <!ENTITY sendReport.label       "Fehler auf dieser Seite melden">
 <!ENTITY sendReport.accesskey   "F">
-<!ENTITY settings.label         "Einstellungen">
-<!ENTITY settings.accesskey     "t">
 <!ENTITY opensidebar.label      "Blockierbare Elemente öffnen">
 <!ENTITY opensidebar.accesskey  "B">
 <!ENTITY closesidebar.label     "Blockierbare Elemente schließen">
@@ -27,7 +25,15 @@
 <!ENTITY whitelist.site.label   "Deaktivieren: auf ?1?">
 <!ENTITY whitelist.page.label   "Deaktivieren: nur auf dieser Seite">
 <!ENTITY disable.label          "Überall deaktivieren">
-<!ENTITY recommend.label        "Uns auf Facebook empfehlen">
-
 <!ENTITY objecttab.title        "Blockieren">
 <!ENTITY objecttab.tooltip      "Klicken Sie hier, um dieses Objekt mit Adblock Plus zu blockieren">
+<!ENTITY sync.accesskey "y">
+<!ENTITY showintoolbar.label "In Symbolleiste anzeigen">
+<!ENTITY options.label "Optionen">
+<!ENTITY objecttabs.accesskey "B">
+<!ENTITY showinstatusbar.label "In Statusleiste anzeigen">
+<!ENTITY showintoolbar.accesskey "M">
+<!ENTITY showinstatusbar.accesskey "S">
+<!ENTITY sync.label "Adblock Plus-Einstellungen synchonisieren">
+<!ENTITY objecttabs.label "Tab zum Blockieren von Flash und Java anzeigen">
+<!ENTITY options.accesskey "O">

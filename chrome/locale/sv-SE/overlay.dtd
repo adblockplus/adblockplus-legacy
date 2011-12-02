@@ -13,8 +13,6 @@
 <!ENTITY sidebar.title "Blockerbara objekt på denna sida">
 <!ENTITY sendReport.label "Rapportera problem på denna sida">
 <!ENTITY sendReport.accesskey "R">
-<!ENTITY settings.label "Inställningar">
-<!ENTITY settings.accesskey "I">
 <!ENTITY opensidebar.label "Visa lista över blockerbara objekt">
 <!ENTITY opensidebar.accesskey "b">
 <!ENTITY closesidebar.label "Stäng listan över blockerbara objekt">
@@ -22,6 +20,15 @@
 <!ENTITY whitelist.site.label "Använd inte på ?1?">
 <!ENTITY whitelist.page.label "Använd inte på denna sida">
 <!ENTITY disable.label "Inaktivera för alla domäner">
-<!ENTITY recommend.label "Rekommendera oss på Facebook">
 <!ENTITY objecttab.title "Blockera">
 <!ENTITY objecttab.tooltip "Klicka här för att blockera detta objekt med Adblock Plus">
+<!ENTITY sync.accesskey "k">
+<!ENTITY showintoolbar.label "Visa i verktygsfält">
+<!ENTITY options.label "Alternativ">
+<!ENTITY objecttabs.accesskey "V">
+<!ENTITY showinstatusbar.label "Visa i statusfält">
+<!ENTITY showintoolbar.accesskey "y">
+<!ENTITY showinstatusbar.accesskey "s">
+<!ENTITY sync.label "Synkronisera Adblock Plus inställningar">
+<!ENTITY objecttabs.label "Visa flik vid Flash- och Java-reklam">
+<!ENTITY options.accesskey "n">

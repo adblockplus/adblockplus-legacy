@@ -13,8 +13,6 @@
 <!ENTITY sidebar.title "Այս էջի ֆիլտրվող տարրերը">
 <!ENTITY sendReport.label "Տեղեկացնել այս էջի պրոբլեմի մասին">
 <!ENTITY sendReport.accesskey "R">
-<!ENTITY settings.label "Նախընտրանքներ">
-<!ENTITY settings.accesskey "Ն">
 <!ENTITY opensidebar.label "Բացել ֆիլտրվող տարրերը">
 <!ENTITY opensidebar.accesskey "տ">
 <!ENTITY closesidebar.label "Փակել ֆիլտրվող տարրերը">
@@ -22,6 +20,15 @@
 <!ENTITY whitelist.site.label "Անջատել ?1?-ում">
 <!ENTITY whitelist.page.label "Անջատել միայն այս էջի համար">
 <!ENTITY disable.label "Անջատել ամենուր">
-<!ENTITY recommend.label "Խորհուրդ տալ մեզ Ֆեյսբուքում">
 <!ENTITY objecttab.title "Ֆիլտրել">
 <!ENTITY objecttab.tooltip "Սեղմել «Adblock Plus»ով այս օբյեկտը ֆիլտրելու համար">
+<!ENTITY sync.accesskey "Ս">
+<!ENTITY showintoolbar.label "Ցույց տալ գործիքաշարում">
+<!ENTITY options.label "Ընտրանքներ">
+<!ENTITY objecttabs.accesskey "կ">
+<!ENTITY showinstatusbar.label "Ցույց տալ վիճակի տողում">
+<!ENTITY showintoolbar.accesskey "գ">
+<!ENTITY showinstatusbar.accesskey "վ">
+<!ENTITY sync.label "Սինքրոնացնել Adblock Plus-ի նախընտրանքները">
+<!ENTITY objecttabs.label "Ֆիլտրելու կոճակներ Flash-ի և Java-ի համար">
+<!ENTITY options.accesskey "Ը">

@@ -13,8 +13,6 @@
 <!ENTITY sidebar.title "Блокирани предмети на тази страница">
 <!ENTITY sendReport.label "Докладване на проблем на тази страница">
 <!ENTITY sendReport.accesskey "Д">
-<!ENTITY settings.label "Настройки">
-<!ENTITY settings.accesskey "с">
 <!ENTITY opensidebar.label "Отвори блокирани предмети">
 <!ENTITY opensidebar.accesskey "б">
 <!ENTITY closesidebar.label "Затвори блокирани предмети">
@@ -22,6 +20,15 @@
 <!ENTITY whitelist.site.label "Забрани на ?1?">
 <!ENTITY whitelist.page.label "Забрани на тази страница само">
 <!ENTITY disable.label "Забрани навсякъде">
-<!ENTITY recommend.label "Препоръчай ни във Facebook">
 <!ENTITY objecttab.title "Блокирай">
 <!ENTITY objecttab.tooltip "Щракни тук за да блокираш този обект със Adblock Плюс">
+<!ENTITY sync.accesskey "х">
+<!ENTITY showintoolbar.label "Покажи в лентата с инструменти">
+<!ENTITY options.label "Настройки">
+<!ENTITY objecttabs.accesskey "П">
+<!ENTITY showinstatusbar.label "Покажи в лентата на състоянието">
+<!ENTITY showintoolbar.accesskey "л">
+<!ENTITY showinstatusbar.accesskey "т">
+<!ENTITY sync.label "Синхронизирай Настройките за Adblock Plus">
+<!ENTITY objecttabs.label "Покажи разделите за Флаш и Java">
+<!ENTITY options.accesskey "Н">

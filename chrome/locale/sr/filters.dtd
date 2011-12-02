@@ -1,0 +1,35 @@
+<!ENTITY filter.copy.label "Умножи">
+<!ENTITY subscription.lastDownload.inProgress "Преузимање...">
+<!ENTITY filter.cut.label "Исеци">
+<!ENTITY sort.accesskey "С">
+<!ENTITY sort.descending.label "Од Ш до А">
+<!ENTITY addSubscription.label "Додај претплату на филтер">
+<!ENTITY subscription.lastDownload.success "Успех">
+<!ENTITY filter.delete.label "Избриши">
+<!ENTITY find.label "Нађи">
+<!ENTITY sort.none.accesskey "е">
+<!ENTITY sort.ascending.label "Од А до Ш">
+<!ENTITY enabled.column "Омогућен">
+<!ENTITY slow.column "Спори филтери">
+<!ENTITY subscription.lastDownload.invalidURL "Неуспело, неисправна адреса">
+<!ENTITY subscription.lastDownload.invalidData "Неуспело, није листа филтера">
+<!ENTITY subscription.lastDownload.label "Последње преузимање:">
+<!ENTITY hitcount.column "Број погодака">
+<!ENTITY filter.paste.label "Убаци">
+<!ENTITY viewMenu.label "Приказ">
+<!ENTITY subscription.lastDownload.checksumMismatch "Неуспело, неслагање извештаја">
+<!ENTITY sort.label "Сортирај по">
+<!ENTITY subscription.lastDownload.unknown "Непознато">
+<!ENTITY slow.accesskey "п">
+<!ENTITY addSubscriptionOther.label "Додај другу претплату">
+<!ENTITY sort.ascending.accesskey "А">
+<!ENTITY sort.none.label "Непоређано">
+<!ENTITY filter.column "Правило филтера">
+<!ENTITY addFilter.label "Додај филтер">
+<!ENTITY subscription.lastDownload.connectionError "Неуспело, грешка у преузимању">
+<!ENTITY hitcount.accesskey "ј">
+<!ENTITY sort.descending.accesskey "Ш">
+<!ENTITY lasthit.column "Последњи погодак">
+<!ENTITY lasthit.accesskey "л">
+<!ENTITY filter.accesskey "ф">
+<!ENTITY enabled.accesskey "н">

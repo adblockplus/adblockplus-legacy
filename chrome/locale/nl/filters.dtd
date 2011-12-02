@@ -1,0 +1,35 @@
+<!ENTITY filter.copy.label "Kopiëren">
+<!ENTITY subscription.lastDownload.inProgress "Downloaden…">
+<!ENTITY filter.cut.label "Knippen">
+<!ENTITY sort.accesskey "S">
+<!ENTITY sort.descending.label "Z &amp;gt; A sortering">
+<!ENTITY addSubscription.label "Filterabonnement toevoegen">
+<!ENTITY subscription.lastDownload.success "Gelukt">
+<!ENTITY filter.delete.label "Verwijderen">
+<!ENTITY find.label "Zoeken">
+<!ENTITY sort.none.accesskey "O">
+<!ENTITY sort.ascending.label "A &amp;gt; Z sortering">
+<!ENTITY enabled.column "Ingeschakeld">
+<!ENTITY slow.column "Trage filters">
+<!ENTITY subscription.lastDownload.invalidURL "Mislukt, geen geldig adres">
+<!ENTITY subscription.lastDownload.invalidData "Mislukt, geen geldige filterlijst">
+<!ENTITY subscription.lastDownload.label "Laatste download:">
+<!ENTITY hitcount.column "Treffers">
+<!ENTITY filter.paste.label "Plakken">
+<!ENTITY viewMenu.label "Beeld">
+<!ENTITY subscription.lastDownload.checksumMismatch "Mislukt, afwijkend controlecijfer">
+<!ENTITY sort.label "Sorteren op">
+<!ENTITY subscription.lastDownload.unknown "N.B.">
+<!ENTITY slow.accesskey "r">
+<!ENTITY addSubscriptionOther.label "Een ander abonnement toevoegen">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.none.label "Ongesorteerd">
+<!ENTITY filter.column "Filterregel">
+<!ENTITY addFilter.label "Filter toevoegen">
+<!ENTITY subscription.lastDownload.connectionError "Mislukt, downloadprobleem">
+<!ENTITY hitcount.accesskey "T">
+<!ENTITY sort.descending.accesskey "Z">
+<!ENTITY lasthit.column "Laatste treffer">
+<!ENTITY lasthit.accesskey "L">
+<!ENTITY filter.accesskey "F">
+<!ENTITY enabled.accesskey "I">

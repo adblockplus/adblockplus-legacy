@@ -1,0 +1,35 @@
+<!ENTITY filter.copy.label "Kopírovať">
+<!ENTITY subscription.lastDownload.inProgress "Preberanie...">
+<!ENTITY filter.cut.label "Vystrihnúť">
+<!ENTITY sort.accesskey "T">
+<!ENTITY sort.descending.label "Triediť od Z &amp;gt; A">
+<!ENTITY addSubscription.label "Pridať povolenie filtra">
+<!ENTITY subscription.lastDownload.success "Úspešné">
+<!ENTITY filter.delete.label "Odstrániť">
+<!ENTITY find.label "Nájsť">
+<!ENTITY sort.none.accesskey "N">
+<!ENTITY sort.ascending.label "Triediť od A &amp;gt; Z">
+<!ENTITY enabled.column "Zapnuté">
+<!ENTITY slow.column "Voľné filtre">
+<!ENTITY subscription.lastDownload.invalidURL "Zlyhanie, neplatná adresa">
+<!ENTITY subscription.lastDownload.invalidData "Zlyhanie, neplatný zoznam filtrov">
+<!ENTITY subscription.lastDownload.label "Posledné prevzatie:">
+<!ENTITY hitcount.column "Počítadlá">
+<!ENTITY filter.paste.label "Prilepiť">
+<!ENTITY viewMenu.label "Zobraziť">
+<!ENTITY subscription.lastDownload.checksumMismatch "Zlyhalo, chybné prispôsobenie kontrolného súčtu">
+<!ENTITY sort.label "Triediť podľa">
+<!ENTITY subscription.lastDownload.unknown "N/A">
+<!ENTITY slow.accesskey "V">
+<!ENTITY addSubscriptionOther.label "Pridať iné odoberania">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.none.label "Netriedené">
+<!ENTITY filter.column "Pravidlo filtra">
+<!ENTITY addFilter.label "Pridať filter">
+<!ENTITY subscription.lastDownload.connectionError "Zlyhanie, sťahovanie neúspešné">
+<!ENTITY hitcount.accesskey "P">
+<!ENTITY sort.descending.accesskey "d">
+<!ENTITY lasthit.column "Posledný zápis">
+<!ENTITY lasthit.accesskey "s">
+<!ENTITY filter.accesskey "f">
+<!ENTITY enabled.accesskey "Z">

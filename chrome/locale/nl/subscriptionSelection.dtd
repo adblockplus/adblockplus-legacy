@@ -1,25 +1,16 @@
 <!ENTITY dialog.title "Adblock Plus filterabonnement toevoegen">
-<!ENTITY dialog.title.edit "Filterabonnement bewerken">
-<!ENTITY description.newInstall "Adblock Plus werkt het beste als u een filterabonnement toevoegt. Filterabonnementen worden gratis door andere gebruikers van Adblock Plus aangeboden. Het voor uw taal meest geschikte abonnement is al geselecteerd.">
 <!ENTITY subscriptionSelector.label "Kies a.u.b. een filterabonnement uit de lijst:">
 <!ENTITY viewList.label "Filters bekijken">
 <!ENTITY visitHomepage.label "Startpagina bezoeken">
 <!ENTITY addSubscription.label "Abonneren">
-<!ENTITY saveSubscription.label "Abonnement opslaan">
-<!ENTITY other.label "Een ander abonnement toevoegen">
-<!ENTITY other.accesskey "E">
 <!ENTITY list.download.failed "Adblock Plus kan de lijst met abonnementen niet ophalen.">
 <!ENTITY list.download.retry "Opnieuw proberen">
 <!ENTITY list.download.website "Website bekijken">
 <!ENTITY fromWeb.description "Bevestig a.u.b. dat u dit filterabonnement wilt toevoegen. U kunt de abonnementstitel of -locatie wijzigen voor toevoegen.">
-<!ENTITY edit.description "U kunt de abonnementstitel of -locatie naar believen wijzigen.">
-<!ENTITY external.description "Dit is een extern filterabonnement; het wordt bijgewerkt door de extensie die dit abonnement heeft aangemaakt.">
 <!ENTITY title.label "Abonnementstitel:">
 <!ENTITY title.accesskey "b">
 <!ENTITY location.label "Filterlijstlocatie:">
 <!ENTITY location.accesskey "l">
-<!ENTITY autodownload.label "Filters automatisch bijwerken">
-<!ENTITY autodownload.accesskey "t">
 <!ENTITY supplementMessage "Dit filterabonnement is bedoeld om samen gebruikt te worden met het filterabonnement “?1?”, dat u nog niet gebruikt.">
 <!ENTITY addMain.label "Filterabonnement “?1?” ook toevoegen">
 <!ENTITY addMain.accesskey "k">

@@ -13,8 +13,6 @@
 <!ENTITY sidebar.title "Ставке које се могу блокирати на овој страници">
 <!ENTITY sendReport.label "Пријави проблеме на овој страници">
 <!ENTITY sendReport.accesskey "И">
-<!ENTITY settings.label "Подешавања">
-<!ENTITY settings.accesskey "д">
 <!ENTITY opensidebar.label "Отвори ставке које се могу блокирати">
 <!ENTITY opensidebar.accesskey "т">
 <!ENTITY closesidebar.label "Затвори ставке које се могу блокирати">
@@ -22,6 +20,15 @@
 <!ENTITY whitelist.site.label "Онемогући на ?1?">
 <!ENTITY whitelist.page.label "Онемогући само на овој страници">
 <!ENTITY disable.label "Онемогући свуда">
-<!ENTITY recommend.label "Препоручи нас на Фејсбуку">
 <!ENTITY objecttab.title "Блокирај">
 <!ENTITY objecttab.tooltip "Кликните овде да бисте блокирали објекат помоћу Adblock Plus-а">
+<!ENTITY sync.accesskey "у">
+<!ENTITY showintoolbar.label "Прикажи у траци са алаткама">
+<!ENTITY options.label "Опције">
+<!ENTITY objecttabs.accesskey "к">
+<!ENTITY showinstatusbar.label "Прикажи у статусној траци">
+<!ENTITY showintoolbar.accesskey "т">
+<!ENTITY showinstatusbar.accesskey "с">
+<!ENTITY sync.label "Подешавања усклађивања Adblock Plus-а">
+<!ENTITY objecttabs.label "Прикажи језичак на Flash и Java објектима">
+<!ENTITY options.accesskey "п">

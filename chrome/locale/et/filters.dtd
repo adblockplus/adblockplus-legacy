@@ -1,0 +1,35 @@
+<!ENTITY filter.copy.label "Kopeeri">
+<!ENTITY subscription.lastDownload.inProgress "Laen alla...">
+<!ENTITY filter.cut.label "Lõika">
+<!ENTITY sort.accesskey "S">
+<!ENTITY sort.descending.label "Z &amp;gt; A sortimiskord">
+<!ENTITY addSubscription.label "Lisa filtrite tellimus">
+<!ENTITY subscription.lastDownload.success "Õnnestus">
+<!ENTITY filter.delete.label "Kustuta">
+<!ENTITY find.label "Otsi">
+<!ENTITY sort.none.accesskey "o">
+<!ENTITY sort.ascending.label "A &amp;gt; Z sortimiskord">
+<!ENTITY enabled.column "Lubatud">
+<!ENTITY slow.column "Aeglased filtrid">
+<!ENTITY subscription.lastDownload.invalidURL "Nurjus, vale aadress">
+<!ENTITY subscription.lastDownload.invalidData "Nurjus, vale filtrite nimekiri">
+<!ENTITY subscription.lastDownload.label "Viimati alla laaditud:">
+<!ENTITY hitcount.column "Tabamusi">
+<!ENTITY filter.paste.label "Aseta">
+<!ENTITY viewMenu.label "Vaade">
+<!ENTITY subscription.lastDownload.checksumMismatch "Nurjus, kontrollsumma ei klapi">
+<!ENTITY sort.label "Sortimine">
+<!ENTITY subscription.lastDownload.unknown "Pole teada">
+<!ENTITY slow.accesskey "e">
+<!ENTITY addSubscriptionOther.label "Lisa muu tellimus">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.none.label "Sortimata">
+<!ENTITY filter.column "Filtri reegel">
+<!ENTITY addFilter.label "Lisa filter">
+<!ENTITY subscription.lastDownload.connectionError "Nurjus, allalaadimise viga">
+<!ENTITY hitcount.accesskey "T">
+<!ENTITY sort.descending.accesskey "Z">
+<!ENTITY lasthit.column "Viimane tabamus">
+<!ENTITY lasthit.accesskey "V">
+<!ENTITY filter.accesskey "F">
+<!ENTITY enabled.accesskey "u">

@@ -13,8 +13,6 @@
 <!ENTITY sidebar.title "العناصر المحجوبة في الصفحة الحالية">
 <!ENTITY sendReport.label "التبليغ عن خطأ في هذه الصفحة">
 <!ENTITY sendReport.accesskey "ت">
-<!ENTITY settings.label "تفضيلات">
-<!ENTITY settings.accesskey "ض">
 <!ENTITY opensidebar.label "فتح العناصر المحجوبة">
 <!ENTITY opensidebar.accesskey "ج">
 <!ENTITY closesidebar.label "إغلاق العناصر المحجوبة">
@@ -22,6 +20,15 @@
 <!ENTITY whitelist.site.label "تعطيل على ?1?">
 <!ENTITY whitelist.page.label "تعطيل في هذه الصفحة فقط">
 <!ENTITY disable.label "تعطيل في جميع الأماكن">
-<!ENTITY recommend.label "انصح بنا على الفيسبوك">
 <!ENTITY objecttab.title "أحجب">
 <!ENTITY objecttab.tooltip "اضغط هنا لمنع هذا العنصر مع آدبلوك بلاس">
+<!ENTITY sync.accesskey "ز">
+<!ENTITY showintoolbar.label "عرض في شريط الأدوات">
+<!ENTITY options.label "خيارات">
+<!ENTITY objecttabs.accesskey "ت">
+<!ENTITY showinstatusbar.label "عرض في شريط الحالة">
+<!ENTITY showintoolbar.accesskey "ش">
+<!ENTITY showinstatusbar.accesskey "ح">
+<!ENTITY sync.label "مزامنة إعدادات آدبلوك بلس">
+<!ENTITY objecttabs.label "عرض تبويبات لفلاش و جافا">
+<!ENTITY options.accesskey "خ">

@@ -13,8 +13,6 @@
 <!ENTITY sidebar.title "Blokkolható objektumok">
 <!ENTITY sendReport.label "Hibás webhely bejelentése">
 <!ENTITY sendReport.accesskey "y">
-<!ENTITY settings.label "Beállítások">
-<!ENTITY settings.accesskey "B">
 <!ENTITY opensidebar.label "Blokkolható objektumok megjelenítése">
 <!ENTITY opensidebar.accesskey "j">
 <!ENTITY closesidebar.label "Blokkolható objektumok elrejtése">
@@ -22,6 +20,15 @@
 <!ENTITY whitelist.site.label "Szűrés tiltása itt: ?1?">
 <!ENTITY whitelist.page.label "Szűrés tiltása csak ezen az aloldalon">
 <!ENTITY disable.label "Letiltás mindenhol">
-<!ENTITY recommend.label "Ajánlj minket Facebookon">
 <!ENTITY objecttab.title "Blokkolás">
 <!ENTITY objecttab.tooltip "Kattintson ide a blokkoláshoz (Adblock Plus)">
+<!ENTITY sync.accesskey "z">
+<!ENTITY showintoolbar.label "Megjelenítés az eszköztáron">
+<!ENTITY options.label "Opciók">
+<!ENTITY objecttabs.accesskey "F">
+<!ENTITY showinstatusbar.label "Megjelenítés az állapotsoron">
+<!ENTITY showintoolbar.accesskey "e">
+<!ENTITY showinstatusbar.accesskey "l">
+<!ENTITY sync.label "Adblock Plus beállítások szinkronizálása">
+<!ENTITY objecttabs.label "Fülek megjelenítése Java és Flash objektumoknál">
+<!ENTITY options.accesskey "O">

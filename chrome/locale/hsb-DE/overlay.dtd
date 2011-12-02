@@ -13,8 +13,6 @@
 <!ENTITY sidebar.title "Blokujomne elementy na aktualnej stronje">
 <!ENTITY sendReport.label "Problem na tutej stronje zdźělić">
 <!ENTITY sendReport.accesskey "P">
-<!ENTITY settings.label "Nastajenja">
-<!ENTITY settings.accesskey "n">
 <!ENTITY opensidebar.label "Blokujomne elementy wočinić">
 <!ENTITY opensidebar.accesskey "k">
 <!ENTITY closesidebar.label "Blokujomne elementy začinić">
@@ -22,6 +20,15 @@
 <!ENTITY whitelist.site.label "Na ?1? znjemóžnić">
 <!ENTITY whitelist.page.label "Jenož na tutej stronje znjemóžnić">
 <!ENTITY disable.label "Wšudźe znjemóžnić">
-<!ENTITY recommend.label "Nas na Facebooku poručić">
 <!ENTITY objecttab.title "Blokować">
 <!ENTITY objecttab.tooltip "Klikńće sem, zo byšće tutón objekt z pomcu Adblock Plus blokował">
+<!ENTITY sync.accesskey "c">
+<!ENTITY showintoolbar.label "W gratowej lajsće pokazać">
+<!ENTITY options.label "Opcije">
+<!ENTITY objecttabs.accesskey "v">
+<!ENTITY showinstatusbar.label "W statusowej lajsće pokazać">
+<!ENTITY showintoolbar.accesskey "g">
+<!ENTITY showinstatusbar.accesskey "s">
+<!ENTITY sync.label "Nastajenja Adblock Plus synchronizować">
+<!ENTITY objecttabs.label "Rajtarki wo Flash a Java pokazać">
+<!ENTITY options.accesskey "O">

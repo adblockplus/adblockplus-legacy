@@ -2,10 +2,16 @@
 <!ENTITY menuitem.accesskey "B">
 <!ENTITY context.image.label "Íomhá Adblock">
 <!ENTITY context.frame.label "Creatlach Adblock">
-<!ENTITY settings.label "Sainroghanna">
-<!ENTITY settings.accesskey "F">
 <!ENTITY opensidebar.label "Oscail nithe ar féidir bac a chur orthu">
 <!ENTITY opensidebar.accesskey "B">
 <!ENTITY closesidebar.label "Dún nithe ar féidir bac a chur orthu">
 <!ENTITY closesidebar.accesskey "B">
 <!ENTITY objecttab.title "Cuir bac ar">
+<!ENTITY showintoolbar.label "Taispeáin i sabh na n-uirlisí">
+<!ENTITY options.label "Roghanna">
+<!ENTITY objecttabs.accesskey "T">
+<!ENTITY showinstatusbar.label "Taispeáin sa treosabh">
+<!ENTITY showintoolbar.accesskey "B">
+<!ENTITY showinstatusbar.accesskey "S">
+<!ENTITY objecttabs.label "Taispeáin cluaisíní ar Flash agus Java">
+<!ENTITY options.accesskey "O">

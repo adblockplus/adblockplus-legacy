@@ -13,8 +13,6 @@
 <!ENTITY sidebar.title "פריטים לחסימה בעמוד הנוכחי">
 <!ENTITY sendReport.label "דיווח בעיות בעמוד זה">
 <!ENTITY sendReport.accesskey "ד">
-<!ENTITY settings.label "העדפות">
-<!ENTITY settings.accesskey "ע">
 <!ENTITY opensidebar.label "פתיחת רשימת הפריטים לחסימה">
 <!ENTITY opensidebar.accesskey "ר">
 <!ENTITY closesidebar.label "סגירת הרשימה של הפריטים לחסימה">
@@ -22,6 +20,15 @@
 <!ENTITY whitelist.site.label "נטרול ב ?1?">
 <!ENTITY whitelist.page.label "נטרול בעמוד הזה בלבד">
 <!ENTITY disable.label "נטרול בכל מקום">
-<!ENTITY recommend.label "המלץ עלינו ב-Facebook">
 <!ENTITY objecttab.title "חסימה">
 <!ENTITY objecttab.tooltip "לחיצה כאן לחסימת פריט זה עם Adblock Plus">
+<!ENTITY sync.accesskey "כ">
+<!ENTITY showintoolbar.label "הצגה בסרגל הכלים">
+<!ENTITY options.label "אפשרויות">
+<!ENTITY objecttabs.accesskey "ג">
+<!ENTITY showinstatusbar.label "הצגה בשורת המצב">
+<!ENTITY showintoolbar.accesskey "ל">
+<!ENTITY showinstatusbar.accesskey "צ">
+<!ENTITY sync.label "סנכרון הגדרות Adblock Plus">
+<!ENTITY objecttabs.label "הצגת לשוניות על פלאש וג'אווה">
+<!ENTITY options.accesskey "פ">

@@ -1,0 +1,35 @@
+<!ENTITY filter.copy.label "Копировать">
+<!ENTITY subscription.lastDownload.inProgress "сейчас...">
+<!ENTITY filter.cut.label "Вырезать">
+<!ENTITY sort.accesskey "р">
+<!ENTITY sort.descending.label "В обратном порядке">
+<!ENTITY addSubscription.label "Добавить подписку">
+<!ENTITY subscription.lastDownload.success "OK">
+<!ENTITY filter.delete.label "Удалить">
+<!ENTITY find.label "Найти фильтр">
+<!ENTITY sort.none.accesskey "з">
+<!ENTITY sort.ascending.label "Сортировка по алфавиту">
+<!ENTITY enabled.column "Включено">
+<!ENTITY slow.column "Медленное">
+<!ENTITY subscription.lastDownload.invalidURL "Ошибка: неверный адрес">
+<!ENTITY subscription.lastDownload.invalidData "Ошибка: не список фильтров">
+<!ENTITY subscription.lastDownload.label "Последнее обновление:">
+<!ENTITY hitcount.column "Попаданий">
+<!ENTITY filter.paste.label "Вставить">
+<!ENTITY viewMenu.label "Вид">
+<!ENTITY subscription.lastDownload.checksumMismatch "Ошибка: проверочная сумма не совпадает, возможно ошибка скачивания">
+<!ENTITY sort.label "Сортировка">
+<!ENTITY subscription.lastDownload.unknown "никогда">
+<!ENTITY slow.accesskey "М">
+<!ENTITY addSubscriptionOther.label "Добавить другую подписку">
+<!ENTITY sort.ascending.accesskey "ф">
+<!ENTITY sort.none.label "Без сортировки">
+<!ENTITY filter.column "Правило">
+<!ENTITY addFilter.label "Добавить фильтр">
+<!ENTITY subscription.lastDownload.connectionError "Ошибка: невозможно скачать">
+<!ENTITY hitcount.accesskey "д">
+<!ENTITY sort.descending.accesskey "р">
+<!ENTITY lasthit.column "Последнее попадание">
+<!ENTITY lasthit.accesskey "л">
+<!ENTITY filter.accesskey "П">
+<!ENTITY enabled.accesskey "к">

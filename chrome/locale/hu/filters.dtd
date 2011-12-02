@@ -1,0 +1,35 @@
+<!ENTITY filter.copy.label "Másolás">
+<!ENTITY subscription.lastDownload.inProgress "Letöltés...">
+<!ENTITY filter.cut.label "Kivágás">
+<!ENTITY sort.accesskey "R">
+<!ENTITY sort.descending.label "Z &amp;gt; A rendezés">
+<!ENTITY addSubscription.label "Külső szűrő hozzáadása">
+<!ENTITY subscription.lastDownload.success "Sikeres">
+<!ENTITY filter.delete.label "Törlés">
+<!ENTITY find.label "Keresés">
+<!ENTITY sort.none.accesskey "e">
+<!ENTITY sort.ascending.label "A &amp;gt; Z rendezés">
+<!ENTITY enabled.column "Engedélyezve">
+<!ENTITY slow.column "Lassú szűrők">
+<!ENTITY subscription.lastDownload.invalidURL "Sikertelen, érvénytelen cím">
+<!ENTITY subscription.lastDownload.invalidData "Sikertelen, érvénytelen szűrőlista">
+<!ENTITY subscription.lastDownload.label "Legutóbb letöltve:">
+<!ENTITY hitcount.column "Találatok">
+<!ENTITY filter.paste.label "Beillesztés">
+<!ENTITY viewMenu.label "Nézet">
+<!ENTITY subscription.lastDownload.checksumMismatch "Sikertelen, érvénytelen ellenőrző összeg">
+<!ENTITY sort.label "Rendezés">
+<!ENTITY subscription.lastDownload.unknown "ismeretlen">
+<!ENTITY slow.accesskey "L">
+<!ENTITY addSubscriptionOther.label "Külső szűrő hozzáadása">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.none.label "Rendezetlen">
+<!ENTITY filter.column "Szűrő szabály">
+<!ENTITY addFilter.label "Szűrő hozzáadása">
+<!ENTITY subscription.lastDownload.connectionError "Sikertelen, letöltési hiba">
+<!ENTITY hitcount.accesskey "T">
+<!ENTITY sort.descending.accesskey "Z">
+<!ENTITY lasthit.column "Utolsó találat">
+<!ENTITY lasthit.accesskey "U">
+<!ENTITY filter.accesskey "S">
+<!ENTITY enabled.accesskey "n">

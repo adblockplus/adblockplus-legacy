@@ -13,8 +13,6 @@
 <!ENTITY sidebar.title "Item yang boleh disekat pada laman semasa">
 <!ENTITY sendReport.label "Lapor isu pada laman ini">
 <!ENTITY sendReport.accesskey "L">
-<!ENTITY settings.label "Tatarajah">
-<!ENTITY settings.accesskey "T">
 <!ENTITY opensidebar.label "Buka item yang boleh disekat">
 <!ENTITY opensidebar.accesskey "B">
 <!ENTITY closesidebar.label "Tutup item yang boleh disekat">
@@ -22,6 +20,15 @@
 <!ENTITY whitelist.site.label "Nyahaktifkan pada ?1?">
 <!ENTITY whitelist.page.label "Nyahaktifkan pada laman ini sahaja">
 <!ENTITY disable.label "Nyahaktif di semua tempat">
-<!ENTITY recommend.label "Sarankan kami di Facebook">
 <!ENTITY objecttab.title "Sekat">
 <!ENTITY objecttab.tooltip "Klik di sini untuk menyekat objek ini dengan Adblock Plus">
+<!ENTITY sync.accesskey "c">
+<!ENTITY showintoolbar.label "Paparkan di bar alatan">
+<!ENTITY options.label "Pilihan">
+<!ENTITY objecttabs.accesskey "t">
+<!ENTITY showinstatusbar.label "Paparkan di bar status">
+<!ENTITY showintoolbar.accesskey "n">
+<!ENTITY showinstatusbar.accesskey "s">
+<!ENTITY sync.label "Sync tatacara Adblock Plus">
+<!ENTITY objecttabs.label "Paparkan tab pada Flash dan Java">
+<!ENTITY options.accesskey "n">

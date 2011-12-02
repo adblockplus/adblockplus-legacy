@@ -13,8 +13,6 @@
 <!ENTITY sidebar.title "Blokkearbere ûnderdelen op dizze side">
 <!ENTITY sendReport.label "Rapportearje probleem op dizze side">
 <!ENTITY sendReport.accesskey "R">
-<!ENTITY settings.label "Foarkarren">
-<!ENTITY settings.accesskey "F">
 <!ENTITY opensidebar.label "Blokkearbere ûnderdielen iepenje">
 <!ENTITY opensidebar.accesskey "B">
 <!ENTITY closesidebar.label "Blokkearbere ûnderdielen slute">
@@ -22,6 +20,15 @@
 <!ENTITY whitelist.site.label "Utskeakelje op ?1?">
 <!ENTITY whitelist.page.label "Allinnich op dizze side útskeakelje">
 <!ENTITY disable.label "Oeral útskeakelje">
-<!ENTITY recommend.label "Rekommandearje ús oan op Facebook">
 <!ENTITY objecttab.title "Blokkearje">
 <!ENTITY objecttab.tooltip "Klik hjir om dit objekt te blokkearjen mei Adblock Plus">
+<!ENTITY sync.accesskey "c">
+<!ENTITY showintoolbar.label "Toane yn arkbalke">
+<!ENTITY options.label "Opsjes">
+<!ENTITY objecttabs.accesskey "T">
+<!ENTITY showinstatusbar.label "Toane yn steatbalke">
+<!ENTITY showintoolbar.accesskey "a">
+<!ENTITY showinstatusbar.accesskey "s">
+<!ENTITY sync.label "Sync Adblock Plus opsjes">
+<!ENTITY objecttabs.label "Ljepblêden sjen litte op Flash en Java">
+<!ENTITY options.accesskey "O">

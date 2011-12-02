@@ -1,25 +1,16 @@
 <!ENTITY dialog.title "Додати підписку на фільтри Adblock Plus">
-<!ENTITY dialog.title.edit "Редагувати підписку">
-<!ENTITY description.newInstall "Adblok Plus буде найефективніший якщо ви додасте фільтрову підписку. Фільтрові підписки надаються іншими користувачами Adblock Plus безплатно. Найбільш підходящі для вашої мови підписки вже вибрані.">
 <!ENTITY subscriptionSelector.label "Будь ласка виберіть фільтрову підписку з переліку:">
 <!ENTITY viewList.label "Глянути фільтри">
 <!ENTITY visitHomepage.label "Відвідати домашню сторінку">
 <!ENTITY addSubscription.label "Додати підписку">
-<!ENTITY saveSubscription.label "Зберегти підписку">
-<!ENTITY other.label "Додати іншу підписку">
-<!ENTITY other.accesskey "о">
 <!ENTITY list.download.failed "Adblock Plus не зміг отримати перелік підписок">
 <!ENTITY list.download.retry "Спробувати ще раз">
 <!ENTITY list.download.website "Глянути сайт">
 <!ENTITY fromWeb.description "Будь ласка підтвердіть що ви бажаєте додати цю фільтрову підписку. Ви можете змінити назву чи знаходження перед додаванням.">
-<!ENTITY edit.description "Ви можете змінити назву чи знаходження підписки якщо потрібно.">
-<!ENTITY external.description "Це зовнішня фільтрова підписка. Вона буде оновлюватись додатком що створив цю підписку.">
 <!ENTITY title.label "Назва підписки:">
 <!ENTITY title.accesskey "Н">
 <!ENTITY location.label "Адреса списку фільтрів:">
 <!ENTITY location.accesskey "е">
-<!ENTITY autodownload.label "Оновлювати автоматично">
-<!ENTITY autodownload.accesskey "а">
 <!ENTITY supplementMessage "Ця фільтрова підписка призначена для використання в парі з фільтровою підпискою «?1?», котру ви наразі не використовуєте.">
 <!ENTITY addMain.label "Додати також фільтрову підписку «?1?»">
 <!ENTITY addMain.accesskey "Д">

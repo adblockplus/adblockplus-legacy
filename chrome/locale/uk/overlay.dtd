@@ -13,8 +13,6 @@
 <!ENTITY sidebar.title "Елементи відкритої сторінки">
 <!ENTITY sendReport.label "Повідомити про проблеми на сторінці">
 <!ENTITY sendReport.accesskey "с">
-<!ENTITY settings.label "Налаштування">
-<!ENTITY settings.accesskey "ш">
 <!ENTITY opensidebar.label "Відкрити список елементів">
 <!ENTITY opensidebar.accesskey "п">
 <!ENTITY closesidebar.label "Закрити список елементів">
@@ -23,3 +21,11 @@
 <!ENTITY whitelist.page.label "Вимкнути: тільки на цій сторінці">
 <!ENTITY objecttab.title "Заблокувати">
 <!ENTITY objecttab.tooltip "Натисніть тут, щоб заблокувати цей об’єкт">
+<!ENTITY showintoolbar.label "Показувати в панелі інструментів">
+<!ENTITY options.label "Налаштування">
+<!ENTITY objecttabs.accesskey "я">
+<!ENTITY showinstatusbar.label "Показувати в рядку стану">
+<!ENTITY showintoolbar.accesskey "к">
+<!ENTITY showinstatusbar.accesskey "с">
+<!ENTITY objecttabs.label "Показувати ярлик на Flash і Java">
+<!ENTITY options.accesskey "а">

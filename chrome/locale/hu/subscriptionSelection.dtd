@@ -1,25 +1,16 @@
 <!ENTITY dialog.title "Adblock Plus szűrő felvétele">
-<!ENTITY dialog.title.edit "Külső szűrő szerkesztése">
-<!ENTITY description.newInstall "Ahhoz, hogy az Adblock Plus hatékonyabb legyen, adjon hozzá szűrőket. Ezeket a szűrőket más Adblock Plus felhasználók készítettek szabad felhasználás céljából. A régiójának megfelelő szűrők már ki vannak választva.">
 <!ENTITY subscriptionSelector.label "Kérem válassza ki a szűrőt a listából:">
 <!ENTITY viewList.label "Szűrők megtekintése">
 <!ENTITY visitHomepage.label "Honlap meglátogatása">
 <!ENTITY addSubscription.label "Szűrő hozzáadása">
-<!ENTITY saveSubscription.label "Szűrő mentése">
-<!ENTITY other.label "Külső szűrő hozzáadása">
-<!ENTITY other.accesskey "K">
 <!ENTITY list.download.failed "Hiba a szűrők betöltésekor.">
 <!ENTITY list.download.retry "Próbálja újra">
 <!ENTITY list.download.website "Weboldal megtekintése">
 <!ENTITY fromWeb.description "Kérem erősítse meg a szűrő hozzáadását. Módosíthatja a szűrő címét és helyét a hozzáadás előtt.">
-<!ENTITY edit.description "Ha szükséges, módosíthatja a szűrők címét ill. helyét.">
-<!ENTITY external.description "Ez egy külső szűrő. A szűrő frissítését az a kiterjesztés végzi el, amelyik a szűrőt létrehozta.">
 <!ENTITY title.label "Külső szűrő neve:">
 <!ENTITY title.accesskey "n">
 <!ENTITY location.label "Szűrőlista címe:">
 <!ENTITY location.accesskey "c">
-<!ENTITY autodownload.label "Automatikus frissítés">
-<!ENTITY autodownload.accesskey "A">
 <!ENTITY supplementMessage "Ez a szűrő a &quot;?1?&quot; szűrővel együtt használható csak, amely jelenleg nincs a szűrőkhez hozzáadva.">
 <!ENTITY addMain.label "Szűrő hozzáadása: &quot;?1?&quot;">
 <!ENTITY addMain.accesskey "h">

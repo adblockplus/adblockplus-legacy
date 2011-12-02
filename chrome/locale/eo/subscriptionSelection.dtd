@@ -1,25 +1,16 @@
 <!ENTITY dialog.title "Aldoni filtrilabonon de Adblock Plus">
-<!ENTITY dialog.title.edit "Redakti filtrilabonon">
-<!ENTITY description.newInstall "Adblock Plus estos plej efektiva, se vi aldonas filtrilabonon. Filtrilabonojn estas senkoste disponigataj de uzantoj de Adblock Plus. La plej taŭga abono por via lingvo estas jam elektita.">
 <!ENTITY subscriptionSelector.label "Bonvolu elekti filtrilabonon el la listo:">
 <!ENTITY viewList.label "Rigardi filtrilojn">
 <!ENTITY visitHomepage.label "Viziti hejmpaĝon">
 <!ENTITY addSubscription.label "Redakti abonon">
-<!ENTITY saveSubscription.label "Konservi abonon">
-<!ENTITY other.label "Aldoni alian abonon">
-<!ENTITY other.accesskey "d">
 <!ENTITY list.download.failed "Adblock Plus malsukcesis akiri la liston de abonoj.">
 <!ENTITY list.download.retry "Ankoraŭfoje provi">
 <!ENTITY list.download.website "Rigardi retejon">
 <!ENTITY fromWeb.description "Bonvolu konfirmi, ke vi volas aldoni ĉi tiun filtrilabonon. Vi povas ŝanĝi la abonan titolon aŭ lokon antaŭ ol vi aldonas ĝin.">
-<!ENTITY edit.description "Vi povas ŝanĝi ka titolon aŭ lokon de la abono laŭ via bezono.">
-<!ENTITY external.description "Tio estas ekstera filtrilabono; ĝi estos ĝisdatigata per la etendaĵo, kiu kreis ĉi tiun abonon.">
 <!ENTITY title.label "Titolo de la abono:">
 <!ENTITY title.accesskey "t">
 <!ENTITY location.label "Loko de la listo de filtriloj:">
 <!ENTITY location.accesskey "l">
-<!ENTITY autodownload.label "Aŭtomate ĝisdatigi filtrilojn">
-<!ENTITY autodownload.accesskey "A">
 <!ENTITY supplementMessage "Ĉi tiu filtrilabono estu uzata kun la filtrilabono &quot;?1?&quot;, kiun vi ankoraŭ ne uzas.">
 <!ENTITY addMain.label "Ankaŭ aldoni filtrilabonon &quot;?1?&quot;">
 <!ENTITY addMain.accesskey "f">

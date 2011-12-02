@@ -1,0 +1,35 @@
+<!ENTITY filter.copy.label "Kopioi">
+<!ENTITY subscription.lastDownload.inProgress "Lataa...">
+<!ENTITY filter.cut.label "Leikkaa">
+<!ENTITY sort.accesskey "E">
+<!ENTITY sort.descending.label "Z &amp;gt; A lajittelu">
+<!ENTITY addSubscription.label "Lisää suodatintilaus">
+<!ENTITY subscription.lastDownload.success "Onnistui">
+<!ENTITY filter.delete.label "Poista">
+<!ENTITY find.label "Etsi">
+<!ENTITY sort.none.accesskey "L">
+<!ENTITY sort.ascending.label "A &amp;gt; Z lajittelu">
+<!ENTITY enabled.column "Käytössä">
+<!ENTITY slow.column "Hitaat suodattimet">
+<!ENTITY subscription.lastDownload.invalidURL "Epäonnistui, kelvoton osoite">
+<!ENTITY subscription.lastDownload.invalidData "Epäonnistui, kelvoton suodatinlista">
+<!ENTITY subscription.lastDownload.label "Viimeisin lataus:">
+<!ENTITY hitcount.column "Osumat">
+<!ENTITY filter.paste.label "Liitä">
+<!ENTITY viewMenu.label "Näytä">
+<!ENTITY subscription.lastDownload.checksumMismatch "Epäonnistui, tarkistussumma ei täsmää">
+<!ENTITY sort.label "Lajitteluperuste">
+<!ENTITY subscription.lastDownload.unknown "N/A">
+<!ENTITY slow.accesskey "H">
+<!ENTITY addSubscriptionOther.label "Lisää jokin muu tilaus">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.none.label "Ei lajiteltu">
+<!ENTITY filter.column "Suodatusehto">
+<!ENTITY addFilter.label "Lisää suodatin">
+<!ENTITY subscription.lastDownload.connectionError "Epäonnistui, latausvirhe">
+<!ENTITY hitcount.accesskey "O">
+<!ENTITY sort.descending.accesskey "Z">
+<!ENTITY lasthit.column "Viimeisin osuma">
+<!ENTITY lasthit.accesskey "V">
+<!ENTITY filter.accesskey "S">
+<!ENTITY enabled.accesskey "y">

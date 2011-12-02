@@ -13,8 +13,6 @@
 <!ENTITY sidebar.title "本頁可阻擋項目">
 <!ENTITY sendReport.label "回報此頁面錯誤">
 <!ENTITY sendReport.accesskey "R">
-<!ENTITY settings.label "偏好設定">
-<!ENTITY settings.accesskey "f">
 <!ENTITY opensidebar.label "開啟可阻擋項目">
 <!ENTITY opensidebar.accesskey "b">
 <!ENTITY closesidebar.label "關閉可阻擋項目">
@@ -22,6 +20,15 @@
 <!ENTITY whitelist.site.label "此網域設為白名單: ?1?">
 <!ENTITY whitelist.page.label "只將此頁面設為白名單">
 <!ENTITY disable.label "全部停用">
-<!ENTITY recommend.label "在 Facebook 上給我們建議">
 <!ENTITY objecttab.title "封鎖">
 <!ENTITY objecttab.tooltip "請按這裡用 Adblock Plus 封鎖此物件">
+<!ENTITY sync.accesskey "c">
+<!ENTITY showintoolbar.label "顯示工具列按鈕">
+<!ENTITY options.label "選項">
+<!ENTITY objecttabs.accesskey "T">
+<!ENTITY showinstatusbar.label "顯示狀態列圖示">
+<!ENTITY showintoolbar.accesskey "B">
+<!ENTITY showinstatusbar.accesskey "S">
+<!ENTITY sync.label "同步 Adblock 設定值">
+<!ENTITY objecttabs.label "Flash 和 Java 物件上顯示頁籤">
+<!ENTITY options.accesskey "O">

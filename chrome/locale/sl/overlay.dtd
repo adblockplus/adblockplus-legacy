@@ -13,8 +13,6 @@
 <!ENTITY sidebar.title "Elementi blokad na trenutni strani">
 <!ENTITY sendReport.label "Javite težavo na tej strani">
 <!ENTITY sendReport.accesskey "J">
-<!ENTITY settings.label "Nastavitve">
-<!ENTITY settings.accesskey "N">
 <!ENTITY opensidebar.label "Odpri elemente blokad">
 <!ENTITY opensidebar.accesskey "e">
 <!ENTITY closesidebar.label "Zapri elemente blokad">
@@ -22,6 +20,15 @@
 <!ENTITY whitelist.site.label "Onemogoči na ?1?">
 <!ENTITY whitelist.page.label "Onemogoči samo na tej strani">
 <!ENTITY disable.label "Onemogoči povsod">
-<!ENTITY recommend.label "Priporočite nas na Facebooku">
 <!ENTITY objecttab.title "Blokiraj">
 <!ENTITY objecttab.tooltip "Kliknite sem za blokiranje tega predmeta z Adblock Plus">
+<!ENTITY sync.accesskey "h">
+<!ENTITY showintoolbar.label "Pokaži v orodni vrstici">
+<!ENTITY options.label "Možnosti">
+<!ENTITY objecttabs.accesskey "z">
+<!ENTITY showinstatusbar.label "Pokaži v vrstici stanja">
+<!ENTITY showintoolbar.accesskey "k">
+<!ENTITY showinstatusbar.accesskey "v">
+<!ENTITY sync.label "Sinhroniziraj nastavitve Adblock Plus">
+<!ENTITY objecttabs.label "Pokaži zavihke za Flash in Javo">
+<!ENTITY options.accesskey "ž">

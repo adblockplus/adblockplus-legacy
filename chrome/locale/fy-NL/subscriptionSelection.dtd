@@ -1,27 +1,16 @@
 <!ENTITY dialog.title "Foegje Adblock Plus filterabonnemint ta">
-<!ENTITY dialog.title.edit "Filter abonnemint wizigje">
-<!ENTITY description.newInstall "Adblock Plus sil it meast effektyf wêze as jo in filterabonnemint tafoegje.
-	Filterabonneminten wurde oanlevere troch oare Adblock Plus brûkers hielendal fergees.
-	It meast fan tapassing achte abonnnemint foar jo taal is al selektearre.">
 <!ENTITY subscriptionSelector.label "Kies in filterabonnemint út de list:">
 <!ENTITY viewList.label "Toan filters">
 <!ENTITY visitHomepage.label "Besykje thússide">
 <!ENTITY addSubscription.label "Abonnemint tafoegje">
-<!ENTITY saveSubscription.label "Abonnemint bewarje">
-<!ENTITY other.label "In oar abonnemint tafoegje">
-<!ENTITY other.accesskey "T">
 <!ENTITY list.download.failed "It is Adblock Plus net slagge om de list mei abonneminten te krijen.">
 <!ENTITY list.download.retry "Op 'e nij besykje">
 <!ENTITY list.download.website "Toan webstee">
 <!ENTITY fromWeb.description "Befestigje asjobleaft dat jo dit filterabonnemint tafoegje wolle. Jo kinne de abonneminttitel of lokaasje wizigje foardat jo it tafoegje.">
-<!ENTITY edit.description "Jo kinne de abonneminttitel of lokaasje wizigje as jo wolle.">
-<!ENTITY external.description "Dit is een ekstern filterabonnemint; it sil fernijd wurde by de útwreiding dy't dit abonnemint makke hat.">
 <!ENTITY title.label "Abonnemintnamme:">
 <!ENTITY title.accesskey "B">
 <!ENTITY location.label "Filterlist lokaasje:">
 <!ENTITY location.accesskey "L">
-<!ENTITY autodownload.label "Automatysk bywurkje">
-<!ENTITY autodownload.accesskey "A">
 <!ENTITY supplementMessage "Dit filterabonnemint is bedoeld om brûkt te wurden mei it filterabonnemint &quot;?1?&quot; dy't jo no noch net brûke.">
 <!ENTITY addMain.label "Filterabonnemint &quot;?1?&quot; ek tafoegje">
 <!ENTITY addMain.accesskey "F">

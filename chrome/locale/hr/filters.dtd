@@ -1,0 +1,35 @@
+<!ENTITY filter.copy.label "Kopiraj">
+<!ENTITY subscription.lastDownload.inProgress "Preuzimanje...">
+<!ENTITY filter.cut.label "Izreži">
+<!ENTITY sort.accesskey "S">
+<!ENTITY sort.descending.label "Z &amp;gt; A red slaganja">
+<!ENTITY addSubscription.label "Dodaj pretplatu na filter">
+<!ENTITY subscription.lastDownload.success "Uspjeh">
+<!ENTITY filter.delete.label "Obriši">
+<!ENTITY find.label "Traži">
+<!ENTITY sort.none.accesskey "N">
+<!ENTITY sort.ascending.label "A &amp;gt; Z red slaganja">
+<!ENTITY enabled.column "Omogućeno">
+<!ENTITY slow.column "Spori filteri">
+<!ENTITY subscription.lastDownload.invalidURL "Neuspjeh, neispravna adresa">
+<!ENTITY subscription.lastDownload.invalidData "Neuspjeh, neispravan popis filtera">
+<!ENTITY subscription.lastDownload.label "Zadnje preuzimanje:">
+<!ENTITY hitcount.column "Pogoci">
+<!ENTITY filter.paste.label "Zalijepi">
+<!ENTITY viewMenu.label "Pogledati">
+<!ENTITY subscription.lastDownload.checksumMismatch "Neuspješno, neusklađenost checksum-a.">
+<!ENTITY sort.label "Posložiti po">
+<!ENTITY subscription.lastDownload.unknown "N/A">
+<!ENTITY slow.accesskey "w">
+<!ENTITY addSubscriptionOther.label "Dodajte drugu pretplatu">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.none.label "Neposloženo">
+<!ENTITY filter.column "Pravilo filtera">
+<!ENTITY addFilter.label "Dodaj filter">
+<!ENTITY subscription.lastDownload.connectionError "Neuspjeh, neuspjelo preuzimanje">
+<!ENTITY hitcount.accesskey "H">
+<!ENTITY sort.descending.accesskey "Z">
+<!ENTITY lasthit.column "Posljednji pogodak">
+<!ENTITY lasthit.accesskey "L">
+<!ENTITY filter.accesskey "F">
+<!ENTITY enabled.accesskey "m">

@@ -1,25 +1,16 @@
 <!ENTITY dialog.title "구독 필터 추가">
-<!ENTITY dialog.title.edit "구독 필터 편집">
-<!ENTITY description.newInstall "구독 필터는 주기적으로 자동 업데이트되는 필터로서 광고를 효율적으로 차단할 수 있습니다.">
 <!ENTITY subscriptionSelector.label "구독할 필터를 선택하거나 이름/위치를 입력하십시오.">
 <!ENTITY viewList.label "필터 보기">
 <!ENTITY visitHomepage.label "홈페이지">
 <!ENTITY addSubscription.label "추가">
-<!ENTITY saveSubscription.label "확인">
-<!ENTITY other.label "다른 구독 필터 추가 (F)">
-<!ENTITY other.accesskey "f">
 <!ENTITY list.download.failed "구독 필터 목록의 검색 실패">
 <!ENTITY list.download.retry "다시 시도">
 <!ENTITY list.download.website "웹 사이트">
 <!ENTITY fromWeb.description "추가하려는 구독 필터인지 확인하십시오. 추가하기 전에 이름 또는 위치를 변경할 수 있습니다.">
-<!ENTITY edit.description "구독 필터의 이름 또는 위치를 변경할 수 있습니다.">
-<!ENTITY external.description "외부 구독 필터입니다. 이 구독 필터를 생성한 부가 기능에 의해 필터 목록이 주기적으로 업데이트됩니다.">
 <!ENTITY title.label "이름 (T)">
 <!ENTITY title.accesskey "T">
 <!ENTITY location.label "위치 (L)">
 <!ENTITY location.accesskey "L">
-<!ENTITY autodownload.label "자동 업데이트 (P)">
-<!ENTITY autodownload.accesskey "P">
 <!ENTITY supplementMessage "선택한 구독 필터는 &quot;?1?&quot;와(과) 함께 추가할 것을 권장합니다.">
 <!ENTITY addMain.label "&quot;?1?&quot; 구독 필터도 함께 추가">
 <!ENTITY addMain.accesskey "s">

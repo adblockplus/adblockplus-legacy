@@ -1,25 +1,16 @@
 <!ENTITY dialog.title "Add Adblock Plus filter subscription">
-<!ENTITY dialog.title.edit "Edit filter subscription">
-<!ENTITY description.newInstall "Adblock Plus will be most effective if you add a filter subscription. Filter subscriptions are provided by other Adblock Plus users free of charge. The most suitable subscription for your language is already selected.">
 <!ENTITY subscriptionSelector.label "Please choose a filter subscription from the list:">
 <!ENTITY viewList.label "View filters">
 <!ENTITY visitHomepage.label "Visit home page">
 <!ENTITY addSubscription.label "Add subscription">
-<!ENTITY saveSubscription.label "Save subscription">
-<!ENTITY other.label "Add a different subscription">
-<!ENTITY other.accesskey "f">
 <!ENTITY list.download.failed "Adblock Plus failed to retrieve the list of subscriptions.">
 <!ENTITY list.download.retry "Try again">
 <!ENTITY list.download.website "View website">
 <!ENTITY fromWeb.description "Please confirm that you want to add this filter subscription. You can change the subscription title or location before adding it.">
-<!ENTITY edit.description "You can change the subscription title or location as necessary.">
-<!ENTITY external.description "This is an external filter subscription; it will be updated by the extension that created this subscription.">
 <!ENTITY title.label "Subscription title:">
 <!ENTITY title.accesskey "t">
 <!ENTITY location.label "Filter list location:">
 <!ENTITY location.accesskey "l">
-<!ENTITY autodownload.label "Update automatically">
-<!ENTITY autodownload.accesskey "p">
 <!ENTITY supplementMessage "This filter subscription is meant to be used with the filter subscription &quot;?1?&quot; which you are not using yet.">
 <!ENTITY addMain.label "Add filter subscription &quot;?1?&quot; as well">
 <!ENTITY addMain.accesskey "s">

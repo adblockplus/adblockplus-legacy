@@ -1,0 +1,35 @@
+<!ENTITY filter.copy.label "Kopijuoti">
+<!ENTITY subscription.lastDownload.inProgress "Atsiunčiama...">
+<!ENTITY filter.cut.label "Iškirpti">
+<!ENTITY sort.accesskey "k">
+<!ENTITY sort.descending.label "Rikiavimo tvarka „Z &amp;gt; A“">
+<!ENTITY addSubscription.label "Pridėti filtro prenumeratą">
+<!ENTITY subscription.lastDownload.success "Pavyko">
+<!ENTITY filter.delete.label "Pašalinti">
+<!ENTITY find.label "Rasti">
+<!ENTITY sort.none.accesskey "N">
+<!ENTITY sort.ascending.label "Rikiavimo tvarka „A &amp;gt; Z“">
+<!ENTITY enabled.column "Įjungta">
+<!ENTITY slow.column "Lėti filtrai">
+<!ENTITY subscription.lastDownload.invalidURL "Nepavyko, netinkamas adresas">
+<!ENTITY subscription.lastDownload.invalidData "Nepavyko, netinkamas filtrų sąrašas">
+<!ENTITY subscription.lastDownload.label "Paskutinis atsiuntimas:">
+<!ENTITY hitcount.column "Blokavimai">
+<!ENTITY filter.paste.label "Įdėti">
+<!ENTITY viewMenu.label "Rodymas">
+<!ENTITY subscription.lastDownload.checksumMismatch "Nepavyko, bloga kontrolinė suma">
+<!ENTITY sort.label "Rikiuoti pagal">
+<!ENTITY subscription.lastDownload.unknown "N/D">
+<!ENTITY slow.accesskey "w">
+<!ENTITY addSubscriptionOther.label "Pridėti kitą prenumeratą">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.none.label "Nerikiuojama">
+<!ENTITY filter.column "Filtro taisyklė">
+<!ENTITY addFilter.label "Pridėti filtrą">
+<!ENTITY subscription.lastDownload.connectionError "Nepavyko, atsiuntimo klaida">
+<!ENTITY hitcount.accesskey "H">
+<!ENTITY sort.descending.accesskey "Z">
+<!ENTITY lasthit.column "Paskutinis blokavimas">
+<!ENTITY lasthit.accesskey "L">
+<!ENTITY filter.accesskey "F">
+<!ENTITY enabled.accesskey "n">

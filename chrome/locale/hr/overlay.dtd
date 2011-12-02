@@ -11,8 +11,6 @@
 <!ENTITY context.media.label "Adblock Plus: Blokirati audio/video">
 <!ENTITY context.removeWhitelist.label "Adblock Plus: Ponovno omogućiti na ovoj stranici">
 <!ENTITY sidebar.title "Stavke koje se mogu blokirati na trenutnoj stranici">
-<!ENTITY settings.label "Postavke">
-<!ENTITY settings.accesskey "t">
 <!ENTITY opensidebar.label "Otvori stavke koje se mogu blokirati">
 <!ENTITY opensidebar.accesskey "b">
 <!ENTITY closesidebar.label "Zatvori stavke koje se mogu blokirati">
@@ -21,3 +19,11 @@
 <!ENTITY whitelist.page.label "Onemogući samo na ovoj stranici">
 <!ENTITY objecttab.title "Blokiraj">
 <!ENTITY objecttab.tooltip "Kliknite ovdje da biste ovaj objekt blokirali s Adblock Plus">
+<!ENTITY showintoolbar.label "Prikaži u alatnoj traci">
+<!ENTITY options.label "Opcije">
+<!ENTITY objecttabs.accesskey "k">
+<!ENTITY showinstatusbar.label "Prikaži u statusnoj traci">
+<!ENTITY showintoolbar.accesskey "a">
+<!ENTITY showinstatusbar.accesskey "s">
+<!ENTITY objecttabs.label "Prikaži kartice s Flashom i Javom">
+<!ENTITY options.accesskey "O">

@@ -1,25 +1,16 @@
 <!ENTITY dialog.title "Add Adblock Plus – zestawy filtrów">
-<!ENTITY dialog.title.edit "Edycja zestawów filtrów">
-<!ENTITY description.newInstall "Dla Adblock Plusa najbardziej efektywnym sposobem pozyskania filtrów jest dodanie subskrypcji zestawu filtrów. Znajdujące się w rozwijanym menu zestawy filtrów są udostępniane przez innych użytkowników Adblock Plusa za darmo. Najodpowiedniejsze zestawy filtrów dla Twojego języka są wyróżnione.">
 <!ENTITY subscriptionSelector.label "Wybierz z listy zestaw filtrów:">
 <!ENTITY viewList.label "Zobacz filtry">
 <!ENTITY visitHomepage.label "Przejdź na stronę zestawu">
 <!ENTITY addSubscription.label "Subskrybuj zestaw">
-<!ENTITY saveSubscription.label "Zapisz zestaw">
-<!ENTITY other.label "Wybierz inny zestaw">
-<!ENTITY other.accesskey "W">
 <!ENTITY list.download.failed "Nie udało się pobrać listy zestawów.">
 <!ENTITY list.download.retry "Spróbuj jeszcze raz">
 <!ENTITY list.download.website "Zobacz witrynę">
 <!ENTITY fromWeb.description "Potwierdź zamiar dodania tego zestawu filtrów. Przed dodaniem zestawu możesz zmienić jego nazwę lub lokalizację.">
-<!ENTITY edit.description "Jeśli zachodzi potrzeba, możesz zmienić nazwę lub lokalizację zestawu.">
-<!ENTITY external.description "To jest zewnętrzny zestaw filtrów. Zestaw będzie aktualizowany przez rozszerzenie za pomocą, którego został utworzony.">
 <!ENTITY title.label "Nazwa zestawu:">
 <!ENTITY title.accesskey "N">
 <!ENTITY location.label "Lokalizacja zestawu:">
 <!ENTITY location.accesskey "L">
-<!ENTITY autodownload.label "Aktualizuj automatycznie">
-<!ENTITY autodownload.accesskey "A">
 <!ENTITY supplementMessage "Ten zestaw filtrów musi być używany z zestawem „;?1?”, który nie jest jeszcze subskrybowany.">
 <!ENTITY addMain.label "Dodaj także zestaw „;?1?”">
 <!ENTITY addMain.accesskey "S">

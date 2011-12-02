@@ -1,25 +1,16 @@
 <!ENTITY dialog.title "Претплата на филтере Adblock Plus-а">
-<!ENTITY dialog.title.edit "Уређивање претплате на филтер">
-<!ENTITY description.newInstall "Adblock Plus ће бити најучинковитији ако додате претплату на филтер. Претплате на филтере бесплатно омогућавају други корисници Adblock Plus-а. Одабрана је претплата која је најприкладнија вашем језику.">
 <!ENTITY subscriptionSelector.label "Изаберите једну претплату на филтер са списка:">
 <!ENTITY viewList.label "Погледај филтере">
 <!ENTITY visitHomepage.label "Посети матичну страницу">
 <!ENTITY addSubscription.label "Додај претплату">
-<!ENTITY saveSubscription.label "Сачувај претплату">
-<!ENTITY other.label "Додај другу претплату">
-<!ENTITY other.accesskey "д">
 <!ENTITY list.download.failed "Adblock Plus није успео да набави нови списак претплата.">
 <!ENTITY list.download.retry "Покушај поново">
 <!ENTITY list.download.website "Посети интернетску страницу">
 <!ENTITY fromWeb.description "Потврдите да желите додати претплату на овај филтерт">
-<!ENTITY edit.description "По потреби, можете да промените назив или локацију претплате.">
-<!ENTITY external.description "Ово је претплата на спољни филтер; биће ажуриран са додатком који је направио ову претплату.">
 <!ENTITY title.label "Назив претплате:">
 <!ENTITY title.accesskey "Н">
 <!ENTITY location.label "Локација списка са филтерима:">
 <!ENTITY location.accesskey "Л">
-<!ENTITY autodownload.label "Аутоматско ажурирање">
-<!ENTITY autodownload.accesskey "А">
 <!ENTITY supplementMessage "Ова претплата на филтер је предвиђена за коришћење са филтером „?1?” који још увек не користите.">
 <!ENTITY addMain.label "Додај и претплату на филтер „?1?”">
 <!ENTITY addMain.accesskey "о">

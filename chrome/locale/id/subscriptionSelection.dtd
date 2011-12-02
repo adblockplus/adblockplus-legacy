@@ -1,10 +1,5 @@
 <!ENTITY dialog.title "Tambahkan skrip filter Adblock Plus">
-<!ENTITY dialog.title.edit "Edit skrip filter">
-<!ENTITY other.label "Tambahkan skrip yang berbeda">
-<!ENTITY other.accesskey "y">
 <!ENTITY title.label "Judul Skrip:">
 <!ENTITY title.accesskey "J">
 <!ENTITY location.label "Lokasi daftar filter:">
 <!ENTITY location.accesskey "L">
-<!ENTITY autodownload.label "Update otomatis">
-<!ENTITY autodownload.accesskey "P">
