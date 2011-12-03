@@ -17,20 +17,41 @@ my %paths = (
 );
 
 my @mustDiffer = (
-  ['abp:overlay:opensidebar.accesskey', 'abp:overlay:sendReport.accesskey', 'abp:overlay:filters.accesskey', 'abp:settings:options.accesskey', 'ehh:overlay:selectelement.accesskey'],
-  ['abp:settings:filters.accesskey', 'abp:settings:edit.accesskey', 'abp:settings:view.accesskey', 'abp:settings:options.accesskey', 'abp:settings:help.accesskey', 'abp:settings:add.accesskey', 'abp:settings:apply.accesskey'],
-  ['abp:settings:add.accesskey', 'abp:settings:addsubscription.accesskey', 'abp:settings:synchsubscriptions.accesskey', 'abp:settings:import.accesskey', 'abp:settings:export.accesskey', 'abp:settings:clearall.accesskey', 'abp:settings:resethitcounts.accesskey'],
-  ['abp:settings:cut.accesskey', 'abp:settings:copy.accesskey', 'abp:settings:paste.accesskey', 'abp:settings:remove.accesskey', 'abp:settings:menu.find.accesskey', 'abp:settings:menu.findagain.accesskey'],
-  ['abp:settings:filter.accesskey', 'abp:settings:slow.accesskey', 'abp:settings:enabled.accesskey', 'abp:settings:hitcount.accesskey', 'abp:settings:lasthit.accesskey', 'abp:settings:sort.accesskey'],
-  ['abp:settings:sort.none.accesskey', 'abp:settings:filter.accesskey', 'abp:settings:slow.accesskey', 'abp:settings:enabled.accesskey', 'abp:settings:hitcount.accesskey', 'abp:settings:lasthit.accesskey', 'abp:settings:sort.ascending.accesskey', 'abp:settings:sort.descending.accesskey'],
-  ['abp:settings:enable.accesskey', 'abp:settings:showintoolbar.accesskey', 'abp:settings:showinstatusbar.accesskey', 'abp:settings:objecttabs.accesskey', 'abp:settings:collapse.accesskey', 'abp:settings:sync.accesskey'],
-  ['abp:settings:gettingStarted.accesskey', 'abp:settings:faq.accesskey', 'abp:settings:filterdoc.accesskey', 'abp:settings:about.accesskey'],
-  ['abp:subscriptionSelection:other.accesskey', 'abp:subscriptionSelection:title.accesskey', 'abp:subscriptionSelection:location.accesskey', 'abp:subscriptionSelection:autodownload.accesskey', 'abp:subscriptionSelection:addMain.accesskey'],
+  ['abp:overlay:opensidebar.accesskey', 'abp:overlay:sendReport.accesskey', 'abp:overlay:filters.accesskey', 'abp:overlay:options.accesskey', 'ehh:overlay:selectelement.accesskey'],
+  [
+    'abp:overlay:showintoolbar.accesskey', 'abp:overlay:showinstatusbar.accesskey',
+    'abp:overlay:objecttabs.accesskey', 'abp:overlay:hideplaceholders.accesskey',
+    'abp:overlay:counthits.accesskey', 'abp:overlay:sync.accesskey'
+  ],
+  ['abp:subscriptionSelection:title.accesskey', 'abp:subscriptionSelection:location.accesskey', 'abp:subscriptionSelection:addMain.accesskey'],
   ['abp:composer:filter.accesskey', 'abp:composer:preferences.accesskey', 'abp:composer:type.filter.accesskey', 'abp:composer:type.whitelist.accesskey', 'abp:composer:custom.pattern.accesskey', 'abp:composer:anchor.start.accesskey', 'abp:composer:anchor.end.accesskey', 'abp:composer:domainRestriction.accesskey', 'abp:composer:firstParty.accesskey', 'abp:composer:thirdParty.accesskey', 'abp:composer:matchCase.accesskey', 'abp:composer:collapse.accesskey'],
   ['abp:sendReport:typeSelector.falsePositive.accesskey', 'abp:sendReport:typeSelector.falseNegative.accesskey', 'abp:sendReport:typeSelector.other.accesskey', 'abp:sendReport:recentReports.clear.accesskey'],
   ['abp:sendReport:typeWarning.override.accesskey', 'abp:sendReport:reloadButton.accesskey'],
   ['abp:sendReport:screenshot.attach.accesskey', 'abp:sendReport:screenshot.mark.accesskey', 'abp:sendReport:screenshot.remove.accesskey', 'abp:sendReport:screenshot.undo.accesskey'],
   ['abp:sendReport:comment.accesskey', 'abp:sendReport:email.accesskey', 'abp:sendReport:attachExtensions.accesskey', 'abp:sendReport:sendButton.accesskey', 'abp:sendReport:data.accesskey'],
+  [
+    'abp:filters:addSubscription.accesskey', 'abp:filters:acceptableAds.accesskey',
+    'abp:filters:addFilter.accesskey', 'abp:filters:backupButton.accesskey',
+    'abp:filters:find.accesskey',
+  ],
+  [
+    'abp:filters:addGroup.accesskey',
+    'abp:filters:addFilter.accesskey', 'abp:filters:backupButton.accesskey',
+    'abp:filters:find.accesskey',
+  ],
+  [
+    'abp:filters:filter.accesskey', 'abp:filters:slow.accesskey',
+    'abp:filters:enabled.accesskey', 'abp:filters:hitcount.accesskey',
+    'abp:filters:lasthit.accesskey', 'abp:filters:sort.accesskey',
+  ],
+  [
+    'abp:filters:sort.none.accesskey',
+    'abp:filters:filter.accesskey', 'abp:filters:slow.accesskey',
+    'abp:filters:enabled.accesskey', 'abp:filters:hitcount.accesskey',
+    'abp:filters:lasthit.accesskey',
+    'abp:filters:sort.ascending.accesskey',
+    'abp:filters:sort.descending.accesskey',
+  ],
   [
     'ehh:global:command.select.key', 'ehh:global:command.select.alternativeKey',
     'ehh:global:command.wider.key', 'ehh:global:command.wider.alternativeKey',
@@ -46,6 +67,7 @@ my @mustDiffer = (
 
 my @mustEqual = (
   ['abp:overlay:opensidebar.accesskey', 'abp:overlay:closesidebar.accesskey'],
+  ['abp:overlay:showintoolbar.accesskey', 'abp:overlay:showinaddonbar.accesskey']
   ['abp:composer:anchor.start.accesskey', 'abp:composer:anchor.start.flexible.accesskey'],
   ['ehh:overlay:selectelement.accesskey', 'ehh:overlay:stopselection.accesskey'],
 );
