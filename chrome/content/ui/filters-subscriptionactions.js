@@ -249,6 +249,11 @@ var SubscriptionActions =
 
     if (event.charCode == " ".charCodeAt(0) && modifiers == 0)
     {
+      // Ignore if Space is pressed on a button
+      for (let node = event.target; node; node = node.parentNode)
+        if (node.localName == "button")
+          return;
+
       let data = Templater.getDataForNode(this.selectedItem);
       if (data)
         data.subscription.disabled = !data.subscription.disabled;
