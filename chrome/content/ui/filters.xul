@@ -51,6 +51,7 @@
 
 <keyset id="filtersKeyset">
   <key id="subscription-update-key" key="T" modifiers="accel" command="subscription-update-command"/>
+  <key id="subscription-update-all-key" key="T" modifiers="accel,shift" command="subscription-update-all-command"/>
   <key id="edit-key" keycode="VK_F2" oncommand="E(FilterActions.focused ? 'filters-edit-command' : 'subscription-editTitle-command').doCommand();"/>
   <key id="delete-key" keycode="VK_DELETE" oncommand="E(FilterActions.focused ? 'filters-delete-command' : 'subscription-delete-command').doCommand();"/>
   <key id="subscription-showHideFilters-key" key="R" modifiers="accel" command="subscription-showHideFilters-command"/>
@@ -72,6 +73,7 @@
 
 <commandset id="filtersCommandset">
   <command id="subscription-update-command" oncommand="SubscriptionActions.updateFilters();"/>
+  <command id="subscription-update-all-command" oncommand="SubscriptionActions.updateAllFilters();"/>
   <command id="subscription-editTitle-command" oncommand="SubscriptionActions.editTitle();"/>
   <command id="subscription-delete-command" oncommand="SubscriptionActions.remove();"/>
   <command id="subscription-showHideFilters-command" oncommand="E('filtersGrippy').doCommand();"/>
