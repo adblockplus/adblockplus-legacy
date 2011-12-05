@@ -56,6 +56,10 @@
   color: #808080;
   font-style: italic;
 }
+.subscription:not([selected="true"]) > .disabled .status
+{
+  color: #808080;
+}
 
 .subscription description, .subscription textbox
 {

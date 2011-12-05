@@ -188,7 +188,7 @@
                 checked="{subscription.disabled ? 'false' : 'true'}" oncommand="SubscriptionActions.setDisabled(this, !this.checked);"/>
             </hbox>
             <hbox align="center">
-              <description flex="1">
+              <description flex="1" class="status">
                 <description value="&subscription.lastDownload.label;"/>
                 <description value=" "/>
                 <if condition="{downloading}">
