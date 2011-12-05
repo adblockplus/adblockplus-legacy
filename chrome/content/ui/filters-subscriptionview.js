@@ -229,14 +229,21 @@ ListManager.init = function()
 {
   new ListManager(E("subscriptions"),
                   E("subscriptionTemplate"),
-                  function(s) s instanceof RegularSubscription && s.url != Prefs.subscriptions_exceptionsurl,
+                  function(s) s instanceof RegularSubscription && !(ListManager.acceptableAdsCheckbox && s.url == Prefs.subscriptions_exceptionsurl),
                   SubscriptionActions.updateCommands);
   new ListManager(E("groups"),
                   E("groupTemplate"),
                   function(s) s instanceof SpecialSubscription,
                   SubscriptionActions.updateCommands);
   E("acceptableAds").checked = FilterStorage.subscriptions.some(function(s) s.url == Prefs.subscriptions_exceptionsurl);
+  E("acceptableAds").parentNode.hidden = !ListManager.acceptableAdsCheckbox;
 };
+
+/**
+ * Defines whether the "acceptable ads" subscription needs special treatment.
+ * @type Boolean
+ */
+ListManager.acceptableAdsCheckbox = Prefs.subscriptions_exceptionscheckbox;
 
 /**
  * Adds or removes filter subscription allowing acceptable ads.
