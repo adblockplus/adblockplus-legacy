@@ -1,35 +1,35 @@
-<!ENTITY filter.copy.label "Kopyala">
-<!ENTITY subscription.lastDownload.inProgress "İndiriliyor...">
-<!ENTITY filter.cut.label "Kes">
-<!ENTITY sort.accesskey "S">
-<!ENTITY sort.descending.label "Z&amp;apos;den A&amp;apos;ya sıralama">
 <!ENTITY addSubscription.label "Süzgeç aboneliği ekle">
-<!ENTITY subscription.lastDownload.success "Eşleme başarılı oldu.">
-<!ENTITY filter.delete.label "Sil">
-<!ENTITY find.label "Bul">
-<!ENTITY sort.none.accesskey "m">
-<!ENTITY sort.ascending.label "A&amp;apos;da Z&amp;apos;ye sıralama">
-<!ENTITY enabled.column "Etkinlik">
-<!ENTITY slow.column "Süzgeçleri göster">
-<!ENTITY subscription.lastDownload.invalidURL "Olmadı. Bu geçerli bir adres değil.">
-<!ENTITY subscription.lastDownload.invalidData "Olmadı. Bu düzgün bir süzgeç listesi değil.">
-<!ENTITY subscription.lastDownload.label "En son indiriş:">
-<!ENTITY hitcount.column "İsabet">
-<!ENTITY filter.paste.label "Yapıştır">
-<!ENTITY viewMenu.label "Görünüm">
-<!ENTITY subscription.lastDownload.checksumMismatch "Başarısız, checksum eşleşmedi">
-<!ENTITY sort.label "Sırala">
-<!ENTITY subscription.lastDownload.unknown "Yok">
-<!ENTITY slow.accesskey "g">
 <!ENTITY addSubscriptionOther.label "Başka abonelik ekle">
-<!ENTITY sort.ascending.accesskey "A">
-<!ENTITY sort.none.label "Sıralanmamış">
-<!ENTITY filter.column "Süzgeç kuralı">
-<!ENTITY addFilter.label "Süzgeç ekle">
+<!ENTITY subscription.lastDownload.label "En son indiriş:">
+<!ENTITY subscription.lastDownload.inProgress "İndiriliyor...">
+<!ENTITY subscription.lastDownload.unknown "Yok">
+<!ENTITY subscription.lastDownload.invalidURL "Olmadı. Bu geçerli bir adres değil.">
 <!ENTITY subscription.lastDownload.connectionError "Olmadı. İndirmede sorun var.">
+<!ENTITY subscription.lastDownload.invalidData "Olmadı. Bu düzgün bir süzgeç listesi değil.">
+<!ENTITY subscription.lastDownload.checksumMismatch "Başarısız, checksum eşleşmedi">
+<!ENTITY subscription.lastDownload.success "Eşleme başarılı oldu.">
+<!ENTITY addFilter.label "Süzgeç ekle">
+<!ENTITY filter.cut.label "Kes">
+<!ENTITY filter.copy.label "Kopyala">
+<!ENTITY filter.paste.label "Yapıştır">
+<!ENTITY filter.delete.label "Sil">
+<!ENTITY viewMenu.label "Görünüm">
+<!ENTITY filter.column "Süzgeç kuralı">
+<!ENTITY filter.accesskey "k">
+<!ENTITY slow.column "Süzgeçleri göster">
+<!ENTITY slow.accesskey "g">
+<!ENTITY enabled.column "Etkinlik">
+<!ENTITY enabled.accesskey "n">
+<!ENTITY hitcount.column "İsabet">
 <!ENTITY hitcount.accesskey "e">
-<!ENTITY sort.descending.accesskey "Z">
 <!ENTITY lasthit.column "Son isabet">
 <!ENTITY lasthit.accesskey "i">
-<!ENTITY filter.accesskey "k">
-<!ENTITY enabled.accesskey "n">
+<!ENTITY sort.label "Sırala">
+<!ENTITY sort.accesskey "S">
+<!ENTITY sort.none.label "Sıralanmamış">
+<!ENTITY sort.none.accesskey "m">
+<!ENTITY sort.ascending.label "A&apos;da Z&apos;ye sıralama">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.descending.label "Z&apos;den A&apos;ya sıralama">
+<!ENTITY sort.descending.accesskey "Z">
+<!ENTITY find.label "Bul">

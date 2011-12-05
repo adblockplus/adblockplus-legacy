@@ -12,5 +12,5 @@
 <!ENTITY location.label "מיקום רשימת המסננים:">
 <!ENTITY location.accesskey "מ">
 <!ENTITY supplementMessage "מסנן הרשמה זה נועד לשימוש עם מסנן ההרשמה ?1? אשר לא נעשה בו שימוש עדיין.">
-<!ENTITY addMain.label "הוספת מסנן ההרשמה ?1? גם כן">
+<!ENTITY addMain.label "הוסף את הרשמת המסננים ?1? גם כן">
 <!ENTITY addMain.accesskey "ש">

@@ -3,7 +3,7 @@
 <!ENTITY advanced.label "Sudėtingesnis konfigūravimas">
 <!ENTITY basic.label "Paprastas konfigūravimas">
 <!ENTITY disabled.warning "Adblock Plus šiuo metu yra išjungtas. Vistiek galite pridėti filtrus, bet jie neveiks kol [link]neįjungsite Adblock Plus[/link].">
-<!ENTITY groupDisabled.warning "Filtrų grupė &quot;?1?&quot; į kurią bus pridėtas šis filtras šiuo metu išjungta. Vistiek galite pridėti filtrą, bet jis neveiks kol [link]neįjungsite Adblock Plus[/link].">
+<!ENTITY groupDisabled.warning "Filtrų grupė &quot;?1?&quot;, į kurią bus pridėtas šis filtras, šiuo metu išjungta. Vistiek galite pridėti filtrą, bet jis neveiks kol [link]neįjungsite Adblock Plus[/link].">
 <!ENTITY filter.label "Naujas filtras:">
 <!ENTITY filter.accesskey "f">
 <!ENTITY preferences.label "Rodyti esamus filtrus...">
@@ -19,16 +19,16 @@
 <!ENTITY match.warning "Atitikmuo kurį įvedėte nebeatitinka adreso kurį reikia įdėti į baltąjį/juodąjį sąrašą todėl jis nebeturės jokio efekto.">
 <!ENTITY custom.pattern.label "Pasirinktas:">
 <!ENTITY custom.pattern.accesskey "P">
-<!ENTITY anchors.label "Priimti atitikmenį:">
+<!ENTITY anchors.label "Priimti tik atitikmenį:">
 <!ENTITY anchor.start.label "adreso pradžioje">
 <!ENTITY anchor.start.accesskey "d">
 <!ENTITY anchor.start.flexible.label "domeno pradžioje">
-<!ENTITY anchor.start.flexible.accesskey "p">
+<!ENTITY anchor.start.flexible.accesskey "d">
 <!ENTITY anchor.end.label "adreso pabaigoje">
-<!ENTITY anchor.end.accesskey "b">
+<!ENTITY anchor.end.accesskey "e">
 <!ENTITY options.label "Parinktys">
 <!ENTITY domainRestriction.label "Apribojimai domenui:">
-<!ENTITY domainRestriction.accesskey "d">
+<!ENTITY domainRestriction.accesskey "n">
 <!ENTITY domainRestriction.help "Naudokite šią pasirinkty nurodyti vieną ar kelis domenus atskirtus |. Filtras bus pritaikytas tik pasirinktiems domenams. ~ prieš domeną parodo jog filtras nebus pritaikytas tam domenui.">
 <!ENTITY firstParty.label "Tik pagrindinių">
 <!ENTITY firstParty.accesskey "g">

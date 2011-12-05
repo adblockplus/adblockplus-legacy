@@ -1,6 +1,6 @@
 <!ENTITY dialog.title "구독 필터 추가">
 <!ENTITY subscriptionSelector.label "구독할 필터를 선택하거나 이름/위치를 입력하십시오.">
-<!ENTITY viewList.label "필터 보기">
+<!ENTITY viewList.label "필터 목록 보기">
 <!ENTITY visitHomepage.label "홈페이지">
 <!ENTITY addSubscription.label "추가">
 <!ENTITY list.download.failed "구독 필터 목록의 검색 실패">

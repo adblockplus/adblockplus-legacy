@@ -20,15 +20,15 @@
 <!ENTITY whitelist.site.label "Keela domeenis ?1?">
 <!ENTITY whitelist.page.label "Keela ainult antud lehel">
 <!ENTITY disable.label "Keela kõikjal">
+<!ENTITY options.label "Valikud">
+<!ENTITY options.accesskey "a">
+<!ENTITY showintoolbar.label "Näita tööriistade menüüs">
+<!ENTITY showintoolbar.accesskey "i">
+<!ENTITY showinstatusbar.label "Näita olekuribal">
+<!ENTITY showinstatusbar.accesskey "o">
+<!ENTITY objecttabs.label "Näita Flash ja Java objektidel sakke">
+<!ENTITY objecttabs.accesskey "t">
+<!ENTITY sync.label "Sünkroniseeri Adblock Plus sätted">
+<!ENTITY sync.accesskey "k">
 <!ENTITY objecttab.title "Blokeeri">
 <!ENTITY objecttab.tooltip "Klõpsa siia selle objekti blokeerimiseks Adblock Plusi abil">
-<!ENTITY sync.accesskey "k">
-<!ENTITY showintoolbar.label "Näita tööriistade menüüs">
-<!ENTITY options.label "Valikud">
-<!ENTITY objecttabs.accesskey "t">
-<!ENTITY showinstatusbar.label "Näita olekuribal">
-<!ENTITY showintoolbar.accesskey "i">
-<!ENTITY showinstatusbar.accesskey "o">
-<!ENTITY sync.label "Sünkroniseeri Adblock Plus sätted">
-<!ENTITY objecttabs.label "Näita Flash ja Java objektidel sakke">
-<!ENTITY options.accesskey "a">

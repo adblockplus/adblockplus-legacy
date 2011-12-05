@@ -5,8 +5,8 @@
 <!ENTITY typeSelector.heading "Välj problemtyp">
 <!ENTITY typeSelector.description "
 	Denna dialog kommer att guida dig igenom alla steg som krävs för att skicka in en problemrapport
-	för Adblock Plus. Först och främst måste du välja den typ av problem that you are experiencing
-	on denna sida:
+	för Adblock Plus. Först och främst måste du välja den typ av problem som du upplever
+	på denna sida:
 ">
 <!ENTITY typeSelector.falsePositive.label "Adblock Plus blockerar alltför mycket">
 <!ENTITY typeSelector.falsePositive.accesskey "m">
@@ -131,7 +131,7 @@
 <!ENTITY sendPage.waitMessage "Var vänlig vänta medan Adblock Plus skickar ing din rapport.">
 <!ENTITY sendPage.confirmation "Din rapport har sparats. Du kan nå den på följande adress:">
 <!ENTITY sendPage.knownIssue "Problemet du rapporterade är antagligen redan känt. Mer information:">
-<!ENTITY sendPage.errorMessage "Ett försök att skicka rapporten misslyckades, med felkoden &quot;?1?&quot;. Var vänlig säkerställ
+<!ENTITY sendPage.errorMessage "Det gick inte att skicka rapporten. Felkod: &quot;?1?&quot;. Var vänlig säkerställ
 	att du är ansluten till Internet och försök sedan igen. Om problemet kvarstår, vänligen begär
 	hjälp i [link]Adblock Plus webbforum[/link].">
 <!ENTITY sendPage.retry.label "Skicka igen">

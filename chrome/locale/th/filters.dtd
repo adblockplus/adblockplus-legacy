@@ -1,35 +1,35 @@
-<!ENTITY filter.copy.label "คัดลอก">
-<!ENTITY subscription.lastDownload.inProgress "กำลังดาวน์โหลด...">
-<!ENTITY filter.cut.label "ตัด">
-<!ENTITY sort.accesskey "จ">
-<!ENTITY sort.descending.label "จัดลำดับ Z &amp;gt; A">
 <!ENTITY addSubscription.label "เพิ่มนามข้างท้ายตัวกรอง">
-<!ENTITY subscription.lastDownload.success "สำเร็จ">
-<!ENTITY filter.delete.label "ลบ">
-<!ENTITY find.label "ค้นหา">
-<!ENTITY sort.none.accesskey "บ">
-<!ENTITY sort.ascending.label "จัดลำดับ A &amp;gt; Z">
-<!ENTITY enabled.column "เปิดการใช้งาน">
-<!ENTITY slow.column "ทำให้ตัวกรองช้าลง">
-<!ENTITY subscription.lastDownload.invalidURL "ล้มเหลว ไม่มีที่อยู่ที่ถูกต้อง">
-<!ENTITY subscription.lastDownload.invalidData "ล้มเหลว ไม่มีรายชื่อตัวกรองที่ถูกต้อง">
-<!ENTITY subscription.lastDownload.label "ดาวน์โหลดล่าสุด:">
-<!ENTITY hitcount.column "นับ">
-<!ENTITY filter.paste.label "วาง">
-<!ENTITY viewMenu.label "มุมมอง">
-<!ENTITY subscription.lastDownload.checksumMismatch "ล้มเหลว checksum จับผิดคู่">
-<!ENTITY sort.label "จัดลำดับ">
-<!ENTITY subscription.lastDownload.unknown "ไม่มี">
-<!ENTITY slow.accesskey "ง">
 <!ENTITY addSubscriptionOther.label "เพิ่มนามข้างท้าย">
-<!ENTITY sort.ascending.accesskey "A">
-<!ENTITY sort.none.label "ไม่จัดลำดับ">
-<!ENTITY filter.column "กฎตัวกรอง">
-<!ENTITY addFilter.label "เพิ่มตัวกรอง">
+<!ENTITY subscription.lastDownload.label "ดาวน์โหลดล่าสุด:">
+<!ENTITY subscription.lastDownload.inProgress "กำลังดาวน์โหลด...">
+<!ENTITY subscription.lastDownload.unknown "ไม่มี">
+<!ENTITY subscription.lastDownload.invalidURL "ล้มเหลว ไม่มีที่อยู่ที่ถูกต้อง">
 <!ENTITY subscription.lastDownload.connectionError "ล้มเหลว การดาวน์โหลดล้มเหลว">
+<!ENTITY subscription.lastDownload.invalidData "ล้มเหลว ไม่มีรายชื่อตัวกรองที่ถูกต้อง">
+<!ENTITY subscription.lastDownload.checksumMismatch "ล้มเหลว checksum จับผิดคู่">
+<!ENTITY subscription.lastDownload.success "สำเร็จ">
+<!ENTITY addFilter.label "เพิ่มตัวกรอง">
+<!ENTITY filter.cut.label "ตัด">
+<!ENTITY filter.copy.label "คัดลอก">
+<!ENTITY filter.paste.label "วาง">
+<!ENTITY filter.delete.label "ลบ">
+<!ENTITY viewMenu.label "มุมมอง">
+<!ENTITY filter.column "กฎตัวกรอง">
+<!ENTITY filter.accesskey "ต">
+<!ENTITY slow.column "ทำให้ตัวกรองช้าลง">
+<!ENTITY slow.accesskey "ง">
+<!ENTITY enabled.column "เปิดการใช้งาน">
+<!ENTITY enabled.accesskey "ป">
+<!ENTITY hitcount.column "นับ">
 <!ENTITY hitcount.accesskey "น">
-<!ENTITY sort.descending.accesskey "Z">
 <!ENTITY lasthit.column "กดล่าสุด">
 <!ENTITY lasthit.accesskey "ล">
-<!ENTITY filter.accesskey "ต">
-<!ENTITY enabled.accesskey "ป">
+<!ENTITY sort.label "จัดลำดับ">
+<!ENTITY sort.accesskey "จ">
+<!ENTITY sort.none.label "ไม่จัดลำดับ">
+<!ENTITY sort.none.accesskey "บ">
+<!ENTITY sort.ascending.label "จัดลำดับ A &gt; Z">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.descending.label "จัดลำดับ Z &gt; A">
+<!ENTITY sort.descending.accesskey "Z">
+<!ENTITY find.label "ค้นหา">

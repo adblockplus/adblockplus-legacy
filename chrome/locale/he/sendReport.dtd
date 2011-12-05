@@ -1,12 +1,12 @@
 <!ENTITY wizard.title "מדווח הבעיות">
 <!ENTITY privacyPolicy.label "הצהרת פרטיות">
-<!ENTITY dataCollector.heading "ברוכה הבאה למדווח הבעיות">
-<!ENTITY dataCollector.description "המתן בבקשה כמה רגעים עד ש־Adblock Plus יאסוף את המידע הדרוש.">
+<!ENTITY dataCollector.heading "ברוכים הבאים למדווח הבעיות">
+<!ENTITY dataCollector.description "המתינו בבקשה כמה רגעים עד ש־Adblock Plus יאסוף את המידע הדרוש.">
 <!ENTITY typeSelector.heading "בחירת סוג הבעיה">
 <!ENTITY typeSelector.description "חלון זה ידריך אתכם דרך הצעדים הדרושים להזנת דיווח בעיה עבור Adblock Plus. ראשית, יש לבחור בבקשה את סוג הבעיה אשר אתם חווים בעמוד זה:">
 <!ENTITY typeSelector.falsePositive.label "Adblock Plus חוסם יותר מדי">
 <!ENTITY typeSelector.falsePositive.accesskey "מ">
-<!ENTITY typeSelector.falsePositive.description "בחירת אפשרות זו אם חסר בעמוד תוכן חשוב או שמוצג בצורה לא נכונה או כושל לתפקד כראוי. ניתן לקבוע האם Adblock Plus הוא הגורם לבעיה על ידי נטרולו זמנית.">
+<!ENTITY typeSelector.falsePositive.description "בחר באפשרות זו אם חסר בעמוד תוכן חשוב או שמוצג בצורה לא נכונה או כושל לתפקד כראוי. ניתן לקבוע האם Adblock Plus הוא הגורם לבעיה על ידי נטרולו זמנית.">
 <!ENTITY typeSelector.falseNegative.label "Adblock Plus לא חוסם פרסומות">
 <!ENTITY typeSelector.falseNegative.accesskey "ל">
 <!ENTITY typeSelector.falseNegative.description "בחירת אפשרות זו אם מוצגת פרסומת למרות ש Adblock Plus מאפשר.">
@@ -58,7 +58,7 @@
 <!ENTITY comment.lengthWarning "אורך ההודעה חרג מ-1000 תווים. רק 1000 התווים הראשונים ישלחו.">
 <!ENTITY email.label "דוא&quot;ל לבירורים נוספים (לא חובה):">
 <!ENTITY email.accesskey "ל">
-<!ENTITY attachExtensions.label "סיפוח רשימת ההרחבות הפעילות לדיווח במקרה וניגוד תוספות הוא הגורם לבעיה">
+<!ENTITY attachExtensions.label "סיפוח רשימת ההרחבות הפעילות אל הדיווח במקרה וניגוד תוספות הוא הגורם לבעיה">
 <!ENTITY attachExtensions.accesskey "ג">
 <!ENTITY sendButton.label "שליחת דיווח">
 <!ENTITY sendButton.accesskey "ש">

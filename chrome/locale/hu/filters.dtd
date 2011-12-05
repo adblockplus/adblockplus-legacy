@@ -1,35 +1,90 @@
-<!ENTITY filter.copy.label "Másolás">
-<!ENTITY subscription.lastDownload.inProgress "Letöltés...">
-<!ENTITY filter.cut.label "Kivágás">
-<!ENTITY sort.accesskey "R">
-<!ENTITY sort.descending.label "Z &amp;gt; A rendezés">
+<!ENTITY dialog.title "Adblock Plus szűrő beállítások">
+<!ENTITY subscriptions.tab.label "Külső szűrők">
+<!ENTITY filters.tab.label "Saját szűrők">
 <!ENTITY addSubscription.label "Külső szűrő hozzáadása">
-<!ENTITY subscription.lastDownload.success "Sikeres">
-<!ENTITY filter.delete.label "Törlés">
-<!ENTITY find.label "Keresés">
-<!ENTITY sort.none.accesskey "e">
-<!ENTITY sort.ascending.label "A &amp;gt; Z rendezés">
-<!ENTITY enabled.column "Engedélyezve">
-<!ENTITY slow.column "Lassú szűrők">
-<!ENTITY subscription.lastDownload.invalidURL "Sikertelen, érvénytelen cím">
-<!ENTITY subscription.lastDownload.invalidData "Sikertelen, érvénytelen szűrőlista">
-<!ENTITY subscription.lastDownload.label "Legutóbb letöltve:">
-<!ENTITY hitcount.column "Találatok">
-<!ENTITY filter.paste.label "Beillesztés">
-<!ENTITY viewMenu.label "Nézet">
-<!ENTITY subscription.lastDownload.checksumMismatch "Sikertelen, érvénytelen ellenőrző összeg">
-<!ENTITY sort.label "Rendezés">
-<!ENTITY subscription.lastDownload.unknown "ismeretlen">
-<!ENTITY slow.accesskey "L">
+<!ENTITY addSubscription.accesskey "H">
+<!ENTITY addSubscriptionAdd.label "Hozzáadás">
+<!ENTITY addSubscriptionCancel.label "Mégse">
 <!ENTITY addSubscriptionOther.label "Külső szűrő hozzáadása">
-<!ENTITY sort.ascending.accesskey "A">
-<!ENTITY sort.none.label "Rendezetlen">
-<!ENTITY filter.column "Szűrő szabály">
-<!ENTITY addFilter.label "Szűrő hozzáadása">
+<!ENTITY noSubscriptions.text "
+ Nincs felvéve egyetlen külső szűrőt sem. Az Adblock Plus nem fog semmit szűrni szűrők nélkül. Kérem használja a &quot;Külső szűrő felvétele&quot; funkciót új szűrők felvételéhez.
+">
+<!ENTITY subscription.homepage.label "Honlap">
+<!ENTITY subscription.external.label "Másik kiterjesztés frissíti">
+<!ENTITY subscription.source.label "Szűrő lista">
+<!ENTITY subscription.enabled.label "Engedélyezve">
+<!ENTITY subscription.lastDownload.label "Legutóbb letöltve:">
+<!ENTITY subscription.lastDownload.inProgress "Letöltés...">
+<!ENTITY subscription.lastDownload.unknown "ismeretlen">
+<!ENTITY subscription.lastDownload.invalidURL "Sikertelen, érvénytelen cím">
 <!ENTITY subscription.lastDownload.connectionError "Sikertelen, letöltési hiba">
+<!ENTITY subscription.lastDownload.invalidData "Sikertelen, érvénytelen szűrőlista">
+<!ENTITY subscription.lastDownload.checksumMismatch "Sikertelen, érvénytelen ellenőrző összeg">
+<!ENTITY subscription.lastDownload.success "Sikeres">
+<!ENTITY subscription.minVersion.warning "A külső szűrő újabb Adblock Plus verzióhoz készült, frissítenie kell az Adblock Plust a legújabb verzióra.">
+<!ENTITY subscription.disabledFilters.warning "Néhány szűrő ebben a listában le van tiltva.">
+<!ENTITY subscription.disabledFilters.enable "Letiltott szűrők engedélyezése">
+<!ENTITY subscription.actions.label "Műveletek">
+<!ENTITY subscription.update.label "Szűrők frissítése">
+<!ENTITY subscription.editTitle.label "Cím szerkesztése">
+<!ENTITY subscription.delete.label "Törlés">
+<!ENTITY subscription.showHideFilters.label "Szűrők megjelenítése/elrejtése">
+<!ENTITY subscription.moveUp.label "Mozgatás fel">
+<!ENTITY subscription.moveDown.label "Mozgatás le">
+<!ENTITY acceptableAds.label "Nem tolakodó reklámok engedélyezése">
+<!ENTITY acceptableAds.accesskey "t">
+<!ENTITY readMore.label "Mi ez?">
+<!ENTITY addGroup.label "Szűrő csoport felvétele">
+<!ENTITY addGroup.accesskey "c">
+<!ENTITY noFilters.text "
+ Nincsenek saját szűrők.
+">
+<!ENTITY addFilter.label "Szűrő hozzáadása">
+<!ENTITY addFilter.accesskey "H">
+<!ENTITY filter.actions.label "Szűrő műveletek">
+<!ENTITY filter.edit.label "Szerkesztés">
+<!ENTITY filter.cut.label "Kivágás">
+<!ENTITY filter.copy.label "Másolás">
+<!ENTITY filter.paste.label "Beillesztés">
+<!ENTITY filter.delete.label "Törlés">
+<!ENTITY filter.selectAll.label "Az összes kijelölése">
+<!ENTITY filter.resetHitCounts.label "Találati statisztika törlése">
+<!ENTITY filter.moveUp.label "Mozgatás fel">
+<!ENTITY filter.moveDown.label "Mozgatás le">
+<!ENTITY viewMenu.label "Nézet">
+<!ENTITY filter.column "Szűrő szabály">
+<!ENTITY filter.accesskey "S">
+<!ENTITY slow.column "Lassú szűrők">
+<!ENTITY slow.accesskey "L">
+<!ENTITY enabled.column "Engedélyezve">
+<!ENTITY enabled.accesskey "n">
+<!ENTITY hitcount.column "Találatok">
 <!ENTITY hitcount.accesskey "T">
-<!ENTITY sort.descending.accesskey "Z">
 <!ENTITY lasthit.column "Utolsó találat">
 <!ENTITY lasthit.accesskey "U">
-<!ENTITY filter.accesskey "S">
-<!ENTITY enabled.accesskey "n">
+<!ENTITY sort.label "Rendezés">
+<!ENTITY sort.accesskey "R">
+<!ENTITY sort.none.label "Rendezetlen">
+<!ENTITY sort.none.accesskey "e">
+<!ENTITY sort.ascending.label "A &gt; Z rendezés">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.descending.label "Z &gt; A rendezés">
+<!ENTITY sort.descending.accesskey "Z">
+<!ENTITY noGroupSelected.text "Ki kell választania egy szűrő csoportot a benne lévő szűrők megjelenítéséhez.">
+<!ENTITY noFiltersInGroup.text "A kiválasztott csoport üres.">
+<!ENTITY filters.remove.warning "Biztosan eltávolítja az összes kiválasztott szűrőt?">
+<!ENTITY backupButton.label "Biztonsági mentés és visszaállítás">
+<!ENTITY backupButton.accesskey "B">
+<!ENTITY backup.label "Új biztonsági mentés">
+<!ENTITY restore.default.label "Visszaállítás ?1? állapotra">
+<!ENTITY restore.own.label "Saját mentés visszaállítása">
+<!ENTITY backup.complete.title "Az összes szűrő és feliratkozás">
+<!ENTITY backup.custom.title "Csak saját szűrők">
+<!ENTITY backup.error "Hiba történt a szűrők fájlba mentésekor. Ellenőrizze, hogy a fájl nem írásvédett vagy nem használja-e egy másik alkalmazás.">
+<!ENTITY restore.error "A fájlt nem sikerült feldolgozni, lehetséges, hogy nem egy Adblock Plus biztonsági mentést tartalmaz.">
+<!ENTITY restore.complete.warning "Az összes szűrő beállítása le lesz cserélve a kiválasztott fájlban lévőkre. Biztosan folytatni szeretné?">
+<!ENTITY restore.custom.warning "Az összes saját szűrője le lesz cserélve a kiválasztott fájlban lévőkre. Biztosan folytatni szeretné?">
+<!ENTITY restore.minVersion.warning "Figyelmeztetés: a fájlt az Adblock Plus újabb verziójával készült. Frissítsen az Adblock Plus legújabb verziójára, mielőtt visszaállítaná ezt a fájlt.">
+<!ENTITY find.label "Keresés">
+<!ENTITY find.accesskey "k">
+<!ENTITY close.label "Bezárás">

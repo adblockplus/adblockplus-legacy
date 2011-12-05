@@ -13,6 +13,8 @@
 <!ENTITY sidebar.title "Blokkeerbare onderdelen op deze pagina">
 <!ENTITY sendReport.label "Probleem op deze pagina rapporteren">
 <!ENTITY sendReport.accesskey "P">
+<!ENTITY filters.label "Filtervoorkeuren">
+<!ENTITY filters.accesskey "F">
 <!ENTITY opensidebar.label "Blokkeerbare onderdelen open">
 <!ENTITY opensidebar.accesskey "B">
 <!ENTITY closesidebar.label "Blokkeerbare onderdelen sluiten">
@@ -20,15 +22,22 @@
 <!ENTITY whitelist.site.label "Uitschakelen op ?1?">
 <!ENTITY whitelist.page.label "Alleen op deze pagina uitschakelen">
 <!ENTITY disable.label "Overal uitschakelen">
+<!ENTITY options.label "Opties">
+<!ENTITY options.accesskey "O">
+<!ENTITY contribute.label "Draag bij aan Adblock Plus">
+<!ENTITY showintoolbar.label "In werkbalk weergeven">
+<!ENTITY showintoolbar.accesskey "b">
+<!ENTITY showinstatusbar.label "In statusbalk weergeven">
+<!ENTITY showinstatusbar.accesskey "s">
+<!ENTITY showinaddonbar.label "In add-onbalk weergeven">
+<!ENTITY showinaddonbar.accesskey "b">
+<!ENTITY objecttabs.label "Tabbladen weergeven op Flash en Java">
+<!ENTITY objecttabs.accesskey "T">
+<!ENTITY hideplaceholders.label "Plaatshouders of geblokkeerde elementen verbergen">
+<!ENTITY hideplaceholders.accesskey "l">
+<!ENTITY counthits.label "Filtertreffers tellen">
+<!ENTITY counthits.accesskey "f">
+<!ENTITY sync.label "Synchroniseer Adblock Plus instellingen">
+<!ENTITY sync.accesskey "c">
 <!ENTITY objecttab.title "Blokkeren">
 <!ENTITY objecttab.tooltip "Klik hier om dit object te blokkeren met Adblock Plus">
-<!ENTITY sync.accesskey "c">
-<!ENTITY showintoolbar.label "In werkbalk weergeven">
-<!ENTITY options.label "Opties">
-<!ENTITY objecttabs.accesskey "T">
-<!ENTITY showinstatusbar.label "In statusbalk weergeven">
-<!ENTITY showintoolbar.accesskey "w">
-<!ENTITY showinstatusbar.accesskey "s">
-<!ENTITY sync.label "Synchroniseer Adblock Plus instellingen">
-<!ENTITY objecttabs.label "Tabbladen weergeven op Flash en Java">
-<!ENTITY options.accesskey "O">

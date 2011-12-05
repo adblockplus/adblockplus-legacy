@@ -8,6 +8,7 @@
 <!ENTITY filter.label "Sía">
 <!ENTITY state.label "Ríki">
 <!ENTITY size.label "Stærð">
+<!ENTITY filterSource.label "Síu uppruni">
 <!ENTITY docDomain.label "Netfang síðu">
 <!ENTITY docDomain.thirdParty "(þriðja aðila)">
 <!ENTITY docDomain.firstParty "(frumaðili)">

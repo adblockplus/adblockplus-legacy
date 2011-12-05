@@ -11,6 +11,6 @@
 <!ENTITY title.accesskey "T">
 <!ENTITY location.label "Ubicación de la lista de filtros:">
 <!ENTITY location.accesskey "U">
-<!ENTITY supplementMessage "Esta suscripción de filtros está pensada para usarse junto a la suscripción &quot;?1?&quot; que usted aún no ha instalado.">
+<!ENTITY supplementMessage "Esta suscripción de filtros está pensada para usarse junto a la suscripción &quot;?1?&quot; que aún no ha instalado.">
 <!ENTITY addMain.label "Añadir también la suscripción &quot;?1?&quot;.">
 <!ENTITY addMain.accesskey "ñ">

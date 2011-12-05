@@ -13,13 +13,13 @@
 <!ENTITY closesidebar.accesskey "B">
 <!ENTITY whitelist.site.label "Deaktiver på ?1?">
 <!ENTITY whitelist.page.label "Deaktiver på denne siden">
-<!ENTITY objecttab.title "Blokkér">
-<!ENTITY objecttab.tooltip "Trykk her for å blokkere dette objektet med Adblock Plus">
-<!ENTITY showintoolbar.label "Vis i verkøylinje">
 <!ENTITY options.label "Valg">
-<!ENTITY objecttabs.accesskey "f">
-<!ENTITY showinstatusbar.label "Vis i statuslinje">
+<!ENTITY options.accesskey "V">
+<!ENTITY showintoolbar.label "Vis i verkøylinje">
 <!ENTITY showintoolbar.accesskey "V">
+<!ENTITY showinstatusbar.label "Vis i statuslinje">
 <!ENTITY showinstatusbar.accesskey "t">
 <!ENTITY objecttabs.label "Vis fliker på Flash og Java">
-<!ENTITY options.accesskey "V">
+<!ENTITY objecttabs.accesskey "f">
+<!ENTITY objecttab.title "Blokkér">
+<!ENTITY objecttab.tooltip "Trykk her for å blokkere dette objektet med Adblock Plus">

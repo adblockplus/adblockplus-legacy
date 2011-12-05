@@ -8,6 +8,7 @@
 <!ENTITY filter.label "Filtrilo">
 <!ENTITY state.label "Stato">
 <!ENTITY size.label "Grandeco">
+<!ENTITY filterSource.label "Fonto de la filtrilo">
 <!ENTITY docDomain.label "Fonto de la dokumento">
 <!ENTITY docDomain.thirdParty "(de tria liveranto)">
 <!ENTITY docDomain.firstParty "(de unua liveranto)">

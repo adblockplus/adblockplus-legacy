@@ -20,15 +20,16 @@
 <!ENTITY whitelist.site.label "Désactiver pour ?1?">
 <!ENTITY whitelist.page.label "Désactiver pour cette page uniquement">
 <!ENTITY disable.label "Désactiver partout">
+<!ENTITY options.label "Options">
+<!ENTITY options.accesskey "O">
+<!ENTITY contribute.label "Contribuer à Adblock Plus">
+<!ENTITY showintoolbar.label "Afficher dans la barre d&apos;outils">
+<!ENTITY showintoolbar.accesskey "o">
+<!ENTITY showinstatusbar.label "Afficher dans la barre d&apos;état">
+<!ENTITY showinstatusbar.accesskey "n">
+<!ENTITY objecttabs.label "Afficher une étiquette pour Flash et Java">
+<!ENTITY objecttabs.accesskey "J">
+<!ENTITY sync.label "Synchroniser les paramètres d'Adblock Plus">
+<!ENTITY sync.accesskey "y">
 <!ENTITY objecttab.title "Bloquer">
 <!ENTITY objecttab.tooltip "Cliquer ici afin qu'Adblock Plus bloque cet objet">
-<!ENTITY sync.accesskey "y">
-<!ENTITY showintoolbar.label "Afficher dans la barre d&amp;apos;outils">
-<!ENTITY options.label "Options">
-<!ENTITY objecttabs.accesskey "J">
-<!ENTITY showinstatusbar.label "Afficher dans la barre d&amp;apos;état">
-<!ENTITY showintoolbar.accesskey "o">
-<!ENTITY showinstatusbar.accesskey "n">
-<!ENTITY sync.label "Synchroniser les paramètres d'Adblock Plus">
-<!ENTITY objecttabs.label "Afficher une étiquette pour Flash et Java">
-<!ENTITY options.accesskey "O">

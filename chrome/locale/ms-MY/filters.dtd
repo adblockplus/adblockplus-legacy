@@ -1,35 +1,35 @@
-<!ENTITY filter.copy.label "Salin">
-<!ENTITY subscription.lastDownload.inProgress "Memuat-turun...">
-<!ENTITY filter.cut.label "Potong">
-<!ENTITY sort.accesskey "S">
-<!ENTITY sort.descending.label "Susunan Z &amp;gt; A">
 <!ENTITY addSubscription.label "Tambah langganan penapis">
-<!ENTITY subscription.lastDownload.success "Berjaya">
-<!ENTITY filter.delete.label "Padam">
-<!ENTITY find.label "Cari">
-<!ENTITY sort.none.accesskey "T">
-<!ENTITY sort.ascending.label "Susunan A &amp;gt; Z">
-<!ENTITY enabled.column "Diaktifkan">
-<!ENTITY slow.column "Lambatkan penapis">
-<!ENTITY subscription.lastDownload.invalidURL "Gagal, bukan alamat yang sah">
-<!ENTITY subscription.lastDownload.invalidData "Gagal, bukan senarai penapis yang sah">
-<!ENTITY subscription.lastDownload.label "Muat-turun terakhir:">
-<!ENTITY hitcount.column "Hit">
-<!ENTITY filter.paste.label "Tampal">
-<!ENTITY viewMenu.label "Papar">
-<!ENTITY subscription.lastDownload.checksumMismatch "Gagal, checksum tidak sepadan">
-<!ENTITY sort.label "Susun dengan">
-<!ENTITY subscription.lastDownload.unknown "N/A">
-<!ENTITY slow.accesskey "L">
 <!ENTITY addSubscriptionOther.label "Tambah langganan lain">
-<!ENTITY sort.ascending.accesskey "A">
-<!ENTITY sort.none.label "Tidak disusun">
-<!ENTITY filter.column "Peraturan penapis">
-<!ENTITY addFilter.label "Tambah penapis">
+<!ENTITY subscription.lastDownload.label "Muat-turun terakhir:">
+<!ENTITY subscription.lastDownload.inProgress "Memuat-turun...">
+<!ENTITY subscription.lastDownload.unknown "N/A">
+<!ENTITY subscription.lastDownload.invalidURL "Gagal, bukan alamat yang sah">
 <!ENTITY subscription.lastDownload.connectionError "Gagal, kegagalan memuat-turun">
+<!ENTITY subscription.lastDownload.invalidData "Gagal, bukan senarai penapis yang sah">
+<!ENTITY subscription.lastDownload.checksumMismatch "Gagal, checksum tidak sepadan">
+<!ENTITY subscription.lastDownload.success "Berjaya">
+<!ENTITY addFilter.label "Tambah penapis">
+<!ENTITY filter.cut.label "Potong">
+<!ENTITY filter.copy.label "Salin">
+<!ENTITY filter.paste.label "Tampal">
+<!ENTITY filter.delete.label "Padam">
+<!ENTITY viewMenu.label "Papar">
+<!ENTITY filter.column "Peraturan penapis">
+<!ENTITY filter.accesskey "r">
+<!ENTITY slow.column "Lambatkan penapis">
+<!ENTITY slow.accesskey "L">
+<!ENTITY enabled.column "Diaktifkan">
+<!ENTITY enabled.accesskey "D">
+<!ENTITY hitcount.column "Hit">
 <!ENTITY hitcount.accesskey "H">
-<!ENTITY sort.descending.accesskey "Z">
 <!ENTITY lasthit.column "Hit terakhir">
 <!ENTITY lasthit.accesskey "e">
-<!ENTITY filter.accesskey "r">
-<!ENTITY enabled.accesskey "D">
+<!ENTITY sort.label "Susun dengan">
+<!ENTITY sort.accesskey "S">
+<!ENTITY sort.none.label "Tidak disusun">
+<!ENTITY sort.none.accesskey "T">
+<!ENTITY sort.ascending.label "Susunan A &gt; Z">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.descending.label "Susunan Z &gt; A">
+<!ENTITY sort.descending.accesskey "Z">
+<!ENTITY find.label "Cari">

@@ -1,8 +1,8 @@
-<!ENTITY showintoolbar.label "Show in toolbar">
 <!ENTITY options.label "Наладкі">
-<!ENTITY objecttabs.accesskey "З">
-<!ENTITY showinstatusbar.label "Show in status bar">
+<!ENTITY options.accesskey "Л">
+<!ENTITY showintoolbar.label "Show in toolbar">
 <!ENTITY showintoolbar.accesskey "B">
+<!ENTITY showinstatusbar.label "Show in status bar">
 <!ENTITY showinstatusbar.accesskey "S">
 <!ENTITY objecttabs.label "Паказваць закладкі на Flash і Java">
-<!ENTITY options.accesskey "Л">
+<!ENTITY objecttabs.accesskey "З">

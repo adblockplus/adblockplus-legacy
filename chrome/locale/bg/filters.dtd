@@ -1,35 +1,35 @@
-<!ENTITY filter.copy.label "Копирай">
-<!ENTITY subscription.lastDownload.inProgress "Изтегляне...">
-<!ENTITY filter.cut.label "Изрежи">
-<!ENTITY sort.accesskey "С">
-<!ENTITY sort.descending.label "Я &amp;gt; А Сортиране">
 <!ENTITY addSubscription.label "Добави абонамент за филтър">
-<!ENTITY subscription.lastDownload.success "Успешно">
-<!ENTITY filter.delete.label "Изтрий">
-<!ENTITY find.label "Намери">
-<!ENTITY sort.none.accesskey "Н">
-<!ENTITY sort.ascending.label "А &amp;gt; Я сортиране">
-<!ENTITY enabled.column "Включен">
-<!ENTITY slow.column "Покажи филтри">
-<!ENTITY subscription.lastDownload.invalidURL "Грешка, невалиден адрес">
-<!ENTITY subscription.lastDownload.invalidData "Грешка, невалиден списък с филтри">
-<!ENTITY subscription.lastDownload.label "Последно изтеглен:">
-<!ENTITY hitcount.column "Посещения">
-<!ENTITY filter.paste.label "Постави">
-<!ENTITY viewMenu.label "Изглед">
-<!ENTITY subscription.lastDownload.checksumMismatch "Грешка, несъвпадение на контролната сума">
-<!ENTITY sort.label "Сортирай по">
-<!ENTITY subscription.lastDownload.unknown "Няма данни">
-<!ENTITY slow.accesskey "ж">
 <!ENTITY addSubscriptionOther.label "Добави друг абонамент">
-<!ENTITY sort.ascending.accesskey "А">
-<!ENTITY sort.none.label "Несортирани">
-<!ENTITY filter.column "Филтър правило">
-<!ENTITY addFilter.label "Добави Филтър">
+<!ENTITY subscription.lastDownload.label "Последно изтеглен:">
+<!ENTITY subscription.lastDownload.inProgress "Изтегляне...">
+<!ENTITY subscription.lastDownload.unknown "Няма данни">
+<!ENTITY subscription.lastDownload.invalidURL "Грешка, невалиден адрес">
 <!ENTITY subscription.lastDownload.connectionError "Грешка, неуспешно изтегляне">
+<!ENTITY subscription.lastDownload.invalidData "Грешка, невалиден списък с филтри">
+<!ENTITY subscription.lastDownload.checksumMismatch "Грешка, несъвпадение на контролната сума">
+<!ENTITY subscription.lastDownload.success "Успешно">
+<!ENTITY addFilter.label "Добави Филтър">
+<!ENTITY filter.cut.label "Изрежи">
+<!ENTITY filter.copy.label "Копирай">
+<!ENTITY filter.paste.label "Постави">
+<!ENTITY filter.delete.label "Изтрий">
+<!ENTITY viewMenu.label "Изглед">
+<!ENTITY filter.column "Филтър правило">
+<!ENTITY filter.accesskey "Ф">
+<!ENTITY slow.column "Покажи филтри">
+<!ENTITY slow.accesskey "ж">
+<!ENTITY enabled.column "Включен">
+<!ENTITY enabled.accesskey "В">
+<!ENTITY hitcount.column "Посещения">
 <!ENTITY hitcount.accesskey "щ">
-<!ENTITY sort.descending.accesskey "Я">
 <!ENTITY lasthit.column "Последни Посещения">
 <!ENTITY lasthit.accesskey "П">
-<!ENTITY filter.accesskey "Ф">
-<!ENTITY enabled.accesskey "В">
+<!ENTITY sort.label "Сортирай по">
+<!ENTITY sort.accesskey "С">
+<!ENTITY sort.none.label "Несортирани">
+<!ENTITY sort.none.accesskey "Н">
+<!ENTITY sort.ascending.label "А &gt; Я сортиране">
+<!ENTITY sort.ascending.accesskey "А">
+<!ENTITY sort.descending.label "Я &gt; А Сортиране">
+<!ENTITY sort.descending.accesskey "Я">
+<!ENTITY find.label "Намери">

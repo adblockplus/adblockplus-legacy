@@ -1,9 +1,9 @@
-<!ENTITY filter.copy.label "Kopiatu">
-<!ENTITY subscription.lastDownload.inProgress "Behera kargatzen...">
-<!ENTITY filter.cut.label "Moztu">
-<!ENTITY filter.delete.label "Ezabatu">
-<!ENTITY find.label "Bilatu">
-<!ENTITY enabled.column "Gaituta">
 <!ENTITY subscription.lastDownload.label "Azkeneko behera kargatzea:">
-<!ENTITY filter.paste.label "Itsatsi">
+<!ENTITY subscription.lastDownload.inProgress "Behera kargatzen...">
 <!ENTITY addFilter.label "Gehitu iragazkia">
+<!ENTITY filter.cut.label "Moztu">
+<!ENTITY filter.copy.label "Kopiatu">
+<!ENTITY filter.paste.label "Itsatsi">
+<!ENTITY filter.delete.label "Ezabatu">
+<!ENTITY enabled.column "Gaituta">
+<!ENTITY find.label "Bilatu">

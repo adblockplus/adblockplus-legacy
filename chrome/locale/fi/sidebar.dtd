@@ -8,6 +8,7 @@
 <!ENTITY filter.label "Suodatin">
 <!ENTITY state.label "Tila">
 <!ENTITY size.label "Koko">
+<!ENTITY filterSource.label "Suodattimen lähde">
 <!ENTITY docDomain.label "Dokumentin lähde">
 <!ENTITY docDomain.thirdParty "(kolmas osapuoli)">
 <!ENTITY docDomain.firstParty "(ensimmäinen osapuoli)">

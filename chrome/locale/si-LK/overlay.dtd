@@ -2,7 +2,7 @@
 <!ENTITY opensidebar.accesskey "b">
 <!ENTITY closesidebar.accesskey "b">
 <!ENTITY options.label "විකල්ප">
-<!ENTITY objecttabs.accesskey "t">
+<!ENTITY options.accesskey "O">
 <!ENTITY showintoolbar.accesskey "b">
 <!ENTITY showinstatusbar.accesskey "s">
-<!ENTITY options.accesskey "O">
+<!ENTITY objecttabs.accesskey "t">

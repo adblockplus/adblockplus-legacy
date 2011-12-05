@@ -1,35 +1,35 @@
-<!ENTITY filter.copy.label "Копіювати">
-<!ENTITY subscription.lastDownload.inProgress "Завантажується…">
-<!ENTITY filter.cut.label "Вирізати">
-<!ENTITY sort.accesskey "С">
-<!ENTITY sort.descending.label "Від Я до А">
 <!ENTITY addSubscription.label "Додати підписку">
-<!ENTITY subscription.lastDownload.success "Успіх">
-<!ENTITY filter.delete.label "Вилучити">
-<!ENTITY find.label "Знайти фільтр">
-<!ENTITY sort.none.accesskey "Н">
-<!ENTITY sort.ascending.label "Від А до Я">
-<!ENTITY enabled.column "Увімкнено">
-<!ENTITY slow.column "Повільні фільтри">
-<!ENTITY subscription.lastDownload.invalidURL "Помилка, невірна адреса">
-<!ENTITY subscription.lastDownload.invalidData "Помилка, не список фільтрів">
-<!ENTITY subscription.lastDownload.label "Останнє оновлення:">
-<!ENTITY hitcount.column "Попадань">
-<!ENTITY filter.paste.label "Вставити">
-<!ENTITY viewMenu.label "Вигляд">
-<!ENTITY subscription.lastDownload.checksumMismatch "Помилка, не збіглась контрольна сума">
-<!ENTITY sort.label "Сортувати за">
-<!ENTITY subscription.lastDownload.unknown "ніколи">
-<!ENTITY slow.accesskey "і">
 <!ENTITY addSubscriptionOther.label "Додати іншу підписку">
-<!ENTITY sort.ascending.accesskey "А">
-<!ENTITY sort.none.label "Несортовано">
-<!ENTITY filter.column "Правило фільтрування">
-<!ENTITY addFilter.label "Додати фільтр">
+<!ENTITY subscription.lastDownload.label "Останнє оновлення:">
+<!ENTITY subscription.lastDownload.inProgress "Завантажується…">
+<!ENTITY subscription.lastDownload.unknown "ніколи">
+<!ENTITY subscription.lastDownload.invalidURL "Помилка, невірна адреса">
 <!ENTITY subscription.lastDownload.connectionError "Помилка, неможливо викачати">
+<!ENTITY subscription.lastDownload.invalidData "Помилка, не список фільтрів">
+<!ENTITY subscription.lastDownload.checksumMismatch "Помилка, не збіглась контрольна сума">
+<!ENTITY subscription.lastDownload.success "Успіх">
+<!ENTITY addFilter.label "Додати фільтр">
+<!ENTITY filter.cut.label "Вирізати">
+<!ENTITY filter.copy.label "Копіювати">
+<!ENTITY filter.paste.label "Вставити">
+<!ENTITY filter.delete.label "Вилучити">
+<!ENTITY viewMenu.label "Вигляд">
+<!ENTITY filter.column "Правило фільтрування">
+<!ENTITY filter.accesskey "ф">
+<!ENTITY slow.column "Повільні фільтри">
+<!ENTITY slow.accesskey "і">
+<!ENTITY enabled.column "Увімкнено">
+<!ENTITY enabled.accesskey "в">
+<!ENTITY hitcount.column "Попадань">
 <!ENTITY hitcount.accesskey "п">
-<!ENTITY sort.descending.accesskey "Я">
 <!ENTITY lasthit.column "Останнє попадання">
 <!ENTITY lasthit.accesskey "О">
-<!ENTITY filter.accesskey "ф">
-<!ENTITY enabled.accesskey "в">
+<!ENTITY sort.label "Сортувати за">
+<!ENTITY sort.accesskey "С">
+<!ENTITY sort.none.label "Несортовано">
+<!ENTITY sort.none.accesskey "Н">
+<!ENTITY sort.ascending.label "Від А до Я">
+<!ENTITY sort.ascending.accesskey "А">
+<!ENTITY sort.descending.label "Від Я до А">
+<!ENTITY sort.descending.accesskey "Я">
+<!ENTITY find.label "Знайти фільтр">

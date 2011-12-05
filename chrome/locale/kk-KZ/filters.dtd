@@ -1,35 +1,35 @@
-<!ENTITY filter.copy.label "Көшіру">
-<!ENTITY subscription.lastDownload.inProgress "Жүктелуде...">
-<!ENTITY filter.cut.label "Қию">
-<!ENTITY sort.accesskey "с">
-<!ENTITY sort.descending.label "Я &amp;gt; А сұрыптау">
 <!ENTITY addSubscription.label "Фильтрге жазылуды қосу">
-<!ENTITY subscription.lastDownload.success "Сәтті аяқталды">
-<!ENTITY filter.delete.label "Жою">
-<!ENTITY find.label "Іздеу">
-<!ENTITY sort.none.accesskey "з">
-<!ENTITY sort.ascending.label "А &amp;gt; Я сұрыптау">
-<!ENTITY enabled.column "Қосулы">
-<!ENTITY slow.column "Баяу фильтрлер">
-<!ENTITY subscription.lastDownload.invalidURL "Қате, дұрыс адрес емес">
-<!ENTITY subscription.lastDownload.invalidData "Қате, дұрыс сүзгілер файлы емес">
-<!ENTITY subscription.lastDownload.label "Соңғы жаңарту:">
-<!ENTITY hitcount.column "Хиттер">
-<!ENTITY filter.paste.label "Кірістіру">
-<!ENTITY viewMenu.label "Түрі">
-<!ENTITY subscription.lastDownload.checksumMismatch "Қате, тексеру сомасы сәйкес емес">
-<!ENTITY sort.label "Сұрыптау">
-<!ENTITY subscription.lastDownload.unknown "Ешқашан">
-<!ENTITY slow.accesskey "ь">
 <!ENTITY addSubscriptionOther.label "Басқа жазылуды қосу">
-<!ENTITY sort.ascending.accesskey "а">
-<!ENTITY sort.none.label "Сұрыптаусыз">
-<!ENTITY filter.column "Фильтр ережесі:">
-<!ENTITY addFilter.label "Фильтрді қосу">
+<!ENTITY subscription.lastDownload.label "Соңғы жаңарту:">
+<!ENTITY subscription.lastDownload.inProgress "Жүктелуде...">
+<!ENTITY subscription.lastDownload.unknown "Ешқашан">
+<!ENTITY subscription.lastDownload.invalidURL "Қате, дұрыс адрес емес">
 <!ENTITY subscription.lastDownload.connectionError "Қате, жүктеу мүмкін емес">
+<!ENTITY subscription.lastDownload.invalidData "Қате, дұрыс сүзгілер файлы емес">
+<!ENTITY subscription.lastDownload.checksumMismatch "Қате, тексеру сомасы сәйкес емес">
+<!ENTITY subscription.lastDownload.success "Сәтті аяқталды">
+<!ENTITY addFilter.label "Фильтрді қосу">
+<!ENTITY filter.cut.label "Қию">
+<!ENTITY filter.copy.label "Көшіру">
+<!ENTITY filter.paste.label "Кірістіру">
+<!ENTITY filter.delete.label "Жою">
+<!ENTITY viewMenu.label "Түрі">
+<!ENTITY filter.column "Фильтр ережесі:">
+<!ENTITY filter.accesskey "е">
+<!ENTITY slow.column "Баяу фильтрлер">
+<!ENTITY slow.accesskey "ь">
+<!ENTITY enabled.column "Қосулы">
+<!ENTITY enabled.accesskey "л">
+<!ENTITY hitcount.column "Хиттер">
 <!ENTITY hitcount.accesskey "и">
-<!ENTITY sort.descending.accesskey "я">
 <!ENTITY lasthit.column "Соңғы хит">
 <!ENTITY lasthit.accesskey "ы">
-<!ENTITY filter.accesskey "е">
-<!ENTITY enabled.accesskey "л">
+<!ENTITY sort.label "Сұрыптау">
+<!ENTITY sort.accesskey "с">
+<!ENTITY sort.none.label "Сұрыптаусыз">
+<!ENTITY sort.none.accesskey "з">
+<!ENTITY sort.ascending.label "А &gt; Я сұрыптау">
+<!ENTITY sort.ascending.accesskey "а">
+<!ENTITY sort.descending.label "Я &gt; А сұрыптау">
+<!ENTITY sort.descending.accesskey "я">
+<!ENTITY find.label "Іздеу">

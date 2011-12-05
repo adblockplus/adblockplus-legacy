@@ -1,10 +1,10 @@
-<!ENTITY filter.copy.label "Macasamhlaigh">
-<!ENTITY subscription.lastDownload.inProgress "Ag íosluchtú...">
-<!ENTITY filter.cut.label "Gearr">
-<!ENTITY subscription.lastDownload.success "D'éirigh leis">
-<!ENTITY filter.delete.label "Scrios">
-<!ENTITY find.label "Aimsigh">
-<!ENTITY enabled.column "Cumasaithe">
-<!ENTITY filter.paste.label "Greamaigh">
-<!ENTITY subscription.lastDownload.unknown "N/A">
 <!ENTITY addSubscriptionOther.label "Cuir síntiús eile leis">
+<!ENTITY subscription.lastDownload.inProgress "Ag íosluchtú...">
+<!ENTITY subscription.lastDownload.unknown "N/A">
+<!ENTITY subscription.lastDownload.success "D'éirigh leis">
+<!ENTITY filter.cut.label "Gearr">
+<!ENTITY filter.copy.label "Macasamhlaigh">
+<!ENTITY filter.paste.label "Greamaigh">
+<!ENTITY filter.delete.label "Scrios">
+<!ENTITY enabled.column "Cumasaithe">
+<!ENTITY find.label "Aimsigh">

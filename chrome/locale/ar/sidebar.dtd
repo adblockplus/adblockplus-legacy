@@ -8,6 +8,7 @@
 <!ENTITY filter.label "الفلتر">
 <!ENTITY state.label "الحالة">
 <!ENTITY size.label "الحجم">
+<!ENTITY filterSource.label "فلترة المصدر">
 <!ENTITY docDomain.label "مصدر الملف">
 <!ENTITY docDomain.thirdParty "(طرف خارجي)">
 <!ENTITY docDomain.firstParty "(طرف داخلي)">

@@ -20,15 +20,15 @@
 <!ENTITY whitelist.site.label "تعطيل على ?1?">
 <!ENTITY whitelist.page.label "تعطيل في هذه الصفحة فقط">
 <!ENTITY disable.label "تعطيل في جميع الأماكن">
+<!ENTITY options.label "خيارات">
+<!ENTITY options.accesskey "خ">
+<!ENTITY showintoolbar.label "عرض في شريط الأدوات">
+<!ENTITY showintoolbar.accesskey "ش">
+<!ENTITY showinstatusbar.label "عرض في شريط الحالة">
+<!ENTITY showinstatusbar.accesskey "ح">
+<!ENTITY objecttabs.label "عرض تبويبات لفلاش و جافا">
+<!ENTITY objecttabs.accesskey "ت">
+<!ENTITY sync.label "مزامنة إعدادات آدبلوك بلس">
+<!ENTITY sync.accesskey "ز">
 <!ENTITY objecttab.title "أحجب">
 <!ENTITY objecttab.tooltip "اضغط هنا لمنع هذا العنصر مع آدبلوك بلاس">
-<!ENTITY sync.accesskey "ز">
-<!ENTITY showintoolbar.label "عرض في شريط الأدوات">
-<!ENTITY options.label "خيارات">
-<!ENTITY objecttabs.accesskey "ت">
-<!ENTITY showinstatusbar.label "عرض في شريط الحالة">
-<!ENTITY showintoolbar.accesskey "ش">
-<!ENTITY showinstatusbar.accesskey "ح">
-<!ENTITY sync.label "مزامنة إعدادات آدبلوك بلس">
-<!ENTITY objecttabs.label "عرض تبويبات لفلاش و جافا">
-<!ENTITY options.accesskey "خ">

@@ -20,15 +20,15 @@
 <!ENTITY whitelist.site.label "Dezactivează Adblock Plus pe ?1?">
 <!ENTITY whitelist.page.label "Dezactivează Adblock Plus doar pe pagina curentă">
 <!ENTITY disable.label "Dezactivează peste tot">
+<!ENTITY options.label "Opţiuni">
+<!ENTITY options.accesskey "O">
+<!ENTITY showintoolbar.label "Arată în bara de unelte">
+<!ENTITY showintoolbar.accesskey "u">
+<!ENTITY showinstatusbar.label "Arată în bara de stare">
+<!ENTITY showinstatusbar.accesskey "s">
+<!ENTITY objecttabs.label "Arată panouri lângă Flash şi Java">
+<!ENTITY objecttabs.accesskey "p">
+<!ENTITY sync.label "Sincronizează setările Adblock Plus">
+<!ENTITY sync.accesskey "n">
 <!ENTITY objecttab.title "Blochează">
 <!ENTITY objecttab.tooltip "Click aici pentru a bloca obiectul utilizând Adblock Plus">
-<!ENTITY sync.accesskey "n">
-<!ENTITY showintoolbar.label "Arată în bara de unelte">
-<!ENTITY options.label "Opţiuni">
-<!ENTITY objecttabs.accesskey "p">
-<!ENTITY showinstatusbar.label "Arată în bara de stare">
-<!ENTITY showintoolbar.accesskey "u">
-<!ENTITY showinstatusbar.accesskey "s">
-<!ENTITY sync.label "Sincronizează setările Adblock Plus">
-<!ENTITY objecttabs.label "Arată panouri lângă Flash şi Java">
-<!ENTITY options.accesskey "O">

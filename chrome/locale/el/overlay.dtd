@@ -20,15 +20,15 @@
 <!ENTITY whitelist.site.label "Απενεργοποίηση στο ?1?">
 <!ENTITY whitelist.page.label "Απενεργοποίηση σε αυτή τη σελίδα μόνο">
 <!ENTITY disable.label "Απενεργοποίηση παντού">
+<!ENTITY options.label "Επιλογές">
+<!ENTITY options.accesskey "λ">
+<!ENTITY showintoolbar.label "Εμφάνιση στην εργαλειοθήκη">
+<!ENTITY showintoolbar.accesskey "θ">
+<!ENTITY showinstatusbar.label "Εμφάνιση στην γραμμή κατάστασης">
+<!ENTITY showinstatusbar.accesskey "κ">
+<!ENTITY objecttabs.label "Εμφάνιση ετικέτας σε αντικείμενα Flash και Java">
+<!ENTITY objecttabs.accesskey "α">
+<!ENTITY sync.label "Συγχρονισμός των ρυθμίσεων του Adblock Plus">
+<!ENTITY sync.accesskey "χ">
 <!ENTITY objecttab.title "Φραγή">
 <!ENTITY objecttab.tooltip "Κλικ εδώ για να φιλτράρετε αυτό το αντικείμενο με το Adblock Plus">
-<!ENTITY sync.accesskey "χ">
-<!ENTITY showintoolbar.label "Εμφάνιση στην εργαλειοθήκη">
-<!ENTITY options.label "Επιλογές">
-<!ENTITY objecttabs.accesskey "α">
-<!ENTITY showinstatusbar.label "Εμφάνιση στην γραμμή κατάστασης">
-<!ENTITY showintoolbar.accesskey "θ">
-<!ENTITY showinstatusbar.accesskey "κ">
-<!ENTITY sync.label "Συγχρονισμός των ρυθμίσεων του Adblock Plus">
-<!ENTITY objecttabs.label "Εμφάνιση ετικέτας σε αντικείμενα Flash και Java">
-<!ENTITY options.accesskey "λ">

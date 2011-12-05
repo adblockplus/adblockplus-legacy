@@ -20,15 +20,15 @@
 <!ENTITY whitelist.site.label "Disattiva per ?1?">
 <!ENTITY whitelist.page.label "Disattiva solo per la pagina attuale">
 <!ENTITY disable.label "Disattiva per tutte le pagine">
+<!ENTITY options.label "Opzioni">
+<!ENTITY options.accesskey "O">
+<!ENTITY showintoolbar.label "Visualizza nella barra degli strumenti">
+<!ENTITY showintoolbar.accesskey "b">
+<!ENTITY showinstatusbar.label "Visualizza nella barra dei componenti aggiuntivi">
+<!ENTITY showinstatusbar.accesskey "s">
+<!ENTITY objecttabs.label "Mostra linguetta per elementi Flash e Java">
+<!ENTITY objecttabs.accesskey "t">
+<!ENTITY sync.label "Sincronizza le impostazioni di Adblock Plus">
+<!ENTITY sync.accesskey "k">
 <!ENTITY objecttab.title "Blocca">
 <!ENTITY objecttab.tooltip "Fare clic qui per bloccare l&apos;oggetto con Adblock Plus">
-<!ENTITY sync.accesskey "k">
-<!ENTITY showintoolbar.label "Visualizza nella barra degli strumenti">
-<!ENTITY options.label "Opzioni">
-<!ENTITY objecttabs.accesskey "t">
-<!ENTITY showinstatusbar.label "Visualizza nella barra dei componenti aggiuntivi">
-<!ENTITY showintoolbar.accesskey "b">
-<!ENTITY showinstatusbar.accesskey "s">
-<!ENTITY sync.label "Sincronizza le impostazioni di Adblock Plus">
-<!ENTITY objecttabs.label "Mostra linguetta per elementi Flash e Java">
-<!ENTITY options.accesskey "O">

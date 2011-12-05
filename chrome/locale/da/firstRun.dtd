@@ -1,0 +1,17 @@
+<!ENTITY dialog.title "Adblock Plus er nu installeret">
+<!ENTITY confirmation "
+ Tak fordi du valgte Adblock Plus. Reklamer blokeres fra nu af .
+ God fornøjelse!">
+<!ENTITY advancedSection "Avanceret">
+<!ENTITY listSelection1 "
+ Følgende filterliste er indstillet til at blokere annoncer:
+">
+<!ENTITY noList "Ingen filterliste">
+<!ENTITY visitHomepage.label "Besøg listens hjemmeside">
+<!ENTITY acceptableAds "
+ Adblock Plus er også indstillet til at tillade upåtrængende annoncering.
+">
+<!ENTITY readMore.label "Lær mere om dette">
+<!ENTITY listSelection2 "
+ Du kan altid ændre dette i [link]Filterpræferencer[/link].
+">

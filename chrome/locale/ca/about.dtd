@@ -1,7 +1,6 @@
 <!ENTITY dialog.title "Sobre Adblock Plus">
 <!ENTITY version.title "Versió">
-<!ENTITY description "Adblock Plus et permet decidir que no vols veure a la xarxa.
-Ja no has de descarregar tots els anuncis i pancartes, si no els vols - digues-ho a Adblock Plus!">
+<!ENTITY description "Adblock Plus et permet decidir que no vols veure a la xarxa.nnnJa no has de descarregar tots els anuncis i pancartes, si no els vols - digues-ho a Adblock Plus!">
 <!ENTITY homepage.label "Pàgina principal de Adblock Plus:">
 <!ENTITY author.label "Autor">
 <!ENTITY contributors.label "Contribuïdors:">

@@ -27,6 +27,7 @@ foreach my $locale (readdir(LOCALES))
   foreach my $file (<chrome/locale/$locale/*.dtd>)
   {
     my $data = readFile($file);
+    $data =~ s/\\n/\n/g;                      # Replace misencoded newlines by regular ones
     $data =~ s/\r//g;                         # Normalize newlines
     $data =~ s/\n+/\n/g;                      # Remove empty lines
     $data =~ s/[^\S\n]*<!--.*?-->\s*?\n*//gs; # Remove pointless comments

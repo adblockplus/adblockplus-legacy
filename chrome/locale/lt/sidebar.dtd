@@ -8,11 +8,12 @@
 <!ENTITY filter.label "Filtras">
 <!ENTITY state.label "Būsena">
 <!ENTITY size.label "Dydis">
+<!ENTITY filterSource.label "Filtruoti pirminį kodą">
 <!ENTITY docDomain.label "Dokumento šaltinis">
 <!ENTITY docDomain.thirdParty "(trečioji šalis)">
 <!ENTITY docDomain.firstParty "(pagrindinis)">
 <!ENTITY noitems.label "Nėra blokuojamų elementų">
-<!ENTITY whitelisted.label "Tinklalapis, įtrauktas į išimtis">
+<!ENTITY whitelisted.label "Tinklalapis įtrauktas į išimtis">
 <!ENTITY tooltip.address.label "Adresas:">
 <!ENTITY tooltip.type.label "Tipas:">
 <!ENTITY tooltip.type.blocked "(užblokuota)">

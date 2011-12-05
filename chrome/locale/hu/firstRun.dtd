@@ -1,0 +1,17 @@
+<!ENTITY dialog.title "Az Adblock Plus telepítése befejeződött">
+<!ENTITY confirmation "
+ Köszönjük, hogy telepítette az Adblock Plust. Mostantól le vannak tiltva a reklámok a weboldalakról.
+ Jó szórakozást!">
+<!ENTITY advancedSection "Haladó beállítások">
+<!ENTITY listSelection1 "
+ A következő szűrők alapján vannak letiltva a reklámok:
+">
+<!ENTITY noList "Nincsenek külső szűrők">
+<!ENTITY visitHomepage.label "Külső szűrő honlapja">
+<!ENTITY acceptableAds "
+ Az Adblock Plus úgy van beállítva, hogy a nem tolakodó reklámok nem kerülnek letiltásra.
+">
+<!ENTITY readMore.label "További információk erről">
+<!ENTITY listSelection2 "
+ Ezt a részt bármikor módosíthatja a [link]Szűrő beállítások[/link] alatt.
+">

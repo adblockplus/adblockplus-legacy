@@ -1,7 +1,7 @@
 <!ENTITY wizard.title "Rapporter problem">
 <!ENTITY privacyPolicy.label "Privatlivspolitik">
 <!ENTITY dataCollector.heading "Velkommen til Rapporter problem">
-<!ENTITY dataCollector.description "Vent  et øjeblik mens Adblock Plus indsamler data.">
+<!ENTITY dataCollector.description "Vent et øjeblik mens Adblock Plus indsamler data.">
 <!ENTITY typeSelector.heading "Vælg problemtype">
 <!ENTITY typeSelector.description "Dette vindue vil føre dig gennem de trin der kræves for at rapportere et Adblock Plus problem. Vælg først hvilken problemtype du oplever på denne side:">
 <!ENTITY typeSelector.falsePositive.label "Adblock Plus blokerer for meget">

@@ -6,8 +6,7 @@
 <!ENTITY typeSelector.description "Þessi gluggi hjálpar þér í gegnum þau skref sem þarf til að tilkynna Adblock Plus vandamálaskýrslu. Veldu fyrst, hverskonar tegund af vandamáli þú ert að lenda í á þessari síðu:">
 <!ENTITY typeSelector.falsePositive.label "Adblock Plus lokar á of mikið">
 <!ENTITY typeSelector.falsePositive.accesskey "m">
-<!ENTITY typeSelector.falsePositive.description "Veldu þennan möguleika ef á síðuna vantar mikilvæg gögn, birtist rangt eða virkar ekki eðlilega. Þú getur gengið úr skugga um hvort Adblock Plus sé vandamálið
-með því að gera það óvirkt tímabundið.">
+<!ENTITY typeSelector.falsePositive.description "Veldu þennan möguleika ef á síðuna vantar mikilvæg gögn, birtist rangt eða virkar ekki eðlilega. Þú getur gengið úr skugga um hvort Adblock Plus sé vandamáliðnnnmeð því að gera það óvirkt tímabundið.">
 <!ENTITY typeSelector.falseNegative.label "Adblock Plus lokar ekki á auglýsingu">
 <!ENTITY typeSelector.falseNegative.accesskey "e">
 <!ENTITY typeSelector.falseNegative.description "Veldu þennan möguleika ef auglýsing birtist jafnvel þótt Adblock Plus sé virkt.">
@@ -43,8 +42,7 @@ með því að gera það óvirkt tímabundið.">
 <!ENTITY reloadButton.label "Endurnýja síðu">
 <!ENTITY reloadButton.accesskey "r">
 <!ENTITY screenshot.heading "Hengja skjámynd við">
-<!ENTITY screenshot.description "Sama síðan getur birst á mismunandi hátt fyrir mismunandi fólk. Það gæti hjálpað okkur að skilja vandamálið ef þú setur skjáskot með skýrslunni. Þú getur fjarlægt svæði sem innihalda persónulegar upplýsingar og merkt einnig þau svæði þar sem	vandamálið sést. Til að merkja svæði smelltu á viðkomandi hnapp og veldu
-svæði á myndinni með músinni.">
+<!ENTITY screenshot.description "Sama síðan getur birst á mismunandi hátt fyrir mismunandi fólk. Það gæti hjálpað okkur að skilja vandamálið ef þú setur skjáskot með skýrslunni. Þú getur fjarlægt svæði sem innihalda persónulegar upplýsingar og merkt einnig þau svæði þar sem	vandamálið sést. Til að merkja svæði smelltu á viðkomandi hnapp og veldunnnsvæði á myndinni með músinni.">
 <!ENTITY screenshot.attach.label "Hengja mynd af síðu við skýrsluna">
 <!ENTITY screenshot.attach.accesskey "H">
 <!ENTITY screenshot.mark.label "Merkja vandamálið">

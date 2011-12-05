@@ -1,35 +1,35 @@
-<!ENTITY filter.copy.label "Kopēt">
-<!ENTITY subscription.lastDownload.inProgress "Lejupielādē...">
-<!ENTITY filter.cut.label "Izgriezt">
-<!ENTITY sort.accesskey "S">
-<!ENTITY sort.descending.label "Z &amp;gt; A kārtošanas secība">
 <!ENTITY addSubscription.label "Pievienot filtra abonēšanu">
-<!ENTITY subscription.lastDownload.success "Izdevās">
-<!ENTITY filter.delete.label "Dzēst">
-<!ENTITY find.label "Meklēt">
-<!ENTITY sort.none.accesskey "U">
-<!ENTITY sort.ascending.label "A &amp;gt; Z kārtošanas secība">
-<!ENTITY enabled.column "Iespējots">
-<!ENTITY slow.column "Lēni filtri">
-<!ENTITY subscription.lastDownload.invalidURL "Neizdevās, nav derīga adrese">
-<!ENTITY subscription.lastDownload.invalidData "Neizdevās, nav derīgs filtru saraksts">
-<!ENTITY subscription.lastDownload.label "Pēdējā lejupielāde:">
-<!ENTITY hitcount.column "Klikšķi">
-<!ENTITY filter.paste.label "Ielīmēt">
-<!ENTITY viewMenu.label "Skatīt">
-<!ENTITY subscription.lastDownload.checksumMismatch "Neizdevās, kontrolsummas neatbilstība">
-<!ENTITY sort.label "Kārtot pēc">
-<!ENTITY subscription.lastDownload.unknown "N/A">
-<!ENTITY slow.accesskey "w">
 <!ENTITY addSubscriptionOther.label "Pievienot citu abonementu">
-<!ENTITY sort.ascending.accesskey "A">
-<!ENTITY sort.none.label "Nesakārtots">
-<!ENTITY filter.column "Filtra noteikumi">
-<!ENTITY addFilter.label "Pievienot Filtru">
+<!ENTITY subscription.lastDownload.label "Pēdējā lejupielāde:">
+<!ENTITY subscription.lastDownload.inProgress "Lejupielādē...">
+<!ENTITY subscription.lastDownload.unknown "N/A">
+<!ENTITY subscription.lastDownload.invalidURL "Neizdevās, nav derīga adrese">
 <!ENTITY subscription.lastDownload.connectionError "Neizdevās, lejupielāde neizdevās">
+<!ENTITY subscription.lastDownload.invalidData "Neizdevās, nav derīgs filtru saraksts">
+<!ENTITY subscription.lastDownload.checksumMismatch "Neizdevās, kontrolsummas neatbilstība">
+<!ENTITY subscription.lastDownload.success "Izdevās">
+<!ENTITY addFilter.label "Pievienot Filtru">
+<!ENTITY filter.cut.label "Izgriezt">
+<!ENTITY filter.copy.label "Kopēt">
+<!ENTITY filter.paste.label "Ielīmēt">
+<!ENTITY filter.delete.label "Dzēst">
+<!ENTITY viewMenu.label "Skatīt">
+<!ENTITY filter.column "Filtra noteikumi">
+<!ENTITY filter.accesskey "F">
+<!ENTITY slow.column "Lēni filtri">
+<!ENTITY slow.accesskey "w">
+<!ENTITY enabled.column "Iespējots">
+<!ENTITY enabled.accesskey "n">
+<!ENTITY hitcount.column "Klikšķi">
 <!ENTITY hitcount.accesskey "H">
-<!ENTITY sort.descending.accesskey "Z">
 <!ENTITY lasthit.column "Pēdējai klikšķis">
 <!ENTITY lasthit.accesskey "L">
-<!ENTITY filter.accesskey "F">
-<!ENTITY enabled.accesskey "n">
+<!ENTITY sort.label "Kārtot pēc">
+<!ENTITY sort.accesskey "S">
+<!ENTITY sort.none.label "Nesakārtots">
+<!ENTITY sort.none.accesskey "U">
+<!ENTITY sort.ascending.label "A &gt; Z kārtošanas secība">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.descending.label "Z &gt; A kārtošanas secība">
+<!ENTITY sort.descending.accesskey "Z">
+<!ENTITY find.label "Meklēt">

@@ -20,15 +20,15 @@
 <!ENTITY whitelist.site.label "Desactivar en ?1?">
 <!ENTITY whitelist.page.label "Desactivar só nesta páxina">
 <!ENTITY disable.label "Desactivar en todos os lugares">
+<!ENTITY options.label "Opcións">
+<!ENTITY options.accesskey "O">
+<!ENTITY showintoolbar.label "Mostrar na barra de ferramentas">
+<!ENTITY showintoolbar.accesskey "f">
+<!ENTITY showinstatusbar.label "Mostrar na barra de estado">
+<!ENTITY showinstatusbar.accesskey "e">
+<!ENTITY objecttabs.label "Mostrar separadores en Flash e Java">
+<!ENTITY objecttabs.accesskey "s">
+<!ENTITY sync.label "Sincronizar as opcións do Adblock Plus">
+<!ENTITY sync.accesskey "c">
 <!ENTITY objecttab.title "Bloquear">
 <!ENTITY objecttab.tooltip "Prema aquí para bloquear este obxecto con Adblock Plus">
-<!ENTITY sync.accesskey "c">
-<!ENTITY showintoolbar.label "Mostrar na barra de ferramentas">
-<!ENTITY options.label "Opcións">
-<!ENTITY objecttabs.accesskey "s">
-<!ENTITY showinstatusbar.label "Mostrar na barra de estado">
-<!ENTITY showintoolbar.accesskey "f">
-<!ENTITY showinstatusbar.accesskey "e">
-<!ENTITY sync.label "Sincronizar as opcións do Adblock Plus">
-<!ENTITY objecttabs.label "Mostrar separadores en Flash e Java">
-<!ENTITY options.accesskey "O">

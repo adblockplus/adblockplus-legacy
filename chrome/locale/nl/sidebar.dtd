@@ -8,6 +8,7 @@
 <!ENTITY filter.label "Filter">
 <!ENTITY state.label "Status">
 <!ENTITY size.label "Grootte">
+<!ENTITY filterSource.label "Filterbron">
 <!ENTITY docDomain.label "Documentbron">
 <!ENTITY docDomain.thirdParty "(derden)">
 <!ENTITY docDomain.firstParty "(rechtstreeks)">

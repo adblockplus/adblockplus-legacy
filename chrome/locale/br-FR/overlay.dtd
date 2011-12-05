@@ -17,13 +17,13 @@
 <!ENTITY closesidebar.accesskey "b">
 <!ENTITY whitelist.site.label "Diweredekaat evit ?1?">
 <!ENTITY whitelist.page.label "Diweredekaat evit ar bajenn-se nemetken">
-<!ENTITY objecttab.title "Stankañ">
-<!ENTITY objecttab.tooltip "Klikañ amañ hag Adblock Plus a stanko an elfenn-se">
-<!ENTITY showintoolbar.label "Diskouez er barrenn ostilh">
 <!ENTITY options.label "Dibaboù">
-<!ENTITY objecttabs.accesskey "t">
-<!ENTITY showinstatusbar.label "Diskouez er barrenn stad">
+<!ENTITY options.accesskey "O">
+<!ENTITY showintoolbar.label "Diskouez er barrenn ostilh">
 <!ENTITY showintoolbar.accesskey "b">
+<!ENTITY showinstatusbar.label "Diskouez er barrenn stad">
 <!ENTITY showinstatusbar.accesskey "s">
 <!ENTITY objecttabs.label "Diskouez un tikedenn evit Flash ha Java">
-<!ENTITY options.accesskey "O">
+<!ENTITY objecttabs.accesskey "t">
+<!ENTITY objecttab.title "Stankañ">
+<!ENTITY objecttab.tooltip "Klikañ amañ hag Adblock Plus a stanko an elfenn-se">

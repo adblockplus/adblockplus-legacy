@@ -4,13 +4,13 @@
 <!ENTITY visitHomepage.label "Aplankyti tinklalapį">
 <!ENTITY addSubscription.label "Pridėti prenumeratą">
 <!ENTITY list.download.failed "Adblock Plus nepavyko gauti prenumeratų sąrašo.">
-<!ENTITY list.download.retry "Bandyti dar">
+<!ENTITY list.download.retry "Bandykite dar kartą">
 <!ENTITY list.download.website "Rodyti tinklalapį">
 <!ENTITY fromWeb.description "Patvirtinkite jog norite pridėti šią prenumeratą. Prieš įdedant prenumeratą jūs galite pakeisti jos pavadinimą ar vietą.">
 <!ENTITY title.label "Prenumeratos pavadinimas:">
 <!ENTITY title.accesskey "P">
 <!ENTITY location.label "Filtrų sąrašo vieta:">
 <!ENTITY location.accesskey "v">
-<!ENTITY supplementMessage "Ši filtrų prenumerata skirta naudoti kartu su &quot;?1?&quot; filtrų prenumerata kurios jūs kol kas nenaudojate.">
-<!ENTITY addMain.label "Pridėti filtro prenumeratą &quot;?1?&quot;">
-<!ENTITY addMain.accesskey "p">
+<!ENTITY supplementMessage "Ši filtrų prenumerata skirta naudoti kartu su &quot;?1?&quot; filtrų prenumerata, kurios jūs kol kas nenaudojate.">
+<!ENTITY addMain.label "Taip pat pridėti filtro prenumeratą &quot;?1?&quot;">
+<!ENTITY addMain.accesskey "a">

@@ -17,13 +17,13 @@
 <!ENTITY closesidebar.accesskey "b">
 <!ENTITY whitelist.site.label "Onemogući na ?1?">
 <!ENTITY whitelist.page.label "Onemogući samo na ovoj stranici">
-<!ENTITY objecttab.title "Blokiraj">
-<!ENTITY objecttab.tooltip "Kliknite ovdje da biste ovaj objekt blokirali s Adblock Plus">
-<!ENTITY showintoolbar.label "Prikaži u alatnoj traci">
 <!ENTITY options.label "Opcije">
-<!ENTITY objecttabs.accesskey "k">
-<!ENTITY showinstatusbar.label "Prikaži u statusnoj traci">
+<!ENTITY options.accesskey "O">
+<!ENTITY showintoolbar.label "Prikaži u alatnoj traci">
 <!ENTITY showintoolbar.accesskey "a">
+<!ENTITY showinstatusbar.label "Prikaži u statusnoj traci">
 <!ENTITY showinstatusbar.accesskey "s">
 <!ENTITY objecttabs.label "Prikaži kartice s Flashom i Javom">
-<!ENTITY options.accesskey "O">
+<!ENTITY objecttabs.accesskey "k">
+<!ENTITY objecttab.title "Blokiraj">
+<!ENTITY objecttab.tooltip "Kliknite ovdje da biste ovaj objekt blokirali s Adblock Plus">

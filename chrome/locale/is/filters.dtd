@@ -1,35 +1,64 @@
-<!ENTITY filter.copy.label "Afrita">
-<!ENTITY subscription.lastDownload.inProgress "Hleður...">
-<!ENTITY filter.cut.label "Klippa">
-<!ENTITY sort.accesskey "f">
-<!ENTITY sort.descending.label "Ö &amp;gt; A röðun">
+<!ENTITY dialog.title "Adblock Plus síu stillingar">
+<!ENTITY subscriptions.tab.label "Síu áskriftir">
+<!ENTITY filters.tab.label "Sérsniðnar síur">
 <!ENTITY addSubscription.label "Bæta við síuáskrift">
-<!ENTITY subscription.lastDownload.success "Tókst">
-<!ENTITY filter.delete.label "Eyða">
-<!ENTITY find.label "Leita">
-<!ENTITY sort.none.accesskey "r">
-<!ENTITY sort.ascending.label "A &amp;gt; Ö röðun">
-<!ENTITY enabled.column "Virkt">
-<!ENTITY slow.column "Hægar síur">
-<!ENTITY subscription.lastDownload.invalidURL "Mistókst, ekki gilt netfang">
-<!ENTITY subscription.lastDownload.invalidData "Mistókst, ekki gildur síulisti">
-<!ENTITY subscription.lastDownload.label "Seinasta niðurhal:">
-<!ENTITY hitcount.column "Notkun">
-<!ENTITY filter.paste.label "Líma">
-<!ENTITY viewMenu.label "Skoða">
-<!ENTITY subscription.lastDownload.checksumMismatch "Mistókst, prófsumma stemmir ekki">
-<!ENTITY sort.label "Raða eftir">
-<!ENTITY subscription.lastDownload.unknown "Óþekkt">
-<!ENTITY slow.accesskey "æ">
+<!ENTITY addSubscription.accesskey "B">
+<!ENTITY addSubscriptionAdd.label "Bæta við">
+<!ENTITY addSubscriptionCancel.label "Hætta við">
 <!ENTITY addSubscriptionOther.label "Bæta við öðruvísi áskrift">
-<!ENTITY sort.ascending.accesskey "A">
-<!ENTITY sort.none.label "Óraðað">
-<!ENTITY filter.column "Síu regla">
-<!ENTITY addFilter.label "Bæta við síu">
+<!ENTITY subscription.homepage.label "Heimasíða">
+<!ENTITY subscription.source.label "Sía lista">
+<!ENTITY subscription.enabled.label "Virkt">
+<!ENTITY subscription.lastDownload.label "Seinasta niðurhal:">
+<!ENTITY subscription.lastDownload.inProgress "Hleður...">
+<!ENTITY subscription.lastDownload.unknown "Óþekkt">
+<!ENTITY subscription.lastDownload.invalidURL "Mistókst, ekki gilt netfang">
 <!ENTITY subscription.lastDownload.connectionError "Mistókst, gat ekki niðurhalað">
+<!ENTITY subscription.lastDownload.invalidData "Mistókst, ekki gildur síulisti">
+<!ENTITY subscription.lastDownload.checksumMismatch "Mistókst, prófsumma stemmir ekki">
+<!ENTITY subscription.lastDownload.success "Tókst">
+<!ENTITY subscription.actions.label "Aðgerðir">
+<!ENTITY subscription.update.label "Uppfæra síur">
+<!ENTITY subscription.editTitle.label "Breyta titli">
+<!ENTITY subscription.delete.label "Eyða">
+<!ENTITY subscription.showHideFilters.label "Sýna/fela síur">
+<!ENTITY subscription.moveUp.label "Færa upp">
+<!ENTITY subscription.moveDown.label "Færa niður">
+<!ENTITY readMore.label "Lesa meira">
+<!ENTITY addFilter.label "Bæta við síu">
+<!ENTITY filter.actions.label "Síu aðgerðir">
+<!ENTITY filter.edit.label "Breyta">
+<!ENTITY filter.cut.label "Klippa">
+<!ENTITY filter.copy.label "Afrita">
+<!ENTITY filter.paste.label "Líma">
+<!ENTITY filter.delete.label "Eyða">
+<!ENTITY filter.selectAll.label "Velja allt">
+<!ENTITY filter.moveUp.label "Færa upp">
+<!ENTITY filter.moveDown.label "Færa niður">
+<!ENTITY viewMenu.label "Skoða">
+<!ENTITY filter.column "Síu regla">
+<!ENTITY filter.accesskey "g">
+<!ENTITY slow.column "Hægar síur">
+<!ENTITY slow.accesskey "æ">
+<!ENTITY enabled.column "Virkt">
+<!ENTITY enabled.accesskey "V">
+<!ENTITY hitcount.column "Notkun">
 <!ENTITY hitcount.accesskey "N">
-<!ENTITY sort.descending.accesskey "Ö">
 <!ENTITY lasthit.column "Seinast heimsótt">
 <!ENTITY lasthit.accesskey "h">
-<!ENTITY filter.accesskey "g">
-<!ENTITY enabled.accesskey "V">
+<!ENTITY sort.label "Raða eftir">
+<!ENTITY sort.accesskey "f">
+<!ENTITY sort.none.label "Óraðað">
+<!ENTITY sort.none.accesskey "r">
+<!ENTITY sort.ascending.label "A &gt; Ö röðun">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.descending.label "Ö &gt; A röðun">
+<!ENTITY sort.descending.accesskey "Ö">
+<!ENTITY filters.remove.warning "Viltu örugglega fjarlægja alla valdar síur?">
+<!ENTITY backupButton.label "Afrita og endurheimta">
+<!ENTITY backupButton.accesskey "A">
+<!ENTITY backup.label "Búa til nýtt afrit">
+<!ENTITY restore.default.label "Endurheimta afrit frá ?1?">
+<!ENTITY restore.own.label "Endurheimta eigið afrit">
+<!ENTITY find.label "Leita">
+<!ENTITY close.label "Loka">

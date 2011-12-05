@@ -1,0 +1,17 @@
+<!ENTITY dialog.title "Adblock Plus fininstalita">
+<!ENTITY confirmation "
+Dankon, ke vi instalis Adblock Plus. Reklamo estos blokata ekde nun.
+Multan plezuron!">
+<!ENTITY advancedSection "Detalaj agordoj">
+<!ENTITY listSelection1 "
+La jena listo de filtriloj estas konfigurita por bloki reklamon:
+">
+<!ENTITY noList "Listo de filtriloj ne ekzistas">
+<!ENTITY visitHomepage.label "Viziti paĝon de filtrilaj listoj">
+<!ENTITY acceptableAds "
+Adblock Plus esta ankaŭ agordita por permesi nealtrudiĝantanreklamon.
+">
+<!ENTITY readMore.label "Legu pli pri tio">
+<!ENTITY listSelection2 "
+Vi povas ŝanĝi ĉi tiun elekton ĉiutempe en la [link]filtrilaj agordoj[/link].
+">
