@@ -344,7 +344,7 @@
       </treecols>
 
       <treechildren id="filtersTreeChildren"
-          oncontextmenu="E('filterActionMenu').openPopup(null, 'after_pointer', event.clientX, event.clientY, true, false, event);"
+          oncontextmenu="E('filterActionMenu').openPopupAtScreen(event.screenX, event.screenY, true);"
           noGroupText="&noGroupSelected.text;"
           noFiltersText="&noFiltersInGroup.text;"
           ondragstart="FilterActions.startDrag(event);"
