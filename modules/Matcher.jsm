@@ -406,7 +406,7 @@ CombinedMatcher.prototype =
     {
       if (filter.siteKeys)
       {
-        for (let i = 0; i < filter.siteKeys; i++)
+        for (let i = 0; i < filter.siteKeys.length; i++)
           delete this.keys[filter.siteKeys[i]];
       }
       else
