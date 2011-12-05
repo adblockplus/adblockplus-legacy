@@ -1409,9 +1409,16 @@ function shouldHideImageManager()
  */
 function addSubscription()
 {
-  // Add "acceptable ads" subscription for new users and user updating from old ABP versions
+  // Add "acceptable ads" subscription for new users and user updating from old ABP versions.
+  // Don't add it for users of privacy subscriptions (use a hardcoded list for now).
   let addAcceptable = (Utils.versionComparator.compare(Prefs.lastVersion, "2.0b.3269") < 0);
-  if (FilterStorage.subscriptions.some(function(subscription) subscription.url == Prefs.subscriptions_exceptionsurl))
+  let privacySubscriptions = {
+    "https://easylist-downloads.adblockplus.org/easyprivacy+easylist.txt": true,
+    "https://easylist-downloads.adblockplus.org/easyprivacy.txt": true,
+    "https://secure.fanboy.co.nz/fanboy-tracking.txt": true,
+    "https://adversity.googlecode.com/hg/Adversity-Tracking.txt": true
+  };
+  if (FilterStorage.subscriptions.some(function(subscription) subscription.url == Prefs.subscriptions_exceptionsurl || subscription.url in privacySubscriptions))
     addAcceptable = false;
 
   // Don't add subscription if the user has a subscription already
