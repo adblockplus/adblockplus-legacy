@@ -121,10 +121,21 @@ var FilterStorage =
    */
   getGroupForFilter: function(/**Filter*/ filter) /**SpecialSubscription*/
   {
+    let generalSubscription = null;
     for each (let subscription in FilterStorage.subscriptions)
-      if (subscription instanceof SpecialSubscription && subscription.isDefaultFor(filter))
-        return subscription;
-    return null;
+    {
+      if (subscription instanceof SpecialSubscription)
+      {
+        // Always prefer specialized subscriptions
+        if (subscription.isDefaultFor(filter))
+          return subscription;
+
+        // If this is a general subscription - store it as fallback
+        if (!generalSubscription && (!subscription.defaults || !subscription.defaults.length))
+          generalSubscription = subscription;
+      }
+    }
+    return generalSubscription;
   },
 
   /**
