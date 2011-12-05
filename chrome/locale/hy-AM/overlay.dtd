@@ -20,15 +20,15 @@
 <!ENTITY whitelist.site.label "Անջատել ?1?-ում">
 <!ENTITY whitelist.page.label "Անջատել միայն այս էջի համար">
 <!ENTITY disable.label "Անջատել ամենուր">
+<!ENTITY options.label "Ընտրանքներ">
+<!ENTITY options.accesskey "Ը">
+<!ENTITY showintoolbar.label "Ցույց տալ գործիքաշարում">
+<!ENTITY showintoolbar.accesskey "գ">
+<!ENTITY showinstatusbar.label "Ցույց տալ վիճակի տողում">
+<!ENTITY showinstatusbar.accesskey "վ">
+<!ENTITY objecttabs.label "Ֆիլտրելու կոճակներ Flash-ի և Java-ի համար">
+<!ENTITY objecttabs.accesskey "կ">
+<!ENTITY sync.label "Սինքրոնացնել Adblock Plus-ի նախընտրանքները">
+<!ENTITY sync.accesskey "Ս">
 <!ENTITY objecttab.title "Ֆիլտրել">
 <!ENTITY objecttab.tooltip "Սեղմել «Adblock Plus»ով այս օբյեկտը ֆիլտրելու համար">
-<!ENTITY sync.accesskey "Ս">
-<!ENTITY showintoolbar.label "Ցույց տալ գործիքաշարում">
-<!ENTITY options.label "Ընտրանքներ">
-<!ENTITY objecttabs.accesskey "կ">
-<!ENTITY showinstatusbar.label "Ցույց տալ վիճակի տողում">
-<!ENTITY showintoolbar.accesskey "գ">
-<!ENTITY showinstatusbar.accesskey "վ">
-<!ENTITY sync.label "Սինքրոնացնել Adblock Plus-ի նախընտրանքները">
-<!ENTITY objecttabs.label "Ֆիլտրելու կոճակներ Flash-ի և Java-ի համար">
-<!ENTITY options.accesskey "Ը">

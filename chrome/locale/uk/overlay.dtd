@@ -19,13 +19,13 @@
 <!ENTITY closesidebar.accesskey "п">
 <!ENTITY whitelist.site.label "Вимкнути: на ?1?">
 <!ENTITY whitelist.page.label "Вимкнути: тільки на цій сторінці">
-<!ENTITY objecttab.title "Заблокувати">
-<!ENTITY objecttab.tooltip "Натисніть тут, щоб заблокувати цей об’єкт">
-<!ENTITY showintoolbar.label "Показувати в панелі інструментів">
 <!ENTITY options.label "Налаштування">
-<!ENTITY objecttabs.accesskey "я">
-<!ENTITY showinstatusbar.label "Показувати в рядку стану">
+<!ENTITY options.accesskey "а">
+<!ENTITY showintoolbar.label "Показувати в панелі інструментів">
 <!ENTITY showintoolbar.accesskey "к">
+<!ENTITY showinstatusbar.label "Показувати в рядку стану">
 <!ENTITY showinstatusbar.accesskey "с">
 <!ENTITY objecttabs.label "Показувати ярлик на Flash і Java">
-<!ENTITY options.accesskey "а">
+<!ENTITY objecttabs.accesskey "я">
+<!ENTITY objecttab.title "Заблокувати">
+<!ENTITY objecttab.tooltip "Натисніть тут, щоб заблокувати цей об’єкт">

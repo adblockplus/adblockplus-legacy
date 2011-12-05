@@ -13,6 +13,8 @@
 <!ENTITY sidebar.title "Elementos bloqueables en la página actual">
 <!ENTITY sendReport.label "Informar de un problema en esta página">
 <!ENTITY sendReport.accesskey "I">
+<!ENTITY filters.label "Preferencias de filtros">
+<!ENTITY filters.accesskey "P">
 <!ENTITY opensidebar.label "Abrir ventana elementos bloqueables">
 <!ENTITY opensidebar.accesskey "v">
 <!ENTITY closesidebar.label "Cerrar ventana elementos bloqueables">
@@ -20,15 +22,22 @@
 <!ENTITY whitelist.site.label "Desactivar en ?1?">
 <!ENTITY whitelist.page.label "Desactivar sólo en esta página">
 <!ENTITY disable.label "Desactivar globalmente">
+<!ENTITY options.label "Opciones">
+<!ENTITY options.accesskey "O">
+<!ENTITY contribute.label "Ayudar a Adblock Plus">
+<!ENTITY showintoolbar.label "Mostrar en la barra de herramientas">
+<!ENTITY showintoolbar.accesskey "b">
+<!ENTITY showinstatusbar.label "Mostrar en la barra de estado">
+<!ENTITY showinstatusbar.accesskey "d">
+<!ENTITY showinaddonbar.label "Mostrar en barra de extensiones">
+<!ENTITY showinaddonbar.accesskey "b">
+<!ENTITY objecttabs.label "Mostrar pestañas en Flash y Java">
+<!ENTITY objecttabs.accesskey "M">
+<!ENTITY hideplaceholders.label "Ocultar posicionadores de elementos bloqueados">
+<!ENTITY hideplaceholders.accesskey "O">
+<!ENTITY counthits.label "Contar usos de filtros">
+<!ENTITY counthits.accesskey "u">
+<!ENTITY sync.label "Sincronizar predisposiciones de Adblock Plus">
+<!ENTITY sync.accesskey "z">
 <!ENTITY objecttab.title "Bloquear">
 <!ENTITY objecttab.tooltip "Pulse aquí para bloquear este objeto con Adblock Plus">
-<!ENTITY sync.accesskey "z">
-<!ENTITY showintoolbar.label "Mostrar en la barra de herramientas">
-<!ENTITY options.label "Opciones">
-<!ENTITY objecttabs.accesskey "M">
-<!ENTITY showinstatusbar.label "Mostrar en la barra de estado">
-<!ENTITY showintoolbar.accesskey "h">
-<!ENTITY showinstatusbar.accesskey "d">
-<!ENTITY sync.label "Sincronizar predisposiciones de Adblock Plus">
-<!ENTITY objecttabs.label "Mostrar pestañas en Flash y Java">
-<!ENTITY options.accesskey "O">

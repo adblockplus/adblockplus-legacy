@@ -1,35 +1,35 @@
-<!ENTITY filter.copy.label "Կրկնել">
-<!ENTITY subscription.lastDownload.inProgress "Բեռնում...">
-<!ENTITY filter.cut.label "Կտրել">
-<!ENTITY sort.accesskey "Դ">
-<!ENTITY sort.descending.label "Ֆ &amp;gt; Ա կարգով">
 <!ENTITY addSubscription.label "Բաժանորդագրվել ֆիլտրերի">
-<!ENTITY subscription.lastDownload.success "Հաջող">
-<!ENTITY filter.delete.label "Ջնջել">
-<!ENTITY find.label "Փնտրել">
-<!ENTITY sort.none.accesskey "ն">
-<!ENTITY sort.ascending.label "Ա &amp;gt; Ֆ կարգով">
-<!ENTITY enabled.column "Միացած է">
-<!ENTITY slow.column "Դանդաղ ֆիլտրեր">
-<!ENTITY subscription.lastDownload.invalidURL "Անհաջող. Սխալ հասցե">
-<!ENTITY subscription.lastDownload.invalidData "Անհաջող.  Սխալ ֆիլտրերի ցուցակ">
-<!ENTITY subscription.lastDownload.label "Վերջին բեռնում.">
-<!ENTITY hitcount.column "Ազդ">
-<!ENTITY filter.paste.label "Տեղադրել">
-<!ENTITY viewMenu.label "Տեսք">
-<!ENTITY subscription.lastDownload.checksumMismatch "Անհաջող.">
-<!ENTITY sort.label "Դասավորել ">
-<!ENTITY subscription.lastDownload.unknown "ՉԿԱ">
-<!ENTITY slow.accesskey "w">
 <!ENTITY addSubscriptionOther.label "Ավելացնել այլ բաժանորդագրություն">
-<!ENTITY sort.ascending.accesskey "Ա">
-<!ENTITY sort.none.label "Անկանոն">
-<!ENTITY filter.column "Ֆիլտր">
-<!ENTITY addFilter.label "Ավելացնել Ֆիլտր">
+<!ENTITY subscription.lastDownload.label "Վերջին բեռնում.">
+<!ENTITY subscription.lastDownload.inProgress "Բեռնում...">
+<!ENTITY subscription.lastDownload.unknown "ՉԿԱ">
+<!ENTITY subscription.lastDownload.invalidURL "Անհաջող. Սխալ հասցե">
 <!ENTITY subscription.lastDownload.connectionError "Անհաջող. Բեռնման սխալ">
+<!ENTITY subscription.lastDownload.invalidData "Անհաջող.  Սխալ ֆիլտրերի ցուցակ">
+<!ENTITY subscription.lastDownload.checksumMismatch "Անհաջող.">
+<!ENTITY subscription.lastDownload.success "Հաջող">
+<!ENTITY addFilter.label "Ավելացնել Ֆիլտր">
+<!ENTITY filter.cut.label "Կտրել">
+<!ENTITY filter.copy.label "Կրկնել">
+<!ENTITY filter.paste.label "Տեղադրել">
+<!ENTITY filter.delete.label "Ջնջել">
+<!ENTITY viewMenu.label "Տեսք">
+<!ENTITY filter.column "Ֆիլտր">
+<!ENTITY filter.accesskey "լ">
+<!ENTITY slow.column "Դանդաղ ֆիլտրեր">
+<!ENTITY slow.accesskey "w">
+<!ENTITY enabled.column "Միացած է">
+<!ENTITY enabled.accesskey "Մ">
+<!ENTITY hitcount.column "Ազդ">
 <!ENTITY hitcount.accesskey "Հ">
-<!ENTITY sort.descending.accesskey "Ֆ">
 <!ENTITY lasthit.column "Վերջինը">
 <!ENTITY lasthit.accesskey "ջ">
-<!ENTITY filter.accesskey "լ">
-<!ENTITY enabled.accesskey "Մ">
+<!ENTITY sort.label "Դասավորել ">
+<!ENTITY sort.accesskey "Դ">
+<!ENTITY sort.none.label "Անկանոն">
+<!ENTITY sort.none.accesskey "ն">
+<!ENTITY sort.ascending.label "Ա &gt; Ֆ կարգով">
+<!ENTITY sort.ascending.accesskey "Ա">
+<!ENTITY sort.descending.label "Ֆ &gt; Ա կարգով">
+<!ENTITY sort.descending.accesskey "Ֆ">
+<!ENTITY find.label "Փնտրել">

@@ -8,6 +8,7 @@
 <!ENTITY filter.label "過濾條件">
 <!ENTITY state.label "狀態">
 <!ENTITY size.label "大小">
+<!ENTITY filterSource.label "條件來源">
 <!ENTITY docDomain.label "文件來源">
 <!ENTITY docDomain.thirdParty "(第三方)">
 <!ENTITY docDomain.firstParty "(第一方)">

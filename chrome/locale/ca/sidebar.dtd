@@ -8,6 +8,7 @@
 <!ENTITY filter.label "Filtre">
 <!ENTITY state.label "Estat">
 <!ENTITY size.label "Mida">
+<!ENTITY filterSource.label "Filtra font">
 <!ENTITY docDomain.label "Font del document">
 <!ENTITY docDomain.thirdParty "(tercers)">
 <!ENTITY docDomain.firstParty "(primers)">

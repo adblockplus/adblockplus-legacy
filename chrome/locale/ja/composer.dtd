@@ -2,8 +2,8 @@
 <!ENTITY accept.label "フィルタを追加">
 <!ENTITY advanced.label "詳細表示">
 <!ENTITY basic.label "基本表示">
-<!ENTITY disabled.warning "現在 Adblock Plus は無効になっています。フィルタを追加することはできますが [link]Adblock Plus を有効にする[/link] まで適用されません。">
-<!ENTITY groupDisabled.warning "現在、追加先のフィルタグループ &quot;?1?&quot; は無効になっています。フィルタを追加することはできますが [link]フィルタグループを有効にする[/link] まで適用されません。">
+<!ENTITY disabled.warning "現在 Adblock Plus は無効になっています。フィルタを追加することはできますが [link]Adblock Plus を有効化する[/link] まで適用されません。">
+<!ENTITY groupDisabled.warning "現在、追加先のフィルタグループ &quot;?1?&quot; は無効になっています。フィルタを追加することはできますが [link]フィルタグループを有効化する[/link] まで適用されません。">
 <!ENTITY filter.label "新規フィルタ:">
 <!ENTITY filter.accesskey "f">
 <!ENTITY preferences.label "既存のフィルタを表示…">

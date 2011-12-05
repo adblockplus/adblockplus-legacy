@@ -13,6 +13,8 @@
 <!ENTITY sidebar.title "Adblock Plus: Blokovatelné objekty na zobrazené stránce">
 <!ENTITY sendReport.label "Nahlásit problém na této stránce">
 <!ENTITY sendReport.accesskey "N">
+<!ENTITY filters.label "Předvolby filtrů">
+<!ENTITY filters.accesskey "P">
 <!ENTITY opensidebar.label "Zobrazit blokovatelné objekty">
 <!ENTITY opensidebar.accesskey "B">
 <!ENTITY closesidebar.label "Skrýt seznam blokovatelných objektů">
@@ -20,15 +22,22 @@
 <!ENTITY whitelist.site.label "Vypnout na ?1?">
 <!ENTITY whitelist.page.label "Vypnout pouze na této stránce">
 <!ENTITY disable.label "Zakázat všude">
+<!ENTITY options.label "Možnosti">
+<!ENTITY options.accesskey "M">
+<!ENTITY contribute.label "Přispět Adblocku Plus">
+<!ENTITY showintoolbar.label "Zobrazit v nástrojové liště">
+<!ENTITY showintoolbar.accesskey "n">
+<!ENTITY showinstatusbar.label "Zobrazit ve stavovém řádku">
+<!ENTITY showinstatusbar.accesskey "r">
+<!ENTITY showinaddonbar.label "Zobrazit v řádku s rozšířeními">
+<!ENTITY showinaddonbar.accesskey "i">
+<!ENTITY objecttabs.label "Zobrazovat ouška u objektů Java a Flash">
+<!ENTITY objecttabs.accesskey "o">
+<!ENTITY hideplaceholders.label "Skrýt zástupné objekty blokovaných prvků">
+<!ENTITY hideplaceholders.accesskey "b">
+<!ENTITY counthits.label "Počítat zásahy filtrů">
+<!ENTITY counthits.accesskey "z">
+<!ENTITY sync.label "Nastavení synchronizace Adblocku Plus">
+<!ENTITY sync.accesskey "s">
 <!ENTITY objecttab.title "Blokovat">
 <!ENTITY objecttab.tooltip "Klepněte zde pro blokování tohoto objektu pomocí Adblock Plus">
-<!ENTITY sync.accesskey "s">
-<!ENTITY showintoolbar.label "Zobrazit v nástrojové liště">
-<!ENTITY options.label "Možnosti">
-<!ENTITY objecttabs.accesskey "o">
-<!ENTITY showinstatusbar.label "Zobrazit ve stavovém řádku">
-<!ENTITY showintoolbar.accesskey "b">
-<!ENTITY showinstatusbar.accesskey "r">
-<!ENTITY sync.label "Nastavení synchronizace Adblocku Plus">
-<!ENTITY objecttabs.label "Zobrazovat ouška u objektů Java a Flash">
-<!ENTITY options.accesskey "M">

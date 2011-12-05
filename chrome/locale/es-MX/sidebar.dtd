@@ -8,6 +8,7 @@
 <!ENTITY filter.label "Filtro">
 <!ENTITY state.label "Estado">
 <!ENTITY size.label "Tamaño">
+<!ENTITY filterSource.label "Fuente de filtro">
 <!ENTITY docDomain.label "Fuente del documento">
 <!ENTITY docDomain.thirdParty "(terceros)">
 <!ENTITY docDomain.firstParty "(propietario)">

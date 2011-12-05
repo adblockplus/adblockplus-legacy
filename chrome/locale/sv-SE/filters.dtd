@@ -1,35 +1,92 @@
-<!ENTITY filter.copy.label "Kopiera">
-<!ENTITY subscription.lastDownload.inProgress "Laddar ner…">
-<!ENTITY filter.cut.label "Klipp ut">
-<!ENTITY sort.accesskey "t">
-<!ENTITY sort.descending.label "Sortera Ö &amp;gt; A">
+<!ENTITY dialog.title "Filterinställningar för Adblock Plus">
+<!ENTITY subscriptions.tab.label "Filterprenumerationer">
+<!ENTITY filters.tab.label "Egna filter">
 <!ENTITY addSubscription.label "Lägg till filterprenumeration">
-<!ENTITY subscription.lastDownload.success "Klart">
-<!ENTITY filter.delete.label "Ta bort">
-<!ENTITY find.label "Sök">
-<!ENTITY sort.none.accesskey "O">
-<!ENTITY sort.ascending.label "Sortera A &amp;gt; Ö">
-<!ENTITY enabled.column "På">
-<!ENTITY slow.column "Långsamma filter">
-<!ENTITY subscription.lastDownload.invalidURL "Ogiltig adress">
-<!ENTITY subscription.lastDownload.invalidData "Fel vid validering av filter">
-<!ENTITY subscription.lastDownload.label "Senast nerladdat:">
-<!ENTITY hitcount.column "Träffar">
-<!ENTITY filter.paste.label "Klistra in">
-<!ENTITY viewMenu.label "Visa">
-<!ENTITY subscription.lastDownload.checksumMismatch "Fel kontrollsumma">
-<!ENTITY sort.label "Sortering">
-<!ENTITY subscription.lastDownload.unknown "Okänt">
-<!ENTITY slow.accesskey "l">
+<!ENTITY addSubscription.accesskey "p">
+<!ENTITY addSubscriptionAdd.label "Lägg till">
+<!ENTITY addSubscriptionCancel.label "Avbryt">
 <!ENTITY addSubscriptionOther.label "Lägg till en ny prenumeration">
-<!ENTITY sort.ascending.accesskey "A">
-<!ENTITY sort.none.label "Osorterad">
-<!ENTITY filter.column "Filterregler">
+<!ENTITY noSubscriptions.text "
+	Du har inte lagt till några filterprenumerationer än. Adblock Plus kommer inte blockera
+	någonting utan filter. Använd &quot;Lägg till filterprenumeration&quot; för att
+	lägga till några.
+">
+<!ENTITY subscription.homepage.label "Webbplats">
+<!ENTITY subscription.external.label "Uppdateras av ett annat tillägg">
+<!ENTITY subscription.source.label "Filterlista">
+<!ENTITY subscription.enabled.label "Aktiverat">
+<!ENTITY subscription.lastDownload.label "Senast hämtat:">
+<!ENTITY subscription.lastDownload.inProgress "Hämtar…">
+<!ENTITY subscription.lastDownload.unknown "Okänt">
+<!ENTITY subscription.lastDownload.invalidURL "Ogiltig adress">
+<!ENTITY subscription.lastDownload.connectionError "Fel vid hämtning">
+<!ENTITY subscription.lastDownload.invalidData "Fel vid validering av filter">
+<!ENTITY subscription.lastDownload.checksumMismatch "Fel kontrollsumma">
+<!ENTITY subscription.lastDownload.success "Klart">
+<!ENTITY subscription.minVersion.warning "Denna filterprenumeration kräver en nyare version av Adblock Plus, du bör uppdatera till den senaste Adblock Plus-versionen.">
+<!ENTITY subscription.disabledFilters.warning "Vissa filter i denna prenumeration är inaktiverade.">
+<!ENTITY subscription.disabledFilters.enable "Aktivera inaktiverade filter">
+<!ENTITY subscription.actions.label "Åtgärder">
+<!ENTITY subscription.update.label "Uppdatera filter">
+<!ENTITY subscription.editTitle.label "Redigera rubrik">
+<!ENTITY subscription.delete.label "Ta bort">
+<!ENTITY subscription.showHideFilters.label "Visa/dölj filter">
+<!ENTITY subscription.moveUp.label "Flytta uppåt">
+<!ENTITY subscription.moveDown.label "Flytta nedåt">
+<!ENTITY acceptableAds.label "Tillåt icke störande reklam">
+<!ENTITY acceptableAds.accesskey "i">
+<!ENTITY readMore.label "Läs mer">
+<!ENTITY addGroup.label "Lägg till filtergrupp">
+<!ENTITY addGroup.accesskey "g">
+<!ENTITY noFilters.text "
+	Du har inga egna filter än.
+">
 <!ENTITY addFilter.label "Lägg till filter">
-<!ENTITY subscription.lastDownload.connectionError "Fel vid nerladdning">
+<!ENTITY addFilter.accesskey "f">
+<!ENTITY filter.actions.label "Filteråtgärder">
+<!ENTITY filter.edit.label "Redigera">
+<!ENTITY filter.cut.label "Klipp ut">
+<!ENTITY filter.copy.label "Kopiera">
+<!ENTITY filter.paste.label "Klistra in">
+<!ENTITY filter.delete.label "Ta bort">
+<!ENTITY filter.selectAll.label "Markera alla">
+<!ENTITY filter.resetHitCounts.label "Återställ träffstatistik">
+<!ENTITY filter.moveUp.label "Flytta uppåt">
+<!ENTITY filter.moveDown.label "Flytta nedåt">
+<!ENTITY viewMenu.label "Visa">
+<!ENTITY filter.column "Filterregler">
+<!ENTITY filter.accesskey "F">
+<!ENTITY slow.column "Långsamma filter">
+<!ENTITY slow.accesskey "l">
+<!ENTITY enabled.column "På">
+<!ENTITY enabled.accesskey "å">
+<!ENTITY hitcount.column "Träffar">
 <!ENTITY hitcount.accesskey "ä">
-<!ENTITY sort.descending.accesskey "Ö">
 <!ENTITY lasthit.column "Senaste träff">
 <!ENTITY lasthit.accesskey "r">
-<!ENTITY filter.accesskey "F">
-<!ENTITY enabled.accesskey "å">
+<!ENTITY sort.label "Sortering">
+<!ENTITY sort.accesskey "t">
+<!ENTITY sort.none.label "Osorterad">
+<!ENTITY sort.none.accesskey "O">
+<!ENTITY sort.ascending.label "Sortera A &gt; Ö">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.descending.label "Sortera Ö &gt; A">
+<!ENTITY sort.descending.accesskey "Ö">
+<!ENTITY noGroupSelected.text "Du måste markera en filtergrupp innan dess filter kan visas.">
+<!ENTITY noFiltersInGroup.text "Den markerade gruppen är tom">
+<!ENTITY filters.remove.warning "Vill du verkligen ta bort alla markerade filter?">
+<!ENTITY backupButton.label "Säkerhetskopiera och Återställ">
+<!ENTITY backupButton.accesskey "Å">
+<!ENTITY backup.label "Skapa ny säkerhetskopia">
+<!ENTITY restore.default.label "Återställ säkerhetskopia from ?1?">
+<!ENTITY restore.own.label "Återställ egen säkerhetskopia">
+<!ENTITY backup.complete.title "Alla filter och prenumerationer">
+<!ENTITY backup.custom.title "Endast egna filter">
+<!ENTITY backup.error "Det uppstod ett fel vid skrivning av filter till filen. Säkerställ att filen inte är skrivskyddad eller används av ett annat program.">
+<!ENTITY restore.error "Filens data kunde inte bearbetas. Kanske är det här inte en Adblock Plus-säkerhetskopiefil?">
+<!ENTITY restore.complete.warning "Alla dina filterinställningar kommer att ersättas av innehållet i den valda filen. Vill du fortsätta?">
+<!ENTITY restore.custom.warning "Alla dina egna filter kommer att ersättas av innehållet i den valda filen. Vill du fortsätta?">
+<!ENTITY restore.minVersion.warning "Varning: Filen har skapats med en nyare version av Adblock Plus. Du bör uppdatera till den senaste Adblock Plus-versionen innan du återställer från denna fil.">
+<!ENTITY find.label "Sök">
+<!ENTITY find.accesskey "k">
+<!ENTITY close.label "Stäng">

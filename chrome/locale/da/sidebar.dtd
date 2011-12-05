@@ -8,6 +8,7 @@
 <!ENTITY filter.label "Filter">
 <!ENTITY state.label "Tilstand">
 <!ENTITY size.label "Størrelse">
+<!ENTITY filterSource.label "Filterkilde">
 <!ENTITY docDomain.label "Dokumentkilde">
 <!ENTITY docDomain.thirdParty "(tredjeparts)">
 <!ENTITY docDomain.firstParty "(førsteparts)">

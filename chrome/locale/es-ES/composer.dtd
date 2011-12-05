@@ -6,15 +6,15 @@
 <!ENTITY groupDisabled.warning "El grupo de filtros &quot;?1?&quot; al que se va añadir este filtro está desactivado. Puede añadir el filtro, pero éste no se aplicará a menos que [link]active el grupo de filtros[/link].">
 <!ENTITY filter.label "Nuevo filtro:">
 <!ENTITY filter.accesskey "N">
-<!ENTITY preferences.label "Mostrar filtros existentes...">
+<!ENTITY preferences.label "Mostrar filtros existentes…">
 <!ENTITY preferences.accesskey "M">
 <!ENTITY type.filter.label "Filtro de bloqueo">
 <!ENTITY type.filter.accesskey "b">
 <!ENTITY type.whitelist.label "Regla de excepción">
 <!ENTITY type.whitelist.accesskey "x">
 <!ENTITY pattern.label "Buscar patrón">
-<!ENTITY pattern.explanation "El patrón puede ser cualquier parte de la dirección, el carácter * actúa como comodín. El filtro sólo se aplicará a las direcciones que se correspondan con el patrón.">
-<!ENTITY regexp.warning "El patrón que ha introducido se interpretará como expresión regular. Si usa muchas expresiones regulares su navegación podría volverse más lenta. Si no quería usar una expresión regular, añada un carácter * al final del patrón.">
+<!ENTITY pattern.explanation "El patrón puede ser cualquier parte de la dirección, el carácter &quot;*&quot; actúa como comodín. El filtro sólo se aplicará a las direcciones que se correspondan con el patrón.">
+<!ENTITY regexp.warning "El patrón que ha introducido se interpretará como expresión regular. Si usa muchas expresiones regulares su navegación podría volverse más lenta. Si no quería usar una expresión regular, añada un carácter &quot;*&quot; al final del patrón.">
 <!ENTITY shortpattern.warning "El patrón que ha introducido es demasiado corto para ser optimizado, si usa muchos patrones como este su navegación podría volverse más lenta. Se le recomienda elegir una cadena más larga para este filtro.">
 <!ENTITY match.warning "El patrón introducido no coincide con la dirección a bloquear o incluir en la lista blanca, y no tendrá ningún efecto sobre ella.">
 <!ENTITY custom.pattern.label "Personalizar:">
@@ -34,7 +34,7 @@
 <!ENTITY firstParty.accesskey "d">
 <!ENTITY thirdParty.label "Sólo para contenidos de terceros">
 <!ENTITY thirdParty.accesskey "t">
-<!ENTITY matchCase.label "Coincidir mayús/minús">
+<!ENTITY matchCase.label "Coincidir MAY/minús">
 <!ENTITY matchCase.accesskey "C">
 <!ENTITY types.label "Aplicar a estos tipos:">
 <!ENTITY selectAllTypes.label "Seleccionar todos">

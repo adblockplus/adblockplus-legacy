@@ -8,9 +8,10 @@
 <!ENTITY filter.label "Filtr">
 <!ENTITY state.label "Stan">
 <!ENTITY size.label "Rozmiar">
-<!ENTITY docDomain.label "Źródło dokumentu">
-<!ENTITY docDomain.thirdParty "(trzecia część)">
-<!ENTITY docDomain.firstParty "(pierwsza część)">
+<!ENTITY filterSource.label "Źródło filtra">
+<!ENTITY docDomain.label "Źródło elementu">
+<!ENTITY docDomain.thirdParty "(trzecia część adresu)">
+<!ENTITY docDomain.firstParty "(pierwsza część adresu)">
 <!ENTITY noitems.label "Elementy nieblokowalne">
 <!ENTITY whitelisted.label "Nieblokowana strona">
 <!ENTITY tooltip.address.label "Adres:">

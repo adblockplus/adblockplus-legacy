@@ -8,6 +8,7 @@
 <!ENTITY filter.label "필터">
 <!ENTITY state.label "상태">
 <!ENTITY size.label "크기">
+<!ENTITY filterSource.label "필터 위치">
 <!ENTITY docDomain.label "문서 위치">
 <!ENTITY docDomain.thirdParty "(외부 요청)">
 <!ENTITY docDomain.firstParty "(내부 요청)">

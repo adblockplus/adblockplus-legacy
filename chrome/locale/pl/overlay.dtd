@@ -13,6 +13,8 @@
 <!ENTITY sidebar.title "Blokowalne elementy na aktywnej stronie">
 <!ENTITY sendReport.label "Zgłoś problem na tej stronie">
 <!ENTITY sendReport.accesskey "Z">
+<!ENTITY filters.label "Ustawienia filtra">
+<!ENTITY filters.accesskey "U">
 <!ENTITY opensidebar.label "Otwórz listę blokowalnych elementów">
 <!ENTITY opensidebar.accesskey "B">
 <!ENTITY closesidebar.label "Zamknij listę blokowalnych elementów">
@@ -20,15 +22,22 @@
 <!ENTITY whitelist.site.label "Wyłącz blokowanie na ?1?">
 <!ENTITY whitelist.page.label "Wyłącz blokowanie tylko na tej stronie">
 <!ENTITY disable.label "Wyłącz wszędzie">
+<!ENTITY options.label "Opcje">
+<!ENTITY options.accesskey "O">
+<!ENTITY contribute.label "Wspomóż Adblock Plusa">
+<!ENTITY showintoolbar.label "Wyświetlaj ikonę Adblock Plusa na pasku narzędzi">
+<!ENTITY showintoolbar.accesskey "R">
+<!ENTITY showinstatusbar.label "Wyświetlaj ikonę Adblock Plusa na pasku stanu">
+<!ENTITY showinstatusbar.accesskey "W">
+<!ENTITY showinaddonbar.label "Wyświetlaj ikonę Adblock Plusa na pasku dodatków">
+<!ENTITY showinaddonbar.accesskey "T">
+<!ENTITY objecttabs.label "Wyświetlaj przyciski blokowania na elementach Flasha i Javy">
+<!ENTITY objecttabs.accesskey "K">
+<!ENTITY hideplaceholders.label "Ukryj zamienniki blokowanych elementów">
+<!ENTITY hideplaceholders.accesskey "M">
+<!ENTITY counthits.label "Zliczaj użycie filtra">
+<!ENTITY counthits.accesskey "C">
+<!ENTITY sync.label "Synchronizuj ustawienia Adblock Plusa">
+<!ENTITY sync.accesskey "S">
 <!ENTITY objecttab.title "Zablokuj">
 <!ENTITY objecttab.tooltip "Kliknij tutaj, aby zablokować ten obiekt">
-<!ENTITY sync.accesskey "S">
-<!ENTITY showintoolbar.label "Wyświetlaj ikonę Adblock Plusa na pasku narzędzi">
-<!ENTITY options.label "Opcje">
-<!ENTITY objecttabs.accesskey "K">
-<!ENTITY showinstatusbar.label "Wyświetlaj ikonę Adblock Plusa na pasku stanu">
-<!ENTITY showintoolbar.accesskey "D">
-<!ENTITY showinstatusbar.accesskey "N">
-<!ENTITY sync.label "Synchronizuj ustawienia Adblock Plusa">
-<!ENTITY objecttabs.label "Wyświetlaj przyciski blokowania na elementach Flasha i Javy">
-<!ENTITY options.accesskey "O">

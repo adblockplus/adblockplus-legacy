@@ -20,15 +20,15 @@
 <!ENTITY whitelist.site.label "Nyahaktifkan pada ?1?">
 <!ENTITY whitelist.page.label "Nyahaktifkan pada laman ini sahaja">
 <!ENTITY disable.label "Nyahaktif di semua tempat">
+<!ENTITY options.label "Pilihan">
+<!ENTITY options.accesskey "n">
+<!ENTITY showintoolbar.label "Paparkan di bar alatan">
+<!ENTITY showintoolbar.accesskey "n">
+<!ENTITY showinstatusbar.label "Paparkan di bar status">
+<!ENTITY showinstatusbar.accesskey "s">
+<!ENTITY objecttabs.label "Paparkan tab pada Flash dan Java">
+<!ENTITY objecttabs.accesskey "t">
+<!ENTITY sync.label "Sync tatacara Adblock Plus">
+<!ENTITY sync.accesskey "c">
 <!ENTITY objecttab.title "Sekat">
 <!ENTITY objecttab.tooltip "Klik di sini untuk menyekat objek ini dengan Adblock Plus">
-<!ENTITY sync.accesskey "c">
-<!ENTITY showintoolbar.label "Paparkan di bar alatan">
-<!ENTITY options.label "Pilihan">
-<!ENTITY objecttabs.accesskey "t">
-<!ENTITY showinstatusbar.label "Paparkan di bar status">
-<!ENTITY showintoolbar.accesskey "n">
-<!ENTITY showinstatusbar.accesskey "s">
-<!ENTITY sync.label "Sync tatacara Adblock Plus">
-<!ENTITY objecttabs.label "Paparkan tab pada Flash dan Java">
-<!ENTITY options.accesskey "n">

@@ -2,33 +2,42 @@
 <!ENTITY blocked.tooltip "הפריטים החסומים בעמוד זה:">
 <!ENTITY filters.tooltip "המסננים הפעילים ביותר:">
 <!ENTITY menuitem.label "העדפות Adblock Plus">
-<!ENTITY menuitem.accesskey "b">
+<!ENTITY menuitem.accesskey "ה">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY view.blockableItems.label "Adblock Plus: פריטים לחסימה">
 <!ENTITY context.image.label "Adblock Plus: חסימת תמונה">
 <!ENTITY context.object.label "Adblock Plus: חסימת פריט">
 <!ENTITY context.frame.label "Adblock Plus: חסימת מסגרת (פריים)">
 <!ENTITY context.media.label "Adblock Plus: חסימת ווידאו/אודיו">
-<!ENTITY context.removeWhitelist.label "Adblock Plus: מאופשר מחדש בעמוד זה">
+<!ENTITY context.removeWhitelist.label "Adblock Plus: מאפשר מחדש בעמוד זה">
 <!ENTITY sidebar.title "פריטים לחסימה בעמוד הנוכחי">
 <!ENTITY sendReport.label "דיווח בעיות בעמוד זה">
 <!ENTITY sendReport.accesskey "ד">
+<!ENTITY filters.label "הגדרות מסנן מתקדמות">
+<!ENTITY filters.accesskey "מ">
 <!ENTITY opensidebar.label "פתיחת רשימת הפריטים לחסימה">
-<!ENTITY opensidebar.accesskey "ר">
+<!ENTITY opensidebar.accesskey "פ">
 <!ENTITY closesidebar.label "סגירת הרשימה של הפריטים לחסימה">
-<!ENTITY closesidebar.accesskey "ר">
+<!ENTITY closesidebar.accesskey "פ">
 <!ENTITY whitelist.site.label "נטרול ב ?1?">
 <!ENTITY whitelist.page.label "נטרול בעמוד הזה בלבד">
 <!ENTITY disable.label "נטרול בכל מקום">
+<!ENTITY options.label "אפשרויות">
+<!ENTITY options.accesskey "ש">
+<!ENTITY contribute.label "תרום ל-Adblock Plus">
+<!ENTITY showintoolbar.label "הצגה בסרגל הכלים">
+<!ENTITY showintoolbar.accesskey "ג">
+<!ENTITY showinstatusbar.label "הצגה בשורת המצב">
+<!ENTITY showinstatusbar.accesskey "צ">
+<!ENTITY showinaddonbar.label "הצגת סרגל ההרחבות">
+<!ENTITY showinaddonbar.accesskey "ג">
+<!ENTITY objecttabs.label "הצגת לשוניות על פלאש וג'אווה">
+<!ENTITY objecttabs.accesskey "ש">
+<!ENTITY hideplaceholders.label "הסתרת מצייני מקום של אלמנט חסום">
+<!ENTITY hideplaceholders.accesskey "ח">
+<!ENTITY counthits.label "מנה לחיצות מסנן">
+<!ENTITY counthits.accesskey "ל">
+<!ENTITY sync.label "סנכרון הגדרות Adblock Plus">
+<!ENTITY sync.accesskey "נ">
 <!ENTITY objecttab.title "חסימה">
 <!ENTITY objecttab.tooltip "לחיצה כאן לחסימת פריט זה עם Adblock Plus">
-<!ENTITY sync.accesskey "כ">
-<!ENTITY showintoolbar.label "הצגה בסרגל הכלים">
-<!ENTITY options.label "אפשרויות">
-<!ENTITY objecttabs.accesskey "ג">
-<!ENTITY showinstatusbar.label "הצגה בשורת המצב">
-<!ENTITY showintoolbar.accesskey "ל">
-<!ENTITY showinstatusbar.accesskey "צ">
-<!ENTITY sync.label "סנכרון הגדרות Adblock Plus">
-<!ENTITY objecttabs.label "הצגת לשוניות על פלאש וג'אווה">
-<!ENTITY options.accesskey "פ">

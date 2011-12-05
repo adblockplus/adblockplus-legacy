@@ -13,6 +13,8 @@
 <!ENTITY sidebar.title "Estettävät elementit avoimella sivulla">
 <!ENTITY sendReport.label "Raportoi ongelma tällä sivulla">
 <!ENTITY sendReport.accesskey "R">
+<!ENTITY filters.label "Suodatinasetukset">
+<!ENTITY filters.accesskey "S">
 <!ENTITY opensidebar.label "Näytä elementit">
 <!ENTITY opensidebar.accesskey "e">
 <!ENTITY closesidebar.label "Sulje elementit">
@@ -20,15 +22,22 @@
 <!ENTITY whitelist.site.label "Ei käytössä osoitteessa ?1?">
 <!ENTITY whitelist.page.label "Ei käytössä tällä sivulla">
 <!ENTITY disable.label "Poista käytöstä kaikkialla">
+<!ENTITY options.label "Valinnat">
+<!ENTITY options.accesskey "V">
+<!ENTITY contribute.label "Avusta Adblock Plussaa">
+<!ENTITY showintoolbar.label "Näytä työkalupalkilla">
+<!ENTITY showintoolbar.accesskey "y">
+<!ENTITY showinstatusbar.label "Näytä tilarivillä">
+<!ENTITY showinstatusbar.accesskey "N">
+<!ENTITY showinaddonbar.label "Näytä lisäosapalkilla">
+<!ENTITY showinaddonbar.accesskey "y">
+<!ENTITY objecttabs.label "Korvake Flashin ja Javan yhteydessä">
+<!ENTITY objecttabs.accesskey "K">
+<!ENTITY hideplaceholders.label "Piilota elementit, jotka sisältävät estettyjä elementtejä">
+<!ENTITY hideplaceholders.accesskey "i">
+<!ENTITY counthits.label "Laske suodattimen osumat">
+<!ENTITY counthits.accesskey "L">
+<!ENTITY sync.label "Synkronoi Adblock Plussan asetukset">
+<!ENTITY sync.accesskey "S">
 <!ENTITY objecttab.title "Estä">
 <!ENTITY objecttab.tooltip "Estä tämä objekti Adblock Plussalla">
-<!ENTITY sync.accesskey "S">
-<!ENTITY showintoolbar.label "Näytä työkalupalkilla">
-<!ENTITY options.label "Valinnat">
-<!ENTITY objecttabs.accesskey "K">
-<!ENTITY showinstatusbar.label "Näytä tilarivillä">
-<!ENTITY showintoolbar.accesskey "y">
-<!ENTITY showinstatusbar.accesskey "N">
-<!ENTITY sync.label "Synkronoi Adblock Plussan asetukset">
-<!ENTITY objecttabs.label "Korvake Flashin ja Javan yhteydessä">
-<!ENTITY options.accesskey "V">

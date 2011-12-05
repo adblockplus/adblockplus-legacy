@@ -20,13 +20,13 @@
 <!ENTITY whitelist.site.label "Wyłącz blokowanie na ?1?">
 <!ENTITY whitelist.page.label "Wyłącz blokowanie tylko na tej stronie">
 <!ENTITY disable.label "Wyłącz wszędzie">
-<!ENTITY objecttab.title "Zablokuj">
-<!ENTITY objecttab.tooltip "Kliknij tutaj, aby zablokować ten obiekt">
-<!ENTITY showintoolbar.label "Tunjukkan di toolbar">
 <!ENTITY options.label "Opsi">
-<!ENTITY objecttabs.accesskey "T">
-<!ENTITY showinstatusbar.label "Tunjukkan di status bar">
+<!ENTITY options.accesskey "O">
+<!ENTITY showintoolbar.label "Tunjukkan di toolbar">
 <!ENTITY showintoolbar.accesskey "B">
+<!ENTITY showinstatusbar.label "Tunjukkan di status bar">
 <!ENTITY showinstatusbar.accesskey "S">
 <!ENTITY objecttabs.label "Tunjukkan tab pada Flash dan Java">
-<!ENTITY options.accesskey "O">
+<!ENTITY objecttabs.accesskey "T">
+<!ENTITY objecttab.title "Zablokuj">
+<!ENTITY objecttab.tooltip "Kliknij tutaj, aby zablokować ten obiekt">

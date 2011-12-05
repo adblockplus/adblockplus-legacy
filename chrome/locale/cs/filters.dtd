@@ -1,35 +1,86 @@
-<!ENTITY filter.copy.label "Kopírovat">
-<!ENTITY subscription.lastDownload.inProgress "Stahuji...">
-<!ENTITY filter.cut.label "Vyjmout">
-<!ENTITY sort.accesskey "S">
-<!ENTITY sort.descending.label "Sestupně (Z-A)">
+<!ENTITY dialog.title "Předvolby filtrů Adblocku Plus">
+<!ENTITY subscriptions.tab.label "Odebírané sady cizích filtrů">
+<!ENTITY filters.tab.label "Vlastní filtry">
 <!ENTITY addSubscription.label "Přidat cizí filtry">
-<!ENTITY subscription.lastDownload.success "Úspěch">
-<!ENTITY filter.delete.label "Smazat">
-<!ENTITY find.label "Najít">
-<!ENTITY sort.none.accesskey "N">
-<!ENTITY sort.ascending.label "Vzestupně (A-Z)">
-<!ENTITY enabled.column "Aktivní">
-<!ENTITY slow.column "Pomalé filtry">
-<!ENTITY subscription.lastDownload.invalidURL "Chyba, toto je nekorektní adresa.">
-<!ENTITY subscription.lastDownload.invalidData "Chyba, stažený soubor není souborem filtrů Adblock Plus">
-<!ENTITY subscription.lastDownload.label "Naposledy staženo:">
-<!ENTITY hitcount.column "Zásahy">
-<!ENTITY filter.paste.label "Vložit">
-<!ENTITY viewMenu.label "Zobrazit">
-<!ENTITY subscription.lastDownload.checksumMismatch "Chyba, neodpovídá kontrolní součet">
-<!ENTITY sort.label "Seřadit podle">
-<!ENTITY subscription.lastDownload.unknown "neznámo">
-<!ENTITY slow.accesskey "m">
+<!ENTITY addSubscription.accesskey "f">
+<!ENTITY addSubscriptionAdd.label "Přidat">
+<!ENTITY addSubscriptionCancel.label "Zrušit">
 <!ENTITY addSubscriptionOther.label "Přidat další sadu cizích filtrů">
-<!ENTITY sort.ascending.accesskey "A">
-<!ENTITY sort.none.label "Neřadit">
-<!ENTITY filter.column "Pravidlo filtru">
-<!ENTITY addFilter.label "Přidat filtr">
+<!ENTITY noSubscriptions.text "Zatím jste nezačali odebírat žádnou sadu cizích filtrů. Adblock Plus nebude blokovat nic bez nastavených filtrů, použijte prosím &quot;Přidat cizí filtry&quot;, abyste nějaké přidali.">
+<!ENTITY subscription.homepage.label "Domovská stránka">
+<!ENTITY subscription.external.label "Aktualizováno jiným rozšířením">
+<!ENTITY subscription.source.label "Seznam filtrů">
+<!ENTITY subscription.enabled.label "Povoleno">
+<!ENTITY subscription.lastDownload.label "Naposledy staženo:">
+<!ENTITY subscription.lastDownload.inProgress "Stahuji...">
+<!ENTITY subscription.lastDownload.unknown "neznámo">
+<!ENTITY subscription.lastDownload.invalidURL "Chyba, toto je nekorektní adresa.">
 <!ENTITY subscription.lastDownload.connectionError "Chyba, nepodařilo se stáhnout soubor">
+<!ENTITY subscription.lastDownload.invalidData "Chyba, stažený soubor není souborem filtrů Adblock Plus">
+<!ENTITY subscription.lastDownload.checksumMismatch "Chyba, neodpovídá kontrolní součet">
+<!ENTITY subscription.lastDownload.success "Úspěch">
+<!ENTITY subscription.minVersion.warning "Tato cizí sada filtrů vyžaduje novější verzi Adblocku Plus, měli byste jej aktualizovat na nejnovější verzi.">
+<!ENTITY subscription.disabledFilters.warning "Některé filtry v této sadě jsou zakázány.">
+<!ENTITY subscription.disabledFilters.enable "Povolit zakázané filtry">
+<!ENTITY subscription.actions.label "Akce">
+<!ENTITY subscription.update.label "Aktualizovat filtry">
+<!ENTITY subscription.editTitle.label "Upravit název">
+<!ENTITY subscription.delete.label "Smazat">
+<!ENTITY subscription.showHideFilters.label "Zobrazit/skrýt filtry">
+<!ENTITY subscription.moveUp.label "Posunout nahoru">
+<!ENTITY subscription.moveDown.label "Posunout dolů">
+<!ENTITY acceptableAds.label "Povolit nerušivé reklamy">
+<!ENTITY acceptableAds.accesskey "n">
+<!ENTITY readMore.label "Zjistit více">
+<!ENTITY addGroup.label "Přidat skupinu filtrů">
+<!ENTITY addGroup.accesskey "s">
+<!ENTITY noFilters.text "Zatím nemáte žádné vlastní filtry.">
+<!ENTITY addFilter.label "Přidat filtr">
+<!ENTITY addFilter.accesskey "p">
+<!ENTITY filter.actions.label "Akce filtrů">
+<!ENTITY filter.edit.label "Upravit">
+<!ENTITY filter.cut.label "Vyjmout">
+<!ENTITY filter.copy.label "Kopírovat">
+<!ENTITY filter.paste.label "Vložit">
+<!ENTITY filter.delete.label "Smazat">
+<!ENTITY filter.selectAll.label "Vybrat vše">
+<!ENTITY filter.resetHitCounts.label "Vynulovat statistiku zásahů">
+<!ENTITY filter.moveUp.label "Posunout nahoru">
+<!ENTITY filter.moveDown.label "Posunout dolů">
+<!ENTITY viewMenu.label "Zobrazit">
+<!ENTITY filter.column "Pravidlo filtru">
+<!ENTITY filter.accesskey "P">
+<!ENTITY slow.column "Pomalé filtry">
+<!ENTITY slow.accesskey "m">
+<!ENTITY enabled.column "Aktivní">
+<!ENTITY enabled.accesskey "k">
+<!ENTITY hitcount.column "Zásahy">
 <!ENTITY hitcount.accesskey "h">
-<!ENTITY sort.descending.accesskey "Z">
 <!ENTITY lasthit.column "Poslední zásah">
 <!ENTITY lasthit.accesskey "l">
-<!ENTITY filter.accesskey "P">
-<!ENTITY enabled.accesskey "k">
+<!ENTITY sort.label "Seřadit podle">
+<!ENTITY sort.accesskey "S">
+<!ENTITY sort.none.label "Neřadit">
+<!ENTITY sort.none.accesskey "N">
+<!ENTITY sort.ascending.label "Vzestupně (A-Z)">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.descending.label "Sestupně (Z-A)">
+<!ENTITY sort.descending.accesskey "Z">
+<!ENTITY noGroupSelected.text "Musíte vybrat skupinu filtrů, aby byly zobrazeny nějaké filtry.">
+<!ENTITY noFiltersInGroup.text "Vybraná skupina je prázdná">
+<!ENTITY filters.remove.warning "Opravdu chcete odebrat všechny vybrané filtry?">
+<!ENTITY backupButton.label "Zálohování a obnova">
+<!ENTITY backupButton.accesskey "o">
+<!ENTITY backup.label "Vytvořit novou zálohu">
+<!ENTITY restore.default.label "Obnovit ze zálohy z ?1?">
+<!ENTITY restore.own.label "Obnovit z vlastní zálohy">
+<!ENTITY backup.complete.title "Všechny filtry a sady cizích filtrů">
+<!ENTITY backup.custom.title "Pouze vlastní filtry">
+<!ENTITY backup.error "Došlo k chybě při zápisu filtrů do souboru. Ujistěte se prosím, že soubor není chráněn proti zápisu nebo používán jinou aplikací.">
+<!ENTITY restore.error "Data ze souboru nelze zpracovat, možná nejde o zálohu filtrů Adblocku Plus?">
+<!ENTITY restore.complete.warning "Všechny vaše předvolby budou nahrazeny obsahem vybraného souboru. Chcete pokračovat?">
+<!ENTITY restore.custom.warning "Všechny vaše vlastní filtry budou nahrazeny obsahem vybraného souboru. Chcete pokračovat?">
+<!ENTITY restore.minVersion.warning "Varování: Soubor byl vytvořen novější verzí Adblocku Plus. Měli byste jej aktualizovat na nějnovější verzi, než budete pokračovat.">
+<!ENTITY find.label "Najít">
+<!ENTITY find.accesskey "j">
+<!ENTITY close.label "Zavřít">

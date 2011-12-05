@@ -20,15 +20,15 @@
 <!ENTITY whitelist.site.label "Deshabilitar en ?1?">
 <!ENTITY whitelist.page.label "Deshabilitar solamente en esta página">
 <!ENTITY disable.label "Deshabilitar en todos lados">
+<!ENTITY options.label "Opciones">
+<!ENTITY options.accesskey "O">
+<!ENTITY showintoolbar.label "Mostrar en la barra de herramientas">
+<!ENTITY showintoolbar.accesskey "h">
+<!ENTITY showinstatusbar.label "Mostrar en la barra de estado">
+<!ENTITY showinstatusbar.accesskey "e">
+<!ENTITY objecttabs.label "Mostrar pestañas en Flash y Java">
+<!ENTITY objecttabs.accesskey "p">
+<!ENTITY sync.label "Sincronizar la configuración de Adblock Plus">
+<!ENTITY sync.accesskey "c">
 <!ENTITY objecttab.title "Bloquear">
 <!ENTITY objecttab.tooltip "Clic acá para bloquear este objeto con Adblock Plus">
-<!ENTITY sync.accesskey "c">
-<!ENTITY showintoolbar.label "Mostrar en la barra de herramientas">
-<!ENTITY options.label "Opciones">
-<!ENTITY objecttabs.accesskey "p">
-<!ENTITY showinstatusbar.label "Mostrar en la barra de estado">
-<!ENTITY showintoolbar.accesskey "h">
-<!ENTITY showinstatusbar.accesskey "e">
-<!ENTITY sync.label "Sincronizar la configuración de Adblock Plus">
-<!ENTITY objecttabs.label "Mostrar pestañas en Flash y Java">
-<!ENTITY options.accesskey "O">

@@ -6,12 +6,12 @@
 <!ENTITY opensidebar.accesskey "B">
 <!ENTITY closesidebar.label "Dún nithe ar féidir bac a chur orthu">
 <!ENTITY closesidebar.accesskey "B">
-<!ENTITY objecttab.title "Cuir bac ar">
-<!ENTITY showintoolbar.label "Taispeáin i sabh na n-uirlisí">
 <!ENTITY options.label "Roghanna">
-<!ENTITY objecttabs.accesskey "T">
-<!ENTITY showinstatusbar.label "Taispeáin sa treosabh">
+<!ENTITY options.accesskey "O">
+<!ENTITY showintoolbar.label "Taispeáin i sabh na n-uirlisí">
 <!ENTITY showintoolbar.accesskey "B">
+<!ENTITY showinstatusbar.label "Taispeáin sa treosabh">
 <!ENTITY showinstatusbar.accesskey "S">
 <!ENTITY objecttabs.label "Taispeáin cluaisíní ar Flash agus Java">
-<!ENTITY options.accesskey "O">
+<!ENTITY objecttabs.accesskey "T">
+<!ENTITY objecttab.title "Cuir bac ar">

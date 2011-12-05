@@ -1,35 +1,35 @@
-<!ENTITY filter.copy.label "Copiază">
-<!ENTITY subscription.lastDownload.inProgress "Decărcare...">
-<!ENTITY filter.cut.label "Taie">
-<!ENTITY sort.accesskey "O">
-<!ENTITY sort.descending.label "Descrescător (Z&amp;gt;A)">
 <!ENTITY addSubscription.label "Adaugă abonament filtre">
-<!ENTITY subscription.lastDownload.success "Succes">
-<!ENTITY filter.delete.label "Şterge">
-<!ENTITY find.label "Caută">
-<!ENTITY sort.none.accesskey "N">
-<!ENTITY sort.ascending.label "Crescător (A&amp;gt;Z)">
-<!ENTITY enabled.column "Stare">
-<!ENTITY slow.column "Filtre lente">
-<!ENTITY subscription.lastDownload.invalidURL "Eşuat, adresa nu este validă">
-<!ENTITY subscription.lastDownload.invalidData "Eşuat, lista nu este validă">
-<!ENTITY subscription.lastDownload.label "Ultima descărcare:">
-<!ENTITY hitcount.column "Contor">
-<!ENTITY filter.paste.label "Lipeşte">
-<!ENTITY viewMenu.label "Vizualizare">
-<!ENTITY subscription.lastDownload.checksumMismatch "Eşuat, suma de control nu se potriveşte.">
-<!ENTITY sort.label "Ordonare">
-<!ENTITY subscription.lastDownload.unknown "Necunoscut">
-<!ENTITY slow.accesskey "l">
 <!ENTITY addSubscriptionOther.label "Adaugă alt abonament">
-<!ENTITY sort.ascending.accesskey "A">
-<!ENTITY sort.none.label "Neordonat">
-<!ENTITY filter.column "Regulă de filtrare">
-<!ENTITY addFilter.label "Adaugă filtru">
+<!ENTITY subscription.lastDownload.label "Ultima descărcare:">
+<!ENTITY subscription.lastDownload.inProgress "Decărcare...">
+<!ENTITY subscription.lastDownload.unknown "Necunoscut">
+<!ENTITY subscription.lastDownload.invalidURL "Eşuat, adresa nu este validă">
 <!ENTITY subscription.lastDownload.connectionError "Eşuat, descărcare nereuşită">
+<!ENTITY subscription.lastDownload.invalidData "Eşuat, lista nu este validă">
+<!ENTITY subscription.lastDownload.checksumMismatch "Eşuat, suma de control nu se potriveşte.">
+<!ENTITY subscription.lastDownload.success "Succes">
+<!ENTITY addFilter.label "Adaugă filtru">
+<!ENTITY filter.cut.label "Taie">
+<!ENTITY filter.copy.label "Copiază">
+<!ENTITY filter.paste.label "Lipeşte">
+<!ENTITY filter.delete.label "Şterge">
+<!ENTITY viewMenu.label "Vizualizare">
+<!ENTITY filter.column "Regulă de filtrare">
+<!ENTITY filter.accesskey "R">
+<!ENTITY slow.column "Filtre lente">
+<!ENTITY slow.accesskey "l">
+<!ENTITY enabled.column "Stare">
+<!ENTITY enabled.accesskey "S">
+<!ENTITY hitcount.column "Contor">
 <!ENTITY hitcount.accesskey "C">
-<!ENTITY sort.descending.accesskey "Z">
 <!ENTITY lasthit.column "Ultima aplicare">
 <!ENTITY lasthit.accesskey "U">
-<!ENTITY filter.accesskey "R">
-<!ENTITY enabled.accesskey "S">
+<!ENTITY sort.label "Ordonare">
+<!ENTITY sort.accesskey "O">
+<!ENTITY sort.none.label "Neordonat">
+<!ENTITY sort.none.accesskey "N">
+<!ENTITY sort.ascending.label "Crescător (A&gt;Z)">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.descending.label "Descrescător (Z&gt;A)">
+<!ENTITY sort.descending.accesskey "Z">
+<!ENTITY find.label "Caută">

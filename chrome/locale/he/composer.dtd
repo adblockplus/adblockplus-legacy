@@ -1,9 +1,9 @@
-<!ENTITY dialog.title "הוספת חוק מסנן Adblock Plus">
+<!ENTITY dialog.title "הוספת חוק סינון Adblock Plus">
 <!ENTITY accept.label "הוספת מסנן">
 <!ENTITY advanced.label "תצוגה מתקדמת">
 <!ENTITY basic.label "תצוגה בסיסית">
-<!ENTITY disabled.warning "Adblock Plus מנוטרל. ניתן לערוך את כל המסננים ברשימה, אבל זה לא יהיה מעשי עד שיאופשר מחדש. [link]מאפשר את Adblock Plus[/link].">
-<!ENTITY groupDisabled.warning "מסנן זה אשר אמור להיות מצורף לקבוצת הסינון &quot;?1?&quot; מנוטרל כרגע. עדיין ניתן להוסיף מסנן זה אך הוא לא ייושם אלא אם [link]קבוצת הסינון תאפשר[/link].">
+<!ENTITY disabled.warning "Adblock Plus מנוטרל כרגע. ניתן עדיין להוסיף מסננים לרשימה, אבל הם לא יחולו אלא אם [link]Adblock Plus מאפשר [/link].">
+<!ENTITY groupDisabled.warning "מסנן זה אשר אמור להיות מצורף לקבוצת הסינון &quot;?1?&quot; מנוטרל כרגע. ניתן עדיין להוסיף מסנן זה אך הוא לא ייושם אלא אם [link]קבוצת הסינון תאפשר[/link].">
 <!ENTITY filter.label "מסנן חדש:">
 <!ENTITY filter.accesskey "מ">
 <!ENTITY preferences.label "הצגת המסננים הקיימים...">

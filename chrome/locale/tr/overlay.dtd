@@ -20,15 +20,15 @@
 <!ENTITY whitelist.site.label "?1? sitesinde devre dışı kal">
 <!ENTITY whitelist.page.label "Sadece bu sayfada devre dışı kal">
 <!ENTITY disable.label "Her yerde devre dışı kal">
+<!ENTITY options.label "Seçenekler">
+<!ENTITY options.accesskey "S">
+<!ENTITY showintoolbar.label "Araç çubuğunda göster">
+<!ENTITY showintoolbar.accesskey "R">
+<!ENTITY showinstatusbar.label "Durum çubuğunda göster">
+<!ENTITY showinstatusbar.accesskey "D">
+<!ENTITY objecttabs.label "Flash ve Java&apos;yı kulakçıklarla belirt">
+<!ENTITY objecttabs.accesskey "J">
+<!ENTITY sync.label "Adblock Plus ayarlarını eşitle">
+<!ENTITY sync.accesskey "e">
 <!ENTITY objecttab.title "Engelle">
 <!ENTITY objecttab.tooltip "Bu nesneyi Adblock Plus ile engellemek için buraya tıklayın.">
-<!ENTITY sync.accesskey "e">
-<!ENTITY showintoolbar.label "Araç çubuğunda göster">
-<!ENTITY options.label "Seçenekler">
-<!ENTITY objecttabs.accesskey "J">
-<!ENTITY showinstatusbar.label "Durum çubuğunda göster">
-<!ENTITY showintoolbar.accesskey "R">
-<!ENTITY showinstatusbar.accesskey "D">
-<!ENTITY sync.label "Adblock Plus ayarlarını eşitle">
-<!ENTITY objecttabs.label "Flash ve Java&amp;apos;yı kulakçıklarla belirt">
-<!ENTITY options.accesskey "S">

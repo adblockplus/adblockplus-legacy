@@ -1,35 +1,35 @@
-<!ENTITY filter.copy.label "Copiar">
-<!ENTITY subscription.lastDownload.inProgress "Descargando...">
-<!ENTITY filter.cut.label "Cortar">
-<!ENTITY sort.accesskey "O">
-<!ENTITY sort.descending.label "Ordenar de la &amp;quot;Z&amp;quot; a la &amp;quot;A&amp;quot;">
 <!ENTITY addSubscription.label "Agregar suscripción de filtros">
-<!ENTITY subscription.lastDownload.success "Se realizó exitosamente">
-<!ENTITY filter.delete.label "Eliminar">
-<!ENTITY find.label "Buscar">
-<!ENTITY sort.none.accesskey "D">
-<!ENTITY sort.ascending.label "Ordenar de la &amp;quot;A&amp;quot; a la &amp;quot;Z&amp;quot;">
-<!ENTITY enabled.column "Habilitado">
-<!ENTITY slow.column "Filtros lentos">
-<!ENTITY subscription.lastDownload.invalidURL "Falló, no es una dirección válida">
-<!ENTITY subscription.lastDownload.invalidData "Falló, no es una lista de filtros válida">
-<!ENTITY subscription.lastDownload.label "Última descarga:">
-<!ENTITY hitcount.column "Veces usado">
-<!ENTITY filter.paste.label "Pegar">
-<!ENTITY viewMenu.label "Ver">
-<!ENTITY subscription.lastDownload.checksumMismatch "Falló, el archivo checksum no coincide">
-<!ENTITY sort.label "Ordenar por">
-<!ENTITY subscription.lastDownload.unknown "No disponible">
-<!ENTITY slow.accesskey "n">
 <!ENTITY addSubscriptionOther.label "Agregar un filtro de suscripción">
-<!ENTITY sort.ascending.accesskey "A">
-<!ENTITY sort.none.label "Desordenado">
-<!ENTITY filter.column "Regla de filtro">
-<!ENTITY addFilter.label "Agregar filtro">
+<!ENTITY subscription.lastDownload.label "Última descarga:">
+<!ENTITY subscription.lastDownload.inProgress "Descargando...">
+<!ENTITY subscription.lastDownload.unknown "No disponible">
+<!ENTITY subscription.lastDownload.invalidURL "Falló, no es una dirección válida">
 <!ENTITY subscription.lastDownload.connectionError "Falló, error en la descarga">
+<!ENTITY subscription.lastDownload.invalidData "Falló, no es una lista de filtros válida">
+<!ENTITY subscription.lastDownload.checksumMismatch "Falló, el archivo checksum no coincide">
+<!ENTITY subscription.lastDownload.success "Se realizó exitosamente">
+<!ENTITY addFilter.label "Agregar filtro">
+<!ENTITY filter.cut.label "Cortar">
+<!ENTITY filter.copy.label "Copiar">
+<!ENTITY filter.paste.label "Pegar">
+<!ENTITY filter.delete.label "Eliminar">
+<!ENTITY viewMenu.label "Ver">
+<!ENTITY filter.column "Regla de filtro">
+<!ENTITY filter.accesskey "f">
+<!ENTITY slow.column "Filtros lentos">
+<!ENTITY slow.accesskey "n">
+<!ENTITY enabled.column "Habilitado">
+<!ENTITY enabled.accesskey "H">
+<!ENTITY hitcount.column "Veces usado">
 <!ENTITY hitcount.accesskey "u">
-<!ENTITY sort.descending.accesskey "Z">
 <!ENTITY lasthit.column "Última vez usado">
 <!ENTITY lasthit.accesskey "l">
-<!ENTITY filter.accesskey "f">
-<!ENTITY enabled.accesskey "H">
+<!ENTITY sort.label "Ordenar por">
+<!ENTITY sort.accesskey "O">
+<!ENTITY sort.none.label "Desordenado">
+<!ENTITY sort.none.accesskey "D">
+<!ENTITY sort.ascending.label "Ordenar de la &quot;A&quot; a la &quot;Z&quot;">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.descending.label "Ordenar de la &quot;Z&quot; a la &quot;A&quot;">
+<!ENTITY sort.descending.accesskey "Z">
+<!ENTITY find.label "Buscar">

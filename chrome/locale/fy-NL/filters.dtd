@@ -1,35 +1,35 @@
-<!ENTITY filter.copy.label "Kopiearje">
-<!ENTITY subscription.lastDownload.inProgress "Ynlade...">
-<!ENTITY filter.cut.label "Knippe">
-<!ENTITY sort.accesskey "S">
-<!ENTITY sort.descending.label "Z &amp;gt; A sortearoarder">
 <!ENTITY addSubscription.label "Filterabonnemint tafoegje">
-<!ENTITY subscription.lastDownload.success "Slagge">
-<!ENTITY filter.delete.label "Fuortsmite">
-<!ENTITY find.label "Sykje">
-<!ENTITY sort.none.accesskey "N">
-<!ENTITY sort.ascending.label "A &amp;gt; Z sortearoarder">
-<!ENTITY enabled.column "Ynskeakele">
-<!ENTITY slow.column "Langsame filters">
-<!ENTITY subscription.lastDownload.invalidURL "Mislearre, gjin jildich adres">
-<!ENTITY subscription.lastDownload.invalidData "Mislearre, gjin jildige filterlist">
-<!ENTITY subscription.lastDownload.label "Lêste ynlaad:">
-<!ENTITY hitcount.column "Hits">
-<!ENTITY filter.paste.label "Plakke">
-<!ENTITY viewMenu.label "Byld">
-<!ENTITY subscription.lastDownload.checksumMismatch "Mislearre, checksum komt net oerien">
-<!ENTITY sort.label "Sortearje op">
-<!ENTITY subscription.lastDownload.unknown "n.f.t.">
-<!ENTITY slow.accesskey "g">
 <!ENTITY addSubscriptionOther.label "In oar abonnemint tafoegje">
-<!ENTITY sort.ascending.accesskey "A">
-<!ENTITY sort.none.label "Net sortearre">
-<!ENTITY filter.column "Filterrigel">
-<!ENTITY addFilter.label "Tafoegje">
+<!ENTITY subscription.lastDownload.label "Lêste ynlaad:">
+<!ENTITY subscription.lastDownload.inProgress "Ynlade...">
+<!ENTITY subscription.lastDownload.unknown "n.f.t.">
+<!ENTITY subscription.lastDownload.invalidURL "Mislearre, gjin jildich adres">
 <!ENTITY subscription.lastDownload.connectionError "Mislearre, ynlaadprobleem">
+<!ENTITY subscription.lastDownload.invalidData "Mislearre, gjin jildige filterlist">
+<!ENTITY subscription.lastDownload.checksumMismatch "Mislearre, checksum komt net oerien">
+<!ENTITY subscription.lastDownload.success "Slagge">
+<!ENTITY addFilter.label "Tafoegje">
+<!ENTITY filter.cut.label "Knippe">
+<!ENTITY filter.copy.label "Kopiearje">
+<!ENTITY filter.paste.label "Plakke">
+<!ENTITY filter.delete.label "Fuortsmite">
+<!ENTITY viewMenu.label "Byld">
+<!ENTITY filter.column "Filterrigel">
+<!ENTITY filter.accesskey "F">
+<!ENTITY slow.column "Langsame filters">
+<!ENTITY slow.accesskey "g">
+<!ENTITY enabled.column "Ynskeakele">
+<!ENTITY enabled.accesskey "k">
+<!ENTITY hitcount.column "Hits">
 <!ENTITY hitcount.accesskey "H">
-<!ENTITY sort.descending.accesskey "Z">
 <!ENTITY lasthit.column "Lêste hit">
 <!ENTITY lasthit.accesskey "L">
-<!ENTITY filter.accesskey "F">
-<!ENTITY enabled.accesskey "k">
+<!ENTITY sort.label "Sortearje op">
+<!ENTITY sort.accesskey "S">
+<!ENTITY sort.none.label "Net sortearre">
+<!ENTITY sort.none.accesskey "N">
+<!ENTITY sort.ascending.label "A &gt; Z sortearoarder">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.descending.label "Z &gt; A sortearoarder">
+<!ENTITY sort.descending.accesskey "Z">
+<!ENTITY find.label "Sykje">

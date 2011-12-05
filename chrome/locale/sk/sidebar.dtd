@@ -8,6 +8,7 @@
 <!ENTITY filter.label "Filter">
 <!ENTITY state.label "Stav">
 <!ENTITY size.label "Veľkosť">
+<!ENTITY filterSource.label "Zdroj filtra">
 <!ENTITY docDomain.label "Zdroj dokumentu">
 <!ENTITY docDomain.thirdParty "(tretia strana)">
 <!ENTITY docDomain.firstParty "(prvá strana)">

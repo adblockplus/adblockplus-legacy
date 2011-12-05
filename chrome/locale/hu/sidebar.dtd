@@ -8,6 +8,7 @@
 <!ENTITY filter.label "Szűrő">
 <!ENTITY state.label "Állapot">
 <!ENTITY size.label "Méret">
+<!ENTITY filterSource.label "Szűrő forrása">
 <!ENTITY docDomain.label "Dokumentum forrás">
 <!ENTITY docDomain.thirdParty "(3. fél)">
 <!ENTITY docDomain.firstParty "(első fél)">

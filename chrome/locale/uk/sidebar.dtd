@@ -8,6 +8,7 @@
 <!ENTITY filter.label "Фільтр">
 <!ENTITY state.label "Статус">
 <!ENTITY size.label "Розмір">
+<!ENTITY filterSource.label "Джерело фільтра">
 <!ENTITY docDomain.label "Джерело документа">
 <!ENTITY docDomain.thirdParty "(запит з іншого сайта)">
 <!ENTITY docDomain.firstParty "(запит з того ж сайта)">

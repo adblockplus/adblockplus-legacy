@@ -13,6 +13,8 @@
 <!ENTITY sidebar.title "Blokujomne elementy na aktualnej stronje">
 <!ENTITY sendReport.label "Problem na tutej stronje zdźělić">
 <!ENTITY sendReport.accesskey "P">
+<!ENTITY filters.label "Filtrowe nastajenja">
+<!ENTITY filters.accesskey "F">
 <!ENTITY opensidebar.label "Blokujomne elementy wočinić">
 <!ENTITY opensidebar.accesskey "k">
 <!ENTITY closesidebar.label "Blokujomne elementy začinić">
@@ -20,15 +22,22 @@
 <!ENTITY whitelist.site.label "Na ?1? znjemóžnić">
 <!ENTITY whitelist.page.label "Jenož na tutej stronje znjemóžnić">
 <!ENTITY disable.label "Wšudźe znjemóžnić">
+<!ENTITY options.label "Opcije">
+<!ENTITY options.accesskey "O">
+<!ENTITY contribute.label "K Adblock Plus přinošować">
+<!ENTITY showintoolbar.label "W gratowej lajsće pokazać">
+<!ENTITY showintoolbar.accesskey "l">
+<!ENTITY showinstatusbar.label "W statusowej lajsće pokazać">
+<!ENTITY showinstatusbar.accesskey "s">
+<!ENTITY showinaddonbar.label "W přidatkowej lajsće pokazać">
+<!ENTITY showinaddonbar.accesskey "l">
+<!ENTITY objecttabs.label "Rajtarki wo Flash a Java pokazać">
+<!ENTITY objecttabs.accesskey "v">
+<!ENTITY hideplaceholders.label "Městodźeržićele zablokowanych elementow schować">
+<!ENTITY hideplaceholders.accesskey "M">
+<!ENTITY counthits.label "Filtrowe wotpowědniki ličić">
+<!ENTITY counthits.accesskey "F">
+<!ENTITY sync.label "Nastajenja Adblock Plus synchronizować">
+<!ENTITY sync.accesskey "c">
 <!ENTITY objecttab.title "Blokować">
 <!ENTITY objecttab.tooltip "Klikńće sem, zo byšće tutón objekt z pomcu Adblock Plus blokował">
-<!ENTITY sync.accesskey "c">
-<!ENTITY showintoolbar.label "W gratowej lajsće pokazać">
-<!ENTITY options.label "Opcije">
-<!ENTITY objecttabs.accesskey "v">
-<!ENTITY showinstatusbar.label "W statusowej lajsće pokazać">
-<!ENTITY showintoolbar.accesskey "g">
-<!ENTITY showinstatusbar.accesskey "s">
-<!ENTITY sync.label "Nastajenja Adblock Plus synchronizować">
-<!ENTITY objecttabs.label "Rajtarki wo Flash a Java pokazać">
-<!ENTITY options.accesskey "O">

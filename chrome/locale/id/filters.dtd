@@ -1,33 +1,33 @@
-<!ENTITY filter.copy.label "Salin">
-<!ENTITY subscription.lastDownload.inProgress "Pobieranie…">
-<!ENTITY filter.cut.label "Potong">
-<!ENTITY sort.accesskey "i">
-<!ENTITY sort.descending.label "Urut dari Z &amp;gt; A">
 <!ENTITY addSubscription.label "Tambahkan skrip filter">
-<!ENTITY subscription.lastDownload.success "Zakończono">
-<!ENTITY filter.delete.label "Hapus">
-<!ENTITY find.label "Cari">
-<!ENTITY sort.none.accesskey "K">
-<!ENTITY sort.ascending.label "Urut dari A &amp;gt; Z">
-<!ENTITY enabled.column "Hidupkan">
-<!ENTITY subscription.lastDownload.invalidURL "Nie powiodło się – nieprawidłowy adres">
-<!ENTITY subscription.lastDownload.invalidData "Nie powiodło się – nieprawidłowy zestaw filtrów">
-<!ENTITY subscription.lastDownload.label "Ostatnie pobieranie:">
-<!ENTITY hitcount.column "Sasaran">
-<!ENTITY filter.paste.label "Tempel">
-<!ENTITY viewMenu.label "Lihat">
-<!ENTITY subscription.lastDownload.checksumMismatch "Nie powiodło się – niepoprawna suma kontrolna">
-<!ENTITY sort.label "Urutkan dari">
-<!ENTITY subscription.lastDownload.unknown "nieznane">
 <!ENTITY addSubscriptionOther.label "Tambahkan skrip yang berbeda">
-<!ENTITY sort.ascending.accesskey "A">
-<!ENTITY sort.none.label "Acak">
-<!ENTITY filter.column "Aturan filter">
-<!ENTITY addFilter.label "Tambahkan filter">
+<!ENTITY subscription.lastDownload.label "Ostatnie pobieranie:">
+<!ENTITY subscription.lastDownload.inProgress "Pobieranie…">
+<!ENTITY subscription.lastDownload.unknown "nieznane">
+<!ENTITY subscription.lastDownload.invalidURL "Nie powiodło się – nieprawidłowy adres">
 <!ENTITY subscription.lastDownload.connectionError "Nie powiodło się – błąd pobierania">
+<!ENTITY subscription.lastDownload.invalidData "Nie powiodło się – nieprawidłowy zestaw filtrów">
+<!ENTITY subscription.lastDownload.checksumMismatch "Nie powiodło się – niepoprawna suma kontrolna">
+<!ENTITY subscription.lastDownload.success "Zakończono">
+<!ENTITY addFilter.label "Tambahkan filter">
+<!ENTITY filter.cut.label "Potong">
+<!ENTITY filter.copy.label "Salin">
+<!ENTITY filter.paste.label "Tempel">
+<!ENTITY filter.delete.label "Hapus">
+<!ENTITY viewMenu.label "Lihat">
+<!ENTITY filter.column "Aturan filter">
+<!ENTITY filter.accesskey "F">
+<!ENTITY enabled.column "Hidupkan">
+<!ENTITY enabled.accesskey "N">
+<!ENTITY hitcount.column "Sasaran">
 <!ENTITY hitcount.accesskey "H">
-<!ENTITY sort.descending.accesskey "Z">
 <!ENTITY lasthit.column "Sasaran terakhir">
 <!ENTITY lasthit.accesskey "L">
-<!ENTITY filter.accesskey "F">
-<!ENTITY enabled.accesskey "N">
+<!ENTITY sort.label "Urutkan dari">
+<!ENTITY sort.accesskey "i">
+<!ENTITY sort.none.label "Acak">
+<!ENTITY sort.none.accesskey "K">
+<!ENTITY sort.ascending.label "Urut dari A &gt; Z">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.descending.label "Urut dari Z &gt; A">
+<!ENTITY sort.descending.accesskey "Z">
+<!ENTITY find.label "Cari">

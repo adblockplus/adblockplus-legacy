@@ -1,0 +1,17 @@
+<!ENTITY dialog.title "Inštalácia Adblock Plus kompletná">
+<!ENTITY confirmation "
+ Ďakujeme za nainštalovanie Adblock Plus. Reklamy teraz budú blokované.
+ Príjemnú zábavu!">
+<!ENTITY advancedSection "Pokročilé možnosti">
+<!ENTITY listSelection1 "
+ Nasledujúci zoznam filtrov bol upravený pre blokovanie raklám:
+">
+<!ENTITY noList "Žiadny zoznam filtrov">
+<!ENTITY visitHomepage.label "Navštíviť domovskú stránku zoznamu">
+<!ENTITY acceptableAds "
+ Adblock Plus bol tiež nakonfigurovaný na povolenie nedotieravých reklám.
+">
+<!ENTITY readMore.label "Zistiť viac">
+<!ENTITY listSelection2 "
+ Môžete zmeniť tento výber kedykoľvek v [link]Nastavenia filtrov[/link].
+">

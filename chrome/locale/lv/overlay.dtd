@@ -20,13 +20,13 @@
 <!ENTITY whitelist.site.label "Atspējot uz ?1?">
 <!ENTITY whitelist.page.label "Atspējot tikai šajā lapā">
 <!ENTITY disable.label "Atspējot visur">
-<!ENTITY objecttab.title "Bloķēt">
-<!ENTITY objecttab.tooltip "Klikšķini šeit, lai bloķētu šo objektu ar Adblock Plus">
-<!ENTITY showintoolbar.label "Rādīt rīkjoslā">
 <!ENTITY options.label "Iespējas">
-<!ENTITY objecttabs.accesskey "t">
-<!ENTITY showinstatusbar.label "Rādīt stāvokļa joslā">
+<!ENTITY options.accesskey "O">
+<!ENTITY showintoolbar.label "Rādīt rīkjoslā">
 <!ENTITY showintoolbar.accesskey "b">
+<!ENTITY showinstatusbar.label "Rādīt stāvokļa joslā">
 <!ENTITY showinstatusbar.accesskey "s">
 <!ENTITY objecttabs.label "Rādīt cilnes Flash un Java">
-<!ENTITY options.accesskey "O">
+<!ENTITY objecttabs.accesskey "t">
+<!ENTITY objecttab.title "Bloķēt">
+<!ENTITY objecttab.tooltip "Klikšķini šeit, lai bloķētu šo objektu ar Adblock Plus">

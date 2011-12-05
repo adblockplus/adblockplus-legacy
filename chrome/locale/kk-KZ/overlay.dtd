@@ -20,15 +20,15 @@
 <!ENTITY whitelist.site.label "Келесі үшін сөндіру: ?1?">
 <!ENTITY whitelist.page.label "Тек осы парақ үшін сөндіру">
 <!ENTITY disable.label "Әр жерде сөндіру">
+<!ENTITY options.label "Баптаулар">
+<!ENTITY options.accesskey "Б">
+<!ENTITY showintoolbar.label "Панельде көрсету">
+<!ENTITY showintoolbar.accesskey "П">
+<!ENTITY showinstatusbar.label "Қалып-күй жолағында көрсету">
+<!ENTITY showinstatusbar.accesskey "к">
+<!ENTITY objecttabs.label "Flash пен Java-ға сілтеме қалдыру">
+<!ENTITY objecttabs.accesskey "д">
+<!ENTITY sync.label "Adblock Plus баптауларын Sync ішіне қосу">
+<!ENTITY sync.accesskey "ш">
 <!ENTITY objecttab.title "Блоктау">
 <!ENTITY objecttab.tooltip "Adblock Plus көмегімен осы объектті блоктау үшін шертіңіз">
-<!ENTITY sync.accesskey "ш">
-<!ENTITY showintoolbar.label "Панельде көрсету">
-<!ENTITY options.label "Баптаулар">
-<!ENTITY objecttabs.accesskey "д">
-<!ENTITY showinstatusbar.label "Қалып-күй жолағында көрсету">
-<!ENTITY showintoolbar.accesskey "П">
-<!ENTITY showinstatusbar.accesskey "к">
-<!ENTITY sync.label "Adblock Plus баптауларын Sync ішіне қосу">
-<!ENTITY objecttabs.label "Flash пен Java-ға сілтеме қалдыру">
-<!ENTITY options.accesskey "Б">

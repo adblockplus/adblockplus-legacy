@@ -8,6 +8,7 @@
 <!ENTITY filter.label "过滤规则">
 <!ENTITY state.label "状态">
 <!ENTITY size.label "大小">
+<!ENTITY filterSource.label "过滤规则源">
 <!ENTITY docDomain.label "文档源">
 <!ENTITY docDomain.thirdParty "(第三方)">
 <!ENTITY docDomain.firstParty "(甲方)">

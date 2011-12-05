@@ -14,9 +14,9 @@
 <!ENTITY closesidebar.accesskey "B">
 <!ENTITY whitelist.site.label "Çaktivizo në ?1?">
 <!ENTITY whitelist.page.label "Çaktivizo vetëm në këtë faqe">
-<!ENTITY objecttab.title "Blloko">
 <!ENTITY options.label "Mundësitë">
-<!ENTITY objecttabs.accesskey "T">
+<!ENTITY options.accesskey "O">
 <!ENTITY showintoolbar.accesskey "B">
 <!ENTITY showinstatusbar.accesskey "S">
-<!ENTITY options.accesskey "O">
+<!ENTITY objecttabs.accesskey "T">
+<!ENTITY objecttab.title "Blloko">

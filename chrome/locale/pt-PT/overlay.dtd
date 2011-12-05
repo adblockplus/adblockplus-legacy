@@ -13,6 +13,8 @@
 <!ENTITY sidebar.title "Elementos bloqueáveis na página actual">
 <!ENTITY sendReport.label "Reportar problema com esta página">
 <!ENTITY sendReport.accesskey "R">
+<!ENTITY filters.label "Preferências de filtros">
+<!ENTITY filters.accesskey "f">
 <!ENTITY opensidebar.label "Abrir lista de elementos bloqueáveis">
 <!ENTITY opensidebar.accesskey "B">
 <!ENTITY closesidebar.label "Fechar lista de elementos bloqueáveis">
@@ -20,15 +22,22 @@
 <!ENTITY whitelist.site.label "Desactivar em ?1?">
 <!ENTITY whitelist.page.label "Desactivar apenas nesta página">
 <!ENTITY disable.label "Desactivar em todas as páginas">
+<!ENTITY options.label "Opções">
+<!ENTITY options.accesskey "O">
+<!ENTITY contribute.label "Contribuir para o Adblock Plus">
+<!ENTITY showintoolbar.label "Mostrar na barra de ferramentas">
+<!ENTITY showintoolbar.accesskey "M">
+<!ENTITY showinstatusbar.label "Mostrar na barra de estado">
+<!ENTITY showinstatusbar.accesskey "S">
+<!ENTITY showinaddonbar.label "Mostrar na barra de add-ons">
+<!ENTITY showinaddonbar.accesskey "b">
+<!ENTITY objecttabs.label "Mostrar etiquetas em Flash e Java">
+<!ENTITY objecttabs.accesskey "T">
+<!ENTITY hideplaceholders.label "Esconder locais de elementos bloqueados">
+<!ENTITY hideplaceholders.accesskey "i">
+<!ENTITY counthits.label "Contabilizar bloqueios do filtro">
+<!ENTITY counthits.accesskey "C">
+<!ENTITY sync.label "Sincronizar configuração Adblock Plus">
+<!ENTITY sync.accesskey "c">
 <!ENTITY objecttab.title "Bloquear">
 <!ENTITY objecttab.tooltip "Clique aqui para bloquear este objecto com o Adblock Plus">
-<!ENTITY sync.accesskey "c">
-<!ENTITY showintoolbar.label "Mostrar na barra de ferramentas">
-<!ENTITY options.label "Opções">
-<!ENTITY objecttabs.accesskey "T">
-<!ENTITY showinstatusbar.label "Mostrar na barra de estado">
-<!ENTITY showintoolbar.accesskey "M">
-<!ENTITY showinstatusbar.accesskey "S">
-<!ENTITY sync.label "Sincronizar configuração Adblock Plus">
-<!ENTITY objecttabs.label "Mostrar etiquetas em Flash e Java">
-<!ENTITY options.accesskey "O">

@@ -19,13 +19,13 @@
 <!ENTITY closesidebar.accesskey "Х">
 <!ENTITY whitelist.site.label "Хаах нь ?1?">
 <!ENTITY whitelist.page.label "Зөвхөн уг хуудсанд хаах">
-<!ENTITY objecttab.title "Хаших">
-<!ENTITY objecttab.tooltip "Энд дарвал уг объектийг Adblock Plus-аар хаших болно">
-<!ENTITY showintoolbar.label "Хэрэгслийн мөрт харуулах">
 <!ENTITY options.label "Сонголтууд">
-<!ENTITY objecttabs.accesskey "Х">
-<!ENTITY showinstatusbar.label "Төлвийн мөрт харуулах">
+<!ENTITY options.accesskey "О">
+<!ENTITY showintoolbar.label "Хэрэгслийн мөрт харуулах">
 <!ENTITY showintoolbar.accesskey "М">
+<!ENTITY showinstatusbar.label "Төлвийн мөрт харуулах">
 <!ENTITY showinstatusbar.accesskey "Т">
 <!ENTITY objecttabs.label "Flash болон Java-д tab харуулах">
-<!ENTITY options.accesskey "О">
+<!ENTITY objecttabs.accesskey "Х">
+<!ENTITY objecttab.title "Хаших">
+<!ENTITY objecttab.tooltip "Энд дарвал уг объектийг Adblock Plus-аар хаших болно">

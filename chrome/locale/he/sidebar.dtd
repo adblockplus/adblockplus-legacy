@@ -8,6 +8,7 @@
 <!ENTITY filter.label "מסנן">
 <!ENTITY state.label "מצב">
 <!ENTITY size.label "גודל">
+<!ENTITY filterSource.label "מקור המסנן">
 <!ENTITY docDomain.label "מקור המסמך">
 <!ENTITY docDomain.thirdParty "(צד שלישי)">
 <!ENTITY docDomain.firstParty "(צד ראשון)">

@@ -1,35 +1,88 @@
-<!ENTITY filter.copy.label "Kopijuoti">
-<!ENTITY subscription.lastDownload.inProgress "Atsiunčiama...">
-<!ENTITY filter.cut.label "Iškirpti">
-<!ENTITY sort.accesskey "k">
-<!ENTITY sort.descending.label "Rikiavimo tvarka „Z &amp;gt; A“">
+<!ENTITY dialog.title "Adblock Plus filtrų nustatymai">
+<!ENTITY subscriptions.tab.label "Filtrų prenumeratos">
+<!ENTITY filters.tab.label "Pasirinktiniai filtrai">
 <!ENTITY addSubscription.label "Pridėti filtro prenumeratą">
-<!ENTITY subscription.lastDownload.success "Pavyko">
-<!ENTITY filter.delete.label "Pašalinti">
-<!ENTITY find.label "Rasti">
-<!ENTITY sort.none.accesskey "N">
-<!ENTITY sort.ascending.label "Rikiavimo tvarka „A &amp;gt; Z“">
-<!ENTITY enabled.column "Įjungta">
-<!ENTITY slow.column "Lėti filtrai">
-<!ENTITY subscription.lastDownload.invalidURL "Nepavyko, netinkamas adresas">
-<!ENTITY subscription.lastDownload.invalidData "Nepavyko, netinkamas filtrų sąrašas">
-<!ENTITY subscription.lastDownload.label "Paskutinis atsiuntimas:">
-<!ENTITY hitcount.column "Blokavimai">
-<!ENTITY filter.paste.label "Įdėti">
-<!ENTITY viewMenu.label "Rodymas">
-<!ENTITY subscription.lastDownload.checksumMismatch "Nepavyko, bloga kontrolinė suma">
-<!ENTITY sort.label "Rikiuoti pagal">
-<!ENTITY subscription.lastDownload.unknown "N/D">
-<!ENTITY slow.accesskey "w">
+<!ENTITY addSubscription.accesskey "f">
+<!ENTITY addSubscriptionAdd.label "Pridėti">
+<!ENTITY addSubscriptionCancel.label "Atšaukti">
 <!ENTITY addSubscriptionOther.label "Pridėti kitą prenumeratą">
-<!ENTITY sort.ascending.accesskey "A">
-<!ENTITY sort.none.label "Nerikiuojama">
-<!ENTITY filter.column "Filtro taisyklė">
-<!ENTITY addFilter.label "Pridėti filtrą">
+<!ENTITY noSubscriptions.text "	Kol kas jūs nepridėjote jokių filtrų prenumeratų. Be filtrų Adblock Plus nieko neblokuos, 
+norėdami pridėti kelis naudokite 
+&quot;Pridėti filtrų prenumeratą&quot;.">
+<!ENTITY subscription.homepage.label "Namų puslapis">
+<!ENTITY subscription.external.label "Atnaujino kitas plėtinys">
+<!ENTITY subscription.source.label "Filtrų sąrašas">
+<!ENTITY subscription.enabled.label "Įjungta">
+<!ENTITY subscription.lastDownload.label "Paskutinis atsiuntimas:">
+<!ENTITY subscription.lastDownload.inProgress "Atsiunčiama...">
+<!ENTITY subscription.lastDownload.unknown "N/A">
+<!ENTITY subscription.lastDownload.invalidURL "Nepavyko, netinkamas adresas">
 <!ENTITY subscription.lastDownload.connectionError "Nepavyko, atsiuntimo klaida">
+<!ENTITY subscription.lastDownload.invalidData "Nepavyko, netinkamas filtrų sąrašas">
+<!ENTITY subscription.lastDownload.checksumMismatch "Nepavyko, bloga kontrolinė suma">
+<!ENTITY subscription.lastDownload.success "Sėkmingai">
+<!ENTITY subscription.minVersion.warning "Ši filtrų prenumerata reikalauja naujesnės Adblock Plus versijos, turėtume atsinaujinti savo Adblock Plus.">
+<!ENTITY subscription.disabledFilters.warning "Kai kurie filtrai, šioje prenumeratoje, išjungti.">
+<!ENTITY subscription.disabledFilters.enable "Įjungti išjungtus filtrus">
+<!ENTITY subscription.actions.label "Veiksmai">
+<!ENTITY subscription.update.label "Atnaujinti filtrus">
+<!ENTITY subscription.editTitle.label "Keisti pavadinimą">
+<!ENTITY subscription.delete.label "Ištrinti">
+<!ENTITY subscription.showHideFilters.label "Rodyti/slėpti filtrų taisykles">
+<!ENTITY subscription.moveUp.label "Pakelti aukštyn">
+<!ENTITY subscription.moveDown.label "Perkelti žemyn">
+<!ENTITY acceptableAds.label "Leisti neatkaklias reklamas">
+<!ENTITY acceptableAds.accesskey "t">
+<!ENTITY readMore.label "Skaityti daugiau">
+<!ENTITY addGroup.label "Pridėti filtrų grupę">
+<!ENTITY addGroup.accesskey "g">
+<!ENTITY noFilters.text "	Kol kas jūs neturite jokių pasirinktinių filtrų.">
+<!ENTITY addFilter.label "Pridėti filtrą">
+<!ENTITY addFilter.accesskey "d">
+<!ENTITY filter.actions.label "Filtro veiksmai">
+<!ENTITY filter.edit.label "Keisti">
+<!ENTITY filter.cut.label "Iškirpti">
+<!ENTITY filter.copy.label "Kopijuoti">
+<!ENTITY filter.paste.label "Įdėti">
+<!ENTITY filter.delete.label "Pašalinti">
+<!ENTITY filter.selectAll.label "Pasirinkti visas">
+<!ENTITY filter.resetHitCounts.label "Atstatyti blokavimų statistiką">
+<!ENTITY filter.moveUp.label "Pakelti aukštyn">
+<!ENTITY filter.moveDown.label "Perkelti žemyn">
+<!ENTITY viewMenu.label "Rodymas">
+<!ENTITY filter.column "Filtro taisyklė">
+<!ENTITY filter.accesskey "F">
+<!ENTITY slow.column "Lėti filtrai">
+<!ENTITY slow.accesskey "w">
+<!ENTITY enabled.column "Įjungta">
+<!ENTITY enabled.accesskey "n">
+<!ENTITY hitcount.column "Blokavimai">
 <!ENTITY hitcount.accesskey "H">
-<!ENTITY sort.descending.accesskey "Z">
 <!ENTITY lasthit.column "Paskutinis blokavimas">
 <!ENTITY lasthit.accesskey "L">
-<!ENTITY filter.accesskey "F">
-<!ENTITY enabled.accesskey "n">
+<!ENTITY sort.label "Rikiuoti pagal">
+<!ENTITY sort.accesskey "k">
+<!ENTITY sort.none.label "Nerikiuojama">
+<!ENTITY sort.none.accesskey "e">
+<!ENTITY sort.ascending.label "Rikiavimo tvarka „A &gt; Z“">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY sort.descending.label "Rikiavimo tvarka „Z &gt; A“">
+<!ENTITY sort.descending.accesskey "Z">
+<!ENTITY noGroupSelected.text "Jūs turite pasirinkti filtrų grupę, tik tada bus galima parodyti tos grupės filtrus.">
+<!ENTITY noFiltersInGroup.text "Pasirinkta grupė yra tuščia">
+<!ENTITY filters.remove.warning "Ar tikrai norite pašalinti visus pasirinktus filtrus?">
+<!ENTITY backupButton.label "Atsarginių kopijų kūrimas ir atkūrimas">
+<!ENTITY backupButton.accesskey "A">
+<!ENTITY backup.label "Sukurti naują atsarginę kopiją">
+<!ENTITY restore.default.label "Atstatyti atsarginę kopiją iš ?1?">
+<!ENTITY restore.own.label "Atstatyti savo atsarginę kopiją">
+<!ENTITY backup.complete.title "Visi filtrai ir prenumeratos">
+<!ENTITY backup.custom.title "Tik pasirinktiniai filtrai">
+<!ENTITY backup.error "Įvyko klaida rašant filtrus į failą. Įsitikinkite jog tas failas neapsaugotas nuo rašymo ir jo nenaudoja kita programa.">
+<!ENTITY restore.error "Neįmanoma panaudoti failo duomenų, gal tai ne Adblock PLus atsarginės kopijos failas?">
+<!ENTITY restore.complete.warning "Visi jūsų filtrų nustatymai bus pakeisti pasirinkto failo turiniu. Ar norite tęsti?">
+<!ENTITY restore.custom.warning "Visi jūsų pasirinktiniai filtrai bus pakeisti pasirinkto failo turiniu. Ar norite tęsti?">
+<!ENTITY restore.minVersion.warning "Įspėjimas: failas sukurtas naudojant naujesnę Adblock Plus versiją. Prieš atstatant iš šio failo, turėtumėte atnaujinti savo Adblock Plus iki naujausios versijos.">
+<!ENTITY find.label "Rasti">
+<!ENTITY find.accesskey "s">
+<!ENTITY close.label "Užverti">

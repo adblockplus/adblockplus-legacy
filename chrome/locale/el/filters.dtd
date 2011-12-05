@@ -1,35 +1,35 @@
-<!ENTITY filter.copy.label "Αντιγραφή">
-<!ENTITY subscription.lastDownload.inProgress "Σε εξέλιξη...">
-<!ENTITY filter.cut.label "Αποκοπή">
-<!ENTITY sort.accesskey "Τ">
-<!ENTITY sort.descending.label "Φθίνουσα">
 <!ENTITY addSubscription.label "Προσθήκη συνδρομής">
-<!ENTITY subscription.lastDownload.success "Επιτυχής">
-<!ENTITY filter.delete.label "Διαγραφή">
-<!ENTITY find.label "Αναζήτηση">
-<!ENTITY sort.none.accesskey "ω">
-<!ENTITY sort.ascending.label "Αύξουσα">
-<!ENTITY enabled.column "Ενεργοποιημένο">
-<!ENTITY slow.column "Εμφάνιση φίλτρων">
-<!ENTITY subscription.lastDownload.invalidURL "Απέτυχε, μη έγκυρη διεύθυνση">
-<!ENTITY subscription.lastDownload.invalidData "Απέτυχε, μη έγκυρη λίστα φίλτρων">
-<!ENTITY subscription.lastDownload.label "Τελευταία ενημέρωση:">
-<!ENTITY hitcount.column "Επιτυχίες">
-<!ENTITY filter.paste.label "Επικόλληση">
-<!ENTITY viewMenu.label "Προβολή">
-<!ENTITY subscription.lastDownload.checksumMismatch "Απέτυχε, απόκλιση στον έλεγχο checksum">
-<!ENTITY sort.label "Ταξινόμηση κατά">
-<!ENTITY subscription.lastDownload.unknown "Μ/Δ">
-<!ENTITY slow.accesskey "Ε">
 <!ENTITY addSubscriptionOther.label "Προσθήκη άλλης συνδρομής">
-<!ENTITY sort.ascending.accesskey "Α">
-<!ENTITY sort.none.label "Χωρίς ταξινόμηση">
-<!ENTITY filter.column "Κανόνας φίλτρου">
-<!ENTITY addFilter.label "Προσθήκη φίλτρου">
+<!ENTITY subscription.lastDownload.label "Τελευταία ενημέρωση:">
+<!ENTITY subscription.lastDownload.inProgress "Σε εξέλιξη...">
+<!ENTITY subscription.lastDownload.unknown "Μ/Δ">
+<!ENTITY subscription.lastDownload.invalidURL "Απέτυχε, μη έγκυρη διεύθυνση">
 <!ENTITY subscription.lastDownload.connectionError "Απέτυχε, σφάλμα κατά τη λήψη">
+<!ENTITY subscription.lastDownload.invalidData "Απέτυχε, μη έγκυρη λίστα φίλτρων">
+<!ENTITY subscription.lastDownload.checksumMismatch "Απέτυχε, απόκλιση στον έλεγχο checksum">
+<!ENTITY subscription.lastDownload.success "Επιτυχής">
+<!ENTITY addFilter.label "Προσθήκη φίλτρου">
+<!ENTITY filter.cut.label "Αποκοπή">
+<!ENTITY filter.copy.label "Αντιγραφή">
+<!ENTITY filter.paste.label "Επικόλληση">
+<!ENTITY filter.delete.label "Διαγραφή">
+<!ENTITY viewMenu.label "Προβολή">
+<!ENTITY filter.column "Κανόνας φίλτρου">
+<!ENTITY filter.accesskey "φ">
+<!ENTITY slow.column "Εμφάνιση φίλτρων">
+<!ENTITY slow.accesskey "Ε">
+<!ENTITY enabled.column "Ενεργοποιημένο">
+<!ENTITY enabled.accesskey "ν">
+<!ENTITY hitcount.column "Επιτυχίες">
 <!ENTITY hitcount.accesskey "χ">
-<!ENTITY sort.descending.accesskey "θ">
 <!ENTITY lasthit.column "Τελευταία επιτυχία">
 <!ENTITY lasthit.accesskey "λ">
-<!ENTITY filter.accesskey "φ">
-<!ENTITY enabled.accesskey "ν">
+<!ENTITY sort.label "Ταξινόμηση κατά">
+<!ENTITY sort.accesskey "Τ">
+<!ENTITY sort.none.label "Χωρίς ταξινόμηση">
+<!ENTITY sort.none.accesskey "ω">
+<!ENTITY sort.ascending.label "Αύξουσα">
+<!ENTITY sort.ascending.accesskey "Α">
+<!ENTITY sort.descending.label "Φθίνουσα">
+<!ENTITY sort.descending.accesskey "θ">
+<!ENTITY find.label "Αναζήτηση">

@@ -1,0 +1,17 @@
+<!ENTITY dialog.title "Adblock Plus je dospołnje instalowany">
+<!ENTITY confirmation "
+Dźakujemy so, zo sće Adblock Plus instalował. Wabjenje budźe so wot nětka blokować.
+Wjele wjesela!">
+<!ENTITY advancedSection "Rozšěrjene nastajenja">
+<!ENTITY listSelection1 "
+Slědowaca filtrowa lisćina je so konfigurowała, zo by wabjenje blokowała:
+">
+<!ENTITY noList "Žana filtrowa lisćina">
+<!ENTITY visitHomepage.label "Startowu stronu lisćiny wopytać">
+<!ENTITY acceptableAds "
+Adblock Plus je so tež konfigurował, zo by njenadběhawe wabjenje dowolił.
+">
+<!ENTITY readMore.label "Wjace wo tym čitać">
+<!ENTITY listSelection2 "
+Móžeće tutón wuběr kóždy čs w [link]filtrowych nastajenjach[/link] změnić.
+">

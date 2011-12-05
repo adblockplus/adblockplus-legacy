@@ -3,13 +3,13 @@
 <!ENTITY viewList.label "Vis filtre">
 <!ENTITY visitHomepage.label "Besøg hjemmeside">
 <!ENTITY addSubscription.label "Tilføj abonnement">
-<!ENTITY list.download.failed "Adblock Plus kunne ikke hente listen over abonnementer.">
+<!ENTITY list.download.failed "Adblock Plus kunne ikke hente abonnementslisten.">
 <!ENTITY list.download.retry "Prøv igen">
 <!ENTITY list.download.website "Se hjemmeside">
-<!ENTITY fromWeb.description "Bekræft at du ønsker at tilføje dette abonnement. Du kan ændre titel eller placering på abonnementet før det tilføjes.">
+<!ENTITY fromWeb.description "Bekræft tilføjelsen af dette abonnement. Du kan ændre titel eller placering på abonnementet før det tilføjes.">
 <!ENTITY title.label "Abonnementstitel:">
 <!ENTITY title.accesskey "T">
-<!ENTITY location.label "Filterliste placering:">
+<!ENTITY location.label "Filterlistens placering:">
 <!ENTITY location.accesskey "L">
 <!ENTITY supplementMessage "Dette filterabonnement er beregnet til brug sammen med filterabonnementet &quot;?1?&quot; som du endnu ikke bruger.">
 <!ENTITY addMain.label "Tilføj også filterabonnement &quot;?1?&quot;.">

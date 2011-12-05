@@ -20,15 +20,15 @@
 <!ENTITY whitelist.site.label "Disable on ?1?">
 <!ENTITY whitelist.page.label "Disable on this page only">
 <!ENTITY disable.label "Disable everywhere">
+<!ENTITY options.label "Options">
+<!ENTITY options.accesskey "O">
+<!ENTITY showintoolbar.label "Show in toolbar">
+<!ENTITY showintoolbar.accesskey "b">
+<!ENTITY showinstatusbar.label "Show in status bar">
+<!ENTITY showinstatusbar.accesskey "s">
+<!ENTITY objecttabs.label "Show tabs on Flash and Java">
+<!ENTITY objecttabs.accesskey "t">
+<!ENTITY sync.label "Synchronise Adblock Plus settings">
+<!ENTITY sync.accesskey "c">
 <!ENTITY objecttab.title "Block">
 <!ENTITY objecttab.tooltip "Block this object with Adblock Plus">
-<!ENTITY sync.accesskey "c">
-<!ENTITY showintoolbar.label "Show in toolbar">
-<!ENTITY options.label "Options">
-<!ENTITY objecttabs.accesskey "t">
-<!ENTITY showinstatusbar.label "Show in status bar">
-<!ENTITY showintoolbar.accesskey "b">
-<!ENTITY showinstatusbar.accesskey "s">
-<!ENTITY sync.label "Synchronise Adblock Plus settings">
-<!ENTITY objecttabs.label "Show tabs on Flash and Java">
-<!ENTITY options.accesskey "O">

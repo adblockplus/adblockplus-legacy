@@ -1,35 +1,35 @@
-<!ENTITY filter.copy.label "Copia">
-<!ENTITY subscription.lastDownload.inProgress "Download in corso…">
-<!ENTITY filter.cut.label "Taglia">
-<!ENTITY sort.accesskey "O">
-<!ENTITY sort.descending.label "Ordina Z &amp;gt; A">
 <!ENTITY addSubscription.label "Aggiungi sottoscrizione">
-<!ENTITY subscription.lastDownload.success "Sincronizzazione effettuata con successo">
-<!ENTITY filter.delete.label "Elimina">
-<!ENTITY find.label "Trova">
-<!ENTITY sort.none.accesskey "d">
-<!ENTITY sort.ascending.label "Ordina A &amp;gt; Z">
-<!ENTITY enabled.column "Attivato">
-<!ENTITY slow.column "Filtri lenti">
-<!ENTITY subscription.lastDownload.invalidURL "Sincronizzazione non riuscita, indirizzo web non valido">
-<!ENTITY subscription.lastDownload.invalidData "Sincronizzazione non riuscita, lista dei filtri non valida">
-<!ENTITY subscription.lastDownload.label "Ultimo aggiornamento:">
-<!ENTITY hitcount.column "Accessi">
-<!ENTITY filter.paste.label "Incolla">
-<!ENTITY viewMenu.label "Visualizza">
-<!ENTITY subscription.lastDownload.checksumMismatch "Sincronizzazione non riuscita, checksum non corrispondente">
-<!ENTITY sort.label "Ordina">
-<!ENTITY subscription.lastDownload.unknown "Sconosciuto">
-<!ENTITY slow.accesskey "l">
 <!ENTITY addSubscriptionOther.label "Altre sottoscrizioni">
-<!ENTITY sort.ascending.accesskey "r">
-<!ENTITY sort.none.label "Non ordinare">
-<!ENTITY filter.column "Ruolo del filtro">
-<!ENTITY addFilter.label "Aggiungi filtro">
+<!ENTITY subscription.lastDownload.label "Ultimo aggiornamento:">
+<!ENTITY subscription.lastDownload.inProgress "Download in corso…">
+<!ENTITY subscription.lastDownload.unknown "Sconosciuto">
+<!ENTITY subscription.lastDownload.invalidURL "Sincronizzazione non riuscita, indirizzo web non valido">
 <!ENTITY subscription.lastDownload.connectionError "Sincronizzazione non riuscita, errore durante il download">
+<!ENTITY subscription.lastDownload.invalidData "Sincronizzazione non riuscita, lista dei filtri non valida">
+<!ENTITY subscription.lastDownload.checksumMismatch "Sincronizzazione non riuscita, checksum non corrispondente">
+<!ENTITY subscription.lastDownload.success "Sincronizzazione effettuata con successo">
+<!ENTITY addFilter.label "Aggiungi filtro">
+<!ENTITY filter.cut.label "Taglia">
+<!ENTITY filter.copy.label "Copia">
+<!ENTITY filter.paste.label "Incolla">
+<!ENTITY filter.delete.label "Elimina">
+<!ENTITY viewMenu.label "Visualizza">
+<!ENTITY filter.column "Ruolo del filtro">
+<!ENTITY filter.accesskey "f">
+<!ENTITY slow.column "Filtri lenti">
+<!ENTITY slow.accesskey "l">
+<!ENTITY enabled.column "Attivato">
+<!ENTITY enabled.accesskey "t">
+<!ENTITY hitcount.column "Accessi">
 <!ENTITY hitcount.accesskey "A">
-<!ENTITY sort.descending.accesskey "Z">
 <!ENTITY lasthit.column "Ultimo accesso">
 <!ENTITY lasthit.accesskey "U">
-<!ENTITY filter.accesskey "f">
-<!ENTITY enabled.accesskey "t">
+<!ENTITY sort.label "Ordina">
+<!ENTITY sort.accesskey "O">
+<!ENTITY sort.none.label "Non ordinare">
+<!ENTITY sort.none.accesskey "d">
+<!ENTITY sort.ascending.label "Ordina A &gt; Z">
+<!ENTITY sort.ascending.accesskey "r">
+<!ENTITY sort.descending.label "Ordina Z &gt; A">
+<!ENTITY sort.descending.accesskey "Z">
+<!ENTITY find.label "Trova">

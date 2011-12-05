@@ -29,8 +29,8 @@
 <!ENTITY issues.openPreferences.label "Abrir preferencias de filtros">
 <!ENTITY issues.ownfilters.description "Algunos de los filtros aplicados en esta página son filtros personales de usuario. Por favor, desactive los filtros que podrían haber causado el problema:">
 <!ENTITY issues.ownfilters.disable.label "Desactivar filtro">
-<!ENTITY issues.disabledgroups.description "Están desactivadas las siguientes suscripciones de filtros / grupos de filtros, que podrían tener algún tipo de efecto sobre la página:">
-<!ENTITY issues.disabledgroups.enable.label "Activar suscripción de filtros / grupo de filtros">
+<!ENTITY issues.disabledgroups.description "Están desactivadas las siguientes suscripciones de filtros/grupos de filtros, que podrían tener algún tipo de efecto sobre la página:">
+<!ENTITY issues.disabledgroups.enable.label "Activar suscripción de filtros/grupo de filtros">
 <!ENTITY issues.disabledfilters.description "Están desactivados los siguientes filtros, que podrían tener algún tipo de efecto sobre la página:">
 <!ENTITY issues.disabledfilters.enable.label "Activar filtro">
 <!ENTITY issues.override.label "La configuración es correcta, puede seguir con el informe">
