@@ -123,6 +123,19 @@ var SubscriptionActions =
   },
 
   /**
+   * Triggers re-download of all filter subscriptions.
+   */
+  updateAllFilters: function()
+  {
+    for (let i = 0; i < FilterStorage.subscriptions.length; i++)
+    {
+      let subscription = FilterStorage.subscriptions[i];
+      if (subscription instanceof DownloadableSubscription)
+        Synchronizer.execute(subscription, true, true);
+    }
+  },
+
+  /**
    * Sets Subscription.disabled field to a new value.
    */
   setDisabled: function(/**Element*/ node, /**Boolean*/ value)
