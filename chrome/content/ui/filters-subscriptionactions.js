@@ -214,7 +214,7 @@ var SubscriptionActions =
    */
   openMenu: function(/**Event*/ event, /**Node*/ node)
   {
-    node.getElementsByClassName("actionMenu")[0].openPopup(null, "after_pointer", event.clientX, event.clientY, true, false, event);
+    node.getElementsByClassName("actionMenu")[0].openPopupAtScreen(event.screenX, event.screenY, true);
   },
 
   _altMask: 2,
