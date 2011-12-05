@@ -39,6 +39,13 @@ var FilterActions =
       me.keyPress(event);
     }, true);
     this.treeElement.view = FilterView;
+
+    this.treeElement.inputField.addEventListener("keypress", function(event)
+    {
+      // Prevent the tree from capturing cursor keys pressed in the input field
+      if (event.keyCode >= event.DOM_VK_PAGE_UP && event.keyCode <= event.DOM_VK_DOWN)
+        event.stopPropagation();
+    }, false);
   },
 
   /**
