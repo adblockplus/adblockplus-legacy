@@ -366,15 +366,15 @@ WindowWrapper.prototype =
    */
   fixupMenus: function()
   {
-    function fixId(node)
+    function fixId(node, newId)
     {
       if (node.nodeType == node.ELEMENT_NODE)
       {
         if (node.hasAttribute("id"))
-          node.setAttribute("id", node.getAttribute("id").replace(/abp-status/, "abp-toolbar"));
+          node.setAttribute("id", node.getAttribute("id").replace(/abp-status/, newId));
     
         for (let i = 0, len = node.childNodes.length; i < len; i++)
-          fixId(node.childNodes[i]);
+          fixId(node.childNodes[i], newId);
       }
       return node;
     }
@@ -382,10 +382,13 @@ WindowWrapper.prototype =
     let menuSource = this.E("abp-status-popup");
     let paletteButton = this.getPaletteButton();
     let toolbarButton = this.E("abp-toolbarbutton");
+    let menuItem = this.E("abp-menuitem");
     if (toolbarButton)
-      toolbarButton.appendChild(fixId(menuSource.cloneNode(true)));
+      toolbarButton.appendChild(fixId(menuSource.cloneNode(true), "abp-toolbar"));
     if (paletteButton && paletteButton != toolbarButton)
-      paletteButton.appendChild(fixId(menuSource.cloneNode(true)));
+      paletteButton.appendChild(fixId(menuSource.cloneNode(true), "abp-toolbar"));
+    if (menuItem)
+      menuItem.appendChild(fixId(menuSource.cloneNode(true), "abp-menuitem"));
   },
   
   /**
@@ -981,7 +984,7 @@ WindowWrapper.prototype =
     let popup = event.target;
   
     // Submenu being opened - ignore
-    if (!/^(abp-(?:toolbar|status)-)popup$/.test(popup.getAttribute("id")))
+    if (!/^(abp-(?:toolbar|status|menuitem)-)popup$/.test(popup.getAttribute("id")))
       return;
     let prefix = RegExp.$1;
   
@@ -1044,7 +1047,7 @@ WindowWrapper.prototype =
     this.E(prefix + "sync").hidden = !syncEngine;
     this.E(prefix + "sync").setAttribute("checked", syncEngine && syncEngine.enabled);
 
-    let defAction = (prefix == "abp-toolbar-" || this.window.document.popupNode.id == "abp-toolbarbutton" ?
+    let defAction = (!this.window.document.popupNode || this.window.document.popupNode.id == "abp-toolbarbutton" ?
                      Prefs.defaulttoolbaraction :
                      Prefs.defaultstatusbaraction);
     this.E(prefix + "opensidebar").setAttribute("default", defAction == 1);
@@ -1078,7 +1081,7 @@ WindowWrapper.prototype =
    */
   hideContributeButton: function(event)
   {
-    for each (let button in [this.E("abp-status-contributebutton"), this.E("abp-toolbar-contributebutton")])
+    for each (let button in [this.E("abp-status-contributebutton"), this.E("abp-toolbar-contributebutton"), this.E("abp-menuitem-contributebutton")])
     {
       if (button)
       {
@@ -1124,10 +1127,6 @@ WindowWrapper.prototype =
       else
         this.detachedSidebar = this.window.openDialog("chrome://adblockplus/content/ui/sidebarDetached.xul", "_blank", "chrome,resizable,dependent,dialog=no");
     }
-  
-    let menuItem = this.E("abp-blockableitems");
-    if (menuItem)
-      menuItem.setAttribute("checked", this.isSidebarOpen());
   },
 
   /**
@@ -1341,6 +1340,7 @@ WindowWrapper.prototype.eventHandlers = [
   ["abp-tooltip", "popupshowing", WindowWrapper.prototype.fillTooltip],
   ["abp-status-popup", "popupshowing", WindowWrapper.prototype.fillPopup],
   ["abp-toolbar-popup", "popupshowing", WindowWrapper.prototype.fillPopup],
+  ["abp-menuitem-popup", "popupshowing", WindowWrapper.prototype.fillPopup],
   ["abp-command-sendReport", "command", WindowWrapper.prototype.openReportDialog],
   ["abp-command-filters", "command", function() {Utils.openFiltersDialog();}],
   ["abp-command-sidebar", "command", WindowWrapper.prototype.toggleSidebar],

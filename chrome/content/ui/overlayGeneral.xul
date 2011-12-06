@@ -101,8 +101,8 @@
 
   <box id="abp-hooks" objtabtext="&objecttab.title;…" objtabtooltip="&objecttab.tooltip;"/>
 
-  <!-- View menu -->
-  <menuitem id="abp-blockableitems" label="&view.blockableItems.label;" type="checkbox" autocheck="false" key="abp-key-sidebar" command="abp-command-sidebar"/>
+  <!-- Tools menu -->
+  <menu id="abp-menuitem" label="Adblock Plus"/>
 
   <!-- Context menu -->
   <menuitem id="abp-image-menuitem" label="&context.image.label;…" hidden="true"/>

@@ -70,9 +70,9 @@
         class="toolbarbutton-1"/>
   </toolbarpalette>
 
-  <!-- View menu -->
-  <menupopup id="menu_viewPopup">
-    <menuitem id="abp-blockableitems" insertafter="viewSidebarMenuMenu"/>
+  <!-- Tools menu -->
+  <menupopup id="menu_ToolsPopup">
+    <menu id="abp-menuitem"/>
   </menupopup>
 
   <!-- Context menu -->
