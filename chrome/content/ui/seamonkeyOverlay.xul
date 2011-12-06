@@ -55,9 +55,9 @@
         class="toolbarbutton-1"/>
   </toolbarpalette>
 
-  <!-- View menu -->
-  <menupopup id="view_toolbars_popup">
-    <menuitem id="abp-blockableitems" insertafter="sidebar-menu"/>
+  <!-- Tools menu -->
+  <menupopup id="taskPopup">
+    <menu id="abp-menuitem" insertafter="downloadmgr"/>
   </menupopup>
 
   <!-- Context menu -->

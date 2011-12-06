@@ -50,6 +50,11 @@
         class="toolbarbutton-1 msgHeaderView-button"/>
   </toolbar>
 
+  <!-- Tools menu -->
+  <menupopup id="taskPopup">
+    <menuitem id="abp-menuitem" insertafter="downloadmgr,javaScriptConsole"/>
+  </menupopup>
+
   <!-- Context menu -->
   <menupopup id="mailContext">
     <menuitem id="abp-image-menuitem"/>
