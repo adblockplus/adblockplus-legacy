@@ -898,6 +898,17 @@ WindowWrapper.prototype =
       event.preventDefault();
       return;
     }
+
+    // Prevent tooltip from overlapping menu
+    for each (let id in ["abp-toolbar-popup", "abp-status-popup"])
+    {
+      let element = this.E(id);
+      if (element && element.state == "open")
+      {
+        event.preventDefault();
+        return;
+      }
+    }
   
     let type = (node.id == "abp-toolbarbutton" ? "toolbar" : "statusbar");
     let action = parseInt(Prefs["default" + type + "action"]);
