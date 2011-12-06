@@ -218,10 +218,10 @@
                 </if>
               </description>
               <spacer flex="1"/>
-              <button class="actionButton tabable" type="menu" label="&subscription.actions.label;…" tabindex="-1">
+              <button class="actionButton tabable" type="menu" label="&subscription.actions.label;" tabindex="-1">
                 <menupopup class="actionMenu">
                   <menuitem label="&subscription.update.label;" key="subscription-update-key" command="subscription-update-command"/>
-                  <menuitem label="&subscription.editTitle.label;…" key="edit-key" command="subscription-editTitle-command"/>
+                  <menuitem label="&subscription.editTitle.label;" key="edit-key" command="subscription-editTitle-command"/>
                   <menuitem label="&subscription.delete.label;…" key="delete-key" command="subscription-delete-command"/>
                   <menuitem label="&subscription.showHideFilters.label;" key="subscription-showHideFilters-key" command="subscription-showHideFilters-command"/>
                   <menuseparator/>
@@ -255,7 +255,7 @@
       </tabpanel>
       <tabpanel id="filtersTab" orient="vertical" flex="1">
         <hbox pack="end">
-          <button id="addGroupButton" label="&addGroup.label;…" accesskey="&addGroup.accesskey;" command="group-add-command"/>
+          <button id="addGroupButton" label="&addGroup.label;" accesskey="&addGroup.accesskey;" command="group-add-command"/>
         </hbox>
 
         <richlistitem id="groupTemplate" class="subscription" hidden="true" orient="vertical"
@@ -273,9 +273,9 @@
               </deck>
               <checkbox label="&subscription.enabled.label;" class="tabable" tabindex="-1"
                 checked="{subscription.disabled ? 'false' : 'true'}" oncommand="SubscriptionActions.setDisabled(this, !this.checked);"/>
-              <button class="actionButton tabable" type="menu" label="&subscription.actions.label;…" tabindex="-1">
+              <button class="actionButton tabable" type="menu" label="&subscription.actions.label;" tabindex="-1">
                 <menupopup class="actionMenu">
-                  <menuitem label="&subscription.editTitle.label;…" key="edit-key" command="subscription-editTitle-command"/>
+                  <menuitem label="&subscription.editTitle.label;" key="edit-key" command="subscription-editTitle-command"/>
                   <menuitem label="&subscription.delete.label;…" key="delete-key" command="subscription-delete-command"/>
                   <menuitem label="&subscription.showHideFilters.label;" key="subscription-showHideFilters-key" command="subscription-showHideFilters-command"/>
                   <menuseparator/>
@@ -307,9 +307,9 @@
   <vbox persist="width" width="500">
     <hbox pack="end">
       <button id="findButton" label="&find.label;…" accesskey="&find.accesskey;" command="find-command"/>
-      <button id="filterActionButton" type="menu" label="&filter.actions.label;…">
+      <button id="filterActionButton" type="menu" label="&filter.actions.label;">
         <menupopup id="filterActionMenu">
-          <menuitem label="&filter.edit.label;…" key="edit-key" command="filters-edit-command"/>
+          <menuitem label="&filter.edit.label;" key="edit-key" command="filters-edit-command"/>
           <menuitem label="&filter.cut.label;" key="filters-cut-key" command="filters-cut-command"/>
           <menuitem label="&filter.copy.label;" key="filters-copy-key" command="filters-copy-command"/>
           <menuitem label="&filter.paste.label;" key="filters-paste-key" command="filters-paste-command"/>
@@ -322,7 +322,7 @@
           <menuitem label="&filter.moveDown.label;" key="moveDown-key" command="filters-moveDown-command"/>
         </menupopup>
       </button>
-      <button id="addFilterButton" label="&addFilter.label;…" accesskey="&addFilter.accesskey;" command="filters-add-command"/>
+      <button id="addFilterButton" label="&addFilter.label;" accesskey="&addFilter.accesskey;" command="filters-add-command"/>
     </hbox>
     <tree id="filtersTree"
         flex="1"
