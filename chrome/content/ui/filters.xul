@@ -233,7 +233,7 @@
             <description class="warning" hidden="{!subscription.upgradeRequired}">&subscription.minVersion.warning;</description>
             <description class="warning" hidden="{!disabledFilters}">
               &subscription.disabledFilters.warning;
-              <description class="text-link" value="&subscription.disabledFilters.enable;" oncommand=""/>
+              <description class="text-link" value="&subscription.disabledFilters.enable;" onclick="SubscriptionActions.enableFilters(this);"/>
             </description>
           </vbox>
         </richlistitem>

@@ -114,18 +114,61 @@ ListManager.prototype =
    */
   addSubscription: function(/**Subscription*/ subscription, /**Node*/ insertBefore) /**Node*/
   {
+    let disabledFilters = 0;
+    for (let i = 0, l = subscription.filters.length; i < l; i++)
+      if (subscription.filters[i] instanceof ActiveFilter && subscription.filters[i].disabled)
+        disabledFilters++;
+
     let node = Templater.process(this._template, {
       __proto__: null,
       subscription: subscription,
       isExternal: subscription instanceof ExternalSubscription,
       downloading: Synchronizer.isExecuting(subscription.url),
-      disabledFilters: 0
+      disabledFilters: disabledFilters
     });
     if (insertBefore)
       this._list.insertBefore(node, insertBefore);
     else
       this._list.appendChild(node);
     return node;
+  },
+
+  /**
+   * Map indicating subscriptions that need their "disabledFilters" property to
+   * be updated by next updateDisabled() call.
+   * @type Object
+   */
+  _scheduledUpdateDisabled: null,
+
+  /**
+   * Updates subscriptions that had some of their filters enabled/disabled.
+   */
+  updateDisabled: function()
+  {
+    let list = this._scheduledUpdateDisabled;
+    this._scheduledUpdateDisabled = null;
+    for (let url in list)
+    {
+      let subscription = Subscription.fromURL(url);
+      let subscriptionNode = Templater.getNodeForData(this._list, "subscription", subscription);
+      if (subscriptionNode)
+      {
+        let data = Templater.getDataForNode(subscriptionNode);
+        let disabledFilters = 0;
+        for (let i = 0, l = subscription.filters.length; i < l; i++)
+          if (subscription.filters[i] instanceof ActiveFilter && subscription.filters[i].disabled)
+            disabledFilters++;
+
+        if (disabledFilters != data.disabledFilters)
+        {
+          data.disabledFilters = disabledFilters;
+          Templater.update(this._template, subscriptionNode);
+
+          if (!document.commandDispatcher.focusedElement)
+            this._list.focus();
+        }
+      }
+    }
   },
 
   /**
@@ -136,6 +179,18 @@ ListManager.prototype =
   {
     if ((action == "subscription.added" || action == "subscription.removed") && item.url == Prefs.subscriptions_exceptionsurl)
       E("acceptableAds").checked = FilterStorage.subscriptions.some(function(s) s.url == Prefs.subscriptions_exceptionsurl);
+
+    if (action == "filter.disabled")
+    {
+      if (this._scheduledUpdateDisabled == null)
+      {
+        this._scheduledUpdateDisabled = {__proto__: null};
+        Utils.runAsync(this.updateDisabled, this);
+      }
+      for (let i = 0; i < item.subscriptions.length; i++)
+        this._scheduledUpdateDisabled[item.subscriptions[i].url] = true;
+      return;
+    }
 
     if (action != "load" && !this._filter(item))
       return;
