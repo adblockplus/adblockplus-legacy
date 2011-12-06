@@ -102,7 +102,7 @@
   <box id="abp-hooks" objtabtext="&objecttab.title;…" objtabtooltip="&objecttab.tooltip;"/>
 
   <!-- Tools menu -->
-  <menu id="abp-menuitem" label="Adblock Plus"/>
+  <menu id="abp-menuitem" label="&toolbarbutton.label;"/>
 
   <!-- Context menu -->
   <menuitem id="abp-image-menuitem" label="&context.image.label;…" hidden="true"/>
