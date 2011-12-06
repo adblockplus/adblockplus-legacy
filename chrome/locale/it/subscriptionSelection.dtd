@@ -6,11 +6,11 @@
 <!ENTITY list.download.failed "Recupero della lista di sottoscrizioni non riuscito">
 <!ENTITY list.download.retry "Riprova">
 <!ENTITY list.download.website "Visita il sito web delle sottoscrizioni">
-<!ENTITY fromWeb.description "Confermare l&apos;aggiunta della sottoscrizione di filtri. È possibile modificare il titolo della sottoscrizione oppure l&apos;URL/percorso della lista dei filtri prima di aggiungere">
+<!ENTITY fromWeb.description "Confermare l&apos;aggiunta della sottoscrizione di filtri. È possibile modificare il titolo della sottoscrizione oppure l&apos;URL/percorso della lista dei filtri prima di aggiungerla">
 <!ENTITY title.label "Titolo della sottoscrizione:">
 <!ENTITY title.accesskey "T">
 <!ENTITY location.label "Indirizzo della lista dei filtri:">
 <!ENTITY location.accesskey "z">
 <!ENTITY supplementMessage "Questa sottoscrizione di filtri verrà utilizzata insieme a quella chiamata &quot; ?1?&quot; (ancora non aggiunta).">
-<!ENTITY addMain.label "Aggiungere la sottoscrizione di filtri &quot; ?1?&quot;">
+<!ENTITY addMain.label "Aggiungere la sottoscrizione di filtri &quot;?1?&quot;">
 <!ENTITY addMain.accesskey "s">

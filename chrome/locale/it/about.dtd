@@ -1,6 +1,10 @@
 <!ENTITY dialog.title "Informazioni su Adblock Plus">
 <!ENTITY version.title "versione">
-<!ENTITY description "nnn	Adblock Plus permette di decidere cosa vedere sul web. Non sarà piùnn	necessario caricare pubblicità e/o banner indesiderati, grazienn	ad Adblock Plus!nn">
+<!ENTITY description "
+	Adblock Plus permette di decidere cosa vedere sul web. Non sarà più
+	necessario caricare pubblicità e/o banner indesiderati, grazie
+	ad Adblock Plus!
+">
 <!ENTITY homepage.label "Sito web di Adblock Plus">
 <!ENTITY author.label "Autore">
 <!ENTITY contributors.label "Collaboratori">

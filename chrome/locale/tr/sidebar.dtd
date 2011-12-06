@@ -8,6 +8,7 @@
 <!ENTITY filter.label "Süzgeç">
 <!ENTITY state.label "Durum">
 <!ENTITY size.label "Boyut">
+<!ENTITY filterSource.label "Süzgeç kaynağı">
 <!ENTITY docDomain.label "Belge kaynağı">
 <!ENTITY docDomain.thirdParty "(üçüncü taraf)">
 <!ENTITY docDomain.firstParty "(birinci taraf)">

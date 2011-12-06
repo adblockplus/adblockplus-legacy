@@ -50,7 +50,7 @@
 	observerat har sannolikt ingenting att göra med Adblock Plus.
 ">
 <!ENTITY issues.nosubscriptions.description "
-	Du verkar inte prenumerara på något av de fördefinierade filterlistor som
+	Du verkar inte prenumerera på någon av de fördefinierade filterlistor som
 	automatiskt tar bort icke önskvärt innehåll från webbplatser.
 ">
 <!ENTITY issues.nosubscriptions.add.label "Lägg till filterprenumeration">
@@ -80,7 +80,7 @@
 <!ENTITY issues.override.label "Konfigurationen är korrekt, fortsätt med rapporten">
 <!ENTITY issues.override.accesskey "K">
 <!ENTITY issues.change.description "
-	Your configuration has been changed. Var vänlig uppdatera sidan för att testa ändringarna
+	Din konfiguration har ändrats. Var vänlig uppdatera sidan för att testa ändringarna
 	och skicka in en rapport om problemet inte har blivit löst trots förändringarna.
 ">
 <!ENTITY typeWarning.description "
@@ -128,7 +128,7 @@
 <!ENTITY data.label "Rapportdata:">
 <!ENTITY data.accesskey "p">
 <!ENTITY sendPage.heading "Skicka rapport">
-<!ENTITY sendPage.waitMessage "Var vänlig vänta medan Adblock Plus skickar ing din rapport.">
+<!ENTITY sendPage.waitMessage "Var vänlig vänta medan Adblock Plus skickar in din rapport.">
 <!ENTITY sendPage.confirmation "Din rapport har sparats. Du kan nå den på följande adress:">
 <!ENTITY sendPage.knownIssue "Problemet du rapporterade är antagligen redan känt. Mer information:">
 <!ENTITY sendPage.errorMessage "Det gick inte att skicka rapporten. Felkod: &quot;?1?&quot;. Var vänlig säkerställ

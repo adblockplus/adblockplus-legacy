@@ -1,0 +1,17 @@
+<!ENTITY dialog.title "Adblock Plus kurulumu tamamlandı">
+<!ENTITY confirmation "
+	Adblock Plus'ı kurduğunuz için teşekkürler... Artık reklamlar engellenecek. 
+	Kolay gelsin!">
+<!ENTITY advancedSection "Gelişmiş ayarlar">
+<!ENTITY listSelection1 "
+	Bu süzgeç listesi reklamları engellemek için ayarlandı:
+">
+<!ENTITY noList "Hiçbir süzgeç listesi yok">
+<!ENTITY visitHomepage.label "Listenin ana sayfasına git">
+<!ENTITY acceptableAds "
+	Adblock Plus rahatsız etmeyen türden reklamlara izin verecek şekilde de ayarlandı.
+">
+<!ENTITY readMore.label "Bu konuda daha fazla bilgi al">
+<!ENTITY listSelection2 "
+	Bu tercihi istediğiniz zaman [link]Süzgeç Terhicleri[/link] bölümünde değiştirebilirsiniz.
+">
