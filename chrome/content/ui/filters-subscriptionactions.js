@@ -149,6 +149,21 @@ var SubscriptionActions =
   },
 
   /**
+   * Enables all disabled filters in a subscription.
+   */
+  enableFilters: function(/**Element*/ node)
+  {
+    let data = Templater.getDataForNode(node);
+    if (!data)
+      return;
+
+    let filters = data.subscription.filters;
+    for (let i = 0, l = filters.length; i < l; i++)
+      if (filters[i] instanceof ActiveFilter && filters[i].disabled)
+        filters[i].disabled = false;
+  },
+
+  /**
    * Removes a filter subscription from the list (after a warning).
    */
   remove: function(/**Node*/ node)
