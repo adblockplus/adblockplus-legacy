@@ -182,7 +182,7 @@
                     <description value=")"/>
                   </hbox>
                 </description>
-                <textbox class="titleEditor" onkeypress="TitleEditor.keyPress(event);" onblur="TitleEditor.end(true);"/>
+                <textbox oncontextmenu="event.stopPropagation();" class="titleEditor" onkeypress="TitleEditor.keyPress(event);" onblur="TitleEditor.end(true);"/>
               </deck>
               <checkbox label="&subscription.enabled.label;" class="tabable" tabindex="-1"
                 checked="{subscription.disabled ? 'false' : 'true'}" oncommand="SubscriptionActions.setDisabled(this, !this.checked);"/>
@@ -267,9 +267,9 @@
             oncontextmenu="SubscriptionActions.openMenu(event, this);">
           <vbox class="{subscription.disabled ? 'disabled' : ''}">
             <hbox align="center">
-              <deck class="titleBox" flex="1" selectedIndex="0">
+              <deck class="titleBox" flex="1" selectedIndex="0" onselect="event.stopPropagation();">
                 <description value="{subscription.title}" crop="end"/>
-                <textbox class="titleEditor" onkeypress="TitleEditor.keyPress(event);" onblur="TitleEditor.end(true);"/>
+                <textbox oncontextmenu="event.stopPropagation();" class="titleEditor" onkeypress="TitleEditor.keyPress(event);" onblur="TitleEditor.end(true);"/>
               </deck>
               <checkbox label="&subscription.enabled.label;" class="tabable" tabindex="-1"
                 checked="{subscription.disabled ? 'false' : 'true'}" oncommand="SubscriptionActions.setDisabled(this, !this.checked);"/>
