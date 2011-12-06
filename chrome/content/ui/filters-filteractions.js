@@ -46,6 +46,21 @@ var FilterActions =
       if (event.keyCode >= event.DOM_VK_PAGE_UP && event.keyCode <= event.DOM_VK_DOWN)
         event.stopPropagation();
     }, false);
+
+    // Create a copy of the view menu
+    function fixId(node, newId)
+    {
+      if (node.nodeType == node.ELEMENT_NODE)
+      {
+        if (node.hasAttribute("id"))
+          node.setAttribute("id", node.getAttribute("id").replace(/\d+$/, newId));
+
+        for (let i = 0, len = node.childNodes.length; i < len; i++)
+          fixId(node.childNodes[i], newId);
+      }
+      return node;
+    }
+    E("viewMenu").appendChild(fixId(E("filters-view-menu1").cloneNode(true), "2"));
   },
 
   /**
@@ -262,24 +277,26 @@ var FilterActions =
   /**
    * Fills the context menu of the filters columns.
    */
-  fillColumnPopup: function()
+  fillColumnPopup: function(/**Element*/ element)
   {
-    E("filters-view-filter").setAttribute("checked", !E("col-filter").hidden);
-    E("filters-view-slow").setAttribute("checked", !E("col-slow").hidden);
-    E("filters-view-enabled").setAttribute("checked", !E("col-enabled").hidden);
-    E("filters-view-hitcount").setAttribute("checked", !E("col-hitcount").hidden);
-    E("filters-view-lasthit").setAttribute("checked", !E("col-lasthit").hidden);
+    let suffix = element.id.match(/\d+$/)[0] || "1";
+
+    E("filters-view-filter" + suffix).setAttribute("checked", !E("col-filter").hidden);
+    E("filters-view-slow" + suffix).setAttribute("checked", !E("col-slow").hidden);
+    E("filters-view-enabled" + suffix).setAttribute("checked", !E("col-enabled").hidden);
+    E("filters-view-hitcount" + suffix).setAttribute("checked", !E("col-hitcount").hidden);
+    E("filters-view-lasthit" + suffix).setAttribute("checked", !E("col-lasthit").hidden);
 
     let sortColumn = FilterView.sortColumn;
     let sortColumnID = (sortColumn ? sortColumn.id : null);
     let sortDir = (sortColumn ? sortColumn.getAttribute("sortDirection") : "natural");
-    E("filters-sort-none").setAttribute("checked", sortColumn == null);
-    E("filters-sort-filter").setAttribute("checked", sortColumnID == "col-filter");
-    E("filters-sort-enabled").setAttribute("checked", sortColumnID == "col-enabled");
-    E("filters-sort-hitcount").setAttribute("checked", sortColumnID == "col-hitcount");
-    E("filters-sort-lasthit").setAttribute("checked", sortColumnID == "col-lasthit");
-    E("filters-sort-asc").setAttribute("checked", sortDir == "ascending");
-    E("filters-sort-desc").setAttribute("checked", sortDir == "descending");
+    E("filters-sort-none" + suffix).setAttribute("checked", sortColumn == null);
+    E("filters-sort-filter" + suffix).setAttribute("checked", sortColumnID == "col-filter");
+    E("filters-sort-enabled" + suffix).setAttribute("checked", sortColumnID == "col-enabled");
+    E("filters-sort-hitcount" + suffix).setAttribute("checked", sortColumnID == "col-hitcount");
+    E("filters-sort-lasthit" + suffix).setAttribute("checked", sortColumnID == "col-lasthit");
+    E("filters-sort-asc" + suffix).setAttribute("checked", sortDir == "ascending");
+    E("filters-sort-desc" + suffix).setAttribute("checked", sortDir == "descending");
   },
 
   /**
