@@ -33,7 +33,7 @@
 <!ENTITY firstParty.label "Kun førsteparts">
 <!ENTITY firstParty.accesskey "f">
 <!ENTITY thirdParty.label "Kun tredjeparts">
-<!ENTITY thirdParty.accesskey "t">
+<!ENTITY thirdParty.accesskey "j">
 <!ENTITY matchCase.label "Versalfølsom (a/A)">
 <!ENTITY matchCase.accesskey "V">
 <!ENTITY types.label "Benyt på typer:">

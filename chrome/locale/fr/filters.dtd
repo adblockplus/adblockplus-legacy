@@ -1,8 +1,20 @@
+<!ENTITY dialog.title "Préférences Adblock Plus">
+<!ENTITY subscriptions.tab.label "Abonnements à des filtres">
 <!ENTITY filters.tab.label "Filtres personnalisés">
 <!ENTITY addSubscription.label "S&apos;abonner à la liste de filtres">
+<!ENTITY addSubscription.accesskey "f">
 <!ENTITY addSubscriptionAdd.label "Ajouter">
 <!ENTITY addSubscriptionCancel.label "Annuler">
 <!ENTITY addSubscriptionOther.label "Ajouter un autre abonnement">
+<!ENTITY noSubscriptions.text "
+ Vous n'avez pas encore ajouté d'abonnement à des filtres. Adblock Plus ne bloquera
+	rien sans filtres, veuillez utiliser «�Ajouter un abonnement�» pour
+ en ajouter.
+">
+<!ENTITY subscription.homepage.label "Page Web">
+<!ENTITY subscription.external.label "Mise à jour par une autre extension">
+<!ENTITY subscription.source.label "Liste de filtres">
+<!ENTITY subscription.enabled.label "Activé">
 <!ENTITY subscription.lastDownload.label "Dernière mise à jour :">
 <!ENTITY subscription.lastDownload.inProgress "Téléchargement en cours…">
 <!ENTITY subscription.lastDownload.unknown "Inconnu">
@@ -11,11 +23,36 @@
 <!ENTITY subscription.lastDownload.invalidData "Échec, ceci n'est pas une liste de filtres valide !">
 <!ENTITY subscription.lastDownload.checksumMismatch "Échec, le checksum ne correspond pas !">
 <!ENTITY subscription.lastDownload.success "Réussie">
+<!ENTITY subscription.minVersion.warning "Cet abonnement nécessite une version plus récente d'Adblock Plus, vous devriez installer la drenière version d'Adblock Plus.">
+<!ENTITY subscription.disabledFilters.warning "Certains filtres de cet abonnement sont désactivés.">
+<!ENTITY subscription.disabledFilters.enable "Activer les filtres désactivés">
+<!ENTITY subscription.actions.label "Actions">
+<!ENTITY subscription.update.label "Mettre à jour les filtres">
+<!ENTITY subscription.editTitle.label "Modifier le titre">
+<!ENTITY subscription.delete.label "Supprimer">
+<!ENTITY subscription.showHideFilters.label "Afficher/masquer les filtres">
+<!ENTITY subscription.moveUp.label "Monter">
+<!ENTITY subscription.moveDown.label "Descendre">
+<!ENTITY acceptableAds.label "Autoriser les publicités non-intrusives">
+<!ENTITY acceptableAds.accesskey "i">
+<!ENTITY readMore.label "Apprendre davantage">
+<!ENTITY addGroup.label "Ajouter un groupe de filtres">
+<!ENTITY addGroup.accesskey "g">
+<!ENTITY noFilters.text "
+ Vous n'avez pas encore de filtres personnalisés.
+">
 <!ENTITY addFilter.label "Ajouter un filtre">
+<!ENTITY addFilter.accesskey "n">
+<!ENTITY filter.actions.label "Actions sur filtre">
+<!ENTITY filter.edit.label "Modifier">
 <!ENTITY filter.cut.label "Couper">
 <!ENTITY filter.copy.label "Copier">
 <!ENTITY filter.paste.label "Coller">
 <!ENTITY filter.delete.label "Supprimer">
+<!ENTITY filter.selectAll.label "Tout sélectionner">
+<!ENTITY filter.resetHitCounts.label "Mettre le compteur à zéro">
+<!ENTITY filter.moveUp.label "Monter">
+<!ENTITY filter.moveDown.label "Descendre">
 <!ENTITY viewMenu.label "Affichage">
 <!ENTITY filter.column "Règle de filtrage">
 <!ENTITY filter.accesskey "F">
@@ -35,6 +72,15 @@
 <!ENTITY sort.ascending.accesskey "A">
 <!ENTITY sort.descending.label "Ordre de Z &gt; A">
 <!ENTITY sort.descending.accesskey "Z">
+<!ENTITY noGroupSelected.text "Vous devez choisir un groupe de filtres avant de pouvoir les afficher.">
+<!ENTITY noFiltersInGroup.text "Le groupe sélectionné est vide">
+<!ENTITY filters.remove.warning "Souhaitez-vous vraiment supprimer tous les filtres sélectionnés ?">
+<!ENTITY backupButton.label "Sauvegarde et restauration">
+<!ENTITY backupButton.accesskey "S">
+<!ENTITY backup.label "Créer une nouvelle sauvegarde">
 <!ENTITY restore.default.label "Restaurer la sauvegarde du ?1?">
+<!ENTITY restore.own.label "Restaurer une sauvegarde personnelle">
+<!ENTITY backup.complete.title "Tous les filtres et abonnements">
+<!ENTITY backup.custom.title "Uniquement les filtres personnalisés">
 <!ENTITY find.label "Rechercher">
 <!ENTITY close.label "Fermer">

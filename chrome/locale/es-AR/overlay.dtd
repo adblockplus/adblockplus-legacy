@@ -13,6 +13,8 @@
 <!ENTITY sidebar.title "Elementos bloqueables en la página actual">
 <!ENTITY sendReport.label "Informar de problemas en esta página">
 <!ENTITY sendReport.accesskey "r">
+<!ENTITY filters.label "Preferencias de filtro">
+<!ENTITY filters.accesskey "f">
 <!ENTITY opensidebar.label "Abrir elementos bloqueables">
 <!ENTITY opensidebar.accesskey "b">
 <!ENTITY closesidebar.label "Cerrar elementos bloqueables">
@@ -22,12 +24,19 @@
 <!ENTITY disable.label "Deshabilitar en todos lados">
 <!ENTITY options.label "Opciones">
 <!ENTITY options.accesskey "O">
+<!ENTITY contribute.label "Contribuí a Adblock Plus">
 <!ENTITY showintoolbar.label "Mostrar en la barra de herramientas">
 <!ENTITY showintoolbar.accesskey "h">
 <!ENTITY showinstatusbar.label "Mostrar en la barra de estado">
 <!ENTITY showinstatusbar.accesskey "e">
+<!ENTITY showinaddonbar.label "Mostrar en la barra de complementos">
+<!ENTITY showinaddonbar.accesskey "b">
 <!ENTITY objecttabs.label "Mostrar pestañas en Flash y Java">
 <!ENTITY objecttabs.accesskey "p">
+<!ENTITY hideplaceholders.label "Colapsar elementos bloqueados">
+<!ENTITY hideplaceholders.accesskey "l">
+<!ENTITY counthits.label "Veces usado">
+<!ENTITY counthits.accesskey "u">
 <!ENTITY sync.label "Sincronizar la configuración de Adblock Plus">
 <!ENTITY sync.accesskey "c">
 <!ENTITY objecttab.title "Bloquear">

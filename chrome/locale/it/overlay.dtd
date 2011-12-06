@@ -1,7 +1,7 @@
 <!ENTITY status.tooltip "Stato">
 <!ENTITY blocked.tooltip "Elementi bloccati nella pagina attuale">
 <!ENTITY filters.tooltip "Filtri maggiormente attivi">
-<!ENTITY menuitem.label "Impostazioni di Adblock Plus">
+<!ENTITY menuitem.label "Gestione dei filtri di Adblock Plus">
 <!ENTITY menuitem.accesskey "A">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY view.blockableItems.label "Elementi bloccabili con Adblock Plus">
@@ -13,6 +13,8 @@
 <!ENTITY sidebar.title "Elementi bloccabili della pagina attuale">
 <!ENTITY sendReport.label "Segnala problemi nella pagina attuale">
 <!ENTITY sendReport.accesskey "S">
+<!ENTITY filters.label "Gestione dei filtri">
+<!ENTITY filters.accesskey "f">
 <!ENTITY opensidebar.label "Apri gli elementi bloccabili">
 <!ENTITY opensidebar.accesskey "b">
 <!ENTITY closesidebar.label "Chiudi gli elementi bloccabili">
@@ -20,14 +22,21 @@
 <!ENTITY whitelist.site.label "Disattiva per ?1?">
 <!ENTITY whitelist.page.label "Disattiva solo per la pagina attuale">
 <!ENTITY disable.label "Disattiva per tutte le pagine">
-<!ENTITY options.label "Opzioni">
+<!ENTITY options.label "Opzioni di Adblock Plus">
 <!ENTITY options.accesskey "O">
+<!ENTITY contribute.label "Contribuisci ad Adblock Plus">
 <!ENTITY showintoolbar.label "Visualizza nella barra degli strumenti">
 <!ENTITY showintoolbar.accesskey "b">
-<!ENTITY showinstatusbar.label "Visualizza nella barra dei componenti aggiuntivi">
+<!ENTITY showinstatusbar.label "Visualizza nella barra di stato">
 <!ENTITY showinstatusbar.accesskey "s">
-<!ENTITY objecttabs.label "Mostra linguetta per elementi Flash e Java">
+<!ENTITY showinaddonbar.label "Visualizza nella barra dei componenti aggiuntivi">
+<!ENTITY showinaddonbar.accesskey "b">
+<!ENTITY objecttabs.label "Mostra linguetta &apos;Blocca…&apos; per elementi Flash e Java">
 <!ENTITY objecttabs.accesskey "t">
+<!ENTITY hideplaceholders.label "Nascondi i segnaposti degli elementi bloccati">
+<!ENTITY hideplaceholders.accesskey "l">
+<!ENTITY counthits.label "Effettua le statistiche di accesso">
+<!ENTITY counthits.accesskey "E">
 <!ENTITY sync.label "Sincronizza le impostazioni di Adblock Plus">
 <!ENTITY sync.accesskey "k">
 <!ENTITY objecttab.title "Blocca">

@@ -19,10 +19,10 @@
 <!ENTITY subscription.lastDownload.unknown "無法取得">
 <!ENTITY subscription.lastDownload.invalidURL "失敗，無效的位址">
 <!ENTITY subscription.lastDownload.connectionError "失敗，檔案下載失敗">
-<!ENTITY subscription.lastDownload.invalidData "失敗，無效的過濾條件集">
+<!ENTITY subscription.lastDownload.invalidData "失敗，無效的過濾條件列表">
 <!ENTITY subscription.lastDownload.checksumMismatch "失敗，驗證碼不符">
 <!ENTITY subscription.lastDownload.success "成功">
-<!ENTITY subscription.minVersion.warning "此過濾條件集需要較新的 Adblock Plus 版本，您應該更新至最新版本的 Adblock Plus。">
+<!ENTITY subscription.minVersion.warning "此條件集需要較新版的 Adblock Plus，您應該更新至最新版本。">
 <!ENTITY subscription.disabledFilters.warning "此條件集內有部份條件被停用。">
 <!ENTITY subscription.disabledFilters.enable "啟用條件">
 <!ENTITY subscription.actions.label "操作">
@@ -73,7 +73,7 @@
 <!ENTITY sort.descending.accesskey "Z">
 <!ENTITY noGroupSelected.text "您需要選擇一個條件群組才能顯示其中的過濾條件。">
 <!ENTITY noFiltersInGroup.text "選中的群組是空的">
-<!ENTITY filters.remove.warning "您真的要移除所有選中的過濾條件？">
+<!ENTITY filters.remove.warning "您確定要移除所有選中的過濾條件？">
 <!ENTITY backupButton.label "備份及還原">
 <!ENTITY backupButton.accesskey "B">
 <!ENTITY backup.label "建立新的備份">

@@ -71,9 +71,9 @@
 <!ENTITY filters.remove.warning "選択したフィルタを本当に削除しますか？">
 <!ENTITY backupButton.label "バックアップと復元">
 <!ENTITY backupButton.accesskey "B">
-<!ENTITY backup.label "バックアップ作成">
-<!ENTITY restore.default.label "?1? のバックアップを復元">
-<!ENTITY restore.own.label "バックアップを指定">
+<!ENTITY backup.label "バックアップファイルの作成">
+<!ENTITY restore.default.label "?1? のバックアップファイルから復元">
+<!ENTITY restore.own.label "バックアップファイルを指定">
 <!ENTITY backup.complete.title "自作フィルタとフィルタ購読">
 <!ENTITY backup.custom.title "自作フィルタのみ">
 <!ENTITY backup.error "ファイル出力エラー。ファイル書き込み禁止／他のアプリケーションで使用中 となっていないか確認して下さい。">

@@ -30,7 +30,7 @@
 <!ENTITY showinstatusbar.label "Vis på statuslinje">
 <!ENTITY showinstatusbar.accesskey "s">
 <!ENTITY showinaddonbar.label "Vis på tilføjelseslinie">
-<!ENTITY showinaddonbar.accesskey "j">
+<!ENTITY showinaddonbar.accesskey "V">
 <!ENTITY objecttabs.label "Vis faner på Flash og Java">
 <!ENTITY objecttabs.accesskey "J">
 <!ENTITY hideplaceholders.label "Skjul blokerede emners pladsholder">

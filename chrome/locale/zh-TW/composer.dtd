@@ -12,14 +12,14 @@
 <!ENTITY type.filter.accesskey "B">
 <!ENTITY type.whitelist.label "例外條件">
 <!ENTITY type.whitelist.accesskey "x">
-<!ENTITY pattern.label "要比對的樣式">
-<!ENTITY pattern.explanation "樣式可以是網址的任一部分，星號 (*) 表示萬用字元。過濾條件只會套用到符合樣式的網址上。">
-<!ENTITY regexp.warning "您輸入的樣式將被解讀為正規表示法，使用正規表示法若可能會使 Adblock Plus 拖慢瀏覽速度。若您不打算使用正規表示式，請在樣式結尾加上星號 (*)。">
-<!ENTITY shortpattern.warning "您輸入的樣式太短無法最佳化，這可能會拖慢您的瀏覽速度。建議您選擇較長的字串好讓 Adblock Plus 更有效率。">
-<!ENTITY match.warning "您輸入的樣式與該網址不符，此樣式不會生效。">
+<!ENTITY pattern.label "要比對的格式">
+<!ENTITY pattern.explanation "條件格式可以是網址的任一部分，星號 (*) 代表萬用字元。過濾條件只會套用在符合格式的網址上。">
+<!ENTITY regexp.warning "您輸入的格式將被解讀為正規表示法，使用正規表示法可能會使 Adblock Plus 拖慢瀏覽速度。若您不打算使用正規表示式，請在格式結尾加上星號 (*)。">
+<!ENTITY shortpattern.warning "您輸入的格式太短無法最佳化，這可能會拖慢瀏覽速度。建議您選擇較長的字串好讓 Adblock Plus 更有效率。">
+<!ENTITY match.warning "您輸入的格式與該網址不符，此條件不會生效。">
 <!ENTITY custom.pattern.label "自訂:">
 <!ENTITY custom.pattern.accesskey "C">
-<!ENTITY anchors.label "只比對樣式於:">
+<!ENTITY anchors.label "只接受特定格式：">
 <!ENTITY anchor.start.label "網址開頭">
 <!ENTITY anchor.start.accesskey "g">
 <!ENTITY anchor.start.flexible.label "網域名稱開頭">
@@ -29,7 +29,7 @@
 <!ENTITY options.label "選項">
 <!ENTITY domainRestriction.label "網域限制:">
 <!ENTITY domainRestriction.accesskey "d">
-<!ENTITY domainRestriction.help "此選項可指定一個或多個網域，請用管線符號 (|) 分隔。若在網域名稱前加上波浪符號 (~) 則表示此條件將不會套用於此網域。">
+<!ENTITY domainRestriction.help "此選項可指定一個或多個網域，請用管線符號 (|) 分隔。若在網域名稱前加上波浪符號 (~) 則表示條件不會套用於該網域。">
 <!ENTITY firstParty.label "只限第一方">
 <!ENTITY firstParty.accesskey "r">
 <!ENTITY thirdParty.label "只限第三方">

@@ -44,4 +44,4 @@
 <!ENTITY collapse.default.yes.label "Utilizza predefiniti (sì)">
 <!ENTITY collapse.default.no.label "Utilizza predefiniti (no)">
 <!ENTITY collapse.yes.label "Sì">
-<!ENTITY collapse.no.label "No">
+<!ENTITY collapse.no.label "No ">

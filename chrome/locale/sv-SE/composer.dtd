@@ -14,7 +14,7 @@
 <!ENTITY type.whitelist.accesskey "u">
 <!ENTITY pattern.label "Sök efter mönster">
 <!ENTITY pattern.explanation "Mönster är en del av en adress, symbolen * är jokertecken. Filtret används endast på adresser som matchar mönstret.">
-<!ENTITY regexp.warning "Mönstret du angivit hanteras som ett reguljärt uttryck. Många reguljära uttryck kan göra din surfning långsam. Om du inte avsåg att använda reguljära uttruck, lägg till ett *-tecken i slutet av mönstret.">
+<!ENTITY regexp.warning "Mönstret du angivit hanteras som ett reguljärt uttryck. Många reguljära uttryck kan göra din surfning långsam. Om du inte avsåg att använda reguljära uttryck, lägg till en asterisk (*) i slutet av mönstret.">
 <!ENTITY shortpattern.warning "Detta mönster är för kort för optimal prestanda och för många sådana mönster kan göra din surfning långsam. Det rekommenderas att använda längre strängar för detta filter.">
 <!ENTITY match.warning "Mönstret du har angivit matchar inte längre adressen som skall blockeras/undantas och kommer därför inte att påverka den.">
 <!ENTITY custom.pattern.label "Eget:">
