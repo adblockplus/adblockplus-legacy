@@ -99,24 +99,24 @@
 </commandset>
 
 <popupset id="filtersPopupset">
-  <menupopup id="filters-view-menu" onpopupshowing="FilterActions.fillColumnPopup();">
-    <menuitem id="filters-view-filter" label="&filter.column;" accesskey="&filter.accesskey;" type="checkbox" disabled="true"/>
-    <menuitem id="filters-view-slow" label="&slow.column;" accesskey="&slow.accesskey;" type="checkbox" oncommand="FilterActions.toggleColumn('col-slow')"/>
-    <menuitem id="filters-view-enabled" label="&enabled.column;" accesskey="&enabled.accesskey;" type="checkbox" oncommand="FilterActions.toggleColumn('col-enabled')"/>
-    <menuitem id="filters-view-hitcount" label="&hitcount.column;" accesskey="&hitcount.accesskey;" type="checkbox" oncommand="FilterActions.toggleColumn('col-hitcount')"/>
-    <menuitem id="filters-view-lasthit" label="&lasthit.column;" accesskey="&lasthit.accesskey;" type="checkbox" oncommand="FilterActions.toggleColumn('col-lasthit')"/>
+  <menupopup id="filters-view-menu1" onpopupshowing="FilterActions.fillColumnPopup(this);">
+    <menuitem id="filters-view-filter1" label="&filter.column;" accesskey="&filter.accesskey;" type="checkbox" disabled="true"/>
+    <menuitem id="filters-view-slow1" label="&slow.column;" accesskey="&slow.accesskey;" type="checkbox" oncommand="FilterActions.toggleColumn('col-slow')"/>
+    <menuitem id="filters-view-enabled1" label="&enabled.column;" accesskey="&enabled.accesskey;" type="checkbox" oncommand="FilterActions.toggleColumn('col-enabled')"/>
+    <menuitem id="filters-view-hitcount1" label="&hitcount.column;" accesskey="&hitcount.accesskey;" type="checkbox" oncommand="FilterActions.toggleColumn('col-hitcount')"/>
+    <menuitem id="filters-view-lasthit1" label="&lasthit.column;" accesskey="&lasthit.accesskey;" type="checkbox" oncommand="FilterActions.toggleColumn('col-lasthit')"/>
     <menuseparator/>
-    <menu id="filters-sort-menu" label="&sort.label;" accesskey="&sort.accesskey;">
-      <menupopup id="filters-sort-popup">
-        <menuitem id="filters-sort-none" label="&sort.none.label;" accesskey="&sort.none.accesskey;" type="radio" name="sortColumn" oncommand="FilterView.sortBy(null)"/>
-        <menuitem id="filters-sort-filter" label="&filter.column;" accesskey="&filter.accesskey;" type="radio" name="sortColumn" oncommand="FilterView.sortBy('col-filter')"/>
-        <menuitem id="filters-sort-slow" label="&slow.column;" accesskey="&slow.accesskey;" type="radio" name="sortColumn" oncommand="FilterView.sortBy('col-slow')"/>
-        <menuitem id="filters-sort-enabled" label="&enabled.column;" accesskey="&enabled.accesskey;" type="radio" name="sortColumn" oncommand="FilterView.sortBy('col-enabled')"/>
-        <menuitem id="filters-sort-hitcount" label="&hitcount.column;" accesskey="&hitcount.accesskey;" type="radio" name="sortColumn" oncommand="FilterView.sortBy('col-hitcount')"/>
-        <menuitem id="filters-sort-lasthit" label="&lasthit.column;" accesskey="&lasthit.accesskey;" type="radio" name="sortColumn" oncommand="FilterView.sortBy('col-lasthit')"/>
+    <menu id="filters-sort-menu1" label="&sort.label;" accesskey="&sort.accesskey;">
+      <menupopup id="filters-sort-popup1">
+        <menuitem id="filters-sort-none1" label="&sort.none.label;" accesskey="&sort.none.accesskey;" type="radio" name="sortColumn" oncommand="FilterView.sortBy(null)"/>
+        <menuitem id="filters-sort-filter1" label="&filter.column;" accesskey="&filter.accesskey;" type="radio" name="sortColumn" oncommand="FilterView.sortBy('col-filter')"/>
+        <menuitem id="filters-sort-slow1" label="&slow.column;" accesskey="&slow.accesskey;" type="radio" name="sortColumn" oncommand="FilterView.sortBy('col-slow')"/>
+        <menuitem id="filters-sort-enabled1" label="&enabled.column;" accesskey="&enabled.accesskey;" type="radio" name="sortColumn" oncommand="FilterView.sortBy('col-enabled')"/>
+        <menuitem id="filters-sort-hitcount1" label="&hitcount.column;" accesskey="&hitcount.accesskey;" type="radio" name="sortColumn" oncommand="FilterView.sortBy('col-hitcount')"/>
+        <menuitem id="filters-sort-lasthit1" label="&lasthit.column;" accesskey="&lasthit.accesskey;" type="radio" name="sortColumn" oncommand="FilterView.sortBy('col-lasthit')"/>
         <menuseparator/>
-        <menuitem id="filters-sort-asc" label="&sort.ascending.label;" accesskey="&sort.ascending.accesskey;" type="radio" name="sortOrder" oncommand="FilterActions.setSortOrder('ascending')"/>
-        <menuitem id="filters-sort-desc" label="&sort.descending.label;" accesskey="&sort.descending.accesskey;" type="radio" name="sortOrder" oncommand="FilterActions.setSortOrder('descending')"/>
+        <menuitem id="filters-sort-asc1" label="&sort.ascending.label;" accesskey="&sort.ascending.accesskey;" type="radio" name="sortOrder" oncommand="FilterActions.setSortOrder('ascending')"/>
+        <menuitem id="filters-sort-desc1" label="&sort.descending.label;" accesskey="&sort.descending.accesskey;" type="radio" name="sortOrder" oncommand="FilterActions.setSortOrder('descending')"/>
       </menupopup>
     </menu>
   </menupopup>
@@ -320,6 +320,8 @@
           <menuseparator/>
           <menuitem label="&filter.moveUp.label;" key="moveUp-key" command="filters-moveUp-command"/>
           <menuitem label="&filter.moveDown.label;" key="moveDown-key" command="filters-moveDown-command"/>
+          <menuseparator/>
+          <menu id="viewMenu" label="&viewMenu.label;"/>
         </menupopup>
       </button>
       <button id="addFilterButton" label="&addFilter.label;" accesskey="&addFilter.accesskey;" command="filters-add-command"/>
@@ -331,7 +333,7 @@
         enableColumnDrag="true"
         hidecolumnpicker="true"
         _removewarning="&filters.remove.warning;">
-      <treecols context="filters-view-menu">
+      <treecols context="filters-view-menu1">
         <treecol id="col-filter" label="&filter.column;" flex="10" persist="width ordinal sortDirection hidden"/>
         <splitter class="tree-splitter"/>
         <treecol id="col-slow" label="!" display="&slow.column;" flex="0" width="16" persist="width ordinal sortDirection hidden"/>
