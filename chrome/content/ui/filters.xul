@@ -300,7 +300,7 @@
     </tabpanels>
   </tabbox>
 
-  <splitter id="filtersSplitter" persist="state" orient="horizontal" collapse="after" state="collapsed" oncommand="FilterView.refresh();">
+  <splitter id="filtersSplitter" persist="state" orient="horizontal" collapse="after" state="collapsed" oncommand="FilterView.refresh();onSplitterStateChange(this);">
     <grippy id="filtersGrippy"/>
   </splitter>
 
