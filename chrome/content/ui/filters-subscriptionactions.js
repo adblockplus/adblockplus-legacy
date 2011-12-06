@@ -76,11 +76,14 @@ var SubscriptionActions =
     if (node)
     {
       E("tabs").selectedIndex = tabIndex;
-      node.parentNode.ensureElementIsVisible(node);
-      node.parentNode.selectItem(node);
-      if (!FilterActions.visible)
-        E("subscription-showHideFilters-command").doCommand();
-      Utils.runAsync(FilterView.selectFilter, FilterView, filter);
+      Utils.runAsync(function()
+      {
+        node.parentNode.ensureElementIsVisible(node);
+        node.parentNode.selectItem(node);
+        if (!FilterActions.visible)
+          E("subscription-showHideFilters-command").doCommand();
+        Utils.runAsync(FilterView.selectFilter, FilterView, filter);
+      });
     }
   },
 
