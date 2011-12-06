@@ -152,8 +152,8 @@ var FilterView =
     {
       case "subscription.updated":
       {
-        if (item == this._subscription && FilterActions.visible)
-          this.refresh();
+        if (item == this._subscription)
+          this.refresh(true);
         break;
       }
       case "filter.disabled":
@@ -291,17 +291,31 @@ var FilterView =
       return;
 
     this._subscription = value;
-    if (FilterActions.visible)
-      this.refresh();
+    this.refresh(true);
   },
 
   /**
-   * Updates internal view data after a filter subscription change.
+   * Will be true if updates are outstanding because the list was hidden.
    */
-  refresh: function()
+  _dirty: false,
+
+  /**
+   * Updates internal view data after a change.
+   * @param {Boolean} force  if false, a refresh will only happen if previous
+   *                         changes were suppressed because the list was hidden
+   */
+  refresh: function(force)
   {
-    this.updateData();
-    this.selectRow(0);
+    if (FilterActions.visible)
+    {
+      if (!force && !this._dirty)
+        return;
+      this._dirty = false;
+      this.updateData();
+      this.selectRow(0);
+    }
+    else
+      this._dirty = true;
   },
 
   /**

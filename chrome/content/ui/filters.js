@@ -78,15 +78,6 @@ function onSelectionChange(/**Element*/ list)
 }
 
 /**
- * Called whenever the filters list is shown/hidden.
- */
-function onShowHideFilters()
-{
-  if (FilterActions.visible)
-    FilterView.refresh();
-}
-
-/**
  * Updates filter list when selected subscription changes.
  */
 function updateSelectedSubscription()
