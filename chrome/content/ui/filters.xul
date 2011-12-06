@@ -123,7 +123,7 @@
 </popupset>
 
 <hbox flex="1">
-  <tabbox id="tabs" flex="1">
+  <tabbox id="tabs" flex="1" persist="selectedIndex">
     <tabs onselect="onTabChange(this.parentNode);">
       <tab label="&subscriptions.tab.label;"/>
       <tab label="&filters.tab.label;"/>
