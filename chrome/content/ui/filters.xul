@@ -306,7 +306,7 @@
 
   <vbox persist="width" width="500">
     <hbox pack="end">
-      <button id="findButton" label="&find.label;…" accesskey="&find.accesskey;" command="find-command"/>
+      <button id="findButton" label="&find.label;" accesskey="&find.accesskey;" command="find-command"/>
       <button id="filterActionButton" type="menu" label="&filter.actions.label;">
         <menupopup id="filterActionMenu">
           <menuitem label="&filter.edit.label;" key="edit-key" command="filters-edit-command"/>
