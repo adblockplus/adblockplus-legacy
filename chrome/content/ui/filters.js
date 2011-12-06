@@ -78,6 +78,19 @@ function onSelectionChange(/**Element*/ list)
 }
 
 /**
+ * Called when splitter state changes to make sure it is persisted properly.
+ */
+function onSplitterStateChange(/**Element*/ splitter)
+{
+  let state = splitter.getAttribute("state");
+  if (!state)
+  {
+    splitter.setAttribute("state", "open");
+    document.persist(splitter.id, "state");
+  }
+}
+
+/**
  * Updates filter list when selected subscription changes.
  */
 function updateSelectedSubscription()
