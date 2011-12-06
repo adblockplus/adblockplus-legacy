@@ -735,7 +735,8 @@ WindowWrapper.prototype =
     if (contextMenu)
     {
       contextMenu.addEventListener("popupshowing", this._bindMethod(this.updateContextMenu), false);
-    
+      contextMenu.addEventListener("popuphidden", this._bindMethod(this.clearContextMenu), false);
+
       // Make sure our context menu items are at the bottom
       contextMenu.appendChild(this.E("abp-removeWhitelist-menuitem"));
       contextMenu.appendChild(this.E("abp-frame-menuitem"));
@@ -1305,6 +1306,18 @@ WindowWrapper.prototype =
   
     let location = this.getCurrentLocation();
     this.E("abp-removeWhitelist-menuitem").hidden = (!location || !Policy.isWhitelisted(location.spec));
+  },
+
+  /**
+   * Clears context menu data once the menu is closed.
+   */
+  clearContextMenu: function()
+  {
+    this.nodeData = null;
+    this.currentNode = null;
+    this.backgroundData = null;
+    this.frameData = null;
+    this.currentFrame = null;
   },
 
   /**
