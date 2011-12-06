@@ -8,7 +8,7 @@
 <!ENTITY addSubscriptionOther.label "Ajouter un autre abonnement">
 <!ENTITY noSubscriptions.text "
  Vous n'avez pas encore ajouté d'abonnement à des filtres. Adblock Plus ne bloquera
-	rien sans filtres, veuillez utiliser «�Ajouter un abonnement�» pour
+	rien sans filtres, veuillez utiliser « Ajouter un abonnement » pour
  en ajouter.
 ">
 <!ENTITY subscription.homepage.label "Page Web">
