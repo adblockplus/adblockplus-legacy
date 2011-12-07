@@ -105,6 +105,7 @@ function updateSelectedSubscription()
 
   let data = Templater.getDataForNode(list.selectedItem);
   FilterView.subscription = (data ? data.subscription : null);
+  FilterActions.updateCommands();
 }
 
 /**

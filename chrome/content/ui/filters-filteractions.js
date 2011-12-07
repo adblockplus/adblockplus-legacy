@@ -94,6 +94,34 @@ var FilterActions =
   },
 
   /**
+   * Updates visible filter commands whenever the selected subscription changes.
+   */
+  updateCommands: function()
+  {
+    E("filters-add-command").setAttribute("disabled", !FilterView.editable);
+  },
+
+  /**
+   * Called whenever filter actions menu is opened, initializes menu items.
+   */
+  fillActionsPopup: function()
+  {
+    let editable = FilterView.editable;
+    let items = FilterView.selectedItems.filter(function(i) !i.filter.dummy);
+    items.sort(function(entry1, entry2) entry1.index - entry2.index);
+    let activeItems = items.filter(function(i) i.filter instanceof ActiveFilter);
+
+    E("filters-edit-command").setAttribute("disabled", !editable || !items.length);
+    E("filters-delete-command").setAttribute("disabled", !editable || !items.length);
+    E("filters-resetHitCounts-command").setAttribute("disabled", !activeItems.length);
+    E("filters-moveUp-command").setAttribute("disabled", !editable || FilterView.isSorted() || !items.length || items[0].index == 0);
+    E("filters-moveDown-command").setAttribute("disabled", !editable || FilterView.isSorted() || !items.length || items[items.length - 1].index == FilterView.rowCount - 1);
+    E("filters-copy-command").setAttribute("disabled", !items.length);
+    E("filters-cut-command").setAttribute("disabled", !editable || !items.length);
+    E("filters-paste-command").setAttribute("disabled", !editable || !Utils.clipboard.hasDataMatchingFlavors(["text/unicode"], 1, Utils.clipboard.kGlobalClipboard));
+  },
+
+  /**
    * Changes sort current order for the tree. Sorts by filter column if the list is unsorted.
    * @param {String} order  either "ascending" or "descending"
    */
@@ -357,7 +385,6 @@ var FilterActions =
     if (!FilterView.editable || this.treeElement.editingColumn)
       return;
 
-    let clipboard = Cc["@mozilla.org/widget/clipboard;1"].getService(Ci.nsIClipboard);
     let transferable = Cc["@mozilla.org/widget/transferable;1"].createInstance(Ci.nsITransferable);
     transferable.addDataFlavor("text/unicode");
 
@@ -365,7 +392,7 @@ var FilterActions =
     try
     {
       data = {};
-      clipboard.getData(transferable, clipboard.kGlobalClipboard);
+      Utils.clipboard.getData(transferable, Utils.clipboard.kGlobalClipboard);
       transferable.getTransferData("text/unicode", data, {});
       data = data.value.QueryInterface(Ci.nsISupportsString).data;
     }
