@@ -122,7 +122,7 @@
   </menupopup>
 </popupset>
 
-<hbox flex="1">
+<hbox id="content" flex="1">
   <tabbox id="tabs" flex="1" persist="selectedIndex">
     <tabs onselect="onTabChange(this.parentNode);">
       <tab label="&subscriptions.tab.label;"/>
@@ -304,7 +304,7 @@
     <grippy id="filtersGrippy"/>
   </splitter>
 
-  <vbox id="filtersContainer" persist="width" width="500">
+  <vbox id="filtersContainer" persist="width height" width="500">
     <hbox pack="end">
       <button id="findButton" label="&find.label;" accesskey="&find.accesskey;" command="find-command"/>
       <button id="filterActionButton" type="menu" label="&filter.actions.label;">
