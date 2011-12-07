@@ -3,14 +3,14 @@
 <!ENTITY viewList.label "檢視過濾條件">
 <!ENTITY visitHomepage.label "造訪首頁">
 <!ENTITY addSubscription.label "新增過濾條件集">
-<!ENTITY list.download.failed "取回過濾條件集清單失敗。">
+<!ENTITY list.download.failed "接收條件集清單失敗。">
 <!ENTITY list.download.retry "再試一次">
 <!ENTITY list.download.website "造訪網站">
 <!ENTITY fromWeb.description "請確認您要訂閱的過濾條件集。訂閱前您可以變更條件集標題或位址。">
 <!ENTITY title.label "訂閱項目名稱:">
-<!ENTITY title.accesskey "T">
+<!ENTITY title.accesskey "t">
 <!ENTITY location.label "過濾條件集位址:">
-<!ENTITY location.accesskey "L">
-<!ENTITY supplementMessage "該過濾條件集需要同時使用您未訂閱的條件集「?1?」。">
-<!ENTITY addMain.label "一併訂閱「?1?」條件集">
+<!ENTITY location.accesskey "l">
+<!ENTITY supplementMessage "此過濾條件集需要與 &quot;?1?&quot; 搭配使用">
+<!ENTITY addMain.label "一併訂閱 &quot;?1?&quot; 條件集">
 <!ENTITY addMain.accesskey "s">

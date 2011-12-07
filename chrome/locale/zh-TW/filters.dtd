@@ -5,7 +5,7 @@
 <!ENTITY addSubscription.accesskey "f">
 <!ENTITY addSubscriptionAdd.label "加入">
 <!ENTITY addSubscriptionCancel.label "取消">
-<!ENTITY addSubscriptionOther.label "新增其他過濾條件集">
+<!ENTITY addSubscriptionOther.label "新增其他條件集">
 <!ENTITY noSubscriptions.text "
  您未加入任何過濾條件集。
  沒有過濾條件的話 Adblock Plus 不曉得該阻擋什麼，請使用&quot;新增過濾條件集&quot;加入。
@@ -24,7 +24,7 @@
 <!ENTITY subscription.lastDownload.success "成功">
 <!ENTITY subscription.minVersion.warning "此條件集需要較新版的 Adblock Plus，您應該更新至最新版本。">
 <!ENTITY subscription.disabledFilters.warning "此條件集內有部份條件被停用。">
-<!ENTITY subscription.disabledFilters.enable "啟用條件">
+<!ENTITY subscription.disabledFilters.enable "啟用所有條件">
 <!ENTITY subscription.actions.label "操作">
 <!ENTITY subscription.update.label "更新過濾條件">
 <!ENTITY subscription.editTitle.label "編輯標題">
