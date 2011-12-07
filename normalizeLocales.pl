@@ -22,6 +22,8 @@ foreach my $locale (readdir(LOCALES))
     $data =~ s/\n+/\n/g;                # Remove empty lines
     $data =~ s/^\s*#.*\n*//gm;          # Remove pointless comments
     writeFile($file, $data);
+
+    unlink($file) if -z $file;
   }
 
   foreach my $file (<chrome/locale/$locale/*.dtd>)
@@ -32,6 +34,8 @@ foreach my $locale (readdir(LOCALES))
     $data =~ s/\n+/\n/g;                      # Remove empty lines
     $data =~ s/[^\S\n]*<!--.*?-->\s*?\n*//gs; # Remove pointless comments
     writeFile($file, $data);
+
+    unlink($file) if -z $file;
   }
 }
 closedir(LOCALES);

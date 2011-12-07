@@ -1,14 +1,14 @@
 <!ENTITY dialog.title "Préférences Adblock Plus">
 <!ENTITY subscriptions.tab.label "Abonnements à des filtres">
 <!ENTITY filters.tab.label "Filtres personnalisés">
-<!ENTITY addSubscription.label "S&apos;abonner à la liste de filtres">
+<!ENTITY addSubscription.label "S'abonner à la liste de filtres">
 <!ENTITY addSubscription.accesskey "f">
 <!ENTITY addSubscriptionAdd.label "Ajouter">
 <!ENTITY addSubscriptionCancel.label "Annuler">
 <!ENTITY addSubscriptionOther.label "Ajouter un autre abonnement">
 <!ENTITY noSubscriptions.text "
  Vous n'avez pas encore ajouté d'abonnement à des filtres. Adblock Plus ne bloquera
-	rien sans filtres, veuillez utiliser « Ajouter un abonnement » pour
+rien sans filtres, veuillez utiliser « Ajouter un abonnement » pour
  en ajouter.
 ">
 <!ENTITY subscription.homepage.label "Page Web">
