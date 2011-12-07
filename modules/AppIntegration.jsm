@@ -192,6 +192,46 @@ var AppIntegration =
     else
       FilterStorage.addFilter(filter);
     FilterStorage.saveToDisk();
+  },
+
+  /**
+   * Opens ABP menu.
+   */
+  openMenu: function(window)
+  {
+    let wrapper = AppIntegration.getWrapperForWindow(window.top);
+    if (!wrapper)
+    {
+      // Maybe we got a content window
+      window = window.QueryInterface(Ci.nsIInterfaceRequestor)
+                     .getInterface(Ci.nsIWebNavigation)
+                     .QueryInterface(Ci.nsIDocShellTreeItem)
+                     .rootTreeItem
+                     .QueryInterface(Ci.nsIInterfaceRequestor)
+                     .getInterface(Ci.nsIDOMWindow);
+      window = XPCNativeWrapper.unwrap(window);
+      wrapper = AppIntegration.getWrapperForWindow(window);
+    }
+    if (!wrapper)
+    {
+      // Try to find any known window
+      let enumerator = Utils.windowMediator.getZOrderDOMWindowEnumerator(null, true);
+      if (!enumerator.hasMoreElements())
+      {
+        // On Linux the list returned will be empty, see bug 156333. Fall back to random order.
+        enumerator = Utils.windowMediator.getEnumerator(null);
+      }
+      while (enumerator.hasMoreElements())
+      {
+        window = enumerator.getNext().QueryInterface(Ci.nsIDOMWindow);
+        wrapper = AppIntegration.getWrapperForWindow(window);
+        if (wrapper)
+          break;
+      }
+    }
+
+    if (wrapper)
+      Utils.runAsync(wrapper.openMenu, wrapper);
   }
 };
 
@@ -776,6 +816,33 @@ WindowWrapper.prototype =
       toolbar.setAttribute("collapsed", "false");
       this.window.document.persist(toolbar.id, "collapsed");
     }
+  },
+
+  /**
+   * Opens Adblock Plus menu.
+   */
+  openMenu: function()
+  {
+    if (!Prefs.showintoolbar)
+      Prefs.showintoolbar = true;
+    this.installToolbarIcon();
+
+    let button = this.E("abp-toolbarbutton");
+    dump(button + "\n")
+    if (!button)
+      return;
+
+    let toolbar = button.parentNode;
+    if (toolbar.collapsed)
+    {
+      toolbar.setAttribute("collapsed", "false");
+      this.window.document.persist(toolbar.id, "collapsed");
+    }
+
+    Utils.runAsync(function()
+    {
+      button.open = true;
+    });
   },
 
   /**

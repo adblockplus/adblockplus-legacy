@@ -6,7 +6,7 @@ version=2.0b
 author=Wladimir Palant
 icon=chrome://adblockplus/skin/adblockplus.png
 about=chrome://adblockplus/content/ui/about.xul
-options=chrome://adblockplus/content/ui/filters.xul
+options=chrome://adblockplus/content/ui/fakeOptions.xul
 
 [contributors]
 1=Claude Lespagnol aka Efdur

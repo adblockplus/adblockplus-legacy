@@ -28,6 +28,7 @@ const Cr = Components.results;
 const Cu = Components.utils;
 
 let baseURL = Cc["@adblockplus.org/abp/private;1"].getService(Ci.nsIURI);
+Cu.import(baseURL.spec + "AppIntegration.jsm");
 Cu.import(baseURL.spec + "ContentPolicy.jsm");
 Cu.import(baseURL.spec + "FilterClasses.jsm");
 Cu.import(baseURL.spec + "FilterListener.jsm");
