@@ -228,7 +228,7 @@ var Policy =
         if (match instanceof WhitelistFilter)
         {
           FilterStorage.increaseHitCount(match);
-          RequestNotifier.addNodeData(testWnd.document, topWnd, Policy.type.DOCUMENT, getHostname(testWndLocation), false, testWndLocation, match);
+          RequestNotifier.addNodeData(testWnd.document, topWnd, Policy.type.DOCUMENT, getHostname(parentWndLocation), false, testWndLocation, match);
           return true;
         }
 
