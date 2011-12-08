@@ -59,14 +59,25 @@ if (Utils.isFennec)
 let wrappers = [];
 
 /**
- * Stores the current value of showintoolbar preference (to detect changes).
- */
-let currentlyShowingInToolbar = Prefs.showintoolbar;
-
-/**
  * Stores the selected hotkeys, initialized when the first browser window opens.
  */
 let hotkeys = null;
+
+/**
+ * Object observing add-on manager notifications about add-on options being initialized.
+ * @type nsIObserver
+ */
+let optionsObserver =
+{
+  QueryInterface: XPCOMUtils.generateQI([Ci.nsIObserver, Ci.nsISupportsWeakReference]),
+  observe: function(subject, topic, data)
+  {
+    if (data != Utils.addonID)
+      return;
+
+    initOptionsDoc(subject.QueryInterface(Ci.nsIDOMDocument));
+  }
+};
 
 /**
  * Initializes app integration module
@@ -79,7 +90,7 @@ function init()
   // Listen for pref and filters changes
   Prefs.addListener(function(name)
   {
-    if (name == "enabled" || name == "showintoolbar" || name == "showinstatusbar" || name == "defaulttoolbaraction" || name == "defaultstatusbaraction")
+    if (name == "enabled" || name == "showinstatusbar" || name == "defaulttoolbaraction" || name == "defaultstatusbaraction")
       reloadPrefs();
   });
   FilterNotifier.addListener(function(action)
@@ -87,6 +98,7 @@ function init()
     if (/^(filter|subscription)\.(added|removed|disabled|updated)$/.test(action))
       reloadPrefs();
   });
+  Utils.observerService.addObserver(optionsObserver, "addon-options-displayed", true);
 }
 
 /**
@@ -170,13 +182,35 @@ var AppIntegration =
 
   /**
    * Toggles the pref for the Adblock Plus sync engine.
+   * @return {Boolean} new state of the sync engine
    */
   toggleSync: function()
   {
     let syncEngine = Sync.getEngine();
     syncEngine.enabled = !syncEngine.enabled;
+    return syncEngine.enabled;
   },
   
+  /**
+   * Adds or removes the Adblock Plus toolbar icon.
+   * @return {Boolean} new state of the toolbar button
+   */
+  toggleToolbarIcon: function()
+  {
+    if (!wrappers.length)
+      return false;
+
+    let newVal = !wrappers[0].isToolbarIconVisible();
+    for (let i = 0; i < wrappers.length; i++)
+    {
+      if (newVal)
+        wrappers[i].installToolbarIcon();
+      else
+        wrappers[i].hideToolbarIcon();
+    }
+    return wrappers[0].isToolbarIconVisible();
+  },
+
   /**
    * If the given filter is already in user's list, removes it from the list. Otherwise adds it.
    */
@@ -209,7 +243,8 @@ var AppIntegration =
                      .rootTreeItem
                      .QueryInterface(Ci.nsIInterfaceRequestor)
                      .getInterface(Ci.nsIDOMWindow);
-      window = XPCNativeWrapper.unwrap(window);
+      if (window.wrappedJSObject)
+        window = window.wrappedJSObject;
       wrapper = AppIntegration.getWrapperForWindow(window);
     }
     if (!wrapper)
@@ -319,7 +354,7 @@ WindowWrapper.prototype =
    * Methods that can be defined at attributes of the hooks element.
    * @type Array of String
    */
-  customMethods: ["getBrowser", "addTab", "getContextMenu", "getToolbox", "getDefaultToolbar", "toolbarInsertBefore", "unhideToolbar"],
+  customMethods: ["getBrowser", "addTab", "getContextMenu", "getToolbox", "getDefaultToolbar", "toolbarInsertBefore", "hasAddonBar"],
 
   /**
    * Progress listener used to watch for location changes, if any.
@@ -587,20 +622,15 @@ WindowWrapper.prototype =
         return;
   
       if (element.tagName == "statusbarpanel")
-        element.hidden = !Prefs.showinstatusbar;
+        element.hidden = !Prefs.showinstatusbar || (this.hasAddonBar && this.hasAddonBar());
       else
       {
-        element.hidden = !Prefs.showintoolbar;
         if (element.hasAttribute("context") && Prefs.defaulttoolbaraction == 0)
           element.setAttribute("type", "menu");
         else
           element.setAttribute("type", "menu-button");
       }
 
-      // HACKHACK: Show status bar icon instead of toolbar icon if the application doesn't have a toolbar icon
-      if (element.hidden && element.tagName == "statusbarpanel" && !this.getDefaultToolbar)
-        element.hidden = !Prefs.showintoolbar;
-  
       element.setAttribute("abpstate", state);
     };
   
@@ -790,32 +820,64 @@ WindowWrapper.prototype =
   },
 
   /**
+   * Checks whether the toolbar icon is currently displayed.
+   */
+  isToolbarIconVisible: function()
+  {
+    let tb = this.E("abp-toolbarbutton");
+    if (!tb || tb.parentNode.localName == "toolbarpalette")
+      return false;
+
+    if (tb.parentNode.collapsed)
+      return false;
+
+    return true;
+  },
+
+  /**
    * Makes sure the toolbar button is displayed.
    */
   installToolbarIcon: function()
   {
     let tb = this.E("abp-toolbarbutton");
-    if (tb && tb.parentNode.localName != "toolbarpalette")
+    if (!tb || tb.parentNode.localName == "toolbarpalette")
+    {
+      let toolbar = (this.getDefaultToolbar ? this.getDefaultToolbar() : null);
+      if (!toolbar || typeof toolbar.insertItem != "function")
+        return;
+
+      let insertBefore = (this.toolbarInsertBefore ? this.toolbarInsertBefore() : null);
+      if (insertBefore && insertBefore.parentNode != toolbar)
+        insertBefore = null;
+
+      toolbar.insertItem("abp-toolbarbutton", insertBefore, null, false);
+
+      toolbar.setAttribute("currentset", toolbar.currentSet);
+      this.window.document.persist(toolbar.id, "currentset");
+    }
+
+    tb = this.E("abp-toolbarbutton");
+    if (tb && tb.parentNode.collapsed)
+    {
+      tb.parentNode.setAttribute("collapsed", "false");
+      this.window.document.persist(tb.parentNode.id, "collapsed");
+    }
+  },
+
+  /**
+   * Removes toolbar button from the toolbar.
+   */
+  hideToolbarIcon: function()
+  {
+    let tb = this.E("abp-toolbarbutton");
+    if (!tb || tb.parentNode.localName != "toolbar")
       return;
 
-    let toolbar = (this.getDefaultToolbar ? this.getDefaultToolbar() : null);
-    if (!toolbar || typeof toolbar.insertItem != "function")
-      return;
-
-    let insertBefore = (this.toolbarInsertBefore ? this.toolbarInsertBefore() : null);
-    if (insertBefore && insertBefore.parentNode != toolbar)
-      insertBefore = null;
-
-    toolbar.insertItem("abp-toolbarbutton", insertBefore, null, false);
+    let toolbar = tb.parentNode;
+    toolbar.currentSet = toolbar.currentSet.split(",").filter(function(id) id != "abp-toolbarbutton").join(",");
 
     toolbar.setAttribute("currentset", toolbar.currentSet);
     this.window.document.persist(toolbar.id, "currentset");
-
-    if (this.unhideToolbar && this.unhideToolbar())
-    {
-      toolbar.setAttribute("collapsed", "false");
-      this.window.document.persist(toolbar.id, "collapsed");
-    }
   },
 
   /**
@@ -823,12 +885,9 @@ WindowWrapper.prototype =
    */
   openMenu: function()
   {
-    if (!Prefs.showintoolbar)
-      Prefs.showintoolbar = true;
     this.installToolbarIcon();
 
     let button = this.E("abp-toolbarbutton");
-    dump(button + "\n")
     if (!button)
       return;
 
@@ -1118,7 +1177,17 @@ WindowWrapper.prototype =
     this.E(prefix + "frameobjects").setAttribute("checked", Prefs.frameobjects);
     this.E(prefix + "slowcollapse").setAttribute("checked", !Prefs.fastcollapse);
     this.E(prefix + "savestats").setAttribute("checked", Prefs.savestats);
-    this.E(prefix + "showintoolbar").setAttribute("checked", Prefs.showintoolbar);
+
+    let hasToolbar = this.getDefaultToolbar && this.getDefaultToolbar();
+    let hasAddonBar = this.hasAddonBar && this.hasAddonBar();
+    let hasStatusBar = this.E("abp-status");
+    this.E(prefix + "showinaddonbar").hidden = !hasAddonBar || prefix == "abp-toolbar-";
+    this.E(prefix + "showintoolbar").hidden = !hasToolbar || hasAddonBar || prefix == "abp-toolbar-";
+    this.E(prefix + "showinstatusbar").hidden = !hasStatusBar || hasAddonBar;
+    this.E(prefix + "iconSettingsSeparator").hidden = this.E(prefix + "showinaddonbar").hidden && this.E(prefix + "showintoolbar").hidden && this.E(prefix + "showinstatusbar").hidden;
+
+    this.E(prefix + "showinaddonbar").setAttribute("checked", this.isToolbarIconVisible());
+    this.E(prefix + "showintoolbar").setAttribute("checked", this.isToolbarIconVisible());
     this.E(prefix + "showinstatusbar").setAttribute("checked", Prefs.showinstatusbar);
   
     let syncEngine = Sync.getEngine();
@@ -1428,7 +1497,7 @@ WindowWrapper.prototype.eventHandlers = [
   ["abp-command-togglecollapse", "command", function() { AppIntegration.togglePref("fastcollapse"); }],
   ["abp-command-togglesavestats", "command", WindowWrapper.prototype.toggleSaveStats],
   ["abp-command-togglesync", "command", AppIntegration.toggleSync],
-  ["abp-command-toggleshowintoolbar", "command", function() { AppIntegration.togglePref("showintoolbar"); }],
+  ["abp-command-toggleshowintoolbar", "command", AppIntegration.toggleToolbarIcon],
   ["abp-command-toggleshowinstatusbar", "command", function() { AppIntegration.togglePref("showinstatusbar"); }],
   ["abp-command-enable", "command", function() { AppIntegration.togglePref("enabled"); }],
   ["abp-command-contribute", "command", WindowWrapper.prototype.openContributePage],
@@ -1449,16 +1518,69 @@ WindowWrapper.prototype.eventHandlers = [
  */
 function reloadPrefs()
 {
-  if (currentlyShowingInToolbar != Prefs.showintoolbar)
-  {
-    currentlyShowingInToolbar = Prefs.showintoolbar;
-    if (Prefs.showintoolbar)
-      for each (let wrapper in wrappers)
-        wrapper.installToolbarIcon();
-  }
-
   for each (let wrapper in wrappers)
     wrapper.updateState();
+}
+
+/**
+ * Initializes options in add-on manager when they show up.
+ */
+function initOptionsDoc(/**Document*/ doc)
+{
+  function E(id) doc.getElementById(id);
+
+  E("adblockplus-filters").addEventListener("command", Utils.openFiltersDialog, false);
+
+  let wrapper = wrappers.length ? wrappers[0] : null;
+  let hasToolbar = wrapper && wrapper.getDefaultToolbar && wrapper.getDefaultToolbar();
+  let hasAddonBar = wrapper && wrapper.hasAddonBar && wrapper.hasAddonBar();
+  let hasStatusBar = wrapper && wrapper.E("abp-status");
+
+  let syncEngine = Sync.getEngine();
+  E("adblockplus-sync").collapsed = !syncEngine;
+
+  E("adblockplus-showinaddonbar").collapsed = !hasAddonBar;
+  E("adblockplus-showintoolbar").collapsed = !hasToolbar || hasAddonBar;
+  E("adblockplus-showinstatusbar").collapsed = !hasStatusBar || hasAddonBar;
+
+  function initCheckboxes()
+  {
+    if (!("value" in E("adblockplus-showinaddonbar")))
+    {
+      // XBL bindings didn't apply yet (bug 708397), try later
+      Utils.runAsync(initCheckboxes);
+      return;
+    }
+
+    E("adblockplus-savestats").value = Prefs.savestats;
+    E("adblockplus-savestats").addEventListener("command", function()
+    {
+      wrapper.toggleSaveStats.call({window: doc.defaultView});
+      E("adblockplus-savestats").value = Prefs.savestats;
+    }, false);
+
+    E("adblockplus-sync").value = syncEngine && syncEngine.enabled;
+    E("adblockplus-sync").addEventListener("command", function()
+    {
+      E("adblockplus-sync").value = AppIntegration.toggleSync();
+    }, false);
+
+    if (wrapper)
+    {
+      E("adblockplus-showinaddonbar").value =
+        E("adblockplus-showintoolbar").value =
+        wrapper.isToolbarIconVisible();
+      let handler = function()
+      {
+        E("adblockplus-showinaddonbar").value =
+          E("adblockplus-showintoolbar").value =
+          AppIntegration.toggleToolbarIcon();
+      };
+      E("adblockplus-showinaddonbar").addEventListener("command", handler, false);
+      E("adblockplus-showintoolbar").addEventListener("command", handler, false);
+    }
+  }
+  initCheckboxes();
 }
 
 /**

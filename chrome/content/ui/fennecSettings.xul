@@ -31,7 +31,7 @@
   <setting type="control" title="&fennec.subscription.label;">
     <menulist id="adblockplus-subscription-list"/>
   </setting>
-  <setting pref="extensions.adblockplus.fastcollapse" type="bool" title="&collapse.label;"
+  <setting pref="extensions.adblockplus.fastcollapse" type="bool" title="&hideplaceholders.accesskey;"
            inverted="true"/>
   <setting id="adblockplus-sync" type="bool" title="&sync.label;"/>
 </vbox>

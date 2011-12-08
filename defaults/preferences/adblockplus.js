@@ -4,7 +4,6 @@ pref("extensions.adblockplus.currentVersion", "0.0");
 pref("extensions.adblockplus.enabled", true);
 pref("extensions.adblockplus.frameobjects", true);
 pref("extensions.adblockplus.fastcollapse", false);
-pref("extensions.adblockplus.showintoolbar", true);
 pref("extensions.adblockplus.showinstatusbar", false);
 pref("extensions.adblockplus.detachsidebar", false);
 pref("extensions.adblockplus.defaulttoolbaraction", 0);
