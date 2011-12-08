@@ -278,6 +278,15 @@ var FilterView =
     return items;
   },
 
+  getItemAt: function(x, y)
+  {
+    let row = this.boxObject.getRowAt(x, y);
+    if (row >= 0 && row < this.data.length)
+      return this.data[row];
+    else
+      return null;
+  },
+
   _subscription: 0,
 
   /**
