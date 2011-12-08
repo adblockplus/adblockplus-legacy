@@ -13,6 +13,8 @@
 <!ENTITY sidebar.title "العناصر المحجوبة في الصفحة الحالية">
 <!ENTITY sendReport.label "التبليغ عن خطأ في هذه الصفحة">
 <!ENTITY sendReport.accesskey "ت">
+<!ENTITY filters.label "تفضيلات الفلتر">
+<!ENTITY filters.accesskey "ف">
 <!ENTITY opensidebar.label "فتح العناصر المحجوبة">
 <!ENTITY opensidebar.accesskey "ج">
 <!ENTITY closesidebar.label "إغلاق العناصر المحجوبة">
@@ -22,12 +24,19 @@
 <!ENTITY disable.label "تعطيل في جميع الأماكن">
 <!ENTITY options.label "خيارات">
 <!ENTITY options.accesskey "خ">
+<!ENTITY contribute.label "شارك في آد بلُك بلَس">
 <!ENTITY showintoolbar.label "عرض في شريط الأدوات">
 <!ENTITY showintoolbar.accesskey "ش">
 <!ENTITY showinstatusbar.label "عرض في شريط الحالة">
 <!ENTITY showinstatusbar.accesskey "ح">
+<!ENTITY showinaddonbar.label "الاظهار في شريط الاضافات">
+<!ENTITY showinaddonbar.accesskey "ظ">
 <!ENTITY objecttabs.label "عرض تبويبات لفلاش و جافا">
 <!ENTITY objecttabs.accesskey "ت">
+<!ENTITY hideplaceholders.label "اخفاء ماسك المكان للعناصر الموقوفة">
+<!ENTITY hideplaceholders.accesskey "خ">
+<!ENTITY counthits.label "تعداد اصابات الفلترة">
+<!ENTITY counthits.accesskey "ت">
 <!ENTITY sync.label "مزامنة إعدادات آدبلوك بلس">
 <!ENTITY sync.accesskey "ز">
 <!ENTITY objecttab.title "أحجب">

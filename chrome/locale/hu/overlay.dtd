@@ -30,7 +30,7 @@
 <!ENTITY showinstatusbar.label "Megjelenítés az állapotsoron">
 <!ENTITY showinstatusbar.accesskey "l">
 <!ENTITY showinaddonbar.label "Megjelenítés a kiegészítősávon">
-<!ENTITY showinaddonbar.accesskey "k">
+<!ENTITY showinaddonbar.accesskey "e">
 <!ENTITY objecttabs.label "Fülek megjelenítése Java és Flash objektumoknál">
 <!ENTITY objecttabs.accesskey "F">
 <!ENTITY hideplaceholders.label "Letiltott elemek helyőrzőinek elrejtése">

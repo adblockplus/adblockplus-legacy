@@ -1,4 +1,4 @@
-<!ENTITY dialog.title "Adblock Plus 规律规则参数">
+<!ENTITY dialog.title "Adblock Plus 过滤规则参数">
 <!ENTITY subscriptions.tab.label "过滤规则订阅">
 <!ENTITY filters.tab.label "自定义过滤规则">
 <!ENTITY addSubscription.label "添加过滤规则订阅">

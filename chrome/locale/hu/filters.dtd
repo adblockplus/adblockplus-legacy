@@ -2,7 +2,7 @@
 <!ENTITY subscriptions.tab.label "Külső szűrők">
 <!ENTITY filters.tab.label "Saját szűrők">
 <!ENTITY addSubscription.label "Külső szűrő hozzáadása">
-<!ENTITY addSubscription.accesskey "H">
+<!ENTITY addSubscription.accesskey "s">
 <!ENTITY addSubscriptionAdd.label "Hozzáadás">
 <!ENTITY addSubscriptionCancel.label "Mégse">
 <!ENTITY addSubscriptionOther.label "Külső szűrő hozzáadása">

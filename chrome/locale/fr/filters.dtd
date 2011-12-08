@@ -82,5 +82,11 @@ rien sans filtres, veuillez utiliser « Ajouter un abonnement » pour
 <!ENTITY restore.own.label "Restaurer une sauvegarde personnelle">
 <!ENTITY backup.complete.title "Tous les filtres et abonnements">
 <!ENTITY backup.custom.title "Uniquement les filtres personnalisés">
+<!ENTITY backup.error "Une erreur s'est produite lors de l'écriture des filtres dans le fichier. Assurez-vous que ce fichier n'est pas protégé en écriture ou utilisé par une autre application.">
+<!ENTITY restore.error "Les données de ce fichier ne peuvent être traitées, il est possible qu'il ne s'agisse pas d'un fichier de données d'Adblock Plus.">
+<!ENTITY restore.complete.warning "Toutes vos préférences pour les filtres seront remplacées par le contenu du fichier sélectionné. Voulez-vous continuer ?">
+<!ENTITY restore.custom.warning "Tous vos filtres personnalisés seront remplacés par le contenu du fichier sélectionné. Voulez-vous continuer ?">
+<!ENTITY restore.minVersion.warning "Attention : le fichier a été créé avec une nouvelle version d'Adblock Plus. Vous devriez mettre à jour et passer à la dernière version avant de restaurer vos données avec ce fichier.">
 <!ENTITY find.label "Rechercher">
+<!ENTITY find.accesskey "c">
 <!ENTITY close.label "Fermer">
