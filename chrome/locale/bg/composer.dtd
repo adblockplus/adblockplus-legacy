@@ -5,8 +5,8 @@
 <!ENTITY disabled.warning "Adblock Плюс е изключена. Все още можете да добавите филтри, но те няма да се прилагат, освен ако не [link]Включите Adblock Плюс[/link].">
 <!ENTITY groupDisabled.warning "Филтър групата &quot;?1?&quot; от този филтър ще бъдат добавени но е забранена. Все още можете да добавите и филтъра, но те няма да се прилагат, освен ако не [link]включите тази Филтърна Група[/link].">
 <!ENTITY filter.label "Нов Филтър:">
-<!ENTITY filter.accesskey "Ф">
-<!ENTITY preferences.label "Покажи съществуващите филтри...">
+<!ENTITY filter.accesskey "ъ">
+<!ENTITY preferences.label "Покажи съществуващите филтри..">
 <!ENTITY preferences.accesskey "щ">
 <!ENTITY type.filter.label "Блокиране на филтър">
 <!ENTITY type.filter.accesskey "Б">
@@ -25,13 +25,13 @@
 <!ENTITY anchor.start.flexible.label "в началото на домейн името">
 <!ENTITY anchor.start.flexible.accesskey "ч">
 <!ENTITY anchor.end.label "в края на адреса">
-<!ENTITY anchor.end.accesskey "р">
+<!ENTITY anchor.end.accesskey "с">
 <!ENTITY options.label "Настройки">
 <!ENTITY domainRestriction.label "Ограничаване на домейн:">
-<!ENTITY domainRestriction.accesskey "О">
+<!ENTITY domainRestriction.accesskey "р">
 <!ENTITY domainRestriction.help "Използвайте тази опция, за да зададете една или повече области, разделени с бар линия (|). Филтърът ще се прилага само за избран(и) домейн(и). А тилда (~) пред името на домейна се посочва, че филтърът не се прилага в този домейн.">
 <!ENTITY firstParty.label "Първа страна само">
-<!ENTITY firstParty.accesskey "п">
+<!ENTITY firstParty.accesskey "о">
 <!ENTITY thirdParty.label "Трети страни само">
 <!ENTITY thirdParty.accesskey "т">
 <!ENTITY matchCase.label "Съвпадение на регистъра">
@@ -40,7 +40,7 @@
 <!ENTITY selectAllTypes.label "Избери всички">
 <!ENTITY unselectAllTypes.label "Не избирай нищо">
 <!ENTITY collapse.label "Свиване на блокирани:">
-<!ENTITY collapse.accesskey "С">
+<!ENTITY collapse.accesskey "е">
 <!ENTITY collapse.default.yes.label "Ползвай по подразбиране(да)">
 <!ENTITY collapse.default.no.label "Ползвай по подразбиране(не)">
 <!ENTITY collapse.yes.label "Да">

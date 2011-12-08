@@ -26,17 +26,17 @@
 <!ENTITY options.accesskey "Н">
 <!ENTITY contribute.label "Помогнете на Adblock Plus">
 <!ENTITY showintoolbar.label "Покажи в лентата с инструменти">
-<!ENTITY showintoolbar.accesskey "л">
+<!ENTITY showintoolbar.accesskey "а">
 <!ENTITY showinstatusbar.label "Покажи в лентата на състоянието">
 <!ENTITY showinstatusbar.accesskey "т">
 <!ENTITY showinaddonbar.label "Покажи в адон бара">
-<!ENTITY showinaddonbar.accesskey "б">
+<!ENTITY showinaddonbar.accesskey "а">
 <!ENTITY objecttabs.label "Покажи разделите за Флаш и Java">
 <!ENTITY objecttabs.accesskey "П">
 <!ENTITY hideplaceholders.label "Скрий контейнери на блокираните елементи">
-<!ENTITY hideplaceholders.accesskey "л">
+<!ENTITY hideplaceholders.accesskey "м">
 <!ENTITY counthits.label "Бройте филтър хитове">
-<!ENTITY counthits.accesskey "д">
+<!ENTITY counthits.accesskey "ф">
 <!ENTITY sync.label "Синхронизирай Настройките за Adblock Plus">
 <!ENTITY sync.accesskey "х">
 <!ENTITY objecttab.title "Блокирай">

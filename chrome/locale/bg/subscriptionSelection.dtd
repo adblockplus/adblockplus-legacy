@@ -11,6 +11,6 @@
 <!ENTITY title.accesskey "З">
 <!ENTITY location.label "Местоположение на списъка с филтрите:">
 <!ENTITY location.accesskey "М">
-<!ENTITY supplementMessage "Този абонамент за филтърът е предназначен да се използва с подписка за филтри &quot;?1?&quot; Които не използвате все още.">
+<!ENTITY supplementMessage "Този абонамент за филтърът е предназначен да се използва с подписка за филтри &quot;?1?&quot;  Които не използвате все още.">
 <!ENTITY addMain.label "Добави абонамент за филтър &quot;?1?&quot;">
 <!ENTITY addMain.accesskey "б">

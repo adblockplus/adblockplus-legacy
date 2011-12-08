@@ -1,1 +1,6 @@
 <!ENTITY dialog.title "Installation terminée de Adblock Plus">
+<!ENTITY confirmation "
+	Merci d'avoir installé Adblock Plus. Les publicités seront bloquées désormais.
+	Profitez de l'aubaine !">
+<!ENTITY advancedSection "Options avancées">
+<!ENTITY noList "Pas de liste de filtres">

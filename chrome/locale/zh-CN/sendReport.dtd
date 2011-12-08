@@ -20,7 +20,9 @@
 <!ENTITY issues.description "Adblock Plus 已经检测出您的设置可能导致该问题或致使报告困于调研。">
 <!ENTITY issues.whitelist.description "Adblock Plus 在您正在报告的页面上是禁用的。请在提交报告来帮助调研该问题之前重新启用 Adblock Plus 并重新载入页面。">
 <!ENTITY issues.whitelist.remove.label "在该页上重新启用 Adblock Plus">
-<!ENTITY issues.disabled.description "Adblock Plus 已禁用，当前状态下 Adblock Plus 不会过滤任何元素。nnn	Adblock Plus is disabled, it will not block anything in its current state.">
+<!ENTITY issues.disabled.description "
+ Adblock Plus 已禁用，当前状态下 Adblock Plus 不会过滤任何元素。
+">
 <!ENTITY issues.disabled.enable.label "启用 Adblock Plus">
 <!ENTITY issues.nofilters.description "Adblock Plus 在当前页面上未过滤任何元素。您遇到的问题很可能与 Adblock Plus 无关。">
 <!ENTITY issues.nosubscriptions.description "您不能显示已订阅的任何预置过滤规则列表。">
