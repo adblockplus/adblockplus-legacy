@@ -76,6 +76,18 @@ splitter
   border-width: 0px !important;
 }
 
+.tooltipLabel
+{
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+#tooltip-additional
+{
+  color: #C00000;
+  margin-top: 10px;
+}
+
 tree
 {
   margin: 0px;

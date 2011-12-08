@@ -328,6 +328,50 @@ var FilterActions =
   },
 
   /**
+   * Fills tooltip with the item data.
+   */
+  fillTooltip: function(event)
+  {
+    let item = FilterView.getItemAt(event.clientX, event.clientY);
+    if (!item || item.filter.dummy)
+    {
+      event.preventDefault();
+      return;
+    }
+
+    function setMultilineContent(box, text)
+    {
+      while (box.firstChild)
+        box.removeChild(box.firstChild);
+
+      for (var i = 0; i < text.length; i += 80)
+      {
+        var description = document.createElement("description");
+        description.setAttribute("value", text.substr(i, 80));
+        box.appendChild(description);
+      }
+    }
+
+    setMultilineContent(E("tooltip-filter"), item.filter.text);
+
+    E("tooltip-hitcount-row").hidden = !(item.filter instanceof ActiveFilter);
+    E("tooltip-lasthit-row").hidden = !(item.filter instanceof ActiveFilter) || !item.filter.lastHit;
+    if (item.filter instanceof ActiveFilter)
+    {
+      E("tooltip-hitcount").setAttribute("value", item.filter.hitCount)
+      E("tooltip-lasthit").setAttribute("value", Utils.formatTime(item.filter.lastHit))
+    }
+
+    E("tooltip-additional").hidden = false;
+    if (item.filter instanceof InvalidFilter && item.filter.reason)
+      E("tooltip-additional").textContent = item.filter.reason;
+    else if (item.filter instanceof RegExpFilter && defaultMatcher.isSlowFilter(item.filter))
+      E("tooltip-additional").textContent = Utils.getString("filter_regexp_tooltip");
+    else
+      E("tooltip-additional").hidden = true;
+  },
+
+  /**
    * Called whenever a key is pressed on the list.
    */
   keyPress: function(/**Event*/ event)

@@ -120,6 +120,30 @@
       </menupopup>
     </menu>
   </menupopup>
+  <tooltip id="filtersTooltip" onpopupshowing="FilterActions.fillTooltip(event);">
+    <grid>
+      <columns>
+        <column/>
+        <column flex="1"/>
+      </columns>
+      <rows>
+        <row id="tooltip-filter-row" align="top">
+          <label class="tooltipLabel" value="&filter.column;"/>
+          <vbox id="tooltip-filter"/>
+        </row>
+        <row id="tooltip-hitcount-row">
+          <label class="tooltipLabel" value="&hitcount.column;"/>
+          <description id="tooltip-hitcount"/>
+        </row>
+        <row id="tooltip-lasthit-row">
+          <label class="tooltipLabel" value="&lasthit.column;"/>
+          <description id="tooltip-lasthit"/>
+        </row>
+      </rows>
+    </grid>
+
+    <description id="tooltip-additional"/>
+  </tooltip>
 </popupset>
 
 <hbox id="content" flex="1">
@@ -347,6 +371,7 @@
 
       <treechildren id="filtersTreeChildren"
           oncontextmenu="E('filterActionMenu').openPopupAtScreen(event.screenX, event.screenY, true);"
+          tooltip="filtersTooltip"
           noGroupText="&noGroupSelected.text;"
           noFiltersText="&noFiltersInGroup.text;"
           ondragstart="FilterActions.startDrag(event);"
