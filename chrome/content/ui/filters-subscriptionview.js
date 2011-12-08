@@ -37,8 +37,7 @@ function ListManager(list, template, filter, listener)
   this._filter = filter;
   this._listener = listener || function(){};
 
-  this._placeholder = this._list.firstChild;
-  this._list.removeChild(this._placeholder);
+  this._deck = this._list.parentNode;
 
   this._list.listManager = this;
   this.reload();
@@ -77,10 +76,10 @@ ListManager.prototype =
    */
   _listener: null,
   /**
-   * Entry to display if the list is empty (if any).
+   * Deck switching between list display and "no entries" message.
    * @type Element
    */
-  _placeholder: null,
+  _deck: null,
 
   /**
    * Completely rebuilds the list.
@@ -104,8 +103,8 @@ ListManager.prototype =
         this._list.selectItem(this._list.getItemAtIndex(this._list.getIndexOfFirstVisibleRow()));
       }, this);
     }
-    else if (this._placeholder)
-      this._list.appendChild(this._placeholder);
+
+    this._deck.selectedIndex = (subscriptions.length ? 1 : 0);
     this._listener();
   },
 
@@ -211,8 +210,7 @@ ListManager.prototype =
           for (index++; index < FilterStorage.subscriptions.length && !insertBefore; index++)
             insertBefore = Templater.getNodeForData(this._list, "subscription", FilterStorage.subscriptions[index]);
           this.addSubscription(item, insertBefore);
-          if (this._placeholder.parentNode)
-            this._placeholder.parentNode.removeChild(this._placeholder);
+          this._deck.selectedIndex = 1;
           this._listener();
         }
         break;
@@ -226,8 +224,8 @@ ListManager.prototype =
           node.parentNode.removeChild(node);
           if (!this._list.firstChild)
           {
-            this._list.appendChild(this._placeholder);
-            this._list.selectedItem = this._placeholder;
+            this._deck.selectedIndex = 0;
+            this._list.selectedIndex = -1;
           }
           else if (newSelection)
           {

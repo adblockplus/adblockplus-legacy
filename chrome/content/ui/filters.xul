@@ -262,15 +262,15 @@
           </vbox>
         </richlistitem>
 
-        <richlistbox id="subscriptions" class="initialFocus" flex="1"
-            onselect="onSelectionChange(this);"
-            ondragover="SubscriptionActions.dragOver(event);"
-            ondrop="SubscriptionActions.drop(event, null);"
-            onkeypress="SubscriptionActions.keyPress(event);">
-          <richlistitem id="noSubscriptions" flex="1" orient="vertical">
-            <description flex="1">&noSubscriptions.text;</description>
-          </richlistitem>
-        </richlistbox>
+        <deck id="noSubscriptionsDeck" flex="1">
+          <description flex="1">&noSubscriptions.text;</description>
+          <richlistbox id="subscriptions" class="initialFocus" flex="1"
+              onselect="onSelectionChange(this);"
+              ondragover="SubscriptionActions.dragOver(event);"
+              ondrop="SubscriptionActions.drop(event, null);"
+              onkeypress="SubscriptionActions.keyPress(event);">
+          </richlistbox>
+        </deck>
 
         <hbox align="baseline">
           <checkbox id="acceptableAds" label="&acceptableAds.label;" accesskey="&acceptableAds.accesskey;" oncommand="ListManager.allowAcceptableAds(this.checked);"/>
@@ -311,15 +311,15 @@
           </vbox>
         </richlistitem>
 
-        <richlistbox id="groups" class="initialFocus" flex="1"
-            onselect="onSelectionChange(this);"
-            ondragover="SubscriptionActions.dragOver(event);"
-            ondrop="SubscriptionActions.drop(event, null);"
-            onkeypress="SubscriptionActions.keyPress(event);">
-          <richlistitem id="noFilters" flex="1" orient="vertical">
-            <description flex="1">&noFilters.text;</description>
-          </richlistitem>
-        </richlistbox>
+        <deck id="noFiltersDeck" flex="1">
+          <description flex="1">&noFilters.text;</description>
+          <richlistbox id="groups" class="initialFocus" flex="1"
+              onselect="onSelectionChange(this);"
+              ondragover="SubscriptionActions.dragOver(event);"
+              ondrop="SubscriptionActions.drop(event, null);"
+              onkeypress="SubscriptionActions.keyPress(event);">
+          </richlistbox>
+        </deck>
       </tabpanel>
     </tabpanels>
   </tabbox>

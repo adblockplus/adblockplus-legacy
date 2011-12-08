@@ -646,6 +646,8 @@ var FilterView =
       for (let i = 0; i < columns.length; i++)
         if (columns[i].element.hasAttribute("sortDirection"))
           this.sortBy(columns[i].id, columns[i].element.getAttribute("sortDirection"));
+
+      this.refresh(true);
     }
   },
 
