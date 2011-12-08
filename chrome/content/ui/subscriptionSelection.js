@@ -166,7 +166,7 @@ function addSubscriptions(list, parent, level, parentTitle, parentURL)
           title.setAttribute("class", "subscriptionTitle localeMatch");
         else
           title.setAttribute("class", "subscriptionTitle");
-        title.textContent = node.getAttribute("title");
+        title.textContent = node.getAttribute("title") + " (" + node.getAttribute("specialization") + ")";
         mainTitle = variant.getAttribute("title");
         mainURL = variant.getAttribute("url");
         isFirst = false;
