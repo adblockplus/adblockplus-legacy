@@ -43,7 +43,7 @@
       getToolbox="return this.E('navigator-toolbox')"
       getDefaultToolbar="return this.E('addon-bar') || this.E('nav-bar');"
       toolbarInsertBefore="return this.E('addonbar-closebutton');"
-      unhideToolbar="return this.E('addon-bar')"/>
+      hasAddonBar="return this.E('addon-bar')"/>
   </window>
 
   <!-- Songbird window -->

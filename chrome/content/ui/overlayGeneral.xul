@@ -61,7 +61,8 @@
           <menuitem id="abp-status-slowcollapse" label="&hideplaceholders.label;" accesskey="&hideplaceholders.accesskey;" type="checkbox" command="abp-command-togglecollapse"/>
           <menuitem id="abp-status-savestats" label="&counthits.label;" accesskey="&counthits.accesskey;" type="checkbox" command="abp-command-togglesavestats"/>
           <menuitem id="abp-status-sync" label="&sync.label;" accesskey="&sync.accesskey;" type="checkbox" command="abp-command-togglesync"/>
-          <menuseparator/>
+          <menuseparator id="abp-status-iconSettingsSeparator"/>
+          <menuitem id="abp-status-showinaddonbar" label="&showinaddonbar.label;" accesskey="&showinaddonbar.accesskey;" type="checkbox" command="abp-command-toggleshowintoolbar"/>
           <menuitem id="abp-status-showintoolbar" label="&showintoolbar.label;" accesskey="&showintoolbar.accesskey;" type="checkbox" command="abp-command-toggleshowintoolbar"/>
           <menuitem id="abp-status-showinstatusbar" label="&showinstatusbar.label;" accesskey="&showinstatusbar.accesskey;" type="checkbox" command="abp-command-toggleshowinstatusbar"/>
         </menupopup>
