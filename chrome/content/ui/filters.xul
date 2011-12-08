@@ -161,9 +161,14 @@
         <panel id="selectSubscriptionPanel" type="arrow" position="bottomcenter topleft"
                orient="vertical" onkeypress="SelectSubscription.keyPress(event);">
           <menuitem id="selectSubscriptionTemplate" hidden="true"
-            class="{localePrefix ? 'localeMatch' : ''}"
-            label="{node.getAttribute('title')}"
-            value="{node.getAttribute('url')}"/>
+              class="{localePrefix ? 'localeMatch' : ''}"
+              label="{node.getAttribute('title')}"
+              value="{node.getAttribute('url')}">
+            <label class="selectSubscriptionItem" value="{node.getAttribute('title')}"/>
+            <label class="selectSubscriptionItem" value=" ("/>
+            <label class="selectSubscriptionItem" value="{node.getAttribute('specialization')}"/>
+            <label class="selectSubscriptionItem" value=")"/>
+          </menuitem>
           <menulist id="selectSubscription">
             <menupopup/>
           </menulist>

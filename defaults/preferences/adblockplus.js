@@ -19,7 +19,7 @@ pref("extensions.adblockplus.patternsbackups", 5);
 pref("extensions.adblockplus.patternsbackupinterval", 24);
 pref("extensions.adblockplus.whitelistschemes", "about chrome file irc moz-safe-about news resource snews x-jsd addbook cid imap mailbox nntp pop data javascript moz-icon");
 pref("extensions.adblockplus.hideimagemanager", true);
-pref("extensions.adblockplus.subscriptions_listurl", "https://adblockplus.org/subscriptions.xml");
+pref("extensions.adblockplus.subscriptions_listurl", "https://adblockplus.org/subscriptions2.xml");
 pref("extensions.adblockplus.subscriptions_fallbackurl", "https://adblockplus.org/getSubscription?version=%VERSION%&url=%SUBSCRIPTION%&downloadURL=%URL%&error=%ERROR%&channelStatus=%CHANNELSTATUS%&responseStatus=%RESPONSESTATUS%");
 pref("extensions.adblockplus.subscriptions_fallbackerrors", 5);
 pref("extensions.adblockplus.subscriptions_exceptionsurl", "https://easylist-downloads.adblockplus.org/exceptionrules.txt");

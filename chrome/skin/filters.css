@@ -38,6 +38,10 @@
 {
   font-weight: bold;
 }
+.selectSubscriptionItem
+{
+  margin: 0px;
+}
 
 .subscription
 {
