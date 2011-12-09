@@ -80,6 +80,11 @@ splitter
   border-width: 0px !important;
 }
 
+#filtersTooltip
+{
+  max-width: none;
+}
+
 .tooltipLabel
 {
   font-weight: bold;
