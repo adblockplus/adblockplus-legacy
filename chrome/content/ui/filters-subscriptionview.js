@@ -317,7 +317,6 @@ ListManager.allowAcceptableAds = function(/**Boolean*/ allow)
   }
   else
     FilterStorage.removeSubscription(subscription);
-  FilterStorage.saveToDisk();
 };
 
 window.addEventListener("load", ListManager.init, false);

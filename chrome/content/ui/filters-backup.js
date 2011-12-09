@@ -246,7 +246,6 @@ var Backup =
     }
     if (subscription)
       FilterStorage.addSubscription(subscription);
-    FilterStorage.saveToDisk();
     E("tabs").selectedIndex = 1;
   },
 

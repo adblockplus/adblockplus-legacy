@@ -41,6 +41,7 @@ Cu.import(baseURL.spec + "TimeLine.jsm");
 Cu.import(baseURL.spec + "Utils.jsm");
 Cu.import(baseURL.spec + "Prefs.jsm");
 Cu.import(baseURL.spec + "ContentPolicy.jsm");
+Cu.import(baseURL.spec + "FilterListener.jsm");
 Cu.import(baseURL.spec + "FilterStorage.jsm");
 Cu.import(baseURL.spec + "FilterNotifier.jsm");
 Cu.import(baseURL.spec + "FilterClasses.jsm");
@@ -225,7 +226,6 @@ var AppIntegration =
     }
     else
       FilterStorage.addFilter(filter);
-    FilterStorage.saveToDisk();
   },
 
   /**
@@ -1304,7 +1304,7 @@ WindowWrapper.prototype =
         return;
 
       FilterStorage.resetHitCounts();
-      FilterStorage.saveToDisk();
+      FilterListener.setDirty(0);   // Force saving to disk
       Prefs.savestats = false;
     }
     else
@@ -1657,7 +1657,6 @@ function addSubscription()
       FilterStorage.addSubscription(subscription);
       if (subscription instanceof DownloadableSubscription && !subscription.lastDownload)
         Synchronizer.execute(subscription);
-      FilterStorage.saveToDisk();
     }
     else
       addAcceptable = false;
@@ -1698,7 +1697,6 @@ function addSubscription()
         subscription.homepage = node.getAttribute("homepage");
         if (subscription instanceof DownloadableSubscription && !subscription.lastDownload)
           Synchronizer.execute(subscription);
-        FilterStorage.saveToDisk();
 
         notifyUser();
       }

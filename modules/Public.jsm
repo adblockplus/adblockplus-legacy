@@ -107,7 +107,6 @@ var AdblockPlus =
       subscription.filters = newFilters;
       FilterStorage.addSubscription(subscription);
     }
-    FilterStorage.saveToDisk();
 
     return id;
   },
@@ -140,7 +139,6 @@ var AdblockPlus =
         FilterStorage.addFilter(filter);
       }
     }
-    FilterStorage.saveToDisk();
   },
 
   /**
@@ -154,7 +152,6 @@ var AdblockPlus =
       if (filter)
         FilterStorage.removeFilter(filter);
     }
-    FilterStorage.saveToDisk();
   },
 
   /**

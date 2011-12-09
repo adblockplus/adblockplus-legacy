@@ -380,7 +380,6 @@ function addFilter() {
   filter.disabled = false;
 
   FilterStorage.addFilter(filter);
-  FilterStorage.saveToDisk();
 
   if (nodes)
     Policy.refilterNodes(nodes, item);
@@ -431,7 +430,6 @@ function doEnable() {
 function enableSubscription(subscription)
 {
   subscription.disabled = false;
-  FilterStorage.saveToDisk();
   E("groupDisabledWarning").hidden = true;
 }
 

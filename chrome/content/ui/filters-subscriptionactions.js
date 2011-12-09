@@ -581,7 +581,6 @@ var SelectSubscription =
     // Trigger download if necessary
     if (subscription instanceof DownloadableSubscription && !subscription.lastDownload)
       Synchronizer.execute(subscription);
-    FilterStorage.saveToDisk();
   },
 
   /**

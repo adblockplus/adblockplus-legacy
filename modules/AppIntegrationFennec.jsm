@@ -358,7 +358,6 @@ function setSubscription(url, title)
 
   FilterStorage.addSubscription(currentSubscription);
   Synchronizer.execute(currentSubscription, false);
-  FilterStorage.saveToDisk();
 }
 
 function updateFennecStatusUI(wrapper)
