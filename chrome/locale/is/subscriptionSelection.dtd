@@ -12,5 +12,5 @@
 <!ENTITY location.label "Staðsetning síulista:">
 <!ENTITY location.accesskey "l">
 <!ENTITY supplementMessage "Þessi síu áskrift er ætluð til þess að vera notuð með síu áskrift &quot;?1?&quot; sem þú hefur ekki ennþá bætt við.">
-<!ENTITY addMain.label "Bættu einnig við síu áskrift &quot;?1?&quot;">
+<!ENTITY addMain.label "Bæta einnig við síu áskrift &quot;?1?&quot;">
 <!ENTITY addMain.accesskey "s">

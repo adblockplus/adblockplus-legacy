@@ -77,9 +77,9 @@
 <!ENTITY filters.remove.warning "Eliminare tutti i filtri selezionati?">
 <!ENTITY backupButton.label "Backup e ripristino">
 <!ENTITY backupButton.accesskey "B">
-<!ENTITY backup.label "Crea un nuovo backup">
+<!ENTITY backup.label "Nuovo backup">
 <!ENTITY restore.default.label "Ripristina il backup datato ?1?">
-<!ENTITY restore.own.label "Ripristina il proprio backup">
+<!ENTITY restore.own.label "Backup personale da ripristinare">
 <!ENTITY backup.complete.title "Tutti i filtri e le sottoscrizioni">
 <!ENTITY backup.custom.title "Solo filtri personalizzati">
 <!ENTITY backup.error "Si è verificato un errore durante la creazione del file di backup. Verificare i permessi di scrittura per il file e/o che non sia già utilizzato da un&apos;altra applicazione">

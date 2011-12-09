@@ -30,13 +30,13 @@
 <!ENTITY showinstatusbar.label "Sýna í stöðuslá">
 <!ENTITY showinstatusbar.accesskey "S">
 <!ENTITY showinaddonbar.label "Sýna í viðbótarslá">
-<!ENTITY showinaddonbar.accesskey "b">
+<!ENTITY showinaddonbar.accesskey "t">
 <!ENTITY objecttabs.label "Sýna flipa fyrir Flass og Java">
 <!ENTITY objecttabs.accesskey "f">
 <!ENTITY hideplaceholders.label "Fela staðgengitákn á lokuðum einindum">
 <!ENTITY hideplaceholders.accesskey "i">
 <!ENTITY counthits.label "Telja síu notkun">
-<!ENTITY counthits.accesskey "T">
+<!ENTITY counthits.accesskey "n">
 <!ENTITY sync.label "Samstilla Adblock Plus stillingar">
 <!ENTITY sync.accesskey "m">
 <!ENTITY objecttab.title "Loka á">
