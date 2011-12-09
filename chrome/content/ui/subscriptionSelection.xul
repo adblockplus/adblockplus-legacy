@@ -75,7 +75,7 @@
 
   <description id="supplementMessage" invisible="true" _textTemplate="&supplementMessage;">
     &supplementMessage;
-    dummy dummy dummy dummy dummy dummy dummy dummy dummy dummy
+    <label class="text-link" oncommand="">dummy dummy dummy dummy dummy dummy dummy dummy dummy dummy</label>
   </description>
   <checkbox id="addMainSubscription" invisible="true" checked="true" _labelTemplate="&addMain.label;" label="&addMain.label;" accesskey="&addMain.accesskey;"/>
 
