@@ -13,6 +13,8 @@
 <!ENTITY sidebar.title "Éléments filtrables dans la page courante">
 <!ENTITY sendReport.label "Rapporter un problème sur cette page">
 <!ENTITY sendReport.accesskey "R">
+<!ENTITY filters.label "Préférences de filtre">
+<!ENTITY filters.accesskey "F">
 <!ENTITY opensidebar.label "Ouvrir la liste des éléments filtrables">
 <!ENTITY opensidebar.accesskey "m">
 <!ENTITY closesidebar.label "Fermer la liste des éléments filtrables">
@@ -27,8 +29,14 @@
 <!ENTITY showintoolbar.accesskey "o">
 <!ENTITY showinstatusbar.label "Afficher dans la barre d&apos;état">
 <!ENTITY showinstatusbar.accesskey "n">
+<!ENTITY showinaddonbar.label "Afficher dans la barre des modules">
+<!ENTITY showinaddonbar.accesskey "b">
 <!ENTITY objecttabs.label "Afficher une étiquette pour Flash et Java">
 <!ENTITY objecttabs.accesskey "J">
+<!ENTITY hideplaceholders.label "Masquer les conteneurs des éléments bloqués">
+<!ENTITY hideplaceholders.accesskey "q">
+<!ENTITY counthits.label "Compter la fréquence d'utilisation de filtre">
+<!ENTITY counthits.accesskey "m">
 <!ENTITY sync.label "Synchroniser les paramètres d'Adblock Plus">
 <!ENTITY sync.accesskey "y">
 <!ENTITY objecttab.title "Bloquer">

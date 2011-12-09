@@ -13,6 +13,8 @@
 <!ENTITY sidebar.title "Blockable items on current page">
 <!ENTITY sendReport.label "Report issue on this page">
 <!ENTITY sendReport.accesskey "R">
+<!ENTITY filters.label "Filter preferences">
+<!ENTITY filters.accesskey "F">
 <!ENTITY opensidebar.label "Open blockable items">
 <!ENTITY opensidebar.accesskey "b">
 <!ENTITY closesidebar.label "Close blockable items">
@@ -22,12 +24,19 @@
 <!ENTITY disable.label "Disable everywhere">
 <!ENTITY options.label "Options">
 <!ENTITY options.accesskey "O">
+<!ENTITY contribute.label "Contribute to Adblock Plus">
 <!ENTITY showintoolbar.label "Show in toolbar">
 <!ENTITY showintoolbar.accesskey "b">
 <!ENTITY showinstatusbar.label "Show in status bar">
 <!ENTITY showinstatusbar.accesskey "s">
+<!ENTITY showinaddonbar.label "Show in add-on bar">
+<!ENTITY showinaddonbar.accesskey "b">
 <!ENTITY objecttabs.label "Show tabs on Flash and Java">
 <!ENTITY objecttabs.accesskey "t">
+<!ENTITY hideplaceholders.label "Hide placeholders of blocked elements">
+<!ENTITY hideplaceholders.accesskey "l">
+<!ENTITY counthits.label "Count filter hits">
+<!ENTITY counthits.accesskey "h">
 <!ENTITY sync.label "Synchronise Adblock Plus settings">
 <!ENTITY sync.accesskey "c">
 <!ENTITY objecttab.title "Block">

@@ -8,6 +8,7 @@
 <!ENTITY filter.label "Filter">
 <!ENTITY state.label "State">
 <!ENTITY size.label "Size">
+<!ENTITY filterSource.label "Filter source">
 <!ENTITY docDomain.label "Document source">
 <!ENTITY docDomain.thirdParty "(third party)">
 <!ENTITY docDomain.firstParty "(first party)">
@@ -29,7 +30,7 @@
 <!ENTITY context.enablefilter.label "Re-enable filter ?1?">
 <!ENTITY context.disablefilteronsite.label "Disable this filter on ?1?">
 <!ENTITY context.open.label "Open in New Tab">
-<!ENTITY context.flash.label "Flash item&apos;s borders">
-<!ENTITY context.copy.label "Copy item&apos;s address">
+<!ENTITY context.flash.label "Flash item's borders">
+<!ENTITY context.copy.label "Copy item's address">
 <!ENTITY context.copyFilter.label "Copy filter">
 <!ENTITY context.selectAll.label "Select all">
