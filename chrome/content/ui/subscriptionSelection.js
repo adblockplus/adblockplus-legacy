@@ -309,7 +309,6 @@ function doAddSubscription(/**String*/ url, /**String*/ title)
 
   if (subscription instanceof DownloadableSubscription && !subscription.lastDownload)
     Synchronizer.execute(subscription);
-  FilterStorage.saveToDisk();
 }
 
 function hasSubscription(url)

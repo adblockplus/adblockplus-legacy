@@ -457,7 +457,6 @@ function editFilter()
 
 function enableFilter(filter, enable) {
   filter.disabled = !enable;
-  FilterStorage.saveToDisk();
 
   treeView.boxObject.invalidate();
 }
@@ -521,7 +520,6 @@ function disableOnSite(item, /**Filter*/ filter, /**String*/ domain)
     FilterStorage.addFilter(newFilter, filter);
   }
   FilterStorage.removeFilter(filter);
-  FilterStorage.saveToDisk();
 
   // Update display
   item.filter = null;

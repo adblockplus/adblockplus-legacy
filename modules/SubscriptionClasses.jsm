@@ -181,13 +181,13 @@ Subscription.fromObject = function(obj)
     if ("lastSuccess" in obj)
       result.lastSuccess = parseInt(obj.lastSuccess) || 0;
     if ("lastCheck" in obj)
-      result.lastCheck = parseInt(obj.lastCheck) || 0;
+      result._lastCheck = parseInt(obj.lastCheck) || 0;
     if ("expires" in obj)
       result.expires = parseInt(obj.expires) || 0;
     if ("softExpiration" in obj)
       result.softExpiration = parseInt(obj.softExpiration) || 0;
     if ("errors" in obj)
-      result.errors = parseInt(obj.errors) || 0;
+      result._errors = parseInt(obj.errors) || 0;
     if ("requiredVersion" in obj)
     {
       result.requiredVersion = obj.requiredVersion;
@@ -427,6 +427,8 @@ DownloadableSubscription.prototype =
   __proto__: RegularSubscription.prototype,
 
   _downloadStatus: null,
+  _lastCheck: 0,
+  _errors: 0,
 
   /**
    * Next URL the downloaded should be attempted from (in case of redirects)
@@ -441,12 +443,9 @@ DownloadableSubscription.prototype =
   get downloadStatus() this._downloadStatus,
   set downloadStatus(value)
   {
-    if (value != this._downloadStatus)
-    {
-      let oldValue = this._downloadStatus;
-      this._downloadStatus = value;
-      FilterNotifier.triggerListeners("subscription.downloadStatus", this, value, oldValue);
-    }
+    let oldValue = this._downloadStatus;
+    this._downloadStatus = value;
+    FilterNotifier.triggerListeners("subscription.downloadStatus", this, value, oldValue);
     return this._downloadStatus;
   },
 
@@ -468,7 +467,17 @@ DownloadableSubscription.prototype =
    * if the user doesn't use Adblock Plus for some time.
    * @type Number
    */
-  lastCheck: 0,
+  get lastCheck() this._lastCheck,
+  set lastCheck(value)
+  {
+    if (value != this._lastCheck)
+    {
+      let oldValue = this._lastCheck;
+      this._lastCheck = value;
+      FilterNotifier.triggerListeners("subscription.lastCheck", this, value, oldValue);
+    }
+    return this._lastCheck;
+  },
 
   /**
    * Hard expiration time of the filter subscription (in seconds since the beginning of the epoch)
@@ -486,7 +495,17 @@ DownloadableSubscription.prototype =
    * Number of download failures since last success
    * @type Number
    */
-  errors: 0,
+  get errors() this._errors,
+  set errors(value)
+  {
+    if (value != this._errors)
+    {
+      let oldValue = this._errors;
+      this._errors = value;
+      FilterNotifier.triggerListeners("subscription.errors", this, value, oldValue);
+    }
+    return this._errors;
+  },
 
   /**
    * Minimal Adblock Plus version required for this subscription

@@ -57,10 +57,10 @@ const cacheVersion = 2;
 let batchMode = false;
 
 /**
- * Will be true if filters changed after saving data last time.
- * @type Boolean
+ * Increases on filter changes, filters will be saved if it exceeds 1.
+ * @type Integer
  */
-let isDirty = false;
+let isDirty = 0;
 
 /**
  * This object can be used to change properties of the filter change listeners.
@@ -176,7 +176,7 @@ var FilterListener =
   shutdown: function()
   {
     TimeLine.enter("Entered FilterListener.shutdown()");
-    if (isDirty)
+    if (isDirty > 0)
       FilterStorage.saveToDisk();
     TimeLine.leave("FilterListener.shutdown() done");
   },
@@ -193,6 +193,25 @@ var FilterListener =
   {
     batchMode = value;
     flushElemHide();
+  },
+
+  /**
+   * Increases "dirty factor" of the filters and calls FilterStorage.saveToDisk()
+   * if it becomes 1 or more. Save is executed delayed to prevent multiple
+   * subsequent calls. If the parameter is 0 it forces saving filters if any
+   * changes were recorded after the previous save.
+   */
+  setDirty: function(/**Integer*/ factor)
+  {
+    if (factor == 0 && isDirty > 0)
+      isDirty = 1;
+    else
+      isDirty += factor;
+    if (isDirty >= 1 && !filtersFlushScheduled)
+    {
+      Utils.runAsync(flushFiltersInternal);
+      filtersFlushScheduled = true;
+    }
   }
 };
 
@@ -207,7 +226,7 @@ var FilterListenerPrivate =
     if (topic == "browser:purge-session-history" && Prefs.clearStatsOnHistoryPurge)
     {
       FilterStorage.resetHitCounts();
-      FilterStorage.saveToDisk();
+      FilterListener.setDirty(0); // Force saving to disk
 
       Prefs.recentReports = "[]";
     }
@@ -215,7 +234,7 @@ var FilterListenerPrivate =
   QueryInterface: XPCOMUtils.generateQI([Ci.nsISupportsWeakReference, Ci.nsIObserver])
 };
 
-let flushScheduled = false;
+let elemhideFlushScheduled = false;
 
 /**
  * Calls ElemHide.apply() if necessary. Executes delayed to prevent multiple
@@ -223,18 +242,26 @@ let flushScheduled = false;
  */
 function flushElemHide()
 {
-  if (flushScheduled)
+  if (elemhideFlushScheduled)
     return;
 
   Utils.runAsync(flushElemHideInternal);
-  flushScheduled = true;
+  elemhideFlushScheduled = true;
 }
 
 function flushElemHideInternal()
 {
-  flushScheduled = false;
+  elemhideFlushScheduled = false;
   if (!batchMode && ElemHide.isDirty)
     ElemHide.apply();
+}
+
+let filtersFlushScheduled = false;
+
+function flushFiltersInternal()
+{
+  filtersFlushScheduled = false;
+  FilterStorage.saveToDisk();
 }
 
 /**
@@ -291,7 +318,10 @@ function removeFilter(filter)
  */
 function onSubscriptionChange(action, subscription, newValue, oldValue)
 {
-  isDirty = true;
+  if (action == "homepage" || action == "downloadStatus" || action == "lastDownload")
+    FilterListener.setDirty(0.2);
+  else
+    FilterListener.setDirty(1);
 
   if (action != "added" && action != "removed" && action != "disabled" && action != "updated")
     return;
@@ -328,7 +358,12 @@ function onSubscriptionChange(action, subscription, newValue, oldValue)
  */
 function onFilterChange(action, filter, newValue, oldValue)
 {
-  isDirty = true;
+  if (action == "hitCount" || action == "lastHit")
+    FilterListener.setDirty(0.0001);
+  else if (action == "disabled" || action == "moved")
+    FilterListener.setDirty(0.2);
+  else
+    FilterListener.setDirty(1);
 
   if (action != "added" && action != "removed" && action != "disabled")
     return;
@@ -353,7 +388,7 @@ function onGenericChange(action)
 {
   if (action == "load")
   {
-    isDirty = false;
+    isDirty = 0;
 
     defaultMatcher.clear();
     ElemHide.clear();
@@ -364,7 +399,7 @@ function onGenericChange(action)
   }
   else if (action == "save")
   {
-    isDirty = false;
+    isDirty = 0;
 
     let cache = {version: cacheVersion, patternsTimestamp: FilterStorage.sourceFile.clone().lastModifiedTime};
     defaultMatcher.toCache(cache);

@@ -405,8 +405,6 @@ var Synchronizer =
       if (newFilters)
         FilterStorage.updateSubscriptionFilters(subscription, newFilters);
       delete subscription.oldSubscription;
-
-      FilterStorage.saveToDisk();
     }, false);
 
     executing[url] = true;
@@ -431,7 +429,6 @@ var Synchronizer =
  */
 function checkSubscriptions()
 {
-  let hadDownloads = false;
   let time = Math.round(Date.now() / MILLISECONDS_IN_SECOND);
   for each (let subscription in FilterStorage.subscriptions)
   {
@@ -459,16 +456,7 @@ function checkSubscriptions()
 
     // Do not retry downloads more often than MIN_EXPIRATION_INTERVAL
     if (time - subscription.lastDownload >= MIN_EXPIRATION_INTERVAL)
-    {
-      hadDownloads = true;
       Synchronizer.execute(subscription, false);
-    }
-  }
-
-  if (!hadDownloads)
-  {
-    // We didn't kick off any downloads - still save changes to lastCheck & Co.
-    FilterStorage.saveToDisk();
   }
 }
 
@@ -603,11 +591,8 @@ function setError(subscription, error, channelStatus, responseStatus, downloadUR
           FilterStorage.addSubscription(newSubscription);
           Synchronizer.execute(newSubscription);
         }
-        FilterStorage.saveToDisk();
       }, false);
       request.send(null);
     }
   }
-
-  FilterStorage.saveToDisk();
 }

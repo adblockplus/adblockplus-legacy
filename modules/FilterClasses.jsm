@@ -457,7 +457,7 @@ function RegExpFilter(text, regexpSource, contentType, matchCase, domains, third
   if (thirdParty != null)
     this.thirdParty = thirdParty;
 
-  if (regexpSource[0] == "/" && regexpSource[regexpSource.length - 1] == "/")
+  if (regexpSource.length >= 2 && regexpSource[0] == "/" && regexpSource[regexpSource.length - 1] == "/")
   {
     // The filter is a regular expression - convert it immediately to catch syntax errors
     this.regexp = new RegExp(regexpSource.substr(1, regexpSource.length - 2), this.matchCase ? "" : "i");

@@ -939,7 +939,6 @@ let issuesDataSource =
       if (subscription instanceof DownloadableSubscription && !subscription.lastDownload)
         Synchronizer.execute(subscription);
     }
-    FilterStorage.saveToDisk();
 
     E("issuesNoSubscriptionsBox").hidden = true;
     this.forceReload();
