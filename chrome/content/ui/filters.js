@@ -40,7 +40,6 @@ function init()
  */
 function onTabChange(/**Element*/ tabbox)
 {
-  SubscriptionActions.updateCommands();
   updateSelectedSubscription();
 
   Utils.runAsync(function()
@@ -48,6 +47,7 @@ function onTabChange(/**Element*/ tabbox)
     let panel = tabbox.selectedPanel;
     if (panel)
       panel.getElementsByClassName("initialFocus")[0].focus();
+    SubscriptionActions.updateCommands();
   });
 }
 
