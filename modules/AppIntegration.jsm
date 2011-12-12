@@ -1629,6 +1629,9 @@ function addSubscription()
     "https://easylist-downloads.adblockplus.org/easyprivacy+easylist.txt": true,
     "https://easylist-downloads.adblockplus.org/easyprivacy.txt": true,
     "https://secure.fanboy.co.nz/fanboy-tracking.txt": true,
+    "https://fanboy-adblock-list.googlecode.com/hg/fanboy-adblocklist-stats.txt": true,
+    "https://bitbucket.org/fanboy/fanboyadblock/raw/tip/fanboy-adblocklist-stats.txt": true,
+    "https://hg01.codeplex.com/fanboyadblock/raw-file/tip/fanboy-adblocklist-stats.txt": true,
     "https://adversity.googlecode.com/hg/Adversity-Tracking.txt": true
   };
   if (FilterStorage.subscriptions.some(function(subscription) subscription.url == Prefs.subscriptions_exceptionsurl || subscription.url in privacySubscriptions))
