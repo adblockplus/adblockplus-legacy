@@ -11,6 +11,7 @@
 <!ENTITY filter.label             "Filter">
 <!ENTITY state.label              "Status">
 <!ENTITY size.label               "Größe">
+<!ENTITY filterSource.label       "Filterquelle">
 <!ENTITY docDomain.label          "Ursprungsdomain">
 <!ENTITY docDomain.thirdParty     "(Anfrage zu einer Drittseite)">
 <!ENTITY docDomain.firstParty     "(Anfrage zu derselben Domain)">
