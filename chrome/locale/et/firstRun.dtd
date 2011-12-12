@@ -1,0 +1,17 @@
+<!ENTITY dialog.title "Adblock Plus install on lõpule jõudnud">
+<!ENTITY confirmation "
+ Täname, et installisid Adblock Plus'i. Nüüdsest on reklaamid blokeeritud.
+ Naudi seda!">
+<!ENTITY advancedSection "Lisavalikud">
+<!ENTITY listSelection1 "
+ Järgnev filtrite loetelu on häälestatud reklaame blokeerima:
+">
+<!ENTITY noList "Filtrite loetelu puudub">
+<!ENTITY visitHomepage.label "Külasta loetelu kodulehte">
+<!ENTITY acceptableAds "
+ Adblock Plus on lisaks seadistatud nõnda, et mittepealetükkivad reklaamid on lubatud.
+">
+<!ENTITY readMore.label "Loe lisaks selle kohta">
+<!ENTITY listSelection2 "
+ Sa võid seda valikut iga hetk muuta kohas [link]Filtrite sätted[/link].
+">

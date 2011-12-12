@@ -8,6 +8,7 @@
 <!ENTITY filter.label "Φίλτρο">
 <!ENTITY state.label "Κατάσταση">
 <!ENTITY size.label "Μέγεθος">
+<!ENTITY filterSource.label "Πηγή φίλτρου">
 <!ENTITY docDomain.label "Πηγή εγγράφου">
 <!ENTITY docDomain.thirdParty "(τρίτων)">
 <!ENTITY docDomain.firstParty "(πρωτεύον)">

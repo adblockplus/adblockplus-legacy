@@ -16,22 +16,22 @@
 <!ENTITY filters.label "Süzgeç tercihleri">
 <!ENTITY filters.accesskey "s">
 <!ENTITY opensidebar.label "Engellenebilecek öğeleri göster">
-<!ENTITY opensidebar.accesskey "E">
+<!ENTITY opensidebar.accesskey "n">
 <!ENTITY closesidebar.label "Engellenebilecek öğeleri gizle">
-<!ENTITY closesidebar.accesskey "E">
+<!ENTITY closesidebar.accesskey "n">
 <!ENTITY whitelist.site.label "?1? sitesinde devre dışı kal">
 <!ENTITY whitelist.page.label "Sadece bu sayfada devre dışı kal">
 <!ENTITY disable.label "Her yerde devre dışı kal">
 <!ENTITY options.label "Seçenekler">
-<!ENTITY options.accesskey "S">
+<!ENTITY options.accesskey "e">
 <!ENTITY contribute.label "Adblock Plus'a katkıda bulun">
 <!ENTITY showintoolbar.label "Araç çubuğunda göster">
-<!ENTITY showintoolbar.accesskey "R">
+<!ENTITY showintoolbar.accesskey "r">
 <!ENTITY showinstatusbar.label "Durum çubuğunda göster">
 <!ENTITY showinstatusbar.accesskey "D">
 <!ENTITY showinaddonbar.label "Eklenti çubuğunda göster">
-<!ENTITY showinaddonbar.accesskey "s">
-<!ENTITY objecttabs.label "Flash ve Java&apos;yı kulakçıklarla belirt">
+<!ENTITY showinaddonbar.accesskey "r">
+<!ENTITY objecttabs.label "Flash ve Java'yı kulakçıklarla belirt">
 <!ENTITY objecttabs.accesskey "J">
 <!ENTITY hideplaceholders.label "Engellenen öğelerin yer işaretlerini gizle">
 <!ENTITY hideplaceholders.accesskey "l">

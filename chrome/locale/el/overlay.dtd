@@ -13,6 +13,8 @@
 <!ENTITY sidebar.title "Στοιχεία προς φιλτράρισμα στην τρέχουσα σελίδα">
 <!ENTITY sendReport.label "Αναφορά προβλήματος σε αυτή την σελίδα">
 <!ENTITY sendReport.accesskey "ρ">
+<!ENTITY filters.label "Προτιμήσεις φίλτρων">
+<!ENTITY filters.accesskey "φ">
 <!ENTITY opensidebar.label "Άνοιγμα των φιλτραρισμένων στοιχείων">
 <!ENTITY opensidebar.accesskey "α">
 <!ENTITY closesidebar.label "Κλείσιμο των φιλτραρισμένων στοιχείων">
@@ -22,12 +24,19 @@
 <!ENTITY disable.label "Απενεργοποίηση παντού">
 <!ENTITY options.label "Επιλογές">
 <!ENTITY options.accesskey "λ">
+<!ENTITY contribute.label "Συνεισφέρετε στο Adblock Plus">
 <!ENTITY showintoolbar.label "Εμφάνιση στην εργαλειοθήκη">
 <!ENTITY showintoolbar.accesskey "θ">
 <!ENTITY showinstatusbar.label "Εμφάνιση στην γραμμή κατάστασης">
 <!ENTITY showinstatusbar.accesskey "κ">
+<!ENTITY showinaddonbar.label "Εμφάνιση στην εργαλειοθήκη προσθέτου">
+<!ENTITY showinaddonbar.accesskey "θ">
 <!ENTITY objecttabs.label "Εμφάνιση ετικέτας σε αντικείμενα Flash και Java">
 <!ENTITY objecttabs.accesskey "α">
+<!ENTITY hideplaceholders.label "Απόκρυψη των placeholders φιλτραρισμένων στοιχείων">
+<!ENTITY hideplaceholders.accesskey "ι">
+<!ENTITY counthits.label "Καταμέτρηση επιτυχιών φίλτρων">
+<!ENTITY counthits.accesskey "τ">
 <!ENTITY sync.label "Συγχρονισμός των ρυθμίσεων του Adblock Plus">
 <!ENTITY sync.accesskey "χ">
 <!ENTITY objecttab.title "Φραγή">

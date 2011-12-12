@@ -13,6 +13,8 @@
 <!ENTITY sidebar.title "Blokeeritavad elemendid antud lehel">
 <!ENTITY sendReport.label "Teata probleemist antud lehel">
 <!ENTITY sendReport.accesskey "T">
+<!ENTITY filters.label "Filtrite sätted">
+<!ENTITY filters.accesskey "F">
 <!ENTITY opensidebar.label "Ava blokeeritavad elemendid">
 <!ENTITY opensidebar.accesskey "b">
 <!ENTITY closesidebar.label "Sulge blokeeritavad elemendid">
@@ -22,12 +24,19 @@
 <!ENTITY disable.label "Keela kõikjal">
 <!ENTITY options.label "Valikud">
 <!ENTITY options.accesskey "a">
+<!ENTITY contribute.label "Toeta Adblock Plus'i">
 <!ENTITY showintoolbar.label "Näita tööriistade menüüs">
 <!ENTITY showintoolbar.accesskey "i">
 <!ENTITY showinstatusbar.label "Näita olekuribal">
 <!ENTITY showinstatusbar.accesskey "o">
+<!ENTITY showinaddonbar.label "Näita lisade ribal">
+<!ENTITY showinaddonbar.accesskey "i">
 <!ENTITY objecttabs.label "Näita Flash ja Java objektidel sakke">
 <!ENTITY objecttabs.accesskey "t">
+<!ENTITY hideplaceholders.label "Peida blokeeritud elementide kohatäitjad">
+<!ENTITY hideplaceholders.accesskey "l">
+<!ENTITY counthits.label "Loenda filtrite tabamusi">
+<!ENTITY counthits.accesskey "f">
 <!ENTITY sync.label "Sünkroniseeri Adblock Plus sätted">
 <!ENTITY sync.accesskey "k">
 <!ENTITY objecttab.title "Blokeeri">

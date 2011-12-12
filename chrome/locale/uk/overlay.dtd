@@ -13,19 +13,31 @@
 <!ENTITY sidebar.title "Елементи відкритої сторінки">
 <!ENTITY sendReport.label "Повідомити про проблеми на сторінці">
 <!ENTITY sendReport.accesskey "с">
+<!ENTITY filters.label "Налаштування фільтрів">
+<!ENTITY filters.accesskey "Н">
 <!ENTITY opensidebar.label "Відкрити список елементів">
 <!ENTITY opensidebar.accesskey "п">
 <!ENTITY closesidebar.label "Закрити список елементів">
 <!ENTITY closesidebar.accesskey "п">
 <!ENTITY whitelist.site.label "Вимкнути: на ?1?">
 <!ENTITY whitelist.page.label "Вимкнути: тільки на цій сторінці">
+<!ENTITY disable.label "Вимкнути всюди">
 <!ENTITY options.label "Налаштування">
 <!ENTITY options.accesskey "а">
+<!ENTITY contribute.label "Допомогти Адблоку">
 <!ENTITY showintoolbar.label "Показувати в панелі інструментів">
 <!ENTITY showintoolbar.accesskey "к">
 <!ENTITY showinstatusbar.label "Показувати в рядку стану">
 <!ENTITY showinstatusbar.accesskey "с">
+<!ENTITY showinaddonbar.label "Показувати в панелі додатків">
+<!ENTITY showinaddonbar.accesskey "д">
 <!ENTITY objecttabs.label "Показувати ярлик на Flash і Java">
 <!ENTITY objecttabs.accesskey "я">
+<!ENTITY hideplaceholders.label "Приховувати замінники заблокованих елементів">
+<!ENTITY hideplaceholders.accesskey "х">
+<!ENTITY counthits.label "Рахувати хіти фільтрів">
+<!ENTITY counthits.accesskey "Р">
+<!ENTITY sync.label "Синхронізувати налаштуванна Адблоку">
+<!ENTITY sync.accesskey "С">
 <!ENTITY objecttab.title "Заблокувати">
 <!ENTITY objecttab.tooltip "Натисніть тут, щоб заблокувати цей об’єкт">

@@ -8,6 +8,7 @@
 <!ENTITY filter.label "Filter">
 <!ENTITY state.label "Olek">
 <!ENTITY size.label "Suurus">
+<!ENTITY filterSource.label "Filtri allikas">
 <!ENTITY docDomain.label "Dokumendi allikas">
 <!ENTITY docDomain.thirdParty "(väljaspoolt)">
 <!ENTITY docDomain.firstParty "(põhileht)">
