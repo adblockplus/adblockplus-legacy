@@ -8,6 +8,7 @@
 <!ENTITY filter.label "Filtro">
 <!ENTITY state.label "Estado">
 <!ENTITY size.label "Tamanho">
+<!ENTITY filterSource.label "Fonte do filtro">
 <!ENTITY docDomain.label "Origem do documento">
 <!ENTITY docDomain.thirdParty "(domínio diferente)">
 <!ENTITY docDomain.firstParty "(mesmo domínio)">
@@ -21,7 +22,7 @@
 <!ENTITY tooltip.docDomain.label "Origem do documento:">
 <!ENTITY tooltip.filter.label "Filtro em ação:">
 <!ENTITY tooltip.filter.disabled "desativado">
-<!ENTITY tooltip.filterSource.label "Fonte do Filtro:">
+<!ENTITY tooltip.filterSource.label "Fonte do filtro:">
 <!ENTITY context.block.label "Bloquear este item">
 <!ENTITY context.editfilter.label "Editar filtro em efeito">
 <!ENTITY context.whitelist.label "Adicionar exceção para o item">

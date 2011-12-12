@@ -1,5 +1,16 @@
+<!ENTITY dialog.title "Προτιμήσεις φίλτρων του Adblock Plus">
+<!ENTITY subscriptions.tab.label "Συνδρομές φίλτρων">
+<!ENTITY filters.tab.label "Προσαρμοσμένα φίλτρα">
 <!ENTITY addSubscription.label "Προσθήκη συνδρομής">
+<!ENTITY addSubscription.accesskey "σ">
+<!ENTITY addSubscriptionAdd.label "Προσθήκη">
+<!ENTITY addSubscriptionCancel.label "Ακύρωση">
 <!ENTITY addSubscriptionOther.label "Προσθήκη άλλης συνδρομής">
+<!ENTITY noSubscriptions.text "Δεν έχετε προσθέσει κάποια συνδρομή φίλτρων. Το Adblock Plus δεν μπορεί να μπλοκάρει κάτι χωρίς φίλτρα· παρακαλώ χρησιμοποιήστε την &quot;Προσθήκη συνδρομής&quot; για να ορίσετε μια.">
+<!ENTITY subscription.homepage.label "Ιστοσελίδα">
+<!ENTITY subscription.external.label "Ενημερώθηκε από άλλο πρόσθετο">
+<!ENTITY subscription.source.label "Λίστα φίλτρων">
+<!ENTITY subscription.enabled.label "Ενεργοποιημένη">
 <!ENTITY subscription.lastDownload.label "Τελευταία ενημέρωση:">
 <!ENTITY subscription.lastDownload.inProgress "Σε εξέλιξη...">
 <!ENTITY subscription.lastDownload.unknown "Μ/Δ">
@@ -8,11 +19,34 @@
 <!ENTITY subscription.lastDownload.invalidData "Απέτυχε, μη έγκυρη λίστα φίλτρων">
 <!ENTITY subscription.lastDownload.checksumMismatch "Απέτυχε, απόκλιση στον έλεγχο checksum">
 <!ENTITY subscription.lastDownload.success "Επιτυχής">
+<!ENTITY subscription.minVersion.warning "Αυτή η συνδρομή φίλτρων απαιτεί μια νεότερη έκδοση του Adblock Plus· θα πρέπει να αναβαθμίσετε το Adblock Plus στην τελευταία έκδοση.">
+<!ENTITY subscription.disabledFilters.warning "Κάποια φίλτρα σε αυτή την συνδρομή είναι απενεργοποιημένα.">
+<!ENTITY subscription.disabledFilters.enable "Ενεργοποίηση απενεργοποιημένων φίλτρων">
+<!ENTITY subscription.actions.label "Ενέργειες">
+<!ENTITY subscription.update.label "Ενημέρωση φίλτρων">
+<!ENTITY subscription.editTitle.label "Επεξεργασία τίτλου">
+<!ENTITY subscription.delete.label "Διαγραφή">
+<!ENTITY subscription.showHideFilters.label "Εμφάνιση/απόκρυψη φίλτρων">
+<!ENTITY subscription.moveUp.label "Μετακίνηση επάνω">
+<!ENTITY subscription.moveDown.label "Μετακίνηση κάτω">
+<!ENTITY acceptableAds.label "Να επιτρέπεται η μη παρεμβατική διαφήμιση">
+<!ENTITY acceptableAds.accesskey "ι">
+<!ENTITY readMore.label "Διαβάστε περισσότερα">
+<!ENTITY addGroup.label "Προσθήκη ομάδας φίλτρων">
+<!ENTITY addGroup.accesskey "ο">
+<!ENTITY noFilters.text "Δεν έχετε κάποιο προσαρμοσμένο φίλτρο ακόμα.">
 <!ENTITY addFilter.label "Προσθήκη φίλτρου">
+<!ENTITY addFilter.accesskey "φ">
+<!ENTITY filter.actions.label "Ενέργειες φίλτρων">
+<!ENTITY filter.edit.label "Επεξεργασία">
 <!ENTITY filter.cut.label "Αποκοπή">
 <!ENTITY filter.copy.label "Αντιγραφή">
 <!ENTITY filter.paste.label "Επικόλληση">
 <!ENTITY filter.delete.label "Διαγραφή">
+<!ENTITY filter.selectAll.label "Επιλογή όλων">
+<!ENTITY filter.resetHitCounts.label "Μηδενισμός στατιστικών επιτυχιών">
+<!ENTITY filter.moveUp.label "Μετακίνηση επάνω">
+<!ENTITY filter.moveDown.label "Μετακίνηση κάτω">
 <!ENTITY viewMenu.label "Προβολή">
 <!ENTITY filter.column "Κανόνας φίλτρου">
 <!ENTITY filter.accesskey "φ">
@@ -32,4 +66,21 @@
 <!ENTITY sort.ascending.accesskey "Α">
 <!ENTITY sort.descending.label "Φθίνουσα">
 <!ENTITY sort.descending.accesskey "θ">
-<!ENTITY find.label "Αναζήτηση">
+<!ENTITY noGroupSelected.text "Πρέπει να επιλέξετε μια ομάδα φίλτρων ώστε να εμφανιστούν τα φίλτρα της.">
+<!ENTITY noFiltersInGroup.text "Η επιλεγμένη ομάδα είναι άδεια">
+<!ENTITY filters.remove.warning "Θέλετε να απομακρύνετε όλα τα επιλεγμένα φίλτρα;">
+<!ENTITY backupButton.label "Αντίγραφα ασφαλείας και επαναφορά">
+<!ENTITY backupButton.accesskey "Α">
+<!ENTITY backup.label "Δημιουργία νέου αντιγράφου ασφαλείας">
+<!ENTITY restore.default.label "Επαναφορά αντιγράφου ασφαλείας από την ?1?">
+<!ENTITY restore.own.label "Επαναφορά δικού σας αντιγράφου ασφαλείας">
+<!ENTITY backup.complete.title "Όλα τα φίλτρα και οι συνδρομές">
+<!ENTITY backup.custom.title "Μόνο τα προσαρμοσμένα φίλτρα">
+<!ENTITY backup.error "Υπήρξε κάποιο πρόβλημα στην εγγραφή των φίλτρων στο αρχείο. Σιγουρευτείτε ότι το αρχείο δεν προστατεύεται από εγγραφή ή ότι δεν χρησιμοποιείται από κάποια άλλη εφαρμογή.">
+<!ENTITY restore.error "Τα δεδομένα του αρχείου δεν μπορούν να επεξεργαστούν, μήπως αυτός δεν είναι αντίγραφο ασφαλείας του Adblock Plus;">
+<!ENTITY restore.complete.warning "Όλες οι προτιμήσεις των φίλτρων σας θα αντικατασταθούν από τα περιεχόμενα του επιλεγμένου αρχείου. θέλετε να συνεχίσετε;">
+<!ENTITY restore.custom.warning "Όλα τα προσαρμοσμένα φίλτρα σας θα αντικατασταθούν από τα περιεχόμενα του επιλεγμένου αρχείου. θέλετε να συνεχίσετε;">
+<!ENTITY restore.minVersion.warning "Προειδοποίηση: το αρχείο έχει δημιουργηθεί με μια νεότερη έκδοση του Adblock Plus. Θα πρέπει να αναβαθμίσετε το Adblock Plus στην τελευταία του έκδοση πριν ανακτήσετε από αυτό το αρχείο.">
+<!ENTITY find.label "Εύρεση">
+<!ENTITY find.accesskey "ρ">
+<!ENTITY close.label "Κλείσιμο">

@@ -36,12 +36,12 @@
 <!ENTITY acceptableAds.accesskey "i">
 <!ENTITY readMore.label "Daha fazla bilgi al">
 <!ENTITY addGroup.label "Süzgeç öbeği ekle">
-<!ENTITY addGroup.accesskey "b">
+<!ENTITY addGroup.accesskey "z">
 <!ENTITY noFilters.text "
  İsteğe göre ayarlanmış hiçbir süzgeciniz yok.
 ">
 <!ENTITY addFilter.label "Süzgeç ekle">
-<!ENTITY addFilter.accesskey "e">
+<!ENTITY addFilter.accesskey "k">
 <!ENTITY filter.actions.label "Süzgeç eylemleri">
 <!ENTITY filter.edit.label "Düzenle">
 <!ENTITY filter.cut.label "Kes">

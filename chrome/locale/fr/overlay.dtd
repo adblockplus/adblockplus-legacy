@@ -8,7 +8,7 @@
 <!ENTITY context.image.label "Bloquer l'image avec Adblock">
 <!ENTITY context.object.label "Bloquer l'objet avec Adblock">
 <!ENTITY context.frame.label "Bloquer le cadre avec Adblock">
-<!ENTITY context.media.label "Bloquer les vidéo/audio avec Adblock">
+<!ENTITY context.media.label "Bloquer les vidéos/audios avec Adblock">
 <!ENTITY context.removeWhitelist.label "Adblock Plus : activer à nouveau pour cette page">
 <!ENTITY sidebar.title "Éléments filtrables dans la page courante">
 <!ENTITY sendReport.label "Rapporter un problème sur cette page">
