@@ -54,6 +54,16 @@
   font-style: italic;
 }
 
+#acceptableAds
+{
+  font-size: 90%;
+  font-weight: bold;
+}
+#acceptableAds > *
+{
+  font-weight: normal;
+}
+
 .sectionContainer
 {
   margin: 1em 2em;
