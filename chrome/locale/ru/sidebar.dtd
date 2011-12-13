@@ -11,6 +11,7 @@
 <!ENTITY filter.label             "Фильтр">
 <!ENTITY state.label              "Статус">
 <!ENTITY size.label               "Размер">
+<!ENTITY filterSource.label       "Список фильтров">
 <!ENTITY docDomain.label          "Домен страницы">
 <!ENTITY docDomain.thirdParty     "(запрос с другого сайта)">
 <!ENTITY docDomain.firstParty     "(запрос с того же сайта)">
