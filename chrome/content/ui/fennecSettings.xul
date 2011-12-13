@@ -25,13 +25,19 @@
    -
    - ***** END LICENSE BLOCK ***** -->
    
-<!DOCTYPE vbox SYSTEM "chrome://adblockplus/locale/overlay.dtd">
+<!DOCTYPE overlay [
+<!ENTITY % overlayDTD SYSTEM "chrome://adblockplus/locale/overlay.dtd">
+%overlayDTD;
+<!ENTITY % filtersDTD SYSTEM "chrome://adblockplus/locale/filters.dtd">
+%filtersDTD;
+]>
+
 <vbox xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
   <setting pref="extensions.adblockplus.enabled" type="bool" inverted="true" title="&disable.label;"/>
-  <setting type="control" title="&fennec.subscription.label;">
+  <setting type="control" title="&subscriptions.tab.label;">
     <menulist id="adblockplus-subscription-list"/>
   </setting>
-  <setting pref="extensions.adblockplus.fastcollapse" type="bool" title="&hideplaceholders.accesskey;"
+  <setting pref="extensions.adblockplus.fastcollapse" type="bool" title="&hideplaceholders.label;"
            inverted="true"/>
   <setting id="adblockplus-sync" type="bool" title="&sync.label;"/>
 </vbox>
