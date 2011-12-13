@@ -88,7 +88,7 @@ splitter
 .tooltipLabel
 {
   font-weight: bold;
-  margin-right: 10px;
+  -moz-margin-end: 10px;
 }
 
 #tooltip-additional
@@ -173,7 +173,7 @@ treechildren::-moz-tree-cell-text(col-filter, type-invalid, selected-false)
 
 treechildren::-moz-tree-image(col-enabled)
 {
-  margin-left: 7px;
+  -moz-margin-start: 7px;
 }
 
 treechildren::-moz-tree-image(col-enabled, disabled-true)
