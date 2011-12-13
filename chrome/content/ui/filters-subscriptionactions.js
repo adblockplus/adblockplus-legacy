@@ -34,14 +34,7 @@ var SubscriptionActions =
    */
   get focusedList()
   {
-    let focused = document.commandDispatcher.focusedElement;
-    while (focused)
-    {
-      if ("listManager" in focused)
-        return focused;
-      focused = focused.parentNode;
-    }
-    return null;
+    return E("tabs").selectedPanel.getElementsByTagName("richlistbox")[0];
   },
 
   /**
