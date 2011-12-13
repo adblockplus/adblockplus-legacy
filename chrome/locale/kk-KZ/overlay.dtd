@@ -4,7 +4,6 @@
 <!ENTITY menuitem.label "Adblock Plus баптаулары">
 <!ENTITY menuitem.accesskey "п">
 <!ENTITY toolbarbutton.label "Adblock Plus">
-<!ENTITY view.blockableItems.label "Adblock Plus: Парақ құрамасы">
 <!ENTITY context.image.label "Adblock Plus: Суретті блоктау">
 <!ENTITY context.object.label "Adblock Plus: Объектті блоктау">
 <!ENTITY context.frame.label "Adblock Plus: Фреймді блоктау">

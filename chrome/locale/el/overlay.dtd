@@ -4,7 +4,6 @@
 <!ENTITY menuitem.label "Adblock Plus">
 <!ENTITY menuitem.accesskey "B">
 <!ENTITY toolbarbutton.label "Adblock Plus">
-<!ENTITY view.blockableItems.label "Adblock Plus: Φιλτραρισμένα στοιχεία">
 <!ENTITY context.image.label "Adblock Plus: φραγή εικόνας">
 <!ENTITY context.object.label "Adblock Plus: φραγή αντικειμένου">
 <!ENTITY context.frame.label "Adblock Plus: φραγή πλαισίου">

@@ -3,7 +3,6 @@
 <!ENTITY menuitem.label "Parapëlqimet e Adblock Plus">
 <!ENTITY menuitem.accesskey "B">
 <!ENTITY toolbarbutton.label "Adblock Plus">
-<!ENTITY view.blockableItems.label "Adblock Plus: Gjërat e bllokuara">
 <!ENTITY context.image.label "Adblock Plus: Figurat e bllokuara">
 <!ENTITY context.object.label "Adblock Plus: Objektet e bllokuara">
 <!ENTITY context.frame.label "Adblock Plus: Pjesët e bllokuara">

@@ -4,7 +4,6 @@
 <!ENTITY menuitem.label "„Adblock Plus nustatymai“">
 <!ENTITY menuitem.accesskey "A">
 <!ENTITY toolbarbutton.label "„Adblock Plus“">
-<!ENTITY view.blockableItems.label "„Adblock Plus“: blokuojami elementai">
 <!ENTITY context.image.label "„Adblock Plus“: Blokuoti paveikslėlį">
 <!ENTITY context.object.label "„Adblock Plus“: Blokuoti objektą">
 <!ENTITY context.frame.label "„Adblock Plus“: Blokuoti kadrą">

@@ -6,8 +6,6 @@
 <!ENTITY menuitem.accesskey     "A">
 <!ENTITY toolbarbutton.label    "Adblock Plus">
 
-<!ENTITY view.blockableItems.label  "Adblock Plus: Elemente der geöffneten Seite">
-
 <!ENTITY context.image.label    "Adblock Plus: Grafik blockieren">
 <!ENTITY context.object.label   "Adblock Plus: Objekt blockieren">
 <!ENTITY context.frame.label    "Adblock Plus: Frame blockieren">

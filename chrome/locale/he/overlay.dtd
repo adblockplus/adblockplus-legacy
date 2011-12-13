@@ -4,7 +4,6 @@
 <!ENTITY menuitem.label "העדפות Adblock Plus">
 <!ENTITY menuitem.accesskey "ה">
 <!ENTITY toolbarbutton.label "Adblock Plus">
-<!ENTITY view.blockableItems.label "Adblock Plus: פריטים לחסימה">
 <!ENTITY context.image.label "Adblock Plus: חסימת תמונה">
 <!ENTITY context.object.label "Adblock Plus: חסימת פריט">
 <!ENTITY context.frame.label "Adblock Plus: חסימת מסגרת (פריים)">

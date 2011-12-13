@@ -4,7 +4,6 @@
 <!ENTITY menuitem.label "필터 설정">
 <!ENTITY menuitem.accesskey "B">
 <!ENTITY toolbarbutton.label "애드블록 플러스">
-<!ENTITY view.blockableItems.label "애드블록 플러스 : 차단 가능 목록">
 <!ENTITY context.image.label "애드블록 플러스 : 이미지 차단">
 <!ENTITY context.object.label "애드블록 플러스 : 객체 차단">
 <!ENTITY context.frame.label "애드블록 플러스 : 프레임 차단">

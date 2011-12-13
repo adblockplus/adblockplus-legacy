@@ -4,7 +4,6 @@
 <!ENTITY menuitem.label "Adblock Plus">
 <!ENTITY menuitem.accesskey "A">
 <!ENTITY toolbarbutton.label "Adblock Plus">
-<!ENTITY view.blockableItems.label "Adblock Plus: Engellenebilir öğeler">
 <!ENTITY context.image.label "Resmi engelle">
 <!ENTITY context.object.label "Nesneyi engelle">
 <!ENTITY context.frame.label "Çerçeveyi engelle">

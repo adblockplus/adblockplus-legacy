@@ -4,7 +4,6 @@
 <!ENTITY menuitem.label "تفضيلات آدبلوك بلس">
 <!ENTITY menuitem.accesskey "ب">
 <!ENTITY toolbarbutton.label "آدبلوك بلس">
-<!ENTITY view.blockableItems.label "آدبلوك بلس: العناصر المحجوبة">
 <!ENTITY context.image.label "آدبلوك بلس : حجب صورة">
 <!ENTITY context.object.label "آدبلوك بلس : حجب عنصر">
 <!ENTITY context.frame.label "آدبلوك بلس : حجب إطار">
