@@ -18,6 +18,8 @@
 
 <!ENTITY sendReport.label       "Сообщить о проблеме на этой странице">
 <!ENTITY sendReport.accesskey   "С">
+<!ENTITY filters.label          "Настройки фильтров">
+<!ENTITY filters.accesskey      "ф">
 <!ENTITY opensidebar.label      "Открыть список элементов">
 <!ENTITY opensidebar.accesskey  "п">
 <!ENTITY closesidebar.label     "Закрыть список элементов">
@@ -25,15 +27,24 @@
 <!ENTITY whitelist.site.label   "Отключить на ?1?">
 <!ENTITY whitelist.page.label   "Отключить только на этой странице">
 <!ENTITY disable.label          "Отключить везде">
+<!ENTITY options.label          "Настройки">
+<!ENTITY options.accesskey      "Н">
+<!ENTITY contribute.label       "Помочь проекту Adblock Plus">
+
+<!ENTITY showintoolbar.label        "Показывать в панели инструментов">
+<!ENTITY showintoolbar.accesskey    "п">
+<!ENTITY showinstatusbar.label      "Показывать в строке состояния">
+<!ENTITY showinstatusbar.accesskey  "с">
+<!ENTITY showinaddonbar.label       "Показывать в панели дополнений">
+<!ENTITY showinaddonbar.accesskey   "п">
+<!ENTITY objecttabs.label           "Показывать ярлык на Flash и Java">
+<!ENTITY objecttabs.accesskey       "я">
+<!ENTITY hideplaceholders.label     "Прятать метки на месте заблокированных элементов">
+<!ENTITY hideplaceholders.accesskey "м">
+<!ENTITY counthits.label            "Считать срабатывания фильтров">
+<!ENTITY counthits.accesskey        "ч">
+<!ENTITY sync.label                 "Синхронизировать настройки Adblock Plus">
+<!ENTITY sync.accesskey             "х">
+
 <!ENTITY objecttab.title        "Блокировать">
 <!ENTITY objecttab.tooltip      "Нажмите здесь, чтобы Adblock Plus заблокировал этот объект">
-<!ENTITY sync.accesskey "х">
-<!ENTITY showintoolbar.label "Показывать в панели инструментов">
-<!ENTITY options.label "Настройки">
-<!ENTITY objecttabs.accesskey "я">
-<!ENTITY showinstatusbar.label "Показывать в строке состояния">
-<!ENTITY showintoolbar.accesskey "п">
-<!ENTITY showinstatusbar.accesskey "с">
-<!ENTITY sync.label "Синхронизировать настройки Adblock Plus">
-<!ENTITY objecttabs.label "Показывать ярлык на Flash и Java">
-<!ENTITY options.accesskey "Н">
