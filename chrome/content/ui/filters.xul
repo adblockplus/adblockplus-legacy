@@ -365,7 +365,7 @@
       <treecols context="filters-view-menu1">
         <treecol id="col-filter" label="&filter.column;" flex="10" persist="width ordinal sortDirection hidden"/>
         <splitter class="tree-splitter"/>
-        <treecol id="col-slow" label="!" display="&slow.column;" flex="0" width="16" persist="width ordinal sortDirection hidden"/>
+        <treecol id="col-slow" label="!" display="&slow.column;" tooltiptext="&slow.column;" flex="0" width="16" persist="width ordinal sortDirection hidden"/>
         <splitter class="tree-splitter"/>
         <treecol id="col-enabled" label="&enabled.column;" cycler="true" flex="0" persist="width ordinal sortDirection hidden"/>
         <splitter class="tree-splitter"/>
