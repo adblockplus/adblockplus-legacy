@@ -1247,7 +1247,7 @@ function reportSent(event)
 {
   let request = event.target;
   let success = false;
-  let errorMessage = Utils.getString("synchronize_connection_error");
+  let errorMessage = E("sendReportError").getAttribute("defaultError");
   try
   {
     let status = request.channel.status;

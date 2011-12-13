@@ -25,7 +25,7 @@
    -
    - ***** END LICENSE BLOCK ***** -->
    
-<!DOCTYPE overlay [
+<!DOCTYPE vbox [
 <!ENTITY % overlayDTD SYSTEM "chrome://adblockplus/locale/overlay.dtd">
 %overlayDTD;
 <!ENTITY % filtersDTD SYSTEM "chrome://adblockplus/locale/filters.dtd">
