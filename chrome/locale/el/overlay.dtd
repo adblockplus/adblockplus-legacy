@@ -33,7 +33,7 @@
 <!ENTITY showinaddonbar.accesskey "θ">
 <!ENTITY objecttabs.label "Εμφάνιση ετικέτας σε αντικείμενα Flash και Java">
 <!ENTITY objecttabs.accesskey "α">
-<!ENTITY hideplaceholders.label "Απόκρυψη των placeholders φιλτραρισμένων στοιχείων">
+<!ENTITY hideplaceholders.label "Απόκρυψη πλαισίων των φιλτραρισμένων στοιχείων">
 <!ENTITY hideplaceholders.accesskey "ι">
 <!ENTITY counthits.label "Καταμέτρηση επιτυχιών φίλτρων">
 <!ENTITY counthits.accesskey "τ">
