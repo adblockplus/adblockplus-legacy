@@ -28,7 +28,12 @@
 <?xml-stylesheet href="chrome://global/skin/tree.css" type="text/css"?>
 <?xml-stylesheet href="chrome://adblockplus/skin/sendReport.css" type="text/css"?>
 
-<!DOCTYPE dialog SYSTEM "chrome://adblockplus/locale/sendReport.dtd">
+<!DOCTYPE dialog [
+<!ENTITY % reporterDTD SYSTEM "chrome://adblockplus/locale/sendReport.dtd">
+%reporterDTD;
+<!ENTITY % filtersDTD SYSTEM "chrome://adblockplus/locale/filters.dtd">
+%filtersDTD;
+]>
 
 <wizard
   xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
@@ -220,7 +225,7 @@
   <description id="sendReportMessage">&sendPage.waitMessage;</description>
 
   <vbox id="sendReportErrorBox" align="end" hidden="true">
-    <description id="sendReportError" textTemplate="&sendPage.errorMessage;">
+    <description id="sendReportError" textTemplate="&sendPage.errorMessage;" defaultError="&subscription.lastDownload.connectionError;">
       <label id="sendReportErrorLinks" class="text-link" onclick="Utils.loadDocLink('reporter_connect_issue');"/>
     </description>
     <button id="sendRetryButton" label="&sendPage.retry.label;" oncommand="initSendPage();"/>
