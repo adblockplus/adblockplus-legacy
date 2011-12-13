@@ -4,7 +4,6 @@
 <!ENTITY menuitem.label "Adblock Плюс Настройки">
 <!ENTITY menuitem.accesskey "Н">
 <!ENTITY toolbarbutton.label "Adblock Плюс">
-<!ENTITY view.blockableItems.label "Adblock Плюс: Блокирани Предмети">
 <!ENTITY context.image.label "Adblock Плюс: Блокирани Картинки">
 <!ENTITY context.object.label "Adblock Плюс:Блокирани Обекти">
 <!ENTITY context.frame.label "Adblock Плюс:Блокирани Фреймове">

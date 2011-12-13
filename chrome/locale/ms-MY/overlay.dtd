@@ -4,7 +4,6 @@
 <!ENTITY menuitem.label "Pilihan Adblock Plus">
 <!ENTITY menuitem.accesskey "P">
 <!ENTITY toolbarbutton.label "Adblock Plus">
-<!ENTITY view.blockableItems.label "Adblock Plus: Item yang boleh disekat">
 <!ENTITY context.image.label "Adblock Plus: Sekat imej">
 <!ENTITY context.object.label "Adblock Plus: Sekat objek">
 <!ENTITY context.frame.label "Adblock Plus: Sekat bingkai">

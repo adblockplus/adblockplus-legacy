@@ -4,7 +4,6 @@
 <!ENTITY menuitem.label "Adblock Plus">
 <!ENTITY menuitem.accesskey "B">
 <!ENTITY toolbarbutton.label "Adblock Нэмэх">
-<!ENTITY view.blockableItems.label "Adblock Нэмэх:Хашигдахуйц зүйлс">
 <!ENTITY context.image.label "Adblock Зураг">
 <!ENTITY context.object.label "Adblock Объект">
 <!ENTITY context.frame.label "Adblock Хүрээ">

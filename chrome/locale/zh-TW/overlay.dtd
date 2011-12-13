@@ -4,7 +4,6 @@
 <!ENTITY menuitem.label "Adblock Plus 偏好設定">
 <!ENTITY menuitem.accesskey "b">
 <!ENTITY toolbarbutton.label "Adblock Plus">
-<!ENTITY view.blockableItems.label "Adblock Plus：可阻擋項目">
 <!ENTITY context.image.label "Adblock Plus：阻擋圖片">
 <!ENTITY context.object.label "Adblock Plus：阻擋物件">
 <!ENTITY context.frame.label "Adblock Plus：阻擋頁框">

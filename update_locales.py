@@ -65,6 +65,7 @@ if __name__ == '__main__':
     'overlay.dtd settings.label',
     'overlay.dtd settings.accesskey',
     'overlay.dtd recommend.label',
+    'overlay.dtd view.blockableItems.label',
     'settings.dtd',
     'subscriptionSelection.dtd dialog.title.edit',
     'subscriptionSelection.dtd description.newInstall',

@@ -4,7 +4,6 @@
 <!ENTITY menuitem.label "Adblock Plus">
 <!ENTITY menuitem.accesskey "b">
 <!ENTITY toolbarbutton.label "Adblock Plus">
-<!ENTITY view.blockableItems.label "Adblock Plus: Stavke koje se mogu blokirati">
 <!ENTITY context.image.label "Blokiraj sliku s Adblock">
 <!ENTITY context.object.label "Blokiraj objekt s Adblock">
 <!ENTITY context.frame.label "Blokiraj okvir s Adblock">

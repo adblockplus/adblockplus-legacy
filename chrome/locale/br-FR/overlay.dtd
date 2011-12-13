@@ -4,7 +4,6 @@
 <!ENTITY menuitem.label "Dibaboù Adblock Plus">
 <!ENTITY menuitem.accesskey "b">
 <!ENTITY toolbarbutton.label "Adblock Plus">
-<!ENTITY view.blockableItems.label "Adblock Plus : elfennoù silabl">
 <!ENTITY context.image.label "Stankañ ar skeudenn gant Adblock">
 <!ENTITY context.object.label "Stankañ an elfenn gant Adblock">
 <!ENTITY context.frame.label "Stankañ ar framm gant Adblock">

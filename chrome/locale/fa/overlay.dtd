@@ -4,7 +4,6 @@
 <!ENTITY menuitem.label "ترجیحات فوق تبلیغ شکن">
 <!ENTITY menuitem.accesskey "ب">
 <!ENTITY toolbarbutton.label "فوق تبلیغ شکن">
-<!ENTITY view.blockableItems.label "فوق تبلیغ شکن: موارد قابل انسداد">
 <!ENTITY context.image.label "فوق تبلیغ شکن: سد تصاویر">
 <!ENTITY context.object.label "فوق تبلیغ شکن: سد شیء">
 <!ENTITY context.frame.label "فوق تبلیغ شکن:سد قابک">
