@@ -1,6 +1,6 @@
 <!ENTITY dialog.title                         "Настройки фильтров Adblock Plus">
 
-<!ENTITY subscriptions.tab.label              "Подписки на фильтры">
+<!ENTITY subscriptions.tab.label              "Подписки">
 <!ENTITY filters.tab.label                    "Собственные фильтры">
 
 <!ENTITY addSubscription.label                "Добавить подписку">
@@ -22,9 +22,9 @@
 <!ENTITY subscription.lastDownload.inProgress "сейчас...">
 <!ENTITY subscription.lastDownload.unknown    "никогда">
 <!ENTITY subscription.lastDownload.invalidURL "Ошибка: неверный адрес">
-<!ENTITY subscription.lastDownload.connectionError "Ошибка: невозможно скачать">
-<!ENTITY subscription.lastDownload.invalidData "Ошибка: не список фильтров">
-<!ENTITY subscription.lastDownload.checksumMismatch "Ошибка: проверочная сумма не совпадает, возможно ошибка скачивания">
+<!ENTITY subscription.lastDownload.connectionError "Ошибка: невозможно загрузить">
+<!ENTITY subscription.lastDownload.invalidData "Ошибка: неверный формат списка фильтров">
+<!ENTITY subscription.lastDownload.checksumMismatch "Ошибка: проверочная сумма не совпадает, возможно произошла ошибка загрузки">
 <!ENTITY subscription.lastDownload.success    "OK">
 <!ENTITY subscription.minVersion.warning      "Этот список фильтров требует более новой версии Adblock Plus, желательно обновить Adblock Plus до последней версии.">
 <!ENTITY subscription.disabledFilters.warning "Некоторые фильтры в этой подписке отключены.">
@@ -35,8 +35,8 @@
 <!ENTITY subscription.editTitle.label         "Переименовать">
 <!ENTITY subscription.delete.label            "Удалить">
 <!ENTITY subscription.showHideFilters.label   "Спрятать/показать фильтры">
-<!ENTITY subscription.moveUp.label            "Сдвинуть вверх">
-<!ENTITY subscription.moveDown.label          "Сдвинуть вниз">
+<!ENTITY subscription.moveUp.label            "Поместить выше">
+<!ENTITY subscription.moveDown.label          "Поместить ниже">
 
 <!ENTITY acceptableAds.label                  "Разрешить приемлемую рекламу">
 <!ENTITY acceptableAds.accesskey              "ш">
@@ -60,8 +60,8 @@
 <!ENTITY filter.delete.label                  "Удалить">
 <!ENTITY filter.selectAll.label               "Выбрать все">
 <!ENTITY filter.resetHitCounts.label          "Обнулить статистику попаданий">
-<!ENTITY filter.moveUp.label                  "Сдвинуть вверх">
-<!ENTITY filter.moveDown.label                "Сдвинуть вниз">
+<!ENTITY filter.moveUp.label                  "Поместить выше">
+<!ENTITY filter.moveDown.label                "Поместить ниже">
 <!ENTITY viewMenu.label                       "Вид">
 
 <!ENTITY filter.column                        "Правило">
@@ -70,9 +70,9 @@
 <!ENTITY slow.accesskey                       "М">
 <!ENTITY enabled.column                       "Включено">
 <!ENTITY enabled.accesskey                    "к">
-<!ENTITY hitcount.column                      "Попаданий">
-<!ENTITY hitcount.accesskey                   "д">
-<!ENTITY lasthit.column                       "Последнее попадание">
+<!ENTITY hitcount.column                      "Срабатывания">
+<!ENTITY hitcount.accesskey                   "б">
+<!ENTITY lasthit.column                       "Последнее срабатывание">
 <!ENTITY lasthit.accesskey                    "л">
 
 <!ENTITY sort.label                           "Сортировка">
@@ -84,7 +84,7 @@
 <!ENTITY sort.descending.label                "В обратном порядке">
 <!ENTITY sort.descending.accesskey            "р">
 
-<!ENTITY noGroupSelected.text                 "Нужно выбрать группу фильтров, чтобы показать ее фильтры.">
+<!ENTITY noGroupSelected.text                 "Нужно выбрать группу, чтобы показать ее фильтры.">
 <!ENTITY noFiltersInGroup.text                "Выбранная группа фильтров пуста.">
 
 <!ENTITY filters.remove.warning               "Вы действительно хотите удалить все отмеченные фильтры?">
