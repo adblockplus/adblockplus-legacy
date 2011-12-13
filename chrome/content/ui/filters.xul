@@ -57,7 +57,7 @@
   <key id="subscription-showHideFilters-key" key="R" modifiers="accel" command="subscription-showHideFilters-command"/>
   <key id="moveUp-key" keycode="VK_UP" modifiers="accel"/>
   <key id="moveDown-key" keycode="VK_DOWN" modifiers="accel"/>
-  <key id="filters-add-key" keycode="VK_INSERT" oncommand="if (FilterActions.focused) E('filters-add-command').doCommand();"/>
+  <key id="filters-add-key" keycode="VK_INSERT" oncommand="E('filters-add-command').doCommand();"/>
   <key id="filters-selectAll-key" key="A" modifiers="accel" oncommand="if (FilterActions.focused) E('filters-selectAll-command').doCommand();"/>
   <key id="filters-copy-key" key="C" modifiers="accel" oncommand="if (FilterActions.focused) E('filters-copy-command').doCommand();"/>
   <key id="filters-cut-key" key="X" modifiers="accel" oncommand="if (FilterActions.focused) E('filters-cut-command').doCommand();"/>
