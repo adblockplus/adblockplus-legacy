@@ -282,7 +282,7 @@ function addSubscription()
   doAddSubscription(url, title);
 
   let addMainCheckbox = E("addMainSubscription")
-  if (addMainCheckbox.checked)
+  if (addMainCheckbox.getAttribute("invisible") != "true" && addMainCheckbox.checked)
   {
     let mainSubscriptionTitle = addMainCheckbox.getAttribute("_mainSubscriptionTitle");
     let mainSubscriptionURL = validateURL(addMainCheckbox.value);
