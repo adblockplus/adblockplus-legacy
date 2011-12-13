@@ -96,7 +96,7 @@ treechildren::-moz-tree-image(col-state, dummy-false)
 {
   list-style-image: url(item-state.png);
   -moz-image-region: rect(0px 10px 10px 0px);
-  margin-left: 3px;
+  -moz-margin-start: 3px;
 }
 treechildren::-moz-tree-image(col-state, filter-disabled-true, dummy-false) {
   -moz-image-region: rect(10px 10px 20px 0px);
