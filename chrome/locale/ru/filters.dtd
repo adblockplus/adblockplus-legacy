@@ -38,7 +38,7 @@
 <!ENTITY subscription.moveUp.label            "Поместить выше">
 <!ENTITY subscription.moveDown.label          "Поместить ниже">
 
-<!ENTITY acceptableAds.label                  "Разрешить приемлемую рекламу">
+<!ENTITY acceptableAds.label                  "Разрешить ненавязчивую рекламу">
 <!ENTITY acceptableAds.accesskey              "ш">
 <!ENTITY readMore.label                       "Дополнительная информация">
 
