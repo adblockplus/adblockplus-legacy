@@ -168,6 +168,7 @@ var FilterActions =
       return;
 
     FilterView.selection.selectAll();
+    this.treeElement.focus();
   },
 
   /**
