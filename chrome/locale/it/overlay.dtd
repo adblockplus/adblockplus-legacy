@@ -32,7 +32,7 @@
 <!ENTITY showinaddonbar.accesskey "b">
 <!ENTITY objecttabs.label "Mostra linguetta &apos;Blocca…&apos; per elementi Flash e Java">
 <!ENTITY objecttabs.accesskey "t">
-<!ENTITY hideplaceholders.label "Nascondi i segnaposti degli elementi bloccati">
+<!ENTITY hideplaceholders.label "Nascondi gli elementi bloccati">
 <!ENTITY hideplaceholders.accesskey "l">
 <!ENTITY counthits.label "Effettua le statistiche di accesso">
 <!ENTITY counthits.accesskey "E">

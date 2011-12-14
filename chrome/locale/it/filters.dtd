@@ -86,7 +86,7 @@
 <!ENTITY restore.error "Impossibile effettuare il ripristino del backup poiché il file selezionato probabilmente non è un file di backup di Adblock Plus">
 <!ENTITY restore.complete.warning "Tutte le impostazioni dei filtri verranno sostituite dal contenuto del file selezionato. Procedere comunque?">
 <!ENTITY restore.custom.warning "Tutti i filtri personalizzati verranno sostituiti dal contenuto del file selezionato. Procedere comunque?">
-<!ENTITY restore.minVersion.warning "Attenzione: il file di backup è stato creato con una versione di Adblock Plus aggiornata. È quindi necessario installare l&apos;ultima versione di Adblock Plus per poter effettuare il ripristino da tale file">
+<!ENTITY restore.minVersion.warning "Attenzione: il file di backup è stato creato con una versione più recente di Adblock Plus. Installare l&apos;ultima versione di Adblock Plus per poter effettuare il ripristino da tale file">
 <!ENTITY find.label "Trova">
 <!ENTITY find.accesskey "v">
 <!ENTITY close.label "Chiudi">
