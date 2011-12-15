@@ -777,6 +777,9 @@ var FilterView =
     if (!value || value == oldFilter.text)
       return;
 
+    // Make sure we don't get called recursively (see https://adblockplus.org/forum/viewtopic.php?t=9003)
+    this.treeElement.stopEditing();
+
     let newFilter = Filter.fromText(value);
     if (this.data[row] == this.editDummy)
       this.removeEditDummy();
