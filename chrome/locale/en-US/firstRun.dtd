@@ -14,9 +14,10 @@
 <!ENTITY visitHomepage.label        "Visit list home page">
 
 <!ENTITY acceptableAds              "
-  Adblock Plus has also been configured to allow non-intrusive advertising.
+  Adblock Plus has also been configured to allow some non-intrusive advertising.
 ">
 
+<!ENTITY viewList.label             "View list">
 <!ENTITY readMore.label             "Read more about this">
 
 <!ENTITY listSelection2             "

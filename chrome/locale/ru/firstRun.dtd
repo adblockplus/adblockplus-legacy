@@ -14,9 +14,10 @@
 <!ENTITY visitHomepage.label        "Посетить домашнюю страницу">
 
 <!ENTITY acceptableAds              "
-  Adblock Plus также был настроен, чтобы разрешать ненавязчивую рекламу.
+  Adblock Plus также был настроен, чтобы разрешать некоторую ненавязчивую рекламу.
 ">
 
+<!ENTITY viewList.label             "Открыть список">
 <!ENTITY readMore.label             "Дополнительная информация об этом">
 
 <!ENTITY listSelection2             "
