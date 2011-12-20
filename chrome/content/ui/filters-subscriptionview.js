@@ -271,6 +271,16 @@ ListManager.prototype =
         }
         break;
       }
+      case "subscription.updated":
+      {
+        if (this._scheduledUpdateDisabled == null)
+        {
+          this._scheduledUpdateDisabled = {__proto__: null};
+          Utils.runAsync(this.updateDisabled, this);
+        }
+        this._scheduledUpdateDisabled[item.url] = true;
+        break;
+      }
     }
   }
 };
