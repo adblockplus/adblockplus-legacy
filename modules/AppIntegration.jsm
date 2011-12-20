@@ -1054,7 +1054,7 @@ WindowWrapper.prototype =
       {
         if (current instanceof SpecialSubscription)
           return [subscriptions, filters + current.filters.filter(function(filter) !filter.disabled).length];
-        else if (!current.disabled)
+        else if (!current.disabled && !(Prefs.subscriptions_exceptionscheckbox && current.url == Prefs.subscriptions_exceptionsurl))
           return [subscriptions + 1, filters];
         else
           return [subscriptions, filters]
