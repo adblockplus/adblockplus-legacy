@@ -14,9 +14,10 @@
 <!ENTITY visitHomepage.label        "Webseite öffnen">
 
 <!ENTITY acceptableAds              "
-  Adblock Plus wurde außerdem konfiguriert, um nicht aufdringliche Werbung zuzulassen.
+  Adblock Plus wurde außerdem konfiguriert, um einige nicht aufdringliche Werbung zuzulassen.
 ">
 
+<!ENTITY viewList.label             "Liste öffnen">
 <!ENTITY readMore.label             "Mehr Information">
 
 <!ENTITY listSelection2             "

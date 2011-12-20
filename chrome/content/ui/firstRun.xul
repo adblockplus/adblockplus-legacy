@@ -55,6 +55,7 @@
 
     <description id="acceptableAds" hidden="true">
       &acceptableAds;
+      <label class="text-link" value="&viewList.label;" onclick="Utils.loadInBrowser(Prefs.subscriptions_exceptionsurl);"/>
       <label class="text-link" value="&readMore.label;" onclick="Utils.loadDocLink('acceptable_ads');"/>
     </description>
   </vbox>
