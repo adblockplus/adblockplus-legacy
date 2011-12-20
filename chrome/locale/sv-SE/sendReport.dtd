@@ -52,7 +52,7 @@
 <!ENTITY screenshot.undo.label "Ångra">
 <!ENTITY screenshot.undo.accesskey "Å">
 <!ENTITY commentPage.heading "Ange kommentar">
-<!ENTITY commentPage.description "Textfältet nedan låter dig ange en kommentar för att hjälpa oss förstå problemet.<br/><br/><br/>Detta steg är valfritt, men rekommenderas om problemet inte är tydligt.<br/><br/>Du kan även granska rapportdatan innan den skickas.">
+<!ENTITY commentPage.description "Textfältet nedan låter dig ange en kommentar för att hjälpa oss förstå problemet. Detta steg är valfritt, men rekommenderas om problemet inte är tydligt. Du kan även granska rapportdatan innan den skickas.">
 <!ENTITY comment.label "Kommentar (valfritt):">
 <!ENTITY comment.accesskey "K">
 <!ENTITY comment.lengthWarning "Längden på din kommentar överskrider 1 000 tecken. Endast de första 1 000 tecknen kommer att skickas.">
@@ -69,7 +69,7 @@
 <!ENTITY sendPage.waitMessage "Var vänlig vänta medan Adblock Plus skickar ing din rapport.">
 <!ENTITY sendPage.confirmation "Din rapport har sparats. Du kan nå den på följande adress:">
 <!ENTITY sendPage.knownIssue "Problemet du rapporterade är antagligen redan känt. Mer information:">
-<!ENTITY sendPage.errorMessage "Det gick inte att skicka rapporten. Felkod: &quot;?1?&quot;. Var vänlig säkerställ<br/><br/><br/>att du är ansluten till Internet och försök sedan igen. Om problemet kvarstår, vänligen begär<br/><br/>hjälp i [link]Adblock Plus webbforum[/link].">
+<!ENTITY sendPage.errorMessage "Det gick inte att skicka rapporten. Felkod: &quot;?1?&quot;. Var vänlig säkerställ att du är ansluten till Internet och försök sedan igen. Om problemet kvarstår, vänligen begär hjälp i [link]Adblock Plus webbforum[/link].">
 <!ENTITY sendPage.retry.label "Skicka igen">
 <!ENTITY copyLink.label "Kopiera rapportlänk">
 <!ENTITY copyLink.accesskey "K">
