@@ -30,7 +30,7 @@
 <!ENTITY showinstatusbar.accesskey "s">
 <!ENTITY showinaddonbar.label "在附加元件列顯示">
 <!ENTITY showinaddonbar.accesskey "b">
-<!ENTITY objecttabs.label "Flash 和 Java 物件上顯示頁籤">
+<!ENTITY objecttabs.label "Flash 和 Java 物件上顯示標籤">
 <!ENTITY objecttabs.accesskey "t">
 <!ENTITY hideplaceholders.label "隱藏已阻擋元素所佔用的空間">
 <!ENTITY hideplaceholders.accesskey "l">

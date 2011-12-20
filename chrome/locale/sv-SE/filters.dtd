@@ -6,11 +6,7 @@
 <!ENTITY addSubscriptionAdd.label "Lägg till">
 <!ENTITY addSubscriptionCancel.label "Avbryt">
 <!ENTITY addSubscriptionOther.label "Lägg till en ny prenumeration">
-<!ENTITY noSubscriptions.text "
-	Du har inte lagt till några filterprenumerationer än. Adblock Plus kommer inte blockera
-	någonting utan filter. Använd &quot;Lägg till filterprenumeration&quot; för att
-	lägga till några.
-">
+<!ENTITY noSubscriptions.text "Du har inte lagt till några filterprenumerationer än. Adblock Plus kommer inte blockera någonting utan filter. Använd &quot;Lägg till filterprenumeration&quot; för att lägga till några.">
 <!ENTITY subscription.homepage.label "Webbplats">
 <!ENTITY subscription.external.label "Uppdateras av ett annat tillägg">
 <!ENTITY subscription.source.label "Filterlista">
@@ -38,9 +34,7 @@
 <!ENTITY readMore.label "Läs mer">
 <!ENTITY addGroup.label "Lägg till filtergrupp">
 <!ENTITY addGroup.accesskey "g">
-<!ENTITY noFilters.text "
-	Du har inga egna filter än.
-">
+<!ENTITY noFilters.text "Du har inga egna filter än.">
 <!ENTITY addFilter.label "Lägg till filter">
 <!ENTITY addFilter.accesskey "f">
 <!ENTITY filter.actions.label "Filteråtgärder">

@@ -32,7 +32,7 @@
 <!ENTITY showinaddonbar.accesskey "b">
 <!ENTITY objecttabs.label "Flash と Java でタブを表示">
 <!ENTITY objecttabs.accesskey "t">
-<!ENTITY hideplaceholders.label "ブロックされた要素の場所を非表示">
+<!ENTITY hideplaceholders.label "ブロックした要素の「代わり」を非表示">
 <!ENTITY hideplaceholders.accesskey "l">
 <!ENTITY counthits.label "フィルタのヒット数をカウント">
 <!ENTITY counthits.accesskey "h">

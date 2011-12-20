@@ -20,6 +20,7 @@ foreach my $locale (readdir(LOCALES))
     my $data = readFile($file);
     $data =~ s/\r//g;                   # Normalize newlines
     $data =~ s/\n+/\n/g;                # Remove empty lines
+    $data =~ s/\\(\\n|'|")/$1/g;        # Remove double escapes
     $data =~ s/^\s*#.*\n*//gm;          # Remove pointless comments
     writeFile($file, $data);
 
@@ -29,8 +30,9 @@ foreach my $locale (readdir(LOCALES))
   foreach my $file (<chrome/locale/$locale/*.dtd>)
   {
     my $data = readFile($file);
-    $data =~ s/\\n/\n/g;                      # Replace misencoded newlines by regular ones
     $data =~ s/\r//g;                         # Normalize newlines
+    $data =~ s/\\n/\n/g;                      # Replace misencoded newlines by regular ones
+    $data =~ s/\\(\n|'|"|&)/$1/g;             # Remove wrong escapes
     $data =~ s/\n+/\n/g;                      # Remove empty lines
     $data =~ s/[^\S\n]*<!--.*?-->\s*?\n*//gs; # Remove pointless comments
     writeFile($file, $data);

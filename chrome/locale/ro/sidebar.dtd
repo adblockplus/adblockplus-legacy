@@ -1,4 +1,4 @@
-<!ENTITY detached.title "Adblock Plus: Lista elementelor blocabile în pagină  (desprinsă)">
+<!ENTITY detached.title "Adblock Plus: Lista elementelor blocabile în pagină (desprinsă)">
 <!ENTITY detach.label "Desprinde">
 <!ENTITY reattach.label "Prinde la loc">
 <!ENTITY search.label "Caută:">
@@ -8,6 +8,7 @@
 <!ENTITY filter.label "Filtru">
 <!ENTITY state.label "Stare">
 <!ENTITY size.label "Mărime">
+<!ENTITY filterSource.label "Sursă filtru">
 <!ENTITY docDomain.label "Sursă document">
 <!ENTITY docDomain.thirdParty "(parte terţă)">
 <!ENTITY docDomain.firstParty "(parte implicată)">
@@ -17,10 +18,10 @@
 <!ENTITY tooltip.type.label "Tip:">
 <!ENTITY tooltip.type.blocked "(blocat)">
 <!ENTITY tooltip.type.whitelisted "(permis)">
-<!ENTITY tooltip.size.label "Mărime">
+<!ENTITY tooltip.size.label "Mărime:">
 <!ENTITY tooltip.docDomain.label "Sursă document:">
 <!ENTITY tooltip.filter.label "Filtru în acţiune:">
-<!ENTITY tooltip.filter.disabled "(dectivat)">
+<!ENTITY tooltip.filter.disabled "(dezactivat)">
 <!ENTITY tooltip.filterSource.label "Sursă filtru:">
 <!ENTITY context.block.label "Blochează element">
 <!ENTITY context.editfilter.label "Modifică filtrul activ">

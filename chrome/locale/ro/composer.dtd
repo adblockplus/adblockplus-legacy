@@ -3,7 +3,7 @@
 <!ENTITY advanced.label "Vizualizare avansată">
 <!ENTITY basic.label "Vizualizare simplă">
 <!ENTITY disabled.warning "Adblock Plus este inactiv. Puteţi să adăugaţi filtre, însă ele vor fi utilizate doar după ce [link]activaţi Adblock Plus[/link].">
-<!ENTITY groupDisabled.warning "Grupul de filtre în care filtrul trebuie adăugat - &quot;?1?&quot; - este inactiv. Filtrul nu va fi folosit până nu [link]activaţi grupul de filtre[/link].">
+<!ENTITY groupDisabled.warning "Grupul de filtre în care filtrul trebuie adăugat - ?1? - este inactiv. Filtrul nu va fi folosit până nu [link]activaţi grupul de filtre[/link].">
 <!ENTITY filter.label "Filtru nou:">
 <!ENTITY filter.accesskey "t">
 <!ENTITY preferences.label "Arată filtrele existente...">
@@ -29,7 +29,7 @@
 <!ENTITY options.label "Opţiuni">
 <!ENTITY domainRestriction.label "Aplică doar domeniului">
 <!ENTITY domainRestriction.accesskey "d">
-<!ENTITY domainRestriction.help "Specificaţi unul sau mai multe domenii internet, separate de către simbolul &quot;|&quot;, pentru care filtrul este valid. Simbolul ~ înaintea numelui domeniului va face ca regula să NU se aplice pe domeniul specificat.">
+<!ENTITY domainRestriction.help "Specificaţi unul sau mai multe domenii internet, separate de către simbolul |, pentru care filtrul este valid. Simbolul ~ înaintea numelui domeniului va face ca regula să NU se aplice pe domeniul specificat.">
 <!ENTITY firstParty.label "Doar la pagina vizitată">
 <!ENTITY firstParty.accesskey "v">
 <!ENTITY thirdParty.label "La pagini partener (3rd party)">
