@@ -1,0 +1,114 @@
+<!ENTITY wizard.title "Arazoaren txostena bidali da">
+<!ENTITY privacyPolicy.label "Pribatutasun politika">
+<!ENTITY dataCollector.heading "Ongi etorri arazoen txosten bidalketara">
+<!ENTITY dataCollector.description "Mesedez itxaron Adblock Plusek beharrezko informazioa jaso bitartean">
+<!ENTITY typeSelector.heading "Aukeratu arazo mota">
+<!ENTITY typeSelector.description "
+	Leiho honek Adblock Plus arazo txosten bat bidaltzeko beharrezkoak diren urratsetan zehar gidatuko zaitu. Hasteko, mesedez aukeratu orri honetan pairatzen duzun arazo mota aukeratu:">
+<!ENTITY typeSelector.falsePositive.label "Adblock Plusek behar baino gehiago blokeatzen du">
+<!ENTITY typeSelector.falsePositive.accesskey "m">
+<!ENTITY typeSelector.falsePositive.description "
+	Aukeratu hau orrian informazio garrantzitsua falta bada, gaizki ikusten bada edo ez badabil behar bezala . 
+ Adblock Plus une batez desgaituz erruduna den egiaztatu dezakezu.
+">
+<!ENTITY typeSelector.falseNegative.label "Adblock Plusek ez du publizitatea blokeatzen.Your configuration has been changed. Please reload the page to test the changes
+	and submit a report if the issue hasn't been resolved by the alterations">
+<!ENTITY typeSelector.falseNegative.accesskey "v">
+<!ENTITY typeSelector.falseNegative.description "
+	Aukeratu hau publizitatea agertzen bada Adblock Plus gaituta egonda ere.
+">
+<!ENTITY typeSelector.other.label "Beste zerbait">
+<!ENTITY typeSelector.other.accesskey "t">
+<!ENTITY typeSelector.other.description "
+	Aukeratu hau arazoa Adblock Plus berak duela uste baduzu, eta ez iragazkiek.
+">
+<!ENTITY showRecentReports.label "Erakutsiorain dela gutxi bidalitako txostenak">
+<!ENTITY recentReports.label "Orain dela gutxi bidalitako txostenak">
+<!ENTITY recentReports.clear.label "Ezabatu txosten guztiak">
+<!ENTITY recentReports.clear.accesskey "R">
+<!ENTITY issues.description "
+	Adblock Plusek arazo honen errudun izan daitezken edo txosten hau ikerkertzea zaildu dezaketen arazoak aurkitu ditu zure konfigurazioan.
+">
+<!ENTITY issues.whitelist.description "
+	Adblock Plus orain desgaituta dago txosnenaren orrian. Mesedez berriz gaitu eta orria birkargatu txostena bidali aurretik arazoaren ikerketa errazteko.
+">
+<!ENTITY issues.whitelist.remove.label "Gaitu Adblock Plus orri honetan">
+<!ENTITY issues.disabled.description "
+	Adblock Plus ezgaituta dago, ez du ezer blokeatuko oraingo egoeran.
+">
+<!ENTITY issues.disabled.enable.label "Gaitu Adblock Plus">
+<!ENTITY issues.nofilters.description "
+	Adblock Plus ez dago ezer blokeatzen oraingo orrian. Ikusten duzun arazoa ziurrenez ez du Adblock Plusekin erlaziorik.
+">
+<!ENTITY issues.nosubscriptions.description "
+	Antza denez ez zara harpidetu webguneetatik nahi ez dituzun edukiak automatikoki ezabatzen duten aurrez egindako zerrendetara.
+">
+<!ENTITY issues.nosubscriptions.add.label "Gehitu iragazki harpidetza">
+<!ENTITY issues.subscriptionCount.description "
+	Antza denez iragazki harpidetza gehiegitara harpidetu zara. hau ez da gomendagarria arazoak izateko aukera geihago suposatzen duelako. Gainera ezin dugu zure txostena onartu ez dagoelako argi zein iragazki egilek egin behar duen ezer. Mesedez ezabatu ezinbestekoak ez diren iragazki harpidetzak eta egiaztatu arazoa oraindik gertatzen den.
+">
+<!ENTITY issues.openPreferences.label "Ireki iragazki hobespenak">
+<!ENTITY issues.ownfilters.description "
+	Orri honetan erabilitako iragazki batzuk erabiltzaileak sortutakoak dira. Mesedez ezgaitu arazoa sor lezaketen iragazkiak:
+">
+<!ENTITY issues.ownfilters.disable.label "Iragazkia ezgaitu">
+<!ENTITY issues.disabledgroups.description "
+	Hurrengo iragazki harpidetzak / iragazki taldeak ezgaituta daude, hala ere orri honetan eragina izan dezakete:
+">
+<!ENTITY issues.disabledgroups.enable.label "Gaitu iragazki harpidetza / iragazki taldea">
+<!ENTITY issues.disabledfilters.description "
+	Hurrego iragazkiak ezgaituta daude, hala ere orri honetan eragina izan dezakete:
+">
+<!ENTITY issues.disabledfilters.enable.label "Gaitu iragazkia">
+<!ENTITY issues.override.label "Knfigurazioa zuzena da, jarraitu txostenarekin">
+<!ENTITY issues.override.accesskey "c">
+<!ENTITY issues.change.description "
+	Zure konfigurazioa aldatu da. Mesedez birkargatu orria aldaketak egiaztatzeko eta bidali txostena arazoa konpondu ez bada.
+">
+<!ENTITY typeWarning.description "
+	Adblock Plusen arazo orokor, baten txostena egin nahi duzula esan duzu, ez iragazkiena. Jabetu zaitez arazo horien berri emateko hobe dela [link]Adblock Plus forum[/link] foroa erabiltza. Arazoen txosten bidalketa erabili soilik badagoen eztabaida bati eransteko, inork ez duelako zure txostena ikusiko lotura bat ematen ez baduzu. Automatikoki sortutako lotura bat emango zaizu txostena bidali eta gero.
+">
+<!ENTITY typeWarning.override.label "Ulertzen dut eta txostena bidali nahi dut hala ere">
+<!ENTITY typeWarning.override.accesskey "s">
+<!ENTITY reloadButton.label "Birkargatu orria">
+<!ENTITY reloadButton.accesskey "R">
+<!ENTITY screenshot.heading "Erantsi pantaila argazkia">
+<!ENTITY screenshot.description "
+	Orri bera pertsona desberdinek desberdin ikusi dezakete. Pantaila argazki bat eransteak arazoa ulertzen lagundu ahal digu. Informazio sentsiblea duten atalak kendu ditzakezu eta arazoa nabaria den atala markatu. Hori egiteko egin klik dagokion botoian eta aukeratu zonaldea saguarekin.
+">
+<!ENTITY screenshot.attach.label "Gehitu irudia txostenera">
+<!ENTITY screenshot.attach.accesskey "t">
+<!ENTITY screenshot.mark.label "Arazoa markatu">
+<!ENTITY screenshot.mark.accesskey "M">
+<!ENTITY screenshot.remove.label "Kendu informazio sentsiblea">
+<!ENTITY screenshot.remove.accesskey "R">
+<!ENTITY screenshot.undo.label "Desegin">
+<!ENTITY screenshot.undo.accesskey "U">
+<!ENTITY commentPage.heading "Sartu iruzkina">
+<!ENTITY commentPage.description "
+	Beheko testu eremuak guk arazoa hobeto ulertzeko iruzkin bat sartzea baimentzen dizu.
+	Hau aukerazkoa da baina gomendagarria arazoa begi-bistakoa ez bada.
+	Txostenaren informazioa gainbegiratu dezakezu ere bidali aurretik.
+">
+<!ENTITY comment.label "Iruzkina (aukerazkoa):">
+<!ENTITY comment.accesskey "C">
+<!ENTITY comment.lengthWarning "Iruzkinak 1000 karaktere baino gehiago ditu. Lehen 1000 karaktereak bidaliko dira soilik.">
+<!ENTITY email.label "Galdera gehiagorako eposta (aukerazkoa):">
+<!ENTITY email.accesskey "m">
+<!ENTITY attachExtensions.label "Erantsi gehigarri aktiboen zerrenda bat txostenera hauen arteko konfliktoak arazoa sor balezakete">
+<!ENTITY attachExtensions.accesskey "x">
+<!ENTITY sendButton.label "Txostena bidali">
+<!ENTITY sendButton.accesskey "n">
+<!ENTITY showData.label "Erakutsi txostenaren informazioa">
+<!ENTITY data.label "Txostenaren informazioa:">
+<!ENTITY data.accesskey "p">
+<!ENTITY sendPage.heading "Bidali txostena">
+<!ENTITY sendPage.waitMessage "Mesedez itxaron Adblock Plus zure txostena bidaltzen duen bitartean.">
+<!ENTITY sendPage.confirmation "Zure txostena gorde da">
+<!ENTITY sendPage.knownIssue "Aipatu duzun arazoa ziur aski ezaguna da jada. Informazio gehiago:">
+<!ENTITY sendPage.errorMessage "
+	Txostena bidaltzeko saiakerak kale egin du hurrengo errore kodearekin &quot;?1?&quot;. Mesedez egaiaztatu Internetera konektatuta zaudela eta berriz saiatu. Arazoa ez bada konpontzen eskatu laguntza  [link]Adblock Plus forum[/link] foroan.
+">
+<!ENTITY sendPage.retry.label "Berriro bidali">
+<!ENTITY copyLink.label "Kopiatu txostenaren lotura">
+<!ENTITY copyLink.accesskey "C">

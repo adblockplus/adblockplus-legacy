@@ -1,18 +1,18 @@
 <!ENTITY dialog.title "Installazione/aggiornamento di Adblock Plus effettuato con successo">
 <!ENTITY confirmation "
-    Grazie di aver installato/aggiornato Adblock Plus. Banner e pubblicità indesiderati verranno bloccati 
+		Grazie di aver installato/aggiornato Adblock Plus. Banner e pubblicità indesiderati verranno bloccati 
 	a partire da adesso">
 <!ENTITY advancedSection "Opzioni avanzate">
 <!ENTITY listSelection1 "
-     Per bloccare banner e pubblicità indesiderati sono state impostate le seguenti liste di filtri:
+		 Per bloccare banner e pubblicità indesiderati sono state impostate le seguenti liste di filtri:
 	 ">
 <!ENTITY noList "-nessuna lista di filtri-">
 <!ENTITY visitHomepage.label "Visita il sito web della lista">
 <!ENTITY acceptableAds "
-    Nota: è attualmente attiva in maniera predefinita l'opzione per permettere pubblicità non inopportuna
+		Nota: è attualmente attiva in maniera predefinita l'opzione per permettere pubblicità non inopportuna
 	">
 <!ENTITY readMore.label "Visualizza ulteriori informazioni relative a questa opzione">
 <!ENTITY listSelection2 "
-    È possibile attivare/disattivare la visualizzazione di pubblicità non inopportuna in qualsiasi momento nella finestra di
+		È possibile attivare/disattivare la visualizzazione di pubblicità non inopportuna in qualsiasi momento nella finestra di
 	[link]Gestione dei filtri di Adblock Plus[/link] selezionando/deselezionando &apos;Permetti pubblicità non inopportuna&apos;
 	">

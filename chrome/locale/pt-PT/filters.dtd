@@ -88,5 +88,5 @@
 <!ENTITY restore.custom.warning "Todas os seus filtros personalizados serão substituídas pelos conteúdos do ficheiro seleccionado. Tem a certeza que deseja prosseguir?">
 <!ENTITY restore.minVersion.warning "Atenção: o ficheiro foi criado com uma versão mais recente do Adblock Plus. Deve actualizar para a versão mais recente do Adblock Plus antes de restaurar a partir deste ficheiro.">
 <!ENTITY find.label "Localizar">
-<!ENTITY find.accesskey "n">
+<!ENTITY find.accesskey "L">
 <!ENTITY close.label "Fechar">

@@ -6,11 +6,7 @@
 <!ENTITY addSubscriptionAdd.label "Přidać">
 <!ENTITY addSubscriptionCancel.label "Přetorhnyć">
 <!ENTITY addSubscriptionOther.label "Druhi abonement přidać">
-<!ENTITY noSubscriptions.text "
-Njejsće hišće žane filtrowe abonementy přidał. Adblock Plus njebudźe
- bjez filtrow ničo blokować, prošu wužijće &quot;Filtrowy abonement přidać&quot;, zo byšće
- filter přidać.
-">
+<!ENTITY noSubscriptions.text "Njejsće hišće žane filtrowe abonementy přidał. Adblock Plus njebudźe bjez filtrow ničo blokować, prošu wužijće &quot;Filtrowy abonement přidać&quot;, zo byšće filter přidać.">
 <!ENTITY subscription.homepage.label "Startowa strona">
 <!ENTITY subscription.external.label "Přez druhe rozšěrjenje zaktualizowany">
 <!ENTITY subscription.source.label "Filtrowa lisćina">
@@ -35,12 +31,10 @@ Njejsće hišće žane filtrowe abonementy přidał. Adblock Plus njebudźe
 <!ENTITY subscription.moveDown.label "Dele">
 <!ENTITY acceptableAds.label "Njenadběhawe wabjenje dowolić">
 <!ENTITY acceptableAds.accesskey "N">
-<!ENTITY readMore.label "Wjace čitać">
+<!ENTITY readMore.label "Dalše informacije">
 <!ENTITY addGroup.label "Filtrowu skupinu přidać">
 <!ENTITY addGroup.accesskey "s">
-<!ENTITY noFilters.text "
-Nimaće hišće žane swójske filtry.
-">
+<!ENTITY noFilters.text "Nimaće hišće žane swójske filtry.">
 <!ENTITY addFilter.label "Filter přidać">
 <!ENTITY addFilter.accesskey "d">
 <!ENTITY filter.actions.label "Filtrowe akcije">
@@ -73,7 +67,7 @@ Nimaće hišće žane swójske filtry.
 <!ENTITY sort.descending.label "Porjad Z &gt; A">
 <!ENTITY sort.descending.accesskey "Z">
 <!ENTITY noGroupSelected.text "Dyrbiće filtrowu skupinu wubrać, prjedy hač filtry dadźa so zwobraznić.">
-<!ENTITY noFiltersInGroup.text "Wubrana skupina je prózdna">
+<!ENTITY noFiltersInGroup.text "Wubrana skupina je prózdna.">
 <!ENTITY filters.remove.warning "Chceće woprawdźe wšě wubrane filtry wotstronić?">
 <!ENTITY backupButton.label "Zawěsćić a wobnowić">
 <!ENTITY backupButton.accesskey "Z">

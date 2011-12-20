@@ -6,7 +6,7 @@
 <!ENTITY typeSelector.description "不具合の報告に必要なステップを案内します。まず最初に、遭遇した不具合の種別を選択してください:">
 <!ENTITY typeSelector.falsePositive.label "Adblock Plus のブロックが過剰">
 <!ENTITY typeSelector.falsePositive.accesskey "m">
-<!ENTITY typeSelector.falsePositive.description "あるべきコンテンツがない、表示が不適切、もしくはフィルタが正しく機能していない場合はこのオプションを選択してください。一時的に Adblock Plus を無効にしてみることで、原因が Adblock Plus かどうか確かめることができます。">
+<!ENTITY typeSelector.falsePositive.description "あるべきコンテンツがない、表示が不適切、フィルタが正しく機能していない場合はこのオプションを選択してください（ヒント：Adblock Plus が原因か確かめる：一時的に Adblock Plus を無効にし、ページが正しく表示されるか確認する）">
 <!ENTITY typeSelector.falseNegative.label "Adblock Plus が広告をブロックしていない">
 <!ENTITY typeSelector.falseNegative.accesskey "v">
 <!ENTITY typeSelector.falseNegative.description "Adblock Plus が有効でも広告が表示される場合、このオプションを選択">

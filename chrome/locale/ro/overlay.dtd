@@ -6,12 +6,14 @@
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.image.label "Adblock Plus: blochează imagine">
 <!ENTITY context.object.label "Adblock Plus: blochează obiect">
-<!ENTITY context.frame.label "Adblock Plus: blochează frame">
+<!ENTITY context.frame.label "Adblock Plus: blochează cadru">
 <!ENTITY context.media.label "Adblock Plus: blochează audio/video">
 <!ENTITY context.removeWhitelist.label "Adblock Plus: reactivează în pagina curentă">
 <!ENTITY sidebar.title "Adblock Plus: elemente blocabile în pagină">
 <!ENTITY sendReport.label "Raportează probleme pe această pagină">
 <!ENTITY sendReport.accesskey "R">
+<!ENTITY filters.label "Preferințe filtre">
+<!ENTITY filters.accesskey "F">
 <!ENTITY opensidebar.label "Deschide lista elementelor blocabile">
 <!ENTITY opensidebar.accesskey "l">
 <!ENTITY closesidebar.label "Închide lista elementelor blocabile">
@@ -21,12 +23,19 @@
 <!ENTITY disable.label "Dezactivează peste tot">
 <!ENTITY options.label "Opţiuni">
 <!ENTITY options.accesskey "O">
+<!ENTITY contribute.label "Contribuie la Adblock Plus">
 <!ENTITY showintoolbar.label "Arată în bara de unelte">
 <!ENTITY showintoolbar.accesskey "u">
 <!ENTITY showinstatusbar.label "Arată în bara de stare">
 <!ENTITY showinstatusbar.accesskey "s">
+<!ENTITY showinaddonbar.label "Arată în bara cu extensii">
+<!ENTITY showinaddonbar.accesskey "e">
 <!ENTITY objecttabs.label "Arată panouri lângă Flash şi Java">
 <!ENTITY objecttabs.accesskey "p">
+<!ENTITY hideplaceholders.label "Ascunde indicatoarele elementelor blocate">
+<!ENTITY hideplaceholders.accesskey "i">
+<!ENTITY counthits.label "Înregistrează statisticile filtrelor">
+<!ENTITY counthits.accesskey "g">
 <!ENTITY sync.label "Sincronizează setările Adblock Plus">
 <!ENTITY sync.accesskey "n">
 <!ENTITY objecttab.title "Blochează">

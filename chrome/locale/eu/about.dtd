@@ -1,6 +1,11 @@
 <!ENTITY dialog.title "Adblock Plusi buruz">
 <!ENTITY version.title "Bertsioa">
-<!ENTITY description "Adblock Plusek uzten dizu erabakitez zer ikusi nahi ez duzuna web-ean. Ez daukazu behera kargatu beharko iragarki gehiagorik, baldin eta ez nahi badituzu - esaiozu Adblock Plus-i!">
-<!ENTITY homepage.label "Adblock Plus-aren web orria:">
+<!ENTITY description "
+ Adblock Plusek webean zer ikusi nahi duzun erabakitzea baimentzen dizu. 
+ Ez duzu iragarki eta banner gehiago deskargatzeko beharrik; zuk hala nahi ez baduzu - kendu itzazu Adblock Plusekin!
+">
+<!ENTITY homepage.label "Adblock Plusen web orria:">
 <!ENTITY author.label "Egilea:">
 <!ENTITY contributors.label "Partaideak:">
+<!ENTITY subscriptionAuthors.label "Iragazki harpidetzaren egileak:">
+<!ENTITY translators.label "Itzultzaileak:">

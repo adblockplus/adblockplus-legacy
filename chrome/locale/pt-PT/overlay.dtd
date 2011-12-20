@@ -25,7 +25,7 @@
 <!ENTITY options.accesskey "O">
 <!ENTITY contribute.label "Contribuir para o Adblock Plus">
 <!ENTITY showintoolbar.label "Mostrar na barra de ferramentas">
-<!ENTITY showintoolbar.accesskey "M">
+<!ENTITY showintoolbar.accesskey "b">
 <!ENTITY showinstatusbar.label "Mostrar na barra de estado">
 <!ENTITY showinstatusbar.accesskey "S">
 <!ENTITY showinaddonbar.label "Mostrar na barra de add-ons">
@@ -37,6 +37,6 @@
 <!ENTITY counthits.label "Contabilizar bloqueios do filtro">
 <!ENTITY counthits.accesskey "C">
 <!ENTITY sync.label "Sincronizar configuração Adblock Plus">
-<!ENTITY sync.accesskey "c">
+<!ENTITY sync.accesskey "n">
 <!ENTITY objecttab.title "Bloquear">
 <!ENTITY objecttab.tooltip "Clique aqui para bloquear este objecto com o Adblock Plus">
