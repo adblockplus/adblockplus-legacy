@@ -517,7 +517,9 @@ function disableOnSite(item, /**Filter*/ filter, /**String*/ domain)
   else if (!newFilter.subscriptions.length)
   {
     newFilter.disabled = false;
-    FilterStorage.addFilter(newFilter, filter);
+    let subscription = filter.subscriptions.filter(function(s) s instanceof SpecialSubscription)[0];
+    if (subscription)
+      FilterStorage.addFilter(newFilter, subscription, subscription.filters.indexOf(filter));
   }
   FilterStorage.removeFilter(filter);
 
