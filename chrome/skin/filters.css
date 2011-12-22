@@ -119,7 +119,7 @@ tree
 }
 #col-enabled
 {
-  min-width: 24px;
+  min-width: 48px;
 }
 #col-slow
 {
@@ -172,11 +172,6 @@ treechildren::-moz-tree-cell-text(col-filter, type-comment, selected-false)
 treechildren::-moz-tree-cell-text(col-filter, type-invalid, selected-false)
 {
   color: #C00000;
-}
-
-treechildren::-moz-tree-image(col-enabled)
-{
-  -moz-margin-start: 7px;
 }
 
 treechildren::-moz-tree-image(col-enabled, disabled-true)
