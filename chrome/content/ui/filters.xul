@@ -334,7 +334,7 @@
     <grippy id="filtersGrippy"/>
   </splitter>
 
-  <vbox id="filtersContainer" persist="width height" width="500">
+  <vbox id="filtersContainer" persist="width height" width="500" flex="1">
     <hbox pack="end">
       <button id="findButton" label="&find.label;" accesskey="&find.accesskey;" command="find-command"/>
       <button id="filterActionButton" type="menu" label="&filter.actions.label;">
