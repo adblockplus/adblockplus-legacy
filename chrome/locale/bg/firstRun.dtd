@@ -8,9 +8,6 @@
 ">
 <!ENTITY noList "Няма филтър лист">
 <!ENTITY visitHomepage.label "Посети страницата на листа">
-<!ENTITY acceptableAds "
-	Adblock Plus също така беше настроен да допуска не-натрапчиви реклами.
-">
 <!ENTITY readMore.label "Прочети повече за това">
 <!ENTITY listSelection2 "
 	Ти можеш да промениш този избор по всяко време от [link]Настройки за Филтър[/link].

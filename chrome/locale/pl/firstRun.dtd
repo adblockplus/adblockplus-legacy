@@ -4,6 +4,5 @@
 <!ENTITY listSelection1 "Do blokowania reklam został wstępnie wybrany poniższy zestaw filtrów:">
 <!ENTITY noList "Brak zestawu filtrów">
 <!ENTITY visitHomepage.label "Strona domowa zestawu">
-<!ENTITY acceptableAds "Adblock Plusa można również skonfigurować tak, by zezwalał na wyświetlanie nie natrętnych reklam.">
 <!ENTITY readMore.label "Dowiedz się więcej na ten temat">
 <!ENTITY listSelection2 "W każdej chwili można wyłączyć tę funkcję z poziomu [link]ustawień filtrów[/link].">

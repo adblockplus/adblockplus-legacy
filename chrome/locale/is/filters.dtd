@@ -33,8 +33,7 @@
 <!ENTITY subscription.showHideFilters.label "Sýna/fela síur">
 <!ENTITY subscription.moveUp.label "Færa upp">
 <!ENTITY subscription.moveDown.label "Færa niður">
-<!ENTITY acceptableAds.label "Leyfa auglýsingar sem eru ekki uppáþrengjandi">
-<!ENTITY acceptableAds.accesskey "i">
+<!ENTITY acceptableAds2.accesskey "i">
 <!ENTITY readMore.label "Lesa meira">
 <!ENTITY addGroup.label "Bæta við síuhóp">
 <!ENTITY addGroup.accesskey "h">

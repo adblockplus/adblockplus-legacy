@@ -33,8 +33,7 @@
 <!ENTITY subscription.showHideFilters.label "Zobraziť/skryť filter">
 <!ENTITY subscription.moveUp.label "Posunúť hore">
 <!ENTITY subscription.moveDown.label "Posunúť dole">
-<!ENTITY acceptableAds.label "Povoliť neobťažujúce reklamy">
-<!ENTITY acceptableAds.accesskey "i">
+<!ENTITY acceptableAds2.accesskey "i">
 <!ENTITY readMore.label "Zobraziť viac">
 <!ENTITY addGroup.label "Pridať skupinu filtrov">
 <!ENTITY addGroup.accesskey "f">

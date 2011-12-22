@@ -8,9 +8,6 @@
 ">
 <!ENTITY noList "Nincsenek külső szűrők">
 <!ENTITY visitHomepage.label "Külső szűrő honlapja">
-<!ENTITY acceptableAds "
- Az Adblock Plus úgy van beállítva, hogy a nem tolakodó reklámok nem kerülnek letiltásra.
-">
 <!ENTITY readMore.label "További információk erről">
 <!ENTITY listSelection2 "
  Ezt a részt bármikor módosíthatja a [link]Szűrő beállítások[/link] alatt.

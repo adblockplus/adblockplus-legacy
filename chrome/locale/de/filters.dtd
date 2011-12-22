@@ -39,8 +39,8 @@
 <!ENTITY subscription.moveUp.label            "Nach oben verschieben">
 <!ENTITY subscription.moveDown.label          "Nach unten verschieben">
 
-<!ENTITY acceptableAds.label                  "Einige nicht aufdringliche Werbung zulassen">
-<!ENTITY acceptableAds.accesskey              "d">
+<!ENTITY acceptableAds2.label                 "Einige nicht aufdringliche Werbung zulassen">
+<!ENTITY acceptableAds2.accesskey             "d">
 <!ENTITY viewList.label                       "Liste öffnen">
 <!ENTITY readMore.label                       "Mehr Information">
 

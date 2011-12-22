@@ -8,9 +8,6 @@
 ">
 <!ENTITY noList "Žiadny zoznam filtrov">
 <!ENTITY visitHomepage.label "Navštíviť domovskú stránku zoznamu">
-<!ENTITY acceptableAds "
- Adblock Plus bol tiež nakonfigurovaný na povolenie nedotieravých reklám.
-">
 <!ENTITY readMore.label "Zistiť viac">
 <!ENTITY listSelection2 "
  Môžete zmeniť tento výber kedykoľvek v [link]Nastavenia filtrov[/link].

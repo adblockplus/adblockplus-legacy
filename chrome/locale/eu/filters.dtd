@@ -32,8 +32,7 @@
 <!ENTITY subscription.showHideFilters.label "Erakutsi/ezkutatu iragazkiak">
 <!ENTITY subscription.moveUp.label "Igo">
 <!ENTITY subscription.moveDown.label "Jaitsi">
-<!ENTITY acceptableAds.label "Baimendu publizitate ez-intrusiboa">
-<!ENTITY acceptableAds.accesskey "i">
+<!ENTITY acceptableAds2.accesskey "i">
 <!ENTITY readMore.label "Gehiago irakurri">
 <!ENTITY addGroup.label "Gehitu iragazki taldea">
 <!ENTITY addGroup.accesskey "g">

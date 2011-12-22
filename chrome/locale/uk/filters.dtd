@@ -29,8 +29,7 @@
 <!ENTITY subscription.showHideFilters.label "Сховати/показати фільтри">
 <!ENTITY subscription.moveUp.label "Зсунути вверх">
 <!ENTITY subscription.moveDown.label "Зсунути вниз">
-<!ENTITY acceptableAds.label "Дозволити ненав’язливу рекламу">
-<!ENTITY acceptableAds.accesskey "р">
+<!ENTITY acceptableAds2.accesskey "р">
 <!ENTITY readMore.label "Детальніше">
 <!ENTITY addGroup.label "Додати групу фільтрів">
 <!ENTITY addGroup.accesskey "г">

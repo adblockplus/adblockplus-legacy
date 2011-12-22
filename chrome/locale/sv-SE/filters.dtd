@@ -29,8 +29,7 @@
 <!ENTITY subscription.showHideFilters.label "Visa/dölj filter">
 <!ENTITY subscription.moveUp.label "Flytta uppåt">
 <!ENTITY subscription.moveDown.label "Flytta nedåt">
-<!ENTITY acceptableAds.label "Tillåt icke störande reklam">
-<!ENTITY acceptableAds.accesskey "i">
+<!ENTITY acceptableAds2.accesskey "i">
 <!ENTITY readMore.label "Läs mer">
 <!ENTITY addGroup.label "Lägg till filtergrupp">
 <!ENTITY addGroup.accesskey "g">

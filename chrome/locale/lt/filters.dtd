@@ -31,8 +31,7 @@ norėdami pridėti kelis naudokite
 <!ENTITY subscription.showHideFilters.label "Rodyti/slėpti filtrų taisykles">
 <!ENTITY subscription.moveUp.label "Pakelti aukštyn">
 <!ENTITY subscription.moveDown.label "Perkelti žemyn">
-<!ENTITY acceptableAds.label "Leisti neatkaklias reklamas">
-<!ENTITY acceptableAds.accesskey "t">
+<!ENTITY acceptableAds2.accesskey "t">
 <!ENTITY readMore.label "Skaityti daugiau">
 <!ENTITY addGroup.label "Pridėti filtrų grupę">
 <!ENTITY addGroup.accesskey "g">

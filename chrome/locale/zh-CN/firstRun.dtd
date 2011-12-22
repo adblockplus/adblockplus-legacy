@@ -8,9 +8,6 @@
 ">
 <!ENTITY noList "无过滤规则列表">
 <!ENTITY visitHomepage.label "访问列表主页">
-<!ENTITY acceptableAds "
-	Adblock Plus 已经配置为允许非骚扰型广告.
-">
 <!ENTITY readMore.label "深入了解">
 <!ENTITY listSelection2 "
 	您可以在任何时候在 [link]过滤规则参数[/link] 中更改选择.

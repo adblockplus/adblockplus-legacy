@@ -8,9 +8,6 @@
 ">
 <!ENTITY noList "Filtrite loetelu puudub">
 <!ENTITY visitHomepage.label "Külasta loetelu kodulehte">
-<!ENTITY acceptableAds "
- Adblock Plus on lisaks seadistatud nõnda, et mittepealetükkivad reklaamid on lubatud.
-">
 <!ENTITY readMore.label "Loe lisaks selle kohta">
 <!ENTITY listSelection2 "
  Sa võid seda valikut iga hetk muuta kohas [link]Filtrite sätted[/link].
