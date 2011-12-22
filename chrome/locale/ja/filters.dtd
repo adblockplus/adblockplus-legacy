@@ -29,8 +29,7 @@
 <!ENTITY subscription.showHideFilters.label "フィルタを表示／非表示">
 <!ENTITY subscription.moveUp.label "上に移動">
 <!ENTITY subscription.moveDown.label "下に移動">
-<!ENTITY acceptableAds.label "控えめな広告を許可">
-<!ENTITY acceptableAds.accesskey "i">
+<!ENTITY acceptableAds2.accesskey "i">
 <!ENTITY readMore.label "詳細">
 <!ENTITY addGroup.label "フィルタグループを追加">
 <!ENTITY addGroup.accesskey "g">

@@ -33,8 +33,7 @@
 <!ENTITY subscription.showHideFilters.label "Vis/skjul filtre">
 <!ENTITY subscription.moveUp.label "Flyt op">
 <!ENTITY subscription.moveDown.label "Flyt op">
-<!ENTITY acceptableAds.label "Tillad upåtrængende annoncering">
-<!ENTITY acceptableAds.accesskey "i">
+<!ENTITY acceptableAds2.accesskey "i">
 <!ENTITY readMore.label "Lær mere">
 <!ENTITY addGroup.label "Tilføj filtergruppe">
 <!ENTITY addGroup.accesskey "g">

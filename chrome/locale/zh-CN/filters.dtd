@@ -33,8 +33,7 @@
 <!ENTITY subscription.showHideFilters.label "显示/隐藏过滤规则">
 <!ENTITY subscription.moveUp.label "上移">
 <!ENTITY subscription.moveDown.label "下移">
-<!ENTITY acceptableAds.label "允许非骚扰型广告">
-<!ENTITY acceptableAds.accesskey "i">
+<!ENTITY acceptableAds2.accesskey "i">
 <!ENTITY readMore.label "深入了解">
 <!ENTITY addGroup.label "添加过滤规则组">
 <!ENTITY addGroup.accesskey "g">

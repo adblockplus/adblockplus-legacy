@@ -33,8 +33,7 @@ joitakin.
 <!ENTITY subscription.showHideFilters.label "Näytä/piilota suodattimet">
 <!ENTITY subscription.moveUp.label "Siirrä ylös">
 <!ENTITY subscription.moveDown.label "Siirrä alas">
-<!ENTITY acceptableAds.label "Salli ei-tunkeileva mainonta">
-<!ENTITY acceptableAds.accesskey "a">
+<!ENTITY acceptableAds2.accesskey "a">
 <!ENTITY readMore.label "Lue lisää">
 <!ENTITY addGroup.label "Lisää suodatinryhmä">
 <!ENTITY addGroup.accesskey "s">

@@ -8,9 +8,6 @@
 ">
 <!ENTITY noList "Нема списка фільтрів">
 <!ENTITY visitHomepage.label "Відвідати домашню сторінку списка">
-<!ENTITY acceptableAds "
- Adblock Plus було сконфігуровано дозволяти ненав’язливу рекламу.
-">
 <!ENTITY readMore.label "Детальніше про це">
 <!ENTITY listSelection2 "
  Ви можете змінити цей вибір будь-коли у [link]Налаштуваннях фільтрів[/link].

@@ -33,8 +33,7 @@
 <!ENTITY subscription.showHideFilters.label "Покажи/скрий филтрите">
 <!ENTITY subscription.moveUp.label "Премести нагоре">
 <!ENTITY subscription.moveDown.label "Премести надоло">
-<!ENTITY acceptableAds.label "Разреши не-натрапваща реклама">
-<!ENTITY acceptableAds.accesskey "и">
+<!ENTITY acceptableAds2.accesskey "и">
 <!ENTITY readMore.label "Прочети повече">
 <!ENTITY addGroup.label "Добави филтър група">
 <!ENTITY addGroup.accesskey "г">

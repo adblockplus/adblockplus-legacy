@@ -8,8 +8,6 @@
 ">
 <!ENTITY noList "Καμιά λίστα φίλτρων">
 <!ENTITY visitHomepage.label "Επισκεφτείτε την ιστοσελίδα της λίστας">
-<!ENTITY acceptableAds "
- Το Adblock Plus έχεις επίσης ρυθμιστεί να επιτρέπει μη παρεμβατικές διαφημίσεις.">
 <!ENTITY readMore.label "Διαβάστε περισσότερα σχετικά με αυτό">
 <!ENTITY listSelection2 "
  Μπορείτε ν' αλλάξετε αυτή την επιλογή στις [link]Προτιμήσεις φίλτρων[/link].

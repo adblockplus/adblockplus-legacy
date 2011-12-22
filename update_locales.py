@@ -75,6 +75,8 @@ if __name__ == '__main__':
     'subscriptionSelection.dtd external.description',
     'subscriptionSelection.dtd autodownload.label',
     'subscriptionSelection.dtd autodownload.accesskey',
+    'firstRun.dtd acceptableAds',
+    'filters.dtd acceptableAds.label',
   ]
   rename = {
     'global.properties subscription_status_lastdownload' : 'filters.dtd subscription.lastDownload.label',

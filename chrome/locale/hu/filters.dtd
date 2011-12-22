@@ -31,8 +31,7 @@
 <!ENTITY subscription.showHideFilters.label "Szűrők megjelenítése/elrejtése">
 <!ENTITY subscription.moveUp.label "Mozgatás fel">
 <!ENTITY subscription.moveDown.label "Mozgatás le">
-<!ENTITY acceptableAds.label "Nem tolakodó reklámok engedélyezése">
-<!ENTITY acceptableAds.accesskey "t">
+<!ENTITY acceptableAds2.accesskey "t">
 <!ENTITY readMore.label "Mi ez?">
 <!ENTITY addGroup.label "Szűrő csoport felvétele">
 <!ENTITY addGroup.accesskey "c">

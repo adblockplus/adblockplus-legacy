@@ -32,8 +32,7 @@
 <!ENTITY subscription.showHideFilters.label "필터 목록 보기/숨기기">
 <!ENTITY subscription.moveUp.label "위로 이동">
 <!ENTITY subscription.moveDown.label "아래로 이동">
-<!ENTITY acceptableAds.label "비침입형 광고 허용">
-<!ENTITY acceptableAds.accesskey "i">
+<!ENTITY acceptableAds2.accesskey "i">
 <!ENTITY readMore.label "자세히 보기">
 <!ENTITY addGroup.label "필터 그룹 추가">
 <!ENTITY addGroup.accesskey "g">

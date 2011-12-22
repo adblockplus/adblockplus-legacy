@@ -8,9 +8,6 @@
 ">
 <!ENTITY noList "No filter list">
 <!ENTITY visitHomepage.label "Visit list home page">
-<!ENTITY acceptableAds "
-	Adblock Plus has also been configured to allow non-intrusive advertising.
-">
 <!ENTITY readMore.label "Read more about this">
 <!ENTITY listSelection2 "
 	You can change this selection at any time in the [link]Filter Preferences[/link].

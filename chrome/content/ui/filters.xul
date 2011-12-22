@@ -278,7 +278,7 @@
         </deck>
 
         <hbox align="baseline">
-          <checkbox id="acceptableAds" label="&acceptableAds.label;" accesskey="&acceptableAds.accesskey;" oncommand="ListManager.allowAcceptableAds(this.checked);"/>
+          <checkbox id="acceptableAds" label="&acceptableAds2.label;" accesskey="&acceptableAds2.accesskey;" oncommand="ListManager.allowAcceptableAds(this.checked);"/>
           <label class="text-link" value="&viewList.label;" onclick="Utils.loadInBrowser(Prefs.subscriptions_exceptionsurl);"/>
           <label class="text-link" value="&readMore.label;" onclick="Utils.loadDocLink('acceptable_ads');"/>
         </hbox>

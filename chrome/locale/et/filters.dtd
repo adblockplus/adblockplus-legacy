@@ -29,8 +29,7 @@
 <!ENTITY subscription.showHideFilters.label "Näita/peida filtreid">
 <!ENTITY subscription.moveUp.label "Liiguta üles">
 <!ENTITY subscription.moveDown.label "Liiguta alla">
-<!ENTITY acceptableAds.label "Luba mittepealetükkivad reklaamid">
-<!ENTITY acceptableAds.accesskey "i">
+<!ENTITY acceptableAds2.accesskey "i">
 <!ENTITY readMore.label "Loe lisaks">
 <!ENTITY addGroup.label "Lisa filtrite grupp">
 <!ENTITY addGroup.accesskey "g">

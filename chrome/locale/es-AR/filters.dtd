@@ -32,8 +32,7 @@
 <!ENTITY subscription.showHideFilters.label "Mostrar/ocultar filtros">
 <!ENTITY subscription.moveUp.label "Subir">
 <!ENTITY subscription.moveDown.label "Bajar">
-<!ENTITY acceptableAds.label "Permitir publicidad no hostigadora">
-<!ENTITY acceptableAds.accesskey "h">
+<!ENTITY acceptableAds2.accesskey "h">
 <!ENTITY readMore.label "Leer más">
 <!ENTITY addGroup.label "Agregar grupo de filtros">
 <!ENTITY addGroup.accesskey "g">

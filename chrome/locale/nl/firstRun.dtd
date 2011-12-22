@@ -8,9 +8,6 @@ De volgende lijst is ingesteld om advertenties te blokkeren:
 ">
 <!ENTITY noList "Geen filterlijst">
 <!ENTITY visitHomepage.label "Bezoek de lijststartpagina">
-<!ENTITY acceptableAds "
-Adblock Plus is ook ingesteld om niet-opdringerige advertenties toe te staan.
-">
 <!ENTITY readMore.label "Meer hierover">
 <!ENTITY listSelection2 "
 U kunt deze selectie op elk gewenst moment wijzigen in de [link]Filtervoorkeuren[/link].

@@ -33,8 +33,7 @@ nenion sen filtriloj, bonvolu uzu &quot;Aldoni filtrilabonon&quot; por
 <!ENTITY subscription.showHideFilters.label "Montri/Kaŝi filtrilojn">
 <!ENTITY subscription.moveUp.label "Supren">
 <!ENTITY subscription.moveDown.label "Malsupren">
-<!ENTITY acceptableAds.label "Permesi nealtrudiĝantan reklamon">
-<!ENTITY acceptableAds.accesskey "t">
+<!ENTITY acceptableAds2.accesskey "t">
 <!ENTITY readMore.label "Legu pli">
 <!ENTITY addGroup.label "Aldoni filtrilgrupon">
 <!ENTITY addGroup.accesskey "g">

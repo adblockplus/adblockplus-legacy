@@ -8,9 +8,6 @@
 ">
 <!ENTITY noList "沒有過濾條件集">
 <!ENTITY visitHomepage.label "造訪條件集首頁">
-<!ENTITY acceptableAds "
- Adblock Plus 已設定為允許非侵入式廣告。
-">
 <!ENTITY readMore.label "了解詳細內容">
 <!ENTITY listSelection2 "
  您可以隨時在[link]條件偏好設定[/link]中改變這個選項。">

@@ -32,8 +32,7 @@
 <!ENTITY subscription.showHideFilters.label "顯示/隱藏過濾條件">
 <!ENTITY subscription.moveUp.label "往上移">
 <!ENTITY subscription.moveDown.label "往下移">
-<!ENTITY acceptableAds.label "允許非侵入式廣告">
-<!ENTITY acceptableAds.accesskey "i">
+<!ENTITY acceptableAds2.accesskey "i">
 <!ENTITY readMore.label "詳細內容">
 <!ENTITY addGroup.label "新增條件群組">
 <!ENTITY addGroup.accesskey "g">
