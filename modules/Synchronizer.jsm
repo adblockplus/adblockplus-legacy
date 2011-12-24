@@ -429,6 +429,9 @@ var Synchronizer =
  */
 function checkSubscriptions()
 {
+  if (!Prefs.subscriptions_autoupdate)
+    return;
+
   let time = Math.round(Date.now() / MILLISECONDS_IN_SECOND);
   for each (let subscription in FilterStorage.subscriptions)
   {
