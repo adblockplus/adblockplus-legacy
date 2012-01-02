@@ -277,11 +277,11 @@
           </richlistbox>
         </deck>
 
-        <hbox align="baseline">
+        <description>
           <checkbox id="acceptableAds" label="&acceptableAds2.label;" accesskey="&acceptableAds2.accesskey;" oncommand="ListManager.allowAcceptableAds(this.checked);"/>
           <label class="text-link" value="&viewList.label;" onclick="Utils.loadInBrowser(Prefs.subscriptions_exceptionsurl);"/>
           <label class="text-link" value="&readMore.label;" onclick="Utils.loadDocLink('acceptable_ads');"/>
-        </hbox>
+        </description>
       </tabpanel>
       <tabpanel id="filtersTab" orient="vertical" flex="1">
         <hbox pack="end">
