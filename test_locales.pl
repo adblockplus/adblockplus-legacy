@@ -23,6 +23,11 @@ my @mustDiffer = (
     'abp:overlay:objecttabs.accesskey', 'abp:overlay:hideplaceholders.accesskey',
     'abp:overlay:counthits.accesskey', 'abp:overlay:sync.accesskey'
   ],
+  [
+    'abp:overlay:showinaddonbar.accesskey', 'abp:overlay:showinstatusbar.accesskey',
+    'abp:overlay:objecttabs.accesskey', 'abp:overlay:hideplaceholders.accesskey',
+    'abp:overlay:counthits.accesskey', 'abp:overlay:sync.accesskey'
+  ],
   ['abp:subscriptionSelection:title.accesskey', 'abp:subscriptionSelection:location.accesskey', 'abp:subscriptionSelection:addMain.accesskey'],
   ['abp:composer:filter.accesskey', 'abp:composer:preferences.accesskey', 'abp:composer:type.filter.accesskey', 'abp:composer:type.whitelist.accesskey', 'abp:composer:custom.pattern.accesskey', 'abp:composer:anchor.start.accesskey', 'abp:composer:anchor.end.accesskey', 'abp:composer:domainRestriction.accesskey', 'abp:composer:firstParty.accesskey', 'abp:composer:thirdParty.accesskey', 'abp:composer:matchCase.accesskey', 'abp:composer:collapse.accesskey'],
   ['abp:sendReport:typeSelector.falsePositive.accesskey', 'abp:sendReport:typeSelector.falseNegative.accesskey', 'abp:sendReport:typeSelector.other.accesskey', 'abp:sendReport:recentReports.clear.accesskey'],
@@ -67,7 +72,6 @@ my @mustDiffer = (
 
 my @mustEqual = (
   ['abp:overlay:opensidebar.accesskey', 'abp:overlay:closesidebar.accesskey'],
-  ['abp:overlay:showintoolbar.accesskey', 'abp:overlay:showinaddonbar.accesskey'],
   ['abp:composer:anchor.start.accesskey', 'abp:composer:anchor.start.flexible.accesskey'],
   ['ehh:overlay:selectelement.accesskey', 'ehh:overlay:stopselection.accesskey'],
 );
