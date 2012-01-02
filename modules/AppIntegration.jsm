@@ -1457,8 +1457,11 @@ WindowWrapper.prototype =
   /**
    * Clears context menu data once the menu is closed.
    */
-  clearContextMenu: function()
+  clearContextMenu: function(event)
   {
+    if (event.eventPhase != event.AT_TARGET)
+      return;
+
     this.nodeData = null;
     this.currentNode = null;
     this.backgroundData = null;
