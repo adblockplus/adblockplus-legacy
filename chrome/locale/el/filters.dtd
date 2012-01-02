@@ -29,7 +29,9 @@
 <!ENTITY subscription.showHideFilters.label "Εμφάνιση/απόκρυψη φίλτρων">
 <!ENTITY subscription.moveUp.label "Μετακίνηση επάνω">
 <!ENTITY subscription.moveDown.label "Μετακίνηση κάτω">
-<!ENTITY acceptableAds2.accesskey "ι">
+<!ENTITY acceptableAds2.label "Να επιτρέπονται μερικές μη-παρεμβατικές διαφημίσεις">
+<!ENTITY acceptableAds2.accesskey "μ">
+<!ENTITY viewList.label "Δείτε την λίστα">
 <!ENTITY readMore.label "Διαβάστε περισσότερα">
 <!ENTITY addGroup.label "Προσθήκη ομάδας φίλτρων">
 <!ENTITY addGroup.accesskey "ο">

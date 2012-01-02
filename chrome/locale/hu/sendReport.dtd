@@ -7,9 +7,9 @@
 <!ENTITY typeSelector.falsePositive.label "Az Adblock Plus túl sok mindent letilt">
 <!ENTITY typeSelector.falsePositive.accesskey "t">
 <!ENTITY typeSelector.falsePositive.description "Válassza ezt a lehetőséget, ha a webhelyről hiányoznak lényeges tartalmak, rosszul jelenik meg, vagy hibásan működik. Úgy bizonyosodhat meg arról, hogy az Adblock Plus okozza a problémát, ha ideiglenesen letiltja azt.">
-<!ENTITY typeSelector.falseNegative.label "Az Adblock Plus nem tiltott le egy reklámot">
+<!ENTITY typeSelector.falseNegative.label "Az Adblock Plus nem tiltott le egy hirdetést">
 <!ENTITY typeSelector.falseNegative.accesskey "r">
-<!ENTITY typeSelector.falseNegative.description "Válassza ezt a lehetőséget, ha reklámok jelennek meg az oldalon annak ellenére, hogy az Adblock Plus engedélyezve van.">
+<!ENTITY typeSelector.falseNegative.description "Válassza ezt a lehetőséget, ha hirdetések jelennek meg az oldalon annak ellenére, hogy az Adblock Plus engedélyezve van.">
 <!ENTITY typeSelector.other.label "Egyéb">
 <!ENTITY typeSelector.other.accesskey "g">
 <!ENTITY typeSelector.other.description "Válassza ezt a lehetőséget, ha Ön szerint a probléma magával az Adblock Plus-szal van és nem a szűrőkkel.">

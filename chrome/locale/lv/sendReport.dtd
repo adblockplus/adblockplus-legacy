@@ -6,7 +6,7 @@
 <!ENTITY typeSelector.description "Šis log Jūs vedīs cauri nepieciešamajiem soļiem, lai nosūtītu Adblock Plus problēmu ziņojumu. Vispirms, lūdzu izvēlieties tipu problēmai, ko Jūs pieredzat šajā lapā:">
 <!ENTITY typeSelector.falsePositive.label "Adblock Plus bloķē pārāk daudz">
 <!ENTITY typeSelector.falsePositive.accesskey "d">
-<!ENTITY typeSelector.falsePositive.description "Izvēlaties šo opciju, ja lai trūkst svarīga saturam tā tiek nepareizi attēlota vai nefunkcionē pareizi. Jūs varat noteikt vai to izraisa Adblock Plus, to nnnīslaicīgi atslēdzot.">
+<!ENTITY typeSelector.falsePositive.description "Izvēlaties šo opciju, ja lai trūkst svarīga saturam tā tiek nepareizi attēlota vai nefunkcionē pareizi. Jūs varat noteikt vai to izraisa Adblock Plus, to īslaicīgi atslēdzot.">
 <!ENTITY typeSelector.falseNegative.label "Adblock Plus nebloķē reklāmu">
 <!ENTITY typeSelector.falseNegative.accesskey "r">
 <!ENTITY typeSelector.falseNegative.description "Izvēlaties šo opciju ja reklāma tiek attēlota neskatoties uz to ka Adblock Plus ir ieslēgts.">

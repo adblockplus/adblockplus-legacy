@@ -3,11 +3,16 @@
 Adblock Plus をインストールいただきありがとうございます。今から広告はブロックされます。
 Enjoy!">
 <!ENTITY advancedSection "詳細設定">
-<!ENTITY listSelection1 "広告をブロックするため設定されたフィルタリストは次の通り：
+<!ENTITY listSelection1 "
+広告をブロックするため設定されたフィルタリストは次の通り：
 ">
 <!ENTITY noList "フィルタリストなし">
 <!ENTITY visitHomepage.label "リストのホームページを表示">
-<!ENTITY readMore.label "より詳細な情報">
+<!ENTITY acceptableAds2 "
+ Adblock Plus は控えめな広告を許可するようにも設定されました。
+">
+<!ENTITY viewList.label "設定内容を参照">
+<!ENTITY readMore.label "更に詳しい説明">
 <!ENTITY listSelection2 "
 設定はいつでも [link]フィルタ設定[/link] で変更することができます。
 ">

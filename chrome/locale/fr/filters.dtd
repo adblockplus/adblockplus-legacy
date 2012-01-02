@@ -33,7 +33,9 @@ rien sans filtres, veuillez utiliser « Ajouter un abonnement » pour
 <!ENTITY subscription.showHideFilters.label "Afficher/masquer les filtres">
 <!ENTITY subscription.moveUp.label "Monter">
 <!ENTITY subscription.moveDown.label "Descendre">
+<!ENTITY acceptableAds2.label "Autoriser certaines publicité non-intrusives">
 <!ENTITY acceptableAds2.accesskey "i">
+<!ENTITY viewList.label "Afficher la liste">
 <!ENTITY readMore.label "Apprendre davantage">
 <!ENTITY addGroup.label "Ajouter un groupe de filtres">
 <!ENTITY addGroup.accesskey "g">

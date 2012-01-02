@@ -1,9 +1,11 @@
 <!ENTITY dialog.title "Adblock Plus įdiegimas baigtas">
-<!ENTITY confirmation "	Dėkui jog įdiegėte Adblock Plus. Nuo šiol bus blokuojamos reklamos. 
+<!ENTITY confirmation "  Dėkui jog įdiegėte Adblock Plus. Nuo šiol bus blokuojamos reklamos. 
 Mėgaukitės!">
 <!ENTITY advancedSection "Papildomos parinktys">
-<!ENTITY listSelection1 "	Reklamų blokavimui buvo sukonfigūruotas filtrų sąrašas:">
+<!ENTITY listSelection1 "  Reklamų blokavimui buvo sukonfigūruotas filtrų sąrašas:">
 <!ENTITY noList "Nėra filtrų sąrašo">
 <!ENTITY visitHomepage.label "Aplankyti sąrašo namų puslapį">
+<!ENTITY acceptableAds2 "  Adblock Plus taipogi buvo sukonfigūruota leisti neįkyrias reklamas.">
+<!ENTITY viewList.label "Peržiūrėti sąrašą">
 <!ENTITY readMore.label "Sužinokite daugiau apie tai">
-<!ENTITY listSelection2 "	Jūs betkada galite pakeisti šį pasirinkimą [link]Filtrų nustatymuose[/link].">
+<!ENTITY listSelection2 "  Jūs betkada galite pakeisti šį pasirinkimą [link]Filtrų nustatymuose[/link].">

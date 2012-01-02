@@ -1,7 +1,7 @@
 <!ENTITY status.tooltip "Стање:">
 <!ENTITY blocked.tooltip "Блокиране ставке на овој страни:">
-<!ENTITY filters.tooltip "Најактивнији филтер:">
-<!ENTITY menuitem.label "Подешавања Adblock Plus-а">
+<!ENTITY filters.tooltip "Најактивнији филтери:">
+<!ENTITY menuitem.label "Adblock Plus - подешавања">
 <!ENTITY menuitem.accesskey "в">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.image.label "Блокирај слику">
@@ -11,7 +11,9 @@
 <!ENTITY context.removeWhitelist.label "Поново укључи на овој страници">
 <!ENTITY sidebar.title "Ставке које се могу блокирати на овој страници">
 <!ENTITY sendReport.label "Пријави проблеме на овој страници">
-<!ENTITY sendReport.accesskey "И">
+<!ENTITY sendReport.accesskey "П">
+<!ENTITY filters.label "Подешавања филтера">
+<!ENTITY filters.accesskey "Ф">
 <!ENTITY opensidebar.label "Отвори ставке које се могу блокирати">
 <!ENTITY opensidebar.accesskey "т">
 <!ENTITY closesidebar.label "Затвори ставке које се могу блокирати">
@@ -21,13 +23,20 @@
 <!ENTITY disable.label "Онемогући свуда">
 <!ENTITY options.label "Опције">
 <!ENTITY options.accesskey "п">
+<!ENTITY contribute.label "Допринесите Adblock Plus-у">
 <!ENTITY showintoolbar.label "Прикажи у траци са алаткама">
 <!ENTITY showintoolbar.accesskey "т">
 <!ENTITY showinstatusbar.label "Прикажи у статусној траци">
 <!ENTITY showinstatusbar.accesskey "с">
+<!ENTITY showinaddonbar.label "Прикажи траку са алаткама">
+<!ENTITY showinaddonbar.accesskey "а">
 <!ENTITY objecttabs.label "Прикажи језичак на Flash и Java објектима">
-<!ENTITY objecttabs.accesskey "к">
-<!ENTITY sync.label "Подешавања усклађивања Adblock Plus-а">
+<!ENTITY objecttabs.accesskey "ј">
+<!ENTITY hideplaceholders.label "Сакриј држаче елемената блокираних ставки">
+<!ENTITY hideplaceholders.accesskey "д">
+<!ENTITY counthits.label "Број статистику филтера">
+<!ENTITY counthits.accesskey "с">
+<!ENTITY sync.label "Поставке усклађивања Adblock Plus-а">
 <!ENTITY sync.accesskey "у">
 <!ENTITY objecttab.title "Блокирај">
 <!ENTITY objecttab.tooltip "Кликните овде да бисте блокирали објекат помоћу Adblock Plus-а">

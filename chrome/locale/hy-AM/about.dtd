@@ -1,6 +1,6 @@
 <!ENTITY dialog.title "«Adblock Plus»ի մասին">
 <!ENTITY version.title "Տարբերակ.">
-<!ENTITY description "nnn	«Adblock Plus»ը թույլ է տալիս Ձեզ որոշել, թե ինչ եք ուզում տեսնել վեբ էջերում:nn	Դուք չպետք է բեռնեք գովազդներ, եթե չեք ուզում, ասե՛ք դա «Adblock Plus»ին:nn">
+<!ENTITY description "«Adblock Plus»ը թույլ է տալիս Ձեզ որոշել, թե ինչ եք ուզում տեսնել վեբ էջերում: Դուք չպետք է բեռնեք գովազդներ, եթե չեք ուզում, ասե՛ք դա «Adblock Plus»ին:">
 <!ENTITY homepage.label "«Adblock Plus»ի կայքը`">
 <!ENTITY author.label "Հեղինակ.">
 <!ENTITY contributors.label "Մասնակիցներ.">

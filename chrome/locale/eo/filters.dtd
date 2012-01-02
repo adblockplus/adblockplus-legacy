@@ -6,11 +6,7 @@
 <!ENTITY addSubscriptionAdd.label "Aldoni">
 <!ENTITY addSubscriptionCancel.label "Nuligi">
 <!ENTITY addSubscriptionOther.label "Aldoni alian abonon">
-<!ENTITY noSubscriptions.text "
-Vi ankoraŭ ne aldonis filtrilabonojn. Adblock Plus blokos
-nenion sen filtriloj, bonvolu uzu &quot;Aldoni filtrilabonon&quot; por
- aldoni abonon.
-">
+<!ENTITY noSubscriptions.text "Vi ankoraŭ ne aldonis filtrilabonojn. Adblock Plus blokos enion sen filtriloj, bonvolu uzu &quot;Aldoni filtrilabonon&quot; por aldoni abonon.">
 <!ENTITY subscription.homepage.label "Hejmpaĝo">
 <!ENTITY subscription.external.label "Ĝisdatigita per alia etendaĵo">
 <!ENTITY subscription.source.label "Filtrila listo">
@@ -33,13 +29,13 @@ nenion sen filtriloj, bonvolu uzu &quot;Aldoni filtrilabonon&quot; por
 <!ENTITY subscription.showHideFilters.label "Montri/Kaŝi filtrilojn">
 <!ENTITY subscription.moveUp.label "Supren">
 <!ENTITY subscription.moveDown.label "Malsupren">
+<!ENTITY acceptableAds2.label "Permesi nealtrudiĝantan reklamon">
 <!ENTITY acceptableAds2.accesskey "t">
+<!ENTITY viewList.label "Montri liston">
 <!ENTITY readMore.label "Legu pli">
 <!ENTITY addGroup.label "Aldoni filtrilgrupon">
 <!ENTITY addGroup.accesskey "g">
-<!ENTITY noFilters.text "
-Vi ankoraŭ ne havas proprajn filtrilojn.
-">
+<!ENTITY noFilters.text "Vi ankoraŭ ne havas proprajn filtrilojn.">
 <!ENTITY addFilter.label "Aldoni filtrilon">
 <!ENTITY addFilter.accesskey "d">
 <!ENTITY filter.actions.label "Filtrilaj agoj">

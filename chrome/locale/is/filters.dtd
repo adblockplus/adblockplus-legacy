@@ -16,7 +16,7 @@
 <!ENTITY subscription.source.label "Sía lista">
 <!ENTITY subscription.enabled.label "Virkt">
 <!ENTITY subscription.lastDownload.label "Seinasta niðurhal:">
-<!ENTITY subscription.lastDownload.inProgress "Hleður...">
+<!ENTITY subscription.lastDownload.inProgress "Hleður…">
 <!ENTITY subscription.lastDownload.unknown "Óþekkt">
 <!ENTITY subscription.lastDownload.invalidURL "Mistókst, ekki gilt netfang">
 <!ENTITY subscription.lastDownload.connectionError "Mistókst, gat ekki niðurhalað">
@@ -33,7 +33,9 @@
 <!ENTITY subscription.showHideFilters.label "Sýna/fela síur">
 <!ENTITY subscription.moveUp.label "Færa upp">
 <!ENTITY subscription.moveDown.label "Færa niður">
+<!ENTITY acceptableAds2.label "Leyfa auglýsingar sem eru ekki uppáþrengjandi">
 <!ENTITY acceptableAds2.accesskey "i">
+<!ENTITY viewList.label "Skoða lista">
 <!ENTITY readMore.label "Lesa meira">
 <!ENTITY addGroup.label "Bæta við síuhóp">
 <!ENTITY addGroup.accesskey "h">
@@ -72,7 +74,7 @@
 <!ENTITY sort.descending.label "Ö &gt; A röðun">
 <!ENTITY sort.descending.accesskey "Ö">
 <!ENTITY noGroupSelected.text "Þú verður að velja síuhóp áður en hægt er að birta síur.">
-<!ENTITY noFiltersInGroup.text "Valinn hópur er tómur">
+<!ENTITY noFiltersInGroup.text "Valinn hópur er tómur.">
 <!ENTITY filters.remove.warning "Viltu örugglega fjarlægja alla valdar síur?">
 <!ENTITY backupButton.label "Afrita og endurheimta">
 <!ENTITY backupButton.accesskey "A">

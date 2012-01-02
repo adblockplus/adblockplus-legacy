@@ -29,7 +29,9 @@
 <!ENTITY subscription.showHideFilters.label "Filtry pokazać/schować">
 <!ENTITY subscription.moveUp.label "Horje">
 <!ENTITY subscription.moveDown.label "Dele">
+<!ENTITY acceptableAds2.label "Njenadběhawe wabjenje dowolić">
 <!ENTITY acceptableAds2.accesskey "N">
+<!ENTITY viewList.label "Lisćinu pokazać">
 <!ENTITY readMore.label "Dalše informacije">
 <!ENTITY addGroup.label "Filtrowu skupinu přidać">
 <!ENTITY addGroup.accesskey "s">

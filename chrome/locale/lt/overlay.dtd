@@ -1,7 +1,7 @@
 <!ENTITY status.tooltip "Būsena:">
 <!ENTITY blocked.tooltip "Šiame tinklalapyje užblokuoti elementai:">
 <!ENTITY filters.tooltip "Aktyviausi filtrai:">
-<!ENTITY menuitem.label "„Adblock Plus nustatymai“">
+<!ENTITY menuitem.label "„Adblock Plus“ nustatymai">
 <!ENTITY menuitem.accesskey "A">
 <!ENTITY toolbarbutton.label "„Adblock Plus“">
 <!ENTITY context.image.label "„Adblock Plus“: Blokuoti paveikslėlį">
@@ -25,11 +25,11 @@
 <!ENTITY options.accesskey "P">
 <!ENTITY contribute.label "Prisidėti prie Adblock Plus">
 <!ENTITY showintoolbar.label "Rodyti priemonių juostoje">
-<!ENTITY showintoolbar.accesskey "r">
+<!ENTITY showintoolbar.accesskey "R">
 <!ENTITY showinstatusbar.label "Rodyti būsenos juostoje">
 <!ENTITY showinstatusbar.accesskey "b">
 <!ENTITY showinaddonbar.label "Rodyti priedų juostoje">
-<!ENTITY showinaddonbar.accesskey "r">
+<!ENTITY showinaddonbar.accesskey "R">
 <!ENTITY objecttabs.label "Rodyti korteles Flash ir Java elementams">
 <!ENTITY objecttabs.accesskey "F">
 <!ENTITY hideplaceholders.label "Slėpti užblokuotų elementų vietos laikiklius">

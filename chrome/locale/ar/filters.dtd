@@ -1,5 +1,20 @@
+<!ENTITY dialog.title "تفضيلات التصفية لآد بلُك بلَس">
+<!ENTITY subscriptions.tab.label "اشتراكات التصفية">
+<!ENTITY filters.tab.label "الفلاتر المخصصة">
 <!ENTITY addSubscription.label "إضافة اشتراك إلى فلتر">
+<!ENTITY addSubscription.accesskey "ف">
+<!ENTITY addSubscriptionAdd.label "اضافة">
+<!ENTITY addSubscriptionCancel.label "الغاء">
 <!ENTITY addSubscriptionOther.label "إضافة اشتراك آخر">
+<!ENTITY noSubscriptions.text "
+لم تضف أي فلتر اشتراك حتى الان. لن يصد آد بلُك بلَس 
+أي شيء بدون هذه الفلاتر, الرجاء اختيار اشتراكات الفلاتر
+لاضافة أحدها
+">
+<!ENTITY subscription.homepage.label "صفحة البداية">
+<!ENTITY subscription.external.label "تم التحديث من اضافة اخرى">
+<!ENTITY subscription.source.label "قائمة الفلاتر">
+<!ENTITY subscription.enabled.label "مفعّل">
 <!ENTITY subscription.lastDownload.label "آخر تحميل">
 <!ENTITY subscription.lastDownload.inProgress "جاري التحميل">
 <!ENTITY subscription.lastDownload.unknown "غير متاح">
@@ -8,11 +23,29 @@
 <!ENTITY subscription.lastDownload.invalidData "فشل الأمر، ليست قائمة فلاتر صحيحة">
 <!ENTITY subscription.lastDownload.checksumMismatch "فشل ، عدم تطابق المجموع الاختباري">
 <!ENTITY subscription.lastDownload.success "نجاح">
+<!ENTITY subscription.minVersion.warning "يتطلب هذا الاشتراك للتصفية أحدث إصدار آد بلُك بلَس ، يجب التحديث إلى الإصدار الأحدث">
+<!ENTITY subscription.disabledFilters.warning "بعض الفلاتر في هذا الاشتراك معطّلة">
+<!ENTITY subscription.disabledFilters.enable "تفعيل الفلاتر المعطّلة">
+<!ENTITY subscription.actions.label "الإجراءات">
+<!ENTITY subscription.update.label "تحدبث الفلاتر">
+<!ENTITY subscription.editTitle.label "تحرير العنوان">
+<!ENTITY subscription.delete.label "ازالة">
+<!ENTITY subscription.showHideFilters.label "اظهار / اخفاء الفلاتر">
+<!ENTITY subscription.moveUp.label "الى الاعلى">
+<!ENTITY subscription.moveDown.label "الى الاسفل">
+<!ENTITY acceptableAds2.label "السماح لبعض الإعلانات الغير متطفّلة">
+<!ENTITY acceptableAds2.accesskey "ع">
+<!ENTITY viewList.label "اظهار القائمة">
+<!ENTITY readMore.label "قراءة المزيد">
 <!ENTITY addFilter.label "إضافة فلتر">
+<!ENTITY filter.edit.label "تحرير">
 <!ENTITY filter.cut.label "قص">
 <!ENTITY filter.copy.label "نسخ">
 <!ENTITY filter.paste.label "لصق">
 <!ENTITY filter.delete.label "حذف">
+<!ENTITY filter.selectAll.label "اختيار الكل">
+<!ENTITY filter.moveUp.label "الى الاعلى">
+<!ENTITY filter.moveDown.label "الى الاسفل">
 <!ENTITY viewMenu.label "عرض">
 <!ENTITY filter.column "قانون الفلتر">
 <!ENTITY filter.accesskey "ف">
@@ -33,3 +66,4 @@
 <!ENTITY sort.descending.label "ترتيب أبجدي (Z &gt; A)">
 <!ENTITY sort.descending.accesskey "Z">
 <!ENTITY find.label "بحث">
+<!ENTITY close.label "اغلاق">

@@ -29,7 +29,9 @@
 <!ENTITY subscription.showHideFilters.label "Visa/dölj filter">
 <!ENTITY subscription.moveUp.label "Flytta uppåt">
 <!ENTITY subscription.moveDown.label "Flytta nedåt">
+<!ENTITY acceptableAds2.label "Tillåt viss icke-störande reklam">
 <!ENTITY acceptableAds2.accesskey "i">
+<!ENTITY viewList.label "Visa lista">
 <!ENTITY readMore.label "Läs mer">
 <!ENTITY addGroup.label "Lägg till filtergrupp">
 <!ENTITY addGroup.accesskey "g">
@@ -71,7 +73,7 @@
 <!ENTITY backupButton.label "Säkerhetskopiera och Återställ">
 <!ENTITY backupButton.accesskey "Å">
 <!ENTITY backup.label "Skapa ny säkerhetskopia">
-<!ENTITY restore.default.label "Återställ säkerhetskopia from ?1?">
+<!ENTITY restore.default.label "Återställ säkerhetskopia från ?1?">
 <!ENTITY restore.own.label "Återställ egen säkerhetskopia">
 <!ENTITY backup.complete.title "Alla filter och prenumerationer">
 <!ENTITY backup.custom.title "Endast egna filter">

@@ -8,6 +8,10 @@
 ">
 <!ENTITY noList "Sin lista de filtros">
 <!ENTITY visitHomepage.label "Visitar la página web de la lista">
+<!ENTITY acceptableAds2 "
+ Adblock Plus fue configurado para permitir publicidad no hostigadora.
+">
+<!ENTITY viewList.label "Ver lista">
 <!ENTITY readMore.label "Leer más acerca de esto">
 <!ENTITY listSelection2 "
  Podés cambiar esta selección en cualquier momento, en las [link]Preferencias de filtro[/link].

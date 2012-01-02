@@ -8,6 +8,7 @@
 <!ENTITY filter.label "Penapis">
 <!ENTITY state.label "Keadaan">
 <!ENTITY size.label "Saiz">
+<!ENTITY filterSource.label "Sumber penapis">
 <!ENTITY docDomain.label "Sumber dokumen">
 <!ENTITY docDomain.thirdParty "(pihak ketiga)">
 <!ENTITY docDomain.firstParty "(pihak pertama)">

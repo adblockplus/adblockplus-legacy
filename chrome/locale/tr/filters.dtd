@@ -32,7 +32,9 @@
 <!ENTITY subscription.showHideFilters.label "Süzgeçleri göster/gizle">
 <!ENTITY subscription.moveUp.label "Yukarıya taşı">
 <!ENTITY subscription.moveDown.label "Aşağıya taşı">
+<!ENTITY acceptableAds2.label "Rahatsız etmeyen bazı reklamlara izin ver">
 <!ENTITY acceptableAds2.accesskey "i">
+<!ENTITY viewList.label "Listeye bak">
 <!ENTITY readMore.label "Daha fazla bilgi al">
 <!ENTITY addGroup.label "Süzgeç öbeği ekle">
 <!ENTITY addGroup.accesskey "z">

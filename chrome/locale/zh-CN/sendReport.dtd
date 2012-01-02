@@ -44,7 +44,7 @@
 <!ENTITY reloadButton.label "重新载入页面">
 <!ENTITY reloadButton.accesskey "R">
 <!ENTITY screenshot.heading "附加截图">
-<!ENTITY screenshot.description "同样的页面，不同的人可能见到的并不同。如果您在报告中附加了截图，它可能帮助我们了解问题。您可以移除敏感信息的区域也可以标记出问题区域。点击相应的按钮并用鼠标在图片上选择区域即可。nnnclick the corresponding button and select a section of the image with your mouse.">
+<!ENTITY screenshot.description "同样的页面，不同的人可能见到的并不同。如果您在报告中附加了截图，它可能帮助我们了解问题。您可以移除敏感信息的区域也可以标记出问题区域。点击相应的按钮并用鼠标在图片上选择区域即可。">
 <!ENTITY screenshot.attach.label "为报告附加页面图片">
 <!ENTITY screenshot.attach.accesskey "t">
 <!ENTITY screenshot.mark.label "标记问题">
@@ -71,7 +71,7 @@
 <!ENTITY sendPage.waitMessage "Adblock Plus 正在提交您的报告，请稍等。">
 <!ENTITY sendPage.confirmation "您的报告已保存。您可以通过如下地址访问：">
 <!ENTITY sendPage.knownIssue "您提交的问题可能是个已知问题。详情：">
-<!ENTITY sendPage.errorMessage "发送报告失败，错误码 &quot;?1?&quot;。 请确保您已连接互联网并重试。如果问题依旧，请到 [link]Adblock Plus forum[/link] 寻求帮助。 nnn	An attempt to send the report failed with error code &quot;?1?&quot;. Please ensure you arenn	connected to the Internet and retry. If the problem persists please requestnn	assistance in the [link]Adblock Plus forum[/link].">
+<!ENTITY sendPage.errorMessage "发送报告失败，错误码 &quot;?1?&quot;。 请确保您已连接互联网并重试。如果问题依旧，请到 [link]Adblock Plus forum[/link] 寻求帮助。">
 <!ENTITY sendPage.retry.label "再次发送">
 <!ENTITY copyLink.label "复制报告链接">
 <!ENTITY copyLink.accesskey "C">

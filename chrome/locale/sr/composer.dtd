@@ -29,7 +29,7 @@
 <!ENTITY options.label "Опције">
 <!ENTITY domainRestriction.label "Ограничи на домен:">
 <!ENTITY domainRestriction.accesskey "д">
-<!ENTITY domainRestriction.help "Наведите један или више домена раздвојених знаком &quot;|&quot;.nnnФилтер ће бити употребљен једино за ове домене.nnЗнак &quot;~&quot; испред домена значи да ће домен бити изузет од филтрирања.">
+<!ENTITY domainRestriction.help "Наведите један или више домена раздвојених знаком &quot;|&quot;. Филтер ће бити употребљен једино за ове домене. Знак &quot;~&quot; испред домена значи да ће домен бити изузет од филтрирања.">
 <!ENTITY firstParty.label "Само са ове адресе">
 <!ENTITY firstParty.accesskey "в">
 <!ENTITY thirdParty.label "Само са других адреса">

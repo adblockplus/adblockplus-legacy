@@ -12,8 +12,8 @@
 <!ENTITY sidebar.title "פריטים לחסימה בעמוד הנוכחי">
 <!ENTITY sendReport.label "דיווח בעיות בעמוד זה">
 <!ENTITY sendReport.accesskey "ד">
-<!ENTITY filters.label "הגדרות מסנן מתקדמות">
-<!ENTITY filters.accesskey "מ">
+<!ENTITY filters.label "העדפות סינון">
+<!ENTITY filters.accesskey "ע">
 <!ENTITY opensidebar.label "פתיחת רשימת הפריטים לחסימה">
 <!ENTITY opensidebar.accesskey "פ">
 <!ENTITY closesidebar.label "סגירת הרשימה של הפריטים לחסימה">

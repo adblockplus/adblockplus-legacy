@@ -8,6 +8,7 @@
 <!ENTITY filter.label "Фильтр">
 <!ENTITY state.label "Күйі">
 <!ENTITY size.label "Көлемі">
+<!ENTITY filterSource.label "Фильтр көзі">
 <!ENTITY docDomain.label "Құжат көзі">
 <!ENTITY docDomain.thirdParty "(үшінші жақты)">
 <!ENTITY docDomain.firstParty "(бірінші жақты)">

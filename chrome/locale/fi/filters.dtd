@@ -8,8 +8,8 @@
 <!ENTITY addSubscriptionOther.label "Lisää jokin muu tilaus">
 <!ENTITY noSubscriptions.text "
  Suodatintilauksia ei ole vielä lisätty. Adblock Plus ei estä mitään
-ilman suodattimia. Käytä &quot;Lisää suodatintilaus&quot; -painiketta lisätäksesi 
-joitakin.
+ ilman suodattimia. Käytä &quot;Lisää suodatintilaus&quot; -painiketta lisätäksesi 
+ joitakin.
 ">
 <!ENTITY subscription.homepage.label "Kotisivu">
 <!ENTITY subscription.external.label "Toisen laajennuksen päivättävä">
@@ -33,7 +33,9 @@ joitakin.
 <!ENTITY subscription.showHideFilters.label "Näytä/piilota suodattimet">
 <!ENTITY subscription.moveUp.label "Siirrä ylös">
 <!ENTITY subscription.moveDown.label "Siirrä alas">
+<!ENTITY acceptableAds2.label "Salli osa ei-häiritsevästä mainonnasta">
 <!ENTITY acceptableAds2.accesskey "a">
+<!ENTITY viewList.label "Näytä lista">
 <!ENTITY readMore.label "Lue lisää">
 <!ENTITY addGroup.label "Lisää suodatinryhmä">
 <!ENTITY addGroup.accesskey "s">
@@ -82,7 +84,7 @@ joitakin.
 <!ENTITY backup.complete.title "Kaikki suodattimet ja tilaukset">
 <!ENTITY backup.custom.title "Vain omat suodattimet">
 <!ENTITY backup.error "Tapahtui virhe kirjoitettaessa suodattimia tiedostoon. Varmista että tiedosto ei ole kirjoitussuojattu tai jonkin muun ohjelman käytössä.">
-<!ENTITY restore.error "Tiedoston tietoja ei voida prosessoida. Ehkä tämä ei ole Adblock Plus -varmuuskopiotiedosto?">
+<!ENTITY restore.error "Tiedoston tietoja ei voida käsitellä. Ehkä tämä ei ole Adblock Plus -varmuuskopiotiedosto?">
 <!ENTITY restore.complete.warning "Kaikki suodatinasetukset korvataan valitun tiedoston sisällöllä. Haluatko varmasti jatkaa?">
 <!ENTITY restore.custom.warning "Kaikki omat suodattimet korvataan valitun tiedoston sisällöllä. Haluatko varmasti jatkaa?">
 <!ENTITY restore.minVersion.warning "Varoitus: tiedosto on luotu uudemmalla Adblock Plussan versiolla. Ennen kuin palautat tästä tiedostosta, on suositeltavaa päivittää uusimpaan Adblock Plussan versioon.">

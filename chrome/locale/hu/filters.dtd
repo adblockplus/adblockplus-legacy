@@ -6,9 +6,7 @@
 <!ENTITY addSubscriptionAdd.label "Hozzáadás">
 <!ENTITY addSubscriptionCancel.label "Mégse">
 <!ENTITY addSubscriptionOther.label "Külső szűrő hozzáadása">
-<!ENTITY noSubscriptions.text "
- Nincs felvéve egyetlen külső szűrőt sem. Az Adblock Plus nem fog semmit szűrni szűrők nélkül. Kérem használja a &quot;Külső szűrő felvétele&quot; funkciót új szűrők felvételéhez.
-">
+<!ENTITY noSubscriptions.text "Nincs felvéve egyetlen külső szűrőt sem. Az Adblock Plus nem fog semmit szűrni szűrők nélkül. Kérem használja a &quot;Külső szűrő felvétele&quot; funkciót új szűrők felvételéhez.">
 <!ENTITY subscription.homepage.label "Honlap">
 <!ENTITY subscription.external.label "Másik kiterjesztés frissíti">
 <!ENTITY subscription.source.label "Szűrő lista">
@@ -31,13 +29,13 @@
 <!ENTITY subscription.showHideFilters.label "Szűrők megjelenítése/elrejtése">
 <!ENTITY subscription.moveUp.label "Mozgatás fel">
 <!ENTITY subscription.moveDown.label "Mozgatás le">
+<!ENTITY acceptableAds2.label "Néhány nem tolakodó hirdetés engedélyezése">
 <!ENTITY acceptableAds2.accesskey "t">
+<!ENTITY viewList.label "Lista megtekintése">
 <!ENTITY readMore.label "Mi ez?">
 <!ENTITY addGroup.label "Szűrő csoport felvétele">
 <!ENTITY addGroup.accesskey "c">
-<!ENTITY noFilters.text "
- Nincsenek saját szűrők.
-">
+<!ENTITY noFilters.text "Nincsenek saját szűrők.">
 <!ENTITY addFilter.label "Szűrő hozzáadása">
 <!ENTITY addFilter.accesskey "H">
 <!ENTITY filter.actions.label "Szűrő műveletek">
