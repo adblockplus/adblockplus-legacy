@@ -12,6 +12,8 @@
 <!ENTITY sidebar.title "Ағымдағы парақ құрамасы">
 <!ENTITY sendReport.label "Бұл парақтағы мәселе туралы хабарлау">
 <!ENTITY sendReport.accesskey "х">
+<!ENTITY filters.label "Фильтр баптаулары">
+<!ENTITY filters.accesskey "р">
 <!ENTITY opensidebar.label "Блокталған құраманы ашу">
 <!ENTITY opensidebar.accesskey "у">
 <!ENTITY closesidebar.label "Блокталған құраманы жабу">
@@ -21,12 +23,19 @@
 <!ENTITY disable.label "Әр жерде сөндіру">
 <!ENTITY options.label "Баптаулар">
 <!ENTITY options.accesskey "Б">
+<!ENTITY contribute.label "Adblock Plus-қа үлес қосу">
 <!ENTITY showintoolbar.label "Панельде көрсету">
 <!ENTITY showintoolbar.accesskey "П">
 <!ENTITY showinstatusbar.label "Қалып-күй жолағында көрсету">
 <!ENTITY showinstatusbar.accesskey "к">
+<!ENTITY showinaddonbar.label "Қосымшалар панелінде көрсету">
+<!ENTITY showinaddonbar.accesskey "е">
 <!ENTITY objecttabs.label "Flash пен Java-ға сілтеме қалдыру">
 <!ENTITY objecttabs.accesskey "д">
+<!ENTITY hideplaceholders.label "Блокталған элементтер шектерін жасыру">
+<!ENTITY hideplaceholders.accesskey "ш">
+<!ENTITY counthits.label "Фильтрлер хиттерін санау">
+<!ENTITY counthits.accesskey "и">
 <!ENTITY sync.label "Adblock Plus баптауларын Sync ішіне қосу">
 <!ENTITY sync.accesskey "ш">
 <!ENTITY objecttab.title "Блоктау">

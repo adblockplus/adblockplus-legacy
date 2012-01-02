@@ -29,7 +29,9 @@
 <!ENTITY subscription.showHideFilters.label "Exibir/ocultar filtros">
 <!ENTITY subscription.moveUp.label "Para cima">
 <!ENTITY subscription.moveDown.label "Para baixo">
+<!ENTITY acceptableAds2.label "Permitir algumas propagandas não-invasivas">
 <!ENTITY acceptableAds2.accesskey "P">
+<!ENTITY viewList.label "Ver lista">
 <!ENTITY readMore.label "Saiba mais">
 <!ENTITY addGroup.label "Adicionar grupo de filtros">
 <!ENTITY addGroup.accesskey "g">

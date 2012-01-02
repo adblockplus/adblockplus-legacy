@@ -6,7 +6,7 @@
 <!ENTITY addSubscriptionAdd.label "追加">
 <!ENTITY addSubscriptionCancel.label "キャンセル">
 <!ENTITY addSubscriptionOther.label "他のフィルタ購読を追加">
-<!ENTITY noSubscriptions.text "まだフィルタ購読が追加されていません。Adblock Plus はフィルタなしでは何もブロックしないので &quot;フィルタ購読を追加&quot; して下さい。">
+<!ENTITY noSubscriptions.text "まだフィルタ購読が追加されていません。Adblock Plus はフィルタなしでは何もブロックしないので「フィルタ購読を追加」してください。">
 <!ENTITY subscription.homepage.label "ホームページ">
 <!ENTITY subscription.external.label "他の拡張により更新">
 <!ENTITY subscription.source.label "フィルタリスト">
@@ -19,7 +19,7 @@
 <!ENTITY subscription.lastDownload.invalidData "更新失敗:フィルタリスト無効">
 <!ENTITY subscription.lastDownload.checksumMismatch "更新失敗:チェックサム不一致">
 <!ENTITY subscription.lastDownload.success "更新成功">
-<!ENTITY subscription.minVersion.warning "このフィルタ購読は新バージョンの Adblock Plus を要求しているので、最新の Adblock Plus に更新して下さい。">
+<!ENTITY subscription.minVersion.warning "このフィルタ購読は新バージョンの Adblock Plus を要求しているので、最新の Adblock Plus に更新してください。">
 <!ENTITY subscription.disabledFilters.warning "フィルタ購読の一部が無効化されました">
 <!ENTITY subscription.disabledFilters.enable "無効フィルタを有効化">
 <!ENTITY subscription.actions.label "アクション">
@@ -29,8 +29,10 @@
 <!ENTITY subscription.showHideFilters.label "フィルタを表示／非表示">
 <!ENTITY subscription.moveUp.label "上に移動">
 <!ENTITY subscription.moveDown.label "下に移動">
+<!ENTITY acceptableAds2.label "控えめな広告を許可">
 <!ENTITY acceptableAds2.accesskey "i">
-<!ENTITY readMore.label "詳細">
+<!ENTITY viewList.label "設定内容を参照">
+<!ENTITY readMore.label "更に詳しい説明">
 <!ENTITY addGroup.label "フィルタグループを追加">
 <!ENTITY addGroup.accesskey "g">
 <!ENTITY noFilters.text "まだ自作フィルタはありません。">
@@ -65,7 +67,7 @@
 <!ENTITY sort.ascending.accesskey "A">
 <!ENTITY sort.descending.label "Z &gt; A 順にソート">
 <!ENTITY sort.descending.accesskey "Z">
-<!ENTITY noGroupSelected.text "フィルタを表示するには、まずフィルタグループを選択して下さい">
+<!ENTITY noGroupSelected.text "フィルタを表示するには、まずフィルタグループを選択してください">
 <!ENTITY noFiltersInGroup.text "選択されたグループは空">
 <!ENTITY filters.remove.warning "選択したフィルタを本当に削除しますか？">
 <!ENTITY backupButton.label "バックアップと復元">
@@ -75,11 +77,11 @@
 <!ENTITY restore.own.label "バックアップファイルを指定">
 <!ENTITY backup.complete.title "自作フィルタとフィルタ購読">
 <!ENTITY backup.custom.title "自作フィルタのみ">
-<!ENTITY backup.error "ファイル出力エラー。ファイル書き込み禁止／他のアプリケーションで使用中 となっていないか確認して下さい。">
+<!ENTITY backup.error "ファイル出力エラー。ファイル書き込み禁止／他のアプリケーションで使用中 となっていないか確認してください。">
 <!ENTITY restore.error "指定ファイルから復元できませんでした。このファイルは Adblock Plus のバックアップでないのでは？">
 <!ENTITY restore.complete.warning "全てのフィルタ設定は指定ファイル内容で置換されます。よろしいですか？">
 <!ENTITY restore.custom.warning "全ての自作フィルタは指定ファイル内容で置換されます。よろしいですか？">
-<!ENTITY restore.minVersion.warning "警告：このファイルは新しいバージョンの Adblock Plus で作成されています。まず先に Adblock Plus を最新版に更新して下さい。">
+<!ENTITY restore.minVersion.warning "警告：このファイルは新しいバージョンの Adblock Plus で作成されています。まず先に Adblock Plus を最新版に更新してください。">
 <!ENTITY find.label "検索">
 <!ENTITY find.accesskey "n">
 <!ENTITY close.label "閉じる">

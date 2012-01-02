@@ -1,9 +1,10 @@
 <!ENTITY dialog.title "Installationen av Adblock Plus har slutförts">
-<!ENTITY confirmation "Tack för att du installerar Adblock Plus. Från och med nu kan du börja blockera reklam.
-Mycket nöje!">
+<!ENTITY confirmation "Tack för att du installerar Adblock Plus. Från och med nu kan du börja blockera reklam. Mycket nöje!">
 <!ENTITY advancedSection "Avancerade alternativ">
 <!ENTITY listSelection1 "Följande filterlista har konfigurerats för att blockera reklam:">
 <!ENTITY noList "Ingen filterlista">
 <!ENTITY visitHomepage.label "Gå till listans webbplats">
+<!ENTITY acceptableAds2 "Adblock Plus har även konfigurerats att tillåta viss icke-störande reklam.">
+<!ENTITY viewList.label "Visa lista">
 <!ENTITY readMore.label "Läs mer om det här">
 <!ENTITY listSelection2 "Du kan ändra detta val närsomhelst i [link]filterinställningarna[/link].">

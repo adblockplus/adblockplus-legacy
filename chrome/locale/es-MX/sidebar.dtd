@@ -21,14 +21,14 @@
 <!ENTITY tooltip.size.label "Tamaño:">
 <!ENTITY tooltip.docDomain.label "Fuente del Documento:">
 <!ENTITY tooltip.filter.label "Filtro en uso:">
-<!ENTITY tooltip.filter.disabled "(deshabilitado)">
+<!ENTITY tooltip.filter.disabled "(desactivado)">
 <!ENTITY tooltip.filterSource.label "Fuente del filtro:">
 <!ENTITY context.block.label "Bloquear este elemento">
 <!ENTITY context.editfilter.label "Editar filtro en uso">
 <!ENTITY context.whitelist.label "Agregar una regla de excepción para el elemento">
-<!ENTITY context.disablefilter.label "Deshabilitar filtro ?1?">
+<!ENTITY context.disablefilter.label "Desactivar filtro ?1?">
 <!ENTITY context.enablefilter.label "Re-Habilitar filtro ?1?">
-<!ENTITY context.disablefilteronsite.label "Deshabilitar este filtro en ?1?">
+<!ENTITY context.disablefilteronsite.label "Desactivar este filtro en ?1?">
 <!ENTITY context.open.label "Abrir en Nueva Pestaña">
 <!ENTITY context.flash.label "Elementos flash en bordes">
 <!ENTITY context.copy.label "Copiar dirección de elementos">

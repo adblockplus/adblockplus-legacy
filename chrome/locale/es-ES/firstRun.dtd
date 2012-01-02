@@ -4,5 +4,7 @@
 <!ENTITY listSelection1 "Para bloquear la publicidad se ha configurado la siguiente lista de filtros:">
 <!ENTITY noList "No hay lista de filtros">
 <!ENTITY visitHomepage.label "Visitar la página de la lista">
+<!ENTITY acceptableAds2 "Se ha configurado Adblock Plus para permitir cierta publicidad no intrusiva.">
+<!ENTITY viewList.label "Ver lista">
 <!ENTITY readMore.label "Leer más al respecto">
 <!ENTITY listSelection2 "Puede cambiar esta selección en cualquier momento en las [link]Preferencias de filtros[/link]">

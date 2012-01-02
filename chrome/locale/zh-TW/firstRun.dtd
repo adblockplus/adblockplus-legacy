@@ -1,13 +1,10 @@
 <!ENTITY dialog.title "Adblock Plus 安裝完成">
-<!ENTITY confirmation "
- 感謝您安裝 Adblock Plus。從現在起廣告都會被過濾。
- 好好享受吧！">
+<!ENTITY confirmation "感謝您安裝 Adblock Plus。從現在起廣告都會被過濾。好好享受吧！">
 <!ENTITY advancedSection "進階選項">
-<!ENTITY listSelection1 "
- 以下過濾條件集已設定用來阻擋廣告：
-">
+<!ENTITY listSelection1 "以下過濾條件集已設定用來阻擋廣告：">
 <!ENTITY noList "沒有過濾條件集">
 <!ENTITY visitHomepage.label "造訪條件集首頁">
+<!ENTITY acceptableAds2 "Adblock Plus 已設定為允許部分的非侵入式廣告。">
+<!ENTITY viewList.label "檢視列表">
 <!ENTITY readMore.label "了解詳細內容">
-<!ENTITY listSelection2 "
- 您可以隨時在[link]條件偏好設定[/link]中改變這個選項。">
+<!ENTITY listSelection2 "您可以隨時在[link]條件偏好設定[/link]中改變這個選項。">

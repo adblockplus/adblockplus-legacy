@@ -12,21 +12,30 @@
 <!ENTITY sidebar.title "Item yang boleh disekat pada laman semasa">
 <!ENTITY sendReport.label "Lapor isu pada laman ini">
 <!ENTITY sendReport.accesskey "L">
+<!ENTITY filters.label "Tatarajah penapis">
+<!ENTITY filters.accesskey "T">
 <!ENTITY opensidebar.label "Buka item yang boleh disekat">
-<!ENTITY opensidebar.accesskey "B">
+<!ENTITY opensidebar.accesskey "i">
 <!ENTITY closesidebar.label "Tutup item yang boleh disekat">
-<!ENTITY closesidebar.accesskey "B">
+<!ENTITY closesidebar.accesskey "i">
 <!ENTITY whitelist.site.label "Nyahaktifkan pada ?1?">
 <!ENTITY whitelist.page.label "Nyahaktifkan pada laman ini sahaja">
 <!ENTITY disable.label "Nyahaktif di semua tempat">
 <!ENTITY options.label "Pilihan">
 <!ENTITY options.accesskey "n">
+<!ENTITY contribute.label "Sumbang kepada Adblock Plus">
 <!ENTITY showintoolbar.label "Paparkan di bar alatan">
-<!ENTITY showintoolbar.accesskey "n">
+<!ENTITY showintoolbar.accesskey "r">
 <!ENTITY showinstatusbar.label "Paparkan di bar status">
 <!ENTITY showinstatusbar.accesskey "s">
+<!ENTITY showinaddonbar.label "Paparkan di bar add-on">
+<!ENTITY showinaddonbar.accesskey "r">
 <!ENTITY objecttabs.label "Paparkan tab pada Flash dan Java">
 <!ENTITY objecttabs.accesskey "t">
+<!ENTITY hideplaceholders.label "Sembunyikan placeholders elemen tersembunyi">
+<!ENTITY hideplaceholders.accesskey "y">
+<!ENTITY counthits.label "Kira kiraan penapis">
+<!ENTITY counthits.accesskey "K">
 <!ENTITY sync.label "Sync tatacara Adblock Plus">
 <!ENTITY sync.accesskey "c">
 <!ENTITY objecttab.title "Sekat">

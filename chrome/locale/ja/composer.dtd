@@ -14,7 +14,7 @@
 <!ENTITY type.whitelist.accesskey "x">
 <!ENTITY pattern.label "パターンを探す">
 <!ENTITY pattern.explanation "パターンとはアドレスの任意の一部のことです。アスタリスク（＊）をワイルドカードとして使用することもできます。フィルタはパターンに一致するアドレスにのみ適用されます。">
-<!ENTITY regexp.warning "入力されたパターンは Adblock Plus が効率よく処理できず、ブラウジング速度低下の原因になる正規表現として解釈されています。もし、正規表現の使用を意図していなかった場合はパターン末尾にアスタリスク（＊）を追加して回避策を講じて下さい。">
+<!ENTITY regexp.warning "入力されたパターンは Adblock Plus が効率よく処理できず、ブラウジング速度低下の原因になる正規表現として解釈されています。もし、正規表現の使用を意図していなかった場合はパターン末尾にアスタリスク（＊）を追加して回避策を講じてください。">
 <!ENTITY shortpattern.warning "入力したパターンが短過ぎる為に最適化できず、ブラウジング速度が低下することがあります。Adblock Plus で効率的に処理するためには、より長い文字列を選ぶことが推奨されます">
 <!ENTITY match.warning "入力したパターンはアドレスに一致しないので意味がありません">
 <!ENTITY custom.pattern.label "自作:">
@@ -29,7 +29,7 @@
 <!ENTITY options.label "オプション">
 <!ENTITY domainRestriction.label "ドメイン制限:">
 <!ENTITY domainRestriction.accesskey "d">
-<!ENTITY domainRestriction.help "フィルタ適用対象のドメインを限定することができます。複数指定したい場合は縦線（｜）で分けて下さい。ドメイン名の前にチルダ（～）を置くと、条件を反転（否定条件）させることができます">
+<!ENTITY domainRestriction.help "フィルタ適用対象のドメインを限定することができます。複数指定したい場合は縦線（｜）で分けてください。ドメイン名の前にチルダ（～）を置くと、条件を反転（否定条件）させることができます">
 <!ENTITY firstParty.label "ファーストパーティ限定">
 <!ENTITY firstParty.accesskey "r">
 <!ENTITY thirdParty.label "サードパーティ限定">

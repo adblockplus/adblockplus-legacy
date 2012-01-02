@@ -30,7 +30,7 @@
 <!ENTITY context.enablefilter.label "重新啟用過濾條件 ?1?">
 <!ENTITY context.disablefilteronsite.label "在 ?1? 停用此過濾條件">
 <!ENTITY context.open.label "於新分頁開啟">
-<!ENTITY context.flash.label "Flash 物件框線">
+<!ENTITY context.flash.label "閃爍物件邊框">
 <!ENTITY context.copy.label "複製項目位址">
 <!ENTITY context.copyFilter.label "複製過濾條件">
 <!ENTITY context.selectAll.label "全選">

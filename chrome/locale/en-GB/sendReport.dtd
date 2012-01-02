@@ -3,10 +3,10 @@
 <!ENTITY dataCollector.heading "Welcome to the issue reporter">
 <!ENTITY dataCollector.description "Please wait a few moments while Adblock Plus gathers the required data.">
 <!ENTITY typeSelector.heading "Select issue type">
-<!ENTITY typeSelector.description "This window will guide you through the steps required for the submission of an Adblocknnn	Plus issue report. First, please select the type of issue that you are experiencingnn	on this page:">
+<!ENTITY typeSelector.description "This window will guide you through the steps required for the submission of an Adblock Plus issue report. First, please select the type of issue that you are experiencing on this page:">
 <!ENTITY typeSelector.falsePositive.label "Adblock Plus is blocking too much">
 <!ENTITY typeSelector.falsePositive.accesskey "m">
-<!ENTITY typeSelector.falsePositive.description "Select this option if the page lacks important content, displays incorrectly ornnn	fails to function properly. You can determine whether Adblock Plus is the causenn	of the problem by disabling it temporarily.">
+<!ENTITY typeSelector.falsePositive.description "Select this option if the page lacks important content, displays incorrectly or fails to function properly. You can determine whether Adblock Plus is the cause of the problem by disabling it temporarily.">
 <!ENTITY typeSelector.falseNegative.label "Adblock Plus doesn't block an advertisement">
 <!ENTITY typeSelector.falseNegative.accesskey "v">
 <!ENTITY typeSelector.falseNegative.description "Select this option if an advertisement is displayed despite Adblock Plus being enabled.">
@@ -27,22 +27,22 @@
 <!ENTITY issues.nosubscriptions.add.label "Add filter subscription">
 <!ENTITY issues.subscriptionCount.description "It seems that you are subscribed to too many filter subscriptions. This setup is not recommended because it will make the likeliness of issues much higher. We also cannot accept your issue report because it is unclear which filter subscription author needs to take action. Please remove all but the really necessary filter subscriptions and test whether the issue still occurs then.">
 <!ENTITY issues.openPreferences.label "Open filter preferences">
-<!ENTITY issues.ownfilters.description "Some of the filters applied on this page are user-defined. Please disablennn	the filters that might have caused the issue:">
+<!ENTITY issues.ownfilters.description "Some of the filters applied on this page are user-defined. Please disable the filters that might have caused the issue:">
 <!ENTITY issues.ownfilters.disable.label "Disable filter">
-<!ENTITY issues.disabledgroups.description "The following filter subscriptions / filter groups are disabled, yet they might havennn	an effect on this page:">
+<!ENTITY issues.disabledgroups.description "The following filter subscriptions / filter groups are disabled, yet they might have an effect on this page:">
 <!ENTITY issues.disabledgroups.enable.label "Enable filter subscription / filter group">
 <!ENTITY issues.disabledfilters.description "The following filters are disabled, yet they might have an effect on this page:">
 <!ENTITY issues.disabledfilters.enable.label "Enable filter">
 <!ENTITY issues.override.label "The configuration is correct, continue with the report">
 <!ENTITY issues.override.accesskey "c">
 <!ENTITY issues.change.description "Your configuration has been changed. Please reload the page to test the changes and submit a report if the issue hasn't been resolved by the alterations.">
-<!ENTITY typeWarning.description "You have indicated that you want to report a general issue with Adblock Plus rathernnn	than a problem with the filters. Please note that such issues are best reportednn	in the [link]Adblock Plus forum[/link]. You should only use the issue reporter tonn	supplement an existing discussion, as nobody will notice your reportnn	unless you provide them with the link to it. The automatically generated linknn	will be provided after submitting the report.">
+<!ENTITY typeWarning.description "You have indicated that you want to report a general issue with Adblock Plus rather than a problem with the filters. Please note that such issues are best reported in the [link]Adblock Plus forum[/link]. You should only use the issue reporter to supplement an existing discussion, as nobody will notice your report unless you provide them with the link to it. The automatically generated link will be provided after submitting the report.">
 <!ENTITY typeWarning.override.label "I understand and want to submit the report anyway">
 <!ENTITY typeWarning.override.accesskey "s">
 <!ENTITY reloadButton.label "Reload page">
 <!ENTITY reloadButton.accesskey "R">
 <!ENTITY screenshot.heading "Attach screenshot">
-<!ENTITY screenshot.description "The same page can look different for different people. It may help us tonnn	understand the problem if you attach a screenshot to your report. You can removenn	sections containing sensitive information as well as mark areas where thenn	problem is noticeable. To do that click the corresponding button and selectnn	a section of the image with your mouse.">
+<!ENTITY screenshot.description "The same page can look different for different people. It may help us to understand the problem if you attach a screenshot to your report. You can remove sections containing sensitive information as well as mark areas where the problem is noticeable. To do that click the corresponding button and select a section of the image with your mouse.">
 <!ENTITY screenshot.attach.label "Attach a page image to the report">
 <!ENTITY screenshot.attach.accesskey "t">
 <!ENTITY screenshot.mark.label "Mark the problem">
@@ -52,7 +52,7 @@
 <!ENTITY screenshot.undo.label "Undo">
 <!ENTITY screenshot.undo.accesskey "U">
 <!ENTITY commentPage.heading "Enter comment">
-<!ENTITY commentPage.description "The text field below allows you to enter a comment to help us understand the issue.nnn	This step is optional but recommended if the problem isn't obvious.nn	You can also review the report data before it is sent.">
+<!ENTITY commentPage.description "The text field below allows you to enter a comment to help us understand the issue. This step is optional but recommended if the problem isn't obvious. You can also review the report data before it is sent.">
 <!ENTITY comment.label "Comment (optional):">
 <!ENTITY comment.accesskey "C">
 <!ENTITY comment.lengthWarning "The length of your comment exceeds 1000 characters. Only the first 1000 characters will be sent.">
@@ -69,7 +69,7 @@
 <!ENTITY sendPage.waitMessage "Please wait while Adblock Plus is submitting your report.">
 <!ENTITY sendPage.confirmation "Your report has been saved. You can access it at the following address:">
 <!ENTITY sendPage.knownIssue "The issue you reported is probably already known. More information:">
-<!ENTITY sendPage.errorMessage "An attempt to send the report failed with error code &quot;?1?&quot;. Please ensure you arennn	connected to the Internet and retry. If the problem persists please requestnn	assistance in the [link]Adblock Plus forum[/link].">
+<!ENTITY sendPage.errorMessage "An attempt to send the report failed with error code &quot;?1?&quot;. Please ensure you are connected to the Internet and retry. If the problem persists please request assistance in the [link]Adblock Plus forum[/link].">
 <!ENTITY sendPage.retry.label "Send again">
 <!ENTITY copyLink.label "Copy report link">
 <!ENTITY copyLink.accesskey "C">

@@ -12,6 +12,7 @@
 <!ENTITY sidebar.title "Elements bloquejables a la pàgina actual">
 <!ENTITY sendReport.label "Informa sobre la pàgina">
 <!ENTITY sendReport.accesskey "I">
+<!ENTITY filters.label "Preferències del filtre">
 <!ENTITY filters.accesskey "F">
 <!ENTITY opensidebar.label "Obre elements bloquejables">
 <!ENTITY opensidebar.accesskey "B">
@@ -22,14 +23,18 @@
 <!ENTITY disable.label "Deshabilita-ho a tots llocs">
 <!ENTITY options.label "Opcions">
 <!ENTITY options.accesskey "O">
+<!ENTITY contribute.label "Contribueix a Adblock Plus">
 <!ENTITY showintoolbar.label "Mostra a la barra d&apos;eines">
 <!ENTITY showintoolbar.accesskey "B">
 <!ENTITY showinstatusbar.label "Mostra a la barra d&apos;estat">
 <!ENTITY showinstatusbar.accesskey "S">
+<!ENTITY showinaddonbar.label "Mostra'l a la barra del complement">
 <!ENTITY showinaddonbar.accesskey "b">
 <!ENTITY objecttabs.label "Mostra les pestanyes a Flash i Java">
 <!ENTITY objecttabs.accesskey "T">
+<!ENTITY hideplaceholders.label "Amaga les localitzacions dels elements bloquejats">
 <!ENTITY hideplaceholders.accesskey "l">
+<!ENTITY counthits.label "Compta els cops que funciona el filtre">
 <!ENTITY counthits.accesskey "h">
 <!ENTITY sync.label "Sincronitza la configuració d'AdBlock Plus">
 <!ENTITY sync.accesskey "c">

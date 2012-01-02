@@ -2,8 +2,8 @@
 <!ENTITY accept.label "Agregar filtro">
 <!ENTITY advanced.label "Vista Avanzada">
 <!ENTITY basic.label "Vista básica">
-<!ENTITY disabled.warning "Adblock Plus se encuentra deshabilitado. Puedes continuar agregando filtros pero no serán aplicados hasta que [link]habilites Adblock Plus[/link].">
-<!ENTITY groupDisabled.warning "El filtro grupal &quot;?1?&quot; al cual este filtro se agregara se encuentra deshabilitado. Puedes continuar agregando filtros pero no serán aplicados hasta que [link]Habilites el grupo de filtros[/link].">
+<!ENTITY disabled.warning "Adblock Plus se encuentra desactivado. Puedes continuar agregando filtros pero no serán aplicados hasta que [link]habilites Adblock Plus[/link].">
+<!ENTITY groupDisabled.warning "El filtro grupal &quot;?1?&quot; al cual este filtro se agregara se encuentra desactivado. Puedes continuar agregando filtros pero no serán aplicados hasta que [link]Habilites el grupo de filtros[/link].">
 <!ENTITY filter.label "Nuevo filtro:">
 <!ENTITY filter.accesskey "N">
 <!ENTITY preferences.label "Mostrar filtros existentes...">

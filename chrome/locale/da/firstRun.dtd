@@ -8,6 +8,10 @@
 ">
 <!ENTITY noList "Ingen filterliste">
 <!ENTITY visitHomepage.label "Besøg listens hjemmeside">
+<!ENTITY acceptableAds2 "
+ Adblock Plus er også indstillettil at tillade upåtrængende annoncering delvist.
+">
+<!ENTITY viewList.label "Vis liste">
 <!ENTITY readMore.label "Lær mere om dette">
 <!ENTITY listSelection2 "
  Du kan altid ændre dette i [link]Filterpræferencer[/link].

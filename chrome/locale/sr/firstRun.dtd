@@ -1,0 +1,18 @@
+<!ENTITY dialog.title "Завршена је инсталација додатка Adblock Plus">
+<!ENTITY confirmation "
+	Хвала што сте инсталирали Adblock Plus. Од сада ће реклами бити блокиране.
+	Уживајте!">
+<!ENTITY advancedSection "Напредне опције">
+<!ENTITY listSelection1 "
+	Следећи списак филтера је подешен за блокирање реклама:
+">
+<!ENTITY noList "Нема списка филтера">
+<!ENTITY visitHomepage.label "Посети матични страницу">
+<!ENTITY acceptableAds2 "
+	Adblock Plus је подешен да дозволи неке ненаметљиве рекламе.
+">
+<!ENTITY viewList.label "Погледај списак">
+<!ENTITY readMore.label "Сазнај више">
+<!ENTITY listSelection2 "
+	Ово увек можете да промените у [link]подешавањима филтера[/link].
+">

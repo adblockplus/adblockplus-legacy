@@ -8,6 +8,10 @@
 ">
 <!ENTITY noList "Hiçbir süzgeç listesi yok">
 <!ENTITY visitHomepage.label "Listenin ana sayfasına git">
+<!ENTITY acceptableAds2 "
+ Adblock Plus rahatsız etmeyen bazı reklamları engellememek üzere de ayarlandı.
+">
+<!ENTITY viewList.label "Listeye bak">
 <!ENTITY readMore.label "Bu konuda daha fazla bilgi al">
 <!ENTITY listSelection2 "
 	Bu tercihi istediğiniz zaman [link]Süzgeç Terhicleri[/link] bölümünde değiştirebilirsiniz.

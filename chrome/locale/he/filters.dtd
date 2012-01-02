@@ -29,7 +29,9 @@
 <!ENTITY subscription.showHideFilters.label "הצגת/הסתרת מסננים">
 <!ENTITY subscription.moveUp.label "הזזה מעלה">
 <!ENTITY subscription.moveDown.label "הזזה מטה">
+<!ENTITY acceptableAds2.label "אפשור קצת פרסום לא פולשני">
 <!ENTITY acceptableAds2.accesskey "פ">
+<!ENTITY viewList.label "הצגת רשימה">
 <!ENTITY readMore.label "לקרוא עוד">
 <!ENTITY addGroup.label "הוספת קבוצת סינון">
 <!ENTITY addGroup.accesskey "צ">

@@ -4,5 +4,7 @@
 <!ENTITY listSelection1 "רשימת מסננים זאת הוגדרה לחסום פרסום:">
 <!ENTITY noList "אין רשימת מסננים">
 <!ENTITY visitHomepage.label "ביקור באתר בית הרשימות">
+<!ENTITY acceptableAds2 "Adblock Plus גם מוגדר לאפשר פרסום לא פולשני.">
+<!ENTITY viewList.label "הצגת רשימה">
 <!ENTITY readMore.label "לקרוא עוד אודות זה">
-<!ENTITY listSelection2 "ניתן לשנות בחירה זו בכל עת על-ידי [link]הגדרות מסנן[/link].">
+<!ENTITY listSelection2 "ניתן לשנות בחירה זו בכל עת על-ידי [link]הגדרות סינון[/link].">

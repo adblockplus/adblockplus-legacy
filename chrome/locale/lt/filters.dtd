@@ -6,7 +6,7 @@
 <!ENTITY addSubscriptionAdd.label "Pridėti">
 <!ENTITY addSubscriptionCancel.label "Atšaukti">
 <!ENTITY addSubscriptionOther.label "Pridėti kitą prenumeratą">
-<!ENTITY noSubscriptions.text "	Kol kas jūs nepridėjote jokių filtrų prenumeratų. Be filtrų Adblock Plus nieko neblokuos, 
+<!ENTITY noSubscriptions.text "  Kol kas jūs nepridėjote jokių filtrų prenumeratų. Be filtrų Adblock Plus nieko neblokuos,
 norėdami pridėti kelis naudokite 
 &quot;Pridėti filtrų prenumeratą&quot;.">
 <!ENTITY subscription.homepage.label "Namų puslapis">
@@ -26,16 +26,18 @@ norėdami pridėti kelis naudokite
 <!ENTITY subscription.disabledFilters.enable "Įjungti išjungtus filtrus">
 <!ENTITY subscription.actions.label "Veiksmai">
 <!ENTITY subscription.update.label "Atnaujinti filtrus">
-<!ENTITY subscription.editTitle.label "Keisti pavadinimą">
+<!ENTITY subscription.editTitle.label "Pervadinti">
 <!ENTITY subscription.delete.label "Ištrinti">
 <!ENTITY subscription.showHideFilters.label "Rodyti/slėpti filtrų taisykles">
 <!ENTITY subscription.moveUp.label "Pakelti aukštyn">
 <!ENTITY subscription.moveDown.label "Perkelti žemyn">
+<!ENTITY acceptableAds2.label "Leisti neįkyrias reklamas">
 <!ENTITY acceptableAds2.accesskey "t">
-<!ENTITY readMore.label "Skaityti daugiau">
+<!ENTITY viewList.label "Peržiūrėti sąrašą">
+<!ENTITY readMore.label "Plačiau">
 <!ENTITY addGroup.label "Pridėti filtrų grupę">
 <!ENTITY addGroup.accesskey "g">
-<!ENTITY noFilters.text "	Kol kas jūs neturite jokių pasirinktinių filtrų.">
+<!ENTITY noFilters.text "  Kol kas jūs neturite jokių pasirinktinių filtrų.">
 <!ENTITY addFilter.label "Pridėti filtrą">
 <!ENTITY addFilter.accesskey "d">
 <!ENTITY filter.actions.label "Filtro veiksmai">

@@ -29,7 +29,9 @@
 <!ENTITY subscription.showHideFilters.label "Wyświetl/ukryj filtry">
 <!ENTITY subscription.moveUp.label "Przenieś w górę">
 <!ENTITY subscription.moveDown.label "Przenieś w dół">
+<!ENTITY acceptableAds2.label "Zezwalaj na nie natrętne reklamy">
 <!ENTITY acceptableAds2.accesskey "T">
+<!ENTITY viewList.label "Zobacz listę">
 <!ENTITY readMore.label "Dowiedz się więcej">
 <!ENTITY addGroup.label "Dodaj grupę filtrów">
 <!ENTITY addGroup.accesskey "G">

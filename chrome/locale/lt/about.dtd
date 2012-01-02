@@ -1,9 +1,9 @@
 <!ENTITY dialog.title "Apie „Adblock Plus“">
 <!ENTITY version.title "Versija">
-<!ENTITY description "	„Adblock Plus“ leidžia jums patiems nuspręsti, ką norite matyti Internete.
+<!ENTITY description "  „Adblock Plus“ leidžia jums patiems nuspręsti, ką norite matyti Internete.
 Jums daugiau nebereikia parsisiųsti visų reklamų ir banerių;
 jei jų nenorite matyti - pašalinkite juos su „Adblock Plus“!">
-<!ENTITY homepage.label "„Adblock Plus“ pradžios tinklalapis:">
+<!ENTITY homepage.label "„Adblock Plus“ tinklalapis:">
 <!ENTITY author.label "Autorius:">
 <!ENTITY contributors.label "Prisidėjo:">
 <!ENTITY subscriptionAuthors.label "Filtro prenumeratos autoriai:">

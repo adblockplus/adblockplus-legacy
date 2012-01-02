@@ -1,0 +1,18 @@
+<!ENTITY dialog.title "Adblock Plus орнату аяқталды">
+<!ENTITY confirmation "
+	Adblock Plus орнатқаныңыз үшін рахмет. Жарнама қазірден бастап-ақ блокталады.
+	Рахат алыңыз!">
+<!ENTITY advancedSection "Кеңейтілген баптаулар">
+<!ENTITY listSelection1 "
+	Жарнаманы блоктау үшін келесі фильтрлер тізімі бапталған:
+">
+<!ENTITY noList "Фильтрлер тізімі жоқ">
+<!ENTITY visitHomepage.label "Тізімнің үй парағын шолу">
+<!ENTITY acceptableAds2 "
+	Сонымен қатар Adblock Plus зиянкес емес жарнаманы көрсетуге бапталған.
+">
+<!ENTITY viewList.label "Тізімді қарау">
+<!ENTITY readMore.label "Бұл туралы көбірек оқу">
+<!ENTITY listSelection2 "
+	Бұл таңдауды сіз кез-келген уақытта [link]Фильтр баптаулары[/link] арқылы түзете аласыз.
+">

@@ -1,9 +1,9 @@
-<!ENTITY dialog.title "Lisää Adblock-suodatusehto">
+<!ENTITY dialog.title "Lisää Adblock Plus -suodatusehto">
 <!ENTITY accept.label "Lisää suodatin">
 <!ENTITY advanced.label "Näytä lisää">
 <!ENTITY basic.label "Näytä vähemmän">
 <!ENTITY disabled.warning "Adblock Plus on tällä hetkellä poistettu käytöstä. Voit silti lisätä suodattimia mutta ne otetaan käyttöön vasta kun, [link]otat Adblockin Plussan käyttöön[/link].">
-<!ENTITY groupDisabled.warning "Suodatinryhmä &quot;?1?&quot;, johon tämä suodatin tulisi lisätä on poistettu käytöstä. Voit silti lisätä tämän suodattimen mutta sitä ei oteta käyttöön ellet [link]ota suodatinryhmää käyttöön[/link].">
+<!ENTITY groupDisabled.warning "Suodatinryhmä &quot;?1?&quot;, johon tämä suodatin tulisi lisätä on poistettu käytöstä. Voit silti lisätä tämän suodattimen mutta sitä ei oteta käyttöön, jos et [link]ota suodatinryhmää käyttöön[/link].">
 <!ENTITY filter.label "Uusi suodatin:">
 <!ENTITY filter.accesskey "U">
 <!ENTITY preferences.label "Näytä nykyiset suodattimet...">
@@ -13,8 +13,8 @@
 <!ENTITY type.whitelist.label "Sallimisehto">
 <!ENTITY type.whitelist.accesskey "S">
 <!ENTITY pattern.label "Merkkijonon löytäminen">
-<!ENTITY pattern.explanation "Merkkijono voi olla mikä tahansa osoitteen osa. Merkki * toimii jokerimerkkinä. Suodatin toimii vain osoitteissa, joita merkkijono vastaa.">
-<!ENTITY regexp.warning "Syöttämäsi merkkijono tulkitaan säännölliseksi lausekkeeksi. Monet säännölliset lausekkeet saattavat hidastaa selailua. Jos tarkoituksena ei ollut käyttää säännöllistä lauseketta, lisää merkki * lauseen loppuun.">
+<!ENTITY pattern.explanation "Merkkijono voi olla mikä tahansa osoitteen osa. Tähtimerkki (*) toimii jokerimerkkinä. Suodatin toimii vain osoitteissa, joita merkkijono vastaa.">
+<!ENTITY regexp.warning "Syöttämäsi merkkijono tulkitaan säännölliseksi lausekkeeksi. Monet säännölliset lausekkeet saattavat hidastaa selailua. Jos tarkoituksena ei ollut käyttää säännöllistä lauseketta, lisää tähtimerkki (*) lauseen loppuun.">
 <!ENTITY shortpattern.warning "Syöttämäsi merkkijono on liian lyhyt optimoitavaksi. Useat tällaiset merkkijonot saattavat hidastaa selailua. On suositeltavaa, että valitset tälle suodattimelle pidemmän merkkijonon.">
 <!ENTITY match.warning "Syöttämäsi merkkijono ei enää täsmää estettävän/sallittavan osoitteen kanssa; se ei vaikuta kyseiseen osoitteeseen.">
 <!ENTITY custom.pattern.label "Oma muokkaus:">

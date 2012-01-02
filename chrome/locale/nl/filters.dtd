@@ -31,7 +31,9 @@ U hebt nog geen filterabonnementen toegevoegd. Adblock Plus blokkeert niets zond
 <!ENTITY subscription.showHideFilters.label "Filters weergeven/verbergen">
 <!ENTITY subscription.moveUp.label "Omhoog">
 <!ENTITY subscription.moveDown.label "Omlaag">
+<!ENTITY acceptableAds2.label "Enkele niet-opdringerige advertenties toestaan">
 <!ENTITY acceptableAds2.accesskey "i">
+<!ENTITY viewList.label "Lijst bekijken">
 <!ENTITY readMore.label "Lees meer">
 <!ENTITY addGroup.label "Filtergroep toevoegen">
 <!ENTITY addGroup.accesskey "g">

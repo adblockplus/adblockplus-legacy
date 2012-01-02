@@ -8,6 +8,10 @@
 ">
 <!ENTITY noList "Enginn síulisti">
 <!ENTITY visitHomepage.label "Heimsækja heimasíðu lista">
+<!ENTITY acceptableAds2 "
+	Adblock Plus hefur verið stilltur til að leyfa auglýsingar sem eru ekki uppáþrengjandi.
+">
+<!ENTITY viewList.label "Skoða lista">
 <!ENTITY readMore.label "Lesa meira um þetta">
 <!ENTITY listSelection2 "
 	Þú getur breytt þessari stillingu hvenær sem er í [link]Síu stillingum[/link].

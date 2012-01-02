@@ -1,0 +1,10 @@
+<!ENTITY dialog.title "Instalasi Adblock Plus selesai">
+<!ENTITY confirmation "Terima kasih kerana menginstal Adblock Plus. Iklan akan ditapis mulai sekarang! Nikmatinya!">
+<!ENTITY advancedSection "Pilihan lanjutan">
+<!ENTITY listSelection1 "Senarai penapis ini telah dikonfigurasi untuk menapis iklan:">
+<!ENTITY noList "Tiada senarai penapis">
+<!ENTITY visitHomepage.label "Lawat laman rumah senarai">
+<!ENTITY acceptableAds2 "Adblock Plus telah dikonfigurasi untuk membenarkan sesetengah iklan.">
+<!ENTITY viewList.label "Lihat senarai">
+<!ENTITY readMore.label "Baca lebih lanjut mengenai ini">
+<!ENTITY listSelection2 "Anda boleh mengubah pilihan ini pada bila-bila masa di dalam [link]Tatarajah Penapis[/link]">

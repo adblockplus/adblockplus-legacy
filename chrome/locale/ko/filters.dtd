@@ -6,10 +6,7 @@
 <!ENTITY addSubscriptionAdd.label "추가">
 <!ENTITY addSubscriptionCancel.label "취소">
 <!ENTITY addSubscriptionOther.label "다른 구독 필터 추가 (F)">
-<!ENTITY noSubscriptions.text "
-	구독 필터를 아직 추가하지 않았습니다. 애드블록 플러스는 필터 없이는 아무것도 차단할 수 없으므로
-	&quot;구독 필터 추가&quot; 버튼을 눌러 구독 필터를 추가하십시오.
-">
+<!ENTITY noSubscriptions.text "구독 필터를 아직 추가하지 않았습니다. 애드블록 플러스는 필터 없이는 아무것도 차단할 수 없으므로 &quot;구독 필터 추가&quot; 버튼을 눌러 구독 필터를 추가하십시오.">
 <!ENTITY subscription.homepage.label "홈페이지">
 <!ENTITY subscription.external.label "다른 확장 프로그램에 의해 업데이트됨">
 <!ENTITY subscription.source.label "필터 목록">
@@ -32,13 +29,13 @@
 <!ENTITY subscription.showHideFilters.label "필터 목록 보기/숨기기">
 <!ENTITY subscription.moveUp.label "위로 이동">
 <!ENTITY subscription.moveDown.label "아래로 이동">
+<!ENTITY acceptableAds2.label "비침입형 광고 허용">
 <!ENTITY acceptableAds2.accesskey "i">
+<!ENTITY viewList.label "필터 목록 보기">
 <!ENTITY readMore.label "자세히 보기">
 <!ENTITY addGroup.label "필터 그룹 추가">
 <!ENTITY addGroup.accesskey "g">
-<!ENTITY noFilters.text "
-	사용자 필터가 없습니다.
-">
+<!ENTITY noFilters.text "사용자 필터가 없습니다.">
 <!ENTITY addFilter.label "필터 추가">
 <!ENTITY addFilter.accesskey "d">
 <!ENTITY filter.actions.label "필터 동작">

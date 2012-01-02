@@ -6,7 +6,7 @@
 <!ENTITY list.download.failed "Adblock Plus ei kyennyt hakemaan suodatinlistaa.">
 <!ENTITY list.download.retry "Kokeile uudestaan">
 <!ENTITY list.download.website "Näytä verkkosivu">
-<!ENTITY fromWeb.description "Varmista tämän suodatintilauksen lisääminen. Ennnen tilauksen lisäämistä voit muuttaa tilauksen nimen ja sijainnin.">
+<!ENTITY fromWeb.description "Varmista tämän suodatintilauksen lisääminen. Ennen tilauksen lisäämistä voit muuttaa tilauksen nimen ja sijainnin.">
 <!ENTITY title.label "Tilauksen nimi:">
 <!ENTITY title.accesskey "T">
 <!ENTITY location.label "Listan sijainti:">
