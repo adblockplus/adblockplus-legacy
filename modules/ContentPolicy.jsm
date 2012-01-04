@@ -274,7 +274,7 @@ var Policy =
       }
 
       // Track mouse events for objects
-      if (!match && contentType == Policy.type.OBJECT)
+      if (!match && contentType == Policy.type.OBJECT && node.nodeType == Ci.nsIDOMNode.ELEMENT_NODE)
       {
         node.addEventListener("mouseover", objectMouseEventHander, true);
         node.addEventListener("mouseout", objectMouseEventHander, true);
