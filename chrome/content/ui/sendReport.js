@@ -18,6 +18,7 @@ let reportData =
       <option id="objecttabs">{Prefs.frameobjects}</option>
       <option id="collapse">{!Prefs.fastcollapse}</option>
       <option id="privateBrowsing">{Prefs.privateBrowsing}</option>
+      <option id="subscriptionsAutoUpdate">{Prefs.subscriptions_autoupdate}</option>
     </options>
     <window/>
     <requests/>
