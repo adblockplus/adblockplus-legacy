@@ -12,5 +12,5 @@
 <!ENTITY location.label "ที่อยู่รายชื่อตัวกรอง:">
 <!ENTITY location.accesskey "ร">
 <!ENTITY supplementMessage "นามข้างท้ายตัวกรองนี้ตั้งใจไว้ใช้กับนามข้างท้ายตัวกรอง &quot;?1?&quot; ซึ่งคุณยังไม่ได้ใช้">
-<!ENTITY addMain.label "เพิ่มนามข้างท้ายตัวกรอง &quot;?1?&quot; ด้วย">
+<!ENTITY addMain.label "เพิ่มนามข้างท้ายตัวกรอง &quot;?1?&quot;">
 <!ENTITY addMain.accesskey "ว">

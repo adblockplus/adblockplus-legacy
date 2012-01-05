@@ -22,7 +22,7 @@
 <!ENTITY whitelist.page.label "Онемогући само на овој страници">
 <!ENTITY disable.label "Онемогући свуда">
 <!ENTITY options.label "Опције">
-<!ENTITY options.accesskey "п">
+<!ENTITY options.accesskey "ц">
 <!ENTITY contribute.label "Допринесите Adblock Plus-у">
 <!ENTITY showintoolbar.label "Прикажи у траци са алаткама">
 <!ENTITY showintoolbar.accesskey "т">
@@ -34,8 +34,8 @@
 <!ENTITY objecttabs.accesskey "ј">
 <!ENTITY hideplaceholders.label "Сакриј држаче елемената блокираних ставки">
 <!ENTITY hideplaceholders.accesskey "д">
-<!ENTITY counthits.label "Број статистику филтера">
-<!ENTITY counthits.accesskey "с">
+<!ENTITY counthits.label "Број поготке филтера">
+<!ENTITY counthits.accesskey "о">
 <!ENTITY sync.label "Поставке усклађивања Adblock Plus-а">
 <!ENTITY sync.accesskey "у">
 <!ENTITY objecttab.title "Блокирај">

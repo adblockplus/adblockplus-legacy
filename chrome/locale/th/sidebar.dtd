@@ -8,6 +8,7 @@
 <!ENTITY filter.label "ตัวกรอง">
 <!ENTITY state.label "สถานะ">
 <!ENTITY size.label "ขนาด">
+<!ENTITY filterSource.label "ตัวกรองต้นฉบับ">
 <!ENTITY docDomain.label "แหล่งที่มาเอกสาร">
 <!ENTITY docDomain.thirdParty "(เทิร์ดปาร์ตี้)">
 <!ENTITY docDomain.firstParty "(เฟิร์สปาร์ตี้)">

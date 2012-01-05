@@ -55,7 +55,7 @@
 <!ENTITY filter.column "Правило филтера">
 <!ENTITY filter.accesskey "ф">
 <!ENTITY slow.column "Спори филтери">
-<!ENTITY slow.accesskey "п">
+<!ENTITY slow.accesskey "и">
 <!ENTITY enabled.column "Омогућен">
 <!ENTITY enabled.accesskey "н">
 <!ENTITY hitcount.column "Број погодака">
@@ -86,5 +86,5 @@
 <!ENTITY restore.custom.warning "Сви ваши прилагођени филтери ће бити замењени са онима из изабрање датотеке. Желите ли да наставите?">
 <!ENTITY restore.minVersion.warning "Напомена: датотека је направљена у новијој верзији додатка Adblock Plus. Требало би да доградите Adblock Plus на најновију верзију пре враћања претходног стања из ове датотеке.">
 <!ENTITY find.label "Пронађи">
-<!ENTITY find.accesskey "П">
+<!ENTITY find.accesskey "ђ">
 <!ENTITY close.label "Затвори">
