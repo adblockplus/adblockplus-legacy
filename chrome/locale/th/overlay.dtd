@@ -5,13 +5,15 @@
 <!ENTITY menuitem.accesskey "ป">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.image.label "Adblock รูปภาพ">
-<!ENTITY context.object.label "Adblock สิ่งของ">
-<!ENTITY context.frame.label "Adblock กรอบความ">
+<!ENTITY context.object.label "Adblock วัตถุ">
+<!ENTITY context.frame.label "Adblock เฟรม">
 <!ENTITY context.media.label "Adblock Plus: บล็อกเสียง/วีดิทัศน์">
 <!ENTITY context.removeWhitelist.label "Adblock Plus: เปิดใช้งานอีกครั้งในหน้านี้">
 <!ENTITY sidebar.title "รายการที่บล็อกได้ในหน้าล่าสุด">
 <!ENTITY sendReport.label "รายงานปัญหาที่พบในหน้านี้">
 <!ENTITY sendReport.accesskey "ร">
+<!ENTITY filters.label "ตั้งค่าตัวกรอง">
+<!ENTITY filters.accesskey "พ">
 <!ENTITY opensidebar.label "เปิดรายการที่บล็อกได้">
 <!ENTITY opensidebar.accesskey "ไ">
 <!ENTITY closesidebar.label "ปิดรายการที่บล็อกได้">
@@ -21,12 +23,19 @@
 <!ENTITY disable.label "ปิดการใช้งานทุกที่">
 <!ENTITY options.label "ตัวเลือก">
 <!ENTITY options.accesskey "เ">
+<!ENTITY contribute.label "เข้ามีส่วนร่วมกับ Adblock Plus">
 <!ENTITY showintoolbar.label "แสดงในแถบเครื่องมือ">
 <!ENTITY showintoolbar.accesskey "ค">
 <!ENTITY showinstatusbar.label "แสดงในแถบสถานะ">
 <!ENTITY showinstatusbar.accesskey "ส">
+<!ENTITY showinaddonbar.label "แสดงในแถบ Add-on">
+<!ENTITY showinaddonbar.accesskey "ว">
 <!ENTITY objecttabs.label "แสดงแท็บบนแฟลชและจาวา">
 <!ENTITY objecttabs.accesskey "ฟ">
+<!ENTITY hideplaceholders.label "ซ่อนตำแหน่งตัวยึดตำแหน่งขององค์ประกอบที่ถูกบล็อคไว้">
+<!ENTITY hideplaceholders.accesskey "เ">
+<!ENTITY counthits.label "นับจำนวนตัวกรองฮิต">
+<!ENTITY counthits.accesskey "ก">
 <!ENTITY sync.label "เชื่อมข้อมูลการตั้งค่า Adblock Plus">
 <!ENTITY sync.accesskey "ม">
 <!ENTITY objecttab.title "บล็อก">
