@@ -323,7 +323,8 @@ var Utils =
         dlg.focus();
       }
       catch (e) {}
-      dlg.SubscriptionActions.selectFilter(filter);
+      if (filter)
+        dlg.SubscriptionActions.selectFilter(filter);
     }
     else
     {
