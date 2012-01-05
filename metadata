@@ -32,7 +32,7 @@ zh-TW=https://adblockplus.org/zh_TW/
 
 [compat]
 firefox=3.6.13/12.0a1
-fennec=4.0/12.0a1
+fennec=4.0/11.0a1
 thunderbird=3.1.7/12.0a1
 seamonkey=2.1/2.9a1
 #songbird=1.9.0a/1.11.0a
