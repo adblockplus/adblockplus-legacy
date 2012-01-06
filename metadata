@@ -4,7 +4,6 @@ basename=adblockplus
 branchname=ADBLOCK_PLUS
 version=2.0.4a
 author=Wladimir Palant
-icon=chrome://adblockplus/skin/adblockplus.png
 about=chrome://adblockplus/content/ui/about.xul
 options=chrome://adblockplus/content/ui/settings.xul
 optionsType=2
