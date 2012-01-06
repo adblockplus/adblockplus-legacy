@@ -19,9 +19,5 @@ category profile-after-change @adblockplus.org/abp/startup;1 @adblockplus.org/ab
 # Hack to prevent .Net Framework Assistant from messing up the browser
 override chrome://dotnetassistant/content/bootstrap.xul data:text/xml,<nada/>
 
-# Hack to make icon.png available as adblockplus.png in the skin
-skin      adblockplus_icon classic/1.0 ./
-override  chrome://adblockplus/skin/adblockplus.png chrome://adblockplus_icon/skin/icon.png
-
 # fennec settings
 override chrome://adblockplus/content/ui/settings.xul chrome://adblockplus/content/ui/fennecSettings.xul application={a23983c0-fd0e-11dc-95ff-0800200c9a66}
