@@ -32,9 +32,6 @@ Cu.import(baseURL.spec + "RequestNotifier.jsm");
 Cu.import(baseURL.spec + "Synchronizer.jsm");
 Cu.import(baseURL.spec + "Sync.jsm");
 
-if (Utils.isFennec)
-  Cu.import(baseURL.spec + "AppIntegrationFennec.jsm");
-
 /**
  * Wrappers for tracked application windows.
  * @type Array of WindowWrapper
@@ -314,7 +311,18 @@ function WindowWrapper(window, hooks)
 
   // Custom initialization for Fennec
   if (Utils.isFennec)
-    AppIntegrationFennec.initWindow(this);
+  {
+    if ("BrowserApp" in this.window)
+    {
+      Cu.import(baseURL.spec + "AppIntegrationFennecNative.jsm");
+      AppIntegrationFennec.initWindow(this);
+    }
+    else
+    {
+      Cu.import(baseURL.spec + "AppIntegrationFennec.jsm");
+      AppIntegrationFennec.initWindow(this);
+    }
+  }
 
   TimeLine.leave("WindowWrapper constructor done")
 }

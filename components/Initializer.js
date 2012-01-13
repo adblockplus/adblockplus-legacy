@@ -51,7 +51,7 @@ Initializer.prototype =
 
         // Don't init in Fennec, initialization will happen when UI is ready
         let appInfo = Cc["@mozilla.org/xre/app-info;1"].getService(Ci.nsIXULAppInfo);
-        if (appInfo.ID != "{a23983c0-fd0e-11dc-95ff-0800200c9a66}")
+        if (appInfo.ID != "{a23983c0-fd0e-11dc-95ff-0800200c9a66}" && appInfo.ID != "{aa3c5121-dab2-40e2-81ca-7ea25febc110}")
         {
           try
           {
