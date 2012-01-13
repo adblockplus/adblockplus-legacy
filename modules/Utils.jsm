@@ -67,7 +67,7 @@ var Utils =
    */
   get isFennec()
   {
-    let result = (this.appID == "{a23983c0-fd0e-11dc-95ff-0800200c9a66}");
+    let result = (this.appID == "{a23983c0-fd0e-11dc-95ff-0800200c9a66}" || this.appID == "{aa3c5121-dab2-40e2-81ca-7ea25febc110}");
     Utils.__defineGetter__("isFennec", function() result);
     return result;
   },
