@@ -30,10 +30,9 @@ var AppIntegrationFennec =
 {
   initWindow: function(wrapper)
   {
-    updateFennecStatusUI.apply(wrapper)
+    wrapper.updateState = updateFennecStatusUI;
+    wrapper.updateState();
   },
-
-  updateState: updateFennecStatusUI,
 
   openFennecSubscriptionDialog: function(/**WindowWrapper*/ wrapper, /**String*/ url, /**String*/ title)
   {
@@ -48,11 +47,10 @@ function updateFennecStatusUI()
     delete this.fennecMenuItem;
   }
 
-  let status = "disabled";
+  let action;
   let host = null;
   if (Prefs.enabled)
   {
-    status = "enabled";
     let location = this.getCurrentLocation();
     if (location instanceof Ci.nsIURL && Policy.isBlockableScheme(location))
     {
@@ -61,24 +59,31 @@ function updateFennecStatusUI()
         host = location.host.replace(/^www\./, "");
       } catch (e) {}
     }
+    if (!host)
+      return;
 
     if (host && Policy.isWhitelisted(location.spec))
-      status = "disabled_site";
+      action = "enable_site";
     else if (host)
-      status = "enabled_site";
+      action = "disable_site";
   }
+  else
+    action = "enable";
 
-  let statusText = Utils.getString("fennec_status_" + status);
+  let actionText = Utils.getString("mobile_menu_" + action);
   if (host)
-    statusText = statusText.replace(/\?1\?/g, host);
+    actionText = actionText.replace(/\?1\?/g, host);
 
-  this.fennecMenuItem = this.window.NativeWindow.menu.add(statusText, null, toggleFennecWhitelist.bind(this));
+  this.fennecMenuItem = this.window.NativeWindow.menu.add(actionText, null, toggleFennecWhitelist.bind(this));
 }
 
 function toggleFennecWhitelist(event)
 {
   if (!Prefs.enabled)
+  {
+    Prefs.enabled = true;
     return;
+  }
 
   let location = this.getCurrentLocation();
   let host = null;
@@ -98,5 +103,5 @@ function toggleFennecWhitelist(event)
   else
     AppIntegration.toggleFilter(Filter.fromText("@@||" + host + "^$document"));
 
-  updateFennecStatusUI.apply(this);
+  this.updateState();
 }

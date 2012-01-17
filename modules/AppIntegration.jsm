@@ -314,12 +314,7 @@ function WindowWrapper(window, hooks)
     AppIntegrationFennec.initWindow(this);
   }
 
-  if (Utils.isFennec && "BrowserApp" in this.window)
-    this.registerEventListeners(AppIntegrationFennec.updateState);
-  else if (!Utils.isFennec)
-    this.registerEventListeners(this.updateState);
-  else
-    this.registerEventListeners(null);
+  this.registerEventListeners();
   TimeLine.log("Added event listeners")
 
   this.executeFirstRunActions();
@@ -460,7 +455,7 @@ WindowWrapper.prototype =
   /**
    * Attaches event listeners to a window represented by hooks element
    */
-  registerEventListeners: function(/**Function*/ locationChangeHandler)
+  registerEventListeners: function()
   {
     // Palette button elements aren't reachable by ID, create a lookup table
     let paletteButtonIDs = {};
@@ -497,12 +492,12 @@ WindowWrapper.prototype =
     browser.addEventListener("click", this._bindMethod(this.handleLinkClick), true);
 
     // Register progress listener as well if requested
-    if (locationChangeHandler)
+    if (!("isDummy" in this.updateState))
     {
       let dummy = function() {};
       this.progressListener =
       {
-        onLocationChange: this._bindMethod(locationChangeHandler),
+        onLocationChange: this._bindMethod(this.updateState),
         onProgressChange: dummy,
         onSecurityChange: dummy,
         onStateChange: dummy,
