@@ -6,6 +6,8 @@
 
 <?xul-overlay href="chrome://adblockplus/content/ui/overlayGeneral.xul"?>
 
+<!DOCTYPE overlay SYSTEM "chrome://adblockplus/locale/subscriptionSelection.dtd">
+
 <overlay id="abp-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
   <script type="text/javascript">
   <![CDATA[
@@ -73,6 +75,8 @@
       addTab="this.window.BrowserApp.addTab(arguments[0], {selected: true});"
       getContextMenu="return null"
       getToolbox="return null"
-      getDefaultToolbar="return null"/>
+      getDefaultToolbar="return null"
+      subscriptionDialogTitle="&dialog.title;"
+      subscriptionDialogMessage="&title.label; ?1?&#10;&#10;&location.label; ?2?"/>
   </window>
 </overlay>
