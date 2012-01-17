@@ -24,7 +24,7 @@
           if (browser == this._currentBrowser)
             return;
 
-          if (this._currentBrowser)
+          if (this._currentBrowser && this._currentBrowser.parentNode)
             this._currentBrowser.removeProgressListener(this._listener);
 
           this._currentBrowser = browser;

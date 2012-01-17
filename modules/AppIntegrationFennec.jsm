@@ -166,6 +166,9 @@ var AppIntegrationFennec =
 {
   initWindow: function(wrapper)
   {
+    wrapper.updateState = function() {};
+    wrapper.updateState.isDummy = true;
+
     if ("messageManager" in wrapper.window)
     {
       // Multi-process setup - we need to inject our content script into all tabs
@@ -375,8 +378,9 @@ function updateFennecStatusUI(wrapper)
 {
   let siteInfo = wrapper.E("abp-site-info");
   siteInfo.addEventListener("click", toggleFennecWhitelist, false);
+  siteInfo.setAttribute("hidden", "true");
 
-  let status = "disabled";
+  let action;
   let host = null;
   if (Prefs.enabled)
   {
@@ -389,25 +393,33 @@ function updateFennecStatusUI(wrapper)
         host = location.host.replace(/^www\./, "");
       } catch (e) {}
     }
+    if (!host)
+      return;
 
     if (host && Policy.isWhitelisted(location.spec))
-      status = "disabled_site";
+      action = "enable_site";
     else if (host)
-      status = "enabled_site";
+      action = "disable_site";
   }
+  else
+    action = "enable";
 
-  let statusText = Utils.getString("fennec_status_" + status);
+  let actionText = Utils.getString("mobile_menu_" + action);
   if (host)
-    statusText = statusText.replace(/\?1\?/g, host);
+    actionText = actionText.replace(/\?1\?/g, host);
 
-  siteInfo.setAttribute("title", statusText);
-  siteInfo.setAttribute("abpstate", status);
+  siteInfo.removeAttribute("hidden");
+  siteInfo.setAttribute("title", actionText);
+  siteInfo.setAttribute("abpaction", action);
 }
 
 function toggleFennecWhitelist(event)
 {
   if (!Prefs.enabled)
+  {
+    Prefs.enabled = true;
     return;
+  }
 
   let wrapper = AppIntegration.getWrapperForWindow(event.target.ownerDocument.defaultView);
   let location = wrapper.getCurrentLocation();

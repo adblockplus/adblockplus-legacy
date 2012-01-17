@@ -49,8 +49,8 @@ menuitem[default="true"] {
 }
 #abp-toolbarbutton[abpstate="disabled"],
 #abp-toolbarbutton[abpstate="whitelisted"],
-#abp-site-info[abpstate="disabled"],
-#abp-site-info[abpstate="disabled_site"] {
+#abp-site-info[abpaction="enable"],
+#abp-site-info[abpaction="enable_site"] {
   -moz-image-region: rect(24px, 24px, 48px, 0px);
 }
 
