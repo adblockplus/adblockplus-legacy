@@ -13,7 +13,8 @@
     {
       _Utils: Components.utils.import("chrome://adblockplus-modules/content/Utils.jsm", null).Utils,
       _defaultURI: Components.utils.import("resource://gre/modules/Services.jsm", null).Services.io.newURI("about:blank", null, null),
-      _listener: null,
+      _progressListener: null,
+      _clickListener: null,
       _currentBrowser: null,
 
       _onSelect: function(event)
@@ -25,14 +26,19 @@
             return;
 
           if (this._currentBrowser && this._currentBrowser.parentNode)
-            this._currentBrowser.removeProgressListener(this._listener);
+            this._currentBrowser.removeProgressListener(this._progressListener);
 
           this._currentBrowser = browser;
           if (this._currentBrowser)
-            this._currentBrowser.addProgressListener(this._listener);
+            this._currentBrowser.addProgressListener(this._progressListener);
 
-          this._listener.onLocationChange();
+          this._progressListener.onLocationChange();
         }, this);
+      },
+
+      _onNewTab: function(event)
+      {
+        event.target.addEventListener("click", this._clickListener, false);
       },
 
       get currentURI() (BrowserApp.selectedBrowser ? BrowserApp.selectedBrowser.currentURI : this._defaultURI),
@@ -40,11 +46,17 @@
       addEventListener: function(event, handler, capture)
       {
         if (event == "click")
-          BrowserApp.deck.addEventListener("click", handler, capture);
+        {
+          this._clickListener = handler;
+          let tabs = BrowserApp.tabs;
+          for (let i = 0; i < tabs.length; i++)
+            tabs[i].browser.addEventListener("click", this._clickListener, false);
+          BrowserApp.deck.addEventListener("TabOpen", this._onNewTab.bind(this), false);
+        }
       },
       addProgressListener: function(listener)
       {
-        this._listener = listener;
+        this._progressListener = listener;
         BrowserApp.deck.addEventListener("TabSelect", this._onSelect.bind(this), false);
         this._onSelect();
       }
