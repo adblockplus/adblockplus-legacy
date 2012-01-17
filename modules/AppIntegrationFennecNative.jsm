@@ -19,7 +19,10 @@ let baseURL = Cc["@adblockplus.org/abp/private;1"].getService(Ci.nsIURI);
 Cu.import(baseURL.spec + "Utils.jsm");
 Cu.import(baseURL.spec + "Prefs.jsm");
 Cu.import(baseURL.spec + "FilterClasses.jsm");
+Cu.import(baseURL.spec + "SubscriptionClasses.jsm");
 Cu.import(baseURL.spec + "ContentPolicy.jsm");
+Cu.import(baseURL.spec + "FilterStorage.jsm");
+Cu.import(baseURL.spec + "Synchronizer.jsm");
 Cu.import(baseURL.spec + "AppIntegration.jsm");
 
 /**
@@ -62,8 +65,32 @@ var AppIntegrationFennec =
 
   openFennecSubscriptionDialog: function(/**WindowWrapper*/ wrapper, /**String*/ url, /**String*/ title)
   {
+    let hooks = wrapper.E("abp-hooks");
+    let message = hooks.getAttribute("subscriptionDialogMessage").replace(/\?1\?/, title).replace(/\?2\?/, url);
+    if (Utils.confirm(wrapper.window, message, hooks.getAttribute("subscriptionDialogTitle")))
+      setSubscription(url, title);
   }
 };
+
+function setSubscription(url, title)
+{
+  let currentSubscription = FilterStorage.subscriptions.filter(
+    function(subscription) subscription instanceof DownloadableSubscription && subscription.url != Prefs.subscriptions_exceptionsurl
+  );
+  currentSubscription = (currentSubscription.length ? currentSubscription[0] : null);
+  if (currentSubscription && currentSubscription.url == url)
+    return;
+
+  // We only allow one subscription, remove existing one before adding
+  if (currentSubscription)
+    FilterStorage.removeSubscription(currentSubscription);
+
+  currentSubscription = Subscription.fromURL(url);
+  currentSubscription.title = title;
+
+  FilterStorage.addSubscription(currentSubscription);
+  Synchronizer.execute(currentSubscription, false);
+}
 
 function updateFennecStatusUI()
 {
