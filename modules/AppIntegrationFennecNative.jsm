@@ -32,6 +32,32 @@ var AppIntegrationFennec =
   {
     wrapper.updateState = updateFennecStatusUI;
     wrapper.updateState();
+
+    wrapper.enabledImage = null;
+    wrapper.disabledImage = null;
+    let canvas = wrapper.E("abp-canvas");
+    if (canvas)
+    {
+      let img = new wrapper.window.Image();
+      img.onload = function()
+      {
+        canvas.setAttribute("width", img.width);
+        canvas.setAttribute("height", img.height / 2);
+
+        let context = canvas.getContext("2d");
+        context.fillStyle = "rgba(0, 0, 0, 0)";
+        context.fillRect(0, 0, img.width, img.height/2);
+
+        context.drawImage(img, 0, 0);
+        wrapper.enabledImage = canvas.toDataURL();
+
+        context.fillStyle = "rgba(0, 0, 0, 0)";
+        context.fillRect(0, 0, img.width, img.height/2);
+        context.drawImage(img, 0, -img.height/2);
+        wrapper.disabledImage = canvas.toDataURL();
+      };
+      img.src = "chrome://adblockplus/skin/abp-status.png";
+    }
   },
 
   openFennecSubscriptionDialog: function(/**WindowWrapper*/ wrapper, /**String*/ url, /**String*/ title)
@@ -48,6 +74,7 @@ function updateFennecStatusUI()
   }
 
   let action;
+  let image;
   let host = null;
   if (Prefs.enabled)
   {
@@ -63,18 +90,27 @@ function updateFennecStatusUI()
       return;
 
     if (host && Policy.isWhitelisted(location.spec))
+    {
       action = "enable_site";
+      image = this.enabledImage;
+    }
     else if (host)
+    {
       action = "disable_site";
+      image = this.disabledImage;
+    }
   }
   else
+  {
     action = "enable";
+    image = this.disabledImage;
+  }
 
   let actionText = Utils.getString("mobile_menu_" + action);
   if (host)
     actionText = actionText.replace(/\?1\?/g, host);
 
-  this.fennecMenuItem = this.window.NativeWindow.menu.add(actionText, null, toggleFennecWhitelist.bind(this));
+  this.fennecMenuItem = this.window.NativeWindow.menu.add(actionText, image, toggleFennecWhitelist.bind(this));
 }
 
 function toggleFennecWhitelist(event)

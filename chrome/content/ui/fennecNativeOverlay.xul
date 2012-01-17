@@ -54,6 +54,8 @@
 
   <!-- Window extensions -->
   <window id="main-window">
+    <canvas xmlns="http://www.w3.org/1999/xhtml" id="abp-canvas" />
+
     <box id="abp-hooks"
       getBrowser="return this.window.AdblockPlusFakeTabBrowser"
       addTab="this.window.BrowserApp.addTab(arguments[0], {selected: true});"
