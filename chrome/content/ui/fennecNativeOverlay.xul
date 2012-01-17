@@ -7,10 +7,55 @@
 <?xul-overlay href="chrome://adblockplus/content/ui/overlayGeneral.xul"?>
 
 <overlay id="abp-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <script type="text/javascript">
+  <![CDATA[
+    var AdblockPlusFakeTabBrowser =
+    {
+      _Utils: Components.utils.import("chrome://adblockplus-modules/content/Utils.jsm", null).Utils,
+      _defaultURI: Components.utils.import("resource://gre/modules/Services.jsm", null).Services.io.newURI("about:blank", null, null),
+      _listener: null,
+      _currentBrowser: null,
+
+      _onSelect: function(event)
+      {
+        this._Utils.runAsync(function()
+        {
+          let browser = BrowserApp.selectedBrowser;
+          if (browser == this._currentBrowser)
+            return;
+
+          if (this._currentBrowser)
+            this._currentBrowser.removeProgressListener(this._listener);
+
+          this._currentBrowser = browser;
+          if (this._currentBrowser)
+            this._currentBrowser.addProgressListener(this._listener);
+
+          this._listener.onLocationChange();
+        }, this);
+      },
+
+      get currentURI() (BrowserApp.selectedBrowser ? BrowserApp.selectedBrowser.currentURI : this._defaultURI),
+      get contentWindow() (BrowserApp.selectedBrowser ? BrowserApp.selectedBrowser.contentWindow : null),
+      addEventListener: function(event, handler, capture)
+      {
+        if (event == "click")
+          BrowserApp.deck.addEventListener("click", handler, capture);
+      },
+      addProgressListener: function(listener)
+      {
+        this._listener = listener;
+        BrowserApp.deck.addEventListener("TabSelect", this._onSelect.bind(this), false);
+        this._onSelect();
+      }
+    };
+  ]]>
+  </script>
+
   <!-- Window extensions -->
   <window id="main-window">
     <box id="abp-hooks"
-      getBrowser="return this.window.BrowserApp.selectedBrowser;"
+      getBrowser="return this.window.AdblockPlusFakeTabBrowser"
       addTab="this.window.BrowserApp.addTab(arguments[0], {selected: true});"
       getContextMenu="return null"
       getToolbox="return null"

@@ -27,7 +27,7 @@ Cu.import(baseURL.spec + "FilterClasses.jsm");
 Cu.import(baseURL.spec + "SubscriptionClasses.jsm");
 Cu.import(baseURL.spec + "Synchronizer.jsm");
 Cu.import(baseURL.spec + "Sync.jsm");
-Utils.runAsync(Cu.import, Cu, baseURL.spec + "AppIntegration.jsm"); // delay to avoid circular imports
+Cu.import(baseURL.spec + "AppIntegration.jsm");
 
 let PolicyPrivate = Cu.import(baseURL.spec + "ContentPolicy.jsm", null).PolicyPrivate;
 

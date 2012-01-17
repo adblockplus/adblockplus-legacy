@@ -303,26 +303,27 @@ function WindowWrapper(window, hooks)
           .QueryInterface(Ci.nsIDocShell)
           .allowSubframes = true;
   }
-  this.registerEventListeners(!Utils.isFennec);
-  TimeLine.log("Added event listeners")
-
-  this.executeFirstRunActions();
-  TimeLine.log("Window-specific first-run actions done")
 
   // Custom initialization for Fennec
   if (Utils.isFennec)
   {
     if ("BrowserApp" in this.window)
-    {
       Cu.import(baseURL.spec + "AppIntegrationFennecNative.jsm");
-      AppIntegrationFennec.initWindow(this);
-    }
     else
-    {
       Cu.import(baseURL.spec + "AppIntegrationFennec.jsm");
-      AppIntegrationFennec.initWindow(this);
-    }
+    AppIntegrationFennec.initWindow(this);
   }
+
+  if (Utils.isFennec && "BrowserApp" in this.window)
+    this.registerEventListeners(AppIntegrationFennec.updateState);
+  else if (!Utils.isFennec)
+    this.registerEventListeners(this.updateState);
+  else
+    this.registerEventListeners(null);
+  TimeLine.log("Added event listeners")
+
+  this.executeFirstRunActions();
+  TimeLine.log("Window-specific first-run actions done")
 
   TimeLine.leave("WindowWrapper constructor done")
 }
@@ -459,7 +460,7 @@ WindowWrapper.prototype =
   /**
    * Attaches event listeners to a window represented by hooks element
    */
-  registerEventListeners: function(/**Boolean*/ addProgressListener)
+  registerEventListeners: function(/**Function*/ locationChangeHandler)
   {
     // Palette button elements aren't reachable by ID, create a lookup table
     let paletteButtonIDs = {};
@@ -496,12 +497,12 @@ WindowWrapper.prototype =
     browser.addEventListener("click", this._bindMethod(this.handleLinkClick), true);
 
     // Register progress listener as well if requested
-    if (addProgressListener)
+    if (locationChangeHandler)
     {
       let dummy = function() {};
       this.progressListener =
       {
-        onLocationChange: this._bindMethod(this.updateState),
+        onLocationChange: this._bindMethod(locationChangeHandler),
         onProgressChange: dummy,
         onSecurityChange: dummy,
         onStateChange: dummy,
