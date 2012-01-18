@@ -1,0 +1,39 @@
+<!-- This Source Code is subject to the terms of the Mozilla Public License
+   - version 2.0 (the "License"). You can obtain a copy of the License at
+   - http://mozilla.org/MPL/2.0/. -->
+
+<!DOCTYPE html SYSTEM "chrome://adblockplus/locale/firstRun.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>&dialog.title;</title>
+    <script type="application/x-javascript;version=1.7" src="utils.js"/>
+    <script type="application/x-javascript;version=1.7" src="firstRun.js"/>
+    <link type="text/css" href="chrome://adblockplus/skin/firstRun.css" rel="stylesheet"/>
+  </head>
+  <body onload="init()">
+    <p>&confirmation;</p>
+
+    <div class="sectionContainer">
+      <p class="sectionTitle">&advancedSection;</p>
+
+      <p>&listSelection1;</p>
+
+      <p id="listNameContainer" hidden="true">
+        <div id="listName"/>
+        <a id="listHomepage" onclick="Utils.loadInBrowser(this.getAttribute('href')); return false;">&visitHomepage.label;</a>
+      </p>
+      <p id="listNone">&noList;</p>
+
+      <p id="acceptableAds" hidden="true">
+        &acceptableAds2;
+        <a href="#" onclick="Utils.loadInBrowser(Prefs.subscriptions_exceptionsurl); return false;">&viewList.label;</a>
+        <a href="#" onclick="Utils.loadDocLink('acceptable_ads'); return false;">&readMore.label;</a>
+      </p>
+    </div>
+
+    <p id="changeDescription" _textTemplate="&listSelection2;">
+      <a href="#" onclick="openFilters(); return false;"/>
+    </p>
+  </body>
+</html>

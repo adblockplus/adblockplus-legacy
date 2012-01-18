@@ -4,15 +4,28 @@
  * http://mozilla.org/MPL/2.0/.
  */
 
-@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+@namespace url("http://www.w3.org/1999/xhtml");
 
-:root
+@media not handheld
 {
-  max-width: 500px;
+  body
+  {
+    font-size: 130%;
+  }
+}
+
+/** This should be unnecessary in Gecko 2.0 and above. */
+*[hidden]
+{
+  display: none;
+}
+
+body
+{
   background-image: url(abp-icon-big.png);
   background-repeat: no-repeat;
   background-position: 95% 5%;
-  font-size: 130%;
+  font-family: Arial,sans-serif;
 }
 
 .sectionTitle
@@ -20,15 +33,10 @@
   font-weight: bold;
 }
 
-#changeDescription > .text-link
-{
-  margin: 0px;
-}
-
 #listNameContainer,
 #listNone
 {
-  margin: 10px 40px;
+  margin: 1em 2em;
 }
 
 #listNone
@@ -38,7 +46,7 @@
 
 #acceptableAds
 {
-  font-size: 90%;
+  font-size: 80%;
   font-weight: bold;
 }
 #acceptableAds > *
