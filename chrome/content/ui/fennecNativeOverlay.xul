@@ -27,7 +27,7 @@
           if (browser == this._currentBrowser)
             return;
 
-          if (this._currentBrowser && this._currentBrowser.parentNode)
+          if (this._currentBrowser && typeof this._currentBrowser.removeProgressListener == "function")
             this._currentBrowser.removeProgressListener(this._progressListener);
 
           this._currentBrowser = browser;
