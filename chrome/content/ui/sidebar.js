@@ -335,8 +335,7 @@ function fillInContext(/**Event*/ e)
     {
       let domain = null;
       try {
-        domain = content.location.host;
-        domain = Utils.effectiveTLD.getBaseDomainFromHost(domain);
+        domain = Utils.effectiveTLD.getBaseDomainFromHost(item.docDomain);
       } catch (e) {}
 
       if (domain && !filter.isActiveOnlyOnDomain(domain))
