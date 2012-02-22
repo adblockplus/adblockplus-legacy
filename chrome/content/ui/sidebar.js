@@ -201,6 +201,13 @@ function setMultilineContent(box, text, noRemove)
 
 // Fill in tooltip data before showing it
 function fillInTooltip(e) {
+  // Prevent tooltip from overlapping menu
+  if (E("context").state == "open")
+  {
+    e.preventDefault();
+    return;
+  }
+
   var item;
   if (treeView.data && !treeView.data.length)
     item = treeView.getDummyTooltip();
