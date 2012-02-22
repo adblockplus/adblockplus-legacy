@@ -530,7 +530,9 @@ function disableOnSite()
   FilterStorage.removeFilter(filter);
 
   // Update display
-  item.filter = null;
+  for (let i = 0; i < treeView.allData.length; i++)
+    if (treeView.allData[i].filter == filter)
+      treeView.allData[i].filter = null;
   treeView.boxObject.invalidate();
 }
 
