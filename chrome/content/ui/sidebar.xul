@@ -76,9 +76,9 @@
       <menuitem id="contextBlock" label="&context.block.label;…" oncommand="doBlock()" key="block-key"/>
       <menuitem id="contextWhitelist" label="&context.whitelist.label;…" oncommand="doBlock()" key="block-key"/>
       <menuitem id="contextEditFilter" label="&context.editfilter.label;…" oncommand="editFilter()"/>
-      <menuitem id="contextDisableFilter" labeltempl="&context.disablefilter.label;" oncommand="enableFilter(this.filter, false)"/>
-      <menuitem id="contextEnableFilter" labeltempl="&context.enablefilter.label;" oncommand="enableFilter(this.filter, true)"/>
-      <menuitem id="contextDisableOnSite" labeltempl="&context.disablefilteronsite.label;" oncommand="disableOnSite(this.item, this.filter, this.domain)"/>
+      <menuitem id="contextDisableFilter" labeltempl="&context.disablefilter.label;" oncommand="enableFilter(treeView.getSelectedItem().filter, false)"/>
+      <menuitem id="contextEnableFilter" labeltempl="&context.enablefilter.label;" oncommand="enableFilter(treeView.getSelectedItem().filter, true)"/>
+      <menuitem id="contextDisableOnSite" labeltempl="&context.disablefilteronsite.label;" oncommand="disableOnSite()"/>
       <menuseparator id="contextOpenSep"/>
       <menuitem id="contextOpen" label="&context.open.label;" oncommand="openInTab(null, event)"/>
       <menuitem id="contextFlash" label="&context.flash.label;" oncommand="onSelectionChange()"/>

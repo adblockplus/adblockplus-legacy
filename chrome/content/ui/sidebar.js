@@ -327,7 +327,6 @@ function fillInContext(/**Event*/ e)
   {
     let filter = item.filter;
     let menuItem = E(filter.disabled ? "contextEnableFilter" : "contextDisableFilter");
-    menuItem.filter = filter;
     menuItem.setAttribute("label", menuItem.getAttribute("labeltempl").replace(/\?1\?/, filter.text));
     menuItem.hidden = false;
 
@@ -341,9 +340,6 @@ function fillInContext(/**Event*/ e)
       if (domain && !filter.isActiveOnlyOnDomain(domain))
       {
         menuItem = E("contextDisableOnSite");
-        menuItem.item = item;
-        menuItem.filter = filter;
-        menuItem.domain = domain;
         menuItem.setAttribute("label", menuItem.getAttribute("labeltempl").replace(/\?1\?/, domain));
         menuItem.hidden = false;
       }
@@ -359,6 +355,22 @@ function fillInContext(/**Event*/ e)
   E("contextCopyFilter").setAttribute("disabled", !allItems.some(function(item) {return "filter" in item && item.filter}));
 
   return true;
+}
+
+/**
+ * Resets context menu data once the context menu is closed.
+ */
+function clearContextMenu(/**Event*/ event)
+{
+  if (event.eventPhase != event.AT_TARGET)
+    return;
+
+  {
+    let menuItem = E("contextDisableOnSite");
+    menuItem.item = item;
+    menuItem.filter = filter;
+    menuItem.domain = domain;
+  }
 }
 
 /**
@@ -445,10 +457,23 @@ function enableFilter(filter, enable) {
 /**
  * Edits the filter to disable it on a particular domain.
  */
-function disableOnSite(item, /**Filter*/ filter, /**String*/ domain)
+function disableOnSite()
 {
+  let item = treeView.getSelectedItem();
+  let filter = item.filter;
+  if (!(filter instanceof ActiveFilter) || filter.disabled || !filter.subscriptions.length || filter.subscriptions.some(function(subscription) !(subscription instanceof SpecialSubscription)))
+    return;
+
+  let domain;
+  try {
+    domain = Utils.effectiveTLD.getBaseDomainFromHost(item.docDomain).toUpperCase();
+  }
+  catch (e)
+  {
+    return;
+  }
+
   // Generate text for new filter that excludes current domain
-  domain = domain.toUpperCase();
   let text = filter.text;
   if (filter instanceof RegExpFilter)
   {
