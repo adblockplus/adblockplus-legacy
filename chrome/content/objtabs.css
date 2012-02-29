@@ -45,19 +45,19 @@
 .%%CLASSVISIBLETOP%%, .%%CLASSHIDDEN%%
 {
   border-width: 1px 1px 0px 1px !important;
-  -moz-border-radius-topleft: 10px !important;
-  -moz-border-radius-topright: 10px !important;
-  -moz-border-radius-bottomleft: 0px !important;
-  -moz-border-radius-bottomright: 0px !important;
+  border-top-left-radius: 10px !important;
+  border-top-right-radius: 10px !important;
+  border-bottom-left-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
 }
 
 .%%CLASSVISIBLEBOTTOM%%
 {
   border-width: 0px 1px 1px 1px !important;
-  -moz-border-radius-topleft: 0px !important;
-  -moz-border-radius-topright: 0px !important;
-  -moz-border-radius-bottomleft: 10px !important;
-  -moz-border-radius-bottomright: 10px !important;
+  border-top-left-radius: 0px !important;
+  border-top-right-radius: 0px !important;
+  border-bottom-left-radius: 10px !important;
+  border-bottom-right-radius: 10px !important;
 }
 
 .%%CLASSVISIBLETOP%%, .%%CLASSVISIBLEBOTTOM%%
