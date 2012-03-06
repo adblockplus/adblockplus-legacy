@@ -68,7 +68,7 @@ var FilterStorage =
       {
         file = Utils.resolveFilePath(Prefs.defaultBranch.getCharPref("data_directory"));
         if (file)
-          FilterStorage.sourceFile.append("patterns.ini");
+          file.append("patterns.ini");
       } catch(e) {}
     }
 
