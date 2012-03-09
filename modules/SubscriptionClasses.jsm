@@ -389,7 +389,7 @@ ExternalSubscription.prototype =
    */
   serialize: function(buffer)
   {
-    throw "Unexpected call, external subscriptions should not be serialized";
+    throw new Error("Unexpected call, external subscriptions should not be serialized");
   }
 };
 
