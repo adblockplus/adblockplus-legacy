@@ -395,7 +395,7 @@ var FilterStorage =
           if (!FilterStorage.subscriptions.length)
           {
             // No filter subscriptions in the file, this isn't right.
-            throw "No data in the file";
+            throw new Error("No data in the file");
           }
         }
 
