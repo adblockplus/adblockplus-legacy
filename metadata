@@ -30,10 +30,10 @@ zh-CN=https://adblockplus.org/zh_CN/
 zh-TW=https://adblockplus.org/zh_TW/
 
 [compat]
-firefox=3.6.13/13.0a1
-fennec=4.0/13.0a1
-fennec2=11.0a1/13.0a1
-thunderbird=3.1.7/13.0a1
-seamonkey=2.1/2.10a1
+firefox=3.6.13/14.0a1
+fennec=4.0/14.0a1
+fennec2=11.0a1/14.0a1
+thunderbird=3.1.7/14.0a1
+seamonkey=2.1/2.11a1
 #songbird=1.9.0a/1.11.0a
 conkeror=0.1/100.0
