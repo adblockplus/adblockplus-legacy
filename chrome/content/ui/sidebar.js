@@ -711,7 +711,11 @@ function createSortWithFallback(cmpFunc, fallbackFunc, desc) {
 
 var progressListener =
 {
-  onLocationChange: function() handleLocationChange(),
+  onLocationChange: function(progress, request, uri, flags)
+  {
+    if (!flags || !(flags & Ci.nsIWebProgressListener.LOCATION_CHANGE_SAME_DOCUMENT))
+      handleLocationChange()
+  },
   onProgressChange: function() {},
   onSecurityChange: function() {},
   onStateChange: function() {},
