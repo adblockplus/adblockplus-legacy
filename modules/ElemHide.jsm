@@ -155,7 +155,7 @@ var ElemHide =
 
       // CSS file doesn't need to be rewritten if nothing changed (e.g. we
       // were disabled and reenabled)
-      if (ElemHide.isDirty)
+      if (ElemHide.isDirty || !styleURL.file.exists())
       {
         ElemHide.isDirty = false;
 
