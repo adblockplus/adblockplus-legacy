@@ -1111,7 +1111,7 @@ var treeView = {
 
     return (item.location.toLowerCase().indexOf(this.filter) >= 0 ||
             (item.filter && item.filter.text.toLowerCase().indexOf(this.filter) >= 0) ||
-            item.typeDescr.toLowerCase().indexOf(this.filter) >= 0 ||
+            item.typeDescr.toLowerCase().indexOf(this.filter.replace(/-/g, "_")) >= 0 ||
             item.localizedDescr.toLowerCase().indexOf(this.filter) >= 0 ||
             (item.docDomain && item.docDomain.toLowerCase().indexOf(this.filter) >= 0) ||
             (item.docDomain && item.thirdParty && docDomainThirdParty.toLowerCase().indexOf(this.filter) >= 0) ||
