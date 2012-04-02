@@ -33,7 +33,7 @@
   </commandset>
 
   <popupset id="sidebarPopups">
-    <tooltip id="tooltip" orient="vertical" onpopupshowing="return fillInTooltip(event);">
+    <tooltip id="tooltip" orient="vertical" onpopupshowing="fillInTooltip(event);">
       <description id="tooltipDummy"/>
       <hbox id="tooltipPreviewBox" pack="start">
         <image id="tooltipPreview" validate="never"/>
