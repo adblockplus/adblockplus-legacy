@@ -16,6 +16,7 @@ const Cr = Components.results;
 const Cu = Components.utils;
 
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
+Cu.import("resource://gre/modules/Services.jsm");
 
 let chromeSupported = true;
 let ioService = Cc["@mozilla.org/network/io-service;1"].getService(Ci.nsIIOService);
@@ -123,9 +124,8 @@ var Bootstrap =
       Bootstrap.loadModule(uri);
     }
 
-    let observerService = Cc["@mozilla.org/observer-service;1"].getService(Ci.nsIObserverService);
-    observerService.addObserver(BootstrapPrivate, "xpcom-category-entry-added", true);
-    observerService.addObserver(BootstrapPrivate, "xpcom-category-entry-removed", true);
+    Services.obs.addObserver(BootstrapPrivate, "xpcom-category-entry-added", true);
+    Services.obs.addObserver(BootstrapPrivate, "xpcom-category-entry-removed", true);
   
     TimeLine.leave("Bootstrap.startup() done");
   },

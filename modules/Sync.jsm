@@ -16,6 +16,7 @@ const Cr = Components.results;
 const Cu = Components.utils;
 
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
+Cu.import("resource://gre/modules/Services.jsm");
 
 let baseURL = Cc["@adblockplus.org/abp/private;1"].getService(Ci.nsIURI);
 Cu.import(baseURL.spec + "Utils.jsm");
@@ -55,9 +56,9 @@ var Sync =
    */
   startup: function()
   {
-    Utils.observerService.addObserver(SyncPrivate, "weave:service:ready", true);
-    Utils.observerService.addObserver(SyncPrivate, "weave:engine:start-tracking", true);
-    Utils.observerService.addObserver(SyncPrivate, "weave:engine:stop-tracking", true);
+    Services.obs.addObserver(SyncPrivate, "weave:service:ready", true);
+    Services.obs.addObserver(SyncPrivate, "weave:engine:start-tracking", true);
+    Services.obs.addObserver(SyncPrivate, "weave:engine:stop-tracking", true);
   },
 
   /**

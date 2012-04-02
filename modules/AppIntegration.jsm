@@ -19,6 +19,7 @@ const Cu = Components.utils;
 let baseURL = Cc["@adblockplus.org/abp/private;1"].getService(Ci.nsIURI);
 
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
+Cu.import("resource://gre/modules/Services.jsm");
 Cu.import(baseURL.spec + "TimeLine.jsm");
 Cu.import(baseURL.spec + "Utils.jsm");
 Cu.import(baseURL.spec + "Prefs.jsm");
@@ -78,7 +79,7 @@ function init()
     if (/^(filter|subscription)\.(added|removed|disabled|updated)$/.test(action))
       reloadPrefs();
   });
-  Utils.observerService.addObserver(optionsObserver, "addon-options-displayed", true);
+  Services.obs.addObserver(optionsObserver, "addon-options-displayed", true);
 }
 
 /**
@@ -115,15 +116,14 @@ var AppIntegration =
             QueryInterface: XPCOMUtils.generateQI([Ci.nsIObserver]),
             observe: function(subject, topic, data)
             {
-              observerService.removeObserver(observer, "sessionstore-windows-restored");
+              Services.obs.removeObserver(observer, "sessionstore-windows-restored");
               timer.cancel();
               timer = null;
               addSubscription();
             }
           };
   
-          let observerService = Cc["@mozilla.org/observer-service;1"].getService(Ci.nsIObserverService);
-          observerService.addObserver(observer, "sessionstore-windows-restored", false);
+          Services.obs.addObserver(observer, "sessionstore-windows-restored", false);
   
           // Just in case, don't wait more than a second
           let timer = Cc['@mozilla.org/timer;1'].createInstance(Ci.nsITimer);

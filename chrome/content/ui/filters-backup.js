@@ -4,6 +4,8 @@
  * http://mozilla.org/MPL/2.0/.
  */
 
+Cu.import("resource://gre/modules/FileUtils.jsm");
+
 /**
  * Implementation of backup and restore functionality.
  * @class
@@ -58,7 +60,7 @@ var Backup =
     catch (e)
     {
       // No default download location. Default to desktop.
-      return Utils.dirService.get("Desk", Ci.nsILocalFile);
+      return FileUtils.getDir("Desk", [], false);
     }
   },
 
