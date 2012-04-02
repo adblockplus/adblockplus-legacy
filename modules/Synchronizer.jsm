@@ -35,8 +35,6 @@ const MIN_EXPIRATION_INTERVAL = 1 * SECONDS_IN_DAY;
 const MAX_EXPIRATION_INTERVAL = 14 * SECONDS_IN_DAY;
 const MAX_ABSENSE_INTERVAL = 1 * SECONDS_IN_DAY;
 
-var XMLHttpRequest = Components.Constructor("@mozilla.org/xmlextras/xmlhttprequest;1", "nsIXMLHttpRequest");
-
 let timer = null;
 
 /**
@@ -177,7 +175,7 @@ var Synchronizer =
 
     try
     {
-      request = new XMLHttpRequest();
+      request = Cc["@mozilla.org/xmlextras/xmlhttprequest;1"].createInstance(Ci.nsIXMLHttpRequest);
       request.mozBackgroundRequest = true;
       request.open("GET", loadFrom);
     }
@@ -542,7 +540,7 @@ function setError(subscription, error, channelStatus, responseStatus, downloadUR
       fallbackURL = fallbackURL.replace(/%CHANNELSTATUS%/g, encodeURIComponent(channelStatus));
       fallbackURL = fallbackURL.replace(/%RESPONSESTATUS%/g, encodeURIComponent(responseStatus));
 
-      let request = new XMLHttpRequest();
+      let request = Cc["@mozilla.org/xmlextras/xmlhttprequest;1"].createInstance(Ci.nsIXMLHttpRequest);
       request.mozBackgroundRequest = true;
       request.open("GET", fallbackURL);
       request.overrideMimeType("text/plain");
