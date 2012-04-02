@@ -60,18 +60,13 @@ Matcher.prototype = {
 
     // Look for a suitable keyword
     let keyword = this.findKeyword(filter);
-    switch (typeof this.filterByKeyword[keyword])
-    {
-      case "undefined":
-        this.filterByKeyword[keyword] = filter.text;
-        break;
-      case "string":
-        this.filterByKeyword[keyword] = [this.filterByKeyword[keyword], filter.text];
-        break;
-      default:
-        this.filterByKeyword[keyword].push(filter.text);
-        break;
-    }
+    let oldEntry = this.filterByKeyword[keyword];
+    if (typeof oldEntry == "undefined")
+      this.filterByKeyword[keyword] = filter;
+    else if (oldEntry.length == 1)
+      this.filterByKeyword[keyword] = [oldEntry, filter];
+    else
+      oldEntry.push(filter);
     this.keywordByFilter[filter.text] = keyword;
   },
 
@@ -86,11 +81,11 @@ Matcher.prototype = {
 
     let keyword = this.keywordByFilter[filter.text];
     let list = this.filterByKeyword[keyword];
-    if (typeof list == "string")
+    if (list.length <= 1)
       delete this.filterByKeyword[keyword];
     else
     {
-      let index = list.indexOf(filter.text);
+      let index = list.indexOf(filter);
       if (index >= 0)
       {
         list.splice(index, 1);
@@ -135,19 +130,7 @@ Matcher.prototype = {
     for (let i = 0, l = candidates.length; i < l; i++)
     {
       let candidate = candidates[i].substr(1);
-      let count;
-      switch (typeof hash[candidate])
-      {
-        case "undefined":
-          count = 0;
-          break;
-        case "string":
-          count = 1;
-          break;
-        default:
-          count = hash[candidate].length;
-          break;
-      }
+      let count = (candidate in hash ? hash[candidate].length : 0);
       if (count < resultCount || (count == resultCount && candidate.length > resultLength))
       {
         result = candidate;
@@ -183,41 +166,13 @@ Matcher.prototype = {
   _checkEntryMatch: function(keyword, location, contentType, docDomain, thirdParty)
   {
     let list = this.filterByKeyword[keyword];
-    if (typeof list == "string")
+    for (let i = 0; i < list.length; i++)
     {
-      let filter = Filter.knownFilters[list];
-      if (!filter)
-      {
-        // Something is wrong, we probably shouldn't have this filter in the first place
-        delete this.filterByKeyword[keyword];
-        return null;
-      }
-      return (filter.matches(location, contentType, docDomain, thirdParty) ? filter : null);
+      let filter = list[i];
+      if (filter.matches(location, contentType, docDomain, thirdParty))
+        return filter;
     }
-    else
-    {
-      for (let i = 0; i < list.length; i++)
-      {
-        let filter = Filter.knownFilters[list[i]];
-        if (!filter)
-        {
-          // Something is wrong, we probably shouldn't have this filter in the first place
-          if (list.length == 1)
-          {
-            delete this.filterByKeyword[keyword];
-            return null;
-          }
-          else
-          {
-            list.splice(i--, 1);
-            continue;
-          }
-        }
-        if (filter.matches(location, contentType, docDomain, thirdParty))
-          return filter;
-      }
-      return null;
-    }
+    return null;
   },
 
   /**
