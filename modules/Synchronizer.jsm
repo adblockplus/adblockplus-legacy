@@ -35,7 +35,7 @@ const MIN_EXPIRATION_INTERVAL = 1 * SECONDS_IN_DAY;
 const MAX_EXPIRATION_INTERVAL = 14 * SECONDS_IN_DAY;
 const MAX_ABSENSE_INTERVAL = 1 * SECONDS_IN_DAY;
 
-var XMLHttpRequest = Components.Constructor("@mozilla.org/xmlextras/xmlhttprequest;1", "nsIJSXMLHttpRequest");
+var XMLHttpRequest = Components.Constructor("@mozilla.org/xmlextras/xmlhttprequest;1", "nsIXMLHttpRequest");
 
 let timer = null;
 

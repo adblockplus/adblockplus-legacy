@@ -306,7 +306,7 @@ function updateSubscriptionList(wrapper)
   );
   currentSubscription = (currentSubscription.length ? currentSubscription[0] : null);
   
-  let xhr = Cc["@mozilla.org/xmlextras/xmlhttprequest;1"].createInstance(Ci.nsIJSXMLHttpRequest);
+  let xhr = Cc["@mozilla.org/xmlextras/xmlhttprequest;1"].createInstance(Ci.nsIXMLHttpRequest);
   xhr.open("GET", "chrome://adblockplus/content/ui/subscriptions.xml", false);
   xhr.send(null);
   if (!xhr.responseXML)

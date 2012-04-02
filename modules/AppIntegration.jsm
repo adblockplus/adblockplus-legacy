@@ -1679,7 +1679,7 @@ function addSubscription()
   if (addSubscription)
   {
     // Load subscriptions data
-    let request = Cc["@mozilla.org/xmlextras/xmlhttprequest;1"].createInstance(Ci.nsIJSXMLHttpRequest);
+    let request = Cc["@mozilla.org/xmlextras/xmlhttprequest;1"].createInstance(Ci.nsIXMLHttpRequest);
     request.open("GET", "chrome://adblockplus/content/ui/subscriptions.xml");
     request.addEventListener("load", function()
     {
