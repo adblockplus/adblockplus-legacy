@@ -32,6 +32,12 @@ Cu.import(baseURL.spec + "TimeLine.jsm");
 let filterByKey = {__proto__: null};
 
 /**
+ * Lookup table, keys of the filters by filter text
+ * @type Object
+ */
+let keyByFilter = {__proto__: null};
+
+/**
  * Currently applied stylesheet URL
  * @type nsIURI
  */
@@ -54,12 +60,6 @@ var ElemHide =
    * @type Boolean
    */
   applied: false,
-
-  /**
-   * Lookup table, keys of the filters by filter text
-   * @type Object
-   */
-  keyByFilter: {__proto__: null},
 
   /**
    * Called on module startup.
@@ -94,7 +94,7 @@ var ElemHide =
   clear: function()
   {
     filterByKey = {__proto__: null};
-    ElemHide.keyByFilter = {__proto__: null};
+    keyByFilter = {__proto__: null};
     ElemHide.isDirty = false;
     ElemHide.unapply();
   },
@@ -105,7 +105,7 @@ var ElemHide =
    */
   add: function(filter)
   {
-    if (filter.text in ElemHide.keyByFilter)
+    if (filter.text in keyByFilter)
       return;
 
     let key;
@@ -113,8 +113,8 @@ var ElemHide =
       key = Math.random().toFixed(15).substr(5);
     } while (key in filterByKey);
 
-    filterByKey[key] = filter.text;
-    ElemHide.keyByFilter[filter.text] = key;
+    filterByKey[key] = filter;
+    keyByFilter[filter.text] = key;
     ElemHide.isDirty = true;
   },
 
@@ -124,12 +124,12 @@ var ElemHide =
    */
   remove: function(filter)
   {
-    if (!(filter.text in ElemHide.keyByFilter))
+    if (!(filter.text in keyByFilter))
       return;
 
-    let key = ElemHide.keyByFilter[filter.text];
+    let key = keyByFilter[filter.text];
     delete filterByKey[key];
-    delete ElemHide.keyByFilter[filter.text];
+    delete keyByFilter[filter.text];
     ElemHide.isDirty = true;
   },
 
@@ -165,13 +165,7 @@ var ElemHide =
         let hasFilters = false;
         for (let key in filterByKey)
         {
-          let filter = Filter.knownFilters[filterByKey[key]];
-          if (!filter)
-          {
-            // Something is wrong, we probably shouldn't have this filter in the first place
-            delete filterByKey[key];
-            continue;
-          }
+          let filter = filterByKey[key];
           let domain = filter.selectorDomain || "";
 
           let list;
@@ -314,7 +308,7 @@ var ElemHide =
    */
   getFilterByKey: function(/**String*/ key) /**Filter*/
   {
-    return (key in filterByKey ? Filter.knownFilters[filterByKey[key]] : null);
+    return (key in filterByKey ? filterByKey[key] : null);
   }
 };
 
@@ -407,7 +401,7 @@ HitRegistrationChannel.prototype = {
     if (this.key in filterByKey)
     {
       let wnd = Utils.getRequestWindow(this);
-      if (wnd && wnd.document && !Policy.processNode(wnd, wnd.document, Policy.type.ELEMHIDE, Filter.knownFilters[filterByKey[this.key]]))
+      if (wnd && wnd.document && !Policy.processNode(wnd, wnd.document, Policy.type.ELEMHIDE, filterByKey[this.key]))
         data = "<bindings xmlns='http://www.mozilla.org/xbl'/>";
     }
 
