@@ -617,18 +617,9 @@ let extensionsDataSource =
 
   collectData: function(wnd, windowURI, callback)
   {
-    let AddonManager = null;
     try
     {
-      let namespace = {};
-      Cu.import("resource://gre/modules/AddonManager.jsm", namespace);
-      AddonManager = namespace.AddonManager;
-    } catch (e) {}
-
-    if (AddonManager)
-    {
-      // Gecko 2.0
-      let me = this;
+      let AddonManager = Cu.import("resource://gre/modules/AddonManager.jsm", null).AddonManager;
       AddonManager.getAddonsByTypes(["extension", "plugin"], function(items)
       {
         for (let i = 0; i < items.length; i++)
@@ -636,38 +627,14 @@ let extensionsDataSource =
           let item = items[i];
           if (!item.isActive)
             continue;
-          me.data.appendChild(<extension id={item.id} name={item.name} type={item.type} version={item.version}/>);
+          this.data.appendChild(<extension id={item.id} name={item.name} type={item.type} version={item.version}/>);
         }
         callback();
-      });
+      }.bind(this));
     }
-    else if ("@mozilla.org/extensions/manager;1" in Cc)
+    catch (e)
     {
-      // Gecko 1.9.x
-      let extensionManager = Cc["@mozilla.org/extensions/manager;1"].getService(Ci.nsIExtensionManager);
-    	let ds = extensionManager.datasource;
-      let rdfService = Cc["@mozilla.org/rdf/rdf-service;1"].getService(Ci.nsIRDFService);
-      let list = {};
-      let items = extensionManager.getItemList(Ci.nsIUpdateItem.TYPE_EXTENSION | Ci.nsIUpdateItem.TYPE_PLUGIN, {});
-      for (let i = 0; i < items.length; i++)
-      {
-        let item = items[i];
-
-        // Check whether extension is disabled - yuk...
-        let source = rdfService.GetResource("urn:mozilla:item:" + item.id);
-        let link = rdfService.GetResource("http://www.mozilla.org/2004/em-rdf#isDisabled");
-        let target = ds.GetTarget(source, link, true);
-      	if (target instanceof Ci.nsIRDFLiteral && target.Value == "true")
-      		continue;
-
-        this.data.appendChild(<extension id={item.id} name={item.name} type={item.type == Ci.nsIUpdateItem.TYPE_EXTENSION ? "extension" : "plugin"} version={item.version}/>);
-      }
-      callback();
-    }
-    else
-    {
-      // No add-on manager, no extension manager - we must be running in K-Meleon.
-      // Skip this step.
+      // No add-on manager, what's going on? Skip this step.
       callback();
     }
   },

@@ -15,18 +15,17 @@ const Ci = Components.interfaces;
 const Cr = Components.results;
 const Cu = Components.utils;
 
-let baseURL = Cc["@adblockplus.org/abp/private;1"].getService(Ci.nsIURI);
-
+let baseURL = "chrome://adblockplus-modules/content/";
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 Cu.import("resource://gre/modules/Services.jsm");
-Cu.import(baseURL.spec + "TimeLine.jsm");
-Cu.import(baseURL.spec + "Utils.jsm");
-Cu.import(baseURL.spec + "Prefs.jsm");
-Cu.import(baseURL.spec + "FilterStorage.jsm");
-Cu.import(baseURL.spec + "FilterClasses.jsm");
-Cu.import(baseURL.spec + "Matcher.jsm");
-Cu.import(baseURL.spec + "ObjectTabs.jsm");
-Cu.import(baseURL.spec + "RequestNotifier.jsm");
+Cu.import(baseURL + "TimeLine.jsm");
+Cu.import(baseURL + "Utils.jsm");
+Cu.import(baseURL + "Prefs.jsm");
+Cu.import(baseURL + "FilterStorage.jsm");
+Cu.import(baseURL + "FilterClasses.jsm");
+Cu.import(baseURL + "Matcher.jsm");
+Cu.import(baseURL + "ObjectTabs.jsm");
+Cu.import(baseURL + "RequestNotifier.jsm");
 
 /**
  * List of explicitly supported content types
@@ -490,9 +489,9 @@ var PolicyPrivate =
   // nsIChannelEventSink interface implementation
   //
 
-  // Old (Gecko 1.9.x) version
-  onChannelRedirect: function(oldChannel, newChannel, flags)
+  asyncOnChannelRedirect: function(oldChannel, newChannel, flags, callback)
   {
+    let result = Cr.NS_OK;
     try
     {
       // Try to retrieve previously stored request data from the channel
@@ -522,26 +521,18 @@ var PolicyPrivate =
       if (!wnd)
         return;
 
-      // HACK: NS_BINDING_ABORTED would be proper error code to throw but this will show up in error console (bug 287107)
       if (!Policy.processNode(wnd, wnd.document, contentType, newLocation, false))
-        throw Cr.NS_BASE_STREAM_WOULD_BLOCK;
-      else
-        return;
+        result = Cr.NS_BINDING_ABORTED;
     }
-    catch (e if (e != Cr.NS_BASE_STREAM_WOULD_BLOCK))
+    catch (e)
     {
       // We shouldn't throw exceptions here - this will prevent the redirect.
       Cu.reportError(e);
     }
-  },
-
-  // New (Gecko 2.0) version
-  asyncOnChannelRedirect: function(oldChannel, newChannel, flags, callback)
-  {
-    this.onChannelRedirect(oldChannel, newChannel, flags);
-
-    // If onChannelRedirect didn't throw an exception indicate success
-    callback.onRedirectVerifyCallback(Cr.NS_OK);
+    finally
+    {
+      callback.onRedirectVerifyCallback(result);
+    }
   },
 
   //

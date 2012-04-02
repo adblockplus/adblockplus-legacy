@@ -15,11 +15,10 @@ const Ci = Components.interfaces;
 const Cr = Components.results;
 const Cu = Components.utils;
 
-let baseURL = Cc["@adblockplus.org/abp/private;1"].getService(Ci.nsIURI);
-
-Cu.import(baseURL.spec + "Utils.jsm");
-Cu.import(baseURL.spec + "FilterClasses.jsm");
-Utils.runAsync(Cu.import, Cu, baseURL.spec + "ContentPolicy.jsm");  // delay to avoid circular imports
+let baseURL = "chrome://adblockplus-modules/content/";
+Cu.import(baseURL + "Utils.jsm");
+Cu.import(baseURL + "FilterClasses.jsm");
+Utils.runAsync(Cu.import, Cu, baseURL + "ContentPolicy.jsm");  // delay to avoid circular imports
 
 // Our properties should have randomized names
 const dataSeed = Math.random();
@@ -32,23 +31,6 @@ const wndStatProp = "abpWindowStats" + dataSeed;
  * @type RequestNotifier[]
  */
 let activeNotifiers = [];
-
-function attachData(node, prop, data)
-{
-  node.setUserData(prop, data, null);
-}
-
-function retrieveData(node, prop)
-{
-  if (typeof XPCNativeWrapper != "undefined" && node.wrappedJSObject)
-  {
-    // Rewrap node into a shallow XPCNativeWrapper. Otherwise we will get
-    // our object wrapped causing weird permission exceptions in Gecko 1.9.1
-    // and failed equality comparisons in Gecko 1.9.2.
-    node = new XPCNativeWrapper(node, "getUserData()");
-  }
-  return node.getUserData(prop);
-}
 
 /**
  * Creates a notifier object for a particular window. After creation the window
@@ -145,7 +127,7 @@ RequestNotifier.prototype =
           return;
 
         let node = walker.currentNode;
-        let data = retrieveData(node, nodeDataProp);
+        let data = node.getUserData(nodeDataProp);
         if (data)
           for (let i = data.length - 1; i >= 0; i--)
             this.notifier.notifyListener(wnd, node, data[i]);
@@ -201,7 +183,7 @@ RequestNotifier.addNodeData = function(/**Node*/ node, /**Window*/ topWnd, /**In
  */
 RequestNotifier.getWindowStatistics = function(/**Window*/ wnd)
 {
-  return retrieveData(wnd.document, wndStatProp);
+  return wnd.document.getUserData(wndStatProp);
 }
 
 /**
@@ -217,7 +199,7 @@ RequestNotifier.getDataForNode = function(node, noParent, type, location)
 {
   while (node)
   {
-    let data = retrieveData(node, nodeDataProp);
+    let data = node.getUserData(nodeDataProp);
     if (data)
     {
       // Look for matching entry starting at the end of the list (most recent first)
@@ -258,7 +240,7 @@ function RequestEntry(node, topWnd, contentType, docDomain, thirdParty, location
   this.attachToNode(node);
 
   // Update window statistics
-  let windowStats = retrieveData(topWnd.document, wndStatProp);
+  let windowStats = topWnd.document.getUserData(wndStatProp);
   if (!windowStats)
   {
     windowStats = {
@@ -269,7 +251,7 @@ function RequestEntry(node, topWnd, contentType, docDomain, thirdParty, location
       filters: {}
     };
 
-    attachData(topWnd.document, wndStatProp, windowStats);
+    topWnd.document.setUserData(wndStatProp, windowStats, null);
   }
 
   if (filter && filter instanceof ElemHideFilter)
@@ -337,7 +319,7 @@ RequestEntry.prototype =
    */
   attachToNode: function(/**Node*/ node)
   {
-    let existingData = retrieveData(node, nodeDataProp);
+    let existingData = node.getUserData(nodeDataProp);
     if (existingData)
     {
       // Add the new entry to the existing data
@@ -346,7 +328,7 @@ RequestEntry.prototype =
     else
     {
       // Associate the node with a new array
-      attachData(node, nodeDataProp, [this]);
+      node.setUserData(nodeDataProp, [this], null);
     }
   }
 };

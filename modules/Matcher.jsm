@@ -15,8 +15,8 @@ const Ci = Components.interfaces;
 const Cr = Components.results;
 const Cu = Components.utils;
 
-let baseURL = Cc["@adblockplus.org/abp/private;1"].getService(Ci.nsIURI);
-Cu.import(baseURL.spec + "FilterClasses.jsm");
+let baseURL = "chrome://adblockplus-modules/content/";
+Cu.import(baseURL + "FilterClasses.jsm");
 
 /**
  * Blacklist/whitelist filter matching

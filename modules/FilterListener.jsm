@@ -15,18 +15,18 @@ const Ci = Components.interfaces;
 const Cr = Components.results;
 const Cu = Components.utils;
 
-let baseURL = Cc["@adblockplus.org/abp/private;1"].getService(Ci.nsIURI);
+let baseURL = "chrome://adblockplus-modules/content/";
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 Cu.import("resource://gre/modules/Services.jsm");
-Cu.import(baseURL.spec + "TimeLine.jsm");
-Cu.import(baseURL.spec + "FilterStorage.jsm");
-Cu.import(baseURL.spec + "FilterNotifier.jsm");
-Cu.import(baseURL.spec + "ElemHide.jsm");
-Cu.import(baseURL.spec + "Matcher.jsm");
-Cu.import(baseURL.spec + "FilterClasses.jsm");
-Cu.import(baseURL.spec + "SubscriptionClasses.jsm");
-Cu.import(baseURL.spec + "Prefs.jsm");
-Cu.import(baseURL.spec + "Utils.jsm");
+Cu.import(baseURL + "TimeLine.jsm");
+Cu.import(baseURL + "FilterStorage.jsm");
+Cu.import(baseURL + "FilterNotifier.jsm");
+Cu.import(baseURL + "ElemHide.jsm");
+Cu.import(baseURL + "Matcher.jsm");
+Cu.import(baseURL + "FilterClasses.jsm");
+Cu.import(baseURL + "SubscriptionClasses.jsm");
+Cu.import(baseURL + "Prefs.jsm");
+Cu.import(baseURL + "Utils.jsm");
 
 /**
  * Value of the FilterListener.batchMode property.

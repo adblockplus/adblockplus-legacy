@@ -16,22 +16,21 @@ const Ci = Components.interfaces;
 const Cr = Components.results;
 const Cu = Components.utils;
 
-let baseURL = Cc["@adblockplus.org/abp/private;1"].getService(Ci.nsIURI);
-
+let baseURL = "chrome://adblockplus-modules/content/";
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 Cu.import("resource://gre/modules/Services.jsm");
-Cu.import(baseURL.spec + "TimeLine.jsm");
-Cu.import(baseURL.spec + "Utils.jsm");
-Cu.import(baseURL.spec + "Prefs.jsm");
-Cu.import(baseURL.spec + "ContentPolicy.jsm");
-Cu.import(baseURL.spec + "FilterListener.jsm");
-Cu.import(baseURL.spec + "FilterStorage.jsm");
-Cu.import(baseURL.spec + "FilterNotifier.jsm");
-Cu.import(baseURL.spec + "FilterClasses.jsm");
-Cu.import(baseURL.spec + "SubscriptionClasses.jsm");
-Cu.import(baseURL.spec + "RequestNotifier.jsm");
-Cu.import(baseURL.spec + "Synchronizer.jsm");
-Cu.import(baseURL.spec + "Sync.jsm");
+Cu.import(baseURL + "TimeLine.jsm");
+Cu.import(baseURL + "Utils.jsm");
+Cu.import(baseURL + "Prefs.jsm");
+Cu.import(baseURL + "ContentPolicy.jsm");
+Cu.import(baseURL + "FilterListener.jsm");
+Cu.import(baseURL + "FilterStorage.jsm");
+Cu.import(baseURL + "FilterNotifier.jsm");
+Cu.import(baseURL + "FilterClasses.jsm");
+Cu.import(baseURL + "SubscriptionClasses.jsm");
+Cu.import(baseURL + "RequestNotifier.jsm");
+Cu.import(baseURL + "Synchronizer.jsm");
+Cu.import(baseURL + "Sync.jsm");
 
 /**
  * Wrappers for tracked application windows.
@@ -308,9 +307,9 @@ function WindowWrapper(window, hooks)
   if (Utils.isFennec)
   {
     if ("BrowserApp" in this.window)
-      Cu.import(baseURL.spec + "AppIntegrationFennecNative.jsm");
+      Cu.import(baseURL + "AppIntegrationFennecNative.jsm");
     else
-      Cu.import(baseURL.spec + "AppIntegrationFennec.jsm");
+      Cu.import(baseURL + "AppIntegrationFennec.jsm");
     AppIntegrationFennec.initWindow(this);
   }
 

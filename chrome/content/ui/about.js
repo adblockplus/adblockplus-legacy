@@ -48,7 +48,7 @@ function init()
   {
     // No add-on manager, no extension manager - we must be running in K-Meleon.
     // Load Manifest.jsm as last solution.
-    Cu.import(baseURL.spec + "Manifest.jsm");
+    Cu.import(baseURL + "Manifest.jsm");
     setExtensionData(manifest.name, manifest.version, manifest.homepage, [manifest.creator], manifest.contributors, manifest.translators);
   }
 }
