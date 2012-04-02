@@ -76,24 +76,11 @@ var Bootstrap =
   
     // Load and initialize modules
   
-    TimeLine.log("started initializing default modules");
+    TimeLine.log("started initializing modules");
   
     for each (let url in defaultModules)
       Bootstrap.loadModule(url);
 
-    TimeLine.log("initializing additional modules");
-
-    let categoryManager = Cc["@mozilla.org/categorymanager;1"].getService(Ci.nsICategoryManager);
-    let enumerator = categoryManager.enumerateCategory("adblock-plus-module-location");
-    while (enumerator.hasMoreElements())
-    {
-      let uri = enumerator.getNext().QueryInterface(Ci.nsISupportsCString).data;
-      Bootstrap.loadModule(uri);
-    }
-
-    Services.obs.addObserver(BootstrapPrivate, "xpcom-category-entry-added", true);
-    Services.obs.addObserver(BootstrapPrivate, "xpcom-category-entry-removed", true);
-  
     TimeLine.leave("Bootstrap.startup() done");
   },
 
@@ -173,31 +160,6 @@ var Bootstrap =
         Cu.reportError("Adblock Plus: Calling method shutdown() for module " + url + " failed: " + e);
       }
       return;
-    }
-  }
-};
-
-/**
- * Observer called on modules category changes.
- * @class
- */
-var BootstrapPrivate =
-{
-  QueryInterface: XPCOMUtils.generateQI([Ci.nsIObserver, Ci.nsISupportsWeakReference]),
-
-  observe: function(subject, topic, data)
-  {
-    if (data != "adblock-plus-module-location")
-      return;
-
-    switch (topic)
-    {
-      case "xpcom-category-entry-added":
-        Bootstrap.loadModule(subject.QueryInterface(Ci.nsISupportsCString).data);
-        break;
-      case "xpcom-category-entry-removed":
-        Bootstrap.unloadModule(subject.QueryInterface(Ci.nsISupportsCString).data, true);
-        break;
     }
   }
 };
