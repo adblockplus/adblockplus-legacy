@@ -361,8 +361,8 @@ var Utils =
    */
   loadDocLink: function(/**String*/ linkID)
   {
-    let baseURL = Cc["@adblockplus.org/abp/private;1"].getService(Ci.nsIURI);
-    Cu.import(baseURL.spec + "Prefs.jsm");
+    let baseURL = "chrome://adblockplus-modules/content/";
+    Cu.import(baseURL + "Prefs.jsm");
 
     let link = Prefs.documentation_link.replace(/%LINK%/g, linkID).replace(/%LANG%/g, Utils.appLocale);
     Utils.loadInBrowser(link);

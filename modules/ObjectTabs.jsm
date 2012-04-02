@@ -15,16 +15,15 @@ const Ci = Components.interfaces;
 const Cr = Components.results;
 const Cu = Components.utils;
 
-let baseURL = Cc["@adblockplus.org/abp/private;1"].getService(Ci.nsIURI);
-
-Cu.import(baseURL.spec + "Utils.jsm");
-Cu.import(baseURL.spec + "Prefs.jsm");
-Cu.import(baseURL.spec + "RequestNotifier.jsm");
+let baseURL = "chrome://adblockplus-modules/content/";
+Cu.import(baseURL + "Utils.jsm");
+Cu.import(baseURL + "Prefs.jsm");
+Cu.import(baseURL + "RequestNotifier.jsm");
 
 // Run asynchronously to prevent cyclic module loads
 Utils.runAsync(function()
 {
-  Cu.import(baseURL.spec + "ContentPolicy.jsm");
+  Cu.import(baseURL + "ContentPolicy.jsm");
 });
 
 /**
@@ -422,7 +421,7 @@ var objTabs =
 
   doBlock: function()
   {
-    Cu.import(baseURL.spec + "AppIntegration.jsm");
+    Cu.import(baseURL + "AppIntegration.jsm");
     let wrapper = AppIntegration.getWrapperForWindow(this.objtabElement.hooks.ownerDocument.defaultView);
     if (wrapper)
       wrapper.blockItem(this.currentElement, this.objtabElement.nodeData);

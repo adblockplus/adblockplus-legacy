@@ -18,41 +18,18 @@ const Cu = Components.utils;
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 Cu.import("resource://gre/modules/Services.jsm");
 
-let chromeSupported = true;
-let ioService = Cc["@mozilla.org/network/io-service;1"].getService(Ci.nsIIOService);
-let publicURL = ioService.newURI("chrome://adblockplus-modules/content/Public.jsm", null, null);
-let baseURL = publicURL.clone().QueryInterface(Ci.nsIURL);
-baseURL.fileName = "";
+let baseURL = "chrome://adblockplus-modules/content/";
+Cu.import(baseURL + "Utils.jsm");
+Cu.import(baseURL + "TimeLine.jsm");
 
-try
-{
-  // Gecko 2.0 and higher - chrome URLs can be loaded directly
-  Cu.import(baseURL.spec + "Utils.jsm");
-  Cu.import(baseURL.spec + "TimeLine.jsm");
-}
-catch (e)
-{
-  // Gecko 1.9.x - have to convert chrome URLs to file URLs first
-  let chromeRegistry = Cc["@mozilla.org/chrome/chrome-registry;1"].getService(Ci.nsIChromeRegistry);
-  publicURL = chromeRegistry.convertChromeURL(publicURL);
-  baseURL = chromeRegistry.convertChromeURL(baseURL);
-  Cu.import(baseURL.spec + "Utils.jsm");
-  Cu.import(baseURL.spec + "TimeLine.jsm");
-  chromeSupported = false;
-}
-
+let publicURL = Services.io.newURI(baseURL + "Public.jsm", null, null);
 if (publicURL instanceof Ci.nsIMutable)
   publicURL.mutable = false;
-if (baseURL instanceof Ci.nsIMutable)
-  baseURL.mutable = false;
-    
+
 const cidPublic = Components.ID("5e447bce-1dd2-11b2-b151-ec21c2b6a135");
 const contractIDPublic = "@adblockplus.org/abp/public;1";
-
-const cidPrivate = Components.ID("2f1e0288-1dd2-11b2-bbfe-d7b8a982508e");
-const contractIDPrivate = "@adblockplus.org/abp/private;1";
-
-let factoryPublic = {
+let factoryPublic =
+{
   createInstance: function(outer, iid)
   {
     if (outer)
@@ -61,21 +38,12 @@ let factoryPublic = {
   }
 };
 
-let factoryPrivate = {
-  createInstance: function(outer, iid)
-  {
-    if (outer)
-      throw Cr.NS_ERROR_NO_AGGREGATION;
-    return baseURL.QueryInterface(iid);
-  }
-};
-
 let defaultModules = [
-  baseURL.spec + "Prefs.jsm",
-  baseURL.spec + "FilterListener.jsm",
-  baseURL.spec + "ContentPolicy.jsm",
-  baseURL.spec + "Synchronizer.jsm",
-  baseURL.spec + "Sync.jsm"
+  baseURL + "Prefs.jsm",
+  baseURL + "FilterListener.jsm",
+  baseURL + "ContentPolicy.jsm",
+  baseURL + "Synchronizer.jsm",
+  baseURL + "Sync.jsm"
 ];
 
 let loadedModules = {__proto__: null};
@@ -99,12 +67,11 @@ var Bootstrap =
 
     TimeLine.enter("Entered Bootstrap.startup()");
   
-    // Register component to allow retrieving private and public URL
+    // Register component to allow retrieving public URL
     
     let registrar = Components.manager.QueryInterface(Ci.nsIComponentRegistrar);
     registrar.registerFactory(cidPublic, "Adblock Plus public module URL", contractIDPublic, factoryPublic);
-    registrar.registerFactory(cidPrivate, "Adblock Plus private module URL", contractIDPrivate, factoryPrivate);
-  
+
     TimeLine.log("done registering URL components");
   
     // Load and initialize modules

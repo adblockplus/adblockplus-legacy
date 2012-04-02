@@ -32,8 +32,7 @@
 
   <script type="application/x-javascript;version=1.7">
     try {
-      let baseURL = Components.classes["@adblockplus.org/abp/private;1"].getService(Components.interfaces.nsIURI);
-      Components.utils.import(baseURL.spec + "Utils.jsm");
+      Components.utils.import("chrome://adblockplus-modules/content/Utils.jsm");
 
       let text = "You are running Adblock Plus " + Utils.addonVersion;
       let build = Utils.addonBuild;

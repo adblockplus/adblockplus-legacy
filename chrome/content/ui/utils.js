@@ -9,20 +9,20 @@ const Ci = Components.interfaces;
 const Cr = Components.results;
 const Cu = Components.utils;
 
-let baseURL = Cc["@adblockplus.org/abp/private;1"].getService(Ci.nsIURI);
-Cu.import(baseURL.spec + "AppIntegration.jsm");
-Cu.import(baseURL.spec + "ContentPolicy.jsm");
-Cu.import(baseURL.spec + "FilterClasses.jsm");
-Cu.import(baseURL.spec + "FilterListener.jsm");
-Cu.import(baseURL.spec + "FilterStorage.jsm");
-Cu.import(baseURL.spec + "FilterNotifier.jsm");
-Cu.import(baseURL.spec + "Matcher.jsm");
-Cu.import(baseURL.spec + "Prefs.jsm");
-Cu.import(baseURL.spec + "RequestNotifier.jsm");
-Cu.import(baseURL.spec + "SubscriptionClasses.jsm");
-Cu.import(baseURL.spec + "Synchronizer.jsm");
-Cu.import(baseURL.spec + "Sync.jsm");
-Cu.import(baseURL.spec + "Utils.jsm");
+let baseURL = "chrome://adblockplus-modules/content/";
+Cu.import(baseURL + "AppIntegration.jsm");
+Cu.import(baseURL + "ContentPolicy.jsm");
+Cu.import(baseURL + "FilterClasses.jsm");
+Cu.import(baseURL + "FilterListener.jsm");
+Cu.import(baseURL + "FilterStorage.jsm");
+Cu.import(baseURL + "FilterNotifier.jsm");
+Cu.import(baseURL + "Matcher.jsm");
+Cu.import(baseURL + "Prefs.jsm");
+Cu.import(baseURL + "RequestNotifier.jsm");
+Cu.import(baseURL + "SubscriptionClasses.jsm");
+Cu.import(baseURL + "Synchronizer.jsm");
+Cu.import(baseURL + "Sync.jsm");
+Cu.import(baseURL + "Utils.jsm");
 
 /**
  * Shortcut for document.getElementById(id)

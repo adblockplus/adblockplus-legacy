@@ -15,12 +15,11 @@ const Ci = Components.interfaces;
 const Cr = Components.results;
 const Cu = Components.utils;
 
-let baseURL = Cc["@adblockplus.org/abp/private;1"].getService(Ci.nsIURI);
-
+let baseURL = "chrome://adblockplus-modules/content/";
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 Cu.import("resource://gre/modules/Services.jsm");
-Cu.import(baseURL.spec + "TimeLine.jsm");
-Cu.import(baseURL.spec + "Utils.jsm");
+Cu.import(baseURL + "TimeLine.jsm");
+Cu.import(baseURL + "Utils.jsm");
 
 const prefRoot = "extensions.adblockplus.";
 

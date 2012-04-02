@@ -15,14 +15,13 @@ const Ci = Components.interfaces;
 const Cr = Components.results;
 const Cu = Components.utils;
 
-let baseURL = Cc["@adblockplus.org/abp/private;1"].getService(Ci.nsIURI);
-
-Cu.import(baseURL.spec + "Utils.jsm");
-Cu.import(baseURL.spec + "Prefs.jsm");
-Cu.import(baseURL.spec + "FilterClasses.jsm");
-Cu.import(baseURL.spec + "SubscriptionClasses.jsm");
-Cu.import(baseURL.spec + "FilterNotifier.jsm");
-Cu.import(baseURL.spec + "TimeLine.jsm");
+let baseURL = "chrome://adblockplus-modules/content/";
+Cu.import(baseURL + "Utils.jsm");
+Cu.import(baseURL + "Prefs.jsm");
+Cu.import(baseURL + "FilterClasses.jsm");
+Cu.import(baseURL + "SubscriptionClasses.jsm");
+Cu.import(baseURL + "FilterNotifier.jsm");
+Cu.import(baseURL + "TimeLine.jsm");
 
 /**
  * Version number of the filter storage file format.
