@@ -24,6 +24,7 @@ function prepareFilterComponents(keepObservers)
   Cu.import(baseURL.spec + "Matcher.jsm");
   window.ElemHideGlobal = Cu.import(baseURL.spec + "ElemHide.jsm");
   Cu.import(baseURL.spec + "FilterListener.jsm");
+  Cu.import(baseURL.spec + "FilterNotifier.jsm");
 
   let oldSubscriptions = FilterStorage.subscriptions;
   let oldStorageKnown = FilterStorage.knownSubscriptions;
@@ -53,7 +54,7 @@ function prepareFilterComponents(keepObservers)
     FilterStorageGlobal.observers = oldObservers;
     FilterStorage.__defineGetter__("sourceFile", oldSourceFile);
 
-    FilterStorage.triggerObservers("load");
+    FilterNotifier.triggerListeners("load");
   }, false);
 
   try

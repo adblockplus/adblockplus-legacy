@@ -456,6 +456,12 @@ RegExpFilter.prototype =
   __proto__: ActiveFilter.prototype,
 
   /**
+   * Number of filters contained, will always be 1 (required to optimize Matcher).
+   * @type Integer
+   */
+  length: 1,
+
+  /**
    * @see ActiveFilter.domainSeparator
    */
   domainSeparator: "|",
@@ -541,6 +547,11 @@ RegExpFilter.prototype =
     return false;
   }
 };
+
+RegExpFilter.prototype.__defineGetter__("0", function()
+{
+  return this;
+});
 
 /**
  * Creates a RegExp filter from its text representation
