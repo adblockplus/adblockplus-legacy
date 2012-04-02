@@ -17,6 +17,7 @@ const Cu = Components.utils;
 
 let baseURL = Cc["@adblockplus.org/abp/private;1"].getService(Ci.nsIURI);
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
+Cu.import("resource://gre/modules/Services.jsm");
 Cu.import(baseURL.spec + "TimeLine.jsm");
 Cu.import(baseURL.spec + "FilterStorage.jsm");
 Cu.import(baseURL.spec + "FilterNotifier.jsm");
@@ -67,7 +68,7 @@ var FilterListener =
 
     TimeLine.log("done initializing data structures");
 
-    Utils.observerService.addObserver(FilterListenerPrivate, "browser:purge-session-history", true);
+    Services.obs.addObserver(FilterListenerPrivate, "browser:purge-session-history", true);
     TimeLine.log("done adding observers");
 
     TimeLine.leave("FilterListener.startup() done");

@@ -17,6 +17,7 @@ const Cu = Components.utils;
 
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 Cu.import("resource://gre/modules/Services.jsm");
+Cu.import("resource://gre/modules/FileUtils.jsm");
 let sidebarParams = null;
 
 /**
@@ -56,7 +57,7 @@ var Utils =
    */
   get appID()
   {
-    let id = Utils.appInfo.ID;
+    let id = Services.appinfo.ID;
     Utils.__defineGetter__("appID", function() id);
     return Utils.appID;
   },
@@ -95,7 +96,7 @@ var Utils =
    */
   get platformVersion()
   {
-    let platformVersion = Utils.appInfo.platformVersion;
+    let platformVersion = Services.appinfo.platformVersion;
     Utils.__defineGetter__("platformVersion", function() platformVersion);
     return Utils.platformVersion;
   },
@@ -108,9 +109,7 @@ var Utils =
    */
   getString: function(name)
   {
-    let stringBundle = Cc["@mozilla.org/intl/stringbundle;1"]
-                        .getService(Ci.nsIStringBundleService)
-                        .createBundle("chrome://adblockplus/locale/global.properties");
+    let stringBundle = Services.strings.createBundle("chrome://adblockplus/locale/global.properties");
     Utils.getString = function(name)
     {
       return stringBundle.GetStringFromName(name);
@@ -403,17 +402,12 @@ var Utils =
 
     try {
       // Assume an absolute path first
-      let file = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsILocalFile);
-      file.initWithPath(path);
-      return file;
+      return new FileUtils.File(path);
     } catch (e) {}
 
     try {
       // Try relative path now
-      let profileDir = Utils.dirService.get("ProfD", Ci.nsIFile);
-      let file = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsILocalFile);
-      file.setRelativeDescriptor(profileDir, path);
-      return file;
+      return FileUtils.getFile("ProfD", path.split("/"));
     } catch (e) {}
 
     return null;
@@ -690,11 +684,8 @@ Cache.prototype =
 
 // Getters for common services, this should be replaced by Services.jsm in future
 
-XPCOMUtils.defineLazyServiceGetter(Utils, "observerService", "@mozilla.org/observer-service;1", "nsIObserverService");
 XPCOMUtils.defineLazyServiceGetter(Utils, "categoryManager", "@mozilla.org/categorymanager;1", "nsICategoryManager");
-XPCOMUtils.defineLazyServiceGetter(Utils, "appInfo", "@mozilla.org/xre/app-info;1", "nsIXULAppInfo");
 XPCOMUtils.defineLazyServiceGetter(Utils, "ioService", "@mozilla.org/network/io-service;1", "nsIIOService");
-XPCOMUtils.defineLazyServiceGetter(Utils, "dirService", "@mozilla.org/file/directory_service;1", "nsIProperties");
 XPCOMUtils.defineLazyServiceGetter(Utils, "threadManager", "@mozilla.org/thread-manager;1", "nsIThreadManager");
 XPCOMUtils.defineLazyServiceGetter(Utils, "promptService", "@mozilla.org/embedcomp/prompt-service;1", "nsIPromptService");
 XPCOMUtils.defineLazyServiceGetter(Utils, "effectiveTLD", "@mozilla.org/network/effective-tld-service;1", "nsIEffectiveTLDService");

@@ -8,11 +8,14 @@
 // Report data template, more data will be added during data collection
 //
 
+Cu.import("resource://gre/modules/Services.jsm");
+Cu.import("resource://gre/modules/FileUtils.jsm");
+
 let reportData =
   <report>
     <adblock-plus version={Utils.addonVersion} build={Utils.addonBuild} locale={Utils.appLocale}/>
-    <application name={Utils.appInfo.name} vendor={Utils.appInfo.vendor} version={Utils.appInfo.version} userAgent={window.navigator.userAgent}/>
-    <platform name="Gecko" version={Utils.appInfo.platformVersion} build={Utils.appInfo.platformBuildID}/>
+    <application name={Services.appinfo.name} vendor={Services.appinfo.vendor} version={Services.appinfo.version} userAgent={window.navigator.userAgent}/>
+    <platform name="Gecko" version={Services.appinfo.platformVersion} build={Services.appinfo.platformBuildID}/>
     <options>
       <option id="enabled">{Prefs.enabled}</option>
       <option id="objecttabs">{Prefs.frameobjects}</option>
@@ -571,7 +574,7 @@ let errorsDataSource =
       let [pathID, placeholder] = pathList[i];
       try
       {
-        let file = Utils.dirService.get(pathID, Ci.nsIFile);
+        let file = FileUtils.getDir(pathID, [], false);
         censored[file.path.replace(/[\\\/]+$/, '')] = placeholder;
         let uri = Utils.ioService.newFileURI(file);
         censored[uri.spec.replace(/[\\\/]+$/, '')] = placeholder;

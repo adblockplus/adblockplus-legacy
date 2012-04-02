@@ -18,6 +18,7 @@ const Cu = Components.utils;
 let baseURL = Cc["@adblockplus.org/abp/private;1"].getService(Ci.nsIURI);
 
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
+Cu.import("resource://gre/modules/Services.jsm");
 Cu.import(baseURL.spec + "TimeLine.jsm");
 Cu.import(baseURL.spec + "Utils.jsm");
 
@@ -209,8 +210,7 @@ function registerObservers()
     Cu.reportError(e);
   }
 
-  let observerService = Cc["@mozilla.org/observer-service;1"].getService(Ci.nsIObserverService);
-  observerService.addObserver(PrefsPrivate, "em-action-requested", true);
+  Services.obs.addObserver(PrefsPrivate, "em-action-requested", true);
 
   // Add Private Browsing observer
   if ("@mozilla.org/privatebrowsing;1" in Cc)
@@ -218,7 +218,7 @@ function registerObservers()
     try
     {
       Prefs.privateBrowsing = Cc["@mozilla.org/privatebrowsing;1"].getService(Ci.nsIPrivateBrowsingService).privateBrowsingEnabled;
-      observerService.addObserver(PrefsPrivate, "private-browsing", true);
+      Services.obs.addObserver(PrefsPrivate, "private-browsing", true);
     }
     catch(e)
     {

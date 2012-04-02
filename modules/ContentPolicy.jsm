@@ -18,6 +18,7 @@ const Cu = Components.utils;
 let baseURL = Cc["@adblockplus.org/abp/private;1"].getService(Ci.nsIURI);
 
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
+Cu.import("resource://gre/modules/Services.jsm");
 Cu.import(baseURL.spec + "TimeLine.jsm");
 Cu.import(baseURL.spec + "Utils.jsm");
 Cu.import(baseURL.spec + "Prefs.jsm");
@@ -145,8 +146,8 @@ var Policy =
     for each (let category in PolicyPrivate.xpcom_categories)
       catMan.addCategoryEntry(category, PolicyPrivate.classDescription, PolicyPrivate.contractID, false, true);
 
-    Utils.observerService.addObserver(PolicyPrivate, "http-on-modify-request", true);
-    Utils.observerService.addObserver(PolicyPrivate, "content-document-global-created", true);
+    Services.obs.addObserver(PolicyPrivate, "http-on-modify-request", true);
+    Services.obs.addObserver(PolicyPrivate, "content-document-global-created", true);
 
     TimeLine.leave("ContentPolicy.startup() done");
   },

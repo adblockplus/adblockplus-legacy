@@ -16,6 +16,7 @@ const Cr = Components.results;
 const Cu = Components.utils;
 
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
+Cu.import("resource://gre/modules/Services.jsm");
 Cu.import("chrome://adblockplus-modules/content/Utils.jsm");
 
 /**
@@ -48,8 +49,8 @@ var PolicyRemote =
     for each (let category in PolicyRemote.xpcom_categories)
       catMan.addCategoryEntry(category, PolicyRemote.classDescription, PolicyRemote.contractID, false, true);
 
-    Utils.observerService.addObserver(PolicyRemote, "http-on-modify-request", true);
-    Utils.observerService.addObserver(PolicyRemote, "content-document-global-created", true);
+    Services.obs.addObserver(PolicyRemote, "http-on-modify-request", true);
+    Services.obs.addObserver(PolicyRemote, "content-document-global-created", true);
 
     // Generate class identifier used to collapse node and register corresponding
     // stylesheet.
