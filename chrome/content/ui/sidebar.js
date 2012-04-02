@@ -215,7 +215,10 @@ function fillInTooltip(e) {
     item = treeView.getItemAt(e.clientX, e.clientY);
 
   if (!item)
-    return false;
+  {
+    e.preventDefault();
+    return;
+  }
 
   let filter = ("filter" in item && item.filter ? item.filter : null);
   let size = ("tooltip" in item ? null : getItemSize(item));
@@ -297,8 +300,6 @@ function fillInTooltip(e) {
   }
   else
     E("tooltipPreviewBox").hidden = true;
-
-  return true;
 }
 
 const visual = {
@@ -1180,8 +1181,7 @@ var treeView = {
 
     let col = {};
     this.boxObject.getCellAt(x, y, {}, col, {});
-    if (col.value)
-      return col.value.id;
+    return (col.value ? col.value.id : null);
   },
 
   getDummyTooltip: function() {
