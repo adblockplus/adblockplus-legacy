@@ -16,7 +16,7 @@ const Cr = Components.results;
 const Cu = Components.utils;
 
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
-
+Cu.import("resource://gre/modules/Services.jsm");
 let sidebarParams = null;
 
 /**
@@ -254,25 +254,9 @@ var Utils =
    */
   getLineBreak: function()
   {
-    // HACKHACK: Gecko doesn't expose NS_LINEBREAK, try to determine
-    // plattform's line breaks by reading prefs.js
-    let lineBreak = "\n";
-    try {
-      let prefFile = Utils.dirService.get("PrefF", Ci.nsIFile);
-      let inputStream = Cc["@mozilla.org/network/file-input-stream;1"].createInstance(Ci.nsIFileInputStream);
-      inputStream.init(prefFile, 0x01, 0444, 0);
-  
-      let scriptableStream = Cc["@mozilla.org/scriptableinputstream;1"].createInstance(Ci.nsIScriptableInputStream);
-      scriptableStream.init(inputStream);
-      let data = scriptableStream.read(1024);
-      scriptableStream.close();
-  
-      if (/(\r\n?|\n\r?)/.test(data))
-        lineBreak = RegExp.$1;
-    } catch (e) {}
-  
+    let lineBreak = (Services.appinfo.OS == "WINNT" ? "\r\n" : "\n");
     Utils.getLineBreak = function() lineBreak;
-    return lineBreak;
+    return Utils.getLineBreak();
   },
 
   /**
