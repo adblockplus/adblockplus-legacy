@@ -152,7 +152,7 @@ var objTabs =
 
       // Load CSS asynchronously
       try {
-        let request = Cc["@mozilla.org/xmlextras/xmlhttprequest;1"].createInstance(Ci.nsIJSXMLHttpRequest);
+        let request = Cc["@mozilla.org/xmlextras/xmlhttprequest;1"].createInstance(Ci.nsIXMLHttpRequest);
         request.open("GET", "chrome://adblockplus/content/objtabs.css");
         request.overrideMimeType("text/plain");
 
