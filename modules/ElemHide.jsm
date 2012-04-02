@@ -155,7 +155,7 @@ var ElemHide =
 
       // CSS file doesn't need to be rewritten if nothing changed (e.g. we
       // were disabled and reenabled)
-      if (ElemHide.isDirty || !styleURL.file.exists())
+      if (ElemHide.isDirty)
       {
         ElemHide.isDirty = false;
 
@@ -315,38 +315,6 @@ var ElemHide =
   getFilterByKey: function(/**String*/ key) /**Filter*/
   {
     return (key in filterByKey ? Filter.knownFilters[filterByKey[key]] : null);
-  },
-
-  /**
-   * Stores current state in a JSON'able object.
-   */
-  toCache: function(/**Object*/ cache)
-  {
-    cache.elemhide = {filterByKey: filterByKey};
-  },
-
-  /**
-   * Restores current state from an object.
-   */
-  fromCache: function(/**Object*/ cache)
-  {
-    filterByKey = cache.elemhide.filterByKey;
-    filterByKey.__proto__ = null;
-
-    // We don't want to initialize keyByFilter yet, do it when it is needed
-    delete ElemHide.keyByFilter;
-    ElemHide.__defineGetter__("keyByFilter", function()
-    {
-      let result = {__proto__: null};
-      for (let k in filterByKey)
-        result[filterByKey[k]] = k;
-      return ElemHide.keyByFilter = result;
-    });
-    ElemHide.__defineSetter__("keyByFilter", function(value)
-    {
-      delete ElemHide.keyByFilter;
-      return ElemHide.keyByFilter = value;
-    });
   }
 };
 
