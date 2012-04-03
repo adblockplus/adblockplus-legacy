@@ -18,6 +18,7 @@ const Cu = Components.utils;
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 Cu.import("resource://gre/modules/Services.jsm");
 Cu.import("resource://gre/modules/FileUtils.jsm");
+Cu.import("resource://gre/modules/NetUtil.jsm");
 let sidebarParams = null;
 
 /**
@@ -411,6 +412,97 @@ var Utils =
     } catch (e) {}
 
     return null;
+  },
+
+  /**
+   * Writes string data to a file asynchronously, optionally encodes it into
+   * UTF-8 first. The callback will be called when the write operation is done.
+   */
+  writeToFile: function(/**nsIFile*/ file, /**Boolean*/ encode, /**Iterator*/ data, /**Function*/ callback)
+  {
+    try
+    {
+      let fileStream = FileUtils.openSafeFileOutputStream(file, FileUtils.MODE_WRONLY | FileUtils.MODE_CREATE | FileUtils.MODE_TRUNCATE);
+
+      let pipe = Cc["@mozilla.org/pipe;1"].createInstance(Ci.nsIPipe);
+      pipe.init(true, true, 0, 0x8000, null);
+
+      let outStream = pipe.outputStream;
+      if (encode)
+      {
+        outStream = Cc["@mozilla.org/intl/converter-output-stream;1"].createInstance(Ci.nsIConverterOutputStream);
+        outStream.init(pipe.outputStream, "UTF-8", 0, Ci.nsIConverterInputStream.DEFAULT_REPLACEMENT_CHARACTER);
+      }
+
+      let copier = Cc["@mozilla.org/network/async-stream-copier;1"].createInstance(Ci.nsIAsyncStreamCopier);
+      copier.init(pipe.inputStream, fileStream, null, true, false, 0x8000, true, true);
+      copier.asyncCopy({
+        onStartRequest: function(request, context) {},
+        onStopRequest: function(request, context, result)
+        {
+          if (!Components.isSuccessCode(result))
+          {
+            let e = Cc["@mozilla.org/js/xpc/Exception;1"].createInstance(Ci.nsIXPCException);
+            e.initialize("File write operation failed", result, null, Components.stack, file, null);
+            callback(e);
+          }
+          else
+            callback(null);
+        }
+      }, null);
+
+      function writeNextChunk()
+      {
+        let buf = [];
+        bufLen = 0;
+        while (bufLen < 0x4000)
+        {
+          try
+          {
+            let str = data.next();
+            buf.push(str);
+            bufLen += str.length;
+          }
+          catch (e)
+          {
+            if (e instanceof StopIteration)
+              break;
+            else if (typeof e == "number")
+              pipe.outputStream.closeWithStatus(e);
+            else if (e instanceof Ci.nsIException)
+              pipe.outputStream.closeWithStatus(e.result);
+            else
+            {
+              Cu.reportError(e);
+              pipe.outputStream.closeWithStatus(Cr.NS_ERROR_FAILURE);
+            }
+            return;
+          }
+        }
+
+        pipe.outputStream.asyncWait({
+          onOutputStreamReady: function()
+          {
+            let str = buf.join("");
+            if (str.length)
+            {
+              if (encode)
+                outStream.writeString(str);
+              else
+                outStream.write(str, str.length);
+              writeNextChunk();
+            }
+            else
+              outStream.close();
+          }
+        }, 0, 0, Utils.threadManager.currentThread);
+      }
+      writeNextChunk();
+    }
+    catch (e)
+    {
+      callback(e);
+    }
   },
 
   /**

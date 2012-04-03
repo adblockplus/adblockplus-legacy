@@ -139,141 +139,124 @@ var ElemHide =
   {
     TimeLine.enter("Entered ElemHide.apply()");
 
-    if (ElemHide.applied)
-      ElemHide.unapply();
-    TimeLine.log("ElemHide.unapply() finished");
-
-    try
+    if (!ElemHide.isDirty || !Prefs.enabled)
     {
-      // Return immediately if disabled
-      if (!Prefs.enabled)
+      // Nothing changed, looks like we merely got enabled/disabled
+      if (Prefs.enabled && !ElemHide.applied)
       {
-        TimeLine.leave("ElemHide.apply() done (disabled)");
-        return;
-      }
-
-      // CSS file doesn't need to be rewritten if nothing changed (e.g. we
-      // were disabled and reenabled)
-      if (ElemHide.isDirty)
-      {
-        ElemHide.isDirty = false;
-
-        // Grouping selectors by domains
-        TimeLine.log("start grouping selectors");
-        let domains = {__proto__: null};
-        let hasFilters = false;
-        for (let key in filterByKey)
-        {
-          let filter = filterByKey[key];
-          let domain = filter.selectorDomain || "";
-
-          let list;
-          if (domain in domains)
-            list = domains[domain];
-          else
-          {
-            list = {__proto__: null};
-            domains[domain] = list;
-          }
-          list[filter.selector] = key;
-          hasFilters = true;
-        }
-        TimeLine.log("done grouping selectors");
-
-        if (!hasFilters)
-        {
-          TimeLine.leave("ElemHide.apply() done (no filters)");
-          return;
-        }
-
-        // Writing out domains list
-        TimeLine.log("start writing CSS data");
-
-        try {
-          // Make sure the file's parent directory exists
-          styleURL.file.parent.create(Ci.nsIFile.DIRECTORY_TYPE, 0755);
-        } catch (e) {}
-
-        let stream;
         try
         {
-          stream = Cc["@mozilla.org/network/safe-file-output-stream;1"].createInstance(Ci.nsIFileOutputStream);
-          stream.init(styleURL.file, 0x02 | 0x08 | 0x20, 0644, 0);
+          Utils.styleService.loadAndRegisterSheet(styleURL, Ci.nsIStyleSheetService.USER_SHEET);
+          ElemHide.applied = true;
         }
         catch (e)
         {
           Cu.reportError(e);
-          TimeLine.leave("ElemHide.apply() done (error opening file)");
-          return;
         }
-
-        let buf = [];
-        let maxBufLen = 1024;
-        function escapeChar(match)
-        {
-          return "\\" + match.charCodeAt(0).toString(16) + " ";
-        }
-        function writeString(str, forceWrite)
-        {
-          buf.push(str);
-          if (buf.length >= maxBufLen || forceWrite)
-          {
-            let output = buf.join("").replace(/[^\x01-\x7F]/g, escapeChar);
-            stream.write(output, output.length);
-            buf.splice(0, buf.length);
-          }
-        }
-
-        let cssTemplate = "-moz-binding: url(about:" + ElemHidePrivate.aboutPrefix + "?%ID%#dummy) !important;";
-        for (let domain in domains)
-        {
-          let rules = [];
-          let list = domains[domain];
-
-          if (domain)
-            writeString('@-moz-document domain("' + domain.split(",").join('"),domain("') + '"){\n');
-          else
-          {
-            // Only allow unqualified rules on a few protocols to prevent them from blocking chrome
-            writeString('@-moz-document url-prefix("http://"),url-prefix("https://"),'
-                      + 'url-prefix("mailbox://"),url-prefix("imap://"),'
-                      + 'url-prefix("news://"),url-prefix("snews://"){\n');
-          }
-
-          for (let selector in list)
-            writeString(selector + "{" + cssTemplate.replace("%ID%", list[selector]) + "}\n");
-          writeString('}\n');
-        }
-        writeString("", true);
-        try
-        {
-          stream.QueryInterface(Ci.nsISafeOutputStream).finish();
-        }
-        catch(e)
-        {
-          Cu.reportError(e);
-          TimeLine.leave("ElemHide.apply() done (error closing file)");
-          return;
-        }
-        TimeLine.log("done writing CSS data");
+        TimeLine.log("Applying existing stylesheet finished");
       }
-
-      // Inserting new stylesheet
-      TimeLine.log("start inserting stylesheet");
-      try
+      else if (!Prefs.enabled && ElemHide.applied)
       {
-        Utils.styleService.loadAndRegisterSheet(styleURL, Ci.nsIStyleSheetService.USER_SHEET);
-        ElemHide.applied = true;
+        ElemHide.unapply();
+        TimeLine.log("ElemHide.unapply() finished");
       }
-      catch (e)
-      {
-        Cu.reportError(e);
-      }
-      TimeLine.leave("ElemHide.apply() done");
+
+      TimeLine.leave("ElemHide.apply() done (no file changes)");
+      return;
     }
-    finally
+
+    Utils.writeToFile(styleURL.file, false, this._generateCSSContent(), function(e)
     {
-      FilterNotifier.triggerListeners("elemhideupdate");
+      TimeLine.enter("ElemHide.apply() write callback");
+      if (e && e.result != Cr.NS_ERROR_NOT_AVAILABLE)
+        Cu.reportError(e);
+      else
+      {
+        ElemHide.isDirty = false;
+        ElemHide.unapply();
+        TimeLine.log("ElemHide.unapply() finished");
+
+        if (e)
+        {
+          try
+          {
+            styleURL.file.remove(false);
+          } catch (e2) {}
+        }
+        else
+        {
+          try
+          {
+            Utils.styleService.loadAndRegisterSheet(styleURL, Ci.nsIStyleSheetService.USER_SHEET);
+            ElemHide.applied = true;
+          }
+          catch (e)
+          {
+            Cu.reportError(e);
+          }
+          TimeLine.log("Applying stylesheet finished");
+        }
+
+        FilterNotifier.triggerListeners("elemhideupdate");
+      }
+      TimeLine.leave("ElemHide.apply() write callback done");
+    });
+
+    TimeLine.leave("ElemHide.apply() done (write pending)");
+  },
+
+  _generateCSSContent: function()
+  {
+    // Grouping selectors by domains
+    TimeLine.log("start grouping selectors");
+    let domains = {__proto__: null};
+    let hasFilters = false;
+    for (let key in filterByKey)
+    {
+      let filter = filterByKey[key];
+      let domain = filter.selectorDomain || "";
+
+      let list;
+      if (domain in domains)
+        list = domains[domain];
+      else
+      {
+        list = {__proto__: null};
+        domains[domain] = list;
+      }
+      list[filter.selector] = key;
+      hasFilters = true;
+    }
+    TimeLine.log("done grouping selectors");
+
+    if (!hasFilters)
+      throw Cr.NS_ERROR_NOT_AVAILABLE;
+
+    function escapeChar(match)
+    {
+      return "\\" + match.charCodeAt(0).toString(16) + " ";
+    }
+
+    // Return CSS data
+    let cssTemplate = "-moz-binding: url(about:" + ElemHidePrivate.aboutPrefix + "?%ID%#dummy) !important;";
+    for (let domain in domains)
+    {
+      let rules = [];
+      let list = domains[domain];
+
+      if (domain)
+        yield ('@-moz-document domain("' + domain.split(",").join('"),domain("') + '"){\n').replace(/[^\x01-\x7F]/g, escapeChar);
+      else
+      {
+        // Only allow unqualified rules on a few protocols to prevent them from blocking chrome
+        yield '@-moz-document url-prefix("http://"),url-prefix("https://"),'
+                  + 'url-prefix("mailbox://"),url-prefix("imap://"),'
+                  + 'url-prefix("news://"),url-prefix("snews://"){\n';
+      }
+
+      for (let selector in list)
+        yield selector.replace(/[^\x01-\x7F]/g, escapeChar) + "{" + cssTemplate.replace("%ID%", list[selector]) + "}\n";
+      yield '}\n';
     }
   },
 
