@@ -44,7 +44,7 @@ var TimeLine = {
     let padding = [];
     for (let i = message.toString().length; i < 40; i++)
       padding.push(" ");
-    dump("ABP timeline: " + message + padding.join("") + "\t (" + diff + ")\n");
+    dump("[" + now + "] ABP timeline: " + message + padding.join("") + "\t (" + diff + ")\n");
   },
 
   /**
