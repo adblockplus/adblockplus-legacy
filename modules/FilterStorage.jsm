@@ -457,6 +457,66 @@ var FilterStorage =
     TimeLine.leave("FilterStorage.loadFromDisk() done");
   },
 
+  _generateFilterData: function(subscriptions)
+  {
+    let lineBreak = Utils.getLineBreak();
+
+    yield "# Adblock Plus preferences";
+    yield "version=" + formatVersion;
+
+    let saved = {__proto__: null};
+    let buf = [];
+
+    // Save filter data
+    for (let i = 0; i < subscriptions.length; i++)
+    {
+      let subscription = subscriptions[i];
+      for (let j = 0; j < subscription.filters.length; j++)
+      {
+        let filter = subscription.filters[j];
+        if (!(filter.text in saved))
+        {
+          filter.serialize(buf);
+          saved[filter.text] = filter;
+          for (let k = 0; k < buf.length; k++)
+            yield buf[k];
+          buf.splice(0);
+        }
+      }
+    }
+
+    // Save subscriptions
+    for (let i = 0; i < subscriptions.length; i++)
+    {
+      let subscription = subscriptions[i];
+
+      yield "";
+
+      subscription.serialize(buf);
+      if (subscription.filters.length)
+      {
+        buf.push("", "[Subscription filters]")
+        subscription.serializeFilters(buf);
+      }
+      for (let k = 0; k < buf.length; k++)
+        yield buf[k];
+      buf.splice(0);
+    }
+  },
+
+  /**
+   * Will be set to true if saveToDisk() is running (reentrance protection).
+   * @type Boolean
+   */
+  _saving: false,
+
+  /**
+   * Will be set to true if a saveToDisk() call arrives while saveToDisk() is
+   * already running (delayed execution).
+   * @type Boolean
+   */
+  _needsSave: false,
+
   /**
    * Saves all subscriptions back to disk
    * @param {nsIFile} [targetFile] File to be written
@@ -472,6 +532,12 @@ var FilterStorage =
     if (!targetFile)
       return;
 
+    if (!explicitFile && this._saving)
+    {
+      this._needsSave = true;
+      return;
+    }
+
     TimeLine.enter("Entered FilterStorage.saveToDisk()");
 
     try {
@@ -483,90 +549,8 @@ var FilterStorage =
       targetFile.parent.create(Ci.nsIFile.DIRECTORY_TYPE, 0755);
     } catch (e) {}
 
-    let tempFile = targetFile.clone();
-    tempFile.leafName += "-temp";
-    let fileStream, stream;
-    try {
-      fileStream = Cc["@mozilla.org/network/safe-file-output-stream;1"].createInstance(Ci.nsIFileOutputStream);
-      fileStream.init(tempFile, 0x02 | 0x08 | 0x20, 0644, 0);
-
-      stream = Cc["@mozilla.org/intl/converter-output-stream;1"].createInstance(Ci.nsIConverterOutputStream);
-      stream.init(fileStream, "UTF-8", 16384, Ci.nsIConverterInputStream.DEFAULT_REPLACEMENT_CHARACTER);
-    }
-    catch (e)
-    {
-      Cu.reportError(e);
-      TimeLine.leave("FilterStorage.saveToDisk() done (error opening file)");
-      return;
-    }
-
-    TimeLine.log("created temp file");
-
-    const maxBufLength = 1024;
-    let buf = ["# Adblock Plus preferences", "version=" + formatVersion];
-    let lineBreak = Utils.getLineBreak();
-    function writeBuffer()
-    {
-      stream.writeString(buf.join(lineBreak) + lineBreak);
-      buf.splice(0, buf.length);
-    }
-
-    let saved = {__proto__: null};
-
-    // Save filter data
-    for each (let subscription in FilterStorage.subscriptions)
-    {
-      // Do not persist external subscriptions
-      if (subscription instanceof ExternalSubscription)
-        continue;
-
-      for each (let filter in subscription.filters)
-      {
-        if (!(filter.text in saved))
-        {
-          filter.serialize(buf);
-          saved[filter.text] = filter;
-          if (buf.length > maxBufLength)
-            writeBuffer();
-        }
-      }
-    }
-    TimeLine.log("saved filter data");
-
-    // Save subscriptions
-    for each (let subscription in FilterStorage.subscriptions)
-    {
-      // Do not persist external subscriptions
-      if (subscription instanceof ExternalSubscription)
-        continue;
-
-      buf.push("");
-      subscription.serialize(buf);
-      if (subscription.filters.length)
-      {
-        buf.push("", "[Subscription filters]")
-        subscription.serializeFilters(buf);
-      }
-      if (buf.length > maxBufLength)
-        writeBuffer();
-    }
-    TimeLine.log("saved subscription data");
-
-    try
-    {
-      stream.writeString(buf.join(lineBreak) + lineBreak);
-      stream.flush();
-      fileStream.QueryInterface(Ci.nsISafeOutputStream).finish();
-    }
-    catch (e)
-    {
-      Cu.reportError(e);
-      TimeLine.leave("FilterStorage.saveToDisk() done (error closing file)");
-      return;
-    }
-    TimeLine.log("finalized file write");
-
-    if (!explicitFile && targetFile.exists())
+    let backupFileParts = null;
+    if (!explicitFile && targetFile.exists() && Prefs.patternsbackups > 0)
     {
       // Check whether we need to backup the file
       let part1 = targetFile.leafName;
@@ -577,42 +561,78 @@ var FilterStorage =
         part2 = RegExp.$2;
       }
 
-      let doBackup = (Prefs.patternsbackups > 0);
-      if (doBackup)
-      {
-        let lastBackup = targetFile.clone();
-        lastBackup.leafName = part1 + "-backup1" + part2;
-        if (lastBackup.exists() && (Date.now() - lastBackup.lastModifiedTime) / 3600000 < Prefs.patternsbackupinterval)
-          doBackup = false;
-      }
-
-      if (doBackup)
-      {
-        let backupFile = targetFile.clone();
-        backupFile.leafName = part1 + "-backup" + Prefs.patternsbackups + part2;
-
-        // Remove oldest backup
-        try {
-          backupFile.remove(false);
-        } catch (e) {}
-
-        // Rename backup files
-        for (let i = Prefs.patternsbackups - 1; i >= 0; i--) {
-          backupFile.leafName = part1 + (i > 0 ? "-backup" + i : "") + part2;
-          try {
-            backupFile.moveTo(backupFile.parent, part1 + "-backup" + (i+1) + part2);
-          } catch (e) {}
-        }
-      }
+      let newestBackup = targetFile.clone();
+      newestBackup.leafName = part1 + "-backup1" + part2;
+      if (!newestBackup.exists() || (Date.now() - newestBackup.lastModifiedTime) / 3600000 >= Prefs.patternsbackupinterval)
+        backupFileParts = [part1 + "-backup", part2];
     }
-    else if (targetFile.exists())
-      targetFile.remove(false);
 
-    tempFile.moveTo(targetFile.parent, targetFile.leafName);
-    TimeLine.log("created backups and renamed temp file");
+    let writeFilters = function()
+    {
+      TimeLine.enter("FilterStorage.saveToDisk() -> writeFilters()");
+      Utils.writeToFile(targetFile, true, this._generateFilterData(subscriptions), function(e)
+      {
+        TimeLine.enter("FilterStorage.saveToDisk() write callback");
+        if (!explicitFile)
+          this._saving = false;
+
+        if (e)
+          reportError(e);
+
+        if (!explicitFile && this._needsSave)
+        {
+          this._needsSave = false;
+          this.saveToDisk();
+        }
+        else
+          FilterNotifier.triggerListeners("save");
+        TimeLine.leave("FilterStorage.saveToDisk() write callback done");
+      }.bind(this));
+      TimeLine.leave("FilterStorage.saveToDisk() -> writeFilters()");
+    }.bind(this);
+
+    let removeLastBackup = function()
+    {
+      TimeLine.enter("FilterStorage.saveToDisk() -> removeLastBackup()");
+      let file = targetFile.clone();
+      file.leafName = backupFileParts.join(Prefs.patternsbackups);
+      Utils.removeFile(file, function(e) renameBackup(Prefs.patternsbackups - 1));
+      TimeLine.leave("FilterStorage.saveToDisk() <- removeLastBackup()");
+    }.bind(this);
+
+    let renameBackup = function(index)
+    {
+      TimeLine.enter("FilterStorage.saveToDisk() -> renameBackup()");
+      if (index > 0)
+      {
+        let fromFile = targetFile.clone();
+        fromFile.leafName = backupFileParts.join(index);
+
+        let toName = backupFileParts.join(index + 1);
+
+        Utils.renameFile(fromFile, toName, function(e) renameBackup(index - 1));
+      }
+      else
+      {
+        let toFile = targetFile.clone();
+        toFile.leafName = backupFileParts.join(index + 1);
+
+        Utils.copyFile(targetFile, toFile, writeFilters);
+      }
+      TimeLine.leave("FilterStorage.saveToDisk() <- renameBackup()");
+    }.bind(this);
+
+    // Do not persist external subscriptions
+    let subscriptions = this.subscriptions.filter(function(s) !(s instanceof ExternalSubscription));
     if (!explicitFile)
-      FilterNotifier.triggerListeners("save");
-    TimeLine.leave("FilterStorage.saveToDisk() done");
+      this._saving = true;
+
+    if (backupFileParts)
+      removeLastBackup();
+    else
+      writeFilters();
+
+    TimeLine.leave("FilterStorage.saveToDisk() done (write pending)");
   },
 
   /**

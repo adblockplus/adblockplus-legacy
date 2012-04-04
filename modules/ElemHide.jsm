@@ -141,6 +141,7 @@ var ElemHide =
   /**
    * Will be set to true if an apply() call arrives while apply() is already
    * running (delayed execution).
+   * @type Boolean
    */
   _needsApply: false,
 
@@ -275,18 +276,18 @@ var ElemHide =
       let list = domains[domain];
 
       if (domain)
-        yield ('@-moz-document domain("' + domain.split(",").join('"),domain("') + '"){\n').replace(/[^\x01-\x7F]/g, escapeChar);
+        yield ('@-moz-document domain("' + domain.split(",").join('"),domain("') + '"){').replace(/[^\x01-\x7F]/g, escapeChar);
       else
       {
         // Only allow unqualified rules on a few protocols to prevent them from blocking chrome
         yield '@-moz-document url-prefix("http://"),url-prefix("https://"),'
                   + 'url-prefix("mailbox://"),url-prefix("imap://"),'
-                  + 'url-prefix("news://"),url-prefix("snews://"){\n';
+                  + 'url-prefix("news://"),url-prefix("snews://"){';
       }
 
       for (let selector in list)
-        yield selector.replace(/[^\x01-\x7F]/g, escapeChar) + "{" + cssTemplate.replace("%ID%", list[selector]) + "}\n";
-      yield '}\n';
+        yield selector.replace(/[^\x01-\x7F]/g, escapeChar) + "{" + cssTemplate.replace("%ID%", list[selector]) + "}";
+      yield '}';
     }
   },
 

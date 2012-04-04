@@ -451,6 +451,7 @@ var Utils =
         }
       }, null);
 
+      let lineBreak = Utils.getLineBreak();
       function writeNextChunk()
       {
         let buf = [];
@@ -483,9 +484,9 @@ var Utils =
         pipe.outputStream.asyncWait({
           onOutputStreamReady: function()
           {
-            let str = buf.join("");
-            if (str.length)
+            if (buf.length)
             {
+              let str = buf.join(lineBreak) + lineBreak;
               if (encode)
                 outStream.writeString(str);
               else
@@ -500,6 +501,69 @@ var Utils =
       writeNextChunk();
     }
     catch (e)
+    {
+      callback(e);
+    }
+  },
+
+  /**
+   * Copies a file asynchronously. The callback will be called when the copy
+   * operation is done.
+   */
+  copyFile: function(/**nsIFile*/ fromFile, /**nsIFile*/ toFile, /**Function*/ callback)
+  {
+    try
+    {
+      let inStream = Cc["@mozilla.org/network/file-input-stream;1"].createInstance(Ci.nsIFileInputStream);
+      inStream.init(fromFile, FileUtils.MODE_RDONLY, 0, Ci.nsIFile.DEFER_OPEN);
+
+      let outStream = FileUtils.openFileOutputStream(toFile, FileUtils.MODE_WRONLY | FileUtils.MODE_CREATE | FileUtils.MODE_TRUNCATE);
+
+      NetUtil.asyncCopy(inStream, outStream, function(result)
+      {
+        if (!Components.isSuccessCode(result))
+        {
+          let e = Cc["@mozilla.org/js/xpc/Exception;1"].createInstance(Ci.nsIXPCException);
+          e.initialize("File write operation failed", result, null, Components.stack, file, null);
+          callback(e);
+        }
+        else
+          callback(null);
+      });
+    }
+    catch (e)
+    {
+      callback(e);
+    }
+  },
+
+  /**
+   * Renames a file within the same directory, will call callback when done.
+   */
+  renameFile: function(/**nsIFile*/ fromFile, /**String*/ newName, /**Function*/ callback)
+  {
+    try
+    {
+      fromFile.moveTo(null, newName);
+      callback(null);
+    }
+    catch(e)
+    {
+      callback(e);
+    }
+  },
+
+  /**
+   * Removes a file, will call callback when done.
+   */
+  removeFile: function(/**nsIFile*/ file, /**Function*/ callback)
+  {
+    try
+    {
+      file.remove(false);
+      callback(null);
+    }
+    catch(e)
     {
       callback(e);
     }
