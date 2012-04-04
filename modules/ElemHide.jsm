@@ -133,10 +133,28 @@ var ElemHide =
   },
 
   /**
+   * Will be set to true if apply() is running (reentrance protection).
+   * @type Boolean
+   */
+  _applying: false,
+
+  /**
+   * Will be set to true if an apply() call arrives while apply() is already
+   * running (delayed execution).
+   */
+  _needsApply: false,
+
+  /**
    * Generates stylesheet URL and applies it globally
    */
   apply: function()
   {
+    if (this._applying)
+    {
+      this._needsApply = true;
+      return;
+    }
+
     TimeLine.enter("Entered ElemHide.apply()");
 
     if (!ElemHide.isDirty || !Prefs.enabled)
@@ -168,22 +186,32 @@ var ElemHide =
     Utils.writeToFile(styleURL.file, false, this._generateCSSContent(), function(e)
     {
       TimeLine.enter("ElemHide.apply() write callback");
-      if (e && e.result != Cr.NS_ERROR_NOT_AVAILABLE)
+      this._applying = false;
+
+      if (e && e.result == Cr.NS_ERROR_NOT_AVAILABLE)
+      {
+        e = null;
+        try
+        {
+          styleURL.file.remove(false);
+        } catch (e2) {}
+      }
+      else if (e)
         Cu.reportError(e);
-      else
+
+      if (this._needsApply)
+      {
+        this._needsApply = false;
+        this.apply();
+      }
+      else if (!e)
       {
         ElemHide.isDirty = false;
+
         ElemHide.unapply();
         TimeLine.log("ElemHide.unapply() finished");
 
-        if (e)
-        {
-          try
-          {
-            styleURL.file.remove(false);
-          } catch (e2) {}
-        }
-        else
+        if (styleURL.file.exists())
         {
           try
           {
@@ -200,7 +228,9 @@ var ElemHide =
         FilterNotifier.triggerListeners("elemhideupdate");
       }
       TimeLine.leave("ElemHide.apply() write callback done");
-    });
+    }.bind(this));
+
+    this._applying = true;
 
     TimeLine.leave("ElemHide.apply() done (write pending)");
   },
