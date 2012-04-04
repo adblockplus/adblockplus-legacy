@@ -100,11 +100,8 @@ var FilterListener =
       isDirty = 1;
     else
       isDirty += factor;
-    if (isDirty >= 1 && !filtersFlushScheduled)
-    {
-      Utils.runAsync(flushFiltersInternal);
-      filtersFlushScheduled = true;
-    }
+    if (isDirty >= 1)
+      FilterStorage.saveToDisk();
   }
 };
 
@@ -127,34 +124,13 @@ var FilterListenerPrivate =
   QueryInterface: XPCOMUtils.generateQI([Ci.nsISupportsWeakReference, Ci.nsIObserver])
 };
 
-let elemhideFlushScheduled = false;
-
 /**
- * Calls ElemHide.apply() if necessary. Executes delayed to prevent multiple
- * subsequent calls.
+ * Calls ElemHide.apply() if necessary.
  */
 function flushElemHide()
 {
-  if (elemhideFlushScheduled)
-    return;
-
-  Utils.runAsync(flushElemHideInternal);
-  elemhideFlushScheduled = true;
-}
-
-function flushElemHideInternal()
-{
-  elemhideFlushScheduled = false;
   if (!batchMode && ElemHide.isDirty)
     ElemHide.apply();
-}
-
-let filtersFlushScheduled = false;
-
-function flushFiltersInternal()
-{
-  filtersFlushScheduled = false;
-  FilterStorage.saveToDisk();
 }
 
 /**
