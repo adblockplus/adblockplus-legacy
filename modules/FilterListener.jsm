@@ -75,17 +75,6 @@ var FilterListener =
   },
 
   /**
-   * Called on module shutdown.
-   */
-  shutdown: function()
-  {
-    TimeLine.enter("Entered FilterListener.shutdown()");
-    if (isDirty > 0)
-      FilterStorage.saveToDisk();
-    TimeLine.leave("FilterListener.shutdown() done");
-  },
-
-  /**
    * Set to true when executing many changes, changes will only be fully applied after this variable is set to false again.
    * @type Boolean
    */
@@ -222,10 +211,7 @@ function removeFilter(filter)
  */
 function onSubscriptionChange(action, subscription, newValue, oldValue)
 {
-  if (action == "homepage" || action == "downloadStatus" || action == "lastDownload")
-    FilterListener.setDirty(0.2);
-  else
-    FilterListener.setDirty(1);
+  FilterListener.setDirty(1);
 
   if (action != "added" && action != "removed" && action != "disabled" && action != "updated")
     return;
@@ -263,9 +249,7 @@ function onSubscriptionChange(action, subscription, newValue, oldValue)
 function onFilterChange(action, filter, newValue, oldValue)
 {
   if (action == "hitCount" || action == "lastHit")
-    FilterListener.setDirty(0.0001);
-  else if (action == "disabled" || action == "moved")
-    FilterListener.setDirty(0.2);
+    FilterListener.setDirty(0.002);
   else
     FilterListener.setDirty(1);
 
