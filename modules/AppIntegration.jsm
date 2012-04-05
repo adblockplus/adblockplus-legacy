@@ -75,7 +75,7 @@ function init()
   });
   FilterNotifier.addListener(function(action)
   {
-    if (/^(filter|subscription)\.(added|removed|disabled|updated)$/.test(action))
+    if (/^(filter|subscription)\.(added|removed|disabled|updated)$/.test(action) || action == "load")
       reloadPrefs();
   });
   Services.obs.addObserver(optionsObserver, "addon-options-displayed", true);
