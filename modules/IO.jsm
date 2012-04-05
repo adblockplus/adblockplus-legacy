@@ -98,7 +98,7 @@ var IO =
         },
         onStopRequest: function(request, context, result)
         {
-          if (this.buffer.length)
+          if (Components.isSuccessCode(result) && this.buffer.length)
             listener.process(this.buffer);
           listener.process(null);
 
