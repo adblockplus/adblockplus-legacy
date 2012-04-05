@@ -505,7 +505,7 @@ var FilterActions =
     }
 
     if (FilterView.isEmpty || FilterView.isSorted())
-      return false;
+      return;
 
     if (newPosition < this.dragItems[0].index)
       this._moveItems(this.dragItems, newPosition - this.dragItems[0].index);
