@@ -127,12 +127,9 @@ var Backup =
    */
   restoreAllData: function(/**nsIFile*/ file)
   {
-    let fileStream = Cc["@mozilla.org/network/file-input-stream;1"].createInstance(Ci.nsIFileInputStream);
-    fileStream.init(file, 0x01, 0444, 0);
-
-    let stream = Cc["@mozilla.org/intl/converter-input-stream;1"].createInstance(Ci.nsIConverterInputStream);
-    stream.init(fileStream, "UTF-8", 16384, Ci.nsIConverterInputStream.DEFAULT_REPLACEMENT_CHARACTER);
-    stream = stream.QueryInterface(Ci.nsIUnicharLineInputStream);
+    let stream = Cc["@mozilla.org/network/file-input-stream;1"].createInstance(Ci.nsIFileInputStream);
+    stream.init(file, FileUtils.MODE_RDONLY, FileUtils.PERMS_FILE, 0);
+    stream.QueryInterface(Ci.nsILineInputStream);
 
     let lines = [];
     let line = {value: null};
@@ -164,73 +161,84 @@ var Backup =
    */
   restoreCustomFilters: function(/**nsIFile*/ file)
   {
-    let fileStream = Cc["@mozilla.org/network/file-input-stream;1"].createInstance(Ci.nsIFileInputStream);
-    fileStream.init(file, 0x01, 0444, 0);
-
-    let stream = Cc["@mozilla.org/intl/converter-input-stream;1"].createInstance(Ci.nsIConverterInputStream);
-    stream.init(fileStream, "UTF-8", 16384, Ci.nsIConverterInputStream.DEFAULT_REPLACEMENT_CHARACTER);
-    stream = stream.QueryInterface(Ci.nsIUnicharLineInputStream);
-
-    let lines = [];
-    let line = {value: null};
-    while (stream.readLine(line))
-      lines.push(line.value);
-    if (line.value)
-      lines.push(line.value);
-    stream.close();
-
-    if (!lines.length || !/\[Adblock(?:\s*Plus\s*([\d\.]+)?)?\]/i.test(lines[0]))
-    {
-      Utils.alert(window, E("backupButton").getAttribute("_restoreError"), E("backupButton").getAttribute("_restoreDialogTitle"));
-      return;
-    }
-
-    let warning = E("backupButton").getAttribute("_restoreCustomWarning");
-    let minVersion = RegExp.$1;
-    if (minVersion && Utils.versionComparator.compare(minVersion, Utils.addonVersion) > 0)
-      warning += "\n\n" + E("backupButton").getAttribute("_restoreVersionWarning");
-
-    if (!Utils.confirm(window, warning, E("backupButton").getAttribute("_restoreDialogTitle")))
-      return;
-
-    let subscriptions = FilterStorage.subscriptions.filter(function(s) s instanceof SpecialSubscription);
-    for (let i = 0; i < subscriptions.length; i++)
-      FilterStorage.removeSubscription(subscriptions[i]);
-
-    let subscription = null;
-    for (let i = 1; i < lines.length; i++)
-    {
-      if (this.CHECKSUM_REGEXP.test(lines[i]))
-        continue;
-      else if (this.GROUPTITLE_REGEXP.test(lines[i]))
+    IO.readFromFile(file, true, {
+      seenHeader: false,
+      subscription: null,
+      process: function(line)
       {
-        if (subscription)
-          FilterStorage.addSubscription(subscription);
-        subscription = SpecialSubscription.create(RegExp.$1);
+        if (!this.seenHeader)
+        {
+          // This should be a header
+          this.seenHeader = true;
+          if (/\[Adblock(?:\s*Plus\s*([\d\.]+)?)?\]/i.test(line))
+          {
+            let warning = E("backupButton").getAttribute("_restoreCustomWarning");
+            let minVersion = RegExp.$1;
+            if (minVersion && Utils.versionComparator.compare(minVersion, Utils.addonVersion) > 0)
+              warning += "\n\n" + E("backupButton").getAttribute("_restoreVersionWarning");
 
-        let options = RegExp.$2;
-        let defaults = [];
-        if (options)
-          options = options.split("/");
-        for (let j = 0; j < options.length; j++)
-          if (options[j] in SpecialSubscription.defaultsMap)
-            defaults.push(options[j]);
-        if (defaults.length)
-          subscription.defaults = defaults;
+            if (Utils.confirm(window, warning, E("backupButton").getAttribute("_restoreDialogTitle")))
+            {
+              let subscriptions = FilterStorage.subscriptions.filter(function(s) s instanceof SpecialSubscription);
+              for (let i = 0; i < subscriptions.length; i++)
+                FilterStorage.removeSubscription(subscriptions[i]);
+
+              return;
+            }
+            else
+              throw Cr.NS_BASE_STREAM_WOULD_BLOCK;
+          }
+          else
+            throw new Error("Invalid file");
+        }
+        else if (line === null)
+        {
+          // End of file
+          if (this.subscription)
+            FilterStorage.addSubscription(this.subscription);
+          E("tabs").selectedIndex = 1;
+        }
+        else if (Backup.CHECKSUM_REGEXP.test(line))
+        {
+          // Ignore checksums
+        }
+        else if (Backup.GROUPTITLE_REGEXP.test(line))
+        {
+          // New group start
+          if (this.subscription)
+            FilterStorage.addSubscription(this.subscription);
+          this.subscription = SpecialSubscription.create(RegExp.$1);
+
+          let options = RegExp.$2;
+          let defaults = [];
+          if (options)
+            options = options.split("/");
+          for (let j = 0; j < options.length; j++)
+            if (options[j] in SpecialSubscription.defaultsMap)
+              defaults.push(options[j]);
+          if (defaults.length)
+            this.subscription.defaults = defaults;
+        }
+        else
+        {
+          // Regular filter
+          let filter = Filter.fromText(Filter.normalize(line));
+          if (filter)
+          {
+            if (!this.subscription)
+              this.subscription = SpecialSubscription.create(Utils.getString("blockingGroup_title"));
+            this.subscription.filters.push(filter);
+          }
+        }
       }
-      else
+    }, function(e)
+    {
+      if (e && e.result != Cr.NS_BASE_STREAM_WOULD_BLOCK)
       {
-        let filter = Filter.fromText(Filter.normalize(lines[i]));
-        if (!filter)
-          continue;
-        if (!subscription)
-          subscription = SpecialSubscription.create(Utils.getString("blockingGroup_title"));
-        subscription.filters.push(filter);
+        Cu.reportError(e);
+        Utils.alert(window, E("backupButton").getAttribute("_restoreError"), E("backupButton").getAttribute("_restoreDialogTitle"));
       }
-    }
-    if (subscription)
-      FilterStorage.addSubscription(subscription);
-    E("tabs").selectedIndex = 1;
+    });
   },
 
   /**
@@ -294,23 +302,20 @@ var Backup =
     if (checksum)
       list.splice(1, 0, "! Checksum: " + checksum);
 
-    try
+    function generator()
     {
-      let fileStream = Cc["@mozilla.org/network/file-output-stream;1"].createInstance(Ci.nsIFileOutputStream);
-      fileStream.init(file, 0x02 | 0x08 | 0x20, 0644, 0);
-
-      let stream = Cc["@mozilla.org/intl/converter-output-stream;1"].createInstance(Ci.nsIConverterOutputStream);
-      stream.init(fileStream, "UTF-8", 16384, Ci.nsIConverterInputStream.DEFAULT_REPLACEMENT_CHARACTER);
-
-      stream.writeString(list.join(IO.lineBreak));
-
-      stream.close();
+      for (let i = 0; i < list.length; i++)
+        yield list[i];
     }
-    catch (e)
+
+    IO.writeToFile(file, true, generator(), function(e)
     {
-      Cu.reportError(e);
-      Utils.alert(window, E("backupButton").getAttribute("_backupError"), E("backupButton").getAttribute("_backupDialogTitle"));
-    }
+      if (e)
+      {
+        Cu.reportError(e);
+        Utils.alert(window, E("backupButton").getAttribute("_backupError"), E("backupButton").getAttribute("_backupDialogTitle"));
+      }
+    });
   }
 };
 
