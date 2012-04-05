@@ -658,8 +658,8 @@ var FilterView =
       else if (col == "col-lasthit")
         return (filter.lastHit ? Utils.formatTime(filter.lastHit) : null);
     }
-    else
-      return null;
+
+    return null;
   },
 
   getColumnProperties: function(col, properties)
@@ -733,7 +733,7 @@ var FilterView =
 
     let item = this.data[row];
     let position = (orientation == Ci.nsITreeView.DROP_BEFORE ? item.index : item.index + 1);
-    return FilterActions.drop(position, dataTransfer);
+    FilterActions.drop(position, dataTransfer);
   },
 
   isEditable: function(row, col)
@@ -773,7 +773,7 @@ var FilterView =
   cycleCell: function(row, col)
   {
     if (row < 0 || row >= this.data.length || col.id != "col-enabled")
-      return null;
+      return;
 
     let filter = this.data[row].filter;
     if (filter instanceof ActiveFilter)
