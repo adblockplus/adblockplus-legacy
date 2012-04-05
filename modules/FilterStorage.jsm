@@ -340,12 +340,17 @@ var FilterStorage =
     }
   },
 
+  _loading: false,
+
   /**
    * Loads all subscriptions from the disk
    * @param {nsIFile} [sourceFile] File to read from
    */
   loadFromDisk: function(sourceFile)
   {
+    if (this._loading)
+      return;
+
     TimeLine.enter("Entered FilterStorage.loadFromDisk()");
 
     let explicitFile = true;
@@ -378,7 +383,7 @@ var FilterStorage =
         if (e && !explicitFile)
         {
           // Attempt to load a backup
-          sourceFile = FilterStorage.sourceFile;
+          sourceFile = this.sourceFile;
           if (sourceFile)
           {
             let part1 = sourceFile.leafName;
@@ -413,9 +418,9 @@ var FilterStorage =
             knownSubscriptions[subscription.url] = subscription;
         }
 
-        FilterStorage.fileProperties = parser.fileProperties;
-        FilterStorage.subscriptions = parser.subscriptions;
-        FilterStorage.knownSubscriptions = knownSubscriptions;
+        this.fileProperties = parser.fileProperties;
+        this.subscriptions = parser.subscriptions;
+        this.knownSubscriptions = knownSubscriptions;
         Filter.knownFilters = parser.knownFilters;
         Subscription.knownSubscriptions = parser.knownSubscriptions;
 
@@ -425,18 +430,24 @@ var FilterStorage =
           {
             let filter = Filter.fromText(parser.userFilters[i]);
             if (filter)
-              FilterStorage.addFilter(filter, null, undefined, true);
+              this.addFilter(filter, null, undefined, true);
           }
         }
         TimeLine.log("Initializing data done, triggering observers")
 
+        this._loading = false;
         FilterNotifier.triggerListeners("load");
+
+        if (sourceFile != this.sourceFile)
+          this.saveToDisk();
+
         TimeLine.leave("FilterStorage.loadFromDisk() read callback done");
-      });
+      }.bind(this));
 
       TimeLine.leave("FilterStorage.loadFromDisk() <- readFile()");
-    };
+    }.bind(this);
 
+    this._loading = true;
     readFile(sourceFile, 0);
 
     TimeLine.leave("FilterStorage.loadFromDisk() done (read pending)");
