@@ -17,6 +17,7 @@ const Cu = Components.utils;
 
 let baseURL = "chrome://adblockplus-modules/content/";
 Cu.import(baseURL + "Utils.jsm");
+Cu.import(baseURL + "IO.jsm");
 Cu.import(baseURL + "Prefs.jsm");
 Cu.import(baseURL + "FilterClasses.jsm");
 Cu.import(baseURL + "SubscriptionClasses.jsm");
@@ -51,12 +52,12 @@ var FilterStorage =
     if (Prefs.patternsfile)
     {
       // Override in place, use it instead of placing the file in the regular data dir
-      file = Utils.resolveFilePath(Prefs.patternsfile);
+      file = IO.resolveFilePath(Prefs.patternsfile);
     }
     if (!file)
     {
       // Place the file in the data dir
-      file = Utils.resolveFilePath(Prefs.data_directory);
+      file = IO.resolveFilePath(Prefs.data_directory);
       if (file)
         file.append("patterns.ini");
     }
@@ -65,7 +66,7 @@ var FilterStorage =
       // Data directory pref misconfigured? Try the default value
       try
       {
-        file = Utils.resolveFilePath(Prefs.defaultBranch.getCharPref("data_directory"));
+        file = IO.resolveFilePath(Prefs.defaultBranch.getCharPref("data_directory"));
         if (file)
           file.append("patterns.ini");
       } catch(e) {}
@@ -342,17 +343,10 @@ var FilterStorage =
   /**
    * Loads all subscriptions from the disk
    * @param {nsIFile} [sourceFile] File to read from
-   * @param {Boolean} silent  if true, no listeners will be triggered (to be used when data is already initialized)
    */
-  loadFromDisk: function(sourceFile, silent)
+  loadFromDisk: function(sourceFile)
   {
     TimeLine.enter("Entered FilterStorage.loadFromDisk()");
-
-    if (!silent)
-    {
-      Filter.knownFilters = {__proto__: null};
-      Subscription.knownSubscriptions = {__proto__: null};
-    }
 
     let explicitFile = true;
     if (!sourceFile)
@@ -361,106 +355,95 @@ var FilterStorage =
       explicitFile = false;
 
       if (!sourceFile || !sourceFile.exists())
-      {
-        // patterns.ini doesn't exist - but maybe we have a default one?
-        let patternsURL = Utils.ioService.newURI("chrome://adblockplus-defaults/content/patterns.ini", null, null);
-        patternsURL = Utils.chromeRegistry.convertChromeURL(patternsURL);
-        if (patternsURL instanceof Ci.nsIFileURL)
-          sourceFile = patternsURL.file;
-      }
+        sourceFile = Utils.makeURI("chrome://adblockplus-defaults/content/patterns.ini");
     }
 
-    let userFilters = null;
-    let backup = 0;
-    while (true)
+    let readFile = function(sourceFile, backupIndex)
     {
-      FilterStorage.subscriptions = [];
-      FilterStorage.knownSubscriptions = {__proto__: null};
+      TimeLine.enter("FilterStorage.loadFromDisk() -> readFile()");
 
-      try
+      let parser = new INIParser();
+      IO.readFromFile(sourceFile, true, parser, function(e)
       {
-        if (sourceFile && sourceFile.exists())
+        TimeLine.enter("FilterStorage.loadFromDisk() read callback");
+        if (!e && parser.subscriptions.length == 0)
         {
-          let fileStream = Cc["@mozilla.org/network/file-input-stream;1"].createInstance(Ci.nsIFileInputStream);
-          fileStream.init(sourceFile, 0x01, 0444, 0);
+          // No filter subscriptions in the file, this isn't right.
+          e = new Error("No data in the file");
+        }
 
-          let stream = Cc["@mozilla.org/intl/converter-input-stream;1"].createInstance(Ci.nsIConverterInputStream);
-          stream.init(fileStream, "UTF-8", 16384, 0);
-          stream = stream.QueryInterface(Ci.nsIUnicharLineInputStream);
+        if (e)
+          Cu.reportError(e);
 
-          userFilters = parseIniFile(stream);
-          stream.close();
-
-          if (!FilterStorage.subscriptions.length)
+        if (e && !explicitFile)
+        {
+          // Attempt to load a backup
+          sourceFile = FilterStorage.sourceFile;
+          if (sourceFile)
           {
-            // No filter subscriptions in the file, this isn't right.
-            throw new Error("No data in the file");
+            let part1 = sourceFile.leafName;
+            let part2 = "";
+            if (/^(.*)(\.\w+)$/.test(part1))
+            {
+              part1 = RegExp.$1;
+              part2 = RegExp.$2;
+            }
+
+            sourceFile = sourceFile.clone();
+            sourceFile.leafName = part1 + "-backup" + (++backupIndex) + part2;
+
+            if (sourceFile.exists())
+            {
+              readFile(sourceFile, backupIndex);
+              TimeLine.leave("FilterStorage.loadFromDisk() read callback done");
+              return;
+            }
           }
         }
 
-        // We either successfully loaded filters or the source file doesn't exist
-        // (already past last backup?). Either way, we should exit the loop now.
-        break;
-      }
-      catch (e)
-      {
-        Cu.reportError("Adblock Plus: Failed to read filters from file " + sourceFile.path);
-        Cu.reportError(e);
-      }
+        // Old special groups might have been converted, remove them if they are empty
+        let specialMap = {"~il~": true, "~wl~": true, "~fl~": true, "~eh~": true};
+        let knownSubscriptions = {__proto__: null};
+        for (let i = 0; i < parser.subscriptions.length; i++)
+        {
+          let subscription = parser.subscriptions[i];
+          if (subscription instanceof SpecialSubscription && subscription.filters.length == 0 && subscription.url in specialMap)
+            parser.subscriptions.splice(i--, 1);
+          else
+            knownSubscriptions[subscription.url] = subscription;
+        }
 
-      if (explicitFile)
-        break;
+        FilterStorage.fileProperties = parser.fileProperties;
+        FilterStorage.subscriptions = parser.subscriptions;
+        FilterStorage.knownSubscriptions = knownSubscriptions;
+        Filter.knownFilters = parser.knownFilters;
+        Subscription.knownSubscriptions = parser.knownSubscriptions;
 
-      // We failed loading filters, let's try next backup file
-      sourceFile = FilterStorage.sourceFile;
-      if (!sourceFile)
-        break;
+        if (parser.userFilters)
+        {
+          for (let i = 0; i < parser.userFilters.length; i++)
+          {
+            let filter = Filter.fromText(parser.userFilters[i]);
+            if (filter)
+              FilterStorage.addFilter(filter, null, undefined, true);
+          }
+        }
+        TimeLine.log("Initializing data done, triggering observers")
 
-      let part1 = sourceFile.leafName;
-      let part2 = "";
-      if (/^(.*)(\.\w+)$/.test(part1))
-      {
-        part1 = RegExp.$1;
-        part2 = RegExp.$2;
-      }
+        FilterNotifier.triggerListeners("load");
+        TimeLine.leave("FilterStorage.loadFromDisk() read callback done");
+      });
 
-      sourceFile = sourceFile.clone();
-      sourceFile.leafName = part1 + "-backup" + (++backup) + part2;
-    }
+      TimeLine.leave("FilterStorage.loadFromDisk() <- readFile()");
+    };
 
-    TimeLine.log("done parsing file");
+    readFile(sourceFile, 0);
 
-    // Old special groups might have been converted, remove them if they are empty
-    for each (let specialSubscription in ["~il~", "~wl~", "~fl~", "~eh~"])
-    {
-      if (specialSubscription in FilterStorage.knownSubscriptions)
-      {
-        let subscription = Subscription.fromURL(specialSubscription);
-        if (subscription.filters.length == 0)
-          FilterStorage.removeSubscription(subscription, true);
-      }
-    }
-
-    if (userFilters)
-    {
-      for each (let filter in userFilters)
-      {
-        filter = Filter.fromText(filter);
-        if (filter)
-          FilterStorage.addFilter(filter, null, undefined, true);
-      }
-    }
-
-    TimeLine.log("load complete, calling observers");
-    if (!silent)
-      FilterNotifier.triggerListeners("load");
-    TimeLine.leave("FilterStorage.loadFromDisk() done");
+    TimeLine.leave("FilterStorage.loadFromDisk() done (read pending)");
   },
 
   _generateFilterData: function(subscriptions)
   {
-    let lineBreak = Utils.getLineBreak();
-
     yield "# Adblock Plus preferences";
     yield "version=" + formatVersion;
 
@@ -570,7 +553,7 @@ var FilterStorage =
     let writeFilters = function()
     {
       TimeLine.enter("FilterStorage.saveToDisk() -> writeFilters()");
-      Utils.writeToFile(targetFile, true, this._generateFilterData(subscriptions), function(e)
+      IO.writeToFile(targetFile, true, this._generateFilterData(subscriptions), function(e)
       {
         TimeLine.enter("FilterStorage.saveToDisk() write callback");
         if (!explicitFile)
@@ -596,7 +579,7 @@ var FilterStorage =
       TimeLine.enter("FilterStorage.saveToDisk() -> removeLastBackup()");
       let file = targetFile.clone();
       file.leafName = backupFileParts.join(Prefs.patternsbackups);
-      Utils.removeFile(file, function(e) renameBackup(Prefs.patternsbackups - 1));
+      IO.removeFile(file, function(e) renameBackup(Prefs.patternsbackups - 1));
       TimeLine.leave("FilterStorage.saveToDisk() <- removeLastBackup()");
     }.bind(this);
 
@@ -610,14 +593,14 @@ var FilterStorage =
 
         let toName = backupFileParts.join(index + 1);
 
-        Utils.renameFile(fromFile, toName, function(e) renameBackup(index - 1));
+        IO.renameFile(fromFile, toName, function(e) renameBackup(index - 1));
       }
       else
       {
         let toFile = targetFile.clone();
         toFile.leafName = backupFileParts.join(index + 1);
 
-        Utils.copyFile(targetFile, toFile, writeFilters);
+        IO.copyFile(targetFile, toFile, writeFilters);
       }
       TimeLine.leave("FilterStorage.saveToDisk() <- renameBackup()");
     }.bind(this);
@@ -694,94 +677,107 @@ function removeSubscriptionFilters(subscription)
 }
 
 /**
- * Parses filter data from a stream. If the data contains user filters outside of filter
- * groups (Adblock Plus 0.7.x data) these filters are returned - they need to be added
- * separately.
+ * IO.readFromFile() listener to parse filter data.
  */
-function parseIniFile(/**nsIUnicharLineInputStream*/ stream) /**Array of String*/
+function INIParser()
 {
-  let wantObj = true;
-  FilterStorage.fileProperties = {};
-  let curObj = FilterStorage.fileProperties;
-  let curSection = null;
-  let line = {};
-  let haveMore = true;
-  let userFilters = null;
-  while (true)
-  {
-    if (haveMore)
-      haveMore = stream.readLine(line);
-    else
-      line.value = "[end]";
+  this.fileProperties = this.curObj = {};
+  this.subscriptions = [];
+  this.knownFilters = {__proto__: null};
+  this.knownSubscriptions = {__proto__: null};
+}
+INIParser.prototype =
+{
+  subscriptions: null,
+  knownFilters: null,
+  knownSubscrptions : null,
+  wantObj: true,
+  fileProperties: null,
+  curObj: null,
+  curSection: null,
+  userFilters: null,
 
-    let val = line.value;
-    if (wantObj === true && /^(\w+)=(.*)$/.test(val))
-      curObj[RegExp.$1] = RegExp.$2;
-    else if (/^\s*\[(.+)\]\s*$/.test(val))
+  process: function(val)
+  {
+    let origKnownFilters = Filter.knownFilters;
+    Filter.knownFilters = this.knownFilters;
+    let origKnownSubscriptions = Subscription.knownSubscriptions;
+    Subscription.knownSubscriptions = this.knownSubscriptions;
+    try
     {
-      let newSection = RegExp.$1.toLowerCase();
-      if (curObj)
+
+      if (this.wantObj === true && /^(\w+)=(.*)$/.test(val))
+        this.curObj[RegExp.$1] = RegExp.$2;
+      else if (val === null || /^\s*\[(.+)\]\s*$/.test(val))
       {
-        // Process current object before going to next section
-        switch (curSection)
+        let newSection = RegExp.$1;
+        if (this.curObj)
+        {
+          // Process current object before going to next section
+          switch (this.curSection)
+          {
+            case "filter":
+            case "pattern":
+              if ("text" in this.curObj)
+                Filter.fromObject(this.curObj);
+              break;
+            case "subscription":
+              let subscription = Subscription.fromObject(this.curObj);
+              if (subscription)
+                this.subscriptions.push(subscription);
+              break;
+            case "subscription filters":
+            case "subscription patterns":
+              if (this.subscriptions.length)
+              {
+                let subscription = this.subscriptions[this.subscriptions.length - 1];
+                for each (let text in this.curObj)
+                {
+                  let filter = Filter.fromText(text);
+                  if (filter)
+                  {
+                    subscription.filters.push(filter);
+                    filter.subscriptions.push(subscription);
+                  }
+                }
+              }
+              break;
+            case "user patterns":
+              this.userFilters = this.curObj;
+              break;
+          }
+        }
+
+        if (val === null)
+          return;
+
+        this.curSection = newSection.toLowerCase();
+        switch (this.curSection)
         {
           case "filter":
           case "pattern":
-            if ("text" in curObj)
-              Filter.fromObject(curObj);
-            break;
           case "subscription":
-            let subscription = Subscription.fromObject(curObj);
-            if (subscription)
-              FilterStorage.addSubscription(subscription, true);
+            this.wantObj = true;
+            this.curObj = {};
             break;
           case "subscription filters":
           case "subscription patterns":
-            if (FilterStorage.subscriptions.length)
-            {
-              let subscription = FilterStorage.subscriptions[FilterStorage.subscriptions.length - 1];
-              for each (let text in curObj)
-              {
-                let filter = Filter.fromText(text);
-                if (filter)
-                {
-                  subscription.filters.push(filter);
-                  filter.subscriptions.push(subscription);
-                }
-              }
-            }
-            break;
           case "user patterns":
-            userFilters = curObj;
+            this.wantObj = false;
+            this.curObj = [];
             break;
+          default:
+            this.wantObj = undefined;
+            this.curObj = null;
         }
       }
-
-      if (newSection == 'end')
-        break;
-
-      curSection = newSection;
-      switch (curSection)
-      {
-        case "filter":
-        case "pattern":
-        case "subscription":
-          wantObj = true;
-          curObj = {};
-          break;
-        case "subscription filters":
-        case "subscription patterns":
-        case "user patterns":
-          wantObj = false;
-          curObj = [];
-          break;
-        default:
-          wantObj = undefined;
-          curObj = null;
-      }
+      else if (this.wantObj === false && val)
+        this.curObj.push(val.replace(/\\\[/g, "["));
     }
-    else if (wantObj === false && val)
-      curObj.push(val.replace(/\\\[/g, "["));
+    finally
+    {
+      Filter.knownFilters = origKnownFilters;
+      Subscription.knownSubscriptions = origKnownSubscriptions;
+    }
   }
-  return userFilters;
-}
+};
