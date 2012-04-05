@@ -302,7 +302,7 @@ var Backup =
       let stream = Cc["@mozilla.org/intl/converter-output-stream;1"].createInstance(Ci.nsIConverterOutputStream);
       stream.init(fileStream, "UTF-8", 16384, Ci.nsIConverterInputStream.DEFAULT_REPLACEMENT_CHARACTER);
 
-      stream.writeString(list.join(Utils.getLineBreak()));
+      stream.writeString(list.join(IO.lineBreak));
 
       stream.close();
     }

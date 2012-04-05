@@ -549,7 +549,7 @@ function copyToClipboard() {
   if (!items.length)
     return;
 
-  Utils.clipboardHelper.copyString(items.map(function(item) {return item.location}).join(Utils.getLineBreak()));
+  Utils.clipboardHelper.copyString(items.map(function(item) {return item.location}).join(IO.lineBreak));
 }
 
 function copyFilter() {
@@ -560,7 +560,7 @@ function copyFilter() {
   if (!items.length)
     return;
 
-  Utils.clipboardHelper.copyString(items.map(function(item) {return item.filter.text}).join(Utils.getLineBreak()));
+  Utils.clipboardHelper.copyString(items.map(function(item) {return item.filter.text}).join(IO.lineBreak));
 }
 
 function selectAll() {

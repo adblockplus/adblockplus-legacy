@@ -18,6 +18,7 @@ const Cu = Components.utils;
 let baseURL = "chrome://adblockplus-modules/content/";
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 Cu.import(baseURL + "Utils.jsm");
+Cu.import(baseURL + "IO.jsm");
 Cu.import(baseURL + "Prefs.jsm");
 Cu.import(baseURL + "ContentPolicy.jsm");
 Cu.import(baseURL + "FilterNotifier.jsm");
@@ -74,7 +75,7 @@ var ElemHide =
   
     TimeLine.log("done adding prefs listener");
 
-    let styleFile = Utils.resolveFilePath(Prefs.data_directory);
+    let styleFile = IO.resolveFilePath(Prefs.data_directory);
     styleFile.append("elemhide.css");
     styleURL = Utils.ioService.newFileURI(styleFile).QueryInterface(Ci.nsIFileURL);
     TimeLine.log("done determining stylesheet URL");
@@ -184,7 +185,7 @@ var ElemHide =
       return;
     }
 
-    Utils.writeToFile(styleURL.file, false, this._generateCSSContent(), function(e)
+    IO.writeToFile(styleURL.file, false, this._generateCSSContent(), function(e)
     {
       TimeLine.enter("ElemHide.apply() write callback");
       this._applying = false;

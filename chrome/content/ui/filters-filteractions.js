@@ -397,7 +397,7 @@ var FilterActions =
       return;
 
     items.sort(function(entry1, entry2) entry1.index - entry2.index);
-    let text = items.map(function(i) i.filter.text).join(Utils.getLineBreak());
+    let text = items.map(function(i) i.filter.text).join(IO.lineBreak);
     Utils.clipboardHelper.copyString(text);
 
     if (!keep && FilterView.editable && !this.treeElement.editingColumn)
@@ -451,7 +451,7 @@ var FilterActions =
       return;
 
     items.sort(function(entry1, entry2) entry1.index - entry2.index);
-    event.dataTransfer.setData("text/plain", items.map(function(i) i.filter.text).join(Utils.getLineBreak()));
+    event.dataTransfer.setData("text/plain", items.map(function(i) i.filter.text).join(IO.lineBreak));
     this.dragItems = items;
     event.stopPropagation();
   },

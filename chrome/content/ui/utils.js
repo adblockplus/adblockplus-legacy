@@ -16,6 +16,7 @@ Cu.import(baseURL + "FilterClasses.jsm");
 Cu.import(baseURL + "FilterListener.jsm");
 Cu.import(baseURL + "FilterStorage.jsm");
 Cu.import(baseURL + "FilterNotifier.jsm");
+Cu.import(baseURL + "IO.jsm");
 Cu.import(baseURL + "Matcher.jsm");
 Cu.import(baseURL + "Prefs.jsm");
 Cu.import(baseURL + "RequestNotifier.jsm");
