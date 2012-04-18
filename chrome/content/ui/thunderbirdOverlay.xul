@@ -32,7 +32,7 @@
 
   <!-- Tools menu -->
   <menupopup id="taskPopup">
-    <menuitem id="abp-menuitem" insertafter="downloadmgr,javaScriptConsole"/>
+    <menu id="abp-menuitem" insertafter="downloadmgr,javaScriptConsole"/>
   </menupopup>
 
   <!-- Context menu -->
