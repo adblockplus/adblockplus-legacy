@@ -20,6 +20,9 @@ Cu.import("resource://gre/modules/Services.jsm");
 Cu.import("resource://gre/modules/FileUtils.jsm");
 Cu.import("resource://gre/modules/NetUtil.jsm");
 
+let baseURL = "chrome://adblockplus-modules/content/";
+Cu.import(baseURL + "TimeLine.jsm");
+
 var IO =
 {
   /**
@@ -60,7 +63,7 @@ var IO =
    * each line read and with a null parameter once the read operation is done.
    * The callback will be called when the operation is done.
    */
-  readFromFile: function(/**nsIFile|nsIURI*/ file, /**Boolean*/ decode, /**Object*/ listener, /**Function*/ callback)
+  readFromFile: function(/**nsIFile|nsIURI*/ file, /**Boolean*/ decode, /**Object*/ listener, /**Function*/ callback, /**String*/ timeLineID)
   {
     try
     {
@@ -79,6 +82,11 @@ var IO =
         onStartRequest: function(request, context) {},
         onDataAvailable: function(request, context, stream, offset, count)
         {
+          if (timeLineID)
+          {
+            TimeLine.asyncStart(timeLineID);
+          }
+
           let data = this.buffer + NetUtil.readInputStreamToString(stream, count);
           let index = Math.max(data.lastIndexOf("\n"), data.lastIndexOf("\r"));
           if (index >= 0)
@@ -95,12 +103,28 @@ var IO =
           }
           else
             this.buffer = data;
+
+          if (timeLineID)
+          {
+            TimeLine.asyncEnd(timeLineID);
+          }
         },
         onStopRequest: function(request, context, result)
         {
+          if (timeLineID)
+          {
+            TimeLine.asyncStart(timeLineID);
+          }
+
           if (Components.isSuccessCode(result) && this.buffer.length)
             listener.process(this.buffer);
           listener.process(null);
+
+          if (timeLineID)
+          {
+            TimeLine.asyncEnd(timeLineID);
+            TimeLine.asyncDone(timeLineID);
+          }
 
           if (!Components.isSuccessCode(result))
           {
@@ -123,7 +147,7 @@ var IO =
    * Writes string data to a file asynchronously, optionally encodes it into
    * UTF-8 first. The callback will be called when the write operation is done.
    */
-  writeToFile: function(/**nsIFile*/ file, /**Boolean*/ encode, /**Iterator*/ data, /**Function*/ callback)
+  writeToFile: function(/**nsIFile*/ file, /**Boolean*/ encode, /**Iterator*/ data, /**Function*/ callback, /**String*/ timeLineID)
   {
     try
     {
@@ -145,6 +169,11 @@ var IO =
         onStartRequest: function(request, context) {},
         onStopRequest: function(request, context, result)
         {
+          if (timeLineID)
+          {
+            TimeLine.asyncDone(timeLineID);
+          }
+
           if (!Components.isSuccessCode(result))
           {
             let e = Cc["@mozilla.org/js/xpc/Exception;1"].createInstance(Ci.nsIXPCException);
@@ -189,6 +218,11 @@ var IO =
         pipe.outputStream.asyncWait({
           onOutputStreamReady: function()
           {
+            if (timeLineID)
+            {
+              TimeLine.asyncStart(timeLineID);
+            }
+
             if (buf.length)
             {
               let str = buf.join(lineBreak) + lineBreak;
@@ -200,6 +234,11 @@ var IO =
             }
             else
               outStream.close();
+
+            if (timeLineID)
+            {
+              TimeLine.asyncEnd(timeLineID);
+            }
           }
         }, 0, 0, Services.tm.currentThread);
       }

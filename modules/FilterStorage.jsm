@@ -442,15 +442,15 @@ var FilterStorage =
           this.saveToDisk();
 
         TimeLine.leave("FilterStorage.loadFromDisk() read callback done");
-      }.bind(this));
+      }.bind(this), "FilterStorageRead");
 
-      TimeLine.leave("FilterStorage.loadFromDisk() <- readFile()");
+      TimeLine.leave("FilterStorage.loadFromDisk() <- readFile()", "FilterStorageRead");
     }.bind(this);
 
     this._loading = true;
     readFile(sourceFile, 0);
 
-    TimeLine.leave("FilterStorage.loadFromDisk() done (read pending)");
+    TimeLine.leave("FilterStorage.loadFromDisk() done");
   },
 
   _generateFilterData: function(subscriptions)
@@ -581,8 +581,8 @@ var FilterStorage =
         else
           FilterNotifier.triggerListeners("save");
         TimeLine.leave("FilterStorage.saveToDisk() write callback done");
-      }.bind(this));
-      TimeLine.leave("FilterStorage.saveToDisk() -> writeFilters()");
+      }.bind(this), "FilterStorageWrite");
+      TimeLine.leave("FilterStorage.saveToDisk() -> writeFilters()", "FilterStorageWrite");
     }.bind(this);
 
     let removeLastBackup = function()
@@ -626,7 +626,7 @@ var FilterStorage =
     else
       writeFilters();
 
-    TimeLine.leave("FilterStorage.saveToDisk() done (write pending)");
+    TimeLine.leave("FilterStorage.saveToDisk() done");
   },
 
   /**

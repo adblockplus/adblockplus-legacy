@@ -230,11 +230,11 @@ var ElemHide =
         FilterNotifier.triggerListeners("elemhideupdate");
       }
       TimeLine.leave("ElemHide.apply() write callback done");
-    }.bind(this));
+    }.bind(this), "ElemHideWrite");
 
     this._applying = true;
 
-    TimeLine.leave("ElemHide.apply() done (write pending)");
+    TimeLine.leave("ElemHide.apply() done", "ElemHideWrite");
   },
 
   _generateCSSContent: function()

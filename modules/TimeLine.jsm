@@ -19,6 +19,8 @@ let nestingCounter = 0;
 let firstTimeStamp = null;
 let lastTimeStamp = null;
 
+let asyncActions = {__proto__: null};
+
 /**
  * Time logging module, used to measure startup time of Adblock Plus (development builds only).
  * @class
@@ -61,9 +63,14 @@ var TimeLine = {
 
   /**
    * Called when application exited a block that TimeLine.enter() was called for.
+   * @param {String} message  message to be logged
+   * @param {String} [asyncAction]  identifier of a pending async action
    */
-  leave: function(/**String*/ message)
+  leave: function(message, asyncAction)
   {
+    if (typeof asyncAction != "undefined")
+      message += " (async action pending)";
+
     nestingCounter--;
     this.log(message, true);
 
@@ -74,5 +81,71 @@ var TimeLine = {
       firstTimeStamp = null;
       lastTimeStamp = null;
     }
+
+    if (typeof asyncAction != "undefined")
+    {
+      if (asyncAction in asyncActions)
+        dump("ABP timeline: Warning: Async action " + asyncAction + " already executing\n");
+      asyncActions[asyncAction] = {start: Date.now(), total: 0};
+    }
+  },
+
+  /**
+   * Called when the application starts processing of an async action.
+   */
+  asyncStart: function(/**String*/ asyncAction)
+  {
+    if (asyncAction in asyncActions)
+    {
+      let action = asyncActions[asyncAction];
+      if ("currentStart" in action)
+        dump("ABP timeline: Warning: Processing reentered for async action " + asyncAction + "\n");
+      action.currentStart = Date.now();
+    }
+    else
+      dump("ABP timeline: Warning: Async action " + asyncAction + " is unknown\n");
+  },
+
+  /**
+   * Called when the application finishes processing of an async action.
+   */
+  asyncEnd: function(/**String*/ asyncAction)
+  {
+    if (asyncAction in asyncActions)
+    {
+      let action = asyncActions[asyncAction];
+      if ("currentStart" in action)
+      {
+        action.total += Date.now() - action.currentStart;
+        delete action.currentStart;
+      }
+      else
+        dump("ABP timeline: Warning: Processing not entered for async action " + asyncAction + "\n");
+    }
+    else
+      dump("ABP timeline: Warning: Async action " + asyncAction + " is unknown\n");
+  },
+
+  /**
+   * Called when an async action is done and its time can be logged.
+   */
+  asyncDone: function(/**String*/ asyncAction)
+  {
+    if (asyncAction in asyncActions)
+    {
+      let action = asyncActions[asyncAction];
+      let now = Date.now();
+      let diff = now - action.start;
+      if ("currentStart" in action)
+        dump("ABP timeline: Warning: Still processing for async action " + asyncAction + "\n");
+
+      let message = "Async action " + asyncAction + " done";
+      let padding = [];
+      for (let i = message.toString().length; i < 40; i++)
+        padding.push(" ");
+      dump("[" + now + "] ABP timeline: " + message + padding.join("") + "\t (" + action.total + "/" + diff + ")\n");
+    }
+    else
+      dump("ABP timeline: Warning: Async action " + asyncAction + " is unknown\n");
   }
 };
