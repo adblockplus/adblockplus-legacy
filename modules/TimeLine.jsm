@@ -44,7 +44,7 @@ var TimeLine = {
 
     // Pad message with spaces
     let padding = [];
-    for (let i = message.toString().length; i < 40; i++)
+    for (let i = message.toString().length; i < 80; i++)
       padding.push(" ");
     dump("[" + now + "] ABP timeline: " + message + padding.join("") + "\t (" + diff + ")\n");
   },
@@ -141,7 +141,7 @@ var TimeLine = {
 
       let message = "Async action " + asyncAction + " done";
       let padding = [];
-      for (let i = message.toString().length; i < 40; i++)
+      for (let i = message.toString().length; i < 80; i++)
         padding.push(" ");
       dump("[" + now + "] ABP timeline: " + message + padding.join("") + "\t (" + action.total + "/" + diff + ")\n");
     }
