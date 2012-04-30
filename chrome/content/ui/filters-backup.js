@@ -297,8 +297,11 @@ var Backup =
       }
     }
 
-    // Insert checksum
+    // Insert checksum. Have to add an empty line to the end of the list to
+    // account for the trailing newline in the file.
+    list.push("");
     let checksum = Utils.generateChecksum(list);
+    list.pop();
     if (checksum)
       list.splice(1, 0, "! Checksum: " + checksum);
 
