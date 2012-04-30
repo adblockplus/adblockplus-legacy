@@ -24,8 +24,6 @@ var docDomainFirstParty = null;
 
 var abpHooks = null;
 
-let lastSelectionProp = "abpSelected" + RequestNotifier.getDataSeed();
-
 function init() {
   docDomainThirdParty = document.documentElement.getAttribute("docDomainThirdParty");
   docDomainFirstParty = document.documentElement.getAttribute("docDomainFirstParty");
@@ -162,7 +160,7 @@ function onSelectionChange() {
   if (item && window.content)
   {
     let key = item.location + " " + item.type + " " + item.docDomain;
-    window.content.document.setUserData(lastSelectionProp, key, null);
+    RequestNotifier.storeSelection(window.content, key);
     treeView.itemToSelect = null;
   }
 
@@ -176,7 +174,7 @@ function handleLocationChange()
     requestNotifier.shutdown();
 
   treeView.clearData();
-  treeView.itemToSelect = window.content.document.getUserData(lastSelectionProp);
+  treeView.itemToSelect = RequestNotifier.getSelection(window.content);
   requestNotifier = new RequestNotifier(window.content, function(wnd, node, item, scanComplete)
   {
     if (item)
