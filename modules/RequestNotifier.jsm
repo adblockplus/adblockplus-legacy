@@ -20,10 +20,9 @@ Cu.import(baseURL + "Utils.jsm");
 Cu.import(baseURL + "FilterClasses.jsm");
 Utils.runAsync(Cu.import, Cu, baseURL + "ContentPolicy.jsm");  // delay to avoid circular imports
 
-// Our properties should have randomized names
-const dataSeed = Math.random();
-const nodeDataProp = "abpNodeData" + dataSeed;
-const wndStatProp = "abpWindowStats" + dataSeed;
+let nodeData = new WeakMap();
+let windowStats = new WeakMap();
+let windowSelection = new WeakMap();
 
 /**
  * List of notifiers in use - these notifiers need to receive notifications on
@@ -127,8 +126,8 @@ RequestNotifier.prototype =
           return;
 
         let node = walker.currentNode;
-        let data = node.getUserData(nodeDataProp);
-        if (data)
+        let data = nodeData.get(node);
+        if (typeof data != "undefined")
           for (let i = data.length - 1; i >= 0; i--)
             this.notifier.notifyListener(wnd, node, data[i]);
 
@@ -160,7 +159,17 @@ RequestNotifier.prototype =
   }
 };
 
-RequestNotifier.getDataSeed = function() dataSeed;
+RequestNotifier.storeSelection = function(/**Window*/ wnd, /**String*/ selection)
+{
+  windowSelection.set(wnd, selection);
+};
+RequestNotifier.getSelection = function(/**Window*/ wnd) /**String*/
+{
+  if (windowSelection.has(wnd))
+    return windowSelection.get(wnd);
+  else
+    return null;
+};
 
 /**
  * Attaches request data to a DOM node.
@@ -183,7 +192,10 @@ RequestNotifier.addNodeData = function(/**Node*/ node, /**Window*/ topWnd, /**In
  */
 RequestNotifier.getWindowStatistics = function(/**Window*/ wnd)
 {
-  return wnd.document.getUserData(wndStatProp);
+  if (windowStats.has(wnd.document))
+    return windowStats.get(wnd.document);
+  else
+    return null;
 }
 
 /**
@@ -199,8 +211,8 @@ RequestNotifier.getDataForNode = function(node, noParent, type, location)
 {
   while (node)
   {
-    let data = node.getUserData(nodeDataProp);
-    if (data)
+    let data = nodeData.get(node);
+    if (typeof data != "undefined")
     {
       // Look for matching entry starting at the end of the list (most recent first)
       for (let i = data.length - 1; i >= 0; i--)
@@ -240,35 +252,33 @@ function RequestEntry(node, topWnd, contentType, docDomain, thirdParty, location
   this.attachToNode(node);
 
   // Update window statistics
-  let windowStats = topWnd.document.getUserData(wndStatProp);
-  if (!windowStats)
+  if (!windowStats.has(topWnd.document))
   {
-    windowStats = {
+    windowStats.set(topWnd.document, {
       items: 0,
       hidden: 0,
       blocked: 0,
       whitelisted: 0,
       filters: {}
-    };
-
-    topWnd.document.setUserData(wndStatProp, windowStats, null);
+    });
   }
 
+  let stats = windowStats.get(topWnd.document);
   if (filter && filter instanceof ElemHideFilter)
-    windowStats.hidden++;
+    stats.hidden++;
   else
-    windowStats.items++;
+    stats.items++;
   if (filter)
   {
     if (filter instanceof BlockingFilter)
-      windowStats.blocked++;
+      stats.blocked++;
     else if (filter instanceof WhitelistFilter)
-      windowStats.whitelisted++;
+      stats.whitelisted++;
 
-    if (filter.text in windowStats.filters)
-      windowStats.filters[filter.text]++;
+    if (filter.text in stats.filters)
+      stats.filters[filter.text]++;
     else
-      windowStats.filters[filter.text] = 1;
+      stats.filters[filter.text] = 1;
   }
 
   // Notify listeners
@@ -319,8 +329,8 @@ RequestEntry.prototype =
    */
   attachToNode: function(/**Node*/ node)
   {
-    let existingData = node.getUserData(nodeDataProp);
-    if (existingData)
+    let existingData = nodeData.get(node);
+    if (typeof existingData != "undefined")
     {
       // Add the new entry to the existing data
       existingData.push(this);
@@ -328,7 +338,7 @@ RequestEntry.prototype =
     else
     {
       // Associate the node with a new array
-      node.setUserData(nodeDataProp, [this], null);
+      nodeData.set(node, [this]);
     }
   }
 };
