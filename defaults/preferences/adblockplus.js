@@ -8,7 +8,7 @@ pref("extensions.adblockplus.showinstatusbar", false);
 pref("extensions.adblockplus.detachsidebar", false);
 pref("extensions.adblockplus.defaulttoolbaraction", 0);
 pref("extensions.adblockplus.defaultstatusbaraction", 0);
-pref("extensions.adblockplus.sidebar_key", "Accel Shift V");
+pref("extensions.adblockplus.sidebar_key", "Accel Shift V, Accel Shift U");
 pref("extensions.adblockplus.sendReport_key", "");
 pref("extensions.adblockplus.filters_key", "Accel Shift E, Accel Shift F, Accel Shift O");
 pref("extensions.adblockplus.enable_key", "");
