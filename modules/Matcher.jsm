@@ -112,8 +112,9 @@ Matcher.prototype = {
       return defaultResult;
 
     // Remove options
-    if (Filter.optionsRegExp.test(text))
-      text = RegExp.leftContext;
+    let match = Filter.optionsRegExp.exec(text);
+    if (match)
+      text = match.input.substr(0, match.index);
 
     // Remove whitelist marker
     if (text.substr(0, 2) == "@@")

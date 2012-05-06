@@ -98,8 +98,9 @@ Filter.fromText = function(text)
     return null;
 
   let ret;
-  if (Filter.elemhideRegExp.test(text))
-    ret = ElemHideFilter.fromText(text, RegExp.$1, RegExp.$2, RegExp.$3, RegExp.$4);
+  let match = Filter.elemhideRegExp.exec(text);
+  if (match)
+    ret = ElemHideFilter.fromText(text, match[1], match[2], match[3], match[4]);
   else if (text[0] == "!")
     ret = new CommentFilter(text);
   else
@@ -142,16 +143,15 @@ Filter.normalize = function(/**String*/ text) /**String*/
   // Remove line breaks and such
   text = text.replace(/[^\S ]/g, "");
 
-  if (/^\s*!/.test(text)) {
+  if (/^\s*!/.test(text))
+  {
     // Don't remove spaces inside comments
     return text.replace(/^\s+/, "").replace(/\s+$/, "");
   }
-  else if (Filter.elemhideRegExp.test(text)) {
+  else if (Filter.elemhideRegExp.test(text))
+  {
     // Special treatment for element hiding filters, right side is allowed to contain spaces
-    /^(.*?)(#+)(.*)$/.test(text);   // .split(..., 2) will cut off the end of the string
-    var domain = RegExp.$1;
-    var separator = RegExp.$2;
-    var selector = RegExp.$3;
+    let [dummy, domain, separator, selector] = /^(.*?)(#+)(.*)$/.exec(text);   // .split(..., 2) will cut off the end of the string
     return domain.replace(/\s/g, "") + separator + selector.replace(/^\s+/, "").replace(/\s+$/, "");
   }
   else
@@ -573,10 +573,11 @@ RegExpFilter.fromText = function(text)
   let thirdParty = null;
   let collapse = null;
   let options;
-  if (Filter.optionsRegExp.test(text))
+  let match = Filter.optionsRegExp.exec(text);
+  if (match)
   {
-    options = RegExp.$1.toUpperCase().split(",");
-    text = RegExp.leftContext;
+    options = match[1].toUpperCase().split(",");
+    text = match.input.substr(0, match.index);
     for each (let option in options)
     {
       let value = null;
