@@ -121,16 +121,16 @@ var Synchronizer =
             continue;
 
           let weight = 1;
-          let weightingRegExp = /;q=([\d\.]+)$/;
-          if (weightingRegExp.test(alternative))
+          let match = /;q=([\d\.]+)$/.exec(alternative);
+          if (match)
           {
-            weight = parseFloat(RegExp.$1);
+            weight = parseFloat(match[1]);
             if (isNaN(weight) || !isFinite(weight) || weight < 0)
               weight = 1;
             if (weight > 10)
               weight = 10;
 
-            alternative = alternative.replace(weightingRegExp, "");
+            alternative = alternative.substr(0, match.index);
           }
           options.push([weight, alternative]);
           totalWeight += weight;
@@ -297,10 +297,14 @@ var Synchronizer =
       let expirationInterval = (expires ? expires - now : 0);
       for each (let filter in newFilters || subscription.filters)
       {
-        if (filter instanceof CommentFilter && /\bExpires\s*(?::|after)\s*(\d+)\s*(h)?/i.test(filter.text))
+        if (!(filter instanceof CommentFilter))
+          continue;
+
+        let match = /\bExpires\s*(?::|after)\s*(\d+)\s*(h)?/i.exec(filter.text);
+        if (match)
         {
-          let interval = parseInt(RegExp.$1);
-          if (RegExp.$2)
+          let interval = parseInt(match[1], 10);
+          if (match[2])
             interval *= SECONDS_IN_HOUR;
           else
             interval *= SECONDS_IN_DAY;
@@ -325,10 +329,14 @@ var Synchronizer =
         for (let i = 0; i < newFilters.length; i++)
         {
           let filter = newFilters[i];
-          if (filter instanceof CommentFilter && /^!\s*(\w+)\s*:\s*(.*)/.test(filter.text))
+          if (!(filter instanceof CommentFilter))
+            continue;
+
+          let match = /^!\s*(\w+)\s*:\s*(.*)/.exec(filter.text);
+          if (match)
           {
-            let keyword = RegExp.$1.toLowerCase();
-            let value = RegExp.$2;
+            let keyword = match[1].toLowerCase();
+            let value = match[2];
             let known = true;
             if (keyword == "redirect")
             {
@@ -444,22 +452,23 @@ function checkSubscriptions()
 function readFilters(subscription, text, errorCallback)
 {
   let lines = text.split(/[\r\n]+/);
-  if (!/\[Adblock(?:\s*Plus\s*([\d\.]+)?)?\]/i.test(lines[0]))
+  let match = /\[Adblock(?:\s*Plus\s*([\d\.]+)?)?\]/i.exec(lines[0]);
+  if (!match)
   {
     errorCallback("synchronize_invalid_data");
     return null;
   }
-  let minVersion = RegExp.$1;
+  let minVersion = match[1];
 
   for (let i = 0; i < lines.length; i++)
   {
-    if (/!\s*checksum[\s\-:]+([\w\+\/]+)/i.test(lines[i]))
+    let match = /!\s*checksum[\s\-:]+([\w\+\/]+)/i.exec(lines[i]);
+    if (match)
     {
       lines.splice(i, 1);
-      let checksumExpected = RegExp.$1;
       let checksum = Utils.generateChecksum(lines);
 
-      if (checksum && checksum != checksumExpected)
+      if (checksum && checksum != match[1])
       {
         errorCallback("synchronize_checksum_mismatch");
         return null;
@@ -552,9 +561,10 @@ function setError(subscription, error, channelStatus, responseStatus, downloadUR
         if (!(subscription.url in FilterStorage.knownSubscriptions))
           return;
 
-        if (/^301\s+(\S+)/.test(request.responseText))  // Moved permanently    
-          subscription.nextURL = RegExp.$1;
-        else if (/^410\b/.test(request.responseText))   // Gone
+        let match = /^(\d+)(?:\s+(\S+))?$/.exec(request.responseText);
+        if (match && match[1] == "301" && match[2]) // Moved permanently
+          subscription.nextURL = match[2];
+        else if (match && match[1] == "410")        // Gone
         {
           let data = "[Adblock]\n" + subscription.filters.map(function(f) f.text).join("\n");
           let url = "data:text/plain," + encodeURIComponent(data);

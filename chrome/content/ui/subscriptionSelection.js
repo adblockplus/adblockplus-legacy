@@ -196,12 +196,7 @@ function setCustomSubscription(title, url, mainSubscriptionTitle, mainSubscripti
     messageElement.removeAttribute("invisible");
     addMainCheckbox.removeAttribute("invisible");
 
-    let beforeLink, afterLink;
-    if (/(.*)\?1\?(.*)/.test(messageElement.getAttribute("_textTemplate")))
-      [beforeLink, afterLink] = [RegExp.$1, RegExp.$2, RegExp.$3];
-    else
-      [beforeLink, afterLink] = [messageElement.getAttribute("_textTemplate"), ""];
-
+    let [, beforeLink, afterLink] = /(.*)\?1\?(.*)/.exec(messageElement.getAttribute("_textTemplate")) || [null, messageElement.getAttribute("_textTemplate"), ""];
     while (messageElement.firstChild)
       messageElement.removeChild(messageElement.firstChild);
     messageElement.appendChild(document.createTextNode(beforeLink));

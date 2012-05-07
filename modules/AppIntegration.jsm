@@ -701,11 +701,12 @@ WindowWrapper.prototype =
       // Find available keys for our prefs
       for (let pref in Prefs)
       {
-        if (/_key$/.test(pref) && typeof Prefs[pref] == "string")
+        let match = /_key$/.exec(pref);
+        if (match && typeof Prefs[pref] == "string")
         {
           try
           {
-            let id = RegExp.leftContext;
+            let id = match.input.substr(0, match.index);
             let result = this.findAvailableKey(id, Prefs[pref], validModifiers, existing);
             if (result)
               hotkeys[id] = result;
@@ -917,7 +918,8 @@ WindowWrapper.prototype =
       linkTarget = link.href;
     }
 
-    if (!/^abp:\/*subscribe\/*\?(.*)/i.test(linkTarget))  /**/
+    let match = /^abp:\/*subscribe\/*\?(.*)/i.exec(linkTarget);
+    if (!match)
       return;
   
     // Decode URL parameters
@@ -925,7 +927,7 @@ WindowWrapper.prototype =
     let url = null;
     let mainSubscriptionTitle = null;
     let mainSubscriptionURL = null;
-    for each (let param in RegExp.$1.split('&'))
+    for each (let param in match[1].split('&'))
     {
       let parts = param.split("=", 2);
       if (parts.length != 2 || !/\S/.test(parts[1]))
@@ -1106,9 +1108,10 @@ WindowWrapper.prototype =
     let popup = event.target;
   
     // Submenu being opened - ignore
-    if (!/^(abp-(?:toolbar|status|menuitem)-)popup$/.test(popup.getAttribute("id")))
+    let match = /^(abp-(?:toolbar|status|menuitem)-)popup$/.exec(popup.getAttribute("id"));
+    if (!match)
       return;
-    let prefix = RegExp.$1;
+    let prefix = match[1];
   
     let sidebarOpen = this.isSidebarOpen();
     this.E(prefix + "opensidebar").hidden = sidebarOpen;

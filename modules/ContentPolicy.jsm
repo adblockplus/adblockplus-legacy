@@ -307,8 +307,12 @@ var Policy =
    */
   isWhitelisted: function(url, parentUrl)
   {
+    if (!url)
+      return null;
+
     // Do not apply exception rules to schemes on our whitelistschemes list.
-    if (!url || (/^([\w\-]+):/.test(url) && RegExp.$1 in Policy.whitelistSchemes))
+    let match = /^([\w\-]+):/.exec(url);
+    if (match && match[1] in Policy.whitelistSchemes)
       return null;
 
     if (!parentUrl)

@@ -139,14 +139,15 @@ var Backup =
       lines.push(line.value);
     stream.close();
 
-    if (lines.length < 2 || lines[0] != "# Adblock Plus preferences" || !/version=(\d+)/.test(lines[1]))
+    let match;
+    if (lines.length < 2 || lines[0] != "# Adblock Plus preferences" || !(match = /version=(\d+)/.exec(lines[1])))
     {
       Utils.alert(window, E("backupButton").getAttribute("_restoreError"), E("backupButton").getAttribute("_restoreDialogTitle"));
       return;
     }
 
     let warning = E("backupButton").getAttribute("_restoreCompleteWarning");
-    let minVersion = parseInt(RegExp.$1, 10);
+    let minVersion = parseInt(match[1], 10);
     if (minVersion > FilterStorage.formatVersion)
       warning += "\n\n" + E("backupButton").getAttribute("_restoreVersionWarning");
 
@@ -170,10 +171,11 @@ var Backup =
         {
           // This should be a header
           this.seenHeader = true;
-          if (/\[Adblock(?:\s*Plus\s*([\d\.]+)?)?\]/i.test(line))
+          let match = /\[Adblock(?:\s*Plus\s*([\d\.]+)?)?\]/i.exec(line);
+          if (match)
           {
             let warning = E("backupButton").getAttribute("_restoreCustomWarning");
-            let minVersion = RegExp.$1;
+            let minVersion = match[1];
             if (minVersion && Utils.versionComparator.compare(minVersion, Utils.addonVersion) > 0)
               warning += "\n\n" + E("backupButton").getAttribute("_restoreVersionWarning");
 
@@ -207,9 +209,10 @@ var Backup =
           // New group start
           if (this.subscription)
             FilterStorage.addSubscription(this.subscription);
-          this.subscription = SpecialSubscription.create(RegExp.$1);
 
-          let options = RegExp.$2;
+          let [, title, options] = Backup.GROUPTITLE_REGEXP.exec(line);
+          this.subscription = SpecialSubscription.create(title);
+
           let defaults = [];
           if (options)
             options = options.split("/");

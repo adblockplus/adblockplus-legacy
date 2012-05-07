@@ -1068,12 +1068,7 @@ function initTypeWarningPage()
 
   let template = textElement.textContent.replace(/[\r\n\s]+/g, " ");
 
-  let beforeLink, linkText, afterLink;
-  if (/(.*)\[link\](.*)\[\/link\](.*)/.test(template))
-    [beforeLink, linkText, afterLink] = [RegExp.$1, RegExp.$2, RegExp.$3];
-  else
-    [beforeLink, linkText, afterLink] = ["", template, ""];
-
+  let [, beforeLink, linkText, afterLink] = /(.*)\[link\](.*)\[\/link\](.*)/.exec(template) || [null, "", template, ""];
   while (textElement.firstChild && textElement.firstChild.nodeType != Node.ELEMENT_NODE)
     textElement.removeChild(textElement.firstChild);
   while (textElement.lastChild && textElement.lastChild.nodeType != Node.ELEMENT_NODE)
@@ -1236,15 +1231,10 @@ function reportSent(event)
     let errorElement = E("sendReportError");
     let template = errorElement.getAttribute("textTemplate").replace(/[\r\n\s]+/g, " ");
   
-    let beforeLink, linkText, afterLink;
-    if (/(.*)\[link\](.*)\[\/link\](.*)/.test(template))
-      [beforeLink, linkText, afterLink] = [RegExp.$1, RegExp.$2, RegExp.$3];
-    else
-      [beforeLink, linkText, afterLink] = ["", template, ""];
-
+    let [, beforeLink, linkText, afterLink] = /(.*)\[link\](.*)\[\/link\](.*)/.exec(template) || [null, "", template, ""];
     beforeLink = beforeLink.replace(/\?1\?/g, errorMessage);
     afterLink = afterLink.replace(/\?1\?/g, errorMessage);
-  
+
     while (errorElement.firstChild && errorElement.firstChild.nodeType != Node.ELEMENT_NODE)
       errorElement.removeChild(errorElement.firstChild);
     while (errorElement.lastChild && errorElement.lastChild.nodeType != Node.ELEMENT_NODE)

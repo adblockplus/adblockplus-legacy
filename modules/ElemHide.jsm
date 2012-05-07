@@ -359,10 +359,11 @@ var ElemHidePrivate =
 
   newChannel: function(uri)
   {
-    if (!/\?(\d+)/.test(uri.path))
+    let match = /\?(\d+)/.exec(uri.path)
+    if (!match)
       throw Cr.NS_ERROR_FAILURE;
 
-    return new HitRegistrationChannel(uri, RegExp.$1);
+    return new HitRegistrationChannel(uri, match[1]);
   },
 
   QueryInterface: XPCOMUtils.generateQI([Ci.nsIFactory, Ci.nsIAboutModule])

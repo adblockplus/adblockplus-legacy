@@ -386,13 +386,7 @@ var FilterStorage =
           sourceFile = this.sourceFile;
           if (sourceFile)
           {
-            let part1 = sourceFile.leafName;
-            let part2 = "";
-            if (/^(.*)(\.\w+)$/.test(part1))
-            {
-              part1 = RegExp.$1;
-              part2 = RegExp.$2;
-            }
+            let [, part1, part2] = /^(.*)(\.\w+)$/.exec(sourceFile.leafName) || [null, sourceFile.leafName, ""];
 
             sourceFile = sourceFile.clone();
             sourceFile.leafName = part1 + "-backup" + (++backupIndex) + part2;
@@ -547,13 +541,7 @@ var FilterStorage =
     if (!explicitFile && targetFile.exists() && Prefs.patternsbackups > 0)
     {
       // Check whether we need to backup the file
-      let part1 = targetFile.leafName;
-      let part2 = "";
-      if (/^(.*)(\.\w+)$/.test(part1))
-      {
-        part1 = RegExp.$1;
-        part2 = RegExp.$2;
-      }
+      let [, part1, part2] = /^(.*)(\.\w+)$/.exec(targetFile.leafName) || [null, targetFile.leafName, ""];
 
       let newestBackup = targetFile.clone();
       newestBackup.leafName = part1 + "-backup1" + part2;
@@ -636,14 +624,7 @@ var FilterStorage =
   {
     let result = [];
 
-    let part1 = FilterStorage.sourceFile.leafName;
-    let part2 = "";
-    if (/^(.*)(\.\w+)$/.test(part1))
-    {
-      part1 = RegExp.$1;
-      part2 = RegExp.$2;
-    }
-
+    let [, part1, part2] = /^(.*)(\.\w+)$/.exec(FilterStorage.sourceFile.leafName) || [null, FilterStorage.sourceFile.leafName, ""];
     for (let i = 1; ; i++)
     {
       let file = FilterStorage.sourceFile.clone();
@@ -714,14 +695,13 @@ INIParser.prototype =
     Filter.knownFilters = this.knownFilters;
     let origKnownSubscriptions = Subscription.knownSubscriptions;
     Subscription.knownSubscriptions = this.knownSubscriptions;
+    let match;
     try
     {
-
-      if (this.wantObj === true && /^(\w+)=(.*)$/.test(val))
-        this.curObj[RegExp.$1] = RegExp.$2;
-      else if (val === null || /^\s*\[(.+)\]\s*$/.test(val))
+      if (this.wantObj === true && (match = /^(\w+)=(.*)$/.exec(val)))
+        this.curObj[match[1]] = match[2];
+      else if (val === null || (match = /^\s*\[(.+)\]\s*$/.exec(val)))
       {
-        let newSection = RegExp.$1;
         if (this.curObj)
         {
           // Process current object before going to next section
@@ -762,7 +742,7 @@ INIParser.prototype =
         if (val === null)
           return;
 
-        this.curSection = newSection.toLowerCase();
+        this.curSection = match[1].toLowerCase();
         switch (this.curSection)
         {
           case "filter":
