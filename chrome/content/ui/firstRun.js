@@ -32,12 +32,7 @@ function generateLinkText(element)
 {
   let template = element.getAttribute("_textTemplate");
 
-  let beforeLink, linkText, afterLink;
-  if (/(.*)\[link\](.*)\[\/link\](.*)/.test(template))
-    [beforeLink, linkText, afterLink] = [RegExp.$1, RegExp.$2, RegExp.$3];
-  else
-    [beforeLink, linkText, afterLink] = ["", template, ""];
-
+  let [, beforeLink, linkText, afterLink] = /(.*)\[link\](.*)\[\/link\](.*)/.exec(template) || [null, "", template, ""];
   while (element.firstChild && element.firstChild.nodeType != Node.ELEMENT_NODE)
     element.removeChild(element.firstChild);
   while (element.lastChild && element.lastChild.nodeType != Node.ELEMENT_NODE)

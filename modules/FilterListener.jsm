@@ -55,10 +55,11 @@ var FilterListener =
 
     FilterNotifier.addListener(function(action, item, newValue, oldValue)
     {
-      if (/^filter\.(.*)/.test(action))
-        onFilterChange(RegExp.$1, item, newValue, oldValue);
-      else if (/^subscription\.(.*)/.test(action))
-        onSubscriptionChange(RegExp.$1, item, newValue, oldValue);
+      let match = /^(\w+)\.(.*)/.exec(action);
+      if (match && match[1] == "filter")
+        onFilterChange(match[2], item, newValue, oldValue);
+      else if (match && match[1] == "subscription")
+        onSubscriptionChange(match[2], item, newValue, oldValue);
       else
         onGenericChange(action, item);
     });

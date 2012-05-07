@@ -483,15 +483,17 @@ function disableOnSite()
   let text = filter.text;
   if (filter instanceof RegExpFilter)
   {
-    if (Filter.optionsRegExp.test(text))
+    let match = Filter.optionsRegExp.exec(text);
+    if (match)
     {
       let found = false;
-      let options = RegExp.$1.toUpperCase().split(",");
+      let options = match[1].toUpperCase().split(",");
       for (let i = 0; i < options.length; i++)
       {
-        if (/^DOMAIN=(.*)/.test(options[i]))
+        let match = /^DOMAIN=(.*)/.exec(options[i]);
+        if (match)
         {
-          let domains = RegExp.$1.split("|").filter(function(d) d != domain && d != "~" + domain && (d.length <= domain.length || d.lastIndexOf("." + domain) != d.length - domain.length - 1));
+          let domains = match[1].split("|").filter(function(d) d != domain && d != "~" + domain && (d.length <= domain.length || d.lastIndexOf("." + domain) != d.length - domain.length - 1));
           domains.push("~" + domain);
           options[i] = "DOMAIN=" + domains.join("|");
           found = true;
@@ -508,10 +510,11 @@ function disableOnSite()
   }
   else if (filter instanceof ElemHideFilter)
   {
-    if (/^([^#]+)(#.*)/.test(text))
+    let match = /^([^#]+)(#.*)/.exec(text);
+    if (match)
     {
-      let selector = RegExp.$2;
-      let domains = RegExp.$1.toUpperCase().split(",").filter(function(d) d != domain && (d.length <= domain.length || d != "~" + domain && d.lastIndexOf("." + domain) != d.length - domain.length - 1));
+      let selector = match[2];
+      let domains = match[1].toUpperCase().split(",").filter(function(d) d != domain && (d.length <= domain.length || d != "~" + domain && d.lastIndexOf("." + domain) != d.length - domain.length - 1));
       domains.push("~" + domain);
       text = domains.join(",").toLowerCase() + selector;
     }
@@ -779,12 +782,13 @@ var treeView = {
     if (!this.sortColumn)
     {
       let defaultSort = E("list").getAttribute("defaultSort");
-      if (/^(\w+)\s+(ascending|descending)$/.test(defaultSort))
+      let match = /^(\w+)\s+(ascending|descending)$/.exec(defaultSort);
+      if (match)
       {
-        this.sortColumn = E(RegExp.$1);
+        this.sortColumn = E(match[1]);
         if (this.sortColumn)
         {
-          sortDir = RegExp.$2;
+          sortDir = match[2];
           this.sortColumn.setAttribute("sortDirection", sortDir);
         }
       }
