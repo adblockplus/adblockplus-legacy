@@ -270,22 +270,6 @@ function updateFilter()
   E("matchWarning").hidden = compiledFilter instanceof RegExpFilter && compiledFilter.matches(item.location, item.typeDescr, item.docDomain, item.thirdParty);
 
   E("filter").value = filter;
-
-  if (E("disabledWarning").hidden)
-  {
-    let subscription = FilterStorage.getGroupForFilter(compiledFilter);
-    let warning = E("groupDisabledWarning");
-    if (subscription && subscription.disabled)
-    {
-      warning.subscription = subscription;
-      generateLinkText(warning, subscription.title);
-      warning.hidden = false;
-    }
-    else
-      warning.hidden = true;
-  }
-  else
-    E("groupDisabledWarning").hidden = true;
 }
 
 function generateLinkText(element, replacement)
@@ -402,12 +386,6 @@ function openPreferences() {
 function doEnable() {
   Prefs.enabled = true;
   E("disabledWarning").hidden = true;
-}
-
-function enableSubscription(subscription)
-{
-  subscription.disabled = false;
-  E("groupDisabledWarning").hidden = true;
 }
 
 /**

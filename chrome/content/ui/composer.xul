@@ -37,10 +37,6 @@
     <label class="text-link" onclick="doEnable()"/>
   </description>
 
-  <description id="groupDisabledWarning" textTemplate="&groupDisabled.warning;" hidden="true">
-    <label class="text-link" onclick="enableSubscription(this.parentNode.subscription)"/>
-  </description>
-
   <hbox id="filterBox" align="center">
     <label control="filter" value="&filter.label;" accesskey="&filter.accesskey;"/>
     <textbox id="filter" flex="1" tabindex="-1" readonly="true"/>
