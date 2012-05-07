@@ -144,7 +144,7 @@ var SubscriptionActions =
   remove: function(/**Node*/ node)
   {
     let data = Templater.getDataForNode(node || this.selectedItem);
-    if (data && Utils.confirm(window, Utils.getString("remove_subscription_warning")))
+    if (data && Utils.confirm(window, Utils.getString(data.subscription instanceof SpecialSubscription ? "remove_group_warning" : "remove_subscription_warning")))
       FilterStorage.removeSubscription(data.subscription);
   },
 
