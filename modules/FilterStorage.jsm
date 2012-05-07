@@ -106,7 +106,7 @@ var FilterStorage =
     let generalSubscription = null;
     for each (let subscription in FilterStorage.subscriptions)
     {
-      if (subscription instanceof SpecialSubscription)
+      if (subscription instanceof SpecialSubscription && !subscription.disabled)
       {
         // Always prefer specialized subscriptions
         if (subscription.isDefaultFor(filter))
@@ -216,7 +216,7 @@ var FilterStorage =
   {
     if (!subscription)
     {
-      if (filter.subscriptions.some(function(s) s instanceof SpecialSubscription))
+      if (filter.subscriptions.some(function(s) s instanceof SpecialSubscription && !s.disabled))
         return;   // No need to add
       subscription = FilterStorage.getGroupForFilter(filter);
     }
