@@ -326,6 +326,7 @@ var Synchronizer =
       // Process some special filters and remove them
       if (newFilters)
       {
+        let fixedTitle = false;
         for (let i = 0; i < newFilters.length; i++)
         {
           let filter = newFilters[i];
@@ -349,6 +350,14 @@ var Synchronizer =
               if (uri && (uri.scheme == "http" || uri.scheme == "https"))
                 subscription.homepage = uri.spec;
             }
+            else if (keyword == "title")
+            {
+              if (value)
+              {
+                subscription.title = value;
+                fixedTitle = true;
+              }
+            }
             else
               known = false;
 
@@ -356,6 +365,7 @@ var Synchronizer =
               newFilters.splice(i--, 1);
           }
         }
+        subscription.fixedTitle = fixedTitle;
       }
 
       if (isBaseLocation && newURL && newURL != url)
