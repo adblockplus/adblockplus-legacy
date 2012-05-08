@@ -11,6 +11,11 @@
 Cu.import("resource://gre/modules/Services.jsm");
 Cu.import("resource://gre/modules/FileUtils.jsm");
 
+const MILLISECONDS_IN_SECOND = 1000;
+const SECONDS_IN_MINUTE = 60;
+const SECONDS_IN_HOUR = 60 * SECONDS_IN_MINUTE;
+const SECONDS_IN_DAY = 24 * SECONDS_IN_HOUR;
+
 let reportData =
   <report>
     <adblock-plus version={Utils.addonVersion} build={Utils.addonBuild} locale={Utils.appLocale}/>
@@ -648,6 +653,151 @@ let extensionsDataSource =
   }
 };
 
+let subscriptionUpdateDataSource =
+{
+  contentWnd: null,
+  type: null,
+  outdated: null,
+  needUpdate: null,
+
+  collectData: function(wnd, windowURI, callback)
+  {
+    this.contentWnd = wnd;
+    let now = Date.now() / MILLISECONDS_IN_SECOND;
+    let outdatedThreshold = now - 14 * SECONDS_IN_DAY;
+    let needUpdateThreshold = now - 1 * SECONDS_IN_HOUR;
+
+    this.outdated = [];
+    this.needUpdate = [];
+
+    let subscriptions = FilterStorage.subscriptions.filter(issuesDataSource.subscriptionFilter);
+    for (let i = 0; i < subscriptions.length; i++)
+    {
+      let lastSuccess = subscriptions[i].lastSuccess;
+      if (lastSuccess < outdatedThreshold)
+        this.outdated.push(subscriptions[i]);
+      if (lastSuccess < needUpdateThreshold)
+        this.needUpdate.push(subscriptions[i]);
+    }
+
+    callback();
+  },
+
+  updatePage: function(type)
+  {
+    this.type = type;
+    E("updateInProgress").hidden = (type != "false positive" || this.needUpdate.length == 0);
+    E("outdatedSubscriptions").hidden = !E("updateInProgress").hidden || this.outdated.length == 0;
+    if (!E("outdatedSubscriptions").hidden)
+    {
+      let template = E("outdatedSubscriptionTemplate");
+      let list = E("outdatedSubscriptionsList");
+      while (list.lastChild)
+        list.removeChild(list.lastChild);
+
+      for (let i = 0; i < this.outdated.length; i++)
+      {
+        let subscription = this.outdated[i];
+        let entry = template.cloneNode(true);
+        entry.removeAttribute("id");
+        entry.removeAttribute("hidden");
+        entry.setAttribute("_url", subscription.url);
+        entry.setAttribute("tooltiptext", subscription.url);
+        entry.textContent = subscription.title;
+        list.appendChild(entry);
+      }
+    }
+    return !E("updateInProgress").hidden || !E("outdatedSubscriptions").hidden;
+  },
+
+  showPage: function()
+  {
+    document.documentElement.canAdvance = false;
+
+    if (!E("updateInProgress").hidden)
+    {
+      document.documentElement.canRewind = false;
+
+      for (let i = 0; i < this.needUpdate.length; i++)
+        Synchronizer.execute(this.needUpdate[i], true, true);
+
+      let listener = function(action)
+      {
+        if (!/^subscription\./.test(action))
+          return;
+
+        for (let i = 0; i < this.needUpdate.length; i++)
+          if (Synchronizer.isExecuting(this.needUpdate[i].url))
+            return;
+
+        FilterNotifier.removeListener(listener);
+        E("updateInProgress").hidden = "true";
+
+        let filtersRemoved = false;
+        let requests = requestsDataSource.origRequests;
+        for (let i = 0; i < requests.length; i++)
+          if (requests[i].filter && !requests[i].filter.subscriptions.filter(function(s) !s.disabled).length)
+            filtersRemoved = true;
+
+        if (filtersRemoved)
+        {
+          // Force the user to reload the page
+          E("updateFixedIssue").hidden = false;
+          document.documentElement.canAdvance = true;
+
+          let nextButton = document.documentElement.getButton("next");
+          nextButton.label = E("updatePage").getAttribute("reloadButtonLabel");
+          nextButton.accessKey = E("updatePage").getAttribute("reloadButtonAccesskey");
+          document.documentElement.addEventListener("wizardnext", function(event)
+          {
+            event.preventDefault();
+            event.stopPropagation();
+            window.close();
+            this.contentWnd.location.reload();
+          }.bind(this), true);
+        }
+        else
+        {
+          this.collectData(null, null, function() {});
+          this.needUpdate = [];
+          if (this.outdated.length)
+          {
+            document.documentElement.canRewind = true;
+
+            this.updatePage(this.type);
+            this.showPage();
+          }
+          else
+          {
+            // No more issues, make sure to remove this page from history and
+            // advance to the next page.
+            document.documentElement.canRewind = true;
+            document.documentElement.canAdvance = true;
+
+            let next = document.documentElement.currentPage.next;
+            document.documentElement.rewind();
+            document.documentElement.currentPage.next = next;
+
+            document.documentElement.advance();
+          }
+        }
+      }.bind(this);
+
+      FilterNotifier.addListener(listener);
+      window.addEventListener("unload", function()
+      {
+        FilterNotifier.removeListener(listener);
+      });
+    }
+  },
+
+  updateOutdated: function()
+  {
+    for (let i = 0; i < this.outdated.length; i++)
+      Synchronizer.execute(this.outdated[i], true, true);
+  }
+}
+
 let issuesDataSource =
 {
   contentWnd: null,
@@ -817,16 +967,23 @@ let issuesDataSource =
                                  !E("issuesNoSubscriptionsBox").hidden ||
                                  !E("issuesSubscriptionCountBox").hidden;
 
+    let page = E("typeSelectorPage");
+    if (subscriptionUpdateDataSource.updatePage(type))
+    {
+      page.next = "update";
+      page = E("updatePage");
+    }
+
     if (E("issuesWhitelistBox").hidden && E("issuesDisabledBox").hidden &&
         E("issuesNoFiltersBox").hidden && E("issuesNoSubscriptionsBox").hidden &&
         E("issuesOwnFiltersBox").hidden && E("issuesDisabledFiltersBox").hidden &&
         E("issuesDisabledSubscriptionsBox").hidden && E("issuesSubscriptionCountBox").hidden)
     {
-      E("typeSelectorPage").next = "screenshot";
+      page.next = "screenshot";
     }
     else
     {
-      E("typeSelectorPage").next = "issues";
+      page.next = "issues";
     }
   },
 
@@ -937,7 +1094,7 @@ let issuesDataSource =
 
 let dataCollectors = [reportsListDataSource, requestsDataSource, filtersDataSource, subscriptionsDataSource,
                       screenshotDataSource, framesDataSource, errorsDataSource, extensionsDataSource,
-                      issuesDataSource];
+                      subscriptionUpdateDataSource, issuesDataSource];
 
 //
 // Wizard logic
