@@ -40,7 +40,6 @@
 .subscription:not([selected="true"]) > .disabled .titleBox
 {
   color: #808080;
-  font-style: italic;
 }
 .subscription:not([selected="true"]) > .disabled .status
 {
@@ -64,6 +63,20 @@
 .subscription .warning
 {
   color: #FF0000;
+}
+
+.enabledCheckbox
+{
+  padding: 2px;
+  -moz-margin-end: 10px;
+}
+.enabledCheckbox:focus
+{
+  outline: 1px dotted gray;
+}
+.enabledCheckbox .checkbox-label-box
+{
+  display: none;
 }
 
 .actionButton
@@ -154,7 +167,6 @@ treechildren::-moz-tree-cell-text(col-slow)
 treechildren::-moz-tree-cell-text(col-filter, disabled-true, selected-false)
 {
   color: #808080;
-  font-style: italic;
 }
 
 treechildren::-moz-tree-cell-text(col-filter, type-comment, selected-false)
