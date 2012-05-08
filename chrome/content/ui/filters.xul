@@ -172,7 +172,7 @@
             <hbox align="center">
               <deck class="titleBox" flex="1" selectedIndex="0" onselect="event.stopPropagation();">
                 <description ondblclick="if (event.button == 0) TitleEditor.start(this, true);">
-                  <description value="{subscription.title}" flex="1" crop="end"/>
+                  <description class="title" value="{subscription.title}" flex="1" crop="end"/>
                   <hbox align="baseline">
                     <description value=" ("/>
                     <if condition="{isExternal}">
@@ -278,7 +278,7 @@
           <vbox class="{subscription.disabled ? 'disabled' : ''}">
             <hbox align="center">
               <deck class="titleBox" flex="1" selectedIndex="0" onselect="event.stopPropagation();">
-                <description value="{subscription.title}" crop="end" ondblclick="if (event.button == 0) TitleEditor.start(this, true);"/>
+                <description class="title" value="{subscription.title}" crop="end" ondblclick="if (event.button == 0) TitleEditor.start(this, true);"/>
                 <textbox oncontextmenu="event.stopPropagation();" class="titleEditor" onkeypress="TitleEditor.keyPress(event);" onblur="TitleEditor.end(true);"/>
               </deck>
               <checkbox label="&subscription.enabled.label;" class="tabable" tabindex="-1"

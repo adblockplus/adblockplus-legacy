@@ -47,6 +47,11 @@
   color: #808080;
 }
 
+.subscription .title
+{
+  font-weight: bold;
+}
+
 .subscription description, .subscription textbox
 {
   margin: 0px !important;
