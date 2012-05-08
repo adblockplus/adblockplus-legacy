@@ -49,6 +49,7 @@ Subscription.prototype =
   filters: null,
 
   _title: null,
+  _fixedTitle: false,
   _disabled: false,
 
   /**
@@ -65,6 +66,22 @@ Subscription.prototype =
       FilterNotifier.triggerListeners("subscription.title", this, value, oldValue);
     }
     return this._title;
+  },
+
+  /**
+   * Determines whether the title should be editable
+   * @type Boolean
+   */
+  get fixedTitle() this._fixedTitle,
+  set fixedTitle(value)
+  {
+    if (value != this._fixedTitle)
+    {
+      let oldValue = this._fixedTitle;
+      this._fixedTitle = value;
+      FilterNotifier.triggerListeners("subscription.fixedTitle", this, value, oldValue);
+    }
+    return this._fixedTitle;
   },
 
   /**
@@ -92,6 +109,8 @@ Subscription.prototype =
     buffer.push("[Subscription]");
     buffer.push("url=" + this.url);
     buffer.push("title=" + this._title);
+    if (this._fixedTitle)
+      buffer.push("fixedTitle=true");
     if (this._disabled)
       buffer.push("disabled=true");
   },
@@ -202,6 +221,8 @@ Subscription.fromObject = function(obj)
     if ("defaults" in obj)
       result.defaults = obj.defaults.split(" ");
   }
+  if ("fixedTitle" in obj)
+    result._fixedTitle = (obj.fixedTitle == "true");
   if ("disabled" in obj)
     result._disabled = (obj.disabled == "true");
 

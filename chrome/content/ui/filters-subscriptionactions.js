@@ -71,6 +71,8 @@ var SubscriptionActions =
     let node = SubscriptionActions.selectedItem;
     let data = Templater.getDataForNode(node);
     let subscription = (data ? data.subscription : null)
+    E("subscription-editTitle-command").setAttribute("disabled", !subscription ||
+        subscription.fixedTitle);
     E("subscription-update-command").setAttribute("disabled", !subscription ||
         !(subscription instanceof DownloadableSubscription) ||
         Synchronizer.isExecuting(subscription.url));
@@ -400,9 +402,13 @@ var TitleEditor =
     if (!subscriptionNode || (checkSelection && !subscriptionNode._wasSelected))
       return;
 
+    let subscription = Templater.getDataForNode(subscriptionNode).subscription;
+    if (!subscription || subscription.fixedTitle)
+      return;
+
     subscriptionNode.getElementsByClassName("titleBox")[0].selectedIndex = 1;
     let editor = subscriptionNode.getElementsByClassName("titleEditor")[0];
-    editor.value = Templater.getDataForNode(subscriptionNode).subscription.title;
+    editor.value = subscription.title;
     editor.setSelectionRange(0, editor.value.length);
     this.subscriptionEdited = subscriptionNode;
     editor.focus();

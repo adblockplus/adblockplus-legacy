@@ -253,6 +253,11 @@ ListManager.prototype =
         }
         break;
       }
+      case "subscription.fixedTitle":
+      {
+        SubscriptionActions.updateCommands();
+        break;
+      }
       case "subscription.updated":
       {
         if (this._scheduledUpdateDisabled == null)
