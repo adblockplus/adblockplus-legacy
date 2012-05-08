@@ -1,8 +1,12 @@
-<!ENTITY dialog.title "关于">
+<!ENTITY dialog.title "关于 Adblock Plus">
 <!ENTITY version.title "版本">
-<!ENTITY description "Adblock Plus允许你决定你不想在网页上见到什么。 您不再需要下载全部的广告、横幅或其他东西， 如果您不想要它们——告诉Adblock Plus！">
-<!ENTITY homepage.label "Adblock Plus主页:">
+<!ENTITY description "
+ Adblock Plus 让您能决定不想在网页上见到什么。
+ 您再也不需要下载广告、横幅，如果您不想要它们——
+ 使用 Adblock Plus 移除它们！
+">
+<!ENTITY homepage.label "Adblock Plus 主页:">
 <!ENTITY author.label "作者:">
 <!ENTITY contributors.label "贡献者:">
-<!ENTITY subscriptionAuthors.label "过滤规则订阅作者：">
-<!ENTITY translators.label "翻译者：">
+<!ENTITY subscriptionAuthors.label "过滤规则订阅组作者:">
+<!ENTITY translators.label "翻译:">

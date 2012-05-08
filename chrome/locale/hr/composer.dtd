@@ -1,23 +1,23 @@
-<!ENTITY dialog.title "Dodaj Adblock Plus pravilo za filter">
-<!ENTITY accept.label "Dodaj filet">
+<!ENTITY dialog.title "Dodaj Adblock Plus pravilo filtera">
+<!ENTITY accept.label "Dodaj filter">
 <!ENTITY advanced.label "Napredni pregled">
-<!ENTITY basic.label "osnovni pregled">
-<!ENTITY disabled.warning "Adblock Plus je trenutno onemogućen. Možete dodavati filtere ali se oni neće primjenjivati ako ne [link]omogućite Adblock Plus[/link].">
-<!ENTITY groupDisabled.warning "Grupa filtera &quot;?1?&quot; kojoj će ovaj filter biti dodan je trenutno onemogućena. Sveedno možete dodati filter ali on neće biti primjenjen ako ne  [link]omogućite grupu filtera[/link].">
-<!ENTITY filter.label "Novi filter">
+<!ENTITY basic.label "Osnovni pregled">
+<!ENTITY disabled.warning "Adblock Plus je trenutno onemogućen. Možete dodavati filtere ali oni se neće primjenjivati ako ne [link]omogućite Adblock Plus[/link].">
+<!ENTITY filter.label "Novi filter:">
 <!ENTITY filter.accesskey "f">
-<!ENTITY preferences.label "Prikaži postojeće filtere">
+<!ENTITY preferences.label "Prikaži postojeće filtere...">
 <!ENTITY preferences.accesskey "k">
 <!ENTITY type.filter.label "Blokirani filter">
 <!ENTITY type.filter.accesskey "B">
-<!ENTITY type.whitelist.label "Iznimka">
-<!ENTITY type.whitelist.accesskey "m">
+<!ENTITY type.whitelist.label "Pravilo iznimke">
+<!ENTITY type.whitelist.accesskey "i">
 <!ENTITY pattern.label "Traži ponavljajući uzorak">
-<!ENTITY pattern.explanation "uzorak može biti bilo koji dio adrese, asterisk (*) služi kao zamjena. Filter će biti primjenjen na adrese koje se poklapaju sa naznačenim uzorkom.">
-<!ENTITY regexp.warning "Uzorak koji ste unijeli biti će protumačen kao obični izraz kojeg Adblock Plus ne može efikasno obraditi i može usporiti vaše surfanje. Ako niste namjeravali koristiti obični izra, dodajte asterisk (*) na kraju uzorka.">
+<!ENTITY pattern.explanation "Uzorak može biti bilo koji dio adrese, asterisk (*) služi kao zamjena. Filter će biti samo primjenjen na adrese koje se podudaraju sa naznačenim uzorkom.">
+<!ENTITY regexp.warning "Uzorak koji ste unijeli biti će protumačen kao obični izraz kojeg Adblock Plus ne može efikasno obraditi i može usporiti vaše surfanje. Ako niste namjeravali koristiti obični izraz, dodajte asterisk (*) na kraju uzorka.">
 <!ENTITY shortpattern.warning "Uneseni uzorak je prekratak za optimizaciju i može usporiti vaše surfanje. Preporučamo da odaberete duži niz za ovaj filter kako biste omogućili da Adblock Plus efikasnije obradi taj filter.">
+<!ENTITY match.warning "Uneseni uzorak više se ne poklapa sa adresom za blokeiranje/odblokiranje i neće imati nikakvog utjecaja na nju.">
 <!ENTITY custom.pattern.label "Prilagođeno:">
-<!ENTITY custom.pattern.accesskey "l">
+<!ENTITY custom.pattern.accesskey "g">
 <!ENTITY anchors.label "Prihvati samo uzorak:">
 <!ENTITY anchor.start.label "na početku adrese">
 <!ENTITY anchor.start.accesskey "p">
@@ -25,22 +25,22 @@
 <!ENTITY anchor.start.flexible.accesskey "p">
 <!ENTITY anchor.end.label "na kraju adrese">
 <!ENTITY anchor.end.accesskey "n">
-<!ENTITY options.label "Postavke">
-<!ENTITY domainRestriction.label "Ograničiti na domenu:">
+<!ENTITY options.label "Mogućnosti">
+<!ENTITY domainRestriction.label "Ograniči na domenu:">
 <!ENTITY domainRestriction.accesskey "d">
-<!ENTITY domainRestriction.help "Koristite ovu opciju da odabir jedne ili više domena odvojenih okomitom linijom (|). Filter će biti primjenjen samo na odabrane domene. Tilda (~) prije naziva domene pokazuje da filter neće biti primjenjen na toj domeni.">
-<!ENTITY firstParty.label "Samo first-party">
+<!ENTITY domainRestriction.help "Koristite ovu mogućnost za odabir jedne ili više domena odvojenih okomitom linijom (|). Filter će biti primjenjen samo na odabrane domene. Tilda (~) prije naziva domene pokazuje da filter neće biti primjenjen na toj domeni.">
+<!ENTITY firstParty.label "Samo od prve strane">
 <!ENTITY firstParty.accesskey "r">
-<!ENTITY thirdParty.label "Samo third-party">
+<!ENTITY thirdParty.label "Samo od treće strane">
 <!ENTITY thirdParty.accesskey "T">
 <!ENTITY matchCase.label "Točan izraz">
 <!ENTITY matchCase.accesskey "z">
-<!ENTITY types.label "Primjeniti na tipove:">
-<!ENTITY selectAllTypes.label "Odabrati sve">
-<!ENTITY unselectAllTypes.label "Nijedan odabrati">
+<!ENTITY types.label "Primjeniti na vrste:">
+<!ENTITY selectAllTypes.label "Odaberi sve">
+<!ENTITY unselectAllTypes.label "Odaberi ništa">
 <!ENTITY collapse.label "Sažeti blokirano:">
 <!ENTITY collapse.accesskey "S">
-<!ENTITY collapse.default.yes.label "Koristiti općenito (da)">
-<!ENTITY collapse.default.no.label "Koriatiti općenito (ne)">
+<!ENTITY collapse.default.yes.label "Koristi uobičajeno (da)">
+<!ENTITY collapse.default.no.label "Koriati uobičajeno (ne)">
 <!ENTITY collapse.yes.label "Da">
 <!ENTITY collapse.no.label "Ne">

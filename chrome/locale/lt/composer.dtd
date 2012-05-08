@@ -3,7 +3,6 @@
 <!ENTITY advanced.label "Sudėtingesnis konfigūravimas">
 <!ENTITY basic.label "Paprastas konfigūravimas">
 <!ENTITY disabled.warning "Adblock Plus šiuo metu yra išjungtas. Vistiek galite pridėti filtrus, bet jie neveiks kol [link]neįjungsite Adblock Plus[/link].">
-<!ENTITY groupDisabled.warning "Filtrų grupė &quot;?1?&quot;, į kurią bus pridėtas šis filtras, šiuo metu išjungta. Vistiek galite pridėti filtrą, bet jis neveiks kol [link]neįjungsite Adblock Plus[/link].">
 <!ENTITY filter.label "Naujas filtras:">
 <!ENTITY filter.accesskey "f">
 <!ENTITY preferences.label "Rodyti esamus filtrus...">

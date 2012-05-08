@@ -3,7 +3,6 @@
 <!ENTITY advanced.label "Rozšěrjeny napohlad">
 <!ENTITY basic.label "Zakładny napohlad">
 <!ENTITY disabled.warning "Adblock Plus je tuchwilu znjemóžnjeny. Móžeće hišće filtry přidać, ale njebudu so nałožować, chibazo [link]zmóžnjeće Adblock Plus[/link].">
-<!ENTITY groupDisabled.warning "Filtrowa skupina &quot;?1?&quot;, kotrejž tutón filter so přida, je tuchwilu znjemóžnjena. Móžeće hišće filter přidać, ale njebudźe so nałožować, chibazo [link]zmóžnjeće filtrowu skupinu[/link].">
 <!ENTITY filter.label "Nowy filter:">
 <!ENTITY filter.accesskey "f">
 <!ENTITY preferences.label "Eksistowace filtry pokazać…">

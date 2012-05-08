@@ -3,7 +3,6 @@
 <!ENTITY advanced.label "Ընդլայնված տեսք">
 <!ENTITY basic.label "Պարզ տեսք">
 <!ENTITY disabled.warning "«Adblock Plus»ը անջատված է: Դուք կարող եք ավելացնել ֆիլտրեր, բայց դրանց գործելու համար պետք է [link]միացնել «Adblock Plus»ը[/link]:">
-<!ENTITY groupDisabled.warning "Ֆիլտրերի &quot;?1?&quot; խումբը, որին այս ֆիլտրը ավելացվում է միացած չէ. Ֆիլտրը միևնույն է կարող է ավելացնել, բայց նրա կիրառման համար պետք է [link]միացնել ֆիլտրի խումբը[/link]:">
 <!ENTITY filter.label "Նոր Ֆիլտր.">
 <!ENTITY filter.accesskey "ֆ">
 <!ENTITY preferences.label "Նայել առկա ֆիլտրերը...">

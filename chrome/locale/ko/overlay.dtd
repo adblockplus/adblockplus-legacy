@@ -32,7 +32,7 @@
 <!ENTITY showinaddonbar.accesskey "b">
 <!ENTITY objecttabs.label "플래시/자바에 차단 탭 표시">
 <!ENTITY objecttabs.accesskey "T">
-<!ENTITY hideplaceholders.label "차단된 요소의 공백 숨기기">
+<!ENTITY hideplaceholders.label "차단된 요소의 영역 숨기기">
 <!ENTITY hideplaceholders.accesskey "l">
 <!ENTITY counthits.label "필터 적용 횟수 기록">
 <!ENTITY counthits.accesskey "h">

@@ -3,7 +3,6 @@
 <!ENTITY advanced.label "Ikuspegi aurreratua">
 <!ENTITY basic.label "Oinarrizko ikuspegia">
 <!ENTITY disabled.warning "Adblock plus orain desgaituta dago. Iragazkiak gehitu ditzakezu, baina ez dira aplikatuko ez baduzu [link]Adblock Plus gaitzen[/link].">
-<!ENTITY groupDisabled.warning "Iragazki hau &quot;?1?&quot; taldera gehituko da eta orain desgaituta dago. Iragazkia gehitu dezakezu baina ez da aplikatuko ez baduzu [link]iragazki taldea gaitzen[/link]">
 <!ENTITY filter.label "Iragazki berria:">
 <!ENTITY filter.accesskey "f">
 <!ENTITY preferences.label "Erakutsi dauden iragazkiak...">

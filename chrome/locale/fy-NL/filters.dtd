@@ -1,5 +1,20 @@
+<!ENTITY dialog.title "Adblock Plus Filterfoarkarren">
+<!ENTITY subscriptions.tab.label "Filterabonneminten">
+<!ENTITY filters.tab.label "Oanpaste filters">
 <!ENTITY addSubscription.label "Filterabonnemint tafoegje">
+<!ENTITY addSubscription.accesskey "f">
+<!ENTITY addSubscriptionAdd.label "Tafoegje">
+<!ENTITY addSubscriptionCancel.label "Annulearje">
 <!ENTITY addSubscriptionOther.label "In oar abonnemint tafoegje">
+<!ENTITY noSubscriptions.text "
+	Jo hawwe gjin ien filter tafoege. Adblock Plus sil neat blokkearje
+	sûnder filters, brûk &quot;Filterabonnemint tafoegje&quot; om
+	ta te foegjen.
+">
+<!ENTITY subscription.homepage.label "Startside">
+<!ENTITY subscription.external.label "Fernijd troch in oar útwreiding">
+<!ENTITY subscription.source.label "Filterlist">
+<!ENTITY subscription.enabled.label "Ynskeakele">
 <!ENTITY subscription.lastDownload.label "Lêste ynlaad:">
 <!ENTITY subscription.lastDownload.inProgress "Ynlade...">
 <!ENTITY subscription.lastDownload.unknown "n.f.t.">

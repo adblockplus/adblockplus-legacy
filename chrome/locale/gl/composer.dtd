@@ -3,7 +3,6 @@
 <!ENTITY advanced.label "Vista avanzada">
 <!ENTITY basic.label "Vista básica">
 <!ENTITY disabled.warning "Adblock Plus atópase actualmente desactivado. Aínda pode engadir os filtros, mais non se aplicarán a menos que vostede [link]active Adblock Plus[/link].">
-<!ENTITY groupDisabled.warning "O grupo de filtros &quot;?1?&quot; ao que se tiña que engadir este filtro está desactivado. Pode engadir o filtro mais non será aplicado ata que [link]active o grupo de filtros[/link].">
 <!ENTITY filter.label "Filtro novo:">
 <!ENTITY filter.accesskey "F">
 <!ENTITY preferences.label "Mostrar filtros existentes ...">

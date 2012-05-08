@@ -3,7 +3,6 @@
 <!ENTITY advanced.label "Detala vido">
 <!ENTITY basic.label "Baza vido">
 <!ENTITY disabled.warning "Addblock Plus estas nun malebligita. Vi povas ankoraŭ aldoni filtrilojn, sed ili ne estos aplikataj, escepte, se vi [link]ebligas Adblock Plus[/link].">
-<!ENTITY groupDisabled.warning "La grupo de filtriloj &quot;?1?&quot;, al kiu ĉi tiu filtrilo estu aldonata, estas nun malebligita. Vi povas ankoraŭ aldoni la filtrilon, sed ĝi ne estos aplikata, escepte, se vi [link]ebligas la grupon de filtriloj[/link].">
 <!ENTITY filter.label "Nova filtrilo:">
 <!ENTITY filter.accesskey "v">
 <!ENTITY preferences.label "Montri ekzistantajn filtrilojn…">

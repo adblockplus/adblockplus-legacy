@@ -1,28 +1,42 @@
 <!ENTITY status.tooltip "Status:">
 <!ENTITY blocked.tooltip "Blokirane stavke na ovoj stranici:">
 <!ENTITY filters.tooltip "Najaktivniji filteri:">
-<!ENTITY menuitem.label "Adblock Plus">
+<!ENTITY menuitem.label "Adblock Plus postavke">
 <!ENTITY menuitem.accesskey "b">
 <!ENTITY toolbarbutton.label "Adblock Plus">
-<!ENTITY context.image.label "Blokiraj sliku s Adblock">
-<!ENTITY context.object.label "Blokiraj objekt s Adblock">
-<!ENTITY context.frame.label "Blokiraj okvir s Adblock">
-<!ENTITY context.media.label "Adblock Plus: Blokirati audio/video">
-<!ENTITY context.removeWhitelist.label "Adblock Plus: Ponovno omogućiti na ovoj stranici">
+<!ENTITY context.image.label "Blokiraj sliku s Adblock Plus-om">
+<!ENTITY context.object.label "Blokiraj objekt s Adblock Plus-om">
+<!ENTITY context.frame.label "Blokiraj okvir s Adblock Plus-om">
+<!ENTITY context.media.label "Blokiraaj audio/video s Adblock Plus-om">
+<!ENTITY context.removeWhitelist.label "Ponovno omogući na ovoj stranici Adblock Plus">
 <!ENTITY sidebar.title "Stavke koje se mogu blokirati na trenutnoj stranici">
-<!ENTITY opensidebar.label "Otvori stavke koje se mogu blokirati">
+<!ENTITY sendReport.label "Prijavi problem na ovoj stranici">
+<!ENTITY sendReport.accesskey "R">
+<!ENTITY filters.label "Postavke filtera">
+<!ENTITY filters.accesskey "F">
+<!ENTITY opensidebar.label "Otvori blokirane stavke">
 <!ENTITY opensidebar.accesskey "b">
-<!ENTITY closesidebar.label "Zatvori stavke koje se mogu blokirati">
+<!ENTITY closesidebar.label "Zatvori blokirane stavke">
 <!ENTITY closesidebar.accesskey "b">
 <!ENTITY whitelist.site.label "Onemogući na ?1?">
 <!ENTITY whitelist.page.label "Onemogući samo na ovoj stranici">
-<!ENTITY options.label "Opcije">
+<!ENTITY disable.label "Onemogući posvuda">
+<!ENTITY options.label "Mogućnosti">
 <!ENTITY options.accesskey "O">
+<!ENTITY contribute.label "Doprinjeli Adblock Plus-u">
 <!ENTITY showintoolbar.label "Prikaži u alatnoj traci">
 <!ENTITY showintoolbar.accesskey "a">
 <!ENTITY showinstatusbar.label "Prikaži u statusnoj traci">
 <!ENTITY showinstatusbar.accesskey "s">
+<!ENTITY showinaddonbar.label "Prikaži u traci dodataka">
+<!ENTITY showinaddonbar.accesskey "o">
 <!ENTITY objecttabs.label "Prikaži kartice s Flashom i Javom">
 <!ENTITY objecttabs.accesskey "k">
+<!ENTITY hideplaceholders.label "Sakrij rezervirana mjesta blokiranih elemenata">
+<!ENTITY hideplaceholders.accesskey "l">
+<!ENTITY counthits.label "Broji pogodke filtera">
+<!ENTITY counthits.accesskey "t">
+<!ENTITY sync.label "Sinkroniziraj Adblock Plus postavke">
+<!ENTITY sync.accesskey "c">
 <!ENTITY objecttab.title "Blokiraj">
-<!ENTITY objecttab.tooltip "Kliknite ovdje da biste ovaj objekt blokirali s Adblock Plus">
+<!ENTITY objecttab.tooltip "Kliknite ovdje za blokiranje ovog objekta s Adblock Plus-om">

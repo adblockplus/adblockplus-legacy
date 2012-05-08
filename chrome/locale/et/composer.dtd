@@ -3,7 +3,6 @@
 <!ENTITY advanced.label "Detailne vaade">
 <!ENTITY basic.label "Tavaline vaade">
 <!ENTITY disabled.warning "Adblock Plus on hetkel keelatud olekus. Sa võid lisada filtreid, kuid neid ei rakendu enne, kui [link]lubad Adblock Plusi[/link].">
-<!ENTITY groupDisabled.warning "Filtrigrupp &quot;?1?&quot; kuhu see filter lisatakse, on praegu keelatud. Sa saad filtri lisada, kuid see ei rakendu enne, kui [link]lubad antud filtrigrupi[/link].">
 <!ENTITY filter.label "Uus filter:">
 <!ENTITY filter.accesskey "f">
 <!ENTITY preferences.label "Näita olemasolevaid filtreid...">

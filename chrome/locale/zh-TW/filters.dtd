@@ -68,9 +68,9 @@
 <!ENTITY sort.accesskey "S">
 <!ENTITY sort.none.label "不排序">
 <!ENTITY sort.none.accesskey "U">
-<!ENTITY sort.ascending.label "遞增排序 (A &gt; Z)">
+<!ENTITY sort.ascending.label "A &gt; Z 排序">
 <!ENTITY sort.ascending.accesskey "A">
-<!ENTITY sort.descending.label "遞增排序 (Z &gt; A)">
+<!ENTITY sort.descending.label "Z &gt; A 排序">
 <!ENTITY sort.descending.accesskey "Z">
 <!ENTITY noGroupSelected.text "您需要選擇一個條件群組才能顯示其中的過濾條件。">
 <!ENTITY noFiltersInGroup.text "選中的群組是空的">
@@ -80,7 +80,7 @@
 <!ENTITY backup.label "建立新的備份">
 <!ENTITY restore.default.label "還原至 ?1?">
 <!ENTITY restore.own.label "從自己的備份還原">
-<!ENTITY backup.complete.title "全部的條件和過濾條件集">
+<!ENTITY backup.complete.title "所有的條件和過濾條件集">
 <!ENTITY backup.custom.title "只有自訂條件">
 <!ENTITY backup.error "條件寫入檔案時發生錯誤。請確定該檔案沒有寫入保護或正被其他的應用程式使用。">
 <!ENTITY restore.error "無法處理該檔案的資料，也許這不是 Adblock Plus 的備份檔？">
@@ -88,5 +88,5 @@
 <!ENTITY restore.custom.warning "所有的自訂條件都會被選中的檔案替換。您確定要這麼做嗎？">
 <!ENTITY restore.minVersion.warning "警告：這個檔案由較新版的 Adblock Plus 建立。從這個檔案還原前您應該先更新至最新版的 Adblock Plus。">
 <!ENTITY find.label "尋找">
-<!ENTITY find.accesskey "N">
+<!ENTITY find.accesskey "n">
 <!ENTITY close.label "關閉">

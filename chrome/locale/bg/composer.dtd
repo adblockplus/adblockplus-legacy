@@ -3,7 +3,6 @@
 <!ENTITY advanced.label "Разширен изглед">
 <!ENTITY basic.label "Основен изглед">
 <!ENTITY disabled.warning "Adblock Плюс е изключена. Все още можете да добавите филтри, но те няма да се прилагат, освен ако не [link]Включите Adblock Плюс[/link].">
-<!ENTITY groupDisabled.warning "Филтър групата &quot;?1?&quot; от този филтър ще бъдат добавени но е забранена. Все още можете да добавите и филтъра, но те няма да се прилагат, освен ако не [link]включите тази Филтърна Група[/link].">
 <!ENTITY filter.label "Нов Филтър:">
 <!ENTITY filter.accesskey "ъ">
 <!ENTITY preferences.label "Покажи съществуващите филтри..">

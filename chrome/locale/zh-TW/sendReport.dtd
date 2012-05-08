@@ -21,9 +21,11 @@
 <!ENTITY recentReports.label "您最近的錯誤報告">
 <!ENTITY recentReports.clear.label "移除所有錯誤報告">
 <!ENTITY recentReports.clear.accesskey "R">
-<!ENTITY issues.description "Adblock Plus 偵測到某些設定值可能會造成該錯誤，或是影響分析結果。">
+<!ENTITY issues.description "
+ Adblock Plus 偵測到您的設定值可能導致問題發生，或者使調查變得難以進行。
+">
 <!ENTITY issues.whitelist.description "
- Adblock Plus 目前在您回報的頁面中停用。請在送出回報前重新啟用並重新整理以協助調查。
+ Adblock Plus 目前在您回報的頁面中停用。請在送出報告前重新啟用並重新載入該網頁以協助調查。
 ">
 <!ENTITY issues.whitelist.remove.label "在此頁面重新啟用 Adblock Plus">
 <!ENTITY issues.disabled.description "
@@ -37,24 +39,24 @@
  您似乎沒有訂閱任何過濾條件集，訂閱過濾條件集可自動移除與網頁內容無關的廣告。
 ">
 <!ENTITY issues.nosubscriptions.add.label "訂閱過濾條件集">
-<!ENTITY issues.subscriptionCount.description "您似乎訂閱了過多的過濾條件集。我們不建議這麼做，因為這可能會增加發生錯誤的機率。同時我們無法接受您的錯誤回報，因為很難分辨是哪個條件集出了問題。請移除不重要的過濾條件集後再試一次，看看錯誤是否仍會發生。">
-<!ENTITY issues.openPreferences.label "開啟過濾條件設定視窗">
+<!ENTITY issues.subscriptionCount.description "您似乎訂閱了過多的過濾條件集。我們不建議這麼做，這可能會增加發生錯誤的機率。同時我們無法接受您的錯誤回報，因為還不清楚是哪位條件集作者需要做出修正。請移除不重要的過濾條件集後再試一次，看看錯誤是否仍會發生。">
+<!ENTITY issues.openPreferences.label "開啟條件偏好設定">
 <!ENTITY issues.ownfilters.description "
- 該頁面的某些過濾條件是您自己設定的。請停用這些過濾條件，這很可能就是導致錯誤發生的原因：
+ 套用到此頁面中的條件有部份是由使用者定義的。請停用這些過濾條件，這很可能就是導致錯誤發生的原因：
 ">
 <!ENTITY issues.ownfilters.disable.label "停用過濾條件">
 <!ENTITY issues.disabledgroups.description "
- 下列過濾條件集/條件群組已停用，請啟用這些過濾條件，這很可能就是導致錯誤發生的原因：
+ 下列過濾條件集/條件群組已停用，它們將無法在此頁面發揮作用：
 ">
 <!ENTITY issues.disabledgroups.enable.label "啟用過濾條件集/條件群組">
 <!ENTITY issues.disabledfilters.description "
- 下列過濾條件已停用，請啟用這些過濾條件，這很可能就是導致錯誤發生的原因:
+ 下列過濾條件已停用，它們將無法在此頁面發揮作用：
 ">
 <!ENTITY issues.disabledfilters.enable.label "啟用過濾條件">
-<!ENTITY issues.override.label "設定值正確，繼續回報錯誤">
+<!ENTITY issues.override.label "設定值是正確的，繼續回報錯誤">
 <!ENTITY issues.override.accesskey "c">
 <!ENTITY issues.change.description "
- 您的設定值已變更。請重新載入頁面測試錯誤是否仍然存在，若錯誤依舊存在，請傳送錯誤報告。
+ 您的設定值已變更。請在重新載入頁面後測試錯誤是否仍然存在，若錯誤依舊存在，請傳送錯誤報告。
 ">
 <!ENTITY typeWarning.description "
  您表示要回報的錯誤是 Adblock Plus 本身的錯誤而非過濾條件引起的錯誤。請注意，這類程式錯誤最好到 [link]Adblock Plus 討論區[/link] 上回報。只有為討論串作補充時才應該使用錯誤回報器，沒有人會察覺您的錯誤報告網址，除非您將連結貼出來。
@@ -94,7 +96,7 @@
 <!ENTITY data.accesskey "p">
 <!ENTITY sendPage.heading "傳送報告">
 <!ENTITY sendPage.waitMessage "請稍候，Adblock Plus 正在傳送您的報告。">
-<!ENTITY sendPage.confirmation "您的報告已儲存，您可以在下列網址存取報告:">
+<!ENTITY sendPage.confirmation "報告已儲存。您可以在下列網址存取報告:">
 <!ENTITY sendPage.knownIssue "您回報的錯誤已重複。檢視更多資訊:">
 <!ENTITY sendPage.errorMessage "
  嘗試傳送報告失敗，錯誤碼 &quot;?1?&quot;。請確定您已連上網路後再試一次。若依舊失敗，請到 [link]Adblock Plus 討論區[/link] 尋求協助。

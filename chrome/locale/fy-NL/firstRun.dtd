@@ -1,0 +1,18 @@
+<!ENTITY dialog.title "Adblock Plus ynstallaasje kompleet">
+<!ENTITY confirmation "
+	Tank foar it ynstallearjen fan Adblock Plus. Ads sille no blokkearre wurde.
+	In protte nocht!">
+<!ENTITY advancedSection "Avansearre opsjes">
+<!ENTITY listSelection1 "
+	De folgjende filterlist is konfigurearre om advertinsjes te blokkearjen:
+">
+<!ENTITY noList "Gjin filterlist">
+<!ENTITY visitHomepage.label "Besykje list startside">
+<!ENTITY acceptableAds2 "
+	Adblock Plus is ek konfigurearre om sommige net-ferfelende advertinsjes ta te stean.
+">
+<!ENTITY viewList.label "Toan list">
+<!ENTITY readMore.label "Lês hjir mear oer">
+<!ENTITY listSelection2 "
+	Jo kinne dizze seleksje altyd wizigje yn de [link]Filterfoarkarren[/link].
+">

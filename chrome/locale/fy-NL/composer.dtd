@@ -3,7 +3,6 @@
 <!ENTITY advanced.label "Avansearre byld">
 <!ENTITY basic.label "Basisbyld">
 <!ENTITY disabled.warning "Adblock Plus is op dit stuit útskeakele. Jo kinne noch hieltyd filters tafoegje, mar dy sille net earder aktyf wêze as jo [link]Adblock Plus ynskeakelje[/link].">
-<!ENTITY groupDisabled.warning "De filtergroep &quot;?1?&quot; wêr&apos;t dit filter oan tafoege wurde soe is op dit stuit útskeakele. Jo kinne it filter noch hieltyd tafoegje, mar it sil net tapast wurde, allinnich as jo [link]de filtergroep ynskeakelje[/link].">
 <!ENTITY filter.label "Nij filter:">
 <!ENTITY filter.accesskey "f">
 <!ENTITY preferences.label "Toan besteande filters...">

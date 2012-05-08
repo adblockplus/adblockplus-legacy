@@ -3,8 +3,8 @@
 <!ENTITY advanced.label           "Расширенный вид">
 <!ENTITY basic.label              "Стандартный вид">
 
-<!ENTITY disabled.warning "Adblock Plus сейчас отключен. Вы можете добавить этот фильтр, но чтобы он применился нужно [link]включить Adblock Plus[/link].">
-<!ENTITY groupDisabled.warning "Группа фильтров «?1?», в которую этот фильтр должен быть добавлен, сейчас отключена. Вы можете добавить фильтр, но, чтобы он применился, нужно [link]включить эту группу фильтров[/link].">
+<!ENTITY disabled.warning         "Adblock Plus сейчас отключен. Вы можете добавить этот фильтр, но чтобы он применился нужно [link]включить Adblock Plus[/link].">
+
 <!ENTITY filter.label             "Новый фильтр:">
 <!ENTITY filter.accesskey         "ф">
 <!ENTITY preferences.label        "Показать существующие фильтры...">

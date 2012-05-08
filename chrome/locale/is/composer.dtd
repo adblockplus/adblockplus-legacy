@@ -3,7 +3,6 @@
 <!ENTITY advanced.label "Ítarleg sýn">
 <!ENTITY basic.label "Einföld sýn">
 <!ENTITY disabled.warning "Adblock Plus er óvirkt eins og er. Þú getur samt bætt við síum en síurnar munu ekki vera virkar nema þú [link]virkjir Adblock Plus[/link].">
-<!ENTITY groupDisabled.warning "Síuhópurinn &quot;?1?&quot; sem þessi sía á að bætast við er ekki virkur. Þú getur bætt síunni við en hún mun ekki verða virkjuð nema þú [link]gerir síuhópinn virkan[/link].">
 <!ENTITY filter.label "Ný sía:">
 <!ENTITY filter.accesskey "s">
 <!ENTITY preferences.label "Sýna núverandi síur...">

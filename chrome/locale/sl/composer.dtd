@@ -3,7 +3,6 @@
 <!ENTITY advanced.label "Napredni pogled">
 <!ENTITY basic.label "Osnovni pogled">
 <!ENTITY disabled.warning "Adblock Plus je trenutno onemogočen. Še vedno lahko dodajate filtre, vendar ne bodo veljali, če ne [link]omogočite Adblock Plus[/link].">
-<!ENTITY groupDisabled.warning "Skupina filtrov &quot;?1?&quot;, kateri naj bo dodan ta filter, je trenutno onemogočena. Še vedno ji lahko dodate filter, vendar ne bo deloval, razen če ne [link]omogočite skupine filtrov[/link].">
 <!ENTITY filter.label "Nov filter:">
 <!ENTITY filter.accesskey "f">
 <!ENTITY preferences.label "Pokaži obstoječe filtre ...">

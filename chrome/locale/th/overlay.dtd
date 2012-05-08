@@ -13,27 +13,27 @@
 <!ENTITY sendReport.label "รายงานปัญหาที่พบในหน้านี้">
 <!ENTITY sendReport.accesskey "ร">
 <!ENTITY filters.label "ตั้งค่าตัวกรอง">
-<!ENTITY filters.accesskey "พ">
+<!ENTITY filters.accesskey "อ">
 <!ENTITY opensidebar.label "เปิดรายการที่บล็อกได้">
-<!ENTITY opensidebar.accesskey "ไ">
+<!ENTITY opensidebar.accesskey "ก">
 <!ENTITY closesidebar.label "ปิดรายการที่บล็อกได้">
-<!ENTITY closesidebar.accesskey "ไ">
+<!ENTITY closesidebar.accesskey "ก">
 <!ENTITY whitelist.site.label "ปิดการใช้งาน ?1?">
 <!ENTITY whitelist.page.label "ปิดการใช้งานเฉพาะหน้านี้">
 <!ENTITY disable.label "ปิดการใช้งานทุกที่">
 <!ENTITY options.label "ตัวเลือก">
-<!ENTITY options.accesskey "เ">
+<!ENTITY options.accesskey "ว">
 <!ENTITY contribute.label "เข้ามีส่วนร่วมกับ Adblock Plus">
 <!ENTITY showintoolbar.label "แสดงในแถบเครื่องมือ">
 <!ENTITY showintoolbar.accesskey "ค">
 <!ENTITY showinstatusbar.label "แสดงในแถบสถานะ">
 <!ENTITY showinstatusbar.accesskey "ส">
 <!ENTITY showinaddonbar.label "แสดงในแถบ Add-on">
-<!ENTITY showinaddonbar.accesskey "ว">
+<!ENTITY showinaddonbar.accesskey "ด">
 <!ENTITY objecttabs.label "แสดงแท็บบนแฟลชและจาวา">
-<!ENTITY objecttabs.accesskey "ฟ">
+<!ENTITY objecttabs.accesskey "บ">
 <!ENTITY hideplaceholders.label "ซ่อนตำแหน่งตัวยึดตำแหน่งขององค์ประกอบที่ถูกบล็อคไว้">
-<!ENTITY hideplaceholders.accesskey "เ">
+<!ENTITY hideplaceholders.accesskey "ต">
 <!ENTITY counthits.label "นับจำนวนตัวกรองฮิต">
 <!ENTITY counthits.accesskey "ก">
 <!ENTITY sync.label "เชื่อมข้อมูลการตั้งค่า Adblock Plus">
