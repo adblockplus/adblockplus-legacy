@@ -3,7 +3,6 @@
 <!ENTITY advanced.label "Дэвшмэл харагдац">
 <!ENTITY basic.label "Үндсэн харагдац">
 <!ENTITY disabled.warning "Adblock Plus нь одоогоор хаалттай байна.  Та шүүлтүүр нэмж чадах боловч хэрэгжихгүй байх болно. [link]Adblock Plus-ийг нээх[/link].">
-<!ENTITY groupDisabled.warning "Шүүх бүлэг &quot;?1?&quot; нь одоогоор хаалттай шүүлтүүр рүү нэмэгдсэн байна. Та шүүлтүүрийг оруулсан боловч [link]шүүх бүлгийг нээх[/link] үйлдлийг хийгээгүй.">
 <!ENTITY filter.label "Шинэ шүүлтүүр:">
 <!ENTITY filter.accesskey "ш">
 <!ENTITY preferences.label "Байгаа шүүлтүүрүүдийг харах...">

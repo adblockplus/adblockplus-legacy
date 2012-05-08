@@ -2,7 +2,7 @@
 <!ENTITY subscriptions.tab.label "นามข้างท้ายตัวกรอง">
 <!ENTITY filters.tab.label "ตัวกรองแบบกำหนดเอง">
 <!ENTITY addSubscription.label "เพิ่มนามข้างท้ายตัวกรอง">
-<!ENTITY addSubscription.accesskey "f">
+<!ENTITY addSubscription.accesskey "ม">
 <!ENTITY addSubscriptionAdd.label "เพิ่ม">
 <!ENTITY addSubscriptionCancel.label "ยกเลิก">
 <!ENTITY addSubscriptionOther.label "เพิ่มนามข้างท้าย">
@@ -33,16 +33,16 @@
 <!ENTITY subscription.moveUp.label "ย้ายขึ้น">
 <!ENTITY subscription.moveDown.label "ย้ายลง">
 <!ENTITY acceptableAds2.label "อนุญาตให้มีโฆษณาบางอย่างที่ไม่ต้องการรบกวน">
-<!ENTITY acceptableAds2.accesskey "i">
+<!ENTITY acceptableAds2.accesskey "า">
 <!ENTITY viewList.label "มุมมองรายการ">
 <!ENTITY readMore.label "อ่านเพิ่มเติม">
 <!ENTITY addGroup.label "เพิ่มกลุ่มตัวกรอง">
-<!ENTITY addGroup.accesskey "g">
+<!ENTITY addGroup.accesskey "ว">
 <!ENTITY noFilters.text "
  คุณยังไม่มีตัวกรองแบบกำหนดเอง
 ">
 <!ENTITY addFilter.label "เพิ่มตัวกรอง">
-<!ENTITY addFilter.accesskey "d">
+<!ENTITY addFilter.accesskey "ง">
 <!ENTITY filter.actions.label "ดำเนินการตัวกรอง">
 <!ENTITY filter.edit.label "แก้ไข">
 <!ENTITY filter.cut.label "ตัด">
@@ -67,16 +67,16 @@
 <!ENTITY sort.label "จัดลำดับ">
 <!ENTITY sort.accesskey "จ">
 <!ENTITY sort.none.label "ไม่จัดลำดับ">
-<!ENTITY sort.none.accesskey "บ">
+<!ENTITY sort.none.accesskey "ไ">
 <!ENTITY sort.ascending.label "จัดลำดับ A &gt; Z">
-<!ENTITY sort.ascending.accesskey "เ">
+<!ENTITY sort.ascending.accesskey "จ">
 <!ENTITY sort.descending.label "จัดลำดับ Z &gt; A">
-<!ENTITY sort.descending.accesskey "อ">
+<!ENTITY sort.descending.accesskey "ั">
 <!ENTITY noGroupSelected.text "คุณต้องเลือกกลุ่มตัวกรองก่อนที่ตัวกรองนั้นสามารถแสดงผลได้">
 <!ENTITY noFiltersInGroup.text "กลุ่มที่เลือกว่างเปล่า">
 <!ENTITY filters.remove.warning "คุณต้องการเอาตัวกรองที่เลือกไว้ทั้งหมดหรือไม่">
 <!ENTITY backupButton.label "การสำรองข้อมูลและคืนค่า">
-<!ENTITY backupButton.accesskey "บ">
+<!ENTITY backupButton.accesskey "ะ">
 <!ENTITY backup.label "สร้างการสำรองข้อมูลใหม่">
 <!ENTITY restore.default.label "คืนค่าการสำรองข้อมูลจาก ?1?">
 <!ENTITY restore.own.label "คืนค่าการสำรองข้อมูลของตนเอง">
@@ -88,5 +88,5 @@
 <!ENTITY restore.custom.warning "ตัวกรองแบบกำหนดเองของคุณทั้งหมดจะถูกแทนที่ โดยเนื้อหาของไฟล์ที่เลือกไว้ คุณต้องดำเนินการต่อหรือไม่">
 <!ENTITY restore.minVersion.warning "คำเตือน: ไฟล์ที่ถูกสร้างขึ้นด้วย Adblock Plus เป็นรุ่นใหม่กว่า คุณควรปรับปรุง Adblock Plus ให้เป็นรุ่นล่าสุดก่อนที่จะกู้คืนข้อมูลจากไฟล์นี้">
 <!ENTITY find.label "ค้นหา">
-<!ENTITY find.accesskey "ร">
+<!ENTITY find.accesskey "า">
 <!ENTITY close.label "ปิด">

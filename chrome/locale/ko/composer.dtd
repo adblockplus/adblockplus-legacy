@@ -3,7 +3,6 @@
 <!ENTITY advanced.label "고급 보기">
 <!ENTITY basic.label "기본 보기">
 <!ENTITY disabled.warning "애드블록 플러스의 사용이 중지됨 : 필터 추가 가능 + 필터 적용 중지 ⇔ [link]애드블록 플러스 사용[/link]">
-<!ENTITY groupDisabled.warning "&quot;?1?&quot; 필터 그룹의 사용이 중지됨 : 필터 추가 가능 + 필터 그룹 적용 중지 ⇔ [link]필터 그룹 사용[/link]">
 <!ENTITY filter.label "새 필터">
 <!ENTITY filter.accesskey "f">
 <!ENTITY preferences.label "필터 목록">

@@ -1,8 +1,12 @@
-<!ENTITY dialog.title "O Adblock Plus">
+<!ENTITY dialog.title "O Adblock Plus-u">
 <!ENTITY version.title "Inačica">
-<!ENTITY description "Adblock Plus Vam dozvoljava da odlučite što ne želite vidjeti na webu. Više ne morate preuzeti sve oglase i banere, ako ih ne želite - recite Adblock Plus-u!">
+<!ENTITY description "
+	Adblock Plus vam dopušta da odlučite što ne želite vidjeti na webu.
+ Više ne morate preuzimati sve oglase i bannere,
+ ako ih ne želite - uklonite ih sa Adblock Plus-om!
+">
 <!ENTITY homepage.label "Adblock Plus početna stranica:">
 <!ENTITY author.label "Autor:">
-<!ENTITY contributors.label "Oni koji su pridonijeli:">
-<!ENTITY subscriptionAuthors.label "Autori pretplata na filtere:">
+<!ENTITY contributors.label "Pridonitelji:">
+<!ENTITY subscriptionAuthors.label "Autori pretplata filtera:">
 <!ENTITY translators.label "Prevoditelji:">

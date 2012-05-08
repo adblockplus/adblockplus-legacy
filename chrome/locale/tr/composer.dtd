@@ -3,7 +3,6 @@
 <!ENTITY advanced.label "Gelişmiş görünüm">
 <!ENTITY basic.label "Temel görünüm">
 <!ENTITY disabled.warning "Adblock Plus şu an devre dışı. Yine de süzgeç ekleyebilirsiniz, ancak bunlar [link]Adblock Plus etkinleştirilene kadar[/link]uygulanmayacaktır.">
-<!ENTITY groupDisabled.warning "Süzgecin eklenmesi gereken &quot;?1?&quot; süzgeç grubu şu an devre dışı. Süzgeci şu an ekleyebilirsiniz ancak [link]süzgeç grubunu devreye soktuğunuzda[/link]kullanılabilecektir.">
 <!ENTITY filter.label "Yeni süzgeç:">
 <!ENTITY filter.accesskey "y">
 <!ENTITY preferences.label "Mevcut süzgeçleri göster...">

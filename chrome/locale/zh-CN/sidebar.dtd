@@ -1,4 +1,4 @@
-<!ENTITY detached.title "Adblock Plus:可过滤项目(分体式)">
+<!ENTITY detached.title "Adblock Plus: 可过滤项目(分体式)">
 <!ENTITY detach.label "分体">
 <!ENTITY reattach.label "合体">
 <!ENTITY search.label "搜索：">
@@ -11,12 +11,12 @@
 <!ENTITY filterSource.label "过滤规则源">
 <!ENTITY docDomain.label "文档源">
 <!ENTITY docDomain.thirdParty "(第三方)">
-<!ENTITY docDomain.firstParty "(甲方)">
+<!ENTITY docDomain.firstParty "(第一方)">
 <!ENTITY noitems.label "无可过滤项目">
 <!ENTITY whitelisted.label "列入白名单的页面">
 <!ENTITY tooltip.address.label "地址:">
 <!ENTITY tooltip.type.label "类型:">
-<!ENTITY tooltip.type.blocked "(过滤规则)">
+<!ENTITY tooltip.type.blocked "(已过滤)">
 <!ENTITY tooltip.type.whitelisted "(白名单)">
 <!ENTITY tooltip.size.label "大小:">
 <!ENTITY tooltip.docDomain.label "文档源：">

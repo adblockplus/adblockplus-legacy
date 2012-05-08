@@ -127,7 +127,7 @@ U kunt de rapportgegevens ook nakijken voordat u het rapport verstuurt.
 <!ENTITY sendPage.heading "Rapport verzenden">
 <!ENTITY sendPage.waitMessage "Wacht a.u.b. terwijl Adblock Plus uw rapport indient.">
 <!ENTITY sendPage.confirmation "Uw rapport is opgeslagen. U kunt het bekijken op het volgende adres:">
-<!ENTITY sendPage.knownIssue "Het doro u gemelde probleem is waarschijnlijk al bekend. Meer informatie:">
+<!ENTITY sendPage.knownIssue "Het door u gemelde probleem is waarschijnlijk al bekend. Meer informatie:">
 <!ENTITY sendPage.errorMessage "
 De poging om het rapport te verzenden is mislukt met foutcode ‘?1?’. Controleer a.u.b. uw
 internetverbinding en probeer het opnieuw. Als het probleem aanhoudt, vraag dan a.u.b. om

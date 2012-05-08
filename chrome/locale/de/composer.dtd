@@ -3,8 +3,8 @@
 <!ENTITY advanced.label           "Erweiterte Ansicht">
 <!ENTITY basic.label              "Standardansicht">
 
-<!ENTITY disabled.warning "Adblock Plus ist deaktiviert. Sie können trotzdem den Filter hinzufügen, dieser wird jedoch erst angewandt, wenn Sie [link]Adblock Plus aktivieren[/link].">
-<!ENTITY groupDisabled.warning "Die Filtergruppe &quot;?1?&quot;, in die dieser Filter eingefügt wird, ist derzeit deaktiviert. Sie können den Filter trotzdem hinzufügen, dieser wird jedoch erst angewandt, wenn Sie [link]diese Filtergruppe aktivieren[/link].">
+<!ENTITY disabled.warning         "Adblock Plus ist deaktiviert. Sie können trotzdem den Filter hinzufügen, dieser wird jedoch erst angewandt, wenn Sie [link]Adblock Plus aktivieren[/link].">
+
 <!ENTITY filter.label             "Neuer Filter:">
 <!ENTITY filter.accesskey         "r">
 <!ENTITY preferences.label        "Existierende Filter anzeigen...">

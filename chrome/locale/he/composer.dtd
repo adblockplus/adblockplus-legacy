@@ -3,7 +3,6 @@
 <!ENTITY advanced.label "תצוגה מתקדמת">
 <!ENTITY basic.label "תצוגה בסיסית">
 <!ENTITY disabled.warning "Adblock Plus מנוטרל כרגע. ניתן עדיין להוסיף מסננים לרשימה, אבל הם לא יחולו אלא אם [link]Adblock Plus מאפשר [/link].">
-<!ENTITY groupDisabled.warning "מסנן זה אשר אמור להיות מצורף לקבוצת הסינון &quot;?1?&quot; מנוטרל כרגע. ניתן עדיין להוסיף מסנן זה אך הוא לא ייושם אלא אם [link]קבוצת הסינון תאפשר[/link].">
 <!ENTITY filter.label "מסנן חדש:">
 <!ENTITY filter.accesskey "מ">
 <!ENTITY preferences.label "הצגת המסננים הקיימים...">

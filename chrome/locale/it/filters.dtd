@@ -73,7 +73,7 @@
 <!ENTITY sort.ascending.accesskey "A">
 <!ENTITY sort.descending.label "Ordina Z &gt; A">
 <!ENTITY sort.descending.accesskey "Z">
-<!ENTITY noGroupSelected.text "È necessario selezionare un gruppo di filtri per poterne visualizzare i filtri">
+<!ENTITY noGroupSelected.text "Selezionare un gruppo di filtri per visualizzarne i filtri">
 <!ENTITY noFiltersInGroup.text "Il gruppo di filtri selezionato è vuoto">
 <!ENTITY filters.remove.warning "Eliminare tutti i filtri selezionati?">
 <!ENTITY backupButton.label "Backup e ripristino">

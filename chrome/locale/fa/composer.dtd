@@ -3,7 +3,6 @@
 <!ENTITY advanced.label "نمایش پیشرفته">
 <!ENTITY basic.label "نمایش پایه">
 <!ENTITY disabled.warning "فوق تبلیغ شکن هم اکنون غیر فعال می یاشد. شما هنوز می توانید پالایه اضافه کنید، اما آنها اعمال نمی شوند مگر [link]فوق تبلیغ شکن را فعال کنید[/link].">
-<!ENTITY groupDisabled.warning "دسته پالایه &quot;?1?&quot; که این پالایه به آنها اضافه خواهد شد هم اکنون غیر فعال است. شما هنوز می توانید پالایه را اضافه کنید ولی اعمال نخواهد شد مگر شما [link]دسته پالایه را فعال کنید[/link].">
 <!ENTITY filter.label "پالایه جدید:">
 <!ENTITY filter.accesskey "پ">
 <!ENTITY preferences.label "نمایش پالایه های موجود...">

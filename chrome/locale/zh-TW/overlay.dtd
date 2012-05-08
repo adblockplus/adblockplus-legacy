@@ -18,8 +18,8 @@
 <!ENTITY opensidebar.accesskey "b">
 <!ENTITY closesidebar.label "關閉可阻擋項目">
 <!ENTITY closesidebar.accesskey "b">
-<!ENTITY whitelist.site.label "此網域設為白名單: ?1?">
-<!ENTITY whitelist.page.label "只將此頁面設為白名單">
+<!ENTITY whitelist.site.label "在 ?1? 停用">
+<!ENTITY whitelist.page.label "只在此頁面停用">
 <!ENTITY disable.label "完全停用">
 <!ENTITY options.label "選項">
 <!ENTITY options.accesskey "O">
@@ -39,4 +39,4 @@
 <!ENTITY sync.label "同步 Adblock Plus 設定值">
 <!ENTITY sync.accesskey "c">
 <!ENTITY objecttab.title "阻擋">
-<!ENTITY objecttab.tooltip "請按這裡用 Adblock Plus 阻擋此物件">
+<!ENTITY objecttab.tooltip "按這裡用 Adblock Plus 阻擋此物件">

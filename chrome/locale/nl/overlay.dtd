@@ -32,7 +32,7 @@
 <!ENTITY showinaddonbar.accesskey "b">
 <!ENTITY objecttabs.label "Tabbladen weergeven op Flash en Java">
 <!ENTITY objecttabs.accesskey "T">
-<!ENTITY hideplaceholders.label "Plaatshouders of geblokkeerde elementen verbergen">
+<!ENTITY hideplaceholders.label "Plaatshouders van geblokkeerde elementen verbergen">
 <!ENTITY hideplaceholders.accesskey "l">
 <!ENTITY counthits.label "Filtertreffers tellen">
 <!ENTITY counthits.accesskey "f">

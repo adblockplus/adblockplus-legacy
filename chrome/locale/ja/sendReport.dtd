@@ -1,7 +1,7 @@
-<!ENTITY wizard.title "不具合レポーター">
+<!ENTITY wizard.title "不具合報告">
 <!ENTITY privacyPolicy.label "プライバシー ポリシー">
-<!ENTITY dataCollector.heading "不具合レポーターへようこそ">
-<!ENTITY dataCollector.description "Adblock Plus が必要なデータを集めるまで、しばらくお待ちください">
+<!ENTITY dataCollector.heading "不具合報告を開始します">
+<!ENTITY dataCollector.description "Adblock Plus が必要なデータを集めています。しばらくお待ちください">
 <!ENTITY typeSelector.heading "不具合種別を選択">
 <!ENTITY typeSelector.description "不具合の報告に必要なステップを案内します。まず最初に、遭遇した不具合の種別を選択してください:">
 <!ENTITY typeSelector.falsePositive.label "Adblock Plus のブロックが過剰">
@@ -42,18 +42,18 @@
 <!ENTITY reloadButton.label "ページを再読み込みする">
 <!ENTITY reloadButton.accesskey "R">
 <!ENTITY screenshot.heading "スクリーンショットを添付">
-<!ENTITY screenshot.description "同じページでも別の人には異なって表示されることがあるので、スクリーンショットは不具合の把握に役立つちます。ボタンをクリックし、スクリーンショット上でドラッグすることにより、不具合箇所に印をつけたり個人情報を隠したりすることができます。">
+<!ENTITY screenshot.description "同じページでも別の人には異なって表示されることがあるので、スクリーンショットは不具合の把握に役立つちます。ボタンをクリックしてからスクリーンショット上でドラッグすると、不具合箇所に印をつけたり個人情報を隠すことができます。">
 <!ENTITY screenshot.attach.label "レポートにページのスクリーンショットを添付">
 <!ENTITY screenshot.attach.accesskey "t">
 <!ENTITY screenshot.mark.label "不具合に印をつける">
 <!ENTITY screenshot.mark.accesskey "M">
-<!ENTITY screenshot.remove.label "個人情報を隠す">
+<!ENTITY screenshot.remove.label "個人情報を黒塗りして隠す">
 <!ENTITY screenshot.remove.accesskey "R">
 <!ENTITY screenshot.undo.label "元に戻す">
 <!ENTITY screenshot.undo.accesskey "U">
 <!ENTITY commentPage.heading "コメントを入力">
-<!ENTITY commentPage.description "不具合について説明してください（症状：再現条件：どうしたいか：自分で試行錯誤した結果）。送信前にレポートのデータを再検討できます。">
-<!ENTITY comment.label "コメント（オプション）:">
+<!ENTITY commentPage.description "不具合について「他の人にも理解できる」よう「説明」願います。コメントに含める情報の例：１．症状、２．期待動作との違い、３．発生箇所、４．再現方法、５．再現条件、６．関係するフィルタ、７．可能であれば匿名化されてない生ＵＲＬ、８．問題解決のために自分で試行錯誤してみたこと、等々を見やすく分けて書く（レポートするデータは送信前に再検討できます）">
+<!ENTITY comment.label "コメント（ABP Japanese Filters ユーザーは必ず入力。もし書くことができないなら（受け取っても役に立たないことが予想されるので）提出する必要なし。子供の「感想文」にならないよう「大人」な文章でお願いします）:">
 <!ENTITY comment.accesskey "C">
 <!ENTITY comment.lengthWarning "コメントが 1000 文字を超えているので先頭から 1000 文字だけ送信されます">
 <!ENTITY email.label "より詳細な質問が必要な場合に使うメールアドレス（オプション）:">

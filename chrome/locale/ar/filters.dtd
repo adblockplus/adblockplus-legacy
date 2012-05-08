@@ -37,13 +37,21 @@
 <!ENTITY acceptableAds2.accesskey "ع">
 <!ENTITY viewList.label "اظهار القائمة">
 <!ENTITY readMore.label "قراءة المزيد">
+<!ENTITY addGroup.label "أضافة مجموعة تصفية">
+<!ENTITY addGroup.accesskey "م">
+<!ENTITY noFilters.text "
+لا توجد لديك فلاتر مخصصة بعد
+">
 <!ENTITY addFilter.label "إضافة فلتر">
+<!ENTITY addFilter.accesskey "خ">
+<!ENTITY filter.actions.label "أفعال الفلاتر">
 <!ENTITY filter.edit.label "تحرير">
 <!ENTITY filter.cut.label "قص">
 <!ENTITY filter.copy.label "نسخ">
 <!ENTITY filter.paste.label "لصق">
 <!ENTITY filter.delete.label "حذف">
 <!ENTITY filter.selectAll.label "اختيار الكل">
+<!ENTITY filter.resetHitCounts.label "استرجاع احصائيات الاصابات الصحيحة">
 <!ENTITY filter.moveUp.label "الى الاعلى">
 <!ENTITY filter.moveDown.label "الى الاسفل">
 <!ENTITY viewMenu.label "عرض">
@@ -65,5 +73,15 @@
 <!ENTITY sort.ascending.accesskey "A">
 <!ENTITY sort.descending.label "ترتيب أبجدي (Z &gt; A)">
 <!ENTITY sort.descending.accesskey "Z">
+<!ENTITY noGroupSelected.text "ج">
+<!ENTITY noFiltersInGroup.text "المجموعة المختارة فارغة">
+<!ENTITY filters.remove.warning "أحقاً تريد ازالة الفلاتر المختارة؟">
+<!ENTITY backupButton.label "النسخ الاحتياطية والاسترجاع">
+<!ENTITY backupButton.accesskey "ن">
+<!ENTITY backup.label "اعمل نسخة احتياطية جديدة">
+<!ENTITY restore.default.label "الاسترجاع من النسخة الاحتياطية ?1?">
+<!ENTITY restore.own.label "الاسترجاع من النسخة الاحتياطية الذاتية">
+<!ENTITY backup.complete.title "كل الاشتراكات والفلاتر">
+<!ENTITY backup.custom.title "الفلاتر المخصصة فقط">
 <!ENTITY find.label "بحث">
 <!ENTITY close.label "اغلاق">

@@ -8,6 +8,7 @@
 <!ENTITY filter.label "Filter">
 <!ENTITY state.label "Steat">
 <!ENTITY size.label "Grutte">
+<!ENTITY filterSource.label "Filterboarne">
 <!ENTITY docDomain.label "Dokumintboarne">
 <!ENTITY docDomain.thirdParty "(tredde partij)">
 <!ENTITY docDomain.firstParty "(earste partij)">

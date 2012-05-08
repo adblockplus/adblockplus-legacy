@@ -3,7 +3,6 @@
 <!ENTITY advanced.label "มุมมองละเอียด">
 <!ENTITY basic.label "มุมมองพื้นฐาน">
 <!ENTITY disabled.warning "Adblock Plus ถูกปิดใช้งานอยู่ คุณยังคงสามารถเพิ่มตัวกรองได้แต่จะไม่ถูกใช้งานจนกว่าคุณ[link]เปิดใช้งาน Adblock Plus[/link].">
-<!ENTITY groupDisabled.warning "กลุ่มตัวกรอง &quot;?1?&quot; ว่าตัวกรองที่เพิ่มกำลังถูกปิดการใช้งาน คุณยังคงสามารถเพิ่มตัวกรองได้แต่จะไม่ใช้งานจนกว่า[link]เปิดใช้งานกลุ่มตัวกรอง[/link].">
 <!ENTITY filter.label "ตัวกรองใหม่:">
 <!ENTITY filter.accesskey "ต">
 <!ENTITY preferences.label "แสดงตัวกรองที่มีอยู่...">

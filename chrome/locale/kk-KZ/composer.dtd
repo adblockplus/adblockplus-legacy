@@ -3,7 +3,6 @@
 <!ENTITY advanced.label "Кеңейтілген көрінісі">
 <!ENTITY basic.label "Негізгі көрінісі">
 <!ENTITY disabled.warning "Adblock Plus қазір сөндірулі. Фильтрлерді қазір де қоса аласыз, бірақ олар жұмыс істемейді, сіз [link]Adblock Plus қосқанға дейін[/link].">
-<!ENTITY groupDisabled.warning "Осы фильтр қосылатын &quot;?1?&quot; фильтрлер тобы қазір сөндірулі. Сіз фильтрді қоса аласыз, бірақ фильтрлер тобы қосылған [link]кезде ғана іске асады[/link].">
 <!ENTITY filter.label "Жаңа фильтр:">
 <!ENTITY filter.accesskey "ф">
 <!ENTITY preferences.label "Бар фильтрлерді көрсету...">

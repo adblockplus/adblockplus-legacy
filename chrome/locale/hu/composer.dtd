@@ -3,7 +3,6 @@
 <!ENTITY advanced.label "Haladó nézet">
 <!ENTITY basic.label "Alap nézet">
 <!ENTITY disabled.warning "Az Adblock Plus jelenleg le van tiltva. Szűrőket hozzáadhat, de azok nem fognak működni, amíg nem [link]engedélyezi az Adblock Plust[/link].">
-<!ENTITY groupDisabled.warning "A(z) &quot;?1?&quot; szűrőcsoport, amelyhez a a szűrőt hozzá szeretné adni, jelenleg le van tiltva. A szűrőt hozzáadhatja, de az nem fog működni, amíg nem [link]engedélyezi a szűrőcsoportot[/link].">
 <!ENTITY filter.label "Új szűrő:">
 <!ENTITY filter.accesskey "j">
 <!ENTITY preferences.label "Meglévő szűrők megjelenítése...">

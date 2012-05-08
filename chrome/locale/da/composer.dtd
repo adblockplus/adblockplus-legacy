@@ -3,7 +3,6 @@
 <!ENTITY advanced.label "Avanceret visning">
 <!ENTITY basic.label "Enkel visning">
 <!ENTITY disabled.warning "Adblock Plus er deaktiveret. Du kan stadig tilføje filtre men disse vil ikke anvendes med mindre du [link]aktiverer Adblock Plus[/link].">
-<!ENTITY groupDisabled.warning "Filtergruppen &quot;?1?&quot; som dette filter skal føjes til er deaktiveret. Du kan stadig tilføje filteret men det vil ikke anvendes med mindre du [link]aktiverer filtergruppen[/link].">
 <!ENTITY filter.label "Nyt filter:">
 <!ENTITY filter.accesskey "N">
 <!ENTITY preferences.label "Vis eksisterende filtre...">
