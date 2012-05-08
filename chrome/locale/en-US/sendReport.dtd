@@ -40,6 +40,25 @@
 <!ENTITY recentReports.clear.label              "Remove all reports">
 <!ENTITY recentReports.clear.accesskey          "R">
 
+<!ENTITY update.inProgress.description          "
+  Adblock Plus needs to update your filter subscriptions to make sure that the
+  issue hasn't been resolved already. Please wait...
+">
+
+<!ENTITY update.fixed.description               "
+  The updates to your filter subscriptions likely resolved the issue that you
+  were reporting. Please reload the page and retry, hit Report again if the
+  problem remains.
+">
+
+<!ENTITY outdatedSubscriptions.description      "
+  The following filter subscriptions haven't been updated for at least two
+  weeks. Please update these subscriptions before submitting a report, the
+  issue might be resolved already.
+">
+
+<!ENTITY update.start.label                     "Start update now">
+
 <!ENTITY issues.description                     "
   Adblock Plus has detected issues with your configuration that might be responsible
   for this issue or will make investigating the report difficult.

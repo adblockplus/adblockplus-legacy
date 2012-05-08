@@ -51,6 +51,11 @@ radio, checkbox, .topLabel, #dataDeck
   overflow-y: auto;
 }
 
+#outdatedSubscriptionsList
+{
+  margin: 10px 20px;
+}
+
 #issuesBox
 {
   overflow: auto;

@@ -93,6 +93,28 @@
   </deck>
 </wizardpage>
 
+<wizardpage id="updatePage" pageid="update" next="screenshot" onpageshow="subscriptionUpdateDataSource.showPage();" reloadButtonLabel="&reloadButton.label;" reloadButtonAccesskey="&reloadButton.accesskey;">
+  <vbox id="updateInProgress">
+    <description>&update.inProgress.description;</description>
+    <progressmeter mode="undetermined"/>
+  </vbox>
+
+  <description id="updateFixedIssue" hidden="true">&update.fixed.description;</description>
+
+  <vbox id="outdatedSubscriptions">
+    <description>&outdatedSubscriptions.description;</description>
+
+    <description id="outdatedSubscriptionTemplate" class="text-link" onclick="Utils.loadInBrowser(this.getAttribute('_url'));"/>
+
+    <vbox id="outdatedSubscriptionsList"/>
+
+    <hbox>
+      <button label="&update.start.label;" oncommand="subscriptionUpdateDataSource.updateOutdated();window.close();"/>
+      <button label="&issues.openPreferences.label;" oncommand="Utils.openFiltersDialog();window.close();"/>
+    </hbox>
+  </vbox>
+</wizardpage>
+
 <wizardpage id="issuesPage" pageid="issues" next="screenshot" onpageshow="initIssuesPage();" reloadButtonLabel="&reloadButton.label;" reloadButtonAccesskey="&reloadButton.accesskey;">
   <description>&issues.description;</description>
 
