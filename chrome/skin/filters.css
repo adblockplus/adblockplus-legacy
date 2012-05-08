@@ -47,7 +47,8 @@
   color: #808080;
 }
 
-.subscription .title
+.titleBox .title,
+.titleBox > .titleEditor
 {
   font-weight: bold;
 }
