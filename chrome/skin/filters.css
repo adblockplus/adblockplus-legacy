@@ -60,6 +60,12 @@
   -moz-appearance: none !important;
 }
 
+.subscription .link
+{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .subscription .warning
 {
   color: #FF0000;
