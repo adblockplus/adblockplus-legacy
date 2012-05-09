@@ -229,7 +229,7 @@ var Backup =
           if (filter)
           {
             if (!this.subscription)
-              this.subscription = SpecialSubscription.create(Utils.getString("blockingGroup_title"));
+              this.subscription = SpecialSubscription.create(Utils.getString("newGroup_title"));
             this.subscription.filters.push(filter);
           }
         }
