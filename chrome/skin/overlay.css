@@ -145,7 +145,7 @@ toolbar[mode="full"] #abp-toolbarbutton[type="menu"]
 
 .abp-contributebutton-btn
 {
-  font-size: 80%;
+  font: -moz-info;
   margin-left: 40px;
   margin-right: 40px;
 }
