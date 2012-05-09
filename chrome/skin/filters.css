@@ -87,7 +87,7 @@
 
 .actionButton
 {
-  font-size: 80%;
+  font: -moz-info;
 }
 
 splitter
