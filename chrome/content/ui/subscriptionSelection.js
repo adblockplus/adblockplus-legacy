@@ -4,6 +4,9 @@
  * http://mozilla.org/MPL/2.0/.
  */
 
+Cu.import("resource://gre/modules/FileUtils.jsm");
+Cu.import("resource://gre/modules/Services.jsm");
+
 let subscriptionListLoading = false;
 
 function init()
@@ -228,9 +231,8 @@ function validateURL(url)
 
   // Is this a file path?
   try {
-    let file = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsILocalFile);
-    file.initWithPath(url);
-    return Cc["@mozilla.org/network/io-service;1"].getService(Ci.nsIIOService).newFileURI(file).spec;
+    let file = new FileUtils.File(url);
+    return Services.io.newFileURI(file).spec;
   } catch (e) {}
 
   // Is this a valid URL?
