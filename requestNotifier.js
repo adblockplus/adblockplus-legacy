@@ -8,12 +8,49 @@
  * @fileOverview Stores Adblock Plus data to be attached to a window.
  */
 
+Cu.import("resource://gre/modules/Services.jsm");
+
 let {Utils} = require("utils");
 let {BlockingFilter, WhitelistFilter, ElemHideFilter} = require("filterClasses");
 
 let nodeData = new WeakMap();
 let windowStats = new WeakMap();
 let windowSelection = new WeakMap();
+
+let setEntry, hasEntry, getEntry;
+if (Services.vc.compare(Utils.platformVersion, "13.0") >= 0)
+{
+  // Bug 673468 is fixed, we can use weak maps
+  setEntry = function(map, key, value) map.set(key, value);
+  hasEntry = function(map, key) map.has(key);
+  getEntry = function(map, key) map.get(key);
+}
+else
+{
+  // Fall back to user data
+  const dataSeed = Math.random();
+  const nodeDataProp = "abpNodeData" + dataSeed;
+  const windowStatsProp = "abpWindowStats" + dataSeed;
+  const windowSelectionProp = "abpWindowSelection" + dataSeed;
+  function getProp(map)
+  {
+    switch (map)
+    {
+      case nodeData:
+        return nodeDataProp;
+      case windowStats:
+        return windowStatsProp;
+      case windowSelection:
+        return windowSelectionProp;
+      default:
+        return null;
+    }
+  }
+
+  setEntry = function(map, key, value) key.setUserData(getProp(map), value, null);
+  hasEntry = function(map, key) key.getUserData(getProp(map));
+  getEntry = function(map, key) key.getUserData(getProp(map)) || undefined;
+}
 
 /**
  * List of notifiers in use - these notifiers need to receive notifications on
@@ -119,7 +156,7 @@ RequestNotifier.prototype =
           return;
 
         let node = walker.currentNode;
-        let data = nodeData.get(node);
+        let data = getEntry(nodeData, node);
         if (typeof data != "undefined")
           for (let i = data.length - 1; i >= 0; i--)
             this.notifier.notifyListener(wnd, node, data[i]);
@@ -154,12 +191,12 @@ RequestNotifier.prototype =
 
 RequestNotifier.storeSelection = function(/**Window*/ wnd, /**String*/ selection)
 {
-  windowSelection.set(wnd, selection);
+  setEntry(windowSelection, wnd.document, selection);
 };
 RequestNotifier.getSelection = function(/**Window*/ wnd) /**String*/
 {
-  if (windowSelection.has(wnd))
-    return windowSelection.get(wnd);
+  if (hasEntry(windowSelection, wnd.document))
+    return getEntry(windowSelection, wnd.document);
   else
     return null;
 };
@@ -185,8 +222,8 @@ RequestNotifier.addNodeData = function(/**Node*/ node, /**Window*/ topWnd, /**In
  */
 RequestNotifier.getWindowStatistics = function(/**Window*/ wnd)
 {
-  if (windowStats.has(wnd.document))
-    return windowStats.get(wnd.document);
+  if (hasEntry(windowStats, wnd.document))
+    return getEntry(windowStats, wnd.document);
   else
     return null;
 }
@@ -204,7 +241,7 @@ RequestNotifier.getDataForNode = function(node, noParent, type, location)
 {
   while (node)
   {
-    let data = nodeData.get(node);
+    let data = getEntry(nodeData, node);
     if (typeof data != "undefined")
     {
       // Look for matching entry starting at the end of the list (most recent first)
@@ -245,9 +282,9 @@ function RequestEntry(node, topWnd, contentType, docDomain, thirdParty, location
   this.attachToNode(node);
 
   // Update window statistics
-  if (!windowStats.has(topWnd.document))
+  if (!hasEntry(windowStats, topWnd.document))
   {
-    windowStats.set(topWnd.document, {
+    setEntry(windowStats, topWnd.document, {
       items: 0,
       hidden: 0,
       blocked: 0,
@@ -256,7 +293,7 @@ function RequestEntry(node, topWnd, contentType, docDomain, thirdParty, location
     });
   }
 
-  let stats = windowStats.get(topWnd.document);
+  let stats = getEntry(windowStats, topWnd.document);
   if (filter && filter instanceof ElemHideFilter)
     stats.hidden++;
   else
@@ -322,7 +359,7 @@ RequestEntry.prototype =
    */
   attachToNode: function(/**Node*/ node)
   {
-    let existingData = nodeData.get(node);
+    let existingData = getEntry(nodeData, node);
     if (typeof existingData != "undefined")
     {
       // Add the new entry to the existing data
@@ -331,7 +368,7 @@ RequestEntry.prototype =
     else
     {
       // Associate the node with a new array
-      nodeData.set(node, [this]);
+      setEntry(nodeData, node, [this]);
     }
   }
 };
