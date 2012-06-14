@@ -7,8 +7,6 @@ author=Wladimir Palant
 about=chrome://adblockplus/content/ui/about.xul
 options=chrome://adblockplus/content/ui/settings.xul
 optionsType=2
-restartless=true
-nojar=true
 
 [contributors]
 1=Claude Lespagnol aka Efdur
