@@ -8,13 +8,6 @@
  * @fileOverview Debugging module used for load time measurements.
  */
 
-var EXPORTED_SYMBOLS = ["TimeLine"];
-
-const Cc = Components.classes;
-const Ci = Components.interfaces;
-const Cr = Components.results;
-const Cu = Components.utils;
-
 let nestingCounter = 0;
 let firstTimeStamp = null;
 let lastTimeStamp = null;
@@ -25,7 +18,7 @@ let asyncActions = {__proto__: null};
  * Time logging module, used to measure startup time of Adblock Plus (development builds only).
  * @class
  */
-var TimeLine = {
+let TimeLine = exports.TimeLine = {
   /**
    * Logs an event to console together with the time it took to get there.
    */

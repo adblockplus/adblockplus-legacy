@@ -22,8 +22,6 @@ var disabledMatcher = new CombinedMatcher();
 var docDomainThirdParty = null;
 var docDomainFirstParty = null;
 
-var abpHooks = null;
-
 function init() {
   docDomainThirdParty = document.documentElement.getAttribute("docDomainThirdParty");
   docDomainFirstParty = document.documentElement.getAttribute("docDomainFirstParty");
@@ -44,16 +42,24 @@ function init() {
     E("searchField").focus();
 
   var selected = null;
-  if (/sidebarDetached\.xul$/.test(parent.location.href)) {
+  if (/sidebarDetached\.xul$/.test(parent.location.href))
+  {
     mainWin = parent.opener;
     mainWin.addEventListener("unload", mainUnload, false);
     E("detachButton").hidden = true;
     E("reattachButton").hidden = false;
-    if (!mainWin.document.getElementById("abp-sidebar"))
+
+    let mustDetach = parent.arguments[0];
+    if (mustDetach)
       E("reattachButton").setAttribute("disabled", "true");
-    if (mainWin.document.getElementById("abp-key-sidebar")) {
-      var sidebarKey = mainWin.document.getElementById("abp-key-sidebar").cloneNode(true);
-      parent.document.getElementById("detached-keyset").appendChild(parent.document.importNode(sidebarKey, true));
+    if ("sidebar" in UI.hotkeys)
+    {
+      let {KeySelector} = require("keySelector");
+      parent.addEventListener("keypress", function(event)
+      {
+        if (KeySelector.matchesKey(event, UI.hotkeys.sidebar))
+          doClose();
+      }, false);
     }
 
     // Set default size/position unless already persisted
@@ -67,8 +73,8 @@ function init() {
         wnd.setAttribute(attr, defaults[attr]);
   }
 
-  abpHooks = mainWin.document.getElementById("abp-hooks");
-  window.__defineGetter__("content", function() {return abpHooks.getBrowser().contentWindow;});
+  let {getBrowser, addBrowserLocationListener} = require("appSupport");
+  window.__defineGetter__("content", function() {return getBrowser(mainWin).contentWindow;});
 
   // Initialize matcher for disabled filters
   reloadDisabledFilters();
@@ -82,7 +88,8 @@ function init() {
   handleLocationChange();
 
   // Install a progress listener to catch location changes
-  abpHooks.getBrowser().addProgressListener(progressListener);
+  if (addBrowserLocationListener)
+    addBrowserLocationListener(mainWin, handleLocationChange, true);
 }
 
 // To be called for a detached window when the main window has been closed
@@ -98,7 +105,9 @@ function cleanUp() {
   Prefs.removeListener(onPrefChange);
   E("list").view = null;
 
-  abpHooks.getBrowser().removeProgressListener(progressListener);
+  let {removeBrowserLocationListener} = require("appSupport");
+  if (removeBrowserLocationListener)
+    removeBrowserLocationListener(mainWin, handleLocationChange);
   mainWin.removeEventListener("unload", mainUnload, false);
 }
 
@@ -420,7 +429,7 @@ function openInTab(item, /**Event*/ event)
   for each (let item in items)
   {
     if (item && item.typeDescr != "ELEMHIDE")
-      Utils.loadInBrowser(item.location, mainWin, event);
+      UI.loadInBrowser(item.location, mainWin, event);
   }
 }
 
@@ -451,7 +460,7 @@ function editFilter()
   if (!("location") in item)
     item.location = undefined
 
-  Utils.openFiltersDialog(item.filter);
+  UI.openFiltersDialog(item.filter);
 }
 
 function enableFilter(filter, enable) {
@@ -710,20 +719,6 @@ function createSortWithFallback(cmpFunc, fallbackFunc, desc) {
       return factor * ret;
   }
 }
-
-var progressListener =
-{
-  onLocationChange: function(progress, request, uri, flags)
-  {
-    if (!flags || !(flags & Ci.nsIWebProgressListener.LOCATION_CHANGE_SAME_DOCUMENT))
-      handleLocationChange()
-  },
-  onProgressChange: function() {},
-  onSecurityChange: function() {},
-  onStateChange: function() {},
-  onStatusChange: function() {},
-  QueryInterface: XPCOMUtils.generateQI([Ci.nsIWebProgressListener, Ci.nsISupportsWeakReference])
-};
 
 // Item list's tree view object
 var treeView = {

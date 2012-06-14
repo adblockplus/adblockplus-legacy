@@ -8,31 +8,23 @@
  * @fileOverview Module containing a bunch of utility functions.
  */
 
-var EXPORTED_SYMBOLS = ["Utils", "Cache"];
-
-const Cc = Components.classes;
-const Ci = Components.interfaces;
-const Cr = Components.results;
-const Cu = Components.utils;
-
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 Cu.import("resource://gre/modules/Services.jsm");
-Cu.import("resource://gre/modules/FileUtils.jsm");
-Cu.import("resource://gre/modules/NetUtil.jsm");
 let sidebarParams = null;
 
 /**
  * Provides a bunch of utility functions.
  * @class
  */
-var Utils =
+let Utils = exports.Utils =
 {
   /**
    * Returns the add-on ID used by Adblock Plus
    */
   get addonID()
   {
-    return "{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}";
+    let {addonID} = require("info");
+    return addonID;
   },
 
   /**
@@ -40,27 +32,8 @@ var Utils =
    */
   get addonVersion()
   {
-    let version = "{{VERSION}}";
-    return (version[0] == "{" ? "99.9" : version);
-  },
-
-  /**
-   * Returns the VCS revision used for this Adblock Plus build
-   */
-  get addonBuild()
-  {
-    let build = "{{BUILD}}";
-    return (build[0] == "{" ? "" : build);
-  },
-
-  /**
-   * Returns ID of the application
-   */
-  get appID()
-  {
-    let id = Services.appinfo.ID;
-    Utils.__defineGetter__("appID", function() id);
-    return Utils.appID;
+    let {addonVersion} = require("info");
+    return addonVersion;
   },
 
   /**
@@ -69,7 +42,8 @@ var Utils =
    */
   get isFennec()
   {
-    let result = (this.appID == "{a23983c0-fd0e-11dc-95ff-0800200c9a66}" || this.appID == "{aa3c5121-dab2-40e2-81ca-7ea25febc110}");
+    let {application} = require("info");
+    let result = (application == "fennec" || application == "fennec2");
     Utils.__defineGetter__("isFennec", function() result);
     return result;
   },
@@ -160,6 +134,19 @@ var Utils =
       return node.defaultView;
   
     return null;
+  },
+
+  /**
+   * Retrieves the top-level chrome window for a content window.
+   */
+  getChromeWindow: function(/**Window*/ window) /**Window*/
+  {
+    return window.QueryInterface(Ci.nsIInterfaceRequestor)
+                 .getInterface(Ci.nsIWebNavigation)
+                 .QueryInterface(Ci.nsIDocShellTreeItem)
+                 .rootTreeItem
+                 .QueryInterface(Ci.nsIInterfaceRequestor)
+                 .getInterface(Ci.nsIDOMWindow);
   },
 
   /**
@@ -284,82 +271,6 @@ var Utils =
   },
 
   /**
-   * Opens filter preferences dialog or focuses an already open dialog.
-   * @param {Filter} [filter]  filter to be selected
-   */
-  openFiltersDialog: function(filter)
-  {
-    var dlg = Utils.windowMediator.getMostRecentWindow("abp:filters");
-    if (dlg)
-    {
-      try
-      {
-        dlg.focus();
-      }
-      catch (e) {}
-      if (filter)
-        dlg.SubscriptionActions.selectFilter(filter);
-    }
-    else
-    {
-      Utils.windowWatcher.openWindow(null, "chrome://adblockplus/content/ui/filters.xul", "_blank", "chrome,centerscreen,resizable,dialog=no", {wrappedJSObject: filter});
-    }
-  },
-
-  /**
-   * Opens a URL in the browser window. If browser window isn't passed as parameter,
-   * this function attempts to find a browser window. If an event is passed in
-   * it should be passed in to the browser if possible (will e.g. open a tab in
-   * background depending on modifiers keys).
-   */
-  loadInBrowser: function(/**String*/ url, /**Window*/ currentWindow, /**Event*/ event)
-  {
-    let abpHooks = currentWindow ? currentWindow.document.getElementById("abp-hooks") : null;
-    if (!abpHooks || !abpHooks.addTab)
-    {
-      let enumerator = Utils.windowMediator.getZOrderDOMWindowEnumerator(null, true);
-      if (!enumerator.hasMoreElements())
-      {
-        // On Linux the list returned will be empty, see bug 156333. Fall back to random order.
-        enumerator = Utils.windowMediator.getEnumerator(null);
-      }
-      while (enumerator.hasMoreElements())
-      {
-        let window = enumerator.getNext().QueryInterface(Ci.nsIDOMWindow);
-        abpHooks = window.document.getElementById("abp-hooks");
-        if (abpHooks && abpHooks.addTab)
-        {
-          if (!currentWindow)
-            window.focus();
-          break;
-        }
-      }
-    }
-
-    if (abpHooks && abpHooks.addTab)
-      abpHooks.addTab(url, event);
-    else
-    {
-      let protocolService = Cc["@mozilla.org/uriloader/external-protocol-service;1"].getService(Ci.nsIExternalProtocolService);
-      protocolService.loadURI(Utils.makeURI(url), null);
-    }
-  },
-
-  /**
-   * Opens a pre-defined documentation link in the browser window. This will
-   * send the UI language to adblockplus.org so that the correct language
-   * version of the page can be selected.
-   */
-  loadDocLink: function(/**String*/ linkID)
-  {
-    let baseURL = "chrome://adblockplus-modules/content/";
-    Cu.import(baseURL + "Prefs.jsm");
-
-    let link = Prefs.documentation_link.replace(/%LINK%/g, linkID).replace(/%LANG%/g, Utils.appLocale);
-    Utils.loadInBrowser(link);
-  },
-
-  /**
    * Formats a unix time according to user's locale.
    * @param {Integer} time  unix time in milliseconds
    * @return {String} formatted date and time
@@ -460,66 +371,6 @@ var Utils =
   },
 
   /**
-   * Randomly generated class for collapsed nodes.
-   * @type String
-   */
-  collapsedClass: null,
-
-  /**
-   * Nodes scheduled for post-processing (might be null).
-   * @type Array of Node
-   */
-  scheduledNodes: null,
-
-  /**
-   * Schedules a node for post-processing.
-   */
-  schedulePostProcess: function(node)
-  {
-    if (Utils.scheduledNodes)
-      Utils.scheduledNodes.push(node);
-    else
-    {
-      Utils.scheduledNodes = [node];
-      Utils.runAsync(Utils.postProcessNodes);
-    }
-  },
-
-  /**
-   * Processes nodes scheduled for post-processing (typically hides them).
-   */
-  postProcessNodes: function()
-  {
-    let nodes = Utils.scheduledNodes;
-    Utils.scheduledNodes = null;
-
-    for each (let node in nodes)
-    {
-      // adjust frameset's cols/rows for frames
-      let parentNode = node.parentNode;
-      if (parentNode && parentNode instanceof Ci.nsIDOMHTMLFrameSetElement)
-      {
-        let hasCols = (parentNode.cols && parentNode.cols.indexOf(",") > 0);
-        let hasRows = (parentNode.rows && parentNode.rows.indexOf(",") > 0);
-        if ((hasCols || hasRows) && !(hasCols && hasRows))
-        {
-          let index = -1;
-          for (let frame = node; frame; frame = frame.previousSibling)
-            if (frame instanceof Ci.nsIDOMHTMLFrameElement || frame instanceof Ci.nsIDOMHTMLFrameSetElement)
-              index++;
-
-          let property = (hasCols ? "cols" : "rows");
-          let weights = parentNode[property].split(",");
-          weights[index] = "0";
-          parentNode[property] = weights.join(",");
-        }
-      }
-      else
-        node.className += " " + Utils.collapsedClass;
-    }
-  },
-
-  /**
    * Verifies RSA signature. The public key and signature should be base64-encoded.
    */
   verifySignature: function(/**String*/ key, /**String*/ signature, /**String*/ data) /**Boolean*/
@@ -597,6 +448,8 @@ function Cache(/**Integer*/ size)
   this._ringBuffer = new Array(size);
   this.data = {__proto__: null};
 }
+exports.Cache = Cache;
+
 Cache.prototype =
 {
   /**

@@ -7,6 +7,8 @@ author=Wladimir Palant
 about=chrome://adblockplus/content/ui/about.xul
 options=chrome://adblockplus/content/ui/settings.xul
 optionsType=2
+restartless=true
+nojar=true
 
 [contributors]
 1=Claude Lespagnol aka Efdur
@@ -31,9 +33,7 @@ zh-TW=https://adblockplus.org/zh_TW/
 
 [compat]
 firefox=8.0/16.0a1
-fennec=8.0/16.0a1
 fennec2=11.0a1/16.0a1
 thunderbird=8.0/16.0a1
 seamonkey=2.5/2.13a1
-#songbird=1.9.0a/1.11.0a
-conkeror=0.1/100.0
+toolkit=8.0/16.0a1

@@ -112,16 +112,16 @@ toolbar[mode="full"] #abp-toolbarbutton[type="menu"]
   margin-top: 10px;
 }
 
-#abp-sidebar-title {
+#abp-bottombar-title {
   padding-left: 4px;
 }
 
-#abp-sidebar-toolbar {
+#abp-bottombar-toolbar {
     display: -moz-box !important;
     visibility: visible !important;
 }
 
-#abp-sidebar-close {
+#abp-bottombar-close {
   padding: 4px 2px;
   border-style: none !important;
   -moz-user-focus: normal;
@@ -130,11 +130,11 @@ toolbar[mode="full"] #abp-toolbarbutton[type="menu"]
   -moz-image-region: rect(0px, 14px, 14px, 0px);
 }
 
-#abp-sidebar-close:hover {
+#abp-bottombar-close:hover {
   -moz-image-region: rect(0px, 28px, 14px, 14px);
 }
 
-#abp-sidebar-close:hover:active {
+#abp-bottombar-close:hover:active {
   -moz-image-region: rect(0px, 42px, 14px, 28px);
 }
 

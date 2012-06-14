@@ -8,15 +8,7 @@
  * @fileOverview Matcher class implementing matching addresses against a list of filters.
  */
 
-var EXPORTED_SYMBOLS = ["Matcher", "CombinedMatcher", "defaultMatcher"];
-
-const Cc = Components.classes;
-const Ci = Components.interfaces;
-const Cr = Components.results;
-const Cu = Components.utils;
-
-let baseURL = "chrome://adblockplus-modules/content/";
-Cu.import(baseURL + "FilterClasses.jsm");
+let {Filter, RegExpFilter, WhitelistFilter} = require("filterClasses");
 
 /**
  * Blacklist/whitelist filter matching
@@ -26,6 +18,7 @@ function Matcher()
 {
   this.clear();
 }
+exports.Matcher = Matcher;
 
 Matcher.prototype = {
   /**
@@ -220,6 +213,7 @@ function CombinedMatcher()
   this.keys = {__proto__: null};
   this.resultCache = {__proto__: null};
 }
+exports.CombinedMatcher = CombinedMatcher;
 
 /**
  * Maximal number of matching cache entries to be kept
@@ -443,4 +437,4 @@ CombinedMatcher.prototype =
  * Shared CombinedMatcher instance that should usually be used.
  * @type CombinedMatcher
  */
-var defaultMatcher = new CombinedMatcher();
+let defaultMatcher = exports.defaultMatcher = new CombinedMatcher();

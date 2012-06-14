@@ -18,14 +18,14 @@ const SECONDS_IN_DAY = 24 * SECONDS_IN_HOUR;
 
 let reportData =
   <report>
-    <adblock-plus version={Utils.addonVersion} build={Utils.addonBuild} locale={Utils.appLocale}/>
+    <adblock-plus version={Utils.addonVersion} locale={Utils.appLocale}/>
     <application name={Services.appinfo.name} vendor={Services.appinfo.vendor} version={Services.appinfo.version} userAgent={window.navigator.userAgent}/>
     <platform name="Gecko" version={Services.appinfo.platformVersion} build={Services.appinfo.platformBuildID}/>
     <options>
       <option id="enabled">{Prefs.enabled}</option>
       <option id="objecttabs">{Prefs.frameobjects}</option>
       <option id="collapse">{!Prefs.fastcollapse}</option>
-      <option id="privateBrowsing">{Prefs.privateBrowsing}</option>
+      <option id="privateBrowsing">{PrivateBrowsing.enabled}</option>
       <option id="subscriptionsAutoUpdate">{Prefs.subscriptions_autoupdate}</option>
     </options>
     <window/>
@@ -45,16 +45,7 @@ let reportsListDataSource =
 
   collectData: function(wnd, windowURI, callback)
   {
-    let data = null;
-    try
-    {
-      data = JSON.parse(Prefs.recentReports);
-    }
-    catch (e)
-    {
-      Cu.reportError(e);
-    }
-
+    let data = Prefs.recentReports;
     if (data && "length" in data)
     {
       for (let i = 0; i < data.length; i++)
@@ -108,20 +99,13 @@ let reportsListDataSource =
   addReport: function(site, reportURL)
   {
     this.list.unshift({site: site, reportURL: reportURL, time: Date.now()});
-    try
-    {
-      Prefs.recentReports = JSON.stringify(this.list);
-    }
-    catch (e)
-    {
-      Cu.reportError(e);
-    }
+    Prefs.recentReports = this.list;
   },
 
   clear: function()
   {
     this.list = [];
-    Prefs.recentReports = JSON.stringify(this.list);
+    Prefs.recentReports = this.list;
     E("recentReports").hidden = true;
   },
 
@@ -130,7 +114,7 @@ let reportsListDataSource =
     if (event.button != 0 || !event.target || !event.target.hasAttribute("url"))
       return;
 
-    Utils.loadInBrowser(event.target.getAttribute("url"));
+    UI.loadInBrowser(event.target.getAttribute("url"));
   }
 };
 
@@ -1428,7 +1412,7 @@ function reportSent(event)
       button.setAttribute("url", link);
       button.removeAttribute("disabled");
 
-      if (!Prefs.privateBrowsing)
+      if (!PrivateBrowsing.enabled)
         reportsListDataSource.addReport(framesDataSource.site, link);
     } catch (e) {}
     E("copyLinkBox").hidden = false;
@@ -1448,7 +1432,7 @@ function processLinkClick(event)
     link = link.parentNode;
 
   if (link && (link.protocol == "http:" || link.protocol == "https:"))
-    Utils.loadInBrowser(link.href);
+    UI.loadInBrowser(link.href);
 }
 
 function copyLink(url)

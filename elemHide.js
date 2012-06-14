@@ -8,22 +8,14 @@
  * @fileOverview Element hiding implementation.
  */
 
-var EXPORTED_SYMBOLS = ["ElemHide"];
-
-const Cc = Components.classes;
-const Ci = Components.interfaces;
-const Cr = Components.results;
-const Cu = Components.utils;
-
-let baseURL = "chrome://adblockplus-modules/content/";
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
-Cu.import(baseURL + "Utils.jsm");
-Cu.import(baseURL + "IO.jsm");
-Cu.import(baseURL + "Prefs.jsm");
-Cu.import(baseURL + "ContentPolicy.jsm");
-Cu.import(baseURL + "FilterNotifier.jsm");
-Cu.import(baseURL + "FilterClasses.jsm");
-Cu.import(baseURL + "TimeLine.jsm");
+Cu.import("resource://gre/modules/Services.jsm");
+
+let {Utils} = require("utils");
+let {IO} = require("io");
+let {Prefs} = require("prefs");
+let {FilterNotifier} = require("filterNotifier");
+let {TimeLine} = require("timeline");
 
 /**
  * Lookup table, filters by their associated key
@@ -47,7 +39,7 @@ let styleURL = null;
  * Element hiding component
  * @class
  */
-var ElemHide =
+let ElemHide = exports.ElemHide =
 {
   /**
    * Indicates whether filters have been added or removed since the last apply() call.
@@ -72,18 +64,17 @@ var ElemHide =
       if (name == "enabled")
         ElemHide.apply();
     });
-  
+    onShutdown.add(function()
+    {
+      ElemHide.unapply();
+    });
+
     TimeLine.log("done adding prefs listener");
 
     let styleFile = IO.resolveFilePath(Prefs.data_directory);
     styleFile.append("elemhide.css");
-    styleURL = Utils.ioService.newFileURI(styleFile).QueryInterface(Ci.nsIFileURL);
+    styleURL = Services.io.newFileURI(styleFile).QueryInterface(Ci.nsIFileURL);
     TimeLine.log("done determining stylesheet URL");
-
-    TimeLine.log("registering component");
-    let registrar = Components.manager.QueryInterface(Ci.nsIComponentRegistrar);
-    registrar.registerFactory(ElemHidePrivate.classID, ElemHidePrivate.classDescription,
-        "@mozilla.org/network/protocol/about;1?what=" + ElemHidePrivate.aboutPrefix, ElemHidePrivate);
 
     TimeLine.leave("ElemHide.init() done");
   },
@@ -270,7 +261,7 @@ var ElemHide =
     }
 
     // Return CSS data
-    let cssTemplate = "-moz-binding: url(about:" + ElemHidePrivate.aboutPrefix + "?%ID%#dummy) !important;";
+    let cssTemplate = "-moz-binding: url(about:" + AboutHandler.aboutPrefix + "?%ID%#dummy) !important;";
     for (let domain in domains)
     {
       let rules = [];
@@ -327,14 +318,28 @@ var ElemHide =
 };
 
 /**
- * Private nsIAboutModule implementation
+ * about: URL module used to count hits.
  * @class
  */
-var ElemHidePrivate =
+let AboutHandler =
 {
   classID: Components.ID("{55fb7be0-1dd2-11b2-98e6-9e97caf8ba67}"),
   classDescription: "Element hiding hit registration protocol handler",
   aboutPrefix: "abp-elemhidehit",
+
+  /**
+   * Registers handler on startup.
+   */
+  init: function()
+  {
+    let registrar = Components.manager.QueryInterface(Ci.nsIComponentRegistrar);
+    registrar.registerFactory(this.classID, this.classDescription,
+        "@mozilla.org/network/protocol/about;1?what=" + this.aboutPrefix, this);
+    onShutdown.add(function()
+    {
+      registrar.unregisterFactory(this.classID, this);
+    }.bind(this));
+  },
 
   //
   // Factory implementation
@@ -368,6 +373,7 @@ var ElemHidePrivate =
 
   QueryInterface: XPCOMUtils.generateQI([Ci.nsIFactory, Ci.nsIAboutModule])
 };
+AboutHandler.init();
 
 /**
  * Channel returning data for element hiding hits.
@@ -412,6 +418,7 @@ HitRegistrationChannel.prototype = {
 
   open: function()
   {
+    let {Policy} = require("contentPolicy");
     let data = "<bindings xmlns='http://www.mozilla.org/xbl'><binding id='dummy'/></bindings>";
     if (this.key in filterByKey)
     {

@@ -186,12 +186,12 @@
                           <if condition="{subscription.homepage}">
                             <description class="link" value="&subscription.homepage.label;"
                               _url="{subscription.homepage}" tooltiptext="{subscription.homepage}"
-                              onclick="if (event.button == 0) { event.stopPropagation();Utils.loadInBrowser(this.getAttribute('_url')); }"/>
+                              onclick="if (event.button == 0) { event.stopPropagation();UI.loadInBrowser(this.getAttribute('_url')); }"/>
                             <description value=", "/>
                           </if>
                           <description class="link" value="&subscription.source.label;"
                             _url="{subscription.url}" tooltiptext="{subscription.url}"
-                            onclick="if (event.button == 0) { event.stopPropagation();Utils.loadInBrowser(this.getAttribute('_url')); }"/>
+                            onclick="if (event.button == 0) { event.stopPropagation();UI.loadInBrowser(this.getAttribute('_url')); }"/>
                         </if>
                         <description value=")"/>
                       </hbox>
@@ -265,8 +265,8 @@
 
         <description>
           <checkbox id="acceptableAds" label="&acceptableAds2.label;" accesskey="&acceptableAds2.accesskey;" oncommand="ListManager.allowAcceptableAds(this.checked);"/>
-          <label class="text-link" value="&viewList.label;" onclick="Utils.loadInBrowser(Prefs.subscriptions_exceptionsurl);"/>
-          <label class="text-link" value="&readMore.label;" onclick="Utils.loadDocLink('acceptable_ads');"/>
+          <label class="text-link" value="&viewList.label;" onclick="UI.loadInBrowser(Prefs.subscriptions_exceptionsurl);"/>
+          <label class="text-link" value="&readMore.label;" onclick="UI.loadDocLink('acceptable_ads');"/>
         </description>
       </tabpanel>
       <tabpanel id="filtersTab" orient="vertical" flex="1">

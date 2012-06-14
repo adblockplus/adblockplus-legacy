@@ -74,5 +74,5 @@ function openFilters()
     }
   }
   else
-    Utils.openFiltersDialog();
+    UI.openFiltersDialog();
 }

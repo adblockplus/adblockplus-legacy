@@ -8,25 +8,16 @@
  * @fileOverview Component synchronizing filter storage with Matcher instances and ElemHide.
  */
 
-var EXPORTED_SYMBOLS = ["FilterListener"];
-
-const Cc = Components.classes;
-const Ci = Components.interfaces;
-const Cr = Components.results;
-const Cu = Components.utils;
-
-let baseURL = "chrome://adblockplus-modules/content/";
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 Cu.import("resource://gre/modules/Services.jsm");
-Cu.import(baseURL + "TimeLine.jsm");
-Cu.import(baseURL + "FilterStorage.jsm");
-Cu.import(baseURL + "FilterNotifier.jsm");
-Cu.import(baseURL + "ElemHide.jsm");
-Cu.import(baseURL + "Matcher.jsm");
-Cu.import(baseURL + "FilterClasses.jsm");
-Cu.import(baseURL + "SubscriptionClasses.jsm");
-Cu.import(baseURL + "Prefs.jsm");
-Cu.import(baseURL + "Utils.jsm");
+
+let {TimeLine} = require("timeline");
+let {FilterStorage} = require("filterStorage");
+let {FilterNotifier} = require("filterNotifier");
+let {ElemHide} = require("elemHide");
+let {defaultMatcher} = require("matcher");
+let {ActiveFilter, RegExpFilter, ElemHideFilter} = require("filterClasses");
+let {Prefs} = require("prefs");
 
 /**
  * Value of the FilterListener.batchMode property.
@@ -44,37 +35,8 @@ let isDirty = 0;
  * This object can be used to change properties of the filter change listeners.
  * @class
  */
-var FilterListener =
+let FilterListener = exports.FilterListener =
 {
-  /**
-   * Called on module initialization, registers listeners for FilterStorage changes
-   */
-  startup: function()
-  {
-    TimeLine.enter("Entered FilterListener.startup()");
-
-    FilterNotifier.addListener(function(action, item, newValue, oldValue)
-    {
-      let match = /^(\w+)\.(.*)/.exec(action);
-      if (match && match[1] == "filter")
-        onFilterChange(match[2], item, newValue, oldValue);
-      else if (match && match[1] == "subscription")
-        onSubscriptionChange(match[2], item, newValue, oldValue);
-      else
-        onGenericChange(action, item);
-    });
-
-    ElemHide.init();
-    FilterStorage.loadFromDisk();
-
-    TimeLine.log("done initializing data structures");
-
-    Services.obs.addObserver(FilterListenerPrivate, "browser:purge-session-history", true);
-    TimeLine.log("done adding observers");
-
-    TimeLine.leave("FilterListener.startup() done");
-  },
-
   /**
    * Set to true when executing many changes, changes will only be fully applied after this variable is set to false again.
    * @type Boolean
@@ -107,10 +69,10 @@ var FilterListener =
 };
 
 /**
- * Private nsIObserver implementation.
+ * Observer listening to history purge actions.
  * @class
  */
-var FilterListenerPrivate =
+let HistoryPurgeObserver =
 {
   observe: function(subject, topic, data)
   {
@@ -119,11 +81,45 @@ var FilterListenerPrivate =
       FilterStorage.resetHitCounts();
       FilterListener.setDirty(0); // Force saving to disk
 
-      Prefs.recentReports = "[]";
+      Prefs.recentReports = [];
     }
   },
   QueryInterface: XPCOMUtils.generateQI([Ci.nsISupportsWeakReference, Ci.nsIObserver])
 };
+
+/**
+ * Initializes filter listener on startup, registers the necessary hooks.
+ */
+function init()
+{
+  TimeLine.enter("Entered filter listener initialization()");
+
+  FilterNotifier.addListener(function(action, item, newValue, oldValue)
+  {
+    let match = /^(\w+)\.(.*)/.exec(action);
+    if (match && match[1] == "filter")
+      onFilterChange(match[2], item, newValue, oldValue);
+    else if (match && match[1] == "subscription")
+      onSubscriptionChange(match[2], item, newValue, oldValue);
+    else
+      onGenericChange(action, item);
+  });
+
+  ElemHide.init();
+  FilterStorage.loadFromDisk();
+
+  TimeLine.log("done initializing data structures");
+
+  Services.obs.addObserver(HistoryPurgeObserver, "browser:purge-session-history", true);
+  onShutdown.add(function()
+  {
+    Services.obs.removeObserver(HistoryPurgeObserver, "browser:purge-session-history");
+  });
+  TimeLine.log("done adding observers");
+
+  TimeLine.leave("Filter listener initialization done");
+}
+init();
 
 /**
  * Calls ElemHide.apply() if necessary.

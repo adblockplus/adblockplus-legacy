@@ -8,22 +8,16 @@
  * @fileOverview Manages synchronization of filter subscriptions.
  */
 
-var EXPORTED_SYMBOLS = ["Synchronizer"];
-
-const Cc = Components.classes;
-const Ci = Components.interfaces;
-const Cr = Components.results;
-const Cu = Components.utils;
-
-let baseURL = "chrome://adblockplus-modules/content/";
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
-Cu.import(baseURL + "TimeLine.jsm");
-Cu.import(baseURL + "Utils.jsm");
-Cu.import(baseURL + "FilterStorage.jsm");
-Cu.import(baseURL + "FilterNotifier.jsm");
-Cu.import(baseURL + "FilterClasses.jsm");
-Cu.import(baseURL + "SubscriptionClasses.jsm");
-Cu.import(baseURL + "Prefs.jsm");
+Cu.import("resource://gre/modules/Services.jsm");
+
+let {TimeLine} = require("timeline");
+let {Utils} = require("utils");
+let {FilterStorage} = require("filterStorage");
+let {FilterNotifier} = require("filterNotifier");
+let {Prefs} = require("prefs");
+let {Filter, CommentFilter} = require("filterClasses");
+let {Subscription, DownloadableSubscription} = require("subscriptionClasses");
 
 const MILLISECONDS_IN_SECOND = 1000;
 const SECONDS_IN_MINUTE = 60;
@@ -48,7 +42,7 @@ let executing = {__proto__: null};
  * necessary.
  * @class
  */
-var Synchronizer =
+let Synchronizer = exports.Synchronizer =
 {
   /**
    * Called on module startup.
@@ -65,6 +59,10 @@ var Synchronizer =
   
     timer = Cc["@mozilla.org/timer;1"].createInstance(Ci.nsITimer);
     timer.initWithCallback(callback, INITIAL_DELAY * MILLISECONDS_IN_SECOND, Ci.nsITimer.TYPE_REPEATING_SLACK);
+    onShutdown.add(function()
+    {
+      timer.cancel();
+    });
   
     TimeLine.leave("Synchronizer.startup() done");
   },
@@ -102,7 +100,6 @@ var Synchronizer =
     let hadTemporaryRedirect = false;
     subscription.nextURL = null;
 
-    let curVersion = Utils.addonVersion;
     let loadFrom = newURL;
     let isBaseLocation = true;
     if (!loadFrom)
@@ -155,7 +152,9 @@ var Synchronizer =
       // Ignore modification date if we are downloading from a different location
       forceDownload = true;
     }
-    loadFrom = loadFrom.replace(/%VERSION%/, "ABP" + curVersion);
+
+    let {addonVersion} = require("info");
+    loadFrom = loadFrom.replace(/%VERSION%/, "ABP" + addonVersion);
 
     let request = null;
     function errorCallback(error)
@@ -253,6 +252,9 @@ var Synchronizer =
 
     request.addEventListener("error", function(ev)
     {
+      if (onShutdown.done)
+        return;
+
       delete executing[url];
       try {
         request.channel.notificationCallbacks = null;
@@ -263,6 +265,9 @@ var Synchronizer =
 
     request.addEventListener("load", function(ev)
     {
+      if (onShutdown.done)
+        return;
+
       delete executing[url];
       try {
         request.channel.notificationCallbacks = null;
@@ -492,8 +497,9 @@ function readFilters(subscription, text, errorCallback)
   delete subscription.upgradeRequired;
   if (minVersion)
   {
+    let {addonVersion} = require("info");
     subscription.requiredVersion = minVersion;
-    if (Utils.versionComparator.compare(minVersion, Utils.addonVersion) > 0)
+    if (Services.vc.compare(minVersion, addonVersion) > 0)
       subscription.upgradeRequired = true;
   }
 
@@ -552,7 +558,8 @@ function setError(subscription, error, channelStatus, responseStatus, downloadUR
       subscription.errors = 0;
 
       let fallbackURL = Prefs.subscriptions_fallbackurl;
-      fallbackURL = fallbackURL.replace(/%VERSION%/g, encodeURIComponent(Utils.addonVersion));
+      let {addonVersion} = require("info");
+      fallbackURL = fallbackURL.replace(/%VERSION%/g, encodeURIComponent(addonVersion));
       fallbackURL = fallbackURL.replace(/%SUBSCRIPTION%/g, encodeURIComponent(subscription.url));
       fallbackURL = fallbackURL.replace(/%URL%/g, encodeURIComponent(downloadURL));
       fallbackURL = fallbackURL.replace(/%ERROR%/g, encodeURIComponent(error));
@@ -568,6 +575,9 @@ function setError(subscription, error, channelStatus, responseStatus, downloadUR
                                   request.channel.VALIDATE_ALWAYS;
       request.addEventListener("load", function(ev)
       {
+        if (onShutdown.done)
+          return;
+
         if (!(subscription.url in FilterStorage.knownSubscriptions))
           return;
 

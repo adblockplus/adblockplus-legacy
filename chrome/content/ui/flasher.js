@@ -27,18 +27,11 @@ var flasher = {
       let wnd = nodes[0].ownerDocument.defaultView;
       try
       {
-        let hooks = wnd.QueryInterface(Ci.nsIInterfaceRequestor)
-                       .getInterface(Ci.nsIWebNavigation)
-                       .QueryInterface(Ci.nsIDocShellTreeItem)
-                       .rootTreeItem
-                       .QueryInterface(Ci.nsIInterfaceRequestor)
-                       .getInterface(Ci.nsIDOMWindow)
-                       .document.getElementById("abp-hooks");
-        if (hooks.wrappedJSObject)
-          hooks = hooks.wrappedJSObject;
-                        
-        let viewer = hooks.getBrowser().markupDocumentViewer;
-        viewer.scrollToNode(nodes[0]);
+        let topWnd = Utils.getChromeWindow(wnd);
+        let {getBrowser} = require("appSupport");
+        let browser = (getBrowser ? getBrowser(topWnd) : null);
+        if (browser)
+          browser.markupDocumentViewer.scrollToNode(nodes[0]);
       }
       catch(e)
       {

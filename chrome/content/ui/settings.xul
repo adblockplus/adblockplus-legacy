@@ -10,9 +10,7 @@
     xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
     width="1"
     height="1"
-    onload="window.close();AppIntegration.openMenu(window.opener);">
-  <script type="application/x-javascript;version=1.7" src="utils.js"/>
-
+    onload="window.close();">   <!-- Close window if it gets opened directly for some reason -->
   <setting type="control">
     <button id="adblockplus-filters" label="&filters.label;…"/>
   </setting>

@@ -1,5 +1,8 @@
+<!DOCTYPE html>
+
 <html>
 <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>Adblock Plus Errors</title>
   <style type="text/css">
     .warning, .error
@@ -32,12 +35,17 @@
 
   <script type="application/x-javascript;version=1.7">
     try {
-      Components.utils.import("chrome://adblockplus-modules/content/Utils.jsm");
+      function require(module)
+      {
+        let {Services} = Components.utils.import("resource://gre/modules/Services.jsm");
+        let result = {};
+        result.wrappedJSObject = result;
+        Services.obs.notifyObservers(result, "adblockplus-require", module);
+        return result.exports;
+      }
+      let {addonVersion} = require("info");
 
-      let text = "You are running Adblock Plus " + Utils.addonVersion;
-      let build = Utils.addonBuild;
-      if (build)
-        text += ", build " + build;
+      let text = "You are running Adblock Plus " + addonVersion;
       text += ".";
       document.write("<p>" + text + "</p>");
     } catch (e) {}
