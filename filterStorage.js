@@ -5,24 +5,18 @@
  */
 
 /**
- * @fileOverview FilterStorage class responsible to managing user's subscriptions and filters.
+ * @fileOverview FilterStorage class responsible for managing user's subscriptions and filters.
  */
 
-var EXPORTED_SYMBOLS = ["FilterStorage"];
+Cu.import("resource://gre/modules/Services.jsm");
+Cu.import("resource://gre/modules/FileUtils.jsm");
 
-const Cc = Components.classes;
-const Ci = Components.interfaces;
-const Cr = Components.results;
-const Cu = Components.utils;
-
-let baseURL = "chrome://adblockplus-modules/content/";
-Cu.import(baseURL + "Utils.jsm");
-Cu.import(baseURL + "IO.jsm");
-Cu.import(baseURL + "Prefs.jsm");
-Cu.import(baseURL + "FilterClasses.jsm");
-Cu.import(baseURL + "SubscriptionClasses.jsm");
-Cu.import(baseURL + "FilterNotifier.jsm");
-Cu.import(baseURL + "TimeLine.jsm");
+let {IO} = require("io");
+let {Prefs} = require("prefs");
+let {Filter, ActiveFilter} = require("filterClasses");
+let {Subscription, SpecialSubscription, ExternalSubscription} = require("subscriptionClasses");
+let {FilterNotifier} = require("filterNotifier");
+let {TimeLine} = require("timeline");
 
 /**
  * Version number of the filter storage file format.
@@ -34,7 +28,7 @@ const formatVersion = 4;
  * This class reads user's filters from disk, manages them in memory and writes them back.
  * @class
  */
-var FilterStorage =
+let FilterStorage = exports.FilterStorage =
 {
   /**
    * Version number of the patterns.ini format used.
@@ -66,7 +60,7 @@ var FilterStorage =
       // Data directory pref misconfigured? Try the default value
       try
       {
-        file = IO.resolveFilePath(Prefs.defaultBranch.getCharPref("data_directory"));
+        file = IO.resolveFilePath(Services.prefs.getDefaultBranch("extensions.adblockplus.").getCharPref("data_directory"));
         if (file)
           file.append("patterns.ini");
       } catch(e) {}
@@ -314,7 +308,7 @@ var FilterStorage =
    */
   increaseHitCount: function(filter)
   {
-    if (!Prefs.savestats || Prefs.privateBrowsing || !(filter instanceof ActiveFilter))
+    if (!Prefs.savestats || PrivateBrowsing.enabled || !(filter instanceof ActiveFilter))
       return;
 
     filter.hitCount++;
@@ -360,7 +354,10 @@ var FilterStorage =
       explicitFile = false;
 
       if (!sourceFile || !sourceFile.exists())
-        sourceFile = Utils.makeURI("chrome://adblockplus-defaults/content/patterns.ini");
+      {
+        let {addonRoot} = require("info");
+        sourceFile = Services.io.newURI(addonRoot + "defaults/patterns.ini", null, null);
+      }
     }
 
     let readFile = function(sourceFile, backupIndex)
@@ -534,7 +531,7 @@ var FilterStorage =
 
     // Make sure the file's parent directory exists
     try {
-      targetFile.parent.create(Ci.nsIFile.DIRECTORY_TYPE, 0755);
+      targetFile.parent.create(Ci.nsIFile.DIRECTORY_TYPE, FileUtils.PERMS_DIRECTORY);
     } catch (e) {}
 
     let backupFileParts = null;
@@ -669,7 +666,55 @@ function removeSubscriptionFilters(subscription)
 }
 
 /**
+ * Observer listening to private browsing mode changes.
+ * @class
+ */
+let PrivateBrowsing = exports.PrivateBrowsing =
+{
+  /**
+   * Will be set to true when the private browsing mode is switched on.
+   * @type Boolean
+   */
+  enabled: false,
+
+  init: function()
+  {
+    if ("@mozilla.org/privatebrowsing;1" in Cc)
+    {
+      try
+      {
+        this.enabled = Cc["@mozilla.org/privatebrowsing;1"].getService(Ci.nsIPrivateBrowsingService).privateBrowsingEnabled;
+        Services.obs.addObserver(this, "private-browsing", true);
+        onShutdown.add(function()
+        {
+          Services.obs.removeObserver(this, "private-browsing");
+        }.bind(this));
+      }
+      catch(e)
+      {
+        Cu.reportError(e);
+      }
+    }
+  },
+
+  observe: function(subject, topic, data)
+  {
+    if (topic == "private-browsing")
+    {
+      if (data == "enter")
+        this.enabled = true;
+      else if (data == "exit")
+        this.enabled = false;
+    }
+  },
+
+  QueryInterface: XPCOMUtils.generateQI([Ci.nsISupportsWeakReference, Ci.nsIObserver])
+};
+PrivateBrowsing.init();
+
+/**
  * IO.readFromFile() listener to parse filter data.
+ * @constructor
  */
 function INIParser()
 {

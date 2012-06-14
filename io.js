@@ -8,22 +8,14 @@
  * @fileOverview Module containing file I/O helpers.
  */
 
-var EXPORTED_SYMBOLS = ["IO"];
-
-const Cc = Components.classes;
-const Ci = Components.interfaces;
-const Cr = Components.results;
-const Cu = Components.utils;
-
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 Cu.import("resource://gre/modules/Services.jsm");
 Cu.import("resource://gre/modules/FileUtils.jsm");
 Cu.import("resource://gre/modules/NetUtil.jsm");
 
-let baseURL = "chrome://adblockplus-modules/content/";
-Cu.import(baseURL + "TimeLine.jsm");
+let {TimeLine} = require("timeline");
 
-var IO =
+let IO = exports.IO =
 {
   /**
    * Retrieves the platform-dependent line break string.
@@ -189,7 +181,7 @@ var IO =
       function writeNextChunk()
       {
         let buf = [];
-        bufLen = 0;
+        let bufLen = 0;
         while (bufLen < 0x4000)
         {
           try
@@ -259,7 +251,7 @@ var IO =
     try
     {
       let inStream = Cc["@mozilla.org/network/file-input-stream;1"].createInstance(Ci.nsIFileInputStream);
-      inStream.init(fromFile, FileUtils.MODE_RDONLY, 0, Ci.nsIFile.DEFER_OPEN);
+      inStream.init(fromFile, FileUtils.MODE_RDONLY, 0, Ci.nsIFileInputStream.DEFER_OPEN);
 
       let outStream = FileUtils.openFileOutputStream(toFile, FileUtils.MODE_WRONLY | FileUtils.MODE_CREATE | FileUtils.MODE_TRUNCATE);
 

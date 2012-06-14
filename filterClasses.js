@@ -8,16 +8,7 @@
  * @fileOverview Definition of Filter class and its subclasses.
  */
 
-var EXPORTED_SYMBOLS = ["Filter", "InvalidFilter", "CommentFilter", "ActiveFilter", "RegExpFilter", "BlockingFilter", "WhitelistFilter", "ElemHideFilter"];
-
-const Cc = Components.classes;
-const Ci = Components.interfaces;
-const Cr = Components.results;
-const Cu = Components.utils;
-
-let baseURL = "chrome://adblockplus-modules/content/";
-Cu.import(baseURL + "Utils.jsm");
-Cu.import(baseURL + "FilterNotifier.jsm");
+let {FilterNotifier} = require("filterNotifier");
 
 /**
  * Abstract base class for filters
@@ -30,6 +21,8 @@ function Filter(text)
   this.text = text;
   this.subscriptions = [];
 }
+exports.Filter = Filter;
+
 Filter.prototype =
 {
   /**
@@ -171,6 +164,8 @@ function InvalidFilter(text, reason)
 
   this.reason = reason;
 }
+exports.InvalidFilter = InvalidFilter;
+
 InvalidFilter.prototype =
 {
   __proto__: Filter.prototype,
@@ -197,6 +192,8 @@ function CommentFilter(text)
 {
   Filter.call(this, text);
 }
+exports.CommentFilter = CommentFilter;
+
 CommentFilter.prototype =
 {
   __proto__: Filter.prototype,
@@ -224,6 +221,8 @@ function ActiveFilter(text, domains)
     this.__defineGetter__("domains", this._getDomains);
   }
 }
+exports.ActiveFilter = ActiveFilter;
+
 ActiveFilter.prototype =
 {
   __proto__: Filter.prototype,
@@ -450,6 +449,8 @@ function RegExpFilter(text, regexpSource, contentType, matchCase, domains, third
     this.__defineGetter__("regexp", this._generateRegExp);
   }
 }
+exports.RegExpFilter = RegExpFilter;
+
 RegExpFilter.prototype =
 {
   __proto__: ActiveFilter.prototype,
@@ -688,6 +689,8 @@ function BlockingFilter(text, regexpSource, contentType, matchCase, domains, thi
 
   this.collapse = collapse;
 }
+exports.BlockingFilter = BlockingFilter;
+
 BlockingFilter.prototype =
 {
   __proto__: RegExpFilter.prototype,
@@ -718,6 +721,8 @@ function WhitelistFilter(text, regexpSource, contentType, matchCase, domains, th
   if (siteKeys != null)
     this.siteKeys = siteKeys;
 }
+exports.WhitelistFilter = WhitelistFilter;
+
 WhitelistFilter.prototype =
 {
   __proto__: RegExpFilter.prototype,
@@ -745,6 +750,8 @@ function ElemHideFilter(text, domains, selector)
     this.selectorDomain = domains.replace(/,~[^,]+/g, "").replace(/^~[^,]+,?/, "").toLowerCase();
   this.selector = selector;
 }
+exports.ElemHideFilter = ElemHideFilter;
+
 ElemHideFilter.prototype =
 {
   __proto__: ActiveFilter.prototype,
@@ -796,7 +803,10 @@ ElemHideFilter.fromText = function(text, domain, tagName, attrRules, selector)
         }
         else {
           if (id)
+          {
+            let {Utils} = require("utils");
             return new InvalidFilter(text, Utils.getString("filter_elemhide_duplicate_id"));
+          }
           else
             id = rule;
         }
@@ -808,7 +818,10 @@ ElemHideFilter.fromText = function(text, domain, tagName, attrRules, selector)
     else if (tagName || additional)
       selector = tagName + additional;
     else
+    {
+      let {Utils} = require("utils");
       return new InvalidFilter(text, Utils.getString("filter_elemhide_nocriteria"));
+    }
   }
   return new ElemHideFilter(text, domain, selector);
 }

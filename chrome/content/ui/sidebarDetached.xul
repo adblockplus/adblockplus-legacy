@@ -24,13 +24,13 @@
           .allowSubframes = true;
   </script>
 
-  <keyset id="detached-keyset">
-    <key keycode="VK_ESCAPE" command="abp-command-sidebar"/> 
-    <key modifiers="accel" key="w" command="abp-command-sidebar"/> 
+  <keyset>
+    <key keycode="VK_ESCAPE" command="command-close"/>
+    <key modifiers="accel" key="w" command="command-close"/>
   </keyset>
 
-  <commandset id="detached-commandset">
-    <command id="abp-command-sidebar" oncommand="document.getElementById('sidebarFrame').contentWindow.doClose()"/>
+  <commandset>
+    <command id="command-close" oncommand="document.getElementById('sidebarFrame').contentWindow.doClose()"/>
   </commandset>
 
   <iframe src="sidebar.xul" id="sidebarFrame" flex="1"/>

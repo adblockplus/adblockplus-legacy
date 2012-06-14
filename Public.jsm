@@ -15,11 +15,19 @@ const Ci = Components.interfaces;
 const Cr = Components.results;
 const Cu = Components.utils;
 
-let baseURL = "chrome://adblockplus-modules/content/";
-Cu.import(baseURL + "Utils.jsm");
-Cu.import(baseURL + "FilterStorage.jsm");
-Cu.import(baseURL + "FilterClasses.jsm");
-Cu.import(baseURL + "SubscriptionClasses.jsm");
+Cu.import("resource://gre/modules/Services.jsm");
+
+function require(module)
+{
+  let result = {};
+  result.wrappedJSObject = result;
+  Services.obs.notifyObservers(result, "adblockplus-require", module);
+  return result.exports;
+}
+
+let {FilterStorage} = require("filterStorage");
+let {Filter} = require("filterClasses");
+let {Subscription, SpecialSubscription, RegularSubscription, DownloadableSubscription, ExternalSubscription} = require("subscriptionClasses");
 
 const externalPrefix = "~external~";
 
@@ -67,8 +75,8 @@ var AdblockPlus =
   {
     if (id.substr(0, externalPrefix.length) != externalPrefix)
       id = externalPrefix + id;
-    let subscription = Subscription.fromURL(id);
-    if (!subscription)
+    let subscription = Subscription.knownSubscriptions[id];
+    if (typeof subscription == "undefined")
       subscription = new ExternalSubscription(id, title);
 
     subscription.lastDownload = parseInt(new Date().getTime() / 1000);
@@ -140,7 +148,7 @@ var AdblockPlus =
    */
   getInstalledVersion: function() /**String*/
   {
-    return Utils.addonVersion;
+    return require("info").addonVersion;
   },
 
   /**
@@ -148,7 +156,7 @@ var AdblockPlus =
    */
   getInstalledBuild: function() /**String*/
   {
-    return Utils.addonBuild;
+    return "";
   },
 };
 

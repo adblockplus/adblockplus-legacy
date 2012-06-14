@@ -50,7 +50,7 @@
     </xbl:binding>
   </xbl:bindings>
 
-  <label id="privacyLink" class="text-link" value="&privacyPolicy.label;" onclick="Utils.loadDocLink('reporter_privacy');"/>
+  <label id="privacyLink" class="text-link" value="&privacyPolicy.label;" onclick="UI.loadDocLink('reporter_privacy');"/>
 </box>
 
 <wizardpage id="dataCollectorPage" pageid="dataCollector" next="typeSelector" label="&dataCollector.heading;" onpageshow="initDataCollectorPage();">
@@ -104,13 +104,13 @@
   <vbox id="outdatedSubscriptions">
     <description>&outdatedSubscriptions.description;</description>
 
-    <description id="outdatedSubscriptionTemplate" class="text-link" onclick="Utils.loadInBrowser(this.getAttribute('_url'));"/>
+    <description id="outdatedSubscriptionTemplate" class="text-link" onclick="UI.loadInBrowser(this.getAttribute('_url'));"/>
 
     <vbox id="outdatedSubscriptionsList"/>
 
     <hbox>
       <button label="&update.start.label;" oncommand="subscriptionUpdateDataSource.updateOutdated();window.close();"/>
-      <button label="&issues.openPreferences.label;" oncommand="Utils.openFiltersDialog();window.close();"/>
+      <button label="&issues.openPreferences.label;" oncommand="UI.openFiltersDialog();window.close();"/>
     </hbox>
   </vbox>
 </wizardpage>
@@ -143,7 +143,7 @@
     <groupbox id="issuesSubscriptionCountBox" hidden="true">
       <description>&issues.subscriptionCount.description;</description>
       <hbox pack="end">
-        <button label="&issues.openPreferences.label;" oncommand="Utils.openFiltersDialog();window.close();"/>
+        <button label="&issues.openPreferences.label;" oncommand="UI.openFiltersDialog();window.close();"/>
       </hbox>
     </groupbox>
     <groupbox id="issuesOwnFiltersBox" hidden="true">
@@ -179,7 +179,7 @@
 <wizardpage id="typeWarningPage" pageid="typeWarning" next="screenshot" onpageshow="initTypeWarningPage();">
   <description id="typeWarningText">
     &typeWarning.description;
-    <label id="typeWarningTextLink" class="text-link" onclick="Utils.loadDocLink('reporter_other_link');"/>
+    <label id="typeWarningTextLink" class="text-link" onclick="UI.loadDocLink('reporter_other_link');"/>
   </description>
 
   <checkbox id="typeWarningOverride" label="&typeWarning.override.label;" accesskey="&typeWarning.override.accesskey;" oncommand="updateTypeWarningOverride();"/>
@@ -228,7 +228,7 @@
 
   <vbox id="sendReportErrorBox" align="end" hidden="true">
     <description id="sendReportError" textTemplate="&sendPage.errorMessage;" defaultError="&subscription.lastDownload.connectionError;">
-      <label id="sendReportErrorLinks" class="text-link" onclick="Utils.loadDocLink('reporter_connect_issue');"/>
+      <label id="sendReportErrorLinks" class="text-link" onclick="UI.loadDocLink('reporter_connect_issue');"/>
     </description>
     <button id="sendRetryButton" label="&sendPage.retry.label;" oncommand="initSendPage();"/>
   </vbox>

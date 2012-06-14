@@ -8,24 +8,6 @@
  * @fileOverview Code responsible for showing and hiding object tabs.
  */
 
-var EXPORTED_SYMBOLS = ["objectMouseEventHander"];
-
-const Cc = Components.classes;
-const Ci = Components.interfaces;
-const Cr = Components.results;
-const Cu = Components.utils;
-
-let baseURL = "chrome://adblockplus-modules/content/";
-Cu.import(baseURL + "Utils.jsm");
-Cu.import(baseURL + "Prefs.jsm");
-Cu.import(baseURL + "RequestNotifier.jsm");
-
-// Run asynchronously to prevent cyclic module loads
-Utils.runAsync(function()
-{
-  Cu.import(baseURL + "ContentPolicy.jsm");
-});
-
 /**
  * Class responsible for showing and hiding object tabs.
  * @class
@@ -127,8 +109,13 @@ var objTabs =
     {
       this.initializing = true;
 
-      function processCSSData(data)
+      function processCSSData(request)
       {
+        if (onShutdown.done)
+          return;
+
+        let data = request.responseText;
+
         let rnd = [];
         let offset = "a".charCodeAt(0);
         for (let i = 0; i < 60; i++)
@@ -138,10 +125,15 @@ var objTabs =
         this.objTabClassVisibleBottom = String.fromCharCode.apply(String, rnd.slice(20, 40));
         this.objTabClassHidden = String.fromCharCode.apply(String, rnd.slice(40, 60));
 
+        let {Utils} = require("utils");
         let url = Utils.makeURI("data:text/css," + encodeURIComponent(data.replace(/%%CLASSVISIBLETOP%%/g, this.objTabClassVisibleTop)
                                                                           .replace(/%%CLASSVISIBLEBOTTOM%%/g, this.objTabClassVisibleBottom)
                                                                           .replace(/%%CLASSHIDDEN%%/g, this.objTabClassHidden)));
         Utils.styleService.loadAndRegisterSheet(url, Ci.nsIStyleSheetService.USER_SHEET);
+        onShutdown.add(function()
+        {
+          Utils.styleService.unregisterSheet(url, Ci.nsIStyleSheetService.USER_SHEET);
+        });
 
         this.initializing = false;
         this.initialized = true;
@@ -153,14 +145,11 @@ var objTabs =
       // Load CSS asynchronously
       try {
         let request = Cc["@mozilla.org/xmlextras/xmlhttprequest;1"].createInstance(Ci.nsIXMLHttpRequest);
+        request.mozBackgroundRequest = true;
         request.open("GET", "chrome://adblockplus/content/objtabs.css");
         request.overrideMimeType("text/plain");
 
-        let me = this;
-        request.addEventListener("load", function()
-        {
-          processCSSData.call(me, request.responseText);
-        }, false);
+        request.addEventListener("load", processCSSData.bind(this, request), false);
         request.send(null);
       }
       catch (e)
@@ -176,6 +165,12 @@ var objTabs =
    */
   showTabFor: function(/**Element*/ element)
   {
+    // Object tabs aren't usable in Fennec
+    let {application} = require("info");
+    if (application == "fennec" || application == "fennec2")
+      return;
+
+    let {Prefs} = require("prefs");
     if (!Prefs.frameobjects)
       return;
 
@@ -192,39 +187,17 @@ var objTabs =
     {
       this._hideTab();
 
+      let {Policy} = require("contentPolicy");
+      let {RequestNotifier} = require("requestNotifier");
       let data = RequestNotifier.getDataForNode(element, true, Policy.type.OBJECT);
       if (data)
       {
-        let hooks = this.getHooksForElement(element);
-        if (hooks)
-        {
-          if (this.initialized)
-            this._showTab(hooks, element, data[1]);
-          else
-            this._initCSS(hooks, element, data[1]);
-        }
+        if (this.initialized)
+          this._showTab(element, data[1]);
+        else
+          this._initCSS(element, data[1]);
       }
     }
-  },
-
-  /**
-   * Looks up the chrome window containing an element and returns abp-hooks
-   * element for this window if any.
-   */
-  getHooksForElement: function(/**Element*/ element) /**Element*/
-  {
-    let doc = element.ownerDocument.defaultView
-                     .QueryInterface(Ci.nsIInterfaceRequestor)
-                     .getInterface(Ci.nsIWebNavigation)
-                     .QueryInterface(Ci.nsIDocShellTreeItem)
-                     .rootTreeItem
-                     .QueryInterface(Ci.nsIInterfaceRequestor)
-                     .getInterface(Ci.nsIDOMWindow)
-                     .document;
-    let hooks = doc.getElementById("abp-hooks");
-    if (hooks && hooks.wrappedJSObject)
-      hooks = hooks.wrappedJSObject;
-    return hooks;
   },
 
   /**
@@ -243,18 +216,21 @@ var objTabs =
   /**
    * Makes the tab element visible.
    */
-  _showTab: function(/**Element*/ hooks, /**Element*/ element, /**RequestEntry*/ data)
+  _showTab: function(/**Element*/ element, /**RequestEntry*/ data)
   {
+    let {UI} = require("ui");
+    if (!UI.overlay)
+      return;
+
     let doc = element.ownerDocument.defaultView.top.document;
 
     this.objtabElement = doc.createElementNS("http://www.w3.org/1999/xhtml", "a");
-    this.objtabElement.textContent = hooks.getAttribute("objtabtext");
-    this.objtabElement.setAttribute("title", hooks.getAttribute("objtabtooltip"));
+    this.objtabElement.textContent = UI.overlay.attributes.objtabtext;
+    this.objtabElement.setAttribute("title", UI.overlay.attributes.objtabtooltip);
     this.objtabElement.setAttribute("href", data.location);
     this.objtabElement.setAttribute("class", this.objTabClassHidden);
     this.objtabElement.style.setProperty("opacity", "1", "important");
     this.objtabElement.nodeData = data;
-    this.objtabElement.hooks = hooks;
 
     this.currentElement = element;
 
@@ -421,10 +397,10 @@ var objTabs =
 
   doBlock: function()
   {
-    Cu.import(baseURL + "AppIntegration.jsm");
-    let wrapper = AppIntegration.getWrapperForWindow(this.objtabElement.hooks.ownerDocument.defaultView);
-    if (wrapper)
-      wrapper.blockItem(this.currentElement, this.objtabElement.nodeData);
+    let {UI} = require("ui");
+    let {Utils} = require("utils");
+    let chromeWindow = Utils.getChromeWindow(this.currentElement.ownerDocument.defaultView);
+    UI.blockItem(chromeWindow, this.currentElement, this.objtabElement.nodeData);
   },
 
   /**
@@ -448,6 +424,8 @@ var objTabs =
     }
   }
 };
+
+onShutdown.add(objTabs._hideTab.bind(objTabs));
 
 /**
  * Function called whenever the mouse enters or leaves an object.
@@ -481,7 +459,7 @@ function objectWindowEventHandler(/**Event*/ event)
  */
 function objectTabEventHander(/**Event*/ event)
 {
-  if (!event.isTrusted)
+  if (onShutdown.done || !event.isTrusted)
     return;
 
   if (event.type == "click" && event.button == 0)
@@ -496,3 +474,4 @@ function objectTabEventHander(/**Event*/ event)
   else if (event.type == "mouseout")
     objTabs.hideTabFor(objTabs.currentElement);
 }
+exports.objectMouseEventHander = objectMouseEventHander;

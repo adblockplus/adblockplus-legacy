@@ -8,17 +8,10 @@
  * @fileOverview Definition of Subscription class and its subclasses.
  */
 
-var EXPORTED_SYMBOLS = ["Subscription", "SpecialSubscription", "RegularSubscription", "ExternalSubscription", "DownloadableSubscription"];
+Cu.import("resource://gre/modules/Services.jsm");
 
-const Cc = Components.classes;
-const Ci = Components.interfaces;
-const Cr = Components.results;
-const Cu = Components.utils;
-
-let baseURL = "chrome://adblockplus-modules/content/";
-Cu.import(baseURL + "Utils.jsm");
-Cu.import(baseURL + "FilterClasses.jsm");
-Cu.import(baseURL + "FilterNotifier.jsm");
+let {ActiveFilter, BlockingFilter, WhitelistFilter, ElemHideFilter} = require("filterClasses");
+let {FilterNotifier} = require("filterNotifier");
 
 /**
  * Abstract base class for filter subscriptions
@@ -31,9 +24,17 @@ function Subscription(url, title)
 {
   this.url = url;
   this.filters = [];
-  this._title = title || Utils.getString("newGroup_title");
+  if (title)
+    this._title = title;
+  else
+  {
+    let {Utils} = require("utils");
+    this._title = Utils.getString("newGroup_title");
+  }
   Subscription.knownSubscriptions[url] = this;
 }
+exports.Subscription = Subscription;
+
 Subscription.prototype =
 {
   /**
@@ -148,7 +149,7 @@ Subscription.fromURL = function(url)
   try
   {
     // Test URL for validity
-    url = Utils.ioService.newURI(url, null, null).spec;
+    url = Services.io.newURI(url, null, null).spec;
     return new DownloadableSubscription(url, null);
   }
   catch (e)
@@ -168,7 +169,7 @@ Subscription.fromObject = function(obj)
   let result;
   try
   {
-    obj.url = Utils.ioService.newURI(obj.url, null, null).spec;
+    obj.url = Services.io.newURI(obj.url, null, null).spec;
 
     // URL is valid - this is a downloadable subscription
     result = new DownloadableSubscription(obj.url, obj.title);
@@ -190,8 +191,9 @@ Subscription.fromObject = function(obj)
       result._errors = parseInt(obj.errors) || 0;
     if ("requiredVersion" in obj)
     {
+      let {addonVersion} = require("info");
       result.requiredVersion = obj.requiredVersion;
-      if (Utils.versionComparator.compare(result.requiredVersion, Utils.addonVersion) > 0)
+      if (Services.vc.compare(result.requiredVersion, addonVersion) > 0)
         result.upgradeRequired = true;
     }
     if ("alternativeLocations" in obj)
@@ -215,7 +217,10 @@ Subscription.fromObject = function(obj)
       else if (obj.url == "~eh~")
         obj.defaults = "elemhide";
       if ("defaults" in obj)
+      {
+        let {Utils} = require("utils");
         obj.title = Utils.getString(obj.defaults + "Group_title");
+      }
     }
     result = new SpecialSubscription(obj.url, obj.title);
     if ("defaults" in obj)
@@ -240,6 +245,8 @@ function SpecialSubscription(url, title)
 {
   Subscription.call(this, url, title);
 }
+exports.SpecialSubscription = SpecialSubscription;
+
 SpecialSubscription.prototype =
 {
   __proto__: Subscription.prototype,
@@ -322,6 +329,8 @@ SpecialSubscription.createForFilter = function(/**Filter*/ filter) /**SpecialSub
   }
   if (!subscription.defaults)
     subscription.defaults = ["blocking"];
+
+  let {Utils} = require("utils");
   subscription.title = Utils.getString(subscription.defaults[0] + "Group_title");
   return subscription;
 };
@@ -337,6 +346,8 @@ function RegularSubscription(url, title)
 {
   Subscription.call(this, url, title || url);
 }
+exports.RegularSubscription = RegularSubscription;
+
 RegularSubscription.prototype =
 {
   __proto__: Subscription.prototype,
@@ -400,6 +411,8 @@ function ExternalSubscription(url, title)
 {
   RegularSubscription.call(this, url, title);
 }
+exports.ExternalSubscription = ExternalSubscription;
+
 ExternalSubscription.prototype =
 {
   __proto__: RegularSubscription.prototype,
@@ -424,6 +437,8 @@ function DownloadableSubscription(url, title)
 {
   RegularSubscription.call(this, url, title);
 }
+exports.DownloadableSubscription = DownloadableSubscription;
+
 DownloadableSubscription.prototype =
 {
   __proto__: RegularSubscription.prototype,

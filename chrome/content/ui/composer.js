@@ -379,8 +379,9 @@ function disableElement(element, disable, valueProperty, disabledValue) {
   }
 }
 
-function openPreferences() {
-  Utils.openFiltersDialog(Filter.fromText(E("filter").value));
+function openPreferences()
+{
+  UI.openFiltersDialog(Filter.fromText(E("filter").value));
 }
 
 function doEnable() {

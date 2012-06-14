@@ -8,24 +8,17 @@
  * @fileOverview Content policy implementation, responsible for blocking things.
  */
 
-var EXPORTED_SYMBOLS = ["Policy"];
-
-const Cc = Components.classes;
-const Ci = Components.interfaces;
-const Cr = Components.results;
-const Cu = Components.utils;
-
-let baseURL = "chrome://adblockplus-modules/content/";
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 Cu.import("resource://gre/modules/Services.jsm");
-Cu.import(baseURL + "TimeLine.jsm");
-Cu.import(baseURL + "Utils.jsm");
-Cu.import(baseURL + "Prefs.jsm");
-Cu.import(baseURL + "FilterStorage.jsm");
-Cu.import(baseURL + "FilterClasses.jsm");
-Cu.import(baseURL + "Matcher.jsm");
-Cu.import(baseURL + "ObjectTabs.jsm");
-Cu.import(baseURL + "RequestNotifier.jsm");
+
+let {TimeLine} = require("timeline");
+let {Utils} = require("utils");
+let {Prefs} = require("prefs");
+let {FilterStorage} = require("filterStorage");
+let {BlockingFilter, WhitelistFilter} = require("filterClasses");
+let {defaultMatcher} = require("matcher");
+let {objectMouseEventHander} = require("objectTabs");
+let {RequestNotifier} = require("requestNotifier");
 
 /**
  * List of explicitly supported content types
@@ -40,10 +33,15 @@ const contentTypes = ["OTHER", "SCRIPT", "IMAGE", "STYLESHEET", "OBJECT", "SUBDO
 const nonVisualTypes = ["SCRIPT", "STYLESHEET", "XMLHTTPREQUEST", "OBJECT_SUBREQUEST", "FONT"];
 
 /**
+ * Randomly generated class name, to be applied to collapsed nodes.
+ */
+let collapsedClass = "";
+
+/**
  * Public policy checking functions and auxiliary objects
  * @class
  */
-var Policy =
+let Policy = exports.Policy =
 {
   /**
    * Map of content type identifiers by their name.
@@ -76,84 +74,61 @@ var Policy =
   whitelistSchemes: {},
 
   /**
-   * Called on module startup.
+   * Called on module startup, initializes various exported properties.
    */
-  startup: function()
+  init: function()
   {
-    TimeLine.enter("Entered ContentPolicy.startup()");
-  
+    TimeLine.enter("Entered content policy initialization");
+
     // type constant by type description and type description by type constant
-    var iface = Ci.nsIContentPolicy;
+    let iface = Ci.nsIContentPolicy;
     for each (let typeName in contentTypes)
     {
       if ("TYPE_" + typeName in iface)
       {
         let id = iface["TYPE_" + typeName];
-        Policy.type[typeName] = id;
-        Policy.typeDescr[id] = typeName;
-        Policy.localizedDescr[id] = Utils.getString("type_label_" + typeName.toLowerCase());
+        this.type[typeName] = id;
+        this.typeDescr[id] = typeName;
+        this.localizedDescr[id] = Utils.getString("type_label_" + typeName.toLowerCase());
       }
     }
-  
-    Policy.type.ELEMHIDE = 0xFFFD;
-    Policy.typeDescr[0xFFFD] = "ELEMHIDE";
-    Policy.localizedDescr[0xFFFD] = Utils.getString("type_label_elemhide");
-  
-    Policy.type.POPUP = 0xFFFE;
-    Policy.typeDescr[0xFFFE] = "POPUP";
-    Policy.localizedDescr[0xFFFE] = Utils.getString("type_label_popup");
+
+    this.type.ELEMHIDE = 0xFFFD;
+    this.typeDescr[0xFFFD] = "ELEMHIDE";
+    this.localizedDescr[0xFFFD] = Utils.getString("type_label_elemhide");
+
+    this.type.POPUP = 0xFFFE;
+    this.typeDescr[0xFFFE] = "POPUP";
+    this.localizedDescr[0xFFFE] = Utils.getString("type_label_popup");
 
     for each (let type in nonVisualTypes)
-      Policy.nonVisual[Policy.type[type]] = true;
-  
+      this.nonVisual[this.type[type]] = true;
+
     // whitelisted URL schemes
-    for each (var scheme in Prefs.whitelistschemes.toLowerCase().split(" "))
-      Policy.whitelistSchemes[scheme] = true;
-  
+    for each (let scheme in Prefs.whitelistschemes.toLowerCase().split(" "))
+      this.whitelistSchemes[scheme] = true;
+
     TimeLine.log("done initializing types");
-  
+
     // Generate class identifier used to collapse node and register corresponding
     // stylesheet.
     TimeLine.log("registering global stylesheet");
-  
+
     let offset = "a".charCodeAt(0);
-    Utils.collapsedClass = "";
     for (let i = 0; i < 20; i++)
-      Utils.collapsedClass +=  String.fromCharCode(offset + Math.random() * 26);
-  
-    let collapseStyle = Utils.makeURI("data:text/css," +
-                                      encodeURIComponent("." + Utils.collapsedClass +
-                                      "{-moz-binding: url(chrome://global/content/bindings/general.xml#foobarbazdummy) !important;}"));
+      collapsedClass +=  String.fromCharCode(offset + Math.random() * 26);
+
+    let collapseStyle = Services.io.newURI("data:text/css," +
+        encodeURIComponent("." + collapsedClass +
+        "{-moz-binding: url(chrome://global/content/bindings/general.xml#foobarbazdummy) !important;}"), null, null);
     Utils.styleService.loadAndRegisterSheet(collapseStyle, Ci.nsIStyleSheetService.USER_SHEET);
+    onShutdown.add(function()
+    {
+      Utils.styleService.unregisterSheet(collapseStyle, Ci.nsIStyleSheetService.USER_SHEET);
+    })
     TimeLine.log("done registering stylesheet");
-  
-    // Register our content policy
-    TimeLine.log("registering component");
-  
-    let registrar = Components.manager.QueryInterface(Ci.nsIComponentRegistrar);
-    try
-    {
-      registrar.registerFactory(PolicyPrivate.classID, PolicyPrivate.classDescription, PolicyPrivate.contractID, PolicyPrivate);
-    }
-    catch (e)
-    {
-      // Don't stop on errors - the factory might already be registered
-      Cu.reportError(e);
-    }
-  
-    let catMan = Utils.categoryManager;
-    for each (let category in PolicyPrivate.xpcom_categories)
-      catMan.addCategoryEntry(category, PolicyPrivate.classDescription, PolicyPrivate.contractID, false, true);
 
-    Services.obs.addObserver(PolicyPrivate, "http-on-modify-request", true);
-    Services.obs.addObserver(PolicyPrivate, "content-document-global-created", true);
-
-    TimeLine.leave("ContentPolicy.startup() done");
-  },
-
-  shutdown: function()
-  {
-    PolicyPrivate.previousRequest = null;
+    TimeLine.leave("Done initializing content policy");
   },
 
   /**
@@ -195,7 +170,7 @@ var Policy =
             if (keyMatch && Utils.crypto)
             {
               // Website specifies a key that we know but is the signature valid?
-              let uri = Utils.makeURI(testWndLocation);
+              let uri = Services.io.newURI(testWndLocation, null, null);
               let params = [
                 uri.path.replace(/#.*/, ""),  // REQUEST_URI
                 uri.asciiHost,                // HTTP_HOST
@@ -270,7 +245,7 @@ var Policy =
       {
         let prefCollapse = (match.collapse != null ? match.collapse : !Prefs.fastcollapse);
         if (collapse || prefCollapse)
-          Utils.schedulePostProcess(node);
+          schedulePostProcess(node);
       }
 
       // Track mouse events for objects
@@ -351,17 +326,51 @@ var Policy =
       Utils.runAsync(refilterNode, this, node, entry);
   }
 };
+Policy.init();
 
 /**
- * Private nsIContentPolicy and nsIChannelEventSink implementation
+ * Actual nsIContentPolicy and nsIChannelEventSink implementation
  * @class
  */
-var PolicyPrivate =
+let PolicyImplementation =
 {
   classDescription: "Adblock Plus content policy",
   classID: Components.ID("cfeaabe6-1dd1-11b2-a0c6-cb5c268894c9"),
   contractID: "@adblockplus.org/abp/policy;1",
   xpcom_categories: ["content-policy", "net-channel-event-sinks"],
+
+  /**
+   * Registers the content policy on startup.
+   */
+  init: function()
+  {
+    let registrar = Components.manager.QueryInterface(Ci.nsIComponentRegistrar);
+    registrar.registerFactory(this.classID, this.classDescription, this.contractID, this);
+
+    let catMan = Utils.categoryManager;
+    for each (let category in this.xpcom_categories)
+      catMan.addCategoryEntry(category, this.contractID, this.contractID, false, true);
+
+    Services.obs.addObserver(this, "http-on-modify-request", true);
+    Services.obs.addObserver(this, "content-document-global-created", true);
+
+    onShutdown.add(function()
+    {
+      for each (let category in this.xpcom_categories)
+        catMan.deleteCategoryEntry(category, this.contractID, false);
+
+      // This needs to run asynchronously, see bug 753687
+      Utils.runAsync(function()
+      {
+        registrar.unregisterFactory(this.classID, this);
+      }.bind(this));
+
+      Services.obs.removeObserver(this, "http-on-modify-request");
+      Services.obs.removeObserver(this, "content-document-global-created");
+
+      this.previousRequest = null;
+    }.bind(this));
+  },
 
   //
   // nsISupports interface implementation
@@ -403,7 +412,7 @@ var PolicyPrivate =
       // We didn't block this request so we will probably see it again in
       // http-on-modify-request. Keep it so that we can associate it with the
       // channel there - will be needed in case of redirect.
-      PolicyPrivate.previousRequest = [location, contentType];
+      this.previousRequest = [location, contentType];
     }
     return (result ? Ci.nsIContentPolicy.ACCEPT : Ci.nsIContentPolicy.REJECT_REQUEST);
   },
@@ -436,10 +445,10 @@ var PolicyPrivate =
           // An about:blank pop-up most likely means that a load will be
           // initiated synchronously. Set a flag for our "http-on-modify-request"
           // handler.
-          PolicyPrivate.expectingPopupLoad = true;
+          this.expectingPopupLoad = true;
           Utils.runAsync(function()
           {
-            PolicyPrivate.expectingPopupLoad = false;
+            this.expectingPopupLoad = false;
           });
         }
         break;
@@ -468,20 +477,20 @@ var PolicyPrivate =
           }
         }
 
-        if (PolicyPrivate.previousRequest && subject.URI == PolicyPrivate.previousRequest[0] &&
+        if (this.previousRequest && subject.URI == this.previousRequest[0] &&
             subject instanceof Ci.nsIWritablePropertyBag)
         {
           // We just handled a content policy call for this request - associate
           // the data with the channel so that we can find it in case of a redirect.
-          subject.setProperty("abpRequestType", PolicyPrivate.previousRequest[1]);
-          PolicyPrivate.previousRequest = null;
+          subject.setProperty("abpRequestType", this.previousRequest[1]);
+          this.previousRequest = null;
         }
 
-        if (PolicyPrivate.expectingPopupLoad)
+        if (this.expectingPopupLoad)
         {
           let wnd = Utils.getRequestWindow(subject);
           if (wnd && wnd.opener && wnd.location.href == "about:blank")
-            PolicyPrivate.observe(wnd, "content-document-global-created", null, subject.URI);
+            this.observe(wnd, "content-document-global-created", null, subject.URI);
         }
 
         break;
@@ -550,6 +559,61 @@ var PolicyPrivate =
     return this.QueryInterface(iid);
   }
 };
+PolicyImplementation.init();
+
+/**
+ * Nodes scheduled for post-processing (might be null).
+ * @type Array of Node
+ */
+let scheduledNodes = null;
+
+/**
+ * Schedules a node for post-processing.
+ */
+function schedulePostProcess(/**Element*/ node)
+{
+  if (scheduledNodes)
+    scheduledNodes.push(node);
+  else
+  {
+    scheduledNodes = [node];
+    Utils.runAsync(postProcessNodes);
+  }
+}
+
+/**
+ * Processes nodes scheduled for post-processing (typically hides them).
+ */
+function postProcessNodes()
+{
+  let nodes = scheduledNodes;
+  scheduledNodes = null;
+
+  for each (let node in nodes)
+  {
+    // adjust frameset's cols/rows for frames
+    let parentNode = node.parentNode;
+    if (parentNode && parentNode instanceof Ci.nsIDOMHTMLFrameSetElement)
+    {
+      let hasCols = (parentNode.cols && parentNode.cols.indexOf(",") > 0);
+      let hasRows = (parentNode.rows && parentNode.rows.indexOf(",") > 0);
+      if ((hasCols || hasRows) && !(hasCols && hasRows))
+      {
+        let index = -1;
+        for (let frame = node; frame; frame = frame.previousSibling)
+          if (frame instanceof Ci.nsIDOMHTMLFrameElement || frame instanceof Ci.nsIDOMHTMLFrameSetElement)
+            index++;
+
+        let property = (hasCols ? "cols" : "rows");
+        let weights = parentNode[property].split(",");
+        weights[index] = "0";
+        parentNode[property] = weights.join(",");
+      }
+    }
+    else
+      node.classList.add(collapsedClass);
+  }
+}
 
 /**
  * Extracts the hostname from a URL (might return null).
@@ -603,11 +667,9 @@ function getWindowLocation(wnd)
       }
     } catch(e) {}
   }
-  else
-  {
-    // Firefox branch
-    return wnd.location.href;
-  }
+
+  // Firefox branch
+  return wnd.location.href;
 }
 
 /**

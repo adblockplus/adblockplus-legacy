@@ -5,26 +5,17 @@
  */
 
 /**
- * @fileOverview Module containing a bunch of utility functions.
+ * @fileOverview Firefox Sync integration
  */
-
-var EXPORTED_SYMBOLS = ["Sync"];
-
-const Cc = Components.classes;
-const Ci = Components.interfaces;
-const Cr = Components.results;
-const Cu = Components.utils;
 
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 Cu.import("resource://gre/modules/Services.jsm");
 
-let baseURL = "chrome://adblockplus-modules/content/";
-Cu.import(baseURL + "Utils.jsm");
-Cu.import(baseURL + "FilterStorage.jsm");
-Cu.import(baseURL + "SubscriptionClasses.jsm");
-Cu.import(baseURL + "FilterClasses.jsm");
-Cu.import(baseURL + "FilterNotifier.jsm");
-Cu.import(baseURL + "Synchronizer.jsm");
+let {FilterStorage} = require("filterStorage");
+let {FilterNotifier} = require("filterNotifier");
+let {Synchronizer} = require("synchronizer");
+let {Subscription, SpecialSubscription, DownloadableSubscription, ExternalSubscription} = require("subscriptionClasses");
+let {Filter, ActiveFilter} = require("filterClasses");
 
 /**
  * ID of the only record stored
@@ -35,9 +26,9 @@ const filtersRecordID = "6fad6286-8207-46b6-aa39-8e0ce0bd7c49";
 /**
  * Weave tracker class (is set when Weave is initialized).
  */
-var Tracker = null;
+let Tracker = null;
 
-var Sync =
+let Sync = exports.Sync =
 {
   /**
    * Will be set to true if/when Weave starts up.
@@ -52,16 +43,6 @@ var Sync =
   trackingEnabled: false,
 
   /**
-   * Called on module startup.
-   */
-  startup: function()
-  {
-    Services.obs.addObserver(SyncPrivate, "weave:service:ready", true);
-    Services.obs.addObserver(SyncPrivate, "weave:engine:start-tracking", true);
-    Services.obs.addObserver(SyncPrivate, "weave:engine:stop-tracking", true);
-  },
-
-  /**
    * Returns Adblock Plus sync engine.
    * @result Engine
    */
@@ -74,23 +55,67 @@ var Sync =
   }
 };
 
-var SyncPrivate =
+/**
+ * Listens to notifications from Sync service.
+ */
+let SyncServiceObserver =
 {
-  QueryInterface: XPCOMUtils.generateQI([Ci.nsIObserver, Ci.nsISupportsWeakReference]),
+  init: function()
+  {
+    try
+    {
+      let {Status, STATUS_DISABLED, CLIENT_NOT_CONFIGURED} = Cu.import("resource://services-sync/status.js", null);
+      Sync.initialized = Status.ready;
+      Sync.trackingEnabled = (Status.service != STATUS_DISABLED && Status.service != CLIENT_NOT_CONFIGURED);
+    }
+    catch (e)
+    {
+      return;
+    }
+
+    if (Sync.initialized)
+      this.initEngine();
+    else
+      Services.obs.addObserver(this, "weave:service:ready", true);
+    Services.obs.addObserver(this, "weave:engine:start-tracking", true);
+    Services.obs.addObserver(this, "weave:engine:stop-tracking", true);
+
+    onShutdown.add(function()
+    {
+      try
+      {
+        Services.obs.removeObserver(this, "weave:service:ready");
+      } catch (e) {}
+      Services.obs.removeObserver(this, "weave:engine:start-tracking");
+      Services.obs.removeObserver(this, "weave:engine:stop-tracking");
+    }.bind(this));
+  },
+
+  initEngine: function()
+  {
+    Cu.import("resource://services-sync/main.js");
+
+    Tracker = Weave.SyncEngine.prototype._trackerObj;
+    ABPEngine.prototype.__proto__ = Weave.SyncEngine.prototype;
+    ABPStore.prototype.__proto__ = Weave.Store.prototype;
+    ABPTracker.prototype.__proto__ = Tracker.prototype;
+
+    Weave.Engines.register(ABPEngine);
+    onShutdown.add(function()
+    {
+      Weave.Engines.unregister("adblockplus");
+    });
+  },
 
   observe: function(subject, topic, data)
   {
     switch (topic)
     {
       case "weave:service:ready":
-        Cu.import("resource://services-sync/main.js");
+        if (Sync.initialized)
+          return;
 
-        Tracker = Weave.SyncEngine.prototype._trackerObj;
-        ABPEngine.prototype.__proto__ = Weave.SyncEngine.prototype;
-        ABPStore.prototype.__proto__ = Weave.Store.prototype;
-        ABPTracker.prototype.__proto__ = Tracker.prototype;
-
-        Weave.Engines.register(ABPEngine);
+        this.initEngine();
         Sync.initialized = true;
         break;
       case "weave:engine:start-tracking":
@@ -104,8 +129,11 @@ var SyncPrivate =
           trackerInstance.stopTracking();
         break;
     }
-  }
+  },
+
+  QueryInterface: XPCOMUtils.generateQI([Ci.nsIObserver, Ci.nsISupportsWeakReference]),
 };
+SyncServiceObserver.init();
 
 function ABPEngine()
 {

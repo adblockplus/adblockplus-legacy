@@ -4,53 +4,14 @@
  * http://mozilla.org/MPL/2.0/.
  */
 
-try
-{
-  Cu.import("resource://gre/modules/AddonManager.jsm");
-}
-catch (e) {}
-
 function init()
 {
-  let ioService = Cc["@mozilla.org/network/io-service;1"].getService(Ci.nsIIOService);
-  if (typeof AddonManager != "undefined")
+  let {AddonManager} = Cu.import("resource://gre/modules/AddonManager.jsm", null);
+  let {addonID} = require("info");
+  AddonManager.getAddonByID(addonID, function(addon)
   {
-    let addon = AddonManager.getAddonByID(Utils.addonID, function(addon)
-    {
-      loadInstallManifest(addon.getResourceURI("install.rdf"), addon.name, addon.homepageURL);
-    });
-  }
-  else if ("@mozilla.org/extensions/manager;1" in Cc)
-  {
-    let extensionManager = Cc["@mozilla.org/extensions/manager;1"].getService(Ci.nsIExtensionManager);
-    let rdf = Cc["@mozilla.org/rdf/rdf-service;1"].getService(Ci.nsIRDFService);
-    let root = rdf.GetResource("urn:mozilla:item:" + Utils.addonID);
-
-    function emResource(prop)
-    {
-      return rdf.GetResource("http://www.mozilla.org/2004/em-rdf#" + prop);
-    }
-  
-    function getTarget(prop)
-    {
-      let target = extensionManager.datasource.GetTarget(root, emResource(prop), true);
-      if (target)
-        return target.QueryInterface(Ci.nsIRDFLiteral).Value;
-      else
-        return null;
-    }
-    
-    let installLocation = extensionManager.getInstallLocation(Utils.addonID);
-    let installManifestFile = installLocation.getItemFile(Utils.addonID, "install.rdf");
-    loadInstallManifest(ioService.newFileURI(installManifestFile), getTarget("name"), getTarget("homepageURL"));
-  }
-  else
-  {
-    // No add-on manager, no extension manager - we must be running in K-Meleon.
-    // Load Manifest.jsm as last solution.
-    Cu.import(baseURL + "Manifest.jsm");
-    setExtensionData(manifest.name, manifest.version, manifest.homepage, [manifest.creator], manifest.contributors, manifest.translators);
-  }
+    loadInstallManifest(addon.getResourceURI("install.rdf"), addon.name, addon.homepageURL);
+  });
 }
 
 function loadInstallManifest(installManifestURI, name, homepage)

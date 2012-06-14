@@ -206,7 +206,7 @@ function setCustomSubscription(title, url, mainSubscriptionTitle, mainSubscripti
     let link = document.createElement("label");
     link.className = "text-link";
     link.setAttribute("tooltiptext", mainSubscriptionURL);
-    link.addEventListener("click", function() Utils.loadInBrowser(mainSubscriptionURL), false);
+    link.addEventListener("click", function() UI.loadInBrowser(mainSubscriptionURL), false);
     link.textContent = mainSubscriptionTitle;
     messageElement.appendChild(link);
     messageElement.appendChild(document.createTextNode(afterLink));

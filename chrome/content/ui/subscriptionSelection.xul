@@ -29,16 +29,16 @@
     <vbox>
       <richlistbox id="all-subscriptions" onselect="onSelectionChange()" flex="1"/>
       <hbox id="subscriptionInfo" invisible="true">
-        <label id="view-list" class="text-link" value="&viewList.label;" onclick="Utils.loadInBrowser(this.getAttribute('_url'))"/>
+        <label id="view-list" class="text-link" value="&viewList.label;" onclick="UI.loadInBrowser(this.getAttribute('_url'))"/>
         <spacer flex="1"/>
-        <label id="visit-homepage" class="text-link" value="&visitHomepage.label;" onclick="Utils.loadInBrowser(this.getAttribute('_url'))"/>
+        <label id="visit-homepage" class="text-link" value="&visitHomepage.label;" onclick="UI.loadInBrowser(this.getAttribute('_url'))"/>
       </hbox>
     </vbox>
     <vbox pack="center" align="center">
       <description value="&list.download.failed;"/>
       <hbox>
         <button label="&list.download.retry;" oncommand="reloadSubscriptionList()"/>
-        <button label="&list.download.website;" oncommand="Utils.loadDocLink('subscriptions')"/>
+        <button label="&list.download.website;" oncommand="UI.loadDocLink('subscriptions')"/>
       </hbox>
     </vbox>
   </deck>

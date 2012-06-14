@@ -8,17 +8,8 @@
  * @fileOverview Stores Adblock Plus data to be attached to a window.
  */
 
-var EXPORTED_SYMBOLS = ["RequestNotifier"];
-
-const Cc = Components.classes;
-const Ci = Components.interfaces;
-const Cr = Components.results;
-const Cu = Components.utils;
-
-let baseURL = "chrome://adblockplus-modules/content/";
-Cu.import(baseURL + "Utils.jsm");
-Cu.import(baseURL + "FilterClasses.jsm");
-Utils.runAsync(Cu.import, Cu, baseURL + "ContentPolicy.jsm");  // delay to avoid circular imports
+let {Utils} = require("utils");
+let {BlockingFilter, WhitelistFilter, ElemHideFilter} = require("filterClasses");
 
 let nodeData = new WeakMap();
 let windowStats = new WeakMap();
@@ -50,6 +41,8 @@ function RequestNotifier(wnd, listener, listenerObj)
   else
     this.scanComplete = true;
 }
+exports.RequestNotifier = RequestNotifier;
+
 RequestNotifier.prototype =
 {
   /**
@@ -317,12 +310,12 @@ RequestEntry.prototype =
    * String representation of the content type, e.g. "subdocument"
    * @type String
    */
-  get typeDescr() Policy.typeDescr[this.type],
+  get typeDescr() require("contentPolicy").Policy.typeDescr[this.type],
   /**
    * User-visible localized representation of the content type, e.g. "frame"
    * @type String
    */
-  get localizedDescr() Policy.localizedDescr[this.type],
+  get localizedDescr() require("contentPolicy").Policy.localizedDescr[this.type],
 
   /**
    * Attaches this request object to a DOM node.

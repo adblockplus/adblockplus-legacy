@@ -5,16 +5,9 @@
  */
 
 /**
- * @fileOverview FilterNotifier class manages listeners and distributes messages
- * about filter changes to them.
+ * @fileOverview This component manages listeners and calls them to distributes
+ * messages about filter changes.
  */
-
-var EXPORTED_SYMBOLS = ["FilterNotifier"];
-
-const Cc = Components.classes;
-const Ci = Components.interfaces;
-const Cr = Components.results;
-const Cu = Components.utils;
 
 /**
  * List of registered listeners
@@ -26,7 +19,7 @@ let listeners = [];
  * This class allows registering and triggering listeners for filter events.
  * @class
  */
-var FilterNotifier =
+let FilterNotifier = exports.FilterNotifier =
 {
   /**
    * Adds a listener
