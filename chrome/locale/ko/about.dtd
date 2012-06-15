@@ -1,8 +1,0 @@
-<!ENTITY dialog.title "애드블록 플러스 정보">
-<!ENTITY version.title "버전">
-<!ENTITY description "애드블록 플러스는 보기 싫은 광고를 차단하여 더욱 빠르고 쾌적한 인터넷을 만들어줍니다. 이 프로젝트의 목적은 나쁜 광고는 차단하고, 좋은 광고는 허용하여 보다 나은 인터넷을 만드는 것입니다.">
-<!ENTITY homepage.label "홈페이지">
-<!ENTITY author.label "개발자">
-<!ENTITY contributors.label "공헌자">
-<!ENTITY subscriptionAuthors.label "구독 필터 유지자">
-<!ENTITY translators.label "번역가">

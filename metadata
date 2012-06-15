@@ -4,7 +4,6 @@ basename=adblockplus
 branchname=ADBLOCK_PLUS
 version=2.1b
 author=Wladimir Palant
-about=chrome://adblockplus/content/ui/about.xul
 options=chrome://adblockplus/content/ui/settings.xul
 optionsType=2
 
@@ -15,6 +14,7 @@ optionsType=2
 4=Fabrice Desré
 5=Hubird
 6=Günther Beyer (opoloo.de)
+additional=chrome/content/ui/subscriptions.xml //subscription/@author
 
 [homepage]
 default=http://adblockplus.org/
