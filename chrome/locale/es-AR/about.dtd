@@ -1,8 +1,0 @@
-<!ENTITY dialog.title "Acerca de Adblock Plus">
-<!ENTITY version.title "Versión">
-<!ENTITY description "Adblock Plus te deja a vos que decidas qué querés ver en la web, y qué no. Basta de soportar esa molesta publicidad. Si no la querés, ¡decíselo a Adblock Plus!">
-<!ENTITY homepage.label "Sitio web oficial de Adblock Plus:">
-<!ENTITY author.label "Autor:">
-<!ENTITY contributors.label "Contribuyentes:">
-<!ENTITY subscriptionAuthors.label "Autores de los filtros de suscripción:">
-<!ENTITY translators.label "Traductores:">

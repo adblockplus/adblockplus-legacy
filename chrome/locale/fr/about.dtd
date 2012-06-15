@@ -1,8 +1,0 @@
-<!ENTITY dialog.title "À propos d'Adblock Plus">
-<!ENTITY version.title "Version">
-<!ENTITY description "Adblock Plus vous permet de décider de ne voir que ce que vous souhaitez voir sur le Web. Vous n'êtes plus obligé de laisser s'afficher des publicités et autres bannières. Si vous n'en voulez plus, activez Adblock Plus !">
-<!ENTITY homepage.label "Page Web :">
-<!ENTITY author.label "Auteur :">
-<!ENTITY contributors.label "Contributeurs :">
-<!ENTITY subscriptionAuthors.label "Auteurs des abonnements aux filtres :">
-<!ENTITY translators.label "Traducteurs :">
