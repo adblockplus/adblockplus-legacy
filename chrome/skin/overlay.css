@@ -15,7 +15,7 @@ toolbar[iconsize="small"] #abp-toolbarbutton,
 #PersonalToolbar #abp-toolbarbutton,
 #header-view-toolbar > #abp-toolbarbutton,
 #abp-status {
-  list-style-image: url("abp-status-16.png");
+  list-style-image: url("chrome://adblockplus/skin/abp-status-16.png");
   -moz-image-region: rect(0px, 16px, 16px, 0px);
 }
 toolbar[iconsize="small"] #abp-toolbarbutton[abpstate="disabled"],
@@ -44,7 +44,7 @@ menuitem[default="true"] {
 
 #abp-toolbarbutton,
 #abp-site-info {
-  list-style-image: url("abp-status.png");
+  list-style-image: url("chrome://adblockplus/skin/abp-status.png");
   -moz-image-region: rect(0px, 24px, 24px, 0px);
 }
 #abp-toolbarbutton[abpstate="disabled"],
