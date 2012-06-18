@@ -281,6 +281,10 @@ var FilterView =
     if (value == this._subscription)
       return;
 
+    // Make sure the editor is done before we update the list.
+    if (this.treeElement)
+      this.treeElement.stopEditing(true);
+
     this._subscription = value;
     this.refresh(true);
   },
