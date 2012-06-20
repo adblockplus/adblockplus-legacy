@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<!-- This Source Code is subject to the terms of the Mozilla Public License
+   - version 2.0 (the "License"). You can obtain a copy of the License at
+   - http://mozilla.org/MPL/2.0/. -->
+
+<overlay id="progressBarOverlay"
+    xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <script type="application/x-javascript;version=1.7" src="progressBar.js"/>
+
+  <hbox id="progressBar" pack="center">
+    <stack flex="1">
+      <canvas xmlns="http://www.w3.org/1999/xhtml" id="progressBarCanvas" width="1" height="1"/>
+    </stack>
+  </hbox>
+</overlay>

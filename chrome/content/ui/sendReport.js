@@ -1090,6 +1090,18 @@ function initWizard()
   E("typeGroup").selectedItem = null;
   document.documentElement.addEventListener("pageshow", updateNextButton, false);
 
+  // Move wizard header
+  let header = document.getAnonymousElementByAttribute(document.documentElement, "class", "wizard-header");
+  if (header)
+  {
+    document.getElementById("wizardHeaderLabel").setAttribute("value", document.documentElement.wizardPages[0].getAttribute("label"));
+    document.documentElement.insertBefore(document.getElementById("wizardHeader"), document.documentElement.firstChild);
+    document.documentElement.addEventListener("pageshow", function()
+    {
+      document.getElementById("wizardHeaderDeck").selectedIndex = (document.documentElement.pageIndex == 0 ? 0 : 1);
+    }, false);
+  }
+
   // Move privacy link
   let extraButton = document.documentElement.getButton("extra1");
   extraButton.parentNode.insertBefore(E("privacyLink"), extraButton);

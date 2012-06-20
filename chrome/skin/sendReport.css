@@ -8,7 +8,13 @@
 
 .wizard-header
 {
-  -moz-binding: url(chrome://adblockplus/content/ui/sendReport.xul#headerBinding) !important;
+  display: none;
+}
+
+#wizardHeader
+{
+  display: -moz-box;
+  -moz-box-ordinal-group: 0;
   padding: 10px 5px !important;
 }
 
