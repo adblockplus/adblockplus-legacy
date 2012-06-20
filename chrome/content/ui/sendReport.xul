@@ -5,8 +5,10 @@
    - http://mozilla.org/MPL/2.0/. -->
 
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
-<?xml-stylesheet href="chrome://global/skin/tree.css" type="text/css"?>
+<?xml-stylesheet href="chrome://global/skin/wizard.css" type="text/css"?>
 <?xml-stylesheet href="chrome://adblockplus/skin/sendReport.css" type="text/css"?>
+
+<?xul-overlay href="progressBar.xul"?>
 
 <!DOCTYPE dialog [
 <!ENTITY % reporterDTD SYSTEM "chrome://adblockplus/locale/sendReport.dtd">
@@ -34,21 +36,17 @@
 </keyset>
 
 <box hidden="true">
-  <xbl:bindings id="headerBindings" xmlns:xbl="http://www.mozilla.org/xbl">
-    <xbl:binding id="headerBinding">
-      <xbl:content orient="vertical">
-        <deck xbl:inherits="selectedIndex=viewIndex">
-          <description class="wizard-header-label" xbl:inherits="value=label"/>
-          <progressbar id="progressBar" style="-moz-binding: url(progressBar.xml#progressBar);">
-            <label id="typeSelectorHeader" class="progressLabel" value="&typeSelector.heading;" crop="end"/>
-            <label id="screenshotHeader" class="progressLabel" value="&screenshot.heading;" crop="end"/>
-            <label id="commentPageHeader" class="progressLabel" value="&commentPage.heading;" crop="end"/>
-            <label id="sendPageHeader" class="progressLabel" value="&sendPage.heading;" crop="end"/>
-          </progressbar>
-        </deck>
-      </xbl:content>
-    </xbl:binding>
-  </xbl:bindings>
+  <vbox id="wizardHeader" class="wizard-header">
+    <deck id="wizardHeaderDeck">
+      <description id="wizardHeaderLabel" class="wizard-header-label"/>
+      <hbox id="progressBar">
+        <label id="typeSelectorHeader" class="progressLabel" value="&typeSelector.heading;" crop="end"/>
+        <label id="screenshotHeader" class="progressLabel" value="&screenshot.heading;" crop="end"/>
+        <label id="commentPageHeader" class="progressLabel" value="&commentPage.heading;" crop="end"/>
+        <label id="sendPageHeader" class="progressLabel" value="&sendPage.heading;" crop="end"/>
+      </hbox>
+    </deck>
+  </vbox>
 
   <label id="privacyLink" class="text-link" value="&privacyPolicy.label;" onclick="UI.loadDocLink('reporter_privacy');"/>
 </box>
