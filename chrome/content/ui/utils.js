@@ -24,7 +24,7 @@ function require(/**String*/ module)
 
 let {Policy} = require("contentPolicy");
 let {Filter, InvalidFilter, CommentFilter, ActiveFilter, RegExpFilter,
-     BlockingFilter, WhitelistFilter, ElemHideFilter} = require("filterClasses");
+     BlockingFilter, WhitelistFilter, ElemHideBase, ElemHideFilter, ElemHideException} = require("filterClasses");
 let {FilterNotifier} = require("filterNotifier");
 let {FilterStorage, PrivateBrowsing} = require("filterStorage");
 let {IO} = require("io");

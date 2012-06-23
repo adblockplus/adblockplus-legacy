@@ -517,7 +517,7 @@ function disableOnSite()
     else
       text += "$domain=~" + domain.toLowerCase();
   }
-  else if (filter instanceof ElemHideFilter)
+  else if (filter instanceof ElemHideBase)
   {
     let match = /^([^#]+)(#.*)/.exec(text);
     if (match)
@@ -748,7 +748,7 @@ var treeView = {
     this.boxObject = boxObject;
     this.itemsDummy = boxObject.treeBody.getAttribute("noitemslabel");
     this.whitelistDummy = boxObject.treeBody.getAttribute("whitelistedlabel");
-    var stringAtoms = ["col-address", "col-type", "col-filter", "col-state", "col-size", "col-docDomain", "col-filterSource", "state-regular", "state-filtered", "state-whitelisted", "state-hidden"];
+    var stringAtoms = ["col-address", "col-type", "col-filter", "col-state", "col-size", "col-docDomain", "col-filterSource", "state-regular", "state-filtered", "state-whitelisted", "state-hidden", "state-hiddenexception"];
     var boolAtoms = ["selected", "dummy", "filter-disabled"];
     var atomService = Cc["@mozilla.org/atom-service;1"].getService(Ci.nsIAtomService);
     this.atoms = {};
@@ -878,6 +878,8 @@ var treeView = {
           state = "state-filtered";
         else if (filter instanceof ElemHideFilter)
           state = "state-hidden";
+        else if (filter instanceof ElemHideException)
+          state = "state-hiddenexception";
       }
     }
     else {

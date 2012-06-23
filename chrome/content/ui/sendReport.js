@@ -155,7 +155,7 @@ let requestsDataSource =
       }
 
       // Location is meaningless for element hiding hits
-      if (entry.filter && entry.filter instanceof ElemHideFilter)
+      if (entry.filter && entry.filter instanceof ElemHideBase)
         delete requestXML.@location;  
         
       if (entry.filter)

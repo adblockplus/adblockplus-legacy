@@ -70,7 +70,8 @@ treechildren::-moz-tree-cell-text(state-filtered, selected-false),
 treechildren::-moz-tree-cell-text(state-hidden, selected-false) {
   color: #C00000;
 }
-treechildren::-moz-tree-cell-text(state-whitelisted, selected-false) {
+treechildren::-moz-tree-cell-text(state-whitelisted, selected-false),
+treechildren::-moz-tree-cell-text(state-hiddenexception, selected-false) {
   color: #008000;
 }
 
@@ -87,7 +88,8 @@ treechildren::-moz-tree-image(col-state, state-filtered, dummy-false),
 treechildren::-moz-tree-image(col-state, state-hidden, dummy-false) {
   -moz-image-region: rect(20px 10px 30px 0px);
 }
-treechildren::-moz-tree-image(col-state, state-whitelisted, dummy-false) {
+treechildren::-moz-tree-image(col-state, state-whitelisted, dummy-false),
+treechildren::-moz-tree-image(col-state, state-hiddenexception, dummy-false) {
   -moz-image-region: rect(30px 10px 40px 0px);
 }
 
