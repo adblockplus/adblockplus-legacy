@@ -144,7 +144,8 @@ tree
 treechildren:-moz-locale-dir(rtl)::-moz-tree-cell(col-filter, type-invalid),
 treechildren:-moz-locale-dir(rtl)::-moz-tree-cell(col-filter, type-whitelist),
 treechildren:-moz-locale-dir(rtl)::-moz-tree-cell(col-filter, type-filterlist),
-treechildren:-moz-locale-dir(rtl)::-moz-tree-cell(col-filter, type-elemhide)
+treechildren:-moz-locale-dir(rtl)::-moz-tree-cell(col-filter, type-elemhide),
+treechildren:-moz-locale-dir(rtl)::-moz-tree-cell(col-filter, type-elemhideexception)
 {
   direction: ltr;
   text-align: end;
@@ -155,7 +156,8 @@ treechildren::-moz-tree-cell-text(col-filter, dummy-true)
   font-style: italic;
 }
 
-treechildren::-moz-tree-cell-text(col-filter, type-whitelist, selected-false)
+treechildren::-moz-tree-cell-text(col-filter, type-whitelist, selected-false),
+treechildren::-moz-tree-cell-text(col-filter, type-elemhideexception, selected-false)
 {
   color: #008000;
 }
