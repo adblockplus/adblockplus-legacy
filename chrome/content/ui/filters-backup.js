@@ -4,6 +4,7 @@
  * http://mozilla.org/MPL/2.0/.
  */
 
+Cu.import("resource://gre/modules/Services.jsm");
 Cu.import("resource://gre/modules/FileUtils.jsm");
 
 /**
@@ -279,7 +280,8 @@ var Backup =
   backupCustomFilters: function(/**nsIFile*/ file)
   {
     let subscriptions = FilterStorage.subscriptions.filter(function(s) s instanceof SpecialSubscription);
-    let list = ["[Adblock Plus 2.0]"];
+    let minVersion = "2.0"
+    let list = [];
     for (let i = 0; i < subscriptions.length; i++)
     {
       let subscription = subscriptions[i];
@@ -297,8 +299,12 @@ var Backup =
         if (filter instanceof CommentFilter && this.GROUPTITLE_REGEXP.test(filter.text))
           continue;
         list.push(filter.text);
+
+        if (filter instanceof ElemHideException && Services.vc.compare(minVersion, "2.1") < 0)
+          minVersion = "2.1";
       }
     }
+    list.unshift("[Adblock Plus " + minVersion + "]");
 
     // Insert checksum. Have to add an empty line to the end of the list to
     // account for the trailing newline in the file.
