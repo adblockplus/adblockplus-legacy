@@ -34,6 +34,7 @@
   <button onclick="clearErrors();">Clear errors</button>
 
   <script type="application/x-javascript;version=1.7">
+    let id = null;
     try {
       function require(module)
       {
@@ -43,11 +44,13 @@
         Services.obs.notifyObservers(result, "adblockplus-require", module);
         return result.exports;
       }
-      let {addonVersion} = require("info");
+      let {addonVersion, addonID} = require("info");
 
       let text = "You are running Adblock Plus " + addonVersion;
       text += ".";
       document.write("<p>" + text + "</p>");
+
+      id = addonID.replace(/[\{\}]/g, "");
     } catch (e) {}
 
     let messages = {};
@@ -60,7 +63,8 @@
     {
       return (message instanceof Components.interfaces.nsIScriptError &&
           !/^https?:/i.test(message.sourceName) &&
-          (/adblock/i.test(message.errorMessage) || /adblock/i.test(message.sourceName)));
+          (/adblock/i.test(message.errorMessage) || /adblock/i.test(message.sourceName) ||
+           id && (message.errorMessage.indexOf(id) >= 0 || message.sourceName.indexOf(id) >= 0)));
     });
 
     if (messages.length)
