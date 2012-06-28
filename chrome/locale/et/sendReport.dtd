@@ -17,6 +17,10 @@
 <!ENTITY recentReports.label "Sinu viimati esitatud teated">
 <!ENTITY recentReports.clear.label "Kustuta kõik teated">
 <!ENTITY recentReports.clear.accesskey "K">
+<!ENTITY update.inProgress.description "Adblock Plus peab uuendama filtrite tellimusi, olemaks kindel, et see probleem ei ole juba lahendatud. Palun oota...">
+<!ENTITY update.fixed.description "Filtrite tellimuste uuendused lahendasid tõenäoliselt selle probleemi, millest sa teatasid. Palun lae leht uuesti ja ürita uuesti. Teata uuesti, kui probleemid jäid alles.">
+<!ENTITY outdatedSubscriptions.description "Järgmisi filtrite tellimusi ei ole uuendatud vähemalt kahe nädala jooksul. Palun uuenda neid tellimusi enne veaaruande esitamist, sest probleem võib olla juba lahendatud.">
+<!ENTITY update.start.label "Alusta kohe uuendamist">
 <!ENTITY issues.description "Adblock Plus on kindlaks teinud probleemid su praeguses seadistuses, mis võivad seda probleemi põhjustada või teha selle teate uurimise keeruliseks.">
 <!ENTITY issues.whitelist.description "Adblock Plus on praegu keelatud sinu poolt teatataval lehel. Palun luba see uuesti ja laadi leht uuesti enne teate saatmist, et hõlbustada selle probleemi lahendamist.">
 <!ENTITY issues.whitelist.remove.label "Luba uuesti Adblock Plus sellel lehel">

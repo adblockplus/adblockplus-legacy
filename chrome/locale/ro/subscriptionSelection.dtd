@@ -1,16 +1,16 @@
 <!ENTITY dialog.title "Adăugare abonamente pentru filtre Adblock Plus">
-<!ENTITY subscriptionSelector.label "Alegeţi un abonamente filtre din listă:">
+<!ENTITY subscriptionSelector.label "Alegeți un abonamente filtre din listă:">
 <!ENTITY viewList.label "Vizualizare filtre">
 <!ENTITY visitHomepage.label "Vizualizare pagina de start">
 <!ENTITY addSubscription.label "Adaugă abonament">
 <!ENTITY list.download.failed "Eroare la descărcarea listei de abonamente.">
 <!ENTITY list.download.retry "Încearcă din nou">
 <!ENTITY list.download.website "Arată pagina web">
-<!ENTITY fromWeb.description "Confirmaţi adăugarea acestui abonament filtre. Puteţi schimba titlul sau localizarea înainte de a-l adăuga.">
+<!ENTITY fromWeb.description "Confirmați adăugarea acestui abonament filtre. Puteți schimba titlul sau localizarea înainte de a-l adăuga.">
 <!ENTITY title.label "Titlul abonamentului:">
 <!ENTITY title.accesskey "T">
 <!ENTITY location.label "Locaţia listei de filtre:">
 <!ENTITY location.accesskey "L">
-<!ENTITY supplementMessage "Acest abonament trebuie folosit împreună cu abonamentul ?1?,pe care nu îl folosiţi încă.">
-<!ENTITY addMain.label "Adaugă şi abonamentul ?1?">
+<!ENTITY supplementMessage "Acest abonament trebuie folosit împreună cu abonamentul ?1?,pe care nu îl folosiți încă.">
+<!ENTITY addMain.label "Adaugă și abonamentul ?1?">
 <!ENTITY addMain.accesskey "d">

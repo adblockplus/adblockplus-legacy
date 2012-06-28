@@ -17,6 +17,10 @@
 <!ENTITY recentReports.label "Twoje ostatnio wysłane zgłoszenia">
 <!ENTITY recentReports.clear.label "Usuń wszystkie zgłoszenia">
 <!ENTITY recentReports.clear.accesskey "U">
+<!ENTITY update.inProgress.description "Aby upewnić się, że problem został już rozwiązany, Adblock Plus musi zaktualizować twój zestaw filtrów. Proszę czekać…">
+<!ENTITY update.fixed.description "Aktualizacja zestawu filtrów prawdopodobnie rozwiązała zgłaszany problem. Odśwież stronę i spróbuj ponownie, naciśnij przycisk Zgłoś, jeśli problem nadal występuje.">
+<!ENTITY outdatedSubscriptions.description "Od dwóch tygodni następujące zestawy filtrów nie były aktualizowane. Przed wysłaniem zgłoszenia zaktualizuj te zestawy. Być może rozwiąże to twój problem.">
+<!ENTITY update.start.label "Aktualizuj teraz">
 <!ENTITY issues.description "Adblock Plus wykrył problemy z twoją konfiguracją, które mogą być odpowiedzialne za powstanie tego problemu lub mogą utrudniać jego zbadanie.">
 <!ENTITY issues.whitelist.description "Adblock Plus jest obecne wyłączony na zgłaszanej stronie. By ułatwić zbadanie tego problemu, przed jego zgłoszeniem włącz ponownie Adblock Plusa i odśwież stronę.">
 <!ENTITY issues.whitelist.remove.label "Włącz ponownie Adblock Plusa na tej stronie">
@@ -29,8 +33,8 @@
 <!ENTITY issues.openPreferences.label "Otwórz ustawienia filtra">
 <!ENTITY issues.ownfilters.description "Część filtrów stosowanych na tej stronie jest zdefiniowanych przez ciebie. Wyłącz filtry, które mogły spowodować problem:">
 <!ENTITY issues.ownfilters.disable.label "Wyłącz filtr">
-<!ENTITY issues.disabledgroups.description "Następujące subskrypcje filtrów/grupy filtrów są wyłączone, ale mogą oddziaływać na tę stronę:">
-<!ENTITY issues.disabledgroups.enable.label "Włącz subskrypcje filtrów/grupy filtrów">
+<!ENTITY issues.disabledgroups.description "Następujące zestawy filtrów/grupy filtrów są wyłączone, ale mogą oddziaływać na tę stronę:">
+<!ENTITY issues.disabledgroups.enable.label "Włącz zestawy filtrów/grupy filtrów">
 <!ENTITY issues.disabledfilters.description "Następujące filtry są wyłączone, ale mogą oddziaływać na tę stronę:">
 <!ENTITY issues.disabledfilters.enable.label "Włącz filtr">
 <!ENTITY issues.override.label "Konfiguracja jest prawidłowa – kontynuuj zgłoszenie">

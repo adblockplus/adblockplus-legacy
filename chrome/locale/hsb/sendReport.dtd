@@ -13,10 +13,14 @@
 <!ENTITY typeSelector.other.label "Druhi problem">
 <!ENTITY typeSelector.other.accesskey "u">
 <!ENTITY typeSelector.other.description "Wubjerće tutu opciju, jeli skerje na problem z Adblock Plus samym hač z jeho filtrami tukaće.">
-<!ENTITY showRecentReports.label "Njedawno pósłane zdźělenja">
-<!ENTITY recentReports.label "Waše njedawno pósłane zdźělenja">
-<!ENTITY recentReports.clear.label "Wšě zdźělenja wotstronić">
+<!ENTITY showRecentReports.label "Njedawno pósłane zdźělenki">
+<!ENTITY recentReports.label "Waše njedawno pósłane zdźělenki">
+<!ENTITY recentReports.clear.label "Wšě zdźělenki wotstronić">
 <!ENTITY recentReports.clear.accesskey "Z">
+<!ENTITY update.inProgress.description "Adblock Plus dyrbi waše filtrowe abonementy aktualizować, zo by zawěsćił, zo problem njeje so hižo rozrisał. Prošu čakajće...">
+<!ENTITY update.fixed.description "Aktualizacije za waše filtrowe abonementy su najskerje problem rozrisali, kotryž sće zdźělił. Prošu začitajće stronu znowa, spytajće hišće raz a klikńće zaso na 'Hišće raz pósłać', jeli problem hišće wobsteji.">
+<!ENTITY outdatedSubscriptions.description "Slědowace filtrowe abonementy njejsu so wot znajmjeńša dweju njedźelow zaktualizowali. Prošu zaktualizujće tute abonementy, prjedy hač pósćeleš zdźělenku. Problem móhł potom hižo rozrisany być.">
+<!ENTITY update.start.label "Aktualizaciju nětko startować">
 <!ENTITY issues.description "Adblock Plus je problemy z wašej konfiguraciju wotkrył, kotrež móhli na tutón problem wina być abo analyzowanje problema poćežuja.">
 <!ENTITY issues.whitelist.description "Adblock Plus je tuchwilu na stronje, wo kotrejž rozprawjeće, znjemóžnjeny. Prošu zmóžńće jón znowa a začitajće stronu, prjedy hač zdźělenja wotpósćeleće, zo byšće analyzowanje tutoho problema podpěrał.">
 <!ENTITY issues.whitelist.remove.label "Adblock Plus na tutej stronje zaso zmóžnić">
@@ -42,8 +46,8 @@
 <!ENTITY reloadButton.label "Stronu znowa začitać">
 <!ENTITY reloadButton.accesskey "S">
 <!ENTITY screenshot.heading "Foto wobrazowki připowěsnyć">
-<!ENTITY screenshot.description "Samsna strona móže rozdźělnje za rozdźělnych ludźi wupadać. Móže nam pomhać, problem rozumić, jeli k wašemu zdźělenju foto wobrazowki připowěsnyć. Móžeće wotrězki wotstronić, kotrež sensibelne informacije wobsahuje kaž tež wobłuki markěrować, hdźež so problem pokazuje. Zo byšće to činił, klikńće na wotpowědne tłóčatko a wubjerće wotrězk wobraza ze swojej myšu.">
-<!ENTITY screenshot.attach.label "Wobraz strony k zdźělenju připowěsnyć">
+<!ENTITY screenshot.description "Samsna strona móže rozdźělnje za rozdźělnych ludźi wupadać. Móže nam pomhać, problem rozumić, jeli k wašej zdźělence foto wobrazowki připowěsnyć. Móžeće wotrězki wotstronić, kotrež sensibelne informacije wobsahuje kaž tež wobłuki markěrować, hdźež so problem pokazuje. Zo byšće to činił, klikńće na wotpowědne tłóčatko a wubjerće wotrězk wobraza ze swojej myšu.">
+<!ENTITY screenshot.attach.label "Wobraz strony k zdźělence připowěsnyć">
 <!ENTITY screenshot.attach.accesskey "b">
 <!ENTITY screenshot.mark.label "Problem markěrować">
 <!ENTITY screenshot.mark.accesskey "P">
@@ -52,24 +56,24 @@
 <!ENTITY screenshot.undo.label "Cofnyć">
 <!ENTITY screenshot.undo.accesskey "C">
 <!ENTITY commentPage.heading "Komentar zapodać">
-<!ENTITY commentPage.description "Tekstowe polo deleka zmóžnja wam, komentar zapodać, zo byšće nam pomhał, problem rozumić. Tutón krok je opcionalny, ale doporučney, jeli problem wočiwidny njeje. Móžeće tež daty zdźělenja přepruwować, prjedy hač so sćele.">
+<!ENTITY commentPage.description "Tekstowe polo deleka zmóžnja wam, komentar zapodać, zo byšće nam pomhał, problem rozumić. Tutón krok je opcionalny, ale doporučney, jeli problem wočiwidny njeje. Móžeće tež daty zdźělenki přepruwować, prjedy hač so sćele.">
 <!ENTITY comment.label "Komentar (opcionalny):">
 <!ENTITY comment.accesskey "K">
 <!ENTITY comment.lengthWarning "Dołhosć wašeho komentar překročuje 1000 znamješkow. Jenož prěnje 1000 znamješkow budu so słać.">
 <!ENTITY email.label "E-mejlowa adresa za dalše naprašowanje (opcionalna):">
 <!ENTITY email.accesskey "m">
-<!ENTITY attachExtensions.label "Lisćinu aktiwnych rozšěrjenjow k zdźělenju připowěsnyć, jeli konflikt z rozšěrjenjom je přičina problema">
+<!ENTITY attachExtensions.label "Lisćinu aktiwnych rozšěrjenjow k zdźělence připowěsnyć, jeli konflikt z rozšěrjenjom je přičina problema">
 <!ENTITY attachExtensions.accesskey "r">
-<!ENTITY sendButton.label "Zdźělenje pósłać">
+<!ENTITY sendButton.label "Zdźělenku pósłać">
 <!ENTITY sendButton.accesskey "l">
-<!ENTITY showData.label "Daty zdźělenja pokazać">
-<!ENTITY data.label "Daty zdźělenja:">
+<!ENTITY showData.label "Daty zdźělenki pokazać">
+<!ENTITY data.label "Daty zdźělenki:">
 <!ENTITY data.accesskey "t">
-<!ENTITY sendPage.heading "Zdźělenje pósłać">
-<!ENTITY sendPage.waitMessage "Prošu počakńće, doniž Adblock Plus waše zdźělenje njewotesyła.">
-<!ENTITY sendPage.confirmation "Waše zdźělenje je so składowało. Móžeš pod slědowacej adresu na njo přistup měć:">
+<!ENTITY sendPage.heading "Zdźělenku pósłać">
+<!ENTITY sendPage.waitMessage "Prošu počakńće, doniž Adblock Plus wašu zdźělenku njewotesyła.">
+<!ENTITY sendPage.confirmation "Waša zdźělenka je so składowała. Móžeš pod slědowacej adresu na njo přistup měć:">
 <!ENTITY sendPage.knownIssue "Problem, kotryž sće zdźělił, je hižo znaty. Dalše informacije:">
-<!ENTITY sendPage.errorMessage "Pospyt, zdźělenje pósłać, je so ze zmylkowym kodom &quot;?1?&quot; njeporadźił. Prošu zawěsćće, zo sće z internetom zwjazany a spytajće hišće raz. Jeli problem dale eksistuje, poprošće prošu w [link]forumje Adblock Plus[/link] wo pomoc.">
+<!ENTITY sendPage.errorMessage "Pospyt, zdźělenku pósłać, je so ze zmylkowym kodom &quot;?1?&quot; njeporadźił. Prošu zawěsćće, zo sće z internetom zwjazany a spytajće hišće raz. Jeli problem dale eksistuje, poprošće prošu w [link]forumje Adblock Plus[/link] wo pomoc.">
 <!ENTITY sendPage.retry.label "Hišće raz pósłać">
-<!ENTITY copyLink.label "Wotkaz zdźělenja kopěrować">
+<!ENTITY copyLink.label "Wotkaz zdźělenki kopěrować">
 <!ENTITY copyLink.accesskey "W">

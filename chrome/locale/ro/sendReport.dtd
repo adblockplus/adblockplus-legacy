@@ -1,64 +1,68 @@
 <!ENTITY wizard.title "Raportare problemă">
-<!ENTITY privacyPolicy.label "Politica de confidenţialitate">
-<!ENTITY dataCollector.heading "Bine aţi venit la programul de raportat probleme">
-<!ENTITY dataCollector.description "Aşteptaţi un moment până ce Adblock Plus adună datele necesare.">
-<!ENTITY typeSelector.heading "Alegeţi tipul problemei">
-<!ENTITY typeSelector.description "Această fereastră vă ghidează prin paşii necesari raportării unei probleme Adblock Plus. Pentru început, alegeţi tipul problemei întâlnite pe pagina curentă:">
+<!ENTITY privacyPolicy.label "Politica de confidențialitate">
+<!ENTITY dataCollector.heading "Bine ați venit la programul de raportat probleme">
+<!ENTITY dataCollector.description "Așteptați un moment până ce Adblock Plus adună datele necesare.">
+<!ENTITY typeSelector.heading "Alegeți tipul problemei">
+<!ENTITY typeSelector.description "Această fereastră vă ghidează prin pașii necesari raportării unei probleme Adblock Plus. Pentru început, alegeți tipul problemei întâlnite pe pagina curentă:">
 <!ENTITY typeSelector.falsePositive.label "Adblock Plus blochează prea mult">
 <!ENTITY typeSelector.falsePositive.accesskey "m">
-<!ENTITY typeSelector.falsePositive.description "Alegeţi această opţiune dacă pagina este afişată incorect sau nu funţionează cum trebuie atunci când Adblock Plus este activ. Verificaţi dacă Adblock Plus este sursa problemei prin dezactivarea temporară a suplimentului.">
+<!ENTITY typeSelector.falsePositive.description "Alegeți această opțiune dacă pagina este afișată incorect sau nu funcționează cum trebuie atunci când Adblock Plus este activ. Verificați dacă Adblock Plus este sursa problemei prin dezactivarea temporară a suplimentului.">
 <!ENTITY typeSelector.falseNegative.label "Adblock Plus nu blochează o reclamă">
 <!ENTITY typeSelector.falseNegative.accesskey "n">
-<!ENTITY typeSelector.falseNegative.description "Alegeţi această opţiune în caz că o reclamă este afişată în ciuda faptului că Adblock Plus este activ.">
+<!ENTITY typeSelector.falseNegative.description "Alegeți această opțiune în caz că o reclamă este afișată în ciuda faptului că Adblock Plus este activ.">
 <!ENTITY typeSelector.other.label "Altă problemă">
 <!ENTITY typeSelector.other.accesskey "t">
-<!ENTITY typeSelector.other.description "Alegeţi această opţiune dacă aveţi impresia că Adblock Plus are o problemă internă.">
+<!ENTITY typeSelector.other.description "Alegeți această opțiune dacă aveți impresia că Adblock Plus are o problemă internă.">
 <!ENTITY showRecentReports.label "Arată rapoartele trimise recent">
 <!ENTITY recentReports.label "Rapoartele trimise recent">
-<!ENTITY recentReports.clear.label "Şterge toate rapoartele">
+<!ENTITY recentReports.clear.label "Șterge toate rapoartele">
 <!ENTITY recentReports.clear.accesskey "g">
-<!ENTITY issues.description "Adblock Plus a detectat inconsistenţe în configuraţie care pot fi cauza problemei, sau care pot îngreuna trimitearea raportului.">
-<!ENTITY issues.whitelist.description "Adblock Plus este inactiv pe pagina curentă. Pentru a ajuta la investigarea problemei, activaţi Adblock Plus şi reîncărcaţi pagina înainte de a trimite un raport.">
+<!ENTITY update.inProgress.description "Adblock Plus trebui să actualizeze abonamentele de filtre pentru a verifica dacă problema a fost rezolvată între timp. Așteptați un moment.">
+<!ENTITY update.fixed.description "Actualizarea abonamentelor de filtre va rezolva probabil problema pe care doriți să o raportați. Reîncărcați pagina și utilizați butonul de raportare dacă problema persistă.">
+<!ENTITY outdatedSubscriptions.description "Abonamentele de filtre de mai jos nu au fost actualizate în ultimele două săptămâni. Actualizați-le înainte de a trimite raportul, este posibil ca problema să fi fost deja rezolvată.">
+<!ENTITY update.start.label "Actualizează acum">
+<!ENTITY issues.description "Adblock Plus a detectat inconsistențe în configurație care pot fi cauza problemei, sau care pot îngreuna trimiterea raportului.">
+<!ENTITY issues.whitelist.description "Adblock Plus este inactiv pe pagina curentă. Pentru a ajuta la investigarea problemei, activați Adblock Plus și reîncărcați pagina înainte de a trimite un raport.">
 <!ENTITY issues.whitelist.remove.label "Reactivează Adblock Plus pe pagina curentă">
-<!ENTITY issues.disabled.description "Adblock Plus este inactiv şi nu va bloca nimic în starea curentă.">
+<!ENTITY issues.disabled.description "Adblock Plus este inactiv și nu va bloca nimic în starea curentă.">
 <!ENTITY issues.disabled.enable.label "Activează Adblock Plus">
-<!ENTITY issues.nofilters.description "Adblock Plus nu blochează nimic în pagina curentă. Problema pe care o aveţi nu are probabil nici o legătură cu Adblock Plus.">
-<!ENTITY issues.nosubscriptions.description "Se pare că nu sunteţi abonat la nici o listă de filtre predefinită.">
+<!ENTITY issues.nofilters.description "Adblock Plus nu blochează nimic în pagina curentă. Problema pe care o aveți nu are probabil nici o legătură cu Adblock Plus.">
+<!ENTITY issues.nosubscriptions.description "Se pare că nu sunteți abonat la nici o listă de filtre predefinită.">
 <!ENTITY issues.nosubscriptions.add.label "Adaugă abonament filtre">
-<!ENTITY issues.subscriptionCount.description "Se pare că sunteţi abonat la prea multe abonamente de filtru, ceea ce nu este recomandat, deoarece va cauza probabil probleme în viitor. De asemenea, nu poate accepta raportul problemă, deoarece nu este clar care dintre autorii abonamentelor trebuie să ia măsuri. Vă rugăm să păstraţi doar abonamentele absolut necesare şi să încercaţi dacă problema persistă.">
-<!ENTITY issues.openPreferences.label "Deschide preferinţe filtre">
-<!ENTITY issues.ownfilters.description "Câteva din filtrele aplicate pe această pagină sunt definite de către utilizator. Dezactivaţi filtrele următoare, care sunt probabil cauza problemei:">
+<!ENTITY issues.subscriptionCount.description "Se pare că sunteți abonat la prea multe abonamente de filtru, ceea ce nu este recomandat, deoarece va cauza probabil probleme în viitor. De asemenea, nu poate accepta raportul problemă, deoarece nu este clar care dintre autorii abonamentelor trebuie să ia măsuri. Vă rugăm să păstrați doar abonamentele absolut necesare și să încercați dacă problema persistă.">
+<!ENTITY issues.openPreferences.label "Deschide preferințe filtre">
+<!ENTITY issues.ownfilters.description "Câteva din filtrele aplicate pe această pagină sunt definite de către utilizator. Dezactivați filtrele următoare, care sunt probabil cauza problemei:">
 <!ENTITY issues.ownfilters.disable.label "Dezactivează filtre">
-<!ENTITY issues.disabledgroups.description "Grupurile de filtre sau abonamentele următoare sunt inactive, deşi ar putea să aibă efect pe pagina curentă:">
+<!ENTITY issues.disabledgroups.description "Grupurile de filtre sau abonamentele următoare sunt inactive, deși ar putea să aibă efect pe pagina curentă:">
 <!ENTITY issues.disabledgroups.enable.label "Activează grupul de filtre / abonamentul">
-<!ENTITY issues.disabledfilters.description "Filtrele următoare sunt inactive, deşi ar putea să aibă efect pe pagina curentă:">
+<!ENTITY issues.disabledfilters.description "Filtrele următoare sunt inactive, deși ar putea să aibă efect pe pagina curentă:">
 <!ENTITY issues.disabledfilters.enable.label "Activează filtrele">
-<!ENTITY issues.override.label "Configuraţia este corectă, continuă raportarea">
+<!ENTITY issues.override.label "Configurația este corectă, continuă raportarea">
 <!ENTITY issues.override.accesskey "c">
-<!ENTITY issues.change.description "Configuraţia a fost schimbată. Reîncărcaţi pagina pentru a verifica dacă problema persistă. În acest caz, creaţi o raportare de problemă.">
-<!ENTITY typeWarning.description "Aţi indicat că problema este generală şi nu are legătură cu filtrele. Cel mai bine ar fi să raportaţi problema în [link]forumul Adblock Plus[/link]. Raportarea automată trebuie folosită numai ca unealtă suplimentară pentru o discuţie pe forum deja existentă. Pentru aceasta, folosiţi legătura generată la sfârşitul operaţiunii curente. Dacă nu postaţi legătura pe forum, este posibil ca nimeni să nu citească raportarea.">
+<!ENTITY issues.change.description "Configurația a fost schimbată. Reîncărcați pagina pentru a verifica dacă problema persistă. În acest caz, creați o raportare de problemă.">
+<!ENTITY typeWarning.description "Aţi indicat că problema este generală și nu are legătură cu filtrele. Cel mai bine ar fi să raportați problema în [link]forumul Adblock Plus[/link]. Raportarea automată trebuie folosită numai ca unealtă suplimentară pentru o discuție pe forum deja existentă. Pentru aceasta, folosiți legătura generată la sfârșitul operațiunii curente. Dacă nu postați legătura pe forum, este posibil ca nimeni să nu citească raportarea.">
 <!ENTITY typeWarning.override.label "Trimite raportarea în orice caz">
 <!ENTITY typeWarning.override.accesskey "o">
 <!ENTITY reloadButton.label "Reîncărcare pagină">
 <!ENTITY reloadButton.accesskey "R">
-<!ENTITY screenshot.heading "Ataşare instantaneu ecran">
-<!ENTITY screenshot.description "Aceeaşi pagină poate fi afişată diferit pe calculatoare diferite. S-ar putea să ne fie de ajutor la înţelegerea problemei dacă ne trimiteţi un instantaneu al paginii curente. Aveţi posibilitatea de a înlătura datele confidenţiale, precum şi de a marca zonele cu probleme, folosing butoanele corespunzătoare şi apoi selectând cu mausul.">
-<!ENTITY screenshot.attach.label "Ataşează intaantaneu ecran">
+<!ENTITY screenshot.heading "Atașare instantaneu ecran">
+<!ENTITY screenshot.description "Aceeași pagină poate fi afișată diferit pe calculatoare diferite. S-ar putea să ne fie de ajutor la înțelegerea problemei dacă ne trimiteți un instantaneu al paginii curente. Aveți posibilitatea de a înlătura datele confidențiale, precum și de a marca zonele cu probleme, folosind butoanele corespunzătoare și apoi selectând cu mausul.">
+<!ENTITY screenshot.attach.label "Atașează instantaneu ecran">
 <!ENTITY screenshot.attach.accesskey "t">
 <!ENTITY screenshot.mark.label "Marcare problemă">
 <!ENTITY screenshot.mark.accesskey "M">
 <!ENTITY screenshot.remove.label "Maschează datele personale">
 <!ENTITY screenshot.remove.accesskey "h">
-<!ENTITY screenshot.undo.label "Anulează ultima operaţie">
+<!ENTITY screenshot.undo.label "Anulează ultima operație">
 <!ENTITY screenshot.undo.accesskey "u">
 <!ENTITY commentPage.heading "Introducere comentariu">
-<!ENTITY commentPage.description "Puteţi introduce aici e explicaţie detaliată care ne poate ajuta să înţelegem mai bine problema (opţional, însă recomandat).">
-<!ENTITY comment.label "Comnentariu (opţional):">
+<!ENTITY commentPage.description "Puteți introduce aici e explicație detaliată care ne poate ajuta să înțelegem mai bine problema (opțional, însă recomandat).">
+<!ENTITY comment.label "Comentariu (opțional):">
 <!ENTITY comment.accesskey "C">
 <!ENTITY comment.lengthWarning "Comentariul are mai mult de 1000 de litere. Doar primele 1000 vor fi trimise.">
-<!ENTITY email.label "Adresă de email pentru întrebări (opţional):">
+<!ENTITY email.label "Adresă de email pentru întrebări (opțional):">
 <!ENTITY email.accesskey "e">
-<!ENTITY attachExtensions.label "Ataşează lista suplimentelor active pentru a verifica conflictele potenţiale">
+<!ENTITY attachExtensions.label "Atașează lista suplimentelor active pentru a verifica conflictele potențiale">
 <!ENTITY attachExtensions.accesskey "z">
 <!ENTITY sendButton.label "Trimite raportare">
 <!ENTITY sendButton.accesskey "i">
@@ -66,10 +70,10 @@
 <!ENTITY data.label "Datele reportării">
 <!ENTITY data.accesskey "D">
 <!ENTITY sendPage.heading "Trimite raportarea">
-<!ENTITY sendPage.waitMessage "Aşteptaţi până când Adblock Plus trimite datele.">
-<!ENTITY sendPage.confirmation "Raportarea a fost salvată şi poate fi accesată la adresa următoare:">
-<!ENTITY sendPage.knownIssue "Problema pe care o aveţi este probabil cunoscută. Detalii:">
-<!ENTITY sendPage.errorMessage "Eroare la trimitere, cod &quot;?1?&quot;. Verificaţi dacă sunteţi conectat la internet. Dacă problema persistă, cereţi ajutor în [link]forumul Adblock Plus[/link].">
+<!ENTITY sendPage.waitMessage "Așteptați până când Adblock Plus trimite datele.">
+<!ENTITY sendPage.confirmation "Raportarea a fost salvată și poate fi accesată la adresa următoare:">
+<!ENTITY sendPage.knownIssue "Problema pe care o aveți este probabil cunoscută. Detalii:">
+<!ENTITY sendPage.errorMessage "Eroare la trimitere, cod &quot;?1?&quot;. Verificați dacă sunteți conectat la internet. Dacă problema persistă, cereți ajutor în [link]forumul Adblock Plus[/link].">
 <!ENTITY sendPage.retry.label "Retrimite">
 <!ENTITY copyLink.label "Copiază legătura raportării">
 <!ENTITY copyLink.accesskey "C">

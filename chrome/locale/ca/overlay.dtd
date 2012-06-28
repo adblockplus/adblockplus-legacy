@@ -35,7 +35,7 @@
 <!ENTITY hideplaceholders.label "Amaga les localitzacions dels elements bloquejats">
 <!ENTITY hideplaceholders.accesskey "l">
 <!ENTITY counthits.label "Compta els cops que funciona el filtre">
-<!ENTITY counthits.accesskey "h">
+<!ENTITY counthits.accesskey "p">
 <!ENTITY sync.label "Sincronitza la configuració d'AdBlock Plus">
 <!ENTITY sync.accesskey "c">
 <!ENTITY objecttab.title "Bloqueja">

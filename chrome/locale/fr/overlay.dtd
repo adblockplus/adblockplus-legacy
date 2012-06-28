@@ -10,7 +10,7 @@
 <!ENTITY context.media.label "Bloquer les vidéos/audios avec Adblock">
 <!ENTITY context.removeWhitelist.label "Adblock Plus : activer à nouveau pour cette page">
 <!ENTITY sidebar.title "Éléments filtrables dans la page courante">
-<!ENTITY sendReport.label "Rapporter un problème sur cette page">
+<!ENTITY sendReport.label "Signaler un problème sur cette page">
 <!ENTITY sendReport.accesskey "R">
 <!ENTITY filters.label "Préférences de filtre">
 <!ENTITY filters.accesskey "F">
@@ -24,9 +24,9 @@
 <!ENTITY options.label "Options">
 <!ENTITY options.accesskey "O">
 <!ENTITY contribute.label "Contribuer à Adblock Plus">
-<!ENTITY showintoolbar.label "Afficher dans la barre d&apos;outils">
+<!ENTITY showintoolbar.label "Afficher dans la barre d'outils">
 <!ENTITY showintoolbar.accesskey "o">
-<!ENTITY showinstatusbar.label "Afficher dans la barre d&apos;état">
+<!ENTITY showinstatusbar.label "Afficher dans la barre d'état">
 <!ENTITY showinstatusbar.accesskey "n">
 <!ENTITY showinaddonbar.label "Afficher dans la barre des modules">
 <!ENTITY showinaddonbar.accesskey "b">

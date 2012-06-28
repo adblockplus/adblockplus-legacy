@@ -17,6 +17,10 @@
 <!ENTITY recentReports.label "Ваши недавно послати извештаји">
 <!ENTITY recentReports.clear.label "Уклони све извештаје">
 <!ENTITY recentReports.clear.accesskey "У">
+<!ENTITY update.inProgress.description "Adblock Plus мора ажурирати ваше претплате на филтере ради како би проверио да ли је проблем већ отклоњен. Сачекајте...">
+<!ENTITY update.fixed.description "Претплате на ваш филтер су вероватно већ отклониле проблем који сте пријавили. Поново учитајте страницу, па покушајте поново. Ако проблем и даље постоји, поново га пријавите.">
+<!ENTITY outdatedSubscriptions.description "Следеће претплате на филтере носу ажуриране више од две седмице. Ажурирајте их пре него што пријавите проблем, јер би га то могло отклонити.">
+<!ENTITY update.start.label "Ажурирај">
 <!ENTITY issues.description "Adblock Plus је уочио проблем са Вашим подешавањима, што може бити узрок овог проблема или отежати његово испитивање.">
 <!ENTITY issues.whitelist.description "Adblock Plus је тренутно онемогућен на страници коју пријављујете. Омогућите га и поново учитајте страницу пре него што пошаљете извештај, који служи за испитивање проблема.">
 <!ENTITY issues.whitelist.remove.label "Омогући Adblock Plus на овој страници">

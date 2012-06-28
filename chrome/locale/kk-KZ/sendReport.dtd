@@ -17,6 +17,10 @@
 <!ENTITY recentReports.label "Сіздің соңғы жіберген хабарламаларыңыз">
 <!ENTITY recentReports.clear.label "Барлық хабарламаларды өшіру">
 <!ENTITY recentReports.clear.accesskey "ш">
+<!ENTITY update.inProgress.description "Adblock Plus мәселе шешілген бе, соны тексеру үшін фильтрлерге жазылуларыңызды жаңартуы тиіс. Күте тұрыңыз...">
+<!ENTITY update.fixed.description "Cіз хабарлаған мәселе фильтрлерге жаңартылумен шешілген сияқты. Парақты қайта жүктеп, қайталап көріңіз, мәселе жоғалмаса, Хабарлау батырмасын басыңыз.">
+<!ENTITY outdatedSubscriptions.description "Келесі фильтрге жазылу кем дегенде екі апта бойы жаңартылмады. Хабарламаны жіберу алдында фильтрге жазылуды жаңартыңыз, мәселе шешілген болуы мүмкін.">
+<!ENTITY update.start.label "Жаңартуды қазір бастау">
 <!ENTITY issues.description "Adblock Plus бұл мәселе үшін жауапты бола алатын, немесе тергеуді қиындататын сіздің баптауларыңызды анықтады.">
 <!ENTITY issues.whitelist.description "Хабарлап тұрған парағыңыз үшін Adblock Plus қазір сөндірілген. Мәселені анықтауға көмектесу үшін, хабарламаны жіберу алдында оны іске қосып, парақты қайта жүктеңіз.">
 <!ENTITY issues.whitelist.remove.label "Adblock Plus осы парақта қайта қосу">

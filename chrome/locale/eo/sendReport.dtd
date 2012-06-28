@@ -17,6 +17,10 @@
 <!ENTITY recentReports.label "Viaj antaŭ nelonge senditaj raportoj">
 <!ENTITY recentReports.clear.label "Forigi ĉiujn raportojn">
 <!ENTITY recentReports.clear.accesskey "F">
+<!ENTITY update.inProgress.description "Adblock Plus devas ĝisdatigi viajn fitrilabonojn por certigi, ke la problemo ne estas jam solvita. Bonvolu atendi...">
+<!ENTITY update.fixed.description "La ĝisdatigoj de viaj filtrilabonoj verŝajne solvis la problemon, kiun vi sciigis. Bonvolu reŝargi la paĝon kaj alklaku denoe 'Sendi denove', se la problemo ankoraŭ ekzistas.">
+<!ENTITY outdatedSubscriptions.description "La sekvontaj filtrilabonoj ne ĝisdatiĝis de almenaŭ du semajnoj. Bonvolu ĝisdatigi ĉi tiujn abonojn, antaŭ ol vi sendas raporton, la problemo estas eble jam solvita.">
+<!ENTITY update.start.label "Startigu nun ĝisdatigon">
 <!ENTITY issues.description "Adblock Plus malkovris problemojn kun via konfiguro, kiu eble estas kulpa pri ĉi tiu problemo aŭ malfaciligas la analizadon de la raporto.">
 <!ENTITY issues.whitelist.description "Adblock Plus estas nun malebligita sur la paĝo, pri kiu vi raportas. Bonvolu ebligi ĝin denove kaj reŝargu la paĝon antaŭ ol vi sendas la raporton por helpi analizi ĉi tiun problemon.">
 <!ENTITY issues.whitelist.remove.label "Denove ebligi Adblock Plus sur ĉi tiu paĝo">

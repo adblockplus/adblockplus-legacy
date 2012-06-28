@@ -1,12 +1,12 @@
 <!ENTITY wizard.title "รายงานปัญหา">
 <!ENTITY privacyPolicy.label "ความเป็นส่วนตัว">
-<!ENTITY dataCollector.heading "ยินดีต้อนรับสู่ตัวรายงานปัญหา">
+<!ENTITY dataCollector.heading "ยินดีต้อนรับสู่การรายงานปัญหา">
 <!ENTITY dataCollector.description "กรุณารอสักครู่ระหว่างที่ Adblock Plus กำลังรวบรวมข้อมูล">
 <!ENTITY typeSelector.heading "เลือกชนิดของปัญหา">
 <!ENTITY typeSelector.description "หน้าต่างนี้จะนำทางไปยังขั้นตอนที่ต้องการในการส่งรายงานปัญหาของ Adblock Plus กรุณาเลือกชนิดของปัญหาที่คุณพบในหน้านี้:">
-<!ENTITY typeSelector.falsePositive.label "Adblock Plus บล็อกมากเกินไป">
+<!ENTITY typeSelector.falsePositive.label "Adblock Plus มีการบล็อกมากเกินไป">
 <!ENTITY typeSelector.falsePositive.accesskey "ม">
-<!ENTITY typeSelector.falsePositive.description "เลือกตัวเลือกนี้ถ้าหน้าเพจขาดแคลนเนื้อหาสำคัญ แสดงผลผิด หรือทำงานผิด คุณสามารถทดสอบว่า Adblock Plus เป็นต้นเหตุของปัญหาหรือไม่โดยการทดลองปิดการใช้งาน">
+<!ENTITY typeSelector.falsePositive.description "เลือกตัวเลือกนี้ ถ้าหน้าเพจไม่มีเนื้อหาที่สำคัญ แสดงผลผิดหรือทำงานผิด คุณสามารถทดสอบว่า Adblock Plus เป็นต้นเหตุของปัญหาหรือไม่ โดยการทดลองปิดการใช้งานไว้ชั่วคราว">
 <!ENTITY typeSelector.falseNegative.label "Adblock Plus ไม่บล็อกโฆษณา">
 <!ENTITY typeSelector.falseNegative.accesskey "ษ">
 <!ENTITY typeSelector.falseNegative.description "เลือกตัวเลือกนี้ถ้ายังมีโฆษณาอยู่แม้ว่าใช้งาน Adblock Plus แล้ว">
@@ -17,13 +17,17 @@
 <!ENTITY recentReports.label "รายงานที่เพิ่งส่งของคุณ">
 <!ENTITY recentReports.clear.label "ลบรายงานทั้งหมด">
 <!ENTITY recentReports.clear.accesskey "ล">
+<!ENTITY update.inProgress.description "Adblock Plus ต้องการที่จะอัพเดทตัวกรองของคุณ เพื่อให้แน่ใจว่าปัญหาได้รับการแก้ไขแล้ว กรุณารอสักครู่...">
+<!ENTITY update.fixed.description "ตัวกรองของคุณน่าจะมีการอัพเดทการแก้ไขปัญหาที่คุณได้รายงานไว้ก่อนหน้านี้ กรุณาโหลดเว็บเพจและลองใหม่อีกครั้ง คุณสามารถดูรายงานของคุณได้อีกครั้ง หากพบปัญหาดังกล่าวอยู่">
+<!ENTITY outdatedSubscriptions.description "รายการตัวกรองต่อไปนี้ยังไม่ได้รับการอัพเดทเป็นเวลาสองสัปดาห์แล้ว กรุณาอัพเดทรายการดังกล่าวก่อนที่จะส่งรายงานไป เพราะปัญหาอาจได้รับการแก้ไขเรียบร้อยแล้วก็เป็นได้">
+<!ENTITY update.start.label "เริ่มอัพเดทตอนนี้">
 <!ENTITY issues.description "Adblock Plus ตรวจพบปัญหาการตั้งค่าของคุณที่อาจจะเกี่ยวกับปัญหานี้หรือที่ทำให้การสืบสวนรายงานยากขึ้น">
 <!ENTITY issues.whitelist.description "Adblock Plus ไม่ได้เปิดใช้งานในหน้าเพจที่คุณรายงาน กรุณาเปิดการใช้งานอีกครั้งและเรียกหน้าปัจจุบันใหม่ก่อนส่งรายงานเพื่อช่วยสืบสวนปัญหานี้">
 <!ENTITY issues.whitelist.remove.label "เปิดการใช้งาน Adblock Plus อีกครั้งในหน้านี้">
-<!ENTITY issues.disabled.description "Adblock Plus ปิดอยู่ มันจะไม่บล็อกอะไรเลย">
+<!ENTITY issues.disabled.description "Adblock Plus ถูกปิดการใช้งาน ซึ่งจะไม่มีการบล็อกใดๆ ทั้งสิ้น">
 <!ENTITY issues.disabled.enable.label "เปิด Adblock Plus">
 <!ENTITY issues.nofilters.description "Adblock Plus ไม่ได้บล็อกสิ่งใดเลยในหน้านี้ ปัญหาที่คุณรายงานไม่น่าจะเกี่ยวกับ Adblock Plus">
-<!ENTITY issues.nosubscriptions.description "คุณไม่ได้เขียนคำอธิบายรายชื่อตัวกรองซึ่งลบเนื้อหาที่ไม่ต้องการออกจากเว็บไซต์โดยอัตโนมัติ">
+<!ENTITY issues.nosubscriptions.description "คุณไม่ได้เขียนคำอธิบายรายชื่อตัวกรองไว้ ซึ่งจะลบเนื้อหาที่ไม่ต้องการออกจากเว็บไซต์อัตโนมัติ">
 <!ENTITY issues.nosubscriptions.add.label "เพิ่มคำอธิบายตัวกรอง">
 <!ENTITY issues.subscriptionCount.description "ดูเหมือนว่าคุณจะรับข้อมูลจากตัวกรองมากเกินไป การติดตั้งนี้จึงไม่แนะนำเพราะอาจทำให้มีปัญหามาก เราจะไม่รับรายงานปัญหาจากคุณเพราะไม่ทราบว่าปัญหามาจากตัวกรองตัวใด กรุณาลบออกเหลือแต่ตัวที่จำเป็นและทดสอบดูว่าปัญหาเกิดจากตัวใด">
 <!ENTITY issues.openPreferences.label "เปิดการปรับแต่งตัวกรอง">
@@ -36,8 +40,8 @@
 <!ENTITY issues.override.label "การตั้งค่าถูกต้อง ดำเนินการรายงานต่อไป">
 <!ENTITY issues.override.accesskey "ด">
 <!ENTITY issues.change.description "การตั้งค่าเปลี่ยนแปลงแล้ว กรุณาเรียกหน้าปัจจุบันใหม่เพื่อทดสอบความเปลี่ยนแปลงและส่งรายงานถ้าปัญหายังไม่ได้รับการแก้ไข">
-<!ENTITY typeWarning.description "คุณระบุว่าคุณต้องการรายงานปัญหากับ Adblock Plus มากกว่าปัญหากับตัวกรอง ปัญหาดังกล่าวรายงานได้ดีที่สุดที่ [link]Adblock Plus forum[/link] คุณควรใช้ตัวรายงานปัญหาเพื่อสนับสนุนบทสนทนาที่มีอยู่ เพราะไม่มีใครจะเห็นรายงานของคุณจนกว่าคนส่งลิงก์ให้ จะมีลิงก์ให้อัตโนมัติหลังจากส่งรายงาน">
-<!ENTITY typeWarning.override.label "ข้าพเจ้าเข้าใจและจะส่งรายงาน">
+<!ENTITY typeWarning.description "คุณระบุไว้ว่า คุณต้องการรายงานปัญหากับ Adblock Plus มากกว่าปัญหากับตัวกรอง ปัญหาดังกล่าวรายงานได้ดีที่สุดที่ [link]Adblock Plus forum[/link] คุณควรใช้ตัวรายงานปัญหาเพื่อสนับสนุนบทสนทนาที่มีอยู่ เพราะไม่มีใครจะเห็นรายงานของคุณจนกว่าคนส่งลิงก์ให้ จะมีลิงก์ให้อัตโนมัติหลังจากส่งรายงาน">
+<!ENTITY typeWarning.override.label "ฉันเข้าใจและพร้อมจะส่งรายงาน">
 <!ENTITY typeWarning.override.accesskey "ส">
 <!ENTITY reloadButton.label "เรียกหน้าปัจจุบันใหม่">
 <!ENTITY reloadButton.accesskey "เ">

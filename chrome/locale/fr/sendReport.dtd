@@ -14,9 +14,13 @@
 <!ENTITY typeSelector.other.accesskey "A">
 <!ENTITY typeSelector.other.description "Choisissez ceci si vous pensez qu'Adblock Plus elle-même est la cause du problème plutôt que ses filtres.">
 <!ENTITY showRecentReports.label "Afficher les signalements soumis récemment">
-<!ENTITY recentReports.label "Vos signalements récents">
+<!ENTITY recentReports.label "Vos signalements récemment soumis">
 <!ENTITY recentReports.clear.label "Supprimer tous les signalements">
 <!ENTITY recentReports.clear.accesskey "S">
+<!ENTITY update.inProgress.description "Adblock Plus doit mettre à jour vos abonnements de filtres pour s'assurer que le problème n'a pas déjà été résolu. S'il vous plaît patientez...">
+<!ENTITY update.fixed.description "Les mises à jour de vos abonnements de filtres ont probablement résous le problème que vous avez été signalé. S'il vous plaît recharger la page et réessayer, appuyez à nouveau sur Signaler si le problème persiste.">
+<!ENTITY outdatedSubscriptions.description "Les abonnements de filtres suivants n'ont pas été mis à jour pendant au moins deux semaines. S'il vous plaît mettre à jour ces abonnements avant de soumettre un signalement, le problème pourrait être résolue déjà.">
+<!ENTITY update.start.label "Commencer les mises à jour maintenant">
 <!ENTITY issues.description "Adblock Plus a détecté que votre configuration est mal paramétrée, cela pourrait être la cause du problème ou rendra la recherche de solution de ce signalement difficile.">
 <!ENTITY issues.whitelist.description "Adblock Plus est actuellement désactivée sur la page que vous signalez. Veuillez l'activer à nouveau et actualiser la page avant de soumettre le signalement pour qu'une recherche de solutions soit entamée.">
 <!ENTITY issues.whitelist.remove.label "Activer à nouveau Adblock Plus sur cette page">
@@ -36,7 +40,7 @@
 <!ENTITY issues.override.label "La configuration est correcte, continuer avec le signalement">
 <!ENTITY issues.override.accesskey "c">
 <!ENTITY issues.change.description "Votre configuration a été modifiée. Veuillez actualiser la page pour tester les modifications et soumettez un signalement si le problème n'a pas été résolu en effectuant ce changement.">
-<!ENTITY typeWarning.description "Vous avez indiqué que vous souhaitez soumettre un problème général avec Adblock Plus plutôt qu'un problème de filtres. Veuillez prendre note que ce type de problèmes est plutôt à signaler dans le [link]forum d'Adblock Plus[/link]. Vous devriez uniquement utiliser la soumission de signalement pour ajouter un point à une discussion existante, puisque personne ne pourra en prendre connaissance tant que vous ne fournissez pas le lien pointant vers la discussion. Le lien automatiquement généré sera fourni après la soumission.">
+<!ENTITY typeWarning.description "Vous avez indiqué que vous voulez signaler un problème général avec Adblock Plus plutôt qu'un problème de filtres. Veuillez prendre note que ce type de problèmes est plutôt signalé dans le [link]forum d'Adblock Plus[/link]. Vous devriez utiliser la soumission de signalement uniquement pour ajouter un point à une discussion existante, puisque personne n'en prendra connaissance à moins que vous leur fournissiez le lien pointant vers la discussion. Le lien automatiquement généré sera fourni après la soumission du signalement.">
 <!ENTITY typeWarning.override.label "Je comprends et souhaite soumettre le signalement tout de même">
 <!ENTITY typeWarning.override.accesskey "s">
 <!ENTITY reloadButton.label "Actualiser la page">

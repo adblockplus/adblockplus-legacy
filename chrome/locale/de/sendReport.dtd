@@ -40,6 +40,25 @@
 <!ENTITY recentReports.clear.label              "Alle Berichte löschen">
 <!ENTITY recentReports.clear.accesskey          "r">
 
+<!ENTITY update.inProgress.description          "
+  Adblock Plus muss Ihre Filterabonnements aktualisieren, um sicherzustellen,
+  dass das Problem nicht bereits gelöst ist. Bitte warten Sie...
+">
+
+<!ENTITY update.fixed.description               "
+  Die Aktualisierung Ihrer Filterabonnements hat das Problem wahrscheinlich
+  bereits gelöst. Bitte laden Sie die Seite neu und senden Sie den Fehlerbericht
+  noch einmal ab, falls das Problem weiterhin besteht.
+">
+
+<!ENTITY outdatedSubscriptions.description      "
+  Die folgenden Filterabonnements wurden mindesten zwei Wochen lang nicht
+  aktualisiert. Bitte aktualisieren Sie diese, bevor Sie einen Fehlerbericht
+  senden, das Problem könnte bereits gelöst sein.
+">
+
+<!ENTITY update.start.label                     "Aktualisierung starten">
+
 <!ENTITY issues.description                     "
   Adblock Plus hat Probleme in Ihren Einstellungen gefunden, die für das vorliegende
   Problem verantwortlich sein könnten oder eine Untersuchung des Problems behindern

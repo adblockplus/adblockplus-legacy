@@ -17,6 +17,10 @@
 <!ENTITY recentReports.label "Vaše nedávno potvrdené správy">
 <!ENTITY recentReports.clear.label "Odstrániť všetky správy">
 <!ENTITY recentReports.clear.accesskey "t">
+<!ENTITY update.inProgress.description "Adblock Plus potrebuje aktualizovať váš filter odberov, aby sa ubezpečil, či problém už nie je vyriešený. Čakajte prosím">
+<!ENTITY update.fixed.description "Aktualizácie filtra odberov môžu vyriešiť problém, ktorý ste nahlásili. Prosím, skúste stránku načítať znova a skúste zadať správu znovu, ak problém pretrváva.">
+<!ENTITY outdatedSubscriptions.description "Nasledujúci filter odberov nebol aktualizovaný najmenej po dobu dvoch týždňov. Prosím, aktualizujte tieto odbery pred predložením správy, problém už môže byť vyriešený.">
+<!ENTITY update.start.label "Spustiť aktualizáciu teraz">
 <!ENTITY issues.description "Adblock Plus zistil problém s vašou konfiguráciou, ktorý by mohol byť zodpovedný za daný problém alebo robí zistenie problému ťažším.">
 <!ENTITY issues.whitelist.description "Adblock Plus je na stránke, ktorú chcete ohlásiť, vypnutý. Zapnite ho, prosím, znova a opäť načítajte stránku skôr, než potvrdíte hlásenie.">
 <!ENTITY issues.whitelist.remove.label "Zapnúť opäť Adblock Plus na tejto stránke">

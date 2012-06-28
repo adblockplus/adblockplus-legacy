@@ -1,7 +1,7 @@
 <!ENTITY wizard.title "Ongelman raportointi">
 <!ENTITY privacyPolicy.label "Yksityisyyskäytäntö">
 <!ENTITY dataCollector.heading "Tervetuloa ongelman raportoijaan">
-<!ENTITY dataCollector.description "Odota hetki kun Adblock Plus kerää tarvittavia tietoja.">
+<!ENTITY dataCollector.description "Odota hetki, kun Adblock Plus kerää tarvittavia tietoja.">
 <!ENTITY typeSelector.heading "Valitse ongelman tyyppi">
 <!ENTITY typeSelector.description "Tämä ikkuna ohjeistaa tarvittavat vaiheet Adblockin Plussan ongelmaraportin lähettämiseksi. Aluksi valitse onhelmatyyppi, jollaisen koet tällä sivulla:">
 <!ENTITY typeSelector.falsePositive.label "Adblock Plus estää liikaa">
@@ -17,6 +17,10 @@
 <!ENTITY recentReports.label "Näytä viimeksi lähetemäsi raportit">
 <!ENTITY recentReports.clear.label "Poista kaikki raportit">
 <!ENTITY recentReports.clear.accesskey "r">
+<!ENTITY update.inProgress.description "Adblock Plussan pitää päivittää suodatintilaukset varmistaakseen, että ongelmaa ei ole jo ratkottu. Odota hetki...">
+<!ENTITY update.fixed.description "Suodatintilausten päivitykset todennäköisesti ratkaisivat raportoitavan ongelman. Päivitä sivusto ja yritä uudelleen. Mikäli ongelma säilyy, raportoi se.">
+<!ENTITY outdatedSubscriptions.description "Seuraavia suodatintilauksia ei ole päivitetty ainakaan kahteen viikkoon. Päivitä nämä tilaukset ennen raportin lähettämistä, sillä ongelma on saattaanut jo ratketa.">
+<!ENTITY update.start.label "Aloita päivittäminen nyt">
 <!ENTITY issues.description "Adblock Plus on havainnut ongelmia asetuksissa, jotka saattavat aiheuttaa tämän ongelman tai tehdä raportin tutkimisesta vaikeaa.">
 <!ENTITY issues.whitelist.description "Adblock Plus on tällä hetkellä poistettu käytöstä sivulla, jota olet raportoimassa. Ota se käyttöön ja ennen raportointia päivitä sivu. Tämä auttaa rapotin tutkimista.">
 <!ENTITY issues.whitelist.remove.label "Ota Adblock Plus uudestaan käyttöön tällä sivulla">

@@ -17,6 +17,10 @@
 <!ENTITY recentReports.label "Seus relatórios enviados recentemente">
 <!ENTITY recentReports.clear.label "Remover todos os relatórios">
 <!ENTITY recentReports.clear.accesskey "R">
+<!ENTITY update.inProgress.description "O Adblock Plus precisa atualizar suas inscrições de filtros para ter certeza que o problema não foi resolvido ainda. Por favor, aguarde...">
+<!ENTITY update.fixed.description "A atualização de suas inscrições de filtros provavelmente resolveu o problema que você estava reportando. Por favor, atualize a página e verifique. Se o problema persistir, clique novamente em &quot;Reportar problema com esta página&quot;.">
+<!ENTITY outdatedSubscriptions.description "As seguintes inscrições de filtros não foram atualizadas há pelo menos duas semanas. Por favor, atualize essas inscrições antes de enviar um relatório de erro, pois o problema pode já ter sido resolvido.">
+<!ENTITY update.start.label "Atualizar agora">
 <!ENTITY issues.description "O Adblock Plus detectou problemas com a configuração atual que podem ser a causa do erro ou que podem dificultar a análise do relatório.">
 <!ENTITY issues.whitelist.description "O Adblock Plus está desativado atualmente nessa página. Para ajudar na investigação do problema, por favor, reative o Adblock Plus e atualize a página antes de enviar o relatório.">
 <!ENTITY issues.whitelist.remove.label "Reativar o Adblock Plus nessa página">

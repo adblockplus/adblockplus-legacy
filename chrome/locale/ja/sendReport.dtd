@@ -1,7 +1,7 @@
 <!ENTITY wizard.title "不具合報告">
 <!ENTITY privacyPolicy.label "プライバシー ポリシー">
 <!ENTITY dataCollector.heading "不具合報告を開始します">
-<!ENTITY dataCollector.description "Adblock Plus が必要なデータを集めています。しばらくお待ちください">
+<!ENTITY dataCollector.description "Adblock Plus が必要なデータを集めています。しばらくお待ちください。">
 <!ENTITY typeSelector.heading "不具合種別を選択">
 <!ENTITY typeSelector.description "不具合の報告に必要なステップを案内します。まず最初に、遭遇した不具合の種別を選択してください:">
 <!ENTITY typeSelector.falsePositive.label "Adblock Plus のブロックが過剰">
@@ -17,7 +17,11 @@
 <!ENTITY recentReports.label "最近送信したレポート">
 <!ENTITY recentReports.clear.label "すべてのレポートを削除">
 <!ENTITY recentReports.clear.accesskey "R">
-<!ENTITY issues.description "Adblock Plus はこの不具合に関係、もしくは調査を困難にしている設定を発見しました">
+<!ENTITY update.inProgress.description "不具合が既に解決済みかを確かめるため、購読しているフィルタを更新します。しばらくお待ちください...">
+<!ENTITY update.fixed.description "報告しようとしていた不具合は更新で解決したかもしれません。現在のページを再読み込みして確かめてみてください。それでも不具合が解決しないなら再度不具合を報告してください。">
+<!ENTITY outdatedSubscriptions.description "次のフィルタ購読は２週間以上更新されていません。既に不具合は解決済みかもしれないので、先に更新してから不具合を報告してください。">
+<!ENTITY update.start.label "今すぐ更新">
+<!ENTITY issues.description "Adblock Plus はこの不具合に関係、もしくは調査を困難にしている設定を発見しました。">
 <!ENTITY issues.whitelist.description "報告しようとしているページで Adblock Plus が無効になっています。調査の妨げになるので Adblock Plus を有効に戻し、再読み込みしてからレポートを提出してください。">
 <!ENTITY issues.whitelist.remove.label "このページで Adblock Plus を有効に戻す">
 <!ENTITY issues.disabled.description "Adblock Plus が無効なので、何もブロックされません">

@@ -31,6 +31,10 @@
 <!ENTITY recentReports.label "Segnalazioni recentemente inviate">
 <!ENTITY recentReports.clear.label "Elimina tutte le segnalazioni">
 <!ENTITY recentReports.clear.accesskey "t">
+<!ENTITY update.inProgress.description "È necessario aggiornare la sottoscrizione di filtri per essere certi che il problema non sia già stato risolto. Attendere…">
+<!ENTITY update.fixed.description "L'aggiornamento della sottoscrizione di filtri ha probabilmente risolto il problema che si stava segnalando. Ricaricare la pagina e riprovare; in caso il problema permanga segnalarlo nuovamente">
+<!ENTITY outdatedSubscriptions.description "Le seguenti sottoscrizioni di filtri non sono state aggiornate per almeno due settimane. Aggiornarle prima di segnalare il problema, in quanto esso potrebbe essere già stato risolto">
+<!ENTITY update.start.label "Avvia l'aggiornamento ora">
 <!ENTITY issues.description "
 		Sono stati rilevati dei problemi con le impostazioni di Adblock Plus che potrebbero essere responsabili
 		del problema da segnalare oppure potrebbero rendere difficile rinvenirne le cause

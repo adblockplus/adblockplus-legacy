@@ -17,6 +17,10 @@
 <!ENTITY recentReports.label "דיווחים אחרונים שלך שנשלחו">
 <!ENTITY recentReports.clear.label "הסרת כל הדיווחים">
 <!ENTITY recentReports.clear.accesskey "ה">
+<!ENTITY update.inProgress.description "Adblock Plus צריך לעדכן את הרשמות המסננים כדי לוודא שהבעיה לא נפתרה כבר. אנא המתינו...">
+<!ENTITY update.fixed.description "אפשרי שעדכון הרשמות המסננים שלכם יפתור הבעיה שדווחה. אנא רעננו העמוד ונסו שוב, לחצו על דיווח שוב אם הבעיה נשארת.">
+<!ENTITY outdatedSubscriptions.description "הרשמות המסננים הבאות לא עודכנו לפחות שבועיים. אנא עדכנו הרשמות אלו לפני שליחת הדיווח, יכול להיות שהבעיה נפתרה כבר.">
+<!ENTITY update.start.label "התחל לעדכן כעת">
 <!ENTITY issues.description "Adblock Plus זיהה בעיות עם התצורה שלכם שאולי אחראית לבעיה זו או שיגרום לחקירת הדיווח לקשה.">
 <!ENTITY issues.whitelist.description "Adblock Plus מנוטרל כעת בעמוד אשר מדווח. יש לאפשר אותו מחדש ולרענן את העמוד לפני הזנת הדיווח על מנת לסייע בחקירת בעיה זו.">
 <!ENTITY issues.whitelist.remove.label "אפשור מחדש של Adblock Plus בעמוד זה">

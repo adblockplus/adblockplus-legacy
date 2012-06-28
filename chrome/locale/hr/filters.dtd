@@ -6,11 +6,9 @@
 <!ENTITY addSubscriptionAdd.label "Dodaj">
 <!ENTITY addSubscriptionCancel.label "Poništi">
 <!ENTITY addSubscriptionOther.label "Dodaj drugu pretplatu">
-<!ENTITY noSubscriptions.text "
-	Još niste dodali nijednu pretplatu filtera. Adblock Plus neće blokirati
-	ništa bez filtera, molim koristite &quot;Dodaj pretplatu filtera&quot; to
-	dodaj nešto.
-">
+<!ENTITY noSubscriptions.text "Još niste dodali nijednu pretplatu filtera. Adblock Plus neće blokirati
+	ništa bez filtera, molim koristite &quot;Dodaj pretplatu filtera&quot; za
+	dodavanje filtera.">
 <!ENTITY subscription.homepage.label "Početna stranica">
 <!ENTITY subscription.external.label "Ažurirano drugim priključkom">
 <!ENTITY subscription.source.label "Popis filtera">
@@ -39,9 +37,7 @@
 <!ENTITY readMore.label "Pročitaj više">
 <!ENTITY addGroup.label "Dodaj grupu filtera">
 <!ENTITY addGroup.accesskey "g">
-<!ENTITY noFilters.text "
-	Još nemate prilagođenih filtera.
-">
+<!ENTITY noFilters.text "Još nemate prilagođenih filtera.">
 <!ENTITY addFilter.label "Dodaj filter">
 <!ENTITY addFilter.accesskey "d">
 <!ENTITY filter.actions.label "Radnje filtera">

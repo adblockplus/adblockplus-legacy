@@ -17,6 +17,10 @@
 <!ENTITY recentReports.label "Dine seneste rapporter">
 <!ENTITY recentReports.clear.label "Fjern alle rapporter">
 <!ENTITY recentReports.clear.accesskey "F">
+<!ENTITY update.inProgress.description "Adblock Plus skal opdatere dit filterabonnement for at sikre at problemet ikke er blevet løst. Vent...">
+<!ENTITY update.fixed.description "Opdateringen af filterabonnementet har sandsynligvis løst dit problem. Genindlæs siden og prøv igen. Rapporter igen hvis problemet består.">
+<!ENTITY outdatedSubscriptions.description "Følgende filterabonnementer er ikke opdateret i mindst to uger. Opdater før du rapporterer en fejl, problemet er muligvis løst allerede.">
+<!ENTITY update.start.label "Start opdatering">
 <!ENTITY issues.description "Adblock Plus har fundet problemer i dine indstillinger der kan forårsage dette probleme eller vanskeliggøre yderligere undesøgelser.">
 <!ENTITY issues.whitelist.description "Adblock Plus er deaktiveret på siden du rapporterer. Genaktiver det og genindlæs siden før du indsender rapporten.">
 <!ENTITY issues.whitelist.remove.label "Genaktiver Adblock Plus på denne side">

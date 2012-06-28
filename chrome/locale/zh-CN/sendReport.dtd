@@ -3,79 +3,53 @@
 <!ENTITY dataCollector.heading "欢迎使用问题报告系统">
 <!ENTITY dataCollector.description "Adblock Plus 收集所需数据, 请稍等片刻.">
 <!ENTITY typeSelector.heading "选择问题类型">
-<!ENTITY typeSelector.description "
-本窗口将通过一系列的步骤来引导您提交 Adblock Plus 问题报告。
-首先，请选择本页上出现的问题类型:
-">
+<!ENTITY typeSelector.description "本窗口将通过一系列的步骤来引导您提交 Adblock Plus 问题报告。
+首先，请选择本页上出现的问题类型:">
 <!ENTITY typeSelector.falsePositive.label "Adblock Plus 屏蔽了太多元素">
 <!ENTITY typeSelector.falsePositive.accesskey "m">
-<!ENTITY typeSelector.falsePositive.description "
-如果页面缺少重要内容、显示不正常或者功能不正常，请选择此选项。
-您可以通过临时禁用 Adblock Plus 来检测问题是否为 Adblock Plus 所致。
-">
+<!ENTITY typeSelector.falsePositive.description "如果页面缺少重要内容、显示不正常或者功能不正常，请选择此选项。
+您可以通过临时禁用 Adblock Plus 来检测问题是否为 Adblock Plus 所致。">
 <!ENTITY typeSelector.falseNegative.label "Adblock Plus 无法屏蔽广告">
 <!ENTITY typeSelector.falseNegative.accesskey "v">
-<!ENTITY typeSelector.falseNegative.description "
-如果 Adblock Plus 处于启用状态，却仍然有显示广告，请选择此选项。
-">
+<!ENTITY typeSelector.falseNegative.description "如果 Adblock Plus 处于启用状态，却仍然有显示广告，请选择此选项。">
 <!ENTITY typeSelector.other.label "其他问题">
 <!ENTITY typeSelector.other.accesskey "t">
-<!ENTITY typeSelector.other.description "
-如果您怀疑问题出在 Adblock Plus 自身而不是过滤规则，请选择此选项。
-">
+<!ENTITY typeSelector.other.description "如果您怀疑问题出在 Adblock Plus 自身而不是过滤规则，请选择此选项。">
 <!ENTITY showRecentReports.label "显示目前已提交的报告">
 <!ENTITY recentReports.label "您目前已提交的报告">
 <!ENTITY recentReports.clear.label "移除所有报告">
 <!ENTITY recentReports.clear.accesskey "R">
-<!ENTITY issues.description "
-Adblock Plus 已经检测出您的设置可能导致该问题或致使报告难于调研。
-">
-<!ENTITY issues.whitelist.description "
-Adblock Plus 在您正在报告的页面上是禁用的。请在提交报告来帮助调研该问题之前重新启用 Adblock Plus 并重新载入该页面。
-">
+<!ENTITY update.inProgress.description "Adblock Plus 需要更新您的过滤规则订阅组以确保问题已被解决。请稍候……">
+<!ENTITY update.fixed.description "更新的过滤规则订阅组应该解决了您报告的问题。请重新载入页面并重试，如果问题仍然存在，请您继续报告问题。">
+<!ENTITY outdatedSubscriptions.description "如下过滤规则订阅组已经至少两周没有更新了。请在提交报告之前先更新这些过滤规则订阅组，也许问题已经解决。">
+<!ENTITY update.start.label "现在开始更新">
+<!ENTITY issues.description "Adblock Plus 已经检测出您的设置可能导致该问题或致使报告难于调研。">
+<!ENTITY issues.whitelist.description "Adblock Plus 在您正在报告的页面上是禁用的。请在提交报告来帮助调研该问题之前重新启用 Adblock Plus 并重新载入该页面。">
 <!ENTITY issues.whitelist.remove.label "在该页上重新启用 Adblock Plus">
-<!ENTITY issues.disabled.description "
-Adblock Plus 已禁用，当前状态下 Adblock Plus 不会屏蔽任何元素。
-">
+<!ENTITY issues.disabled.description "Adblock Plus 已禁用，当前状态下 Adblock Plus 不会屏蔽任何元素。">
 <!ENTITY issues.disabled.enable.label "启用 Adblock Plus">
-<!ENTITY issues.nofilters.description "
-Adblock Plus 在当前页面上未屏蔽任何元素。您遇到的问题很可能与 Adblock Plus 无关。
-">
-<!ENTITY issues.nosubscriptions.description "
-您不能显示已订阅的任何预置过滤规则列表。
-">
+<!ENTITY issues.nofilters.description "Adblock Plus 在当前页面上未屏蔽任何元素。您遇到的问题很可能与 Adblock Plus 无关。">
+<!ENTITY issues.nosubscriptions.description "您不能显示已订阅的任何预置过滤规则列表。">
 <!ENTITY issues.nosubscriptions.add.label "添加过滤规则订阅组">
-<!ENTITY issues.subscriptionCount.description "
-您有太多的过滤规则订阅组。我们不推荐使用过多的过滤规则订阅组，因为这可能会带来很多问题。
+<!ENTITY issues.subscriptionCount.description "您有太多的过滤规则订阅组。我们不推荐使用过多的过滤规则订阅组，因为这可能会带来很多问题。
 很抱歉，我们不能接受您的问题报告，因为我们不清楚过滤规则订阅组的作者所需要采取的动作。
-请移除非必要的过滤规则订阅组，然后再测试一下问题是否依然存在。
-">
+请移除非必要的过滤规则订阅组，然后再测试一下问题是否依然存在。">
 <!ENTITY issues.openPreferences.label "打开过滤规则首选项">
-<!ENTITY issues.ownfilters.description "
-有些应用到该页面的过滤规则是用户自定义的。
-请禁用这些可能导致问题的过滤规则:
-">
+<!ENTITY issues.ownfilters.description "有些应用到该页面的过滤规则是用户自定义的。
+请禁用这些可能导致问题的过滤规则:">
 <!ENTITY issues.ownfilters.disable.label "禁用过滤规则">
-<!ENTITY issues.disabledgroups.description "
-如下过滤规则订阅组/过滤规则分组处于禁用状态，但是他们可能对该页面有效:
-">
+<!ENTITY issues.disabledgroups.description "如下过滤规则订阅组/过滤规则分组处于禁用状态，但是他们可能对该页面有效:">
 <!ENTITY issues.disabledgroups.enable.label "启用过滤规则订阅组/过滤规则分组">
-<!ENTITY issues.disabledfilters.description "
-如下过滤规则处于禁用状态，但是他们可能在该页面上有效:
-">
+<!ENTITY issues.disabledfilters.description "如下过滤规则处于禁用状态，但是他们可能在该页面上有效:">
 <!ENTITY issues.disabledfilters.enable.label "启用过滤规则">
 <!ENTITY issues.override.label "设置正确，继续报告">
 <!ENTITY issues.override.accesskey "c">
-<!ENTITY issues.change.description "
-您的设置已更改。请重新载入页面来测试
-更改，如果问题依旧没有解决请提交报告。
-">
-<!ENTITY typeWarning.description "
-您已经明确您想要报告 Adblock Plus 的通用问题而不是过滤规则的问题。
+<!ENTITY issues.change.description "您的设置已更改。请重新载入页面来测试
+更改，如果问题依旧没有解决请提交报告。">
+<!ENTITY typeWarning.description "您已经明确您想要报告 Adblock Plus 的通用问题而不是过滤规则的问题。
 请注意这类问题最好报告至 [link]Adblock Plus 论坛[/link]。您应该仅仅使用
 问题报告系统来补充一个存在的讨论，如果您不提供链接，很可能没人会
-注意到您的报告。提交报告之后会提供给您自动创建的链接。
-">
+注意到您的报告。提交报告之后会提供给您自动创建的链接。">
 <!ENTITY typeWarning.override.label "我了解并仍然希望提交报告">
 <!ENTITY typeWarning.override.accesskey "s">
 <!ENTITY reloadButton.label "重新载入页面">
