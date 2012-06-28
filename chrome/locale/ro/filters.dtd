@@ -29,7 +29,9 @@
 <!ENTITY subscription.showHideFilters.label "Arată/ascunde filtre">
 <!ENTITY subscription.moveUp.label "Mută sus">
 <!ENTITY subscription.moveDown.label "Mută jos">
+<!ENTITY acceptableAds2.label "Permite publicitatea discretă">
 <!ENTITY acceptableAds2.accesskey "p">
+<!ENTITY viewList.label "Afişare listă">
 <!ENTITY readMore.label "Citește mai mult">
 <!ENTITY addGroup.label "Adaugă grup filtre">
 <!ENTITY addGroup.accesskey "g">

@@ -7,7 +7,7 @@
 <!ENTITY addSubscriptionCancel.label "Annulla">
 <!ENTITY addSubscriptionOther.label "Altre sottoscrizioni">
 <!ENTITY noSubscriptions.text "
-    Non è stata ancora aggiunta alcuna sottoscrizione di filtri, senza cui Adblock Plus non
+		Non è stata ancora aggiunta alcuna sottoscrizione di filtri, senza cui Adblock Plus non
 	bloccherà alcun elemento; fare clic sul pulsante &quot;Aggiungi sottoscrizione…&quot;
 	per aggiungerne una
 	">
@@ -40,7 +40,7 @@
 <!ENTITY addGroup.label "Aggiungi gruppo di filtri">
 <!ENTITY addGroup.accesskey "g">
 <!ENTITY noFilters.text "
-    Non è stato ancora aggiunto alcun filtro personalizzato
+		Non è stato ancora aggiunto alcun filtro personalizzato
 	">
 <!ENTITY addFilter.label "Aggiungi filtro">
 <!ENTITY addFilter.accesskey "f">

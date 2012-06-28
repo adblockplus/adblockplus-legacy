@@ -17,6 +17,10 @@
 <!ENTITY recentReports.label "Legutóbb beküldött jelentések">
 <!ENTITY recentReports.clear.label "Az összes jelentés eltávolítása">
 <!ENTITY recentReports.clear.accesskey "j">
+<!ENTITY update.inProgress.description "Az Adblock Plusnak frissítenie kell a szűrőlistákat, hogy megbizonyosodjon róla, hogy a probléma még mindig fennáll. Kérem várjon…">
+<!ENTITY update.fixed.description "A szűrőlisták frissítése nagy valószínűséggel megoldja a bejelentett hibát. Kérem frissítse az oldalt és próbálja újra, csak akkor küldjön bejelentést, ha a probléma továbbra is fennáll.">
+<!ENTITY outdatedSubscriptions.description "Az alábbi szűrőlistákat legalább két hete nem frissítette. Kérem frissítse a listákat mielőtt jelentést küld róluk, lehetséges, hogy a probléma időközben megoldódott.">
+<!ENTITY update.start.label "Frissítés most">
 <!ENTITY issues.description "Az Adblock Plus konfigurációs problémákat észlelt, amelyek okozhatják a bejelentendő hibát vagy megnehezíthetik a bejelentés elküldését.">
 <!ENTITY issues.whitelist.description "Az Adblock Plus jelenleg le van tiltva az oldalon, amelyet be szeretne jelenteni. Kérem engedélyezze újra a bejelentés előtt, hogy több segédinformáció álljon rendelkezésre a hiba kivizsgálásánál.">
 <!ENTITY issues.whitelist.remove.label "Adblock Plus újraengedélyezése az oldalon">

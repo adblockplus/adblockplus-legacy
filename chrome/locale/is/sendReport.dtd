@@ -31,6 +31,10 @@
 <!ENTITY recentReports.label "Nýlegar sendar skýrslur">
 <!ENTITY recentReports.clear.label "Fjarlægja allar skýrslur">
 <!ENTITY recentReports.clear.accesskey "r">
+<!ENTITY update.inProgress.description "Adblock Plus þarf að uppfæra síuáskriftir til að ganga úr skugga um að vandamálið hafi ekki þegar verið lagað. Bíddu aðeins…">
+<!ENTITY update.fixed.description "Uppfærslur á síuáskriftum lagfærðu að öllum líkindum vandamálið. Endurnýjaðu síðun og reyndu aftur, smelltu á tilkynna aftur ef vandamálið er enn til staðar.">
+<!ENTITY outdatedSubscriptions.description "Eftirfarandi síuáskriftir hafa ekki verið uppfærðar í að minnsta kosti tvær vikur. Uppfærðu síuáskriftirnar áður en þú tilkynnir vandamál, hugsanlega er þegar búið að leysa vandamálið.">
+<!ENTITY update.start.label "Byrja uppfærslu">
 <!ENTITY issues.description "
 	Adblock Plus uppgötvaði vandamál með stillingar sem gætu verið ástæða
 	fyrir þessu vandamáli eða gæti haft áhrif á rannsókn vandamálsins.

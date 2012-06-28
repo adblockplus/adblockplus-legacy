@@ -1,5 +1,11 @@
+<!ENTITY subscriptions.tab.label "Naročnine na filtre">
+<!ENTITY filters.tab.label "Filtri po meri">
 <!ENTITY addSubscription.label "Dodaj naročnino filtra">
+<!ENTITY addSubscription.accesskey "m">
+<!ENTITY addSubscriptionAdd.label "Dodaj">
+<!ENTITY addSubscriptionCancel.label "Prekliči">
 <!ENTITY addSubscriptionOther.label "Dodaj novo naročnino">
+<!ENTITY subscription.homepage.label "Domača stran">
 <!ENTITY subscription.lastDownload.label "Zadnji prenos:">
 <!ENTITY subscription.lastDownload.inProgress "Prenos s strežnika ...">
 <!ENTITY subscription.lastDownload.unknown "Ni na voljo">

@@ -1,18 +1,11 @@
 <!ENTITY dialog.title "Adblock Plus instalacija završena">
-<!ENTITY confirmation "
-	Hvala vam za instalaciju Adblock Plus-a. Reklame će od sada biti blokirane.
+<!ENTITY confirmation "Hvala vam za instalaciju Adblock Plus-a. Reklame će od sada biti blokirane.
 	Uživajte!">
 <!ENTITY advancedSection "Napredne mogućnosti">
-<!ENTITY listSelection1 "
-	Sljedeći popis filtera je podešen da blokira reklame:
-">
+<!ENTITY listSelection1 "Sljedeći popis filtera je podešen da blokira reklame:">
 <!ENTITY noList "Nema popisa filtera">
 <!ENTITY visitHomepage.label "Posjetite početnu stranicu popisa">
-<!ENTITY acceptableAds2 "
-	Adblock plus je podešen da dopušta neke nenametljive reklame.
-">
+<!ENTITY acceptableAds2 "Adblock plus je podešen da dopušta neke nenametljive reklame.">
 <!ENTITY viewList.label "Pogledaj popis">
 <!ENTITY readMore.label "Više pročitajte o ovome">
-<!ENTITY listSelection2 "
-	Možete promijeniti ovaj odabir bilo kada u [link]Postavkama filtera[/link].
-">
+<!ENTITY listSelection2 "Možete promijeniti ovaj odabir bilo kada u [link]Postavkama filtera[/link].">

@@ -37,6 +37,6 @@
 <!ENTITY counthits.label "Рахувати хіти фільтрів">
 <!ENTITY counthits.accesskey "Р">
 <!ENTITY sync.label "Синхронізувати налаштуванна Адблоку">
-<!ENTITY sync.accesskey "С">
+<!ENTITY sync.accesskey "з">
 <!ENTITY objecttab.title "Заблокувати">
 <!ENTITY objecttab.tooltip "Натисніть тут, щоб заблокувати цей об’єкт">

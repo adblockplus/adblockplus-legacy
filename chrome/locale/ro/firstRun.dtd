@@ -4,5 +4,7 @@
 <!ENTITY listSelection1 "Pentru a bloca publicitatea, a fost aleasă următoarea listă de filtre:">
 <!ENTITY noList "Lipsă filtre">
 <!ENTITY visitHomepage.label "Pagina de start a listei">
+<!ENTITY acceptableAds2 "Adblock a fost configurat să permită publicitatea discretă.">
+<!ENTITY viewList.label "Vizualizare listă">
 <!ENTITY readMore.label "Citeşte mai multe despre asta">
 <!ENTITY listSelection2 "Puteţi schimba oricând această alegere în meniul [link]Opţiuni Filtre[/link].">

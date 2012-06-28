@@ -17,6 +17,7 @@
 <!ENTITY recentReports.label "Vaša nedavno poslana poročila">
 <!ENTITY recentReports.clear.label "Odstrani vsa poročila">
 <!ENTITY recentReports.clear.accesskey "d">
+<!ENTITY update.start.label "Začni s posodobitvijo zdaj">
 <!ENTITY issues.description "Adblock Plus je zaznal težave z vašo konfiguracijo, ki so lahko krive za to težavo ali pa bodo raziskovanje poročila otežile.">
 <!ENTITY issues.whitelist.description "Adblock Plus je trenutno na strani, o kateri poročate, onemogočen. Ponovno ga omogočite in ponovno naložite stran, preden pošljete poročilo za preiskovanje te težave.">
 <!ENTITY issues.whitelist.remove.label "Ponovno omogoči Adblock Plus na tej strani">

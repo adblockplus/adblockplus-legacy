@@ -1,11 +1,11 @@
 <!ENTITY dialog.title "Ajouter un abonnement à une liste de filtres Adblock Plus">
 <!ENTITY subscriptionSelector.label "Veuillez choisir un abonnement dans la liste suivante :">
 <!ENTITY viewList.label "Afficher les filtres">
-<!ENTITY visitHomepage.label "Se rendre au site Web">
+<!ENTITY visitHomepage.label "Se rendre au site web">
 <!ENTITY addSubscription.label "Ajouter l'abonnement">
 <!ENTITY list.download.failed "Adblock Plus n'a pu récupérer la liste des abonnements.">
 <!ENTITY list.download.retry "Essayer à nouveau">
-<!ENTITY list.download.website "Afficher le site Web">
+<!ENTITY list.download.website "Afficher le site web">
 <!ENTITY fromWeb.description "Veuillez confirmer que vous souhaitez ajouter cet abonnement. Vous pouvez modifier le titre et l'emplacement de l'abonnement avant de l'ajouter.">
 <!ENTITY title.label "Nom de l'abonnement :">
 <!ENTITY title.accesskey "N">

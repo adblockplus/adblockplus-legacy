@@ -12,6 +12,8 @@
 <!ENTITY sidebar.title "Elementi blokad na trenutni strani">
 <!ENTITY sendReport.label "Javite težavo na tej strani">
 <!ENTITY sendReport.accesskey "J">
+<!ENTITY filters.label "Nastavitve filtra">
+<!ENTITY filters.accesskey "f">
 <!ENTITY opensidebar.label "Odpri elemente blokad">
 <!ENTITY opensidebar.accesskey "e">
 <!ENTITY closesidebar.label "Zapri elemente blokad">
@@ -21,12 +23,19 @@
 <!ENTITY disable.label "Onemogoči povsod">
 <!ENTITY options.label "Možnosti">
 <!ENTITY options.accesskey "ž">
+<!ENTITY contribute.label "Prispevajte k Adblock Plus">
 <!ENTITY showintoolbar.label "Pokaži v orodni vrstici">
 <!ENTITY showintoolbar.accesskey "k">
 <!ENTITY showinstatusbar.label "Pokaži v vrstici stanja">
 <!ENTITY showinstatusbar.accesskey "v">
+<!ENTITY showinaddonbar.label "Pokaži dodatek v vrstici">
+<!ENTITY showinaddonbar.accesskey "k">
 <!ENTITY objecttabs.label "Pokaži zavihke za Flash in Javo">
 <!ENTITY objecttabs.accesskey "z">
+<!ENTITY hideplaceholders.label "Skrij ograde blokoranih elementov">
+<!ENTITY hideplaceholders.accesskey "b">
+<!ENTITY counthits.label "Štej zadetke filtra">
+<!ENTITY counthits.accesskey "d">
 <!ENTITY sync.label "Sinhroniziraj nastavitve Adblock Plus">
 <!ENTITY sync.accesskey "h">
 <!ENTITY objecttab.title "Blokiraj">

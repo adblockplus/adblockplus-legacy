@@ -2,7 +2,7 @@
 <!ENTITY accept.label "新增過濾條件">
 <!ENTITY advanced.label "進階檢視">
 <!ENTITY basic.label "基本檢視">
-<!ENTITY disabled.warning "Adblock Plus 目前已停用。您還是可以新增過濾條件，但不會有任何作用，除非您[link]啟用 Adblock Plus[/link]。">
+<!ENTITY disabled.warning "Adblock Plus 目前已停用。您還是可以新增過濾條件，但除非您[link]啟用 Adblock Plus[/link]，否則不會生效。">
 <!ENTITY filter.label "新過濾條件:">
 <!ENTITY filter.accesskey "f">
 <!ENTITY preferences.label "顯示已有的條件...">

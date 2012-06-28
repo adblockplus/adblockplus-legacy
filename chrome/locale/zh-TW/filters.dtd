@@ -6,10 +6,7 @@
 <!ENTITY addSubscriptionAdd.label "加入">
 <!ENTITY addSubscriptionCancel.label "取消">
 <!ENTITY addSubscriptionOther.label "新增其他條件集">
-<!ENTITY noSubscriptions.text "
- 您未加入任何過濾條件集。
- 沒有過濾條件的話 Adblock Plus 不曉得該阻擋什麼，請使用&quot;新增過濾條件集&quot;加入。
-">
+<!ENTITY noSubscriptions.text "您未訂閱任何過濾條件集。沒有過濾條件的話 Adblock Plus 不曉得該阻擋什麼，請使用&quot;新增過濾條件集&quot;加入。">
 <!ENTITY subscription.homepage.label "首頁">
 <!ENTITY subscription.external.label "由其他擴充套件更新">
 <!ENTITY subscription.source.label "條件列表">
@@ -38,9 +35,7 @@
 <!ENTITY readMore.label "詳細內容">
 <!ENTITY addGroup.label "新增條件群組">
 <!ENTITY addGroup.accesskey "g">
-<!ENTITY noFilters.text "
- 您還沒有任何自訂條件。
-">
+<!ENTITY noFilters.text "您還沒有任何自訂條件。">
 <!ENTITY addFilter.label "新增過濾條件">
 <!ENTITY addFilter.accesskey "d">
 <!ENTITY filter.actions.label "條件操作">
@@ -80,12 +75,12 @@
 <!ENTITY backup.label "建立新的備份">
 <!ENTITY restore.default.label "還原至 ?1?">
 <!ENTITY restore.own.label "從自己的備份還原">
-<!ENTITY backup.complete.title "所有的條件和過濾條件集">
+<!ENTITY backup.complete.title "所有條件和過濾條件集">
 <!ENTITY backup.custom.title "只有自訂條件">
-<!ENTITY backup.error "條件寫入檔案時發生錯誤。請確定該檔案沒有寫入保護或正被其他的應用程式使用。">
+<!ENTITY backup.error "條件寫入檔案時發生錯誤。請確定該檔案沒有寫入保護或正被其他的程式使用。">
 <!ENTITY restore.error "無法處理該檔案的資料，也許這不是 Adblock Plus 的備份檔？">
-<!ENTITY restore.complete.warning "所有的條件偏好設定都將被選中的檔案替換。您確定要這麼做嗎？">
-<!ENTITY restore.custom.warning "所有的自訂條件都會被選中的檔案替換。您確定要這麼做嗎？">
+<!ENTITY restore.complete.warning "所有條件偏好設定都將被選中的檔案替換。您確定要這麼做嗎？">
+<!ENTITY restore.custom.warning "所有自訂條件都會被選中的檔案替換。您確定要這麼做嗎？">
 <!ENTITY restore.minVersion.warning "警告：這個檔案由較新版的 Adblock Plus 建立。從這個檔案還原前您應該先更新至最新版的 Adblock Plus。">
 <!ENTITY find.label "尋找">
 <!ENTITY find.accesskey "n">
