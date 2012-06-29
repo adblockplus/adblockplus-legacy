@@ -182,8 +182,7 @@
                           <if condition="{subscription.homepage}">
                             <description class="link" value="&subscription.homepage.label;"
                               _url="{subscription.homepage}" tooltiptext="{subscription.homepage}"
-                              onclick="if (event.button == 0) { event.stopPropagation();UI.loadInBrowser(this.getAttribute('_url')); }"/>
-                            <description value=", "/>
+                              onclick="if (event.button == 0) { event.stopPropagation();UI.loadInBrowser(this.getAttribute('_url')); }"/>,&#160;
                           </if>
                           <description class="link" value="&subscription.source.label;"
                             _url="{subscription.url}" tooltiptext="{subscription.url}"
@@ -196,8 +195,7 @@
                 </hbox>
                 <hbox align="center">
                   <description flex="1" class="status">
-                    <description value="&subscription.lastDownload.label;"/>
-                    <description value=" "/>
+                    <description value="&subscription.lastDownload.label;"/>&#160;
                     <if condition="{downloading}">
                       <description value="&subscription.lastDownload.inProgress;"/>
                     <elif condition="{!subscription.lastDownload}"/>
@@ -206,8 +204,7 @@
                       <description value="{formatTime(subscription.lastDownload * 1000)}"/>
                       <if condition="{subscription.downloadStatus}">
                         <description>
-                          <description value=" "/>
-                          (<if condition="{subscription.downloadStatus == 'synchronize_invalid_url'}">
+                          &#160;(<if condition="{subscription.downloadStatus == 'synchronize_invalid_url'}">
                             <description value="&subscription.lastDownload.invalidURL;"/>
                           <elif condition="{subscription.downloadStatus == 'synchronize_connection_error'}"/>
                             <description value="&subscription.lastDownload.connectionError;"/>
