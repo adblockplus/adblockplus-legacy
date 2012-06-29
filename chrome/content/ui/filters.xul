@@ -144,10 +144,7 @@
               class="{localePrefix ? 'localeMatch' : ''}"
               label="{node.getAttribute('title')}"
               value="{node.getAttribute('url')}">
-            <label class="selectSubscriptionItem" value="{node.getAttribute('title')}"/>
-            <label class="selectSubscriptionItem" value=" ("/>
-            <label class="selectSubscriptionItem" value="{node.getAttribute('specialization')}"/>
-            <label class="selectSubscriptionItem" value=")"/>
+            <label class="selectSubscriptionItem" value="{node.getAttribute('title') + ' (' + node.getAttribute('specialization') + ')'}"/>
           </menuitem>
           <menulist id="selectSubscription">
             <menupopup/>
@@ -177,10 +174,9 @@
                 <hbox align="center">
                   <deck class="titleBox" flex="1" selectedIndex="0" onselect="event.stopPropagation();">
                     <description ondblclick="if (event.button == 0) TitleEditor.start(this, true);">
-                      <description class="title" value="{subscription.title}" flex="1" crop="end"/>
-                      <hbox align="baseline">
-                        <description value=" ("/>
-                        <if condition="{isExternal}">
+                      <description>
+                        <description class="title" value="{subscription.title}" flex="1" crop="end"/>
+                        (<if condition="{isExternal}">
                           <description value="&subscription.external.label;"/>
                         <else/>
                           <if condition="{subscription.homepage}">
@@ -192,9 +188,8 @@
                           <description class="link" value="&subscription.source.label;"
                             _url="{subscription.url}" tooltiptext="{subscription.url}"
                             onclick="if (event.button == 0) { event.stopPropagation();UI.loadInBrowser(this.getAttribute('_url')); }"/>
-                        </if>
-                        <description value=")"/>
-                      </hbox>
+                        </if>)
+                      </description>
                     </description>
                     <textbox oncontextmenu="event.stopPropagation();" class="titleEditor" onkeypress="TitleEditor.keyPress(event);" onblur="TitleEditor.end(true);"/>
                   </deck>
@@ -209,11 +204,10 @@
                       <description value="&subscription.lastDownload.unknown;"/>
                     <else/>
                       <description value="{formatTime(subscription.lastDownload * 1000)}"/>
-                      <description value=" "/>
                       <if condition="{subscription.downloadStatus}">
-                        <hbox>
-                          <description value=" ("/>
-                          <if condition="{subscription.downloadStatus == 'synchronize_invalid_url'}">
+                        <description>
+                          <description value=" "/>
+                          (<if condition="{subscription.downloadStatus == 'synchronize_invalid_url'}">
                             <description value="&subscription.lastDownload.invalidURL;"/>
                           <elif condition="{subscription.downloadStatus == 'synchronize_connection_error'}"/>
                             <description value="&subscription.lastDownload.connectionError;"/>
@@ -223,9 +217,8 @@
                             <description value="&subscription.lastDownload.checksumMismatch;"/>
                           <else/>   <!-- synchronize_ok -->
                             <description value="&subscription.lastDownload.success;"/>
-                          </if>
-                          <description value=")"/>
-                        </hbox>
+                          </if>)
+                        </description>
                       </if>
                     </if>
                   </description>
