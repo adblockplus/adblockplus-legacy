@@ -27,6 +27,8 @@ let reportData =
       <option id="collapse">{!Prefs.fastcollapse}</option>
       <option id="privateBrowsing">{PrivateBrowsing.enabled}</option>
       <option id="subscriptionsAutoUpdate">{Prefs.subscriptions_autoupdate}</option>
+      <option id="javascript">{Services.prefs.getBoolPref("javascript.enabled")}</option>
+      <option id="cookieBehavior">{Services.prefs.getIntPref("network.cookie.cookieBehavior")}</option>
     </options>
     <window/>
     <requests/>
