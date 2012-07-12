@@ -30,8 +30,8 @@ zh-CN=https://adblockplus.org/zh_CN/
 zh-TW=https://adblockplus.org/zh_TW/
 
 [compat]
-firefox=8.0/16.0a1
-fennec2=11.0a1/16.0a1
-thunderbird=8.0/16.0a1
-seamonkey=2.5/2.13a1
-toolkit=8.0/16.0a1
+firefox=8.0/17.0a1
+fennec2=11.0a1/17.0a1
+thunderbird=8.0/17.0a1
+seamonkey=2.5/2.14a1
+toolkit=8.0/17.0a1
