@@ -226,12 +226,12 @@ var Backup =
         else
         {
           // Regular filter
-          let filter = Filter.fromText(Filter.normalize(line));
-          if (filter)
+          line = Filter.normalize(line);
+          if (line)
           {
             if (!this.subscription)
               this.subscription = SpecialSubscription.create(Utils.getString("newGroup_title"));
-            this.subscription.filters.push(filter);
+            this.subscription.filters.push(Filter.fromText(line));
           }
         }
       }
