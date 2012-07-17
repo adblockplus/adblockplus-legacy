@@ -342,9 +342,12 @@ var SubscriptionActions =
         let lines = event.dataTransfer.getData("text/plain").replace(/\r/g, "").split("\n");
         for (let i = 0; i < lines.length; i++)
         {
-          let filter = Filter.fromText(lines[i]);
-          if (filter)
+          let line = Filter.normalize(lines[i]);
+          if (line)
+          {
+            let filter = Filter.fromText(line);
             FilterStorage.addFilter(filter, data.subscription);
+          }
         }
         FilterActions.removeDraggedFilters();
         event.stopPropagation();
