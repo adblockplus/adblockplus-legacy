@@ -12,7 +12,7 @@
 #                                                                           #
 # To add a checksum to a subscription file, run the script like this:       #
 #                                                                           #
-#   perl addChecksum.pl < subscription.txt > subscriptionSigned.txt         #
+#   python addChecksum.py < subscription.txt > subscriptionSigned.txt       #
 #                                                                           #
 # Note: your subscription file should be saved in UTF-8 encoding, otherwise #
 # the operation will fail.                                                  #
