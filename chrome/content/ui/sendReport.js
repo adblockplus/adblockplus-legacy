@@ -16,26 +16,75 @@ const SECONDS_IN_MINUTE = 60;
 const SECONDS_IN_HOUR = 60 * SECONDS_IN_MINUTE;
 const SECONDS_IN_DAY = 24 * SECONDS_IN_HOUR;
 
-let reportData =
-  <report>
-    <adblock-plus version={Utils.addonVersion} locale={Utils.appLocale}/>
-    <application name={Services.appinfo.name} vendor={Services.appinfo.vendor} version={Services.appinfo.version} userAgent={window.navigator.userAgent}/>
-    <platform name="Gecko" version={Services.appinfo.platformVersion} build={Services.appinfo.platformBuildID}/>
-    <options>
-      <option id="enabled">{Prefs.enabled}</option>
-      <option id="objecttabs">{Prefs.frameobjects}</option>
-      <option id="collapse">{!Prefs.fastcollapse}</option>
-      <option id="privateBrowsing">{PrivateBrowsing.enabled}</option>
-      <option id="subscriptionsAutoUpdate">{Prefs.subscriptions_autoupdate}</option>
-      <option id="javascript">{Services.prefs.getBoolPref("javascript.enabled")}</option>
-      <option id="cookieBehavior">{Services.prefs.getIntPref("network.cookie.cookieBehavior")}</option>
-    </options>
-    <window/>
-    <requests/>
-    <filters/>
-    <subscriptions/>
-    <errors/>
-  </report>;
+let reportData = new DOMParser().parseFromString("<report></report>", "text/xml");
+
+// Some helper functions to work with the report data
+function reportElement(tag)
+{
+  for (let child = reportData.documentElement.firstChild; child; child = child.nextSibling)
+    if (child.nodeType == Node.ELEMENT_NODE && child.tagName == tag)
+      return child;
+  let element = reportData.createElement(tag);
+  reportData.documentElement.appendChild(element);
+  return element;
+}
+function removeReportElement(tag)
+{
+  for (let child = reportData.documentElement.firstChild; child; child = child.nextSibling)
+    if (child.nodeType == Node.ELEMENT_NODE && child.tagName == tag)
+      child.parentNode.removeChild(child);
+}
+function appendElement(parent, tag, attributes, body)
+{
+  let element = parent.ownerDocument.createElement(tag);
+  if (typeof attributes == "object" && attributes !== null)
+    for (let attribute in attributes)
+      if (attributes.hasOwnProperty(attribute))
+        element.setAttribute(attribute, attributes[attribute]);
+  if (typeof body != "undefined" && body !== null)
+    element.textContent = body;
+  parent.appendChild(element);
+  return element;
+}
+function serializeReportData()
+{
+  let result = new XMLSerializer().serializeToString(reportData);
+
+  // Insert line breaks before each new tag
+  result = result.replace(/(<[^\/]([^"<>]*|"[^"]*")*>)/g, "\n$1");
+  result = result.replace(/^\n+/, "");
+  return result;
+}
+
+let (element = reportElement("adblock-plus"))
+{
+  let {addonVersion} = require("info");
+  element.setAttribute("version", addonVersion);
+  element.setAttribute("locale", Utils.appLocale);
+};
+let (element = reportElement("application"))
+{
+  element.setAttribute("name", Services.appinfo.name);
+  element.setAttribute("vendor", Services.appinfo.vendor);
+  element.setAttribute("version", Services.appinfo.version);
+  element.setAttribute("userAgent", window.navigator.userAgent);
+};
+let (element = reportElement("platform"))
+{
+  element.setAttribute("name", "Gecko");
+  element.setAttribute("version", Services.appinfo.platformVersion);
+  element.setAttribute("build", Services.appinfo.platformBuildID);
+};
+let (element = reportElement("options"))
+{
+  appendElement(element, "option", {id: "enabled"}, Prefs.enabled);
+  appendElement(element, "option", {id: "objecttabs"}, Prefs.frameobjects);
+  appendElement(element, "option", {id: "collapse"}, !Prefs.fastcollapse);
+  appendElement(element, "option", {id: "privateBrowsing"}, PrivateBrowsing.enabled);
+  appendElement(element, "option", {id: "subscriptionsAutoUpdate"}, Prefs.subscriptions_autoupdate);
+  appendElement(element, "option", {id: "javascript"}, Services.prefs.getBoolPref("javascript.enabled"));
+  appendElement(element, "option", {id: "cookieBehavior"}, Services.prefs.getIntPref("network.cookie.cookieBehavior"));
+};
 
 //
 // Data collectors
@@ -122,7 +171,7 @@ let reportsListDataSource =
 
 let requestsDataSource =
 {
-  requests: reportData.requests,
+  requests: reportElement("requests"),
   origRequests: [],
   requestNotifier: null,
   callback: null,
@@ -139,39 +188,37 @@ let requestsDataSource =
     if (entry)
     {
       let key = entry.location + " " + entry.typeDescr + " " + entry.docDomain;
-      let requestXML
+      let requestXML;
       if (key in this.nodeByKey)
       {
         requestXML = this.nodeByKey[key];
-        requestXML.@count = parseInt(requestXML.@count, 10) + 1;
+        requestXML.setAttribute("count", parseInt(requestXML.getAttribute("count"), 10) + 1);
       }
       else
       {
-        requestXML = <request location={censorURL(entry.location)}
-                              type={entry.typeDescr}
-                              docDomain={entry.docDomain}
-                              thirdParty={entry.thirdParty}
-                              count="1"/>;
-        this.nodeByKey[key] = requestXML;
-        this.requests.appendChild(requestXML);
+        requestXML = this.nodeByKey[key] = appendElement(this.requests, "request", {
+          location: censorURL(entry.location),
+          type: entry.typeDescr,
+          docDomain: entry.docDomain,
+          thirdParty: entry.thirdParty,
+          count: 1
+        });
       }
 
       // Location is meaningless for element hiding hits
       if (entry.filter && entry.filter instanceof ElemHideBase)
-        delete requestXML.@location;  
+        requestXML.removeAttribute("location");
         
       if (entry.filter)
-        requestXML.@filter = entry.filter.text;
+        requestXML.setAttribute("filter", entry.filter.text);
 
       if (node instanceof Element)
       {
-        requestXML.@node = node.localName;
-        if (node.namespaceURI)
-          requestXML.@node = node.namespaceURI + "#" + requestXML.@node;
+        requestXML.setAttribute("node", (node.namespaceURI ? node.namespaceURI + "#" : "") + node.localName);
 
         try
         {
-          requestXML.@size = node.offsetWidth + "x" + node.offsetHeight;
+          requestXML.setAttribute("size", node.offsetWidth + "x" + node.offsetHeight);
         } catch(e) {}
       }
       this.origRequests.push(entry);
@@ -195,12 +242,16 @@ let filtersDataSource =
     let wndStats = RequestNotifier.getWindowStatistics(wnd);
     if (wndStats)
     {
-      let filters = reportData.filters;
+      let filters = reportElement("filters");
       for (let f in wndStats.filters)
       {
         let filter = Filter.fromText(f)
         let hitCount = wndStats.filters[f];
-        filters.appendChild(<filter text={filter.text} subscriptions={filter.subscriptions.filter(subscriptionsDataSource.subscriptionFilter).map(function(s) s.url).join(" ")} hitCount={hitCount}/>);
+        appendElement(filters, "filter", {
+          text: filter.text,
+          subscriptions: filter.subscriptions.filter(subscriptionsDataSource.subscriptionFilter).map(function(s) s.url).join(" "),
+          hitCount: hitCount
+        });
         this.origFilters.push(filter);
       }
     }
@@ -221,7 +272,7 @@ let subscriptionsDataSource =
 
   collectData: function(wnd, windowURI, callback)
   {
-    let subscriptions = reportData.subscriptions;
+    let subscriptions = reportElement("subscriptions");
     let now = Math.round(Date.now() / 1000);
     for (let i = 0; i < FilterStorage.subscriptions.length; i++)
     {
@@ -229,20 +280,22 @@ let subscriptionsDataSource =
       if (!this.subscriptionFilter(subscription))
         continue;
 
-      let subscriptionXML = <subscription id={subscription.url} disabledFilters={subscription.filters.filter(function(filter) filter instanceof ActiveFilter && filter.disabled).length}/>;
+      let subscriptionXML = appendElement(subscriptions, "subscription", {
+        id: subscription.url,
+        disabledFilters: subscription.filters.filter(function(filter) filter instanceof ActiveFilter && filter.disabled).length
+      });
       if (subscription.lastDownload)
-        subscriptionXML.@lastDownloadAttempt = subscription.lastDownload - now;
+        subscriptionXML.setAttribute("lastDownloadAttempt", subscription.lastDownload - now);
       if (subscription instanceof DownloadableSubscription)
       {
         if (subscription.lastSuccess)
-          subscriptionXML.@lastDownloadSuccess = subscription.lastSuccess - now;
+          subscriptionXML.setAttribute("lastDownloadSuccess", subscription.lastSuccess - now);
         if (subscription.softExpiration)
-          subscriptionXML.@softExpiration = subscription.softExpiration - now;
+          subscriptionXML.setAttribute("softExpiration", subscription.softExpiration - now);
         if (subscription.expires)
-          subscriptionXML.@hardExpiration = subscription.expires - now;
-        subscriptionXML.@downloadStatus = subscription.downloadStatus;
+          subscriptionXML.setAttribute("hardExpiration", subscription.expires - now);
+        subscriptionXML.setAttribute("downloadStatus", subscription.downloadStatus);
       }
-      subscriptions.appendChild(subscriptionXML);
     }
     callback();
   }
@@ -363,13 +416,13 @@ let screenshotDataSource =
   
   exportData: function()
   {
+    removeReportElement("screenshot");
     if (this.enabled)
     {
-      reportData.screenshot = this._canvas.toDataURL();
-      reportData.screenshot.@edited = (this._undoQueue.length ? 'true' : 'false');
+      appendElement(reportData.documentElement, "screenshot", {
+        edited: (this._undoQueue.length ? 'true' : 'false')
+      }, this._canvas.toDataURL());
     }
-    else
-      delete reportData.screenshot;
   },
 
   abortSelection: function()
@@ -511,12 +564,13 @@ let framesDataSource =
       // Expected exception - not all URL schemes have a host name
     }
 
-    reportData.window.@url = censorURL(windowURI ? windowURI.spec : wnd.location.href);
+    let window = reportElement("window");
+    window.setAttribute("url", censorURL(windowURI ? windowURI.spec : wnd.location.href));
     if (wnd.opener && wnd.opener.location.href)
-      reportData.window.@opener = censorURL(wnd.opener.location.href);
+      window.setAttribute("opener", censorURL(wnd.opener.location.href));
     if (wnd.document.referrer)
-      reportData.window.@referrer = censorURL(wnd.document.referrer);
-    this.scanFrames(wnd, reportData.window);
+      window.setAttribute("referrer", censorURL(wnd.document.referrer));
+    this.scanFrames(wnd, window);
 
     callback();
   },
@@ -528,9 +582,10 @@ let framesDataSource =
       for (let i = 0; i < wnd.frames.length; i++)
       {
         let frame = wnd.frames[i];
-        let frameXML = <frame url={censorURL(frame.location.href)}/>;
+        let frameXML = appendElement(xmllist, "frame", {
+          url: censorURL(frame.location.href)
+        });
         this.scanFrames(frame, frameXML);
-        xmlList.appendChild(frameXML);
       }
     }
     catch (e)
@@ -576,7 +631,7 @@ let errorsDataSource =
       } catch(e) {}
     }
   
-    let errors = reportData.errors;
+    let errors = reportElement("errors");
     for (let i = 0; i < messages.length; i++)
     {
       let message = messages[i];
@@ -597,9 +652,14 @@ let errorsDataSource =
       if (sourceLine.length > 256)
         sourceLine = sourceLine.substr(0, 256) + "...";
   
-      let errorXML = <error type={message.flags & Ci.nsIScriptError.warningFlag ? "warning" : "error"}
-                            text={text} file={file} line={message.lineNumber} column={message.columnNumber} sourceLine={sourceLine}/>;
-      errors.appendChild(errorXML);
+      appendElement(errors, "error", {
+        type: message.flags & Ci.nsIScriptError.warningFlag ? "warning" : "error",
+        text: text,
+        file: file,
+        line: message.lineNumber,
+        column: message.columnNumber,
+        sourceLine: sourceLine
+      });
     }
 
     callback();
@@ -608,7 +668,7 @@ let errorsDataSource =
 
 let extensionsDataSource =
 {
-  data: <extensions/>,
+  data: reportData.createElement("extensions"),
 
   collectData: function(wnd, windowURI, callback)
   {
@@ -622,7 +682,12 @@ let extensionsDataSource =
           let item = items[i];
           if (!item.isActive)
             continue;
-          this.data.appendChild(<extension id={item.id} name={item.name} type={item.type} version={item.version}/>);
+          appendElement(this.data, "extension", {
+            id: item.id,
+            name: item.name,
+            type: item.type,
+            version: item.version
+          });
         }
         callback();
       }.bind(this));
@@ -637,9 +702,9 @@ let extensionsDataSource =
   exportData: function(doExport)
   {
     if (doExport)
-      reportData.extensions = this.data;
-    else
-      delete reportData.extensions;
+      reportData.documentElement.appendChild(this.data);
+    else if (this.data.parentNode)
+      this.data.parentNode.removeChild(this.data);
   }
 };
 
@@ -1194,14 +1259,14 @@ function typeSelectionUpdated()
   document.documentElement.canAdvance = (selection != null);
   if (selection)
   {
-    if (reportData.@type != selection.value)
+    if (reportData.documentElement.getAttribute("type") != selection.value)
     {
       E("screenshotCheckbox").checked = (selection.value != "other");
       E("screenshotCheckbox").doCommand();
       E("extensionsCheckbox").checked = (selection.value == "other");
       E("extensionsCheckbox").doCommand();
     }
-    reportData.@type = selection.value;
+    reportData.documentElement.setAttribute("type", selection.value);
 
     issuesDataSource.updateIssues(selection.value);
   }
@@ -1271,7 +1336,7 @@ function _updateDataField()
 {
   let dataField = E("data");
   let [selectionStart, selectionEnd] = [dataField.selectionStart, dataField.selectionEnd];
-  dataField.value = reportData.toXMLString();
+  dataField.value = serializeReportData();
   dataField.setSelectionRange(selectionStart, selectionEnd);
 }
 
@@ -1292,15 +1357,18 @@ function updateDataField()
 
 function updateComment()
 {
+  removeReportElement("comment");
+
   let value = E("comment").value;
-  reportData.comment = value.substr(0, 1000);
+  appendElement(reportData.documentElement, "comment", null, value.substr(0, 1000));
   E("commentLengthWarning").setAttribute("visible", value.length > 1000);
   updateDataField();
 }
 
 function updateEmail()
 {
-  reportData.email = E("email").value.replace(/\@/g, " at ").replace(/\./g, " dot ");
+  removeReportElement("email");
+  appendElement(reportData.documentElement, "email", null, E("email").value.replace(/\@/g, " at ").replace(/\./g, " dot "));
   updateDataField();
 }
 
@@ -1333,7 +1401,7 @@ function initSendPage()
   request.addEventListener("error", reportSent, false);
   if ("upload" in request && request.upload)
     request.upload.addEventListener("progress", updateReportProgress, false);
-  request.send(reportData.toXMLString());
+  request.send(serializeReportData());
 }
 
 function updateReportProgress(event)
