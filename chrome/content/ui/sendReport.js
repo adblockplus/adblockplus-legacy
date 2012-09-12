@@ -1157,6 +1157,14 @@ let dataCollectors = [reportsListDataSource, requestsDataSource, filtersDataSour
 
 function initWizard()
 {
+  const isRTL = (window.getComputedStyle(document.documentElement).direction == "rtl");
+  if(isRTL)
+  {
+    E("commentPageHeader").parentNode.appendChild(E("commentPageHeader"));
+    E("screenshotHeader").parentNode.appendChild(E("screenshotHeader"));
+    E("typeSelectorHeader").parentNode.appendChild(E("typeSelectorHeader"));
+  }
+  
   // Make sure no issue type is selected by default
   E("typeGroup").selectedItem = null;
   document.documentElement.addEventListener("pageshow", updateNextButton, false);
