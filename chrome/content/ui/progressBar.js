@@ -6,7 +6,7 @@
 
 (function()
 {
-  let progressBar, canvas, headers;
+  let progressBar, canvas, headers, isRTL;
 
   function onLoad()
   {
@@ -25,6 +25,8 @@
     progressBar.__defineSetter__("activeItem", setActiveItem);
     progressBar.__defineGetter__("activeItemComplete", getActiveItemComplete);
     progressBar.__defineSetter__("activeItemComplete", setActiveItemComplete);
+
+    isRTL = (window.getComputedStyle(document.documentElement).direction == "rtl");
 
     // Run actual drawing delayed, once the sizes are fixed
     window.setTimeout(init, 0);
@@ -49,16 +51,24 @@
     for (let i = 0; i < panelCount; i++)
     {
       context.save();
-      context.translate(Math.round(i * (panelWidth + gapWidth)) + 0.5, 0.5);
+      if(!isRTL)
+      {
+        context.translate(Math.round(i * (panelWidth + gapWidth)) + 0.5, 0.5);
+      }
+      else
+      {
+        context.translate(Math.round((i+1) * (panelWidth + gapWidth)) - 5, 0.5);
+        context.scale(-1, 1);
+      }
       context.beginPath();
-      if (i)
+      if ((i && !isRTL) || (isRTL && i<panelCount-1))
         context.moveTo(-arrowheadWidth, 0);
       else
         context.moveTo(0, 0);
       context.lineTo(panelWidth - arrowheadWidth, 0);
       context.lineTo(panelWidth, (height - 1) / 2);
       context.lineTo(panelWidth - arrowheadWidth, height - 1);
-      if (i)
+      if ((i && !isRTL) || (isRTL && i<panelCount-1))
       {
         context.lineTo(-arrowheadWidth, height - 1);
         context.lineTo(0, (height - 1) / 2);
@@ -69,6 +79,7 @@
         context.lineTo(0, height - 1);
         context.lineTo(0, 0);
       }
+
       context.stroke();
       context.restore();
 
@@ -100,7 +111,7 @@
     let complete = true;
     for (let i = 0; i < headers.length; i++)
     {
-      let header = headers[i];
+      let header = headers[(isRTL) ? headers.length-i-1 : i];
       if (header == val)
         complete = false;
 
