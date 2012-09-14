@@ -45,7 +45,7 @@
     context.fillStyle = window.getComputedStyle(progressBar, "").color;
     context.strokeStyle = window.getComputedStyle(progressBar, "").color;
     context.lineWidth = 1;
-    if(isRTL)
+    if (isRTL)
     {
       context.translate(width, 0);
       context.scale(-1, 1);
@@ -83,8 +83,8 @@
       let childLeft = Math.round(i * (panelWidth + gapWidth) + 1);
       let childWidth = panelWidth - arrowheadWidth - 2;
       let child = headers[i];
-      child.style.marginLeft = childLeft + "px";
-      child.style.marginRight = (width - childLeft - childWidth) + "px";
+      child.style.MozMarginStart = childLeft + "px";
+      child.style.MozMarginEnd = (width - childLeft - childWidth) + "px";
       child.style.width = childWidth + "px";
     }
 
@@ -108,7 +108,7 @@
     let complete = true;
     for (let i = 0; i < headers.length; i++)
     {
-      let header = headers[(isRTL) ? headers.length-i-1 : i];
+      let header = headers[i];
       if (header == val)
         complete = false;
 

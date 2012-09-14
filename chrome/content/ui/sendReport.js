@@ -1157,16 +1157,6 @@ let dataCollectors = [reportsListDataSource, requestsDataSource, filtersDataSour
 
 function initWizard()
 {
-  const isRTL = (window.getComputedStyle(document.documentElement).direction == "rtl");
-  if(isRTL)
-  {
-    let progressLabels = Array.prototype.slice.call(E("progressBar").getElementsByTagName("label"));
-    for(let i=progressLabels.length; i--;)
-    {
-      progressLabels[i].parentNode.appendChild(progressLabels[i]);
-    }
-  }
-  
   // Make sure no issue type is selected by default
   E("typeGroup").selectedItem = null;
   document.documentElement.addEventListener("pageshow", updateNextButton, false);
