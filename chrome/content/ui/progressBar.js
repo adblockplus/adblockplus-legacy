@@ -45,30 +45,27 @@
     context.fillStyle = window.getComputedStyle(progressBar, "").color;
     context.strokeStyle = window.getComputedStyle(progressBar, "").color;
     context.lineWidth = 1;
+    if(isRTL)
+    {
+      context.translate(width, 0);
+      context.scale(-1, 1);
+    }
 
     let panelCount = headers.length;
     let panelWidth = (width - gapWidth * (panelCount - 1) - 1) / panelCount;
     for (let i = 0; i < panelCount; i++)
     {
       context.save();
-      if(!isRTL)
-      {
-        context.translate(Math.round(i * (panelWidth + gapWidth)) + 0.5, 0.5);
-      }
-      else
-      {
-        context.translate(Math.round((i+1) * (panelWidth + gapWidth)) - 5, 0.5);
-        context.scale(-1, 1);
-      }
+      context.translate(Math.round(i * (panelWidth + gapWidth)) + 0.5, 0.5);
       context.beginPath();
-      if ((i && !isRTL) || (isRTL && i<panelCount-1))
+      if (i)
         context.moveTo(-arrowheadWidth, 0);
       else
         context.moveTo(0, 0);
       context.lineTo(panelWidth - arrowheadWidth, 0);
       context.lineTo(panelWidth, (height - 1) / 2);
       context.lineTo(panelWidth - arrowheadWidth, height - 1);
-      if ((i && !isRTL) || (isRTL && i<panelCount-1))
+      if (i)
       {
         context.lineTo(-arrowheadWidth, height - 1);
         context.lineTo(0, (height - 1) / 2);
