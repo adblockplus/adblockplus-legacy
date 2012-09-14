@@ -1160,9 +1160,11 @@ function initWizard()
   const isRTL = (window.getComputedStyle(document.documentElement).direction == "rtl");
   if(isRTL)
   {
-    E("commentPageHeader").parentNode.appendChild(E("commentPageHeader"));
-    E("screenshotHeader").parentNode.appendChild(E("screenshotHeader"));
-    E("typeSelectorHeader").parentNode.appendChild(E("typeSelectorHeader"));
+    let progressLabels = Array.prototype.slice.call(E("progressBar").getElementsByTagName("label"));
+    for(let i=progressLabels.length; i--;)
+    {
+      progressLabels[i].parentNode.appendChild(progressLabels[i]);
+    }
   }
   
   // Make sure no issue type is selected by default
