@@ -6,7 +6,7 @@
 
 (function()
 {
-  let progressBar, canvas, headers;
+  let progressBar, canvas, headers, isRTL;
 
   function onLoad()
   {
@@ -26,6 +26,8 @@
     progressBar.__defineGetter__("activeItemComplete", getActiveItemComplete);
     progressBar.__defineSetter__("activeItemComplete", setActiveItemComplete);
 
+    isRTL = (window.getComputedStyle(document.documentElement).direction == "rtl");
+
     // Run actual drawing delayed, once the sizes are fixed
     window.setTimeout(init, 0);
   };
@@ -43,6 +45,11 @@
     context.fillStyle = window.getComputedStyle(progressBar, "").color;
     context.strokeStyle = window.getComputedStyle(progressBar, "").color;
     context.lineWidth = 1;
+    if (isRTL)
+    {
+      context.translate(width, 0);
+      context.scale(-1, 1);
+    }
 
     let panelCount = headers.length;
     let panelWidth = (width - gapWidth * (panelCount - 1) - 1) / panelCount;
@@ -69,14 +76,15 @@
         context.lineTo(0, height - 1);
         context.lineTo(0, 0);
       }
+
       context.stroke();
       context.restore();
 
       let childLeft = Math.round(i * (panelWidth + gapWidth) + 1);
       let childWidth = panelWidth - arrowheadWidth - 2;
       let child = headers[i];
-      child.style.marginLeft = childLeft + "px";
-      child.style.marginRight = (width - childLeft - childWidth) + "px";
+      child.style.MozMarginStart = childLeft + "px";
+      child.style.MozMarginEnd = (width - childLeft - childWidth) + "px";
       child.style.width = childWidth + "px";
     }
 
