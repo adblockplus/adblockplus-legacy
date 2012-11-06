@@ -208,7 +208,7 @@ let requestsDataSource =
       // Location is meaningless for element hiding hits
       if (entry.filter && entry.filter instanceof ElemHideBase)
         requestXML.removeAttribute("location");
-        
+
       if (entry.filter)
         requestXML.setAttribute("filter", entry.filter.text);
 
@@ -333,32 +333,32 @@ let screenshotDataSource =
     this._context = this._canvas.getContext("2d");
     let wndWidth = wnd.document.documentElement.scrollWidth;
     let wndHeight = wnd.document.documentElement.scrollHeight;
-  
+
     // Copy scaled screenshot of the webpage. We scale the webpage by width
     // but leave 10px on each side for easier selecting.
-  
+
     // Gecko doesn't like sizes more than 64k, restrict to 30k to be on the safe side.
     // Also, make sure height is at most five times the width to keep image size down.
     let copyWidth = Math.min(wndWidth, 30000);
     let copyHeight = Math.min(wndHeight, 30000, copyWidth * 5);
     let copyX = Math.max(Math.min(wnd.scrollX - copyWidth / 2, wndWidth - copyWidth), 0);
     let copyY = Math.max(Math.min(wnd.scrollY - copyHeight / 2, wndHeight - copyHeight), 0);
-  
+
     let scalingFactor = (this._canvas.width - this.imageOffset * 2) / copyWidth;
     this._canvas.height = copyHeight * scalingFactor + this.imageOffset * 2;
-  
+
     this._context.save();
     this._context.translate(this.imageOffset, this.imageOffset);
     this._context.scale(scalingFactor, scalingFactor);
     this._context.drawWindow(wnd, copyX, copyY, copyWidth, copyHeight, "rgb(255,255,255)");
     this._context.restore();
-  
+
     // Init canvas settings
     this._context.fillStyle = "rgb(0, 0, 0)";
     this._context.strokeStyle = "rgba(255, 0, 0, 0.7)";
     this._context.lineWidth = 3;
     this._context.lineJoin = "round";
-  
+
     // Reduce colors asynchronously
     this._pixelData = this._context.getImageData(this.imageOffset, this.imageOffset,
                                       this._canvas.width - this.imageOffset * 2,
@@ -407,13 +407,13 @@ let screenshotDataSource =
   {
     if (this._selectionType == type)
       return;
-  
+
     // Abort selection already in progress
     this.abortSelection();
-  
+
     this._selectionType = type;
   },
-  
+
   exportData: function()
   {
     removeReportElement("screenshot");
@@ -446,18 +446,18 @@ let screenshotDataSource =
       screenshotDataSource.abortSelection();
     }
   },
-  
+
   startSelection: function(event)
   {
     if (event.button == 2)
       this.abortSelection();   // Right mouse button aborts selection
-  
+
     if (event.button != 0 || !this.enabled)
       return;
-  
+
     // Abort selection already in progress
     this.abortSelection();
-  
+
     let boxObject = document.getBoxObjectFor(this._canvas);
     let [x, y] = [event.screenX - boxObject.screenX, event.screenY - boxObject.screenY];
     this._currentData = {
@@ -468,7 +468,7 @@ let screenshotDataSource =
       currentY: -1
     };
     this.updateSelection(event);
-  
+
     document.addEventListener("keypress", this.handleKeyPress, true);
   },
 
@@ -521,27 +521,27 @@ let screenshotDataSource =
   {
     if (event.button != 0 || !this._currentData)
       return;
-  
+
     if (this._currentData.data)
     {
       this._undoQueue.push(this._currentData);
       E("screenshotUndoButton").disabled = false;
     }
-  
+
     this._currentData = null;
     document.removeEventListener("keypress", this.handleKeyPress, true);
   },
-  
+
   undo: function()
   {
     let op = this._undoQueue.pop();
     if (!op)
       return;
-  
+
     this._context.putImageData(op.data,
       Math.min(op.anchorX, op.currentX),
       Math.min(op.anchorY, op.currentY));
-  
+
     if (!this._undoQueue.length)
       E("screenshotUndoButton").disabled = true;
   }
@@ -582,7 +582,7 @@ let framesDataSource =
       for (let i = 0; i < wnd.frames.length; i++)
       {
         let frame = wnd.frames[i];
-        let frameXML = appendElement(xmllist, "frame", {
+        let frameXML = appendElement(xmlList, "frame", {
           url: censorURL(frame.location.href)
         });
         this.scanFrames(frame, frameXML);
@@ -615,7 +615,7 @@ let errorsDataSource =
     });
     if (messages.length > 10)   // Only the last 10 messages
       messages = messages.slice(messages.length - 10, messages.length);
-  
+
     // Censor app and profile paths in error messages
     let censored = {__proto__: null};
     let pathList = [["ProfD", "%PROFILE%"], ["GreD", "%GRE%"], ["CurProcD", "%APP%"]];
@@ -630,28 +630,28 @@ let errorsDataSource =
         censored[uri.spec.replace(/[\\\/]+$/, '')] = placeholder;
       } catch(e) {}
     }
-  
+
     let errors = reportElement("errors");
     for (let i = 0; i < messages.length; i++)
     {
       let message = messages[i];
-  
+
       let text = message.errorMessage;
       for (let path in censored)
         text = text.replace(path, censored[path], "gi");
       if (text.length > 256)
         text = text.substr(0, 256) + "...";
-  
+
       let file = message.sourceName;
       for (let path in censored)
         file = file.replace(path, censored[path], "gi");
       if (file.length > 256)
         file = file.substr(0, 256) + "...";
-  
+
       let sourceLine = message.sourceLine;
       if (sourceLine.length > 256)
         sourceLine = sourceLine.substr(0, 256) + "...";
-  
+
       appendElement(errors, "error", {
         type: message.flags & Ci.nsIScriptError.warningFlag ? "warning" : "error",
         text: text,
@@ -885,7 +885,7 @@ let issuesDataSource =
       {
         if (subscription.disabled)
           continue;
-    
+
         for each (let filter in subscription.filters)
           if (filter instanceof BlockingFilter && filter.disabled)
             disabledMatcher.add(filter);
@@ -921,7 +921,7 @@ let issuesDataSource =
         {
           if (request.filter)
             continue;
-  
+
           let filter = disabledMatcher.matchesAny(request.location, request.typeDescr, request.docDomain, request.thirdParty);
           if (filter && !(subscription.url in seenSubscriptions))
           {
@@ -1088,19 +1088,19 @@ let issuesDataSource =
 
     let subscriptionResults = [[result.url, result.title]];
     if ("mainSubscriptionURL" in result)
-      subscriptionResults.push([result.mainSubscriptionURL, result.mainSubscriptionTitle]); 
+      subscriptionResults.push([result.mainSubscriptionURL, result.mainSubscriptionTitle]);
 
     for each (let [url, title] in subscriptionResults)
     {
       let subscription = Subscription.fromURL(url);
       if (!subscription)
         continue;
-    
+
       FilterStorage.addSubscription(subscription);
 
       subscription.disabled = false;
       subscription.title = title;
-    
+
       if (subscription instanceof DownloadableSubscription && !subscription.lastDownload)
         Synchronizer.execute(subscription);
     }
@@ -1457,7 +1457,7 @@ function reportSent(event)
   {
     let errorElement = E("sendReportError");
     let template = errorElement.getAttribute("textTemplate").replace(/[\r\n\s]+/g, " ");
-  
+
     let [, beforeLink, linkText, afterLink] = /(.*)\[link\](.*)\[\/link\](.*)/.exec(template) || [null, "", template, ""];
     beforeLink = beforeLink.replace(/\?1\?/g, errorMessage);
     afterLink = afterLink.replace(/\?1\?/g, errorMessage);
@@ -1466,7 +1466,7 @@ function reportSent(event)
       errorElement.removeChild(errorElement.firstChild);
     while (errorElement.lastChild && errorElement.lastChild.nodeType != Node.ELEMENT_NODE)
       errorElement.removeChild(errorElement.lastChild);
-  
+
     if (errorElement.firstChild)
       errorElement.firstChild.textContent = linkText;
     errorElement.insertBefore(document.createTextNode(beforeLink), errorElement.firstChild);
