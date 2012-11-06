@@ -174,21 +174,19 @@
                 <hbox align="center">
                   <deck class="titleBox" flex="1" selectedIndex="0" onselect="event.stopPropagation();">
                     <description ondblclick="if (event.button == 0) TitleEditor.start(this, true);">
-                      <description>
-                        <description class="title" value="{subscription.title}" flex="1" crop="end"/>
-                        (<if condition="{isExternal}">
-                          <description value="&subscription.external.label;"/>
-                        <else/>
-                          <if condition="{subscription.homepage}">
-                            <description class="link" value="&subscription.homepage.label;"
-                              _url="{subscription.homepage}" tooltiptext="{subscription.homepage}"
-                              onclick="if (event.button == 0) { event.stopPropagation();UI.loadInBrowser(this.getAttribute('_url')); }"/>,&#160;
-                          </if>
-                          <description class="link" value="&subscription.source.label;"
-                            _url="{subscription.url}" tooltiptext="{subscription.url}"
-                            onclick="if (event.button == 0) { event.stopPropagation();UI.loadInBrowser(this.getAttribute('_url')); }"/>
-                        </if>)
-                      </description>
+                      <description class="title" value="{subscription.title}" flex="1" crop="end"/>
+                      (<if condition="{isExternal}">
+                        <description value="&subscription.external.label;"/>
+                      <else/>
+                        <if condition="{subscription.homepage}">
+                          <description class="link" value="&subscription.homepage.label;"
+                            _url="{subscription.homepage}" tooltiptext="{subscription.homepage}"
+                            onclick="if (event.button == 0) { event.stopPropagation();UI.loadInBrowser(this.getAttribute('_url')); }"/>,&#160;
+                        </if>
+                        <description class="link" value="&subscription.source.label;"
+                          _url="{subscription.url}" tooltiptext="{subscription.url}"
+                          onclick="if (event.button == 0) { event.stopPropagation();UI.loadInBrowser(this.getAttribute('_url')); }"/>
+                      </if>)
                     </description>
                     <textbox oncontextmenu="event.stopPropagation();" class="titleEditor" onkeypress="TitleEditor.keyPress(event);" onblur="TitleEditor.end(true);"/>
                   </deck>
