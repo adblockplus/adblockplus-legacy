@@ -18,8 +18,8 @@
 <!ENTITY recentReports.clear.label "すべてのレポートを削除">
 <!ENTITY recentReports.clear.accesskey "R">
 <!ENTITY update.inProgress.description "不具合が既に解決済みかを確かめるため、購読しているフィルタを更新します。しばらくお待ちください...">
-<!ENTITY update.fixed.description "報告しようとしていた不具合は更新で解決したかもしれません。現在のページを再読み込みして確かめてみてください。それでも不具合が解決しないなら再度不具合を報告してください。">
-<!ENTITY outdatedSubscriptions.description "次のフィルタ購読は２週間以上更新されていません。既に不具合は解決済みかもしれないので、先に更新してから不具合を報告してください。">
+<!ENTITY update.fixed.description "報告しようとしていた不具合は更新で解決するかもしれません。現在のページを再読み込みして確かめてみてください。それでも不具合が解決しないなら再度不具合を報告してください。">
+<!ENTITY outdatedSubscriptions.description "購読している次のフィルタは２週間以上更新していません。既に不具合は解決済みかもしれないので、先に手動更新してから不具合を報告してください。">
 <!ENTITY update.start.label "今すぐ更新">
 <!ENTITY issues.description "Adblock Plus はこの不具合に関係、もしくは調査を困難にしている設定を発見しました。">
 <!ENTITY issues.whitelist.description "報告しようとしているページで Adblock Plus が無効になっています。調査の妨げになるので Adblock Plus を有効に戻し、再読み込みしてからレポートを提出してください。">
@@ -27,14 +27,14 @@
 <!ENTITY issues.disabled.description "Adblock Plus が無効なので、何もブロックされません">
 <!ENTITY issues.disabled.enable.label "Adblock Plus を有効化">
 <!ENTITY issues.nofilters.description "Adblock Plus は現在のページで何もブロックしていないので、お気付きの不具合は恐らく Adblock Plus と関係ありません">
-<!ENTITY issues.nosubscriptions.description "ウェブサイトの不要なコンテンツを自動削除する既存のフィルタリストを購読していないようです">
-<!ENTITY issues.nosubscriptions.add.label "フィルタ購読を追加">
-<!ENTITY issues.subscriptionCount.description "フィルタ購読が多過ぎです。どのフィルタ購読作者がこの不具合に対処すべきか不明なので、レポートを受理できません。本当に必要なフィルタ購読以外を削除し、不具合が再現するか確認してください。">
-<!ENTITY issues.openPreferences.label "設定画面">
+<!ENTITY issues.nosubscriptions.description "ウェブサイトの不要なコンテンツを削除する既存のフィルタを購読していないようです">
+<!ENTITY issues.nosubscriptions.add.label "購読するフィルタを追加">
+<!ENTITY issues.subscriptionCount.description "購読するフィルタが多過ぎです。どのフィルタ作者がこの不具合に対処すべきか不明なのでレポートを受理できません。本当に必要なフィルタ以外を削除し、不具合が再現するか確認してください。">
+<!ENTITY issues.openPreferences.label "フィルタ設定画面を開く">
 <!ENTITY issues.ownfilters.description "このページには自作フィルタが適用されています。それら不具合を起こした可能性があるフィルタを無効にしてください:">
 <!ENTITY issues.ownfilters.disable.label "フィルタを無効化">
-<!ENTITY issues.disabledgroups.description "次のフィルタ購読／フィルタグループは無効になっていますが、このページに影響があったかもしれません:">
-<!ENTITY issues.disabledgroups.enable.label "フィルタ購読／フィルタグループを有効化">
+<!ENTITY issues.disabledgroups.description "次の購読しているフィルタ／フィルタグループは無効になっていますが、このページに影響があったかもしれません:">
+<!ENTITY issues.disabledgroups.enable.label "購読しているフィルタ購読／フィルタグループを有効化">
 <!ENTITY issues.disabledfilters.description "次のフィルタは無効になっていますが、このページに影響があったかもしれません:">
 <!ENTITY issues.disabledfilters.enable.label "フィルタを有効化">
 <!ENTITY issues.override.label "設定は正しいので、レポートを継続します">
@@ -57,7 +57,7 @@
 <!ENTITY screenshot.undo.accesskey "U">
 <!ENTITY commentPage.heading "コメントを入力">
 <!ENTITY commentPage.description "不具合について「他の人にも理解できる」よう「説明」願います。コメントに含める情報の例：１．症状、２．期待動作との違い、３．発生箇所、４．再現方法、５．再現条件、６．関係するフィルタ、７．可能であれば匿名化されてない生ＵＲＬ、８．問題解決のために自分で試行錯誤してみたこと、等々を見やすく分けて書く（レポートするデータは送信前に再検討できます）">
-<!ENTITY comment.label "コメント（ABP Japanese Filters ユーザーは必ず入力。もし書くことができないなら（受け取っても役に立たないことが予想されるので）提出する必要なし。子供の「感想文」にならないよう「大人」な文章でお願いします）:">
+<!ENTITY comment.label "コメント（ABP Japanese Filters ユーザーは必ず入力。他の人が理解できる文章でお願いします）:">
 <!ENTITY comment.accesskey "C">
 <!ENTITY comment.lengthWarning "コメントが 1000 文字を超えているので先頭から 1000 文字だけ送信されます">
 <!ENTITY email.label "より詳細な質問が必要な場合に使うメールアドレス（オプション）:">
