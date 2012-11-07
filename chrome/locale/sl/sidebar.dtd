@@ -8,6 +8,7 @@
 <!ENTITY filter.label "Filter">
 <!ENTITY state.label "Stanje">
 <!ENTITY size.label "Velikost">
+<!ENTITY filterSource.label "Vir filtra">
 <!ENTITY docDomain.label "Vir dokumenta">
 <!ENTITY docDomain.thirdParty "(tretja stran)">
 <!ENTITY docDomain.firstParty "(prva stran)">

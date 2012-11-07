@@ -17,6 +17,10 @@
 <!ENTITY recentReports.label "Laporan yang dihantar baru-baru ini oleh saya">
 <!ENTITY recentReports.clear.label "Padam semua laporan">
 <!ENTITY recentReports.clear.accesskey "P">
+<!ENTITY update.inProgress.description "Adblock Plus perlu mengemaskini langganan penapis anda untuk memastikan isu tersebut belum diselesaikan. Sila tunggu&quot;...&quot;">
+<!ENTITY update.fixed.description "Langganan anda yang dikemaskini kemungkinan besar telahpun menyelesaikan masalah yang anda laporkan. Sila reload halaman tersebut dan cuba sekali lagi. Laporkan sekali lagi jika masalah tetap ada.">
+<!ENTITY outdatedSubscriptions.description "Langganan penapis yang disenaraikan belum dikemaskini sekurang-kurangnya 2 minggu. Sila kemaskini langganan tersebut sebelum menghantar laporan, isu tersebut mungkin telahpun diselesaikan.">
+<!ENTITY update.start.label "Mulakan kemaskini sekarang">
 <!ENTITY issues.description "Adblock Plus telah mengesan isu pada konfigurasi anda yang mungkin penyebab isu ini atau akan menyukarkan penyiasatan laporan.">
 <!ENTITY issues.whitelist.description "Adblock Plus telah dinyahaktifkan pada laman yang anda ingin laporkan. Sila aktifkannya kembali dan reload laman tersebut sebelum menghantar laporan.">
 <!ENTITY issues.whitelist.remove.label "Aktifkan kembali Adblock Plus pada laman ini">

@@ -1,0 +1,42 @@
+<!ENTITY status.tooltip "Status:">
+<!ENTITY blocked.tooltip "Blokěrowane zapiski na toś tom boku:">
+<!ENTITY filters.tooltip "Nejaktiwnjejše filtry:">
+<!ENTITY menuitem.label "Adblock Plus - nastajenja">
+<!ENTITY menuitem.accesskey "b">
+<!ENTITY toolbarbutton.label "Adblock Plus">
+<!ENTITY context.image.label "Adblock Plus: Wobraz blokěrowaś">
+<!ENTITY context.object.label "Adblock Plus: Objekt blokěrowaś">
+<!ENTITY context.frame.label "Adblock Plus: Wobłuk blokěrowaś">
+<!ENTITY context.media.label "Adblock Plus: Awdio/Wideo blokěrowaś">
+<!ENTITY context.removeWhitelist.label "Adblock Plus: Na toś tom boku zasej zmóžniś">
+<!ENTITY sidebar.title "Blokěrujobne zapiski na aktualnem boku">
+<!ENTITY sendReport.label "Problem na toś tom boku k wěsći daś">
+<!ENTITY sendReport.accesskey "P">
+<!ENTITY filters.label "Filtrowe nastajenja">
+<!ENTITY filters.accesskey "F">
+<!ENTITY opensidebar.label "Blokěrujobne zapiski wócyniś">
+<!ENTITY opensidebar.accesskey "b">
+<!ENTITY closesidebar.label "Blokěrujobne zapiski zacyniś">
+<!ENTITY closesidebar.accesskey "b">
+<!ENTITY whitelist.site.label "Na ?1? znjemóžniś">
+<!ENTITY whitelist.page.label "Jano na toś tom boku znjemóžniś">
+<!ENTITY disable.label "Wšuźi znjemóžniś">
+<!ENTITY options.label "Opcije">
+<!ENTITY options.accesskey "O">
+<!ENTITY contribute.label "K Adblock Plus pśinosowaś">
+<!ENTITY showintoolbar.label "W symbolowej rědce pokazaś">
+<!ENTITY showintoolbar.accesskey "b">
+<!ENTITY showinstatusbar.label "W statusowej lejstwje pokazaś">
+<!ENTITY showinstatusbar.accesskey "s">
+<!ENTITY showinaddonbar.label "W lejstwje dodankow pokazaś">
+<!ENTITY showinaddonbar.accesskey "d">
+<!ENTITY objecttabs.label "Rejtarki wó Flash a Java pokazaś">
+<!ENTITY objecttabs.accesskey "t">
+<!ENTITY hideplaceholders.label "Naměstniki blokěrowanych elementow schowaś">
+<!ENTITY hideplaceholders.accesskey "m">
+<!ENTITY counthits.label "Filtrowe trjefarje licyś">
+<!ENTITY counthits.accesskey "l">
+<!ENTITY sync.label "Nastajenja za synchronizěrowanje Adblock Plus">
+<!ENTITY sync.accesskey "c">
+<!ENTITY objecttab.title "Blokěrowaś">
+<!ENTITY objecttab.tooltip "Klikniśo how, aby toś ten objekt z Adblock Plus blokěrował">

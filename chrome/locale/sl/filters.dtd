@@ -1,3 +1,4 @@
+<!ENTITY dialog.title "Nastavitve filtrov za Adblock Plus">
 <!ENTITY subscriptions.tab.label "Naročnine na filtre">
 <!ENTITY filters.tab.label "Filtri po meri">
 <!ENTITY addSubscription.label "Dodaj naročnino filtra">
@@ -6,6 +7,8 @@
 <!ENTITY addSubscriptionCancel.label "Prekliči">
 <!ENTITY addSubscriptionOther.label "Dodaj novo naročnino">
 <!ENTITY subscription.homepage.label "Domača stran">
+<!ENTITY subscription.source.label "Seznam filtrov">
+<!ENTITY subscription.enabled.label "Omogočeno">
 <!ENTITY subscription.lastDownload.label "Zadnji prenos:">
 <!ENTITY subscription.lastDownload.inProgress "Prenos s strežnika ...">
 <!ENTITY subscription.lastDownload.unknown "Ni na voljo">
@@ -14,11 +17,31 @@
 <!ENTITY subscription.lastDownload.invalidData "Neuspešno, ni veljaven seznam filtrov">
 <!ENTITY subscription.lastDownload.checksumMismatch "Neuspešno, kontrolna vsota se ne ujema">
 <!ENTITY subscription.lastDownload.success "Uspešno">
+<!ENTITY subscription.disabledFilters.warning "V tej naročnini so nekateri filtri onemogočeni.">
+<!ENTITY subscription.disabledFilters.enable "Omogoči onemogočene filtre">
+<!ENTITY subscription.actions.label "Dejanja">
+<!ENTITY subscription.update.label "Posodobi filtre">
+<!ENTITY subscription.editTitle.label "Uredi naslov">
+<!ENTITY subscription.delete.label "Izbriši">
+<!ENTITY subscription.showHideFilters.label "Pokaži/skrij filtre">
+<!ENTITY subscription.moveUp.label "Premakni navzgor">
+<!ENTITY subscription.moveDown.label "Premakni navzdol">
+<!ENTITY viewList.label "Pokaži seznam">
+<!ENTITY readMore.label "Preberi več">
+<!ENTITY addGroup.label "Dodaj skupino filtrov">
+<!ENTITY addGroup.accesskey "s">
 <!ENTITY addFilter.label "Dodaj filter">
+<!ENTITY addFilter.accesskey "D">
+<!ENTITY filter.actions.label "Dejanja filtra">
+<!ENTITY filter.edit.label "Uredi">
 <!ENTITY filter.cut.label "Izreži">
 <!ENTITY filter.copy.label "Kopiraj">
 <!ENTITY filter.paste.label "Prilepi">
 <!ENTITY filter.delete.label "Izbriši">
+<!ENTITY filter.selectAll.label "Izberi vse">
+<!ENTITY filter.resetHitCounts.label "Ponastavi statistiko zadetkov">
+<!ENTITY filter.moveUp.label "Premakni navzgor">
+<!ENTITY filter.moveDown.label "Premakni navzdol">
 <!ENTITY viewMenu.label "Pogled">
 <!ENTITY filter.column "Pravilo filtra">
 <!ENTITY filter.accesskey "f">
@@ -38,4 +61,11 @@
 <!ENTITY sort.ascending.accesskey "A">
 <!ENTITY sort.descending.label "od Z &gt; A">
 <!ENTITY sort.descending.accesskey "Z">
+<!ENTITY backupButton.label "Varnostno kopiraj in obnovi">
+<!ENTITY backupButton.accesskey "V">
+<!ENTITY backup.label "Ustvari novo varnostno kopijo">
+<!ENTITY restore.own.label "Obnovi lastno varnostno kopijo">
+<!ENTITY backup.complete.title "Vsi filtri in naročnine">
+<!ENTITY backup.custom.title "Samo filtri po meri">
 <!ENTITY find.label "Najdi">
+<!ENTITY close.label "Zapri">

@@ -47,9 +47,7 @@
 <!ENTITY reloadButton.label "重新載入頁面">
 <!ENTITY reloadButton.accesskey "R">
 <!ENTITY screenshot.heading "附加螢幕擷圖">
-<!ENTITY screenshot.description "
- 同樣的頁面每個人看到的情況可能都不同。附加螢幕擷圖到報告中可以幫助我們更了解問題所在。您可以先移除包含敏感資訊的部份，也可以標示問題發生的區域，使其更為醒目。只要按下相應的按鈕並用滑鼠在圖片上選取即可。
-">
+<!ENTITY screenshot.description "同樣的頁面每個人看到的情況可能都不同。附加螢幕擷圖到報告中可以幫助我們更了解問題所在。您可以先移除包含敏感資訊的部份，也可以標示問題發生的區域，使其更為醒目。只要按下相應的按鈕並用滑鼠在圖片上選取即可。">
 <!ENTITY screenshot.attach.label "附加頁面圖片到報告中">
 <!ENTITY screenshot.attach.accesskey "t">
 <!ENTITY screenshot.mark.label "標示問題所在">
@@ -59,9 +57,7 @@
 <!ENTITY screenshot.undo.label "復原">
 <!ENTITY screenshot.undo.accesskey "U">
 <!ENTITY commentPage.heading "輸入註解">
-<!ENTITY commentPage.description "
- 下面的文字方塊可以讓您輸入額外的註解，以幫助我們更了解問題所在。這個步驟不是必須的，但若問題不太明顯時還是建議您這麼做。在回報之前您也可以檢視報告資料。
-">
+<!ENTITY commentPage.description "下面的文字方塊可以讓您輸入額外的註解，以幫助我們更了解問題所在。這個步驟不是必須的，但若問題不太明顯時還是建議您這麼做。在回報之前您也可以檢視報告資料。">
 <!ENTITY comment.label "備註 (選用):">
 <!ENTITY comment.accesskey "C">
 <!ENTITY comment.lengthWarning "您輸入的註解超過 1000 個字元。只有前 1000 個字元會被傳送。">
@@ -76,11 +72,9 @@
 <!ENTITY data.accesskey "p">
 <!ENTITY sendPage.heading "傳送報告">
 <!ENTITY sendPage.waitMessage "請稍候，Adblock Plus 正在傳送您的報告。">
-<!ENTITY sendPage.confirmation "報告已儲存。您可以在下列網址存取報告:">
+<!ENTITY sendPage.confirmation "報告已儲存。您可以在下列網址存取:">
 <!ENTITY sendPage.knownIssue "您回報的錯誤已重複。檢視更多資訊:">
-<!ENTITY sendPage.errorMessage "
- 嘗試傳送報告失敗，錯誤碼 &quot;?1?&quot;。請確定您已連上網路後再試一次。若依舊失敗，請到 [link]Adblock Plus 討論區[/link] 尋求協助。
-">
+<!ENTITY sendPage.errorMessage "嘗試傳送報告失敗，錯誤碼 &quot;?1?&quot;。請確定您已連上網路後再試一次。若依舊失敗，請到 [link]Adblock Plus 討論區[/link] 尋求協助。">
 <!ENTITY sendPage.retry.label "再次傳送">
 <!ENTITY copyLink.label "複製報告連結">
 <!ENTITY copyLink.accesskey "C">

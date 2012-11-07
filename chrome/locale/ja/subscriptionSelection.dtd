@@ -1,16 +1,16 @@
-<!ENTITY dialog.title "フィルタ購読を追加">
-<!ENTITY subscriptionSelector.label "リストからフィルタ購読を選択してください:">
+<!ENTITY dialog.title "購読するフィルタを追加">
+<!ENTITY subscriptionSelector.label "リストから購読するフィルタを選択してください:">
 <!ENTITY viewList.label "フィルタ内容を見る">
 <!ENTITY visitHomepage.label "ホームページを表示">
-<!ENTITY addSubscription.label "フィルタ購読を追加">
-<!ENTITY list.download.failed "フィルタ購読のダウンロードに失敗">
+<!ENTITY addSubscription.label "購読するフィルタを追加">
+<!ENTITY list.download.failed "購読できるフィルタ一覧のダウンロードに失敗しました。">
 <!ENTITY list.download.retry "再試行">
 <!ENTITY list.download.website "ウェブサイトを見る">
-<!ENTITY fromWeb.description "追加するフィルタ購読を確認してください。フィルタ購読の名前と場所は変更できます。">
-<!ENTITY title.label "フィルタ購読の名称:">
+<!ENTITY fromWeb.description "購読するフィルタを確認してください。名称と場所を変更できます。">
+<!ENTITY title.label "購読するフィルタの名称:">
 <!ENTITY title.accesskey "t">
-<!ENTITY location.label "フィルタ購読の場所:">
+<!ENTITY location.label "購読するフィルタの場所:">
 <!ENTITY location.accesskey "l">
-<!ENTITY supplementMessage "このフィルタ購読は &quot;?1?&quot; と併用することが前提になっています。">
+<!ENTITY supplementMessage "このフィルタは &quot;?1?&quot; と併用することが前提になっています。">
 <!ENTITY addMain.label "&quot;?1?&quot; も追加する">
 <!ENTITY addMain.accesskey "s">

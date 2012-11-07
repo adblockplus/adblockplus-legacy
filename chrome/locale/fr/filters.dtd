@@ -51,7 +51,7 @@
 <!ENTITY viewMenu.label "Affichage">
 <!ENTITY filter.column "Règle de filtrage">
 <!ENTITY filter.accesskey "F">
-<!ENTITY slow.column "Afficher les filtres">
+<!ENTITY slow.column "Filtres lents">
 <!ENTITY slow.accesskey "h">
 <!ENTITY enabled.column "Activé">
 <!ENTITY enabled.accesskey "c">

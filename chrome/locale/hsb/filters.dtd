@@ -6,7 +6,7 @@
 <!ENTITY addSubscriptionAdd.label "Přidać">
 <!ENTITY addSubscriptionCancel.label "Přetorhnyć">
 <!ENTITY addSubscriptionOther.label "Druhi abonement přidać">
-<!ENTITY noSubscriptions.text "Njejsće hišće žane filtrowe abonementy přidał. Adblock Plus njebudźe bjez filtrow ničo blokować, prošu wužijće &quot;Filtrowy abonement přidać&quot;, zo byšće filter přidać.">
+<!ENTITY noSubscriptions.text "Njejsće hišće žane filtrowe abonementy přidał. Adblock Plus njebudźe bjez filtrow ničo blokować, prošu wužijće &quot;Filtrowy abonement přidać&quot;, zo byšće filter přidał.">
 <!ENTITY subscription.homepage.label "Startowa strona">
 <!ENTITY subscription.external.label "Přez druhe rozšěrjenje zaktualizowany">
 <!ENTITY subscription.source.label "Filtrowa lisćina">

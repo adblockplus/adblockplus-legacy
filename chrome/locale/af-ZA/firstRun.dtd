@@ -1,0 +1,10 @@
+<!ENTITY dialog.title "Adblock Plus installasie in klaar">
+<!ENTITY confirmation "Dankie dat jy Adblock Plus installeer het. Advertensies sal van nou af geblokkeer word. Geniet dit!">
+<!ENTITY advancedSection "Gevorderde opsies">
+<!ENTITY listSelection1 "Die volgende filter lys is opgestel om advertensies te blokkeer:">
+<!ENTITY noList "Geen filter lys">
+<!ENTITY visitHomepage.label "Besoek tuisbald">
+<!ENTITY acceptableAds2 "Adblock Plus is ook opgestel om sekere nie-indringende advertensies toe te laat.">
+<!ENTITY viewList.label "Bekyk lys">
+<!ENTITY readMore.label "Lees meer hieroor">
+<!ENTITY listSelection2 "Jy kan hierdie keuse enige tyd verander in die [link]Filter Voorkeure[/link].">
