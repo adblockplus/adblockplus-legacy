@@ -1,16 +1,15 @@
-<!ENTITY dialog.title "Ajouter un abonnement à une liste de filtres Adblock Plus">
-<!ENTITY subscriptionSelector.label "Veuillez choisir un abonnement dans la liste suivante :">
+<!ENTITY addMain.label "Ajouter également l'abonnement &quot;?1?&quot;">
+<!ENTITY addMain.accesskey "a">
+<!ENTITY list.download.failed "Adblock Plus n'a pu récupérer la liste des abonnements.">
+<!ENTITY list.download.retry "Essayer à nouveau">
+<!ENTITY location.accesskey "E">
+<!ENTITY title.label "Nom de l'abonnement :">
+<!ENTITY list.download.website "Afficher le site web">
+<!ENTITY supplementMessage "Cet abonnement est prévu pour être utilisé avec l'abonnement &quot;?1?&quot; que vous n'utilisez pas encore.">
+<!ENTITY title.accesskey "N">
 <!ENTITY viewList.label "Afficher les filtres">
 <!ENTITY visitHomepage.label "Se rendre au site web">
 <!ENTITY addSubscription.label "Ajouter l'abonnement">
-<!ENTITY list.download.failed "Adblock Plus n'a pu récupérer la liste des abonnements.">
-<!ENTITY list.download.retry "Essayer à nouveau">
-<!ENTITY list.download.website "Afficher le site web">
-<!ENTITY fromWeb.description "Veuillez confirmer que vous souhaitez ajouter cet abonnement. Vous pouvez modifier le titre et l'emplacement de l'abonnement avant de l'ajouter.">
-<!ENTITY title.label "Nom de l'abonnement :">
-<!ENTITY title.accesskey "N">
+<!ENTITY dialog.title "Ajouter un abonnement à une liste de filtres Adblock Plus">
 <!ENTITY location.label "Emplacement de la liste :">
-<!ENTITY location.accesskey "E">
-<!ENTITY supplementMessage "Cet abonnement est prévu pour être utilisé avec l'abonnement &quot;?1?&quot; que vous n'utilisez pas encore.">
-<!ENTITY addMain.label "Ajouter également l'abonnement &quot;?1?&quot;">
-<!ENTITY addMain.accesskey "a">
+<!ENTITY fromWeb.description "Veuillez confirmer que vous souhaitez ajouter cet abonnement. Vous pouvez modifier le titre et l'emplacement de l'abonnement avant de l'ajouter.">

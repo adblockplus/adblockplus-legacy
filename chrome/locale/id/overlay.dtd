@@ -1,31 +1,28 @@
-<!ENTITY status.tooltip "Status:">
-<!ENTITY blocked.tooltip "Zablokowane elementy na tej stronie:">
-<!ENTITY filters.tooltip "Najczęściej stosowane filtry:">
-<!ENTITY menuitem.label "Adblock Plus - ustawienia">
-<!ENTITY menuitem.accesskey "A">
-<!ENTITY toolbarbutton.label "Adblock Plus">
-<!ENTITY context.image.label "Zablokuj obrazek">
-<!ENTITY context.object.label "Zablokuj obiekt">
-<!ENTITY context.frame.label "Zablokuj ramkę">
-<!ENTITY context.media.label "Zablokuj wideo/audio">
-<!ENTITY context.removeWhitelist.label "Włącz ponownie na tej stronie">
-<!ENTITY sidebar.title "Blokowalne elementy na aktywnej stronie">
-<!ENTITY sendReport.label "Zgłoś problem na tej stronie">
-<!ENTITY sendReport.accesskey "Z">
-<!ENTITY opensidebar.label "Otwórz listę blokowalnych elementów">
-<!ENTITY opensidebar.accesskey "B">
-<!ENTITY closesidebar.label "Zamknij listę blokowalnych elementów">
-<!ENTITY closesidebar.accesskey "B">
-<!ENTITY whitelist.site.label "Wyłącz blokowanie na ?1?">
-<!ENTITY whitelist.page.label "Wyłącz blokowanie tylko na tej stronie">
-<!ENTITY disable.label "Wyłącz wszędzie">
-<!ENTITY options.label "Opsi">
-<!ENTITY options.accesskey "O">
-<!ENTITY showintoolbar.label "Tunjukkan di toolbar">
 <!ENTITY showintoolbar.accesskey "B">
-<!ENTITY showinstatusbar.label "Tunjukkan di status bar">
 <!ENTITY showinstatusbar.accesskey "S">
-<!ENTITY objecttabs.label "Tunjukkan tab pada Flash dan Java">
-<!ENTITY objecttabs.accesskey "T">
+<!ENTITY whitelist.site.label "Wyłącz blokowanie na ?1?">
+<!ENTITY disable.label "Wyłącz wszędzie">
 <!ENTITY objecttab.title "Zablokuj">
+<!ENTITY objecttabs.label "Tunjukkan tab pada Flash dan Java">
 <!ENTITY objecttab.tooltip "Kliknij tutaj, aby zablokować ten obiekt">
+<!ENTITY menuitem.label "Adblock Plus - ustawienia">
+<!ENTITY sendReport.accesskey "Z">
+<!ENTITY sendReport.label "Zgłoś problem na tej stronie">
+<!ENTITY whitelist.page.label "Wyłącz blokowanie tylko na tej stronie">
+<!ENTITY context.image.label "Zablokuj obrazek">
+<!ENTITY closesidebar.accesskey "B">
+<!ENTITY opensidebar.label "Otwórz listę blokowalnych elementów">
+<!ENTITY objecttabs.accesskey "T">
+<!ENTITY context.frame.label "Zablokuj ramkę">
+<!ENTITY blocked.tooltip "Zablokowane elementy na tej stronie:">
+<!ENTITY opensidebar.accesskey "B">
+<!ENTITY showinstatusbar.label "Tunjukkan di status bar">
+<!ENTITY sidebar.title "Blokowalne elementy na aktywnej stronie">
+<!ENTITY options.label "Opsi">
+<!ENTITY context.object.label "Zablokuj obiekt">
+<!ENTITY context.removeWhitelist.label "Włącz ponownie na tej stronie">
+<!ENTITY filters.tooltip "Najczęściej stosowane filtry:">
+<!ENTITY closesidebar.label "Zamknij listę blokowalnych elementów">
+<!ENTITY showintoolbar.label "Tunjukkan di toolbar">
+<!ENTITY menuitem.accesskey "A">
+<!ENTITY context.media.label "Zablokuj wideo/audio">

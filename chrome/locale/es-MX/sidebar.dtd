@@ -1,36 +1,36 @@
-<!ENTITY detached.title "Adblock Plus: Elementos bloqueables (Separados)">
-<!ENTITY detach.label "Separar">
+<!ENTITY context.flash.label "Elementos flash en bordes">
+<!ENTITY tooltip.type.label "Tipo:">
+<!ENTITY address.label "Dirección">
+<!ENTITY context.open.label "Abrir en Nueva Pestaña">
+<!ENTITY type.label "Tipo">
+<!ENTITY tooltip.filterSource.label "Fuente del filtro:">
+<!ENTITY noitems.label "No hay elementos bloqueables">
+<!ENTITY filter.label "Filtro">
+<!ENTITY tooltip.size.label "Tamaño:">
 <!ENTITY reattach.label "Unir">
 <!ENTITY search.label "Buscar:">
-<!ENTITY search.accesskey "B">
-<!ENTITY type.label "Tipo">
-<!ENTITY address.label "Dirección">
-<!ENTITY filter.label "Filtro">
-<!ENTITY state.label "Estado">
-<!ENTITY size.label "Tamaño">
-<!ENTITY filterSource.label "Fuente de filtro">
-<!ENTITY docDomain.label "Fuente del documento">
 <!ENTITY docDomain.thirdParty "(terceros)">
-<!ENTITY docDomain.firstParty "(propietario)">
-<!ENTITY noitems.label "No hay elementos bloqueables">
-<!ENTITY whitelisted.label "Pagina de lista de Permitidos">
-<!ENTITY tooltip.address.label "Dirección:">
-<!ENTITY tooltip.type.label "Tipo:">
-<!ENTITY tooltip.type.blocked "(bloqueado)">
-<!ENTITY tooltip.type.whitelisted "(permitido)">
-<!ENTITY tooltip.size.label "Tamaño:">
+<!ENTITY filterSource.label "Fuente de filtro">
 <!ENTITY tooltip.docDomain.label "Fuente del Documento:">
+<!ENTITY context.copy.label "Copiar dirección de elementos">
+<!ENTITY tooltip.type.blocked "(bloqueado)">
+<!ENTITY search.accesskey "B">
+<!ENTITY context.disablefilter.label "Desactivar filtro ?1?">
+<!ENTITY context.copyFilter.label "Copiar filtro">
+<!ENTITY context.block.label "Bloquear este elemento">
+<!ENTITY context.enablefilter.label "Re-Habilitar filtro ?1?">
+<!ENTITY detach.label "Separar">
+<!ENTITY whitelisted.label "Pagina de lista de Permitidos">
+<!ENTITY context.disablefilteronsite.label "Desactivar este filtro en ?1?">
+<!ENTITY detached.title "Adblock Plus: Elementos bloqueables (Separados)">
+<!ENTITY docDomain.firstParty "(propietario)">
+<!ENTITY tooltip.type.whitelisted "(permitido)">
 <!ENTITY tooltip.filter.label "Filtro en uso:">
 <!ENTITY tooltip.filter.disabled "(desactivado)">
-<!ENTITY tooltip.filterSource.label "Fuente del filtro:">
-<!ENTITY context.block.label "Bloquear este elemento">
 <!ENTITY context.editfilter.label "Editar filtro en uso">
+<!ENTITY size.label "Tamaño">
 <!ENTITY context.whitelist.label "Agregar una regla de excepción para el elemento">
-<!ENTITY context.disablefilter.label "Desactivar filtro ?1?">
-<!ENTITY context.enablefilter.label "Re-Habilitar filtro ?1?">
-<!ENTITY context.disablefilteronsite.label "Desactivar este filtro en ?1?">
-<!ENTITY context.open.label "Abrir en Nueva Pestaña">
-<!ENTITY context.flash.label "Elementos flash en bordes">
-<!ENTITY context.copy.label "Copiar dirección de elementos">
-<!ENTITY context.copyFilter.label "Copiar filtro">
 <!ENTITY context.selectAll.label "Seleccionar todo">
+<!ENTITY state.label "Estado">
+<!ENTITY docDomain.label "Fuente del documento">
+<!ENTITY tooltip.address.label "Dirección:">

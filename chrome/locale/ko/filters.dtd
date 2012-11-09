@@ -1,87 +1,92 @@
-<!ENTITY dialog.title "필터 설정">
-<!ENTITY subscriptions.tab.label "구독 필터">
-<!ENTITY filters.tab.label "사용자 필터">
-<!ENTITY addSubscription.label "구독 필터 추가">
-<!ENTITY addSubscription.accesskey "f">
-<!ENTITY addSubscriptionAdd.label "추가">
-<!ENTITY addSubscriptionCancel.label "취소">
-<!ENTITY addSubscriptionOther.label "다른 구독 필터 추가 (F)">
-<!ENTITY noSubscriptions.text "구독 필터를 아직 추가하지 않았습니다. 애드블록 플러스는 필터 없이는 아무것도 차단할 수 없으므로 &quot;구독 필터 추가&quot; 버튼을 눌러 구독 필터를 추가하십시오.">
-<!ENTITY subscription.homepage.label "홈페이지">
-<!ENTITY subscription.external.label "다른 확장 프로그램에 의해 업데이트됨">
-<!ENTITY subscription.source.label "필터 목록">
-<!ENTITY subscription.enabled.label "사용">
-<!ENTITY subscription.lastDownload.label "마지막 다운로드 :">
-<!ENTITY subscription.lastDownload.inProgress "다운로드 중...">
-<!ENTITY subscription.lastDownload.unknown "알 수 없음">
-<!ENTITY subscription.lastDownload.invalidURL "실패함 : 올바르지 않은 주소">
-<!ENTITY subscription.lastDownload.connectionError "실패함 : 다운로드 실패">
-<!ENTITY subscription.lastDownload.invalidData "실패함 : 올바르지 않은 필터">
-<!ENTITY subscription.lastDownload.checksumMismatch "실패함 : 검사합 불일치">
-<!ENTITY subscription.lastDownload.success "동기화 성공">
-<!ENTITY subscription.minVersion.warning "이 구독 필터는 보다 높은 버전의 애드블록 플러스가 필요합니다. 최신 버전의 애드블록 플러스를 설치하십시오.">
-<!ENTITY subscription.disabledFilters.warning "이 구독 필터의 일부 필터는 사용 중지되었습니다.">
-<!ENTITY subscription.disabledFilters.enable "필터 다시 사용">
-<!ENTITY subscription.actions.label "동작">
-<!ENTITY subscription.update.label "업데이트">
-<!ENTITY subscription.editTitle.label "필터 그룹명 편집">
-<!ENTITY subscription.delete.label "삭제">
-<!ENTITY subscription.showHideFilters.label "필터 목록 보기/숨기기">
-<!ENTITY subscription.moveUp.label "위로 이동">
-<!ENTITY subscription.moveDown.label "아래로 이동">
-<!ENTITY acceptableAds2.label "비침입형 광고 허용">
-<!ENTITY acceptableAds2.accesskey "i">
-<!ENTITY viewList.label "필터 목록 보기">
-<!ENTITY readMore.label "자세히 보기">
-<!ENTITY addGroup.label "필터 그룹 추가">
-<!ENTITY addGroup.accesskey "g">
-<!ENTITY noFilters.text "사용자 필터가 없습니다.">
-<!ENTITY addFilter.label "필터 추가">
-<!ENTITY addFilter.accesskey "d">
-<!ENTITY filter.actions.label "필터 동작">
-<!ENTITY filter.edit.label "편집">
-<!ENTITY filter.cut.label "잘라내기">
-<!ENTITY filter.copy.label "복사">
-<!ENTITY filter.paste.label "붙여넣기">
-<!ENTITY filter.delete.label "삭제">
-<!ENTITY filter.selectAll.label "모두 선택">
-<!ENTITY filter.resetHitCounts.label "필터 적용 횟수 초기화">
-<!ENTITY filter.moveUp.label "위로 이동">
-<!ENTITY filter.moveDown.label "아래로 이동">
-<!ENTITY viewMenu.label "보기">
-<!ENTITY filter.column "필터">
-<!ENTITY filter.accesskey "F">
-<!ENTITY slow.column "느린 필터(!)">
-<!ENTITY slow.accesskey "w">
-<!ENTITY enabled.column "사용">
-<!ENTITY enabled.accesskey "n">
-<!ENTITY hitcount.column "적용 횟수">
-<!ENTITY hitcount.accesskey "H">
 <!ENTITY lasthit.column "마지막 적용 날짜">
-<!ENTITY lasthit.accesskey "L">
-<!ENTITY sort.label "정렬">
-<!ENTITY sort.accesskey "S">
+<!ENTITY addFilter.accesskey "d">
+<!ENTITY subscription.delete.label "삭제">
+<!ENTITY subscriptions.tab.label "구독 필터">
+<!ENTITY enabled.accesskey "n">
+<!ENTITY addGroup.accesskey "g">
+<!ENTITY subscription.update.label "업데이트">
+<!ENTITY restore.complete.warning "선택된 복원 파일에 의해 모든 필터 설정이 교체됩니다. 진행하시겠습니까?">
+<!ENTITY filter.moveUp.label "위로 이동">
+<!ENTITY filter.edit.label "편집">
+<!ENTITY hitcount.column "적용 횟수">
+<!ENTITY acceptableAds2.label "비침입형 광고 허용">
+<!ENTITY close.label "닫기">
 <!ENTITY sort.none.label "정렬 안 함">
-<!ENTITY sort.none.accesskey "U">
-<!ENTITY sort.ascending.label "오름차순 (A ⇒ Z)">
-<!ENTITY sort.ascending.accesskey "A">
-<!ENTITY sort.descending.label "내림차순 (Z ⇒ A)">
+<!ENTITY find.accesskey "n">
+<!ENTITY readMore.label "자세히 보기">
+<!ENTITY subscription.homepage.label "홈페이지">
+<!ENTITY typoCorrections.enableLabel "잘못 입력된 인터넷 주소를 고칩니다">
 <!ENTITY sort.descending.accesskey "Z">
-<!ENTITY noGroupSelected.text "필터 목록을 보려면 필터 그룹을 선택하십시오.">
-<!ENTITY noFiltersInGroup.text "필터 없음">
+<!ENTITY sort.descending.label "내림차순 (Z ⇒ A)">
+<!ENTITY subscription.lastDownload.success "동기화 성공">
 <!ENTITY filters.remove.warning "선택한 모든 필터를 제거하시겠습니까?">
+<!ENTITY restore.custom.warning "선택된 복원 파일에 의해 모든 사용자 필터가 교체됩니다. 진행하시겠습니까?">
+<!ENTITY slow.column "느린 필터(!)">
+<!ENTITY subscription.actions.label "동작">
+<!ENTITY filter.selectAll.label "모두 선택">
 <!ENTITY backupButton.label "백업/복원">
+<!ENTITY sort.accesskey "S">
+<!ENTITY subscription.source.label "필터 목록">
+<!ENTITY filter.paste.label "붙여넣기">
+<!ENTITY addSubscription.accesskey "f">
+<!ENTITY filter.delete.label "삭제">
+<!ENTITY addSubscriptionAdd.label "추가">
+<!ENTITY slow.accesskey "w">
+<!ENTITY subscription.showHideFilters.label "필터 목록 보기/숨기기">
 <!ENTITY backupButton.accesskey "B">
-<!ENTITY backup.label "백업 파일 저장">
-<!ENTITY restore.default.label "복원 날짜 - ?1?">
-<!ENTITY restore.own.label "백업 파일로 복원">
-<!ENTITY backup.complete.title "사용자/구독 필터 백업">
-<!ENTITY backup.custom.title "사용자 필터만 백업">
+<!ENTITY filter.actions.label "필터 동작">
+<!ENTITY filter.moveDown.label "아래로 이동">
+<!ENTITY typoCorrections.tab.label "오자 수정">
+<!ENTITY addFilter.label "필터 추가">
+<!ENTITY subscription.editTitle.label "필터 그룹명 편집">
+<!ENTITY subscription.moveDown.label "아래로 이동">
+<!ENTITY subscription.disabledFilters.warning "이 구독 필터의 일부 필터는 사용 중지되었습니다.">
+<!ENTITY filter.column "필터">
+<!ENTITY subscription.lastDownload.checksumMismatch "실패함 : 검사합 불일치">
+<!ENTITY noFiltersInGroup.text "필터 없음">
+<!ENTITY typoCorrections.whitelistLabel "대체하지 않습니다...">
+<!ENTITY sort.label "정렬">
+<!ENTITY noFilters.text "사용자 필터가 없습니다.">
+<!ENTITY subscription.external.label "다른 확장 프로그램에 의해 업데이트됨">
+<!ENTITY filter.accesskey "F">
+<!ENTITY noGroupSelected.text "필터 목록을 보려면 필터 그룹을 선택하십시오.">
+<!ENTITY subscription.lastDownload.inProgress "다운로드 중...">
+<!ENTITY typoCorrections.removeButtonLabel "선택 항목 제거">
+<!ENTITY enabled.column "사용">
+<!ENTITY viewMenu.label "보기">
+<!ENTITY addSubscriptionCancel.label "취소">
+<!ENTITY lasthit.accesskey "L">
+<!ENTITY dialog.title "필터 설정">
+<!ENTITY subscription.minVersion.warning "이 구독 필터는 보다 높은 버전의 애드블록 플러스가 필요합니다. 최신 버전의 애드블록 플러스를 설치하십시오.">
+<!ENTITY subscription.lastDownload.invalidURL "실패함 : 올바르지 않은 주소">
 <!ENTITY backup.error "백업 파일에 필터 작성 오류가 있습니다. 이 파일은 쓰기 방지 상태이거나 다른 응용 프로그램에서 사용 중인지 확인하십시오.">
 <!ENTITY restore.error "애드블록 플러스의 백업 파일이 아니므로 복원을 할 수 없습니다.">
-<!ENTITY restore.complete.warning "선택된 복원 파일에 의해 모든 필터 설정이 교체됩니다. 진행하시겠습니까?">
-<!ENTITY restore.custom.warning "선택된 복원 파일에 의해 모든 사용자 필터가 교체됩니다. 진행하시겠습니까?">
-<!ENTITY restore.minVersion.warning "경고 : 이 파일은 보다 높은 버전의 애드블록 플러스에 의해 생성되었습니다. 이 파일로 복원하기 전에 최신 버전의 애드블록 플러스로 업데이트하십시오.">
+<!ENTITY filter.cut.label "잘라내기">
+<!ENTITY backup.custom.title "사용자 필터만 백업">
+<!ENTITY subscription.moveUp.label "위로 이동">
+<!ENTITY backup.complete.title "사용자/구독 필터 백업">
+<!ENTITY filters.tab.label "사용자 필터">
 <!ENTITY find.label "찾기">
-<!ENTITY find.accesskey "n">
-<!ENTITY close.label "닫기">
+<!ENTITY subscription.lastDownload.connectionError "실패함 : 다운로드 실패">
+<!ENTITY subscription.lastDownload.invalidData "실패함 : 올바르지 않은 필터">
+<!ENTITY restore.minVersion.warning "경고 : 이 파일은 보다 높은 버전의 애드블록 플러스에 의해 생성되었습니다. 이 파일로 복원하기 전에 최신 버전의 애드블록 플러스로 업데이트하십시오.">
+<!ENTITY sort.ascending.label "오름차순 (A ⇒ Z)">
+<!ENTITY viewList.label "필터 목록 보기">
+<!ENTITY typoCorrections.whitelistEmptyLabel "현재는 예외가 없습니다.">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY restore.default.label "복원 날짜 - ?1?">
+<!ENTITY hitcount.accesskey "H">
+<!ENTITY acceptableAds2.accesskey "i">
+<!ENTITY subscription.lastDownload.unknown "알 수 없음">
+<!ENTITY subscription.enabled.label "사용">
+<!ENTITY noSubscriptions.text "구독 필터를 아직 추가하지 않았습니다. 애드블록 플러스는 필터 없이는 아무것도 차단할 수 없으므로 &quot;구독 필터 추가&quot; 버튼을 눌러 구독 필터를 추가하십시오.">
+<!ENTITY addGroup.label "필터 그룹 추가">
+<!ENTITY addSubscriptionOther.label "다른 구독 필터 추가 (F)">
+<!ENTITY filter.copy.label "복사">
+<!ENTITY sort.none.accesskey "U">
+<!ENTITY addSubscription.label "구독 필터 추가">
+<!ENTITY restore.own.label "백업 파일로 복원">
+<!ENTITY filter.resetHitCounts.label "필터 적용 횟수 초기화">
+<!ENTITY backup.label "백업 파일 저장">
+<!ENTITY subscription.disabledFilters.enable "필터 다시 사용">
+<!ENTITY subscription.lastDownload.label "마지막 다운로드 :">

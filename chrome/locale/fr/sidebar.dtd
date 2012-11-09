@@ -1,36 +1,36 @@
-<!ENTITY detached.title "Adblock Plus : éléments filtrables (détaché)">
-<!ENTITY detach.label "Détacher">
+<!ENTITY context.flash.label "Faire clignoter les bordures de l&amp;apos;élément">
+<!ENTITY tooltip.type.label "Type :">
+<!ENTITY address.label "Adresse">
+<!ENTITY context.open.label "Ouvrir dans un nouvel onglet">
+<!ENTITY type.label "Type">
+<!ENTITY tooltip.filterSource.label "Source du filtre :">
+<!ENTITY noitems.label "Aucun élément filtrable">
+<!ENTITY filter.label "Filtre">
+<!ENTITY tooltip.size.label "Taille :">
 <!ENTITY reattach.label "Rattacher">
 <!ENTITY search.label "Chercher :">
-<!ENTITY search.accesskey "C">
-<!ENTITY type.label "Type">
-<!ENTITY address.label "Adresse">
-<!ENTITY filter.label "Filtre">
-<!ENTITY state.label "État">
-<!ENTITY size.label "Taille">
-<!ENTITY filterSource.label "Source du filtre">
-<!ENTITY docDomain.label "Source du document">
 <!ENTITY docDomain.thirdParty "(troisième partie)">
-<!ENTITY docDomain.firstParty "(première partie)">
-<!ENTITY noitems.label "Aucun élément filtrable">
-<!ENTITY whitelisted.label "Page dans la liste blanche">
-<!ENTITY tooltip.address.label "Adresse :">
-<!ENTITY tooltip.type.label "Type :">
-<!ENTITY tooltip.type.blocked "(bloqué)">
-<!ENTITY tooltip.type.whitelisted "(autorisé)">
-<!ENTITY tooltip.size.label "Taille :">
+<!ENTITY filterSource.label "Source du filtre">
 <!ENTITY tooltip.docDomain.label "Source du document :">
+<!ENTITY context.copy.label "Copier l&amp;apos;adresse de l&amp;apos;élément">
+<!ENTITY tooltip.type.blocked "(bloqué)">
+<!ENTITY search.accesskey "C">
+<!ENTITY context.disablefilter.label "Désactiver le filtre ?1?">
+<!ENTITY context.copyFilter.label "Copier le filtre">
+<!ENTITY context.block.label "Bloquer cet élément">
+<!ENTITY context.enablefilter.label "Réactiver le filtre ?1?">
+<!ENTITY detach.label "Détacher">
+<!ENTITY whitelisted.label "Page dans la liste blanche">
+<!ENTITY context.disablefilteronsite.label "Désactiver ce filtre pour ?1?">
+<!ENTITY detached.title "Adblock Plus : éléments filtrables (détaché)">
+<!ENTITY docDomain.firstParty "(première partie)">
+<!ENTITY tooltip.type.whitelisted "(autorisé)">
 <!ENTITY tooltip.filter.label "Filtre utilisé :">
 <!ENTITY tooltip.filter.disabled "(désactivé)">
-<!ENTITY tooltip.filterSource.label "Source du filtre :">
-<!ENTITY context.block.label "Bloquer cet élément">
 <!ENTITY context.editfilter.label "Modifier le filtre actif">
+<!ENTITY size.label "Taille">
 <!ENTITY context.whitelist.label "Ajouter à la liste blanche">
-<!ENTITY context.disablefilter.label "Désactiver le filtre ?1?">
-<!ENTITY context.enablefilter.label "Réactiver le filtre ?1?">
-<!ENTITY context.disablefilteronsite.label "Désactiver ce filtre pour ?1?">
-<!ENTITY context.open.label "Ouvrir dans un nouvel onglet">
-<!ENTITY context.flash.label "Faire clignoter les bordures de l&apos;élément">
-<!ENTITY context.copy.label "Copier l&apos;adresse de l&apos;élément">
-<!ENTITY context.copyFilter.label "Copier le filtre">
 <!ENTITY context.selectAll.label "Tout sélectionner">
+<!ENTITY state.label "État">
+<!ENTITY docDomain.label "Source du document">
+<!ENTITY tooltip.address.label "Adresse :">

@@ -1,42 +1,42 @@
-<!ENTITY status.tooltip "الحالة">
-<!ENTITY blocked.tooltip "العناصر المحجوبة في هذه الصفحة">
-<!ENTITY filters.tooltip "الفلاتر الأكثر فعالية">
-<!ENTITY menuitem.label "تفضيلات آدبلوك بلس">
-<!ENTITY menuitem.accesskey "ب">
-<!ENTITY toolbarbutton.label "آدبلوك بلس">
-<!ENTITY context.image.label "آدبلوك بلس : حجب صورة">
-<!ENTITY context.object.label "آدبلوك بلس : حجب عنصر">
-<!ENTITY context.frame.label "آدبلوك بلس : حجب إطار">
-<!ENTITY context.media.label "آدبلوك بلس : حجب أوديوفيديو">
-<!ENTITY context.removeWhitelist.label "آدبلوك بلس : إعادة التفعيل في هذه الصفحة">
-<!ENTITY sidebar.title "العناصر المحجوبة في الصفحة الحالية">
-<!ENTITY sendReport.label "التبليغ عن خطأ في هذه الصفحة">
-<!ENTITY sendReport.accesskey "ت">
-<!ENTITY filters.label "تفضيلات الفلتر">
-<!ENTITY filters.accesskey "ف">
-<!ENTITY opensidebar.label "فتح العناصر المحجوبة">
-<!ENTITY opensidebar.accesskey "ج">
-<!ENTITY closesidebar.label "إغلاق العناصر المحجوبة">
-<!ENTITY closesidebar.accesskey "ج">
+<!ENTITY showintoolbar.accesskey "ش">
+<!ENTITY showinstatusbar.accesskey "ح">
 <!ENTITY whitelist.site.label "تعطيل على ?1?">
-<!ENTITY whitelist.page.label "تعطيل في هذه الصفحة فقط">
+<!ENTITY filters.label "تفضيلات الفلتر">
 <!ENTITY disable.label "تعطيل في جميع الأماكن">
-<!ENTITY options.label "خيارات">
+<!ENTITY showinaddonbar.label "الاظهار في شريط الاضافات">
+<!ENTITY objecttab.title "أحجب">
+<!ENTITY showinaddonbar.accesskey "ظ">
+<!ENTITY sync.accesskey "ز">
+<!ENTITY objecttabs.label "عرض تبويبات لفلاش و جافا">
+<!ENTITY objecttab.tooltip "اضغط هنا لمنع هذا العنصر مع آدبلوك بلاس">
+<!ENTITY menuitem.label "تفضيلات آدبلوك بلس">
+<!ENTITY sendReport.accesskey "ت">
+<!ENTITY sendReport.label "التبليغ عن خطأ في هذه الصفحة">
+<!ENTITY filters.accesskey "ف">
+<!ENTITY whitelist.page.label "تعطيل في هذه الصفحة فقط">
+<!ENTITY context.image.label "آدبلوك بلس : حجب صورة">
+<!ENTITY closesidebar.accesskey "ج">
+<!ENTITY hideplaceholders.label "اخفاء ماسك المكان للعناصر الموقوفة">
+<!ENTITY opensidebar.label "فتح العناصر المحجوبة">
 <!ENTITY options.accesskey "خ">
 <!ENTITY contribute.label "شارك في آد بلُك بلَس">
-<!ENTITY showintoolbar.label "عرض في شريط الأدوات">
-<!ENTITY showintoolbar.accesskey "ش">
-<!ENTITY showinstatusbar.label "عرض في شريط الحالة">
-<!ENTITY showinstatusbar.accesskey "ح">
-<!ENTITY showinaddonbar.label "الاظهار في شريط الاضافات">
-<!ENTITY showinaddonbar.accesskey "ظ">
-<!ENTITY objecttabs.label "عرض تبويبات لفلاش و جافا">
-<!ENTITY objecttabs.accesskey "ت">
-<!ENTITY hideplaceholders.label "اخفاء ماسك المكان للعناصر الموقوفة">
-<!ENTITY hideplaceholders.accesskey "خ">
+<!ENTITY toolbarbutton.label "آدبلوك بلس">
+<!ENTITY context.frame.label "آدبلوك بلس : حجب إطار">
 <!ENTITY counthits.label "تعداد اصابات الفلترة">
-<!ENTITY counthits.accesskey "ت">
+<!ENTITY blocked.tooltip "العناصر المحجوبة في هذه الصفحة">
+<!ENTITY opensidebar.accesskey "ج">
+<!ENTITY showinstatusbar.label "عرض في شريط الحالة">
+<!ENTITY status.tooltip "الحالة">
+<!ENTITY sidebar.title "العناصر المحجوبة في الصفحة الحالية">
 <!ENTITY sync.label "مزامنة إعدادات آدبلوك بلس">
-<!ENTITY sync.accesskey "ز">
-<!ENTITY objecttab.title "أحجب">
-<!ENTITY objecttab.tooltip "اضغط هنا لمنع هذا العنصر مع آدبلوك بلاس">
+<!ENTITY options.label "خيارات">
+<!ENTITY context.object.label "آدبلوك بلس : حجب عنصر">
+<!ENTITY context.removeWhitelist.label "آدبلوك بلس : إعادة التفعيل في هذه الصفحة">
+<!ENTITY objecttabs.accesskey "ت">
+<!ENTITY filters.tooltip "الفلاتر الأكثر فعالية">
+<!ENTITY closesidebar.label "إغلاق العناصر المحجوبة">
+<!ENTITY showintoolbar.label "عرض في شريط الأدوات">
+<!ENTITY counthits.accesskey "ت">
+<!ENTITY menuitem.accesskey "ب">
+<!ENTITY context.media.label "آدبلوك بلس : حجب أوديوفيديو">
+<!ENTITY hideplaceholders.accesskey "خ">

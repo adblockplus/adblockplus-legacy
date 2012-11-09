@@ -1,25 +1,11 @@
-<!ENTITY dialog.title               "Installation von Adblock Plus abgeschlossen">
-
-<!ENTITY confirmation               "
-  Danke für die Installation von Adblock Plus. Werbung wird von nun an blockiert.
+<!ENTITY advancedSection "Erweiterte Optionen">
+<!ENTITY confirmation "Danke für die Installation von Adblock Plus. Werbung wird von nun an blockiert.
   Viel Spaß!">
-
-<!ENTITY advancedSection            "Erweiterte Optionen">
-
-<!ENTITY listSelection1             "
-  Das folgende kostenlose Filterabonnement wurde konfiguriert, um Werbung zu blockieren:
-">
-
-<!ENTITY noList                     "Kein Filterabonnement">
-<!ENTITY visitHomepage.label        "Webseite öffnen">
-
-<!ENTITY acceptableAds2             "
-  Adblock Plus wurde außerdem konfiguriert, um einige nicht aufdringliche Werbung zuzulassen.
-">
-
-<!ENTITY viewList.label             "Liste öffnen">
-<!ENTITY readMore.label             "Mehr Information">
-
-<!ENTITY listSelection2             "
-  Sie können diese Auswahl jederzeit in den [link]Filtereinstellungen[/link] ändern.
-">
+<!ENTITY noList "Kein Filterabonnement">
+<!ENTITY acceptableAds2 "Adblock Plus wurde außerdem konfiguriert, um einige nicht aufdringliche Werbung zuzulassen.">
+<!ENTITY viewList.label "Liste öffnen">
+<!ENTITY visitHomepage.label "Webseite öffnen">
+<!ENTITY dialog.title "Installation von Adblock Plus abgeschlossen">
+<!ENTITY listSelection1 "Das folgende kostenlose Filterabonnement wurde konfiguriert, um Werbung zu blockieren:">
+<!ENTITY listSelection2 "Sie können diese Auswahl jederzeit in den [link]Filtereinstellungen[/link] ändern.">
+<!ENTITY readMore.label "Mehr Information">

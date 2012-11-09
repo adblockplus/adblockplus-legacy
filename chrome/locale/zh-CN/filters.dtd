@@ -1,92 +1,88 @@
-<!ENTITY dialog.title "Adblock Plus 过滤规则首选项">
-<!ENTITY subscriptions.tab.label "过滤规则订阅组">
-<!ENTITY filters.tab.label "自定义过滤规则">
-<!ENTITY addSubscription.label "添加过滤规则订阅组">
-<!ENTITY addSubscription.accesskey "f">
-<!ENTITY addSubscriptionAdd.label "添加">
-<!ENTITY addSubscriptionCancel.label "取消">
-<!ENTITY addSubscriptionOther.label "添加其他过滤规则订阅组">
-<!ENTITY noSubscriptions.text "
-您还没有添加过滤规则订阅组。Adblock Plus 没有过滤规则将无法
-进行屏蔽，请使用 “添加过滤规则订阅组” 添加过滤规则。
-">
-<!ENTITY subscription.homepage.label "主页">
-<!ENTITY subscription.external.label "由其他扩展更新">
-<!ENTITY subscription.source.label "过滤规则列表">
-<!ENTITY subscription.enabled.label "启用">
-<!ENTITY subscription.lastDownload.label "最后下载于:">
-<!ENTITY subscription.lastDownload.inProgress "正在下载……">
-<!ENTITY subscription.lastDownload.unknown "未知">
-<!ENTITY subscription.lastDownload.invalidURL "失败，不是有效地址">
-<!ENTITY subscription.lastDownload.connectionError "失败，下载失败">
-<!ENTITY subscription.lastDownload.invalidData "失败，不是有效的过滤规则列表">
-<!ENTITY subscription.lastDownload.checksumMismatch "失败，检验和不匹配">
-<!ENTITY subscription.lastDownload.success "成功">
-<!ENTITY subscription.minVersion.warning "该过滤规则订阅组需要新版本的 Adblock Plus，您应该更新至最新的 Adblock Plus。">
-<!ENTITY subscription.disabledFilters.warning "该过滤规则订阅组中的某些过滤规则被禁用。">
-<!ENTITY subscription.disabledFilters.enable "启用已禁用的过滤规则">
-<!ENTITY subscription.actions.label "动作">
-<!ENTITY subscription.update.label "更新过滤规则">
-<!ENTITY subscription.editTitle.label "编辑标题">
-<!ENTITY subscription.delete.label "删除">
-<!ENTITY subscription.showHideFilters.label "显示/隐藏过滤规则">
-<!ENTITY subscription.moveUp.label "上移">
-<!ENTITY subscription.moveDown.label "下移">
-<!ENTITY acceptableAds2.label "允许一些非侵入式广告">
-<!ENTITY acceptableAds2.accesskey "i">
-<!ENTITY viewList.label "查看列表">
-<!ENTITY readMore.label "深入了解">
-<!ENTITY addGroup.label "添加过滤规则分组">
-<!ENTITY addGroup.accesskey "g">
-<!ENTITY noFilters.text "
- 您还没有自定义过滤规则。
-">
-<!ENTITY addFilter.label "添加过滤规则">
-<!ENTITY addFilter.accesskey "d">
-<!ENTITY filter.actions.label "过滤规则动作">
-<!ENTITY filter.edit.label "编辑">
-<!ENTITY filter.cut.label "剪切">
-<!ENTITY filter.copy.label "复制">
-<!ENTITY filter.paste.label "粘贴">
-<!ENTITY filter.delete.label "删除">
-<!ENTITY filter.selectAll.label "全选">
-<!ENTITY filter.resetHitCounts.label "重置生效次数统计">
-<!ENTITY filter.moveUp.label "上移">
-<!ENTITY filter.moveDown.label "下移">
-<!ENTITY viewMenu.label "查看">
-<!ENTITY filter.column "过滤规则">
-<!ENTITY filter.accesskey "F">
-<!ENTITY slow.column "慢速过滤规则">
-<!ENTITY slow.accesskey "w">
-<!ENTITY enabled.column "启用">
-<!ENTITY enabled.accesskey "n">
-<!ENTITY hitcount.column "计数">
-<!ENTITY hitcount.accesskey "H">
 <!ENTITY lasthit.column "最后生效时间">
-<!ENTITY lasthit.accesskey "L">
-<!ENTITY sort.label "排序">
-<!ENTITY sort.accesskey "S">
+<!ENTITY addFilter.accesskey "d">
+<!ENTITY subscription.delete.label "删除">
+<!ENTITY subscriptions.tab.label "过滤规则订阅组">
+<!ENTITY enabled.accesskey "n">
+<!ENTITY addGroup.accesskey "g">
+<!ENTITY subscription.update.label "更新过滤规则">
+<!ENTITY restore.complete.warning "您所有的过滤规则参数将被选择的文件中的内容所替代。您是否继续？">
+<!ENTITY filter.moveUp.label "上移">
+<!ENTITY filter.edit.label "编辑">
+<!ENTITY hitcount.column "计数">
+<!ENTITY acceptableAds2.label "允许一些非侵入式广告">
+<!ENTITY close.label "关闭">
 <!ENTITY sort.none.label "不排序">
-<!ENTITY sort.none.accesskey "U">
-<!ENTITY sort.ascending.label "A &gt; Z 顺序">
-<!ENTITY sort.ascending.accesskey "A">
-<!ENTITY sort.descending.label "Z &gt; A 顺序">
+<!ENTITY find.accesskey "n">
+<!ENTITY readMore.label "深入了解">
+<!ENTITY subscription.homepage.label "主页">
 <!ENTITY sort.descending.accesskey "Z">
-<!ENTITY noGroupSelected.text "要想显示过滤规则分组中的过滤规则，您必须先选择一个过滤规则分组。">
-<!ENTITY noFiltersInGroup.text "选择的分组是空的。">
+<!ENTITY sort.descending.label "Z &gt; A 顺序">
+<!ENTITY subscription.lastDownload.success "成功">
 <!ENTITY filters.remove.warning "您确定要移除所有选定的过滤规则吗？">
+<!ENTITY restore.custom.warning "您所有的自定义规则将被选择的文件中的内容所替代。您是否继续？">
+<!ENTITY slow.column "慢速过滤规则">
+<!ENTITY subscription.actions.label "动作">
+<!ENTITY filter.selectAll.label "全选">
 <!ENTITY backupButton.label "备份与还原">
+<!ENTITY sort.accesskey "S">
+<!ENTITY subscription.source.label "过滤规则列表">
+<!ENTITY filter.paste.label "粘贴">
+<!ENTITY addSubscription.accesskey "f">
+<!ENTITY filter.delete.label "删除">
+<!ENTITY addSubscriptionAdd.label "添加">
+<!ENTITY slow.accesskey "w">
+<!ENTITY subscription.showHideFilters.label "显示/隐藏过滤规则">
 <!ENTITY backupButton.accesskey "B">
-<!ENTITY backup.label "创建新备份">
-<!ENTITY restore.default.label "还原到 ?1? 的备份">
-<!ENTITY restore.own.label "还原自己的备份">
-<!ENTITY backup.complete.title "所有订阅组和自定义规则">
-<!ENTITY backup.custom.title "仅自定义过滤规则">
+<!ENTITY filter.actions.label "过滤规则动作">
+<!ENTITY filter.moveDown.label "下移">
+<!ENTITY addFilter.label "添加过滤规则">
+<!ENTITY subscription.editTitle.label "编辑标题">
+<!ENTITY subscription.moveDown.label "下移">
+<!ENTITY subscription.disabledFilters.warning "该过滤规则订阅组中的某些过滤规则被禁用。">
+<!ENTITY filter.column "过滤规则">
+<!ENTITY subscription.lastDownload.checksumMismatch "失败，检验和不匹配">
+<!ENTITY noFiltersInGroup.text "选择的分组是空的。">
+<!ENTITY sort.label "排序">
+<!ENTITY noFilters.text "您还没有自定义过滤规则。">
+<!ENTITY subscription.external.label "由其他扩展更新">
+<!ENTITY filter.accesskey "F">
+<!ENTITY noGroupSelected.text "要想显示过滤规则分组中的过滤规则，您必须先选择一个过滤规则分组。">
+<!ENTITY subscription.lastDownload.inProgress "正在下载……">
+<!ENTITY enabled.column "启用">
+<!ENTITY viewMenu.label "查看">
+<!ENTITY addSubscriptionCancel.label "取消">
+<!ENTITY lasthit.accesskey "L">
+<!ENTITY dialog.title "Adblock Plus 过滤规则首选项">
+<!ENTITY subscription.minVersion.warning "该过滤规则订阅组需要新版本的 Adblock Plus，您应该更新至最新的 Adblock Plus。">
+<!ENTITY subscription.lastDownload.invalidURL "失败，不是有效地址">
 <!ENTITY backup.error "将过滤规则写入文件时发生错误。请确认该文件没有写保护或者正在被其他程序使用。">
 <!ENTITY restore.error "无法处理该文件，可能该文件不是 Adblock Plus 备份文件？">
-<!ENTITY restore.complete.warning "您所有的过滤规则参数将被选择的文件中的内容所替代。您是否继续？">
-<!ENTITY restore.custom.warning "您所有的自定义规则将被选择的文件中的内容所替代。您是否继续？">
-<!ENTITY restore.minVersion.warning "警告：该文件由新版本的 Adblock Plus 创建。您应该先更新至最新版本的 Adblock Plus 然后再还原该文件。">
+<!ENTITY filter.cut.label "剪切">
+<!ENTITY backup.custom.title "仅自定义过滤规则">
+<!ENTITY subscription.moveUp.label "上移">
+<!ENTITY backup.complete.title "所有订阅组和自定义规则">
+<!ENTITY filters.tab.label "自定义过滤规则">
 <!ENTITY find.label "查找">
-<!ENTITY find.accesskey "n">
-<!ENTITY close.label "关闭">
+<!ENTITY subscription.lastDownload.connectionError "失败，下载失败">
+<!ENTITY subscription.lastDownload.invalidData "失败，不是有效的过滤规则列表">
+<!ENTITY restore.minVersion.warning "警告：该文件由新版本的 Adblock Plus 创建。您应该先更新至最新版本的 Adblock Plus 然后再还原该文件。">
+<!ENTITY sort.ascending.label "A &gt; Z 顺序">
+<!ENTITY viewList.label "查看列表">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY restore.default.label "还原到 ?1? 的备份">
+<!ENTITY hitcount.accesskey "H">
+<!ENTITY acceptableAds2.accesskey "i">
+<!ENTITY subscription.lastDownload.unknown "未知">
+<!ENTITY subscription.enabled.label "启用">
+<!ENTITY noSubscriptions.text "您还没有添加过滤规则订阅组。Adblock Plus 没有过滤规则将无法
+进行屏蔽，请使用 “添加过滤规则订阅组” 添加过滤规则。">
+<!ENTITY addGroup.label "添加过滤规则分组">
+<!ENTITY addSubscriptionOther.label "添加其他过滤规则订阅组">
+<!ENTITY filter.copy.label "复制">
+<!ENTITY sort.none.accesskey "U">
+<!ENTITY addSubscription.label "添加过滤规则订阅组">
+<!ENTITY restore.own.label "还原自己的备份">
+<!ENTITY filter.resetHitCounts.label "重置生效次数统计">
+<!ENTITY backup.label "创建新备份">
+<!ENTITY subscription.disabledFilters.enable "启用已禁用的过滤规则">
+<!ENTITY subscription.lastDownload.label "最后下载于:">

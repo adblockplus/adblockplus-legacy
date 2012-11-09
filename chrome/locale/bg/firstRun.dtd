@@ -1,18 +1,11 @@
-<!ENTITY dialog.title "Adblock Plus инсталацията завърши">
-<!ENTITY confirmation "
-	Благодаря ви че инсталирахте Adblock Plus. Рекламите ще са блокирани от сега нататък.
- Успех!">
 <!ENTITY advancedSection "Подробни настройки">
-<!ENTITY listSelection1 "
-	Този филтър лист е конфигуриран да блокира реклама:
-">
+<!ENTITY confirmation "Благодаря ви че инсталирахте Adblock Plus. Рекламите ще са блокирани от сега нататък.
+ Успех!">
 <!ENTITY noList "Няма филтър лист">
-<!ENTITY visitHomepage.label "Посети страницата на листа">
-<!ENTITY acceptableAds2 "
- Adblock Plus е настроен да пропуска някой не натрапчиви реклами.
-">
+<!ENTITY acceptableAds2 "Adblock Plus е настроен да пропуска някой не натрапчиви реклами.">
 <!ENTITY viewList.label "Виж лист">
+<!ENTITY visitHomepage.label "Посети страницата на листа">
+<!ENTITY dialog.title "Adblock Plus инсталацията завърши">
+<!ENTITY listSelection1 "Този филтър лист е конфигуриран да блокира реклама:">
+<!ENTITY listSelection2 "Ти можеш да промениш този избор по всяко време от [link]Настройки за Филтър[/link].">
 <!ENTITY readMore.label "Прочети повече за това">
-<!ENTITY listSelection2 "
-	Ти можеш да промениш този избор по всяко време от [link]Настройки за Филтър[/link].
-">

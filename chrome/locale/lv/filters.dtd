@@ -1,35 +1,25 @@
-<!ENTITY addSubscription.label "Pievienot filtra abonēšanu">
-<!ENTITY addSubscriptionOther.label "Pievienot citu abonementu">
-<!ENTITY subscription.lastDownload.label "Pēdējā lejupielāde:">
-<!ENTITY subscription.lastDownload.inProgress "Lejupielādē...">
-<!ENTITY subscription.lastDownload.unknown "N/A">
-<!ENTITY subscription.lastDownload.invalidURL "Neizdevās, nav derīga adrese">
-<!ENTITY subscription.lastDownload.connectionError "Neizdevās, lejupielāde neizdevās">
-<!ENTITY subscription.lastDownload.invalidData "Neizdevās, nav derīgs filtru saraksts">
-<!ENTITY subscription.lastDownload.checksumMismatch "Neizdevās, kontrolsummas neatbilstība">
-<!ENTITY subscription.lastDownload.success "Izdevās">
-<!ENTITY addFilter.label "Pievienot Filtru">
-<!ENTITY filter.cut.label "Izgriezt">
-<!ENTITY filter.copy.label "Kopēt">
-<!ENTITY filter.paste.label "Ielīmēt">
-<!ENTITY filter.delete.label "Dzēst">
-<!ENTITY viewMenu.label "Skatīt">
-<!ENTITY filter.column "Filtra noteikumi">
-<!ENTITY filter.accesskey "F">
 <!ENTITY slow.column "Lēni filtri">
-<!ENTITY slow.accesskey "w">
-<!ENTITY enabled.column "Iespējots">
-<!ENTITY enabled.accesskey "n">
-<!ENTITY hitcount.column "Klikšķi">
-<!ENTITY hitcount.accesskey "H">
+<!ENTITY subscription.lastDownload.checksumMismatch "Neizdevās, kontrolsummas neatbilstība">
 <!ENTITY lasthit.column "Pēdējai klikšķis">
-<!ENTITY lasthit.accesskey "L">
-<!ENTITY sort.label "Kārtot pēc">
-<!ENTITY sort.accesskey "S">
-<!ENTITY sort.none.label "Nesakārtots">
-<!ENTITY sort.none.accesskey "U">
 <!ENTITY sort.ascending.label "A &gt; Z kārtošanas secība">
-<!ENTITY sort.ascending.accesskey "A">
-<!ENTITY sort.descending.label "Z &gt; A kārtošanas secība">
-<!ENTITY sort.descending.accesskey "Z">
+<!ENTITY sort.label "Kārtot pēc">
+<!ENTITY filter.paste.label "Ielīmēt">
+<!ENTITY subscription.lastDownload.inProgress "Lejupielādē...">
+<!ENTITY filter.delete.label "Dzēst">
+<!ENTITY enabled.column "Iespējots">
+<!ENTITY viewMenu.label "Skatīt">
+<!ENTITY subscription.lastDownload.invalidURL "Neizdevās, nav derīga adrese">
+<!ENTITY hitcount.column "Klikšķi">
+<!ENTITY filter.cut.label "Izgriezt">
+<!ENTITY addSubscriptionOther.label "Pievienot citu abonementu">
+<!ENTITY sort.none.label "Nesakārtots">
+<!ENTITY filter.copy.label "Kopēt">
+<!ENTITY addSubscription.label "Pievienot filtra abonēšanu">
 <!ENTITY find.label "Meklēt">
+<!ENTITY sort.descending.label "Z &gt; A kārtošanas secība">
+<!ENTITY subscription.lastDownload.connectionError "Neizdevās, lejupielāde neizdevās">
+<!ENTITY subscription.lastDownload.success "Izdevās">
+<!ENTITY subscription.lastDownload.invalidData "Neizdevās, nav derīgs filtru saraksts">
+<!ENTITY addFilter.label "Pievienot Filtru">
+<!ENTITY subscription.lastDownload.label "Pēdējā lejupielāde:">
+<!ENTITY filter.column "Filtra noteikumi">

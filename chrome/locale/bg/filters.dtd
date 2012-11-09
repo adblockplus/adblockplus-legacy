@@ -1,93 +1,89 @@
-<!ENTITY dialog.title "Adblock Plus Настройки за филтър">
-<!ENTITY subscriptions.tab.label "Абонаменти за Филтър">
-<!ENTITY filters.tab.label "Собствени филтри">
-<!ENTITY addSubscription.label "Добави абонамент за филтър">
-<!ENTITY addSubscription.accesskey "ф">
-<!ENTITY addSubscriptionAdd.label "Добави">
-<!ENTITY addSubscriptionCancel.label "Откажи">
-<!ENTITY addSubscriptionOther.label "Добави друг абонамент">
-<!ENTITY noSubscriptions.text "
-	Ти не си добавил никакъв абонамент за филтри. Adblock Plus няма да блокира
- нищо без филтри, моля избери &quot;Добави филтър абонаменти&quot; за да
- добавиш някакви.
-">
-<!ENTITY subscription.homepage.label "Лична Страница">
-<!ENTITY subscription.external.label "Ъпдейтнат от друга добавка">
-<!ENTITY subscription.source.label "Филтър Лист">
-<!ENTITY subscription.enabled.label "Включен">
-<!ENTITY subscription.lastDownload.label "Последно изтеглен:">
-<!ENTITY subscription.lastDownload.inProgress "Изтегляне...">
-<!ENTITY subscription.lastDownload.unknown "Няма данни">
-<!ENTITY subscription.lastDownload.invalidURL "Грешка, невалиден адрес">
-<!ENTITY subscription.lastDownload.connectionError "Грешка, неуспешно изтегляне">
-<!ENTITY subscription.lastDownload.invalidData "Грешка, невалиден списък с филтри">
-<!ENTITY subscription.lastDownload.checksumMismatch "Грешка, несъвпадение на контролната сума">
-<!ENTITY subscription.lastDownload.success "Успешно">
-<!ENTITY subscription.minVersion.warning "Този филтър абонамент изисква по-нова версия на Adblock Plus, трябва да обновите до последната версия на Adblock Plus.">
-<!ENTITY subscription.disabledFilters.warning "Някой филтри в този абонамент са забранени.">
-<!ENTITY subscription.disabledFilters.enable "Разреши забранените филтри">
-<!ENTITY subscription.actions.label "Действия">
-<!ENTITY subscription.update.label "Обнови филтрите">
-<!ENTITY subscription.editTitle.label "Промени титла">
-<!ENTITY subscription.delete.label "Изтрий">
-<!ENTITY subscription.showHideFilters.label "Покажи/скрий филтрите">
-<!ENTITY subscription.moveUp.label "Премести нагоре">
-<!ENTITY subscription.moveDown.label "Премести надоло">
-<!ENTITY acceptableAds2.label "Оставете някои не натрапчиви реклами">
-<!ENTITY acceptableAds2.accesskey "и">
-<!ENTITY viewList.label "Виж лист">
-<!ENTITY readMore.label "Прочети повече">
-<!ENTITY addGroup.label "Добави филтър група">
-<!ENTITY addGroup.accesskey "г">
-<!ENTITY noFilters.text "
- Ти нямаш нито един собствен филтър още.
-">
-<!ENTITY addFilter.label "Добави Филтър">
-<!ENTITY addFilter.accesskey "а">
-<!ENTITY filter.actions.label "Филтър действия">
-<!ENTITY filter.edit.label "Промени">
-<!ENTITY filter.cut.label "Изрежи">
-<!ENTITY filter.copy.label "Копирай">
-<!ENTITY filter.paste.label "Постави">
-<!ENTITY filter.delete.label "Изтрий">
-<!ENTITY filter.selectAll.label "Избери Всички">
-<!ENTITY filter.resetHitCounts.label "Рестарт на Хит Статистиката">
-<!ENTITY filter.moveUp.label "Премести нагоре">
-<!ENTITY filter.moveDown.label "Премести надоло">
-<!ENTITY viewMenu.label "Изглед">
-<!ENTITY filter.column "Филтър правило">
-<!ENTITY filter.accesskey "Ф">
-<!ENTITY slow.column "Покажи филтри">
-<!ENTITY slow.accesskey "ж">
-<!ENTITY enabled.column "Включен">
-<!ENTITY enabled.accesskey "В">
-<!ENTITY hitcount.column "Посещения">
-<!ENTITY hitcount.accesskey "щ">
 <!ENTITY lasthit.column "Последни Посещения">
-<!ENTITY lasthit.accesskey "П">
-<!ENTITY sort.label "Сортирай по">
-<!ENTITY sort.accesskey "С">
+<!ENTITY addFilter.accesskey "а">
+<!ENTITY subscription.delete.label "Изтрий">
+<!ENTITY subscriptions.tab.label "Абонаменти за Филтър">
+<!ENTITY enabled.accesskey "В">
+<!ENTITY addGroup.accesskey "г">
+<!ENTITY subscription.update.label "Обнови филтрите">
+<!ENTITY restore.complete.warning "Всички ваши филтър предпочитания ще бъдат заменени от съдържанието на избрания файл. Искате ли да продължите?">
+<!ENTITY filter.moveUp.label "Премести нагоре">
+<!ENTITY filter.edit.label "Промени">
+<!ENTITY hitcount.column "Посещения">
+<!ENTITY acceptableAds2.label "Оставете някои не натрапчиви реклами">
+<!ENTITY close.label "Затвори">
 <!ENTITY sort.none.label "Несортирани">
-<!ENTITY sort.none.accesskey "Н">
-<!ENTITY sort.ascending.label "А &gt; Я сортиране">
-<!ENTITY sort.ascending.accesskey "А">
-<!ENTITY sort.descending.label "Я &gt; А Сортиране">
+<!ENTITY find.accesskey "Н">
+<!ENTITY readMore.label "Прочети повече">
+<!ENTITY subscription.homepage.label "Лична Страница">
 <!ENTITY sort.descending.accesskey "Я">
-<!ENTITY noGroupSelected.text "Вие трябва да изберете филтър група, преди тези филтри да бъдат показани.">
-<!ENTITY noFiltersInGroup.text "Избраната група е празна">
+<!ENTITY sort.descending.label "Я &gt; А Сортиране">
+<!ENTITY subscription.lastDownload.success "Успешно">
 <!ENTITY filters.remove.warning "Наистина ли искаш да изтриеш всички избрани филтри?">
+<!ENTITY restore.custom.warning "Всички ваши потребителски филтри ще бъде заменен от съдържанието на избрания файл. Искате ли да продължите?">
+<!ENTITY slow.column "Покажи филтри">
+<!ENTITY subscription.actions.label "Действия">
+<!ENTITY filter.selectAll.label "Избери Всички">
 <!ENTITY backupButton.label "Архивирай и Възстанови">
+<!ENTITY sort.accesskey "С">
+<!ENTITY subscription.source.label "Филтър Лист">
+<!ENTITY filter.paste.label "Постави">
+<!ENTITY addSubscription.accesskey "ф">
+<!ENTITY filter.delete.label "Изтрий">
+<!ENTITY addSubscriptionAdd.label "Добави">
+<!ENTITY slow.accesskey "ж">
+<!ENTITY subscription.showHideFilters.label "Покажи/скрий филтрите">
 <!ENTITY backupButton.accesskey "в">
-<!ENTITY backup.label "Направи нов архив">
-<!ENTITY restore.default.label "Възстанови архив от ?1?">
-<!ENTITY restore.own.label "Възстанови свой архив">
-<!ENTITY backup.complete.title "Всички филтри и абонаменти">
-<!ENTITY backup.custom.title "Лични филтри само">
+<!ENTITY filter.actions.label "Филтър действия">
+<!ENTITY filter.moveDown.label "Премести надоло">
+<!ENTITY addFilter.label "Добави Филтър">
+<!ENTITY subscription.editTitle.label "Промени титла">
+<!ENTITY subscription.moveDown.label "Премести надоло">
+<!ENTITY subscription.disabledFilters.warning "Някой филтри в този абонамент са забранени.">
+<!ENTITY filter.column "Филтър правило">
+<!ENTITY subscription.lastDownload.checksumMismatch "Грешка, несъвпадение на контролната сума">
+<!ENTITY noFiltersInGroup.text "Избраната група е празна">
+<!ENTITY sort.label "Сортирай по">
+<!ENTITY noFilters.text "Ти нямаш нито един собствен филтър още.">
+<!ENTITY subscription.external.label "Ъпдейтнат от друга добавка">
+<!ENTITY filter.accesskey "Ф">
+<!ENTITY noGroupSelected.text "Вие трябва да изберете филтър група, преди тези филтри да бъдат показани.">
+<!ENTITY subscription.lastDownload.inProgress "Изтегляне...">
+<!ENTITY enabled.column "Включен">
+<!ENTITY viewMenu.label "Изглед">
+<!ENTITY addSubscriptionCancel.label "Откажи">
+<!ENTITY lasthit.accesskey "П">
+<!ENTITY dialog.title "Adblock Plus Настройки за филтър">
+<!ENTITY subscription.minVersion.warning "Този филтър абонамент изисква по-нова версия на Adblock Plus, трябва да обновите до последната версия на Adblock Plus.">
+<!ENTITY subscription.lastDownload.invalidURL "Грешка, невалиден адрес">
 <!ENTITY backup.error "Възникна грешка при писане на филтри за файла.Уверете се, че файлът не е защитени или се използва от друго приложение.">
 <!ENTITY restore.error "Файлът не може да се обработи или не е с данни, може би Това не е Adblock Plus архивния файл?">
-<!ENTITY restore.complete.warning "Всички ваши филтър предпочитания ще бъдат заменени от съдържанието на избрания файл. Искате ли да продължите?">
-<!ENTITY restore.custom.warning "Всички ваши потребителски филтри ще бъде заменен от съдържанието на избрания файл. Искате ли да продължите?">
-<!ENTITY restore.minVersion.warning "Внимание: файлът е създаден с по-нова версия на Adblock Plus. Трябва да обновите до последната версия на Adblock Plus, преди да възстановите от този файл.">
+<!ENTITY filter.cut.label "Изрежи">
+<!ENTITY backup.custom.title "Лични филтри само">
+<!ENTITY subscription.moveUp.label "Премести нагоре">
+<!ENTITY backup.complete.title "Всички филтри и абонаменти">
+<!ENTITY filters.tab.label "Собствени филтри">
 <!ENTITY find.label "Намери">
-<!ENTITY find.accesskey "Н">
-<!ENTITY close.label "Затвори">
+<!ENTITY subscription.lastDownload.connectionError "Грешка, неуспешно изтегляне">
+<!ENTITY subscription.lastDownload.invalidData "Грешка, невалиден списък с филтри">
+<!ENTITY restore.minVersion.warning "Внимание: файлът е създаден с по-нова версия на Adblock Plus. Трябва да обновите до последната версия на Adblock Plus, преди да възстановите от този файл.">
+<!ENTITY sort.ascending.label "А &gt; Я сортиране">
+<!ENTITY viewList.label "Виж лист">
+<!ENTITY sort.ascending.accesskey "А">
+<!ENTITY restore.default.label "Възстанови архив от ?1?">
+<!ENTITY hitcount.accesskey "щ">
+<!ENTITY acceptableAds2.accesskey "и">
+<!ENTITY subscription.lastDownload.unknown "Няма данни">
+<!ENTITY subscription.enabled.label "Включен">
+<!ENTITY noSubscriptions.text "Ти не си добавил никакъв абонамент за филтри. Adblock Plus няма да блокира
+ нищо без филтри, моля избери &quot;Добави филтър абонаменти&quot; за да
+ добавиш някакви.">
+<!ENTITY addGroup.label "Добави филтър група">
+<!ENTITY addSubscriptionOther.label "Добави друг абонамент">
+<!ENTITY filter.copy.label "Копирай">
+<!ENTITY sort.none.accesskey "Н">
+<!ENTITY addSubscription.label "Добави абонамент за филтър">
+<!ENTITY restore.own.label "Възстанови свой архив">
+<!ENTITY filter.resetHitCounts.label "Рестарт на Хит Статистиката">
+<!ENTITY backup.label "Направи нов архив">
+<!ENTITY subscription.disabledFilters.enable "Разреши забранените филтри">
+<!ENTITY subscription.lastDownload.label "Последно изтеглен:">

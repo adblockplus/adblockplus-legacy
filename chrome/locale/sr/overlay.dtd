@@ -1,42 +1,42 @@
-<!ENTITY status.tooltip "Стање:">
-<!ENTITY blocked.tooltip "Блокиране ставке на овој страни:">
-<!ENTITY filters.tooltip "Најактивнији филтери:">
-<!ENTITY menuitem.label "Adblock Plus - подешавања">
-<!ENTITY menuitem.accesskey "в">
-<!ENTITY toolbarbutton.label "Adblock Plus">
-<!ENTITY context.image.label "Блокирај слику">
-<!ENTITY context.object.label "Блокирај објекат">
-<!ENTITY context.frame.label "Блокирај оквир">
-<!ENTITY context.media.label "Блокирај аудио/видео">
-<!ENTITY context.removeWhitelist.label "Поново укључи на овој страници">
-<!ENTITY sidebar.title "Ставке које се могу блокирати на овој страници">
-<!ENTITY sendReport.label "Пријави проблеме на овој страници">
-<!ENTITY sendReport.accesskey "П">
-<!ENTITY filters.label "Подешавања филтера">
-<!ENTITY filters.accesskey "Ф">
-<!ENTITY opensidebar.label "Отвори ставке које се могу блокирати">
-<!ENTITY opensidebar.accesskey "т">
-<!ENTITY closesidebar.label "Затвори ставке које се могу блокирати">
-<!ENTITY closesidebar.accesskey "т">
+<!ENTITY showintoolbar.accesskey "т">
+<!ENTITY showinstatusbar.accesskey "с">
 <!ENTITY whitelist.site.label "Онемогући на ?1?">
-<!ENTITY whitelist.page.label "Онемогући само на овој страници">
+<!ENTITY filters.label "Подешавања филтера">
 <!ENTITY disable.label "Онемогући свуда">
-<!ENTITY options.label "Опције">
+<!ENTITY showinaddonbar.label "Прикажи траку са алаткама">
+<!ENTITY objecttab.title "Блокирај">
+<!ENTITY showinaddonbar.accesskey "а">
+<!ENTITY sync.accesskey "у">
+<!ENTITY objecttabs.label "Прикажи језичак на Flash и Java објектима">
+<!ENTITY objecttab.tooltip "Кликните овде да бисте блокирали објекат помоћу Adblock Plus-а">
+<!ENTITY menuitem.label "Adblock Plus - подешавања">
+<!ENTITY sendReport.accesskey "П">
+<!ENTITY sendReport.label "Пријави проблеме на овој страници">
+<!ENTITY filters.accesskey "Ф">
+<!ENTITY whitelist.page.label "Онемогући само на овој страници">
+<!ENTITY context.image.label "Блокирај слику">
+<!ENTITY closesidebar.accesskey "т">
+<!ENTITY hideplaceholders.label "Сакриј држаче елемената блокираних ставки">
+<!ENTITY opensidebar.label "Отвори ставке које се могу блокирати">
 <!ENTITY options.accesskey "ц">
 <!ENTITY contribute.label "Допринесите Adblock Plus-у">
-<!ENTITY showintoolbar.label "Прикажи у траци са алаткама">
-<!ENTITY showintoolbar.accesskey "т">
-<!ENTITY showinstatusbar.label "Прикажи у статусној траци">
-<!ENTITY showinstatusbar.accesskey "с">
-<!ENTITY showinaddonbar.label "Прикажи траку са алаткама">
-<!ENTITY showinaddonbar.accesskey "а">
-<!ENTITY objecttabs.label "Прикажи језичак на Flash и Java објектима">
-<!ENTITY objecttabs.accesskey "ј">
-<!ENTITY hideplaceholders.label "Сакриј држаче елемената блокираних ставки">
-<!ENTITY hideplaceholders.accesskey "д">
+<!ENTITY toolbarbutton.label "Adblock Plus">
+<!ENTITY context.frame.label "Блокирај оквир">
 <!ENTITY counthits.label "Број поготке филтера">
-<!ENTITY counthits.accesskey "о">
+<!ENTITY blocked.tooltip "Блокиране ставке на овој страни:">
+<!ENTITY opensidebar.accesskey "т">
+<!ENTITY showinstatusbar.label "Прикажи у статусној траци">
+<!ENTITY status.tooltip "Стање:">
+<!ENTITY sidebar.title "Ставке које се могу блокирати на овој страници">
 <!ENTITY sync.label "Поставке усклађивања Adblock Plus-а">
-<!ENTITY sync.accesskey "у">
-<!ENTITY objecttab.title "Блокирај">
-<!ENTITY objecttab.tooltip "Кликните овде да бисте блокирали објекат помоћу Adblock Plus-а">
+<!ENTITY options.label "Опције">
+<!ENTITY context.object.label "Блокирај објекат">
+<!ENTITY context.removeWhitelist.label "Поново укључи на овој страници">
+<!ENTITY objecttabs.accesskey "ј">
+<!ENTITY filters.tooltip "Најактивнији филтери:">
+<!ENTITY closesidebar.label "Затвори ставке које се могу блокирати">
+<!ENTITY showintoolbar.label "Прикажи у траци са алаткама">
+<!ENTITY counthits.accesskey "о">
+<!ENTITY menuitem.accesskey "в">
+<!ENTITY context.media.label "Блокирај аудио/видео">
+<!ENTITY hideplaceholders.accesskey "д">

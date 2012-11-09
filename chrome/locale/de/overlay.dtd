@@ -1,48 +1,42 @@
-<!ENTITY status.tooltip         "Status:">
-<!ENTITY blocked.tooltip        "Blockierte Elemente auf dieser Seite:">
-<!ENTITY filters.tooltip        "Am meisten angewandte Filter:">
-
-<!ENTITY menuitem.label         "Adblock Plus - Einstellungen">
-<!ENTITY menuitem.accesskey     "A">
-<!ENTITY toolbarbutton.label    "Adblock Plus">
-
-<!ENTITY context.image.label    "Adblock Plus: Grafik blockieren">
-<!ENTITY context.object.label   "Adblock Plus: Objekt blockieren">
-<!ENTITY context.frame.label    "Adblock Plus: Frame blockieren">
-<!ENTITY context.media.label    "Adblock Plus: Audio-/Video-Element blockieren">
-<!ENTITY context.removeWhitelist.label  "Adblock Plus: Auf dieser Seite wieder aktivieren">
-
-<!ENTITY sidebar.title          "Elemente der geöffneten Seite">
-
-<!ENTITY sendReport.label       "Fehler auf dieser Seite melden">
-<!ENTITY sendReport.accesskey   "F">
-<!ENTITY filters.label          "Filtereinstellungen">
-<!ENTITY filters.accesskey      "s">
-<!ENTITY opensidebar.label      "Blockierbare Elemente öffnen">
-<!ENTITY opensidebar.accesskey  "B">
-<!ENTITY closesidebar.label     "Blockierbare Elemente schließen">
+<!ENTITY showintoolbar.accesskey "t">
+<!ENTITY showinstatusbar.accesskey "S">
+<!ENTITY whitelist.site.label "Deaktivieren: auf ?1?">
+<!ENTITY filters.label "Filtereinstellungen">
+<!ENTITY disable.label "Überall deaktivieren">
+<!ENTITY showinaddonbar.label "In Add-on-Leiste anzeigen">
+<!ENTITY objecttab.title "Blockieren">
+<!ENTITY showinaddonbar.accesskey "t">
+<!ENTITY sync.accesskey "y">
+<!ENTITY objecttabs.label "Tab zum Blockieren von Flash und Java anzeigen">
+<!ENTITY objecttab.tooltip "Klicken Sie hier, um dieses Objekt mit Adblock Plus zu blockieren">
+<!ENTITY menuitem.label "Adblock Plus - Einstellungen">
+<!ENTITY sendReport.accesskey "F">
+<!ENTITY sendReport.label "Fehler auf dieser Seite melden">
+<!ENTITY filters.accesskey "s">
+<!ENTITY whitelist.page.label "Deaktivieren: nur auf dieser Seite">
+<!ENTITY context.image.label "Adblock Plus: Grafik blockieren">
 <!ENTITY closesidebar.accesskey "B">
-<!ENTITY whitelist.site.label   "Deaktivieren: auf ?1?">
-<!ENTITY whitelist.page.label   "Deaktivieren: nur auf dieser Seite">
-<!ENTITY disable.label          "Überall deaktivieren">
-<!ENTITY options.label          "Optionen">
-<!ENTITY options.accesskey      "O">
-<!ENTITY contribute.label       "Zu Adblock Plus beitragen">
-
-<!ENTITY showintoolbar.label        "In Symbolleiste anzeigen">
-<!ENTITY showintoolbar.accesskey    "t">
-<!ENTITY showinstatusbar.label      "In Statusleiste anzeigen">
-<!ENTITY showinstatusbar.accesskey  "S">
-<!ENTITY showinaddonbar.label       "In Add-on-Leiste anzeigen">
-<!ENTITY showinaddonbar.accesskey   "t">
-<!ENTITY objecttabs.label           "Tab zum Blockieren von Flash und Java anzeigen">
-<!ENTITY objecttabs.accesskey       "B">
-<!ENTITY hideplaceholders.label     "Platzhalter blockierter Elemente verstecken">
+<!ENTITY hideplaceholders.label "Platzhalter blockierter Elemente verstecken">
+<!ENTITY opensidebar.label "Blockierbare Elemente öffnen">
+<!ENTITY options.accesskey "O">
+<!ENTITY contribute.label "Zu Adblock Plus beitragen">
+<!ENTITY toolbarbutton.label "Adblock Plus">
+<!ENTITY context.frame.label "Adblock Plus: Frame blockieren">
+<!ENTITY counthits.label "Filtertreffer zählen">
+<!ENTITY blocked.tooltip "Blockierte Elemente auf dieser Seite:">
+<!ENTITY opensidebar.accesskey "B">
+<!ENTITY showinstatusbar.label "In Statusleiste anzeigen">
+<!ENTITY status.tooltip "Status:">
+<!ENTITY sidebar.title "Elemente der geöffneten Seite">
+<!ENTITY sync.label "Adblock Plus-Einstellungen synchonisieren">
+<!ENTITY options.label "Optionen">
+<!ENTITY context.object.label "Adblock Plus: Objekt blockieren">
+<!ENTITY context.removeWhitelist.label "Adblock Plus: Auf dieser Seite wieder aktivieren">
+<!ENTITY objecttabs.accesskey "B">
+<!ENTITY filters.tooltip "Am meisten angewandte Filter:">
+<!ENTITY closesidebar.label "Blockierbare Elemente schließen">
+<!ENTITY showintoolbar.label "In Symbolleiste anzeigen">
+<!ENTITY counthits.accesskey "z">
+<!ENTITY menuitem.accesskey "A">
+<!ENTITY context.media.label "Adblock Plus: Audio-/Video-Element blockieren">
 <!ENTITY hideplaceholders.accesskey "l">
-<!ENTITY counthits.label            "Filtertreffer zählen">
-<!ENTITY counthits.accesskey        "z">
-<!ENTITY sync.label                 "Adblock Plus-Einstellungen synchonisieren">
-<!ENTITY sync.accesskey             "y">
-
-<!ENTITY objecttab.title        "Blockieren">
-<!ENTITY objecttab.tooltip      "Klicken Sie hier, um dieses Objekt mit Adblock Plus zu blockieren">

@@ -1,46 +1,40 @@
-<!ENTITY dialog.title "Foegje Adblock Plus filterrigel ta">
-<!ENTITY accept.label "Filter tafoegje">
-<!ENTITY advanced.label "Avansearre byld">
-<!ENTITY basic.label "Basisbyld">
-<!ENTITY disabled.warning "Adblock Plus is op dit stuit útskeakele. Jo kinne noch hieltyd filters tafoegje, mar dy sille net earder aktyf wêze as jo [link]Adblock Plus ynskeakelje[/link].">
-<!ENTITY filter.label "Nij filter:">
-<!ENTITY filter.accesskey "f">
-<!ENTITY preferences.label "Toan besteande filters...">
-<!ENTITY preferences.accesskey "T">
-<!ENTITY type.filter.label "Blokkearfilter">
-<!ENTITY type.filter.accesskey "B">
-<!ENTITY type.whitelist.label "Utsûnderingsrigel">
-<!ENTITY type.whitelist.accesskey "U">
-<!ENTITY pattern.label "Sykje nei patroan">
-<!ENTITY pattern.explanation "It patroan kin elk part fan it adres wêze, symboal * wurket as joker. It filter sil allinnich tapast wurde op adressen neffens it patroan.">
-<!ENTITY regexp.warning "It patroan dy&apos;t jo opjûn hawwe sil ynterpretearre wurde as reguliere ekspresje. In protte reguliere ekspresjes kinne it sneupjen fertrage. As jo net fan plan wienen om reguliere ekspresje te brûken, foegje in symboal * ta oan it ein fan it patroan.">
-<!ENTITY shortpattern.warning "It patroan dy&apos;t jo opjûn hawwe is te koart om te optimalisearjen, in protte reguliere ekspresje kinne it sneupjen fertrage. It wurdt oanret dat jo in langere útdrukking kieze foar dit filter.">
-<!ENTITY match.warning "It patroan dy't jo opjûn hawwe is net lyk oan it adres om te blokkearjen/wytlisten en sil gjin effekt op it hawwe.">
-<!ENTITY custom.pattern.label "Oanpast:">
-<!ENTITY custom.pattern.accesskey "O">
-<!ENTITY anchors.label "Akseptearje allinnich patroan:">
-<!ENTITY anchor.start.label "oan it begjin fan it adres">
-<!ENTITY anchor.start.accesskey "g">
-<!ENTITY anchor.start.flexible.label "oan it begjin fan de domeinnamme">
-<!ENTITY anchor.start.flexible.accesskey "g">
+<!ENTITY collapse.yes.label "Ja">
 <!ENTITY anchor.end.label "oan it ein fan it adres">
-<!ENTITY anchor.end.accesskey "d">
-<!ENTITY options.label "Opsjes">
 <!ENTITY domainRestriction.label "Behein ta domein">
-<!ENTITY domainRestriction.accesskey "m">
-<!ENTITY domainRestriction.help "Spesifisearje ien of mear domeinen skieden troch it symboal &quot;|&quot;, it filter sil allinnich op dizze domeinen tapast wurden. It symboal &quot;~&quot; foar in domeinnamme betsjut dat it filter net tapast wurde moat op dat domein.">
+<!ENTITY collapse.default.no.label "Brûk standert (nee)">
 <!ENTITY firstParty.label "Allinnich earst diel">
-<!ENTITY firstParty.accesskey "r">
+<!ENTITY preferences.label "Toan besteande filters...">
+<!ENTITY pattern.label "Sykje nei patroan">
 <!ENTITY thirdParty.label "Allinnich tredde diel">
 <!ENTITY thirdParty.accesskey "a">
-<!ENTITY matchCase.label "Haadlettergefoelich">
-<!ENTITY matchCase.accesskey "H">
-<!ENTITY types.label "Tapasse op types:">
-<!ENTITY selectAllTypes.label "Selektearje alles">
-<!ENTITY unselectAllTypes.label "Selektearje neat">
+<!ENTITY filter.label "Nij filter:">
 <!ENTITY collapse.label "Blokkearre ynklappe:">
-<!ENTITY collapse.accesskey "l">
-<!ENTITY collapse.default.yes.label "Brûk standert (ja)">
-<!ENTITY collapse.default.no.label "Brûk standert (nee)">
-<!ENTITY collapse.yes.label "Ja">
+<!ENTITY match.warning "It patroan dy't jo opjûn hawwe is net lyk oan it adres om te blokkearjen/wytlisten en sil gjin effekt op it hawwe.">
+<!ENTITY anchor.start.label "oan it begjin fan it adres">
 <!ENTITY collapse.no.label "Nee">
+<!ENTITY matchCase.label "Haadlettergefoelich">
+<!ENTITY custom.pattern.label "Oanpast:">
+<!ENTITY unselectAllTypes.label "Selektearje neat">
+<!ENTITY domainRestriction.accesskey "m">
+<!ENTITY type.whitelist.label "Utsûnderingsrigel">
+<!ENTITY regexp.warning "It patroan dy&amp;apos;t jo opjûn hawwe sil ynterpretearre wurde as reguliere ekspresje. In protte reguliere ekspresjes kinne it sneupjen fertrage. As jo net fan plan wienen om reguliere ekspresje te brûken, foegje in symboal * ta oan it ein fan it patroan.">
+<!ENTITY dialog.title "Foegje Adblock Plus filterrigel ta">
+<!ENTITY basic.label "Basisbyld">
+<!ENTITY preferences.accesskey "T">
+<!ENTITY type.filter.label "Blokkearfilter">
+<!ENTITY types.label "Tapasse op types:">
+<!ENTITY shortpattern.warning "It patroan dy&amp;apos;t jo opjûn hawwe is te koart om te optimalisearjen, in protte reguliere ekspresje kinne it sneupjen fertrage. It wurdt oanret dat jo in langere útdrukking kieze foar dit filter.">
+<!ENTITY custom.pattern.accesskey "O">
+<!ENTITY anchors.label "Akseptearje allinnich patroan:">
+<!ENTITY collapse.default.yes.label "Brûk standert (ja)">
+<!ENTITY domainRestriction.help "Spesifisearje ien of mear domeinen skieden troch it symboal &quot;|&quot;, it filter sil allinnich op dizze domeinen tapast wurden. It symboal &quot;~&quot; foar in domeinnamme betsjut dat it filter net tapast wurde moat op dat domein.">
+<!ENTITY accept.label "Filter tafoegje">
+<!ENTITY options.label "Opsjes">
+<!ENTITY disabled.warning "Adblock Plus is op dit stuit útskeakele. Jo kinne noch hieltyd filters tafoegje, mar dy sille net earder aktyf wêze as jo [link]Adblock Plus ynskeakelje[/link].">
+<!ENTITY anchor.start.flexible.label "oan it begjin fan de domeinnamme">
+<!ENTITY type.whitelist.accesskey "U">
+<!ENTITY matchCase.accesskey "H">
+<!ENTITY anchor.end.accesskey "d">
+<!ENTITY selectAllTypes.label "Selektearje alles">
+<!ENTITY advanced.label "Avansearre byld">
+<!ENTITY pattern.explanation "It patroan kin elk part fan it adres wêze, symboal * wurket as joker. It filter sil allinnich tapast wurde op adressen neffens it patroan.">

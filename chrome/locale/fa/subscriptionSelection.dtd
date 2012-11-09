@@ -1,16 +1,15 @@
-<!ENTITY dialog.title "افزودن اشتراک پالایه فوق تبلیغ شکن">
-<!ENTITY subscriptionSelector.label "یک اشتراک پالایه از فهرست انتخاب کنید:">
+<!ENTITY addMain.label "افزودن اشتراک پالایه &quot;?1?&quot; همچنین">
+<!ENTITY addMain.accesskey "چ">
+<!ENTITY list.download.failed "فوق تبلیغ شکن موفق نشد که فهرست اشتراکات را بازیابی کند.">
+<!ENTITY list.download.retry "تلاش مجدد">
+<!ENTITY location.accesskey "ف">
+<!ENTITY title.label "عنوان اشتراک:">
+<!ENTITY list.download.website "دیدن پایگاه تحت شبکه">
+<!ENTITY supplementMessage "این اشتراک پالایه به معنی آن است که با اشتراک پالایه &quot;?1?&quot; استفاده می شود که شما هنوز در آن مشترک نشده اید.">
+<!ENTITY title.accesskey "ش">
 <!ENTITY viewList.label "دیدن پالایه ها">
 <!ENTITY visitHomepage.label "بازدید از صفحه خانگی">
 <!ENTITY addSubscription.label "افزودن اشتراک">
-<!ENTITY list.download.failed "فوق تبلیغ شکن موفق نشد که فهرست اشتراکات را بازیابی کند.">
-<!ENTITY list.download.retry "تلاش مجدد">
-<!ENTITY list.download.website "دیدن پایگاه تحت شبکه">
-<!ENTITY fromWeb.description "لطفا تایید کنید که قصد افزودن این اشتراک پالایه را دارید. شما می توانید قبل از افزودن، نام و مسیر اشتراک را تغییر دهید.">
-<!ENTITY title.label "عنوان اشتراک:">
-<!ENTITY title.accesskey "ش">
+<!ENTITY dialog.title "افزودن اشتراک پالایه فوق تبلیغ شکن">
 <!ENTITY location.label "نشانی فهرست پالایه ها:">
-<!ENTITY location.accesskey "ف">
-<!ENTITY supplementMessage "این اشتراک پالایه به معنی آن است که با اشتراک پالایه &quot;?1?&quot; استفاده می شود که شما هنوز در آن مشترک نشده اید.">
-<!ENTITY addMain.label "افزودن اشتراک پالایه &quot;?1?&quot; همچنین">
-<!ENTITY addMain.accesskey "چ">
+<!ENTITY fromWeb.description "لطفا تایید کنید که قصد افزودن این اشتراک پالایه را دارید. شما می توانید قبل از افزودن، نام و مسیر اشتراک را تغییر دهید.">

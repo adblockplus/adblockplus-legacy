@@ -1,46 +1,44 @@
-<!ENTITY dialog.title "Adblock Plus süzgeç kuralı ekle">
-<!ENTITY accept.label "Süzgeç ekle">
-<!ENTITY advanced.label "Gelişmiş görünüm">
-<!ENTITY basic.label "Temel görünüm">
-<!ENTITY disabled.warning "Adblock Plus şu an devre dışı. Yine de süzgeç ekleyebilirsiniz, ancak bunlar [link]Adblock Plus etkinleştirilene kadar[/link]uygulanmayacaktır.">
-<!ENTITY filter.label "Yeni süzgeç:">
-<!ENTITY filter.accesskey "y">
-<!ENTITY preferences.label "Mevcut süzgeçleri göster...">
-<!ENTITY preferences.accesskey "S">
-<!ENTITY type.filter.label "Engelleyen süzgeç">
-<!ENTITY type.filter.accesskey "l">
-<!ENTITY type.whitelist.label "Hariç tutma kuralı">
-<!ENTITY type.whitelist.accesskey "h">
-<!ENTITY pattern.label "Aranacak örnek">
-<!ENTITY pattern.explanation "Bu örnek adresin herhangi bir bölümü olabilir ve * işareti joker görevi yapar. Süzgeç sadece örneğe uyan adreslere uygulanacak.">
-<!ENTITY regexp.warning "Girdiğiniz örnek düzenli ifade olarak yorumlanacak. Çok fazla düzenli ifade, taramayı yavaşlatabilir. Gerçekten düzenli ifade kullanmak istediğinizden emin değilseniz örneğin sonuna * işareti koyun.">
-<!ENTITY shortpattern.warning "Girdiğiniz örnek en iyileştirmek için çok kısa ve bu tür örnekler taramayı yavaşlatabilir. Bu süzgeç için daha uzun bir satır seçmeniz tavsiye edilir.">
-<!ENTITY match.warning "Girdiğiniz örnek artık engellenecek olan veya kara listeden çıkarılacak adresle uyuşmuyor ve üzerinde hiçbir etkisi olmayacak.">
-<!ENTITY custom.pattern.label "Özel:">
-<!ENTITY custom.pattern.accesskey "z">
-<!ENTITY anchors.label "Örneği sadece burada kabul et:">
-<!ENTITY anchor.start.label "adresin başında">
-<!ENTITY anchor.start.accesskey "b">
-<!ENTITY anchor.start.flexible.label "alan adının başında">
-<!ENTITY anchor.start.flexible.accesskey "b">
-<!ENTITY anchor.end.label "adresin sonunda">
-<!ENTITY anchor.end.accesskey "o">
-<!ENTITY options.label "Seçenekler">
-<!ENTITY domainRestriction.label "Alan adına kısıtlama:">
-<!ENTITY domainRestriction.accesskey "d">
-<!ENTITY domainRestriction.help "Aralarına &quot;|&quot; simgesi koyarak bir ya da daha fazla alan adı belirtin. Böylece süzgeç sadece bu sitelerde uygulanacaktır. Alan adından önce &quot;~&quot; simgesi kullanılması, süzgecin o alan adında kullanılmaması gerektiği anlamına gelir.">
-<!ENTITY firstParty.label "Sadece birinci kişilerden">
-<!ENTITY firstParty.accesskey "i">
-<!ENTITY thirdParty.label "Sadece üçüncü kişilerden">
-<!ENTITY thirdParty.accesskey "c">
-<!ENTITY matchCase.label "Birebir eşleşme">
-<!ENTITY matchCase.accesskey "e">
-<!ENTITY types.label "Bu türlere uygula:">
-<!ENTITY selectAllTypes.label "Tümünü seç">
-<!ENTITY unselectAllTypes.label "Hiçbirini seçme">
-<!ENTITY collapse.label "Engellenenleri kapat:">
-<!ENTITY collapse.accesskey "p">
-<!ENTITY collapse.default.yes.label "Öntanımlı kullan (evet)">
-<!ENTITY collapse.default.no.label "Öntanımlı kullan (hayır)">
 <!ENTITY collapse.yes.label "Evet">
+<!ENTITY anchor.end.label "adresin sonunda">
+<!ENTITY domainRestriction.label "Alan adına kısıtlama:">
+<!ENTITY anchor.start.flexible.accesskey "b">
+<!ENTITY firstParty.label "Sadece birinci kişilerden">
+<!ENTITY preferences.label "Mevcut süzgeçleri göster...">
+<!ENTITY pattern.label "Aranacak örnek">
+<!ENTITY thirdParty.label "Sadece üçüncü kişilerden">
+<!ENTITY filter.accesskey "y">
+<!ENTITY thirdParty.accesskey "c">
+<!ENTITY filter.label "Yeni süzgeç:">
+<!ENTITY collapse.label "Engellenenleri kapat:">
+<!ENTITY match.warning "Girdiğiniz örnek artık engellenecek olan veya kara listeden çıkarılacak adresle uyuşmuyor ve üzerinde hiçbir etkisi olmayacak.">
+<!ENTITY anchor.start.label "adresin başında">
 <!ENTITY collapse.no.label "Hayır">
+<!ENTITY matchCase.label "Birebir eşleşme">
+<!ENTITY custom.pattern.label "Özel:">
+<!ENTITY unselectAllTypes.label "Hiçbirini seçme">
+<!ENTITY type.whitelist.label "Hariç tutma kuralı">
+<!ENTITY regexp.warning "Girdiğiniz örnek düzenli ifade olarak yorumlanacak. Çok fazla düzenli ifade, taramayı yavaşlatabilir. Gerçekten düzenli ifade kullanmak istediğinizden emin değilseniz örneğin sonuna * işareti koyun.">
+<!ENTITY dialog.title "Adblock Plus süzgeç kuralı ekle">
+<!ENTITY basic.label "Temel görünüm">
+<!ENTITY firstParty.accesskey "i">
+<!ENTITY collapse.default.no.label "Öntanımlı kullan (hayır)">
+<!ENTITY type.filter.label "Engelleyen süzgeç">
+<!ENTITY types.label "Bu türlere uygula:">
+<!ENTITY anchor.start.accesskey "b">
+<!ENTITY custom.pattern.accesskey "z">
+<!ENTITY shortpattern.warning "Girdiğiniz örnek en iyileştirmek için çok kısa ve bu tür örnekler taramayı yavaşlatabilir. Bu süzgeç için daha uzun bir satır seçmeniz tavsiye edilir.">
+<!ENTITY anchors.label "Örneği sadece burada kabul et:">
+<!ENTITY collapse.default.yes.label "Öntanımlı kullan (evet)">
+<!ENTITY type.filter.accesskey "l">
+<!ENTITY domainRestriction.help "Aralarına &quot;|&quot; simgesi koyarak bir ya da daha fazla alan adı belirtin. Böylece süzgeç sadece bu sitelerde uygulanacaktır. Alan adından önce &quot;~&quot; simgesi kullanılması, süzgecin o alan adında kullanılmaması gerektiği anlamına gelir.">
+<!ENTITY accept.label "Süzgeç ekle">
+<!ENTITY options.label "Seçenekler">
+<!ENTITY disabled.warning "Adblock Plus şu an devre dışı. Yine de süzgeç ekleyebilirsiniz, ancak bunlar [link]Adblock Plus etkinleştirilene kadar[/link]uygulanmayacaktır.">
+<!ENTITY anchor.start.flexible.label "alan adının başında">
+<!ENTITY type.whitelist.accesskey "h">
+<!ENTITY matchCase.accesskey "e">
+<!ENTITY anchor.end.accesskey "o">
+<!ENTITY selectAllTypes.label "Tümünü seç">
+<!ENTITY advanced.label "Gelişmiş görünüm">
+<!ENTITY collapse.accesskey "p">
+<!ENTITY pattern.explanation "Bu örnek adresin herhangi bir bölümü olabilir ve * işareti joker görevi yapar. Süzgeç sadece örneğe uyan adreslere uygulanacak.">

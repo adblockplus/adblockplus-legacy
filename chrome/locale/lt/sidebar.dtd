@@ -1,36 +1,36 @@
-<!ENTITY detached.title "„Adblock Plus“ blokuojami elementai (iškelta)">
-<!ENTITY detach.label "Iškelti">
+<!ENTITY context.flash.label "Paryškinti elemento rėmelį">
+<!ENTITY tooltip.type.label "Tipas:">
+<!ENTITY address.label "Adresas">
+<!ENTITY context.open.label "Atverti naujoje kortelėje">
+<!ENTITY type.label "Tipas">
+<!ENTITY tooltip.filterSource.label "Filtro šaltinis:">
+<!ENTITY noitems.label "Nėra blokuojamų elementų">
+<!ENTITY filter.label "Filtras">
+<!ENTITY tooltip.size.label "Dydis:">
 <!ENTITY reattach.label "Iš naujo įkelti">
 <!ENTITY search.label "Ieškoti:">
-<!ENTITY search.accesskey "I">
-<!ENTITY type.label "Tipas">
-<!ENTITY address.label "Adresas">
-<!ENTITY filter.label "Filtras">
-<!ENTITY state.label "Būsena">
-<!ENTITY size.label "Dydis">
-<!ENTITY filterSource.label "Filtruoti pirminį kodą">
-<!ENTITY docDomain.label "Dokumento šaltinis">
 <!ENTITY docDomain.thirdParty "(trečioji šalis)">
-<!ENTITY docDomain.firstParty "(pagrindinis)">
-<!ENTITY noitems.label "Nėra blokuojamų elementų">
-<!ENTITY whitelisted.label "Tinklalapis įtrauktas į išimtis">
-<!ENTITY tooltip.address.label "Adresas:">
-<!ENTITY tooltip.type.label "Tipas:">
-<!ENTITY tooltip.type.blocked "(užblokuota)">
-<!ENTITY tooltip.type.whitelisted "(įtraukta į išimtis)">
-<!ENTITY tooltip.size.label "Dydis:">
+<!ENTITY filterSource.label "Filtruoti pirminį kodą">
 <!ENTITY tooltip.docDomain.label "Dokumento šaltinis:">
+<!ENTITY context.copy.label "Kopijuoti elemento adresą">
+<!ENTITY tooltip.type.blocked "(užblokuota)">
+<!ENTITY search.accesskey "I">
+<!ENTITY context.disablefilter.label "Išjungti filtrą ?1?">
+<!ENTITY context.copyFilter.label "Kopijuoti filtrą">
+<!ENTITY context.block.label "Blokuoti šį elementą">
+<!ENTITY context.enablefilter.label "Iš naujo įjungti filtrą ?1?">
+<!ENTITY detach.label "Iškelti">
+<!ENTITY whitelisted.label "Tinklalapis įtrauktas į išimtis">
+<!ENTITY context.disablefilteronsite.label "Išjungti šį filtrą tinklalapiui ?1?">
+<!ENTITY detached.title "„Adblock Plus“ blokuojami elementai (iškelta)">
+<!ENTITY docDomain.firstParty "(pagrindinis)">
+<!ENTITY tooltip.type.whitelisted "(įtraukta į išimtis)">
 <!ENTITY tooltip.filter.label "Galiojantys filtrai:">
 <!ENTITY tooltip.filter.disabled "(išjungta)">
-<!ENTITY tooltip.filterSource.label "Filtro šaltinis:">
-<!ENTITY context.block.label "Blokuoti šį elementą">
 <!ENTITY context.editfilter.label "Redaguoti aktyvų filtrą">
+<!ENTITY size.label "Dydis">
 <!ENTITY context.whitelist.label "Pridėti išimties taisyklę šiam elementui">
-<!ENTITY context.disablefilter.label "Išjungti filtrą ?1?">
-<!ENTITY context.enablefilter.label "Iš naujo įjungti filtrą ?1?">
-<!ENTITY context.disablefilteronsite.label "Išjungti šį filtrą tinklalapiui ?1?">
-<!ENTITY context.open.label "Atverti naujoje kortelėje">
-<!ENTITY context.flash.label "Paryškinti elemento rėmelį">
-<!ENTITY context.copy.label "Kopijuoti elemento adresą">
-<!ENTITY context.copyFilter.label "Kopijuoti filtrą">
 <!ENTITY context.selectAll.label "Pažymėti viską">
+<!ENTITY state.label "Būsena">
+<!ENTITY docDomain.label "Dokumento šaltinis">
+<!ENTITY tooltip.address.label "Adresas:">

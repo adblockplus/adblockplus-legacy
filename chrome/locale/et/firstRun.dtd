@@ -1,10 +1,10 @@
-<!ENTITY dialog.title "Adblock Plus install on lõpule jõudnud">
-<!ENTITY confirmation "Täname, et installisid Adblock Plus'i. Nüüdsest on reklaamid blokeeritud. Naudi seda!">
 <!ENTITY advancedSection "Lisavalikud">
-<!ENTITY listSelection1 "Järgnev filtrite loetelu on häälestatud reklaame blokeerima:">
+<!ENTITY confirmation "Täname, et installisid Adblock Plus'i. Nüüdsest on reklaamid blokeeritud. Naudi seda!">
 <!ENTITY noList "Filtrite loetelu puudub">
-<!ENTITY visitHomepage.label "Külasta loetelu kodulehte">
 <!ENTITY acceptableAds2 "Adblock Plus on samuti seadistatud lubama mõningaid mittepealetükkivaid reklaame.">
 <!ENTITY viewList.label "Vaata loetelu">
-<!ENTITY readMore.label "Loe lisaks selle kohta">
+<!ENTITY visitHomepage.label "Külasta loetelu kodulehte">
+<!ENTITY dialog.title "Adblock Plus install on lõpule jõudnud">
+<!ENTITY listSelection1 "Järgnev filtrite loetelu on häälestatud reklaame blokeerima:">
 <!ENTITY listSelection2 "Sa võid seda valikut iga hetk muuta kohas [link]Filtrite sätted[/link].">
+<!ENTITY readMore.label "Loe lisaks selle kohta">

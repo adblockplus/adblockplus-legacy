@@ -1,87 +1,81 @@
-<!ENTITY dialog.title "تفضيلات التصفية لآد بلُك بلَس">
-<!ENTITY subscriptions.tab.label "اشتراكات التصفية">
-<!ENTITY filters.tab.label "الفلاتر المخصصة">
-<!ENTITY addSubscription.label "إضافة اشتراك إلى فلتر">
-<!ENTITY addSubscription.accesskey "ف">
-<!ENTITY addSubscriptionAdd.label "اضافة">
-<!ENTITY addSubscriptionCancel.label "الغاء">
-<!ENTITY addSubscriptionOther.label "إضافة اشتراك آخر">
-<!ENTITY noSubscriptions.text "
-لم تضف أي فلتر اشتراك حتى الان. لن يصد آد بلُك بلَس 
-أي شيء بدون هذه الفلاتر, الرجاء اختيار اشتراكات الفلاتر
-لاضافة أحدها
-">
-<!ENTITY subscription.homepage.label "صفحة البداية">
-<!ENTITY subscription.external.label "تم التحديث من اضافة اخرى">
-<!ENTITY subscription.source.label "قائمة الفلاتر">
-<!ENTITY subscription.enabled.label "مفعّل">
-<!ENTITY subscription.lastDownload.label "آخر تحميل">
-<!ENTITY subscription.lastDownload.inProgress "جاري التحميل">
-<!ENTITY subscription.lastDownload.unknown "غير متاح">
-<!ENTITY subscription.lastDownload.invalidURL "فشل الأمر، ليس عنوان صحيح">
-<!ENTITY subscription.lastDownload.connectionError "فشل الأمر بسبب فشل التحميل">
-<!ENTITY subscription.lastDownload.invalidData "فشل الأمر، ليست قائمة فلاتر صحيحة">
-<!ENTITY subscription.lastDownload.checksumMismatch "فشل ، عدم تطابق المجموع الاختباري">
-<!ENTITY subscription.lastDownload.success "نجاح">
-<!ENTITY subscription.minVersion.warning "يتطلب هذا الاشتراك للتصفية أحدث إصدار آد بلُك بلَس ، يجب التحديث إلى الإصدار الأحدث">
-<!ENTITY subscription.disabledFilters.warning "بعض الفلاتر في هذا الاشتراك معطّلة">
-<!ENTITY subscription.disabledFilters.enable "تفعيل الفلاتر المعطّلة">
-<!ENTITY subscription.actions.label "الإجراءات">
-<!ENTITY subscription.update.label "تحدبث الفلاتر">
-<!ENTITY subscription.editTitle.label "تحرير العنوان">
-<!ENTITY subscription.delete.label "ازالة">
-<!ENTITY subscription.showHideFilters.label "اظهار / اخفاء الفلاتر">
-<!ENTITY subscription.moveUp.label "الى الاعلى">
-<!ENTITY subscription.moveDown.label "الى الاسفل">
-<!ENTITY acceptableAds2.label "السماح لبعض الإعلانات الغير متطفّلة">
-<!ENTITY acceptableAds2.accesskey "ع">
-<!ENTITY viewList.label "اظهار القائمة">
-<!ENTITY readMore.label "قراءة المزيد">
-<!ENTITY addGroup.label "أضافة مجموعة تصفية">
-<!ENTITY addGroup.accesskey "م">
-<!ENTITY noFilters.text "
-لا توجد لديك فلاتر مخصصة بعد
-">
-<!ENTITY addFilter.label "إضافة فلتر">
-<!ENTITY addFilter.accesskey "خ">
-<!ENTITY filter.actions.label "أفعال الفلاتر">
-<!ENTITY filter.edit.label "تحرير">
-<!ENTITY filter.cut.label "قص">
-<!ENTITY filter.copy.label "نسخ">
-<!ENTITY filter.paste.label "لصق">
-<!ENTITY filter.delete.label "حذف">
-<!ENTITY filter.selectAll.label "اختيار الكل">
-<!ENTITY filter.resetHitCounts.label "استرجاع احصائيات الاصابات الصحيحة">
-<!ENTITY filter.moveUp.label "الى الاعلى">
-<!ENTITY filter.moveDown.label "الى الاسفل">
-<!ENTITY viewMenu.label "عرض">
-<!ENTITY filter.column "قانون الفلتر">
-<!ENTITY filter.accesskey "ف">
-<!ENTITY slow.column "عرض الفلاتر">
-<!ENTITY slow.accesskey "ع">
-<!ENTITY enabled.column "مشغل">
-<!ENTITY enabled.accesskey "غ">
-<!ENTITY hitcount.column "الضغطات">
-<!ENTITY hitcount.accesskey "ض">
-<!ENTITY lasthit.column "آخر ضغطة">
-<!ENTITY lasthit.accesskey "آ">
-<!ENTITY sort.label "ترتيب حسب">
-<!ENTITY sort.accesskey "ب">
-<!ENTITY sort.none.label "غير مرتب">
-<!ENTITY sort.none.accesskey "ر">
-<!ENTITY sort.ascending.label "ترتيب أبجدي (A &gt; Z)">
-<!ENTITY sort.ascending.accesskey "A">
-<!ENTITY sort.descending.label "ترتيب أبجدي (Z &gt; A)">
-<!ENTITY sort.descending.accesskey "Z">
-<!ENTITY noGroupSelected.text "ج">
-<!ENTITY noFiltersInGroup.text "المجموعة المختارة فارغة">
-<!ENTITY filters.remove.warning "أحقاً تريد ازالة الفلاتر المختارة؟">
-<!ENTITY backupButton.label "النسخ الاحتياطية والاسترجاع">
 <!ENTITY backupButton.accesskey "ن">
-<!ENTITY backup.label "اعمل نسخة احتياطية جديدة">
-<!ENTITY restore.default.label "الاسترجاع من النسخة الاحتياطية ?1?">
-<!ENTITY restore.own.label "الاسترجاع من النسخة الاحتياطية الذاتية">
-<!ENTITY backup.complete.title "كل الاشتراكات والفلاتر">
+<!ENTITY slow.column "عرض الفلاتر">
+<!ENTITY enabled.column "مشغل">
+<!ENTITY subscription.lastDownload.checksumMismatch "فشل ، عدم تطابق المجموع الاختباري">
+<!ENTITY sort.none.accesskey "ر">
+<!ENTITY subscription.actions.label "الإجراءات">
+<!ENTITY filter.selectAll.label "اختيار الكل">
+<!ENTITY backupButton.label "النسخ الاحتياطية والاسترجاع">
+<!ENTITY addFilter.accesskey "خ">
+<!ENTITY filter.accesskey "ف">
+<!ENTITY sort.ascending.label "ترتيب أبجدي (A &gt; Z)">
+<!ENTITY noFiltersInGroup.text "المجموعة المختارة فارغة">
+<!ENTITY sort.label "ترتيب حسب">
+<!ENTITY subscription.source.label "قائمة الفلاتر">
+<!ENTITY hitcount.column "الضغطات">
+<!ENTITY noFilters.text "لا توجد لديك فلاتر مخصصة بعد">
 <!ENTITY backup.custom.title "الفلاتر المخصصة فقط">
-<!ENTITY find.label "بحث">
+<!ENTITY subscription.external.label "تم التحديث من اضافة اخرى">
+<!ENTITY subscription.delete.label "ازالة">
+<!ENTITY noGroupSelected.text "ج">
+<!ENTITY filter.cut.label "قص">
+<!ENTITY restore.default.label "الاسترجاع من النسخة الاحتياطية ?1?">
+<!ENTITY subscription.lastDownload.inProgress "جاري التحميل">
+<!ENTITY subscriptions.tab.label "اشتراكات التصفية">
+<!ENTITY enabled.accesskey "غ">
+<!ENTITY acceptableAds2.accesskey "ع">
+<!ENTITY addSubscription.accesskey "ف">
+<!ENTITY sort.descending.label "ترتيب أبجدي (Z &gt; A)">
+<!ENTITY filters.remove.warning "أحقاً تريد ازالة الفلاتر المختارة؟">
+<!ENTITY filter.delete.label "حذف">
+<!ENTITY addSubscriptionAdd.label "اضافة">
+<!ENTITY viewMenu.label "عرض">
+<!ENTITY addGroup.accesskey "م">
+<!ENTITY subscription.lastDownload.unknown "غير متاح">
+<!ENTITY addSubscriptionCancel.label "الغاء">
+<!ENTITY subscription.enabled.label "مفعّل">
+<!ENTITY lasthit.accesskey "آ">
+<!ENTITY noSubscriptions.text "لم تضف أي فلتر اشتراك حتى الان. لن يصد آد بلُك بلَس 
+أي شيء بدون هذه الفلاتر, الرجاء اختيار اشتراكات الفلاتر
+لاضافة أحدها">
+<!ENTITY subscription.update.label "تحدبث الفلاتر">
+<!ENTITY dialog.title "تفضيلات التصفية لآد بلُك بلَس">
+<!ENTITY addFilter.label "إضافة فلتر">
+<!ENTITY subscription.minVersion.warning "يتطلب هذا الاشتراك للتصفية أحدث إصدار آد بلُك بلَس ، يجب التحديث إلى الإصدار الأحدث">
+<!ENTITY subscription.lastDownload.invalidURL "فشل الأمر، ليس عنوان صحيح">
+<!ENTITY slow.accesskey "ع">
+<!ENTITY filter.moveUp.label "الى الاعلى">
+<!ENTITY addGroup.label "أضافة مجموعة تصفية">
+<!ENTITY filter.edit.label "تحرير">
+<!ENTITY subscription.showHideFilters.label "اظهار / اخفاء الفلاتر">
+<!ENTITY acceptableAds2.label "السماح لبعض الإعلانات الغير متطفّلة">
+<!ENTITY hitcount.accesskey "ض">
+<!ENTITY addSubscriptionOther.label "إضافة اشتراك آخر">
 <!ENTITY close.label "اغلاق">
+<!ENTITY sort.none.label "غير مرتب">
+<!ENTITY filter.actions.label "أفعال الفلاتر">
+<!ENTITY filter.copy.label "نسخ">
+<!ENTITY filter.moveDown.label "الى الاسفل">
+<!ENTITY filter.resetHitCounts.label "استرجاع احصائيات الاصابات الصحيحة">
+<!ENTITY sort.accesskey "ب">
+<!ENTITY readMore.label "قراءة المزيد">
+<!ENTITY subscription.moveUp.label "الى الاعلى">
+<!ENTITY addSubscription.label "إضافة اشتراك إلى فلتر">
+<!ENTITY subscription.homepage.label "صفحة البداية">
+<!ENTITY backup.complete.title "كل الاشتراكات والفلاتر">
+<!ENTITY restore.own.label "الاسترجاع من النسخة الاحتياطية الذاتية">
+<!ENTITY filters.tab.label "الفلاتر المخصصة">
+<!ENTITY backup.label "اعمل نسخة احتياطية جديدة">
+<!ENTITY find.label "بحث">
+<!ENTITY subscription.moveDown.label "الى الاسفل">
+<!ENTITY subscription.lastDownload.connectionError "فشل الأمر بسبب فشل التحميل">
+<!ENTITY subscription.lastDownload.success "نجاح">
+<!ENTITY subscription.lastDownload.invalidData "فشل الأمر، ليست قائمة فلاتر صحيحة">
+<!ENTITY filter.paste.label "لصق">
+<!ENTITY subscription.disabledFilters.enable "تفعيل الفلاتر المعطّلة">
+<!ENTITY lasthit.column "آخر ضغطة">
+<!ENTITY subscription.editTitle.label "تحرير العنوان">
+<!ENTITY subscription.disabledFilters.warning "بعض الفلاتر في هذا الاشتراك معطّلة">
+<!ENTITY filter.column "قانون الفلتر">
+<!ENTITY subscription.lastDownload.label "آخر تحميل">
+<!ENTITY viewList.label "اظهار القائمة">

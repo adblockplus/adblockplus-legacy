@@ -1,42 +1,37 @@
-<!ENTITY status.tooltip "Estado:">
-<!ENTITY blocked.tooltip "Itens bloqueados nesta página:">
-<!ENTITY filters.tooltip "Filtros mais activos:">
-<!ENTITY menuitem.label "Adblock Plus">
-<!ENTITY menuitem.accesskey "A">
-<!ENTITY toolbarbutton.label "Adblock Plus">
-<!ENTITY context.image.label "Bloquear Imagem">
-<!ENTITY context.object.label "Bloquear Objecto">
-<!ENTITY context.frame.label "Bloquear Moldura">
-<!ENTITY context.media.label "Adblock Plus: Bloquear áudio/vídeo">
-<!ENTITY context.removeWhitelist.label "Adblock Plus: Reactivar nesta página">
-<!ENTITY sidebar.title "Elementos bloqueáveis na página actual">
-<!ENTITY sendReport.label "Reportar problema com esta página">
-<!ENTITY sendReport.accesskey "R">
-<!ENTITY filters.label "Preferências de filtros">
-<!ENTITY filters.accesskey "f">
-<!ENTITY opensidebar.label "Abrir lista de elementos bloqueáveis">
-<!ENTITY opensidebar.accesskey "B">
-<!ENTITY closesidebar.label "Fechar lista de elementos bloqueáveis">
-<!ENTITY closesidebar.accesskey "B">
-<!ENTITY whitelist.site.label "Desactivar em ?1?">
-<!ENTITY whitelist.page.label "Desactivar apenas nesta página">
-<!ENTITY disable.label "Desactivar em todas as páginas">
-<!ENTITY options.label "Opções">
-<!ENTITY options.accesskey "O">
-<!ENTITY contribute.label "Contribuir para o Adblock Plus">
-<!ENTITY showintoolbar.label "Mostrar na barra de ferramentas">
-<!ENTITY showintoolbar.accesskey "b">
-<!ENTITY showinstatusbar.label "Mostrar na barra de estado">
 <!ENTITY showinstatusbar.accesskey "S">
+<!ENTITY whitelist.site.label "Desactivar em ?1?">
+<!ENTITY filters.label "Preferências de filtros">
+<!ENTITY disable.label "Desactivar em todas as páginas">
 <!ENTITY showinaddonbar.label "Mostrar na barra de add-ons">
-<!ENTITY showinaddonbar.accesskey "b">
-<!ENTITY objecttabs.label "Mostrar etiquetas em Flash e Java">
-<!ENTITY objecttabs.accesskey "T">
-<!ENTITY hideplaceholders.label "Esconder locais de elementos bloqueados">
-<!ENTITY hideplaceholders.accesskey "i">
-<!ENTITY counthits.label "Contabilizar bloqueios do filtro">
-<!ENTITY counthits.accesskey "C">
-<!ENTITY sync.label "Sincronizar configuração Adblock Plus">
-<!ENTITY sync.accesskey "n">
 <!ENTITY objecttab.title "Bloquear">
+<!ENTITY sync.accesskey "n">
 <!ENTITY objecttab.tooltip "Clique aqui para bloquear este objecto com o Adblock Plus">
+<!ENTITY menuitem.label "Adblock Plus">
+<!ENTITY objecttabs.label "Mostrar etiquetas em Flash e Java">
+<!ENTITY sendReport.label "Reportar problema com esta página">
+<!ENTITY filters.accesskey "f">
+<!ENTITY whitelist.page.label "Desactivar apenas nesta página">
+<!ENTITY context.image.label "Bloquear Imagem">
+<!ENTITY closesidebar.accesskey "B">
+<!ENTITY hideplaceholders.label "Esconder locais de elementos bloqueados">
+<!ENTITY opensidebar.label "Abrir lista de elementos bloqueáveis">
+<!ENTITY contribute.label "Contribuir para o Adblock Plus">
+<!ENTITY context.frame.label "Bloquear Moldura">
+<!ENTITY counthits.label "Contabilizar bloqueios do filtro">
+<!ENTITY blocked.tooltip "Itens bloqueados nesta página:">
+<!ENTITY opensidebar.accesskey "B">
+<!ENTITY showinstatusbar.label "Mostrar na barra de estado">
+<!ENTITY status.tooltip "Estado:">
+<!ENTITY sidebar.title "Elementos bloqueáveis na página actual">
+<!ENTITY sync.label "Sincronizar configuração Adblock Plus">
+<!ENTITY options.label "Opções">
+<!ENTITY context.object.label "Bloquear Objecto">
+<!ENTITY context.removeWhitelist.label "Adblock Plus: Reactivar nesta página">
+<!ENTITY objecttabs.accesskey "T">
+<!ENTITY filters.tooltip "Filtros mais activos:">
+<!ENTITY closesidebar.label "Fechar lista de elementos bloqueáveis">
+<!ENTITY showintoolbar.label "Mostrar na barra de ferramentas">
+<!ENTITY counthits.accesskey "C">
+<!ENTITY menuitem.accesskey "A">
+<!ENTITY context.media.label "Adblock Plus: Bloquear áudio/vídeo">
+<!ENTITY hideplaceholders.accesskey "i">

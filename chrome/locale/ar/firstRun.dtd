@@ -1,16 +1,10 @@
-<!ENTITY dialog.title "انتهى تحميل آد بلُك بلَس">
-<!ENTITY confirmation "
-شكرا لكم لتثبيت آد بلُك بلَس . سيتم حظر الإعلانات من الآن فصاعدا
-">
 <!ENTITY advancedSection "خيارات متقدمة">
-<!ENTITY listSelection1 "
- لقد تم تكوين لائحة التصفية التالية لمنع الاعلانات:
-">
+<!ENTITY confirmation "شكرا لكم لتثبيت آد بلُك بلَس . سيتم حظر الإعلانات من الآن فصاعدا">
 <!ENTITY noList "لا توجد قائمة فلاتر">
-<!ENTITY visitHomepage.label "زيارة صفحة بداية القائمة">
-<!ENTITY acceptableAds2 "
-لقد تم تهيئة آد بلُك بلَس بالسماح للدعاية الغير متطفّلة">
+<!ENTITY acceptableAds2 "لقد تم تهيئة آد بلُك بلَس بالسماح للدعاية الغير متطفّلة">
 <!ENTITY viewList.label "اظهار القائمة">
+<!ENTITY visitHomepage.label "زيارة صفحة بداية القائمة">
+<!ENTITY dialog.title "انتهى تحميل آد بلُك بلَس">
+<!ENTITY listSelection1 "لقد تم تكوين لائحة التصفية التالية لمنع الاعلانات:">
+<!ENTITY listSelection2 "يمكنك تغيير هذا الاختيار أي وقت في [link]تفضيلات التصفية[/link].">
 <!ENTITY readMore.label "لقرائة المزيد">
-<!ENTITY listSelection2 "يمكنك تغيير هذا الاختيار أي وقت في [link]تفضيلات التصفية[/link].
-">

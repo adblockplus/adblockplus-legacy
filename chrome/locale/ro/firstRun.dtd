@@ -1,10 +1,10 @@
-<!ENTITY dialog.title "Instalarea Adblock Plus este completă">
-<!ENTITY confirmation "Vă mulţumim pentru instalarea extensiei Adblock Plus. De acum publicitatea va fi blocată. Succes!">
 <!ENTITY advancedSection "Opțiuni avansate">
-<!ENTITY listSelection1 "Pentru a bloca publicitatea, a fost aleasă următoarea listă de filtre:">
+<!ENTITY confirmation "Vă mulţumim pentru instalarea extensiei Adblock Plus. De acum publicitatea va fi blocată. Succes!">
 <!ENTITY noList "Lipsă filtre">
-<!ENTITY visitHomepage.label "Pagina de start a listei">
 <!ENTITY acceptableAds2 "Adblock a fost configurat să permită publicitatea discretă.">
 <!ENTITY viewList.label "Vizualizare listă">
-<!ENTITY readMore.label "Citeşte mai multe despre asta">
+<!ENTITY visitHomepage.label "Pagina de start a listei">
+<!ENTITY dialog.title "Instalarea Adblock Plus este completă">
+<!ENTITY listSelection1 "Pentru a bloca publicitatea, a fost aleasă următoarea listă de filtre:">
 <!ENTITY listSelection2 "Puteţi schimba oricând această alegere în meniul [link]Opţiuni Filtre[/link].">
+<!ENTITY readMore.label "Citeşte mai multe despre asta">

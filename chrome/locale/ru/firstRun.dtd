@@ -1,25 +1,11 @@
-<!ENTITY dialog.title               "Установка Adblock Plus завершена">
-
-<!ENTITY confirmation               "
-  Спасибо, что установили Adblock Plus. Реклама теперь будет блокироваться.
+<!ENTITY advancedSection "Расширенные настройки">
+<!ENTITY confirmation "Спасибо, что установили Adblock Plus. Реклама теперь будет блокироваться.
   Успехов!">
-
-<!ENTITY advancedSection            "Расширенные настройки">
-
-<!ENTITY listSelection1             "
-  Подписка на следующий список фильтров была настроена, чтобы блокировать рекламу:
-">
-
-<!ENTITY noList                     "Нет списка фильтров">
-<!ENTITY visitHomepage.label        "Посетить домашнюю страницу">
-
-<!ENTITY acceptableAds2             "
-  Adblock Plus также был настроен, чтобы разрешать некоторую ненавязчивую рекламу.
-">
-
-<!ENTITY viewList.label             "Открыть список">
-<!ENTITY readMore.label             "Дополнительная информация об этом">
-
-<!ENTITY listSelection2             "
-  Вы можете изменить этот выбор в любой момент в [link]настройках фильтров[/link].
-">
+<!ENTITY noList "Нет списка фильтров">
+<!ENTITY acceptableAds2 "Adblock Plus также был настроен, чтобы разрешать некоторую ненавязчивую рекламу.">
+<!ENTITY viewList.label "Открыть список">
+<!ENTITY visitHomepage.label "Посетить домашнюю страницу">
+<!ENTITY dialog.title "Установка Adblock Plus завершена">
+<!ENTITY listSelection1 "Подписка на следующий список фильтров была настроена, чтобы блокировать рекламу:">
+<!ENTITY listSelection2 "Вы можете изменить этот выбор в любой момент в [link]настройках фильтров[/link].">
+<!ENTITY readMore.label "Дополнительная информация об этом">

@@ -1,46 +1,46 @@
-<!ENTITY dialog.title "Adblock Plus шүүлтүүрийн дүрэм нэмэх">
-<!ENTITY accept.label "Шүүлтүүр нэмэх">
-<!ENTITY advanced.label "Дэвшмэл харагдац">
-<!ENTITY basic.label "Үндсэн харагдац">
-<!ENTITY disabled.warning "Adblock Plus нь одоогоор хаалттай байна.  Та шүүлтүүр нэмж чадах боловч хэрэгжихгүй байх болно. [link]Adblock Plus-ийг нээх[/link].">
-<!ENTITY filter.label "Шинэ шүүлтүүр:">
-<!ENTITY filter.accesskey "ш">
-<!ENTITY preferences.label "Байгаа шүүлтүүрүүдийг харах...">
-<!ENTITY preferences.accesskey "Б">
-<!ENTITY type.filter.label "Хаших шүүлтүүр">
-<!ENTITY type.filter.accesskey "Х">
-<!ENTITY type.whitelist.label "Үл хаших дүрэм">
-<!ENTITY type.whitelist.accesskey "Ү">
-<!ENTITY pattern.label "Эсгүүрийн байдал">
-<!ENTITY pattern.explanation "Эсгүүр нь хаягийн аль нэг хэсэг, * тэмдэг шиг байж болно. Энэ шүүлтүүр нь зөвхөн энэ эсгүүртэй холбогдох хаяг дээр хэрэгжинэ.">
-<!ENTITY regexp.warning "Эсгүүр нь энгийн илэрхийлэл шиг байж болно. Хэт их энгийн илэрхийлэл нь ажиллагааг удаашруулж болзошгүй. If you didn't intend to use regular expressions, add a * symbol at the end of the pattern.">
-<!ENTITY shortpattern.warning "The pattern you entered is too short to be optimized, many such patterns might slow down your browsing. It is recommended that you choose a longer string for this filter.">
-<!ENTITY match.warning "Таны оруулсан эсгүүрт таарах хаагдсан/зөвшөөрөгдсөн хаяг удаан хугацаанд олдоогүй бөгөөд энд нөлөө үзүүлэхгүй байна.">
-<!ENTITY custom.pattern.label "Тусгай:">
-<!ENTITY custom.pattern.accesskey "Т">
-<!ENTITY anchors.label "Эсгүүрийг зөвхөн зөвшөөрөх нь:">
-<!ENTITY anchor.start.label "хаягийн эхлэлд">
-<!ENTITY anchor.start.accesskey "э">
-<!ENTITY anchor.start.flexible.label "Домайн нэрийн эхлэлд">
-<!ENTITY anchor.start.flexible.accesskey "э">
-<!ENTITY anchor.end.label "хаягийн төгсгөлд">
-<!ENTITY anchor.end.accesskey "Д">
-<!ENTITY options.label "Сонголтууд">
-<!ENTITY domainRestriction.label "Хязгаарлах хаяг">
-<!ENTITY domainRestriction.accesskey "Я">
-<!ENTITY domainRestriction.help "Specify one or more domains separated by the symbol &quot;|&quot;, the filter will only be applied on these domains then. The symbol &quot;~&quot; before a domain name means that the filter should not be applied on that domain.">
-<!ENTITY firstParty.label "Зөвхөн эхний хэсэг">
-<!ENTITY firstParty.accesskey "з">
-<!ENTITY thirdParty.label "Зөвхөн гуравдагч хэсэг">
-<!ENTITY thirdParty.accesskey "г">
-<!ENTITY matchCase.label "Том жижиг ялгах">
-<!ENTITY matchCase.accesskey "Ж">
-<!ENTITY types.label "Хэрэглэх төрлүүд:">
-<!ENTITY selectAllTypes.label "Бүгдийг сонгох">
-<!ENTITY unselectAllTypes.label "Бүгдийг үл сонгох">
-<!ENTITY collapse.label "Хашигдсанг хураах нь:">
-<!ENTITY collapse.accesskey "у">
-<!ENTITY collapse.default.yes.label "Анхдагчийг (тийм) хэрэглэх">
-<!ENTITY collapse.default.no.label "Анхдагчийг (үгүй) хэрэглэх">
 <!ENTITY collapse.yes.label "Тийм">
+<!ENTITY anchor.end.label "хаягийн төгсгөлд">
+<!ENTITY domainRestriction.label "Хязгаарлах хаяг">
+<!ENTITY anchor.start.flexible.accesskey "э">
+<!ENTITY firstParty.label "Зөвхөн эхний хэсэг">
+<!ENTITY preferences.label "Байгаа шүүлтүүрүүдийг харах...">
+<!ENTITY pattern.label "Эсгүүрийн байдал">
+<!ENTITY thirdParty.label "Зөвхөн гуравдагч хэсэг">
+<!ENTITY filter.accesskey "ш">
+<!ENTITY thirdParty.accesskey "г">
+<!ENTITY filter.label "Шинэ шүүлтүүр:">
+<!ENTITY collapse.label "Хашигдсанг хураах нь:">
+<!ENTITY match.warning "Таны оруулсан эсгүүрт таарах хаагдсан/зөвшөөрөгдсөн хаяг удаан хугацаанд олдоогүй бөгөөд энд нөлөө үзүүлэхгүй байна.">
+<!ENTITY anchor.start.label "хаягийн эхлэлд">
 <!ENTITY collapse.no.label "Үгүй">
+<!ENTITY matchCase.label "Том жижиг ялгах">
+<!ENTITY custom.pattern.label "Тусгай:">
+<!ENTITY unselectAllTypes.label "Бүгдийг үл сонгох">
+<!ENTITY domainRestriction.accesskey "Я">
+<!ENTITY type.whitelist.label "Үл хаших дүрэм">
+<!ENTITY regexp.warning "Эсгүүр нь энгийн илэрхийлэл шиг байж болно. Хэт их энгийн илэрхийлэл нь ажиллагааг удаашруулж болзошгүй. If you didn't intend to use regular expressions, add a * symbol at the end of the pattern.">
+<!ENTITY dialog.title "Adblock Plus шүүлтүүрийн дүрэм нэмэх">
+<!ENTITY basic.label "Үндсэн харагдац">
+<!ENTITY preferences.accesskey "Б">
+<!ENTITY firstParty.accesskey "з">
+<!ENTITY collapse.default.no.label "Анхдагчийг (үгүй) хэрэглэх">
+<!ENTITY type.filter.label "Хаших шүүлтүүр">
+<!ENTITY types.label "Хэрэглэх төрлүүд:">
+<!ENTITY shortpattern.warning "The pattern you entered is too short to be optimized, many such patterns might slow down your browsing. It is recommended that you choose a longer string for this filter.">
+<!ENTITY custom.pattern.accesskey "Т">
+<!ENTITY anchor.start.accesskey "э">
+<!ENTITY anchors.label "Эсгүүрийг зөвхөн зөвшөөрөх нь:">
+<!ENTITY collapse.default.yes.label "Анхдагчийг (тийм) хэрэглэх">
+<!ENTITY type.filter.accesskey "Х">
+<!ENTITY domainRestriction.help "Specify one or more domains separated by the symbol &quot;|&quot;, the filter will only be applied on these domains then. The symbol &quot;~&quot; before a domain name means that the filter should not be applied on that domain.">
+<!ENTITY accept.label "Шүүлтүүр нэмэх">
+<!ENTITY options.label "Сонголтууд">
+<!ENTITY disabled.warning "Adblock Plus нь одоогоор хаалттай байна.  Та шүүлтүүр нэмж чадах боловч хэрэгжихгүй байх болно. [link]Adblock Plus-ийг нээх[/link].">
+<!ENTITY anchor.start.flexible.label "Домайн нэрийн эхлэлд">
+<!ENTITY type.whitelist.accesskey "Ү">
+<!ENTITY matchCase.accesskey "Ж">
+<!ENTITY anchor.end.accesskey "Д">
+<!ENTITY selectAllTypes.label "Бүгдийг сонгох">
+<!ENTITY advanced.label "Дэвшмэл харагдац">
+<!ENTITY collapse.accesskey "у">
+<!ENTITY pattern.explanation "Эсгүүр нь хаягийн аль нэг хэсэг, * тэмдэг шиг байж болно. Энэ шүүлтүүр нь зөвхөн энэ эсгүүртэй холбогдох хаяг дээр хэрэгжинэ.">

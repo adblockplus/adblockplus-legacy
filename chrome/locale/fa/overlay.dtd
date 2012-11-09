@@ -1,33 +1,33 @@
-<!ENTITY status.tooltip "وضعیت:">
-<!ENTITY blocked.tooltip "موارد رد شده در این صفحه:">
-<!ENTITY filters.tooltip "فعالترین پالایه ها:">
-<!ENTITY menuitem.label "ترجیحات فوق تبلیغ شکن">
-<!ENTITY menuitem.accesskey "ب">
-<!ENTITY toolbarbutton.label "فوق تبلیغ شکن">
-<!ENTITY context.image.label "فوق تبلیغ شکن: سد تصاویر">
-<!ENTITY context.object.label "فوق تبلیغ شکن: سد شیء">
-<!ENTITY context.frame.label "فوق تبلیغ شکن:سد قابک">
-<!ENTITY context.media.label "فوق تبلیغ شکن: سد داده های چند رسانه ای">
-<!ENTITY context.removeWhitelist.label "فوق تبلیغ شکن: فعال شدن مجدد در این صفحه">
-<!ENTITY sidebar.title "موارد قابل مسدود شدن در صفحه جاری">
-<!ENTITY sendReport.label "گزارش مشکل در این صفحه">
-<!ENTITY sendReport.accesskey "ص">
-<!ENTITY opensidebar.label "باز کردن موارد قابل ردکردن">
-<!ENTITY opensidebar.accesskey "ق">
-<!ENTITY closesidebar.label "بستن موارد قابل ردکردن">
-<!ENTITY closesidebar.accesskey "ق">
-<!ENTITY whitelist.site.label "غیرفعال در ?1?">
-<!ENTITY whitelist.page.label "غیرفعال فقط در این صفحه">
-<!ENTITY disable.label "غیر فعال کردن در همه جا">
-<!ENTITY options.label "گزینه ها">
-<!ENTITY options.accesskey "گ">
-<!ENTITY showintoolbar.label "نمایش در نوار ابزار">
 <!ENTITY showintoolbar.accesskey "ب">
-<!ENTITY showinstatusbar.label "نمایش در نوار وضعیت">
 <!ENTITY showinstatusbar.accesskey "و">
-<!ENTITY objecttabs.label "نمایش زبانه در موارد فلش و جاوا">
-<!ENTITY objecttabs.accesskey "ج">
-<!ENTITY sync.label "همگام سازی تنظیمات فوق تبلیغ شکن">
-<!ENTITY sync.accesskey "ظ">
+<!ENTITY whitelist.site.label "غیرفعال در ?1?">
+<!ENTITY disable.label "غیر فعال کردن در همه جا">
 <!ENTITY objecttab.title "مسدود کردن">
+<!ENTITY sync.accesskey "ظ">
+<!ENTITY objecttabs.label "نمایش زبانه در موارد فلش و جاوا">
 <!ENTITY objecttab.tooltip "جهت مسدود کردن با فوق تبلیغ شکن اینجا کلیک کنید">
+<!ENTITY menuitem.label "ترجیحات فوق تبلیغ شکن">
+<!ENTITY sendReport.accesskey "ص">
+<!ENTITY sendReport.label "گزارش مشکل در این صفحه">
+<!ENTITY whitelist.page.label "غیرفعال فقط در این صفحه">
+<!ENTITY context.image.label "فوق تبلیغ شکن: سد تصاویر">
+<!ENTITY closesidebar.accesskey "ق">
+<!ENTITY opensidebar.label "باز کردن موارد قابل ردکردن">
+<!ENTITY options.accesskey "گ">
+<!ENTITY objecttabs.accesskey "ج">
+<!ENTITY toolbarbutton.label "فوق تبلیغ شکن">
+<!ENTITY context.frame.label "فوق تبلیغ شکن:سد قابک">
+<!ENTITY blocked.tooltip "موارد رد شده در این صفحه:">
+<!ENTITY opensidebar.accesskey "ق">
+<!ENTITY showinstatusbar.label "نمایش در نوار وضعیت">
+<!ENTITY status.tooltip "وضعیت:">
+<!ENTITY sidebar.title "موارد قابل مسدود شدن در صفحه جاری">
+<!ENTITY sync.label "همگام سازی تنظیمات فوق تبلیغ شکن">
+<!ENTITY options.label "گزینه ها">
+<!ENTITY context.object.label "فوق تبلیغ شکن: سد شیء">
+<!ENTITY context.removeWhitelist.label "فوق تبلیغ شکن: فعال شدن مجدد در این صفحه">
+<!ENTITY filters.tooltip "فعالترین پالایه ها:">
+<!ENTITY closesidebar.label "بستن موارد قابل ردکردن">
+<!ENTITY showintoolbar.label "نمایش در نوار ابزار">
+<!ENTITY menuitem.accesskey "ب">
+<!ENTITY context.media.label "فوق تبلیغ شکن: سد داده های چند رسانه ای">

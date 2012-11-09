@@ -1,35 +1,31 @@
-<!ENTITY addSubscription.label "Thêm bộ lọc trọn gói">
-<!ENTITY addSubscriptionOther.label "Thêm bộ lọc trọn gói khác">
-<!ENTITY subscription.lastDownload.label "Lần tải cuối:">
-<!ENTITY subscription.lastDownload.inProgress "Đang tải...">
-<!ENTITY subscription.lastDownload.unknown "N/A">
-<!ENTITY subscription.lastDownload.invalidURL "Thất bại, không phải là địa chỉ hợp lệ">
-<!ENTITY subscription.lastDownload.connectionError "Thất bại, tải xuống thất bại">
-<!ENTITY subscription.lastDownload.invalidData "Thất bại, không phải là danh sách bộ lọc hợp lệ">
-<!ENTITY subscription.lastDownload.checksumMismatch "Thất bại, mã băm không phù hợp">
-<!ENTITY subscription.lastDownload.success "Thành công">
-<!ENTITY addFilter.label "Thêm bộ lọc">
-<!ENTITY filter.cut.label "Cắt">
-<!ENTITY filter.copy.label "Chép">
-<!ENTITY filter.paste.label "Dán">
-<!ENTITY filter.delete.label "Xóa">
-<!ENTITY viewMenu.label "Hiển thị">
-<!ENTITY filter.column "Quy luật lọc">
-<!ENTITY filter.accesskey "Q">
 <!ENTITY slow.column "Bộ lọc chậm">
-<!ENTITY slow.accesskey "B">
-<!ENTITY enabled.column "Hiệu lực">
-<!ENTITY enabled.accesskey "H">
-<!ENTITY hitcount.column "Số lần hit">
-<!ENTITY hitcount.accesskey "S">
+<!ENTITY subscription.lastDownload.checksumMismatch "Thất bại, mã băm không phù hợp">
 <!ENTITY lasthit.column "Lần hit cuối">
-<!ENTITY lasthit.accesskey "L">
-<!ENTITY sort.label "Sắp xếp theo">
+<!ENTITY viewMenu.label "Hiển thị">
 <!ENTITY sort.accesskey "x">
-<!ENTITY sort.none.label "Chưa sắp xếp">
-<!ENTITY sort.none.accesskey "C">
 <!ENTITY sort.ascending.label "Thứ tự A &gt; Z">
-<!ENTITY sort.ascending.accesskey "A">
-<!ENTITY sort.descending.label "Thứ tự Z &gt; A">
-<!ENTITY sort.descending.accesskey "Z">
+<!ENTITY sort.label "Sắp xếp theo">
+<!ENTITY filter.paste.label "Dán">
+<!ENTITY filter.accesskey "Q">
+<!ENTITY subscription.lastDownload.inProgress "Đang tải...">
+<!ENTITY enabled.accesskey "H">
+<!ENTITY filter.delete.label "Xóa">
+<!ENTITY enabled.column "Hiệu lực">
+<!ENTITY slow.accesskey "B">
+<!ENTITY hitcount.accesskey "S">
+<!ENTITY subscription.lastDownload.invalidURL "Thất bại, không phải là địa chỉ hợp lệ">
+<!ENTITY hitcount.column "Số lần hit">
+<!ENTITY filter.cut.label "Cắt">
+<!ENTITY addSubscriptionOther.label "Thêm bộ lọc trọn gói khác">
+<!ENTITY sort.none.label "Chưa sắp xếp">
+<!ENTITY filter.copy.label "Chép">
+<!ENTITY sort.none.accesskey "C">
+<!ENTITY addSubscription.label "Thêm bộ lọc trọn gói">
 <!ENTITY find.label "Tìm">
+<!ENTITY sort.descending.label "Thứ tự Z &gt; A">
+<!ENTITY subscription.lastDownload.connectionError "Thất bại, tải xuống thất bại">
+<!ENTITY subscription.lastDownload.success "Thành công">
+<!ENTITY subscription.lastDownload.invalidData "Thất bại, không phải là danh sách bộ lọc hợp lệ">
+<!ENTITY addFilter.label "Thêm bộ lọc">
+<!ENTITY subscription.lastDownload.label "Lần tải cuối:">
+<!ENTITY filter.column "Quy luật lọc">

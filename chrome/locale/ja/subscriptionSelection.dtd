@@ -1,16 +1,15 @@
-<!ENTITY dialog.title "購読するフィルタを追加">
-<!ENTITY subscriptionSelector.label "リストから購読するフィルタを選択してください:">
-<!ENTITY viewList.label "フィルタ内容を見る">
-<!ENTITY visitHomepage.label "ホームページを表示">
-<!ENTITY addSubscription.label "購読するフィルタを追加">
-<!ENTITY list.download.failed "購読できるフィルタ一覧のダウンロードに失敗しました。">
-<!ENTITY list.download.retry "再試行">
-<!ENTITY list.download.website "ウェブサイトを見る">
-<!ENTITY fromWeb.description "購読するフィルタを確認してください。名称と場所を変更できます。">
-<!ENTITY title.label "購読するフィルタの名称:">
-<!ENTITY title.accesskey "t">
-<!ENTITY location.label "購読するフィルタの場所:">
-<!ENTITY location.accesskey "l">
-<!ENTITY supplementMessage "このフィルタは &quot;?1?&quot; と併用することが前提になっています。">
 <!ENTITY addMain.label "&quot;?1?&quot; も追加する">
-<!ENTITY addMain.accesskey "s">
+<!ENTITY addMain.accesskey "S">
+<!ENTITY list.download.failed "Adblock Plus は購読用フィルタ一覧の取得に失敗しました。">
+<!ENTITY list.download.retry "再試行">
+<!ENTITY location.accesskey "L">
+<!ENTITY title.label "購読するフィルタの名称:">
+<!ENTITY list.download.website "ウェブサイトを見る">
+<!ENTITY supplementMessage "このフィルタは &quot;?1?&quot; と併用することが前提になっています。">
+<!ENTITY title.accesskey "T">
+<!ENTITY viewList.label "フィルタファイルを開いて確認">
+<!ENTITY visitHomepage.label "作者のページを開く">
+<!ENTITY addSubscription.label "購読するフィルタを追加">
+<!ENTITY dialog.title "購読する Adblock Plus 用フィルタを追加">
+<!ENTITY location.label "購読するフィルタの場所:">
+<!ENTITY fromWeb.description "購読するフィルタを確認してください。追加前にここで名称と場所を変更できます。">

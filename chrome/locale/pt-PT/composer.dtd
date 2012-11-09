@@ -1,46 +1,40 @@
-<!ENTITY dialog.title "Adicionar regra de filtro ao Adblock Plus">
-<!ENTITY accept.label "Adicionar filtro">
-<!ENTITY advanced.label "Vista avançada">
-<!ENTITY basic.label "Vista básica">
-<!ENTITY disabled.warning "O Adblock Plus está desactivado. Pode, mesmo assim, adicionar filtros, no entanto, estes não serão aplicados até [link]activar o Adblock Plus[/link].">
-<!ENTITY filter.label "Novo filtro:">
-<!ENTITY filter.accesskey "n">
-<!ENTITY preferences.label "Mostrar filtros existentes...">
-<!ENTITY preferences.accesskey "e">
-<!ENTITY type.filter.label "Filtro bloqueador">
-<!ENTITY type.filter.accesskey "B">
-<!ENTITY type.whitelist.label "Regra de excepção">
-<!ENTITY type.whitelist.accesskey "x">
-<!ENTITY pattern.label "Procurar por padrão">
-<!ENTITY pattern.explanation "O padrão pode ser qualquer parte do endereço, o asterisco (*) funciona como wildcard. O filtro apenas será aplicado a endereços que correspondam ao padrão.">
-<!ENTITY regexp.warning "O padrão inserido será interpretado como expressão regular. A utilização de demasiadas expressões regulares poderá lentificar o browser. Se não pretendia utilizar expressões regulares adicione um asterisco (*) no final do padrão.">
-<!ENTITY shortpattern.warning "O padrão inserido é demasiado curto para ser optimizado. A utilização de demasiados padrões poderá lentificar o browser. É recomendável a utilização de expressões mais longas para este filtro.">
-<!ENTITY match.warning "O padrão que inseriu já não corresponde ao endereço a ser bloqueado/ desbloqueado e não surtirá efeito.">
-<!ENTITY custom.pattern.label "Personalização:">
-<!ENTITY custom.pattern.accesskey "P">
-<!ENTITY anchors.label "Aceitar o padrão apenas:">
-<!ENTITY anchor.start.label "no início do endereço">
-<!ENTITY anchor.start.accesskey "i">
-<!ENTITY anchor.start.flexible.label "no início do nome de domínio">
-<!ENTITY anchor.start.flexible.accesskey "i">
-<!ENTITY anchor.end.label "no final do endereço">
-<!ENTITY anchor.end.accesskey "f">
-<!ENTITY options.label "Opções">
-<!ENTITY domainRestriction.label "Restringir ao domínio:">
-<!ENTITY domainRestriction.accesskey "d">
-<!ENTITY domainRestriction.help "Especificar um ou mais domínios separados pelo símbolo &quot;|&quot;, o filtro será aplicado apenas a estes domínios. O símbolo &quot;~&quot; antes de um domínio implica que o filtro não seja aplicado nesse domínio.">
-<!ENTITY firstParty.label "Apenas primários">
-<!ENTITY firstParty.accesskey "r">
-<!ENTITY thirdParty.label "De terceiros">
-<!ENTITY thirdParty.accesskey "t">
-<!ENTITY matchCase.label "Maiúsculas/ minúsculas">
-<!ENTITY matchCase.accesskey "M">
-<!ENTITY types.label "Aplicar aos tipos:">
-<!ENTITY selectAllTypes.label "Seleccionar todos">
-<!ENTITY unselectAllTypes.label "Desseleccionar">
-<!ENTITY collapse.label "Colapsar bloqueados:">
-<!ENTITY collapse.accesskey "l">
-<!ENTITY collapse.default.yes.label "Usar por defeito (sim)">
-<!ENTITY collapse.default.no.label "Usar por defeito (não)">
 <!ENTITY collapse.yes.label "Sim">
+<!ENTITY anchor.end.label "no final do endereço">
+<!ENTITY domainRestriction.label "Restringir ao domínio:">
+<!ENTITY anchor.start.flexible.accesskey "i">
+<!ENTITY firstParty.label "Apenas primários">
+<!ENTITY preferences.label "Mostrar filtros existentes...">
+<!ENTITY pattern.label "Procurar por padrão">
+<!ENTITY thirdParty.label "De terceiros">
+<!ENTITY filter.accesskey "n">
+<!ENTITY thirdParty.accesskey "t">
+<!ENTITY filter.label "Novo filtro:">
+<!ENTITY collapse.label "Colapsar bloqueados:">
+<!ENTITY match.warning "O padrão que inseriu já não corresponde ao endereço a ser bloqueado/ desbloqueado e não surtirá efeito.">
+<!ENTITY anchor.start.label "no início do endereço">
+<!ENTITY matchCase.label "Maiúsculas/ minúsculas">
+<!ENTITY custom.pattern.label "Personalização:">
+<!ENTITY unselectAllTypes.label "Desseleccionar">
+<!ENTITY type.whitelist.label "Regra de excepção">
+<!ENTITY regexp.warning "O padrão inserido será interpretado como expressão regular. A utilização de demasiadas expressões regulares poderá lentificar o browser. Se não pretendia utilizar expressões regulares adicione um asterisco (*) no final do padrão.">
+<!ENTITY dialog.title "Adicionar regra de filtro ao Adblock Plus">
+<!ENTITY basic.label "Vista básica">
+<!ENTITY preferences.accesskey "e">
+<!ENTITY collapse.default.no.label "Usar por defeito (não)">
+<!ENTITY type.filter.label "Filtro bloqueador">
+<!ENTITY types.label "Aplicar aos tipos:">
+<!ENTITY anchor.start.accesskey "i">
+<!ENTITY custom.pattern.accesskey "P">
+<!ENTITY shortpattern.warning "O padrão inserido é demasiado curto para ser optimizado. A utilização de demasiados padrões poderá lentificar o browser. É recomendável a utilização de expressões mais longas para este filtro.">
+<!ENTITY anchors.label "Aceitar o padrão apenas:">
+<!ENTITY collapse.default.yes.label "Usar por defeito (sim)">
+<!ENTITY domainRestriction.help "Especificar um ou mais domínios separados pelo símbolo &quot;|&quot;, o filtro será aplicado apenas a estes domínios. O símbolo &quot;~&quot; antes de um domínio implica que o filtro não seja aplicado nesse domínio.">
+<!ENTITY accept.label "Adicionar filtro">
+<!ENTITY options.label "Opções">
+<!ENTITY disabled.warning "O Adblock Plus está desactivado. Pode, mesmo assim, adicionar filtros, no entanto, estes não serão aplicados até [link]activar o Adblock Plus[/link].">
+<!ENTITY anchor.start.flexible.label "no início do nome de domínio">
 <!ENTITY collapse.no.label "Não">
+<!ENTITY anchor.end.accesskey "f">
+<!ENTITY selectAllTypes.label "Seleccionar todos">
+<!ENTITY advanced.label "Vista avançada">
+<!ENTITY pattern.explanation "O padrão pode ser qualquer parte do endereço, o asterisco (*) funciona como wildcard. O filtro apenas será aplicado a endereços que correspondam ao padrão.">

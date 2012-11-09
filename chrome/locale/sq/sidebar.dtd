@@ -1,26 +1,25 @@
-<!ENTITY search.label "Kërko">
-<!ENTITY search.accesskey "S">
-<!ENTITY type.label "Lloji">
-<!ENTITY address.label "Adresa">
-<!ENTITY filter.label "Filtruesi">
-<!ENTITY state.label "Gjendja">
-<!ENTITY size.label "Madhësia">
-<!ENTITY docDomain.label "Burimi i dokumentit">
-<!ENTITY noitems.label "S'ka elemente bllokuese">
-<!ENTITY tooltip.address.label "Adresa:">
 <!ENTITY tooltip.type.label "Lloji:">
-<!ENTITY tooltip.type.blocked "(bllokuar)">
-<!ENTITY tooltip.type.whitelisted "(lejuar)">
-<!ENTITY tooltip.size.label "Madhësia:">
-<!ENTITY tooltip.docDomain.label "Burimi i dokumentit:">
-<!ENTITY tooltip.filter.label "Filtruesi efektiv:">
+<!ENTITY address.label "Adresa">
+<!ENTITY context.open.label "Hape një një lidhje të re">
+<!ENTITY type.label "Lloji">
 <!ENTITY tooltip.filterSource.label "Burimi i filtruesit:">
-<!ENTITY context.block.label "Blloko këtë send">
-<!ENTITY context.editfilter.label "Vendos filtruesin në veprim">
+<!ENTITY filter.label "Filtruesi">
+<!ENTITY noitems.label "S'ka elemente bllokuese">
+<!ENTITY tooltip.size.label "Madhësia:">
+<!ENTITY search.label "Kërko">
+<!ENTITY tooltip.docDomain.label "Burimi i dokumentit:">
+<!ENTITY context.copy.label "Kopjo adresën e elementit">
+<!ENTITY tooltip.type.blocked "(bllokuar)">
 <!ENTITY context.disablefilter.label "Çaktivizo filtruesin ?1?">
+<!ENTITY context.copyFilter.label "Kopjo filtruesin">
+<!ENTITY context.editfilter.label "Vendos filtruesin në veprim">
 <!ENTITY context.enablefilter.label "Ri mundëso filtruesin ?1?">
 <!ENTITY context.disablefilteronsite.label "Pamundëso filtruesin në ?1?">
-<!ENTITY context.open.label "Hape një një lidhje të re">
-<!ENTITY context.copy.label "Kopjo adresën e elementit">
-<!ENTITY context.copyFilter.label "Kopjo filtruesin">
+<!ENTITY tooltip.type.whitelisted "(lejuar)">
+<!ENTITY tooltip.filter.label "Filtruesi efektiv:">
+<!ENTITY context.block.label "Blloko këtë send">
+<!ENTITY size.label "Madhësia">
 <!ENTITY context.selectAll.label "Selekto të gjitha">
+<!ENTITY state.label "Gjendja">
+<!ENTITY docDomain.label "Burimi i dokumentit">
+<!ENTITY tooltip.address.label "Adresa:">

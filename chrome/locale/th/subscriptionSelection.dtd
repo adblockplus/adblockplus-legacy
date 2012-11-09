@@ -1,16 +1,15 @@
-<!ENTITY dialog.title "เพิ่มนามข้างท้ายตัวกรอง Adblock Plus">
-<!ENTITY subscriptionSelector.label "กรุณาเลือกนามข้างท้ายตัวกรองจากรายชื่อ:">
+<!ENTITY addMain.label "เพิ่มนามข้างท้ายตัวกรอง &quot;?1?&quot;">
+<!ENTITY addMain.accesskey "ว">
+<!ENTITY list.download.failed "Adblock Plus ไม่สามารถกู้คืนรายการนามข้างท้ายได้">
+<!ENTITY list.download.retry "ลองอีกครั้ง">
+<!ENTITY location.accesskey "ร">
+<!ENTITY title.label "ชื่อ:">
+<!ENTITY list.download.website "ดูเว็บไซต์">
+<!ENTITY supplementMessage "นามข้างท้ายตัวกรองนี้ตั้งใจไว้ใช้กับนามข้างท้ายตัวกรอง &quot;?1?&quot; ซึ่งคุณยังไม่ได้ใช้">
+<!ENTITY title.accesskey "ช">
 <!ENTITY viewList.label "ดูตัวกรอง">
 <!ENTITY visitHomepage.label "เยี่ยมชมโฮมเพจ">
 <!ENTITY addSubscription.label "เพิ่มนามข้างท้ายตัวกรอง">
-<!ENTITY list.download.failed "Adblock Plus ไม่สามารถกู้คืนรายการนามข้างท้ายได้">
-<!ENTITY list.download.retry "ลองอีกครั้ง">
-<!ENTITY list.download.website "ดูเว็บไซต์">
-<!ENTITY fromWeb.description "กรุณายืนยันว่าคุณต้องการเพิ่มนามข้างท้ายตัวกรองนี้ คุณสามารถเปลี่ยนหัวเรื่องนามข้างท้ายหรือตำแหน่งก่อนเพิ่มเข้ามาได้">
-<!ENTITY title.label "ชื่อ:">
-<!ENTITY title.accesskey "ช">
+<!ENTITY dialog.title "เพิ่มนามข้างท้ายตัวกรอง Adblock Plus">
 <!ENTITY location.label "ที่อยู่รายชื่อตัวกรอง:">
-<!ENTITY location.accesskey "ร">
-<!ENTITY supplementMessage "นามข้างท้ายตัวกรองนี้ตั้งใจไว้ใช้กับนามข้างท้ายตัวกรอง &quot;?1?&quot; ซึ่งคุณยังไม่ได้ใช้">
-<!ENTITY addMain.label "เพิ่มนามข้างท้ายตัวกรอง &quot;?1?&quot;">
-<!ENTITY addMain.accesskey "ว">
+<!ENTITY fromWeb.description "กรุณายืนยันว่าคุณต้องการเพิ่มนามข้างท้ายตัวกรองนี้ คุณสามารถเปลี่ยนหัวเรื่องนามข้างท้ายหรือตำแหน่งก่อนเพิ่มเข้ามาได้">

@@ -1,36 +1,36 @@
-<!ENTITY detached.title "Adblock Plus blokérbare emner (frakoblet)">
-<!ENTITY detach.label "Frakobl">
+<!ENTITY context.flash.label "Fremhæv emnets kanter">
+<!ENTITY tooltip.type.label "Type:">
+<!ENTITY address.label "Adresse">
+<!ENTITY context.open.label "Åbn i nyt faneblad">
+<!ENTITY type.label "Type">
+<!ENTITY tooltip.filterSource.label "Filterkilde:">
+<!ENTITY noitems.label "Ingen blokérbare emner">
+<!ENTITY filter.label "Filter">
+<!ENTITY tooltip.size.label "Størrelse:">
 <!ENTITY reattach.label "Gentilkobl">
 <!ENTITY search.label "Søg:">
-<!ENTITY search.accesskey "ø">
-<!ENTITY type.label "Type">
-<!ENTITY address.label "Adresse">
-<!ENTITY filter.label "Filter">
-<!ENTITY state.label "Tilstand">
-<!ENTITY size.label "Størrelse">
-<!ENTITY filterSource.label "Filterkilde">
-<!ENTITY docDomain.label "Dokumentkilde">
 <!ENTITY docDomain.thirdParty "(tredjeparts)">
-<!ENTITY docDomain.firstParty "(førsteparts)">
-<!ENTITY noitems.label "Ingen blokérbare emner">
-<!ENTITY whitelisted.label "Hvidlistet side">
-<!ENTITY tooltip.address.label "Adresse:">
-<!ENTITY tooltip.type.label "Type:">
-<!ENTITY tooltip.type.blocked "(blokeret)">
-<!ENTITY tooltip.type.whitelisted "(hvidlistet)">
-<!ENTITY tooltip.size.label "Størrelse:">
+<!ENTITY filterSource.label "Filterkilde">
 <!ENTITY tooltip.docDomain.label "Dokumentkilde:">
+<!ENTITY context.copy.label "Kopier emnets adresse">
+<!ENTITY tooltip.type.blocked "(blokeret)">
+<!ENTITY search.accesskey "ø">
+<!ENTITY context.disablefilter.label "Deaktiver filter ?1?">
+<!ENTITY context.copyFilter.label "Kopier filter">
+<!ENTITY context.block.label "Blokér dette emne">
+<!ENTITY context.enablefilter.label "Genaktiver filter ?1?">
+<!ENTITY detach.label "Frakobl">
+<!ENTITY whitelisted.label "Hvidlistet side">
+<!ENTITY context.disablefilteronsite.label "Deaktiver dette filter på ?1?">
+<!ENTITY detached.title "Adblock Plus blokérbare emner (frakoblet)">
+<!ENTITY docDomain.firstParty "(førsteparts)">
+<!ENTITY tooltip.type.whitelisted "(hvidlistet)">
 <!ENTITY tooltip.filter.label "Fungerende filter:">
 <!ENTITY tooltip.filter.disabled "(deaktiveret)">
-<!ENTITY tooltip.filterSource.label "Filterkilde:">
-<!ENTITY context.block.label "Blokér dette emne">
 <!ENTITY context.editfilter.label "Redigér aktuelt filter">
+<!ENTITY size.label "Størrelse">
 <!ENTITY context.whitelist.label "Tilføj undtagelsesregel for emne">
-<!ENTITY context.disablefilter.label "Deaktiver filter ?1?">
-<!ENTITY context.enablefilter.label "Genaktiver filter ?1?">
-<!ENTITY context.disablefilteronsite.label "Deaktiver dette filter på ?1?">
-<!ENTITY context.open.label "Åbn i nyt faneblad">
-<!ENTITY context.flash.label "Fremhæv emnets kanter">
-<!ENTITY context.copy.label "Kopier emnets adresse">
-<!ENTITY context.copyFilter.label "Kopier filter">
 <!ENTITY context.selectAll.label "Vælg alle">
+<!ENTITY state.label "Tilstand">
+<!ENTITY docDomain.label "Dokumentkilde">
+<!ENTITY tooltip.address.label "Adresse:">

@@ -1,36 +1,36 @@
-<!ENTITY detached.title "Adblock Plus: Estettävien elementtien lista (irrotettu)">
-<!ENTITY detach.label "Irrota">
+<!ENTITY context.flash.label "Välkytä reunoja">
+<!ENTITY tooltip.type.label "Tyyppi:">
+<!ENTITY address.label "Osoite">
+<!ENTITY context.open.label "Avaa uuteen välilehteen">
+<!ENTITY type.label "Tyyppi">
+<!ENTITY tooltip.filterSource.label "Suodattimen lähde:">
+<!ENTITY noitems.label "Ei estettäviä elementtejä">
+<!ENTITY filter.label "Suodatin">
+<!ENTITY tooltip.size.label "Koko:">
 <!ENTITY reattach.label "Kiinnitä">
 <!ENTITY search.label "Etsi:">
-<!ENTITY search.accesskey "E">
-<!ENTITY type.label "Tyyppi">
-<!ENTITY address.label "Osoite">
-<!ENTITY filter.label "Suodatin">
-<!ENTITY state.label "Tila">
-<!ENTITY size.label "Koko">
-<!ENTITY filterSource.label "Suodattimen lähde">
-<!ENTITY docDomain.label "Dokumentin lähde">
 <!ENTITY docDomain.thirdParty "(kolmas osapuoli)">
-<!ENTITY docDomain.firstParty "(ensimmäinen osapuoli)">
-<!ENTITY noitems.label "Ei estettäviä elementtejä">
-<!ENTITY whitelisted.label "Sallittu sivu">
-<!ENTITY tooltip.address.label "Osoite:">
-<!ENTITY tooltip.type.label "Tyyppi:">
-<!ENTITY tooltip.type.blocked "(estetty)">
-<!ENTITY tooltip.type.whitelisted "(sallittu)">
-<!ENTITY tooltip.size.label "Koko:">
+<!ENTITY filterSource.label "Suodattimen lähde">
 <!ENTITY tooltip.docDomain.label "Dokumentin lähde:">
+<!ENTITY context.copy.label "Kopioi osoite">
+<!ENTITY tooltip.type.blocked "(estetty)">
+<!ENTITY search.accesskey "E">
+<!ENTITY context.disablefilter.label "Poista käytöstä suodatin: ?1?">
+<!ENTITY context.copyFilter.label "Kopioi suodatin">
+<!ENTITY context.block.label "Estä elementti">
+<!ENTITY context.enablefilter.label "Palauta suodatin: ?1?">
+<!ENTITY detach.label "Irrota">
+<!ENTITY whitelisted.label "Sallittu sivu">
+<!ENTITY context.disablefilteronsite.label "Poista tämä suodatin käytöstä osoiteessa ?1?">
+<!ENTITY detached.title "Adblock Plus: Estettävien elementtien lista (irrotettu)">
+<!ENTITY docDomain.firstParty "(ensimmäinen osapuoli)">
+<!ENTITY tooltip.type.whitelisted "(sallittu)">
 <!ENTITY tooltip.filter.label "Vaikuttava suodatin:">
 <!ENTITY tooltip.filter.disabled "(poistettu käytöstä)">
-<!ENTITY tooltip.filterSource.label "Suodattimen lähde:">
-<!ENTITY context.block.label "Estä elementti">
 <!ENTITY context.editfilter.label "Muokkaa suodatinta">
+<!ENTITY size.label "Koko">
 <!ENTITY context.whitelist.label "Lisää poikkeusehto">
-<!ENTITY context.disablefilter.label "Poista käytöstä suodatin: ?1?">
-<!ENTITY context.enablefilter.label "Palauta suodatin: ?1?">
-<!ENTITY context.disablefilteronsite.label "Poista tämä suodatin käytöstä osoiteessa ?1?">
-<!ENTITY context.open.label "Avaa uuteen välilehteen">
-<!ENTITY context.flash.label "Välkytä reunoja">
-<!ENTITY context.copy.label "Kopioi osoite">
-<!ENTITY context.copyFilter.label "Kopioi suodatin">
 <!ENTITY context.selectAll.label "Valitse kaikki">
+<!ENTITY state.label "Tila">
+<!ENTITY docDomain.label "Dokumentin lähde">
+<!ENTITY tooltip.address.label "Osoite:">

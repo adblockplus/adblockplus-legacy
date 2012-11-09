@@ -1,49 +1,46 @@
-<!ENTITY dialog.title             "Neuen Filter hinzufügen">
-<!ENTITY accept.label             "Filter hinzufügen">
-<!ENTITY advanced.label           "Erweiterte Ansicht">
-<!ENTITY basic.label              "Standardansicht">
-
-<!ENTITY disabled.warning         "Adblock Plus ist deaktiviert. Sie können trotzdem den Filter hinzufügen, dieser wird jedoch erst angewandt, wenn Sie [link]Adblock Plus aktivieren[/link].">
-
-<!ENTITY filter.label             "Neuer Filter:">
-<!ENTITY filter.accesskey         "r">
-<!ENTITY preferences.label        "Existierende Filter anzeigen...">
-<!ENTITY preferences.accesskey    "z">
-<!ENTITY type.filter.label        "Blockierregel">
-<!ENTITY type.filter.accesskey    "B">
-<!ENTITY type.whitelist.label     "Ausnahmeregel">
-<!ENTITY type.whitelist.accesskey "A">
-<!ENTITY pattern.label            "Muster suchen">
-<!ENTITY pattern.explanation      "Das Muster kann ein beliebiger Teil der Adresse sein, das Zeichen '*' kann dabei als Jokerzeichen verwendet werden. Der Filter wird nur auf Adressen angewandt, die auf das Muster passen.">
-<!ENTITY regexp.warning           "Das Muster, das Sie eingegeben haben, wird als regulärer Ausdruck interpretiert. Zu viele reguläre Ausdrücke könnten Ihren Browser verlangsamen. Falls Sie nicht beabsichtigt haben, reguläre Ausdrücke zu verwenden, fügen Sie einfach das Symbol '*' am Ende des Musters an.">
-<!ENTITY shortpattern.warning     "Das Muster, das Sie eingegeben haben, ist zu kurz zum Optimieren. Zu viele solche Muster könnten Ihren Browser verlangsamen. Es ist deshalb empfehlenswert, nach Möglichkeit ein längeres Muster für diesen Filter zu verwenden.">
-<!ENTITY match.warning            "Das Muster, das Sie eingegeben haben, passt nicht mehr zu der Adresse, für die der Filter erstellt werden soll. Es wird keinen Einfluss mehr auf diese Adresse haben.">
-<!ENTITY custom.pattern.label     "Benutzerdefiniert:">
+<!ENTITY collapse.yes.label "Ja">
+<!ENTITY anchor.end.label "am Ende der Adresse">
+<!ENTITY domainRestriction.label "Auf Domain beschränken:">
+<!ENTITY anchor.start.flexible.accesskey "f">
+<!ENTITY firstParty.label "Nur für Elemente der Ursprungsseite">
+<!ENTITY preferences.label "Existierende Filter anzeigen...">
+<!ENTITY pattern.label "Muster suchen">
+<!ENTITY thirdParty.label "Nur für Elemente von Drittseiten">
+<!ENTITY filter.accesskey "r">
+<!ENTITY thirdParty.accesskey "t">
+<!ENTITY filter.label "Neuer Filter:">
+<!ENTITY collapse.label "Platz freigeben:">
+<!ENTITY match.warning "Das Muster, das Sie eingegeben haben, passt nicht mehr zu der Adresse, für die der Filter erstellt werden soll. Es wird keinen Einfluss mehr auf diese Adresse haben.">
+<!ENTITY anchor.start.label "am Anfang der Adresse">
+<!ENTITY collapse.no.label "Nein">
+<!ENTITY matchCase.label "Groß-/Kleinschreibung beachten">
+<!ENTITY custom.pattern.label "Benutzerdefiniert:">
+<!ENTITY unselectAllTypes.label "Keine auswählen">
+<!ENTITY domainRestriction.accesskey "m">
+<!ENTITY type.whitelist.label "Ausnahmeregel">
+<!ENTITY regexp.warning "Das Muster, das Sie eingegeben haben, wird als regulärer Ausdruck interpretiert. Zu viele reguläre Ausdrücke könnten Ihren Browser verlangsamen. Falls Sie nicht beabsichtigt haben, reguläre Ausdrücke zu verwenden, fügen Sie einfach das Symbol '*' am Ende des Musters an.">
+<!ENTITY dialog.title "Neuen Filter hinzufügen">
+<!ENTITY basic.label "Standardansicht">
+<!ENTITY preferences.accesskey "z">
+<!ENTITY firstParty.accesskey "p">
+<!ENTITY collapse.default.no.label "Standardeinstellung (nein)">
+<!ENTITY type.filter.label "Blockierregel">
+<!ENTITY types.label "Auf Elementtypen anwenden:">
+<!ENTITY shortpattern.warning "Das Muster, das Sie eingegeben haben, ist zu kurz zum Optimieren. Zu viele solche Muster könnten Ihren Browser verlangsamen. Es ist deshalb empfehlenswert, nach Möglichkeit ein längeres Muster für diesen Filter zu verwenden.">
 <!ENTITY custom.pattern.accesskey "n">
-<!ENTITY anchors.label            "Muster nur akzeptieren:">
-<!ENTITY anchor.start.label       "am Anfang der Adresse">
-<!ENTITY anchor.start.accesskey   "f">
-<!ENTITY anchor.start.flexible.label      "am Anfang des Domain-Namens">
-<!ENTITY anchor.start.flexible.accesskey  "f">
-<!ENTITY anchor.end.label         "am Ende der Adresse">
-<!ENTITY anchor.end.accesskey     "d">
-<!ENTITY options.label            "Optionen">
-<!ENTITY domainRestriction.label      "Auf Domain beschränken:">
-<!ENTITY domainRestriction.accesskey  "m">
-<!ENTITY domainRestriction.help       "Geben Sie eine oder mehrere Domains an (Trennzeichen ist &quot;|&quot;), der Filter wird dann nur auf diesen Domains angewandt. Das Zeichen &quot;~&quot; vor einem Domainnamen bedeutet, dass der Filter auf dieser Domain nicht angewandt werden sollte.">
-<!ENTITY firstParty.label         "Nur für Elemente der Ursprungsseite">
-<!ENTITY firstParty.accesskey     "p">
-<!ENTITY thirdParty.label         "Nur für Elemente von Drittseiten">
-<!ENTITY thirdParty.accesskey     "t">
-<!ENTITY matchCase.label          "Groß-/Kleinschreibung beachten">
-<!ENTITY matchCase.accesskey      "K">
-<!ENTITY types.label              "Auf Elementtypen anwenden:">
-<!ENTITY selectAllTypes.label     "Alle auswählen">
-<!ENTITY unselectAllTypes.label   "Keine auswählen">
-
-<!ENTITY collapse.label           "Platz freigeben:">
-<!ENTITY collapse.accesskey       "g">
+<!ENTITY anchor.start.accesskey "f">
+<!ENTITY anchors.label "Muster nur akzeptieren:">
 <!ENTITY collapse.default.yes.label "Standardeinstellung (ja)">
-<!ENTITY collapse.default.no.label  "Standardeinstellung (nein)">
-<!ENTITY collapse.yes.label       "Ja">
-<!ENTITY collapse.no.label        "Nein">
+<!ENTITY type.filter.accesskey "B">
+<!ENTITY domainRestriction.help "Geben Sie eine oder mehrere Domains an (Trennzeichen ist &quot;|&quot;), der Filter wird dann nur auf diesen Domains angewandt. Das Zeichen &quot;~&quot; vor einem Domainnamen bedeutet, dass der Filter auf dieser Domain nicht angewandt werden sollte.">
+<!ENTITY accept.label "Filter hinzufügen">
+<!ENTITY options.label "Optionen">
+<!ENTITY disabled.warning "Adblock Plus ist deaktiviert. Sie können trotzdem den Filter hinzufügen, dieser wird jedoch erst angewandt, wenn Sie [link]Adblock Plus aktivieren[/link].">
+<!ENTITY anchor.start.flexible.label "am Anfang des Domain-Namens">
+<!ENTITY type.whitelist.accesskey "A">
+<!ENTITY matchCase.accesskey "K">
+<!ENTITY anchor.end.accesskey "d">
+<!ENTITY selectAllTypes.label "Alle auswählen">
+<!ENTITY advanced.label "Erweiterte Ansicht">
+<!ENTITY collapse.accesskey "g">
+<!ENTITY pattern.explanation "Das Muster kann ein beliebiger Teil der Adresse sein, das Zeichen '*' kann dabei als Jokerzeichen verwendet werden. Der Filter wird nur auf Adressen angewandt, die auf das Muster passen.">

@@ -1,46 +1,46 @@
-<!ENTITY dialog.title "Filtrowe prawidło Adblock Plus přidać">
-<!ENTITY accept.label "Filter přidać">
-<!ENTITY advanced.label "Rozšěrjeny napohlad">
-<!ENTITY basic.label "Zakładny napohlad">
-<!ENTITY disabled.warning "Adblock Plus je tuchwilu znjemóžnjeny. Móžeće hišće filtry přidać, ale njebudu so nałožować, chibazo [link]zmóžnjeće Adblock Plus[/link].">
-<!ENTITY filter.label "Nowy filter:">
-<!ENTITY filter.accesskey "f">
-<!ENTITY preferences.label "Eksistowace filtry pokazać…">
-<!ENTITY preferences.accesskey "E">
-<!ENTITY type.filter.label "Blokowanski filter">
-<!ENTITY type.filter.accesskey "B">
-<!ENTITY type.whitelist.label "Wuwzaćne prawidło">
-<!ENTITY type.whitelist.accesskey "u">
-<!ENTITY pattern.label "Muster pytać">
-<!ENTITY pattern.explanation "Muster móže dźěl adresy być; hwěžki (*) funguja jako zastupowace symbole. Filter budźe so jenož na adresy nałožować, kotrež podatemu mustrej wotpowěduja.">
-<!ENTITY regexp.warning "Muster, kotryž sće zapodał, budźe so jako regularny wuraz interpretować, kotryž njehodźi so přez Adblock Plus skutkownje předźěłać a móhł waš wobhladowak spomałšić. Jeli nochceće regularny wuraz wužiwać, přidajće hwěžku (*) ke kóncej mustra.">
-<!ENTITY shortpattern.warning "Muster, kotryž sće zapodał, je za optimowanje překrótko a móhł waš wobhladowak spomałšić. Poruča so, zo wubjerjeće dlěši znamješkowy rjećazk za tutón filter, zo byšće Adblock Plus dowolił, filter bóle skutkownje předźěłał.">
-<!ENTITY match.warning "Muster, kotryž sće zapodał, wjace adresy njewotpowěduje, kotraž ma so blokować/do běłeje lisćiny přewzać a njezměje žadyn wuskutk na nju.">
-<!ENTITY custom.pattern.label "Swójski:">
-<!ENTITY custom.pattern.accesskey "S">
-<!ENTITY anchors.label "Jenož muster akceptować:">
-<!ENTITY anchor.start.label "na spočatku adresy">
-<!ENTITY anchor.start.accesskey "d">
-<!ENTITY anchor.start.flexible.label "na spočatku domenoweho mjena">
-<!ENTITY anchor.start.flexible.accesskey "d">
-<!ENTITY anchor.end.label "na kóncu adresy">
-<!ENTITY anchor.end.accesskey "c">
-<!ENTITY options.label "Opcije">
-<!ENTITY domainRestriction.label "Wobmjezować na domenu:">
-<!ENTITY domainRestriction.accesskey "m">
-<!ENTITY domainRestriction.help "Wužijće tutu opciju, zo byšće jednu domenu abo wjacore domeny podał, kotrež přez wertikalnu smužku (|) wotdźělić. Filter budźe so jenož na wubrane domeny nałožować. Tilda (~) před domenowym mjenom podawa, zo filter njebudźe so na tu domenu nałožować.">
-<!ENTITY firstParty.label "Jenož prěni bok">
-<!ENTITY firstParty.accesskey "r">
-<!ENTITY thirdParty.label "Jenož třeći bok">
-<!ENTITY thirdParty.accesskey "T">
-<!ENTITY matchCase.label "Wulkopisanje wobkedźbować">
-<!ENTITY matchCase.accesskey "W">
-<!ENTITY types.label "Nałožić na typy:">
-<!ENTITY selectAllTypes.label "Wšě wubrać">
-<!ENTITY unselectAllTypes.label "Žadyn wubrać">
-<!ENTITY collapse.label "Zablokowane fałdować:">
-<!ENTITY collapse.accesskey "o">
-<!ENTITY collapse.default.yes.label "Standard wužiwać (haj)">
-<!ENTITY collapse.default.no.label "Standard wužiwać (ně)">
 <!ENTITY collapse.yes.label "Haj">
+<!ENTITY anchor.end.label "na kóncu adresy">
+<!ENTITY domainRestriction.label "Wobmjezować na domenu:">
+<!ENTITY anchor.start.flexible.accesskey "d">
+<!ENTITY firstParty.label "Jenož prěni bok">
+<!ENTITY preferences.label "Eksistowace filtry pokazać…">
+<!ENTITY pattern.label "Muster pytać">
+<!ENTITY thirdParty.label "Jenož třeći bok">
+<!ENTITY filter.accesskey "f">
+<!ENTITY thirdParty.accesskey "t">
+<!ENTITY filter.label "Nowy filter:">
+<!ENTITY collapse.label "Zablokowane fałdować:">
+<!ENTITY match.warning "Muster, kotryž sće zapodał, wjace adresy njewotpowěduje, kotraž ma so blokować/do běłeje lisćiny přewzać a njezměje žadyn wuskutk na nju.">
+<!ENTITY anchor.start.label "na spočatku adresy">
 <!ENTITY collapse.no.label "Ně">
+<!ENTITY matchCase.label "Wulkopisanje wobkedźbować">
+<!ENTITY custom.pattern.label "Swójski:">
+<!ENTITY unselectAllTypes.label "Žadyn wubrać">
+<!ENTITY domainRestriction.accesskey "m">
+<!ENTITY type.whitelist.label "Wuwzaćne prawidło">
+<!ENTITY regexp.warning "Muster, kotryž sće zapodał, budźe so jako regularny wuraz interpretować, kotryž njehodźi so přez Adblock Plus skutkownje předźěłać a móhł waš wobhladowak spomałšić. Jeli nochceće regularny wuraz wužiwać, přidajće hwěžku (*) ke kóncej mustra.">
+<!ENTITY dialog.title "Filtrowe prawidło Adblock Plus přidać">
+<!ENTITY basic.label "Zakładny napohlad">
+<!ENTITY preferences.accesskey "E">
+<!ENTITY firstParty.accesskey "J">
+<!ENTITY collapse.default.no.label "Standard wužiwać (ně)">
+<!ENTITY type.filter.label "Blokowanski filter">
+<!ENTITY types.label "Nałožić na typy:">
+<!ENTITY shortpattern.warning "Muster, kotryž sće zapodał, je za optimowanje překrótko a móhł waš wobhladowak spomałšić. Poruča so, zo wubjerjeće dlěši znamješkowy rjećazk za tutón filter, zo byšće Adblock Plus dowolił, filter bóle skutkownje předźěłał.">
+<!ENTITY custom.pattern.accesskey "S">
+<!ENTITY anchor.start.accesskey "d">
+<!ENTITY anchors.label "Jenož muster akceptować:">
+<!ENTITY collapse.default.yes.label "Standard wužiwać (haj)">
+<!ENTITY type.filter.accesskey "B">
+<!ENTITY domainRestriction.help "Wužijće tutu opciju, zo byšće jednu domenu abo wjacore domeny podał, kotrež přez wertikalnu smužku (|) wotdźělić. Filter budźe so jenož na wubrane domeny nałožować. Tilda (~) před domenowym mjenom podawa, zo filter njebudźe so na tu domenu nałožować.">
+<!ENTITY accept.label "Filter přidać">
+<!ENTITY options.label "Opcije">
+<!ENTITY disabled.warning "Adblock Plus je tuchwilu znjemóžnjeny. Móžeće hišće filtry přidać, ale njebudu so nałožować, chibazo [link]zmóžnjeće Adblock Plus[/link].">
+<!ENTITY anchor.start.flexible.label "na spočatku domenoweho mjena">
+<!ENTITY type.whitelist.accesskey "u">
+<!ENTITY matchCase.accesskey "W">
+<!ENTITY anchor.end.accesskey "c">
+<!ENTITY selectAllTypes.label "Wšě wubrać">
+<!ENTITY advanced.label "Rozšěrjeny napohlad">
+<!ENTITY collapse.accesskey "o">
+<!ENTITY pattern.explanation "Muster móže dźěl adresy być; hwěžki (*) funguja jako zastupowace symbole. Filter budźe so jenož na adresy nałožować, kotrež podatemu mustrej wotpowěduja.">

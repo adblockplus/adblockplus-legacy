@@ -1,18 +1,15 @@
-<!ENTITY dialog.title               "Добавить подписку для Adblock Plus">
-<!ENTITY subscriptionSelector.label "Пожалуйста, выберите подписку из списка:">
-
-<!ENTITY viewList.label             "Просмотреть фильтры">
-<!ENTITY visitHomepage.label        "Посетить домашнюю страницу списка">
-
-<!ENTITY addSubscription.label      "Добавить подписку">
-<!ENTITY list.download.failed       "При скачивании списка подписок произошла ошибка.">
-<!ENTITY list.download.retry        "Попробовать еще раз">
-<!ENTITY list.download.website      "Открыть страницу с подписками">
-<!ENTITY fromWeb.description        "Пожалуйста, подтвердите, что вы действительно хотите добавить подписку на этот список фильтров. Вы можете изменить название и адрес подписки перед добавлением.">
-<!ENTITY location.label             "Адрес списка фильтров:">
-<!ENTITY location.accesskey         "д">
-<!ENTITY title.label                "Название подписки:">
-<!ENTITY title.accesskey            "з">
-<!ENTITY supplementMessage          "Этот список фильтров должен использоваться в комбинации со списком фильтров «?1?», который вы не используете.">
-<!ENTITY addMain.label              "Добавить подписку на список фильтров «?1?»">
-<!ENTITY addMain.accesskey          "в">
+<!ENTITY addMain.label "Добавить подписку на список фильтров «?1?»">
+<!ENTITY addMain.accesskey "в">
+<!ENTITY list.download.failed "При скачивании списка подписок произошла ошибка.">
+<!ENTITY list.download.retry "Попробовать еще раз">
+<!ENTITY location.accesskey "д">
+<!ENTITY title.label "Название подписки:">
+<!ENTITY list.download.website "Открыть страницу с подписками">
+<!ENTITY supplementMessage "Этот список фильтров должен использоваться в комбинации со списком фильтров «?1?», который вы не используете.">
+<!ENTITY title.accesskey "з">
+<!ENTITY viewList.label "Просмотреть фильтры">
+<!ENTITY visitHomepage.label "Посетить домашнюю страницу списка">
+<!ENTITY addSubscription.label "Добавить подписку">
+<!ENTITY dialog.title "Добавить подписку для Adblock Plus">
+<!ENTITY location.label "Адрес списка фильтров:">
+<!ENTITY fromWeb.description "Пожалуйста, подтвердите, что вы действительно хотите добавить подписку на этот список фильтров. Вы можете изменить название и адрес подписки перед добавлением.">

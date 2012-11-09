@@ -1,33 +1,31 @@
-<!ENTITY status.tooltip "Trạng thái:">
-<!ENTITY blocked.tooltip "Các mục bị chặn trong trang này:">
-<!ENTITY filters.tooltip "Các bộ lọc có hiệu lực nhất:">
-<!ENTITY menuitem.label "Tùy chọn Adblock Plus">
-<!ENTITY menuitem.accesskey "P">
-<!ENTITY toolbarbutton.label "Adblock Plus">
-<!ENTITY context.image.label "Adblock Plus: Chặn Ảnh">
-<!ENTITY context.object.label "Adblock Plus: Chặn Đối Tượng">
-<!ENTITY context.frame.label "Adblock Plus: Chặn Khung">
-<!ENTITY context.media.label "Adblock Plus: Chặn nhạc/phim">
-<!ENTITY context.removeWhitelist.label "Adblock Plus: Kích Hoạt Lại trên Trang Này">
-<!ENTITY sidebar.title "Các mục bị chặn trên trang hiện tại">
-<!ENTITY sendReport.label "Báo cáo vấn đề trên trang này">
-<!ENTITY sendReport.accesskey "B">
-<!ENTITY opensidebar.label "Mở các mục có thể chặn được">
-<!ENTITY opensidebar.accesskey "m">
-<!ENTITY closesidebar.label "Đóng các mục có thể chặn được">
-<!ENTITY closesidebar.accesskey "m">
-<!ENTITY whitelist.site.label "Vô hiệu hóa trên ?1?">
-<!ENTITY whitelist.page.label "Chỉ vô hiệu hóa trên trang này">
-<!ENTITY disable.label "Vô hiệu hóa ở mọi nơi">
-<!ENTITY options.label "Tùy chọn">
-<!ENTITY options.accesskey "y">
-<!ENTITY showintoolbar.label "Hiện trong thanh công cụ">
 <!ENTITY showintoolbar.accesskey "c">
-<!ENTITY showinstatusbar.label "Hiện trong thanh trạng thái">
 <!ENTITY showinstatusbar.accesskey "r">
-<!ENTITY objecttabs.label "Hiện thẻ trên Flash và Java">
-<!ENTITY objecttabs.accesskey "t">
-<!ENTITY sync.label "Đồng bộ thiết lập Adblock Plus">
-<!ENTITY sync.accesskey "o">
+<!ENTITY whitelist.site.label "Vô hiệu hóa trên ?1?">
+<!ENTITY disable.label "Vô hiệu hóa ở mọi nơi">
 <!ENTITY objecttab.title "Chặn">
+<!ENTITY sync.accesskey "o">
+<!ENTITY objecttabs.label "Hiện thẻ trên Flash và Java">
 <!ENTITY objecttab.tooltip "Nhấn vào đây để chặn đối tượng này với Adblock Plus">
+<!ENTITY menuitem.label "Tùy chọn Adblock Plus">
+<!ENTITY sendReport.accesskey "B">
+<!ENTITY sendReport.label "Báo cáo vấn đề trên trang này">
+<!ENTITY whitelist.page.label "Chỉ vô hiệu hóa trên trang này">
+<!ENTITY context.image.label "Adblock Plus: Chặn Ảnh">
+<!ENTITY closesidebar.accesskey "m">
+<!ENTITY opensidebar.label "Mở các mục có thể chặn được">
+<!ENTITY options.accesskey "y">
+<!ENTITY context.frame.label "Adblock Plus: Chặn Khung">
+<!ENTITY blocked.tooltip "Các mục bị chặn trong trang này:">
+<!ENTITY opensidebar.accesskey "m">
+<!ENTITY showinstatusbar.label "Hiện trong thanh trạng thái">
+<!ENTITY status.tooltip "Trạng thái:">
+<!ENTITY sidebar.title "Các mục bị chặn trên trang hiện tại">
+<!ENTITY sync.label "Đồng bộ thiết lập Adblock Plus">
+<!ENTITY options.label "Tùy chọn">
+<!ENTITY context.object.label "Adblock Plus: Chặn Đối Tượng">
+<!ENTITY context.removeWhitelist.label "Adblock Plus: Kích Hoạt Lại trên Trang Này">
+<!ENTITY filters.tooltip "Các bộ lọc có hiệu lực nhất:">
+<!ENTITY closesidebar.label "Đóng các mục có thể chặn được">
+<!ENTITY showintoolbar.label "Hiện trong thanh công cụ">
+<!ENTITY menuitem.accesskey "P">
+<!ENTITY context.media.label "Adblock Plus: Chặn nhạc/phim">

@@ -1,22 +1,7 @@
-<!ENTITY typeSelector.falsePositive.accesskey "m">
-<!ENTITY typeSelector.falseNegative.accesskey "v">
-<!ENTITY typeSelector.other.accesskey "t">
-<!ENTITY recentReports.clear.accesskey "R">
-<!ENTITY issues.override.accesskey "C">
-<!ENTITY typeWarning.override.accesskey "s">
-<!ENTITY reloadButton.accesskey "R">
-<!ENTITY screenshot.attach.accesskey "t">
-<!ENTITY screenshot.mark.accesskey "M">
-<!ENTITY screenshot.remove.accesskey "R">
-<!ENTITY screenshot.undo.accesskey "U">
-<!ENTITY comment.accesskey "C">
-<!ENTITY email.accesskey "m">
-<!ENTITY attachExtensions.accesskey "x">
-<!ENTITY sendButton.accesskey "m">
 <!ENTITY showData.label "යවන ලද දත්ත පෙන්වන්න">
-<!ENTITY data.label "දත්ත වාර්තා කරන්න">
-<!ENTITY data.accesskey "p">
-<!ENTITY sendPage.heading "දත්ත යවන්න">
 <!ENTITY sendPage.retry.label "නැවත යවන්න">
+<!ENTITY data.label "දත්ත වාර්තා කරන්න">
+<!ENTITY sendPage.heading "දත්ත යවන්න">
+<!ENTITY issues.override.accesskey "C">
+<!ENTITY sendButton.accesskey "m">
 <!ENTITY copyLink.label "නැවත පිටපත් කරන්න">
-<!ENTITY copyLink.accesskey "C">

@@ -1,42 +1,34 @@
-<!ENTITY status.tooltip "Status:">
-<!ENTITY blocked.tooltip "Blockerade objekt på denna sida:">
-<!ENTITY filters.tooltip "Mest aktiva filter:">
-<!ENTITY menuitem.label "Inställningar för Adblock Plus">
-<!ENTITY menuitem.accesskey "A">
-<!ENTITY toolbarbutton.label "Adblock Plus">
-<!ENTITY context.image.label "Adblock Plus: Blockera bild">
-<!ENTITY context.object.label "Adblock Plus: Blockera objekt">
-<!ENTITY context.frame.label "Adblock Plus: Blockera ram">
-<!ENTITY context.media.label "Adblock Plus: Blockera ljud/video">
-<!ENTITY context.removeWhitelist.label "Adblock Plus: Återaktivera på denna sida">
-<!ENTITY sidebar.title "Blockerbara objekt på denna sida">
-<!ENTITY sendReport.label "Rapportera problem på denna sida">
-<!ENTITY sendReport.accesskey "R">
-<!ENTITY filters.label "Filterinställningar">
-<!ENTITY filters.accesskey "F">
-<!ENTITY opensidebar.label "Visa lista över blockerbara objekt">
-<!ENTITY opensidebar.accesskey "b">
-<!ENTITY closesidebar.label "Stäng listan över blockerbara objekt">
-<!ENTITY closesidebar.accesskey "b">
+<!ENTITY showintoolbar.accesskey "f">
+<!ENTITY sync.label "Synkronisera Adblock Plus inställningar">
 <!ENTITY whitelist.site.label "Använd inte på ?1?">
-<!ENTITY whitelist.page.label "Använd inte på denna sida">
+<!ENTITY filters.label "Filterinställningar">
 <!ENTITY disable.label "Inaktivera för alla domäner">
-<!ENTITY options.label "Alternativ">
+<!ENTITY showinaddonbar.label "Visa i tilläggsfältet">
+<!ENTITY objecttab.title "Blockera">
+<!ENTITY showinaddonbar.accesskey "f">
+<!ENTITY sync.accesskey "k">
+<!ENTITY objecttab.tooltip "Klicka här för att blockera detta objekt med Adblock Plus">
+<!ENTITY menuitem.label "Inställningar för Adblock Plus">
+<!ENTITY objecttabs.label "Visa flik vid Flash- och Java-reklam">
+<!ENTITY sendReport.label "Rapportera problem på denna sida">
+<!ENTITY whitelist.page.label "Använd inte på denna sida">
+<!ENTITY context.image.label "Adblock Plus: Blockera bild">
+<!ENTITY counthits.label "Räkna antalet filterträffar">
+<!ENTITY opensidebar.label "Visa lista över blockerbara objekt">
 <!ENTITY options.accesskey "n">
 <!ENTITY contribute.label "Bidra till Adblock Plus">
-<!ENTITY showintoolbar.label "Visa i verktygsfältet">
-<!ENTITY showintoolbar.accesskey "f">
-<!ENTITY showinstatusbar.label "Visa i statusfältet">
-<!ENTITY showinstatusbar.accesskey "s">
-<!ENTITY showinaddonbar.label "Visa i tilläggsfältet">
-<!ENTITY showinaddonbar.accesskey "f">
-<!ENTITY objecttabs.label "Visa flik vid Flash- och Java-reklam">
-<!ENTITY objecttabs.accesskey "V">
+<!ENTITY context.frame.label "Adblock Plus: Blockera ram">
+<!ENTITY blocked.tooltip "Blockerade objekt på denna sida:">
 <!ENTITY hideplaceholders.label "Dölj platshållare för blockerade element">
-<!ENTITY hideplaceholders.accesskey "l">
-<!ENTITY counthits.label "Räkna antalet filterträffar">
+<!ENTITY showinstatusbar.label "Visa i statusfältet">
+<!ENTITY sidebar.title "Blockerbara objekt på denna sida">
+<!ENTITY options.label "Alternativ">
+<!ENTITY context.object.label "Adblock Plus: Blockera objekt">
+<!ENTITY context.removeWhitelist.label "Adblock Plus: Återaktivera på denna sida">
+<!ENTITY objecttabs.accesskey "V">
+<!ENTITY filters.tooltip "Mest aktiva filter:">
+<!ENTITY closesidebar.label "Stäng listan över blockerbara objekt">
+<!ENTITY showintoolbar.label "Visa i verktygsfältet">
 <!ENTITY counthits.accesskey "t">
-<!ENTITY sync.label "Synkronisera Adblock Plus inställningar">
-<!ENTITY sync.accesskey "k">
-<!ENTITY objecttab.title "Blockera">
-<!ENTITY objecttab.tooltip "Klicka här för att blockera detta objekt med Adblock Plus">
+<!ENTITY menuitem.accesskey "A">
+<!ENTITY context.media.label "Adblock Plus: Blockera ljud/video">

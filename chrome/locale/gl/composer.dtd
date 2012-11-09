@@ -1,46 +1,42 @@
-<!ENTITY dialog.title "Engadir regra de filtrado Adblock Plus">
-<!ENTITY accept.label "Engadir filtro">
-<!ENTITY advanced.label "Vista avanzada">
-<!ENTITY basic.label "Vista básica">
-<!ENTITY disabled.warning "Adblock Plus atópase actualmente desactivado. Aínda pode engadir os filtros, mais non se aplicarán a menos que vostede [link]active Adblock Plus[/link].">
-<!ENTITY filter.label "Filtro novo:">
-<!ENTITY filter.accesskey "F">
-<!ENTITY preferences.label "Mostrar filtros existentes ...">
-<!ENTITY preferences.accesskey "S">
-<!ENTITY type.filter.label "Filtro de bloqueo">
-<!ENTITY type.filter.accesskey "B">
-<!ENTITY type.whitelist.label "Excepción">
-<!ENTITY type.whitelist.accesskey "x">
-<!ENTITY pattern.label "Buscar unha pauta">
-<!ENTITY pattern.explanation "A pauta pode ser calquera parte da dirección, o símbolo * actúa como comodín. O filtro só se aplicará ás direccións coincidentes coa pauta.">
-<!ENTITY regexp.warning "A pauta que introduciu interprétase como unha expresión regular, e usar moitas podería retardar a navegación. Se non ten a intención de utilizar expresións regulares, engada un símbolo * ao final da pauta.">
-<!ENTITY shortpattern.warning "A pauta que introduciu é demasiado curta para ser optimizada, de haber moitas pautas así podería retardarse a navegación. Recoméndase que vostede elixa unha cadea máis longa para este filtro.">
-<!ENTITY match.warning "O patrón que inseriu non coincide co enderezo a ser bloqueado ou posto na lista branca e non terá ningún efecto.">
-<!ENTITY custom.pattern.label "Personalizado:">
-<!ENTITY custom.pattern.accesskey "P">
-<!ENTITY anchors.label "Acepte só a pauta:">
-<!ENTITY anchor.start.label "ao comezo da dirección">
-<!ENTITY anchor.start.accesskey "z">
-<!ENTITY anchor.start.flexible.label "ao comezo do nome do dominio">
-<!ENTITY anchor.start.flexible.accesskey "z">
-<!ENTITY anchor.end.label "ao final da dirección">
-<!ENTITY anchor.end.accesskey "d">
-<!ENTITY options.label "Opcións">
-<!ENTITY domainRestriction.label "Restrición ao dominio:">
-<!ENTITY domainRestriction.accesskey "R">
-<!ENTITY domainRestriction.help "Especifique un ou máis dominios separados polo símbolo &quot;|&quot;, o filtro só se aplicará nestes dominios. O símbolo &quot;~&quot; antes dun nome de dominio significa que o filtro non debe aplicarse sobre el.">
-<!ENTITY firstParty.label "Só de orixe">
-<!ENTITY firstParty.accesskey "i">
-<!ENTITY thirdParty.label "Só de terceiros">
-<!ENTITY thirdParty.accesskey "T">
-<!ENTITY matchCase.label "Caso coincidente">
-<!ENTITY matchCase.accesskey "C">
-<!ENTITY types.label "Aplicar aos tipos:">
-<!ENTITY selectAllTypes.label "Marcar todos">
-<!ENTITY unselectAllTypes.label "Non marcar ningún">
-<!ENTITY collapse.label "Encartar bloqueados:">
-<!ENTITY collapse.accesskey "E">
-<!ENTITY collapse.default.yes.label "Uso por defecto (si)">
-<!ENTITY collapse.default.no.label "Uso por defecto (non)">
 <!ENTITY collapse.yes.label "Si">
+<!ENTITY anchor.end.label "ao final da dirección">
+<!ENTITY domainRestriction.label "Restrición ao dominio:">
+<!ENTITY anchor.start.flexible.accesskey "z">
+<!ENTITY firstParty.label "Só de orixe">
+<!ENTITY preferences.label "Mostrar filtros existentes ...">
+<!ENTITY pattern.label "Buscar unha pauta">
+<!ENTITY thirdParty.label "Só de terceiros">
+<!ENTITY filter.accesskey "F">
+<!ENTITY filter.label "Filtro novo:">
+<!ENTITY collapse.label "Encartar bloqueados:">
+<!ENTITY match.warning "O patrón que inseriu non coincide co enderezo a ser bloqueado ou posto na lista branca e non terá ningún efecto.">
+<!ENTITY anchor.start.label "ao comezo da dirección">
 <!ENTITY collapse.no.label "Non">
+<!ENTITY matchCase.label "Caso coincidente">
+<!ENTITY custom.pattern.label "Personalizado:">
+<!ENTITY unselectAllTypes.label "Non marcar ningún">
+<!ENTITY domainRestriction.accesskey "R">
+<!ENTITY type.whitelist.label "Excepción">
+<!ENTITY regexp.warning "A pauta que introduciu interprétase como unha expresión regular, e usar moitas podería retardar a navegación. Se non ten a intención de utilizar expresións regulares, engada un símbolo * ao final da pauta.">
+<!ENTITY dialog.title "Engadir regra de filtrado Adblock Plus">
+<!ENTITY basic.label "Vista básica">
+<!ENTITY firstParty.accesskey "i">
+<!ENTITY collapse.default.no.label "Uso por defecto (non)">
+<!ENTITY type.filter.label "Filtro de bloqueo">
+<!ENTITY types.label "Aplicar aos tipos:">
+<!ENTITY anchor.start.accesskey "z">
+<!ENTITY custom.pattern.accesskey "P">
+<!ENTITY shortpattern.warning "A pauta que introduciu é demasiado curta para ser optimizada, de haber moitas pautas así podería retardarse a navegación. Recoméndase que vostede elixa unha cadea máis longa para este filtro.">
+<!ENTITY anchors.label "Acepte só a pauta:">
+<!ENTITY collapse.default.yes.label "Uso por defecto (si)">
+<!ENTITY domainRestriction.help "Especifique un ou máis dominios separados polo símbolo &quot;|&quot;, o filtro só se aplicará nestes dominios. O símbolo &quot;~&quot; antes dun nome de dominio significa que o filtro non debe aplicarse sobre el.">
+<!ENTITY accept.label "Engadir filtro">
+<!ENTITY options.label "Opcións">
+<!ENTITY disabled.warning "Adblock Plus atópase actualmente desactivado. Aínda pode engadir os filtros, mais non se aplicarán a menos que vostede [link]active Adblock Plus[/link].">
+<!ENTITY anchor.start.flexible.label "ao comezo do nome do dominio">
+<!ENTITY matchCase.accesskey "C">
+<!ENTITY anchor.end.accesskey "d">
+<!ENTITY selectAllTypes.label "Marcar todos">
+<!ENTITY advanced.label "Vista avanzada">
+<!ENTITY collapse.accesskey "E">
+<!ENTITY pattern.explanation "A pauta pode ser calquera parte da dirección, o símbolo * actúa como comodín. O filtro só se aplicará ás direccións coincidentes coa pauta.">

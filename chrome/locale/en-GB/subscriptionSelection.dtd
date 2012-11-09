@@ -1,16 +1,15 @@
-<!ENTITY dialog.title "Add Adblock Plus filter subscription">
-<!ENTITY subscriptionSelector.label "Please choose a filter subscription from the list:">
+<!ENTITY addMain.label "Add filter subscription &quot;?1?&quot; as well">
+<!ENTITY addMain.accesskey "s">
+<!ENTITY list.download.failed "Adblock Plus failed to retrieve the list of subscriptions.">
+<!ENTITY list.download.retry "Try again">
+<!ENTITY location.accesskey "l">
+<!ENTITY title.label "Subscription title:">
+<!ENTITY list.download.website "View website">
+<!ENTITY supplementMessage "This filter subscription is meant to be used with the filter subscription &quot;?1?&quot; which you are not using yet.">
+<!ENTITY title.accesskey "t">
 <!ENTITY viewList.label "View filters">
 <!ENTITY visitHomepage.label "Visit home page">
 <!ENTITY addSubscription.label "Add subscription">
-<!ENTITY list.download.failed "Adblock Plus failed to retrieve the list of subscriptions.">
-<!ENTITY list.download.retry "Try again">
-<!ENTITY list.download.website "View website">
-<!ENTITY fromWeb.description "Please confirm that you want to add this filter subscription. You can change the subscription title or location before adding it.">
-<!ENTITY title.label "Subscription title:">
-<!ENTITY title.accesskey "t">
+<!ENTITY dialog.title "Add Adblock Plus filter subscription">
 <!ENTITY location.label "Filter list location:">
-<!ENTITY location.accesskey "l">
-<!ENTITY supplementMessage "This filter subscription is meant to be used with the filter subscription &quot;?1?&quot; which you are not using yet.">
-<!ENTITY addMain.label "Add filter subscription &quot;?1?&quot; as well">
-<!ENTITY addMain.accesskey "s">
+<!ENTITY fromWeb.description "Please confirm that you want to add this filter subscription. You can change the subscription title or location before adding it.">

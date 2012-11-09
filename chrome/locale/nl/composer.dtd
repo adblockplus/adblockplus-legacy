@@ -1,46 +1,46 @@
-<!ENTITY dialog.title "Adblock Plus-filterregel toevoegen">
-<!ENTITY accept.label "Filter toevoegen">
-<!ENTITY advanced.label "Uitgebreid">
-<!ENTITY basic.label "Eenvoudig">
-<!ENTITY disabled.warning "Adblock Plus is momenteel uitgeschakeld. U kunt nog wel filters toevoegen, maar ze worden niet toegepast tenzij u [link]Adblock Plus weer inschakelt[/link].">
-<!ENTITY filter.label "Nieuw filter:">
-<!ENTITY filter.accesskey "N">
-<!ENTITY preferences.label "Bestaande filters weergeven…">
-<!ENTITY preferences.accesskey "W">
-<!ENTITY type.filter.label "Blokkerend filter">
-<!ENTITY type.filter.accesskey "B">
-<!ENTITY type.whitelist.label "Uitzonderingsregel">
-<!ENTITY type.whitelist.accesskey "U">
-<!ENTITY pattern.label "Naar patroon zoeken">
-<!ENTITY pattern.explanation "Het patroon kan ieder gedeelte zijn van het adres, waarbij een asterisk (*) als wildcard geldt. Het filter wordt alleen toegepast op adressen die met het patroon overeenkomen.">
-<!ENTITY regexp.warning "Het patroon dat u heeft gegeven zal worden behandeld als een reguliere expressie. Deze kunnen niet efficiënt worden verwerkt door Adblock Plus en kunnen uw browser traag maken. Als het niet uw bedoeling was een reguliere expressie te schrijven, voeg dan een asterisk (*) aan het eind van het patroon toe.">
-<!ENTITY shortpattern.warning "Het patroon dat u heeft gegeven is te kort om te worden geoptimaliseerd en kan uw browser traag maken. U kunt beter een langere regel voor dit filter kiezen, zodat Adblock Plus het filter efficiënter kan toepassen.">
-<!ENTITY match.warning "Het door u ingegeven patroon komt niet meer overeen met het te blokkeren/op de witte lijst te plaatsen adres en zal er geen effect op hebben.">
-<!ENTITY custom.pattern.label "Aangepast:">
-<!ENTITY custom.pattern.accesskey "A">
-<!ENTITY anchors.label "Alleen patronen accepteren:">
-<!ENTITY anchor.start.label "aan het begin van het adres">
-<!ENTITY anchor.start.accesskey "h">
-<!ENTITY anchor.start.flexible.label "aan het begin van de domeinnaam">
-<!ENTITY anchor.start.flexible.accesskey "h">
-<!ENTITY anchor.end.label "aan het eind van het adres">
-<!ENTITY anchor.end.accesskey "e">
-<!ENTITY options.label "Opties">
-<!ENTITY domainRestriction.label "Tot domein beperken:">
-<!ENTITY domainRestriction.accesskey "p">
-<!ENTITY domainRestriction.help "Gebruik deze optie om één of meer domeinen te specificeren, gescheiden door een lijn (|). Het filter zal alleen op deze domeinen worden toegepast. Een tilde (~) voor een domein betekent dat het filter niet moet worden toegepast op dat domein.">
-<!ENTITY firstParty.label "Alleen van eigen site">
-<!ENTITY firstParty.accesskey "l">
-<!ENTITY thirdParty.label "Alleen van derden">
-<!ENTITY thirdParty.accesskey "d">
-<!ENTITY matchCase.label "Hoofdlettergevoelig">
-<!ENTITY matchCase.accesskey "o">
-<!ENTITY types.label "Toepassen op types:">
-<!ENTITY selectAllTypes.label "Alles selecteren">
-<!ENTITY unselectAllTypes.label "Niets selecteren">
-<!ENTITY collapse.label "Geblokkeerd onderdeel inklappen:">
-<!ENTITY collapse.accesskey "G">
-<!ENTITY collapse.default.yes.label "Standaard gebruiken (ja)">
-<!ENTITY collapse.default.no.label "Standaard gebruiken (nee)">
 <!ENTITY collapse.yes.label "Ja">
+<!ENTITY anchor.end.label "aan het eind van het adres">
+<!ENTITY domainRestriction.label "Tot domein beperken:">
+<!ENTITY anchor.start.flexible.accesskey "h">
+<!ENTITY firstParty.label "Alleen van eigen site">
+<!ENTITY preferences.label "Bestaande filters weergeven…">
+<!ENTITY pattern.label "Naar patroon zoeken">
+<!ENTITY thirdParty.label "Alleen van derden">
+<!ENTITY filter.accesskey "N">
+<!ENTITY thirdParty.accesskey "d">
+<!ENTITY filter.label "Nieuw filter:">
+<!ENTITY collapse.label "Geblokkeerd onderdeel inklappen:">
+<!ENTITY match.warning "Het door u ingegeven patroon komt niet meer overeen met het te blokkeren/op de witte lijst te plaatsen adres en zal er geen effect op hebben.">
+<!ENTITY anchor.start.label "aan het begin van het adres">
 <!ENTITY collapse.no.label "Nee">
+<!ENTITY matchCase.label "Hoofdlettergevoelig">
+<!ENTITY custom.pattern.label "Aangepast:">
+<!ENTITY unselectAllTypes.label "Niets selecteren">
+<!ENTITY domainRestriction.accesskey "p">
+<!ENTITY type.whitelist.label "Uitzonderingsregel">
+<!ENTITY regexp.warning "Het patroon dat u heeft gegeven zal worden behandeld als een reguliere expressie. Deze kunnen niet efficiënt worden verwerkt door Adblock Plus en kunnen uw browser traag maken. Als het niet uw bedoeling was een reguliere expressie te schrijven, voeg dan een asterisk (*) aan het eind van het patroon toe.">
+<!ENTITY dialog.title "Adblock Plus-filterregel toevoegen">
+<!ENTITY basic.label "Eenvoudig">
+<!ENTITY preferences.accesskey "W">
+<!ENTITY firstParty.accesskey "l">
+<!ENTITY collapse.default.no.label "Standaard gebruiken (nee)">
+<!ENTITY type.filter.label "Blokkerend filter">
+<!ENTITY types.label "Toepassen op types:">
+<!ENTITY shortpattern.warning "Het patroon dat u heeft gegeven is te kort om te worden geoptimaliseerd en kan uw browser traag maken. U kunt beter een langere regel voor dit filter kiezen, zodat Adblock Plus het filter efficiënter kan toepassen.">
+<!ENTITY custom.pattern.accesskey "A">
+<!ENTITY anchor.start.accesskey "h">
+<!ENTITY anchors.label "Alleen patronen accepteren:">
+<!ENTITY collapse.default.yes.label "Standaard gebruiken (ja)">
+<!ENTITY type.filter.accesskey "B">
+<!ENTITY domainRestriction.help "Gebruik deze optie om één of meer domeinen te specificeren, gescheiden door een lijn (|). Het filter zal alleen op deze domeinen worden toegepast. Een tilde (~) voor een domein betekent dat het filter niet moet worden toegepast op dat domein.">
+<!ENTITY accept.label "Filter toevoegen">
+<!ENTITY options.label "Opties">
+<!ENTITY disabled.warning "Adblock Plus is momenteel uitgeschakeld. U kunt nog wel filters toevoegen, maar ze worden niet toegepast tenzij u [link]Adblock Plus weer inschakelt[/link].">
+<!ENTITY anchor.start.flexible.label "aan het begin van de domeinnaam">
+<!ENTITY type.whitelist.accesskey "U">
+<!ENTITY matchCase.accesskey "o">
+<!ENTITY anchor.end.accesskey "e">
+<!ENTITY selectAllTypes.label "Alles selecteren">
+<!ENTITY advanced.label "Uitgebreid">
+<!ENTITY collapse.accesskey "G">
+<!ENTITY pattern.explanation "Het patroon kan ieder gedeelte zijn van het adres, waarbij een asterisk (*) als wildcard geldt. Het filter wordt alleen toegepast op adressen die met het patroon overeenkomen.">

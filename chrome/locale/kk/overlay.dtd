@@ -1,42 +1,42 @@
-<!ENTITY status.tooltip "Күйі:">
-<!ENTITY blocked.tooltip "Бұл парақтағы блокталған құрама:">
-<!ENTITY filters.tooltip "Көп қолданылатын фильтрлер:">
-<!ENTITY menuitem.label "Adblock Plus баптаулары">
-<!ENTITY menuitem.accesskey "п">
-<!ENTITY toolbarbutton.label "Adblock Plus">
-<!ENTITY context.image.label "Adblock Plus: Суретті блоктау">
-<!ENTITY context.object.label "Adblock Plus: Объектті блоктау">
-<!ENTITY context.frame.label "Adblock Plus: Фреймді блоктау">
-<!ENTITY context.media.label "Adblock Plus: Аудио/Видеоны блоктау">
-<!ENTITY context.removeWhitelist.label "Adblock Plus: Осы парақта қайта қосу">
-<!ENTITY sidebar.title "Ағымдағы парақ құрамасы">
-<!ENTITY sendReport.label "Бұл парақтағы мәселе туралы хабарлау">
-<!ENTITY sendReport.accesskey "х">
-<!ENTITY filters.label "Фильтр баптаулары">
-<!ENTITY filters.accesskey "р">
-<!ENTITY opensidebar.label "Блокталған құраманы ашу">
-<!ENTITY opensidebar.accesskey "у">
-<!ENTITY closesidebar.label "Блокталған құраманы жабу">
-<!ENTITY closesidebar.accesskey "у">
+<!ENTITY showintoolbar.accesskey "П">
+<!ENTITY showinstatusbar.accesskey "к">
 <!ENTITY whitelist.site.label "Келесі үшін сөндіру: ?1?">
-<!ENTITY whitelist.page.label "Тек осы парақ үшін сөндіру">
+<!ENTITY filters.label "Фильтр баптаулары">
 <!ENTITY disable.label "Әр жерде сөндіру">
-<!ENTITY options.label "Баптаулар">
+<!ENTITY showinaddonbar.label "Қосымшалар панелінде көрсету">
+<!ENTITY objecttab.title "Блоктау">
+<!ENTITY showinaddonbar.accesskey "е">
+<!ENTITY sync.accesskey "ш">
+<!ENTITY objecttabs.label "Flash пен Java-ға сілтеме қалдыру">
+<!ENTITY objecttab.tooltip "Adblock Plus көмегімен осы объектті блоктау үшін шертіңіз">
+<!ENTITY menuitem.label "Adblock Plus баптаулары">
+<!ENTITY sendReport.accesskey "х">
+<!ENTITY sendReport.label "Бұл парақтағы мәселе туралы хабарлау">
+<!ENTITY filters.accesskey "р">
+<!ENTITY whitelist.page.label "Тек осы парақ үшін сөндіру">
+<!ENTITY context.image.label "Adblock Plus: Суретті блоктау">
+<!ENTITY closesidebar.accesskey "у">
+<!ENTITY hideplaceholders.label "Блокталған элементтер шектерін жасыру">
+<!ENTITY opensidebar.label "Блокталған құраманы ашу">
 <!ENTITY options.accesskey "Б">
 <!ENTITY contribute.label "Adblock Plus-қа үлес қосу">
-<!ENTITY showintoolbar.label "Панельде көрсету">
-<!ENTITY showintoolbar.accesskey "П">
-<!ENTITY showinstatusbar.label "Қалып-күй жолағында көрсету">
-<!ENTITY showinstatusbar.accesskey "к">
-<!ENTITY showinaddonbar.label "Қосымшалар панелінде көрсету">
-<!ENTITY showinaddonbar.accesskey "е">
-<!ENTITY objecttabs.label "Flash пен Java-ға сілтеме қалдыру">
-<!ENTITY objecttabs.accesskey "д">
-<!ENTITY hideplaceholders.label "Блокталған элементтер шектерін жасыру">
-<!ENTITY hideplaceholders.accesskey "э">
+<!ENTITY toolbarbutton.label "Adblock Plus">
+<!ENTITY context.frame.label "Adblock Plus: Фреймді блоктау">
 <!ENTITY counthits.label "Фильтрлер хиттерін санау">
-<!ENTITY counthits.accesskey "и">
+<!ENTITY blocked.tooltip "Бұл парақтағы блокталған құрама:">
+<!ENTITY opensidebar.accesskey "у">
+<!ENTITY showinstatusbar.label "Қалып-күй жолағында көрсету">
+<!ENTITY status.tooltip "Күйі:">
+<!ENTITY sidebar.title "Ағымдағы парақ құрамасы">
 <!ENTITY sync.label "Adblock Plus баптауларын Sync ішіне қосу">
-<!ENTITY sync.accesskey "ш">
-<!ENTITY objecttab.title "Блоктау">
-<!ENTITY objecttab.tooltip "Adblock Plus көмегімен осы объектті блоктау үшін шертіңіз">
+<!ENTITY options.label "Баптаулар">
+<!ENTITY context.object.label "Adblock Plus: Объектті блоктау">
+<!ENTITY context.removeWhitelist.label "Adblock Plus: Осы парақта қайта қосу">
+<!ENTITY objecttabs.accesskey "д">
+<!ENTITY filters.tooltip "Көп қолданылатын фильтрлер:">
+<!ENTITY closesidebar.label "Блокталған құраманы жабу">
+<!ENTITY showintoolbar.label "Панельде көрсету">
+<!ENTITY counthits.accesskey "и">
+<!ENTITY menuitem.accesskey "п">
+<!ENTITY context.media.label "Adblock Plus: Аудио/Видеоны блоктау">
+<!ENTITY hideplaceholders.accesskey "э">

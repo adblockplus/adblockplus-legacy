@@ -1,42 +1,42 @@
-<!ENTITY status.tooltip "状态:">
-<!ENTITY blocked.tooltip "该页上已过滤的项目:">
-<!ENTITY filters.tooltip "最活跃过滤规则:">
-<!ENTITY menuitem.label "Adblock Plus 首选项">
-<!ENTITY menuitem.accesskey "b">
-<!ENTITY toolbarbutton.label "Adblock Plus">
-<!ENTITY context.image.label "过滤图片(Adblock Plus)">
-<!ENTITY context.object.label "过滤对象(Adblock Plus)">
-<!ENTITY context.frame.label "过滤帧(Adblock Plus)">
-<!ENTITY context.media.label "过滤视频/音频(Adblock Plus)">
-<!ENTITY context.removeWhitelist.label "Adblock Plus: 在此页面上重新启用">
-<!ENTITY sidebar.title "本页可过滤的项目">
-<!ENTITY sendReport.label "报告该页面上的问题">
-<!ENTITY sendReport.accesskey "R">
-<!ENTITY filters.label "过滤规则首选项">
-<!ENTITY filters.accesskey "F">
-<!ENTITY opensidebar.label "打开可过滤项目">
-<!ENTITY opensidebar.accesskey "b">
-<!ENTITY closesidebar.label "关闭可过滤项目">
-<!ENTITY closesidebar.accesskey "b">
+<!ENTITY showintoolbar.accesskey "b">
+<!ENTITY showinstatusbar.accesskey "s">
 <!ENTITY whitelist.site.label "在 ?1? 禁用 Adblock Plus">
-<!ENTITY whitelist.page.label "仅在本页禁用 Adblock Plus">
+<!ENTITY filters.label "过滤规则首选项">
 <!ENTITY disable.label "完全禁用">
-<!ENTITY options.label "选项">
+<!ENTITY showinaddonbar.label "在附加组件栏显示">
+<!ENTITY objecttab.title "屏蔽">
+<!ENTITY showinaddonbar.accesskey "b">
+<!ENTITY sync.accesskey "c">
+<!ENTITY objecttabs.label "在 Flash 和 Java 上显示标签">
+<!ENTITY objecttab.tooltip "点击这里用 Adblock Plus 屏蔽该对象">
+<!ENTITY menuitem.label "Adblock Plus 首选项">
+<!ENTITY sendReport.accesskey "R">
+<!ENTITY sendReport.label "报告该页面上的问题">
+<!ENTITY filters.accesskey "F">
+<!ENTITY whitelist.page.label "仅在本页禁用 Adblock Plus">
+<!ENTITY context.image.label "过滤图片(Adblock Plus)">
+<!ENTITY closesidebar.accesskey "b">
+<!ENTITY hideplaceholders.label "隐藏已屏蔽元素的占位符">
+<!ENTITY opensidebar.label "打开可过滤项目">
 <!ENTITY options.accesskey "O">
 <!ENTITY contribute.label "助力 Adblock Plus">
-<!ENTITY showintoolbar.label "在工具栏显示">
-<!ENTITY showintoolbar.accesskey "b">
-<!ENTITY showinstatusbar.label "在状态栏显示">
-<!ENTITY showinstatusbar.accesskey "s">
-<!ENTITY showinaddonbar.label "在附加组件栏显示">
-<!ENTITY showinaddonbar.accesskey "b">
-<!ENTITY objecttabs.label "在 Flash 和 Java 上显示标签">
-<!ENTITY objecttabs.accesskey "t">
-<!ENTITY hideplaceholders.label "隐藏已屏蔽元素的占位符">
-<!ENTITY hideplaceholders.accesskey "l">
+<!ENTITY toolbarbutton.label "Adblock Plus">
+<!ENTITY context.frame.label "过滤帧(Adblock Plus)">
 <!ENTITY counthits.label "统计过滤规则生效次数">
-<!ENTITY counthits.accesskey "h">
+<!ENTITY blocked.tooltip "该页上已过滤的项目:">
+<!ENTITY opensidebar.accesskey "b">
+<!ENTITY showinstatusbar.label "在状态栏显示">
+<!ENTITY status.tooltip "状态:">
+<!ENTITY sidebar.title "本页可过滤的项目">
 <!ENTITY sync.label "同步 Adblock Plus 设置">
-<!ENTITY sync.accesskey "c">
-<!ENTITY objecttab.title "屏蔽">
-<!ENTITY objecttab.tooltip "点击这里用 Adblock Plus 屏蔽该对象">
+<!ENTITY options.label "选项">
+<!ENTITY context.object.label "过滤对象(Adblock Plus)">
+<!ENTITY context.removeWhitelist.label "Adblock Plus: 在此页面上重新启用">
+<!ENTITY objecttabs.accesskey "t">
+<!ENTITY filters.tooltip "最活跃过滤规则:">
+<!ENTITY closesidebar.label "关闭可过滤项目">
+<!ENTITY showintoolbar.label "在工具栏显示">
+<!ENTITY counthits.accesskey "h">
+<!ENTITY menuitem.accesskey "b">
+<!ENTITY context.media.label "过滤视频/音频(Adblock Plus)">
+<!ENTITY hideplaceholders.accesskey "l">

@@ -1,93 +1,85 @@
-<!ENTITY dialog.title "Gestione dei filtri di Adblock Plus">
-<!ENTITY subscriptions.tab.label "Sottoscrizioni di filtri">
-<!ENTITY filters.tab.label "Filtri personalizzati">
-<!ENTITY addSubscription.label "Aggiungi sottoscrizione">
-<!ENTITY addSubscription.accesskey "A">
-<!ENTITY addSubscriptionAdd.label "Aggiungi">
-<!ENTITY addSubscriptionCancel.label "Annulla">
-<!ENTITY addSubscriptionOther.label "Altre sottoscrizioni">
-<!ENTITY noSubscriptions.text "
-		Non è stata ancora aggiunta alcuna sottoscrizione di filtri, senza cui Adblock Plus non
-	bloccherà alcun elemento; fare clic sul pulsante &quot;Aggiungi sottoscrizione…&quot;
-	per aggiungerne una
-	">
-<!ENTITY subscription.homepage.label "Sito web">
-<!ENTITY subscription.external.label "Sottoscrizione aggiornata da un&apos;altra estensione">
-<!ENTITY subscription.source.label "Lista di filtri">
-<!ENTITY subscription.enabled.label "Attiva">
-<!ENTITY subscription.lastDownload.label "Ultimo aggiornamento:">
-<!ENTITY subscription.lastDownload.inProgress "download in corso…">
-<!ENTITY subscription.lastDownload.unknown "sconosciuto">
-<!ENTITY subscription.lastDownload.invalidURL "Sincronizzazione non riuscita, indirizzo web non valido">
-<!ENTITY subscription.lastDownload.connectionError "Sincronizzazione non riuscita, errore durante il download">
-<!ENTITY subscription.lastDownload.invalidData "Sincronizzazione non riuscita, lista dei filtri non valida">
-<!ENTITY subscription.lastDownload.checksumMismatch "Sincronizzazione non riuscita, checksum non corrispondente">
-<!ENTITY subscription.lastDownload.success "Sincronizzazione effettuata con successo">
-<!ENTITY subscription.minVersion.warning "Per questa sottoscrizione di filtri è necessaria una versione di Adblock Plus aggiornata. È necessario installare l&apos;ultima versione di Adblock Plus">
-<!ENTITY subscription.disabledFilters.warning "Alcuni filtri di questa sottoscrizione sono disattivati.">
-<!ENTITY subscription.disabledFilters.enable "Attiva i filtri disattivati">
-<!ENTITY subscription.actions.label "Azioni">
-<!ENTITY subscription.update.label "Aggiorna i filtri">
-<!ENTITY subscription.editTitle.label "Modifica il titolo">
-<!ENTITY subscription.delete.label "Elimina">
-<!ENTITY subscription.showHideFilters.label "Mostra/nascondi i filtri">
-<!ENTITY subscription.moveUp.label "Sposta su">
-<!ENTITY subscription.moveDown.label "Sposta giù">
-<!ENTITY acceptableAds2.label "Permetti alcune pubblicità non inopportune">
-<!ENTITY acceptableAds2.accesskey "P">
-<!ENTITY viewList.label "Visualizza la lista…">
-<!ENTITY readMore.label "Ulteriori informazioni…">
-<!ENTITY addGroup.label "Aggiungi gruppo di filtri">
-<!ENTITY addGroup.accesskey "g">
-<!ENTITY noFilters.text "
-		Non è stato ancora aggiunto alcun filtro personalizzato
-	">
-<!ENTITY addFilter.label "Aggiungi filtro">
-<!ENTITY addFilter.accesskey "f">
-<!ENTITY filter.actions.label "Opzioni del filtro">
-<!ENTITY filter.edit.label "Modifica">
-<!ENTITY filter.cut.label "Taglia">
-<!ENTITY filter.copy.label "Copia">
-<!ENTITY filter.paste.label "Incolla">
-<!ENTITY filter.delete.label "Elimina">
-<!ENTITY filter.selectAll.label "Seleziona tutto">
-<!ENTITY filter.resetHitCounts.label "Ripristina le statistiche di accesso">
-<!ENTITY filter.moveUp.label "Sposta su">
-<!ENTITY filter.moveDown.label "Sposta giù">
-<!ENTITY viewMenu.label "Visualizza">
-<!ENTITY filter.column "Ruolo del filtro">
-<!ENTITY filter.accesskey "R">
-<!ENTITY slow.column "Filtri lenti">
-<!ENTITY slow.accesskey "l">
-<!ENTITY enabled.column "Attivato">
-<!ENTITY enabled.accesskey "t">
-<!ENTITY hitcount.column "Accessi">
-<!ENTITY hitcount.accesskey "s">
-<!ENTITY lasthit.column "Ultimo accesso">
-<!ENTITY lasthit.accesskey "U">
-<!ENTITY sort.label "Ordina">
-<!ENTITY sort.accesskey "O">
-<!ENTITY sort.none.label "Non ordinare">
-<!ENTITY sort.none.accesskey "d">
-<!ENTITY sort.ascending.label "Ordina A &gt; Z">
-<!ENTITY sort.ascending.accesskey "A">
-<!ENTITY sort.descending.label "Ordina Z &gt; A">
-<!ENTITY sort.descending.accesskey "Z">
-<!ENTITY noGroupSelected.text "Selezionare un gruppo di filtri per visualizzarne i filtri">
-<!ENTITY noFiltersInGroup.text "Il gruppo di filtri selezionato è vuoto">
-<!ENTITY filters.remove.warning "Eliminare tutti i filtri selezionati?">
-<!ENTITY backupButton.label "Backup e ripristino">
-<!ENTITY backupButton.accesskey "B">
-<!ENTITY backup.label "Nuovo backup">
-<!ENTITY restore.default.label "Ripristina il backup datato ?1?">
-<!ENTITY restore.own.label "Backup personale da ripristinare">
-<!ENTITY backup.complete.title "Tutti i filtri e le sottoscrizioni">
-<!ENTITY backup.custom.title "Solo filtri personalizzati">
-<!ENTITY backup.error "Si è verificato un errore durante la creazione del file di backup. Verificare i permessi di scrittura per il file e/o che non sia già utilizzato da un&apos;altra applicazione">
-<!ENTITY restore.error "Impossibile effettuare il ripristino del backup poiché il file selezionato probabilmente non è un file di backup di Adblock Plus">
-<!ENTITY restore.complete.warning "Tutte le impostazioni dei filtri verranno sostituite dal contenuto del file selezionato. Procedere comunque?">
 <!ENTITY restore.custom.warning "Tutti i filtri personalizzati verranno sostituiti dal contenuto del file selezionato. Procedere comunque?">
-<!ENTITY restore.minVersion.warning "Attenzione: il file di backup è stato creato con una versione più recente di Adblock Plus. Installare l&apos;ultima versione di Adblock Plus per poter effettuare il ripristino da tale file">
-<!ENTITY find.label "Trova">
+<!ENTITY slow.column "Filtri lenti">
+<!ENTITY enabled.column "Attivato">
+<!ENTITY subscription.lastDownload.checksumMismatch "Sincronizzazione non riuscita, checksum non corrispondente">
+<!ENTITY sort.none.accesskey "d">
+<!ENTITY subscription.actions.label "Azioni">
+<!ENTITY filter.selectAll.label "Seleziona tutto">
+<!ENTITY backupButton.label "Backup e ripristino">
+<!ENTITY addFilter.accesskey "f">
+<!ENTITY filter.accesskey "R">
+<!ENTITY sort.ascending.label "Ordina A &gt; Z">
+<!ENTITY noFiltersInGroup.text "Il gruppo di filtri selezionato è vuoto">
+<!ENTITY sort.label "Ordina">
+<!ENTITY subscription.source.label "Lista di filtri">
+<!ENTITY hitcount.column "Accessi">
+<!ENTITY noFilters.text "Non è stato ancora aggiunto alcun filtro personalizzato">
+<!ENTITY backup.custom.title "Solo filtri personalizzati">
+<!ENTITY subscription.external.label "Sottoscrizione aggiornata da un&amp;apos;altra estensione">
+<!ENTITY subscription.delete.label "Elimina">
+<!ENTITY noGroupSelected.text "Selezionare un gruppo di filtri per visualizzarne i filtri">
+<!ENTITY filter.cut.label "Taglia">
+<!ENTITY restore.default.label "Ripristina il backup datato ?1?">
+<!ENTITY subscription.lastDownload.inProgress "download in corso…">
+<!ENTITY subscriptions.tab.label "Sottoscrizioni di filtri">
+<!ENTITY enabled.accesskey "t">
+<!ENTITY restore.minVersion.warning "Attenzione: il file di backup è stato creato con una versione più recente di Adblock Plus. Installare l&amp;apos;ultima versione di Adblock Plus per poter effettuare il ripristino da tale file">
+<!ENTITY acceptableAds2.accesskey "P">
+<!ENTITY addSubscription.accesskey "A">
+<!ENTITY sort.descending.label "Ordina Z &gt; A">
+<!ENTITY filters.remove.warning "Eliminare tutti i filtri selezionati?">
+<!ENTITY filter.delete.label "Elimina">
+<!ENTITY addSubscriptionAdd.label "Aggiungi">
+<!ENTITY viewMenu.label "Visualizza">
+<!ENTITY subscription.lastDownload.unknown "sconosciuto">
+<!ENTITY addSubscriptionCancel.label "Annulla">
+<!ENTITY subscription.enabled.label "Attiva">
+<!ENTITY lasthit.accesskey "U">
+<!ENTITY noSubscriptions.text "Non è stata ancora aggiunta alcuna sottoscrizione di filtri, senza cui Adblock Plus non
+	bloccherà alcun elemento; fare clic sul pulsante &quot;Aggiungi sottoscrizione…&quot;
+	per aggiungerne una">
+<!ENTITY subscription.update.label "Aggiorna i filtri">
 <!ENTITY find.accesskey "v">
+<!ENTITY dialog.title "Gestione dei filtri di Adblock Plus">
+<!ENTITY addFilter.label "Aggiungi filtro">
+<!ENTITY subscription.minVersion.warning "Per questa sottoscrizione di filtri è necessaria una versione di Adblock Plus aggiornata. È necessario installare l&amp;apos;ultima versione di Adblock Plus">
+<!ENTITY subscription.lastDownload.invalidURL "Sincronizzazione non riuscita, indirizzo web non valido">
+<!ENTITY slow.accesskey "l">
+<!ENTITY backup.error "Si è verificato un errore durante la creazione del file di backup. Verificare i permessi di scrittura per il file e/o che non sia già utilizzato da un&amp;apos;altra applicazione">
+<!ENTITY filter.moveUp.label "Sposta su">
+<!ENTITY addGroup.label "Aggiungi gruppo di filtri">
+<!ENTITY filter.edit.label "Modifica">
+<!ENTITY subscription.showHideFilters.label "Mostra/nascondi i filtri">
+<!ENTITY acceptableAds2.label "Permetti alcune pubblicità non inopportune">
+<!ENTITY hitcount.accesskey "s">
+<!ENTITY addSubscriptionOther.label "Altre sottoscrizioni">
 <!ENTITY close.label "Chiudi">
+<!ENTITY sort.none.label "Non ordinare">
+<!ENTITY filter.actions.label "Opzioni del filtro">
+<!ENTITY filter.copy.label "Copia">
+<!ENTITY filter.moveDown.label "Sposta giù">
+<!ENTITY filter.resetHitCounts.label "Ripristina le statistiche di accesso">
+<!ENTITY sort.accesskey "O">
+<!ENTITY readMore.label "Ulteriori informazioni…">
+<!ENTITY subscription.moveUp.label "Sposta su">
+<!ENTITY addSubscription.label "Aggiungi sottoscrizione">
+<!ENTITY subscription.homepage.label "Sito web">
+<!ENTITY backup.complete.title "Tutti i filtri e le sottoscrizioni">
+<!ENTITY restore.own.label "Backup personale da ripristinare">
+<!ENTITY restore.complete.warning "Tutte le impostazioni dei filtri verranno sostituite dal contenuto del file selezionato. Procedere comunque?">
+<!ENTITY filters.tab.label "Filtri personalizzati">
+<!ENTITY backup.label "Nuovo backup">
+<!ENTITY find.label "Trova">
+<!ENTITY restore.error "Impossibile effettuare il ripristino del backup poiché il file selezionato probabilmente non è un file di backup di Adblock Plus">
+<!ENTITY subscription.moveDown.label "Sposta giù">
+<!ENTITY subscription.lastDownload.connectionError "Sincronizzazione non riuscita, errore durante il download">
+<!ENTITY subscription.lastDownload.success "Sincronizzazione effettuata con successo">
+<!ENTITY subscription.lastDownload.invalidData "Sincronizzazione non riuscita, lista dei filtri non valida">
+<!ENTITY filter.paste.label "Incolla">
+<!ENTITY subscription.disabledFilters.enable "Attiva i filtri disattivati">
+<!ENTITY lasthit.column "Ultimo accesso">
+<!ENTITY subscription.editTitle.label "Modifica il titolo">
+<!ENTITY subscription.disabledFilters.warning "Alcuni filtri di questa sottoscrizione sono disattivati.">
+<!ENTITY filter.column "Ruolo del filtro">
+<!ENTITY subscription.lastDownload.label "Ultimo aggiornamento:">
+<!ENTITY viewList.label "Visualizza la lista…">

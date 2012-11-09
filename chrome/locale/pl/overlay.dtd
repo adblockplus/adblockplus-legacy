@@ -1,42 +1,42 @@
-<!ENTITY status.tooltip "Status:">
-<!ENTITY blocked.tooltip "Zablokowane elementy na tej stronie:">
-<!ENTITY filters.tooltip "Najczęściej stosowane filtry:">
-<!ENTITY menuitem.label "Adblock Plus - ustawienia">
-<!ENTITY menuitem.accesskey "A">
-<!ENTITY toolbarbutton.label "Adblock Plus">
-<!ENTITY context.image.label "Zablokuj obrazek">
-<!ENTITY context.object.label "Zablokuj obiekt">
-<!ENTITY context.frame.label "Zablokuj ramkę">
-<!ENTITY context.media.label "Zablokuj wideo/audio">
-<!ENTITY context.removeWhitelist.label "Włącz ponownie na tej stronie">
-<!ENTITY sidebar.title "Blokowalne elementy na aktywnej stronie">
-<!ENTITY sendReport.label "Zgłoś problem na tej stronie">
-<!ENTITY sendReport.accesskey "Z">
-<!ENTITY filters.label "Ustawienia filtra">
-<!ENTITY filters.accesskey "U">
-<!ENTITY opensidebar.label "Otwórz listę blokowalnych elementów">
-<!ENTITY opensidebar.accesskey "B">
-<!ENTITY closesidebar.label "Zamknij listę blokowalnych elementów">
-<!ENTITY closesidebar.accesskey "B">
+<!ENTITY showintoolbar.accesskey "R">
+<!ENTITY showinstatusbar.accesskey "W">
 <!ENTITY whitelist.site.label "Wyłącz blokowanie na ?1?">
-<!ENTITY whitelist.page.label "Wyłącz blokowanie tylko na tej stronie">
+<!ENTITY filters.label "Ustawienia filtra">
 <!ENTITY disable.label "Wyłącz wszędzie">
-<!ENTITY options.label "Opcje">
+<!ENTITY showinaddonbar.label "Wyświetlaj ikonę Adblock Plusa na pasku dodatków">
+<!ENTITY objecttab.title "Zablokuj">
+<!ENTITY showinaddonbar.accesskey "T">
+<!ENTITY sync.accesskey "S">
+<!ENTITY objecttabs.label "Wyświetlaj przyciski blokowania na elementach Flasha i Javy">
+<!ENTITY objecttab.tooltip "Kliknij tutaj, aby zablokować ten obiekt">
+<!ENTITY menuitem.label "Adblock Plus - ustawienia">
+<!ENTITY sendReport.accesskey "Z">
+<!ENTITY sendReport.label "Zgłoś problem na tej stronie">
+<!ENTITY filters.accesskey "U">
+<!ENTITY whitelist.page.label "Wyłącz blokowanie tylko na tej stronie">
+<!ENTITY context.image.label "Zablokuj obrazek">
+<!ENTITY closesidebar.accesskey "B">
+<!ENTITY hideplaceholders.label "Ukrywaj zamienniki blokowanych elementów">
+<!ENTITY opensidebar.label "Otwórz listę blokowalnych elementów">
 <!ENTITY options.accesskey "O">
 <!ENTITY contribute.label "Wspomóż Adblock Plusa">
-<!ENTITY showintoolbar.label "Wyświetlaj ikonę Adblock Plusa na pasku narzędzi">
-<!ENTITY showintoolbar.accesskey "R">
-<!ENTITY showinstatusbar.label "Wyświetlaj ikonę Adblock Plusa na pasku stanu">
-<!ENTITY showinstatusbar.accesskey "W">
-<!ENTITY showinaddonbar.label "Wyświetlaj ikonę Adblock Plusa na pasku dodatków">
-<!ENTITY showinaddonbar.accesskey "T">
-<!ENTITY objecttabs.label "Wyświetlaj przyciski blokowania na elementach Flasha i Javy">
-<!ENTITY objecttabs.accesskey "K">
-<!ENTITY hideplaceholders.label "Ukryj zamienniki blokowanych elementów">
-<!ENTITY hideplaceholders.accesskey "M">
+<!ENTITY toolbarbutton.label "Adblock Plus">
+<!ENTITY context.frame.label "Zablokuj ramkę">
 <!ENTITY counthits.label "Zliczaj użycie filtra">
-<!ENTITY counthits.accesskey "C">
+<!ENTITY blocked.tooltip "Zablokowane elementy na tej stronie:">
+<!ENTITY opensidebar.accesskey "B">
+<!ENTITY showinstatusbar.label "Wyświetlaj ikonę Adblock Plusa na pasku stanu">
+<!ENTITY status.tooltip "Status:">
+<!ENTITY sidebar.title "Blokowalne elementy na aktywnej stronie">
 <!ENTITY sync.label "Synchronizuj ustawienia Adblock Plusa">
-<!ENTITY sync.accesskey "S">
-<!ENTITY objecttab.title "Zablokuj">
-<!ENTITY objecttab.tooltip "Kliknij tutaj, aby zablokować ten obiekt">
+<!ENTITY options.label "Opcje">
+<!ENTITY context.object.label "Zablokuj obiekt">
+<!ENTITY context.removeWhitelist.label "Włącz ponownie na tej stronie">
+<!ENTITY objecttabs.accesskey "K">
+<!ENTITY filters.tooltip "Najczęściej stosowane filtry:">
+<!ENTITY closesidebar.label "Zamknij listę blokowalnych elementów">
+<!ENTITY showintoolbar.label "Wyświetlaj ikonę Adblock Plusa na pasku narzędzi">
+<!ENTITY counthits.accesskey "C">
+<!ENTITY menuitem.accesskey "A">
+<!ENTITY context.media.label "Zablokuj wideo/audio">
+<!ENTITY hideplaceholders.accesskey "M">

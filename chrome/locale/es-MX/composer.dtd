@@ -1,46 +1,44 @@
-<!ENTITY dialog.title "Agregar una regla de filtro de Adblock Plus">
-<!ENTITY accept.label "Agregar filtro">
-<!ENTITY advanced.label "Vista Avanzada">
-<!ENTITY basic.label "Vista básica">
-<!ENTITY disabled.warning "Adblock Plus se encuentra desactivado. Puedes continuar agregando filtros pero no serán aplicados hasta que [link]habilites Adblock Plus[/link].">
-<!ENTITY filter.label "Nuevo filtro:">
-<!ENTITY filter.accesskey "N">
-<!ENTITY preferences.label "Mostrar filtros existentes...">
-<!ENTITY preferences.accesskey "M">
-<!ENTITY type.filter.label "Filtro de bloqueo">
-<!ENTITY type.filter.accesskey "b">
-<!ENTITY type.whitelist.label "Regla de excepción">
-<!ENTITY type.whitelist.accesskey "x">
-<!ENTITY pattern.label "Buscar un patrón">
-<!ENTITY pattern.explanation "El patrón puede ser cualquier parte de una dirección; asteriscos(*) actuan como comodines. El filtro solo se aplicara a direcciones que igualen el patrón proporcionado.">
-<!ENTITY regexp.warning "El patrón que ha digitado se interpretará como una expresión regular la cual no puede ser eficientemente procesada por Adblock Plus y podria ralentizar su experiencia al navegar. Si no tenía la intención de de usar una expresión regular, agregue un asterisco (*) al final del patrón.">
-<!ENTITY shortpattern.warning "El patrón que ha ingresado es muy corto para ser optimizado y podria relentizar su experiencia al navegar. Es recomendable que elija una cadena mas larga para este filtro para permitir a Adblock Plus procesar el filtro con mayor eficacia.">
-<!ENTITY match.warning "El patrón que ha ingresado ya no concuerda con la dirección a ser Bloqueada/Permitida y no tendra efecto en la misma.">
-<!ENTITY custom.pattern.label "Personalizado:">
-<!ENTITY custom.pattern.accesskey "P">
-<!ENTITY anchors.label "Aceptar solo patrones:">
-<!ENTITY anchor.start.label "ir al principio de la dirección">
-<!ENTITY anchor.start.accesskey "i">
-<!ENTITY anchor.start.flexible.label "ir al principio del nombre de dominio">
-<!ENTITY anchor.start.flexible.accesskey "i">
-<!ENTITY anchor.end.label "ir al final de la dirección">
-<!ENTITY anchor.end.accesskey "f">
-<!ENTITY options.label "Opciones">
-<!ENTITY domainRestriction.label "Restringir al dominio:">
-<!ENTITY domainRestriction.accesskey "R">
-<!ENTITY domainRestriction.help "Use esta opción para espeficar uno o mas dominios separados por una barra (|). El filtro solo se aplicara en dominio(s) seleccionados. Una tilde (~) antes del nombre del dominio indica que el filtro no se aplicará en ese dominio.">
-<!ENTITY firstParty.label "Solo propietarios">
-<!ENTITY firstParty.accesskey "l">
-<!ENTITY thirdParty.label "Solo terceros">
-<!ENTITY thirdParty.accesskey "S">
-<!ENTITY matchCase.label "Coincidir Mayus/Minus">
-<!ENTITY matchCase.accesskey "C">
-<!ENTITY types.label "Se aplica a tipos:">
-<!ENTITY selectAllTypes.label "Seleccionar todos">
-<!ENTITY unselectAllTypes.label "Seleccionar ninguno">
-<!ENTITY collapse.label "Colapso bloqueado">
-<!ENTITY collapse.accesskey "o">
-<!ENTITY collapse.default.yes.label "Usar por defecto (si)">
-<!ENTITY collapse.default.no.label "Usar por defecto (no)">
 <!ENTITY collapse.yes.label "Si">
-<!ENTITY collapse.no.label "No">
+<!ENTITY anchor.end.label "ir al final de la dirección">
+<!ENTITY domainRestriction.label "Restringir al dominio:">
+<!ENTITY anchor.start.flexible.accesskey "i">
+<!ENTITY firstParty.label "Solo propietarios">
+<!ENTITY preferences.label "Mostrar filtros existentes...">
+<!ENTITY pattern.label "Buscar un patrón">
+<!ENTITY thirdParty.label "Solo terceros">
+<!ENTITY filter.accesskey "N">
+<!ENTITY thirdParty.accesskey "S">
+<!ENTITY filter.label "Nuevo filtro:">
+<!ENTITY collapse.label "Colapso bloqueado">
+<!ENTITY match.warning "El patrón que ha ingresado ya no concuerda con la dirección a ser Bloqueada/Permitida y no tendra efecto en la misma.">
+<!ENTITY anchor.start.label "ir al principio de la dirección">
+<!ENTITY matchCase.label "Coincidir Mayus/Minus">
+<!ENTITY custom.pattern.label "Personalizado:">
+<!ENTITY unselectAllTypes.label "Seleccionar ninguno">
+<!ENTITY domainRestriction.accesskey "R">
+<!ENTITY type.whitelist.label "Regla de excepción">
+<!ENTITY regexp.warning "El patrón que ha digitado se interpretará como una expresión regular la cual no puede ser eficientemente procesada por Adblock Plus y podria ralentizar su experiencia al navegar. Si no tenía la intención de de usar una expresión regular, agregue un asterisco (*) al final del patrón.">
+<!ENTITY dialog.title "Agregar una regla de filtro de Adblock Plus">
+<!ENTITY basic.label "Vista básica">
+<!ENTITY preferences.accesskey "M">
+<!ENTITY firstParty.accesskey "l">
+<!ENTITY collapse.default.no.label "Usar por defecto (no)">
+<!ENTITY type.filter.label "Filtro de bloqueo">
+<!ENTITY types.label "Se aplica a tipos:">
+<!ENTITY anchor.start.accesskey "i">
+<!ENTITY custom.pattern.accesskey "P">
+<!ENTITY shortpattern.warning "El patrón que ha ingresado es muy corto para ser optimizado y podria relentizar su experiencia al navegar. Es recomendable que elija una cadena mas larga para este filtro para permitir a Adblock Plus procesar el filtro con mayor eficacia.">
+<!ENTITY anchors.label "Aceptar solo patrones:">
+<!ENTITY collapse.default.yes.label "Usar por defecto (si)">
+<!ENTITY type.filter.accesskey "b">
+<!ENTITY domainRestriction.help "Use esta opción para espeficar uno o mas dominios separados por una barra (|). El filtro solo se aplicara en dominio(s) seleccionados. Una tilde (~) antes del nombre del dominio indica que el filtro no se aplicará en ese dominio.">
+<!ENTITY accept.label "Agregar filtro">
+<!ENTITY options.label "Opciones">
+<!ENTITY disabled.warning "Adblock Plus se encuentra desactivado. Puedes continuar agregando filtros pero no serán aplicados hasta que [link]habilites Adblock Plus[/link].">
+<!ENTITY anchor.start.flexible.label "ir al principio del nombre de dominio">
+<!ENTITY matchCase.accesskey "C">
+<!ENTITY anchor.end.accesskey "f">
+<!ENTITY selectAllTypes.label "Seleccionar todos">
+<!ENTITY advanced.label "Vista Avanzada">
+<!ENTITY collapse.accesskey "o">
+<!ENTITY pattern.explanation "El patrón puede ser cualquier parte de una dirección; asteriscos(*) actuan como comodines. El filtro solo se aplicara a direcciones que igualen el patrón proporcionado.">

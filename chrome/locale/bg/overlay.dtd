@@ -1,42 +1,42 @@
-<!ENTITY status.tooltip "Статус:">
-<!ENTITY blocked.tooltip "Блокирани предмети от тази страница:">
-<!ENTITY filters.tooltip "Най активни филтри:">
-<!ENTITY menuitem.label "Adblock Плюс Настройки">
-<!ENTITY menuitem.accesskey "Н">
-<!ENTITY toolbarbutton.label "Adblock Плюс">
-<!ENTITY context.image.label "Adblock Плюс: Блокирани Картинки">
-<!ENTITY context.object.label "Adblock Плюс:Блокирани Обекти">
-<!ENTITY context.frame.label "Adblock Плюс:Блокирани Фреймове">
-<!ENTITY context.media.label "Adblock Плюс: Блокирани аудио/видео">
-<!ENTITY context.removeWhitelist.label "Adblock Плюс: Пусни за тази страница">
-<!ENTITY sidebar.title "Блокирани предмети на тази страница">
-<!ENTITY sendReport.label "Докладване на проблем на тази страница">
-<!ENTITY sendReport.accesskey "Д">
-<!ENTITY filters.label "Филтър Настройки">
-<!ENTITY filters.accesskey "Ф">
-<!ENTITY opensidebar.label "Отвори блокирани предмети">
-<!ENTITY opensidebar.accesskey "б">
-<!ENTITY closesidebar.label "Затвори блокирани предмети">
-<!ENTITY closesidebar.accesskey "б">
+<!ENTITY showintoolbar.accesskey "а">
+<!ENTITY showinstatusbar.accesskey "т">
 <!ENTITY whitelist.site.label "Забрани на ?1?">
-<!ENTITY whitelist.page.label "Забрани на тази страница само">
+<!ENTITY filters.label "Филтър Настройки">
 <!ENTITY disable.label "Забрани навсякъде">
-<!ENTITY options.label "Настройки">
+<!ENTITY showinaddonbar.label "Покажи в адон бара">
+<!ENTITY objecttab.title "Блокирай">
+<!ENTITY showinaddonbar.accesskey "а">
+<!ENTITY sync.accesskey "х">
+<!ENTITY objecttabs.label "Покажи разделите за Флаш и Java">
+<!ENTITY objecttab.tooltip "Щракни тук за да блокираш този обект със Adblock Плюс">
+<!ENTITY menuitem.label "Adblock Плюс Настройки">
+<!ENTITY sendReport.accesskey "Д">
+<!ENTITY sendReport.label "Докладване на проблем на тази страница">
+<!ENTITY filters.accesskey "Ф">
+<!ENTITY whitelist.page.label "Забрани на тази страница само">
+<!ENTITY context.image.label "Adblock Плюс: Блокирани Картинки">
+<!ENTITY closesidebar.accesskey "б">
+<!ENTITY hideplaceholders.label "Скрий контейнери на блокираните елементи">
+<!ENTITY opensidebar.label "Отвори блокирани предмети">
 <!ENTITY options.accesskey "Н">
 <!ENTITY contribute.label "Помогнете на Adblock Plus">
-<!ENTITY showintoolbar.label "Покажи в лентата с инструменти">
-<!ENTITY showintoolbar.accesskey "а">
-<!ENTITY showinstatusbar.label "Покажи в лентата на състоянието">
-<!ENTITY showinstatusbar.accesskey "т">
-<!ENTITY showinaddonbar.label "Покажи в адон бара">
-<!ENTITY showinaddonbar.accesskey "а">
-<!ENTITY objecttabs.label "Покажи разделите за Флаш и Java">
-<!ENTITY objecttabs.accesskey "П">
-<!ENTITY hideplaceholders.label "Скрий контейнери на блокираните елементи">
-<!ENTITY hideplaceholders.accesskey "м">
+<!ENTITY toolbarbutton.label "Adblock Плюс">
+<!ENTITY context.frame.label "Adblock Плюс:Блокирани Фреймове">
 <!ENTITY counthits.label "Бройте филтър хитове">
-<!ENTITY counthits.accesskey "ф">
+<!ENTITY blocked.tooltip "Блокирани предмети от тази страница:">
+<!ENTITY opensidebar.accesskey "б">
+<!ENTITY showinstatusbar.label "Покажи в лентата на състоянието">
+<!ENTITY status.tooltip "Статус:">
+<!ENTITY sidebar.title "Блокирани предмети на тази страница">
 <!ENTITY sync.label "Синхронизирай Настройките за Adblock Plus">
-<!ENTITY sync.accesskey "х">
-<!ENTITY objecttab.title "Блокирай">
-<!ENTITY objecttab.tooltip "Щракни тук за да блокираш този обект със Adblock Плюс">
+<!ENTITY options.label "Настройки">
+<!ENTITY context.object.label "Adblock Плюс:Блокирани Обекти">
+<!ENTITY context.removeWhitelist.label "Adblock Плюс: Пусни за тази страница">
+<!ENTITY objecttabs.accesskey "П">
+<!ENTITY filters.tooltip "Най активни филтри:">
+<!ENTITY closesidebar.label "Затвори блокирани предмети">
+<!ENTITY showintoolbar.label "Покажи в лентата с инструменти">
+<!ENTITY counthits.accesskey "ф">
+<!ENTITY menuitem.accesskey "Н">
+<!ENTITY context.media.label "Adblock Плюс: Блокирани аудио/видео">
+<!ENTITY hideplaceholders.accesskey "м">

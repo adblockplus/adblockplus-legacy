@@ -1,46 +1,46 @@
-<!ENTITY dialog.title "Προσθήκη κανόνα φίλτρου του Adblock Plus">
-<!ENTITY accept.label "Προσθήκη φίλτρου">
-<!ENTITY advanced.label "Για προχωρημένους">
-<!ENTITY basic.label "Βασική προβολή">
-<!ENTITY disabled.warning "Το Adblock Plus είναι απενεργοποιημένο. Μπορείτε να προσθέσετε φίλτρα αλλά αυτά θα εφαρμοστούν μόλις [link]ενεργοποιήσετε το Adblock Plus[/link].">
-<!ENTITY filter.label "Νέο φίλτρο:">
-<!ENTITY filter.accesskey "φ">
-<!ENTITY preferences.label "Προβολή υπαρχόντων φίλτρων...">
-<!ENTITY preferences.accesskey "Π">
-<!ENTITY type.filter.label "Φίλτρο φραγής">
-<!ENTITY type.filter.accesskey "ρ">
-<!ENTITY type.whitelist.label "Κανόνας εξαίρεσης">
-<!ENTITY type.whitelist.accesskey "ξ">
-<!ENTITY pattern.label "Αναζήτηση μοτίβου">
-<!ENTITY pattern.explanation "Το μοτίβο μπορεί να είναι οποιοδήποτε μέρος της διεύθυνσης, το σύμβολο * δρα ως wildcard. Το φίλτρο θα εφαρμοστεί μόνο στις διευθύνσεις που ταιριάζουν στο μοτίβο.">
-<!ENTITY regexp.warning "Το μοτίβο που εισάγατε θα ερμηνευτεί σαν regular expression. Πολλά regular expressions μπορεί να μειώσουν την ταχύτητα πλοήγησης. Αν σκοπός σας δεν ήταν να χρησιμοποιήσετε regular expressions, προσθέστε το σύμβολο * στο τέλος του μοτίβου.">
-<!ENTITY shortpattern.warning "Το μοτίβο που εισάγατε είναι πολύ κοντό για να βελτιστοποιηθεί· πολλά τέτοια μοτίβα μπορεί να μειώσουν την ταχύτητα πλοήγησης. Προτείνεται να επιλέξετε ένα μακρύτερο μοτίβο για το φίλτρο.">
-<!ENTITY match.warning "Το μοτίβο που εισάγατε δεν ταιριάζει πλέον στην διεύθυνση που θέλετε να φραγεί και δεν θα έχει κανένα αποτέλεσμα.">
-<!ENTITY custom.pattern.label "Προσαρμογή:">
-<!ENTITY custom.pattern.accesskey "σ">
-<!ENTITY anchors.label "Αποδοχή του μοτίβου μόνο:">
-<!ENTITY anchor.start.label "στην αρχή της διεύθυνσης">
-<!ENTITY anchor.start.accesskey "α">
-<!ENTITY anchor.start.flexible.label "στην αρχή του ονόματος τομέα">
-<!ENTITY anchor.start.flexible.accesskey "α">
-<!ENTITY anchor.end.label "στο τέλος της διεύθυνσης">
-<!ENTITY anchor.end.accesskey "λ">
-<!ENTITY options.label "Επιλογές">
-<!ENTITY domainRestriction.label "Περιορισμός στον τομέα:">
-<!ENTITY domainRestriction.accesskey "μ">
-<!ENTITY domainRestriction.help "Δηλώστε έναν ή περισσότερους τομείς (domain) διαχωρισμένους με το σύμβολο &quot;|&quot;, και το φίλτρο θα εφαρμοστεί μόνο σε αυτούς. Το σύμβολο &quot;~&quot; πριν από τον τομέα σημαίνει πως το φίλτρο δεν θα εφαρμοστεί στο συγκεκριμένο τομέα.">
-<!ENTITY firstParty.label "Εκτός από τρίτους">
-<!ENTITY firstParty.accesskey "Ε">
-<!ENTITY thirdParty.label "Από τρίτους μόνο">
-<!ENTITY thirdParty.accesskey "τ">
-<!ENTITY matchCase.label "Ταίριασμα μικρών-κεφαλαίων">
-<!ENTITY matchCase.accesskey "κ">
-<!ENTITY types.label "Εφαρμογή στους τύπους:">
-<!ENTITY selectAllTypes.label "Επιλογή όλων">
-<!ENTITY unselectAllTypes.label "Επιλογή κανενός">
-<!ENTITY collapse.label "Σύμπτυξη στοιχείων:">
-<!ENTITY collapse.accesskey "χ">
-<!ENTITY collapse.default.yes.label "Χρήση προκαθορισμένου (ναι)">
-<!ENTITY collapse.default.no.label "Χρήση προκαθορισμένου (όχι)">
 <!ENTITY collapse.yes.label "Ναι">
+<!ENTITY anchor.end.label "στο τέλος της διεύθυνσης">
+<!ENTITY domainRestriction.label "Περιορισμός στον τομέα:">
+<!ENTITY anchor.start.flexible.accesskey "α">
+<!ENTITY firstParty.label "Εκτός από τρίτους">
+<!ENTITY preferences.label "Προβολή υπαρχόντων φίλτρων...">
+<!ENTITY pattern.label "Αναζήτηση μοτίβου">
+<!ENTITY thirdParty.label "Από τρίτους μόνο">
+<!ENTITY filter.accesskey "φ">
+<!ENTITY thirdParty.accesskey "τ">
+<!ENTITY filter.label "Νέο φίλτρο:">
+<!ENTITY collapse.label "Σύμπτυξη στοιχείων:">
+<!ENTITY match.warning "Το μοτίβο που εισάγατε δεν ταιριάζει πλέον στην διεύθυνση που θέλετε να φραγεί και δεν θα έχει κανένα αποτέλεσμα.">
+<!ENTITY anchor.start.label "στην αρχή της διεύθυνσης">
 <!ENTITY collapse.no.label "Όχι">
+<!ENTITY matchCase.label "Ταίριασμα μικρών-κεφαλαίων">
+<!ENTITY custom.pattern.label "Προσαρμογή:">
+<!ENTITY unselectAllTypes.label "Επιλογή κανενός">
+<!ENTITY domainRestriction.accesskey "μ">
+<!ENTITY type.whitelist.label "Κανόνας εξαίρεσης">
+<!ENTITY regexp.warning "Το μοτίβο που εισάγατε θα ερμηνευτεί σαν regular expression. Πολλά regular expressions μπορεί να μειώσουν την ταχύτητα πλοήγησης. Αν σκοπός σας δεν ήταν να χρησιμοποιήσετε regular expressions, προσθέστε το σύμβολο * στο τέλος του μοτίβου.">
+<!ENTITY dialog.title "Προσθήκη κανόνα φίλτρου του Adblock Plus">
+<!ENTITY basic.label "Βασική προβολή">
+<!ENTITY preferences.accesskey "Π">
+<!ENTITY firstParty.accesskey "Ε">
+<!ENTITY collapse.default.no.label "Χρήση προκαθορισμένου (όχι)">
+<!ENTITY type.filter.label "Φίλτρο φραγής">
+<!ENTITY types.label "Εφαρμογή στους τύπους:">
+<!ENTITY shortpattern.warning "Το μοτίβο που εισάγατε είναι πολύ κοντό για να βελτιστοποιηθεί· πολλά τέτοια μοτίβα μπορεί να μειώσουν την ταχύτητα πλοήγησης. Προτείνεται να επιλέξετε ένα μακρύτερο μοτίβο για το φίλτρο.">
+<!ENTITY custom.pattern.accesskey "σ">
+<!ENTITY anchor.start.accesskey "α">
+<!ENTITY anchors.label "Αποδοχή του μοτίβου μόνο:">
+<!ENTITY collapse.default.yes.label "Χρήση προκαθορισμένου (ναι)">
+<!ENTITY type.filter.accesskey "ρ">
+<!ENTITY domainRestriction.help "Δηλώστε έναν ή περισσότερους τομείς (domain) διαχωρισμένους με το σύμβολο &quot;|&quot;, και το φίλτρο θα εφαρμοστεί μόνο σε αυτούς. Το σύμβολο &quot;~&quot; πριν από τον τομέα σημαίνει πως το φίλτρο δεν θα εφαρμοστεί στο συγκεκριμένο τομέα.">
+<!ENTITY accept.label "Προσθήκη φίλτρου">
+<!ENTITY options.label "Επιλογές">
+<!ENTITY disabled.warning "Το Adblock Plus είναι απενεργοποιημένο. Μπορείτε να προσθέσετε φίλτρα αλλά αυτά θα εφαρμοστούν μόλις [link]ενεργοποιήσετε το Adblock Plus[/link].">
+<!ENTITY anchor.start.flexible.label "στην αρχή του ονόματος τομέα">
+<!ENTITY type.whitelist.accesskey "ξ">
+<!ENTITY matchCase.accesskey "κ">
+<!ENTITY anchor.end.accesskey "λ">
+<!ENTITY selectAllTypes.label "Επιλογή όλων">
+<!ENTITY advanced.label "Για προχωρημένους">
+<!ENTITY collapse.accesskey "χ">
+<!ENTITY pattern.explanation "Το μοτίβο μπορεί να είναι οποιοδήποτε μέρος της διεύθυνσης, το σύμβολο * δρα ως wildcard. Το φίλτρο θα εφαρμοστεί μόνο στις διευθύνσεις που ταιριάζουν στο μοτίβο.">

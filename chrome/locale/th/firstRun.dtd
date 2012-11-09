@@ -1,18 +1,11 @@
-<!ENTITY dialog.title "Adblock Plus ติดตั้งเสร็จสมบูรณ์">
-<!ENTITY confirmation "
- ขอขอบคุณสำหรับการติดตั้ง Adblock Plus โฆษณาจะถูกบล็อกจากบัดเดี๋ยวนี้
- ขอให้สนุก">
 <!ENTITY advancedSection "ตัวเลือกขั้นสูง">
-<!ENTITY listSelection1 "
- รายการตัวกรองต่อไปนี้ได้ถูกกำหนดค่าให้บล็อกโฆษณา:
-">
+<!ENTITY confirmation "ขอขอบคุณสำหรับการติดตั้ง Adblock Plus โฆษณาจะถูกบล็อกจากบัดเดี๋ยวนี้
+ ขอให้สนุก">
 <!ENTITY noList "ไม่มีรายการตัวกรอง">
-<!ENTITY visitHomepage.label "เยี่ยมชมรายชื่อโฮมเพจ">
-<!ENTITY acceptableAds2 "
- Adblock Plus ยังได้ถูกกำหนดค่าให้อนุญาตให้มีโฆษณาบางอย่างไม่รบกวนคุณอีกต่อไป
-">
+<!ENTITY acceptableAds2 "Adblock Plus ยังได้ถูกกำหนดค่าให้อนุญาตให้มีโฆษณาบางอย่างไม่รบกวนคุณอีกต่อไป">
 <!ENTITY viewList.label "มุมมองรายการ">
+<!ENTITY visitHomepage.label "เยี่ยมชมรายชื่อโฮมเพจ">
+<!ENTITY dialog.title "Adblock Plus ติดตั้งเสร็จสมบูรณ์">
+<!ENTITY listSelection1 "รายการตัวกรองต่อไปนี้ได้ถูกกำหนดค่าให้บล็อกโฆษณา:">
+<!ENTITY listSelection2 "คุณสามารถเปลี่ยนแปลงสิ่งที่เลือกนี้ได้ทุกเวลาใน [link]การตั้งค่าตัวกรอง[/link]">
 <!ENTITY readMore.label "อ่านเพิ่มเติมเกี่ยวกับเรื่องนี้">
-<!ENTITY listSelection2 "
- คุณสามารถเปลี่ยนแปลงสิ่งที่เลือกนี้ได้ทุกเวลาใน [link]การตั้งค่าตัวกรอง[/link]
-">

@@ -1,147 +1,109 @@
-<!ENTITY wizard.title "Configurazione guidata per segnalare problemi in una pagina web">
-<!ENTITY privacyPolicy.label "Informativa sulla privacy">
-<!ENTITY dataCollector.heading "Benvenuti alla configurazione guidata per segnalare problemi in una pagina web">
-<!ENTITY dataCollector.description "Attendere mentre vengono raccolti i dati necessari per la segnalazione di Adblock Plus di problemi in una pagina web">
-<!ENTITY typeSelector.heading "Selezione del problema">
-<!ENTITY typeSelector.description "
-		La configurazione guidata permette passo a passo di raccogliere ed inviare i dati necessari per effettuare la
-		segnalazione di Adblock Plus di problemi in una pagina web. Come primo passo, selezionare il tipo di problema
-		che si è verificato
-">
+<!ENTITY screenshot.undo.label "Annulla">
+<!ENTITY issues.disabledgroups.description "Gruppi/sottoscrizioni di filtri sono stati disattivati, ma potrebbero avere effetto
+		nella seguente pagina web:">
+<!ENTITY attachExtensions.accesskey "l">
+<!ENTITY showData.label "Mostra i dati della segnalazione">
 <!ENTITY typeSelector.falsePositive.label "Adblock Plus sta bloccando troppi elementi">
-<!ENTITY typeSelector.falsePositive.accesskey "P">
-<!ENTITY typeSelector.falsePositive.description "
-		Selezionare questa opzione se nella pagina web manca parte del contenuto importante, se la pagina web viene
-		visualizzata non correttamente oppure se non funziona come dovrebbe. È possibile determinare se sia Adblock Plus 
-		la causa del problema disattivando temporaneamente l&apos;estensione
-">
-<!ENTITY typeSelector.falseNegative.label "Adblock Plus non sta bloccando alcun elemento">
-<!ENTITY typeSelector.falseNegative.accesskey "n">
-<!ENTITY typeSelector.falseNegative.description "
-		Selezionare questa opzione se nella pagina web vengono visualizzati banner e/o pubblicità nonostante
-		Adblock Plus sia attiva
-">
-<!ENTITY typeSelector.other.label "Si è verificato un problema di altro tipo">
-<!ENTITY typeSelector.other.accesskey "S">
-<!ENTITY typeSelector.other.description "
-		Selezionare questa opzione se nella pagina web si sta verificando un problema di altro tipo 
-		che si sospetta relativo all&apos;estensione stessa piuttosto che ai suoi filtri
-">
-<!ENTITY showRecentReports.label "Mostra le segnalazioni recentemente inviate">
-<!ENTITY recentReports.label "Segnalazioni recentemente inviate">
-<!ENTITY recentReports.clear.label "Elimina tutte le segnalazioni">
 <!ENTITY recentReports.clear.accesskey "t">
-<!ENTITY update.inProgress.description "È necessario aggiornare la sottoscrizione di filtri per essere certi che il problema non sia già stato risolto. Attendere…">
-<!ENTITY update.fixed.description "L'aggiornamento della sottoscrizione di filtri ha probabilmente risolto il problema che si stava segnalando. Ricaricare la pagina e riprovare; in caso il problema permanga segnalarlo nuovamente">
-<!ENTITY outdatedSubscriptions.description "Le seguenti sottoscrizioni di filtri non sono state aggiornate per almeno due settimane. Aggiornarle prima di segnalare il problema, in quanto esso potrebbe essere già stato risolto">
-<!ENTITY update.start.label "Avvia l'aggiornamento ora">
-<!ENTITY issues.description "
-		Sono stati rilevati dei problemi con le impostazioni di Adblock Plus che potrebbero essere responsabili
-		del problema da segnalare oppure potrebbero rendere difficile rinvenirne le cause
-">
-<!ENTITY issues.whitelist.description "
-		Adblock Plus è attualmente disattivata per la pagina web che si sta segnalando. Riattivare
-		l&apos;estensione e ricaricare la pagina prima di inviare la segnalazione del problema per  
-		rinvenirne le cause
-">
-<!ENTITY issues.whitelist.remove.label "Riattiva Adblock Plus nella pagina attuale">
-<!ENTITY issues.disabled.description "
-		Adblock Plus è attualmente disattivata e quindi non bloccherà alcun elemento
-">
-<!ENTITY issues.disabled.enable.label "Attiva Adblock Plus">
-<!ENTITY issues.nofilters.description "
-		Adblock Plus attualmente non sta bloccando alcun elemento. Il problema che si è
-		verificato è più probabile che non sia relativo ad Adblock Plus
-">
-<!ENTITY issues.nosubscriptions.description "
-		Non sembra essere attiva alcuna sottoscrizione di filtri che permette l&apos;eliminazione
-		automatica di banner e/o pubblicità presenti nei siti web
-">
-<!ENTITY issues.nosubscriptions.add.label "Aggiungi una sottoscrizione di filtri…">
-<!ENTITY issues.subscriptionCount.description "
-	Sembra che siano state aggiunte troppe sottoscrizioni di filtri. Ciò non è
-	raccomandato poiché aumenta considerevolmente la possibilità che si verifichino
-	dei problemi. È inoltre impossibile accettare tale segnalazione in quanto non
-	è chiaro quale autore di sottoscrizioni di filtri debba controllare; eliminare
-	tutte le sottoscrizioni superflue lasciando solo quella necessaria e verificare
-	se il problema persiste ancora
-">
-<!ENTITY issues.openPreferences.label "Apri la finestra di &apos;Gestione dei filtri di Adblock Plus&apos;…">
-<!ENTITY issues.ownfilters.description "
-		Alcuni dei filtri che vengono applicati nella pagina web attuale sono personalizzati;
-		disattivare tali filtri che potrebbero essere la causa del seguente problema:
-">
-<!ENTITY issues.ownfilters.disable.label "Disattiva i filtri">
-<!ENTITY issues.disabledgroups.description "
-		Gruppi/sottoscrizioni di filtri sono stati disattivati, ma potrebbero avere effetto
-		nella seguente pagina web:
-">
-<!ENTITY issues.disabledgroups.enable.label "Attiva gruppi/sottoscrizioni di filtri">
-<!ENTITY issues.disabledfilters.description "
-		I filtri sono stati disattivati, ma potrebbero avere effetto nella seguente pagina web:
-">
-<!ENTITY issues.disabledfilters.enable.label "Attiva i filtri">
-<!ENTITY issues.override.label "Le impostazioni di Adblock Plus sono corrette, proseguire con la raccolta dei dati per la segnalazione">
+<!ENTITY issues.change.description "Le impostazioni di Adblock Plus sono state modificate. Ricaricare la pagina web per testare le 
+		modifiche e se il problema dovesse persistere inviare la segnalazione">
+<!ENTITY screenshot.attach.accesskey "u">
+<!ENTITY issues.openPreferences.label "Apri la finestra di &amp;apos;Gestione dei filtri di Adblock Plus&amp;apos;…">
+<!ENTITY sendPage.confirmation "Segnalazione inviata correttamente, per visualizzarne i dati fare clic sul seguente link:">
 <!ENTITY issues.override.accesskey "L">
-<!ENTITY issues.change.description "
-		Le impostazioni di Adblock Plus sono state modificate. Ricaricare la pagina web per testare le 
-		modifiche e se il problema dovesse persistere inviare la segnalazione
-">
-<!ENTITY typeWarning.description "
-		È stato indicato che si vuole segnalare un problema generico relativo all&apos;estensione
+<!ENTITY copyLink.label "Copia il link della segnalazione">
+<!ENTITY issues.nofilters.description "Adblock Plus attualmente non sta bloccando alcun elemento. Il problema che si è
+		verificato è più probabile che non sia relativo ad Adblock Plus">
+<!ENTITY sendPage.knownIssue "Problema segnalato precedentemente noto. Ulteriori informazioni:">
+<!ENTITY sendPage.retry.label "Riprova ad inviare">
+<!ENTITY typeSelector.other.description "Selezionare questa opzione se nella pagina web si sta verificando un problema di altro tipo 
+		che si sospetta relativo all&amp;apos;estensione stessa piuttosto che ai suoi filtri">
+<!ENTITY issues.disabledgroups.enable.label "Attiva gruppi/sottoscrizioni di filtri">
+<!ENTITY typeWarning.override.label "Comprendo e voglio inviare la segnalazione comunque">
+<!ENTITY issues.disabled.enable.label "Attiva Adblock Plus">
+<!ENTITY update.fixed.description "L'aggiornamento della sottoscrizione di filtri ha probabilmente risolto il problema che si stava segnalando. Ricaricare la pagina e riprovare; in caso il problema permanga segnalarlo nuovamente">
+<!ENTITY email.label "E-mail per ulteriori richieste di informazioni (opzionale):">
+<!ENTITY reloadButton.label "Ricarica la pagina">
+<!ENTITY recentReports.clear.label "Elimina tutte le segnalazioni">
+<!ENTITY typeSelector.description "La configurazione guidata permette passo a passo di raccogliere ed inviare i dati necessari per effettuare la
+		segnalazione di Adblock Plus di problemi in una pagina web. Come primo passo, selezionare il tipo di problema
+		che si è verificato">
+<!ENTITY screenshot.mark.accesskey "C">
+<!ENTITY typeSelector.other.accesskey "S">
+<!ENTITY screenshot.undo.accesskey "A">
+<!ENTITY update.inProgress.description "È necessario aggiornare la sottoscrizione di filtri per essere certi che il problema non sia già stato risolto. Attendere…">
+<!ENTITY data.accesskey "D">
+<!ENTITY data.label "Dati della segnalazione:">
+<!ENTITY sendPage.heading "Invio della segnalazione">
+<!ENTITY recentReports.label "Segnalazioni recentemente inviate">
+<!ENTITY typeWarning.description "È stato indicato che si vuole segnalare un problema generico relativo all&amp;apos;estensione
 		stessa piuttosto che ai suoi filtri. Poiché tali problemi sono riportati meglio sul
 		[link]forum di Adblock Plus[/link], si suggerisce di utilizzare la segnalazione di
 		problemi solo come integrazione di una discussione già esistente, visto che nessuno noterà
 		una segnalazione priva di relativo link alla pagina web dove si verifica appunto il problema.
-		Il link generato automaticamente verrà fornito dopo l&apos;invio della segnalazione
-">
-<!ENTITY typeWarning.override.label "Comprendo e voglio inviare la segnalazione comunque">
-<!ENTITY typeWarning.override.accesskey "v">
-<!ENTITY reloadButton.label "Ricarica la pagina">
-<!ENTITY reloadButton.accesskey "R">
-<!ENTITY screenshot.heading "Immagine da allegare">
-<!ENTITY screenshot.description "
-		Una stessa pagina web può apparire in modo differente a più persone. Potrebbe essere di aiuto per
-		meglio comprendere il problema allegare un&apos;immagine della pagina web alla segnalazione. È 
+		Il link generato automaticamente verrà fornito dopo l&amp;apos;invio della segnalazione">
+<!ENTITY issues.disabled.description "Adblock Plus è attualmente disattivata e quindi non bloccherà alcun elemento">
+<!ENTITY attachExtensions.label "Allega la lista di estensioni e plugin attivi">
+<!ENTITY issues.nosubscriptions.add.label "Aggiungi una sottoscrizione di filtri…">
+<!ENTITY issues.disabledfilters.enable.label "Attiva i filtri">
+<!ENTITY issues.override.label "Le impostazioni di Adblock Plus sono corrette, proseguire con la raccolta dei dati per la segnalazione">
+<!ENTITY issues.nosubscriptions.description "Non sembra essere attiva alcuna sottoscrizione di filtri che permette l&amp;apos;eliminazione
+		automatica di banner e/o pubblicità presenti nei siti web">
+<!ENTITY outdatedSubscriptions.description "Le seguenti sottoscrizioni di filtri non sono state aggiornate per almeno due settimane. Aggiornarle prima di segnalare il problema, in quanto esso potrebbe essere già stato risolto">
+<!ENTITY typeSelector.other.label "Si è verificato un problema di altro tipo">
+<!ENTITY issues.whitelist.remove.label "Riattiva Adblock Plus nella pagina attuale">
+<!ENTITY typeSelector.falsePositive.description "Selezionare questa opzione se nella pagina web manca parte del contenuto importante, se la pagina web viene
+		visualizzata non correttamente oppure se non funziona come dovrebbe. È possibile determinare se sia Adblock Plus 
+		la causa del problema disattivando temporaneamente l&amp;apos;estensione">
+<!ENTITY dataCollector.description "Attendere mentre vengono raccolti i dati necessari per la segnalazione di Adblock Plus di problemi in una pagina web">
+<!ENTITY sendButton.label "Invia la segnalazione">
+<!ENTITY comment.label "Commento (opzionale):">
+<!ENTITY sendPage.errorMessage "Il tentativo di inviare la segnalazione non è riuscito a causa del seguente errore: &quot;?1?&quot;. 
+		Accertarsi di essere collegati ad internet e riprovare. Se il problema persiste inviare una richiesta
+		di assistenza nel [link]forum di Adblock Plus[/link]">
+<!ENTITY showRecentReports.label "Mostra le segnalazioni recentemente inviate">
+<!ENTITY commentPage.heading "Invio di un commento">
+<!ENTITY update.start.label "Avvia l'aggiornamento ora">
+<!ENTITY typeSelector.falsePositive.accesskey "P">
+<!ENTITY issues.disabledfilters.description "I filtri sono stati disattivati, ma potrebbero avere effetto nella seguente pagina web:">
+<!ENTITY screenshot.description "Una stessa pagina web può apparire in modo differente a più persone. Potrebbe essere di aiuto per
+		meglio comprendere il problema allegare un&amp;apos;immagine della pagina web alla segnalazione. È 
 		possibile eliminare le sezioni contenenti dati sensibili nonché contrassegnare le aree dove il 
 		problema è evidente facendo prima clic sui relativi pulsanti ed in seguito selezionando le parti  
-		interessate dell&apos;immagine della pagina web con il mouse 
-">
-<!ENTITY screenshot.attach.label "Allega un&apos;immagine della pagina alla segnalazione">
-<!ENTITY screenshot.attach.accesskey "u">
-<!ENTITY screenshot.mark.label "Contrassegna l&apos;area del problema">
-<!ENTITY screenshot.mark.accesskey "C">
-<!ENTITY screenshot.remove.label "Elimina i dati sensibili">
-<!ENTITY screenshot.remove.accesskey "E">
-<!ENTITY screenshot.undo.label "Annulla">
-<!ENTITY screenshot.undo.accesskey "A">
-<!ENTITY commentPage.heading "Invio di un commento">
-<!ENTITY commentPage.description "
-		È possibile digitare nel relativo campo di testo qui sotto un commento per comprendere meglio 
-		il problema segnalato. Questo passo è opzionale ma raccomandato se il problema non è ovvio.
-		È inoltre possibile visualizzare i dati della segnalazione prima di inviarla
-">
-<!ENTITY comment.label "Commento (opzionale):">
-<!ENTITY comment.accesskey "o">
-<!ENTITY comment.lengthWarning "La lunghezza massima del testo del commento è di 1000 caratteri; quelli eccedenti non verranno inviati">
-<!ENTITY email.label "E-mail per ulteriori richieste di informazioni (opzionale):">
-<!ENTITY email.accesskey "m">
-<!ENTITY attachExtensions.label "Allega la lista di estensioni e plugin attivi">
-<!ENTITY attachExtensions.accesskey "l">
-<!ENTITY sendButton.label "Invia la segnalazione">
+		interessate dell&amp;apos;immagine della pagina web con il mouse">
+<!ENTITY screenshot.attach.label "Allega un&amp;apos;immagine della pagina alla segnalazione">
+<!ENTITY issues.whitelist.description "Adblock Plus è attualmente disattivata per la pagina web che si sta segnalando. Riattivare
+		l&amp;apos;estensione e ricaricare la pagina prima di inviare la segnalazione del problema per  
+		rinvenirne le cause">
 <!ENTITY sendButton.accesskey "z">
-<!ENTITY showData.label "Mostra i dati della segnalazione">
-<!ENTITY data.label "Dati della segnalazione:">
-<!ENTITY data.accesskey "D">
-<!ENTITY sendPage.heading "Invio della segnalazione">
-<!ENTITY sendPage.waitMessage "Attendere mentre la segnalazione di Adblock Plus viene inviata">
-<!ENTITY sendPage.confirmation "Segnalazione inviata correttamente, per visualizzarne i dati fare clic sul seguente link:">
-<!ENTITY sendPage.knownIssue "Problema segnalato precedentemente noto. Ulteriori informazioni:">
-<!ENTITY sendPage.errorMessage "
-		Il tentativo di inviare la segnalazione non è riuscito a causa del seguente errore: &quot;?1?&quot;. 
-		Accertarsi di essere collegati ad internet e riprovare. Se il problema persiste inviare una richiesta
-		di assistenza nel [link]forum di Adblock Plus[/link]
-">
-<!ENTITY sendPage.retry.label "Riprova ad inviare">
-<!ENTITY copyLink.label "Copia il link della segnalazione">
+<!ENTITY typeSelector.falseNegative.label "Adblock Plus non sta bloccando alcun elemento">
 <!ENTITY copyLink.accesskey "k">
+<!ENTITY typeSelector.heading "Selezione del problema">
+<!ENTITY wizard.title "Configurazione guidata per segnalare problemi in una pagina web">
+<!ENTITY issues.ownfilters.disable.label "Disattiva i filtri">
+<!ENTITY commentPage.description "È possibile digitare nel relativo campo di testo qui sotto un commento per comprendere meglio 
+		il problema segnalato. Questo passo è opzionale ma raccomandato se il problema non è ovvio.
+		È inoltre possibile visualizzare i dati della segnalazione prima di inviarla">
+<!ENTITY typeSelector.falseNegative.accesskey "n">
+<!ENTITY comment.lengthWarning "La lunghezza massima del testo del commento è di 1000 caratteri; quelli eccedenti non verranno inviati">
+<!ENTITY typeSelector.falseNegative.description "Selezionare questa opzione se nella pagina web vengono visualizzati banner e/o pubblicità nonostante
+		Adblock Plus sia attiva">
+<!ENTITY typeWarning.override.accesskey "v">
+<!ENTITY sendPage.waitMessage "Attendere mentre la segnalazione di Adblock Plus viene inviata">
+<!ENTITY dataCollector.heading "Benvenuti alla configurazione guidata per segnalare problemi in una pagina web">
+<!ENTITY screenshot.remove.label "Elimina i dati sensibili">
+<!ENTITY screenshot.heading "Immagine da allegare">
+<!ENTITY comment.accesskey "o">
+<!ENTITY issues.ownfilters.description "Alcuni dei filtri che vengono applicati nella pagina web attuale sono personalizzati;
+		disattivare tali filtri che potrebbero essere la causa del seguente problema:">
+<!ENTITY screenshot.remove.accesskey "E">
+<!ENTITY issues.subscriptionCount.description "Sembra che siano state aggiunte troppe sottoscrizioni di filtri. Ciò non è
+	raccomandato poiché aumenta considerevolmente la possibilità che si verifichino
+	dei problemi. È inoltre impossibile accettare tale segnalazione in quanto non
+	è chiaro quale autore di sottoscrizioni di filtri debba controllare; eliminare
+	tutte le sottoscrizioni superflue lasciando solo quella necessaria e verificare
+	se il problema persiste ancora">
+<!ENTITY screenshot.mark.label "Contrassegna l&amp;apos;area del problema">
+<!ENTITY privacyPolicy.label "Informativa sulla privacy">
+<!ENTITY issues.description "Sono stati rilevati dei problemi con le impostazioni di Adblock Plus che potrebbero essere responsabili
+		del problema da segnalare oppure potrebbero rendere difficile rinvenirne le cause">

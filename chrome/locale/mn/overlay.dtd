@@ -1,30 +1,30 @@
-<!ENTITY status.tooltip "Төлөв:">
-<!ENTITY blocked.tooltip "Уг хуудас дахь хашигдсан зүйлс:">
-<!ENTITY filters.tooltip "Хамгийн идэвхтэй шүүлтүүрүүд:">
-<!ENTITY menuitem.label "Adblock Plus">
-<!ENTITY menuitem.accesskey "B">
-<!ENTITY toolbarbutton.label "Adblock Нэмэх">
-<!ENTITY context.image.label "Adblock Зураг">
-<!ENTITY context.object.label "Adblock Объект">
-<!ENTITY context.frame.label "Adblock Хүрээ">
-<!ENTITY context.media.label "Adblock: Дуу/видео">
-<!ENTITY context.removeWhitelist.label "Adblock: Уг хуудсанд дахин нээх">
-<!ENTITY sidebar.title "Тухайн хуудас дахь хашигдаж болох зүйлс">
-<!ENTITY sendReport.label "Энэ хуудас дахь асуудлыг мэдэгдэх">
-<!ENTITY sendReport.accesskey "М">
-<!ENTITY opensidebar.label "Хашигдах зүйлсийг нээх">
-<!ENTITY opensidebar.accesskey "Х">
-<!ENTITY closesidebar.label "Хашигдах зүйлсийг хаах">
-<!ENTITY closesidebar.accesskey "Х">
-<!ENTITY whitelist.site.label "Хаах нь ?1?">
-<!ENTITY whitelist.page.label "Зөвхөн уг хуудсанд хаах">
-<!ENTITY options.label "Сонголтууд">
-<!ENTITY options.accesskey "О">
-<!ENTITY showintoolbar.label "Хэрэгслийн мөрт харуулах">
 <!ENTITY showintoolbar.accesskey "М">
-<!ENTITY showinstatusbar.label "Төлвийн мөрт харуулах">
 <!ENTITY showinstatusbar.accesskey "Т">
-<!ENTITY objecttabs.label "Flash болон Java-д tab харуулах">
-<!ENTITY objecttabs.accesskey "Х">
+<!ENTITY whitelist.site.label "Хаах нь ?1?">
 <!ENTITY objecttab.title "Хаших">
+<!ENTITY objecttabs.label "Flash болон Java-д tab харуулах">
 <!ENTITY objecttab.tooltip "Энд дарвал уг объектийг Adblock Plus-аар хаших болно">
+<!ENTITY menuitem.label "Adblock Plus">
+<!ENTITY sendReport.accesskey "М">
+<!ENTITY sendReport.label "Энэ хуудас дахь асуудлыг мэдэгдэх">
+<!ENTITY whitelist.page.label "Зөвхөн уг хуудсанд хаах">
+<!ENTITY context.image.label "Adblock Зураг">
+<!ENTITY closesidebar.accesskey "Х">
+<!ENTITY opensidebar.label "Хашигдах зүйлсийг нээх">
+<!ENTITY options.accesskey "О">
+<!ENTITY objecttabs.accesskey "Х">
+<!ENTITY toolbarbutton.label "Adblock Нэмэх">
+<!ENTITY context.frame.label "Adblock Хүрээ">
+<!ENTITY blocked.tooltip "Уг хуудас дахь хашигдсан зүйлс:">
+<!ENTITY opensidebar.accesskey "Х">
+<!ENTITY showinstatusbar.label "Төлвийн мөрт харуулах">
+<!ENTITY status.tooltip "Төлөв:">
+<!ENTITY sidebar.title "Тухайн хуудас дахь хашигдаж болох зүйлс">
+<!ENTITY options.label "Сонголтууд">
+<!ENTITY context.object.label "Adblock Объект">
+<!ENTITY context.removeWhitelist.label "Adblock: Уг хуудсанд дахин нээх">
+<!ENTITY filters.tooltip "Хамгийн идэвхтэй шүүлтүүрүүд:">
+<!ENTITY closesidebar.label "Хашигдах зүйлсийг хаах">
+<!ENTITY showintoolbar.label "Хэрэгслийн мөрт харуулах">
+<!ENTITY menuitem.accesskey "B">
+<!ENTITY context.media.label "Adblock: Дуу/видео">

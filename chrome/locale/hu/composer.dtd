@@ -1,46 +1,46 @@
-<!ENTITY dialog.title "Adblock Plus szűrőszabály hozzáadása">
-<!ENTITY accept.label "Szűrő hozzáadása">
-<!ENTITY advanced.label "Haladó nézet">
-<!ENTITY basic.label "Alap nézet">
-<!ENTITY disabled.warning "Az Adblock Plus jelenleg le van tiltva. Szűrőket hozzáadhat, de azok nem fognak működni, amíg nem [link]engedélyezi az Adblock Plust[/link].">
-<!ENTITY filter.label "Új szűrő:">
-<!ENTITY filter.accesskey "j">
-<!ENTITY preferences.label "Meglévő szűrők megjelenítése...">
-<!ENTITY preferences.accesskey "M">
-<!ENTITY type.filter.label "Blokkoló szűrő">
-<!ENTITY type.filter.accesskey "s">
-<!ENTITY type.whitelist.label "Kivételszabály">
-<!ENTITY type.whitelist.accesskey "K">
-<!ENTITY pattern.label "Minta">
-<!ENTITY pattern.explanation "A minta lehet egy webcím bármely része, amelyben a * szimbólum helyettesítő karakterként szerepelhet. A szűrő csak azokra címekre lesz alkalmazva, amelyekre a minta illeszkedik.">
-<!ENTITY regexp.warning "A megadott minta reguláris kifejezésként fog szerepelni. Sok ilyen kifejezés lassíthatja a böngészést. Ha nem akar használni ilyen kifejezéseket, a minta végére írja a * jelet.">
-<!ENTITY shortpattern.warning "A megadott minta nem optimalizálható, mert túl rövid. Sok ilyen minta lassíthatja a böngészést. Ajánlott ehhez a szűrőhöz egy hosszabb karakterlánc használata.">
-<!ENTITY match.warning "A megadott minta nem egyezik a blokkolt/engedélyezett címek listájával, így annak használata nem jár eredménnyel.">
-<!ENTITY custom.pattern.label "Egyedi:">
-<!ENTITY custom.pattern.accesskey "g">
-<!ENTITY anchors.label "Minta elfogadása csak:">
-<!ENTITY anchor.start.label "a cím elején">
-<!ENTITY anchor.start.accesskey "e">
-<!ENTITY anchor.start.flexible.label "a tartománynév elején">
-<!ENTITY anchor.start.flexible.accesskey "e">
-<!ENTITY anchor.end.label "a cím végén">
-<!ENTITY anchor.end.accesskey "v">
-<!ENTITY options.label "Beállítások">
-<!ENTITY domainRestriction.label "Korlátozás tartományra:">
-<!ENTITY domainRestriction.accesskey "t">
-<!ENTITY domainRestriction.help "Adjon meg egy vagy több tartományt a &quot;|&quot; jellel elválasztva, a szűrő csak ezeken a tartományokon lesz alkalmazva. A &quot;~&quot; jellel a tartománynév elején letilthatja a szűrő használatát az adott tartományon.">
-<!ENTITY firstParty.label "Csak belső címhez">
-<!ENTITY firstParty.accesskey "b">
-<!ENTITY thirdParty.label "Csak külső címhez">
-<!ENTITY thirdParty.accesskey "h">
-<!ENTITY matchCase.label "Kis- és nagy betűk megkülönböztetése">
-<!ENTITY matchCase.accesskey "i">
-<!ENTITY types.label "Alkalmazás típusokra:">
-<!ENTITY selectAllTypes.label "Minden kijelölése">
-<!ENTITY unselectAllTypes.label "Kijelölés törlése">
-<!ENTITY collapse.label "Blokkolt elem összecsukása:">
-<!ENTITY collapse.accesskey "o">
-<!ENTITY collapse.default.yes.label "Alapértelmezett (igen)">
-<!ENTITY collapse.default.no.label "Alapértelmezett (nem)">
 <!ENTITY collapse.yes.label "Igen">
+<!ENTITY anchor.end.label "a cím végén">
+<!ENTITY domainRestriction.label "Korlátozás tartományra:">
+<!ENTITY anchor.start.flexible.accesskey "e">
+<!ENTITY firstParty.label "Csak belső címhez">
+<!ENTITY preferences.label "Meglévő szűrők megjelenítése...">
+<!ENTITY pattern.label "Minta">
+<!ENTITY thirdParty.label "Csak külső címhez">
+<!ENTITY filter.accesskey "j">
+<!ENTITY thirdParty.accesskey "h">
+<!ENTITY filter.label "Új szűrő:">
+<!ENTITY collapse.label "Blokkolt elem összecsukása:">
+<!ENTITY match.warning "A megadott minta nem egyezik a blokkolt/engedélyezett címek listájával, így annak használata nem jár eredménnyel.">
+<!ENTITY anchor.start.label "a cím elején">
 <!ENTITY collapse.no.label "Nem">
+<!ENTITY matchCase.label "Kis- és nagy betűk megkülönböztetése">
+<!ENTITY custom.pattern.label "Egyedi:">
+<!ENTITY unselectAllTypes.label "Kijelölés törlése">
+<!ENTITY domainRestriction.accesskey "t">
+<!ENTITY type.whitelist.label "Kivételszabály">
+<!ENTITY regexp.warning "A megadott minta reguláris kifejezésként fog szerepelni. Sok ilyen kifejezés lassíthatja a böngészést. Ha nem akar használni ilyen kifejezéseket, a minta végére írja a * jelet.">
+<!ENTITY dialog.title "Adblock Plus szűrőszabály hozzáadása">
+<!ENTITY basic.label "Alap nézet">
+<!ENTITY preferences.accesskey "M">
+<!ENTITY firstParty.accesskey "b">
+<!ENTITY collapse.default.no.label "Alapértelmezett (nem)">
+<!ENTITY type.filter.label "Blokkoló szűrő">
+<!ENTITY types.label "Alkalmazás típusokra:">
+<!ENTITY shortpattern.warning "A megadott minta nem optimalizálható, mert túl rövid. Sok ilyen minta lassíthatja a böngészést. Ajánlott ehhez a szűrőhöz egy hosszabb karakterlánc használata.">
+<!ENTITY custom.pattern.accesskey "g">
+<!ENTITY anchor.start.accesskey "e">
+<!ENTITY anchors.label "Minta elfogadása csak:">
+<!ENTITY collapse.default.yes.label "Alapértelmezett (igen)">
+<!ENTITY type.filter.accesskey "s">
+<!ENTITY domainRestriction.help "Adjon meg egy vagy több tartományt a &quot;|&quot; jellel elválasztva, a szűrő csak ezeken a tartományokon lesz alkalmazva. A &quot;~&quot; jellel a tartománynév elején letilthatja a szűrő használatát az adott tartományon.">
+<!ENTITY accept.label "Szűrő hozzáadása">
+<!ENTITY options.label "Beállítások">
+<!ENTITY disabled.warning "Az Adblock Plus jelenleg le van tiltva. Szűrőket hozzáadhat, de azok nem fognak működni, amíg nem [link]engedélyezi az Adblock Plust[/link].">
+<!ENTITY anchor.start.flexible.label "a tartománynév elején">
+<!ENTITY type.whitelist.accesskey "K">
+<!ENTITY matchCase.accesskey "i">
+<!ENTITY anchor.end.accesskey "v">
+<!ENTITY selectAllTypes.label "Minden kijelölése">
+<!ENTITY advanced.label "Haladó nézet">
+<!ENTITY collapse.accesskey "o">
+<!ENTITY pattern.explanation "A minta lehet egy webcím bármely része, amelyben a * szimbólum helyettesítő karakterként szerepelhet. A szűrő csak azokra címekre lesz alkalmazva, amelyekre a minta illeszkedik.">

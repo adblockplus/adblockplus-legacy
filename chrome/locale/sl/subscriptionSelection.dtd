@@ -1,16 +1,15 @@
-<!ENTITY dialog.title "Dodaj naročnino na filtre Adblock Plus">
-<!ENTITY subscriptionSelector.label "Izberite naročnino na filter s seznama:">
+<!ENTITY addMain.label "Dodaj tudi naročnino na filter ?1?">
+<!ENTITY addMain.accesskey "f">
+<!ENTITY list.download.failed "Pridobivanje seznama naročnin ni uspelo.">
+<!ENTITY list.download.retry "Poskusi znova">
+<!ENTITY location.accesskey "M">
+<!ENTITY title.label "Naslov naročnine:">
+<!ENTITY list.download.website "Pokaži spletno mesto">
+<!ENTITY supplementMessage "Naročnina na filter je mišljena za rabo z naročnino na filter ?1?, ki je še ne uporabljate.">
+<!ENTITY title.accesskey "N">
 <!ENTITY viewList.label "Pokaži filtre">
 <!ENTITY visitHomepage.label "Obišči domačo stran">
 <!ENTITY addSubscription.label "Dodaj naročnino">
-<!ENTITY list.download.failed "Pridobivanje seznama naročnin ni uspelo.">
-<!ENTITY list.download.retry "Poskusi znova">
-<!ENTITY list.download.website "Pokaži spletno mesto">
-<!ENTITY fromWeb.description "Potrdite, da želite dodati to naročnino na filter. Naslov ali kraj naročnine lahko spremenite še pred dodajanjem.">
-<!ENTITY title.label "Naslov naročnine:">
-<!ENTITY title.accesskey "N">
+<!ENTITY dialog.title "Dodaj naročnino na filtre Adblock Plus">
 <!ENTITY location.label "Mesto seznama filtriranja:">
-<!ENTITY location.accesskey "M">
-<!ENTITY supplementMessage "Naročnina na filter je mišljena za rabo z naročnino na filter ?1?, ki je še ne uporabljate.">
-<!ENTITY addMain.label "Dodaj tudi naročnino na filter ?1?">
-<!ENTITY addMain.accesskey "f">
+<!ENTITY fromWeb.description "Potrdite, da želite dodati to naročnino na filter. Naslov ali kraj naročnine lahko spremenite še pred dodajanjem.">

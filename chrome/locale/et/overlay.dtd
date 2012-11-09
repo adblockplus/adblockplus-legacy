@@ -1,42 +1,35 @@
-<!ENTITY status.tooltip "Olek:">
-<!ENTITY blocked.tooltip "Blokeeritud elemendid antud lehel:">
-<!ENTITY filters.tooltip "Kõige aktiivsemad filtrid:">
-<!ENTITY menuitem.label "Adblock Plusi sätted">
-<!ENTITY menuitem.accesskey "b">
-<!ENTITY toolbarbutton.label "Adblock Plus">
-<!ENTITY context.image.label "Adblock Plus: Blokeeri pilt">
-<!ENTITY context.object.label "Adblock Plus: Blokeeri objekt">
-<!ENTITY context.frame.label "Adblock Plus: Blokeeri raam">
-<!ENTITY context.media.label "Adblock Plus: Blokeeri audio/video">
-<!ENTITY context.removeWhitelist.label "Adblock Plus: Luba uuesti antud lehel">
-<!ENTITY sidebar.title "Blokeeritavad elemendid antud lehel">
-<!ENTITY sendReport.label "Teata probleemist antud lehel">
-<!ENTITY sendReport.accesskey "T">
-<!ENTITY filters.label "Filtrite sätted">
-<!ENTITY filters.accesskey "F">
-<!ENTITY opensidebar.label "Ava blokeeritavad elemendid">
-<!ENTITY opensidebar.accesskey "b">
-<!ENTITY closesidebar.label "Sulge blokeeritavad elemendid">
-<!ENTITY closesidebar.accesskey "b">
+<!ENTITY showintoolbar.accesskey "i">
+<!ENTITY showinstatusbar.accesskey "o">
 <!ENTITY whitelist.site.label "Keela domeenis ?1?">
-<!ENTITY whitelist.page.label "Keela ainult antud lehel">
+<!ENTITY filters.label "Filtrite sätted">
 <!ENTITY disable.label "Keela kõikjal">
-<!ENTITY options.label "Valikud">
+<!ENTITY showinaddonbar.label "Näita lisade ribal">
+<!ENTITY objecttab.title "Blokeeri">
+<!ENTITY showinaddonbar.accesskey "i">
+<!ENTITY sync.accesskey "k">
+<!ENTITY objecttabs.label "Näita Flash ja Java objektidel sakke">
+<!ENTITY objecttab.tooltip "Klõpsa siia selle objekti blokeerimiseks Adblock Plusi abil">
+<!ENTITY menuitem.label "Adblock Plusi sätted">
+<!ENTITY sendReport.accesskey "T">
+<!ENTITY sendReport.label "Teata probleemist antud lehel">
+<!ENTITY whitelist.page.label "Keela ainult antud lehel">
+<!ENTITY context.image.label "Adblock Plus: Blokeeri pilt">
+<!ENTITY counthits.label "Loenda filtrite tabamusi">
+<!ENTITY opensidebar.label "Ava blokeeritavad elemendid">
 <!ENTITY options.accesskey "a">
 <!ENTITY contribute.label "Toeta Adblock Plus'i">
-<!ENTITY showintoolbar.label "Näita tööriistade menüüs">
-<!ENTITY showintoolbar.accesskey "i">
-<!ENTITY showinstatusbar.label "Näita olekuribal">
-<!ENTITY showinstatusbar.accesskey "o">
-<!ENTITY showinaddonbar.label "Näita lisade ribal">
-<!ENTITY showinaddonbar.accesskey "i">
-<!ENTITY objecttabs.label "Näita Flash ja Java objektidel sakke">
-<!ENTITY objecttabs.accesskey "t">
+<!ENTITY context.frame.label "Adblock Plus: Blokeeri raam">
+<!ENTITY blocked.tooltip "Blokeeritud elemendid antud lehel:">
 <!ENTITY hideplaceholders.label "Peida blokeeritud elementide kohatäitjad">
-<!ENTITY hideplaceholders.accesskey "l">
-<!ENTITY counthits.label "Loenda filtrite tabamusi">
-<!ENTITY counthits.accesskey "f">
+<!ENTITY showinstatusbar.label "Näita olekuribal">
+<!ENTITY sidebar.title "Blokeeritavad elemendid antud lehel">
 <!ENTITY sync.label "Sünkroniseeri Adblock Plus sätted">
-<!ENTITY sync.accesskey "k">
-<!ENTITY objecttab.title "Blokeeri">
-<!ENTITY objecttab.tooltip "Klõpsa siia selle objekti blokeerimiseks Adblock Plusi abil">
+<!ENTITY options.label "Valikud">
+<!ENTITY context.object.label "Adblock Plus: Blokeeri objekt">
+<!ENTITY context.removeWhitelist.label "Adblock Plus: Luba uuesti antud lehel">
+<!ENTITY filters.tooltip "Kõige aktiivsemad filtrid:">
+<!ENTITY closesidebar.label "Sulge blokeeritavad elemendid">
+<!ENTITY showintoolbar.label "Näita tööriistade menüüs">
+<!ENTITY counthits.accesskey "f">
+<!ENTITY status.tooltip "Olek:">
+<!ENTITY context.media.label "Adblock Plus: Blokeeri audio/video">

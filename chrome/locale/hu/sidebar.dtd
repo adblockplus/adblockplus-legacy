@@ -1,36 +1,36 @@
-<!ENTITY detached.title "Adblock Plus: Blokkolható objektumok (leválasztva)">
-<!ENTITY detach.label "Leválaszt">
+<!ENTITY context.flash.label "Objektum széleinek villogtatása">
+<!ENTITY tooltip.type.label "Típus:">
+<!ENTITY address.label "Cím">
+<!ENTITY context.open.label "Megnyitás új fülön">
+<!ENTITY type.label "Típus">
+<!ENTITY tooltip.filterSource.label "Szűrő forrása:">
+<!ENTITY noitems.label "Nincs blokkolható objektum">
+<!ENTITY filter.label "Szűrő">
+<!ENTITY tooltip.size.label "Méret:">
 <!ENTITY reattach.label "Oldalsávba">
 <!ENTITY search.label "Keresés:">
-<!ENTITY search.accesskey "K">
-<!ENTITY type.label "Típus">
-<!ENTITY address.label "Cím">
-<!ENTITY filter.label "Szűrő">
-<!ENTITY state.label "Állapot">
-<!ENTITY size.label "Méret">
-<!ENTITY filterSource.label "Szűrő forrása">
-<!ENTITY docDomain.label "Dokumentum forrás">
 <!ENTITY docDomain.thirdParty "(3. fél)">
-<!ENTITY docDomain.firstParty "(első fél)">
-<!ENTITY noitems.label "Nincs blokkolható objektum">
-<!ENTITY whitelisted.label "A cím 'fehér listán' van">
-<!ENTITY tooltip.address.label "Cím:">
-<!ENTITY tooltip.type.label "Típus:">
-<!ENTITY tooltip.type.blocked "(blokkolva)">
-<!ENTITY tooltip.type.whitelisted "(fehér listán)">
-<!ENTITY tooltip.size.label "Méret:">
+<!ENTITY filterSource.label "Szűrő forrása">
 <!ENTITY tooltip.docDomain.label "Dokumentum forrás:">
+<!ENTITY context.copy.label "Objektum címének másolása">
+<!ENTITY tooltip.type.blocked "(blokkolva)">
+<!ENTITY search.accesskey "K">
+<!ENTITY context.disablefilter.label "Szűrő letiltása ?1?">
+<!ENTITY context.copyFilter.label "Szűrő másolása">
+<!ENTITY context.block.label "Objektum blokkolása">
+<!ENTITY context.enablefilter.label "Szűrő engedélyezése ?1?">
+<!ENTITY detach.label "Leválaszt">
+<!ENTITY whitelisted.label "A cím 'fehér listán' van">
+<!ENTITY context.disablefilteronsite.label "Szűrő letiltása itt: ?1?">
+<!ENTITY detached.title "Adblock Plus: Blokkolható objektumok (leválasztva)">
+<!ENTITY docDomain.firstParty "(első fél)">
+<!ENTITY tooltip.type.whitelisted "(fehér listán)">
 <!ENTITY tooltip.filter.label "Alkalmazott szűrők:">
 <!ENTITY tooltip.filter.disabled "(letiltva)">
-<!ENTITY tooltip.filterSource.label "Szűrő forrása:">
-<!ENTITY context.block.label "Objektum blokkolása">
 <!ENTITY context.editfilter.label "Alkalmazott szűrő szerkesztése">
+<!ENTITY size.label "Méret">
 <!ENTITY context.whitelist.label "Kivétel megadása objektumhoz">
-<!ENTITY context.disablefilter.label "Szűrő letiltása ?1?">
-<!ENTITY context.enablefilter.label "Szűrő engedélyezése ?1?">
-<!ENTITY context.disablefilteronsite.label "Szűrő letiltása itt: ?1?">
-<!ENTITY context.open.label "Megnyitás új fülön">
-<!ENTITY context.flash.label "Objektum széleinek villogtatása">
-<!ENTITY context.copy.label "Objektum címének másolása">
-<!ENTITY context.copyFilter.label "Szűrő másolása">
 <!ENTITY context.selectAll.label "Minden kijelölése">
+<!ENTITY state.label "Állapot">
+<!ENTITY docDomain.label "Dokumentum forrás">
+<!ENTITY tooltip.address.label "Cím:">
