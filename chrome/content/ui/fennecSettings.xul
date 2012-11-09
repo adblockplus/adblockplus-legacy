@@ -22,4 +22,5 @@
            inverted="true"/>
   <setting id="adblockplus-sync" type="bool" title="&sync.label;"
     oncommand="/**See bug 762015*/ if (event.type == 'oncommand') {event = document.createEvent('Events'); event.initEvent('command', false, false); this.dispatchEvent(event);}"/>
+  <setting id="adblockplus-typoCorrection" type="bool" title="&typoCorrections.enableLabel;" pref="extensions.adblockplus.correctTypos"/>
 </vbox>

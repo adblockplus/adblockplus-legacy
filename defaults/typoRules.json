@@ -1,0 +1,20 @@
+{
+  "version": 2,
+
+  "expressions": [
+    // Comma or semicolon instead of dot
+    {"find": "[,;]", "replace": "."},
+
+    // Leading or trailing dots
+    {"find": "^\\.+|\\.+$", "replace": ""},
+
+    // Only two of the three w's
+    {"find": "^w{2,4}(\\.)([^\\.]+\\..*)$", "replace": "www.$2"},
+
+    // Missing the dot
+    {"find": "([^\\.])(com|net|org|edu|mil|gov|aero|biz|coop|info|museum|name|pro|cat|jobs|mobi|travel)$", "replace": "$1.$2"}
+  ],
+
+  // Automatically generated dictionaries
+  "domain":{},"domainReferrals":{},"scheme":{}
+}
