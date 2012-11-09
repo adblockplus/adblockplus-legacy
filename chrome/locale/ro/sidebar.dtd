@@ -1,36 +1,36 @@
-<!ENTITY detached.title "Adblock Plus: Lista elementelor blocabile în pagină (desprinsă)">
-<!ENTITY detach.label "Desprinde">
+<!ENTITY context.flash.label "Evidenţiază marginile elementelor">
+<!ENTITY tooltip.type.label "Tip:">
+<!ENTITY address.label "Adresă">
+<!ENTITY context.open.label "Deschide în filă nouă">
+<!ENTITY type.label "Tip">
+<!ENTITY tooltip.filterSource.label "Sursă filtru:">
+<!ENTITY noitems.label "Nici un element blocabil">
+<!ENTITY filter.label "Filtru">
+<!ENTITY tooltip.size.label "Mărime:">
 <!ENTITY reattach.label "Prinde la loc">
 <!ENTITY search.label "Caută:">
-<!ENTITY search.accesskey "C">
-<!ENTITY type.label "Tip">
-<!ENTITY address.label "Adresă">
-<!ENTITY filter.label "Filtru">
-<!ENTITY state.label "Stare">
-<!ENTITY size.label "Mărime">
-<!ENTITY filterSource.label "Sursă filtru">
-<!ENTITY docDomain.label "Sursă document">
 <!ENTITY docDomain.thirdParty "(parte terţă)">
-<!ENTITY docDomain.firstParty "(parte implicată)">
-<!ENTITY noitems.label "Nici un element blocabil">
-<!ENTITY whitelisted.label "Pagini sigure">
-<!ENTITY tooltip.address.label "Adresă:">
-<!ENTITY tooltip.type.label "Tip:">
-<!ENTITY tooltip.type.blocked "(blocat)">
-<!ENTITY tooltip.type.whitelisted "(permis)">
-<!ENTITY tooltip.size.label "Mărime:">
+<!ENTITY filterSource.label "Sursă filtru">
 <!ENTITY tooltip.docDomain.label "Sursă document:">
+<!ENTITY context.copy.label "Copiază adresa elementului">
+<!ENTITY tooltip.type.blocked "(blocat)">
+<!ENTITY search.accesskey "C">
+<!ENTITY context.disablefilter.label "Dezactivează filtru ?1?">
+<!ENTITY context.copyFilter.label "Copiază filtru">
+<!ENTITY context.block.label "Blochează element">
+<!ENTITY context.enablefilter.label "Reactivează filtru ?1?">
+<!ENTITY detach.label "Desprinde">
+<!ENTITY whitelisted.label "Pagini sigure">
+<!ENTITY context.disablefilteronsite.label "Dezactivează acest filtru pe ?1?">
+<!ENTITY detached.title "Adblock Plus: Lista elementelor blocabile în pagină (desprinsă)">
+<!ENTITY docDomain.firstParty "(parte implicată)">
+<!ENTITY tooltip.type.whitelisted "(permis)">
 <!ENTITY tooltip.filter.label "Filtru în acţiune:">
 <!ENTITY tooltip.filter.disabled "(dezactivat)">
-<!ENTITY tooltip.filterSource.label "Sursă filtru:">
-<!ENTITY context.block.label "Blochează element">
 <!ENTITY context.editfilter.label "Modifică filtrul activ">
+<!ENTITY size.label "Mărime">
 <!ENTITY context.whitelist.label "Adaugă regulă excepţie pentru element">
-<!ENTITY context.disablefilter.label "Dezactivează filtru ?1?">
-<!ENTITY context.enablefilter.label "Reactivează filtru ?1?">
-<!ENTITY context.disablefilteronsite.label "Dezactivează acest filtru pe ?1?">
-<!ENTITY context.open.label "Deschide în filă nouă">
-<!ENTITY context.flash.label "Evidenţiază marginile elementelor">
-<!ENTITY context.copy.label "Copiază adresa elementului">
-<!ENTITY context.copyFilter.label "Copiază filtru">
 <!ENTITY context.selectAll.label "Selectează tot">
+<!ENTITY state.label "Stare">
+<!ENTITY docDomain.label "Sursă document">
+<!ENTITY tooltip.address.label "Adresă:">

@@ -1,10 +1,10 @@
-<!ENTITY dialog.title "Instalace Adblocku Plus dokončena">
-<!ENTITY confirmation "Děkujeme, že jste nainstalovali Adblock Plus. Od teď budou blokovány reklamy.">
 <!ENTITY advancedSection "Pokročilé možnosti">
-<!ENTITY listSelection1 "Byl nastaven následující seznam cizích filtrů pro blokování reklam:">
+<!ENTITY confirmation "Děkujeme, že jste nainstalovali Adblock Plus. Od teď budou blokovány reklamy.">
 <!ENTITY noList "Žádný seznam cizích filtrů">
-<!ENTITY visitHomepage.label "Navštívit domovskou stránku">
 <!ENTITY acceptableAds2 "Adblock Plus byl také nastaven, aby zobrazovat některé nerušivé reklamy.">
 <!ENTITY viewList.label "Zobrazit seznam">
-<!ENTITY readMore.label "Zjistit více">
+<!ENTITY visitHomepage.label "Navštívit domovskou stránku">
+<!ENTITY dialog.title "Instalace Adblocku Plus dokončena">
+<!ENTITY listSelection1 "Byl nastaven následující seznam cizích filtrů pro blokování reklam:">
 <!ENTITY listSelection2 "Tento výběr můžete kdykoli změnit v [link]Předvolbách filtrů[/link].">
+<!ENTITY readMore.label "Zjistit více">

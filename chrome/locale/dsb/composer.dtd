@@ -1,46 +1,46 @@
-<!ENTITY dialog.title "Filtrowe pšawidło Adblock Plus pśidaś">
-<!ENTITY accept.label "Filter pśidaś">
-<!ENTITY advanced.label "Rozšyrjony naglěd">
-<!ENTITY basic.label "Zakładny naglěd">
-<!ENTITY disabled.warning "Adblock Plus jo tuchylu znjemóžnjony. Móžośo hyšći filtry pśidaś, ale njebudu se nałožowaś, snaźkuli [link]zmóžnijośo Adblock Plus[/link].">
-<!ENTITY filter.label "Nowy filter:">
-<!ENTITY filter.accesskey "f">
-<!ENTITY preferences.label "Eksistěrujuce filtry pokazaś...">
-<!ENTITY preferences.accesskey "E">
-<!ENTITY type.filter.label "Blokěrujucy filter">
-<!ENTITY type.filter.accesskey "B">
-<!ENTITY type.whitelist.label "Wuwześowe pšawidło">
-<!ENTITY type.whitelist.accesskey "w">
-<!ENTITY pattern.label "Muster pytaś">
-<!ENTITY pattern.explanation "Muster móžo źěl adrese byś; gwězdki (*) funkcioněruju ako zastupujuce symbole. Filter buźo se janž na adrese nałožowaś, kótarež wótpowěduju pódanemu mustroju.">
-<!ENTITY regexp.warning "Muster, kótaryž sćo zapódał, buźo se ako regularny wuraz interpretěrowaś, kótaryž njedajo se pśez Adblock Plus statkownje pśeźěłaś a mógł waš wobglědowak spomałšyś. Jolic njocośo regularny wuraz wužywaś, pśidajśo gwězdku (*) ke kóńcoju mustra.">
-<!ENTITY shortpattern.warning "Muster, kótaryž sćo zapódał, jo za optiměrowanje pśekrotko a mógł waš wobglědowak spomałšyś. Pśiraźujo se, až wubjerjośo dlěšy znamuškowy rjeśazk za toś ten filter, aby wy Adblock Plus dowólił, filter statkownjej pśeźěłał.">
-<!ENTITY match.warning "Muster, kótaryž sćo zapódał, wěcej njewótpowědujo adresy, kótaraž ma se blokěrowaś/do běłeje lisćiny pśewześ a njezmějo žedno wustatkowanje na nju.">
-<!ENTITY custom.pattern.label "Swójski:">
-<!ENTITY custom.pattern.accesskey "S">
-<!ENTITY anchors.label "Jano muster akceptěrowaś:">
-<!ENTITY anchor.start.label "na zachopjeńku adrese">
-<!ENTITY anchor.start.accesskey "h">
-<!ENTITY anchor.start.flexible.label "na zachopjeńku mjenja domeny">
-<!ENTITY anchor.start.flexible.accesskey "h">
-<!ENTITY anchor.end.label "na kóńcu adrese">
-<!ENTITY anchor.end.accesskey "c">
-<!ENTITY options.label "Opcije">
-<!ENTITY domainRestriction.label "Wobgranicowaś na domenu:">
-<!ENTITY domainRestriction.accesskey "d">
-<!ENTITY domainRestriction.help "Wužyjśo toś tu opciju, aby wy pódał jadnu domenu abo někotare domeny, kótarež wótdźěluju se pśez wertikalnu ceru (|). Filter buźo se jano na wubrane domeny nałožowaś. Tilda (~) pśed domenowym mjenim pódawa, až filter njebuźo se na tu domenu nałožowaś.">
-<!ENTITY firstParty.label "Jano prědny bok">
-<!ENTITY firstParty.accesskey "r">
-<!ENTITY thirdParty.label "Jano tśeśi bok">
-<!ENTITY thirdParty.accesskey "t">
-<!ENTITY matchCase.label "Na wjelikopisanje źiwaś">
-<!ENTITY matchCase.accesskey "N">
-<!ENTITY types.label "Na typy nałožyś:">
-<!ENTITY selectAllTypes.label "Wšykne wubraś">
-<!ENTITY unselectAllTypes.label "Žeden wubraś">
-<!ENTITY collapse.label "Blokěrowane złožyś:">
-<!ENTITY collapse.accesskey "l">
-<!ENTITY collapse.default.yes.label "Standard wužywaś (jo)">
-<!ENTITY collapse.default.no.label "Standard wužywaś (ně)">
 <!ENTITY collapse.yes.label "Jo">
+<!ENTITY anchor.end.label "na kóńcu adrese">
+<!ENTITY domainRestriction.label "Wobgranicowaś na domenu:">
+<!ENTITY anchor.start.flexible.accesskey "h">
+<!ENTITY firstParty.label "Jano prědny bok">
+<!ENTITY preferences.label "Eksistěrujuce filtry pokazaś...">
+<!ENTITY pattern.label "Muster pytaś">
+<!ENTITY thirdParty.label "Jano tśeśi bok">
+<!ENTITY filter.accesskey "f">
+<!ENTITY thirdParty.accesskey "t">
+<!ENTITY filter.label "Nowy filter:">
+<!ENTITY collapse.label "Blokěrowane złožyś:">
+<!ENTITY match.warning "Muster, kótaryž sćo zapódał, wěcej njewótpowědujo adresy, kótaraž ma se blokěrowaś/do běłeje lisćiny pśewześ a njezmějo žedno wustatkowanje na nju.">
+<!ENTITY anchor.start.label "na zachopjeńku adrese">
 <!ENTITY collapse.no.label "Ně">
+<!ENTITY matchCase.label "Na wjelikopisanje źiwaś">
+<!ENTITY custom.pattern.label "Swójski:">
+<!ENTITY unselectAllTypes.label "Žeden wubraś">
+<!ENTITY domainRestriction.accesskey "d">
+<!ENTITY type.whitelist.label "Wuwześowe pšawidło">
+<!ENTITY regexp.warning "Muster, kótaryž sćo zapódał, buźo se ako regularny wuraz interpretěrowaś, kótaryž njedajo se pśez Adblock Plus statkownje pśeźěłaś a mógł waš wobglědowak spomałšyś. Jolic njocośo regularny wuraz wužywaś, pśidajśo gwězdku (*) ke kóńcoju mustra.">
+<!ENTITY dialog.title "Filtrowe pšawidło Adblock Plus pśidaś">
+<!ENTITY basic.label "Zakładny naglěd">
+<!ENTITY preferences.accesskey "E">
+<!ENTITY firstParty.accesskey "J">
+<!ENTITY collapse.default.no.label "Standard wužywaś (ně)">
+<!ENTITY type.filter.label "Blokěrujucy filter">
+<!ENTITY types.label "Na typy nałožyś:">
+<!ENTITY shortpattern.warning "Muster, kótaryž sćo zapódał, jo za optiměrowanje pśekrotko a mógł waš wobglědowak spomałšyś. Pśiraźujo se, až wubjerjośo dlěšy znamuškowy rjeśazk za toś ten filter, aby wy Adblock Plus dowólił, filter statkownjej pśeźěłał.">
+<!ENTITY custom.pattern.accesskey "S">
+<!ENTITY anchor.start.accesskey "h">
+<!ENTITY anchors.label "Jano muster akceptěrowaś:">
+<!ENTITY collapse.default.yes.label "Standard wužywaś (jo)">
+<!ENTITY type.filter.accesskey "B">
+<!ENTITY domainRestriction.help "Wužyjśo toś tu opciju, aby wy pódał jadnu domenu abo někotare domeny, kótarež wótdźěluju se pśez wertikalnu ceru (|). Filter buźo se jano na wubrane domeny nałožowaś. Tilda (~) pśed domenowym mjenim pódawa, až filter njebuźo se na tu domenu nałožowaś.">
+<!ENTITY accept.label "Filter pśidaś">
+<!ENTITY options.label "Opcije">
+<!ENTITY disabled.warning "Adblock Plus jo tuchylu znjemóžnjony. Móžośo hyšći filtry pśidaś, ale njebudu se nałožowaś, snaźkuli [link]zmóžnijośo Adblock Plus[/link].">
+<!ENTITY anchor.start.flexible.label "na zachopjeńku mjenja domeny">
+<!ENTITY type.whitelist.accesskey "w">
+<!ENTITY matchCase.accesskey "N">
+<!ENTITY anchor.end.accesskey "c">
+<!ENTITY selectAllTypes.label "Wšykne wubraś">
+<!ENTITY advanced.label "Rozšyrjony naglěd">
+<!ENTITY collapse.accesskey "l">
+<!ENTITY pattern.explanation "Muster móžo źěl adrese byś; gwězdki (*) funkcioněruju ako zastupujuce symbole. Filter buźo se janž na adrese nałožowaś, kótarež wótpowěduju pódanemu mustroju.">

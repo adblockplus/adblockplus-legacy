@@ -1,49 +1,46 @@
-<!ENTITY dialog.title             "Составление фильтра для Adblock Plus">
-<!ENTITY accept.label             "Добавить фильтр">
-<!ENTITY advanced.label           "Расширенный вид">
-<!ENTITY basic.label              "Стандартный вид">
-
-<!ENTITY disabled.warning         "Adblock Plus сейчас отключен. Вы можете добавить этот фильтр, но чтобы он применился нужно [link]включить Adblock Plus[/link].">
-
-<!ENTITY filter.label             "Новый фильтр:">
-<!ENTITY filter.accesskey         "ф">
-<!ENTITY preferences.label        "Показать существующие фильтры...">
-<!ENTITY preferences.accesskey    "щ">
-<!ENTITY type.filter.label        "Правило блокирования">
-<!ENTITY type.filter.accesskey    "б">
-<!ENTITY type.whitelist.label     "Исключение">
-<!ENTITY type.whitelist.accesskey "к">
-<!ENTITY pattern.label            "Шаблон">
-<!ENTITY pattern.explanation      "Шаблоном может быть любая часть адреса, причем звездочка (*) заменяет любое количество символов. Фильтр будет применен только к тем адресам, которые соответствуют шаблону.">
-<!ENTITY regexp.warning           "Введенный шаблон будет понят как регулярное выражение. Большое количество регулярных выражений может отрицательно сказаться на быстродействии вашего браузера. Если вы не собирались использовать регулярные выражения, то просто добавьте звездочку в конце шаблона.">
-<!ENTITY shortpattern.warning     "Введенный шаблон слишком короткий и потому не будет оптимизирован. Большое количество таких шаблонов может отрицательно сказаться на быстродействии вашего браузера. Рекомендуется по возможности использовать более длинный шаблон.">
-<!ENTITY match.warning            "Введенный шаблон не соответствует адресу, для которого вы создаете правило, и никак не повлияет на него.">
-<!ENTITY custom.pattern.label     "Собственный:">
+<!ENTITY collapse.yes.label "Да">
+<!ENTITY anchor.end.label "в конце адреса">
+<!ENTITY domainRestriction.label "Ограничить доменом:">
+<!ENTITY anchor.start.flexible.accesskey "ч">
+<!ENTITY firstParty.label "Только элементы с того же сайта">
+<!ENTITY preferences.label "Показать существующие фильтры...">
+<!ENTITY pattern.label "Шаблон">
+<!ENTITY thirdParty.label "Только элементы с другого сайта">
+<!ENTITY filter.accesskey "ф">
+<!ENTITY thirdParty.accesskey "р">
+<!ENTITY filter.label "Новый фильтр:">
+<!ENTITY collapse.label "Сворачивать заблокированные элементы:">
+<!ENTITY match.warning "Введенный шаблон не соответствует адресу, для которого вы создаете правило, и никак не повлияет на него.">
+<!ENTITY anchor.start.label "в начале адреса">
+<!ENTITY collapse.no.label "Нет">
+<!ENTITY matchCase.label "Учитывать регистр букв">
+<!ENTITY custom.pattern.label "Собственный:">
+<!ENTITY unselectAllTypes.label "Убрать все">
+<!ENTITY domainRestriction.accesskey "д">
+<!ENTITY type.whitelist.label "Исключение">
+<!ENTITY regexp.warning "Введенный шаблон будет понят как регулярное выражение. Большое количество регулярных выражений может отрицательно сказаться на быстродействии вашего браузера. Если вы не собирались использовать регулярные выражения, то просто добавьте звездочку в конце шаблона.">
+<!ENTITY dialog.title "Составление фильтра для Adblock Plus">
+<!ENTITY basic.label "Стандартный вид">
+<!ENTITY preferences.accesskey "щ">
+<!ENTITY firstParty.accesskey "г">
+<!ENTITY collapse.default.no.label "Использовать стандартное значение (нет)">
+<!ENTITY type.filter.label "Правило блокирования">
+<!ENTITY types.label "Применять к типам элементов:">
+<!ENTITY shortpattern.warning "Введенный шаблон слишком короткий и потому не будет оптимизирован. Большое количество таких шаблонов может отрицательно сказаться на быстродействии вашего браузера. Рекомендуется по возможности использовать более длинный шаблон.">
 <!ENTITY custom.pattern.accesskey "С">
-<!ENTITY anchors.label            "Принимать шаблон только:">
-<!ENTITY anchor.start.label       "в начале адреса">
-<!ENTITY anchor.start.accesskey   "ч">
-<!ENTITY anchor.start.flexible.label      "в начале имени домена">
-<!ENTITY anchor.start.flexible.accesskey  "ч">
-<!ENTITY anchor.end.label         "в конце адреса">
-<!ENTITY anchor.end.accesskey     "ц">
-<!ENTITY options.label            "Дополнительные настройки">
-<!ENTITY domainRestriction.label      "Ограничить доменом:">
-<!ENTITY domainRestriction.accesskey  "д">
-<!ENTITY domainRestriction.help       "Укажите один или несколько доменов, разделенные символом «|», фильтр будет применен только на этих доменах. Символ «~» перед именем домена означает, что фильтр не должен применяться на этом домене.">
-<!ENTITY firstParty.label         "Только элементы с того же сайта">
-<!ENTITY firstParty.accesskey     "г">
-<!ENTITY thirdParty.label         "Только элементы с другого сайта">
-<!ENTITY thirdParty.accesskey     "р">
-<!ENTITY matchCase.label          "Учитывать регистр букв">
-<!ENTITY matchCase.accesskey      "У">
-<!ENTITY types.label              "Применять к типам элементов:">
-<!ENTITY selectAllTypes.label     "Пометить все">
-<!ENTITY unselectAllTypes.label   "Убрать все">
-
-<!ENTITY collapse.label           "Сворачивать заблокированные элементы:">
-<!ENTITY collapse.accesskey       "в">
+<!ENTITY anchor.start.accesskey "ч">
+<!ENTITY anchors.label "Принимать шаблон только:">
 <!ENTITY collapse.default.yes.label "Использовать стандартное значение (да)">
-<!ENTITY collapse.default.no.label  "Использовать стандартное значение (нет)">
-<!ENTITY collapse.yes.label       "Да">
-<!ENTITY collapse.no.label        "Нет">
+<!ENTITY type.filter.accesskey "б">
+<!ENTITY domainRestriction.help "Укажите один или несколько доменов, разделенные символом «|», фильтр будет применен только на этих доменах. Символ «~» перед именем домена означает, что фильтр не должен применяться на этом домене.">
+<!ENTITY accept.label "Добавить фильтр">
+<!ENTITY options.label "Дополнительные настройки">
+<!ENTITY disabled.warning "Adblock Plus сейчас отключен. Вы можете добавить этот фильтр, но чтобы он применился нужно [link]включить Adblock Plus[/link].">
+<!ENTITY anchor.start.flexible.label "в начале имени домена">
+<!ENTITY type.whitelist.accesskey "к">
+<!ENTITY matchCase.accesskey "У">
+<!ENTITY anchor.end.accesskey "ц">
+<!ENTITY selectAllTypes.label "Пометить все">
+<!ENTITY advanced.label "Расширенный вид">
+<!ENTITY collapse.accesskey "в">
+<!ENTITY pattern.explanation "Шаблоном может быть любая часть адреса, причем звездочка (*) заменяет любое количество символов. Фильтр будет применен только к тем адресам, которые соответствуют шаблону.">

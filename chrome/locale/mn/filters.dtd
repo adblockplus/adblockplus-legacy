@@ -1,35 +1,34 @@
-<!ENTITY addSubscription.label "Шүүлтүүр мэдээлэгч нэмэх">
-<!ENTITY addSubscriptionOther.label "Өөр мэдээлэгч нэмэх">
-<!ENTITY subscription.lastDownload.label "Сүүлийн таталт:">
-<!ENTITY subscription.lastDownload.inProgress "Татаж байна...">
-<!ENTITY subscription.lastDownload.unknown "N/A">
-<!ENTITY subscription.lastDownload.invalidURL "Бүтэлгүйтэв, буруу хаяг">
-<!ENTITY subscription.lastDownload.connectionError "Бүтэлгүйтэв, таталтын бүтэлгүйтэл">
-<!ENTITY subscription.lastDownload.invalidData "Бүтэлгүйтэв, буруу шүүлтүүрийн жагсаалт">
-<!ENTITY subscription.lastDownload.checksumMismatch "Бүтэлгүйтлээ, шалгалт таарсангүй">
-<!ENTITY subscription.lastDownload.success "Амжилттай">
-<!ENTITY addFilter.label "Шүүлт нэмэх">
-<!ENTITY filter.cut.label "Хайчлах">
-<!ENTITY filter.copy.label "Хуулах">
-<!ENTITY filter.paste.label "Тавих">
-<!ENTITY filter.delete.label "Устгах">
-<!ENTITY viewMenu.label "Харах">
-<!ENTITY filter.column "Шүүх дүрэм">
-<!ENTITY filter.accesskey "Ш">
 <!ENTITY slow.column "Удаан шүүлтүүрүүд">
-<!ENTITY slow.accesskey "У">
-<!ENTITY enabled.column "Идэвхтэй">
-<!ENTITY enabled.accesskey "И">
-<!ENTITY hitcount.column "Хандалт">
-<!ENTITY hitcount.accesskey "Х">
+<!ENTITY subscription.lastDownload.checksumMismatch "Бүтэлгүйтлээ, шалгалт таарсангүй">
 <!ENTITY lasthit.column "Сүүлийн хандалт">
-<!ENTITY lasthit.accesskey "С">
-<!ENTITY sort.label "Эрэмбэлэх нь">
+<!ENTITY viewMenu.label "Харах">
 <!ENTITY sort.accesskey "Э">
-<!ENTITY sort.none.label "Эрэмбэ үгүй">
-<!ENTITY sort.none.accesskey "Ү">
 <!ENTITY sort.ascending.label "А &gt; Я эрэмбэлэх">
+<!ENTITY sort.label "Эрэмбэлэх нь">
+<!ENTITY filter.paste.label "Тавих">
+<!ENTITY filter.accesskey "Ш">
 <!ENTITY sort.ascending.accesskey "А">
-<!ENTITY sort.descending.label "Я &gt; А эрэмбэлэх">
+<!ENTITY subscription.lastDownload.inProgress "Татаж байна...">
+<!ENTITY enabled.accesskey "И">
+<!ENTITY filter.delete.label "Устгах">
+<!ENTITY enabled.column "Идэвхтэй">
+<!ENTITY slow.accesskey "У">
+<!ENTITY lasthit.accesskey "С">
+<!ENTITY hitcount.accesskey "Х">
+<!ENTITY subscription.lastDownload.invalidURL "Бүтэлгүйтэв, буруу хаяг">
+<!ENTITY hitcount.column "Хандалт">
+<!ENTITY filter.cut.label "Хайчлах">
+<!ENTITY addSubscriptionOther.label "Өөр мэдээлэгч нэмэх">
+<!ENTITY sort.none.label "Эрэмбэ үгүй">
+<!ENTITY filter.copy.label "Хуулах">
+<!ENTITY sort.none.accesskey "Ү">
+<!ENTITY addSubscription.label "Шүүлтүүр мэдээлэгч нэмэх">
 <!ENTITY sort.descending.accesskey "Я">
 <!ENTITY find.label "Хайх">
+<!ENTITY sort.descending.label "Я &gt; А эрэмбэлэх">
+<!ENTITY subscription.lastDownload.connectionError "Бүтэлгүйтэв, таталтын бүтэлгүйтэл">
+<!ENTITY subscription.lastDownload.success "Амжилттай">
+<!ENTITY subscription.lastDownload.invalidData "Бүтэлгүйтэв, буруу шүүлтүүрийн жагсаалт">
+<!ENTITY addFilter.label "Шүүлт нэмэх">
+<!ENTITY subscription.lastDownload.label "Сүүлийн таталт:">
+<!ENTITY filter.column "Шүүх дүрэм">

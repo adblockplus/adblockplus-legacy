@@ -1,42 +1,42 @@
-<!ENTITY status.tooltip "Status:">
-<!ENTITY blocked.tooltip "Blokěrowane zapiski na toś tom boku:">
-<!ENTITY filters.tooltip "Nejaktiwnjejše filtry:">
-<!ENTITY menuitem.label "Adblock Plus - nastajenja">
-<!ENTITY menuitem.accesskey "b">
-<!ENTITY toolbarbutton.label "Adblock Plus">
-<!ENTITY context.image.label "Adblock Plus: Wobraz blokěrowaś">
-<!ENTITY context.object.label "Adblock Plus: Objekt blokěrowaś">
-<!ENTITY context.frame.label "Adblock Plus: Wobłuk blokěrowaś">
-<!ENTITY context.media.label "Adblock Plus: Awdio/Wideo blokěrowaś">
-<!ENTITY context.removeWhitelist.label "Adblock Plus: Na toś tom boku zasej zmóžniś">
-<!ENTITY sidebar.title "Blokěrujobne zapiski na aktualnem boku">
-<!ENTITY sendReport.label "Problem na toś tom boku k wěsći daś">
-<!ENTITY sendReport.accesskey "P">
-<!ENTITY filters.label "Filtrowe nastajenja">
-<!ENTITY filters.accesskey "F">
-<!ENTITY opensidebar.label "Blokěrujobne zapiski wócyniś">
-<!ENTITY opensidebar.accesskey "b">
-<!ENTITY closesidebar.label "Blokěrujobne zapiski zacyniś">
-<!ENTITY closesidebar.accesskey "b">
+<!ENTITY showintoolbar.accesskey "d">
+<!ENTITY showinstatusbar.accesskey "s">
 <!ENTITY whitelist.site.label "Na ?1? znjemóžniś">
-<!ENTITY whitelist.page.label "Jano na toś tom boku znjemóžniś">
+<!ENTITY filters.label "Filtrowe nastajenja">
 <!ENTITY disable.label "Wšuźi znjemóžniś">
-<!ENTITY options.label "Opcije">
+<!ENTITY showinaddonbar.label "W lejstwje dodankow pokazaś">
+<!ENTITY objecttab.title "Blokěrowaś">
+<!ENTITY showinaddonbar.accesskey "d">
+<!ENTITY sync.accesskey "c">
+<!ENTITY objecttabs.label "Rejtarki wó Flash a Java pokazaś">
+<!ENTITY objecttab.tooltip "Klikniśo how, aby toś ten objekt z Adblock Plus blokěrował">
+<!ENTITY menuitem.label "Adblock Plus - Nastajenja">
+<!ENTITY sendReport.accesskey "P">
+<!ENTITY sendReport.label "Problem na toś tom boku k wěsći daś">
+<!ENTITY filters.accesskey "F">
+<!ENTITY whitelist.page.label "Jano na toś tom boku znjemóžniś">
+<!ENTITY context.image.label "Adblock Plus: Wobraz blokěrowaś">
+<!ENTITY closesidebar.accesskey "l">
+<!ENTITY hideplaceholders.label "Naměstniki blokěrowanych elementow schowaś">
+<!ENTITY opensidebar.label "Blokěrujobne zapiski wócyniś">
 <!ENTITY options.accesskey "O">
 <!ENTITY contribute.label "K Adblock Plus pśinosowaś">
-<!ENTITY showintoolbar.label "W symbolowej rědce pokazaś">
-<!ENTITY showintoolbar.accesskey "b">
-<!ENTITY showinstatusbar.label "W statusowej lejstwje pokazaś">
-<!ENTITY showinstatusbar.accesskey "s">
-<!ENTITY showinaddonbar.label "W lejstwje dodankow pokazaś">
-<!ENTITY showinaddonbar.accesskey "d">
-<!ENTITY objecttabs.label "Rejtarki wó Flash a Java pokazaś">
-<!ENTITY objecttabs.accesskey "t">
-<!ENTITY hideplaceholders.label "Naměstniki blokěrowanych elementow schowaś">
-<!ENTITY hideplaceholders.accesskey "m">
+<!ENTITY toolbarbutton.label "Adblock Plus">
+<!ENTITY context.frame.label "Adblock Plus: Wobłuk blokěrowaś">
 <!ENTITY counthits.label "Filtrowe trjefarje licyś">
-<!ENTITY counthits.accesskey "l">
+<!ENTITY blocked.tooltip "Blokěrowane zapiski na toś tom boku:">
+<!ENTITY opensidebar.accesskey "l">
+<!ENTITY showinstatusbar.label "W statusowej lejstwje pokazaś">
+<!ENTITY status.tooltip "Status:">
+<!ENTITY sidebar.title "Blokěrujobne zapiski na aktualnem boku">
 <!ENTITY sync.label "Nastajenja za synchronizěrowanje Adblock Plus">
-<!ENTITY sync.accesskey "c">
-<!ENTITY objecttab.title "Blokěrowaś">
-<!ENTITY objecttab.tooltip "Klikniśo how, aby toś ten objekt z Adblock Plus blokěrował">
+<!ENTITY options.label "Opcije">
+<!ENTITY context.object.label "Adblock Plus: Objekt blokěrowaś">
+<!ENTITY context.removeWhitelist.label "Adblock Plus: Na toś tom boku zasej zmóžniś">
+<!ENTITY objecttabs.accesskey "r">
+<!ENTITY filters.tooltip "Nejaktiwnjejše filtry:">
+<!ENTITY closesidebar.label "Blokěrujobne zapiski zacyniś">
+<!ENTITY showintoolbar.label "W symbolowej rědce pokazaś">
+<!ENTITY counthits.accesskey "l">
+<!ENTITY menuitem.accesskey "N">
+<!ENTITY context.media.label "Adblock Plus: Awdio/Wideo blokěrowaś">
+<!ENTITY hideplaceholders.accesskey "m">

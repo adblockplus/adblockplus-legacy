@@ -1,46 +1,46 @@
-<!ENTITY dialog.title "เพิ่มกฎตัวกรอง Adblock Plus">
-<!ENTITY accept.label "เพิ่มตัวกรอง">
-<!ENTITY advanced.label "มุมมองละเอียด">
-<!ENTITY basic.label "มุมมองพื้นฐาน">
-<!ENTITY disabled.warning "Adblock Plus ถูกปิดใช้งานอยู่ คุณยังคงสามารถเพิ่มตัวกรองได้แต่จะไม่ถูกใช้งานจนกว่าคุณ[link]เปิดใช้งาน Adblock Plus[/link].">
-<!ENTITY filter.label "ตัวกรองใหม่:">
-<!ENTITY filter.accesskey "ต">
-<!ENTITY preferences.label "แสดงตัวกรองที่มีอยู่...">
-<!ENTITY preferences.accesskey "ส">
-<!ENTITY type.filter.label "ตัวกรองบล็อก">
-<!ENTITY type.filter.accesskey "บ">
-<!ENTITY type.whitelist.label "กฎข้อยกเว้น">
-<!ENTITY type.whitelist.accesskey "ก">
-<!ENTITY pattern.label "ดูรูปแบบ">
-<!ENTITY pattern.explanation "รูปแบบสามารถเป็นส่วนใดส่วนหนึ่งของที่อยู่ สัญลักษณ์ * เป็นอักขระใดๆ ตัวกรองจะถูกใช้งานกับที่อยู่ที่เหมาะสมกับตัวกรองเท่านั้น">
-<!ENTITY regexp.warning "รูปแบบที่คุณป้อนเข้าจะถูกแปลเป็นการแสดงออกทั่วไป การแสดงออกทั่วไปมากๆจะทำให้การเข้าเว็บช้าลง ถ้าคุณไม่ตั้งใจจะใช้การแสดงออกทั่วไปให้ใส่สัญลักษณ์ * ที่ท้ายรูปแบบ">
-<!ENTITY shortpattern.warning "รูปแบบที่คุณป้อนเข้าสั้นเกินกว่าจะใช้ให้เหมาะสม รูปแบบมากๆจะทำให้เข้าเว็บช้า แนะนำให้ใช้รูปแบบยาวๆสำหรับตัวกรองนี้">
-<!ENTITY match.warning "แบบรูปที่คุณเพิ่มเข้ามาไม่สัมพันธ์กับที่อยู่ที่จะบล็อกหรือไม่บล็อก มันจะไม่มีผลใด ๆ">
-<!ENTITY custom.pattern.label "ปรับเอง:">
-<!ENTITY custom.pattern.accesskey "ป">
-<!ENTITY anchors.label "รับเฉพาะรูปแบบ:">
-<!ENTITY anchor.start.label "ที่หน้าๆของที่อยู่">
-<!ENTITY anchor.start.accesskey "น">
-<!ENTITY anchor.start.flexible.label "ส่วนต้นของชื่อโดเมน">
-<!ENTITY anchor.start.flexible.accesskey "น">
-<!ENTITY anchor.end.label "ที่ท้ายๆของที่อยู่">
-<!ENTITY anchor.end.accesskey "ท">
-<!ENTITY options.label "ตัวเลือก">
-<!ENTITY domainRestriction.label "จำกัดโดเมน:">
-<!ENTITY domainRestriction.accesskey "ด">
-<!ENTITY domainRestriction.help "ระบุโดเมนหนึ่งหรือหลายแห่งให้คั่นด้วยสัญลักษณ์ &quot;|&quot; ตัวกรองจะใช้งานบนโดเมนเหล่านี้เท่านั้น ถ้าไม่ต้องการใช้โดเมนใดให้ใส่สัญลักษณ์ &quot;~&quot; หน้าชื่อโดเมน">
-<!ENTITY firstParty.label "First-party เท่านั้น">
-<!ENTITY firstParty.accesskey "r">
-<!ENTITY thirdParty.label "Third-party เท่านั้น">
-<!ENTITY thirdParty.accesskey "T">
-<!ENTITY matchCase.label "จับคู่">
-<!ENTITY matchCase.accesskey "จ">
-<!ENTITY types.label "ใช้งานกับชนิด:">
-<!ENTITY selectAllTypes.label "เลือกทั้งหมด">
-<!ENTITY unselectAllTypes.label "ไม่เลือก">
-<!ENTITY collapse.label "การบล็อกที่ล้มเหลว:">
-<!ENTITY collapse.accesskey "ม">
-<!ENTITY collapse.default.yes.label "ใช้ค่าเริ่มต้น(ใช่)">
-<!ENTITY collapse.default.no.label "ใช้ค่าเริ่มต้น(ไม่ใช่)">
 <!ENTITY collapse.yes.label "ใช่">
+<!ENTITY anchor.end.label "ที่ท้ายๆของที่อยู่">
+<!ENTITY domainRestriction.label "จำกัดโดเมน:">
+<!ENTITY anchor.start.flexible.accesskey "น">
+<!ENTITY firstParty.label "First-party เท่านั้น">
+<!ENTITY preferences.label "แสดงตัวกรองที่มีอยู่...">
+<!ENTITY pattern.label "ดูรูปแบบ">
+<!ENTITY thirdParty.label "Third-party เท่านั้น">
+<!ENTITY filter.accesskey "ต">
+<!ENTITY thirdParty.accesskey "ท">
+<!ENTITY filter.label "ตัวกรองใหม่:">
+<!ENTITY collapse.label "การบล็อกที่ล้มเหลว:">
+<!ENTITY match.warning "แบบรูปที่คุณเพิ่มเข้ามาไม่สัมพันธ์กับที่อยู่ที่จะบล็อกหรือไม่บล็อก มันจะไม่มีผลใด ๆ">
+<!ENTITY anchor.start.label "ที่หน้าๆของที่อยู่">
 <!ENTITY collapse.no.label "ไม่ใช่">
+<!ENTITY matchCase.label "จับคู่">
+<!ENTITY custom.pattern.label "ปรับเอง:">
+<!ENTITY unselectAllTypes.label "ไม่เลือก">
+<!ENTITY domainRestriction.accesskey "ด">
+<!ENTITY type.whitelist.label "กฎข้อยกเว้น">
+<!ENTITY regexp.warning "รูปแบบที่คุณป้อนเข้าจะถูกแปลเป็นการแสดงออกทั่วไป การแสดงออกทั่วไปมากๆจะทำให้การเข้าเว็บช้าลง ถ้าคุณไม่ตั้งใจจะใช้การแสดงออกทั่วไปให้ใส่สัญลักษณ์ * ที่ท้ายรูปแบบ">
+<!ENTITY dialog.title "เพิ่มกฎตัวกรอง Adblock Plus">
+<!ENTITY basic.label "มุมมองพื้นฐาน">
+<!ENTITY preferences.accesskey "ส">
+<!ENTITY firstParty.accesskey "ร">
+<!ENTITY collapse.default.no.label "ใช้ค่าเริ่มต้น(ไม่ใช่)">
+<!ENTITY type.filter.label "ตัวกรองบล็อก">
+<!ENTITY types.label "ใช้งานกับชนิด:">
+<!ENTITY shortpattern.warning "รูปแบบที่คุณป้อนเข้าสั้นเกินกว่าจะใช้ให้เหมาะสม รูปแบบมากๆจะทำให้เข้าเว็บช้า แนะนำให้ใช้รูปแบบยาวๆสำหรับตัวกรองนี้">
+<!ENTITY custom.pattern.accesskey "ป">
+<!ENTITY anchor.start.accesskey "น">
+<!ENTITY anchors.label "รับเฉพาะรูปแบบ:">
+<!ENTITY collapse.default.yes.label "ใช้ค่าเริ่มต้น(ใช่)">
+<!ENTITY type.filter.accesskey "บ">
+<!ENTITY domainRestriction.help "ระบุโดเมนหนึ่งหรือหลายแห่งให้คั่นด้วยสัญลักษณ์ &quot;|&quot; ตัวกรองจะใช้งานบนโดเมนเหล่านี้เท่านั้น ถ้าไม่ต้องการใช้โดเมนใดให้ใส่สัญลักษณ์ &quot;~&quot; หน้าชื่อโดเมน">
+<!ENTITY accept.label "เพิ่มตัวกรอง">
+<!ENTITY options.label "ตัวเลือก">
+<!ENTITY disabled.warning "Adblock Plus ถูกปิดใช้งานอยู่ คุณยังคงสามารถเพิ่มตัวกรองได้แต่จะไม่ถูกใช้งานจนกว่าคุณ[link]เปิดใช้งาน Adblock Plus[/link].">
+<!ENTITY anchor.start.flexible.label "ส่วนต้นของชื่อโดเมน">
+<!ENTITY type.whitelist.accesskey "ก">
+<!ENTITY matchCase.accesskey "จ">
+<!ENTITY anchor.end.accesskey "ท">
+<!ENTITY selectAllTypes.label "เลือกทั้งหมด">
+<!ENTITY advanced.label "มุมมองละเอียด">
+<!ENTITY collapse.accesskey "ม">
+<!ENTITY pattern.explanation "รูปแบบสามารถเป็นส่วนใดส่วนหนึ่งของที่อยู่ สัญลักษณ์ * เป็นอักขระใดๆ ตัวกรองจะถูกใช้งานกับที่อยู่ที่เหมาะสมกับตัวกรองเท่านั้น">

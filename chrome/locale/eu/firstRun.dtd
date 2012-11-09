@@ -1,14 +1,11 @@
-<!ENTITY dialog.title "Adblock Plus instalazioa burutu da">
-<!ENTITY confirmation "
-	Eskerrik asko Adblock Plus instalatzeagatik.  Hemendik aurrera publizitatea blokeatuko da.
-	Gozatu!">
 <!ENTITY advancedSection "Aukera aurreratuak">
-<!ENTITY listSelection1 "
-	Hurrengo iragazki zerrenda publizitatea blokeatzeko konfiguratu da:
-">
+<!ENTITY confirmation "Eskerrik asko Adblock Plus instalatzeagatik.  Hemendik aurrera publizitatea blokeatuko da.
+	Gozatu!">
 <!ENTITY noList "Ez dago iragazki zerrendarik">
+<!ENTITY acceptableAds2 "Adblock Plus publizitate ez intrusiboa baimentzeko konfiguratu da ere.">
+<!ENTITY viewList.label "Ikusi zerrenda">
 <!ENTITY visitHomepage.label "Bisitatu hasiera orria">
+<!ENTITY dialog.title "Adblock Plus instalazioa burutu da">
+<!ENTITY listSelection1 "Hurrengo iragazki zerrenda publizitatea blokeatzeko konfiguratu da:">
+<!ENTITY listSelection2 "Aukera hau edozein unetan alda dezakezu [link]Iragazki hobespenak[/link] atalean.">
 <!ENTITY readMore.label "Irakurri gehiago honi buruz">
-<!ENTITY listSelection2 "
-	Aukera hau edozein unetan alda dezakezu [link]Iragazki hobespenak[/link] atalean.
-">

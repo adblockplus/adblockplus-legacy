@@ -1,46 +1,46 @@
-<!ENTITY dialog.title "Lisää Adblock Plus -suodatusehto">
-<!ENTITY accept.label "Lisää suodatin">
-<!ENTITY advanced.label "Näytä lisää">
-<!ENTITY basic.label "Näytä vähemmän">
-<!ENTITY disabled.warning "Adblock Plus on tällä hetkellä poistettu käytöstä. Voit silti lisätä suodattimia mutta ne otetaan käyttöön vasta kun, [link]otat Adblockin Plussan käyttöön[/link].">
-<!ENTITY filter.label "Uusi suodatin:">
-<!ENTITY filter.accesskey "U">
-<!ENTITY preferences.label "Näytä nykyiset suodattimet...">
-<!ENTITY preferences.accesskey "N">
-<!ENTITY type.filter.label "Estävä suodatin">
-<!ENTITY type.filter.accesskey "E">
-<!ENTITY type.whitelist.label "Sallimisehto">
-<!ENTITY type.whitelist.accesskey "S">
-<!ENTITY pattern.label "Merkkijonon löytäminen">
-<!ENTITY pattern.explanation "Merkkijono voi olla mikä tahansa osoitteen osa. Tähtimerkki (*) toimii jokerimerkkinä. Suodatin toimii vain osoitteissa, joita merkkijono vastaa.">
-<!ENTITY regexp.warning "Syöttämäsi merkkijono tulkitaan säännölliseksi lausekkeeksi. Monet säännölliset lausekkeet saattavat hidastaa selailua. Jos tarkoituksena ei ollut käyttää säännöllistä lauseketta, lisää tähtimerkki (*) lauseen loppuun.">
-<!ENTITY shortpattern.warning "Syöttämäsi merkkijono on liian lyhyt optimoitavaksi. Useat tällaiset merkkijonot saattavat hidastaa selailua. On suositeltavaa, että valitset tälle suodattimelle pidemmän merkkijonon.">
-<!ENTITY match.warning "Syöttämäsi merkkijono ei enää täsmää estettävän/sallittavan osoitteen kanssa; se ei vaikuta kyseiseen osoitteeseen.">
-<!ENTITY custom.pattern.label "Oma muokkaus:">
-<!ENTITY custom.pattern.accesskey "O">
-<!ENTITY anchors.label "Hyväksy merkkijono vain:">
-<!ENTITY anchor.start.label "osoitteen alussa">
-<!ENTITY anchor.start.accesskey "t">
-<!ENTITY anchor.start.flexible.label "verkkotunnuksen alussa.">
-<!ENTITY anchor.start.flexible.accesskey "t">
-<!ENTITY anchor.end.label "osoitteen lopussa">
-<!ENTITY anchor.end.accesskey "l">
-<!ENTITY options.label "Valinnat">
-<!ENTITY domainRestriction.label "Rajoita verkkotunnukseen:">
-<!ENTITY domainRestriction.accesskey "a">
-<!ENTITY domainRestriction.help "Määrittele yksi tai useampia verkkotunnuksia &quot;|&quot;-merkilla eroteltuna. Suodatin on käytössä vain näissä verkkotunnuksissa. Suodatinta ei käytetä verkkotunnuksella, jos sen edessä on &quot;~&quot;-merkki.">
-<!ENTITY firstParty.label "Vain sivun ylläpitäjän">
-<!ENTITY firstParty.accesskey "i">
-<!ENTITY thirdParty.label "Vain muiden kuin sivun ylläpitäjän">
-<!ENTITY thirdParty.accesskey "m">
-<!ENTITY matchCase.label "Huomioi kirjainkoko">
-<!ENTITY matchCase.accesskey "H">
-<!ENTITY types.label "Käytä tyypeissä:">
-<!ENTITY selectAllTypes.label "Valitse kaikki">
-<!ENTITY unselectAllTypes.label "Älä valitse mitään">
-<!ENTITY collapse.label "Romahduta estetyt:">
-<!ENTITY collapse.accesskey "R">
-<!ENTITY collapse.default.yes.label "Käytä oletusta (kyllä)">
-<!ENTITY collapse.default.no.label "Käytä oletusta (ei)">
 <!ENTITY collapse.yes.label "Kyllä">
+<!ENTITY anchor.end.label "osoitteen lopussa">
+<!ENTITY domainRestriction.label "Rajoita verkkotunnukseen:">
+<!ENTITY anchor.start.flexible.accesskey "t">
+<!ENTITY firstParty.label "Vain sivun ylläpitäjän">
+<!ENTITY preferences.label "Näytä nykyiset suodattimet...">
+<!ENTITY pattern.label "Merkkijonon löytäminen">
+<!ENTITY thirdParty.label "Vain muiden kuin sivun ylläpitäjän">
+<!ENTITY filter.accesskey "U">
+<!ENTITY thirdParty.accesskey "m">
+<!ENTITY filter.label "Uusi suodatin:">
+<!ENTITY collapse.label "Romahduta estetyt:">
+<!ENTITY match.warning "Syöttämäsi merkkijono ei enää täsmää estettävän/sallittavan osoitteen kanssa; se ei vaikuta kyseiseen osoitteeseen.">
+<!ENTITY anchor.start.label "osoitteen alussa">
 <!ENTITY collapse.no.label "Ei">
+<!ENTITY matchCase.label "Huomioi kirjainkoko">
+<!ENTITY custom.pattern.label "Oma muokkaus:">
+<!ENTITY unselectAllTypes.label "Älä valitse mitään">
+<!ENTITY domainRestriction.accesskey "a">
+<!ENTITY type.whitelist.label "Sallimisehto">
+<!ENTITY regexp.warning "Syöttämäsi merkkijono tulkitaan säännölliseksi lausekkeeksi. Monet säännölliset lausekkeet saattavat hidastaa selailua. Jos tarkoituksena ei ollut käyttää säännöllistä lauseketta, lisää tähtimerkki (*) lauseen loppuun.">
+<!ENTITY dialog.title "Lisää Adblock Plus -suodatusehto">
+<!ENTITY basic.label "Näytä vähemmän">
+<!ENTITY preferences.accesskey "N">
+<!ENTITY firstParty.accesskey "i">
+<!ENTITY collapse.default.no.label "Käytä oletusta (ei)">
+<!ENTITY type.filter.label "Estävä suodatin">
+<!ENTITY types.label "Käytä tyypeissä:">
+<!ENTITY shortpattern.warning "Syöttämäsi merkkijono on liian lyhyt optimoitavaksi. Useat tällaiset merkkijonot saattavat hidastaa selailua. On suositeltavaa, että valitset tälle suodattimelle pidemmän merkkijonon.">
+<!ENTITY custom.pattern.accesskey "O">
+<!ENTITY anchor.start.accesskey "t">
+<!ENTITY anchors.label "Hyväksy merkkijono vain:">
+<!ENTITY collapse.default.yes.label "Käytä oletusta (kyllä)">
+<!ENTITY type.filter.accesskey "E">
+<!ENTITY domainRestriction.help "Määrittele yksi tai useampia verkkotunnuksia &quot;|&quot;-merkilla eroteltuna. Suodatin on käytössä vain näissä verkkotunnuksissa. Suodatinta ei käytetä verkkotunnuksella, jos sen edessä on &quot;~&quot;-merkki.">
+<!ENTITY accept.label "Lisää suodatin">
+<!ENTITY options.label "Valinnat">
+<!ENTITY disabled.warning "Adblock Plus on tällä hetkellä poistettu käytöstä. Voit silti lisätä suodattimia mutta ne otetaan käyttöön vasta kun, [link]otat Adblockin Plussan käyttöön[/link].">
+<!ENTITY anchor.start.flexible.label "verkkotunnuksen alussa.">
+<!ENTITY type.whitelist.accesskey "S">
+<!ENTITY matchCase.accesskey "H">
+<!ENTITY anchor.end.accesskey "l">
+<!ENTITY selectAllTypes.label "Valitse kaikki">
+<!ENTITY advanced.label "Näytä lisää">
+<!ENTITY collapse.accesskey "R">
+<!ENTITY pattern.explanation "Merkkijono voi olla mikä tahansa osoitteen osa. Tähtimerkki (*) toimii jokerimerkkinä. Suodatin toimii vain osoitteissa, joita merkkijono vastaa.">

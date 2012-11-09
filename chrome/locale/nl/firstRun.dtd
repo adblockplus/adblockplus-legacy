@@ -1,18 +1,11 @@
-<!ENTITY dialog.title "Installatie Adblock Plus compleet">
-<!ENTITY confirmation "
-Bedankt voor het installeren van Adblock Plus. Vanaf nu worden advertenties geblokkeerd.
-Veel plezier!">
 <!ENTITY advancedSection "Geavanceerde opties">
-<!ENTITY listSelection1 "
-De volgende lijst is ingesteld om advertenties te blokkeren:
-">
+<!ENTITY confirmation "Bedankt voor het installeren van Adblock Plus. Vanaf nu worden advertenties geblokkeerd.
+Veel plezier!">
 <!ENTITY noList "Geen filterlijst">
-<!ENTITY visitHomepage.label "Bezoek de lijststartpagina">
-<!ENTITY acceptableAds2 "
-Adblock Plus is ook geconfigureerd om enkele niet-opdringerige reclames toe te staan.
-">
+<!ENTITY acceptableAds2 "Adblock Plus is ook geconfigureerd om enkele niet-opdringerige reclames toe te staan.">
 <!ENTITY viewList.label "Lijst bekijken">
+<!ENTITY visitHomepage.label "Bezoek de lijststartpagina">
+<!ENTITY dialog.title "Installatie Adblock Plus compleet">
+<!ENTITY listSelection1 "De volgende lijst is ingesteld om advertenties te blokkeren:">
+<!ENTITY listSelection2 "U kunt deze selectie op elk gewenst moment wijzigen in de [link]Filtervoorkeuren[/link].">
 <!ENTITY readMore.label "Meer hierover">
-<!ENTITY listSelection2 "
-U kunt deze selectie op elk gewenst moment wijzigen in de [link]Filtervoorkeuren[/link].
-">

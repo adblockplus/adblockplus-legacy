@@ -1,18 +1,18 @@
-<!ENTITY detach.label "ගලවනවා">
-<!ENTITY reattach.label "නැවත ඇතුලත් කරන්න">
-<!ENTITY search.label "සොයන්න">
-<!ENTITY search.accesskey "s">
-<!ENTITY type.label "වර්ගය">
-<!ENTITY address.label "ලිපිනය">
-<!ENTITY filter.label "පෙරනය">
-<!ENTITY state.label "ගොනුව ඇති ස්ථානය">
-<!ENTITY size.label "ප්‍රමාණය">
-<!ENTITY docDomain.label "ලේඛ මූලාග්‍රය">
-<!ENTITY docDomain.thirdParty "(තුන්වැනි පාර්ශ්වකරු)">
-<!ENTITY docDomain.firstParty "(ප්‍රථම පාර්ශ්වකරු)">
-<!ENTITY tooltip.address.label "ලිපිනය:">
-<!ENTITY tooltip.type.label "ආකාරය:">
-<!ENTITY tooltip.type.blocked "(අවහිර කිරීම)">
 <!ENTITY tooltip.size.label "ප්‍රමාණය:">
-<!ENTITY context.copyFilter.label "පෙරනය පිටපත් කරන්න">
+<!ENTITY tooltip.type.blocked "(අවහිර කිරීම)">
+<!ENTITY docDomain.firstParty "(ප්‍රථම පාර්ශ්වකරු)">
+<!ENTITY reattach.label "නැවත ඇතුලත් කරන්න">
 <!ENTITY context.selectAll.label "සියල්ල තෝරනවා">
+<!ENTITY search.label "සොයන්න">
+<!ENTITY docDomain.thirdParty "(තුන්වැනි පාර්ශ්වකරු)">
+<!ENTITY address.label "ලිපිනය">
+<!ENTITY size.label "ප්‍රමාණය">
+<!ENTITY context.copyFilter.label "පෙරනය පිටපත් කරන්න">
+<!ENTITY type.label "වර්ගය">
+<!ENTITY tooltip.type.label "ආකාරය:">
+<!ENTITY search.accesskey "s">
+<!ENTITY state.label "ගොනුව ඇති ස්ථානය">
+<!ENTITY docDomain.label "ලේඛ මූලාග්‍රය">
+<!ENTITY filter.label "පෙරනය">
+<!ENTITY detach.label "ගලවනවා">
+<!ENTITY tooltip.address.label "ලිපිනය:">

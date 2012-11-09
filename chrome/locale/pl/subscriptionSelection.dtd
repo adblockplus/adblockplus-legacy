@@ -1,16 +1,15 @@
-<!ENTITY dialog.title "Add Adblock Plus – zestawy filtrów">
-<!ENTITY subscriptionSelector.label "Wybierz z listy zestaw filtrów:">
+<!ENTITY addMain.label "Dodaj także zestaw „?1?”">
+<!ENTITY addMain.accesskey "S">
+<!ENTITY list.download.failed "Nie udało się pobrać listy zestawów.">
+<!ENTITY list.download.retry "Spróbuj jeszcze raz">
+<!ENTITY location.accesskey "L">
+<!ENTITY title.label "Nazwa zestawu:">
+<!ENTITY list.download.website "Zobacz witrynę">
+<!ENTITY supplementMessage "Ten zestaw filtrów musi być używany z zestawem „?1?”, który nie jest jeszcze subskrybowany.">
+<!ENTITY title.accesskey "N">
 <!ENTITY viewList.label "Zobacz filtry">
 <!ENTITY visitHomepage.label "Przejdź na stronę zestawu">
 <!ENTITY addSubscription.label "Subskrybuj zestaw">
-<!ENTITY list.download.failed "Nie udało się pobrać listy zestawów.">
-<!ENTITY list.download.retry "Spróbuj jeszcze raz">
-<!ENTITY list.download.website "Zobacz witrynę">
-<!ENTITY fromWeb.description "Potwierdź zamiar dodania tego zestawu filtrów. Przed dodaniem zestawu możesz zmienić jego nazwę lub lokalizację.">
-<!ENTITY title.label "Nazwa zestawu:">
-<!ENTITY title.accesskey "N">
+<!ENTITY dialog.title "Add Adblock Plus – zestawy filtrów">
 <!ENTITY location.label "Lokalizacja zestawu:">
-<!ENTITY location.accesskey "L">
-<!ENTITY supplementMessage "Ten zestaw filtrów musi być używany z zestawem „;?1?”, który nie jest jeszcze subskrybowany.">
-<!ENTITY addMain.label "Dodaj także zestaw „;?1?”">
-<!ENTITY addMain.accesskey "S">
+<!ENTITY fromWeb.description "Potwierdź zamiar dodania tego zestawu filtrów. Przed dodaniem zestawu możesz zmienić jego nazwę lub lokalizację.">

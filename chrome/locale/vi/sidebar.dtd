@@ -1,35 +1,35 @@
-<!ENTITY detached.title "Adblock Plus: các mục có thể chặn (tách rời)">
-<!ENTITY detach.label "Tách rời">
+<!ENTITY context.flash.label "Nhấp nháy quanh viền của mục này">
+<!ENTITY tooltip.type.label "Kiểu:">
+<!ENTITY address.label "Địa chỉ">
+<!ENTITY context.open.label "Mở trong Thẻ Mới">
+<!ENTITY type.label "Kiểu">
+<!ENTITY tooltip.filterSource.label "Nguồn bộ lọc:">
+<!ENTITY noitems.label "Không có mục nào có thể chặn được">
+<!ENTITY filter.label "Bộ lọc">
+<!ENTITY tooltip.size.label "Kích thước:">
 <!ENTITY reattach.label "Đính lại">
 <!ENTITY search.label "Tìm:">
-<!ENTITY search.accesskey "m">
-<!ENTITY type.label "Kiểu">
-<!ENTITY address.label "Địa chỉ">
-<!ENTITY filter.label "Bộ lọc">
-<!ENTITY state.label "Tình trạng">
-<!ENTITY size.label "Kích thước">
-<!ENTITY docDomain.label "Nguồn tài liệu">
 <!ENTITY docDomain.thirdParty "(bên thứ ba)">
-<!ENTITY docDomain.firstParty "(bên thứ nhất)">
-<!ENTITY noitems.label "Không có mục nào có thể chặn được">
-<!ENTITY whitelisted.label "Trang nằm trong sổ trắng">
-<!ENTITY tooltip.address.label "Địa chỉ:">
-<!ENTITY tooltip.type.label "Kiểu:">
-<!ENTITY tooltip.type.blocked "(đã chặn)">
-<!ENTITY tooltip.type.whitelisted "(sổ trắng)">
-<!ENTITY tooltip.size.label "Kích thước:">
 <!ENTITY tooltip.docDomain.label "Nguồn tài liệu:">
+<!ENTITY context.copy.label "Chép địa chỉ của mục này">
+<!ENTITY tooltip.type.blocked "(đã chặn)">
+<!ENTITY search.accesskey "m">
+<!ENTITY context.disablefilter.label "Vô hiệu hóa bộ lọc ?1?">
+<!ENTITY context.copyFilter.label "Chép bộ lọc">
+<!ENTITY context.block.label "Chặn mục này">
+<!ENTITY context.enablefilter.label "Kích hoạt lại bộ lọc ?1?">
+<!ENTITY detach.label "Tách rời">
+<!ENTITY whitelisted.label "Trang nằm trong sổ trắng">
+<!ENTITY context.disablefilteronsite.label "Vô hiệu hóa bộ lọc này trên ?1?">
+<!ENTITY detached.title "Adblock Plus: các mục có thể chặn (tách rời)">
+<!ENTITY docDomain.firstParty "(bên thứ nhất)">
+<!ENTITY tooltip.type.whitelisted "(sổ trắng)">
 <!ENTITY tooltip.filter.label "Bộ lọc đang chặn:">
 <!ENTITY tooltip.filter.disabled "(bị vô hiệu hóa)">
-<!ENTITY tooltip.filterSource.label "Nguồn bộ lọc:">
-<!ENTITY context.block.label "Chặn mục này">
 <!ENTITY context.editfilter.label "Chỉnh sửa bộ lọc đang chặn">
+<!ENTITY size.label "Kích thước">
 <!ENTITY context.whitelist.label "Thêm quy luật ngoại lệ cho mục">
-<!ENTITY context.disablefilter.label "Vô hiệu hóa bộ lọc ?1?">
-<!ENTITY context.enablefilter.label "Kích hoạt lại bộ lọc ?1?">
-<!ENTITY context.disablefilteronsite.label "Vô hiệu hóa bộ lọc này trên ?1?">
-<!ENTITY context.open.label "Mở trong Thẻ Mới">
-<!ENTITY context.flash.label "Nhấp nháy quanh viền của mục này">
-<!ENTITY context.copy.label "Chép địa chỉ của mục này">
-<!ENTITY context.copyFilter.label "Chép bộ lọc">
 <!ENTITY context.selectAll.label "Chọn tất cả">
+<!ENTITY state.label "Tình trạng">
+<!ENTITY docDomain.label "Nguồn tài liệu">
+<!ENTITY tooltip.address.label "Địa chỉ:">

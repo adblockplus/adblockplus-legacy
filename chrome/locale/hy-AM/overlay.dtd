@@ -1,33 +1,31 @@
-<!ENTITY status.tooltip "Վիճակը.">
-<!ENTITY blocked.tooltip "Այս էջի ֆիլտրված տարրերը`">
-<!ENTITY filters.tooltip "Ամենաակտիվ ֆիլտրերը`">
-<!ENTITY menuitem.label "Adblock Plus">
-<!ENTITY menuitem.accesskey "B">
-<!ENTITY toolbarbutton.label "Adblock Plus">
-<!ENTITY context.image.label "Adblock` Ֆիլտրել Նկարը">
-<!ENTITY context.object.label "Adblock` Ֆիլտրել Օբյեկտը">
-<!ENTITY context.frame.label "Adblock` Ֆիլտրել Ֆրեյմը">
-<!ENTITY context.media.label "Adblock` Ֆիլտրել Աուդիո/Վիդեո">
-<!ENTITY context.removeWhitelist.label "Adblock Plus: Վերակտիվացնել այս էջում">
-<!ENTITY sidebar.title "Այս էջի ֆիլտրվող տարրերը">
-<!ENTITY sendReport.label "Տեղեկացնել այս էջի պրոբլեմի մասին">
-<!ENTITY sendReport.accesskey "R">
-<!ENTITY opensidebar.label "Բացել ֆիլտրվող տարրերը">
-<!ENTITY opensidebar.accesskey "տ">
-<!ENTITY closesidebar.label "Փակել ֆիլտրվող տարրերը">
-<!ENTITY closesidebar.accesskey "տ">
-<!ENTITY whitelist.site.label "Անջատել ?1?-ում">
-<!ENTITY whitelist.page.label "Անջատել միայն այս էջի համար">
-<!ENTITY disable.label "Անջատել ամենուր">
-<!ENTITY options.label "Ընտրանքներ">
-<!ENTITY options.accesskey "Ը">
-<!ENTITY showintoolbar.label "Ցույց տալ գործիքաշարում">
 <!ENTITY showintoolbar.accesskey "գ">
-<!ENTITY showinstatusbar.label "Ցույց տալ վիճակի տողում">
 <!ENTITY showinstatusbar.accesskey "վ">
-<!ENTITY objecttabs.label "Ֆիլտրելու կոճակներ Flash-ի և Java-ի համար">
-<!ENTITY objecttabs.accesskey "կ">
-<!ENTITY sync.label "Սինքրոնացնել Adblock Plus-ի նախընտրանքները">
-<!ENTITY sync.accesskey "Ս">
+<!ENTITY whitelist.site.label "Անջատել ?1?-ում">
+<!ENTITY disable.label "Անջատել ամենուր">
 <!ENTITY objecttab.title "Ֆիլտրել">
+<!ENTITY sync.accesskey "Ս">
 <!ENTITY objecttab.tooltip "Սեղմել «Adblock Plus»ով այս օբյեկտը ֆիլտրելու համար">
+<!ENTITY menuitem.label "Adblock Plus">
+<!ENTITY objecttabs.label "Ֆիլտրելու կոճակներ Flash-ի և Java-ի համար">
+<!ENTITY sendReport.label "Տեղեկացնել այս էջի պրոբլեմի մասին">
+<!ENTITY whitelist.page.label "Անջատել միայն այս էջի համար">
+<!ENTITY context.image.label "Adblock` Ֆիլտրել Նկարը">
+<!ENTITY closesidebar.accesskey "տ">
+<!ENTITY opensidebar.label "Բացել ֆիլտրվող տարրերը">
+<!ENTITY options.accesskey "Ը">
+<!ENTITY objecttabs.accesskey "կ">
+<!ENTITY context.frame.label "Adblock` Ֆիլտրել Ֆրեյմը">
+<!ENTITY blocked.tooltip "Այս էջի ֆիլտրված տարրերը`">
+<!ENTITY opensidebar.accesskey "տ">
+<!ENTITY showinstatusbar.label "Ցույց տալ վիճակի տողում">
+<!ENTITY status.tooltip "Վիճակը.">
+<!ENTITY sidebar.title "Այս էջի ֆիլտրվող տարրերը">
+<!ENTITY sync.label "Սինքրոնացնել Adblock Plus-ի նախընտրանքները">
+<!ENTITY options.label "Ընտրանքներ">
+<!ENTITY context.object.label "Adblock` Ֆիլտրել Օբյեկտը">
+<!ENTITY context.removeWhitelist.label "Adblock Plus: Վերակտիվացնել այս էջում">
+<!ENTITY filters.tooltip "Ամենաակտիվ ֆիլտրերը`">
+<!ENTITY closesidebar.label "Փակել ֆիլտրվող տարրերը">
+<!ENTITY showintoolbar.label "Ցույց տալ գործիքաշարում">
+<!ENTITY menuitem.accesskey "B">
+<!ENTITY context.media.label "Adblock` Ֆիլտրել Աուդիո/Վիդեո">

@@ -1,35 +1,35 @@
-<!ENTITY addSubscription.label "اشتراک پالایه">
-<!ENTITY addSubscriptionOther.label "اشتراک ديگر">
-<!ENTITY subscription.lastDownload.label "آخرین دریافت:">
-<!ENTITY subscription.lastDownload.inProgress "در حال دریافت...">
-<!ENTITY subscription.lastDownload.unknown "ت.ن (تعریف نشده)">
-<!ENTITY subscription.lastDownload.invalidURL "نشانی نامعتبر بود">
-<!ENTITY subscription.lastDownload.connectionError "مشکل، فرآیند دریافت شکست خورد">
-<!ENTITY subscription.lastDownload.invalidData "مشکل، فهرست پالایه ها نامعتبر است">
-<!ENTITY subscription.lastDownload.checksumMismatch "مشکل, عدم تطابق کنترلی">
-<!ENTITY subscription.lastDownload.success "موفق">
-<!ENTITY addFilter.label "افزودن افزودن پالایه">
-<!ENTITY filter.cut.label "برش">
-<!ENTITY filter.copy.label "رونوشت">
-<!ENTITY filter.paste.label "جای گذاری">
-<!ENTITY filter.delete.label "حذف">
-<!ENTITY viewMenu.label "نما">
-<!ENTITY filter.column "قواعد پالایش">
-<!ENTITY filter.accesskey "ق">
 <!ENTITY slow.column "نمایش پالایه ها">
-<!ENTITY slow.accesskey "ن">
-<!ENTITY enabled.column "فعال‌">
-<!ENTITY enabled.accesskey "ع">
-<!ENTITY hitcount.column "برخورد ها">
-<!ENTITY hitcount.accesskey "خ">
+<!ENTITY subscription.lastDownload.checksumMismatch "مشکل, عدم تطابق کنترلی">
 <!ENTITY lasthit.column "آخرین برخورد">
-<!ENTITY lasthit.accesskey "و">
-<!ENTITY sort.label "مرتب کردن بر اساس">
+<!ENTITY viewMenu.label "نما">
 <!ENTITY sort.accesskey "س">
-<!ENTITY sort.none.label "نا مرتب">
-<!ENTITY sort.none.accesskey "ر">
 <!ENTITY sort.ascending.label "ترتیب حروف الف با از ابتدا">
+<!ENTITY sort.label "مرتب کردن بر اساس">
+<!ENTITY filter.paste.label "جای گذاری">
+<!ENTITY filter.accesskey "ق">
 <!ENTITY sort.ascending.accesskey "ا">
-<!ENTITY sort.descending.label "ترتیب حروف الف با از انتها">
+<!ENTITY subscription.lastDownload.inProgress "در حال دریافت...">
+<!ENTITY enabled.accesskey "ع">
+<!ENTITY filter.delete.label "حذف">
+<!ENTITY enabled.column "فعال‌">
+<!ENTITY slow.accesskey "ن">
+<!ENTITY subscription.lastDownload.unknown "ت.ن (تعریف نشده)">
+<!ENTITY lasthit.accesskey "و">
+<!ENTITY hitcount.accesskey "خ">
+<!ENTITY subscription.lastDownload.invalidURL "نشانی نامعتبر بود">
+<!ENTITY hitcount.column "برخورد ها">
+<!ENTITY filter.cut.label "برش">
+<!ENTITY addSubscriptionOther.label "اشتراک ديگر">
+<!ENTITY sort.none.label "نا مرتب">
+<!ENTITY filter.copy.label "رونوشت">
+<!ENTITY sort.none.accesskey "ر">
+<!ENTITY addSubscription.label "اشتراک پالایه">
 <!ENTITY sort.descending.accesskey "ت">
 <!ENTITY find.label "یافتن">
+<!ENTITY sort.descending.label "ترتیب حروف الف با از انتها">
+<!ENTITY subscription.lastDownload.connectionError "مشکل، فرآیند دریافت شکست خورد">
+<!ENTITY subscription.lastDownload.success "موفق">
+<!ENTITY subscription.lastDownload.invalidData "مشکل، فهرست پالایه ها نامعتبر است">
+<!ENTITY addFilter.label "افزودن افزودن پالایه">
+<!ENTITY subscription.lastDownload.label "آخرین دریافت:">
+<!ENTITY filter.column "قواعد پالایش">

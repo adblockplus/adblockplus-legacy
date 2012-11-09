@@ -1,79 +1,79 @@
-<!ENTITY wizard.title "Problemraportilo">
-<!ENTITY privacyPolicy.label "Reguloj de privateco">
-<!ENTITY dataCollector.heading "Bonvenon al la problemraportilo">
-<!ENTITY dataCollector.description "Bonvolu atendi kelkajn momentojn dum Adblock Plus akiras la necesajn datumojn.">
-<!ENTITY typeSelector.heading "Elekti problemtipon">
-<!ENTITY typeSelector.description "Ĉi tiu fenestro gvidos vin tra la paŝoj, kiuj estas bezonataj por sendi la problemraporton de Adblock Plus. Unue bonvolu elekti la problemtipon, kiun vi renkontis sur ĉi tiu paĝo:">
-<!ENTITY typeSelector.falsePositive.label "Adblock Plus blokas tro multe">
-<!ENTITY typeSelector.falsePositive.accesskey "m">
-<!ENTITY typeSelector.falsePositive.description "Elektu ĉi tiun opcion, se la paĝo malhavas gravan enhavon, ne estas vidigata korekte abo malsukcesas korekte funkcii. Vi povas determini, ĉu Adblock Plus estas la kaŭzo de la problemo malebligante ĝin provizore.">
-<!ENTITY typeSelector.falseNegative.label "Adblock Plus ne blokas reklamon">
-<!ENTITY typeSelector.falseNegative.accesskey "r">
-<!ENTITY typeSelector.falseNegative.description "Elektu ĉi tiun opcion, se reklamo estas vidigata, kvankam Adblock Plus estas ebligita.">
-<!ENTITY typeSelector.other.label "Alia problemo">
-<!ENTITY typeSelector.other.accesskey "A">
-<!ENTITY typeSelector.other.description "Elektu ĉi tiun opcion, se vi kredas problemon kun Adblock Plus mem pli verŝajna ol kun ĝiaj filtriloj.">
-<!ENTITY showRecentReports.label "Montri antaŭ nelonge senditajn raportojn">
-<!ENTITY recentReports.label "Viaj antaŭ nelonge senditaj raportoj">
-<!ENTITY recentReports.clear.label "Forigi ĉiujn raportojn">
-<!ENTITY recentReports.clear.accesskey "F">
-<!ENTITY update.inProgress.description "Adblock Plus devas ĝisdatigi viajn fitrilabonojn por certigi, ke la problemo ne estas jam solvita. Bonvolu atendi...">
-<!ENTITY update.fixed.description "La ĝisdatigoj de viaj filtrilabonoj verŝajne solvis la problemon, kiun vi sciigis. Bonvolu reŝargi la paĝon kaj alklaku denoe 'Sendi denove', se la problemo ankoraŭ ekzistas.">
-<!ENTITY outdatedSubscriptions.description "La sekvontaj filtrilabonoj ne ĝisdatiĝis de almenaŭ du semajnoj. Bonvolu ĝisdatigi ĉi tiujn abonojn, antaŭ ol vi sendas raporton, la problemo estas eble jam solvita.">
-<!ENTITY update.start.label "Startigu nun ĝisdatigon">
-<!ENTITY issues.description "Adblock Plus malkovris problemojn kun via konfiguro, kiu eble estas kulpa pri ĉi tiu problemo aŭ malfaciligas la analizadon de la raporto.">
-<!ENTITY issues.whitelist.description "Adblock Plus estas nun malebligita sur la paĝo, pri kiu vi raportas. Bonvolu ebligi ĝin denove kaj reŝargu la paĝon antaŭ ol vi sendas la raporton por helpi analizi ĉi tiun problemon.">
-<!ENTITY issues.whitelist.remove.label "Denove ebligi Adblock Plus sur ĉi tiu paĝo">
-<!ENTITY issues.disabled.description "Adblock Plus estas malebligita, ĝi blokos nenion en sia aktuala stato.">
-<!ENTITY issues.disabled.enable.label "Ebligi Adblock Plus">
-<!ENTITY issues.nofilters.description "Adblock Plus blokas nenion sur ĉi tiu paĝo. La problemo, kiun vi observas, plej verŝajne ne rilatas al Adblock Plus.">
-<!ENTITY issues.nosubscriptions.description "Ŝajnas, ke vi ne abonis preparitan liston de filtriloj, kiuj aŭtomate forigas nedeziratan enhavon de retejoj.">
-<!ENTITY issues.nosubscriptions.add.label "Aldoni filtrilabonon">
-<!ENTITY issues.subscriptionCount.description "Ŝajnas, ke vi abonis tro multajn filtrilabonojn. Ĉi tiu agordo ne rekomendiĝas, ĉar ĝi plialtigas la probablecon de problemoj. Ni ankaŭ ne povas akcepti vian problemraporton, ĉar estas malklare, kiu filtrilabona aŭtoro devas agi. Bonvolu forigi ĉion, escepte de la vere necesaj filtrilabonoj kaj testu, ĉu la problemo poste ankoraŭ ekzistas.">
-<!ENTITY issues.openPreferences.label "Malfermi filtrilagordojn">
-<!ENTITY issues.ownfilters.description "Kelkaj filtriloj aplikataj al ĉi tiu paĝo estas propre difinitaj. Bonvolu malebligi la filtrilojn, kiuj povus kaŭzi la problemon:">
-<!ENTITY issues.ownfilters.disable.label "Malebligi filtrilon">
+<!ENTITY screenshot.undo.label "Malfari">
 <!ENTITY issues.disabledgroups.description "La sekvontaj filtrilabonoj/filtrilgrupoj estas malebligitaj, sed ili povus havi efikon al ĉi tiu paĝo:">
+<!ENTITY attachExtensions.accesskey "s">
+<!ENTITY showData.label "Montri raportodatumojn">
+<!ENTITY typeSelector.falsePositive.label "Adblock Plus blokas tro multe">
+<!ENTITY recentReports.clear.accesskey "F">
+<!ENTITY email.accesskey "f">
+<!ENTITY issues.change.description "Via konfiguro estas ŝanĝita. Bonvolu reŝargi la paĝon por testi la ŝanĝojn kaj sendu la raporton, se la problemo ne solviĝos per la ŝanĝoj.">
+<!ENTITY reloadButton.accesskey "R">
+<!ENTITY screenshot.attach.accesskey "l">
+<!ENTITY issues.openPreferences.label "Malfermi filtrilagordojn">
+<!ENTITY sendPage.confirmation "Via raporto estas konservita. Vi povas atingi ĝin ĉe sekvonta adreso:">
+<!ENTITY issues.override.accesskey "k">
+<!ENTITY copyLink.label "Kopii raportligilon">
+<!ENTITY issues.nofilters.description "Adblock Plus blokas nenion sur ĉi tiu paĝo. La problemo, kiun vi observas, plej verŝajne ne rilatas al Adblock Plus.">
+<!ENTITY sendPage.knownIssue "La problemo, kiun vi raportis, eble estas jam konata. Pliaj informoj:">
+<!ENTITY sendPage.retry.label "Denove sendi">
+<!ENTITY typeSelector.other.description "Elektu ĉi tiun opcion, se vi kredas problemon kun Adblock Plus mem pli verŝajna ol kun ĝiaj filtriloj.">
 <!ENTITY issues.disabledgroups.enable.label "Ebligi filtrilabonon/filtrilgrupon">
-<!ENTITY issues.disabledfilters.description "La sekvontaj filtriloj estas malebligitaj, sed ili povus havi efikon al ĉi tiu paĝo:">
+<!ENTITY typeWarning.override.label "Mi komprenas kaj volas sendi la raporton malgraŭ tio">
+<!ENTITY issues.disabled.enable.label "Ebligi Adblock Plus">
+<!ENTITY update.fixed.description "La ĝisdatigoj de viaj filtrilabonoj verŝajne solvis la problemon, kiun vi sciigis. Bonvolu reŝargi la paĝon kaj alklaku denoe 'Sendi denove', se la problemo ankoraŭ ekzistas.">
+<!ENTITY email.label "Retpoŝti pri pliaj informmendoj (laŭvole):">
+<!ENTITY reloadButton.label "Reŝargi paĝon">
+<!ENTITY recentReports.clear.label "Forigi ĉiujn raportojn">
+<!ENTITY typeSelector.description "Ĉi tiu fenestro gvidos vin tra la paŝoj, kiuj estas bezonataj por sendi la problemraporton de Adblock Plus. Unue bonvolu elekti la problemtipon, kiun vi renkontis sur ĉi tiu paĝo:">
+<!ENTITY screenshot.mark.accesskey "r">
+<!ENTITY typeSelector.other.accesskey "A">
+<!ENTITY screenshot.undo.accesskey "M">
+<!ENTITY update.inProgress.description "Adblock Plus devas ĝisdatigi viajn fitrilabonojn por certigi, ke la problemo ne estas jam solvita. Bonvolu atendi...">
+<!ENTITY data.accesskey "p">
+<!ENTITY data.label "Raportodatumoj:">
+<!ENTITY sendPage.heading "Sendi raporton">
+<!ENTITY recentReports.label "Viaj antaŭ nelonge senditaj raportoj">
+<!ENTITY typeWarning.description "Vi indikis, ke vi volas raporti ĝeneralan problemon kun Adblock Plus opiniante tion pli verŝajna ol problemo kun la filtriloj. Bonvolu atenti, ke tia problemo estu plej bone raportata en [link]forumo de Adblock Plus[/link]. Vi nur uzu la problemraportilon por kompletigi ekzistantan diskuton, ĉar neniu rimarkos via raporton, escepte, se vi donas al ili la ligilon al ĝi. La aŭtomate generita ligilo estos provizita post sendado de la raporto.">
+<!ENTITY issues.disabled.description "Adblock Plus estas malebligita, ĝi blokos nenion en sia aktuala stato.">
+<!ENTITY attachExtensions.label "Kunsendi liston de aktivaj etendaĵoj kun la raporto, se etendaĵa konflikto estas la kaŭzo de la problemo">
+<!ENTITY issues.nosubscriptions.add.label "Aldoni filtrilabonon">
 <!ENTITY issues.disabledfilters.enable.label "Ebligi filtrilon">
 <!ENTITY issues.override.label "La konfiguro estas korekta, daŭrigi la raporton">
-<!ENTITY issues.override.accesskey "k">
-<!ENTITY issues.change.description "Via konfiguro estas ŝanĝita. Bonvolu reŝargi la paĝon por testi la ŝanĝojn kaj sendu la raporton, se la problemo ne solviĝos per la ŝanĝoj.">
-<!ENTITY typeWarning.description "Vi indikis, ke vi volas raporti ĝeneralan problemon kun Adblock Plus opiniante tion pli verŝajna ol problemo kun la filtriloj. Bonvolu atenti, ke tia problemo estu plej bone raportata en [link]forumo de Adblock Plus[/link]. Vi nur uzu la problemraportilon por kompletigi ekzistantan diskuton, ĉar neniu rimarkos via raporton, escepte, se vi donas al ili la ligilon al ĝi. La aŭtomate generita ligilo estos provizita post sendado de la raporto.">
-<!ENTITY typeWarning.override.label "Mi komprenas kaj volas sendi la raporton malgraŭ tio">
-<!ENTITY typeWarning.override.accesskey "s">
-<!ENTITY reloadButton.label "Reŝargi paĝon">
-<!ENTITY reloadButton.accesskey "R">
-<!ENTITY screenshot.heading "Kunsendi ekrankopion">
+<!ENTITY issues.nosubscriptions.description "Ŝajnas, ke vi ne abonis preparitan liston de filtriloj, kiuj aŭtomate forigas nedeziratan enhavon de retejoj.">
+<!ENTITY outdatedSubscriptions.description "La sekvontaj filtrilabonoj ne ĝisdatiĝis de almenaŭ du semajnoj. Bonvolu ĝisdatigi ĉi tiujn abonojn, antaŭ ol vi sendas raporton, la problemo estas eble jam solvita.">
+<!ENTITY typeSelector.other.label "Alia problemo">
+<!ENTITY issues.whitelist.remove.label "Denove ebligi Adblock Plus sur ĉi tiu paĝo">
+<!ENTITY typeSelector.falsePositive.description "Elektu ĉi tiun opcion, se la paĝo malhavas gravan enhavon, ne estas vidigata korekte abo malsukcesas korekte funkcii. Vi povas determini, ĉu Adblock Plus estas la kaŭzo de la problemo malebligante ĝin provizore.">
+<!ENTITY dataCollector.description "Bonvolu atendi kelkajn momentojn dum Adblock Plus akiras la necesajn datumojn.">
+<!ENTITY sendButton.label "Sendi raporton">
+<!ENTITY comment.label "Komento (laŭvole):">
+<!ENTITY sendPage.errorMessage "Provo por sendi la raporton malsukcesis kun erarkodo &quot;?1?&quot;. Bonvolu certiĝu, ke vi estas konektita al la interreto kaj provu denove. Se la problemo pluekzistas, bonvolu peti pri helpo en la [link]forumo de Adblock Plus[/link].">
+<!ENTITY showRecentReports.label "Montri antaŭ nelonge senditajn raportojn">
+<!ENTITY commentPage.heading "Enigi komenton">
+<!ENTITY update.start.label "Startigu nun ĝisdatigon">
+<!ENTITY typeSelector.falsePositive.accesskey "m">
+<!ENTITY issues.disabledfilters.description "La sekvontaj filtriloj estas malebligitaj, sed ili povus havi efikon al ĉi tiu paĝo:">
 <!ENTITY screenshot.description "La sama paĝo povas aspekti alie por diferencaj homoj. Helpus kompreni la problemon, se vi aldonas ekrankopion al via raporto. Vi povas forigi sekciojn, kiuj enhavas konfidencajn informojn kaj marki lokojn, kie la problemo estas rimarkebla. Por fari tion, alklaku la respektivan butonon kaj elektu la sekcion de la bildo per via muso.">
 <!ENTITY screenshot.attach.label "Kunsendi paĝobildon kun la raporto">
-<!ENTITY screenshot.attach.accesskey "l">
-<!ENTITY screenshot.mark.label "Marki la problemon">
-<!ENTITY screenshot.mark.accesskey "r">
-<!ENTITY screenshot.remove.label "Forigi gravajn datumojn">
-<!ENTITY screenshot.remove.accesskey "F">
-<!ENTITY screenshot.undo.label "Malfari">
-<!ENTITY screenshot.undo.accesskey "M">
-<!ENTITY commentPage.heading "Enigi komenton">
-<!ENTITY commentPage.description "La tekstokampo malsupre ebligas al vi enigi komenton por helpi al ni kompreni la problemon. Ĉi tiu paŝo estas laŭvola, sed rekomendata, se la problemo ne estas evidenta. Vi povas ankaŭ kontroli la raportodatumojn, antaŭ ol ĝi estas forsendata.">
-<!ENTITY comment.label "Komento (laŭvole):">
-<!ENTITY comment.accesskey "K">
-<!ENTITY comment.lengthWarning "Via komento havas pli ol 1000 signojn. Nur la unuaj 1000 signoj estos sendataj:">
-<!ENTITY email.label "Retpoŝti pri pliaj informmendoj (laŭvole):">
-<!ENTITY email.accesskey "f">
-<!ENTITY attachExtensions.label "Kunsendi liston de aktivaj etendaĵoj kun la raporto, se etendaĵa konflikto estas la kaŭzo de la problemo">
-<!ENTITY attachExtensions.accesskey "s">
-<!ENTITY sendButton.label "Sendi raporton">
+<!ENTITY issues.whitelist.description "Adblock Plus estas nun malebligita sur la paĝo, pri kiu vi raportas. Bonvolu ebligi ĝin denove kaj reŝargu la paĝon antaŭ ol vi sendas la raporton por helpi analizi ĉi tiun problemon.">
 <!ENTITY sendButton.accesskey "n">
-<!ENTITY showData.label "Montri raportodatumojn">
-<!ENTITY data.label "Raportodatumoj:">
-<!ENTITY data.accesskey "p">
-<!ENTITY sendPage.heading "Sendi raporton">
-<!ENTITY sendPage.waitMessage "Bonvolu atendi, dum Adblock Plus sendas vian raporton.">
-<!ENTITY sendPage.confirmation "Via raporto estas konservita. Vi povas atingi ĝin ĉe sekvonta adreso:">
-<!ENTITY sendPage.knownIssue "La problemo, kiun vi raportis, eble estas jam konata. Pliaj informoj:">
-<!ENTITY sendPage.errorMessage "Provo por sendi la raporton malsukcesis kun erarkodo &quot;?1?&quot;. Bonvolu certiĝu, ke vi estas konektita al la interreto kaj provu denove. Se la problemo pluekzistas, bonvolu peti pri helpo en la [link]forumo de Adblock Plus[/link].">
-<!ENTITY sendPage.retry.label "Denove sendi">
-<!ENTITY copyLink.label "Kopii raportligilon">
+<!ENTITY typeSelector.falseNegative.label "Adblock Plus ne blokas reklamon">
 <!ENTITY copyLink.accesskey "K">
+<!ENTITY typeSelector.heading "Elekti problemtipon">
+<!ENTITY wizard.title "Problemraportilo">
+<!ENTITY issues.ownfilters.disable.label "Malebligi filtrilon">
+<!ENTITY commentPage.description "La tekstokampo malsupre ebligas al vi enigi komenton por helpi al ni kompreni la problemon. Ĉi tiu paŝo estas laŭvola, sed rekomendata, se la problemo ne estas evidenta. Vi povas ankaŭ kontroli la raportodatumojn, antaŭ ol ĝi estas forsendata.">
+<!ENTITY typeSelector.falseNegative.accesskey "r">
+<!ENTITY comment.lengthWarning "Via komento havas pli ol 1000 signojn. Nur la unuaj 1000 signoj estos sendataj:">
+<!ENTITY typeSelector.falseNegative.description "Elektu ĉi tiun opcion, se reklamo estas vidigata, kvankam Adblock Plus estas ebligita.">
+<!ENTITY typeWarning.override.accesskey "s">
+<!ENTITY sendPage.waitMessage "Bonvolu atendi, dum Adblock Plus sendas vian raporton.">
+<!ENTITY dataCollector.heading "Bonvenon al la problemraportilo">
+<!ENTITY screenshot.remove.label "Forigi gravajn datumojn">
+<!ENTITY screenshot.heading "Kunsendi ekrankopion">
+<!ENTITY comment.accesskey "K">
+<!ENTITY issues.ownfilters.description "Kelkaj filtriloj aplikataj al ĉi tiu paĝo estas propre difinitaj. Bonvolu malebligi la filtrilojn, kiuj povus kaŭzi la problemon:">
+<!ENTITY screenshot.remove.accesskey "F">
+<!ENTITY issues.subscriptionCount.description "Ŝajnas, ke vi abonis tro multajn filtrilabonojn. Ĉi tiu agordo ne rekomendiĝas, ĉar ĝi plialtigas la probablecon de problemoj. Ni ankaŭ ne povas akcepti vian problemraporton, ĉar estas malklare, kiu filtrilabona aŭtoro devas agi. Bonvolu forigi ĉion, escepte de la vere necesaj filtrilabonoj kaj testu, ĉu la problemo poste ankoraŭ ekzistas.">
+<!ENTITY screenshot.mark.label "Marki la problemon">
+<!ENTITY privacyPolicy.label "Reguloj de privateco">
+<!ENTITY issues.description "Adblock Plus malkovris problemojn kun via konfiguro, kiu eble estas kulpa pri ĉi tiu problemo aŭ malfaciligas la analizadon de la raporto.">

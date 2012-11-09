@@ -1,36 +1,36 @@
-<!ENTITY detached.title "Adblock Plus: Blokovateľné položky (oddelený)">
-<!ENTITY detach.label "Oddeliť">
+<!ENTITY context.flash.label "Ohraničenie flashových položiek">
+<!ENTITY tooltip.type.label "Typ:">
+<!ENTITY address.label "Adresa">
+<!ENTITY context.open.label "Otvoriť na novej karte">
+<!ENTITY type.label "Typ">
+<!ENTITY tooltip.filterSource.label "Zdroj filtra:">
+<!ENTITY noitems.label "Neblokovateľné položky">
+<!ENTITY filter.label "Filter">
+<!ENTITY tooltip.size.label "Veľkosť:">
 <!ENTITY reattach.label "Znovu pripojiť">
 <!ENTITY search.label "Hľadať:">
-<!ENTITY search.accesskey "H">
-<!ENTITY type.label "Typ">
-<!ENTITY address.label "Adresa">
-<!ENTITY filter.label "Filter">
-<!ENTITY state.label "Stav">
-<!ENTITY size.label "Veľkosť">
-<!ENTITY filterSource.label "Zdroj filtra">
-<!ENTITY docDomain.label "Zdroj dokumentu">
 <!ENTITY docDomain.thirdParty "(tretia strana)">
-<!ENTITY docDomain.firstParty "(prvá strana)">
-<!ENTITY noitems.label "Neblokovateľné položky">
-<!ENTITY whitelisted.label "Povolené stránky">
-<!ENTITY tooltip.address.label "Adresa:">
-<!ENTITY tooltip.type.label "Typ:">
-<!ENTITY tooltip.type.blocked "(blokovaný)">
-<!ENTITY tooltip.type.whitelisted "(povolený)">
-<!ENTITY tooltip.size.label "Veľkosť:">
+<!ENTITY filterSource.label "Zdroj filtra">
 <!ENTITY tooltip.docDomain.label "Zdroj dokumentu:">
+<!ENTITY context.copy.label "Kopírovať adresu položiek">
+<!ENTITY tooltip.type.blocked "(blokovaný)">
+<!ENTITY search.accesskey "H">
+<!ENTITY context.disablefilter.label "Vypnúť filter ?1?">
+<!ENTITY context.copyFilter.label "Kopírovať filter">
+<!ENTITY context.block.label "Blokovať túto položku">
+<!ENTITY context.enablefilter.label "Znovu zapnúť filter ?1?">
+<!ENTITY detach.label "Oddeliť">
+<!ENTITY whitelisted.label "Povolené stránky">
+<!ENTITY context.disablefilteronsite.label "Vypnúť tento filter na ?1?">
+<!ENTITY detached.title "Adblock Plus: Blokovateľné položky (oddelený)">
+<!ENTITY docDomain.firstParty "(prvá strana)">
+<!ENTITY tooltip.type.whitelisted "(povolený)">
 <!ENTITY tooltip.filter.label "Platný filter:">
 <!ENTITY tooltip.filter.disabled "(vypnutý)">
-<!ENTITY tooltip.filterSource.label "Zdroj filtra:">
-<!ENTITY context.block.label "Blokovať túto položku">
 <!ENTITY context.editfilter.label "Upraviť filter v skutočnosti">
+<!ENTITY size.label "Veľkosť">
 <!ENTITY context.whitelist.label "Pridať výnimku pre položku">
-<!ENTITY context.disablefilter.label "Vypnúť filter ?1?">
-<!ENTITY context.enablefilter.label "Znovu zapnúť filter ?1?">
-<!ENTITY context.disablefilteronsite.label "Vypnúť tento filter na ?1?">
-<!ENTITY context.open.label "Otvoriť na novej karte">
-<!ENTITY context.flash.label "Ohraničenie flashových položiek">
-<!ENTITY context.copy.label "Kopírovať adresu položiek">
-<!ENTITY context.copyFilter.label "Kopírovať filter">
 <!ENTITY context.selectAll.label "Vybrať všetko">
+<!ENTITY state.label "Stav">
+<!ENTITY docDomain.label "Zdroj dokumentu">
+<!ENTITY tooltip.address.label "Adresa:">

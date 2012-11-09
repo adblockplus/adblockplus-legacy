@@ -1,16 +1,12 @@
-<!ENTITY dialog.title "Voeg Adblock Plus filter reël by">
-<!ENTITY subscriptionSelector.label "Selekteer asseblief 'n filter inskrywing vanuit die lys:">
+<!ENTITY addMain.label "Voeg ook filter inskrywing &quot;?1?&quot; by">
+<!ENTITY list.download.failed "Adblock Plus kon nie daarin slaag om die lys inskrywings te kry nie.">
+<!ENTITY list.download.retry "Probeer weer">
+<!ENTITY title.label "Inskrywing titel:">
+<!ENTITY list.download.website "Kyk na webtuiste">
+<!ENTITY supplementMessage "Hierdie filter inskrywing is bedoel om gebruik te word saam met die filter inskrywing &quot;?1?&quot; wat jy nog nie gebruik nie.">
 <!ENTITY viewList.label "Kyk na filters">
 <!ENTITY visitHomepage.label "Besoek tuisblad">
 <!ENTITY addSubscription.label "Voeg inskrywing by">
-<!ENTITY list.download.failed "Adblock Plus kon nie daarin slaag om die lys inskrywings te kry nie.">
-<!ENTITY list.download.retry "Probeer weer">
-<!ENTITY list.download.website "Kyk na webtuiste">
-<!ENTITY fromWeb.description "Bevestig asseblief dat jy hierdie filter inskrywing wil byvoeg. Jy kan die inskrywing titel of stoorplek verander voordat jy dit byvoeg.">
-<!ENTITY title.label "Inskrywing titel:">
-<!ENTITY title.accesskey "t">
+<!ENTITY dialog.title "Voeg Adblock Plus filter reël by">
 <!ENTITY location.label "Inskrywing lys stoorplek:">
-<!ENTITY location.accesskey "l">
-<!ENTITY supplementMessage "Hierdie filter inskrywing is bedoel om gebruik te word saam met die filter inskrywing &quot;?1?&quot; wat jy nog nie gebruik nie.">
-<!ENTITY addMain.label "Voeg ook filter inskrywing &quot;?1?&quot; by">
-<!ENTITY addMain.accesskey "s">
+<!ENTITY fromWeb.description "Bevestig asseblief dat jy hierdie filter inskrywing wil byvoeg. Jy kan die inskrywing titel of stoorplek verander voordat jy dit byvoeg.">

@@ -1,46 +1,46 @@
-<!ENTITY dialog.title "Add Adblock Plus filter rule">
-<!ENTITY accept.label "Add filter">
-<!ENTITY advanced.label "Advanced view">
-<!ENTITY basic.label "Basic view">
-<!ENTITY disabled.warning "Adblock Plus is currently disabled. You can still add filters but they will not be applied unless you [link]enable Adblock Plus[/link].">
-<!ENTITY filter.label "New filter:">
-<!ENTITY filter.accesskey "f">
-<!ENTITY preferences.label "Show existing filters...">
-<!ENTITY preferences.accesskey "S">
-<!ENTITY type.filter.label "Blocking filter">
-<!ENTITY type.filter.accesskey "B">
-<!ENTITY type.whitelist.label "Exception rule">
-<!ENTITY type.whitelist.accesskey "x">
-<!ENTITY pattern.label "Look for pattern">
-<!ENTITY pattern.explanation "The pattern can be any part of the address; asterisks (*) act as wildcards. The filter will only be applied to addresses matching the pattern provided.">
-<!ENTITY regexp.warning "The pattern you entered will be interpreted as a regular expression; this cannot be efficiently processed by Adblock Plus and may slow down your browsing experience. If you didn't intend to use a regular expression, add an asterisk (*) to the end of the pattern.">
-<!ENTITY shortpattern.warning "The pattern you entered is too short to be optimised; this may slow down your browsing experience. It is recommended that you choose a longer string for this filter to allow Adblock Plus to process the filter more efficiently.">
-<!ENTITY match.warning "The pattern you entered no longer matches the address to be blocked/whitelisted and will have no effect on it.">
-<!ENTITY custom.pattern.label "Custom:">
-<!ENTITY custom.pattern.accesskey "C">
-<!ENTITY anchors.label "Accept pattern only:">
-<!ENTITY anchor.start.label "at the beginning of the address">
-<!ENTITY anchor.start.accesskey "g">
-<!ENTITY anchor.start.flexible.label "at the beginning of the domain name">
-<!ENTITY anchor.start.flexible.accesskey "g">
-<!ENTITY anchor.end.label "at the end of the address">
-<!ENTITY anchor.end.accesskey "n">
-<!ENTITY options.label "Options">
-<!ENTITY domainRestriction.label "Restrict to domain:">
-<!ENTITY domainRestriction.accesskey "d">
-<!ENTITY domainRestriction.help "Use this option to specify one or more domains separated by a bar line (|). The filter will only be applied on the domain(s) selected. A tilde (~) before a domain name indicates that the filter will not be applied on that domain.">
-<!ENTITY firstParty.label "First-party only">
-<!ENTITY firstParty.accesskey "r">
-<!ENTITY thirdParty.label "Third-party only">
-<!ENTITY thirdParty.accesskey "T">
-<!ENTITY matchCase.label "Match case">
-<!ENTITY matchCase.accesskey "M">
-<!ENTITY types.label "Apply to types:">
-<!ENTITY selectAllTypes.label "Select all">
-<!ENTITY unselectAllTypes.label "Select none">
-<!ENTITY collapse.label "Collapse blocked:">
-<!ENTITY collapse.accesskey "l">
-<!ENTITY collapse.default.yes.label "Use default (yes)">
-<!ENTITY collapse.default.no.label "Use default (no)">
 <!ENTITY collapse.yes.label "Yes">
+<!ENTITY anchor.end.label "at the end of the address">
+<!ENTITY domainRestriction.label "Restrict to domain:">
+<!ENTITY anchor.start.flexible.accesskey "g">
+<!ENTITY firstParty.label "First-party only">
+<!ENTITY preferences.label "Show existing filters...">
+<!ENTITY pattern.label "Look for pattern">
+<!ENTITY thirdParty.label "Third-party only">
+<!ENTITY filter.accesskey "f">
+<!ENTITY thirdParty.accesskey "T">
+<!ENTITY filter.label "New filter:">
+<!ENTITY collapse.label "Collapse blocked:">
+<!ENTITY match.warning "The pattern you entered no longer matches the address to be blocked/whitelisted and will have no effect on it.">
+<!ENTITY anchor.start.label "at the beginning of the address">
 <!ENTITY collapse.no.label "No">
+<!ENTITY matchCase.label "Match case">
+<!ENTITY custom.pattern.label "Custom:">
+<!ENTITY unselectAllTypes.label "Select none">
+<!ENTITY domainRestriction.accesskey "d">
+<!ENTITY type.whitelist.label "Exception rule">
+<!ENTITY regexp.warning "The pattern you entered will be interpreted as a regular expression; this cannot be efficiently processed by Adblock Plus and may slow down your browsing experience. If you didn't intend to use a regular expression, add an asterisk (*) to the end of the pattern.">
+<!ENTITY dialog.title "Add Adblock Plus filter rule">
+<!ENTITY basic.label "Basic view">
+<!ENTITY preferences.accesskey "S">
+<!ENTITY firstParty.accesskey "r">
+<!ENTITY collapse.default.no.label "Use default (no)">
+<!ENTITY type.filter.label "Blocking filter">
+<!ENTITY types.label "Apply to types:">
+<!ENTITY shortpattern.warning "The pattern you entered is too short to be optimised; this may slow down your browsing experience. It is recommended that you choose a longer string for this filter to allow Adblock Plus to process the filter more efficiently.">
+<!ENTITY custom.pattern.accesskey "C">
+<!ENTITY anchor.start.accesskey "g">
+<!ENTITY anchors.label "Accept pattern only:">
+<!ENTITY collapse.default.yes.label "Use default (yes)">
+<!ENTITY type.filter.accesskey "B">
+<!ENTITY domainRestriction.help "Use this option to specify one or more domains separated by a bar line (|). The filter will only be applied on the domain(s) selected. A tilde (~) before a domain name indicates that the filter will not be applied on that domain.">
+<!ENTITY accept.label "Add filter">
+<!ENTITY options.label "Options">
+<!ENTITY disabled.warning "Adblock Plus is currently disabled. You can still add filters but they will not be applied unless you [link]enable Adblock Plus[/link].">
+<!ENTITY anchor.start.flexible.label "at the beginning of the domain name">
+<!ENTITY type.whitelist.accesskey "x">
+<!ENTITY matchCase.accesskey "M">
+<!ENTITY anchor.end.accesskey "n">
+<!ENTITY selectAllTypes.label "Select all">
+<!ENTITY advanced.label "Advanced view">
+<!ENTITY collapse.accesskey "l">
+<!ENTITY pattern.explanation "The pattern can be any part of the address; asterisks (*) act as wildcards. The filter will only be applied to addresses matching the pattern provided.">

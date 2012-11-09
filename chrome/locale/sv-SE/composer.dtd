@@ -1,46 +1,44 @@
-<!ENTITY dialog.title "Lägg till filterregel för Adblock Plus">
-<!ENTITY accept.label "Lägg till filter">
-<!ENTITY advanced.label "Avancerat">
-<!ENTITY basic.label "Standard">
-<!ENTITY disabled.warning "Adblock Plus är inaktiverat. Du kan lägga till filter, men kan inte använda dem förrän du [link]aktiverar Adblock Plus[/link].">
-<!ENTITY filter.label "Nytt filter:">
-<!ENTITY filter.accesskey "N">
-<!ENTITY preferences.label "Visa filter…">
-<!ENTITY preferences.accesskey "s">
-<!ENTITY type.filter.label "Blockerande filter">
-<!ENTITY type.filter.accesskey "c">
-<!ENTITY type.whitelist.label "Regel för undantag">
-<!ENTITY type.whitelist.accesskey "u">
-<!ENTITY pattern.label "Sök efter mönster">
-<!ENTITY pattern.explanation "Mönster är en del av en adress, symbolen * är jokertecken. Filtret används endast på adresser som matchar mönstret.">
-<!ENTITY regexp.warning "Mönstret du angivit hanteras som ett reguljärt uttryck. Många reguljära uttryck kan göra din surfning långsam. Om du inte avsåg att använda reguljära uttryck, lägg till en asterisk (*) i slutet av mönstret.">
-<!ENTITY shortpattern.warning "Detta mönster är för kort för optimal prestanda och för många sådana mönster kan göra din surfning långsam. Det rekommenderas att använda längre strängar för detta filter.">
-<!ENTITY match.warning "Mönstret du har angivit matchar inte längre adressen som skall blockeras/undantas och kommer därför inte att påverka den.">
-<!ENTITY custom.pattern.label "Eget:">
-<!ENTITY custom.pattern.accesskey "E">
-<!ENTITY anchors.label "Acceptera endast mönster:">
-<!ENTITY anchor.start.label "i början av adresser">
-<!ENTITY anchor.start.accesskey "b">
-<!ENTITY anchor.start.flexible.label "i början av domännamnet">
-<!ENTITY anchor.start.flexible.accesskey "b">
-<!ENTITY anchor.end.label "i slutet av adresser">
-<!ENTITY anchor.end.accesskey "t">
-<!ENTITY options.label "Inställningar">
-<!ENTITY domainRestriction.label "Begränsa till domän:">
-<!ENTITY domainRestriction.accesskey "d">
-<!ENTITY domainRestriction.help "Ange en eller flera domäner avgränsade med lodrätt streck (|). Filtret kommer endast att tillämpas på dessa domäner. Tilde-tecknet (~) framför en domän anger att filtret inte kommer att användas för den domänen.">
-<!ENTITY firstParty.label "Endast första part">
-<!ENTITY firstParty.accesskey "f">
-<!ENTITY thirdParty.label "Endast tredje part">
-<!ENTITY thirdParty.accesskey "j">
-<!ENTITY matchCase.label "Skiftlägeskänslig">
-<!ENTITY matchCase.accesskey "k">
-<!ENTITY types.label "Verkställ för:">
-<!ENTITY selectAllTypes.label "Markera alla">
-<!ENTITY unselectAllTypes.label "Avmarkera alla">
-<!ENTITY collapse.label "Dölj blockerade:">
-<!ENTITY collapse.accesskey "l">
-<!ENTITY collapse.default.yes.label "Standard (ja)">
-<!ENTITY collapse.default.no.label "Standard (nej)">
 <!ENTITY collapse.yes.label "Ja">
+<!ENTITY anchor.end.label "i slutet av adresser">
+<!ENTITY domainRestriction.label "Begränsa till domän:">
+<!ENTITY anchor.start.flexible.accesskey "b">
+<!ENTITY firstParty.label "Endast första part">
+<!ENTITY preferences.label "Visa filter…">
+<!ENTITY pattern.label "Sök efter mönster">
+<!ENTITY thirdParty.label "Endast tredje part">
+<!ENTITY filter.accesskey "N">
+<!ENTITY thirdParty.accesskey "j">
+<!ENTITY filter.label "Nytt filter:">
+<!ENTITY collapse.label "Dölj blockerade:">
+<!ENTITY match.warning "Mönstret du har angivit matchar inte längre adressen som skall blockeras/undantas och kommer därför inte att påverka den.">
+<!ENTITY anchor.start.label "i början av adresser">
 <!ENTITY collapse.no.label "Nej">
+<!ENTITY matchCase.label "Skiftlägeskänslig">
+<!ENTITY custom.pattern.label "Eget:">
+<!ENTITY unselectAllTypes.label "Avmarkera alla">
+<!ENTITY type.whitelist.label "Regel för undantag">
+<!ENTITY regexp.warning "Mönstret du angivit hanteras som ett reguljärt uttryck. Många reguljära uttryck kan göra din surfning långsam. Om du inte avsåg att använda reguljära uttryck, lägg till en asterisk (*) i slutet av mönstret.">
+<!ENTITY dialog.title "Lägg till filterregel för Adblock Plus">
+<!ENTITY basic.label "Standard">
+<!ENTITY preferences.accesskey "s">
+<!ENTITY firstParty.accesskey "f">
+<!ENTITY collapse.default.no.label "Standard (nej)">
+<!ENTITY type.filter.label "Blockerande filter">
+<!ENTITY types.label "Verkställ för:">
+<!ENTITY shortpattern.warning "Detta mönster är för kort för optimal prestanda och för många sådana mönster kan göra din surfning långsam. Det rekommenderas att använda längre strängar för detta filter.">
+<!ENTITY custom.pattern.accesskey "E">
+<!ENTITY anchor.start.accesskey "b">
+<!ENTITY anchors.label "Acceptera endast mönster:">
+<!ENTITY collapse.default.yes.label "Standard (ja)">
+<!ENTITY type.filter.accesskey "c">
+<!ENTITY domainRestriction.help "Ange en eller flera domäner avgränsade med lodrätt streck (|). Filtret kommer endast att tillämpas på dessa domäner. Tilde-tecknet (~) framför en domän anger att filtret inte kommer att användas för den domänen.">
+<!ENTITY accept.label "Lägg till filter">
+<!ENTITY options.label "Inställningar">
+<!ENTITY disabled.warning "Adblock Plus är inaktiverat. Du kan lägga till filter, men kan inte använda dem förrän du [link]aktiverar Adblock Plus[/link].">
+<!ENTITY anchor.start.flexible.label "i början av domännamnet">
+<!ENTITY type.whitelist.accesskey "u">
+<!ENTITY matchCase.accesskey "k">
+<!ENTITY anchor.end.accesskey "t">
+<!ENTITY selectAllTypes.label "Markera alla">
+<!ENTITY advanced.label "Avancerat">
+<!ENTITY pattern.explanation "Mönster är en del av en adress, symbolen * är jokertecken. Filtret används endast på adresser som matchar mönstret.">

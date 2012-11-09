@@ -1,18 +1,11 @@
-<!ENTITY dialog.title "Adblock Plus er nu installeret">
-<!ENTITY confirmation "
- Tak fordi du valgte Adblock Plus. Reklamer blokeres fra nu af .
- God fornøjelse!">
 <!ENTITY advancedSection "Avanceret">
-<!ENTITY listSelection1 "
- Følgende filterliste er indstillet til at blokere annoncer:
-">
+<!ENTITY confirmation "Tak fordi du valgte Adblock Plus. Reklamer blokeres fra nu af.
+ God fornøjelse!">
 <!ENTITY noList "Ingen filterliste">
-<!ENTITY visitHomepage.label "Besøg listens hjemmeside">
-<!ENTITY acceptableAds2 "
- Adblock Plus er også indstillettil at tillade upåtrængende annoncering delvist.
-">
+<!ENTITY acceptableAds2 "Adblock Plus er også sat til at tillade upåtrængende annoncering delvist.">
 <!ENTITY viewList.label "Vis liste">
+<!ENTITY visitHomepage.label "Besøg listens hjemmeside">
+<!ENTITY dialog.title "Adblock Plus er nu installeret">
+<!ENTITY listSelection1 "Følgende filterliste er indstillet til at blokere annoncer:">
+<!ENTITY listSelection2 "Du kan altid ændre dette i [link]Filterpræferencer[/link].">
 <!ENTITY readMore.label "Lær mere om dette">
-<!ENTITY listSelection2 "
- Du kan altid ændre dette i [link]Filterpræferencer[/link].
-">

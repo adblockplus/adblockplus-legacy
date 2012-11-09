@@ -1,42 +1,40 @@
-<!ENTITY status.tooltip "Staða:">
-<!ENTITY blocked.tooltip "Lokaðir hlutir á þessari síðu:">
-<!ENTITY filters.tooltip "Mest notaðar síur:">
-<!ENTITY menuitem.label "Adblock Plus stillingar">
-<!ENTITY menuitem.accesskey "b">
-<!ENTITY toolbarbutton.label "Adblock Plus">
-<!ENTITY context.image.label "Adblock Plus: Loka auglýsingamynd">
-<!ENTITY context.object.label "Adblock Plus: Loka auglýsingahlut">
-<!ENTITY context.frame.label "Adblock Plus: Loka auglýsingaramma">
-<!ENTITY context.media.label "Adblock Plus: Loka á myndefni/hljóð">
-<!ENTITY context.removeWhitelist.label "Adblock Plus: Endurvirkja á þessari síðu">
-<!ENTITY sidebar.title "Hlutir á núverandi síðu sem hægt er að loka á">
-<!ENTITY sendReport.label "Tilkynna vandamál á þessari síðu">
-<!ENTITY sendReport.accesskey "r">
-<!ENTITY filters.label "Síu stillingar">
-<!ENTITY filters.accesskey "S">
-<!ENTITY opensidebar.label "Skoða hluti">
-<!ENTITY opensidebar.accesskey "l">
-<!ENTITY closesidebar.label "Loka hlutum">
-<!ENTITY closesidebar.accesskey "l">
+<!ENTITY showintoolbar.accesskey "t">
+<!ENTITY showinstatusbar.accesskey "S">
 <!ENTITY whitelist.site.label "Gera óvirkt á ?1?">
-<!ENTITY whitelist.page.label "Gera óvirkt aðeins á þessari síðu">
+<!ENTITY filters.label "Síu stillingar">
 <!ENTITY disable.label "Slökkva á allstaðar">
-<!ENTITY options.label "Valkostir">
+<!ENTITY showinaddonbar.label "Sýna í viðbótarslá">
+<!ENTITY objecttab.title "Loka á">
+<!ENTITY showinaddonbar.accesskey "t">
+<!ENTITY sync.accesskey "m">
+<!ENTITY objecttabs.label "Sýna flipa fyrir Flass og Java">
+<!ENTITY objecttab.tooltip "Smelltu hér til að loka á þennan hlut með Adblock Plus">
+<!ENTITY menuitem.label "Adblock Plus stillingar">
+<!ENTITY sendReport.accesskey "r">
+<!ENTITY sendReport.label "Tilkynna vandamál á þessari síðu">
+<!ENTITY filters.accesskey "S">
+<!ENTITY whitelist.page.label "Gera óvirkt aðeins á þessari síðu">
+<!ENTITY context.image.label "Adblock Plus: Loka auglýsingamynd">
+<!ENTITY closesidebar.accesskey "l">
+<!ENTITY hideplaceholders.label "Fela staðgengitákn á lokuðum einindum">
+<!ENTITY opensidebar.label "Skoða hluti">
 <!ENTITY options.accesskey "V">
 <!ENTITY contribute.label "Taka þátt í Adblock Plus">
-<!ENTITY showintoolbar.label "Sýna í tækjaslá">
-<!ENTITY showintoolbar.accesskey "t">
-<!ENTITY showinstatusbar.label "Sýna í stöðuslá">
-<!ENTITY showinstatusbar.accesskey "S">
-<!ENTITY showinaddonbar.label "Sýna í viðbótarslá">
-<!ENTITY showinaddonbar.accesskey "t">
-<!ENTITY objecttabs.label "Sýna flipa fyrir Flass og Java">
-<!ENTITY objecttabs.accesskey "f">
-<!ENTITY hideplaceholders.label "Fela staðgengitákn á lokuðum einindum">
-<!ENTITY hideplaceholders.accesskey "i">
+<!ENTITY context.frame.label "Adblock Plus: Loka auglýsingaramma">
 <!ENTITY counthits.label "Telja síu notkun">
-<!ENTITY counthits.accesskey "n">
+<!ENTITY blocked.tooltip "Lokaðir hlutir á þessari síðu:">
+<!ENTITY opensidebar.accesskey "l">
+<!ENTITY showinstatusbar.label "Sýna í stöðuslá">
+<!ENTITY sidebar.title "Hlutir á núverandi síðu sem hægt er að loka á">
 <!ENTITY sync.label "Samstilla Adblock Plus stillingar">
-<!ENTITY sync.accesskey "m">
-<!ENTITY objecttab.title "Loka á">
-<!ENTITY objecttab.tooltip "Smelltu hér til að loka á þennan hlut með Adblock Plus">
+<!ENTITY options.label "Valkostir">
+<!ENTITY context.object.label "Adblock Plus: Loka auglýsingahlut">
+<!ENTITY context.removeWhitelist.label "Adblock Plus: Endurvirkja á þessari síðu">
+<!ENTITY objecttabs.accesskey "f">
+<!ENTITY filters.tooltip "Mest notaðar síur:">
+<!ENTITY closesidebar.label "Loka hlutum">
+<!ENTITY showintoolbar.label "Sýna í tækjaslá">
+<!ENTITY counthits.accesskey "n">
+<!ENTITY status.tooltip "Staða:">
+<!ENTITY context.media.label "Adblock Plus: Loka á myndefni/hljóð">
+<!ENTITY hideplaceholders.accesskey "i">

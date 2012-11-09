@@ -1,16 +1,15 @@
-<!ENTITY dialog.title "Lisää Adblock Plus -suodatintilaus">
-<!ENTITY subscriptionSelector.label "Valitse suodatintilaus listasta:">
+<!ENTITY addMain.label "Lisää myös suodatintilaus &quot;?1?&quot;">
+<!ENTITY addMain.accesskey "m">
+<!ENTITY list.download.failed "Adblock Plus ei kyennyt hakemaan suodatinlistaa.">
+<!ENTITY list.download.retry "Kokeile uudestaan">
+<!ENTITY location.accesskey "i">
+<!ENTITY title.label "Tilauksen nimi:">
+<!ENTITY list.download.website "Näytä verkkosivu">
+<!ENTITY supplementMessage "Tätä suodatintilausta on tarkoitus käyttää suodatintilauksen &quot;?1?&quot; kanssa, jota et vielä käytä.">
+<!ENTITY title.accesskey "T">
 <!ENTITY viewList.label "Näytä suodattimet">
 <!ENTITY visitHomepage.label "Vieraile kotisivulla">
 <!ENTITY addSubscription.label "Lisää suodatintilaus">
-<!ENTITY list.download.failed "Adblock Plus ei kyennyt hakemaan suodatinlistaa.">
-<!ENTITY list.download.retry "Kokeile uudestaan">
-<!ENTITY list.download.website "Näytä verkkosivu">
-<!ENTITY fromWeb.description "Varmista tämän suodatintilauksen lisääminen. Ennen tilauksen lisäämistä voit muuttaa tilauksen nimen ja sijainnin.">
-<!ENTITY title.label "Tilauksen nimi:">
-<!ENTITY title.accesskey "T">
+<!ENTITY dialog.title "Lisää Adblock Plus -suodatintilaus">
 <!ENTITY location.label "Listan sijainti:">
-<!ENTITY location.accesskey "i">
-<!ENTITY supplementMessage "Tätä suodatintilausta on tarkoitus käyttää suodatintilauksen &quot;?1?&quot; kanssa, jota et vielä käytä.">
-<!ENTITY addMain.label "Lisää myös suodatintilaus &quot;?1?&quot;">
-<!ENTITY addMain.accesskey "m">
+<!ENTITY fromWeb.description "Varmista tämän suodatintilauksen lisääminen. Ennen tilauksen lisäämistä voit muuttaa tilauksen nimen ja sijainnin.">

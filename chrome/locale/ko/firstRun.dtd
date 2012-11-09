@@ -1,10 +1,10 @@
-<!ENTITY dialog.title "애드블록 플러스 설치 완료!">
-<!ENTITY confirmation "애드블록 플러스를 설치해주셔서 고맙습니다. 이제 인터넷 이용을 방해하거나 유해한 광고를 차단하십시오.">
 <!ENTITY advancedSection "고급 옵션">
-<!ENTITY listSelection1 "광고를 차단하기 위해 다음의 구독 필터가 기본적으로 설정되어 있습니다.">
+<!ENTITY confirmation "애드블록 플러스를 설치해주셔서 고맙습니다. 이제 인터넷 이용을 방해하거나 유해한 광고를 차단하십시오.">
 <!ENTITY noList "구독 필터 없음">
-<!ENTITY visitHomepage.label "홈페이지 방문">
 <!ENTITY acceptableAds2 "애드블록 플러스는 일부 비침입형 광고를 허용하게 설정되었습니다.">
 <!ENTITY viewList.label "필터 목록 보기">
-<!ENTITY readMore.label "자세히 보기">
+<!ENTITY visitHomepage.label "홈페이지 방문">
+<!ENTITY dialog.title "애드블록 플러스 설치 완료!">
+<!ENTITY listSelection1 "광고를 차단하기 위해 다음의 구독 필터가 기본적으로 설정되어 있습니다.">
 <!ENTITY listSelection2 "언제든지 [link]필터 설정[/link]에서 위의 설정을 변경할 수 있습니다.">
+<!ENTITY readMore.label "자세히 보기">

@@ -1,10 +1,10 @@
-<!ENTITY dialog.title "Adblock Plus został zainstalowany">
-<!ENTITY confirmation "Dziękuję za zainstalowanie Adblock Plusa. Od teraz reklamy będą blokowane. Baw się dobrze!">
 <!ENTITY advancedSection "Opcje zaawansowane">
-<!ENTITY listSelection1 "Do blokowania reklam został wstępnie wybrany poniższy zestaw filtrów:">
+<!ENTITY confirmation "Dziękuję za zainstalowanie Adblock Plusa. Od teraz reklamy będą blokowane. Baw się dobrze!">
 <!ENTITY noList "Brak zestawu filtrów">
-<!ENTITY visitHomepage.label "Strona domowa zestawu">
 <!ENTITY acceptableAds2 "Adblock Plusa można również skonfigurować tak, by zezwalał na wyświetlanie nie natrętnych reklam.">
 <!ENTITY viewList.label "Zobacz listę">
-<!ENTITY readMore.label "Dowiedz się więcej na ten temat">
+<!ENTITY visitHomepage.label "Strona domowa zestawu">
+<!ENTITY dialog.title "Adblock Plus został zainstalowany">
+<!ENTITY listSelection1 "Do blokowania reklam został wstępnie wybrany poniższy zestaw filtrów:">
 <!ENTITY listSelection2 "W każdej chwili można wyłączyć tę funkcję z poziomu [link]ustawień filtrów[/link].">
+<!ENTITY readMore.label "Dowiedz się więcej na ten temat">

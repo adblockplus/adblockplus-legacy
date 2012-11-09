@@ -1,46 +1,46 @@
-<!ENTITY dialog.title "Afegir una regla de filtre d'Adblock Plus">
-<!ENTITY accept.label "Afegir filtre">
-<!ENTITY advanced.label "Visualització avançada">
-<!ENTITY basic.label "Visualització bàsica">
-<!ENTITY disabled.warning "Adblock Plus està desactivat. Encara es poden afegir filtres però no seran aplicats a menys que [link]activis Adblock Plus[/link].">
-<!ENTITY filter.label "Nou filtre:">
-<!ENTITY filter.accesskey "n">
-<!ENTITY preferences.label "Mostra filtres existents...">
-<!ENTITY preferences.accesskey "S">
-<!ENTITY type.filter.label "Filtre de bloqueig">
-<!ENTITY type.filter.accesskey "B">
-<!ENTITY type.whitelist.label "Excepció">
-<!ENTITY type.whitelist.accesskey "x">
-<!ENTITY pattern.label "Cerca un patró">
-<!ENTITY pattern.explanation "El patró pot ser qualsevol part de l'adreça, el símbol ^ serveix de comodí. El filtre només s'aplicarà a adreces que concordin amb el filtre">
-<!ENTITY regexp.warning "El patró que s'ha entrat serà interpretat com una expressió regular. Massa expressions regulars poden alentir la navegació. Si no es volia utilitzar una expressió regular, afegir el símbol ^ al final del patró.">
-<!ENTITY shortpattern.warning "El patró entrat es massa curt per ser optimitzat, massa patrons d'aquest tipus poden alentir la navegació. Es recomana una cadena de text més llarga per aquest filtre.">
-<!ENTITY match.warning "El patró entrat ja no concorda amb l'adreça a bloquejar/acceptar i no tindrà cap efecte.">
-<!ENTITY custom.pattern.label "Personalitzar:">
-<!ENTITY custom.pattern.accesskey "P">
-<!ENTITY anchors.label "Accepta només un patró:">
-<!ENTITY anchor.start.label "al començament de l'adreça">
-<!ENTITY anchor.start.accesskey "c">
-<!ENTITY anchor.start.flexible.label "al començament del nom de domini">
-<!ENTITY anchor.start.flexible.accesskey "c">
-<!ENTITY anchor.end.label "al final de l'adreça">
-<!ENTITY anchor.end.accesskey "f">
-<!ENTITY options.label "Opcions">
-<!ENTITY domainRestriction.label "Restringeix al domini:">
-<!ENTITY domainRestriction.accesskey "d">
-<!ENTITY domainRestriction.help "Especifica un o més dominis separats pel símbol &quot;|&quot;,, el filtre només s'aplicarà a aquests dominis. El símbol &quot;~&quot; abans d'un nom de domini significa que els filtre no s'ha d'aplicar en aquell domini.">
-<!ENTITY firstParty.label "Només originals">
-<!ENTITY firstParty.accesskey "o">
-<!ENTITY thirdParty.label "Només de tercers">
-<!ENTITY thirdParty.accesskey "T">
-<!ENTITY matchCase.label "Diferencia majúscules i minúscules">
-<!ENTITY matchCase.accesskey "M">
-<!ENTITY types.label "Aplicar als tipus:">
-<!ENTITY selectAllTypes.label "Selecciona-ho tot">
-<!ENTITY unselectAllTypes.label "No seleccionis res">
-<!ENTITY collapse.label "Col·lapsar els bloquejats:">
-<!ENTITY collapse.accesskey "l">
-<!ENTITY collapse.default.yes.label "Utilitza per defecte (si)">
-<!ENTITY collapse.default.no.label "Utilitza per defecte (no)">
 <!ENTITY collapse.yes.label "Sí">
-<!ENTITY collapse.no.label "No">
+<!ENTITY anchor.end.label "al final de l'adreça">
+<!ENTITY domainRestriction.label "Restringeix al domini:">
+<!ENTITY anchor.start.flexible.accesskey "c">
+<!ENTITY firstParty.label "Només originals">
+<!ENTITY preferences.label "Mostra filtres existents...">
+<!ENTITY pattern.label "Cerca un patró">
+<!ENTITY thirdParty.label "Només de tercers">
+<!ENTITY filter.accesskey "n">
+<!ENTITY thirdParty.accesskey "T">
+<!ENTITY filter.label "Nou filtre:">
+<!ENTITY collapse.label "Col·lapsar els bloquejats:">
+<!ENTITY match.warning "El patró entrat ja no concorda amb l'adreça a bloquejar/acceptar i no tindrà cap efecte.">
+<!ENTITY anchor.start.label "al començament de l'adreça">
+<!ENTITY collapse.no.label "o">
+<!ENTITY matchCase.label "Diferencia majúscules i minúscules">
+<!ENTITY custom.pattern.label "Personalitzar:">
+<!ENTITY unselectAllTypes.label "No seleccionis res">
+<!ENTITY domainRestriction.accesskey "d">
+<!ENTITY type.whitelist.label "Excepció">
+<!ENTITY regexp.warning "El patró que s'ha entrat serà interpretat com una expressió regular. Massa expressions regulars poden alentir la navegació. Si no es volia utilitzar una expressió regular, afegir el símbol ^ al final del patró.">
+<!ENTITY dialog.title "Afegir una regla de filtre d'Adblock Plus">
+<!ENTITY basic.label "Visualització bàsica">
+<!ENTITY preferences.accesskey "S">
+<!ENTITY firstParty.accesskey "o">
+<!ENTITY collapse.default.no.label "Utilitza per defecte (no)">
+<!ENTITY type.filter.label "Filtre de bloqueig">
+<!ENTITY types.label "Aplicar als tipus:">
+<!ENTITY shortpattern.warning "El patró entrat es massa curt per ser optimitzat, massa patrons d'aquest tipus poden alentir la navegació. Es recomana una cadena de text més llarga per aquest filtre.">
+<!ENTITY custom.pattern.accesskey "P">
+<!ENTITY anchor.start.accesskey "c">
+<!ENTITY anchors.label "Accepta només un patró:">
+<!ENTITY collapse.default.yes.label "Utilitza per defecte (si)">
+<!ENTITY type.filter.accesskey "B">
+<!ENTITY domainRestriction.help "Especifica un o més dominis separats pel símbol &quot;|&quot;,, el filtre només s'aplicarà a aquests dominis. El símbol &quot;~&quot; abans d'un nom de domini significa que els filtre no s'ha d'aplicar en aquell domini.">
+<!ENTITY accept.label "Afegir filtre">
+<!ENTITY options.label "Opcions">
+<!ENTITY disabled.warning "Adblock Plus està desactivat. Encara es poden afegir filtres però no seran aplicats a menys que [link]activis Adblock Plus[/link].">
+<!ENTITY anchor.start.flexible.label "al començament del nom de domini">
+<!ENTITY type.whitelist.accesskey "x">
+<!ENTITY matchCase.accesskey "M">
+<!ENTITY anchor.end.accesskey "f">
+<!ENTITY selectAllTypes.label "Selecciona-ho tot">
+<!ENTITY advanced.label "Visualització avançada">
+<!ENTITY collapse.accesskey "I">
+<!ENTITY pattern.explanation "El patró pot ser qualsevol part de l'adreça, el símbol ^ serveix de comodí. El filtre només s'aplicarà a adreces que concordin amb el filtre">

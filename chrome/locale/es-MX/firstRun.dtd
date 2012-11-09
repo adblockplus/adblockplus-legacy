@@ -1,18 +1,11 @@
-<!ENTITY dialog.title "Instalación de Adblock Plus completa">
-<!ENTITY confirmation "
- Gracias por instalar Adblock Plus. Desde ahora los anuncios seran bloqueados.
- Disfrutelo!">
 <!ENTITY advancedSection "Opciones avanzadas">
-<!ENTITY listSelection1 "
- La siguiente lista de filtros ha sido configurada para bloquear publicidad:
-">
+<!ENTITY confirmation "Gracias por instalar Adblock Plus. Desde ahora los anuncios seran bloqueados.
+ Disfrutelo!">
 <!ENTITY noList "No hay lista de filtros">
-<!ENTITY visitHomepage.label "Visitar la página web de la lista">
-<!ENTITY acceptableAds2 "
- Adblock Plus también ha sido configurado para permitir algo de publicidad no intrusiva.
-">
+<!ENTITY acceptableAds2 "Adblock Plus también ha sido configurado para permitir algo de publicidad no intrusiva.">
 <!ENTITY viewList.label "Ver lista">
+<!ENTITY visitHomepage.label "Visitar la página web de la lista">
+<!ENTITY dialog.title "Instalación de Adblock Plus completa">
+<!ENTITY listSelection1 "La siguiente lista de filtros ha sido configurada para bloquear publicidad:">
+<!ENTITY listSelection2 "Puede cambiar esta selección en cualquier momento en las [link]Preferencias de Filtro[/link].">
 <!ENTITY readMore.label "Leer mas sobre esto">
-<!ENTITY listSelection2 "
- Puede cambiar esta selección en cualquier momento en las [link]Preferencias de Filtro[/link].
-">

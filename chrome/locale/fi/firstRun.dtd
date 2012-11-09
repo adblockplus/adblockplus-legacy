@@ -1,11 +1,11 @@
-<!ENTITY dialog.title "Adblock Plussan asennus on valmis">
+<!ENTITY advancedSection "Lisäasetukset">
 <!ENTITY confirmation "Kiitos Adblock Plussan asentamisesta. Mainokset estetään tästä lähtien.
  Nauti!">
-<!ENTITY advancedSection "Lisäasetukset">
-<!ENTITY listSelection1 "Seuraava suodatinlista on asetettu estämään mainoksia:">
 <!ENTITY noList "Ei suodatinlistaa">
-<!ENTITY visitHomepage.label "Vieraile kotisivuilla">
 <!ENTITY acceptableAds2 "Adblock Plus on aseteltu sallimaan osa ei-häiritsevästä mainonnasta.">
 <!ENTITY viewList.label "Näytä lista">
-<!ENTITY readMore.label "Lue tästä lisää">
+<!ENTITY visitHomepage.label "Vieraile kotisivuilla">
+<!ENTITY dialog.title "Adblock Plussan asennus on valmis">
+<!ENTITY listSelection1 "Seuraava suodatinlista on asetettu estämään mainoksia:">
 <!ENTITY listSelection2 "Voit muuttaa näitä asetuksia milloin tahansa [link]Suodatinasetuksista[/link].">
+<!ENTITY readMore.label "Lue tästä lisää">

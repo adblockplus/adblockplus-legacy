@@ -1,46 +1,44 @@
-<!ENTITY dialog.title "Añadir regla de filtrado de Adblock Plus">
-<!ENTITY accept.label "Añadir filtro">
-<!ENTITY advanced.label "Vista avanzada">
-<!ENTITY basic.label "Vista básica">
-<!ENTITY disabled.warning "Adblock Plus está desactivado. Puede añadir filtros, pero no se aplicarán a menos que [link]active Adblock Plus[/link].">
-<!ENTITY filter.label "Nuevo filtro:">
-<!ENTITY filter.accesskey "N">
-<!ENTITY preferences.label "Mostrar filtros existentes…">
-<!ENTITY preferences.accesskey "M">
-<!ENTITY type.filter.label "Filtro de bloqueo">
-<!ENTITY type.filter.accesskey "b">
-<!ENTITY type.whitelist.label "Regla de excepción">
-<!ENTITY type.whitelist.accesskey "x">
-<!ENTITY pattern.label "Buscar patrón">
-<!ENTITY pattern.explanation "El patrón puede ser cualquier parte de la dirección, el carácter &quot;*&quot; actúa como comodín. El filtro sólo se aplicará a las direcciones que se correspondan con el patrón.">
-<!ENTITY regexp.warning "El patrón que ha introducido se interpretará como expresión regular. Si usa muchas expresiones regulares su navegación podría volverse más lenta. Si no quería usar una expresión regular, añada un carácter &quot;*&quot; al final del patrón.">
-<!ENTITY shortpattern.warning "El patrón que ha introducido es demasiado corto para ser optimizado, si usa muchos patrones como este su navegación podría volverse más lenta. Se le recomienda elegir una cadena más larga para este filtro.">
-<!ENTITY match.warning "El patrón introducido no coincide con la dirección a bloquear o incluir en la lista blanca, y no tendrá ningún efecto sobre ella.">
-<!ENTITY custom.pattern.label "Personalizar:">
-<!ENTITY custom.pattern.accesskey "P">
-<!ENTITY anchors.label "Sólo aceptar patrones:">
-<!ENTITY anchor.start.label "al inicio de la dirección">
-<!ENTITY anchor.start.accesskey "i">
-<!ENTITY anchor.start.flexible.label "al inicio del nombre de dominio">
-<!ENTITY anchor.start.flexible.accesskey "i">
-<!ENTITY anchor.end.label "al final de la dirección">
-<!ENTITY anchor.end.accesskey "f">
-<!ENTITY options.label "Opciones">
-<!ENTITY domainRestriction.label "Restringir al dominio:">
-<!ENTITY domainRestriction.accesskey "R">
-<!ENTITY domainRestriction.help "Si especifica uno o varios dominios separados por el símbolo &quot;|&quot;, el filtro sólo se aplicará a dichos dominios. El símbolo &quot;~&quot; antes del nombre de un dominio indica que el filtro no se aplicará en ese dominio.">
-<!ENTITY firstParty.label "Sólo para contenidos del dominio">
-<!ENTITY firstParty.accesskey "d">
-<!ENTITY thirdParty.label "Sólo para contenidos de terceros">
-<!ENTITY thirdParty.accesskey "t">
-<!ENTITY matchCase.label "Coincidir MAY/minús">
-<!ENTITY matchCase.accesskey "C">
-<!ENTITY types.label "Aplicar a estos tipos:">
-<!ENTITY selectAllTypes.label "Seleccionar todos">
-<!ENTITY unselectAllTypes.label "No seleccionar ninguno">
-<!ENTITY collapse.label "Colapsar elementos bloqueados:">
-<!ENTITY collapse.accesskey "o">
-<!ENTITY collapse.default.yes.label "Usar predeterminado (sí)">
-<!ENTITY collapse.default.no.label "Usar predeterminado (no)">
 <!ENTITY collapse.yes.label "Sí">
-<!ENTITY collapse.no.label "No">
+<!ENTITY anchor.end.label "al final de la dirección">
+<!ENTITY domainRestriction.label "Restringir al dominio:">
+<!ENTITY anchor.start.flexible.accesskey "i">
+<!ENTITY firstParty.label "Sólo para contenidos del dominio">
+<!ENTITY preferences.label "Mostrar filtros existentes…">
+<!ENTITY pattern.label "Buscar patrón">
+<!ENTITY thirdParty.label "Sólo para contenidos de terceros">
+<!ENTITY filter.accesskey "N">
+<!ENTITY thirdParty.accesskey "t">
+<!ENTITY filter.label "Nuevo filtro:">
+<!ENTITY collapse.label "Colapsar elementos bloqueados:">
+<!ENTITY match.warning "El patrón introducido no coincide con la dirección a bloquear o incluir en la lista blanca, y no tendrá ningún efecto sobre ella.">
+<!ENTITY anchor.start.label "al inicio de la dirección">
+<!ENTITY matchCase.label "Coincidir MAY/minús">
+<!ENTITY custom.pattern.label "Personalizar:">
+<!ENTITY unselectAllTypes.label "No seleccionar ninguno">
+<!ENTITY domainRestriction.accesskey "R">
+<!ENTITY type.whitelist.label "Regla de excepción">
+<!ENTITY regexp.warning "El patrón que ha introducido se interpretará como expresión regular. Si usa muchas expresiones regulares su navegación podría volverse más lenta. Si no quería usar una expresión regular, añada un carácter &quot;*&quot; al final del patrón.">
+<!ENTITY dialog.title "Añadir regla de filtrado de Adblock Plus">
+<!ENTITY basic.label "Vista básica">
+<!ENTITY preferences.accesskey "M">
+<!ENTITY firstParty.accesskey "d">
+<!ENTITY collapse.default.no.label "Usar predeterminado (no)">
+<!ENTITY type.filter.label "Filtro de bloqueo">
+<!ENTITY types.label "Aplicar a estos tipos:">
+<!ENTITY anchor.start.accesskey "i">
+<!ENTITY custom.pattern.accesskey "P">
+<!ENTITY shortpattern.warning "El patrón que ha introducido es demasiado corto para ser optimizado, si usa muchos patrones como este su navegación podría volverse más lenta. Se le recomienda elegir una cadena más larga para este filtro.">
+<!ENTITY anchors.label "Sólo aceptar patrones:">
+<!ENTITY collapse.default.yes.label "Usar predeterminado (sí)">
+<!ENTITY type.filter.accesskey "b">
+<!ENTITY domainRestriction.help "Si especifica uno o varios dominios separados por el símbolo &quot;|&quot;, el filtro sólo se aplicará a dichos dominios. El símbolo &quot;~&quot; antes del nombre de un dominio indica que el filtro no se aplicará en ese dominio.">
+<!ENTITY accept.label "Añadir filtro">
+<!ENTITY options.label "Opciones">
+<!ENTITY disabled.warning "Adblock Plus está desactivado. Puede añadir filtros, pero no se aplicarán a menos que [link]active Adblock Plus[/link].">
+<!ENTITY anchor.start.flexible.label "al inicio del nombre de dominio">
+<!ENTITY matchCase.accesskey "C">
+<!ENTITY anchor.end.accesskey "f">
+<!ENTITY selectAllTypes.label "Seleccionar todos">
+<!ENTITY advanced.label "Vista avanzada">
+<!ENTITY collapse.accesskey "o">
+<!ENTITY pattern.explanation "El patrón puede ser cualquier parte de la dirección, el carácter &quot;*&quot; actúa como comodín. El filtro sólo se aplicará a las direcciones que se correspondan con el patrón.">

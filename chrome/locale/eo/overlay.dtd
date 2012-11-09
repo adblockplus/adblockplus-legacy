@@ -1,42 +1,42 @@
-<!ENTITY status.tooltip "Status:">
-<!ENTITY blocked.tooltip "Blokitaj elementoj sur ĉi tiu paĝo:">
-<!ENTITY filters.tooltip "Plej aktivaj filtriloj:">
-<!ENTITY menuitem.label "Agordoj de Adblock Plus">
-<!ENTITY menuitem.accesskey "a">
-<!ENTITY toolbarbutton.label "Adblock Plus">
-<!ENTITY context.image.label "Adblock Plus: Bloki bildon">
-<!ENTITY context.object.label "Adblock Plus: Bloki objekton">
-<!ENTITY context.frame.label "Adblock Plus: Bloki kadron">
-<!ENTITY context.media.label "Adblock Plus: Bloki aŭdion/videon">
-<!ENTITY context.removeWhitelist.label "Adblock Plus: Reebligi sur ĉi tiu paĝo">
-<!ENTITY sidebar.title "Blokeblaj elementoj sur la nuna paĝo">
-<!ENTITY sendReport.label "Raporti problemon pri ĉi tiu paĝo">
-<!ENTITY sendReport.accesskey "R">
-<!ENTITY filters.label "Filtrilaj agordoj">
-<!ENTITY filters.accesskey "F">
-<!ENTITY opensidebar.label "Malfermi blokeblajn elementojn">
-<!ENTITY opensidebar.accesskey "b">
-<!ENTITY closesidebar.label "Fermi blokeblajn elementojn">
-<!ENTITY closesidebar.accesskey "b">
+<!ENTITY showintoolbar.accesskey "V">
+<!ENTITY showinstatusbar.accesskey "g">
 <!ENTITY whitelist.site.label "Malebligi sur ?1?">
-<!ENTITY whitelist.page.label "Malebligi nur sur ĉi tiu paĝo">
+<!ENTITY filters.label "Filtrilaj agordoj">
 <!ENTITY disable.label "Ĉie malebligi">
-<!ENTITY options.label "Opcioj">
+<!ENTITY showinaddonbar.label "Vidigi en aldonaĵbreto">
+<!ENTITY objecttab.title "Bloki">
+<!ENTITY showinaddonbar.accesskey "V">
+<!ENTITY sync.accesskey "S">
+<!ENTITY objecttabs.label "Montri langetojn de Flash kaj Ĝavo">
+<!ENTITY objecttab.tooltip "Klaku ĉi tien por bloki ĉi tiun objekton per Adblock Plus">
+<!ENTITY menuitem.label "Agordoj de Adblock Plus">
+<!ENTITY sendReport.accesskey "R">
+<!ENTITY sendReport.label "Raporti problemon pri ĉi tiu paĝo">
+<!ENTITY filters.accesskey "F">
+<!ENTITY whitelist.page.label "Malebligi nur sur ĉi tiu paĝo">
+<!ENTITY context.image.label "Adblock Plus: Bloki bildon">
+<!ENTITY closesidebar.accesskey "b">
+<!ENTITY hideplaceholders.label "Kaŝi lokokupilojn de blokitaj elementoj">
+<!ENTITY opensidebar.label "Malfermi blokeblajn elementojn">
 <!ENTITY options.accesskey "O">
 <!ENTITY contribute.label "Kontribuu al Adblock Plus">
-<!ENTITY showintoolbar.label "Vidigi en ilobreto">
-<!ENTITY showintoolbar.accesskey "V">
-<!ENTITY showinstatusbar.label "Vidigi en statstrio">
-<!ENTITY showinstatusbar.accesskey "g">
-<!ENTITY showinaddonbar.label "Vidigi en aldonaĵbreto">
-<!ENTITY showinaddonbar.accesskey "V">
-<!ENTITY objecttabs.label "Montri langetojn de Flash kaj Ĝavo">
-<!ENTITY objecttabs.accesskey "M">
-<!ENTITY hideplaceholders.label "Kaŝi lokokupilojn de blokitaj elementoj">
-<!ENTITY hideplaceholders.accesskey "l">
+<!ENTITY toolbarbutton.label "Adblock Plus">
+<!ENTITY context.frame.label "Adblock Plus: Bloki kadron">
 <!ENTITY counthits.label "Nombri filtriltrafojn">
-<!ENTITY counthits.accesskey "N">
+<!ENTITY blocked.tooltip "Blokitaj elementoj sur ĉi tiu paĝo:">
+<!ENTITY opensidebar.accesskey "b">
+<!ENTITY showinstatusbar.label "Vidigi en statstrio">
+<!ENTITY status.tooltip "Status:">
+<!ENTITY sidebar.title "Blokeblaj elementoj sur la nuna paĝo">
 <!ENTITY sync.label "Sinkronigi agordojn de Adblock Plus">
-<!ENTITY sync.accesskey "S">
-<!ENTITY objecttab.title "Bloki">
-<!ENTITY objecttab.tooltip "Klaku ĉi tien por bloki ĉi tiun objekton per Adblock Plus">
+<!ENTITY options.label "Opcioj">
+<!ENTITY context.object.label "Adblock Plus: Bloki objekton">
+<!ENTITY context.removeWhitelist.label "Adblock Plus: Reebligi sur ĉi tiu paĝo">
+<!ENTITY objecttabs.accesskey "M">
+<!ENTITY filters.tooltip "Plej aktivaj filtriloj:">
+<!ENTITY closesidebar.label "Fermi blokeblajn elementojn">
+<!ENTITY showintoolbar.label "Vidigi en ilobreto">
+<!ENTITY counthits.accesskey "N">
+<!ENTITY menuitem.accesskey "a">
+<!ENTITY context.media.label "Adblock Plus: Bloki aŭdion/videon">
+<!ENTITY hideplaceholders.accesskey "l">

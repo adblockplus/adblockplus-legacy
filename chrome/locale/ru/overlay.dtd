@@ -1,48 +1,42 @@
-<!ENTITY status.tooltip         "Статус:">
-<!ENTITY blocked.tooltip        "Заблокированные элементы на этой странице:">
-<!ENTITY filters.tooltip        "Наиболее часто примененные фильтры:">
-
-<!ENTITY menuitem.label         "Установки Adblock Plus">
-<!ENTITY menuitem.accesskey     "A">
-<!ENTITY toolbarbutton.label    "Adblock Plus">
-
-<!ENTITY context.image.label    "Adblock Plus: заблокировать изображение">
-<!ENTITY context.object.label   "Adblock Plus: заблокировать объект">
-<!ENTITY context.frame.label    "Adblock Plus: заблокировать фрейм">
-<!ENTITY context.media.label    "Adblock Plus: заблокировать аудио/видео">
-<!ENTITY context.removeWhitelist.label  "Adblock Plus: включить обратно на этой странице">
-
-<!ENTITY sidebar.title          "Элементы открытой страницы">
-
-<!ENTITY sendReport.label       "Сообщить о проблеме на этой странице">
-<!ENTITY sendReport.accesskey   "С">
-<!ENTITY filters.label          "Настройки фильтров">
-<!ENTITY filters.accesskey      "ф">
-<!ENTITY opensidebar.label      "Открыть список элементов">
-<!ENTITY opensidebar.accesskey  "п">
-<!ENTITY closesidebar.label     "Закрыть список элементов">
+<!ENTITY showintoolbar.accesskey "п">
+<!ENTITY showinstatusbar.accesskey "с">
+<!ENTITY whitelist.site.label "Отключить на ?1?">
+<!ENTITY filters.label "Настройки фильтров">
+<!ENTITY disable.label "Отключить везде">
+<!ENTITY showinaddonbar.label "Показывать в панели дополнений">
+<!ENTITY objecttab.title "Блокировать">
+<!ENTITY showinaddonbar.accesskey "п">
+<!ENTITY sync.accesskey "х">
+<!ENTITY objecttabs.label "Показывать ярлык на Flash и Java">
+<!ENTITY objecttab.tooltip "Нажмите здесь, чтобы Adblock Plus заблокировал этот объект">
+<!ENTITY menuitem.label "Установки Adblock Plus">
+<!ENTITY sendReport.accesskey "С">
+<!ENTITY sendReport.label "Сообщить о проблеме на этой странице">
+<!ENTITY filters.accesskey "ф">
+<!ENTITY whitelist.page.label "Отключить только на этой странице">
+<!ENTITY context.image.label "Adblock Plus: заблокировать изображение">
 <!ENTITY closesidebar.accesskey "п">
-<!ENTITY whitelist.site.label   "Отключить на ?1?">
-<!ENTITY whitelist.page.label   "Отключить только на этой странице">
-<!ENTITY disable.label          "Отключить везде">
-<!ENTITY options.label          "Настройки">
-<!ENTITY options.accesskey      "Н">
-<!ENTITY contribute.label       "Помочь проекту Adblock Plus">
-
-<!ENTITY showintoolbar.label        "Показывать в панели инструментов">
-<!ENTITY showintoolbar.accesskey    "п">
-<!ENTITY showinstatusbar.label      "Показывать в строке состояния">
-<!ENTITY showinstatusbar.accesskey  "с">
-<!ENTITY showinaddonbar.label       "Показывать в панели дополнений">
-<!ENTITY showinaddonbar.accesskey   "п">
-<!ENTITY objecttabs.label           "Показывать ярлык на Flash и Java">
-<!ENTITY objecttabs.accesskey       "я">
-<!ENTITY hideplaceholders.label     "Прятать метки на месте заблокированных элементов">
+<!ENTITY hideplaceholders.label "Прятать метки на месте заблокированных элементов">
+<!ENTITY opensidebar.label "Открыть список элементов">
+<!ENTITY options.accesskey "Н">
+<!ENTITY contribute.label "Помочь проекту Adblock Plus">
+<!ENTITY toolbarbutton.label "Adblock Plus">
+<!ENTITY context.frame.label "Adblock Plus: заблокировать фрейм">
+<!ENTITY counthits.label "Считать срабатывания фильтров">
+<!ENTITY blocked.tooltip "Заблокированные элементы на этой странице:">
+<!ENTITY opensidebar.accesskey "п">
+<!ENTITY showinstatusbar.label "Показывать в строке состояния">
+<!ENTITY status.tooltip "Статус:">
+<!ENTITY sidebar.title "Элементы открытой страницы">
+<!ENTITY sync.label "Синхронизировать настройки Adblock Plus">
+<!ENTITY options.label "Настройки">
+<!ENTITY context.object.label "Adblock Plus: заблокировать объект">
+<!ENTITY context.removeWhitelist.label "Adblock Plus: включить обратно на этой странице">
+<!ENTITY objecttabs.accesskey "я">
+<!ENTITY filters.tooltip "Наиболее часто примененные фильтры:">
+<!ENTITY closesidebar.label "Закрыть список элементов">
+<!ENTITY showintoolbar.label "Показывать в панели инструментов">
+<!ENTITY counthits.accesskey "ч">
+<!ENTITY menuitem.accesskey "A">
+<!ENTITY context.media.label "Adblock Plus: заблокировать аудио/видео">
 <!ENTITY hideplaceholders.accesskey "м">
-<!ENTITY counthits.label            "Считать срабатывания фильтров">
-<!ENTITY counthits.accesskey        "ч">
-<!ENTITY sync.label                 "Синхронизировать настройки Adblock Plus">
-<!ENTITY sync.accesskey             "х">
-
-<!ENTITY objecttab.title        "Блокировать">
-<!ENTITY objecttab.tooltip      "Нажмите здесь, чтобы Adblock Plus заблокировал этот объект">

@@ -1,42 +1,42 @@
-<!ENTITY status.tooltip "Status:">
-<!ENTITY blocked.tooltip "Blocked items on this page:">
-<!ENTITY filters.tooltip "Most active filters:">
-<!ENTITY menuitem.label "Adblock Plus Preferences">
-<!ENTITY menuitem.accesskey "B">
-<!ENTITY toolbarbutton.label "Adblock Plus">
-<!ENTITY context.image.label "Adblock Plus: Block image">
-<!ENTITY context.object.label "Adblock Plus: Block object">
-<!ENTITY context.frame.label "Adblock Plus: Block frame">
-<!ENTITY context.media.label "Adblock Plus: Block audio/video">
-<!ENTITY context.removeWhitelist.label "Adblock Plus: Re-enable on this page">
-<!ENTITY sidebar.title "Blockable items on current page">
-<!ENTITY sendReport.label "Report issue on this page">
-<!ENTITY sendReport.accesskey "R">
-<!ENTITY filters.label "Filter preferences">
-<!ENTITY filters.accesskey "F">
-<!ENTITY opensidebar.label "Open blockable items">
-<!ENTITY opensidebar.accesskey "b">
-<!ENTITY closesidebar.label "Close blockable items">
-<!ENTITY closesidebar.accesskey "b">
+<!ENTITY showintoolbar.accesskey "b">
+<!ENTITY showinstatusbar.accesskey "s">
 <!ENTITY whitelist.site.label "Disable on ?1?">
-<!ENTITY whitelist.page.label "Disable on this page only">
+<!ENTITY filters.label "Filter preferences">
 <!ENTITY disable.label "Disable everywhere">
-<!ENTITY options.label "Options">
+<!ENTITY showinaddonbar.label "Show in add-on bar">
+<!ENTITY objecttab.title "Block">
+<!ENTITY showinaddonbar.accesskey "b">
+<!ENTITY sync.accesskey "c">
+<!ENTITY objecttabs.label "Show tabs on Flash and Java">
+<!ENTITY objecttab.tooltip "Block this object with Adblock Plus">
+<!ENTITY menuitem.label "Adblock Plus Preferences">
+<!ENTITY sendReport.accesskey "R">
+<!ENTITY sendReport.label "Report issue on this page">
+<!ENTITY filters.accesskey "F">
+<!ENTITY whitelist.page.label "Disable on this page only">
+<!ENTITY context.image.label "Adblock Plus: Block image">
+<!ENTITY closesidebar.accesskey "b">
+<!ENTITY hideplaceholders.label "Hide placeholders of blocked elements">
+<!ENTITY opensidebar.label "Open blockable items">
 <!ENTITY options.accesskey "O">
 <!ENTITY contribute.label "Contribute to Adblock Plus">
-<!ENTITY showintoolbar.label "Show in toolbar">
-<!ENTITY showintoolbar.accesskey "b">
-<!ENTITY showinstatusbar.label "Show in status bar">
-<!ENTITY showinstatusbar.accesskey "s">
-<!ENTITY showinaddonbar.label "Show in add-on bar">
-<!ENTITY showinaddonbar.accesskey "b">
-<!ENTITY objecttabs.label "Show tabs on Flash and Java">
-<!ENTITY objecttabs.accesskey "t">
-<!ENTITY hideplaceholders.label "Hide placeholders of blocked elements">
-<!ENTITY hideplaceholders.accesskey "l">
+<!ENTITY toolbarbutton.label "Adblock Plus">
+<!ENTITY context.frame.label "Adblock Plus: Block frame">
 <!ENTITY counthits.label "Count filter hits">
-<!ENTITY counthits.accesskey "h">
+<!ENTITY blocked.tooltip "Blocked items on this page:">
+<!ENTITY opensidebar.accesskey "b">
+<!ENTITY showinstatusbar.label "Show in status bar">
+<!ENTITY status.tooltip "Status:">
+<!ENTITY sidebar.title "Blockable items on current page">
 <!ENTITY sync.label "Synchronise Adblock Plus settings">
-<!ENTITY sync.accesskey "c">
-<!ENTITY objecttab.title "Block">
-<!ENTITY objecttab.tooltip "Block this object with Adblock Plus">
+<!ENTITY options.label "Options">
+<!ENTITY context.object.label "Adblock Plus: Block object">
+<!ENTITY context.removeWhitelist.label "Adblock Plus: Re-enable on this page">
+<!ENTITY objecttabs.accesskey "t">
+<!ENTITY filters.tooltip "Most active filters:">
+<!ENTITY closesidebar.label "Close blockable items">
+<!ENTITY showintoolbar.label "Show in toolbar">
+<!ENTITY counthits.accesskey "h">
+<!ENTITY menuitem.accesskey "B">
+<!ENTITY context.media.label "Adblock Plus: Block audio/video">
+<!ENTITY hideplaceholders.accesskey "l">

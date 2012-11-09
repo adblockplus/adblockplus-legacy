@@ -1,16 +1,15 @@
-<!ENTITY dialog.title "Filtrowy abonement Adblock Plus přidać">
-<!ENTITY subscriptionSelector.label "Prošu wubjerće filtrowy abonement z lisćiny:">
+<!ENTITY addMain.label "Filtrowy abonement &quot;?1?&quot; tež přidać">
+<!ENTITY addMain.accesskey "b">
+<!ENTITY list.download.failed "Adblock Plus njemóžeše lisćiny abonementow wotwołać.">
+<!ENTITY list.download.retry "Hišće raz spytać">
+<!ENTITY location.accesskey "M">
+<!ENTITY title.label "Titul abonementa:">
+<!ENTITY list.download.website "Websydło sej wobhladać">
+<!ENTITY supplementMessage "Tutón filtrowy abonement je za to mysleny, so z filtrowym abonementom &quot;?1?&quot; wužiwać, kotryž hišće njewužiwaće.">
+<!ENTITY title.accesskey "t">
 <!ENTITY viewList.label "Filtry sej wobhladać">
 <!ENTITY visitHomepage.label "Startowu stronu wopytać">
 <!ENTITY addSubscription.label "Abonement přidać">
-<!ENTITY list.download.failed "Adblock Plus njemóžeše lisćiny abonementow wotwołać.">
-<!ENTITY list.download.retry "Hišće raz spytać">
-<!ENTITY list.download.website "Websydło sej wobhladać">
-<!ENTITY fromWeb.description "Prošu wobkrućće, zo chceće tutón filtrowy abonement přidać. Móžeće titul abo městno abonementa změnić, prjedy hač jón přidaće.">
-<!ENTITY title.label "Titul abonementa:">
-<!ENTITY title.accesskey "t">
+<!ENTITY dialog.title "Filtrowy abonement Adblock Plus přidać">
 <!ENTITY location.label "Městno filtroweje lisćiny:">
-<!ENTITY location.accesskey "l">
-<!ENTITY supplementMessage "Tutón filtrowy abonement je za to mysleny, so z filtrowym abonementom &quot;?1?&quot; wužiwać, kotryž hišće njewužiwaće.">
-<!ENTITY addMain.label "Filtrowy abonement &quot;?1?&quot; tež přidać">
-<!ENTITY addMain.accesskey "b">
+<!ENTITY fromWeb.description "Prošu wobkrućće, zo chceće tutón filtrowy abonement přidać. Móžeće titul abo městno abonementa změnić, prjedy hač jón přidaće.">

@@ -1,16 +1,15 @@
-<!ENTITY dialog.title "Thêm bộ lọc trọn gói cho Adblock Plus">
-<!ENTITY subscriptionSelector.label "Vui lòng chọn một bộ lọc trọn gói từ danh sách:">
+<!ENTITY addMain.label "Kèm thêm bộ lọc trọn gói &quot;?1?&quot;">
+<!ENTITY addMain.accesskey "g">
+<!ENTITY list.download.failed "Adblock Plus không thể lấy danh sách bộ lọc trọn gói.">
+<!ENTITY list.download.retry "Thử lại">
+<!ENTITY location.accesskey "a">
+<!ENTITY title.label "Tiêu đề của bộ trọn gói:">
+<!ENTITY list.download.website "Xem trang web">
+<!ENTITY supplementMessage "Bộ lọc trọn gói này chỉ nên dùng kèm với bộ lọc trọn gói &quot;?1?&quot; - cái mà bạn chưa sử dụng.">
+<!ENTITY title.accesskey "T">
 <!ENTITY viewList.label "Xem bộ lọc">
 <!ENTITY visitHomepage.label "Vào trang chủ">
 <!ENTITY addSubscription.label "Thêm bộ trọn gói">
-<!ENTITY list.download.failed "Adblock Plus không thể lấy danh sách bộ lọc trọn gói.">
-<!ENTITY list.download.retry "Thử lại">
-<!ENTITY list.download.website "Xem trang web">
-<!ENTITY fromWeb.description "Vui lòng xác nhận rằng bạn muốn thêm bộ lọc trọn gói này. Bạn có thể thay đổi tiêu đề hoặc địa chỉ trước khi thêm nó.">
-<!ENTITY title.label "Tiêu đề của bộ trọn gói:">
-<!ENTITY title.accesskey "T">
+<!ENTITY dialog.title "Thêm bộ lọc trọn gói cho Adblock Plus">
 <!ENTITY location.label "Địa chỉ của danh sách bộ lọc:">
-<!ENTITY location.accesskey "a">
-<!ENTITY supplementMessage "Bộ lọc trọn gói này chỉ nên dùng kèm với bộ lọc trọn gói &quot;?1?&quot; - cái mà bạn chưa sử dụng.">
-<!ENTITY addMain.label "Kèm thêm bộ lọc trọn gói &quot;?1?&quot;">
-<!ENTITY addMain.accesskey "g">
+<!ENTITY fromWeb.description "Vui lòng xác nhận rằng bạn muốn thêm bộ lọc trọn gói này. Bạn có thể thay đổi tiêu đề hoặc địa chỉ trước khi thêm nó.">

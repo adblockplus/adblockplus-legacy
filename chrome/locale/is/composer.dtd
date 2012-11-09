@@ -1,46 +1,45 @@
-<!ENTITY dialog.title "Bæta við Adblock Plus síureglu">
-<!ENTITY accept.label "Bæta við síu">
-<!ENTITY advanced.label "Ítarleg sýn">
-<!ENTITY basic.label "Einföld sýn">
-<!ENTITY disabled.warning "Adblock Plus er óvirkt eins og er. Þú getur samt bætt við síum en síurnar munu ekki vera virkar nema þú [link]virkjir Adblock Plus[/link].">
-<!ENTITY filter.label "Ný sía:">
-<!ENTITY filter.accesskey "s">
-<!ENTITY preferences.label "Sýna núverandi síur...">
-<!ENTITY preferences.accesskey "v">
-<!ENTITY type.filter.label "Lokunarsía">
-<!ENTITY type.filter.accesskey "L">
-<!ENTITY type.whitelist.label "Frávikregla">
-<!ENTITY type.whitelist.accesskey "F">
-<!ENTITY pattern.label "Leita að mynstri">
-<!ENTITY pattern.explanation "Mynstrið getur verið hvaða hluti sem er í netfanginu; táknið (*) virkar sem algildisstafur. Síunni verður aðeins beitt á þau netföng sem passa við mynstrið.">
-<!ENTITY regexp.warning "Mynstrið sem þú slóst inn verður túlkað sem regluleg segð. Margar reglulegar segðir gætu haft þau áhrif að hægja á vöfrun. Ef þú ætlar ekki að nota reglulega segðir, bættu þá * tákni við enda mynstursins.">
-<!ENTITY shortpattern.warning "Mynstrið sem þú slóst inn er of stutt til að hægt sé að nota það, of mörg svona mynstur geta hægt á vöfrun. Mælt er með að þú notir lengri streng fyrir þessa síu.">
-<!ENTITY match.warning "Mynstrið sem þú slóst inn passar ekki ekki við veffangið sem á að loka á/hvítlista og mun ekki hafa nein áhrif á það.">
-<!ENTITY custom.pattern.label "Sérsnið:">
-<!ENTITY custom.pattern.accesskey "n">
-<!ENTITY anchors.label "Aðeins samþykkja mynstur:">
-<!ENTITY anchor.start.label "í byrjun netfangs">
-<!ENTITY anchor.start.accesskey "b">
-<!ENTITY anchor.start.flexible.label "í byrjun lénsins">
-<!ENTITY anchor.start.flexible.accesskey "b">
-<!ENTITY anchor.end.label "í enda netfangs">
-<!ENTITY anchor.end.accesskey "d">
-<!ENTITY options.label "Valkostir">
-<!ENTITY domainRestriction.label "Takmarka við lén:">
-<!ENTITY domainRestriction.accesskey "T">
-<!ENTITY domainRestriction.help "Sláðu inn eitt eða fleiri lén aðskilið með tákninu (|). Sían verður aðeins beitt á þessi lén. Táknið (~) fyrir framan lén þýðir að ekki ætti að beita síunni á það lén.">
-<!ENTITY firstParty.label "Aðeins fyrsta aðila">
-<!ENTITY firstParty.accesskey "r">
-<!ENTITY thirdParty.label "Aðeins þriðja aðila">
-<!ENTITY thirdParty.accesskey "A">
-<!ENTITY matchCase.label "Passa við stafstöðu">
-<!ENTITY matchCase.accesskey "P">
-<!ENTITY types.label "Virkja fyrir tegundir:">
-<!ENTITY selectAllTypes.label "Velja allt">
-<!ENTITY unselectAllTypes.label "Velja ekkert">
-<!ENTITY collapse.label "Fella saman lokaða hluti:">
-<!ENTITY collapse.accesskey "m">
-<!ENTITY collapse.default.yes.label "Nota sjálfgefið (já)">
-<!ENTITY collapse.default.no.label "Nota sjálfgefið (nei)">
 <!ENTITY collapse.yes.label "Já">
+<!ENTITY anchor.end.label "í enda netfangs">
+<!ENTITY domainRestriction.label "Takmarka við lén:">
+<!ENTITY anchor.start.flexible.accesskey "b">
+<!ENTITY firstParty.label "Aðeins fyrsta aðila">
+<!ENTITY preferences.label "Sýna núverandi síur...">
+<!ENTITY pattern.label "Leita að mynstri">
+<!ENTITY thirdParty.label "Aðeins þriðja aðila">
+<!ENTITY filter.accesskey "s">
+<!ENTITY thirdParty.accesskey "A">
+<!ENTITY filter.label "Ný sía:">
+<!ENTITY collapse.label "Fella saman lokaða hluti:">
+<!ENTITY match.warning "Mynstrið sem þú slóst inn passar ekki ekki við veffangið sem á að loka á/hvítlista og mun ekki hafa nein áhrif á það.">
+<!ENTITY anchor.start.label "í byrjun netfangs">
 <!ENTITY collapse.no.label "Nei">
+<!ENTITY matchCase.label "Passa við stafstöðu">
+<!ENTITY custom.pattern.label "Sérsnið:">
+<!ENTITY unselectAllTypes.label "Velja ekkert">
+<!ENTITY domainRestriction.accesskey "T">
+<!ENTITY type.whitelist.label "Frávikregla">
+<!ENTITY regexp.warning "Mynstrið sem þú slóst inn verður túlkað sem regluleg segð. Margar reglulegar segðir gætu haft þau áhrif að hægja á vöfrun. Ef þú ætlar ekki að nota reglulega segðir, bættu þá * tákni við enda mynstursins.">
+<!ENTITY dialog.title "Bæta við Adblock Plus síureglu">
+<!ENTITY basic.label "Einföld sýn">
+<!ENTITY preferences.accesskey "v">
+<!ENTITY collapse.default.no.label "Nota sjálfgefið (nei)">
+<!ENTITY type.filter.label "Lokunarsía">
+<!ENTITY types.label "Virkja fyrir tegundir:">
+<!ENTITY shortpattern.warning "Mynstrið sem þú slóst inn er of stutt til að hægt sé að nota það, of mörg svona mynstur geta hægt á vöfrun. Mælt er með að þú notir lengri streng fyrir þessa síu.">
+<!ENTITY custom.pattern.accesskey "n">
+<!ENTITY anchor.start.accesskey "b">
+<!ENTITY anchors.label "Aðeins samþykkja mynstur:">
+<!ENTITY collapse.default.yes.label "Nota sjálfgefið (já)">
+<!ENTITY type.filter.accesskey "L">
+<!ENTITY domainRestriction.help "Sláðu inn eitt eða fleiri lén aðskilið með tákninu (|). Sían verður aðeins beitt á þessi lén. Táknið (~) fyrir framan lén þýðir að ekki ætti að beita síunni á það lén.">
+<!ENTITY accept.label "Bæta við síu">
+<!ENTITY options.label "Valkostir">
+<!ENTITY disabled.warning "Adblock Plus er óvirkt eins og er. Þú getur samt bætt við síum en síurnar munu ekki vera virkar nema þú [link]virkjir Adblock Plus[/link].">
+<!ENTITY anchor.start.flexible.label "í byrjun lénsins">
+<!ENTITY type.whitelist.accesskey "F">
+<!ENTITY matchCase.accesskey "P">
+<!ENTITY anchor.end.accesskey "d">
+<!ENTITY selectAllTypes.label "Velja allt">
+<!ENTITY advanced.label "Ítarleg sýn">
+<!ENTITY collapse.accesskey "m">
+<!ENTITY pattern.explanation "Mynstrið getur verið hvaða hluti sem er í netfanginu; táknið (*) virkar sem algildisstafur. Síunni verður aðeins beitt á þau netföng sem passa við mynstrið.">

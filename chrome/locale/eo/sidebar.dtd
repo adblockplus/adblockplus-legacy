@@ -1,36 +1,36 @@
-<!ENTITY detached.title "Adblock Plus: Blokeblaj elementoj (malligitaj)">
-<!ENTITY detach.label "Malligi">
+<!ENTITY context.flash.label "Borderoj de elementoj de Flash">
+<!ENTITY tooltip.type.label "Tipo:">
+<!ENTITY address.label "Adreso">
+<!ENTITY context.open.label "Malfermi en nova langeto">
+<!ENTITY type.label "Tipo">
+<!ENTITY tooltip.filterSource.label "Fonto de la filtrilo:">
+<!ENTITY noitems.label "Neniuj blokeblaj elementoj">
+<!ENTITY filter.label "Filtrilo">
+<!ENTITY tooltip.size.label "Grandeco:">
 <!ENTITY reattach.label "Denove kunligi">
 <!ENTITY search.label "Serĉi:">
-<!ENTITY search.accesskey "S">
-<!ENTITY type.label "Tipo">
-<!ENTITY address.label "Adreso">
-<!ENTITY filter.label "Filtrilo">
-<!ENTITY state.label "Stato">
-<!ENTITY size.label "Grandeco">
-<!ENTITY filterSource.label "Fonto de la filtrilo">
-<!ENTITY docDomain.label "Fonto de la dokumento">
 <!ENTITY docDomain.thirdParty "(de tria liveranto)">
-<!ENTITY docDomain.firstParty "(de unua liveranto)">
-<!ENTITY noitems.label "Neniuj blokeblaj elementoj">
-<!ENTITY whitelisted.label "Paĝo en blanka listo">
-<!ENTITY tooltip.address.label "Adreso:">
-<!ENTITY tooltip.type.label "Tipo:">
-<!ENTITY tooltip.type.blocked "(blokita)">
-<!ENTITY tooltip.type.whitelisted "(en blanka listo)">
-<!ENTITY tooltip.size.label "Grandeco:">
+<!ENTITY filterSource.label "Fonto de la filtrilo">
 <!ENTITY tooltip.docDomain.label "Fonto de la dokumento:">
+<!ENTITY context.copy.label "Kopii la adreson de la elemento">
+<!ENTITY tooltip.type.blocked "(blokita)">
+<!ENTITY search.accesskey "S">
+<!ENTITY context.disablefilter.label "Malebligi filtrilon ?1?">
+<!ENTITY context.copyFilter.label "Kopii filtrilon">
+<!ENTITY context.block.label "Bloki ĉi tiun elementon">
+<!ENTITY context.enablefilter.label "Denove ebligi filtrilon ?1?">
+<!ENTITY detach.label "Malligi">
+<!ENTITY whitelisted.label "Paĝo en blanka listo">
+<!ENTITY context.disablefilteronsite.label "Malebligi ĉi tiun filtrilon sur ?1?">
+<!ENTITY detached.title "Adblock Plus: Blokeblaj elementoj (malligitaj)">
+<!ENTITY docDomain.firstParty "(de unua liveranto)">
+<!ENTITY tooltip.type.whitelisted "(en blanka listo)">
 <!ENTITY tooltip.filter.label "Efika filtrilo:">
 <!ENTITY tooltip.filter.disabled "(malebligita)">
-<!ENTITY tooltip.filterSource.label "Fonto de la filtrilo:">
-<!ENTITY context.block.label "Bloki ĉi tiun elementon">
 <!ENTITY context.editfilter.label "Redakti efikan filtrilon">
+<!ENTITY size.label "Grandeco">
 <!ENTITY context.whitelist.label "Aldoni esceptoregulon por elemento">
-<!ENTITY context.disablefilter.label "Malebligi filtrilon ?1?">
-<!ENTITY context.enablefilter.label "Denove ebligi filtrilon ?1?">
-<!ENTITY context.disablefilteronsite.label "Malebligi ĉi tiun filtrilon sur ?1?">
-<!ENTITY context.open.label "Malfermi en nova langeto">
-<!ENTITY context.flash.label "Borderoj de elementoj de Flash">
-<!ENTITY context.copy.label "Kopii la adreson de la elemento">
-<!ENTITY context.copyFilter.label "Kopii filtrilon">
 <!ENTITY context.selectAll.label "Elekti ĉion">
+<!ENTITY state.label "Stato">
+<!ENTITY docDomain.label "Fonto de la dokumento">
+<!ENTITY tooltip.address.label "Adreso:">

@@ -1,87 +1,92 @@
-<!ENTITY dialog.title "Preferințe filtre Adblock Plus">
-<!ENTITY subscriptions.tab.label "Abonamente filtre">
-<!ENTITY filters.tab.label "Filtre proprii">
-<!ENTITY addSubscription.label "Adaugă abonament filtru">
-<!ENTITY addSubscription.accesskey "f">
-<!ENTITY addSubscriptionAdd.label "Adaugă">
-<!ENTITY addSubscriptionCancel.label "Anulează">
-<!ENTITY addSubscriptionOther.label "Adaugă alt abonament">
-<!ENTITY noSubscriptions.text "Nu aţi adăugat nici un abonament de filtre. Adblock Plus nu blochează nimic dacă nu are filtre. Puteţi folosi butonul Adaugă abonament filtre pentru a vă abona la câteva liste de filtre.">
-<!ENTITY subscription.homepage.label "Pagina de start">
-<!ENTITY subscription.external.label "Actualizat de altă extensie">
-<!ENTITY subscription.source.label "Listă de filtre">
-<!ENTITY subscription.enabled.label "Activat">
-<!ENTITY subscription.lastDownload.label "Ultima descărcare:">
-<!ENTITY subscription.lastDownload.inProgress "Descărcare...">
-<!ENTITY subscription.lastDownload.unknown "Necunoscut">
-<!ENTITY subscription.lastDownload.invalidURL "Eşuat, adresa nu este validă">
-<!ENTITY subscription.lastDownload.connectionError "Eşuat, descărcare nereuşită">
-<!ENTITY subscription.lastDownload.invalidData "Eşuat, lista nu este validă">
-<!ENTITY subscription.lastDownload.checksumMismatch "Eşuat, suma de control nu se potriveşte.">
-<!ENTITY subscription.lastDownload.success "Succes">
-<!ENTITY subscription.minVersion.warning "Acest abonament necesită o versiune mai nouă de Adblock Plus. Se recomandă utilizarea celei mai noi versiuni.">
-<!ENTITY subscription.disabledFilters.warning "Unele filtre din acest abonament sunt dezactivate.">
-<!ENTITY subscription.disabledFilters.enable "Activează filtrele inactive">
-<!ENTITY subscription.actions.label "Acțiuni">
-<!ENTITY subscription.update.label "Actualizează filtre">
-<!ENTITY subscription.editTitle.label "Editează titlu">
-<!ENTITY subscription.delete.label "Șterge">
-<!ENTITY subscription.showHideFilters.label "Arată/ascunde filtre">
-<!ENTITY subscription.moveUp.label "Mută sus">
-<!ENTITY subscription.moveDown.label "Mută jos">
-<!ENTITY acceptableAds2.label "Permite publicitatea discretă">
-<!ENTITY acceptableAds2.accesskey "p">
-<!ENTITY viewList.label "Afişare listă">
-<!ENTITY readMore.label "Citește mai mult">
-<!ENTITY addGroup.label "Adaugă grup filtre">
-<!ENTITY addGroup.accesskey "g">
-<!ENTITY noFilters.text "Nu aveţi nici un filtru propriu.">
-<!ENTITY addFilter.label "Adaugă filtru">
-<!ENTITY addFilter.accesskey "d">
-<!ENTITY filter.actions.label "Acțiuni filtre">
-<!ENTITY filter.edit.label "Editează">
-<!ENTITY filter.cut.label "Taie">
-<!ENTITY filter.copy.label "Copiază">
-<!ENTITY filter.paste.label "Lipeşte">
-<!ENTITY filter.delete.label "Şterge">
-<!ENTITY filter.selectAll.label "Selectează toate">
-<!ENTITY filter.resetHitCounts.label "Iniţializează statisticile filtrelor">
-<!ENTITY filter.moveUp.label "Mută sus">
-<!ENTITY filter.moveDown.label "Mută jos">
-<!ENTITY viewMenu.label "Vizualizare">
-<!ENTITY filter.column "Regulă de filtrare">
-<!ENTITY filter.accesskey "R">
-<!ENTITY slow.column "Filtre lente">
-<!ENTITY slow.accesskey "l">
-<!ENTITY enabled.column "Activat">
-<!ENTITY enabled.accesskey "S">
-<!ENTITY hitcount.column "Contor">
-<!ENTITY hitcount.accesskey "C">
 <!ENTITY lasthit.column "Ultima aplicare">
-<!ENTITY lasthit.accesskey "U">
-<!ENTITY sort.label "Ordonare">
-<!ENTITY sort.accesskey "O">
+<!ENTITY addFilter.accesskey "d">
+<!ENTITY subscription.delete.label "Șterge">
+<!ENTITY subscriptions.tab.label "Abonamente filtre">
+<!ENTITY enabled.accesskey "S">
+<!ENTITY addGroup.accesskey "g">
+<!ENTITY subscription.update.label "Actualizează filtre">
+<!ENTITY restore.complete.warning "Toate opţiunile filtrelor vor fi înlocuite de către conţinutul fişierului ales. Doriţi să continuaţi?">
+<!ENTITY filter.moveUp.label "Mută sus">
+<!ENTITY filter.edit.label "Editează">
+<!ENTITY hitcount.column "Contor">
+<!ENTITY acceptableAds2.label "Permite publicitatea discretă">
+<!ENTITY close.label "Închide">
 <!ENTITY sort.none.label "Neordonat">
-<!ENTITY sort.none.accesskey "N">
-<!ENTITY sort.ascending.label "Crescător (A&gt;Z)">
-<!ENTITY sort.ascending.accesskey "A">
-<!ENTITY sort.descending.label "Descrescător (Z&gt;A)">
+<!ENTITY find.accesskey "C">
+<!ENTITY readMore.label "Citește mai mult">
+<!ENTITY subscription.homepage.label "Pagina de start">
+<!ENTITY typoCorrections.enableLabel "Corectează greșelile de scriere ale adreselor internet">
 <!ENTITY sort.descending.accesskey "Z">
-<!ENTITY noGroupSelected.text "Pentru a vizualiza filtre, trebuie să alegeţi mai întâi un grup.">
-<!ENTITY noFiltersInGroup.text "Grupul selectat este gol.">
+<!ENTITY sort.descending.label "Descrescător (Z&gt;A)">
+<!ENTITY subscription.lastDownload.success "Succes">
 <!ENTITY filters.remove.warning "Sunteţi sigur că doriţi să ştergeţi filtrele selectate?">
+<!ENTITY restore.custom.warning "Toate filtrele proprii vor fi înlocuite de către conţinutul fişierului ales. Doriţi să continuaţi?">
+<!ENTITY slow.column "Filtre lente">
+<!ENTITY subscription.actions.label "Acțiuni">
+<!ENTITY filter.selectAll.label "Selectează toate">
 <!ENTITY backupButton.label "Salvare și Restaurare">
+<!ENTITY sort.accesskey "O">
+<!ENTITY subscription.source.label "Listă de filtre">
+<!ENTITY filter.paste.label "Lipeşte">
+<!ENTITY addSubscription.accesskey "b">
+<!ENTITY filter.delete.label "Şterge">
+<!ENTITY addSubscriptionAdd.label "Adaugă">
+<!ENTITY slow.accesskey "l">
+<!ENTITY subscription.showHideFilters.label "Arată/ascunde filtre">
 <!ENTITY backupButton.accesskey "S">
-<!ENTITY backup.label "Crează salvare nouă">
-<!ENTITY restore.default.label "Restaurează salvarea din ?1?">
-<!ENTITY restore.own.label "Restaurează propria salvare">
-<!ENTITY backup.complete.title "Toate filtrele și abonamentele">
-<!ENTITY backup.custom.title "Doar filtre proprii">
+<!ENTITY filter.actions.label "Acțiuni filtre">
+<!ENTITY filter.moveDown.label "Mută jos">
+<!ENTITY typoCorrections.tab.label "Corecții greșeli">
+<!ENTITY addFilter.label "Adaugă filtru">
+<!ENTITY subscription.editTitle.label "Editează titlu">
+<!ENTITY subscription.moveDown.label "Mută jos">
+<!ENTITY subscription.disabledFilters.warning "Unele filtre din acest abonament sunt dezactivate.">
+<!ENTITY filter.column "Regulă de filtrare">
+<!ENTITY subscription.lastDownload.checksumMismatch "Eşuat, suma de control nu se potriveşte.">
+<!ENTITY noFiltersInGroup.text "Grupul selectat este gol.">
+<!ENTITY typoCorrections.whitelistLabel "Exceptând adresele...">
+<!ENTITY sort.label "Ordonare">
+<!ENTITY noFilters.text "Nu aveţi nici un filtru propriu.">
+<!ENTITY subscription.external.label "Actualizat de altă extensie">
+<!ENTITY filter.accesskey "R">
+<!ENTITY noGroupSelected.text "Pentru a vizualiza filtre, trebuie să alegeţi mai întâi un grup.">
+<!ENTITY subscription.lastDownload.inProgress "Descărcare...">
+<!ENTITY typoCorrections.removeButtonLabel "Șterge adresa marcată">
+<!ENTITY enabled.column "Activat">
+<!ENTITY viewMenu.label "Vizualizare">
+<!ENTITY addSubscriptionCancel.label "Anulează">
+<!ENTITY lasthit.accesskey "U">
+<!ENTITY dialog.title "Preferințe filtre Adblock Plus">
+<!ENTITY subscription.minVersion.warning "Acest abonament necesită o versiune mai nouă de Adblock Plus. Se recomandă utilizarea celei mai noi versiuni.">
+<!ENTITY subscription.lastDownload.invalidURL "Eşuat, adresa nu este validă">
 <!ENTITY backup.error "O eroare a apărut la scrierea fişierului. Asiguraţi-vă că fişierul nu este protejat la scriere sau folosit de către altă aplicaţie.">
 <!ENTITY restore.error "Datele din fişier nu pot fi folosite. Verificaţi dacă fişierul a fost într-adevăr create de către Adblock Plus.">
-<!ENTITY restore.complete.warning "Toate opţiunile filtrelor vor fi înlocuite de către conţinutul fişierului ales. Doriţi să continuaţi?">
-<!ENTITY restore.custom.warning "Toate filtrele proprii vor fi înlocuite de către conţinutul fişierului ales. Doriţi să continuaţi?">
-<!ENTITY restore.minVersion.warning "Avertisment: acest fişier a fost creat de către o versiune mai nouă de Adblock Plus. Se recomandă utilizarea celei mai noi versiuni.">
+<!ENTITY filter.cut.label "Taie">
+<!ENTITY backup.custom.title "Doar filtre proprii">
+<!ENTITY subscription.moveUp.label "Mută sus">
+<!ENTITY backup.complete.title "Toate filtrele și abonamentele">
+<!ENTITY filters.tab.label "Filtre proprii">
 <!ENTITY find.label "Caută">
-<!ENTITY find.accesskey "C">
-<!ENTITY close.label "Închide">
+<!ENTITY subscription.lastDownload.connectionError "Eşuat, descărcare nereuşită">
+<!ENTITY subscription.lastDownload.invalidData "Eşuat, lista nu este validă">
+<!ENTITY restore.minVersion.warning "Avertisment: acest fişier a fost creat de către o versiune mai nouă de Adblock Plus. Se recomandă utilizarea celei mai noi versiuni.">
+<!ENTITY sort.ascending.label "Crescător (A&gt;Z)">
+<!ENTITY viewList.label "Afişare listă">
+<!ENTITY typoCorrections.whitelistEmptyLabel "Nu există excepții definite.">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY restore.default.label "Restaurează salvarea din ?1?">
+<!ENTITY hitcount.accesskey "C">
+<!ENTITY acceptableAds2.accesskey "p">
+<!ENTITY subscription.lastDownload.unknown "Necunoscut">
+<!ENTITY subscription.enabled.label "Activat">
+<!ENTITY noSubscriptions.text "Nu aţi adăugat nici un abonament de filtre. Adblock Plus nu blochează nimic dacă nu are filtre. Puteţi folosi butonul Adaugă abonament filtre pentru a vă abona la câteva liste de filtre.">
+<!ENTITY addGroup.label "Adaugă grup filtre">
+<!ENTITY addSubscriptionOther.label "Adaugă alt abonament">
+<!ENTITY filter.copy.label "Copiază">
+<!ENTITY sort.none.accesskey "N">
+<!ENTITY addSubscription.label "Adaugă abonament filtru">
+<!ENTITY restore.own.label "Restaurează propria salvare">
+<!ENTITY filter.resetHitCounts.label "Iniţializează statisticile filtrelor">
+<!ENTITY backup.label "Crează salvare nouă">
+<!ENTITY subscription.disabledFilters.enable "Activează filtrele inactive">
+<!ENTITY subscription.lastDownload.label "Ultima descărcare:">

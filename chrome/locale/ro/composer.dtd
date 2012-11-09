@@ -1,46 +1,46 @@
-<!ENTITY dialog.title "Adăugare regulă de filtrare Adblock Plus">
-<!ENTITY accept.label "Adaugă filtru">
-<!ENTITY advanced.label "Vizualizare avansată">
-<!ENTITY basic.label "Vizualizare simplă">
-<!ENTITY disabled.warning "Adblock Plus este inactiv. Puteţi să adăugaţi filtre, însă ele vor fi utilizate doar după ce [link]activaţi Adblock Plus[/link].">
-<!ENTITY filter.label "Filtru nou:">
-<!ENTITY filter.accesskey "t">
-<!ENTITY preferences.label "Arată filtrele existente...">
-<!ENTITY preferences.accesskey "A">
-<!ENTITY type.filter.label "Filtru de blocare">
-<!ENTITY type.filter.accesskey "b">
-<!ENTITY type.whitelist.label "Regulă excepţii">
-<!ENTITY type.whitelist.accesskey "x">
-<!ENTITY pattern.label "Model de căutare pentru potrivire adrese">
-<!ENTITY pattern.explanation "Filtrul va fi aplicat doar adreselor care corespund modelului definit mai jos, în care simbolul * acţionează ca joker.">
-<!ENTITY regexp.warning "Modelul introdus va fi interpretată ca o expresie regulată, ceea ce poate cauza încetinirea navigării. Dacă nu doriţi să folosiţi expresii regulate, introduceţi * la sfârşitul modelului.">
-<!ENTITY shortpattern.warning "Modelul introdus este prea scurt pentru a fi optimizat, ceea ce poate cauza încetinirea navigării. Este recomandabil să introduceţi modele mai mai lungi.">
-<!ENTITY match.warning "Modelul introdus nu mai corespunde adresei care trebuie blocată/deblocată şi de aceea nu va avea nici un efect asupra paginii curente.">
-<!ENTITY custom.pattern.label "model individual:">
-<!ENTITY custom.pattern.accesskey "i">
-<!ENTITY anchors.label "Foloseşte modelul introdus doar:">
-<!ENTITY anchor.start.label "la începutul adresei">
-<!ENTITY anchor.start.accesskey "n">
-<!ENTITY anchor.start.flexible.label "la începutul numelui de domeniu">
-<!ENTITY anchor.start.flexible.accesskey "n">
-<!ENTITY anchor.end.label "la sfârşitul adresei">
-<!ENTITY anchor.end.accesskey "f">
-<!ENTITY options.label "Opţiuni">
-<!ENTITY domainRestriction.label "Aplică doar domeniului">
-<!ENTITY domainRestriction.accesskey "d">
-<!ENTITY domainRestriction.help "Specificaţi unul sau mai multe domenii internet, separate de către simbolul |, pentru care filtrul este valid. Simbolul ~ înaintea numelui domeniului va face ca regula să NU se aplice pe domeniul specificat.">
-<!ENTITY firstParty.label "Doar la pagina vizitată">
-<!ENTITY firstParty.accesskey "v">
-<!ENTITY thirdParty.label "La pagini partener (3rd party)">
-<!ENTITY thirdParty.accesskey "p">
-<!ENTITY matchCase.label "Potrivire majusculă">
-<!ENTITY matchCase.accesskey "m">
-<!ENTITY types.label "Valabil pentru:">
-<!ENTITY selectAllTypes.label "Toate tipurile">
-<!ENTITY unselectAllTypes.label "Nici unul">
-<!ENTITY collapse.label "Eliberează spaţiul blocat:">
-<!ENTITY collapse.accesskey "s">
-<!ENTITY collapse.default.yes.label "Foloseşte opţiunea implicită (da)">
-<!ENTITY collapse.default.no.label "Foloseşte opţiunea implicită (nu)">
 <!ENTITY collapse.yes.label "Da">
+<!ENTITY anchor.end.label "la sfârşitul adresei">
+<!ENTITY domainRestriction.label "Aplică doar domeniului">
+<!ENTITY anchor.start.flexible.accesskey "n">
+<!ENTITY firstParty.label "Doar la pagina vizitată">
+<!ENTITY preferences.label "Arată filtrele existente...">
+<!ENTITY pattern.label "Model de căutare pentru potrivire adrese">
+<!ENTITY thirdParty.label "La pagini partener (3rd party)">
+<!ENTITY filter.accesskey "t">
+<!ENTITY thirdParty.accesskey "p">
+<!ENTITY filter.label "Filtru nou:">
+<!ENTITY collapse.label "Eliberează spaţiul blocat:">
+<!ENTITY match.warning "Modelul introdus nu mai corespunde adresei care trebuie blocată/deblocată şi de aceea nu va avea nici un efect asupra paginii curente.">
+<!ENTITY anchor.start.label "la începutul adresei">
 <!ENTITY collapse.no.label "Nu">
+<!ENTITY matchCase.label "Potrivire majusculă">
+<!ENTITY custom.pattern.label "model individual:">
+<!ENTITY unselectAllTypes.label "Nici unul">
+<!ENTITY domainRestriction.accesskey "d">
+<!ENTITY type.whitelist.label "Regulă excepţii">
+<!ENTITY regexp.warning "Modelul introdus va fi interpretată ca o expresie regulată, ceea ce poate cauza încetinirea navigării. Dacă nu doriţi să folosiţi expresii regulate, introduceţi * la sfârşitul modelului.">
+<!ENTITY dialog.title "Adăugare regulă de filtrare Adblock Plus">
+<!ENTITY basic.label "Vizualizare simplă">
+<!ENTITY preferences.accesskey "A">
+<!ENTITY firstParty.accesskey "v">
+<!ENTITY collapse.default.no.label "Foloseşte opţiunea implicită (nu)">
+<!ENTITY type.filter.label "Filtru de blocare">
+<!ENTITY types.label "Valabil pentru:">
+<!ENTITY shortpattern.warning "Modelul introdus este prea scurt pentru a fi optimizat, ceea ce poate cauza încetinirea navigării. Este recomandabil să introduceţi modele mai mai lungi.">
+<!ENTITY custom.pattern.accesskey "i">
+<!ENTITY anchor.start.accesskey "n">
+<!ENTITY anchors.label "Foloseşte modelul introdus doar:">
+<!ENTITY collapse.default.yes.label "Foloseşte opţiunea implicită (da)">
+<!ENTITY type.filter.accesskey "b">
+<!ENTITY domainRestriction.help "Specificaţi unul sau mai multe domenii internet, separate de către simbolul |, pentru care filtrul este valid. Simbolul ~ înaintea numelui domeniului va face ca regula să NU se aplice pe domeniul specificat.">
+<!ENTITY accept.label "Adaugă filtru">
+<!ENTITY options.label "Opţiuni">
+<!ENTITY disabled.warning "Adblock Plus este inactiv. Puteţi să adăugaţi filtre, însă ele vor fi utilizate doar după ce [link]activaţi Adblock Plus[/link].">
+<!ENTITY anchor.start.flexible.label "la începutul numelui de domeniu">
+<!ENTITY type.whitelist.accesskey "x">
+<!ENTITY matchCase.accesskey "m">
+<!ENTITY anchor.end.accesskey "f">
+<!ENTITY selectAllTypes.label "Toate tipurile">
+<!ENTITY advanced.label "Vizualizare avansată">
+<!ENTITY collapse.accesskey "s">
+<!ENTITY pattern.explanation "Filtrul va fi aplicat doar adreselor care corespund modelului definit mai jos, în care simbolul * acţionează ca joker.">

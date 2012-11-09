@@ -1,16 +1,15 @@
-<!ENTITY dialog.title "Lägg till filterprenumeration för Adblock Plus">
-<!ENTITY subscriptionSelector.label "Var vänlig välj en filterprenumeration från listan:">
+<!ENTITY addMain.label "Lägg även till filterprenumerationen &quot;?1?&quot;">
+<!ENTITY addMain.accesskey "ä">
+<!ENTITY list.download.failed "Adblock Plus kunde inte hämta listan med filterprenumerationer.">
+<!ENTITY list.download.retry "Försök igen">
+<!ENTITY location.accesskey "f">
+<!ENTITY title.label "Rubrik för prenumeration:">
+<!ENTITY list.download.website "Visa webbsidan">
+<!ENTITY supplementMessage "Denna filterprenumeration bör användas med filterprenumerationen &quot;?1?&quot;, som för närvarande inte används.">
+<!ENTITY title.accesskey "R">
 <!ENTITY viewList.label "Visa filter">
 <!ENTITY visitHomepage.label "Besök webbsidan">
 <!ENTITY addSubscription.label "Lägg till filterprenumeration">
-<!ENTITY list.download.failed "Adblock Plus kunde inte hämta listan med filterprenumerationer.">
-<!ENTITY list.download.retry "Försök igen">
-<!ENTITY list.download.website "Visa webbsidan">
-<!ENTITY fromWeb.description "Var vänlig bekräfta att du vill lägga till denna filterprenumeration. Du kan ändra rubrik eller plats innan du lägger till den.">
-<!ENTITY title.label "Rubrik för prenumeration:">
-<!ENTITY title.accesskey "R">
+<!ENTITY dialog.title "Lägg till filterprenumeration för Adblock Plus">
 <!ENTITY location.label "Plats för filter:">
-<!ENTITY location.accesskey "f">
-<!ENTITY supplementMessage "Denna filterprenumeration bör användas med filterprenumerationen &quot;?1?&quot;, som för närvarande inte används.">
-<!ENTITY addMain.label "Lägg även till filterprenumerationen &quot;?1?&quot;">
-<!ENTITY addMain.accesskey "ä">
+<!ENTITY fromWeb.description "Var vänlig bekräfta att du vill lägga till denna filterprenumeration. Du kan ändra rubrik eller plats innan du lägger till den.">

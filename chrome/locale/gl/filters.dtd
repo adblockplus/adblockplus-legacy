@@ -1,35 +1,30 @@
-<!ENTITY addSubscription.label "Engadir subscrición de filtros">
-<!ENTITY addSubscriptionOther.label "Engadir outra subscrición">
-<!ENTITY subscription.lastDownload.label "Última descarga:">
-<!ENTITY subscription.lastDownload.inProgress "Descargando...">
-<!ENTITY subscription.lastDownload.unknown "N/A">
-<!ENTITY subscription.lastDownload.invalidURL "Fallou, non é unha dirección válida">
-<!ENTITY subscription.lastDownload.connectionError "Fallou, fracasou a descarga">
-<!ENTITY subscription.lastDownload.invalidData "Fallou, non é unha lista de filtros válida">
-<!ENTITY subscription.lastDownload.checksumMismatch "Fallou, a proba 'checksum' non cadrou">
-<!ENTITY subscription.lastDownload.success "Valeu">
-<!ENTITY addFilter.label "Engadir filtro">
-<!ENTITY filter.cut.label "Cortar">
-<!ENTITY filter.copy.label "Copiar">
-<!ENTITY filter.paste.label "Pegar">
-<!ENTITY filter.delete.label "Borrar">
-<!ENTITY viewMenu.label "Ver">
-<!ENTITY filter.column "Regra de filtro">
-<!ENTITY filter.accesskey "F">
 <!ENTITY slow.column "Filtros lentos">
-<!ENTITY slow.accesskey "n">
+<!ENTITY subscription.lastDownload.checksumMismatch "Fallou, a proba 'checksum' non cadrou">
+<!ENTITY lasthit.column "Último impacto">
+<!ENTITY viewMenu.label "Ver">
+<!ENTITY sort.accesskey "o">
+<!ENTITY sort.ascending.label "Ordenar A &gt; Z">
+<!ENTITY sort.label "Ordenar por">
+<!ENTITY filter.paste.label "Pegar">
+<!ENTITY subscription.lastDownload.inProgress "Descargando...">
+<!ENTITY hitcount.accesskey "I">
+<!ENTITY filter.delete.label "Borrar">
 <!ENTITY enabled.column "Activada">
+<!ENTITY slow.accesskey "n">
 <!ENTITY enabled.accesskey "c">
 <!ENTITY hitcount.column "Impactos">
-<!ENTITY hitcount.accesskey "I">
-<!ENTITY lasthit.column "Último impacto">
-<!ENTITY lasthit.accesskey "L">
-<!ENTITY sort.label "Ordenar por">
-<!ENTITY sort.accesskey "o">
+<!ENTITY filter.cut.label "Cortar">
+<!ENTITY addSubscriptionOther.label "Engadir outra subscrición">
 <!ENTITY sort.none.label "Sen clasificar">
+<!ENTITY filter.copy.label "Copiar">
 <!ENTITY sort.none.accesskey "s">
-<!ENTITY sort.ascending.label "Ordenar A &gt; Z">
-<!ENTITY sort.ascending.accesskey "A">
-<!ENTITY sort.descending.label "Ordenar Z &gt; A">
-<!ENTITY sort.descending.accesskey "Z">
+<!ENTITY addSubscription.label "Engadir subscrición de filtros">
+<!ENTITY subscription.lastDownload.invalidURL "Fallou, non é unha dirección válida">
 <!ENTITY find.label "Atopar">
+<!ENTITY sort.descending.label "Ordenar Z &gt; A">
+<!ENTITY subscription.lastDownload.connectionError "Fallou, fracasou a descarga">
+<!ENTITY subscription.lastDownload.success "Valeu">
+<!ENTITY subscription.lastDownload.invalidData "Fallou, non é unha lista de filtros válida">
+<!ENTITY addFilter.label "Engadir filtro">
+<!ENTITY subscription.lastDownload.label "Última descarga:">
+<!ENTITY filter.column "Regra de filtro">

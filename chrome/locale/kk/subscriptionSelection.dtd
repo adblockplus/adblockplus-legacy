@@ -1,16 +1,15 @@
-<!ENTITY dialog.title "Adblock Plus фильтрлерге жазылуды қосу">
-<!ENTITY subscriptionSelector.label "Тізімнен сүзгіге жазылуды таңдаңыз:">
+<!ENTITY addMain.label "&quot;?1?&quot; сүзгі жазылуын да қосу">
+<!ENTITY addMain.accesskey "у">
+<!ENTITY list.download.failed "Adblock Plus жазылулар тізімін жүктеп ала алмаған.">
+<!ENTITY list.download.retry "Қайтадан көру">
+<!ENTITY location.accesskey "д">
+<!ENTITY title.label "Жазылудың аты:">
+<!ENTITY list.download.website "Веб сайтты шолу">
+<!ENTITY supplementMessage "Бұл фильтрге жазылу сізде әлі қосылмаған &quot;?1?&quot; сүзгімен бірге қолданылуы тиіс.">
+<!ENTITY title.accesskey "з">
 <!ENTITY viewList.label "Сүзгілерді қарап шығу">
 <!ENTITY visitHomepage.label "Үй парағын шолу">
 <!ENTITY addSubscription.label "Жазылуды қосу">
-<!ENTITY list.download.failed "Adblock Plus жазылулар тізімін жүктеп ала алмаған.">
-<!ENTITY list.download.retry "Қайтадан көру">
-<!ENTITY list.download.website "Веб сайтты шолу">
-<!ENTITY fromWeb.description "Сүзгі жазылуын қосуды растаңыз. Қосу алдында оның атауын не орналасуын өзгерте аласыз.">
-<!ENTITY title.label "Жазылудың аты:">
-<!ENTITY title.accesskey "з">
+<!ENTITY dialog.title "Adblock Plus фильтрлерге жазылуды қосу">
 <!ENTITY location.label "Фильтр тізім адресі:">
-<!ENTITY location.accesskey "д">
-<!ENTITY supplementMessage "Бұл фильтрге жазылу сізде әлі қосылмаған &quot;?1?&quot; сүзгімен бірге қолданылуы тиіс.">
-<!ENTITY addMain.label "&quot;?1?&quot; сүзгі жазылуын да қосу">
-<!ENTITY addMain.accesskey "у">
+<!ENTITY fromWeb.description "Сүзгі жазылуын қосуды растаңыз. Қосу алдында оның атауын не орналасуын өзгерте аласыз.">

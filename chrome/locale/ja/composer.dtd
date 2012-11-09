@@ -1,46 +1,46 @@
-<!ENTITY dialog.title "Adblock Plus フィルタを追加">
-<!ENTITY accept.label "フィルタを追加">
-<!ENTITY advanced.label "詳細表示">
-<!ENTITY basic.label "基本表示">
-<!ENTITY disabled.warning "現在 Adblock Plus は無効になっています。フィルタを追加することはできますが [link]Adblock Plus を有効化する[/link] まで適用されません。">
-<!ENTITY filter.label "新規フィルタ:">
-<!ENTITY filter.accesskey "f">
-<!ENTITY preferences.label "既存のフィルタを表示…">
-<!ENTITY preferences.accesskey "S">
-<!ENTITY type.filter.label "ブロックフィルタ">
-<!ENTITY type.filter.accesskey "B">
-<!ENTITY type.whitelist.label "ホワイトリスト">
-<!ENTITY type.whitelist.accesskey "x">
-<!ENTITY pattern.label "パターンを探す">
-<!ENTITY pattern.explanation "パターンとはアドレスの任意の一部のことです。半角のアスタリスク（*）をワイルドカードとして使用することもできます。パターンに一致するアドレスにのみフィルタが適用されます。">
-<!ENTITY regexp.warning "入力されたパターンは Adblock Plus が効率よく処理できず、ブラウジング速度低下の原因になる正規表現として解釈されています。もし、正規表現の使用を意図していなかった場合はパターン末尾に半角でアスタリスク（*）を追加してください。">
-<!ENTITY shortpattern.warning "入力したパターンが短過ぎる為に最適化できず、ブラウジング速度が低下することがあります。Adblock Plus で効率的に処理するためには、より長い文字列を選ぶことが推奨されます">
-<!ENTITY match.warning "入力したパターンはアドレスに一致しないので意味がありません">
-<!ENTITY custom.pattern.label "自作:">
-<!ENTITY custom.pattern.accesskey "C">
-<!ENTITY anchors.label "パターン適用条件:">
-<!ENTITY anchor.start.label "アドレス先頭に一致">
-<!ENTITY anchor.start.accesskey "g">
-<!ENTITY anchor.start.flexible.label "ドメイン名先頭に一致">
-<!ENTITY anchor.start.flexible.accesskey "g">
-<!ENTITY anchor.end.label "アドレス末尾に一致">
-<!ENTITY anchor.end.accesskey "n">
-<!ENTITY options.label "オプション">
-<!ENTITY domainRestriction.label "ドメイン制限:">
-<!ENTITY domainRestriction.accesskey "d">
-<!ENTITY domainRestriction.help "フィルタ適用対象のドメインを限定することができます。複数指定したい場合は縦線（|）で分けてください。ドメイン名の前にチルダ（~）で適用外ドメインを指定することもできます">
-<!ENTITY firstParty.label "ファーストパーティ限定">
-<!ENTITY firstParty.accesskey "r">
-<!ENTITY thirdParty.label "サードパーティ限定">
-<!ENTITY thirdParty.accesskey "T">
-<!ENTITY matchCase.label "大文字小文字を区別">
-<!ENTITY matchCase.accesskey "M">
-<!ENTITY types.label "適用種別：">
-<!ENTITY selectAllTypes.label "すべて選択">
-<!ENTITY unselectAllTypes.label "選択解除">
-<!ENTITY collapse.label "ブロック後の空白スペースを消す:">
-<!ENTITY collapse.accesskey "l">
-<!ENTITY collapse.default.yes.label "デフォルト（はい）">
-<!ENTITY collapse.default.no.label "デフォルト（いいえ）">
 <!ENTITY collapse.yes.label "はい">
+<!ENTITY anchor.end.label "アドレス末尾に一致">
+<!ENTITY domainRestriction.label "ドメイン制限:">
+<!ENTITY anchor.start.flexible.accesskey "G">
+<!ENTITY firstParty.label "ファーストパーティ制限">
+<!ENTITY preferences.label "既存のフィルタを表示...">
+<!ENTITY pattern.label "パターンを選択">
+<!ENTITY thirdParty.label "サードパーティ制限">
+<!ENTITY filter.accesskey "F">
+<!ENTITY thirdParty.accesskey "T">
+<!ENTITY filter.label "新フィルタ:">
+<!ENTITY collapse.label "ブロック後の空きスペースを詰める:">
+<!ENTITY match.warning "入力したパターンはもはやアドレスに一致していないので、効果がありません。">
+<!ENTITY anchor.start.label "アドレス先頭に一致">
 <!ENTITY collapse.no.label "いいえ">
+<!ENTITY matchCase.label "大文字小文字を区別">
+<!ENTITY custom.pattern.label "自作:">
+<!ENTITY unselectAllTypes.label "選択解除">
+<!ENTITY domainRestriction.accesskey "D">
+<!ENTITY type.whitelist.label "ホワイトリスト">
+<!ENTITY regexp.warning "入力されたパターンは正規表現として解釈されるため Adblock Plus が効率よく処理できず、ブラウジング速度低下の原因になることがあります。もし正規表現の使用が意図したものではなかった場合は、パターン末尾に半角アスタリスク (*) を追加してください。">
+<!ENTITY dialog.title "Adblock Plus フィルタを追加">
+<!ENTITY basic.label "基本表示">
+<!ENTITY preferences.accesskey "S">
+<!ENTITY firstParty.accesskey "R">
+<!ENTITY collapse.default.no.label "デフォルト (いいえ)">
+<!ENTITY type.filter.label "ブロックフィルタ">
+<!ENTITY types.label "適用種別:">
+<!ENTITY shortpattern.warning "入力したパターンは最適化するには短すぎるため、ブラウジング速度が低下することがあります。Adblock Plus の処理を効率化するために、より長い文字列を選ぶことを推奨します。">
+<!ENTITY custom.pattern.accesskey "C">
+<!ENTITY anchor.start.accesskey "G">
+<!ENTITY anchors.label "パターン適用条件:">
+<!ENTITY collapse.default.yes.label "デフォルト (はい)">
+<!ENTITY type.filter.accesskey "B">
+<!ENTITY domainRestriction.help "フィルタ適用対象にするドメインを指定することができます。複数指定したい場合は縦線（|）で分けてください。ドメイン名の前にチルダ（~）を付けることで、適用外ドメインとすることもできます">
+<!ENTITY accept.label "フィルタを追加">
+<!ENTITY options.label "オプション">
+<!ENTITY disabled.warning "現在 Adblock Plus は無効になっています。フィルタを追加することはできますが、それらは [link]Adblock Plus を有効にする[/link] まで適用されません。">
+<!ENTITY anchor.start.flexible.label "ドメイン名先頭に一致">
+<!ENTITY type.whitelist.accesskey "X">
+<!ENTITY matchCase.accesskey "M">
+<!ENTITY anchor.end.accesskey "N">
+<!ENTITY selectAllTypes.label "すべて選択">
+<!ENTITY advanced.label "詳細表示">
+<!ENTITY collapse.accesskey "L">
+<!ENTITY pattern.explanation "パターンとは、アドレスの任意の一部のことです。半角アスタリスク (*) をワイルドカードとして使用することもできます。指定したパターンに一致したアドレスにのみフィルタが適用されます。">

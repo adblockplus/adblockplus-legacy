@@ -1,0 +1,10 @@
+<!ENTITY advancedSection "Opcions Avançades">
+<!ENTITY confirmation "Gràcies per instal·lar l'AdBlock Plus, els anuncis seràn blocats!">
+<!ENTITY noList "Cap llista de filtres">
+<!ENTITY acceptableAds2 "L'AdBlock Plus també ha estat configurat per permetre alguna publicitat no intrusiva.">
+<!ENTITY viewList.label "Mira la llista">
+<!ENTITY visitHomepage.label "Visita la pàgina principal de la llista">
+<!ENTITY dialog.title "S'ha completat la instal·lació d'AdBlock Plus">
+<!ENTITY listSelection1 "La següent llista de filtres ha estat configurada per blocar els anuncis:">
+<!ENTITY listSelection2 "Pots canviar aquesta selecció en qualselvol moment a : [link]Preferències dels Filtres[/link].">
+<!ENTITY readMore.label "Llegeix més sobre això">
