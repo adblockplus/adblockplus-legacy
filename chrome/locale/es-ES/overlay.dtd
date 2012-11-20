@@ -1,9 +1,11 @@
+<!ENTITY showintoolbar.accesskey "h">
 <!ENTITY showinstatusbar.accesskey "d">
 <!ENTITY whitelist.site.label "Desactivar en ?1?">
 <!ENTITY filters.label "Preferencias de filtros">
 <!ENTITY disable.label "Desactivar globalmente">
 <!ENTITY showinaddonbar.label "Mostrar en barra de extensiones">
 <!ENTITY objecttab.title "Bloquear">
+<!ENTITY showinaddonbar.accesskey "x">
 <!ENTITY sync.accesskey "z">
 <!ENTITY objecttabs.label "Mostrar pestañas en Flash y Java">
 <!ENTITY objecttab.tooltip "Pulse aquí para bloquear este objeto con Adblock Plus">
@@ -16,7 +18,9 @@
 <!ENTITY closesidebar.accesskey "v">
 <!ENTITY hideplaceholders.label "Ocultar posicionadores de elementos bloqueados">
 <!ENTITY opensidebar.label "Abrir ventana elementos bloqueables">
+<!ENTITY options.accesskey "O">
 <!ENTITY contribute.label "Ayudar a Adblock Plus">
+<!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "ABP - Bloquear marco">
 <!ENTITY counthits.label "Contar usos de filtros">
 <!ENTITY blocked.tooltip "Elementos bloqueados en esta página:">
@@ -35,4 +39,4 @@
 <!ENTITY counthits.accesskey "u">
 <!ENTITY menuitem.accesskey "A">
 <!ENTITY context.media.label "ABP - Bloquear vídeo/audio">
-<!ENTITY hideplaceholders.accesskey "O">
+<!ENTITY hideplaceholders.accesskey "m">

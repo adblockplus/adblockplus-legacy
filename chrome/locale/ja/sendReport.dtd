@@ -17,17 +17,17 @@
 <!ENTITY sendPage.retry.label "再送信">
 <!ENTITY typeSelector.other.description "フィルタではなく Adblock Plus 自体の不具合が疑われる場合はこの選択肢。">
 <!ENTITY issues.disabledgroups.enable.label "購読しているフィルタ／フィルタグループを有効化">
-<!ENTITY typeWarning.override.label "理解した上で、どうしても不具合報告を提出したい">
+<!ENTITY typeWarning.override.label "理解した上で、それでも不具合報告を提出したい">
 <!ENTITY issues.disabled.enable.label "Adblock Plus を有効化">
-<!ENTITY update.fixed.description "報告しようとしていた不具合は、購読しているフィルタの更新で解決しそうです。ページを再読み込みしてみてください。それでも解決しない場合は再度不具合を報告願います。">
-<!ENTITY email.label "更なる問い合わせが必要になった場合に使うメールアドレス (オプション) :">
+<!ENTITY update.fixed.description "報告しようとしていた不具合は、購読しているフィルタの更新で解決しそうです。ページを再読み込みして再確認してみてください。それでも解決しない場合は再度不具合を報告願います。">
+<!ENTITY email.label "更なる問い合わせが必要になった場合に使うメールアドレス (任意入力項目) :">
 <!ENTITY reloadButton.label "ページを再読み込み">
 <!ENTITY recentReports.clear.label "すべての不具合報告を削除">
 <!ENTITY typeSelector.description "このウィンドウで不具合の報告に必要なステップをご案内します。まず最初に、遭遇した不具合の種別を選択してください:">
 <!ENTITY screenshot.mark.accesskey "M">
 <!ENTITY typeSelector.other.accesskey "T">
 <!ENTITY screenshot.undo.accesskey "U">
-<!ENTITY update.inProgress.description "不具合がまだ未解決かどうか確かめるため、Adblock Plus で購読しているフィルタを更新する必要があります。しばらくお待ちください...">
+<!ENTITY update.inProgress.description "不具合が解決したか確かめるため、Adblock Plus で購読しているフィルタを更新する必要があります。しばらくお待ちください...">
 <!ENTITY data.accesskey "P">
 <!ENTITY data.label "不具合報告データ:">
 <!ENTITY sendPage.heading "不具合報告を送信">
@@ -61,19 +61,19 @@
 <!ENTITY typeSelector.heading "不具合種別を選択">
 <!ENTITY wizard.title "不具合報告">
 <!ENTITY issues.ownfilters.disable.label "フィルタを無効化">
-<!ENTITY commentPage.description "このコメント欄を活用することで、不具合の理解が早まります。任意入力項目ですが、問題をはっきりさせるため積極的に利用してください。（コメントに含める情報の例：１．症状、２．期待していた動作との違い、３．画面上の場所、４．再現手順、５．再現条件、６．関係するフィルタ、７．不具合報告の匿名化された URL で問題を再現できない場合にプライバシー問題が発生しない範囲でのサンプル URL、８．自分で試行錯誤してみたこと等々）。不具合報告データは送信前に再検討できます">
+<!ENTITY commentPage.description "このコメント欄を活用することで、不具合の理解が早まります。任意入力項目ですが、問題をはっきりさせるため積極的に利用してください。（コメントに含める情報の例：１．症状、２．期待していた動作との違い、３．画面上の場所、４．再現手順、５．再現条件、６．関係するフィルタ、７．不具合報告の匿名化された URL で問題を再現できない場合にプライバシー問題が発生しない範囲でのサンプル URL、８．自分で試行錯誤してみたこと等々）。不具合報告データは送信前に再検討できます。">
 <!ENTITY typeSelector.falseNegative.accesskey "V">
-<!ENTITY comment.lengthWarning "コメントが 1000 文字を超えているので、先頭から 1000 文字だけ送信されます">
+<!ENTITY comment.lengthWarning "コメントが 1000 文字を超えているので、先頭から 1000 文字だけ送信します">
 <!ENTITY typeSelector.falseNegative.description "Adblock Plus が有効でも広告が表示される場合はこの選択肢。">
 <!ENTITY typeWarning.override.accesskey "S">
 <!ENTITY sendPage.waitMessage "Adblock Plus が不具合報告を送信する間、しばらくお待ちください">
 <!ENTITY dataCollector.heading "不具合報告へようこそ">
-<!ENTITY screenshot.remove.label "個人情報等を黒塗りして隠す">
+<!ENTITY screenshot.remove.label "機密情報等を黒塗りして隠す">
 <!ENTITY screenshot.heading "スクリーンショットを添付">
 <!ENTITY comment.accesskey "C">
-<!ENTITY issues.ownfilters.description "このページには自作フィルタが適用されています。それが不具合の原因となっている可能性があるので、まずそれを無効にしてください:">
+<!ENTITY issues.ownfilters.description "このページには自作フィルタが適用されています。それが不具合の原因となっている可能性があるので、まずそれらを無効にしてください:">
 <!ENTITY screenshot.remove.accesskey "R">
 <!ENTITY issues.subscriptionCount.description "購読しているフィルタが多過ぎです。このような設定は問題解決を難しくするので推奨されません。また、どのフィルタ作者がこの不具合に対処すべきか不明なのでレポートを受理できません。本当に必要なフィルタ以外を削除し、不具合が再現するか確認願います。">
 <!ENTITY screenshot.mark.label "不具合箇所に印をつける">
 <!ENTITY privacyPolicy.label "プライバシー ポリシー">
-<!ENTITY issues.description "Adblock Plus はこの不具合に関係、もしくは調査を困難にしている設定を検知しました。">
+<!ENTITY issues.description "Adblock Plus はこの不具合に関係、もしくは調査を困難にしている設定を発見しました。">

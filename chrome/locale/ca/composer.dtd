@@ -42,5 +42,5 @@
 <!ENTITY anchor.end.accesskey "f">
 <!ENTITY selectAllTypes.label "Selecciona-ho tot">
 <!ENTITY advanced.label "Visualització avançada">
-<!ENTITY collapse.accesskey "I">
+<!ENTITY collapse.accesskey "l">
 <!ENTITY pattern.explanation "El patró pot ser qualsevol part de l'adreça, el símbol ^ serveix de comodí. El filtre només s'aplicarà a adreces que concordin amb el filtre">

@@ -1,5 +1,4 @@
 <!ENTITY context.flash.label "Fremhæv emnets kanter">
-<!ENTITY tooltip.type.label "Type:">
 <!ENTITY address.label "Adresse">
 <!ENTITY context.open.label "Åbn i nyt faneblad">
 <!ENTITY type.label "Type">
@@ -13,7 +12,7 @@
 <!ENTITY filterSource.label "Filterkilde">
 <!ENTITY tooltip.docDomain.label "Dokumentkilde:">
 <!ENTITY context.copy.label "Kopier emnets adresse">
-<!ENTITY tooltip.type.blocked "(blokeret)">
+<!ENTITY tooltip.type.label "Type:">
 <!ENTITY search.accesskey "ø">
 <!ENTITY context.disablefilter.label "Deaktiver filter ?1?">
 <!ENTITY context.copyFilter.label "Kopier filter">
@@ -28,6 +27,7 @@
 <!ENTITY tooltip.filter.label "Fungerende filter:">
 <!ENTITY tooltip.filter.disabled "(deaktiveret)">
 <!ENTITY context.editfilter.label "Redigér aktuelt filter">
+<!ENTITY tooltip.type.blocked "(blokeret)">
 <!ENTITY size.label "Størrelse">
 <!ENTITY context.whitelist.label "Tilføj undtagelsesregel for emne">
 <!ENTITY context.selectAll.label "Vælg alle">

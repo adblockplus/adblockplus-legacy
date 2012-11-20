@@ -1,5 +1,4 @@
 <!ENTITY context.flash.label "Paryškinti elemento rėmelį">
-<!ENTITY tooltip.type.label "Tipas:">
 <!ENTITY address.label "Adresas">
 <!ENTITY context.open.label "Atverti naujoje kortelėje">
 <!ENTITY type.label "Tipas">
@@ -13,7 +12,7 @@
 <!ENTITY filterSource.label "Filtruoti pirminį kodą">
 <!ENTITY tooltip.docDomain.label "Dokumento šaltinis:">
 <!ENTITY context.copy.label "Kopijuoti elemento adresą">
-<!ENTITY tooltip.type.blocked "(užblokuota)">
+<!ENTITY tooltip.type.label "Tipas:">
 <!ENTITY search.accesskey "I">
 <!ENTITY context.disablefilter.label "Išjungti filtrą ?1?">
 <!ENTITY context.copyFilter.label "Kopijuoti filtrą">
@@ -28,6 +27,7 @@
 <!ENTITY tooltip.filter.label "Galiojantys filtrai:">
 <!ENTITY tooltip.filter.disabled "(išjungta)">
 <!ENTITY context.editfilter.label "Redaguoti aktyvų filtrą">
+<!ENTITY tooltip.type.blocked "(užblokuota)">
 <!ENTITY size.label "Dydis">
 <!ENTITY context.whitelist.label "Pridėti išimties taisyklę šiam elementui">
 <!ENTITY context.selectAll.label "Pažymėti viską">

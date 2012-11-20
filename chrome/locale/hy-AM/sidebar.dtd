@@ -1,5 +1,4 @@
 <!ENTITY context.flash.label "Ցույց տալ օբյեկտը էջում">
-<!ENTITY tooltip.type.label "Տեսակը`">
 <!ENTITY address.label "Հասցեն">
 <!ENTITY context.open.label "Բացել նոր Թաբում">
 <!ENTITY type.label "Տեսակը">
@@ -12,7 +11,7 @@
 <!ENTITY docDomain.thirdParty "(երրորդ կողմի)">
 <!ENTITY tooltip.docDomain.label "Աշխատանքի աղբյուրը`">
 <!ENTITY context.copy.label "Կրկնել տարրի հասցեն">
-<!ENTITY tooltip.type.blocked "(ֆիլտրված)">
+<!ENTITY tooltip.type.label "Տեսակը`">
 <!ENTITY search.accesskey "Փ">
 <!ENTITY context.disablefilter.label "Անջատել ֆիլտրը ?1?">
 <!ENTITY context.copyFilter.label "Կրկնակել ֆիլտրը">
@@ -27,6 +26,7 @@
 <!ENTITY tooltip.filter.label "Ազդող ֆիլտրը`">
 <!ENTITY tooltip.filter.disabled "(անջատված)">
 <!ENTITY context.editfilter.label "Խմբագրել Ազդող ֆիլտրը">
+<!ENTITY tooltip.type.blocked "(ֆիլտրված)">
 <!ENTITY size.label "Չափը">
 <!ENTITY context.whitelist.label "Այս տարրի համար Բացառություն ավելացնել">
 <!ENTITY context.selectAll.label "Լրիվ Ընտրել">

@@ -1,5 +1,4 @@
 <!ENTITY context.flash.label "Ohraničenie flashových položiek">
-<!ENTITY tooltip.type.label "Typ:">
 <!ENTITY address.label "Adresa">
 <!ENTITY context.open.label "Otvoriť na novej karte">
 <!ENTITY type.label "Typ">
@@ -13,7 +12,7 @@
 <!ENTITY filterSource.label "Zdroj filtra">
 <!ENTITY tooltip.docDomain.label "Zdroj dokumentu:">
 <!ENTITY context.copy.label "Kopírovať adresu položiek">
-<!ENTITY tooltip.type.blocked "(blokovaný)">
+<!ENTITY tooltip.type.label "Typ:">
 <!ENTITY search.accesskey "H">
 <!ENTITY context.disablefilter.label "Vypnúť filter ?1?">
 <!ENTITY context.copyFilter.label "Kopírovať filter">
@@ -28,6 +27,7 @@
 <!ENTITY tooltip.filter.label "Platný filter:">
 <!ENTITY tooltip.filter.disabled "(vypnutý)">
 <!ENTITY context.editfilter.label "Upraviť filter v skutočnosti">
+<!ENTITY tooltip.type.blocked "(blokovaný)">
 <!ENTITY size.label "Veľkosť">
 <!ENTITY context.whitelist.label "Pridať výnimku pre položku">
 <!ENTITY context.selectAll.label "Vybrať všetko">

@@ -1,5 +1,4 @@
 <!ENTITY context.flash.label "항목 위치 확인">
-<!ENTITY tooltip.type.label "형식 :">
 <!ENTITY address.label "주소">
 <!ENTITY context.open.label "새 탭으로 열기">
 <!ENTITY type.label "형식">
@@ -13,7 +12,7 @@
 <!ENTITY filterSource.label "필터 위치">
 <!ENTITY tooltip.docDomain.label "문서 위치 :">
 <!ENTITY context.copy.label "주소 복사">
-<!ENTITY tooltip.type.blocked "(차단됨)">
+<!ENTITY tooltip.type.label "형식 :">
 <!ENTITY search.accesskey "S">
 <!ENTITY context.disablefilter.label "필터 사용 중지 : ?1?">
 <!ENTITY context.copyFilter.label "필터 복사">
@@ -28,6 +27,7 @@
 <!ENTITY tooltip.filter.label "필터 :">
 <!ENTITY tooltip.filter.disabled "(사용 중지)">
 <!ENTITY context.editfilter.label "필터 편집">
+<!ENTITY tooltip.type.blocked "(차단됨)">
 <!ENTITY size.label "크기">
 <!ENTITY context.whitelist.label "허용 필터 추가">
 <!ENTITY context.selectAll.label "모두 선택">

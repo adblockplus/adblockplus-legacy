@@ -1,5 +1,4 @@
 <!ENTITY context.flash.label "Flash item's borders">
-<!ENTITY tooltip.type.label "Type:">
 <!ENTITY address.label "Address">
 <!ENTITY context.open.label "Open in New Tab">
 <!ENTITY type.label "Type">
@@ -13,7 +12,7 @@
 <!ENTITY filterSource.label "Filter source">
 <!ENTITY tooltip.docDomain.label "Document source:">
 <!ENTITY context.copy.label "Copy item's address">
-<!ENTITY tooltip.type.blocked "(blocked)">
+<!ENTITY tooltip.type.label "Type:">
 <!ENTITY search.accesskey "S">
 <!ENTITY context.disablefilter.label "Disable filter ?1?">
 <!ENTITY context.copyFilter.label "Copy filter">
@@ -28,6 +27,7 @@
 <!ENTITY tooltip.filter.label "Filter in effect:">
 <!ENTITY tooltip.filter.disabled "(disabled)">
 <!ENTITY context.editfilter.label "Edit filter in effect">
+<!ENTITY tooltip.type.blocked "(blocked)">
 <!ENTITY size.label "Size">
 <!ENTITY context.whitelist.label "Add exception rule for item">
 <!ENTITY context.selectAll.label "Select all">

@@ -15,6 +15,7 @@
 <!ENTITY find.accesskey "S">
 <!ENTITY readMore.label "Legu pli">
 <!ENTITY subscription.homepage.label "Hejmpaĝo">
+<!ENTITY typoCorrections.enableLabel "Korekti mistajpitajn interretajn adresojn">
 <!ENTITY sort.descending.accesskey "Z">
 <!ENTITY sort.descending.label "Ordigo Z &gt; A">
 <!ENTITY subscription.lastDownload.success "Sukceso">
@@ -35,6 +36,7 @@
 <!ENTITY backupButton.accesskey "k">
 <!ENTITY filter.actions.label "Filtrilaj agoj">
 <!ENTITY filter.moveDown.label "Malsupren">
+<!ENTITY typoCorrections.tab.label "Tajpkorektoj">
 <!ENTITY addFilter.label "Aldoni filtrilon">
 <!ENTITY subscription.editTitle.label "Redakti titolon">
 <!ENTITY subscription.moveDown.label "Malsupren">
@@ -42,12 +44,14 @@
 <!ENTITY filter.column "Filtrilregulo">
 <!ENTITY subscription.lastDownload.checksumMismatch "Malsukcesis, kontrolsuma miskongruo">
 <!ENTITY noFiltersInGroup.text "La elektita grupo estas malplena.">
+<!ENTITY typoCorrections.whitelistLabel "Ne anstataŭigi...">
 <!ENTITY sort.label "Ordigi laŭ">
 <!ENTITY noFilters.text "Vi ankoraŭ ne havas proprajn filtrilojn.">
 <!ENTITY subscription.external.label "Ĝisdatigita per alia etendaĵo">
 <!ENTITY filter.accesskey "F">
 <!ENTITY noGroupSelected.text "Vi devas elekti filtrilgrupon antaŭ ol filtriloj povas esti vidigataj.">
 <!ENTITY subscription.lastDownload.inProgress "Elŝutanta...">
+<!ENTITY typoCorrections.removeButtonLabel "Forigi elektitajn">
 <!ENTITY enabled.column "Ebligita">
 <!ENTITY viewMenu.label "Vidi">
 <!ENTITY addSubscriptionCancel.label "Nuligi">
@@ -68,6 +72,7 @@
 <!ENTITY restore.minVersion.warning "Averto: la dosiero estas kreita per pli nova versio de Adblock Plus. Vi ĝisdatigu al la plej nova versio de Adblock Plus antaŭ ol vi restaŭri ion el ĉi tiu dosiero.">
 <!ENTITY sort.ascending.label "Ordigo A &gt; Z">
 <!ENTITY viewList.label "Montri liston">
+<!ENTITY typoCorrections.whitelistEmptyLabel "Nuntempe esceptoj ne estas.">
 <!ENTITY sort.ascending.accesskey "A">
 <!ENTITY restore.default.label "Restaŭri sekurkopion de ?1?">
 <!ENTITY hitcount.accesskey "T">

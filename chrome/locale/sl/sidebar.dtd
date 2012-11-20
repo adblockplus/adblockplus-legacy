@@ -1,5 +1,4 @@
 <!ENTITY context.flash.label "Obrobe elementa naj utripajo">
-<!ENTITY tooltip.type.label "Vrsta:">
 <!ENTITY address.label "Naslov">
 <!ENTITY context.open.label "Odpri v novem zavihku">
 <!ENTITY type.label "Vrsta">
@@ -12,7 +11,7 @@
 <!ENTITY filterSource.label "Vir filtra">
 <!ENTITY tooltip.docDomain.label "Vir dokumenta:">
 <!ENTITY context.copy.label "Kopiraj naslov elementa">
-<!ENTITY tooltip.type.blocked "(blokirano)">
+<!ENTITY tooltip.type.label "Vrsta:">
 <!ENTITY search.accesskey "N">
 <!ENTITY context.disablefilter.label "Onemogoči filter ?1?">
 <!ENTITY context.copyFilter.label "Kopiraj filter">
@@ -27,6 +26,7 @@
 <!ENTITY tooltip.filter.label "Trenutni filter:">
 <!ENTITY tooltip.filter.disabled "(onemogočeno)">
 <!ENTITY context.editfilter.label "Uredi trenutni filter">
+<!ENTITY tooltip.type.blocked "(blokirano)">
 <!ENTITY size.label "Velikost">
 <!ENTITY context.whitelist.label "Dodaj pravilo izjem za element">
 <!ENTITY context.selectAll.label "Izberi vse">

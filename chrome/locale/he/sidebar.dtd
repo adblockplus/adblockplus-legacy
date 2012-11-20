@@ -1,5 +1,4 @@
 <!ENTITY context.flash.label "גבולות פריט הפלאש">
-<!ENTITY tooltip.type.label "סוג:">
 <!ENTITY address.label "כתובת">
 <!ENTITY context.open.label "פתיחה בלשונית חדשה">
 <!ENTITY type.label "סוג">
@@ -13,7 +12,7 @@
 <!ENTITY filterSource.label "מקור המסנן">
 <!ENTITY tooltip.docDomain.label "מקור המסמך:">
 <!ENTITY context.copy.label "העתקת כתובת הפריט">
-<!ENTITY tooltip.type.blocked "(חסום)">
+<!ENTITY tooltip.type.label "סוג:">
 <!ENTITY search.accesskey "ח">
 <!ENTITY context.disablefilter.label "נטרול המסנן ?1?">
 <!ENTITY context.copyFilter.label "העתקת המסנן">
@@ -28,6 +27,7 @@
 <!ENTITY tooltip.filter.label "השפעת המסנן:">
 <!ENTITY tooltip.filter.disabled "(מנוטרל)">
 <!ENTITY context.editfilter.label "עריכת המסנן שמשפיע">
+<!ENTITY tooltip.type.blocked "(חסום)">
 <!ENTITY size.label "גודל">
 <!ENTITY context.whitelist.label "הוספת כלל חריג עבור פריט">
 <!ENTITY context.selectAll.label "בחירת הכל">

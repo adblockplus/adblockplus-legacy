@@ -1,5 +1,4 @@
 <!ENTITY context.flash.label "Blikání obrysu objektu">
-<!ENTITY tooltip.type.label "Typ:">
 <!ENTITY address.label "Adresa">
 <!ENTITY context.open.label "Otevřít v novém panelu">
 <!ENTITY type.label "Typ">
@@ -13,7 +12,7 @@
 <!ENTITY filterSource.label "Zdroj filtru">
 <!ENTITY tooltip.docDomain.label "Zdroj dokumentu:">
 <!ENTITY context.copy.label "Kopírovat adresu objektu">
-<!ENTITY tooltip.type.blocked "(blokováno)">
+<!ENTITY tooltip.type.label "Typ:">
 <!ENTITY search.accesskey "H">
 <!ENTITY context.disablefilter.label "Zakázat filtr ?1?">
 <!ENTITY context.copyFilter.label "Kopírovat filtr">
@@ -28,6 +27,7 @@
 <!ENTITY tooltip.filter.label "Použité filtry:">
 <!ENTITY tooltip.filter.disabled "(zakázaný)">
 <!ENTITY context.editfilter.label "Upravit příslušný filtr">
+<!ENTITY tooltip.type.blocked "(blokováno)">
 <!ENTITY size.label "Velikost">
 <!ENTITY context.whitelist.label "Přidat výjimku pro tento objekt">
 <!ENTITY context.selectAll.label "Vybrat vše">

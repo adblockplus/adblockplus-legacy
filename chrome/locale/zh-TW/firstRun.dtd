@@ -6,5 +6,5 @@
 <!ENTITY visitHomepage.label "造訪條件集首頁">
 <!ENTITY dialog.title "Adblock Plus 安裝完成">
 <!ENTITY listSelection1 "已設定以下過濾條件集來阻擋廣告：">
-<!ENTITY listSelection2 "您可以隨時在[link]條件偏好設定[/link]中改變這個選項。">
+<!ENTITY listSelection2 "您可以隨時在 [link]條件偏好設定[/link] 中改變這個選項。">
 <!ENTITY readMore.label "了解詳細內容">

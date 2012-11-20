@@ -4,6 +4,7 @@
 <!ENTITY showData.label "Zobrazit data hlášení">
 <!ENTITY typeSelector.falsePositive.label "Adblock Plus blokuje příliš mnoho">
 <!ENTITY recentReports.clear.accesskey "r">
+<!ENTITY email.accesskey "m">
 <!ENTITY issues.change.description "Vaše nastavení bylo změněno. Obnovte prosím stránku pro otestování změn a odešlete hlášení problému, pokud nebyl vyřešen úpravami nastavení.">
 <!ENTITY reloadButton.accesskey "O">
 <!ENTITY screenshot.attach.accesskey "P">
@@ -45,6 +46,7 @@
 <!ENTITY sendPage.errorMessage "Pokus odeslat hlášení problému selhal s chybovým kódem &quot;?1?&quot;. Ověřte prosím, že jste připojeni k internetu a pokus opakujte. Pokud problém přetrvává, zkuste prosím vyhledat pomoc na [link]fóru Adblocku Plus[/link].">
 <!ENTITY showRecentReports.label "Ukázat nedávno odeslaná hlášení">
 <!ENTITY commentPage.heading "Vložit komentář">
+<!ENTITY update.start.label "Spustit aktualizaci">
 <!ENTITY screenshot.remove.accesskey "O">
 <!ENTITY issues.disabledfilters.description "Následující filtry jsou  zakázány, přesto můžou mít vliv na tuto stránku:">
 <!ENTITY screenshot.description "Stejná stránka může být zobrazena odlišně různým lidem. Pomůže nám pochopit problém, pokud připojíte snímek stránky k vašemu hlášení problému. Můžete odstranit části obsahující důvěrné informace i vyznačit místa, kde je problém vidět. Toho docílíte klepnutím na odpovídající tlačítko a výběrem části obrázku myší.">

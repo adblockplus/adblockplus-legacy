@@ -1,5 +1,4 @@
 <!ENTITY context.flash.label "Осветли границе ставке">
-<!ENTITY tooltip.type.label "Врста:">
 <!ENTITY address.label "Адреса">
 <!ENTITY context.open.label "Отвори на новом листу">
 <!ENTITY type.label "Врста">
@@ -13,7 +12,7 @@
 <!ENTITY filterSource.label "Извор филтера">
 <!ENTITY tooltip.docDomain.label "Извор документа:">
 <!ENTITY context.copy.label "Умножи адресу ставке">
-<!ENTITY tooltip.type.blocked "(блокирано)">
+<!ENTITY tooltip.type.label "Врста:">
 <!ENTITY search.accesskey "Т">
 <!ENTITY context.disablefilter.label "Онемогући филтер ?1?">
 <!ENTITY context.copyFilter.label "Умножи филтер">
@@ -28,6 +27,7 @@
 <!ENTITY tooltip.filter.label "Коришћени филтер:">
 <!ENTITY tooltip.filter.disabled "(онемогућено)">
 <!ENTITY context.editfilter.label "Уреди коришћени филтер">
+<!ENTITY tooltip.type.blocked "(блокирано)">
 <!ENTITY size.label "Величина">
 <!ENTITY context.whitelist.label "Додај изузетак за ставку">
 <!ENTITY context.selectAll.label "Изабери све">

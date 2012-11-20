@@ -1,1 +1,10 @@
+<!ENTITY advancedSection "تنظیمات پیشرفته">
+<!ENTITY confirmation "از شما به خاطر نصب Adblock پلاس متشکریم. آگهی ها از حالا به بعد مسدود خواهند شد. لذت ببرید!">
+<!ENTITY noList "بدون لیست فیلتر">
+<!ENTITY acceptableAds2 "Adblock پلاس همچنین پیکربندی شده است تا بعضی از تبلیغاتی که فضولی نمی کنند را مجاز بشمرد.">
+<!ENTITY viewList.label "مشاهده لیست">
+<!ENTITY visitHomepage.label "بازدید از صفحه لیست">
 <!ENTITY dialog.title "نسب فوق تبلیغ شکن کامل شد">
+<!ENTITY listSelection1 "لیست فیلتر زیر برای جلوگیری از تبلیغات پیکربندی شده است:">
+<!ENTITY listSelection2 "شما هر زمانی می توانید این انتخاب را تغییر دهید در [link]تنظیمات صافی[/link].">
+<!ENTITY readMore.label "در این مورد بیشتر بخوانید">

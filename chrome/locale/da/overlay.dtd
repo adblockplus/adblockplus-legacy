@@ -10,12 +10,12 @@
 <!ENTITY objecttabs.label "Vis faner på Flash og Java">
 <!ENTITY objecttab.tooltip "Klik her for at blokere dette objekt med Adblock Plus">
 <!ENTITY menuitem.label "Adblock Plus indstillinger">
-<!ENTITY sendReport.accesskey "R">
+<!ENTITY sendReport.accesskey "p">
 <!ENTITY sendReport.label "Rapporter problem">
 <!ENTITY filters.accesskey "F">
 <!ENTITY whitelist.page.label "Slå fra på denne side">
 <!ENTITY context.image.label "Adblock billede">
-<!ENTITY closesidebar.accesskey "L">
+<!ENTITY closesidebar.accesskey "r">
 <!ENTITY hideplaceholders.label "Skjul blokerede emners pladsholder">
 <!ENTITY opensidebar.label "Åbn blokérbare elementer">
 <!ENTITY options.accesskey "d">

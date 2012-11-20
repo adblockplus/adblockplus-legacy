@@ -1,5 +1,4 @@
 <!ENTITY context.flash.label "Evidenţiază marginile elementelor">
-<!ENTITY tooltip.type.label "Tip:">
 <!ENTITY address.label "Adresă">
 <!ENTITY context.open.label "Deschide în filă nouă">
 <!ENTITY type.label "Tip">
@@ -13,7 +12,7 @@
 <!ENTITY filterSource.label "Sursă filtru">
 <!ENTITY tooltip.docDomain.label "Sursă document:">
 <!ENTITY context.copy.label "Copiază adresa elementului">
-<!ENTITY tooltip.type.blocked "(blocat)">
+<!ENTITY tooltip.type.label "Tip:">
 <!ENTITY search.accesskey "C">
 <!ENTITY context.disablefilter.label "Dezactivează filtru ?1?">
 <!ENTITY context.copyFilter.label "Copiază filtru">
@@ -28,6 +27,7 @@
 <!ENTITY tooltip.filter.label "Filtru în acţiune:">
 <!ENTITY tooltip.filter.disabled "(dezactivat)">
 <!ENTITY context.editfilter.label "Modifică filtrul activ">
+<!ENTITY tooltip.type.blocked "(blocat)">
 <!ENTITY size.label "Mărime">
 <!ENTITY context.whitelist.label "Adaugă regulă excepţie pentru element">
 <!ENTITY context.selectAll.label "Selectează tot">

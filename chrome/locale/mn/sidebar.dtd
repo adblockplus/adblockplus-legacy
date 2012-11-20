@@ -1,5 +1,4 @@
 <!ENTITY context.flash.label "Flash зүйлийн хүрээнүүд">
-<!ENTITY tooltip.type.label "Төрөл:">
 <!ENTITY address.label "Хаяг">
 <!ENTITY context.open.label "Шинэ хуудсанд нээх">
 <!ENTITY type.label "Төрөл">
@@ -12,7 +11,7 @@
 <!ENTITY docDomain.thirdParty "(гурав дахь хэсэг)">
 <!ENTITY tooltip.docDomain.label "Баримтын эх:">
 <!ENTITY context.copy.label "Зүйлийн хаягийг сануулах">
-<!ENTITY tooltip.type.blocked "(хашигдсан)">
+<!ENTITY tooltip.type.label "Төрөл:">
 <!ENTITY search.accesskey "Х">
 <!ENTITY context.disablefilter.label "Шүүлтүүр хаах ?1?">
 <!ENTITY context.copyFilter.label "Шүүлтүүр хуулах">
@@ -27,6 +26,7 @@
 <!ENTITY tooltip.filter.label "Эффектийн шүүлтүүр:">
 <!ENTITY tooltip.filter.disabled "(идэвхгүй)">
 <!ENTITY context.editfilter.label "Эффектийн шүүлтүүрийг засах">
+<!ENTITY tooltip.type.blocked "(хашигдсан)">
 <!ENTITY size.label "Хэмжээ">
 <!ENTITY context.whitelist.label "Зүйлд онцгой дүрэм нэмэх">
 <!ENTITY context.selectAll.label "Бүгдийг сонгох">

@@ -1,11 +1,11 @@
 <!ENTITY advancedSection "詳細設定">
 <!ENTITY confirmation "Adblock Plus をインストールいただきありがとうございます。今から広告はブロックされます。
 Enjoy!">
-<!ENTITY noList "フィルタリストなし">
-<!ENTITY acceptableAds2 "Adblock Plus は控えめな広告を許可するように設定されました。">
-<!ENTITY viewList.label "設定内容を参照">
-<!ENTITY visitHomepage.label "リストのホームページを表示">
+<!ENTITY noList "フィルタなし">
+<!ENTITY acceptableAds2 "Adblock Plus は控えめな広告を許可するようにも設定されています。">
+<!ENTITY viewList.label "フィルタファイルを開いて確認">
+<!ENTITY visitHomepage.label "フィルタ作者のページを開く">
 <!ENTITY dialog.title "Adblock Plus のインストール完了">
-<!ENTITY listSelection1 "広告をブロックするため設定されたフィルタリストは次の通り：">
-<!ENTITY listSelection2 "設定はいつでも [link]フィルタ設定[/link] で変更することができます。">
-<!ENTITY readMore.label "更に詳しい説明">
+<!ENTITY listSelection1 "広告をブロックするため設定されたフィルタは以下の通り:">
+<!ENTITY listSelection2 "フィルタ選択は [link]フィルタ設定[/link] でいつでも変更することができます。">
+<!ENTITY readMore.label "控えめな広告を許可したことについての詳細">

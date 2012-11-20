@@ -1,5 +1,4 @@
 <!ENTITY context.flash.label "Välkytä reunoja">
-<!ENTITY tooltip.type.label "Tyyppi:">
 <!ENTITY address.label "Osoite">
 <!ENTITY context.open.label "Avaa uuteen välilehteen">
 <!ENTITY type.label "Tyyppi">
@@ -13,7 +12,7 @@
 <!ENTITY filterSource.label "Suodattimen lähde">
 <!ENTITY tooltip.docDomain.label "Dokumentin lähde:">
 <!ENTITY context.copy.label "Kopioi osoite">
-<!ENTITY tooltip.type.blocked "(estetty)">
+<!ENTITY tooltip.type.label "Tyyppi:">
 <!ENTITY search.accesskey "E">
 <!ENTITY context.disablefilter.label "Poista käytöstä suodatin: ?1?">
 <!ENTITY context.copyFilter.label "Kopioi suodatin">
@@ -28,6 +27,7 @@
 <!ENTITY tooltip.filter.label "Vaikuttava suodatin:">
 <!ENTITY tooltip.filter.disabled "(poistettu käytöstä)">
 <!ENTITY context.editfilter.label "Muokkaa suodatinta">
+<!ENTITY tooltip.type.blocked "(estetty)">
 <!ENTITY size.label "Koko">
 <!ENTITY context.whitelist.label "Lisää poikkeusehto">
 <!ENTITY context.selectAll.label "Valitse kaikki">

@@ -1,35 +1,52 @@
 <!ENTITY slow.column "نمایش پالایه ها">
+<!ENTITY enabled.column "فعال‌">
 <!ENTITY subscription.lastDownload.checksumMismatch "مشکل, عدم تطابق کنترلی">
 <!ENTITY lasthit.column "آخرین برخورد">
-<!ENTITY viewMenu.label "نما">
+<!ENTITY slow.accesskey "ن">
 <!ENTITY sort.accesskey "س">
 <!ENTITY sort.ascending.label "ترتیب حروف الف با از ابتدا">
 <!ENTITY sort.label "مرتب کردن بر اساس">
+<!ENTITY subscription.source.label "لیست فیلتر">
 <!ENTITY filter.paste.label "جای گذاری">
+<!ENTITY subscription.external.label "با پسوند دیگری به روز شده">
 <!ENTITY filter.accesskey "ق">
 <!ENTITY sort.ascending.accesskey "ا">
+<!ENTITY restore.default.label "بازیابی پشتیبان از ?1?">
 <!ENTITY subscription.lastDownload.inProgress "در حال دریافت...">
+<!ENTITY subscriptions.tab.label "اشتراک های فیلتر">
 <!ENTITY enabled.accesskey "ع">
+<!ENTITY addSubscription.accesskey "f">
 <!ENTITY filter.delete.label "حذف">
-<!ENTITY enabled.column "فعال‌">
-<!ENTITY slow.accesskey "ن">
+<!ENTITY addSubscriptionAdd.label "اضافه کردن">
+<!ENTITY viewMenu.label "نما">
 <!ENTITY subscription.lastDownload.unknown "ت.ن (تعریف نشده)">
+<!ENTITY addSubscriptionCancel.label "لغو">
+<!ENTITY subscription.enabled.label "فعال شد">
 <!ENTITY lasthit.accesskey "و">
-<!ENTITY hitcount.accesskey "خ">
+<!ENTITY noSubscriptions.text "شما هیچ اشتراک فیلتری را اضافه نکردید. Adblock پلاس هیچ چیزی را بدون فیلتر مسدود نمی کند, لطفا با استفاده از &quot;افزودن اشتراک فیلتر&quot; چندتا اضافه کنید.">
+<!ENTITY dialog.title "تنظیمات فیلتر Adblock پلاس">
 <!ENTITY subscription.lastDownload.invalidURL "نشانی نامعتبر بود">
+<!ENTITY addGroup.label "افزودن گروه فیلتر">
 <!ENTITY hitcount.column "برخورد ها">
 <!ENTITY filter.cut.label "برش">
+<!ENTITY hitcount.accesskey "خ">
 <!ENTITY addSubscriptionOther.label "اشتراک ديگر">
 <!ENTITY sort.none.label "نا مرتب">
 <!ENTITY filter.copy.label "رونوشت">
+<!ENTITY typoCorrections.tab.label "Typo اصلاحات">
 <!ENTITY sort.none.accesskey "ر">
 <!ENTITY addSubscription.label "اشتراک پالایه">
+<!ENTITY subscription.homepage.label "صفحه اصلی">
+<!ENTITY restore.own.label "بازیابی پشتیبان خود">
+<!ENTITY filters.tab.label "فیلترهای سفارشی">
 <!ENTITY sort.descending.accesskey "ت">
+<!ENTITY backup.label "نسخه پشتیبان جدید بسازید">
 <!ENTITY find.label "یافتن">
 <!ENTITY sort.descending.label "ترتیب حروف الف با از انتها">
 <!ENTITY subscription.lastDownload.connectionError "مشکل، فرآیند دریافت شکست خورد">
 <!ENTITY subscription.lastDownload.success "موفق">
 <!ENTITY subscription.lastDownload.invalidData "مشکل، فهرست پالایه ها نامعتبر است">
 <!ENTITY addFilter.label "افزودن افزودن پالایه">
-<!ENTITY subscription.lastDownload.label "آخرین دریافت:">
 <!ENTITY filter.column "قواعد پالایش">
+<!ENTITY subscription.lastDownload.label "آخرین دریافت:">
+<!ENTITY viewList.label "مشاهده لیست">

@@ -4,12 +4,12 @@
 <!ENTITY list.download.retry "Essayer à nouveau">
 <!ENTITY location.accesskey "E">
 <!ENTITY title.label "Nom de l'abonnement :">
-<!ENTITY list.download.website "Afficher le site web">
+<!ENTITY list.download.website "Afficher le site Web">
 <!ENTITY supplementMessage "Cet abonnement est prévu pour être utilisé avec l'abonnement &quot;?1?&quot; que vous n'utilisez pas encore.">
 <!ENTITY title.accesskey "N">
 <!ENTITY viewList.label "Afficher les filtres">
-<!ENTITY visitHomepage.label "Se rendre au site web">
+<!ENTITY visitHomepage.label "Se rendre au site Web">
 <!ENTITY addSubscription.label "Ajouter l'abonnement">
 <!ENTITY dialog.title "Ajouter un abonnement à une liste de filtres Adblock Plus">
 <!ENTITY location.label "Emplacement de la liste :">
-<!ENTITY fromWeb.description "Veuillez confirmer que vous souhaitez ajouter cet abonnement. Vous pouvez modifier le titre et l'emplacement de l'abonnement avant de l'ajouter.">
+<!ENTITY fromWeb.description "Veuillez confirmer que vous souhaitez ajouter cet abonnement. Vous pouvez modifier le titre ou l'emplacement de l'abonnement avant de l'ajouter.">

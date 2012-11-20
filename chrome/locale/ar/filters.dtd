@@ -6,7 +6,7 @@
 <!ENTITY subscription.actions.label "الإجراءات">
 <!ENTITY filter.selectAll.label "اختيار الكل">
 <!ENTITY backupButton.label "النسخ الاحتياطية والاسترجاع">
-<!ENTITY addFilter.accesskey "خ">
+<!ENTITY slow.accesskey "ع">
 <!ENTITY filter.accesskey "ف">
 <!ENTITY sort.ascending.label "ترتيب أبجدي (A &gt; Z)">
 <!ENTITY noFiltersInGroup.text "المجموعة المختارة فارغة">
@@ -43,7 +43,6 @@
 <!ENTITY addFilter.label "إضافة فلتر">
 <!ENTITY subscription.minVersion.warning "يتطلب هذا الاشتراك للتصفية أحدث إصدار آد بلُك بلَس ، يجب التحديث إلى الإصدار الأحدث">
 <!ENTITY subscription.lastDownload.invalidURL "فشل الأمر، ليس عنوان صحيح">
-<!ENTITY slow.accesskey "ع">
 <!ENTITY filter.moveUp.label "الى الاعلى">
 <!ENTITY addGroup.label "أضافة مجموعة تصفية">
 <!ENTITY filter.edit.label "تحرير">

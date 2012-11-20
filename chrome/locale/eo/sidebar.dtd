@@ -1,5 +1,4 @@
 <!ENTITY context.flash.label "Borderoj de elementoj de Flash">
-<!ENTITY tooltip.type.label "Tipo:">
 <!ENTITY address.label "Adreso">
 <!ENTITY context.open.label "Malfermi en nova langeto">
 <!ENTITY type.label "Tipo">
@@ -13,7 +12,7 @@
 <!ENTITY filterSource.label "Fonto de la filtrilo">
 <!ENTITY tooltip.docDomain.label "Fonto de la dokumento:">
 <!ENTITY context.copy.label "Kopii la adreson de la elemento">
-<!ENTITY tooltip.type.blocked "(blokita)">
+<!ENTITY tooltip.type.label "Tipo:">
 <!ENTITY search.accesskey "S">
 <!ENTITY context.disablefilter.label "Malebligi filtrilon ?1?">
 <!ENTITY context.copyFilter.label "Kopii filtrilon">
@@ -28,6 +27,7 @@
 <!ENTITY tooltip.filter.label "Efika filtrilo:">
 <!ENTITY tooltip.filter.disabled "(malebligita)">
 <!ENTITY context.editfilter.label "Redakti efikan filtrilon">
+<!ENTITY tooltip.type.blocked "(blokita)">
 <!ENTITY size.label "Grandeco">
 <!ENTITY context.whitelist.label "Aldoni esceptoregulon por elemento">
 <!ENTITY context.selectAll.label "Elekti ĉion">

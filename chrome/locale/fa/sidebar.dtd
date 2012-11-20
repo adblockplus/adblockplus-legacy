@@ -1,5 +1,4 @@
 <!ENTITY context.flash.label "مرز های اقلام فلش">
-<!ENTITY tooltip.type.label "نوع:">
 <!ENTITY address.label "نشانی">
 <!ENTITY context.open.label "گشودن در زبانه نو">
 <!ENTITY type.label "نوع">
@@ -12,7 +11,7 @@
 <!ENTITY docDomain.thirdParty "(عضو سوم)">
 <!ENTITY tooltip.docDomain.label "متن صفحه:">
 <!ENTITY context.copy.label "رونوشت نشانی مورد">
-<!ENTITY tooltip.type.blocked "(رد شده)">
+<!ENTITY tooltip.type.label "نوع:">
 <!ENTITY search.accesskey "ف">
 <!ENTITY context.disablefilter.label "پالایه غیر فعال ?1?">
 <!ENTITY context.copyFilter.label "رونوشت پالایه">
@@ -27,6 +26,7 @@
 <!ENTITY tooltip.filter.label "پالایه های مؤثر:">
 <!ENTITY tooltip.filter.disabled "(غیر فعال)">
 <!ENTITY context.editfilter.label "ویرایش پالایه مؤثر">
+<!ENTITY tooltip.type.blocked "(رد شده)">
 <!ENTITY size.label "اندازه">
 <!ENTITY context.whitelist.label "افزودن قانون استثنا برای این مورد">
 <!ENTITY context.selectAll.label "انتخاب همه">

@@ -1,5 +1,4 @@
 <!ENTITY context.flash.label "Pokaż element w mrugającej ramce">
-<!ENTITY tooltip.type.label "Typ:">
 <!ENTITY address.label "Adres">
 <!ENTITY context.open.label "Otwórz w nowej karcie">
 <!ENTITY type.label "Typ">
@@ -13,7 +12,7 @@
 <!ENTITY filterSource.label "Źródło filtra">
 <!ENTITY tooltip.docDomain.label "Źródło dokumentu:">
 <!ENTITY context.copy.label "Kopiuj adres elementu">
-<!ENTITY tooltip.type.blocked "(zablokowany)">
+<!ENTITY tooltip.type.label "Typ:">
 <!ENTITY search.accesskey "S">
 <!ENTITY context.disablefilter.label "Wyłącz filtr ?1?">
 <!ENTITY context.copyFilter.label "Kopiuj filtr">
@@ -28,6 +27,7 @@
 <!ENTITY tooltip.filter.label "Działające filtry:">
 <!ENTITY tooltip.filter.disabled "(wyłączony)">
 <!ENTITY context.editfilter.label "Edytuj filtr w rzeczywistości">
+<!ENTITY tooltip.type.blocked "(zablokowany)">
 <!ENTITY size.label "Rozmiar">
 <!ENTITY context.whitelist.label "Dodaj regułę wyjątku dla elementu">
 <!ENTITY context.selectAll.label "Zaznacz filtr">

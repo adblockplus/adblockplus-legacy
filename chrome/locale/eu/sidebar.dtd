@@ -1,5 +1,4 @@
 <!ENTITY context.flash.label "Flash elementuaren ertzak">
-<!ENTITY tooltip.type.label "Mota:">
 <!ENTITY address.label "Helbidea">
 <!ENTITY context.open.label "Fitxa berrian ireki">
 <!ENTITY type.label "Mota">
@@ -13,7 +12,7 @@
 <!ENTITY filterSource.label "Iragazki iturria">
 <!ENTITY tooltip.docDomain.label "Dokumentuaren iturria:">
 <!ENTITY context.copy.label "Elementuaren helbidea kopiatu">
-<!ENTITY tooltip.type.blocked "(blokeatuta)">
+<!ENTITY tooltip.type.label "Mota:">
 <!ENTITY search.accesskey "B">
 <!ENTITY context.disablefilter.label "?1? iragazkia ezgaitu">
 <!ENTITY context.copyFilter.label "Kopiatu iragazkia">
@@ -28,6 +27,7 @@
 <!ENTITY tooltip.filter.label "Iragazki aktiboa:">
 <!ENTITY tooltip.filter.disabled "(ezgaitua)">
 <!ENTITY context.editfilter.label "Editatu iragazki aktiboa">
+<!ENTITY tooltip.type.blocked "(blokeatuta)">
 <!ENTITY size.label "Tamaina">
 <!ENTITY context.whitelist.label "Gehitu salbuespen araua elementuarentzat">
 <!ENTITY context.selectAll.label "Dena aukeratu">

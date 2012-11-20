@@ -1,5 +1,4 @@
 <!ENTITY context.flash.label "Osvijetli granice stavke">
-<!ENTITY tooltip.type.label "Vrsta:">
 <!ENTITY address.label "Adresa">
 <!ENTITY context.open.label "Otvori u novoj kartici">
 <!ENTITY type.label "Vrsta">
@@ -13,7 +12,7 @@
 <!ENTITY filterSource.label "Izvor filtera">
 <!ENTITY tooltip.docDomain.label "Izvor dokumenta:">
 <!ENTITY context.copy.label "Kopiraj adresu stavke">
-<!ENTITY tooltip.type.blocked "(blokiran)">
+<!ENTITY tooltip.type.label "Vrsta:">
 <!ENTITY search.accesskey "T">
 <!ENTITY context.disablefilter.label "Onemogućiti filter ?1?">
 <!ENTITY context.copyFilter.label "Kopiraj filter">
@@ -28,6 +27,7 @@
 <!ENTITY tooltip.filter.label "Filter u upotrebi:">
 <!ENTITY tooltip.filter.disabled "(onemogućen)">
 <!ENTITY context.editfilter.label "Uredi filter u upotrebi">
+<!ENTITY tooltip.type.blocked "(blokiran)">
 <!ENTITY size.label "Veličina">
 <!ENTITY context.whitelist.label "Dodaj pravilo izuzimanja za stavku">
 <!ENTITY context.selectAll.label "Odaberi sve">

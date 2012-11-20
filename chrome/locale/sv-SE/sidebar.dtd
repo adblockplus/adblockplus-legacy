@@ -1,5 +1,4 @@
 <!ENTITY context.flash.label "Markera objektets ram">
-<!ENTITY tooltip.type.label "Typ:">
 <!ENTITY address.label "Adress">
 <!ENTITY context.open.label "Öppna i ny flik">
 <!ENTITY type.label "Typ">
@@ -12,7 +11,7 @@
 <!ENTITY filterSource.label "Filterkälla">
 <!ENTITY tooltip.docDomain.label "Dokumentkälla:">
 <!ENTITY context.copy.label "Kopiera objektets adress">
-<!ENTITY tooltip.type.blocked "(blockerad)">
+<!ENTITY tooltip.type.label "Typ:">
 <!ENTITY search.accesskey "ö">
 <!ENTITY context.disablefilter.label "Inaktivera filtret ?1?">
 <!ENTITY context.copyFilter.label "Kopiera filter">
@@ -27,6 +26,7 @@
 <!ENTITY tooltip.filter.label "Filter som används:">
 <!ENTITY tooltip.filter.disabled "(inaktiverat)">
 <!ENTITY context.editfilter.label "Blockeringsfilter är på">
+<!ENTITY tooltip.type.blocked "(blockerad)">
 <!ENTITY size.label "Storlek">
 <!ENTITY context.whitelist.label "Lägg till undantag för objekt">
 <!ENTITY context.selectAll.label "Markera alla">

@@ -1,5 +1,4 @@
 <!ENTITY context.flash.label "Flash öğesinin sınırları">
-<!ENTITY tooltip.type.label "Tür:">
 <!ENTITY address.label "Adres">
 <!ENTITY context.open.label "Yeni sekmede aç">
 <!ENTITY type.label "Tür">
@@ -13,7 +12,7 @@
 <!ENTITY filterSource.label "Süzgeç kaynağı">
 <!ENTITY tooltip.docDomain.label "Belge kaynağı:">
 <!ENTITY context.copy.label "Öğenin konumunu kopyala">
-<!ENTITY tooltip.type.blocked "(engellendi)">
+<!ENTITY tooltip.type.label "Tür:">
 <!ENTITY search.accesskey "A">
 <!ENTITY context.disablefilter.label "Süzgeci devre dışı bırak ?1?">
 <!ENTITY context.copyFilter.label "Süzgeci kopyala">
@@ -28,6 +27,7 @@
 <!ENTITY tooltip.filter.label "Yürürlükteki süzgeç:">
 <!ENTITY tooltip.filter.disabled "(devre dışı)">
 <!ENTITY context.editfilter.label "Yürürlükteki süzgeci düzelt">
+<!ENTITY tooltip.type.blocked "(engellendi)">
 <!ENTITY size.label "Boyut">
 <!ENTITY context.whitelist.label "Öğeye ayrıcalık tanı">
 <!ENTITY context.selectAll.label "Tümünü seç">

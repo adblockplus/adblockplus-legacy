@@ -1,5 +1,4 @@
 <!ENTITY context.flash.label "Pampalluguejar vores de l'element">
-<!ENTITY tooltip.type.label "Tipus">
 <!ENTITY address.label "Adreça">
 <!ENTITY context.open.label "Obrir en una nova pestanya">
 <!ENTITY type.label "Tipus">
@@ -13,7 +12,7 @@
 <!ENTITY filterSource.label "Filtra font">
 <!ENTITY tooltip.docDomain.label "Font del document:">
 <!ENTITY context.copy.label "Copia l'adreça de l'element">
-<!ENTITY tooltip.type.blocked "(bloquejat)">
+<!ENTITY tooltip.type.label "Tipus">
 <!ENTITY search.accesskey "r">
 <!ENTITY context.disablefilter.label "Desactivar filtre ?1?">
 <!ENTITY context.copyFilter.label "Copia Filtre">
@@ -28,6 +27,7 @@
 <!ENTITY tooltip.filter.label "Filtre actiu">
 <!ENTITY tooltip.filter.disabled "(desactivat)">
 <!ENTITY context.editfilter.label "Editar filtre actiu">
+<!ENTITY tooltip.type.blocked "(bloquejat)">
 <!ENTITY size.label "Mida">
 <!ENTITY context.whitelist.label "Afegeix regla d'excepció per l'element">
 <!ENTITY context.selectAll.label "Selecciona tots">

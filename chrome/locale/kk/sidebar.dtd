@@ -1,5 +1,4 @@
 <!ENTITY context.flash.label "Flash құрамасының шектері">
-<!ENTITY tooltip.type.label "Түрі:">
 <!ENTITY address.label "Адресі">
 <!ENTITY context.open.label "Жаңа бетте ашу">
 <!ENTITY type.label "Түрі">
@@ -13,7 +12,7 @@
 <!ENTITY filterSource.label "Фильтр көзі">
 <!ENTITY tooltip.docDomain.label "Құжат көзі:">
 <!ENTITY context.copy.label "Элемент адресін көшіру">
-<!ENTITY tooltip.type.blocked "(блокталған)">
+<!ENTITY tooltip.type.label "Түрі:">
 <!ENTITY search.accesskey "з">
 <!ENTITY context.disablefilter.label "Фильтрді сөндіру ?1?">
 <!ENTITY context.copyFilter.label "Фильтрді көшіру">
@@ -28,6 +27,7 @@
 <!ENTITY tooltip.filter.label "Қолданудағы фильтр:">
 <!ENTITY tooltip.filter.disabled "(сөндірулі)">
 <!ENTITY context.editfilter.label "Қолданудағы фильтрді түзету">
+<!ENTITY tooltip.type.blocked "(блокталған)">
 <!ENTITY size.label "Көлемі">
 <!ENTITY context.whitelist.label "Элемент үшін ерекше ереже жасау">
 <!ENTITY context.selectAll.label "Барлығын ерекшелеу">
