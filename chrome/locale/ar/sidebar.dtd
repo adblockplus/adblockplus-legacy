@@ -1,5 +1,4 @@
 <!ENTITY context.flash.label "إضاءة حواف العنصر">
-<!ENTITY tooltip.type.label "النوع">
 <!ENTITY address.label "العنوان">
 <!ENTITY context.open.label "فتح في تبويب جديد">
 <!ENTITY type.label "النوع">
@@ -13,7 +12,7 @@
 <!ENTITY filterSource.label "فلترة المصدر">
 <!ENTITY tooltip.docDomain.label "مصدر الملف:">
 <!ENTITY context.copy.label "نسخ عنوان العنصر">
-<!ENTITY tooltip.type.blocked "(محجوب)">
+<!ENTITY tooltip.type.label "النوع">
 <!ENTITY search.accesskey "ث">
 <!ENTITY context.disablefilter.label "تعطيل الفلتر ?1?">
 <!ENTITY context.copyFilter.label "نسخ الفلتر">
@@ -28,6 +27,7 @@
 <!ENTITY tooltip.filter.label "الفلتر الفعال">
 <!ENTITY tooltip.filter.disabled "(معطل)">
 <!ENTITY context.editfilter.label "تعديل الفلتر الفعال">
+<!ENTITY tooltip.type.blocked "(محجوب)">
 <!ENTITY size.label "الحجم">
 <!ENTITY context.whitelist.label "إضافة قانون استثنائي إلى هذا العنصر">
 <!ENTITY context.selectAll.label "اختيار الكل">

@@ -1,9 +1,9 @@
 <!ENTITY showintoolbar.accesskey "ג">
 <!ENTITY showinstatusbar.accesskey "צ">
-<!ENTITY whitelist.site.label "נטרול ב ?1?">
+<!ENTITY whitelist.site.label "נטרול ב-?1?">
 <!ENTITY filters.label "העדפות סינון">
 <!ENTITY disable.label "נטרול בכל מקום">
-<!ENTITY showinaddonbar.label "הצגת סרגל ההרחבות">
+<!ENTITY showinaddonbar.label "הצגה בסרגל ההרחבות">
 <!ENTITY objecttab.title "חסימה">
 <!ENTITY showinaddonbar.accesskey "ג">
 <!ENTITY sync.accesskey "נ">
@@ -16,14 +16,14 @@
 <!ENTITY whitelist.page.label "נטרול בעמוד הזה בלבד">
 <!ENTITY context.image.label "Adblock Plus: חסימת תמונה">
 <!ENTITY closesidebar.accesskey "פ">
-<!ENTITY hideplaceholders.label "הסתרת מצייני מקום של אלמנט חסום">
+<!ENTITY hideplaceholders.label "הסתרת מצייני מקום של אלמנטים חסומים">
 <!ENTITY opensidebar.label "פתיחת רשימת הפריטים לחסימה">
 <!ENTITY options.accesskey "ש">
 <!ENTITY contribute.label "תרום ל-Adblock Plus">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus: חסימת מסגרת (פריים)">
 <!ENTITY counthits.label "מנה לחיצות מסנן">
-<!ENTITY blocked.tooltip "הפריטים החסומים בעמוד זה:">
+<!ENTITY blocked.tooltip "פריטים חסומים בעמוד זה:">
 <!ENTITY opensidebar.accesskey "פ">
 <!ENTITY showinstatusbar.label "הצגה בשורת המצב">
 <!ENTITY status.tooltip "מצב:">

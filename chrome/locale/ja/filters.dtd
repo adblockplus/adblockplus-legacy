@@ -1,26 +1,26 @@
 <!ENTITY lasthit.column "最終ヒット日時">
-<!ENTITY addFilter.accesskey "d">
+<!ENTITY addFilter.accesskey "D">
 <!ENTITY subscription.delete.label "削除">
 <!ENTITY subscriptions.tab.label "購読しているフィルタ">
-<!ENTITY enabled.accesskey "loading...">
-<!ENTITY addGroup.accesskey "loading...">
+<!ENTITY enabled.accesskey "N">
+<!ENTITY addGroup.accesskey "G">
 <!ENTITY subscription.update.label "フィルタを更新">
-<!ENTITY restore.complete.warning "全てのフィルタ設定は指定ファイル内容で置換されます。よろしいですか？">
+<!ENTITY restore.complete.warning "全てのフィルタ設定は指定したファイルの内容に置換されます。よろしいですか？">
 <!ENTITY filter.moveUp.label "上に移動">
 <!ENTITY filter.edit.label "編集">
 <!ENTITY hitcount.column "ヒット数">
 <!ENTITY acceptableAds2.label "控えめな広告を許可">
 <!ENTITY close.label "閉じる">
 <!ENTITY sort.none.label "ソートなし">
-<!ENTITY find.accesskey "n">
-<!ENTITY readMore.label "更に詳しい説明">
+<!ENTITY find.accesskey "N">
+<!ENTITY readMore.label "詳細説明ページを開く">
 <!ENTITY subscription.homepage.label "ホームページ">
-<!ENTITY typoCorrections.enableLabel "インターネット アドレスの入力ミスを修正">
+<!ENTITY typoCorrections.enableLabel "インターネットアドレスの入力ミスを訂正">
 <!ENTITY sort.descending.accesskey "Z">
 <!ENTITY sort.descending.label "Z &gt; A 順にソート">
 <!ENTITY subscription.lastDownload.success "更新成功">
 <!ENTITY filters.remove.warning "選択したフィルタを本当に削除しますか？">
-<!ENTITY restore.custom.warning "全ての自作フィルタは指定ファイル内容で置換されます。よろしいですか？">
+<!ENTITY restore.custom.warning "全ての自作フィルタは指定したファイルの内容に置換されます。よろしいですか？">
 <!ENTITY slow.column "低速フィルタ">
 <!ENTITY subscription.actions.label "アクション">
 <!ENTITY filter.selectAll.label "すべて選択">
@@ -28,10 +28,10 @@
 <!ENTITY sort.accesskey "S">
 <!ENTITY subscription.source.label "フィルタリスト">
 <!ENTITY filter.paste.label "貼り付け">
-<!ENTITY addSubscription.accesskey "f">
+<!ENTITY addSubscription.accesskey "F">
 <!ENTITY filter.delete.label "削除">
 <!ENTITY addSubscriptionAdd.label "追加">
-<!ENTITY slow.accesskey "w">
+<!ENTITY slow.accesskey "W">
 <!ENTITY subscription.showHideFilters.label "フィルタを表示／非表示">
 <!ENTITY backupButton.accesskey "B">
 <!ENTITY filter.actions.label "フィルタアクション">
@@ -40,53 +40,53 @@
 <!ENTITY addFilter.label "フィルタを追加">
 <!ENTITY subscription.editTitle.label "タイトルを編集">
 <!ENTITY subscription.moveDown.label "下に移動">
-<!ENTITY subscription.disabledFilters.warning "購読しているフィルタの一部が無効化されました">
+<!ENTITY subscription.disabledFilters.warning "購読しているフィルタの一部が無効化されています">
 <!ENTITY filter.column "フィルタ">
-<!ENTITY subscription.lastDownload.checksumMismatch "更新失敗:チェックサム不一致">
+<!ENTITY subscription.lastDownload.checksumMismatch "更新失敗: チェックサム不一致">
 <!ENTITY noFiltersInGroup.text "選択したグループにフィルタはありません">
-<!ENTITY typoCorrections.whitelistLabel "変更しないでください...">
+<!ENTITY typoCorrections.whitelistLabel "置換しない...">
 <!ENTITY sort.label "ソート">
 <!ENTITY noFilters.text "まだ自作フィルタはありません。">
 <!ENTITY subscription.external.label "他の拡張により更新">
 <!ENTITY filter.accesskey "F">
 <!ENTITY noGroupSelected.text "フィルタを表示するには、まずフィルタグループを選択してください">
-<!ENTITY subscription.lastDownload.inProgress "ダウンロード中…">
+<!ENTITY subscription.lastDownload.inProgress "ダウンロード中...">
 <!ENTITY typoCorrections.removeButtonLabel "選択項目を削除">
 <!ENTITY enabled.column "有効">
 <!ENTITY viewMenu.label "表示">
 <!ENTITY addSubscriptionCancel.label "キャンセル">
 <!ENTITY lasthit.accesskey "L">
 <!ENTITY dialog.title "Adblock Plus フィルタ設定">
-<!ENTITY subscription.minVersion.warning "購読しているフィルタは新バージョンの Adblock Plus を要求しているので最新の Adblock Plus に更新してください。">
-<!ENTITY subscription.lastDownload.invalidURL "更新失敗:アドレス無効">
+<!ENTITY subscription.minVersion.warning "購読しているフィルタはより新しいバージョンの Adblock Plus を要求しているので、最新の Adblock Plus に更新してください。">
+<!ENTITY subscription.lastDownload.invalidURL "更新失敗: アドレス無効">
 <!ENTITY backup.error "ファイル出力エラー。ファイル書き込み禁止／他のアプリケーションで使用中 となっていないか確認してください。">
-<!ENTITY restore.error "指定ファイルから復元できませんでした。このファイルは Adblock Plus のバックアップでないのでは？">
+<!ENTITY restore.error "ファイルデータが処理できません。このファイルは Adblock Plus のバックアップでないのでは？">
 <!ENTITY filter.cut.label "切り取り">
 <!ENTITY backup.custom.title "自作フィルタのみ">
 <!ENTITY subscription.moveUp.label "上に移動">
 <!ENTITY backup.complete.title "自作及び購読しているフィルタ">
 <!ENTITY filters.tab.label "自作フィルタ">
 <!ENTITY find.label "検索">
-<!ENTITY subscription.lastDownload.connectionError "更新失敗:接続エラー">
-<!ENTITY subscription.lastDownload.invalidData "更新失敗:フィルタリスト無効">
-<!ENTITY restore.minVersion.warning "警告：このファイルは新しいバージョンの Adblock Plus で作成されています。まず先に Adblock Plus を最新版に更新してください。">
+<!ENTITY subscription.lastDownload.connectionError "更新失敗: 接続エラー">
+<!ENTITY subscription.lastDownload.invalidData "更新失敗: フィルタリスト無効">
+<!ENTITY restore.minVersion.warning "警告: このファイルはより新しいバージョンの Adblock Plus で作成されています。このファイルから復元する前に Adblock Plus を最新版に更新してください。">
 <!ENTITY sort.ascending.label "A &gt; Z 順にソート">
-<!ENTITY viewList.label "設定内容を参照">
-<!ENTITY typoCorrections.whitelistEmptyLabel "例外は現在ありません。">
+<!ENTITY viewList.label "フィルタファイルを開いて確認">
+<!ENTITY typoCorrections.whitelistEmptyLabel "ホワイトリストはありません。">
 <!ENTITY sort.ascending.accesskey "A">
-<!ENTITY restore.default.label "?1? のバックアップファイルから復元">
-<!ENTITY hitcount.accesskey "loading...">
-<!ENTITY acceptableAds2.accesskey "i">
+<!ENTITY restore.default.label "?1? のバックアップから復元">
+<!ENTITY hitcount.accesskey "H">
+<!ENTITY acceptableAds2.accesskey "I">
 <!ENTITY subscription.lastDownload.unknown "不明">
 <!ENTITY subscription.enabled.label "有効">
-<!ENTITY noSubscriptions.text "フィルタを購読していません。Adblock Plus はフィルタなしでは何もブロックしないので「購読するフィルタを追加」してください。">
+<!ENTITY noSubscriptions.text "フィルタをまだ購読していません。Adblock Plus はフィルタなしで何もブロックできないので「購読するフィルタを追加」してください。">
 <!ENTITY addGroup.label "フィルタグループを追加">
-<!ENTITY addSubscriptionOther.label "別の購読できるフィルタを追加">
+<!ENTITY addSubscriptionOther.label "別の購読するフィルタを追加">
 <!ENTITY filter.copy.label "コピー">
 <!ENTITY sort.none.accesskey "U">
 <!ENTITY addSubscription.label "購読するフィルタを追加">
-<!ENTITY restore.own.label "バックアップファイルを指定">
+<!ENTITY restore.own.label "バックアップファイルを指定して復元">
 <!ENTITY filter.resetHitCounts.label "ヒット数をリセット">
-<!ENTITY backup.label "バックアップファイルの作成">
-<!ENTITY subscription.disabledFilters.enable "無効フィルタを有効化">
+<!ENTITY backup.label "バックアップを新規作成">
+<!ENTITY subscription.disabledFilters.enable "無効になっているフィルタを有効化">
 <!ENTITY subscription.lastDownload.label "更新日時:">

@@ -1,5 +1,4 @@
 <!ENTITY context.flash.label "Rammi Flash hlutar">
-<!ENTITY tooltip.type.label "Tegund:">
 <!ENTITY address.label "Netfang">
 <!ENTITY context.open.label "Opna í nýjum flipa">
 <!ENTITY type.label "Tegund">
@@ -13,7 +12,7 @@
 <!ENTITY filterSource.label "Síu uppruni">
 <!ENTITY tooltip.docDomain.label "Netfang síðu:">
 <!ENTITY context.copy.label "Afrita vefslóð hlutar">
-<!ENTITY tooltip.type.blocked "(stöðvað)">
+<!ENTITY tooltip.type.label "Tegund:">
 <!ENTITY search.accesskey "L">
 <!ENTITY context.disablefilter.label "Aftengja síu ?1?">
 <!ENTITY context.copyFilter.label "Afrita síu">
@@ -28,6 +27,7 @@
 <!ENTITY tooltip.filter.label "Sía í notkun:">
 <!ENTITY tooltip.filter.disabled "(óvirkt)">
 <!ENTITY context.editfilter.label "Breyta núverandi síu">
+<!ENTITY tooltip.type.blocked "(stöðvað)">
 <!ENTITY size.label "Stærð">
 <!ENTITY context.whitelist.label "Bæta við undantekningu fyrir hlut">
 <!ENTITY context.selectAll.label "Velja allt">

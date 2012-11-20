@@ -14,7 +14,7 @@
 <!ENTITY anchor.start.label "en début d'adresse">
 <!ENTITY collapse.no.label "Non">
 <!ENTITY matchCase.label "Sensible à la casse">
-<!ENTITY custom.pattern.label "Personnaliser :">
+<!ENTITY custom.pattern.label "Personnalisé :">
 <!ENTITY unselectAllTypes.label "Ne rien sélectionner">
 <!ENTITY domainRestriction.accesskey "d">
 <!ENTITY type.whitelist.label "Règle d'exception">
@@ -26,13 +26,13 @@
 <!ENTITY collapse.default.no.label "Utiliser le comportement par défaut (non)">
 <!ENTITY type.filter.label "Filtre bloquant">
 <!ENTITY types.label "Appliquer aux types suivants :">
-<!ENTITY shortpattern.warning "Le motif que vous avez indiqué est trop court pour être optimisé et ralentira votre navigation. Nous vous recommandons de choisir une chaîne de caractères plus longue pour ce filtre afin de permettre à Adblock Plus de le traiter de manière plus efficace.">
+<!ENTITY shortpattern.warning "Le motif que vous avez indiqué est trop court pour être optimisé et ralentira votre navigation. Nous vous recommandons de choisir une chaîne de caractères plus longue pour ce filtre afin de permettre à Adblock Plus de le traiter plus efficacement.">
 <!ENTITY custom.pattern.accesskey "P">
 <!ENTITY anchor.start.accesskey "u">
 <!ENTITY anchors.label "Accepter le motif uniquement :">
 <!ENTITY collapse.default.yes.label "Utiliser le comportement par défaut (oui)">
 <!ENTITY type.filter.accesskey "b">
-<!ENTITY domainRestriction.help "Spécifiez un ou plusieurs domaines séparés par le symbole « | », le filtre ne s'appliquera alors qu'aux domaines indiqués. Le symbole « ~ » précédant un nom de domaine signifie que le filtre ne devra pas être appliqué sur ce domaine.">
+<!ENTITY domainRestriction.help "Spécifiez un ou plusieurs domaines séparés par le symbole « | », le filtre ne s'appliquera alors qu'aux domaines indiqués. Le symbole « ~ » précédant un nom de domaine signifie que le filtre ne devra pas être appliqué à ce domaine.">
 <!ENTITY accept.label "Ajouter le filtre">
 <!ENTITY options.label "Options">
 <!ENTITY disabled.warning "Adblock Plus est actuellement désactivée. Vous pouvez continuer à ajouter des filtres mais ils ne seront pas appliqués tant que vous n'aurez pas [link]activé Adblock Plus[/link].">

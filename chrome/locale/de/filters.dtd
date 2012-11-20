@@ -15,6 +15,7 @@
 <!ENTITY find.accesskey "s">
 <!ENTITY readMore.label "Mehr Information">
 <!ENTITY subscription.homepage.label "Webseite">
+<!ENTITY typoCorrections.enableLabel "Vertipper in Internetadressen korrigieren">
 <!ENTITY sort.descending.accesskey "b">
 <!ENTITY sort.descending.label "Absteigend">
 <!ENTITY subscription.lastDownload.success "Erfolgreich">
@@ -35,6 +36,7 @@
 <!ENTITY backupButton.accesskey "h">
 <!ENTITY filter.actions.label "Filteraktionen">
 <!ENTITY filter.moveDown.label "Nach unten verschieben">
+<!ENTITY typoCorrections.tab.label "Vertipper-Korrekturen">
 <!ENTITY addFilter.label "Filter hinzufügen">
 <!ENTITY subscription.editTitle.label "Umbenennen">
 <!ENTITY subscription.moveDown.label "Nach unten verschieben">
@@ -42,12 +44,14 @@
 <!ENTITY filter.column "Filterregel">
 <!ENTITY subscription.lastDownload.checksumMismatch "Fehler, Prüfsumme ist falsch, möglicherweise ein Übertragungsfehler">
 <!ENTITY noFiltersInGroup.text "Die gewählte Filtergruppe ist leer.">
+<!ENTITY typoCorrections.whitelistLabel "Nicht ersetzen...">
 <!ENTITY sort.label "Sortieren">
 <!ENTITY noFilters.text "Sie haben noch keine eigenen Filter.">
 <!ENTITY subscription.external.label "Wird von einer anderen Erweiterung aktualisiert">
 <!ENTITY filter.accesskey "F">
 <!ENTITY noGroupSelected.text "Sie müssen eine Filtergruppe auswählen, um deren Inhalt anzuzeigen.">
 <!ENTITY subscription.lastDownload.inProgress "Wird heruntergeladen...">
+<!ENTITY typoCorrections.removeButtonLabel "Ausgewählte entfernen">
 <!ENTITY enabled.column "Aktiv">
 <!ENTITY viewMenu.label "Ansicht">
 <!ENTITY addSubscriptionCancel.label "Abbrechen">
@@ -68,6 +72,7 @@
 <!ENTITY restore.minVersion.warning "Warnung: diese Datei wurde mit einer neueren Version von Adblock Plus erstellt. Sie sollten Adblock Plus auf die neueste Version aktualisieren, bevor Sie Daten von dieser Sicherung wiederherstellen.">
 <!ENTITY sort.ascending.label "Aufsteigend">
 <!ENTITY viewList.label "Liste öffnen">
+<!ENTITY typoCorrections.whitelistEmptyLabel "Sie haben noch keine Ausnahmen festgelegt.">
 <!ENTITY sort.ascending.accesskey "A">
 <!ENTITY restore.default.label "Sicherung von ?1? wiederherstellen">
 <!ENTITY hitcount.accesskey "r">

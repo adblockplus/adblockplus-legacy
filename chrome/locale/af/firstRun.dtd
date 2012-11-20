@@ -3,8 +3,8 @@
 <!ENTITY noList "Geen filter lys">
 <!ENTITY acceptableAds2 "Adblock Plus is ook opgestel om sekere nie-indringende advertensies toe te laat.">
 <!ENTITY viewList.label "Bekyk lys">
-<!ENTITY visitHomepage.label "Besoek tuisbald">
-<!ENTITY dialog.title "Adblock Plus installasie in klaar">
+<!ENTITY visitHomepage.label "Besoek tuisblad">
+<!ENTITY dialog.title "Adblock Plus is klaar geinstalleer">
 <!ENTITY listSelection1 "Die volgende filter lys is opgestel om advertensies te blokkeer:">
 <!ENTITY listSelection2 "Jy kan hierdie keuse enige tyd verander in die [link]Filter Voorkeure[/link].">
 <!ENTITY readMore.label "Lees meer hieroor">

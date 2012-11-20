@@ -1,5 +1,4 @@
 <!ENTITY context.flash.label "Jelaskan sempadan item">
-<!ENTITY tooltip.type.label "Jenis:">
 <!ENTITY address.label "Alamat">
 <!ENTITY context.open.label "Buka dalam Tab Baru">
 <!ENTITY type.label "Jenis">
@@ -13,7 +12,7 @@
 <!ENTITY filterSource.label "Sumber penapis">
 <!ENTITY tooltip.docDomain.label "Sumber dokumen:">
 <!ENTITY context.copy.label "Salin alamat item">
-<!ENTITY tooltip.type.blocked "(disekat)">
+<!ENTITY tooltip.type.label "Jenis:">
 <!ENTITY search.accesskey "C">
 <!ENTITY context.disablefilter.label "Nyahaktif penapis ?1?">
 <!ENTITY context.copyFilter.label "Salin penapis">
@@ -28,6 +27,7 @@
 <!ENTITY tooltip.filter.label "Penapis yang digunakan:">
 <!ENTITY tooltip.filter.disabled "(dinyahaktifkan)">
 <!ENTITY context.editfilter.label "Ubah penapis yang digunakan">
+<!ENTITY tooltip.type.blocked "(disekat)">
 <!ENTITY size.label "Saiz">
 <!ENTITY context.whitelist.label "Tambah peraturan pengecualian untuk item">
 <!ENTITY context.selectAll.label "Pilih semua">

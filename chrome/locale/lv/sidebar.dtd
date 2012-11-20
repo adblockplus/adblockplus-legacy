@@ -1,5 +1,4 @@
 <!ENTITY context.flash.label "Flash vienības malas">
-<!ENTITY tooltip.type.label "Tips:">
 <!ENTITY address.label "Adrese">
 <!ENTITY context.open.label "Atvērt jaunā cilnē">
 <!ENTITY type.label "Tips">
@@ -12,7 +11,7 @@
 <!ENTITY docDomain.thirdParty "(trešā puse)">
 <!ENTITY tooltip.docDomain.label "Dokumenta avots:">
 <!ENTITY context.copy.label "Kopēt vienības adresi">
-<!ENTITY tooltip.type.blocked "(bloķēts)">
+<!ENTITY tooltip.type.label "Tips:">
 <!ENTITY search.accesskey "M">
 <!ENTITY context.disablefilter.label "Atspējot filtru ?1?">
 <!ENTITY context.copyFilter.label "Kopēt filtru">
@@ -27,6 +26,7 @@
 <!ENTITY tooltip.filter.label "Aktīvais filtrs:">
 <!ENTITY tooltip.filter.disabled "(atspējots)">
 <!ENTITY context.editfilter.label "Rediģēt aktīvo filtru">
+<!ENTITY tooltip.type.blocked "(bloķēts)">
 <!ENTITY size.label "Izmērs">
 <!ENTITY context.whitelist.label "Pievienot izņēmuma noteikumu šai vienībai">
 <!ENTITY context.selectAll.label "Iezīmēt visu">

@@ -1,84 +1,92 @@
-<!ENTITY backupButton.accesskey "C">
+<!ENTITY lasthit.column "Último uso">
+<!ENTITY addFilter.accesskey "ñ">
+<!ENTITY subscription.delete.label "Eliminar">
+<!ENTITY subscriptions.tab.label "Suscripciones de filtros">
+<!ENTITY enabled.accesskey "v">
+<!ENTITY addGroup.accesskey "g">
+<!ENTITY subscription.update.label "Actualizar filtros">
+<!ENTITY restore.complete.warning "Todas sus preferencias de filtros se sustituirán por los contenidos del archivo seleccionado ¿Desea continuar?">
+<!ENTITY filter.moveUp.label "Subir">
+<!ENTITY filter.edit.label "Editar">
+<!ENTITY hitcount.column "Contador">
+<!ENTITY acceptableAds2.label "Permitir cierta publicidad no intrusiva">
+<!ENTITY close.label "Cerrar">
+<!ENTITY sort.none.label "Sin ordenar">
+<!ENTITY find.accesskey "B">
+<!ENTITY readMore.label "Leer más">
+<!ENTITY subscription.homepage.label "Página de inicio">
+<!ENTITY typoCorrections.enableLabel "Corregir direcciones mal escritas">
+<!ENTITY sort.descending.accesskey "Z">
+<!ENTITY sort.descending.label "Ordenar Z &gt; A">
+<!ENTITY subscription.lastDownload.success "Correcto">
+<!ENTITY filters.remove.warning "¿Está seguro de querer eliminar todos los filtros seleccionados?">
 <!ENTITY restore.custom.warning "Todas sus filtros personalizados se sustituirán por los contenidos del archivo seleccionado ¿Desea continuar?">
 <!ENTITY slow.column "Filtros lentos">
-<!ENTITY enabled.column "Activado">
-<!ENTITY subscription.lastDownload.checksumMismatch "Error, el checksum no coincide">
-<!ENTITY sort.none.accesskey "S">
 <!ENTITY subscription.actions.label "Acciones">
 <!ENTITY filter.selectAll.label "Seleccionar todos">
 <!ENTITY backupButton.label "Copias de seguridad y restauración">
-<!ENTITY addFilter.accesskey "ñ">
-<!ENTITY filter.accesskey "R">
-<!ENTITY sort.ascending.label "Ordenar A &gt; Z">
-<!ENTITY noFiltersInGroup.text "El grupo seleccionado está vacío">
-<!ENTITY sort.label "Listar">
+<!ENTITY sort.accesskey "L">
 <!ENTITY subscription.source.label "Lista de filtros">
-<!ENTITY hitcount.column "Contador">
-<!ENTITY noFilters.text "Aún no tiene ningún filtro personalizado.">
-<!ENTITY backup.custom.title "Sólo los filtros personalizados">
-<!ENTITY subscription.external.label "Actualizado por otra extensión">
-<!ENTITY subscription.delete.label "Eliminar">
-<!ENTITY noGroupSelected.text "Tiene que seleccionar un grupo de filtros para que se muestren sus filtros.">
-<!ENTITY filter.cut.label "Cortar">
-<!ENTITY restore.default.label "Restaurar copia de seguridad de ?1?">
-<!ENTITY subscription.lastDownload.inProgress "Descargando…">
-<!ENTITY subscriptions.tab.label "Suscripciones de filtros">
-<!ENTITY enabled.accesskey "v">
-<!ENTITY restore.minVersion.warning "Atención: el archivo se creó con una versión más reciente de Adblock Plus. Debería actualizar a la última versión de Adblock Plus antes de hacer una restauración desde este archivo.">
-<!ENTITY acceptableAds2.accesskey "P">
+<!ENTITY filter.paste.label "Pegar">
 <!ENTITY addSubscription.accesskey "s">
-<!ENTITY sort.descending.label "Ordenar Z &gt; A">
-<!ENTITY filters.remove.warning "¿Está seguro de querer eliminar todos los filtros seleccionados?">
 <!ENTITY filter.delete.label "Eliminar">
 <!ENTITY addSubscriptionAdd.label "Añadir">
-<!ENTITY viewMenu.label "Ver">
-<!ENTITY subscription.lastDownload.unknown "N/D">
-<!ENTITY addSubscriptionCancel.label "Cancelar">
-<!ENTITY subscription.enabled.label "Activada">
-<!ENTITY lasthit.accesskey "u">
-<!ENTITY noSubscriptions.text "Aún no ha añadido ninguna suscripción de filtros. Adblock Plus no bloquea nada si no tiene filtros, por favor use &quot;Añadir suscripción de filtros&quot; para añadir alguna.">
-<!ENTITY subscription.update.label "Actualizar filtros">
-<!ENTITY find.accesskey "B">
-<!ENTITY dialog.title "Preferencias de filtros de Adblock Plus">
-<!ENTITY addFilter.label "Añadir filtro">
-<!ENTITY subscription.minVersion.warning "Esta suscripción de filtros necesita una versión más reciente de Adblock Plus, debería actualizar a la última versión de Adblock Plus.">
-<!ENTITY subscription.lastDownload.invalidURL "Error: no es una dirección válida">
 <!ENTITY slow.accesskey "e">
-<!ENTITY backup.error "Se produjo un error al escribir filtros en el archivo. Asegúrese que el archivo no está protegido contra escritura o siendo utilizado por otra aplicación.">
-<!ENTITY filter.moveUp.label "Subir">
-<!ENTITY addGroup.label "Añadir grupo de filtros">
-<!ENTITY filter.edit.label "Editar">
 <!ENTITY subscription.showHideFilters.label "Mostrar/ocultar filtros">
-<!ENTITY acceptableAds2.label "Permitir cierta publicidad no intrusiva">
-<!ENTITY hitcount.accesskey "C">
-<!ENTITY addSubscriptionOther.label "Añadir otra suscripción">
-<!ENTITY close.label "Cerrar">
-<!ENTITY sort.none.label "Sin ordenar">
+<!ENTITY backupButton.accesskey "C">
 <!ENTITY filter.actions.label "Acciones de filtros">
-<!ENTITY filter.copy.label "Copiar">
 <!ENTITY filter.moveDown.label "Bajar">
-<!ENTITY filter.resetHitCounts.label "Reiniciar estadísticas de uso">
-<!ENTITY sort.accesskey "L">
-<!ENTITY readMore.label "Leer más">
-<!ENTITY subscription.moveUp.label "Subir">
-<!ENTITY addSubscription.label "Añadir suscripción de filtros">
-<!ENTITY subscription.homepage.label "Página de inicio">
-<!ENTITY backup.complete.title "Todos los filtros y suscripciones">
-<!ENTITY restore.own.label "Restaurar copia de seguridad propia">
-<!ENTITY restore.complete.warning "Todas sus preferencias de filtros se sustituirán por los contenidos del archivo seleccionado ¿Desea continuar?">
-<!ENTITY filters.tab.label "Filtros personalizados">
-<!ENTITY backup.label "Crear nueva copia de seguridad">
-<!ENTITY find.label "Buscar">
-<!ENTITY restore.error "No se pudieron procesar los datos del archivo. ¿Es posible que no sea un archivo de copia de seguridad de Adblock Plus?">
-<!ENTITY subscription.moveDown.label "Bajar">
-<!ENTITY subscription.lastDownload.connectionError "Error: error de descarga">
-<!ENTITY subscription.lastDownload.success "Correcto">
-<!ENTITY subscription.lastDownload.invalidData "Error: lista de filtros no válida">
-<!ENTITY filter.paste.label "Pegar">
-<!ENTITY subscription.disabledFilters.enable "Activar filtros desactivados">
-<!ENTITY lasthit.column "Último uso">
+<!ENTITY typoCorrections.tab.label "Corrección de errores">
+<!ENTITY addFilter.label "Añadir filtro">
 <!ENTITY subscription.editTitle.label "Editar título">
+<!ENTITY subscription.moveDown.label "Bajar">
 <!ENTITY subscription.disabledFilters.warning "En esta suscripción hay filtros desactivados.">
 <!ENTITY filter.column "Regla de filtrado">
-<!ENTITY subscription.lastDownload.label "Última descarga:">
+<!ENTITY subscription.lastDownload.checksumMismatch "Error, el checksum no coincide">
+<!ENTITY noFiltersInGroup.text "El grupo seleccionado está vacío">
+<!ENTITY typoCorrections.whitelistLabel "No reemplazar…">
+<!ENTITY sort.label "Listar">
+<!ENTITY noFilters.text "Aún no tiene filtros personalizados.">
+<!ENTITY subscription.external.label "Actualizado por otra extensión">
+<!ENTITY filter.accesskey "R">
+<!ENTITY noGroupSelected.text "Tiene que seleccionar un grupo de filtros para que se muestren sus filtros.">
+<!ENTITY subscription.lastDownload.inProgress "Descargando…">
+<!ENTITY typoCorrections.removeButtonLabel "Eliminar el seleccionado">
+<!ENTITY enabled.column "Activado">
+<!ENTITY viewMenu.label "Ver">
+<!ENTITY addSubscriptionCancel.label "Cancelar">
+<!ENTITY lasthit.accesskey "u">
+<!ENTITY dialog.title "Preferencias de filtros de Adblock Plus">
+<!ENTITY subscription.minVersion.warning "Esta suscripción de filtros necesita una versión más reciente de Adblock Plus, debería actualizar a la última versión de Adblock Plus.">
+<!ENTITY subscription.lastDownload.invalidURL "Error: dirección no válida">
+<!ENTITY backup.error "Se produjo un error al escribir filtros en el archivo. Asegúrese que el archivo no está protegido contra escritura o siendo utilizado por otra aplicación.">
+<!ENTITY restore.error "No se pudieron procesar los datos del archivo. ¿Es posible que no sea un archivo de copia de seguridad de Adblock Plus?">
+<!ENTITY filter.cut.label "Cortar">
+<!ENTITY backup.custom.title "Sólo los filtros personalizados">
+<!ENTITY subscription.moveUp.label "Subir">
+<!ENTITY backup.complete.title "Todos los filtros y suscripciones">
+<!ENTITY filters.tab.label "Filtros personalizados">
+<!ENTITY find.label "Buscar">
+<!ENTITY subscription.lastDownload.connectionError "Error: error de descarga">
+<!ENTITY subscription.lastDownload.invalidData "Error: lista de filtros no válida">
+<!ENTITY restore.minVersion.warning "Atención: el archivo se creó con una versión más reciente de Adblock Plus. Debería actualizar a la última versión de Adblock Plus antes de hacer una restauración desde este archivo.">
+<!ENTITY sort.ascending.label "Ordenar A &gt; Z">
 <!ENTITY viewList.label "Ver lista">
+<!ENTITY typoCorrections.whitelistEmptyLabel "No hay excepciones.">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY restore.default.label "Restaurar copia de seguridad de ?1?">
+<!ENTITY hitcount.accesskey "C">
+<!ENTITY acceptableAds2.accesskey "P">
+<!ENTITY subscription.lastDownload.unknown "N/D">
+<!ENTITY subscription.enabled.label "Activada">
+<!ENTITY noSubscriptions.text "Aún no ha añadido ninguna suscripción de filtros. Adblock Plus no bloquea nada si no tiene filtros, por favor use &quot;Añadir suscripción de filtros&quot; para añadir alguna.">
+<!ENTITY addGroup.label "Añadir grupo de filtros">
+<!ENTITY addSubscriptionOther.label "Añadir otra suscripción">
+<!ENTITY filter.copy.label "Copiar">
+<!ENTITY sort.none.accesskey "S">
+<!ENTITY addSubscription.label "Añadir suscripción de filtros">
+<!ENTITY restore.own.label "Restaurar copia de seguridad propia">
+<!ENTITY filter.resetHitCounts.label "Reiniciar estadísticas de uso">
+<!ENTITY backup.label "Crear nueva copia de seguridad">
+<!ENTITY subscription.disabledFilters.enable "Activar filtros desactivados">
+<!ENTITY subscription.lastDownload.label "Última descarga:">

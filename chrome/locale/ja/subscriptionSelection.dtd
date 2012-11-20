@@ -4,12 +4,12 @@
 <!ENTITY list.download.retry "再試行">
 <!ENTITY location.accesskey "L">
 <!ENTITY title.label "購読するフィルタの名称:">
-<!ENTITY list.download.website "ウェブサイトを見る">
+<!ENTITY list.download.website "ウェブサイトを参照">
 <!ENTITY supplementMessage "このフィルタは &quot;?1?&quot; と併用することが前提になっています。">
 <!ENTITY title.accesskey "T">
 <!ENTITY viewList.label "フィルタファイルを開いて確認">
 <!ENTITY visitHomepage.label "作者のページを開く">
 <!ENTITY addSubscription.label "購読するフィルタを追加">
-<!ENTITY dialog.title "購読する Adblock Plus 用フィルタを追加">
+<!ENTITY dialog.title "購読するフィルタを追加">
 <!ENTITY location.label "購読するフィルタの場所:">
-<!ENTITY fromWeb.description "購読するフィルタを確認してください。追加前にここで名称と場所を変更できます。">
+<!ENTITY fromWeb.description "購読するフィルタを確認してください。追加前に名称と場所を変更できます。">

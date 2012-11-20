@@ -1,42 +1,92 @@
-<!ENTITY slow.column "Filtres d&amp;apos;aminorament">
-<!ENTITY enabled.column "Activat">
-<!ENTITY subscription.lastDownload.checksumMismatch "Error, el checksum no concorda">
 <!ENTITY lasthit.column "Ultim encert">
+<!ENTITY addFilter.accesskey "r">
+<!ENTITY subscription.delete.label "Suprimeix">
+<!ENTITY subscriptions.tab.label "Subscripció de Filtres">
+<!ENTITY enabled.accesskey "n">
+<!ENTITY addGroup.accesskey "g">
+<!ENTITY subscription.update.label "Actualitza els Filtres">
+<!ENTITY restore.complete.warning "Totes les preferències de filtre seràn substituides amb els continguts del fitxer seleccionat. Vols seguir endavant?">
+<!ENTITY filter.moveUp.label "Mou amunt">
+<!ENTITY filter.edit.label "Edita">
+<!ENTITY hitcount.column "Encerts">
+<!ENTITY acceptableAds2.label "Permet alguna publicitat no instrusiva">
+<!ENTITY close.label "Tanca">
+<!ENTITY sort.none.label "Desordenat">
+<!ENTITY find.accesskey "C">
+<!ENTITY readMore.label "Llegeix-ne més">
+<!ENTITY subscription.homepage.label "Pàgina d'inici">
+<!ENTITY typoCorrections.enableLabel "Corregeix les adreçes d'internet mal escrites">
+<!ENTITY sort.descending.accesskey "Z">
+<!ENTITY sort.descending.label "Ordre Z &gt; A">
+<!ENTITY subscription.lastDownload.success "Èxit">
+<!ENTITY filters.remove.warning "Segur que vols eliminar tots els filtres seleccionats ?">
+<!ENTITY restore.custom.warning "Tots els filtres personalitzats seràn substituits per els continguts del fitxer seleccionat. Vols seguir endavant?">
+<!ENTITY slow.column "Filtres d&amp;apos;aminorament">
+<!ENTITY subscription.actions.label "Accions">
+<!ENTITY filter.selectAll.label "Selecciona-ho tot">
+<!ENTITY backupButton.label "Fes una còpia de seguretat i restaura">
 <!ENTITY sort.accesskey "O">
-<!ENTITY sort.ascending.label "Ordre A &gt; Z">
-<!ENTITY sort.label "Ordena per">
 <!ENTITY subscription.source.label "Llista de Filtres">
 <!ENTITY filter.paste.label "Enganxa">
-<!ENTITY subscription.external.label "Actualitzat per una altra extensió">
-<!ENTITY subscription.lastDownload.inProgress "Descarregant...">
-<!ENTITY subscriptions.tab.label "Subscripció de Filtres">
 <!ENTITY addSubscription.accesskey "f">
 <!ENTITY filter.delete.label "Suprimeix">
 <!ENTITY addSubscriptionAdd.label "Afegeix">
+<!ENTITY slow.accesskey "w">
+<!ENTITY subscription.showHideFilters.label "Mostra/amaga els Filtres">
+<!ENTITY backupButton.accesskey "s">
+<!ENTITY filter.actions.label "Accions de Filtre">
+<!ENTITY filter.moveDown.label "Mou avall">
+<!ENTITY typoCorrections.tab.label "Correccions Ortogràfiques">
+<!ENTITY addFilter.label "Afegir filtre">
+<!ENTITY subscription.editTitle.label "Edita el títol">
+<!ENTITY subscription.moveDown.label "Mou avall">
+<!ENTITY subscription.disabledFilters.warning "Alguns filtres en aquesta subscripció es troben desactivats.">
+<!ENTITY filter.column "Regla de filtre">
+<!ENTITY subscription.lastDownload.checksumMismatch "Error, el checksum no concorda">
+<!ENTITY noFiltersInGroup.text "El grup seleccionat està buit.">
+<!ENTITY typoCorrections.whitelistLabel "No substitueixis...">
+<!ENTITY sort.label "Ordena per">
+<!ENTITY noFilters.text "Encara no tens cap filtre personalitzat.">
+<!ENTITY subscription.external.label "Actualitzat per una altra extensió">
+<!ENTITY filter.accesskey "F">
+<!ENTITY noGroupSelected.text "Necessites seleccionar un grup de filtres abans que aquests filtres puguin ser mostrats.">
+<!ENTITY subscription.lastDownload.inProgress "Descarregant...">
+<!ENTITY typoCorrections.removeButtonLabel "Suprimeix els seleccionats">
+<!ENTITY enabled.column "Activat">
 <!ENTITY viewMenu.label "Visualitza">
-<!ENTITY subscription.lastDownload.unknown "N/A">
 <!ENTITY addSubscriptionCancel.label "Cancel·la">
-<!ENTITY subscription.enabled.label "Activat">
-<!ENTITY noSubscriptions.text " Encara no has afegit cap subscripció de cap Filtre. l'AdBlock Plus no blocarà res sense filtres, siusplau fes servir &quot;Afegeix una subscripció d'un Filtre&quot; per afegir-ne alguna.">
+<!ENTITY lasthit.accesskey "L">
 <!ENTITY dialog.title "Preferències de Filtre de l'AdBlock Plus">
 <!ENTITY subscription.minVersion.warning "Aquesta subscripció de Filtre requereix una versió més nova d'AdBlock Plus, hauries d'actualitzar a la versió més recent d'AdBlock Plus.">
 <!ENTITY subscription.lastDownload.invalidURL "Fallada, no és una adreça vàlida">
-<!ENTITY hitcount.column "Encerts">
+<!ENTITY backup.error "Hi ha hagut un error escribint els filtres al fitxer.  Assegura't que el fitxer no s'hagi escrit protegint-lo o que l'estigui fent servir una altra aplicació.">
+<!ENTITY restore.error "Les dades del fitxer no s'han pogut processar, potser aquest no és un fitxer de còpia de Seguretat de l'AdBlock Plus ?">
 <!ENTITY filter.cut.label "Retalla">
-<!ENTITY addSubscriptionOther.label "Afegir una altra subscripció">
-<!ENTITY sort.none.label "Desordenat">
-<!ENTITY filter.copy.label "Copia">
-<!ENTITY typoCorrections.tab.label "Correccions Ortogràfiques">
-<!ENTITY sort.none.accesskey "D">
-<!ENTITY addSubscription.label "Afegir subscripció al filtre">
-<!ENTITY subscription.homepage.label "Pàgina d'inici">
+<!ENTITY backup.custom.title "Només els filtres personalitzats">
+<!ENTITY subscription.moveUp.label "Mou amunt">
+<!ENTITY backup.complete.title "Tots els filtres i subscripcions">
 <!ENTITY filters.tab.label "Filtres personalitzats">
 <!ENTITY find.label "Cerca">
-<!ENTITY sort.descending.label "Ordre Z &gt; A">
 <!ENTITY subscription.lastDownload.connectionError "Fallada, error en la descàrrega">
-<!ENTITY subscription.lastDownload.success "Èxit">
 <!ENTITY subscription.lastDownload.invalidData "Fallada, no és una llista vàlida de filtres">
-<!ENTITY addFilter.label "Afegir filtre">
-<!ENTITY subscription.disabledFilters.warning "Alguns filtres en aquesta subscripció es troben desactivats.">
+<!ENTITY restore.minVersion.warning "Atenció : El fitxer ha estat creat amb una versió més nova d'AdBlock Plus. Hauries d'actualitzar a l'última versió de l'Adblock Plus abans de restaurar des d'aquest fitxer.">
+<!ENTITY sort.ascending.label "Ordre A &gt; Z">
+<!ENTITY viewList.label "Mira la llista">
+<!ENTITY typoCorrections.whitelistEmptyLabel "Actualment no hi han excepcions.">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY restore.default.label "Restaura de la còpia de seguretat del ?1?">
+<!ENTITY hitcount.accesskey "H">
+<!ENTITY acceptableAds2.accesskey "i">
+<!ENTITY subscription.lastDownload.unknown "N/A">
+<!ENTITY subscription.enabled.label "Activat">
+<!ENTITY noSubscriptions.text " Encara no has afegit cap subscripció de cap Filtre. l'AdBlock Plus no blocarà res sense filtres, siusplau fes servir &quot;Afegeix una subscripció d'un Filtre&quot; per afegir-ne alguna.">
+<!ENTITY addGroup.label "Afegeix un grup de filtres">
+<!ENTITY addSubscriptionOther.label "Afegir una altra subscripció">
+<!ENTITY filter.copy.label "Copia">
+<!ENTITY sort.none.accesskey "D">
+<!ENTITY addSubscription.label "Afegir subscripció al filtre">
+<!ENTITY restore.own.label "Restaura d'una còpia de seguretat propia">
+<!ENTITY filter.resetHitCounts.label "Reinicia les estadístiques de cops">
+<!ENTITY backup.label "Crea una nova còpia de seguretat">
+<!ENTITY subscription.disabledFilters.enable "Activa els filtres desactivats">
 <!ENTITY subscription.lastDownload.label "Ultima descàrrega">
-<!ENTITY filter.column "Regla de filtre">

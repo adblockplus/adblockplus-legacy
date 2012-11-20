@@ -5,7 +5,7 @@
 <!ENTITY enabled.accesskey "ר">
 <!ENTITY addGroup.accesskey "צ">
 <!ENTITY subscription.update.label "עדכון מסננים">
-<!ENTITY restore.complete.warning "כל הגדרות המסננים שלך יוחלפו בקובץ הנבחר. האם להמשיך?">
+<!ENTITY restore.complete.warning "כל הגדרות המסננים שלך יוחלפו בתוכן הקובץ הנבחר. האם להמשיך?">
 <!ENTITY filter.moveUp.label "הזזה מעלה">
 <!ENTITY filter.edit.label "עריכה">
 <!ENTITY hitcount.column "לחיצות">
@@ -20,7 +20,7 @@
 <!ENTITY sort.descending.label "מיון מ- ת &gt; עד א">
 <!ENTITY subscription.lastDownload.success "הצליח">
 <!ENTITY filters.remove.warning "האם להסיר את כל המסננים הנבחרים?">
-<!ENTITY restore.custom.warning "כל המסננים האישיים שלך יוחלפו בקובץ. האם להמשיך?">
+<!ENTITY restore.custom.warning "כל המסננים האישיים שלך יוחלפו בתוכן הקובץ הנבחר. האם להמשיך?">
 <!ENTITY slow.column "מסננים אטיים">
 <!ENTITY subscription.actions.label "פעולות">
 <!ENTITY filter.selectAll.label "בחירת הכל">
@@ -42,7 +42,7 @@
 <!ENTITY subscription.moveDown.label "הזזה מטה">
 <!ENTITY subscription.disabledFilters.warning "כמה מהמסננים בהרשמה זאת מנוטרלים.">
 <!ENTITY filter.column "חוק סינון">
-<!ENTITY subscription.lastDownload.checksumMismatch "כשל, ביקורת הסיכום לתקינות לא התאימה בצורה טובה">
+<!ENTITY subscription.lastDownload.checksumMismatch "נכשל, ביקורת הסיכום לתקינות לא התאימה בצורה טובה">
 <!ENTITY noFiltersInGroup.text "הקבוצה הנבחרת ריקה">
 <!ENTITY typoCorrections.whitelistLabel "לא להחליף...">
 <!ENTITY sort.label "מיון לפי">
@@ -58,7 +58,7 @@
 <!ENTITY lasthit.accesskey "ח">
 <!ENTITY dialog.title "העדפות סינון Adblock Plus">
 <!ENTITY subscription.minVersion.warning "הרשמת מסננים זאת דורשת גרסה חדשה יותר של Adblock Plus, צריך לשדרג לגרסה האחרונה של Adblock Plus.">
-<!ENTITY subscription.lastDownload.invalidURL "כשל, הכתובת שגויה">
+<!ENTITY subscription.lastDownload.invalidURL "נכשל, הכתובת שגויה">
 <!ENTITY backup.error "אירעה שגיאה ברשימת המסננים לקובץ. יש לוודא כי הקובץ לא מוגן לכתיבה או בשימוש על-ידי יישום אחר.">
 <!ENTITY restore.error "לא ניתן לעבד המידע בקובץ. אולי זה לא קובץ גיבוי של Adblock Plus?">
 <!ENTITY filter.cut.label "גזירה">
@@ -67,8 +67,8 @@
 <!ENTITY backup.complete.title "כל המסננים וההרשמות">
 <!ENTITY filters.tab.label "מסננים מותאמים">
 <!ENTITY find.label "חיפוש">
-<!ENTITY subscription.lastDownload.connectionError "כשל, ההורדה נכשלה">
-<!ENTITY subscription.lastDownload.invalidData "כשל, רשימת המסננים לא חוקית">
+<!ENTITY subscription.lastDownload.connectionError "נכשל, ההורדה נכשלה">
+<!ENTITY subscription.lastDownload.invalidData "נכשל, רשימת המסננים לא חוקית">
 <!ENTITY restore.minVersion.warning "אזהרה: הקובץ נוצר על-ידי גרסה חדשה יותר של Adblock Plus. כדי לשדרג לגרסה האחרונה של Adblock Plus לפני שחזור מקובץ זה.">
 <!ENTITY sort.ascending.label "מיון מ- א &gt; עד ת">
 <!ENTITY viewList.label "הצגת רשימה">
@@ -84,7 +84,7 @@
 <!ENTITY addSubscriptionOther.label "הוספת הרשמה אחרת">
 <!ENTITY filter.copy.label "העתקה">
 <!ENTITY sort.none.accesskey "ן">
-<!ENTITY addSubscription.label "הוספת הרשמת מסננים">
+<!ENTITY addSubscription.label "הוספת הרשמת מסנן">
 <!ENTITY restore.own.label "שחזור גיבוי משלי">
 <!ENTITY filter.resetHitCounts.label "איפוס סטטיסטיקות לחיצה">
 <!ENTITY backup.label "יצירת גיבוי חדש">

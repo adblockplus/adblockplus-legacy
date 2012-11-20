@@ -1,5 +1,4 @@
 <!ENTITY context.flash.label "Flash elemendi piirid">
-<!ENTITY tooltip.type.label "Tüüp:">
 <!ENTITY address.label "Aadress">
 <!ENTITY context.open.label "Ava uuel kaardil">
 <!ENTITY type.label "Tüüp">
@@ -12,7 +11,7 @@
 <!ENTITY filterSource.label "Filtri allikas">
 <!ENTITY tooltip.docDomain.label "Dokumendi allikas:">
 <!ENTITY context.copy.label "Kopeeri elemendi aadress">
-<!ENTITY tooltip.type.blocked "(blokeeritud)">
+<!ENTITY tooltip.type.label "Tüüp:">
 <!ENTITY search.accesskey "s">
 <!ENTITY context.disablefilter.label "Keela filter ?1?">
 <!ENTITY context.copyFilter.label "Kopeeri filter">
@@ -27,6 +26,7 @@
 <!ENTITY tooltip.filter.label "Kehtiv filter:">
 <!ENTITY tooltip.filter.disabled "(keelatud)">
 <!ENTITY context.editfilter.label "Muuda kehtivat filtrit">
+<!ENTITY tooltip.type.blocked "(blokeeritud)">
 <!ENTITY size.label "Suurus">
 <!ENTITY context.whitelist.label "Lisa antud elemendile erandi reegel">
 <!ENTITY context.selectAll.label "Vali kõik">

@@ -1,5 +1,4 @@
 <!ENTITY context.flash.label "Показать расположение элемента">
-<!ENTITY tooltip.type.label "Тип:">
 <!ENTITY address.label "Адрес">
 <!ENTITY context.open.label "Открыть в новой вкладке">
 <!ENTITY type.label "Тип">
@@ -13,7 +12,7 @@
 <!ENTITY filterSource.label "Список фильтров">
 <!ENTITY tooltip.docDomain.label "Домен страницы:">
 <!ENTITY context.copy.label "Копировать адрес">
-<!ENTITY tooltip.type.blocked "(заблокирован)">
+<!ENTITY tooltip.type.label "Тип:">
 <!ENTITY search.accesskey "о">
 <!ENTITY context.disablefilter.label "Отключить фильтр ?1?">
 <!ENTITY context.copyFilter.label "Копировать фильтр">
@@ -28,6 +27,7 @@
 <!ENTITY tooltip.filter.label "Применен фильтр:">
 <!ENTITY tooltip.filter.disabled "(отключен)">
 <!ENTITY context.editfilter.label "Отредактировать примененный фильтр">
+<!ENTITY tooltip.type.blocked "(заблокирован)">
 <!ENTITY size.label "Размер">
 <!ENTITY context.whitelist.label "Добавить исключение для элемента">
 <!ENTITY context.selectAll.label "Выделить всё">

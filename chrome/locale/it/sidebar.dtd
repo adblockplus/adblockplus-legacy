@@ -1,5 +1,4 @@
 <!ENTITY context.flash.label "Fai lampeggiare il contorno dell&amp;apos;elemento selezionato">
-<!ENTITY tooltip.type.label "Tipo:">
 <!ENTITY address.label "Indirizzo">
 <!ENTITY context.open.label "Apri in una nuova scheda">
 <!ENTITY type.label "Tipo">
@@ -13,7 +12,7 @@
 <!ENTITY filterSource.label "Sorgente del filtro">
 <!ENTITY tooltip.docDomain.label "Sorgente del documento:">
 <!ENTITY context.copy.label "Copia l&amp;apos;indirizzo web dell&amp;apos;elemento">
-<!ENTITY tooltip.type.blocked "(in lista di elementi bloccati)">
+<!ENTITY tooltip.type.label "Tipo:">
 <!ENTITY search.accesskey "C">
 <!ENTITY context.disablefilter.label "Disattiva il filtro ?1?">
 <!ENTITY context.copyFilter.label "Copia il filtro">
@@ -28,6 +27,7 @@
 <!ENTITY tooltip.filter.label "Filtro effettivo:">
 <!ENTITY tooltip.filter.disabled "(disattivato)">
 <!ENTITY context.editfilter.label "Modifica il filtro in effetto">
+<!ENTITY tooltip.type.blocked "(in lista di elementi bloccati)">
 <!ENTITY size.label "Dimensione">
 <!ENTITY context.whitelist.label "Aggiungi un&amp;apos;eccezione per l&amp;apos;elemento">
 <!ENTITY context.selectAll.label "Seleziona tutto">

@@ -1,9 +1,8 @@
 <!ENTITY context.flash.label "ボーダーを点滅">
-<!ENTITY tooltip.type.label "種別:">
 <!ENTITY address.label "アドレス">
-<!ENTITY context.open.label "別タブで開く">
+<!ENTITY context.open.label "新規タブで開く">
 <!ENTITY type.label "種別">
-<!ENTITY tooltip.filterSource.label "フィルタの帰属:">
+<!ENTITY tooltip.filterSource.label "フィルタ帰属:">
 <!ENTITY noitems.label "ブロック可能項目はありません">
 <!ENTITY filter.label "フィルタ">
 <!ENTITY tooltip.size.label "サイズ:">
@@ -11,16 +10,16 @@
 <!ENTITY search.label "検索:">
 <!ENTITY docDomain.thirdParty "(サードパーティ)">
 <!ENTITY filterSource.label "フィルタ帰属">
-<!ENTITY tooltip.docDomain.label "ドキュメントの帰属:">
+<!ENTITY tooltip.docDomain.label "ドキュメント帰属:">
 <!ENTITY context.copy.label "アドレスをコピー">
-<!ENTITY tooltip.type.blocked "(ブロック中)">
+<!ENTITY tooltip.type.label "種別:">
 <!ENTITY search.accesskey "S">
 <!ENTITY context.disablefilter.label "フィルタ ?1? を無効化">
 <!ENTITY context.copyFilter.label "フィルタをコピー">
 <!ENTITY context.block.label "この項目をブロック">
 <!ENTITY context.enablefilter.label "再度フィルタ ?1? を有効化">
 <!ENTITY detach.label "別ウィンドウ表示">
-<!ENTITY whitelisted.label "ホワイトリストに登録されたページです">
+<!ENTITY whitelisted.label "ホワイトリストされたページ">
 <!ENTITY context.disablefilteronsite.label "フィルタを ?1? で無効化">
 <!ENTITY detached.title "Adblock Plus: ブロック可能項目一覧 (別ウィンドウ表示中)">
 <!ENTITY docDomain.firstParty "(ファーストパーティ)">
@@ -28,8 +27,9 @@
 <!ENTITY tooltip.filter.label "適用中のフィルタ:">
 <!ENTITY tooltip.filter.disabled "(無効中)">
 <!ENTITY context.editfilter.label "フィルタを編集">
+<!ENTITY tooltip.type.blocked "(ブロック中)">
 <!ENTITY size.label "サイズ">
-<!ENTITY context.whitelist.label "ホワイトリストに追加">
+<!ENTITY context.whitelist.label "この項目用のホワイトリストを追加">
 <!ENTITY context.selectAll.label "すべて選択">
 <!ENTITY state.label "状態">
 <!ENTITY docDomain.label "ドキュメント帰属">

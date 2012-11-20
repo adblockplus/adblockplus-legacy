@@ -1,13 +1,16 @@
 <!ENTITY screenshot.undo.label "Deshacer">
 <!ENTITY issues.disabledgroups.description "Están desactivadas las siguientes suscripciones de filtros/grupos de filtros, que podrían tener algún tipo de efecto sobre la página:">
+<!ENTITY attachExtensions.accesskey "x">
 <!ENTITY showData.label "Mostrar datos del informe">
 <!ENTITY typeSelector.falsePositive.label "Adblock Plus está bloqueando demasiado">
 <!ENTITY recentReports.clear.accesskey "t">
 <!ENTITY email.accesskey "r">
 <!ENTITY issues.change.description "Se ha cambiado su configuración. Por favor, recargue la página para probar los cambios y enviar un informe si el problema no se ha resuelto con las modificaciones.">
+<!ENTITY reloadButton.accesskey "R">
 <!ENTITY screenshot.attach.accesskey "i">
 <!ENTITY issues.openPreferences.label "Abrir preferencias de filtros">
 <!ENTITY sendPage.confirmation "Su informe ha sido guardado. Puede acceder a él en la siguiente dirección:">
+<!ENTITY issues.override.accesskey "c">
 <!ENTITY copyLink.label "Copiar enlace del informe">
 <!ENTITY issues.nofilters.description "Adblock Plus no está bloqueando nada en esta página. El problema que observa muy probablemente no tenga nada que ver con Adblock Plus.">
 <!ENTITY sendPage.knownIssue "El problema del que informó probablemente ya fuera conocido. Más información:">
@@ -16,19 +19,20 @@
 <!ENTITY issues.disabledgroups.enable.label "Activar suscripción de filtros/grupo de filtros">
 <!ENTITY typeWarning.override.label "Lo entiendo pero quiero enviar el informe de todas formas">
 <!ENTITY issues.disabled.enable.label "Activar Adblock Plus">
-<!ENTITY update.fixed.description "La actualización de sus suscripciones de filtros probablemente resolvió el problema del que estaba informando. Por favor, recargue la página y vuelva a intentarlo. Vuelva a pulsar Informar de un problema si no se ha solucionado.">
+<!ENTITY update.fixed.description "La actualización de sus suscripciones de filtros probablemente resolvió el problema del que estaba informando. Por favor, recargue la página y vuelva a probar. Pulse de nuevo Informar de un problema si no se ha solucionado.">
+<!ENTITY email.label "Correo electrónico para nuevas averiguaciones (opcional):">
 <!ENTITY reloadButton.label "Recargar página">
 <!ENTITY recentReports.clear.label "Eliminar todos los informes">
 <!ENTITY typeSelector.description "Esta ventana le guiará en el proceso necesario para enviar un informe de fallo de Adblock Plus. Primero, seleccione el tipo de problema que ha detectado en esta página:">
-<!ENTITY screenshot.remove.label "Eliminar datos sensibles">
+<!ENTITY screenshot.mark.accesskey "M">
 <!ENTITY typeSelector.other.accesskey "O">
 <!ENTITY screenshot.undo.accesskey "D">
-<!ENTITY update.inProgress.description "Adblock Plus necesita actualizar sus suscripciones de filtros para asegurarse de que el problema no está ya resuelto. Espere, por favor…">
+<!ENTITY update.inProgress.description "Adblock Plus necesita actualizar sus suscripciones de filtros para asegurarse de que el problema aún no se ha resuelto. Espere, por favor…">
 <!ENTITY data.accesskey "D">
 <!ENTITY data.label "Datos del informe:">
 <!ENTITY sendPage.heading "Enviar informe">
-<!ENTITY recentReports.label "Sus informes enviados recientemente">
-<!ENTITY typeWarning.description "Usted ha indicado que quiere informar de un problema atribuible a Adblock Plus y no a los filtros utilizados. Tenga en cuenta que suele ser mejor informar de este tipo de problemas en el [link]foro de Adblock Plus[/link], y utilizar el generador de informes de problemas sólo como añadido en una discusión ya existente, puesto que nadie se apercibirá de su informe a menos que aporte un enlace al mismo. Tras enviar el informe se le indicará automáticamente el enlace generado automáticamente.">
+<!ENTITY recentReports.label "Sus informes más recientes">
+<!ENTITY typeWarning.description "Usted ha indicado que quiere informar de un problema atribuible a Adblock Plus y no a los filtros utilizados. Tenga en cuenta que suele ser mejor informar de este tipo de problemas en el [link]foro de Adblock Plus[/link], y utilizar el generador de informes de problemas sólo como añadido en una discusión ya existente, puesto que nadie se apercibirá de su informe a menos que aporte un enlace al mismo. Tras enviar el informe se le mostrará el enlace generado automáticamente.">
 <!ENTITY issues.disabled.description "Adblock Plus está desactivado, no bloqueará nada en este estado.">
 <!ENTITY attachExtensions.label "Adjuntar una lista de extensiones activas al informe por si la causa del problema es un conflicto entre extensiones">
 <!ENTITY issues.nosubscriptions.add.label "Añadir suscripción de filtros">
@@ -43,15 +47,17 @@
 <!ENTITY sendButton.label "Enviar informe">
 <!ENTITY comment.label "Comentario (opcional):">
 <!ENTITY sendPage.errorMessage "Un intento de enviar el informe produjo un fallo con código de error &quot;?1?&quot;. Por favor, asegúrese de que está conectado a Internet y vuelva a intentarlo. Si el problema persiste por favor pida ayuda en el [link]foro de Adblock Plus[/link].">
-<!ENTITY showRecentReports.label "Mostrar informes enviados recientemente.">
+<!ENTITY showRecentReports.label "Mostrar informes más recientes">
 <!ENTITY commentPage.heading "Comentario">
 <!ENTITY update.start.label "Iniciar actualización ahora">
-<!ENTITY screenshot.remove.accesskey "E">
+<!ENTITY typeSelector.falsePositive.accesskey "m">
 <!ENTITY issues.disabledfilters.description "Están desactivados los siguientes filtros, que podrían tener algún tipo de efecto sobre la página:">
 <!ENTITY screenshot.description "La misma página puede tener diferente apariencia para diferentes personas. Puede resultar útil para comprender el problema si adjunta una captura de pantalla a su informe. Puede eliminar las partes que contengan información sensible y marcar las zonas en las que se aprecia el problema. Para conseguirlo pulse el botón correspondiente y seleccione con el ratón un área de la imagen.">
 <!ENTITY screenshot.attach.label "Añadir al informe una imagen de la página">
 <!ENTITY issues.whitelist.description "Adblock Plus está ahora mismo desactivado en la página a la que se refiere el informe. Por favor, reactívelo y recargue la página antes de enviar el informe para ayudar en la investigación del problema.">
+<!ENTITY sendButton.accesskey "n">
 <!ENTITY typeSelector.falseNegative.label "Adblock Plus no bloquea un anuncio">
+<!ENTITY copyLink.accesskey "C">
 <!ENTITY typeSelector.heading "Elegir tipo error">
 <!ENTITY wizard.title "Creador de informes de errores">
 <!ENTITY issues.ownfilters.disable.label "Desactivar filtro">
@@ -62,9 +68,11 @@
 <!ENTITY typeWarning.override.accesskey "e">
 <!ENTITY sendPage.waitMessage "Por favor, espere mientras Adblock Plus envía su informe.">
 <!ENTITY dataCollector.heading "Bienvenido al creador de informes de errores">
+<!ENTITY screenshot.remove.label "Eliminar datos sensibles">
 <!ENTITY screenshot.heading "Adjuntar vista">
-<!ENTITY email.label "Correo electrónico para nuevas averiguaciones (opcional):">
+<!ENTITY comment.accesskey "C">
 <!ENTITY issues.ownfilters.description "Algunos de los filtros aplicados en esta página son filtros personales de usuario. Por favor, desactive los filtros que podrían haber causado el problema:">
+<!ENTITY screenshot.remove.accesskey "E">
 <!ENTITY issues.subscriptionCount.description "Parece que se ha suscrito a demasiadas suscripciones de filtros. Eso no es recomendable porque aumenta mucho la probabilidad de que aparezcan problemas y hace que no se pueda procesar su informe de error porque no puede saberse qué autor de suscripción de filtros tiene que actuar. Por favor, borre todas las suscripciones que no sean realmente necesarias y compruebe si el problema persiste.">
 <!ENTITY screenshot.mark.label "Marcar el problema">
 <!ENTITY privacyPolicy.label "Política de privacidad">

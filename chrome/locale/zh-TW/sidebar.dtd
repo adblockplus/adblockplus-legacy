@@ -1,5 +1,4 @@
 <!ENTITY context.flash.label "閃爍物件邊框">
-<!ENTITY tooltip.type.label "類型：">
 <!ENTITY address.label "位址">
 <!ENTITY context.open.label "於新分頁開啟">
 <!ENTITY type.label "類型">
@@ -13,7 +12,7 @@
 <!ENTITY filterSource.label "條件來源">
 <!ENTITY tooltip.docDomain.label "文件來源：">
 <!ENTITY context.copy.label "複製項目位址">
-<!ENTITY tooltip.type.blocked "(已阻擋)">
+<!ENTITY tooltip.type.label "類型：">
 <!ENTITY search.accesskey "S">
 <!ENTITY context.disablefilter.label "停用過濾條件 ?1?">
 <!ENTITY context.copyFilter.label "複製過濾條件">
@@ -28,6 +27,7 @@
 <!ENTITY tooltip.filter.label "作用中的條件：">
 <!ENTITY tooltip.filter.disabled "(已停用)">
 <!ENTITY context.editfilter.label "編輯作用中的條件">
+<!ENTITY tooltip.type.blocked "(已阻擋)">
 <!ENTITY size.label "大小">
 <!ENTITY context.whitelist.label "將此項目加為例外條件">
 <!ENTITY context.selectAll.label "全選">

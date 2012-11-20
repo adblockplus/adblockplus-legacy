@@ -1,5 +1,4 @@
 <!ENTITY context.flash.label "Nhấp nháy quanh viền của mục này">
-<!ENTITY tooltip.type.label "Kiểu:">
 <!ENTITY address.label "Địa chỉ">
 <!ENTITY context.open.label "Mở trong Thẻ Mới">
 <!ENTITY type.label "Kiểu">
@@ -12,7 +11,7 @@
 <!ENTITY docDomain.thirdParty "(bên thứ ba)">
 <!ENTITY tooltip.docDomain.label "Nguồn tài liệu:">
 <!ENTITY context.copy.label "Chép địa chỉ của mục này">
-<!ENTITY tooltip.type.blocked "(đã chặn)">
+<!ENTITY tooltip.type.label "Kiểu:">
 <!ENTITY search.accesskey "m">
 <!ENTITY context.disablefilter.label "Vô hiệu hóa bộ lọc ?1?">
 <!ENTITY context.copyFilter.label "Chép bộ lọc">
@@ -27,6 +26,7 @@
 <!ENTITY tooltip.filter.label "Bộ lọc đang chặn:">
 <!ENTITY tooltip.filter.disabled "(bị vô hiệu hóa)">
 <!ENTITY context.editfilter.label "Chỉnh sửa bộ lọc đang chặn">
+<!ENTITY tooltip.type.blocked "(đã chặn)">
 <!ENTITY size.label "Kích thước">
 <!ENTITY context.whitelist.label "Thêm quy luật ngoại lệ cho mục">
 <!ENTITY context.selectAll.label "Chọn tất cả">
