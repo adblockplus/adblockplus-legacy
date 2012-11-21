@@ -36,7 +36,7 @@
 <!ENTITY backupButton.accesskey "B">
 <!ENTITY filter.actions.label "條件操作">
 <!ENTITY filter.moveDown.label "往下移">
-<!ENTITY typoCorrections.tab.label "錯字更正">
+<!ENTITY typoCorrections.tab.label "錯別字修正">
 <!ENTITY addFilter.label "新增過濾條件">
 <!ENTITY subscription.editTitle.label "編輯標題">
 <!ENTITY subscription.moveDown.label "往下移">
@@ -57,7 +57,7 @@
 <!ENTITY addSubscriptionCancel.label "取消">
 <!ENTITY lasthit.accesskey "L">
 <!ENTITY dialog.title "Adblock Plus 條件偏好設定">
-<!ENTITY subscription.minVersion.warning "這份條件集需要新版的 Adblock Plus，您應該更新至最新版本。">
+<!ENTITY subscription.minVersion.warning "此條件集需要新版的 Adblock Plus，您應該更新至最新版本。">
 <!ENTITY subscription.lastDownload.invalidURL "失敗，無效的位址">
 <!ENTITY backup.error "條件寫入檔案時發生錯誤。請確定該檔案沒有寫入保護或正被其他的程式使用。">
 <!ENTITY restore.error "無法處理該檔案的資料，也許這不是 Adblock Plus 的備份檔？">
