@@ -5,8 +5,8 @@
 <!ENTITY showinaddonbar.label "Visualizza nella barra dei componenti aggiuntivi">
 <!ENTITY objecttab.title "Blocca">
 <!ENTITY sync.accesskey "k">
-<!ENTITY objecttabs.label "Mostra linguetta &amp;apos;Blocca…&amp;apos; per elementi Flash e Java">
-<!ENTITY objecttab.tooltip "Fare clic qui per bloccare l&amp;apos;oggetto con Adblock Plus">
+<!ENTITY objecttabs.label "Mostra linguetta 'Blocca…' per elementi Flash e Java">
+<!ENTITY objecttab.tooltip "Fare clic qui per bloccare l'oggetto con Adblock Plus">
 <!ENTITY menuitem.label "Gestione dei filtri di Adblock Plus">
 <!ENTITY sendReport.accesskey "S">
 <!ENTITY sendReport.label "Segnala problemi nella pagina attuale">
@@ -14,8 +14,9 @@
 <!ENTITY whitelist.page.label "Disattiva solo per la pagina attuale">
 <!ENTITY context.image.label "Blocca immagine con Adblock Plus">
 <!ENTITY counthits.label "Effettua le statistiche di accesso">
-<!ENTITY opensidebar.label "Apri l&amp;apos;elenco degli elementi bloccabili">
+<!ENTITY opensidebar.label "Apri l'elenco degli elementi bloccabili">
 <!ENTITY contribute.label "Contribuisci ad Adblock Plus">
+<!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Blocca riquadro con Adblock Plus">
 <!ENTITY blocked.tooltip "Elementi attualmente bloccati">
 <!ENTITY hideplaceholders.label "Nascondi gli elementi bloccati">
@@ -26,7 +27,7 @@
 <!ENTITY context.object.label "Blocca oggetto con Adblock Plus">
 <!ENTITY context.removeWhitelist.label "Riattiva Adblock Plus nella pagina attuale">
 <!ENTITY filters.tooltip "Filtri di Adblock Plus maggiormente attivi">
-<!ENTITY closesidebar.label "Chiudi l&amp;apos;elenco degli elementi bloccabili">
+<!ENTITY closesidebar.label "Chiudi l'elenco degli elementi bloccabili">
 <!ENTITY showintoolbar.label "Visualizza nella barra degli strumenti">
 <!ENTITY counthits.accesskey "E">
 <!ENTITY menuitem.accesskey "A">

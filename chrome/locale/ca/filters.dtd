@@ -21,7 +21,7 @@
 <!ENTITY subscription.lastDownload.success "Èxit">
 <!ENTITY filters.remove.warning "Segur que vols eliminar tots els filtres seleccionats ?">
 <!ENTITY restore.custom.warning "Tots els filtres personalitzats seràn substituits per els continguts del fitxer seleccionat. Vols seguir endavant?">
-<!ENTITY slow.column "Filtres d&amp;apos;aminorament">
+<!ENTITY slow.column "Filtres d'aminorament">
 <!ENTITY subscription.actions.label "Accions">
 <!ENTITY filter.selectAll.label "Selecciona-ho tot">
 <!ENTITY backupButton.label "Fes una còpia de seguretat i restaura">

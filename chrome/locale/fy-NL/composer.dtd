@@ -17,13 +17,13 @@
 <!ENTITY unselectAllTypes.label "Selektearje neat">
 <!ENTITY domainRestriction.accesskey "m">
 <!ENTITY type.whitelist.label "Utsûnderingsrigel">
-<!ENTITY regexp.warning "It patroan dy&amp;apos;t jo opjûn hawwe sil ynterpretearre wurde as reguliere ekspresje. In protte reguliere ekspresjes kinne it sneupjen fertrage. As jo net fan plan wienen om reguliere ekspresje te brûken, foegje in symboal * ta oan it ein fan it patroan.">
+<!ENTITY regexp.warning "It patroan dy't jo opjûn hawwe sil ynterpretearre wurde as reguliere ekspresje. In protte reguliere ekspresjes kinne it sneupjen fertrage. As jo net fan plan wienen om reguliere ekspresje te brûken, foegje in symboal * ta oan it ein fan it patroan.">
 <!ENTITY dialog.title "Foegje Adblock Plus filterrigel ta">
 <!ENTITY basic.label "Basisbyld">
 <!ENTITY preferences.accesskey "T">
 <!ENTITY type.filter.label "Blokkearfilter">
 <!ENTITY types.label "Tapasse op types:">
-<!ENTITY shortpattern.warning "It patroan dy&amp;apos;t jo opjûn hawwe is te koart om te optimalisearjen, in protte reguliere ekspresje kinne it sneupjen fertrage. It wurdt oanret dat jo in langere útdrukking kieze foar dit filter.">
+<!ENTITY shortpattern.warning "It patroan dy't jo opjûn hawwe is te koart om te optimalisearjen, in protte reguliere ekspresje kinne it sneupjen fertrage. It wurdt oanret dat jo in langere útdrukking kieze foar dit filter.">
 <!ENTITY custom.pattern.accesskey "O">
 <!ENTITY anchors.label "Akseptearje allinnich patroan:">
 <!ENTITY collapse.default.yes.label "Brûk standert (ja)">

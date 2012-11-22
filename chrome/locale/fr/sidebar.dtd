@@ -1,4 +1,4 @@
-<!ENTITY context.flash.label "Faire clignoter les bordures de l&amp;apos;élément">
+<!ENTITY context.flash.label "Faire clignoter les bordures de l'élément">
 <!ENTITY address.label "Adresse">
 <!ENTITY context.open.label "Ouvrir dans un nouvel onglet">
 <!ENTITY type.label "Type">
@@ -11,7 +11,7 @@
 <!ENTITY docDomain.thirdParty "(tierce partie)">
 <!ENTITY filterSource.label "Source du filtre">
 <!ENTITY tooltip.docDomain.label "Source du document :">
-<!ENTITY context.copy.label "Copier l&amp;apos;adresse de l&amp;apos;élément">
+<!ENTITY context.copy.label "Copier l'adresse de l'élément">
 <!ENTITY tooltip.type.label "Type :">
 <!ENTITY search.accesskey "C">
 <!ENTITY context.disablefilter.label "Désactiver le filtre ?1?">
