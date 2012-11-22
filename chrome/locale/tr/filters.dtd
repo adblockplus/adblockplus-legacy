@@ -8,7 +8,7 @@
 <!ENTITY backupButton.label "Yedekle ve geri getir">
 <!ENTITY addFilter.accesskey "k">
 <!ENTITY filter.accesskey "k">
-<!ENTITY sort.ascending.label "A&amp;apos;da Z&amp;apos;ye sıralama">
+<!ENTITY sort.ascending.label "A'da Z'ye sıralama">
 <!ENTITY noFiltersInGroup.text "Seçili öbek boş">
 <!ENTITY sort.label "Sırala">
 <!ENTITY subscription.source.label "Süzgeç listesi">
@@ -25,7 +25,7 @@
 <!ENTITY hitcount.accesskey "e">
 <!ENTITY restore.minVersion.warning "Uyarı: Dosya Adblock Plus'ın daha yeni bir sürümüyle oluşturulmuş. Bu dosyayı geri getirmeden önce Adblock Plus'ı en güncel sürümüne yükseltmelisiniz.">
 <!ENTITY addSubscription.accesskey "e">
-<!ENTITY sort.descending.label "Z&amp;apos;den A&amp;apos;ya sıralama">
+<!ENTITY sort.descending.label "Z'den A'ya sıralama">
 <!ENTITY filters.remove.warning "Seçili bu süzgeçleri gerçekten silmek istiyor musunuz?">
 <!ENTITY filter.delete.label "Sil">
 <!ENTITY addSubscriptionAdd.label "Ekle">

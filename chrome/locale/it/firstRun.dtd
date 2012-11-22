@@ -8,5 +8,5 @@
 <!ENTITY dialog.title "Installazione/aggiornamento di Adblock Plus effettuato con successo">
 <!ENTITY listSelection1 "Per bloccare banner e pubblicità indesiderati sono state impostate le seguenti liste di filtri:">
 <!ENTITY listSelection2 "È possibile attivare/disattivare la visualizzazione di pubblicità non inopportuna in qualsiasi momento nella finestra di
-	[link]Gestione dei filtri di Adblock Plus[/link] selezionando/deselezionando &amp;apos;Permetti alcune pubblicità non inopportune&amp;apos;">
+	[link]Gestione dei filtri di Adblock Plus[/link] selezionando/deselezionando 'Permetti alcune pubblicità non inopportune'">
 <!ENTITY readMore.label "Visualizza ulteriori informazioni relative a questa opzione">

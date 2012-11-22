@@ -1,5 +1,5 @@
 <!ENTITY collapse.yes.label "Sì">
-<!ENTITY anchor.end.label "alla fine dell&amp;apos;indirizzo web">
+<!ENTITY anchor.end.label "alla fine dell'indirizzo web">
 <!ENTITY domainRestriction.label "Limita al dominio qui sotto">
 <!ENTITY anchor.start.flexible.accesskey "i">
 <!ENTITY firstParty.label "Solo dominii di primo livello">
@@ -10,8 +10,8 @@
 <!ENTITY thirdParty.accesskey "S">
 <!ENTITY filter.label "Nuovo filtro:">
 <!ENTITY collapse.label "Contrai bloccati:">
-<!ENTITY match.warning "Il modello inserito non corrisponde più all&amp;apos;indirizzo web da bloccare/permettere e non avrà quindi alcun effetto">
-<!ENTITY anchor.start.label "all&amp;apos;inizio dell&amp;apos;indirizzo web">
+<!ENTITY match.warning "Il modello inserito non corrisponde più all'indirizzo web da bloccare/permettere e non avrà quindi alcun effetto">
+<!ENTITY anchor.start.label "all'inizio dell'indirizzo web">
 <!ENTITY matchCase.label "Maiuscole/minuscole">
 <!ENTITY custom.pattern.label "Personalizza:">
 <!ENTITY unselectAllTypes.label "Deseleziona">
@@ -35,10 +35,10 @@
 <!ENTITY accept.label "Aggiungi filtro">
 <!ENTITY options.label "Opzioni">
 <!ENTITY disabled.warning "Adblock Plus è attualmente disattivata. È comunque possibile aggiungere filtri, ma questi verranno applicati solo dopo la [link]riattivazione di Adblock Plus[/link]">
-<!ENTITY anchor.start.flexible.label "all&amp;apos;inizio del nome del dominio">
+<!ENTITY anchor.start.flexible.label "all'inizio del nome del dominio">
 <!ENTITY type.whitelist.accesskey "E">
 <!ENTITY matchCase.accesskey "u">
 <!ENTITY anchor.end.accesskey "f">
 <!ENTITY selectAllTypes.label "Seleziona tutti">
 <!ENTITY advanced.label "Avanzate &gt;&gt;">
-<!ENTITY pattern.explanation "Il modello può corrispondere a qualsiasi parte dell&amp;apos;indirizzo web, il carattere * corrisponde ad un carattere jolly. Il filtro verrà applicato ai soli indirizzi web corrispondenti al modello">
+<!ENTITY pattern.explanation "Il modello può corrispondere a qualsiasi parte dell'indirizzo web, il carattere * corrisponde ad un carattere jolly. Il filtro verrà applicato ai soli indirizzi web corrispondenti al modello">

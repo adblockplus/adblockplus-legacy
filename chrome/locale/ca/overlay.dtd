@@ -25,7 +25,7 @@
 <!ENTITY counthits.label "Compta els cops que funciona el filtre">
 <!ENTITY blocked.tooltip "Elements bloquejats en aquesta pàgina:">
 <!ENTITY opensidebar.accesskey "B">
-<!ENTITY showinstatusbar.label "Mostra a la barra d&amp;apos;estat">
+<!ENTITY showinstatusbar.label "Mostra a la barra d'estat">
 <!ENTITY status.tooltip "Estat:">
 <!ENTITY sidebar.title "Elements bloquejables a la pàgina actual">
 <!ENTITY sync.label "Sincronitza la configuració d'AdBlock Plus">
@@ -35,7 +35,7 @@
 <!ENTITY objecttabs.accesskey "T">
 <!ENTITY filters.tooltip "Filtres més actius:">
 <!ENTITY closesidebar.label "Tanca elements bloquejables">
-<!ENTITY showintoolbar.label "Mostra a la barra d&amp;apos;eines">
+<!ENTITY showintoolbar.label "Mostra a la barra d'eines">
 <!ENTITY counthits.accesskey "p">
 <!ENTITY menuitem.accesskey "B">
 <!ENTITY context.media.label "Adblock Plus: Bloqueja àudio/vídeo">
