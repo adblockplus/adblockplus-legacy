@@ -93,12 +93,12 @@ radio, checkbox, .topLabel, #dataDeck
   overflow-y: scroll;
 }
 
-#commentLengthWarning
+#commentLengthWarning, #anonymityWarning
 {
   color: red;
 }
 
-#commentLengthWarning[visible="false"]
+#commentLengthWarning[visible="false"], #anonymityWarning[visible="false"]
 {
   visibility: hidden;
 }
