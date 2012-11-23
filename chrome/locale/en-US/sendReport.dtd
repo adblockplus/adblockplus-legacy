@@ -165,11 +165,18 @@
   You can also review the report data before it is sent.
 ">
 
+<!ENTITY emailComment.label           "
+  We encourage you to enter a valid email address so that we can contact you if there are questions
+  about your report. It will also allow us to recognize your contributions and to prioritize them higher.
+">
 <!ENTITY comment.label                "Comment (optional):">
 <!ENTITY comment.accesskey            "C">
 <!ENTITY comment.lengthWarning        "The length of your comment exceeds 1000 characters. Only the first 1000 characters will be sent.">
-<!ENTITY email.label                  "Email for further inquiries (optional):">
+<!ENTITY email.label                  "Email:">
 <!ENTITY email.accesskey              "m">
+<!ENTITY anonymous.label              "Anonymous submission">
+<!ENTITY anonymous.accesskey          "a">
+<!ENTITY anonymity.warning            "We won't be able to come back to you and will likely prioritize the report lower.">
 
 <!ENTITY attachExtensions.label       "Attach a list of active extensions to the report in case add-on conflict is the cause of the problem">
 <!ENTITY attachExtensions.accesskey   "x">

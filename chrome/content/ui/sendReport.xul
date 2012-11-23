@@ -211,14 +211,17 @@
 </wizardpage>
 
 <wizardpage id="commentPage" pageid="comment" next="send" label="&commentPage.heading;" onpageshow="initCommentPage();">
-  <description>&commentPage.description;</description>
+  <description>&emailComment.label;</description>
+  <hbox class="topLabel" align="baseline">
+    <label id="emailLabel" control="email" value="&email.label;" accesskey="&email.accesskey;"/>
+    <textbox id="email" persist="value" flex="1" maxlength="200" oninput="updateEmail();"/>
+  </hbox>
+  <checkbox id="anonymousCheckbox" label="&anonymous.label;" accesskey="&anonymous.accesskey;" oncommand="updateEmail();"/>
+  <description id="anonymityWarning" visible="false">&anonymity.warning;</description>
 
+  <description class="topLabel">&commentPage.description;</description>
   <label class="topLabel" control="comment" value="&comment.label;" accesskey="&comment.accesskey;"/>
   <textbox id="comment" multiline="true" flex="1" oninput="updateComment();"/>
-  <hbox align="baseline">
-    <label control="email" value="&email.label;" accesskey="&email.accesskey;"/>
-    <textbox id="email" flex="1" maxlength="200" oninput="updateEmail();"/>
-  </hbox>
   <description id="commentLengthWarning" visible="false">&comment.lengthWarning;</description>
 
   <checkbox id="extensionsCheckbox" label="&attachExtensions.label;" accesskey="&attachExtensions.accesskey;" oncommand="updateExtensions(this.checked);"/>

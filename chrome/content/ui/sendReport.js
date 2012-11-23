@@ -1323,6 +1323,8 @@ function updateTypeWarningOverride()
 
 function initScreenshotPage()
 {
+  document.documentElement.canAdvance = true;
+
   E("progressBar").activeItem = E("screenshotHeader");
 }
 
@@ -1330,6 +1332,8 @@ function initCommentPage()
 {
   E("progressBar").activeItem = E("commentPageHeader");
 
+  updateEmail();
+  
   screenshotDataSource.exportData();
   updateDataField();
 }
@@ -1379,8 +1383,24 @@ function updateComment()
 function updateEmail()
 {
   removeReportElement("email");
-  appendElement(reportData.documentElement, "email", null, E("email").value.replace(/\@/g, " at ").replace(/\./g, " dot "));
+  
+  let anonymous = E("anonymousCheckbox").checked;
+  
+  let value = E("email").value;
+
+  // required for persist to work on textbox, see: https://bugzilla.mozilla.org/show_bug.cgi?id=111486
+  E("email").setAttribute("value", value);
+
+  E("email").disabled = anonymous;
+  E("emailLabel").disabled = anonymous;
+  E("anonymityWarning").setAttribute("visible", anonymous);
+
+  if (!anonymous)
+    appendElement(reportData.documentElement, "email", null, value);
+
   updateDataField();
+
+  document.documentElement.canAdvance = anonymous || /\S/.test(value);
 }
 
 function updateExtensions(attach)
