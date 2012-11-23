@@ -1,4 +1,5 @@
 <!ENTITY addMain.label "Aggiungere la sottoscrizione di filtri &quot;?1?&quot;">
+<!ENTITY addMain.accesskey "s">
 <!ENTITY list.download.failed "Recupero della lista di sottoscrizioni non riuscito">
 <!ENTITY list.download.retry "Riprova">
 <!ENTITY location.accesskey "z">
