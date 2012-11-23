@@ -44,7 +44,7 @@
 <!ENTITY filter.column "過濾條件">
 <!ENTITY subscription.lastDownload.checksumMismatch "失敗，驗證碼不符">
 <!ENTITY noFiltersInGroup.text "選中的群組是空的">
-<!ENTITY typoCorrections.whitelistLabel "不要替換">
+<!ENTITY typoCorrections.whitelistLabel "不要替換以下網址...">
 <!ENTITY sort.label "排序">
 <!ENTITY noFilters.text "您還沒有任何自訂條件。">
 <!ENTITY subscription.external.label "由其他擴充套件更新">
