@@ -13,12 +13,12 @@
       white-space: pre-wrap;
     }
 
-    .error 
+    .error
     {
       background-color: #fff0f0;
     }
 
-    .warning 
+    .warning
     {
       background-color: #ffffe0;
     }
@@ -53,12 +53,14 @@
       id = addonID.replace(/[\{\}]/g, "");
     } catch (e) {}
 
-    let messages = {};
-    Components.classes["@mozilla.org/consoleservice;1"]
+    // See https://bugzilla.mozilla.org/show_bug.cgi?id=664695 - starting with
+    // Gecko 19 this function returns the result, before that it wrote to a
+    // parameter.
+    let outparam = {};
+    let messages = Components.classes["@mozilla.org/consoleservice;1"]
               .getService(Components.interfaces.nsIConsoleService)
-              .getMessageArray(messages, {});
-    messages = messages.value || [];
-
+              .getMessageArray(outparam, {});
+    messages = messages || outparam.value || [];
     messages = messages.filter(function(message)
     {
       return (message instanceof Components.interfaces.nsIScriptError &&

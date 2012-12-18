@@ -617,9 +617,12 @@ let errorsDataSource =
     let {addonID} = require("info");
     addonID = addonID.replace(/[\{\}]/g, "");
 
-    let messages = {};
-    Cc["@mozilla.org/consoleservice;1"].getService(Ci.nsIConsoleService).getMessageArray(messages, {});
-    messages = messages.value || [];
+    // See https://bugzilla.mozilla.org/show_bug.cgi?id=664695 - starting with
+    // Gecko 19 this function returns the result, before that it wrote to a
+    // parameter.
+    let outparam = {};
+    let messages = Cc["@mozilla.org/consoleservice;1"].getService(Ci.nsIConsoleService).getMessageArray(outparam, {});
+    messages = messages || outparam.value || [];
     messages = messages.filter(function(message)
     {
       return (message instanceof Ci.nsIScriptError &&
