@@ -27,6 +27,9 @@ const SECONDS_IN_MINUTE = 60;
 const SECONDS_IN_HOUR = 60 * SECONDS_IN_MINUTE;
 const SECONDS_IN_DAY = 24 * SECONDS_IN_HOUR;
 
+let contentWindow = window.arguments[0];
+let windowURI = (window.arguments[1] instanceof Ci.nsIURI ? window.arguments[1] : null);
+
 let reportData = new DOMParser().parseFromString("<report></report>", "text/xml");
 
 // Some helper functions to work with the report data
@@ -91,7 +94,7 @@ let (element = reportElement("options"))
   appendElement(element, "option", {id: "enabled"}, Prefs.enabled);
   appendElement(element, "option", {id: "objecttabs"}, Prefs.frameobjects);
   appendElement(element, "option", {id: "collapse"}, !Prefs.fastcollapse);
-  appendElement(element, "option", {id: "privateBrowsing"}, PrivateBrowsing.enabled);
+  appendElement(element, "option", {id: "privateBrowsing"}, PrivateBrowsing.enabledForWindow(contentWindow) || PrivateBrowsing.enabled);
   appendElement(element, "option", {id: "subscriptionsAutoUpdate"}, Prefs.subscriptions_autoupdate);
   appendElement(element, "option", {id: "javascript"}, Services.prefs.getBoolPref("javascript.enabled"));
   appendElement(element, "option", {id: "cookieBehavior"}, Services.prefs.getIntPref("network.cookie.cookieBehavior"));
@@ -1221,8 +1224,6 @@ function initDataCollectorPage()
 {
   document.documentElement.canAdvance = false;
 
-  let contentWindow = window.arguments[0];
-  let windowURI = (window.arguments[1] instanceof Ci.nsIURI ? window.arguments[1] : null);
   let totalSteps = dataCollectors.length;
   let initNextDataSource = function()
   {
@@ -1333,7 +1334,7 @@ function initCommentPage()
   E("progressBar").activeItem = E("commentPageHeader");
 
   updateEmail();
-  
+
   screenshotDataSource.exportData();
   updateDataField();
 }
@@ -1383,9 +1384,9 @@ function updateComment()
 function updateEmail()
 {
   removeReportElement("email");
-  
+
   let anonymous = E("anonymousCheckbox").checked;
-  
+
   let value = E("email").value;
 
   // required for persist to work on textbox, see: https://bugzilla.mozilla.org/show_bug.cgi?id=111486
@@ -1529,7 +1530,7 @@ function reportSent(event)
       button.setAttribute("url", link);
       button.removeAttribute("disabled");
 
-      if (!PrivateBrowsing.enabled)
+      if (!PrivateBrowsing.enabledForWindow(contentWindow) && !PrivateBrowsing.enabled)
         reportsListDataSource.addReport(framesDataSource.site, link);
     } catch (e) {}
     E("copyLinkBox").hidden = false;
