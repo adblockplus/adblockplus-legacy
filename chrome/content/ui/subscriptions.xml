@@ -66,6 +66,12 @@
                 homepage="http://www.fanboy.co.nz/adblock/"
                 prefixes="en"
                 author="fanboy, Nitrox"/>
+  <subscription title="Liste AR+Liste FR+EasyList"
+                specialization="العربية"
+                url="https://easylist-downloads.adblockplus.org/liste_ar+liste_fr+easylist.txt"
+                homepage="https://code.google.com/p/liste-ar-adblock/"
+                prefixes="ar"
+                author="smed79"/>
   <subscription title="Liste FR+EasyList"
                 specialization="français"
                 url="https://easylist-downloads.adblockplus.org/liste_fr+easylist.txt"
