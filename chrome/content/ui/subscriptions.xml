@@ -77,7 +77,7 @@
                 url="https://easylist-downloads.adblockplus.org/liste_fr+easylist.txt"
                 homepage="http://adblock-listefr.com/"
                 prefixes="fr"
-                author="Lian, Crits"/>
+                author="Lian, Crits, smed79"/>
   <subscription title="ROList+EasyList"
                 specialization="românesc"
                 url="https://easylist-downloads.adblockplus.org/rolist+easylist.txt"
