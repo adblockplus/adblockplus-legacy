@@ -27,7 +27,7 @@
   <subscription title="ABPindo+EasyList"
                 specialization="Bahasa Indonesia"
                 url="https://easylist-downloads.adblockplus.org/abpindo+easylist.txt"
-                homepage="http://indonesianfilter.blogspot.com/"
+                homepage="http://abpindo.blogspot.com/"
                 prefixes="id"
                 author="heradhis"/>
   <subscription title="Bulgarian list+EasyList"
@@ -63,7 +63,7 @@
   <subscription title="Fanboy&#39;s List"
                 specialization="English"
                 url="https://secure.fanboy.co.nz/fanboy-adblock.txt"
-                homepage="http://www.fanboy.co.nz/adblock/"
+                homepage="https://www.fanboy.co.nz/"
                 prefixes="en"
                 author="fanboy, Nitrox"/>
   <subscription title="Liste AR+Liste FR+EasyList"
