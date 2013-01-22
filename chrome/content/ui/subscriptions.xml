@@ -90,4 +90,10 @@
                 homepage="https://code.google.com/p/ruadlist/"
                 prefixes="ru,uk"
                 author="Lain_13"/>
+  <subscription title="Wiltteri+EasyList"
+                specialization="suomi"
+                url="https://easylist-downloads.adblockplus.org/wiltteri+easylist.txt"
+                homepage="http://wiltteri.net/"
+                prefixes="fi"
+                author="None"/>
   </subscriptions>
