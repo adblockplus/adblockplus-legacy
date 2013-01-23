@@ -36,14 +36,6 @@
   <script type="application/x-javascript;version=1.7">
     let id = null;
     try {
-      function require(module)
-      {
-        let {Services} = Components.utils.import("resource://gre/modules/Services.jsm");
-        let result = {};
-        result.wrappedJSObject = result;
-        Services.obs.notifyObservers(result, "adblockplus-require", module);
-        return result.exports;
-      }
       let {addonVersion, addonID} = require("info");
 
       let text = "You are running Adblock Plus " + addonVersion;
@@ -91,6 +83,15 @@
     else
     {
       document.write("<p>No errors found.</p>");
+    }
+
+    function require(module)
+    {
+      let {Services} = Components.utils.import("resource://gre/modules/Services.jsm");
+      let result = {};
+      result.wrappedJSObject = result;
+      Services.obs.notifyObservers(result, "adblockplus-require", module);
+      return result.exports;
     }
 
     function encodeHTML(string)
