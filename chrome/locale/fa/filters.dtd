@@ -15,7 +15,6 @@
 <!ENTITY subscription.lastDownload.inProgress "در حال دریافت...">
 <!ENTITY subscriptions.tab.label "اشتراک های فیلتر">
 <!ENTITY enabled.accesskey "ع">
-<!ENTITY addSubscription.accesskey "f">
 <!ENTITY filter.delete.label "حذف">
 <!ENTITY addSubscriptionAdd.label "اضافه کردن">
 <!ENTITY viewMenu.label "نما">

@@ -6,6 +6,7 @@
 <!ENTITY preferences.label "Mostrar filtros existentes...">
 <!ENTITY pattern.label "Procurar padrão">
 <!ENTITY thirdParty.label "Somente em domínio diferente">
+<!ENTITY filter.accesskey "f">
 <!ENTITY thirdParty.accesskey "o">
 <!ENTITY filter.label "Novo filtro:">
 <!ENTITY collapse.label "Desprezar bloqueados:">
@@ -25,9 +26,9 @@
 <!ENTITY collapse.default.no.label "Usar padrão (não)">
 <!ENTITY type.filter.label "Filtros de Bloqueio">
 <!ENTITY types.label "Aplicar a tipos:">
-<!ENTITY anchor.start.accesskey "c">
-<!ENTITY custom.pattern.accesskey "P">
 <!ENTITY shortpattern.warning "O padrão digitado é curto demais para ser otimizado, muitos padrões como esse podem causar lentidão na navegação. É recomendável uma string mais longa para esse filtro.">
+<!ENTITY custom.pattern.accesskey "P">
+<!ENTITY anchor.start.accesskey "c">
 <!ENTITY anchors.label "Aceitar somente padrão:">
 <!ENTITY collapse.default.yes.label "Usar padrão (sim)">
 <!ENTITY type.filter.accesskey "q">
@@ -36,6 +37,7 @@
 <!ENTITY options.label "Opções">
 <!ENTITY disabled.warning "O Adblock Plus está desativado atualmente. Você pode adicionar filtros mesmo assim, mas eles não serão aplicados até que você [link]ative o Adblock Plus[/link].">
 <!ENTITY anchor.start.flexible.label "no começo do nome do domínio">
+<!ENTITY type.whitelist.accesskey "x">
 <!ENTITY matchCase.accesskey "D">
 <!ENTITY anchor.end.accesskey "i">
 <!ENTITY selectAllTypes.label "Selecionar todos">

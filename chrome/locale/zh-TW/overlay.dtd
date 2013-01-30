@@ -19,7 +19,7 @@
 <!ENTITY hideplaceholders.label "隱藏已阻擋元素所佔用的空間">
 <!ENTITY opensidebar.label "開啟可阻擋項目">
 <!ENTITY options.accesskey "O">
-<!ENTITY contribute.label "為 Adblock Plus 盡一份力">
+<!ENTITY contribute.label "贊助 Adblock Plus">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus：阻擋頁框">
 <!ENTITY counthits.label "計算條件命中次數">

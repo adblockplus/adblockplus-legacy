@@ -1,9 +1,11 @@
-<!ENTITY sync.label "Sincronizza le impostazioni di Adblock Plus">
+<!ENTITY showintoolbar.accesskey "b">
+<!ENTITY showinstatusbar.accesskey "s">
 <!ENTITY whitelist.site.label "Disattiva per ?1?">
 <!ENTITY filters.label "Gestione dei filtri">
 <!ENTITY disable.label "Disattiva per tutte le pagine">
 <!ENTITY showinaddonbar.label "Visualizza nella barra dei componenti aggiuntivi">
 <!ENTITY objecttab.title "Blocca">
+<!ENTITY showinaddonbar.accesskey "b">
 <!ENTITY sync.accesskey "k">
 <!ENTITY objecttabs.label "Mostra linguetta 'Blocca…' per elementi Flash e Java">
 <!ENTITY objecttab.tooltip "Fare clic qui per bloccare l'oggetto con Adblock Plus">
@@ -13,19 +15,24 @@
 <!ENTITY filters.accesskey "f">
 <!ENTITY whitelist.page.label "Disattiva solo per la pagina attuale">
 <!ENTITY context.image.label "Blocca immagine con Adblock Plus">
-<!ENTITY counthits.label "Effettua le statistiche di accesso">
+<!ENTITY closesidebar.accesskey "b">
+<!ENTITY hideplaceholders.label "Nascondi gli elementi bloccati">
 <!ENTITY opensidebar.label "Apri l'elenco degli elementi bloccabili">
+<!ENTITY options.accesskey "O">
 <!ENTITY contribute.label "Contribuisci ad Adblock Plus">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Blocca riquadro con Adblock Plus">
+<!ENTITY counthits.label "Effettua le statistiche di accesso">
 <!ENTITY blocked.tooltip "Elementi attualmente bloccati">
-<!ENTITY hideplaceholders.label "Nascondi gli elementi bloccati">
+<!ENTITY opensidebar.accesskey "b">
 <!ENTITY showinstatusbar.label "Visualizza nella barra di stato">
 <!ENTITY status.tooltip "Stato di Adblock Plus">
 <!ENTITY sidebar.title "Elenco degli elementi bloccabili con Adblock Plus">
+<!ENTITY sync.label "Sincronizza le impostazioni di Adblock Plus">
 <!ENTITY options.label "Opzioni di Adblock Plus">
 <!ENTITY context.object.label "Blocca oggetto con Adblock Plus">
 <!ENTITY context.removeWhitelist.label "Riattiva Adblock Plus nella pagina attuale">
+<!ENTITY objecttabs.accesskey "t">
 <!ENTITY filters.tooltip "Filtri di Adblock Plus maggiormente attivi">
 <!ENTITY closesidebar.label "Chiudi l'elenco degli elementi bloccabili">
 <!ENTITY showintoolbar.label "Visualizza nella barra degli strumenti">

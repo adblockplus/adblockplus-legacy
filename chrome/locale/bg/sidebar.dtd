@@ -21,7 +21,7 @@
 <!ENTITY detach.label "Отдели">
 <!ENTITY whitelisted.label "Разрешена странница">
 <!ENTITY context.disablefilteronsite.label "Да изключа ли този филтър за ?1?">
-<!ENTITY detached.title "Adblock Плюс: Блокирани продукти (отделени)">
+<!ENTITY detached.title "Adblock Plus: Блокирани продукти (отделени)">
 <!ENTITY docDomain.firstParty "Основни">
 <!ENTITY tooltip.type.whitelisted "(разрешен)">
 <!ENTITY tooltip.filter.label "Филтър в сила:">

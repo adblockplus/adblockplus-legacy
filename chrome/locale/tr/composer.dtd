@@ -16,17 +16,19 @@
 <!ENTITY matchCase.label "Birebir eşleşme">
 <!ENTITY custom.pattern.label "Özel:">
 <!ENTITY unselectAllTypes.label "Hiçbirini seçme">
+<!ENTITY domainRestriction.accesskey "d">
 <!ENTITY type.whitelist.label "Hariç tutma kuralı">
 <!ENTITY regexp.warning "Girdiğiniz örnek düzenli ifade olarak yorumlanacak. Çok fazla düzenli ifade, taramayı yavaşlatabilir. Gerçekten düzenli ifade kullanmak istediğinizden emin değilseniz örneğin sonuna * işareti koyun.">
 <!ENTITY dialog.title "Adblock Plus süzgeç kuralı ekle">
 <!ENTITY basic.label "Temel görünüm">
+<!ENTITY preferences.accesskey "S">
 <!ENTITY firstParty.accesskey "i">
 <!ENTITY collapse.default.no.label "Öntanımlı kullan (hayır)">
 <!ENTITY type.filter.label "Engelleyen süzgeç">
 <!ENTITY types.label "Bu türlere uygula:">
-<!ENTITY anchor.start.accesskey "b">
-<!ENTITY custom.pattern.accesskey "z">
 <!ENTITY shortpattern.warning "Girdiğiniz örnek en iyileştirmek için çok kısa ve bu tür örnekler taramayı yavaşlatabilir. Bu süzgeç için daha uzun bir satır seçmeniz tavsiye edilir.">
+<!ENTITY custom.pattern.accesskey "z">
+<!ENTITY anchor.start.accesskey "b">
 <!ENTITY anchors.label "Örneği sadece burada kabul et:">
 <!ENTITY collapse.default.yes.label "Öntanımlı kullan (evet)">
 <!ENTITY type.filter.accesskey "l">

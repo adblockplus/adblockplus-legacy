@@ -16,6 +16,7 @@
 <!ENTITY hideplaceholders.label "Esconder locais de elementos bloqueados">
 <!ENTITY opensidebar.label "Abrir lista de elementos bloqueáveis">
 <!ENTITY contribute.label "Contribuir para o Adblock Plus">
+<!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Bloquear Moldura">
 <!ENTITY counthits.label "Contabilizar bloqueios do filtro">
 <!ENTITY blocked.tooltip "Itens bloqueados nesta página:">

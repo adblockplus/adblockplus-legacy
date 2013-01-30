@@ -6,6 +6,6 @@
 <!ENTITY viewList.label "Pogledaj popis">
 <!ENTITY visitHomepage.label "Posjetite početnu stranicu popisa">
 <!ENTITY dialog.title "Adblock Plus instalacija završena">
-<!ENTITY listSelection1 "Sljedeći popis filtera je podešen da blokira reklame:">
+<!ENTITY listSelection1 "Sljedeći popis filtera je podešen za blokiranje reklama:">
 <!ENTITY listSelection2 "Možete promijeniti ovaj odabir bilo kada u [link]Postavkama filtera[/link].">
 <!ENTITY readMore.label "Više pročitajte o ovome">

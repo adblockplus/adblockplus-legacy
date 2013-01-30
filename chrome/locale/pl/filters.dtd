@@ -16,7 +16,7 @@
 <!ENTITY readMore.label "Dowiedz się więcej">
 <!ENTITY subscription.homepage.label "Strona domowa">
 <!ENTITY typoCorrections.enableLabel "Naprawiaj pomyłki w adresach internetowych">
-<!ENTITY sort.descending.accesskey "M">
+<!ENTITY sort.descending.accesskey "Z">
 <!ENTITY sort.descending.label "Kierunek sortowania Z &gt; A">
 <!ENTITY subscription.lastDownload.success "Zakończono pomyślnie">
 <!ENTITY filters.remove.warning "Czy na pewno chcesz usunąć wszystkie wybrane filtry?">
@@ -25,7 +25,7 @@
 <!ENTITY subscription.actions.label "Czynności">
 <!ENTITY filter.selectAll.label "Zaznacz wszystko">
 <!ENTITY backupButton.label "Tworzenie i odtwarzanie kopii">
-<!ENTITY sort.accesskey "P">
+<!ENTITY sort.accesskey "S">
 <!ENTITY subscription.source.label "Zawartość zestawu">
 <!ENTITY filter.paste.label "Wklej">
 <!ENTITY addSubscription.accesskey "D">
@@ -73,7 +73,7 @@
 <!ENTITY sort.ascending.label "Kierunek sortowania A &gt; Z">
 <!ENTITY viewList.label "Zobacz listę">
 <!ENTITY typoCorrections.whitelistEmptyLabel "Obecnie nie ma żadnych wyjątków.">
-<!ENTITY sort.ascending.accesskey "S">
+<!ENTITY sort.ascending.accesskey "A">
 <!ENTITY restore.default.label "Odtwórz kopię z dnia ?1?">
 <!ENTITY hitcount.accesskey "U">
 <!ENTITY acceptableAds2.accesskey "T">

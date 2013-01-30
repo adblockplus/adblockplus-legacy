@@ -19,6 +19,7 @@
 <!ENTITY issues.disabledgroups.enable.label "Увімкнути фільтрову підписку/групу">
 <!ENTITY typeWarning.override.label "Я розумію, та все ж хочу послати звіт">
 <!ENTITY issues.disabled.enable.label "Увімкнути Adblock Plus">
+<!ENTITY update.fixed.description "Оновлення ваших підписок на фільтри швидше за все вирішило проблему, про яку ви хотіли повідомити. Будь ласка завантажте заново сторінку і спробуйте ще раз. Якщо проблема залишилася, то надішліть повідомлення ще раз.">
 <!ENTITY email.label "Ел.пошта для дальшого зв’язку (необов’язково):">
 <!ENTITY reloadButton.label "Перегрузити сторінку">
 <!ENTITY recentReports.clear.label "Вилучити всі звіти">
@@ -26,6 +27,7 @@
 <!ENTITY screenshot.mark.accesskey "з">
 <!ENTITY typeSelector.other.accesskey "і">
 <!ENTITY screenshot.undo.accesskey "П">
+<!ENTITY update.inProgress.description "Adblock Plus необхідно оновити ваші підписки на фільтри, щоб переконатися, що це питання не було вирішено вже. Будь ласка, зачекайте...">
 <!ENTITY data.accesskey "д">
 <!ENTITY data.label "Дані звіту:">
 <!ENTITY sendPage.heading "Надіслати звіт">
@@ -37,6 +39,7 @@
 <!ENTITY issues.disabledfilters.enable.label "Увімкнути фільтр">
 <!ENTITY issues.override.label "Налаштування правильні, продовжити звіт">
 <!ENTITY issues.nosubscriptions.description "Ви не підписані на жоден з готових списків фільтрування котрі автоматично вилучають небажаний вміст з сайтів.">
+<!ENTITY outdatedSubscriptions.description "Наступні підписки на фільтри не оновлювалися більше двох тижнів. Будь ласка, поновіть ці підписки перед відправленням повідомлення, оскільки проблема вже може бути вирішена.">
 <!ENTITY typeSelector.other.label "Інша проблема">
 <!ENTITY issues.whitelist.remove.label "Переувімкнути Adblock Plus на цій сторінці">
 <!ENTITY typeSelector.falsePositive.description "Виберіть цей варіант якщо на сторінці відсутня частина вмісту, або якщо вона показується чи функціонує неправильно. Ви можете перевірити, чи був Adblock Plus причиною тимчасово його вимкнувши.">
@@ -46,6 +49,7 @@
 <!ENTITY sendPage.errorMessage "Помилка відправки звіту: «?1?». Упевніться що ви під’єднані до інтернету та спробуйте ще раз. Якщо проблема не зникає, будь ласка пошукайте допомоги на [link]форумі Adblock Plus[/link].">
 <!ENTITY showRecentReports.label "Показати недавно заслані звіти">
 <!ENTITY commentPage.heading "Ввести коментар">
+<!ENTITY update.start.label "Розпочати оновлення зараз">
 <!ENTITY typeSelector.falsePositive.accesskey "б">
 <!ENTITY issues.disabledfilters.description "Наступні фільтри вимкнені, але могли вплинути на цю сторінку:">
 <!ENTITY screenshot.description "Та сама сторінка може виглядати по різному для різних людей. Знімок екрана (скріншот) може допомогти нам зрозуміти проблему. Ви можете вилучити конфіденційні частини, а також позначити області де присутня проблема. Щоб це зробити, клацніть по відповідній клавіші та виберіть область зображення мишкою.">

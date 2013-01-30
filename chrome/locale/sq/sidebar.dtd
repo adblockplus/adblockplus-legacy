@@ -6,7 +6,7 @@
 <!ENTITY filter.label "Filtruesi">
 <!ENTITY noitems.label "S'ka elemente bllokuese">
 <!ENTITY tooltip.size.label "Madhësia:">
-<!ENTITY search.label "Kërko">
+<!ENTITY search.label "Kërko:">
 <!ENTITY tooltip.docDomain.label "Burimi i dokumentit:">
 <!ENTITY context.copy.label "Kopjo adresën e elementit">
 <!ENTITY tooltip.type.blocked "(bllokuar)">
@@ -16,10 +16,10 @@
 <!ENTITY context.enablefilter.label "Ri mundëso filtruesin ?1?">
 <!ENTITY context.disablefilteronsite.label "Pamundëso filtruesin në ?1?">
 <!ENTITY tooltip.type.whitelisted "(lejuar)">
-<!ENTITY tooltip.filter.label "Filtruesi efektiv:">
+<!ENTITY tooltip.filter.label "Filtri në përdorim:">
 <!ENTITY context.block.label "Blloko këtë send">
 <!ENTITY size.label "Madhësia">
-<!ENTITY context.selectAll.label "Selekto të gjitha">
+<!ENTITY context.selectAll.label "Zgjidhi të gjitha">
 <!ENTITY state.label "Gjendja">
 <!ENTITY docDomain.label "Burimi i dokumentit">
 <!ENTITY tooltip.address.label "Adresa:">

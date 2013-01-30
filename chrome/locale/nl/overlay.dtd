@@ -1,26 +1,34 @@
-<!ENTITY sync.label "Synchroniseer Adblock Plus instellingen">
+<!ENTITY showintoolbar.accesskey "b">
+<!ENTITY showinstatusbar.accesskey "s">
 <!ENTITY whitelist.site.label "Uitschakelen op ?1?">
 <!ENTITY filters.label "Filtervoorkeuren">
 <!ENTITY disable.label "Overal uitschakelen">
 <!ENTITY showinaddonbar.label "In add-onbalk weergeven">
 <!ENTITY objecttab.title "Blokkeren">
-<!ENTITY objecttabs.label "Tabbladen weergeven op Flash en Java">
+<!ENTITY showinaddonbar.accesskey "b">
+<!ENTITY sync.accesskey "c">
+<!ENTITY objecttabs.label "Tabs weergeven op Flash en Java">
 <!ENTITY objecttab.tooltip "Klik hier om dit object te blokkeren met Adblock Plus">
 <!ENTITY menuitem.label "Adblock Plus-voorkeuren">
 <!ENTITY sendReport.accesskey "P">
 <!ENTITY sendReport.label "Probleem op deze pagina rapporteren">
+<!ENTITY filters.accesskey "F">
 <!ENTITY whitelist.page.label "Alleen op deze pagina uitschakelen">
 <!ENTITY context.image.label "Adblock Plus: Afbeelding blokkeren">
 <!ENTITY closesidebar.accesskey "B">
 <!ENTITY hideplaceholders.label "Plaatshouders van geblokkeerde elementen verbergen">
 <!ENTITY opensidebar.label "Blokkeerbare onderdelen open">
+<!ENTITY options.accesskey "O">
 <!ENTITY contribute.label "Draag bij aan Adblock Plus">
+<!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus: Deelvenster blokkeren">
 <!ENTITY counthits.label "Filtertreffers tellen">
 <!ENTITY blocked.tooltip "Geblokkeerde onderdelen op deze pagina:">
 <!ENTITY opensidebar.accesskey "B">
 <!ENTITY showinstatusbar.label "In statusbalk weergeven">
+<!ENTITY status.tooltip "Status:">
 <!ENTITY sidebar.title "Blokkeerbare onderdelen op deze pagina">
+<!ENTITY sync.label "Synchroniseer Adblock Plus instellingen">
 <!ENTITY options.label "Opties">
 <!ENTITY context.object.label "Adblock Plus: Object blokkeren">
 <!ENTITY context.removeWhitelist.label "Adblock Plus: Opnieuw inschakelen op deze pagina">
@@ -31,3 +39,4 @@
 <!ENTITY counthits.accesskey "f">
 <!ENTITY menuitem.accesskey "A">
 <!ENTITY context.media.label "Adblock Plus: Audio/video blokkeren">
+<!ENTITY hideplaceholders.accesskey "l">

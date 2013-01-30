@@ -19,7 +19,7 @@
 <!ENTITY subscription.lastDownload.inProgress "Prenos s strežnika ...">
 <!ENTITY subscriptions.tab.label "Naročnine na filtre">
 <!ENTITY enabled.accesskey "m">
-<!ENTITY addSubscription.accesskey "m">
+<!ENTITY addSubscription.accesskey "n">
 <!ENTITY sort.descending.label "od Z &gt; A">
 <!ENTITY filter.delete.label "Izbriši">
 <!ENTITY addSubscriptionAdd.label "Dodaj">

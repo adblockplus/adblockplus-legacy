@@ -24,7 +24,7 @@
 <!ENTITY reloadButton.label "Päivitä sivu">
 <!ENTITY recentReports.clear.label "Poista kaikki raportit">
 <!ENTITY typeSelector.description "Tämä ikkuna ohjeistaa tarvittavat vaiheet Adblockin Plussan ongelmaraportin lähettämiseksi. Aluksi valitse onhelmatyyppi, jollaisen koet tällä sivulla:">
-<!ENTITY screenshot.remove.label "Poista arkaluontoista tietoa">
+<!ENTITY screenshot.mark.accesskey "M">
 <!ENTITY typeSelector.other.accesskey "M">
 <!ENTITY screenshot.undo.accesskey "u">
 <!ENTITY update.inProgress.description "Adblock Plussan pitää päivittää suodatintilaukset varmistaakseen, että ongelmaa ei ole jo ratkottu. Odota hetki...">
@@ -68,6 +68,7 @@
 <!ENTITY typeWarning.override.accesskey "Y">
 <!ENTITY sendPage.waitMessage "Odota, Adblock Plus lähettää raporttia.">
 <!ENTITY dataCollector.heading "Tervetuloa ongelman raportoijaan">
+<!ENTITY screenshot.remove.label "Poista arkaluontoista tietoa">
 <!ENTITY screenshot.heading "Liitä kuvakaappaus">
 <!ENTITY comment.accesskey "v">
 <!ENTITY issues.ownfilters.description "Osa tämän sivun suodattimista on käyttäjän määrittelemiä. Poista käytöstä suodattimet, jotka saattavat aiheuttaa ongelmia:">

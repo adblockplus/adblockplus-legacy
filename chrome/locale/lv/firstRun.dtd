@@ -1,0 +1,11 @@
+<!ENTITY advancedSection "Papildu opcijas">
+<!ENTITY confirmation "Paldies ka jus instalējat Adblock Plus. Reklāmas bus bloketas no tagadienes.
+Izbaudiet!">
+<!ENTITY noList "Nav filtru sarakstu">
+<!ENTITY acceptableAds2 "Adblock Plus tika konfigurēts lai atlaut dazas neuzbazigas reklāmas.">
+<!ENTITY viewList.label "Skatīt sarakstu">
+<!ENTITY visitHomepage.label "Apmeklejiet listas majas lapu">
+<!ENTITY dialog.title "Adblock Plus uzstādīšana pabeigta">
+<!ENTITY listSelection1 "Filtru saraksts ir konfigurēts lai bloķētu reklāmas:">
+<!ENTITY listSelection2 "Jus variet mainīt so izveli jebkura laika [link]izvelu Filtra[/link].">
+<!ENTITY readMore.label "Lasīt vairāk par šo">

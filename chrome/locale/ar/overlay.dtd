@@ -36,6 +36,7 @@
 <!ENTITY filters.tooltip "الفلاتر الأكثر فعالية">
 <!ENTITY closesidebar.label "إغلاق العناصر المحجوبة">
 <!ENTITY showintoolbar.label "عرض في شريط الأدوات">
+<!ENTITY counthits.accesskey "إ">
 <!ENTITY menuitem.accesskey "ب">
 <!ENTITY context.media.label "آدبلوك بلس : حجب أوديوفيديو">
 <!ENTITY hideplaceholders.accesskey "خ">

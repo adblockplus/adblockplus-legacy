@@ -12,6 +12,7 @@
 <!ENTITY collapse.label "Colapso bloqueado">
 <!ENTITY match.warning "El patrón que ha ingresado ya no concuerda con la dirección a ser Bloqueada/Permitida y no tendra efecto en la misma.">
 <!ENTITY anchor.start.label "ir al principio de la dirección">
+<!ENTITY collapse.no.label "No">
 <!ENTITY matchCase.label "Coincidir Mayus/Minus">
 <!ENTITY custom.pattern.label "Personalizado:">
 <!ENTITY unselectAllTypes.label "Seleccionar ninguno">
@@ -25,9 +26,9 @@
 <!ENTITY collapse.default.no.label "Usar por defecto (no)">
 <!ENTITY type.filter.label "Filtro de bloqueo">
 <!ENTITY types.label "Se aplica a tipos:">
-<!ENTITY anchor.start.accesskey "i">
-<!ENTITY custom.pattern.accesskey "P">
 <!ENTITY shortpattern.warning "El patrón que ha ingresado es muy corto para ser optimizado y podria relentizar su experiencia al navegar. Es recomendable que elija una cadena mas larga para este filtro para permitir a Adblock Plus procesar el filtro con mayor eficacia.">
+<!ENTITY custom.pattern.accesskey "P">
+<!ENTITY anchor.start.accesskey "i">
 <!ENTITY anchors.label "Aceptar solo patrones:">
 <!ENTITY collapse.default.yes.label "Usar por defecto (si)">
 <!ENTITY type.filter.accesskey "b">
@@ -36,6 +37,7 @@
 <!ENTITY options.label "Opciones">
 <!ENTITY disabled.warning "Adblock Plus se encuentra desactivado. Puedes continuar agregando filtros pero no serán aplicados hasta que [link]habilites Adblock Plus[/link].">
 <!ENTITY anchor.start.flexible.label "ir al principio del nombre de dominio">
+<!ENTITY type.whitelist.accesskey "x">
 <!ENTITY matchCase.accesskey "C">
 <!ENTITY anchor.end.accesskey "f">
 <!ENTITY selectAllTypes.label "Seleccionar todos">

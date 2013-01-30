@@ -20,6 +20,7 @@
 <!ENTITY opensidebar.label "Engellenebilecek öğeleri göster">
 <!ENTITY options.accesskey "e">
 <!ENTITY contribute.label "Adblock Plus'a katkıda bulun">
+<!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Çerçeveyi engelle">
 <!ENTITY counthits.label "Süzgeç isabetini say">
 <!ENTITY blocked.tooltip "Bu sayfada engellenen öğeler:">
@@ -38,3 +39,4 @@
 <!ENTITY counthits.accesskey "b">
 <!ENTITY menuitem.accesskey "A">
 <!ENTITY context.media.label "Adblock Plus: Ses/Video engelle">
+<!ENTITY hideplaceholders.accesskey "l">

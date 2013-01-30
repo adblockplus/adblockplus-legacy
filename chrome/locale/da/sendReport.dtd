@@ -62,7 +62,7 @@
 <!ENTITY wizard.title "Rapporter problem">
 <!ENTITY issues.ownfilters.disable.label "Deaktiver filter">
 <!ENTITY commentPage.description "I tekstfeltet kan du beskrive problemet nærmere. Det er valgfrit, men vil hjælpe med at forstå problemet bedre. Du kan også gennemse rapporten før du sender den.">
-<!ENTITY typeSelector.falseNegative.accesskey "a">
+<!ENTITY typeSelector.falseNegative.accesskey "k">
 <!ENTITY comment.lengthWarning "Teksten overstiger 1000 tegn. Kun de første 1000 tegn bliver sendt.">
 <!ENTITY typeSelector.falseNegative.description "Vælges hvis en annonce vises selv om Adblock Plus er aktiveret.">
 <!ENTITY typeWarning.override.accesskey "J">

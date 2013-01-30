@@ -36,7 +36,7 @@
 <!ENTITY backupButton.accesskey "Α">
 <!ENTITY filter.actions.label "Ενέργειες φίλτρων">
 <!ENTITY filter.moveDown.label "Μετακίνηση κάτω">
-<!ENTITY typoCorrections.tab.label "Διορθώσεις ορθογραφικών λαθών">
+<!ENTITY typoCorrections.tab.label "Διορθώσεις τυπογραφικών λαθών">
 <!ENTITY addFilter.label "Προσθήκη φίλτρου">
 <!ENTITY subscription.editTitle.label "Επεξεργασία τίτλου">
 <!ENTITY subscription.moveDown.label "Μετακίνηση κάτω">

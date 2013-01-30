@@ -1,85 +1,92 @@
-<!ENTITY backupButton.accesskey "Р">
+<!ENTITY lasthit.column "Останнє попадання">
+<!ENTITY addFilter.accesskey "д">
+<!ENTITY subscription.delete.label "Видалити">
+<!ENTITY subscriptions.tab.label "Підписки на фільтри">
+<!ENTITY enabled.accesskey "в">
+<!ENTITY addGroup.accesskey "г">
+<!ENTITY subscription.update.label "Оновити фільтри">
+<!ENTITY restore.complete.warning "Всі ваші налаштування фільтрів будуть замінені вмістом вибраного файла. Продовжити?">
+<!ENTITY filter.moveUp.label "Зсунути вверх">
+<!ENTITY filter.edit.label "Редагувати">
+<!ENTITY hitcount.column "Попадань">
+<!ENTITY acceptableAds2.label "Дозволити деяку ненав'язливу рекламу">
+<!ENTITY close.label "Закрити">
+<!ENTITY sort.none.label "Несортовано">
+<!ENTITY find.accesskey "н">
+<!ENTITY readMore.label "Детальніше">
+<!ENTITY subscription.homepage.label "Домашня сторінка">
+<!ENTITY typoCorrections.enableLabel "Виправляти невірно введені веб-адреси">
+<!ENTITY sort.descending.accesskey "Я">
+<!ENTITY sort.descending.label "Від Я до А">
+<!ENTITY subscription.lastDownload.success "Успіх">
+<!ENTITY filters.remove.warning "Ви дійсно хочете вилучити всі вибрані фільтри?">
 <!ENTITY restore.custom.warning "Всі ваші власні фільтри будуть замінені вмістом вибраного файла. Продовжити?">
 <!ENTITY slow.column "Повільні фільтри">
-<!ENTITY enabled.column "Увімкнено">
-<!ENTITY subscription.lastDownload.checksumMismatch "Помилка, не збіглась контрольна сума">
-<!ENTITY sort.none.accesskey "Н">
 <!ENTITY subscription.actions.label "Дії">
 <!ENTITY filter.selectAll.label "Вибрати всі">
 <!ENTITY backupButton.label "Резервні копії та відновлення">
-<!ENTITY addFilter.accesskey "д">
-<!ENTITY filter.accesskey "ф">
-<!ENTITY sort.ascending.label "Від А до Я">
-<!ENTITY noFiltersInGroup.text "Вибрана група пуста.">
-<!ENTITY sort.label "Сортувати за">
+<!ENTITY sort.accesskey "С">
 <!ENTITY subscription.source.label "Перелік фільтрів">
-<!ENTITY hitcount.column "Попадань">
-<!ENTITY noFilters.text "У вас поки нема власних фільтрів.">
-<!ENTITY backup.custom.title "Лише власні фільтри">
-<!ENTITY subscription.external.label "Оновлено іншим розширенням">
-<!ENTITY subscription.delete.label "Видалити">
-<!ENTITY noGroupSelected.text "Ви маєте вибрати групу фільтрів до того як її фільтри можна буде показати.">
-<!ENTITY sort.ascending.accesskey "А">
-<!ENTITY restore.default.label "Відновитись з резервної копії ?1?">
-<!ENTITY subscription.lastDownload.inProgress "Завантажується…">
-<!ENTITY subscriptions.tab.label "Підписки на фільтри">
-<!ENTITY enabled.accesskey "в">
-<!ENTITY restore.minVersion.warning "Увага: файл було створено новішою версією Adblock Plus.Вам слід оновити Adblock Plus до останньої версії перш ніж відновлюватись з цього файла.">
-<!ENTITY acceptableAds2.accesskey "р">
+<!ENTITY filter.paste.label "Вставити">
 <!ENTITY addSubscription.accesskey "п">
-<!ENTITY sort.descending.label "Від Я до А">
-<!ENTITY filters.remove.warning "Ви дійсно хочете вилучити всі вибрані фільтри?">
 <!ENTITY filter.delete.label "Вилучити">
 <!ENTITY addSubscriptionAdd.label "Додати">
-<!ENTITY viewMenu.label "Вигляд">
-<!ENTITY addGroup.accesskey "г">
-<!ENTITY subscription.lastDownload.unknown "ніколи">
-<!ENTITY addSubscriptionCancel.label "Скасувати">
-<!ENTITY subscription.enabled.label "Увімкнено">
-<!ENTITY lasthit.accesskey "О">
-<!ENTITY noSubscriptions.text "Ви поки не додали жодних підписок. Адблок не буде блокувати нічого без фільтрів, будь ласка скористайтесь пунктом «Додати підписку».">
-<!ENTITY subscription.update.label "Оновити фільтри">
-<!ENTITY find.accesskey "н">
-<!ENTITY dialog.title "Налаштування фільтрів Адблоку">
+<!ENTITY slow.accesskey "і">
+<!ENTITY subscription.showHideFilters.label "Сховати/показати фільтри">
+<!ENTITY backupButton.accesskey "Р">
+<!ENTITY filter.actions.label "Дії з фільтрами">
+<!ENTITY filter.moveDown.label "Зсунути вниз">
+<!ENTITY typoCorrections.tab.label "Виправити опечатки">
 <!ENTITY addFilter.label "Додати фільтр">
+<!ENTITY subscription.editTitle.label "Редагувати назву">
+<!ENTITY subscription.moveDown.label "Зсунути вниз">
+<!ENTITY subscription.disabledFilters.warning "Деякі фільтри у цій підписці вимкнено.">
+<!ENTITY filter.column "Правило фільтрування">
+<!ENTITY subscription.lastDownload.checksumMismatch "Помилка, не збіглась контрольна сума">
+<!ENTITY noFiltersInGroup.text "Вибрана група пуста.">
+<!ENTITY typoCorrections.whitelistLabel "Не замінювати…">
+<!ENTITY sort.label "Сортувати за">
+<!ENTITY noFilters.text "У вас поки нема власних фільтрів.">
+<!ENTITY subscription.external.label "Оновлено іншим розширенням">
+<!ENTITY filter.accesskey "ф">
+<!ENTITY noGroupSelected.text "Ви маєте вибрати групу фільтрів до того як її фільтри можна буде показати.">
+<!ENTITY subscription.lastDownload.inProgress "Завантажується…">
+<!ENTITY typoCorrections.removeButtonLabel "Вилучити вибране">
+<!ENTITY enabled.column "Увімкнено">
+<!ENTITY viewMenu.label "Вигляд">
+<!ENTITY addSubscriptionCancel.label "Скасувати">
+<!ENTITY lasthit.accesskey "О">
+<!ENTITY dialog.title "Налаштування фільтрів Адблоку">
 <!ENTITY subscription.minVersion.warning "Ця фільтрова підписка потребує новішої версії Adblock Plus. Вам слід оновитись до останньої версії Adblock Plus.">
 <!ENTITY subscription.lastDownload.invalidURL "Помилка, невірна адреса">
-<!ENTITY slow.accesskey "і">
 <!ENTITY backup.error "Під час запису фільтрів у файл сталася помилка. Упевніться, що файл не захищений від запису і не використовується іншою програмою.">
-<!ENTITY filter.moveUp.label "Зсунути вверх">
-<!ENTITY addGroup.label "Додати групу фільтрів">
-<!ENTITY filter.edit.label "Редагувати">
-<!ENTITY subscription.showHideFilters.label "Сховати/показати фільтри">
-<!ENTITY filter.cut.label "Вирізати">
-<!ENTITY hitcount.accesskey "п">
-<!ENTITY addSubscriptionOther.label "Додати іншу підписку">
-<!ENTITY close.label "Закрити">
-<!ENTITY sort.none.label "Несортовано">
-<!ENTITY filter.actions.label "Дії з фільтрами">
-<!ENTITY filter.copy.label "Копіювати">
-<!ENTITY filter.moveDown.label "Зсунути вниз">
-<!ENTITY filter.resetHitCounts.label "Скинути статистику">
-<!ENTITY sort.accesskey "С">
-<!ENTITY readMore.label "Детальніше">
-<!ENTITY subscription.moveUp.label "Зсунути вверх">
-<!ENTITY addSubscription.label "Додати підписку">
-<!ENTITY subscription.homepage.label "Домашня сторінка">
-<!ENTITY backup.complete.title "Всі фільтри та підписки">
-<!ENTITY restore.own.label "Відновитись з власної резервної копії">
-<!ENTITY restore.complete.warning "Всі ваші налаштування фільтрів будуть замінені вмістом вибраного файла. Продовжити?">
-<!ENTITY filters.tab.label "Власні фільтри">
-<!ENTITY sort.descending.accesskey "Я">
-<!ENTITY backup.label "Створити нову резервну копію">
-<!ENTITY find.label "Знайти фільтр">
 <!ENTITY restore.error "Дані з файла неможливо обробити — може, це не є Адблоківська резервна копія?">
-<!ENTITY subscription.moveDown.label "Зсунути вниз">
+<!ENTITY filter.cut.label "Вирізати">
+<!ENTITY backup.custom.title "Лише власні фільтри">
+<!ENTITY subscription.moveUp.label "Зсунути вверх">
+<!ENTITY backup.complete.title "Всі фільтри та підписки">
+<!ENTITY filters.tab.label "Власні фільтри">
+<!ENTITY find.label "Знайти фільтр">
 <!ENTITY subscription.lastDownload.connectionError "Помилка, неможливо викачати">
-<!ENTITY subscription.lastDownload.success "Успіх">
 <!ENTITY subscription.lastDownload.invalidData "Помилка, не список фільтрів">
-<!ENTITY filter.paste.label "Вставити">
+<!ENTITY restore.minVersion.warning "Увага: файл було створено новішою версією Adblock Plus.Вам слід оновити Adblock Plus до останньої версії перш ніж відновлюватись з цього файла.">
+<!ENTITY sort.ascending.label "Від А до Я">
+<!ENTITY viewList.label "Перегляд списку">
+<!ENTITY typoCorrections.whitelistEmptyLabel "Зараз немає винятків.">
+<!ENTITY sort.ascending.accesskey "А">
+<!ENTITY restore.default.label "Відновитись з резервної копії ?1?">
+<!ENTITY hitcount.accesskey "п">
+<!ENTITY acceptableAds2.accesskey "р">
+<!ENTITY subscription.lastDownload.unknown "ніколи">
+<!ENTITY subscription.enabled.label "Увімкнено">
+<!ENTITY noSubscriptions.text "Ви поки не додали жодних підписок. Адблок не буде блокувати нічого без фільтрів, будь ласка скористайтесь пунктом «Додати підписку».">
+<!ENTITY addGroup.label "Додати групу фільтрів">
+<!ENTITY addSubscriptionOther.label "Додати іншу підписку">
+<!ENTITY filter.copy.label "Копіювати">
+<!ENTITY sort.none.accesskey "Н">
+<!ENTITY addSubscription.label "Додати підписку">
+<!ENTITY restore.own.label "Відновитись з власної резервної копії">
+<!ENTITY filter.resetHitCounts.label "Скинути статистику">
+<!ENTITY backup.label "Створити нову резервну копію">
 <!ENTITY subscription.disabledFilters.enable "Увімкнути вимкнені фільтри">
-<!ENTITY lasthit.column "Останнє попадання">
-<!ENTITY subscription.editTitle.label "Редагувати назву">
-<!ENTITY subscription.disabledFilters.warning "Деякі фільтри у цій підписці вимкнено.">
 <!ENTITY subscription.lastDownload.label "Останнє оновлення:">
-<!ENTITY filter.column "Правило фільтрування">

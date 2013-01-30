@@ -20,6 +20,7 @@
 <!ENTITY opensidebar.label "Zobrazit blokovatelné objekty">
 <!ENTITY options.accesskey "M">
 <!ENTITY contribute.label "Přispět Adblocku Plus">
+<!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Blokovat rámec">
 <!ENTITY counthits.label "Počítat zásahy filtrů">
 <!ENTITY blocked.tooltip "Blokované prvky na této stránce:">

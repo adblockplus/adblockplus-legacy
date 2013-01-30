@@ -2,8 +2,10 @@
 <!ENTITY confirmation "Дякуємо вам що встановили Adblock Plus. Рекламу віднині заблоковано.
  Насолоджуйтесь!">
 <!ENTITY noList "Нема списка фільтрів">
-<!ENTITY readMore.label "Детальніше про це">
+<!ENTITY acceptableAds2 "Adblock Plus вже також налаштований, щоб дозволити деяку ненав'язливу рекламу.">
+<!ENTITY viewList.label "Перегляд списку">
 <!ENTITY visitHomepage.label "Відвідати домашню сторінку списка">
 <!ENTITY dialog.title "Встановлення Adblock Plus завершено">
 <!ENTITY listSelection1 "Наступний фільтровий список було сконфігуровано щоб блокувати рекламу:">
 <!ENTITY listSelection2 "Ви можете змінити цей вибір будь-коли у [link]Налаштуваннях фільтрів[/link].">
+<!ENTITY readMore.label "Детальніше про це">
