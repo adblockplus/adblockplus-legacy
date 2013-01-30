@@ -5,8 +5,10 @@
 <!ENTITY showData.label "Mostra i dati della segnalazione">
 <!ENTITY typeSelector.falsePositive.label "Adblock Plus sta bloccando troppi elementi">
 <!ENTITY recentReports.clear.accesskey "t">
+<!ENTITY email.accesskey "m">
 <!ENTITY issues.change.description "Le impostazioni di Adblock Plus sono state modificate. Ricaricare la pagina web per testare le 
 		modifiche e se il problema dovesse persistere inviare la segnalazione">
+<!ENTITY reloadButton.accesskey "p">
 <!ENTITY screenshot.attach.accesskey "u">
 <!ENTITY issues.openPreferences.label "Apri la finestra di 'Gestione dei filtri di Adblock Plus'…">
 <!ENTITY sendPage.confirmation "Segnalazione inviata correttamente, per visualizzarne i dati fare clic sul seguente link:">
@@ -55,7 +57,7 @@
 <!ENTITY typeSelector.falsePositive.description "Selezionare questa opzione se nella pagina web manca parte del contenuto importante, se la pagina web viene
 		visualizzata non correttamente oppure se non funziona come dovrebbe. È possibile determinare se sia Adblock Plus 
 		la causa del problema disattivando temporaneamente l'estensione">
-<!ENTITY dataCollector.description "Attendere mentre vengono raccolti i dati necessari per la segnalazione di Adblock Plus di problemi in una pagina web">
+<!ENTITY dataCollector.description "Si prega di attendere mentre Adblock Plus raccoglie i dati richiesti">
 <!ENTITY sendButton.label "Invia la segnalazione">
 <!ENTITY comment.label "Commento (opzionale):">
 <!ENTITY sendPage.errorMessage "Il tentativo di inviare la segnalazione non è riuscito a causa del seguente errore: &quot;?1?&quot;. 

@@ -83,7 +83,7 @@
 <!ENTITY addGroup.label "Szűrő csoport felvétele">
 <!ENTITY addSubscriptionOther.label "Külső szűrő hozzáadása">
 <!ENTITY filter.copy.label "Másolás">
-<!ENTITY sort.none.accesskey "e">
+<!ENTITY sort.none.accesskey "d">
 <!ENTITY addSubscription.label "Külső szűrő hozzáadása">
 <!ENTITY restore.own.label "Saját mentés visszaállítása">
 <!ENTITY filter.resetHitCounts.label "Találati statisztika törlése">

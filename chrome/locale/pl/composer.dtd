@@ -1,7 +1,7 @@
 <!ENTITY collapse.yes.label "Tak">
 <!ENTITY anchor.end.label "na końcu adresu">
 <!ENTITY domainRestriction.label "Ogranicz do domeny:">
-<!ENTITY anchor.start.flexible.accesskey "m">
+<!ENTITY anchor.start.flexible.accesskey "p">
 <!ENTITY firstParty.label "Tylko pierwszy człon">
 <!ENTITY preferences.label "Wyświetl istniejące filtry…">
 <!ENTITY pattern.label "Poszukaj wzorca">
@@ -21,13 +21,13 @@
 <!ENTITY regexp.warning "Podany wzorzec będzie interpretowany jako wyrażenie regularne, które nie może być skutecznie przetwarzane przez Adblock Plusa i może powodować spowolnienie działania przeglądarki. Jeśli nie zamierzasz używać wyrażenia regularnego, dodaj gwiazdkę (*) na końcu wzorca.">
 <!ENTITY dialog.title "Dodawanie reguły filtra">
 <!ENTITY basic.label "Wygląd podstawowy">
-<!ENTITY preferences.accesskey "W">
+<!ENTITY preferences.accesskey "f">
 <!ENTITY firstParty.accesskey "r">
 <!ENTITY collapse.default.no.label "Użyj domyślnej (nie)">
 <!ENTITY type.filter.label "Filtr blokujący">
 <!ENTITY types.label "Zastosuj do typów:">
 <!ENTITY shortpattern.warning "Podany wzorzec jest zbyt krótki, by go zoptymalizować i może spowolnić działanie przeglądarki. Zaleca się dla tego filtra wybrać dłuższy ciąg znaków, by umożliwić Adblock Plusowi bardziej efektywne zastosowanie tego filtra.">
-<!ENTITY custom.pattern.accesskey "W">
+<!ENTITY custom.pattern.accesskey "s">
 <!ENTITY anchor.start.accesskey "p">
 <!ENTITY anchors.label "Akceptuj tylko wzorzec:">
 <!ENTITY collapse.default.yes.label "Użyj domyślnej (tak)">
@@ -42,5 +42,5 @@
 <!ENTITY anchor.end.accesskey "k">
 <!ENTITY selectAllTypes.label "Zaznacz wszystko">
 <!ENTITY advanced.label "Wygląd zaawansowany">
-<!ENTITY collapse.accesskey "k">
+<!ENTITY collapse.accesskey "Z">
 <!ENTITY pattern.explanation "Wzorzec może być częścią adresu – gwiazdka (*) działa jako wieloznacznik. Filtr będzie stosowany tylko w adresach pasujących do tego wzorca.">

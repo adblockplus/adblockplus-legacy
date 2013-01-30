@@ -15,6 +15,7 @@
 <!ENTITY find.accesskey "Н">
 <!ENTITY readMore.label "Прочети повече">
 <!ENTITY subscription.homepage.label "Лична Страница">
+<!ENTITY typoCorrections.enableLabel "Коригиране на погрешно написан интернет адрес">
 <!ENTITY sort.descending.accesskey "Я">
 <!ENTITY sort.descending.label "Я &gt; А Сортиране">
 <!ENTITY subscription.lastDownload.success "Успешно">
@@ -35,6 +36,7 @@
 <!ENTITY backupButton.accesskey "в">
 <!ENTITY filter.actions.label "Филтър действия">
 <!ENTITY filter.moveDown.label "Премести надоло">
+<!ENTITY typoCorrections.tab.label "Typo корекции">
 <!ENTITY addFilter.label "Добави Филтър">
 <!ENTITY subscription.editTitle.label "Промени титла">
 <!ENTITY subscription.moveDown.label "Премести надоло">
@@ -42,12 +44,14 @@
 <!ENTITY filter.column "Филтър правило">
 <!ENTITY subscription.lastDownload.checksumMismatch "Грешка, несъвпадение на контролната сума">
 <!ENTITY noFiltersInGroup.text "Избраната група е празна">
+<!ENTITY typoCorrections.whitelistLabel "Не заменяй...">
 <!ENTITY sort.label "Сортирай по">
 <!ENTITY noFilters.text "Ти нямаш нито един собствен филтър още.">
 <!ENTITY subscription.external.label "Ъпдейтнат от друга добавка">
 <!ENTITY filter.accesskey "Ф">
 <!ENTITY noGroupSelected.text "Вие трябва да изберете филтър група, преди тези филтри да бъдат показани.">
 <!ENTITY subscription.lastDownload.inProgress "Изтегляне...">
+<!ENTITY typoCorrections.removeButtonLabel "Премахване на избраните">
 <!ENTITY enabled.column "Включен">
 <!ENTITY viewMenu.label "Изглед">
 <!ENTITY addSubscriptionCancel.label "Откажи">
@@ -68,6 +72,7 @@
 <!ENTITY restore.minVersion.warning "Внимание: файлът е създаден с по-нова версия на Adblock Plus. Трябва да обновите до последната версия на Adblock Plus, преди да възстановите от този файл.">
 <!ENTITY sort.ascending.label "А &gt; Я сортиране">
 <!ENTITY viewList.label "Виж лист">
+<!ENTITY typoCorrections.whitelistEmptyLabel "В момента няма изключения.">
 <!ENTITY sort.ascending.accesskey "А">
 <!ENTITY restore.default.label "Възстанови архив от ?1?">
 <!ENTITY hitcount.accesskey "щ">

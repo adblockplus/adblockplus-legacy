@@ -26,6 +26,7 @@
 <!ENTITY screenshot.mark.accesskey "z">
 <!ENTITY typeSelector.other.accesskey "c">
 <!ENTITY screenshot.undo.accesskey "u">
+<!ENTITY update.inProgress.description "Adblock Plus ir nepieciešams atjaunināt filtru abonementus, lai pārliecinātos, vai jau nav atrisināts jautājums. Lūdzu, uzgaidiet...">
 <!ENTITY data.accesskey "Z">
 <!ENTITY data.label "Ziņojuma dati:">
 <!ENTITY sendPage.heading "Sūtīt ziņojumu">
@@ -46,6 +47,7 @@
 <!ENTITY sendPage.errorMessage "Mēģinājums sūtīt ziņojumu neizdevās. Kļūdas kods &quot;?1?&quot;. Lūdzu pārliecinieties, ka Jums ir savienojums ar internetu un mēģiniet vēlreiz. Ja problēma atkārtojas, lūdzu prasiet palīdzību [link]Adblock Plus forumā[/link].">
 <!ENTITY showRecentReports.label "Parādīt nesen nosūtītos ziņojumus">
 <!ENTITY commentPage.heading "Pievienojiet komentāru">
+<!ENTITY update.start.label "Tagad sāktu atjaunināšanu">
 <!ENTITY typeSelector.falsePositive.accesskey "d">
 <!ENTITY issues.disabledfilters.description "Sekojošie filtri ir atslēgt, tomēr tiem var būt ietekme uz šo lapu:">
 <!ENTITY screenshot.description "Tā pati lapa var izskatīties atšķirīgi dažādiem cilvēkiem. Ja Jūs pievienosiet ekrān-šāviņu, tas mums palīdzēs izprast problēmu. Jūs varat noņemt apgabalus, kas satur jūtīgu informāciju kā arī iezīmēt vietas, kur ir redzama problēma. Lai to izdarītu, noklikšķiniet uz atbilstošās pogas un izvēlieties apgabalu ar peli.">

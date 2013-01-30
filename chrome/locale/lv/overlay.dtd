@@ -1,5 +1,8 @@
+<!ENTITY sync.label "Sinhronizet Adblock Plus uzstādījumus">
 <!ENTITY whitelist.site.label "Atspējot uz ?1?">
+<!ENTITY filters.label "Filtra preferences">
 <!ENTITY disable.label "Atspējot visur">
+<!ENTITY showinaddonbar.label "Rādīt pievienojumprogrammu joslā">
 <!ENTITY objecttab.title "Bloķēt">
 <!ENTITY objecttabs.label "Rādīt cilnes Flash un Java">
 <!ENTITY objecttab.tooltip "Klikšķini šeit, lai bloķētu šo objektu ar Adblock Plus">
@@ -9,6 +12,7 @@
 <!ENTITY whitelist.page.label "Atspējot tikai šajā lapā">
 <!ENTITY context.image.label "Adblock Plus: Bloķēt attēlu">
 <!ENTITY opensidebar.label "Atvērt bloķējamās vienības">
+<!ENTITY contribute.label "Palīdziet Adblock Plus veidošanai, tulkošanai...">
 <!ENTITY context.frame.label "Adblock Plus: Bloķēt rāmi">
 <!ENTITY blocked.tooltip "Bloķētās vienības šajā lapā:">
 <!ENTITY showinstatusbar.label "Rādīt stāvokļa joslā">
@@ -16,6 +20,7 @@
 <!ENTITY options.label "Iespējas">
 <!ENTITY context.object.label "Adblock Plus: Bloķēt objektu">
 <!ENTITY context.removeWhitelist.label "Adblock Plus: Iespējot šajā lapā">
+<!ENTITY objecttabs.accesskey "t">
 <!ENTITY filters.tooltip "Visaktīvākie filtri:">
 <!ENTITY closesidebar.label "Aizvērt bloķējamās vienības">
 <!ENTITY showintoolbar.label "Rādīt rīkjoslā">

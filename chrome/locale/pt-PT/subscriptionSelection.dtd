@@ -1,4 +1,5 @@
 <!ENTITY addMain.label "Adicionar subscrição de filtros &quot;?1?&quot; também">
+<!ENTITY addMain.accesskey "s">
 <!ENTITY list.download.failed "Adblock Plus não conseguiu recuperar a lista de subscrições.">
 <!ENTITY list.download.retry "Tentar novamente">
 <!ENTITY location.accesskey "L">

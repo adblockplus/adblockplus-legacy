@@ -7,7 +7,6 @@
 <!ENTITY pattern.label "ดูรูปแบบ">
 <!ENTITY thirdParty.label "Third-party เท่านั้น">
 <!ENTITY filter.accesskey "ต">
-<!ENTITY thirdParty.accesskey "ท">
 <!ENTITY filter.label "ตัวกรองใหม่:">
 <!ENTITY collapse.label "การบล็อกที่ล้มเหลว:">
 <!ENTITY match.warning "แบบรูปที่คุณเพิ่มเข้ามาไม่สัมพันธ์กับที่อยู่ที่จะบล็อกหรือไม่บล็อก มันจะไม่มีผลใด ๆ">
@@ -22,7 +21,6 @@
 <!ENTITY dialog.title "เพิ่มกฎตัวกรอง Adblock Plus">
 <!ENTITY basic.label "มุมมองพื้นฐาน">
 <!ENTITY preferences.accesskey "ส">
-<!ENTITY firstParty.accesskey "ร">
 <!ENTITY collapse.default.no.label "ใช้ค่าเริ่มต้น(ไม่ใช่)">
 <!ENTITY type.filter.label "ตัวกรองบล็อก">
 <!ENTITY types.label "ใช้งานกับชนิด:">

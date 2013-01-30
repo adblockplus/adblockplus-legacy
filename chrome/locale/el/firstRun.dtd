@@ -1,7 +1,7 @@
 <!ENTITY advancedSection "Προχωρημένες επιλογές">
 <!ENTITY confirmation "Ευχαριστούμε που εγκαταστήσατε το Adblock Plus. Οι διαφημίσεις θα φιλτράρονται από εδώ και στο εξής. Απολαύστε το!">
 <!ENTITY noList "Καμιά λίστα φίλτρων">
-<!ENTITY acceptableAds2 "Το Adblock Plus έχεις επίσης ρυθμιστεί να επιτρέπει μερικές μη-παρεμβατικές διαφημίσεις.">
+<!ENTITY acceptableAds2 "Το Adblock Plus έχει επίσης ρυθμιστεί να επιτρέπει μερικές μη-παρεμβατικές διαφημίσεις.">
 <!ENTITY viewList.label "Δείτε την λίστα.">
 <!ENTITY visitHomepage.label "Επισκεφτείτε την ιστοσελίδα της λίστας">
 <!ENTITY dialog.title "Η εγκατάσταση του Adblock Plus ολοκληρώθηκε">

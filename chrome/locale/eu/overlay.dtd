@@ -1,42 +1,29 @@
-<!ENTITY showintoolbar.accesskey "b">
-<!ENTITY showinstatusbar.accesskey "s">
+<!ENTITY sync.label "Sinkronizatu Adblock Plus ezarpenak">
 <!ENTITY whitelist.site.label "Ezgaitu hemen: ?1?">
 <!ENTITY filters.label "Iragazki hobespenak">
 <!ENTITY disable.label "Ezgaitu edonon">
 <!ENTITY showinaddonbar.label "Erakutsi gehigarrien barran">
 <!ENTITY objecttab.title "Blokeatu">
-<!ENTITY showinaddonbar.accesskey "b">
-<!ENTITY sync.accesskey "c">
-<!ENTITY objecttabs.label "Erakutsi fitxak Flash eta Javan">
 <!ENTITY objecttab.tooltip "Klik hemen objektu hau Adblock Plusekin blokeatzeko">
 <!ENTITY menuitem.label "Adblock Plus hobespenak">
-<!ENTITY sendReport.accesskey "R">
+<!ENTITY objecttabs.label "Erakutsi fitxak Flash eta Javan">
 <!ENTITY sendReport.label "Orri honetan sortutako arazo bati buruzko txostena egin">
-<!ENTITY filters.accesskey "Fwhitelist">
 <!ENTITY whitelist.page.label "Ezgaitu orri honetan soilik">
 <!ENTITY context.image.label "Adblock Plus: Irudia blokeatu">
-<!ENTITY closesidebar.accesskey "b">
-<!ENTITY hideplaceholders.label "Ezkutatu blokeatutako elementuen kokagunea">
+<!ENTITY counthits.label "Zenbatu iragazkien bategiteak">
 <!ENTITY opensidebar.label "Ireki elementu blokeagarriak">
-<!ENTITY options.accesskey "O">
 <!ENTITY contribute.label "Adblock Plus-en parte hartu">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus: Markoa blokeatu">
-<!ENTITY counthits.label "Zenbatu iragazkien bategiteak">
 <!ENTITY blocked.tooltip "Orri honetan blokeatutako elementuak:">
-<!ENTITY opensidebar.accesskey "b">
+<!ENTITY hideplaceholders.label "Ezkutatu blokeatutako elementuen kokagunea">
 <!ENTITY showinstatusbar.label "Erakutsi egoera-barran">
-<!ENTITY status.tooltip "Egoera:">
 <!ENTITY sidebar.title "Elementu blokeagarriak uneko orrialdean">
-<!ENTITY sync.label "Sinkronizatu Adblock Plus ezarpenak">
 <!ENTITY options.label "Aukerak">
 <!ENTITY context.object.label "Adblock Plus: Objektua blokeatu">
 <!ENTITY context.removeWhitelist.label "Adblock Plus: Bergaitu orri honetan">
-<!ENTITY objecttabs.accesskey "t">
 <!ENTITY filters.tooltip "Filtro aktiboenak:">
 <!ENTITY closesidebar.label "Itxi elementu blokeagarriak">
 <!ENTITY showintoolbar.label "Erakutsi tresna-barran">
-<!ENTITY counthits.accesskey "h">
-<!ENTITY menuitem.accesskey "b">
+<!ENTITY status.tooltip "Egoera:">
 <!ENTITY context.media.label "Adblock Plus: audio/bideoa blokeatu">
-<!ENTITY hideplaceholders.accesskey "l">

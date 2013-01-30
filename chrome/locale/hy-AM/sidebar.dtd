@@ -9,6 +9,7 @@
 <!ENTITY reattach.label "Ամրացնել">
 <!ENTITY search.label "Փնտրել">
 <!ENTITY docDomain.thirdParty "(երրորդ կողմի)">
+<!ENTITY filterSource.label "Ֆիլտրի աղբյուրը`">
 <!ENTITY tooltip.docDomain.label "Աշխատանքի աղբյուրը`">
 <!ENTITY context.copy.label "Կրկնել տարրի հասցեն">
 <!ENTITY tooltip.type.label "Տեսակը`">

@@ -3,12 +3,14 @@
 <!ENTITY attachExtensions.accesskey "A">
 <!ENTITY showData.label "Exibir os dados do relatório">
 <!ENTITY typeSelector.falsePositive.label "O Adblock Plus está bloqueando demais">
-<!ENTITY sendButton.accesskey "E">
+<!ENTITY recentReports.clear.accesskey "R">
+<!ENTITY email.accesskey "m">
 <!ENTITY issues.change.description "Sua configuração foi alterada. Por favor, atualize a página para testar as alterações e enviar um relatório caso o erro continue a ocorrer.">
 <!ENTITY reloadButton.accesskey "A">
 <!ENTITY screenshot.attach.accesskey "x">
 <!ENTITY issues.openPreferences.label "Abrir configuração de filtros">
 <!ENTITY sendPage.confirmation "Seu relatório foi salvo. Você pode acessá-lo no seguinte endereço:">
+<!ENTITY issues.override.accesskey "c">
 <!ENTITY copyLink.label "Copiar endereço do relatório">
 <!ENTITY issues.nofilters.description "O Adblock Plus não está bloqueando nada nessa página. É improvável que o erro observado esteja relacionado com o Adblock Plus.">
 <!ENTITY sendPage.knownIssue "O problema informado provavelmente já é conhecido. Mais informações:">
@@ -18,10 +20,11 @@
 <!ENTITY typeWarning.override.label "Eu entendo e quero enviar o relatório mesmo assim">
 <!ENTITY issues.disabled.enable.label "Ativar o Adblock Plus">
 <!ENTITY update.fixed.description "A atualização de suas inscrições de filtros provavelmente resolveu o problema que você estava reportando. Por favor, atualize a página e verifique. Se o problema persistir, clique novamente em &quot;Reportar problema com esta página&quot;.">
+<!ENTITY email.label "E-mail para informações adicionais (opcional):">
 <!ENTITY reloadButton.label "Atualizar a página">
 <!ENTITY recentReports.clear.label "Remover todos os relatórios">
 <!ENTITY typeSelector.description "Este assistente conduzirá você pelos passos necessários para enviar um relatório de erro do Adblock Plus. Primeiro, selecione o tipo de erro que você está tendo nessa página:">
-<!ENTITY screenshot.remove.label "Remover dados confidenciais">
+<!ENTITY screenshot.mark.accesskey "M">
 <!ENTITY typeSelector.other.accesskey "O">
 <!ENTITY screenshot.undo.accesskey "D">
 <!ENTITY update.inProgress.description "O Adblock Plus precisa atualizar suas inscrições de filtros para ter certeza que o problema não foi resolvido ainda. Por favor, aguarde...">
@@ -52,7 +55,9 @@
 <!ENTITY screenshot.description "Uma mesma página pode parecer diferente para diferentes pessoas. Pode nos ajudar a compreender o problema, você pode anexar uma imagem ao seu relatório. Você pode remover partes da imagem contendo informações confidenciais, bem como marcar áreas onde se encontra o problema. Para isso, clique no botão correspondente e selecione com o mouse uma área da imagem.">
 <!ENTITY screenshot.attach.label "Anexar uma imagem ao relatório">
 <!ENTITY issues.whitelist.description "O Adblock Plus está desativado atualmente nessa página. Para ajudar na investigação do problema, por favor, reative o Adblock Plus e atualize a página antes de enviar o relatório.">
+<!ENTITY sendButton.accesskey "E">
 <!ENTITY typeSelector.falseNegative.label "O Adblock Plus não está bloqueando uma propaganda">
+<!ENTITY copyLink.accesskey "C">
 <!ENTITY typeSelector.heading "Selecionar tipo de erro">
 <!ENTITY wizard.title "Relatório de erro">
 <!ENTITY issues.ownfilters.disable.label "Desativar filtro">
@@ -63,9 +68,11 @@
 <!ENTITY typeWarning.override.accesskey "E">
 <!ENTITY sendPage.waitMessage "Por favor, aguarde enquanto o Adblock Plus envia seu relatório.">
 <!ENTITY dataCollector.heading "Bem-vindo ao relatório de erro">
+<!ENTITY screenshot.remove.label "Remover dados confidenciais">
 <!ENTITY screenshot.heading "Anexar imagem">
-<!ENTITY email.label "E-mail para informações adicionais (opcional):">
+<!ENTITY comment.accesskey "C">
 <!ENTITY issues.ownfilters.description "Alguns dos filtros aplicados nesta página foram definidos pelo usuário. Por favor, desative os filtros que podem ter causado o problema:">
+<!ENTITY screenshot.remove.accesskey "R">
 <!ENTITY issues.subscriptionCount.description "Parece que você adicionou inscrições de filtros em excesso. Essa configuração não é recomendada porque aumenta a possibilidade de ocorrência de erros. Não podemos aceitar o seu relatório porque não é possível determinar qual autor de inscrição de filtros deve tratar o problema. Por favor, remova todos as inscrições exceto as realmente necessárias e verifique se o problema ainda ocorre.">
 <!ENTITY screenshot.mark.label "Marcar o problema">
 <!ENTITY privacyPolicy.label "Política de privacidade">

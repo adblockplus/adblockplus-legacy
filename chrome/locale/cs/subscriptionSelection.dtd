@@ -1,4 +1,5 @@
 <!ENTITY addMain.label "Přidat také cizí sadu filtrů &quot;?1?&quot;">
+<!ENTITY addMain.accesskey "s">
 <!ENTITY list.download.failed "Adblocku Plus se nepodařilo získat seznam cizích sad filtrů.">
 <!ENTITY list.download.retry "Zkusit znovu">
 <!ENTITY location.accesskey "U">

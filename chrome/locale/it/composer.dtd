@@ -12,6 +12,7 @@
 <!ENTITY collapse.label "Contrai bloccati:">
 <!ENTITY match.warning "Il modello inserito non corrisponde più all'indirizzo web da bloccare/permettere e non avrà quindi alcun effetto">
 <!ENTITY anchor.start.label "all'inizio dell'indirizzo web">
+<!ENTITY collapse.no.label "No">
 <!ENTITY matchCase.label "Maiuscole/minuscole">
 <!ENTITY custom.pattern.label "Personalizza:">
 <!ENTITY unselectAllTypes.label "Deseleziona">
@@ -41,4 +42,5 @@
 <!ENTITY anchor.end.accesskey "f">
 <!ENTITY selectAllTypes.label "Seleziona tutti">
 <!ENTITY advanced.label "Avanzate &gt;&gt;">
+<!ENTITY collapse.accesskey "C">
 <!ENTITY pattern.explanation "Il modello può corrispondere a qualsiasi parte dell'indirizzo web, il carattere * corrisponde ad un carattere jolly. Il filtro verrà applicato ai soli indirizzi web corrispondenti al modello">

@@ -11,7 +11,7 @@
 <!ENTITY objecttab.tooltip "Kliknite ovdje za blokiranje ovog objekta s Adblock Plus-om">
 <!ENTITY menuitem.label "Adblock Plus postavke">
 <!ENTITY sendReport.accesskey "R">
-<!ENTITY sendReport.label "Prijavi problem na ovoj stranici">
+<!ENTITY sendReport.label "Prijavite problem na ovoj stranici">
 <!ENTITY filters.accesskey "F">
 <!ENTITY whitelist.page.label "Onemogući samo na ovoj stranici">
 <!ENTITY context.image.label "Blokiraj sliku s Adblock Plus-om">
@@ -38,5 +38,5 @@
 <!ENTITY showintoolbar.label "Prikaži u alatnoj traci">
 <!ENTITY counthits.accesskey "t">
 <!ENTITY menuitem.accesskey "b">
-<!ENTITY context.media.label "Blokiraaj audio/video s Adblock Plus-om">
+<!ENTITY context.media.label "Blokiraj audio/video s Adblock Plus-om">
 <!ENTITY hideplaceholders.accesskey "l">

@@ -1,0 +1,10 @@
+<!ENTITY advancedSection "Opcións avanzadas">
+<!ENTITY confirmation "Graciñas por instalar o Adblock Plus. A publicidade será bloqueada dende agora mesmo. A pasalo ben!">
+<!ENTITY noList "Non che hai lista de filtros ningunha">
+<!ENTITY acceptableAds2 "O Adblock Plus foi configurado para permitir publicidade non intrusiva.">
+<!ENTITY viewList.label "Ver a lista">
+<!ENTITY visitHomepage.label "Visita a nosa páxina!">
+<!ENTITY dialog.title "Instalouse o Adblock Plus!">
+<!ENTITY listSelection1 "Configurouse o seguinte filtro para bloquear a publicidade:">
+<!ENTITY listSelection2 "En calquera intre podes cambiar esta selección nas [link]Preferencias dos Filtros[/link].">
+<!ENTITY readMore.label "Ler mais">

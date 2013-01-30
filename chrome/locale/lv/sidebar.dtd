@@ -9,6 +9,7 @@
 <!ENTITY reattach.label "Pievienot atpakaļ">
 <!ENTITY search.label "Meklēt:">
 <!ENTITY docDomain.thirdParty "(trešā puse)">
+<!ENTITY filterSource.label "Filtra avots">
 <!ENTITY tooltip.docDomain.label "Dokumenta avots:">
 <!ENTITY context.copy.label "Kopēt vienības adresi">
 <!ENTITY tooltip.type.label "Tips:">

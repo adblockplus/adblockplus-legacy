@@ -2,6 +2,7 @@
 <!ENTITY showinstatusbar.accesskey "վ">
 <!ENTITY whitelist.site.label "Անջատել ?1?-ում">
 <!ENTITY disable.label "Անջատել ամենուր">
+<!ENTITY showinaddonbar.label "Ցուցադրրել լրացումների պանակում">
 <!ENTITY objecttab.title "Ֆիլտրել">
 <!ENTITY sync.accesskey "Ս">
 <!ENTITY objecttab.tooltip "Սեղմել «Adblock Plus»ով այս օբյեկտը ֆիլտրելու համար">

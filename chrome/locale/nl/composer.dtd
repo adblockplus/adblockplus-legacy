@@ -2,7 +2,7 @@
 <!ENTITY anchor.end.label "aan het eind van het adres">
 <!ENTITY domainRestriction.label "Tot domein beperken:">
 <!ENTITY anchor.start.flexible.accesskey "h">
-<!ENTITY firstParty.label "Alleen van eigen site">
+<!ENTITY firstParty.label "Alleen van eigen website">
 <!ENTITY preferences.label "Bestaande filters weergeven…">
 <!ENTITY pattern.label "Naar patroon zoeken">
 <!ENTITY thirdParty.label "Alleen van derden">
@@ -20,7 +20,7 @@
 <!ENTITY type.whitelist.label "Uitzonderingsregel">
 <!ENTITY regexp.warning "Het patroon dat u heeft gegeven zal worden behandeld als een reguliere expressie. Deze kunnen niet efficiënt worden verwerkt door Adblock Plus en kunnen uw browser traag maken. Als het niet uw bedoeling was een reguliere expressie te schrijven, voeg dan een asterisk (*) aan het eind van het patroon toe.">
 <!ENTITY dialog.title "Adblock Plus-filterregel toevoegen">
-<!ENTITY basic.label "Eenvoudig">
+<!ENTITY basic.label "Eenvoudige weergave">
 <!ENTITY preferences.accesskey "W">
 <!ENTITY firstParty.accesskey "l">
 <!ENTITY collapse.default.no.label "Standaard gebruiken (nee)">
@@ -41,6 +41,6 @@
 <!ENTITY matchCase.accesskey "o">
 <!ENTITY anchor.end.accesskey "e">
 <!ENTITY selectAllTypes.label "Alles selecteren">
-<!ENTITY advanced.label "Uitgebreid">
+<!ENTITY advanced.label "Geavanceerde weergave">
 <!ENTITY collapse.accesskey "G">
 <!ENTITY pattern.explanation "Het patroon kan ieder gedeelte zijn van het adres, waarbij een asterisk (*) als wildcard geldt. Het filter wordt alleen toegepast op adressen die met het patroon overeenkomen.">

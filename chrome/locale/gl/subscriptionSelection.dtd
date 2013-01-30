@@ -1,14 +1,15 @@
-<!ENTITY addMain.label "Engadir tamén subscrición de filtro &quot;?1?&quot;">
-<!ENTITY list.download.failed "Fallo na recuperación da lista de subscricións.">
-<!ENTITY list.download.retry "Ténteo de novo">
+<!ENTITY addMain.label "Engadir tamén a suscrición de filtro &quot;?1?&quot;">
+<!ENTITY addMain.accesskey "s">
+<!ENTITY list.download.failed "Fallo na recuperación da lista de suscricións.">
+<!ENTITY list.download.retry "Téntao de novo">
 <!ENTITY location.accesskey "L">
-<!ENTITY title.label "Título da subscrición:">
-<!ENTITY list.download.website "Ver sitio web">
-<!ENTITY supplementMessage "Esta subscrición de filtro está feita para ser usada en conxunto coa subscrición de filtro &quot;?1?&quot; que non engadiu aínda.">
+<!ENTITY title.label "Título da suscrición:">
+<!ENTITY list.download.website "Ver páxina web">
+<!ENTITY supplementMessage "Esta suscrición de filtro está feita para ser usada en conxunto coa suscrición de filtro &quot;?1?&quot; que aínda non engadiches.">
 <!ENTITY title.accesskey "T">
-<!ENTITY viewList.label "Ver filtros">
-<!ENTITY visitHomepage.label "Visite a páxina de inicio">
-<!ENTITY addSubscription.label "Engadir subscrición">
-<!ENTITY dialog.title "Engadir subscrición de filtros Adblock Plus">
-<!ENTITY location.label "Localización da lista de Filtros:">
-<!ENTITY fromWeb.description "Por favor, confirme que quere engadir esa subscrición de filtro. Pode cambiar o título ou a situación da subscrición antes de engadila.">
+<!ENTITY viewList.label "Ver os filtros">
+<!ENTITY visitHomepage.label "Visita a páxina de inicio">
+<!ENTITY addSubscription.label "Engadir suscrición">
+<!ENTITY dialog.title "Engadir a suscrición aos filtros do Adblock Plus">
+<!ENTITY location.label "Localización da lista dos Filtros:">
+<!ENTITY fromWeb.description "Por favor, confirma que queres engadir esta suscrición de filtro. Podes cambiar o título ou a situación da suscrición antes de engadila.">

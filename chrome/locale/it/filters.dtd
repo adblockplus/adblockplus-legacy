@@ -3,6 +3,7 @@
 <!ENTITY subscription.delete.label "Elimina">
 <!ENTITY subscriptions.tab.label "Sottoscrizioni di filtri">
 <!ENTITY enabled.accesskey "t">
+<!ENTITY addGroup.accesskey "g">
 <!ENTITY subscription.update.label "Aggiorna i filtri">
 <!ENTITY restore.complete.warning "Tutte le impostazioni dei filtri verranno sostituite dal contenuto del file selezionato. Procedere comunque?">
 <!ENTITY filter.moveUp.label "Sposta su">
@@ -15,6 +16,7 @@
 <!ENTITY readMore.label "Ulteriori informazioni…">
 <!ENTITY subscription.homepage.label "Sito web">
 <!ENTITY typoCorrections.enableLabel "Correggi gli errori di digitazione degli indirizzi internet">
+<!ENTITY sort.descending.accesskey "Z">
 <!ENTITY sort.descending.label "Ordina Z &gt; A">
 <!ENTITY subscription.lastDownload.success "Sincronizzazione effettuata con successo">
 <!ENTITY filters.remove.warning "Eliminare tutti i filtri selezionati?">
@@ -31,6 +33,7 @@
 <!ENTITY addSubscriptionAdd.label "Aggiungi">
 <!ENTITY slow.accesskey "l">
 <!ENTITY subscription.showHideFilters.label "Mostra/nascondi i filtri">
+<!ENTITY backupButton.accesskey "B">
 <!ENTITY filter.actions.label "Opzioni del filtro">
 <!ENTITY filter.moveDown.label "Sposta giù">
 <!ENTITY typoCorrections.tab.label "Correzione indirizzi">
@@ -70,6 +73,7 @@
 <!ENTITY sort.ascending.label "Ordina A &gt; Z">
 <!ENTITY viewList.label "Visualizza la lista…">
 <!ENTITY typoCorrections.whitelistEmptyLabel "Non ci sono ancora eccezioni.">
+<!ENTITY sort.ascending.accesskey "A">
 <!ENTITY restore.default.label "Ripristina il backup datato ?1?">
 <!ENTITY hitcount.accesskey "s">
 <!ENTITY acceptableAds2.accesskey "P">

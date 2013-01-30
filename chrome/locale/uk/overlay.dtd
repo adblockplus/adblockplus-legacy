@@ -20,6 +20,7 @@
 <!ENTITY opensidebar.label "Відкрити список елементів">
 <!ENTITY options.accesskey "а">
 <!ENTITY contribute.label "Допомогти Адблоку">
+<!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus: заблокувати фрейм">
 <!ENTITY counthits.label "Рахувати хіти фільтрів">
 <!ENTITY blocked.tooltip "Заблоковані елементи на цій сторінці:">

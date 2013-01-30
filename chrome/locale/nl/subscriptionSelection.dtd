@@ -2,6 +2,7 @@
 <!ENTITY addMain.accesskey "k">
 <!ENTITY list.download.failed "Adblock Plus kan de lijst met abonnementen niet ophalen.">
 <!ENTITY list.download.retry "Opnieuw proberen">
+<!ENTITY location.accesskey "l">
 <!ENTITY title.label "Abonnementstitel:">
 <!ENTITY list.download.website "Website bekijken">
 <!ENTITY supplementMessage "Dit filterabonnement is bedoeld om samen gebruikt te worden met het filterabonnement “?1?”, dat u nog niet gebruikt.">

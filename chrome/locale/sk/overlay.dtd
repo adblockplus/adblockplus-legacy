@@ -15,7 +15,7 @@
 <!ENTITY filters.accesskey "N">
 <!ENTITY whitelist.page.label "Vypnúť len na tejto stránke">
 <!ENTITY context.image.label "Adblock obrázok">
-<!ENTITY closesidebar.accesskey "A">
+<!ENTITY closesidebar.accesskey "b">
 <!ENTITY hideplaceholders.label "Skryť symboly blokovaných prvkov">
 <!ENTITY opensidebar.label "Otvoriť blokovateľné položky">
 <!ENTITY options.accesskey "M">

@@ -26,6 +26,7 @@
 <!ENTITY screenshot.mark.accesskey "V">
 <!ENTITY typeSelector.other.accesskey "p">
 <!ENTITY screenshot.undo.accesskey "Z">
+<!ENTITY update.inProgress.description "Adblock Plus potřebuje aktualizovat váš filtr odběrů aby zajistil že otázka nebyla již vyřešena. Prosím čekejte...">
 <!ENTITY data.accesskey "D">
 <!ENTITY data.label "Data hlášení:">
 <!ENTITY sendPage.heading "Odeslat hlášení">
@@ -47,7 +48,7 @@
 <!ENTITY showRecentReports.label "Ukázat nedávno odeslaná hlášení">
 <!ENTITY commentPage.heading "Vložit komentář">
 <!ENTITY update.start.label "Spustit aktualizaci">
-<!ENTITY screenshot.remove.accesskey "O">
+<!ENTITY typeSelector.falsePositive.accesskey "m">
 <!ENTITY issues.disabledfilters.description "Následující filtry jsou  zakázány, přesto můžou mít vliv na tuto stránku:">
 <!ENTITY screenshot.description "Stejná stránka může být zobrazena odlišně různým lidem. Pomůže nám pochopit problém, pokud připojíte snímek stránky k vašemu hlášení problému. Můžete odstranit části obsahující důvěrné informace i vyznačit místa, kde je problém vidět. Toho docílíte klepnutím na odpovídající tlačítko a výběrem části obrázku myší.">
 <!ENTITY screenshot.attach.label "Připojit snímek stránky k hlášení">
@@ -69,6 +70,7 @@
 <!ENTITY screenshot.heading "Připojit snímek">
 <!ENTITY comment.accesskey "K">
 <!ENTITY issues.ownfilters.description "Některé filtry použité na této stránce jsou vytvořené vámi. Zakažte prosím filtry, které mohly způsobit problém:">
+<!ENTITY screenshot.remove.accesskey "O">
 <!ENTITY issues.subscriptionCount.description "Vypadá to, že jste přihlášeni k odběru příliš mnoha sad cizích filtrů. Toto nastavení není doporučeno, protože výrazně zvyšuje pravděpodobnost výskytu problémů. Zároveň nelze přijmout vaše hlášení, protože není jasné, který z autorů sad cizích filtrů je za zodpovědný. Odhlašte se prosím z odběru všech nepotřebných sad cizích filtrů a vyzkoušejte, zda se problém vyskytuje i poté.">
 <!ENTITY screenshot.mark.label "Vyznačit problém">
 <!ENTITY privacyPolicy.label "Ochrana soukromí">

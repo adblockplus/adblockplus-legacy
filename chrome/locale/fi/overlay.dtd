@@ -7,9 +7,10 @@
 <!ENTITY objecttab.title "Estä">
 <!ENTITY showinaddonbar.accesskey "y">
 <!ENTITY sync.accesskey "S">
+<!ENTITY objecttabs.label "Korvake Flashin ja Javan yhteydessä">
 <!ENTITY objecttab.tooltip "Estä tämä objekti Adblock Plussalla">
 <!ENTITY menuitem.label "Adblock Plus - Asetukset">
-<!ENTITY objecttabs.label "Korvake Flashin ja Javan yhteydessä">
+<!ENTITY sendReport.accesskey "L">
 <!ENTITY sendReport.label "Raportoi ongelma tällä sivulla">
 <!ENTITY filters.accesskey "S">
 <!ENTITY whitelist.page.label "Ei käytössä tällä sivulla">
@@ -19,6 +20,7 @@
 <!ENTITY opensidebar.label "Näytä elementit">
 <!ENTITY options.accesskey "V">
 <!ENTITY contribute.label "Avusta Adblock Plussaa">
+<!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus: Estä kehys">
 <!ENTITY counthits.label "Laske suodattimen osumat">
 <!ENTITY blocked.tooltip "Tämän sivun estetyt elementit:">

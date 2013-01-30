@@ -1,46 +1,33 @@
-<!ENTITY collapse.yes.label "Bai">
 <!ENTITY anchor.end.label "helbidearen bukaeran">
 <!ENTITY domainRestriction.label "Mugatu domeinu honetara:">
-<!ENTITY anchor.start.flexible.accesskey "g">
+<!ENTITY collapse.default.no.label "Lehenetsitako erabili (ez)">
 <!ENTITY firstParty.label "Lehen eskukoa soilik">
 <!ENTITY preferences.label "Erakutsi dauden iragazkiak...">
 <!ENTITY pattern.label "Eredua bilatu">
 <!ENTITY thirdParty.label "Kanpotik jasoa soilik">
-<!ENTITY filter.accesskey "f">
-<!ENTITY thirdParty.accesskey "T">
 <!ENTITY filter.label "Iragazki berria:">
 <!ENTITY collapse.label "Kolapsatu blokeatuta:">
 <!ENTITY match.warning "Sartu duzun eredua ez du jada blokeatu/desblokeatu nahi duzun helbidearekin bat egiten eta ez du inolako eraginik izango.">
 <!ENTITY anchor.start.label "helbidearen hasieran">
-<!ENTITY collapse.no.label "Ez">
 <!ENTITY matchCase.label "Maiuskulak-minuskulak bereizi">
 <!ENTITY custom.pattern.label "Pertsonala:">
 <!ENTITY unselectAllTypes.label "Ez aukeratu ezer">
-<!ENTITY domainRestriction.accesskey "d">
 <!ENTITY type.whitelist.label "Salbuespen araua">
 <!ENTITY regexp.warning "Sartu duzun eredua espresio erregulartzat hartuko da, Adblock Plusek ezin ditu azkar prozesatu eta honek zure nabigazioa moteldu dezake. Zure asmoa ez bazen espresio erregular bat erabiltzea, gehitu asterisko bat (*) ereduaren bukaeran.">
 <!ENTITY dialog.title "Gehitu Adblock Plus iragazki araua">
 <!ENTITY basic.label "Oinarrizko ikuspegia">
-<!ENTITY preferences.accesskey "S">
-<!ENTITY firstParty.accesskey "r">
-<!ENTITY collapse.default.no.label "Lehenetsitako erabili (ez)">
 <!ENTITY type.filter.label "Iragazki blokeatzailea">
 <!ENTITY types.label "Mota hauei aplikatu:">
 <!ENTITY shortpattern.warning "Sartu duzun eredua laburregia da optimizatu ahal izateko eta zure nabigazioa moteldu dezake. Testu kate luzeago bat aukeratzea aholkatzen da Adblock Plusek azkarrago prozesatu dezan.">
-<!ENTITY custom.pattern.accesskey "C">
-<!ENTITY anchor.start.accesskey "g">
+<!ENTITY collapse.yes.label "Bai">
 <!ENTITY anchors.label "Onartu eredua soilik:">
 <!ENTITY collapse.default.yes.label "Lehenetsitako erabili (bai)">
-<!ENTITY type.filter.accesskey "B">
 <!ENTITY domainRestriction.help "Erabili aukera hau domeinu bat edo gehiago zehazteko marra bertikal batez banatuta (|). Iragazkia soilik erabiliko da aukeratutako domeinuetan. Gehitu tilde bat (~) domienuaren aurretik domeinu horretan iragazkia ez erabiltzeko.">
 <!ENTITY accept.label "Gehitu iragazkia">
 <!ENTITY options.label "Aukerak">
 <!ENTITY disabled.warning "Adblock plus orain desgaituta dago. Iragazkiak gehitu ditzakezu, baina ez dira aplikatuko ez baduzu [link]Adblock Plus gaitzen[/link].">
 <!ENTITY anchor.start.flexible.label "domeinu izenaren hasieran">
-<!ENTITY type.whitelist.accesskey "x">
-<!ENTITY matchCase.accesskey "M">
-<!ENTITY anchor.end.accesskey "n">
+<!ENTITY collapse.no.label "Ez">
 <!ENTITY selectAllTypes.label "Dena aukeratu">
 <!ENTITY advanced.label "Ikuspegi aurreratua">
-<!ENTITY collapse.accesskey "l">
 <!ENTITY pattern.explanation "Eredua helbidearen edozein atal izan daiteke; asteriskoa (*) komodin bezala erabili daiteke. Iragazkia soilik aplikatuko da ereduarekin bat datozen helbideetan.">

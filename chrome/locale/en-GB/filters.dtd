@@ -15,6 +15,7 @@
 <!ENTITY find.accesskey "n">
 <!ENTITY readMore.label "Read more">
 <!ENTITY subscription.homepage.label "Homepage">
+<!ENTITY typoCorrections.enableLabel "Correct mistyped internet addresses">
 <!ENTITY sort.descending.accesskey "Z">
 <!ENTITY sort.descending.label "Z &gt; A sort order">
 <!ENTITY subscription.lastDownload.success "Success">
@@ -35,6 +36,7 @@
 <!ENTITY backupButton.accesskey "B">
 <!ENTITY filter.actions.label "Filter actions">
 <!ENTITY filter.moveDown.label "Move down">
+<!ENTITY typoCorrections.tab.label "Typo corrections">
 <!ENTITY addFilter.label "Add filter">
 <!ENTITY subscription.editTitle.label "Edit title">
 <!ENTITY subscription.moveDown.label "Move down">
@@ -42,12 +44,14 @@
 <!ENTITY filter.column "Filter rule">
 <!ENTITY subscription.lastDownload.checksumMismatch "Failed: checksum mismatch">
 <!ENTITY noFiltersInGroup.text "The selected group is empty">
+<!ENTITY typoCorrections.whitelistLabel "Don't Replace...">
 <!ENTITY sort.label "Sort by">
 <!ENTITY noFilters.text "You don't have any custom filters yet.">
 <!ENTITY subscription.external.label "Updated by another extension">
 <!ENTITY filter.accesskey "F">
 <!ENTITY noGroupSelected.text "You need to select a filter group before its filters can be displayed.">
 <!ENTITY subscription.lastDownload.inProgress "Downloading...">
+<!ENTITY typoCorrections.removeButtonLabel "Remove Selected">
 <!ENTITY enabled.column "Enabled">
 <!ENTITY viewMenu.label "View">
 <!ENTITY addSubscriptionCancel.label "Cancel">
@@ -68,6 +72,7 @@
 <!ENTITY restore.minVersion.warning "Warning: the file has been created with a newer Adblock Plus version. You should update to the latest Adblock Plus version before restoring from this file.">
 <!ENTITY sort.ascending.label "A &gt; Z sort order">
 <!ENTITY viewList.label "View list">
+<!ENTITY typoCorrections.whitelistEmptyLabel "There are currently no exceptions.">
 <!ENTITY sort.ascending.accesskey "A">
 <!ENTITY restore.default.label "Restore backup from ?1?">
 <!ENTITY hitcount.accesskey "H">

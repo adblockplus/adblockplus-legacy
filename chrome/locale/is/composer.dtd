@@ -22,6 +22,7 @@
 <!ENTITY dialog.title "Bæta við Adblock Plus síureglu">
 <!ENTITY basic.label "Einföld sýn">
 <!ENTITY preferences.accesskey "v">
+<!ENTITY firstParty.accesskey "r">
 <!ENTITY collapse.default.no.label "Nota sjálfgefið (nei)">
 <!ENTITY type.filter.label "Lokunarsía">
 <!ENTITY types.label "Virkja fyrir tegundir:">

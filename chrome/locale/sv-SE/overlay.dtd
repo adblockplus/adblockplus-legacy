@@ -21,6 +21,7 @@
 <!ENTITY blocked.tooltip "Blockerade objekt på denna sida:">
 <!ENTITY hideplaceholders.label "Dölj platshållare för blockerade element">
 <!ENTITY showinstatusbar.label "Visa i statusfältet">
+<!ENTITY status.tooltip "Status:">
 <!ENTITY sidebar.title "Blockerbara objekt på denna sida">
 <!ENTITY options.label "Alternativ">
 <!ENTITY context.object.label "Adblock Plus: Blockera objekt">

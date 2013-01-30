@@ -19,7 +19,7 @@
 <!ENTITY domainRestriction.accesskey "р">
 <!ENTITY type.whitelist.label "Изключение от правилото">
 <!ENTITY regexp.warning "Моделът който сте въвели ще бъде интерпретиран като регулярен израз, които не могат да бъдат ефективно обработени с Adblock Плюс и могат да забавят твоят браузър. Ако не възнамерявате да използвате регулярен израз, добавете звездичка (*) към края на модела.">
-<!ENTITY dialog.title "Добави Adblock Plus филтър">
+<!ENTITY dialog.title "Добавяне на Adblock Plus филтър правило">
 <!ENTITY basic.label "Основен изглед">
 <!ENTITY preferences.accesskey "щ">
 <!ENTITY firstParty.accesskey "о">

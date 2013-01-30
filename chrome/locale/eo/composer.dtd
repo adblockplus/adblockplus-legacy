@@ -35,7 +35,7 @@
 <!ENTITY domainRestriction.help "Uzu ĉi tiun opcion por specifi unu retregionon aŭ plurajn retregionojn, separitajn per strekosignon (|). La filtrilo estos nur aplikata al elektitaj retregionoj. Tildo (~) antaŭ retregiona nomo indikas, ke la filtrilo ne estos aplikata al tiu retregiono.">
 <!ENTITY accept.label "Aldoni filtrilon">
 <!ENTITY options.label "Opcioj">
-<!ENTITY disabled.warning "Addblock Plus estas nun malebligita. Vi povas ankoraŭ aldoni filtrilojn, sed ili ne estos aplikataj, escepte, se vi [link]ebligas Adblock Plus[/link].">
+<!ENTITY disabled.warning "Addblock Plus estas nun malŝaltita. Vi povas ankoraŭ aldoni filtrilojn, sed ili ne estos aplikataj, ĝis vi [link]ŝaltas Adblock Plus[/link].">
 <!ENTITY anchor.start.flexible.label "en la komenco de la retregiona nomo">
 <!ENTITY type.whitelist.accesskey "c">
 <!ENTITY matchCase.accesskey "A">

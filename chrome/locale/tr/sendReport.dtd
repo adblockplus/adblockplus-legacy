@@ -19,6 +19,7 @@
 <!ENTITY issues.disabledgroups.enable.label "Süzgeç aboneliğini veya grubunu devreye sok">
 <!ENTITY typeWarning.override.label "Anlıyorum ve ne olursa olsun bildirimi göndermek istiyorum">
 <!ENTITY issues.disabled.enable.label "Adblock Plus'ı etkinleştir">
+<!ENTITY update.fixed.description "Süzgeç aboneliklerinize yapılan güncellemeler muhtemelen bildirmek istediğiniz sorunu giderdi. Sayfayı tekrar yükleyip bir daha deneyin, hâlâ sorun varsa bildirin.">
 <!ENTITY email.label "Daha fazla bilgi almamız için e-posta adresi (isteğe bağlı):">
 <!ENTITY reloadButton.label "Sayfayı tazele">
 <!ENTITY recentReports.clear.label "Tüm bildirimleri sil">
@@ -26,6 +27,7 @@
 <!ENTITY screenshot.mark.accesskey "a">
 <!ENTITY typeSelector.other.accesskey "b">
 <!ENTITY screenshot.undo.accesskey "g">
+<!ENTITY update.inProgress.description "Bu sorunun süzgeç güncellemesiyle giderilmesinin mümkün olup olmadığını tespit etmek için abonelikleriniz şimdi güncellenecektir. Lütfen bekleyin...">
 <!ENTITY data.accesskey "v">
 <!ENTITY data.label "Bildirim verisi:">
 <!ENTITY sendPage.heading "Bildirimi gönder">
@@ -37,6 +39,7 @@
 <!ENTITY issues.disabledfilters.enable.label "Süzgeci devreye sok">
 <!ENTITY issues.override.label "Yapılandırma doğru, bildirime devam et">
 <!ENTITY issues.nosubscriptions.description "Sitelerdeki istenmeyen içeriği yok eden önceden hazırlanmış süzgeç listelerinden herhangi birine abone olmuş değilsiniz.">
+<!ENTITY outdatedSubscriptions.description "Aşağıdaki süzgeç abonelikleri en az 2 haftadır güncellenmedi. Bildirmeden önce lütfen bu abonelikleri güncelleyin, sorun çoktan giderilmiş olabilir.">
 <!ENTITY typeSelector.other.label "Başka bir sorun">
 <!ENTITY issues.whitelist.remove.label "Adblock Plus'u bu sayfada devreye sok">
 <!ENTITY typeSelector.falsePositive.description "Sayfanın önemli içeriği hiç görünmüyorsa, yanlış görünüyorsa veya sayfa düzgün işlemiyorsa bu seçeneği seçin. Sorun kaynağının Adblock Plus olup olmadığını eklentiyi geçici olarak devre dışı bırakıp belirleyebilirsiniz.">
@@ -46,6 +49,7 @@
 <!ENTITY sendPage.errorMessage "Hata bildirimi gönderme girişiminiz &quot;?1?&quot; hata koduyla başarısız oldu. Lütfen internete bağlı olduğunuzdan emin olun ve yeniden deneyin. Sorun devam ederse lütfen [link]Adblock Plus forumunda[/link] yardım isteyin.">
 <!ENTITY showRecentReports.label "Yakında gönderilen bildirimleri göster">
 <!ENTITY commentPage.heading "Yorum ekle">
+<!ENTITY update.start.label "Güncellemeyi şimdi başlat">
 <!ENTITY typeSelector.falsePositive.accesskey "f">
 <!ENTITY issues.disabledfilters.description "Bu sayfada etkisi olabilecek aşağıdaki süzgeçler devre dışı bırakıldı:">
 <!ENTITY screenshot.description "Aynı sayfa farklı kişilerce farklı biçimde görülebilir. Bildirime ekran görüntüsü eklemeniz sorunu anlamamıza yardımcı olabilir. Hassas bilgilerin olduğu bölümleri silebilirsiniz ve sorunun görünür olduğu yerleri işaretleyebilirsiniz. Bunu yapmak için ilgili düğmeye basın ve resimde bir bölümü farenizle seçin.">
@@ -61,6 +65,7 @@
 <!ENTITY typeSelector.falseNegative.accesskey "m">
 <!ENTITY comment.lengthWarning "Yorumunuzun uzunluğu 1000 karakteri aşıyor. Sadece ilk 1000 karakter gönderilecek.">
 <!ENTITY typeSelector.falseNegative.description "Adblock Plus devrede olmasına rağmen reklamın biri görünüyorsa bu seçeneği seçin.">
+<!ENTITY typeWarning.override.accesskey "s">
 <!ENTITY sendPage.waitMessage "Lüftfen Adblock Plus bildirimi gönderirken bekleyin.">
 <!ENTITY dataCollector.heading "Sorun bildiriciye hoş geldiniz">
 <!ENTITY screenshot.remove.label "Hassas veriyi sil">
