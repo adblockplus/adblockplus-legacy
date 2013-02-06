@@ -29,8 +29,8 @@ zh-CN=https://adblockplus.org/zh_CN/
 zh-TW=https://adblockplus.org/zh_TW/
 
 [compat]
-firefox=9.0/21.0a1
-fennec2=11.0a1/21.0a1
-thunderbird=9.0/21.0a1
-seamonkey=2.6/2.18a1
-toolkit=9.0/21.0a1
+firefox=9.0/22.0
+fennec2=11.0a1/22.0
+thunderbird=9.0/22.0
+seamonkey=2.6/2.19
+toolkit=9.0/22.0
