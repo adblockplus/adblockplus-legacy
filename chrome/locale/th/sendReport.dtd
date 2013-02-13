@@ -20,7 +20,6 @@
 <!ENTITY typeWarning.override.label "ฉันเข้าใจและพร้อมจะส่งรายงาน">
 <!ENTITY issues.disabled.enable.label "เปิด Adblock Plus">
 <!ENTITY update.fixed.description "ตัวกรองของคุณน่าจะมีการอัพเดทการแก้ไขปัญหาที่คุณได้รายงานไว้ก่อนหน้านี้ กรุณาโหลดเว็บเพจและลองใหม่อีกครั้ง คุณสามารถดูรายงานของคุณได้อีกครั้ง หากพบปัญหาดังกล่าวอยู่">
-<!ENTITY email.label "อีเมลสำหรับสอบถามข้อมูล (ไม่ใส่ก็ได้):">
 <!ENTITY reloadButton.label "เรียกหน้าปัจจุบันใหม่">
 <!ENTITY recentReports.clear.label "ลบรายงานทั้งหมด">
 <!ENTITY typeSelector.description "หน้าต่างนี้จะนำทางไปยังขั้นตอนที่ต้องการในการส่งรายงานปัญหาของ Adblock Plus กรุณาเลือกชนิดของปัญหาที่คุณพบในหน้านี้:">

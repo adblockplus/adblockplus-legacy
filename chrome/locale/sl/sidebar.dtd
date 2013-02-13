@@ -4,6 +4,7 @@
 <!ENTITY type.label "Vrsta">
 <!ENTITY tooltip.filterSource.label "Vir filtra:">
 <!ENTITY noitems.label "Ni elementov blokiranja">
+<!ENTITY filter.label "Filter">
 <!ENTITY tooltip.size.label "Velikost:">
 <!ENTITY reattach.label "Pripni">
 <!ENTITY search.label "Najdi:">

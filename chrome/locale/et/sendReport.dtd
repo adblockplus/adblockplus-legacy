@@ -20,7 +20,6 @@
 <!ENTITY typeWarning.override.label "Ma mõistan ja soovin siiski probleemist teada anda">
 <!ENTITY issues.disabled.enable.label "Luba Adblock Plus">
 <!ENTITY update.fixed.description "Filtrite tellimuste uuendused lahendasid tõenäoliselt selle probleemi, millest sa teatasid. Palun lae leht uuesti ja ürita uuesti. Teata uuesti, kui probleemid jäid alles.">
-<!ENTITY email.label "E-post lisaküsimuste tekkimisel (valikuline):">
 <!ENTITY reloadButton.label "Laadi leht uuesti">
 <!ENTITY recentReports.clear.label "Kustuta kõik teated">
 <!ENTITY typeSelector.description "Antud aknas saab teatada Adblock Plusi probleemidest, tehes läbi vajalikud sammud. Kõigepealt tuleb valida probleemi liik, millega sa antud lehel kokku puutud:">

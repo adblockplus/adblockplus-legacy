@@ -26,7 +26,6 @@
 <!ENTITY update.fixed.description "Ažuriranje vaših pretplata na filtere je vjerovatno riješila problem koji ste
 	prijavljivali. Ponovno učitajte stranicu i pokušajte ponovno, pritisnite Prijavi ponovno ako
 	problem nije rješen.">
-<!ENTITY email.label "E-pošta za daljnje upite (neobavezno):">
 <!ENTITY reloadButton.label "Ponovno učitaj stranicu">
 <!ENTITY recentReports.clear.label "Ukloni sva izvješća">
 <!ENTITY typeSelector.description "Ovaj prozor će vas voditi kroz korake potrebne za prijavu Adblock

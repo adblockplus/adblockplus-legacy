@@ -20,7 +20,6 @@
 <!ENTITY typeWarning.override.label "Rozumiem a chcem potvrdiť správu">
 <!ENTITY issues.disabled.enable.label "Zapnúť Adblock Plus">
 <!ENTITY update.fixed.description "Aktualizácie filtra odberov môžu vyriešiť problém, ktorý ste nahlásili. Prosím, skúste stránku načítať znova a skúste zadať správu znovu, ak problém pretrváva.">
-<!ENTITY email.label "Email pre ďalšie informácie (nepovinné):">
 <!ENTITY reloadButton.label "Opäť načítať stránku">
 <!ENTITY recentReports.clear.label "Odstrániť všetky správy">
 <!ENTITY typeSelector.description "Toto okno vám pomôže s výkladom požiadaviek Adblock Plus na hlásenie problémov. Najprv zvoľte typ problému, ktorý ste zistili na stránke:">

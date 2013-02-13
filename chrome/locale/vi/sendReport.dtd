@@ -18,7 +18,6 @@
 <!ENTITY issues.disabledgroups.enable.label "Kích hoạt bộ lọc trọn gói/nhóm bộ lọc">
 <!ENTITY typeWarning.override.label "Tôi hiểu và vẫn muốn gửi báo cáo">
 <!ENTITY issues.disabled.enable.label "Bật Adblock Plus">
-<!ENTITY email.label "Email để trao đổi thêm (phụ):">
 <!ENTITY reloadButton.label "Tải lại trang">
 <!ENTITY recentReports.clear.label "Xóa tất cả báo cáo">
 <!ENTITY typeSelector.description "Cửa sổ này sẽ hướng dẫn bạn qua các bước cần thiết cho việc gửi lên một báo cáo vấn đề của Adblock Plus. Trước tiên, hãy chọn kiểu vấn đề mà bạn đang gặp trên trang này:">

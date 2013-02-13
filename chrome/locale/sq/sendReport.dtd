@@ -3,7 +3,6 @@
 <!ENTITY showData.label "Afisho permbajtjen e raportit">
 <!ENTITY typeSelector.falsePositive.label "Adblock Plus po bllokon shume">
 <!ENTITY issues.change.description "Konfigurimi juaj ka ndryshuar. Ju lutem ri-ngarkoni faqen per te provuar ndryshimet dhe per te derguar nje raportim nese problemi nuk eshte zgjidhur nga ndryshimet ne konfigurim.">
-<!ENTITY email.label "Adresa e-mail per kontakte te metejshe (fakultative):">
 <!ENTITY issues.openPreferences.label "Hap parametrat e filtrave">
 <!ENTITY sendPage.confirmation "Raporti juaj eshte ruajtur. Ju mund ta shikoni ate ne kete adrese:">
 <!ENTITY copyLink.label "KOpjo adresen e raportit">

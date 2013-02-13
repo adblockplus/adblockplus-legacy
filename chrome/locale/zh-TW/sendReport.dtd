@@ -20,7 +20,6 @@
 <!ENTITY typeWarning.override.label "我了解並堅持要傳送錯誤報告">
 <!ENTITY issues.disabled.enable.label "啟用 Adblock Plus">
 <!ENTITY update.fixed.description "過濾條件集更新後很可能解決了您正要回報的問題。請重新載入網頁後再試一次，若問題仍在請再次回報。">
-<!ENTITY email.label "進一步聯繫的 Email 地址 (選用):">
 <!ENTITY reloadButton.label "重新載入頁面">
 <!ENTITY recentReports.clear.label "移除所有錯誤報告">
 <!ENTITY typeSelector.description "本視窗會一步步指導您傳送一份 Adblock Plus 錯誤報告。首先，請選擇您在此頁面碰到的錯誤類型：">

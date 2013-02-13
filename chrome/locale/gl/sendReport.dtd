@@ -20,7 +20,6 @@
 <!ENTITY typeWarning.override.label "Comprendido, pero aínda así quero mandar o informe">
 <!ENTITY issues.disabled.enable.label "Activar o Adblock Plus">
 <!ENTITY update.fixed.description "Se cadra a actualización dos filtros resolveu o problema do que informabas. Tenta recargar a páxina e se o problema mantense, dalle de novo a Informar.">
-<!ENTITY email.label "Dar e-mail para posibles aclaracións (opcional):">
 <!ENTITY reloadButton.label "Recargar a páxina">
 <!ENTITY recentReports.clear.label "Borrar tódolos informes">
 <!ENTITY typeSelector.description "Esta xanela vaiche guiar a través dos pasos necesarios para a presentación dun informe de problema no Adblock Plus. Primeiro, selecciona o tipo de problema que atopaches nesta páxina:">

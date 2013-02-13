@@ -20,7 +20,6 @@
 <!ENTITY typeWarning.override.label "Мен түсініп тұрмын, және хабарламаны жібергім келеді">
 <!ENTITY issues.disabled.enable.label "Adblock Plus іске қосу">
 <!ENTITY update.fixed.description "Cіз хабарлаған мәселе фильтрлерге жаңартылумен шешілген сияқты. Парақты қайта жүктеп, қайталап көріңіз, мәселе жоғалмаса, Хабарлау батырмасын басыңыз.">
-<!ENTITY email.label "Кейінгі тергеулер үшін эл. пошта (тиісті емес):">
 <!ENTITY reloadButton.label "Парақты қайта жүктеу">
 <!ENTITY recentReports.clear.label "Барлық хабарламаларды өшіру">
 <!ENTITY typeSelector.description "Бұл терезе сізге Adblock Plus мәселесі туралы хабарламаны дайындауға көмектеседі. Біріншіден, бұл парақта кездескен мәселе түрін таңдаңыз:">

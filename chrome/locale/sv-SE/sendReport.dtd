@@ -19,7 +19,6 @@
 <!ENTITY typeWarning.override.label "Jag förstår och vill skicka in rapporten i alla fall">
 <!ENTITY issues.disabled.enable.label "Aktivera Adblock Plus">
 <!ENTITY update.fixed.description "Uppdateringarna till dina filterprenumerationer löste troligtvis problemet du rapporterade. Var vänlig och uppdatera den berörda sidan och försök igen, tryck Skicka på nytt om ditt problem kvarstår.">
-<!ENTITY email.label "E-postadress för uppföljningsfrågor (valfritt):">
 <!ENTITY reloadButton.label "Uppdatera sidan">
 <!ENTITY recentReports.clear.label "Ta bort alla rapporter">
 <!ENTITY typeSelector.description "Denna dialog kommer att guida dig igenom alla steg som krävs för att skicka in en problemrapport för Adblock Plus. Först och främst måste du välja den typ av problem som du upplever på denna sida:">

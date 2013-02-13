@@ -19,7 +19,6 @@
 <!ENTITY issues.disabledgroups.enable.label "فعال سازی اشتراکات پالایه / دسته های پالایه">
 <!ENTITY typeWarning.override.label "من متوجه هستم و می خواهم که گزارش را در هر صورت ارسال کنم">
 <!ENTITY issues.disabled.enable.label "فعال کردن فوق تبلیغ شکن">
-<!ENTITY email.label "رایانامه برای رسیدگی بعدی (اختیاری):">
 <!ENTITY reloadButton.label "تازه سازی صفحه">
 <!ENTITY recentReports.clear.label "پاک کردن تمامی گزارشات">
 <!ENTITY typeSelector.description "این پنجره شما را برای ارائه یک گزارش خطا فوق تبلیغ شکن راهنمایی می کند. ابتدا نوع مشکلی را که در این صفحه با آن روبرو هستید را انتخاب کنید:">

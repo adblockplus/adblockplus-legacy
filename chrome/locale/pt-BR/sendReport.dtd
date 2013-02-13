@@ -20,7 +20,6 @@
 <!ENTITY typeWarning.override.label "Eu entendo e quero enviar o relatório mesmo assim">
 <!ENTITY issues.disabled.enable.label "Ativar o Adblock Plus">
 <!ENTITY update.fixed.description "A atualização de suas inscrições de filtros provavelmente resolveu o problema que você estava reportando. Por favor, atualize a página e verifique. Se o problema persistir, clique novamente em &quot;Reportar problema com esta página&quot;.">
-<!ENTITY email.label "E-mail para informações adicionais (opcional):">
 <!ENTITY reloadButton.label "Atualizar a página">
 <!ENTITY recentReports.clear.label "Remover todos os relatórios">
 <!ENTITY typeSelector.description "Este assistente conduzirá você pelos passos necessários para enviar um relatório de erro do Adblock Plus. Primeiro, selecione o tipo de erro que você está tendo nessa página:">

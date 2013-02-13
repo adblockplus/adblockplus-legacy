@@ -23,7 +23,6 @@ tikriausiai nėra susijusi su Adblock Plus.">
 <!ENTITY typeWarning.override.label "Aš suprantu ir vistiek noriu pranešti">
 <!ENTITY issues.disabled.enable.label "Įjungti Adblock Plus">
 <!ENTITY update.fixed.description "Atnaujinimai greičiausiai išsprendė bėdą apie kurią jūs norėjote pranešti. Įkraukite puslapį iš naujo, jei problema vis dar yra paspauskite „Pranešti“.">
-<!ENTITY email.label "El. paštas tolesnei informacijai (nebūtinas):">
 <!ENTITY reloadButton.label "Įkelti iš naujo">
 <!ENTITY recentReports.clear.label "Pašalinti visus pranešimus">
 <!ENTITY typeSelector.description "Šis langas padės įvykdyti kelis žingsnius kurie reikalingi pranešti apie Adblock Plus 

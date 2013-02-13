@@ -23,7 +23,6 @@
 <!ENTITY typeWarning.override.label "Ég skil og vill samt senda skýrslu">
 <!ENTITY issues.disabled.enable.label "Virkja Adblock Plus">
 <!ENTITY update.fixed.description "Uppfærslur á síuáskriftum lagfærðu að öllum líkindum vandamálið. Endurnýjaðu síðun og reyndu aftur, smelltu á tilkynna aftur ef vandamálið er enn til staðar.">
-<!ENTITY email.label "Tölvupóstfang fyrir frekari fyrirspurnir (valkvæmt):">
 <!ENTITY reloadButton.label "Endurnýja síðu">
 <!ENTITY recentReports.clear.label "Fjarlægja allar skýrslur">
 <!ENTITY typeSelector.description "Þessi gluggi hjálpar þér í gegnum þau skref sem þarf til að tilkynna Adblock

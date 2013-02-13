@@ -20,7 +20,6 @@
 <!ENTITY typeWarning.override.label "Ik begrijp het en wil het rapport toch indienen">
 <!ENTITY issues.disabled.enable.label "Adblock Plus inschakelen">
 <!ENTITY update.fixed.description "De updates voor uw filterabonnementen hebben waarschijnlijk het door u gerapporteerde probleem verholpen. Laad de pagina opnieuw en probeer het nog eens, en druk opnieuw op Rapporteren als het probleem aanhoudt.">
-<!ENTITY email.label "E-mailadres voor verdere vragen (optioneel):">
 <!ENTITY reloadButton.label "Pagina opnieuw laden">
 <!ENTITY recentReports.clear.label "Alle rapporten verwijderen">
 <!ENTITY typeSelector.description "Dit venster leidt u door de stappen die nodig zijn voor het indienen van een Adblock Plus-probleemrapport. Selecteer eerst het probleemtype dat u ervaart op deze pagina:">

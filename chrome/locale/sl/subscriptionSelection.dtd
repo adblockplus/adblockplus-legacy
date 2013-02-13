@@ -10,6 +10,6 @@
 <!ENTITY viewList.label "Pokaži filtre">
 <!ENTITY visitHomepage.label "Obišči domačo stran">
 <!ENTITY addSubscription.label "Dodaj naročnino">
-<!ENTITY dialog.title "Dodaj naročnino na filtre Adblock Plus">
+<!ENTITY dialog.title "Naroči filtre za Adblock Plus">
 <!ENTITY location.label "Mesto seznama filtriranja:">
 <!ENTITY fromWeb.description "Potrdite, da želite dodati to naročnino na filter. Naslov ali kraj naročnine lahko spremenite še pred dodajanjem.">

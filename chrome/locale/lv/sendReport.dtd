@@ -19,7 +19,6 @@
 <!ENTITY issues.disabledgroups.enable.label "Ievadīt filtru abonementu / filtru grupu">
 <!ENTITY typeWarning.override.label "Es saprotu un vienalga vēlos nosūtīt ziņojumu">
 <!ENTITY issues.disabled.enable.label "Iespējot Adblock Plus">
-<!ENTITY email.label "E-pasts turpmākai izziņai (nav obligāti):">
 <!ENTITY reloadButton.label "Pārlādēt lapu">
 <!ENTITY recentReports.clear.label "Noņemt visus ziņojumus">
 <!ENTITY typeSelector.description "Šis log Jūs vedīs cauri nepieciešamajiem soļiem, lai nosūtītu Adblock Plus problēmu ziņojumu. Vispirms, lūdzu izvēlieties tipu problēmai, ko Jūs pieredzat šajā lapā:">

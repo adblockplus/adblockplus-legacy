@@ -20,7 +20,6 @@
 <!ENTITY typeWarning.override.label "Разумем и ипак желим да пошаљем извештај">
 <!ENTITY issues.disabled.enable.label "Омогући Adblock Plus">
 <!ENTITY update.fixed.description "Претплате на ваш филтер су вероватно већ отклониле проблем који сте пријавили. Поново учитајте страницу, па покушајте поново. Ако проблем и даље постоји, поново га пријавите.">
-<!ENTITY email.label "Е-адреса за даља питања (произвољно):">
 <!ENTITY reloadButton.label "Поново учитај страницу">
 <!ENTITY recentReports.clear.label "Уклони све извештаје">
 <!ENTITY typeSelector.description "Овај прозор ће Вас водити кроз кораке за решавање проблема у Adblock Plus-у и њихово пријављивање. За почетак, изаберите врсту проблема на који сте наишли на овој страници:">

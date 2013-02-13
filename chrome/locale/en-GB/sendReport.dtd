@@ -22,7 +22,6 @@
 <!ENTITY update.fixed.description "The updates to your filter subscriptions likely resolved the issue that you
   were reporting. Please reload the page and retry, hit Report again if the
   problem remains.">
-<!ENTITY email.label "Email for further enquiries (optional):">
 <!ENTITY reloadButton.label "Reload page">
 <!ENTITY recentReports.clear.label "Remove all reports">
 <!ENTITY typeSelector.description "This window will guide you through the steps required for the submission of an Adblock Plus issue report. First, please select the type of issue that you are experiencing on this page:">

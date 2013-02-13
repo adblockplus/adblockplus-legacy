@@ -20,7 +20,6 @@
 <!ENTITY typeWarning.override.label "Я розумію, та все ж хочу послати звіт">
 <!ENTITY issues.disabled.enable.label "Увімкнути Adblock Plus">
 <!ENTITY update.fixed.description "Оновлення ваших підписок на фільтри швидше за все вирішило проблему, про яку ви хотіли повідомити. Будь ласка завантажте заново сторінку і спробуйте ще раз. Якщо проблема залишилася, то надішліть повідомлення ще раз.">
-<!ENTITY email.label "Ел.пошта для дальшого зв’язку (необов’язково):">
 <!ENTITY reloadButton.label "Перегрузити сторінку">
 <!ENTITY recentReports.clear.label "Вилучити всі звіти">
 <!ENTITY typeSelector.description "Це вікно проведе вас по кроках надсилання звіту про проблему з Adblock Plus. Спершу, виберіть тип проблеми з якою ви зіткнулись на цій сторінці:">

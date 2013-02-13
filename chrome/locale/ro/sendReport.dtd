@@ -20,7 +20,6 @@
 <!ENTITY typeWarning.override.label "Trimite raportarea în orice caz">
 <!ENTITY issues.disabled.enable.label "Activează Adblock Plus">
 <!ENTITY update.fixed.description "Actualizarea abonamentelor de filtre va rezolva probabil problema pe care doriți să o raportați. Reîncărcați pagina și utilizați butonul de raportare dacă problema persistă.">
-<!ENTITY email.label "Adresă de email pentru întrebări (opțional):">
 <!ENTITY reloadButton.label "Reîncărcare pagină">
 <!ENTITY recentReports.clear.label "Șterge toate rapoartele">
 <!ENTITY typeSelector.description "Această fereastră vă ghidează prin pașii necesari raportării unei probleme Adblock Plus. Pentru început, alegeți tipul problemei întâlnite pe pagina curentă:">

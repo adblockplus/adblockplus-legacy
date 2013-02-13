@@ -20,6 +20,7 @@
 <!ENTITY opensidebar.label "Odpri elemente blokad">
 <!ENTITY options.accesskey "ž">
 <!ENTITY contribute.label "Prispevajte k Adblock Plus">
+<!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock - okviri">
 <!ENTITY counthits.label "Štej zadetke filtra">
 <!ENTITY blocked.tooltip "Blokirani elementi na tej strani:">

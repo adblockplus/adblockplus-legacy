@@ -12,7 +12,6 @@
 <!ENTITY screenshot.undo.accesskey "C">
 <!ENTITY data.accesskey "e">
 <!ENTITY data.label "Dane zgłoszenia">
-<!ENTITY sendPage.heading "Wyślij zgłoszenie">
 <!ENTITY recentReports.label "Anda baru saja mengirimkan laporan">
 <!ENTITY attachExtensions.label "Dołącz do zgłoszenia listę aktywnych rozszerzeń, gdy przyczyną problemu jest konflikt z innym rozszerzeniem.">
 <!ENTITY comment.lengthWarning "Treść objaśnienia przekroczyła dopuszczalny limit 1000 znaków. Zostanie wysłane tylko pierwsze 1000 znaków.">
@@ -34,7 +33,7 @@
 <!ENTITY typeSelector.falseNegative.description "Pilih opsi ini jika iklan ditampilkan meskipun Adblock Plus yang diaktifkan.">
 <!ENTITY sendPage.waitMessage "Wysyłanie zgłoszenia… Proszę czekać.">
 <!ENTITY dataCollector.heading "Selama datang di pelaporan">
-<!ENTITY email.label "Adres e-mail do kontaktu (opcjonalny)">
+<!ENTITY sendPage.heading "Wyślij zgłoszenie">
 <!ENTITY screenshot.remove.label "Ukryj poufne dane">
 <!ENTITY sendButton.label "Wyślij zgłoszenie">
 <!ENTITY privacyPolicy.label "Kebijakan privasi">
