@@ -18,7 +18,6 @@
 <!ENTITY typeWarning.override.label "Saya faham dan ingin menghantar laporan juga">
 <!ENTITY issues.disabled.enable.label "Aktifkan Adblock Plus">
 <!ENTITY update.fixed.description "Langganan anda yang dikemaskini kemungkinan besar telahpun menyelesaikan masalah yang anda laporkan. Sila reload halaman tersebut dan cuba sekali lagi. Laporkan sekali lagi jika masalah tetap ada.">
-<!ENTITY email.label "Emel untuk pertanyaan lanjut (optional):">
 <!ENTITY reloadButton.label "Reload laman">
 <!ENTITY recentReports.clear.label "Padam semua laporan">
 <!ENTITY typeSelector.description "Tingkap ini akan membantu anda dengan langkah-langkah yang diperlukan untuk mengemukakan repot isu Adblock Plus. Pertama sekali, sila pilih jenis isu yang dialami pada laman ini:">

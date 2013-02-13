@@ -3,7 +3,6 @@
 <!ENTITY showData.label "Ցույց տալ զեկույցը">
 <!ENTITY typeSelector.falsePositive.label "Adblock Plus-ը շատ է արգելում">
 <!ENTITY issues.change.description "Ձեր կոնֆիգուրացիան փոխվել է: Խնդրում ենք վերբեռնել էջը և թեստավորել փոփոխությունները եւ հայտնել, եթե փոփոխություններից պրոբլեմը չի լուծվում:">
-<!ENTITY email.label "Էլ փոստ հետագա կապի համար (պարտադիր չէ)՝">
 <!ENTITY issues.openPreferences.label "Բացել ֆիլտրերի ընտրանքները">
 <!ENTITY sendPage.confirmation "Ձեր զեկույցը պահպանվել է: Դուք կարող եք մուտք գործել այն հետեւյալ հասցեով՝">
 <!ENTITY copyLink.label "Կրկնակել զեկույցի հղումը">

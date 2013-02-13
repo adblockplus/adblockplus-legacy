@@ -20,7 +20,6 @@
 <!ENTITY typeWarning.override.label "אני מבין ורוצה לשלוח את הדיווח בכל זאת">
 <!ENTITY issues.disabled.enable.label "אפשור  Adblock Plus">
 <!ENTITY update.fixed.description "אפשרי שעדכון הרשמות המסננים שלכם יפתור את הבעיה שדווחה. אנא רעננו את העמוד ונסו שוב, לחצו על דיווח שוב אם הבעיה נשארת.">
-<!ENTITY email.label "דוא&quot;ל לבירורים נוספים (לא חובה):">
 <!ENTITY reloadButton.label "רענון העמוד">
 <!ENTITY recentReports.clear.label "הסרת כל הדיווחים">
 <!ENTITY typeSelector.description "חלון זה ידריך אתכם דרך הצעדים הדרושים להזנת דיווח בעיה עבור Adblock Plus. ראשית, אנא בחרו את סוג הבעיה אשר אתם חווים בעמוד זה:">

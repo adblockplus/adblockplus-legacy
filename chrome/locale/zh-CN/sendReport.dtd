@@ -21,7 +21,6 @@
 <!ENTITY typeWarning.override.label "我了解并仍然希望提交报告">
 <!ENTITY issues.disabled.enable.label "启用 Adblock Plus">
 <!ENTITY update.fixed.description "更新的过滤规则订阅组应该解决了您报告的问题。请重新载入页面并重试，如果问题仍然存在，请您继续报告问题。">
-<!ENTITY email.label "Email (可选):">
 <!ENTITY reloadButton.label "重新载入页面">
 <!ENTITY recentReports.clear.label "移除所有报告">
 <!ENTITY typeSelector.description "本窗口将通过一系列的步骤来引导您提交 Adblock Plus 问题报告。

@@ -19,7 +19,6 @@
 <!ENTITY typeWarning.override.label "Entiendo y deseo presentar el reporte de todos modos">
 <!ENTITY issues.disabled.enable.label "Activar Adblock Plus">
 <!ENTITY update.fixed.description "Las actualizaciones de sus suscripciones de filtro probablemente resolvieron el problema sobre el que está usted informando. Por favor vuelva a cargar la página y vuelva a intentarlo. Informe nuevamente si el problema persiste.">
-<!ENTITY email.label "Correo Electrónico para futuras investigaciones (opcional):">
 <!ENTITY reloadButton.label "Recargar pagina">
 <!ENTITY recentReports.clear.label "Quitar todos los reportes">
 <!ENTITY typeSelector.description "Esta ventana lo guiará por pasos, necesarios para el envio de un reporte de problemas de Adblock Plus. Primero, por favor seleccione el tipo de problema que esta experimentando en esta página:">

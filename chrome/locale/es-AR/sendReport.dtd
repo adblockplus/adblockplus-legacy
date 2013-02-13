@@ -5,7 +5,6 @@
 <!ENTITY recentReports.clear.accesskey "Q">
 <!ENTITY email.accesskey "l">
 <!ENTITY issues.change.description "Cambió tu configuración. Por favor, recargá la página para probar los cambios y enviar el informe si el problema no se resolvió después de estos cambios.">
-<!ENTITY email.label "Correo electrónico para mayores detalles (opcional):">
 <!ENTITY issues.openPreferences.label "Abrir configuración de filtros">
 <!ENTITY sendPage.confirmation "Tu informe se guardó exitosamente. Podés acceder al mismo desde esta dirección:">
 <!ENTITY copyLink.label "Copiar enlace del informe">

@@ -19,7 +19,6 @@
 <!ENTITY issues.disabledgroups.enable.label "تفعيل مجموعة  اشتراك فلتر">
 <!ENTITY typeWarning.override.label "أتفهم وأرغب بإرسال التقرير">
 <!ENTITY issues.disabled.enable.label "تفعيل آدبلوك بلس">
-<!ENTITY email.label "بريد إلكتروني لاستفسارات إضافية (اختياري)ـ">
 <!ENTITY reloadButton.label "إعادة تحميل الصفحة">
 <!ENTITY recentReports.clear.label "حذف كل التقارير">
 <!ENTITY typeSelector.description "هذه النافذة ستقودك خلال الخطوات المطلوبة لإرسال تبليغ بمشكلة في آدبلوك بلس. في البداية عليك اختيار نوع المشكلة التي تواجهها من هذه الصفحة">

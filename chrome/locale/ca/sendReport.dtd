@@ -20,7 +20,6 @@
 <!ENTITY typeWarning.override.label "Ho entenc i vull presentar l'informe de totes maneres">
 <!ENTITY issues.disabled.enable.label "Habilita l'Adblock Plus">
 <!ENTITY update.fixed.description "L'error s'ha solucionat actualitzant els filtres existents. Torneu a carregar la pàgina i verifiqueu novament. Si el problema persisteix, envieu altre avís.">
-<!ENTITY email.label "Correu electrònic per a consultes addicionals (opcional):">
 <!ENTITY reloadButton.label "Actualitza pàgina">
 <!ENTITY recentReports.clear.label "Suprimeix tots els informes">
 <!ENTITY typeSelector.description "Aquest assistent us mostrarà com enviar un Avís d'error de l'Adblock Plus. Primer seleccioneu el tipus d'error que heu trobat:">

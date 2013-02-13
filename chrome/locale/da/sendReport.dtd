@@ -20,7 +20,6 @@
 <!ENTITY typeWarning.override.label "Jeg forstår og vil indsende alligevel.">
 <!ENTITY issues.disabled.enable.label "Aktiver Adblock Plus">
 <!ENTITY update.fixed.description "Opdateringen af filterabonnementet har sandsynligvis løst dit problem. Genindlæs siden og prøv igen. Rapporter igen hvis problemet består.">
-<!ENTITY email.label "Email til evt. spørgsmål (valgfri):">
 <!ENTITY reloadButton.label "Genindlæs side">
 <!ENTITY recentReports.clear.label "Fjern alle rapporter">
 <!ENTITY typeSelector.description "Dette vindue vil føre dig gennem de trin der kræves for at rapportere et Adblock Plus problem. Vælg først hvilken problemtype du oplever på denne side:">

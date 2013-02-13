@@ -1,13 +1,16 @@
+<!ENTITY showintoolbar.accesskey "b">
 <!ENTITY showinstatusbar.accesskey "S">
 <!ENTITY whitelist.site.label "Desactivar em ?1?">
 <!ENTITY filters.label "Preferências de filtros">
 <!ENTITY disable.label "Desactivar em todas as páginas">
 <!ENTITY showinaddonbar.label "Mostrar na barra de add-ons">
 <!ENTITY objecttab.title "Bloquear">
+<!ENTITY showinaddonbar.accesskey "b">
 <!ENTITY sync.accesskey "n">
+<!ENTITY objecttabs.label "Mostrar etiquetas em Flash e Java">
 <!ENTITY objecttab.tooltip "Clique aqui para bloquear este objecto com o Adblock Plus">
 <!ENTITY menuitem.label "Adblock Plus">
-<!ENTITY objecttabs.label "Mostrar etiquetas em Flash e Java">
+<!ENTITY sendReport.accesskey "R">
 <!ENTITY sendReport.label "Reportar problema com esta página">
 <!ENTITY filters.accesskey "f">
 <!ENTITY whitelist.page.label "Desactivar apenas nesta página">
@@ -15,6 +18,7 @@
 <!ENTITY closesidebar.accesskey "B">
 <!ENTITY hideplaceholders.label "Esconder locais de elementos bloqueados">
 <!ENTITY opensidebar.label "Abrir lista de elementos bloqueáveis">
+<!ENTITY options.accesskey "O">
 <!ENTITY contribute.label "Contribuir para o Adblock Plus">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Bloquear Moldura">

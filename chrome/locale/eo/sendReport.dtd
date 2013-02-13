@@ -20,7 +20,6 @@
 <!ENTITY typeWarning.override.label "Mi komprenas kaj volas sendi la raporton malgraŭ tio">
 <!ENTITY issues.disabled.enable.label "Ebligi Adblock Plus">
 <!ENTITY update.fixed.description "La ĝisdatigoj de viaj filtrilabonoj verŝajne solvis la problemon, kiun vi sciigis. Bonvolu reŝargi la paĝon kaj alklaku denoe 'Sendi denove', se la problemo ankoraŭ ekzistas.">
-<!ENTITY email.label "Retpoŝti pri pliaj informmendoj (laŭvole):">
 <!ENTITY reloadButton.label "Reŝargi paĝon">
 <!ENTITY recentReports.clear.label "Forigi ĉiujn raportojn">
 <!ENTITY typeSelector.description "Ĉi tiu fenestro gvidos vin tra la paŝoj, kiuj estas bezonataj por sendi la problemraporton de Adblock Plus. Unue bonvolu elekti la problemtipon, kiun vi renkontis sur ĉi tiu paĝo:">

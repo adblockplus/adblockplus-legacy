@@ -65,7 +65,7 @@
 <!ENTITY backup.custom.title "Лични филтри само">
 <!ENTITY subscription.moveUp.label "Премести нагоре">
 <!ENTITY backup.complete.title "Всички филтри и абонаменти">
-<!ENTITY filters.tab.label "Собствени филтри">
+<!ENTITY filters.tab.label "Потребителски филтри">
 <!ENTITY find.label "Намери">
 <!ENTITY subscription.lastDownload.connectionError "Грешка, неуспешно изтегляне">
 <!ENTITY subscription.lastDownload.invalidData "Грешка, невалиден списък с филтри">

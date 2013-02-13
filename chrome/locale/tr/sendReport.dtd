@@ -20,7 +20,6 @@
 <!ENTITY typeWarning.override.label "Anlıyorum ve ne olursa olsun bildirimi göndermek istiyorum">
 <!ENTITY issues.disabled.enable.label "Adblock Plus'ı etkinleştir">
 <!ENTITY update.fixed.description "Süzgeç aboneliklerinize yapılan güncellemeler muhtemelen bildirmek istediğiniz sorunu giderdi. Sayfayı tekrar yükleyip bir daha deneyin, hâlâ sorun varsa bildirin.">
-<!ENTITY email.label "Daha fazla bilgi almamız için e-posta adresi (isteğe bağlı):">
 <!ENTITY reloadButton.label "Sayfayı tazele">
 <!ENTITY recentReports.clear.label "Tüm bildirimleri sil">
 <!ENTITY typeSelector.description "Bu pencere Adblock Plus sorun bildirimi göndermek için gerekli adımların atılmasında size rehberlik edecek. Önce bu sayfada ne tür sorun yaşadığınızı seçin:">

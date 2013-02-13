@@ -20,7 +20,6 @@
 <!ENTITY typeWarning.override.label "Megértettem és így is szeretném elküldeni a jelentést">
 <!ENTITY issues.disabled.enable.label "Az Adblock Plus engedélyezése">
 <!ENTITY update.fixed.description "A szűrőlisták frissítése nagy valószínűséggel megoldja a bejelentett hibát. Kérem frissítse az oldalt és próbálja újra, csak akkor küldjön bejelentést, ha a probléma továbbra is fennáll.">
-<!ENTITY email.label "Emailcím további kérdésekhez (nem kötelező):">
 <!ENTITY reloadButton.label "Oldal újratöltése">
 <!ENTITY recentReports.clear.label "Az összes jelentés eltávolítása">
 <!ENTITY typeSelector.description "Ez az ablak végigvezeti az Adblock Plus hiba bejelentési lépésein. Először kérem válassza ki a webhelyen jelentkező hiba jellegét:">

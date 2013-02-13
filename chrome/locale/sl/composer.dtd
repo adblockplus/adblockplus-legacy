@@ -6,6 +6,7 @@
 <!ENTITY preferences.label "Pokaži obstoječe filtre ...">
 <!ENTITY pattern.label "Išči vzorec">
 <!ENTITY thirdParty.label "Samo zunanje stranke">
+<!ENTITY filter.accesskey "f">
 <!ENTITY thirdParty.accesskey "n">
 <!ENTITY filter.label "Nov filter:">
 <!ENTITY collapse.label "Strni blokirane:">
@@ -15,6 +16,7 @@
 <!ENTITY matchCase.label "Razlikuj velike/male črke">
 <!ENTITY custom.pattern.label "Po meri:">
 <!ENTITY unselectAllTypes.label "Nič ne izberi">
+<!ENTITY domainRestriction.accesskey "d">
 <!ENTITY type.whitelist.label "Pravilo izjem">
 <!ENTITY regexp.warning "Vneseni vzorec bo obravnavan kot regularni izraz. Številni regularni izrazi lahko upočasnijo vaše brskanje. Če ne nameravate uporabljati regularnih izrazov, dodajte simbol * na konec vzorca.">
 <!ENTITY dialog.title "Dodaj pravilo filtra Adblock Plus">
@@ -24,9 +26,9 @@
 <!ENTITY collapse.default.no.label "Uporabi privzeto (ne)">
 <!ENTITY type.filter.label "Filter blokade">
 <!ENTITY types.label "Uporabi za vrste:">
-<!ENTITY anchor.start.accesskey "z">
-<!ENTITY custom.pattern.accesskey "m">
 <!ENTITY shortpattern.warning "Vzorec, ki ste ga vnesli, je prekratek za optimizacijo, številni tovrstni vzorci lahko upočasnijo vaše brskanje. Priporočamo, da izberete daljši niz za ta filter.">
+<!ENTITY custom.pattern.accesskey "m">
+<!ENTITY anchor.start.accesskey "z">
 <!ENTITY anchors.label "Sprejmi le vzorec:">
 <!ENTITY collapse.default.yes.label "Uporabi privzeto (da)">
 <!ENTITY type.filter.accesskey "b">

@@ -20,7 +20,6 @@
 <!ENTITY typeWarning.override.label "Rozumiem i mimo wszystko chcę wysłać zgłoszenie">
 <!ENTITY issues.disabled.enable.label "Włącz Adblock Plusa">
 <!ENTITY update.fixed.description "Aktualizacja zestawu filtrów prawdopodobnie rozwiązała zgłaszany problem. Odśwież stronę i spróbuj ponownie, naciśnij przycisk Zgłoś, jeśli problem nadal występuje.">
-<!ENTITY email.label "Adres e-mail do kontaktu (opcjonalny)">
 <!ENTITY reloadButton.label "Odśwież stronę">
 <!ENTITY recentReports.clear.label "Usuń wszystkie zgłoszenia">
 <!ENTITY typeSelector.description "Tutaj możesz wykonać czynności niezbędne do wysłania zgłoszenia problemu związanego z Adblock Plusem. Najpierw wybierz typ problemu, jaki występuje na tej stronie:">

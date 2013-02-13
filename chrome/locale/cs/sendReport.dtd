@@ -19,7 +19,6 @@
 <!ENTITY issues.disabledgroups.enable.label "Povolit sadu cizích filtrů / skupinu filtrů">
 <!ENTITY typeWarning.override.label "Rozumím a přesto chci odeslat hlášení">
 <!ENTITY issues.disabled.enable.label "Aktivovat Adblock Plus">
-<!ENTITY email.label "E-mail pro další dotazy (volitelný):">
 <!ENTITY reloadButton.label "Obnovit stránku">
 <!ENTITY recentReports.clear.label "Odstranit všechna hlášení">
 <!ENTITY typeSelector.description "Toto okno vás provede kroky potřebnými k oznámení problému v Adblocku Plus. Začněte prosím vybráním druhu problému, se kterým jste se na této stránce setkali:">

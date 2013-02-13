@@ -4,7 +4,7 @@
 <!ENTITY showData.label "Afficher les données du signalement">
 <!ENTITY typeSelector.falsePositive.label "Adblock Plus bloque trop">
 <!ENTITY recentReports.clear.accesskey "S">
-<!ENTITY email.accesskey "o">
+<!ENTITY email.accesskey "m">
 <!ENTITY issues.change.description "Votre configuration a été modifiée. Veuillez actualiser la page pour tester les modifications et soumettez un signalement si le problème n'a pas été résolu en effectuant cette modification.">
 <!ENTITY reloadButton.accesskey "A">
 <!ENTITY screenshot.attach.accesskey "j">
@@ -20,7 +20,7 @@
 <!ENTITY typeWarning.override.label "Je comprends et souhaite soumettre le signalement tout de même">
 <!ENTITY issues.disabled.enable.label "Activer Adblock Plus">
 <!ENTITY update.fixed.description "Les mises à jour de vos abonnements de filtres ont probablement résolu le problème que vous avez signalé. Veuillez recharger la page et réessayer, appuyez à nouveau sur « Signaler » si le problème persiste.">
-<!ENTITY email.label "Courriel pour demande de renseignements supplémentaires (facultatif) :">
+<!ENTITY email.label "Email :">
 <!ENTITY reloadButton.label "Actualiser la page">
 <!ENTITY recentReports.clear.label "Supprimer tous les signalements">
 <!ENTITY typeSelector.description "Cette fenêtre vous guidera à travers les étapes nécessaires à la soumission d'un problème Adblock Plus. Dans un premier temps, veuillez choisir le type de problème rencontré sur cette page :">
@@ -59,6 +59,7 @@
 <!ENTITY typeSelector.falseNegative.label "Adblock Plus ne bloque pas une publicité">
 <!ENTITY copyLink.accesskey "p">
 <!ENTITY typeSelector.heading "Choisir le type de problème">
+<!ENTITY anonymous.label "Soumission anonyme">
 <!ENTITY wizard.title "Signalement de problèmes">
 <!ENTITY issues.ownfilters.disable.label "Désactiver le filtre">
 <!ENTITY commentPage.description "Le champ ci-dessous vous permet de saisir un commentaire pour nous aider à comprendre le problème. Cette étape est facultative mais recommandée si le problème n'est pas évident à détecter. Vous pouvez également revoir les données du signalement avant l'envoi.">

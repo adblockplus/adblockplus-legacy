@@ -9,7 +9,7 @@
 <!ENTITY filter.moveUp.label "Monter">
 <!ENTITY filter.edit.label "Modifier">
 <!ENTITY hitcount.column "Compteur">
-<!ENTITY acceptableAds2.label "Autoriser certaines publicité non-intrusives">
+<!ENTITY acceptableAds2.label "Autoriser certaines publicités non-intrusives">
 <!ENTITY close.label "Fermer">
 <!ENTITY sort.none.label "Non trié">
 <!ENTITY find.accesskey "c">
