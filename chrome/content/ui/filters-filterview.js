@@ -677,44 +677,61 @@ var FilterView =
     return null;
   },
 
+  generateProperties: function(list, properties)
+  {
+    if (properties)
+    {
+      // Gecko 21 and below: we have an nsISupportsArray parameter, add atoms
+      // to that.
+      for (let i = 0; i < list.length; i++)
+        if (list[i] in this.atoms)
+          properties.AppendElement(this.atoms[list[i]]);
+      return null;
+    }
+    else
+    {
+      // Gecko 22+: no parameter, just return a string
+      return list.join(" ");
+    }
+  },
+
   getColumnProperties: function(col, properties)
   {
-    col = col.id;
-
-    if (col in this.atoms)
-      properties.AppendElement(this.atoms[col]);
+    return this.generateProperties(["col-" + col.id], properties);
   },
 
   getRowProperties: function(row, properties)
   {
     if (row < 0 || row >= this.data.length)
-      return;
+      return "";
 
+    let list = [];
     let filter = this.data[row].filter;
-    properties.AppendElement(this.atoms["selected-" + this.selection.isSelected(row)]);
-    properties.AppendElement(this.atoms["slow-" + (filter instanceof RegExpFilter && defaultMatcher.isSlowFilter(filter))]);
+    list.push("selected-" + this.selection.isSelected(row));
+    list.push("slow-" + (filter instanceof RegExpFilter && defaultMatcher.isSlowFilter(filter)));
     if (filter instanceof ActiveFilter)
-      properties.AppendElement(this.atoms["disabled-" + filter.disabled]);
-    properties.AppendElement(this.atoms["dummy-" + ("dummy" in filter)]);
+      list.push("disabled-" + filter.disabled);
+    list.push("dummy-" + ("dummy" in filter));
 
     if (filter instanceof CommentFilter)
-      properties.AppendElement(this.atoms["type-comment"]);
+      list.push("type-comment");
     else if (filter instanceof BlockingFilter)
-      properties.AppendElement(this.atoms["type-filterlist"]);
+      list.push("type-filterlist");
     else if (filter instanceof WhitelistFilter)
-      properties.AppendElement(this.atoms["type-whitelist"]);
+      list.push("type-whitelist");
     else if (filter instanceof ElemHideFilter)
-      properties.AppendElement(this.atoms["type-elemhide"]);
+      list.push("type-elemhide");
     else if (filter instanceof ElemHideException)
-      properties.AppendElement(this.atoms["type-elemhideexception"]);
+      list.push("type-elemhideexception");
     else if (filter instanceof InvalidFilter)
-      properties.AppendElement(this.atoms["type-invalid"]);
+      list.push("type-invalid");
+
+    return this.generateProperties(list, properties);
   },
 
   getCellProperties: function(row, col, properties)
   {
-    this.getColumnProperties(col, properties);
-    this.getRowProperties(row, properties);
+    return this.getRowProperties(row, properties) + " " + this.getColumnProperties(col, properties);
   },
 
   cycleHeader: function(col)
