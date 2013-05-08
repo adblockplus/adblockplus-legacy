@@ -10,4 +10,4 @@
 <!ENTITY addSubscription.label "Shto abonim">
 <!ENTITY dialog.title "Shtoi Adblock Plus filtër abonimi">
 <!ENTITY location.label "Vendi i listës së filtrit:">
-<!ENTITY fromWeb.description "Ju lutem konfirmoni që doni të shtoni këtë filtër abonimi. Ju mund ta ndryshoni titullin e abonimit ose vendëndodhjen para se ta konfirmoni.">
+<!ENTITY fromWeb.description "Ju lutem konfirmoni që doni të shtoni këtë filtër abonimi. Ju mund ta ndryshoni emrin e abonimit ose vendëndodhjen para se ta konfirmoni.">

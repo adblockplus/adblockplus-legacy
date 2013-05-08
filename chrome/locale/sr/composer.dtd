@@ -19,7 +19,7 @@
 <!ENTITY domainRestriction.accesskey "д">
 <!ENTITY type.whitelist.label "Изузетак">
 <!ENTITY regexp.warning "Образац који сте унели ће бити коришћен као регуларни израз. Превише регуларних израза може успорити прегледач интернет страна. Уколико не намеравате да користите регуларне изразе, додајте симбол * на крају обрасца.">
-<!ENTITY dialog.title "Додавање Adblock Plus филтера">
+<!ENTITY dialog.title "Додаj u Adblock Plus филтер">
 <!ENTITY basic.label "Основни изглед">
 <!ENTITY preferences.accesskey "П">
 <!ENTITY firstParty.accesskey "в">
@@ -35,7 +35,7 @@
 <!ENTITY domainRestriction.help "Наведите један или више домена раздвојених знаком &quot;|&quot;. Филтер ће бити употребљен једино за ове домене. Знак &quot;~&quot; испред домена значи да ће домен бити изузет од филтрирања.">
 <!ENTITY accept.label "Додај филтер">
 <!ENTITY options.label "Опције">
-<!ENTITY disabled.warning "Adblock Plus је тренутно искључен. И даље можете додавати филтере, али ће они бити примењени тек по [link]укључивању Adblock Plus-а[/link].">
+<!ENTITY disabled.warning "Adblock Plus је тренутно искључен. И даље можете додавати филтере, али ће они бити примењени тек kada [link]укључиte Adblock Plus[/link].">
 <!ENTITY anchor.start.flexible.label "на почетку назива домена">
 <!ENTITY type.whitelist.accesskey "з">
 <!ENTITY matchCase.accesskey "Б">

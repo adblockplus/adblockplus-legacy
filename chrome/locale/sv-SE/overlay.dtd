@@ -17,6 +17,7 @@
 <!ENTITY opensidebar.label "Visa lista över blockerbara objekt">
 <!ENTITY options.accesskey "n">
 <!ENTITY contribute.label "Bidra till Adblock Plus">
+<!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus: Blockera ram">
 <!ENTITY blocked.tooltip "Blockerade objekt på denna sida:">
 <!ENTITY hideplaceholders.label "Dölj platshållare för blockerade element">

@@ -19,7 +19,9 @@
 <!ENTITY issues.disabledgroups.enable.label "Włącz zestawy filtrów/grupy filtrów">
 <!ENTITY typeWarning.override.label "Rozumiem i mimo wszystko chcę wysłać zgłoszenie">
 <!ENTITY issues.disabled.enable.label "Włącz Adblock Plusa">
+<!ENTITY anonymous.accesskey "w">
 <!ENTITY update.fixed.description "Aktualizacja zestawu filtrów prawdopodobnie rozwiązała zgłaszany problem. Odśwież stronę i spróbuj ponownie, naciśnij przycisk Zgłoś, jeśli problem nadal występuje.">
+<!ENTITY email.label "Email:">
 <!ENTITY reloadButton.label "Odśwież stronę">
 <!ENTITY recentReports.clear.label "Usuń wszystkie zgłoszenia">
 <!ENTITY typeSelector.description "Tutaj możesz wykonać czynności niezbędne do wysłania zgłoszenia problemu związanego z Adblock Plusem. Najpierw wybierz typ problemu, jaki występuje na tej stronie:">
@@ -40,6 +42,7 @@
 <!ENTITY issues.nosubscriptions.description "Wygląda na to, że nie subskrybujesz żadnej gotowej listy filtrów, które automatycznie usuwają niepożądaną zawartość ze stron internetowych.">
 <!ENTITY outdatedSubscriptions.description "Od dwóch tygodni następujące zestawy filtrów nie były aktualizowane. Przed wysłaniem zgłoszenia zaktualizuj te zestawy. Być może rozwiąże to twój problem.">
 <!ENTITY typeSelector.other.label "Inny problem">
+<!ENTITY emailComment.label "Zachęcamy do podania prawidłowego adresu email, abyśmy mogli skontaktować się z tobą w przypadku, gdy może to ułatwić rozwiązanie problemu. Pozwoli to również rozpoznać naszych współpracowników i nadać ich raportom wyższy priorytet.">
 <!ENTITY issues.whitelist.remove.label "Włącz ponownie Adblock Plusa na tej stronie">
 <!ENTITY typeSelector.falsePositive.description "Wybierz tę opcję, jeśli strona nie zawiera ważnych treści, jest wyświetlana nieprawidłowo lub działa niepoprawnie. Możesz określić, czy Adblock Plus jest przyczyną problemu, wyłączając go chwilowo.">
 <!ENTITY dataCollector.description "Proszę poczekać kilka chwil, aż Adblock Plus zbierze wymagane dane.">
@@ -58,6 +61,8 @@
 <!ENTITY typeSelector.falseNegative.label "Adblock Plus nie blokuje reklam">
 <!ENTITY copyLink.accesskey "K">
 <!ENTITY typeSelector.heading "Wybierz typ problemu">
+<!ENTITY anonymous.label "Wyślij anonimowo">
+<!ENTITY anonymity.warning "Nie będziemy w stanie się z tobą skontaktować, co może spowodować nadanie raportowi niższego priorytetu.">
 <!ENTITY wizard.title "Reporter problemów">
 <!ENTITY issues.ownfilters.disable.label "Wyłącz filtr">
 <!ENTITY commentPage.description "W poniższym polu tekstowym możesz podać objaśnienie, które pomoże nam zrozumieć problem. Jest to opcjonalne, ale zalecane, jeśli problem nie jest oczywisty. Możesz również sprawdzić dane zawarte w zgłoszeniu przed jego wysłaniem.">

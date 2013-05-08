@@ -19,7 +19,9 @@
 <!ENTITY issues.disabledgroups.enable.label "Filterabonnement / filtergroep inschakelen">
 <!ENTITY typeWarning.override.label "Ik begrijp het en wil het rapport toch indienen">
 <!ENTITY issues.disabled.enable.label "Adblock Plus inschakelen">
+<!ENTITY anonymous.accesskey "a">
 <!ENTITY update.fixed.description "De updates voor uw filterabonnementen hebben waarschijnlijk het door u gerapporteerde probleem verholpen. Laad de pagina opnieuw en probeer het nog eens, en druk opnieuw op Rapporteren als het probleem aanhoudt.">
+<!ENTITY email.label "E-mailadres:">
 <!ENTITY reloadButton.label "Pagina opnieuw laden">
 <!ENTITY recentReports.clear.label "Alle rapporten verwijderen">
 <!ENTITY typeSelector.description "Dit venster leidt u door de stappen die nodig zijn voor het indienen van een Adblock Plus-probleemrapport. Selecteer eerst het probleemtype dat u ervaart op deze pagina:">
@@ -40,6 +42,7 @@
 <!ENTITY issues.nosubscriptions.description "Het lijkt er op dat u geen abonnement heeft op een filterlijst die automatisch ongewenste inhoud van websites verwijdert.">
 <!ENTITY outdatedSubscriptions.description "De volgende filterabonnementen zijn ten minste twee weken niet meer bijgewerkt. Werk ze eerst bij voordat u een rapport indient, het probleem is mogelijk al verholpen.">
 <!ENTITY typeSelector.other.label "Overige problemen">
+<!ENTITY emailComment.label "We raden u aan een geldig e-mailadres in te voeren, zodat we contact met u op kunnen nemen als er vragen zijn over uw verslag. Hierdoor kunnen wij uw bijdragen ook herkennen en ze hoger prioriteren.">
 <!ENTITY issues.whitelist.remove.label "Adblock Plus weer inschakelen op deze pagina">
 <!ENTITY typeSelector.falsePositive.description "Selecteer deze optie als de pagina belangrijke inhoudt niet weergeeft, onjuist wordt weergegeven of niet goed werkt. U kunt bepalen of Adblock Plus de oorzaak hiervan is door het tijdelijk uit te schakelen.">
 <!ENTITY dataCollector.description "Wacht enkele momenten terwijl Adblock Plus de benodigde gegevens verzamelt.">
@@ -58,6 +61,8 @@
 <!ENTITY typeSelector.falseNegative.label "Adblock Plus blokkeert een advertentie niet">
 <!ENTITY copyLink.accesskey "k">
 <!ENTITY typeSelector.heading "Selecteer probleemtype">
+<!ENTITY anonymous.label "Anonieme bijdrage">
+<!ENTITY anonymity.warning "We kunnen niet met u in contact komen en zullen uw verslag daarom waarschijnlijk lager prioriteren.">
 <!ENTITY wizard.title "Probleemrapportage">
 <!ENTITY issues.ownfilters.disable.label "Filter uitschakelen">
 <!ENTITY commentPage.description "In het onderstaande tekstveld kunt u een opmerking toevoegen om ons te helpen het probleem te begrijpen. Deze stap is optioneel maar wordt aanbevolen als het probleem niet evident is. U kunt de rapportgegevens ook nakijken voordat u het rapport verstuurt.">

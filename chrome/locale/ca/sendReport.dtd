@@ -4,7 +4,7 @@
 <!ENTITY showData.label "Mostra les dades de l'informe">
 <!ENTITY typeSelector.falsePositive.label "Adblock Plus està bloquejant massa">
 <!ENTITY recentReports.clear.accesskey "S">
-<!ENTITY email.accesskey "o">
+<!ENTITY email.accesskey "E">
 <!ENTITY issues.change.description "Si us plau, torna a carregar la pàgina per provar els canvis i envia un informe si el problema no ha estat resolt per les alteracions.">
 <!ENTITY reloadButton.accesskey "t">
 <!ENTITY screenshot.attach.accesskey "t">
@@ -19,7 +19,9 @@
 <!ENTITY issues.disabledgroups.enable.label "Activa filtre de subscripció / filtre de grup">
 <!ENTITY typeWarning.override.label "Ho entenc i vull presentar l'informe de totes maneres">
 <!ENTITY issues.disabled.enable.label "Habilita l'Adblock Plus">
+<!ENTITY anonymous.accesskey "a">
 <!ENTITY update.fixed.description "L'error s'ha solucionat actualitzant els filtres existents. Torneu a carregar la pàgina i verifiqueu novament. Si el problema persisteix, envieu altre avís.">
+<!ENTITY email.label "Email:">
 <!ENTITY reloadButton.label "Actualitza pàgina">
 <!ENTITY recentReports.clear.label "Suprimeix tots els informes">
 <!ENTITY typeSelector.description "Aquest assistent us mostrarà com enviar un Avís d'error de l'Adblock Plus. Primer seleccioneu el tipus d'error que heu trobat:">
@@ -40,6 +42,7 @@
 <!ENTITY issues.nosubscriptions.description "No us heu subscrit a cap llista de filtres prefabricats per filtrar automàticament el contingut no desitjat de les pàgines web.">
 <!ENTITY outdatedSubscriptions.description "Aquestes subscripcions a filtres no s'han actualitzat en un mínim de dues setmanes i estan obsoletes. Actualitzeu-les abans d'informar d'un error, atès que ja podria estar solucionat.">
 <!ENTITY typeSelector.other.label "Altres errors">
+<!ENTITY emailComment.label "Recomanem donar una adreça de correu electrònic vàlida per tal de contactar amb vostè si sorgeixen algunes preguntes sobre el vostre informe. També ens permetrà reconéixer les vostres contribucions i prioritzar-les.">
 <!ENTITY issues.whitelist.remove.label "Torna a habilitar l'Adblock Plus en aquesta pàgina">
 <!ENTITY typeSelector.falsePositive.description "Seleccioneu aquesta opció si a la pàgina manca contingut important, es mostra de forma incorrecta funciona deficientment. Podeu determinar si l'Adblock Plus és la causa del problema inhabilitant-lo temporalment.">
 <!ENTITY dataCollector.description "L'Adblock Plus està analitzant les dades. Espereu...">
@@ -58,6 +61,8 @@
 <!ENTITY typeSelector.falseNegative.label "L'Adblock Plus no bloca un anunci">
 <!ENTITY copyLink.accesskey "C">
 <!ENTITY typeSelector.heading "Seleccioneu el tipus d'incidència">
+<!ENTITY anonymous.label "Enviament de forma anònima">
+<!ENTITY anonymity.warning "No podrem contestar-lo i segurament, no el prioritzarem.">
 <!ENTITY wizard.title "Avisador d'errors">
 <!ENTITY issues.ownfilters.disable.label "inhabilita el filtre">
 <!ENTITY commentPage.description "El camp de text a continuació et permet introduir un comentari que ens ajudi a comprendre el problema.Aquest pas és opcional però es recomana si el problema no és obvi.També pots revisar les dades de l'informe abans d'enviar.">

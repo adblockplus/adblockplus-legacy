@@ -3,6 +3,7 @@
 <!ENTITY context.open.label "Iepen yn in nij ljepblêd">
 <!ENTITY tooltip.filterSource.label "Filterboarne:">
 <!ENTITY noitems.label "Gjin blokkearbere items">
+<!ENTITY filter.label "Filter">
 <!ENTITY tooltip.size.label "Grutte:">
 <!ENTITY reattach.label "Fêstmeitsje">
 <!ENTITY search.label "Sykje:">

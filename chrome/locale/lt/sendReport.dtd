@@ -22,7 +22,9 @@ tikriausiai nėra susijusi su Adblock Plus.">
 <!ENTITY issues.disabledgroups.enable.label "Įjungti filtro prenumeratą / filtrų grupę">
 <!ENTITY typeWarning.override.label "Aš suprantu ir vistiek noriu pranešti">
 <!ENTITY issues.disabled.enable.label "Įjungti Adblock Plus">
+<!ENTITY anonymous.accesskey "a">
 <!ENTITY update.fixed.description "Atnaujinimai greičiausiai išsprendė bėdą apie kurią jūs norėjote pranešti. Įkraukite puslapį iš naujo, jei problema vis dar yra paspauskite „Pranešti“.">
+<!ENTITY email.label "El. paštas:">
 <!ENTITY reloadButton.label "Įkelti iš naujo">
 <!ENTITY recentReports.clear.label "Pašalinti visus pranešimus">
 <!ENTITY typeSelector.description "Šis langas padės įvykdyti kelis žingsnius kurie reikalingi pranešti apie Adblock Plus 
@@ -51,6 +53,7 @@ bus parodyta kai išsiųsite pranešimą.">
 šalintų nepageidaujamą turinį iš puslapių.">
 <!ENTITY outdatedSubscriptions.description "Šios filtrų prenumeratos nebuvo atnaujintos bent dvi savaites. Prieš siųsdami pranešimą atnaujinkite šias prenumeratas, gali būti jog problema jau išspręsta.">
 <!ENTITY typeSelector.other.label "Kita bėda">
+<!ENTITY emailComment.label "Mes raginame įvesti veikiantį el. pašto adresą, tada jei turėsime klausimų galėsime jums juos užduoti. Taipogi tai padės atpažinti jūsų pranešimus ir suteikti jiems aukštesnį prioritetą.">
 <!ENTITY issues.whitelist.remove.label "Šiame puslapyje pakartotinai įjungti Adblock Plus">
 <!ENTITY typeSelector.falsePositive.description "Pasirinkite šią pasirinkty jei puslapyje trūksta svarbaus turinio, jei atvaizduojama netinkamai ar
 puslapis nefunkcionuoja taip kaip turėtų. Norėdami įsitikinti jog problemą sukėlė Adblock Plus galite
@@ -79,6 +82,8 @@ spręsti norite pagalbos.">
 <!ENTITY typeSelector.falseNegative.label "Adblock Plus neblokuoja reklamų">
 <!ENTITY copyLink.accesskey "K">
 <!ENTITY typeSelector.heading "Pasirinkite tipą">
+<!ENTITY anonymous.label "Anoniminis pranešimas">
+<!ENTITY anonymity.warning "Mes negalėsime grįžti prie jūsų ir greičiausiai jūsų ataskaitai bus priskirtas žemas prioritetas.">
 <!ENTITY wizard.title "Klaidos pranešimas">
 <!ENTITY issues.ownfilters.disable.label "Išjungti filtrą">
 <!ENTITY commentPage.description "Teksto įvedimo laukelis leidžia jums įvesti komentarą kuris mums padės suprasti jūsų problemą. 

@@ -1,0 +1,10 @@
+<!ENTITY accept.label "फ़िल्टर जोड़ें">
+<!ENTITY anchor.end.label "पते के अंत में">
+<!ENTITY options.label "विकल्प">
+<!ENTITY thirdParty.label "तृतीय-पक्ष ही">
+<!ENTITY preferences.label "मौजूदा फ़िल्टर्स दिखाएँ...">
+<!ENTITY collapse.yes.label "हाँ">
+<!ENTITY collapse.no.label "नहीं">
+<!ENTITY selectAllTypes.label "सभी का चयन करें">
+<!ENTITY type.whitelist.label "अपवाद नियम">
+<!ENTITY dialog.title "Adblock प्लस के फ़िल्टर में नियम जोड़ें">

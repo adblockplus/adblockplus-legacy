@@ -19,7 +19,9 @@
 <!ENTITY issues.disabledgroups.enable.label "Activar subscrição/ grupo de filtros">
 <!ENTITY typeWarning.override.label "Eu compreendo e pretendo enviar o relatório">
 <!ENTITY issues.disabled.enable.label "Activar o Adblock Plus">
+<!ENTITY anonymous.accesskey "a">
 <!ENTITY update.fixed.description "A actualização dos seus filtros parece ter resolvido o problema que estava a reportar. Por favor recarregue a página e volte a tentar, envie um relatório se o problema persistir.">
+<!ENTITY email.label "Email:">
 <!ENTITY reloadButton.label "Actualizar página">
 <!ENTITY recentReports.clear.label "Remover todos os relatórios">
 <!ENTITY typeSelector.description "Esta janela guiá-lo-à através dos passos necessários para submeter um relatório de problemas. Por favor seleccione o tipo de problema que está a experienciar nesta página:">
@@ -40,6 +42,7 @@
 <!ENTITY issues.nosubscriptions.description "Não está a subscrever nenhuma das listas de filtros que removem automaticamente conteúdo indesejado dos websites.">
 <!ENTITY outdatedSubscriptions.description "As subscrições seguintes não foram actualizadas desde há mais de duas semanas. Por favor actualize as subscrições antes de submeter um relatório, o problema pode já ter sido resolvido.">
 <!ENTITY typeSelector.other.label "Outro problema">
+<!ENTITY emailComment.label "Nós encorajamos você a entrar com um endereço de email válido para que nós possamos contatar você se houver questões sobre o seu relato. Isso também irá permitir-nos reconhecer suas contribuições e priorizá-las.">
 <!ENTITY issues.whitelist.remove.label "Reactivar o Adblock Plus nesta página">
 <!ENTITY typeSelector.falsePositive.description "Seleccione esta opção se a página não apresenta conteúdo importante, o apresenta incorrectamente ou se não funciona correctamente. Pode determinar se o Adblock Plus é a causa do problema disabilitando-o temporariamente.">
 <!ENTITY dataCollector.description "Por favor aguarde um momento enquanto o Adblock Plus reúne a informação necessária.">
@@ -58,6 +61,8 @@
 <!ENTITY typeSelector.falseNegative.label "O Adblock Plus não bloqueia uma publicidade">
 <!ENTITY copyLink.accesskey "C">
 <!ENTITY typeSelector.heading "Seleccione o tipo de problema">
+<!ENTITY anonymous.label "Envio anônimo">
+<!ENTITY anonymity.warning "Nós não poderemos lhe contatar de volta e seu relato terá uma prioridade menor.">
 <!ENTITY wizard.title "Reportador de problemas">
 <!ENTITY issues.ownfilters.disable.label "Desactivar filtro">
 <!ENTITY commentPage.description "O campo de texto seguinte permite-lhe adicionar um comentário para nos ajudar a perceber o problema. Este passo é opcional mas recomendável se o problema não for óbvio. Pode rever o conteúdo do relatório antes de o enviar.">

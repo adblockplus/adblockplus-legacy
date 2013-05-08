@@ -15,7 +15,7 @@
 <!ENTITY find.accesskey "v">
 <!ENTITY readMore.label "Ulteriori informazioni…">
 <!ENTITY subscription.homepage.label "Sito web">
-<!ENTITY typoCorrections.enableLabel "Correggi gli errori di digitazione degli indirizzi internet">
+<!ENTITY typoCorrections.enableLabel "Correggi gli errori di digitazione degli indirizzi web">
 <!ENTITY sort.descending.accesskey "Z">
 <!ENTITY sort.descending.label "Ordina Z &gt; A">
 <!ENTITY subscription.lastDownload.success "Sincronizzazione effettuata con successo">
@@ -44,14 +44,14 @@
 <!ENTITY filter.column "Ruolo del filtro">
 <!ENTITY subscription.lastDownload.checksumMismatch "Sincronizzazione non riuscita, checksum non corrispondente">
 <!ENTITY noFiltersInGroup.text "Il gruppo di filtri selezionato è vuoto">
-<!ENTITY typoCorrections.whitelistLabel "Non Sostituire...">
+<!ENTITY typoCorrections.whitelistLabel "Nessun elemento da correggere">
 <!ENTITY sort.label "Ordina">
 <!ENTITY noFilters.text "Non è stato ancora aggiunto alcun filtro personalizzato">
 <!ENTITY subscription.external.label "Sottoscrizione aggiornata da un'altra estensione">
 <!ENTITY filter.accesskey "R">
 <!ENTITY noGroupSelected.text "Selezionare un gruppo di filtri per visualizzarne i filtri">
 <!ENTITY subscription.lastDownload.inProgress "download in corso…">
-<!ENTITY typoCorrections.removeButtonLabel "Rimuovi Selezionato">
+<!ENTITY typoCorrections.removeButtonLabel "Elimina">
 <!ENTITY enabled.column "Attivato">
 <!ENTITY viewMenu.label "Visualizza">
 <!ENTITY addSubscriptionCancel.label "Annulla">
@@ -72,7 +72,7 @@
 <!ENTITY restore.minVersion.warning "Attenzione: il file di backup è stato creato con una versione più recente di Adblock Plus. Installare l'ultima versione di Adblock Plus per poter effettuare il ripristino da tale file">
 <!ENTITY sort.ascending.label "Ordina A &gt; Z">
 <!ENTITY viewList.label "Visualizza la lista…">
-<!ENTITY typoCorrections.whitelistEmptyLabel "Non ci sono ancora eccezioni.">
+<!ENTITY typoCorrections.whitelistEmptyLabel "Non è presente alcun indirizzo web da correggere attualmente">
 <!ENTITY sort.ascending.accesskey "A">
 <!ENTITY restore.default.label "Ripristina il backup datato ?1?">
 <!ENTITY hitcount.accesskey "s">

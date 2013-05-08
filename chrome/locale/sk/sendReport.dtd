@@ -19,10 +19,12 @@
 <!ENTITY issues.disabledgroups.enable.label "Zapnúť odber filtra / skupinu filtrov">
 <!ENTITY typeWarning.override.label "Rozumiem a chcem potvrdiť správu">
 <!ENTITY issues.disabled.enable.label "Zapnúť Adblock Plus">
+<!ENTITY anonymous.accesskey "a">
 <!ENTITY update.fixed.description "Aktualizácie filtra odberov môžu vyriešiť problém, ktorý ste nahlásili. Prosím, skúste stránku načítať znova a skúste zadať správu znovu, ak problém pretrváva.">
+<!ENTITY email.label "Email:">
 <!ENTITY reloadButton.label "Opäť načítať stránku">
 <!ENTITY recentReports.clear.label "Odstrániť všetky správy">
-<!ENTITY typeSelector.description "Toto okno vám pomôže s výkladom požiadaviek Adblock Plus na hlásenie problémov. Najprv zvoľte typ problému, ktorý ste zistili na stránke:">
+<!ENTITY typeSelector.description "Toto okno Vás prevedie krokmi potrebnými pre podanie hlásenia o chybe Adblock Plus. Najprv zvoľte typ problému, ktorý ste zistili na tejto stránke:">
 <!ENTITY screenshot.mark.accesskey "z">
 <!ENTITY typeSelector.other.accesskey "n">
 <!ENTITY screenshot.undo.accesskey "S">
@@ -40,9 +42,10 @@
 <!ENTITY issues.nosubscriptions.description "Neodvolávajte sa na odoberaný predpripravený zoznam filtrov, ktorý automaticky odstraňuje neznámy obsah z webovej stránky.">
 <!ENTITY outdatedSubscriptions.description "Nasledujúci filter odberov nebol aktualizovaný najmenej po dobu dvoch týždňov. Prosím, aktualizujte tieto odbery pred predložením správy, problém už môže byť vyriešený.">
 <!ENTITY typeSelector.other.label "Iné problémy">
+<!ENTITY emailComment.label "Odporúčame vám zadať platnú e-mailovú adresu, aby sme vás mohli kontaktovať, ak sa vyskytnú otázky o vašej správe. Taktiež nám to umožní rozpoznať vaše príspevky a pripísať im vyššiu prioritu.">
 <!ENTITY issues.whitelist.remove.label "Zapnúť opäť Adblock Plus na tejto stránke">
 <!ENTITY typeSelector.falsePositive.description "Túto možnosť vyberte, ak stránka postráda dôležitý obsah, nesprávne sa zobrazuje alebo zlyháva funkčnosť. Môžete určiť, či je Adblock Plus príčinou problému jeho dočasným vypnutím.">
-<!ENTITY dataCollector.description "Počkajte, prosím, kým Adblock Plus zhrnie požadované údaje.">
+<!ENTITY dataCollector.description "Počkajte, prosím, kým Adblock Plus získa požadované údaje.">
 <!ENTITY sendButton.label "Poslať správu">
 <!ENTITY comment.label "Komentár (nepovinné):">
 <!ENTITY sendPage.errorMessage "Pokus o zaslanie správy zlyhal s kódom chyby &quot;?1?&quot;. Presvedčte sa, či ste pripojený na internet a skúste to znova. Ak problém pretrváva, požiadajte o pomoc na [link]fórume Adblock Plus[/link].">
@@ -57,7 +60,9 @@
 <!ENTITY sendButton.accesskey "l">
 <!ENTITY typeSelector.falseNegative.label "Adblock Plus neblokuje reklamy">
 <!ENTITY copyLink.accesskey "K">
-<!ENTITY typeSelector.heading "Zvoliť typ problému">
+<!ENTITY typeSelector.heading "Zvoľte typ problému">
+<!ENTITY anonymous.label "Anonymný návrh">
+<!ENTITY anonymity.warning "Nebudeme schopný sa k Vás kontaktovať a vašej správe pravdepodobne priradíme nižšiu prioritu.">
 <!ENTITY wizard.title "Hlásenie problémov">
 <!ENTITY issues.ownfilters.disable.label "Vypnúť filter">
 <!ENTITY commentPage.description "Textové pole nižšie vám umožňuje vložiť komentár pre vysvetlenie daného problému. Tento krok je nepovinný, ale odporúčame ho ak problém nie je jasný. Môžete tiež posúdiť správu skôr, než ju odošlete.">
@@ -66,7 +71,7 @@
 <!ENTITY typeSelector.falseNegative.description "Vyberte túto možnosť ak sa reklamy zobrazujú napriek zapnutému Adblock Plus.">
 <!ENTITY typeWarning.override.accesskey "m">
 <!ENTITY sendPage.waitMessage "Počkajte, prosím, kým Adblock Plus potvrdí vašu správu.">
-<!ENTITY dataCollector.heading "Vitajte v správcovi problémov">
+<!ENTITY dataCollector.heading "Vitajte v hlásení problémov">
 <!ENTITY screenshot.remove.label "Odstrániť citlivé údaje">
 <!ENTITY screenshot.heading "Pripojiť screenshot">
 <!ENTITY comment.accesskey "r">
@@ -74,5 +79,5 @@
 <!ENTITY screenshot.remove.accesskey "R">
 <!ENTITY issues.subscriptionCount.description "Zdá sa, že máte príliš veľa odberov filtrov. Toto nastavenie nie je odporúčané, pretože pravdepodobnosť výskytu problému je vyššia. Taktiež nemôžeme prijať vašu správu o probléme, pretože nie je jasné, ktorý autor odberu filtra potrebuje prijať opatrenie. Prosím, odstráňte všetky odbery, okrem naozaj nevyhnutných, a otestujte, či problém pretrváva.">
 <!ENTITY screenshot.mark.label "Označiť problém">
-<!ENTITY privacyPolicy.label "Ochrana súkromia">
+<!ENTITY privacyPolicy.label "Zásady ochrany súkromia">
 <!ENTITY issues.description "Adblock Plus zistil problém s vašou konfiguráciou, ktorý by mohol byť zodpovedný za daný problém alebo robí zistenie problému ťažším.">

@@ -19,7 +19,9 @@
 <!ENTITY issues.disabledgroups.enable.label "אפשור ההרשמה/קבוצת המסננים">
 <!ENTITY typeWarning.override.label "אני מבין ורוצה לשלוח את הדיווח בכל זאת">
 <!ENTITY issues.disabled.enable.label "אפשור  Adblock Plus">
+<!ENTITY anonymous.accesskey "א">
 <!ENTITY update.fixed.description "אפשרי שעדכון הרשמות המסננים שלכם יפתור את הבעיה שדווחה. אנא רעננו את העמוד ונסו שוב, לחצו על דיווח שוב אם הבעיה נשארת.">
+<!ENTITY email.label "דוא&quot;ל:">
 <!ENTITY reloadButton.label "רענון העמוד">
 <!ENTITY recentReports.clear.label "הסרת כל הדיווחים">
 <!ENTITY typeSelector.description "חלון זה ידריך אתכם דרך הצעדים הדרושים להזנת דיווח בעיה עבור Adblock Plus. ראשית, אנא בחרו את סוג הבעיה אשר אתם חווים בעמוד זה:">
@@ -40,6 +42,8 @@
 <!ENTITY issues.nosubscriptions.description "נראה שאינכם רשומים לשום מסנן שהוכן מראש אשר מופיע ברשימה שמסיר אוטומטית תוכן לא רצוי מאתרי אינטרנט.">
 <!ENTITY outdatedSubscriptions.description "הרשמות המסננים הבאות לא עודכנו לפחות שבועיים. אנא עדכנו הרשמות אלו לפני שליחת הדיווח, יכול להיות שהבעיה נפתרה כבר.">
 <!ENTITY typeSelector.other.label "בעיה אחרת">
+<!ENTITY emailComment.label "אנו ממליצים להזין כתובת דוא&quot;ל תקפה, כך שנוכל ליצור איתך קשר אם קיימות שאלות לגבי הדוח שלך.
+כמו כן, כתובתך תאפשר לנו לזהות את תרומותייך ולתעדף אותן בצורה גבוהה יותר.">
 <!ENTITY issues.whitelist.remove.label "אפשור מחדש של Adblock Plus בעמוד זה">
 <!ENTITY typeSelector.falsePositive.description "בחר באפשרות זו אם חסר בעמוד תוכן חשוב או שמוצג בצורה לא נכונה או כושל לתפקד כראוי. ניתן לקבוע האם Adblock Plus הוא הגורם לבעיה על ידי נטרולו זמנית.">
 <!ENTITY dataCollector.description "אנא המתינו מספר רגעים עד אשר Adblock Plus יאסוף את המידע הדרוש.">
@@ -58,6 +62,8 @@
 <!ENTITY typeSelector.falseNegative.label "Adblock Plus איננו חוסם פרסומות">
 <!ENTITY copyLink.accesskey "ע">
 <!ENTITY typeSelector.heading "בחירת סוג הבעיה">
+<!ENTITY anonymous.label "הגשה אנונימית">
+<!ENTITY anonymity.warning "לא נוכל לחזור אליך, וסביר שנתעדף את הדוח בצורה נמוכה יותר.">
 <!ENTITY wizard.title "מדווח הבעיות">
 <!ENTITY issues.ownfilters.disable.label "נטרול מסנן">
 <!ENTITY commentPage.description "שדה הטקסט שמתחת מאפשר הזנת תגובה כדי לסייע לנו בהבנת הבעיה. צעד זה איננו בגדר חובה אך מומלץ אם הבעיה איננה מובנת מאליה. ניתן גם לסקור את נתוני הדיווח לפני שהוא נשלח.">

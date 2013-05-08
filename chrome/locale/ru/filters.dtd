@@ -15,6 +15,7 @@
 <!ENTITY find.accesskey "Н">
 <!ENTITY readMore.label "Дополнительная информация">
 <!ENTITY subscription.homepage.label "Домашняя страница">
+<!ENTITY typoCorrections.enableLabel "Исправлять опечатки в интернет-адресах">
 <!ENTITY sort.descending.accesskey "р">
 <!ENTITY sort.descending.label "В обратном порядке">
 <!ENTITY subscription.lastDownload.success "OK">
@@ -35,6 +36,7 @@
 <!ENTITY backupButton.accesskey "к">
 <!ENTITY filter.actions.label "Действия с фильтрами">
 <!ENTITY filter.moveDown.label "Поместить ниже">
+<!ENTITY typoCorrections.tab.label "Исправление опечаток">
 <!ENTITY addFilter.label "Добавить фильтр">
 <!ENTITY subscription.editTitle.label "Переименовать">
 <!ENTITY subscription.moveDown.label "Поместить ниже">
@@ -42,12 +44,14 @@
 <!ENTITY filter.column "Правило">
 <!ENTITY subscription.lastDownload.checksumMismatch "Ошибка: проверочная сумма не совпадает, возможно произошла ошибка загрузки">
 <!ENTITY noFiltersInGroup.text "Выбранная группа фильтров пуста.">
+<!ENTITY typoCorrections.whitelistLabel "Не исправлять...">
 <!ENTITY sort.label "Сортировка">
 <!ENTITY noFilters.text "У вас пока что нет собственных фильтров.">
 <!ENTITY subscription.external.label "Обновляется другим расширением">
 <!ENTITY filter.accesskey "П">
 <!ENTITY noGroupSelected.text "Нужно выбрать группу, чтобы показать ее фильтры.">
 <!ENTITY subscription.lastDownload.inProgress "сейчас...">
+<!ENTITY typoCorrections.removeButtonLabel "Удалить помеченные">
 <!ENTITY enabled.column "Включено">
 <!ENTITY viewMenu.label "Вид">
 <!ENTITY addSubscriptionCancel.label "Отмена">
@@ -68,6 +72,7 @@
 <!ENTITY restore.minVersion.warning "Предупреждение: этот файл был записан более новой версией Adblock Plus. Рекомендуется обновить Adblock Plus до последней версии, прежде чем восстанавливать данные из этого файла.">
 <!ENTITY sort.ascending.label "Сортировка по алфавиту">
 <!ENTITY viewList.label "Открыть список">
+<!ENTITY typoCorrections.whitelistEmptyLabel "На данный момент исключений нет.">
 <!ENTITY sort.ascending.accesskey "ф">
 <!ENTITY restore.default.label "Восстановить копию от ?1?">
 <!ENTITY hitcount.accesskey "б">

@@ -54,7 +54,7 @@
 <!ENTITY issues.nosubscriptions.add.label "Filterabonnement hinzufügen">
 <!ENTITY issues.disabledfilters.enable.label "Filter aktivieren">
 <!ENTITY issues.override.label "Die Einstellungen sind so korrekt, mit dem Fehlerbericht fortfahren">
-<!ENTITY issues.nosubscriptions.description "Es scheint, dass sie keine der fertigen Filterlisten abonniert haben. Ein solches
+<!ENTITY issues.nosubscriptions.description "Es scheint, dass Sie keine der fertigen Filterlisten abonniert haben. Ein solches
   kostenloses Abonnement ist jedoch erforderlich, um automatisch Werbung zu entfernen.">
 <!ENTITY outdatedSubscriptions.description "Die folgenden Filterabonnements wurden mindesten zwei Wochen lang nicht
   aktualisiert. Bitte aktualisieren Sie diese, bevor Sie einen Fehlerbericht
@@ -105,7 +105,7 @@
 <!ENTITY sendPage.waitMessage "Bitte warten Sie, während Adblock Plus Ihren Bericht sendet.">
 <!ENTITY dataCollector.heading "Willkommen zum Fehlerberichts-Assistenten">
 <!ENTITY screenshot.remove.label "Private Informationen löschen">
-<!ENTITY screenshot.heading "Screenshot hinzufügen">
+<!ENTITY screenshot.heading "Bildschirmfoto hinzufügen">
 <!ENTITY comment.accesskey "K">
 <!ENTITY issues.ownfilters.description "Einige der Filter, die auf dieser Seite angewandt wurden, sind benutzerdefiniert.
   Bitte deaktivieren Sie Filter, die das Problem verursacht haben könnten:">

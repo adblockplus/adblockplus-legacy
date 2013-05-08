@@ -7,7 +7,7 @@
 <!ENTITY pattern.label "Sykje nei patroan">
 <!ENTITY thirdParty.label "Allinnich tredde diel">
 <!ENTITY thirdParty.accesskey "a">
-<!ENTITY filter.label "Nij filter:">
+<!ENTITY filter.label "Nije filter:">
 <!ENTITY collapse.label "Blokkearre ynklappe:">
 <!ENTITY match.warning "It patroan dy't jo opjûn hawwe is net lyk oan it adres om te blokkearjen/wytlisten en sil gjin effekt op it hawwe.">
 <!ENTITY anchor.start.label "oan it begjin fan it adres">

@@ -5,6 +5,7 @@
 <!ENTITY enabled.accesskey "غ">
 <!ENTITY addGroup.accesskey "م">
 <!ENTITY subscription.update.label "تحدبث الفلاتر">
+<!ENTITY restore.complete.warning "سيتم استبدال كافة التفضيلات الخاصة بك في تصفية محتويات الملف المحدد. هل تريد المتابعه؟">
 <!ENTITY filter.moveUp.label "الى الاعلى">
 <!ENTITY filter.edit.label "تحرير">
 <!ENTITY hitcount.column "الضغطات">
@@ -19,6 +20,7 @@
 <!ENTITY sort.descending.label "ترتيب أبجدي (Z &gt; A)">
 <!ENTITY subscription.lastDownload.success "نجاح">
 <!ENTITY filters.remove.warning "أحقاً تريد ازالة الفلاتر المختارة؟">
+<!ENTITY restore.custom.warning "سيتم استبدال كافة عوامل التصفية المخصصة الخاصة بك بمحتويات الملف المحدد.هل تريد المتابعه؟">
 <!ENTITY slow.column "عرض الفلاتر">
 <!ENTITY subscription.actions.label "الإجراءات">
 <!ENTITY filter.selectAll.label "اختيار الكل">
@@ -57,6 +59,8 @@
 <!ENTITY dialog.title "تفضيلات التصفية لآد بلُك بلَس">
 <!ENTITY subscription.minVersion.warning "يتطلب هذا الاشتراك للتصفية أحدث إصدار آد بلُك بلَس ، يجب التحديث إلى الإصدار الأحدث">
 <!ENTITY subscription.lastDownload.invalidURL "فشل الأمر، ليس عنوان صحيح">
+<!ENTITY backup.error "حصل هناك خطأ في إضافة الفلاتر إلى الملف . تأكد من أن الملف قابل للتعديل و لا يتم استخدامه في برنامج آخر.">
+<!ENTITY restore.error "لا يمكن معالجة بينات الملف ، من المحتمل أن هذاالملف ليس النسخة الاحتياطية لآد بلوك بلس ؟">
 <!ENTITY filter.cut.label "قص">
 <!ENTITY backup.custom.title "الفلاتر المخصصة فقط">
 <!ENTITY subscription.moveUp.label "الى الاعلى">
@@ -65,8 +69,10 @@
 <!ENTITY find.label "بحث">
 <!ENTITY subscription.lastDownload.connectionError "فشل الأمر بسبب فشل التحميل">
 <!ENTITY subscription.lastDownload.invalidData "فشل الأمر، ليست قائمة فلاتر صحيحة">
+<!ENTITY restore.minVersion.warning "تنبيه : الملف تم إنشاؤه بواسطة نسخة حديثة لأد بلوك بلس . يجب عليك تحديث أد بلوك بلس قبل عمليةالاستعادة من هذا الملف.  ">
 <!ENTITY sort.ascending.label "ترتيب أبجدي (A &gt; Z)">
 <!ENTITY viewList.label "اظهار القائمة">
+<!ENTITY typoCorrections.whitelistEmptyLabel "لا يوجد حاليا أي استثناءات.">
 <!ENTITY sort.ascending.accesskey "ص">
 <!ENTITY restore.default.label "الاسترجاع من النسخة الاحتياطية ?1?">
 <!ENTITY hitcount.accesskey "ض">

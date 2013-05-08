@@ -4,7 +4,6 @@
 <!ENTITY showData.label "Εμφάνιση δεδομένων αναφοράς">
 <!ENTITY typeSelector.falsePositive.label "Το Adblock Plus φράζει πάρα πολλά στοιχεία">
 <!ENTITY recentReports.clear.accesskey "Α">
-<!ENTITY email.accesskey "δ">
 <!ENTITY issues.change.description "Οι ρυθμίσεις σας έχουν αλλάξει. Παρακαλώ ανανεώστε την σελίδα για να δοκιμάσετε τις αλλαγές και υποβάλλετε μια αναφορά αν το ζήτημα δεν έχει λυθεί από τις τροποποιήσεις.">
 <!ENTITY reloadButton.accesskey "ν">
 <!ENTITY screenshot.attach.accesskey "θ">
@@ -19,7 +18,9 @@
 <!ENTITY issues.disabledgroups.enable.label "Ενεργοποίηση της συνδρομής φίλτρων / ομάδας φίλτρων">
 <!ENTITY typeWarning.override.label "Κατανοώ και επιθυμώ να υποβάλω την αναφορά όπως και να έχει">
 <!ENTITY issues.disabled.enable.label "Ενεργοποίηση του Adblock Plus">
+<!ENTITY anonymous.accesskey "Α">
 <!ENTITY update.fixed.description "Οι ενημερώσεις στις συνδρομές φίλτρων πιθανώς επιλύουν το πρόβλημα το οποίο αναφέρετε. Παρακαλώ ανανεώστε την σελίδα και προσπαθήστε ξανά. Κάντε μια αναφορά αν το πρόβλημα παραμένει.">
+<!ENTITY email.label "Email:">
 <!ENTITY reloadButton.label "Ανανέωση σελίδας">
 <!ENTITY recentReports.clear.label "Αφαίρεση όλων των αναφορών">
 <!ENTITY typeSelector.description "Σε αυτό το παράθυρο θα βρείτε βοήθεια για τα βήματα που πρέπει να ακολουθηθούν ώστε να υποβληθεί μια αναφορά για κάποιο ζήτημα που αντιμετωπίζετε σχετικά με το Adblock Plus. Παρακαλώ πρώτα επιλέξτε τον τύπο του ζητήματος που αντιμετωπίζετε σε αυτή την σελίδα:">
@@ -40,6 +41,7 @@
 <!ENTITY issues.nosubscriptions.description "Φαίνεται πως δεν είστε συνδρομητής σε καμιά από τις προεγκατεστημένες λίστες φίλτρων που αυτόματα αφαιρούν ανεπιθύμητο περιεχόμενο από τις σελίδες.">
 <!ENTITY outdatedSubscriptions.description "Οι ακόλουθες συνδρομές φίλτρων δεν έχουν ενημερωθεί για δύο τουλάχιστο εβδομάδες. Παρακαλώ ενημερώστε αυτές τις συνδρομές πριν υποβάλετε την αναφορά, μιας και το ζήτημα μπορεί ήδη να έχει επιλυθεί.">
 <!ENTITY typeSelector.other.label "Άλλο ζήτημα">
+<!ENTITY emailComment.label "Σας συνιστούμε να εισάγετε μια έγκυρη διεύθυνση ηλεκτρονικού ταχυδρομείου, ώστε να επικοινωνήσουμε μαζί σας εάν υπάρχουν ερωτήσεις σχετικά με την αναφορά σας. Θα μας επιτρέψει επίσης, να αναγνωρίζουμε τις συνεισφορές σας και να τις δώσουμε υψηλότερη προτεραιότητα.">
 <!ENTITY issues.whitelist.remove.label "Ενεργοποίηση του Adblock Plus σε αυτή την σελίδα">
 <!ENTITY typeSelector.falsePositive.description "Επιλέξτε αυτό, αν η σελίδα στερείται βασικό περιεχόμενο, εμφανίζεται λαθεμένα ή δεν λειτουργεί σωστά. Για να διαγνώσετε αν το Adblock Plus είναι η αιτία του προβλήματός σας, απενεργοποιήστε το προσωρινά.">
 <!ENTITY dataCollector.description "Παρακαλώ περιμένετε καθώς το Adblock Plus συλλέγει τα απαραίτητα δεδομένα.">
@@ -58,6 +60,8 @@
 <!ENTITY typeSelector.falseNegative.label "Το Adblock Plus δεν φράζει μια διαφήμιση">
 <!ENTITY copyLink.accesskey "Α">
 <!ENTITY typeSelector.heading "Τύπος ζητήματος">
+<!ENTITY anonymous.label "Ανώνυμη υποβολή">
+<!ENTITY anonymity.warning "Δεν θα μπορέσουμε να επικοινωνήσουμε μαζί σας και πιθανώς η αναφορά σας να θεωρηθεί χαμηλής προτεραιότητας.">
 <!ENTITY wizard.title "Αναφορά ζητήματος">
 <!ENTITY issues.ownfilters.disable.label "Απενεργοποίηση φίλτρου">
 <!ENTITY commentPage.description "Το πεδίο κειμένου παρακάτω σας επιτρέπει να εισάγετε κάποιο σχόλιο το οποίο θα μας βοηθήσει να κατανοήσουμε το ζήτημα που αντιμετωπίζετε. Το παρόν βήμα είναι προαιρετικό αλλά προτείνεται να συμπληρωθεί αν το πρόβλημα δεν είναι προφανές. Μπορείτε να αναθεωρήσετε την αναφορά πριν την αποστείλετε.">

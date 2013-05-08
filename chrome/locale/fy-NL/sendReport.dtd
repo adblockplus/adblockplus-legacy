@@ -18,6 +18,7 @@
 <!ENTITY issues.disabledgroups.enable.label "Filterabonnemint / filtergroep ynskeakelje">
 <!ENTITY typeWarning.override.label "Ik begryp it en wol it rapport dochs ynstjoere">
 <!ENTITY issues.disabled.enable.label "Adblock Plus ynskeakelje">
+<!ENTITY anonymous.label "Anonym Bydrage">
 <!ENTITY reloadButton.label "Side op 'e nij  lade">
 <!ENTITY recentReports.clear.label "Smyt alle rapporten fuort">
 <!ENTITY typeSelector.description "Dit finster sil jo begeliede troch de stappen nedich foar it yntsjinjen fan in Adblock Plus probleemrapport. Earst, selektearje it type probleem wat jo tsjinkommen binne op dizze side:">
@@ -25,6 +26,7 @@
 <!ENTITY typeSelector.other.accesskey "a">
 <!ENTITY data.accesskey "R">
 <!ENTITY data.label "Rapportgegevens:">
+<!ENTITY sendPage.heading "Ferstjoer rapport">
 <!ENTITY recentReports.label "Jo resint ynstjoerde rapporten">
 <!ENTITY typeWarning.description "Jo hawwe oanjûn dat jo in algemien probleem mei Adblock Plus rapportearej wolle yn stee fan in probleem mei de filters. It is it bêste dat jo soksoartige fan problemen rapportearje yn it [link]Adblock Plus foarum[/link]. Jo soene allinnich dizze rapportearder brûke moatte as tafoeging oan in besteande diskusje, oars sil net ien jo rapport sjen útsein as jo in keppeling opjouwe. De automatysk generearre keppeling sil jûn wurde as it rapport ynstjoerd is.">
 <!ENTITY issues.disabled.description "Adblock Plus is útskeakele, it sil no neat blokkearje.">
@@ -42,6 +44,7 @@
 <!ENTITY sendPage.errorMessage "It is net slagge om it rapport te ferstjoeren, flaterkoade &quot;?1?&quot;. Wês wis dat jo ferbûn binne mei it ynternet en probearje nochris. As it probleem bliuwt freegje dan assistinsje yn it [link]Adblock Plus foarum[/link].">
 <!ENTITY showRecentReports.label "Toan resint ynstjoerde rapporten">
 <!ENTITY commentPage.heading "Kommentaar">
+<!ENTITY update.start.label "No bywurkje">
 <!ENTITY typeSelector.falsePositive.accesskey "f">
 <!ENTITY issues.disabledfilters.description "De folgjende filters binne útskeakele, dochs it kin wêze dat se effekt hawwe op dizze side:">
 <!ENTITY screenshot.description "Deselde side kin der ferskillend útsjen foar ferskillende minsken. It kin ús helpe om it probleem te begripen as jo in skerôfdruk meistjoere. Jo kinne seksjes mei sensitive ynformaasje fuortsmite en ek ûnderdielen markearje dêr't it probleem te sjen is. Om dat te dwaan klik de knop en selektearje in seksje fan de ôfbylding mei jo mûs.">
@@ -60,7 +63,7 @@
 <!ENTITY sendPage.waitMessage "Wachtsje wylst Adblock Plus jo rapport ynstjoerd.">
 <!ENTITY dataCollector.heading "Wolkome by de probleemrapportearder">
 <!ENTITY screenshot.heading "Skermôfdruk tafoegje">
-<!ENTITY sendPage.heading "Ferstjoer rapport">
+<!ENTITY email.label "E-mail:">
 <!ENTITY issues.ownfilters.description "Sommige fan de filters tapast op dizze side binne brûker-definiearre. Skeakel de filters út dy't miskien dit probleem feroarsake hawwe:">
 <!ENTITY screenshot.remove.accesskey "g">
 <!ENTITY issues.subscriptionCount.description "It liket as jo abonnearre binne op te folle filters. Dizze opset is net oanrikkemandearre omdat it wierskienlik faker problemen feroarsaakje kin. Wy kinne ek jo probleemrapport net akseptearje omdat it net dúdlik is hokker filterabonnemint auteur aksje ûndernimme moat. Helje alle net needsaaklike filters fuort en test oft de problemen wer barre.">

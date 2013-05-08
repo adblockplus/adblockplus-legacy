@@ -4,7 +4,7 @@
 <!ENTITY showData.label "Показать данные сообщения">
 <!ENTITY typeSelector.falsePositive.label "Adblock Plus блокирует слишком многое">
 <!ENTITY recentReports.clear.accesskey "л">
-<!ENTITY email.accesskey "д">
+<!ENTITY email.accesskey "m">
 <!ENTITY issues.change.description "Ваши настройки изменились. Пожалуйста, обновите страницу для проверки
   внесенных изменений и отправьте сообщение, если проблема не разрешилась.">
 <!ENTITY reloadButton.accesskey "н">
@@ -22,9 +22,11 @@
 <!ENTITY issues.disabledgroups.enable.label "Включить подписку / группу фильтров">
 <!ENTITY typeWarning.override.label "Я понял и, тем не менее, хочу отправить сообщение">
 <!ENTITY issues.disabled.enable.label "Включить Adblock Plus">
+<!ENTITY anonymous.accesskey "а">
 <!ENTITY update.fixed.description "Обновление ваших подписок на фильтры скорее всего решило проблему, о которой
   вы хотели сообщить. Пожалуйста загрузите заново страницу и попробуйте еще раз.
   Если проблема осталось, то пошлите сообщение еще раз.">
+<!ENTITY email.label "E-mail:">
 <!ENTITY reloadButton.label "Обновить страницу">
 <!ENTITY recentReports.clear.label "Удалить все сообщения">
 <!ENTITY typeSelector.description "Мастер поможет вам отправить сообщение о проблеме с Adblock Plus.
@@ -55,6 +57,7 @@
   обновите эти подписки перед отправлением сообщения, поскольку проблема уже
   может быть решена.">
 <!ENTITY typeSelector.other.label "Другая проблема">
+<!ENTITY emailComment.label "Мы рекомендуем ввести e-mail адрес, по которому мы могли бы связаться в случает вопросов по вашему сообщению. Это также позволит нам узнавать Ваши взносы и обрабатывать их в предпочтительном порядке.">
 <!ENTITY issues.whitelist.remove.label "Включить Adblock Plus на этой странице">
 <!ENTITY typeSelector.falsePositive.description "Если на странице отсутствуют важные части содержимого, а также если она
   отображается или функционирует неправильно, то следует выбрать этот вариант.
@@ -83,6 +86,8 @@
 <!ENTITY typeSelector.falseNegative.label "Adblock Plus не блокирует рекламу">
 <!ENTITY copyLink.accesskey "к">
 <!ENTITY typeSelector.heading "Выбор типа проблемы">
+<!ENTITY anonymous.label "Отправить анонимно">
+<!ENTITY anonymity.warning "Мы не сможем связаться с вами и, вероятно, уделим меньше внимания Вашему сообщению.">
 <!ENTITY wizard.title "Сообщить о проблеме">
 <!ENTITY issues.ownfilters.disable.label "Отключить фильтр">
 <!ENTITY commentPage.description "Внизу вы можете добавить комментарий, чтобы помочь нам понять проблему.

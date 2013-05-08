@@ -1,11 +1,12 @@
 <!ENTITY showintoolbar.accesskey "r">
-<!ENTITY sync.label "Sync tatacara Adblock Plus">
+<!ENTITY showinstatusbar.accesskey "k">
 <!ENTITY whitelist.site.label "Nyahaktifkan pada ?1?">
 <!ENTITY filters.label "Tatarajah penapis">
 <!ENTITY disable.label "Nyahaktif di semua tempat">
 <!ENTITY showinaddonbar.label "Paparkan di bar add-on">
 <!ENTITY objecttab.title "Sekat">
 <!ENTITY showinaddonbar.accesskey "r">
+<!ENTITY sync.accesskey "c">
 <!ENTITY objecttabs.label "Paparkan tab pada Flash dan Java">
 <!ENTITY objecttab.tooltip "Klik di sini untuk menyekat objek ini dengan Adblock Plus">
 <!ENTITY menuitem.label "Pilihan Adblock Plus">
@@ -19,15 +20,19 @@
 <!ENTITY opensidebar.label "Buka item yang boleh disekat">
 <!ENTITY options.accesskey "n">
 <!ENTITY contribute.label "Sumbang kepada Adblock Plus">
+<!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus: Sekat bingkai">
 <!ENTITY counthits.label "Kira kiraan penapis">
 <!ENTITY blocked.tooltip "Item yang disekat pada laman ini:">
 <!ENTITY opensidebar.accesskey "i">
 <!ENTITY showinstatusbar.label "Paparkan di bar status">
+<!ENTITY status.tooltip "Keadaan:">
 <!ENTITY sidebar.title "Item yang boleh disekat pada laman semasa">
+<!ENTITY sync.label "Sync tatacara Adblock Plus">
 <!ENTITY options.label "Pilihan">
 <!ENTITY context.object.label "Adblock Plus: Sekat objek">
 <!ENTITY context.removeWhitelist.label "Adblock Plus: Aktifkan semula pada laman ini">
+<!ENTITY objecttabs.accesskey "t">
 <!ENTITY filters.tooltip "Penapis yang paling aktif:">
 <!ENTITY closesidebar.label "Tutup item yang boleh disekat">
 <!ENTITY showintoolbar.label "Paparkan di bar alatan">

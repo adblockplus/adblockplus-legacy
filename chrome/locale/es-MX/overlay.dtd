@@ -18,6 +18,7 @@
 <!ENTITY closesidebar.accesskey "r">
 <!ENTITY hideplaceholders.label "Ocultar marcadores de posición de elementos bloqueados">
 <!ENTITY opensidebar.label "Abrir elementos bloqueables">
+<!ENTITY options.accesskey "O">
 <!ENTITY contribute.label "Desactivar con Adblock Plus">
 <!ENTITY toolbarbutton.label "Adblock plus">
 <!ENTITY context.frame.label "Adblock Plus: Bloquear marco">

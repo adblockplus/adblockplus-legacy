@@ -1,10 +1,12 @@
 <!ENTITY screenshot.undo.label "Undur">
 <!ENTITY issues.disabledgroups.description "Langganan penapis/kumpulan penapis berikut telah dinyahaktifkan, tetapi ia mungkin masih membawa kesan pada laman ini:">
+<!ENTITY attachExtensions.accesskey "x">
 <!ENTITY showData.label "Tunjuk data laporan">
 <!ENTITY typeSelector.falsePositive.label "Terlalu banyak disekat Adblock Plus">
 <!ENTITY recentReports.clear.accesskey "P">
 <!ENTITY email.accesskey "E">
 <!ENTITY issues.change.description "Konfigurasi anda telah diubah. Sila reload laman tersebut untuk menguji perubahan yang dilakukan dan hantar laporan jika isu tersebut masih tidak diselesaikan oleh perubahan yang dilakukan.">
+<!ENTITY reloadButton.accesskey "t">
 <!ENTITY screenshot.attach.accesskey "m">
 <!ENTITY issues.openPreferences.label "Buka tatarajah penapis">
 <!ENTITY sendPage.confirmation "Laporan anda telah disimpan. Anda boleh mengaksesnya di alamat berikut:">
@@ -17,12 +19,15 @@
 <!ENTITY issues.disabledgroups.enable.label "Aktifkan langganan penapis/kumpula penapis">
 <!ENTITY typeWarning.override.label "Saya faham dan ingin menghantar laporan juga">
 <!ENTITY issues.disabled.enable.label "Aktifkan Adblock Plus">
+<!ENTITY anonymous.accesskey "t">
 <!ENTITY update.fixed.description "Langganan anda yang dikemaskini kemungkinan besar telahpun menyelesaikan masalah yang anda laporkan. Sila reload halaman tersebut dan cuba sekali lagi. Laporkan sekali lagi jika masalah tetap ada.">
+<!ENTITY email.label "E-mel:">
 <!ENTITY reloadButton.label "Reload laman">
 <!ENTITY recentReports.clear.label "Padam semua laporan">
 <!ENTITY typeSelector.description "Tingkap ini akan membantu anda dengan langkah-langkah yang diperlukan untuk mengemukakan repot isu Adblock Plus. Pertama sekali, sila pilih jenis isu yang dialami pada laman ini:">
 <!ENTITY screenshot.mark.accesskey "T">
 <!ENTITY typeSelector.other.accesskey "I">
+<!ENTITY screenshot.undo.accesskey "K">
 <!ENTITY update.inProgress.description "Adblock Plus perlu mengemaskini langganan penapis anda untuk memastikan isu tersebut belum diselesaikan. Sila tunggu&quot;...&quot;">
 <!ENTITY data.accesskey "L">
 <!ENTITY data.label "Lapor data">
@@ -37,6 +42,7 @@
 <!ENTITY issues.nosubscriptions.description "Anda didapati tidak melanggan mana-mana penapis yang direka khas untuk membuang isi yang tidak diperlukan pada laman web secara automatik.">
 <!ENTITY outdatedSubscriptions.description "Langganan penapis yang disenaraikan belum dikemaskini sekurang-kurangnya 2 minggu. Sila kemaskini langganan tersebut sebelum menghantar laporan, isu tersebut mungkin telahpun diselesaikan.">
 <!ENTITY typeSelector.other.label "Isu lain">
+<!ENTITY emailComment.label "Kami menggalakkan anda memasukkan alamat email yang sah supaya kami boleh menghubungi anda jika ada pertanyaan tentang laporan anda. Ia juga akan membolehkan kita untuk mengiktiraf sumbangan anda dan memberi keutamaan kepada mereka dengan lebih tinggi.">
 <!ENTITY issues.whitelist.remove.label "Aktifkan kembali Adblock Plus pada laman ini">
 <!ENTITY typeSelector.falsePositive.description "Pilih pilihan ini jika laman tersebut kekurangan isi penting, pemaparan isi yang kurang tepat atau gagal berfungsi dengan betul. Anda boleh menentukan samada Adblock Plus adalah penyebab masalah tersebut dengan menyahaktifkannya untuk sementara.">
 <!ENTITY dataCollector.description "Sila tunggu sebentar sementara Adblock Plus mengumpul data yang diperlukan.">
@@ -55,6 +61,8 @@
 <!ENTITY typeSelector.falseNegative.label "Adblock Plus tidak menyekat iklan">
 <!ENTITY copyLink.accesskey "S">
 <!ENTITY typeSelector.heading "Pilih jenis isu">
+<!ENTITY anonymous.label "Penyerahan tanpa nama">
+<!ENTITY anonymity.warning "Kita tidak akan dapat kembali kepada anda dan mungkin akan mengutamakan laporan yang lebih rendah.">
 <!ENTITY wizard.title "Pelapor isu">
 <!ENTITY issues.ownfilters.disable.label "Nyahaktifkan penapis">
 <!ENTITY commentPage.description "Bahagian di bawah membenarkan anda memasukkan komen untuk membantu kami memahami isu tersebut. Langkah ini adalah optional tetapi disyorkan jika masalah tersebut tidak jelas. Anda juga boleh memeriksa data laporan sebelum menghantarnya.">
