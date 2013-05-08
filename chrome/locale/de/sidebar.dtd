@@ -3,7 +3,7 @@
 <!ENTITY context.open.label "Adresse in neuem Tab öffnen">
 <!ENTITY type.label "Typ">
 <!ENTITY tooltip.filterSource.label "Herkunft des Filters:">
-<!ENTITY noitems.label "Keine Elemente zu blockieren">
+<!ENTITY noitems.label "Keine blockierbaren Elemente">
 <!ENTITY filter.label "Filter">
 <!ENTITY tooltip.size.label "Größe:">
 <!ENTITY reattach.label "Ankoppeln">

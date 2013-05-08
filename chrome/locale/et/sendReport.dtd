@@ -19,11 +19,13 @@
 <!ENTITY issues.disabledgroups.enable.label "Luba filtrite tellimus/filtrigrupp">
 <!ENTITY typeWarning.override.label "Ma mõistan ja soovin siiski probleemist teada anda">
 <!ENTITY issues.disabled.enable.label "Luba Adblock Plus">
+<!ENTITY anonymous.accesskey "a">
 <!ENTITY update.fixed.description "Filtrite tellimuste uuendused lahendasid tõenäoliselt selle probleemi, millest sa teatasid. Palun lae leht uuesti ja ürita uuesti. Teata uuesti, kui probleemid jäid alles.">
+<!ENTITY email.label "E-post:">
 <!ENTITY reloadButton.label "Laadi leht uuesti">
 <!ENTITY recentReports.clear.label "Kustuta kõik teated">
 <!ENTITY typeSelector.description "Antud aknas saab teatada Adblock Plusi probleemidest, tehes läbi vajalikud sammud. Kõigepealt tuleb valida probleemi liik, millega sa antud lehel kokku puutud:">
-<!ENTITY screenshot.remove.label "Eemalda tundlikud andmed">
+<!ENTITY screenshot.mark.accesskey "M">
 <!ENTITY typeSelector.other.accesskey "M">
 <!ENTITY screenshot.undo.accesskey "h">
 <!ENTITY update.inProgress.description "Adblock Plus peab uuendama filtrite tellimusi, olemaks kindel, et see probleem ei ole juba lahendatud. Palun oota...">
@@ -40,6 +42,7 @@
 <!ENTITY issues.nosubscriptions.description "Sa ei paista olevat tellinud ühtegi filtrite nimekirja, mis eemaldavad automaatselt veebilehtedelt soovimata sisu.">
 <!ENTITY outdatedSubscriptions.description "Järgmisi filtrite tellimusi ei ole uuendatud vähemalt kahe nädala jooksul. Palun uuenda neid tellimusi enne veaaruande esitamist, sest probleem võib olla juba lahendatud.">
 <!ENTITY typeSelector.other.label "Muu probleem">
+<!ENTITY emailComment.label "Me soovitame sul sisestada oma kehtiva meiliaadressi, et saaksime küsimuste tekkimisel antud teate kohta sinuga ühendust võtta. Samuti aitab see suurendada sinu teadete prioriteeti.">
 <!ENTITY issues.whitelist.remove.label "Luba uuesti Adblock Plus sellel lehel">
 <!ENTITY typeSelector.falsePositive.description "Vali see variant juhul kui lehel on kaduma läinud oluline sisu, lehte kuvatakse valesti või kui see ei tööta korralikult. Et teha kindlaks, kas Adblock Plus on selle probleemi põhjustaja, võid ta ajutiselt ära keelata.">
 <!ENTITY dataCollector.description "Palun oota mõni hetk kuni Adblock Plus kogub vajalikke andmeid.">
@@ -58,6 +61,8 @@
 <!ENTITY typeSelector.falseNegative.label "Adblock Plus ei blokeeri reklaami">
 <!ENTITY copyLink.accesskey "K">
 <!ENTITY typeSelector.heading "Vali probleemi liik">
+<!ENTITY anonymous.label "Anonüümne esitamine">
+<!ENTITY anonymity.warning "Meil ei ole võimalik sinu poole tagasi pöörduda ja tõenäoliselt omistame sellele teatele madamala prioriteedi.">
 <!ENTITY wizard.title "Probleemidest teatamine">
 <!ENTITY issues.ownfilters.disable.label "Keela filter">
 <!ENTITY commentPage.description "Järgnevasse tekstivälja saad lisada oma kommentaari, et aidata meil probleemist aru saada. See ei ole kohustuslik, kuid on soovitatav kui probleem ei ole selgelt arusaadav. Sa võid samuti üle vaadata aruande andmed enne kui need ära saadetakse.">
@@ -67,6 +72,7 @@
 <!ENTITY typeWarning.override.accesskey "m">
 <!ENTITY sendPage.waitMessage "Palun oota kuni Adblock Plus edastab teadet.">
 <!ENTITY dataCollector.heading "Tere tulemast kasutama probleemidest teatamise abivahendit">
+<!ENTITY screenshot.remove.label "Eemalda tundlikud andmed">
 <!ENTITY screenshot.heading "Lisa ekraanipilt">
 <!ENTITY comment.accesskey "K">
 <!ENTITY issues.ownfilters.description "Mõned sellel lehel kehtivad filtrid on loonud kasutaja. Palun keela need filtrid mis võiksid põhjustada seda probleemi:">

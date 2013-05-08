@@ -3,8 +3,8 @@
 <!ENTITY domainRestriction.label "تقييد النطاق:">
 <!ENTITY anchor.start.flexible.accesskey "د">
 <!ENTITY firstParty.label "الطرف نفسه فقط">
-<!ENTITY preferences.label "عرض الفلاتر الموجودة...">
-<!ENTITY pattern.label "ابحث عن نموذج">
+<!ENTITY preferences.label "إعرض المصافي المتوفرة...">
+<!ENTITY pattern.label "إبحث عن نموذج">
 <!ENTITY thirdParty.label "أطراف أخرى فقط">
 <!ENTITY filter.accesskey "ف">
 <!ENTITY thirdParty.accesskey "خ">
@@ -20,11 +20,11 @@
 <!ENTITY type.whitelist.label "قاعدة استثناء">
 <!ENTITY regexp.warning "النموذج الذي أدخلته سيتم تعبيره على أنه تعبير العادي، الكثير من التعابير العادية قد تؤدي إلى بطء في التصفح. إن لم تكن تنوي استخدام التعابير العادية، قم بإضافة الرمز &quot;*&quot; إلى نهاية النموذج">
 <!ENTITY dialog.title "إضافة قاعدة فلاتر لآدبلوك بلس">
-<!ENTITY basic.label "العرض البسيط">
+<!ENTITY basic.label "العرض الأساسي">
 <!ENTITY preferences.accesskey "ع">
 <!ENTITY firstParty.accesskey "ن">
 <!ENTITY collapse.default.no.label "استخدام الافتراضي (لا)">
-<!ENTITY type.filter.label "فلتر المنع">
+<!ENTITY type.filter.label "حجب المصفاة">
 <!ENTITY types.label "التطبيق على الأنواع:">
 <!ENTITY shortpattern.warning "النموذج الذي أدخلته قصير جداً ليتم تحسينه وقد يبطئ تصفحك. ينصح باختيار قيمة أطول لهذا الفلتر لكي يقوم آدبلوك بلس بفلترته بطريقة بكفاءة.">
 <!ENTITY custom.pattern.accesskey "ص">
@@ -35,7 +35,7 @@
 <!ENTITY domainRestriction.help "استعمل هذا الخيار لتحديد نطاق واحد أو أكثر مفصول بالرمز &quot;|&quot;، سيطبق هذا الفلتر على هذه النطاقات فقط. وضع الرمز &quot;~&quot; قبل اسم نطاق يعني أن الفلتر يجب ألا يطبق على ذلك النطاق">
 <!ENTITY accept.label "إضافة فلتر">
 <!ENTITY options.label "خيارات">
-<!ENTITY disabled.warning "آدبلوك بلس معطل حالياً. ما زال يمكنك إضافة الفلاتر و لكن لن يتم تطبيقها إلا إذا قمت [link]بتفعيل آدبلوك بلس[/link].">
+<!ENTITY disabled.warning "آدبلوك بلس معطل حالياً. ما يزال بإمكانك إضافة المصافي، لكن لن يتم تطبيقها إلا إذا قمت [link]بتفعيل آدبلوك بلس[/link].">
 <!ENTITY anchor.start.flexible.label "في بداية اسم النطاق">
 <!ENTITY type.whitelist.accesskey "ث">
 <!ENTITY matchCase.accesskey "ط">
@@ -43,4 +43,4 @@
 <!ENTITY selectAllTypes.label "اختيار الكل">
 <!ENTITY advanced.label "عرض متقدم">
 <!ENTITY collapse.accesskey "س">
-<!ENTITY pattern.explanation "يمكن  للنموذج أن يكون أي قسم من العنوان، الرمز * يستعمل على أنه حرف البدل. لن يتم تطبيق الفلتر إلا على على العناوين التي تطابق النموذج">
+<!ENTITY pattern.explanation "هذا النمط يمكن أن يكون أي جزء من عنوان، الرمز (*) يستعمل كاختصار. سيتم تطبيق المصفاة على العناوين المطابقة للنمط المحدد فقط.">

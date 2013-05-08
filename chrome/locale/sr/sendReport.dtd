@@ -3,11 +3,11 @@
 <!ENTITY attachExtensions.accesskey "д">
 <!ENTITY showData.label "Прикажи податке у извештају">
 <!ENTITY typeSelector.falsePositive.label "Adblock Plus блокира превише">
-<!ENTITY recentReports.clear.accesskey "У">
+<!ENTITY recentReports.clear.accesskey "Р">
 <!ENTITY email.accesskey "а">
 <!ENTITY issues.change.description "Ваша подешавања су измењена. Поново учитајте страницу да бисте видели промене, па пошаљите извештај ако проблем опет није реше.">
 <!ENTITY reloadButton.accesskey "П">
-<!ENTITY screenshot.attach.accesskey "с">
+<!ENTITY screenshot.attach.accesskey "т">
 <!ENTITY issues.openPreferences.label "Отвори подешавања филтера">
 <!ENTITY sendPage.confirmation "Ваш извештај је сачуван. Можете да му приступите на следећој адреси:">
 <!ENTITY issues.override.accesskey "и">
@@ -19,18 +19,20 @@
 <!ENTITY issues.disabledgroups.enable.label "Омогући претплату на филтер/групу филтера">
 <!ENTITY typeWarning.override.label "Разумем и ипак желим да пошаљем извештај">
 <!ENTITY issues.disabled.enable.label "Омогући Adblock Plus">
-<!ENTITY update.fixed.description "Претплате на ваш филтер су вероватно већ отклониле проблем који сте пријавили. Поново учитајте страницу, па покушајте поново. Ако проблем и даље постоји, поново га пријавите.">
+<!ENTITY anonymous.accesskey "а">
+<!ENTITY update.fixed.description "Претплате на Ваш филтер су вероватно већ отклониле проблем који Сте пријавили. Поново учитајте страницу, па покушајте поново. Ако проблем и даље постоји, поново га пријавите.">
+<!ENTITY email.label "И-мејл:">
 <!ENTITY reloadButton.label "Поново учитај страницу">
-<!ENTITY recentReports.clear.label "Уклони све извештаје">
+<!ENTITY recentReports.clear.label "Уклони све пријаве">
 <!ENTITY typeSelector.description "Овај прозор ће Вас водити кроз кораке за решавање проблема у Adblock Plus-у и њихово пријављивање. За почетак, изаберите врсту проблема на који сте наишли на овој страници:">
 <!ENTITY screenshot.mark.accesskey "з">
-<!ENTITY typeSelector.other.accesskey "д">
+<!ENTITY typeSelector.other.accesskey "т">
 <!ENTITY screenshot.undo.accesskey "О">
 <!ENTITY update.inProgress.description "Adblock Plus мора ажурирати ваше претплате на филтере ради како би проверио да ли је проблем већ отклоњен. Сачекајте...">
 <!ENTITY data.accesskey "о">
 <!ENTITY data.label "Подаци у извештају:">
 <!ENTITY sendPage.heading "Пошаљи извештај">
-<!ENTITY recentReports.label "Ваши недавно послати извештаји">
+<!ENTITY recentReports.label "Ваши недавно послате пријаве">
 <!ENTITY typeWarning.description "Навели сте да желите пријавити општи проблем са Adblock Plus-ом, а не са филтером. Имајте на уму да је такве проблеме најбоље пријавити на [link]форуму Adblock Plus-а[/link]. Овај систем за пријављивање бисте требали да користите само као допуну расправи, јер нико неће видети Ваш извештај док му не даднете везу до њега. Аутоматски направљену везу ћете добити одмах након слања извештаја.">
 <!ENTITY issues.disabled.description "Adblock Plus је онемогућен, па неће ништа блокирати.">
 <!ENTITY attachExtensions.label "Приложите списак омогућених додатака у извештај, у случају да њихов сукоб доводи до проблема.">
@@ -40,33 +42,36 @@
 <!ENTITY issues.nosubscriptions.description "Изгледа да нисте претплаћени ни на један списак филтера који аутоматски уклањају нежељени садржај са страница.">
 <!ENTITY outdatedSubscriptions.description "Следеће претплате на филтере носу ажуриране више од две седмице. Ажурирајте их пре него што пријавите проблем, јер би га то могло отклонити.">
 <!ENTITY typeSelector.other.label "Други проблем">
+<!ENTITY emailComment.label "Молимо Вас да унесете важећу и-мејл адресу да бисмо могли да Вас контактирамо уколико има питања у вези са Вашом пријавом. Такође, то ће нам допустити да препознамо Ваше доприносе и да им дамо већу важност.">
 <!ENTITY issues.whitelist.remove.label "Омогући Adblock Plus на овој страници">
 <!ENTITY typeSelector.falsePositive.description "Изаберите ову опцију ако страници недостају неки битни садржаји, погрешно изгледа или не ради како треба. Пробајте да привремено онемогућите Adblock Plus, па проверите да ли је онда све у реду.">
-<!ENTITY dataCollector.description "Сачекајте неколико тренутака док Adblock Plus набави потребне податке.">
+<!ENTITY dataCollector.description "Сачекајте неколико тренутака док Adblock Plus прибави потребне податке.">
 <!ENTITY sendButton.label "Пошаљи извештај">
 <!ENTITY comment.label "Коментар (произвољно):">
 <!ENTITY sendPage.errorMessage "Покушај слања извештаја није успео - грешка „?1?”. Уверите се да сте повезани са Интернетом, па покушајте поново. Ако проблем и даље постоји, помоћ потражите на [link]форуму Adblock Plus-а[/link].">
-<!ENTITY showRecentReports.label "Прикажи недавно послате извештаје">
+<!ENTITY showRecentReports.label "Прикажи недавно послате пријаве">
 <!ENTITY commentPage.heading "Унеси коментар">
 <!ENTITY update.start.label "Ажурирај">
-<!ENTITY typeSelector.falsePositive.accesskey "е">
+<!ENTITY typeSelector.falsePositive.accesskey "м">
 <!ENTITY issues.disabledfilters.description "Следећи филтери су онемогућени, јер можда има утицаја на страницу:">
 <!ENTITY screenshot.description "Иста страница може да изгледа различито код различитих људи. Много би значило да прилоите снима проблема који пријављујете. Можете да уклоните или замаскирате приватне информације. Да бисте то учинили, кликните одговарајуће дугме и мишем изаберите жељени део слике.">
 <!ENTITY screenshot.attach.label "Приложи снимак странице уз извештај">
 <!ENTITY issues.whitelist.description "Adblock Plus је тренутно онемогућен на страници коју пријављујете. Омогућите га и поново учитајте страницу пре него што пошаљете извештај, који служи за испитивање проблема.">
 <!ENTITY sendButton.accesskey "п">
-<!ENTITY typeSelector.falseNegative.label "Adblock Plus не блокира рекламу">
+<!ENTITY typeSelector.falseNegative.label "Adblock Plus не блокира рекламу/е">
 <!ENTITY copyLink.accesskey "в">
 <!ENTITY typeSelector.heading "Изаберите врсту проблема">
+<!ENTITY anonymous.label "Анонимна пријава">
+<!ENTITY anonymity.warning "Нећемо бити у могућности да поново допремо до вас и то ће вероватно снизити приоритет пријаве.">
 <!ENTITY wizard.title "Пријављивање грешака">
 <!ENTITY issues.ownfilters.disable.label "Онемогући филтер">
 <!ENTITY commentPage.description "Поље за текст испод омогућава Вам да додате коментар, како бисте нам помогли да лакше схватимо проблем. Овај корак је произвољан, али је пожељан ако проблем није лако уочљив. Можете и да још једном прегледате извештај пре него што да пошаљате.">
-<!ENTITY typeSelector.falseNegative.accesskey "р">
+<!ENTITY typeSelector.falseNegative.accesskey "в">
 <!ENTITY comment.lengthWarning "Дужина Вашег коментара прелази 1000 знакова. Само првих 1000 знакова ће бити послато.">
 <!ENTITY typeSelector.falseNegative.description "Изаберите ову опцију ако је реклама приказана иако је Adblock Plus омогућен.">
 <!ENTITY typeWarning.override.accesskey "р">
 <!ENTITY sendPage.waitMessage "Сачекајте док Adblock Plus не пошаље Ваш извештај.">
-<!ENTITY dataCollector.heading "Добродошли у пријављивање грешака">
+<!ENTITY dataCollector.heading "Добро дошли у део за пријаву грешака">
 <!ENTITY screenshot.remove.label "Уклони приватне податке">
 <!ENTITY screenshot.heading "Приложи снимак">
 <!ENTITY comment.accesskey "К">

@@ -19,8 +19,8 @@
 <!ENTITY typeWarning.override.label "Razumem in želim vseeno oddati poročilo">
 <!ENTITY issues.disabled.enable.label "Omogoči Adblock Plus">
 <!ENTITY anonymous.accesskey "a">
-<!ENTITY update.fixed.description "Posodobitev filtra bo najverjetneje razrešila problem,
-ki si ga poročal. Osveži stran in poskusi znova. Če
+<!ENTITY update.fixed.description "Posodobitev filtra bo najverjetneje razrešila problem, 
+ki si ga poročal. Osveži stran in poskusi znova. Če 
 bo problem ostal nerešen znova klikni Poročaj.">
 <!ENTITY email.label "E-pošta:">
 <!ENTITY reloadButton.label "Ponovno naloži stran">
@@ -29,7 +29,7 @@ bo problem ostal nerešen znova klikni Poročaj.">
 <!ENTITY screenshot.mark.accesskey "t">
 <!ENTITY issues.ownfilters.description "Nekateri filtri, uporabljeni na tej strani, so uporabniško določeni. Onemogočite filtre, ki so lahko krivi za to težavo:">
 <!ENTITY screenshot.undo.accesskey "z">
-<!ENTITY update.inProgress.description "Adblock potrebuje nadgradnjo naročenih filtrov, da zagotovi,
+<!ENTITY update.inProgress.description "Adblock potrebuje nadgradnjo naročenih filtrov, da zagotovi, 
 da problem ni bil že rešen. Prosim počakaj...">
 <!ENTITY sendPage.retry.label "Pošlji znova">
 <!ENTITY data.label "Podatki poročila:">

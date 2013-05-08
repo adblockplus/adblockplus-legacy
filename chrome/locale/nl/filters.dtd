@@ -15,7 +15,7 @@
 <!ENTITY find.accesskey "o">
 <!ENTITY readMore.label "Lees meer">
 <!ENTITY subscription.homepage.label "Startpagina">
-<!ENTITY typoCorrections.enableLabel "Correct verkeerd getypte internetadressen">
+<!ENTITY typoCorrections.enableLabel "Verbeter verkeerd getypte internetadressen">
 <!ENTITY sort.descending.accesskey "Z">
 <!ENTITY sort.descending.label "Z &gt; A sortering">
 <!ENTITY subscription.lastDownload.success "Gelukt">
@@ -76,6 +76,7 @@
 <!ENTITY sort.ascending.accesskey "A">
 <!ENTITY restore.default.label "Back-up van ?1? terugzetten">
 <!ENTITY hitcount.accesskey "T">
+<!ENTITY acceptableAds2.accesskey "E">
 <!ENTITY subscription.lastDownload.unknown "N.B.">
 <!ENTITY subscription.enabled.label "Ingeschakeld">
 <!ENTITY noSubscriptions.text "U heeft nog geen filterabonnementen toegevoegd. Adblock Plus blokkeert niets zonder filters, gebruik ‘Filterabonnement toevoegen’ om er één toe te voegen.">

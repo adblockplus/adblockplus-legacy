@@ -19,7 +19,9 @@
 <!ENTITY issues.disabledgroups.enable.label "Gaitu iragazki harpidetza / iragazki taldea">
 <!ENTITY typeWarning.override.label "Ulertzen dut eta txostena bidali nahi dut hala ere">
 <!ENTITY issues.disabled.enable.label "Gaitu Adblock Plus">
+<!ENTITY anonymous.accesskey "a">
 <!ENTITY update.fixed.description "Baliteke zure iragazki harpidetzak eguneratzeak arazoa konpondu izana. Mesedez birkargatu orria eta berriro saiatu, arazoa berean badirau berriro zapaldu Berri eman botoia.">
+<!ENTITY email.label "E-Posta:">
 <!ENTITY reloadButton.label "Birkargatu orria">
 <!ENTITY recentReports.clear.label "Ezabatu txosten guztiak">
 <!ENTITY typeSelector.description "Leiho honek Adblock Plus arazo txosten bat bidaltzeko beharrezkoak diren urratsetan zehar gidatuko zaitu. Hasteko, mesedez aukeratu orri honetan pairatzen duzun arazo mota aukeratu:">
@@ -36,7 +38,7 @@
 <!ENTITY attachExtensions.label "Erantsi gehigarri aktiboen zerrenda bat txostenera hauen arteko konfliktoak arazoa sor balezakete">
 <!ENTITY issues.nosubscriptions.add.label "Gehitu iragazki harpidetza">
 <!ENTITY issues.disabledfilters.enable.label "Gaitu iragazkia">
-<!ENTITY issues.override.label "Knfigurazioa zuzena da, jarraitu txostenarekin">
+<!ENTITY issues.override.label "Konfigurazioa zuzena da, jarraitu txostenarekin">
 <!ENTITY issues.nosubscriptions.description "Antza denez ez zara harpidetu webguneetatik nahi ez dituzun edukiak automatikoki ezabatzen duten aurrez egindako zerrendetara.">
 <!ENTITY outdatedSubscriptions.description "Hurrengo iragazki harpidetzak ez dira eguneratu bi astetan gutxienez. Mesedez eguneratu harpidetza hauek txosten bat bidali aurretik, baliteke arazoa jada konponduta egotea.">
 <!ENTITY typeSelector.other.label "Beste zerbait">
@@ -60,6 +62,7 @@
 	and submit a report if the issue hasn't been resolved by the alterations">
 <!ENTITY copyLink.accesskey "P">
 <!ENTITY typeSelector.heading "Aukeratu arazo mota">
+<!ENTITY anonymous.label "Izen gabe aurkeztu">
 <!ENTITY wizard.title "Arazoaren txostena bidali da">
 <!ENTITY issues.ownfilters.disable.label "Iragazkia ezgaitu">
 <!ENTITY commentPage.description "Beheko testu eremuak guk arazoa hobeto ulertzeko iruzkin bat sartzea baimentzen dizu.

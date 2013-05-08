@@ -4,6 +4,7 @@
 <!ENTITY type.label "Typ">
 <!ENTITY tooltip.filterSource.label "Filterkälla:">
 <!ENTITY noitems.label "Inget att blockera">
+<!ENTITY filter.label "Filtrera">
 <!ENTITY tooltip.size.label "Storlek:">
 <!ENTITY reattach.label "Koppla ihop">
 <!ENTITY search.label "Sök:">

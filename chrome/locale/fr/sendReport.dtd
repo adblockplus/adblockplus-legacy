@@ -19,6 +19,7 @@
 <!ENTITY issues.disabledgroups.enable.label "Activer l'abonnement/le groupe de filtres">
 <!ENTITY typeWarning.override.label "Je comprends et souhaite soumettre le signalement tout de même">
 <!ENTITY issues.disabled.enable.label "Activer Adblock Plus">
+<!ENTITY anonymous.accesskey "a">
 <!ENTITY update.fixed.description "Les mises à jour de vos abonnements de filtres ont probablement résolu le problème que vous avez signalé. Veuillez recharger la page et réessayer, appuyez à nouveau sur « Signaler » si le problème persiste.">
 <!ENTITY email.label "Email :">
 <!ENTITY reloadButton.label "Actualiser la page">
@@ -41,6 +42,7 @@
 <!ENTITY issues.nosubscriptions.description "Vous ne semblez pas être abonné à une liste de filtres prédéfinis qui suppriment automatiquement des contenus indésirables de sites Web.">
 <!ENTITY outdatedSubscriptions.description "Les abonnements de filtres suivants n'ont pas été mis à jour depuis au moins deux semaines. Veuillez mettre à jour ces abonnements avant de signaler un problème, il se pourrait qu'il ait déjà été résolu.">
 <!ENTITY typeSelector.other.label "Autre problème">
+<!ENTITY emailComment.label "Nous vous encourageons à saisir un email valide afin que nous puissions vous contacter pour toute question concernant votre rapport. Cela nous permettra également de reconnaître vos contributions et de les prioriser.">
 <!ENTITY issues.whitelist.remove.label "Activer à nouveau Adblock Plus sur cette page">
 <!ENTITY typeSelector.falsePositive.description "Choisissez cette option si le contenu de la page est sévèrement tronqué, est mal affiché ou ne fonctionne pas correctement. Vous pouvez vérifier si Adblock Plus en est la cause en la désactivant temporairement.">
 <!ENTITY dataCollector.description "Veuillez patienter quelques instants pendant qu'Adblock Plus réunit les données nécessaires.">
@@ -60,6 +62,7 @@
 <!ENTITY copyLink.accesskey "p">
 <!ENTITY typeSelector.heading "Choisir le type de problème">
 <!ENTITY anonymous.label "Soumission anonyme">
+<!ENTITY anonymity.warning "Nous ne serons pas capable de de vous recontacter et votre rapport sera potentiellement moins prioritaire.">
 <!ENTITY wizard.title "Signalement de problèmes">
 <!ENTITY issues.ownfilters.disable.label "Désactiver le filtre">
 <!ENTITY commentPage.description "Le champ ci-dessous vous permet de saisir un commentaire pour nous aider à comprendre le problème. Cette étape est facultative mais recommandée si le problème n'est pas évident à détecter. Vous pouvez également revoir les données du signalement avant l'envoi.">

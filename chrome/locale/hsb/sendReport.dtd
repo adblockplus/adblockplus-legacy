@@ -19,7 +19,9 @@
 <!ENTITY issues.disabledgroups.enable.label "Filtrowy abonement/filtrowu skupinu zmóžnić">
 <!ENTITY typeWarning.override.label "Rozumju a chcu zdźělenje najebać toho pósłać">
 <!ENTITY issues.disabled.enable.label "Adblock Plus zmóžnić">
+<!ENTITY anonymous.accesskey "a">
 <!ENTITY update.fixed.description "Aktualizacije za waše filtrowe abonementy su najskerje problem rozrisali, kotryž sće zdźělił. Prošu začitajće stronu znowa, spytajće hišće raz a klikńće zaso na 'Hišće raz pósłać', jeli problem hišće wobsteji.">
+<!ENTITY email.label "E-mejl:">
 <!ENTITY reloadButton.label "Stronu znowa začitać">
 <!ENTITY recentReports.clear.label "Wšě zdźělenki wotstronić">
 <!ENTITY typeSelector.description "Tute wokno budźe wam přez kroki wjesć, kotrež su trěbne za słanje wopisanja problemow Adblock Plus. Wubjerće prošu najprjedy družinu problema, na kotryž sće na tutej stronje storčił:">
@@ -40,6 +42,7 @@
 <!ENTITY issues.nosubscriptions.description "Zda so, zo njejśce žane hotowe lisćiny filtrow abonował, kotrež njewitany wobsah z websydło awtomatisce wotstronjeja.">
 <!ENTITY outdatedSubscriptions.description "Slědowace filtrowe abonementy njejsu so wot znajmjeńša dweju njedźelow zaktualizowali. Prošu zaktualizujće tute abonementy, prjedy hač pósćeleš zdźělenku. Problem móhł potom hižo rozrisany być.">
 <!ENTITY typeSelector.other.label "Druhi problem">
+<!ENTITY emailComment.label "Poručamy was, płaćiwu e-mejlowu adresu zapodać, zo bychmy móhli z wami do zwiska stajić, jeli su prašenja wo wašej rozprawje. Budźe nam tež zmóžnić, waše přinoški připóznać a jim wyšu prioritu dać.">
 <!ENTITY issues.whitelist.remove.label "Adblock Plus na tutej stronje zaso zmóžnić">
 <!ENTITY typeSelector.falsePositive.description "Wubjerće tutu opciju, jeli stronje wažny wobsah faluje, so strona wopak zwobraznja abo porjadnje njefunguje. Móžeće zwěsćić, hač Adblock Plus je wina na tutym problemje, hdyž jón nachwilu znjemóžnjeće.">
 <!ENTITY dataCollector.description "Prošu počakńće, mjeztym zo Adblock Plus trěbne daty hromadźi.">
@@ -58,6 +61,8 @@
 <!ENTITY typeSelector.falseNegative.label "Adblock Plus wabjenje njeblokuje">
 <!ENTITY copyLink.accesskey "W">
 <!ENTITY typeSelector.heading "Problemowy typ wubrać">
+<!ENTITY anonymous.label "Anonymne słanje">
+<!ENTITY anonymity.warning "Njemóžemy so zaso na was wobroćić a damy najskerje wašej rozprawje nisku prioritu.">
 <!ENTITY wizard.title "Problemowy rozprawnik">
 <!ENTITY issues.ownfilters.disable.label "Filter znjemóžnić">
 <!ENTITY commentPage.description "Tekstowe polo deleka zmóžnja wam, komentar zapodać, zo byšće nam pomhał, problem rozumić. Tutón krok je opcionalny, ale poruča so, jeli problem wočiwidny njeje. Móžeće tež daty zdźělenki přepruwować, prjedy hač so sćele.">

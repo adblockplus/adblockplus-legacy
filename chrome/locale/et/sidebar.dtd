@@ -4,6 +4,7 @@
 <!ENTITY type.label "Tüüp">
 <!ENTITY tooltip.filterSource.label "Filtri asukoht:">
 <!ENTITY noitems.label "Blokeeritavaid elemendid puuduvad">
+<!ENTITY filter.label "Filter">
 <!ENTITY tooltip.size.label "Suurus:">
 <!ENTITY reattach.label "Haagi tagasi">
 <!ENTITY search.label "Otsing:">

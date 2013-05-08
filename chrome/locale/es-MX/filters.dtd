@@ -3,6 +3,7 @@
 <!ENTITY subscription.delete.label "Eliminar">
 <!ENTITY subscriptions.tab.label "Suscripciones de Filtro">
 <!ENTITY enabled.accesskey "o">
+<!ENTITY addGroup.accesskey "g">
 <!ENTITY subscription.update.label "Actualizar filtros">
 <!ENTITY restore.complete.warning "Todas tus preferencias de filtros se reemplazarán con el contenido del archivo seleccionado. Deseas continuar con el proceso?">
 <!ENTITY filter.moveUp.label "Mover arriba">
@@ -15,6 +16,7 @@
 <!ENTITY readMore.label "Leer mas">
 <!ENTITY subscription.homepage.label "Página de inicio">
 <!ENTITY typoCorrections.enableLabel "Corregir direcciones de internet mal escritas">
+<!ENTITY sort.descending.accesskey "Z">
 <!ENTITY sort.descending.label "Ordernar de la Z &gt; A">
 <!ENTITY subscription.lastDownload.success "Éxito">
 <!ENTITY filters.remove.warning "Realmente deseas quitar todos los filtros seleccionados?">
@@ -71,6 +73,7 @@
 <!ENTITY sort.ascending.label "Ordernar de la A &gt; Z">
 <!ENTITY viewList.label "Ver lista">
 <!ENTITY typoCorrections.whitelistEmptyLabel "Actualmente no hay excepciones.">
+<!ENTITY sort.ascending.accesskey "A">
 <!ENTITY restore.default.label "Restaurar copia de seguridad desde ?1?">
 <!ENTITY hitcount.accesskey "C">
 <!ENTITY acceptableAds2.accesskey "v">

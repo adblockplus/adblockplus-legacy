@@ -19,9 +19,11 @@
 <!ENTITY issues.disabledgroups.enable.label "Enable filter subscription / filter group">
 <!ENTITY typeWarning.override.label "I understand and want to submit the report anyway">
 <!ENTITY issues.disabled.enable.label "Enable Adblock Plus">
+<!ENTITY anonymous.accesskey "a">
 <!ENTITY update.fixed.description "The updates to your filter subscriptions likely resolved the issue that you
   were reporting. Please reload the page and retry, hit Report again if the
   problem remains.">
+<!ENTITY email.label "Email:">
 <!ENTITY reloadButton.label "Reload page">
 <!ENTITY recentReports.clear.label "Remove all reports">
 <!ENTITY typeSelector.description "This window will guide you through the steps required for the submission of an Adblock Plus issue report. First, please select the type of issue that you are experiencing on this page:">
@@ -45,6 +47,8 @@
   weeks. Please update these subscriptions before submitting a report, the
   issue might be resolved already.">
 <!ENTITY typeSelector.other.label "Other issue">
+<!ENTITY emailComment.label "We encourage you to enter a valid email address so that we can contact you if there are questions
+  about your report. It will also allow us to recognize your contributions and to prioritize them higher.">
 <!ENTITY issues.whitelist.remove.label "Re-enable Adblock Plus on this page">
 <!ENTITY typeSelector.falsePositive.description "Select this option if the page lacks important content, displays incorrectly or fails to function properly. You can determine whether Adblock Plus is the cause of the problem by disabling it temporarily.">
 <!ENTITY dataCollector.description "Please wait a few moments while Adblock Plus gathers the required data.">
@@ -63,6 +67,8 @@
 <!ENTITY typeSelector.falseNegative.label "Adblock Plus doesn't block an advertisement">
 <!ENTITY copyLink.accesskey "C">
 <!ENTITY typeSelector.heading "Select issue type">
+<!ENTITY anonymous.label "Anonymous submission">
+<!ENTITY anonymity.warning "We won't be able to come back to you and will likely prioritize the report lower.">
 <!ENTITY wizard.title "Issue reporter">
 <!ENTITY issues.ownfilters.disable.label "Disable filter">
 <!ENTITY commentPage.description "The text field below allows you to enter a comment to help us understand the issue. This step is optional but recommended if the problem isn't obvious. You can also review the report data before it is sent.">

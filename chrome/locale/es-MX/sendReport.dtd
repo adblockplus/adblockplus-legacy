@@ -6,6 +6,7 @@
 <!ENTITY recentReports.clear.accesskey "Q">
 <!ENTITY email.accesskey "r">
 <!ENTITY issues.change.description "Su configuración ha sido cambiada. Por favor recargue la página para probar los cambios y presentar un reporte si el problema no ha sido resuelto por las alteraciones.">
+<!ENTITY reloadButton.accesskey "R">
 <!ENTITY screenshot.attach.accesskey "i">
 <!ENTITY issues.openPreferences.label "Abrir preferencias de filtro">
 <!ENTITY sendPage.confirmation "Su reporte ha sido salvado. Puede acceder al mismo en la siguiente direccion:">
@@ -18,11 +19,13 @@
 <!ENTITY issues.disabledgroups.enable.label "Activar subscripción/Grupo de filtros">
 <!ENTITY typeWarning.override.label "Entiendo y deseo presentar el reporte de todos modos">
 <!ENTITY issues.disabled.enable.label "Activar Adblock Plus">
+<!ENTITY anonymous.accesskey "a">
 <!ENTITY update.fixed.description "Las actualizaciones de sus suscripciones de filtro probablemente resolvieron el problema sobre el que está usted informando. Por favor vuelva a cargar la página y vuelva a intentarlo. Informe nuevamente si el problema persiste.">
+<!ENTITY email.label "Correo electrónico:">
 <!ENTITY reloadButton.label "Recargar pagina">
 <!ENTITY recentReports.clear.label "Quitar todos los reportes">
 <!ENTITY typeSelector.description "Esta ventana lo guiará por pasos, necesarios para el envio de un reporte de problemas de Adblock Plus. Primero, por favor seleccione el tipo de problema que esta experimentando en esta página:">
-<!ENTITY screenshot.remove.label "Quitar datos sensitivos/privados">
+<!ENTITY screenshot.mark.accesskey "M">
 <!ENTITY typeSelector.other.accesskey "O">
 <!ENTITY screenshot.undo.accesskey "D">
 <!ENTITY update.inProgress.description "AdBlock Plus necesita actualizar sus suscripciones de filtro para asegurarse de que el problema no ha sido resuelto ya. Por favor, espere...">
@@ -39,6 +42,7 @@
 <!ENTITY issues.nosubscriptions.description "Usted no parece estar suscrito a ninguna lista de filtro pre-desarrollado que automáticamente quita contenido no deseado de los sitios web.">
 <!ENTITY outdatedSubscriptions.description "Las siguientes suscripciones de filtro no han sido actualizadas desde hace al menos dos semanas. Por favor, actualícelas antes de enviar un informe de error, el problema quizá esté ya resuelto.">
 <!ENTITY typeSelector.other.label "Otro problema">
+<!ENTITY emailComment.label "Te sugerimos que ingreses una dirección válida de correo electrónico para que podamos contactarte si hay preguntas sobre tu informe. También nos permitirá reconocer tus contribuciones y darles mayor prioridad.">
 <!ENTITY issues.whitelist.remove.label "Re-activar Adblock Plus en esta página">
 <!ENTITY typeSelector.falsePositive.description "Seleccione esta opción si la página carece de contenido importante, muestra incorrectamente o falla al funcionar como debe. Puede determinar si Adblock Plus es el causante del problema desactivandolo temporalmente.">
 <!ENTITY dataCollector.description "Por favor espere un momento mientras Adblock Plus reúne los datos necesarios.">
@@ -55,7 +59,10 @@
 <!ENTITY issues.whitelist.description "Adblock Plus se encuentra desactivado en la pagina que esta reportando. Por favor vuelva a activarlo y recargue la página antes de presentar el informe para ayudar a la investigación de este problema.">
 <!ENTITY sendButton.accesskey "v">
 <!ENTITY typeSelector.falseNegative.label "Adblock Plus no bloquea una publicidad">
+<!ENTITY copyLink.accesskey "C">
 <!ENTITY typeSelector.heading "Elija tipo de problema">
+<!ENTITY anonymous.label "Envío Anónimo">
+<!ENTITY anonymity.warning "No podremos comunicarnos contigo y es probable que le demos una prioridad inferior a tu informe.">
 <!ENTITY wizard.title "Reportero de problemas">
 <!ENTITY issues.ownfilters.disable.label "Desactivar filtro">
 <!ENTITY commentPage.description "El campo de texto a continuación le permite escribir un comentario para ayudarnos a entender el problema. Este paso es opcional pero recomendado si el problema no es obvio. Puede tambien revisar el reporte de datos antes de que sea enviado.">
@@ -65,6 +72,7 @@
 <!ENTITY typeWarning.override.accesskey "E">
 <!ENTITY sendPage.waitMessage "Por favor espere mientras Adblock Plus envía su reporte.">
 <!ENTITY dataCollector.heading "Bienvenido al reportero de problemas">
+<!ENTITY screenshot.remove.label "Quitar datos sensitivos/privados">
 <!ENTITY screenshot.heading "Adjuntar captura de pantalla">
 <!ENTITY comment.accesskey "n">
 <!ENTITY issues.ownfilters.description "Alguno de los filtros aplicados en esta página se encuentran definidos por el usuarios. Por favor desactive los filtros que pueden causar el problema:">

@@ -65,7 +65,7 @@
 <!ENTITY anonymity.warning "Sinuun ei voida ottaa yhteyttä ja todennäköisesti priorisoimme raportin alemmas.">
 <!ENTITY wizard.title "Ongelman raportointi">
 <!ENTITY issues.ownfilters.disable.label "Poista suodatin käytöstä">
-<!ENTITY commentPage.description "Alla olevaan tekstikenttään voit syöttää kommentin helpottaaksesi meitä ymmärtämään ongelman. Tämä vaihe on valinnainen mutta suositeltava, jos ongelma ei ilmiselvä. Voit myös selostaa rapotin tietoa ennen sen lähettämistä.">
+<!ENTITY commentPage.description "Alla olevaan tekstikenttään voit syöttää kommentin (englanniksi) helpottaaksesi meitä ymmärtämään ongelman. Tämä vaihe on valinnainen mutta suositeltava, jos ongelma ei ole ilmiselvä. Voit myös käydä läpi raportin tiedot ennen sen lähettämistä.">
 <!ENTITY typeSelector.falseNegative.accesskey "e">
 <!ENTITY comment.lengthWarning "Kommentin pituus ylittää 1000 merkkiä. Vain ensimmäiset 1000 merkkiä lähetetään.">
 <!ENTITY typeSelector.falseNegative.description "Valitse tämä vaihtoehto, jos mainos näkyy vaikka Adblock Plus on käytössä.">

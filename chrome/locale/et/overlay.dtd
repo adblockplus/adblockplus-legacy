@@ -18,6 +18,7 @@
 <!ENTITY opensidebar.label "Ava blokeeritavad elemendid">
 <!ENTITY options.accesskey "a">
 <!ENTITY contribute.label "Toeta Adblock Plus'i">
+<!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus: Blokeeri raam">
 <!ENTITY blocked.tooltip "Blokeeritud elemendid antud lehel:">
 <!ENTITY hideplaceholders.label "Peida blokeeritud elementide kohatäitjad">

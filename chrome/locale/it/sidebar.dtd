@@ -1,5 +1,5 @@
 <!ENTITY context.flash.label "Fai lampeggiare il contorno dell'elemento selezionato">
-<!ENTITY address.label "Indirizzo">
+<!ENTITY address.label "Indirizzo web">
 <!ENTITY context.open.label "Apri in una nuova scheda">
 <!ENTITY type.label "Tipo">
 <!ENTITY tooltip.filterSource.label "Sorgente del filtro:">

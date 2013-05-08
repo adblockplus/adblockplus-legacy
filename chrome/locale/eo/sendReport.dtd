@@ -4,7 +4,7 @@
 <!ENTITY showData.label "Montri raportodatumojn">
 <!ENTITY typeSelector.falsePositive.label "Adblock Plus blokas tro multe">
 <!ENTITY recentReports.clear.accesskey "F">
-<!ENTITY email.accesskey "f">
+<!ENTITY email.accesskey "R">
 <!ENTITY issues.change.description "Via konfiguro estas ŝanĝita. Bonvolu reŝargi la paĝon por testi la ŝanĝojn kaj sendu la raporton, se la problemo ne solviĝos per la ŝanĝoj.">
 <!ENTITY reloadButton.accesskey "R">
 <!ENTITY screenshot.attach.accesskey "l">
@@ -19,7 +19,9 @@
 <!ENTITY issues.disabledgroups.enable.label "Ebligi filtrilabonon/filtrilgrupon">
 <!ENTITY typeWarning.override.label "Mi komprenas kaj volas sendi la raporton malgraŭ tio">
 <!ENTITY issues.disabled.enable.label "Ebligi Adblock Plus">
+<!ENTITY anonymous.accesskey "a">
 <!ENTITY update.fixed.description "La ĝisdatigoj de viaj filtrilabonoj verŝajne solvis la problemon, kiun vi sciigis. Bonvolu reŝargi la paĝon kaj alklaku denoe 'Sendi denove', se la problemo ankoraŭ ekzistas.">
+<!ENTITY email.label "Retpoŝto:">
 <!ENTITY reloadButton.label "Reŝargi paĝon">
 <!ENTITY recentReports.clear.label "Forigi ĉiujn raportojn">
 <!ENTITY typeSelector.description "Ĉi tiu fenestro gvidos vin tra la paŝoj, kiuj estas bezonataj por sendi la problemraporton de Adblock Plus. Unue bonvolu elekti la problemtipon, kiun vi renkontis sur ĉi tiu paĝo:">
@@ -40,6 +42,7 @@
 <!ENTITY issues.nosubscriptions.description "Ŝajnas, ke vi ne abonis preparitan liston de filtriloj, kiuj aŭtomate forigas nedeziratan enhavon de retejoj.">
 <!ENTITY outdatedSubscriptions.description "La sekvontaj filtrilabonoj ne ĝisdatiĝis de almenaŭ du semajnoj. Bonvolu ĝisdatigi ĉi tiujn abonojn, antaŭ ol vi sendas raporton, la problemo estas eble jam solvita.">
 <!ENTITY typeSelector.other.label "Alia problemo">
+<!ENTITY emailComment.label "Ni rekomendas al vi enigi validan retpoŝtan adreson, por ke ni povu kontakti vin, se estos demandoj pri via raporto. Tio ankaŭ ebligas al ni agnoski viajn kontribuojn kaj doni pli altan prioritaton al ili.">
 <!ENTITY issues.whitelist.remove.label "Denove ebligi Adblock Plus sur ĉi tiu paĝo">
 <!ENTITY typeSelector.falsePositive.description "Elektu ĉi tiun opcion, se la paĝo malhavas gravan enhavon, ne estas vidigata korekte abo malsukcesas korekte funkcii. Vi povas determini, ĉu Adblock Plus estas la kaŭzo de la problemo malebligante ĝin provizore.">
 <!ENTITY dataCollector.description "Bonvolu atendi kelkajn momentojn dum Adblock Plus akiras la necesajn datumojn.">
@@ -58,6 +61,8 @@
 <!ENTITY typeSelector.falseNegative.label "Adblock Plus ne blokas reklamon">
 <!ENTITY copyLink.accesskey "K">
 <!ENTITY typeSelector.heading "Elekti problemtipon">
+<!ENTITY anonymous.label "Anonima sendado">
+<!ENTITY anonymity.warning "Ni ne povas turni nin al vi denove kaj ni donos verŝajne pli malaltan prioritaton al via raporto.">
 <!ENTITY wizard.title "Problemraportilo">
 <!ENTITY issues.ownfilters.disable.label "Malebligi filtrilon">
 <!ENTITY commentPage.description "La tekstokampo malsupre ebligas al vi enigi komenton por helpi al ni kompreni la problemon. Ĉi tiu paŝo estas laŭvola, sed rekomendata, se la problemo ne estas evidenta. Vi povas ankaŭ kontroli la raportodatumojn, antaŭ ol ĝi estas forsendata.">

@@ -19,7 +19,7 @@
 <!ENTITY domainRestriction.accesskey "r">
 <!ENTITY type.whitelist.label "Quy luật ngoại lệ">
 <!ENTITY regexp.warning "Mẫu bạn gõ vào sẽ được xem là biểu thức quy tắc. Nhiều biểu thức quy tắc có thể làm chậm việc duyệt web của bạn. Nếu bạn không định dùng biểu thức quy tắc, hãy thêm một biểu tượng * ở cuối mẫu.">
-<!ENTITY dialog.title "Thêm quy tắc lọc Adblock Plus">
+<!ENTITY dialog.title "Thêm quy tắc lọc cho Adblock Plus">
 <!ENTITY basic.label "Hiển thị cơ bản">
 <!ENTITY preferences.accesskey "H">
 <!ENTITY firstParty.accesskey "n">

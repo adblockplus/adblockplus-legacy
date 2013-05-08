@@ -19,7 +19,7 @@
 <!ENTITY tooltip.filter.label "Filtri në përdorim:">
 <!ENTITY context.block.label "Blloko këtë send">
 <!ENTITY size.label "Madhësia">
-<!ENTITY context.selectAll.label "Zgjidhi të gjitha">
+<!ENTITY context.selectAll.label "Selekto të gjitha">
 <!ENTITY state.label "Gjendja">
 <!ENTITY docDomain.label "Burimi i dokumentit">
 <!ENTITY tooltip.address.label "Adresa:">

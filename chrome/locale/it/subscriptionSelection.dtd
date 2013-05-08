@@ -11,5 +11,5 @@
 <!ENTITY visitHomepage.label "Visita il sito web">
 <!ENTITY addSubscription.label "Aggiungi sottoscrizione">
 <!ENTITY dialog.title "Sottoscrizione di filtri di Adblock Plus">
-<!ENTITY location.label "Indirizzo della lista dei filtri:">
+<!ENTITY location.label "Indirizzo web della lista dei filtri:">
 <!ENTITY fromWeb.description "Confermare l'aggiunta della sottoscrizione di filtri. È possibile modificare il titolo della sottoscrizione oppure l'URL/percorso della lista dei filtri prima di aggiungerla">

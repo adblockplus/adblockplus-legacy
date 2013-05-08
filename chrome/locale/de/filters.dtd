@@ -67,7 +67,7 @@
 <!ENTITY backup.complete.title "Alle Filter und alle Filterabonnements">
 <!ENTITY filters.tab.label "Eigene Filter">
 <!ENTITY find.label "Filter durchsuchen">
-<!ENTITY subscription.lastDownload.connectionError "Fehler, Download fehlgeschlagen">
+<!ENTITY subscription.lastDownload.connectionError "Fehler, Herunterladen fehlgeschlagen">
 <!ENTITY subscription.lastDownload.invalidData "Fehler, keine gültige Filterliste">
 <!ENTITY restore.minVersion.warning "Warnung: diese Datei wurde mit einer neueren Version von Adblock Plus erstellt. Sie sollten Adblock Plus auf die neueste Version aktualisieren, bevor Sie Daten von dieser Sicherung wiederherstellen.">
 <!ENTITY sort.ascending.label "Aufsteigend">
@@ -80,7 +80,7 @@
 <!ENTITY subscription.lastDownload.unknown "Nie">
 <!ENTITY subscription.enabled.label "Aktiv">
 <!ENTITY noSubscriptions.text "Sie haben noch keine Filterabonnements hinzugefügt. Ohne Filter wird Adblock Plus
-  nichts blockieren können, bitte benutzen Sie die Taste
+  nichts blockieren können, bitte benutzen Sie den Knopf
   &quot;Filterabonnement hinzufügen&quot;.">
 <!ENTITY addGroup.label "Filtergruppe hinzufügen">
 <!ENTITY addSubscriptionOther.label "Anderes Abonnement hinzufügen">

@@ -16,6 +16,7 @@
 <!ENTITY matchCase.label "Kes sepadan">
 <!ENTITY custom.pattern.label "Ubah suai:">
 <!ENTITY unselectAllTypes.label "Tidak pilih">
+<!ENTITY domainRestriction.accesskey "s">
 <!ENTITY type.whitelist.label "Peraturan pengecualian">
 <!ENTITY regexp.warning "Pola yang anda masukkan akan diinterpretasi sebagai ungkapan biasa di mana ia boleh melambatkan penjelajahan web. Jika anda tidak berniat untuk menggunakan ungkapan biasa, tambah simbol (*) diakhir pola.">
 <!ENTITY dialog.title "Tambah peraturan penapis Adblock Plus">

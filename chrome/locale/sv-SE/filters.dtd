@@ -35,6 +35,7 @@
 <!ENTITY backupButton.accesskey "Å">
 <!ENTITY filter.actions.label "Filteråtgärder">
 <!ENTITY filter.moveDown.label "Flytta nedåt">
+<!ENTITY typoCorrections.tab.label "Stavfelskorrigeringar">
 <!ENTITY addFilter.label "Lägg till filter">
 <!ENTITY subscription.editTitle.label "Redigera rubrik">
 <!ENTITY subscription.moveDown.label "Flytta nedåt">
@@ -48,6 +49,7 @@
 <!ENTITY subscription.external.label "Uppdateras av ett annat tillägg">
 <!ENTITY noGroupSelected.text "Du måste markera en filtergrupp innan dess filter kan visas.">
 <!ENTITY subscription.lastDownload.inProgress "Hämtar…">
+<!ENTITY typoCorrections.removeButtonLabel "Ta bort markerade">
 <!ENTITY enabled.column "På">
 <!ENTITY viewMenu.label "Visa">
 <!ENTITY addSubscriptionCancel.label "Avbryt">

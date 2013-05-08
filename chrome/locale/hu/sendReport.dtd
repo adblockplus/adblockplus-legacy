@@ -19,7 +19,9 @@
 <!ENTITY issues.disabledgroups.enable.label "Szűrő lista/csoport engedélyezése">
 <!ENTITY typeWarning.override.label "Megértettem és így is szeretném elküldeni a jelentést">
 <!ENTITY issues.disabled.enable.label "Az Adblock Plus engedélyezése">
+<!ENTITY anonymous.accesskey "v">
 <!ENTITY update.fixed.description "A szűrőlisták frissítése nagy valószínűséggel megoldja a bejelentett hibát. Kérem frissítse az oldalt és próbálja újra, csak akkor küldjön bejelentést, ha a probléma továbbra is fennáll.">
+<!ENTITY email.label "Email:">
 <!ENTITY reloadButton.label "Oldal újratöltése">
 <!ENTITY recentReports.clear.label "Az összes jelentés eltávolítása">
 <!ENTITY typeSelector.description "Ez az ablak végigvezeti az Adblock Plus hiba bejelentési lépésein. Először kérem válassza ki a webhelyen jelentkező hiba jellegét:">
@@ -40,6 +42,7 @@
 <!ENTITY issues.nosubscriptions.description "Úgy tűnik, hogy nincs feliratkozva egyetlen előre elkészített szűrőlistára sem, amellyel automatikusan eltávolíthatja a nem kívánt tartalmakat a webhelyekről.">
 <!ENTITY outdatedSubscriptions.description "Az alábbi szűrőlistákat legalább két hete nem frissítette. Kérem frissítse a listákat mielőtt jelentést küld róluk, lehetséges, hogy a probléma időközben megoldódott.">
 <!ENTITY typeSelector.other.label "Egyéb">
+<!ENTITY emailComment.label "Javasoljuk, hogy érvényes e-mail címet adjon meg, így fel tudjuk venni Önnel a kapcsolatot, ha kérdés merül fel a jelentésével kapcsolatban. Ezzel azt is lehetővé teszi, hogy felismerjük az Ön hozzájárulásait, és azok magasabb prioritást kapjanak.">
 <!ENTITY issues.whitelist.remove.label "Adblock Plus újraengedélyezése az oldalon">
 <!ENTITY typeSelector.falsePositive.description "Válassza ezt a lehetőséget, ha a webhelyről hiányoznak lényeges tartalmak, rosszul jelenik meg, vagy hibásan működik. Úgy bizonyosodhat meg arról, hogy az Adblock Plus okozza a problémát, ha ideiglenesen letiltja azt.">
 <!ENTITY dataCollector.description "Kérem várjon pár pillanatot, amíg az Adblock Plus összegyűjti a szükséges adatokat.">
@@ -58,6 +61,8 @@
 <!ENTITY typeSelector.falseNegative.label "Az Adblock Plus nem tiltott le egy hirdetést">
 <!ENTITY copyLink.accesskey "c">
 <!ENTITY typeSelector.heading "Vállasszon típust">
+<!ENTITY anonymous.label "Névtelen beküldendő">
+<!ENTITY anonymity.warning "Nem fogunk tudni kapcsolatba lépni Önnel, és valószínű, hogy a jelentése alacsonyabb prioritást kap.">
 <!ENTITY wizard.title "Hibajelentő">
 <!ENTITY issues.ownfilters.disable.label "Szűrő letiltása">
 <!ENTITY commentPage.description "Az alábbi szöveges mezőbe beírhat egy megjegyzést, ami segíthet megérteni a problémát. Ez a lépés kihagyható, de ajánlott, ha a probléma nem egyértelmű. A jelentés elküldése előtt még lesz lehetősége átnézni a megadott adatokat.">

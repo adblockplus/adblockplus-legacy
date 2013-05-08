@@ -19,12 +19,15 @@
 <!ENTITY issues.disabledgroups.enable.label "تفعيل مجموعة  اشتراك فلتر">
 <!ENTITY typeWarning.override.label "أتفهم وأرغب بإرسال التقرير">
 <!ENTITY issues.disabled.enable.label "تفعيل آدبلوك بلس">
+<!ENTITY update.fixed.description "التحديثات لاشتراكات الفلاتر أصلحت المشكلة التي أردت الإبلاغ عنها. رجاء أعد تحديث الصفحة وأعد المحاولة، اضغط تقرير مرة أخرى إذا بقيت المشكلة.">
+<!ENTITY email.label "البريد الإلكتروني:">
 <!ENTITY reloadButton.label "إعادة تحميل الصفحة">
 <!ENTITY recentReports.clear.label "حذف كل التقارير">
 <!ENTITY typeSelector.description "هذه النافذة ستقودك خلال الخطوات المطلوبة لإرسال تبليغ بمشكلة في آدبلوك بلس. في البداية عليك اختيار نوع المشكلة التي تواجهها من هذه الصفحة">
 <!ENTITY screenshot.mark.accesskey "م">
 <!ENTITY typeSelector.other.accesskey "خ">
 <!ENTITY screenshot.undo.accesskey "ت">
+<!ENTITY update.inProgress.description "آدبلوك بلس يحتاج لتحديث اشتراكات الفلاتر للتأكد من أن المشكلة لم يتم إصلاحها مسبقا. الرجاء الانتظار...">
 <!ENTITY data.accesskey "ي">
 <!ENTITY data.label "التبليغ عن بيانات">
 <!ENTITY sendPage.heading "إرسال التقرير">
@@ -36,7 +39,9 @@
 <!ENTITY issues.disabledfilters.enable.label "تفعيل فلتر">
 <!ENTITY issues.override.label "الإعدادات معطلة، المتابعة بالتقرير">
 <!ENTITY issues.nosubscriptions.description "يبدو أنك لم تشترك بأي قوائم فلاتر جاهزة والتي ستقوم بإزالة المحتوى الغير من المواقع تلقائيا">
+<!ENTITY outdatedSubscriptions.description "اشتراكات الفلاتر التالية لم يتم تحديثها منذ أسبوعين على الأقل. الرجاء تحديث هذه الاشتراكات قبل إرسال تقرير، ربما تم إصلاح المشكلة مسبقا.">
 <!ENTITY typeSelector.other.label "مشكلة أخرى">
+<!ENTITY emailComment.label "نحن نشجعك لإدخال بريد إلكتروني صحيح لكي نتمكن من الاتصال بك إذا كانت هناك أسئلة.">
 <!ENTITY issues.whitelist.remove.label "إعادة تفعيل آدبلوك بلس على هذه الصفحة">
 <!ENTITY typeSelector.falsePositive.description "اختر هذا الخيار ان كان محتوى مهم ناقص من الصفحة أو كانت الصفحة تظهر بشكل خاطئ أو لا تعمل بشكل جيد. إن لم يكن باستطاعتك تحديد إن كان آدبلوك بلس هو سبب المشكلة جرب تعطيله مؤقتاً">
 <!ENTITY dataCollector.description "من فضلك انتظر بضعة دقائق ريثما يجمع آدبلوك بلس المعلومات المطلوبة">
@@ -55,6 +60,8 @@
 <!ENTITY typeSelector.falseNegative.label "آدبلوك بلس لا يقوم بحجب أحد الإعلانات">
 <!ENTITY copyLink.accesskey "ن">
 <!ENTITY typeSelector.heading "اختر نوع المشكلة">
+<!ENTITY anonymous.label "تقرير بدون هوية">
+<!ENTITY anonymity.warning "لن نكون قادرين على الرجوع إليك و لن نعطي للتقرير أهمية كبيرة.">
 <!ENTITY wizard.title "مبلغ المشاكل">
 <!ENTITY issues.ownfilters.disable.label "تعطيل فلتر">
 <!ENTITY commentPage.description "يسمح لك الحقل التالي بإدخال تعليق ليساعدنا في فهم المشكلة. هذه الخطوة إختيارية ولكننا نصح بها إن لم تكن المشكلة واضحة. ستستطيع أيضا مراجعة بيانات التقرير قبل إرساله">
