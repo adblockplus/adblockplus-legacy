@@ -27,26 +27,26 @@ Cu.import("resource://gre/modules/Services.jsm");
  */
 function require(/**String*/ module)
 {
-  let result = {};
+  var result = {};
   result.wrappedJSObject = result;
   Services.obs.notifyObservers(result, "adblockplus-require", module);
   return result.exports;
 }
 
-let {Policy} = require("contentPolicy");
-let {Filter, InvalidFilter, CommentFilter, ActiveFilter, RegExpFilter,
+var {Policy} = require("contentPolicy");
+var {Filter, InvalidFilter, CommentFilter, ActiveFilter, RegExpFilter,
      BlockingFilter, WhitelistFilter, ElemHideBase, ElemHideFilter, ElemHideException} = require("filterClasses");
-let {FilterNotifier} = require("filterNotifier");
-let {FilterStorage, PrivateBrowsing} = require("filterStorage");
-let {IO} = require("io");
-let {defaultMatcher, Matcher, CombinedMatcher} = require("matcher");
-let {Prefs} = require("prefs");
-let {RequestNotifier} = require("requestNotifier");
-let {Subscription, SpecialSubscription, RegularSubscription,
+var {FilterNotifier} = require("filterNotifier");
+var {FilterStorage, PrivateBrowsing} = require("filterStorage");
+var {IO} = require("io");
+var {defaultMatcher, Matcher, CombinedMatcher} = require("matcher");
+var {Prefs} = require("prefs");
+var {RequestNotifier} = require("requestNotifier");
+var {Subscription, SpecialSubscription, RegularSubscription,
      ExternalSubscription, DownloadableSubscription} = require("subscriptionClasses");
-let {Synchronizer} = require("synchronizer");
-let {UI} = require("ui");
-let {Utils} = require("utils");
+var {Synchronizer} = require("synchronizer");
+var {UI} = require("ui");
+var {Utils} = require("utils");
 
 /**
  * Shortcut for document.getElementById(id)
