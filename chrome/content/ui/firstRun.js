@@ -15,75 +15,265 @@
  * along with Adblock Plus.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-function init()
+"use strict";
+
+(function()
 {
-  generateLinkText(E("changeDescription"));
+  var shade;
+  var scrollTimer;
 
-  for each (let subscription in FilterStorage.subscriptions)
-  {
-    if (subscription instanceof DownloadableSubscription && subscription.url != Prefs.subscriptions_exceptionsurl && !subscription.disabled)
+  // Load subscriptions for features
+  var featureSubscriptions = [
     {
-      E("listName").textContent = subscription.title;
-
-      let link = E("listHomepage");
-      link.setAttribute("href", subscription.homepage);
-      link.setAttribute("title", subscription.homepage);
-
-      E("listNameContainer").removeAttribute("hidden");
-      E("listNone").setAttribute("hidden", "true");
-      break;
+      feature: "malware",
+      homepage: "http://malwaredomains.com/",
+      title: "Malware Domains",
+      url: "https://easylist-downloads.adblockplus.org/malwaredomains_full.txt"
+    },
+    {
+      feature: "social",
+      homepage: "https://www.fanboy.co.nz/",
+      title: "Fanboy's Social Blocking List",
+      url: "https://easylist-downloads.adblockplus.org/fanboy-social.txt"
+    },
+    {
+      feature: "tracking",
+      homepage: "https://easylist.adblockplus.org/",
+      title: "EasyPrivacy",
+      url: "https://easylist-downloads.adblockplus.org/easyprivacy.txt"
     }
-  }
+  ];
 
-  if (FilterStorage.subscriptions.some(function(s) s.url == Prefs.subscriptions_exceptionsurl))
-    E("acceptableAds").removeAttribute("hidden");
-}
-
-function generateLinkText(element)
-{
-  let template = element.getAttribute("_textTemplate");
-
-  let [, beforeLink, linkText, afterLink] = /(.*)\[link\](.*)\[\/link\](.*)/.exec(template) || [null, "", template, ""];
-  while (element.firstChild && element.firstChild.nodeType != Node.ELEMENT_NODE)
-    element.removeChild(element.firstChild);
-  while (element.lastChild && element.lastChild.nodeType != Node.ELEMENT_NODE)
-    element.removeChild(element.lastChild);
-  if (!element.firstChild)
-    return;
-
-  element.firstChild.textContent = linkText;
-  element.insertBefore(document.createTextNode(beforeLink), element.firstChild);
-  element.appendChild(document.createTextNode(afterLink));
-}
-
-function openFilters()
-{
-  if (Utils.isFennec)
+  function onDOMLoaded()
   {
-    let topWnd = window.QueryInterface(Ci.nsIInterfaceRequestor)
-                       .getInterface(Ci.nsIWebNavigation)
-                       .QueryInterface(Ci.nsIDocShellTreeItem)
-                       .rootTreeItem
-                       .QueryInterface(Ci.nsIInterfaceRequestor)
-                       .getInterface(Ci.nsIDOMWindow);
-    if (topWnd.wrappedJSObject)
-      topWnd = topWnd.wrappedJSObject;
-
-    // window.close() closes the entire window (bug 642604), make sure to close
-    // only a single tab instead.
-    if ("BrowserUI" in topWnd)
+    // Show warning if data corruption was detected
+    if (typeof backgroundPage != "undefined" && backgroundPage.seenDataCorruption)
     {
-      topWnd.BrowserUI.showPanel("addons-container");
-      function showOptions()
+      E("dataCorruptionWarning").removeAttribute("hidden");
+      setLinks("dataCorruptionWarning", Utils.getDocLink("knownIssuesChrome_filterstorage"));
+    }
+
+    // Set up URL
+    setLinks("acceptableAdsExplanation", Utils.getDocLink("acceptable_ads_criteria"), openFilters);
+
+    shade = E("shade");
+    shade.addEventListener("mouseover", scrollPage, false);
+    shade.addEventListener("mouseout", stopScroll, false);
+
+    // Set up typo feature
+    if (require("typoBootstrap"))
+    {
+      var featureTypo = E("feature-typo");
+      featureTypo.removeAttribute("hidden");
+      
+      updateToggleButton("typo", Prefs.correctTypos);
+
+      var listener = function(name)
       {
-        if (!topWnd.ExtensionsView.getElementForAddon(Utils.addonID))
-          Utils.runAsync(showOptions);
-        else
-          topWnd.ExtensionsView.showOptions(Utils.addonID);
+        if (name == "correctTypos")
+          updateToggleButton("typo", Prefs.correctTypos);
       }
-      showOptions();
+      Prefs.addListener(listener);
+      window.addEventListener("unload", function(event)
+      {
+        Prefs.removeListener(listener);
+      }, false);
+
+      E("toggle-typo").addEventListener("click", toggleTypoCorrectionEnabled, false);
+    }
+
+    // Set up feature buttons linked to subscriptions
+    featureSubscriptions.forEach(setToggleSubscriptionButton);
+    var filterListener = function(action)
+    {
+      if (/^subscription\.(added|removed|disabled)$/.test(action))
+      {
+        for (var i = 0; i < featureSubscriptions.length; i++)
+        {
+          var featureSubscription = featureSubscriptions[i];
+          updateToggleButton(featureSubscription.feature, isSubscriptionEnabled(featureSubscription));
+        }
+      }
+    }
+    FilterNotifier.addListener(filterListener);
+    window.addEventListener("unload", function(event)
+    {
+      FilterNotifier.removeListener(filterListener);
+    }, false);
+
+    window.addEventListener("resize", onWindowResize, false);
+    document.addEventListener("scroll", onScroll, false);
+
+    onWindowResize();
+
+    initSocialLinks(null);
+  }
+
+  function onScroll()
+  {
+    var currentHeight = document.documentElement.scrollTop + document.body.scrollTop + document.documentElement.clientHeight;
+    shade.style.opacity = (document.documentElement.scrollHeight == currentHeight) ? "0.0" : "0.5";
+  }
+
+  function onWindowResize()
+  {
+    onScroll();
+  }
+
+  function toggleTypoCorrectionEnabled()
+  {
+    Prefs.correctTypos = !Prefs.correctTypos;
+  }
+
+  function isSubscriptionEnabled(featureSubscription)
+  {
+    return featureSubscription.url in FilterStorage.knownSubscriptions
+      && !Subscription.fromURL(featureSubscription.url).disabled;
+  }
+
+  function setToggleSubscriptionButton(featureSubscription)
+  {
+    var feature = featureSubscription.feature;
+
+    var element = E("toggle-" + feature);
+    updateToggleButton(feature, isSubscriptionEnabled(featureSubscription));
+    element.addEventListener("click", function(event)
+    {
+      var subscription = Subscription.fromURL(featureSubscription.url);
+      if (isSubscriptionEnabled(featureSubscription))
+        FilterStorage.removeSubscription(subscription);
+      else
+      {
+        subscription.disabled = false;
+        subscription.title = featureSubscription.title;
+        subscription.homepage = featureSubscription.homepage;
+        FilterStorage.addSubscription(subscription);
+        if (!subscription.lastDownload)
+          Synchronizer.execute(subscription);
+      }
+    }, false);
+  }
+
+  function scrollPage()
+  {
+    if (scrollTimer)
+      stopScroll();
+
+    scrollTimer = setInterval(function()
+    {
+      window.scrollBy(0, 5);
+    }, 20);
+  }
+
+  function stopScroll()
+  {
+    clearTimeout(scrollTimer);
+    scrollTimer = null;
+  }
+
+  function openSharePopup(url)
+  {
+    var iframe = E("share-popup");
+    var glassPane = E("glass-pane");
+    var popupMessageReceived = false;
+
+    var popupMessageListener = function(event)
+    {
+      var originFilter = Filter.fromText("||adblockplus.org^");
+      if (!originFilter.matches(event.origin, "OTHER", null, null))
+        return;
+
+      var width = event.data.width;
+      var height = event.data.height;
+      iframe.width = width;
+      iframe.height = height;
+      iframe.style.marginTop = -height/2 + "px";
+      iframe.style.marginLeft = -width/2 + "px";
+      popupMessageReceived = true;
+      window.removeEventListener("message", popupMessageListener);
+    };
+    // Firefox requires last parameter to be true to be triggered by unprivileged pages
+    window.addEventListener("message", popupMessageListener, false, true);
+
+    var popupLoadListener = function()
+    {
+      if (popupMessageReceived)
+      {
+        iframe.className = "visible";
+
+        var popupCloseListener = function()
+        {
+          iframe.className = glassPane.className = "";
+          document.removeEventListener("click", popupCloseListener);
+        };
+        document.addEventListener("click", popupCloseListener, false);
+      }
+      else
+      {
+        glassPane.className = "";
+        window.removeEventListener("message", popupMessageListener);
+      }
+
+      iframe.removeEventListener("load", popupLoadListener);
+    };
+    iframe.addEventListener("load", popupLoadListener, false);
+
+    iframe.src = url;
+    glassPane.className = "visible";
+  }
+
+  function initSocialLinks(variant)
+  {
+    var networks = ["twitter", "facebook", "gplus"];
+    networks.forEach(function(network)
+    {
+      var link = E("share-" + network);
+      link.addEventListener("click", function(e)
+      {
+        e.preventDefault();
+        openSharePopup(Utils.getDocLink("share-" + network) + "&variant=" + variant);
+      }, false);
+    });
+  }
+
+  function setLinks(id)
+  {
+    var element = E(id);
+    if (!element)
+      return;
+
+    var links = element.getElementsByTagName("a");
+    for (var i = 0; i < links.length; i++)
+    {
+      if (typeof arguments[i + 1] == "string")
+      {
+        links[i].href = arguments[i + 1];
+        links[i].setAttribute("target", "_blank");
+      }
+      else if (typeof arguments[i + 1] == "function")
+      {
+        links[i].href = "javascript:void(0);";
+        links[i].addEventListener("click", arguments[i + 1], false);
+      }
     }
   }
-  else
-    UI.openFiltersDialog();
-}
+
+  function openFilters()
+  {
+    if (typeof UI != "undefined")
+      UI.openFiltersDialog();
+    else
+    {
+      backgroundPage.openOptions();
+    }
+  }
+
+  function updateToggleButton(feature, isEnabled)
+  {
+    var button = E("toggle-" + feature);
+    button.className = isEnabled ? "disable" : "enable";
+    button.textContent = i18n.getMessage(isEnabled ? "firstRun_action_disable" : "firstRun_action_enable");
+  }
+
+  document.addEventListener("DOMContentLoaded", onDOMLoaded, false);
+})();
