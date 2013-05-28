@@ -66,6 +66,12 @@
                 homepage="https://easylist.adblockplus.org/"
                 prefixes="it"
                 author="Khrin"/>
+  <subscription title="Latvian List+EasyList"
+                specialization="latviešu valoda"
+                url="https://easylist-downloads.adblockplus.org/latvianlist+easylist.txt"
+                homepage="http://latvian-list.site11.com/"
+                prefixes="lv"
+                author="None"/>
   <subscription title="Liste AR+Liste FR+EasyList"
                 specialization="العربية"
                 url="https://easylist-downloads.adblockplus.org/liste_ar+liste_fr+easylist.txt"
