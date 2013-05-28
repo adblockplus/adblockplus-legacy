@@ -22,7 +22,7 @@ body
   line-height: 140%;
   color: #000000;
   background-color: #f8f6f2;
-  background-image: url(/skin/background.png);
+  background-image: url(background.png);
   margin: 0 auto;
   padding: 0;
   max-width: 900px;
@@ -51,29 +51,29 @@ header, p
 header
 {
   padding-left: 148px;
-  background-image: url(/skin/abp-icon-big.png);
+  background-image: url(abp-icon-big.png);
   background-position: 0% 50%;
   background-repeat: no-repeat;
   min-height: 128px;
   vertical-align: middle;
   line-height: 1;
-  
+
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-box-pack: center;
-  
+
   display: -moz-box;
   -moz-box-orient: vertical;
   -moz-box-pack: center;
-  
+
   display: -o-box;
   -o-box-orient: vertical;
   -o-box-pack: center;
-  
+
   display: -ms-box;
   -ms-box-orient: vertical;
   -ms-box-pack: center;
-  
+
   display: box;
   box-orient: vertical;
   box-pack: center;
@@ -165,22 +165,22 @@ header h1
 
 #feature-typo .feature-image
 {
-  background-image: url(/skin/features/typo.png);
+  background-image: url(features/typo.png);
 }
 
 #feature-malware .feature-image
 {
-  background-image: url(/skin/features/malware.png);
+  background-image: url(features/malware.png);
 }
 
 #feature-social .feature-image
 {
-  background-image: url(/skin/features/social.png);
+  background-image: url(features/social.png);
 }
 
 #feature-tracking .feature-image
 {
-  background-image: url(/skin/features/tracking.png);
+  background-image: url(features/tracking.png);
 }
 
 .feature button
@@ -369,17 +369,17 @@ footer h1
 
 #share-facebook
 {
-  background-image: url(/skin/social/facebook.png);
+  background-image: url(social/facebook.png);
 }
 
 #share-twitter
 {
-  background-image: url(/skin/social/twitter.png);
+  background-image: url(social/twitter.png);
 }
 
 #share-gplus
 {
-  background-image: url(/skin/social/gplus.png);
+  background-image: url(social/gplus.png);
 }
 
 #glass-pane, #share-popup
@@ -400,9 +400,9 @@ footer h1
   right: 0;
   bottom: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.5) url(/skin/ajax-loader.gif) no-repeat 50% 50%;
+  background: rgba(0, 0, 0, 0.5) url(ajax-loader.gif) no-repeat 50% 50%;
   z-index: 101;
-  
+
   -webkit-transition-duration: 0.2s;
   -moz-transition-duration: 0.2s;
   -o-transition-duration: 0.2s;
