@@ -271,8 +271,10 @@
   function updateToggleButton(feature, isEnabled)
   {
     var button = E("toggle-" + feature);
-    button.className = isEnabled ? "disable" : "enable";
-    button.textContent = i18n.getMessage(isEnabled ? "firstRun_action_disable" : "firstRun_action_enable");
+    if (isEnabled && button.classList.contains("off"))
+      button.classList.remove("off");
+    else if (!isEnabled && !button.classList.contains("off"))
+      button.classList.add("off");
   }
 
   document.addEventListener("DOMContentLoaded", onDOMLoaded, false);
