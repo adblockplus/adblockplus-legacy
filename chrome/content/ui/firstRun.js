@@ -60,28 +60,6 @@
     shade.addEventListener("mouseover", scrollPage, false);
     shade.addEventListener("mouseout", stopScroll, false);
 
-    // Set up typo feature
-    if (require("typoBootstrap"))
-    {
-      var featureTypo = E("feature-typo");
-      featureTypo.removeAttribute("hidden");
-      
-      updateToggleButton("typo", Prefs.correctTypos);
-
-      var listener = function(name)
-      {
-        if (name == "correctTypos")
-          updateToggleButton("typo", Prefs.correctTypos);
-      }
-      Prefs.addListener(listener);
-      window.addEventListener("unload", function(event)
-      {
-        Prefs.removeListener(listener);
-      }, false);
-
-      E("toggle-typo").addEventListener("click", toggleTypoCorrectionEnabled, false);
-    }
-
     // Set up feature buttons linked to subscriptions
     featureSubscriptions.forEach(setToggleSubscriptionButton);
     var filterListener = function(action)

@@ -32,7 +32,3 @@ pref("extensions.adblockplus.report_submiturl", "https://reports.adblockplus.org
 pref("extensions.adblockplus.recentReports", []);
 pref("extensions.adblockplus.hideContributeButton", false);
 pref("extensions.adblockplus.blockableItemsSize", {width: 200, height: 200});
-pref("extensions.adblockplus.correctTyposAsked", false);
-pref("extensions.adblockplus.correctTypos", false);
-pref("extensions.adblockplus.whitelist", {});
-pref("extensions.adblockplus.lastRuleUpdate", 0);

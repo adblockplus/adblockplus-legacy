@@ -94,14 +94,7 @@ function updateSelectedSubscription()
 
   let list = panel.getElementsByTagName("richlistbox")[0];
   if (!list)
-  {
-    E("filtersContainer").hidden = true;
-    E("filtersSplitter").hidden = true;
     return;
-  }
-  
-  E("filtersContainer").hidden = false;
-  E("filtersSplitter").hidden = false;
 
   let data = Templater.getDataForNode(list.selectedItem);
   FilterView.subscription = (data ? data.subscription : null);
