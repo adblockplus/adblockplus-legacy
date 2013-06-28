@@ -41,7 +41,6 @@
 <script type="application/x-javascript;version=1.7" src="filters-filteractions.js"/>
 <script type="application/x-javascript;version=1.7" src="filters-backup.js"/>
 <script type="application/x-javascript;version=1.7" src="filters-search.js"/>
-<script type="application/x-javascript;version=1.7" src="typoSettings.js"/>
 
 <keyset id="filtersKeyset">
   <key id="subscription-update-key" key="T" modifiers="accel" command="subscription-update-command"/>
@@ -145,7 +144,6 @@
     <tabs onselect="onTabChange(this.parentNode);">
       <tab label="&subscriptions.tab.label;"/>
       <tab label="&filters.tab.label;"/>
-      <tab label="&typoCorrections.tab.label;"/>
     </tabs>
     <tabpanels flex="1">
       <tabpanel id="subscriptionsTab" orient="vertical" flex="1">
@@ -315,22 +313,6 @@
               onkeypress="SubscriptionActions.keyPress(event);">
           </richlistbox>
         </deck>
-      </tabpanel>
-      <tabpanel id="typoCorrectionsTab" orient="vertical" flex="1">
-        <checkbox id="typo_enable" label="&typoCorrections.enableLabel;" oncommand="TypoActions.setEnabled(this.checked)"/>
-        <groupbox id="typo_whitelist_container" flex="1">
-          <listbox id="typo_whitelist" class="initialFocus" flex="1" seltype="multiple" onselect="TypoActions.onItemSelected(this);" _removeButton="typo_whitelist_remove-button" _emptyLabel="&typoCorrections.whitelistEmptyLabel;">
-            <listhead>
-              <listheader label="&typoCorrections.whitelistLabel;"/>
-            </listhead>
-            <listcols>
-              <listcol flex="1" />
-            </listcols>
-          </listbox>
-          <hbox align="right">
-            <button label="&typoCorrections.removeButtonLabel;" onclick="TypoActions.removeRule(this, 'whitelist');" disabled="true" id="typo_whitelist_remove-button" _list="typo_whitelist" />
-          </hbox>
-        </groupbox>
       </tabpanel>
     </tabpanels>
   </tabbox>

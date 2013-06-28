@@ -2,7 +2,6 @@
 
 <!ENTITY subscriptions.tab.label              "Filter subscriptions">
 <!ENTITY filters.tab.label                    "Custom filters">
-<!ENTITY typoCorrections.tab.label            "Typo corrections">
 
 <!ENTITY addSubscription.label                "Add filter subscription">
 <!ENTITY addSubscription.accesskey            "f">
@@ -113,8 +112,3 @@
 <!ENTITY find.accesskey                       "n">
 
 <!ENTITY close.label                          "Close">
-
-<!ENTITY typoCorrections.enableLabel          "Correct mistyped internet addresses">
-<!ENTITY typoCorrections.whitelistLabel       "Don't Replace...">
-<!ENTITY typoCorrections.whitelistEmptyLabel  "There are currently no exceptions.">
-<!ENTITY typoCorrections.removeButtonLabel    "Remove Selected">

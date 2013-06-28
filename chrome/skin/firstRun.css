@@ -163,11 +163,6 @@ header h1
   height: 57px;
 }
 
-#feature-typo .feature-image
-{
-  background-image: url(features/typo.png);
-}
-
 #feature-malware .feature-image
 {
   background-image: url(features/malware.png);
