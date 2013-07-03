@@ -1,4 +1,3 @@
-<!ENTITY showintoolbar.accesskey "a">
 <!ENTITY sync.label "Sync Adblock Plus opsjes">
 <!ENTITY whitelist.site.label "Utskeakelje op ?1?">
 <!ENTITY filters.label "Filterfoarkarren">
@@ -6,28 +5,24 @@
 <!ENTITY showinaddonbar.label "Toan yn tafoegingsbalke">
 <!ENTITY objecttab.title "Blokkearje">
 <!ENTITY objecttab.tooltip "Klik hjir om dit objekt te blokkearjen mei Adblock Plus">
-<!ENTITY menuitem.label "Adblock Plus">
-<!ENTITY objecttabs.label "Ljepblêden sjen litte op Flash en Java">
+<!ENTITY menuitem.label "&amp;Adblock Plus">
+<!ENTITY objecttabs.label "Ljepblêden sjen li&amp;tte op Flash en Java">
 <!ENTITY sendReport.label "Rapportearje probleem op dizze side">
 <!ENTITY whitelist.page.label "Allinnich op dizze side útskeakelje">
 <!ENTITY context.image.label "Ofbylding blokkearje">
-<!ENTITY closesidebar.accesskey "B">
 <!ENTITY hideplaceholders.label "Ferstop placeholders fan blokkearre eleminten">
-<!ENTITY opensidebar.label "Blokkearbere ûnderdielen iepenje">
+<!ENTITY opensidebar.label "&amp;Blokkearbere ûnderdielen iepenje">
 <!ENTITY contribute.label "Donearje oan Adblock Plus">
 <!ENTITY context.frame.label "Dielfinster blokkearje">
 <!ENTITY counthits.label "Tel filterhits">
 <!ENTITY blocked.tooltip "Blokkearre ûnderdielen:">
-<!ENTITY opensidebar.accesskey "B">
 <!ENTITY showinstatusbar.label "Toane yn steatbalke">
 <!ENTITY status.tooltip "Steat:">
 <!ENTITY sidebar.title "Blokkearbere ûnderdelen op dizze side">
 <!ENTITY options.label "Opsjes">
 <!ENTITY context.object.label "Objekt blokkearje">
 <!ENTITY context.removeWhitelist.label "Adblock Plus: opnij ynskeakelje op dizze side">
-<!ENTITY objecttabs.accesskey "T">
 <!ENTITY filters.tooltip "Meast aktive filters:">
-<!ENTITY closesidebar.label "Blokkearbere ûnderdielen slute">
-<!ENTITY showintoolbar.label "Toane yn arkbalke">
-<!ENTITY menuitem.accesskey "A">
+<!ENTITY closesidebar.label "&amp;Blokkearbere ûnderdielen slute">
+<!ENTITY showintoolbar.label "To&amp;ane yn arkbalke">
 <!ENTITY context.media.label "Adblock Plus: Blokkearje audio/fideo">

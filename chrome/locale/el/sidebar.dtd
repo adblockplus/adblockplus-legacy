@@ -7,13 +7,12 @@
 <!ENTITY filter.label "Φίλτρο">
 <!ENTITY tooltip.size.label "Μέγεθος:">
 <!ENTITY reattach.label "Προσάρτηση">
-<!ENTITY search.label "Αναζήτηση:">
+<!ENTITY search.label "Ανα&amp;ζήτηση:">
 <!ENTITY docDomain.thirdParty "(τρίτων)">
 <!ENTITY filterSource.label "Πηγή φίλτρου">
 <!ENTITY tooltip.docDomain.label "Πηγή εγγράφου:">
 <!ENTITY context.copy.label "Αντιγραφή τοποθεσίας του στοιχείου">
 <!ENTITY tooltip.type.label "Τύπος:">
-<!ENTITY search.accesskey "ζ">
 <!ENTITY context.disablefilter.label "Απενεργοποίηση φίλτρου ?1?">
 <!ENTITY context.copyFilter.label "Αντιγραφή φίλτρου">
 <!ENTITY context.block.label "Φραγή του στοιχείου">

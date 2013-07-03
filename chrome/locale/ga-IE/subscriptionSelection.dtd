@@ -1,4 +1,2 @@
-<!ENTITY title.label "Teideal síntiús:">
-<!ENTITY location.accesskey "L">
-<!ENTITY title.accesskey "T">
-<!ENTITY location.label "Láthair réim an scagaire:">
+<!ENTITY title.label "&amp;Teideal síntiús:">
+<!ENTITY location.label "&amp;Láthair réim an scagaire:">

@@ -1,78 +1,61 @@
-<!ENTITY screenshot.undo.label "Болдырмау">
+<!ENTITY screenshot.undo.label "Б&amp;олдырмау">
 <!ENTITY issues.disabledgroups.description "Келесі фильтрлер/тізімдер сөндірілген, бірақ олар ағымдағы параққа өз әсерлерін тигізуі мүмкін:">
-<!ENTITY attachExtensions.accesskey "с">
 <!ENTITY showData.label "Хабарлама мәліметін көрсету">
-<!ENTITY typeSelector.falsePositive.label "Adblock Plus тым көп блоктайды">
-<!ENTITY recentReports.clear.accesskey "ш">
-<!ENTITY email.accesskey "ш">
+<!ENTITY typeSelector.falsePositive.label "Adblock Plus &amp;тым көп блоктайды">
 <!ENTITY issues.change.description "Баптауларыңыз өзгертілді. Парақты қайта жүктеп, өзгерістерді сынап көріңіз, егер олар қайталанатын болса, хабарламаны жіберіңіз.">
-<!ENTITY reloadButton.accesskey "р">
-<!ENTITY screenshot.attach.accesskey "т">
 <!ENTITY issues.openPreferences.label "Фильтр баптауларын ашу">
 <!ENTITY sendPage.confirmation "Хабарламаңыз сақталды. Оны келесі адрестен көре аласыз:">
-<!ENTITY issues.override.accesskey "ы">
-<!ENTITY copyLink.label "Хабарлама сілтемесін көшіру">
+<!ENTITY copyLink.label "Хабарлама сілтемесін &amp;көшіру">
 <!ENTITY issues.nofilters.description "Adblock Plus бұл парақта ешнәрсені блоктап тұрған жоқ. Бұл мәселе Adblock Plus-ке байланысты емес сияқты.">
 <!ENTITY sendPage.knownIssue "Сіз хабарлаған мәселе белгілі сияқты. Көбірек біліңіз:">
 <!ENTITY sendPage.retry.label "Қайта жіберу">
 <!ENTITY typeSelector.other.description "Егер мәселе Adblock Plus өзімен, оның фильтлерімен емес болып тұр деп ойласаңыз, бұл опцияны таңдаңыз.">
 <!ENTITY issues.disabledgroups.enable.label "Фильтрге жазылу/фильтрлер тобын іске қосу">
-<!ENTITY typeWarning.override.label "Мен түсініп тұрмын, және хабарламаны жібергім келеді">
+<!ENTITY typeWarning.override.label "Мен түсініп тұрмын, және хабарламаны жібергім &amp;келеді">
 <!ENTITY issues.disabled.enable.label "Adblock Plus іске қосу">
 <!ENTITY update.fixed.description "Cіз хабарлаған мәселе фильтрлерге жаңартылумен шешілген сияқты. Парақты қайта жүктеп, қайталап көріңіз, мәселе жоғалмаса, Хабарлау батырмасын басыңыз.">
-<!ENTITY reloadButton.label "Парақты қайта жүктеу">
-<!ENTITY recentReports.clear.label "Барлық хабарламаларды өшіру">
+<!ENTITY reloadButton.label "Па&amp;рақты қайта жүктеу">
+<!ENTITY recentReports.clear.label "Барлық хабарламаларды ө&amp;шіру">
 <!ENTITY typeSelector.description "Бұл терезе сізге Adblock Plus мәселесі туралы хабарламаны дайындауға көмектеседі. Біріншіден, бұл парақта кездескен мәселе түрін таңдаңыз:">
-<!ENTITY screenshot.mark.accesskey "г">
-<!ENTITY typeSelector.other.accesskey "с">
-<!ENTITY screenshot.undo.accesskey "о">
 <!ENTITY update.inProgress.description "Adblock Plus мәселе шешілген бе, соны тексеру үшін фильтрлерге жазылуларыңызды жаңартуы тиіс. Күте тұрыңыз...">
-<!ENTITY data.accesskey "м">
-<!ENTITY data.label "Хабарлама мәліметі:">
+<!ENTITY data.label "Хабарла&amp;ма мәліметі:">
 <!ENTITY sendPage.heading "Хабарламаны жіберу">
 <!ENTITY recentReports.label "Сіздің соңғы жіберген хабарламаларыңыз">
 <!ENTITY typeWarning.description "Сіз хабарламаны Adblock Plus-пен болған мәселе, фильтрлермен емес деп белгіледіңіз. Ондай мәселелер жөнінде [link]Adblock Plus форумына[/link] хабарлау жөн. Осы хабарлаушыны тек форумдағы темаға толықтыру ретінде қолданыңыз, яғни, хабарламаңыздың сілтемесін бермесеңіз, оны ешкім де байқамайды. Автожасалған сілтеме хабарламаны жіберуден кейін қолжетерлік болады.">
 <!ENTITY issues.disabled.description "Adblock Plus қазір сөндірулі тұр, сондықтан ол ешнәрсені блоктамайды.">
-<!ENTITY attachExtensions.label "Белсенді кеңейтулер тізімін жіберу, мүмкін, өзара мәселелер пайда болған шығар">
+<!ENTITY attachExtensions.label "Бел&amp;сенді кеңейтулер тізімін жіберу, мүмкін, өзара мәселелер пайда болған шығар">
 <!ENTITY issues.nosubscriptions.add.label "Фильтрлерге жазылуды қосу">
 <!ENTITY issues.disabledfilters.enable.label "Фильтрді іске қосу">
-<!ENTITY issues.override.label "Баптаулар дұрыс, хабарламаны жалғастыру">
+<!ENTITY issues.override.label "Баптаулар дұр&amp;ыс, хабарламаны жалғастыру">
 <!ENTITY issues.nosubscriptions.description "Веб сайттардан керек емес құраманы өшіретін алдын-ала әзірленген фильтрлердің біреуіне де жазылмаған сияқтысыз.">
 <!ENTITY outdatedSubscriptions.description "Келесі фильтрге жазылу кем дегенде екі апта бойы жаңартылмады. Хабарламаны жіберу алдында фильтрге жазылуды жаңартыңыз, мәселе шешілген болуы мүмкін.">
-<!ENTITY typeSelector.other.label "Басқа мәселе">
+<!ENTITY typeSelector.other.label "Ба&amp;сқа мәселе">
 <!ENTITY issues.whitelist.remove.label "Adblock Plus осы парақта қайта қосу">
 <!ENTITY typeSelector.falsePositive.description "Парақта маңызды құрама жоқ болса, қате көрсетілсе не дұрыс істемесе, бұл опцияны таңдаңыз. Ол мәселе Adblock Plus салдарынан пайда болатынын тексеру үшін, оны уақытша сөндіріңіз.">
 <!ENTITY dataCollector.description "Adblock Plus керек ақпаратты жинағанша, күте тұрыңыз.">
-<!ENTITY sendButton.label "Хабарламаны жіберу">
-<!ENTITY comment.label "Түсіндірме (тиісті емес):">
+<!ENTITY sendButton.label "Хабарлама&amp;ны жіберу">
+<!ENTITY comment.label "Түсіндірме (т&amp;иісті емес):">
 <!ENTITY sendPage.errorMessage "Хабарламаны жіберу талабы &quot;?1?&quot; қате кодымен аяқталды. Интернетпен байланысыңызды тексеріп, қайталаңыз. Егер ол көмектеспесе, [link]Adblock Plus форумынан[/link] көмек сұраңыз.">
 <!ENTITY showRecentReports.label "Соңғы жіберілген хабарламаларды қарау">
 <!ENTITY commentPage.heading "Түсіндірмені енгізу">
 <!ENTITY update.start.label "Жаңартуды қазір бастау">
-<!ENTITY typeSelector.falsePositive.accesskey "т">
 <!ENTITY issues.disabledfilters.description "Келесі фильтрлер сөндірілген, бірақ олар ағымдағы параққа өз әсерлерін тигізуі мүмкін:">
 <!ENTITY screenshot.description "Бірдей парақ әр түрлі адамдар үшін әр түрлі көрінуі мүмкін. Скриншотты қосып жіберсеңіз, ол бізге көмектесуі мүмкін. Жеке ақпаратыңыз бар бөлігін өшіріп, мәселе пайда болған аймақтарды белгілей аласыз. Ол үшін төмендегі батырманы басып, тышқанмен керек аймақты таңдаңыз.">
-<!ENTITY screenshot.attach.label "Парақ скриншотын хабарламаға қосып жіберу">
+<!ENTITY screenshot.attach.label "Парақ скриншо&amp;тын хабарламаға қосып жіберу">
 <!ENTITY issues.whitelist.description "Хабарлап тұрған парағыңыз үшін Adblock Plus қазір сөндірілген. Мәселені анықтауға көмектесу үшін, хабарламаны жіберу алдында оны іске қосып, парақты қайта жүктеңіз.">
-<!ENTITY sendButton.accesskey "н">
-<!ENTITY typeSelector.falseNegative.label "Adblock Plus жарнаманы блоктамайды">
-<!ENTITY copyLink.accesskey "к">
+<!ENTITY typeSelector.falseNegative.label "Adblock Plus жарна&amp;маны блоктамайды">
 <!ENTITY typeSelector.heading "Мәселе түрін таңдаңыз">
 <!ENTITY wizard.title "Хабарлаушы">
 <!ENTITY issues.ownfilters.disable.label "Фильтрді сөндіру">
 <!ENTITY commentPage.description "Төмендегі мәтін өрісіне мәселені түсіндіретін түсіндірмені жаза аласыз. Бұл қадам тиісті емес, бірақ мәселе күрделі болса, көмегі тиеді. Жіберу алдында мәліметті тексере аласыз.">
-<!ENTITY typeSelector.falseNegative.accesskey "м">
 <!ENTITY comment.lengthWarning "Түсіндірмеңіздің ұзындығы 1000 таңбадан асты. Тек алғашқы 1000 таңба жіберіледі.">
 <!ENTITY typeSelector.falseNegative.description "Егер Adblock Plus қосулы тұрса, ал жарнама сонда да көрсетілсе, бұл опцияны таңдаңыз.">
-<!ENTITY typeWarning.override.accesskey "к">
 <!ENTITY sendPage.waitMessage "Adblock Plus хабарламаңызды жібергенше күте тұрыңыз.">
 <!ENTITY dataCollector.heading "Мәселелер туралы хабарлауға қош келдіңіз">
-<!ENTITY screenshot.remove.label "Жеке ақпаратты өшіру">
+<!ENTITY screenshot.remove.label "Жеке ақ&amp;паратты өшіру">
 <!ENTITY screenshot.heading "Скриншотты қосып жіберу">
-<!ENTITY comment.accesskey "и">
 <!ENTITY issues.ownfilters.description "Бұл параққа іске асырылған кейбір фильтрлерді сіз қолмен көрсеткенсіз. Мәселені туғызуы мүмкін фильтрлерді сөндіріңіз:">
-<!ENTITY screenshot.remove.accesskey "п">
 <!ENTITY issues.subscriptionCount.description "Сізде фильтрлерге жазылулар саны тым көп сияқты. Ондай жағдай қолдануға ұсынылмайды. Сонымен қатар біз сіздің хабарлауыңызды қабылдай алмаймыз, өйткені мәселе қай жазылудың салдарынан пайда болғаны түсініксіз. Тек маңызды жазылуларды қалдырып, басқаларды өшіріңіз, және мәселе қайталана ма, соны көріңіз.">
-<!ENTITY screenshot.mark.label "Хабарламаны белгілеу">
+<!ENTITY screenshot.mark.label "Хабарламаны бел&amp;гілеу">
 <!ENTITY privacyPolicy.label "Жекелік саясаиы">
 <!ENTITY issues.description "Adblock Plus бұл мәселе үшін жауапты бола алатын, немесе тергеуді қиындататын сіздің баптауларыңызды анықтады.">

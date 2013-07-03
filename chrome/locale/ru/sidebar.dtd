@@ -7,13 +7,12 @@
 <!ENTITY filter.label "Фильтр">
 <!ENTITY tooltip.size.label "Размер:">
 <!ENTITY reattach.label "Присоединить">
-<!ENTITY search.label "Поиск:">
+<!ENTITY search.label "П&amp;оиск:">
 <!ENTITY docDomain.thirdParty "(запрос с другого сайта)">
 <!ENTITY filterSource.label "Список фильтров">
 <!ENTITY tooltip.docDomain.label "Домен страницы:">
 <!ENTITY context.copy.label "Копировать адрес">
 <!ENTITY tooltip.type.label "Тип:">
-<!ENTITY search.accesskey "о">
 <!ENTITY context.disablefilter.label "Отключить фильтр ?1?">
 <!ENTITY context.copyFilter.label "Копировать фильтр">
 <!ENTITY context.block.label "Заблокировать элемент">

@@ -59,10 +59,10 @@
   <description id="fromWebText" hidden="true">&fromWeb.description;</description>
 
   <groupbox id="differentSubscription">
-    <label value="&title.label;" accesskey="&title.accesskey;" control="title"/>
+    <label value="&title.label;" control="title"/>
     <textbox id="title"/>
 
-    <label value="&location.label;" accesskey="&location.accesskey;" control="location"/>
+    <label value="&location.label;" control="location"/>
     <textbox id="location"/>
   </groupbox>
 
@@ -70,6 +70,6 @@
     &supplementMessage;
     <label class="text-link" oncommand="">dummy dummy dummy dummy dummy dummy dummy dummy dummy dummy</label>
   </description>
-  <checkbox id="addMainSubscription" invisible="true" checked="true" _labelTemplate="&addMain.label;" label="&addMain.label;" accesskey="&addMain.accesskey;"/>
+  <checkbox id="addMainSubscription" invisible="true" checked="true" _labelTemplate="&addMain.label;" label="&addMain.label;"/>
 
 </dialog>

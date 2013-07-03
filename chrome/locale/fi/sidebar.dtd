@@ -7,13 +7,12 @@
 <!ENTITY filter.label "Suodatin">
 <!ENTITY tooltip.size.label "Koko:">
 <!ENTITY reattach.label "Kiinnitä">
-<!ENTITY search.label "Etsi:">
+<!ENTITY search.label "&amp;Etsi:">
 <!ENTITY docDomain.thirdParty "(kolmas osapuoli)">
 <!ENTITY filterSource.label "Suodattimen lähde">
 <!ENTITY tooltip.docDomain.label "Dokumentin lähde:">
 <!ENTITY context.copy.label "Kopioi osoite">
 <!ENTITY tooltip.type.label "Tyyppi:">
-<!ENTITY search.accesskey "E">
 <!ENTITY context.disablefilter.label "Poista käytöstä suodatin: ?1?">
 <!ENTITY context.copyFilter.label "Kopioi suodatin">
 <!ENTITY context.block.label "Estä elementti">

@@ -104,7 +104,7 @@
 
   <hbox>
     <hbox align="center" flex="1">
-      <label value="&search.label;" accesskey="&search.accesskey;" control="searchField"/>
+      <label value="&search.label;" control="searchField"/>
       <textbox id="searchField" flex="1" type="search" oncommand="treeView.setFilter(this.value)"/>
     </hbox>
     <description id="detachButton" value="&detach.label;" onclick="detach(true)"/>

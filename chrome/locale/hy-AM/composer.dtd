@@ -1,46 +1,33 @@
 <!ENTITY collapse.yes.label "Այո">
-<!ENTITY anchor.end.label "հասցեի վերջում">
-<!ENTITY domainRestriction.label "Արգելել դոմեյնում`">
-<!ENTITY anchor.start.flexible.accesskey "ս">
-<!ENTITY firstParty.label "Միայն հիմնական">
-<!ENTITY preferences.label "Նայել առկա ֆիլտրերը...">
+<!ENTITY anchor.end.label "հասցեի &amp;վերջում">
+<!ENTITY domainRestriction.label "Արգելել &amp;դոմեյնում`">
+<!ENTITY firstParty.label "Միայն &amp;հիմնական">
+<!ENTITY preferences.label "Նայել ա&amp;ռկա ֆիլտրերը...">
 <!ENTITY pattern.label "Որոնել շաբլոն">
-<!ENTITY thirdParty.label "Միայն երրորդ կողմից">
-<!ENTITY filter.accesskey "ֆ">
-<!ENTITY thirdParty.accesskey "ե">
-<!ENTITY filter.label "Նոր Ֆիլտր.">
-<!ENTITY collapse.label "Թաքցնել ֆիլտրվածները`">
+<!ENTITY thirdParty.label "Միայն &amp;երրորդ կողմից">
+<!ENTITY filter.label "Նոր &amp;Ֆիլտր.">
+<!ENTITY collapse.label "Թաքցնել ֆիլտրվա&amp;ծները`">
 <!ENTITY match.warning "Ներմուծված շաբլոնը այլևս չի համապատասխանում հասցեին և ոչ մի ազդեցություն չի ունենալու.">
-<!ENTITY anchor.start.label "հասցեի սկզբում">
+<!ENTITY anchor.start.label "հա&amp;սցեի սկզբում">
 <!ENTITY collapse.no.label "Ոչ">
-<!ENTITY matchCase.label "Հաշվի առնել տառատեսակը">
-<!ENTITY custom.pattern.label "Սեփական.">
+<!ENTITY matchCase.label "Հաշվի առնել &amp;տառատեսակը">
+<!ENTITY custom.pattern.label "Սե&amp;փական.">
 <!ENTITY unselectAllTypes.label "Չընտրել ոչինչ">
-<!ENTITY domainRestriction.accesskey "դ">
-<!ENTITY type.whitelist.label "Բացառություն">
+<!ENTITY type.whitelist.label "Բա&amp;ցառություն">
 <!ENTITY regexp.warning "Ներմուծված շաբլոնը ընկալվելու է որպես ռեգուլյար արտահայտություն(regexp): Ռեգուլյար արտահայտությունների մեծ քանակը կարող է դանդաղեցնել ծրագրի աշխատանքը: Եթե դուք չեք պատրաստվում օգտագործել ռեգուլյար արտահայտություն, ավելացրեք * շաբլոնի վերջում:">
 <!ENTITY dialog.title "Ավելացնել «Adblock Plus» ֆիլտրման կանոն">
 <!ENTITY basic.label "Պարզ տեսք">
-<!ENTITY preferences.accesskey "ռ">
-<!ENTITY firstParty.accesskey "հ">
 <!ENTITY collapse.default.no.label "Լռությամբ (ոչ)">
-<!ENTITY type.filter.label "Արգելող ֆիլտր">
+<!ENTITY type.filter.label "&amp;Արգելող ֆիլտր">
 <!ENTITY types.label "Ավելացնել հետևյալ տիպերին`">
 <!ENTITY shortpattern.warning "Ներմուծված շաբլոնը շատ կարճ է ու չի կարող օպտիմիզացվել, այսպիսի շաբլոնների մեծ քանակը կարող է դանդաղեցնել ծրագրի աշխատանքը: Խորհուրդ է տրվում ֆիլտրի համար օգտագործել ավելի երկար տող:">
-<!ENTITY custom.pattern.accesskey "փ">
-<!ENTITY anchor.start.accesskey "ս">
 <!ENTITY anchors.label "Շաբլոններն ընդունել միայն.">
 <!ENTITY collapse.default.yes.label "Լռությամբ (այո)">
-<!ENTITY type.filter.accesskey "Ա">
 <!ENTITY domainRestriction.help "Սահմանեք մեկ կամ ավել դոմեյներ բաժանված &quot;|&quot; նշանով, ֆիլտրը կաշխատի միայն այդ դոմեյներում: Դոմեյնի անվան առաջ &quot;~&quot; նշանը արգելում է ֆիլտրի օգտագործումը այդ դոմեյնում:">
 <!ENTITY accept.label "Ավելացնել ֆիլտր">
 <!ENTITY options.label "Ընտրանքներ">
 <!ENTITY disabled.warning "«Adblock Plus»ը անջատված է: Դուք կարող եք ավելացնել ֆիլտրեր, բայց դրանց գործելու համար պետք է [link]միացնել «Adblock Plus»ը[/link]:">
-<!ENTITY anchor.start.flexible.label "դոմեյնի անվան սկզբում">
-<!ENTITY type.whitelist.accesskey "ց">
-<!ENTITY matchCase.accesskey "տ">
-<!ENTITY anchor.end.accesskey "վ">
+<!ENTITY anchor.start.flexible.label "դոմեյնի անվան &amp;սկզբում">
 <!ENTITY selectAllTypes.label "Լրիվ Ընտրել">
 <!ENTITY advanced.label "Ընդլայնված տեսք">
-<!ENTITY collapse.accesskey "Ծ">
 <!ENTITY pattern.explanation "Նմուշը կարող է լինել հասցեի ցանկացած մաս, *-ը նշանակում է ցանկացած սիմվոլ: Կֆիլտրվեն միայն նմուշին բավարարող հասցեները:">

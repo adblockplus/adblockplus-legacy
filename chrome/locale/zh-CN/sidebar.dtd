@@ -7,13 +7,12 @@
 <!ENTITY filter.label "过滤规则">
 <!ENTITY tooltip.size.label "大小:">
 <!ENTITY reattach.label "合体">
-<!ENTITY search.label "搜索：">
+<!ENTITY search.label "搜索： (&amp;S)">
 <!ENTITY docDomain.thirdParty "(第三方)">
 <!ENTITY filterSource.label "过滤规则源">
 <!ENTITY tooltip.docDomain.label "文档源：">
 <!ENTITY context.copy.label "复制项目地址">
 <!ENTITY tooltip.type.label "类型:">
-<!ENTITY search.accesskey "S">
 <!ENTITY context.disablefilter.label "禁用过滤规则 ?1?">
 <!ENTITY context.copyFilter.label "复制过滤规则">
 <!ENTITY context.block.label "过滤该项">

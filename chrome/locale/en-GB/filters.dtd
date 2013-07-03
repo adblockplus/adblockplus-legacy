@@ -1,61 +1,50 @@
-<!ENTITY lasthit.column "Last hit">
-<!ENTITY addFilter.accesskey "d">
+<!ENTITY lasthit.column "&amp;Last hit">
 <!ENTITY subscription.delete.label "Delete">
 <!ENTITY subscriptions.tab.label "Filter subscriptions">
-<!ENTITY enabled.accesskey "n">
-<!ENTITY addGroup.accesskey "g">
 <!ENTITY subscription.update.label "Update filters">
 <!ENTITY restore.complete.warning "All your filter preferences will be replaced by the contents of the selected file. Do you want to proceeed?">
 <!ENTITY filter.moveUp.label "Move up">
 <!ENTITY filter.edit.label "Edit">
-<!ENTITY hitcount.column "Hits">
-<!ENTITY acceptableAds2.label "Allow some non-intrusive advertising">
+<!ENTITY hitcount.column "&amp;Hits">
+<!ENTITY acceptableAds2.label "Allow some non-&amp;intrusive advertising">
 <!ENTITY close.label "Close">
-<!ENTITY sort.none.label "Unsorted">
-<!ENTITY find.accesskey "n">
+<!ENTITY sort.none.label "&amp;Unsorted">
 <!ENTITY readMore.label "Read more">
 <!ENTITY subscription.homepage.label "Homepage">
 <!ENTITY typoCorrections.enableLabel "Correct mistyped internet addresses">
-<!ENTITY sort.descending.accesskey "Z">
-<!ENTITY sort.descending.label "Z &gt; A sort order">
+<!ENTITY sort.descending.label "&amp;Z &gt; A sort order">
 <!ENTITY subscription.lastDownload.success "Success">
 <!ENTITY filters.remove.warning "Do you really want to remove all selected filters?">
 <!ENTITY restore.custom.warning "All your custom filters will be replaced by the contents of the selected file. Do you want to proceeed?">
-<!ENTITY slow.column "Slow filters">
+<!ENTITY slow.column "Slo&amp;w filters">
 <!ENTITY subscription.actions.label "Actions">
 <!ENTITY filter.selectAll.label "Select All">
-<!ENTITY backupButton.label "Backup and Restore">
-<!ENTITY sort.accesskey "S">
+<!ENTITY backupButton.label "&amp;Backup and Restore">
 <!ENTITY subscription.source.label "Filter list">
 <!ENTITY filter.paste.label "Paste">
-<!ENTITY addSubscription.accesskey "f">
 <!ENTITY filter.delete.label "Delete">
 <!ENTITY addSubscriptionAdd.label "Add">
-<!ENTITY slow.accesskey "w">
 <!ENTITY subscription.showHideFilters.label "Show/hide filters">
-<!ENTITY backupButton.accesskey "B">
 <!ENTITY filter.actions.label "Filter actions">
 <!ENTITY filter.moveDown.label "Move down">
 <!ENTITY typoCorrections.tab.label "Typo corrections">
-<!ENTITY addFilter.label "Add filter">
+<!ENTITY addFilter.label "A&amp;dd filter">
 <!ENTITY subscription.editTitle.label "Edit title">
 <!ENTITY subscription.moveDown.label "Move down">
 <!ENTITY subscription.disabledFilters.warning "Some filters in this subscription are disabled.">
-<!ENTITY filter.column "Filter rule">
+<!ENTITY filter.column "&amp;Filter rule">
 <!ENTITY subscription.lastDownload.checksumMismatch "Failed: checksum mismatch">
 <!ENTITY noFiltersInGroup.text "The selected group is empty">
 <!ENTITY typoCorrections.whitelistLabel "Don't Replace...">
-<!ENTITY sort.label "Sort by">
+<!ENTITY sort.label "&amp;Sort by">
 <!ENTITY noFilters.text "You don't have any custom filters yet.">
 <!ENTITY subscription.external.label "Updated by another extension">
-<!ENTITY filter.accesskey "F">
 <!ENTITY noGroupSelected.text "You need to select a filter group before its filters can be displayed.">
 <!ENTITY subscription.lastDownload.inProgress "Downloading...">
 <!ENTITY typoCorrections.removeButtonLabel "Remove Selected">
-<!ENTITY enabled.column "Enabled">
+<!ENTITY enabled.column "E&amp;nabled">
 <!ENTITY viewMenu.label "View">
 <!ENTITY addSubscriptionCancel.label "Cancel">
-<!ENTITY lasthit.accesskey "L">
 <!ENTITY dialog.title "Adblock Plus Filter Preferences">
 <!ENTITY subscription.minVersion.warning "This filter subscription requires a newer Adblock Plus version; you should update to the latest Adblock Plus version.">
 <!ENTITY subscription.lastDownload.invalidURL "Failed: not a valid address">
@@ -66,27 +55,23 @@
 <!ENTITY subscription.moveUp.label "Move up">
 <!ENTITY backup.complete.title "All filters and subscriptions">
 <!ENTITY filters.tab.label "Custom filters">
-<!ENTITY find.label "Find">
+<!ENTITY find.label "Fi&amp;nd">
 <!ENTITY subscription.lastDownload.connectionError "Failed: download failure">
 <!ENTITY subscription.lastDownload.invalidData "Failed: not a valid filters list">
 <!ENTITY restore.minVersion.warning "Warning: the file has been created with a newer Adblock Plus version. You should update to the latest Adblock Plus version before restoring from this file.">
-<!ENTITY sort.ascending.label "A &gt; Z sort order">
+<!ENTITY sort.ascending.label "&amp;A &gt; Z sort order">
 <!ENTITY viewList.label "View list">
 <!ENTITY typoCorrections.whitelistEmptyLabel "There are currently no exceptions.">
-<!ENTITY sort.ascending.accesskey "A">
 <!ENTITY restore.default.label "Restore backup from ?1?">
-<!ENTITY hitcount.accesskey "H">
-<!ENTITY acceptableAds2.accesskey "i">
 <!ENTITY subscription.lastDownload.unknown "N/A">
 <!ENTITY subscription.enabled.label "Enabled">
 <!ENTITY noSubscriptions.text "You haven't added any filter subscriptions yet. Adblock Plus won't block
 	anything without filters, please use &quot;Add filter subscription&quot; to
 	add some.">
-<!ENTITY addGroup.label "Add filter group">
+<!ENTITY addGroup.label "Add filter &amp;group">
 <!ENTITY addSubscriptionOther.label "Add a different subscription">
 <!ENTITY filter.copy.label "Copy">
-<!ENTITY sort.none.accesskey "U">
-<!ENTITY addSubscription.label "Add filter subscription">
+<!ENTITY addSubscription.label "Add &amp;filter subscription">
 <!ENTITY restore.own.label "Restore own backup">
 <!ENTITY filter.resetHitCounts.label "Reset hit statistics">
 <!ENTITY backup.label "Create new backup">

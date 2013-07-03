@@ -1,46 +1,33 @@
 <!ENTITY collapse.yes.label "Áno">
-<!ENTITY anchor.end.label "na konci adresy">
-<!ENTITY domainRestriction.label "Obmedziť na doménu:">
-<!ENTITY anchor.start.flexible.accesskey "n">
-<!ENTITY firstParty.label "Len prvá strana">
-<!ENTITY preferences.label "Zobraziť existujúce filtre...">
+<!ENTITY anchor.end.label "na konci a&amp;dresy">
+<!ENTITY domainRestriction.label "Obm&amp;edziť na doménu:">
+<!ENTITY firstParty.label "&amp;Len prvá strana">
+<!ENTITY preferences.label "&amp;Zobraziť existujúce filtre...">
 <!ENTITY pattern.label "Vyhľadať vzor">
-<!ENTITY thirdParty.label "Len tretie strany">
-<!ENTITY filter.accesskey "f">
-<!ENTITY thirdParty.accesskey "t">
-<!ENTITY filter.label "Nový filter:">
-<!ENTITY collapse.label "Pád zablokovaný::">
+<!ENTITY thirdParty.label "Len &amp;tretie strany">
+<!ENTITY filter.label "Nový &amp;filter:">
+<!ENTITY collapse.label "Pád zabl&amp;okovaný::">
 <!ENTITY match.warning "Vzor, ktorý ste vložili nezodpovedá blokovanej/povolenej adrese a nebude mať žiadny efekt.">
-<!ENTITY anchor.start.label "na začiatku adresy">
+<!ENTITY anchor.start.label "&amp;na začiatku adresy">
 <!ENTITY collapse.no.label "Nie">
-<!ENTITY matchCase.label "Modelový prípad">
-<!ENTITY custom.pattern.label "Vlastné:">
+<!ENTITY matchCase.label "&amp;Modelový prípad">
+<!ENTITY custom.pattern.label "&amp;Vlastné:">
 <!ENTITY unselectAllTypes.label "Nezvoliť nič">
-<!ENTITY domainRestriction.accesskey "e">
-<!ENTITY type.whitelist.label "Základné pravidlo">
+<!ENTITY type.whitelist.label "Zá&amp;kladné pravidlo">
 <!ENTITY regexp.warning "Vzor, ktorý ste vložili bude interpretovaný ako regulárny výraz. Mnoho regulárnych výrazov môže spomaliť prehliadanie. Ak ste nemali v úmysle používať regulárne výrazy, pridajte symbol * na koniec vzoru.">
 <!ENTITY dialog.title "Pridať pravidlo filtra">
 <!ENTITY basic.label "Jednoduchý náhľad">
-<!ENTITY preferences.accesskey "Z">
-<!ENTITY firstParty.accesskey "L">
 <!ENTITY collapse.default.no.label "Použiť pôvodné (nie)">
-<!ENTITY type.filter.label "Blokovanie filtra">
+<!ENTITY type.filter.label "&amp;Blokovanie filtra">
 <!ENTITY types.label "Aplikovať na typy:">
 <!ENTITY shortpattern.warning "Vzor, ktorý ste vložili je príliš krátky, aby mohol byť optimalizovaný, mnoho takýchto schém môže spomaliť prehliadanie. Odporúčame, aby ste vybrali dlhší reťazec pre tento filter.">
-<!ENTITY custom.pattern.accesskey "V">
-<!ENTITY anchor.start.accesskey "n">
 <!ENTITY anchors.label "Prijať vzor len:">
 <!ENTITY collapse.default.yes.label "Použiť pôvodné (áno)">
-<!ENTITY type.filter.accesskey "B">
 <!ENTITY domainRestriction.help "Špecifikujte jednu alebo viac domén oddelených značkou &quot;|&quot;, filter bude obmedzený len pre tieto domény. Symbol &quot;~&quot; pred názvom domény znamená, že filter by nemal byť aplikovaný na tejto doméne.">
 <!ENTITY accept.label "Pridať filter">
 <!ENTITY options.label "Možnosti">
 <!ENTITY disabled.warning "Adblock Plus je aktuálne vypnutý. Môžete pridávať filtre, ale tie nebudú aplikované pokiaľ [link]nezapnete Adblock Plus[/link].">
-<!ENTITY anchor.start.flexible.label "na začiatku názvu domény">
-<!ENTITY type.whitelist.accesskey "k">
-<!ENTITY matchCase.accesskey "M">
-<!ENTITY anchor.end.accesskey "d">
+<!ENTITY anchor.start.flexible.label "&amp;na začiatku názvu domény">
 <!ENTITY selectAllTypes.label "Vybrať všetko">
 <!ENTITY advanced.label "Pokročilý náhľad">
-<!ENTITY collapse.accesskey "o">
 <!ENTITY pattern.explanation "Vzor môže byť nejaká časť adresy, symbol * ako divoká karta. Filter ešte len bude aplikovaný na adresy zodpovedajúce vzoru.">

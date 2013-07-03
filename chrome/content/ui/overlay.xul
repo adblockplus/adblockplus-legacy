@@ -47,25 +47,25 @@
 
   <!-- Icon's context menu -->
   <menupopup id="abp-status-popup" context="">
-    <menuitem id="abp-status-sendReport" label="&sendReport.label;…" accesskey="&sendReport.accesskey;" key="abp-key-sendReport" command="abp-command-sendReport"/>
-    <menuitem id="abp-status-openbottombar" label="&opensidebar.label;" accesskey="&opensidebar.accesskey;" key="abp-key-sidebar" command="abp-command-sidebar"/>
-    <menuitem id="abp-status-closebottombar" label="&closesidebar.label;" accesskey="&closesidebar.accesskey;" key="abp-key-sidebar" command="abp-command-sidebar"/>
-    <menuitem id="abp-status-filters" label="&filters.label;…" accesskey="&filters.accesskey;" key="abp-key-filters" command="abp-command-filters"/>
+    <menuitem id="abp-status-sendReport" label="&sendReport.label;…" key="abp-key-sendReport" command="abp-command-sendReport"/>
+    <menuitem id="abp-status-openbottombar" label="&opensidebar.label;" key="abp-key-sidebar" command="abp-command-sidebar"/>
+    <menuitem id="abp-status-closebottombar" label="&closesidebar.label;" key="abp-key-sidebar" command="abp-command-sidebar"/>
+    <menuitem id="abp-status-filters" label="&filters.label;…" key="abp-key-filters" command="abp-command-filters"/>
     <menuseparator id="abp-status-whitelist-sep"/>
     <menuitem id="abp-status-whitelistsite" labeltempl="&whitelist.site.label;" type="checkbox" command="abp-command-togglesitewhitelist"/>
     <menuitem id="abp-status-whitelistpage" label="&whitelist.page.label;" type="checkbox" command="abp-command-togglepagewhitelist"/>
     <menuitem id="abp-status-disabled" label="&disable.label;" type="checkbox" key="abp-key-enable" command="abp-command-enable"/>
     <menuseparator/>
-    <menu id="abp-status-options" label="&options.label;" accesskey="&options.accesskey;">
+    <menu id="abp-status-options" label="&options.label;">
       <menupopup id="abp-status-options-popup">
-        <menuitem id="abp-status-frameobjects" label="&objecttabs.label;" accesskey="&objecttabs.accesskey;" type="checkbox" command="abp-command-toggleobjtabs"/>
-        <menuitem id="abp-status-slowcollapse" label="&hideplaceholders.label;" accesskey="&hideplaceholders.accesskey;" type="checkbox" command="abp-command-togglecollapse"/>
-        <menuitem id="abp-status-savestats" label="&counthits.label;" accesskey="&counthits.accesskey;" type="checkbox" command="abp-command-togglesavestats"/>
-        <menuitem id="abp-status-sync" label="&sync.label;" accesskey="&sync.accesskey;" type="checkbox" command="abp-command-togglesync"/>
+        <menuitem id="abp-status-frameobjects" label="&objecttabs.label;" type="checkbox" command="abp-command-toggleobjtabs"/>
+        <menuitem id="abp-status-slowcollapse" label="&hideplaceholders.label;" type="checkbox" command="abp-command-togglecollapse"/>
+        <menuitem id="abp-status-savestats" label="&counthits.label;" type="checkbox" command="abp-command-togglesavestats"/>
+        <menuitem id="abp-status-sync" label="&sync.label;" type="checkbox" command="abp-command-togglesync"/>
         <menuseparator id="abp-status-iconSettingsSeparator"/>
-        <menuitem id="abp-status-showinaddonbar" label="&showinaddonbar.label;" accesskey="&showinaddonbar.accesskey;" type="checkbox" command="abp-command-toggleshowintoolbar"/>
-        <menuitem id="abp-status-showintoolbar" label="&showintoolbar.label;" accesskey="&showintoolbar.accesskey;" type="checkbox" command="abp-command-toggleshowintoolbar"/>
-        <menuitem id="abp-status-showinstatusbar" label="&showinstatusbar.label;" accesskey="&showinstatusbar.accesskey;" type="checkbox" command="abp-command-toggleshowinstatusbar"/>
+        <menuitem id="abp-status-showinaddonbar" label="&showinaddonbar.label;" type="checkbox" command="abp-command-toggleshowintoolbar"/>
+        <menuitem id="abp-status-showintoolbar" label="&showintoolbar.label;" type="checkbox" command="abp-command-toggleshowintoolbar"/>
+        <menuitem id="abp-status-showinstatusbar" label="&showinstatusbar.label;" type="checkbox" command="abp-command-toggleshowinstatusbar"/>
       </menupopup>
     </menu>
 

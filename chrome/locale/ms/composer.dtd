@@ -1,46 +1,33 @@
 <!ENTITY collapse.yes.label "Ya">
-<!ENTITY anchor.end.label "pada akhir alamat">
-<!ENTITY domainRestriction.label "Terhad pada domain:">
-<!ENTITY anchor.start.flexible.accesskey "m">
-<!ENTITY firstParty.label "Pihak pertama sahaja">
-<!ENTITY preferences.label "Papar penapis sedia ada...">
+<!ENTITY anchor.end.label "p&amp;ada akhir alamat">
+<!ENTITY domainRestriction.label "Terhad pada domain: (&amp;s)">
+<!ENTITY firstParty.label "Pihak per&amp;tama sahaja">
+<!ENTITY preferences.label "Papar penapi&amp;s sedia ada...">
 <!ENTITY pattern.label "Lihat pola">
-<!ENTITY thirdParty.label "Pihak ketiga sahaja">
-<!ENTITY filter.accesskey "b">
-<!ENTITY thirdParty.accesskey "g">
-<!ENTITY filter.label "Penapis baru:">
-<!ENTITY collapse.label "Jatuhkan yang disekat:">
+<!ENTITY thirdParty.label "Pihak keti&amp;ga sahaja">
+<!ENTITY filter.label "Penapis &amp;baru:">
+<!ENTITY collapse.label "&amp;Jatuhkan yang disekat:">
 <!ENTITY match.warning "Pola yang anda masukkan tidak lagi memadani alamat yang ditapis/dikecualikan dan tidak akan berkesan padanya.">
-<!ENTITY anchor.start.label "pada permulaan alamat">
+<!ENTITY anchor.start.label "pada per&amp;mulaan alamat">
 <!ENTITY collapse.no.label "Tidak">
-<!ENTITY matchCase.label "Kes sepadan">
-<!ENTITY custom.pattern.label "Ubah suai:">
+<!ENTITY matchCase.label "&amp;Kes sepadan">
+<!ENTITY custom.pattern.label "&amp;Ubah suai:">
 <!ENTITY unselectAllTypes.label "Tidak pilih">
-<!ENTITY domainRestriction.accesskey "s">
-<!ENTITY type.whitelist.label "Peraturan pengecualian">
+<!ENTITY type.whitelist.label "Peraturan penge&amp;cualian">
 <!ENTITY regexp.warning "Pola yang anda masukkan akan diinterpretasi sebagai ungkapan biasa di mana ia boleh melambatkan penjelajahan web. Jika anda tidak berniat untuk menggunakan ungkapan biasa, tambah simbol (*) diakhir pola.">
 <!ENTITY dialog.title "Tambah peraturan penapis Adblock Plus">
 <!ENTITY basic.label "Paparan biasa">
-<!ENTITY preferences.accesskey "s">
-<!ENTITY firstParty.accesskey "t">
 <!ENTITY collapse.default.no.label "Gunakan default (tidak)">
-<!ENTITY type.filter.label "Penapis penyekat">
+<!ENTITY type.filter.label "&amp;Penapis penyekat">
 <!ENTITY types.label "Gunakan pada jenis:">
 <!ENTITY shortpattern.warning "Pola yang anda masukkan terlalu pendek untuk dioptimumkan dan kemungkinan boleh melambatkan penjelajahan web. Anda digalakkan memilih masukan yang lebih panjang untuk penapis ini.">
-<!ENTITY custom.pattern.accesskey "U">
-<!ENTITY anchor.start.accesskey "m">
 <!ENTITY anchors.label "Terima pola sahaja:">
 <!ENTITY collapse.default.yes.label "Gunakan default (ya)">
-<!ENTITY type.filter.accesskey "P">
 <!ENTITY domainRestriction.help "Gunakan pilihan ini untuk tentukan satu atau lebih domain secara berasingan dengan simbol &quot;|&quot;. Penapis hanya akan digunakan pada domain tersebut sahaja. Simbol &quot;~&quot; sebelum domain bermaksud penapis tidak akan digunakan pada domain tersebut.">
 <!ENTITY accept.label "Tambah penapis">
 <!ENTITY options.label "Pilihan">
 <!ENTITY disabled.warning "Adblock Plus telah dinyahaktifkan. Anda masih boleh menambah penapis tetapi ia tidak akan aktif sehingga anda [link]aktifkan Adblock Plus[/link].">
-<!ENTITY anchor.start.flexible.label "pada permulaan nama domain">
-<!ENTITY type.whitelist.accesskey "c">
-<!ENTITY matchCase.accesskey "K">
-<!ENTITY anchor.end.accesskey "a">
+<!ENTITY anchor.start.flexible.label "pada per&amp;mulaan nama domain">
 <!ENTITY selectAllTypes.label "Pilih semua">
 <!ENTITY advanced.label "Paparan mahir">
-<!ENTITY collapse.accesskey "J">
 <!ENTITY pattern.explanation "Pola boleh jadi mana-mana bahagian alamat; simbol (*) bertujuan sebagai wildcards. Penapis hanya digunakan pada alamat yang sepadan dengan pola.">

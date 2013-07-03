@@ -7,13 +7,12 @@
 <!ENTITY filter.label "필터">
 <!ENTITY tooltip.size.label "크기 :">
 <!ENTITY reattach.label "통합">
-<!ENTITY search.label "검색 (S)">
+<!ENTITY search.label "검색 (&amp;S)">
 <!ENTITY docDomain.thirdParty "(외부 요청)">
 <!ENTITY filterSource.label "필터 위치">
 <!ENTITY tooltip.docDomain.label "문서 위치 :">
 <!ENTITY context.copy.label "주소 복사">
 <!ENTITY tooltip.type.label "형식 :">
-<!ENTITY search.accesskey "S">
 <!ENTITY context.disablefilter.label "필터 사용 중지 : ?1?">
 <!ENTITY context.copyFilter.label "필터 복사">
 <!ENTITY context.block.label "차단 필터 추가">

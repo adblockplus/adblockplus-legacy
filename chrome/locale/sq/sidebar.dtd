@@ -7,13 +7,12 @@
 <!ENTITY filter.label "Filtruesi">
 <!ENTITY tooltip.size.label "Madhësia:">
 <!ENTITY reattach.label "Bashkëngjit">
-<!ENTITY search.label "Kërko:">
+<!ENTITY search.label "Kërko: (&amp;S)">
 <!ENTITY docDomain.thirdParty "(të tretët)">
 <!ENTITY filterSource.label "Burimi i filtrit">
 <!ENTITY tooltip.docDomain.label "Burimi i dokumentit:">
 <!ENTITY context.copy.label "Kopjo adresën e elementit">
 <!ENTITY tooltip.type.blocked "(bllokuar)">
-<!ENTITY search.accesskey "S">
 <!ENTITY context.disablefilter.label "Çaktivizo filtruesin ?1?">
 <!ENTITY context.copyFilter.label "Kopjo filtruesin">
 <!ENTITY context.block.label "Blloko këtë send">

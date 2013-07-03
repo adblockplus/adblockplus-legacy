@@ -7,13 +7,12 @@
 <!ENTITY filter.label "Filtrilo">
 <!ENTITY tooltip.size.label "Grandeco:">
 <!ENTITY reattach.label "Denove kunligi">
-<!ENTITY search.label "Serĉi:">
+<!ENTITY search.label "&amp;Serĉi:">
 <!ENTITY docDomain.thirdParty "(de tria liveranto)">
 <!ENTITY filterSource.label "Fonto de la filtrilo">
 <!ENTITY tooltip.docDomain.label "Fonto de la dokumento:">
 <!ENTITY context.copy.label "Kopii la adreson de la elemento">
 <!ENTITY tooltip.type.label "Tipo:">
-<!ENTITY search.accesskey "S">
 <!ENTITY context.disablefilter.label "Malebligi filtrilon ?1?">
 <!ENTITY context.copyFilter.label "Kopii filtrilon">
 <!ENTITY context.block.label "Bloki ĉi tiun elementon">

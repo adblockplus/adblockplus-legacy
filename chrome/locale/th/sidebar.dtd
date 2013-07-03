@@ -7,13 +7,12 @@
 <!ENTITY filter.label "ตัวกรอง">
 <!ENTITY tooltip.size.label "ขนาด:">
 <!ENTITY reattach.label "แนบกลับ">
-<!ENTITY search.label "ค้นหา:">
+<!ENTITY search.label "&amp;ค้นหา:">
 <!ENTITY docDomain.thirdParty "(เทิร์ดปาร์ตี้)">
 <!ENTITY filterSource.label "ตัวกรองต้นฉบับ">
 <!ENTITY tooltip.docDomain.label "แหล่งที่มาเอกสาร:">
 <!ENTITY context.copy.label "คัดลอกที่อยู่รายการ">
 <!ENTITY tooltip.type.label "ชนิด:">
-<!ENTITY search.accesskey "ค">
 <!ENTITY context.disablefilter.label "ปิดตัวกรอง ?1?">
 <!ENTITY context.copyFilter.label "คัดลอกตัวกรอง">
 <!ENTITY context.block.label "บล็อครายการนี้">

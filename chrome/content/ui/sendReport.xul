@@ -38,7 +38,6 @@
   width="800"
   height="550"
   sendbuttonlabel="&sendButton.label;"
-  sendbuttonaccesskey="&sendButton.accesskey;"
   windowtype="abp:sendReport">
 
 <script type="application/x-javascript;version=1.7" src="utils.js"/>
@@ -74,11 +73,11 @@
   <description>&typeSelector.description;</description>
 
   <radiogroup id="typeGroup" oncommand="typeSelectionUpdated();">
-    <radio id="typeFalsePositive" value="false positive" label="&typeSelector.falsePositive.label;" accesskey="&typeSelector.falsePositive.accesskey;"/>
+    <radio id="typeFalsePositive" value="false positive" label="&typeSelector.falsePositive.label;"/>
     <description class="radioDescription">&typeSelector.falsePositive.description;</description>
-    <radio id="typeFalseNegative" value="false negative" label="&typeSelector.falseNegative.label;" accesskey="&typeSelector.falseNegative.accesskey;"/>
+    <radio id="typeFalseNegative" value="false negative" label="&typeSelector.falseNegative.label;"/>
     <description class="radioDescription">&typeSelector.falseNegative.description;</description>
-    <radio id="typeOther" value="other" label="&typeSelector.other.label;" accesskey="&typeSelector.other.accesskey;"/>
+    <radio id="typeOther" value="other" label="&typeSelector.other.label;"/>
     <description class="radioDescription">&typeSelector.other.description;</description>
   </radiogroup>
 
@@ -96,15 +95,15 @@
         </columns>
         <rows id="recentReportsRows" onclick="reportsListDataSource.handleClick(event);"/>
       </grid>
-  
+
       <hbox pack="start">
-        <button label="&recentReports.clear.label;" accesskey="&recentReports.clear.accesskey;" oncommand="reportsListDataSource.clear();"/>
+        <button label="&recentReports.clear.label;" oncommand="reportsListDataSource.clear();"/>
       </hbox>
     </groupbox>
   </deck>
 </wizardpage>
 
-<wizardpage id="updatePage" pageid="update" next="screenshot" onpageshow="subscriptionUpdateDataSource.showPage();" reloadButtonLabel="&reloadButton.label;" reloadButtonAccesskey="&reloadButton.accesskey;">
+<wizardpage id="updatePage" pageid="update" next="screenshot" onpageshow="subscriptionUpdateDataSource.showPage();" reloadButtonLabel="&reloadButton.label;">
   <vbox id="updateInProgress">
     <description>&update.inProgress.description;</description>
     <progressmeter mode="undetermined"/>
@@ -126,7 +125,7 @@
   </vbox>
 </wizardpage>
 
-<wizardpage id="issuesPage" pageid="issues" next="screenshot" onpageshow="initIssuesPage();" reloadButtonLabel="&reloadButton.label;" reloadButtonAccesskey="&reloadButton.accesskey;">
+<wizardpage id="issuesPage" pageid="issues" next="screenshot" onpageshow="initIssuesPage();" reloadButtonLabel="&reloadButton.label;">
   <description>&issues.description;</description>
 
   <vbox id="issuesBox" flex="1">
@@ -183,7 +182,7 @@
     </groupbox>
   </vbox>
 
-  <checkbox id="issuesOverride" label="&issues.override.label;" accesskey="&issues.override.accesskey;" oncommand="updateIssuesOverride();"/>
+  <checkbox id="issuesOverride" label="&issues.override.label;" oncommand="updateIssuesOverride();"/>
   <description id="issuesChangeMessage" hidden="true">&issues.change.description;</description>
 </wizardpage>
 
@@ -193,17 +192,17 @@
     <label id="typeWarningTextLink" class="text-link" onclick="UI.loadDocLink('reporter_other_link');"/>
   </description>
 
-  <checkbox id="typeWarningOverride" label="&typeWarning.override.label;" accesskey="&typeWarning.override.accesskey;" oncommand="updateTypeWarningOverride();"/>
+  <checkbox id="typeWarningOverride" label="&typeWarning.override.label;" oncommand="updateTypeWarningOverride();"/>
 </wizardpage>
 
 <wizardpage id="screenshotPage" pageid="screenshot" next="comment" label="&screenshot.heading;" onpageshow="initScreenshotPage();">
   <description>&screenshot.description;</description>
 
-  <checkbox id="screenshotCheckbox" checked="true" label="&screenshot.attach.label;" accesskey="&screenshot.attach.accesskey;" oncommand="screenshotDataSource.enabled = this.checked;"/>
+  <checkbox id="screenshotCheckbox" checked="true" label="&screenshot.attach.label;" oncommand="screenshotDataSource.enabled = this.checked;"/>
   <hbox id="screenshotButtons" pack="end">
-    <button id="screenshotMarkButton" type="radio" group="selectionType" oncommand="screenshotDataSource.selectionType = 'mark';" checked="true" label="&screenshot.mark.label;" accesskey="&screenshot.mark.accesskey;"/>
-    <button id="screenshotRemoveButton" type="radio" group="selectionType" oncommand="screenshotDataSource.selectionType = 'remove';" label="&screenshot.remove.label;" accesskey="&screenshot.remove.accesskey;"/>
-    <button id="screenshotUndoButton" oncommand="screenshotDataSource.undo();" disabled="true" label="&screenshot.undo.label;" accesskey="&screenshot.undo.accesskey;"/>
+    <button id="screenshotMarkButton" type="radio" group="selectionType" oncommand="screenshotDataSource.selectionType = 'mark';" checked="true" label="&screenshot.mark.label;"/>
+    <button id="screenshotRemoveButton" type="radio" group="selectionType" oncommand="screenshotDataSource.selectionType = 'remove';" label="&screenshot.remove.label;"/>
+    <button id="screenshotUndoButton" oncommand="screenshotDataSource.undo();" disabled="true" label="&screenshot.undo.label;"/>
   </hbox>
   <vbox id="screenshotBox" flex="1">
     <canvas xmlns="http://www.w3.org/1999/xhtml" id="screenshotCanvas" onmousedown="screenshotDataSource.startSelection(event);" onmouseup="screenshotDataSource.stopSelection(event);" onmouseout="screenshotDataSource.stopSelection(event);" onmousemove="screenshotDataSource.updateSelection(event);"/>
@@ -213,25 +212,25 @@
 <wizardpage id="commentPage" pageid="comment" next="send" label="&commentPage.heading;" onpageshow="initCommentPage();">
   <description>&emailComment.label;</description>
   <hbox class="topLabel" align="baseline">
-    <label id="emailLabel" control="email" value="&email.label;" accesskey="&email.accesskey;"/>
+    <label id="emailLabel" control="email" value="&email.label;"/>
     <textbox id="email" persist="value" flex="1" maxlength="200" oninput="updateEmail();"/>
   </hbox>
-  <checkbox id="anonymousCheckbox" label="&anonymous.label;" accesskey="&anonymous.accesskey;" oncommand="updateEmail();"/>
+  <checkbox id="anonymousCheckbox" label="&anonymous.label;" oncommand="updateEmail();"/>
   <description id="anonymityWarning" visible="false">&anonymity.warning;</description>
 
   <description class="topLabel">&commentPage.description;</description>
-  <label class="topLabel" control="comment" value="&comment.label;" accesskey="&comment.accesskey;"/>
+  <label class="topLabel" control="comment" value="&comment.label;"/>
   <textbox id="comment" multiline="true" flex="1" oninput="updateComment();"/>
   <description id="commentLengthWarning" visible="false">&comment.lengthWarning;</description>
 
-  <checkbox id="extensionsCheckbox" label="&attachExtensions.label;" accesskey="&attachExtensions.accesskey;" oncommand="updateExtensions(this.checked);"/>
+  <checkbox id="extensionsCheckbox" label="&attachExtensions.label;" oncommand="updateExtensions(this.checked);"/>
 
   <deck id="dataDeck" selectedIndex="0" flex="2">
     <vbox pack="start">
       <label class="text-link" value="&showData.label;" onclick="showDataField();"/>
     </vbox>
     <vbox>
-      <label control="data" value="&data.label;" accesskey="&data.accesskey;"/>
+      <label control="data" value="&data.label;"/>
       <textbox id="data" readonly="true" multiline="true" wrap="off" flex="1"/>
     </vbox>
   </deck>
@@ -253,7 +252,7 @@
           confirmationMessage="&sendPage.confirmation;" knownIssueMessage="&sendPage.knownIssue;"/>
 
   <hbox id="copyLinkBox" pack="end" hidden="true">
-    <button id="copyLink" disabled="true" label="&copyLink.label;" accesskey="&copyLink.accesskey;" oncommand="copyLink(this.getAttribute('url'));"/>
+    <button id="copyLink" disabled="true" label="&copyLink.label;" oncommand="copyLink(this.getAttribute('url'));"/>
   </hbox>
 </wizardpage>
 

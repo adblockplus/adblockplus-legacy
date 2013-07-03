@@ -170,7 +170,7 @@ function addSubscriptions(list, parent, level, parentTitle, parentURL)
       title.setAttribute("flex", "1");
       title.style.marginLeft = (20 * level) + "px";
       item.appendChild(title);
-  
+
       let variantTitle = document.createElement("description");
       variantTitle.setAttribute("class", "variant");
       variantTitle.textContent = variant.getAttribute("title");
@@ -221,11 +221,12 @@ function setCustomSubscription(title, url, mainSubscriptionTitle, mainSubscripti
     link.textContent = mainSubscriptionTitle;
     messageElement.appendChild(link);
     messageElement.appendChild(document.createTextNode(afterLink));
-    
+
     addMainCheckbox.value = mainSubscriptionURL;
     addMainCheckbox.setAttribute("_mainSubscriptionTitle", mainSubscriptionTitle)
-    addMainCheckbox.label = addMainCheckbox.getAttribute("_labelTemplate").replace(/\?1\?/g, mainSubscriptionTitle);
-    addMainCheckbox.accessKey = addMainCheckbox.accessKey;
+    let [label, accesskey] = Utils.splitLabel(addMainCheckbox.getAttribute("_labelTemplate"));
+    addMainCheckbox.label = label.replace(/\?1\?/g, mainSubscriptionTitle);
+    addMainCheckbox.accessKey = accesskey;
   }
   else
   {

@@ -40,8 +40,8 @@
     windowtype="abp:composer">
 
   <script type="application/x-javascript;version=1.7" src="utils.js"/>
-  <script type="application/x-javascript;version=1.7" src="composer.js"/>  
-  
+  <script type="application/x-javascript;version=1.7" src="composer.js"/>
+
   <popupset>
     <tooltip id="domainRestrictionHelp" label="&domainRestriction.help;"/>
   </popupset>
@@ -51,14 +51,14 @@
   </description>
 
   <hbox id="filterBox" align="center">
-    <label control="filter" value="&filter.label;" accesskey="&filter.accesskey;"/>
+    <label control="filter" value="&filter.label;"/>
     <textbox id="filter" flex="1" tabindex="-1" readonly="true"/>
-    <button id="preferences" label="&preferences.label;" accesskey="&preferences.accesskey;" oncommand="openPreferences()"/>
+    <button id="preferences" label="&preferences.label;" oncommand="openPreferences()"/>
   </hbox>
 
   <radiogroup orient="horizontal" id="filterType" oncommand="updateFilter()">
-    <radio label="&type.filter.label;" accesskey="&type.filter.accesskey;" value="filterlist" flex="1"/>
-    <radio label="&type.whitelist.label;" accesskey="&type.whitelist.accesskey;" value="whitelist" flex="1"/>
+    <radio label="&type.filter.label;" value="filterlist" flex="1"/>
+    <radio label="&type.whitelist.label;" value="whitelist" flex="1"/>
   </radiogroup>
 
   <hbox flex="1">
@@ -70,27 +70,27 @@
         <description id="shortpatternWarning" hidden="true">&shortpattern.warning;</description>
         <description id="matchWarning" hidden="true">&match.warning;</description>
         <hbox id="customPatternBox">
-          <radio id="customPatternRadio" label="&custom.pattern.label;" accesskey="&custom.pattern.accesskey;" value="" control="customPattern"/>
+          <radio id="customPatternRadio" label="&custom.pattern.label;" value="" control="customPattern"/>
           <textbox id="customPattern" flex="1" oninput="updateCustomPattern()"/>
         </hbox>
       </radiogroup>
       <hbox id="anchorGroup" pack="start" align="baseline">
         <label value="&anchors.label;"/>
         <description flex="1" style="margin: 0; padding: 0;">
-          <checkbox id="anchorStart" labelRegular="&anchor.start.label;" accesskeyRegular="&anchor.start.accesskey;"
-                                     labelFlexible="&anchor.start.flexible.label;" accesskeyFlexible="&anchor.start.flexible.accesskey;"
+          <checkbox id="anchorStart" labelRegular="&anchor.start.label;"
+                                     labelFlexible="&anchor.start.flexible.label;"
                                      oncommand="updateFilter()"/>
-          <checkbox id="anchorEnd" label="&anchor.end.label;" accesskey="&anchor.end.accesskey;" oncommand="updateFilter()"/>
+          <checkbox id="anchorEnd" label="&anchor.end.label;" oncommand="updateFilter()"/>
         </description>
       </hbox>
     </groupbox>
     <groupbox id="options">
       <caption label="&options.label;"/>
-      <checkbox id="firstParty" label="&firstParty.label;" accesskey="&firstParty.accesskey;" oncommand="checkboxUpdated(this);"/>
-      <checkbox id="thirdParty" label="&thirdParty.label;" accesskey="&thirdParty.accesskey;" oncommand="checkboxUpdated(this);"/>
-      <checkbox id="matchCase" label="&matchCase.label;" accesskey="&matchCase.accesskey;" oncommand="checkboxUpdated(this);"/>
+      <checkbox id="firstParty" label="&firstParty.label;" oncommand="checkboxUpdated(this);"/>
+      <checkbox id="thirdParty" label="&thirdParty.label;" oncommand="checkboxUpdated(this);"/>
+      <checkbox id="matchCase" label="&matchCase.label;" oncommand="checkboxUpdated(this);"/>
       <hbox align="baseline">
-        <checkbox id="domainRestrictionEnabled" label="&domainRestriction.label;" accesskey="&domainRestriction.accesskey;" oncommand="checkboxUpdated(this);"/>
+        <checkbox id="domainRestrictionEnabled" label="&domainRestriction.label;" oncommand="checkboxUpdated(this);"/>
         <description class="help" value="?" tooltip="domainRestrictionHelp"/>
       </hbox>
       <textbox id="domainRestriction" oninput="updateFilter()"/>
@@ -104,7 +104,7 @@
       <vbox flex="1" id="typeGroup"/>
 
       <vbox>
-        <label control="collapse" value="&collapse.label;" accesskey="&collapse.accesskey;"/>
+        <label control="collapse" value="&collapse.label;"/>
         <menulist id="collapse" oncommand="updateFilter()">
           <menupopup>
             <menuitem id="collapseDefault" value="" label_yes="&collapse.default.yes.label;" label_no="&collapse.default.no.label;" selected="true"/>

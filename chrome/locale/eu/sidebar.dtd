@@ -7,13 +7,12 @@
 <!ENTITY filter.label "Iragazki">
 <!ENTITY tooltip.size.label "Tamaina:">
 <!ENTITY reattach.label "Lotu">
-<!ENTITY search.label "Bilatu:">
+<!ENTITY search.label "&amp;Bilatu:">
 <!ENTITY docDomain.thirdParty "(kanpo iturria)">
 <!ENTITY filterSource.label "Iragazki iturria">
 <!ENTITY tooltip.docDomain.label "Dokumentuaren iturria:">
 <!ENTITY context.copy.label "Elementuaren helbidea kopiatu">
 <!ENTITY tooltip.type.label "Mota:">
-<!ENTITY search.accesskey "B">
 <!ENTITY context.disablefilter.label "?1? iragazkia ezgaitu">
 <!ENTITY context.copyFilter.label "Kopiatu iragazkia">
 <!ENTITY context.block.label "Blokeatu elementu hau">

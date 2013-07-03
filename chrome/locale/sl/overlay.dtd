@@ -1,42 +1,29 @@
-<!ENTITY showintoolbar.accesskey "k">
-<!ENTITY showinstatusbar.accesskey "v">
 <!ENTITY whitelist.site.label "Onemogoči na ?1?">
-<!ENTITY filters.label "Nastavitve filtra">
+<!ENTITY filters.label "Nastavitve &amp;filtra">
 <!ENTITY disable.label "Onemogoči povsod">
-<!ENTITY showinaddonbar.label "Pokaži dodatek v vrstici">
+<!ENTITY showinaddonbar.label "Po&amp;kaži dodatek v vrstici">
 <!ENTITY objecttab.title "Blokiraj">
-<!ENTITY showinaddonbar.accesskey "k">
-<!ENTITY sync.accesskey "h">
-<!ENTITY objecttabs.label "Pokaži zavihke za Flash in Javo">
+<!ENTITY objecttabs.label "Pokaži &amp;zavihke za Flash in Javo">
 <!ENTITY objecttab.tooltip "Kliknite sem za blokiranje tega predmeta z Adblock Plus">
-<!ENTITY menuitem.label "Adblock Plus">
-<!ENTITY sendReport.accesskey "J">
-<!ENTITY sendReport.label "Javite težavo na tej strani">
-<!ENTITY filters.accesskey "f">
+<!ENTITY menuitem.label "Ad&amp;block Plus">
+<!ENTITY sendReport.label "&amp;Javite težavo na tej strani">
 <!ENTITY whitelist.page.label "Onemogoči samo na tej strani">
 <!ENTITY context.image.label "Adblock - slike">
-<!ENTITY closesidebar.accesskey "e">
-<!ENTITY hideplaceholders.label "Skrij ograde blokoranih elementov">
-<!ENTITY opensidebar.label "Odpri elemente blokad">
-<!ENTITY options.accesskey "ž">
+<!ENTITY hideplaceholders.label "Skrij ograde &amp;blokoranih elementov">
+<!ENTITY opensidebar.label "Odpri &amp;elemente blokad">
 <!ENTITY contribute.label "Prispevajte k Adblock Plus">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock - okviri">
-<!ENTITY counthits.label "Štej zadetke filtra">
+<!ENTITY counthits.label "Štej za&amp;detke filtra">
 <!ENTITY blocked.tooltip "Blokirani elementi na tej strani:">
-<!ENTITY opensidebar.accesskey "e">
-<!ENTITY showinstatusbar.label "Pokaži v vrstici stanja">
+<!ENTITY showinstatusbar.label "Pokaži &amp;v vrstici stanja">
 <!ENTITY status.tooltip "Stanje:">
 <!ENTITY sidebar.title "Elementi blokad na trenutni strani">
-<!ENTITY sync.label "Sinhroniziraj nastavitve Adblock Plus">
-<!ENTITY options.label "Možnosti">
+<!ENTITY sync.label "Sin&amp;hroniziraj nastavitve Adblock Plus">
+<!ENTITY options.label "Mo&amp;žnosti">
 <!ENTITY context.object.label "Adblock - predmeti">
 <!ENTITY context.removeWhitelist.label "Adblock Plus - ponovno omogoči na tej strani">
-<!ENTITY objecttabs.accesskey "z">
 <!ENTITY filters.tooltip "Najbolj aktivni filtri:">
-<!ENTITY closesidebar.label "Zapri elemente blokad">
-<!ENTITY showintoolbar.label "Pokaži v orodni vrstici">
-<!ENTITY counthits.accesskey "d">
-<!ENTITY menuitem.accesskey "B">
+<!ENTITY closesidebar.label "Zapri &amp;elemente blokad">
+<!ENTITY showintoolbar.label "Po&amp;kaži v orodni vrstici">
 <!ENTITY context.media.label "Adblock Plus: Blokiraj zvok/video">
-<!ENTITY hideplaceholders.accesskey "b">

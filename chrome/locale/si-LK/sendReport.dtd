@@ -2,6 +2,4 @@
 <!ENTITY sendPage.retry.label "නැවත යවන්න">
 <!ENTITY data.label "දත්ත වාර්තා කරන්න">
 <!ENTITY sendPage.heading "දත්ත යවන්න">
-<!ENTITY issues.override.accesskey "C">
-<!ENTITY sendButton.accesskey "m">
 <!ENTITY copyLink.label "නැවත පිටපත් කරන්න">

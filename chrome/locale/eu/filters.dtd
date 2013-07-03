@@ -1,61 +1,50 @@
-<!ENTITY lasthit.column "Azken bategitea">
-<!ENTITY addFilter.accesskey "d">
+<!ENTITY lasthit.column "&amp;Azken bategitea">
 <!ENTITY subscription.delete.label "Ezabatu">
 <!ENTITY subscriptions.tab.label "Iragazki harpidetzak">
-<!ENTITY enabled.accesskey "b">
-<!ENTITY addGroup.accesskey "h">
 <!ENTITY subscription.update.label "Eguneratu iragazkiak">
 <!ENTITY restore.complete.warning "Zure iragazki hobespen guztiak aukeratutako fitxategiko edukiarekin ordeztuko dira. Aurrera jarraitu nahi duzu?">
 <!ENTITY filter.moveUp.label "Igo">
 <!ENTITY filter.edit.label "Editatu">
-<!ENTITY hitcount.column "Bategiteak">
-<!ENTITY acceptableAds2.label "Baimendu publizitate ez intrusiboa">
+<!ENTITY hitcount.column "&amp;Bategiteak">
+<!ENTITY acceptableAds2.label "Ba&amp;imendu publizitate ez intrusiboa">
 <!ENTITY close.label "Itxi">
-<!ENTITY sort.none.label "Ordenatu gabe">
-<!ENTITY find.accesskey "b">
+<!ENTITY sort.none.label "Ordenatu &amp;gabe">
 <!ENTITY readMore.label "Gehiago irakurri">
 <!ENTITY subscription.homepage.label "Hasiera orria">
 <!ENTITY typoCorrections.enableLabel "Zuzendu gaizki idatzitako Internet helbideak">
-<!ENTITY sort.descending.accesskey "Z">
-<!ENTITY sort.descending.label "Z &gt; A ordena">
+<!ENTITY sort.descending.label "&amp;Z &gt; A ordena">
 <!ENTITY subscription.lastDownload.success "Arrakasta">
 <!ENTITY filters.remove.warning "Benetan ezabatu nahi dituzu aukeratutako iragazkiak?">
 <!ENTITY restore.custom.warning "Zure iragazki pertsonal guztiak aukeratutako fitxategiko edukiarekin ordeztuko dira. Aurrera jarraitu nahi duzu?">
-<!ENTITY slow.column "Iragazki motelak">
+<!ENTITY slow.column "Iraga&amp;zki motelak">
 <!ENTITY subscription.actions.label "Ekintzak">
 <!ENTITY filter.selectAll.label "Dena aukeratu">
-<!ENTITY backupButton.label "Segurtasun kopia eta berrezartzea">
-<!ENTITY sort.accesskey "B">
+<!ENTITY backupButton.label "Segu&amp;rtasun kopia eta berrezartzea">
 <!ENTITY subscription.source.label "Iragazki zerrenda">
 <!ENTITY filter.paste.label "Itsatsi">
-<!ENTITY addSubscription.accesskey "i">
 <!ENTITY filter.delete.label "Ezabatu">
 <!ENTITY addSubscriptionAdd.label "Gehitu">
-<!ENTITY slow.accesskey "z">
 <!ENTITY subscription.showHideFilters.label "Erakutsi/ezkutatu iragazkiak">
-<!ENTITY backupButton.accesskey "r">
 <!ENTITY filter.actions.label "Iragazki ekintzak">
 <!ENTITY filter.moveDown.label "Jaitsi">
 <!ENTITY typoCorrections.tab.label "Akats zuzenketak">
-<!ENTITY addFilter.label "Gehitu iragazkia">
+<!ENTITY addFilter.label "Gehitu iragazkia (&amp;d)">
 <!ENTITY subscription.editTitle.label "Editatu izenburua">
 <!ENTITY subscription.moveDown.label "Jaitsi">
 <!ENTITY subscription.disabledFilters.warning "Harpidetza honetako iragazki batzuk desgaituta daude">
-<!ENTITY filter.column "Iragazki araua">
+<!ENTITY filter.column "&amp;Iragazki araua">
 <!ENTITY subscription.lastDownload.checksumMismatch "Kale, egiaztapeneko batura ez dator bat">
 <!ENTITY noFiltersInGroup.text "Aukeratutako taldea hutsik dago">
 <!ENTITY typoCorrections.whitelistLabel "Ez gainidatzi...">
-<!ENTITY sort.label "Ordenatu honen arabera">
+<!ENTITY sort.label "Ordenatu honen ara&amp;bera">
 <!ENTITY noFilters.text "Ez duzu pertsonalizatutako iragazkirik oraindik.">
 <!ENTITY subscription.external.label "Beste gehigarri batek eguneratua">
-<!ENTITY filter.accesskey "I">
 <!ENTITY noGroupSelected.text "Iragazki talde bat aukeratu behar duzu bere iragazkiak ikusi ahal izateko">
 <!ENTITY subscription.lastDownload.inProgress "Deskargatzen...">
 <!ENTITY typoCorrections.removeButtonLabel "Kendu aukeratutakoak">
-<!ENTITY enabled.column "Gaituta">
+<!ENTITY enabled.column "Gaituta (&amp;b)">
 <!ENTITY viewMenu.label "Ikusi">
 <!ENTITY addSubscriptionCancel.label "Ezeztatu">
-<!ENTITY lasthit.accesskey "A">
 <!ENTITY dialog.title "Adblock Plus iragazki hobespenak">
 <!ENTITY subscription.minVersion.warning "Iragazki harpidetzak Adblock Plus bertsio berria behar du, azken bertsiora eguneratu beharko zenuke Adblock Plus.">
 <!ENTITY subscription.lastDownload.invalidURL "Kale, ez da helbide baliagarria">
@@ -66,26 +55,22 @@
 <!ENTITY subscription.moveUp.label "Igo">
 <!ENTITY backup.complete.title "Iragazki eta harpidetza guztiak">
 <!ENTITY filters.tab.label "Pertsonalizatutako iragazkiak">
-<!ENTITY find.label "Bilatu">
+<!ENTITY find.label "&amp;Bilatu">
 <!ENTITY subscription.lastDownload.connectionError "Kale, deskarga errorea">
 <!ENTITY subscription.lastDownload.invalidData "Kale, ez da iragazki zerrenda baliagarria">
 <!ENTITY restore.minVersion.warning "Oharra: fitxategi hau Adblock Plusen bertsio berriago batekin sortu da. Adblock Plus azken bertsiora eguneratu beharko zenuke fitxategi hau berrezarri aurretik.">
-<!ENTITY sort.ascending.label "A &gt; Z ordena">
+<!ENTITY sort.ascending.label "&amp;A &gt; Z ordena">
 <!ENTITY viewList.label "Ikusi zerrenda">
 <!ENTITY typoCorrections.whitelistEmptyLabel "Ez dago salbuespenik orain.">
-<!ENTITY sort.ascending.accesskey "A">
 <!ENTITY restore.default.label "?1? segurtasun kopiatik berrezarri">
-<!ENTITY hitcount.accesskey "B">
-<!ENTITY acceptableAds2.accesskey "i">
 <!ENTITY subscription.lastDownload.unknown "E/E">
 <!ENTITY subscription.enabled.label "Gaituta">
 <!ENTITY noSubscriptions.text "Ez duzu harpidetzarik gehitu oraindik. Adblock Plusek du ezer blokeatuko iragazki gabe, mesedez erabili &quot;Gehitu iragazki harpidetza&quot; 
  iragazkiak gehitzeko.">
-<!ENTITY addGroup.label "Gehitu iragazki taldea">
+<!ENTITY addGroup.label "Ge&amp;hitu iragazki taldea">
 <!ENTITY addSubscriptionOther.label "Gehitu harpidetza desberdin bat">
 <!ENTITY filter.copy.label "Kopiatu">
-<!ENTITY sort.none.accesskey "g">
-<!ENTITY addSubscription.label "Gehitu iragazki harpidetza">
+<!ENTITY addSubscription.label "Geh&amp;itu iragazki harpidetza">
 <!ENTITY restore.own.label "Segurtasun kopia propioa berrezarri">
 <!ENTITY filter.resetHitCounts.label "Garbitu bategite estatistikak">
 <!ENTITY backup.label "Sortu segurtasun kopia berria">

@@ -55,3 +55,12 @@ function E(id)
 {
   return document.getElementById(id);
 }
+
+/**
+ * Split up all labels into the label and access key portions.
+ */
+document.addEventListener("DOMContentLoaded", function splitAllLabelsHandler()
+{
+  document.removeEventListener("DOMContentLoaded", splitAllLabelsHandler, false);
+  Utils.splitAllLabels(document);
+}, false);

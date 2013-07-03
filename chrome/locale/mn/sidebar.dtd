@@ -7,12 +7,11 @@
 <!ENTITY filter.label "Шүүлтүүр">
 <!ENTITY tooltip.size.label "Хэмжээ:">
 <!ENTITY reattach.label "Залгах">
-<!ENTITY search.label "Хайх:">
+<!ENTITY search.label "&amp;Хайх:">
 <!ENTITY docDomain.thirdParty "(гурав дахь хэсэг)">
 <!ENTITY tooltip.docDomain.label "Баримтын эх:">
 <!ENTITY context.copy.label "Зүйлийн хаягийг сануулах">
 <!ENTITY tooltip.type.label "Төрөл:">
-<!ENTITY search.accesskey "Х">
 <!ENTITY context.disablefilter.label "Шүүлтүүр хаах ?1?">
 <!ENTITY context.copyFilter.label "Шүүлтүүр хуулах">
 <!ENTITY context.block.label "Уг зүйлийг хаших">

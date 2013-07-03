@@ -7,13 +7,12 @@
 <!ENTITY filter.label "Фильтр">
 <!ENTITY tooltip.size.label "Көлемі:">
 <!ENTITY reattach.label "Қосып қою">
-<!ENTITY search.label "Іздеу:">
+<!ENTITY search.label "І&amp;здеу:">
 <!ENTITY docDomain.thirdParty "(үшінші жақты)">
 <!ENTITY filterSource.label "Фильтр көзі">
 <!ENTITY tooltip.docDomain.label "Құжат көзі:">
 <!ENTITY context.copy.label "Элемент адресін көшіру">
 <!ENTITY tooltip.type.label "Түрі:">
-<!ENTITY search.accesskey "з">
 <!ENTITY context.disablefilter.label "Фильтрді сөндіру ?1?">
 <!ENTITY context.copyFilter.label "Фильтрді көшіру">
 <!ENTITY context.block.label "Бұл элементті блоктау">

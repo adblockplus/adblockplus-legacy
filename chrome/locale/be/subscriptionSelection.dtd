@@ -1,4 +1,2 @@
-<!ENTITY title.label "Назва падпіскі:">
-<!ENTITY location.accesskey "с">
-<!ENTITY title.accesskey "Н">
-<!ENTITY location.label "Месцазнаходжанне спіса сітаў:">
+<!ENTITY title.label "&amp;Назва падпіскі:">
+<!ENTITY location.label "Ме&amp;сцазнаходжанне спіса сітаў:">

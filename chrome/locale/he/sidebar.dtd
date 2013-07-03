@@ -7,13 +7,12 @@
 <!ENTITY filter.label "מסנן">
 <!ENTITY tooltip.size.label "גודל:">
 <!ENTITY reattach.label "חיבור">
-<!ENTITY search.label "חיפוש:">
+<!ENTITY search.label "&amp;חיפוש:">
 <!ENTITY docDomain.thirdParty "(צד שלישי)">
 <!ENTITY filterSource.label "מקור המסנן">
 <!ENTITY tooltip.docDomain.label "מקור המסמך:">
 <!ENTITY context.copy.label "העתקת כתובת הפריט">
 <!ENTITY tooltip.type.label "סוג:">
-<!ENTITY search.accesskey "ח">
 <!ENTITY context.disablefilter.label "נטרול המסנן ?1?">
 <!ENTITY context.copyFilter.label "העתקת המסנן">
 <!ENTITY context.block.label "חסימת פריט זה">

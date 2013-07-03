@@ -7,13 +7,12 @@
 <!ENTITY filter.label "Filter">
 <!ENTITY tooltip.size.label "Suurus:">
 <!ENTITY reattach.label "Haagi tagasi">
-<!ENTITY search.label "Otsing:">
+<!ENTITY search.label "Ot&amp;sing:">
 <!ENTITY docDomain.thirdParty "(väljaspoolt)">
 <!ENTITY filterSource.label "Filtri allikas">
 <!ENTITY tooltip.docDomain.label "Dokumendi allikas:">
 <!ENTITY context.copy.label "Kopeeri elemendi aadress">
 <!ENTITY tooltip.type.label "Tüüp:">
-<!ENTITY search.accesskey "s">
 <!ENTITY context.disablefilter.label "Keela filter ?1?">
 <!ENTITY context.copyFilter.label "Kopeeri filter">
 <!ENTITY context.block.label "Blokeeri see element">

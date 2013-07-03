@@ -7,13 +7,12 @@
 <!ENTITY filter.label "Filter">
 <!ENTITY tooltip.size.label "Veľkosť:">
 <!ENTITY reattach.label "Znovu pripojiť">
-<!ENTITY search.label "Hľadať:">
+<!ENTITY search.label "&amp;Hľadať:">
 <!ENTITY docDomain.thirdParty "(tretia strana)">
 <!ENTITY filterSource.label "Zdroj filtra">
 <!ENTITY tooltip.docDomain.label "Zdroj dokumentu:">
 <!ENTITY context.copy.label "Kopírovať adresu položiek">
 <!ENTITY tooltip.type.label "Typ:">
-<!ENTITY search.accesskey "H">
 <!ENTITY context.disablefilter.label "Vypnúť filter ?1?">
 <!ENTITY context.copyFilter.label "Kopírovať filter">
 <!ENTITY context.block.label "Blokovať túto položku">

@@ -1,9 +1,7 @@
 <!ENTITY addMain.label "Također dodaj pretplatu &quot;?1?&quot;">
 <!ENTITY list.download.failed "Adblock Plus nije uspio dohvatiti listu pretplata.">
 <!ENTITY list.download.retry "Pokušaj ponovo">
-<!ENTITY location.accesskey "l">
 <!ENTITY addSubscription.label "Dodaj pretplatu">
 <!ENTITY list.download.website "Posjeti stranicu">
-<!ENTITY title.accesskey "t">
-<!ENTITY title.label "Naslov pretplate:">
+<!ENTITY title.label "Naslov pre&amp;tplate:">
 <!ENTITY supplementMessage "Ovaj filter je zamišljen da se koristi sa pretplatom &quot;?1?&quot; koju ne koristite.">

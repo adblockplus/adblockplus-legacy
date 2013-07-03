@@ -7,13 +7,12 @@
 <!ENTITY filter.label "Фільтр">
 <!ENTITY tooltip.size.label "Розмір:">
 <!ENTITY reattach.label "Приєднати">
-<!ENTITY search.label "Пошук:">
+<!ENTITY search.label "П&amp;ошук:">
 <!ENTITY docDomain.thirdParty "(запит з іншого сайта)">
 <!ENTITY filterSource.label "Джерело фільтра">
 <!ENTITY tooltip.docDomain.label "Джерело документа:">
 <!ENTITY context.copy.label "Копіювати адресу">
 <!ENTITY tooltip.type.label "Тип:">
-<!ENTITY search.accesskey "о">
 <!ENTITY context.disablefilter.label "Вимкнути фільтр ?1?">
 <!ENTITY context.copyFilter.label "Копіювати фільтр">
 <!ENTITY context.block.label "Заблокувати елемент">

@@ -1,8 +1,7 @@
 <!ENTITY detached.title "ಆಡ್‌ಬ್ಲಾಕ್ ಪ್ಲಸ್‌: ತಡೆಹಿಡಿಯಬಹುದಾದ ವಸ್ತುಗಳು (ಹೊರ ತೆಗೆದಿದೆ)">
 <!ENTITY detach.label "ಹೊರ ತೆಗೆ">
 <!ENTITY reattach.label "ಮರು ಲಗತ್ತಿಸು">
-<!ENTITY search.label "ಹುಡುಕು:">
-<!ENTITY search.accesskey "S">
+<!ENTITY search.label "ಹುಡುಕು: (&amp;S)">
 <!ENTITY type.label "ಟೈಪ್ ಮಾಡಿ">
 <!ENTITY address.label "ವಿಳಾಸ">
 <!ENTITY filter.label "ಫಿಲ್ಟರ್">

@@ -1,61 +1,50 @@
-<!ENTITY lasthit.column "Последњи погодак">
-<!ENTITY addFilter.accesskey "д">
+<!ENTITY lasthit.column "Пос&amp;ледњи погодак">
 <!ENTITY subscription.delete.label "Избриши">
 <!ENTITY subscriptions.tab.label "Претплате на филтере">
-<!ENTITY enabled.accesskey "н">
-<!ENTITY addGroup.accesskey "г">
 <!ENTITY subscription.update.label "Ажурирај филтере">
 <!ENTITY restore.complete.warning "Све ваша подешавања филтера ће бити замењена са онима из изабране датотеке. Желите ли да наставите?">
 <!ENTITY filter.moveUp.label "Помери нагоре">
 <!ENTITY filter.edit.label "Уреди">
-<!ENTITY hitcount.column "Број погодака">
-<!ENTITY acceptableAds2.label "Дозволи ненаметљиве рекламе">
+<!ENTITY hitcount.column "Бро&amp;ј погодака">
+<!ENTITY acceptableAds2.label "Дозволи &amp;ненаметљиве рекламе">
 <!ENTITY close.label "Затвори">
-<!ENTITY sort.none.label "Непоређано">
-<!ENTITY find.accesskey "ђ">
+<!ENTITY sort.none.label "Н&amp;епоређано">
 <!ENTITY readMore.label "Сазнај више">
 <!ENTITY subscription.homepage.label "Матична страница">
 <!ENTITY typoCorrections.enableLabel "Поправи погрешно унете интернетске адресе">
-<!ENTITY sort.descending.accesskey "Ш">
-<!ENTITY sort.descending.label "Од Ш до А">
+<!ENTITY sort.descending.label "Од &amp;Ш до А">
 <!ENTITY subscription.lastDownload.success "Успешно">
 <!ENTITY filters.remove.warning "Желите ли да уклоните све изабране филтере?">
 <!ENTITY restore.custom.warning "Сви ваши прилагођени филтери ће бити замењени са онима из изабрање датотеке. Желите ли да наставите?">
-<!ENTITY slow.column "Спори филтери">
+<!ENTITY slow.column "Спор&amp;и филтери">
 <!ENTITY subscription.actions.label "Радње">
 <!ENTITY filter.selectAll.label "Изабери све">
-<!ENTITY backupButton.label "Направи резервну копију и врати у претходно стање">
-<!ENTITY sort.accesskey "С">
+<!ENTITY backupButton.label "Нап&amp;рави резервну копију и врати у претходно стање">
 <!ENTITY subscription.source.label "Списак филтера">
 <!ENTITY filter.paste.label "Налепи">
-<!ENTITY addSubscription.accesskey "п">
 <!ENTITY filter.delete.label "Избриши">
 <!ENTITY addSubscriptionAdd.label "Додај">
-<!ENTITY slow.accesskey "и">
 <!ENTITY subscription.showHideFilters.label "Прикажи/сакриј филтере">
-<!ENTITY backupButton.accesskey "р">
 <!ENTITY filter.actions.label "Радње филтера">
 <!ENTITY filter.moveDown.label "Помери надоле">
 <!ENTITY typoCorrections.tab.label "Исправке грешака у куцању">
-<!ENTITY addFilter.label "Додај филтер">
+<!ENTITY addFilter.label "&amp;Додај филтер">
 <!ENTITY subscription.editTitle.label "Уреди наслов">
 <!ENTITY subscription.moveDown.label "Помери надоле">
 <!ENTITY subscription.disabledFilters.warning "Неки филтери са списка су онемогућени.">
-<!ENTITY filter.column "Правило филтера">
+<!ENTITY filter.column "Правило &amp;филтера">
 <!ENTITY subscription.lastDownload.checksumMismatch "Неуспело, неслагање извештаја">
 <!ENTITY noFiltersInGroup.text "Изабрана група је празна.">
 <!ENTITY typoCorrections.whitelistLabel "Не мењај...">
-<!ENTITY sort.label "Сортирај по">
+<!ENTITY sort.label "&amp;Сортирај по">
 <!ENTITY noFilters.text "Немате прилагођених филтера.">
 <!ENTITY subscription.external.label "Ажурира други додатак">
-<!ENTITY filter.accesskey "ф">
 <!ENTITY noGroupSelected.text "Морате да изаберете групу филтера да би њени филтери били приказани.">
 <!ENTITY subscription.lastDownload.inProgress "Преузимање...">
 <!ENTITY typoCorrections.removeButtonLabel "Уклони изабрано">
-<!ENTITY enabled.column "Омогућен">
+<!ENTITY enabled.column "Омогуће&amp;н">
 <!ENTITY viewMenu.label "Приказ">
 <!ENTITY addSubscriptionCancel.label "Откажи">
-<!ENTITY lasthit.accesskey "л">
 <!ENTITY dialog.title "Подешавања филтера Adblock Plus">
 <!ENTITY subscription.minVersion.warning "Ива претплата на филтер захтева новију верзију додатка Adblock Plus. Молимо вас да доградите додатак.">
 <!ENTITY subscription.lastDownload.invalidURL "Неуспело, неисправна адреса">
@@ -66,25 +55,21 @@
 <!ENTITY subscription.moveUp.label "Помери нагоре">
 <!ENTITY backup.complete.title "Додај филтере и претплате">
 <!ENTITY filters.tab.label "Прилагођени филтери">
-<!ENTITY find.label "Пронађи">
+<!ENTITY find.label "Прона&amp;ђи">
 <!ENTITY subscription.lastDownload.connectionError "Неуспело, грешка у преузимању">
 <!ENTITY subscription.lastDownload.invalidData "Неуспело, није листа филтера">
 <!ENTITY restore.minVersion.warning "Напомена: датотека је направљена у новијој верзији додатка Adblock Plus. Требало би да доградите Adblock Plus на најновију верзију пре враћања претходног стања из ове датотеке.">
-<!ENTITY sort.ascending.label "Од А до Ш">
+<!ENTITY sort.ascending.label "Од &amp;А до Ш">
 <!ENTITY viewList.label "Погледај списак">
 <!ENTITY typoCorrections.whitelistEmptyLabel "Тренутно нема изузетака.">
-<!ENTITY sort.ascending.accesskey "А">
 <!ENTITY restore.default.label "Врати претходно стање од ?1?">
-<!ENTITY hitcount.accesskey "ј">
-<!ENTITY acceptableAds2.accesskey "н">
 <!ENTITY subscription.lastDownload.unknown "Непознато">
 <!ENTITY subscription.enabled.label "Омогућено">
 <!ENTITY noSubscriptions.text "Нисте додали ниједну претплату на филтер. Adblock Plus неће блокирати ништа без њих, па притисните „Додај претплату на филтер”.">
-<!ENTITY addGroup.label "Додај групу филтера">
+<!ENTITY addGroup.label "Додај &amp;групу филтера">
 <!ENTITY addSubscriptionOther.label "Додај другу претплату">
 <!ENTITY filter.copy.label "Копирај">
-<!ENTITY sort.none.accesskey "е">
-<!ENTITY addSubscription.label "Додај претплату на филтер">
+<!ENTITY addSubscription.label "Додај &amp;претплату на филтер">
 <!ENTITY restore.own.label "Врати сопствено претходно стање">
 <!ENTITY filter.resetHitCounts.label "Поништи статистике">
 <!ENTITY backup.label "Направи нову резервну копију">

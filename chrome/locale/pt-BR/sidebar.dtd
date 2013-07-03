@@ -7,13 +7,12 @@
 <!ENTITY filter.label "Filtro">
 <!ENTITY tooltip.size.label "Tamanho">
 <!ENTITY reattach.label "Ancorar">
-<!ENTITY search.label "Localizar nome:">
+<!ENTITY search.label "Locali&amp;zar nome:">
 <!ENTITY docDomain.thirdParty "(domínio diferente)">
 <!ENTITY filterSource.label "Fonte do filtro">
 <!ENTITY tooltip.docDomain.label "Origem do documento:">
 <!ENTITY context.copy.label "Copiar endereço do item">
 <!ENTITY tooltip.type.label "Tipo:">
-<!ENTITY search.accesskey "z">
 <!ENTITY context.disablefilter.label "Desativar filtro ?1?">
 <!ENTITY context.copyFilter.label "Copiar filtro">
 <!ENTITY context.block.label "Bloquear este item">

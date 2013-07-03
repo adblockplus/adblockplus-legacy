@@ -7,13 +7,12 @@
 <!ENTITY filter.label "Filtrera">
 <!ENTITY tooltip.size.label "Storlek:">
 <!ENTITY reattach.label "Koppla ihop">
-<!ENTITY search.label "Sök:">
+<!ENTITY search.label "S&amp;ök:">
 <!ENTITY docDomain.thirdParty "(tredje part)">
 <!ENTITY filterSource.label "Filterkälla">
 <!ENTITY tooltip.docDomain.label "Dokumentkälla:">
 <!ENTITY context.copy.label "Kopiera objektets adress">
 <!ENTITY tooltip.type.label "Typ:">
-<!ENTITY search.accesskey "ö">
 <!ENTITY context.disablefilter.label "Inaktivera filtret ?1?">
 <!ENTITY context.copyFilter.label "Kopiera filter">
 <!ENTITY context.block.label "Blockera detta objekt">

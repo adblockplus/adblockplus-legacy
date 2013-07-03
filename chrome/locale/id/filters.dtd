@@ -1,22 +1,19 @@
 <!ENTITY subscription.lastDownload.checksumMismatch "Nie powiodło się – niepoprawna suma kontrolna">
 <!ENTITY lasthit.column "Sasaran terakhir">
-<!ENTITY sort.accesskey "i">
 <!ENTITY sort.ascending.label "Urut dari A &gt; Z">
-<!ENTITY sort.label "Urutkan dari">
+<!ENTITY sort.label "Urutkan dar&amp;i">
 <!ENTITY filter.paste.label "Tempel">
 <!ENTITY subscription.lastDownload.inProgress "Pobieranie…">
-<!ENTITY enabled.accesskey "N">
 <!ENTITY filter.delete.label "Hapus">
-<!ENTITY enabled.column "Hidupkan">
+<!ENTITY enabled.column "Hidupka&amp;n">
 <!ENTITY viewMenu.label "Lihat">
 <!ENTITY subscription.lastDownload.unknown "nieznane">
 <!ENTITY subscription.lastDownload.invalidURL "Nie powiodło się – nieprawidłowy adres">
 <!ENTITY hitcount.column "Sasaran">
 <!ENTITY filter.cut.label "Potong">
 <!ENTITY addSubscriptionOther.label "Tambahkan skrip yang berbeda">
-<!ENTITY sort.none.label "Acak">
+<!ENTITY sort.none.label "Aca&amp;k">
 <!ENTITY filter.copy.label "Salin">
-<!ENTITY sort.none.accesskey "K">
 <!ENTITY addSubscription.label "Tambahkan skrip filter">
 <!ENTITY find.label "Cari">
 <!ENTITY sort.descending.label "Urut dari Z &gt; A">

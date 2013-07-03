@@ -7,13 +7,12 @@
 <!ENTITY filter.label "Ազդող ֆիլտրը">
 <!ENTITY tooltip.size.label "Չափը`">
 <!ENTITY reattach.label "Ամրացնել">
-<!ENTITY search.label "Փնտրել">
+<!ENTITY search.label "&amp;Փնտրել">
 <!ENTITY docDomain.thirdParty "(երրորդ կողմի)">
 <!ENTITY filterSource.label "Ֆիլտրի աղբյուրը`">
 <!ENTITY tooltip.docDomain.label "Աշխատանքի աղբյուրը`">
 <!ENTITY context.copy.label "Կրկնել տարրի հասցեն">
 <!ENTITY tooltip.type.label "Տեսակը`">
-<!ENTITY search.accesskey "Փ">
 <!ENTITY context.disablefilter.label "Անջատել ֆիլտրը ?1?">
 <!ENTITY context.copyFilter.label "Կրկնակել ֆիլտրը">
 <!ENTITY context.block.label "Ֆիլտրել այս տարրը">

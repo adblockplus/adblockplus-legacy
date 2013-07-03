@@ -1,61 +1,50 @@
-<!ENTITY lasthit.column "לחיצה אחרונה">
-<!ENTITY addFilter.accesskey "נ">
+<!ENTITY lasthit.column "ל&amp;חיצה אחרונה">
 <!ENTITY subscription.delete.label "מחיקה">
 <!ENTITY subscriptions.tab.label "הרשמות מסננים">
-<!ENTITY enabled.accesskey "ר">
-<!ENTITY addGroup.accesskey "צ">
 <!ENTITY subscription.update.label "עדכון מסננים">
 <!ENTITY restore.complete.warning "כל הגדרות המסננים שלך יוחלפו בתוכן הקובץ הנבחר. האם להמשיך?">
 <!ENTITY filter.moveUp.label "הזזה מעלה">
 <!ENTITY filter.edit.label "עריכה">
-<!ENTITY hitcount.column "לחיצות">
-<!ENTITY acceptableAds2.label "אפשור קצת פרסום לא פולשני">
+<!ENTITY hitcount.column "&amp;לחיצות">
+<!ENTITY acceptableAds2.label "א&amp;פשור קצת פרסום לא פולשני">
 <!ENTITY close.label "סגירה">
-<!ENTITY sort.none.label "לא ממוין">
-<!ENTITY find.accesskey "ח">
+<!ENTITY sort.none.label "לא ממוי&amp;ן">
 <!ENTITY readMore.label "לקרוא עוד">
 <!ENTITY subscription.homepage.label "עמוד בית">
 <!ENTITY typoCorrections.enableLabel "תיקון כתובות אינטרנט שהוקלדו באופן שגוי">
-<!ENTITY sort.descending.accesskey "י">
-<!ENTITY sort.descending.label "מיון מ- ת &gt; עד א">
+<!ENTITY sort.descending.label "מ&amp;יון מ- ת &gt; עד א">
 <!ENTITY subscription.lastDownload.success "הצליח">
 <!ENTITY filters.remove.warning "האם להסיר את כל המסננים הנבחרים?">
 <!ENTITY restore.custom.warning "כל המסננים האישיים שלך יוחלפו בתוכן הקובץ הנבחר. האם להמשיך?">
-<!ENTITY slow.column "מסננים אטיים">
+<!ENTITY slow.column "מ&amp;סננים אטיים">
 <!ENTITY subscription.actions.label "פעולות">
 <!ENTITY filter.selectAll.label "בחירת הכל">
-<!ENTITY backupButton.label "גיבוי ושחזור">
-<!ENTITY sort.accesskey "מ">
+<!ENTITY backupButton.label "&amp;גיבוי ושחזור">
 <!ENTITY subscription.source.label "רשימת מסננים">
 <!ENTITY filter.paste.label "הדבקה">
-<!ENTITY addSubscription.accesskey "ה">
 <!ENTITY filter.delete.label "מחיקה">
 <!ENTITY addSubscriptionAdd.label "הוספה">
-<!ENTITY slow.accesskey "ס">
 <!ENTITY subscription.showHideFilters.label "הצגת/הסתרת מסננים">
-<!ENTITY backupButton.accesskey "ג">
 <!ENTITY filter.actions.label "פעולות מסנן">
 <!ENTITY filter.moveDown.label "הזזה מטה">
 <!ENTITY typoCorrections.tab.label "תיקון שגיאות כתיב">
-<!ENTITY addFilter.label "הוספת מסנן">
+<!ENTITY addFilter.label "הוספת מס&amp;נן">
 <!ENTITY subscription.editTitle.label "עריכת הכותרת">
 <!ENTITY subscription.moveDown.label "הזזה מטה">
 <!ENTITY subscription.disabledFilters.warning "כמה מהמסננים בהרשמה זאת מנוטרלים.">
-<!ENTITY filter.column "חוק סינון">
+<!ENTITY filter.column "חוק סי&amp;נון">
 <!ENTITY subscription.lastDownload.checksumMismatch "נכשל, ביקורת הסיכום לתקינות לא התאימה בצורה טובה">
 <!ENTITY noFiltersInGroup.text "הקבוצה הנבחרת ריקה">
 <!ENTITY typoCorrections.whitelistLabel "לא להחליף...">
-<!ENTITY sort.label "מיון לפי">
+<!ENTITY sort.label "&amp;מיון לפי">
 <!ENTITY noFilters.text "עדיין לא הוספו מסננים אישיים.">
 <!ENTITY subscription.external.label "התעדכן על ידי הרחבה אחרת">
-<!ENTITY filter.accesskey "נ">
 <!ENTITY noGroupSelected.text "צריך לבחור קבוצת סינון לפני שהמסננים שלה יוצגו.">
 <!ENTITY subscription.lastDownload.inProgress "מוריד...">
 <!ENTITY typoCorrections.removeButtonLabel "הסרת הנבחרים">
-<!ENTITY enabled.column "מאפשר">
+<!ENTITY enabled.column "מאפש&amp;ר">
 <!ENTITY viewMenu.label "תצוגה">
 <!ENTITY addSubscriptionCancel.label "ביטול">
-<!ENTITY lasthit.accesskey "ח">
 <!ENTITY dialog.title "העדפות סינון Adblock Plus">
 <!ENTITY subscription.minVersion.warning "הרשמת מסננים זאת דורשת גרסה חדשה יותר של Adblock Plus, צריך לשדרג לגרסה האחרונה של Adblock Plus.">
 <!ENTITY subscription.lastDownload.invalidURL "נכשל, הכתובת שגויה">
@@ -66,25 +55,21 @@
 <!ENTITY subscription.moveUp.label "הזזה מעלה">
 <!ENTITY backup.complete.title "כל המסננים וההרשמות">
 <!ENTITY filters.tab.label "מסננים מותאמים">
-<!ENTITY find.label "חיפוש">
+<!ENTITY find.label "&amp;חיפוש">
 <!ENTITY subscription.lastDownload.connectionError "נכשל, ההורדה נכשלה">
 <!ENTITY subscription.lastDownload.invalidData "נכשל, רשימת המסננים לא חוקית">
 <!ENTITY restore.minVersion.warning "אזהרה: הקובץ נוצר על-ידי גרסה חדשה יותר של Adblock Plus. כדי לשדרג לגרסה האחרונה של Adblock Plus לפני שחזור מקובץ זה.">
-<!ENTITY sort.ascending.label "מיון מ- א &gt; עד ת">
+<!ENTITY sort.ascending.label "&amp;מיון מ- א &gt; עד ת">
 <!ENTITY viewList.label "הצגת רשימה">
 <!ENTITY typoCorrections.whitelistEmptyLabel "לא קיימים חריגים כרגע.">
-<!ENTITY sort.ascending.accesskey "מ">
 <!ENTITY restore.default.label "שחזור הגיבוי מ- ?1?">
-<!ENTITY hitcount.accesskey "ל">
-<!ENTITY acceptableAds2.accesskey "פ">
 <!ENTITY subscription.lastDownload.unknown "לא זמין">
 <!ENTITY subscription.enabled.label "מאפשר">
 <!ENTITY noSubscriptions.text "עדיין לא הוספת הרשמות למסננים. Adblock Plus לא יחסום דבר ללא מסננים, אנא השתמשו ב-&quot;הוספת הרשמה למסננים&quot; להוספת מסננים.">
-<!ENTITY addGroup.label "הוספת קבוצת סינון">
+<!ENTITY addGroup.label "הוספת קבו&amp;צת סינון">
 <!ENTITY addSubscriptionOther.label "הוספת הרשמה אחרת">
 <!ENTITY filter.copy.label "העתקה">
-<!ENTITY sort.none.accesskey "ן">
-<!ENTITY addSubscription.label "הוספת הרשמת מסנן">
+<!ENTITY addSubscription.label "&amp;הוספת הרשמת מסנן">
 <!ENTITY restore.own.label "שחזור גיבוי משלי">
 <!ENTITY filter.resetHitCounts.label "איפוס סטטיסטיקות לחיצה">
 <!ENTITY backup.label "יצירת גיבוי חדש">

@@ -1,61 +1,50 @@
-<!ENTITY lasthit.column "Lasta trafo">
-<!ENTITY addFilter.accesskey "d">
+<!ENTITY lasthit.column "&amp;Lasta trafo">
 <!ENTITY subscription.delete.label "Forviŝi">
 <!ENTITY subscriptions.tab.label "Filtrilabonoj">
-<!ENTITY enabled.accesskey "i">
-<!ENTITY addGroup.accesskey "g">
 <!ENTITY subscription.update.label "Ĝisdatigi filtrilojn">
 <!ENTITY restore.complete.warning "Ĉiuj viaj filtrilaj agordoj estos anstataŭigataj per la enhavo de la elektita dosiero. Ĉu vi volas daŭrigi?">
 <!ENTITY filter.moveUp.label "Supren">
 <!ENTITY filter.edit.label "Redakti">
-<!ENTITY hitcount.column "Trafoj">
-<!ENTITY acceptableAds2.label "Permesi nealtrudiĝantan reklamon">
+<!ENTITY hitcount.column "&amp;Trafoj">
+<!ENTITY acceptableAds2.label "Permesi neal&amp;trudiĝantan reklamon">
 <!ENTITY close.label "Fermi">
-<!ENTITY sort.none.label "Nenio">
-<!ENTITY find.accesskey "S">
+<!ENTITY sort.none.label "&amp;Nenio">
 <!ENTITY readMore.label "Legu pli">
 <!ENTITY subscription.homepage.label "Hejmpaĝo">
 <!ENTITY typoCorrections.enableLabel "Korekti mistajpitajn interretajn adresojn">
-<!ENTITY sort.descending.accesskey "Z">
-<!ENTITY sort.descending.label "Ordigo Z &gt; A">
+<!ENTITY sort.descending.label "Ordigo &amp;Z &gt; A">
 <!ENTITY subscription.lastDownload.success "Sukceso">
 <!ENTITY filters.remove.warning "Ĉu vi vere volas forigi ĉiujn elektitajn filtrilojn?">
 <!ENTITY restore.custom.warning "Ĉiuj viaj propraj filtriloj estos anstataŭigataj per la enhavo de la elektita dosiero. Ĉu vi volas daŭrigi?">
-<!ENTITY slow.column "Malrapidaj filtriloj">
+<!ENTITY slow.column "&amp;Malrapidaj filtriloj">
 <!ENTITY subscription.actions.label "Agoj">
 <!ENTITY filter.selectAll.label "Elekti ĉion">
-<!ENTITY backupButton.label "Sekurkopii kaj restaŭri">
-<!ENTITY sort.accesskey "O">
+<!ENTITY backupButton.label "Se&amp;kurkopii kaj restaŭri">
 <!ENTITY subscription.source.label "Filtrila listo">
 <!ENTITY filter.paste.label "Alglui">
-<!ENTITY addSubscription.accesskey "f">
 <!ENTITY filter.delete.label "Forviŝi">
 <!ENTITY addSubscriptionAdd.label "Aldoni">
-<!ENTITY slow.accesskey "m">
 <!ENTITY subscription.showHideFilters.label "Montri/Kaŝi filtrilojn">
-<!ENTITY backupButton.accesskey "k">
 <!ENTITY filter.actions.label "Filtrilaj agoj">
 <!ENTITY filter.moveDown.label "Malsupren">
 <!ENTITY typoCorrections.tab.label "Tajpkorektoj">
-<!ENTITY addFilter.label "Aldoni filtrilon">
+<!ENTITY addFilter.label "Al&amp;doni filtrilon">
 <!ENTITY subscription.editTitle.label "Redakti titolon">
 <!ENTITY subscription.moveDown.label "Malsupren">
 <!ENTITY subscription.disabledFilters.warning "Kelkaj filtriloj en ĉi tiu abono estas malebligitaj.">
-<!ENTITY filter.column "Filtrilregulo">
+<!ENTITY filter.column "&amp;Filtrilregulo">
 <!ENTITY subscription.lastDownload.checksumMismatch "Malsukcesis, kontrolsuma miskongruo">
 <!ENTITY noFiltersInGroup.text "La elektita grupo estas malplena.">
 <!ENTITY typoCorrections.whitelistLabel "Ne anstataŭigi...">
-<!ENTITY sort.label "Ordigi laŭ">
+<!ENTITY sort.label "&amp;Ordigi laŭ">
 <!ENTITY noFilters.text "Vi ankoraŭ ne havas proprajn filtrilojn.">
 <!ENTITY subscription.external.label "Ĝisdatigita per alia etendaĵo">
-<!ENTITY filter.accesskey "F">
 <!ENTITY noGroupSelected.text "Vi devas elekti filtrilgrupon antaŭ ol filtriloj povas esti vidigataj.">
 <!ENTITY subscription.lastDownload.inProgress "Elŝutanta...">
 <!ENTITY typoCorrections.removeButtonLabel "Forigi elektitajn">
-<!ENTITY enabled.column "Ebligita">
+<!ENTITY enabled.column "Ebl&amp;igita">
 <!ENTITY viewMenu.label "Vidi">
 <!ENTITY addSubscriptionCancel.label "Nuligi">
-<!ENTITY lasthit.accesskey "L">
 <!ENTITY dialog.title "Filtrilaj agordoj de Adblock Plus">
 <!ENTITY subscription.minVersion.warning "Ĉi tiu filtrilabono bezonas pli novan version de Adblock Plus, vi ĝisdatigu al la plej nova versio de Adblock Plus.">
 <!ENTITY subscription.lastDownload.invalidURL "Malsukcesis, tio ne estas valida adreso">
@@ -66,25 +55,21 @@
 <!ENTITY subscription.moveUp.label "Supren">
 <!ENTITY backup.complete.title "Ĉiuj filtriloj kaj abonoj">
 <!ENTITY filters.tab.label "Propraj filtriloj">
-<!ENTITY find.label "Serĉi">
+<!ENTITY find.label "&amp;Serĉi">
 <!ENTITY subscription.lastDownload.connectionError "Malsukcesis, elŝuta eraro">
 <!ENTITY subscription.lastDownload.invalidData "Malsukcesis, tio ne estas listo de validaj filtriloj">
 <!ENTITY restore.minVersion.warning "Averto: la dosiero estas kreita per pli nova versio de Adblock Plus. Vi ĝisdatigu al la plej nova versio de Adblock Plus antaŭ ol vi restaŭri ion el ĉi tiu dosiero.">
-<!ENTITY sort.ascending.label "Ordigo A &gt; Z">
+<!ENTITY sort.ascending.label "Ordigo &amp;A &gt; Z">
 <!ENTITY viewList.label "Montri liston">
 <!ENTITY typoCorrections.whitelistEmptyLabel "Nuntempe esceptoj ne estas.">
-<!ENTITY sort.ascending.accesskey "A">
 <!ENTITY restore.default.label "Restaŭri sekurkopion de ?1?">
-<!ENTITY hitcount.accesskey "T">
-<!ENTITY acceptableAds2.accesskey "t">
 <!ENTITY subscription.lastDownload.unknown "Neniu">
 <!ENTITY subscription.enabled.label "Ebligita">
 <!ENTITY noSubscriptions.text "Vi ankoraŭ ne aldonis filtrilabonojn. Adblock Plus blokos enion sen filtriloj, bonvolu uzu &quot;Aldoni filtrilabonon&quot; por aldoni abonon.">
-<!ENTITY addGroup.label "Aldoni filtrilgrupon">
+<!ENTITY addGroup.label "Aldoni filtril&amp;grupon">
 <!ENTITY addSubscriptionOther.label "Aldoni alian abonon">
 <!ENTITY filter.copy.label "Kopii">
-<!ENTITY sort.none.accesskey "N">
-<!ENTITY addSubscription.label "Aldoni filtrilabonon">
+<!ENTITY addSubscription.label "Aldoni &amp;filtrilabonon">
 <!ENTITY restore.own.label "Restaŭri propran sekurkopion">
 <!ENTITY filter.resetHitCounts.label "Rekomencigi trafostatistikon">
 <!ENTITY backup.label "Krei novan sekurkopion">

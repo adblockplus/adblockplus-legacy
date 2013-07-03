@@ -13,23 +13,20 @@
   on this page:
 ">
 
-<!ENTITY typeSelector.falsePositive.label       "Adblock Plus is blocking too much">
-<!ENTITY typeSelector.falsePositive.accesskey   "m">
+<!ENTITY typeSelector.falsePositive.label       "Adblock Plus is blocking too &amp;much">
 <!ENTITY typeSelector.falsePositive.description "
   Select this option if the page lacks important content, displays incorrectly or
   fails to function properly. You can determine whether Adblock Plus is the cause
   of the problem by disabling it temporarily.
 ">
 
-<!ENTITY typeSelector.falseNegative.label       "Adblock Plus doesn't block an advertisement">
-<!ENTITY typeSelector.falseNegative.accesskey   "v">
+<!ENTITY typeSelector.falseNegative.label       "Adblock Plus doesn't block an ad&amp;vertisement">
 <!ENTITY typeSelector.falseNegative.description "
   Select this option if an advertisement is displayed despite
   Adblock Plus being enabled.
 ">
 
-<!ENTITY typeSelector.other.label               "Other issue">
-<!ENTITY typeSelector.other.accesskey           "t">
+<!ENTITY typeSelector.other.label               "O&amp;ther issue">
 <!ENTITY typeSelector.other.description         "
   Select this option if you suspect an issue with Adblock Plus itself rather
   than its filters.
@@ -37,9 +34,7 @@
 
 <!ENTITY showRecentReports.label                "Show recently submitted reports">
 <!ENTITY recentReports.label                    "Your recently submitted reports">
-<!ENTITY recentReports.clear.label              "Remove all reports">
-<!ENTITY recentReports.clear.accesskey          "R">
-
+<!ENTITY recentReports.clear.label              "&amp;Remove all reports">
 <!ENTITY update.inProgress.description          "
   Adblock Plus needs to update your filter subscriptions to make sure that the
   issue hasn't been resolved already. Please wait...
@@ -114,8 +109,7 @@
 ">
 <!ENTITY issues.disabledfilters.enable.label    "Enable filter">
 
-<!ENTITY issues.override.label                  "The configuration is correct, continue with the report">
-<!ENTITY issues.override.accesskey              "c">
+<!ENTITY issues.override.label                  "The &amp;configuration is correct, continue with the report">
 <!ENTITY issues.change.description              "
   Your configuration has been changed. Please reload the page to test the changes
   and submit a report if the issue hasn't been resolved by the alterations.
@@ -130,12 +124,8 @@
   will be provided after submitting the report.
 ">
 
-<!ENTITY typeWarning.override.label             "I understand and want to submit the report anyway">
-<!ENTITY typeWarning.override.accesskey         "s">
-
-<!ENTITY reloadButton.label                     "Reload page">
-<!ENTITY reloadButton.accesskey                 "R">
-
+<!ENTITY typeWarning.override.label             "I under&amp;stand and want to submit the report anyway">
+<!ENTITY reloadButton.label                     "&amp;Reload page">
 <!-- Please keep screenshot.heading short - it is shown in the progress bar, not much space there -->
 <!ENTITY screenshot.heading           "Attach screenshot">
 
@@ -147,15 +137,10 @@
   a section of the image with your mouse.
 ">
 
-<!ENTITY screenshot.attach.label      "Attach a page image to the report">
-<!ENTITY screenshot.attach.accesskey  "t">
-<!ENTITY screenshot.mark.label        "Mark the problem">
-<!ENTITY screenshot.mark.accesskey    "M">
-<!ENTITY screenshot.remove.label      "Remove sensitive data">
-<!ENTITY screenshot.remove.accesskey  "R">
-<!ENTITY screenshot.undo.label        "Undo">
-<!ENTITY screenshot.undo.accesskey    "U">
-
+<!ENTITY screenshot.attach.label      "A&amp;ttach a page image to the report">
+<!ENTITY screenshot.mark.label        "&amp;Mark the problem">
+<!ENTITY screenshot.remove.label      "&amp;Remove sensitive data">
+<!ENTITY screenshot.undo.label        "&amp;Undo">
 <!-- Please keep commentPage.heading short - it is shown in the progress bar, not much space there -->
 <!ENTITY commentPage.heading          "Enter comment">
 
@@ -169,25 +154,16 @@
   We encourage you to enter a valid email address so that we can contact you if there are questions
   about your report. It will also allow us to recognize your contributions and to prioritize them higher.
 ">
-<!ENTITY comment.label                "Comment (optional):">
-<!ENTITY comment.accesskey            "C">
+<!ENTITY comment.label                "&amp;Comment (optional):">
 <!ENTITY comment.lengthWarning        "The length of your comment exceeds 1000 characters. Only the first 1000 characters will be sent.">
-<!ENTITY email.label                  "Email:">
-<!ENTITY email.accesskey              "m">
-<!ENTITY anonymous.label              "Anonymous submission">
-<!ENTITY anonymous.accesskey          "a">
+<!ENTITY email.label                  "E&amp;mail:">
+<!ENTITY anonymous.label              "&amp;Anonymous submission">
 <!ENTITY anonymity.warning            "We won't be able to come back to you and will likely prioritize the report lower.">
 
-<!ENTITY attachExtensions.label       "Attach a list of active extensions to the report in case add-on conflict is the cause of the problem">
-<!ENTITY attachExtensions.accesskey   "x">
-
-<!ENTITY sendButton.label             "Send report">
-<!ENTITY sendButton.accesskey         "n">
-
+<!ENTITY attachExtensions.label       "Attach a list of active e&amp;xtensions to the report in case add-on conflict is the cause of the problem">
+<!ENTITY sendButton.label             "Se&amp;nd report">
 <!ENTITY showData.label               "Show report data">
-<!ENTITY data.label                   "Report data:">
-<!ENTITY data.accesskey               "p">
-
+<!ENTITY data.label                   "Re&amp;port data:">
 <!-- Please keep sendPage.heading short - it is shown in the progress bar, not much space there -->
 <!ENTITY sendPage.heading             "Send report">
 <!ENTITY sendPage.waitMessage         "Please wait while Adblock Plus is submitting your report.">
@@ -202,5 +178,4 @@
 ">
 <!ENTITY sendPage.retry.label         "Send again">
 
-<!ENTITY copyLink.label               "Copy report link">
-<!ENTITY copyLink.accesskey           "C">
+<!ENTITY copyLink.label               "&amp;Copy report link">

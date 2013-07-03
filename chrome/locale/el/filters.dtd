@@ -1,61 +1,50 @@
-<!ENTITY lasthit.column "Τελευταία επιτυχία">
-<!ENTITY addFilter.accesskey "φ">
+<!ENTITY lasthit.column "Τε&amp;λευταία επιτυχία">
 <!ENTITY subscription.delete.label "Διαγραφή">
 <!ENTITY subscriptions.tab.label "Συνδρομές φίλτρων">
-<!ENTITY enabled.accesskey "ν">
-<!ENTITY addGroup.accesskey "ο">
 <!ENTITY subscription.update.label "Ενημέρωση φίλτρων">
 <!ENTITY restore.complete.warning "Όλες οι προτιμήσεις των φίλτρων σας θα αντικατασταθούν από τα περιεχόμενα του επιλεγμένου αρχείου. θέλετε να συνεχίσετε;">
 <!ENTITY filter.moveUp.label "Μετακίνηση επάνω">
 <!ENTITY filter.edit.label "Επεξεργασία">
-<!ENTITY hitcount.column "Επιτυχίες">
-<!ENTITY acceptableAds2.label "Να επιτρέπονται μερικές μη-παρεμβατικές διαφημίσεις">
+<!ENTITY hitcount.column "Επιτυ&amp;χίες">
+<!ENTITY acceptableAds2.label "Να επιτρέπονται &amp;μερικές μη-παρεμβατικές διαφημίσεις">
 <!ENTITY close.label "Κλείσιμο">
-<!ENTITY sort.none.label "Χωρίς ταξινόμηση">
-<!ENTITY find.accesskey "ρ">
+<!ENTITY sort.none.label "Χ&amp;ωρίς ταξινόμηση">
 <!ENTITY readMore.label "Διαβάστε περισσότερα">
 <!ENTITY subscription.homepage.label "Ιστοσελίδα">
 <!ENTITY typoCorrections.enableLabel "Διόρθωση διευθύνσεων που πληκτρολογήθηκαν λαθεμένα">
-<!ENTITY sort.descending.accesskey "θ">
-<!ENTITY sort.descending.label "Φθίνουσα">
+<!ENTITY sort.descending.label "Φ&amp;θίνουσα">
 <!ENTITY subscription.lastDownload.success "Επιτυχής">
 <!ENTITY filters.remove.warning "Θέλετε να απομακρύνετε όλα τα επιλεγμένα φίλτρα;">
 <!ENTITY restore.custom.warning "Όλα τα προσαρμοσμένα φίλτρα σας θα αντικατασταθούν από τα περιεχόμενα του επιλεγμένου αρχείου. θέλετε να συνεχίσετε;">
-<!ENTITY slow.column "Εμφάνιση φίλτρων">
+<!ENTITY slow.column "&amp;Εμφάνιση φίλτρων">
 <!ENTITY subscription.actions.label "Ενέργειες">
 <!ENTITY filter.selectAll.label "Επιλογή όλων">
-<!ENTITY backupButton.label "Αντίγραφα ασφαλείας και επαναφορά">
-<!ENTITY sort.accesskey "Τ">
+<!ENTITY backupButton.label "&amp;Αντίγραφα ασφαλείας και επαναφορά">
 <!ENTITY subscription.source.label "Λίστα φίλτρων">
 <!ENTITY filter.paste.label "Επικόλληση">
-<!ENTITY addSubscription.accesskey "σ">
 <!ENTITY filter.delete.label "Διαγραφή">
 <!ENTITY addSubscriptionAdd.label "Προσθήκη">
-<!ENTITY slow.accesskey "Ε">
 <!ENTITY subscription.showHideFilters.label "Εμφάνιση/απόκρυψη φίλτρων">
-<!ENTITY backupButton.accesskey "Α">
 <!ENTITY filter.actions.label "Ενέργειες φίλτρων">
 <!ENTITY filter.moveDown.label "Μετακίνηση κάτω">
 <!ENTITY typoCorrections.tab.label "Διορθώσεις τυπογραφικών λαθών">
-<!ENTITY addFilter.label "Προσθήκη φίλτρου">
+<!ENTITY addFilter.label "Προσθήκη &amp;φίλτρου">
 <!ENTITY subscription.editTitle.label "Επεξεργασία τίτλου">
 <!ENTITY subscription.moveDown.label "Μετακίνηση κάτω">
 <!ENTITY subscription.disabledFilters.warning "Κάποια φίλτρα σε αυτή την συνδρομή είναι απενεργοποιημένα.">
-<!ENTITY filter.column "Κανόνας φίλτρου">
+<!ENTITY filter.column "Κανόνας &amp;φίλτρου">
 <!ENTITY subscription.lastDownload.checksumMismatch "Απέτυχε, απόκλιση στον έλεγχο checksum">
 <!ENTITY noFiltersInGroup.text "Η επιλεγμένη ομάδα είναι άδεια">
 <!ENTITY typoCorrections.whitelistLabel "Χωρίς αντικατάσταση...">
-<!ENTITY sort.label "Ταξινόμηση κατά">
+<!ENTITY sort.label "&amp;Ταξινόμηση κατά">
 <!ENTITY noFilters.text "Δεν έχετε κάποιο προσαρμοσμένο φίλτρο ακόμα.">
 <!ENTITY subscription.external.label "Ενημερώθηκε από άλλο πρόσθετο">
-<!ENTITY filter.accesskey "φ">
 <!ENTITY noGroupSelected.text "Πρέπει να επιλέξετε μια ομάδα φίλτρων ώστε να εμφανιστούν τα φίλτρα της.">
 <!ENTITY subscription.lastDownload.inProgress "Σε εξέλιξη...">
 <!ENTITY typoCorrections.removeButtonLabel "Αφαίρεση επιλεγμένης">
-<!ENTITY enabled.column "Ενεργοποιημένο">
+<!ENTITY enabled.column "Ε&amp;νεργοποιημένο">
 <!ENTITY viewMenu.label "Προβολή">
 <!ENTITY addSubscriptionCancel.label "Ακύρωση">
-<!ENTITY lasthit.accesskey "λ">
 <!ENTITY dialog.title "Προτιμήσεις φίλτρων του Adblock Plus">
 <!ENTITY subscription.minVersion.warning "Αυτή η συνδρομή φίλτρων απαιτεί μια νεότερη έκδοση του Adblock Plus· θα πρέπει να αναβαθμίσετε το Adblock Plus στην τελευταία έκδοση.">
 <!ENTITY subscription.lastDownload.invalidURL "Απέτυχε, μη έγκυρη διεύθυνση">
@@ -66,25 +55,21 @@
 <!ENTITY subscription.moveUp.label "Μετακίνηση επάνω">
 <!ENTITY backup.complete.title "Όλα τα φίλτρα και οι συνδρομές">
 <!ENTITY filters.tab.label "Προσαρμοσμένα φίλτρα">
-<!ENTITY find.label "Εύρεση">
+<!ENTITY find.label "Εύ&amp;ρεση">
 <!ENTITY subscription.lastDownload.connectionError "Απέτυχε, σφάλμα κατά τη λήψη">
 <!ENTITY subscription.lastDownload.invalidData "Απέτυχε, μη έγκυρη λίστα φίλτρων">
 <!ENTITY restore.minVersion.warning "Προειδοποίηση: το αρχείο έχει δημιουργηθεί με μια νεότερη έκδοση του Adblock Plus. Θα πρέπει να αναβαθμίσετε το Adblock Plus στην τελευταία του έκδοση πριν ανακτήσετε από αυτό το αρχείο.">
-<!ENTITY sort.ascending.label "Αύξουσα">
+<!ENTITY sort.ascending.label "&amp;Αύξουσα">
 <!ENTITY viewList.label "Δείτε την λίστα">
 <!ENTITY typoCorrections.whitelistEmptyLabel "Δεν υπάρχουν εξαιρέσεις.">
-<!ENTITY sort.ascending.accesskey "Α">
 <!ENTITY restore.default.label "Επαναφορά αντιγράφου ασφαλείας από την ?1?">
-<!ENTITY hitcount.accesskey "χ">
-<!ENTITY acceptableAds2.accesskey "μ">
 <!ENTITY subscription.lastDownload.unknown "Μ/Δ">
 <!ENTITY subscription.enabled.label "Ενεργοποιημένη">
 <!ENTITY noSubscriptions.text "Δεν έχετε προσθέσει κάποια συνδρομή φίλτρων. Το Adblock Plus δεν μπορεί να μπλοκάρει κάτι χωρίς φίλτρα· παρακαλώ χρησιμοποιήστε την &quot;Προσθήκη συνδρομής&quot; για να ορίσετε μια.">
-<!ENTITY addGroup.label "Προσθήκη ομάδας φίλτρων">
+<!ENTITY addGroup.label "Πρ&amp;οσθήκη ομάδας φίλτρων">
 <!ENTITY addSubscriptionOther.label "Προσθήκη άλλης συνδρομής">
 <!ENTITY filter.copy.label "Αντιγραφή">
-<!ENTITY sort.none.accesskey "ω">
-<!ENTITY addSubscription.label "Προσθήκη συνδρομής">
+<!ENTITY addSubscription.label "Προ&amp;σθήκη συνδρομής">
 <!ENTITY restore.own.label "Επαναφορά δικού σας αντιγράφου ασφαλείας">
 <!ENTITY filter.resetHitCounts.label "Μηδενισμός στατιστικών επιτυχιών">
 <!ENTITY backup.label "Δημιουργία νέου αντιγράφου ασφαλείας">
