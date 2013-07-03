@@ -7,13 +7,12 @@
 <!ENTITY filter.label "Filter">
 <!ENTITY tooltip.size.label "Størrelse:">
 <!ENTITY reattach.label "Gentilkobl">
-<!ENTITY search.label "Søg:">
+<!ENTITY search.label "S&amp;øg:">
 <!ENTITY docDomain.thirdParty "(tredjeparts)">
 <!ENTITY filterSource.label "Filterkilde">
 <!ENTITY tooltip.docDomain.label "Dokumentkilde:">
 <!ENTITY context.copy.label "Kopier emnets adresse">
 <!ENTITY tooltip.type.label "Type:">
-<!ENTITY search.accesskey "ø">
 <!ENTITY context.disablefilter.label "Deaktiver filter ?1?">
 <!ENTITY context.copyFilter.label "Kopier filter">
 <!ENTITY context.block.label "Blokér dette emne">

@@ -1,8 +1,7 @@
-<!ENTITY slow.column "Langsame filters">
-<!ENTITY enabled.column "Ynskeakele">
+<!ENTITY slow.column "Lan&amp;gsame filters">
+<!ENTITY enabled.column "Yns&amp;keakele">
 <!ENTITY subscription.lastDownload.checksumMismatch "Mislearre, checksum komt net oerien">
 <!ENTITY lasthit.column "Lêste hit">
-<!ENTITY slow.accesskey "g">
 <!ENTITY sort.ascending.label "A &gt; Z sortearoarder">
 <!ENTITY sort.label "Sortearje op">
 <!ENTITY subscription.source.label "Filterlist">
@@ -10,7 +9,6 @@
 <!ENTITY subscription.external.label "Fernijd troch in oar útwreiding">
 <!ENTITY subscription.lastDownload.inProgress "Ynlade...">
 <!ENTITY subscriptions.tab.label "Filterabonneminten">
-<!ENTITY enabled.accesskey "k">
 <!ENTITY filter.delete.label "Fuortsmite">
 <!ENTITY addSubscriptionAdd.label "Tafoegje">
 <!ENTITY viewMenu.label "Byld">
@@ -24,9 +22,8 @@
 <!ENTITY subscription.lastDownload.invalidURL "Mislearre, gjin jildich adres">
 <!ENTITY filter.cut.label "Knippe">
 <!ENTITY addSubscriptionOther.label "In oar abonnemint tafoegje">
-<!ENTITY sort.none.label "Net sortearre">
+<!ENTITY sort.none.label "&amp;Net sortearre">
 <!ENTITY filter.copy.label "Kopiearje">
-<!ENTITY sort.none.accesskey "N">
 <!ENTITY addSubscription.label "Filterabonnemint tafoegje">
 <!ENTITY subscription.homepage.label "Startside">
 <!ENTITY filters.tab.label "Oanpaste filters">

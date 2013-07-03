@@ -1,16 +1,10 @@
-<!ENTITY opensidebar.accesskey "B">
-<!ENTITY showinstatusbar.label "Taispeáin sa treosabh">
-<!ENTITY opensidebar.label "Oscail nithe ar féidir bac a chur orthu">
+<!ENTITY showinstatusbar.label "Tai&amp;speáin sa treosabh">
+<!ENTITY opensidebar.label "Oscail nithe ar féidir &amp;bac a chur orthu">
 <!ENTITY options.label "Roghanna">
-<!ENTITY showintoolbar.accesskey "B">
 <!ENTITY context.image.label "Íomhá Adblock">
-<!ENTITY menuitem.label "Adblock Plus">
-<!ENTITY objecttabs.label "Taispeáin cluaisíní ar Flash agus Java">
-<!ENTITY closesidebar.label "Dún nithe ar féidir bac a chur orthu">
-<!ENTITY showintoolbar.label "Taispeáin i sabh na n-uirlisí">
+<!ENTITY menuitem.label "Ad&amp;block Plus">
+<!ENTITY objecttabs.label "&amp;Taispeáin cluaisíní ar Flash agus Java">
+<!ENTITY closesidebar.label "Dún nithe ar féidir &amp;bac a chur orthu">
+<!ENTITY showintoolbar.label "Taispeáin i sa&amp;bh na n-uirlisí">
 <!ENTITY context.frame.label "Creatlach Adblock">
-<!ENTITY menuitem.accesskey "B">
-<!ENTITY objecttabs.accesskey "T">
 <!ENTITY objecttab.title "Cuir bac ar">
-<!ENTITY showinstatusbar.accesskey "S">
-<!ENTITY closesidebar.accesskey "B">

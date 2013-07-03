@@ -7,13 +7,12 @@
 <!ENTITY filter.label "Filtras">
 <!ENTITY tooltip.size.label "Dydis:">
 <!ENTITY reattach.label "Iš naujo įkelti">
-<!ENTITY search.label "Ieškoti:">
+<!ENTITY search.label "&amp;Ieškoti:">
 <!ENTITY docDomain.thirdParty "(trečioji šalis)">
 <!ENTITY filterSource.label "Filtruoti pirminį kodą">
 <!ENTITY tooltip.docDomain.label "Dokumento šaltinis:">
 <!ENTITY context.copy.label "Kopijuoti elemento adresą">
 <!ENTITY tooltip.type.label "Tipas:">
-<!ENTITY search.accesskey "I">
 <!ENTITY context.disablefilter.label "Išjungti filtrą ?1?">
 <!ENTITY context.copyFilter.label "Kopijuoti filtrą">
 <!ENTITY context.block.label "Blokuoti šį elementą">

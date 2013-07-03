@@ -1,27 +1,14 @@
-<!ENTITY showintoolbar.accesskey "B">
-<!ENTITY showinstatusbar.accesskey "S">
 <!ENTITY whitelist.site.label "Çaktivizo në ?1?">
 <!ENTITY objecttab.title "Blloko">
-<!ENTITY showinaddonbar.accesskey "b">
-<!ENTITY sync.accesskey "c">
-<!ENTITY menuitem.label "Parapëlqimet e Adblock Plus">
-<!ENTITY sendReport.accesskey "R">
-<!ENTITY filters.accesskey "F">
+<!ENTITY menuitem.label "Parapëlqimet e Ad&amp;block Plus">
 <!ENTITY whitelist.page.label "Çaktivizo vetëm në këtë faqe">
 <!ENTITY context.image.label "Adblock Plus: Figurat e bllokuara">
-<!ENTITY closesidebar.accesskey "B">
-<!ENTITY opensidebar.label "Hap elementet bllokuese">
-<!ENTITY options.accesskey "O">
+<!ENTITY opensidebar.label "Hap elementet &amp;bllokuese">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus: Pjesët e bllokuara">
-<!ENTITY opensidebar.accesskey "B">
 <!ENTITY status.tooltip "Gjendja:">
-<!ENTITY options.label "Mundësitë">
+<!ENTITY options.label "Mundësitë (&amp;O)">
 <!ENTITY context.object.label "Adblock Plus: Objektet e bllokuara">
 <!ENTITY context.removeWhitelist.label "Adblock Plus: Rilejo në këtë faqe">
 <!ENTITY filters.tooltip "Filtruesit më aktivë:">
-<!ENTITY closesidebar.label "Mbyll elementet bllokuese">
-<!ENTITY counthits.accesskey "h">
-<!ENTITY menuitem.accesskey "B">
-<!ENTITY objecttabs.accesskey "T">
-<!ENTITY hideplaceholders.accesskey "i">
+<!ENTITY closesidebar.label "M&amp;byll elementet bllokuese">

@@ -2,8 +2,7 @@
 <!ENTITY blocked.tooltip        "Blocked items on this page:">
 <!ENTITY filters.tooltip        "Most active filters:">
 
-<!ENTITY menuitem.label         "Adblock Plus Preferences">
-<!ENTITY menuitem.accesskey     "b">
+<!ENTITY menuitem.label         "Ad&amp;block Plus Preferences">
 <!ENTITY toolbarbutton.label    "Adblock Plus">
 
 <!ENTITY context.image.label    "Adblock Plus: Block image">
@@ -14,38 +13,25 @@
 
 <!ENTITY sidebar.title          "Blockable items on current page">
 
-<!ENTITY sendReport.label       "Report issue on this page">
-<!ENTITY sendReport.accesskey   "R">
-<!ENTITY filters.label          "Filter preferences">
-<!ENTITY filters.accesskey      "F">
-<!ENTITY opensidebar.label      "Open blockable items">
+<!ENTITY sendReport.label       "&amp;Report issue on this page">
+<!ENTITY filters.label          "&amp;Filter preferences">
+<!ENTITY opensidebar.label      "Open &amp;blockable items">
 <!-- Note: This access key should usually be the same as closesidebar.accesskey. It is the same menu item with different label depending on whether the sidebar is currently open.-->
-<!ENTITY opensidebar.accesskey  "b">
-<!ENTITY closesidebar.label     "Close blockable items">
+<!ENTITY closesidebar.label     "Close &amp;blockable items">
 <!-- Note: This access key should usually be the same as opensidebar.accesskey. It is the same menu item with different label depending on whether the sidebar is currently open.-->
-<!ENTITY closesidebar.accesskey "b">
 <!-- Note: the placeholder ?1? will be replaced by the domain name of the current page -->
 <!ENTITY whitelist.site.label   "Disable on ?1?">
 <!ENTITY whitelist.page.label   "Disable on this page only">
 <!ENTITY disable.label          "Disable everywhere">
-<!ENTITY options.label          "Options">
-<!ENTITY options.accesskey      "O">
+<!ENTITY options.label          "&amp;Options">
 <!ENTITY contribute.label       "Contribute to Adblock Plus">
 
-<!ENTITY showintoolbar.label        "Show in toolbar">
-<!ENTITY showintoolbar.accesskey    "b">
-<!ENTITY showinstatusbar.label      "Show in status bar">
-<!ENTITY showinstatusbar.accesskey  "s">
-<!ENTITY showinaddonbar.label       "Show in add-on bar">
-<!ENTITY showinaddonbar.accesskey   "b">
-<!ENTITY objecttabs.label           "Show tabs on Flash and Java">
-<!ENTITY objecttabs.accesskey       "t">
-<!ENTITY hideplaceholders.label     "Hide placeholders of blocked elements">
-<!ENTITY hideplaceholders.accesskey "l">
-<!ENTITY counthits.label            "Count filter hits">
-<!ENTITY counthits.accesskey        "h">
-<!ENTITY sync.label                 "Sync Adblock Plus settings">
-<!ENTITY sync.accesskey             "c">
-
+<!ENTITY showintoolbar.label        "Show in tool&amp;bar">
+<!ENTITY showinstatusbar.label      "&amp;Show in status bar">
+<!ENTITY showinaddonbar.label       "Show in add-on &amp;bar">
+<!ENTITY objecttabs.label           "Show &amp;tabs on Flash and Java">
+<!ENTITY hideplaceholders.label     "Hide p&amp;laceholders of blocked elements">
+<!ENTITY counthits.label            "Count filter &amp;hits">
+<!ENTITY sync.label                 "Syn&amp;c Adblock Plus settings">
 <!ENTITY objecttab.title        "Block">
 <!ENTITY objecttab.tooltip      "Click here to block this object with Adblock Plus">

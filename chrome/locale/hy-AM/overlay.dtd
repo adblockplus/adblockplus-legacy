@@ -1,40 +1,29 @@
-<!ENTITY showintoolbar.accesskey "գ">
-<!ENTITY showinstatusbar.accesskey "վ">
 <!ENTITY whitelist.site.label "Անջատել ?1?-ում">
-<!ENTITY filters.label "Ֆիլտրերի կարգավորում">
+<!ENTITY filters.label "Ֆիլտրերի կարգավորում (&amp;F)">
 <!ENTITY disable.label "Անջատել ամենուր">
 <!ENTITY showinaddonbar.label "Ցուցադրրել լրացումների պանակում">
 <!ENTITY objecttab.title "Ֆիլտրել">
-<!ENTITY sync.accesskey "Ս">
-<!ENTITY objecttabs.label "Ֆիլտրելու կոճակներ Flash-ի և Java-ի համար">
+<!ENTITY objecttabs.label "Ֆիլտրելու &amp;կոճակներ Flash-ի և Java-ի համար">
 <!ENTITY objecttab.tooltip "Սեղմել «Adblock Plus»ով այս օբյեկտը ֆիլտրելու համար">
-<!ENTITY menuitem.label "Adblock Plus">
-<!ENTITY sendReport.accesskey "R">
-<!ENTITY sendReport.label "Տեղեկացնել այս էջի պրոբլեմի մասին">
-<!ENTITY filters.accesskey "F">
+<!ENTITY menuitem.label "Ad&amp;block Plus">
+<!ENTITY sendReport.label "Տեղեկացնել այս էջի պրոբլեմի մասին (&amp;R)">
 <!ENTITY whitelist.page.label "Անջատել միայն այս էջի համար">
 <!ENTITY context.image.label "Adblock` Ֆիլտրել Նկարը">
-<!ENTITY closesidebar.accesskey "տ">
 <!ENTITY hideplaceholders.label "Ցույց չտալ արգելված էլեմենտների տեղը">
-<!ENTITY opensidebar.label "Բացել ֆիլտրվող տարրերը">
-<!ENTITY options.accesskey "Ը">
+<!ENTITY opensidebar.label "Բացել ֆիլ&amp;տրվող տարրերը">
 <!ENTITY contribute.label "Աջակցել Adblock Plus-ին">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock` Ֆիլտրել Ֆրեյմը">
-<!ENTITY counthits.label "Հաշվել ֆիլտրի ստատիստիկան">
+<!ENTITY counthits.label "Հաշվել ֆիլտրի ստատիստիկան (&amp;h)">
 <!ENTITY blocked.tooltip "Այս էջի ֆիլտրված տարրերը`">
-<!ENTITY opensidebar.accesskey "տ">
-<!ENTITY showinstatusbar.label "Ցույց տալ վիճակի տողում">
+<!ENTITY showinstatusbar.label "Ցույց տալ &amp;վիճակի տողում">
 <!ENTITY status.tooltip "Վիճակը.">
 <!ENTITY sidebar.title "Այս էջի ֆիլտրվող տարրերը">
-<!ENTITY sync.label "Սինքրոնացնել Adblock Plus-ի նախընտրանքները">
-<!ENTITY options.label "Ընտրանքներ">
+<!ENTITY sync.label "&amp;Սինքրոնացնել Adblock Plus-ի նախընտրանքները">
+<!ENTITY options.label "&amp;Ընտրանքներ">
 <!ENTITY context.object.label "Adblock` Ֆիլտրել Օբյեկտը">
 <!ENTITY context.removeWhitelist.label "Adblock Plus: Վերակտիվացնել այս էջում">
-<!ENTITY objecttabs.accesskey "կ">
 <!ENTITY filters.tooltip "Ամենաակտիվ ֆիլտրերը`">
-<!ENTITY closesidebar.label "Փակել ֆիլտրվող տարրերը">
-<!ENTITY showintoolbar.label "Ցույց տալ գործիքաշարում">
-<!ENTITY counthits.accesskey "h">
-<!ENTITY menuitem.accesskey "B">
+<!ENTITY closesidebar.label "Փակել ֆիլ&amp;տրվող տարրերը">
+<!ENTITY showintoolbar.label "Ցույց տալ &amp;գործիքաշարում">
 <!ENTITY context.media.label "Adblock` Ֆիլտրել Աուդիո/Վիդեո">

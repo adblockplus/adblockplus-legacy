@@ -7,13 +7,12 @@
 <!ENTITY filter.label "Sía">
 <!ENTITY tooltip.size.label "Stærð:">
 <!ENTITY reattach.label "Festa aftur">
-<!ENTITY search.label "Leita:">
+<!ENTITY search.label "&amp;Leita:">
 <!ENTITY docDomain.thirdParty "(þriðja aðila)">
 <!ENTITY filterSource.label "Síu uppruni">
 <!ENTITY tooltip.docDomain.label "Netfang síðu:">
 <!ENTITY context.copy.label "Afrita vefslóð hlutar">
 <!ENTITY tooltip.type.label "Tegund:">
-<!ENTITY search.accesskey "L">
 <!ENTITY context.disablefilter.label "Aftengja síu ?1?">
 <!ENTITY context.copyFilter.label "Afrita síu">
 <!ENTITY context.block.label "Loka á þennan hlut">

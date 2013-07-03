@@ -7,12 +7,11 @@
 <!ENTITY filter.label "Bộ lọc">
 <!ENTITY tooltip.size.label "Kích thước:">
 <!ENTITY reattach.label "Đính lại">
-<!ENTITY search.label "Tìm:">
+<!ENTITY search.label "Tì&amp;m:">
 <!ENTITY docDomain.thirdParty "(bên thứ ba)">
 <!ENTITY tooltip.docDomain.label "Nguồn tài liệu:">
 <!ENTITY context.copy.label "Chép địa chỉ của mục này">
 <!ENTITY tooltip.type.label "Kiểu:">
-<!ENTITY search.accesskey "m">
 <!ENTITY context.disablefilter.label "Vô hiệu hóa bộ lọc ?1?">
 <!ENTITY context.copyFilter.label "Chép bộ lọc">
 <!ENTITY context.block.label "Chặn mục này">

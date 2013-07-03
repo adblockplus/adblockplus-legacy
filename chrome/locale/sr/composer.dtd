@@ -1,46 +1,33 @@
 <!ENTITY collapse.yes.label "Да">
-<!ENTITY anchor.end.label "на крају адресе">
-<!ENTITY domainRestriction.label "Ограничи на домен:">
-<!ENTITY anchor.start.flexible.accesskey "н">
-<!ENTITY firstParty.label "Само са ове адресе">
-<!ENTITY preferences.label "Прикажи постојеће филтере...">
+<!ENTITY anchor.end.label "н&amp;а крају адресе">
+<!ENTITY domainRestriction.label "Ограничи на &amp;домен:">
+<!ENTITY firstParty.label "Само са о&amp;ве адресе">
+<!ENTITY preferences.label "&amp;Прикажи постојеће филтере...">
 <!ENTITY pattern.label "Потражи образац">
-<!ENTITY thirdParty.label "Само са других адреса">
-<!ENTITY filter.accesskey "ф">
-<!ENTITY thirdParty.accesskey "х">
-<!ENTITY filter.label "Нови филтер">
-<!ENTITY collapse.label "Сажми блокирано:">
+<!ENTITY thirdParty.label "Само са други&amp;х адреса">
+<!ENTITY filter.label "Нови &amp;филтер">
+<!ENTITY collapse.label "&amp;Сажми блокирано:">
 <!ENTITY match.warning "Шаблон који сте нели не поклапа се са адресом која треба да буде блокирана/одобрена и на њу неће утицати.">
-<!ENTITY anchor.start.label "на почетку адресе">
+<!ENTITY anchor.start.label "&amp;на почетку адресе">
 <!ENTITY collapse.no.label "Не">
-<!ENTITY matchCase.label "Битност величине слова">
-<!ENTITY custom.pattern.label "Прилагођен:">
+<!ENTITY matchCase.label "&amp;Битност величине слова">
+<!ENTITY custom.pattern.label "Пр&amp;илагођен:">
 <!ENTITY unselectAllTypes.label "Поништи избор">
-<!ENTITY domainRestriction.accesskey "д">
-<!ENTITY type.whitelist.label "Изузетак">
+<!ENTITY type.whitelist.label "И&amp;зузетак">
 <!ENTITY regexp.warning "Образац који сте унели ће бити коришћен као регуларни израз. Превише регуларних израза може успорити прегледач интернет страна. Уколико не намеравате да користите регуларне изразе, додајте симбол * на крају обрасца.">
 <!ENTITY dialog.title "Додаj u Adblock Plus филтер">
 <!ENTITY basic.label "Основни изглед">
-<!ENTITY preferences.accesskey "П">
-<!ENTITY firstParty.accesskey "в">
 <!ENTITY collapse.default.no.label "Користи подразумевано(не)">
-<!ENTITY type.filter.label "Филтер за блокирање">
+<!ENTITY type.filter.label "Фи&amp;лтер за блокирање">
 <!ENTITY types.label "Примени на врсте:">
 <!ENTITY shortpattern.warning "Образац који сте унели је прекратак за оптимизацију, превише таквих образаца може успорити прегледач интернет страна. Препоручљиво је да користите дуже изразе као филтере.">
-<!ENTITY custom.pattern.accesskey "И">
-<!ENTITY anchor.start.accesskey "н">
 <!ENTITY anchors.label "Прихвати образац само:">
 <!ENTITY collapse.default.yes.label "Користи подразумевано (да)">
-<!ENTITY type.filter.accesskey "л">
 <!ENTITY domainRestriction.help "Наведите један или више домена раздвојених знаком &quot;|&quot;. Филтер ће бити употребљен једино за ове домене. Знак &quot;~&quot; испред домена значи да ће домен бити изузет од филтрирања.">
 <!ENTITY accept.label "Додај филтер">
 <!ENTITY options.label "Опције">
 <!ENTITY disabled.warning "Adblock Plus је тренутно искључен. И даље можете додавати филтере, али ће они бити примењени тек kada [link]укључиte Adblock Plus[/link].">
-<!ENTITY anchor.start.flexible.label "на почетку назива домена">
-<!ENTITY type.whitelist.accesskey "з">
-<!ENTITY matchCase.accesskey "Б">
-<!ENTITY anchor.end.accesskey "а">
+<!ENTITY anchor.start.flexible.label "&amp;на почетку назива домена">
 <!ENTITY selectAllTypes.label "Изабери све">
 <!ENTITY advanced.label "Напредни изглед">
-<!ENTITY collapse.accesskey "С">
 <!ENTITY pattern.explanation "Образац може бити било који део адресе, симбол * се користи као џокер. Филтер ће бити коришћен једино ако се адреса слаже са обрасцем.">

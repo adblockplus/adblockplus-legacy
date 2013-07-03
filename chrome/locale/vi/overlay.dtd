@@ -1,31 +1,23 @@
-<!ENTITY showintoolbar.accesskey "c">
-<!ENTITY showinstatusbar.accesskey "r">
 <!ENTITY whitelist.site.label "Vô hiệu hóa trên ?1?">
 <!ENTITY disable.label "Vô hiệu hóa ở mọi nơi">
 <!ENTITY objecttab.title "Chặn">
-<!ENTITY sync.accesskey "o">
 <!ENTITY objecttabs.label "Hiện thẻ trên Flash và Java">
 <!ENTITY objecttab.tooltip "Nhấn vào đây để chặn đối tượng này với Adblock Plus">
-<!ENTITY menuitem.label "Tùy chọn Adblock Plus">
-<!ENTITY sendReport.accesskey "B">
-<!ENTITY sendReport.label "Báo cáo vấn đề trên trang này">
+<!ENTITY menuitem.label "Tùy chọn Adblock &amp;Plus">
+<!ENTITY sendReport.label "&amp;Báo cáo vấn đề trên trang này">
 <!ENTITY whitelist.page.label "Chỉ vô hiệu hóa trên trang này">
 <!ENTITY context.image.label "Adblock Plus: Chặn Ảnh">
-<!ENTITY closesidebar.accesskey "m">
-<!ENTITY opensidebar.label "Mở các mục có thể chặn được">
-<!ENTITY options.accesskey "y">
+<!ENTITY opensidebar.label "&amp;Mở các mục có thể chặn được">
 <!ENTITY context.frame.label "Adblock Plus: Chặn Khung">
 <!ENTITY blocked.tooltip "Các mục bị chặn trong trang này:">
-<!ENTITY opensidebar.accesskey "m">
-<!ENTITY showinstatusbar.label "Hiện trong thanh trạng thái">
+<!ENTITY showinstatusbar.label "Hiện t&amp;rong thanh trạng thái">
 <!ENTITY status.tooltip "Trạng thái:">
 <!ENTITY sidebar.title "Các mục bị chặn trên trang hiện tại">
-<!ENTITY sync.label "Đồng bộ thiết lập Adblock Plus">
-<!ENTITY options.label "Tùy chọn">
+<!ENTITY sync.label "Đồng bộ thiết lập Adbl&amp;ock Plus">
+<!ENTITY options.label "Tù&amp;y chọn">
 <!ENTITY context.object.label "Adblock Plus: Chặn Đối Tượng">
 <!ENTITY context.removeWhitelist.label "Adblock Plus: Kích Hoạt Lại trên Trang Này">
 <!ENTITY filters.tooltip "Các bộ lọc có hiệu lực nhất:">
-<!ENTITY closesidebar.label "Đóng các mục có thể chặn được">
-<!ENTITY showintoolbar.label "Hiện trong thanh công cụ">
-<!ENTITY menuitem.accesskey "P">
+<!ENTITY closesidebar.label "Đóng các &amp;mục có thể chặn được">
+<!ENTITY showintoolbar.label "Hiện trong thanh &amp;công cụ">
 <!ENTITY context.media.label "Adblock Plus: Chặn nhạc/phim">

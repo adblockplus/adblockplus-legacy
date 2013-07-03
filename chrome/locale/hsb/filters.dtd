@@ -1,61 +1,50 @@
-<!ENTITY lasthit.column "Posledni wotpowědnik">
-<!ENTITY addFilter.accesskey "d">
+<!ENTITY lasthit.column "&amp;Posledni wotpowědnik">
 <!ENTITY subscription.delete.label "Zhašeć">
 <!ENTITY subscriptions.tab.label "Filtrowe abonementy">
-<!ENTITY enabled.accesskey "m">
-<!ENTITY addGroup.accesskey "s">
 <!ENTITY subscription.update.label "Filtry aktualizować">
 <!ENTITY restore.complete.warning "Wšě waše filtrowe nastajenja budu so přez wobsah wubraneje dataje narunować. Chceće pokročować?">
 <!ENTITY filter.moveUp.label "Horje">
 <!ENTITY filter.edit.label "Wobdźěłać">
-<!ENTITY hitcount.column "Wotpowědniki">
-<!ENTITY acceptableAds2.label "Njenadběhawe wabjenje dowolić">
+<!ENTITY hitcount.column "&amp;Wotpowědniki">
+<!ENTITY acceptableAds2.label "&amp;Njenadběhawe wabjenje dowolić">
 <!ENTITY close.label "Začinić">
-<!ENTITY sort.none.label "Njesortěrowany">
-<!ENTITY find.accesskey "P">
+<!ENTITY sort.none.label "Njeso&amp;rtěrowany">
 <!ENTITY readMore.label "Dalše informacije">
 <!ENTITY subscription.homepage.label "Startowa strona">
 <!ENTITY typoCorrections.enableLabel "Korektne wopak napisane internetne adresy">
-<!ENTITY sort.descending.accesskey "Z">
-<!ENTITY sort.descending.label "Porjad Z &gt; A">
+<!ENTITY sort.descending.label "Porjad &amp;Z &gt; A">
 <!ENTITY subscription.lastDownload.success "Wuspěch">
 <!ENTITY filters.remove.warning "Chceće woprawdźe wšě wubrane filtry wotstronić?">
 <!ENTITY restore.custom.warning "Wšě waše swójske filtry budu so přez wobsah wubraneje dataje narunować. Chceće pokročować?">
-<!ENTITY slow.column "Pomałe filtry">
+<!ENTITY slow.column "P&amp;omałe filtry">
 <!ENTITY subscription.actions.label "Akcije">
 <!ENTITY filter.selectAll.label "Wšo wubrać">
-<!ENTITY backupButton.label "Zawěsćić a wobnowić">
-<!ENTITY sort.accesskey "S">
+<!ENTITY backupButton.label "&amp;Zawěsćić a wobnowić">
 <!ENTITY subscription.source.label "Filtrowa lisćina">
 <!ENTITY filter.paste.label "Zasunyć">
-<!ENTITY addSubscription.accesskey "F">
 <!ENTITY filter.delete.label "Zhašeć">
 <!ENTITY addSubscriptionAdd.label "Přidać">
-<!ENTITY slow.accesskey "o">
 <!ENTITY subscription.showHideFilters.label "Filtry pokazać/schować">
-<!ENTITY backupButton.accesskey "Z">
 <!ENTITY filter.actions.label "Filtrowe akcije">
 <!ENTITY filter.moveDown.label "Dele">
 <!ENTITY typoCorrections.tab.label "Korigowanja pisanskich zmylkow">
-<!ENTITY addFilter.label "Filter přidać">
+<!ENTITY addFilter.label "Filter při&amp;dać">
 <!ENTITY subscription.editTitle.label "Titul wobdźěłać">
 <!ENTITY subscription.moveDown.label "Dele">
 <!ENTITY subscription.disabledFilters.warning "Někotre filtry w tutym abonemenće su znjemóžnjene.">
-<!ENTITY filter.column "Filtrowe prawidło">
+<!ENTITY filter.column "&amp;Filtrowe prawidło">
 <!ENTITY subscription.lastDownload.checksumMismatch "Njeporadźiło, wopačna kontrolna suma">
 <!ENTITY noFiltersInGroup.text "Wubrana skupina je prózdna.">
 <!ENTITY typoCorrections.whitelistLabel "Njenarunać...">
-<!ENTITY sort.label "Sortěrować po">
+<!ENTITY sort.label "&amp;Sortěrować po">
 <!ENTITY noFilters.text "Nimaće hišće žane swójske filtry.">
 <!ENTITY subscription.external.label "Přez druhe rozšěrjenje zaktualizowany">
-<!ENTITY filter.accesskey "F">
 <!ENTITY noGroupSelected.text "Dyrbiće filtrowu skupinu wubrać, prjedy hač filtry dadźa so zwobraznić.">
 <!ENTITY subscription.lastDownload.inProgress "Sćahuje so…">
 <!ENTITY typoCorrections.removeButtonLabel "Wubrane wotstronić">
-<!ENTITY enabled.column "Zmóžnjeny">
+<!ENTITY enabled.column "Z&amp;móžnjeny">
 <!ENTITY viewMenu.label "Napohlad">
 <!ENTITY addSubscriptionCancel.label "Přetorhnyć">
-<!ENTITY lasthit.accesskey "P">
 <!ENTITY dialog.title "Adblock Plus - filtrowe nastajenja">
 <!ENTITY subscription.minVersion.warning "Tutón filtrowy abonement wužaduje sej nowšu wersiju Adblock Plus, wy měł na najnowšu wersiju Adblock Plus aktualizować.">
 <!ENTITY subscription.lastDownload.invalidURL "Njeporadźiło, žana płaćiwa adresa">
@@ -66,25 +55,21 @@
 <!ENTITY subscription.moveUp.label "Horje">
 <!ENTITY backup.complete.title "Wšě filtry a abonementy">
 <!ENTITY filters.tab.label "Swójske filtry">
-<!ENTITY find.label "Pytać">
+<!ENTITY find.label "&amp;Pytać">
 <!ENTITY subscription.lastDownload.connectionError "Njeporadźiło, sćahowanski zmylk">
 <!ENTITY subscription.lastDownload.invalidData "Njeporadźiło, žana płaćiwa filtrowa lisćina">
 <!ENTITY restore.minVersion.warning "Warnowanje: Dataja je so přez nowšu wersiju Adblock Plus wutworiła. Wy měł na najnowšu wersiju Adblock Plus aktualizować, prjedy hač tutu dataju wobnowiće.">
-<!ENTITY sort.ascending.label "Porjad A &gt; Z">
+<!ENTITY sort.ascending.label "Porj&amp;ad A &gt; Z">
 <!ENTITY viewList.label "Lisćinu pokazać">
 <!ENTITY typoCorrections.whitelistEmptyLabel "Tuchwilu wuwzaća njejsu.">
-<!ENTITY sort.ascending.accesskey "A">
 <!ENTITY restore.default.label "Zawěsćensku kopiju wot ?1? wobnowić">
-<!ENTITY hitcount.accesskey "W">
-<!ENTITY acceptableAds2.accesskey "N">
 <!ENTITY subscription.lastDownload.unknown "Ničo k dispoziciji">
 <!ENTITY subscription.enabled.label "Zmóžnjeny">
 <!ENTITY noSubscriptions.text "Njejsće hišće žane filtrowe abonementy přidał. Adblock Plus njebudźe bjez filtrow ničo blokować, prošu wužijće &quot;Filtrowy abonement přidać&quot;, zo byšće filter přidał.">
-<!ENTITY addGroup.label "Filtrowu skupinu přidać">
+<!ENTITY addGroup.label "Filtrowu &amp;skupinu přidać">
 <!ENTITY addSubscriptionOther.label "Druhi abonement přidać">
 <!ENTITY filter.copy.label "Kopěrować">
-<!ENTITY sort.none.accesskey "R">
-<!ENTITY addSubscription.label "Filtrowy abonement přidać">
+<!ENTITY addSubscription.label "&amp;Filtrowy abonement přidać">
 <!ENTITY restore.own.label "Swójsku zawěsćensku kopiju wobnowić">
 <!ENTITY filter.resetHitCounts.label "Statistiku wróćo stajić">
 <!ENTITY backup.label "Nowu zawěsćensku kopiju wutworić">

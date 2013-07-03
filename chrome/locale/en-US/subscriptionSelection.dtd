@@ -11,13 +11,9 @@
 
 <!ENTITY fromWeb.description        "Please confirm that you want to add this filter subscription. You can change the subscription title or location before adding it.">
 
-<!ENTITY title.label                "Subscription title:">
-<!ENTITY title.accesskey            "t">
-<!ENTITY location.label             "Filter list location:">
-<!ENTITY location.accesskey         "l">
-
+<!ENTITY title.label                "Subscrip&amp;tion title:">
+<!ENTITY location.label             "Fi&amp;lter list location:">
 <!-- Note: the placeholder (?1?) will be replaced by the name of the filter subscription required -->
 <!ENTITY supplementMessage          "This filter subscription is meant to be used with the filter subscription &quot;?1?&quot; which you are not using yet.">
 <!-- Note: the placeholder (?1?) will be replaced by the name of the filter subscription required -->
-<!ENTITY addMain.label              "Add filter subscription &quot;?1?&quot; as well">
-<!ENTITY addMain.accesskey          "s">
+<!ENTITY addMain.label              "Add filter &amp;subscription &quot;?1?&quot; as well">

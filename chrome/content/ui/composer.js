@@ -324,15 +324,13 @@ function updatePatternSelection()
   if (!/^\*/.test(pattern) && testFilter("||" + pattern))
   {
     disableElement(anchorStartCheckbox, false, "checked", false);
-    anchorStartCheckbox.setAttribute("label", anchorStartCheckbox.getAttribute("labelFlexible"));
-    anchorStartCheckbox.accessKey =  anchorStartCheckbox.getAttribute("accesskeyFlexible");
+    [anchorStartCheckbox.label, anchorStartCheckbox.accessKey] = Utils.splitLabel(anchorStartCheckbox.getAttribute("labelFlexible"));
     anchorStartCheckbox.flexibleAnchor = true;
   }
   else
   {
     disableElement(anchorStartCheckbox, /^\*/.test(pattern) || !testFilter("|" + pattern), "checked", false);
-    anchorStartCheckbox.setAttribute("label", anchorStartCheckbox.getAttribute("labelRegular"));
-    anchorStartCheckbox.accessKey = anchorStartCheckbox.getAttribute("accesskeyRegular");
+    [anchorStartCheckbox.label, anchorStartCheckbox.accessKey] = Utils.splitLabel(anchorStartCheckbox.getAttribute("labelRegular"));
     anchorStartCheckbox.flexibleAnchor = false;
   }
   disableElement(E("anchorEnd"), /[\*\^]$/.test(pattern) || !testFilter(pattern + "|"), "checked", false);

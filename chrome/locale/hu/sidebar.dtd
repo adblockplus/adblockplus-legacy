@@ -7,13 +7,12 @@
 <!ENTITY filter.label "Szűrő">
 <!ENTITY tooltip.size.label "Méret:">
 <!ENTITY reattach.label "Oldalsávba">
-<!ENTITY search.label "Keresés:">
+<!ENTITY search.label "&amp;Keresés:">
 <!ENTITY docDomain.thirdParty "(3. fél)">
 <!ENTITY filterSource.label "Szűrő forrása">
 <!ENTITY tooltip.docDomain.label "Dokumentum forrás:">
 <!ENTITY context.copy.label "Objektum címének másolása">
 <!ENTITY tooltip.type.label "Típus:">
-<!ENTITY search.accesskey "K">
 <!ENTITY context.disablefilter.label "Szűrő letiltása ?1?">
 <!ENTITY context.copyFilter.label "Szűrő másolása">
 <!ENTITY context.block.label "Objektum blokkolása">

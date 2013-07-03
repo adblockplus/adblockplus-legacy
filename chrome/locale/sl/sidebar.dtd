@@ -7,13 +7,12 @@
 <!ENTITY filter.label "Filter">
 <!ENTITY tooltip.size.label "Velikost:">
 <!ENTITY reattach.label "Pripni">
-<!ENTITY search.label "Najdi:">
+<!ENTITY search.label "&amp;Najdi:">
 <!ENTITY docDomain.thirdParty "(tretja stran)">
 <!ENTITY filterSource.label "Vir filtra">
 <!ENTITY tooltip.docDomain.label "Vir dokumenta:">
 <!ENTITY context.copy.label "Kopiraj naslov elementa">
 <!ENTITY tooltip.type.label "Vrsta:">
-<!ENTITY search.accesskey "N">
 <!ENTITY context.disablefilter.label "Onemogoči filter ?1?">
 <!ENTITY context.copyFilter.label "Kopiraj filter">
 <!ENTITY context.block.label "Blokiraj ta element">

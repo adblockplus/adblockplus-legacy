@@ -7,13 +7,12 @@
 <!ENTITY filter.label "Филтър">
 <!ENTITY tooltip.size.label "Размер:">
 <!ENTITY reattach.label "Прикачи отново">
-<!ENTITY search.label "Търси:">
+<!ENTITY search.label "&amp;Търси:">
 <!ENTITY docDomain.thirdParty "(трета страна)">
 <!ENTITY filterSource.label "Филтър източник">
 <!ENTITY tooltip.docDomain.label "Източник на документа:">
 <!ENTITY context.copy.label "Копирай адреса на продукта">
 <!ENTITY tooltip.type.label "Тип:">
-<!ENTITY search.accesskey "Т">
 <!ENTITY context.disablefilter.label "Да изключа ли филтър ?1?">
 <!ENTITY context.copyFilter.label "Копирай филтърът">
 <!ENTITY context.block.label "Блокирай този продукт">

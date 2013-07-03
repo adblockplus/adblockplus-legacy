@@ -1,11 +1,9 @@
-<!ENTITY screenshot.undo.label "Deshacer">
+<!ENTITY screenshot.undo.label "&amp;Deshacer">
 <!ENTITY issues.disabledgroups.description "Las siguientes suscripciones de filtros / grupos de filtros están deshabilitados, aunque aún podrían tener algún efecto sobre esta página web:">
 <!ENTITY showData.label "Mostrar datos del informe">
 <!ENTITY typeSelector.falsePositive.label "Adblock Plus bloquea demasiado">
-<!ENTITY recentReports.clear.accesskey "Q">
-<!ENTITY email.accesskey "l">
 <!ENTITY issues.change.description "Cambió tu configuración. Por favor, recargá la página para probar los cambios y enviar el informe si el problema no se resolvió después de estos cambios.">
-<!ENTITY email.label "Dirección de correo electrónico:">
+<!ENTITY email.label "Dirección de correo e&amp;lectrónico:">
 <!ENTITY issues.openPreferences.label "Abrir configuración de filtros">
 <!ENTITY sendPage.confirmation "Tu informe se guardó exitosamente. Podés acceder al mismo desde esta dirección:">
 <!ENTITY copyLink.label "Copiar enlace del informe">
@@ -14,19 +12,17 @@
 <!ENTITY sendPage.retry.label "Enviar de nuevo">
 <!ENTITY typeSelector.other.description "Seleccioná esta opción si pensás que el problema está relacionado más con Adblock Plus mismo que con sus filtros.">
 <!ENTITY issues.disabledgroups.enable.label "Habilitar suscripción de filtro / grupo de filtro">
-<!ENTITY typeWarning.override.label "Lo entiendo, y quiero enviar el informe de todas maneras">
+<!ENTITY typeWarning.override.label "Lo &amp;entiendo, y quiero enviar el informe de todas maneras">
 <!ENTITY issues.disabled.enable.label "Habilitar Adblock Plus">
 <!ENTITY update.fixed.description "Las actualizaciones a tus suscripciones de filtros probablemente resolvieron el problema que informaste. Por favor, recargá la página y reintentá. Hacé click en &quot;Informar&quot; si el problema persiste.">
 <!ENTITY anonymous.label "Envío anónimo">
 <!ENTITY reloadButton.label "Recargar la página">
-<!ENTITY recentReports.clear.label "Quitar todos los informes">
+<!ENTITY recentReports.clear.label "&amp;Quitar todos los informes">
 <!ENTITY typeSelector.description "Esta ventana te va a guiar a través de los pasos necesarios para el envío de informes de problemas de Adblock Plus. Por favor, primero elegí el tipo de problema que estás experimentando en esta página web:">
-<!ENTITY screenshot.remove.label "Quitar datos sensibles">
+<!ENTITY screenshot.remove.label "&amp;Quitar datos sensibles">
 <!ENTITY issues.ownfilters.description "Algunos de los filtros aplicados en esta página están definidos por el usuario. Por favor, deshabilitá los filtros que podría causar el inconveniente:">
-<!ENTITY screenshot.undo.accesskey "D">
 <!ENTITY update.inProgress.description "Adblock Plus necesita actualizar tus suscripciones de filtros para asegurarse de que el problema no ha sido solucionado aún. Por favor, esperá...">
-<!ENTITY data.accesskey "t">
-<!ENTITY data.label "Datos del informe:">
+<!ENTITY data.label "Da&amp;tos del informe:">
 <!ENTITY recentReports.label "Tus informes enviados recientemente">
 <!ENTITY typeWarning.description "Se te indicó de que querés informar de un problema general con Adblock Plus más que un problema con los filtros. Por favor, tené en cuenta que tal clase de problemas se informan de mejor modo en el [link]foro de Adblock Plus[/link]. Deberías usar el informe de problemas solamente para complementar un debate existente, ya que nadie sabrá de tu informe, a menos que les ofrezcas el enlace hacia el mismo. El enlace generado automáticamente será otorgado luego de enviar el informe.">
 <!ENTITY issues.disabled.description "Adblock Plus se encuentra deshabilitado, no bloqueará nada en este estado actual.">
@@ -47,21 +43,18 @@
 <!ENTITY showRecentReports.label "Mostrar informes enviados recientemente">
 <!ENTITY commentPage.heading "Ingresar comentarios">
 <!ENTITY update.start.label "Comenzar actualización ahora">
-<!ENTITY screenshot.remove.accesskey "Q">
 <!ENTITY issues.disabledfilters.description "Los siguientes filtros están deshabilitados, aunque aún podrían tener algún efecto sobre esta página web:">
 <!ENTITY screenshot.description "La misma página web puede lucir diferente para distintas personas. Si adjuntás una captura de pantalla a tu informe, nos sería de mucha ayuda para entender el inconveniente. Por supuesto, podés quitar fragmentos conteniendo información sensible, así como marcar áreas en donde el problema es más explícito. Para hacer eso, hacé clic en el botón correspondiente y seleccioná un fragmento de la imagen con el mouse.">
 <!ENTITY screenshot.attach.label "Adjuntar al informe una captura de la página web">
 <!ENTITY issues.whitelist.description "Adblock Plus se encuentra deshabilitado en la página que estás informando. Por favor, rehabilitalo y recargá la página antes de enviar el informe para colaborar con la investigación de este problema.">
-<!ENTITY typeSelector.falseNegative.label "Adblock Plus no bloquea una publicidad">
+<!ENTITY typeSelector.falseNegative.label "Adblo&amp;ck Plus no bloquea una publicidad">
 <!ENTITY typeSelector.heading "Tipo de problema">
 <!ENTITY anonymity.warning "No podremos contactarte y tu informe seguramente tendrá poca prioridad.">
 <!ENTITY wizard.title "Informe de problemas">
 <!ENTITY issues.ownfilters.disable.label "Deshabilitar filtro">
 <!ENTITY commentPage.description "El campo de texto, debajo, te permite ingresar algún comentario para ayudarnos a entender el problema. Este paso es opcional, pero encarecidamente recomendado si el problema no resulta tan obvio. También podés revisar los datos del informe antes de enviarlo.">
-<!ENTITY typeSelector.falseNegative.accesskey "c">
 <!ENTITY comment.lengthWarning "La longitud de tu comentario excede los 1.000 caracteres. Sólo los primeros 1.000 caracteres serán enviados.">
 <!ENTITY typeSelector.falseNegative.description "Seleccioná esta opción si una publicidad es mostrada, estando Adblock Plus habilitado.">
-<!ENTITY typeWarning.override.accesskey "e">
 <!ENTITY sendPage.waitMessage "Por favor, esperá mientras Adblock Plus envía tu informe.">
 <!ENTITY dataCollector.heading "Bienvenido al informe de problemas">
 <!ENTITY screenshot.heading "Adjuntar captura">

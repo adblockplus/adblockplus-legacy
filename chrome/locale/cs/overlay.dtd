@@ -1,42 +1,29 @@
-<!ENTITY showintoolbar.accesskey "n">
-<!ENTITY showinstatusbar.accesskey "r">
 <!ENTITY whitelist.site.label "Vypnout na ?1?">
-<!ENTITY filters.label "Předvolby filtrů">
+<!ENTITY filters.label "&amp;Předvolby filtrů">
 <!ENTITY disable.label "Zakázat všude">
-<!ENTITY showinaddonbar.label "Zobrazit v řádku s rozšířeními">
+<!ENTITY showinaddonbar.label "Zobraz&amp;it v řádku s rozšířeními">
 <!ENTITY objecttab.title "Blokovat">
-<!ENTITY showinaddonbar.accesskey "i">
-<!ENTITY sync.accesskey "s">
-<!ENTITY objecttabs.label "Zobrazovat ouška u objektů Java a Flash">
+<!ENTITY objecttabs.label "Z&amp;obrazovat ouška u objektů Java a Flash">
 <!ENTITY objecttab.tooltip "Klepněte zde pro blokování tohoto objektu pomocí Adblock Plus">
-<!ENTITY menuitem.label "Předvolby Adblock Plus">
-<!ENTITY sendReport.accesskey "N">
-<!ENTITY sendReport.label "Nahlásit problém na této stránce">
-<!ENTITY filters.accesskey "P">
+<!ENTITY menuitem.label "Předvol&amp;by Adblock Plus">
+<!ENTITY sendReport.label "&amp;Nahlásit problém na této stránce">
 <!ENTITY whitelist.page.label "Vypnout pouze na této stránce">
 <!ENTITY context.image.label "Blokovat obrázek">
-<!ENTITY closesidebar.accesskey "B">
-<!ENTITY hideplaceholders.label "Skrýt zástupné objekty blokovaných prvků">
-<!ENTITY opensidebar.label "Zobrazit blokovatelné objekty">
-<!ENTITY options.accesskey "M">
+<!ENTITY hideplaceholders.label "Skrýt zástupné o&amp;bjekty blokovaných prvků">
+<!ENTITY opensidebar.label "Zo&amp;brazit blokovatelné objekty">
 <!ENTITY contribute.label "Přispět Adblocku Plus">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Blokovat rámec">
-<!ENTITY counthits.label "Počítat zásahy filtrů">
+<!ENTITY counthits.label "Počítat &amp;zásahy filtrů">
 <!ENTITY blocked.tooltip "Blokované prvky na této stránce:">
-<!ENTITY opensidebar.accesskey "B">
-<!ENTITY showinstatusbar.label "Zobrazit ve stavovém řádku">
+<!ENTITY showinstatusbar.label "Zob&amp;razit ve stavovém řádku">
 <!ENTITY status.tooltip "Stav:">
 <!ENTITY sidebar.title "Adblock Plus: Blokovatelné objekty na zobrazené stránce">
-<!ENTITY sync.label "Nastavení synchronizace Adblocku Plus">
-<!ENTITY options.label "Možnosti">
+<!ENTITY sync.label "Na&amp;stavení synchronizace Adblocku Plus">
+<!ENTITY options.label "&amp;Možnosti">
 <!ENTITY context.object.label "Blokovat objekt">
 <!ENTITY context.removeWhitelist.label "Adblock Plus: Znovu povolit na této stránce">
-<!ENTITY objecttabs.accesskey "o">
 <!ENTITY filters.tooltip "Nejúčinnější filtry:">
-<!ENTITY closesidebar.label "Skrýt seznam blokovatelných objektů">
-<!ENTITY showintoolbar.label "Zobrazit v nástrojové liště">
-<!ENTITY counthits.accesskey "z">
-<!ENTITY menuitem.accesskey "B">
+<!ENTITY closesidebar.label "Skrýt seznam &amp;blokovatelných objektů">
+<!ENTITY showintoolbar.label "Zobrazit v &amp;nástrojové liště">
 <!ENTITY context.media.label "Adblock Plus: Blokovat audio/video">
-<!ENTITY hideplaceholders.accesskey "b">

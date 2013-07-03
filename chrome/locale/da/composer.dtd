@@ -1,46 +1,33 @@
 <!ENTITY collapse.yes.label "Ja">
-<!ENTITY anchor.end.label "i slutningen af adressen">
-<!ENTITY domainRestriction.label "Begræns til domæne:">
-<!ENTITY anchor.start.flexible.accesskey "g">
-<!ENTITY firstParty.label "Kun førsteparts">
-<!ENTITY preferences.label "Vis eksisterende filtre...">
+<!ENTITY anchor.end.label "i s&amp;lutningen af adressen">
+<!ENTITY domainRestriction.label "Begræns til &amp;domæne:">
+<!ENTITY firstParty.label "Kun &amp;førsteparts">
+<!ENTITY preferences.label "Vi&amp;s eksisterende filtre...">
 <!ENTITY pattern.label "Kig efter mønster">
-<!ENTITY thirdParty.label "Kun tredjeparts">
-<!ENTITY filter.accesskey "N">
-<!ENTITY thirdParty.accesskey "j">
-<!ENTITY filter.label "Nyt filter:">
-<!ENTITY collapse.label "Sammenfold blokeret:">
+<!ENTITY thirdParty.label "Kun tred&amp;jeparts">
+<!ENTITY filter.label "&amp;Nyt filter:">
+<!ENTITY collapse.label "Sammenf&amp;old blokeret:">
 <!ENTITY match.warning "Det angivne mønster matcher ikke længere den blokerede/hvidlistede adresse og har ingen effekt.">
-<!ENTITY anchor.start.label "i begyndelsen af adressen">
+<!ENTITY anchor.start.label "i be&amp;gyndelsen af adressen">
 <!ENTITY collapse.no.label "Nej">
-<!ENTITY matchCase.label "Versalfølsom (a/A)">
-<!ENTITY custom.pattern.label "Tilpasset:">
+<!ENTITY matchCase.label "&amp;Versalfølsom (a/A)">
+<!ENTITY custom.pattern.label "&amp;Tilpasset:">
 <!ENTITY unselectAllTypes.label "Vælg ingen">
-<!ENTITY domainRestriction.accesskey "d">
-<!ENTITY type.whitelist.label "Undtagelsesregel">
+<!ENTITY type.whitelist.label "&amp;Undtagelsesregel">
 <!ENTITY regexp.warning "Det indtastede mønster vil blive fortolket som et regulært udtryk. Mange regulære udtryk kan gøre din browser langsommere. Hvis det ikke var din mening at bruge et regulært udtryk, så tilføj et * i sidst i mønsteret.">
 <!ENTITY dialog.title "Tilføj Adblock Plus filterregel">
 <!ENTITY basic.label "Enkel visning">
-<!ENTITY preferences.accesskey "s">
-<!ENTITY firstParty.accesskey "f">
 <!ENTITY collapse.default.no.label "Brug standard (nej)">
-<!ENTITY type.filter.label "Blokeringsfilter">
+<!ENTITY type.filter.label "Blok&amp;eringsfilter">
 <!ENTITY types.label "Benyt på typer:">
 <!ENTITY shortpattern.warning "Det indtastede mønster er for kort til optimering, og kan sløve din browser. Det anbefales at du vælger en længere streng for dette filter.">
-<!ENTITY custom.pattern.accesskey "t">
-<!ENTITY anchor.start.accesskey "g">
 <!ENTITY anchors.label "Accepter kun mønster:">
 <!ENTITY collapse.default.yes.label "Brug standard (ja)">
-<!ENTITY type.filter.accesskey "E">
 <!ENTITY domainRestriction.help "Angiv ét eller flere domæner adskilt af symbolet &quot;|&quot;, så vil filteret kun blive anvendt på disse domæner. Symbolet &quot;~&quot; foran et domæne angiver at filteret ikke skal anvendes på dette domæne.">
 <!ENTITY accept.label "Tilføj filter">
 <!ENTITY options.label "Indstillinger">
 <!ENTITY disabled.warning "Adblock Plus er deaktiveret. Du kan stadig tilføje filtre men disse anvendes ikke før du [link]aktiverer Adblock Plus[/link].">
-<!ENTITY anchor.start.flexible.label "i begyndelsen af domænenavnet">
-<!ENTITY type.whitelist.accesskey "U">
-<!ENTITY matchCase.accesskey "V">
-<!ENTITY anchor.end.accesskey "l">
+<!ENTITY anchor.start.flexible.label "i be&amp;gyndelsen af domænenavnet">
 <!ENTITY selectAllTypes.label "Vælg alle">
 <!ENTITY advanced.label "Avanceret visning">
-<!ENTITY collapse.accesskey "o">
 <!ENTITY pattern.explanation "Mønsteret kan være enhver del af adressen, tegnet * bruges som jokertegn. Filteret benyttes kun på adresser der matcher mønsteret.">

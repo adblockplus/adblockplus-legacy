@@ -1,42 +1,29 @@
-<!ENTITY showintoolbar.accesskey "θ">
-<!ENTITY showinstatusbar.accesskey "κ">
 <!ENTITY whitelist.site.label "Απενεργοποίηση στο ?1?">
-<!ENTITY filters.label "Προτιμήσεις φίλτρων">
+<!ENTITY filters.label "Προτιμήσεις &amp;φίλτρων">
 <!ENTITY disable.label "Απενεργοποίηση παντού">
-<!ENTITY showinaddonbar.label "Εμφάνιση στην εργαλειοθήκη προσθέτου">
+<!ENTITY showinaddonbar.label "Εμφάνιση στην εργαλειο&amp;θήκη προσθέτου">
 <!ENTITY objecttab.title "Φραγή">
-<!ENTITY showinaddonbar.accesskey "θ">
-<!ENTITY sync.accesskey "χ">
-<!ENTITY objecttabs.label "Εμφάνιση ετικέτας σε αντικείμενα Flash και Java">
+<!ENTITY objecttabs.label "Εμφάνιση ετικέτ&amp;ας σε αντικείμενα Flash και Java">
 <!ENTITY objecttab.tooltip "Κλικ εδώ για να φιλτράρετε αυτό το αντικείμενο με το Adblock Plus">
-<!ENTITY menuitem.label "Adblock Plus">
-<!ENTITY sendReport.accesskey "ρ">
-<!ENTITY sendReport.label "Αναφορά προβλήματος σε αυτή την σελίδα">
-<!ENTITY filters.accesskey "φ">
+<!ENTITY menuitem.label "Ad&amp;block Plus">
+<!ENTITY sendReport.label "Αναφο&amp;ρά προβλήματος σε αυτή την σελίδα">
 <!ENTITY whitelist.page.label "Απενεργοποίηση σε αυτή τη σελίδα μόνο">
 <!ENTITY context.image.label "Adblock Plus: φραγή εικόνας">
-<!ENTITY closesidebar.accesskey "α">
-<!ENTITY hideplaceholders.label "Απόκρυψη πλαισίων των φιλτραρισμένων στοιχείων">
-<!ENTITY opensidebar.label "Άνοιγμα των φιλτραρισμένων στοιχείων">
-<!ENTITY options.accesskey "λ">
+<!ENTITY hideplaceholders.label "Απόκρυψη πλα&amp;ισίων των φιλτραρισμένων στοιχείων">
+<!ENTITY opensidebar.label "Άνοιγμ&amp;α των φιλτραρισμένων στοιχείων">
 <!ENTITY contribute.label "Συνεισφέρετε στο Adblock Plus">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus: φραγή πλαισίου">
-<!ENTITY counthits.label "Καταμέτρηση επιτυχιών φίλτρων">
+<!ENTITY counthits.label "Κα&amp;ταμέτρηση επιτυχιών φίλτρων">
 <!ENTITY blocked.tooltip "Στοιχεία που έχουν φραχθεί σε αυτή τη σελίδα:">
-<!ENTITY opensidebar.accesskey "α">
-<!ENTITY showinstatusbar.label "Εμφάνιση στην γραμμή κατάστασης">
+<!ENTITY showinstatusbar.label "Εμφάνιση στην γραμμή &amp;κατάστασης">
 <!ENTITY status.tooltip "Κατάσταση:">
 <!ENTITY sidebar.title "Στοιχεία προς φιλτράρισμα στην τρέχουσα σελίδα">
-<!ENTITY sync.label "Συγχρονισμός των ρυθμίσεων του Adblock Plus">
-<!ENTITY options.label "Επιλογές">
+<!ENTITY sync.label "Συγ&amp;χρονισμός των ρυθμίσεων του Adblock Plus">
+<!ENTITY options.label "Επι&amp;λογές">
 <!ENTITY context.object.label "Adblock Plus: φραγή αντικειμένου">
 <!ENTITY context.removeWhitelist.label "Adblock Plus: Ενεργοποίηση σ' αυτή την σελίδα">
-<!ENTITY objecttabs.accesskey "α">
 <!ENTITY filters.tooltip "Φίλτρα με τις περισσότερες επιτυχίες:">
-<!ENTITY closesidebar.label "Κλείσιμο των φιλτραρισμένων στοιχείων">
-<!ENTITY showintoolbar.label "Εμφάνιση στην εργαλειοθήκη">
-<!ENTITY counthits.accesskey "τ">
-<!ENTITY menuitem.accesskey "B">
+<!ENTITY closesidebar.label "Κλείσιμο των φιλτρ&amp;αρισμένων στοιχείων">
+<!ENTITY showintoolbar.label "Εμφάνιση στην εργαλειο&amp;θήκη">
 <!ENTITY context.media.label "Adblock Plus: φραγή ήχου/βίντεο">
-<!ENTITY hideplaceholders.accesskey "ι">

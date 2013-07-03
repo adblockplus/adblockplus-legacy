@@ -7,13 +7,12 @@
 <!ENTITY filter.label "フィルタ">
 <!ENTITY tooltip.size.label "サイズ:">
 <!ENTITY reattach.label "ウィンドウ内表示">
-<!ENTITY search.label "検索:">
+<!ENTITY search.label "検索: (&amp;S)">
 <!ENTITY docDomain.thirdParty "(サードパーティ)">
 <!ENTITY filterSource.label "フィルタ帰属">
 <!ENTITY tooltip.docDomain.label "ドキュメント帰属:">
 <!ENTITY context.copy.label "アドレスをコピー">
 <!ENTITY tooltip.type.label "種別:">
-<!ENTITY search.accesskey "S">
 <!ENTITY context.disablefilter.label "フィルタ ?1? を無効化">
 <!ENTITY context.copyFilter.label "フィルタをコピー">
 <!ENTITY context.block.label "この項目をブロック">

@@ -1,42 +1,29 @@
-<!ENTITY showintoolbar.accesskey "t">
-<!ENTITY showinstatusbar.accesskey "S">
 <!ENTITY whitelist.site.label "Deaktivieren: auf ?1?">
-<!ENTITY filters.label "Filtereinstellungen">
+<!ENTITY filters.label "Filterein&amp;stellungen">
 <!ENTITY disable.label "Überall deaktivieren">
-<!ENTITY showinaddonbar.label "In Add-on-Leiste anzeigen">
+<!ENTITY showinaddonbar.label "In Add-on-Leis&amp;te anzeigen">
 <!ENTITY objecttab.title "Blockieren">
-<!ENTITY showinaddonbar.accesskey "t">
-<!ENTITY sync.accesskey "y">
-<!ENTITY objecttabs.label "Tab zum Blockieren von Flash und Java anzeigen">
+<!ENTITY objecttabs.label "Ta&amp;b zum Blockieren von Flash und Java anzeigen">
 <!ENTITY objecttab.tooltip "Klicken Sie hier, um dieses Objekt mit Adblock Plus zu blockieren">
-<!ENTITY menuitem.label "Adblock Plus - Einstellungen">
-<!ENTITY sendReport.accesskey "F">
-<!ENTITY sendReport.label "Fehler auf dieser Seite melden">
-<!ENTITY filters.accesskey "s">
+<!ENTITY menuitem.label "&amp;Adblock Plus - Einstellungen">
+<!ENTITY sendReport.label "&amp;Fehler auf dieser Seite melden">
 <!ENTITY whitelist.page.label "Deaktivieren: nur auf dieser Seite">
 <!ENTITY context.image.label "Adblock Plus: Grafik blockieren">
-<!ENTITY closesidebar.accesskey "B">
-<!ENTITY hideplaceholders.label "Platzhalter blockierter Elemente verstecken">
-<!ENTITY opensidebar.label "Blockierbare Elemente öffnen">
-<!ENTITY options.accesskey "O">
+<!ENTITY hideplaceholders.label "P&amp;latzhalter blockierter Elemente verstecken">
+<!ENTITY opensidebar.label "&amp;Blockierbare Elemente öffnen">
 <!ENTITY contribute.label "Zu Adblock Plus beitragen">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus: Frame blockieren">
-<!ENTITY counthits.label "Filtertreffer zählen">
+<!ENTITY counthits.label "Filtertreffer &amp;zählen">
 <!ENTITY blocked.tooltip "Blockierte Elemente auf dieser Seite:">
-<!ENTITY opensidebar.accesskey "B">
-<!ENTITY showinstatusbar.label "In Statusleiste anzeigen">
+<!ENTITY showinstatusbar.label "In &amp;Statusleiste anzeigen">
 <!ENTITY status.tooltip "Status:">
 <!ENTITY sidebar.title "Elemente der geöffneten Seite">
-<!ENTITY sync.label "Adblock Plus-Einstellungen synchonisieren">
-<!ENTITY options.label "Optionen">
+<!ENTITY sync.label "Adblock Plus-Einstellungen s&amp;ynchonisieren">
+<!ENTITY options.label "&amp;Optionen">
 <!ENTITY context.object.label "Adblock Plus: Objekt blockieren">
 <!ENTITY context.removeWhitelist.label "Adblock Plus: Auf dieser Seite wieder aktivieren">
-<!ENTITY objecttabs.accesskey "B">
 <!ENTITY filters.tooltip "Am meisten angewandte Filter:">
-<!ENTITY closesidebar.label "Blockierbare Elemente schließen">
-<!ENTITY showintoolbar.label "In Symbolleiste anzeigen">
-<!ENTITY counthits.accesskey "z">
-<!ENTITY menuitem.accesskey "A">
+<!ENTITY closesidebar.label "&amp;Blockierbare Elemente schließen">
+<!ENTITY showintoolbar.label "In Symbolleis&amp;te anzeigen">
 <!ENTITY context.media.label "Adblock Plus: Audio-/Video-Element blockieren">
-<!ENTITY hideplaceholders.accesskey "l">

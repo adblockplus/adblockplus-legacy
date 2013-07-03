@@ -1,42 +1,29 @@
-<!ENTITY showintoolbar.accesskey "ค">
-<!ENTITY showinstatusbar.accesskey "ส">
 <!ENTITY whitelist.site.label "ปิดการใช้งาน ?1?">
-<!ENTITY filters.label "ตั้งค่าตัวกรอง">
+<!ENTITY filters.label "ตั้งค่าตัวกร&amp;อง">
 <!ENTITY disable.label "ปิดการใช้งานทุกที่">
-<!ENTITY showinaddonbar.label "แสดงในแถบ Add-on">
+<!ENTITY showinaddonbar.label "แส&amp;ดงในแถบ Add-on">
 <!ENTITY objecttab.title "บล็อก">
-<!ENTITY showinaddonbar.accesskey "ด">
-<!ENTITY sync.accesskey "ม">
-<!ENTITY objecttabs.label "แสดงแท็บบนแฟลชและจาวา">
+<!ENTITY objecttabs.label "แสดงแท็&amp;บบนแฟลชและจาวา">
 <!ENTITY objecttab.tooltip "คลิกที่นี่เพื่อบล็อกวัตถุนี้ด้วย Adblock Plus">
-<!ENTITY menuitem.label "ปรับแต่ง Adblock Plus">
-<!ENTITY sendReport.accesskey "ร">
-<!ENTITY sendReport.label "รายงานปัญหาที่พบในหน้านี้">
-<!ENTITY filters.accesskey "อ">
+<!ENTITY menuitem.label "&amp;ปรับแต่ง Adblock Plus">
+<!ENTITY sendReport.label "&amp;รายงานปัญหาที่พบในหน้านี้">
 <!ENTITY whitelist.page.label "ปิดการใช้งานเฉพาะหน้านี้">
 <!ENTITY context.image.label "Adblock รูปภาพ">
-<!ENTITY closesidebar.accesskey "ก">
-<!ENTITY hideplaceholders.label "ซ่อนตำแหน่งตัวยึดตำแหน่งขององค์ประกอบที่ถูกบล็อคไว้">
-<!ENTITY opensidebar.label "เปิดรายการที่บล็อกได้">
-<!ENTITY options.accesskey "ว">
+<!ENTITY hideplaceholders.label "ซ่อน&amp;ตำแหน่งตัวยึดตำแหน่งขององค์ประกอบที่ถูกบล็อคไว้">
+<!ENTITY opensidebar.label "เปิดราย&amp;การที่บล็อกได้">
 <!ENTITY contribute.label "เข้ามีส่วนร่วมกับ Adblock Plus">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock เฟรม">
-<!ENTITY counthits.label "นับจำนวนตัวกรองฮิต">
+<!ENTITY counthits.label "นับจำนวนตัว&amp;กรองฮิต">
 <!ENTITY blocked.tooltip "สิ่งที่บล็อกในหน้านี้:">
-<!ENTITY opensidebar.accesskey "ก">
-<!ENTITY showinstatusbar.label "แสดงในแถบสถานะ">
+<!ENTITY showinstatusbar.label "แ&amp;สดงในแถบสถานะ">
 <!ENTITY status.tooltip "สถานะ:">
 <!ENTITY sidebar.title "รายการที่บล็อกได้ในหน้าล่าสุด">
-<!ENTITY sync.label "เชื่อมข้อมูลการตั้งค่า Adblock Plus">
-<!ENTITY options.label "ตัวเลือก">
+<!ENTITY sync.label "เชื่อ&amp;มข้อมูลการตั้งค่า Adblock Plus">
+<!ENTITY options.label "ตั&amp;วเลือก">
 <!ENTITY context.object.label "Adblock วัตถุ">
 <!ENTITY context.removeWhitelist.label "Adblock Plus: เปิดใช้งานอีกครั้งในหน้านี้">
-<!ENTITY objecttabs.accesskey "บ">
 <!ENTITY filters.tooltip "ตัวกรองที่ใช้งานมากที่สุด:">
-<!ENTITY closesidebar.label "ปิดรายการที่บล็อกได้">
-<!ENTITY showintoolbar.label "แสดงในแถบเครื่องมือ">
-<!ENTITY counthits.accesskey "ก">
-<!ENTITY menuitem.accesskey "ป">
+<!ENTITY closesidebar.label "ปิดราย&amp;การที่บล็อกได้">
+<!ENTITY showintoolbar.label "แสดงในแถบเ&amp;ครื่องมือ">
 <!ENTITY context.media.label "Adblock Plus: บล็อกเสียง/วีดิทัศน์">
-<!ENTITY hideplaceholders.accesskey "ต">

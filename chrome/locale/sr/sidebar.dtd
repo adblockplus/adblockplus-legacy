@@ -7,13 +7,12 @@
 <!ENTITY filter.label "Филтер">
 <!ENTITY tooltip.size.label "Величина:">
 <!ENTITY reattach.label "Поново споји">
-<!ENTITY search.label "Тражи:">
+<!ENTITY search.label "&amp;Тражи:">
 <!ENTITY docDomain.thirdParty "(трећа страна)">
 <!ENTITY filterSource.label "Извор филтера">
 <!ENTITY tooltip.docDomain.label "Извор документа:">
 <!ENTITY context.copy.label "Умножи адресу ставке">
 <!ENTITY tooltip.type.label "Врста:">
-<!ENTITY search.accesskey "Т">
 <!ENTITY context.disablefilter.label "Онемогући филтер ?1?">
 <!ENTITY context.copyFilter.label "Умножи филтер">
 <!ENTITY context.block.label "Блокирај ову ставку">

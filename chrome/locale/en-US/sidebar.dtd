@@ -3,8 +3,7 @@
 <!ENTITY detach.label             "Detach">
 <!ENTITY reattach.label           "Reattach">
 
-<!ENTITY search.label             "Search:">
-<!ENTITY search.accesskey         "S">
+<!ENTITY search.label             "&amp;Search:">
 <!ENTITY type.label               "Type">
 <!ENTITY address.label            "Address">
 <!ENTITY filter.label             "Filter">

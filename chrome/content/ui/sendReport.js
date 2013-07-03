@@ -818,8 +818,7 @@ let subscriptionUpdateDataSource =
           document.documentElement.canAdvance = true;
 
           let nextButton = document.documentElement.getButton("next");
-          nextButton.label = E("updatePage").getAttribute("reloadButtonLabel");
-          nextButton.accessKey = E("updatePage").getAttribute("reloadButtonAccesskey");
+          [nextButton.label, nextButton.accessKey] = Utils.splitLabel(E("updatePage").getAttribute("reloadButtonLabel"));
           document.documentElement.addEventListener("wizardnext", function(event)
           {
             event.preventDefault();
@@ -1070,8 +1069,7 @@ let issuesDataSource =
 
     let contentWnd = this.contentWnd;
     let nextButton = document.documentElement.getButton("next");
-    nextButton.label = E("issuesPage").getAttribute("reloadButtonLabel");
-    nextButton.accessKey = E("issuesPage").getAttribute("reloadButtonAccesskey");
+    [nextButton.label, nextButton.accessKey] = Utils.splitLabel(E("updatePage").getAttribute("reloadButtonLabel"));
     document.documentElement.addEventListener("wizardnext", function(event)
     {
       event.preventDefault();
@@ -1205,20 +1203,19 @@ function updateNextButton()
   {
     if (!nextButton.hasAttribute("_origLabel"))
     {
-      nextButton.setAttribute("_origLabel", nextButton.getAttribute("label"));
-      nextButton.setAttribute("label", document.documentElement.getAttribute("sendbuttonlabel"));
-      nextButton.setAttribute("_origAccessKey", nextButton.getAttribute("accesskey"));
-      nextButton.setAttribute("accesskey", document.documentElement.getAttribute("sendbuttonaccesskey"));
+      nextButton._origLabel = nextButton.label;
+      nextButton._origAccessKey = nextButton.accessKey;
+      [nextButton.label, nextButton.accessKey] = Utils.splitLabel(document.documentElement.getAttribute("sendbuttonlabel"));
     }
   }
   else
   {
     if (nextButton.hasAttribute("_origLabel"))
     {
-      nextButton.setAttribute("label", nextButton.getAttribute("_origLabel"));
-      nextButton.removeAttribute("_origLabel");
-      nextButton.setAttribute("accesskey", nextButton.getAttribute("_origAccessKey"));
-      nextButton.removeAttribute("_origAccessKey");
+      nextButton.label = nextButton._origLabel;
+      nextButton.accessKey = nextButton._origAccessKey;
+      delete nextButton._origLabel;
+      delete nextButton._origAccessKey;
     }
   }
 }

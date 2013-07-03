@@ -7,13 +7,12 @@
 <!ENTITY filter.label "Filtrs">
 <!ENTITY tooltip.size.label "Izmērs:">
 <!ENTITY reattach.label "Pievienot atpakaļ">
-<!ENTITY search.label "Meklēt:">
+<!ENTITY search.label "&amp;Meklēt:">
 <!ENTITY docDomain.thirdParty "(trešā puse)">
 <!ENTITY filterSource.label "Filtra avots">
 <!ENTITY tooltip.docDomain.label "Dokumenta avots:">
 <!ENTITY context.copy.label "Kopēt vienības adresi">
 <!ENTITY tooltip.type.label "Tips:">
-<!ENTITY search.accesskey "M">
 <!ENTITY context.disablefilter.label "Atspējot filtru ?1?">
 <!ENTITY context.copyFilter.label "Kopēt filtru">
 <!ENTITY context.block.label "Bloķēt šo vienību">

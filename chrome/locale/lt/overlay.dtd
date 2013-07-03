@@ -1,42 +1,29 @@
-<!ENTITY showintoolbar.accesskey "R">
-<!ENTITY showinstatusbar.accesskey "b">
 <!ENTITY whitelist.site.label "Išjungti ?1?">
-<!ENTITY filters.label "Filtrų nustatymai">
+<!ENTITY filters.label "&amp;Filtrų nustatymai">
 <!ENTITY disable.label "Išjungti visur">
-<!ENTITY showinaddonbar.label "Rodyti priedų juostoje">
+<!ENTITY showinaddonbar.label "&amp;Rodyti priedų juostoje">
 <!ENTITY objecttab.title "Blokuoti">
-<!ENTITY showinaddonbar.accesskey "R">
-<!ENTITY sync.accesskey "c">
-<!ENTITY objecttabs.label "Rodyti korteles Flash ir Java elementams">
+<!ENTITY objecttabs.label "Rodyti korteles &amp;Flash ir Java elementams">
 <!ENTITY objecttab.tooltip "Spragtelėkite čia norėdami užblokuoti šį objektą su „Adblock Plus“">
-<!ENTITY menuitem.label "„Adblock Plus“ nustatymai">
-<!ENTITY sendReport.accesskey "r">
-<!ENTITY sendReport.label "Pranešti apie problemą šiame puslapyje">
-<!ENTITY filters.accesskey "F">
+<!ENTITY menuitem.label "„&amp;Adblock Plus“ nustatymai">
+<!ENTITY sendReport.label "P&amp;ranešti apie problemą šiame puslapyje">
 <!ENTITY whitelist.page.label "Išjungti šiam tinklalapiui">
 <!ENTITY context.image.label "„Adblock Plus“: Blokuoti paveikslėlį">
-<!ENTITY closesidebar.accesskey "b">
-<!ENTITY hideplaceholders.label "Slėpti užblokuotų elementų vietos laikiklius">
-<!ENTITY opensidebar.label "Atverti blokuojamus elementus">
-<!ENTITY options.accesskey "P">
+<!ENTITY hideplaceholders.label "S&amp;lėpti užblokuotų elementų vietos laikiklius">
+<!ENTITY opensidebar.label "Atverti &amp;blokuojamus elementus">
 <!ENTITY contribute.label "Prisidėti prie Adblock Plus">
 <!ENTITY toolbarbutton.label "„Adblock Plus“">
 <!ENTITY context.frame.label "„Adblock Plus“: Blokuoti kadrą">
-<!ENTITY counthits.label "Suskaičiuoti filtro blokavimus">
+<!ENTITY counthits.label "Sus&amp;kaičiuoti filtro blokavimus">
 <!ENTITY blocked.tooltip "Šiame tinklalapyje užblokuoti elementai:">
-<!ENTITY opensidebar.accesskey "b">
-<!ENTITY showinstatusbar.label "Rodyti būsenos juostoje">
+<!ENTITY showinstatusbar.label "Rodyti &amp;būsenos juostoje">
 <!ENTITY status.tooltip "Būsena:">
 <!ENTITY sidebar.title "Blokuojami elementai dabartiniame tinklalapyje">
-<!ENTITY sync.label "Adblock Plus Sync nustatymai">
-<!ENTITY options.label "Pasirinktys">
+<!ENTITY sync.label "Adblo&amp;ck Plus Sync nustatymai">
+<!ENTITY options.label "&amp;Pasirinktys">
 <!ENTITY context.object.label "„Adblock Plus“: Blokuoti objektą">
 <!ENTITY context.removeWhitelist.label "„Adblock Plus“: iš naujo įjungti šiame puslapyje">
-<!ENTITY objecttabs.accesskey "F">
 <!ENTITY filters.tooltip "Aktyviausi filtrai:">
-<!ENTITY closesidebar.label "Užverti blokuojamus elementus">
-<!ENTITY showintoolbar.label "Rodyti priemonių juostoje">
-<!ENTITY counthits.accesskey "k">
-<!ENTITY menuitem.accesskey "A">
+<!ENTITY closesidebar.label "Užverti &amp;blokuojamus elementus">
+<!ENTITY showintoolbar.label "&amp;Rodyti priemonių juostoje">
 <!ENTITY context.media.label "„Adblock Plus“: Blokuoti audio/video">
-<!ENTITY hideplaceholders.accesskey "l">

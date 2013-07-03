@@ -5,20 +5,18 @@
 <!ENTITY showinaddonbar.label "გამოაჩინე დანამატების ზოლში">
 <!ENTITY objecttab.title "დაბლოკე">
 <!ENTITY objecttab.tooltip "Adblock Plus-ით ობიექტის დასაბლოკად დააწკაპუნე აქ">
-<!ENTITY menuitem.label "Adblock Plus">
+<!ENTITY menuitem.label "Ad&amp;block Plus">
 <!ENTITY objecttabs.label "გამოაჩინე ჩანართები ფლეშსა და ჯავაზე">
 <!ENTITY sendReport.label "განაცხადე ამ გვერდზე პრობლემის შესახებ">
 <!ENTITY whitelist.page.label "გამორთე მხოლოდ ამ ვებ-გვერდზე">
 <!ENTITY context.image.label "დაბლოკე სურათი">
-<!ENTITY closesidebar.accesskey "И">
 <!ENTITY hideplaceholders.label "დამალე დაბლოკილი ელემენტის სანაცვლო არეები">
-<!ENTITY opensidebar.label "გახსენი ბლოკირებადი ელემენტები">
+<!ENTITY opensidebar.label "გახსენი ბლოკირებადი ელემენტები (&amp;И)">
 <!ENTITY contribute.label "დაეხმარეთ Adblock Plus-ს">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "დაბლოკე ფრეიმი">
 <!ENTITY counthits.label "დათვალე რამდენჯერ ამოქმედდა ფილტრი">
 <!ENTITY blocked.tooltip "ამ web-გვერდზე ბლოკირებული ელემენტები:">
-<!ENTITY opensidebar.accesskey "И">
 <!ENTITY showinstatusbar.label "გამოაჩინე სტატუსის ზოლში">
 <!ENTITY status.tooltip "სტატუსი:">
 <!ENTITY sidebar.title "ამ web-გვერდის ბლოკირებადი ელემენტები">
@@ -26,7 +24,6 @@
 <!ENTITY context.object.label "დაბლოკე ობიექტი">
 <!ENTITY context.removeWhitelist.label "Adblock Plus: ჩართე ამ გვერდისთვის">
 <!ENTITY filters.tooltip "ყველაზე აქტიური ფილტრები:">
-<!ENTITY closesidebar.label "დახურე ბლოკირებადი ელემენტები">
+<!ENTITY closesidebar.label "დახურე ბლოკირებადი ელემენტები (&amp;И)">
 <!ENTITY showintoolbar.label "გამოაჩინე ხელსაწყოთა ზოლში">
-<!ENTITY menuitem.accesskey "B">
 <!ENTITY context.media.label "Adblock Plus: დაბლოკე აუდიო/ვიდეო">

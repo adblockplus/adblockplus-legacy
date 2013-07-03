@@ -1,9 +1,6 @@
-<!ENTITY addMain.accesskey "s">
 <!ENTITY list.download.retry "Prøv igjen">
-<!ENTITY location.accesskey "l">
-<!ENTITY title.label "Abonnementstittel:">
+<!ENTITY title.label "Abonnemen&amp;tstittel:">
 <!ENTITY list.download.website "Vis nettside">
-<!ENTITY title.accesskey "t">
 <!ENTITY viewList.label "Vis filtre">
 <!ENTITY visitHomepage.label "Besøk hjemmeside">
 <!ENTITY addSubscription.label "Legg til abonnement">

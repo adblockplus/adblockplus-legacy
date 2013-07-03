@@ -7,10 +7,9 @@
 <!ENTITY noitems.label "Tidak ada item yang bisa diblok">
 <!ENTITY tooltip.size.label "Ukuran:">
 <!ENTITY reattach.label "Sertakan kembali">
-<!ENTITY search.label "Cari:">
+<!ENTITY search.label "&amp;Cari:">
 <!ENTITY context.copy.label "Salin alamat item">
 <!ENTITY tooltip.type.blocked "(diblok)">
-<!ENTITY search.accesskey "C">
 <!ENTITY context.disablefilter.label "Matikan filter ?1?">
 <!ENTITY context.copyFilter.label "Salin filter">
 <!ENTITY context.editfilter.label "Edit filter efek">

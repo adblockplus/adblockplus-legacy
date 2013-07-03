@@ -7,13 +7,12 @@
 <!ENTITY filter.label "Filtru">
 <!ENTITY tooltip.size.label "Mărime:">
 <!ENTITY reattach.label "Prinde la loc">
-<!ENTITY search.label "Caută:">
+<!ENTITY search.label "&amp;Caută:">
 <!ENTITY docDomain.thirdParty "(parte terţă)">
 <!ENTITY filterSource.label "Sursă filtru">
 <!ENTITY tooltip.docDomain.label "Sursă document:">
 <!ENTITY context.copy.label "Copiază adresa elementului">
 <!ENTITY tooltip.type.label "Tip:">
-<!ENTITY search.accesskey "C">
 <!ENTITY context.disablefilter.label "Dezactivează filtru ?1?">
 <!ENTITY context.copyFilter.label "Copiază filtru">
 <!ENTITY context.block.label "Blochează element">

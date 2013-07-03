@@ -7,13 +7,12 @@
 <!ENTITY filter.label "Penapis">
 <!ENTITY tooltip.size.label "Saiz:">
 <!ENTITY reattach.label "Lampir semula">
-<!ENTITY search.label "Cari:">
+<!ENTITY search.label "&amp;Cari:">
 <!ENTITY docDomain.thirdParty "(pihak ketiga)">
 <!ENTITY filterSource.label "Sumber penapis">
 <!ENTITY tooltip.docDomain.label "Sumber dokumen:">
 <!ENTITY context.copy.label "Salin alamat item">
 <!ENTITY tooltip.type.label "Jenis:">
-<!ENTITY search.accesskey "C">
 <!ENTITY context.disablefilter.label "Nyahaktif penapis ?1?">
 <!ENTITY context.copyFilter.label "Salin penapis">
 <!ENTITY context.block.label "Sekat item ini">

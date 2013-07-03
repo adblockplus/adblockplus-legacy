@@ -7,13 +7,12 @@
 <!ENTITY filter.label "Filtre">
 <!ENTITY tooltip.size.label "Mida">
 <!ENTITY reattach.label "Reenganxa">
-<!ENTITY search.label "Cerca">
+<!ENTITY search.label "&amp;Cerca">
 <!ENTITY docDomain.thirdParty "(tercers)">
 <!ENTITY filterSource.label "Filtra per la font">
 <!ENTITY tooltip.docDomain.label "Font del document:">
 <!ENTITY context.copy.label "Copia l'adreça de l'element">
 <!ENTITY tooltip.type.label "Tipus">
-<!ENTITY search.accesskey "C">
 <!ENTITY context.disablefilter.label "Inhabilita el filtre ?1?">
 <!ENTITY context.copyFilter.label "Copia el filtre">
 <!ENTITY context.block.label "Bloca aquest element">

@@ -1,10 +1,9 @@
 <!ENTITY addMain.label "Lisa ka filtrite tellimus &quot;?1?&quot;">
 <!ENTITY list.download.failed "Adblock Plusil ei õnnestunud alla laadida tellimuste nimekirja.">
 <!ENTITY list.download.retry "Proovi uuesti">
-<!ENTITY title.label "Tellimuse pealkiri:">
+<!ENTITY title.label "Tellimuse &amp;pealkiri:">
 <!ENTITY list.download.website "Külasta kodulehte">
 <!ENTITY supplementMessage "See filtrite tellimus on mõeldud kasutamiseks koos filtrite tellimusega &quot;?1?&quot; mida sa veel ei kasuta.">
-<!ENTITY title.accesskey "p">
 <!ENTITY viewList.label "Vaata filtreid">
 <!ENTITY visitHomepage.label "Külasta kodulehte">
 <!ENTITY addSubscription.label "Lisa tellimus">

@@ -1,33 +1,25 @@
 <!ENTITY collapse.yes.label "Có">
-<!ENTITY anchor.end.label "ở cuối địa chỉ">
-<!ENTITY domainRestriction.label "Giới hạn trên miền:">
-<!ENTITY anchor.start.flexible.accesskey "u">
-<!ENTITY firstParty.label "Chỉ của bên thứ nhất">
-<!ENTITY preferences.label "Hiện các bộ lọc đang có...">
+<!ENTITY anchor.end.label "ở cuố&amp;i địa chỉ">
+<!ENTITY domainRestriction.label "Giới hạn t&amp;rên miền:">
+<!ENTITY firstParty.label "Chỉ của bê&amp;n thứ nhất">
+<!ENTITY preferences.label "&amp;Hiện các bộ lọc đang có...">
 <!ENTITY pattern.label "Tìm mẫu">
-<!ENTITY thirdParty.label "Chỉ của bên thứ ba">
-<!ENTITY filter.accesskey "l">
-<!ENTITY thirdParty.accesskey "a">
-<!ENTITY filter.label "Bộ lọc mới:">
-<!ENTITY collapse.label "Thu gọn những mục bị chặn:">
+<!ENTITY thirdParty.label "Chỉ củ&amp;a bên thứ ba">
+<!ENTITY filter.label "Bộ &amp;lọc mới:">
+<!ENTITY collapse.label "&amp;Thu gọn những mục bị chặn:">
 <!ENTITY match.warning "Mẫu mà bạn điền vào không còn khớp với địa chỉ cần được chặn/đưa vào danh sách trắng và sẽ không có ảnh hưởng đến nó.">
-<!ENTITY anchor.start.label "ở đầu địa chỉ">
+<!ENTITY anchor.start.label "ở đầ&amp;u địa chỉ">
 <!ENTITY collapse.no.label "Không">
-<!ENTITY matchCase.label "Phân biệt HOA thường">
-<!ENTITY custom.pattern.label "Tùy biến:">
+<!ENTITY matchCase.label "&amp;Phân biệt HOA thường">
+<!ENTITY custom.pattern.label "Tù&amp;y biến:">
 <!ENTITY unselectAllTypes.label "Không chọn">
-<!ENTITY domainRestriction.accesskey "r">
-<!ENTITY type.whitelist.label "Quy luật ngoại lệ">
+<!ENTITY type.whitelist.label "&amp;Quy luật ngoại lệ">
 <!ENTITY regexp.warning "Mẫu bạn gõ vào sẽ được xem là biểu thức quy tắc. Nhiều biểu thức quy tắc có thể làm chậm việc duyệt web của bạn. Nếu bạn không định dùng biểu thức quy tắc, hãy thêm một biểu tượng * ở cuối mẫu.">
 <!ENTITY dialog.title "Thêm quy tắc lọc cho Adblock Plus">
 <!ENTITY basic.label "Hiển thị cơ bản">
-<!ENTITY preferences.accesskey "H">
-<!ENTITY firstParty.accesskey "n">
 <!ENTITY collapse.default.no.label "Dùng mặc định (không)">
 <!ENTITY type.filter.label "Bộ lọc chặn">
 <!ENTITY types.label "Áp dụng cho các kiểu:">
-<!ENTITY anchor.start.accesskey "u">
-<!ENTITY custom.pattern.accesskey "y">
 <!ENTITY shortpattern.warning "Mẫu bạn gõ vào quá ngắn để tối ưu hóa, nhiều mẫu như vậy có thể làm chậm việc duyệt web của bạn. Lời khuyên là bạn hãy chọn một chuỗi dài hơn cho bộ lọc này.">
 <!ENTITY anchors.label "Chỉ chấp nhận mẫu:">
 <!ENTITY collapse.default.yes.label "Dùng mặc định (có)">
@@ -35,11 +27,7 @@
 <!ENTITY accept.label "Thêm bộ lọc">
 <!ENTITY options.label "Tùy chọn">
 <!ENTITY disabled.warning "Adblock Plus hiện đang bị vô hiệu hóa. Bạn vẫn có thể thêm các bộ lọc nhưng chúng sẽ không được áp dụng trừ khi bạn [link]kích hoạt Adblock Plus[/link].">
-<!ENTITY anchor.start.flexible.label "ở đầu tên miền">
-<!ENTITY type.whitelist.accesskey "Q">
-<!ENTITY matchCase.accesskey "P">
-<!ENTITY anchor.end.accesskey "i">
+<!ENTITY anchor.start.flexible.label "ở đầ&amp;u tên miền">
 <!ENTITY selectAllTypes.label "Chọn tất cả">
 <!ENTITY advanced.label "Hiển thị nâng cao">
-<!ENTITY collapse.accesskey "T">
 <!ENTITY pattern.explanation "Mẫu có thể là bất kì phần nào của địa chỉ, biểu tượng * được dùng như một mặt nạ. Bộ lọc sẽ chỉ được áp dụng cho những địa chỉ phù hợp với mẫu.">

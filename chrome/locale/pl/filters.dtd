@@ -1,61 +1,50 @@
-<!ENTITY lasthit.column "Ostatnie użycie">
-<!ENTITY addFilter.accesskey "L">
+<!ENTITY lasthit.column "&amp;Ostatnie użycie">
 <!ENTITY subscription.delete.label "Usuń">
 <!ENTITY subscriptions.tab.label "Zestawy filtrów">
-<!ENTITY enabled.accesskey "K">
-<!ENTITY addGroup.accesskey "G">
 <!ENTITY subscription.update.label "Aktualizuj filtry">
 <!ENTITY restore.complete.warning "Wszystkie ustawienia filtrów zostaną zastąpione zawartością wybranego pliku. Czy chcesz kontynuować?">
 <!ENTITY filter.moveUp.label "Przenieś w górę">
 <!ENTITY filter.edit.label "Edytuj">
-<!ENTITY hitcount.column "Użycie">
-<!ENTITY acceptableAds2.label "Zezwalaj na nie natrętne reklamy">
+<!ENTITY hitcount.column "&amp;Użycie">
+<!ENTITY acceptableAds2.label "Zezwalaj na nie na&amp;trętne reklamy">
 <!ENTITY close.label "Zamknij">
-<!ENTITY sort.none.label "Nieposortowane">
-<!ENTITY find.accesskey "N">
+<!ENTITY sort.none.label "&amp;Nieposortowane">
 <!ENTITY readMore.label "Dowiedz się więcej">
 <!ENTITY subscription.homepage.label "Strona domowa">
 <!ENTITY typoCorrections.enableLabel "Naprawiaj pomyłki w adresach internetowych">
-<!ENTITY sort.descending.accesskey "Z">
-<!ENTITY sort.descending.label "Kierunek sortowania Z &gt; A">
+<!ENTITY sort.descending.label "Kierunek sortowania &amp;Z &gt; A">
 <!ENTITY subscription.lastDownload.success "Zakończono pomyślnie">
 <!ENTITY filters.remove.warning "Czy na pewno chcesz usunąć wszystkie wybrane filtry?">
 <!ENTITY restore.custom.warning "Wszystkie własne filtry zostaną zastąpione zawartością wybranego pliku. Czy chcesz kontynuować?">
-<!ENTITY slow.column "Wolne filtry">
+<!ENTITY slow.column "&amp;Wolne filtry">
 <!ENTITY subscription.actions.label "Czynności">
 <!ENTITY filter.selectAll.label "Zaznacz wszystko">
-<!ENTITY backupButton.label "Tworzenie i odtwarzanie kopii">
-<!ENTITY sort.accesskey "S">
+<!ENTITY backupButton.label "&amp;Tworzenie i odtwarzanie kopii">
 <!ENTITY subscription.source.label "Zawartość zestawu">
 <!ENTITY filter.paste.label "Wklej">
-<!ENTITY addSubscription.accesskey "D">
 <!ENTITY filter.delete.label "Usuń">
 <!ENTITY addSubscriptionAdd.label "Dodaj">
-<!ENTITY slow.accesskey "W">
 <!ENTITY subscription.showHideFilters.label "Wyświetl/ukryj filtry">
-<!ENTITY backupButton.accesskey "T">
 <!ENTITY filter.actions.label "Czynności filtrów">
 <!ENTITY filter.moveDown.label "Przenieś w dół">
 <!ENTITY typoCorrections.tab.label "Naprawa błędów">
-<!ENTITY addFilter.label "Dodaj filtr">
+<!ENTITY addFilter.label "Dodaj fi&amp;ltr">
 <!ENTITY subscription.editTitle.label "Edytuj nazwę zestawu">
 <!ENTITY subscription.moveDown.label "Przenieś w dół">
 <!ENTITY subscription.disabledFilters.warning "Niektóre filtry w tym zestawie są wyłączone.">
-<!ENTITY filter.column "Reguła filtru">
+<!ENTITY filter.column "&amp;Reguła filtru">
 <!ENTITY subscription.lastDownload.checksumMismatch "Nie powiodło się – niepoprawna suma kontrolna">
 <!ENTITY noFiltersInGroup.text "Wybrana grupa jest pusta">
 <!ENTITY typoCorrections.whitelistLabel "Nie zamieniaj…">
-<!ENTITY sort.label "Sortuj wg">
+<!ENTITY sort.label "&amp;Sortuj wg">
 <!ENTITY noFilters.text "Nie masz jeszcze żadnych własnych filtrów.">
 <!ENTITY subscription.external.label "Zaktualizowany przez inne rozszerzenie">
-<!ENTITY filter.accesskey "R">
 <!ENTITY noGroupSelected.text "Aby filtry mogły być wyświetlane, należy najpierw wybrać grupę.">
 <!ENTITY subscription.lastDownload.inProgress "Pobieranie…">
 <!ENTITY typoCorrections.removeButtonLabel "Usuń wybrane">
-<!ENTITY enabled.column "Aktywny">
+<!ENTITY enabled.column "A&amp;ktywny">
 <!ENTITY viewMenu.label "Widok">
 <!ENTITY addSubscriptionCancel.label "Anuluj">
-<!ENTITY lasthit.accesskey "O">
 <!ENTITY dialog.title "Add Adblock Plus – ustawienia filtrów">
 <!ENTITY subscription.minVersion.warning "Ten zestaw filtrów działa z najnowszą wersją Adblock Plusa. Zaktualizuj Adblock Plusa.">
 <!ENTITY subscription.lastDownload.invalidURL "Nie powiodło się – nieprawidłowy adres">
@@ -66,25 +55,21 @@
 <!ENTITY subscription.moveUp.label "Przenieś w górę">
 <!ENTITY backup.complete.title "Wszystkie filtry i zestawy">
 <!ENTITY filters.tab.label "Własne filtry">
-<!ENTITY find.label "Znajdź">
+<!ENTITY find.label "Z&amp;najdź">
 <!ENTITY subscription.lastDownload.connectionError "Nie powiodło się – błąd pobierania">
 <!ENTITY subscription.lastDownload.invalidData "Nie powiodło się – nieprawidłowy zestaw filtrów">
 <!ENTITY restore.minVersion.warning "Ostrzeżenie! Plik został utworzony za pomocą najnowszej wersji Adblock Plusa. Przed odtworzeniem zawartości tego pliku, należy zainstalować najnowszą wersję Adblock Plusa.">
-<!ENTITY sort.ascending.label "Kierunek sortowania A &gt; Z">
+<!ENTITY sort.ascending.label "Kierunek sortow&amp;ania A &gt; Z">
 <!ENTITY viewList.label "Zobacz listę">
 <!ENTITY typoCorrections.whitelistEmptyLabel "Obecnie nie ma żadnych wyjątków.">
-<!ENTITY sort.ascending.accesskey "A">
 <!ENTITY restore.default.label "Odtwórz kopię z dnia ?1?">
-<!ENTITY hitcount.accesskey "U">
-<!ENTITY acceptableAds2.accesskey "T">
 <!ENTITY subscription.lastDownload.unknown "nieznane">
 <!ENTITY subscription.enabled.label "Aktywny">
 <!ENTITY noSubscriptions.text "Jeszcze nie dodano żadnego zestawu filtrów. Adblock Plus nie może nic blokować bez filtrów. Naciśnij przycisk „Dodaj zestaw filtrów…”, by dodać jakiś filtr.">
-<!ENTITY addGroup.label "Dodaj grupę filtrów">
+<!ENTITY addGroup.label "Dodaj &amp;grupę filtrów">
 <!ENTITY addSubscriptionOther.label "Wybierz inny zestaw">
 <!ENTITY filter.copy.label "Kopiuj">
-<!ENTITY sort.none.accesskey "N">
-<!ENTITY addSubscription.label "Dodaj zestaw filtrów">
+<!ENTITY addSubscription.label "&amp;Dodaj zestaw filtrów">
 <!ENTITY restore.own.label "Odtwórz własną kopię">
 <!ENTITY filter.resetHitCounts.label "Resetuj statystyki użycia">
 <!ENTITY backup.label "Utwórz nową kopię">

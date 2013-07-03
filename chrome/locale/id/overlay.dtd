@@ -1,28 +1,21 @@
-<!ENTITY showintoolbar.accesskey "B">
-<!ENTITY showinstatusbar.accesskey "S">
 <!ENTITY whitelist.site.label "Wyłącz blokowanie na ?1?">
 <!ENTITY disable.label "Wyłącz wszędzie">
 <!ENTITY objecttab.title "Zablokuj">
-<!ENTITY objecttabs.label "Tunjukkan tab pada Flash dan Java">
+<!ENTITY objecttabs.label "&amp;Tunjukkan tab pada Flash dan Java">
 <!ENTITY objecttab.tooltip "Kliknij tutaj, aby zablokować ten obiekt">
-<!ENTITY menuitem.label "Adblock Plus - ustawienia">
-<!ENTITY sendReport.accesskey "Z">
-<!ENTITY sendReport.label "Zgłoś problem na tej stronie">
+<!ENTITY menuitem.label "&amp;Adblock Plus - ustawienia">
+<!ENTITY sendReport.label "&amp;Zgłoś problem na tej stronie">
 <!ENTITY whitelist.page.label "Wyłącz blokowanie tylko na tej stronie">
 <!ENTITY context.image.label "Zablokuj obrazek">
-<!ENTITY closesidebar.accesskey "B">
-<!ENTITY opensidebar.label "Otwórz listę blokowalnych elementów">
-<!ENTITY objecttabs.accesskey "T">
+<!ENTITY opensidebar.label "Otwórz listę &amp;blokowalnych elementów">
 <!ENTITY context.frame.label "Zablokuj ramkę">
 <!ENTITY blocked.tooltip "Zablokowane elementy na tej stronie:">
-<!ENTITY opensidebar.accesskey "B">
-<!ENTITY showinstatusbar.label "Tunjukkan di status bar">
+<!ENTITY showinstatusbar.label "Tunjukkan di &amp;status bar">
 <!ENTITY sidebar.title "Blokowalne elementy na aktywnej stronie">
 <!ENTITY options.label "Opsi">
 <!ENTITY context.object.label "Zablokuj obiekt">
 <!ENTITY context.removeWhitelist.label "Włącz ponownie na tej stronie">
 <!ENTITY filters.tooltip "Najczęściej stosowane filtry:">
-<!ENTITY closesidebar.label "Zamknij listę blokowalnych elementów">
-<!ENTITY showintoolbar.label "Tunjukkan di toolbar">
-<!ENTITY menuitem.accesskey "A">
+<!ENTITY closesidebar.label "Zamknij listę &amp;blokowalnych elementów">
+<!ENTITY showintoolbar.label "Tunjukkan di tool&amp;bar">
 <!ENTITY context.media.label "Zablokuj wideo/audio">

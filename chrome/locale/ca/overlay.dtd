@@ -1,42 +1,29 @@
-<!ENTITY showintoolbar.accesskey "b">
-<!ENTITY showinstatusbar.accesskey "E">
 <!ENTITY whitelist.site.label "Inhabilita l'Adblock Plus a ?1?">
-<!ENTITY filters.label "Preferències del filtre">
+<!ENTITY filters.label "Pre&amp;ferències del filtre">
 <!ENTITY disable.label "Inhabilita a tots els llocs">
-<!ENTITY showinaddonbar.label "Mostra'l a la barra del complement">
+<!ENTITY showinaddonbar.label "Mostra'l a la barra del &amp;complement">
 <!ENTITY objecttab.title "Bloca">
-<!ENTITY showinaddonbar.accesskey "c">
-<!ENTITY sync.accesskey "S">
-<!ENTITY objecttabs.label "Mostra les pestanyes a Flash i Java">
+<!ENTITY objecttabs.label "Mostra les &amp;pestanyes a Flash i Java">
 <!ENTITY objecttab.tooltip "Feu clic aquí per blocar aquest objecte amb l'Adblock Plus">
-<!ENTITY menuitem.label "Preferències de l'Adblock Plus">
-<!ENTITY sendReport.accesskey "I">
-<!ENTITY sendReport.label "Informa sobre la pàgina">
-<!ENTITY filters.accesskey "F">
+<!ENTITY menuitem.label "Preferències de l'Ad&amp;block Plus">
+<!ENTITY sendReport.label "&amp;Informa sobre la pàgina">
 <!ENTITY whitelist.page.label "Inhabilita només en aquesta pàgina">
 <!ENTITY context.image.label "Adblock Plus: bloca la imatge">
-<!ENTITY closesidebar.accesskey "b">
-<!ENTITY hideplaceholders.label "Amaga les localitzacions dels elements blocats">
-<!ENTITY opensidebar.label "Obre elements blocables">
-<!ENTITY options.accesskey "O">
+<!ENTITY hideplaceholders.label "Amaga &amp;les localitzacions dels elements blocats">
+<!ENTITY opensidebar.label "O&amp;bre elements blocables">
 <!ENTITY contribute.label "Contribueix a l'Adblock Plus">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus: bloca el marc">
-<!ENTITY counthits.label "Compta els cops que funciona el filtre">
+<!ENTITY counthits.label "Compta els cops que &amp;funciona el filtre">
 <!ENTITY blocked.tooltip "Elements bloquejats en aquesta pàgina:">
-<!ENTITY opensidebar.accesskey "b">
-<!ENTITY showinstatusbar.label "Mostra a la barra d'estat">
+<!ENTITY showinstatusbar.label "Mostra a la barra d'&amp;estat">
 <!ENTITY status.tooltip "Estat:">
 <!ENTITY sidebar.title "Elements blocables a la pàgina actual">
-<!ENTITY sync.label "Sincronitza la configuració de l'AdBlock Plus">
-<!ENTITY options.label "Opcions">
+<!ENTITY sync.label "&amp;Sincronitza la configuració de l'AdBlock Plus">
+<!ENTITY options.label "&amp;Opcions">
 <!ENTITY context.object.label "Adblock Plus: bloca l'objecte">
 <!ENTITY context.removeWhitelist.label "Adblock Plus:Rehabilita aquesta pàgina">
-<!ENTITY objecttabs.accesskey "p">
 <!ENTITY filters.tooltip "Filtres més actius:">
-<!ENTITY closesidebar.label "Tanca els elements blocables">
-<!ENTITY showintoolbar.label "Mostra a la barra d'eines">
-<!ENTITY counthits.accesskey "f">
-<!ENTITY menuitem.accesskey "b">
+<!ENTITY closesidebar.label "Tanca els elements &amp;blocables">
+<!ENTITY showintoolbar.label "Mostra a la &amp;barra d'eines">
 <!ENTITY context.media.label "Adblock Plus: Bloqueja àudio/vídeo">
-<!ENTITY hideplaceholders.accesskey "l">

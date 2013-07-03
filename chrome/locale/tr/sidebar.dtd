@@ -7,13 +7,12 @@
 <!ENTITY filter.label "Süzgeç">
 <!ENTITY tooltip.size.label "Boyut">
 <!ENTITY reattach.label "Birleştir">
-<!ENTITY search.label "Ara">
+<!ENTITY search.label "&amp;Ara">
 <!ENTITY docDomain.thirdParty "(üçüncü taraf)">
 <!ENTITY filterSource.label "Süzgeç kaynağı">
 <!ENTITY tooltip.docDomain.label "Belge kaynağı:">
 <!ENTITY context.copy.label "Öğenin konumunu kopyala">
 <!ENTITY tooltip.type.label "Tür:">
-<!ENTITY search.accesskey "A">
 <!ENTITY context.disablefilter.label "Süzgeci devre dışı bırak ?1?">
 <!ENTITY context.copyFilter.label "Süzgeci kopyala">
 <!ENTITY context.block.label "Bu öğeyi engelle">

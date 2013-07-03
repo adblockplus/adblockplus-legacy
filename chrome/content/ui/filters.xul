@@ -93,23 +93,23 @@
 
 <popupset id="filtersPopupset">
   <menupopup id="filters-view-menu1" onpopupshowing="FilterActions.fillColumnPopup(this);">
-    <menuitem id="filters-view-filter1" label="&filter.column;" accesskey="&filter.accesskey;" type="checkbox" disabled="true"/>
-    <menuitem id="filters-view-slow1" label="&slow.column;" accesskey="&slow.accesskey;" type="checkbox" oncommand="FilterActions.toggleColumn('col-slow')"/>
-    <menuitem id="filters-view-enabled1" label="&enabled.column;" accesskey="&enabled.accesskey;" type="checkbox" oncommand="FilterActions.toggleColumn('col-enabled')"/>
-    <menuitem id="filters-view-hitcount1" label="&hitcount.column;" accesskey="&hitcount.accesskey;" type="checkbox" oncommand="FilterActions.toggleColumn('col-hitcount')"/>
-    <menuitem id="filters-view-lasthit1" label="&lasthit.column;" accesskey="&lasthit.accesskey;" type="checkbox" oncommand="FilterActions.toggleColumn('col-lasthit')"/>
+    <menuitem id="filters-view-filter1" label="&filter.column;" type="checkbox" disabled="true"/>
+    <menuitem id="filters-view-slow1" label="&slow.column;" type="checkbox" oncommand="FilterActions.toggleColumn('col-slow')"/>
+    <menuitem id="filters-view-enabled1" label="&enabled.column;" type="checkbox" oncommand="FilterActions.toggleColumn('col-enabled')"/>
+    <menuitem id="filters-view-hitcount1" label="&hitcount.column;" type="checkbox" oncommand="FilterActions.toggleColumn('col-hitcount')"/>
+    <menuitem id="filters-view-lasthit1" label="&lasthit.column;" type="checkbox" oncommand="FilterActions.toggleColumn('col-lasthit')"/>
     <menuseparator/>
-    <menu id="filters-sort-menu1" label="&sort.label;" accesskey="&sort.accesskey;">
+    <menu id="filters-sort-menu1" label="&sort.label;">
       <menupopup id="filters-sort-popup1">
-        <menuitem id="filters-sort-none1" label="&sort.none.label;" accesskey="&sort.none.accesskey;" type="radio" name="sortColumn" oncommand="FilterView.sortBy(null)"/>
-        <menuitem id="filters-sort-filter1" label="&filter.column;" accesskey="&filter.accesskey;" type="radio" name="sortColumn" oncommand="FilterView.sortBy('col-filter')"/>
-        <menuitem id="filters-sort-slow1" label="&slow.column;" accesskey="&slow.accesskey;" type="radio" name="sortColumn" oncommand="FilterView.sortBy('col-slow')"/>
-        <menuitem id="filters-sort-enabled1" label="&enabled.column;" accesskey="&enabled.accesskey;" type="radio" name="sortColumn" oncommand="FilterView.sortBy('col-enabled')"/>
-        <menuitem id="filters-sort-hitcount1" label="&hitcount.column;" accesskey="&hitcount.accesskey;" type="radio" name="sortColumn" oncommand="FilterView.sortBy('col-hitcount')"/>
-        <menuitem id="filters-sort-lasthit1" label="&lasthit.column;" accesskey="&lasthit.accesskey;" type="radio" name="sortColumn" oncommand="FilterView.sortBy('col-lasthit')"/>
+        <menuitem id="filters-sort-none1" label="&sort.none.label;" type="radio" name="sortColumn" oncommand="FilterView.sortBy(null)"/>
+        <menuitem id="filters-sort-filter1" label="&filter.column;" type="radio" name="sortColumn" oncommand="FilterView.sortBy('col-filter')"/>
+        <menuitem id="filters-sort-slow1" label="&slow.column;" type="radio" name="sortColumn" oncommand="FilterView.sortBy('col-slow')"/>
+        <menuitem id="filters-sort-enabled1" label="&enabled.column;" type="radio" name="sortColumn" oncommand="FilterView.sortBy('col-enabled')"/>
+        <menuitem id="filters-sort-hitcount1" label="&hitcount.column;" type="radio" name="sortColumn" oncommand="FilterView.sortBy('col-hitcount')"/>
+        <menuitem id="filters-sort-lasthit1" label="&lasthit.column;" type="radio" name="sortColumn" oncommand="FilterView.sortBy('col-lasthit')"/>
         <menuseparator/>
-        <menuitem id="filters-sort-asc1" label="&sort.ascending.label;" accesskey="&sort.ascending.accesskey;" type="radio" name="sortOrder" oncommand="FilterActions.setSortOrder('ascending')"/>
-        <menuitem id="filters-sort-desc1" label="&sort.descending.label;" accesskey="&sort.descending.accesskey;" type="radio" name="sortOrder" oncommand="FilterActions.setSortOrder('descending')"/>
+        <menuitem id="filters-sort-asc1" label="&sort.ascending.label;" type="radio" name="sortOrder" oncommand="FilterActions.setSortOrder('ascending')"/>
+        <menuitem id="filters-sort-desc1" label="&sort.descending.label;" type="radio" name="sortOrder" oncommand="FilterActions.setSortOrder('descending')"/>
       </menupopup>
     </menu>
   </menupopup>
@@ -148,7 +148,7 @@
     <tabpanels flex="1">
       <tabpanel id="subscriptionsTab" orient="vertical" flex="1">
         <hbox pack="end">
-          <button id="selectSubscriptionButton" label="&addSubscription.label;…" accesskey="&addSubscription.accesskey;" command="subscription-add-command"/>
+          <button id="selectSubscriptionButton" label="&addSubscription.label;…" command="subscription-add-command"/>
         </hbox>
 
         <panel id="selectSubscriptionPanel" type="arrow" position="bottomcenter topleft"
@@ -265,14 +265,14 @@
         </deck>
 
         <description>
-          <checkbox id="acceptableAds" label="&acceptableAds2.label;" accesskey="&acceptableAds2.accesskey;" oncommand="ListManager.allowAcceptableAds(this.checked);"/>
+          <checkbox id="acceptableAds" label="&acceptableAds2.label;" oncommand="ListManager.allowAcceptableAds(this.checked);"/>
           <label class="text-link" value="&viewList.label;" onclick="UI.loadInBrowser(Prefs.subscriptions_exceptionsurl);"/>
           <label class="text-link" value="&readMore.label;" onclick="UI.loadDocLink('acceptable_ads');"/>
         </description>
       </tabpanel>
       <tabpanel id="filtersTab" orient="vertical" flex="1">
         <hbox pack="end">
-          <button id="addGroupButton" label="&addGroup.label;" accesskey="&addGroup.accesskey;" command="group-add-command"/>
+          <button id="addGroupButton" label="&addGroup.label;" command="group-add-command"/>
         </hbox>
 
         <richlistitem id="groupTemplate" class="subscription" hidden="true" orient="vertical"
@@ -323,7 +323,7 @@
 
   <vbox id="filtersContainer" persist="width height" width="500">
     <hbox pack="end">
-      <button id="findButton" label="&find.label;" accesskey="&find.accesskey;" command="find-command"/>
+      <button id="findButton" label="&find.label;" command="find-command"/>
       <button id="filterActionButton" type="menu" label="&filter.actions.label;">
         <menupopup id="filterActionMenu" onpopupshowing="FilterActions.fillActionsPopup();">
           <menuitem label="&filter.edit.label;" key="edit-key" command="filters-edit-command"/>
@@ -341,7 +341,7 @@
           <menu id="viewMenu" label="&viewMenu.label;"/>
         </menupopup>
       </button>
-      <button id="addFilterButton" label="&addFilter.label;" accesskey="&addFilter.accesskey;" command="filters-add-command"/>
+      <button id="addFilterButton" label="&addFilter.label;" command="filters-add-command"/>
     </hbox>
     <tree id="filtersTree"
         flex="1"
@@ -377,7 +377,7 @@
 
 <hbox id="buttons">
   <button id="backupButton" type="menu"
-      label="&backupButton.label;" accesskey="&backupButton.accesskey;"
+      label="&backupButton.label;"
       _backupDialogTitle="&backup.label;" _restoreDialogTitle="&restore.own.label;"
       _fileFilterComplete="&backup.complete.title;" _fileFilterCustom="&backup.custom.title;"
       _backupError="&backup.error;" _restoreError="&restore.error;"
