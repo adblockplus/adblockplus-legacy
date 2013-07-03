@@ -2,10 +2,10 @@
 <!ENTITY anchor.end.label "adresin sonunda">
 <!ENTITY domainRestriction.label "Alan adına kısıtlama:">
 <!ENTITY anchor.start.flexible.accesskey "b">
-<!ENTITY firstParty.label "Sadece birinci kişilerden">
+<!ENTITY firstParty.label "Yalnız birinci kişilerden">
 <!ENTITY preferences.label "Mevcut süzgeçleri göster...">
-<!ENTITY pattern.label "Aranacak örnek">
-<!ENTITY thirdParty.label "Sadece üçüncü kişilerden">
+<!ENTITY pattern.label "Örnek arayın">
+<!ENTITY thirdParty.label "Yalnız üçüncü kişilerden">
 <!ENTITY filter.accesskey "y">
 <!ENTITY thirdParty.accesskey "c">
 <!ENTITY filter.label "Yeni süzgeç:">

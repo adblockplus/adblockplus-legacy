@@ -1,5 +1,11 @@
-<!ENTITY dialog.title "Adblock Plus-ի տեղակայումն ավարտվեց">
+<!ENTITY advancedSection "Խորացված կարգավորումներ">
 <!ENTITY confirmation "Շնորհակալություն Adblock Plus տեղակայելու համար: Գովազդ այլևս չի երևում:
 Վայելեք!">
-<!ENTITY readMore.label "Կարդալ ավելին այս մասին">
 <!ENTITY noList "Չկա ֆիլտր ցուցակում">
+<!ENTITY acceptableAds2 "Adblock Plus-ը կարգավորված է որոշ գովազդ թողնելու համար:">
+<!ENTITY viewList.label "Դիտել ցանկը">
+<!ENTITY visitHomepage.label "Այցելեք ցանկի գլխավոր էջ">
+<!ENTITY dialog.title "Adblock Plus-ի տեղակայումն ավարտվեց">
+<!ENTITY listSelection1 "Այս ֆիլտերը կարգավորված է գավազդ արգելելու:">
+<!ENTITY listSelection2 "Դուք կարող սա փոխել ամեն վայրկյան [link]Ֆիլտրի կարգավորումներում[/link]:">
+<!ENTITY readMore.label "Կարդալ ավելին այս մասին">

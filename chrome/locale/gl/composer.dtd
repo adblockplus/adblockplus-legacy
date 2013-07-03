@@ -14,14 +14,14 @@
 <!ENTITY anchor.start.label "ao comezo do enderezo">
 <!ENTITY collapse.no.label "Non">
 <!ENTITY matchCase.label "Caso coincidente">
-<!ENTITY custom.pattern.label "Persoalizado:">
+<!ENTITY custom.pattern.label "Personalizado:">
 <!ENTITY unselectAllTypes.label "Non marcar ningún">
 <!ENTITY domainRestriction.accesskey "R">
 <!ENTITY type.whitelist.label "Excepción">
 <!ENTITY regexp.warning "A pauta que inseriches interprétase como unha expresión regular, e de usares moitas poderíase facer máis lenta a navegación. Se non tes a intención de utilizar expresións regulares, engade un símbolo * ao final da pauta.">
 <!ENTITY dialog.title "Engadir regra de filtrado do Adblock Plus">
 <!ENTITY basic.label "Vista básica">
-<!ENTITY preferences.accesskey "S">
+<!ENTITY preferences.accesskey "s">
 <!ENTITY firstParty.accesskey "i">
 <!ENTITY collapse.default.no.label "Uso por defecto (non)">
 <!ENTITY type.filter.label "Filtro de bloqueo">

@@ -5,7 +5,7 @@
 <!ENTITY showData.label "Prikaži podatke izvješća">
 <!ENTITY typeSelector.falsePositive.label "Adblock Plus previše blokira">
 <!ENTITY recentReports.clear.accesskey "u">
-<!ENTITY email.accesskey "b">
+<!ENTITY email.accesskey "E">
 <!ENTITY issues.change.description "Vaše postavke su promijenjene. Ponovno učitajte stranicu za testiranje promjena
 	i pošaljite izvješće ako problem nije't riješen testiranjem promjene.">
 <!ENTITY reloadButton.accesskey "R">
@@ -23,9 +23,11 @@
 <!ENTITY issues.disabledgroups.enable.label "Omogući pretplatu filtera / grupe filtera">
 <!ENTITY typeWarning.override.label "Razumijem i ipak želim podnijeti izvješće">
 <!ENTITY issues.disabled.enable.label "Omogući Adblock Plus">
+<!ENTITY anonymous.accesskey "a">
 <!ENTITY update.fixed.description "Ažuriranje vaših pretplata na filtere je vjerovatno riješila problem koji ste
 	prijavljivali. Ponovno učitajte stranicu i pokušajte ponovno, pritisnite Prijavi ponovno ako
 	problem nije rješen.">
+<!ENTITY email.label "E-pošta:">
 <!ENTITY reloadButton.label "Ponovno učitaj stranicu">
 <!ENTITY recentReports.clear.label "Ukloni sva izvješća">
 <!ENTITY typeSelector.description "Ovaj prozor će vas voditi kroz korake potrebne za prijavu Adblock
@@ -57,6 +59,7 @@
 	Ažurirajte ove pretplate prije slanja prijave, problem je možda
 	već riješen.">
 <!ENTITY typeSelector.other.label "Ostali problemi">
+<!ENTITY emailComment.label "Molimo vas da upišete valjanu adresu e-pošte, da vas možemo kontaktirati ako ćemo imati pitanja o vašem izvješću problema. To će nam isto tako omogućiti da prepoznamo vaš doprinos i damo mu veći prioritet.">
 <!ENTITY issues.whitelist.remove.label "Ponovno omogućite Adblock Plus na ovoj stranici">
 <!ENTITY typeSelector.falsePositive.description "Odaberite ovu mogućnost ako stranica važan sadržaj prikazuje neispravno ili
 	ne radi ispravno. Možete odrediti da li Adblock Plus uzrokuje
@@ -85,6 +88,8 @@
 <!ENTITY typeSelector.falseNegative.label "Adblock Plus ne blokira reklame">
 <!ENTITY copyLink.accesskey "C">
 <!ENTITY typeSelector.heading "Odaberite vrstu problema">
+<!ENTITY anonymous.label "Anoniman prijavak">
+<!ENTITY anonymity.warning "Nećemo vas moći kontaktirati i najvjerojatnije izvješće problema će imati niži prioritet.">
 <!ENTITY wizard.title "Izvještaj problema">
 <!ENTITY issues.ownfilters.disable.label "Onemogući filter">
 <!ENTITY commentPage.description "Polje teksta ispod omogućuje vam dodavanje komentara, što nam olakšava razumijenvanje problema.

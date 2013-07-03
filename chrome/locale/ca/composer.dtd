@@ -19,7 +19,7 @@
 <!ENTITY domainRestriction.accesskey "d">
 <!ENTITY type.whitelist.label "Excepció">
 <!ENTITY regexp.warning "El patró inserit serà interpretat com una expressió regular. L'abús d'expressions regulars ralentitzaran la navegació. Si no volíeu emprar una expressió regular, afegiu el símbol ^ al final del patró.">
-<!ENTITY dialog.title "Afegir una regla de filtre d'Adblock Plus">
+<!ENTITY dialog.title "Afegeix una regla de filtre de l'Adblock Plus">
 <!ENTITY basic.label "Visualització bàsica">
 <!ENTITY preferences.accesskey "S">
 <!ENTITY firstParty.accesskey "o">

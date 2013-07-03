@@ -19,7 +19,9 @@
 <!ENTITY issues.disabledgroups.enable.label "구독 필터/필터 그룹 사용">
 <!ENTITY typeWarning.override.label "위의 내용을 이해했으며, 보고서 작성을 계속 진행함">
 <!ENTITY issues.disabled.enable.label "애드블록 플러스 사용">
+<!ENTITY anonymous.accesskey "a">
 <!ENTITY update.fixed.description "업데이트에 의해 보고된 이슈가 해결된 것 같습니다. 페이지 새로 고침을 하신 후 재시도 하십시오. 아직 문제가 더 있으면 다시 보고해 주십시오.">
+<!ENTITY email.label "메일 주소:">
 <!ENTITY reloadButton.label "페이지 새로고침">
 <!ENTITY recentReports.clear.label "모든 보고서 제거">
 <!ENTITY typeSelector.description "문제 보고 마법사는 애드블록 플러스의 문제를 필터 유지자에게 보고하기 위해 필요한 단계를 안내합니다. 먼저 현재 페이지의 문제 유형을 선택하십시오.">
@@ -40,6 +42,8 @@
 <!ENTITY issues.nosubscriptions.description "웹 사이트의 원하지 않는 광고를 자동 차단하는 구독 필터를 추가하지 않았습니다.">
 <!ENTITY outdatedSubscriptions.description "아래 필터가 적어도 2주 이상 업데이트 되지 않았습니다. 보고하기 이전에 먼저 필터를 업데이트 하여 주십시오. 업데이트를 하면 이슈가 해결될 수도 있습니다.">
 <!ENTITY typeSelector.other.label "다른 문제">
+<!ENTITY emailComment.label "우리 보고서에 대 한 질문  경우 연락할 수 있도록 유효한 이메일 주소를 입력 하는 것이 좋습니다. 그것은 또한 수 귀하의 기여를 인식 하 고 그들을 우선 순위를 더 높은.
+">
 <!ENTITY issues.whitelist.remove.label "사이트/페이지 허용 필터를 사용 중지">
 <!ENTITY typeSelector.falsePositive.description "중요한 콘텐츠 누락, 웹 페이지가 잘못 표시됨, 오작동 등 차단 오류가 있으면 이 옵션을 선택하십시오. 애드블록 플러스의 사용을 임시로 중지하여 애드블록 플러스가 문제의 원인인지 먼저 확인하십시오.">
 <!ENTITY dataCollector.description "필요한 자료를 수집하는 동안 잠시만 기다려주십시오.">
@@ -58,6 +62,8 @@
 <!ENTITY typeSelector.falseNegative.label "애드블록 플러스가 광고를 차단 안 함">
 <!ENTITY copyLink.accesskey "C">
 <!ENTITY typeSelector.heading "문제 유형 선택">
+<!ENTITY anonymous.label "익명 전송">
+<!ENTITY anonymity.warning "우리가 당신에 게 돌아올 수 없을 고 가능성이 보고서 낮은 우선 순위를 지정 합니다.">
 <!ENTITY wizard.title "문제 보고 마법사">
 <!ENTITY issues.ownfilters.disable.label "필터 사용 중지">
 <!ENTITY commentPage.description "모든 언어로 입력 가능 + 페이지 전체 URL : 평소 사용하거나 설명하기 쉬운 언어로 보고할 내용을 입력하십시오. 그런 후 주소 표시줄의 페이지 전체 URL을 복사해 입력한 내용 아래에 반드시 붙여넣으십시오.">

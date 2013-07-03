@@ -1,6 +1,8 @@
+<!ENTITY type.filter.accesskey "B">
 <!ENTITY domainRestriction.help "Specify one or more domains separated by the symbol &quot;|&quot;, the filter will only be applied on these domains then. The symbol &quot;~&quot; before a domain name means that the filter should not be applied on that domain.">
 <!ENTITY accept.label "Legg til filter">
 <!ENTITY type.filter.label "Blokker filter">
+<!ENTITY collapse.no.label "Nei">
 <!ENTITY disabled.warning "Adblock Plus er kopla ut. Du kan like vel leggje til filtre, men desse vil ikkje bli tekne i bruk dersom du ikkje [link]koplar inn Adblock Plus[/link].">
 <!ENTITY preferences.label "Syn filter...">
 <!ENTITY type.whitelist.accesskey "U">
@@ -11,4 +13,6 @@
 <!ENTITY dialog.title "Legg til regel for Adblock Plus filter">
 <!ENTITY basic.label "Grunnleggjande vising">
 <!ENTITY filter.label "Nytt filter:">
+<!ENTITY collapse.yes.label "Ja">
+<!ENTITY preferences.accesskey "S">
 <!ENTITY pattern.explanation "Mønsteret kan vera ein kvar del av adressa, bruk *-symbolet som jokerteikn. Filterert blir berre nytta på adressar som stemmer med mønsteret.">

@@ -3,12 +3,12 @@
 <!ENTITY domainRestriction.label "Restringir ao domínio:">
 <!ENTITY anchor.start.flexible.accesskey "i">
 <!ENTITY firstParty.label "Apenas primários">
-<!ENTITY preferences.label "Mostrar filtros existentes...">
+<!ENTITY preferences.label "Mostrar filtros...">
 <!ENTITY pattern.label "Procurar por padrão">
 <!ENTITY thirdParty.label "De terceiros">
 <!ENTITY filter.accesskey "f">
 <!ENTITY thirdParty.accesskey "t">
-<!ENTITY filter.label "Novo filtro:">
+<!ENTITY filter.label "Novo Filtro:">
 <!ENTITY collapse.label "Colapsar bloqueados:">
 <!ENTITY match.warning "O padrão que inseriu já não corresponde ao endereço a ser bloqueado/ desbloqueado e não surtirá efeito.">
 <!ENTITY anchor.start.label "no início do endereço">
@@ -20,7 +20,7 @@
 <!ENTITY type.whitelist.label "Regra de excepção">
 <!ENTITY regexp.warning "O padrão inserido será interpretado como expressão regular. A utilização de demasiadas expressões regulares poderá lentificar o browser. Se não pretendia utilizar expressões regulares adicione um asterisco (*) no final do padrão.">
 <!ENTITY dialog.title "Adicionar regra de filtro ao Adblock Plus">
-<!ENTITY basic.label "Vista básica">
+<!ENTITY basic.label "Vista Simples">
 <!ENTITY preferences.accesskey "S">
 <!ENTITY firstParty.accesskey "r">
 <!ENTITY collapse.default.no.label "Usar por defeito (não)">
@@ -35,7 +35,7 @@
 <!ENTITY domainRestriction.help "Especificar um ou mais domínios separados pelo símbolo &quot;|&quot;, o filtro será aplicado apenas a estes domínios. O símbolo &quot;~&quot; antes de um domínio implica que o filtro não seja aplicado nesse domínio.">
 <!ENTITY accept.label "Adicionar filtro">
 <!ENTITY options.label "Opções">
-<!ENTITY disabled.warning "O Adblock Plus está desactivado. Pode, mesmo assim, adicionar filtros, no entanto, estes não serão aplicados até [link] activar o Adblock Plus [/link].">
+<!ENTITY disabled.warning "O Adblock Plus está desactivado. Pode ainda adicionar filtros, no entanto, estes não serão aplicados até [link] activar o Adblock Plus [/link].">
 <!ENTITY anchor.start.flexible.label "no início do nome de domínio">
 <!ENTITY type.whitelist.accesskey "x">
 <!ENTITY matchCase.accesskey "M">
@@ -43,4 +43,4 @@
 <!ENTITY selectAllTypes.label "Seleccionar todos">
 <!ENTITY advanced.label "Vista avançada">
 <!ENTITY collapse.accesskey "l">
-<!ENTITY pattern.explanation "O padrão pode ser qualquer parte do endereço, o asterisco (*) funciona como wildcard. O filtro apenas será aplicado a endereços que correspondam ao padrão.">
+<!ENTITY pattern.explanation "O padrão pode ser qualquer parte do endereço; asterisco (*) funciona como imprevisível. O filtro só será aplicado ao endereço ao qual corresponda o modelo fornecido.">

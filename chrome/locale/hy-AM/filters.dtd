@@ -1,34 +1,91 @@
-<!ENTITY slow.column "Դանդաղ ֆիլտրեր">
-<!ENTITY subscription.lastDownload.checksumMismatch "Անհաջող.">
 <!ENTITY lasthit.column "Վերջինը">
-<!ENTITY sort.accesskey "Դ">
-<!ENTITY sort.ascending.label "Ա &gt; Ֆ կարգով">
-<!ENTITY sort.label "Դասավորել">
-<!ENTITY filter.paste.label "Տեղադրել">
-<!ENTITY filter.accesskey "լ">
-<!ENTITY sort.ascending.accesskey "Ա">
-<!ENTITY subscription.lastDownload.inProgress "Բեռնում...">
+<!ENTITY addFilter.accesskey "d">
+<!ENTITY subscription.delete.label "Ջնջել">
+<!ENTITY subscriptions.tab.label "Բաժանորդագրված ֆիլտրեր">
 <!ENTITY enabled.accesskey "Մ">
+<!ENTITY subscription.update.label "Թարմացնել ֆիլտրերը">
+<!ENTITY restore.complete.warning "Բոլոր ֆիլտրերը կփոխարինվեն նորերով:Ցանկանո՞ւմ եք շարունակել:">
+<!ENTITY filter.moveUp.label "Բարձրացնել վերև">
+<!ENTITY filter.edit.label "Խմբագրել">
+<!ENTITY hitcount.column "Ազդ">
+<!ENTITY acceptableAds2.label "Թույլատրել որոշ չկպչուն գովազդ">
+<!ENTITY close.label "Փակել">
+<!ENTITY sort.none.label "Անկանոն">
+<!ENTITY find.accesskey "n">
+<!ENTITY readMore.label "Տեղեկանալ ավելին">
+<!ENTITY subscription.homepage.label "տնէջ">
+<!ENTITY typoCorrections.enableLabel "Ուղղել սխալ ներմուծված ինտերնետ հասցեները">
+<!ENTITY sort.descending.accesskey "Ֆ">
+<!ENTITY sort.descending.label "Ֆ &gt; Ա կարգով">
+<!ENTITY subscription.lastDownload.success "Հաջող">
+<!ENTITY filters.remove.warning "Արդյո՞ք ցանկանում եք ջնջել նշված վոլոր ֆիլտրերը:">
+<!ENTITY restore.custom.warning "Բոլոր ֆիլտրերը կփոխարինվեն նորերով:Ցանկանո՞ւմ եք կիրառել:">
+<!ENTITY slow.column "Դանդաղ ֆիլտրեր">
+<!ENTITY subscription.actions.label "Գործողություններ">
+<!ENTITY filter.selectAll.label "Նշել բոլորը">
+<!ENTITY backupButton.label "Պահուստ և Վերականգնում">
+<!ENTITY sort.accesskey "Դ">
+<!ENTITY subscription.source.label "Ֆիլտրերի ցուցակ">
+<!ENTITY filter.paste.label "Տեղադրել">
+<!ENTITY addSubscription.accesskey "f">
 <!ENTITY filter.delete.label "Ջնջել">
+<!ENTITY addSubscriptionAdd.label "Ավելացնել">
+<!ENTITY slow.accesskey "w">
+<!ENTITY subscription.showHideFilters.label "Ցուցադրել/Թաքցնել ֆիլտրերը">
+<!ENTITY backupButton.accesskey "B">
+<!ENTITY filter.actions.label "Գործողություններ ֆիլտրերի հետ">
+<!ENTITY filter.moveDown.label "Բարձրացնել ներքև">
+<!ENTITY typoCorrections.tab.label "վրիպակների ուղղումներ">
+<!ENTITY addFilter.label "Ավելացնել Ֆիլտր">
+<!ENTITY subscription.editTitle.label "Խմբագրել անվանումը">
+<!ENTITY subscription.moveDown.label "Իջացնել ներև">
+<!ENTITY subscription.disabledFilters.warning "Այս բաժանորդագրության որոշ ֆիլտներ անջատված են:">
+<!ENTITY filter.column "Ֆիլտր">
+<!ENTITY subscription.lastDownload.checksumMismatch "Անհաջող.">
+<!ENTITY noFiltersInGroup.text "Ընտրված խումբը դատարկ է:">
+<!ENTITY typoCorrections.whitelistLabel "Չուղղել...">
+<!ENTITY sort.label "Դասավորել">
+<!ENTITY noFilters.text "Դուք դեռևս չունեք որևէ սեփական ֆիլտր:">
+<!ENTITY subscription.external.label "Թարմացվեց այլ հավելվածի կողմից">
+<!ENTITY filter.accesskey "լ">
+<!ENTITY noGroupSelected.text "Պիտի ընտրեք ֆաիլտրի խումբ՝ այն ցուցադրելուց առաջ:">
+<!ENTITY subscription.lastDownload.inProgress "Բեռնում...">
+<!ENTITY typoCorrections.removeButtonLabel "Հեռացնել նշվածը">
 <!ENTITY enabled.column "Միացած է">
 <!ENTITY viewMenu.label "Տեսք">
-<!ENTITY subscription.lastDownload.unknown "ՉԿԱ">
+<!ENTITY addSubscriptionCancel.label "Չեղարկել">
 <!ENTITY lasthit.accesskey "ջ">
-<!ENTITY hitcount.accesskey "Հ">
+<!ENTITY dialog.title "Adblock Plus ֆիլտրերի կարգավորեւմ">
+<!ENTITY subscription.minVersion.warning "Այս ֆիլտրին բաժանորդագրվելու համար անհրաժեշտ է Adblock Plus-ի ավելի նոր տարբերակը, դուք պետք է թարմացնեք Adblock Plus-ը:">
 <!ENTITY subscription.lastDownload.invalidURL "Անհաջող. Սխալ հասցե">
-<!ENTITY hitcount.column "Ազդ">
+<!ENTITY backup.error "Անհանար է պահել փոփոխությունները:Համոզվե՛ք, որ ֆայլը հնարավոր է փոխել կամ չի օգտագործվում այլ ծրագրի կողմից:">
+<!ENTITY restore.error "Անհանար է վերականգնել:Հնարավո՞ր է, որ դա Adblock Plus-ի արխիվ չէ:">
 <!ENTITY filter.cut.label "Կտրել">
+<!ENTITY backup.custom.title "Միայն սեփական ֆիլտրերը">
+<!ENTITY subscription.moveUp.label "Բարձրացնել վերև">
+<!ENTITY backup.complete.title "Բոլոր ֆիլտրերը և բաժանորդագրությունները">
+<!ENTITY filters.tab.label "Սեփական ֆիլտրեր">
+<!ENTITY find.label "Փնտրել">
+<!ENTITY subscription.lastDownload.connectionError "Անհաջող. Բեռնման սխալ">
+<!ENTITY subscription.lastDownload.invalidData "Անհաջող.  Սխալ ֆիլտրերի ցուցակ">
+<!ENTITY restore.minVersion.warning "Ուշադրություն:Ֆայլը ստեղշվել է ավելի նոր Adblock Plus-ի տարբերակով:Թարմացրե՛ք Adblock Plus-ը՝ այդ ֆայլից վերականգնելու համար:">
+<!ENTITY sort.ascending.label "Ա &gt; Ֆ կարգով">
+<!ENTITY viewList.label "Դիտել ցանկը">
+<!ENTITY typoCorrections.whitelistEmptyLabel "Դեռևս բացառություններ չկան:">
+<!ENTITY sort.ascending.accesskey "Ա">
+<!ENTITY restore.default.label "Վերականգնել ?1?-ի պահուստը">
+<!ENTITY hitcount.accesskey "Հ">
+<!ENTITY acceptableAds2.accesskey "!">
+<!ENTITY subscription.lastDownload.unknown "ՉԿԱ">
+<!ENTITY subscription.enabled.label "Միացված է">
+<!ENTITY noSubscriptions.text "Դուք դեռևս չեք բաժանորդագրվել որևէ ֆիլտրի: Adblock Plus-ը ոչինչ չի արգելափակի  առանց ֆիլտրերի, այդ պատճառով խնդրում ենք կիրառել «Ավելացնել բաժանորդագրություն» կոճակը:">
+<!ENTITY addGroup.label "Ավելացնել ֆիլտրերի խումբ">
 <!ENTITY addSubscriptionOther.label "Ավելացնել այլ բաժանորդագրություն">
-<!ENTITY sort.none.label "Անկանոն">
 <!ENTITY filter.copy.label "Կրկնել">
 <!ENTITY sort.none.accesskey "ն">
 <!ENTITY addSubscription.label "Բաժանորդագրվել ֆիլտրերի">
-<!ENTITY sort.descending.accesskey "Ֆ">
-<!ENTITY find.label "Փնտրել">
-<!ENTITY sort.descending.label "Ֆ &gt; Ա կարգով">
-<!ENTITY subscription.lastDownload.connectionError "Անհաջող. Բեռնման սխալ">
-<!ENTITY subscription.lastDownload.success "Հաջող">
-<!ENTITY subscription.lastDownload.invalidData "Անհաջող.  Սխալ ֆիլտրերի ցուցակ">
-<!ENTITY addFilter.label "Ավելացնել Ֆիլտր">
+<!ENTITY restore.own.label "Վերականգնել սեփական արխիվը">
+<!ENTITY filter.resetHitCounts.label "Ջնջել ստատիստիկան">
+<!ENTITY backup.label "Ստեղծել նոր պահուստ">
+<!ENTITY subscription.disabledFilters.enable "Միացնել անջատված ֆիլտրերը">
 <!ENTITY subscription.lastDownload.label "Վերջին բեռնում.">
-<!ENTITY filter.column "Ֆիլտր">

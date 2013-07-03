@@ -15,6 +15,7 @@
 <!ENTITY readMore.label "Leer más">
 <!ENTITY subscription.homepage.label "Página principal">
 <!ENTITY typoCorrections.enableLabel "Corregir direcciones web mal escritas">
+<!ENTITY sort.descending.accesskey "Z">
 <!ENTITY sort.descending.label "Ordenar de la &quot;Z&quot; a la &quot;A&quot;">
 <!ENTITY subscription.lastDownload.success "Se realizó exitosamente">
 <!ENTITY filters.remove.warning "¿Estás seguro que querés quitar todos los filtros seleccionados?">
@@ -71,6 +72,7 @@
 <!ENTITY sort.ascending.label "Ordenar de la &quot;A&quot; a la &quot;Z&quot;">
 <!ENTITY viewList.label "Ver lista">
 <!ENTITY typoCorrections.whitelistEmptyLabel "Actualmente no hay excepciones.">
+<!ENTITY sort.ascending.accesskey "A">
 <!ENTITY restore.default.label "¿Restaurar resguardo del?1?">
 <!ENTITY hitcount.accesskey "u">
 <!ENTITY acceptableAds2.accesskey "h">
