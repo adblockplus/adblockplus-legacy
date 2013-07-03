@@ -42,7 +42,7 @@
 <!ENTITY issues.nosubscriptions.description "Wygląda na to, że nie subskrybujesz żadnej gotowej listy filtrów, które automatycznie usuwają niepożądaną zawartość ze stron internetowych.">
 <!ENTITY outdatedSubscriptions.description "Od dwóch tygodni następujące zestawy filtrów nie były aktualizowane. Przed wysłaniem zgłoszenia zaktualizuj te zestawy. Być może rozwiąże to twój problem.">
 <!ENTITY typeSelector.other.label "Inny problem">
-<!ENTITY emailComment.label "Zachęcamy do podania prawidłowego adresu email, abyśmy mogli skontaktować się z tobą w przypadku, gdy może to ułatwić rozwiązanie problemu. Pozwoli to również rozpoznać naszych współpracowników i nadać ich raportom wyższy priorytet.">
+<!ENTITY emailComment.label "Zachęcamy do podania prawidłowego adresu email, abyśmy mogli skontaktować się z Tobą w przypadku, gdy może to ułatwić rozwiązanie problemu. Pozwoli to również rozpoznać naszych współpracowników i nadać ich raportom wyższy priorytet.">
 <!ENTITY issues.whitelist.remove.label "Włącz ponownie Adblock Plusa na tej stronie">
 <!ENTITY typeSelector.falsePositive.description "Wybierz tę opcję, jeśli strona nie zawiera ważnych treści, jest wyświetlana nieprawidłowo lub działa niepoprawnie. Możesz określić, czy Adblock Plus jest przyczyną problemu, wyłączając go chwilowo.">
 <!ENTITY dataCollector.description "Proszę poczekać kilka chwil, aż Adblock Plus zbierze wymagane dane.">

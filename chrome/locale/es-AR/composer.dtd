@@ -11,6 +11,7 @@
 <!ENTITY collapse.label "Colapsar los bloqueados:">
 <!ENTITY match.warning "El patrón que ingresaste no coincide más con la dirección bloqueada o segura, y no surtirá ningún efecto.">
 <!ENTITY anchor.start.label "al comienzo de la dirección">
+<!ENTITY collapse.no.label "No">
 <!ENTITY matchCase.label "Coincidir mayúsculas">
 <!ENTITY custom.pattern.label "Personalizado:">
 <!ENTITY unselectAllTypes.label "No seleccionar nada">

@@ -1,4 +1,10 @@
-<!ENTITY title.label "Navn på abonnement:">
-<!ENTITY title.accesskey "v">
-<!ENTITY location.label "Adresse til filterliste:">
-<!ENTITY location.accesskey "d">
+<!ENTITY addMain.accesskey "s">
+<!ENTITY list.download.retry "Prøv igjen">
+<!ENTITY location.accesskey "l">
+<!ENTITY title.label "Abonnementstittel:">
+<!ENTITY list.download.website "Vis nettside">
+<!ENTITY title.accesskey "t">
+<!ENTITY viewList.label "Vis filtre">
+<!ENTITY visitHomepage.label "Besøk hjemmeside">
+<!ENTITY addSubscription.label "Legg til abonnement">
+<!ENTITY dialog.title "Legg til filterabonnement for Adblock Plus">

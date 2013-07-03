@@ -1,18 +1,69 @@
-<!ENTITY addSubscription.label "Legg til filterabonnement">
-<!ENTITY addSubscriptionOther.label "Legg til abonnement">
-<!ENTITY subscription.lastDownload.label "Siste nedlasting:">
-<!ENTITY subscription.lastDownload.inProgress "Laster ned...">
-<!ENTITY subscription.lastDownload.unknown "Ikke tilgjengelig">
-<!ENTITY subscription.lastDownload.invalidURL "Mislykket, ikke en gyldig adresse">
-<!ENTITY subscription.lastDownload.connectionError "Mislykket, feil i nedlasting">
-<!ENTITY subscription.lastDownload.invalidData "Mislykket, ikke en gyldig filterliste">
-<!ENTITY subscription.lastDownload.success "Vellykket">
-<!ENTITY addFilter.label "Legg til filter">
-<!ENTITY filter.cut.label "Klipp ut">
-<!ENTITY filter.copy.label "Kopier">
-<!ENTITY filter.paste.label "Lim inn">
-<!ENTITY filter.delete.label "Slett">
+<!ENTITY slow.column "Trege filtre">
 <!ENTITY enabled.column "Aktivert">
+<!ENTITY filters.remove.warning "Ønsker du virkelig å fjerne alle valgte filtre?">
+<!ENTITY noFiltersInGroup.text "Den valgte gruppen er tom.">
+<!ENTITY subscription.actions.label "Handlinger">
+<!ENTITY filter.selectAll.label "Velg alle">
+<!ENTITY backupButton.label "Sikkerhetskopier og gjenopprett">
+<!ENTITY addFilter.accesskey "d">
+<!ENTITY filter.accesskey "F">
+<!ENTITY sort.label "Sorter etter">
+<!ENTITY subscription.source.label "Filterliste">
 <!ENTITY hitcount.column "Treff">
+<!ENTITY noFilters.text "Du har ingen egendefinerte filtre ennå.">
+<!ENTITY backup.custom.title "Kun egendefinerte filtre">
+<!ENTITY subscription.external.label "Oppdatert av et annet tillegg">
+<!ENTITY subscription.delete.label "Slett">
+<!ENTITY noGroupSelected.text "Du må velge en filtergruppe før tilhørende filtre kan vises.">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY restore.default.label "Gjenopprett sikkerhetskopi fra ?1?">
+<!ENTITY subscription.lastDownload.inProgress "Laster ned...">
+<!ENTITY subscriptions.tab.label "Filterabonnementer">
+<!ENTITY enabled.accesskey "n">
+<!ENTITY acceptableAds2.accesskey "i">
+<!ENTITY addSubscription.accesskey "f">
+<!ENTITY typoCorrections.removeButtonLabel "Fjern valgte">
+<!ENTITY filter.delete.label "Slett">
+<!ENTITY addSubscriptionAdd.label "Legg til">
+<!ENTITY viewMenu.label "Vis">
+<!ENTITY addGroup.accesskey "g">
+<!ENTITY addSubscriptionCancel.label "Avbryt">
+<!ENTITY subscription.enabled.label "Aktivert">
+<!ENTITY typoCorrections.whitelistEmptyLabel "Det er ingen unntak for øyeblikket.">
+<!ENTITY lasthit.accesskey "L">
+<!ENTITY slow.accesskey "w">
+<!ENTITY subscription.update.label "Oppdater filtre">
 <!ENTITY lasthit.column "Siste treff">
-<!ENTITY find.label "Søk">
+<!ENTITY addFilter.label "Legg til filter">
+<!ENTITY subscription.lastDownload.invalidURL "Feilet, ikke en gyldig adresse">
+<!ENTITY addGroup.label "Legg til filtergruppe">
+<!ENTITY filter.edit.label "Rediger">
+<!ENTITY subscription.showHideFilters.label "Vis/skjul filtre">
+<!ENTITY filter.cut.label "Klipp ut">
+<!ENTITY hitcount.accesskey "H">
+<!ENTITY addSubscriptionOther.label "Legg til et annet abonnement">
+<!ENTITY close.label "Lukk">
+<!ENTITY sort.none.label "Usortert">
+<!ENTITY filter.actions.label "Filterhandlinger">
+<!ENTITY filter.copy.label "Kopier">
+<!ENTITY typoCorrections.whitelistLabel "Ikke erstatt...">
+<!ENTITY backupButton.accesskey "B">
+<!ENTITY sort.accesskey "S">
+<!ENTITY readMore.label "Les mer">
+<!ENTITY sort.none.accesskey "U">
+<!ENTITY addSubscription.label "Legg til filterabonnement">
+<!ENTITY subscription.homepage.label "Hjemmeside">
+<!ENTITY backup.complete.title "Alle filtre og abonnenter">
+<!ENTITY restore.own.label "Gjenopprett egen sikkerhetskopi">
+<!ENTITY filters.tab.label "Egendefinerte filtre">
+<!ENTITY backup.label "Opprett ny sikkerhetskopi">
+<!ENTITY find.label "Finn">
+<!ENTITY subscription.lastDownload.connectionError "Feilet, nedlastingsfeil">
+<!ENTITY find.accesskey "n">
+<!ENTITY subscription.lastDownload.invalidData "Feilet, ikke en gyldig filterliste">
+<!ENTITY filter.paste.label "Lim inn">
+<!ENTITY subscription.disabledFilters.enable "Aktiver deaktiverte filtre">
+<!ENTITY subscription.editTitle.label "Rediger tittel">
+<!ENTITY subscription.disabledFilters.warning "Noen filtre i dette abonnementet er deaktivert.">
+<!ENTITY subscription.lastDownload.label "Siste nedlasting:">
+<!ENTITY filter.column "Filterregel">

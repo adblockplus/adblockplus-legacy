@@ -1,0 +1,23 @@
+<!ENTITY filter.selectAll.label "Označi sve">
+<!ENTITY addFilter.accesskey "d">
+<!ENTITY sort.accesskey "S">
+<!ENTITY filter.paste.label "Zalijepi">
+<!ENTITY filter.accesskey "F">
+<!ENTITY sort.ascending.accesskey "A">
+<!ENTITY hitcount.accesskey "H">
+<!ENTITY acceptableAds2.accesskey "i">
+<!ENTITY addSubscription.accesskey "f">
+<!ENTITY viewMenu.label "Prikaz">
+<!ENTITY filter.delete.label "Izbriši">
+<!ENTITY addSubscriptionAdd.label "Dodaj">
+<!ENTITY slow.accesskey "w">
+<!ENTITY subscription.lastDownload.unknown "N/A">
+<!ENTITY lasthit.accesskey "L">
+<!ENTITY enabled.accesskey "N">
+<!ENTITY filter.edit.label "Uredi">
+<!ENTITY filter.cut.label "Izreži">
+<!ENTITY backupButton.accesskey "B">
+<!ENTITY filter.copy.label "Kopiraj">
+<!ENTITY find.accesskey "n">
+<!ENTITY sort.none.accesskey "U">
+<!ENTITY sort.descending.accesskey "Z">

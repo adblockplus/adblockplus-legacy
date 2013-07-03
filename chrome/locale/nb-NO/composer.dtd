@@ -1,0 +1,36 @@
+<!ENTITY collapse.yes.label "Ja">
+<!ENTITY anchor.end.label "på slutten av adressen">
+<!ENTITY domainRestriction.label "Begrens til domene:">
+<!ENTITY anchor.start.flexible.accesskey "g">
+<!ENTITY preferences.label "Vis eksisterende filtre...">
+<!ENTITY anchor.end.accesskey "n">
+<!ENTITY thirdParty.label "Kun tredjeparts">
+<!ENTITY filter.accesskey "f">
+<!ENTITY thirdParty.accesskey "T">
+<!ENTITY filter.label "Nytt filter:">
+<!ENTITY collapse.label "Minimer blokkerte:">
+<!ENTITY anchor.start.label "på starten av adressen">
+<!ENTITY collapse.no.label "Nei">
+<!ENTITY custom.pattern.label "Egendefinert:">
+<!ENTITY unselectAllTypes.label "Velg ingen">
+<!ENTITY domainRestriction.accesskey "d">
+<!ENTITY type.whitelist.label "Unntaksregel">
+<!ENTITY dialog.title "Legg til filtreringsregel for Adblock Plus">
+<!ENTITY basic.label "Grunnleggende visning">
+<!ENTITY preferences.accesskey "S">
+<!ENTITY firstParty.accesskey "r">
+<!ENTITY collapse.default.no.label "Bruk standard (nei)">
+<!ENTITY anchor.start.accesskey "g">
+<!ENTITY custom.pattern.accesskey "C">
+<!ENTITY anchors.label "Aksepter kun mønster:">
+<!ENTITY collapse.default.yes.label "Bruk standard (ja)">
+<!ENTITY type.filter.accesskey "B">
+<!ENTITY accept.label "Legg til filter">
+<!ENTITY options.label "Alternativer">
+<!ENTITY anchor.start.flexible.label "på starten av domenenavnet">
+<!ENTITY type.whitelist.accesskey "x">
+<!ENTITY matchCase.accesskey "M">
+<!ENTITY pattern.label "Se etter mønster">
+<!ENTITY selectAllTypes.label "Velg alle">
+<!ENTITY advanced.label "Avansert visning">
+<!ENTITY collapse.accesskey "l">

@@ -4,6 +4,7 @@
 <!ENTITY showData.label "Εμφάνιση δεδομένων αναφοράς">
 <!ENTITY typeSelector.falsePositive.label "Το Adblock Plus φράζει πάρα πολλά στοιχεία">
 <!ENTITY recentReports.clear.accesskey "Α">
+<!ENTITY email.accesskey "μ">
 <!ENTITY issues.change.description "Οι ρυθμίσεις σας έχουν αλλάξει. Παρακαλώ ανανεώστε την σελίδα για να δοκιμάσετε τις αλλαγές και υποβάλλετε μια αναφορά αν το ζήτημα δεν έχει λυθεί από τις τροποποιήσεις.">
 <!ENTITY reloadButton.accesskey "ν">
 <!ENTITY screenshot.attach.accesskey "θ">

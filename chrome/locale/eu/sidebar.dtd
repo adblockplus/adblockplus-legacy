@@ -21,7 +21,7 @@
 <!ENTITY detach.label "Askatu">
 <!ENTITY whitelisted.label "Onartutako orria">
 <!ENTITY context.disablefilteronsite.label "Iragazki hau ?1? domeinuan ezgaitu">
-<!ENTITY detached.title "Adblock Plus: elementu blokeagarriak (askatua)">
+<!ENTITY detached.title "Adblock Plus: Elementu blokeagarriak (askatua)">
 <!ENTITY docDomain.firstParty "(lehen eskukoa)">
 <!ENTITY tooltip.type.whitelisted "(onartua)">
 <!ENTITY tooltip.filter.label "Iragazki aktiboa:">
