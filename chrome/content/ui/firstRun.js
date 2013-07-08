@@ -255,9 +255,9 @@
   function updateToggleButton(feature, isEnabled)
   {
     var button = E("toggle-" + feature);
-    if (isEnabled && button.classList.contains("off"))
+    if (isEnabled)
       button.classList.remove("off");
-    else if (!isEnabled && !button.classList.contains("off"))
+    else
       button.classList.add("off");
   }
 
