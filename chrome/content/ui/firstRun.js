@@ -84,7 +84,7 @@
 
     onWindowResize();
 
-    initSocialLinks(null);
+    initSocialLinks();
   }
 
   function onScroll()
@@ -200,18 +200,24 @@
     glassPane.className = "visible";
   }
 
-  function initSocialLinks(variant)
+  function initSocialLinks()
   {
     var networks = ["twitter", "facebook", "gplus"];
     networks.forEach(function(network)
     {
       var link = E("share-" + network);
-      link.addEventListener("click", function(e)
-      {
-        e.preventDefault();
-        openSharePopup(Utils.getDocLink("share-" + network) + "&variant=" + variant);
-      }, false);
+      link.addEventListener("click", onSocialLinkClick, false);
     });
+  }
+
+  function onSocialLinkClick(event)
+  {
+    var filter = defaultMatcher.matchesAny("https://platform.twitter.com/widgets.js", "SCRIPT", "adblockplus.org", true);
+    if (!(filter instanceof BlockingFilter))
+    {
+      event.preventDefault();
+      openSharePopup(Utils.getDocLink(event.target.id));
+    }
   }
 
   function setLinks(id)
