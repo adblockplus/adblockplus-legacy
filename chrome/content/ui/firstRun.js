@@ -212,7 +212,8 @@
 
   function onSocialLinkClick(event)
   {
-    var filter = defaultMatcher.matchesAny("https://platform.twitter.com/widgets.js", "SCRIPT", "adblockplus.org", true);
+    // Don't open the share page if the sharing script would be blocked
+    var filter = defaultMatcher.matchesAny(event.target.getAttribute("_script"), "SCRIPT", "adblockplus.org", true);
     if (!(filter instanceof BlockingFilter))
     {
       event.preventDefault();
