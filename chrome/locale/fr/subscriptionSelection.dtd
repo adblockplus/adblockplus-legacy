@@ -1,4 +1,4 @@
-<!ENTITY addMain.label "&amp;Ajouter également l'abonnement &quot;?1?&quot;">
+<!ENTITY addMain.label "&amp;Ajouter également l'abonnement « ?1? »">
 <!ENTITY list.download.failed "Adblock Plus n'a pu récupérer la liste des abonnements.">
 <!ENTITY list.download.retry "Essayer à nouveau">
 <!ENTITY title.label "&amp;Nom de l'abonnement :">

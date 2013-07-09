@@ -7,7 +7,7 @@
 <!ENTITY filter.label "Filtre">
 <!ENTITY tooltip.size.label "Taille :">
 <!ENTITY reattach.label "Rattacher">
-<!ENTITY search.label "&amp;Chercher :">
+<!ENTITY search.label "&amp;Rechercher :">
 <!ENTITY docDomain.thirdParty "(tierce partie)">
 <!ENTITY filterSource.label "Source du filtre">
 <!ENTITY tooltip.docDomain.label "Source du document :">

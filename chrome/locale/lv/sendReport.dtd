@@ -3,24 +3,26 @@
 <!ENTITY showData.label "Rādīt ziņojuma datus">
 <!ENTITY typeSelector.falsePositive.label "A&amp;dblock Plus bloķē pārāk daudz">
 <!ENTITY issues.change.description "Jūsu konfigurācija ir izmanīta. Lūdzu pārlādējiet lapu, lai pārbaudītu izmaiņas un nosūtītu ziņojumu, ja izmaiņas nav novērsušas problēmu.">
+<!ENTITY email.label "E-&amp;pasts:">
 <!ENTITY issues.openPreferences.label "Atvērt filtru iestatījumus">
 <!ENTITY sendPage.confirmation "Jūsu ziņojums ir saglabāts. Jūs tam varat piekļūt sekojošajā adresē:">
 <!ENTITY copyLink.label "&amp;Kopēt ziņojuma saiti">
 <!ENTITY issues.nofilters.description "Pašreizējā lapā Adblock Plus neko nebloķē. Problēma, ko Jūs pieredzat visticamāk ir nesaistīta ar Adblock Plus.">
 <!ENTITY sendPage.knownIssue "Jūsu nosūtītais problēma iespējams jau ir zināma. Vairāk informācija:">
-<!ENTITY sendPage.retry.label "Sūtīt vēlreiz">
 <!ENTITY typeSelector.other.description "Izvēlaties šo opciju ja Jūs nojaušat problēmu ar pašu Adblock Plus nevis tā filtriem.">
 <!ENTITY issues.disabledgroups.enable.label "Ievadīt filtru abonementu / filtru grupu">
 <!ENTITY typeWarning.override.label "Es saprotu un vienalga vēlos nosūtīt ziņojumu">
 <!ENTITY issues.disabled.enable.label "Iespējot Adblock Plus">
 <!ENTITY update.fixed.description "Jūsu filtru abonementu atjauninājums acīmredzot atrisināja problēmu, par kuru ziņojāt. Lūdzu, pārlādējiet lapu un mēģiniet vēlreiz. Ziņojiet atkārtoti, ja problēma saglabājas.">
-<!ENTITY email.label "E-&amp;pasts:">
+<!ENTITY anonymous.label "Anonīms iesniegums">
 <!ENTITY reloadButton.label "Pār&amp;lādēt lapu">
 <!ENTITY recentReports.clear.label "&amp;Noņemt visus ziņojumus">
 <!ENTITY typeSelector.description "Šis log Jūs vedīs cauri nepieciešamajiem soļiem, lai nosūtītu Adblock Plus problēmu ziņojumu. Vispirms, lūdzu izvēlieties tipu problēmai, ko Jūs pieredzat šajā lapā:">
+<!ENTITY screenshot.remove.label "&amp;Noņemt jūtīgu informāciju">
+<!ENTITY issues.ownfilters.description "Daži no šajā lapā pielietotajiem filtriem ir lietotāja izveidoti. Lūdzu atslēdziet filtrus, kas varēja izraisīt šo problēmu:">
 <!ENTITY update.inProgress.description "Adblock Plus ir nepieciešams atjaunināt filtru abonementus, lai pārliecinātos, vai jau nav atrisināts jautājums. Lūdzu, uzgaidiet...">
+<!ENTITY sendPage.retry.label "Sūtīt vēlreiz">
 <!ENTITY data.label "&amp;Ziņojuma dati:">
-<!ENTITY sendPage.heading "Sūtīt ziņojumu">
 <!ENTITY recentReports.label "Jūsu nesen nosūtītie ziņojumi">
 <!ENTITY typeWarning.description "Jūs norādījāt, ka vēlaties ziņot par vispārēju Adblock Plus problēmu nevis problēmu ar filtriem. Par šādām problēmām vislabāk ir paziņot [link]Adblock Plus forumā[/link]. Šo problēmu ziņotāju vajadzētu izmantot tikai lai papildinātu esošu diskusiju, jo neviens neredzēs Jūsu ziņojumu, ja Jūs nenodrošinās viņus ar saiti uz to. Automātiski ģenerētā saite tiks nodrošināta pēc ziņojuma nosūtīšanas.">
 <!ENTITY issues.disabled.description "Adblock Plus ir atspējots, pašreizējā stāvoklī tas nebloķēs neko.">
@@ -29,11 +31,11 @@
 <!ENTITY issues.disabledfilters.enable.label "Iespējot filtru">
 <!ENTITY issues.override.label "&amp;Konfigurācija ir pareiza, varat turpināt ziņojumu">
 <!ENTITY issues.nosubscriptions.description "Izskatās, ka Jūs neabonējat nevienu no gatavajiem sarakstiem, kuri automātiski noņem nevajadzīgo saturu no mājas lapām.">
-<!ENTITY outdatedSubscriptions.description "Sekojošie filtru abonementi nav atjaunināti vismaz divas nedēļas. Lūdzu, atjauniniet šos abonementus pirms ziņojuma apstiprināšanas, jo problēma jau var būt atrisināta.">
+<!ENTITY typeSelector.falsePositive.description "Izvēlaties šo opciju, ja lai trūkst svarīga saturam tā tiek nepareizi attēlota vai nefunkcionē pareizi. Jūs varat noteikt vai to izraisa Adblock Plus, to īslaicīgi atslēdzot.">
 <!ENTITY typeSelector.other.label "&amp;Cita problēma">
 <!ENTITY emailComment.label "Mēs aicinām Jūs ievadīt derīgu e-pasta adresi, lai mēs varētu ar Jums kontaktēties, ja radīsies papildus jautājumi par Jūsu ziņojumu. Tā palīdzēs mums arī atpazīt Jūsu ieguldījumu un piešķirt tam augstāku prioritāti.">
 <!ENTITY issues.whitelist.remove.label "Iespējot Adblock Plus šajā lapā">
-<!ENTITY typeSelector.falsePositive.description "Izvēlaties šo opciju, ja lai trūkst svarīga saturam tā tiek nepareizi attēlota vai nefunkcionē pareizi. Jūs varat noteikt vai to izraisa Adblock Plus, to īslaicīgi atslēdzot.">
+<!ENTITY outdatedSubscriptions.description "Sekojošie filtru abonementi nav atjaunināti vismaz divas nedēļas. Lūdzu, atjauniniet šos abonementus pirms ziņojuma apstiprināšanas, jo problēma jau var būt atrisināta.">
 <!ENTITY dataCollector.description "Uzgaidiet pāris mirkļus, kamēr Adblock Plus apkopo nepieciešamos datus.">
 <!ENTITY sendButton.label "&amp;Sūtīt ziņojumu">
 <!ENTITY comment.label "&amp;Komentārs (nav obligāti):">
@@ -47,7 +49,6 @@
 <!ENTITY issues.whitelist.description "Adblock Plus pašreiz ir atslēgt lapā par kuru Jūs ziņojat. Lai palīdzētu problēmas izmeklēšanā, pirms ziņojuma sūtīšanas lūdzu ieslēdziet to un atsvaidziniet lapu.">
 <!ENTITY typeSelector.falseNegative.label "Adblock Plus nebloķē &amp;reklāmu">
 <!ENTITY typeSelector.heading "Izvēlieties problēmas tipu">
-<!ENTITY anonymous.label "Anonīms iesniegums">
 <!ENTITY anonymity.warning "Mēs nevarēsim ar Jums sazināties un visdrīzāk piešķirsim Jūsu ziņojumam zemāku prioritāti.">
 <!ENTITY wizard.title "Problēmu ziņotājs">
 <!ENTITY issues.ownfilters.disable.label "Atspējot filtru">
@@ -56,9 +57,8 @@
 <!ENTITY typeSelector.falseNegative.description "Izvēlaties šo opciju ja reklāma tiek attēlota neskatoties uz to ka Adblock Plus ir ieslēgts.">
 <!ENTITY sendPage.waitMessage "Lūdzu uzgaidiet kamēr Adblock Plus sūta Jūsu ziņojumu.">
 <!ENTITY dataCollector.heading "Laipni lūdzu problēmu ziņotājā">
-<!ENTITY screenshot.remove.label "&amp;Noņemt jūtīgu informāciju">
 <!ENTITY screenshot.heading "Pievienojiet ekrān-šāviņu">
-<!ENTITY issues.ownfilters.description "Daži no šajā lapā pielietotajiem filtriem ir lietotāja izveidoti. Lūdzu atslēdziet filtrus, kas varēja izraisīt šo problēmu:">
+<!ENTITY sendPage.heading "Sūtīt ziņojumu">
 <!ENTITY issues.subscriptionCount.description "Izskatās, ka Jūs abonējat pārāk daudz abonementu. Šāda konfigurācija netiek rekomendēta, jo tas palielina problēmu iespējamību. Mēs nespējam pieņemt ziņojumu, jo nav skaidrs kuram filtru abonementam ir jārīkojas. Lūdzu noņemiet visu izņemot tiešām nepieciešamos abonementus un pārbaudiet vai problēma joprojām pastāv.">
 <!ENTITY screenshot.mark.label "Ie&amp;zīmēt problēmu">
 <!ENTITY privacyPolicy.label "Privātuma politika">

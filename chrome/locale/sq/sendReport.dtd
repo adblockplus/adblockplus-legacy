@@ -3,22 +3,23 @@
 <!ENTITY showData.label "Afisho permbajtjen e raportit">
 <!ENTITY typeSelector.falsePositive.label "Adblock Plus po bllokon shu&amp;me">
 <!ENTITY issues.change.description "Konfigurimi juaj ka ndryshuar. Ju lutem ri-ngarkoni faqen per te provuar ndryshimet dhe per te derguar nje raportim nese problemi nuk eshte zgjidhur nga ndryshimet ne konfigurim.">
+<!ENTITY email.label "Posta: (&amp;m)">
 <!ENTITY issues.openPreferences.label "Hap parametrat e filtrave">
 <!ENTITY sendPage.confirmation "Raporti juaj eshte ruajtur. Ju mund ta shikoni ate ne kete adrese:">
 <!ENTITY copyLink.label "KOpjo adresen e raportit (&amp;C)">
 <!ENTITY issues.nofilters.description "Adblock Plus nuk eshte duke bllokuar asgje ne faqen aktuale. Ky problem qe ju po vereni ka shume mundesi qe nuk ka fare lidhje me Adblock Plus.">
 <!ENTITY sendPage.knownIssue "Problemi qe ju keni raportuar ka shume mundesi te jete i njohur. Per me shume informacion:">
-<!ENTITY sendPage.retry.label "Dergo perseri">
 <!ENTITY typeSelector.other.description "Zgjidhni kete mundesi nese ju dyshoni se eshte nje problem me vete Adblock Plus ne vend te filtrave te tij.">
 <!ENTITY issues.disabledgroups.enable.label "Aktivizo abonim filtri/grup filtrash">
 <!ENTITY typeWarning.override.label "Une kuptoj dhe de&amp;shiroj te dergoj raportin gjithsesi">
 <!ENTITY issues.disabled.enable.label "Aktivizo Adblock Plus">
-<!ENTITY email.label "Posta: (&amp;m)">
 <!ENTITY reloadButton.label "&amp;Ringarko faqen">
 <!ENTITY recentReports.clear.label "Hiq gjithe &amp;raportimet">
 <!ENTITY typeSelector.description "Kjo dritare do ju udhezoje neper gjithe hapat e nevojshem per dergimin e raportit te problemeve me Adblock Plus. Si fillim, ju lutem zgjidhni tipin e problemit qe ju vereni me kete faqe:">
+<!ENTITY screenshot.remove.label "Hiqni te dhenat pe&amp;rsonale">
+<!ENTITY issues.ownfilters.description "Disa nga filtrat e aplikuar ne kete faqe jane te percaktuar nga perdoruesi. Ju lutem bllokoni filtrat te cilet mund te kene shkaktuar kete problem:">
+<!ENTITY sendPage.retry.label "Dergo perseri">
 <!ENTITY data.label "&amp;Permbajtja e raportit:">
-<!ENTITY sendPage.heading "Dergo raportin">
 <!ENTITY recentReports.label "Raportimet tuaja me te fundit">
 <!ENTITY typeWarning.description "Ju keni treguar se deshironi te raportoni nje problem te pergjithshem me Adblock Plus ne vend te nje problemi me filtrat. Ju lutem kini parasysh se keto probleme raportohen me mire ne [link]forumin Adblock Plus[/link]. Ju duhet te perdorni raportimin e problemeve vetem si shtese te nje diskutimi ekzistues, sepse askush nuk do ta vere re raportimin tuaj, vetem nese ju jepni nje adrese te problemit. Adrese e krijuar automatikisht do ju jepet pasi ju te keni derguar raportin.">
 <!ENTITY issues.disabled.description "Adblock Plus eshte jo-aktiv, ai nuk do te bllokoje asnje gje ne gjendjen aktuale.">
@@ -36,6 +37,7 @@
 <!ENTITY sendPage.errorMessage "Tentativa per te derguar raportin ngeci me kodin e gabimit &quot;?1?&quot;. Ju lutem sigurohuni qe jeni te lidhur ne internet dhe provoni perseri. Nese ky problem perseritet kerkoni ndihme ne [link]forumin e Adblock Plus[/link].">
 <!ENTITY showRecentReports.label "Afisho raportimet e derguara se fundmi">
 <!ENTITY commentPage.heading "Koment">
+<!ENTITY update.start.label "Filloni përditëso tani">
 <!ENTITY issues.disabledfilters.description "Filtrat e meposhtem jane te bllokuar, gjithashtu ata mund te kene efikasitet ne kete faqe:">
 <!ENTITY screenshot.description "E njejta faqe mund te duket ndryshe per njerez te ndryshem. Mund te na ndihmoje ne kuptimin e problemit nese ju bashkangjisni nje foto raportimit tuaj. Ju mund te hiqni ose mbuloni fusha te cilat permbajne informacion te rendesishem dhe personal dhe gjithashtu mund te shenoni zonat ku eshte i dukshem problemi. Per te bere kete klikoni butonin e duhur dhe zgjidhni nje zone te fotos me mausin tuaj.">
 <!ENTITY screenshot.attach.label "Bashkangji&amp;t nje faqe me imazh ketij raportimi">
@@ -49,9 +51,8 @@
 <!ENTITY typeSelector.falseNegative.description "Zgjidhni kete mundesi nese nje reklame shfaqet edhe pse Adblock Plus eshte aktiv.">
 <!ENTITY sendPage.waitMessage "Ju lutem prisni sa Adblock Plus te dergoje raportin tuaj.">
 <!ENTITY dataCollector.heading "Mire se vini ne raportuesin e problemeve">
-<!ENTITY screenshot.remove.label "Hiqni te dhenat pe&amp;rsonale">
 <!ENTITY screenshot.heading "Bashkangjit foto">
-<!ENTITY issues.ownfilters.description "Disa nga filtrat e aplikuar ne kete faqe jane te percaktuar nga perdoruesi. Ju lutem bllokoni filtrat te cilet mund te kene shkaktuar kete problem:">
+<!ENTITY sendPage.heading "Dergo raportin">
 <!ENTITY issues.subscriptionCount.description "Duket sikur ju jeni abonuar ne shume filtra. Ky konfigurim nuk rekomandohet sepse to te shtoje rastet e problemeve te njejta. Gjithashtu ne nuk mund te pranojme raportimin tuaj te problemeve sepse eshet i paqarte se me ke abonim filtri autori duhet te veproje. Ju lutem hiqni te gjithe abonimet ne filtra perveç atyre te nevojshem dhe provoni nese problemi do te jete perseri.">
 <!ENTITY screenshot.mark.label "Shenoni proble&amp;min">
 <!ENTITY privacyPolicy.label "Rregulli i te dhenave vetjake">

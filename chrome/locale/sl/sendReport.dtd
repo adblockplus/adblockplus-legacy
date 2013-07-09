@@ -3,6 +3,7 @@
 <!ENTITY showData.label "Pokaži podatke poročila">
 <!ENTITY typeSelector.falsePositive.label "Adblock Plus bloki&amp;ra preveč stvari">
 <!ENTITY issues.change.description "Vaša konfiguracija je bila spremenjena. Ponovno naložite stran in preizkusite težave ter pošljite poročilo, če se s spremembami težava ni odpravila.">
+<!ENTITY email.label "E-&amp;pošta:">
 <!ENTITY issues.openPreferences.label "Odpri nastavitve filtra">
 <!ENTITY sendPage.confirmation "Vaše poročilo je shranjeno. Do njega lahko dostopate na naslednjem naslovu:">
 <!ENTITY copyLink.label "Kopiraj po&amp;vezavo poročila">
@@ -15,16 +16,16 @@
 <!ENTITY update.fixed.description "Posodobitev filtra bo najverjetneje razrešila problem, 
 ki si ga poročal. Osveži stran in poskusi znova. Če 
 bo problem ostal nerešen znova klikni Poročaj.">
-<!ENTITY email.label "E-&amp;pošta:">
+<!ENTITY anonymous.label "&amp;Anonimna oddaja">
 <!ENTITY reloadButton.label "Po&amp;novno naloži stran">
 <!ENTITY recentReports.clear.label "O&amp;dstrani vsa poročila">
 <!ENTITY typeSelector.description "To okno vas vodi po korakih do oddaje poročila o težavi z Adblock Plus. Najprej izberite vrsto težave, s katero ste se srečali na tej strani:">
+<!ENTITY screenshot.remove.label "Odstrani o&amp;bčutljive podatke">
 <!ENTITY issues.ownfilters.description "Nekateri filtri, uporabljeni na tej strani, so uporabniško določeni. Onemogočite filtre, ki so lahko krivi za to težavo:">
 <!ENTITY update.inProgress.description "Adblock potrebuje nadgradnjo naročenih filtrov, da zagotovi, 
 da problem ni bil že rešen. Prosim počakaj...">
 <!ENTITY sendPage.retry.label "Pošlji znova">
 <!ENTITY data.label "Podatki poročila:">
-<!ENTITY sendPage.heading "Pošlji poročilo">
 <!ENTITY recentReports.label "Vaša nedavno poslana poročila">
 <!ENTITY typeWarning.description "Nakazali ste, da želite poročati o splošni težavi z Adblock Plus, ne pa o težavi s filtri. Upoštevajte, da je o takšnih težavah najbolje poročati na [link]forumu Adblock Plus[/link]. Poročanje o težavah uporabite le za podporo obstoječe razprave, saj sicer nihče ne bo opazil vašega poročila, razen če ne podate povezavo nanj. Samodejno ustvarjena povezava bo na voljo po pošiljanju poročila.">
 <!ENTITY issues.disabled.description "Adblock Plus je onemogoče, v trenutnem stanju ne more blokirati ničesar.">
@@ -33,13 +34,13 @@ da problem ni bil že rešen. Prosim počakaj...">
 <!ENTITY issues.disabledfilters.enable.label "Omogoči filter">
 <!ENTITY issues.override.label "Kon&amp;figuracija je pravilna, nadaljuj s poročilom">
 <!ENTITY issues.nosubscriptions.description "Kot kaže, niste naročeni na noben seznam filtrov, ki samodejno odstranijo neželene vsebine s spletnih strani.">
-<!ENTITY outdatedSubscriptions.description "Sledeči filter ni bil posodobljen vsaj dva tedna.
-Preden pošlješ poročilo posodobi vse naročene fitre,
-saj je morda tvoj problem že bil rešen.">
+<!ENTITY typeSelector.falsePositive.description "Izberite to možnost, če strani manjka pomembna vsebina, če se prikaže nepravilno ali ne deluje pravilno. Določite lahko, ali je Adblock Plus kriv težav, tako da ga začasno izključite.">
 <!ENTITY typeSelector.other.label "Druga težava">
 <!ENTITY emailComment.label "Bilo bi dobro, da vneseš veljaven email, tako da se na vas lahko obrnemo, če bodo obstajala vprašanja glede poročila. Pravtako nam omogoča prepoznati vaše prispevke in tako lažje določiti prioriteto višje.">
 <!ENTITY issues.whitelist.remove.label "Ponovno omogoči Adblock Plus na tej strani">
-<!ENTITY typeSelector.falsePositive.description "Izberite to možnost, če strani manjka pomembna vsebina, če se prikaže nepravilno ali ne deluje pravilno. Določite lahko, ali je Adblock Plus kriv težav, tako da ga začasno izključite.">
+<!ENTITY outdatedSubscriptions.description "Sledeči filter ni bil posodobljen vsaj dva tedna.
+Preden pošlješ poročilo posodobi vse naročene fitre,
+saj je morda tvoj problem že bil rešen.">
 <!ENTITY dataCollector.description "Počakajte nekaj trenutkov, da Adblock Plus zbere potrebne podatke.">
 <!ENTITY sendButton.label "Po&amp;šlji poročilo">
 <!ENTITY comment.label "&amp;Komentar (neobvezno):">
@@ -53,7 +54,6 @@ saj je morda tvoj problem že bil rešen.">
 <!ENTITY issues.whitelist.description "Adblock Plus je trenutno na strani, o kateri poročate, onemogočen. Ponovno ga omogočite in ponovno naložite stran, preden pošljete poročilo za preiskovanje te težave.">
 <!ENTITY typeSelector.falseNegative.label "Adbloc&amp;k Plus ne blokira oglasa">
 <!ENTITY typeSelector.heading "Izberite vrsto težave">
-<!ENTITY anonymous.label "&amp;Anonimna oddaja">
 <!ENTITY anonymity.warning "Kontakta z vami ne bomo mogli vzpostaviti. Prioriteto poročilu pa bomo verjetno znižali.">
 <!ENTITY wizard.title "Poročilo o težavah">
 <!ENTITY issues.ownfilters.disable.label "Onemogoči filter">
@@ -63,7 +63,7 @@ saj je morda tvoj problem že bil rešen.">
 <!ENTITY sendPage.waitMessage "Počakajte, dokler Adblock Plus pošilja vaše poročilo.">
 <!ENTITY dataCollector.heading "Dobrodošli v poročanje o težavah">
 <!ENTITY screenshot.heading "Priloži sliko">
-<!ENTITY screenshot.remove.label "Odstrani o&amp;bčutljive podatke">
+<!ENTITY sendPage.heading "Pošlji poročilo">
 <!ENTITY issues.subscriptionCount.description "Zdi se, da ste naročeni na preveč filtrov. Takšna nastavitev ni priporočena, saj je možnost težav veliko večja. Prav tako ne moremo obdelati vašega poročila o napaki, saj ni jasno, kateri avtor naročnine na filtre mora narediti popravke. Prosimo, da odstranite vse nepotrebne naročnine na filtre in preizkusite, če še vedno prihaja do napake.">
 <!ENTITY screenshot.mark.label "Označi &amp;težavo">
 <!ENTITY privacyPolicy.label "Politika zasebnosti">

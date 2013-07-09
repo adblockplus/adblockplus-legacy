@@ -10,7 +10,6 @@
 <!ENTITY restore.error "Faila dati nevar tikt apstrādāti, varbūt tas nav Adblock Plus rezerves kopijas fails?">
 <!ENTITY sort.ascending.label "A &gt; Z kārtošanas secība">
 <!ENTITY sort.label "Kārtot pēc">
-<!ENTITY filter.resetHitCounts.label "Atiestatīt izmantojumu statistiku">
 <!ENTITY subscription.source.label "Filtru saraksts">
 <!ENTITY hitcount.column "Klikšķi">
 <!ENTITY noFilters.text "Jums vēl nav pielagotus filtrus.">
@@ -23,8 +22,6 @@
 <!ENTITY subscription.lastDownload.inProgress "Lejupielādē...">
 <!ENTITY subscriptions.tab.label "Filtra abonementi">
 <!ENTITY sort.descending.label "Z &gt; A kārtošanas secība">
-<!ENTITY typoCorrections.enableLabel "Labot kļūdaini uzrakstītās interneta adrees">
-<!ENTITY typoCorrections.removeButtonLabel "Noņemt izvēlēto">
 <!ENTITY filters.remove.warning "Vai tiešām vēlaties noņemt visus atlasītos filtrus?">
 <!ENTITY filter.delete.label "Dzēst">
 <!ENTITY addSubscriptionAdd.label "Pievienot">
@@ -32,7 +29,6 @@
 <!ENTITY subscription.lastDownload.unknown "N/A">
 <!ENTITY addSubscriptionCancel.label "Atcelt">
 <!ENTITY subscription.enabled.label "Iespējota">
-<!ENTITY typoCorrections.whitelistEmptyLabel "Pašlaik nav nekādu izņēmumu.">
 <!ENTITY noSubscriptions.text "Jūs līdz šim neesat pievienojis nevienu filra abonementu. Adblock Plus neko nebloķēs bez filtriem, lūdzam lietot &quot;Pievienot filtra abonementu&quot;, lai tos pievienotu.">
 <!ENTITY subscription.update.label "Atjaunināt filtrus">
 <!ENTITY dialog.title "Adblock Plus filtra prioritātes">
@@ -50,9 +46,8 @@
 <!ENTITY sort.none.label "Nesakārtots">
 <!ENTITY filter.actions.label "Filtra darbību">
 <!ENTITY filter.copy.label "Kopēt">
-<!ENTITY typoCorrections.whitelistLabel "Neaizstāt...">
 <!ENTITY filter.moveDown.label "Pārvietot uz leju">
-<!ENTITY typoCorrections.tab.label "Pārrakstīšanās kļūdu labojumi">
+<!ENTITY filter.resetHitCounts.label "Atiestatīt izmantojumu statistiku">
 <!ENTITY readMore.label "Lasīt vairāk">
 <!ENTITY subscription.moveUp.label "Pārvietot uz augšu">
 <!ENTITY addSubscription.label "Pievienot filtra abonēšanu">

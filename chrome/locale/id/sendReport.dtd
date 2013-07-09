@@ -2,10 +2,11 @@
 <!ENTITY showData.label "Wyświetl dane zgłoszenia">
 <!ENTITY typeSelector.falsePositive.label "Adblock Plus memblok terlalu banyak">
 <!ENTITY sendPage.confirmation "Zgłoszenie zostało zapisane. Możesz zobaczyć je pod następującym adresem:">
-<!ENTITY sendPage.retry.label "Wyślij ponownie">
 <!ENTITY typeSelector.other.description "Pilih opsi ini jika Anda mencurigai masalah dengan Adblock Plus sendiri daripada filter nya.">
 <!ENTITY recentReports.clear.label "Hapus semua laporan">
 <!ENTITY typeSelector.description "Jendela ini akan memandu Anda melalui langkah-langkah yang diperlukan untuk penyerahan laporan masalah Adblock plus. Pertama, silakan pilih jenis masalah yang Anda alami di halaman ini:">
+<!ENTITY screenshot.remove.label "&amp;Ukryj poufne dane">
+<!ENTITY sendPage.retry.label "Wyślij ponownie">
 <!ENTITY data.label "Dan&amp;e zgłoszenia">
 <!ENTITY recentReports.label "Anda baru saja mengirimkan laporan">
 <!ENTITY attachExtensions.label "Dołącz do zgłoszenia listę aktywnych &amp;rozszerzeń, gdy przyczyną problemu jest konflikt z innym rozszerzeniem.">
@@ -27,6 +28,5 @@
 <!ENTITY sendPage.waitMessage "Wysyłanie zgłoszenia… Proszę czekać.">
 <!ENTITY dataCollector.heading "Selama datang di pelaporan">
 <!ENTITY sendPage.heading "Wyślij zgłoszenie">
-<!ENTITY screenshot.remove.label "&amp;Ukryj poufne dane">
 <!ENTITY sendButton.label "Wyślij zgłoszenie">
 <!ENTITY privacyPolicy.label "Kebijakan privasi">

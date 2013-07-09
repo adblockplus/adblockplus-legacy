@@ -8,7 +8,6 @@
 <!ENTITY copyLink.label "&amp;คัดลอกลิงก์รายงาน">
 <!ENTITY issues.nofilters.description "Adblock Plus ไม่ได้บล็อกสิ่งใดเลยในหน้านี้ ปัญหาที่คุณรายงานไม่น่าจะเกี่ยวกับ Adblock Plus">
 <!ENTITY sendPage.knownIssue "ปัญหาที่คุณรายงานมีวิธีแก้ไขอยู่แล้ว ข้อมูลเพิ่มเติม:">
-<!ENTITY sendPage.retry.label "ส่งอีกครั้ง">
 <!ENTITY typeSelector.other.description "เลือกตัวเลือกนี้ถ้าคุณคิดว่าปัญหาเกิดจากตัว Adblock Plus เอง ไม่ใช่ตัวกรอง">
 <!ENTITY issues.disabledgroups.enable.label "เปิดใช้งานคำอธิบายตัวกรองหรือกลุ่มของตัวกรอง">
 <!ENTITY typeWarning.override.label "ฉันเข้าใจและพร้อมจะ&amp;ส่งรายงาน">
@@ -17,9 +16,11 @@
 <!ENTITY reloadButton.label "&amp;เรียกหน้าปัจจุบันใหม่">
 <!ENTITY recentReports.clear.label "&amp;ลบรายงานทั้งหมด">
 <!ENTITY typeSelector.description "หน้าต่างนี้จะนำทางไปยังขั้นตอนที่ต้องการในการส่งรายงานปัญหาของ Adblock Plus กรุณาเลือกชนิดของปัญหาที่คุณพบในหน้านี้:">
+<!ENTITY screenshot.remove.label "&amp;ลบข้อมูลที่ไม่อยากให้ใครเห็น">
+<!ENTITY issues.ownfilters.description "ตัวกรองบางตัวที่ใช้ในหน้านี้เป็นของผู้ใช้ กรุณาปิดตัวกรองที่อาจก่อให้เปิดปัญหา:">
 <!ENTITY update.inProgress.description "Adblock Plus ต้องการที่จะอัพเดทตัวกรองของคุณ เพื่อให้แน่ใจว่าปัญหาได้รับการแก้ไขแล้ว กรุณารอสักครู่...">
+<!ENTITY sendPage.retry.label "ส่งอีกครั้ง">
 <!ENTITY data.label "ข้อ&amp;มูลรายงาน:">
-<!ENTITY sendPage.heading "ส่งรายงาน">
 <!ENTITY recentReports.label "รายงานที่เพิ่งส่งของคุณ">
 <!ENTITY typeWarning.description "คุณระบุไว้ว่า คุณต้องการรายงานปัญหากับ Adblock Plus มากกว่าปัญหากับตัวกรอง ปัญหาดังกล่าวรายงานได้ดีที่สุดที่ [link]Adblock Plus forum[/link] คุณควรใช้ตัวรายงานปัญหาเพื่อสนับสนุนบทสนทนาที่มีอยู่ เพราะไม่มีใครจะเห็นรายงานของคุณจนกว่าคนส่งลิงก์ให้ จะมีลิงก์ให้อัตโนมัติหลังจากส่งรายงาน">
 <!ENTITY issues.disabled.description "Adblock Plus ถูกปิดการใช้งาน ซึ่งจะไม่มีการบล็อกใดๆ ทั้งสิ้น">
@@ -28,10 +29,10 @@
 <!ENTITY issues.disabledfilters.enable.label "เปิดใช้งานตัวกรอง">
 <!ENTITY issues.override.label "การตั้งค่าถูกต้อง &amp;ดำเนินการรายงานต่อไป">
 <!ENTITY issues.nosubscriptions.description "คุณไม่ได้เขียนคำอธิบายรายชื่อตัวกรองไว้ ซึ่งจะลบเนื้อหาที่ไม่ต้องการออกจากเว็บไซต์อัตโนมัติ">
-<!ENTITY outdatedSubscriptions.description "รายการตัวกรองต่อไปนี้ยังไม่ได้รับการอัพเดทเป็นเวลาสองสัปดาห์แล้ว กรุณาอัพเดทรายการดังกล่าวก่อนที่จะส่งรายงานไป เพราะปัญหาอาจได้รับการแก้ไขเรียบร้อยแล้วก็เป็นได้">
+<!ENTITY typeSelector.falsePositive.description "เลือกตัวเลือกนี้ ถ้าหน้าเพจไม่มีเนื้อหาที่สำคัญ แสดงผลผิดหรือทำงานผิด คุณสามารถทดสอบว่า Adblock Plus เป็นต้นเหตุของปัญหาหรือไม่ โดยการทดลองปิดการใช้งานไว้ชั่วคราว">
 <!ENTITY typeSelector.other.label "ปั&amp;ญหาอื่น">
 <!ENTITY issues.whitelist.remove.label "เปิดการใช้งาน Adblock Plus อีกครั้งในหน้านี้">
-<!ENTITY typeSelector.falsePositive.description "เลือกตัวเลือกนี้ ถ้าหน้าเพจไม่มีเนื้อหาที่สำคัญ แสดงผลผิดหรือทำงานผิด คุณสามารถทดสอบว่า Adblock Plus เป็นต้นเหตุของปัญหาหรือไม่ โดยการทดลองปิดการใช้งานไว้ชั่วคราว">
+<!ENTITY outdatedSubscriptions.description "รายการตัวกรองต่อไปนี้ยังไม่ได้รับการอัพเดทเป็นเวลาสองสัปดาห์แล้ว กรุณาอัพเดทรายการดังกล่าวก่อนที่จะส่งรายงานไป เพราะปัญหาอาจได้รับการแก้ไขเรียบร้อยแล้วก็เป็นได้">
 <!ENTITY dataCollector.description "กรุณารอสักครู่ระหว่างที่ Adblock Plus กำลังรวบรวมข้อมูล">
 <!ENTITY sendButton.label "ส่&amp;งรายงาน">
 <!ENTITY comment.label "&amp;ความคิดเห็น (ไม่ใส่ก็ได้):">
@@ -52,9 +53,8 @@
 <!ENTITY typeSelector.falseNegative.description "เลือกตัวเลือกนี้ถ้ายังมีโฆษณาอยู่แม้ว่าใช้งาน Adblock Plus แล้ว">
 <!ENTITY sendPage.waitMessage "Adblock Plus กำลังส่งรายงาน กรุณารอ">
 <!ENTITY dataCollector.heading "ยินดีต้อนรับสู่การรายงานปัญหา">
-<!ENTITY screenshot.remove.label "&amp;ลบข้อมูลที่ไม่อยากให้ใครเห็น">
 <!ENTITY screenshot.heading "แนบภาพหน้าจอ">
-<!ENTITY issues.ownfilters.description "ตัวกรองบางตัวที่ใช้ในหน้านี้เป็นของผู้ใช้ กรุณาปิดตัวกรองที่อาจก่อให้เปิดปัญหา:">
+<!ENTITY sendPage.heading "ส่งรายงาน">
 <!ENTITY issues.subscriptionCount.description "ดูเหมือนว่าคุณจะรับข้อมูลจากตัวกรองมากเกินไป การติดตั้งนี้จึงไม่แนะนำเพราะอาจทำให้มีปัญหามาก เราจะไม่รับรายงานปัญหาจากคุณเพราะไม่ทราบว่าปัญหามาจากตัวกรองตัวใด กรุณาลบออกเหลือแต่ตัวที่จำเป็นและทดสอบดูว่าปัญหาเกิดจากตัวใด">
 <!ENTITY screenshot.mark.label "เ&amp;น้นส่วนที่เป็นปัญหา">
 <!ENTITY privacyPolicy.label "ความเป็นส่วนตัว">
