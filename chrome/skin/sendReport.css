@@ -26,6 +26,7 @@
 {
   display: -moz-box;
   -moz-box-ordinal-group: 0;
+  -moz-binding: none !important;
   padding: 10px 5px !important;
 }
 
