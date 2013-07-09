@@ -1201,7 +1201,7 @@ function updateNextButton()
 
   if (document.documentElement.currentPage.id == "commentPage")
   {
-    if (!nextButton.hasAttribute("_origLabel"))
+    if (!("_origLabel" in nextButton))
     {
       nextButton._origLabel = nextButton.label;
       nextButton._origAccessKey = nextButton.accessKey;
@@ -1210,7 +1210,7 @@ function updateNextButton()
   }
   else
   {
-    if (nextButton.hasAttribute("_origLabel"))
+    if ("_origLabel" in nextButton)
     {
       nextButton.label = nextButton._origLabel;
       nextButton.accessKey = nextButton._origAccessKey;
