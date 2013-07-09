@@ -5,28 +5,31 @@
 <!ENTITY typeSelector.falsePositive.label "Adblock Plus lokar á of &amp;mikið">
 <!ENTITY issues.change.description "Búið er að breyta stillingum. Vinsamlega endurnýjaðu síðuna til að prófa breytingarnar
 	og sendu skýrslu ef vandamálið leystist ekki vegna breytinganna.">
+<!ENTITY email.label "&amp;Tölvupóstfang:">
 <!ENTITY issues.openPreferences.label "Opna síuvalkosti">
 <!ENTITY sendPage.confirmation "Búið er að vista skýrsluna. Þú getur séð hana á eftirfarandi veffangi:">
 <!ENTITY copyLink.label "&amp;Afrita skýrslutengil">
 <!ENTITY issues.nofilters.description "Adblock Plus er ekki að loka á neitt á núverandi síðu. Vandamálið sem þú ert að
 	sjá er líklega ótengt Adblock Plus.">
 <!ENTITY sendPage.knownIssue "Vandamálið sem þú tilkynntir er öllum líkindum þegar þekkt. Meiri upplýsingar:">
-<!ENTITY sendPage.retry.label "Senda aftur">
 <!ENTITY typeSelector.other.description "Veldu þennan möguleika ef þú heldur að vandamálið sé hjá Adblock Plus sjálfu frekar
 	en í síu.">
 <!ENTITY issues.disabledgroups.enable.label "Virkja síuáskrift / síuhópur">
 <!ENTITY typeWarning.override.label "Ég &amp;skil og vill samt senda skýrslu">
 <!ENTITY issues.disabled.enable.label "Virkja Adblock Plus">
 <!ENTITY update.fixed.description "Uppfærslur á síuáskriftum lagfærðu að öllum líkindum vandamálið. Endurnýjaðu síðun og reyndu aftur, smelltu á tilkynna aftur ef vandamálið er enn til staðar.">
-<!ENTITY email.label "&amp;Tölvupóstfang:">
+<!ENTITY anonymous.label "N&amp;afnlaus sending">
 <!ENTITY reloadButton.label "Endu&amp;rnýja síðu">
 <!ENTITY recentReports.clear.label "Fja&amp;rlægja allar skýrslur">
 <!ENTITY typeSelector.description "Þessi gluggi hjálpar þér í gegnum þau skref sem þarf til að tilkynna Adblock
 	Plus vandamála. Veldu fyrst, hverskonar tegund af vandamáli þú ert að lenda í
  á þessari síðu:">
+<!ENTITY screenshot.remove.label "Fja&amp;rlægja viðkvæm gögn">
+<!ENTITY issues.ownfilters.description "Sumar af síunum sem eru virkar á þessari síðu eru stilltar af notanda. Vinsamlega gerðu þær síur óvirkar
+	sem hugsanlega gætu hafa valdið vandræðunum:">
 <!ENTITY update.inProgress.description "Adblock Plus þarf að uppfæra síuáskriftir til að ganga úr skugga um að vandamálið hafi ekki þegar verið lagað. Bíddu aðeins…">
+<!ENTITY sendPage.retry.label "Senda aftur">
 <!ENTITY data.label "&amp;Skýrslugögn:">
-<!ENTITY sendPage.heading "Senda skýrslu">
 <!ENTITY recentReports.label "Nýlegar sendar skýrslur">
 <!ENTITY typeWarning.description "Þú hefur gefið til kynna að þú viljir tilkynna almennt vandamál á Adblock Plus frekar
  en vandamál með síurnar. Vinsamlega athugaðu að svoleiðis vandamál er best að tilkynna
@@ -41,13 +44,13 @@
 <!ENTITY issues.override.label "&amp;Stillingarnar eru réttar, halda áfram með skýrsluna">
 <!ENTITY issues.nosubscriptions.description "Þú ert ekki áskrifandi að neinum af forskilgreindum síulistum sem fjarlægja
  sjálfvirkt óæskilegt efni frá vefsvæðum.">
-<!ENTITY outdatedSubscriptions.description "Eftirfarandi síuáskriftir hafa ekki verið uppfærðar í að minnsta kosti tvær vikur. Uppfærðu síuáskriftirnar áður en þú tilkynnir vandamál, hugsanlega er þegar búið að leysa vandamálið.">
-<!ENTITY typeSelector.other.label "A&amp;nnað vandamál">
-<!ENTITY emailComment.label "Við mælum með að þú sláir inn gilt tölvupóstfang svo hægt að hafa samband við þig ef það eru spurningar um skýrsluna þína. Einnig gerir það okkur kleyft að bera kennsl á það sem þú sendir inn og hægt er að forgangsraða því hærra.">
-<!ENTITY issues.whitelist.remove.label "Virkja Adblock Plus á þessari síðu">
 <!ENTITY typeSelector.falsePositive.description "Veldu þennan möguleika ef á síðuna vantar mikilvæg gögn, birtist rangt eða
 	virkar ekki eðlilega. Þú getur gengið úr skugga um hvort Adblock Plus sé vandamálið
 	með því að gera það óvirkt tímabundið.">
+<!ENTITY typeSelector.other.label "A&amp;nnað vandamál">
+<!ENTITY emailComment.label "Við mælum með að þú sláir inn gilt tölvupóstfang svo hægt að hafa samband við þig ef það eru spurningar um skýrsluna þína. Einnig gerir það okkur kleyft að bera kennsl á það sem þú sendir inn og hægt er að forgangsraða því hærra.">
+<!ENTITY issues.whitelist.remove.label "Virkja Adblock Plus á þessari síðu">
+<!ENTITY outdatedSubscriptions.description "Eftirfarandi síuáskriftir hafa ekki verið uppfærðar í að minnsta kosti tvær vikur. Uppfærðu síuáskriftirnar áður en þú tilkynnir vandamál, hugsanlega er þegar búið að leysa vandamálið.">
 <!ENTITY dataCollector.description "Bíddu aðeins á meðan Adblock Plus tekur saman nauðsynleg gögn.">
 <!ENTITY sendButton.label "Se&amp;nda skýrslu">
 <!ENTITY comment.label "&amp;Athugasemd (valfrjálst):">
@@ -69,7 +72,6 @@
 	þetta vandamál.">
 <!ENTITY typeSelector.falseNegative.label "Adblock Plus lokar &amp;ekki á auglýsingu">
 <!ENTITY typeSelector.heading "Veldu tegund skýrslu">
-<!ENTITY anonymous.label "N&amp;afnlaus sending">
 <!ENTITY anonymity.warning "Við munum ekki geta haft samband við þig og munum að öllum líkindum þess vegna setja þína skýrslu í lægri forgang.">
 <!ENTITY wizard.title "Höfundur tilkynningar">
 <!ENTITY issues.ownfilters.disable.label "Slökkva á síu">
@@ -81,10 +83,8 @@
 	þótt Adblock Plus sé virkt.">
 <!ENTITY sendPage.waitMessage "Bíddu aðeins meðan Adblock Plus sendir skýrsluna.">
 <!ENTITY dataCollector.heading "Velkominn í tilkynna vandamál">
-<!ENTITY screenshot.remove.label "Fja&amp;rlægja viðkvæm gögn">
 <!ENTITY screenshot.heading "Hengja skjámynd við">
-<!ENTITY issues.ownfilters.description "Sumar af síunum sem eru virkar á þessari síðu eru stilltar af notanda. Vinsamlega gerðu þær síur óvirkar
-	sem hugsanlega gætu hafa valdið vandræðunum:">
+<!ENTITY sendPage.heading "Senda skýrslu">
 <!ENTITY issues.subscriptionCount.description "Svo virðist sem þú sért áskrifandi að of mörgum síuáskriftum. Ekki
  er mælt með þessu þar sem líklegt er að
  vandamál verði of mörg. Ekki er heldur hægt að taka á móti tilkynningu um villu

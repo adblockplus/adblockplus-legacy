@@ -10,14 +10,13 @@
 <!ENTITY sendReport.label "Rapportearje probleem op dizze side">
 <!ENTITY whitelist.page.label "Allinnich op dizze side útskeakelje">
 <!ENTITY context.image.label "Ofbylding blokkearje">
-<!ENTITY hideplaceholders.label "Ferstop placeholders fan blokkearre eleminten">
+<!ENTITY counthits.label "Tel filterhits">
 <!ENTITY opensidebar.label "&amp;Blokkearbere ûnderdielen iepenje">
 <!ENTITY contribute.label "Donearje oan Adblock Plus">
 <!ENTITY context.frame.label "Dielfinster blokkearje">
-<!ENTITY counthits.label "Tel filterhits">
 <!ENTITY blocked.tooltip "Blokkearre ûnderdielen:">
+<!ENTITY hideplaceholders.label "Ferstop placeholders fan blokkearre eleminten">
 <!ENTITY showinstatusbar.label "Toane yn steatbalke">
-<!ENTITY status.tooltip "Steat:">
 <!ENTITY sidebar.title "Blokkearbere ûnderdelen op dizze side">
 <!ENTITY options.label "Opsjes">
 <!ENTITY context.object.label "Objekt blokkearje">
@@ -25,4 +24,5 @@
 <!ENTITY filters.tooltip "Meast aktive filters:">
 <!ENTITY closesidebar.label "&amp;Blokkearbere ûnderdielen slute">
 <!ENTITY showintoolbar.label "To&amp;ane yn arkbalke">
+<!ENTITY status.tooltip "Steat:">
 <!ENTITY context.media.label "Adblock Plus: Blokkearje audio/fideo">

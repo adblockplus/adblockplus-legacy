@@ -18,7 +18,6 @@
 <!ENTITY blocked.tooltip "Blockerade objekt på denna sida:">
 <!ENTITY hideplaceholders.label "Dölj platshållare för blockerade element">
 <!ENTITY showinstatusbar.label "Visa i statusfältet">
-<!ENTITY status.tooltip "Status:">
 <!ENTITY sidebar.title "Blockerbara objekt på denna sida">
 <!ENTITY options.label "Alter&amp;nativ">
 <!ENTITY context.object.label "Adblock Plus: Blockera objekt">
@@ -26,4 +25,5 @@
 <!ENTITY filters.tooltip "Mest aktiva filter:">
 <!ENTITY closesidebar.label "Stäng listan över blockerbara objekt">
 <!ENTITY showintoolbar.label "Visa i verktygs&amp;fältet">
+<!ENTITY status.tooltip "Status:">
 <!ENTITY context.media.label "Adblock Plus: Blockera ljud/video">

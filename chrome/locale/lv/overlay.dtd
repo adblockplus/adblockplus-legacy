@@ -4,9 +4,9 @@
 <!ENTITY disable.label "Atspējot visur">
 <!ENTITY showinaddonbar.label "Rādīt pievienojumprogrammu joslā">
 <!ENTITY objecttab.title "Bloķēt">
-<!ENTITY objecttabs.label "Rādī&amp;t cilnes Flash un Java">
 <!ENTITY objecttab.tooltip "Klikšķini šeit, lai bloķētu šo objektu ar Adblock Plus">
 <!ENTITY menuitem.label "Adblock Plus Iestatījumi">
+<!ENTITY objecttabs.label "Rādī&amp;t cilnes Flash un Java">
 <!ENTITY sendReport.label "Iesniegt &amp;ziņojumu par šo lapu">
 <!ENTITY whitelist.page.label "Atspējot tikai šajā lapā">
 <!ENTITY context.image.label "Adblock Plus: Bloķēt attēlu">

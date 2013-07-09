@@ -6,13 +6,13 @@
 <!ENTITY issues.change.description "Ihre Einstellungen wurden geändert. Bitte laden Sie die Seite neu, um die Änderungen
   jetzt zu testen. Bitte melden Sie den Fehler, falls das Problem durch die
   Änderungen nicht gelöst wurde.">
+<!ENTITY email.label "E-&amp;Mail:">
 <!ENTITY issues.openPreferences.label "Filtereinstellungen öffnen">
 <!ENTITY sendPage.confirmation "Ihr Bericht wurde gespeichert. Sie können Ihn unter der folgenden Adresse aufrufen:">
 <!ENTITY copyLink.label "Lin&amp;k zum Bericht kopieren">
 <!ENTITY issues.nofilters.description "Adblock Plus blockiert auf dieser Seite nichts. Das Problem, das Sie sehen, wurde
   wahrscheinlich nicht von Adblock Plus verursacht.">
 <!ENTITY sendPage.knownIssue "Das Problem, das Sie berichtet haben, ist möglicherweise bereits bekannt. Zusätzliche Information:">
-<!ENTITY sendPage.retry.label "Noch einmal senden">
 <!ENTITY typeSelector.other.description "Wählen Sie diese Option, falls Sie ein Problem mit Adblock Plus selber und nicht
   mit dessen Filtern vermuten.">
 <!ENTITY issues.disabledgroups.enable.label "Filterabonnement / Filtergruppe aktivieren">
@@ -21,16 +21,19 @@
 <!ENTITY update.fixed.description "Die Aktualisierung Ihrer Filterabonnements hat das Problem wahrscheinlich
   bereits gelöst. Bitte laden Sie die Seite neu und senden Sie den Fehlerbericht
   noch einmal ab, falls das Problem weiterhin besteht.">
-<!ENTITY email.label "E&amp;mail:">
+<!ENTITY anonymous.label "&amp;Anonymer Beitrag">
 <!ENTITY reloadButton.label "Seite &amp;neu laden">
 <!ENTITY recentReports.clear.label "Alle Be&amp;richte löschen">
 <!ENTITY typeSelector.description "Dieser Assistent wird Sie durch die nötigen Schritte zum Melden eines Adblock Plus-Fehlers
   leiten. Zuerst wählen Sie bitte die Art des Fehlers, den Sie auf dieser Seite
   beobachten:">
+<!ENTITY screenshot.remove.label "&amp;Private Informationen löschen">
+<!ENTITY issues.ownfilters.description "Einige der Filter, die auf dieser Seite angewandt wurden, sind benutzerdefiniert.
+  Bitte deaktivieren Sie Filter, die das Problem verursacht haben könnten:">
 <!ENTITY update.inProgress.description "Adblock Plus muss Ihre Filterabonnements aktualisieren, um sicherzustellen,
   dass das Problem nicht bereits gelöst ist. Bitte warten Sie...">
+<!ENTITY sendPage.retry.label "Noch einmal senden">
 <!ENTITY data.label "Bericht&amp;daten:">
-<!ENTITY sendPage.heading "Bericht absenden">
 <!ENTITY recentReports.label "Ihre zuletzt gesendeten Fehlerberichte">
 <!ENTITY typeWarning.description "Sie haben angedeutet, dass Sie ein allgemeines Problem mit Adblock Plus melden wollen
   und kein Filterproblem. Bitte beachten Sie, dass solche Probleme am besten im
@@ -45,15 +48,15 @@
 <!ENTITY issues.override.label "Die Einstellungen sind so &amp;korrekt, mit dem Fehlerbericht fortfahren">
 <!ENTITY issues.nosubscriptions.description "Es scheint, dass Sie keine der fertigen Filterlisten abonniert haben. Ein solches
   kostenloses Abonnement ist jedoch erforderlich, um automatisch Werbung zu entfernen.">
-<!ENTITY outdatedSubscriptions.description "Die folgenden Filterabonnements wurden mindesten zwei Wochen lang nicht
-  aktualisiert. Bitte aktualisieren Sie diese, bevor Sie einen Fehlerbericht
-  senden, das Problem könnte bereits gelöst sein.">
-<!ENTITY typeSelector.other.label "An&amp;derer Fehler">
-<!ENTITY emailComment.label "Wir empfehlen Ihnen, eine gültige e-Mail-Adresse einzugeben, damit wir Sie kontaktieren können, falls es Fragen zu Ihrem Bericht gibt. Es erlaubt uns, Ihre Beiträge zu erkennen und diesen höhere Prioritäten beizumessen.">
-<!ENTITY issues.whitelist.remove.label "Adblock Plus auf dieser Seite wieder aktivieren">
 <!ENTITY typeSelector.falsePositive.description "Wählen Sie diese Option, falls auf der Seite wichtige Inhalte fehlen, die Seite
   falsch angezeigt wird oder nicht korrekt funktioniert. Sie können feststellen,
   ob Adblock Plus das Problem verursacht, indem Sie es vorübergehend deaktivieren.">
+<!ENTITY typeSelector.other.label "An&amp;derer Fehler">
+<!ENTITY emailComment.label "Wir empfehlen Ihnen, eine gültige e-Mail-Adresse einzugeben, damit wir Sie kontaktieren können, falls es Fragen zu Ihrem Bericht gibt. Es erlaubt uns, Ihre Beiträge zu erkennen und diesen höhere Prioritäten beizumessen.">
+<!ENTITY issues.whitelist.remove.label "Adblock Plus auf dieser Seite wieder aktivieren">
+<!ENTITY outdatedSubscriptions.description "Die folgenden Filterabonnements wurden mindesten zwei Wochen lang nicht
+  aktualisiert. Bitte aktualisieren Sie diese, bevor Sie einen Fehlerbericht
+  senden, das Problem könnte bereits gelöst sein.">
 <!ENTITY dataCollector.description "Bitte warten Sie einige Augenblicke, während Adblock Plus die benötigten Daten sammelt.">
 <!ENTITY sendButton.label "Bericht ab&amp;senden">
 <!ENTITY comment.label "&amp;Kommentar (optional):">
@@ -76,7 +79,6 @@
   den Fehler melden. Das wird die Untersuchung des Problems vereinfachen.">
 <!ENTITY typeSelector.falseNegative.label "Eine &amp;Werbeeinblendung wird von Adblock Plus nicht blockiert">
 <!ENTITY typeSelector.heading "Fehlerart wählen">
-<!ENTITY anonymous.label "&amp;Anonymer Beitrag">
 <!ENTITY anonymity.warning "Es ist uns nicht möglich sich erneut an Sie zu wenden und wir werden Ihrem Bericht eine niedrigere Priorität beimessen.">
 <!ENTITY wizard.title "Fehler melden">
 <!ENTITY issues.ownfilters.disable.label "Filter deaktivieren">
@@ -88,10 +90,8 @@
   Adblock Plus aktiviert ist.">
 <!ENTITY sendPage.waitMessage "Bitte warten Sie, während Adblock Plus Ihren Bericht sendet.">
 <!ENTITY dataCollector.heading "Willkommen zum Fehlerberichts-Assistenten">
-<!ENTITY screenshot.remove.label "&amp;Private Informationen löschen">
 <!ENTITY screenshot.heading "Bildschirmfoto hinzufügen">
-<!ENTITY issues.ownfilters.description "Einige der Filter, die auf dieser Seite angewandt wurden, sind benutzerdefiniert.
-  Bitte deaktivieren Sie Filter, die das Problem verursacht haben könnten:">
+<!ENTITY sendPage.heading "Bericht absenden">
 <!ENTITY issues.subscriptionCount.description "Es scheint, dass Sie zu viele Filterlisten abonniert haben. Das ist nicht
   empfohlen, weil die Wahrscheinlichkeit von Problemen dadurch sehr stark
   ansteigt. Wir können außerdem Ihren Fehlerbericht nicht annehmen, weil unklar

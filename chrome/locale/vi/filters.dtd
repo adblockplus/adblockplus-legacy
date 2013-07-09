@@ -1,13 +1,13 @@
 <!ENTITY slow.column "&amp;Bộ lọc chậm">
 <!ENTITY subscription.lastDownload.checksumMismatch "Thất bại, mã băm không phù hợp">
 <!ENTITY lasthit.column "Lần hit cuối">
-<!ENTITY viewMenu.label "Hiển thị">
 <!ENTITY sort.ascending.label "Thứ tự A &gt; Z">
 <!ENTITY sort.label "Sắp &amp;xếp theo">
 <!ENTITY filter.paste.label "Dán">
 <!ENTITY subscription.lastDownload.inProgress "Đang tải...">
 <!ENTITY filter.delete.label "Xóa">
 <!ENTITY enabled.column "&amp;Hiệu lực">
+<!ENTITY viewMenu.label "Hiển thị">
 <!ENTITY subscription.lastDownload.invalidURL "Thất bại, không phải là địa chỉ hợp lệ">
 <!ENTITY hitcount.column "&amp;Số lần hit">
 <!ENTITY filter.cut.label "Cắt">

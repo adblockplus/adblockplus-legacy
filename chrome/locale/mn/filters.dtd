@@ -1,13 +1,13 @@
 <!ENTITY slow.column "&amp;Удаан шүүлтүүрүүд">
 <!ENTITY subscription.lastDownload.checksumMismatch "Бүтэлгүйтлээ, шалгалт таарсангүй">
 <!ENTITY lasthit.column "&amp;Сүүлийн хандалт">
-<!ENTITY viewMenu.label "Харах">
 <!ENTITY sort.ascending.label "&amp;А &gt; Я эрэмбэлэх">
 <!ENTITY sort.label "&amp;Эрэмбэлэх нь">
 <!ENTITY filter.paste.label "Тавих">
 <!ENTITY subscription.lastDownload.inProgress "Татаж байна...">
 <!ENTITY filter.delete.label "Устгах">
 <!ENTITY enabled.column "&amp;Идэвхтэй">
+<!ENTITY viewMenu.label "Харах">
 <!ENTITY subscription.lastDownload.invalidURL "Бүтэлгүйтэв, буруу хаяг">
 <!ENTITY hitcount.column "&amp;Хандалт">
 <!ENTITY filter.cut.label "Хайчлах">

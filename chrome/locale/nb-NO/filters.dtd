@@ -1,7 +1,6 @@
 <!ENTITY slow.column "Trege filtre (&amp;w)">
 <!ENTITY enabled.column "Aktivert (&amp;n)">
 <!ENTITY filters.remove.warning "Ønsker du virkelig å fjerne alle valgte filtre?">
-<!ENTITY noFiltersInGroup.text "Den valgte gruppen er tom.">
 <!ENTITY subscription.actions.label "Handlinger">
 <!ENTITY filter.selectAll.label "Velg alle">
 <!ENTITY backupButton.label "Sikkerhetskopier og gjenopprett (&amp;B)">
@@ -16,13 +15,11 @@
 <!ENTITY restore.default.label "Gjenopprett sikkerhetskopi fra ?1?">
 <!ENTITY subscription.lastDownload.inProgress "Laster ned...">
 <!ENTITY subscriptions.tab.label "Filterabonnementer">
-<!ENTITY typoCorrections.removeButtonLabel "Fjern valgte">
 <!ENTITY filter.delete.label "Slett">
 <!ENTITY addSubscriptionAdd.label "Legg til">
 <!ENTITY viewMenu.label "Vis">
 <!ENTITY addSubscriptionCancel.label "Avbryt">
 <!ENTITY subscription.enabled.label "Aktivert">
-<!ENTITY typoCorrections.whitelistEmptyLabel "Det er ingen unntak for øyeblikket.">
 <!ENTITY subscription.update.label "Oppdater filtre">
 <!ENTITY lasthit.column "Siste treff (&amp;L)">
 <!ENTITY addFilter.label "Legg til filter (&amp;d)">
@@ -36,8 +33,8 @@
 <!ENTITY sort.none.label "&amp;Usortert">
 <!ENTITY filter.actions.label "Filterhandlinger">
 <!ENTITY filter.copy.label "Kopier">
-<!ENTITY typoCorrections.whitelistLabel "Ikke erstatt...">
 <!ENTITY readMore.label "Les mer">
+<!ENTITY noFiltersInGroup.text "Den valgte gruppen er tom.">
 <!ENTITY addSubscription.label "Legg til &amp;filterabonnement">
 <!ENTITY subscription.homepage.label "Hjemmeside">
 <!ENTITY backup.complete.title "Alle filtre og abonnenter">
