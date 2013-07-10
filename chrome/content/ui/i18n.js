@@ -23,19 +23,19 @@ if (typeof chrome != "undefined")
 else
 {
   // Using Firefox' approach on i18n instead
-  
+
   // Randomize URI to work around bug 719376
   var pageName = location.pathname.replace(/.*\//, '').replace(/\..*?$/, '');
   var stringBundle = Services.strings.createBundle("chrome://adblockplus/locale/" + pageName +
     ".properties?" + Math.random());
-  
+
   function getI18nMessage(key)
   {
     return {
       "message": stringBundle.GetStringFromName(key)
     };
   }
-  
+
   i18n = (function()
   {
     function getText(message, args)
@@ -87,19 +87,39 @@ else
 // i18n message.
 function loadI18nStrings()
 {
+  function processString(str, element)
+  {
+    var match = /^(.*?)<(a|strong)>(.*?)<\/\2>(.*)$/.exec(str);
+    if (match)
+    {
+      processString(match[1], element);
+
+      var e = document.createElement(match[2]);
+      processString(match[3], e);
+      element.appendChild(e);
+
+      processString(match[4], element);
+    }
+    else
+      element.appendChild(document.createTextNode(str));
+  }
+
   var nodes = document.querySelectorAll("[class^='i18n_']");
   for(var i = 0; i < nodes.length; i++)
   {
-    var arguments = JSON.parse("[" + nodes[i].textContent + "]");
-    var className = nodes[i].className;
+    var node = nodes[i];
+    var arguments = JSON.parse("[" + node.textContent + "]");
+    if (arguments.length == 0)
+      arguments = null;
+
+    var className = node.className;
     if (className instanceof SVGAnimatedString)
       className = className.animVal;
     var stringName = className.split(/\s/)[0].substring(5);
-    var prop = "innerHTML" in nodes[i] ? "innerHTML" : "textContent";
-    if(arguments.length > 0)
-      nodes[i][prop] = i18n.getMessage(stringName, arguments);
-    else
-      nodes[i][prop] = i18n.getMessage(stringName);
+
+    while (node.lastChild)
+      node.removeChild(node.lastChild);
+    processString(i18n.getMessage(stringName, arguments), node);
   }
 }
 
