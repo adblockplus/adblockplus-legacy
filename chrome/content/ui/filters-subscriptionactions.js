@@ -110,7 +110,7 @@ var SubscriptionActions =
   {
     let data = Templater.getDataForNode(node || this.selectedItem);
     if (data && data.subscription instanceof DownloadableSubscription)
-      Synchronizer.execute(data.subscription, true, true);
+      Synchronizer.execute(data.subscription, true);
   },
 
   /**
@@ -122,7 +122,7 @@ var SubscriptionActions =
     {
       let subscription = FilterStorage.subscriptions[i];
       if (subscription instanceof DownloadableSubscription)
-        Synchronizer.execute(subscription, true, true);
+        Synchronizer.execute(subscription, true);
     }
   },
 

@@ -791,7 +791,7 @@ let subscriptionUpdateDataSource =
       document.documentElement.canRewind = false;
 
       for (let i = 0; i < this.needUpdate.length; i++)
-        Synchronizer.execute(this.needUpdate[i], true, true);
+        Synchronizer.execute(this.needUpdate[i], true);
 
       let listener = function(action)
       {
@@ -865,7 +865,7 @@ let subscriptionUpdateDataSource =
   updateOutdated: function()
   {
     for (let i = 0; i < this.outdated.length; i++)
-      Synchronizer.execute(this.outdated[i], true, true);
+      Synchronizer.execute(this.outdated[i], true);
   }
 }
 
