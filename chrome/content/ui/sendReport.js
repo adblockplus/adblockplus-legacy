@@ -298,6 +298,8 @@ let subscriptionsDataSource =
         id: subscription.url,
         disabledFilters: subscription.filters.filter(function(filter) filter instanceof ActiveFilter && filter.disabled).length
       });
+      if (subscription.version)
+        subscriptionXML.setAttribute("version", subscription.version);
       if (subscription.lastDownload)
         subscriptionXML.setAttribute("lastDownloadAttempt", subscription.lastDownload - now);
       if (subscription instanceof DownloadableSubscription)
