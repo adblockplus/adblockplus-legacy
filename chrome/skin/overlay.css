@@ -16,6 +16,7 @@
  */
 
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+@namespace html url("http://www.w3.org/1999/xhtml");
 
 #abp-status
 {
@@ -173,4 +174,14 @@ toolbar[mode="full"] #abp-toolbarbutton[type="menu"]
 .abp-contributebutton-close:hover
 {
   -moz-image-region: rect(0px, 28px, 14px, 14px);
+}
+
+#abp-notification html|a
+{
+  color: #0000f0;
+}
+
+#abp-notification html|a:hover
+{
+  text-decoration: underline;
 }
