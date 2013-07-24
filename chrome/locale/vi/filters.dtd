@@ -1,25 +1,72 @@
+<!ENTITY restore.custom.warning "Tất cả bộ lọc cá nhân của bạn sẽ được thay thế . Bạn có muốn tiếp tục ?">
 <!ENTITY slow.column "&amp;Bộ lọc chậm">
-<!ENTITY subscription.lastDownload.checksumMismatch "Thất bại, mã băm không phù hợp">
-<!ENTITY lasthit.column "Lần hit cuối">
-<!ENTITY sort.ascending.label "Thứ tự A &gt; Z">
+<!ENTITY enabled.column "&amp;Bật">
+<!ENTITY subscription.lastDownload.checksumMismatch "Thất bại, checksum không đúng">
+<!ENTITY noFiltersInGroup.text "Nhóm được chọn không chứa nội dung .">
+<!ENTITY subscription.actions.label "Hành động">
+<!ENTITY filter.selectAll.label "Chọn hết">
+<!ENTITY backupButton.label "&amp;Sao lưu và phục hồi">
+<!ENTITY restore.minVersion.warning "Cảnh báo : Tập tin được tạo bởi phiên bản Adblock Plus mới hơn . Bạn cần cập nhập phiên bản mới nhất của Adblock Plus trước khi có thể khôi phục từ tập tin này .">
+<!ENTITY restore.error "Dữ liệu không thể được phục hồi ! Có thể file này không phải file phục hồi của AdBlock Plus ?">
+<!ENTITY sort.ascending.label "Hiển thị theo thứ tự A &gt; Z">
 <!ENTITY sort.label "Sắp &amp;xếp theo">
-<!ENTITY filter.paste.label "Dán">
-<!ENTITY subscription.lastDownload.inProgress "Đang tải...">
-<!ENTITY filter.delete.label "Xóa">
-<!ENTITY enabled.column "&amp;Hiệu lực">
-<!ENTITY viewMenu.label "Hiển thị">
-<!ENTITY subscription.lastDownload.invalidURL "Thất bại, không phải là địa chỉ hợp lệ">
+<!ENTITY subscription.source.label "Danh sách bộ lọc">
 <!ENTITY hitcount.column "&amp;Số lần hit">
+<!ENTITY noFilters.text "Bạn chưa có bộ lọc cá nhân nào .">
+<!ENTITY backup.custom.title "Chỉ hiển thị bộ lọc cá nhân">
+<!ENTITY subscription.external.label "Được cập nhập bởi ứng dụng khác">
+<!ENTITY subscription.delete.label "Xóa">
+<!ENTITY noGroupSelected.text "Bạn cần chọn nhóm cho bộ lọc trước khi nó được hiển thị">
 <!ENTITY filter.cut.label "Cắt">
-<!ENTITY addSubscriptionOther.label "Thêm bộ lọc trọn gói khác">
-<!ENTITY sort.none.label "&amp;Chưa sắp xếp">
-<!ENTITY filter.copy.label "Chép">
-<!ENTITY addSubscription.label "Thêm bộ lọc trọn gói">
-<!ENTITY find.label "Tìm">
-<!ENTITY sort.descending.label "Thứ tự Z &gt; A">
-<!ENTITY subscription.lastDownload.connectionError "Thất bại, tải xuống thất bại">
-<!ENTITY subscription.lastDownload.success "Thành công">
-<!ENTITY subscription.lastDownload.invalidData "Thất bại, không phải là danh sách bộ lọc hợp lệ">
+<!ENTITY restore.default.label "Khôi phục từ ?1?">
+<!ENTITY subscription.lastDownload.inProgress "Đang tải...">
+<!ENTITY subscriptions.tab.label "Đăng ký bộ lọc">
+<!ENTITY sort.descending.label "Hiển thị theo thứ  tự Z &gt; A">
+<!ENTITY filters.remove.warning "Bạn có thực sự muốn xóa tất cả những bộ lọc được chọn ?">
+<!ENTITY filter.delete.label "Xóa">
+<!ENTITY addSubscriptionAdd.label "Thêm">
+<!ENTITY viewMenu.label "Hiển thị">
+<!ENTITY subscription.lastDownload.unknown "N/A">
+<!ENTITY addSubscriptionCancel.label "Hủy">
+<!ENTITY subscription.enabled.label "Đã được bật">
+<!ENTITY noSubscriptions.text "Bạn chưa chọn bất kì bộ lọc nào ! AdBlock Plus không thể hoạt động nếu không có một bộ lọc, xin hãy sử dụng &quot;Đăng ký bộ lọc&quot; để thêm bộ lọc cho mình .">
+<!ENTITY subscription.update.label "Cập nhập bộ lọc">
+<!ENTITY dialog.title "Tùy chọn bộ lọc AdBlock Plus">
 <!ENTITY addFilter.label "Thêm bộ lọc">
-<!ENTITY subscription.lastDownload.label "Lần tải cuối:">
+<!ENTITY subscription.minVersion.warning "Bộ lọc này cần có phiên bản Adblock Plus mới hơn, bạn cần phải cập nhập lên phiên bản mới nhất của AdBlock Plus .">
+<!ENTITY subscription.lastDownload.invalidURL "Thất bại, không phải là địa chỉ hợp lệ">
+<!ENTITY backup.error "Có vấn đề khi ghi phần tử lọc lên file . Hãy chắc chắn rằng file không bị Write-Protected hoặc được sử dụng bởi một ứng dụng khác.">
+<!ENTITY filter.moveUp.label "Di chuyển lên">
+<!ENTITY addGroup.label "Thêm bộ lọc và nhóm">
+<!ENTITY filter.edit.label "Chỉnh sửa">
+<!ENTITY subscription.showHideFilters.label "Hiện/Ẩn bộ lọc">
+<!ENTITY acceptableAds2.label "Cho phép một số quảng cáo không gây hại">
+<!ENTITY addSubscriptionOther.label "Thêm bộ lọc  khác">
+<!ENTITY close.label "Đóng">
+<!ENTITY sort.none.label "&amp;Chưa sắp xếp">
+<!ENTITY filter.actions.label "Hành động cho bộ lọc">
+<!ENTITY filter.copy.label "Chép">
+<!ENTITY filter.moveDown.label "Di chuyển xuống">
+<!ENTITY filter.resetHitCounts.label "Reset số lần hit">
+<!ENTITY readMore.label "Đọc thêm">
+<!ENTITY subscription.moveUp.label "Chuyển lên trên">
+<!ENTITY addSubscription.label "Thêm bộ lọc">
+<!ENTITY subscription.homepage.label "Trang chủ">
+<!ENTITY backup.complete.title "Tất cả phần tử lọc và bộ lọc">
+<!ENTITY restore.own.label "Khôi phục bằng file khác">
+<!ENTITY restore.complete.warning "Tất cả tùy chỉnh bộ lọc của bạn sẽ được thay thế bởi tập tin được chọn. Bạn có muốn tiếp tục ?">
+<!ENTITY filters.tab.label "Bộ lọc cá nhân">
+<!ENTITY backup.label "Tạo điểm phục hồi mới">
+<!ENTITY find.label "Tìm">
+<!ENTITY subscription.moveDown.label "Chuyển xuống dưới">
+<!ENTITY subscription.lastDownload.connectionError "Thất bại, tải xuống thất bại">
+<!ENTITY subscription.lastDownload.success "Hoàn thành">
+<!ENTITY subscription.lastDownload.invalidData "Thất bại, đây không phải là danh sách bộ lọc hợp lệ">
+<!ENTITY filter.paste.label "Dán">
+<!ENTITY subscription.disabledFilters.enable "Bật bộ lọc đã bị vô hiệu hóa">
+<!ENTITY lasthit.column "Lần hit cuối">
+<!ENTITY subscription.editTitle.label "Sửa tiêu đề">
+<!ENTITY subscription.disabledFilters.warning "Một vài phần tử trong bộ lọc này đã bị vô hiệu hóa .">
 <!ENTITY filter.column "&amp;Quy luật lọc">
+<!ENTITY subscription.lastDownload.label "Lần tải cuối:">
+<!ENTITY viewList.label "Xem danh sách">

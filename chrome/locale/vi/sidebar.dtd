@@ -9,6 +9,7 @@
 <!ENTITY reattach.label "Đính lại">
 <!ENTITY search.label "Tì&amp;m:">
 <!ENTITY docDomain.thirdParty "(bên thứ ba)">
+<!ENTITY filterSource.label "Nguồn bộ lọc">
 <!ENTITY tooltip.docDomain.label "Nguồn tài liệu:">
 <!ENTITY context.copy.label "Chép địa chỉ của mục này">
 <!ENTITY tooltip.type.label "Kiểu:">

@@ -8,7 +8,7 @@
 <!ENTITY backupButton.label "&amp;Biztonsági mentés és visszaállítás">
 <!ENTITY restore.minVersion.warning "Figyelmeztetés: a fájlt az Adblock Plus újabb verziójával készült. Frissítsen az Adblock Plus legújabb verziójára, mielőtt visszaállítaná ezt a fájlt.">
 <!ENTITY restore.error "A fájlt nem sikerült feldolgozni, lehetséges, hogy nem egy Adblock Plus biztonsági mentést tartalmaz.">
-<!ENTITY sort.ascending.label "&amp;A &gt; Z rendezés">
+<!ENTITY sort.ascending.label "Rendezés &amp;A &gt; Z">
 <!ENTITY sort.label "&amp;Rendezés">
 <!ENTITY subscription.source.label "Szűrő lista">
 <!ENTITY hitcount.column "&amp;Találatok">
@@ -18,10 +18,10 @@
 <!ENTITY subscription.delete.label "Törlés">
 <!ENTITY noGroupSelected.text "Ki kell választania egy szűrő csoportot a benne lévő szűrők megjelenítéséhez.">
 <!ENTITY filter.cut.label "Kivágás">
-<!ENTITY restore.default.label "Visszaállítás ?1? állapotra">
+<!ENTITY restore.default.label "Visszaállítás ?1?-i állapotra">
 <!ENTITY subscription.lastDownload.inProgress "Letöltés...">
 <!ENTITY subscriptions.tab.label "Külső szűrők">
-<!ENTITY sort.descending.label "&amp;Z &gt; A rendezés">
+<!ENTITY sort.descending.label "Rendezés &amp;Z &gt; A">
 <!ENTITY filters.remove.warning "Biztosan eltávolítja az összes kiválasztott szűrőt?">
 <!ENTITY filter.delete.label "Törlés">
 <!ENTITY addSubscriptionAdd.label "Hozzáadás">

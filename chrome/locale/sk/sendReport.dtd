@@ -3,6 +3,7 @@
 <!ENTITY showData.label "Zobraziť údaje správy">
 <!ENTITY typeSelector.falsePositive.label "Adblock Plus blokuje pri&amp;veľa">
 <!ENTITY issues.change.description "Nastavenie bolo zmenené. Opäť načítajte stránku na otestovanie zmien a potvrďte správu ak problém nebol odstránený.">
+<!ENTITY email.label "Email:">
 <!ENTITY issues.openPreferences.label "Otvoriť nastavenia filtra">
 <!ENTITY sendPage.confirmation "Vaša správa bola uložená. Môžete ju sprístupniť na tejto adrese:">
 <!ENTITY copyLink.label "&amp;Kopírovať odkaz správy">
