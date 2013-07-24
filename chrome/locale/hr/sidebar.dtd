@@ -7,7 +7,7 @@
 <!ENTITY filter.label "Filter">
 <!ENTITY tooltip.size.label "Veličina:">
 <!ENTITY reattach.label "Ponovno spoji">
-<!ENTITY search.label "&amp;Traži:">
+<!ENTITY search.label "&amp;Pretraži:">
 <!ENTITY docDomain.thirdParty "(treća strana)">
 <!ENTITY filterSource.label "Izvor filtera">
 <!ENTITY tooltip.docDomain.label "Izvor dokumenta:">

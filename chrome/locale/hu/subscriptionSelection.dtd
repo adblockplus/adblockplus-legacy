@@ -3,7 +3,7 @@
 <!ENTITY list.download.retry "Próbálja újra">
 <!ENTITY title.label "Külső szűrő &amp;neve:">
 <!ENTITY list.download.website "Weboldal megtekintése">
-<!ENTITY supplementMessage "Ez a szűrő a &quot;?1?&quot; szűrővel együtt használható csak, amely jelenleg nincs a szűrőkhez hozzáadva.">
+<!ENTITY supplementMessage "Ez a szűrő a(z) &quot;?1?&quot; szűrővel együtt használható csak, amely jelenleg nincs a szűrőkhöz hozzáadva.">
 <!ENTITY viewList.label "Szűrők megtekintése">
 <!ENTITY visitHomepage.label "Honlap meglátogatása">
 <!ENTITY addSubscription.label "Szűrő hozzáadása">
