@@ -66,6 +66,12 @@
                 homepage="https://easylist.adblockplus.org/"
                 prefixes="it"
                 author="Khrin"/>
+  <subscription title="IsraelList+EasyList"
+                specialization="עברית"
+                url="https://easylist-downloads.adblockplus.org/israellist+easylist.txt"
+                homepage="https://github.com/rafiw/AdBlockIsraelList"
+                prefixes="he"
+                author="BsT, rafiw"/>
   <subscription title="Latvian List+EasyList"
                 specialization="latviešu valoda"
                 url="https://easylist-downloads.adblockplus.org/latvianlist+easylist.txt"
