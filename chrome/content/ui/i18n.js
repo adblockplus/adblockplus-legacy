@@ -82,10 +82,10 @@ else
   })();
 }
 
-// Loads and inserts i18n strings into matching elements. Any inner HTML already in the
-// element is parsed as JSON and used as parameters to substitute into placeholders in the
-// i18n message.
-function loadI18nStrings()
+// Inserts i18n strings into matching elements. Any inner HTML already in the element is
+// parsed as JSON and used as parameters to substitute into placeholders in the i18n
+// message.
+i18n.setElementText = function(element, stringName, arguments)
 {
   function processString(str, element)
   {
@@ -104,6 +104,14 @@ function loadI18nStrings()
       element.appendChild(document.createTextNode(str));
   }
 
+  while (element.lastChild)
+    element.removeChild(element.lastChild);
+  processString(i18n.getMessage(stringName, arguments), element);
+}
+
+// Loads i18n strings
+function loadI18nStrings()
+{
   var nodes = document.querySelectorAll("[class^='i18n_']");
   for(var i = 0; i < nodes.length; i++)
   {
@@ -117,9 +125,7 @@ function loadI18nStrings()
       className = className.animVal;
     var stringName = className.split(/\s/)[0].substring(5);
 
-    while (node.lastChild)
-      node.removeChild(node.lastChild);
-    processString(i18n.getMessage(stringName, arguments), node);
+    i18n.setElementText(node, stringName, arguments);
   }
 }
 
