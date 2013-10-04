@@ -58,7 +58,7 @@
       return (message instanceof Components.interfaces.nsIScriptError &&
           !/^https?:/i.test(message.sourceName) &&
           (/adblock/i.test(message.errorMessage) || /adblock/i.test(message.sourceName) ||
-           id && (message.errorMessage.indexOf(id) >= 0 || message.sourceName.indexOf(id) >= 0)));
+           id && (message.errorMessage.indexOf(id) >= 0 || message.sourceName && message.sourceName.indexOf(id) >= 0)));
     });
 
     if (messages.length)
