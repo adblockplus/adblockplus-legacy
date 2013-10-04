@@ -630,7 +630,7 @@ let errorsDataSource =
       return (message instanceof Ci.nsIScriptError &&
           !/^https?:/i.test(message.sourceName) &&
           (/adblock/i.test(message.errorMessage) || /adblock/i.test(message.sourceName) ||
-           message.errorMessage.indexOf(addonID) >= 0 || message.sourceName.indexOf(addonID) >= 0));
+           message.errorMessage.indexOf(addonID) >= 0 || message.sourceName && message.sourceName.indexOf(addonID) >= 0));
     });
     if (messages.length > 10)   // Only the last 10 messages
       messages = messages.slice(messages.length - 10, messages.length);
