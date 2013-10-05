@@ -19,9 +19,6 @@
 
 (function()
 {
-  var shade;
-  var scrollTimer;
-
   // Load subscriptions for features
   var featureSubscriptions = [
     {
@@ -46,19 +43,25 @@
 
   function onDOMLoaded()
   {
+    var locale = require("utils").Utils.appLocale;
+    document.documentElement.setAttribute("lang", locale);
+
+    // Set up URLs
+    var donateLink = E("donate");
+    donateLink.href = Utils.getDocLink("donate");
+
+    var contributors = E("contributors");
+    contributors.href = Utils.getDocLink("contributors");
+
+    setLinks("acceptableAdsExplanation", Utils.getDocLink("acceptable_ads_criteria"), openFilters);
+    setLinks("share-headline", Utils.getDocLink("contribute"));
+
     // Show warning if data corruption was detected
     if (typeof backgroundPage != "undefined" && backgroundPage.seenDataCorruption)
     {
       E("dataCorruptionWarning").removeAttribute("hidden");
       setLinks("dataCorruptionWarning", Utils.getDocLink("knownIssuesChrome_filterstorage"));
     }
-
-    // Set up URL
-    setLinks("acceptableAdsExplanation", Utils.getDocLink("acceptable_ads_criteria"), openFilters);
-
-    shade = E("shade");
-    shade.addEventListener("mouseover", scrollPage, false);
-    shade.addEventListener("mouseout", stopScroll, false);
 
     // Set up feature buttons linked to subscriptions
     featureSubscriptions.forEach(setToggleSubscriptionButton);
@@ -79,28 +82,24 @@
       FilterNotifier.removeListener(filterListener);
     }, false);
 
-    window.addEventListener("resize", onWindowResize, false);
-    document.addEventListener("scroll", onScroll, false);
-
-    onWindowResize();
+    // You can click activate-feature or one of the icons to toggle the features area
+    E("activate-features").addEventListener("click", toggleFeature, false);
+    E("can-do-more-overview").addEventListener("click", toggleFeature, false);
 
     initSocialLinks();
   }
 
-  function onScroll()
+  function toggleFeature()
   {
-    var currentHeight = document.documentElement.scrollTop + document.body.scrollTop + document.documentElement.clientHeight;
-    shade.style.opacity = (document.documentElement.scrollHeight == currentHeight) ? "0.0" : "0.5";
-  }
-
-  function onWindowResize()
-  {
-    onScroll();
-  }
-
-  function toggleTypoCorrectionEnabled()
-  {
-    Prefs.correctTypos = !Prefs.correctTypos;
+    var canDoMore = E("can-do-more");
+    if (!canDoMore.classList.contains("expanded"))
+    {
+      canDoMore.classList.add("expanded");
+    }
+    else if (canDoMore.classList.contains("expanded"))
+    {
+      canDoMore.classList.remove("expanded");
+    }
   }
 
   function isSubscriptionEnabled(featureSubscription)
@@ -130,23 +129,6 @@
           Synchronizer.execute(subscription);
       }
     }, false);
-  }
-
-  function scrollPage()
-  {
-    if (scrollTimer)
-      stopScroll();
-
-    scrollTimer = setInterval(function()
-    {
-      window.scrollBy(0, 5);
-    }, 20);
-  }
-
-  function stopScroll()
-  {
-    clearTimeout(scrollTimer);
-    scrollTimer = null;
   }
 
   function openSharePopup(url)
@@ -225,9 +207,12 @@
   {
     var element = E(id);
     if (!element)
+    {
       return;
+    }
 
     var links = element.getElementsByTagName("a");
+
     for (var i = 0; i < links.length; i++)
     {
       if (typeof arguments[i + 1] == "string")
