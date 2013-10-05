@@ -26,75 +26,136 @@
     <script type="text/javascript" src="firstRun.js"></script>
   </head>
   <body>
-    <div id="shade" class="arrow"></div>
-    <div id="content">
-      <header>
+
+
+    <header>
+        <div id="logo"></div>
         <h1 id="title-main" class="i18n_firstRun_title"></h1>
-      </header>
+    </header>
 
-      <p id="dataCorruptionWarning" class="i18n_firstRun_dataCorruptionWarning" hidden="true"></p>
+    <section id="dataCorruptionWarning" class="i18n_firstRun_dataCorruptionWarning" hidden="true"></section>
 
+
+    <section id="acceptable-ads">
+      <h2 class="i18n_firstRun_acceptableAdsHeadline"></h2>
       <p id="acceptableAdsExplanation" class="i18n_firstRun_acceptableAdsExplanation"></p>
+    </section>
 
-      <h2 id="features-title" class="i18n_firstRun_features"></h2>
+    <section id="can-do-more">
+      <h2 class="i18n_firstRun_features"></h2>
 
-      <ul id="features">
-        <li id="feature-malware" class="feature">
-          <div class="feature-image"></div>
-          <div class="feature-description">
-            <p class="feature-text">
-              <span class="i18n_firstRun_feature_malware feature-title"></span> <span class="i18n_firstRun_feature_malware_description"></span>
-            </p>
-          </div>
-          <div id="toggle-malware" class="toggle">
-            <div class="i18n_firstRun_toggle_on toggle-on"></div>
-            <div class="toggle-blob"></div>
-            <div class="i18n_firstRun_toggle_off toggle-off"></div>
-          </div>
+      <ul id="can-do-more-overview">
+        <li id="feature-first">
+          <div class="feature-malware-image"></div>
+          <h4 class="i18n_firstRun_feature_malware"></h4>
         </li>
-        <li id="feature-social" class="feature">
-          <div class="feature-image"></div>
-          <div class="feature-description">
-            <p class="feature-text">
-              <span class="i18n_firstRun_feature_social feature-title"></span> <span class="i18n_firstRun_feature_social_description"></span>
-            </p>
-          </div>
-          <div id="toggle-social" class="toggle">
-            <div class="i18n_firstRun_toggle_on toggle-on"></div>
-            <div class="toggle-blob"></div>
-            <div class="i18n_firstRun_toggle_off toggle-off"></div>
-          </div>
+        <li>
+          <div class="feature-social-image"></div>
+          <h4 class="i18n_firstRun_feature_social"></h4>
         </li>
-        <li id="feature-tracking" class="feature">
-          <div class="feature-image"></div>
-          <div class="feature-description">
-            <p class="feature-text">
-              <span class="i18n_firstRun_feature_tracking feature-title"></span> <span class="i18n_firstRun_feature_tracking_description"></span>
-            </p>
-          </div>
-          <div id="toggle-tracking" class="toggle">
-            <div class="i18n_firstRun_toggle_on toggle-on"></div>
-            <div class="toggle-blob"></div>
-            <div class="i18n_firstRun_toggle_off toggle-off"></div>
-          </div>
+        <li>
+          <div class="feature-tracking-image"></div>
+          <h4 class="i18n_firstRun_feature_tracking"></h4>
         </li>
       </ul>
 
-      <footer id="social">
-        <h1 class="i18n_firstRun_share"></h1>
-        <ul>
-          <li>
-            <a id="share-facebook" class="share-button" href="https://www.facebook.com/adblockplus" target="_blank" title="Share on Facebook" data-script="https://facebook.com/plugins/like.php?"></a>
+      <div id="can-do-more-expanded">
+        <ul id="features">
+          <li id="feature-malware" class="feature">
+            <div class="feature-image feature-malware-image"></div>
+            <div class="feature-description">
+              <div class="feature-description-textblock">
+                <h3 class="i18n_firstRun_feature_malware feature-title"></h3>
+                <span class="i18n_firstRun_feature_malware_description"></span>
+              </div>
+              <div id="toggle-malware" class="toggle">
+                <div class="i18n_firstRun_toggle_on toggle-on"></div>
+                <div class="toggle-blob"></div>
+                <div class="i18n_firstRun_toggle_off toggle-off"></div>
+              </div>
+            </div>
+
           </li>
-          <li>
-            <a id="share-twitter" class="share-button" href="https://twitter.com/adblockplus" target="_blank" title="Share on Twitter" data-script="https://platform.twitter.com/widgets.js"></a>
+          <li id="feature-social" class="feature">
+            <div class="feature-image feature-social-image"></div>
+            <div class="feature-description">
+              <div class="feature-description-textblock">
+                <h3 class="i18n_firstRun_feature_social feature-title"></h3>
+                <span class="i18n_firstRun_feature_social_description"></span>
+              </div>
+              <div id="toggle-social" class="toggle">
+                <div class="i18n_firstRun_toggle_on toggle-on"></div>
+                <div class="toggle-blob"></div>
+                <div class="i18n_firstRun_toggle_off toggle-off"></div>
+              </div>
+            </div>
           </li>
-          <li>
-            <a id="share-gplus" class="share-button" href="https://www.google.com/+AdblockPlus" target="_blank" title="Share on Google+" data-script="https://apis.google.com/js/plusone.js"></a>
+
+          <li id="feature-tracking" class="feature">
+            <div class="feature-image feature-tracking-image"></div>
+            <div class="feature-description">
+                <div class="feature-description-textblock">
+                  <h3 class="i18n_firstRun_feature_tracking feature-title"></h3>
+                  <span class="i18n_firstRun_feature_tracking_description"></span>
+                </div>
+                <div id="toggle-tracking" class="toggle">
+                  <div class="i18n_firstRun_toggle_on toggle-on"></div>
+                  <div class="toggle-blob"></div>
+                  <div class="i18n_firstRun_toggle_off toggle-off"></div>
+                </div>
+            </div>
           </li>
+
         </ul>
-      </footer>
-    </div>
+
+      </div>
+
+
+      <div id="activate-features" class="overview" data-status="overview">
+        <div class="arrow"></div>
+        <a id="activate-features-label">
+          <span id="label-show-expanded" class="i18n_firstRun_feature_show_expanded"></span>
+          <span id="label-show-overview" class="i18n_firstRun_feature_show_overview hide"></span>
+        </a>
+
+        <div class="arrow"></div>
+      </div>
+    </section>
+
+    <section id="share">
+      <h2 id="share-headline" class="i18n_firstRun_share_headline"></h2>
+
+      <div id="donate-block">
+        <a id="donate" class="i18n_firstRun_donate" target="_blank"></a>
+        <span id="donate-label" class="i18n_firstRun_donate_label"></span>
+      </div>
+
+      <div id="share-block">
+        <div id="share-general" class="share-buttons">
+          <a id="share-facebook" href="https://www.facebook.com/adblockplus" target="_blank" data-script="https://facebook.com/plugins/like.php?">
+          </a>
+          <a id="share-twitter" href="https://twitter.com/adblockplus" target="_blank" data-script="https://platform.twitter.com/widgets.js">
+          </a>
+          <a id="share-gplus" href="https://www.google.com/+AdblockPlus" target="_blank" data-script="https://apis.google.com/js/plusone.js">
+          </a>
+        </div>
+
+        <!-- Chinese social networks -->
+        <div id="share-chinese" class="share-buttons">
+          <a id="share-renren" href="http://www.renren.com/601651969" target="_blank">
+          </a>
+          <a id="share-weibo" href="http://e.weibo.com/adblockplus/" target="_blank">
+          </a>
+        </div>
+        <span class="i18n_firstRun_share"></span>
+      </div>
+
+    </section>
+
+    <footer>
+      <a id="contributors" class="i18n_firstRun_contributor_credits"></a>
+    </footer>
+
 
     <div id="glass-pane">
       <iframe id="share-popup" scrolling="no"></iframe>
