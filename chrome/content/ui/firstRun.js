@@ -91,15 +91,7 @@
 
   function toggleFeature()
   {
-    var canDoMore = E("can-do-more");
-    if (!canDoMore.classList.contains("expanded"))
-    {
-      canDoMore.classList.add("expanded");
-    }
-    else if (canDoMore.classList.contains("expanded"))
-    {
-      canDoMore.classList.remove("expanded");
-    }
+    E("can-do-more").classList.toggle("expanded");
   }
 
   function isSubscriptionEnabled(featureSubscription)
