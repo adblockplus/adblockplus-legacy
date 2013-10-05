@@ -507,14 +507,14 @@ section > p
   display: inline-block;
 }
 
-html[lang^="zh_"] #share-chinese,
-html:not([lang^="zh_"]) #share-general
+#share-general,
+:root[lang^="zh-"] #share-chinese
 {
   display: block;
 }
 
-html[lang^="zh_"] #share-general,
-html:not([lang^="zh_"]) #share-chinese
+:root[lang^="zh-"] #share-general,
+#share-chinese
 {
   display: none;
 }
