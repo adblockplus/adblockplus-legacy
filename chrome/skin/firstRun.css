@@ -191,8 +191,7 @@ section > p
   /* hides appearing spacings because of
    * using display: inline-block*/
   cursor: pointer;
-  transition: opacity 0.3s step-end;
-  -moz-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
   -webkit-transition: opacity 0.3s ease-in-out;
 }
 
@@ -204,9 +203,7 @@ section > p
   margin: 0;
   padding: 0;
   transition: none;
-  -moz-transition: none;
   -webkit-transition: none;
-  -o-transition: none;
 }
 
 #can-do-more-overview > li:hover
@@ -278,7 +275,6 @@ section > p
   max-height: 10000px;
   margin: 30px 100px 0 100px;
   transition: opacity 0.5s ease-in-out;
-  -moz-transition: opacity 0.5s ease-in-out;
   -webkit-transition: opacity 0.5s ease-in-out;
   transition-delay: 0.2s;
   -webkit-transition-delay: 0.2s;
@@ -291,9 +287,7 @@ section > p
   margin: 0;
   padding: 0;
   transition: none;
-  -moz-transition: none;
   -webkit-transition: none;
-  -o-transition: none;
 }
 
 
@@ -304,9 +298,7 @@ section > p
   margin: auto;
   padding: auto;
   transition-property: all;
-  -moz-transition-property: all;
   -webkit-transition-property: all;
-  -o-transition-property: all;
   transition-duration: 0.5s;
   -webkit-transition-duration: 0.5s;
   transition-timing-function: ease-in-out;
@@ -384,7 +376,7 @@ section > p
   text-align: center;
   font-style: italic;
   font-family: CreteRound, Helvetica, Arial, sans-serif;
-  -moz-transition: opacity 0.5s ease-in-out;
+  -webkit-transition: opacity 0.5s ease-in-out;
   transition: opacity 0.5s ease-in-out;
 }
 
@@ -463,8 +455,6 @@ section > p
 
 #donate:hover, .share-buttons a:hover
 {
-  -moz-box-shadow: 0px 0px 0px 2px #8ca7c4;
-  -webkit-box-shadow: 0px 0px 0px 2px #8ca7c4;
   box-shadow: 0px 0px 0px 2px #8ca7c4;
   border-radius: 30px;
 }
@@ -536,8 +526,6 @@ html:not([lang^="zh_"]) #share-chinese
 
 #share-chinese > a:hover
 {
-  -moz-box-shadow: none;
-  -webkit-box-shadow: none;
   box-shadow: none;
   border-radius: 0;
   border-bottom: 2px solid #8CA7C4;
@@ -602,9 +590,6 @@ html:not([lang^="zh_"]) #share-chinese
   display: inline-block;
   margin: 0px 5px;
   -webkit-transition: opacity .5s ease, bottom .3s ease;
-  -moz-transition: opacity .5s ease, bottom .3s ease;
-  -o-transition: opacity .5s ease, bottom .3s ease;
-  -ms-transition: opacity .5s ease, bottom .3s ease;
   transition: opacity .5s ease, bottom .3s ease;
   position: relative;
   bottom: -30px;
@@ -628,9 +613,6 @@ html:not([lang^="zh_"]) #share-chinese
   visibility: hidden;
   opacity: 0;
   -webkit-transition-property: opacity, visibility;
-  -moz-transition-property: opacity, visibility;
-  -o-transition-property: opacity, visibility;
-  -ms-transition-property: opacity, visibility;
   transition-property: opacity, visibility;
 }
 
@@ -644,9 +626,6 @@ html:not([lang^="zh_"]) #share-chinese
   background: rgba(0, 0, 0, 0.5) url(ajax-loader.gif) no-repeat 50% 50%;
   z-index: 101;
   -webkit-transition-duration: 0.2s;
-  -moz-transition-duration: 0.2s;
-  -o-transition-duration: 0.2s;
-  -ms-transition-duration: 0.2s;
   transition-duration: 0.2s;
 }
 
@@ -657,9 +636,6 @@ html:not([lang^="zh_"]) #share-chinese
   left: 50%;
   border: none;
   -webkit-transition-delay: 0.1s;
-  -moz-transition-delay: 0.1s;
-  -o-transition-delay: 0.1s;
-  -ms-transition-delay: 0.1s;
   transition-delay: 0.1s;
 }
 
@@ -672,9 +648,6 @@ html:not([lang^="zh_"]) #share-chinese
 #share-popup.visible
 {
   -webkit-transition-duration: 0.15s;
-  -moz-transition-duration: 0.15s;
-  -o-transition-duration: 0.15s;
-  -ms-transition-duration: 0.15s;
   transition-duration: 0.15s;
 }
 
@@ -696,8 +669,6 @@ html:not([lang^="zh_"]) #share-chinese
 
 .toggle:hover
 {
-  -moz-box-shadow: 0px 0px 3px 0px #968d81;
-  -webkit-box-shadow: 0px 3px 0px 0px #968d81;
   box-shadow: 0px 0px 3px 0px #968d81;
 }
 
@@ -715,8 +686,6 @@ html:not([lang^="zh_"]) #share-chinese
   text-align: center;
   line-height: 23px;
   border-radius: 9999px;
-  -moz-border-radius: 9999px;
-  -webkit-border-radius: 9999px;
 }
 
 .toggle-on
