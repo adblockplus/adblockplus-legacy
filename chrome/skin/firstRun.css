@@ -149,7 +149,6 @@ section > p
   margin: 15px 0 0 0;
 }
 
-
 #logo
 {
   margin: 0 auto;
@@ -382,22 +381,22 @@ section > p
 
 #can-do-more.expanded #label-show-expanded
 {
-  display: block;
+  display: none;
 }
 
 #can-do-more.expanded #label-show-overview
 {
-  display: none;
+  display: block;
 }
 
 #label-show-expanded
 {
-  display: none;
+  display: block;
 }
 
 #label-show-overview
 {
-  display: block;
+  display: none;
 }
 
 #activate-features-label:hover
