@@ -399,9 +399,10 @@ section > p
   display: none;
 }
 
-#activate-features-label:hover
+#activate-features:hover a
 {
   color: #1f6822;
+  text-decoration: none;
 }
 
 #can-do-more.expanded .arrow
