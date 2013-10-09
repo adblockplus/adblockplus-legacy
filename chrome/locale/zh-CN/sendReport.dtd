@@ -4,6 +4,7 @@
 <!ENTITY typeSelector.falsePositive.label "Adblock Plus 屏蔽了太多元素 (&amp;m)">
 <!ENTITY issues.change.description "您的设置已更改。请重新载入页面来测试
 更改，如果问题依旧没有解决请提交报告。">
+<!ENTITY email.label "发送邮件 (&amp;m)">
 <!ENTITY issues.openPreferences.label "打开过滤规则首选项">
 <!ENTITY sendPage.confirmation "您的报告已保存。您可以通过如下地址访问:">
 <!ENTITY copyLink.label "复制报告链接 (&amp;C)">
@@ -14,6 +15,7 @@
 <!ENTITY typeWarning.override.label "我了解并仍然希望提交报告 (&amp;s)">
 <!ENTITY issues.disabled.enable.label "启用 Adblock Plus">
 <!ENTITY update.fixed.description "更新的过滤规则订阅组应该解决了您报告的问题。请重新载入页面并重试，如果问题仍然存在，请您继续报告问题。">
+<!ENTITY anonymous.label "匿名提交 (&amp;A)">
 <!ENTITY reloadButton.label "重新载入页面 (&amp;R)">
 <!ENTITY recentReports.clear.label "移除所有报告 (&amp;R)">
 <!ENTITY typeSelector.description "本窗口将通过一系列的步骤来引导您提交 Adblock Plus 问题报告。

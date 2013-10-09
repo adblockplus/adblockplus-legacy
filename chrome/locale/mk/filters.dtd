@@ -1,0 +1,12 @@
+<!ENTITY addSubscriptionOther.label "Додади друга претплата">
+<!ENTITY subscription.source.label "Листа на филтери">
+<!ENTITY addSubscriptionAdd.label "Додади">
+<!ENTITY addSubscriptionCancel.label "Откажи">
+<!ENTITY subscription.enabled.label "Вклучено">
+<!ENTITY subscription.homepage.label "Почетна Страница">
+<!ENTITY noSubscriptions.text "Немате додадено филтери. AdBlock неможе да блокира реклами без филтери, ве молиме притиснете “Додади Филтери“ да додадете филтери.">
+<!ENTITY subscription.external.label "Ажурирано од друга екстензија">
+<!ENTITY addSubscription.label "Додади претплата на филтер">
+<!ENTITY dialog.title "Филтерски Подесувања">
+<!ENTITY filters.tab.label "Твои филтери">
+<!ENTITY subscriptions.tab.label "Филтерски претплати">

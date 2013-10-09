@@ -18,14 +18,14 @@
 <!ENTITY context.block.label "Bu öğeyi engelle">
 <!ENTITY context.enablefilter.label "Süzgeci devreye sok ?1?">
 <!ENTITY detach.label "Ayır">
-<!ENTITY whitelisted.label "Ak listeye dahil bir sayfa">
+<!ENTITY whitelisted.label "Beyaz listeye dahil sayfa">
 <!ENTITY context.disablefilteronsite.label "Bu süzgeci burada kullanma ?1?">
 <!ENTITY detached.title "Adblock Plus: Engellenebilecek öğeler (ayrıldı)">
 <!ENTITY docDomain.firstParty "(birinci taraf)">
-<!ENTITY tooltip.type.whitelisted "(ak listede)">
-<!ENTITY tooltip.filter.label "Yürürlükteki süzgeç:">
+<!ENTITY tooltip.type.whitelisted "(Beyaz listede)">
+<!ENTITY tooltip.filter.label "Geçerli süzgeç:">
 <!ENTITY tooltip.filter.disabled "(devre dışı)">
-<!ENTITY context.editfilter.label "Yürürlükteki süzgeci düzelt">
+<!ENTITY context.editfilter.label "Geçerli süzgeci düzelt">
 <!ENTITY tooltip.type.blocked "(engellendi)">
 <!ENTITY size.label "Boyut">
 <!ENTITY context.whitelist.label "Öğeye ayrıcalık tanı">

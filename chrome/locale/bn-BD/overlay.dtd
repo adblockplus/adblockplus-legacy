@@ -1,0 +1,6 @@
+<!ENTITY options.label "&amp;অপশনস">
+<!ENTITY objecttab.tooltip "Adblock Plus দিয়ে এই বস্তু অবরুদ্ধ করার জন্য এখানে ক্লিক করুন">
+<!ENTITY toolbarbutton.label "Adblock Plus">
+<!ENTITY status.tooltip "অবস্থা:">
+<!ENTITY blocked.tooltip "এই পৃষ্ঠার অবরুদ্ধ আইটেমগুলি:">
+<!ENTITY objecttab.title "অবরুদ্ধ">

@@ -3,6 +3,7 @@
 <!ENTITY showData.label "顯示報告資料">
 <!ENTITY typeSelector.falsePositive.label "Adblock Plus 擋了太多東西 (&amp;m)">
 <!ENTITY issues.change.description "您的設定值已變更。請在重新載入頁面後測試錯誤是否仍然存在，若錯誤依舊存在，請傳送錯誤報告。">
+<!ENTITY email.label "E&amp;mail:">
 <!ENTITY issues.openPreferences.label "開啟條件偏好設定">
 <!ENTITY sendPage.confirmation "報告已儲存。您可以在下列網址存取:">
 <!ENTITY copyLink.label "複製報告連結 (&amp;C)">
@@ -13,6 +14,7 @@
 <!ENTITY typeWarning.override.label "我了解並堅持要傳送錯誤報告 (&amp;s)">
 <!ENTITY issues.disabled.enable.label "啟用 Adblock Plus">
 <!ENTITY update.fixed.description "過濾條件集更新後很可能解決了您正要回報的問題。請重新載入網頁後再試一次，若問題仍在請再次回報。">
+<!ENTITY anonymous.label "以匿名方式提交">
 <!ENTITY reloadButton.label "重新載入頁面 (&amp;R)">
 <!ENTITY recentReports.clear.label "移除所有錯誤報告 (&amp;R)">
 <!ENTITY typeSelector.description "本視窗會一步步指導您傳送一份 Adblock Plus 錯誤報告。首先，請選擇您在此頁面碰到的錯誤類型：">
@@ -32,6 +34,7 @@
 <!ENTITY issues.nosubscriptions.description "您似乎沒有訂閱任何過濾條件集，訂閱過濾條件集可自動移除與網頁內容無關的廣告。">
 <!ENTITY typeSelector.falsePositive.description "選擇此選項表示網頁缺少了主要內容、顯示錯誤或功能異常。您可以暫時停用 Adblock Plus 後再試一次，若停用後問題消失，則很可能就是 Adblock Plus 的問題。">
 <!ENTITY typeSelector.other.label "其他問題 (&amp;t)">
+<!ENTITY emailComment.label "建議您輸入有效的電子郵件位址，如此我們才能在有疑問時連絡您。這也會用來辨識您所提交的報告，並提高其優先權。">
 <!ENTITY issues.whitelist.remove.label "在此頁面重新啟用 Adblock Plus">
 <!ENTITY outdatedSubscriptions.description "下列的過濾條件集至少兩個星期沒有更新。請在送出報告前更新這些條件集，說不定問題已經解決了。">
 <!ENTITY dataCollector.description "請稍候，Adblock Plus 正在蒐集必要的資料。">
@@ -47,6 +50,7 @@
 <!ENTITY issues.whitelist.description "Adblock Plus 在您目前回報的頁面中停用。請在送出報告前再次啟用並重新載入該網頁以協助調查。">
 <!ENTITY typeSelector.falseNegative.label "Adblock Plus 沒有擋掉廣告 (&amp;v)">
 <!ENTITY typeSelector.heading "選擇問題類型">
+<!ENTITY anonymity.warning "我們將無法聯絡您，且此報告的優先權可能會相對較低。">
 <!ENTITY wizard.title "錯誤回報器">
 <!ENTITY issues.ownfilters.disable.label "停用過濾條件">
 <!ENTITY commentPage.description "下面的文字方塊可以讓您輸入額外的註解，以幫助我們更了解問題所在。這個步驟不是必須的，但若問題不太明顯時還是建議您這麼做。在回報之前您也可以檢視報告資料。">

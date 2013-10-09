@@ -26,7 +26,7 @@
 <!ENTITY filter.delete.label "Verwijderen">
 <!ENTITY addSubscriptionAdd.label "Toevoegen">
 <!ENTITY viewMenu.label "Beeld">
-<!ENTITY subscription.lastDownload.unknown "N.B.">
+<!ENTITY subscription.lastDownload.unknown "Onbekend">
 <!ENTITY addSubscriptionCancel.label "Annuleren">
 <!ENTITY subscription.enabled.label "Ingeschakeld">
 <!ENTITY noSubscriptions.text "U heeft nog geen filterabonnementen toegevoegd. Adblock Plus blokkeert niets zonder filters, gebruik ‘Filterabonnement toevoegen’ om er één toe te voegen.">

@@ -7,17 +7,17 @@
 <!ENTITY thirdParty.label "仅第三方 (&amp;T)">
 <!ENTITY filter.label "新建过滤规则: (&amp;f)">
 <!ENTITY collapse.label "折叠已屏蔽: (&amp;l)">
-<!ENTITY match.warning "您输入的模式不是该地址的屏蔽/例外规则，将不会对该地址产生任何效果。">
+<!ENTITY match.warning "您输入的模式不是该地址的过滤/例外规则，将不会对该地址产生任何效果。">
 <!ENTITY anchor.start.label "在地址开始处 (&amp;g)">
 <!ENTITY matchCase.label "匹配大小写 (&amp;M)">
 <!ENTITY custom.pattern.label "自定义: (&amp;C)">
 <!ENTITY unselectAllTypes.label "全不选">
 <!ENTITY type.whitelist.label "例外规则 (&amp;x)">
-<!ENTITY regexp.warning "您输入的模式将以正则表达式解释。过多的正则表达式会降低您浏览的速度。如果您不希望使用正则表达式，请在模式末尾添加一个星号(*)。">
+<!ENTITY regexp.warning "您输入的模式将以正则表达式解释。此正则表达式不能高效地在Adblock Plus上运行，并且可能会降低您浏览的速度。如果您不希望使用正则表达式，请在模式末尾添加一个星号(*)。">
 <!ENTITY dialog.title "添加 Adblock Plus 过滤规则">
 <!ENTITY basic.label "基本视图">
 <!ENTITY type.filter.label "屏蔽规则 (&amp;B)">
-<!ENTITY types.label "应用类型:">
+<!ENTITY types.label "适用于类型：">
 <!ENTITY shortpattern.warning "您输入的模式太短而不能被优化，过多这样的模式会降低您浏览的速度。推荐您为该过滤规则选择一个长些的字符串，这样 Adblock Plus 才能更有效地处理。">
 <!ENTITY collapse.yes.label "是">
 <!ENTITY anchors.label "仅接受模式:">

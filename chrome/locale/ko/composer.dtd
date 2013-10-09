@@ -3,7 +3,7 @@
 <!ENTITY collapse.default.no.label "기본값 (아니오)">
 <!ENTITY firstParty.label "내부 요청에만 적용 (&amp;r)">
 <!ENTITY preferences.label "필터 목록 (&amp;S)">
-<!ENTITY pattern.label "패턴 찾기">
+<!ENTITY pattern.label "유형 찾기">
 <!ENTITY thirdParty.label "외부 요청에만 적용 (&amp;T)">
 <!ENTITY filter.label "새 필터 (&amp;f)">
 <!ENTITY collapse.label "차단된 요소의 영역 숨기기 (&amp;l)">
@@ -25,7 +25,7 @@
 <!ENTITY domainRestriction.help "1. 파이프 기호(|)를 이용해 여러 도메인에 적용 (예시 : site1.com|site2.net). 2. 물결 기호(~)를 이용해 필터를 적용하지 않을 도메인 지정 (예시 : ~site.com)">
 <!ENTITY accept.label "추가">
 <!ENTITY options.label "옵션">
-<!ENTITY disabled.warning "애드블락 플러스의 현재 비활성화됨. 필터는 여전히 추가할 수 있지만 [link]애드블락을 활성화[/link] 하지 않으면 추가한 것은 적용되지 않습니다.">
+<!ENTITY disabled.warning "애드블록 플러스는 현재 비활성화된 상태입니다. 필터는 여전히 추가할 수 있지만 [link]애드블록플러스를 활성화[/link]하지 않으면 추가한 필터는 적용되지 않습니다.">
 <!ENTITY anchor.start.flexible.label "도메인 시작 부분에 일치 (&amp;g)">
 <!ENTITY collapse.no.label "아니오">
 <!ENTITY selectAllTypes.label "모두 선택">

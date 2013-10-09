@@ -1,6 +1,6 @@
 <!ENTITY addMain.label "Agregá también la suscripción de filtros &quot;?1?&quot;.">
 <!ENTITY list.download.failed "Hubo un error al recuperar la lista de suscripciones.">
-<!ENTITY list.download.retry "Intentá otra vez">
+<!ENTITY list.download.retry "Intentar de nuevo">
 <!ENTITY title.label "&amp;Título de suscripción:">
 <!ENTITY list.download.website "Ver sitio web">
 <!ENTITY supplementMessage "Esta suscripción está diseñada para ser usada conjuntamente con la suscripción de filtros &quot;?1?&quot;, que aún no agregaste.">

@@ -1,0 +1,7 @@
+<!ENTITY accept.label "Añadir filtro">
+<!ENTITY disabled.warning "Adblock Plus está desactivado. Puede añadir filtros, pero no se aplicarán a menos que [link]active Adblock Plus[/link].">
+<!ENTITY preferences.label "&amp;Mostrar filtros existentes…">
+<!ENTITY advanced.label "Vista avanzada">
+<!ENTITY dialog.title "Añadir regla de filtrado de Adblock Plus">
+<!ENTITY basic.label "Vista básica">
+<!ENTITY filter.label "&amp;Nuevo filtro:">

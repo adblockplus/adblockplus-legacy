@@ -2,7 +2,7 @@
 <!ENTITY domainRestriction.label "ت&amp;قييد النطاق:">
 <!ENTITY collapse.default.no.label "استخدام الافتراضي (لا)">
 <!ENTITY firstParty.label "الطرف &amp;نفسه فقط">
-<!ENTITY preferences.label "إ&amp;عرض المصافي المتوفرة...">
+<!ENTITY preferences.label "&amp;إعرض الفلاتر المتوفرة...">
 <!ENTITY pattern.label "إبحث عن نموذج">
 <!ENTITY thirdParty.label "أطراف أ&amp;خرى فقط">
 <!ENTITY filter.label "&amp;فلتر جديد :">
@@ -16,7 +16,7 @@
 <!ENTITY regexp.warning "النموذج الذي أدخلته سيتم تعبيره على أنه تعبير العادي، الكثير من التعابير العادية قد تؤدي إلى بطء في التصفح. إن لم تكن تنوي استخدام التعابير العادية، قم بإضافة الرمز &quot;*&quot; إلى نهاية النموذج">
 <!ENTITY dialog.title "إضافة قاعدة فلاتر لآدبلوك بلس">
 <!ENTITY basic.label "العرض الأساسي">
-<!ENTITY type.filter.label "حجب ال&amp;مصفاة">
+<!ENTITY type.filter.label "&amp;فلاتر حجب">
 <!ENTITY types.label "التطبيق على الأنواع:">
 <!ENTITY shortpattern.warning "النموذج الذي أدخلته قصير جداً ليتم تحسينه وقد يبطئ تصفحك. ينصح باختيار قيمة أطول لهذا الفلتر لكي يقوم آدبلوك بلس بفلترته بطريقة بكفاءة.">
 <!ENTITY collapse.yes.label "نعم">
@@ -24,8 +24,8 @@
 <!ENTITY collapse.default.yes.label "استخدام الافتراضي (نعم)">
 <!ENTITY domainRestriction.help "استعمل هذا الخيار لتحديد نطاق واحد أو أكثر مفصول بالرمز &quot;|&quot;، سيطبق هذا الفلتر على هذه النطاقات فقط. وضع الرمز &quot;~&quot; قبل اسم نطاق يعني أن الفلتر يجب ألا يطبق على ذلك النطاق">
 <!ENTITY accept.label "إضافة فلتر">
-<!ENTITY options.label "خيارات">
-<!ENTITY disabled.warning "آدبلوك بلس معطل حالياً. ما يزال بإمكانك إضافة المصافي، لكن لن يتم تطبيقها إلا إذا قمت [link]بتفعيل آدبلوك بلس[/link].">
+<!ENTITY options.label "إعدادات">
+<!ENTITY disabled.warning "آدبلوك بلس معطل حالياً. ما زال يمكنك إضافة الفلاتر و لكن لن يتم تطبيقهم إلا إذا قمت  ب[link]بتفعيل آدبلوك بلس[/link].">
 <!ENTITY anchor.start.flexible.label "في ب&amp;داية اسم النطاق">
 <!ENTITY collapse.no.label "لا">
 <!ENTITY selectAllTypes.label "اختيار الكل">

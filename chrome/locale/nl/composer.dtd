@@ -1,11 +1,11 @@
-<!ENTITY anchor.end.label "aan h&amp;et eind van het adres">
+<!ENTITY anchor.end.label "aan het e&amp;ind van het adres">
 <!ENTITY domainRestriction.label "Tot domein be&amp;perken:">
 <!ENTITY collapse.default.no.label "Standaard gebruiken (nee)">
 <!ENTITY firstParty.label "A&amp;lleen van eigen website">
 <!ENTITY preferences.label "Bestaande filters &amp;weergeven…">
 <!ENTITY pattern.label "Naar patroon zoeken">
 <!ENTITY thirdParty.label "Alleen van &amp;derden">
-<!ENTITY filter.label "&amp;Nieuw filter:">
+<!ENTITY filter.label "&amp;Nieuwe filter:">
 <!ENTITY collapse.label "&amp;Geblokkeerd onderdeel inklappen:">
 <!ENTITY match.warning "Het door u ingegeven patroon komt niet meer overeen met het te blokkeren/op de witte lijst te plaatsen adres en zal er geen effect op hebben.">
 <!ENTITY anchor.start.label "aan &amp;het begin van het adres">

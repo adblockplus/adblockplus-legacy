@@ -8,7 +8,7 @@
 <!ENTITY backupButton.label "Resg&amp;uardar y restaurar">
 <!ENTITY restore.minVersion.warning "Advertencia: este archivo fue creado por una versión más reciente de Adblock Plus. Deberías actualizarte a la última versión de Adblock Plus antes de restaurar este archivo.">
 <!ENTITY restore.error "No se pudo procesar los datos del archivo. ¿Este es un archivo de resguardo de Adblock Plus?">
-<!ENTITY sort.ascending.label "Orde&amp;nar de la &quot;A&quot; a la &quot;Z&quot;">
+<!ENTITY sort.ascending.label "Ordenar de la &quot;&amp;A&quot; a la &quot;Z&quot;">
 <!ENTITY sort.label "&amp;Ordenar por">
 <!ENTITY subscription.source.label "Lista de filtros">
 <!ENTITY hitcount.column "V&amp;eces usado">

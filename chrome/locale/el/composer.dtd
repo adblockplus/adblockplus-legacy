@@ -2,17 +2,17 @@
 <!ENTITY domainRestriction.label "Περιορισ&amp;μός στον τομέα:">
 <!ENTITY collapse.default.no.label "Χρήση προκαθορισμένου (όχι)">
 <!ENTITY firstParty.label "&amp;Εκτός από τρίτους">
-<!ENTITY preferences.label "&amp;Προβολή υπαρχόντων φίλτρων...">
+<!ENTITY preferences.label "Προβολή υπαρχόντων φίλτρων...">
 <!ENTITY pattern.label "Αναζήτηση μοτίβου">
 <!ENTITY thirdParty.label "Από &amp;τρίτους μόνο">
-<!ENTITY filter.label "Νέο &amp;φίλτρο:">
-<!ENTITY collapse.label "Σύμπτυξη στοι&amp;χείων:">
+<!ENTITY filter.label "Νέο φίλτρο:">
+<!ENTITY collapse.label "Σύμπτυξη φραγμένων:">
 <!ENTITY match.warning "Το μοτίβο που εισάγατε δεν ταιριάζει πλέον στην διεύθυνση που θέλετε να φραγεί και δεν θα έχει κανένα αποτέλεσμα.">
 <!ENTITY anchor.start.label "στην &amp;αρχή της διεύθυνσης">
-<!ENTITY matchCase.label "Ταίριασμα μι&amp;κρών-κεφαλαίων">
+<!ENTITY matchCase.label "Ταίριασμα μικρών-κεφαλαίων">
 <!ENTITY custom.pattern.label "Προ&amp;σαρμογή:">
 <!ENTITY unselectAllTypes.label "Επιλογή κανενός">
-<!ENTITY type.whitelist.label "Κανόνας ε&amp;ξαίρεσης">
+<!ENTITY type.whitelist.label "Κανόνας εξαίρεσης">
 <!ENTITY regexp.warning "Το μοτίβο που εισάγατε θα ερμηνευτεί σαν regular expression. Πολλά regular expressions μπορεί να μειώσουν την ταχύτητα πλοήγησης. Αν σκοπός σας δεν ήταν να χρησιμοποιήσετε regular expressions, προσθέστε το σύμβολο * στο τέλος του μοτίβου.">
 <!ENTITY dialog.title "Προσθήκη κανόνα φίλτρου του Adblock Plus">
 <!ENTITY basic.label "Βασική προβολή">

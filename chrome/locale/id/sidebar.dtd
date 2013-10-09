@@ -1,28 +1,35 @@
 <!ENTITY context.flash.label "Border item yang ber-flash">
-<!ENTITY tooltip.type.label "Tipe:">
 <!ENTITY address.label "Alamat">
 <!ENTITY context.open.label "Buka di tab baru">
-<!ENTITY type.label "Tipe">
+<!ENTITY type.label "Ketik">
 <!ENTITY tooltip.filterSource.label "Sumber filter:">
 <!ENTITY noitems.label "Tidak ada item yang bisa diblok">
+<!ENTITY filter.label "Filter">
 <!ENTITY tooltip.size.label "Ukuran:">
 <!ENTITY reattach.label "Sertakan kembali">
 <!ENTITY search.label "&amp;Cari:">
+<!ENTITY docDomain.thirdParty "(pihak ketiga)">
+<!ENTITY filterSource.label "Sumber filter">
+<!ENTITY tooltip.docDomain.label "Sumber dokumen:">
 <!ENTITY context.copy.label "Salin alamat item">
-<!ENTITY tooltip.type.blocked "(diblok)">
-<!ENTITY context.disablefilter.label "Matikan filter ?1?">
+<!ENTITY tooltip.type.label "Tipe:">
+<!ENTITY context.disablefilter.label "Nonaktifkan filter ?1?">
 <!ENTITY context.copyFilter.label "Salin filter">
-<!ENTITY context.editfilter.label "Edit filter efek">
+<!ENTITY context.block.label "Blokir item ini">
 <!ENTITY context.enablefilter.label "Hidupkan ulang filter ?1?">
 <!ENTITY detach.label "Lepas">
 <!ENTITY whitelisted.label "Halaman yang dibebaskan">
-<!ENTITY context.disablefilteronsite.label "Matikan filter ini pada ?1?">
+<!ENTITY context.disablefilteronsite.label "Nonaktifkan filter ini pada ?1?">
 <!ENTITY detached.title "Adblock Plus: Item yang bisa diblok (dilepaskan)">
+<!ENTITY docDomain.firstParty "(pihak pertama)">
 <!ENTITY tooltip.type.whitelisted "(dibebaskan)">
-<!ENTITY tooltip.filter.label "Filter efek:">
-<!ENTITY context.block.label "Blok item ini">
+<!ENTITY tooltip.filter.label "Efek filter:">
+<!ENTITY tooltip.filter.disabled "(dinonaktifkan)">
+<!ENTITY context.editfilter.label "Edit efek filter">
+<!ENTITY tooltip.type.blocked "(diblokir)">
 <!ENTITY size.label "Ukuran">
 <!ENTITY context.whitelist.label "Tambahkan Aturan pengecualian untuk item">
 <!ENTITY context.selectAll.label "Pilih semua">
 <!ENTITY state.label "Bagian">
+<!ENTITY docDomain.label "Sumber dokumen">
 <!ENTITY tooltip.address.label "Alamat:">
