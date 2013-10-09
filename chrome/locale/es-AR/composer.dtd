@@ -2,7 +2,7 @@
 <!ENTITY domainRestriction.label "Restringir al d&amp;ominio:">
 <!ENTITY collapse.default.no.label "Usar predeterminado (no)">
 <!ENTITY firstParty.label "Solamente pe&amp;rsonal">
-<!ENTITY preferences.label "&amp;Mostrar filtros existentes">
+<!ENTITY preferences.label "&amp;Mostrar filtros existentes…">
 <!ENTITY pattern.label "Buscar patrón">
 <!ENTITY thirdParty.label "Solamen&amp;te de terceros">
 <!ENTITY filter.label "Nuevo fi&amp;ltro:">

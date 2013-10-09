@@ -5,7 +5,7 @@
 <!ENTITY preferences.label "&amp;Näytä nykyiset suodattimet...">
 <!ENTITY pattern.label "Merkkijonon löytäminen">
 <!ENTITY thirdParty.label "Vain &amp;muiden kuin sivun ylläpitäjän">
-<!ENTITY filter.label "&amp;Uusi suodatin:">
+<!ENTITY filter.label "Uusi &amp;suodatin:">
 <!ENTITY collapse.label "&amp;Romahduta estetyt:">
 <!ENTITY match.warning "Syöttämäsi merkkijono ei enää täsmää estettävän/sallittavan osoitteen kanssa; se ei vaikuta kyseiseen osoitteeseen.">
 <!ENTITY anchor.start.label "osoi&amp;tteen alussa">
@@ -24,10 +24,10 @@
 <!ENTITY collapse.default.yes.label "Käytä oletusta (kyllä)">
 <!ENTITY domainRestriction.help "Määrittele yksi tai useampia verkkotunnuksia &quot;|&quot;-merkilla eroteltuna. Suodatin on käytössä vain näissä verkkotunnuksissa. Suodatinta ei käytetä verkkotunnuksella, jos sen edessä on &quot;~&quot;-merkki.">
 <!ENTITY accept.label "Lisää suodatin">
-<!ENTITY options.label "Valinnat">
+<!ENTITY options.label "Asetukset">
 <!ENTITY disabled.warning "Adblock Plus on tällä hetkellä poistettu käytöstä. Voit silti lisätä suodattimia mutta ne otetaan käyttöön vasta kun, [link]otat Adblockin Plussan käyttöön[/link].">
 <!ENTITY anchor.start.flexible.label "verkko&amp;tunnuksen alussa.">
 <!ENTITY collapse.no.label "Ei">
 <!ENTITY selectAllTypes.label "Valitse kaikki">
-<!ENTITY advanced.label "Lisänäkymä">
+<!ENTITY advanced.label "Edistyneempi näkymä">
 <!ENTITY pattern.explanation "Merkkijono voi olla mikä tahansa osoitteen osa. Tähtimerkki (*) toimii jokerimerkkinä. Suodatin toimii vain osoitteissa, joita merkkijono vastaa.">

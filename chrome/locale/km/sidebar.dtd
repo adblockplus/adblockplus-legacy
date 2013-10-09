@@ -1,0 +1,32 @@
+<!ENTITY address.label "អាសយដ្ឋាន">
+<!ENTITY context.open.label "បើកក្នុងផ្ទាំងថ្មី">
+<!ENTITY type.label "ប្រភេទ">
+<!ENTITY tooltip.filterSource.label "ប្រភពអ្នកចម្រោះ:">
+<!ENTITY noitems.label "គ្មានវត្ថុដែលអាចរារាំងបាន">
+<!ENTITY filter.label "ចម្រោះ">
+<!ENTITY tooltip.size.label "ទំហំ:">
+<!ENTITY reattach.label "ខ្ទាស់ម្ដងទៀត">
+<!ENTITY search.label "&amp;ស្វែងរក:">
+<!ENTITY docDomain.thirdParty "(អ្នកទីបី)">
+<!ENTITY filterSource.label "ប្រភពអ្នកចម្រោះ">
+<!ENTITY tooltip.docDomain.label "ប្រភពឯកសារ:">
+<!ENTITY context.copy.label "ចម្លងអាសយដ្ឋានរបស់វត្ថុ">
+<!ENTITY tooltip.type.label "ប្រភេទ:">
+<!ENTITY context.disablefilter.label "បិទការប្រើអ្នកចម្រោះ ?1?">
+<!ENTITY context.copyFilter.label "ចម្លងអ្នកចម្រោះ">
+<!ENTITY context.block.label "រារាំងវត្ថុនេះ">
+<!ENTITY context.enablefilter.label "បើកការប្រើអ្នកចម្រោះម្ដងទៀត ?1?">
+<!ENTITY detach.label "ញែកចេញ">
+<!ENTITY whitelisted.label "ទំព័រក្នុងបញ្ជីស">
+<!ENTITY context.disablefilteronsite.label "បិទការប្រើអ្នកចម្រោះនេះលើ ?1?">
+<!ENTITY detached.title "Adblock Plus: វត្ថុដែលអាចរារាំងបាន (ត្រូវបានញែកចេញ)">
+<!ENTITY docDomain.firstParty "(អ្នកទីមួយ)">
+<!ENTITY tooltip.type.whitelisted "(ក្នុងបញ្ជីស)">
+<!ENTITY tooltip.filter.label "លទ្ធផលមកពីអ្នកចម្រោះ:">
+<!ENTITY tooltip.filter.disabled "(បិទការប្រើប្រាស់)">
+<!ENTITY tooltip.type.blocked "(បានរារាំង)">
+<!ENTITY size.label "ទំហំ">
+<!ENTITY context.selectAll.label "ជ្រើសទាំងអស់">
+<!ENTITY state.label "ស្ថានភាព">
+<!ENTITY docDomain.label "ប្រភពឯកសារ">
+<!ENTITY tooltip.address.label "អាសយដ្ឋាន:">

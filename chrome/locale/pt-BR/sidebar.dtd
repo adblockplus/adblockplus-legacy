@@ -5,9 +5,9 @@
 <!ENTITY tooltip.filterSource.label "Fonte do filtro:">
 <!ENTITY noitems.label "Nenhum item bloqueável">
 <!ENTITY filter.label "Filtro">
-<!ENTITY tooltip.size.label "Tamanho">
+<!ENTITY tooltip.size.label "Tamanho:">
 <!ENTITY reattach.label "Ancorar">
-<!ENTITY search.label "Locali&amp;zar nome:">
+<!ENTITY search.label "&amp;Localizar:">
 <!ENTITY docDomain.thirdParty "(domínio diferente)">
 <!ENTITY filterSource.label "Fonte do filtro">
 <!ENTITY tooltip.docDomain.label "Origem do documento:">
@@ -24,7 +24,7 @@
 <!ENTITY docDomain.firstParty "(mesmo domínio)">
 <!ENTITY tooltip.type.whitelisted "(na lista branca)">
 <!ENTITY tooltip.filter.label "Filtro em ação:">
-<!ENTITY tooltip.filter.disabled "desativado">
+<!ENTITY tooltip.filter.disabled "(desativado)">
 <!ENTITY context.editfilter.label "Editar filtro em efeito">
 <!ENTITY tooltip.type.blocked "(bloqueado)">
 <!ENTITY size.label "Tamanho">

@@ -3,7 +3,7 @@
 <!ENTITY collapse.default.no.label "Erabili (ez) lehenetsita">
 <!ENTITY firstParty.label "Lehen es&amp;kukoa soilik">
 <!ENTITY preferences.label "&amp;Erakutsi dauden iragazkiak...">
-<!ENTITY pattern.label "Eredua bilatu">
+<!ENTITY pattern.label "Bilatu eredua">
 <!ENTITY thirdParty.label "Ka&amp;npotik jasoa soilik">
 <!ENTITY filter.label "&amp;Iragazki berria:">
 <!ENTITY collapse.label "Ko&amp;lapsatu blokeatuta:">

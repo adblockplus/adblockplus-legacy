@@ -1,22 +1,37 @@
 <!ENTITY slow.column "Filtruesit e ngadalshëm">
+<!ENTITY enabled.column "Aktivizo">
+<!ENTITY subscription.lastDownload.checksumMismatch "Deshtoi,mosperputhje checksumi">
 <!ENTITY lasthit.column "Shtypja e fundit">
 <!ENTITY sort.ascending.label "A &gt; Z radhitje">
 <!ENTITY sort.label "Radhit sipas">
+<!ENTITY subscription.source.label "Lista e filtrave">
 <!ENTITY filter.paste.label "Hedh">
+<!ENTITY subscription.external.label "E rifreksuar nga nje shtese tjeter">
 <!ENTITY subscription.lastDownload.inProgress "Duke u shkarkuar...">
 <!ENTITY subscriptions.tab.label "Filtroni abonimet">
 <!ENTITY filter.delete.label "Fshijë">
-<!ENTITY enabled.column "Aktivizo">
+<!ENTITY addSubscriptionAdd.label "Shto">
 <!ENTITY viewMenu.label "Shih">
 <!ENTITY subscription.lastDownload.unknown "N/D">
+<!ENTITY addSubscriptionCancel.label "Anulo">
+<!ENTITY subscription.enabled.label "E aktivizuar">
+<!ENTITY noSubscriptions.text "Ju nuk keni shtuar ndonje abonim per filter ende.Adblock Plus nuk do te bllokoje asgje pa filtra,ju lutem perdorin &quot;Shto nje abonim filtri&quot; per te shtuar disa.">
 <!ENTITY dialog.title "Filtroni preferencat e Adblock Plus">
+<!ENTITY subscription.minVersion.warning "Ky abonim filtri kerkon nje version me te ri te Adblock Plus,ti duhet te besh update ne versionin e fundit te Adblock Plus.">
+<!ENTITY subscription.lastDownload.invalidURL "Deshtoi,nje adrese e pavlefshme">
 <!ENTITY hitcount.column "Shtypje">
 <!ENTITY filter.cut.label "Kopjo-largo">
+<!ENTITY addSubscriptionOther.label "Shto nje abonim tjeter">
 <!ENTITY sort.none.label "Pa radhitur">
 <!ENTITY filter.copy.label "Kopjo">
+<!ENTITY addSubscription.label "Shto abonim per filter">
+<!ENTITY subscription.homepage.label "Kryefaqja">
+<!ENTITY filters.tab.label "Filtra te kostumizuar">
 <!ENTITY find.label "Kërko">
 <!ENTITY sort.descending.label "Z &gt; A radhitje">
+<!ENTITY subscription.lastDownload.connectionError "Deshtoi,gabim shkarkimi">
 <!ENTITY subscription.lastDownload.success "Sukses">
+<!ENTITY subscription.lastDownload.invalidData "Deshtoi,nje liste jo e vlefshme filtrash">
 <!ENTITY addFilter.label "Vendos filtrues">
 <!ENTITY subscription.lastDownload.label "Shkarkimi i fundit:">
 <!ENTITY filter.column "Rregulla e filtrimit">

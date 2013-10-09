@@ -1,21 +1,29 @@
-<!ENTITY showinstatusbar.label "Tunjukkan di &amp;status bar">
-<!ENTITY sidebar.title "Blokowalne elementy na aktywnej stronie">
-<!ENTITY options.label "Opsi">
-<!ENTITY context.object.label "Zablokuj obiekt">
-<!ENTITY context.media.label "Zablokuj wideo/audio">
-<!ENTITY context.image.label "Zablokuj obrazek">
-<!ENTITY filters.tooltip "Najczęściej stosowane filtry:">
-<!ENTITY menuitem.label "&amp;Adblock Plus - ustawienia">
-<!ENTITY objecttab.title "Zablokuj">
-<!ENTITY showintoolbar.label "Tunjukkan di tool&amp;bar">
-<!ENTITY closesidebar.label "Zamknij listę &amp;blokowalnych elementów">
-<!ENTITY sendReport.label "&amp;Zgłoś problem na tej stronie">
-<!ENTITY whitelist.site.label "Wyłącz blokowanie na ?1?">
-<!ENTITY whitelist.page.label "Wyłącz blokowanie tylko na tej stronie">
-<!ENTITY context.frame.label "Zablokuj ramkę">
+<!ENTITY sync.label "Syn&amp;c pengaturan Adblock Plus">
+<!ENTITY whitelist.site.label "Non aktifkan pada ?1?">
+<!ENTITY filters.label "&amp;Preferensi penyaring">
+<!ENTITY disable.label "Non aktifkan disemua tempat">
+<!ENTITY showinaddonbar.label "Tampilkan di add-on&amp;bar">
+<!ENTITY objecttab.title "Blokir">
+<!ENTITY objecttab.tooltip "Klik disini untuk memblokir objek ini dengan Adblock Plus">
+<!ENTITY menuitem.label "Preferensi Ad&amp;block Plus">
 <!ENTITY objecttabs.label "&amp;Tunjukkan tab pada Flash dan Java">
-<!ENTITY disable.label "Wyłącz wszędzie">
-<!ENTITY objecttab.tooltip "Kliknij tutaj, aby zablokować ten obiekt">
-<!ENTITY blocked.tooltip "Zablokowane elementy na tej stronie:">
-<!ENTITY context.removeWhitelist.label "Włącz ponownie na tej stronie">
-<!ENTITY opensidebar.label "Otwórz listę &amp;blokowalnych elementów">
+<!ENTITY sendReport.label "&amp;Laporkan masalah pada halaman ini">
+<!ENTITY whitelist.page.label "Non aktifkan pada halaman ini saja">
+<!ENTITY context.image.label "Adblock Plus: Blokir gambar">
+<!ENTITY counthits.label "Menghitung filter &amp;kunjungan">
+<!ENTITY opensidebar.label "Buka &amp;item yang dapat diblok">
+<!ENTITY contribute.label "Kontribusi untuk Adblock Plus">
+<!ENTITY toolbarbutton.label "Adblock Plus">
+<!ENTITY context.frame.label "Adblock Plus: Blokir bingkai">
+<!ENTITY blocked.tooltip "Blokir item pada halaman ini:">
+<!ENTITY hideplaceholders.label "Sembunyikan p&amp;laceholders dari unsur pemblokiran">
+<!ENTITY showinstatusbar.label "Tunjukkan di &amp;status bar">
+<!ENTITY sidebar.title "Item yang dapat diblok di halaman ini">
+<!ENTITY options.label "Opsi">
+<!ENTITY context.object.label "Adblock Plus: Blokir objek">
+<!ENTITY context.removeWhitelist.label "Adblock Plus: Mengaktifkan ulang pada halaman ini">
+<!ENTITY filters.tooltip "Filter paling aktif:">
+<!ENTITY closesidebar.label "Tutup &amp;item yang dapat diblok">
+<!ENTITY showintoolbar.label "Tunjukkan di tool&amp;bar">
+<!ENTITY status.tooltip "Status:">
+<!ENTITY context.media.label "Adblock Plus: Blokir audio/video">

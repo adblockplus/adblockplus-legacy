@@ -7,6 +7,6 @@
 <!ENTITY viewList.label "フィルタファイルを開いて確認">
 <!ENTITY visitHomepage.label "作者のページを開く">
 <!ENTITY addSubscription.label "購読するフィルタを追加">
-<!ENTITY dialog.title "購読するフィルタを追加">
+<!ENTITY dialog.title "購読する Adblock Plus 用フィルタを追加">
 <!ENTITY location.label "購読するフィルタの場所 (&amp;L) :">
 <!ENTITY fromWeb.description "購読するフィルタを確認してください。追加前に名称と場所を変更できます。">

@@ -2,13 +2,13 @@
 <!ENTITY slow.column "Filtros l&amp;entos">
 <!ENTITY enabled.column "&amp;Ativado">
 <!ENTITY subscription.lastDownload.checksumMismatch "Falhou, checksum deu errado">
-<!ENTITY noFiltersInGroup.text "O grupo selecionado está vazio">
+<!ENTITY noFiltersInGroup.text "O grupo selecionado está vazio.">
 <!ENTITY subscription.actions.label "Ações">
 <!ENTITY filter.selectAll.label "Selecionar tudo">
 <!ENTITY backupButton.label "&amp;Backup e restauração">
 <!ENTITY restore.minVersion.warning "Atenção! O arquivo foi criado com um versão mais nova do Adblock Plus. Por favor, atualize o Adblock Plus para a versão mais recente antes de restaurar esse arquivo.">
 <!ENTITY restore.error "Não foi possível processar os dados desse arquivo. Talvez ele não seja um arquivo de backup do Adblock Plus.">
-<!ENTITY sort.ascending.label "Orde&amp;m A &gt; Z">
+<!ENTITY sort.ascending.label "Ordenar &amp;A &gt; Z">
 <!ENTITY sort.label "&amp;Organizar por">
 <!ENTITY subscription.source.label "lista de filtros">
 <!ENTITY hitcount.column "A&amp;certos">
@@ -16,12 +16,12 @@
 <!ENTITY backup.custom.title "Somente filtros personalizados">
 <!ENTITY subscription.external.label "Atualizado por outra extensão">
 <!ENTITY subscription.delete.label "Excluir">
-<!ENTITY noGroupSelected.text "Você precisa selecionar um grupo de filtros para poder exibir os filtros dele.">
+<!ENTITY noGroupSelected.text "Você precisa selecionar um grupo de filtros antes para que os filtros sejam mostrados.">
 <!ENTITY filter.cut.label "Recortar">
 <!ENTITY restore.default.label "Restaurar backup de ?1?">
 <!ENTITY subscription.lastDownload.inProgress "Fazendo download...">
 <!ENTITY subscriptions.tab.label "Inscrições de filtros">
-<!ENTITY sort.descending.label "Ordem &amp;Z &gt; A">
+<!ENTITY sort.descending.label "Ordenar &amp;Z &gt; A">
 <!ENTITY filters.remove.warning "Você realmente deseja remover todos os filtros selecionados?">
 <!ENTITY filter.delete.label "Excluir">
 <!ENTITY addSubscriptionAdd.label "Adicionar">
@@ -40,20 +40,20 @@
 <!ENTITY addGroup.label "Adicionar &amp;grupo de filtros">
 <!ENTITY filter.edit.label "Editar">
 <!ENTITY subscription.showHideFilters.label "Exibir/ocultar filtros">
-<!ENTITY acceptableAds2.label "&amp;Permitir algumas propagandas não-invasivas">
+<!ENTITY acceptableAds2.label "Permitir algumas propagandas não-&amp;invasivas">
 <!ENTITY addSubscriptionOther.label "Adicionar outra inscrição">
 <!ENTITY close.label "Fechar">
-<!ENTITY sort.none.label "&amp;Desorganizado">
+<!ENTITY sort.none.label "&amp;Não Organizado">
 <!ENTITY filter.actions.label "Ações de filtros">
 <!ENTITY filter.copy.label "Copiar">
-<!ENTITY filter.moveDown.label "Para baixo">
+<!ENTITY filter.moveDown.label "Mover para baixo">
 <!ENTITY filter.resetHitCounts.label "Limpar estatística de acertos">
 <!ENTITY readMore.label "Saiba mais">
 <!ENTITY subscription.moveUp.label "Para cima">
-<!ENTITY addSubscription.label "&amp;Adicionar inscrição de filtros">
+<!ENTITY addSubscription.label "Adicionar inscrição de &amp;filtros">
 <!ENTITY subscription.homepage.label "página da inscrição">
 <!ENTITY backup.complete.title "Todos os filtros e inscrições">
-<!ENTITY restore.own.label "Restaurar backup específico">
+<!ENTITY restore.own.label "Restaurar backup próprio">
 <!ENTITY restore.complete.warning "Todas as suas opções de filtros serão substituídas pelo conteúdo do arquivo selecionado. Você deseja continuar?">
 <!ENTITY filters.tab.label "Filtros personalizados">
 <!ENTITY backup.label "Criar novo backup">
@@ -65,8 +65,8 @@
 <!ENTITY filter.paste.label "Colar">
 <!ENTITY subscription.disabledFilters.enable "Ativar filtros desativados">
 <!ENTITY lasthit.column "Ú&amp;ltimo acerto">
-<!ENTITY subscription.editTitle.label "Alterar título">
+<!ENTITY subscription.editTitle.label "Editar título">
 <!ENTITY subscription.disabledFilters.warning "Alguns filtros nesta inscrição estão desativados.">
-<!ENTITY filter.column "&amp;Regra de Filtro">
+<!ENTITY filter.column "Regra de &amp;Filtro">
 <!ENTITY subscription.lastDownload.label "Último download:">
 <!ENTITY viewList.label "Ver lista">

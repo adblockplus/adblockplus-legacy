@@ -1,0 +1,22 @@
+<!ENTITY addSubscriptionAdd.label "যুক্ত করুন">
+<!ENTITY filter.selectAll.label "সব নির্বাচন">
+<!ENTITY subscription.delete.label "মুছুন">
+<!ENTITY subscription.lastDownload.inProgress "ডাউনলোড হচ্ছে…">
+<!ENTITY filter.delete.label "মুছুন">
+<!ENTITY enabled.column "স&amp;ক্রিয়">
+<!ENTITY viewMenu.label "দেখুন">
+<!ENTITY subscription.lastDownload.unknown "প্রযোজ্য নয়">
+<!ENTITY addSubscriptionCancel.label "বাতিল">
+<!ENTITY subscription.enabled.label "সক্রিয় করা">
+<!ENTITY subscription.moveDown.label "নিচে সরান">
+<!ENTITY filter.moveUp.label "উপরে সরান">
+<!ENTITY filter.edit.label "সম্পাদনা">
+<!ENTITY close.label "বন্ধ">
+<!ENTITY filter.moveDown.label "নিচে সরান">
+<!ENTITY readMore.label "আরো পড়ুন">
+<!ENTITY subscription.moveUp.label "উপরে সরান">
+<!ENTITY find.label "খুঁ&amp;জুন">
+<!ENTITY subscription.lastDownload.success "সফল">
+<!ENTITY subscription.editTitle.label "শিরোনাম সম্পাদনা">
+<!ENTITY subscription.lastDownload.label "সর্বশেষ ডাউনলোড:">
+<!ENTITY filter.column "&amp;ফিল্টার বিধি">

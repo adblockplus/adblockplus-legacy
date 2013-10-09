@@ -4,7 +4,7 @@
 <!ENTITY disable.label "Deshabilitar en todos lados">
 <!ENTITY showinaddonbar.label "Mostrar en la barra de co&amp;mplementos">
 <!ENTITY objecttab.title "Bloquear">
-<!ENTITY objecttab.tooltip "Clic acá para bloquear este objeto con Adblock Plus">
+<!ENTITY objecttab.tooltip "Hacé clic acá para bloquear este objeto con Adblock Plus">
 <!ENTITY menuitem.label "&amp;Preferencias de Adblock Plus">
 <!ENTITY objecttabs.label "Mostrar pe&amp;stañas en Flash y Java">
 <!ENTITY sendReport.label "&amp;Informar de problemas en esta página">
@@ -26,4 +26,4 @@
 <!ENTITY closesidebar.label "&amp;Cerrar elementos bloqueables">
 <!ENTITY showintoolbar.label "Mostrar en la barra de &amp;herramientas">
 <!ENTITY status.tooltip "Estado:">
-<!ENTITY context.media.label "Adblock Plus: Bloquear audio/video">
+<!ENTITY context.media.label "Adblock Plus: bloquear audio/video">

@@ -25,9 +25,9 @@
 <!ENTITY domainRestriction.help "Zadejte jednu nebo více domén oddělených znakem &quot;|&quot;, filtr bude poté použit pouze na těchto doménách. Znak &quot;~&quot; před názvem domény zajistí, že filtr nebude na této doméně použit.">
 <!ENTITY accept.label "Přidat filtr">
 <!ENTITY options.label "Možnosti">
-<!ENTITY disabled.warning "Adblock Plus je momentálně zakázán. Můžete stále přidávat filtry, ale nebudou aplikovány dokud [link]nepovolíte Adblock Plus[/link].">
+<!ENTITY disabled.warning "Adblock Plus je momentálně zakázán. I tak můžete přidávat filtry, ale nebudou použity, dokud [link]nepovolíte Adblock Plus[/link].">
 <!ENTITY anchor.start.flexible.label "na &amp;začátku názvu domény">
 <!ENTITY collapse.no.label "Ne">
 <!ENTITY selectAllTypes.label "Vybrat vše">
-<!ENTITY advanced.label "Rozšířené zobrazení">
+<!ENTITY advanced.label "Pokročilé zobrazení">
 <!ENTITY pattern.explanation "Vzor může být jakákoli část adresy, znak * funguje jako divoká karta. Filtr bude aplikován pouze na adresy odpovídající vzoru.">

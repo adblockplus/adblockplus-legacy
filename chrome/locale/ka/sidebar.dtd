@@ -1,0 +1,15 @@
+<!ENTITY tooltip.size.label "ზომა:">
+<!ENTITY context.editfilter.label "გამოყენებული ფილტრის რედაქტირება">
+<!ENTITY tooltip.type.blocked "(დაბლოკილი)">
+<!ENTITY tooltip.type.whitelisted "(თეთრ სიაში)">
+<!ENTITY tooltip.filter.label "მოქმედი ფილტრი:">
+<!ENTITY tooltip.docDomain.label "დოკუმენტის წყარო:">
+<!ENTITY context.whitelist.label "ამ ერთეულისთვის გამონაკლისის დამატება">
+<!ENTITY tooltip.filter.disabled "(გამორთული)">
+<!ENTITY context.selectAll.label "ყველას არჩევა">
+<!ENTITY tooltip.type.label "ტიპი:">
+<!ENTITY tooltip.filterSource.label "ფილტრის წყარო:">
+<!ENTITY context.copyFilter.label "ფილტრის ასლი">
+<!ENTITY context.block.label "დაბლოკე ეს ერთეული">
+<!ENTITY context.enablefilter.label "ხელახლა ჩაირთოს ფილტრი ?1?">
+<!ENTITY context.disablefilter.label "გამოირთოს ფილტრი ?1?">

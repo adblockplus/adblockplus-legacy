@@ -1,35 +1,35 @@
-<!ENTITY context.flash.label "Evidenciar contornos do elemento">
+<!ENTITY context.flash.label "Contorno do item flash">
 <!ENTITY address.label "Endereço">
-<!ENTITY context.open.label "Abrir em Novo Separador">
+<!ENTITY context.open.label "Abrir em novo separador">
 <!ENTITY type.label "Tipo">
 <!ENTITY tooltip.filterSource.label "Origem do filtro:">
 <!ENTITY noitems.label "Sem itens bloqueáveis">
 <!ENTITY filter.label "Filtro">
 <!ENTITY tooltip.size.label "Tamanho:">
 <!ENTITY reattach.label "Reancorar">
-<!ENTITY search.label "Locali&amp;zar nome:">
-<!ENTITY docDomain.thirdParty "(terceira parte)">
+<!ENTITY search.label "&amp;Procurar:">
+<!ENTITY docDomain.thirdParty "(terceiros)">
 <!ENTITY filterSource.label "Código fonte do filtro">
 <!ENTITY tooltip.docDomain.label "Origem do documento:">
-<!ENTITY context.copy.label "Copiar endereço do elemento">
+<!ENTITY context.copy.label "Copiar endereço do item">
 <!ENTITY tooltip.type.label "Tipo:">
-<!ENTITY context.disablefilter.label "Desactivar filtro ?1?">
+<!ENTITY context.disablefilter.label "Desativar filtro ?1?">
 <!ENTITY context.copyFilter.label "Copiar filtro">
-<!ENTITY context.block.label "Bloquear este elemento">
-<!ENTITY context.enablefilter.label "Reactivar filtro ?1?">
+<!ENTITY context.block.label "Bloquear este item">
+<!ENTITY context.enablefilter.label "Reativar filtro ?1?">
 <!ENTITY detach.label "Desancorar">
-<!ENTITY whitelisted.label "Página em lista branca">
-<!ENTITY context.disablefilteronsite.label "Desactivar este filtro em ?1?">
-<!ENTITY detached.title "Adblock Plus: Elementos bloqueáveis (desancorada)">
+<!ENTITY whitelisted.label "Página permitida">
+<!ENTITY context.disablefilteronsite.label "Desativar este filtro em ?1?">
+<!ENTITY detached.title "Itens bloqueáveis (desancorada)">
 <!ENTITY docDomain.firstParty "(primeira parte)">
-<!ENTITY tooltip.type.whitelisted "(lista branca)">
-<!ENTITY tooltip.filter.label "Filtro activo:">
-<!ENTITY tooltip.filter.disabled "(desabilitado)">
-<!ENTITY context.editfilter.label "Editar filtro em efeito">
+<!ENTITY tooltip.type.whitelisted "(permitido)">
+<!ENTITY tooltip.filter.label "Filtro ativo:">
+<!ENTITY tooltip.filter.disabled "(inativo)">
+<!ENTITY context.editfilter.label "Editar filtro ativo">
 <!ENTITY tooltip.type.blocked "(bloqueado)">
 <!ENTITY size.label "Tamanho">
-<!ENTITY context.whitelist.label "Adicionar regra de excepção para este elemento">
-<!ENTITY context.selectAll.label "Seleccionar todos">
+<!ENTITY context.whitelist.label "Adicionar exceção para o item">
+<!ENTITY context.selectAll.label "Selecionar tudo">
 <!ENTITY state.label "Estado">
 <!ENTITY docDomain.label "Origem do documento">
 <!ENTITY tooltip.address.label "Endereço:">

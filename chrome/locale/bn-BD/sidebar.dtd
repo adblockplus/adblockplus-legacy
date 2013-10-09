@@ -1,0 +1,17 @@
+<!ENTITY tooltip.size.label "আকার:">
+<!ENTITY docDomain.firstParty "(প্রথম পক্ষ)">
+<!ENTITY search.label "&amp;অনুসন্ধান:">
+<!ENTITY docDomain.thirdParty "(তৃতীয় পক্ষ)">
+<!ENTITY filterSource.label "ফিল্টারের উৎস">
+<!ENTITY address.label "ঠিকানা">
+<!ENTITY tooltip.docDomain.label "নথির উৎস:">
+<!ENTITY size.label "আকার">
+<!ENTITY context.open.label "নতুন ট্যাবে খুলুন">
+<!ENTITY context.selectAll.label "সব নির্বাচন">
+<!ENTITY type.label "ধরন">
+<!ENTITY tooltip.type.label "ধরন:">
+<!ENTITY tooltip.filterSource.label "ফিল্টারের উৎস:">
+<!ENTITY docDomain.label "নথির উৎস">
+<!ENTITY filter.label "ফিল্টার">
+<!ENTITY context.block.label "এই আইটেমটি অবরুদ্ধ করুন">
+<!ENTITY tooltip.address.label "ঠিকানা:">

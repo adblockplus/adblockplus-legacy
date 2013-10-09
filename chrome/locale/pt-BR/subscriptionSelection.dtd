@@ -3,7 +3,7 @@
 <!ENTITY list.download.retry "Tentar novamente">
 <!ENTITY title.label "&amp;Título da inscrição:">
 <!ENTITY list.download.website "Abrir página da lista de inscrições">
-<!ENTITY supplementMessage "Essa inscrição de filtros foi feita para ser usada com inscrição &quot;?1?&quot;, que você não está usando ainda.">
+<!ENTITY supplementMessage "Essa inscrição de filtros foi feita para ser usada com inscrição de filtros &quot;?1?&quot;, que você ainda não está usando.">
 <!ENTITY viewList.label "Visualizar filtros">
 <!ENTITY visitHomepage.label "Abrir página da inscrição">
 <!ENTITY addSubscription.label "Adicionar inscrição">

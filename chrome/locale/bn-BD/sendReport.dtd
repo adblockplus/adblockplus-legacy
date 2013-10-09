@@ -1,0 +1,5 @@
+<!ENTITY sendPage.heading "প্রতিবেদন পাঠান">
+<!ENTITY sendButton.label "প্রতিবেদন পা&amp;ঠান">
+<!ENTITY email.label "ই&amp;মেইল:">
+<!ENTITY comment.label "&amp;মন্তব্য (ঐচ্ছিক):">
+<!ENTITY sendPage.retry.label "আবার পাঠান">

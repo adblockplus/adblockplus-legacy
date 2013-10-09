@@ -1,4 +1,4 @@
-<!ENTITY context.flash.label "Bordes de los elementos flash">
+<!ENTITY context.flash.label "Bordes de los elementos Flash">
 <!ENTITY address.label "Dirección">
 <!ENTITY context.open.label "Abrir en nueva pestaña">
 <!ENTITY type.label "Tipo">
@@ -18,17 +18,17 @@
 <!ENTITY context.block.label "Bloquear este elemento">
 <!ENTITY context.enablefilter.label "Rehabilitar filtro ?1?">
 <!ENTITY detach.label "Separar">
-<!ENTITY whitelisted.label "Página aceptada">
+<!ENTITY whitelisted.label "Página segura">
 <!ENTITY context.disablefilteronsite.label "Deshabilitar este filtro en ?1?">
 <!ENTITY detached.title "Adblock Plus: elementos bloqueables (separados)">
-<!ENTITY docDomain.firstParty "(propios)">
-<!ENTITY tooltip.type.whitelisted "(aceptada)">
+<!ENTITY docDomain.firstParty "(personal)">
+<!ENTITY tooltip.type.whitelisted "(segura)">
 <!ENTITY tooltip.filter.label "Filtro en efecto:">
 <!ENTITY tooltip.filter.disabled "(deshabilitado)">
 <!ENTITY context.editfilter.label "Editar filtro en efecto">
 <!ENTITY tooltip.type.blocked "(bloqueada)">
 <!ENTITY size.label "Tamaño">
-<!ENTITY context.whitelist.label "Agregar regla de excepción a este elemento">
+<!ENTITY context.whitelist.label "Agregar regla de excepción por elemento">
 <!ENTITY context.selectAll.label "Seleccionar todo">
 <!ENTITY state.label "Estado">
 <!ENTITY docDomain.label "Fuente del documento">

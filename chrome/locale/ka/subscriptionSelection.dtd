@@ -1,6 +1,12 @@
-<!ENTITY list.download.retry "კიდევ სცადეთ">
 <!ENTITY addMain.label "&amp;გამოიწერე &quot;?1?&quot; ფილტრი">
-<!ENTITY addSubscription.label "გამოწერა">
+<!ENTITY list.download.failed "Adblock Plus-მა ვერ შეძლო გამოწერის სიის ჩატვირთვა.">
+<!ENTITY list.download.retry "კიდევ სცადეთ">
+<!ENTITY title.label "გამოწერი&amp;ს სათაური:">
+<!ENTITY list.download.website "იხილეთ ვებგვერდი">
+<!ENTITY supplementMessage "ეს ფილტრები გამოიყენება &quot;?1?&quot;-სთან ერთად, რომელსაც თქვენ ჯერ არ იყენებთ.">
 <!ENTITY viewList.label "იხილეთ ფილტრები">
 <!ENTITY visitHomepage.label "ეწვიეთ ფილტრის ვებ-გვერდს">
-<!ENTITY title.label "გამოწერი&amp;ს სათაური:">
+<!ENTITY addSubscription.label "გამოწერა">
+<!ENTITY dialog.title "Add Adblock Plus ფილტრის გამოწერა">
+<!ENTITY location.label "ფი&amp;ლტრის სიის მდებარეობა:">
+<!ENTITY fromWeb.description "გთხოვთ დაადასტუროთ, რომ გსურთ ფილტრის გამოწერა. მის დამატებამდე შეგიძლიათ გამოწერის სათაურის ან მდებარეობის შეცვლა.">
