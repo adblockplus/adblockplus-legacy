@@ -19,7 +19,7 @@
 <!ENTITY hideplaceholders.label "Sembunyikan p&amp;laceholders dari unsur pemblokiran">
 <!ENTITY showinstatusbar.label "Tunjukkan di &amp;status bar">
 <!ENTITY sidebar.title "Item yang dapat diblok di halaman ini">
-<!ENTITY options.label "Opsi">
+<!ENTITY options.label "&amp; Pilihan">
 <!ENTITY context.object.label "Adblock Plus: Blokir objek">
 <!ENTITY context.removeWhitelist.label "Adblock Plus: Mengaktifkan ulang pada halaman ini">
 <!ENTITY filters.tooltip "Filter paling aktif:">

@@ -1,6 +1,6 @@
 <!ENTITY restore.custom.warning "Tüm isteğe bağlı süzgeçleriniz seçilen dosyanın içeriğiyle değiştirilecek. Devam etmek istiyor musunuz?">
 <!ENTITY slow.column "Süzgeçleri göster">
-<!ENTITY enabled.column "Aktif">
+<!ENTITY enabled.column "Etkin">
 <!ENTITY subscription.lastDownload.checksumMismatch "Doğrulama başarısız">
 <!ENTITY noFiltersInGroup.text "Seçili öbek boş">
 <!ENTITY subscription.actions.label "Eylemler">

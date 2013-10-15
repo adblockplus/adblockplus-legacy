@@ -38,10 +38,10 @@
 <!ENTITY outdatedSubscriptions.description "Filter langganan ini belum diperbaharui setidaknya dua minggu. Silahkan perbaharui langganan ini sebelum mengirimkan laporan masalah yang mungkin sudah terselesaikan sebelumnya.">
 <!ENTITY dataCollector.description "Silahkan tunggu beberapa saat sementara Adblock Plus mengumpulkan data yang dibutuhkan.">
 <!ENTITY sendButton.label "Kirim laporan">
-<!ENTITY comment.label "O&amp;bjaśnienia (opcjonalne):">
+<!ENTITY comment.label "&amp; Komentar (pilihan):">
 <!ENTITY sendPage.errorMessage "Upaya mengirimkan laporan gagal dengan kode kesalahan &quot;?1?&quot;. Silahkan pastikan Anda terhubung ke Internet dan coba kembali. Jika masalah berlanjut, silahkan meminta bantuan pada [link]Forum Adblock Plus[/link].">
 <!ENTITY showRecentReports.label "Tampilkan laporan yang baru disampaikan">
-<!ENTITY commentPage.heading "Dodaj objaśnienie">
+<!ENTITY commentPage.heading "Masukkan Komentar">
 <!ENTITY update.start.label "Mulai pembaharuan sekarang">
 <!ENTITY issues.disabledfilters.description "Filter ini dinonaktifkan, namun mungkin masih mempunyai efek pada halaman ini:">
 <!ENTITY screenshot.description "Halaman yang sama dapat terlihat berbeda untuk berbagai orang. Ini dapat membantu kami untuk memahami masalah jika Anda melampirkan sebuah screenshot pada laporan Anda. Anda dapat menghapus bagian yang mengandung informasi sensitif serta tandai daerah dimana masalah tersebut terjadi. Untuk melakukannya klik sesuai tombol dan pilih bagian dari gambar dengan mouse Anda.">
@@ -50,9 +50,9 @@
 <!ENTITY typeSelector.falseNegative.label "Adblock Plus tidak memblokir sebuah &amp;iklan">
 <!ENTITY typeSelector.heading "Pilih tipe laporan">
 <!ENTITY anonymity.warning "Kami tidak dapat menghubungi Anda kembali dan akan menurunkan prioritas laporan ini.">
-<!ENTITY wizard.title "Masalah pelapor">
+<!ENTITY wizard.title "Pelaporan">
 <!ENTITY issues.ownfilters.disable.label "Nonaktifkan filter">
-<!ENTITY commentPage.description "W poniższym polu tekstowym możesz podać objaśnienie, które pomoże nam zrozumieć problem. Jest to opcjonalne, ale zalecane, jeśli problem nie jest oczywisty. Możesz również sprawdzić dane zawarte w zgłoszeniu przed jego wysłaniem.">
+<!ENTITY commentPage.description "Kotak teks di bawah ini memungkinkan Anda untuk memasukkan komentar untuk membantu kami memahami masalah.   Langkah ini bersifat pilihan tetapi dianjurkan jika masalahnya tidak jelas.   Anda juga dapat memeriksa data laporan sebelum dikirim.">
 <!ENTITY comment.lengthWarning "Panjang komentar Anda melebihi 1000 karakter. Hanya 1000 karakter pertama yang akan dikirim.">
 <!ENTITY typeSelector.falseNegative.description "Pilih opsi ini jika iklan ditampilkan meskipun Adblock Plus telah diaktifkan.">
 <!ENTITY sendPage.waitMessage "Silahkan tunggu sementara Adblock Plus mengirimkan laporan Anda.">

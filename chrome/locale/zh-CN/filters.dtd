@@ -3,7 +3,7 @@
 <!ENTITY enabled.column "启用 (&amp;n)">
 <!ENTITY subscription.lastDownload.checksumMismatch "失败，检验和不匹配">
 <!ENTITY noFiltersInGroup.text "选择的分组是空的。">
-<!ENTITY subscription.actions.label "动作">
+<!ENTITY subscription.actions.label "操作">
 <!ENTITY filter.selectAll.label "全选">
 <!ENTITY backupButton.label "备份与还原 (&amp;B)">
 <!ENTITY restore.minVersion.warning "警告：该文件由新版本的 Adblock Plus 创建。您应该先更新至最新版本的 Adblock Plus 然后再还原该文件。">
@@ -45,7 +45,7 @@
 <!ENTITY addSubscriptionOther.label "添加其他过滤规则订阅组">
 <!ENTITY close.label "关闭">
 <!ENTITY sort.none.label "不排序 (&amp;U)">
-<!ENTITY filter.actions.label "过滤规则动作">
+<!ENTITY filter.actions.label "过滤规则操作">
 <!ENTITY filter.copy.label "复制">
 <!ENTITY filter.moveDown.label "下移">
 <!ENTITY filter.resetHitCounts.label "重置生效次数统计">

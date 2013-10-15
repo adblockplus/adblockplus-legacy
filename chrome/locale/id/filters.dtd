@@ -8,8 +8,8 @@
 <!ENTITY backupButton.label "&amp;Cadangan dan Pengembalian">
 <!ENTITY restore.minVersion.warning "Peringatan: berkas telah dibuat dengan versi Adblock Plus yang lebih baru. Anda harus memperbarui ke versi Adblock Plus terbaru sebelum mengembalikan dari berkas ini.">
 <!ENTITY restore.error "Data berkas tidak bisa diproses, mungkin ini bukan berkas cadangan Adblock Plus?">
-<!ENTITY sort.ascending.label "Urut dari A &gt; Z">
-<!ENTITY sort.label "Urutkan dar&amp;i">
+<!ENTITY sort.ascending.label "Urutkan dari A &gt; Z">
+<!ENTITY sort.label "&amp;Urutkan dari">
 <!ENTITY subscription.source.label "Daftar penyaring">
 <!ENTITY hitcount.column "Sasaran">
 <!ENTITY noFilters.text "Anda belum memiliki penyesuaian penyaring apapun.">
@@ -21,7 +21,7 @@
 <!ENTITY restore.default.label "Mengembalikan cadangan dari ?1?">
 <!ENTITY subscription.lastDownload.inProgress "Mengunduh…">
 <!ENTITY subscriptions.tab.label "Penyaring langganan">
-<!ENTITY sort.descending.label "Urut dari Z &gt; A">
+<!ENTITY sort.descending.label "Urutkan dari Z &gt; A">
 <!ENTITY filters.remove.warning "Apakah Anda sungguh ingin menghapus semua penyaring yang dipilih?">
 <!ENTITY filter.delete.label "Hapus">
 <!ENTITY addSubscriptionAdd.label "Tambahkan">
@@ -38,16 +38,16 @@
 <!ENTITY backup.error "Ada kesalahan penulisan penyaring ke berkas. Pastikan berkas tidak diproteksi atau sedang digunakan aplikasi lain.">
 <!ENTITY filter.moveUp.label "Ke atas">
 <!ENTITY addGroup.label "Tambahkan penyaring dan kelompok">
-<!ENTITY filter.edit.label "Perbaiki">
+<!ENTITY filter.edit.label "Sunting">
 <!ENTITY subscription.showHideFilters.label "Tampilkan/sembunyikan penyaring">
 <!ENTITY acceptableAds2.label "Ijinkan beberapa iklan yang bukan dan mengganggu">
 <!ENTITY addSubscriptionOther.label "Tambahkan skrip yang berbeda">
 <!ENTITY close.label "Tutup">
-<!ENTITY sort.none.label "Aca&amp;k">
+<!ENTITY sort.none.label "&amp;Belum diurutkan">
 <!ENTITY filter.actions.label "Tindakan penyaring">
 <!ENTITY filter.copy.label "Salin">
 <!ENTITY filter.moveDown.label "Ke bawah">
-<!ENTITY filter.resetHitCounts.label "Pengaturan kembali statistik kunjungan">
+<!ENTITY filter.resetHitCounts.label "Reset kembali statistik kunjungan">
 <!ENTITY readMore.label "Baca lebih lanjut">
 <!ENTITY subscription.moveUp.label "Ke atas">
 <!ENTITY addSubscription.label "Tambahkan penyaring">
@@ -65,8 +65,8 @@
 <!ENTITY filter.paste.label "Tempel">
 <!ENTITY subscription.disabledFilters.enable "Aktifkan penyaring yang dinonaktifkan">
 <!ENTITY lasthit.column "Sasaran terakhir">
-<!ENTITY subscription.editTitle.label "Perbaiki judul">
+<!ENTITY subscription.editTitle.label "Sunting judul">
 <!ENTITY subscription.disabledFilters.warning "Beberapa penyaring di layanan langganan ini dinonaktifkan.">
 <!ENTITY filter.column "Aturan penyaring">
-<!ENTITY subscription.lastDownload.label "Unduhan terbaru:">
+<!ENTITY subscription.lastDownload.label "Unduhan terakhir:">
 <!ENTITY viewList.label "Lihat daftar">

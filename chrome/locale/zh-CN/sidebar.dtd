@@ -20,11 +20,11 @@
 <!ENTITY detach.label "分体">
 <!ENTITY whitelisted.label "列入白名单的页面">
 <!ENTITY context.disablefilteronsite.label "在 ?1? 禁用该过滤规则">
-<!ENTITY detached.title "Adblock Plus: 可过滤项目(分体式)">
+<!ENTITY detached.title "Adblock Plus: 可过滤项目 (分体式)">
 <!ENTITY docDomain.firstParty "(第一方)">
 <!ENTITY tooltip.type.whitelisted "(白名单)">
 <!ENTITY tooltip.filter.label "已生效的过滤规则:">
-<!ENTITY tooltip.filter.disabled "(禁用)">
+<!ENTITY tooltip.filter.disabled "(已禁用)">
 <!ENTITY context.editfilter.label "编辑过滤规则有效">
 <!ENTITY tooltip.type.blocked "(已过滤)">
 <!ENTITY size.label "大小">
