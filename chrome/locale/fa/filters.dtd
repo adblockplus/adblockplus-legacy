@@ -1,3 +1,4 @@
+<!ENTITY restore.custom.warning "میخواهید تمامی فیلترهای سفارشی خود را با محتویات فایل انتخاب شده جایگزین می شود؟">
 <!ENTITY slow.column "&amp;نمایش پالایه ها">
 <!ENTITY enabled.column "ف&amp;عال‌">
 <!ENTITY subscription.lastDownload.checksumMismatch "ناموفق, عدم تطابق کنترلی">
@@ -53,6 +54,7 @@
 <!ENTITY subscription.homepage.label "صفحه اصلی">
 <!ENTITY backup.complete.title "تمام فیلترها و اشتراک ها">
 <!ENTITY restore.own.label "بازیابی پشتیبان خود">
+<!ENTITY restore.complete.warning "تمام تنظیمات فیلتر با محتویات فایل انتخاب شده جایگزین می شود. می خواهید انجام دهید؟">
 <!ENTITY filters.tab.label "فیلترهای سفارشی">
 <!ENTITY backup.label "نسخه پشتیبان جدید بسازید">
 <!ENTITY find.label "یافتن (&amp;n)">

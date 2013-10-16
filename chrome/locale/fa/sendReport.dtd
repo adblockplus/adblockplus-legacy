@@ -17,6 +17,7 @@
 <!ENTITY typeSelector.description "این پنجره شما را برای ارائه یک گزارش خطا فوق تبلیغ شکن راهنمایی می کند. ابتدا نوع مشکلی را که در این صفحه با آن روبرو هستید را انتخاب کنید:">
 <!ENTITY screenshot.remove.label "&amp;پاک کردن داده های حساس">
 <!ENTITY issues.ownfilters.description "بعضی از پالایه های اعمالی در صفحه توسط کاربر تعریف شده اند. لطفا پالایه های که ممکن است	باعث بروز مشکل شود را غیرفعال کنید:">
+<!ENTITY update.inProgress.description "Adblock Plus باید اشتراکات فیلتر را بررسی نماید تا مطمئن شود مشکل حل شده است. لطفاً منتظر بمانید...">
 <!ENTITY sendPage.retry.label "ارسال مجدد">
 <!ENTITY data.label "داده های &amp;گزارش:">
 <!ENTITY recentReports.label "گزارشات به تازگی ارسال شده شما">
@@ -27,15 +28,17 @@
 <!ENTITY issues.disabledfilters.enable.label "فعال کردن پالایه">
 <!ENTITY issues.override.label "تنظیمات &amp;پیکربندی صحیح است، ادامه گزارش">
 <!ENTITY issues.nosubscriptions.description "شما در هیچ فهرست پالایه پیش ساخته ای مشترک نشده اید که	به طور خود کار محتوای ناخواسته را پاک می کنند.">
+<!ENTITY typeSelector.falsePositive.description "اگر صفحه خالی از محتوای مهم می شود یا نادرست نمایش داده می شود یا موفق به عملکرد درست نیست این گزینه را انتخاب کنید.">
 <!ENTITY typeSelector.other.label "سایر مشکلا&amp;ت">
 <!ENTITY issues.whitelist.remove.label "فعال کردن مجدد فوق تبلیغ شکن در این صفحه">
-<!ENTITY typeSelector.falsePositive.description "اگر صفحه خالی از محتوای مهم می شود یا نادرست نمایش داده می شود یا موفق به عملکرد درست نیست این گزینه را انتخاب کنید.">
+<!ENTITY outdatedSubscriptions.description "اشتراک فیلتر زیر برای حداقل دو هفته به روز نشده است. لطفاً این اشتراک را قبل از ارسال گزارش به روز کنید, شاید مشکل حل شود.">
 <!ENTITY dataCollector.description "لطفا برای چند لحظه صبر کنید تا فوق تبلیغ شکن داده های درخواستی شما را جمع آوری کند.">
 <!ENTITY sendButton.label "ارسا&amp;ل گزارش">
 <!ENTITY comment.label "ن&amp;ظر (اختیاری):">
 <!ENTITY sendPage.errorMessage "تلاش برای ارسال گزارش شکست خورد، شماره خطا &quot;?1?&quot;. لطفا مطمئن شوید که به اینترنت متصل هستید و مجددا سعی کنید. اگر مشکل همچنان ادامه دارد می توانید در [link]تالار گفتمان فوق تبلیغ شکن[/link] در خواست کمک کنید.">
 <!ENTITY showRecentReports.label "نمایش گزارشات ارسال شده اخیر">
 <!ENTITY commentPage.heading "وارد کردن نظر">
+<!ENTITY update.start.label "در حال به روز رسانی">
 <!ENTITY issues.disabledfilters.description "پالایه های روبرو غیر فعال هستند، آنها ممکن است هنوز روی صفحه تاثیر داشته باشند:">
 <!ENTITY screenshot.description "صفحات مشابه امکان دارد برای هر فرد به صورتی نامشابه نمایش داده شوند. ضمیمه کردن یک تصویر	می تواند کمک زیادی در فهم مشکل به ما بکند. شما می توانید بخش هایی	که حاوی اطلاعات حساس می باشد را پاک کنید و همچنین بخش هایی که مشکل در آنها نمودار شده	را علامت گزاری کنید. برای این کار کلید متناظر را کلیک کنید و بخشی از	تصویر را با موشواره انتخاب کنید.">
 <!ENTITY screenshot.attach.label "افزودن ت&amp;صویر صفحه به گزارش">
