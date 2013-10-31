@@ -16,10 +16,14 @@
  */
 
 var i18n;
-if (typeof chrome != "undefined")
-{
+
+if (typeof ext != "undefined")
+  i18n = ext.i18n;
+else if (typeof chrome != "undefined")
+  // TODO: This check only exist for backwards compatibility, while the Safari
+  // port isn't merged into the adblockpluschrome repo. So this branch should
+  // be removed when the Safari port was merged.
   i18n = chrome.i18n;
-}
 else
 {
   // Using Firefox' approach on i18n instead
