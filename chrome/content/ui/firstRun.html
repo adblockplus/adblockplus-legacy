@@ -21,6 +21,10 @@
     <title class="i18n_firstRun_title"></title>
     <meta charset="utf-8">
     <link type="text/css" href="/skin/firstRun.css" rel="stylesheet"/>
+    {%- if needsExt %}
+    <script type="text/javascript" src="ext/common.js"></script>
+    <script type="text/javascript" src="ext/content.js"></script>
+    {%- endif %}
     <script type="text/javascript" src="utils.js"></script>
     <script type="text/javascript" src="i18n.js"></script>
     <script type="text/javascript" src="firstRun.js"></script>
@@ -33,8 +37,8 @@
         <h1 id="title-main" class="i18n_firstRun_title"></h1>
     </header>
 
+    <section id="legacySafariWarning" class="i18n_firstRun_legacySafariWarning" hidden="true"></section>
     <section id="dataCorruptionWarning" class="i18n_firstRun_dataCorruptionWarning" hidden="true"></section>
-
 
     <section id="acceptable-ads">
       <h2 class="i18n_firstRun_acceptableAdsHeadline"></h2>

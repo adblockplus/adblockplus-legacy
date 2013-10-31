@@ -34,3 +34,6 @@ fennec2=16.0/26.0
 thunderbird=16.0/26.0
 seamonkey=2.13/2.23
 toolkit=16.0/26.0
+
+[preprocess]
+chrome/content/ui/firstRun.html =

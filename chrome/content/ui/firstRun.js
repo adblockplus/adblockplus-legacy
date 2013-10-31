@@ -63,6 +63,11 @@
       setLinks("dataCorruptionWarning", Utils.getDocLink("knownIssuesChrome_filterstorage"));
     }
 
+    // Show warning if Safari < 6
+    var info = require("info");
+    if (info.platform == "safari" && Services.vc.compare(info.platformVersion, "6.0") < 0)
+      E("legacySafariWarning").removeAttribute("hidden");
+
     // Set up feature buttons linked to subscriptions
     featureSubscriptions.forEach(setToggleSubscriptionButton);
     var filterListener = function(action)

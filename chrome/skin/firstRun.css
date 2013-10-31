@@ -561,6 +561,7 @@ section > p
   background-repeat: no-repeat;
 }
 
+#legacySafariWarning,
 #dataCorruptionWarning
 {
   font-size: 160%;
