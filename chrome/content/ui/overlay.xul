@@ -69,7 +69,7 @@
       </menupopup>
     </menu>
 
-    <hbox class="abp-contributebutton" id="abp-status-contributebutton" pack="center">
+    <hbox class="abp-contributebutton" id="abp-status-contributebutton" pack="center" align="center">
       <button class="abp-contributebutton-btn" label="&contribute.label;" command="abp-command-contribute" flex="1"/>
       <toolbarbutton class="abp-contributebutton-close" command="abp-command-contribute-hide"/>
     </hbox>

@@ -67,7 +67,7 @@ menuitem[default="true"] {
 }
 
 /* Hack: force the label to be displayed below icon for type="menu" */
-#abp-toolbarbutton[type="menu"]
+#abp-toolbarbutton[type="menu"]:not([cui-areatype="menu-panel"])
 {
   -moz-box-orient: horizontal;
 }
@@ -169,6 +169,13 @@ toolbar[mode="full"] #abp-toolbarbutton[type="menu"]
   list-style-image: url("close.png");
   -moz-appearance: none;
   -moz-image-region: rect(0px, 14px, 14px, 0px);
+
+  /* Firefox Australis theme defines some width for all toolbaritem tags inside
+   * UIPanel element, the properties have to be reset to default values. */
+  min-width: 0px !important;
+  min-height: 0px !important;
+  width: auto !important;
+  height: auto !important;
 }
 
 .abp-contributebutton-close:hover
