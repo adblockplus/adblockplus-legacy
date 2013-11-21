@@ -70,8 +70,10 @@
     </menu>
 
     <hbox class="abp-contributebutton" id="abp-status-contributebutton" pack="center" align="center">
-      <button class="abp-contributebutton-btn" label="&contribute.label;" command="abp-command-contribute" flex="1"/>
-      <toolbarbutton class="abp-contributebutton-close" command="abp-command-contribute-hide"/>
+      <!-- noautoclose attribute tells Australis menu that it shouldn't close when
+           these are clicked, see https://bugzilla.mozilla.org/show_bug.cgi?id=940693 -->
+      <button class="abp-contributebutton-btn" label="&contribute.label;" command="abp-command-contribute" flex="1" noautoclose="true"/>
+      <toolbarbutton class="abp-contributebutton-close" command="abp-command-contribute-hide" noautoclose="true"/>
     </hbox>
   </menupopup>
 
