@@ -63,9 +63,13 @@
       setLinks("dataCorruptionWarning", Utils.getDocLink("knownIssuesChrome_filterstorage"));
     }
 
-    // Show warning if Safari < 6
+    // Show warning if Safari version isn't supported
     var info = require("info");
-    if (info.platform == "safari" && Services.vc.compare(info.platformVersion, "6.0") < 0)
+    if (info.platform == "safari" && (
+      Services.vc.compare(info.platformVersion, "6.0")  < 0 ||  // beforeload breaks websites in Safari 5
+      Services.vc.compare(info.platformVersion, "6.1") == 0 ||  // extensions are broken in 6.1 and 7.0
+      Services.vc.compare(info.platformVersion, "7.0") == 0
+    ))
       E("legacySafariWarning").removeAttribute("hidden");
 
     // Set up feature buttons linked to subscriptions
