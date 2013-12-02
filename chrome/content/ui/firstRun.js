@@ -91,16 +91,7 @@
       FilterNotifier.removeListener(filterListener);
     }, false);
 
-    // You can click activate-feature or one of the icons to toggle the features area
-    E("activate-features").addEventListener("click", toggleFeature, false);
-    E("can-do-more-overview").addEventListener("click", toggleFeature, false);
-
     initSocialLinks();
-  }
-
-  function toggleFeature()
-  {
-    E("can-do-more").classList.toggle("expanded");
   }
 
   function isSubscriptionEnabled(featureSubscription)
