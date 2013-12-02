@@ -163,85 +163,12 @@ section > p
 {
   max-width: 960px;
   padding: 40px 0px 0px 0px;
+  border-bottom: 4px solid #968D81;
 }
 
 #can-do-more > h2
 {
   margin: 0 100px;
-}
-
-.fade
-{
-  opacity: 0;
-}
-
-.hide
-{
-  display: none;
-}
-
-#can-do-more-overview
-{
-  opacity: 1;
-  max-height: 10000px;
-  max-width: 760px;
-  margin: 30px 100px 0 100px;
-  font-size: 0px;
-  /* hides appearing spacings because of
-   * using display: inline-block*/
-  cursor: pointer;
-  transition: opacity 0.3s ease-in-out;
-  -webkit-transition: opacity 0.3s ease-in-out;
-}
-
-#can-do-more.expanded > #can-do-more-overview, #can-do-more.expanded > #can-do-more-overview li, #can-do-more.expanded > #can-do-more-overview div, #can-do-more.expanded > #can-do-more-overview h4
-{
-  opacity: 0;
-  max-height: 0px;
-  width: 0;
-  margin: 0;
-  padding: 0;
-  transition: none;
-  -webkit-transition: none;
-}
-
-#can-do-more-overview > li:hover
-{
-  background-image: url("background-main.png");
-  text-decoration: none;
-}
-
-#can-do-more-overview > li
-{
-  width: 230px;
-  height: 115px;
-  display: inline-block;
-  border-right: 1px dashed #c7c6c2;
-  padding: 20px 10px 0 10px;
-  vertical-align: top;
-  text-decoration: underline;
-  -webkit-backface-visibility: hidden;
-  /* hides the 1px movement chrome bug
-   * which appears while transition.
-   */
-}
-
-#can-do-more-overview > li > div
-{
-  width: 59px;
-  height: 59px;
-  display: block;
-  margin: 0 auto;
-}
-
-#can-do-more-overview > li > h4
-{
-  margin: 15px 0 0 0;
-}
-
-#can-do-more #feature-first
-{
-  border-left: 1px dashed #c7c6c2;
 }
 
 .feature-malware-image
@@ -262,56 +189,19 @@ section > p
   background-repeat: no-repeat;
 }
 
-#can-do-more-expanded
+#can-do-more-content
 {
-  opacity: 0;
-  max-height: 0;
+  margin: 30px 100px 20px 100px;
 }
 
-#can-do-more.expanded > #can-do-more-expanded
-{
-  opacity: 1;
-  max-height: 10000px;
-  margin: 30px 100px 0 100px;
-  transition: opacity 0.5s ease-in-out;
-  -webkit-transition: opacity 0.5s ease-in-out;
-  transition-delay: 0.2s;
-  -webkit-transition-delay: 0.2s;
-}
-
-#features, .feature:not([hidden]), .feature-image, .feature-description, .feature-description, .feature-description-textblock, .feature-description-textblock > span, .feature-image
-{
-  width: 0;
-  height: 0;
-  margin: 0;
-  padding: 0;
-  transition: none;
-  -webkit-transition: none;
-}
-
-
-#can-do-more.expanded #features,#can-do-more.expanded .feature:not([hidden]),#can-do-more.expanded .feature-image,#can-do-more.expanded .feature-description,#can-do-more.expanded .feature-description,#can-do-more.expanded .feature-description-textblock,#can-do-more.expanded .feature-description-textblock > span,#can-do-more.expanded .feature-image
-{
-  width: auto;
-  height: auto;
-  margin: auto;
-  padding: auto;
-  transition-property: all;
-  -webkit-transition-property: all;
-  transition-duration: 0.5s;
-  -webkit-transition-duration: 0.5s;
-  transition-timing-function: ease-in-out;
-  -webkit-transition-timing-function: ease-in-out;
-}
-
-#can-do-more.expanded #features
+#can-do-more #features
 {
   border-spacing: 10px;
   margin: 0px;
   padding: 0px;
 }
 
-#can-do-more.expanded .feature:not([hidden])
+#can-do-more .feature:not([hidden])
 {
   display: block;
   list-style-type: none;
@@ -320,7 +210,7 @@ section > p
   border-top: 1px dashed #c0bebb;
 }
 
-#can-do-more.expanded .feature-image, #can-do-more.expanded .feature-description
+#can-do-more .feature-image, #can-do-more .feature-description
 {
   display: inline-block;
   *display: inline; /* IE6 inline-block fix */
@@ -328,14 +218,14 @@ section > p
   vertical-align: top;
 }
 
-#can-do-more.expanded .feature-description
+#can-do-more .feature-description
 {
   margin: 0px 0px 0 20px;
   width: 625px;
   max-width: 85%;
 }
 
-#can-do-more.expanded .feature-description-textblock
+#can-do-more .feature-description-textblock
 {
   width: 480px;
   max-width: 100%;
@@ -343,80 +233,16 @@ section > p
   display: inline-block;
 }
 
-#can-do-more.expanded .feature-description-textblock > span
+#can-do-more .feature-description-textblock > span
 {
   margin: 15px 0 0 0;
 }
 
-#can-do-more.expanded .feature-image
+#can-do-more .feature-image
 {
   width: 59px;
   height: 59px;
   margin: 8px 0 10px 20px;
-}
-
-#activate-features
-{
-  width: 100%;
-  background-image: url("background-candomore.png");
-  margin: 30px 0 0 0;
-  padding: 14px 0 14px 0;
-  cursor: pointer;
-  text-align: center;
-  white-space: nowrap;
-}
-
-#activate-features-label
-{
-  display: inline-block;
-  width: 86%;
-  color: #fff;
-  font-size: 22px;
-  text-align: center;
-  font-style: italic;
-  font-family: CreteRound, Helvetica, Arial, sans-serif;
-  -webkit-transition: opacity 0.5s ease-in-out;
-  transition: opacity 0.5s ease-in-out;
-}
-
-#can-do-more.expanded #label-show-expanded
-{
-  display: none;
-}
-
-#can-do-more.expanded #label-show-overview
-{
-  display: block;
-}
-
-#label-show-expanded
-{
-  display: block;
-}
-
-#label-show-overview
-{
-  display: none;
-}
-
-#activate-features:hover a
-{
-  color: #1f6822;
-  text-decoration: none;
-}
-
-#can-do-more.expanded .arrow
-{
-  background-image: url("arrow-up.png");
-}
-
-.arrow
-{
-  width: 29px;
-  height: 22px;
-  vertical-align: bottom;
-  display: inline-block;
-  background-image: url("arrow-down.png");
 }
 
 #share
@@ -461,7 +287,7 @@ section > p
 
 #donate-block span, #share-block span
 {
-  margin: 13px 20px 10px 20px;
+  margin: 10px 20px 0px 20px;
 }
 
 #donate-block, #share-block
@@ -469,7 +295,7 @@ section > p
   min-width: 250px;
   display: inline-block;
   vertical-align: top;
-  padding: 20px 0 0 0;
+  padding: 5px 0 5px 0;
 }
 
 #donate-block
