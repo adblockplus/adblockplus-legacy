@@ -295,29 +295,43 @@ function fillInTooltip(e) {
   var showPreview = Prefs.previewimages && !("tooltip" in item);
   showPreview = showPreview && item.typeDescr == "IMAGE";
   showPreview = showPreview && (!item.filter || item.filter.disabled || item.filter instanceof WhitelistFilter);
-  if (showPreview) {
+  if (showPreview)
+  {
     // Check whether image is in cache (stolen from ImgLikeOpera)
-    if (!cacheSession) {
+    if (!cacheSession)
+    {
       var cacheService = Cc["@mozilla.org/network/cache-service;1"].getService(Ci.nsICacheService);
       cacheSession = cacheService.createSession("HTTP", Ci.nsICache.STORE_ANYWHERE, true);
     }
 
-    try {
-      var descriptor = cacheSession.openCacheEntry(item.location, Ci.nsICache.ACCESS_READ, false);
-      descriptor.close();
+    let cacheListener =
+    {
+       onCacheEntryAvailable: function(descriptor, accessGranted, status)
+       {
+          if (!descriptor)
+            return;
+
+          descriptor.close();
+          // Show preview here since this is asynchronous now
+          // and we have a valid descriptor
+          E("tooltipPreview").setAttribute("src", item.location);
+          E("tooltipPreviewBox").hidden = false;
+       },
+       onCacheEntryDoomed: function(status)
+       {
+       }
+    };
+    try
+    {
+      cacheSession.asyncOpenCacheEntry(item.location, Ci.nsICache.ACCESS_READ, cacheListener);
     }
-    catch (e) {
-      showPreview = false;
+    catch (e)
+    {
+      Cu.reportError(e);
     }
   }
 
-  if (showPreview) {
-    E("tooltipPreviewBox").hidden = false;
-    E("tooltipPreview").setAttribute("src", "");
-    E("tooltipPreview").setAttribute("src", item.location);
-  }
-  else
-    E("tooltipPreviewBox").hidden = true;
+  E("tooltipPreviewBox").hidden = true;
 }
 
 const visual = {
