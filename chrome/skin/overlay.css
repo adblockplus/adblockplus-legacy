@@ -41,6 +41,21 @@ toolbar[iconsize="small"] #abp-toolbarbutton[abpstate="whitelisted"],
   -moz-image-region: rect(16px, 16px, 32px, 0px);
 }
 
+#abp-toolbarbutton[cui-areatype="menu-panel"],
+toolbarpaletteitem[place="palette"] > #abp-toolbarbutton
+{
+  list-style-image: url("abp-status-32.png");
+  -moz-image-region: rect(0px, 32px, 32px, 0px);
+}
+
+#abp-toolbarbutton[cui-areatype="menu-panel"][abpstate="disabled"],
+toolbarpaletteitem[place="palette"] > #abp-toolbarbutton[abpstate="disabled"],
+#abp-toolbarbutton[cui-areatype="menu-panel"][abpstate="whitelisted"],
+toolbarpaletteitem[place="palette"] > #abp-toolbarbutton[abpstate="whitelisted"]
+{
+  -moz-image-region: rect(32px, 32px, 64px, 0px);
+}
+
 #abp-toolbar-popup {
   list-style-image: none;
   -moz-image-region: rect(0px, 0px, 0px, 0px);
