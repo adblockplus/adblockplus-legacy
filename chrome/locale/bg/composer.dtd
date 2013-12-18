@@ -4,7 +4,7 @@
 <!ENTITY firstParty.label "Само от &amp;първа страна">
 <!ENTITY preferences.label "Покажи &amp;съществуващите филтри…">
 <!ENTITY pattern.label "Търсете модел">
-<!ENTITY thirdParty.label "&amp;Трети страни само">
+<!ENTITY thirdParty.label "Само от &amp;трети страни">
 <!ENTITY filter.label "Нов &amp;филтър:">
 <!ENTITY collapse.label "Свиван&amp;е на блокирани:">
 <!ENTITY match.warning "Моделът, който сте въвели, вече не отговаря на адреса за блокиране/белия списък и няма да въздействa върху него.">
@@ -16,7 +16,7 @@
 <!ENTITY regexp.warning "Моделът който сте въвели ще бъде интерпретиран като регулярен израз, които не могат да бъдат ефективно обработени с Adblock Плюс и могат да забавят твоят браузър. Ако не възнамерявате да използвате регулярен израз, добавете звездичка (*) към края на модела.">
 <!ENTITY dialog.title "Добавяне на Adblock Plus филтър правило">
 <!ENTITY basic.label "Основен изглед">
-<!ENTITY type.filter.label "&amp;Блокиране на филтър">
+<!ENTITY type.filter.label "&amp;Блокиращ филтър">
 <!ENTITY types.label "Прилага за типове:">
 <!ENTITY shortpattern.warning "Моделът които сте въвели е твърде кратък, за да бъде оптимизиран и може да забави вашия браузър. Препоръчително е да изберете по-дълъг низ за този филтър, за да позволи Adblock Плюс за по-ефективна обработка на филтъра.">
 <!ENTITY collapse.yes.label "Да">

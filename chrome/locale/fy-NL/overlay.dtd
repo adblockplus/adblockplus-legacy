@@ -2,7 +2,6 @@
 <!ENTITY whitelist.site.label "Utskeakelje op ?1?">
 <!ENTITY filters.label "Filterfoarkarren">
 <!ENTITY disable.label "Oeral útskeakelje">
-<!ENTITY showinaddonbar.label "Toan yn tafoegingsbalke">
 <!ENTITY objecttab.title "Blokkearje">
 <!ENTITY objecttab.tooltip "Klik hjir om dit objekt te blokkearjen mei Adblock Plus">
 <!ENTITY menuitem.label "&amp;Adblock Plus">
@@ -13,6 +12,7 @@
 <!ENTITY counthits.label "Tel filterhits">
 <!ENTITY opensidebar.label "&amp;Blokkearbere ûnderdielen iepenje">
 <!ENTITY contribute.label "Donearje oan Adblock Plus">
+<!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Dielfinster blokkearje">
 <!ENTITY blocked.tooltip "Blokkearre ûnderdielen:">
 <!ENTITY hideplaceholders.label "Ferstop placeholders fan blokkearre eleminten">

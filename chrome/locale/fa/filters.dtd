@@ -1,5 +1,5 @@
 <!ENTITY restore.custom.warning "میخواهید تمامی فیلترهای سفارشی خود را با محتویات فایل انتخاب شده جایگزین می شود؟">
-<!ENTITY slow.column "&amp;نمایش پالایه ها">
+<!ENTITY slow.column "&amp;نمایش فیلترها">
 <!ENTITY enabled.column "ف&amp;عال‌">
 <!ENTITY subscription.lastDownload.checksumMismatch "ناموفق, عدم تطابق کنترلی">
 <!ENTITY noFiltersInGroup.text "گروه انتخاب شده خالی می باشد.">
@@ -16,7 +16,7 @@
 <!ENTITY backup.custom.title "فقط فیلتر های سفارشی">
 <!ENTITY subscription.external.label "با پسوند دیگری به روز شده">
 <!ENTITY subscription.delete.label "حذف">
-<!ENTITY noGroupSelected.text "شما نیاز به انتخاب گروه فیلتر دارید قبل ازاین فیلتر ها نمایش داده میشود.">
+<!ENTITY noGroupSelected.text "شما قبل ازاین که فیلترها نمایش داده شوند نیاز به انتخاب گروه فیلتر دارید.">
 <!ENTITY filter.cut.label "برش">
 <!ENTITY restore.default.label "بازیابی پشتیبان از ?1?">
 <!ENTITY subscription.lastDownload.inProgress "در حال دریافت...">
@@ -35,11 +35,11 @@
 <!ENTITY addFilter.label "افزودن فیلتر (&amp;d)">
 <!ENTITY subscription.minVersion.warning "این فیلتر اشتراک نیاز به نسخه جدید برنامه دارد، شما باید برنامه را به آخرین نگارش به روز کنید.">
 <!ENTITY subscription.lastDownload.invalidURL "ناموفق، نشانی معتبر نیست">
-<!ENTITY backup.error "خطایی هنگام نوشتن فیلتر به فایل. اطمینان حاصل کنید که فایل حفاظت شده از نوشتن نیست و یا توسط برنامه کاربردی دیگری استفاده نمی شود.">
+<!ENTITY backup.error "خطایی هنگام نوشتن فیلتر به فایل دیده شد. اطمینان حاصل کنید که فایل نسبت به نوشتن حفاظت شده نیست و یا توسط برنامه کاربردی دیگری استفاده نمی شود.">
 <!ENTITY filter.moveUp.label "حرکت به بالا">
 <!ENTITY addGroup.label "افزودن گروه فیلتر">
 <!ENTITY filter.edit.label "ویرایش">
-<!ENTITY subscription.showHideFilters.label "نمایش/پنهان کردن فیلترهای">
+<!ENTITY subscription.showHideFilters.label "نمایش/پنهان کردن فیلترها">
 <!ENTITY acceptableAds2.label "اجازه دادن به تبلیغات ناخواسته (&amp;i)">
 <!ENTITY addSubscriptionOther.label "یک اشتراک ديگر اضافه کنید">
 <!ENTITY close.label "بستن">
@@ -66,7 +66,7 @@
 <!ENTITY subscription.disabledFilters.enable "فعال کردن فیلتر های غیر فعال">
 <!ENTITY lasthit.column "آخرین برخ&amp;ورد">
 <!ENTITY subscription.editTitle.label "ویرایش عنوان">
-<!ENTITY subscription.disabledFilters.warning "برخی از فیلتر های برای این اشتراک غیر فعال می باشد.">
-<!ENTITY filter.column "&amp;قواعد پالایش">
+<!ENTITY subscription.disabledFilters.warning "برخی از فیلترها برای این اشتراک غیر فعال می باشد.">
+<!ENTITY filter.column "&amp;قواعد فیلتر">
 <!ENTITY subscription.lastDownload.label "آخرین دریافت:">
 <!ENTITY viewList.label "مشاهده لیست">

@@ -2,9 +2,9 @@
 <!ENTITY address.label "نشانی">
 <!ENTITY context.open.label "گشودن در زبانه نو">
 <!ENTITY type.label "نوع">
-<!ENTITY tooltip.filterSource.label "متن پالایه:">
+<!ENTITY tooltip.filterSource.label "متن فیلتر:">
 <!ENTITY noitems.label "هیچ مورد قابل انسدادی نیست">
-<!ENTITY filter.label "پالایه">
+<!ENTITY filter.label "فیلتر">
 <!ENTITY tooltip.size.label "اندازه:">
 <!ENTITY reattach.label "وصل کردن دوباره">
 <!ENTITY search.label "جستجو:">
@@ -14,18 +14,18 @@
 <!ENTITY context.copy.label "کپی آدرس مورد">
 <!ENTITY tooltip.type.label "نوع:">
 <!ENTITY context.disablefilter.label "غیر فعال کردن فیلتر ?1?">
-<!ENTITY context.copyFilter.label "رونوشت پالایه">
+<!ENTITY context.copyFilter.label "رونوشت فیلتر">
 <!ENTITY context.block.label "مسدود کردن این مورد">
-<!ENTITY context.enablefilter.label "فعال کردن پالایه ?1?">
+<!ENTITY context.enablefilter.label "فعال کردن فیلتر ?1?">
 <!ENTITY detach.label "قطع کردن">
 <!ENTITY whitelisted.label "صفحه فهرست سفید">
-<!ENTITY context.disablefilteronsite.label "غیر فعال کردن پالایه در ?1?">
+<!ENTITY context.disablefilteronsite.label "غیر فعال کردن این فیلتر در ?1?">
 <!ENTITY detached.title "فوق تبلیغ شکن: موارد قابل انسداد (قطع شده)">
 <!ENTITY docDomain.firstParty "(شخص اول)">
 <!ENTITY tooltip.type.whitelisted "(در فهرست سفید)">
-<!ENTITY tooltip.filter.label "پالایه های مؤثر:">
+<!ENTITY tooltip.filter.label "فیلترهای مؤثر:">
 <!ENTITY tooltip.filter.disabled "(غیر فعال)">
-<!ENTITY context.editfilter.label "ویرایش پالایه مؤثر">
+<!ENTITY context.editfilter.label "ویرایش فیلتر مؤثر">
 <!ENTITY tooltip.type.blocked "(مسدود شده)">
 <!ENTITY size.label "اندازه">
 <!ENTITY context.whitelist.label "افزودن قانون استثنا برای این مورد">

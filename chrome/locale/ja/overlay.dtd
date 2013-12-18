@@ -2,7 +2,6 @@
 <!ENTITY whitelist.site.label "?1? で無効">
 <!ENTITY filters.label "フィルタ設定 (&amp;F)">
 <!ENTITY disable.label "全ページで無効">
-<!ENTITY showinaddonbar.label "アドオンバーに表示 (&amp;B)">
 <!ENTITY objecttab.title "ブロックする">
 <!ENTITY objecttab.tooltip "クリックしてオブジェクトをブロック (Adblock Plus)">
 <!ENTITY menuitem.label "Adblock Plus 設定 (&amp;B)">

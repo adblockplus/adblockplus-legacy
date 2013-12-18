@@ -1,7 +1,12 @@
+<!ENTITY addMain.label "Legg til filterabonnement &quot;?1?&quot; også">
+<!ENTITY list.download.failed "Adblock Plus mislyktes i å hente listen med abonnementene.">
 <!ENTITY list.download.retry "Prøv igjen">
 <!ENTITY title.label "Abonnemen&amp;tstittel:">
 <!ENTITY list.download.website "Vis nettside">
+<!ENTITY supplementMessage "Dette filter abonnementet er ment å brukes sammen med filter abonnementet &quot;?1?&quot; som du ikke bruker ennå.">
 <!ENTITY viewList.label "Vis filtre">
 <!ENTITY visitHomepage.label "Besøk hjemmeside">
 <!ENTITY addSubscription.label "Legg til abonnement">
 <!ENTITY dialog.title "Legg til filterabonnement for Adblock Plus">
+<!ENTITY location.label "Filterabonnementets plassering:">
+<!ENTITY fromWeb.description "Vennligst bekreft at du vil legge til dette filterabonnementet. Du kan forandre tittelen på abonnementet, eller plasseringen til abonnementet, før det legges til.">

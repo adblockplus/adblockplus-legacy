@@ -1,0 +1,18 @@
+<!ENTITY collapse.label "&amp;தடுக்கப்பட்ட பட்டியலைச் சுருக்குக:">
+<!ENTITY accept.label "வடிகட்டியைச் சேர்">
+<!ENTITY type.filter.label "&amp;தடுப்பு வடிகட்டி">
+<!ENTITY options.label "விருப்பத்தேர்வுகள்">
+<!ENTITY disabled.warning "ஆட்ப்ளாக் பிளஸ் தற்போது செயலிழக்கச் செய்யப்பட்டுள்ளது. இருப்பினும் நீங்கள் வடிகட்டிகளைச் சேர்க்கலாம். ஆனால், அவை நீங்கள் [link]ஆட்ப்ளாக் பிளசினைச் செயல்படுத்தும்[/link] வரை செயல்படுத்தப்பட மாட்டாது.">
+<!ENTITY collapse.default.no.label "கொடாநிலையாகப் பயன்படுத்துக (இல்லை)">
+<!ENTITY preferences.label "&amp;நடப்பு வடிகட்டிகளைக் காட்டு...">
+<!ENTITY advanced.label "மேம்பட்ட தோற்றம்">
+<!ENTITY pattern.label "வரிசைத்தன்மைக்காக பார்க்கிறது">
+<!ENTITY selectAllTypes.label "அனைத்தையும் தேர்ந்தெடு">
+<!ENTITY type.whitelist.label "&amp;விடுப்பு விதி">
+<!ENTITY collapse.no.label "இல்லை">
+<!ENTITY dialog.title "ஆட்ப்ளாக் பிளஸ் வடிகட்டி விதியைச் சேர்">
+<!ENTITY basic.label "சாதாரண தோற்றம்">
+<!ENTITY filter.label "புதிய &amp;வடிகட்டி:">
+<!ENTITY unselectAllTypes.label "எதையும் தேர்ந்தெடுக்காதே">
+<!ENTITY collapse.default.yes.label "கொடாநிலையாகப் பயன்படுத்துக (ஆம்)">
+<!ENTITY collapse.yes.label "ஆம்">

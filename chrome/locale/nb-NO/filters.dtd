@@ -1,10 +1,14 @@
+<!ENTITY restore.custom.warning "Alle dine egenkomponerte filtre vil bli erstattet av innholdet i filen du har valgt. Vil du fortsette?">
 <!ENTITY slow.column "Trege filtre (&amp;w)">
 <!ENTITY enabled.column "Aktivert (&amp;n)">
-<!ENTITY filters.remove.warning "Ønsker du virkelig å fjerne alle valgte filtre?">
+<!ENTITY subscription.lastDownload.checksumMismatch "Mislyktes - kontrollsummen stemmer ikke">
 <!ENTITY noFiltersInGroup.text "Den valgte gruppen er tom.">
 <!ENTITY subscription.actions.label "Handlinger">
 <!ENTITY filter.selectAll.label "Velg alle">
 <!ENTITY backupButton.label "Sikkerhetskopier og gjenopprett (&amp;B)">
+<!ENTITY restore.minVersion.warning "Advarsel: Filen har blitt laget med en nyere versjon av Adblock Plus. Du bør oppdatere til nyeste versjon av Adblock Plus før du bruker denne filen.">
+<!ENTITY restore.error "Informasjonen i filen kunne ikke bli behandlet. Kanskje dette ikke er en backup-fil for Adblock Plus?">
+<!ENTITY sort.ascending.label "&amp;Sortér fra A til Å">
 <!ENTITY sort.label "&amp;Sorter etter">
 <!ENTITY subscription.source.label "Filterliste">
 <!ENTITY hitcount.column "Treff (&amp;H)">
@@ -13,43 +17,56 @@
 <!ENTITY subscription.external.label "Oppdatert av et annet tillegg">
 <!ENTITY subscription.delete.label "Slett">
 <!ENTITY noGroupSelected.text "Du må velge en filtergruppe før tilhørende filtre kan vises.">
+<!ENTITY filter.cut.label "Klipp ut">
 <!ENTITY restore.default.label "Gjenopprett sikkerhetskopi fra ?1?">
 <!ENTITY subscription.lastDownload.inProgress "Laster ned...">
 <!ENTITY subscriptions.tab.label "Filterabonnementer">
+<!ENTITY sort.descending.label "&amp;Sortér fra Å til A">
+<!ENTITY filters.remove.warning "Ønsker du virkelig å fjerne alle valgte filtre?">
 <!ENTITY filter.delete.label "Slett">
 <!ENTITY addSubscriptionAdd.label "Legg til">
 <!ENTITY viewMenu.label "Vis">
 <!ENTITY subscription.lastDownload.unknown "Ikke tilgjengelig">
 <!ENTITY addSubscriptionCancel.label "Avbryt">
 <!ENTITY subscription.enabled.label "Aktivert">
+<!ENTITY noSubscriptions.text "Du har ikke lagt til noen filterabonnementer ennå. Adblock Plus blokkerer ikke noe uten filtre. Vennligst bruk &quot;Legg til filterabonnement&quot; for å legge til filtre.">
 <!ENTITY subscription.update.label "Oppdater filtre">
-<!ENTITY lasthit.column "Siste treff (&amp;L)">
+<!ENTITY dialog.title "Filtervalg for Adblock Plus">
 <!ENTITY addFilter.label "Legg til filter (&amp;d)">
+<!ENTITY subscription.minVersion.warning "Dette filterabonnementet krever en nyere versjon av Adblock Plus. Du bør oppdatere til nyeste versjon av Adblock Plus.">
 <!ENTITY subscription.lastDownload.invalidURL "Feilet, ikke en gyldig adresse">
+<!ENTITY backup.error "Det oppstod en feil under lagring av filtrene til filen. Sjekk at ikke filen er skrivebeskyttet, eller at den brukes av et annet program.">
+<!ENTITY filter.moveUp.label "Flytt opp">
 <!ENTITY addGroup.label "Le&amp;gg til filtergruppe">
 <!ENTITY filter.edit.label "Rediger">
 <!ENTITY subscription.showHideFilters.label "Vis/skjul filtre">
-<!ENTITY filter.cut.label "Klipp ut">
+<!ENTITY acceptableAds2.label "Tillat noen ikke-påtrengende annonser">
 <!ENTITY addSubscriptionOther.label "Legg til et annet abonnement">
 <!ENTITY close.label "Lukk">
 <!ENTITY sort.none.label "&amp;Usortert">
 <!ENTITY filter.actions.label "Filterhandlinger">
 <!ENTITY filter.copy.label "Kopier">
+<!ENTITY filter.moveDown.label "Flytt ned">
+<!ENTITY filter.resetHitCounts.label "Nullstill treffstatistikker">
 <!ENTITY readMore.label "Les mer">
 <!ENTITY subscription.moveUp.label "Flytt opp">
 <!ENTITY addSubscription.label "Legg til &amp;filterabonnement">
 <!ENTITY subscription.homepage.label "Hjemmeside">
 <!ENTITY backup.complete.title "Alle filtre og abonnenter">
 <!ENTITY restore.own.label "Gjenopprett egen sikkerhetskopi">
+<!ENTITY restore.complete.warning "Alle filtervalgene dine vil bli erstattet av innholdet i filen du har valgt. Vil du fortsette?">
 <!ENTITY filters.tab.label "Egendefinerte filtre">
 <!ENTITY backup.label "Opprett ny sikkerhetskopi">
 <!ENTITY find.label "Fi&amp;nn">
 <!ENTITY subscription.moveDown.label "Flytt ned">
 <!ENTITY subscription.lastDownload.connectionError "Feilet, nedlastingsfeil">
+<!ENTITY subscription.lastDownload.success "Vellykket">
 <!ENTITY subscription.lastDownload.invalidData "Feilet, ikke en gyldig filterliste">
 <!ENTITY filter.paste.label "Lim inn">
 <!ENTITY subscription.disabledFilters.enable "Aktiver deaktiverte filtre">
+<!ENTITY lasthit.column "Siste treff (&amp;L)">
 <!ENTITY subscription.editTitle.label "Rediger tittel">
 <!ENTITY subscription.disabledFilters.warning "Noen filtre i dette abonnementet er deaktivert.">
-<!ENTITY subscription.lastDownload.label "Siste nedlasting:">
 <!ENTITY filter.column "&amp;Filterregel">
+<!ENTITY subscription.lastDownload.label "Siste nedlasting:">
+<!ENTITY viewList.label "Vis liste">

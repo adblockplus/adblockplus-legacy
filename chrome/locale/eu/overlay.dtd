@@ -2,7 +2,6 @@
 <!ENTITY whitelist.site.label "Ezgaitu hemen: ?1?">
 <!ENTITY filters.label "&amp;Iragazki hobespenak">
 <!ENTITY disable.label "Ezgaitu edonon">
-<!ENTITY showinaddonbar.label "Erakutsi &amp;gehigarrien barran">
 <!ENTITY objecttab.title "Blokeatu">
 <!ENTITY objecttab.tooltip "Egin klik hemen objektu hau Adblock Plusekin blokeatzeko">
 <!ENTITY menuitem.label "Adbloc&amp;k Plus hobespenak">

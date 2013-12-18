@@ -2,7 +2,6 @@
 <!ENTITY whitelist.site.label "Ei käytössä osoitteessa ?1?">
 <!ENTITY filters.label "&amp;Suodatinasetukset">
 <!ENTITY disable.label "Poista käytöstä kaikkialla">
-<!ENTITY showinaddonbar.label "Nä&amp;ytä lisäosapalkilla">
 <!ENTITY objecttab.title "Estä">
 <!ENTITY objecttab.tooltip "Estä tämä objekti Adblock Plussalla">
 <!ENTITY menuitem.label "A&amp;dblock Plus - Asetukset">

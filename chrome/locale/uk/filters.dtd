@@ -33,7 +33,7 @@
 <!ENTITY subscription.update.label "Оновити фільтри">
 <!ENTITY dialog.title "Налаштування фільтрів Адблоку">
 <!ENTITY addFilter.label "&amp;Додати фільтр">
-<!ENTITY subscription.minVersion.warning "Ця фільтрова підписка потребує новішої версії Adblock Plus. Вам слід оновитись до останньої версії Adblock Plus.">
+<!ENTITY subscription.minVersion.warning "Ця підписка фільтрів потребує новішої версії Adblock Plus. Вам слід оновитись до останньої версії Adblock Plus.">
 <!ENTITY subscription.lastDownload.invalidURL "Помилка, невірна адреса">
 <!ENTITY backup.error "Під час запису фільтрів у файл сталася помилка. Упевніться, що файл не захищений від запису і не використовується іншою програмою.">
 <!ENTITY filter.moveUp.label "Зсунути вверх">
@@ -61,7 +61,7 @@
 <!ENTITY subscription.moveDown.label "Зсунути вниз">
 <!ENTITY subscription.lastDownload.connectionError "Помилка, неможливо викачати">
 <!ENTITY subscription.lastDownload.success "Успіх">
-<!ENTITY subscription.lastDownload.invalidData "Помилка, не список фільтрів">
+<!ENTITY subscription.lastDownload.invalidData "Помилка, не правильний список фільтрів">
 <!ENTITY filter.paste.label "Вставити">
 <!ENTITY subscription.disabledFilters.enable "Увімкнути вимкнені фільтри">
 <!ENTITY lasthit.column "&amp;Останнє попадання">

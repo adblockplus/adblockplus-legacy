@@ -31,9 +31,9 @@
 <!ENTITY subscription.enabled.label "Омогућено">
 <!ENTITY noSubscriptions.text "Нисте додали ниједну претплату на филтер. Adblock Plus неће блокирати ништа без њих, па притисните „Додај претплату на филтер”.">
 <!ENTITY subscription.update.label "Ажурирај филтере">
-<!ENTITY dialog.title "Подешавања филтера Adblock Plus">
+<!ENTITY dialog.title "Подешавања Adblock Plus филтера">
 <!ENTITY addFilter.label "&amp;Додај филтер">
-<!ENTITY subscription.minVersion.warning "Ива претплата на филтер захтева новију верзију додатка Adblock Plus. Молимо вас да доградите додатак.">
+<!ENTITY subscription.minVersion.warning "Ова претплата на филтер захтева новију верзију додатка Adblock Plus. Молимо вас да унапредите додатак.">
 <!ENTITY subscription.lastDownload.invalidURL "Неуспело, неисправна адреса">
 <!ENTITY backup.error "Дошло је до грешке приликом чувања филтера у датотеку. Проверите да датотека није само за читање или је не корити нека друга апликација.">
 <!ENTITY filter.moveUp.label "Помери нагоре">

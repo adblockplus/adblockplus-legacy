@@ -2,7 +2,6 @@
 <!ENTITY whitelist.site.label "Non aktifkan pada ?1?">
 <!ENTITY filters.label "&amp;Preferensi penyaring">
 <!ENTITY disable.label "Non aktifkan disemua tempat">
-<!ENTITY showinaddonbar.label "Tampilkan di add-on&amp;bar">
 <!ENTITY objecttab.title "Blokir">
 <!ENTITY objecttab.tooltip "Klik disini untuk memblokir objek ini dengan Adblock Plus">
 <!ENTITY menuitem.label "Preferensi Ad&amp;block Plus">
@@ -19,7 +18,7 @@
 <!ENTITY hideplaceholders.label "Sembunyikan p&amp;laceholders dari unsur pemblokiran">
 <!ENTITY showinstatusbar.label "Tunjukkan di &amp;status bar">
 <!ENTITY sidebar.title "Item yang dapat diblok di halaman ini">
-<!ENTITY options.label "&amp; Pilihan">
+<!ENTITY options.label "&amp;Pilihan">
 <!ENTITY context.object.label "Adblock Plus: Blokir objek">
 <!ENTITY context.removeWhitelist.label "Adblock Plus: Mengaktifkan ulang pada halaman ini">
 <!ENTITY filters.tooltip "Filter paling aktif:">

@@ -2,7 +2,6 @@
 <!ENTITY whitelist.site.label "נטרול ב-?1?">
 <!ENTITY filters.label "&amp;העדפות סינון">
 <!ENTITY disable.label "נטרול בכל מקום">
-<!ENTITY showinaddonbar.label "&amp;הצגה בסרגל ההרחבות">
 <!ENTITY objecttab.title "חסימה">
 <!ENTITY objecttab.tooltip "לחיצה כאן לחסימת פריט זה עם Adblock Plus">
 <!ENTITY menuitem.label "&amp;העדפות Adblock Plus">

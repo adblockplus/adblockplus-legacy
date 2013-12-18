@@ -2,7 +2,6 @@
 <!ENTITY whitelist.site.label "Atspējot uz ?1?">
 <!ENTITY filters.label "Filtra preferences">
 <!ENTITY disable.label "Atspējot visur">
-<!ENTITY showinaddonbar.label "Rādīt pievienojumprogrammu joslā">
 <!ENTITY objecttab.title "Bloķēt">
 <!ENTITY objecttab.tooltip "Noklikšķiniet šeit, lai bloķētu šo objektu ar Adblock Plus">
 <!ENTITY menuitem.label "Adblock Plus Iestatījumi">

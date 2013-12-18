@@ -1,6 +1,6 @@
 <!ENTITY restore.custom.warning "Všechny vaše vlastní filtry budou nahrazeny obsahem vybraného souboru. Chcete pokračovat?">
 <!ENTITY slow.column "Po&amp;malé filtry">
-<!ENTITY enabled.column "A&amp;ktivní">
+<!ENTITY enabled.column "Po&amp;volené">
 <!ENTITY subscription.lastDownload.checksumMismatch "Chyba, neodpovídá kontrolní součet">
 <!ENTITY noFiltersInGroup.text "Vybraná skupina je prázdná">
 <!ENTITY subscription.actions.label "Akce">
@@ -12,7 +12,7 @@
 <!ENTITY sort.label "&amp;Seřadit podle">
 <!ENTITY subscription.source.label "Seznam filtrů">
 <!ENTITY hitcount.column "Zása&amp;hy">
-<!ENTITY noFilters.text "Zatím nemáte žádné vlastní filtry.">
+<!ENTITY noFilters.text "Nemáte žádné vlastnoručně vytvořené filtry.">
 <!ENTITY backup.custom.title "Pouze vlastní filtry">
 <!ENTITY subscription.external.label "Aktualizováno jiným rozšířením">
 <!ENTITY subscription.delete.label "Smazat">

@@ -2,7 +2,6 @@
 <!ENTITY whitelist.site.label "Vô hiệu hóa trên ?1?">
 <!ENTITY filters.label "&amp;Tùy chỉnh bộ lọc">
 <!ENTITY disable.label "Vô hiệu hóa ở mọi nơi">
-<!ENTITY showinaddonbar.label "Hiển thị ở thanh công &amp;cụ">
 <!ENTITY objecttab.title "Chặn">
 <!ENTITY objecttab.tooltip "Nhấn vào đây để chặn đối tượng này với Adblock Plus">
 <!ENTITY menuitem.label "Tùy chọn Adblock &amp;Plus">

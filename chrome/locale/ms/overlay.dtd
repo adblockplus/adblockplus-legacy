@@ -2,7 +2,6 @@
 <!ENTITY whitelist.site.label "Nyahaktifkan pada ?1?">
 <!ENTITY filters.label "&amp;Tatarajah penapis">
 <!ENTITY disable.label "Nyahaktif di semua tempat">
-<!ENTITY showinaddonbar.label "Papa&amp;rkan di bar add-on">
 <!ENTITY objecttab.title "Sekat">
 <!ENTITY objecttab.tooltip "Klik di sini untuk menyekat objek ini dengan Adblock Plus">
 <!ENTITY menuitem.label "&amp;Pilihan Adblock Plus">

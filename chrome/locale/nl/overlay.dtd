@@ -2,7 +2,6 @@
 <!ENTITY whitelist.site.label "Uitschakelen op ?1?">
 <!ENTITY filters.label "&amp;Filtervoorkeuren">
 <!ENTITY disable.label "Overal uitschakelen">
-<!ENTITY showinaddonbar.label "In add-on&amp;balk weergeven">
 <!ENTITY objecttab.title "Blokkeren">
 <!ENTITY objecttab.tooltip "Klik hier om dit object te blokkeren met Adblock Plus">
 <!ENTITY menuitem.label "&amp;Adblock Plus-voorkeuren">

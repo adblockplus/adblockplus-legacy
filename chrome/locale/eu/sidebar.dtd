@@ -28,7 +28,7 @@
 <!ENTITY context.editfilter.label "Editatu iragazki aktiboa">
 <!ENTITY tooltip.type.blocked "(blokeatuta)">
 <!ENTITY size.label "Tamaina">
-<!ENTITY context.whitelist.label "Gehitu salbuespen araua elementuarentzat">
+<!ENTITY context.whitelist.label "Gehitu salbuespen-araua elementuarentzat">
 <!ENTITY context.selectAll.label "Aukeratu denak">
 <!ENTITY state.label "Egoera">
 <!ENTITY docDomain.label "Dokumentu iturria">

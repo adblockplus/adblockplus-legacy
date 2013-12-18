@@ -1,15 +1,35 @@
+<!ENTITY context.flash.label "Flash ელემენტების ჩარჩო">
+<!ENTITY address.label "მისამართი">
+<!ENTITY context.open.label "ახალ ჩანართში გახსნა">
+<!ENTITY type.label "ტიპი">
+<!ENTITY tooltip.filterSource.label "ფილტრის წყარო:">
+<!ENTITY noitems.label "დასაბლოკი ელემენტები არ არის">
+<!ENTITY filter.label "ფილტრი">
 <!ENTITY tooltip.size.label "ზომა:">
-<!ENTITY context.editfilter.label "გამოყენებული ფილტრის რედაქტირება">
-<!ENTITY tooltip.type.blocked "(დაბლოკილი)">
+<!ENTITY reattach.label "აღდგენა">
+<!ENTITY search.label "&amp;ძიება:">
+<!ENTITY docDomain.thirdParty "(მესამე მხარის)">
+<!ENTITY filterSource.label "ფილტრის წყარო">
+<!ENTITY tooltip.docDomain.label "დოკუმენტის წყარო:">
+<!ENTITY context.copy.label "ელემენტის მისამართის კოპირება">
+<!ENTITY tooltip.type.label "ტიპი:">
+<!ENTITY context.disablefilter.label "გამოირთოს ფილტრი ?1?">
+<!ENTITY context.copyFilter.label "ფილტრის ასლი">
+<!ENTITY context.block.label "დაბლოკე ეს ელემენტი">
+<!ENTITY context.enablefilter.label "ხელახლა ჩაირთოს ფილტრი ?1?">
+<!ENTITY detach.label "მოაცილე">
+<!ENTITY whitelisted.label "თეთრ სიაში შეტანილი გვერდი">
+<!ENTITY context.disablefilteronsite.label "გამოვრთო ფილტრი ?1?-ზე">
+<!ENTITY detached.title "Adblock Plus: ბლოკირებადი ელემენტები (მოცილებადი)">
+<!ENTITY docDomain.firstParty "საკუთარი">
 <!ENTITY tooltip.type.whitelisted "(თეთრ სიაში)">
 <!ENTITY tooltip.filter.label "მოქმედი ფილტრი:">
-<!ENTITY tooltip.docDomain.label "დოკუმენტის წყარო:">
-<!ENTITY context.whitelist.label "ამ ერთეულისთვის გამონაკლისის დამატება">
 <!ENTITY tooltip.filter.disabled "(გამორთული)">
+<!ENTITY context.editfilter.label "გამოყენებული ფილტრის რედაქტირება">
+<!ENTITY tooltip.type.blocked "(დაბლოკილი)">
+<!ENTITY size.label "ზომა">
+<!ENTITY context.whitelist.label "გამონაკლისი ამ ერთეულისთვის">
 <!ENTITY context.selectAll.label "ყველას არჩევა">
-<!ENTITY tooltip.type.label "ტიპი:">
-<!ENTITY tooltip.filterSource.label "ფილტრის წყარო:">
-<!ENTITY context.copyFilter.label "ფილტრის ასლი">
-<!ENTITY context.block.label "დაბლოკე ეს ერთეული">
-<!ENTITY context.enablefilter.label "ხელახლა ჩაირთოს ფილტრი ?1?">
-<!ENTITY context.disablefilter.label "გამოირთოს ფილტრი ?1?">
+<!ENTITY state.label "მდგომარეობა">
+<!ENTITY docDomain.label "დოკუმენტის წყარო">
+<!ENTITY tooltip.address.label "მისამართი:">

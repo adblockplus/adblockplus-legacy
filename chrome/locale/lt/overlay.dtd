@@ -2,7 +2,6 @@
 <!ENTITY whitelist.site.label "Išjungti ?1?">
 <!ENTITY filters.label "&amp;Filtrų nustatymai">
 <!ENTITY disable.label "Išjungti visur">
-<!ENTITY showinaddonbar.label "&amp;Rodyti priedų juostoje">
 <!ENTITY objecttab.title "Blokuoti">
 <!ENTITY objecttab.tooltip "Spragtelėkite čia norėdami užblokuoti šį objektą su „Adblock Plus“">
 <!ENTITY menuitem.label "„&amp;Adblock Plus“ nustatymai">

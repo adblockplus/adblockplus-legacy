@@ -2,7 +2,6 @@
 <!ENTITY whitelist.site.label "Disable on ?1?">
 <!ENTITY filters.label "Filter preferences">
 <!ENTITY disable.label "Disable everywhere">
-<!ENTITY showinaddonbar.label "Show in add-on bar">
 <!ENTITY objecttab.title "Block">
 <!ENTITY objecttab.tooltip "Block this object with Adblock Plus">
 <!ENTITY menuitem.label "Adblock Plus Preferences">

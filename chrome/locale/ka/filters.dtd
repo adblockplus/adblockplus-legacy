@@ -1,1 +1,25 @@
+<!ENTITY subscription.actions.label "მოქმედებები">
+<!ENTITY filter.selectAll.label "ყველას არჩევა">
+<!ENTITY subscription.source.label "ფილტრების სია">
+<!ENTITY filter.paste.label "ჩასმა">
+<!ENTITY viewList.label "სიის ნახვა">
+<!ENTITY subscription.delete.label "წაშლა">
+<!ENTITY subscriptions.tab.label "ფილტრის გამოწერა">
+<!ENTITY filter.delete.label "წაშლა">
+<!ENTITY addSubscriptionAdd.label "დამატება">
+<!ENTITY viewMenu.label "ჩვენება">
+<!ENTITY addSubscriptionCancel.label "გაუქმება">
+<!ENTITY subscription.enabled.label "ჩართული">
+<!ENTITY subscription.update.label "ფილტრების განახლება">
+<!ENTITY subscription.moveDown.label "ქვევით გადატანა">
+<!ENTITY filter.edit.label "რედაქტირება">
+<!ENTITY subscription.showHideFilters.label "ფილტრების გამოჩენა/დამალვა">
+<!ENTITY filter.cut.label "ამოჭრა">
 <!ENTITY addSubscriptionOther.label "სხვა პოდპისკის დამატება">
+<!ENTITY filter.copy.label "კოპირება">
+<!ENTITY subscription.moveUp.label "ზევით გადატანა">
+<!ENTITY addSubscription.label "&amp;ფილტრის გამოწერის დამატება">
+<!ENTITY subscription.homepage.label "მთავარი გვერდი">
+<!ENTITY filters.tab.label "მორგებული ფილტრები">
+<!ENTITY subscription.editTitle.label "სათაურის რედაქტირება">
+<!ENTITY filter.column "&amp;ფილტრის წესი">

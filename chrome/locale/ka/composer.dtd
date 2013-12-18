@@ -1,5 +1,18 @@
-<!ENTITY dialog.title "სანიშნეს Adblock Plus ფილტრი წესი">
 <!ENTITY collapse.yes.label "დიახ">
-<!ENTITY collapse.default.no.label "გამოიყენე ნაგულისხმევი (არა)">
-<!ENTITY collapse.default.yes.label "გამოიყენე ნაგულისხმევი (დიახ)">
+<!ENTITY accept.label "ფილტრის დამატება">
+<!ENTITY type.filter.label "&amp;დაბლოკვის ფილტრი">
+<!ENTITY options.label "პარამეტრები">
+<!ENTITY disabled.warning "Adblock Plus ამჟამად გამორთულია. თქვენ შეგიძლიათ ფილტრების დამატება, მაგრამ ისინი არ იმოქმედებენ, სანამ თქვენ[link]არ ჩართავთ Adblock Plus-ს[/link].">
+<!ENTITY types.label "გამოიყენე შემდეგი ტიპებისთვის:">
+<!ENTITY custom.pattern.label "&amp;მორგებული:">
+<!ENTITY unselectAllTypes.label "მონიშვნის გაუქმება">
+<!ENTITY advanced.label "გაფართოებული შესაძლებლობები">
+<!ENTITY pattern.label "შაბლონის მოძიება">
+<!ENTITY selectAllTypes.label "ყველას მონიშვნა">
 <!ENTITY collapse.no.label "არა">
+<!ENTITY dialog.title "დაამატე Adblock Plus ფილტრის წესი">
+<!ENTITY basic.label "ძირითადი შესაძლებლობები">
+<!ENTITY filter.label "ახალი &amp;ფილტრი:">
+<!ENTITY collapse.label "დაბლოკილების და&amp;ხურვა:">
+<!ENTITY collapse.default.yes.label "გამოიყენე ნაგულისხმევი (დიახ)">
+<!ENTITY collapse.default.no.label "გამოიყენე ნაგულისხმევი (არა)">
