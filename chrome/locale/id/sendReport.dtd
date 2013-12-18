@@ -38,7 +38,7 @@
 <!ENTITY outdatedSubscriptions.description "Filter langganan ini belum diperbaharui setidaknya dua minggu. Silahkan perbaharui langganan ini sebelum mengirimkan laporan masalah yang mungkin sudah terselesaikan sebelumnya.">
 <!ENTITY dataCollector.description "Silahkan tunggu beberapa saat sementara Adblock Plus mengumpulkan data yang dibutuhkan.">
 <!ENTITY sendButton.label "Kirim laporan">
-<!ENTITY comment.label "&amp; Komentar (pilihan):">
+<!ENTITY comment.label "&amp;Komentar (pilihan):">
 <!ENTITY sendPage.errorMessage "Upaya mengirimkan laporan gagal dengan kode kesalahan &quot;?1?&quot;. Silahkan pastikan Anda terhubung ke Internet dan coba kembali. Jika masalah berlanjut, silahkan meminta bantuan pada [link]Forum Adblock Plus[/link].">
 <!ENTITY showRecentReports.label "Tampilkan laporan yang baru disampaikan">
 <!ENTITY commentPage.heading "Masukkan Komentar">

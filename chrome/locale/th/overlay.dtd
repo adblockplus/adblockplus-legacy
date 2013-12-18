@@ -2,7 +2,6 @@
 <!ENTITY whitelist.site.label "ปิดการใช้งาน ?1?">
 <!ENTITY filters.label "ตั้งค่าตัวกร&amp;อง">
 <!ENTITY disable.label "ปิดการใช้งานทุกที่">
-<!ENTITY showinaddonbar.label "แส&amp;ดงในแถบ Add-on">
 <!ENTITY objecttab.title "บล็อก">
 <!ENTITY objecttab.tooltip "คลิกที่นี่เพื่อบล็อกวัตถุนี้ด้วย Adblock Plus">
 <!ENTITY menuitem.label "&amp;ปรับแต่ง Adblock Plus">

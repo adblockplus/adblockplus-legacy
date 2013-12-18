@@ -2,7 +2,6 @@
 <!ENTITY whitelist.site.label "Desactivar en ?1?">
 <!ENTITY filters.label "&amp;Preferencias de filtro">
 <!ENTITY disable.label "Desactivado en cualquier lugar">
-<!ENTITY showinaddonbar.label "Mostrar en la barra de &amp;complementos">
 <!ENTITY objecttab.title "Bloquear">
 <!ENTITY objecttab.tooltip "Click aquí para bloquear este objeto con Adblock Plus">
 <!ENTITY menuitem.label "Pr&amp;eferencias de Adblock Plus">

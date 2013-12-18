@@ -2,7 +2,6 @@
 <!ENTITY whitelist.site.label "გამორთე ––ზე">
 <!ENTITY filters.label "ფილტრის პარამეტრები">
 <!ENTITY disable.label "გამორთე ყველგან">
-<!ENTITY showinaddonbar.label "გამოაჩინე დანამატების ზოლში">
 <!ENTITY objecttab.title "დაბლოკვა">
 <!ENTITY objecttab.tooltip "ობიექტის Adblock Plus-ით დასაბლოკად დააწკაპუნეთ აქ">
 <!ENTITY menuitem.label "Ad&amp;block Plus პარამეტრები">

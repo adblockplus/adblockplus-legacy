@@ -5,11 +5,11 @@
 <!ENTITY preferences.label "Mo&amp;stra els filtres existents...">
 <!ENTITY pattern.label "Cerca un patró">
 <!ENTITY thirdParty.label "Només de &amp;tercers">
-<!ENTITY filter.label "&amp;Nou filtre:">
-<!ENTITY collapse.label "Co&amp;l·lapsar els bloquejats:">
+<!ENTITY filter.label "Filtre &amp;nou:">
+<!ENTITY collapse.label "Co&amp;l·lapsa els bloquejats:">
 <!ENTITY match.warning "El patró inserit no concorda amb l'adreça a blocar/acceptar i quedarà sense efecte.">
 <!ENTITY anchor.start.label "&amp;al començament de l'adreça">
-<!ENTITY matchCase.label "Diferen&amp;cia majúscules i minúscules">
+<!ENTITY matchCase.label "Diferencia &amp;majúscules i minúscules">
 <!ENTITY custom.pattern.label "&amp;Personalitza:">
 <!ENTITY unselectAllTypes.label "No seleccionis res">
 <!ENTITY type.whitelist.label "E&amp;xcepció">
@@ -26,7 +26,7 @@
 <!ENTITY accept.label "Afegeix un filtre">
 <!ENTITY options.label "Opcions">
 <!ENTITY disabled.warning "L'Adblock Plus està actualment desactivat. Encara podeu afegir filtres però no s'aplicaran fins que no [link]activeu l'Adblock Plus[/link].">
-<!ENTITY anchor.start.flexible.label "&amp;al començament del nom de domini">
+<!ENTITY anchor.start.flexible.label "al començament del &amp;nom de domini">
 <!ENTITY collapse.no.label "No">
 <!ENTITY selectAllTypes.label "Selecciona-ho tot">
 <!ENTITY advanced.label "Visualització avançada">

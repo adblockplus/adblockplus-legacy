@@ -2,7 +2,6 @@
 <!ENTITY whitelist.site.label "Vypnout na ?1?">
 <!ENTITY filters.label "&amp;Předvolby filtrů">
 <!ENTITY disable.label "Zakázat všude">
-<!ENTITY showinaddonbar.label "Zobraz&amp;it v řádku s rozšířeními">
 <!ENTITY objecttab.title "Blokovat">
 <!ENTITY objecttab.tooltip "Klepněte zde pro blokování tohoto objektu pomocí Adblock Plus">
 <!ENTITY menuitem.label "Předvol&amp;by Adblock Plus">

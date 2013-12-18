@@ -2,7 +2,6 @@
 <!ENTITY whitelist.site.label "Gera óvirkt á ?1?">
 <!ENTITY filters.label "&amp;Síu stillingar">
 <!ENTITY disable.label "Slökkva á allstaðar">
-<!ENTITY showinaddonbar.label "Sýna í viðbó&amp;tarslá">
 <!ENTITY objecttab.title "Loka á">
 <!ENTITY objecttab.tooltip "Smelltu hér til að loka á þennan hlut með Adblock Plus">
 <!ENTITY menuitem.label "Ad&amp;block Plus stillingar">

@@ -20,7 +20,7 @@
 <!ENTITY filter.cut.label "قص">
 <!ENTITY restore.default.label "الاسترجاع من النسخة الاحتياطية ?1?">
 <!ENTITY subscription.lastDownload.inProgress "جاري التحميل">
-<!ENTITY subscriptions.tab.label "اشتراكات التصفية">
+<!ENTITY subscriptions.tab.label "اشتراكات الفلتر">
 <!ENTITY sort.descending.label "ت&amp;رتيب أبجدي (Z &gt; A)">
 <!ENTITY filters.remove.warning "أحقاً تريد ازالة الفلاتر المختارة؟">
 <!ENTITY filter.delete.label "حذف">

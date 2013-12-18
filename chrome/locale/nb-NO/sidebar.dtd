@@ -1,22 +1,35 @@
+<!ENTITY context.flash.label "Fremhév elementets kanter">
 <!ENTITY address.label "Adresse">
 <!ENTITY context.open.label "Åpne i ny fane">
+<!ENTITY type.label "Type">
 <!ENTITY tooltip.filterSource.label "Filterkilde:">
-<!ENTITY filter.label "Filter">
 <!ENTITY noitems.label "Ingen blokkerbare elementer">
+<!ENTITY filter.label "Filter">
 <!ENTITY tooltip.size.label "Størrelse:">
+<!ENTITY reattach.label "Gjentilkoble">
 <!ENTITY search.label "&amp;Søk:">
 <!ENTITY docDomain.thirdParty "(tredjeparts)">
 <!ENTITY filterSource.label "Filterkilde">
 <!ENTITY tooltip.docDomain.label "Dokumentkilde:">
 <!ENTITY context.copy.label "Kopier elementets adresse">
-<!ENTITY tooltip.type.blocked "(blokkert)">
+<!ENTITY tooltip.type.label "Type:">
 <!ENTITY context.disablefilter.label "Deaktiver filter ?1?">
 <!ENTITY context.copyFilter.label "Kopier filter">
 <!ENTITY context.block.label "Blokker dette elementet">
+<!ENTITY context.enablefilter.label "Reaktiver filter ?1?">
+<!ENTITY detach.label "Frakoble">
+<!ENTITY whitelisted.label "Hvitelistet side">
 <!ENTITY context.disablefilteronsite.label "Deaktiver dette filteret på ?1?">
+<!ENTITY detached.title "Adblock Plus: Blokkérbare elementer(frittstående)">
+<!ENTITY docDomain.firstParty "(førsteparts)">
+<!ENTITY tooltip.type.whitelisted "(hvitelistet)">
+<!ENTITY tooltip.filter.label "Gjeldende filter:">
 <!ENTITY tooltip.filter.disabled "(deaktivert)">
+<!ENTITY context.editfilter.label "Redigér gjeldende filter">
+<!ENTITY tooltip.type.blocked "(blokkert)">
 <!ENTITY size.label "Størrelse">
 <!ENTITY context.whitelist.label "Legg til unntaksregel for elementet">
 <!ENTITY context.selectAll.label "Velg alle">
+<!ENTITY state.label "Tilstand">
 <!ENTITY docDomain.label "Dokumentkilde">
 <!ENTITY tooltip.address.label "Adresse:">

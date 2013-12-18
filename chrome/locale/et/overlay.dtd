@@ -2,7 +2,6 @@
 <!ENTITY whitelist.site.label "Keela domeenis ?1?">
 <!ENTITY filters.label "Filtrite sätted">
 <!ENTITY disable.label "Keela kõikjal">
-<!ENTITY showinaddonbar.label "Nä&amp;ita lisade ribal">
 <!ENTITY objecttab.title "Blokeeri">
 <!ENTITY objecttab.tooltip "Klõpsa siia selle objekti blokeerimiseks Adblock Plusi abil">
 <!ENTITY menuitem.label "Adblock Plusi sätted">

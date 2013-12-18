@@ -2,7 +2,6 @@
 <!ENTITY whitelist.site.label "Келесі үшін сөндіру: ?1?">
 <!ENTITY filters.label "Фильт&amp;р баптаулары">
 <!ENTITY disable.label "Әр жерде сөндіру">
-<!ENTITY showinaddonbar.label "Қосымшалар пан&amp;елінде көрсету">
 <!ENTITY objecttab.title "Блоктау">
 <!ENTITY objecttab.tooltip "Adblock Plus көмегімен осы объектті блоктау үшін шертіңіз">
 <!ENTITY menuitem.label "Adblock Plus ба&amp;птаулары">

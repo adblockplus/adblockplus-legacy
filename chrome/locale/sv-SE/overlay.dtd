@@ -2,7 +2,6 @@
 <!ENTITY whitelist.site.label "Använd inte på ?1?">
 <!ENTITY filters.label "Filterinställningar">
 <!ENTITY disable.label "Inaktivera för alla domäner">
-<!ENTITY showinaddonbar.label "Visa i tilläggs&amp;fältet">
 <!ENTITY objecttab.title "Blockera">
 <!ENTITY objecttab.tooltip "Klicka här för att blockera detta objekt med Adblock Plus">
 <!ENTITY menuitem.label "Inställning&amp;ar för Adblock Plus">

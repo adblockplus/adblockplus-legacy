@@ -4,15 +4,15 @@
 <!ENTITY firstParty.label "Solo dominii di p&amp;rimo livello">
 <!ENTITY preferences.label "&amp;Mostra i filtri esistenti…">
 <!ENTITY pattern.label "Modelli">
-<!ENTITY thirdParty.label "&amp;Solo dominii di parte terza">
+<!ENTITY thirdParty.label "&amp;Solo dominii di terza parte">
 <!ENTITY filter.label "&amp;Nuovo filtro:">
-<!ENTITY collapse.label "Co&amp;ntrai bloccati:">
+<!ENTITY collapse.label "&amp;Contrai bloccati:">
 <!ENTITY match.warning "Il modello inserito non corrisponde più all'indirizzo web da bloccare/permettere e non avrà quindi alcun effetto">
 <!ENTITY anchor.start.label "all'i&amp;nizio dell'indirizzo web">
-<!ENTITY matchCase.label "&amp;Maiuscole/minuscole">
+<!ENTITY matchCase.label "Mai&amp;uscole/minuscole">
 <!ENTITY custom.pattern.label "&amp;Personalizza:">
 <!ENTITY unselectAllTypes.label "Deseleziona">
-<!ENTITY type.whitelist.label "Regola per E&amp;ccezioni">
+<!ENTITY type.whitelist.label "E&amp;ccezione">
 <!ENTITY regexp.warning "Il modello inserito verrà interpretato come espressione regolare. Un numero eccessivo di tali modelli potrebbe rallentare la navigazione. Se non si intende utilizzare le espressioni regolari aggiungere il carattere * alla fine del modello">
 <!ENTITY dialog.title "Nuovo filtro di Adblock Plus">
 <!ENTITY basic.label "&lt;&lt; Generali">

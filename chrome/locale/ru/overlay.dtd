@@ -2,7 +2,6 @@
 <!ENTITY whitelist.site.label "Отключить на ?1?">
 <!ENTITY filters.label "Настройки &amp;фильтров">
 <!ENTITY disable.label "Отключить везде">
-<!ENTITY showinaddonbar.label "&amp;Показывать в панели дополнений">
 <!ENTITY objecttab.title "Блокировать">
 <!ENTITY objecttab.tooltip "Нажмите здесь, чтобы Adblock Plus заблокировал этот объект">
 <!ENTITY menuitem.label "Установки &amp;Adblock Plus">

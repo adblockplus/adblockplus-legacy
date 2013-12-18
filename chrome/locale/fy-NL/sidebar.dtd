@@ -1,6 +1,7 @@
 <!ENTITY context.flash.label "Lit rannen knipperje">
 <!ENTITY address.label "Adres">
 <!ENTITY context.open.label "Iepen yn in nij ljepblêd">
+<!ENTITY type.label "Type">
 <!ENTITY tooltip.filterSource.label "Filterboarne:">
 <!ENTITY noitems.label "Gjin blokkearbere items">
 <!ENTITY filter.label "Filter">
@@ -11,7 +12,7 @@
 <!ENTITY filterSource.label "Filterboarne">
 <!ENTITY tooltip.docDomain.label "Dokumintboarne:">
 <!ENTITY context.copy.label "Kopiearje">
-<!ENTITY tooltip.type.blocked "(blokkearre)">
+<!ENTITY tooltip.type.label "Type:">
 <!ENTITY context.disablefilter.label "Filter útskeakelje ?1?">
 <!ENTITY context.copyFilter.label "Filter kopiearje">
 <!ENTITY context.block.label "Blokkearje dit item">
@@ -25,6 +26,7 @@
 <!ENTITY tooltip.filter.label "Tapast filter:">
 <!ENTITY tooltip.filter.disabled "(útskeakele)">
 <!ENTITY context.editfilter.label "Bewurkje tapaste filter">
+<!ENTITY tooltip.type.blocked "(blokkearre)">
 <!ENTITY size.label "Grutte">
 <!ENTITY context.whitelist.label "Meitsje in útsûnderingsrigel foar dit ûnderdiel">
 <!ENTITY context.selectAll.label "Selektearje alles">

@@ -2,7 +2,6 @@
 <!ENTITY whitelist.site.label "Vypnúť na ?1?">
 <!ENTITY filters.label "&amp;Nastavenia filtrov">
 <!ENTITY disable.label "Vypnúť všade">
-<!ENTITY showinaddonbar.label "Zobraziť v pane&amp;li doplnkov">
 <!ENTITY objecttab.title "Blokovať">
 <!ENTITY objecttab.tooltip "Kliknúť sem pre blokovanie tohto objektu s Adblock Plus">
 <!ENTITY menuitem.label "&amp;Adblock Plus">

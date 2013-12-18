@@ -2,7 +2,6 @@
 <!ENTITY whitelist.site.label "Απενεργοποίηση στο ?1?">
 <!ENTITY filters.label "Προτιμήσεις &amp;φίλτρων">
 <!ENTITY disable.label "Απενεργοποίηση παντού">
-<!ENTITY showinaddonbar.label "Εμφάνιση στην εργαλειο&amp;θήκη προσθέτου">
 <!ENTITY objecttab.title "Φραγή">
 <!ENTITY objecttab.tooltip "Κλικ εδώ για να φιλτράρετε αυτό το αντικείμενο με το Adblock Plus">
 <!ENTITY menuitem.label "Ad&amp;block Plus">

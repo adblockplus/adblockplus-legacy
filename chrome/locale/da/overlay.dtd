@@ -2,7 +2,6 @@
 <!ENTITY whitelist.site.label "Slå fra på ?1?">
 <!ENTITY filters.label "&amp;Filterpræferencer">
 <!ENTITY disable.label "Deaktiver overalt">
-<!ENTITY showinaddonbar.label "V&amp;is på tilføjelseslinie">
 <!ENTITY objecttab.title "Bloker">
 <!ENTITY objecttab.tooltip "Klik her for at blokere dette objekt med Adblock Plus">
 <!ENTITY menuitem.label "&amp;Adblock Plus indstillinger">

@@ -1,11 +1,10 @@
 <!ENTITY sync.label "م&amp;زامنة إعدادات آدبلوك بلس">
-<!ENTITY whitelist.site.label "تعطيل على ?1?">
+<!ENTITY whitelist.site.label "تعطيل في ؟1؟">
 <!ENTITY filters.label "ت&amp;فضيلات الفلتر">
 <!ENTITY disable.label "تعطيل في جميع الأماكن">
-<!ENTITY showinaddonbar.label "الا&amp;ظهار في شريط الاضافات">
 <!ENTITY objecttab.title "أحجب">
-<!ENTITY objecttab.tooltip "اضغط هنا لمنع هذا العنصر مع آدبلوك بلاس">
-<!ENTITY menuitem.label "تفضيلات آد&amp;بلوك بلس">
+<!ENTITY objecttab.tooltip "اضغط هنا لحجب هذا العنصر بـ آدبلوك بلاس">
+<!ENTITY menuitem.label "تفضيلات آدبلوك بلس">
 <!ENTITY objecttabs.label "عرض &amp;تبويبات لفلاش و جافا">
 <!ENTITY sendReport.label "ال&amp;تبليغ عن خطأ في هذه الصفحة">
 <!ENTITY whitelist.page.label "تعطيل في هذه الصفحة فقط">
@@ -22,7 +21,7 @@
 <!ENTITY options.label "&amp;خيارات">
 <!ENTITY context.object.label "آدبلوك بلس : حجب عنصر">
 <!ENTITY context.removeWhitelist.label "آدبلوك بلس : إعادة التفعيل في هذه الصفحة">
-<!ENTITY filters.tooltip "الفلاتر الأكثر فعالية">
+<!ENTITY filters.tooltip "المصافي الأكثر نشاط:">
 <!ENTITY closesidebar.label "إغلاق العناصر المح&amp;جوبة">
 <!ENTITY showintoolbar.label "عرض في &amp;شريط الأدوات">
 <!ENTITY status.tooltip "الحالة">

@@ -2,7 +2,6 @@
 <!ENTITY whitelist.site.label "Malebligi sur ?1?">
 <!ENTITY filters.label "&amp;Filtrilaj agordoj">
 <!ENTITY disable.label "Ĉie malebligi">
-<!ENTITY showinaddonbar.label "&amp;Vidigi en aldonaĵbreto">
 <!ENTITY objecttab.title "Bloki">
 <!ENTITY objecttab.tooltip "Klaku ĉi tien por bloki ĉi tiun objekton per Adblock Plus">
 <!ENTITY menuitem.label "&amp;Agordoj de Adblock Plus">

@@ -1,15 +1,28 @@
+<!ENTITY restore.custom.warning "Alle foarkearen fan dyn eigen filters wurde ferfangen troch de data fan it selekteare bestand. Troch gean?">
 <!ENTITY slow.column "Lan&amp;gsame filters">
 <!ENTITY enabled.column "Yns&amp;keakele">
 <!ENTITY subscription.lastDownload.checksumMismatch "Mislearre, checksum komt net oerien">
-<!ENTITY lasthit.column "Lêste hit">
+<!ENTITY noFiltersInGroup.text "Dizze groep is leech.">
+<!ENTITY subscription.actions.label "Akties">
+<!ENTITY filter.selectAll.label "Selekt alles">
+<!ENTITY backupButton.label "&amp;Feilich sette en werom sette">
+<!ENTITY restore.minVersion.warning "Warskouwing: Dit bestand is makke my in nije fersy fan Adblock Plus. Update dyn eigen Adblock Plus foardast dit bestand brûkst.">
+<!ENTITY restore.error "De data in dit bestand koe net brûkt wurde. Miskien is it gjin Adblock Plus backup bestand?">
 <!ENTITY sort.ascending.label "A &gt; Z sortearoarder">
 <!ENTITY sort.label "Sortearje op">
 <!ENTITY subscription.source.label "Filterlist">
-<!ENTITY filter.paste.label "Plakke">
+<!ENTITY hitcount.column "&amp;Hits">
+<!ENTITY noFilters.text "Do hast noch gjin eigen filters.">
+<!ENTITY backup.custom.title "Allinnich oanpasse filters">
 <!ENTITY subscription.external.label "Fernijd troch in oar útwreiding">
 <!ENTITY subscription.delete.label "furt goaie">
+<!ENTITY noGroupSelected.text "Do moast yn filter groep selektere foardast it filter sjen kist.">
+<!ENTITY filter.cut.label "Knippe">
+<!ENTITY restore.default.label "Backup werom sette fan ?1?">
 <!ENTITY subscription.lastDownload.inProgress "Ynlade...">
 <!ENTITY subscriptions.tab.label "Filterabonneminten">
+<!ENTITY sort.descending.label "Z &gt; A sortearoarder">
+<!ENTITY filters.remove.warning "Wolst echt alle filters furt smite?">
 <!ENTITY filter.delete.label "Fuortsmite">
 <!ENTITY addSubscriptionAdd.label "Tafoegje">
 <!ENTITY viewMenu.label "Byld">
@@ -19,25 +32,43 @@
 <!ENTITY noSubscriptions.text "Jo hawwe gjin ien filter tafoege. Adblock Plus sil neat blokkearje
 	sûnder filters, brûk &quot;Filterabonnemint tafoegje&quot; om
 	ta te foegjen.">
+<!ENTITY subscription.update.label "Update filters">
 <!ENTITY dialog.title "Adblock Plus Filterfoarkarren">
+<!ENTITY addFilter.label "Tafoegje">
+<!ENTITY subscription.minVersion.warning "Dit filter abonnemint had in nijere fersy fan Adblok Plus nedich. Update dyn Adblock nar de nijste fersy.">
 <!ENTITY subscription.lastDownload.invalidURL "Mislearre, gjin jildich adres">
+<!ENTITY backup.error "Der wy in probleem my it skriuwen fan de filters. Soarch der foar dast it wol skriuwe meist en dat it net troch in oar programma brûkt wurdt.">
+<!ENTITY filter.moveUp.label "Omheech">
+<!ENTITY addGroup.label "Filter groep tafoege">
 <!ENTITY filter.edit.label "feroarje">
-<!ENTITY filter.cut.label "Knippe">
+<!ENTITY subscription.showHideFilters.label "Sjen/Ferstopje filters">
+<!ENTITY acceptableAds2.label "Let sommige net skreauwende advertinsjes ta">
 <!ENTITY addSubscriptionOther.label "In oar abonnemint tafoegje">
 <!ENTITY close.label "sluten">
 <!ENTITY sort.none.label "&amp;Net sortearre">
+<!ENTITY filter.actions.label "Filter aksjes">
 <!ENTITY filter.copy.label "Kopiearje">
+<!ENTITY filter.moveDown.label "Omleech">
+<!ENTITY filter.resetHitCounts.label "Reset statistysken">
 <!ENTITY readMore.label "Lês mear">
 <!ENTITY subscription.moveUp.label "omheech">
 <!ENTITY addSubscription.label "Filterabonnemint tafoegje">
 <!ENTITY subscription.homepage.label "Startside">
+<!ENTITY backup.complete.title "Alle filters en abonneminten">
+<!ENTITY restore.own.label "Eigen backup werom sette">
+<!ENTITY restore.complete.warning "Alle filter foarkearen wurde ferfangen troch de data fan it selekteare bestand. Troch gean?">
 <!ENTITY filters.tab.label "Oanpaste filters">
+<!ENTITY backup.label "Meitsje nije backup">
 <!ENTITY find.label "Sykje">
 <!ENTITY subscription.moveDown.label "omleech">
 <!ENTITY subscription.lastDownload.connectionError "Mislearre, ynlaadprobleem">
 <!ENTITY subscription.lastDownload.success "Slagge">
 <!ENTITY subscription.lastDownload.invalidData "Mislearre, gjin jildige filterlist">
-<!ENTITY addFilter.label "Tafoegje">
-<!ENTITY sort.descending.label "Z &gt; A sortearoarder">
-<!ENTITY subscription.lastDownload.label "Lêste ynlaad:">
+<!ENTITY filter.paste.label "Plakke">
+<!ENTITY subscription.disabledFilters.enable "Set filters oan">
+<!ENTITY lasthit.column "Lêste hit">
+<!ENTITY subscription.editTitle.label "Namme oanpasse">
+<!ENTITY subscription.disabledFilters.warning "Sommige filters in dit abonnemint stean út.">
 <!ENTITY filter.column "Filterrigel">
+<!ENTITY subscription.lastDownload.label "Lêste ynlaad:">
+<!ENTITY viewList.label "Lyst sjen">

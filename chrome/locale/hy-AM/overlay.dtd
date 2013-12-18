@@ -2,7 +2,6 @@
 <!ENTITY whitelist.site.label "Անջատել ?1?-ում">
 <!ENTITY filters.label "Ֆիլտրերի կարգավորում (&amp;F)">
 <!ENTITY disable.label "Անջատել ամենուր">
-<!ENTITY showinaddonbar.label "Ցուցադրրել լրացումների պանակում">
 <!ENTITY objecttab.title "Ֆիլտրել">
 <!ENTITY objecttab.tooltip "Սեղմել «Adblock Plus»ով այս օբյեկտը ֆիլտրելու համար">
 <!ENTITY menuitem.label "Ad&amp;block Plus">

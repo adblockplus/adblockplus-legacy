@@ -2,7 +2,6 @@
 <!ENTITY whitelist.site.label "在 ?1? 停用">
 <!ENTITY filters.label "條件偏好設定 (&amp;F)">
 <!ENTITY disable.label "完全停用">
-<!ENTITY showinaddonbar.label "在附加元件列顯示 (&amp;b)">
 <!ENTITY objecttab.title "阻擋">
 <!ENTITY objecttab.tooltip "按這裡用 Adblock Plus 阻擋此物件">
 <!ENTITY menuitem.label "Ad&amp;block Plus 偏好設定">

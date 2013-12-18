@@ -2,7 +2,6 @@
 <!ENTITY whitelist.site.label "사이트 허용 : ?1?">
 <!ENTITY filters.label "필터 설정 (&amp;F)">
 <!ENTITY disable.label "사용 중지">
-<!ENTITY showinaddonbar.label "부가 프로그램 모음에 아이콘 보이기 (&amp;b)">
 <!ENTITY objecttab.title "차단">
 <!ENTITY objecttab.tooltip "이 객체를 차단하려면 차단 탭을 클릭하십시오.">
 <!ENTITY menuitem.label "필터 설정 (&amp;B)">

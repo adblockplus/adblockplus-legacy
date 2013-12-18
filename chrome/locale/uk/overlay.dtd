@@ -1,8 +1,7 @@
-<!ENTITY sync.label "Синхроні&amp;зувати налаштуванна Адблоку">
+<!ENTITY sync.label "Синхроні&amp;зувати налаштування Адблоку">
 <!ENTITY whitelist.site.label "Вимкнути: на ?1?">
 <!ENTITY filters.label "&amp;Налаштування фільтрів">
 <!ENTITY disable.label "Вимкнути всюди">
-<!ENTITY showinaddonbar.label "Показувати в панелі &amp;додатків">
 <!ENTITY objecttab.title "Заблокувати">
 <!ENTITY objecttab.tooltip "Натисніть тут, щоб заблокувати цей об’єкт">
 <!ENTITY menuitem.label "Налаштування &amp;Adblock Plus">

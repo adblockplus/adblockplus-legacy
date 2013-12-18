@@ -2,25 +2,24 @@
 <!ENTITY whitelist.site.label "Desativar em ?1?">
 <!ENTITY filters.label "Opções de &amp;filtros">
 <!ENTITY disable.label "Desativar em todas as páginas">
-<!ENTITY showinaddonbar.label "Mostrar na barra de e&amp;xtensões">
 <!ENTITY objecttab.title "Bloquear">
 <!ENTITY objecttab.tooltip "Clique aqui para bloquear este objeto com o Adblock Plus">
 <!ENTITY menuitem.label "Preferências do Ad&amp;block Plus">
 <!ENTITY objecttabs.label "Mostrar abas em Flash e &amp;Java">
 <!ENTITY sendReport.label "&amp;Reportar problema nesta página">
 <!ENTITY whitelist.page.label "Desativar somente nesta página">
-<!ENTITY context.image.label "Adblock Plus: Imagem de bloqueio (it´s not so clear) do you meaning: blocked image ???">
+<!ENTITY context.image.label "Adblock Plus: Bloquear imagem">
 <!ENTITY counthits.label "Cont&amp;ar acertos de filtros">
 <!ENTITY opensidebar.label "A&amp;brir itens bloqueáveis">
 <!ENTITY contribute.label "Contribuir com o Adblock Plus">
 <!ENTITY toolbarbutton.label "Adblock Plus">
-<!ENTITY context.frame.label "Adblock Frame">
+<!ENTITY context.frame.label "Adblock Plus: Bloquear frame">
 <!ENTITY blocked.tooltip "Itens bloqueados nesta página:">
 <!ENTITY hideplaceholders.label "&amp;Comprimir espaço de elementos bloqueados">
 <!ENTITY showinstatusbar.label "&amp;Mostrar na barra de status">
-<!ENTITY sidebar.title "Itens bloqueáveis na página atual.">
+<!ENTITY sidebar.title "Itens bloqueáveis na página atual">
 <!ENTITY options.label "&amp;Opções">
-<!ENTITY context.object.label "Adblock Plus: Objeto de bloco">
+<!ENTITY context.object.label "Adblock Plus: Bloquear objeto">
 <!ENTITY context.removeWhitelist.label "Adblock Plus: Reativar nessa página">
 <!ENTITY filters.tooltip "Filtros mais ativos:">
 <!ENTITY closesidebar.label "Fechar itens &amp;bloqueáveis">

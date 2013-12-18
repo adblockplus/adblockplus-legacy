@@ -2,7 +2,6 @@
 <!ENTITY whitelist.site.label "Na ?1? znjemóžniś">
 <!ENTITY filters.label "&amp;Filtrowe nastajenja">
 <!ENTITY disable.label "Wšuźi znjemóžniś">
-<!ENTITY showinaddonbar.label "W lejstwje &amp;dodankow pokazaś">
 <!ENTITY objecttab.title "Blokěrowaś">
 <!ENTITY objecttab.tooltip "Klikniśo how, aby toś ten objekt z Adblock Plus blokěrował">
 <!ENTITY menuitem.label "Adblock Plus - &amp;Nastajenja">

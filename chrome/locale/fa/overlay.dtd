@@ -1,24 +1,28 @@
-<!ENTITY context.frame.label "فوق تبلیغ شکن:سد قابک">
+<!ENTITY sync.label "همگام سازی تن&amp;ظیمات Adblock Plus">
 <!ENTITY whitelist.site.label "غیرفعال در ?1?">
+<!ENTITY filters.label "&amp; تنظیمات فیلتر">
 <!ENTITY disable.label "غیر فعال کردن در همه جا">
 <!ENTITY objecttab.title "مسدود کردن">
-<!ENTITY objecttab.tooltip "جهت مسدود کردن با فوق تبلیغ شکن اینجا کلیک کنید">
-<!ENTITY menuitem.label "ترجیحات فوق ت&amp;بلیغ شکن">
+<!ENTITY objecttab.tooltip "جهت مسدود کردن با Adblock Plus اینجا کلیک کنید">
+<!ENTITY menuitem.label "ترجیحات فوق ت&amp;بلیغ شکن (Adblock Plus)">
 <!ENTITY objecttabs.label "نمایش زبانه در موارد فلش و &amp;جاوا">
 <!ENTITY sendReport.label "گزارش مشکل در این &amp;صفحه">
 <!ENTITY whitelist.page.label "غیرفعال فقط در این صفحه">
-<!ENTITY context.image.label "فوق تبلیغ شکن: سد تصاویر">
-<!ENTITY opensidebar.label "باز کردن موارد &amp;قابل ردکردن">
-<!ENTITY toolbarbutton.label "فوق تبلیغ شکن">
-<!ENTITY sync.label "همگام سازی تن&amp;ظیمات فوق تبلیغ شکن">
+<!ENTITY context.image.label "Adblock Plus: سد تصاویر">
+<!ENTITY counthits.label "شمارش &amp;تعداد فیلتر شده ها">
+<!ENTITY opensidebar.label "باز کردن موارد &amp;قابل مسدود سازی">
+<!ENTITY contribute.label "کمک کردن به Adblock Plus">
+<!ENTITY toolbarbutton.label "فوق تبلیغ شکن یا Adblock Plus">
+<!ENTITY context.frame.label "Adblock Plus:سد قابک">
 <!ENTITY blocked.tooltip "موارد رد شده در این صفحه:">
+<!ENTITY hideplaceholders.label "پنهان کردن &amp;متغیرها از عناصر مسدود شده">
 <!ENTITY showinstatusbar.label "نمایش در ن&amp;وار وضعیت">
 <!ENTITY sidebar.title "موارد قابل مسدود شدن در صفحه جاری">
 <!ENTITY options.label "&amp;گزینه ها">
-<!ENTITY context.object.label "فوق تبلیغ شکن: سد شیء">
-<!ENTITY context.removeWhitelist.label "فوق تبلیغ شکن: فعال شدن مجدد در این صفحه">
-<!ENTITY filters.tooltip "فعالترین پالایه ها:">
-<!ENTITY closesidebar.label "بستن موارد &amp;قابل ردکردن">
+<!ENTITY context.object.label "Adblock Plus: سد شیء">
+<!ENTITY context.removeWhitelist.label "Adblock Plus: فعال شدن مجدد در این صفحه">
+<!ENTITY filters.tooltip "فعال ترین فیلترها:">
+<!ENTITY closesidebar.label "بستن موارد &amp;قابل مسدود سازی">
 <!ENTITY showintoolbar.label "نمایش در نوار ا&amp;بزار">
 <!ENTITY status.tooltip "وضعیت:">
-<!ENTITY context.media.label "فوق تبلیغ شکن: سد داده های چند رسانه ای">
+<!ENTITY context.media.label "Adblock Plus: سد داده های چند رسانه ای">

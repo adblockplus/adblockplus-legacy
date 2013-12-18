@@ -2,7 +2,6 @@
 <!ENTITY whitelist.site.label "在 ?1? 禁用 Adblock Plus">
 <!ENTITY filters.label "过滤规则首选项 (&amp;F)">
 <!ENTITY disable.label "完全禁用">
-<!ENTITY showinaddonbar.label "在附加组件栏显示 (&amp;b)">
 <!ENTITY objecttab.title "屏蔽">
 <!ENTITY objecttab.tooltip "点击这里用 Adblock Plus 屏蔽该对象">
 <!ENTITY menuitem.label "Ad&amp;block Plus 首选项">

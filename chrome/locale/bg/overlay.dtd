@@ -2,7 +2,6 @@
 <!ENTITY whitelist.site.label "Забрани на ?1?">
 <!ENTITY filters.label "&amp;Филтър Настройки">
 <!ENTITY disable.label "Забрани навсякъде">
-<!ENTITY showinaddonbar.label "Пок&amp;ажи в адон бара">
 <!ENTITY objecttab.title "Блокирай">
 <!ENTITY objecttab.tooltip "Щракни тук за да блокираш този обект със Adblock Плюс">
 <!ENTITY menuitem.label "Adblock Плюс &amp;Настройки">

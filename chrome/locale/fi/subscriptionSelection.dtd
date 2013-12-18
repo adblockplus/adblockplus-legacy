@@ -1,12 +1,12 @@
-<!ENTITY addMain.label "Lisää &amp;myös suodatintilaus &quot;?1?&quot;">
-<!ENTITY list.download.failed "Adblock Plus ei kyennyt hakemaan suodatinlistaa.">
-<!ENTITY list.download.retry "Kokeile uudestaan">
-<!ENTITY title.label "&amp;Tilauksen nimi:">
+<!ENTITY addMain.label "Lisää myös suodatintilaus &quot;?1?&quot;">
+<!ENTITY list.download.failed "Suodatinlistan noutaminen epäonnistui.">
+<!ENTITY list.download.retry "Yritä uudestaan">
+<!ENTITY title.label "Tilauksen nimi:">
 <!ENTITY list.download.website "Näytä verkkosivu">
-<!ENTITY supplementMessage "Tätä suodatintilausta on tarkoitus käyttää suodatintilauksen &quot;?1?&quot; kanssa, jota et vielä käytä.">
+<!ENTITY supplementMessage "Tämä suodatintilaus on tarkoitettu käytettäväksi yhdessä suodatintilauksen &quot;?1?&quot; kanssa, jota et vielä käytä.">
 <!ENTITY viewList.label "Näytä suodattimet">
 <!ENTITY visitHomepage.label "Vieraile kotisivulla">
 <!ENTITY addSubscription.label "Lisää suodatintilaus">
 <!ENTITY dialog.title "Lisää Adblock Plus -suodatintilaus">
-<!ENTITY location.label "L&amp;istan sijainti:">
-<!ENTITY fromWeb.description "Varmista tämän suodatintilauksen lisääminen. Ennen tilauksen lisäämistä voit muuttaa tilauksen nimen ja sijainnin.">
+<!ENTITY location.label "Suodatinlistan sijainti:">
+<!ENTITY fromWeb.description "Vahvista tämän suodatintilauksen lisääminen. Voit muuttaa tilauksen nimeä tai sijaintia ennen sen lisäämistä.">
