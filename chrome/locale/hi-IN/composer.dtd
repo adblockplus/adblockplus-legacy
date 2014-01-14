@@ -1,22 +1,28 @@
 <!ENTITY anchor.end.label "पते के अंत में (&amp;एन)">
-<!ENTITY types.label "प्रकार के लिए लागू करें:">
+<!ENTITY domainRestriction.label "डोमेन तक ही सीमित करें:">
+<!ENTITY collapse.default.no.label "पूर्व निर्धारित (नहीं) का ही उपयोग करें">
 <!ENTITY firstParty.label "केवल प्रथम-पक्ष (&amp;आर)">
 <!ENTITY preferences.label "मौजूदा फ़िल्टर्स दिखाएँ... (&amp;एस)">
 <!ENTITY pattern.label "पैटर्न के लिए देखो">
 <!ENTITY thirdParty.label "तृतीय-पक्ष ही (&amp;टी)">
 <!ENTITY filter.label "नया फ़िल्टर:">
+<!ENTITY collapse.label "अवरोधित को संक्षेपित करें:">
+<!ENTITY match.warning "आपके द्वारा डाला गया प्रतिरूप प्रतिबंधित/स्वीकारित पते से मेल नहीं खा रहा है इसलिए इसका कोई प्रभाव नहीं होगा। ">
 <!ENTITY anchor.start.label "पते की शुरुआत में (&amp;जी)">
 <!ENTITY matchCase.label "केस मिलाएँ">
 <!ENTITY custom.pattern.label "कस्टम:">
+<!ENTITY unselectAllTypes.label "कोई नहीं चुनें ">
 <!ENTITY type.whitelist.label "अपवाद नियम (&amp;एक्स)">
 <!ENTITY regexp.warning "आप दर्ज किए गए पैटर्न जो कुशलतापूर्वक Adblock प्लस द्वारा संसाधित किया जा सकता है और नीचे अपने ब्राउज़िंग अनुभव धीमा हो सकता है एक नियमित अभिव्यक्ति के रूप में व्याख्या की जाएगी। यदि आप एक नियमित अभिव्यक्ति का उपयोग करने का इरादा नहीं था, एक तारांकन चिह्न (*) पैटर्न का अंत करने के लिए जोड़ें।">
 <!ENTITY dialog.title "Adblock प्लस के फ़िल्टर में नियम जोड़ें">
 <!ENTITY basic.label "मूल दृश्य">
 <!ENTITY type.filter.label "&amp; फ़िल्टर अवरुद्ध">
+<!ENTITY types.label "प्रकार के लिए लागू करें:">
 <!ENTITY shortpattern.warning "आप दर्ज किए गए पैटर्न भी अनुकूलित किया जा करने के लिए कम है और नीचे आपके ब्राउज़िंग अनुभव को धीमा कर सकते हैं। यह अनुशंसित है कि आप इस फ़िल्टर Adblock प्लस फ़िल्टर प्रक्रिया को और अधिक कुशलता से करने के लिए अनुमति देने के लिए एक लंबी स्ट्रिंग चुनें।">
 <!ENTITY collapse.yes.label "हाँ">
 <!ENTITY anchors.label "पैटर्न ही स्वीकार करते हैं:">
 <!ENTITY collapse.default.yes.label "डिफ़ॉल्ट (हाँ) का उपयोग करें">
+<!ENTITY domainRestriction.help "बार लाइन(|) द्वारा अलग किए हुए एक या अधिक डोमेंनों को निर्दिष्ट करने के लिए इस विकल्प का उपयोग करें।  यह फ़िल्टर सिर्फ चुने गए डोमेंनों पर ही लागू होगा। डोमेन नाम से पहले टिल्ड (~) यह दर्शाता है कि यह फ़िल्टर उस डोमेन पर लागू नहीं होगा। ">
 <!ENTITY accept.label "फ़िल्टर जोड़ें">
 <!ENTITY options.label "विकल्प">
 <!ENTITY disabled.warning "Adblock प्लस वर्तमान में अक्षम किया गया है। आप अभी भी फ़िल्टर्स जोड़ सकते हैं, लेकिन आपके फिल्टर्स  [लिंक] Adblock प्लस [/link] सक्षम करें जब तक कि वे लागू नहीं होगी।">
