@@ -71,7 +71,7 @@
                 url="https://easylist-downloads.adblockplus.org/israellist+easylist.txt"
                 homepage="https://github.com/AdBlockPlusIsrael/EasyListIsrael"
                 prefixes="he"
-                author="BsT, rafiw"/>
+                author="BsT"/>
   <subscription title="Latvian List+EasyList"
                 specialization="latviešu valoda"
                 url="https://easylist-downloads.adblockplus.org/latvianlist+easylist.txt"
