@@ -439,8 +439,8 @@ section > p
 {
   visibility: hidden;
   opacity: 0;
-  -webkit-transition-property: opacity, visibility;
-  transition-property: opacity, visibility;
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
 }
 
 #glass-pane
