@@ -69,7 +69,7 @@
   <subscription title="IsraelList+EasyList"
                 specialization="עברית"
                 url="https://easylist-downloads.adblockplus.org/israellist+easylist.txt"
-                homepage="https://github.com/AdBlockPlusIsrael/EasyListIsrael"
+                homepage="https://github.com/AdBlockPlusIsrael/EasyListHebrew"
                 prefixes="he"
                 author="BsT, dvd848"/>
   <subscription title="Latvian List+EasyList"
