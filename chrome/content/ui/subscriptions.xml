@@ -39,7 +39,7 @@
   <subscription title="ChinaList+EasyList"
                 specialization="中文"
                 url="https://easylist-downloads.adblockplus.org/chinalist+easylist.txt"
-                homepage="https://code.google.com/p/adblock-chinalist/"
+                homepage="http://chinalist.github.io/"
                 prefixes="zh"
                 author="Gythialy"/>
   <subscription title="EasyList Czech and Slovak+EasyList"
