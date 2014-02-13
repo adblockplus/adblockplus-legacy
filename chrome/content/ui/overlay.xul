@@ -124,6 +124,11 @@
   <panel id="abp-notification" type="arrow" orient="vertical"
     xmlns:html="http://www.w3.org/1999/xhtml">
     <label id="abp-notification-title" class="header"/>
-    <html:p id="abp-notification-message" maxwidth="300"></html:p>
+    <html:p id="abp-notification-message"/>
+    <hbox id="abp-notification-question">
+      <button id="abp-notification-yes" label="&notification.button.yes;"/>
+      <button id="abp-notification-no" label="&notification.button.no;"/>
+      <toolbarbutton id="abp-notification-close" label="&notification.button.close;"></toolbarbutton>
+    </hbox>
   </panel>
 </overlay>

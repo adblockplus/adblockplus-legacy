@@ -198,8 +198,24 @@ toolbar[mode="full"] #abp-toolbarbutton[type="menu"]
   -moz-image-region: rect(0px, 28px, 14px, 14px);
 }
 
+#abp-notification
+{
+  max-width: 300px;
+}
+
+#abp-notification-question
+{
+  display: none;
+}
+
+.abp-question #abp-notification-question
+{
+  display: block;
+}
+
 #abp-notification html|a
 {
+  cursor: pointer;
   color: #0000f0;
 }
 
