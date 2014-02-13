@@ -34,3 +34,7 @@
 <!ENTITY sync.label                 "Syn&amp;c Adblock Plus settings">
 <!ENTITY objecttab.title        "Block">
 <!ENTITY objecttab.tooltip      "Click here to block this object with Adblock Plus">
+
+<!ENTITY notification.button.yes       "&amp;Yes">
+<!ENTITY notification.button.no        "&amp;No">
+<!ENTITY notification.button.close     "&amp;Close">
