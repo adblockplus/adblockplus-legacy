@@ -200,12 +200,13 @@ toolbar[mode="full"] #abp-toolbarbutton[type="menu"]
 
 #abp-notification
 {
-  max-width: 300px;
+  width: 300px;
 }
 
 #abp-notification-question
 {
   display: none;
+  white-space: nowrap;
 }
 
 .abp-question #abp-notification-question
