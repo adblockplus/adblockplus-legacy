@@ -1,0 +1,12 @@
+<!ENTITY addSubscriptionOther.label "भिन्न सदस्यता जोड़ें">
+<!ENTITY subscription.source.label "फ़िल्टर सूची">
+<!ENTITY subscription.lastDownload.connectionError "विफल रहा, डाउनलोड विफलता">
+<!ENTITY subscription.lastDownload.success "सफलता">
+<!ENTITY addSubscriptionCancel.label "रद्द करें">
+<!ENTITY subscription.enabled.label "सक्षम किया गया">
+<!ENTITY subscription.homepage.label "मुखपृष्ठ">
+<!ENTITY subscription.external.label "एक अन्य एक्सटेंशन द्वारा अद्यतन किया">
+<!ENTITY dialog.title "Adblock प्लस फ़िल्टर वरीयताएँ">
+<!ENTITY subscription.lastDownload.invalidURL "विफल रहा, एक मान्य पता नहीं ">
+<!ENTITY subscription.lastDownload.label "पिछले डाउनलोड:">
+<!ENTITY subscriptions.tab.label "फ़िल्टर सदस्यताएँ">

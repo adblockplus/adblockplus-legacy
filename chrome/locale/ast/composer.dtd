@@ -1,0 +1,33 @@
+<!ENTITY anchor.end.label "al fi&amp;nal de la direición">
+<!ENTITY domainRestriction.label "Llendar al &amp;dominiu:">
+<!ENTITY collapse.default.no.label "Usar predeterminaos (non)">
+<!ENTITY firstParty.label "Sólo p&amp;rimera parte">
+<!ENTITY preferences.label "Amo&amp;sar los filtros esistentes...">
+<!ENTITY pattern.label "Buscar un patrón">
+<!ENTITY thirdParty.label "Sólo de &amp;terceros">
+<!ENTITY filter.label "&amp;Filtru nuevu:">
+<!ENTITY collapse.label "P&amp;legar bloquiaos:">
+<!ENTITY match.warning "El patrón qu'escribió yá nun casa cola direición a bloquiar o incluir na llista blanca, y nun tendrá dengún efeutu n'ella.">
+<!ENTITY anchor.start.label "al pr&amp;incipiu de la direición">
+<!ENTITY matchCase.label "Distinguir &amp;mayúscules">
+<!ENTITY custom.pattern.label "&amp;Personalizáu:">
+<!ENTITY unselectAllTypes.label "Nun seleicionar nada">
+<!ENTITY type.whitelist.label "Regla d'e&amp;sceición">
+<!ENTITY regexp.warning "El patrón qu'escribió interpretaráse como una espresión regular, qu'Adblock Plus nun pue procesar de mou eficaz, y pue facer más lenta la navegación. Si nun quería usar una espresión regular, amieste un asteriscu (*) al final del patrón.">
+<!ENTITY dialog.title "Amestar una regla de filtráu d'Adblock Plus">
+<!ENTITY basic.label "Vista básica">
+<!ENTITY type.filter.label "Filtru de &amp;bloquéu">
+<!ENTITY types.label "Aplicar a los tipos:">
+<!ENTITY shortpattern.warning "El patrón qu'escribió ye curtiu enforma pa poder ameyorase y pue facer más lenta la navegación. Recomiéndase qu'escueya una cadena más llarga para esti filtru pa permitir a Adblock Plus procesalu de mou más eficaz.">
+<!ENTITY collapse.yes.label "Sí">
+<!ENTITY anchors.label "Aceutar sólo patrones:">
+<!ENTITY collapse.default.yes.label "Usar predeterminaos (sí)">
+<!ENTITY domainRestriction.help "Use esta opción pa especificar un dominiu o más separaos por una barra (|). El filtru sólo s'aplicará nos dominios seleicionaos. Una tilde (~) antes d'un nome de dominiu significa que'l filtru nun s'aplicará nesi dominiu.">
+<!ENTITY accept.label "Amestar un filtru">
+<!ENTITY options.label "Opciones">
+<!ENTITY disabled.warning "Adblock Plus ta desactiváu. Inda pue amestar filtros, pero nun s'aplicarán si nun [link]activa Adblock Plus[/link].">
+<!ENTITY anchor.start.flexible.label "al pr&amp;incipiu del nome de dominiu">
+<!ENTITY collapse.no.label "Non">
+<!ENTITY selectAllTypes.label "Seleicionar toos">
+<!ENTITY advanced.label "Vista avanzada">
+<!ENTITY pattern.explanation "El patrón pue ser cualquier parte de la direición, los asteriscos (*) úsense como comodinos. El filtru sólo s'aplicará a les direiciones que casen col patrón dau.">

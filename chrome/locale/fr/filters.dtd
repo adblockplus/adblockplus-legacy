@@ -44,7 +44,7 @@
 <!ENTITY addSubscriptionOther.label "Ajouter un autre abonnement">
 <!ENTITY close.label "Fermer">
 <!ENTITY sort.none.label "&amp;Non trié">
-<!ENTITY filter.actions.label "Actions du filtre">
+<!ENTITY filter.actions.label "Actions sur filtre">
 <!ENTITY filter.copy.label "Copier">
 <!ENTITY filter.moveDown.label "Descendre">
 <!ENTITY filter.resetHitCounts.label "Réinitialiser le compteur">

@@ -1,3 +1,5 @@
+<!ENTITY notification.button.yes "&amp;Jes">
+<!ENTITY notification.button.no "&amp;Ne">
 <!ENTITY sync.label "&amp;Sinkronigi agordojn de Adblock Plus">
 <!ENTITY whitelist.site.label "Malebligi sur ?1?">
 <!ENTITY filters.label "&amp;Filtrilaj agordoj">
@@ -11,6 +13,7 @@
 <!ENTITY context.image.label "Adblock Plus: Bloki bildon">
 <!ENTITY counthits.label "&amp;Nombri filtriltrafojn">
 <!ENTITY opensidebar.label "Malfermi &amp;blokeblajn elementojn">
+<!ENTITY notification.button.close "&amp;Fermi">
 <!ENTITY contribute.label "Kontribuu al Adblock Plus">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus: Bloki kadron">

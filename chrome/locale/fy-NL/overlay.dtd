@@ -1,3 +1,5 @@
+<!ENTITY notification.button.yes "&amp;Ja">
+<!ENTITY notification.button.no "&amp;Nee">
 <!ENTITY sync.label "Sync Adblock Plus opsjes">
 <!ENTITY whitelist.site.label "Utskeakelje op ?1?">
 <!ENTITY filters.label "Filterfoarkarren">
@@ -11,6 +13,7 @@
 <!ENTITY context.image.label "Ofbylding blokkearje">
 <!ENTITY counthits.label "Tel filterhits">
 <!ENTITY opensidebar.label "&amp;Blokkearbere ûnderdielen iepenje">
+<!ENTITY notification.button.close "&amp;Slûte">
 <!ENTITY contribute.label "Donearje oan Adblock Plus">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Dielfinster blokkearje">

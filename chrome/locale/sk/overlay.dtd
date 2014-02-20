@@ -1,3 +1,5 @@
+<!ENTITY notification.button.yes "&amp;Áno">
+<!ENTITY notification.button.no "&amp;Nie">
 <!ENTITY sync.label "Syn&amp;chronizovať nastavenia Adblock Plus">
 <!ENTITY whitelist.site.label "Vypnúť na ?1?">
 <!ENTITY filters.label "&amp;Nastavenia filtrov">
@@ -11,6 +13,7 @@
 <!ENTITY context.image.label "Adblock obrázok">
 <!ENTITY counthits.label "P&amp;očítadlo">
 <!ENTITY opensidebar.label "Otvoriť &amp;blokovateľné položky">
+<!ENTITY notification.button.close "&amp;Zatvoriť">
 <!ENTITY contribute.label "Prispieť na Adblock Plus">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock rámec">

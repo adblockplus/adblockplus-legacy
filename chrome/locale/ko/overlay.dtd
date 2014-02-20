@@ -1,3 +1,5 @@
+<!ENTITY notification.button.yes "&amp;예">
+<!ENTITY notification.button.no "&amp;아니요">
 <!ENTITY sync.label "애드블록 플러스 설정 동기화 (&amp;c)">
 <!ENTITY whitelist.site.label "사이트 허용 : ?1?">
 <!ENTITY filters.label "필터 설정 (&amp;F)">
@@ -11,6 +13,7 @@
 <!ENTITY context.image.label "애드블록 플러스 : 이미지 차단">
 <!ENTITY counthits.label "필터 적용 횟수 기록 (&amp;h)">
 <!ENTITY opensidebar.label "차단 가능 목록 (&amp;B)">
+<!ENTITY notification.button.close "&amp;닫기">
 <!ENTITY contribute.label "애드블록 플러스에 공헌하기">
 <!ENTITY toolbarbutton.label "애드블록 플러스">
 <!ENTITY context.frame.label "애드블록 플러스 : 프레임 차단">

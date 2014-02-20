@@ -1,3 +1,5 @@
+<!ENTITY notification.button.yes "&amp;Haj">
+<!ENTITY notification.button.no "&amp;Ně">
 <!ENTITY sync.label "Nastajenja Adblo&amp;ck Plus synchronizować">
 <!ENTITY whitelist.site.label "Na ?1? znjemóžnić">
 <!ENTITY filters.label "&amp;Filtrowe nastajenja">
@@ -11,6 +13,7 @@
 <!ENTITY context.image.label "Adblock Plus: Wobraz blokować">
 <!ENTITY counthits.label "&amp;Filtrowe wotpowědniki ličić">
 <!ENTITY opensidebar.label "Blo&amp;kujomne elementy wočinić">
+<!ENTITY notification.button.close "&amp;Začinić">
 <!ENTITY contribute.label "K Adblock Plus přinošować">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus: Wobłuk blokować">
