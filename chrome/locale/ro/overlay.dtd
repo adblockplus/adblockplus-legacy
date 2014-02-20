@@ -1,3 +1,5 @@
+<!ENTITY notification.button.yes "&amp;Da">
+<!ENTITY notification.button.no "&amp;Nu">
 <!ENTITY sync.label "Si&amp;ncronizează setările Adblock Plus">
 <!ENTITY whitelist.site.label "Dezactivează Adblock Plus pe ?1?">
 <!ENTITY filters.label "Pre&amp;ferințe filtre">
@@ -11,6 +13,7 @@
 <!ENTITY context.image.label "Adblock Plus: blochează imagine">
 <!ENTITY counthits.label "Înre&amp;gistrează statisticile filtrelor">
 <!ENTITY opensidebar.label "Deschide &amp;lista elementelor blocabile">
+<!ENTITY notification.button.close "În&amp;chide">
 <!ENTITY contribute.label "Contribuie la Adblock Plus">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus: blochează cadru">

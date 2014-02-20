@@ -1,3 +1,5 @@
+<!ENTITY notification.button.yes "&amp;確定">
+<!ENTITY notification.button.no "&amp;取消">
 <!ENTITY sync.label "同步 Adblo&amp;ck Plus 設定值">
 <!ENTITY whitelist.site.label "在 ?1? 停用">
 <!ENTITY filters.label "條件偏好設定 (&amp;F)">
@@ -11,6 +13,7 @@
 <!ENTITY context.image.label "Adblock Plus：阻擋圖片">
 <!ENTITY counthits.label "計算條件命中次數 (&amp;h)">
 <!ENTITY opensidebar.label "開啟可阻擋項目 (&amp;b)">
+<!ENTITY notification.button.close "&amp;關閉">
 <!ENTITY contribute.label "贊助 Adblock Plus">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus：阻擋頁框">

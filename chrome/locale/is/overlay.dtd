@@ -1,3 +1,5 @@
+<!ENTITY notification.button.yes "&amp;Já">
+<!ENTITY notification.button.no "&amp;Nei">
 <!ENTITY sync.label "Sa&amp;mstilla Adblock Plus stillingar">
 <!ENTITY whitelist.site.label "Gera óvirkt á ?1?">
 <!ENTITY filters.label "&amp;Síu stillingar">
@@ -11,6 +13,7 @@
 <!ENTITY context.image.label "Adblock Plus: Loka auglýsingamynd">
 <!ENTITY counthits.label "Telja síu &amp;notkun">
 <!ENTITY opensidebar.label "Skoða h&amp;luti">
+<!ENTITY notification.button.close "&amp;Loka">
 <!ENTITY contribute.label "Taka þátt í Adblock Plus">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus: Loka auglýsingaramma">

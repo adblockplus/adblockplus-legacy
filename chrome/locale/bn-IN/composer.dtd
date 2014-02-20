@@ -1,0 +1,8 @@
+<!ENTITY accept.label "
+ফিল্টার যোগ করুন">
+<!ENTITY disabled.warning "
+Adblock প্লাস বর্তমানে নিষ্ক্রিয় করা হয়েছে. আপনি এখনও ফিল্টার যোগ করতে পারেন কিন্তু আপনি [লিঙ্ক] Adblock প্লাস [/ লিংক] সক্রিয়, যদি না তারা প্রয়োগ করা হবে না.">
+<!ENTITY advanced.label "উন্নত দেখুন">
+<!ENTITY dialog.title "Adblock প্লাস ফিল্টার নিয়ম যোগ করুন">
+<!ENTITY basic.label "বেসিক দেখুন">
+<!ENTITY filter.label "নতুন ফিল্টার">

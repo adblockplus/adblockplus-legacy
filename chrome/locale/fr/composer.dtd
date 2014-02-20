@@ -30,4 +30,4 @@
 <!ENTITY collapse.no.label "Non">
 <!ENTITY selectAllTypes.label "Tout sélectionner">
 <!ENTITY advanced.label "Affichage avancé">
-<!ENTITY pattern.explanation "Le motif peut être une partie de l'adresse; le symbole * jouant le rôle de joker. Le filtre ne sera appliqué qu'aux adresses coïncidant avec le motif.">
+<!ENTITY pattern.explanation "Le motif peut être une partie de l'adresse ; le symbole * jouant le rôle de joker. Le filtre ne sera appliqué qu'aux adresses coïncidant avec le motif.">

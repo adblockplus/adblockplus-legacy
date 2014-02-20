@@ -1,3 +1,5 @@
+<!ENTITY notification.button.yes "&amp;Kyllä">
+<!ENTITY notification.button.no "&amp;Ei">
 <!ENTITY sync.label "&amp;Synkronoi Adblock Plussan asetukset">
 <!ENTITY whitelist.site.label "Ei käytössä osoitteessa ?1?">
 <!ENTITY filters.label "&amp;Suodatinasetukset">
@@ -11,6 +13,7 @@
 <!ENTITY context.image.label "Adblock Plus: Estä kuva">
 <!ENTITY counthits.label "&amp;Laske suodattimen osumat">
 <!ENTITY opensidebar.label "Näytä &amp;elementit">
+<!ENTITY notification.button.close "&amp;Sulje">
 <!ENTITY contribute.label "Avusta Adblock Plussaa">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus: Estä kehys">

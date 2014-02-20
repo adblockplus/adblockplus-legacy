@@ -7,7 +7,7 @@
 <!ENTITY filter.label "フィルタ">
 <!ENTITY tooltip.size.label "サイズ:">
 <!ENTITY reattach.label "ウィンドウ内表示">
-<!ENTITY search.label "検索 (&amp;S) :">
+<!ENTITY search.label "検索:(&amp;S)">
 <!ENTITY docDomain.thirdParty "(サードパーティ)">
 <!ENTITY filterSource.label "フィルタ帰属">
 <!ENTITY tooltip.docDomain.label "ドキュメント帰属:">

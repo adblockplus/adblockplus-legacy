@@ -1,3 +1,5 @@
+<!ENTITY notification.button.yes "&amp;Tak">
+<!ENTITY notification.button.no "&amp;Nie">
 <!ENTITY sync.label "&amp;Synchronizuj ustawienia Adblock Plusa">
 <!ENTITY whitelist.site.label "Wyłącz blokowanie na ?1?">
 <!ENTITY filters.label "&amp;Ustawienia filtra">
@@ -11,6 +13,7 @@
 <!ENTITY context.image.label "Zablokuj obrazek">
 <!ENTITY counthits.label "Zli&amp;czaj użycie filtra">
 <!ENTITY opensidebar.label "Otwórz listę &amp;blokowalnych elementów">
+<!ENTITY notification.button.close "&amp;Zamknij">
 <!ENTITY contribute.label "Wspomóż Adblock Plusa">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Zablokuj ramkę">

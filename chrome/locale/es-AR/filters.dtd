@@ -6,7 +6,7 @@
 <!ENTITY subscription.actions.label "Acciones">
 <!ENTITY filter.selectAll.label "Seleccionar todo">
 <!ENTITY backupButton.label "Resg&amp;uardar y restaurar">
-<!ENTITY restore.minVersion.warning "Advertencia: este archivo fue creado por una versión más reciente de Adblock Plus. Deberías actualizarte a la última versión de Adblock Plus antes de restaurar este archivo.">
+<!ENTITY restore.minVersion.warning "ADVERTENCIA: este archivo fue creado por una versión más reciente de Adblock Plus. Deberías actualizarte a la última versión de Adblock Plus antes de restaurar este archivo.">
 <!ENTITY restore.error "No se pudo procesar los datos del archivo. ¿Este es un archivo de resguardo de Adblock Plus?">
 <!ENTITY sort.ascending.label "Ordenar de la &quot;&amp;A&quot; a la &quot;Z&quot;">
 <!ENTITY sort.label "&amp;Ordenar por">
@@ -14,12 +14,12 @@
 <!ENTITY hitcount.column "V&amp;eces usado">
 <!ENTITY noFilters.text "Todavía no tenés ningún filtro personalizado.">
 <!ENTITY backup.custom.title "Solamente filtros personalizados">
-<!ENTITY subscription.external.label "Actualizada por otra extensión">
+<!ENTITY subscription.external.label "Actualizado por otra extensión">
 <!ENTITY subscription.delete.label "Eliminar">
 <!ENTITY noGroupSelected.text "Necesitás seleccionar un grupo de filtros antes de que sus filtros puedan ser visualizados.">
 <!ENTITY filter.cut.label "Cortar">
-<!ENTITY restore.default.label "¿Restaurar resguardo del?1?">
-<!ENTITY subscription.lastDownload.inProgress "Descargando...">
+<!ENTITY restore.default.label "¿Restaurar resguardo de ?1?">
+<!ENTITY subscription.lastDownload.inProgress "Descargando…">
 <!ENTITY subscriptions.tab.label "Suscripciones de filtro">
 <!ENTITY sort.descending.label "Ordenar de la &quot;&amp;Z&quot; a la &quot;A&quot;">
 <!ENTITY filters.remove.warning "¿Estás seguro que querés quitar todos los filtros seleccionados?">
@@ -29,8 +29,7 @@
 <!ENTITY subscription.lastDownload.unknown "No disponible">
 <!ENTITY addSubscriptionCancel.label "Cancelar">
 <!ENTITY subscription.enabled.label "Habilitado">
-<!ENTITY noSubscriptions.text "Todavía no agregaste ninguna suscripción de filtro. Adblock Plus no bloqueará nada sin filtros. Por favor, andá a &quot;Agregar suscripción de filtro&quot; para
- agregar alguno.">
+<!ENTITY noSubscriptions.text "Todavía no agregaste ninguna suscripción de filtro. Adblock Plus no bloqueará nada sin filtros. Por favor, andá a &quot;Agregar suscripción de filtro&quot; para agregar alguno.">
 <!ENTITY subscription.update.label "Actualizar filtros">
 <!ENTITY dialog.title "Preferencia de filtro de Adblock Plus">
 <!ENTITY addFilter.label "&amp;Agregar filtro">
