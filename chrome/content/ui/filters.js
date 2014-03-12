@@ -136,7 +136,12 @@ var Templater =
         let attribute = node.attributes[i];
         let len = attribute.value.length;
         if (len >= 2 && attribute.value[0] == "{" && attribute.value[len - 1] == "}")
-          attribute.value = Cu.evalInSandbox(attribute.value.substr(1, len - 2), sandbox);
+        {
+          let value = Cu.evalInSandbox(attribute.value.substr(1, len - 2), sandbox);
+          if (attribute.name == "condition")
+            value = value ? "true" : "false";
+          attribute.value = value;
+        }
       }
     }
 
