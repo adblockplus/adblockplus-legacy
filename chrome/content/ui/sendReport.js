@@ -381,7 +381,7 @@ let screenshotDataSource =
                                       this._canvas.height - this.imageOffset * 2);
     this._max = this._pixelData.width * this._pixelData.height * 4;
     this._i = 0;
-    Utils.threadManager.currentThread.dispatch(this, Ci.nsIEventTarget.DISPATCH_NORMAL);
+    Utils.runAsync(this.run.bind(this));
   },
 
   run: function()
@@ -401,7 +401,7 @@ let screenshotDataSource =
     else
     {
       this._i = i;
-      Utils.threadManager.currentThread.dispatch(this, Ci.nsIEventTarget.DISPATCH_NORMAL);
+      Utils.runAsync(this.run.bind(this));
     }
   },
 
