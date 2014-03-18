@@ -134,23 +134,100 @@ var FilterSearch =
  */
 FilterSearch.fakeBrowser =
 {
+  finder:
+  {
+    _resultListeners: [],
+    searchString: null,
+    caseSensitive: false,
+    lastResult: null,
+
+    _notifyResultListeners: function(result, findBackwards)
+    {
+      this.lastResult = result;
+      for each (let listener in this._resultListeners)
+        listener.onFindResult(result, findBackwards);
+    },
+
+    fastFind: function(searchString, linksOnly, drawOutline)
+    {
+      this.searchString = searchString;
+      let result = FilterSearch.search(this.searchString, 0,
+                                       this.caseSensitive);
+      this._notifyResultListeners(result, false);
+    },
+
+    findAgain: function(findBackwards, linksOnly, drawOutline)
+    {
+      let result = FilterSearch.search(this.searchString,
+                                       findBackwards ? -1 : 1,
+                                       this.caseSensitive);
+      this._notifyResultListeners(result, findBackwards);
+    },
+
+    addResultListener: function(listener)
+    {
+      if (this._resultListeners.indexOf(listener) === -1)
+        this._resultListeners.push(listener);
+    },
+
+    removeResultListener: function(listener)
+    {
+      let index = this._resultListeners.indexOf(listener);
+      if (index !== -1)
+        this._resultListeners.splice(index, 1);
+    },
+
+    // Irrelevant for us
+    highlight: function(highlight, word) {},
+    enableSelection: function() {},
+    removeSelection: function() {},
+    focusContent: function() {},
+    keyPress: function() {}
+  },
+
+  get _lastSearchString()
+  {
+    return this.finder.searchString;
+  },
+
+  // This was used before Firefox 27 instead of the "finder" property.
   fastFind:
   {
-    searchString: null,
+    get searchString()
+    {
+      return FilterSearch.fakeBrowser.finder.searchString;
+    },
+
+    set searchString(searchString)
+    {
+      FilterSearch.fakeBrowser.finder.searchString = searchString;
+    },
+
     foundLink: null,
     foundEditable: null,
-    caseSensitive: false,
+
+    get caseSensitive()
+    {
+      return FilterSearch.fakeBrowser.finder.caseSensitive;
+    },
+
+    set caseSensitive(caseSensitive)
+    {
+      FilterSearch.fakeBrowser.finder.caseSensitive = caseSensitive;
+    },
+
     get currentWindow() FilterSearch.fakeBrowser.contentWindow,
 
     find: function(searchString, linksOnly)
     {
-      this.searchString = searchString;
-      return FilterSearch.search(this.searchString, 0, this.caseSensitive);
+      FilterSearch.fakeBrowser.finder.fastFind(searchString, linksOnly);
+      return FilterSearch.fakeBrowser.finder.lastResult;
     },
 
     findAgain: function(findBackwards, linksOnly)
     {
-      return FilterSearch.search(this.searchString, findBackwards ? -1 : 1, this.caseSensitive);
+      FilterSearch.fakeBrowser.finder.findAgain(findBackwards, linksOnly);
+      return FilterSearch.fakeBrowser.finder.lastResult;
     },
 
     // Irrelevant for us
