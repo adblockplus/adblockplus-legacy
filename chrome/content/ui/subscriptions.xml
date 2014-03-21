@@ -36,12 +36,12 @@
                 homepage="http://stanev.org/abp/"
                 prefixes="bg"
                 author="Александър Станев"/>
-  <subscription title="ChinaList+EasyList"
+  <subscription title="EasyList China+EasyList"
                 specialization="中文"
-                url="https://easylist-downloads.adblockplus.org/chinalist+easylist.txt"
-                homepage="http://chinalist.github.io/"
+                url="https://easylist-downloads.adblockplus.org/easylistchina+easylist.txt"
+                homepage="http://abpchina.org/forum/"
                 prefixes="zh"
-                author="Gythialy"/>
+                author="John, Li, Jiefei"/>
   <subscription title="EasyList Czech and Slovak+EasyList"
                 specialization="čeština, slovenčina"
                 url="https://easylist-downloads.adblockplus.org/easylistczechslovak+easylist.txt"
