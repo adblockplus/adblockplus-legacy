@@ -174,7 +174,7 @@ var Backup =
    */
   restoreCustomFilters: function(/**nsIFile*/ file)
   {
-    IO.readFromFile(file, true, {
+    IO.readFromFile(file, {
       seenHeader: false,
       subscription: null,
       process: function(line)
@@ -331,7 +331,7 @@ var Backup =
         yield list[i];
     }
 
-    IO.writeToFile(file, true, generator(), function(e)
+    IO.writeToFile(file, generator(), function(e)
     {
       if (e)
       {
