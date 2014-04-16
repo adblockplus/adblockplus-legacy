@@ -1,4 +1,4 @@
-<!ENTITY addMain.label "Dodaj tudi naročnino na &filter ?1?">
+<!ENTITY addMain.label "Dodaj tudi naročnino na &amp;filter ?1?">
 <!ENTITY list.download.failed "Pridobivanje seznama naročnin ni uspelo.">
 <!ENTITY list.download.retry "Poskusi znova">
 <!ENTITY title.label "&amp;Naslov naročnine:">
