@@ -19,7 +19,7 @@
 <!ENTITY noGroupSelected.text "Sie müssen eine Filtergruppe auswählen, um deren Inhalt anzuzeigen.">
 <!ENTITY filter.cut.label "Ausschneiden">
 <!ENTITY restore.default.label "Sicherung von ?1? wiederherstellen">
-<!ENTITY subscription.lastDownload.inProgress "Wird heruntergeladen...">
+<!ENTITY subscription.lastDownload.inProgress "Wird heruntergeladen ...">
 <!ENTITY subscriptions.tab.label "Filterabonnements">
 <!ENTITY sort.descending.label "A&amp;bsteigend">
 <!ENTITY filters.remove.warning "Wollen Sie wirklich alle ausgewählten Filter löschen?">

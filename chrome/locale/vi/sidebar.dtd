@@ -23,9 +23,9 @@
 <!ENTITY detached.title "Adblock Plus: các mục có thể chặn (tách rời)">
 <!ENTITY docDomain.firstParty "(bên thứ nhất)">
 <!ENTITY tooltip.type.whitelisted "(sổ trắng)">
-<!ENTITY tooltip.filter.label "Bộ lọc đang chặn:">
+<!ENTITY tooltip.filter.label "Bộ lọc đang có hiệu lực:">
 <!ENTITY tooltip.filter.disabled "(bị vô hiệu hóa)">
-<!ENTITY context.editfilter.label "Chỉnh sửa bộ lọc đang chặn">
+<!ENTITY context.editfilter.label "Chỉnh sửa bộ lọc đang có hiệu lực">
 <!ENTITY tooltip.type.blocked "(đã chặn)">
 <!ENTITY size.label "Kích thước">
 <!ENTITY context.whitelist.label "Thêm quy luật ngoại lệ cho mục">

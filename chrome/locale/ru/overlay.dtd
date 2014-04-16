@@ -1,3 +1,5 @@
+<!ENTITY notification.button.yes "&amp;да">
+<!ENTITY notification.button.no "&amp;нет">
 <!ENTITY sync.label "Син&amp;хронизировать настройки Adblock Plus">
 <!ENTITY whitelist.site.label "Отключить на ?1?">
 <!ENTITY filters.label "Настройки &amp;фильтров">
@@ -11,6 +13,7 @@
 <!ENTITY context.image.label "Adblock Plus: заблокировать изображение">
 <!ENTITY counthits.label "С&amp;читать срабатывания фильтров">
 <!ENTITY opensidebar.label "Открыть с&amp;писок элементов">
+<!ENTITY notification.button.close "&amp;близко">
 <!ENTITY contribute.label "Помочь проекту Adblock Plus">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus: заблокировать фрейм">

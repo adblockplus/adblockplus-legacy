@@ -25,7 +25,7 @@
 <!ENTITY domainRestriction.help "Вкажіть один чи більше доменів, розділених символом „|“, фільтр буде застосовано лише на них. Символ „~“ перед іменем домена вказує що фільтр на цей домен не розповсюджується.">
 <!ENTITY accept.label "Додати фільтр">
 <!ENTITY options.label "Налаштування">
-<!ENTITY disabled.warning "Adblock Plus наразі вимкнений. Ви все одно можете додавати фільтри, але вони не застосуються, доки ви [link] не увімкнете Adblock Plus[/link].">
+<!ENTITY disabled.warning "Adblock Plus наразі вимкнений. Ви все одно можете додавати фільтри, але вони не застосуються, доки ви  не [link]увімкнете[/link] Adblock Plus.">
 <!ENTITY anchor.start.flexible.label "на &amp;початку імені домена">
 <!ENTITY collapse.no.label "Ні">
 <!ENTITY selectAllTypes.label "Вибрати все">

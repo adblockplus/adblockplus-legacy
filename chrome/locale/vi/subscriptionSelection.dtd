@@ -2,7 +2,7 @@
 <!ENTITY list.download.failed "Adblock Plus không thể lấy danh sách bộ lọc trọn gói.">
 <!ENTITY list.download.retry "Thử lại">
 <!ENTITY title.label "&amp;Tiêu đề của bộ trọn gói:">
-<!ENTITY list.download.website "Xem trang web">
+<!ENTITY list.download.website "Xem trang mạng">
 <!ENTITY supplementMessage "Bộ lọc trọn gói này chỉ nên dùng kèm với bộ lọc trọn gói &quot;?1?&quot; - cái mà bạn chưa sử dụng.">
 <!ENTITY viewList.label "Xem bộ lọc">
 <!ENTITY visitHomepage.label "Vào trang chủ">

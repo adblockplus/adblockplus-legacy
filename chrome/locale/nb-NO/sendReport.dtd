@@ -24,7 +24,7 @@
 <!ENTITY sendPage.retry.label "Send på nytt">
 <!ENTITY data.label "Ra&amp;pportdata:">
 <!ENTITY recentReports.label "Dine nylig innsendte rapporter">
-<!ENTITY typeWarning.description "Du har angitt at du vil rapportere inn et generelt problem vedrørende Adblock Plus, istedenfor et problem vedrørende filtrene. Vennligst legg merke til at slike problemer helst bør rapporteres inn på. Du burde kun bruke rapportingsfunksjonen til å supplementere til en eksisterende diskusjon, siden ingen vil legge merke til din rapport såfremt du ikke legger ved en link. En automatisk generert link vil bli gitt deg etter at du har sendt inn en rapport.">
+<!ENTITY typeWarning.description "Du har angitt at du vil rapportere inn et generelt problem vedrørende Adblock Plus, istedenfor et problem vedrørende filtrene. Vennligst legg merke til at slike problemer helst bør rapporteres inn på [link]Adblock Plus forum[/link]. Du burde kun bruke rapportingsfunksjonen til å supplementere til en eksisterende diskusjon, siden ingen vil legge merke til din rapport såfremt du ikke legger ved en link. En automatisk generert link vil bli gitt deg etter at du har sendt inn en rapport.">
 <!ENTITY issues.disabled.description "Adblock Plus er deaktivert, og vil ikke blokkere noenting i denne tilstanden.">
 <!ENTITY attachExtensions.label "Legg ved en liste over aktive tillegg til rapporten, i tilfelle det er en &quot;add-on&quot; som er grunnen til problemet">
 <!ENTITY issues.nosubscriptions.add.label "Legg til filterabonnement">
@@ -39,7 +39,7 @@
 <!ENTITY dataCollector.description "Vennligst vent på at Adblock Plus samler inn de nødvendige data.">
 <!ENTITY sendButton.label "Se&amp;nd rapport">
 <!ENTITY comment.label "Kommentar (valgfritt): (&amp;C)">
-<!ENTITY sendPage.errorMessage "Et forsøk på å sende inn rapporten feilet, med feilkoden &quot;?1?&quot;. Vennligst kontrollér at du har internettilgang, og prøv på nytt. Hvis problemet vedvarer kan du be om hjelp i .">
+<!ENTITY sendPage.errorMessage "Et forsøk på å sende inn rapporten feilet, med feilkoden &quot;?1?&quot;. Vennligst kontrollér at du har internettilgang, og prøv på nytt. Hvis problemet vedvarer kan du be om hjelp i [link]Adblock Plus forum[/link].">
 <!ENTITY showRecentReports.label "Vis nylig innsendte rapporter">
 <!ENTITY commentPage.heading "Skriv inn kommentar">
 <!ENTITY update.start.label "Start oppdatering nå">

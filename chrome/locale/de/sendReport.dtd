@@ -31,7 +31,7 @@
 <!ENTITY issues.ownfilters.description "Einige der Filter, die auf dieser Seite angewandt wurden, sind benutzerdefiniert.
   Bitte deaktivieren Sie Filter, die das Problem verursacht haben könnten:">
 <!ENTITY update.inProgress.description "Adblock Plus muss Ihre Filterabonnements aktualisieren, um sicherzustellen,
-  dass das Problem nicht bereits gelöst ist. Bitte warten Sie...">
+  dass das Problem nicht bereits gelöst ist. Bitte warten Sie ...">
 <!ENTITY sendPage.retry.label "Noch einmal senden">
 <!ENTITY data.label "Bericht&amp;daten:">
 <!ENTITY recentReports.label "Ihre zuletzt gesendeten Fehlerberichte">
