@@ -1,7 +1,7 @@
 <!ENTITY notification.button.yes "&amp;نعم">
 <!ENTITY notification.button.no "&amp;لا">
 <!ENTITY sync.label "م&amp;زامنة إعدادات آدبلوك بلس">
-<!ENTITY whitelist.site.label "تعطيل في ؟1؟">
+<!ENTITY whitelist.site.label "تعطيل في ?1?">
 <!ENTITY filters.label "ت&amp;فضيلات الفلتر">
 <!ENTITY disable.label "تعطيل في جميع الأماكن">
 <!ENTITY objecttab.title "أحجب">

@@ -12,7 +12,7 @@
 <!ENTITY matchCase.label "Mai&amp;uscole/minuscole">
 <!ENTITY custom.pattern.label "&amp;Personalizza:">
 <!ENTITY unselectAllTypes.label "Deseleziona">
-<!ENTITY type.whitelist.label "E&amp;ccezione">
+<!ENTITY type.whitelist.label "Eccezione">
 <!ENTITY regexp.warning "Il modello inserito verrà interpretato come espressione regolare. Un numero eccessivo di tali modelli potrebbe rallentare la navigazione. Se non si intende utilizzare le espressioni regolari aggiungere il carattere * alla fine del modello">
 <!ENTITY dialog.title "Nuovo filtro di Adblock Plus">
 <!ENTITY basic.label "&lt;&lt; Generali">

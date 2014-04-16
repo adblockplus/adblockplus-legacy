@@ -1,7 +1,7 @@
 <!ENTITY anchor.end.label "&amp;pada akhir dari alamat">
 <!ENTITY domainRestriction.label "Membatasi pada &amp; domain:">
 <!ENTITY collapse.default.no.label "Gunakan default (tidak)">
-<!ENTITY firstParty.label "Hanya pihak pe&amp;rtama">
+<!ENTITY firstParty.label "&amp;Hanya untuk pihak pertama">
 <!ENTITY preferences.label "&amp;Tampilkan filter yang ada...">
 <!ENTITY pattern.label "Mencari pola">
 <!ENTITY thirdParty.label "Hanya pihak ke&amp;tiga">
@@ -22,7 +22,7 @@
 <!ENTITY collapse.yes.label "Ya">
 <!ENTITY anchors.label "Hanya menerima pola:">
 <!ENTITY collapse.default.yes.label "Gunakan default (Ya)">
-<!ENTITY domainRestriction.help "Gunakan pilihan ini untuk menentukan satu atau lebih ranah yang dipisahkan oleh sebuah garis batang (|). Filter hanya akan diterapkan pada ranah yang dipilih. Sebuah tanda lekuk (~) sebelum nama ranah menunjukkan bahwa tapis tidak akan diterapkan pada ranah tersebut.">
+<!ENTITY domainRestriction.help "Gunakan pilihan ini untuk menentukan satu atau lebih domain yang dipisahkan oleh sebuah garis bar(|). Filter hanya akan diterapkan pada domain yang dipilih. Sebuah tilde (~) sebelum nama domain menunjukkan bahwa filter tidak akan diterapkan pada domain tersebut.">
 <!ENTITY accept.label "Tambahkan filter">
 <!ENTITY options.label "Pilihan">
 <!ENTITY disabled.warning "Adblock Plus sedang dimatikan. Anda masih dapat menambahkan filter tetapi mereka tidak akan diterapkan kecuali Anda [link] mengaktifkan Adblock Plus [/link].">

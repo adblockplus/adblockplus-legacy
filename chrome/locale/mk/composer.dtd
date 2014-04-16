@@ -1,12 +1,12 @@
 <!ENTITY anchor.end.label "&amp;на крајот од адресата">
-<!ENTITY domainRestriction.label "Попречи &amp;до домен:">
+<!ENTITY domainRestriction.label "Забрани &amp;до домен:">
 <!ENTITY collapse.default.no.label "Користи стандардно (не)">
 <!ENTITY firstParty.label "Само од п&amp;рва партија">
 <!ENTITY preferences.label "Прикажи по&amp;стоечки филтери...">
 <!ENTITY pattern.label "Барај шема">
 <!ENTITY thirdParty.label "Само од &amp;трета партија">
 <!ENTITY filter.label "Нов &amp;филтер:">
-<!ENTITY collapse.label "Намали блокирано: (&amp;|)">
+<!ENTITY collapse.label "Скриј блокирано: (&amp;|)">
 <!ENTITY match.warning "Шемата која ја внесивте повеќе не се совпаѓа со адресата што ја одбравте и повеќе нема да функционира.">
 <!ENTITY anchor.start.label "на почетокот на адреса (&amp;г)">
 <!ENTITY matchCase.label "Совпадни со букви (&amp;М)">
