@@ -6,7 +6,7 @@
 <!ENTITY pattern.label "Muster suchen">
 <!ENTITY thirdParty.label "Nur für Elemen&amp;te von Drittseiten">
 <!ENTITY filter.label "Neue &amp;Filter:">
-<!ENTITY collapse.label "Fall blockieren:">
+<!ENTITY collapse.label "Platz frei&amp;geben:">
 <!ENTITY match.warning "Das Muster, das Sie eingegeben haben, passt nicht mehr zu der Adresse, für die der Filter erstellt werden soll. Es wird keinen Einfluss mehr auf diese Adresse haben.">
 <!ENTITY anchor.start.label "am Anfang der Adresse">
 <!ENTITY matchCase.label "Groß-/&amp;Kleinschreibung beachten">
@@ -16,7 +16,7 @@
 <!ENTITY regexp.warning "Das Muster, das Sie eingegeben haben, wird als regulärer Ausdruck interpretiert. Zu viele reguläre Ausdrücke könnten Ihren Browser verlangsamen. Falls Sie nicht beabsichtigt haben, reguläre Ausdrücke zu verwenden, fügen Sie einfach das Symbol '*' am Ende des Musters an.">
 <!ENTITY dialog.title "Neuen Filter hinzufügen">
 <!ENTITY basic.label "Standardansicht">
-<!ENTITY type.filter.label "&amp;Blockierfilter">
+<!ENTITY type.filter.label "&amp;Blockierregel">
 <!ENTITY types.label "Auf Elementtypen anwenden:">
 <!ENTITY shortpattern.warning "Das Muster, das Sie eingegeben haben, ist zu kurz zum Optimieren. Zu viele solche Muster könnten Ihren Browser verlangsamen. Es ist deshalb empfehlenswert, nach Möglichkeit ein längeres Muster für diesen Filter zu verwenden.">
 <!ENTITY collapse.yes.label "Ja">
