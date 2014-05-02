@@ -13,7 +13,7 @@
 <!ENTITY custom.pattern.label "Pielāgots:">
 <!ENTITY unselectAllTypes.label "Izvēlēties nevienu">
 <!ENTITY type.whitelist.label "Izņēmuma nosacījums">
-<!ENTITY regexp.warning "Modelis jūs ievadījāt tiks interpretēts kā regulāra izteiksme, ko Adblock Plus nevar efektīvi apstrādāt un tas var palēnināt jūsu pārlūkošanu. Ja jūs neplānojat izmantot regulāra izteiksmi, pievienojiet zvaigznīti (*) parauga beigās.">
+<!ENTITY regexp.warning "Modelis kuru jūs ievadījāt tika interpretēts kā regulāra izteiksme, ko Adblock Plus nevar efektīvi apstrādāt un tas var palēnināt jūsu pārlūkošanas ātrumu. Ja jūs neplānojat izmantot regulāru izteiksmi, pievienojiet zvaigznīti (*) parauga beigās.">
 <!ENTITY dialog.title "Pievienot Adblock Plus filtra nosacījumu">
 <!ENTITY basic.label "Pamata skatījums">
 <!ENTITY type.filter.label "Bloķēšanas filtrs">
