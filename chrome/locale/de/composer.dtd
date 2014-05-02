@@ -1,4 +1,4 @@
-<!ENTITY anchor.end.label "am Ende der Adresse">
+<!ENTITY anchor.end.label "am En&amp;de der Adresse">
 <!ENTITY domainRestriction.label "Auf Do&amp;main beschränken:">
 <!ENTITY collapse.default.no.label "Standardeinstellung (nein)">
 <!ENTITY firstParty.label "Nur für Elemente der Ursprungsseite">
@@ -8,7 +8,7 @@
 <!ENTITY filter.label "Neue &amp;Filter:">
 <!ENTITY collapse.label "Platz frei&amp;geben:">
 <!ENTITY match.warning "Das Muster, das Sie eingegeben haben, passt nicht mehr zu der Adresse, für die der Filter erstellt werden soll. Es wird keinen Einfluss mehr auf diese Adresse haben.">
-<!ENTITY anchor.start.label "am Anfang der Adresse">
+<!ENTITY anchor.start.label "am An&amp;fang der Adresse">
 <!ENTITY matchCase.label "Groß-/&amp;Kleinschreibung beachten">
 <!ENTITY custom.pattern.label "Be&amp;nutzerdefiniert:">
 <!ENTITY unselectAllTypes.label "Keine auswählen">
