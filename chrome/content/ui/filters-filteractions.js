@@ -33,12 +33,17 @@ var FilterActions =
     }, true);
     this.treeElement.view = FilterView;
 
-    this.treeElement.inputField.addEventListener("keypress", function(event)
+    // Work around https://bugzilla.mozilla.org/show_bug.cgi?id=777832, don't
+    // allow the tree to receive keypress/keydown events triggered by cursor
+    // keys pressed in the editor, it will call preventDefault() on them.
+    let propagationStopper = function(event)
     {
-      // Prevent the tree from capturing cursor keys pressed in the input field
       if (event.keyCode >= event.DOM_VK_PAGE_UP && event.keyCode <= event.DOM_VK_DOWN)
         event.stopPropagation();
-    }, false);
+    };
+
+    this.treeElement.inputField.addEventListener("keypress", propagationStopper, false);
+    this.treeElement.inputField.addEventListener("keydown", propagationStopper, false);
 
     // Create a copy of the view menu
     function fixId(node, newId)
