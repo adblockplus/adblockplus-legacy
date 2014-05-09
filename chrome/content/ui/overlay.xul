@@ -101,7 +101,7 @@
       context="abp-status-popup" tooltip="abp-tooltip"/>
 
   <toolbarbutton id="abp-toolbarbutton" class="toolbarbutton-1" label="&toolbarbutton.label;"
-      tooltip="abp-tooltip" context="abp-status-popup"/>
+      tooltip="abp-tooltip" context="abp-status-popup" style="list-style-image: none;"/>
 
   <!-- Tools menu -->
   <menu id="abp-menuitem" label="&toolbarbutton.label;"/>
