@@ -51,6 +51,7 @@ function init()
                        .QueryInterface(Ci.nsIURL);
     let suffix = (url.query ? "?*" : "");
     url.query = "";
+    url.ref = "";
     suggestions[1] = addSuggestion(url.spec + suffix);
 
     let parentURL = ioService.newURI(url.fileName == "" ? ".." : ".", null, url);
