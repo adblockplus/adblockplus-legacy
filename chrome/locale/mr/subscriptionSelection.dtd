@@ -1,0 +1,12 @@
+<!ENTITY addMain.label "फिल्टर आणि सदस्यता जोडा &quot;? 1?&quot; तसेच">
+<!ENTITY list.download.failed "Adblock प्लस सदस्यता यादी पुनर्प्राप्त करण्यात अयशस्वी.">
+<!ENTITY list.download.retry "पुन्हा प्रयत्न करा">
+<!ENTITY title.label "सदस्यता शीर्षक:">
+<!ENTITY list.download.website "वेबसाइट पहा">
+<!ENTITY supplementMessage "हे फिल्टर सदस्यता फिल्टर सदस्यता सह वापरण्यासाठी तयार केलेली आहे? &quot;1?&quot; जे आपण अद्याप वापरत नाहीत.">
+<!ENTITY viewList.label "पहा फिल्टर">
+<!ENTITY visitHomepage.label "मुख्यपृष्ठ भेट द्या">
+<!ENTITY addSubscription.label "सदस्यता जोडा">
+<!ENTITY dialog.title "Adblock प्लस फिल्टर सदस्यता जोडा">
+<!ENTITY location.label "फिल्टर यादी स्थान:">
+<!ENTITY fromWeb.description "आपण या फिल्टर सदस्यता जोडण्यासाठी इच्छुक असल्याची पुष्टी करा. आपण जोडण्याचा करण्यापूर्वी सदस्यता शीर्षक किंवा स्थान बदलू शकता.">
