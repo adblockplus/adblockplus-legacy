@@ -3,7 +3,7 @@
 <!ENTITY collapse.default.no.label "使用默认值 (否)">
 <!ENTITY firstParty.label "仅第一方 (&amp;r)">
 <!ENTITY preferences.label "显示所有屏蔽规则…… (&amp;S)">
-<!ENTITY pattern.label "查找模式">
+<!ENTITY pattern.label "搜寻模式">
 <!ENTITY thirdParty.label "仅第三方 (&amp;T)">
 <!ENTITY filter.label "新建屏蔽规则: (&amp;f)">
 <!ENTITY collapse.label "折叠已屏蔽: (&amp;l)">
@@ -23,7 +23,7 @@
 <!ENTITY anchors.label "仅接受模式:">
 <!ENTITY collapse.default.yes.label "使用默认值 (是)">
 <!ENTITY domainRestriction.help "由竖线(|)分隔的一个或多个域，过滤规则仅应用于这些域上。域名前有代字符(~)，表示过滤规则不应该应用于该域上。">
-<!ENTITY accept.label "添加屏蔽规则">
+<!ENTITY accept.label "添加过滤规则">
 <!ENTITY options.label "选项">
 <!ENTITY disabled.warning "Adblock Plus 目前处于禁用状态。您可以继续添加过滤规则，但是这些规则在您[link]启用 Adblock Plus[/link] 之后才能生效。">
 <!ENTITY anchor.start.flexible.label "在域名开始处 (&amp;g)">
