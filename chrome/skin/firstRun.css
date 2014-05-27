@@ -387,12 +387,12 @@ section > p
   background-repeat: no-repeat;
 }
 
-#legacySafariWarning,
-#dataCorruptionWarning
+.warning
 {
   font-size: 160%;
   border: 3px dashed red;
   text-align: center;
+  line-height: 1.3em;
 }
 
 #social ul
