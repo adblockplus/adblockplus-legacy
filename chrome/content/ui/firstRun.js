@@ -56,11 +56,21 @@
     setLinks("acceptableAdsExplanation", Utils.getDocLink("acceptable_ads_criteria"), openFilters);
     setLinks("share-headline", Utils.getDocLink("contribute"));
 
-    // Show warning if data corruption was detected
-    if (typeof backgroundPage != "undefined" && backgroundPage.seenDataCorruption)
+    if (typeof backgroundPage != "undefined")
     {
-      E("dataCorruptionWarning").removeAttribute("hidden");
-      setLinks("dataCorruptionWarning", Utils.getDocLink("knownIssuesChrome_filterstorage"));
+      // Show warning if data corruption was detected
+      if (backgroundPage.seenDataCorruption)
+      {
+        E("dataCorruptionWarning").removeAttribute("hidden");
+        setLinks("dataCorruptionWarning", Utils.getDocLink("knownIssuesChrome_filterstorage"));
+      }
+
+      // Show warning if filterlists settings were reinitialized
+      if (backgroundPage.filterlistsReinitialized)
+      {
+        E("filterlistsReinitializedWarning").removeAttribute("hidden");
+        setLinks("filterlistsReinitializedWarning", openFilters);
+      }
     }
 
     // Show warning if Safari version isn't supported
