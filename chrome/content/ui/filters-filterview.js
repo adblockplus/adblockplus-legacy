@@ -29,6 +29,22 @@ var FilterView =
    */
   init: function()
   {
+    // "Manually" remove access key for col-slow tooltip, Utils.splitAllLabels()
+    // won't do it.
+    let slowColumn = document.getElementById("col-slow");
+    if (slowColumn)
+    {
+      for (let attr of ["display", "tooltiptext"])
+      {
+        let value = slowColumn.getAttribute(attr);
+        if (!value)
+          continue;
+        let [label, accessKey] = Utils.splitLabel(value);
+        if (label != value)
+          slowColumn.setAttribute(attr, label);
+      }
+    }
+
     if (this.sortProcs)
       return;
 
