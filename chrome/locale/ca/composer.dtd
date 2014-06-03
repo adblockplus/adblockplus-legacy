@@ -9,11 +9,11 @@
 <!ENTITY collapse.label "Co&amp;l·lapsa els bloquejats:">
 <!ENTITY match.warning "El patró inserit no concorda amb l'adreça a blocar/acceptar i quedarà sense efecte.">
 <!ENTITY anchor.start.label "&amp;al començament de l'adreça">
-<!ENTITY matchCase.label "Diferencia &amp;majúscules i minúscules">
+<!ENTITY matchCase.label "Diferen&amp;cia majúscules i minúscules">
 <!ENTITY custom.pattern.label "&amp;Personalitza:">
 <!ENTITY unselectAllTypes.label "No seleccionis res">
 <!ENTITY type.whitelist.label "E&amp;xcepció">
-<!ENTITY regexp.warning "El patró inserit serà interpretat com una expressió regular. L'abús d'expressions regulars ralentitzaran la navegació. Si no volíeu emprar una expressió regular, afegiu el símbol ^ al final del patró.">
+<!ENTITY regexp.warning "El patró inserit serà interpretat com una expressió regular, la qual no podrà ser processada per Adblock Plus i podria comportar una ralentització de la vostra experiència de navegació. Si no volíeu emprar una expressió regular, afegiu el símbol (*) al final del patró.">
 <!ENTITY dialog.title "Afegeix una regla de filtre de l'Adblock Plus">
 <!ENTITY basic.label "Visualització bàsica">
 <!ENTITY type.filter.label "Filtre de &amp;bloqueig">

@@ -2,7 +2,7 @@
 <!ENTITY notification.button.no "&amp;No">
 <!ENTITY sync.label "&amp;Sincronitza la configuració de l'AdBlock Plus">
 <!ENTITY whitelist.site.label "Inhabilita l'Adblock Plus a ?1?">
-<!ENTITY filters.label "Pre&amp;ferències del filtre">
+<!ENTITY filters.label "&amp;Preferències del filtre">
 <!ENTITY disable.label "Inhabilita a tots els llocs">
 <!ENTITY objecttab.title "Bloca">
 <!ENTITY objecttab.tooltip "Feu clic aquí per blocar aquest objecte amb l'Adblock Plus">
@@ -12,7 +12,7 @@
 <!ENTITY whitelist.page.label "Inhabilita només en aquesta pàgina">
 <!ENTITY context.image.label "Adblock Plus: bloca la imatge">
 <!ENTITY counthits.label "Compta els cops que &amp;funciona el filtre">
-<!ENTITY opensidebar.label "O&amp;bre elements blocables">
+<!ENTITY opensidebar.label "Obre &amp;elements blocables">
 <!ENTITY notification.button.close "&amp;Tancar">
 <!ENTITY contribute.label "Contribueix a l'Adblock Plus">
 <!ENTITY toolbarbutton.label "Adblock Plus">

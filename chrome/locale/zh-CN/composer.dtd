@@ -3,7 +3,7 @@
 <!ENTITY collapse.default.no.label "使用默认值 (否)">
 <!ENTITY firstParty.label "仅第一方 (&amp;r)">
 <!ENTITY preferences.label "显示所有屏蔽规则…… (&amp;S)">
-<!ENTITY pattern.label "搜寻模式">
+<!ENTITY pattern.label "查找模式">
 <!ENTITY thirdParty.label "仅第三方 (&amp;T)">
 <!ENTITY filter.label "新建屏蔽规则: (&amp;f)">
 <!ENTITY collapse.label "折叠已屏蔽: (&amp;l)">
