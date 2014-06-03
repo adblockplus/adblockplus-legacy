@@ -7,8 +7,7 @@
 <!ENTITY thirdParty.label "Samo od &amp;treće strane">
 <!ENTITY filter.label "Novi filter:">
 <!ENTITY collapse.label "&amp;Sažeti blokirano:">
-<!ENTITY match.warning "
-Obrazac koji ste unijeli više ne  odgovara adresi za blokiranje/odblokiranje i neće imati nikakvog utjecaja na to.">
+<!ENTITY match.warning "Obrazac koji ste unijeli više ne  odgovara adresi za blokiranje/odblokiranje i neće imati nikakvog utjecaja na to.">
 <!ENTITY anchor.start.label "na &amp;početku adrese">
 <!ENTITY matchCase.label "Točan i&amp;zraz">
 <!ENTITY custom.pattern.label "Prila&amp;gođeno:">
@@ -19,8 +18,7 @@ Obrazac koji ste unijeli više ne  odgovara adresi za blokiranje/odblokiranje i 
 <!ENTITY basic.label "Početni prikaz">
 <!ENTITY type.filter.label "&amp;Blokirajući filter">
 <!ENTITY types.label "Primjeniti na vrste:">
-<!ENTITY shortpattern.warning "
-Obrazac koji ste unijeli je prekratak da bi se optimizirao i može usporiti vaše iskustvo pregledavanja. Preporučuje se da odaberete duži niz za ovaj filter kako bi se omogućilo Adblock Plus za efikasnije procesuiranje filtera.">
+<!ENTITY shortpattern.warning "Obrazac koji ste unijeli je prekratak da bi se optimizirao i može usporiti vaše iskustvo pregledavanja. Preporučuje se da odaberete duži niz za ovaj filter kako bi se omogućilo Adblock Plus za efikasnije procesuiranje filtera.">
 <!ENTITY collapse.yes.label "Da">
 <!ENTITY anchors.label "Prihvati samo obrazac:">
 <!ENTITY collapse.default.yes.label "Koristi zadano(Da)">
@@ -32,5 +30,4 @@ Obrazac koji ste unijeli je prekratak da bi se optimizirao i može usporiti vaš
 <!ENTITY collapse.no.label "Ne">
 <!ENTITY selectAllTypes.label "Označi sve">
 <!ENTITY advanced.label "Napredan prikaz">
-<!ENTITY pattern.explanation "
-Obrazac može biti bilo koji dio adrese, znak (*) se ponaša kao zamjena. Filter će se primjenjivati ​​samo na adrese koje odgovaraju uzorku.">
+<!ENTITY pattern.explanation "Obrazac može biti bilo koji dio adrese, znak (*) se ponaša kao zamjena. Filter će se primjenjivati ​​samo na adrese koje odgovaraju uzorku.">

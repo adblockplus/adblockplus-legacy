@@ -28,10 +28,9 @@
 <!ENTITY viewMenu.label "Ansicht">
 <!ENTITY subscription.lastDownload.unknown "Nie">
 <!ENTITY addSubscriptionCancel.label "Abbrechen">
-<!ENTITY subscription.enabled.label "Aktiv">
+<!ENTITY subscription.enabled.label "Aktiviert">
 <!ENTITY noSubscriptions.text "Sie haben noch keine Filterabonnements hinzugefügt. Ohne Filter wird Adblock Plus
-  nichts blockieren können, bitte benutzen Sie den Knopf
-  &quot;Filterabonnement hinzufügen&quot;.">
+  nichts blockieren können, bitte benutzen Sie die Schaltfläche &quot;Filterabonnement hinzufügen&quot;.">
 <!ENTITY subscription.update.label "Filter aktualisieren">
 <!ENTITY dialog.title "Filtereinstellungen von Adblock Plus">
 <!ENTITY addFilter.label "&amp;Filter hinzufügen">
