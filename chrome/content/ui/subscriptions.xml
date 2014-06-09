@@ -72,6 +72,12 @@
                 homepage="https://easylist.adblockplus.org/"
                 prefixes="it"
                 author="Khrin"/>
+  <subscription title="EasyList Lithuania+EasyList"
+                specialization="lietuvių kalba"
+                url="https://easylist-downloads.adblockplus.org/easylistlithuania+easylist.txt"
+                homepage="http://margevicius.lt/"
+                prefixes="lt"
+                author="Algimantas Margevičius"/>
   <subscription title="Latvian List+EasyList"
                 specialization="latviešu valoda"
                 url="https://easylist-downloads.adblockplus.org/latvianlist+easylist.txt"
