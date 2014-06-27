@@ -189,7 +189,7 @@ let requestsDataSource =
   origRequests: [],
   requestNotifier: null,
   callback: null,
-  nodeByKey: {__proto__: null},
+  nodeByKey: Object.create(null),
 
   collectData: function(wnd, windowURI, callback)
   {
@@ -636,7 +636,7 @@ let errorsDataSource =
       messages = messages.slice(messages.length - 10, messages.length);
 
     // Censor app and profile paths in error messages
-    let censored = {__proto__: null};
+    let censored = Object.create(null);
     let pathList = [["ProfD", "%PROFILE%"], ["GreD", "%GRE%"], ["CurProcD", "%APP%"]];
     for (let i = 0; i < pathList.length; i++)
     {
@@ -909,7 +909,7 @@ let issuesDataSource =
             disabledMatcher.add(filter);
       }
 
-      let seenFilters = {__proto__: null};
+      let seenFilters = Object.create(null);
       for each (let request in requestsDataSource.origRequests)
       {
         if (request.filter)
@@ -924,7 +924,7 @@ let issuesDataSource =
       }
 
       // Find disabled subscriptions with filters matching any of the requests
-      let seenSubscriptions = {__proto__: null};
+      let seenSubscriptions = Object.create(null);
       for each (let subscription in FilterStorage.subscriptions)
       {
         if (!subscription.disabled)

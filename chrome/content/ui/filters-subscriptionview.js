@@ -176,7 +176,7 @@ ListManager.prototype =
     {
       if (this._scheduledUpdateDisabled == null)
       {
-        this._scheduledUpdateDisabled = {__proto__: null};
+        this._scheduledUpdateDisabled = Object.create(null);
         Utils.runAsync(this.updateDisabled, this);
       }
       for (let i = 0; i < item.subscriptions.length; i++)
@@ -273,7 +273,7 @@ ListManager.prototype =
       {
         if (this._scheduledUpdateDisabled == null)
         {
-          this._scheduledUpdateDisabled = {__proto__: null};
+          this._scheduledUpdateDisabled = Object.create(null);
           Utils.runAsync(this.updateDisabled, this);
         }
         this._scheduledUpdateDisabled[item.url] = true;
