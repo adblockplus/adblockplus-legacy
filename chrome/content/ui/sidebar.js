@@ -1009,7 +1009,7 @@ var treeView = {
   filter: "",
   data: null,
   allData: [],
-  dataMap: {__proto__: null},
+  dataMap: Object.create(null),
   sortColumn: null,
   sortProc: null,
   resortTimeout: null,
@@ -1038,7 +1038,7 @@ var treeView = {
   clearData: function(data) {
     var oldRows = this.rowCount;
     this.allData = [];
-    this.dataMap = {__proto__: null};
+    this.dataMap = Object.create(null);
     this.refilter();
 
     this.boxObject.rowCountChanged(0, -oldRows);
