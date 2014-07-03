@@ -23,7 +23,7 @@ var mainWin = parent;
 // The window handler currently in use
 var requestNotifier = null;
 
-var cacheSession = null;
+var cacheStorage = null;
 var noFlash = false;
 
 // Matcher for disabled filters
@@ -295,43 +295,63 @@ function fillInTooltip(e) {
   var showPreview = Prefs.previewimages && !("tooltip" in item);
   showPreview = showPreview && item.typeDescr == "IMAGE";
   showPreview = showPreview && (!item.filter || item.filter.disabled || item.filter instanceof WhitelistFilter);
+  E("tooltipPreviewBox").hidden = true;
   if (showPreview)
   {
-    // Check whether image is in cache (stolen from ImgLikeOpera)
-    if (!cacheSession)
+    if (!cacheStorage)
     {
-      var cacheService = Cc["@mozilla.org/network/cache-service;1"].getService(Ci.nsICacheService);
-      cacheSession = cacheService.createSession("HTTP", Ci.nsICache.STORE_ANYWHERE, true);
+      let {Services} = Cu.import("resource://gre/modules/Services.jsm", null);
+      // Cache v2 API is enabled by default starting with Gecko 32
+      if (Services.vc.compare(Utils.platformVersion, "32.0") >= 0)
+      {
+        let {LoadContextInfo} = Cu.import("resource://gre/modules/LoadContextInfo.jsm", null);
+        cacheStorage = Services.cache2.diskCacheStorage(LoadContextInfo.default, true);
+      }
+      else
+        cacheStorage = Services.cache.createSession("HTTP", Ci.nsICache.STORE_ANYWHERE, true);
     }
-
-    let cacheListener =
+    
+    let showTooltipPreview = function ()
     {
-       onCacheEntryAvailable: function(descriptor, accessGranted, status)
-       {
-          if (!descriptor)
-            return;
-
-          descriptor.close();
-          // Show preview here since this is asynchronous now
-          // and we have a valid descriptor
-          E("tooltipPreview").setAttribute("src", item.location);
-          E("tooltipPreviewBox").hidden = false;
-       },
-       onCacheEntryDoomed: function(status)
-       {
-       }
+      E("tooltipPreview").setAttribute("src", item.location);
+      E("tooltipPreviewBox").hidden = false;
     };
     try
     {
-      cacheSession.asyncOpenCacheEntry(item.location, Ci.nsICache.ACCESS_READ, cacheListener);
+      if (Ci.nsICacheStorage && cacheStorage instanceof Ci.nsICacheStorage)
+      {
+        cacheStorage.asyncOpenURI(Utils.makeURI(item.location), "", Ci.nsICacheStorage.OPEN_READONLY, {
+          onCacheEntryCheck: function (entry, appCache)
+          {
+            return Ci.nsICacheEntryOpenCallback.ENTRY_WANTED;
+          },
+          onCacheEntryAvailable: function (entry, isNew, appCache, status) {
+            if (!isNew)
+              showTooltipPreview();
+          }
+        });
+      }
+      else
+      {
+        cacheStorage.asyncOpenCacheEntry(item.location, Ci.nsICache.ACCESS_READ, {
+          onCacheEntryAvailable: function(descriptor, accessGranted, status)
+          {
+            if (!descriptor)
+              return;
+            descriptor.close();
+            showTooltipPreview();
+          },
+          onCacheEntryDoomed: function(status)
+          {
+          }
+        });
+      }
     }
     catch (e)
     {
       Cu.reportError(e);
     }
   }
-
-  E("tooltipPreviewBox").hidden = true;
 }
 
 const visual = {
