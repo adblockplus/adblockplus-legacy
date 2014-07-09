@@ -236,7 +236,7 @@ var SubscriptionActions =
       else if (accelKey == Ci.nsIDOMKeyEvent.DOM_VK_ALT)
         result = this._altMask;
     } catch(e) {}
-    this.__defineGetter__("_accelMask", function() result);
+    Object.defineProperty(this, "_accelMask", {value: result});
     return result;
   },
 
