@@ -32,16 +32,10 @@
       canvas.parentNode.appendChild(headers[i]);
 
     // Expose properties
-    Object.defineProperty(progressBar, "activeItem",
-    {
-      get: getActiveItem,
-      set: setActiveItem
-    });
-    Object.defineProperty(progressBar, "activeItemComplete",
-    {
-      get: getActiveItemComplete,
-      set: setActiveItemComplete
-    });
+    progressBar.__defineGetter__("activeItem", getActiveItem);
+    progressBar.__defineSetter__("activeItem", setActiveItem);
+    progressBar.__defineGetter__("activeItemComplete", getActiveItemComplete);
+    progressBar.__defineSetter__("activeItemComplete", setActiveItemComplete);
 
     isRTL = (window.getComputedStyle(document.documentElement).direction == "rtl");
 

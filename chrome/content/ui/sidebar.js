@@ -85,7 +85,7 @@ function init() {
   }
 
   let {getBrowser, addBrowserLocationListener} = require("appSupport");
-  Object.defineProperty(window, "content", { get: () => getBrowser(mainWin).contentWindow });
+  window.__defineGetter__("content", function() {return getBrowser(mainWin).contentWindow;});
 
   // Initialize matcher for disabled filters
   reloadDisabledFilters();
