@@ -144,8 +144,25 @@ FilterSearch.fakeBrowser =
     _notifyResultListeners: function(result, findBackwards)
     {
       this.lastResult = result;
-      for each (let listener in this._resultListeners)
-        listener.onFindResult(result, findBackwards);
+      for (let listener of this._resultListeners)
+      {
+        // See https://bugzilla.mozilla.org/show_bug.cgi?id=958101, starting
+        // with Gecko 29 only one parameter is expected.
+        try
+        {
+          if (listener.onFindResult.length == 1)
+          {
+            listener.onFindResult({searchString: this.searchString,
+                result: result, findBackwards: findBackwards});
+          }
+          else
+            listener.onFindResult(result, findBackwards);
+        }
+        catch (e)
+        {
+          Cu.reportError(e);
+        }
+      }
     },
 
     fastFind: function(searchString, linksOnly, drawOutline)
@@ -178,6 +195,7 @@ FilterSearch.fakeBrowser =
     },
 
     // Irrelevant for us
+    requestMatchesCount: function(searchString, matchLimit, linksOnly) {},
     highlight: function(highlight, word) {},
     enableSelection: function() {},
     removeSelection: function() {},
