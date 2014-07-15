@@ -26,11 +26,7 @@ var FilterActions =
    */
   init: function()
   {
-    let me = this;
-    this.treeElement.parentNode.addEventListener("keypress", function(event)
-    {
-      me.keyPress(event);
-    }, true);
+    this.treeElement.parentNode.addEventListener("keydown", this.keyDown.bind(this), true);
     this.treeElement.view = FilterView;
 
     // Work around https://bugzilla.mozilla.org/show_bug.cgi?id=777832, don't
@@ -373,7 +369,7 @@ var FilterActions =
   /**
    * Called whenever a key is pressed on the list.
    */
-  keyPress: function(/**Event*/ event)
+  keyDown: function(/**Event*/ event)
   {
     if (event.target != E("filtersTree"))
       return;
