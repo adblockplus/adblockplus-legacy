@@ -28,6 +28,6 @@
 <!ENTITY disabled.warning "O Adblock Plus está inativo. Pode adicionar filtros mas estes não serão aplicados até que [link]ative o Adblock Plus[/link].">
 <!ENTITY anchor.start.flexible.label "no &amp;início do nome de domínio">
 <!ENTITY collapse.no.label "Não">
-<!ENTITY selectAllTypes.label "Seleccionar todos">
+<!ENTITY selectAllTypes.label "Selecionar tudo">
 <!ENTITY advanced.label "Vista avançada">
 <!ENTITY pattern.explanation "O padrão pode ser qualquer parte do endereço; o asterisco (*) funciona como wildcard. O filtro só será aplicado ao(s) endereço(s) que correspondam ao padrão indicado.">

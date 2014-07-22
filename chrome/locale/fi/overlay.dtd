@@ -6,7 +6,7 @@
 <!ENTITY disable.label "Poista käytöstä kaikkialla">
 <!ENTITY objecttab.title "Estä">
 <!ENTITY objecttab.tooltip "Estä tämä objekti Adblock Plussalla">
-<!ENTITY menuitem.label "A&amp;dblock Plus - Asetukset">
+<!ENTITY menuitem.label "Ad&amp;block Plus -asetukset">
 <!ENTITY objecttabs.label "&amp;Korvake Flashin ja Javan yhteydessä">
 <!ENTITY sendReport.label "Raportoi onge&amp;lma tällä sivulla">
 <!ENTITY whitelist.page.label "Ei käytössä tällä sivulla">
@@ -17,15 +17,15 @@
 <!ENTITY contribute.label "Avusta Adblock Plussaa">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus: Estä kehys">
-<!ENTITY blocked.tooltip "Tämän sivun estetyt elementit:">
-<!ENTITY hideplaceholders.label "P&amp;iilota elementit, jotka sisältävät estettyjä elementtejä">
+<!ENTITY blocked.tooltip "Estetyt elementit tällä sivulla:">
+<!ENTITY hideplaceholders.label "P&amp;iilota estettyjen elementtien tilanvaraajat">
 <!ENTITY showinstatusbar.label "&amp;Näytä tilarivillä">
-<!ENTITY sidebar.title "Estettävät elementit avoimella sivulla">
+<!ENTITY sidebar.title "Estettävät elementit tällä sivulla">
 <!ENTITY options.label "&amp;Valinnat">
 <!ENTITY context.object.label "Adblock Plus: Estä kohde">
-<!ENTITY context.removeWhitelist.label "Adblock Plus: Ota tämä sivu uudestaan käyttöön">
+<!ENTITY context.removeWhitelist.label "Adblock Plus: Ota uudelleen käyttöön tällä sivulla">
 <!ENTITY filters.tooltip "Aktiivisimmat suodattimet:">
 <!ENTITY closesidebar.label "Sulj&amp;e elementit">
-<!ENTITY showintoolbar.label "Nä&amp;ytä työkalupalkilla">
+<!ENTITY showintoolbar.label "Nä&amp;ytä työkalupalkissa">
 <!ENTITY status.tooltip "Tila:">
 <!ENTITY context.media.label "Adblock Plus: Estä ääni/kuva">

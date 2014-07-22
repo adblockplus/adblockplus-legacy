@@ -1,13 +1,33 @@
-<!ENTITY subscription.lastDownload.invalidURL "विफल रहा, एक मान्य पता नहीं ">
-<!ENTITY addSubscriptionOther.label "भिन्न सदस्यता जोड़ें">
+<!ENTITY filter.selectAll.label "सभी का चयन करें">
 <!ENTITY subscription.source.label "फ़िल्टर सूची">
-<!ENTITY subscription.lastDownload.connectionError "विफल रहा, डाउनलोड विफलता">
-<!ENTITY subscription.lastDownload.success "सफलता">
+<!ENTITY noFilters.text "आपका कोई कस्टम फ़िल्टर नहीं है। ">
+<!ENTITY subscription.external.label "एक अन्य एक्सटेंशन द्वारा अद्यतन किया">
+<!ENTITY subscription.delete.label "मिटाएँ">
+<!ENTITY subscriptions.tab.label "फ़िल्टर सदस्यताएँ">
+<!ENTITY filter.delete.label "मिटाएँ">
+<!ENTITY viewMenu.label "देखें">
 <!ENTITY addSubscriptionCancel.label "रद्द करें">
 <!ENTITY subscription.enabled.label "सक्षम किया गया">
-<!ENTITY subscription.homepage.label "मुखपृष्ठ">
-<!ENTITY subscription.external.label "एक अन्य एक्सटेंशन द्वारा अद्यतन किया">
 <!ENTITY dialog.title "Adblock प्लस फ़िल्टर वरीयताएँ">
+<!ENTITY subscription.lastDownload.invalidURL "विफल रहा, एक मान्य पता नहीं ">
+<!ENTITY filter.moveUp.label "ऊपर जाएं">
+<!ENTITY filter.edit.label "संपादित करें">
+<!ENTITY subscription.showHideFilters.label "फ़िल्टर्स दिखाएँ/छुपाएँ">
+<!ENTITY filter.cut.label "काटें">
+<!ENTITY addSubscriptionOther.label "भिन्न सदस्यता जोड़ें">
+<!ENTITY filter.actions.label "फ़िल्टर क्रिया">
+<!ENTITY filter.copy.label "प्रतिलिपि बनाएँ">
+<!ENTITY filter.moveDown.label "नीचे जाएं">
+<!ENTITY readMore.label "और पढ़ें">
+<!ENTITY subscription.moveUp.label "ऊपर जाएं">
+<!ENTITY subscription.homepage.label "मुखपृष्ठ">
 <!ENTITY filters.tab.label "nbjh">
+<!ENTITY restore.own.label "स्वयं बैकअप पुनर्स्थापित करें">
+<!ENTITY subscription.moveDown.label "नीचे जाएं">
+<!ENTITY backup.label "नया बैकअप बनाएँ">
+<!ENTITY subscription.lastDownload.connectionError "विफल रहा, डाउनलोड विफलता">
+<!ENTITY subscription.lastDownload.success "सफलता">
+<!ENTITY filter.paste.label "चिपकाएं">
+<!ENTITY subscription.editTitle.label "शीर्षक संपादित करें">
 <!ENTITY subscription.lastDownload.label "पिछले डाउनलोड:">
-<!ENTITY subscriptions.tab.label "फ़िल्टर सदस्यताएँ">
+<!ENTITY viewList.label "सूची देखें">

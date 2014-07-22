@@ -37,7 +37,7 @@
 <!ENTITY issues.whitelist.remove.label "إعادة تفعيل آدبلوك بلس على هذه الصفحة">
 <!ENTITY outdatedSubscriptions.description "اشتراكات الفلاتر التالية لم يتم تحديثها منذ أسبوعين على الأقل. الرجاء تحديث هذه الاشتراكات قبل إرسال تقرير، ربما تم إصلاح المشكلة مسبقا.">
 <!ENTITY dataCollector.description "من فضلك انتظر بضعة دقائق ريثما يجمع آدبلوك بلس المعلومات المطلوبة">
-<!ENTITY sendButton.label "إرسا&amp;ل التقرير">
+<!ENTITY sendButton.label "إرسال التقرير">
 <!ENTITY comment.label "التعلي&amp;ق (اختياري)ـ">
 <!ENTITY sendPage.errorMessage "فشل إرسال التقرير بسبب الخطأ &quot;?1?&quot;. الرجاء التأكد من صحة اتصالك بالإنترنت وإعادة المحاولة. إن استمرت المشكلة الرجاء طلب المساعدة في [link]منتديات آدبلوك بلس[/link]">
 <!ENTITY showRecentReports.label "إظهار التقارير المرسلة مؤخرا">

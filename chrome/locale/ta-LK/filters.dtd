@@ -1,0 +1,19 @@
+<!ENTITY subscription.lastDownload.inProgress "பதிவிறக்குகிறது...">
+<!ENTITY subscription.showHideFilters.label "வடிகட்டிகளைக் காண்பி/மறை">
+<!ENTITY subscription.actions.label "செயல்கள்">
+<!ENTITY addSubscriptionOther.label "வேறு சந்தா சேர்">
+<!ENTITY subscription.source.label "வடிகட்டி பட்டியல்">
+<!ENTITY subscription.lastDownload.invalidURL "தோல்வி, செல்லத்தக்க இல்லை  முகவரி">
+<!ENTITY subscription.lastDownload.connectionError "தோல்வியடைந்தது, பதிவிறக்கம் தோல்வி">
+<!ENTITY addSubscriptionAdd.label "சேர்">
+<!ENTITY subscription.lastDownload.success "வெற்றி">
+<!ENTITY addSubscriptionCancel.label "ரத்து செய்">
+<!ENTITY subscription.homepage.label "முகப்புப்பக்கம்">
+<!ENTITY subscription.delete.label "நீக்கு">
+<!ENTITY subscription.moveUp.label "மேலே நகர்த்து">
+<!ENTITY addSubscription.label "சேர் &amp; சந்தா வடிகட்டு">
+<!ENTITY dialog.title "Adblock Plus வடிகட்டி விருப்பங்கள்">
+<!ENTITY subscription.moveDown.label "கீழே நகர்த்து">
+<!ENTITY filters.tab.label "விருப்ப வடிகட்டிகள்">
+<!ENTITY subscription.lastDownload.label "இறுதி பதிவிறக்கம்:">
+<!ENTITY subscriptions.tab.label "வடிகட்டி சந்தாக்கள்">

@@ -33,7 +33,7 @@
 <!ENTITY issues.nosubscriptions.description "ウェブサイトの不要なコンテンツを自動削除する、既存のフィルタをまだ購読していないようです。">
 <!ENTITY typeSelector.falsePositive.description "あるべきコンテンツがない、表示がおかしい、フィルタが適切に機能してない場合はこの選択肢。 (ヒント: Adblock Plus を一時的に無効にすれば、原因に Adblock Plus が関わっているか確認できます)">
 <!ENTITY typeSelector.other.label "その他の不具合(&amp;T)">
-<!ENTITY emailComment.label "報告に不明な点があった際に連絡が取れるよう、メールアドレスの入力をお勧めしています。このメールアドレスにより、報告の受信者が報告者別にこれまでの貢献を考慮し、優先度を調整できるようになります。">
+<!ENTITY emailComment.label "メールアドレスを入力すると調査中の不明な点を問い合わせたり、報告者毎に優先度に上げた対応が可能になります。">
 <!ENTITY issues.whitelist.remove.label "このページで Adblock Plus を再度有効にする">
 <!ENTITY outdatedSubscriptions.description "購読している次のフィルタは２週間以上更新されていません。既に不具合は解決済みかもしれないので、先に手動更新してから不具合を報告してください。">
 <!ENTITY dataCollector.description "Adblock Plus が必要なデータを集めています。しばらくお待ちください。">
@@ -52,7 +52,7 @@
 <!ENTITY anonymity.warning "匿名で報告の際は報告者を個別に識別できないので優先度が下がります。">
 <!ENTITY wizard.title "不具合報告">
 <!ENTITY issues.ownfilters.disable.label "フィルタを無効化">
-<!ENTITY commentPage.description "コメントがあると不具合を理解するのに助かります（症状、再現手順、原因を特定した根拠、不具合発生開始時期、正常動作との違い、不具合発生場所）。報告するデータは送信前に再検討できます。">
+<!ENTITY commentPage.description "症状、再現手順、原因を特定した根拠、不具合発生開始時期、正常動作との違い、不具合発生場所等のコメントは不具合の把握を早めます（送信前に内容確認あり）。">
 <!ENTITY comment.lengthWarning "コメントが 1000 文字を超えているので、先頭から 1000 文字だけ送信します">
 <!ENTITY typeSelector.falseNegative.description "Adblock Plus が有効でも広告が表示される場合はこの選択肢。">
 <!ENTITY sendPage.waitMessage "Adblock Plus が不具合報告を送信する間、しばらくお待ちください">

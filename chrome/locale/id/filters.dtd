@@ -12,7 +12,7 @@
 <!ENTITY sort.label "&amp;Urutkan dari">
 <!ENTITY subscription.source.label "Daftar penyaring">
 <!ENTITY hitcount.column "Sasaran">
-<!ENTITY noFilters.text "Anda belum memiliki penyesuaian penyaring apapun.">
+<!ENTITY noFilters.text "Anda belum memiliki pembuatan filter apapun.">
 <!ENTITY backup.custom.title "Hanya penyesuaian penyaring">
 <!ENTITY subscription.external.label "Diperbarui oleh ekstensi lain">
 <!ENTITY subscription.delete.label "Hapus">

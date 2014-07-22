@@ -3,8 +3,10 @@
 <!ENTITY list.download.retry "Дахиж оролдох">
 <!ENTITY title.label "Мэдээлэ&amp;гчийн гарчиг:">
 <!ENTITY list.download.website "Вэбсайтыг харах">
+<!ENTITY supplementMessage "Энэ шүүгч захиалгын шүүлтүүр захиалгын дагуу ашиглаж болно гэсэн үг юм? &quot;1?&quot; хэрэв та нар хараахан ашиглаж байна.">
 <!ENTITY viewList.label "Шүүлтүүрүүд харах">
 <!ENTITY visitHomepage.label "Үндсэн хуудсанд зочлох">
 <!ENTITY addSubscription.label "Мэдээлэгч нэмэх">
 <!ENTITY dialog.title "Adblock Plus-д тавтай морил">
 <!ENTITY location.label "Шүүлтүүрийн жагсаалтын &amp;байршил:">
+<!ENTITY fromWeb.description "Хэрэв та шүүлтүүр захиалгыг нэмэхийг хүсэж байна гэдгийг батлах уу. Та үүнийг нэмэхээсээ өмнө захиалгын гарчиг буюу байрлалыг өөрчилж болно.">

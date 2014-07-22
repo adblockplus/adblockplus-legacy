@@ -1,12 +1,12 @@
 <!ENTITY anchor.end.label "no f&amp;inal do endereço">
-<!ENTITY domainRestriction.label "Restringir domínio:">
+<!ENTITY domainRestriction.label "Restringir ao &amp;domínio:">
 <!ENTITY collapse.default.no.label "Usar padrão (não)">
 <!ENTITY firstParty.label "So&amp;mente mesmo domínio">
 <!ENTITY preferences.label "Mostrar filtros existentes...">
 <!ENTITY pattern.label "Procurar padrão">
 <!ENTITY thirdParty.label "So&amp;mente de terceiros">
 <!ENTITY filter.label "Novo &amp;filtro:">
-<!ENTITY collapse.label "Es&amp;tado de crise bloqueado:">
+<!ENTITY collapse.label "Es&amp;conder bloqueados:">
 <!ENTITY match.warning "O padrão que você digitou não corresponde mais ao endereço a ser bloqueado/liberado e não terá efeito sobre ele.">
 <!ENTITY anchor.start.label "no &amp;começo do endereço">
 <!ENTITY matchCase.label "&amp;Diferenciar maiúsculas/minúsculas">

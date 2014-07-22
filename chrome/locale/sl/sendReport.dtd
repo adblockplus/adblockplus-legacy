@@ -28,7 +28,7 @@ da problem ni bil že rešen. Prosim počakajte ...">
 <!ENTITY data.label "Podatki poročila:">
 <!ENTITY recentReports.label "Vaša nedavno poslana poročila">
 <!ENTITY typeWarning.description "Nakazali ste, da želite poročati o splošni težavi z Adblock Plus, ne pa o težavi s filtri. Upoštevajte, da je o takšnih težavah najbolje poročati na [link]forumu Adblock Plus[/link]. Poročanje o težavah uporabite le za podporo obstoječe razprave, saj sicer nihče ne bo opazil vašega poročila, razen če ne podate povezavo nanj. Samodejno ustvarjena povezava bo na voljo po pošiljanju poročila.">
-<!ENTITY issues.disabled.description "Adblock Plus je onemogoče, v trenutnem stanju ne more blokirati ničesar.">
+<!ENTITY issues.disabled.description "Adblock Plus je onemogočen, v trenutnem stanju ne blokira ničesar.">
 <!ENTITY attachExtensions.label "Poroči&amp;lu priložite seznam aktivnih razširitev, če je vzrok težave spor z dodatkom">
 <!ENTITY issues.nosubscriptions.add.label "Dodaj naročnino na filter">
 <!ENTITY issues.disabledfilters.enable.label "Omogoči filter">
@@ -36,7 +36,7 @@ da problem ni bil že rešen. Prosim počakajte ...">
 <!ENTITY issues.nosubscriptions.description "Kot kaže, niste naročeni na noben seznam filtrov, ki samodejno odstranijo neželene vsebine s spletnih strani.">
 <!ENTITY typeSelector.falsePositive.description "Izberite to možnost, če strani manjka pomembna vsebina, če se prikaže nepravilno ali ne deluje pravilno. Določite lahko, ali je Adblock Plus kriv težav, tako da ga začasno izključite.">
 <!ENTITY typeSelector.other.label "Druga težava">
-<!ENTITY emailComment.label "Bilo bi dobro, da vneseš veljaven email, tako da se na vas lahko obrnemo, če bodo obstajala vprašanja glede poročila. Pravtako nam omogoča prepoznati vaše prispevke in tako lažje določiti prioriteto višje.">
+<!ENTITY emailComment.label "Priporočamo, da vnesete veljaven e-poštni naslov, tako da se na vas lahko obrnemo, če bodo obstajala vprašanja glede poročila. Prav tako nam omogoča prepoznati vaše prispevke in tako določiti prioriteto višje.">
 <!ENTITY issues.whitelist.remove.label "Ponovno omogoči Adblock Plus na tej strani">
 <!ENTITY outdatedSubscriptions.description "Ta filter ni bil posodobljen vsaj dva tedna.
 Preden pošljete poročilo, posodobite vse naročene fitre,

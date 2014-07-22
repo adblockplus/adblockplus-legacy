@@ -1,0 +1,10 @@
+<!ENTITY accept.label "පෙරුමක් එකතු කරන්න">
+<!ENTITY type.filter.label "&amp;වලකාලීමේ පෙරුම්">
+<!ENTITY disabled.warning "Adblock Plus ක්‍රියා විරහිත කර ඇත. ඔබ විසින් එකතු කරන පෙරුම් සියල්ලක්ම Adblock Plus [link]නැවත සක්‍රීය[/link] කරන තුරු සක්‍රීව නොවේ.">
+<!ENTITY preferences.label "&amp;දැනටමත් ඇති පෙරුම් පෙන්වන්න...">
+<!ENTITY advanced.label "ඉහළ දැක්ම">
+<!ENTITY pattern.label "රටා සඳහා පිරික්සන්න">
+<!ENTITY type.whitelist.label "E&amp;හැරදැමීමේ පෙරුම්">
+<!ENTITY dialog.title "Adblock Plus පෙරුම් නීතියක් එකතු කරන්න">
+<!ENTITY basic.label "මූලික දැක්ම">
+<!ENTITY filter.label "නව &amp;පෙරුම්:">
