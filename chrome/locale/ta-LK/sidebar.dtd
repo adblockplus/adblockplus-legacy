@@ -1,0 +1,20 @@
+<!ENTITY tooltip.size.label "அளவு:">
+<!ENTITY whitelisted.label "Whitelisted பக்கம்">
+<!ENTITY tooltip.filter.label "செயலில் வடிகட்டு:">
+<!ENTITY tooltip.type.blocked "(தடுக்கப்பட்டது)">
+<!ENTITY docDomain.firstParty "(முதல் நபர்)">
+<!ENTITY reattach.label "மீண்டும் சேர்">
+<!ENTITY search.label "&amp; தேடல்:">
+<!ENTITY docDomain.thirdParty "(மூன்றாம் நபர்)">
+<!ENTITY filterSource.label "வடிகட்டி மூலம்">
+<!ENTITY address.label "முகவரி">
+<!ENTITY noitems.label "தடுக்ககூடிய உருப்படிகள் இல்லை">
+<!ENTITY size.label "அளவு">
+<!ENTITY type.label "வகை">
+<!ENTITY tooltip.type.label "வகை:">
+<!ENTITY tooltip.docDomain.label "மூல ஆவணம்:">
+<!ENTITY state.label "நிலை">
+<!ENTITY docDomain.label "மூல ஆவணம்">
+<!ENTITY filter.label "வடிகட்டி">
+<!ENTITY detach.label "நீக்கு">
+<!ENTITY tooltip.address.label "முகவரி:">

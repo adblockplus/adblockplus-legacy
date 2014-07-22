@@ -18,7 +18,7 @@
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock - okviri">
 <!ENTITY blocked.tooltip "Blokirani elementi na tej strani:">
-<!ENTITY hideplaceholders.label "Skrij ograde &amp;blokoranih elementov">
+<!ENTITY hideplaceholders.label "Skrij ograde &amp;blokiranih elementov">
 <!ENTITY showinstatusbar.label "Pokaži &amp;v vrstici stanja">
 <!ENTITY sidebar.title "Elementi blokad na trenutni strani">
 <!ENTITY options.label "Mo&amp;žnosti">

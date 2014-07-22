@@ -2,42 +2,40 @@
 <!ENTITY slow.column "&amp;Hitaat suodattimet">
 <!ENTITY enabled.column "Kä&amp;ytössä">
 <!ENTITY subscription.lastDownload.checksumMismatch "Epäonnistui, tarkistussumma ei täsmää">
-<!ENTITY noFiltersInGroup.text "Valittu ryhmä on tyhjä">
+<!ENTITY noFiltersInGroup.text "Valittu ryhmä on tyhjä.">
 <!ENTITY subscription.actions.label "Toiminnot">
 <!ENTITY filter.selectAll.label "Valitse kaikki">
 <!ENTITY backupButton.label "&amp;Varmuuskopioi ja palauta">
-<!ENTITY restore.minVersion.warning "Varoitus: tiedosto on luotu uudemmalla Adblock Plussan versiolla. Ennen kuin palautat tästä tiedostosta, on suositeltavaa päivittää uusimpaan Adblock Plussan versioon.">
+<!ENTITY restore.minVersion.warning "Varoitus: tiedosto on luotu uudemmalla Adblock Plussan versiolla. Ennen kuin palautat tästä tiedostosta, on suositeltavaa päivittää Adblock Plus uusimpaan versioon.">
 <!ENTITY restore.error "Tiedoston tietoja ei voida käsitellä. Ehkä tämä ei ole Adblock Plus -varmuuskopiotiedosto?">
-<!ENTITY sort.ascending.label "&amp;A &gt; Z lajittelu">
+<!ENTITY sort.ascending.label "&amp;A &gt; Ö lajittelu">
 <!ENTITY sort.label "Lajitt&amp;eluperuste">
-<!ENTITY subscription.source.label "Suodatintilaus">
+<!ENTITY subscription.source.label "Suodatinlista">
 <!ENTITY hitcount.column "&amp;Osumat">
 <!ENTITY noFilters.text "Omia suodattimia ei ole vielä.">
 <!ENTITY backup.custom.title "Vain omat suodattimet">
-<!ENTITY subscription.external.label "Toisen laajennuksen päivättävä">
+<!ENTITY subscription.external.label "Toisen laajennuksen päivättämä">
 <!ENTITY subscription.delete.label "Poista">
-<!ENTITY noGroupSelected.text "Suodatinryhmä on valittava, ennen kuin sen suodattimia voidaan näyttää.">
+<!ENTITY noGroupSelected.text "Suodatinryhmä on valittava, ennen kuin sen suodattimet voidaan näyttää.">
 <!ENTITY filter.cut.label "Leikkaa">
 <!ENTITY restore.default.label "Palauta varmuuskopio: ?1?">
 <!ENTITY subscription.lastDownload.inProgress "Lataa...">
 <!ENTITY subscriptions.tab.label "Suodatintilaukset">
-<!ENTITY sort.descending.label "&amp;Z &gt; A lajittelu">
+<!ENTITY sort.descending.label "&amp;Ö &gt; A lajittelu">
 <!ENTITY filters.remove.warning "Haluatko varmasti poistaa kaikki valitut suodattimet?">
 <!ENTITY filter.delete.label "Poista">
 <!ENTITY addSubscriptionAdd.label "Lisää">
 <!ENTITY viewMenu.label "Näytä">
-<!ENTITY subscription.lastDownload.unknown "N/A">
+<!ENTITY subscription.lastDownload.unknown "Ei tietoa">
 <!ENTITY addSubscriptionCancel.label "Peruuta">
 <!ENTITY subscription.enabled.label "Käytössä">
-<!ENTITY noSubscriptions.text "Suodatintilauksia ei ole vielä lisätty. Adblock Plus ei estä mitään
- ilman suodattimia. Käytä &quot;Lisää suodatintilaus&quot; -painiketta lisätäksesi 
- joitakin.">
+<!ENTITY noSubscriptions.text "Suodatintilauksia ei ole vielä lisätty. Adblock Plus ei estä mitään ilman suodattimia. Käytä &quot;Lisää suodatintilaus&quot; -painiketta lisätäksesi joitakin.">
 <!ENTITY subscription.update.label "Päivitä suodattimet">
 <!ENTITY dialog.title "Adblock Plus -suodatinasetukset">
 <!ENTITY addFilter.label "&amp;Lisää suodatin">
-<!ENTITY subscription.minVersion.warning "Tämä suodatintilaus vaatii uudemman Adblock Plus -version, on suositeltavaa päivittää uusimpaan Adblock Plussan versioon.">
+<!ENTITY subscription.minVersion.warning "Tämä suodatintilaus vaatii uudemman Adblock Plus -version. Päivitä Adblock Plus uusimpaan versioon.">
 <!ENTITY subscription.lastDownload.invalidURL "Epäonnistui, kelvoton osoite">
-<!ENTITY backup.error "Tapahtui virhe kirjoitettaessa suodattimia tiedostoon. Varmista että tiedosto ei ole kirjoitussuojattu tai jonkin muun ohjelman käytössä.">
+<!ENTITY backup.error "Virhe kirjoitettaessa suodattimia tiedostoon. Varmista, että tiedosto ei ole kirjoitussuojattu tai jonkin muun ohjelman käytössä.">
 <!ENTITY filter.moveUp.label "Siirrä ylös">
 <!ENTITY addGroup.label "Li&amp;sää suodatinryhmä">
 <!ENTITY filter.edit.label "Muokkaa">
@@ -68,7 +66,7 @@
 <!ENTITY subscription.disabledFilters.enable "Ota käytöstä poistetut suodattimet käyttöön">
 <!ENTITY lasthit.column "&amp;Viimeisin osuma">
 <!ENTITY subscription.editTitle.label "Muokkaa otsikkoa">
-<!ENTITY subscription.disabledFilters.warning "Jotkin tämän suodatintilauksen suodattimista on poistettu käytössä.">
+<!ENTITY subscription.disabledFilters.warning "Jotkin tämän suodatintilauksen suodattimista on poistettu käytöstä.">
 <!ENTITY filter.column "&amp;Suodatusehto">
 <!ENTITY subscription.lastDownload.label "Viimeisin lataus:">
 <!ENTITY viewList.label "Näytä lista">

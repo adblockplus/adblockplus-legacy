@@ -35,7 +35,7 @@
 <!ENTITY addFilter.label "Afegeix un filt&amp;re">
 <!ENTITY subscription.minVersion.warning "Aquesta subscripció de filtre requereix una versió recent. Heu d'actualitzar l'Adblock Plus.">
 <!ENTITY subscription.lastDownload.invalidURL "Error, no és una adreça vàlida">
-<!ENTITY backup.error "Hi ha hagut un error escribint els filtres al fitxer.  Assegura't que el fitxer no s'hagi escrit protegint-lo o que l'estigui fent servir una altra aplicació.">
+<!ENTITY backup.error "Hi ha hagut un error escribint els filtres al fitxer.  Assegura't que el fitxer no estigui protegit contra escritura o que l'estigui fent servir una altra aplicació.">
 <!ENTITY filter.moveUp.label "Mou amunt">
 <!ENTITY addGroup.label "Afe&amp;geix un grup de filtres">
 <!ENTITY filter.edit.label "Edita">
@@ -50,7 +50,7 @@
 <!ENTITY filter.resetHitCounts.label "Reinicia les estadístiques">
 <!ENTITY readMore.label "Més informació">
 <!ENTITY subscription.moveUp.label "Mou amunt">
-<!ENTITY addSubscription.label "A&amp;fegeix el filtre">
+<!ENTITY addSubscription.label "A&amp;fegeix una subscripció de filtre">
 <!ENTITY subscription.homepage.label "Pàgina d'inici">
 <!ENTITY backup.complete.title "Tots els filtres i subscripcions">
 <!ENTITY restore.own.label "Restaura d'una còpia de seguretat propia">

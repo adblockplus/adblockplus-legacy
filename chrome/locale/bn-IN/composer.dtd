@@ -1,6 +1,10 @@
+<!ENTITY domainRestriction.help "এক বা একাধিক বার করে আলাদা ডোমেইন উল্লেখ করতে এই পছন্দটি ব্যবহার করুন (|) লাইনের। ফিল্টার শুধুমাত্র নির্বাচিত domain(s) উপর প্রয়োগ করা হবে। কোনো ডোমেইনের আগে tilde (~) থাকলে ফিল্টার সেই ডোমেইন এর ওপর প্রয়োগ করা হবে না">
 <!ENTITY accept.label "ফিল্টার যোগ করুন">
 <!ENTITY disabled.warning "Adblock প্লাস বর্তমানে নিষ্ক্রিয় করা হয়েছে. আপনি এখনও ফিল্টার যোগ করতে পারেন কিন্তু আপনি [লিঙ্ক] Adblock প্লাস [/ লিংক] সক্রিয়, যদি না তারা প্রয়োগ করা হবে না.">
+<!ENTITY anchor.start.flexible.label "ডোমেইন এর নামের আগে">
 <!ENTITY advanced.label "উন্নত দেখুন">
+<!ENTITY selectAllTypes.label "সমস্ত নির্বাচন করুন">
 <!ENTITY dialog.title "Adblock প্লাস ফিল্টার নিয়ম যোগ করুন">
 <!ENTITY basic.label "বেসিক দেখুন">
 <!ENTITY filter.label "নতুন ফিল্টার">
+<!ENTITY collapse.yes.label "হ্যাঁ">

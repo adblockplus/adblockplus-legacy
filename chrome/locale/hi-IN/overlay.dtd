@@ -1,0 +1,10 @@
+<!ENTITY notification.button.yes "&amp; हाँ">
+<!ENTITY notification.button.no "&amp; नहीं">
+<!ENTITY context.image.label "ऍडब्लॉक प्लस: छवि रोकें ">
+<!ENTITY filters.tooltip "सबसे सक्रिय फिल्टर:">
+<!ENTITY notification.button.close "&amp; बंद करें">
+<!ENTITY toolbarbutton.label "ऍडब्लाक प्लस">
+<!ENTITY context.frame.label "ऍडब्लॉक प्लस: फ्रेम रोकें">
+<!ENTITY status.tooltip "स्थिति:">
+<!ENTITY blocked.tooltip "इस पृष्ठ पर ब्लॉक किए गए आइटम्स:">
+<!ENTITY objecttab.title "रोकें">

@@ -1,5 +1,12 @@
-<!ENTITY list.download.website "Види вебстрана">
+<!ENTITY addMain.label "Исто така додај филтерска претплата &quot;?1?&quot;">
+<!ENTITY list.download.failed "Adblock Plus не можеше да ја преземи листата на филтери.">
 <!ENTITY list.download.retry "Обиди се повторно">
+<!ENTITY title.label "Име на фил&amp;тер:">
+<!ENTITY list.download.website "Види вебстрана">
+<!ENTITY supplementMessage "Овој филтер е наменет за употреба заедно со филтерот &quot;?1?&quot; кој Вие не го користите.">
 <!ENTITY viewList.label "Види филтри">
 <!ENTITY visitHomepage.label "Посети ја домашната страна">
 <!ENTITY addSubscription.label "Додај претплата">
+<!ENTITY dialog.title "Додај филтери за AdBlock Plus">
+<!ENTITY location.label "Локација на листа на фил&amp;тери:">
+<!ENTITY fromWeb.description "Ве молиме потврдете дека сакате да го додадете овој филтер. Можете да го промените името и локацијата пред да го додадете.">

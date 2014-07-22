@@ -7,6 +7,7 @@
 <!ENTITY advanced.label "উন্নত দৃশ্য">
 <!ENTITY pattern.label "প্যাটার্ন দেখুন">
 <!ENTITY selectAllTypes.label "সব নির্বাচন">
+<!ENTITY type.whitelist.label "ব্যতিক্রম &amp;x">
 <!ENTITY dialog.title "Adblock Plus ফিল্টার বিধি যুক্ত করুন">
 <!ENTITY basic.label "মৌলিক দৃশ্য">
 <!ENTITY filter.label "নতুন &amp;ফিল্টার:">

@@ -5,7 +5,7 @@
 <!ENTITY preferences.label "&amp;Tampilkan filter yang ada...">
 <!ENTITY pattern.label "Mencari pola">
 <!ENTITY thirdParty.label "Hanya pihak ke&amp;tiga">
-<!ENTITY filter.label "&amp;Tapis baru:">
+<!ENTITY filter.label "Tambahkan &amp;filter:">
 <!ENTITY collapse.label "&amp;tutup yang diblokir:">
 <!ENTITY match.warning "Pola yang Anda masukkan tidak lagi cocok dengan masuk daftar alamat yang akan diblokir/daftar putih dan tidak akan berpengaruh sama sekali.">
 <!ENTITY anchor.start.label "&amp;pada awal alamat">

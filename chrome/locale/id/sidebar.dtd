@@ -16,7 +16,7 @@
 <!ENTITY context.disablefilter.label "Nonaktifkan filter ?1?">
 <!ENTITY context.copyFilter.label "Salin filter">
 <!ENTITY context.block.label "Blokir item ini">
-<!ENTITY context.enablefilter.label "Hidupkan ulang filter ?1?">
+<!ENTITY context.enablefilter.label "Hidupkan kembali filter ?1?">
 <!ENTITY detach.label "Lepas">
 <!ENTITY whitelisted.label "Halaman yang dibebaskan">
 <!ENTITY context.disablefilteronsite.label "Nonaktifkan filter ini pada ?1?">
