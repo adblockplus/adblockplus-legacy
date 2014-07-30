@@ -733,6 +733,14 @@ let subscriptionUpdateDataSource =
   type: null,
   outdated: null,
   needUpdate: null,
+  
+  subscriptionFilter: function(s)
+  {
+    if (s instanceof DownloadableSubscription)
+      return subscriptionsDataSource.subscriptionFilter(s);
+    else
+      return false;
+  },
 
   collectData: function(wnd, windowURI, callback)
   {
@@ -744,7 +752,7 @@ let subscriptionUpdateDataSource =
     this.outdated = [];
     this.needUpdate = [];
 
-    let subscriptions = FilterStorage.subscriptions.filter(issuesDataSource.subscriptionFilter);
+    let subscriptions = FilterStorage.subscriptions.filter(this.subscriptionFilter);
     for (let i = 0; i < subscriptions.length; i++)
     {
       let lastSuccess = subscriptions[i].lastSuccess;
@@ -884,8 +892,12 @@ let issuesDataSource =
 
   subscriptionFilter: function(s)
   {
-    if (s instanceof DownloadableSubscription)
+    if (s instanceof DownloadableSubscription &&
+        s.url != Prefs.subscriptions_exceptionsurl &&
+        s.url != Prefs.subscriptions_antiadblockurl)
+    {
       return subscriptionsDataSource.subscriptionFilter(s);
+    }
     else
       return false;
   },
