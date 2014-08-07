@@ -382,7 +382,7 @@ var FilterActions =
     if (event.metaKey)
       modifiers |= SubscriptionActions._metaMask;
 
-    if (event.charCode == " ".charCodeAt(0) && modifiers == 0 && !E("col-enabled").hidden)
+    if (event.keyCode == Ci.nsIDOMKeyEvent.DOM_VK_SPACE && modifiers == 0 && !E("col-enabled").hidden)
       this.selectionToggleDisabled();
     else if (event.keyCode == Ci.nsIDOMKeyEvent.DOM_VK_UP && modifiers == SubscriptionActions._accelMask)
     {
