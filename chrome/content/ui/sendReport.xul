@@ -213,7 +213,7 @@
   <description>&emailComment.label;</description>
   <hbox class="topLabel" align="baseline">
     <label id="emailLabel" control="email" value="&email.label;"/>
-    <textbox id="email" persist="value" flex="1" maxlength="200" oninput="updateEmail();"/>
+    <textbox id="email" type="email" persist="value" flex="1" maxlength="200" oninput="updateEmail();"/>
   </hbox>
   <checkbox id="anonymousCheckbox" label="&anonymous.label;" oncommand="updateEmail();"/>
   <description id="anonymityWarning" visible="false">&anonymity.warning;</description>
