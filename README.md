@@ -1,7 +1,7 @@
 Adblock Plus for Firefox
 ========================
 
-Buildling
+Building
 ---------
 
 ### Requirements
