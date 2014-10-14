@@ -1,3 +1,72 @@
+<!ENTITY restore.custom.warning "Bydd eich holl hidlyddion addasedig yn cael eu disodli gan y cynnwys yn y ffeil a ddewiswyd. Hoffech chi barhau?">
+<!ENTITY slow.column "Hidlyddion ara&amp;f">
+<!ENTITY enabled.column "&amp;Galluogwyd">
+<!ENTITY subscription.lastDownload.checksumMismatch "Methwyd, prawfswm anghywir">
+<!ENTITY noFiltersInGroup.text "Mae'r grŵp hwn yn wag.">
+<!ENTITY subscription.actions.label "Gweithredu">
+<!ENTITY filter.selectAll.label "Dewis popeth">
+<!ENTITY backupButton.label "&amp;Creu copi wrth gefn ac adfer">
+<!ENTITY restore.minVersion.warning "Rhybudd: Crëwyd y ffeil gyda fersiwn diweddarach o Adblock Plus. Dylech ddefnyddio fersiwn diweddarach o Adblock Plus cyn adfer o'r ffeil hon.">
+<!ENTITY restore.error "Ni ellir prosesu data'r ffeil, efallai nad ffeil copi wrth gefn Adblock Plus yw hon?">
+<!ENTITY sort.ascending.label "Trefnu &amp;A &gt; Y">
+<!ENTITY sort.label "&amp;Trefnu yn ôl">
+<!ENTITY subscription.source.label "Rhestr hidlyddion">
+<!ENTITY hitcount.column "&amp;Ymweliadau">
+<!ENTITY noFilters.text "Does gennych chi ddim hidlyddion addasedig eto.">
+<!ENTITY backup.custom.title "Hidlyddion addasedig yn unig">
+<!ENTITY subscription.external.label "Diweddarwyd gan ychwanegiad arall">
+<!ENTITY subscription.delete.label "Dileu">
+<!ENTITY noGroupSelected.text "Rhaid i chi ddewis grŵp hidlo cyn dangos ei hidlyddion.">
+<!ENTITY filter.cut.label "Torri">
+<!ENTITY restore.default.label "Adfer copi wrth gefn o ?1?">
 <!ENTITY subscription.lastDownload.inProgress "Yn lawrlwytho...">
-<!ENTITY subscription.lastDownload.label "Lawrlwythiad dywethaf">
+<!ENTITY subscriptions.tab.label "Tanysgrifiadau i hidlyddion">
+<!ENTITY sort.descending.label "Trefnu &amp;Y &gt; A">
+<!ENTITY filters.remove.warning "Ydych chi wir am ddileu'r holl hidlyddion a ddewiswyd?">
+<!ENTITY filter.delete.label "Dileu">
+<!ENTITY addSubscriptionAdd.label "Ychwanegu">
+<!ENTITY viewMenu.label "Golwg">
 <!ENTITY subscription.lastDownload.unknown "Ddim yn berthnasol">
+<!ENTITY addSubscriptionCancel.label "Yn ôl">
+<!ENTITY subscription.enabled.label "Wedi'i alluogi">
+<!ENTITY noSubscriptions.text "'Dych chi heb ychwanegu unrhyw danysgrifiadau hidlo eto. Ni fydd Adblock Plus yn rhwystro dim heb hidlyddion, felly defnyddiwch &quot;Ychwanegu tanysgrifiad hidlo&quot; i ychwanegu rhai.">
+<!ENTITY subscription.update.label "Diweddaru'r hidlyddion">
+<!ENTITY dialog.title "Dewisiadau hidlyddion Adblock Plus">
+<!ENTITY addFilter.label "&amp;Ychwanegu hidlydd">
+<!ENTITY subscription.minVersion.warning "Mae angen fersiwn diweddarach o Adblock Plus ar gyfer y tanysgrifiad hwn. Dylech chi ddiweddaru Adblock Plus.">
+<!ENTITY subscription.lastDownload.invalidURL "Methwyd, cyfeiriad annilys">
+<!ENTITY backup.error "Bu gwall wrth ysgrifennu'r hidlyddion i'r ffeil. Gwnewch yn siŵr ei bod hi'n bosibl ysgrifennu i'r ffeil a bod dim rhaglen arall yn defnyddio'r ffeil.">
+<!ENTITY filter.moveUp.label "Symud i fyny">
+<!ENTITY addGroup.label "Ychwanegu &amp;grŵp hidlo">
+<!ENTITY filter.edit.label "Golygu">
+<!ENTITY subscription.showHideFilters.label "Dangos/cuddio'r hidlyddion">
+<!ENTITY acceptableAds2.label "Caniatáu rhai &amp;hysbysiadau sydd ddim yn ymwthiol">
+<!ENTITY addSubscriptionOther.label "Ychwanegu tanysgrifiad gwahanol">
+<!ENTITY close.label "Cau">
+<!ENTITY sort.none.label "&amp;Heb drefn">
+<!ENTITY filter.actions.label "Gweithredoedd yr hidlydd">
+<!ENTITY filter.copy.label "Copïo">
+<!ENTITY filter.moveDown.label "Symud i lawr">
+<!ENTITY filter.resetHitCounts.label "Ailosod ystadegau ymweld">
+<!ENTITY readMore.label "Darllen mwy">
+<!ENTITY subscription.moveUp.label "Symud i fyny">
+<!ENTITY addSubscription.label "Ychwanegu tanysgrifiad i &amp;hidlydd">
+<!ENTITY subscription.homepage.label "Hafan">
+<!ENTITY backup.complete.title "Pob hidlydd a thanysgrifiad">
+<!ENTITY restore.own.label "Adfer copi wrth gefn eich hun">
+<!ENTITY restore.complete.warning "Bydd eich holl ddewisiadau hidlo yn cael eu disodli gan y cynnwys yn y ffeil a ddewiswyd. Hoffech chi barhau?">
+<!ENTITY filters.tab.label "Hidlyddion addasedig">
+<!ENTITY backup.label "Creu copi wrth gefn newydd">
+<!ENTITY find.label "&amp;Canfod">
+<!ENTITY subscription.moveDown.label "Symud i lawr">
+<!ENTITY subscription.lastDownload.connectionError "Methwyd, gwall lawrlwytho">
+<!ENTITY subscription.lastDownload.success "Llwyddiannus">
+<!ENTITY subscription.lastDownload.invalidData "Methwyd, rhestr hidlyddion annilys">
+<!ENTITY filter.paste.label "Gludo">
+<!ENTITY subscription.disabledFilters.enable "Galluogi'r hidlyddion a analluogwyd">
+<!ENTITY lasthit.column "Ymweliad &amp;diwethaf">
+<!ENTITY subscription.editTitle.label "Golygu'r teitl">
+<!ENTITY subscription.disabledFilters.warning "Analluogwyd rhai o hidlyddion y tanysgrifiad hwn.">
+<!ENTITY filter.column "&amp;Rheol hidlydd">
+<!ENTITY subscription.lastDownload.label "Lawrlwythiad dywethaf">
+<!ENTITY viewList.label "Gweld rhestr">

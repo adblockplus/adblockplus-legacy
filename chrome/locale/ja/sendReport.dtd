@@ -38,7 +38,7 @@
 <!ENTITY outdatedSubscriptions.description "購読している次のフィルタは２週間以上更新されていません。既に不具合は解決済みかもしれないので、先に手動更新してから不具合を報告してください。">
 <!ENTITY dataCollector.description "Adblock Plus が必要なデータを集めています。しばらくお待ちください。">
 <!ENTITY sendButton.label "不具合報告を送信(&amp;N)">
-<!ENTITY comment.label "コメント(任意入力):(&amp;C)">
+<!ENTITY comment.label "コメント (的確に記述すれば良い対応が期待できます) (&amp;C):">
 <!ENTITY sendPage.errorMessage "不具合報告の送信がエラーコード &quot;?1?&quot; で失敗しました。インターネットに接続されているか確認し再試行してください。問題が解決しない場合は [link]Adblock Plus フォーラム[/link] で助けを求めてください。">
 <!ENTITY showRecentReports.label "最近送信した不具合報告を表示">
 <!ENTITY commentPage.heading "コメントを入力">
@@ -52,7 +52,7 @@
 <!ENTITY anonymity.warning "匿名で報告の際は報告者を個別に識別できないので優先度が下がります。">
 <!ENTITY wizard.title "不具合報告">
 <!ENTITY issues.ownfilters.disable.label "フィルタを無効化">
-<!ENTITY commentPage.description "症状、再現手順、原因を特定した根拠、不具合発生開始時期、正常動作との違い、不具合発生場所等のコメントは不具合の把握を早めます（送信前に内容確認あり）。">
+<!ENTITY commentPage.description "症状、再現手順、原因特定の根拠、発生開始時期、正常時との違い、画面上の位置等をコメントに記入">
 <!ENTITY comment.lengthWarning "コメントが 1000 文字を超えているので、先頭から 1000 文字だけ送信します">
 <!ENTITY typeSelector.falseNegative.description "Adblock Plus が有効でも広告が表示される場合はこの選択肢。">
 <!ENTITY sendPage.waitMessage "Adblock Plus が不具合報告を送信する間、しばらくお待ちください">

@@ -1,31 +1,31 @@
-<!ENTITY notification.button.yes "&amp;Iya">
+<!ENTITY notification.button.yes "&amp;Ya">
 <!ENTITY notification.button.no "&amp;Tidak">
-<!ENTITY sync.label "Syn&amp;c pengaturan Adblock Plus">
-<!ENTITY whitelist.site.label "Non aktifkan pada ?1?">
+<!ENTITY sync.label "&amp;Sinkronkan pengaturan Adblock Plus">
+<!ENTITY whitelist.site.label "Nonaktifkan pada ?1?">
 <!ENTITY filters.label "&amp;Preferensi penyaring">
-<!ENTITY disable.label "Non aktifkan disemua tempat">
-<!ENTITY objecttab.title "Blokir">
-<!ENTITY objecttab.tooltip "Klik disini untuk memblokir objek ini dengan Adblock Plus">
+<!ENTITY disable.label "Nonaktifkan di semua tempat">
+<!ENTITY objecttab.title "Cekal">
+<!ENTITY objecttab.tooltip "Klik di sini untuk mencekal objek ini dengan Adblock Plus">
 <!ENTITY menuitem.label "Preferensi Ad&amp;block Plus">
-<!ENTITY objecttabs.label "&amp;Tunjukkan tab pada Flash dan Java">
+<!ENTITY objecttabs.label "&amp;Tampilkan tab pada Flash dan Java">
 <!ENTITY sendReport.label "&amp;Laporkan masalah pada halaman ini">
-<!ENTITY whitelist.page.label "Non aktifkan pada halaman ini saja">
-<!ENTITY context.image.label "Adblock Plus: Blokir gambar">
-<!ENTITY counthits.label "Menghitung filter &amp;kunjungan">
-<!ENTITY opensidebar.label "Buka &amp;item yang dapat diblok">
+<!ENTITY whitelist.page.label "Nonaktifkan pada halaman ini saja">
+<!ENTITY context.image.label "Adblock Plus: Cekal gambar">
+<!ENTITY counthits.label "Hitung &amp;kunjungan penyaring">
+<!ENTITY opensidebar.label "Buka &amp;butir yang dapat dicekal">
 <!ENTITY notification.button.close "&amp;Tutup">
 <!ENTITY contribute.label "Kontribusi untuk Adblock Plus">
 <!ENTITY toolbarbutton.label "Adblock Plus">
-<!ENTITY context.frame.label "Adblock Plus: Blokir bingkai">
-<!ENTITY blocked.tooltip "Blokir item pada halaman ini:">
-<!ENTITY hideplaceholders.label "Sembunyikan p&amp;laceholders dari unsur pemblokiran">
-<!ENTITY showinstatusbar.label "Tunjukkan di &amp;status bar">
-<!ENTITY sidebar.title "Item yang dapat diblok di halaman ini">
-<!ENTITY options.label "&amp;Pilihan">
-<!ENTITY context.object.label "Adblock Plus: Blokir objek">
-<!ENTITY context.removeWhitelist.label "Adblock Plus: Mengaktifkan ulang pada halaman ini">
-<!ENTITY filters.tooltip "Filter paling aktif:">
-<!ENTITY closesidebar.label "Tutup &amp;item yang dapat diblok">
-<!ENTITY showintoolbar.label "Tunjukkan di tool&amp;bar">
+<!ENTITY context.frame.label "Adblock Plus: Cekal bingkai">
+<!ENTITY blocked.tooltip "Butir yang dicekal pada halaman ini:">
+<!ENTITY hideplaceholders.label "Sembunyikan &amp;penanda elemen yang dicekal">
+<!ENTITY showinstatusbar.label "Tampilkan pada bilah &amp;status">
+<!ENTITY sidebar.title "Butir yang dapat dicekal pada halaman ini">
+<!ENTITY options.label "&amp;Opsi">
+<!ENTITY context.object.label "Adblock Plus: Cekal objek">
+<!ENTITY context.removeWhitelist.label "Adblock Plus: Aktifkan kembali pada halaman ini">
+<!ENTITY filters.tooltip "Penyaring teraktif:">
+<!ENTITY closesidebar.label "Tutup butir yang dapat dicekal">
+<!ENTITY showintoolbar.label "Tampilkan pada bilah &amp;alat">
 <!ENTITY status.tooltip "Status:">
-<!ENTITY context.media.label "Adblock Plus: Blokir audio/video">
+<!ENTITY context.media.label "Adblock Plus: Cekal audio/video">

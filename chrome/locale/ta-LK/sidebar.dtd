@@ -1,20 +1,35 @@
+<!ENTITY context.flash.label "ஃப்ளாஷ் ஐட்டம்ஸ் விளிம்புகள்">
+<!ENTITY address.label "முகவரி">
+<!ENTITY context.open.label "புதிய பெட்டியில் திறக்க">
+<!ENTITY type.label "வகை">
+<!ENTITY tooltip.filterSource.label "வடிகட்டி மூலம்:">
+<!ENTITY noitems.label "தடுக்ககூடிய உருப்படிகள் இல்லை">
+<!ENTITY filter.label "வடிகட்டி">
 <!ENTITY tooltip.size.label "அளவு:">
-<!ENTITY whitelisted.label "Whitelisted பக்கம்">
-<!ENTITY tooltip.filter.label "செயலில் வடிகட்டு:">
-<!ENTITY tooltip.type.blocked "(தடுக்கப்பட்டது)">
-<!ENTITY docDomain.firstParty "(முதல் நபர்)">
 <!ENTITY reattach.label "மீண்டும் சேர்">
 <!ENTITY search.label "&amp; தேடல்:">
 <!ENTITY docDomain.thirdParty "(மூன்றாம் நபர்)">
 <!ENTITY filterSource.label "வடிகட்டி மூலம்">
-<!ENTITY address.label "முகவரி">
-<!ENTITY noitems.label "தடுக்ககூடிய உருப்படிகள் இல்லை">
-<!ENTITY size.label "அளவு">
-<!ENTITY type.label "வகை">
-<!ENTITY tooltip.type.label "வகை:">
 <!ENTITY tooltip.docDomain.label "மூல ஆவணம்:">
+<!ENTITY context.copy.label "ஐட்டம்ஸ் முகவரியை நகல் எடு">
+<!ENTITY tooltip.type.label "வகை:">
+<!ENTITY context.disablefilter.label "வடிகட்டியை முடக்கு? 1?">
+<!ENTITY context.copyFilter.label "வடிகட்டியை நகல் எடு">
+<!ENTITY context.block.label "இதை தடு">
+<!ENTITY context.enablefilter.label "வடிகட்டி மீண்டும் செயல்படுத்த? 1?">
+<!ENTITY detach.label "நீக்கு">
+<!ENTITY whitelisted.label "Whitelisted பக்கம்">
+<!ENTITY context.disablefilteronsite.label "? 1?இல் வடிகட்டியை முடக்க">
+<!ENTITY detached.title "Adblock Plus: தடுக்கப்படகூடிய பொருள் (பிரிக்கப்பட்டது)">
+<!ENTITY docDomain.firstParty "(முதல் நபர்)">
+<!ENTITY tooltip.type.whitelisted "(அனுமதிக்க பட்டது)">
+<!ENTITY tooltip.filter.label "செயலில் வடிகட்டு:">
+<!ENTITY tooltip.filter.disabled "(முடக்கப்பட்டது)">
+<!ENTITY context.editfilter.label "வடிகட்டி செயலில் திருத்து">
+<!ENTITY tooltip.type.blocked "(தடுக்கப்பட்டது)">
+<!ENTITY size.label "அளவு">
+<!ENTITY context.whitelist.label "உருப்படிக்கான விதிவிலக்கு சேர்க்க">
+<!ENTITY context.selectAll.label "அனைத்தையும் தேர்ந்தெடு">
 <!ENTITY state.label "நிலை">
 <!ENTITY docDomain.label "மூல ஆவணம்">
-<!ENTITY filter.label "வடிகட்டி">
-<!ENTITY detach.label "நீக்கு">
 <!ENTITY tooltip.address.label "முகவரி:">

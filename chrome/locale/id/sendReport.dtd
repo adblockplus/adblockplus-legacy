@@ -1,7 +1,7 @@
 <!ENTITY screenshot.undo.label "&amp;Batalkan">
 <!ENTITY issues.disabledgroups.description "Filter langganan / kelompok filter ini dinonaktifkan, namun mungkin tetap akan memliki efek pada halaman ini:">
 <!ENTITY showData.label "Tunjukkan data laporan">
-<!ENTITY typeSelector.falsePositive.label "Adblock Plus memblokir terlalu &amp;banyak">
+<!ENTITY typeSelector.falsePositive.label "Adblock Plus memcekal terlalu &amp;banyak">
 <!ENTITY issues.change.description "Konfigurasi Anda telah diubah. Silahkan muat ulang halaman untuk menguji perubahan dan kirimkan laporan jika masalah belum terselesaikan oleh perubahan tersebut.">
 <!ENTITY email.label "Email:">
 <!ENTITY issues.openPreferences.label "Buka preferensi filter">
@@ -9,7 +9,8 @@
 <!ENTITY copyLink.label "&amp;Copy link laporan">
 <!ENTITY issues.nofilters.description "Adblock Plus tidak memblokir apapun pada halaman ini. Masalah yang Anda alami tidak ada kaitannya dengan Adblock Plus.">
 <!ENTITY sendPage.knownIssue "Masalah yang Anda laporkan mungkin sudah dikenal. Informasi selanjutnya:">
-<!ENTITY typeSelector.other.description "Pilih opsi ini jika Anda mencurigai masalah dengan Adblock Plus sendiri daripada filter nya.">
+<!ENTITY typeSelector.other.description "Pilih opsi ini jika Anda mencurigai adanya permasalahan dengan
+ Adblock Plus itu sendiri, dan bukan berasal dari penyaringnya.">
 <!ENTITY issues.disabledgroups.enable.label "Aktifkan filter langganan / kelompok filter">
 <!ENTITY typeWarning.override.label "Saya mengerti dan ingin mengirim laporan">
 <!ENTITY issues.disabled.enable.label "Aktifkan Adblock Plus">
@@ -17,13 +18,15 @@
 <!ENTITY anonymous.label "&amp;Penyerahan anonim">
 <!ENTITY reloadButton.label "&amp;Muat ulang halaman">
 <!ENTITY recentReports.clear.label "&amp;Hapus semua laporan">
-<!ENTITY typeSelector.description "Jendela ini akan memandu Anda melalui langkah-langkah yang diperlukan untuk penyerahan laporan masalah ke Adblock plus. Pertama, silakan pilih jenis masalah yang Anda alami di halaman ini:">
+<!ENTITY typeSelector.description "Jendela ini akan memandu Anda melewati langkah-langkah yang diperlukan 
+ untuk mengirimkan laporan permasalahan Adblock Plus. Pertama, silakan pilih 
+ jenis permasalahan yang Anda alami di halaman ini:">
 <!ENTITY screenshot.remove.label "&amp;Hapus semua data sensitif">
 <!ENTITY issues.ownfilters.description "Beberapa dari filter yang diterapkan pada halaman ini ditetapkan oleh pengguna. Silahkan nonaktifkan filter yang mungkin menyebabkan masalah:">
 <!ENTITY update.inProgress.description "Adblock Plus perlu memperbaharui langganan filter Anda untuk memastikan bahwa masalah belum bisa diselesaikan. Harap tunggu...">
 <!ENTITY sendPage.retry.label "Kirim kembali">
 <!ENTITY data.label "Data laporan:">
-<!ENTITY recentReports.label "Anda baru saja mengirimkan laporan">
+<!ENTITY recentReports.label "Laporan Anda yang baru saja dikirim">
 <!ENTITY typeWarning.description "Anda menyatakan bahwa Anda ingin melaporkan masalah umum dengan Adblock Plus daripada masalah filter. Silahkan catat bahwa masalah seperti ini lebih baik dilaporkan pada [link]Forum Adblock Plus[/link]. Anda hanya perlu menggunakan pelaporan masalah untuk melengkapi diskusi yang ada, karena tidak ada seorangpun yang melihat laporan Anda kecuali Anda memberi mereka link untuk masalah tersebut. Link otomatis akan diberikan setelah mengirimkan laporan.">
 <!ENTITY issues.disabled.description "Adblock Plus dinonaktifkan, ini tidak akan memblokir apapun dalam keadaan ini.">
 <!ENTITY attachExtensions.label "Lampirkan daftar ekstensi aktif pada laporan jika konflik pengaya adalah penyebab dari masalah tersebut">
@@ -31,33 +34,36 @@
 <!ENTITY issues.disabledfilters.enable.label "Aktifkan filter">
 <!ENTITY issues.override.label "&amp;Konfigurasi benar, lanjutkan dengan laporkan">
 <!ENTITY issues.nosubscriptions.description "Anda tidak berlangganan satupun dari filter bawaan yang secara otomatis menghapus konten yang tidak diinginkan pada situs web.">
-<!ENTITY typeSelector.falsePositive.description "Pilih opsi ini jika halaman kurang memiliki konten penting, salah menampilkan atau tidak berfungsi dengan benar. Anda dapat menentukan apakah Adblock Plus adalah penyebab masalah dengan menonaktifkannya untuk sementara.">
-<!ENTITY typeSelector.other.label "Masalah lainnya">
+<!ENTITY typeSelector.falsePositive.description "Pilih opsi ini jika halaman tersebut telah kehilangan konten penting, ditampilkan dengan 
+  tidak tepat, atau tidak berfungsi sebagaimana mestinya. Anda dapat memastikan apakah 
+  Adblock Plus yang menyebabkan permasalahan tersebut dengan menonaktifkannya untuk sementara.">
+<!ENTITY typeSelector.other.label "Permasalahan &amp;lainnya">
 <!ENTITY emailComment.label "Kami menganjurkan Anda untuk memasukkan alamat email yang valid sehingga kami dapat menghubungi Anda jika terdapat pertanyaan tentang laporan Anda. Ini juga akan memungkinkan kami untuk mengetahui kontribusi Anda dan meninggikan prioritas.">
 <!ENTITY issues.whitelist.remove.label "Aktifkan kembali Adblock Plus pada halaman ini">
 <!ENTITY outdatedSubscriptions.description "Filter langganan ini belum diperbaharui setidaknya dua minggu. Silahkan perbaharui langganan ini sebelum mengirimkan laporan masalah yang mungkin sudah terselesaikan sebelumnya.">
-<!ENTITY dataCollector.description "Silahkan tunggu beberapa saat ketika Adblock Plus sedang mengumpulkan data yang dibutuhkan.">
+<!ENTITY dataCollector.description "Silakan tunggu beberapa saat selagi Adblock Plus mengumpulkan data yang diperlukan.">
 <!ENTITY sendButton.label "Kirim laporan">
 <!ENTITY comment.label "&amp;Komentar (pilihan):">
 <!ENTITY sendPage.errorMessage "Upaya mengirimkan laporan gagal dengan kode kesalahan &quot;?1?&quot;. Silahkan pastikan Anda terhubung ke Internet dan coba kembali. Jika masalah berlanjut, silahkan meminta bantuan pada [link]Forum Adblock Plus[/link].">
-<!ENTITY showRecentReports.label "Tampilkan laporan yang baru disampaikan">
+<!ENTITY showRecentReports.label "Tampilkan laporan yang baru dikirim">
 <!ENTITY commentPage.heading "Masukkan Komentar">
 <!ENTITY update.start.label "Mulai pembaharuan sekarang">
 <!ENTITY issues.disabledfilters.description "Filter ini dinonaktifkan, namun mungkin masih mempunyai efek pada halaman ini:">
 <!ENTITY screenshot.description "Halaman yang sama dapat terlihat berbeda untuk berbagai orang. Ini dapat membantu kami untuk memahami masalah jika Anda melampirkan sebuah screenshot pada laporan Anda. Anda dapat menghapus bagian yang mengandung informasi sensitif serta tandai daerah dimana masalah tersebut terjadi. Untuk melakukannya klik sesuai tombol dan pilih bagian dari gambar dengan mouse Anda.">
 <!ENTITY screenshot.attach.label "Lampirkan gambar halaman untuk melaporkan">
 <!ENTITY issues.whitelist.description "Adblock Plus sedang dinonaktifkan pada halaman yang Anda laporkan. Silahkan aktifkan dan muat ulang halaman sebelum mengirimkan laporan untuk membantu peyelidikan masalah ini.">
-<!ENTITY typeSelector.falseNegative.label "Adblock Plus tidak memblokir sebuah &amp;iklan">
-<!ENTITY typeSelector.heading "Pilih jenis masalah">
+<!ENTITY typeSelector.falseNegative.label "Adblock Plus tidak mencekal sebuah &amp;iklan">
+<!ENTITY typeSelector.heading "Pilih jenis permasalahan">
 <!ENTITY anonymity.warning "Kami tidak dapat menghubungi Anda kembali dan akan menurunkan prioritas laporan ini.">
-<!ENTITY wizard.title "Pelaporan">
+<!ENTITY wizard.title "Pelapor permasalahan">
 <!ENTITY issues.ownfilters.disable.label "Nonaktifkan filter">
 <!ENTITY commentPage.description "Kotak teks di bawah ini memungkinkan Anda untuk memasukkan komentar untuk membantu kami memahami masalah.
 Langkah ini adalah pilihan tetapi dianjurkan jika masalahnya tidak jelas.   Anda juga dapat memeriksa data laporan sebelum dikirim.">
 <!ENTITY comment.lengthWarning "Panjang komentar Anda melebihi 1000 karakter. Hanya 1000 karakter pertama yang akan dikirim.">
-<!ENTITY typeSelector.falseNegative.description "Pilih opsi ini jika iklan ditampilkan meskipun Adblock Plus telah diaktifkan.">
+<!ENTITY typeSelector.falseNegative.description "Pilih opsi ini jika suatu iklan tetap muncul meski Adblock Plus 
+ telah diaktifkan.">
 <!ENTITY sendPage.waitMessage "Silahkan tunggu sementara Adblock Plus mengirimkan laporan Anda.">
-<!ENTITY dataCollector.heading "Selamat datang di tempat pelaporan masalah">
+<!ENTITY dataCollector.heading "Selamat datang di pelapor permasalahan">
 <!ENTITY screenshot.heading "Lampirkan screenshot">
 <!ENTITY sendPage.heading "Kirim laporan">
 <!ENTITY issues.subscriptionCount.description "Tampaknya Anda berlangganan filter langganan terlalu banyak. Pengaturan ini tidak dianjurkan karena akan membuat masalah semakin tinggi. Kami juga tidak dapat menerima laporan masalah karena tidak jelas filter langganan mana yang pembuat butuhkan untuk menindak lanjuti. Silahkan hapus semua selain yang benar-benar dibutuhkan dan uji apakah masalah masih terjadi.">

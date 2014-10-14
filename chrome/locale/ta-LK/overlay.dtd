@@ -1,1 +1,31 @@
-<!ENTITY objecttab.tooltip "Adblock plus கொண்டு இந்த பொருளை தடை  செய்யவும்">
+<!ENTITY notification.button.yes "ஆம்">
+<!ENTITY notification.button.no "இல்லை">
+<!ENTITY sync.label "Sync &amp; Adblock plus விருப்பங்கள்">
+<!ENTITY whitelist.site.label "? 1? செயலிழக்க">
+<!ENTITY filters.label "வடிகட்டி விருப்பங்கள்">
+<!ENTITY disable.label "செயலிழக்க">
+<!ENTITY objecttab.title "தடு">
+<!ENTITY objecttab.tooltip "Adblock plus கொண்டு இதை தடுக்க இங்கே கிளிக் செய்யவும்">
+<!ENTITY menuitem.label "Ad&amp;block Plus விருப்பங்கள்">
+<!ENTITY objecttabs.label "ஃபிளாஷ் மற்றும் ஜாவா சிறு மடல் காண்பி">
+<!ENTITY sendReport.label "இந்தப் பக்கத்தில் இருக்கும் பிரச்சினைகளை தெரியப்படுத்த">
+<!ENTITY whitelist.page.label "இந்தப் பக்கத்தில் மட்டும் செயலிழக்க">
+<!ENTITY context.image.label "Adblock Plus: தடு புகைப்படம்">
+<!ENTITY counthits.label "எண்ணிக்கை வடிகட்டி &amp; ஹிட்ஸ்">
+<!ENTITY opensidebar.label "தடுக்கப்பட்டவைகளை திறக்க">
+<!ENTITY notification.button.close "மூடு">
+<!ENTITY contribute.label "Adblock Plusகு பங்களிக்க">
+<!ENTITY toolbarbutton.label "Adblock Plus">
+<!ENTITY context.frame.label "Adblock Plus: தடு frame">
+<!ENTITY blocked.tooltip "இந்தப் பக்கத்தில் தடுக்கப்பட்டவை:">
+<!ENTITY hideplaceholders.label "தடுக்கப்பட்டவைகளின் பெட்டிகளை மறை">
+<!ENTITY showinstatusbar.label "ஸ்டேடஸ் பாரில் காண்பி">
+<!ENTITY sidebar.title "நடப்பு பக்கத்தில் தடுக்ககூடியவை">
+<!ENTITY options.label "&amp; விருப்பங்கள்">
+<!ENTITY context.object.label "Adblock Plus: தடு பொருள்">
+<!ENTITY context.removeWhitelist.label "Adblock Plus:  இந்தப் பக்கத்தில் மீண்டும் செயல்படுத்த">
+<!ENTITY filters.tooltip "மிகவும் நடப்பு வடிகட்டிகள்:">
+<!ENTITY closesidebar.label "தடுக்கப்பட்டவைகளை மூட">
+<!ENTITY showintoolbar.label "டூல் பாரில் காண்பி">
+<!ENTITY status.tooltip "நிலைமை:">
+<!ENTITY context.media.label "Adblock Plus: தடு ஆடியோ/வீடியோ">

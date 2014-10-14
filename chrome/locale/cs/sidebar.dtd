@@ -18,7 +18,7 @@
 <!ENTITY context.block.label "Blokovat tento objekt">
 <!ENTITY context.enablefilter.label "Opět povolit filtr ?1?">
 <!ENTITY detach.label "Oddělit">
-<!ENTITY whitelisted.label "Adresa je na bílé listině">
+<!ENTITY whitelisted.label "je na bílé listině">
 <!ENTITY context.disablefilteronsite.label "Zakázat tento filtr na ?1?">
 <!ENTITY detached.title "Adblock Plus: Blokovatelné prvky (odděleno)">
 <!ENTITY docDomain.firstParty "(vlastní)">

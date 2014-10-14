@@ -6,7 +6,7 @@
 <!ENTITY pattern.label "إبحث عن نموذج">
 <!ENTITY thirdParty.label "أطراف أ&amp;خرى فقط">
 <!ENTITY filter.label "&amp;فلتر جديد :">
-<!ENTITY collapse.label "طوي المحجوب: (&amp;س)">
+<!ENTITY collapse.label "طوي المحجوب:">
 <!ENTITY match.warning "النموذج الذي أدخلته لم يعد موافقا للعنوان الذي يجب أن يحجب أو يسمح به ولن يأثر فيه">
 <!ENTITY anchor.start.label "في ب&amp;داية العنوان">
 <!ENTITY matchCase.label "م&amp;طابقة الحالة">

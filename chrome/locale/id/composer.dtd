@@ -1,19 +1,19 @@
 <!ENTITY anchor.end.label "&amp;pada akhir dari alamat">
 <!ENTITY domainRestriction.label "Membatasi pada &amp; domain:">
-<!ENTITY collapse.default.no.label "Gunakan default (tidak)">
-<!ENTITY firstParty.label "&amp;Hanya untuk pihak pertama">
+<!ENTITY collapse.default.no.label "Gunakan aturan baku (tidak)">
+<!ENTITY firstParty.label "Hanya pihak &amp;pertama">
 <!ENTITY preferences.label "&amp;Tampilkan filter yang ada...">
 <!ENTITY pattern.label "Mencari pola">
 <!ENTITY thirdParty.label "Hanya pihak ke&amp;tiga">
-<!ENTITY filter.label "Tambahkan &amp;filter:">
-<!ENTITY collapse.label "&amp;tutup yang diblokir:">
+<!ENTITY filter.label "&amp;Penyaring baru:">
+<!ENTITY collapse.label "&amp;Ciutkan yang dicekal:">
 <!ENTITY match.warning "Pola yang Anda masukkan tidak lagi cocok dengan masuk daftar alamat yang akan diblokir/daftar putih dan tidak akan berpengaruh sama sekali.">
 <!ENTITY anchor.start.label "&amp;pada awal alamat">
-<!ENTITY matchCase.label "&amp;Sama persis">
+<!ENTITY matchCase.label "&amp;Cocokkan kapitalisasi">
 <!ENTITY custom.pattern.label "&amp;Kustom:">
-<!ENTITY unselectAllTypes.label "Tidak memilih apapun">
+<!ENTITY unselectAllTypes.label "Jangan pilih apapun">
 <!ENTITY type.whitelist.label "Aturan p&amp;engabaian">
-<!ENTITY regexp.warning "Pola yang Anda masukkan akan dianggap sebagai regular expression yang tidak akan efisien untuk dapat diproses oleh Adblock Plus dan mungkin akan memperlambat pengalaman browsing Anda. Jika Anda tidak berniat untuk menggunakan regular expression, tambahkan tanda bintang (*) diakhir pola.">
+<!ENTITY regexp.warning "Pola yang Anda masukkan akan dianggap sebagai suatu regular expression yang tidak dapat diproses secara efisien oleh Adblock Plus dan mungkin akan memperlambat peramban Anda. Jika Anda tidak berniat untuk menggunakan regular expression, tambahkan tanda bintang (*) di akhir pola.">
 <!ENTITY dialog.title "Tambah aturan filter Adblock Plus">
 <!ENTITY basic.label "Tampilan dasar">
 <!ENTITY type.filter.label "&amp;Filter yang diblokir">
@@ -21,13 +21,13 @@
 <!ENTITY shortpattern.warning "Pola yang Anda masukkan terlalu pendek untuk dapat disempurnakan dan mungkin memperlambat pengalaman berselancar Anda. Anda disarankan untuk memilih lagi karakter yang lebih panjang untuk saringan ini untuk memungkinkan Adblock Plus mengolah saringan agar lebih efisien.">
 <!ENTITY collapse.yes.label "Ya">
 <!ENTITY anchors.label "Hanya menerima pola:">
-<!ENTITY collapse.default.yes.label "Gunakan default (Ya)">
-<!ENTITY domainRestriction.help "Gunakan pilihan ini untuk menentukan satu atau lebih domain yang dipisahkan oleh sebuah garis bar(|). Filter hanya akan diterapkan pada domain yang dipilih. Sebuah tilde (~) sebelum nama domain menunjukkan bahwa filter tidak akan diterapkan pada domain tersebut.">
+<!ENTITY collapse.default.yes.label "Gunakan aturan baku (ya)">
+<!ENTITY domainRestriction.help "Gunakan opsi ini untuk menentukan satu atau lebih domain yang dipisahkan oleh sebuah garis batang (|). Penyaring hanya akan diterapkan pada domain yang dipilih. Sebuah tanda tilda (~) sebelum nama domain menunjukkan bahwa penyaring tidak akan diterapkan pada domain tersebut.">
 <!ENTITY accept.label "Tambahkan filter">
 <!ENTITY options.label "Pilihan">
 <!ENTITY disabled.warning "Adblock Plus sedang dimatikan. Anda masih dapat menambahkan filter tetapi mereka tidak akan diterapkan kecuali Anda [link] mengaktifkan Adblock Plus [/link].">
 <!ENTITY anchor.start.flexible.label "&amp;pada awal nama domain">
 <!ENTITY collapse.no.label "Tidak">
-<!ENTITY selectAllTypes.label "Pilih Semua">
+<!ENTITY selectAllTypes.label "Pilih semua">
 <!ENTITY advanced.label "Tampilan lanjutan">
 <!ENTITY pattern.explanation "Pola dapat menjadi bagian dari alamat; tanda bintang (*) bertindak sebagai wildcard. Filter hanya akan diterapkan ke alamat yang cocok dengan pola yang diberikan.">

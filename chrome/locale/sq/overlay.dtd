@@ -1,14 +1,31 @@
+<!ENTITY notification.button.yes "&amp;po">
+<!ENTITY notification.button.no "&amp;Jo">
+<!ENTITY sync.label "Sync Adblock Plus settings">
+<!ENTITY whitelist.site.label "Çaktivizo në ?1?">
+<!ENTITY filters.label "&amp;filtër preferencat">
+<!ENTITY disable.label "Caktivizo Kudo">
+<!ENTITY objecttab.title "Blloko">
+<!ENTITY objecttab.tooltip "Kliko ketu per te bllokuar kete objekt me Adblock Plus">
+<!ENTITY menuitem.label "Parapëlqimet e Ad&amp;block Plus">
+<!ENTITY objecttabs.label "Trego &amp;butonin ne Flash dhe Java">
+<!ENTITY sendReport.label "&amp;Raporti çështje në këtë faqe">
+<!ENTITY whitelist.page.label "Çaktivizo vetëm në këtë faqe">
+<!ENTITY context.image.label "Adblock Plus: Figurat e bllokuara">
+<!ENTITY counthits.label "Llogarit filtrat&amp;hits">
 <!ENTITY opensidebar.label "Hap elementet &amp;bllokuese">
+<!ENTITY notification.button.close "&amp;Mbyll">
+<!ENTITY contribute.label "Kontribut te Adblock Plus">
+<!ENTITY toolbarbutton.label "Adblock Plus">
+<!ENTITY context.frame.label "Adblock Plus: Pjesët e bllokuara">
+<!ENTITY blocked.tooltip "Jane bllokuar te dhena ne kete faqe:">
+<!ENTITY hideplaceholders.label "Fshi p&amp;laceholders te elementeve te bllokuar">
+<!ENTITY showinstatusbar.label "&amp;Trego ne status bar">
+<!ENTITY sidebar.title "Artikuj Blockable në faqen aktuale">
 <!ENTITY options.label "Mundësitë (&amp;O)">
 <!ENTITY context.object.label "Adblock Plus: Objektet e bllokuara">
 <!ENTITY context.removeWhitelist.label "Adblock Plus: Rilejo në këtë faqe">
-<!ENTITY context.frame.label "Adblock Plus: Pjesët e bllokuara">
 <!ENTITY filters.tooltip "Filtruesit më aktivë:">
-<!ENTITY menuitem.label "Parapëlqimet e Ad&amp;block Plus">
 <!ENTITY closesidebar.label "M&amp;byll elementet bllokuese">
-<!ENTITY whitelist.page.label "Çaktivizo vetëm në këtë faqe">
-<!ENTITY whitelist.site.label "Çaktivizo në ?1?">
-<!ENTITY toolbarbutton.label "Adblock Plus">
-<!ENTITY context.image.label "Adblock Plus: Figurat e bllokuara">
+<!ENTITY showintoolbar.label "Trego ne tool&amp;bar">
 <!ENTITY status.tooltip "Gjendja:">
-<!ENTITY objecttab.title "Blloko">
+<!ENTITY context.media.label "Adblock Plus:Blloko audi/video">

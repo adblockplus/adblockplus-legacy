@@ -13,11 +13,17 @@
 <!ENTITY issues.disabledgroups.enable.label "Aktivizo abonim filtri/grup filtrash">
 <!ENTITY typeWarning.override.label "Une kuptoj dhe de&amp;shiroj te dergoj raportin gjithsesi">
 <!ENTITY issues.disabled.enable.label "Aktivizo Adblock Plus">
+<!ENTITY update.fixed.description "Të rejat me abonimet tuaja filtër gjasa zgjidhur çështjen që ju
+raportonin. Ju lutemi të rifreskoni faqen dhe rigjykuar, goditi Raporto përsëri nëse
+Problemi mbetet.">
+<!ENTITY anonymous.label "&amp; Publikime anonime">
 <!ENTITY reloadButton.label "&amp;Ringarko faqen">
 <!ENTITY recentReports.clear.label "Hiq gjithe &amp;raportimet">
 <!ENTITY typeSelector.description "Kjo dritare do ju udhezoje neper gjithe hapat e nevojshem per dergimin e raportit te problemeve me Adblock Plus. Si fillim, ju lutem zgjidhni tipin e problemit qe ju vereni me kete faqe:">
 <!ENTITY screenshot.remove.label "Hiqni te dhenat pe&amp;rsonale">
 <!ENTITY issues.ownfilters.description "Disa nga filtrat e aplikuar ne kete faqe jane te percaktuar nga perdoruesi. Ju lutem bllokoni filtrat te cilet mund te kene shkaktuar kete problem:">
+<!ENTITY update.inProgress.description "Adblock Plus do qe te rinovoj abonimet tuaja filtër për të siguruar që
+Çështja nuk është zgjidhur tashmë. Ju lutem prisni ...">
 <!ENTITY sendPage.retry.label "Dergo perseri">
 <!ENTITY data.label "&amp;Permbajtja e raportit:">
 <!ENTITY recentReports.label "Raportimet tuaja me te fundit">
@@ -28,9 +34,14 @@
 <!ENTITY issues.disabledfilters.enable.label "Aktivizo filtrin">
 <!ENTITY issues.override.label "Konfigurimi eshte i sakte, vazhdoni me raportimin (&amp;c)">
 <!ENTITY issues.nosubscriptions.description "Duket sikur ju nuk keni asnje abonim ne filtrat e gatshem te cilet heqin automatikisht permbajtjen e padeshiruar nga faqet web.">
-<!ENTITY typeSelector.other.label "Problem &amp;tjeter">
-<!ENTITY issues.whitelist.remove.label "Ri-aktivizo Adblock Plus ne kete faqe">
 <!ENTITY typeSelector.falsePositive.description "Zgjidhni kete mundesi nese faqes i mungon permbajtja e rendesishme, shfaqet gabim ose nuk funksionon ne rregull. Ju mund te percaktoni nese problemi eshte Adblock Plus duke e fikur ate perkohesisht.">
+<!ENTITY typeSelector.other.label "Problem &amp;tjeter">
+<!ENTITY emailComment.label "Ne ju inkurajojmë që të vendosni një adresë te vlefshme email në mënyrë që ne mund të lidhen me ju nëse ka pyetje
+në lidhje me raportin tuaj. Ai gjithashtu do të na lejojë për të njohur kontributet tuaja dhe për të përcaktuar përparësitë e tyre më të larta.">
+<!ENTITY issues.whitelist.remove.label "Ri-aktivizo Adblock Plus ne kete faqe">
+<!ENTITY outdatedSubscriptions.description "Adresat e mëposhtme filtër nuk janë përditësuar për të paktën dy
+javë. Ju lutemi të rinovuar këto abonimet para dorëzimit të raportit,
+Çështja mund të zgjidhet tashmë.">
 <!ENTITY dataCollector.description "Ju lutem prisni disa momente deri sa Adblock Plus te mbledhe te gjitha te dhenat e nevojshme.">
 <!ENTITY sendButton.label "Dergo raporti&amp;n">
 <!ENTITY comment.label "Koment (fakultative): (&amp;C)">
@@ -44,6 +55,7 @@
 <!ENTITY issues.whitelist.description "Adblock Plus eshte aktualisht jo-aktiv ne faqen ne te cilen ju po raportoni. Ju lutem ri-aktivizojeni ate dhe ringarkoni faqen perpara se te dergoni raportin i cili do te ndihmoje ne hetimin e metejshem te ketij problemi.">
 <!ENTITY typeSelector.falseNegative.label "Adblock Plus nuk po bllokon nje reklame (&amp;v)">
 <!ENTITY typeSelector.heading "Lloji i problemit">
+<!ENTITY anonymity.warning "Ne nuk do të jetë në gjendje për të ardhur tek ju dhe do të ngjarë prioritet raporti më i ulët.">
 <!ENTITY wizard.title "Raportuesi i problemeve">
 <!ENTITY issues.ownfilters.disable.label "Blloko filtrin">
 <!ENTITY commentPage.description "Fusha e meposhtme ju lejon qe te jepni nje koment qe te na ndihmoje ne ta kuptojme me mire problemin. Ky hap eshte fakultativ por i rekomanduar nese problemi nuk eshte lehtesisht i dallueshem. Ju mund te rishikoni gjithashtu te dhenat e raportimit perpara se te dergohet.">

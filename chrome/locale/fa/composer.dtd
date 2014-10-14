@@ -2,7 +2,7 @@
 <!ENTITY domainRestriction.label "مح&amp;دود به دامنه :">
 <!ENTITY collapse.default.no.label "استفاده پیشفرض (خیر)">
 <!ENTITY firstParty.label "فقط او&amp;لین عضو">
-<!ENTITY preferences.label "نمایش پالایه های موجود...">
+<!ENTITY preferences.label "نمای&amp;ش پالایه های موجود...">
 <!ENTITY pattern.label "جستجو برای الگوی">
 <!ENTITY thirdParty.label "فقط سو&amp;مین عضو">
 <!ENTITY filter.label "پالایه جدید:">

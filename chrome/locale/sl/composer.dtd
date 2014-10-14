@@ -11,7 +11,7 @@
 <!ENTITY anchor.start.label "na &amp;začetku naslova">
 <!ENTITY matchCase.label "Razlikuj velike/male &amp;črke">
 <!ENTITY custom.pattern.label "Po &amp;meri:">
-<!ENTITY unselectAllTypes.label "Nič ne izberi">
+<!ENTITY unselectAllTypes.label "Ne izberi ničesar">
 <!ENTITY type.whitelist.label "Pravi&amp;lo izjem">
 <!ENTITY regexp.warning "Vneseni vzorec bo obravnavan kot regularni izraz. Številni regularni izrazi lahko upočasnijo vaše brskanje. Če ne nameravate uporabljati regularnih izrazov, dodajte simbol * na konec vzorca.">
 <!ENTITY dialog.title "Dodaj pravilo filtra Adblock Plus">
@@ -30,4 +30,4 @@
 <!ENTITY collapse.no.label "Ne">
 <!ENTITY selectAllTypes.label "Izberi vse">
 <!ENTITY advanced.label "Napredni pogled">
-<!ENTITY pattern.explanation "Vzorec je lahko kateri koli del naslova, simbol * velja kot poljuben znak. Filter bo le za naslove, ki ustrezajo vzorcu.">
+<!ENTITY pattern.explanation "Vzorec je lahko kateri koli del naslova; simbol * velja kot poljuben znak. Filter bo veljal le za naslove, ki ustrezajo vzorcu.">
